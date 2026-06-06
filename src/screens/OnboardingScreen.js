@@ -1,409 +1,431 @@
- import React, { useState, useRef } from 'react';
+// screens/OnboardingScreen.js — AiLernova 4-step onboarding
+import React, { useState, useRef } from 'react';
 import {
   View,
   Text,
-  StyleSheet,
   TouchableOpacity,
   ScrollView,
+  StyleSheet,
   Animated,
   Dimensions,
   SafeAreaView,
+  StatusBar,
 } from 'react-native';
+import COLORS from '../constants/colors';
+import { FONTS } from '../constants/fonts';
+import { STEPS } from '../constants/onboarding';
 
-const { width } = Dimensions.get('window');
-
-// ─── Data ────────────────────────────────────────────────────────────────────
-
-const SUBJECTS = [
-  {
-    id: 'math',
-    label: 'Mathematics',
-    icon: '🔢',
-    color: '#FFF3CD',
-    border: '#FFC107',
-    text: '#7A5800',
-  },
-  {
-    id: 'science',
-    label: 'Science',
-    icon: '🔬',
-    color: '#D4EDDA',
-    border: '#28A745',
-    text: '#155724',
-  },
-];
-
-const MATH_TOPICS = [
-  { id: 'algebra', label: 'Algebra', icon: '➗' },
-  { id: 'geometry', label: 'Geometry', icon: '📐' },
-  { id: 'arithmetic', label: 'Arithmetic', icon: '🔢' },
-  { id: 'fractions', label: 'Fractions', icon: '½' },
-  { id: 'statistics', label: 'Statistics', icon: '📊' },
-  { id: 'trigonometry', label: 'Trigonometry', icon: '📏' },
-];
-
-const SCIENCE_TOPICS = [
-  { id: 'physics', label: 'Physics', icon: '⚡' },
-  { id: 'chemistry', label: 'Chemistry', icon: '🧪' },
-  { id: 'biology', label: 'Biology', icon: '🧬' },
-  { id: 'earth', label: 'Earth Science', icon: '🌍' },
-  { id: 'space', label: 'Space & Astronomy', icon: '🚀' },
-  { id: 'environment', label: 'Environment', icon: '🌿' },
-];
-
-const MOODS = [
-  { id: 'excited', label: 'Excited', face: '😄' },
-  { id: 'okay', label: 'Okay', face: '😐' },
-  { id: 'bored', label: 'Bored', face: '😴' },
-  { id: 'stressed', label: 'Stressed', face: '😟' },
-  { id: 'curious', label: 'Curious', face: '🤩' },
-  { id: 'confused', label: 'Confused', face: '😕' },
-];
-
-const GOALS = [
-  { id: 'grades', label: 'Improve my grades', icon: '🏆' },
-  { id: 'learn', label: 'Learn something new', icon: '🧠' },
-  { id: 'exam', label: 'Prepare for exams', icon: '📝' },
-  { id: 'daily', label: 'Practice daily', icon: '🎯' },
-  { id: 'ahead', label: 'Get ahead of class', icon: '🚀' },
-];
-
-// ─── Step Config ─────────────────────────────────────────────────────────────
-
-const STEPS = [
-  { key: 'subject',    bubbleText: 'Which subject do you want to focus on?' },
-  { key: 'topic',      bubbleText: 'Great! Which areas do you want to improve?' },
-  { key: 'mood',       bubbleText: 'How do you feel about studying right now?' },
-  { key: 'goal',       bubbleText: "What's your main learning goal?" },
-];
-
-// ─── SubjectCard ─────────────────────────────────────────────────────────────
-
-const SubjectCard = ({ item, selected, onPress }) => {
-  const scale = useRef(new Animated.Value(1)).current;
-
-  const handlePress = () => {
-    Animated.sequence([
-      Animated.timing(scale, { toValue: 0.95, duration: 80, useNativeDriver: true }),
-      Animated.timing(scale, { toValue: 1,    duration: 100, useNativeDriver: true }),
-    ]).start();
-    onPress(item.id);
-  };
-
+const { width: SCREEN_WIDTH } = Dimensions.get('window');// ─── Nova Mascot + Speech Bubble ─────────────────────────────────────────────
+function NovaBubble({ text }) {
+  const parts = (text || '').split('Nova'); // ← fix 1: guard against undefined
   return (
-    <TouchableOpacity activeOpacity={0.85} onPress={handlePress}>
-      <Animated.View
-        style={[
-          styles.subjectCard,
-          { backgroundColor: selected ? item.color : '#fff', borderColor: selected ? item.border : '#E8E8E8' },
-          { transform: [{ scale }] },
-        ]}
-      >
-        <Text style={styles.subjectIcon}>{item.icon}</Text>
-        <Text style={[styles.subjectLabel, { color: selected ? item.text : '#333' }]}>
-          {item.label}
+    <View style={styles.mascotRow}>
+      <View style={styles.mascot}>
+        <Text style={styles.mascotEmoji}>🤖</Text>
+      </View>
+      <View style={styles.bubble}>
+        <Text style={styles.bubbleText}>
+          {parts.map((part, i) => (
+            <React.Fragment key={i}>
+              {part}
+              {i < parts.length - 1 && (
+                <Text style={styles.bubbleAccent}>Nova</Text>
+              )}
+            </React.Fragment>
+          ))}
         </Text>
-      </Animated.View>
+      </View>
+    </View>
+  );
+}
+
+// ─── Chip (pill) option ───────────────────────────────────────────────────────
+function Chip({ label, icon, selected, onPress }) {
+  return (
+    <TouchableOpacity
+      style={[styles.chip, selected && styles.chipSelected]}
+      onPress={onPress}
+      activeOpacity={0.75}
+    >
+      <Text style={styles.chipIcon}>{icon}</Text>
+      <Text style={[styles.chipLabel, selected && styles.chipLabelSelected]}>
+        {label}
+      </Text>
     </TouchableOpacity>
   );
-};
+}
 
-// ─── TopicChip ────────────────────────────────────────────────────────────────
+// ─── Card (2-col grid) option ─────────────────────────────────────────────────
+function SCard({ label, icon, selected, onPress }) {
+  return (
+    <TouchableOpacity
+      style={[styles.scard, selected && styles.scardSelected]}
+      onPress={onPress}
+      activeOpacity={0.75}
+    >
+      <Text style={styles.scardIcon}>{icon}</Text>
+      <Text style={[styles.scardLabel, selected && styles.scardLabelSelected]}>
+        {label}
+      </Text>
+    </TouchableOpacity>
+  );
+}
 
-const TopicChip = ({ item, selected, onPress }) => (
-  <TouchableOpacity
-    activeOpacity={0.8}
-    onPress={() => onPress(item.id)}
-    style={[styles.topicChip, selected && styles.topicChipSelected]}
-  >
-    <Text style={styles.topicChipIcon}>{item.icon}</Text>
-    <Text style={[styles.topicChipLabel, selected && styles.topicChipLabelSelected]}>
-      {item.label}
-    </Text>
-  </TouchableOpacity>
-);
-
-// ─── MoodCard ────────────────────────────────────────────────────────────────
-
-const MoodCard = ({ item, selected, onPress }) => (
-  <TouchableOpacity
-    activeOpacity={0.8}
-    onPress={() => onPress(item.id)}
-    style={[styles.moodCard, selected && styles.moodCardSelected]}
-  >
-    <Text style={styles.moodFace}>{item.face}</Text>
-    <Text style={[styles.moodLabel, selected && styles.moodLabelSelected]}>{item.label}</Text>
-  </TouchableOpacity>
-);
-
-// ─── GoalItem ────────────────────────────────────────────────────────────────
-
-const GoalItem = ({ item, selected, onPress }) => (
-  <TouchableOpacity
-    activeOpacity={0.8}
-    onPress={() => onPress(item.id)}
-    style={[styles.goalItem, selected && styles.goalItemSelected]}
-  >
-    <Text style={styles.goalIcon}>{item.icon}</Text>
-    <Text style={[styles.goalLabel, selected && styles.goalLabelSelected]}>{item.label}</Text>
-    {selected && <Text style={styles.goalCheck}>✓</Text>}
-  </TouchableOpacity>
-);
-
-// ─── Main Screen ─────────────────────────────────────────────────────────────
-
+// ─── Main Screen ──────────────────────────────────────────────────────────────
 export default function OnboardingScreen({ navigation }) {
-  const [step, setStep]             = useState(0);
-  const [subject, setSubject]       = useState(null);
-  const [topics, setTopics]         = useState([]);
-  const [mood, setMood]             = useState(null);
-  const [goal, setGoal]             = useState(null);
-  const [done, setDone]             = useState(false);
+  const [current, setCurrent] = useState(0);
+  const [selections, setSelections] = useState(
+    STEPS.map(() => ({}))
+  );
 
-  const fadeAnim  = useRef(new Animated.Value(1)).current;
-  const slideAnim = useRef(new Animated.Value(0)).current;
+  const progressAnim = useRef(new Animated.Value(0)).current;
 
-  const topicList = subject === 'math' ? MATH_TOPICS : SCIENCE_TOPICS;
-  const progress  = ((step + 1) / STEPS.length) * 100;
+  const step = STEPS[current];
+  if (!step) return null; // ← add this line here
 
-  // ── Validate current step ──
-  const canProceed = () => {
-    if (step === 0) return !!subject;
-    if (step === 1) return topics.length > 0;
-    if (step === 2) return !!mood;
-    if (step === 3) return !!goal;
-    return false;
-  };
+  const isLast = current === STEPS.length - 1;
+  const hasSelection = Object.keys(selections[current]).length > 0;
+  const progressPct = ((current + 1) / STEPS.length) * 100;
 
-  // ── Animated transition ──
-  const transition = (callback) => {
-    Animated.parallel([
-      Animated.timing(fadeAnim,  { toValue: 0, duration: 180, useNativeDriver: true }),
-      Animated.timing(slideAnim, { toValue: -30, duration: 180, useNativeDriver: true }),
-    ]).start(() => {
-      callback();
-      slideAnim.setValue(30);
-      Animated.parallel([
-        Animated.timing(fadeAnim,  { toValue: 1, duration: 220, useNativeDriver: true }),
-        Animated.timing(slideAnim, { toValue: 0, duration: 220, useNativeDriver: true }),
-      ]).start();
+  // Animate progress bar whenever step changes
+  React.useEffect(() => {
+    Animated.timing(progressAnim, {
+      toValue: progressPct,
+      duration: 400,
+      useNativeDriver: false,
+    }).start();
+  }, [current]);
+
+  function toggle(label) {
+    setSelections(prev => {
+      const updated = [...prev];
+      const cur = { ...updated[current] };
+      if (cur[label]) {
+        delete cur[label];
+      } else {
+        if (!step.multi) {
+          // single-select: clear others
+          updated[current] = { [label]: true };
+          return updated;
+        }
+        cur[label] = true;
+      }
+      updated[current] = cur;
+      return updated;
     });
-  };
-
-  const goNext = () => {
-    if (!canProceed()) return;
-    if (step < STEPS.length - 1) {
-      transition(() => setStep(s => s + 1));
-    } else {
-      setDone(true);
-    }
-  };
-
-  const goBack = () => {
-    if (step > 0) transition(() => setStep(s => s - 1));
-  };
-
-  const toggleTopic = (id) => {
-    setTopics(prev =>
-      prev.includes(id) ? prev.filter(t => t !== id) : [...prev, id]
-    );
-  };
-
-  // ── Done screen ──
-  if (done) {
-    return (
-      <SafeAreaView style={styles.container}>
-        <View style={styles.doneScreen}>
-          <Text style={styles.doneEmoji}>🎉</Text>
-          <Text style={styles.doneTitle}>You're all set!</Text>
-          <Text style={styles.doneSub}>
-            We've built a personalized learning plan for{' '}
-            <Text style={{ fontWeight: '700', color: '#FFC107' }}>
-              {subject === 'math' ? 'Mathematics' : 'Science'}
-            </Text>
-            {'\n'}focused on{' '}
-            {topics.map(t => topicList.find(x => x.id === t)?.label).join(', ')}.
-          </Text>
-          <TouchableOpacity
-            style={styles.startBtn}
-            onPress={() => navigation.replace('Auth')}
-          >
-            <Text style={styles.startBtnText}>Start Learning 🚀</Text>
-          </TouchableOpacity>
-        </View>
-      </SafeAreaView>
-    );
   }
 
+  function goNext() {
+    if (!isLast) {
+      setCurrent(c => c + 1);
+    } else {
+      // Build the profile object and navigate
+      const profile = {
+        grade:    Object.keys(selections[0])[0] || '',
+        subjects: Object.keys(selections[1]),
+        styles:   Object.keys(selections[2]),
+        goal:     Object.keys(selections[3])[0] || '',
+      };
+      // Replace with your navigation target:
+      navigation.replace('Main', { profile });
+    }
+  }
+
+  function goBack() {
+    if (current > 0) setCurrent(c => c - 1);
+  }
+
+  const progressWidth = progressAnim.interpolate({
+    inputRange: [0, 100],
+    outputRange: ['0%', '100%'],
+  });
+
   return (
-    <SafeAreaView style={styles.container}>
-      {/* Progress bar */}
-      <View style={styles.progressBar}>
-        <Animated.View style={[styles.progressFill, { width: `${progress}%` }]} />
+    <SafeAreaView style={styles.safe}>
+      <StatusBar barStyle="light-content" backgroundColor={COLORS.darkNavy} />
+
+      {/* ── Progress bar ── */}
+      <View style={styles.progressTrack}>
+        <Animated.View style={[styles.progressFill, { width: progressWidth }]} />
       </View>
 
-      <ScrollView contentContainerStyle={styles.scroll} showsVerticalScrollIndicator={false}>
-        {/* Bot bubble */}
-        <View style={styles.botRow}>
-          <View style={styles.avatar}>
-            <Text style={styles.avatarText}>🌸</Text>
-          </View>
-          <View style={styles.bubble}>
-            <Text style={styles.bubbleText}>{STEPS[step].bubbleText}</Text>
-          </View>
-        </View>
+      {/* ── Hero / Nova section ── */}
+      <View style={styles.hero}>
+        {/* decorative dots */}
+        <View style={[styles.dot, { width: 70, height: 70, top: -20, right: 30 }]} />
+        <View style={[styles.dot, { width: 40, height: 40, bottom: 10, left: 15 }]} />
 
-        {/* Step content */}
-        <Animated.View style={{ opacity: fadeAnim, transform: [{ translateY: slideAnim }] }}>
+        <Text style={styles.stepLabel}>
+          Step {current + 1} of {STEPS.length}
+        </Text>
+        <NovaBubble text={step.bubble} />
+      </View>
 
-          {/* Step 0 — Subject */}
-          {step === 0 && (
-            <View style={styles.stepContent}>
-              {SUBJECTS.map(item => (
-                <SubjectCard
-                  key={item.id}
-                  item={item}
-                  selected={subject === item.id}
-                  onPress={(id) => { setSubject(id); setTopics([]); }}
-                />
-              ))}
-            </View>
-          )}
+      {/* ── Body ── */}
+      <View style={styles.body}>
+        <Text style={styles.qTitle}>{step.question}</Text>
 
-          {/* Step 1 — Topics */}
-          {step === 1 && (
-            <View style={styles.stepContent}>
-              <Text style={styles.sectionHint}>Select all that apply</Text>
-              <View style={styles.topicsGrid}>
-                {topicList.map(item => (
-                  <TopicChip
-                    key={item.id}
-                    item={item}
-                    selected={topics.includes(item.id)}
-                    onPress={toggleTopic}
-                  />
-                ))}
-              </View>
-            </View>
-          )}
-
-          {/* Step 2 — Mood */}
-          {step === 2 && (
-            <View style={styles.stepContent}>
-              <View style={styles.moodGrid}>
-                {MOODS.map(item => (
-                  <MoodCard
-                    key={item.id}
-                    item={item}
-                    selected={mood === item.id}
-                    onPress={setMood}
-                  />
-                ))}
-              </View>
-            </View>
-          )}
-
-          {/* Step 3 — Goal */}
-          {step === 3 && (
-            <View style={styles.stepContent}>
-              {GOALS.map(item => (
-                <GoalItem
-                  key={item.id}
-                  item={item}
-                  selected={goal === item.id}
-                  onPress={setGoal}
-                />
-              ))}
-            </View>
-          )}
-
-        </Animated.View>
-      </ScrollView>
-
-      {/* Bottom bar */}
-      <View style={styles.bottomBar}>
-        <TouchableOpacity style={styles.backBtn} onPress={goBack}>
-          <Text style={styles.backBtnText}>←</Text>
-        </TouchableOpacity>
-        <TouchableOpacity
-          style={[styles.nextBtn, !canProceed() && styles.nextBtnDisabled]}
-          onPress={goNext}
-          disabled={!canProceed()}
+        <ScrollView
+          contentContainerStyle={
+            step.type === 'cards' ? styles.cardGrid : styles.chipGrid
+          }
+          showsVerticalScrollIndicator={false}
+          style={styles.optionsScroll}
         >
-          <Text style={[styles.nextBtnText, !canProceed() && styles.nextBtnTextDisabled]}>
-            {step === STEPS.length - 1 ? 'Finish' : 'Next'}
-          </Text>
-        </TouchableOpacity>
+          {step.options.map((label, i) =>
+            step.type === 'cards' ? (
+              <SCard
+                key={label}
+                label={label}
+                icon={step.icons[i]}
+                selected={!!selections[current][label]}
+                onPress={() => toggle(label)}
+              />
+            ) : (
+              <Chip
+                key={label}
+                label={label}
+                icon={step.icons[i]}
+                selected={!!selections[current][label]}
+                onPress={() => toggle(label)}
+              />
+            )
+          )}
+        </ScrollView>
+
+        {/* ── Footer ── */}
+        <View style={styles.footer}>
+          <TouchableOpacity
+            style={[styles.btnBack, current === 0 && { opacity: 0.3 }]}
+            onPress={goBack}
+            disabled={current === 0}
+            activeOpacity={0.7}
+          >
+            <Text style={styles.btnBackText}>←</Text>
+          </TouchableOpacity>
+
+          <TouchableOpacity
+            style={[styles.btnNext, !hasSelection && styles.btnNextDisabled]}
+            onPress={goNext}
+            disabled={!hasSelection}
+            activeOpacity={0.8}
+          >
+            <Text style={styles.btnNextText}>
+              {isLast ? 'Finish 🚀' : 'Next →'}
+            </Text>
+          </TouchableOpacity>
+        </View>
       </View>
     </SafeAreaView>
   );
 }
 
 // ─── Styles ───────────────────────────────────────────────────────────────────
-
 const styles = StyleSheet.create({
-  container:   { flex: 1, backgroundColor: '#F8F8F8' },
-  scroll:      { paddingBottom: 20 },
-
-  progressBar: { height: 5, backgroundColor: '#EEE' },
-  progressFill:{ height: '100%', backgroundColor: '#FFC107' },
-
-  botRow:  { flexDirection: 'row', alignItems: 'flex-start', padding: 20, paddingBottom: 8, gap: 10 },
-  avatar:  { width: 44, height: 44, borderRadius: 22, backgroundColor: '#F48FB1', alignItems: 'center', justifyContent: 'center' },
-  avatarText: { fontSize: 22 },
-  bubble:  { backgroundColor: '#FFF', borderRadius: 16, borderTopLeftRadius: 4, padding: 12, maxWidth: width - 100, borderWidth: 0.5, borderColor: '#E0E0E0' },
-  bubbleText: { fontSize: 14, color: '#222', lineHeight: 21 },
-
-  stepContent: { paddingHorizontal: 16, paddingTop: 8 },
-  sectionHint: { fontSize: 12, color: '#888', marginBottom: 12 },
-
-  // Subject cards
-  subjectCard: {
-    flexDirection: 'row', alignItems: 'center', gap: 14,
-    borderRadius: 14, borderWidth: 1.5,
-    padding: 16, marginBottom: 12,
+  safe: {
+    flex: 1,
+    backgroundColor: COLORS.darkNavy,
   },
-  subjectIcon:  { fontSize: 32 },
-  subjectLabel: { fontSize: 17, fontWeight: '600' },
 
-  // Topic chips
-  topicsGrid:      { flexDirection: 'row', flexWrap: 'wrap', gap: 10 },
-  topicChip:       { flexDirection: 'row', alignItems: 'center', gap: 6, paddingHorizontal: 14, paddingVertical: 9, borderRadius: 24, borderWidth: 1.5, borderColor: '#E0E0E0', backgroundColor: '#FFF' },
-  topicChipSelected:{ borderColor: '#FFC107', backgroundColor: '#FFF9E6' },
-  topicChipIcon:    { fontSize: 16 },
-  topicChipLabel:   { fontSize: 13, color: '#444', fontWeight: '500' },
-  topicChipLabelSelected: { color: '#7A5800' },
+  // Progress
+  progressTrack: {
+    height: 5,
+    backgroundColor: '#e2e8f0',
+  },
+  progressFill: {
+    height: 5,
+    backgroundColor: COLORS.accent,
+    borderRadius: 3,
+  },
 
-  // Mood
-  moodGrid:     { flexDirection: 'row', flexWrap: 'wrap', gap: 10 },
-  moodCard:     { width: (width - 52) / 3, alignItems: 'center', paddingVertical: 14, borderRadius: 14, borderWidth: 1.5, borderColor: '#E0E0E0', backgroundColor: '#FFF' },
-  moodCardSelected: { borderColor: '#FFC107', backgroundColor: '#FFF9E6' },
-  moodFace:     { fontSize: 28, marginBottom: 4 },
-  moodLabel:    { fontSize: 12, color: '#555', fontWeight: '500' },
-  moodLabelSelected: { color: '#7A5800' },
+  // Hero
+  hero: {
+    backgroundColor: COLORS.darkNavy,
+    paddingHorizontal: 20,
+    paddingTop: 16,
+    paddingBottom: 22,
+    overflow: 'hidden',
+  },
+  dot: {
+    position: 'absolute',
+    borderRadius: 999,
+    backgroundColor: COLORS.heroDot,
+  },
+  stepLabel: {
+    fontSize: 11,
+    color: 'rgba(255,255,255,0.5)',
+    fontFamily: FONTS.semiBold,
+    letterSpacing: 1.1,
+    textTransform: 'uppercase',
+    marginBottom: 10,
+  },
 
-  // Goal
-  goalItem:     { flexDirection: 'row', alignItems: 'center', gap: 12, backgroundColor: '#FFF', borderRadius: 12, borderWidth: 1.5, borderColor: '#E8E8E8', padding: 14, marginBottom: 10 },
-  goalItemSelected: { borderColor: '#FFC107', backgroundColor: '#FFF9E6' },
-  goalIcon:     { fontSize: 20, width: 28, textAlign: 'center' },
-  goalLabel:    { flex: 1, fontSize: 14, color: '#333', fontWeight: '500' },
-  goalLabelSelected: { color: '#7A5800' },
-  goalCheck:    { fontSize: 16, color: '#FFC107', fontWeight: '700' },
+  // Nova mascot
+  mascotRow: {
+    flexDirection: 'row',
+    alignItems: 'flex-start',
+    gap: 12,
+  },
+  mascot: {
+    width: 48,
+    height: 48,
+    borderRadius: 24,
+    backgroundColor: COLORS.purple,
+    alignItems: 'center',
+    justifyContent: 'center',
+    flexShrink: 0,
+  },
+  mascotEmoji: {
+    fontSize: 22,
+  },
+  bubble: {
+    flex: 1,
+    backgroundColor: COLORS.darkCard,
+    borderRadius: 4,
+    borderTopLeftRadius: 0, // speech tail side
+    borderBottomLeftRadius: 14,
+    borderTopRightRadius: 14,
+    borderBottomRightRadius: 14,
+    paddingHorizontal: 14,
+    paddingVertical: 12,
+  },
+  bubbleText: {
+    color: COLORS.textWhite,
+    fontSize: 13,
+    lineHeight: 20,
+    fontFamily: FONTS.regular,
+  },
+  bubbleAccent: {
+    color: COLORS.novaBlue,
+    fontFamily: FONTS.bold,
+  },
 
-  // Bottom
-  bottomBar:  { flexDirection: 'row', alignItems: 'center', gap: 10, padding: 12, paddingBottom: 20, backgroundColor: '#F8F8F8', borderTopWidth: 0.5, borderTopColor: '#E0E0E0' },
-  backBtn:    { width: 44, height: 44, borderRadius: 22, borderWidth: 1.5, borderColor: '#CCC', backgroundColor: '#FFF', alignItems: 'center', justifyContent: 'center' },
-  backBtnText:{ fontSize: 18, color: '#444' },
-  nextBtn:    { flex: 1, backgroundColor: '#FFC107', borderRadius: 10, height: 44, alignItems: 'center', justifyContent: 'center' },
-  nextBtnDisabled: { backgroundColor: '#E0E0E0' },
-  nextBtnText:{ fontSize: 15, fontWeight: '700', color: '#333' },
-  nextBtnTextDisabled: { color: '#999' },
+  // Body
+  body: {
+    flex: 1,
+    backgroundColor: COLORS.white,
+    paddingHorizontal: 16,
+    paddingTop: 16,
+    paddingBottom: 12,
+  },
+  qTitle: {
+    fontSize: 14,
+    fontFamily: FONTS.extraBold,
+    color: COLORS.textPrimary,
+    textAlign: 'center',
+    marginBottom: 12,
+  },
+  optionsScroll: {
+    flex: 1,
+  },
 
-  // Done
-  doneScreen: { flex: 1, alignItems: 'center', justifyContent: 'center', padding: 32, gap: 12 },
-  doneEmoji:  { fontSize: 60 },
-  doneTitle:  { fontSize: 24, fontWeight: '700', color: '#222' },
-  doneSub:    { fontSize: 14, color: '#666', textAlign: 'center', lineHeight: 22 },
-  startBtn:   { marginTop: 16, backgroundColor: '#FFC107', paddingHorizontal: 36, paddingVertical: 14, borderRadius: 28 },
-  startBtnText:{ fontSize: 16, fontWeight: '700', color: '#333' },
+  // Chip grid
+  chipGrid: {
+    flexDirection: 'row',
+    flexWrap: 'wrap',
+    gap: 8,
+    justifyContent: 'center',
+    paddingBottom: 8,
+  },
+  chip: {
+    flexDirection: 'row',
+    alignItems: 'center',
+    gap: 6,
+    borderWidth: 2,
+    borderColor: COLORS.border,
+    borderRadius: 999,
+    paddingVertical: 8,
+    paddingHorizontal: 16,
+    backgroundColor: COLORS.white,
+  },
+  chipSelected: {
+    borderColor: COLORS.accent,
+    backgroundColor: COLORS.accent,
+  },
+  chipIcon: {
+    fontSize: 15,
+  },
+  chipLabel: {
+    fontSize: 13,
+    fontFamily: FONTS.bold,
+    color: COLORS.textSecondary,
+  },
+  chipLabelSelected: {
+    color: COLORS.white,
+  },
+
+  // Card grid
+  cardGrid: {
+    flexDirection: 'row',
+    flexWrap: 'wrap',
+    gap: 8,
+    paddingBottom: 8,
+  },
+  scard: {
+    width: (SCREEN_WIDTH - 32 - 8) / 2, // 2 columns with gap
+    borderWidth: 2,
+    borderColor: COLORS.border,
+    borderRadius: 14,
+    paddingVertical: 14,
+    paddingHorizontal: 10,
+    alignItems: 'center',
+    backgroundColor: COLORS.white,
+  },
+  scardSelected: {
+    borderColor: COLORS.accent,
+    backgroundColor: COLORS.selectedBg,
+  },
+  scardIcon: {
+    fontSize: 26,
+    marginBottom: 6,
+  },
+  scardLabel: {
+    fontSize: 12,
+    fontFamily: FONTS.bold,
+    color: COLORS.textPrimary,
+    textAlign: 'center',
+  },
+  scardLabelSelected: {
+    color: COLORS.textBlue,
+  },
+
+  // Footer
+  footer: {
+    flexDirection: 'row',
+    alignItems: 'center',
+    gap: 10,
+    paddingTop: 12,
+    borderTopWidth: 1,
+    borderTopColor: '#f1f5f9',
+  },
+  btnBack: {
+    width: 38,
+    height: 38,
+    borderRadius: 19,
+    borderWidth: 2,
+    borderColor: COLORS.border,
+    alignItems: 'center',
+    justifyContent: 'center',
+    backgroundColor: COLORS.white,
+  },
+  btnBackText: {
+    fontSize: 16,
+    color: COLORS.textSecondary,
+  },
+  btnNext: {
+    flex: 1,
+    paddingVertical: 12,
+    borderRadius: 14,
+    backgroundColor: COLORS.accent,
+    alignItems: 'center',
+    justifyContent: 'center',
+  },
+  btnNextDisabled: {
+    backgroundColor: COLORS.disabled,
+  },
+  btnNextText: {
+    fontSize: 14,
+    fontFamily: FONTS.extraBold,
+    color: COLORS.white,
+  },
 });

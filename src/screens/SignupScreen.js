@@ -1,4 +1,4 @@
- import React, { useState } from 'react';
+import React, { useState } from 'react';
 import {
   View,
   Text,
@@ -10,6 +10,8 @@ import {
 import InputField from '../components/InputField';
 import PrimaryButton from '../components/PrimaryButton';
 import { COLORS } from '../constants/colors';
+
+
 
 export default function SignupScreen({ navigation }) {
   const [name, setName] = useState('');
