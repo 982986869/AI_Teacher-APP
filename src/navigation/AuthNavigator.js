@@ -1,6 +1,6 @@
- 
 import React from 'react';
 import { createNativeStackNavigator } from '@react-navigation/native-stack';
+import LandingScreen from '../screens/LandingScreen';
 import LoginScreen from '../screens/LoginScreen';
 import SignupScreen from '../screens/SignupScreen';
 
@@ -9,28 +9,12 @@ const Stack = createNativeStackNavigator();
 export default function AuthNavigator() {
   return (
     <Stack.Navigator
-      initialRouteName="Login"
-      screenOptions={{
-        headerStyle: {
-          backgroundColor: '#4F46E5',
-        },
-        headerTintColor: '#FFFFFF',
-        headerTitleStyle: {
-          fontWeight: '600',
-        },
-        headerBackTitleVisible: false,
-      }}
+      initialRouteName="Landing"
+      screenOptions={{ headerShown: false }}
     >
-      <Stack.Screen
-        name="Login"
-        component={LoginScreen}
-        options={{ headerShown: false }}
-      />
-      <Stack.Screen
-        name="Signup"
-        component={SignupScreen}
-        options={{ headerShown: false }}
-      />
+      <Stack.Screen name="Signup" component={SignupScreen} />
+      <Stack.Screen name="Login" component={LoginScreen} />
+      <Stack.Screen name="Landing" component={LandingScreen} />
     </Stack.Navigator>
   );
 }
