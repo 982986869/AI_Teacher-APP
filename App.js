@@ -1,29 +1,19 @@
-import React, { useEffect } from 'react';
-import {
-  useFonts,
-  Nunito_400Regular,
-  Nunito_600SemiBold,
-  Nunito_700Bold,
-  Nunito_800ExtraBold,
-} from '@expo-google-fonts/nunito';
-import * as SplashScreen from 'expo-splash-screen';
-import AppNavigator from './src/navigation/AppNavigator';
+import React from 'react';
+import { StatusBar } from 'react-native';
+// TODO: replace mock with real package after running: npm install @react-native-google-signin/google-signin
+import { GoogleSignin } from './src/utils/googleSigninMock';
 
-SplashScreen.preventAutoHideAsync();
+import { AuthProvider } from './src/context/AuthContext';
+import AppNavigator from './src/navigation/AppNavigator';
+import { GOOGLE_WEB_CLIENT_ID } from './src/constants/config';
+
+GoogleSignin.configure({ webClientId: GOOGLE_WEB_CLIENT_ID });
 
 export default function App() {
-  const [fontsLoaded] = useFonts({
-    Nunito_400Regular,
-    Nunito_600SemiBold,
-    Nunito_700Bold,
-    Nunito_800ExtraBold,
-  });
-
-  useEffect(() => {
-    if (fontsLoaded) SplashScreen.hideAsync();
-  }, [fontsLoaded]);
-
-  if (!fontsLoaded) return null;
-
-  return <AppNavigator />;
+  return (
+    <AuthProvider>
+      <StatusBar barStyle="dark-content" backgroundColor="#FFFFFF" />
+      <AppNavigator />
+    </AuthProvider>
+  );
 }

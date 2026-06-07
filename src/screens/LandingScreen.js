@@ -121,13 +121,13 @@ export default function LandingScreen({ navigation }) {
         {/* Email + Phone */}
         <View style={styles.btnRow}>
           <TouchableOpacity style={styles.btnHalf}
-            onPress={() => navigation.navigate('Login')} activeOpacity={0.85}>
+            onPress={() => navigation.navigate('LoginScreen')} activeOpacity={0.85}>
             <Fontisto name="email" size={16} color="#F4B400" />
             <Text style={styles.btnHalfText}>Email</Text>
           </TouchableOpacity>
 
           <TouchableOpacity style={styles.btnHalf}
-            onPress={() => navigation.navigate('Signup')} activeOpacity={0.85}>
+            onPress={() => navigation.navigate('SignupScreen')} activeOpacity={0.85}>
             <MaterialCommunityIcons name="phone" size={18} color="#34A853" />
             <Text style={styles.btnHalfText}>Phone</Text>
           </TouchableOpacity>

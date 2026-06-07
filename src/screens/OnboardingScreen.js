@@ -1,431 +1,278 @@
-// screens/OnboardingScreen.js — AiLernova 4-step onboarding
 import React, { useState, useRef } from 'react';
 import {
-  View,
-  Text,
-  TouchableOpacity,
-  ScrollView,
-  StyleSheet,
-  Animated,
-  Dimensions,
-  SafeAreaView,
-  StatusBar,
+  View, Text, StyleSheet, SafeAreaView,
+  TouchableOpacity, Dimensions, StatusBar,
+  ScrollView, Animated,
 } from 'react-native';
-import COLORS from '../constants/colors';
-import { FONTS } from '../constants/fonts';
-import { STEPS } from '../constants/onboarding';
+import { useAuth } from '../context/AuthContext';
 
-const { width: SCREEN_WIDTH } = Dimensions.get('window');// ─── Nova Mascot + Speech Bubble ─────────────────────────────────────────────
-function NovaBubble({ text }) {
-  const parts = (text || '').split('Nova'); // ← fix 1: guard against undefined
-  return (
-    <View style={styles.mascotRow}>
-      <View style={styles.mascot}>
-        <Text style={styles.mascotEmoji}>🤖</Text>
-      </View>
-      <View style={styles.bubble}>
-        <Text style={styles.bubbleText}>
-          {parts.map((part, i) => (
-            <React.Fragment key={i}>
-              {part}
-              {i < parts.length - 1 && (
-                <Text style={styles.bubbleAccent}>Nova</Text>
-              )}
-            </React.Fragment>
-          ))}
-        </Text>
-      </View>
-    </View>
-  );
-}
+const { width } = Dimensions.get('window');
 
-// ─── Chip (pill) option ───────────────────────────────────────────────────────
-function Chip({ label, icon, selected, onPress }) {
-  return (
-    <TouchableOpacity
-      style={[styles.chip, selected && styles.chipSelected]}
-      onPress={onPress}
-      activeOpacity={0.75}
-    >
-      <Text style={styles.chipIcon}>{icon}</Text>
-      <Text style={[styles.chipLabel, selected && styles.chipLabelSelected]}>
-        {label}
-      </Text>
-    </TouchableOpacity>
-  );
-}
+const QUESTIONS = [
+  {
+    id: 1,
+    emoji: '🎓',
+    question: "What grade are you in?",
+    subtitle: "We'll personalise your content to match your level.",
+    type: 'grid',
+    options: ['K','1','2','3','4','5','6','7','8','9','10','11','12'],
+  },
+  {
+    id: 2,
+    emoji: '📚',
+    question: "Which subjects do you love?",
+    subtitle: "Pick all that apply — we'll focus on what excites you.",
+    type: 'chips',
+    multi: true,
+    options: ['Mathematics','Science','English','History','Geography','Physics','Chemistry','Biology','Computer Science','Economics','Art','Music'],
+  },
+  {
+    id: 3,
+    emoji: '🎯',
+    question: "What's your main goal?",
+    subtitle: "This helps us build the right learning path for you.",
+    type: 'cards',
+    options: [
+      { label: 'Score better in exams',       icon: '📝' },
+      { label: 'Build strong concepts',        icon: '🧠' },
+      { label: 'Prepare for entrance tests',   icon: '🏆' },
+      { label: 'Learn out of curiosity',       icon: '🔍' },
+    ],
+  },
+  {
+    id: 4,
+    emoji: '⏱',
+    question: "How much time can you give daily?",
+    subtitle: "Even 15 minutes a day creates a powerful habit.",
+    type: 'cards',
+    options: [
+      { label: '15 minutes',       icon: '⚡' },
+      { label: '30 minutes',       icon: '🔥' },
+      { label: '1 hour',           icon: '💪' },
+      { label: 'More than 1 hour', icon: '🚀' },
+    ],
+  },
+  {
+    id: 5,
+    emoji: '📱',
+    question: "How do you learn best?",
+    subtitle: "We'll mix in your favourite formats to keep it fun.",
+    type: 'chips',
+    multi: true,
+    options: ['Short Videos','Practice Tests','Flashcards','Story-based','Diagrams & Charts','Live Quizzes','Reading Notes','Mind Maps'],
+  },
+];
 
-// ─── Card (2-col grid) option ─────────────────────────────────────────────────
-function SCard({ label, icon, selected, onPress }) {
-  return (
-    <TouchableOpacity
-      style={[styles.scard, selected && styles.scardSelected]}
-      onPress={onPress}
-      activeOpacity={0.75}
-    >
-      <Text style={styles.scardIcon}>{icon}</Text>
-      <Text style={[styles.scardLabel, selected && styles.scardLabelSelected]}>
-        {label}
-      </Text>
-    </TouchableOpacity>
-  );
-}
+const OnboardingScreen = () => {
+  const { completeOnboarding } = useAuth();
+  const [currentIndex, setCurrentIndex] = useState(0);
+  const [answers, setAnswers] = useState({});
+  const slideAnim = useRef(new Animated.Value(0)).current;
 
-// ─── Main Screen ──────────────────────────────────────────────────────────────
-export default function OnboardingScreen({ navigation }) {
-  const [current, setCurrent] = useState(0);
-  const [selections, setSelections] = useState(
-    STEPS.map(() => ({}))
-  );
+  const current = QUESTIONS[currentIndex];
+  const isLast = currentIndex === QUESTIONS.length - 1;
+  const selected = answers[current.id] ?? (current.multi ? [] : null);
+  const progress = ((currentIndex + 1) / QUESTIONS.length) * 100;
 
-  const progressAnim = useRef(new Animated.Value(0)).current;
+  const animateSlide = () => {
+    slideAnim.setValue(40);
+    Animated.timing(slideAnim, { toValue: 0, duration: 220, useNativeDriver: true }).start();
+  };
 
-  const step = STEPS[current];
-  if (!step) return null; // ← add this line here
-
-  const isLast = current === STEPS.length - 1;
-  const hasSelection = Object.keys(selections[current]).length > 0;
-  const progressPct = ((current + 1) / STEPS.length) * 100;
-
-  // Animate progress bar whenever step changes
-  React.useEffect(() => {
-    Animated.timing(progressAnim, {
-      toValue: progressPct,
-      duration: 400,
-      useNativeDriver: false,
-    }).start();
-  }, [current]);
-
-  function toggle(label) {
-    setSelections(prev => {
-      const updated = [...prev];
-      const cur = { ...updated[current] };
-      if (cur[label]) {
-        delete cur[label];
-      } else {
-        if (!step.multi) {
-          // single-select: clear others
-          updated[current] = { [label]: true };
-          return updated;
-        }
-        cur[label] = true;
-      }
-      updated[current] = cur;
-      return updated;
-    });
-  }
-
-  function goNext() {
-    if (!isLast) {
-      setCurrent(c => c + 1);
+  const handleSelect = (option) => {
+    if (current.multi) {
+      const prev = answers[current.id] || [];
+      const next = prev.includes(option) ? prev.filter(o => o !== option) : [...prev, option];
+      setAnswers({ ...answers, [current.id]: next });
     } else {
-      // Build the profile object and navigate
-      const profile = {
-        grade:    Object.keys(selections[0])[0] || '',
-        subjects: Object.keys(selections[1]),
-        styles:   Object.keys(selections[2]),
-        goal:     Object.keys(selections[3])[0] || '',
-      };
-      // Replace with your navigation target:
-      navigation.replace('Main', { profile });
+      const val = typeof option === 'object' ? option.label : option;
+      setAnswers({ ...answers, [current.id]: val });
     }
-  }
+  };
 
-  function goBack() {
-    if (current > 0) setCurrent(c => c - 1);
-  }
+  const isSelected = (option) => {
+    const val = typeof option === 'object' ? option.label : option;
+    if (current.multi) return (selected || []).includes(val);
+    return selected === val;
+  };
 
-  const progressWidth = progressAnim.interpolate({
-    inputRange: [0, 100],
-    outputRange: ['0%', '100%'],
-  });
+  const canProceed = () => {
+    if (current.multi) return (selected || []).length > 0;
+    return selected !== null && selected !== undefined;
+  };
+
+  const handleNext = async () => {
+    if (!canProceed()) return;
+    if (isLast) {
+      await completeOnboarding();
+    } else {
+      animateSlide();
+      setCurrentIndex(i => i + 1);
+    }
+  };
+
+  const handleBack = () => {
+    if (currentIndex > 0) {
+      animateSlide();
+      setCurrentIndex(i => i - 1);
+    }
+  };
 
   return (
     <SafeAreaView style={styles.safe}>
-      <StatusBar barStyle="light-content" backgroundColor={COLORS.darkNavy} />
+      <StatusBar barStyle="dark-content" backgroundColor="#fff" />
 
-      {/* ── Progress bar ── */}
-      <View style={styles.progressTrack}>
-        <Animated.View style={[styles.progressFill, { width: progressWidth }]} />
-      </View>
-
-      {/* ── Hero / Nova section ── */}
-      <View style={styles.hero}>
-        {/* decorative dots */}
-        <View style={[styles.dot, { width: 70, height: 70, top: -20, right: 30 }]} />
-        <View style={[styles.dot, { width: 40, height: 40, bottom: 10, left: 15 }]} />
-
-        <Text style={styles.stepLabel}>
-          Step {current + 1} of {STEPS.length}
-        </Text>
-        <NovaBubble text={step.bubble} />
-      </View>
-
-      {/* ── Body ── */}
-      <View style={styles.body}>
-        <Text style={styles.qTitle}>{step.question}</Text>
-
-        <ScrollView
-          contentContainerStyle={
-            step.type === 'cards' ? styles.cardGrid : styles.chipGrid
-          }
-          showsVerticalScrollIndicator={false}
-          style={styles.optionsScroll}
+      {/* Top bar — progress + back */}
+      <View style={styles.topBar}>
+        <TouchableOpacity
+          onPress={handleBack}
+          style={[styles.backCircle, currentIndex === 0 && styles.backCircleHidden]}
+          disabled={currentIndex === 0}
         >
-          {step.options.map((label, i) =>
-            step.type === 'cards' ? (
-              <SCard
-                key={label}
-                label={label}
-                icon={step.icons[i]}
-                selected={!!selections[current][label]}
-                onPress={() => toggle(label)}
-              />
-            ) : (
-              <Chip
-                key={label}
-                label={label}
-                icon={step.icons[i]}
-                selected={!!selections[current][label]}
-                onPress={() => toggle(label)}
-              />
-            )
-          )}
-        </ScrollView>
-
-        {/* ── Footer ── */}
-        <View style={styles.footer}>
-          <TouchableOpacity
-            style={[styles.btnBack, current === 0 && { opacity: 0.3 }]}
-            onPress={goBack}
-            disabled={current === 0}
-            activeOpacity={0.7}
-          >
-            <Text style={styles.btnBackText}>←</Text>
-          </TouchableOpacity>
-
-          <TouchableOpacity
-            style={[styles.btnNext, !hasSelection && styles.btnNextDisabled]}
-            onPress={goNext}
-            disabled={!hasSelection}
-            activeOpacity={0.8}
-          >
-            <Text style={styles.btnNextText}>
-              {isLast ? 'Finish 🚀' : 'Next →'}
-            </Text>
-          </TouchableOpacity>
+          <Text style={styles.backArrow}>←</Text>
+        </TouchableOpacity>
+        <View style={styles.progressBarBg}>
+          <View style={[styles.progressBarFill, { width: `${progress}%` }]} />
         </View>
+      </View>
+
+      <Animated.ScrollView
+        style={{ transform: [{ translateX: slideAnim }] }}
+        contentContainerStyle={styles.scroll}
+        showsVerticalScrollIndicator={false}
+      >
+        {/* Emoji + bubble */}
+        <View style={styles.emojiBubble}>
+          <View style={styles.emojiCircle}>
+            <Text style={styles.emojiText}>{current.emoji}</Text>
+          </View>
+          <View style={styles.bubbleCloud}>
+            <Text style={styles.bubbleText}>{current.subtitle}</Text>
+          </View>
+        </View>
+
+        <Text style={styles.question}>{current.question}</Text>
+
+        {/* Grid (grades) */}
+        {current.type === 'grid' && (
+          <View style={styles.grid}>
+            {current.options.map(opt => (
+              <TouchableOpacity
+                key={opt}
+                style={[styles.gridItem, isSelected(opt) && styles.gridItemSelected]}
+                onPress={() => handleSelect(opt)}
+                activeOpacity={0.8}
+              >
+                <Text style={[styles.gridText, isSelected(opt) && styles.gridTextSelected]}>
+                  {opt}
+                </Text>
+              </TouchableOpacity>
+            ))}
+          </View>
+        )}
+
+        {/* Chips */}
+        {current.type === 'chips' && (
+          <View style={styles.chipsWrap}>
+            {current.options.map(opt => (
+              <TouchableOpacity
+                key={opt}
+                style={[styles.chip, isSelected(opt) && styles.chipSelected]}
+                onPress={() => handleSelect(opt)}
+                activeOpacity={0.8}
+              >
+                <Text style={[styles.chipText, isSelected(opt) && styles.chipTextSelected]}>
+                  {opt}
+                </Text>
+              </TouchableOpacity>
+            ))}
+          </View>
+        )}
+
+        {/* Cards */}
+        {current.type === 'cards' && (
+          <View style={styles.cardsWrap}>
+            {current.options.map(opt => {
+              const sel = isSelected(opt);
+              return (
+                <TouchableOpacity
+                  key={opt.label}
+                  style={[styles.card, sel && styles.cardSelected]}
+                  onPress={() => handleSelect(opt)}
+                  activeOpacity={0.8}
+                >
+                  <Text style={styles.cardIcon}>{opt.icon}</Text>
+                  <Text style={[styles.cardText, sel && styles.cardTextSelected]}>{opt.label}</Text>
+                  {sel && <Text style={styles.cardCheck}>✓</Text>}
+                </TouchableOpacity>
+              );
+            })}
+          </View>
+        )}
+
+        <View style={{ height: 120 }} />
+      </Animated.ScrollView>
+
+      {/* Bottom */}
+      <View style={styles.bottom}>
+        <TouchableOpacity
+          style={[styles.nextBtn, !canProceed() && styles.nextBtnDisabled]}
+          onPress={handleNext}
+          activeOpacity={0.85}
+        >
+          <Text style={styles.nextText}>{isLast ? 'Get Started' : 'Next'}</Text>
+        </TouchableOpacity>
+        <Text style={styles.counter}>{currentIndex + 1} of {QUESTIONS.length}</Text>
       </View>
     </SafeAreaView>
   );
-}
+};
 
-// ─── Styles ───────────────────────────────────────────────────────────────────
 const styles = StyleSheet.create({
-  safe: {
-    flex: 1,
-    backgroundColor: COLORS.darkNavy,
-  },
+  safe:            { flex: 1, backgroundColor: '#fff' },
+  topBar:          { flexDirection: 'row', alignItems: 'center', paddingHorizontal: 20, paddingTop: 10, paddingBottom: 8, gap: 12 },
+  backCircle:      { width: 36, height: 36, borderRadius: 18, borderWidth: 1.5, borderColor: '#e0e0e0', alignItems: 'center', justifyContent: 'center' },
+  backCircleHidden:{ opacity: 0 },
+  backArrow:       { fontSize: 18, color: '#0a0a0a' },
+  progressBarBg:   { flex: 1, height: 5, backgroundColor: '#e8e8e8', borderRadius: 3, overflow: 'hidden' },
+  progressBarFill: { height: 5, backgroundColor: '#0a0a0a', borderRadius: 3 },
+  scroll:          { paddingHorizontal: 22, paddingTop: 16 },
+  emojiBubble:     { flexDirection: 'row', alignItems: 'flex-start', gap: 12, marginBottom: 24 },
+  emojiCircle:     { width: 52, height: 52, borderRadius: 26, backgroundColor: '#f0f0f0', alignItems: 'center', justifyContent: 'center', borderWidth: 1.5, borderColor: '#e0e0e0' },
+  emojiText:       { fontSize: 26 },
+  bubbleCloud:     { flex: 1, backgroundColor: '#f5f5f5', borderRadius: 14, borderTopLeftRadius: 2, padding: 12 },
+  bubbleText:      { fontSize: 13, color: '#555', lineHeight: 19 },
+  question:        { fontSize: 22, fontWeight: '700', color: '#0a0a0a', marginBottom: 24, lineHeight: 30 },
 
-  // Progress
-  progressTrack: {
-    height: 5,
-    backgroundColor: '#e2e8f0',
-  },
-  progressFill: {
-    height: 5,
-    backgroundColor: COLORS.accent,
-    borderRadius: 3,
-  },
+  // Grid
+  grid:            { flexDirection: 'row', flexWrap: 'wrap', gap: 12 },
+  gridItem:        { width: 56, height: 56, borderRadius: 28, borderWidth: 1.5, borderColor: '#e0e0e0', alignItems: 'center', justifyContent: 'center', backgroundColor: '#fff' },
+  gridItemSelected:{ backgroundColor: '#0a0a0a', borderColor: '#0a0a0a' },
+  gridText:        { fontSize: 15, fontWeight: '600', color: '#333' },
+  gridTextSelected:{ color: '#fff' },
 
-  // Hero
-  hero: {
-    backgroundColor: COLORS.darkNavy,
-    paddingHorizontal: 20,
-    paddingTop: 16,
-    paddingBottom: 22,
-    overflow: 'hidden',
-  },
-  dot: {
-    position: 'absolute',
-    borderRadius: 999,
-    backgroundColor: COLORS.heroDot,
-  },
-  stepLabel: {
-    fontSize: 11,
-    color: 'rgba(255,255,255,0.5)',
-    fontFamily: FONTS.semiBold,
-    letterSpacing: 1.1,
-    textTransform: 'uppercase',
-    marginBottom: 10,
-  },
+  // Chips
+  chipsWrap:       { flexDirection: 'row', flexWrap: 'wrap', gap: 10 },
+  chip:            { paddingVertical: 10, paddingHorizontal: 16, borderRadius: 24, borderWidth: 1.5, borderColor: '#e0e0e0', backgroundColor: '#fff' },
+  chipSelected:    { backgroundColor: '#0a0a0a', borderColor: '#0a0a0a' },
+  chipText:        { fontSize: 13, color: '#444', fontWeight: '500' },
+  chipTextSelected:{ color: '#fff' },
 
-  // Nova mascot
-  mascotRow: {
-    flexDirection: 'row',
-    alignItems: 'flex-start',
-    gap: 12,
-  },
-  mascot: {
-    width: 48,
-    height: 48,
-    borderRadius: 24,
-    backgroundColor: COLORS.purple,
-    alignItems: 'center',
-    justifyContent: 'center',
-    flexShrink: 0,
-  },
-  mascotEmoji: {
-    fontSize: 22,
-  },
-  bubble: {
-    flex: 1,
-    backgroundColor: COLORS.darkCard,
-    borderRadius: 4,
-    borderTopLeftRadius: 0, // speech tail side
-    borderBottomLeftRadius: 14,
-    borderTopRightRadius: 14,
-    borderBottomRightRadius: 14,
-    paddingHorizontal: 14,
-    paddingVertical: 12,
-  },
-  bubbleText: {
-    color: COLORS.textWhite,
-    fontSize: 13,
-    lineHeight: 20,
-    fontFamily: FONTS.regular,
-  },
-  bubbleAccent: {
-    color: COLORS.novaBlue,
-    fontFamily: FONTS.bold,
-  },
+  // Cards
+  cardsWrap:       { gap: 12 },
+  card:            { flexDirection: 'row', alignItems: 'center', padding: 16, borderRadius: 14, borderWidth: 1.5, borderColor: '#e0e0e0', backgroundColor: '#fff', gap: 14 },
+  cardSelected:    { backgroundColor: '#0a0a0a', borderColor: '#0a0a0a' },
+  cardIcon:        { fontSize: 22 },
+  cardText:        { flex: 1, fontSize: 15, color: '#333', fontWeight: '500' },
+  cardTextSelected:{ color: '#fff' },
+  cardCheck:       { fontSize: 16, color: '#fff', fontWeight: '700' },
 
-  // Body
-  body: {
-    flex: 1,
-    backgroundColor: COLORS.white,
-    paddingHorizontal: 16,
-    paddingTop: 16,
-    paddingBottom: 12,
-  },
-  qTitle: {
-    fontSize: 14,
-    fontFamily: FONTS.extraBold,
-    color: COLORS.textPrimary,
-    textAlign: 'center',
-    marginBottom: 12,
-  },
-  optionsScroll: {
-    flex: 1,
-  },
-
-  // Chip grid
-  chipGrid: {
-    flexDirection: 'row',
-    flexWrap: 'wrap',
-    gap: 8,
-    justifyContent: 'center',
-    paddingBottom: 8,
-  },
-  chip: {
-    flexDirection: 'row',
-    alignItems: 'center',
-    gap: 6,
-    borderWidth: 2,
-    borderColor: COLORS.border,
-    borderRadius: 999,
-    paddingVertical: 8,
-    paddingHorizontal: 16,
-    backgroundColor: COLORS.white,
-  },
-  chipSelected: {
-    borderColor: COLORS.accent,
-    backgroundColor: COLORS.accent,
-  },
-  chipIcon: {
-    fontSize: 15,
-  },
-  chipLabel: {
-    fontSize: 13,
-    fontFamily: FONTS.bold,
-    color: COLORS.textSecondary,
-  },
-  chipLabelSelected: {
-    color: COLORS.white,
-  },
-
-  // Card grid
-  cardGrid: {
-    flexDirection: 'row',
-    flexWrap: 'wrap',
-    gap: 8,
-    paddingBottom: 8,
-  },
-  scard: {
-    width: (SCREEN_WIDTH - 32 - 8) / 2, // 2 columns with gap
-    borderWidth: 2,
-    borderColor: COLORS.border,
-    borderRadius: 14,
-    paddingVertical: 14,
-    paddingHorizontal: 10,
-    alignItems: 'center',
-    backgroundColor: COLORS.white,
-  },
-  scardSelected: {
-    borderColor: COLORS.accent,
-    backgroundColor: COLORS.selectedBg,
-  },
-  scardIcon: {
-    fontSize: 26,
-    marginBottom: 6,
-  },
-  scardLabel: {
-    fontSize: 12,
-    fontFamily: FONTS.bold,
-    color: COLORS.textPrimary,
-    textAlign: 'center',
-  },
-  scardLabelSelected: {
-    color: COLORS.textBlue,
-  },
-
-  // Footer
-  footer: {
-    flexDirection: 'row',
-    alignItems: 'center',
-    gap: 10,
-    paddingTop: 12,
-    borderTopWidth: 1,
-    borderTopColor: '#f1f5f9',
-  },
-  btnBack: {
-    width: 38,
-    height: 38,
-    borderRadius: 19,
-    borderWidth: 2,
-    borderColor: COLORS.border,
-    alignItems: 'center',
-    justifyContent: 'center',
-    backgroundColor: COLORS.white,
-  },
-  btnBackText: {
-    fontSize: 16,
-    color: COLORS.textSecondary,
-  },
-  btnNext: {
-    flex: 1,
-    paddingVertical: 12,
-    borderRadius: 14,
-    backgroundColor: COLORS.accent,
-    alignItems: 'center',
-    justifyContent: 'center',
-  },
-  btnNextDisabled: {
-    backgroundColor: COLORS.disabled,
-  },
-  btnNextText: {
-    fontSize: 14,
-    fontFamily: FONTS.extraBold,
-    color: COLORS.white,
-  },
+  // Bottom
+  bottom:          { position: 'absolute', bottom: 0, left: 0, right: 0, paddingHorizontal: 22, paddingBottom: 36, paddingTop: 12, backgroundColor: '#fff', borderTopWidth: 0.5, borderTopColor: '#e8e8e8' },
+  nextBtn:         { backgroundColor: '#0a0a0a', borderRadius: 14, height: 54, alignItems: 'center', justifyContent: 'center', marginBottom: 10 },
+  nextBtnDisabled: { opacity: 0.25 },
+  nextText:        { fontSize: 16, fontWeight: '700', color: '#fff', letterSpacing: 0.3 },
+  counter:         { fontSize: 12, color: '#aaa', textAlign: 'center' },
 });
+
+export default OnboardingScreen;

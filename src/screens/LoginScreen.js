@@ -1,124 +1,197 @@
 import React, { useState } from 'react';
 import {
-  View, Text, TextInput, TouchableOpacity,
-  StyleSheet, SafeAreaView, KeyboardAvoidingView, Platform, Alert
+  View, Text, ScrollView, TouchableOpacity,
+  StyleSheet, SafeAreaView,
 } from 'react-native';
+// TODO: replace mock with real package after running: npm install @react-native-google-signin/google-signin
+import { GoogleSignin } from '../utils/googleSigninMock';
 
-export default function LoginScreen({ navigation }) {
-  const [identifier, setIdentifier] = useState('');
+import AuthHeader    from '../components/AuthHeader';
+import InputField    from '../components/InputField';
+import PrimaryButton from '../components/PrimaryButton';
+import ErrorMessage  from '../components/ErrorMessage';
+import LoadingSpinner from '../components/LoadingSpinner';
+
+import { loginWithEmail, loginWithGoogle, sendOTP } from '../api/authApi';
+import { useAuth } from '../context/AuthContext';
+import { validateEmail, validatePassword, validatePhone } from '../utils/validators';
+import COLORS from '../constants/colors';
+
+const TABS = ['Email', 'Phone'];
+
+const LoginScreen = ({ navigation }) => {
+  const { signIn } = useAuth();
+  const [activeTab, setActiveTab] = useState('Email');
+
+  // Email state
+  const [email, setEmail]       = useState('');
   const [password, setPassword] = useState('');
-  const [loading, setLoading] = useState(false);
+  const [showPw, setShowPw]     = useState(false);
 
-  const handleLogin = async () => {
-    if (!identifier || !password) {
-      Alert.alert('Error', 'Please fill in all fields');
-      return;
-    }
+  // Phone state
+  const [phone, setPhone] = useState('');
+
+  const [loading, setLoading] = useState(false);
+  const [error, setError]     = useState('');
+
+  // ── Email Login ─────────────────────────────────────────────────────────────
+  const handleEmailLogin = async () => {
+    setError('');
+    if (!validateEmail(email)) return setError('Enter a valid email address.');
+    const pwErr = validatePassword(password);
+    if (pwErr) return setError(pwErr);
+
     try {
       setLoading(true);
-      // TODO: replace with your real API call
-      // const response = await authApi.login({ email: identifier, password });
-      // await AsyncStorage.setItem('token', response.data.token);
-
-      // ✅ navigate to onboarding after successful login
-      navigation.replace('Onboarding');
-    } catch (error) {
-      Alert.alert('Login Failed', error.message || 'Something went wrong');
+      const data = await loginWithEmail({ email, password });
+      await signIn(data);
+    } catch (e) {
+      setError(e?.response?.data?.message || 'Login failed. Please try again.');
     } finally {
       setLoading(false);
     }
   };
 
-  const handleOTPLogin = () => {
-    // TODO: implement OTP login
-    console.log('OTP login pressed');
+  // ── Google Login ─────────────────────────────────────────────────────────────
+  const handleGoogleLogin = async () => {
+    setError('');
+    try {
+      setLoading(true);
+      await GoogleSignin.hasPlayServices();
+      const { idToken } = await GoogleSignin.signIn();
+      const data = await loginWithGoogle({ idToken });
+      await signIn(data);
+    } catch (e) {
+      setError('Google sign-in failed. Please try again.');
+    } finally {
+      setLoading(false);
+    }
+  };
+
+  // ── Phone Login → OTP ────────────────────────────────────────────────────────
+  const handleSendOTP = async () => {
+    setError('');
+    if (!validatePhone(phone)) return setError('Enter a valid 10-digit phone number.');
+    try {
+      setLoading(true);
+      await sendOTP({ phone: `+91${phone}` });
+      navigation.navigate('OTPScreen', { phone: `+91${phone}`, mode: 'login' });
+    } catch (e) {
+      setError(e?.response?.data?.message || 'Failed to send OTP. Try again.');
+    } finally {
+      setLoading(false);
+    }
   };
 
   return (
-    <SafeAreaView style={styles.container}>
-      <KeyboardAvoidingView
-        behavior={Platform.OS === 'ios' ? 'padding' : undefined}
-        style={styles.inner}
-      >
-        {/* Logo / Title */}
-        <Text style={styles.appName}>ailernova</Text>
-        <Text style={styles.title}>Login to your{'\n'}Student Account</Text>
+    <SafeAreaView style={styles.safe}>
+      <AuthHeader onBack={() => navigation.goBack()} />
+      <ScrollView contentContainerStyle={styles.scroll} keyboardShouldPersistTaps="handled">
+        <Text style={styles.logo}>AILERNOVA</Text>
+        <Text style={styles.heading}>Welcome back</Text>
 
-        {/* Card */}
-        <View style={styles.card}>
-          <TextInput
-            style={styles.input}
-            placeholder="Email or Phone number"
-            placeholderTextColor="#AAA"
-            value={identifier}
-            onChangeText={setIdentifier}
-            keyboardType="email-address"
-            autoCapitalize="none"
-          />
-          <TextInput
-            style={styles.input}
-            placeholder="Password"
-            placeholderTextColor="#AAA"
-            value={password}
-            onChangeText={setPassword}
-            secureTextEntry
-          />
+        {/* Tab Row */}
+        <View style={styles.tabRow}>
+          {TABS.map(t => (
+            <TouchableOpacity key={t} style={styles.tab} onPress={() => { setActiveTab(t); setError(''); }}>
+              <Text style={[styles.tabText, activeTab === t && styles.tabTextActive]}>{t}</Text>
+              {activeTab === t && <View style={styles.tabUnderline} />}
+            </TouchableOpacity>
+          ))}
+        </View>
 
-          <TouchableOpacity
-            style={[styles.loginBtn, loading && { opacity: 0.7 }]}
-            onPress={handleLogin}
-            disabled={loading}
-          >
-            <Text style={styles.loginBtnText}>
-              {loading ? 'LOGGING IN...' : 'LOGIN'}
-            </Text>
-          </TouchableOpacity>
+        <ErrorMessage message={error} />
 
-          <TouchableOpacity>
-            <Text style={styles.forgotText}>
-              Forgot your password?{' '}
-              <Text style={styles.forgotLink}>Click here to Recover account</Text>
-            </Text>
-          </TouchableOpacity>
+        {activeTab === 'Email' && (
+          <>
+            <InputField
+              placeholder="Email address"
+              value={email}
+              onChangeText={setEmail}
+              keyboardType="email-address"
+            />
+            <InputField
+              placeholder="Password"
+              value={password}
+              onChangeText={setPassword}
+              secureTextEntry={!showPw}
+              rightIcon={
+                <TouchableOpacity onPress={() => setShowPw(p => !p)}>
+                  <Text style={{ fontSize: 16 }}>{showPw ? '🙈' : '👁'}</Text>
+                </TouchableOpacity>
+              }
+            />
+            <TouchableOpacity style={styles.forgotRow}>
+              <Text style={styles.forgotText}>Forgot password?</Text>
+            </TouchableOpacity>
+            <PrimaryButton title="Log in" onPress={handleEmailLogin} loading={loading} style={styles.mainBtn} />
+          </>
+        )}
 
-          <View style={styles.orRow}>
-            <View style={styles.line} />
-            <Text style={styles.orText}>OR</Text>
-            <View style={styles.line} />
-          </View>
+        {activeTab === 'Phone' && (
+          <>
+            <View style={styles.phoneRow}>
+              <View style={styles.countryCode}><Text style={styles.countryText}>🇮🇳 +91</Text></View>
+              <InputField
+                placeholder="10-digit phone number"
+                value={phone}
+                onChangeText={t => setPhone(t.replace(/\D/g, ''))}
+                keyboardType="phone-pad"
+                maxLength={10}
+                style={{ flex: 1, marginBottom: 0 }}
+              />
+            </View>
+            <PrimaryButton title="Send OTP" onPress={handleSendOTP} loading={loading} style={styles.mainBtn} />
+          </>
+        )}
 
-          <TouchableOpacity style={styles.otpBtn} onPress={handleOTPLogin}>
-            <Text style={styles.otpBtnText}>LOGIN WITH OTP</Text>
-          </TouchableOpacity>
+        <View style={styles.dividerRow}>
+          <View style={styles.dividerLine} />
+          <Text style={styles.dividerText}>or</Text>
+          <View style={styles.dividerLine} />
+        </View>
 
-          <TouchableOpacity onPress={() => navigation.navigate('Signup')}>
-            <Text style={styles.signupText}>
-              New here?{' '}
-              <Text style={styles.signupLink}>Create an Account</Text>
-            </Text>
+        <TouchableOpacity style={styles.googleBtn} onPress={handleGoogleLogin} activeOpacity={0.8}>
+          <Text style={styles.googleIcon}>G</Text>
+          <Text style={styles.googleText}>Continue with Google</Text>
+        </TouchableOpacity>
+
+        <View style={styles.switchRow}>
+          <Text style={styles.switchLabel}>Don't have an account? </Text>
+          <TouchableOpacity onPress={() => navigation.navigate('SignupScreen')}>
+            <Text style={styles.switchLink}>Sign up</Text>
           </TouchableOpacity>
         </View>
-      </KeyboardAvoidingView>
+      </ScrollView>
     </SafeAreaView>
   );
-}
+};
 
 const styles = StyleSheet.create({
-  container:   { flex: 1, backgroundColor: '#F0F4FF' },
-  inner:       { flex: 1, alignItems: 'center', justifyContent: 'center', padding: 20 },
-  appName:     { fontSize: 28, fontWeight: '800', color: '#4A90E2', marginBottom: 6 },
-  title:       { fontSize: 22, fontWeight: '700', color: '#222', textAlign: 'center', marginBottom: 24, lineHeight: 30 },
-  card:        { width: '100%', backgroundColor: '#FFF', borderRadius: 16, padding: 24, elevation: 4, shadowColor: '#000', shadowOpacity: 0.08, shadowRadius: 12 },
-  input:       { borderWidth: 1.5, borderColor: '#4A90E2', borderRadius: 8, paddingHorizontal: 14, paddingVertical: 12, fontSize: 15, color: '#222', marginBottom: 14 },
-  loginBtn:    { backgroundColor: '#4A90E2', borderRadius: 8, paddingVertical: 14, alignItems: 'center', marginBottom: 12 },
-  loginBtnText:{ color: '#FFF', fontWeight: '700', fontSize: 15, letterSpacing: 1 },
-  forgotText:  { textAlign: 'center', color: '#555', fontSize: 13, marginBottom: 16 },
-  forgotLink:  { color: '#4A90E2', fontWeight: '600' },
-  orRow:       { flexDirection: 'row', alignItems: 'center', marginBottom: 16 },
-  line:        { flex: 1, height: 1, backgroundColor: '#E0E0E0' },
-  orText:      { marginHorizontal: 10, color: '#888', fontWeight: '600' },
-  otpBtn:      { backgroundColor: '#E8A020', borderRadius: 8, paddingVertical: 14, alignItems: 'center', marginBottom: 16 },
-  otpBtnText:  { color: '#FFF', fontWeight: '700', fontSize: 15, letterSpacing: 1 },
-  signupText:  { textAlign: 'center', color: '#555', fontSize: 13 },
-  signupLink:  { color: '#E8A020', fontWeight: '700' },
+  safe:       { flex: 1, backgroundColor: COLORS.white },
+  scroll:     { flexGrow: 1, paddingHorizontal: 24, paddingBottom: 40 },
+  logo:       { fontSize: 22, fontWeight: '800', letterSpacing: 3, color: COLORS.primary, textAlign: 'center', marginBottom: 6, marginTop: 12 },
+  heading:    { fontSize: 18, fontWeight: '600', color: COLORS.textPrimary, textAlign: 'center', marginBottom: 24 },
+  tabRow:     { flexDirection: 'row', borderBottomWidth: 1, borderBottomColor: COLORS.divider, marginBottom: 20 },
+  tab:        { flex: 1, alignItems: 'center', paddingBottom: 10 },
+  tabText:    { fontSize: 14, fontWeight: '500', color: COLORS.tabInactive },
+  tabTextActive: { color: COLORS.tabActive, fontWeight: '600' },
+  tabUnderline:  { position: 'absolute', bottom: -1, left: 0, right: 0, height: 2, backgroundColor: COLORS.tabBorder, borderRadius: 1 },
+  forgotRow:  { alignItems: 'flex-end', marginBottom: 16, marginTop: -4 },
+  forgotText: { fontSize: 12, color: COLORS.textSecondary, fontWeight: '500' },
+  mainBtn:    { marginTop: 4, marginBottom: 4 },
+  dividerRow: { flexDirection: 'row', alignItems: 'center', marginVertical: 20 },
+  dividerLine:{ flex: 1, height: 0.5, backgroundColor: COLORS.divider },
+  dividerText:{ marginHorizontal: 12, fontSize: 12, color: COLORS.textMuted },
+  googleBtn:  { flexDirection: 'row', alignItems: 'center', justifyContent: 'center', borderWidth: 1, borderColor: COLORS.border, borderRadius: 10, height: 50, gap: 10 },
+  googleIcon: { fontSize: 16, fontWeight: '700', color: COLORS.googleRed },
+  googleText: { fontSize: 14, color: COLORS.textPrimary, fontWeight: '500' },
+  phoneRow:   { flexDirection: 'row', alignItems: 'flex-start', gap: 8, marginBottom: 14 },
+  countryCode:{ height: 50, borderWidth: 1, borderColor: COLORS.border, borderRadius: 10, backgroundColor: COLORS.subtleBg, justifyContent: 'center', paddingHorizontal: 14 },
+  countryText:{ fontSize: 14, color: COLORS.textPrimary },
+  switchRow:  { flexDirection: 'row', justifyContent: 'center', marginTop: 28 },
+  switchLabel:{ fontSize: 12, color: COLORS.textSecondary },
+  switchLink: { fontSize: 12, color: COLORS.primary, fontWeight: '700' },
 });
+
+export default LoginScreen;

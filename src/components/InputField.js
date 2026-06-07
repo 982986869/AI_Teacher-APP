@@ -1,75 +1,78 @@
- import React, { useState } from 'react';
-import {
-  View,
-  Text,
-  TextInput,
-  TouchableOpacity,
-  StyleSheet,
-} from 'react-native';
-import { COLORS } from '../constants/colors';
+import React, { useState } from 'react';
+import { View, TextInput, Text, TouchableOpacity, StyleSheet } from 'react-native';
+import COLORS from '../constants/colors';
 
-export default function InputField({
-  label,
+const InputField = ({
+  placeholder,
   value,
   onChangeText,
-  placeholder,
-  secureTextEntry,
-  keyboardType,
-}) {
-  const [hide, setHide] = useState(secureTextEntry);
+  secureTextEntry = false,
+  keyboardType = 'default',
+  autoCapitalize = 'none',
+  error,
+  rightIcon,
+  style,
+  inputStyle,
+  ...rest
+}) => {
+  const [focused, setFocused] = useState(false);
 
   return (
-    <View style={styles.container}>
-      <Text style={styles.label}>{label}</Text>
-      <View style={styles.inputWrapper}>
+    <View style={[styles.wrapper, style]}>
+      <View style={[
+        styles.container,
+        focused && styles.containerFocused,
+        error  && styles.containerError,
+      ]}>
         <TextInput
-          style={styles.input}
+          style={[styles.input, inputStyle]}
+          placeholder={placeholder}
+          placeholderTextColor={COLORS.textHint}
           value={value}
           onChangeText={onChangeText}
-          placeholder={placeholder || label}
-          placeholderTextColor={COLORS.subtext}
-          secureTextEntry={hide}
-          keyboardType={keyboardType || 'default'}
-          autoCapitalize="none"
+          secureTextEntry={secureTextEntry}
+          keyboardType={keyboardType}
+          autoCapitalize={autoCapitalize}
+          onFocus={() => setFocused(true)}
+          onBlur={() => setFocused(false)}
+          {...rest}
         />
-        {secureTextEntry && (
-          <TouchableOpacity onPress={() => setHide(!hide)}>
-            <Text style={styles.toggle}>{hide ? 'Show' : 'Hide'}</Text>
-          </TouchableOpacity>
+        {rightIcon && (
+          <View style={styles.rightIcon}>{rightIcon}</View>
         )}
       </View>
+      {!!error && <Text style={styles.errorText}>{error}</Text>}
     </View>
   );
-}
+};
 
 const styles = StyleSheet.create({
+  wrapper: { marginBottom: 10 },
   container: {
-    marginBottom: 16,
-  },
-  label: {
-    fontSize: 14,
-    fontWeight: '500',
-    color: COLORS.text,
-    marginBottom: 6,
-  },
-  inputWrapper: {
     flexDirection: 'row',
     alignItems: 'center',
     borderWidth: 1,
     borderColor: COLORS.border,
     borderRadius: 10,
+    backgroundColor: COLORS.inputBg,
     paddingHorizontal: 14,
-    backgroundColor: COLORS.white,
+    height: 50,
   },
+  containerFocused: { borderColor: COLORS.borderFocus },
+  containerError:   { borderColor: COLORS.error },
   input: {
     flex: 1,
-    height: 48,
-    fontSize: 15,
-    color: COLORS.text,
+    fontSize: 14,
+    color: COLORS.textPrimary,
+    fontWeight: '400',
   },
-  toggle: {
-    color: COLORS.primary,
-    fontSize: 13,
-    fontWeight: '500',
+  rightIcon: { marginLeft: 8 },
+  errorText: {
+    marginTop: 4,
+    fontSize: 11,
+    color: COLORS.error,
+    marginLeft: 2,
   },
 });
+
+export default InputField;

@@ -43,7 +43,7 @@ export default function SplashScreen({ navigation }) {
 
     Animated.parallel([...animations, taglineAnim]).start(() => {
       setTimeout(() => {
-        navigation.replace('Landing');
+        navigation.replace('LandingScreen');
       }, 800);
     });
   }, []);
