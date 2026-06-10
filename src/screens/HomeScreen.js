@@ -2,401 +2,449 @@ import React, { useState, useRef } from 'react';
 import {
   View, Text, StyleSheet, SafeAreaView, ScrollView,
   TouchableOpacity, StatusBar, Dimensions, TextInput,
-  Platform, KeyboardAvoidingView,
+  Platform, KeyboardAvoidingView, Animated,
 } from 'react-native';
 import { useAuth } from '../context/AuthContext';
 
-const { width, height } = Dimensions.get('window');
-const PAD = 14;
+const { width } = Dimensions.get('window');
+const PAD = 16;
 
-// ─────────────────────────────────────────────────────────────────────────────
-// TAB: HOME
-// ─────────────────────────────────────────────────────────────────────────────
-const HomeTab = ({ firstName }) => (
-  <ScrollView showsVerticalScrollIndicator={false} contentContainerStyle={{ paddingBottom: 12 }}>
-    {/* Session card */}
-    <View style={h.sessionCard}>
-      <View style={h.sessionLeft}>
-        <Text style={h.sessionTag}>UPCOMING 1:1 SESSION</Text>
-        <Text style={h.sessionTitle}>Physics with Arjun Sir</Text>
-        <Text style={h.sessionMeta}>📅  Today, 5:30 PM – 6:30 PM</Text>
-        <View style={{ flexDirection: 'row' }}>
-          <Text style={h.sessionMeta}>📹  Google Meet</Text>
-          <Text style={[h.sessionMeta, { marginLeft: 10 }]}>⏰  15 min</Text>
-        </View>
-        <TouchableOpacity style={h.joinBtn}>
-          <Text style={h.joinTxt}>Join Session  📹</Text>
-        </TouchableOpacity>
-      </View>
-      <View style={{ alignItems: 'center', justifyContent: 'space-between', paddingTop: 10 }}>
-        <TouchableOpacity><Text style={{ color: '#fff', fontSize: 18 }}>⋮</Text></TouchableOpacity>
-        <Text style={{ fontSize: 46, marginBottom: -4 }}>👨‍🏫</Text>
-      </View>
-    </View>
+// ─── SVG-style character avatars using View shapes ───────────────────────────
+const CHARS = [
+  { name: 'The Explorer',  role: 'Curious Learner',  emoji: '🧭', color: '#1C1C1E' },
+  { name: 'The Scientist', role: 'Problem Solver',   emoji: '🔬', color: '#333' },
+  { name: 'The Artist',    role: 'Creative Thinker', emoji: '🎨', color: '#555' },
+  { name: 'The Champion',  role: 'Goal Achiever',    emoji: '🏆', color: '#1C1C1E' },
+  { name: 'The Dreamer',   role: 'Big Thinker',      emoji: '💭', color: '#444' },
+  { name: 'The Ninja',     role: 'Speed Learner',    emoji: '⚡', color: '#222' },
+];
 
-    {/* Continue learning */}
-    <View style={h.continueCard}>
-      <View style={h.playCircle}>
-        <Text style={{ fontSize: 13 }}>▶</Text>
-      </View>
-      <View style={{ flex: 1 }}>
-        <Text style={h.continueLbl}>Continue Learning</Text>
-        <Text style={h.continueTitle}>Laws of Motion</Text>
-        <View style={h.progBg}>
-          <View style={[h.progFill, { width: '60%' }]} />
-        </View>
-        <Text style={h.progTxt}>60% Completed</Text>
-      </View>
-      <TouchableOpacity style={h.resumeBtn}>
-        <Text style={h.resumeTxt}>Resume ›</Text>
-      </TouchableOpacity>
-    </View>
-
-    {/* Quick actions */}
-    <View style={h.quickRow}>
-      {[
-        { e: '🎯', l: 'Practice' },
-        { e: '📖', l: 'Resources' },
-        { e: '📋', l: 'Tests' },
-        { e: '📊', l: 'Results' },
-        { e: '📅', l: 'Sessions' },
-      ].map((item, i) => (
-        <TouchableOpacity key={i} style={h.quickItem}>
-          <View style={h.quickIconBox}>
-            <Text style={{ fontSize: 18 }}>{item.e}</Text>
-          </View>
-          <Text style={h.quickLbl}>{item.l}</Text>
-        </TouchableOpacity>
-      ))}
-    </View>
-
-    {/* Today's tasks */}
-    <Text style={h.sectionTitle}>Today's Tasks</Text>
-    <View style={h.tasksCard}>
-      {[
-        { done: true,  label: 'Complete Laws of Motion quiz',  pts: '+20 XP' },
-        { done: false, label: 'Watch: Electricity Chapter 3',  pts: '+15 XP' },
-        { done: false, label: 'Practice: 10 Maths problems',   pts: '+25 XP' },
-      ].map((t, i) => (
-        <View key={i} style={[h.taskRow, i < 2 && { borderBottomWidth: 1, borderBottomColor: '#f0f0f0' }]}>
-          <View style={[h.taskCheck, t.done && h.taskCheckDone]}>
-            {t.done && <Text style={{ color: '#fff', fontSize: 10, fontWeight: '700' }}>✓</Text>}
-          </View>
-          <Text style={[h.taskLabel, t.done && { textDecorationLine: 'line-through', color: '#aaa' }]}>{t.label}</Text>
-          <Text style={h.taskPts}>{t.pts}</Text>
-        </View>
-      ))}
-    </View>
-  </ScrollView>
+const CharAvatar = ({ char, size = 52 }) => (
+  <View style={{
+    width: size, height: size, borderRadius: size / 2,
+    backgroundColor: '#F0F0F0', borderWidth: 2, borderColor: '#1C1C1E',
+    alignItems: 'center', justifyContent: 'center',
+  }}>
+    <Text style={{ fontSize: size * 0.42 }}>{char.emoji}</Text>
+  </View>
 );
 
-// ─────────────────────────────────────────────────────────────────────────────
-// TAB: PRACTICE (AI Teacher)
-// ─────────────────────────────────────────────────────────────────────────────
-const SUBJECTS = ['Physics', 'Maths', 'Chemistry', 'Biology', 'English'];
-const SUGGESTIONS = ["Newton's 2nd Law", 'Photosynthesis', '2x + 5 = 15', 'Periodic table'];
+// ─── Subject Questions Map ────────────────────────────────────────────────────
+const SUBJECT_QS = {
+  Physics:   ['Explain gravity 🌍', 'Laws of motion?', 'What is velocity?', 'What is energy?'],
+  Maths:     ['Solve x²+5x+6=0', 'What is integration?', 'Pythagoras theorem?', 'What is a prime?'],
+  Chemistry: ['What is pH?', 'Explain bonding', 'What are isotopes?', 'Periodic table tips?'],
+  Biology:   ['How does DNA work?', 'Explain photosynthesis', 'What is osmosis?', 'How do cells divide?'],
+  English:   ['Grammar tips?', 'How to write essay?', 'What is metaphor?', 'Improve vocabulary?'],
+  History:   ['WW2 causes?', 'Industrial Revolution?', 'Who was Gandhi?', 'French Revolution?'],
+};
 
-const PracticeTab = ({ firstName }) => {
+const AI_REPLIES = [
+  'Great question! 🌟 Let me break this down step by step so it\'s super clear for you.\n\nOnce you understand the concept, you\'ll be able to solve any similar problem! 💡',
+  'Excellent! 🎯 This is a really important topic. Here\'s the simplest way to understand it:\n\nThink of it this way — it\'s just like what happens in real life! 🌍',
+  'Love that curiosity! 🚀 Here\'s a clear explanation with an example you\'ll never forget!\n\nPractice this 3 times and it will stick forever! 📚',
+  'Perfect question for exam prep! ⭐\n\nThe key idea to remember — write it in your notes right now! When you see this in your exam, you\'ll smile! 😊',
+];
+
+// ─── Typing dots indicator ────────────────────────────────────────────────────
+const TypingDots = () => {
+  const anims = [useRef(new Animated.Value(0)).current, useRef(new Animated.Value(0)).current, useRef(new Animated.Value(0)).current];
+  React.useEffect(() => {
+    const animate = (a, delay) => Animated.loop(
+      Animated.sequence([
+        Animated.delay(delay),
+        Animated.timing(a, { toValue: -6, duration: 300, useNativeDriver: true }),
+        Animated.timing(a, { toValue: 0,  duration: 300, useNativeDriver: true }),
+        Animated.delay(600),
+      ])
+    ).start();
+    anims.forEach((a, i) => animate(a, i * 150));
+  }, []);
+  return (
+    <View style={{ flexDirection: 'row', gap: 5, paddingVertical: 4 }}>
+      {anims.map((a, i) => (
+        <Animated.View key={i} style={{ width: 7, height: 7, borderRadius: 3.5, backgroundColor: '#C7C7CC', transform: [{ translateY: a }] }} />
+      ))}
+    </View>
+  );
+};
+
+// ─── Main HomeScreen ──────────────────────────────────────────────────────────
+const HomeScreen = () => {
+  const { user } = useAuth();
+  const firstName = user?.name?.split(' ')[0] || 'Saurabh';
+
+  const [charIdx, setCharIdx]           = useState(0);
+  const [showCharModal, setShowCharModal] = useState(false);
+  const [tempChar, setTempChar]         = useState(0);
+
   const [activeSubject, setActiveSubject] = useState('Physics');
-  const [messages, setMessages] = useState([{
+  const [messages, setMessages]          = useState([{
     id: 1, from: 'ai',
-    text: `👋 Hi ${firstName}! I'm your AI Teacher. Ask me anything about ${activeSubject}! 🧪`,
+    text: `👋 Hi ${firstName}! Ask me anything about Physics — I'll explain it clearly with examples! 📚`,
   }]);
-  const [input, setInput] = useState('');
-  const [loading, setLoading] = useState(false);
-  const scrollRef = useRef(null);
+  const [input, setInput]   = useState('');
+  const [typing, setTyping] = useState(false);
+  const [replyIdx, setReplyIdx] = useState(0);
+  const chatRef = useRef(null);
+
+  const currentChar = CHARS[charIdx];
 
   const sendMessage = (text) => {
     const msg = text || input.trim();
     if (!msg) return;
     setInput('');
-    setMessages(prev => [...prev, { id: Date.now(), from: 'user', text: msg }]);
-    setLoading(true);
+    const userMsg = { id: Date.now(), from: 'user', text: msg };
+    setMessages(prev => [...prev, userMsg]);
+    setTyping(true);
+    setTimeout(() => chatRef.current?.scrollToEnd({ animated: true }), 100);
     setTimeout(() => {
-      setMessages(prev => [...prev, {
-        id: Date.now() + 1, from: 'ai',
-        text: `Great question! 💡 "${msg}" is a key concept in ${activeSubject}. Let me break it down step by step so it's crystal clear! 🚀`,
-      }]);
-      setLoading(false);
-      setTimeout(() => scrollRef.current?.scrollToEnd({ animated: true }), 100);
-    }, 1000);
-    setTimeout(() => scrollRef.current?.scrollToEnd({ animated: true }), 100);
+      const reply = AI_REPLIES[replyIdx % AI_REPLIES.length];
+      setMessages(prev => [...prev, { id: Date.now() + 1, from: 'ai', text: reply }]);
+      setReplyIdx(r => r + 1);
+      setTyping(false);
+      setTimeout(() => chatRef.current?.scrollToEnd({ animated: true }), 100);
+    }, 1200);
+  };
+
+  const switchSubject = (subj) => {
+    setActiveSubject(subj);
+    sendMessage(`Switched to ${subj}! 📚 Ask me anything — I'll explain it clearly! 😊`);
   };
 
   return (
-    <KeyboardAvoidingView style={{ flex: 1 }} behavior={Platform.OS === 'ios' ? 'padding' : undefined}>
-      <View style={{ flex: 1 }}>
-        {/* Header */}
-        <View style={p.aiHeader}>
-          <View style={p.aiAvatar}><Text style={{ fontSize: 18 }}>🎓</Text></View>
-          <View style={{ flex: 1 }}>
-            <Text style={p.aiTitle}>AI Teacher</Text>
-            <Text style={p.aiSub}>Ask anything about your subjects</Text>
+    <SafeAreaView style={s.safe}>
+      <StatusBar barStyle="dark-content" backgroundColor="#fff" translucent={false} />
+
+      {/* Status bar spacer for Android */}
+      {Platform.OS === 'android' && <View style={{ height: 24, backgroundColor: '#fff' }} />}
+
+      {/* ── TOP BAR ── */}
+      <View style={s.topbar}>
+        <View style={s.brand}>
+          <View style={s.brandLogo}>
+            <Text style={s.brandLogoTxt}>AL</Text>
           </View>
-          <View style={p.onlineBadge}>
-            <View style={p.onlineDot} />
-            <Text style={p.onlineTxt}>Online</Text>
-          </View>
+          <Text style={s.brandName}>Ailernova</Text>
         </View>
-        {/* Subject chips */}
-        <ScrollView horizontal showsHorizontalScrollIndicator={false}
-          contentContainerStyle={p.subjectsRow}>
-          {SUBJECTS.map(s => (
-            <TouchableOpacity key={s} onPress={() => setActiveSubject(s)}
-              style={[p.subChip, activeSubject === s && p.subChipActive]}>
-              <Text style={[p.subChipTxt, activeSubject === s && p.subChipTxtActive]}>{s}</Text>
-            </TouchableOpacity>
-          ))}
-        </ScrollView>
-        {/* Messages */}
-        <ScrollView ref={scrollRef} style={p.chatArea}
-          contentContainerStyle={{ gap: 10, padding: 12 }}
-          showsVerticalScrollIndicator={false}>
-          {messages.map(m => (
-            <View key={m.id} style={[p.msgRow, m.from === 'user' && p.msgRowUser]}>
-              {m.from === 'ai' && <View style={p.msgAvatar}><Text style={{ fontSize: 11 }}>🎓</Text></View>}
-              <View style={[p.bubble, m.from === 'user' ? p.bubbleUser : p.bubbleAI]}>
-                <Text style={[p.bubbleTxt, m.from === 'user' && { color: '#fff' }]}>{m.text}</Text>
+        <View style={s.topbarRight}>
+          <TouchableOpacity style={s.bellBtn}>
+            <Text style={{ fontSize: 17 }}>🔔</Text>
+            <View style={s.bellDot} />
+          </TouchableOpacity>
+          <TouchableOpacity onPress={() => setShowCharModal(true)} style={s.charRing}>
+            <CharAvatar char={currentChar} size={38} />
+            <View style={s.charEdit}><Text style={{ fontSize: 8, color: '#fff' }}>✏️</Text></View>
+          </TouchableOpacity>
+        </View>
+      </View>
+
+      <ScrollView style={s.screen} showsVerticalScrollIndicator={false} contentContainerStyle={{ paddingBottom: 16 }}>
+
+        {/* ── GREETING ── */}
+        <View style={s.greetSection}>
+          <View style={s.greetRow}>
+            <View style={{ flex: 1 }}>
+              <Text style={s.greetName}>Hi, {firstName}! 👋</Text>
+              <Text style={s.greetSub}>Let's make today a great{'\n'}learning day.</Text>
+            </View>
+            <View style={s.streakBox}>
+              <View style={s.sItem}>
+                <Text style={{ fontSize: 20 }}>🔥</Text>
+                <View>
+                  <Text style={s.sNum}>7</Text>
+                  <Text style={s.sLbl}>Day Streak</Text>
+                </View>
               </View>
-              {m.from === 'user' && <View style={p.msgAvatarUser}><Text style={{ fontSize: 11 }}>👤</Text></View>}
+              <View style={s.sDiv} />
+              <View style={s.sItem}>
+                <Text style={{ fontSize: 20 }}>⭐</Text>
+                <View>
+                  <Text style={s.sNum}>1250</Text>
+                  <Text style={s.sLbl}>XP Points</Text>
+                </View>
+              </View>
             </View>
-          ))}
-          {loading && (
-            <View style={p.msgRow}>
-              <View style={p.msgAvatar}><Text style={{ fontSize: 11 }}>🎓</Text></View>
-              <View style={p.bubbleAI}><Text style={p.bubbleTxt}>Thinking...</Text></View>
+          </View>
+        </View>
+
+        {/* ── CHARACTER CARD ── */}
+        <View style={s.charCard}>
+          <CharAvatar char={currentChar} size={72} />
+          <View style={s.charInfo}>
+            <Text style={s.charName}>{currentChar.name}</Text>
+            <Text style={s.charRole}>{currentChar.role} • Grade 9</Text>
+            <View style={s.xpBarWrap}><View style={s.xpBarFill} /></View>
+            <View style={s.xpRow}>
+              <Text style={s.xpTxt}>1,250 XP</Text>
+              <Text style={s.xpTxt}>Next: 1,500 XP</Text>
             </View>
-          )}
-        </ScrollView>
-        {/* Suggestions */}
-        <ScrollView horizontal showsHorizontalScrollIndicator={false}
-          contentContainerStyle={{ gap: 8, paddingHorizontal: PAD, paddingVertical: 6 }}>
-          {SUGGESTIONS.map((s, i) => (
-            <TouchableOpacity key={i} style={p.suggestChip} onPress={() => sendMessage(s)}>
-              <Text style={p.suggestTxt}>{s}</Text>
+          </View>
+          <TouchableOpacity style={s.charChangeBtn} onPress={() => setShowCharModal(true)}>
+            <Text style={s.charChangeTxt}>Change ✏️</Text>
+          </TouchableOpacity>
+        </View>
+
+        {/* ── SESSION CARD ── */}
+        <View style={s.sessCard}>
+          <TouchableOpacity style={s.sessDotsBtn}>
+            <View style={s.sessDot}/><View style={s.sessDot}/><View style={s.sessDot}/>
+          </TouchableOpacity>
+          <Text style={s.sessTag}>Upcoming 1:1 Session</Text>
+          <Text style={s.sessTitle}>Physics with Arjun Sir</Text>
+          <View style={s.sessMeta}>
+            <Text style={{ fontSize: 12 }}>📅</Text>
+            <Text style={s.sessMetaTxt}>Today, 5:30 PM – 6:30 PM</Text>
+          </View>
+          <View style={s.sessPills}>
+            <View style={s.sessPill}>
+              <Text style={s.sessPillTxt}>📹  Google Meet</Text>
+            </View>
+            <View style={s.sessPill}>
+              <Text style={s.sessPillTxt}>⏰  15 min before</Text>
+            </View>
+          </View>
+          <TouchableOpacity style={s.joinBtn}>
+            <Text style={s.joinTxt}>Join Session  📹</Text>
+          </TouchableOpacity>
+          {/* Teacher placeholder */}
+          <View style={s.sessImgPlaceholder}>
+            <Text style={{ fontSize: 64, marginTop: 10 }}>👨‍🏫</Text>
+            <View style={s.alBadge}><Text style={s.alBadgeTxt}>AL</Text></View>
+          </View>
+        </View>
+
+        {/* ── CONTINUE LEARNING ── */}
+        <View style={s.card}>
+          <View style={s.clRow}>
+            <View style={s.clPlay}>
+              <View style={s.clInner}>
+                <View style={s.tri} />
+              </View>
+            </View>
+            <View style={s.clMid}>
+              <Text style={s.clTag}>Continue Learning</Text>
+              <Text style={s.clTitle}>Laws of Motion</Text>
+              <View style={s.clBar}><View style={s.clFill} /></View>
+              <Text style={s.clPct}>60% Completed</Text>
+            </View>
+            <TouchableOpacity style={s.clResume}>
+              <Text style={s.clResumeTxt}>Resume ›</Text>
             </TouchableOpacity>
+          </View>
+        </View>
+
+        {/* ── QUICK ACTIONS ── */}
+        <View style={s.qaCard}>
+          <View style={s.qaRow}>
+            {[
+              { icon: '📋', label: 'Practice',  sub: 'AI Practice' },
+              { icon: '📖', label: 'Resources', sub: 'Notes & Videos' },
+              { icon: '📝', label: 'Tests',     sub: 'View & Attempt' },
+              { icon: '📊', label: 'Results',   sub: 'Your Progress' },
+              { icon: '📅', label: 'Sessions',  sub: 'My Schedule' },
+            ].map((item, i) => (
+              <TouchableOpacity key={i} style={s.qaItem}>
+                <View style={s.qaBox}><Text style={{ fontSize: 20 }}>{item.icon}</Text></View>
+                <Text style={s.qaLbl}>{item.label}</Text>
+                <Text style={s.qaSub}>{item.sub}</Text>
+              </TouchableOpacity>
+            ))}
+          </View>
+        </View>
+
+        {/* ── EXPLORE SKILLS ── */}
+        <View style={s.secHdr}>
+          <Text style={s.secTitle}>Explore Skills Programs</Text>
+          <TouchableOpacity><Text style={s.secLink}>View all ›</Text></TouchableOpacity>
+        </View>
+        <ScrollView horizontal showsHorizontalScrollIndicator={false}
+          contentContainerStyle={{ paddingHorizontal: PAD, gap: 12, paddingBottom: 6 }}>
+          {[
+            { icon: '💻', name: 'Coding',          desc: 'Build real-world skills' },
+            { icon: '🤖', name: 'AI & Robotics',   desc: 'Explore future tech' },
+            { icon: '🎤', name: 'Public Speaking', desc: 'Speak with confidence' },
+            { icon: '🏆', name: 'Leadership',      desc: 'Lead & inspire others' },
+          ].map((sk, i) => (
+            <View key={i} style={s.skCard}>
+              <View style={s.skIcon}><Text style={{ fontSize: 24 }}>{sk.icon}</Text></View>
+              <Text style={s.skName}>{sk.name}</Text>
+              <Text style={s.skDesc}>{sk.desc}</Text>
+              <TouchableOpacity style={s.skBtn}><Text style={s.skBtnTxt}>Register</Text></TouchableOpacity>
+            </View>
           ))}
         </ScrollView>
-        {/* Input */}
-        <View style={p.inputRow}>
-          <TextInput style={p.input} placeholder={`Ask about ${activeSubject}...`}
-            placeholderTextColor="#aaa" value={input} onChangeText={setInput}
-            onSubmitEditing={() => sendMessage()} returnKeyType="send" />
-          <TouchableOpacity style={p.sendBtn} onPress={() => sendMessage()}>
-            <Text style={{ color: '#fff', fontSize: 16, fontWeight: '700' }}>↑</Text>
-          </TouchableOpacity>
-        </View>
-      </View>
-    </KeyboardAvoidingView>
-  );
-};
 
-// ─────────────────────────────────────────────────────────────────────────────
-// TAB: EXPLORE (Skills)
-// ─────────────────────────────────────────────────────────────────────────────
-const SKILLS = [
-  { emoji: '💻', label: 'Coding',           sub: 'Build real-world skills' },
-  { emoji: '🤖', label: 'AI & Robotics',    sub: 'Explore future technologies' },
-  { emoji: '🎙', label: 'Public Speaking',  sub: 'Speak confidently & clearly' },
-  { emoji: '👤', label: 'Leadership',       sub: 'Lead with confidence' },
-  { emoji: '✍️', label: 'Creative Writing', sub: 'Express your ideas clearly' },
-  { emoji: '📊', label: 'Data Science',     sub: 'Understand data & trends' },
-];
+        {/* ── AI TEACHER ── */}
+        <View style={s.aiSection}>
+          <Text style={s.aiSectionLabel}>AI Teacher 🎓</Text>
 
-const ExploreTab = () => (
-  <ScrollView showsVerticalScrollIndicator={false} contentContainerStyle={{ paddingBottom: 12 }}>
-    <Text style={e.sectionTitle}>Explore Skills Programs</Text>
-    <View style={e.grid}>
-      {SKILLS.map((item, i) => (
-        <View key={i} style={e.skillCard}>
-          <View style={e.skillIcon}>
-            <Text style={{ fontSize: 26 }}>{item.emoji}</Text>
-          </View>
-          <Text style={e.skillLabel}>{item.label}</Text>
-          <Text style={e.skillSub}>{item.sub}</Text>
-          <TouchableOpacity style={e.registerBtn}>
-            <Text style={e.registerTxt}>Register</Text>
-          </TouchableOpacity>
-        </View>
-      ))}
-    </View>
-    <Text style={e.sectionTitle}>Trending Topics</Text>
-    {['Machine Learning Basics', 'Quantum Physics 101', 'Financial Literacy', 'Public Speaking Mastery'].map((t, i) => (
-      <TouchableOpacity key={i} style={e.trendRow}>
-        <View style={e.trendNum}><Text style={e.trendNumTxt}>{i + 1}</Text></View>
-        <Text style={e.trendLabel}>{t}</Text>
-        <Text style={{ fontSize: 16, color: '#aaa' }}>›</Text>
-      </TouchableOpacity>
-    ))}
-  </ScrollView>
-);
-
-// ─────────────────────────────────────────────────────────────────────────────
-// TAB: PROGRESS
-// ─────────────────────────────────────────────────────────────────────────────
-const WEEK_BARS = [
-  { day: 'M', mins: 20 }, { day: 'T', mins: 45 }, { day: 'W', mins: 30 },
-  { day: 'T', mins: 60 }, { day: 'F', mins: 40 }, { day: 'S', mins: 25 }, { day: 'S', mins: 75 },
-];
-const SUBJECT_PROGRESS = [
-  { label: 'Physics',   pct: 78 },
-  { label: 'Maths',     pct: 91 },
-  { label: 'Chemistry', pct: 55 },
-  { label: 'Biology',   pct: 63 },
-  { label: 'English',   pct: 84 },
-];
-const maxMins = Math.max(...WEEK_BARS.map(d => d.mins));
-
-const ProgressTab = () => (
-  <ScrollView showsVerticalScrollIndicator={false} contentContainerStyle={{ paddingBottom: 12 }}>
-    {/* Stat pills */}
-    <View style={pg.pillsRow}>
-      {[
-        { icon: '📚', val: '12',     lbl: 'Topics' },
-        { icon: '⏱',  val: '8h 20m', lbl: 'Study Time' },
-        { icon: '🎯', val: '85%',    lbl: 'Accuracy' },
-        { icon: '🔥', val: '7',      lbl: 'Streak' },
-      ].map((p, i) => (
-        <View key={i} style={pg.pill}>
-          <Text style={{ fontSize: 18 }}>{p.icon}</Text>
-          <Text style={pg.pillVal}>{p.val}</Text>
-          <Text style={pg.pillLbl}>{p.lbl}</Text>
-        </View>
-      ))}
-    </View>
-
-    {/* Bar chart */}
-    <View style={pg.card}>
-      <View style={{ flexDirection: 'row', justifyContent: 'space-between', marginBottom: 10 }}>
-        <Text style={pg.cardTitle}>Study Time</Text>
-        <Text style={{ fontSize: 11, color: '#aaa' }}>This Week</Text>
-      </View>
-      <View style={{ flexDirection: 'row', alignItems: 'flex-end', gap: 8, height: 80 }}>
-        {WEEK_BARS.map((d, i) => {
-          const bh = Math.max(6, (d.mins / maxMins) * 72);
-          const isToday = i === WEEK_BARS.length - 1;
-          return (
-            <View key={i} style={{ flex: 1, alignItems: 'center', gap: 4 }}>
-              <Text style={{ fontSize: 8, color: isToday ? '#111' : '#bbb', fontWeight: isToday ? '700' : '400' }}>{d.mins}m</Text>
-              <View style={{ width: '80%', height: bh, backgroundColor: isToday ? '#111' : '#e0e0e0', borderRadius: 4 }} />
-              <Text style={{ fontSize: 9, color: isToday ? '#111' : '#bbb', fontWeight: isToday ? '700' : '400' }}>{d.day}</Text>
+          {/* Header */}
+          <View style={s.aiHeaderCard}>
+            <View style={s.aiTopRow}>
+              <View style={s.aiLeft}>
+                <View style={s.aiAvatar}><Text style={{ fontSize: 24 }}>🎓</Text></View>
+                <View>
+                  <Text style={s.aiName}>AI Teacher</Text>
+                  <Text style={s.aiSub}>Powered by Ailernova AI</Text>
+                </View>
+              </View>
+              <View style={s.aiOnline}>
+                <View style={s.aiDot} />
+                <Text style={s.aiOnlineTxt}>Always Online</Text>
+              </View>
             </View>
-          );
-        })}
-      </View>
-    </View>
-
-    {/* Subject breakdown */}
-    <View style={pg.card}>
-      <Text style={[pg.cardTitle, { marginBottom: 14 }]}>Subject Breakdown</Text>
-      {SUBJECT_PROGRESS.map((sub, i) => (
-        <View key={i} style={{ marginBottom: 12 }}>
-          <View style={{ flexDirection: 'row', justifyContent: 'space-between', marginBottom: 5 }}>
-            <Text style={{ fontSize: 12, fontWeight: '600', color: '#111' }}>{sub.label}</Text>
-            <Text style={{ fontSize: 12, fontWeight: '700', color: '#111' }}>{sub.pct}%</Text>
+            <Text style={s.aiDesc}>
+              Ask anything about your subjects — get instant step-by-step explanations, concept clarity, and exam tips. Available 24/7! 🚀
+            </Text>
           </View>
-          <View style={{ height: 8, backgroundColor: '#f0f0f0', borderRadius: 4, overflow: 'hidden' }}>
-            <View style={{ height: 8, width: `${sub.pct}%`, backgroundColor: '#111', borderRadius: 4 }} />
+
+          {/* Subject Chips */}
+          <View style={s.chipSection}>
+            <Text style={s.chipLbl}>YOUR SUBJECTS</Text>
+            <ScrollView horizontal showsHorizontalScrollIndicator={false}
+              contentContainerStyle={{ gap: 8 }}>
+              {Object.keys(SUBJECT_QS).map(subj => (
+                <TouchableOpacity key={subj}
+                  style={[s.chip, activeSubject === subj && s.chipOn]}
+                  onPress={() => switchSubject(subj)}>
+                  <Text style={[s.chipTxt, activeSubject === subj && s.chipTxtOn]}>{subj}</Text>
+                </TouchableOpacity>
+              ))}
+            </ScrollView>
+          </View>
+
+          {/* Chat */}
+          <View style={s.chatWrap}>
+            <ScrollView ref={chatRef} style={s.chatMsgs}
+              contentContainerStyle={{ padding: 14, gap: 14 }}
+              showsVerticalScrollIndicator={false}>
+              {messages.map(m => (
+                <View key={m.id} style={[s.msgRow, m.from === 'user' && s.msgRowMe]}>
+                  {m.from === 'ai' && <View style={s.msgAv}><Text style={{ fontSize: 14 }}>🎓</Text></View>}
+                  <View style={[s.bubble, m.from === 'user' ? s.bMe : s.bAi]}>
+                    <Text style={[s.bubbleTxt, m.from === 'user' && { color: '#fff' }]}>{m.text}</Text>
+                  </View>
+                  {m.from === 'user' && (
+                    <View style={s.msgAvUser}>
+                      <CharAvatar char={currentChar} size={30} />
+                    </View>
+                  )}
+                </View>
+              ))}
+              {typing && (
+                <View style={s.msgRow}>
+                  <View style={s.msgAv}><Text style={{ fontSize: 14 }}>🎓</Text></View>
+                  <View style={s.bAi}><TypingDots /></View>
+                </View>
+              )}
+            </ScrollView>
+
+            {/* Quick questions */}
+            <View style={s.quickQs}>
+              <Text style={s.qsLbl}>QUICK QUESTIONS</Text>
+              <ScrollView horizontal showsHorizontalScrollIndicator={false}
+                contentContainerStyle={{ gap: 8 }}>
+                {(SUBJECT_QS[activeSubject] || []).map((q, i) => (
+                  <TouchableOpacity key={i} style={s.qPill} onPress={() => sendMessage(q)}>
+                    <Text style={s.qPillTxt}>{q}</Text>
+                  </TouchableOpacity>
+                ))}
+              </ScrollView>
+            </View>
+
+            {/* Input */}
+            <View style={s.inputArea}>
+              <View style={s.inputRow}>
+                <TextInput
+                  style={s.inp}
+                  placeholder={`Type your question about ${activeSubject}...`}
+                  placeholderTextColor="#C7C7CC"
+                  value={input}
+                  onChangeText={setInput}
+                  onSubmitEditing={() => sendMessage()}
+                  returnKeyType="send"
+                />
+                <TouchableOpacity style={s.sendBtn} onPress={() => sendMessage()}>
+                  <Text style={{ color: '#fff', fontSize: 16, fontWeight: '700' }}>↑</Text>
+                </TouchableOpacity>
+              </View>
+              <View style={s.voiceRow}>
+                <TouchableOpacity style={s.voiceBtn}>
+                  <Text style={{ fontSize: 17 }}>🎤</Text>
+                  <Text style={s.voiceLbl}>Tap to Speak</Text>
+                </TouchableOpacity>
+                <TouchableOpacity style={s.askBtn} onPress={() => setShowCharModal(false)}>
+                  <Text style={s.askLbl}>Open AI Teacher ↗</Text>
+                </TouchableOpacity>
+              </View>
+            </View>
           </View>
         </View>
-      ))}
-    </View>
 
-    {/* Heatmap */}
-    <View style={pg.card}>
-      <Text style={[pg.cardTitle, { marginBottom: 12 }]}>Activity This Month</Text>
-      <View style={{ flexDirection: 'row', flexWrap: 'wrap', gap: 4 }}>
-        {Array.from({ length: 35 }).map((_, i) => {
-          const v = Math.random();
-          const bg = v > 0.7 ? '#111' : v > 0.4 ? '#555' : v > 0.2 ? '#bbb' : '#f0f0f0';
-          return <View key={i} style={{ width: 16, height: 16, borderRadius: 3, backgroundColor: bg }} />;
-        })}
-      </View>
-      <View style={{ flexDirection: 'row', alignItems: 'center', gap: 4, marginTop: 8, justifyContent: 'flex-end' }}>
-        <Text style={{ fontSize: 9, color: '#aaa' }}>Less</Text>
-        {['#f0f0f0', '#bbb', '#555', '#111'].map((c, i) => (
-          <View key={i} style={{ width: 12, height: 12, borderRadius: 2, backgroundColor: c }} />
-        ))}
-        <Text style={{ fontSize: 9, color: '#aaa' }}>More</Text>
-      </View>
-    </View>
-  </ScrollView>
-);
-
-// ─────────────────────────────────────────────────────────────────────────────
-// MAIN HOME SCREEN
-// ─────────────────────────────────────────────────────────────────────────────
-const TABS = [
-  { key: 'home',     label: 'Home' },
-  { key: 'practice', label: 'AI Teacher' },
-  { key: 'explore',  label: 'Explore' },
-  { key: 'progress', label: 'Progress' },
-];
-
-const HomeScreen = () => {
-  const { user } = useAuth();
-  const firstName = user?.name?.split(' ')[0] || 'Student';
-  const [activeTab, setActiveTab] = useState('home');
-
-  return (
-    <SafeAreaView style={styles.safe}>
-      <StatusBar barStyle="dark-content" backgroundColor="#fff" />
-
-      {/* ── Fixed Header ── */}
-      <View style={styles.header}>
-        <View style={styles.headerL}>
-          <View style={styles.logoBox}><Text style={styles.logoTxt}>AL</Text></View>
-          <Text style={styles.brand}>Ailernova</Text>
+        {/* ── PROGRESS ── */}
+        <View style={s.progCard}>
+          <View style={s.progHead}>
+            <Text style={s.progTitle}>Your Progress</Text>
+            <Text style={s.progWeek}>This Week</Text>
+          </View>
+          {/* Bar chart */}
+          <View style={{ flexDirection: 'row', alignItems: 'flex-end', gap: 8, height: 70, marginBottom: 6 }}>
+            {[
+              { d: 'M', v: 30 }, { d: 'T', v: 55 }, { d: 'W', v: 40 },
+              { d: 'T', v: 65 }, { d: 'F', v: 40 }, { d: 'S', v: 25 }, { d: 'S', v: 75 },
+            ].map((bar, i) => {
+              const isToday = i === 6;
+              return (
+                <View key={i} style={{ flex: 1, alignItems: 'center', gap: 3 }}>
+                  <View style={{ width: '80%', height: bar.v * 0.7, backgroundColor: isToday ? '#1C1C1E' : '#E0E0E0', borderRadius: 4 }} />
+                  <Text style={{ fontSize: 9, color: isToday ? '#1C1C1E' : '#C7C7CC', fontWeight: isToday ? '800' : '600' }}>{bar.d}</Text>
+                </View>
+              );
+            })}
+          </View>
+          <View style={s.progStats}>
+            {[
+              { n: '12',     l: 'Topics\nLearned' },
+              { n: '8h 20m', l: 'Study\nTime' },
+              { n: '85%',    l: 'Accuracy' },
+            ].map((st, i) => (
+              <View key={i} style={s.progStat}>
+                <Text style={s.progNum}>{st.n}</Text>
+                <Text style={s.progLbl}>{st.l}</Text>
+              </View>
+            ))}
+          </View>
         </View>
-        <View style={styles.headerR}>
-          <TouchableOpacity>
-            <Text style={{ fontSize: 20 }}>🔔</Text>
-            <View style={styles.bellDot} />
+
+      </ScrollView>
+
+      {/* ── CHARACTER MODAL ── */}
+      {showCharModal && (
+        <TouchableOpacity style={s.modalOverlay} activeOpacity={1}
+          onPress={() => setShowCharModal(false)}>
+          <TouchableOpacity activeOpacity={1} style={s.modal}>
+            <View style={s.modalHandle} />
+            <Text style={s.modalTitle}>Choose Your Character</Text>
+            <Text style={s.modalSub}>Pick a unique identity that's all yours!</Text>
+            <View style={s.charGrid}>
+              {CHARS.map((c, i) => (
+                <TouchableOpacity key={i}
+                  style={[s.charOpt, tempChar === i && s.charOptSel]}
+                  onPress={() => setTempChar(i)}>
+                  <CharAvatar char={c} size={64} />
+                  <Text style={s.charOptName}>{c.name}</Text>
+                  <Text style={s.charOptDesc}>{c.role}</Text>
+                </TouchableOpacity>
+              ))}
+            </View>
+            <TouchableOpacity style={s.modalBtn}
+              onPress={() => { setCharIdx(tempChar); setShowCharModal(false); }}>
+              <Text style={s.modalBtnTxt}>Save My Character ✓</Text>
+            </TouchableOpacity>
           </TouchableOpacity>
-          <View style={styles.avatarBox}>
-            <Text style={styles.avatarTxt}>{firstName[0].toUpperCase()}</Text>
-          </View>
-        </View>
-      </View>
-
-      {/* ── Greeting row ── */}
-      <View style={styles.greetRow}>
-        <View style={{ flex: 1 }}>
-          <Text style={styles.greetName}>Hi, {firstName}! 👋</Text>
-          <Text style={styles.greetSub}>Let's make today a great learning day.</Text>
-        </View>
-        <View style={styles.statsBox}>
-          <View style={styles.statCol}>
-            <Text style={{ fontSize: 16 }}>🔥</Text>
-            <Text style={styles.statNum}>7</Text>
-            <Text style={styles.statLbl}>Streak</Text>
-          </View>
-          <View style={styles.statDiv} />
-          <View style={styles.statCol}>
-            <Text style={{ fontSize: 16 }}>⭐</Text>
-            <Text style={styles.statNum}>1250</Text>
-            <Text style={styles.statLbl}>XP</Text>
-          </View>
-        </View>
-      </View>
-
-      {/* ── Inner Tab Bar ── */}
-      <View style={styles.innerTabBar}>
-        {TABS.map(t => (
-          <TouchableOpacity key={t.key} style={[styles.innerTab, activeTab === t.key && styles.innerTabActive]}
-            onPress={() => setActiveTab(t.key)}>
-            <Text style={[styles.innerTabTxt, activeTab === t.key && styles.innerTabTxtActive]}>{t.label}</Text>
-          </TouchableOpacity>
-        ))}
-      </View>
-
-      {/* ── Tab Content ── */}
-      <View style={styles.content}>
-        {activeTab === 'home'     && <HomeTab firstName={firstName} />}
-        {activeTab === 'practice' && <PracticeTab firstName={firstName} />}
-        {activeTab === 'explore'  && <ExploreTab />}
-        {activeTab === 'progress' && <ProgressTab />}
-      </View>
+        </TouchableOpacity>
+      )}
 
     </SafeAreaView>
   );
@@ -405,121 +453,162 @@ const HomeScreen = () => {
 // ─────────────────────────────────────────────────────────────────────────────
 // STYLES
 // ─────────────────────────────────────────────────────────────────────────────
-const styles = StyleSheet.create({
-  safe:       { flex: 1, backgroundColor: '#fff' },
-  header:     { flexDirection: 'row', justifyContent: 'space-between', alignItems: 'center', paddingHorizontal: PAD, paddingTop: 8, paddingBottom: 8 },
-  headerL:    { flexDirection: 'row', alignItems: 'center', gap: 8 },
-  logoBox:    { width: 32, height: 32, borderRadius: 7, backgroundColor: '#111', alignItems: 'center', justifyContent: 'center' },
-  logoTxt:    { color: '#fff', fontSize: 10, fontWeight: '900' },
-  brand:      { fontSize: 16, fontWeight: '700', color: '#111' },
-  headerR:    { flexDirection: 'row', alignItems: 'center', gap: 12 },
-  bellDot:    { position: 'absolute', top: 0, right: 0, width: 7, height: 7, borderRadius: 3.5, backgroundColor: '#111', borderWidth: 1.5, borderColor: '#fff' },
-  avatarBox:  { width: 32, height: 32, borderRadius: 16, backgroundColor: '#e8e8e8', alignItems: 'center', justifyContent: 'center', borderWidth: 1.5, borderColor: '#111' },
-  avatarTxt:  { color: '#111', fontWeight: '800', fontSize: 13 },
+const s = StyleSheet.create({
+  safe:   { flex: 1, backgroundColor: '#F7F7F7' },
+  screen: { flex: 1 },
 
-  greetRow:   { flexDirection: 'row', alignItems: 'center', paddingHorizontal: PAD, paddingBottom: 10, gap: 10 },
-  greetName:  { fontSize: 18, fontWeight: '800', color: '#111', marginBottom: 2 },
-  greetSub:   { fontSize: 11, color: '#666' },
-  statsBox:   { borderWidth: 1.5, borderColor: '#e8e8e8', borderRadius: 12, paddingVertical: 8, paddingHorizontal: 10, flexDirection: 'row', alignItems: 'center', gap: 8 },
-  statCol:    { alignItems: 'center', gap: 1 },
-  statNum:    { fontSize: 13, fontWeight: '800', color: '#111' },
-  statLbl:    { fontSize: 8, color: '#888' },
-  statDiv:    { width: 1, height: 28, backgroundColor: '#e8e8e8' },
+  // Topbar
+  topbar:      { backgroundColor: '#fff', flexDirection: 'row', justifyContent: 'space-between', alignItems: 'center', paddingHorizontal: 20, paddingTop: 10, paddingBottom: 12, borderBottomWidth: 1.5, borderBottomColor: '#F0F0F0' },
+  brand:       { flexDirection: 'row', alignItems: 'center', gap: 10 },
+  brandLogo:   { width: 38, height: 38, backgroundColor: '#1C1C1E', borderRadius: 11, alignItems: 'center', justifyContent: 'center' },
+  brandLogoTxt:{ color: '#fff', fontSize: 12, fontWeight: '900' },
+  brandName:   { fontSize: 20, fontWeight: '900', color: '#1C1C1E', letterSpacing: -0.5 },
+  topbarRight: { flexDirection: 'row', alignItems: 'center', gap: 12 },
+  bellBtn:     { width: 38, height: 38, backgroundColor: '#F5F5F5', borderRadius: 19, alignItems: 'center', justifyContent: 'center', borderWidth: 1.5, borderColor: '#EFEFEF', position: 'relative' },
+  bellDot:     { position: 'absolute', top: 7, right: 7, width: 8, height: 8, backgroundColor: '#1C1C1E', borderRadius: 4, borderWidth: 2, borderColor: '#fff' },
+  charRing:    { position: 'relative' },
+  charEdit:    { position: 'absolute', bottom: -2, right: -2, width: 16, height: 16, backgroundColor: '#1C1C1E', borderRadius: 8, borderWidth: 2, borderColor: '#fff', alignItems: 'center', justifyContent: 'center' },
 
-  innerTabBar:    { flexDirection: 'row', paddingHorizontal: PAD, gap: 6, marginBottom: 10 },
-  innerTab:       { paddingVertical: 7, paddingHorizontal: 14, borderRadius: 20, borderWidth: 1.5, borderColor: '#e8e8e8', backgroundColor: '#fff' },
-  innerTabActive: { backgroundColor: '#111', borderColor: '#111' },
-  innerTabTxt:    { fontSize: 12, fontWeight: '600', color: '#888' },
-  innerTabTxtActive: { color: '#fff' },
+  // Greeting
+  greetSection: { backgroundColor: '#fff', paddingHorizontal: 20, paddingVertical: 14, marginBottom: 8 },
+  greetRow:     { flexDirection: 'row', justifyContent: 'space-between', alignItems: 'flex-start', gap: 12 },
+  greetName:    { fontSize: 26, fontWeight: '900', color: '#1C1C1E', letterSpacing: -0.5, lineHeight: 30 },
+  greetSub:     { fontSize: 13, color: '#8E8E93', marginTop: 5, fontWeight: '600', lineHeight: 19 },
+  streakBox:    { backgroundColor: '#F7F7F7', borderWidth: 1.5, borderColor: '#EBEBEB', borderRadius: 18, padding: 12, flexDirection: 'row', alignItems: 'center', gap: 12 },
+  sItem:        { flexDirection: 'row', alignItems: 'center', gap: 8 },
+  sNum:         { fontSize: 17, fontWeight: '900', color: '#1C1C1E' },
+  sLbl:         { fontSize: 9, color: '#8E8E93', fontWeight: '700', marginTop: 1 },
+  sDiv:         { width: 1, height: 30, backgroundColor: '#E8E8E8' },
 
-  content:    { flex: 1, paddingHorizontal: PAD },
-});
+  // Character card
+  charCard:       { backgroundColor: '#fff', marginHorizontal: PAD, marginBottom: 10, borderRadius: 22, borderWidth: 1.5, borderColor: '#F0F0F0', padding: 14, flexDirection: 'row', alignItems: 'center', gap: 14 },
+  charInfo:       { flex: 1 },
+  charName:       { fontSize: 16, fontWeight: '900', color: '#1C1C1E', letterSpacing: -0.3 },
+  charRole:       { fontSize: 11, color: '#8E8E93', fontWeight: '700', marginTop: 2 },
+  xpBarWrap:      { height: 6, backgroundColor: '#F0F0F0', borderRadius: 10, marginTop: 10, overflow: 'hidden' },
+  xpBarFill:      { height: '100%', backgroundColor: '#1C1C1E', borderRadius: 10, width: '72%' },
+  xpRow:          { flexDirection: 'row', justifyContent: 'space-between', marginTop: 5 },
+  xpTxt:          { fontSize: 10, color: '#8E8E93', fontWeight: '700' },
+  charChangeBtn:  { borderWidth: 2, borderColor: '#1C1C1E', borderRadius: 11, paddingVertical: 8, paddingHorizontal: 12 },
+  charChangeTxt:  { fontSize: 11, fontWeight: '800', color: '#1C1C1E' },
 
-// Home tab styles
-const h = StyleSheet.create({
-  sessionCard:   { backgroundColor: '#111', borderRadius: 18, flexDirection: 'row', padding: 16, marginBottom: 10, overflow: 'hidden' },
-  sessionLeft:   { flex: 1 },
-  sessionTag:    { fontSize: 9, color: '#ccc', fontWeight: '700', letterSpacing: 1, marginBottom: 6 },
-  sessionTitle:  { fontSize: 17, fontWeight: '900', color: '#fff', marginBottom: 8, lineHeight: 22 },
-  sessionMeta:   { fontSize: 11, color: '#ccc', marginBottom: 4 },
-  joinBtn:       { marginTop: 8, backgroundColor: '#fff', borderRadius: 9, paddingVertical: 8, paddingHorizontal: 16, alignSelf: 'flex-start' },
-  joinTxt:       { fontSize: 12, fontWeight: '700', color: '#111' },
-  continueCard:  { borderWidth: 1.5, borderColor: '#e8e8e8', borderRadius: 14, padding: 12, flexDirection: 'row', alignItems: 'center', gap: 10, marginBottom: 10 },
-  playCircle:    { width: 38, height: 38, borderRadius: 19, backgroundColor: '#e8e8e8', alignItems: 'center', justifyContent: 'center' },
-  continueLbl:   { fontSize: 9, color: '#555', fontWeight: '700', marginBottom: 2 },
-  continueTitle: { fontSize: 13, fontWeight: '700', color: '#111', marginBottom: 5 },
-  progBg:        { height: 4, backgroundColor: '#e8e8e8', borderRadius: 2, overflow: 'hidden', marginBottom: 3 },
-  progFill:      { height: 4, backgroundColor: '#111', borderRadius: 2 },
-  progTxt:       { fontSize: 9, color: '#888' },
-  resumeBtn:     { backgroundColor: '#f0f0f0', borderRadius: 9, paddingVertical: 7, paddingHorizontal: 10 },
-  resumeTxt:     { fontSize: 11, color: '#111', fontWeight: '600' },
-  quickRow:      { flexDirection: 'row', justifyContent: 'space-between', marginBottom: 12 },
-  quickItem:     { alignItems: 'center', gap: 5 },
-  quickIconBox:  { width: 46, height: 46, borderRadius: 13, backgroundColor: '#f5f5f5', borderWidth: 1, borderColor: '#e8e8e8', alignItems: 'center', justifyContent: 'center' },
-  quickLbl:      { fontSize: 10, fontWeight: '600', color: '#111' },
-  sectionTitle:  { fontSize: 13, fontWeight: '700', color: '#111', marginBottom: 8 },
-  tasksCard:     { borderWidth: 1.5, borderColor: '#e8e8e8', borderRadius: 14, overflow: 'hidden' },
-  taskRow:       { flexDirection: 'row', alignItems: 'center', padding: 12, gap: 10 },
-  taskCheck:     { width: 22, height: 22, borderRadius: 11, borderWidth: 1.5, borderColor: '#ccc', alignItems: 'center', justifyContent: 'center' },
-  taskCheckDone: { backgroundColor: '#111', borderColor: '#111' },
-  taskLabel:     { flex: 1, fontSize: 12, color: '#111', fontWeight: '500' },
-  taskPts:       { fontSize: 10, color: '#888', fontWeight: '600' },
-});
+  // Session card
+  sessCard:           { marginHorizontal: PAD, marginBottom: 10, backgroundColor: '#1C1C1E', borderRadius: 26, padding: 22, position: 'relative', overflow: 'hidden', minHeight: 200 },
+  sessDotsBtn:        { position: 'absolute', top: 18, right: 18, width: 30, height: 30, backgroundColor: 'rgba(255,255,255,0.1)', borderRadius: 15, flexDirection: 'column', alignItems: 'center', justifyContent: 'center', gap: 3 },
+  sessDot:            { width: 3, height: 3, backgroundColor: '#888', borderRadius: 1.5 },
+  sessTag:            { fontSize: 10, fontWeight: '800', color: '#8E8E93', letterSpacing: 1.2, textTransform: 'uppercase', marginBottom: 10 },
+  sessTitle:          { fontSize: 21, fontWeight: '900', color: '#fff', lineHeight: 26, maxWidth: 195, marginBottom: 12, letterSpacing: -0.3 },
+  sessMeta:           { flexDirection: 'row', alignItems: 'center', gap: 8, marginBottom: 8 },
+  sessMetaTxt:        { color: '#AEAEB2', fontSize: 13, fontWeight: '600' },
+  sessPills:          { flexDirection: 'row', gap: 8, marginBottom: 18 },
+  sessPill:           { backgroundColor: 'rgba(255,255,255,0.08)', borderWidth: 1, borderColor: 'rgba(255,255,255,0.12)', borderRadius: 18, paddingVertical: 6, paddingHorizontal: 12 },
+  sessPillTxt:        { fontSize: 11, color: '#C7C7CC', fontWeight: '700' },
+  joinBtn:            { backgroundColor: '#fff', borderRadius: 13, paddingVertical: 12, paddingHorizontal: 22, alignSelf: 'flex-start' },
+  joinTxt:            { fontSize: 14, fontWeight: '800', color: '#1C1C1E' },
+  sessImgPlaceholder: { position: 'absolute', right: -10, bottom: 0, width: 150, height: 200, alignItems: 'center', justifyContent: 'flex-end' },
+  alBadge:            { position: 'absolute', bottom: 14, right: 14, backgroundColor: '#fff', borderRadius: 7, paddingHorizontal: 8, paddingVertical: 3 },
+  alBadgeTxt:         { fontSize: 10, fontWeight: '900', color: '#1C1C1E' },
 
-// Practice tab styles
-const p = StyleSheet.create({
-  aiHeader:       { flexDirection: 'row', alignItems: 'center', gap: 10, marginBottom: 10 },
-  aiAvatar:       { width: 40, height: 40, borderRadius: 20, backgroundColor: '#f0f0f0', borderWidth: 1.5, borderColor: '#111', alignItems: 'center', justifyContent: 'center' },
-  aiTitle:        { fontSize: 14, fontWeight: '800', color: '#111' },
-  aiSub:          { fontSize: 10, color: '#888' },
-  onlineBadge:    { flexDirection: 'row', alignItems: 'center', gap: 4, borderWidth: 1.5, borderColor: '#111', borderRadius: 20, paddingHorizontal: 8, paddingVertical: 3 },
-  onlineDot:      { width: 6, height: 6, borderRadius: 3, backgroundColor: '#111' },
-  onlineTxt:      { fontSize: 10, color: '#111', fontWeight: '600' },
-  subjectsRow:    { gap: 8, marginBottom: 10 },
-  subChip:        { paddingVertical: 6, paddingHorizontal: 14, borderRadius: 20, borderWidth: 1.5, borderColor: '#e0e0e0' },
-  subChipActive:  { backgroundColor: '#111', borderColor: '#111' },
-  subChipTxt:     { fontSize: 12, color: '#555', fontWeight: '500' },
-  subChipTxtActive:{ color: '#fff' },
-  chatArea:       { flex: 1, backgroundColor: '#f8f8f8', borderRadius: 14, marginBottom: 8 },
-  msgRow:         { flexDirection: 'row', alignItems: 'flex-end', gap: 7 },
-  msgRowUser:     { flexDirection: 'row-reverse' },
-  msgAvatar:      { width: 26, height: 26, borderRadius: 13, backgroundColor: '#e8e8e8', borderWidth: 1.5, borderColor: '#111', alignItems: 'center', justifyContent: 'center' },
-  msgAvatarUser:  { width: 26, height: 26, borderRadius: 13, backgroundColor: '#111', alignItems: 'center', justifyContent: 'center' },
-  bubble:         { maxWidth: '75%', padding: 10, borderRadius: 14 },
-  bubbleAI:       { backgroundColor: '#fff', borderWidth: 1, borderColor: '#e8e8e8', borderBottomLeftRadius: 3 },
-  bubbleUser:     { backgroundColor: '#111', borderBottomRightRadius: 3 },
-  bubbleTxt:      { fontSize: 12, color: '#333', lineHeight: 18 },
-  suggestChip:    { borderWidth: 1.5, borderColor: '#e0e0e0', borderRadius: 20, paddingVertical: 6, paddingHorizontal: 12 },
-  suggestTxt:     { fontSize: 11, color: '#555', fontWeight: '500' },
-  inputRow:       { flexDirection: 'row', gap: 8, alignItems: 'center', paddingBottom: 8 },
-  input:          { flex: 1, borderWidth: 1.5, borderColor: '#e0e0e0', borderRadius: 12, paddingHorizontal: 12, paddingVertical: 9, fontSize: 13, color: '#111' },
-  sendBtn:        { width: 38, height: 38, borderRadius: 11, backgroundColor: '#111', alignItems: 'center', justifyContent: 'center' },
-});
+  // Continue learning
+  card:       { backgroundColor: '#fff', marginHorizontal: PAD, marginBottom: 8, borderRadius: 20, borderWidth: 1.5, borderColor: '#F0F0F0', padding: 14 },
+  clRow:      { flexDirection: 'row', alignItems: 'center', gap: 14 },
+  clPlay:     { width: 50, height: 50, backgroundColor: '#F0F0F0', borderRadius: 14, alignItems: 'center', justifyContent: 'center', flexShrink: 0 },
+  clInner:    { width: 32, height: 32, backgroundColor: '#1C1C1E', borderRadius: 16, alignItems: 'center', justifyContent: 'center' },
+  tri:        { width: 0, height: 0, borderTopWidth: 6, borderBottomWidth: 6, borderLeftWidth: 11, borderTopColor: 'transparent', borderBottomColor: 'transparent', borderLeftColor: '#fff', marginLeft: 2 },
+  clMid:      { flex: 1 },
+  clTag:      { fontSize: 10, fontWeight: '800', color: '#1C1C1E', textTransform: 'uppercase', letterSpacing: 0.4 },
+  clTitle:    { fontSize: 16, fontWeight: '900', color: '#1C1C1E', marginTop: 2, letterSpacing: -0.3 },
+  clBar:      { height: 5, backgroundColor: '#F0F0F0', borderRadius: 10, marginTop: 8, overflow: 'hidden' },
+  clFill:     { width: '60%', height: '100%', backgroundColor: '#1C1C1E', borderRadius: 10 },
+  clPct:      { fontSize: 10, color: '#8E8E93', marginTop: 5, fontWeight: '600' },
+  clResume:   { backgroundColor: '#F0F0F0', borderRadius: 11, paddingVertical: 9, paddingHorizontal: 13, borderWidth: 1.5, borderColor: '#E8E8E8' },
+  clResumeTxt:{ fontSize: 13, fontWeight: '800', color: '#1C1C1E' },
 
-// Explore tab styles
-const e = StyleSheet.create({
-  sectionTitle: { fontSize: 14, fontWeight: '700', color: '#111', marginBottom: 10, marginTop: 4 },
-  grid:         { flexDirection: 'row', flexWrap: 'wrap', gap: 10, marginBottom: 16 },
-  skillCard:    { width: (width - PAD * 2 - 10) / 2, borderWidth: 1.5, borderColor: '#e8e8e8', borderRadius: 14, padding: 14, alignItems: 'center' },
-  skillIcon:    { width: 50, height: 50, borderRadius: 13, backgroundColor: '#f0f0f0', alignItems: 'center', justifyContent: 'center', marginBottom: 8 },
-  skillLabel:   { fontSize: 13, fontWeight: '700', color: '#111', marginBottom: 3, textAlign: 'center' },
-  skillSub:     { fontSize: 10, color: '#888', textAlign: 'center', marginBottom: 10, lineHeight: 14 },
-  registerBtn:  { borderWidth: 1.5, borderColor: '#e0e0e0', borderRadius: 8, paddingVertical: 5, paddingHorizontal: 16 },
-  registerTxt:  { fontSize: 11, fontWeight: '600', color: '#111' },
-  trendRow:     { flexDirection: 'row', alignItems: 'center', gap: 12, paddingVertical: 12, borderBottomWidth: 1, borderBottomColor: '#f0f0f0' },
-  trendNum:     { width: 28, height: 28, borderRadius: 14, backgroundColor: '#f0f0f0', alignItems: 'center', justifyContent: 'center' },
-  trendNumTxt:  { fontSize: 12, fontWeight: '700', color: '#111' },
-  trendLabel:   { flex: 1, fontSize: 13, fontWeight: '500', color: '#111' },
-});
+  // Quick actions
+  qaCard:  { backgroundColor: '#fff', marginHorizontal: PAD, marginBottom: 8, borderRadius: 20, borderWidth: 1.5, borderColor: '#F0F0F0', paddingVertical: 12, paddingHorizontal: 6 },
+  qaRow:   { flexDirection: 'row', justifyContent: 'space-around' },
+  qaItem:  { alignItems: 'center', gap: 5, flex: 1 },
+  qaBox:   { width: 46, height: 46, backgroundColor: '#F7F7F7', borderRadius: 13, alignItems: 'center', justifyContent: 'center', borderWidth: 1.5, borderColor: '#F0F0F0' },
+  qaLbl:   { fontSize: 10, fontWeight: '800', color: '#1C1C1E', textAlign: 'center' },
+  qaSub:   { fontSize: 9, color: '#8E8E93', textAlign: 'center', lineHeight: 12, fontWeight: '600' },
 
-// Progress tab styles
-const pg = StyleSheet.create({
-  pillsRow: { flexDirection: 'row', gap: 8, marginBottom: 10 },
-  pill:     { flex: 1, borderWidth: 1.5, borderColor: '#e8e8e8', borderRadius: 12, paddingVertical: 10, alignItems: 'center', gap: 2 },
-  pillVal:  { fontSize: 12, fontWeight: '800', color: '#111' },
-  pillLbl:  { fontSize: 8, color: '#aaa' },
-  card:     { borderWidth: 1.5, borderColor: '#e8e8e8', borderRadius: 14, padding: 14, marginBottom: 10 },
-  cardTitle:{ fontSize: 13, fontWeight: '700', color: '#111' },
+  // Skills
+  secHdr:  { flexDirection: 'row', justifyContent: 'space-between', alignItems: 'center', paddingHorizontal: 20, paddingVertical: 6 },
+  secTitle:{ fontSize: 16, fontWeight: '900', color: '#1C1C1E', letterSpacing: -0.3 },
+  secLink: { fontSize: 13, fontWeight: '800', color: '#1C1C1E', textDecorationLine: 'underline' },
+  skCard:  { minWidth: 128, backgroundColor: '#fff', borderWidth: 1.5, borderColor: '#F0F0F0', borderRadius: 20, paddingVertical: 14, paddingHorizontal: 12, alignItems: 'center' },
+  skIcon:  { width: 52, height: 52, borderRadius: 16, backgroundColor: '#F5F5F5', alignItems: 'center', justifyContent: 'center', marginBottom: 10, borderWidth: 1.5, borderColor: '#EBEBEB' },
+  skName:  { fontSize: 13, fontWeight: '900', color: '#1C1C1E', textAlign: 'center', lineHeight: 16 },
+  skDesc:  { fontSize: 10, color: '#8E8E93', marginTop: 4, textAlign: 'center', lineHeight: 14, fontWeight: '600' },
+  skBtn:   { marginTop: 12, borderWidth: 2, borderColor: '#1C1C1E', borderRadius: 10, paddingVertical: 7, paddingHorizontal: 0, width: '100%', alignItems: 'center' },
+  skBtnTxt:{ fontSize: 12, fontWeight: '800', color: '#1C1C1E' },
+
+  // AI Teacher
+  aiSection:      { marginHorizontal: PAD, marginBottom: 10, marginTop: 4 },
+  aiSectionLabel: { fontSize: 16, fontWeight: '900', color: '#1C1C1E', letterSpacing: -0.3, marginBottom: 10, paddingHorizontal: 2 },
+  aiHeaderCard:   { backgroundColor: '#1C1C1E', borderRadius: 26, borderBottomLeftRadius: 0, borderBottomRightRadius: 0, padding: 20 },
+  aiTopRow:       { flexDirection: 'row', justifyContent: 'space-between', alignItems: 'center' },
+  aiLeft:         { flexDirection: 'row', alignItems: 'center', gap: 12 },
+  aiAvatar:       { width: 48, height: 48, backgroundColor: '#fff', borderRadius: 14, alignItems: 'center', justifyContent: 'center' },
+  aiName:         { fontSize: 17, fontWeight: '900', color: '#fff', letterSpacing: -0.3 },
+  aiSub:          { fontSize: 10, color: '#8E8E93', fontWeight: '600', marginTop: 2 },
+  aiOnline:       { flexDirection: 'row', alignItems: 'center', gap: 6, backgroundColor: 'rgba(255,255,255,0.1)', borderWidth: 1, borderColor: 'rgba(255,255,255,0.15)', borderRadius: 18, paddingVertical: 6, paddingHorizontal: 11 },
+  aiDot:          { width: 7, height: 7, backgroundColor: '#fff', borderRadius: 3.5 },
+  aiOnlineTxt:    { fontSize: 10, color: '#fff', fontWeight: '800' },
+  aiDesc:         { color: '#8E8E93', fontSize: 12, fontWeight: '600', lineHeight: 18, marginTop: 12 },
+  chipSection:    { backgroundColor: '#1C1C1E', paddingHorizontal: 20, paddingBottom: 16 },
+  chipLbl:        { fontSize: 9, fontWeight: '800', color: '#636366', textTransform: 'uppercase', letterSpacing: 0.8, marginBottom: 9 },
+  chip:           { paddingVertical: 8, paddingHorizontal: 16, borderRadius: 18, borderWidth: 2, borderColor: 'rgba(255,255,255,0.15)' },
+  chipOn:         { backgroundColor: '#fff', borderColor: '#fff' },
+  chipTxt:        { fontSize: 13, fontWeight: '800', color: '#8E8E93' },
+  chipTxtOn:      { color: '#1C1C1E' },
+  chatWrap:       { borderLeftWidth: 1.5, borderRightWidth: 1.5, borderColor: '#F0F0F0', backgroundColor: '#F7F7F7' },
+  chatMsgs:       { maxHeight: 220 },
+  msgRow:         { flexDirection: 'row', alignItems: 'flex-end', gap: 10, marginBottom: 14 },
+  msgRowMe:       { flexDirection: 'row-reverse' },
+  msgAv:          { width: 30, height: 30, borderRadius: 15, backgroundColor: '#1C1C1E', alignItems: 'center', justifyContent: 'center', flexShrink: 0 },
+  msgAvUser:      { flexShrink: 0 },
+  bubble:         { maxWidth: width * 0.6, padding: 12, borderRadius: 18 },
+  bAi:            { backgroundColor: '#fff', borderWidth: 1.5, borderColor: '#EBEBEB', borderBottomLeftRadius: 4 },
+  bMe:            { backgroundColor: '#1C1C1E', borderBottomRightRadius: 4 },
+  bubbleTxt:      { fontSize: 13, fontWeight: '600', color: '#1C1C1E', lineHeight: 20 },
+  quickQs:        { padding: 14, paddingTop: 8, backgroundColor: '#F7F7F7' },
+  qsLbl:          { fontSize: 9, fontWeight: '800', color: '#8E8E93', textTransform: 'uppercase', letterSpacing: 0.6, marginBottom: 8 },
+  qPill:          { backgroundColor: '#fff', borderWidth: 1.5, borderColor: '#EBEBEB', borderRadius: 18, paddingVertical: 8, paddingHorizontal: 13 },
+  qPillTxt:       { fontSize: 11, fontWeight: '700', color: '#1C1C1E' },
+  inputArea:      { backgroundColor: '#fff', borderWidth: 1.5, borderColor: '#F0F0F0', borderRadius: 0, borderBottomLeftRadius: 26, borderBottomRightRadius: 26, padding: 12, paddingBottom: 14 },
+  inputRow:       { flexDirection: 'row', alignItems: 'center', gap: 10, marginBottom: 10 },
+  inp:            { flex: 1, backgroundColor: '#F7F7F7', borderWidth: 1.5, borderColor: '#EBEBEB', borderRadius: 22, paddingVertical: 11, paddingHorizontal: 17, fontSize: 13, fontWeight: '600', color: '#1C1C1E' },
+  sendBtn:        { width: 42, height: 42, backgroundColor: '#1C1C1E', borderRadius: 21, alignItems: 'center', justifyContent: 'center' },
+  voiceRow:       { flexDirection: 'row', gap: 10 },
+  voiceBtn:       { flex: 1, flexDirection: 'row', alignItems: 'center', justifyContent: 'center', gap: 8, backgroundColor: '#F7F7F7', borderWidth: 1.5, borderColor: '#EBEBEB', borderRadius: 14, padding: 11 },
+  voiceLbl:       { fontSize: 13, fontWeight: '800', color: '#1C1C1E' },
+  askBtn:         { flex: 1, flexDirection: 'row', alignItems: 'center', justifyContent: 'center', gap: 8, backgroundColor: '#F7F7F7', borderWidth: 1.5, borderColor: '#EBEBEB', borderRadius: 14, padding: 11 },
+  askLbl:         { fontSize: 13, fontWeight: '800', color: '#1C1C1E' },
+
+  // Progress
+  progCard:  { backgroundColor: '#fff', marginHorizontal: PAD, marginBottom: 0, borderRadius: 22, borderWidth: 1.5, borderColor: '#F0F0F0', padding: 16 },
+  progHead:  { flexDirection: 'row', justifyContent: 'space-between', alignItems: 'center', marginBottom: 12 },
+  progTitle: { fontSize: 15, fontWeight: '900', color: '#1C1C1E', letterSpacing: -0.3 },
+  progWeek:  { fontSize: 11, color: '#8E8E93', fontWeight: '700' },
+  progStats: { flexDirection: 'row', gap: 10, marginTop: 12 },
+  progStat:  { flex: 1, backgroundColor: '#F7F7F7', borderRadius: 13, padding: 12, alignItems: 'center', borderWidth: 1.5, borderColor: '#F0F0F0' },
+  progNum:   { fontSize: 16, fontWeight: '900', color: '#1C1C1E', letterSpacing: -0.3 },
+  progLbl:   { fontSize: 9, color: '#8E8E93', fontWeight: '700', textAlign: 'center', marginTop: 4, lineHeight: 13 },
+
+  // Modal
+  modalOverlay: { position: 'absolute', top: 0, left: 0, right: 0, bottom: 0, backgroundColor: 'rgba(0,0,0,0.55)', justifyContent: 'flex-end', zIndex: 999 },
+  modal:        { backgroundColor: '#fff', borderRadius: 30, borderBottomLeftRadius: 0, borderBottomRightRadius: 0, padding: 22, paddingBottom: 36, maxHeight: '80%' },
+  modalHandle:  { width: 38, height: 4, backgroundColor: '#E0E0E0', borderRadius: 10, alignSelf: 'center', marginBottom: 18 },
+  modalTitle:   { fontSize: 19, fontWeight: '900', color: '#1C1C1E', marginBottom: 4 },
+  modalSub:     { fontSize: 13, color: '#8E8E93', fontWeight: '600', marginBottom: 20 },
+  charGrid:     { flexDirection: 'row', flexWrap: 'wrap', gap: 12 },
+  charOpt:      { width: (width - 44 - 24) / 3, backgroundColor: '#F7F7F7', borderRadius: 18, padding: 13, alignItems: 'center', gap: 7, borderWidth: 2.5, borderColor: 'transparent' },
+  charOptSel:   { borderColor: '#1C1C1E', backgroundColor: '#fff' },
+  charOptName:  { fontSize: 12, fontWeight: '800', color: '#1C1C1E', textAlign: 'center' },
+  charOptDesc:  { fontSize: 10, color: '#8E8E93', fontWeight: '600', textAlign: 'center', lineHeight: 14 },
+  modalBtn:     { backgroundColor: '#1C1C1E', borderRadius: 15, padding: 15, alignItems: 'center', marginTop: 20 },
+  modalBtnTxt:  { color: '#fff', fontSize: 15, fontWeight: '800' },
 });
 
 export default HomeScreen;
