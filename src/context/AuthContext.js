@@ -2,6 +2,7 @@ import React, { createContext, useContext, useEffect, useState, useCallback } fr
 import { saveToken, getToken, saveUser, getUser, clearAll } from '../utils/storage';
 import AsyncStorage from '@react-native-async-storage/async-storage';
 
+// This was missing — without it AuthContext is undefined and the app breaks.
 const AuthContext = createContext(null);
 
 export const AuthProvider = ({ children }) => {
@@ -13,6 +14,14 @@ export const AuthProvider = ({ children }) => {
   useEffect(() => {
     (async () => {
       try {
+        // ── TEMP RESET ──────────────────────────────────────────────
+        // Wipes saved token + onboarding flag so you can see the FULL flow
+        // (Splash → Landing → Login → OTP → BrainGym → Onboarding → Home).
+        // Run the app ONCE with this line, confirm BrainGym shows, then
+        // DELETE this line and save again.
+        await AsyncStorage.clear();
+        // ────────────────────────────────────────────────────────────
+
         const [storedToken, storedUser, onboarded] = await Promise.all([
           getToken(),
           getUser(),
@@ -66,3 +75,5 @@ export const useAuth = () => {
   if (!ctx) throw new Error('useAuth must be used inside <AuthProvider>');
   return ctx;
 };
+
+export default AuthContext;

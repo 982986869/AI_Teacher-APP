@@ -6,7 +6,11 @@ import {
 const APP_NAME = 'AiLernova';
 const LETTER_DELAY = 120;
 
-export default function SplashScreen({ navigation }) {
+// AppNavigator renders this as <SplashScreen onFinish={...} /> with NO navigation
+// prop, so we must NOT call navigation.replace here. When the animation ends we
+// call onFinish() (optional) to let AppNavigator move on. AppNavigator also has
+// its own timer, so onFinish is just a nicety.
+export default function SplashScreen({ onFinish }) {
   const letterAnims = useRef(
     APP_NAME.split('').map(() => ({
       opacity: new Animated.Value(0),
@@ -43,7 +47,9 @@ export default function SplashScreen({ navigation }) {
 
     Animated.parallel([...animations, taglineAnim]).start(() => {
       setTimeout(() => {
-        navigation.replace('LandingScreen');
+        // Was: navigation.replace('LandingScreen')  ← crashed (no navigation prop).
+        // Now just signal completion; AppNavigator decides what shows next.
+        onFinish && onFinish();
       }, 800);
     });
   }, []);

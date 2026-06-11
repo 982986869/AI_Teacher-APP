@@ -5,6 +5,18 @@ import {
   Platform, KeyboardAvoidingView, Animated,
 } from 'react-native';
 import { useAuth } from '../context/AuthContext';
+// WorkoutWheel placeholder (real file not present yet)
+const WorkoutWheel = ({ onTabPress }) => (
+  <View style={{ flex: 1, alignItems: 'center', justifyContent: 'center', backgroundColor: '#fff' }}>
+    <Text style={{ fontSize: 16, fontWeight: '700', color: '#1C1C1E' }}>Workout coming soon</Text>
+    <TouchableOpacity
+      onPress={() => onTabPress?.('home')}
+      style={{ marginTop: 14, borderWidth: 2, borderColor: '#1C1C1E', borderRadius: 12, paddingVertical: 10, paddingHorizontal: 18 }}
+    >
+      <Text style={{ fontWeight: '800', color: '#1C1C1E' }}>← Back to Home</Text>
+    </TouchableOpacity>
+  </View>
+);
 
 const { width } = Dimensions.get('window');
 const PAD = 16;
@@ -77,6 +89,7 @@ const HomeScreen = () => {
   const [charIdx, setCharIdx]           = useState(0);
   const [showCharModal, setShowCharModal] = useState(false);
   const [tempChar, setTempChar]         = useState(0);
+  const [showWorkout, setShowWorkout]   = useState(false);
 
   const [activeSubject, setActiveSubject] = useState('Physics');
   const [messages, setMessages]          = useState([{
@@ -111,6 +124,28 @@ const HomeScreen = () => {
     setActiveSubject(subj);
     sendMessage(`Switched to ${subj}! 📚 Ask me anything — I'll explain it clearly! 😊`);
   };
+
+  // ── Workout wheel (opened from the Practice quick action) ──
+  if (showWorkout) {
+    return (
+      <WorkoutWheel
+        topic="Exponents in Real World"
+        user={{ name: firstName, grade: 'G9', xp: 1250 }}
+        skills={[
+          { key: 'reasoning',     label: 'REASONING',     progress: 0.4 },
+          { key: 'application',   label: 'APPLICATION',   progress: 0.2 },
+          { key: 'understanding', label: 'UNDERSTANDING', progress: 0.7 },
+          { key: 'fluency',       label: 'FLUENCY',       progress: 0.55 },
+        ]}
+        activeTab="workout"
+        // tapping Practice or Arena at the bottom returns to Home
+        onTabPress={(tab) => { if (tab !== 'workout') setShowWorkout(false); }}
+        // TODO: route into the real practice flow for the chosen skill
+        onStart={(skill) => { setShowWorkout(false); }}
+        onSelectSkill={(skill) => { setShowWorkout(false); }}
+      />
+    );
+  }
 
   return (
     <SafeAreaView style={s.safe}>
@@ -244,7 +279,11 @@ const HomeScreen = () => {
               { icon: '📊', label: 'Results',   sub: 'Your Progress' },
               { icon: '📅', label: 'Sessions',  sub: 'My Schedule' },
             ].map((item, i) => (
-              <TouchableOpacity key={i} style={s.qaItem}>
+              <TouchableOpacity
+                key={i}
+                style={s.qaItem}
+                onPress={() => { if (item.label === 'Practice') setShowWorkout(true); }}
+              >
                 <View style={s.qaBox}><Text style={{ fontSize: 20 }}>{item.icon}</Text></View>
                 <Text style={s.qaLbl}>{item.label}</Text>
                 <Text style={s.qaSub}>{item.sub}</Text>

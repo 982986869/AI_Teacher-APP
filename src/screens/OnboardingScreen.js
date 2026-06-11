@@ -63,7 +63,7 @@ const QUESTIONS = [
   },
 ];
 
-const OnboardingScreen = () => {
+const OnboardingScreen = ({ navigation }) => {
   const { completeOnboarding } = useAuth();
   const [currentIndex, setCurrentIndex] = useState(0);
   const [answers, setAnswers] = useState({});
@@ -101,10 +101,14 @@ const OnboardingScreen = () => {
     return selected !== null && selected !== undefined;
   };
 
-  const handleNext = async () => {
+  const handleNext = () => {
     if (!canProceed()) return;
     if (isLast) {
-      await completeOnboarding();
+      // Onboarding is the FINAL step before Home in this flow.
+      // Flipping hasOnboarded (via completeOnboarding) makes AppNavigator show Home.
+      // completeOnboarding ignores extra args, so answers are not persisted here —
+      // see notes if you want to store them.
+      completeOnboarding();
     } else {
       animateSlide();
       setCurrentIndex(i => i + 1);

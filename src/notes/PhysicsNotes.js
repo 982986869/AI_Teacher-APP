@@ -1168,7 +1168,10 @@ const PhysicsNotes = {
       {
         title: 'Nature of Thermal Radiation',
         content: 'Radiation emitted by a black body is a mixture of waves of different wavelengths and only a small range of wavelength has significant contribution in the total radiation. A body is heated at different temperatures and energy of radiation is plotted against wavelength for different temperatures to get characteristic curves.',
-        bullets: ['Energy is not uniformly distributed in the radiation spectrum of black body.', 'At a given temperature the intensity of radiation increases with increase in wavelength, becomes maximum at particular wavelength ($\\lambda_m$) and further increase in wavelength leads to decrease in intensity.', 'Increase in temperature causes increase in energy emission for all wavelengths.', 'Increase in temperature causes decrease in $\\lambda_m$, where $\\lambda_m$ is wavelength corresponding to highest intensity.'],
+        images: ['blackbody_radiation'],
+        imageLabels: ['Energy (E) vs Wavelength (λ) at temperatures T₁ < T₂ < T₃'],
+        imageSource: 'ch10',
+        bullets: ['Energy is not uniformly distributed in the radiation spectrum of black body.', 'At a given temperature the intensity of radiation increases with increase in wavelength, becomes maximum at particular wavelength ($\\lambda_m$) and further increase in wavelength leads to decrease in intensity.', 'Increase in temperature causes increase in energy emission for all wavelengths.', 'Increase in temperature causes decrease in $\\lambda_m$, where $\\lambda_m$ is wavelength corresponding to highest intensity. As $T$ increases: $\\lambda_3 < \\lambda_2 < \\lambda_1$.'],
       },
       {
         title: "Wien's Displacement Law",
@@ -1205,62 +1208,472 @@ const PhysicsNotes = {
   'Thermodynamics': {
     intro: 'Laws of Thermodynamics and Heat Engines',
     sections: [
-      { title: 'Thermodynamic System', content: 'A thermodynamic system is a definite quantity of matter bounded by some closed surface. The surroundings are everything outside the system.' },
-      { title: 'Zeroth Law of Thermodynamics', content: 'If two systems are each in thermal equilibrium with a third system, they are in thermal equilibrium with each other. This law defines temperature.' },
-      { title: 'Internal Energy', content: 'The total energy of all molecules of a system is its internal energy $U$. It depends only on the state of the system.' },
-      { title: 'First Law of Thermodynamics', content: 'Heat supplied equals increase in internal energy plus work done: $$Q = \\Delta U + W$$' },
-      { title: 'Thermodynamic Processes', bullets: ['Isothermal: constant temperature, $\\Delta U = 0$, $Q = W$.', 'Adiabatic: no heat exchange, $Q = 0$, $\\Delta U = -W$.', 'Isochoric: constant volume, $W = 0$, $Q = \\Delta U$.', 'Isobaric: constant pressure, $W = P\\Delta V$.'] },
-      { title: 'Specific Heat', content: 'For ideal gas: $C_P - C_V = R$ and $\\gamma = C_P/C_V$. Mayer relation connects the two specific heats.' },
-      { title: 'Second Law of Thermodynamics', bullets: ['Kelvin-Planck: No heat engine can convert all heat into work.', 'Clausius: Heat cannot spontaneously flow from colder to hotter body.', 'Entropy of an isolated system never decreases.'] },
-      { title: 'Carnot Engine', content: 'Most efficient heat engine between temperatures $T_1$ (source) and $T_2$ (sink): $$\\eta = 1 - \\frac{T_2}{T_1}$$' },
-      { title: 'Refrigerators', content: 'Coefficient of performance: $$\\text{COP} = \\frac{Q_2}{W} = \\frac{T_2}{T_1 - T_2}$$' },
+      {
+        title: 'Zeroth Law of Thermodynamics',
+        content: 'The Zeroth Law was formulated by R.H. Fowler in 1931, following the formulation of the first and second laws. It defines temperature as a thermodynamic variable.',
+      },
+      {
+        title: 'Concept of Thermodynamic Systems',
+        content: 'Two systems, labeled as A and B, can be separated by an adiabatic wall which prevents the exchange of heat.',
+      },
+      {
+        title: 'Role of a Conducting Wall',
+        content: 'A conducting wall allows heat to transfer between two systems, facilitating thermal equilibrium.',
+      },
+      {
+        title: 'Achieving Equilibrium with System C',
+        content: 'Initially, systems A and B achieve thermal equilibrium through interaction with a third system C via a conducting wall.',
+      },
+      {
+        title: 'Replacing Walls',
+        content: 'After A and B achieve equilibrium with C, the adiabatic wall between A and B can be replaced by a conducting wall while C is insulated.',
+      },
+      {
+        title: 'Resulting Equilibrium Between A and B',
+        content: 'Systems A and B remain in thermal equilibrium, demonstrating the Zeroth Law of Thermodynamics.',
+      },
+      {
+        title: 'Statement of Zeroth Law',
+        bullets: [
+          'Two systems in thermal equilibrium with a third system are in equilibrium with each other.',
+          'The variable that is equal in two systems in thermal equilibrium is known as temperature (T).',
+          'Thus, systems A and B are in thermal equilibrium as a result of their initial equilibria with system C.',
+        ],
+      },
+      {
+        title: 'First Law of Thermodynamics',
+        content: 'The principle focuses on conservation of energy: energy cannot be created or destroyed, only transformed from one form to another. $$\\Delta U = Q - W$$ where $\\Delta U$ is change in internal energy, $Q$ is heat supplied, and $W$ is work done by the system.',
+      },
+      {
+        title: 'Limitations of the First Law',
+        content: 'Observations show many processes are possible in theory under this law but do not occur in reality, indicating additional natural principles are needed.',
+        bullets: [
+          'A book never spontaneously jumps from a table even though energy conversion would allow it.',
+          'Internal energy does not convert to mechanical energy spontaneously.',
+        ],
+      },
+      {
+        title: 'Second Law of Thermodynamics',
+        content: 'This law introduces further restrictions beyond energy conservation, explaining why certain phenomena cannot occur despite meeting the First Law criteria.',
+        bullets: [
+          'It limits the efficiency of heat engines and the performance coefficient of refrigerators.',
+          "States that an engine's efficiency can never reach 100%.",
+          "A refrigerator's performance coefficient can never be infinite.",
+        ],
+      },
+      {
+        title: 'Kelvin-Planck Statement',
+        content: 'No process allows the complete conversion of heat absorbed from a source solely into work.',
+      },
+      {
+        title: 'Clausius Statement',
+        content: 'It is not feasible to transfer heat from a colder body to a hotter body without additional work.',
+      },
+      {
+        title: 'Equivalence of Statements',
+        content: 'Both Kelvin-Planck and Clausius statements are fundamentally equivalent and imply the same natural restrictions.',
+      },
+      {
+        title: 'Heat Engines and Efficiency',
+        content: 'The Second Law stipulates that no heat engine can convert heat fully into work — it always needs a heat sink to operate. Efficiency of a heat engine: $$\\eta = 1 - \\frac{Q_2}{Q_1} = \\frac{W}{Q_1}$$ where $Q_1$ is heat absorbed and $Q_2$ is heat released.',
+      },
+      {
+        title: 'Carnot Engine',
+        content: 'The Carnot engine is a theoretical heat engine operating on the Carnot cycle — the most efficient possible between two temperature reservoirs: $$\\eta_{Carnot} = 1 - \\frac{T_2}{T_1}$$ where $T_1$ is source temperature and $T_2$ is sink temperature.',
+      },
+      {
+        title: 'Refrigerators and Heat Pumps',
+        content: 'A refrigerator transfers heat from cold to hot body using external work. Coefficient of performance: $$\\beta = \\frac{Q_2}{W} = \\frac{Q_2}{Q_1 - Q_2} = \\frac{T_2}{T_1 - T_2}$$ According to the Second Law, indefinitely transferring heat from cold to hot automatically violates thermodynamic principles.',
+      },
+      {
+        title: 'Thermodynamic Processes',
+        bullets: [
+          'Isothermal process: Temperature constant, $\\Delta T = 0$, $\\Delta U = 0$, $Q = W$.',
+          'Adiabatic process: No heat exchange, $Q = 0$, $W = -\\Delta U$.',
+          'Isochoric process: Volume constant, $W = 0$, $Q = \\Delta U$.',
+          'Isobaric process: Pressure constant, $W = P\\Delta V$.',
+        ],
+      },
     ],
   },
 
   'Kinetic Theory': {
-    intro: 'Kinetic Theory of Gases',
+    intro: 'Kinetic Theory of Gases, Degrees of Freedom and Specific Heat',
     sections: [
-      { title: 'Molecular Nature of Matter', content: "Dalton's atomic theory: matter consists of atoms and molecules. Avogadro's number: $N_A = 6.023 \\times 10^{23}$ per mole." },
-      { title: 'Behaviour of Gases', content: "Boyle's Law: $PV = \\text{constant}$ (at constant $T$). Charles' Law: $V/T = \\text{constant}$ (at constant $P$). Ideal Gas Equation: $$PV = nRT = Nk_BT$$" },
-      { title: 'Kinetic Theory of an Ideal Gas', content: 'Pressure of an ideal gas: $$P = \\frac{1}{3}\\frac{Nm}{V}\\overline{v^2} = \\frac{1}{3}\\rho\\overline{v^2}$$' },
-      { title: 'Kinetic Interpretation of Temperature', content: 'Average kinetic energy per molecule: $$\\frac{1}{2}m\\overline{v^2} = \\frac{3}{2}k_BT$$ Temperature is a measure of average kinetic energy.' },
-      { title: 'RMS Speed', content: '$$v_{rms} = \\sqrt{\\frac{3k_BT}{m}} = \\sqrt{\\frac{3RT}{M}}$$ At 300 K, $v_{rms}$ for nitrogen $\\approx 517$ m/s.' },
-      { title: 'Degrees of Freedom', content: 'Number of independent ways a molecule can possess energy.', bullets: ['Monatomic gas: 3 (translational)', 'Diatomic gas: 5 (3 translational + 2 rotational)', 'Polyatomic: 6 or more'] },
-      { title: 'Law of Equipartition of Energy', content: 'In thermal equilibrium, each degree of freedom has energy $\\frac{1}{2}k_BT$. Total energy with $f$ degrees of freedom: $E = \\frac{f}{2}k_BT$.' },
-      { title: 'Specific Heats', bullets: ['Monatomic: $C_V = \\frac{3}{2}R$, $C_P = \\frac{5}{2}R$, $\\gamma = 5/3$', 'Diatomic: $C_V = \\frac{5}{2}R$, $C_P = \\frac{7}{2}R$, $\\gamma = 7/5$'] },
-      { title: 'Mean Free Path', content: 'Average distance between successive collisions: $$l = \\frac{1}{\\sqrt{2}\\pi nd^2}$$' },
+      {
+        title: 'Kinetic Theory of Gases: Assumptions',
+        bullets: [
+          'The molecules of a gas are identical, spherical and perfectly elastic point masses.',
+          'The volume of molecules is negligible in comparison to the volume of gas.',
+          'Molecules of a gas move randomly in all directions.',
+          'The speed of gas molecules lie between zero and infinity.',
+          'Their collisions are perfectly elastic.',
+          'The number of collisions per unit volume in a gas remains constant.',
+          'No attractive or repulsive force acts between gas molecules.',
+        ],
+      },
+      {
+        title: 'Pressure of an Ideal Gas',
+        content: '$$P = \\frac{1}{3}\\rho V_{rms}^2 = \\frac{1}{3}\\frac{mN}{V}V_{rms}^2$$',
+      },
+      {
+        title: 'Relation Between Pressure and Kinetic Energy',
+        content: 'Kinetic energy per unit volume $E$: $$P = \\frac{2}{3}E, \\quad E = \\frac{1}{2}\\rho V_{rms}^2$$',
+      },
+      {
+        title: 'Ideal Gas Equation',
+        content: 'The equation relating pressure (P), volume (V) and temperature (T) of an ideal gas:',
+        table: {
+          headers: ['Condition', 'Equation'],
+          rows: [
+            ['For 1 mole or $N_A$ molecules', '$PV = RT$'],
+            ['For $\\mu$ moles of gas', '$PV = \\mu RT$'],
+            ['For 1 molecule of gas', '$PV = kT$'],
+            ['For N molecules of gas', '$PV = NkT$'],
+            ['For 1 gram of gas', '$PV = \\frac{R}{M}T = rT$'],
+            ['For n grams of gas', '$PV = nrT$'],
+          ],
+        },
+      },
+      {
+        title: 'Universal Gas Constant (R)',
+        content: 'Dimensions: $[ML^2T^{-2}\\theta^{-1}]$. Signifies work done by (or on) a gas per mole per kelvin. $$R = 8.31 \\text{ J mol}^{-1}\\text{K}^{-1} = 1.98 \\text{ cal mol}^{-1}\\text{K}^{-1}$$',
+      },
+      {
+        title: "Boltzmann's Constant (k)",
+        content: '$$k_B = 1.38 \\times 10^{-23} \\text{ J/K}$$ Dimensions: $[ML^2T^{-2}\\theta^{-1}]$',
+      },
+      {
+        title: 'Various Speeds of Gas Molecules',
+        bullets: [
+          'Root mean square speed: $V_{rms} = \\sqrt{\\frac{3P}{\\rho}} = \\sqrt{\\frac{3RT}{M}} = \\sqrt{\\frac{3kT}{m}}$',
+          'Most probable speed: $V_{mp} = \\sqrt{\\frac{2P}{\\rho}} = \\sqrt{\\frac{2RT}{M}} = \\sqrt{\\frac{2kT}{m}}$',
+          'Average speed: $V_{av} = \\sqrt{\\frac{8P}{\\pi\\rho}} = \\sqrt{\\frac{8RT}{\\pi M}} = \\sqrt{\\frac{8kT}{\\pi m}}$',
+          'Order: $V_{rms} > V_{av} > V_{mp}$ (remembering trick: RAM)',
+        ],
+      },
+      {
+        title: 'Kinetic Energy of Ideal Gas',
+        content: 'Molecules of ideal gases possess only translational motion, hence only translational kinetic energy.',
+        table: {
+          headers: ['Quantity of Gas', 'Kinetic Energy'],
+          rows: [
+            ['1 molecule', '$\\frac{3}{2}kT$'],
+            ['1 mole (M gram)', '$\\frac{3}{2}RT$'],
+            ['1 gram', '$\\frac{3}{2}rT$'],
+          ],
+        },
+      },
+      {
+        title: 'Degree of Freedom',
+        content: 'The total number of independent modes (ways) in which a system can possess energy is called the degree of freedom (f). $$f = 3N - R$$ where $N$ = number of independent particles, $R$ = number of independent restrictions.',
+        bullets: [
+          'Translational degree of freedom',
+          'Rotational degree of freedom',
+          'Vibrational degree of freedom',
+          'Monoatomic gas: f = 3 (all translational).',
+          'Diatomic gas: f = 5 (3 translational + 2 rotational).',
+          'Triatomic non-linear: f = 6 (3 translational + 3 rotational).',
+        ],
+      },
+      {
+        title: 'Degree of Freedom Table',
+        table: {
+          headers: ['Atomicity', 'Example', 'N', 'R', 'f = 3N - R'],
+          rows: [
+            ['Monoatomic', 'He, Ne, Ar', '1', '0', '3'],
+            ['Diatomic', 'H₂, O₂', '2', '1', '5'],
+            ['Triatomic non-linear', 'H₂O', '3', '3', '6'],
+            ['Triatomic linear', 'CO₂, BeCl₂', '3', '2', '7'],
+          ],
+        },
+      },
+      {
+        title: 'Law of Equipartition of Energy',
+        content: 'For any system in thermal equilibrium, the total energy is equally distributed among its various degrees of freedom. Energy associated with each molecule per degree of freedom: $$E = \\frac{1}{2}k_BT$$',
+      },
+      {
+        title: 'Mean Free Path',
+        content: 'The average distance travelled by a gas molecule between successive collisions: $$\\lambda = \\frac{1}{\\sqrt{2}\\pi n d^2}$$ where $d$ = diameter of the molecule, $n$ = number of molecules per unit volume.',
+        bullets: [
+          'For air molecules at STP: average speed $\\langle v \\rangle = 485$ m/s',
+          'Density $n = 2.7 \\times 10^{25}$ m$^{-3}$',
+          'Mean free path $\\lambda = 2.9 \\times 10^{-7}$ m $\\approx 1500d$',
+        ],
+      },
+      {
+        title: "Mayer's Formula",
+        content: '$$C_p - C_v = R$$ Molar specific heat at constant pressure is always greater than at constant volume.',
+      },
+      {
+        title: 'Specific Heat in Terms of Degree of Freedom',
+        table: {
+          headers: ['Quantity', 'Monoatomic', 'Diatomic', 'Triatomic non-linear', 'Triatomic linear'],
+          rows: [
+            ['Degree of freedom $f$', '3', '5', '6', '7'],
+            ['$C_v = \\frac{f}{2}R$', '$\\frac{3}{2}R$', '$\\frac{5}{2}R$', '$3R$', '$\\frac{7}{2}R$'],
+            ['$C_p = (\\frac{f}{2}+1)R$', '$\\frac{5}{2}R$', '$\\frac{7}{2}R$', '$4R$', '$\\frac{9}{2}R$'],
+            ['$\\gamma = C_p/C_v$', '$\\frac{5}{3} = 1.67$', '$\\frac{7}{5} = 1.4$', '$\\frac{4}{3} = 1.33$', '$\\frac{9}{7} = 1.28$'],
+            ['KE of 1 mole', '$\\frac{3}{2}RT$', '$\\frac{5}{2}RT$', '$3RT$', '$\\frac{7}{2}RT$'],
+            ['KE of 1 molecule', '$\\frac{3}{2}kT$', '$\\frac{5}{2}kT$', '$3kT$', '$\\frac{7}{2}kT$'],
+          ],
+        },
+      },
+      {
+        title: 'Molecular Nature of Matter',
+        bullets: [
+          'Boyle discovered his famous law in 1661, contributing to understanding of gas behaviour.',
+          'The kinetic theory, explaining gas behaviour through rapidly moving atoms/molecules, was developed by Maxwell and Boltzmann in the 19th century.',
+          "Feynman emphasized the importance of atoms: perpetual motion particles with attractive and repulsive forces.",
+          'Dalton\'s model: elements are composed of identical atoms, different from atoms of other elements.',
+        ],
+      },
+      {
+        title: 'Gas Laws',
+        bullets: [
+          "Gay Lussac's Law: gas volumes combine in small integer ratios.",
+          "Avogadro's Law: equal volumes of gases at equal temperature and pressure contain equal number of molecules.",
+          "Dalton's Law of Partial Pressures: total pressure is sum of partial pressures, $P = P_1 + P_2 + \\cdots$",
+          "Charles' Law: $V \\propto T$ at constant pressure.",
+          "Boyle's Law: $PV = $ constant at constant temperature.",
+        ],
+      },
+      {
+        title: "Avogadro's Number",
+        content: 'The number of molecules per mole of any gas: $$N_A = 6.02 \\times 10^{23} \\text{ mol}^{-1}$$ The number of molecules per unit volume is constant for all gases at the same temperature and pressure.',
+      },
     ],
   },
 
   'Oscillations': {
-    intro: 'Simple Harmonic Motion and Oscillatory Systems',
+    intro: 'Simple Harmonic Motion, Energy and Simple Pendulum',
     sections: [
-      { title: 'Periodic and Oscillatory Motion', content: 'Periodic motion repeats at regular intervals. Oscillatory motion moves back and forth about a mean position.', bullets: ['Time period $T$: time for one complete oscillation.', 'Frequency $\\nu = 1/T$. Unit: Hz.', 'Angular frequency: $\\omega = 2\\pi\\nu$'] },
-      { title: 'Simple Harmonic Motion (SHM)', content: 'SHM: restoring force proportional to displacement: $F = -kx$. Displacement: $$x(t) = A\\cos(\\omega t + \\phi)$$' },
-      { title: 'Velocity and Acceleration in SHM', content: '$$v = -A\\omega\\sin(\\omega t + \\phi)$$ $$a = -\\omega^2 x$$ Maximum speed: $v_{max} = A\\omega$ at $x = 0$.' },
-      { title: 'Energy in SHM', content: '$$K.E. = \\frac{1}{2}m\\omega^2(A^2 - x^2)$$ $$P.E. = \\frac{1}{2}m\\omega^2 x^2$$ $$E_{total} = \\frac{1}{2}m\\omega^2A^2 = \\text{constant}$$' },
-      { title: 'Simple Pendulum', content: 'Time period: $$T = 2\\pi\\sqrt{\\frac{L}{g}}$$ Valid for small angles. Independent of mass of bob.' },
-      { title: 'Spring-Mass System', content: 'Time period: $$T = 2\\pi\\sqrt{\\frac{m}{k}}$$ Angular frequency: $\\omega = \\sqrt{k/m}$.' },
-      { title: 'Damped Oscillations', content: 'Amplitude decreases exponentially due to resistive forces. Resonance occurs when driving frequency equals natural frequency.' },
+      {
+        title: 'Force Law for Simple Harmonic Motion',
+        content: "The force acting on a particle in SHM using Newton's second law: $$F(t) = ma = -m\\omega^2 x(t)$$ Also represented as: $$F(t) = -kx(t)$$ where $k = m\\omega^2$",
+      },
+      {
+        title: 'Angular Frequency in SHM',
+        content: '$$\\omega = \\sqrt{\\frac{k}{m}}$$',
+      },
+      {
+        title: 'Direction of Force in SHM',
+        content: 'In SHM, the force is always directed towards the mean position and is known as the restoring force.',
+      },
+      {
+        title: 'Definition of Simple Harmonic Motion',
+        content: 'Simple harmonic motion is defined by its displacement equation or its force law. The two are equivalent and interconvertible by differentiation and integration. Displacement: $$x(t) = A\\cos(\\omega t + \\phi)$$',
+      },
+      {
+        title: 'Linearity in SHM',
+        content: 'The force in SHM is linearly proportional to displacement $x(t)$. A system under such a force is called a linear harmonic oscillator.',
+      },
+      {
+        title: 'Non-Linear Oscillators',
+        content: 'Non-linear oscillators have forces with additional terms proportional to higher powers of $x$, such as $x^2$, $x^3$, etc.',
+      },
+      {
+        title: 'Role of Restoring Force',
+        content: 'The restoring force directs the particle back to its mean position, ensuring continuous oscillation.',
+      },
+      {
+        title: 'Energy in SHM — Kinetic and Potential Energies',
+        content: 'Both energies vary between zero and their maximum values.',
+        bullets: [
+          'Velocity in SHM is periodic and zero at extreme displacement positions.',
+          'Kinetic energy is zero at maximum displacement and maximum at mean position.',
+          'Spring force is conservative; potential energy: $U = \\frac{1}{2}kx^2$',
+          'Potential energy is zero at mean position and maximum at extreme displacements.',
+          'Both KE and PE are always positive, peaking twice per SHM period.',
+        ],
+      },
+      {
+        title: 'Kinetic Energy in SHM',
+        content: '$$K = \\frac{1}{2}m\\omega^2(A^2 - x^2)$$',
+      },
+      {
+        title: 'Potential Energy in SHM',
+        content: '$$U = \\frac{1}{2}kx^2 = \\frac{1}{2}m\\omega^2 x^2$$',
+      },
+      {
+        title: 'Total Energy in SHM',
+        content: 'Total mechanical energy is constant: $$E = K + U = \\frac{1}{2}m\\omega^2 A^2 = \\frac{1}{2}kA^2$$',
+      },
+      {
+        title: "Galileo's Observation on Pendulum",
+        content: 'Galileo measured oscillation periods of a swinging chandelier by comparing it to his pulse beats. This motion was recognised as periodic.',
+      },
+      {
+        title: 'Simple Pendulum — Basics',
+        content: 'A simple pendulum consists of a small bob of mass $m$ tied to an inextensible, massless string of length $L$, fixed to a rigid support and free to oscillate.',
+      },
+      {
+        title: 'Pendulum Motion Components',
+        content: 'Two forces act on the pendulum bob at angle $\\theta$:',
+        bullets: [
+          'Tension $T$ along the string.',
+          'Gravitational force $mg$, with components $mg\\cos\\theta$ along the string and $mg\\sin\\theta$ perpendicular to it.',
+          'Radial acceleration: $\\omega^2 L$ provided by net radial force $T - mg\\cos\\theta$.',
+          'Tangential acceleration provided by $mg\\sin\\theta$.',
+        ],
+      },
+      {
+        title: 'Torque in Pendulum',
+        content: 'Torque $\\tau$ about the support: $$\\tau = -L(mg\\sin\\theta)$$',
+      },
+      {
+        title: 'Equation of Motion of Pendulum',
+        content: "By Newton's law of rotational motion: $\\tau = I\\alpha$. For small $\\theta$, $\\sin\\theta \\approx \\theta$: $$\\alpha = -\\frac{mgL}{I}\\theta$$",
+      },
+      {
+        title: 'Time Period of Simple Pendulum',
+        content: 'The time period $T$ for a simple pendulum: $$T = 2\\pi\\sqrt{\\frac{L}{g}}$$',
+        bullets: [
+          'Independent of mass of the bob.',
+          'Independent of amplitude (for small angles).',
+          'Directly proportional to $\\sqrt{L}$.',
+          'Inversely proportional to $\\sqrt{g}$.',
+          'For small angles up to 20°, $\\sin\\theta \\approx \\theta$ in radians.',
+        ],
+      },
+      {
+        title: 'Spring-Mass System',
+        content: 'For a spring-mass system, the time period: $$T = 2\\pi\\sqrt{\\frac{m}{k}}$$',
+      },
+      {
+        title: 'Period and Frequency',
+        content: 'Frequency $\\nu = 1/T$. Angular frequency $\\omega = 2\\pi\\nu = 2\\pi/T$.',
+      },
     ],
   },
 
   'Waves': {
-    intro: 'Wave Motion, Sound and Superposition',
+    intro: 'Wave Motion, Superposition and Doppler Effect',
     sections: [
-      { title: 'Wave Motion', content: 'A wave is a disturbance that transfers energy without transferring matter.', bullets: ['Transverse wave: particles vibrate perpendicular to wave direction (e.g., light).', 'Longitudinal wave: particles vibrate parallel to wave direction (e.g., sound).'] },
-      { title: 'Wave Parameters', content: '$$y(x, t) = A\\sin(kx - \\omega t + \\phi)$$', bullets: ['Amplitude $A$: maximum displacement.', 'Wave number $k = 2\\pi/\\lambda$', 'Angular frequency $\\omega = 2\\pi\\nu$', 'Wave speed: $v = \\omega/k = \\nu\\lambda$'] },
-      { title: 'Speed of a Wave', content: 'Speed of transverse wave on string: $$v = \\sqrt{\\frac{T}{\\mu}}$$ Speed of sound in medium: $v = \\sqrt{B/\\rho}$.' },
-      { title: 'Speed of Sound in Air', content: "Newton's formula: $v = \\sqrt{P/\\rho}$. Laplace correction: $$v = \\sqrt{\\frac{\\gamma P}{\\rho}}$$ At 0°C in air: $v \\approx 331$ m/s. Increases with temperature." },
-      { title: 'Principle of Superposition', content: 'When two or more waves overlap, resultant displacement = algebraic sum: $$y = y_1 + y_2$$' },
-      { title: 'Interference of Waves', content: 'Constructive: path difference $= n\\lambda$. Destructive: path difference $= (n + \\frac{1}{2})\\lambda$.' },
-      { title: 'Standing Waves', content: 'Formed by two identical waves in opposite directions: $$y = 2A\\sin(kx)\\cos(\\omega t)$$ Nodes: zero displacement. Antinodes: maximum displacement.' },
-      { title: 'Vibrations of Strings', content: 'String of length $L$ fixed at both ends: $$\\nu_n = \\frac{n}{2L}\\sqrt{\\frac{T}{\\mu}}, \\quad n = 1, 2, 3\\ldots$$ $n=1$: fundamental. $n>1$: harmonics.' },
-      { title: 'Vibrations in Organ Pipes', content: 'Open pipe: $\\nu_n = \\frac{nv}{2L}$. Closed pipe (one end): $\\nu_n = \\frac{(2n-1)v}{4L}$ — only odd harmonics.' },
-      { title: 'Beats', content: 'Two waves of slightly different frequencies produce beats: $$\\nu_{beat} = |\\nu_1 - \\nu_2|$$' },
-      { title: 'Doppler Effect', content: 'Apparent change in frequency due to relative motion: $$\\nu_{obs} = \\nu\\frac{v + v_o}{v - v_s}$$ where $v_o$ = observer speed, $v_s$ = source speed.' },
+      {
+        title: 'Displacement Relation for a Progressive Wave',
+        content: 'A travelling wave is described using a function depending on both position ($x$) and time ($t$): $$y(x,t) = a\\sin(kx - \\omega t + \\phi)$$',
+        bullets: [
+          '$a$: Amplitude of the wave',
+          '$\\omega$: Angular frequency',
+          '$k$: Angular wave number',
+          '$kx - \\omega t + \\phi$: Phase of the wave',
+        ],
+      },
+      {
+        title: 'Wave Parameters',
+        bullets: [
+          'Wavelength: $\\lambda = 2\\pi/k$',
+          'Time period: $T = 2\\pi/\\omega$',
+          'Frequency: $\\nu = 1/T = \\omega/2\\pi$',
+          'Wave speed: $v = \\lambda\\nu = \\omega/k$',
+        ],
+      },
+      {
+        title: 'Principle of Superposition of Waves',
+        content: 'The net displacement during wave overlap is the algebraic sum of the displacements due to each individual wave: $$y = y_1 + y_2$$',
+        bullets: [
+          'Wave pulses retain their identity after crossing each other.',
+          'While overlapping, the wave pattern differs from individual pulses.',
+          'Each wave acts independently causing a combined net displacement.',
+        ],
+      },
+      {
+        title: 'Superposition of Two Harmonic Waves',
+        content: 'Two harmonic waves with same frequency $\\omega$, same wave number $k$, equal amplitudes but different initial phases $\\phi_1$ and $\\phi_2$: $$y = 2a\\cos\\left(\\frac{\\phi_1-\\phi_2}{2}\\right)\\sin\\left(kx - \\omega t + \\frac{\\phi_1+\\phi_2}{2}\\right)$$',
+      },
+      {
+        title: 'Reflection of Waves',
+        bullets: [
+          'Incident waves partially reflect and partially transmit at an elastic media boundary.',
+          'Oblique incident wave refraction follows Snell\'s Law.',
+          'Incident and reflected waves obey the standard reflection laws.',
+          'At a rigid boundary: reflected pulse maintains shape but undergoes a 180° phase shift.',
+          'At an open boundary: no phase change on reflection.',
+        ],
+      },
+      {
+        title: 'Standing Waves and Superposition',
+        content: 'Standing waves arise from wave reflections at multiple boundaries. The equation of a standing wave: $$y = 2a\\sin(kx)\\cos(\\omega t)$$',
+        bullets: [
+          'Amplitude oscillations occur at fixed points.',
+          'Each string segment vibrates in phase but with different amplitude.',
+        ],
+      },
+      {
+        title: 'Formation of Nodes and Antinodes',
+        bullets: [
+          'Nodes are points with zero amplitude; adjacent nodes are spaced $\\lambda/2$ apart.',
+          'Antinodes exhibit maximum amplitude; adjacent antinodes spaced $\\lambda/2$ apart.',
+          'Distance between a node and adjacent antinode is $\\lambda/4$.',
+        ],
+      },
+      {
+        title: 'Natural Frequencies and Harmonics',
+        content: 'For a string of length $L$ fixed at both ends, natural frequencies: $$\\nu_n = \\frac{n}{2L}\\sqrt{\\frac{T}{\\mu}}, \\quad n = 1, 2, 3, \\ldots$$',
+        bullets: [
+          'Fundamental mode ($n=1$): lowest frequency.',
+          'Second harmonic ($n=2$): twice the fundamental frequency.',
+          'Constrained wavelengths lead to normal modes.',
+        ],
+      },
+      {
+        title: 'Air Columns — Open Pipe',
+        content: 'For an open pipe of length $L$: $$\\nu_n = \\frac{nv}{2L}, \\quad n = 1, 2, 3, \\ldots$$',
+        bullets: [
+          'Antinodes at both open ends.',
+          'All harmonics are present.',
+        ],
+      },
+      {
+        title: 'Air Columns — Closed Pipe',
+        content: 'For a closed pipe (one end closed): $$\\nu_n = \\frac{(2n-1)v}{4L}, \\quad n = 1, 2, 3, \\ldots$$',
+        bullets: [
+          'Node at closed end, antinode at open end.',
+          'Only odd harmonics are present.',
+          'Nodes represent maximum pressure change but zero displacement at closed ends.',
+          'Antinodes signify least pressure change and maximum displacement at open ends.',
+        ],
+      },
+      {
+        title: 'Beats',
+        content: 'Beats occur due to interference of waves when two harmonic sound waves of close frequencies are heard together. $$\\nu_{beat} = |\\nu_1 - \\nu_2|$$',
+        bullets: [
+          'Beats are perceived as a waxing and waning of sound intensity.',
+          'The beat frequency equals the difference in the two close frequencies.',
+          'Musicians use beats to tune instruments — absence of beats means frequencies are harmonised.',
+          'Example: waves at 11 Hz and 9 Hz produce beats at 2 Hz.',
+        ],
+      },
+      {
+        title: 'Speed of a Transverse Wave on a String',
+        content: '$$v = \\sqrt{\\frac{T}{\\mu}}$$ where $T$ is tension in the string and $\\mu$ is mass per unit length.',
+      },
+      {
+        title: 'Speed of Sound in a Medium',
+        content: '$$v = \\sqrt{\\frac{B}{\\rho}}$$ where $B$ is the bulk modulus and $\\rho$ is the density. For an ideal gas: $$v = \\sqrt{\\frac{\\gamma P}{\\rho}} = \\sqrt{\\frac{\\gamma RT}{M}}$$',
+      },
+      {
+        title: 'Doppler Effect',
+        content: 'The apparent change in frequency due to relative motion between source and observer: $$\\nu\' = \\nu_0\\frac{v + v_o}{v - v_s}$$ where $v$ = speed of sound, $v_o$ = speed of observer, $v_s$ = speed of source.',
+        bullets: [
+          'Observer moving towards source: apparent frequency increases.',
+          'Observer moving away from source: apparent frequency decreases.',
+          'Applications: radar, sonar, medical ultrasound, astronomy.',
+        ],
+      },
+      {
+        title: 'Forced Oscillations and Resonance',
+        content: 'Systems with external frequencies near natural frequencies exhibit resonance.',
+        bullets: [
+          'At resonance, amplitude of oscillation becomes maximum.',
+          'This principle applies equally to strings and air columns.',
+          'Found in musical instruments like tablas, where frequencies are derived from vibrational constraints.',
+        ],
+      },
     ],
   },
+
 
 };
 

@@ -16,7 +16,7 @@ import COLORS from '../constants/colors';
 const OTP_LENGTH = 6;
 
 const OTPScreen = ({ navigation, route }) => {
-  const { phone, name, grade, mode } = route.params; // mode: 'signup' | 'login'
+ const { phone, name, grade, mode } = route.params || {}; // mode: 'signup' | 'login'
   const { signIn } = useAuth();
 
   const [otp, setOtp]       = useState(Array(OTP_LENGTH).fill(''));
@@ -63,7 +63,10 @@ const OTPScreen = ({ navigation, route }) => {
       } else {
         await signIn(data);
       }
-      navigation.navigate('SuccessScreen');
+      // Do NOT navigate here. signIn() flips isAuthenticated -> AppNavigator
+      // automatically swaps the stack to BrainGym -> Onboarding -> Home.
+      // (navigation.navigate('SuccessScreen') was crashing: that route does
+      //  not exist in AuthNavigator.)
     } catch (e) {
       setError('Incorrect OTP. Please check and try again.');
       setOtp(Array(OTP_LENGTH).fill(''));
@@ -88,7 +91,9 @@ const OTPScreen = ({ navigation, route }) => {
     }
   };
 
-  const displayPhone = phone.replace(/(\+91)(\d{5})(\d{5})/, '$1 $2XXXXX');
+const displayPhone = phone
+  ? phone.replace(/(\+91)(\d{5})(\d{5})/, '$1 $2XXXXX')
+  : '';
 
   return (
     <SafeAreaView style={styles.safe}>
