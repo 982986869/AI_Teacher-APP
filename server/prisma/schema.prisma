@@ -1,0 +1,140 @@
+generator client {
+  provider = "prisma-client-js"
+}
+
+datasource db {
+  provider = "postgresql"
+  url      = env("DATABASE_URL")
+}
+
+// ─── Enums ───────────────────────────────────────────────────────────────────
+
+enum AuthProvider {
+  EMAIL
+  PHONE
+  GOOGLE
+}
+
+enum LessonStatus {
+  GENERATING
+  READY
+  FAILED
+}
+
+// DIAGRAM:  { description: string, label: string, components: string[] }
+// CHART:    { chartType: string, data: { labels: string[], values: number[] }, xAxis: string, yAxis: string }
+// EXAMPLE:  { scenario: string, steps: string[] }
+// ANALOGY:  { realWorldObject: string, comparison: string }
+// FORMULA:  { formula: string, variables: { symbol: string, meaning: string }[], explanation: string }
+// NONE:     {}
+enum VisualType {
+  DIAGRAM
+  CHART
+  EXAMPLE
+  ANALOGY
+  FORMULA
+  NONE
+}
+
+enum MessageRole {
+  USER
+  ASSISTANT
+}
+
+// ─── Models ──────────────────────────────────────────────────────────────────
+
+model User {
+  id           String       @id @default(uuid()) @db.Uuid
+  name         String
+  email        String?      @unique
+  phone        String?      @unique
+  passwordHash String?
+  grade        String?
+  provider     AuthProvider @default(EMAIL)
+  createdAt    DateTime     @default(now())
+  updatedAt    DateTime     @updatedAt
+
+  lessons       Lesson[]
+  doubtSessions DoubtSession[]
+
+  @@map("users")
+}
+
+model Lesson {
+  id                String       @id @default(uuid()) @db.Uuid
+  userId            String       @db.Uuid
+  topic             String
+  subject           String
+  gradeLevel        String
+  lessonTitle       String
+  estimatedDuration String
+  summary           String       @db.Text
+  keyTerms          String[]
+  status            LessonStatus @default(GENERATING)
+  generationModel   String?
+  generationTimeMs  Int?
+
+  user          User           @relation(fields: [userId], references: [id], onDelete: Cascade)
+  slides        Slide[]
+  doubtSessions DoubtSession[]
+
+  createdAt DateTime @default(now())
+  updatedAt DateTime @updatedAt
+
+  @@index([userId, createdAt(sort: Desc)])
+  @@map("lessons")
+}
+
+// Visual data shape by visualType (stored as JSON):
+// DIAGRAM:  { description: string, label: string, components: string[] }
+// CHART:    { chartType: string, data: { labels: string[], values: number[] }, xAxis: string, yAxis: string }
+// EXAMPLE:  { scenario: string, steps: string[] }
+// ANALOGY:  { realWorldObject: string, comparison: string }
+// FORMULA:  { formula: string, variables: { symbol: string, meaning: string }[], explanation: string }
+// NONE:     {}
+model Slide {
+  id            String     @id @default(uuid()) @db.Uuid
+  lessonId      String     @db.Uuid
+  slideNumber   Int
+  slideTitle    String
+  explanation   String     @db.Text
+  narrationText String     @db.Text
+  visualType    VisualType
+  visualData    Json
+
+  lesson Lesson @relation(fields: [lessonId], references: [id], onDelete: Cascade)
+
+  @@unique([lessonId, slideNumber])
+  @@index([lessonId])
+  @@map("slides")
+}
+
+model DoubtSession {
+  id       String @id @default(uuid()) @db.Uuid
+  lessonId String @db.Uuid
+  userId   String @db.Uuid
+
+  lesson   Lesson    @relation(fields: [lessonId], references: [id], onDelete: Cascade)
+  user     User      @relation(fields: [userId], references: [id], onDelete: Cascade)
+  messages Message[]
+
+  createdAt DateTime @default(now())
+  updatedAt DateTime @updatedAt
+
+  @@index([lessonId, userId])
+  @@map("doubt_sessions")
+}
+
+model Message {
+  id             String      @id @default(uuid()) @db.Uuid
+  doubtSessionId String      @db.Uuid
+  role           MessageRole
+  content        String      @db.Text
+  slideIndex     Int?
+  createdAt      DateTime    @default(now())
+
+  doubtSession DoubtSession @relation(fields: [doubtSessionId], references: [id], onDelete: Cascade)
+
+  @@index([doubtSessionId, createdAt])
+  @@map("messages")
+}
