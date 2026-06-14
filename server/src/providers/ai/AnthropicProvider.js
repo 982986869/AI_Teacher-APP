@@ -12,6 +12,7 @@ const {
   buildDoubtSystemPrompt,
   buildDoubtMessages,
 } = require('../../prompts/doubtResolution.prompt')
+const { normalizeAnimation } = require('../../utils/slideAnimation')
 
 const VISUAL_TYPES = ['DIAGRAM', 'CHART', 'EXAMPLE', 'ANALOGY', 'FORMULA', 'NONE']
 
@@ -167,6 +168,8 @@ function parseAndValidateLesson(raw) {
       narrationText: slide.narrationText,
       visualType: slide.visualType,
       visualData,
+      // Animation metadata — validated/defaulted; safe to ignore on the frontend.
+      ...normalizeAnimation(slide),
     }
   })
 

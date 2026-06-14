@@ -102,6 +102,20 @@ model Slide {
   visualType    VisualType
   visualData    Json
 
+  // ─── Animation metadata (optional; frontend falls back to the fields above) ──
+  // animationType:    "FADE_IN" | "STEP_REVEAL" | "BUILD_UP" | "TYPEWRITER" | "ZOOM" | "NONE"
+  // animationSteps:   [{ order: int, action: string, target: string, durationMs: int, description: string }]
+  // subtitleChunks:   narrationText split into short caption-sized phrases (TTS-synced)
+  // visualSequence:   [{ order: int, element: string, appearAtMs: int }]
+  // highlightTargets: [{ ref: string, label: string, emphasis: string }]
+  // voiceCue:         short delivery hint for narration tone
+  animationType    String?
+  animationSteps   Json?
+  subtitleChunks   String[]  @default([])
+  visualSequence   Json?
+  highlightTargets Json?
+  voiceCue         String?
+
   lesson Lesson @relation(fields: [lessonId], references: [id], onDelete: Cascade)
 
   @@unique([lessonId, slideNumber])

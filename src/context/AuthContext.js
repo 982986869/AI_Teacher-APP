@@ -40,6 +40,7 @@ export const AuthProvider = ({ children }) => {
   }, []);
 
   const signIn = useCallback(async ({ token: t, user: u }) => {
+    console.log('[AUTH] signIn — token received from backend:', t);
     await Promise.all([saveToken(t), saveUser(u)]);
     setToken(t);
     setUser(u);

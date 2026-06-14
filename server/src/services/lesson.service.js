@@ -48,6 +48,13 @@ async function updateLessonWithContent(
         narrationText: s.narrationText,
         visualType: s.visualType,
         visualData: s.visualData,
+        // Animation metadata (optional — defaults applied upstream by normalizeAnimation)
+        animationType: s.animationType ?? null,
+        animationSteps: s.animationSteps ?? [],
+        subtitleChunks: s.subtitleChunks ?? [],
+        visualSequence: s.visualSequence ?? [],
+        highlightTargets: s.highlightTargets ?? [],
+        voiceCue: s.voiceCue ?? null,
       })),
     })
   })
@@ -79,6 +86,12 @@ const SLIDE_SELECT = {
   narrationText: true,
   visualType: true,
   visualData: true,
+  animationType: true,
+  animationSteps: true,
+  subtitleChunks: true,
+  visualSequence: true,
+  highlightTargets: true,
+  voiceCue: true,
 }
 
 async function getLessonWithSlides(lessonId, userId) {

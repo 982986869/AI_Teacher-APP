@@ -7,18 +7,17 @@ const mockResponse = (name, email, phone) => ({
   user: { id: '1', name: name || 'User', email: email || '', phone: phone || '', grade: '' },
 });
 
-// ─── Email Auth ───────────────────────────────────────────────────────────────
+// ─── Email Auth (real backend) ──────────────────────────────────────────────────
+// Backend wraps responses as { success, message, data } — unwrap to { token, user }.
 
 export const loginWithEmail = async ({ email, password }) => {
-  if (MOCK_MODE) return mockResponse('User', email);
   const res = await axiosInstance.post('/api/auth/login', { email, password });
-  return res.data;
+  return res.data.data;
 };
 
 export const signupWithEmail = async ({ name, email, password, grade }) => {
-  if (MOCK_MODE) return mockResponse(name, email);
-  const res = await axiosInstance.post('/api/auth/signup', { name, email, password, grade });
-  return res.data;
+  const res = await axiosInstance.post('/api/auth/register', { name, email, password, grade });
+  return res.data.data;
 };
 
 // ─── Google Auth ──────────────────────────────────────────────────────────────

@@ -4,8 +4,66 @@ const { config } = require('../config/env')
 const lessonService = require('./lesson.service')
 const { getAIProvider } = require('../providers')
 const { AppError } = require('../middleware/errorHandler')
+const { normalizeAnimation } = require('../utils/slideAnimation')
 
 const MOCK_MODEL = 'mock-v1'
+
+const MOCK_VOICE_CUES = {
+  ANALOGY: 'warm and inviting',
+  EXAMPLE: 'clear and methodical',
+  DIAGRAM: 'curious and engaging',
+  FORMULA: 'precise and confident',
+  CHART: 'analytical and steady',
+  NONE: 'encouraging and reflective',
+}
+
+// Build realistic animation hints for a mock slide from its visualType/visualData.
+// Returns raw hints; normalizeAnimation() finalizes shape + fills subtitleChunks.
+function buildMockAnimation(slide) {
+  const v = slide.visualData || {}
+  const steps = [
+    { order: 1, action: 'fadeIn', target: 'title', durationMs: 400, description: `Reveal the title "${slide.slideTitle}"` },
+    { order: 2, action: 'fadeIn', target: 'explanation', durationMs: 500, description: 'Show the explanation text' },
+  ]
+  const visualSequence = []
+  const highlightTargets = []
+  let appearAtMs = 700
+
+  if (slide.visualType === 'DIAGRAM') {
+    const comps = Array.isArray(v.components) ? v.components : []
+    comps.forEach((c, i) => {
+      steps.push({ order: steps.length + 1, action: 'reveal', target: `component:${i}`, durationMs: 450, description: `Reveal "${c}"` })
+      visualSequence.push({ order: i + 1, element: `component:${i}`, appearAtMs })
+      appearAtMs += 600
+    })
+  } else if (slide.visualType === 'EXAMPLE') {
+    const stepList = Array.isArray(v.steps) ? v.steps : []
+    stepList.forEach((_, i) => {
+      steps.push({ order: steps.length + 1, action: 'slideIn', target: `step:${i}`, durationMs: 400, description: `Reveal step ${i + 1}` })
+      visualSequence.push({ order: i + 1, element: `step:${i}`, appearAtMs })
+      appearAtMs += 550
+    })
+  } else if (slide.visualType === 'FORMULA') {
+    steps.push({ order: steps.length + 1, action: 'buildUp', target: 'formula', durationMs: 600, description: 'Build the formula term by term' })
+    visualSequence.push({ order: 1, element: 'formula', appearAtMs })
+    const vars = Array.isArray(v.variables) ? v.variables : []
+    vars.forEach((vr) => highlightTargets.push({ ref: `variable:${vr.symbol}`, label: `${vr.symbol} = ${vr.meaning}`, emphasis: 'pulse' }))
+  } else if (slide.visualType === 'CHART') {
+    steps.push({ order: steps.length + 1, action: 'growBars', target: 'chart', durationMs: 700, description: 'Animate the bars growing in' })
+    visualSequence.push({ order: 1, element: 'chart', appearAtMs })
+  } else if (slide.visualType === 'ANALOGY') {
+    steps.push({ order: steps.length + 1, action: 'zoomIn', target: 'analogy', durationMs: 500, description: 'Bring the analogy into focus' })
+    highlightTargets.push({ ref: 'realWorldObject', label: v.realWorldObject || '', emphasis: 'glow' })
+  }
+
+  return {
+    animationSteps: steps,
+    visualSequence,
+    highlightTargets,
+    voiceCue: MOCK_VOICE_CUES[slide.visualType] || 'warm and clear',
+    // animationType + subtitleChunks are derived by normalizeAnimation.
+  }
+}
 
 // ─── Mock data builders ───────────────────────────────────────────────────────
 
@@ -83,7 +141,10 @@ function buildMockLesson(topic, subject, gradeLevel) {
         visualType: 'NONE',
         visualData: {},
       },
-    ],
+    ].map((sl) => {
+      const hints = buildMockAnimation(sl)
+      return { ...sl, ...normalizeAnimation({ ...sl, ...hints }) }
+    }),
   }
 }
 
