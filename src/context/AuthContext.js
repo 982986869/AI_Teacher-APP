@@ -1,8 +1,8 @@
 import React, { createContext, useContext, useEffect, useState, useCallback } from 'react';
 import { saveToken, getToken, saveUser, getUser, clearAll } from '../utils/storage';
 import AsyncStorage from '@react-native-async-storage/async-storage';
+import { getMe } from '../api/authApi';
 
-// This was missing — without it AuthContext is undefined and the app breaks.
 const AuthContext = createContext(null);
 
 export const AuthProvider = ({ children }) => {
@@ -11,28 +11,41 @@ export const AuthProvider = ({ children }) => {
   const [loading, setLoading]         = useState(true);
   const [hasOnboarded, setHasOnboarded] = useState(false);
 
+  // On app start: load the stored session, then validate the JWT against the
+  // backend (/api/auth/me). Keep the user logged in only if the token is valid.
   useEffect(() => {
     (async () => {
       try {
-        // ── TEMP RESET ──────────────────────────────────────────────
-        // Wipes saved token + onboarding flag so you can see the FULL flow
-        // (Splash → Landing → Login → OTP → BrainGym → Onboarding → Home).
-        // Run the app ONCE with this line, confirm BrainGym shows, then
-        // DELETE this line and save again.
-        await AsyncStorage.clear();
-        // ────────────────────────────────────────────────────────────
-
         const [storedToken, storedUser, onboarded] = await Promise.all([
           getToken(),
           getUser(),
           AsyncStorage.getItem('@ailernova_onboarded'),
         ]);
-        if (storedToken && storedUser) {
-          setToken(storedToken);
-          setUser(storedUser);
-        }
         setHasOnboarded(onboarded === 'true');
+
+        if (storedToken) {
+          try {
+            // The axios interceptor attaches the stored token to this request.
+            const freshUser = await getMe();
+            setToken(storedToken);
+            setUser(freshUser);
+            await saveUser(freshUser);
+          } catch (e) {
+            const status = e?.response?.status;
+            if (status === 401 || status === 403) {
+              // Token invalid/expired — clear it and fall back to login.
+              await clearAll();
+              setToken(null);
+              setUser(null);
+            } else if (storedUser) {
+              // Transient error (offline / server down) — keep the last session.
+              setToken(storedToken);
+              setUser(storedUser);
+            }
+          }
+        }
       } catch (_) {
+        // ignore — fall through to the login screen
       } finally {
         setLoading(false);
       }
@@ -40,7 +53,6 @@ export const AuthProvider = ({ children }) => {
   }, []);
 
   const signIn = useCallback(async ({ token: t, user: u }) => {
-    console.log('[AUTH] signIn — token received from backend:', t);
     await Promise.all([saveToken(t), saveUser(u)]);
     setToken(t);
     setUser(u);
@@ -51,6 +63,7 @@ export const AuthProvider = ({ children }) => {
     setHasOnboarded(true);
   }, []);
 
+  // Logout — clears the JWT and user from state and storage.
   const signOut = useCallback(async () => {
     await clearAll();
     await AsyncStorage.removeItem('@ailernova_onboarded');
@@ -64,7 +77,7 @@ export const AuthProvider = ({ children }) => {
       user, token, loading,
       isAuthenticated: !!token,
       hasOnboarded,
-      signIn, signOut, completeOnboarding,
+      signIn, signOut, logout: signOut, completeOnboarding,
     }}>
       {children}
     </AuthContext.Provider>

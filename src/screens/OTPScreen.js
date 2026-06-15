@@ -8,7 +8,7 @@ import AuthHeader    from '../components/AuthHeader';
 import PrimaryButton from '../components/PrimaryButton';
 import ErrorMessage  from '../components/ErrorMessage';
 
-import { verifyOTP, sendOTP, completePhoneSignup } from '../api/authApi';
+import { verifyPhoneOtp, requestPhoneOtp } from '../api/authApi';
 import { useAuth } from '../context/AuthContext';
 import { OTP_RESEND_TIMER } from '../constants/config';
 import COLORS from '../constants/colors';
@@ -24,6 +24,7 @@ const OTPScreen = ({ navigation, route }) => {
   const [error, setError]   = useState('');
   const [timer, setTimer]   = useState(OTP_RESEND_TIMER);
   const [resent, setResent] = useState(false);
+  const [devOtp, setDevOtp] = useState(route.params?.devOtp || null);
 
   const inputs = useRef([]);
 
@@ -55,20 +56,13 @@ const OTPScreen = ({ navigation, route }) => {
     setError('');
     try {
       setLoading(true);
-      const data = await verifyOTP({ phone, otp: code });
-      // For signup mode with a new user, complete profile if needed
-      if (mode === 'signup' && data.isNewUser && name) {
-        const completed = await completePhoneSignup({ phone, name, grade, token: data.token });
-        await signIn(completed);
-      } else {
-        await signIn(data);
-      }
-      // Do NOT navigate here. signIn() flips isAuthenticated -> AppNavigator
-      // automatically swaps the stack to BrainGym -> Onboarding -> Home.
-      // (navigation.navigate('SuccessScreen') was crashing: that route does
-      //  not exist in AuthNavigator.)
+      // Verify against the real backend. It logs in if the phone exists, or
+      // creates the account (using name/grade) if it doesn't. Returns a real JWT.
+      const data = await verifyPhoneOtp({ phone, otp: code, name, grade });
+      await signIn(data);
+      // signIn() flips isAuthenticated -> AppNavigator swaps to the main flow.
     } catch (e) {
-      setError('Incorrect OTP. Please check and try again.');
+      setError(e?.response?.data?.error || 'Incorrect OTP. Please check and try again.');
       setOtp(Array(OTP_LENGTH).fill(''));
       inputs.current[0]?.focus();
     } finally {
@@ -82,12 +76,13 @@ const OTPScreen = ({ navigation, route }) => {
     setOtp(Array(OTP_LENGTH).fill(''));
     inputs.current[0]?.focus();
     try {
-      await sendOTP({ phone });
+      const data = await requestPhoneOtp({ phone });
+      setDevOtp(data?.devOtp || null);
       setTimer(OTP_RESEND_TIMER);
       setResent(true);
       setTimeout(() => setResent(false), 2500);
     } catch (e) {
-      setError('Failed to resend OTP. Please try again.');
+      setError(e?.response?.data?.error || 'Failed to resend OTP. Please try again.');
     }
   };
 
@@ -109,6 +104,7 @@ const displayPhone = phone
 
         <ErrorMessage message={error} style={{ marginTop: 16 }} />
         {resent && <Text style={styles.resentText}>OTP resent successfully!</Text>}
+        {devOtp ? <Text style={styles.devOtp}>Dev OTP: {devOtp}  (development only)</Text> : null}
 
         {/* OTP Boxes */}
         <View style={styles.otpRow}>
@@ -168,6 +164,7 @@ const styles = StyleSheet.create({
   timerText:   { fontSize: 12, color: COLORS.textMuted },
   resendLink:  { fontSize: 12, color: COLORS.primary, fontWeight: '700' },
   resentText:  { fontSize: 12, color: COLORS.success, marginTop: 4, marginBottom: -8 },
+  devOtp:      { fontSize: 12, color: COLORS.textSecondary, fontWeight: '700', textAlign: 'center', marginTop: 10 },
   changeRow:   { marginTop: 14 },
   changeText:  { fontSize: 12, color: COLORS.textSecondary, textDecorationLine: 'underline' },
 });

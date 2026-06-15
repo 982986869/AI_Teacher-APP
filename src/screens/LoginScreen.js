@@ -3,16 +3,13 @@ import {
   View, Text, ScrollView, TouchableOpacity,
   StyleSheet, SafeAreaView,
 } from 'react-native';
-// TODO: replace mock with real package after running: npm install @react-native-google-signin/google-signin
-import { GoogleSignin } from '../utils/googleSigninMock';
 
 import AuthHeader    from '../components/AuthHeader';
 import InputField    from '../components/InputField';
 import PrimaryButton from '../components/PrimaryButton';
 import ErrorMessage  from '../components/ErrorMessage';
-import LoadingSpinner from '../components/LoadingSpinner';
 
-import { loginWithEmail, loginWithGoogle, sendOTP } from '../api/authApi';
+import { loginWithEmail, requestPhoneOtp } from '../api/authApi';
 import { useAuth } from '../context/AuthContext';
 import { validateEmail, validatePassword, validatePhone } from '../utils/validators';
 import COLORS from '../constants/colors';
@@ -34,7 +31,7 @@ const LoginScreen = ({ navigation }) => {
   const [loading, setLoading] = useState(false);
   const [error, setError]     = useState('');
 
-  // ── Email Login ─────────────────────────────────────────────────────────────
+  // ── Email Login (real backend JWT) ───────────────────────────────────────────
   const handleEmailLogin = async () => {
     setError('');
     if (!validateEmail(email)) return setError('Enter a valid email address.');
@@ -46,38 +43,23 @@ const LoginScreen = ({ navigation }) => {
       const data = await loginWithEmail({ email, password });
       await signIn(data);
     } catch (e) {
-      setError(e?.response?.data?.message || 'Login failed. Please try again.');
+      setError(e?.response?.data?.error || 'Login failed. Please try again.');
     } finally {
       setLoading(false);
     }
   };
 
-  // ── Google Login ─────────────────────────────────────────────────────────────
-  const handleGoogleLogin = async () => {
-    setError('');
-    try {
-      setLoading(true);
-      await GoogleSignin.hasPlayServices();
-      const { idToken } = await GoogleSignin.signIn();
-      const data = await loginWithGoogle({ idToken });
-      await signIn(data);
-    } catch (e) {
-      setError('Google sign-in failed. Please try again.');
-    } finally {
-      setLoading(false);
-    }
-  };
-
-  // ── Phone Login → OTP ────────────────────────────────────────────────────────
+  // ── Phone Login → request OTP → OTP screen ───────────────────────────────────
   const handleSendOTP = async () => {
     setError('');
     if (!validatePhone(phone)) return setError('Enter a valid 10-digit phone number.');
+    const fullPhone = `+91${phone}`;
     try {
       setLoading(true);
-      await sendOTP({ phone: `+91${phone}` });
-      navigation.navigate('OTPScreen', { phone: `+91${phone}`, mode: 'login' });
+      const data = await requestPhoneOtp({ phone: fullPhone });
+      navigation.navigate('OTPScreen', { phone: fullPhone, mode: 'login', devOtp: data?.devOtp });
     } catch (e) {
-      setError(e?.response?.data?.message || 'Failed to send OTP. Try again.');
+      setError(e?.response?.data?.error || 'Failed to send OTP. Please try again.');
     } finally {
       setLoading(false);
     }
@@ -104,12 +86,7 @@ const LoginScreen = ({ navigation }) => {
 
         {activeTab === 'Email' && (
           <>
-            <InputField
-              placeholder="Email address"
-              value={email}
-              onChangeText={setEmail}
-              keyboardType="email-address"
-            />
+            <InputField placeholder="Email address" value={email} onChangeText={setEmail} keyboardType="email-address" />
             <InputField
               placeholder="Password"
               value={password}
@@ -151,10 +128,12 @@ const LoginScreen = ({ navigation }) => {
           <View style={styles.dividerLine} />
         </View>
 
-        <TouchableOpacity style={styles.googleBtn} onPress={handleGoogleLogin} activeOpacity={0.8}>
-          <Text style={styles.googleIcon}>G</Text>
-          <Text style={styles.googleText}>Continue with Google</Text>
-        </TouchableOpacity>
+        {/* Google sign-in — disabled until backend support exists */}
+        <View style={[styles.googleBtn, styles.disabledBtn]}>
+          <Text style={[styles.googleIcon, styles.disabledTxt]}>G</Text>
+          <Text style={[styles.googleText, styles.disabledTxt]}>Continue with Google</Text>
+          <View style={styles.badge}><Text style={styles.badgeTxt}>Coming soon</Text></View>
+        </View>
 
         <View style={styles.switchRow}>
           <Text style={styles.switchLabel}>Don't have an account? </Text>
@@ -180,15 +159,19 @@ const styles = StyleSheet.create({
   forgotRow:  { alignItems: 'flex-end', marginBottom: 16, marginTop: -4 },
   forgotText: { fontSize: 12, color: COLORS.textSecondary, fontWeight: '500' },
   mainBtn:    { marginTop: 4, marginBottom: 4 },
+  phoneRow:   { flexDirection: 'row', alignItems: 'flex-start', gap: 8, marginBottom: 14 },
+  countryCode:{ height: 50, borderWidth: 1, borderColor: COLORS.border, borderRadius: 10, backgroundColor: COLORS.subtleBg, justifyContent: 'center', paddingHorizontal: 14 },
+  countryText:{ fontSize: 14, color: COLORS.textPrimary },
   dividerRow: { flexDirection: 'row', alignItems: 'center', marginVertical: 20 },
   dividerLine:{ flex: 1, height: 0.5, backgroundColor: COLORS.divider },
   dividerText:{ marginHorizontal: 12, fontSize: 12, color: COLORS.textMuted },
   googleBtn:  { flexDirection: 'row', alignItems: 'center', justifyContent: 'center', borderWidth: 1, borderColor: COLORS.border, borderRadius: 10, height: 50, gap: 10 },
+  disabledBtn:{ opacity: 0.6, backgroundColor: COLORS.subtleBg },
   googleIcon: { fontSize: 16, fontWeight: '700', color: COLORS.googleRed },
   googleText: { fontSize: 14, color: COLORS.textPrimary, fontWeight: '500' },
-  phoneRow:   { flexDirection: 'row', alignItems: 'flex-start', gap: 8, marginBottom: 14 },
-  countryCode:{ height: 50, borderWidth: 1, borderColor: COLORS.border, borderRadius: 10, backgroundColor: COLORS.subtleBg, justifyContent: 'center', paddingHorizontal: 14 },
-  countryText:{ fontSize: 14, color: COLORS.textPrimary },
+  disabledTxt:{ color: COLORS.textMuted },
+  badge:      { backgroundColor: COLORS.border, borderRadius: 8, paddingHorizontal: 6, paddingVertical: 2 },
+  badgeTxt:   { fontSize: 9, fontWeight: '700', color: COLORS.textSecondary },
   switchRow:  { flexDirection: 'row', justifyContent: 'center', marginTop: 28 },
   switchLabel:{ fontSize: 12, color: COLORS.textSecondary },
   switchLink: { fontSize: 12, color: COLORS.primary, fontWeight: '700' },

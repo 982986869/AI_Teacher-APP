@@ -1,14 +1,11 @@
 import axiosInstance from './axiosInstance';
 
-const MOCK_MODE = true; // Set to false when your backend is running
+// Email + Phone(OTP) are production-ready (real backend JWT). Google is not
+// implemented yet — its stub throws a clear "coming soon" error.
+const COMING_SOON = 'This sign-in method is coming soon. Please use email or phone for now.';
 
-const mockResponse = (name, email, phone) => ({
-  token: 'mock-jwt-token-12345',
-  user: { id: '1', name: name || 'User', email: email || '', phone: phone || '', grade: '' },
-});
-
-// ─── Email Auth (real backend) ──────────────────────────────────────────────────
-// Backend wraps responses as { success, message, data } — unwrap to { token, user }.
+// ─── Email Auth ────────────────────────────────────────────────────────────────
+// Backend wraps responses as { success, message, data } — unwrap to the payload.
 
 export const loginWithEmail = async ({ email, password }) => {
   const res = await axiosInstance.post('/api/auth/login', { email, password });
@@ -20,35 +17,30 @@ export const signupWithEmail = async ({ name, email, password, grade }) => {
   return res.data.data;
 };
 
-// ─── Google Auth ──────────────────────────────────────────────────────────────
-
-export const loginWithGoogle = async ({ idToken }) => {
-  if (MOCK_MODE) return { ...mockResponse('Google User', 'google@gmail.com'), isNewUser: false };
-  const res = await axiosInstance.post('/api/auth/google', { idToken });
-  return res.data;
+// Validate the stored JWT and fetch the current user. 401 => token invalid.
+export const getMe = async () => {
+  const res = await axiosInstance.get('/api/auth/me');
+  return res.data.data.user;
 };
 
-// ─── Phone / OTP Auth ─────────────────────────────────────────────────────────
+// ─── Phone OTP Auth (real backend) ──────────────────────────────────────────────
 
-export const sendOTP = async ({ phone }) => {
-  if (MOCK_MODE) return { message: 'OTP sent' };
-  const res = await axiosInstance.post('/api/auth/send-otp', { phone });
-  return res.data;
+// Request a 6-digit OTP for a phone number.
+// Returns { phone, purpose, expiresInSeconds, devOtp? } (devOtp only in dev).
+export const requestPhoneOtp = async ({ phone }) => {
+  const res = await axiosInstance.post('/api/auth/phone/request-otp', { phone });
+  return res.data.data;
 };
 
-export const verifyOTP = async ({ phone, otp }) => {
-  if (MOCK_MODE) {
-    if (otp === '123456') return { ...mockResponse('User', '', phone), isNewUser: false };
-    throw new Error('Invalid OTP');
-  }
-  const res = await axiosInstance.post('/api/auth/verify-otp', { phone, otp });
-  return res.data;
+// Verify the OTP. Logs in if the phone exists, otherwise creates the account.
+// Returns { token, user, isNewUser }.
+export const verifyPhoneOtp = async ({ phone, otp, name, grade }) => {
+  const res = await axiosInstance.post('/api/auth/phone/verify-otp', { phone, otp, name, grade });
+  return res.data.data;
 };
 
-export const completePhoneSignup = async ({ phone, name, grade, token }) => {
-  if (MOCK_MODE) return mockResponse(name, '', phone);
-  const res = await axiosInstance.post('/api/auth/complete-phone-signup', { phone, name, grade }, {
-    headers: { Authorization: `Bearer ${token}` },
-  });
-  return res.data;
+// ─── Not available yet (no mock tokens) ─────────────────────────────────────────
+
+export const loginWithGoogle = async () => {
+  throw new Error(COMING_SOON);
 };

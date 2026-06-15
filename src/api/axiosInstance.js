@@ -14,10 +14,7 @@ axiosInstance.interceptors.request.use(
   async (config) => {
     const token = await getToken();
     if (token) config.headers.Authorization = `Bearer ${token}`;
-    console.log(
-      '[AXIOS]', (config.method || 'get').toUpperCase(), config.url,
-      '| Authorization:', config.headers.Authorization || '(none)'
-    );
+    console.log('[AXIOS]', (config.method || 'get').toUpperCase(), config.url, '| auth:', token ? 'yes' : 'no');
     return config;
   },
   (error) => Promise.reject(error)

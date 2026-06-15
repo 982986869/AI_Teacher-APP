@@ -3,15 +3,13 @@ import {
   View, Text, ScrollView, TouchableOpacity,
   StyleSheet, SafeAreaView,
 } from 'react-native';
-// TODO: replace mock with real package after running: npm install @react-native-google-signin/google-signin
-import { GoogleSignin } from '../utils/googleSigninMock';
 
 import AuthHeader    from '../components/AuthHeader';
 import InputField    from '../components/InputField';
 import PrimaryButton from '../components/PrimaryButton';
 import ErrorMessage  from '../components/ErrorMessage';
 
-import { signupWithEmail, loginWithGoogle, sendOTP } from '../api/authApi';
+import { signupWithEmail, requestPhoneOtp } from '../api/authApi';
 import { useAuth } from '../context/AuthContext';
 import { validateEmail, validatePassword, validateName, validatePhone } from '../utils/validators';
 import COLORS from '../constants/colors';
@@ -30,13 +28,13 @@ const SignupScreen = ({ navigation }) => {
   const [grade, setGrade]       = useState('');
 
   // Phone state
-  const [phone, setPhone]       = useState('');
+  const [phone, setPhone]         = useState('');
   const [phoneName, setPhoneName] = useState('');
 
   const [loading, setLoading] = useState(false);
   const [error, setError]     = useState('');
 
-  // ── Email Signup ─────────────────────────────────────────────────────────────
+  // ── Email Signup (real backend JWT) ──────────────────────────────────────────
   const handleEmailSignup = async () => {
     setError('');
     const nameErr = validateName(name);
@@ -50,45 +48,31 @@ const SignupScreen = ({ navigation }) => {
       const data = await signupWithEmail({ name, email, password, grade });
       await signIn(data);
     } catch (e) {
-      setError(e?.response?.data?.message || 'Signup failed. Please try again.');
+      setError(e?.response?.data?.error || 'Signup failed. Please try again.');
     } finally {
       setLoading(false);
     }
   };
 
-  // ── Google Signup ─────────────────────────────────────────────────────────────
-  const handleGoogleSignup = async () => {
-    setError('');
-    try {
-      setLoading(true);
-      await GoogleSignin.hasPlayServices();
-      const { idToken } = await GoogleSignin.signIn();
-      const data = await loginWithGoogle({ idToken });
-      await signIn(data);
-    } catch (e) {
-      setError('Google sign-in failed. Please try again.');
-    } finally {
-      setLoading(false);
-    }
-  };
-
-  // ── Phone Signup → OTP ───────────────────────────────────────────────────────
+  // ── Phone Signup → request OTP → OTP screen ──────────────────────────────────
   const handleSendOTP = async () => {
     setError('');
     const nameErr = validateName(phoneName);
     if (nameErr) return setError(nameErr);
     if (!validatePhone(phone)) return setError('Enter a valid 10-digit phone number.');
+    const fullPhone = `+91${phone}`;
     try {
       setLoading(true);
-      await sendOTP({ phone: `+91${phone}` });
+      const data = await requestPhoneOtp({ phone: fullPhone });
       navigation.navigate('OTPScreen', {
-        phone: `+91${phone}`,
+        phone: fullPhone,
         name: phoneName,
         grade,
         mode: 'signup',
+        devOtp: data?.devOtp,
       });
     } catch (e) {
-      setError(e?.response?.data?.message || 'Failed to send OTP. Try again.');
+      setError(e?.response?.data?.error || 'Failed to send OTP. Please try again.');
     } finally {
       setLoading(false);
     }
@@ -118,7 +102,7 @@ const SignupScreen = ({ navigation }) => {
             <InputField placeholder="Full name" value={name} onChangeText={setName} autoCapitalize="words" />
             <InputField placeholder="Email address" value={email} onChangeText={setEmail} keyboardType="email-address" />
             <InputField
-              placeholder="Password (min 6 characters)"
+              placeholder="Password (min 8 characters)"
               value={password}
               onChangeText={setPassword}
               secureTextEntry={!showPw}
@@ -158,10 +142,12 @@ const SignupScreen = ({ navigation }) => {
           <View style={styles.dividerLine} />
         </View>
 
-        <TouchableOpacity style={styles.googleBtn} onPress={handleGoogleSignup} activeOpacity={0.8}>
-          <Text style={styles.googleIcon}>G</Text>
-          <Text style={styles.googleText}>Continue with Google</Text>
-        </TouchableOpacity>
+        {/* Google sign-up — disabled until backend support exists */}
+        <View style={[styles.googleBtn, styles.disabledBtn]}>
+          <Text style={[styles.googleIcon, styles.disabledTxt]}>G</Text>
+          <Text style={[styles.googleText, styles.disabledTxt]}>Continue with Google</Text>
+          <View style={styles.badge}><Text style={styles.badgeTxt}>Coming soon</Text></View>
+        </View>
 
         <Text style={styles.terms}>
           By signing up, you agree to our{' '}
@@ -191,15 +177,19 @@ const styles = StyleSheet.create({
   tabTextActive: { color: COLORS.tabActive, fontWeight: '600' },
   tabUnderline:  { position: 'absolute', bottom: -1, left: 0, right: 0, height: 2, backgroundColor: COLORS.tabBorder, borderRadius: 1 },
   mainBtn:    { marginTop: 6, marginBottom: 4 },
+  phoneRow:   { flexDirection: 'row', alignItems: 'flex-start', gap: 8 },
+  countryCode:{ height: 50, borderWidth: 1, borderColor: COLORS.border, borderRadius: 10, backgroundColor: COLORS.subtleBg, justifyContent: 'center', paddingHorizontal: 14 },
+  countryText:{ fontSize: 14, color: COLORS.textPrimary },
   dividerRow: { flexDirection: 'row', alignItems: 'center', marginVertical: 20 },
   dividerLine:{ flex: 1, height: 0.5, backgroundColor: COLORS.divider },
   dividerText:{ marginHorizontal: 12, fontSize: 12, color: COLORS.textMuted },
   googleBtn:  { flexDirection: 'row', alignItems: 'center', justifyContent: 'center', borderWidth: 1, borderColor: COLORS.border, borderRadius: 10, height: 50, gap: 10 },
+  disabledBtn:{ opacity: 0.6, backgroundColor: COLORS.subtleBg },
   googleIcon: { fontSize: 16, fontWeight: '700', color: COLORS.googleRed },
   googleText: { fontSize: 14, color: COLORS.textPrimary, fontWeight: '500' },
-  phoneRow:   { flexDirection: 'row', alignItems: 'flex-start', gap: 8 },
-  countryCode:{ height: 50, borderWidth: 1, borderColor: COLORS.border, borderRadius: 10, backgroundColor: COLORS.subtleBg, justifyContent: 'center', paddingHorizontal: 14 },
-  countryText:{ fontSize: 14, color: COLORS.textPrimary },
+  disabledTxt:{ color: COLORS.textMuted },
+  badge:      { backgroundColor: COLORS.border, borderRadius: 8, paddingHorizontal: 6, paddingVertical: 2 },
+  badgeTxt:   { fontSize: 9, fontWeight: '700', color: COLORS.textSecondary },
   terms:      { fontSize: 11, color: COLORS.textMuted, textAlign: 'center', marginTop: 16, lineHeight: 18 },
   termsLink:  { color: COLORS.textSecondary, fontWeight: '500' },
   switchRow:  { flexDirection: 'row', justifyContent: 'center', marginTop: 20 },
