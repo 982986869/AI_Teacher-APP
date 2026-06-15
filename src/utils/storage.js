@@ -5,12 +5,25 @@ const KEYS = {
   USER:       '@ailernova_user',
 };
 
+// Legacy token returned by the still-mocked Google/OTP auth paths. It is NOT a
+// real JWT, so the backend rejects it with "Invalid authentication token".
+const MOCK_TOKEN = 'mock-jwt-token-12345';
+
 export const saveToken = async (token) => {
+  console.log('[AUTH] saveToken -> stored token after login:', token);
   await AsyncStorage.setItem(KEYS.AUTH_TOKEN, token);
 };
 
 export const getToken = async () => {
-  return await AsyncStorage.getItem(KEYS.AUTH_TOKEN);
+  const token = await AsyncStorage.getItem(KEYS.AUTH_TOKEN);
+  // Defensively drop any old mock token so it can never be sent to the backend.
+  if (token === MOCK_TOKEN) {
+    console.warn('[AUTH] Found legacy MOCK token in storage — clearing it. Log in with EMAIL to get a real JWT.');
+    await AsyncStorage.removeItem(KEYS.AUTH_TOKEN);
+    return null;
+  }
+  console.log('[AUTH] getToken <- token loaded from storage:', token);
+  return token;
 };
 
 export const removeToken = async () => {

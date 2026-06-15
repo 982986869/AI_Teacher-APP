@@ -5,6 +5,8 @@ import {
   Platform, KeyboardAvoidingView, Animated,
 } from 'react-native';
 import { useAuth } from '../context/AuthContext';
+import AITeacherScreen from './AITeacherScreen';
+
 // WorkoutWheel placeholder (real file not present yet)
 const WorkoutWheel = ({ onTabPress }) => (
   <View style={{ flex: 1, alignItems: 'center', justifyContent: 'center', backgroundColor: '#fff' }}>
@@ -51,13 +53,6 @@ const SUBJECT_QS = {
   History:   ['WW2 causes?', 'Industrial Revolution?', 'Who was Gandhi?', 'French Revolution?'],
 };
 
-const AI_REPLIES = [
-  'Great question! 🌟 Let me break this down step by step so it\'s super clear for you.\n\nOnce you understand the concept, you\'ll be able to solve any similar problem! 💡',
-  'Excellent! 🎯 This is a really important topic. Here\'s the simplest way to understand it:\n\nThink of it this way — it\'s just like what happens in real life! 🌍',
-  'Love that curiosity! 🚀 Here\'s a clear explanation with an example you\'ll never forget!\n\nPractice this 3 times and it will stick forever! 📚',
-  'Perfect question for exam prep! ⭐\n\nThe key idea to remember — write it in your notes right now! When you see this in your exam, you\'ll smile! 😊',
-];
-
 // ─── Typing dots indicator ────────────────────────────────────────────────────
 const TypingDots = () => {
   const anims = [useRef(new Animated.Value(0)).current, useRef(new Animated.Value(0)).current, useRef(new Animated.Value(0)).current];
@@ -92,37 +87,17 @@ const HomeScreen = () => {
   const [showWorkout, setShowWorkout]   = useState(false);
 
   const [activeSubject, setActiveSubject] = useState('Physics');
-  const [messages, setMessages]          = useState([{
-    id: 1, from: 'ai',
-    text: `👋 Hi ${firstName}! Ask me anything about Physics — I'll explain it clearly with examples! 📚`,
-  }]);
-  const [input, setInput]   = useState('');
-  const [typing, setTyping] = useState(false);
-  const [replyIdx, setReplyIdx] = useState(0);
-  const chatRef = useRef(null);
+
+  // The full AI Teacher experience (lesson generation + slide player + doubt
+  // chat) lives in AITeacherScreen. The Home section is a preview only.
+  const [showAITeacher, setShowAITeacher] = useState(false);
+  const [seedTopic, setSeedTopic]         = useState('');
 
   const currentChar = CHARS[charIdx];
 
-  const sendMessage = (text) => {
-    const msg = text || input.trim();
-    if (!msg) return;
-    setInput('');
-    const userMsg = { id: Date.now(), from: 'user', text: msg };
-    setMessages(prev => [...prev, userMsg]);
-    setTyping(true);
-    setTimeout(() => chatRef.current?.scrollToEnd({ animated: true }), 100);
-    setTimeout(() => {
-      const reply = AI_REPLIES[replyIdx % AI_REPLIES.length];
-      setMessages(prev => [...prev, { id: Date.now() + 1, from: 'ai', text: reply }]);
-      setReplyIdx(r => r + 1);
-      setTyping(false);
-      setTimeout(() => chatRef.current?.scrollToEnd({ animated: true }), 100);
-    }, 1200);
-  };
-
-  const switchSubject = (subj) => {
-    setActiveSubject(subj);
-    sendMessage(`Switched to ${subj}! 📚 Ask me anything — I'll explain it clearly! 😊`);
+  const openAITeacher = (topic = '') => {
+    setSeedTopic(topic);
+    setShowAITeacher(true);
   };
 
   // ── Workout wheel (opened from the Practice quick action) ──
@@ -143,6 +118,17 @@ const HomeScreen = () => {
         // TODO: route into the real practice flow for the chosen skill
         onStart={(skill) => { setShowWorkout(false); }}
         onSelectSkill={(skill) => { setShowWorkout(false); }}
+      />
+    );
+  }
+
+  // ── Full AI Teacher experience (opened from the "Open AI Teacher" button) ──
+  if (showAITeacher) {
+    return (
+      <AITeacherScreen
+        initialSubject={activeSubject}
+        initialTopic={seedTopic}
+        onBack={() => setShowAITeacher(false)}
       />
     );
   }
@@ -314,11 +300,11 @@ const HomeScreen = () => {
           ))}
         </ScrollView>
 
-        {/* ── AI TEACHER ── */}
+        {/* ── AI TEACHER (preview — full experience opens via the button) ── */}
         <View style={s.aiSection}>
           <Text style={s.aiSectionLabel}>AI Teacher 🎓</Text>
 
-          {/* Header */}
+          {/* Header card */}
           <View style={s.aiHeaderCard}>
             <View style={s.aiTopRow}>
               <View style={s.aiLeft}>
@@ -346,78 +332,27 @@ const HomeScreen = () => {
               {Object.keys(SUBJECT_QS).map(subj => (
                 <TouchableOpacity key={subj}
                   style={[s.chip, activeSubject === subj && s.chipOn]}
-                  onPress={() => switchSubject(subj)}>
+                  onPress={() => setActiveSubject(subj)}>
                   <Text style={[s.chipTxt, activeSubject === subj && s.chipTxtOn]}>{subj}</Text>
                 </TouchableOpacity>
               ))}
             </ScrollView>
           </View>
 
-          {/* Chat */}
-          <View style={s.chatWrap}>
-            <ScrollView ref={chatRef} style={s.chatMsgs}
-              contentContainerStyle={{ padding: 14, gap: 14 }}
-              showsVerticalScrollIndicator={false}>
-              {messages.map(m => (
-                <View key={m.id} style={[s.msgRow, m.from === 'user' && s.msgRowMe]}>
-                  {m.from === 'ai' && <View style={s.msgAv}><Text style={{ fontSize: 14 }}>🎓</Text></View>}
-                  <View style={[s.bubble, m.from === 'user' ? s.bMe : s.bAi]}>
-                    <Text style={[s.bubbleTxt, m.from === 'user' && { color: '#fff' }]}>{m.text}</Text>
-                  </View>
-                  {m.from === 'user' && (
-                    <View style={s.msgAvUser}>
-                      <CharAvatar char={currentChar} size={30} />
-                    </View>
-                  )}
-                </View>
+          {/* Quick questions + Open button (preview footer) */}
+          <View style={s.previewCard}>
+            <Text style={s.qsLbl}>QUICK QUESTIONS</Text>
+            <ScrollView horizontal showsHorizontalScrollIndicator={false}
+              contentContainerStyle={{ gap: 8 }}>
+              {(SUBJECT_QS[activeSubject] || []).map((q, i) => (
+                <TouchableOpacity key={i} style={s.qPill} onPress={() => openAITeacher(q)}>
+                  <Text style={s.qPillTxt}>{q}</Text>
+                </TouchableOpacity>
               ))}
-              {typing && (
-                <View style={s.msgRow}>
-                  <View style={s.msgAv}><Text style={{ fontSize: 14 }}>🎓</Text></View>
-                  <View style={s.bAi}><TypingDots /></View>
-                </View>
-              )}
             </ScrollView>
-
-            {/* Quick questions */}
-            <View style={s.quickQs}>
-              <Text style={s.qsLbl}>QUICK QUESTIONS</Text>
-              <ScrollView horizontal showsHorizontalScrollIndicator={false}
-                contentContainerStyle={{ gap: 8 }}>
-                {(SUBJECT_QS[activeSubject] || []).map((q, i) => (
-                  <TouchableOpacity key={i} style={s.qPill} onPress={() => sendMessage(q)}>
-                    <Text style={s.qPillTxt}>{q}</Text>
-                  </TouchableOpacity>
-                ))}
-              </ScrollView>
-            </View>
-
-            {/* Input */}
-            <View style={s.inputArea}>
-              <View style={s.inputRow}>
-                <TextInput
-                  style={s.inp}
-                  placeholder={`Type your question about ${activeSubject}...`}
-                  placeholderTextColor="#C7C7CC"
-                  value={input}
-                  onChangeText={setInput}
-                  onSubmitEditing={() => sendMessage()}
-                  returnKeyType="send"
-                />
-                <TouchableOpacity style={s.sendBtn} onPress={() => sendMessage()}>
-                  <Text style={{ color: '#fff', fontSize: 16, fontWeight: '700' }}>↑</Text>
-                </TouchableOpacity>
-              </View>
-              <View style={s.voiceRow}>
-                <TouchableOpacity style={s.voiceBtn}>
-                  <Text style={{ fontSize: 17 }}>🎤</Text>
-                  <Text style={s.voiceLbl}>Tap to Speak</Text>
-                </TouchableOpacity>
-                <TouchableOpacity style={s.askBtn} onPress={() => setShowCharModal(false)}>
-                  <Text style={s.askLbl}>Open AI Teacher ↗</Text>
-                </TouchableOpacity>
-              </View>
-            </View>
+            <TouchableOpacity style={s.openAiBtn} onPress={() => openAITeacher()}>
+              <Text style={s.openAiTxt}>Open AI Teacher  ↗</Text>
+            </TouchableOpacity>
           </View>
         </View>
 
@@ -582,6 +517,29 @@ const s = StyleSheet.create({
   skBtn:   { marginTop: 12, borderWidth: 2, borderColor: '#1C1C1E', borderRadius: 10, paddingVertical: 7, paddingHorizontal: 0, width: '100%', alignItems: 'center' },
   skBtnTxt:{ fontSize: 12, fontWeight: '800', color: '#1C1C1E' },
 
+  // Lesson player
+  lpCard:         { backgroundColor: '#fff', borderRadius: 22, borderWidth: 1.5, borderColor: '#F0F0F0', padding: 16, marginBottom: 12 },
+  lpTopRow:       { flexDirection: 'row', justifyContent: 'space-between', alignItems: 'center', gap: 10, marginBottom: 8 },
+  lpCount:        { fontSize: 11, fontWeight: '800', color: '#1C1C1E', letterSpacing: 0.3 },
+  lpTitleSm:      { flex: 1, fontSize: 11, fontWeight: '700', color: '#8E8E93', textAlign: 'right' },
+  lpBar:          { height: 6, backgroundColor: '#F0F0F0', borderRadius: 10, overflow: 'hidden', marginBottom: 14 },
+  lpBarFill:      { height: '100%', backgroundColor: '#1C1C1E', borderRadius: 10 },
+  lpBody:         { maxHeight: 230 },
+  lpSlideNo:      { fontSize: 10, fontWeight: '800', color: '#8E8E93', letterSpacing: 1, marginBottom: 4 },
+  lpSlideTitle:   { fontSize: 18, fontWeight: '900', color: '#1C1C1E', letterSpacing: -0.3, lineHeight: 23, marginBottom: 8 },
+  lpExplain:      { fontSize: 14, fontWeight: '600', color: '#1C1C1E', lineHeight: 21 },
+  lpNarrBox:      { backgroundColor: '#F7F7F7', borderWidth: 1.5, borderColor: '#EBEBEB', borderRadius: 14, padding: 12, marginTop: 12 },
+  lpNarrLbl:      { fontSize: 9, fontWeight: '800', color: '#8E8E93', letterSpacing: 0.8, marginBottom: 5 },
+  lpNarr:         { fontSize: 13, fontWeight: '600', color: '#3A3A3C', lineHeight: 20, fontStyle: 'italic' },
+  lpNav:          { flexDirection: 'row', alignItems: 'center', justifyContent: 'space-between', gap: 10, marginTop: 14 },
+  lpBtn:          { borderWidth: 2, borderColor: '#1C1C1E', borderRadius: 12, paddingVertical: 9, paddingHorizontal: 16, minWidth: 80, alignItems: 'center' },
+  lpBtnDisabled:  { borderColor: '#E8E8E8' },
+  lpBtnTxt:       { fontSize: 13, fontWeight: '800', color: '#1C1C1E' },
+  lpBtnTxtDisabled: { color: '#C7C7CC' },
+  lpDots:         { flexDirection: 'row', flexWrap: 'wrap', justifyContent: 'center', gap: 5, flex: 1 },
+  lpDot:          { width: 7, height: 7, borderRadius: 3.5, backgroundColor: '#E0E0E0' },
+  lpDotOn:        { width: 18, backgroundColor: '#1C1C1E' },
+
   // AI Teacher
   aiSection:      { marginHorizontal: PAD, marginBottom: 10, marginTop: 4 },
   aiSectionLabel: { fontSize: 16, fontWeight: '900', color: '#1C1C1E', letterSpacing: -0.3, marginBottom: 10, paddingHorizontal: 2 },
@@ -601,6 +559,9 @@ const s = StyleSheet.create({
   chipOn:         { backgroundColor: '#fff', borderColor: '#fff' },
   chipTxt:        { fontSize: 13, fontWeight: '800', color: '#8E8E93' },
   chipTxtOn:      { color: '#1C1C1E' },
+  previewCard:    { backgroundColor: '#fff', borderWidth: 1.5, borderTopWidth: 0, borderColor: '#F0F0F0', borderBottomLeftRadius: 26, borderBottomRightRadius: 26, paddingHorizontal: 14, paddingTop: 12, paddingBottom: 14 },
+  openAiBtn:      { backgroundColor: '#1C1C1E', borderRadius: 14, paddingVertical: 13, alignItems: 'center', marginTop: 12 },
+  openAiTxt:      { color: '#fff', fontSize: 15, fontWeight: '900', letterSpacing: -0.3 },
   chatWrap:       { borderLeftWidth: 1.5, borderRightWidth: 1.5, borderColor: '#F0F0F0', backgroundColor: '#F7F7F7' },
   chatMsgs:       { maxHeight: 220 },
   msgRow:         { flexDirection: 'row', alignItems: 'flex-end', gap: 10, marginBottom: 14 },
