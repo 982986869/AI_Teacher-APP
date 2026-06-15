@@ -5,16 +5,29 @@
 // backward-safe shape — the frontend can ignore these fields entirely and still
 // use slideTitle/explanation/narrationText/visualType/visualData.
 
-const ANIMATION_TYPES = ['FADE_IN', 'STEP_REVEAL', 'BUILD_UP', 'TYPEWRITER', 'ZOOM', 'NONE']
+const ANIMATION_TYPES = [
+  // Legacy / generic (kept for backward compatibility)
+  'FADE_IN', 'STEP_REVEAL', 'BUILD_UP', 'TYPEWRITER', 'ZOOM', 'NONE',
+  // Geometry / drawing
+  'DRAW_TRIANGLE', 'DRAW_SHAPE', 'DRAW_GRAPH', 'PLOT_POINTS',
+  // Math / formula
+  'HIGHLIGHT_FORMULA', 'BUILD_FORMULA', 'STEP_BY_STEP_EQUATION', 'SUBSTITUTE_VALUES',
+  // Concept emphasis
+  'ZOOM_IN_CONCEPT', 'REVEAL_STEPS',
+  // Real world / comparison
+  'SHOW_REAL_WORLD_EXAMPLE', 'COMPARE_OBJECTS', 'BEFORE_AFTER',
+  // Pedagogy
+  'SHOW_COMMON_MISTAKE', 'RECAP_CHECKLIST',
+]
 
 // Sensible default animation per visual type when the model omits animationType.
 const DEFAULT_BY_VISUAL = {
-  FORMULA: 'BUILD_UP',
-  DIAGRAM: 'STEP_REVEAL',
-  EXAMPLE: 'STEP_REVEAL',
+  FORMULA: 'BUILD_FORMULA',
+  DIAGRAM: 'DRAW_SHAPE',
+  EXAMPLE: 'REVEAL_STEPS',
   CHART: 'BUILD_UP',
-  ANALOGY: 'FADE_IN',
-  NONE: 'FADE_IN',
+  ANALOGY: 'SHOW_REAL_WORLD_EXAMPLE',
+  NONE: 'RECAP_CHECKLIST',
 }
 
 // Split narration into short, caption-sized chunks (~4–14 words) for timed subtitles.

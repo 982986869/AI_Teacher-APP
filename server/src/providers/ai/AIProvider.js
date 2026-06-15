@@ -28,6 +28,17 @@ class AIProvider {
   async answerDoubt(question, lessonContext, history, slideIndex) {
     throw new Error(`${this.constructor.name} must implement answerDoubt()`)
   }
+
+  /**
+   * Answer a question STRICTLY from retrieved knowledge chunks (RAG).
+   * @param {string} question
+   * @param {Array}  contexts  – [{ sourceTitle, chunkIndex, content, similarity }]
+   * @param {Array}  [history] – prior { role, content } messages, oldest first
+   * @returns {Promise<string>}
+   */
+  async answerFromKnowledge(question, contexts, history) {
+    throw new Error(`${this.constructor.name} must implement answerFromKnowledge()`)
+  }
 }
 
 module.exports = AIProvider

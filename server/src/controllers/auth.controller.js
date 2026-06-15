@@ -7,6 +7,7 @@ const db = require('../config/database')
 const { config } = require('../config/env')
 const { AppError } = require('../middleware/errorHandler')
 const ApiResponse = require('../utils/ApiResponse')
+const otpService = require('../services/otp.service')
 
 function signToken(userId) {
   return jwt.sign({ sub: userId }, config.auth.jwtSecret, {
@@ -103,10 +104,54 @@ async function login(req, res, next) {
   }
 }
 
+// ─── Phone OTP — request ──────────────────────────────────────────────────────
+
+async function requestPhoneOtp(req, res, next) {
+  try {
+    const errors = validationResult(req)
+    if (!errors.isEmpty()) return ApiResponse.error(res, errors.array()[0].msg, 422)
+
+    const { phone } = req.body
+    const result = await otpService.requestOtp({ phone })
+
+    const payload = {
+      phone: result.phone,
+      purpose: result.purpose,
+      expiresInSeconds: result.expiresInSeconds,
+    }
+    // Development only: expose the OTP so it can be tested without SMS.
+    if (config.isDev) payload.devOtp = result.otp
+
+    return ApiResponse.success(res, payload, 'OTP sent')
+  } catch (err) {
+    next(err)
+  }
+}
+
+// ─── Phone OTP — verify (login or create account) ─────────────────────────────
+
+async function verifyPhoneOtp(req, res, next) {
+  try {
+    const errors = validationResult(req)
+    if (!errors.isEmpty()) return ApiResponse.error(res, errors.array()[0].msg, 422)
+
+    const { phone, otp, name, grade } = req.body
+    const { user, isNewUser } = await otpService.verifyOtp({ phone, otp, name, grade })
+
+    return ApiResponse.success(
+      res,
+      { token: signToken(user.id), user, isNewUser },
+      isNewUser ? 'Account created' : 'Logged in'
+    )
+  } catch (err) {
+    next(err)
+  }
+}
+
 // ─── Me ──────────────────────────────────────────────────────────────────────
 
 async function me(req, res) {
   return ApiResponse.success(res, { user: req.user })
 }
 
-module.exports = { register, login, me }
+module.exports = { register, login, me, requestPhoneOtp, verifyPhoneOtp }

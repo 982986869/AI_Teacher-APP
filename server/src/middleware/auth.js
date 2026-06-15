@@ -29,7 +29,7 @@ async function authenticate(req, res, next) {
 
   const user = await db.user.findUnique({
     where: { id: decoded.sub },
-    select: { id: true, name: true, email: true, phone: true, grade: true },
+    select: { id: true, name: true, email: true, phone: true, grade: true, role: true },
   })
 
   if (!user) {

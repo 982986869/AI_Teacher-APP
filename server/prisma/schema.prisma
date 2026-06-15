@@ -1,10 +1,12 @@
 generator client {
-  provider = "prisma-client-js"
+  provider        = "prisma-client-js"
+  previewFeatures = ["postgresqlExtensions"]
 }
 
 datasource db {
-  provider = "postgresql"
-  url      = env("DATABASE_URL")
+  provider   = "postgresql"
+  url        = env("DATABASE_URL")
+  extensions = [vector]
 }
 
 // ─── Enums ───────────────────────────────────────────────────────────────────
@@ -13,6 +15,18 @@ enum AuthProvider {
   EMAIL
   PHONE
   GOOGLE
+}
+
+enum UserRole {
+  STUDENT
+  TEACHER
+  ADMIN
+}
+
+enum KnowledgeStatus {
+  PROCESSING
+  READY
+  FAILED
 }
 
 enum LessonStatus {
@@ -41,6 +55,11 @@ enum MessageRole {
   ASSISTANT
 }
 
+enum OtpPurpose {
+  LOGIN
+  SIGNUP
+}
+
 // ─── Models ──────────────────────────────────────────────────────────────────
 
 model User {
@@ -50,14 +69,79 @@ model User {
   phone        String?      @unique
   passwordHash String?
   grade        String?
+  role         UserRole     @default(STUDENT)
   provider     AuthProvider @default(EMAIL)
   createdAt    DateTime     @default(now())
   updatedAt    DateTime     @updatedAt
 
-  lessons       Lesson[]
-  doubtSessions DoubtSession[]
+  lessons          Lesson[]
+  doubtSessions    DoubtSession[]
+  knowledgeSources KnowledgeSource[]
 
   @@map("users")
+}
+
+// One-time passwords for phone auth. The plain OTP is NEVER stored — only its
+// bcrypt hash. Old OTPs are consumed when a new one is requested.
+model PhoneOtp {
+  id         String     @id @default(uuid()) @db.Uuid
+  phone      String
+  otpHash    String
+  purpose    OtpPurpose
+  expiresAt  DateTime
+  attempts   Int        @default(0)
+  consumedAt DateTime?
+  createdAt  DateTime   @default(now())
+
+  @@index([phone, createdAt])
+  @@map("phone_otps")
+}
+
+// ─── Knowledge (RAG) ──────────────────────────────────────────────────────────
+
+model KnowledgeSource {
+  id               String          @id @default(uuid()) @db.Uuid
+  title            String
+  description      String?
+  type             String // 'text' | 'markdown'
+  subject          String?
+  gradeLevel       String?
+  originalFilename String?
+  mimeType         String?
+  charCount        Int             @default(0)
+  chunkCount       Int             @default(0)
+  status           KnowledgeStatus @default(PROCESSING)
+  uploadedById     String          @db.Uuid
+
+  uploadedBy User             @relation(fields: [uploadedById], references: [id], onDelete: Cascade)
+  chunks     KnowledgeChunk[]
+
+  createdAt DateTime @default(now())
+  updatedAt DateTime @updatedAt
+
+  @@index([subject, gradeLevel])
+  @@index([uploadedById])
+  @@map("knowledge_sources")
+}
+
+model KnowledgeChunk {
+  id         String   @id @default(uuid()) @db.Uuid
+  sourceId   String   @db.Uuid
+  chunkIndex Int
+  content    String   @db.Text
+  charCount  Int      @default(0)
+  // pgvector column — Prisma cannot read/write this directly, so inserts and
+  // similarity search are done via raw SQL ($executeRaw / $queryRaw).
+  // Dimension MUST match EMBEDDING_DIM (Voyage voyage-3.5 = 1024).
+  embedding  Unsupported("vector(1024)")?
+  metadata   Json?
+  createdAt  DateTime @default(now())
+
+  source KnowledgeSource @relation(fields: [sourceId], references: [id], onDelete: Cascade)
+
+  @@unique([sourceId, chunkIndex])
+  @@index([sourceId])
+  @@map("knowledge_chunks")
 }
 
 model Lesson {

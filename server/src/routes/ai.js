@@ -11,6 +11,7 @@ const {
   askDoubt,
   getDoubts,
 } = require('../controllers/ai.controller')
+const { knowledgeAnswer } = require('../controllers/knowledge.controller')
 
 const router = Router()
 
@@ -45,6 +46,17 @@ const doubtRules = [
     .toInt(),
 ]
 
+const knowledgeAnswerRules = [
+  body('question')
+    .trim()
+    .notEmpty().withMessage('question is required')
+    .isLength({ max: 1000 }).withMessage('question must be 1000 characters or fewer'),
+  body('topK').optional().isInt({ min: 1, max: 20 }).toInt(),
+  body('subject').optional().trim().isLength({ max: 100 }),
+  body('gradeLevel').optional().trim().isLength({ max: 20 }),
+  body('sourceIds').optional().isArray().withMessage('sourceIds must be an array'),
+]
+
 // ─── Routes ───────────────────────────────────────────────────────────────────
 
 router.post('/lesson/generate',        generateRules, generateLesson)
@@ -53,5 +65,8 @@ router.get('/lesson/:lessonId',                      getLesson)
 router.delete('/lesson/:lessonId',                   deleteLesson)
 router.post('/lesson/:lessonId/doubt', doubtRules,   askDoubt)
 router.get('/lesson/:lessonId/doubts',               getDoubts)
+
+// RAG grounded answer — any authenticated user.
+router.post('/knowledge-answer',       knowledgeAnswerRules, knowledgeAnswer)
 
 module.exports = router

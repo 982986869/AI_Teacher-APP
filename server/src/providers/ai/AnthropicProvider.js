@@ -12,6 +12,10 @@ const {
   buildDoubtSystemPrompt,
   buildDoubtMessages,
 } = require('../../prompts/doubtResolution.prompt')
+const {
+  buildKnowledgeSystemPrompt,
+  buildKnowledgeMessages,
+} = require('../../prompts/knowledgeAnswer.prompt')
 const { normalizeAnimation } = require('../../utils/slideAnimation')
 
 const VISUAL_TYPES = ['DIAGRAM', 'CHART', 'EXAMPLE', 'ANALOGY', 'FORMULA', 'NONE']
@@ -28,6 +32,7 @@ class AnthropicProvider extends AIProvider {
     this._client = null
     this.lessonModel = config.ai.lessonModel
     this.doubtModel = config.ai.doubtModel
+    this.knowledgeModel = config.ai.knowledgeModel
   }
 
   _getClient() {
@@ -82,6 +87,29 @@ class AnthropicProvider extends AIProvider {
       })
     } catch (err) {
       throw translateProviderError(err, 'doubt answering')
+    }
+
+    const answer = extractText(message).trim()
+    if (!answer) {
+      throw new AppError('The AI returned an empty answer. Please try again.', 502)
+    }
+    return answer
+  }
+
+  async answerFromKnowledge(question, contexts, history = []) {
+    const client = this._getClient()
+    const model = this.knowledgeModel || this.doubtModel
+
+    let message
+    try {
+      message = await client.messages.create({
+        model,
+        max_tokens: DOUBT_MAX_TOKENS,
+        system: buildKnowledgeSystemPrompt(contexts),
+        messages: buildKnowledgeMessages(history, question),
+      })
+    } catch (err) {
+      throw translateProviderError(err, 'knowledge answering')
     }
 
     const answer = extractText(message).trim()

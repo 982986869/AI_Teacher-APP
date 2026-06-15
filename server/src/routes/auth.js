@@ -2,8 +2,11 @@
 
 const { Router } = require('express')
 const { body } = require('express-validator')
-const { register, login, me } = require('../controllers/auth.controller')
+const { register, login, me, requestPhoneOtp, verifyPhoneOtp } = require('../controllers/auth.controller')
 const { authenticate } = require('../middleware/auth')
+
+// E.164-ish: optional +, leading non-zero, 9–14 more digits.
+const PHONE_REGEX = /^\+?[1-9]\d{9,14}$/
 
 const router = Router()
 
@@ -42,8 +45,29 @@ const loginRules = [
 
 // ─── Routes ──────────────────────────────────────────────────────────────────
 
+const requestOtpRules = [
+  body('phone')
+    .trim()
+    .matches(PHONE_REGEX).withMessage('Enter a valid phone number'),
+]
+
+const verifyOtpRules = [
+  body('phone')
+    .trim()
+    .matches(PHONE_REGEX).withMessage('Enter a valid phone number'),
+  body('otp')
+    .trim()
+    .isLength({ min: 6, max: 6 }).withMessage('OTP must be 6 digits')
+    .isNumeric().withMessage('OTP must be numeric'),
+  body('name').optional({ checkFalsy: true }).trim().isLength({ max: 100 }),
+  body('grade').optional({ checkFalsy: true }).trim().isLength({ max: 20 }),
+]
+
 router.post('/register', registerRules, register)
 router.post('/login',    loginRules,    login)
 router.get('/me',        authenticate,  me)
+
+router.post('/phone/request-otp', requestOtpRules, requestPhoneOtp)
+router.post('/phone/verify-otp',  verifyOtpRules,  verifyPhoneOtp)
 
 module.exports = router
