@@ -9,5 +9,6 @@ router.use('/health',    healthRouter)
 router.use('/auth',      require('./auth'))
 router.use('/ai',        require('./ai'))
 router.use('/knowledge', require('./knowledge'))
+router.use('/brain-gym', require('./brainGym'))
 
 module.exports = router

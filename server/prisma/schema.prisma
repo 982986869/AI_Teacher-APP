@@ -77,8 +77,30 @@ model User {
   lessons          Lesson[]
   doubtSessions    DoubtSession[]
   knowledgeSources KnowledgeSource[]
+  brainGymSessions BrainGymSession[]
 
   @@map("users")
+}
+
+// One completed Brain Gym quiz. Progress (XP, accuracy, streak) is aggregated
+// from these rows — no separate progress table for the MVP.
+model BrainGymSession {
+  id             String   @id @default(uuid()) @db.Uuid
+  userId         String   @db.Uuid
+  skill          String // 'reasoning' | 'application' | 'understanding' | 'fluency'
+  level          Int // 1..3
+  totalQuestions Int
+  correctCount   Int
+  wrongCount     Int
+  score          Int
+  xpEarned       Int
+  timeTakenSec   Int      @default(0)
+  createdAt      DateTime @default(now())
+
+  user User @relation(fields: [userId], references: [id], onDelete: Cascade)
+
+  @@index([userId, createdAt(sort: Desc)])
+  @@map("brain_gym_sessions")
 }
 
 // One-time passwords for phone auth. The plain OTP is NEVER stored — only its
