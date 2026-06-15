@@ -6,22 +6,27 @@ import {
 } from 'react-native';
 import { useAuth } from '../context/AuthContext';
 import AITeacherScreen from './AITeacherScreen';
-
-// WorkoutWheel placeholder (real file not present yet)
-const WorkoutWheel = ({ onTabPress }) => (
-  <View style={{ flex: 1, alignItems: 'center', justifyContent: 'center', backgroundColor: '#fff' }}>
-    <Text style={{ fontSize: 16, fontWeight: '700', color: '#1C1C1E' }}>Workout coming soon</Text>
-    <TouchableOpacity
-      onPress={() => onTabPress?.('home')}
-      style={{ marginTop: 14, borderWidth: 2, borderColor: '#1C1C1E', borderRadius: 12, paddingVertical: 10, paddingHorizontal: 18 }}
-    >
-      <Text style={{ fontWeight: '800', color: '#1C1C1E' }}>← Back to Home</Text>
-    </TouchableOpacity>
-  </View>
-);
+// Real Brain Gym flow: Practice → Intro → Wheel → Challenge quiz → Completion
+import WorkoutWheel from './WorkoutWheel';
+import BrainGymIntro from './braingym/BrainGymIntro';
+import TimedNumericQuizScreen from './braingym/TimedNumericQuizScreen';
+import ArenaScreen from './braingym/ArenaScreen';
 
 const { width } = Dimensions.get('window');
 const PAD = 16;
+
+// Map the student's stored class/grade (AuthContext user.grade, set at signup)
+// to a quiz difficulty level:
+//   class ≤ 5  → Level 1 (easy arithmetic)
+//   class 6–8  → Level 2 (algebra basics)
+//   class ≥ 9  → Level 3 (harder expressions / equations)
+const gradeToLevel = (grade) => {
+  const n = parseInt(String(grade || '').replace(/\D/g, ''), 10);
+  if (!n) return 1;
+  if (n <= 5) return 1;
+  if (n <= 8) return 2;
+  return 3;
+};
 
 // ─── SVG-style character avatars using View shapes ───────────────────────────
 const CHARS = [
@@ -84,7 +89,8 @@ const HomeScreen = () => {
   const [charIdx, setCharIdx]           = useState(0);
   const [showCharModal, setShowCharModal] = useState(false);
   const [tempChar, setTempChar]         = useState(0);
-  const [showWorkout, setShowWorkout]   = useState(false);
+  const [gymStep, setGymStep]           = useState(null); // null | 'intro' | 'wheel' | 'quiz' | 'arena'
+  const [selectedSkill, setSelectedSkill] = useState('reasoning');
 
   const [activeSubject, setActiveSubject] = useState('Physics');
 
@@ -100,12 +106,21 @@ const HomeScreen = () => {
     setShowAITeacher(true);
   };
 
-  // ── Workout wheel (opened from the Practice quick action) ──
-  if (showWorkout) {
+  // ── Brain Gym flow (opened from the Practice quick action) ──
+  //   Practice card → Intro → Wheel → Challenge quiz → Completion → Home
+  if (gymStep === 'intro') {
+    return (
+      <BrainGymIntro
+        onDone={() => setGymStep('wheel')}
+        onBack={() => setGymStep(null)}
+      />
+    );
+  }
+  if (gymStep === 'wheel') {
     return (
       <WorkoutWheel
-        topic="Exponents in Real World"
-        user={{ name: firstName, grade: 'G9', xp: 1250 }}
+        topic="Build your math superpowers! 💪"
+        user={{ name: firstName, grade: 'G9' }}
         skills={[
           { key: 'reasoning',     label: 'REASONING',     progress: 0.4 },
           { key: 'application',   label: 'APPLICATION',   progress: 0.2 },
@@ -113,13 +128,29 @@ const HomeScreen = () => {
           { key: 'fluency',       label: 'FLUENCY',       progress: 0.55 },
         ]}
         activeTab="workout"
-        // tapping Practice or Arena at the bottom returns to Home
-        onTabPress={(tab) => { if (tab !== 'workout') setShowWorkout(false); }}
-        // TODO: route into the real practice flow for the chosen skill
-        onStart={(skill) => { setShowWorkout(false); }}
-        onSelectSkill={(skill) => { setShowWorkout(false); }}
+        onStart={(skill) => { setSelectedSkill(skill?.key || 'reasoning'); setGymStep('quiz'); }}
+        onSelectSkill={() => {}}
+        // ARENA tab → leaderboard; PRACTICE/other → back to Home
+        onTabPress={(tab) => {
+          if (tab === 'arena') setGymStep('arena');
+          else if (tab !== 'workout') setGymStep(null);
+        }}
       />
     );
+  }
+  if (gymStep === 'quiz') {
+    return (
+      <TimedNumericQuizScreen
+        level={gradeToLevel(user?.grade)}
+        skill={selectedSkill}
+        onComplete={() => setGymStep('wheel')}
+        onExit={() => setGymStep(null)}
+        onViewArena={() => setGymStep('arena')}
+      />
+    );
+  }
+  if (gymStep === 'arena') {
+    return <ArenaScreen onBack={() => setGymStep('wheel')} />;
   }
 
   // ── Full AI Teacher experience (opened from the "Open AI Teacher" button) ──
@@ -171,18 +202,18 @@ const HomeScreen = () => {
             </View>
             <View style={s.streakBox}>
               <View style={s.sItem}>
-                <Text style={{ fontSize: 20 }}>🔥</Text>
+                <Text style={{ fontSize: 20 }}>🎯</Text>
                 <View>
-                  <Text style={s.sNum}>7</Text>
-                  <Text style={s.sLbl}>Day Streak</Text>
+                  <Text style={s.sNum}>Lvl {gradeToLevel(user?.grade)}</Text>
+                  <Text style={s.sLbl}>Brain Gym</Text>
                 </View>
               </View>
               <View style={s.sDiv} />
               <View style={s.sItem}>
-                <Text style={{ fontSize: 20 }}>⭐</Text>
+                <Text style={{ fontSize: 20 }}>❤️</Text>
                 <View>
-                  <Text style={s.sNum}>1250</Text>
-                  <Text style={s.sLbl}>XP Points</Text>
+                  <Text style={s.sNum}>5</Text>
+                  <Text style={s.sLbl}>Lives</Text>
                 </View>
               </View>
             </View>
@@ -195,10 +226,9 @@ const HomeScreen = () => {
           <View style={s.charInfo}>
             <Text style={s.charName}>{currentChar.name}</Text>
             <Text style={s.charRole}>{currentChar.role} • Grade 9</Text>
-            <View style={s.xpBarWrap}><View style={s.xpBarFill} /></View>
-            <View style={s.xpRow}>
-              <Text style={s.xpTxt}>1,250 XP</Text>
-              <Text style={s.xpTxt}>Next: 1,500 XP</Text>
+            <View style={s.charLevelRow}>
+              <Text style={s.charLevelTxt}>🎯 Level {gradeToLevel(user?.grade)}</Text>
+              <Text style={s.charLevelTxt}>❤️ 5 Lives</Text>
             </View>
           </View>
           <TouchableOpacity style={s.charChangeBtn} onPress={() => setShowCharModal(true)}>
@@ -262,13 +292,16 @@ const HomeScreen = () => {
               { icon: '📋', label: 'Practice',  sub: 'AI Practice' },
               { icon: '📖', label: 'Resources', sub: 'Notes & Videos' },
               { icon: '📝', label: 'Tests',     sub: 'View & Attempt' },
-              { icon: '📊', label: 'Results',   sub: 'Your Progress' },
+              { icon: '🏆', label: 'Arena',     sub: 'Rank & Badges' },
               { icon: '📅', label: 'Sessions',  sub: 'My Schedule' },
             ].map((item, i) => (
               <TouchableOpacity
                 key={i}
                 style={s.qaItem}
-                onPress={() => { if (item.label === 'Practice') setShowWorkout(true); }}
+                onPress={() => {
+                  if (item.label === 'Practice') setGymStep('intro');
+                  else if (item.label === 'Arena') setGymStep('arena');
+                }}
               >
                 <View style={s.qaBox}><Text style={{ fontSize: 20 }}>{item.icon}</Text></View>
                 <Text style={s.qaLbl}>{item.label}</Text>
@@ -356,40 +389,7 @@ const HomeScreen = () => {
           </View>
         </View>
 
-        {/* ── PROGRESS ── */}
-        <View style={s.progCard}>
-          <View style={s.progHead}>
-            <Text style={s.progTitle}>Your Progress</Text>
-            <Text style={s.progWeek}>This Week</Text>
-          </View>
-          {/* Bar chart */}
-          <View style={{ flexDirection: 'row', alignItems: 'flex-end', gap: 8, height: 70, marginBottom: 6 }}>
-            {[
-              { d: 'M', v: 30 }, { d: 'T', v: 55 }, { d: 'W', v: 40 },
-              { d: 'T', v: 65 }, { d: 'F', v: 40 }, { d: 'S', v: 25 }, { d: 'S', v: 75 },
-            ].map((bar, i) => {
-              const isToday = i === 6;
-              return (
-                <View key={i} style={{ flex: 1, alignItems: 'center', gap: 3 }}>
-                  <View style={{ width: '80%', height: bar.v * 0.7, backgroundColor: isToday ? '#1C1C1E' : '#E0E0E0', borderRadius: 4 }} />
-                  <Text style={{ fontSize: 9, color: isToday ? '#1C1C1E' : '#C7C7CC', fontWeight: isToday ? '800' : '600' }}>{bar.d}</Text>
-                </View>
-              );
-            })}
-          </View>
-          <View style={s.progStats}>
-            {[
-              { n: '12',     l: 'Topics\nLearned' },
-              { n: '8h 20m', l: 'Study\nTime' },
-              { n: '85%',    l: 'Accuracy' },
-            ].map((st, i) => (
-              <View key={i} style={s.progStat}>
-                <Text style={s.progNum}>{st.n}</Text>
-                <Text style={s.progLbl}>{st.l}</Text>
-              </View>
-            ))}
-          </View>
-        </View>
+        {/* Progress / XP / streak / leaderboard live in the Arena screen, not here. */}
 
       </ScrollView>
 
@@ -459,10 +459,8 @@ const s = StyleSheet.create({
   charInfo:       { flex: 1 },
   charName:       { fontSize: 16, fontWeight: '900', color: '#1C1C1E', letterSpacing: -0.3 },
   charRole:       { fontSize: 11, color: '#8E8E93', fontWeight: '700', marginTop: 2 },
-  xpBarWrap:      { height: 6, backgroundColor: '#F0F0F0', borderRadius: 10, marginTop: 10, overflow: 'hidden' },
-  xpBarFill:      { height: '100%', backgroundColor: '#1C1C1E', borderRadius: 10, width: '72%' },
-  xpRow:          { flexDirection: 'row', justifyContent: 'space-between', marginTop: 5 },
-  xpTxt:          { fontSize: 10, color: '#8E8E93', fontWeight: '700' },
+  charLevelRow:   { flexDirection: 'row', gap: 14, marginTop: 8 },
+  charLevelTxt:   { fontSize: 12, color: '#1C1C1E', fontWeight: '700' },
   charChangeBtn:  { borderWidth: 2, borderColor: '#1C1C1E', borderRadius: 11, paddingVertical: 8, paddingHorizontal: 12 },
   charChangeTxt:  { fontSize: 11, fontWeight: '800', color: '#1C1C1E' },
 

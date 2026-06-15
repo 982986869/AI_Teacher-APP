@@ -14,12 +14,13 @@
 //     onExit={(tab) => {/* 'practice' | 'workout' | 'arena' bottom-bar tap */}}
 //   />
 
-import React, { useMemo, useState } from 'react';
+import React, { useMemo, useState, useEffect } from 'react';
 import {
   View, Text, StyleSheet, SafeAreaView, StatusBar, Platform,
   TouchableOpacity, Dimensions,
 } from 'react-native';
 import Svg, { Path, Text as SvgText, TextPath, Defs } from 'react-native-svg';
+import { initSounds, playSound, unloadSounds } from '../../utils/sound';
 
 const { width: SCREEN_W } = Dimensions.get('window');
 const WHEEL_PX = Math.min(SCREEN_W - 50, 300);
@@ -65,6 +66,12 @@ const ChallengeWheel = ({ questions = DEFAULT_Q, onComplete, onExit, showTabs = 
 
   const allDone = QUAD.every((q) => done[q.key]);
 
+  // Load sounds on mount; stop + free them when leaving the challenge.
+  useEffect(() => {
+    initSounds();
+    return () => { unloadSounds(); };
+  }, []);
+
   const labelArcs = useMemo(() => QUAD
     .filter((q) => q.key !== 'reasoning')
     .map((q) => ({ id: `lp-${q.key}`, d: ringArc(q.a0 + 10, q.a1 - 10, RTEXT) })), []);
@@ -82,10 +89,15 @@ const ChallengeWheel = ({ questions = DEFAULT_Q, onComplete, onExit, showTabs = 
     if (picked !== null) return;
     setPicked(i);
     const correct = i === questions[selected].ans;
+    const next = { ...done, [selected]: true };
+    const willComplete = QUAD.every((q) => next[q.key]);
+
+    // Sound: success jingle on the final challenge, otherwise correct/wrong.
+    playSound(willComplete ? 'success' : (correct ? 'correct' : 'wrong'));
+
     setTimeout(() => {
-      const next = { ...done, [selected]: true };
       setActiveQ(null); setPicked(null); setSelected(null); setDone(next);
-      if (QUAD.every((q) => next[q.key])) { onComplete && onComplete(); }
+      if (willComplete) { onComplete && onComplete(); }
     }, correct ? 650 : 1100);
   };
 
