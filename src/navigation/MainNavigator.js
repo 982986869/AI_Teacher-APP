@@ -10,6 +10,7 @@ import ResultsScreen   from '../screens/ResultsScreen';
 import ExploreScreen   from '../screens/ExploreScreen';
 import ProfileScreen   from '../screens/ProfileScreen';
 
+
 const Tab = createBottomTabNavigator();
 
 const ICONS = {

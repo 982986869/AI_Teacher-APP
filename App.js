@@ -7,6 +7,7 @@ import { AuthProvider } from './src/context/AuthContext';
 import AppNavigator from './src/navigation/AppNavigator';
 import { GOOGLE_WEB_CLIENT_ID } from './src/constants/config';
 
+
 GoogleSignin.configure({ webClientId: GOOGLE_WEB_CLIENT_ID });
 
 export default function App() {

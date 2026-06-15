@@ -7,6 +7,217 @@ import {
 import { getChapterNotes } from '../notes/index';
 import Ch2Images from '../notes/images/Ch2Images';
 import ChapterNotesScreen from './ChapterNotesScreen';
+import ChapterEndScreen from './ChapterEndScreen';
+import Ncert2Screen from './Ncert2Screen';
+import { ch1ExemplarQuestions } from '../data/ch1ExemplarQuestions';
+import { ch2ExemplarQuestions } from '../data/ch2ExemplarQuestions';
+import { ch3ExemplarQuestions } from '../data/ch3ExemplarQuestions';
+import { ch4ExemplarQuestions } from '../data/ch4ExemplarQuestions';
+import { ch5ExemplarQuestions } from '../data/ch5ExemplarQuestions';
+import { ch6ExemplarQuestions } from '../data/ch6ExemplarQuestions';
+import { ch7ExemplarQuestions } from '../data/ch7ExemplarQuestions';
+import { ch8ExemplarQuestions } from '../data/ch8ExemplarQuestions';
+import { ch9ExemplarQuestions } from '../data/ch9ExemplarQuestions';
+import { ch10ExemplarQuestions } from '../data/ch10ExemplarQuestions';
+import { ch11ExemplarQuestions } from '../data/ch11ExemplarQuestions';
+import { ch12ExemplarQuestions } from '../data/ch12ExemplarQuestions';
+import { ch13ExemplarQuestions } from '../data/ch13ExemplarQuestions';
+import { ch14ExemplarQuestions } from '../data/ch14ExemplarQuestions';
+import { ch1ChemExemplarQuestions } from '../data/ch1ChemExemplarQuestions';
+import { ch2ChemExemplarQuestions } from '../data/ch2ChemExemplarQuestions';
+import { ch3ChemExemplarQuestions } from '../data/ch3ChemExemplarQuestions';
+import { ch4ChemExemplarQuestions } from '../data/ch4ChemExemplarQuestions';
+import { ch5ChemExemplarQuestions } from '../data/ch5ChemExemplarQuestions';
+import { ch6ChemExemplarQuestions } from '../data/ch6ChemExemplarQuestions';
+import { ch7ChemExemplarQuestions } from '../data/ch7ChemExemplarQuestions';
+import { ch8ChemExemplarQuestions } from '../data/ch8ChemExemplarQuestions';
+import { ch9ChemExemplarQuestions } from '../data/ch9ChemExemplarQuestions';
+import { ch10ChemExemplarQuestions } from '../data/ch10ChemExemplarQuestions';
+import { ch11ChemExemplarQuestions } from '../data/ch11ChemExemplarQuestions';
+import { ch12ChemExemplarQuestions } from '../data/ch12ChemExemplarQuestions';
+import { ch13ChemExemplarQuestions } from '../data/ch13ChemExemplarQuestions';
+import { ch14ChemExemplarQuestions } from '../data/ch14ChemExemplarQuestions';
+import { setsExercise13, setsExamples12 } from '../data/ch1MathsExemplarQuestions';
+import { relExercise23, relExamples22 } from '../data/ch2MathsExemplarQuestions';
+import { trigExercise33, trigExamples32 } from '../data/ch3MathsExemplarQuestions';
+import { pmiExercise43, pmiExamples42 } from '../data/ch4MathsExemplarQuestions';
+import { complexExercise53, complexExamples52 } from '../data/ch5MathsExemplarQuestions';
+import { linEqExercise63, linEqExamples62 } from '../data/ch6MathsExemplarQuestions';
+import { pncExercise73, pncExamples72 } from '../data/ch7MathsExemplarQuestions';
+import { binomialExercise83, binomialExamples82 } from '../data/ch8MathsExemplarQuestions';
+import { seqExercise93, seqExamples92 } from '../data/ch9MathsExemplarQuestions';
+import { straightExercise103, straightExamples102 } from '../data/ch10MathsExemplarQuestions';
+import { conicExercise113, conicExamples112 } from '../data/ch11MathsExemplarQuestions';
+import { geo3dExercise123, geo3dExamples122 } from '../data/ch12MathsExemplarQuestions';
+import { limitsExercise133, limitsExamples132 } from '../data/ch13MathsExemplarQuestions';
+import { reasoningExercise141, reasoningExercise142, reasoningExercise143 } from '../data/ch14MathsExemplarQuestions';
+import { statsExercise153, statsExamples152 } from '../data/ch15MathsExemplarQuestions';
+import { probExercise163, probExamples162 } from '../data/ch16MathsExemplarQuestions';
+import { ch1BioExemplarQuestions } from '../data/ch1BioExemplarQuestions';
+import { ch2BioExemplarQuestions } from '../data/ch2BioExemplarQuestions';
+import { ch3BioExemplarQuestions } from '../data/ch3BioExemplarQuestions';
+import { ch4BioExemplarQuestions } from '../data/ch4BioExemplarQuestions';
+import { ch5BioExemplarQuestions } from '../data/ch5BioExemplarQuestions';
+import { ch6BioExemplarQuestions } from '../data/ch6BioExemplarQuestions';
+import { ch7BioExemplarQuestions } from '../data/ch7BioExemplarQuestions';
+import { ch8BioExemplarQuestions } from '../data/ch8BioExemplarQuestions';
+import { ch9BioExemplarQuestions } from '../data/ch9BioExemplarQuestions';
+import { ch10BioExemplarQuestions } from '../data/ch10BioExemplarQuestions';
+import { ch11BioExemplarQuestions } from '../data/ch11BioExemplarQuestions';
+import { ch12BioExemplarQuestions } from '../data/ch12BioExemplarQuestions';
+import { ch13BioExemplarQuestions } from '../data/ch13BioExemplarQuestions';
+import { ch14BioExemplarQuestions } from '../data/ch14BioExemplarQuestions';
+import { ch15BioExemplarQuestions } from '../data/ch15BioExemplarQuestions';
+import { ch16BioExemplarQuestions } from '../data/ch16BioExemplarQuestions';
+import { ch17BioExemplarQuestions } from '../data/ch17BioExemplarQuestions';
+import { ch18BioExemplarQuestions } from '../data/ch18BioExemplarQuestions';
+import { ch19BioExemplarQuestions } from '../data/ch19BioExemplarQuestions';
+import { ch20BioExemplarQuestions } from '../data/ch20BioExemplarQuestions';
+import { ch21BioExemplarQuestions } from '../data/ch21BioExemplarQuestions';
+import { ch22BioExemplarQuestions } from '../data/ch22BioExemplarQuestions';
+
+// Exemplar Chapter-end question sets, scoped by subject then chapter name.
+// Add more subjects/chapters here as you extract them.
+const EXEMPLAR_QUESTIONS = {
+  Physics: {
+    'Units and Measurements': ch1ExemplarQuestions,
+    'Motion in A Straight Line': ch2ExemplarQuestions,
+    'Motion in A Plane': ch3ExemplarQuestions,
+    'Laws of Motion': ch4ExemplarQuestions,
+    'Work Energy and Power': ch5ExemplarQuestions,
+    'System of Particles and Rotational Motion': ch6ExemplarQuestions,
+    'Gravitation': ch7ExemplarQuestions,
+    'Mechanical Properties of Solids': ch8ExemplarQuestions,
+    'Mechanical Properties of Fluids': ch9ExemplarQuestions,
+    'Thermal Properties of Matter': ch10ExemplarQuestions,
+    'Thermodynamics': ch11ExemplarQuestions,
+    'Kinetic Theory': ch12ExemplarQuestions,
+    'Oscillations': ch13ExemplarQuestions,
+    'Waves': ch14ExemplarQuestions,
+  },
+  Chemistry: {
+    'Some Basic Concepts of Chemistry': ch1ChemExemplarQuestions,
+    'Structure of Atom': ch2ChemExemplarQuestions,
+    'Classification of Elements and Periodicity in Properties': ch3ChemExemplarQuestions,
+    'Chemical Bonding and Molecular Structure': ch4ChemExemplarQuestions,
+    'States of Matter - Gases and Liquids (FA ONLY)': ch5ChemExemplarQuestions,
+    'Chemical Thermodynamics': ch6ChemExemplarQuestions,
+    'Equilibrium': ch7ChemExemplarQuestions,
+    'Redox Reactions': ch8ChemExemplarQuestions,
+    'Hydrogen': ch9ChemExemplarQuestions,
+    'The s-Block Elements (FA ONLY)': ch10ChemExemplarQuestions,
+    'Organic Chemistry Some Basic Principles and Techniques': ch11ChemExemplarQuestions,
+    'Some p-Block Elements (FA ONLY)': ch12ChemExemplarQuestions,
+    'Hydrocarbons': ch13ChemExemplarQuestions,
+    'Environmental Chemistry': ch14ChemExemplarQuestions,
+    // ...add chapters as extracted
+  },
+  Mathematics: {
+    'Sets': [
+      { label: 'Exercise 1.3', questions: setsExercise13 },
+      { label: 'Examples 1.2', questions: setsExamples12 },
+    ],
+    'Relations and Functions': [
+      { label: 'Exercise 2.3', questions: relExercise23 },
+      { label: 'Examples 2.2', questions: relExamples22 },
+    ],
+    'Trigonometric Functions': [
+      { label: 'Exercise 3.3', questions: trigExercise33 },
+      { label: 'Examples 3.2', questions: trigExamples32 },
+    ],
+    'Principle of Mathematical Induction': [
+      { label: 'Exercise 4.3', questions: pmiExercise43 },
+      { label: 'Examples 4.2', questions: pmiExamples42 },
+    ],
+    'Complex Numbers and Quadratic Equations': [
+      { label: 'Exercise 5.3', questions: complexExercise53 },
+      { label: 'Examples 5.2', questions: complexExamples52 },
+    ],
+    'Linear Inequalities': [
+      { label: 'Exercise 6.3', questions: linEqExercise63 },
+      { label: 'Examples 6.2', questions: linEqExamples62 },
+    ],
+    'Permutations and Combinations': [
+      { label: 'Exercise 7.3', questions: pncExercise73 },
+      { label: 'Examples 7.2', questions: pncExamples72 },
+    ],
+    'Binomial Theorem': [
+      { label: 'Exercise 8.3', questions: binomialExercise83 },
+      { label: 'Examples 8.2', questions: binomialExamples82 },
+    ],
+    'Sequences and Series': [
+      { label: 'Exercise 9.3', questions: seqExercise93 },
+      { label: 'Examples 9.2', questions: seqExamples92 },
+    ],
+    'Straight Lines': [
+      { label: 'Exercise 10.3', questions: straightExercise103 },
+      { label: 'Examples 10.2', questions: straightExamples102 },
+    ],
+    'Conic Sections': [
+      { label: 'Exercise 11.3', questions: conicExercise113 },
+      { label: 'Examples 11.2', questions: conicExamples112 },
+    ],
+    'Introduction to 3D Geometry': [
+      { label: 'Exercise 12.3', questions: geo3dExercise123 },
+      { label: 'Examples 12.2', questions: geo3dExamples122 },
+    ],
+    'Limits and Derivatives': [
+      { label: 'Exercise 13.3', questions: limitsExercise133 },
+      { label: 'Examples 13.2', questions: limitsExamples132 },
+    ],
+    'Mathematical Reasoning': [
+      { label: 'Exercise 14.1', questions: reasoningExercise141 },
+      { label: 'Exercise 14.2', questions: reasoningExercise142 },
+      { label: 'Exercise 14.3', questions: reasoningExercise143 },
+    ],
+    'Statistics': [
+      { label: 'Exercise 15.3', questions: statsExercise153 },
+      { label: 'Examples 15.2', questions: statsExamples152 },
+    ],
+    'Probability': [
+      { label: 'Exercise 16.3', questions: probExercise163 },
+      { label: 'Examples 16.2', questions: probExamples162 },
+    ],
+  },
+  Biology: {
+    'The Living World': ch1BioExemplarQuestions,
+    'Biological Classification': ch2BioExemplarQuestions,
+    'Plant Kingdom': ch3BioExemplarQuestions,
+    'Animal Kingdom': ch4BioExemplarQuestions,
+    'Morphology of Flowering Plants': ch5BioExemplarQuestions,
+    'Anatomy of Flowering Plants': ch6BioExemplarQuestions,
+    'Structural Organisation in Animals': ch7BioExemplarQuestions,
+    'Cell The Unit of Life': ch8BioExemplarQuestions,
+    'Biomolecules': ch9BioExemplarQuestions,
+    'Cell Cycle and Cell Division': ch10BioExemplarQuestions,
+    'Transport in Plants': ch11BioExemplarQuestions,
+    'Mineral Nutrition': ch12BioExemplarQuestions,
+    'Photosynthesis in Higher Plants': ch13BioExemplarQuestions,
+    'Respiration in Plants': ch14BioExemplarQuestions,
+    'Plant Growth and Development': ch15BioExemplarQuestions,
+    'Digestion and Absorption': ch16BioExemplarQuestions,
+    'Breathing and Exchange of Gases': ch17BioExemplarQuestions,
+    'Body Fluids and Circulation': ch18BioExemplarQuestions,
+    'Excretory Products and their Elimination': ch19BioExemplarQuestions,
+    'Locomotion and Movement': ch20BioExemplarQuestions,
+    'Neural Control and Coordination': ch21BioExemplarQuestions,
+    'Chemical Coordination and Integration': ch22BioExemplarQuestions,
+    // ...add chapters as extracted
+  },
+};
+
+// Returns the tappable rows for a chapter's Exemplar page.
+//  • flat question array (Physics/Chemistry)        -> one "Chapter-end" row
+//  • array of { label, questions } (e.g. Maths)     -> one row per section
+//  • no data                                        -> one empty "Chapter-end" row
+const getExemplarSections = (subjectName, chapterName) => {
+  const data = (EXEMPLAR_QUESTIONS[subjectName] || {})[chapterName];
+  if (Array.isArray(data) && data.length > 0 && data[0] && data[0].questions !== undefined) {
+    return data;
+  }
+  const fallbackLabel = subjectName === 'Mathematics' ? 'Exercise' : 'Chapter-end';
+  return [{ label: fallbackLabel, questions: Array.isArray(data) ? data : [] }];
+};
 
 const SCREEN_WIDTH = Dimensions.get('window').width;
 const NOTE_IMG_WIDTH = SCREEN_WIDTH - 32;
@@ -46,10 +257,12 @@ const SUBJECTS = [
       { name: 'Chemical Thermodynamics' },
       { name: 'Equilibrium' },
       { name: 'Redox Reactions' },
+      { name: 'Hydrogen' },
       { name: 'The s-Block Elements (FA ONLY)' },
       { name: 'Some p-Block Elements (FA ONLY)' },
       { name: 'Organic Chemistry Some Basic Principles and Techniques' },
       { name: 'Hydrocarbons' },
+      { name: 'Environmental Chemistry' },
     ],
   },
   {
@@ -58,14 +271,17 @@ const SUBJECTS = [
       { name: 'Sets' },
       { name: 'Relations and Functions' },
       { name: 'Trigonometric Functions' },
+      { name: 'Principle of Mathematical Induction' },
       { name: 'Complex Numbers and Quadratic Equations' },
       { name: 'Linear Inequalities' },
+      { name: 'Permutations and Combinations' },
       { name: 'Binomial Theorem' },
       { name: 'Sequences and Series' },
       { name: 'Straight Lines' },
       { name: 'Conic Sections' },
       { name: 'Introduction to 3D Geometry' },
       { name: 'Limits and Derivatives' },
+      { name: 'Mathematical Reasoning' },
       { name: 'Statistics' },
       { name: 'Probability' },
     ],
@@ -80,9 +296,11 @@ const SUBJECTS = [
       { name: 'Morphology of Flowering Plants' },
       { name: 'Anatomy of Flowering Plants' },
       { name: 'Structural Organisation in Animals' },
-      { name: 'Cell: The Unit of Life' },
+      { name: 'Cell The Unit of Life' },
       { name: 'Biomolecules' },
       { name: 'Cell Cycle and Cell Division' },
+      { name: 'Transport in Plants' },
+      { name: 'Mineral Nutrition' },
       { name: 'Photosynthesis in Higher Plants' },
       { name: 'Respiration in Plants' },
       { name: 'Plant Growth and Development' },
@@ -272,6 +490,8 @@ const ResourcesScreen = () => {
   const [activeChapter, setActiveChapter] = useState(null);
   const [showCards,     setShowCards]     = useState(false);
   const [showNotes,     setShowNotes]     = useState(false);
+  const [showChapterEnd, setShowChapterEnd] = useState(false);
+  const [activeSectionQs, setActiveSectionQs] = useState([]);
 
 
   // ── LEVEL 5: Chapter Notes — WebView with MathJax ────────────────────────
@@ -286,6 +506,61 @@ const ResourcesScreen = () => {
     );
   }
 
+
+  // ── LEVEL 4b: Chapter-end content (exemplar questions, B&W template) ──────
+  if (activeSubject && activeResType?.type === 'exemplar' && activeChapter && showCards && showChapterEnd) {
+    return (
+      <ChapterEndScreen
+        chapterName={activeChapter.name}
+        questions={activeSectionQs}
+        onBack={() => setShowChapterEnd(false)}
+      />
+    );
+  }
+
+  // ── LEVEL 4a: Exemplar Solutions — single "Chapter-end" entry (Image 1 layout) ──
+  if (activeSubject && activeResType?.type === 'exemplar' && activeChapter && showCards) {
+    return (
+      <SafeAreaView style={s.safe}>
+        <StatusBar barStyle="dark-content" backgroundColor="#fff" />
+        {Platform.OS === 'android' && <View style={{ height: 24, backgroundColor: '#fff' }} />}
+        <BackHeader onBack={() => setShowCards(false)} />
+        <Breadcrumb parts={['Home', activeBoard, activeClass, activeSubject.name, activeResType.name, activeChapter.name]} />
+        <View style={s.pageTitleWrap}>
+          <Text style={s.pageTitle}>{activeChapter.name}</Text>
+        </View>
+        <ScrollView contentContainerStyle={{ padding: 16, gap: 10, paddingBottom: 32 }}>
+          {getExemplarSections(activeSubject.name, activeChapter.name).map((sec, i) => (
+            <TouchableOpacity
+              key={i}
+              style={s.listRow}
+              activeOpacity={0.8}
+              onPress={() => { setActiveSectionQs(sec.questions || []); setShowChapterEnd(true); }}
+            >
+              <View style={s.listNum}><Text style={s.listNumTxt}>{i + 1}</Text></View>
+              <View style={{ flex: 1 }}>
+                <Text style={s.listRowTitle}>{sec.label}</Text>
+              </View>
+              <Text style={s.listArrow}>→</Text>
+            </TouchableOpacity>
+          ))}
+        </ScrollView>
+      </SafeAreaView>
+    );
+  }
+
+  // ── NCERT Solutions Part-II — Ailernova-style solutions screen ────────────
+  if (activeSubject && activeResType?.type === 'ncert2' && activeChapter && showCards) {
+    return (
+      <Ncert2Screen
+        subjectName={activeSubject.name}
+        chapterName={activeChapter.name}
+        onBack={() => setShowCards(false)}
+        title={activeResType.name}
+        breadcrumb={['Home', activeBoard, activeClass, activeSubject.name, activeResType.name]}
+      />
+    );
+  }
 
   // ── LEVEL 4: Resource cards (PDF / Video / Notes) ─────────────────────────
   if (activeSubject && activeResType && activeChapter && showCards) {
@@ -355,7 +630,7 @@ const ResourcesScreen = () => {
         <ScrollView contentContainerStyle={{ padding: 16, gap: 10, paddingBottom: 32 }}>
           {activeSubject.chapters.map((chapter, i) => (
             <TouchableOpacity key={i} style={s.listRow}
-              onPress={() => { setActiveChapter(chapter); setShowCards(true); }}
+              onPress={() => { setActiveChapter(chapter); setShowCards(true); setShowChapterEnd(false); }}
               activeOpacity={0.8}>
               <View style={s.listNum}><Text style={s.listNumTxt}>{i + 1}</Text></View>
               <View style={{ flex: 1 }}>

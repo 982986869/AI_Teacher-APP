@@ -6,34 +6,38 @@ import SplashScreen from '../screens/SplashScreen';
 import AuthNavigator from './AuthNavigator';
 import BrainGymScreen from '../screens/BrainGymScreen';
 import OnboardingScreen from '../screens/OnboardingScreen';
+import WorkoutWheel from '../screens/WorkoutWheel';
 import MainNavigator from './MainNavigator';
 
 const Stack = createNativeStackNavigator();
 const SPLASH_FALLBACK = 4000;
 
 const AppNavigator = () => {
-  const { isAuthenticated, hasOnboarded, loading } = useAuth();
+  const { isAuthenticated, hasOnboarded, loading, user, justLoggedIn } = useAuth();
   const [showSplash, setShowSplash] = useState(true);
-  const [gymDone, setGymDone]       = useState(false);
+  const [gymDone, setGymDone]       = useState(false);   // BrainGym -> Onboarding
+  const [workoutDone, setWorkoutDone] = useState(false); // WorkoutWheel -> Home
 
-  // Track previous auth so we can reset BrainGym exactly when login happens.
   const wasAuthed = useRef(isAuthenticated);
 
   // TEMP DEBUG — remove once confirmed.
-  console.log('NAV STATE →', { loading, showSplash, isAuthenticated, hasOnboarded, gymDone });
+  console.log('NAV STATE →', { loading, showSplash, isAuthenticated, hasOnboarded, justLoggedIn, gymDone, workoutDone });
 
   useEffect(() => {
     const t = setTimeout(() => setShowSplash(false), SPLASH_FALLBACK);
     return () => clearTimeout(t);
   }, []);
 
-  // Reset BrainGym on the false->true (login) transition AND on logout.
+  // Reset the per-session steps ONLY on a fresh login (false -> true) and on logout.
+  // On a plain reload, isAuthenticated is already true, so this won't re-trigger them.
   useEffect(() => {
     if (isAuthenticated && !wasAuthed.current) {
-      setGymDone(false); // just logged in -> show BrainGym
+      setGymDone(false);
+      setWorkoutDone(false);
     }
     if (!isAuthenticated) {
-      setGymDone(false); // logged out -> reset for next time
+      setGymDone(false);
+      setWorkoutDone(false);
     }
     wasAuthed.current = isAuthenticated;
   }, [isAuthenticated]);
@@ -42,10 +46,16 @@ const AppNavigator = () => {
     return <SplashScreen onFinish={() => setShowSplash(false)} />;
   }
 
+  // Flow:
+  //   not signed in   -> Auth (Landing/Login/OTP)
+  //   !gymDone         -> BrainGym ("You're all set!")
+  //   !hasOnboarded    -> Onboarding (survey)
+  //   !workoutDone     -> WorkoutWheel   <-- after Onboarding
+  //   else             -> Home
   let screen;
   if (!isAuthenticated) {
     screen = <Stack.Screen name="Auth" component={AuthNavigator} />;
-  } else if (!gymDone) {
+  } else if (justLoggedIn && !gymDone) {
     screen = (
       <Stack.Screen name="BrainGym">
         {props => <BrainGymScreen {...props} onFinish={() => setGymDone(true)} />}
@@ -53,6 +63,29 @@ const AppNavigator = () => {
     );
   } else if (!hasOnboarded) {
     screen = <Stack.Screen name="Onboarding" component={OnboardingScreen} />;
+  } else if (justLoggedIn && !workoutDone) {
+    screen = (
+      <Stack.Screen name="WorkoutWheel">
+        {props => (
+          <WorkoutWheel
+            {...props}
+            topic="Exponents in Real World"
+            user={{ name: user?.name || 'Learner', grade: user?.grade || 'G10', xp: user?.xp || 0 }}
+            skills={[
+              { key: 'reasoning',     label: 'REASONING',     progress: 0.4 },
+              { key: 'application',   label: 'APPLICATION',   progress: 0.2 },
+              { key: 'understanding', label: 'UNDERSTANDING', progress: 0.7 },
+              { key: 'fluency',       label: 'FLUENCY',       progress: 0.55 },
+            ]}
+            activeTab="workout"
+            // any of these advances to Home
+            onStart={() => setWorkoutDone(true)}
+            onSelectSkill={() => setWorkoutDone(true)}
+            onTabPress={() => setWorkoutDone(true)}
+          />
+        )}
+      </Stack.Screen>
+    );
   } else {
     screen = <Stack.Screen name="MainApp" component={MainNavigator} />;
   }

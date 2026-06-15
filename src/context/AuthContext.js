@@ -2,26 +2,20 @@ import React, { createContext, useContext, useEffect, useState, useCallback } fr
 import { saveToken, getToken, saveUser, getUser, clearAll } from '../utils/storage';
 import AsyncStorage from '@react-native-async-storage/async-storage';
 
-// This was missing — without it AuthContext is undefined and the app breaks.
 const AuthContext = createContext(null);
 
 export const AuthProvider = ({ children }) => {
-  const [user, setUser]               = useState(null);
-  const [token, setToken]             = useState(null);
-  const [loading, setLoading]         = useState(true);
+  const [user, setUser]                 = useState(null);
+  const [token, setToken]               = useState(null);
+  const [loading, setLoading]           = useState(true);
   const [hasOnboarded, setHasOnboarded] = useState(false);
+  // true only for the session where the user actually logged in via the login screen.
+  // A storage-restore on reload leaves this false, so post-login steps are skipped.
+  const [justLoggedIn, setJustLoggedIn] = useState(false);
 
   useEffect(() => {
     (async () => {
       try {
-        // ── TEMP RESET ──────────────────────────────────────────────
-        // Wipes saved token + onboarding flag so you can see the FULL flow
-        // (Splash → Landing → Login → OTP → BrainGym → Onboarding → Home).
-        // Run the app ONCE with this line, confirm BrainGym shows, then
-        // DELETE this line and save again.
-        await AsyncStorage.clear();
-        // ────────────────────────────────────────────────────────────
-
         const [storedToken, storedUser, onboarded] = await Promise.all([
           getToken(),
           getUser(),
@@ -43,6 +37,7 @@ export const AuthProvider = ({ children }) => {
     await Promise.all([saveToken(t), saveUser(u)]);
     setToken(t);
     setUser(u);
+    setJustLoggedIn(true);
   }, []);
 
   const completeOnboarding = useCallback(async () => {
@@ -56,6 +51,7 @@ export const AuthProvider = ({ children }) => {
     setToken(null);
     setUser(null);
     setHasOnboarded(false);
+    setJustLoggedIn(false);
   }, []);
 
   return (
@@ -63,6 +59,7 @@ export const AuthProvider = ({ children }) => {
       user, token, loading,
       isAuthenticated: !!token,
       hasOnboarded,
+      justLoggedIn,
       signIn, signOut, completeOnboarding,
     }}>
       {children}
