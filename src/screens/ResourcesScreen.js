@@ -9,6 +9,7 @@ import Ch2Images from '../notes/images/Ch2Images';
 import ChapterNotesScreen from './ChapterNotesScreen';
 import ChapterEndScreen from './ChapterEndScreen';
 import Ncert2Screen from './Ncert2Screen';
+import { getNcert2Chapters } from '../data/ncert2Solutions';
 import { ch1ExemplarQuestions } from '../data/ch1ExemplarQuestions';
 import { ch2ExemplarQuestions } from '../data/ch2ExemplarQuestions';
 import { ch3ExemplarQuestions } from '../data/ch3ExemplarQuestions';
@@ -157,7 +158,7 @@ const EXEMPLAR_QUESTIONS = {
       { label: 'Exercise 11.3', questions: conicExercise113 },
       { label: 'Examples 11.2', questions: conicExamples112 },
     ],
-    'Introduction to 3D Geometry': [
+    'Introduction to Three Dimensional Geometry': [
       { label: 'Exercise 12.3', questions: geo3dExercise123 },
       { label: 'Examples 12.2', questions: geo3dExamples122 },
     ],
@@ -271,7 +272,6 @@ const SUBJECTS = [
       { name: 'Sets' },
       { name: 'Relations and Functions' },
       { name: 'Trigonometric Functions' },
-      { name: 'Principle of Mathematical Induction' },
       { name: 'Complex Numbers and Quadratic Equations' },
       { name: 'Linear Inequalities' },
       { name: 'Permutations and Combinations' },
@@ -279,9 +279,8 @@ const SUBJECTS = [
       { name: 'Sequences and Series' },
       { name: 'Straight Lines' },
       { name: 'Conic Sections' },
-      { name: 'Introduction to 3D Geometry' },
+      { name: 'Introduction to Three Dimensional Geometry' },
       { name: 'Limits and Derivatives' },
-      { name: 'Mathematical Reasoning' },
       { name: 'Statistics' },
       { name: 'Probability' },
     ],
@@ -316,14 +315,26 @@ const SUBJECTS = [
 ];
 
 const RESOURCE_TYPES = [
-  { icon: '📋', name: 'Revision Notes',         sub: '835 items',              type: 'notes'    },
-  { icon: '🔄', name: 'Exemplar Solutions',      sub: 'Textbook Solutions',     type: 'exemplar' },
-  { icon: '📘', name: 'NCERT Solutions Part-II', sub: 'Textbook Solutions',     type: 'ncert2'   },
-  { icon: '📗', name: 'NCERT Solutions Part-I',  sub: 'Textbook Solutions',     type: 'ncert1'   },
-  { icon: '📝', name: 'Previous Year Papers',    sub: '10 years question bank', type: 'pyq'      },
-  { icon: '🎬', name: 'Video Lectures',           sub: '120+ concept videos',   type: 'video'    },
-  { icon: '🗺',  name: 'Mind Maps',               sub: 'Visual summaries',      type: 'mindmap'  },
+  { icon: '📋', name: 'Revision Notes',         sub: '835 items',          type: 'notes'    },
+  { icon: '🔄', name: 'Exemplar Solutions',      sub: 'Textbook Solutions', type: 'exemplar' },
+  { icon: '📘', name: 'NCERT Solutions Part-II', sub: 'Textbook Solutions', type: 'ncert2'   },
+  { icon: '📗', name: 'NCERT Solutions Part-I',  sub: 'Textbook Solutions', type: 'ncert1'   },
 ];
+
+// Resource types shown for a given subject. Maths and Biology NCERT are not
+// split into Part-I / Part-II, so for those subjects we drop the Part-I entry
+// and rename the Part-II entry to a single "NCERT Solutions" (it still uses the
+// ncert2 flow via Ncert2Screen). All other subjects keep both.
+const getResourceTypes = (subjectName) => {
+  if (subjectName === 'Mathematics' || subjectName === 'Biology') {
+    return RESOURCE_TYPES
+      .filter((rt) => rt.type !== 'ncert1')
+      .map((rt) => (rt.type === 'ncert2'
+        ? { ...rt, name: 'NCERT Solutions', sub: 'Textbook Solutions' }
+        : rt));
+  }
+  return RESOURCE_TYPES;
+};
 
 // ── Full chapter notes data ───────────────────────────────────────────────────
 const CHAPTER_NOTES = {
@@ -616,6 +627,14 @@ const ResourcesScreen = () => {
 
   // ── LEVEL 3: Chapters list ────────────────────────────────────────────────
   if (activeSubject && activeResType) {
+    // For NCERT Solutions Part-II, show only chapters registered in
+    // ncert2Solutions.js. Other resource types (and subjects with no Part-II
+    // registry yet) keep showing the full chapter list.
+    const ncert2Names = getNcert2Chapters(activeSubject.name);
+    const chaptersToShow =
+      activeResType?.type === 'ncert2' && ncert2Names.length > 0
+        ? activeSubject.chapters.filter((c) => ncert2Names.includes(c.name))
+        : activeSubject.chapters;
     return (
       <SafeAreaView style={s.safe}>
         <StatusBar barStyle="dark-content" backgroundColor="#fff" />
@@ -628,7 +647,7 @@ const ResourcesScreen = () => {
           <Text style={s.boardLabel}>{activeSubject.name} Chapters</Text>
         </View>
         <ScrollView contentContainerStyle={{ padding: 16, gap: 10, paddingBottom: 32 }}>
-          {activeSubject.chapters.map((chapter, i) => (
+          {chaptersToShow.map((chapter, i) => (
             <TouchableOpacity key={i} style={s.listRow}
               onPress={() => { setActiveChapter(chapter); setShowCards(true); setShowChapterEnd(false); }}
               activeOpacity={0.8}>
@@ -665,7 +684,7 @@ const ResourcesScreen = () => {
           </View>
         </View>
         <ScrollView contentContainerStyle={{ padding: 16, gap: 10, paddingBottom: 32 }}>
-          {RESOURCE_TYPES.map((rt, i) => (
+          {getResourceTypes(activeSubject.name).map((rt, i) => (
             <TouchableOpacity key={i} style={s.resTypeRow} onPress={() => setActiveResType(rt)} activeOpacity={0.8}>
               <View style={s.resTypeIconWrap}>
                 <Text style={{ fontSize: 22 }}>{rt.icon}</Text>

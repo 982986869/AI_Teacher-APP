@@ -39,24 +39,70 @@ function buildDocument(fragmentHtml) {
   return `<!DOCTYPE html><html><head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-<script>window.MathJax = { startup: { typeset: true } };</script>
-<script src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/mml-chtml.js"></script>
+<script>
+  // Configure MathJax BEFORE it loads. After the initial typeset finishes,
+  // wrap any equation wider than the screen in our own horizontal-scroll box.
+  // (MathJax injects its own CSS, so styling mjx-container directly is
+  // unreliable — a wrapper element we create cannot be overridden.)
+  window.MathJax = {
+    tex: { inlineMath: [['{tex}', '{/tex}']], displayMath: [] },
+    startup: {
+      ready: function () {
+        window.MathJax.startup.defaultReady();
+        window.MathJax.startup.promise.then(fitWideMath);
+      }
+    }
+  };
+  function fitWideMath() {
+    try {
+      var avail = document.body.clientWidth; // content width inside padding
+      var nodes = document.querySelectorAll('mjx-container');
+      for (var i = 0; i < nodes.length; i++) {
+        var c = nodes[i];
+        if (c.parentNode && c.parentNode.className === 'math-scroll') continue;
+        var w = c.scrollWidth || c.getBoundingClientRect().width;
+        if (w > avail + 1) {
+          var box = document.createElement('span');
+          box.className = 'math-scroll';
+          c.parentNode.insertBefore(box, c);
+          box.appendChild(c);
+        }
+      }
+    } catch (e) {}
+  }
+  // Re-run if MathJax re-typesets later.
+  document.addEventListener('DOMContentLoaded', function () {
+    if (window.MathJax && window.MathJax.startup && window.MathJax.startup.promise) {
+      window.MathJax.startup.promise.then(fitWideMath);
+    }
+  });
+</script>
+<script src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
 <style>
-  *{ -webkit-tap-highlight-color: transparent; }
-  body{ margin:0; padding:12px; background:${PAGE_BG};
-        font-family:-apple-system,Roboto,"Segoe UI",sans-serif; color:${INK}; }
+  *{ -webkit-tap-highlight-color: transparent; box-sizing: border-box; }
+  html, body{ margin:0; max-width:100%; overflow-x:hidden; }
+  body{ padding:12px; background:${PAGE_BG};
+        font-family:-apple-system,Roboto,"Segoe UI",sans-serif; color:${INK};
+        overflow-wrap:break-word; word-break:break-word; }
   img{ max-width:100%; height:auto; border-radius:8px; filter:grayscale(100%); }
   .question-card{ background:#fff; border:1px solid ${CARD_BORDER}; border-radius:16px;
-                  padding:16px; margin-bottom:16px; }
+                  padding:16px; margin-bottom:16px; max-width:100%; overflow:hidden; }
   .question-header{ display:flex; justify-content:space-between; margin-bottom:10px; }
   .q-number{ background:${INK}; color:#fff; padding:4px 10px; border-radius:20px;
              font-size:12px; font-weight:600; }
-  .question-text{ font-size:16px; line-height:1.7; margin-bottom:10px; }
-  .answer-section{ margin-top:12px; }
+  .question-text{ font-size:16px; line-height:1.7; margin-bottom:10px; max-width:100%; }
+  .answer-section{ margin-top:12px; max-width:100%; }
   .solution-block{ background:${SOLUTION_BG}; padding:10px 12px; border-radius:10px;
-                   margin-top:8px; border:1px solid #ededed; }
+                   margin-top:8px; border:1px solid #ededed; max-width:100%; }
   .label{ font-size:12px; font-weight:600; color:#555; margin-bottom:4px; }
-  mjx-container{ max-width:100%; overflow-x:auto; overflow-y:hidden; }
+  /* Our own wrapper for over-wide equations: scrolls horizontally on its own,
+     so the page never stretches past the screen edge. */
+  .math-scroll{ display:block; max-width:100%; overflow-x:auto;
+                -webkit-overflow-scrolling:touch; }
+  /* Fallbacks (use !important to beat MathJax's injected stylesheet). */
+  .question-text, .solution-block{ overflow-x:auto; -webkit-overflow-scrolling:touch; }
+  mjx-container{ max-width:100% !important; }
+  table{ display:block; max-width:100%; overflow-x:auto; border-collapse:collapse; }
 </style></head>
 <body>${fragmentHtml}</body></html>`;
 }
