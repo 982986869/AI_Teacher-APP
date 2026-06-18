@@ -1,5 +1,61 @@
 import React, { useState } from 'react';
-import { View, Text, StyleSheet, SafeAreaView, ScrollView, TouchableOpacity, StatusBar, Platform } from 'react-native';
+import { View, Text, StyleSheet, SafeAreaView, ScrollView, TouchableOpacity, StatusBar, Platform, ActivityIndicator } from 'react-native';
+import { WebView } from 'react-native-webview';
+import { getPyqHtml } from '../data/pyqContent';
+
+// Wraps a PYQ question-card fragment in a full HTML doc with MathJax (renders
+// {tex}...{/tex}) and the black-&-white card styling used elsewhere in the app.
+function buildPyqDocument(fragmentHtml) {
+  return `<!DOCTYPE html><html><head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+<script>
+  window.MathJax = { tex: { inlineMath: [['{tex}', '{/tex}']], displayMath: [] },
+    startup: { ready: function () { window.MathJax.startup.defaultReady();
+      window.MathJax.startup.promise.then(fitWideMath); } } };
+  function fitWideMath(){ try{ var avail=document.body.clientWidth;
+    var nodes=document.querySelectorAll('mjx-container');
+    for(var i=0;i<nodes.length;i++){ var c=nodes[i];
+      if(c.parentNode && c.parentNode.className==='math-scroll') continue;
+      var w=c.scrollWidth||c.getBoundingClientRect().width;
+      if(w>avail+1){ var b=document.createElement('span'); b.className='math-scroll';
+        c.parentNode.insertBefore(b,c); b.appendChild(c); } } }catch(e){} }
+</script>
+<script src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
+<style>
+  *{ -webkit-tap-highlight-color:transparent; box-sizing:border-box; }
+  html,body{ margin:0; max-width:100%; overflow-x:hidden; }
+  body{ padding:12px; background:#f4f4f5; font-family:-apple-system,Roboto,"Segoe UI",sans-serif;
+        color:#1C1C1E; overflow-wrap:break-word; word-break:break-word; }
+  img{ max-width:100%; height:auto; border-radius:8px; filter:grayscale(100%); }
+  .pyq-card,.question-card{ background:#fff; border:1px solid #e3e3e6; border-radius:16px;
+                  padding:16px; margin-bottom:16px; max-width:100%; overflow:hidden; }
+  .pyq-header,.question-header{ display:flex; justify-content:space-between; align-items:center;
+                    gap:8px; margin-bottom:10px; }
+  .q-number{ background:#1C1C1E; color:#fff; padding:4px 10px; border-radius:20px;
+             font-size:12px; font-weight:600; white-space:nowrap; }
+  .pyq-year,.years{ font-size:11px; font-weight:600; color:#6b7280; text-align:right; }
+  .pyq-question,.question-text{ font-size:16px; line-height:1.7; margin-bottom:10px; max-width:100%; }
+  .answer-section{ margin-top:12px; max-width:100%; }
+  .label{ font-size:12px; font-weight:600; color:#555; margin-bottom:4px; }
+  .solution-box,.solution-block{ background:#f5f5f6; padding:10px 12px; border-radius:10px; margin-top:12px;
+                   border:1px solid #ededed; max-width:100%; }
+  .solution-title{ font-size:12px; font-weight:600; color:#555; margin-bottom:4px; }
+  .solution-box p{ margin:4px 0; }
+  .pyq-options,.options{ display:flex; flex-direction:column; gap:6px; margin-top:12px; }
+  .option{ display:flex; gap:10px; align-items:flex-start;
+           border:1px solid #e3e3e6; border-radius:10px; padding:8px 12px; font-size:15px; }
+  .option.correct{ border-color:#1C1C1E; background:#1C1C1E; color:#fff; font-weight:600; }
+  .option-index{ font-weight:700; min-width:18px; }
+  .option-text{ flex:1; max-width:100%; overflow:hidden; }
+  .option-text p{ margin:0; }
+  .tick{ font-weight:700; }
+  .math-scroll{ display:block; max-width:100%; overflow-x:auto; -webkit-overflow-scrolling:touch; }
+  mjx-container{ max-width:100% !important; }
+  table{ display:block; max-width:100%; overflow-x:auto; border-collapse:collapse; }
+</style></head>
+<body>${fragmentHtml}</body></html>`;
+}
 
 const SUBJECTS = [
   { name: 'Physics',     emoji: '⚛️', topics: 24, done: 18 },
@@ -7,6 +63,93 @@ const SUBJECTS = [
   { name: 'Chemistry',   emoji: '🧪', topics: 20, done: 11 },
   { name: 'Biology',     emoji: '🧬', topics: 18, done: 10 },
   { name: 'English',     emoji: '📝', topics: 15, done: 13 },
+];
+
+// ── Previous Year Papers: 4 subjects, each with its chapter list ───────────────
+// Chapter lists mirror src/screens/ResourcesScreen.js SUBJECTS so the two stay
+// consistent. Update both if the syllabus changes.
+const PYQ_SUBJECTS = [
+  {
+    name: 'Physics', emoji: '⚛️', bg: '#1C1C1E',
+    chapters: [
+      'Units and Measurements',
+      'Motion in A Straight Line',
+      'Motion in A Plane',
+      'Laws of Motion',
+      'Work Energy and Power',
+      'System of Particles and Rotational Motion',
+      'Gravitation',
+      'Mechanical Properties of Solids',
+      'Mechanical Properties of Fluids',
+      'Thermal Properties of Matter',
+      'Thermodynamics',
+      'Kinetic Theory',
+      'Oscillations',
+      'Waves',
+    ],
+  },
+  {
+    name: 'Chemistry', emoji: '🧪', bg: '#333',
+    chapters: [
+      'Some Basic Concepts of Chemistry',
+      'Structure of Atom',
+      'Classification of Elements and Periodicity in Properties',
+      'Chemical Bonding and Molecular Structure',
+      'States of Matter - Gases and Liquids (FA ONLY)',
+      'Chemical Thermodynamics',
+      'Equilibrium',
+      'Redox Reactions',
+      'Hydrogen',
+      'The s-Block Elements (FA ONLY)',
+      'Some p-Block Elements (FA ONLY)',
+      'Organic Chemistry Some Basic Principles and Techniques',
+      'Hydrocarbons',
+      'Environmental Chemistry',
+    ],
+  },
+  {
+    name: 'Mathematics', emoji: '📐', bg: '#444',
+    chapters: [
+      'Sets',
+      'Relations and Functions',
+      'Trigonometric Functions',
+      'Complex Numbers and Quadratic Equations',
+      'Linear Inequalities',
+      'Permutations and Combinations',
+      'Binomial Theorem',
+      'Sequences and Series',
+      'Straight Lines',
+      'Conic Sections',
+      'Introduction to Three Dimensional Geometry',
+      'Limits and Derivatives',
+      'Statistics',
+      'Probability',
+    ],
+  },
+  {
+    name: 'Biology', emoji: '🧬', bg: '#555',
+    chapters: [
+      'The Living World',
+      'Biological Classification',
+      'Plant Kingdom',
+      'Animal Kingdom',
+      'Morphology of Flowering Plants',
+      'Anatomy of Flowering Plants',
+      'Structural Organisation in Animals',
+      'Cell The Unit of Life',
+      'Biomolecules',
+      'Cell Cycle and Cell Division',
+      'Photosynthesis in Higher Plants',
+      'Respiration in Plants',
+      'Plant Growth and Development',
+      'Breathing and Exchange of Gases',
+      'Body Fluids and Circulation',
+      'Excretory Products and their Elimination',
+      'Locomotion and Movement',
+      'Neural Control and Coordination',
+      'Chemical Coordination and Integration',
+    ],
+  },
 ];
 
 const QUESTION_TYPES = [
@@ -22,11 +165,138 @@ const RECENT = [
   { subject: 'Chemistry', topic: 'Periodic Table', score: 74, date: '2 days ago' },
 ];
 
+const BackHeader = ({ onBack }) => (
+  <View style={s.backHeader}>
+    <TouchableOpacity onPress={onBack} style={s.backRow} activeOpacity={0.7}>
+      <Text style={s.backArrow}>←</Text>
+      <Text style={s.backTxt}>Back</Text>
+    </TouchableOpacity>
+  </View>
+);
+
+// WebView that renders a PYQ question-card fragment with MathJax.
+const PyqWebView = ({ html }) => {
+  const [loading, setLoading] = useState(true);
+  return (
+    <View style={{ flex: 1, backgroundColor: '#f4f4f5' }}>
+      {loading && (
+        <View style={s.webLoading} pointerEvents="none">
+          <ActivityIndicator size="large" color="#1C1C1E" />
+        </View>
+      )}
+      <WebView
+        originWhitelist={['*']}
+        source={{ html: buildPyqDocument(html) }}
+        onLoadEnd={() => setLoading(false)}
+        style={{ flex: 1, backgroundColor: '#f4f4f5' }}
+        javaScriptEnabled
+        domStorageEnabled
+        mixedContentMode="always"
+        androidLayerType={Platform.OS === 'android' ? 'hardware' : undefined}
+      />
+    </View>
+  );
+};
+
 const PracticeScreen = () => {
   const [activeSub, setActiveSub] = useState('Physics');
+
+  // Previous Year Papers navigation
+  const [pyqOpen, setPyqOpen]       = useState(false);   // showing the PYQ subject list
+  const [pyqSubject, setPyqSubject] = useState(null);    // chosen subject (object)
+  const [pyqChapter, setPyqChapter] = useState(null);    // chosen chapter (string)
+
   const activeFull = SUBJECTS.find(s => s.name === activeSub) || SUBJECTS[0];
   const pct = Math.round((activeFull.done / activeFull.topics) * 100);
 
+  // ── PYQ LEVEL 3: Previous-year questions for a chapter (WebView) ─────────────
+  if (pyqOpen && pyqSubject && pyqChapter) {
+    const html = getPyqHtml(pyqSubject.name, pyqChapter);
+    return (
+      <SafeAreaView style={s.safe}>
+        <StatusBar barStyle="dark-content" backgroundColor="#fff" />
+        {Platform.OS === 'android' && <View style={{ height: 24, backgroundColor: '#fff' }} />}
+        <BackHeader onBack={() => setPyqChapter(null)} />
+        <View style={s.pageTitleWrap}>
+          <Text style={s.pageTitle}>{pyqChapter}</Text>
+          <Text style={s.pageSub}>{pyqSubject.name}  •  Previous Year Questions</Text>
+        </View>
+        {html ? (
+          <PyqWebView html={html} />
+        ) : (
+          <View style={s.emptyWrap}>
+            <Text style={s.emptyTitle}>Papers coming soon</Text>
+            <Text style={s.emptySub}>
+              Previous year questions for this chapter haven't been added yet.
+            </Text>
+          </View>
+        )}
+      </SafeAreaView>
+    );
+  }
+
+  // ── PYQ LEVEL 2: Chapter list for the chosen subject ────────────────────────
+  if (pyqOpen && pyqSubject) {
+    return (
+      <SafeAreaView style={s.safe}>
+        <StatusBar barStyle="dark-content" backgroundColor="#fff" />
+        {Platform.OS === 'android' && <View style={{ height: 24, backgroundColor: '#fff' }} />}
+        <BackHeader onBack={() => setPyqSubject(null)} />
+        <View style={s.pageTitleWrap}>
+          <Text style={s.pageTitle}>{pyqSubject.name}</Text>
+          <Text style={s.pageSub}>Select a chapter</Text>
+        </View>
+        <ScrollView contentContainerStyle={{ padding: 16, gap: 10, paddingBottom: 32 }}>
+          {pyqSubject.chapters.map((chapter, i) => {
+            const hasPyq = !!getPyqHtml(pyqSubject.name, chapter);
+            return (
+              <TouchableOpacity key={i} style={s.listRow} activeOpacity={0.8}
+                onPress={() => setPyqChapter(chapter)}>
+                <View style={s.listNum}><Text style={s.listNumTxt}>{i + 1}</Text></View>
+                <View style={{ flex: 1 }}>
+                  <Text style={s.listRowTitle}>{chapter}</Text>
+                  <Text style={s.listRowSub}>{hasPyq ? 'View previous year questions' : 'Coming soon'}</Text>
+                </View>
+                <Text style={s.listArrow}>→</Text>
+              </TouchableOpacity>
+            );
+          })}
+        </ScrollView>
+      </SafeAreaView>
+    );
+  }
+
+  // ── PYQ LEVEL 1: Subject list ───────────────────────────────────────────────
+  if (pyqOpen) {
+    return (
+      <SafeAreaView style={s.safe}>
+        <StatusBar barStyle="dark-content" backgroundColor="#fff" />
+        {Platform.OS === 'android' && <View style={{ height: 24, backgroundColor: '#fff' }} />}
+        <BackHeader onBack={() => setPyqOpen(false)} />
+        <View style={s.pageTitleWrap}>
+          <Text style={s.pageTitle}>Previous Year Papers</Text>
+          <Text style={s.pageSub}>Select a subject  •  10 years question bank</Text>
+        </View>
+        <ScrollView contentContainerStyle={{ padding: 16, gap: 12, paddingBottom: 32 }}>
+          {PYQ_SUBJECTS.map((subject, i) => (
+            <TouchableOpacity key={i} style={s.subjectRow} activeOpacity={0.8}
+              onPress={() => setPyqSubject(subject)}>
+              <View style={[s.subjectIconWrap, { backgroundColor: subject.bg }]}>
+                <Text style={{ fontSize: 26 }}>{subject.emoji}</Text>
+              </View>
+              <View style={{ flex: 1 }}>
+                <Text style={s.subjectName}>{subject.name}</Text>
+                <Text style={s.subjectSub}>{subject.chapters.length} chapters</Text>
+              </View>
+              <Text style={s.listArrow}>→</Text>
+            </TouchableOpacity>
+          ))}
+        </ScrollView>
+      </SafeAreaView>
+    );
+  }
+
+  // ── MAIN PRACTICE SCREEN ────────────────────────────────────────────────────
   return (
     <SafeAreaView style={s.safe}>
       <StatusBar barStyle="dark-content" backgroundColor="#fff" />
@@ -95,11 +365,13 @@ const PracticeScreen = () => {
           {[
             { icon: '⚡', label: 'Chapter-wise Tests',  sub: 'Test one chapter at a time', count: '120+ Tests' },
             { icon: '📋', label: 'Full Syllabus Test',  sub: 'Complete subject mock test',  count: '20 Tests' },
-            { icon: '🎯', label: 'Previous Year Papers',sub: '10 years question bank',      count: '50 Papers' },
+            { icon: '🎯', label: 'Previous Year Papers',sub: '10 years question bank',      count: '50 Papers', onPress: () => setPyqOpen(true) },
             { icon: '⏱',  label: 'Timed Challenge',    sub: '30 sec per question',         count: '200+ Qs' },
           ].map((item, i, arr) => (
             <TouchableOpacity key={i}
-              style={[s.ptRow, i < arr.length - 1 && s.ptRowBorder]}>
+              style={[s.ptRow, i < arr.length - 1 && s.ptRowBorder]}
+              activeOpacity={item.onPress ? 0.6 : 1}
+              onPress={item.onPress}>
               <View style={s.ptIconBox}>
                 <Text style={{ fontSize: 20 }}>{item.icon}</Text>
               </View>
@@ -144,6 +416,36 @@ const s = StyleSheet.create({
   headerRight:      { flexDirection: 'row', alignItems: 'center', gap: 10 },
   xpBadge:          { backgroundColor: '#F0F0F0', borderRadius: 12, paddingVertical: 6, paddingHorizontal: 12, borderWidth: 1.5, borderColor: '#E8E8E8' },
   xpTxt:            { fontSize: 12, fontWeight: '800', color: '#1C1C1E' },
+
+  // Back header + page title (PYQ sub-screens)
+  backHeader:       { backgroundColor: '#fff', flexDirection: 'row', alignItems: 'center', paddingHorizontal: 20, paddingVertical: 14, borderBottomWidth: 1.5, borderBottomColor: '#F0F0F0' },
+  backRow:          { flexDirection: 'row', alignItems: 'center', gap: 6 },
+  backArrow:        { fontSize: 20, color: '#1C1C1E', fontWeight: '700' },
+  backTxt:          { fontSize: 15, fontWeight: '700', color: '#1C1C1E' },
+  pageTitleWrap:    { backgroundColor: '#fff', paddingHorizontal: 20, paddingTop: 14, paddingBottom: 14, borderBottomWidth: 1.5, borderBottomColor: '#F0F0F0' },
+  pageTitle:        { fontSize: 20, fontWeight: '900', color: '#1C1C1E', letterSpacing: -0.4 },
+  pageSub:          { fontSize: 13, color: '#8E8E93', fontWeight: '600', marginTop: 3 },
+
+  // Subject rows (PYQ level 1)
+  subjectRow:       { backgroundColor: '#fff', borderRadius: 18, borderWidth: 1.5, borderColor: '#F0F0F0', flexDirection: 'row', alignItems: 'center', gap: 16, padding: 14 },
+  subjectIconWrap:  { width: 54, height: 54, borderRadius: 27, alignItems: 'center', justifyContent: 'center' },
+  subjectName:      { fontSize: 17, fontWeight: '900', color: '#1C1C1E', letterSpacing: -0.3 },
+  subjectSub:       { fontSize: 12, color: '#8E8E93', fontWeight: '600', marginTop: 3 },
+
+  // Generic list rows (PYQ chapters + papers)
+  listRow:          { backgroundColor: '#fff', borderRadius: 16, borderWidth: 1.5, borderColor: '#F0F0F0', flexDirection: 'row', alignItems: 'center', gap: 14, padding: 16 },
+  listNum:          { width: 32, height: 32, borderRadius: 10, backgroundColor: '#F0F0F0', alignItems: 'center', justifyContent: 'center' },
+  listNumTxt:       { fontSize: 14, fontWeight: '900', color: '#1C1C1E' },
+  listRowTitle:     { fontSize: 15, fontWeight: '800', color: '#1C1C1E', letterSpacing: -0.2 },
+  listRowSub:       { fontSize: 12, color: '#8E8E93', fontWeight: '600', marginTop: 3 },
+  listArrow:        { fontSize: 18, color: '#C7C7CC', fontWeight: '600' },
+
+  // PYQ question WebView + empty state
+  webLoading:       { ...StyleSheet.absoluteFillObject, alignItems: 'center', justifyContent: 'center', zIndex: 2 },
+  emptyWrap:        { flex: 1, alignItems: 'center', justifyContent: 'center', padding: 28 },
+  emptyTitle:       { fontSize: 16, fontWeight: '900', color: '#1C1C1E', marginBottom: 8 },
+  emptySub:         { fontSize: 13, color: '#8E8E93', fontWeight: '600', textAlign: 'center', lineHeight: 19 },
+
   subChip:          { flexDirection: 'row', alignItems: 'center', gap: 7, paddingVertical: 9, paddingHorizontal: 14, borderRadius: 20, borderWidth: 1.5, borderColor: '#E8E8E8', backgroundColor: '#fff' },
   subChipActive:    { backgroundColor: '#1C1C1E', borderColor: '#1C1C1E' },
   subChipTxt:       { fontSize: 13, fontWeight: '800', color: '#8E8E93' },
