@@ -1,7 +1,13 @@
 import React, { useState } from 'react';
 import { View, Text, StyleSheet, SafeAreaView, ScrollView, TouchableOpacity, StatusBar, Platform, ActivityIndicator } from 'react-native';
 import { WebView } from 'react-native-webview';
-import { getPyqHtml } from '../data/pyqContent';
+import { getPyqHtml } from '../data/allPyq';
+
+// All subjects resolve through allPyq.js (Physics from pyqContent.js,
+// Maths/Chemistry/Biology from their own files).
+function pyqHtmlFor(subject, chapter) {
+  return getPyqHtml(subject, chapter);
+}
 
 // Wraps a PYQ question-card fragment in a full HTML doc with MathJax (renders
 // {tex}...{/tex}) and the black-&-white card styling used elsewhere in the app.
@@ -52,7 +58,12 @@ function buildPyqDocument(fragmentHtml) {
   .tick{ font-weight:700; }
   .math-scroll{ display:block; max-width:100%; overflow-x:auto; -webkit-overflow-scrolling:touch; }
   mjx-container{ max-width:100% !important; }
-  table{ display:block; max-width:100%; overflow-x:auto; border-collapse:collapse; }
+  table{ display:block; max-width:100%; overflow-x:auto; border-collapse:collapse; margin:8px 0; }
+  th,td{ border:1px solid #e3e3e6; padding:4px 8px; font-size:14px; text-align:left; }
+  ol,ul{ margin:8px 0; padding-left:22px; }
+  li{ margin:3px 0; line-height:1.6; }
+  strong,b{ font-weight:700; }
+  em,i{ font-style:italic; }
 </style></head>
 <body>${fragmentHtml}</body></html>`;
 }
@@ -142,6 +153,7 @@ const PYQ_SUBJECTS = [
       'Photosynthesis in Higher Plants',
       'Respiration in Plants',
       'Plant Growth and Development',
+      'Digestion and Absorption (FA ONLY)',
       'Breathing and Exchange of Gases',
       'Body Fluids and Circulation',
       'Excretory Products and their Elimination',
@@ -211,7 +223,7 @@ const PracticeScreen = () => {
 
   // ── PYQ LEVEL 3: Previous-year questions for a chapter (WebView) ─────────────
   if (pyqOpen && pyqSubject && pyqChapter) {
-    const html = getPyqHtml(pyqSubject.name, pyqChapter);
+    const html = pyqHtmlFor(pyqSubject.name, pyqChapter);
     return (
       <SafeAreaView style={s.safe}>
         <StatusBar barStyle="dark-content" backgroundColor="#fff" />
@@ -248,7 +260,7 @@ const PracticeScreen = () => {
         </View>
         <ScrollView contentContainerStyle={{ padding: 16, gap: 10, paddingBottom: 32 }}>
           {pyqSubject.chapters.map((chapter, i) => {
-            const hasPyq = !!getPyqHtml(pyqSubject.name, chapter);
+            const hasPyq = !!pyqHtmlFor(pyqSubject.name, chapter);
             return (
               <TouchableOpacity key={i} style={s.listRow} activeOpacity={0.8}
                 onPress={() => setPyqChapter(chapter)}>
