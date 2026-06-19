@@ -2,6 +2,7 @@ import React, { useState } from 'react';
 import { View, Text, StyleSheet, SafeAreaView, ScrollView, TouchableOpacity, StatusBar, Platform, ActivityIndicator } from 'react-native';
 import { WebView } from 'react-native-webview';
 import { getPyqHtml } from '../data/allPyq';
+import { getImportantHtml } from '../data/importantQuestions';
 
 // All subjects resolve through allPyq.js (Physics from pyqContent.js,
 // Maths/Chemistry/Biology from their own files).
@@ -9,7 +10,12 @@ function pyqHtmlFor(subject, chapter) {
   return getPyqHtml(subject, chapter);
 }
 
-// Wraps a PYQ question-card fragment in a full HTML doc with MathJax (renders
+// Important Questions resolve through importantQuestions.js.
+function impHtmlFor(subject, chapter) {
+  return getImportantHtml(subject, chapter);
+}
+
+// Wraps a question-card fragment in a full HTML doc with MathJax (renders
 // {tex}...{/tex}) and the black-&-white card styling used elsewhere in the app.
 function buildPyqDocument(fragmentHtml) {
   return `<!DOCTYPE html><html><head>
@@ -186,7 +192,7 @@ const BackHeader = ({ onBack }) => (
   </View>
 );
 
-// WebView that renders a PYQ question-card fragment with MathJax.
+// WebView that renders a question-card fragment with MathJax.
 const PyqWebView = ({ html }) => {
   const [loading, setLoading] = useState(true);
   return (
@@ -217,6 +223,11 @@ const PracticeScreen = () => {
   const [pyqOpen, setPyqOpen]       = useState(false);   // showing the PYQ subject list
   const [pyqSubject, setPyqSubject] = useState(null);    // chosen subject (object)
   const [pyqChapter, setPyqChapter] = useState(null);    // chosen chapter (string)
+
+  // Important Questions navigation (mirrors the PYQ flow)
+  const [impOpen, setImpOpen]       = useState(false);   // showing the Important Q subject list
+  const [impSubject, setImpSubject] = useState(null);    // chosen subject (object)
+  const [impChapter, setImpChapter] = useState(null);    // chosen chapter (string)
 
   const activeFull = SUBJECTS.find(s => s.name === activeSub) || SUBJECTS[0];
   const pct = Math.round((activeFull.done / activeFull.topics) * 100);
@@ -308,6 +319,93 @@ const PracticeScreen = () => {
     );
   }
 
+  // ── IMPORTANT QUESTIONS LEVEL 3: questions for a chapter (WebView) ───────────
+  if (impOpen && impSubject && impChapter) {
+    const html = impHtmlFor(impSubject.name, impChapter);
+    return (
+      <SafeAreaView style={s.safe}>
+        <StatusBar barStyle="dark-content" backgroundColor="#fff" />
+        {Platform.OS === 'android' && <View style={{ height: 24, backgroundColor: '#fff' }} />}
+        <BackHeader onBack={() => setImpChapter(null)} />
+        <View style={s.pageTitleWrap}>
+          <Text style={s.pageTitle}>{impChapter}</Text>
+          <Text style={s.pageSub}>{impSubject.name}  •  Important Questions</Text>
+        </View>
+        {html ? (
+          <PyqWebView html={html} />
+        ) : (
+          <View style={s.emptyWrap}>
+            <Text style={s.emptyTitle}>Coming soon</Text>
+            <Text style={s.emptySub}>
+              Important questions for this chapter haven't been added yet.
+            </Text>
+          </View>
+        )}
+      </SafeAreaView>
+    );
+  }
+
+  // ── IMPORTANT QUESTIONS LEVEL 2: Chapter list for the chosen subject ─────────
+  if (impOpen && impSubject) {
+    return (
+      <SafeAreaView style={s.safe}>
+        <StatusBar barStyle="dark-content" backgroundColor="#fff" />
+        {Platform.OS === 'android' && <View style={{ height: 24, backgroundColor: '#fff' }} />}
+        <BackHeader onBack={() => setImpSubject(null)} />
+        <View style={s.pageTitleWrap}>
+          <Text style={s.pageTitle}>{impSubject.name}</Text>
+          <Text style={s.pageSub}>Select a chapter  •  Important Questions</Text>
+        </View>
+        <ScrollView contentContainerStyle={{ padding: 16, gap: 10, paddingBottom: 32 }}>
+          {impSubject.chapters.map((chapter, i) => {
+            const hasImp = !!impHtmlFor(impSubject.name, chapter);
+            return (
+              <TouchableOpacity key={i} style={s.listRow} activeOpacity={0.8}
+                onPress={() => setImpChapter(chapter)}>
+                <View style={s.listNum}><Text style={s.listNumTxt}>{i + 1}</Text></View>
+                <View style={{ flex: 1 }}>
+                  <Text style={s.listRowTitle}>{chapter}</Text>
+                  <Text style={s.listRowSub}>{hasImp ? 'View important questions' : 'Coming soon'}</Text>
+                </View>
+                <Text style={s.listArrow}>→</Text>
+              </TouchableOpacity>
+            );
+          })}
+        </ScrollView>
+      </SafeAreaView>
+    );
+  }
+
+  // ── IMPORTANT QUESTIONS LEVEL 1: Subject list ───────────────────────────────
+  if (impOpen) {
+    return (
+      <SafeAreaView style={s.safe}>
+        <StatusBar barStyle="dark-content" backgroundColor="#fff" />
+        {Platform.OS === 'android' && <View style={{ height: 24, backgroundColor: '#fff' }} />}
+        <BackHeader onBack={() => setImpOpen(false)} />
+        <View style={s.pageTitleWrap}>
+          <Text style={s.pageTitle}>Important Questions</Text>
+          <Text style={s.pageSub}>Select a subject  •  Hand-picked must-do questions</Text>
+        </View>
+        <ScrollView contentContainerStyle={{ padding: 16, gap: 12, paddingBottom: 32 }}>
+          {PYQ_SUBJECTS.map((subject, i) => (
+            <TouchableOpacity key={i} style={s.subjectRow} activeOpacity={0.8}
+              onPress={() => setImpSubject(subject)}>
+              <View style={[s.subjectIconWrap, { backgroundColor: subject.bg }]}>
+                <Text style={{ fontSize: 26 }}>{subject.emoji}</Text>
+              </View>
+              <View style={{ flex: 1 }}>
+                <Text style={s.subjectName}>{subject.name}</Text>
+                <Text style={s.subjectSub}>{subject.chapters.length} chapters</Text>
+              </View>
+              <Text style={s.listArrow}>→</Text>
+            </TouchableOpacity>
+          ))}
+        </ScrollView>
+      </SafeAreaView>
+    );
+  }
+
   // ── MAIN PRACTICE SCREEN ────────────────────────────────────────────────────
   return (
     <SafeAreaView style={s.safe}>
@@ -357,6 +455,19 @@ const PracticeScreen = () => {
             <Text style={s.startBtnTxt}>Start Practice Session  →</Text>
           </TouchableOpacity>
         </View>
+
+        {/* Important Questions */}
+        <Text style={s.sectionTitle}>Important Questions</Text>
+        <TouchableOpacity style={s.impBanner} activeOpacity={0.85} onPress={() => setImpOpen(true)}>
+          <View style={s.impIconBox}>
+            <Text style={{ fontSize: 24 }}>⭐</Text>
+          </View>
+          <View style={{ flex: 1 }}>
+            <Text style={s.impTitle}>Important Questions</Text>
+            <Text style={s.impSub}>Hand-picked must-do questions, chapter-wise</Text>
+          </View>
+          <Text style={s.impArrow}>→</Text>
+        </TouchableOpacity>
 
         {/* Question types */}
         <Text style={s.sectionTitle}>Practice Modes</Text>
@@ -429,7 +540,7 @@ const s = StyleSheet.create({
   xpBadge:          { backgroundColor: '#F0F0F0', borderRadius: 12, paddingVertical: 6, paddingHorizontal: 12, borderWidth: 1.5, borderColor: '#E8E8E8' },
   xpTxt:            { fontSize: 12, fontWeight: '800', color: '#1C1C1E' },
 
-  // Back header + page title (PYQ sub-screens)
+  // Back header + page title (PYQ / Important sub-screens)
   backHeader:       { backgroundColor: '#fff', flexDirection: 'row', alignItems: 'center', paddingHorizontal: 20, paddingVertical: 14, borderBottomWidth: 1.5, borderBottomColor: '#F0F0F0' },
   backRow:          { flexDirection: 'row', alignItems: 'center', gap: 6 },
   backArrow:        { fontSize: 20, color: '#1C1C1E', fontWeight: '700' },
@@ -438,13 +549,13 @@ const s = StyleSheet.create({
   pageTitle:        { fontSize: 20, fontWeight: '900', color: '#1C1C1E', letterSpacing: -0.4 },
   pageSub:          { fontSize: 13, color: '#8E8E93', fontWeight: '600', marginTop: 3 },
 
-  // Subject rows (PYQ level 1)
+  // Subject rows (PYQ / Important level 1)
   subjectRow:       { backgroundColor: '#fff', borderRadius: 18, borderWidth: 1.5, borderColor: '#F0F0F0', flexDirection: 'row', alignItems: 'center', gap: 16, padding: 14 },
   subjectIconWrap:  { width: 54, height: 54, borderRadius: 27, alignItems: 'center', justifyContent: 'center' },
   subjectName:      { fontSize: 17, fontWeight: '900', color: '#1C1C1E', letterSpacing: -0.3 },
   subjectSub:       { fontSize: 12, color: '#8E8E93', fontWeight: '600', marginTop: 3 },
 
-  // Generic list rows (PYQ chapters + papers)
+  // Generic list rows (chapters + papers)
   listRow:          { backgroundColor: '#fff', borderRadius: 16, borderWidth: 1.5, borderColor: '#F0F0F0', flexDirection: 'row', alignItems: 'center', gap: 14, padding: 16 },
   listNum:          { width: 32, height: 32, borderRadius: 10, backgroundColor: '#F0F0F0', alignItems: 'center', justifyContent: 'center' },
   listNumTxt:       { fontSize: 14, fontWeight: '900', color: '#1C1C1E' },
@@ -452,7 +563,7 @@ const s = StyleSheet.create({
   listRowSub:       { fontSize: 12, color: '#8E8E93', fontWeight: '600', marginTop: 3 },
   listArrow:        { fontSize: 18, color: '#C7C7CC', fontWeight: '600' },
 
-  // PYQ question WebView + empty state
+  // Question WebView + empty state
   webLoading:       { ...StyleSheet.absoluteFillObject, alignItems: 'center', justifyContent: 'center', zIndex: 2 },
   emptyWrap:        { flex: 1, alignItems: 'center', justifyContent: 'center', padding: 28 },
   emptyTitle:       { fontSize: 16, fontWeight: '900', color: '#1C1C1E', marginBottom: 8 },
@@ -474,6 +585,14 @@ const s = StyleSheet.create({
   startBtn:         { backgroundColor: '#fff', borderRadius: 14, paddingVertical: 13, alignItems: 'center' },
   startBtnTxt:      { fontSize: 15, fontWeight: '900', color: '#1C1C1E', letterSpacing: -0.3 },
   sectionTitle:     { fontSize: 17, fontWeight: '900', color: '#1C1C1E', letterSpacing: -0.3, paddingHorizontal: 16, marginTop: 16, marginBottom: 12 },
+
+  // Important Questions banner (main screen)
+  impBanner:        { marginHorizontal: 16, backgroundColor: '#fff', borderRadius: 18, borderWidth: 1.5, borderColor: '#F0E6C8', flexDirection: 'row', alignItems: 'center', gap: 14, padding: 16 },
+  impIconBox:       { width: 48, height: 48, borderRadius: 14, backgroundColor: '#FBF3DA', alignItems: 'center', justifyContent: 'center', borderWidth: 1.5, borderColor: '#F0E6C8' },
+  impTitle:         { fontSize: 15, fontWeight: '900', color: '#1C1C1E', letterSpacing: -0.2 },
+  impSub:           { fontSize: 12, color: '#8E8E93', fontWeight: '600', marginTop: 3 },
+  impArrow:         { fontSize: 18, color: '#C7A85A', fontWeight: '700' },
+
   qTypesGrid:       { flexDirection: 'row', flexWrap: 'wrap', paddingHorizontal: 16, gap: 10 },
   qTypeCard:        { width: '47%', backgroundColor: '#fff', borderRadius: 18, borderWidth: 1.5, borderColor: '#F0F0F0', padding: 16 },
   qTypeLabel:       { fontSize: 14, fontWeight: '900', color: '#1C1C1E', letterSpacing: -0.3, marginBottom: 4 },
