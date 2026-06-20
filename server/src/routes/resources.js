@@ -9,6 +9,7 @@ const {
   getQuestions,
   getQuestionsByPath,
 } = require('../controllers/resources.controller')
+const { getExemplar } = require('../controllers/exemplar.controller')
 
 const router = Router()
 
@@ -23,5 +24,8 @@ router.get('/sections/:sectionId/questions',     getQuestions)
 
 // ─── Convenience: questions straight from slugs (matches the UI flow) ──────────
 router.get('/content/:subjectSlug/:chapterSlug/:sectionType', getQuestionsByPath)
+
+// ─── Exemplar Solutions (DB-backed; ?subject=&class=&chapter=) ─────────────────
+router.get('/exemplar', getExemplar)
 
 module.exports = router

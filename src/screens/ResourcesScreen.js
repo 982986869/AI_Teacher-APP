@@ -1,9 +1,10 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import {
   View, Text, StyleSheet, SafeAreaView, ScrollView,
-  TouchableOpacity, StatusBar, Platform, Image, Dimensions,
+  TouchableOpacity, StatusBar, Platform, Image, Dimensions, ActivityIndicator,
 } from 'react-native';
 
+import { getExemplarSolutions } from '../api/resourcesApi';
 import { getChapterNotes } from '../notes/index';
 import Ch2Images from '../notes/images/Ch2Images';
 import ChapterNotesScreen from './ChapterNotesScreen';
@@ -504,6 +505,23 @@ const ResourcesScreen = () => {
   const [showChapterEnd, setShowChapterEnd] = useState(false);
   const [activeSectionQs, setActiveSectionQs] = useState([]);
 
+  // Exemplar Solutions are now DB-backed: fetch the chapter's sections from the
+  // API when the exemplar list (LEVEL 4a) is active. Same shape the static map
+  // gave ([{ label, questions }]), so the rows render unchanged.
+  const [exemplar, setExemplar] = useState({ loading: false, error: null, sections: [] });
+  const [exemplarRetry, setExemplarRetry] = useState(0);
+  const exemplarActive = !!(activeSubject && activeResType?.type === 'exemplar' && activeChapter && showCards);
+  useEffect(() => {
+    if (!exemplarActive) return undefined;
+    let alive = true;
+    setExemplar({ loading: true, error: null, sections: [] });
+    getExemplarSolutions({ subject: activeSubject.name, className: activeClass, chapter: activeChapter.name })
+      .then((d) => { if (alive) setExemplar({ loading: false, error: null, sections: (d && d.sections) || [] }); })
+      .catch((e) => { if (alive) setExemplar({ loading: false, error: e?.response?.data?.error || e?.message || 'Could not load solutions.', sections: [] }); });
+    return () => { alive = false; };
+    // eslint-disable-next-line react-hooks/exhaustive-deps
+  }, [exemplarActive, activeSubject?.name, activeResType?.type, activeChapter?.name, activeClass, exemplarRetry]);
+
 
   // ── LEVEL 5: Chapter Notes — WebView with MathJax ────────────────────────
   if (activeSubject && activeResType && activeChapter && showNotes) {
@@ -541,20 +559,42 @@ const ResourcesScreen = () => {
           <Text style={s.pageTitle}>{activeChapter.name}</Text>
         </View>
         <ScrollView contentContainerStyle={{ padding: 16, gap: 10, paddingBottom: 32 }}>
-          {getExemplarSections(activeSubject.name, activeChapter.name).map((sec, i) => (
-            <TouchableOpacity
-              key={i}
-              style={s.listRow}
-              activeOpacity={0.8}
-              onPress={() => { setActiveSectionQs(sec.questions || []); setShowChapterEnd(true); }}
-            >
-              <View style={s.listNum}><Text style={s.listNumTxt}>{i + 1}</Text></View>
-              <View style={{ flex: 1 }}>
-                <Text style={s.listRowTitle}>{sec.label}</Text>
-              </View>
-              <Text style={s.listArrow}>→</Text>
-            </TouchableOpacity>
-          ))}
+          {exemplar.loading ? (
+            <View style={{ paddingVertical: 48, alignItems: 'center', gap: 12 }}>
+              <ActivityIndicator size="large" color="#1f8a93" />
+              <Text style={{ color: '#64748b', fontSize: 13 }}>Loading solutions…</Text>
+            </View>
+          ) : exemplar.error ? (
+            <View style={{ paddingVertical: 40, alignItems: 'center', gap: 12, paddingHorizontal: 24 }}>
+              <Text style={{ color: '#b91c1c', fontSize: 14, textAlign: 'center' }}>{'⚠️'}  {exemplar.error}</Text>
+              <TouchableOpacity
+                style={{ borderWidth: 1.5, borderColor: '#1f8a93', borderRadius: 10, paddingVertical: 9, paddingHorizontal: 18 }}
+                activeOpacity={0.8}
+                onPress={() => setExemplarRetry((k) => k + 1)}
+              >
+                <Text style={{ color: '#1f8a93', fontWeight: '700' }}>Retry</Text>
+              </TouchableOpacity>
+            </View>
+          ) : exemplar.sections.length === 0 ? (
+            <View style={{ paddingVertical: 48, alignItems: 'center' }}>
+              <Text style={{ color: '#94a3b8', fontSize: 14 }}>No solutions available for this chapter yet.</Text>
+            </View>
+          ) : (
+            exemplar.sections.map((sec, i) => (
+              <TouchableOpacity
+                key={i}
+                style={s.listRow}
+                activeOpacity={0.8}
+                onPress={() => { setActiveSectionQs(sec.questions || []); setShowChapterEnd(true); }}
+              >
+                <View style={s.listNum}><Text style={s.listNumTxt}>{i + 1}</Text></View>
+                <View style={{ flex: 1 }}>
+                  <Text style={s.listRowTitle}>{sec.label}</Text>
+                </View>
+                <Text style={s.listArrow}>→</Text>
+              </TouchableOpacity>
+            ))
+          )}
         </ScrollView>
       </SafeAreaView>
     );

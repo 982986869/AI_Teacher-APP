@@ -22,3 +22,12 @@ export const getQuestionsByPath = async (subjectSlug, chapterSlug, sectionType) 
   (await axiosInstance.get(
     `/api/resources/content/${subjectSlug}/${chapterSlug}/${sectionType}`
   )).data.data;
+
+// Exemplar Solutions (DB-backed). Returns { subject, className, chapter, sections }
+// where sections = [{ label, questions: [{ q, text, options, solutionLabel,
+// solution, questionImages, solutionImages }] }] — the SAME shape the screen used
+// from the old static getExemplarSections(), so rendering stays unchanged.
+export const getExemplarSolutions = async ({ subject, className, chapter }) =>
+  (await axiosInstance.get('/api/resources/exemplar', {
+    params: { subject, class: className, chapter },
+  })).data.data;
