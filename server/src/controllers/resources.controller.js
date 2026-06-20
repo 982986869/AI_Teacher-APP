@@ -11,7 +11,7 @@ async function getSubjects(req, res, next) {
 
 async function getChapters(req, res, next) {
   try {
-    const data = await svc.listChapters(req.params.subjectSlug)
+    const data = await svc.listChapters(req.params.subjectSlug, req.query.section)
     if (!data) return ApiResponse.error(res, 'Subject not found', 404)
     return ApiResponse.success(res, data)
   } catch (err) { next(err) }

@@ -2,7 +2,6 @@ import React, { useState, useEffect } from 'react';
 import { View, Text, StyleSheet, SafeAreaView, ScrollView, TouchableOpacity, StatusBar, Platform, ActivityIndicator } from 'react-native';
 import { WebView } from 'react-native-webview';
 import { getQuestionsByPath, getChapters } from '../api/resourcesApi';
-import { getImportantHtml } from '../data/importantQuestions';
 
 // Slug must match how rows were inserted (scripts/importResources.js slugify).
 const slugify = (s) =>
@@ -33,11 +32,6 @@ function buildFragmentFromQuestions(questions) {
       return `<div class="pyq-card">${header}${question}${options}${solution}</div>`;
     })
     .join('');
-}
-
-// Important Questions resolve through importantQuestions.js.
-function impHtmlFor(subject, chapter) {
-  return getImportantHtml(subject, chapter);
 }
 
 // Wraps a question-card fragment in a full HTML doc with MathJax (renders
@@ -291,17 +285,24 @@ const PyqWebView = ({ html, subject, chapter, sectionType = 'pyq' }) => {
   );
 };
 
-// Chapter list for a subject — marks which chapters actually have data (from API).
-const PyqChapterList = ({ subject, onBack, onPick }) => {
+// Chapter list for a subject — marks which chapters actually have data for the
+// given section type (from API). Reused for PYQ and Important Questions.
+const ChapterList = ({
+  subject, onBack, onPick,
+  sectionType = 'pyq',
+  subtitle = 'Select a chapter',
+  availableLabel = 'View previous year questions',
+}) => {
   const [available, setAvailable] = useState(null); // Set<slug> | null while loading
 
   useEffect(() => {
     let alive = true;
-    getChapters(slugify(subject.name))
+    setAvailable(null);
+    getChapters(slugify(subject.name), sectionType)
       .then((chs) => { if (alive) setAvailable(new Set((chs || []).map((c) => c.slug))); })
       .catch(() => { if (alive) setAvailable(new Set()); });
     return () => { alive = false; };
-  }, [subject]);
+  }, [subject, sectionType]);
 
   return (
     <SafeAreaView style={s.safe}>
@@ -310,12 +311,12 @@ const PyqChapterList = ({ subject, onBack, onPick }) => {
       <BackHeader onBack={onBack} />
       <View style={s.pageTitleWrap}>
         <Text style={s.pageTitle}>{subject.name}</Text>
-        <Text style={s.pageSub}>Select a chapter</Text>
+        <Text style={s.pageSub}>{subtitle}</Text>
       </View>
       <ScrollView contentContainerStyle={{ padding: 16, gap: 10, paddingBottom: 32 }}>
         {subject.chapters.map((chapter, i) => {
           const loading = available === null;
-          const hasPyq = !loading && available.has(slugify(chapter));
+          const has = !loading && available.has(slugify(chapter));
           return (
             <TouchableOpacity key={i} style={s.listRow} activeOpacity={0.8}
               onPress={() => onPick(chapter)}>
@@ -323,7 +324,7 @@ const PyqChapterList = ({ subject, onBack, onPick }) => {
               <View style={{ flex: 1 }}>
                 <Text style={s.listRowTitle}>{chapter}</Text>
                 <Text style={s.listRowSub}>
-                  {loading ? 'Loading…' : hasPyq ? 'View previous year questions' : 'Coming soon'}
+                  {loading ? 'Loading…' : has ? availableLabel : 'Coming soon'}
                 </Text>
               </View>
               <Text style={s.listArrow}>→</Text>
@@ -370,8 +371,9 @@ const PracticeScreen = () => {
   // ── PYQ LEVEL 2: Chapter list for the chosen subject ────────────────────────
   if (pyqOpen && pyqSubject) {
     return (
-      <PyqChapterList
+      <ChapterList
         subject={pyqSubject}
+        sectionType="pyq"
         onBack={() => setPyqSubject(null)}
         onPick={(chapter) => setPyqChapter(chapter)}
       />
@@ -408,9 +410,8 @@ const PracticeScreen = () => {
     );
   }
 
-  // ── IMPORTANT QUESTIONS LEVEL 3: questions for a chapter (WebView) ───────────
+  // ── IMPORTANT QUESTIONS LEVEL 3: questions for a chapter (from API) ──────────
   if (impOpen && impSubject && impChapter) {
-    const html = impHtmlFor(impSubject.name, impChapter);
     return (
       <SafeAreaView style={s.safe}>
         <StatusBar barStyle="dark-content" backgroundColor="#fff" />
@@ -420,16 +421,7 @@ const PracticeScreen = () => {
           <Text style={s.pageTitle}>{impChapter}</Text>
           <Text style={s.pageSub}>{impSubject.name}  •  Important Questions</Text>
         </View>
-        {html ? (
-          <PyqWebView html={html} />
-        ) : (
-          <View style={s.emptyWrap}>
-            <Text style={s.emptyTitle}>Coming soon</Text>
-            <Text style={s.emptySub}>
-              Important questions for this chapter haven't been added yet.
-            </Text>
-          </View>
-        )}
+        <PyqWebView subject={impSubject.name} chapter={impChapter} sectionType="important_questions" />
       </SafeAreaView>
     );
   }
@@ -437,31 +429,14 @@ const PracticeScreen = () => {
   // ── IMPORTANT QUESTIONS LEVEL 2: Chapter list for the chosen subject ─────────
   if (impOpen && impSubject) {
     return (
-      <SafeAreaView style={s.safe}>
-        <StatusBar barStyle="dark-content" backgroundColor="#fff" />
-        {Platform.OS === 'android' && <View style={{ height: 24, backgroundColor: '#fff' }} />}
-        <BackHeader onBack={() => setImpSubject(null)} />
-        <View style={s.pageTitleWrap}>
-          <Text style={s.pageTitle}>{impSubject.name}</Text>
-          <Text style={s.pageSub}>Select a chapter  •  Important Questions</Text>
-        </View>
-        <ScrollView contentContainerStyle={{ padding: 16, gap: 10, paddingBottom: 32 }}>
-          {impSubject.chapters.map((chapter, i) => {
-            const hasImp = !!impHtmlFor(impSubject.name, chapter);
-            return (
-              <TouchableOpacity key={i} style={s.listRow} activeOpacity={0.8}
-                onPress={() => setImpChapter(chapter)}>
-                <View style={s.listNum}><Text style={s.listNumTxt}>{i + 1}</Text></View>
-                <View style={{ flex: 1 }}>
-                  <Text style={s.listRowTitle}>{chapter}</Text>
-                  <Text style={s.listRowSub}>{hasImp ? 'View important questions' : 'Coming soon'}</Text>
-                </View>
-                <Text style={s.listArrow}>→</Text>
-              </TouchableOpacity>
-            );
-          })}
-        </ScrollView>
-      </SafeAreaView>
+      <ChapterList
+        subject={impSubject}
+        sectionType="important_questions"
+        subtitle="Select a chapter  •  Important Questions"
+        availableLabel="View important questions"
+        onBack={() => setImpSubject(null)}
+        onPick={(chapter) => setImpChapter(chapter)}
+      />
     );
   }
 

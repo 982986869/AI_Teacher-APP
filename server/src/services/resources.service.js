@@ -26,13 +26,13 @@ async function listSubjects() {
 }
 
 // ─── Chapters of a subject (by slug) ──────────────────────────────────────────
-async function listChapters(subjectSlug) {
+// If sectionType is given, only chapters that actually have that section.
+async function listChapters(subjectSlug, sectionType) {
   const subject = await db.subjects.findUnique({ where: { slug: subjectSlug } })
   if (!subject) return null
-  const rows = await db.chapters.findMany({
-    where: { subject_id: subject.id },
-    orderBy: { position: 'asc' },
-  })
+  const where = { subject_id: subject.id }
+  if (sectionType) where.sections = { some: { type_key: sectionType } }
+  const rows = await db.chapters.findMany({ where, orderBy: { position: 'asc' } })
   return rows.map((c) => ({ id: num(c.id), name: c.name, slug: c.slug, position: c.position }))
 }
 

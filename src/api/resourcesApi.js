@@ -6,8 +6,10 @@ import axiosInstance from './axiosInstance';
 export const getSubjects = async () =>
   (await axiosInstance.get('/api/resources/subjects')).data.data;
 
-export const getChapters = async (subjectSlug) =>
-  (await axiosInstance.get(`/api/resources/subjects/${subjectSlug}/chapters`)).data.data;
+export const getChapters = async (subjectSlug, sectionType) =>
+  (await axiosInstance.get(`/api/resources/subjects/${subjectSlug}/chapters`, {
+    params: sectionType ? { section: sectionType } : undefined,
+  })).data.data;
 
 export const getSections = async (chapterId) =>
   (await axiosInstance.get(`/api/resources/chapters/${chapterId}/sections`)).data.data;
