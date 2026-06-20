@@ -8,11 +8,12 @@ import axiosInstance from './axiosInstance';
 
 // POST /api/ai/lesson/generate → { lessonId, lesson }
 export const generateLesson = async ({ topic, subject, gradeLevel }) => {
+  // Full lesson generation by Opus can take 30–90s — allow up to 2 minutes.
   const res = await axiosInstance.post('/api/ai/lesson/generate', {
     topic,
     subject,
     gradeLevel,
-  });
+  }, { timeout: 120000 });
   return res.data.data;
 };
 
