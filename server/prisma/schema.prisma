@@ -7,7 +7,226 @@ datasource db {
   url      = env("DATABASE_URL")
 }
 
-// ─── Enums ───────────────────────────────────────────────────────────────────
+model User {
+  id                 String               @id @default(uuid()) @db.Uuid
+  name               String
+  email              String?              @unique
+  phone              String?              @unique
+  passwordHash       String?
+  grade              String?
+  provider           AuthProvider         @default(EMAIL)
+  createdAt          DateTime             @default(now())
+  updatedAt          DateTime             @updatedAt
+  role               UserRole             @default(STUDENT)
+  brain_gym_sessions brain_gym_sessions[]
+  doubtSessions      DoubtSession[]
+  knowledge_sources  knowledge_sources[]
+  lessons            Lesson[]
+
+  @@map("users")
+}
+
+model Lesson {
+  id                String         @id @default(uuid()) @db.Uuid
+  userId            String         @db.Uuid
+  topic             String
+  subject           String
+  gradeLevel        String
+  lessonTitle       String
+  estimatedDuration String
+  summary           String
+  keyTerms          String[]
+  status            LessonStatus   @default(GENERATING)
+  generationModel   String?
+  generationTimeMs  Int?
+  createdAt         DateTime       @default(now())
+  updatedAt         DateTime       @updatedAt
+  doubtSessions     DoubtSession[]
+  user              User           @relation(fields: [userId], references: [id], onDelete: Cascade)
+  slides            Slide[]
+
+  @@index([userId, createdAt(sort: Desc)])
+  @@map("lessons")
+}
+
+model Slide {
+  id               String     @id @default(uuid()) @db.Uuid
+  lessonId         String     @db.Uuid
+  slideNumber      Int
+  slideTitle       String
+  explanation      String
+  narrationText    String
+  visualType       VisualType
+  visualData       Json
+  animationSteps   Json?
+  animationType    String?
+  highlightTargets Json?
+  subtitleChunks   String[]   @default([])
+  visualSequence   Json?
+  voiceCue         String?
+  lesson           Lesson     @relation(fields: [lessonId], references: [id], onDelete: Cascade)
+
+  @@unique([lessonId, slideNumber])
+  @@index([lessonId])
+  @@map("slides")
+}
+
+model DoubtSession {
+  id        String    @id @default(uuid()) @db.Uuid
+  lessonId  String    @db.Uuid
+  userId    String    @db.Uuid
+  createdAt DateTime  @default(now())
+  updatedAt DateTime  @updatedAt
+  lesson    Lesson    @relation(fields: [lessonId], references: [id], onDelete: Cascade)
+  user      User      @relation(fields: [userId], references: [id], onDelete: Cascade)
+  messages  Message[]
+
+  @@index([lessonId, userId])
+  @@map("doubt_sessions")
+}
+
+model Message {
+  id             String       @id @default(uuid()) @db.Uuid
+  doubtSessionId String       @db.Uuid
+  role           MessageRole
+  content        String
+  slideIndex     Int?
+  createdAt      DateTime     @default(now())
+  doubtSession   DoubtSession @relation(fields: [doubtSessionId], references: [id], onDelete: Cascade)
+
+  @@index([doubtSessionId, createdAt])
+  @@map("messages")
+}
+
+model brain_gym_sessions {
+  id             String   @id @db.Uuid
+  userId         String   @db.Uuid
+  skill          String
+  level          Int
+  totalQuestions Int
+  correctCount   Int
+  wrongCount     Int
+  score          Int
+  xpEarned       Int
+  timeTakenSec   Int      @default(0)
+  createdAt      DateTime @default(now())
+  users          User     @relation(fields: [userId], references: [id], onDelete: Cascade)
+
+  @@index([userId, createdAt(sort: Desc)])
+}
+
+model chapters {
+  id         BigInt     @id @default(autoincrement())
+  subject_id BigInt
+  name       String
+  slug       String
+  position   Int        @default(0)
+  created_at DateTime   @default(now()) @db.Timestamptz(6)
+  subjects   subjects   @relation(fields: [subject_id], references: [id], onDelete: Cascade, onUpdate: NoAction)
+  sections   sections[]
+
+  @@unique([subject_id, slug])
+  @@index([subject_id], map: "idx_chapters_subject")
+}
+
+model knowledge_chunks {
+  id                String                 @id @db.Uuid
+  sourceId          String                 @db.Uuid
+  chunkIndex        Int
+  content           String
+  charCount         Int                    @default(0)
+  embedding         Unsupported("vector")?
+  metadata          Json?
+  createdAt         DateTime               @default(now())
+  knowledge_sources knowledge_sources      @relation(fields: [sourceId], references: [id], onDelete: Cascade)
+
+  @@unique([sourceId, chunkIndex])
+  @@index([embedding], map: "knowledge_chunks_embedding_hnsw_idx")
+  @@index([sourceId])
+}
+
+model knowledge_sources {
+  id               String             @id @db.Uuid
+  title            String
+  description      String?
+  type             String
+  subject          String?
+  gradeLevel       String?
+  originalFilename String?
+  mimeType         String?
+  charCount        Int                @default(0)
+  chunkCount       Int                @default(0)
+  status           KnowledgeStatus    @default(PROCESSING)
+  uploadedById     String             @db.Uuid
+  createdAt        DateTime           @default(now())
+  updatedAt        DateTime
+  knowledge_chunks knowledge_chunks[]
+  users            User               @relation(fields: [uploadedById], references: [id], onDelete: Cascade)
+
+  @@index([status])
+  @@index([subject, gradeLevel])
+  @@index([uploadedById])
+}
+
+model phone_otps {
+  id         String     @id @db.Uuid
+  phone      String
+  otpHash    String
+  purpose    OtpPurpose
+  expiresAt  DateTime
+  attempts   Int        @default(0)
+  consumedAt DateTime?
+  createdAt  DateTime   @default(now())
+
+  @@index([phone, createdAt])
+}
+
+model questions {
+  id             BigInt   @id @default(autoincrement())
+  section_id     BigInt
+  q_number       String?
+  year           String?
+  question_html  String
+  is_mcq         Boolean  @default(false)
+  options        Json?
+  correct_option String?
+  solution_html  String?
+  position       Int      @default(0)
+  created_at     DateTime @default(now()) @db.Timestamptz(6)
+  sections       sections @relation(fields: [section_id], references: [id], onDelete: Cascade, onUpdate: NoAction)
+
+  @@index([section_id], map: "idx_questions_section")
+}
+
+model section_types {
+  key      String     @id
+  label    String
+  position Int        @default(0)
+  sections sections[]
+}
+
+model sections {
+  id            BigInt        @id @default(autoincrement())
+  chapter_id    BigInt
+  type_key      String
+  position      Int           @default(0)
+  created_at    DateTime      @default(now()) @db.Timestamptz(6)
+  questions     questions[]
+  chapters      chapters      @relation(fields: [chapter_id], references: [id], onDelete: Cascade, onUpdate: NoAction)
+  section_types section_types @relation(fields: [type_key], references: [key], onDelete: NoAction, onUpdate: NoAction)
+
+  @@unique([chapter_id, type_key])
+  @@index([chapter_id], map: "idx_sections_chapter")
+}
+
+model subjects {
+  id         BigInt     @id @default(autoincrement())
+  name       String
+  slug       String     @unique
+  position   Int        @default(0)
+  created_at DateTime   @default(now()) @db.Timestamptz(6)
+  chapters   chapters[]
+}
 
 enum AuthProvider {
   EMAIL
@@ -21,12 +240,6 @@ enum LessonStatus {
   FAILED
 }
 
-// DIAGRAM:  { description: string, label: string, components: string[] }
-// CHART:    { chartType: string, data: { labels: string[], values: number[] }, xAxis: string, yAxis: string }
-// EXAMPLE:  { scenario: string, steps: string[] }
-// ANALOGY:  { realWorldObject: string, comparison: string }
-// FORMULA:  { formula: string, variables: { symbol: string, meaning: string }[], explanation: string }
-// NONE:     {}
 enum VisualType {
   DIAGRAM
   CHART
@@ -41,114 +254,19 @@ enum MessageRole {
   ASSISTANT
 }
 
-// ─── Models ──────────────────────────────────────────────────────────────────
-
-model User {
-  id           String       @id @default(uuid()) @db.Uuid
-  name         String
-  email        String?      @unique
-  phone        String?      @unique
-  passwordHash String?
-  grade        String?
-  provider     AuthProvider @default(EMAIL)
-  createdAt    DateTime     @default(now())
-  updatedAt    DateTime     @updatedAt
-
-  lessons       Lesson[]
-  doubtSessions DoubtSession[]
-
-  @@map("users")
+enum KnowledgeStatus {
+  PROCESSING
+  READY
+  FAILED
 }
 
-model Lesson {
-  id                String       @id @default(uuid()) @db.Uuid
-  userId            String       @db.Uuid
-  topic             String
-  subject           String
-  gradeLevel        String
-  lessonTitle       String
-  estimatedDuration String
-  summary           String       @db.Text
-  keyTerms          String[]
-  status            LessonStatus @default(GENERATING)
-  generationModel   String?
-  generationTimeMs  Int?
-
-  user          User           @relation(fields: [userId], references: [id], onDelete: Cascade)
-  slides        Slide[]
-  doubtSessions DoubtSession[]
-
-  createdAt DateTime @default(now())
-  updatedAt DateTime @updatedAt
-
-  @@index([userId, createdAt(sort: Desc)])
-  @@map("lessons")
+enum OtpPurpose {
+  LOGIN
+  SIGNUP
 }
 
-// Visual data shape by visualType (stored as JSON):
-// DIAGRAM:  { description: string, label: string, components: string[] }
-// CHART:    { chartType: string, data: { labels: string[], values: number[] }, xAxis: string, yAxis: string }
-// EXAMPLE:  { scenario: string, steps: string[] }
-// ANALOGY:  { realWorldObject: string, comparison: string }
-// FORMULA:  { formula: string, variables: { symbol: string, meaning: string }[], explanation: string }
-// NONE:     {}
-model Slide {
-  id            String     @id @default(uuid()) @db.Uuid
-  lessonId      String     @db.Uuid
-  slideNumber   Int
-  slideTitle    String
-  explanation   String     @db.Text
-  narrationText String     @db.Text
-  visualType    VisualType
-  visualData    Json
-
-  // ─── Animation metadata (optional; frontend falls back to the fields above) ──
-  // animationType:    "FADE_IN" | "STEP_REVEAL" | "BUILD_UP" | "TYPEWRITER" | "ZOOM" | "NONE"
-  // animationSteps:   [{ order: int, action: string, target: string, durationMs: int, description: string }]
-  // subtitleChunks:   narrationText split into short caption-sized phrases (TTS-synced)
-  // visualSequence:   [{ order: int, element: string, appearAtMs: int }]
-  // highlightTargets: [{ ref: string, label: string, emphasis: string }]
-  // voiceCue:         short delivery hint for narration tone
-  animationType    String?
-  animationSteps   Json?
-  subtitleChunks   String[]  @default([])
-  visualSequence   Json?
-  highlightTargets Json?
-  voiceCue         String?
-
-  lesson Lesson @relation(fields: [lessonId], references: [id], onDelete: Cascade)
-
-  @@unique([lessonId, slideNumber])
-  @@index([lessonId])
-  @@map("slides")
-}
-
-model DoubtSession {
-  id       String @id @default(uuid()) @db.Uuid
-  lessonId String @db.Uuid
-  userId   String @db.Uuid
-
-  lesson   Lesson    @relation(fields: [lessonId], references: [id], onDelete: Cascade)
-  user     User      @relation(fields: [userId], references: [id], onDelete: Cascade)
-  messages Message[]
-
-  createdAt DateTime @default(now())
-  updatedAt DateTime @updatedAt
-
-  @@index([lessonId, userId])
-  @@map("doubt_sessions")
-}
-
-model Message {
-  id             String      @id @default(uuid()) @db.Uuid
-  doubtSessionId String      @db.Uuid
-  role           MessageRole
-  content        String      @db.Text
-  slideIndex     Int?
-  createdAt      DateTime    @default(now())
-
-  doubtSession DoubtSession @relation(fields: [doubtSessionId], references: [id], onDelete: Cascade)
-
-  @@index([doubtSessionId, createdAt])
-  @@map("messages")
+enum UserRole {
+  STUDENT
+  TEACHER
+  ADMIN
 }
