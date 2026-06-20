@@ -1,5 +1,6 @@
 import React from 'react';
 import { StatusBar } from 'react-native';
+import { SafeAreaProvider } from 'react-native-safe-area-context';
 // TODO: replace mock with real package after running: npm install @react-native-google-signin/google-signin
 import { GoogleSignin } from './src/utils/googleSigninMock';
 
@@ -12,9 +13,11 @@ GoogleSignin.configure({ webClientId: GOOGLE_WEB_CLIENT_ID });
 
 export default function App() {
   return (
-    <AuthProvider>
-      <StatusBar barStyle="dark-content" backgroundColor="#FFFFFF" />
-      <AppNavigator />
-    </AuthProvider>
+    <SafeAreaProvider>
+      <AuthProvider>
+        <StatusBar barStyle="dark-content" backgroundColor="#FFFFFF" />
+        <AppNavigator />
+      </AuthProvider>
+    </SafeAreaProvider>
   );
 }

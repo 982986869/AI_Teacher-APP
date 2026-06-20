@@ -6,7 +6,7 @@ import SplashScreen from '../screens/SplashScreen';
 import AuthNavigator from './AuthNavigator';
 import BrainGymScreen from '../screens/BrainGymScreen';
 import OnboardingScreen from '../screens/OnboardingScreen';
-import WorkoutWheel from '../screens/WorkoutWheel';
+import BrainGymFlow from '../screens/braingym/BrainGymFlow';
 import MainNavigator from './MainNavigator';
 
 const Stack = createNativeStackNavigator();
@@ -64,26 +64,11 @@ const AppNavigator = () => {
   } else if (!hasOnboarded) {
     screen = <Stack.Screen name="Onboarding" component={OnboardingScreen} />;
   } else if (justLoggedIn && !workoutDone) {
+    // Standalone Brain Gym step: Wheel → (Start) → Quiz → (submit/back) → Arena.
+    // Leaving the flow advances to Home. Kept separate from the Practice tab.
     screen = (
-      <Stack.Screen name="WorkoutWheel">
-        {props => (
-          <WorkoutWheel
-            {...props}
-            topic="Exponents in Real World"
-            user={{ name: user?.name || 'Learner', grade: user?.grade || 'G10', xp: user?.xp || 0 }}
-            skills={[
-              { key: 'reasoning',     label: 'REASONING',     progress: 0.4 },
-              { key: 'application',   label: 'APPLICATION',   progress: 0.2 },
-              { key: 'understanding', label: 'UNDERSTANDING', progress: 0.7 },
-              { key: 'fluency',       label: 'FLUENCY',       progress: 0.55 },
-            ]}
-            activeTab="workout"
-            // any of these advances to Home
-            onStart={() => setWorkoutDone(true)}
-            onSelectSkill={() => setWorkoutDone(true)}
-            onTabPress={() => setWorkoutDone(true)}
-          />
-        )}
+      <Stack.Screen name="BrainGymFlow">
+        {props => <BrainGymFlow {...props} onFinish={() => setWorkoutDone(true)} />}
       </Stack.Screen>
     );
   } else {
