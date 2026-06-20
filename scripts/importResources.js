@@ -113,7 +113,9 @@ function parseStd($, $el) {
 // Maths pastel template: .pq-card
 function parsePq($, $el) {
   const qNumber = clean($el.find('.pq-q').first().text())
-  const year = clean($el.find('.pq-year').first().text())
+  // PYQ cards have a year (.pq-year); Important-Questions cards have a tag
+  // (.pq-tag, e.g. "VSA"). Use whichever is present for the badge field.
+  const year = clean($el.find('.pq-year').first().text()) || clean($el.find('.pq-tag').first().text())
   const question_html = ($el.find('.pq-question').first().html() || '').trim()
 
   const options = []
@@ -153,17 +155,29 @@ function parsePq($, $el) {
   }
 }
 
-// ── Collect all subjects -> {chapter: html} maps ─────────────────────────────
-function collectSubjects() {
-  const physics = loadModule(path.join(DATA, 'pyqContent.js')).default.Physics
-  const maths = loadModule(path.join(DATA, 'mathsPyq.js')).default
-  const chemistry = loadModule(path.join(DATA, 'chemistryPyq.js')).default
-  const biology = loadModule(path.join(DATA, 'biologyPyq.js')).default
+// ── Collect every section type -> its subjects -> {chapter: html} maps ───────
+// Add a new block here to import another section (revision_solutions, etc.).
+function collectSources() {
+  const load = (f) => loadModule(path.join(DATA, f)).default
   return [
-    { name: 'Physics', slug: 'physics', map: physics },
-    { name: 'Mathematics', slug: 'mathematics', map: maths },
-    { name: 'Chemistry', slug: 'chemistry', map: chemistry },
-    { name: 'Biology', slug: 'biology', map: biology },
+    {
+      sectionType: 'pyq',
+      subjects: [
+        { name: 'Physics',     slug: 'physics',     map: load('pyqContent.js').Physics },
+        { name: 'Mathematics', slug: 'mathematics', map: load('mathsPyq.js') },
+        { name: 'Chemistry',   slug: 'chemistry',   map: load('chemistryPyq.js') },
+        { name: 'Biology',     slug: 'biology',      map: load('biologyPyq.js') },
+      ],
+    },
+    {
+      sectionType: 'important_questions',
+      subjects: [
+        { name: 'Physics',     slug: 'physics',     map: load('physicsImportant.js') },
+        { name: 'Mathematics', slug: 'mathematics', map: load('mathsImportant.js') },
+        { name: 'Chemistry',   slug: 'chemistry',   map: load('chemistryImportant.js') },
+        { name: 'Biology',     slug: 'biology',      map: load('biologyImportant.js') },
+      ],
+    },
   ]
 }
 
@@ -175,42 +189,59 @@ function getDatabaseUrl() {
   return m[1].trim().replace(/^["']|["']$/g, '')
 }
 
+// Bulk-insert a section's questions in one round-trip (Postgres param cap is
+// 65535; 9 params/question keeps any single chapter well under it).
+async function insertQuestions(client, sectionId, questions) {
+  if (!questions.length) return
+  const tuples = []
+  const params = []
+  questions.forEach((q, i) => {
+    const b = i * 9
+    tuples.push(`($${b + 1},$${b + 2},$${b + 3},$${b + 4},$${b + 5},$${b + 6},$${b + 7},$${b + 8},$${b + 9})`)
+    params.push(
+      sectionId, q.q_number, q.year, q.question_html, q.is_mcq,
+      q.options ? JSON.stringify(q.options) : null, q.correct_option, q.solution_html, i + 1
+    )
+  })
+  await client.query(
+    `insert into questions
+     (section_id, q_number, year, question_html, is_mcq, options, correct_option, solution_html, position)
+     values ${tuples.join(',')}`,
+    params
+  )
+}
+
 // ── Main ─────────────────────────────────────────────────────────────────────
 async function main() {
-  const subjects = collectSubjects()
+  const sources = collectSources()
 
-  // Parse everything first (works in both dry-run and live)
-  let totalQ = 0, totalMcq = 0, totalCh = 0
-  const parsed = subjects.map((s) => {
-    const chapters = Object.keys(s.map || {}).map((chapter) => {
-      const questions = parseChapter(s.map[chapter])
-      totalQ += questions.length
-      totalMcq += questions.filter((q) => q.is_mcq).length
-      totalCh++
-      return { chapter, questions }
+  // Parse every source (works in both dry-run and live)
+  let grandQ = 0
+  const parsedSources = sources.map((src, idx) => {
+    let totalQ = 0
+    const subjects = src.subjects.map((s) => {
+      const chapters = Object.keys(s.map || {}).map((chapter) => {
+        const questions = parseChapter(s.map[chapter])
+        totalQ += questions.length
+        return { chapter, questions }
+      })
+      return { ...s, chapters }
     })
-    return { ...s, chapters }
+    grandQ += totalQ
+    return { sectionType: src.sectionType, position: idx + 1, subjects, totalQ }
   })
 
   // Report
   console.log('\n=== PARSE REPORT ===')
-  for (const s of parsed) {
-    const qn = s.chapters.reduce((a, c) => a + c.questions.length, 0)
-    console.log(`\n${s.name}: ${s.chapters.length} chapters, ${qn} questions`)
-    for (const c of s.chapters) {
-      const mcq = c.questions.filter((q) => q.is_mcq).length
-      console.log(`   • ${c.chapter.padEnd(48)} ${String(c.questions.length).padStart(3)} q  (${mcq} mcq)`)
+  for (const src of parsedSources) {
+    console.log(`\n### section: ${src.sectionType}  —  ${src.totalQ} questions`)
+    for (const s of src.subjects) {
+      const qn = s.chapters.reduce((a, c) => a + c.questions.length, 0)
+      const mcq = s.chapters.reduce((a, c) => a + c.questions.filter((q) => q.is_mcq).length, 0)
+      console.log(`   ${s.name.padEnd(12)} ${String(s.chapters.length).padStart(2)} ch  ${String(qn).padStart(4)} q  (${mcq} mcq)`)
     }
   }
-  console.log(`\nTOTAL: ${totalCh} chapters, ${totalQ} questions (${totalMcq} mcq)`)
-
-  // Show one fully-parsed sample so you can eyeball the structure
-  const sample = parsed[0].chapters.find((c) => c.questions.some((q) => q.is_mcq))
-  if (sample) {
-    const q = sample.questions.find((x) => x.is_mcq)
-    console.log('\n=== SAMPLE (Physics, first MCQ) ===')
-    console.log(JSON.stringify(q, null, 2).slice(0, 1200))
-  }
+  console.log(`\nGRAND TOTAL: ${grandQ} questions`)
 
   if (!LIVE) {
     console.log('\n[DRY RUN] Kuch insert nahi hua. Live insert ke liye: node scripts/importResources.js --live\n')
@@ -235,47 +266,41 @@ async function main() {
     const schemaSql = fs.readFileSync(path.join(ROOT, 'supabase', 'schema.sql'), 'utf8')
     await client.query(schemaSql)
     console.log('✓ Schema ensured. Inserting...')
-    for (const s of parsed) {
-      const subRes = await client.query(
-        `insert into subjects (name, slug) values ($1,$2)
-         on conflict (slug) do update set name = excluded.name returning id`,
-        [s.name, s.slug]
-      )
-      const subjectId = subRes.rows[0].id
 
-      let pos = 0
-      for (const c of s.chapters) {
-        pos++
-        const chRes = await client.query(
-          `insert into chapters (subject_id, name, slug, position) values ($1,$2,$3,$4)
-           on conflict (subject_id, slug) do update set name = excluded.name, position = excluded.position
-           returning id`,
-          [subjectId, c.chapter, slugify(c.chapter), pos]
+    for (const src of parsedSources) {
+      console.log(`\n--- section: ${src.sectionType} ---`)
+      for (const s of src.subjects) {
+        const subRes = await client.query(
+          `insert into subjects (name, slug) values ($1,$2)
+           on conflict (slug) do update set name = excluded.name returning id`,
+          [s.name, s.slug]
         )
-        const chapterId = chRes.rows[0].id
+        const subjectId = subRes.rows[0].id
 
-        const secRes = await client.query(
-          `insert into sections (chapter_id, type_key, position) values ($1,'pyq',1)
-           on conflict (chapter_id, type_key) do update set position = excluded.position
-           returning id`,
-          [chapterId]
-        )
-        const sectionId = secRes.rows[0].id
-
-        // Re-runnable: clear this section's questions, then insert fresh
-        await client.query('delete from questions where section_id = $1', [sectionId])
-        let qpos = 0
-        for (const q of c.questions) {
-          qpos++
-          await client.query(
-            `insert into questions
-             (section_id, q_number, year, question_html, is_mcq, options, correct_option, solution_html, position)
-             values ($1,$2,$3,$4,$5,$6,$7,$8,$9)`,
-            [sectionId, q.q_number, q.year, q.question_html, q.is_mcq,
-             q.options ? JSON.stringify(q.options) : null, q.correct_option, q.solution_html, qpos]
+        let pos = 0
+        for (const c of s.chapters) {
+          pos++
+          const chRes = await client.query(
+            `insert into chapters (subject_id, name, slug, position) values ($1,$2,$3,$4)
+             on conflict (subject_id, slug) do update set name = excluded.name
+             returning id`,
+            [subjectId, c.chapter, slugify(c.chapter), pos]
           )
+          const chapterId = chRes.rows[0].id
+
+          const secRes = await client.query(
+            `insert into sections (chapter_id, type_key, position) values ($1,$2,$3)
+             on conflict (chapter_id, type_key) do update set position = excluded.position
+             returning id`,
+            [chapterId, src.sectionType, src.position]
+          )
+          const sectionId = secRes.rows[0].id
+
+          // Re-runnable: clear this section's questions, then bulk-insert fresh
+          await client.query('delete from questions where section_id = $1', [sectionId])
+          await insertQuestions(client, sectionId, c.questions)
         }
-        console.log(`   ✓ ${s.name} / ${c.chapter}: ${c.questions.length} questions`)
+        console.log(`   ✓ ${s.name}: ${s.chapters.length} chapters`)
       }
     }
     console.log('\n✓ Import complete.')
