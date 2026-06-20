@@ -1,18 +1,37 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import { View, Text, StyleSheet, SafeAreaView, ScrollView, TouchableOpacity, StatusBar, Platform, ActivityIndicator } from 'react-native';
 import { WebView } from 'react-native-webview';
-import { getPyqHtml } from '../data/allPyq';
-import { getImportantHtml } from '../data/importantQuestions';
+import { getQuestionsByPath, getChapters } from '../api/resourcesApi';
 
-// All subjects resolve through allPyq.js (Physics from pyqContent.js,
-// Maths/Chemistry/Biology from their own files).
-function pyqHtmlFor(subject, chapter) {
-  return getPyqHtml(subject, chapter);
-}
+// Slug must match how rows were inserted (scripts/importResources.js slugify).
+const slugify = (s) =>
+  String(s).toLowerCase().replace(/[^a-z0-9]+/g, '-').replace(/^-+|-+$/g, '');
 
-// Important Questions resolve through importantQuestions.js.
-function impHtmlFor(subject, chapter) {
-  return getImportantHtml(subject, chapter);
+// Build the .pyq-card HTML fragment from the structured questions the API returns.
+function buildFragmentFromQuestions(questions) {
+  return questions
+    .map((q) => {
+      const year = q.year ? `<span class="pyq-year">${q.year}</span>` : '';
+      const header = `<div class="pyq-header"><span class="q-number">${q.qNumber || ''}</span>${year}</div>`;
+      const question = `<div class="pyq-question">${q.questionHtml || ''}</div>`;
+      let options = '';
+      if (q.isMcq && Array.isArray(q.options) && q.options.length) {
+        const opts = q.options
+          .map(
+            (o) =>
+              `<div class="option${o.is_correct ? ' correct' : ''}">` +
+              `<div class="option-index">${o.idx || ''}</div>` +
+              `<div class="option-text">${o.html || ''}</div></div>`
+          )
+          .join('');
+        options = `<div class="pyq-options">${opts}</div>`;
+      }
+      const solution = q.solutionHtml
+        ? `<div class="solution-box"><div class="solution-title">Solution</div><div>${q.solutionHtml}</div></div>`
+        : '';
+      return `<div class="pyq-card">${header}${question}${options}${solution}</div>`;
+    })
+    .join('');
 }
 
 // Wraps a question-card fragment in a full HTML doc with MathJax (renders
@@ -57,7 +76,8 @@ function buildPyqDocument(fragmentHtml) {
   .pyq-options,.options{ display:flex; flex-direction:column; gap:6px; margin-top:12px; }
   .option{ display:flex; gap:10px; align-items:flex-start;
            border:1px solid #e3e3e6; border-radius:10px; padding:8px 12px; font-size:15px; }
-  .option.correct{ border-color:#1C1C1E; background:#1C1C1E; color:#fff; font-weight:600; }
+  .option.correct{ border-color:#16a34a; background:#e7f7ec; color:#15803d; font-weight:600; }
+  .option.correct .option-index, .option.correct .option-text, .option.correct p{ color:#15803d; }
   .option-index{ font-weight:700; min-width:18px; }
   .option-text{ flex:1; max-width:100%; overflow:hidden; }
   .option-text p{ margin:0; }
@@ -192,20 +212,69 @@ const BackHeader = ({ onBack }) => (
   </View>
 );
 
-// WebView that renders a question-card fragment with MathJax.
-const PyqWebView = ({ html }) => {
-  const [loading, setLoading] = useState(true);
+// Renders question-cards with MathJax. If `html` is passed (e.g. Important
+// Questions, from static files) it's shown directly; otherwise the PYQ for the
+// given subject/chapter is fetched from the API.
+const PyqWebView = ({ html, subject, chapter, sectionType = 'pyq' }) => {
+  const [status, setStatus] = useState(
+    html != null
+      ? { loading: false, error: null, html }
+      : { loading: true, error: null, html: null }
+  );
+
+  useEffect(() => {
+    // Ready HTML provided (Important Questions) — no fetch needed.
+    if (html != null) {
+      setStatus({ loading: false, error: null, html });
+      return;
+    }
+    // Otherwise fetch this chapter's questions from the API (PYQ).
+    let alive = true;
+    setStatus({ loading: true, error: null, html: null });
+    getQuestionsByPath(slugify(subject), slugify(chapter), sectionType)
+      .then((questions) => {
+        if (!alive) return;
+        const h = questions && questions.length ? buildFragmentFromQuestions(questions) : '';
+        setStatus({ loading: false, error: null, html: h });
+      })
+      .catch((err) => {
+        if (!alive) return;
+        const msg = err?.response?.data?.error || err?.message || 'Could not load questions';
+        setStatus({ loading: false, error: msg, html: null });
+      });
+    return () => { alive = false; };
+  }, [html, subject, chapter, sectionType]);
+
+  if (status.loading) {
+    return (
+      <View style={[s.webLoading, { position: 'relative', flex: 1 }]}>
+        <ActivityIndicator size="large" color="#1C1C1E" />
+      </View>
+    );
+  }
+  if (status.error) {
+    return (
+      <View style={s.emptyWrap}>
+        <Text style={s.emptyTitle}>Couldn't load</Text>
+        <Text style={s.emptySub}>{status.error}</Text>
+      </View>
+    );
+  }
+  if (!status.html) {
+    return (
+      <View style={s.emptyWrap}>
+        <Text style={s.emptyTitle}>Coming soon</Text>
+        <Text style={s.emptySub}>
+          Questions for this chapter haven't been added yet.
+        </Text>
+      </View>
+    );
+  }
   return (
     <View style={{ flex: 1, backgroundColor: '#f4f4f5' }}>
-      {loading && (
-        <View style={s.webLoading} pointerEvents="none">
-          <ActivityIndicator size="large" color="#1C1C1E" />
-        </View>
-      )}
       <WebView
         originWhitelist={['*']}
-        source={{ html: buildPyqDocument(html) }}
-        onLoadEnd={() => setLoading(false)}
+        source={{ html: buildPyqDocument(status.html) }}
         style={{ flex: 1, backgroundColor: '#f4f4f5' }}
         javaScriptEnabled
         domStorageEnabled
@@ -213,6 +282,57 @@ const PyqWebView = ({ html }) => {
         androidLayerType={Platform.OS === 'android' ? 'hardware' : undefined}
       />
     </View>
+  );
+};
+
+// Chapter list for a subject — marks which chapters actually have data for the
+// given section type (from API). Reused for PYQ and Important Questions.
+const ChapterList = ({
+  subject, onBack, onPick,
+  sectionType = 'pyq',
+  subtitle = 'Select a chapter',
+  availableLabel = 'View previous year questions',
+}) => {
+  const [available, setAvailable] = useState(null); // Set<slug> | null while loading
+
+  useEffect(() => {
+    let alive = true;
+    setAvailable(null);
+    getChapters(slugify(subject.name), sectionType)
+      .then((chs) => { if (alive) setAvailable(new Set((chs || []).map((c) => c.slug))); })
+      .catch(() => { if (alive) setAvailable(new Set()); });
+    return () => { alive = false; };
+  }, [subject, sectionType]);
+
+  return (
+    <SafeAreaView style={s.safe}>
+      <StatusBar barStyle="dark-content" backgroundColor="#fff" />
+      {Platform.OS === 'android' && <View style={{ height: 24, backgroundColor: '#fff' }} />}
+      <BackHeader onBack={onBack} />
+      <View style={s.pageTitleWrap}>
+        <Text style={s.pageTitle}>{subject.name}</Text>
+        <Text style={s.pageSub}>{subtitle}</Text>
+      </View>
+      <ScrollView contentContainerStyle={{ padding: 16, gap: 10, paddingBottom: 32 }}>
+        {subject.chapters.map((chapter, i) => {
+          const loading = available === null;
+          const has = !loading && available.has(slugify(chapter));
+          return (
+            <TouchableOpacity key={i} style={s.listRow} activeOpacity={0.8}
+              onPress={() => onPick(chapter)}>
+              <View style={s.listNum}><Text style={s.listNumTxt}>{i + 1}</Text></View>
+              <View style={{ flex: 1 }}>
+                <Text style={s.listRowTitle}>{chapter}</Text>
+                <Text style={s.listRowSub}>
+                  {loading ? 'Loading…' : has ? availableLabel : 'Coming soon'}
+                </Text>
+              </View>
+              <Text style={s.listArrow}>→</Text>
+            </TouchableOpacity>
+          );
+        })}
+      </ScrollView>
+    </SafeAreaView>
   );
 };
 
@@ -232,9 +352,8 @@ const PracticeScreen = () => {
   const activeFull = SUBJECTS.find(s => s.name === activeSub) || SUBJECTS[0];
   const pct = Math.round((activeFull.done / activeFull.topics) * 100);
 
-  // ── PYQ LEVEL 3: Previous-year questions for a chapter (WebView) ─────────────
+  // ── PYQ LEVEL 3: Previous-year questions for a chapter (fetched from API) ────
   if (pyqOpen && pyqSubject && pyqChapter) {
-    const html = pyqHtmlFor(pyqSubject.name, pyqChapter);
     return (
       <SafeAreaView style={s.safe}>
         <StatusBar barStyle="dark-content" backgroundColor="#fff" />
@@ -244,16 +363,7 @@ const PracticeScreen = () => {
           <Text style={s.pageTitle}>{pyqChapter}</Text>
           <Text style={s.pageSub}>{pyqSubject.name}  •  Previous Year Questions</Text>
         </View>
-        {html ? (
-          <PyqWebView html={html} />
-        ) : (
-          <View style={s.emptyWrap}>
-            <Text style={s.emptyTitle}>Papers coming soon</Text>
-            <Text style={s.emptySub}>
-              Previous year questions for this chapter haven't been added yet.
-            </Text>
-          </View>
-        )}
+        <PyqWebView subject={pyqSubject.name} chapter={pyqChapter} />
       </SafeAreaView>
     );
   }
@@ -261,31 +371,12 @@ const PracticeScreen = () => {
   // ── PYQ LEVEL 2: Chapter list for the chosen subject ────────────────────────
   if (pyqOpen && pyqSubject) {
     return (
-      <SafeAreaView style={s.safe}>
-        <StatusBar barStyle="dark-content" backgroundColor="#fff" />
-        {Platform.OS === 'android' && <View style={{ height: 24, backgroundColor: '#fff' }} />}
-        <BackHeader onBack={() => setPyqSubject(null)} />
-        <View style={s.pageTitleWrap}>
-          <Text style={s.pageTitle}>{pyqSubject.name}</Text>
-          <Text style={s.pageSub}>Select a chapter</Text>
-        </View>
-        <ScrollView contentContainerStyle={{ padding: 16, gap: 10, paddingBottom: 32 }}>
-          {pyqSubject.chapters.map((chapter, i) => {
-            const hasPyq = !!pyqHtmlFor(pyqSubject.name, chapter);
-            return (
-              <TouchableOpacity key={i} style={s.listRow} activeOpacity={0.8}
-                onPress={() => setPyqChapter(chapter)}>
-                <View style={s.listNum}><Text style={s.listNumTxt}>{i + 1}</Text></View>
-                <View style={{ flex: 1 }}>
-                  <Text style={s.listRowTitle}>{chapter}</Text>
-                  <Text style={s.listRowSub}>{hasPyq ? 'View previous year questions' : 'Coming soon'}</Text>
-                </View>
-                <Text style={s.listArrow}>→</Text>
-              </TouchableOpacity>
-            );
-          })}
-        </ScrollView>
-      </SafeAreaView>
+      <ChapterList
+        subject={pyqSubject}
+        sectionType="pyq"
+        onBack={() => setPyqSubject(null)}
+        onPick={(chapter) => setPyqChapter(chapter)}
+      />
     );
   }
 
@@ -319,9 +410,8 @@ const PracticeScreen = () => {
     );
   }
 
-  // ── IMPORTANT QUESTIONS LEVEL 3: questions for a chapter (WebView) ───────────
+  // ── IMPORTANT QUESTIONS LEVEL 3: questions for a chapter (from API) ──────────
   if (impOpen && impSubject && impChapter) {
-    const html = impHtmlFor(impSubject.name, impChapter);
     return (
       <SafeAreaView style={s.safe}>
         <StatusBar barStyle="dark-content" backgroundColor="#fff" />
@@ -331,16 +421,7 @@ const PracticeScreen = () => {
           <Text style={s.pageTitle}>{impChapter}</Text>
           <Text style={s.pageSub}>{impSubject.name}  •  Important Questions</Text>
         </View>
-        {html ? (
-          <PyqWebView html={html} />
-        ) : (
-          <View style={s.emptyWrap}>
-            <Text style={s.emptyTitle}>Coming soon</Text>
-            <Text style={s.emptySub}>
-              Important questions for this chapter haven't been added yet.
-            </Text>
-          </View>
-        )}
+        <PyqWebView subject={impSubject.name} chapter={impChapter} sectionType="important_questions" />
       </SafeAreaView>
     );
   }
@@ -348,31 +429,14 @@ const PracticeScreen = () => {
   // ── IMPORTANT QUESTIONS LEVEL 2: Chapter list for the chosen subject ─────────
   if (impOpen && impSubject) {
     return (
-      <SafeAreaView style={s.safe}>
-        <StatusBar barStyle="dark-content" backgroundColor="#fff" />
-        {Platform.OS === 'android' && <View style={{ height: 24, backgroundColor: '#fff' }} />}
-        <BackHeader onBack={() => setImpSubject(null)} />
-        <View style={s.pageTitleWrap}>
-          <Text style={s.pageTitle}>{impSubject.name}</Text>
-          <Text style={s.pageSub}>Select a chapter  •  Important Questions</Text>
-        </View>
-        <ScrollView contentContainerStyle={{ padding: 16, gap: 10, paddingBottom: 32 }}>
-          {impSubject.chapters.map((chapter, i) => {
-            const hasImp = !!impHtmlFor(impSubject.name, chapter);
-            return (
-              <TouchableOpacity key={i} style={s.listRow} activeOpacity={0.8}
-                onPress={() => setImpChapter(chapter)}>
-                <View style={s.listNum}><Text style={s.listNumTxt}>{i + 1}</Text></View>
-                <View style={{ flex: 1 }}>
-                  <Text style={s.listRowTitle}>{chapter}</Text>
-                  <Text style={s.listRowSub}>{hasImp ? 'View important questions' : 'Coming soon'}</Text>
-                </View>
-                <Text style={s.listArrow}>→</Text>
-              </TouchableOpacity>
-            );
-          })}
-        </ScrollView>
-      </SafeAreaView>
+      <ChapterList
+        subject={impSubject}
+        sectionType="important_questions"
+        subtitle="Select a chapter  •  Important Questions"
+        availableLabel="View important questions"
+        onBack={() => setImpSubject(null)}
+        onPick={(chapter) => setImpChapter(chapter)}
+      />
     );
   }
 

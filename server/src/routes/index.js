@@ -8,6 +8,6 @@ const router = Router()
 router.use('/health',    healthRouter)
 router.use('/auth',      require('./auth'))
 router.use('/ai',        require('./ai'))
-router.use('/brain-gym', require('./brainGym'))
+router.use('/resources', require('./resources'))
 
 module.exports = router
