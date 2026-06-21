@@ -1,0 +1,106 @@
+{
+  "subject": "Physics (Class 11) - resource 1340",
+  "source_endpoint": "/v1/practice/question/category/{chapter_id}/paginate/",
+  "total_extracted": 8014,
+  "total_images": 1812,
+  "chapters": [
+    {
+      "chapter_id": 1342,
+      "chapter_name": "Units and Measurements",
+      "expected": 596,
+      "extracted": 564,
+      "file": "1342_Units_and_Measurements.json"
+    },
+    {
+      "chapter_id": 1343,
+      "chapter_name": "Motion in A Straight Line",
+      "expected": 398,
+      "extracted": 380,
+      "file": "1343_Motion_in_A_Straight_Line.json"
+    },
+    {
+      "chapter_id": 1344,
+      "chapter_name": "Motion in A Plane",
+      "expected": 703,
+      "extracted": 703,
+      "file": "1344_Motion_in_A_Plane.json"
+    },
+    {
+      "chapter_id": 1345,
+      "chapter_name": "Laws of Motion",
+      "expected": 606,
+      "extracted": 606,
+      "file": "1345_Laws_of_Motion.json"
+    },
+    {
+      "chapter_id": 1346,
+      "chapter_name": "Work Energy and Power",
+      "expected": 514,
+      "extracted": 514,
+      "file": "1346_Work_Energy_and_Power.json"
+    },
+    {
+      "chapter_id": 1347,
+      "chapter_name": "System of Particles and Rotational Motion",
+      "expected": 667,
+      "extracted": 667,
+      "file": "1347_System_of_Particles_and_Rotational_Motion.json"
+    },
+    {
+      "chapter_id": 1348,
+      "chapter_name": "Gravitation",
+      "expected": 808,
+      "extracted": 808,
+      "file": "1348_Gravitation.json"
+    },
+    {
+      "chapter_id": 1349,
+      "chapter_name": "Mechanical Properties of Solids",
+      "expected": 232,
+      "extracted": 232,
+      "file": "1349_Mechanical_Properties_of_Solids.json"
+    },
+    {
+      "chapter_id": 1350,
+      "chapter_name": "Mechanical Properties of Fluids",
+      "expected": 624,
+      "extracted": 624,
+      "file": "1350_Mechanical_Properties_of_Fluids.json"
+    },
+    {
+      "chapter_id": 1351,
+      "chapter_name": "Thermal Properties of Matter",
+      "expected": 720,
+      "extracted": 720,
+      "file": "1351_Thermal_Properties_of_Matter.json"
+    },
+    {
+      "chapter_id": 1352,
+      "chapter_name": "Thermodynamics",
+      "expected": 599,
+      "extracted": 599,
+      "file": "1352_Thermodynamics.json"
+    },
+    {
+      "chapter_id": 1353,
+      "chapter_name": "Kinetic Theory",
+      "expected": 426,
+      "extracted": 426,
+      "file": "1353_Kinetic_Theory.json"
+    },
+    {
+      "chapter_id": 1354,
+      "chapter_name": "Oscillations",
+      "expected": 644,
+      "extracted": 644,
+      "file": "1354_Oscillations.json"
+    },
+    {
+      "chapter_id": 4529,
+      "chapter_name": "Waves",
+      "expected": 527,
+      "extracted": 527,
+      "file": "4529_Waves.json"
+    }
+  ]
+}
