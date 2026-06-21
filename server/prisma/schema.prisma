@@ -297,3 +297,20 @@ model exemplar_solutions {
   @@index([subject, className, chapter, position])
   @@map("exemplar_solutions")
 }
+
+model ncert_solutions {
+  id           String   @id @default(uuid()) @db.Uuid
+  part         Int      @default(2) // 1 = NCERT Part-I, 2 = NCERT Part-II
+  subject      String // 'Physics' | 'Chemistry' | 'Biology' | 'Mathematics'
+  className    String   @default("Class 11")
+  chapter      String // exact chapter name (matches the frontend ncert2 CONTENT key)
+  sectionKey   String // 'examples' | 'ex1_1' | 'misc' | 'chapterEnd' ...
+  sectionLabel String // 'Examples' | 'Exercise 1.1' | 'Miscellaneous Exercise' | 'Chapter-end'
+  html         String?  @db.Text // raw HTML rendered in WebView; null = coming soon
+  chapterPos   Int // chapter order within the subject (registry order)
+  position     Int // section order within the chapter
+  createdAt    DateTime @default(now())
+
+  @@index([part, subject, className, chapter, position])
+  @@map("ncert_solutions")
+}
