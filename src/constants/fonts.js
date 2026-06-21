@@ -1,3 +1,14 @@
+// Nunito family names (used by the Brain Gym workout wheel). Prefer these over
+// fontWeight so text renders consistently. Falls back to the system font if the
+// Nunito family isn't loaded — safe either way.
+export const FONT = {
+  regular:   'Nunito_400Regular',
+  semibold:  'Nunito_600SemiBold',
+  bold:      'Nunito_700Bold',
+  extrabold: 'Nunito_800ExtraBold',
+  black:     'Nunito_900Black',
+};
+
 const FONTS = {
   sizes: {
     xs:   11,

@@ -509,3 +509,16 @@ const PHY_OSCILLATIONS = `
 <div class="pyq-card"><div class="pyq-header"><span class="q-number">Q32</span><span class="pyq-year">1996</span></div><div class="pyq-question"><p>A linear harmonic oscillator of force constant 2 {tex}\\times{/tex} 10<sup>6</sup> N/m and amplitude 0.01 m has a total mechanical energy of 160 J. Its</p></div><div class="pyq-options"><div class="option"><div class="option-index"> A </div><div class="option-text"><div><p style="display:inline">P.E. is 160 J</p></div></div></div><div class="option"><div class="option-index"> B </div><div class="option-text"><div><p style="display:inline">P.E. is zero</p></div></div></div><div class="option correct"><div class="option-index"> C </div><div class="option-text"><div><p style="display:inline">P.E. is 100 J</p></div></div></div><div class="option"><div class="option-index"> D </div><div class="option-text"><div><p style="display:inline">P.E. is 120 J</p></div></div></div></div><div class="solution-box"><div class="solution-title">Solution</div><div><p>P.E. ={tex}\\frac{1}{2} k x^{2}=\\frac{1}{2} \\times 2 \\times 10^{6} \\times(0.01)^{2}{/tex}&nbsp;= 100 J</p></div></div></div>
 <div class="pyq-card"><div class="pyq-header"><span class="q-number">Q33</span><span class="pyq-year">1991</span></div><div class="pyq-question"><p>A second&#39;s pendulum is mounted in a rocket. Its period of oscillation will decrease when rocket is:</p></div><div class="pyq-options"><div class="option"><div class="option-index"> A </div><div class="option-text"><div><p style="display:inline">moving down with uniform acceleration</p></div></div></div><div class="option"><div class="option-index"> B </div><div class="option-text"><div><p style="display:inline">moving around the earth in geostationary orbit</p></div></div></div><div class="option"><div class="option-index"> C </div><div class="option-text"><div><p style="display:inline">moving up with uniform velocity</p></div></div></div><div class="option correct"><div class="option-index"> D </div><div class="option-text"><div><p style="display:inline">moving up with uniform acceleration</p></div></div></div></div><div class="solution-box"><div class="solution-title">Solution</div><div><p>When at rest, T =&nbsp;{tex}2 \\pi \\sqrt{\\frac{l}{g}}{/tex}<br /> When the rocket moves up with uniform acceleration,<br /> {tex}T^{\\prime}=2 \\pi \\sqrt{\\frac{l}{g+a}}{/tex}<br /> Clearly, T&#39; &lt; T</p></div></div></div>
 `;
+
+// ── auto-export (integratePhysicsPyq) ──
+export {
+  PHY_MOTION_IN_A_STRAIGHT_LINE,
+  PHY_MOTION_IN_A_PLANE,
+  PHY_LAWS_OF_MOTION,
+  PHY_SYSTEM_OF_PARTICLES_AND_ROTATIONAL_MOTION,
+  PHY_GRAVITATION,
+  PHY_MECHANICAL_PROPERTIES_OF_SOLIDS,
+  PHY_MECHANICAL_PROPERTIES_OF_FLUIDS,
+  PHY_KINETIC_THEORY,
+  PHY_OSCILLATIONS,
+}

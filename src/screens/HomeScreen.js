@@ -7,21 +7,13 @@ import {
 import { useAuth } from '../context/AuthContext';
 import AITeacherScreen from './AITeacherScreen';
 
-// WorkoutWheel placeholder (real file not present yet)
-const WorkoutWheel = ({ onTabPress }) => (
-  <View style={{ flex: 1, alignItems: 'center', justifyContent: 'center', backgroundColor: '#fff' }}>
-    <Text style={{ fontSize: 16, fontWeight: '700', color: '#1C1C1E' }}>Workout coming soon</Text>
-    <TouchableOpacity
-      onPress={() => onTabPress?.('home')}
-      style={{ marginTop: 14, borderWidth: 2, borderColor: '#1C1C1E', borderRadius: 12, paddingVertical: 10, paddingHorizontal: 18 }}
-    >
-      <Text style={{ fontWeight: '800', color: '#1C1C1E' }}>← Back to Home</Text>
-    </TouchableOpacity>
-  </View>
-);
-
 const { width } = Dimensions.get('window');
 const PAD = 16;
+
+// The spinning wheel is NOT a Practice feature — it's a standalone onboarding
+// screen (AppNavigator: Onboarding → WorkoutWheel → Home). The Home quick
+// actions just route to the matching bottom tab.
+const TAB_FOR = { Practice: 'Practice', Resources: 'Resources', Results: 'Results', Sessions: 'Sessions' };
 
 // ─── SVG-style character avatars using View shapes ───────────────────────────
 const CHARS = [
@@ -77,14 +69,13 @@ const TypingDots = () => {
 };
 
 // ─── Main HomeScreen ──────────────────────────────────────────────────────────
-const HomeScreen = () => {
+const HomeScreen = ({ navigation }) => {
   const { user } = useAuth();
   const firstName = user?.name?.split(' ')[0] || 'Saurabh';
 
   const [charIdx, setCharIdx]           = useState(0);
   const [showCharModal, setShowCharModal] = useState(false);
   const [tempChar, setTempChar]         = useState(0);
-  const [showWorkout, setShowWorkout]   = useState(false);
 
   const [activeSubject, setActiveSubject] = useState('Physics');
 
@@ -99,28 +90,6 @@ const HomeScreen = () => {
     setSeedTopic(topic);
     setShowAITeacher(true);
   };
-
-  // ── Workout wheel (opened from the Practice quick action) ──
-  if (showWorkout) {
-    return (
-      <WorkoutWheel
-        topic="Exponents in Real World"
-        user={{ name: firstName, grade: 'G9', xp: 1250 }}
-        skills={[
-          { key: 'reasoning',     label: 'REASONING',     progress: 0.4 },
-          { key: 'application',   label: 'APPLICATION',   progress: 0.2 },
-          { key: 'understanding', label: 'UNDERSTANDING', progress: 0.7 },
-          { key: 'fluency',       label: 'FLUENCY',       progress: 0.55 },
-        ]}
-        activeTab="workout"
-        // tapping Practice or Arena at the bottom returns to Home
-        onTabPress={(tab) => { if (tab !== 'workout') setShowWorkout(false); }}
-        // TODO: route into the real practice flow for the chosen skill
-        onStart={(skill) => { setShowWorkout(false); }}
-        onSelectSkill={(skill) => { setShowWorkout(false); }}
-      />
-    );
-  }
 
   // ── Full AI Teacher experience (opened from the "Open AI Teacher" button) ──
   if (showAITeacher) {
@@ -268,7 +237,7 @@ const HomeScreen = () => {
               <TouchableOpacity
                 key={i}
                 style={s.qaItem}
-                onPress={() => { if (item.label === 'Practice') setShowWorkout(true); }}
+                onPress={() => { const tab = TAB_FOR[item.label]; if (tab && navigation) navigation.navigate(tab); }}
               >
                 <View style={s.qaBox}><Text style={{ fontSize: 20 }}>{item.icon}</Text></View>
                 <Text style={s.qaLbl}>{item.label}</Text>

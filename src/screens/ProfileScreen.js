@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import { View, Text, StyleSheet, SafeAreaView, ScrollView, TouchableOpacity, StatusBar, Platform } from 'react-native';
+import { View, Text, StyleSheet, SafeAreaView, ScrollView, TouchableOpacity, StatusBar, Platform, Alert } from 'react-native';
 import { useAuth } from '../context/AuthContext';
 
 const BADGES = [
@@ -27,7 +27,6 @@ const MENU_ITEMS = [
   { section: 'Other', items: [
     { icon: '⭐', label: 'Rate the App',       arrow: true },
     { icon: '📤', label: 'Share with Friends', arrow: true },
-    { icon: '🚪', label: 'Log Out',            arrow: false, danger: true },
   ]},
 ];
 
@@ -35,6 +34,16 @@ const ProfileScreen = () => {
   const { user, signOut } = useAuth();
   const firstName = user?.name?.split(' ')[0] || 'Student';
   const [notifs, setNotifs] = useState(true);
+
+  // Confirm, then clear token + user from AuthContext. AppNavigator swaps the
+  // whole tree on `isAuthenticated`, so this returns to Login with no back-stack
+  // into authenticated screens.
+  const handleLogout = () => {
+    Alert.alert('Log out', 'Are you sure you want to log out?', [
+      { text: 'Cancel', style: 'cancel' },
+      { text: 'Log Out', style: 'destructive', onPress: () => signOut() },
+    ]);
+  };
 
   return (
     <SafeAreaView style={s.safe}>
@@ -109,6 +118,9 @@ const ProfileScreen = () => {
             </View>
           </View>
         ))}
+        <TouchableOpacity style={s.logoutBtn} onPress={handleLogout} activeOpacity={0.85}>
+          <Text style={s.logoutTxt}>🚪  Log Out</Text>
+        </TouchableOpacity>
         <Text style={s.versionTxt}>Ailernova v1.0.0</Text>
       </ScrollView>
     </SafeAreaView>
@@ -163,7 +175,9 @@ const s = StyleSheet.create({
   toggleOn:        { backgroundColor: '#1C1C1E' },
   toggleThumb:     { width: 20, height: 20, borderRadius: 10, backgroundColor: '#fff' },
   toggleThumbOn:   { alignSelf: 'flex-end' },
-  versionTxt:      { textAlign: 'center', fontSize: 12, color: '#C7C7CC', fontWeight: '600', marginTop: 20 },
+  logoutBtn:       { marginHorizontal: 16, marginTop: 22, backgroundColor: '#FFF0F0', borderWidth: 1.5, borderColor: '#FFD4D4', borderRadius: 16, paddingVertical: 15, alignItems: 'center' },
+  logoutTxt:       { fontSize: 15, fontWeight: '900', color: '#E53E3E' },
+  versionTxt:      { textAlign: 'center', fontSize: 12, color: '#C7C7CC', fontWeight: '600', marginTop: 16 },
 });
 
 export default ProfileScreen;
