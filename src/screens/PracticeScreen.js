@@ -1,15 +1,7 @@
 import React, { useState, useEffect } from 'react';
 import { View, Text, StyleSheet, SafeAreaView, ScrollView, TouchableOpacity, StatusBar, Platform, ActivityIndicator } from 'react-native';
 import { WebView } from 'react-native-webview';
-<<<<<<< HEAD
-import { getPyqHtml } from '../data/allPyq';
-import { getImportantHtml } from '../data/importantQuestions';
-import { getMcqProgress, getMcqSubtopics } from '../data/mcqPractice';
-import { getMcqQuestions } from '../data/mcqQuestions';
-import McqTestScreen from './McqTestScreen';
-=======
 import { getQuestionsByPath, getChapters } from '../api/resourcesApi';
->>>>>>> 8765753e94d12be9aade04afbeac2d6b155a50d8
 
 // Slug must match how rows were inserted (scripts/importResources.js slugify).
 const slugify = (s) =>
@@ -40,12 +32,6 @@ function buildFragmentFromQuestions(questions) {
       return `<div class="pyq-card">${header}${question}${options}${solution}</div>`;
     })
     .join('');
-}
-
-// Format a percent: integers stay whole (60 -> "60"), decimals trim (70.97 -> "70.97").
-function fmtPct(n) {
-  const num = Number(n) || 0;
-  return Number.isInteger(num) ? String(num) : String(Math.round(num * 100) / 100);
 }
 
 // Wraps a question-card fragment in a full HTML doc with MathJax (renders
@@ -117,6 +103,8 @@ const SUBJECTS = [
 ];
 
 // ── Previous Year Papers: 4 subjects, each with its chapter list ───────────────
+// Chapter lists mirror src/screens/ResourcesScreen.js SUBJECTS so the two stay
+// consistent. Update both if the syllabus changes.
 const PYQ_SUBJECTS = [
   {
     name: 'Physics', emoji: '⚛️', bg: '#1C1C1E',
@@ -162,7 +150,6 @@ const PYQ_SUBJECTS = [
       'Sets',
       'Relations and Functions',
       'Trigonometric Functions',
-      'Principle of Mathematical Induction (Deleted)',
       'Complex Numbers and Quadratic Equations',
       'Linear Inequalities',
       'Permutations and Combinations',
@@ -202,12 +189,6 @@ const PYQ_SUBJECTS = [
     ],
   },
 ];
-
-// Subject order for the MCQ Practice sections (4 sections, one per subject).
-const MCQ_SUBJECT_ORDER = ['Physics', 'Mathematics', 'Chemistry', 'Biology'];
-
-// How many numbered mock quizzes each subject shows under Mock Test.
-const MOCK_QUIZ_COUNT = 10;
 
 const QUESTION_TYPES = [
   { icon: '🎯', label: 'MCQ Practice',    sub: 'Multiple choice questions',  count: '120+ Qs' },
@@ -304,98 +285,6 @@ const PyqWebView = ({ html, subject, chapter, sectionType = 'pyq' }) => {
   );
 };
 
-<<<<<<< HEAD
-// A single MCQ chapter card (pastel template: name, progress bar, stats,
-// Start/Continue button, and a Show more dropdown for sub-topics).
-const McqChapterCard = ({ subject, chapter, expanded, onToggle, onStart }) => {
-  const prog = getMcqProgress(subject, chapter);
-  const subtopics = getMcqSubtopics(subject, chapter);
-  const total = prog.total || 50;
-  const answered = prog.answered || 0;
-  const score = prog.score || 0;
-  const correct = Math.round((answered * score) / 100);
-  const wrong = Math.max(0, answered - correct);
-  const greenPct = total ? (correct / total) * 100 : 0;
-  const redPct = total ? (wrong / total) * 100 : 0;
-  const started = answered > 0;
-
-  return (
-    <View style={s.mcqCard}>
-      <View style={s.mcqCardRow}>
-        <View style={{ flex: 1 }}>
-          <Text style={s.mcqChapName}>{chapter}</Text>
-          <View style={s.mcqBarBg}>
-            <View style={[s.mcqBarSeg, { width: `${greenPct}%`, backgroundColor: '#77DD77' }]} />
-            <View style={[s.mcqBarSeg, { width: `${redPct}%`, backgroundColor: '#FF6961' }]} />
-          </View>
-          <View style={s.mcqMetaRow}>
-            <Text style={s.mcqMeta}>{answered}/{total} Answered</Text>
-            <Text style={s.mcqMeta}>Score: {fmtPct(score)}%</Text>
-          </View>
-        </View>
-        <TouchableOpacity
-          style={[s.mcqBtn, started && s.mcqBtnActive]}
-          activeOpacity={0.8}
-          onPress={() => onStart(subject, chapter)}>
-          <Text style={[s.mcqBtnTxt, started && s.mcqBtnTxtActive]}>
-            {started ? 'Continue' : 'Start'}
-          </Text>
-        </TouchableOpacity>
-      </View>
-
-      <TouchableOpacity style={s.mcqToggle} activeOpacity={0.7} onPress={onToggle}>
-        <Text style={s.mcqToggleTxt}>{expanded ? 'Show less ▲' : 'Show more ▼'}</Text>
-      </TouchableOpacity>
-
-      {expanded && (
-        <View style={s.mcqSubWrap}>
-          {subtopics.length > 0 ? (
-            subtopics.map((st, i) => {
-              const sTotal = st.total || 1;
-              const sCorrect = Math.round((st.answered * st.score) / 100);
-              const sWrong = Math.max(0, st.answered - sCorrect);
-              const sGreen = (sCorrect / sTotal) * 100;
-              const sRed = (sWrong / sTotal) * 100;
-              return (
-                <View key={i} style={s.mcqSubCard}>
-                  <View style={{ flex: 1 }}>
-                    <Text style={s.mcqSubCardName}>{st.name}</Text>
-                    <View style={s.mcqBarBg}>
-                      <View style={[s.mcqBarSeg, { width: `${sGreen}%`, backgroundColor: '#77DD77' }]} />
-                      <View style={[s.mcqBarSeg, { width: `${sRed}%`, backgroundColor: '#FF6961' }]} />
-                    </View>
-                    <View style={s.mcqMetaRow}>
-                      <Text style={s.mcqMeta}>{st.answered}/{st.total}</Text>
-                      <Text style={s.mcqMeta}>{fmtPct(st.score)}%</Text>
-                    </View>
-                  </View>
-                  {st.answered >= st.total && st.total > 0 ? (
-                    <View style={s.mcqSubBtnRow}>
-                      <TouchableOpacity style={s.mcqSubBtnAlt} activeOpacity={0.8}
-                        onPress={() => onStart(subject, chapter)}>
-                        <Text style={s.mcqSubBtnAltTxt}>Retake</Text>
-                      </TouchableOpacity>
-                      <TouchableOpacity style={s.mcqSubBtn} activeOpacity={0.8}
-                        onPress={() => onStart(subject, chapter)}>
-                        <Text style={s.mcqSubBtnTxt}>Continue</Text>
-                      </TouchableOpacity>
-                    </View>
-                  ) : (
-                    <TouchableOpacity style={s.mcqSubBtn} activeOpacity={0.8}
-                      onPress={() => onStart(subject, chapter)}>
-                      <Text style={s.mcqSubBtnTxt}>{st.answered === 0 ? 'Start' : 'Continue'}</Text>
-                    </TouchableOpacity>
-                  )}
-                </View>
-              );
-            })
-          ) : (
-            <Text style={s.mcqSubEmpty}>Sub-topics coming soon</Text>
-          )}
-        </View>
-      )}
-    </View>
-=======
 // Chapter list for a subject — marks which chapters actually have data for the
 // given section type (from API). Reused for PYQ and Important Questions.
 const ChapterList = ({
@@ -444,7 +333,6 @@ const ChapterList = ({
         })}
       </ScrollView>
     </SafeAreaView>
->>>>>>> 8765753e94d12be9aade04afbeac2d6b155a50d8
   );
 };
 
@@ -452,55 +340,19 @@ const PracticeScreen = () => {
   const [activeSub, setActiveSub] = useState('Physics');
 
   // Previous Year Papers navigation
-  const [pyqOpen, setPyqOpen]       = useState(false);
-  const [pyqSubject, setPyqSubject] = useState(null);
-  const [pyqChapter, setPyqChapter] = useState(null);
+  const [pyqOpen, setPyqOpen]       = useState(false);   // showing the PYQ subject list
+  const [pyqSubject, setPyqSubject] = useState(null);    // chosen subject (object)
+  const [pyqChapter, setPyqChapter] = useState(null);    // chosen chapter (string)
 
-  // Important Questions navigation
-  const [impOpen, setImpOpen]       = useState(false);
-  const [impSubject, setImpSubject] = useState(null);
-  const [impChapter, setImpChapter] = useState(null);
-
-  // MCQ Practice navigation
-  const [mcqOpen, setMcqOpen]               = useState(false);   // showing the MCQ screen
-  const [mcqOpenSub, setMcqOpenSub]         = useState('Physics');// which subject section is expanded
-  const [mcqShowMore, setMcqShowMore]       = useState({});      // { 'Subject||Chapter': true }
-  const [mcqChapSubject, setMcqChapSubject] = useState(null);    // chosen subject (placeholder)
-  const [mcqChapter, setMcqChapter]         = useState(null);    // chosen chapter (placeholder)
-
-  // Mock Test navigation (subjects -> numbered mock quizzes)
-  const [mockOpen, setMockOpen]           = useState(false);    // showing the Mock Test screen
-  const [mockOpenSub, setMockOpenSub]     = useState('Physics');// which subject section is expanded
-  const [mockAttempted, setMockAttempted] = useState({});       // { 'Subject||Mock Test - 01': true }
-
-  // Start a numbered mock quiz: mark it attempted, then launch the test screen.
-  const startMockTest = (subject, label) => {
-    setMockAttempted(prev => ({ ...prev, [subject + '||' + label]: true }));
-    openMcqChapter(subject, label);
-  };
+  // Important Questions navigation (mirrors the PYQ flow)
+  const [impOpen, setImpOpen]       = useState(false);   // showing the Important Q subject list
+  const [impSubject, setImpSubject] = useState(null);    // chosen subject (object)
+  const [impChapter, setImpChapter] = useState(null);    // chosen chapter (string)
 
   const activeFull = SUBJECTS.find(s => s.name === activeSub) || SUBJECTS[0];
   const pct = Math.round((activeFull.done / activeFull.topics) * 100);
 
-<<<<<<< HEAD
-  const mcqSubjects = MCQ_SUBJECT_ORDER
-    .map(n => PYQ_SUBJECTS.find(sub => sub.name === n))
-    .filter(Boolean);
-
-  const openMcqChapter = (subject, chapter) => {
-    setMcqChapSubject(subject);
-    setMcqChapter(chapter);
-  };
-
-  const toggleShowMore = (subject, chapter) => {
-    const key = subject + '||' + chapter;
-    setMcqShowMore(prev => ({ ...prev, [key]: !prev[key] }));
-  };
-
-  // ── PYQ LEVEL 3 ─────────────────────────────────────────────────────────────
-=======
   // ── PYQ LEVEL 3: Previous-year questions for a chapter (fetched from API) ────
->>>>>>> 8765753e94d12be9aade04afbeac2d6b155a50d8
   if (pyqOpen && pyqSubject && pyqChapter) {
     return (
       <SafeAreaView style={s.safe}>
@@ -511,62 +363,24 @@ const PracticeScreen = () => {
           <Text style={s.pageTitle}>{pyqChapter}</Text>
           <Text style={s.pageSub}>{pyqSubject.name}  •  Previous Year Questions</Text>
         </View>
-<<<<<<< HEAD
-        {html ? (
-          <PyqWebView html={html} />
-        ) : (
-          <View style={s.emptyWrap}>
-            <Text style={s.emptyTitle}>Papers coming soon</Text>
-            <Text style={s.emptySub}>Previous year questions for this chapter haven't been added yet.</Text>
-          </View>
-        )}
-=======
         <PyqWebView subject={pyqSubject.name} chapter={pyqChapter} />
->>>>>>> 8765753e94d12be9aade04afbeac2d6b155a50d8
       </SafeAreaView>
     );
   }
 
-  // ── PYQ LEVEL 2 ─────────────────────────────────────────────────────────────
+  // ── PYQ LEVEL 2: Chapter list for the chosen subject ────────────────────────
   if (pyqOpen && pyqSubject) {
     return (
-<<<<<<< HEAD
-      <SafeAreaView style={s.safe}>
-        <StatusBar barStyle="dark-content" backgroundColor="#fff" />
-        {Platform.OS === 'android' && <View style={{ height: 24, backgroundColor: '#fff' }} />}
-        <BackHeader onBack={() => setPyqSubject(null)} />
-        <View style={s.pageTitleWrap}>
-          <Text style={s.pageTitle}>{pyqSubject.name}</Text>
-          <Text style={s.pageSub}>Select a chapter</Text>
-        </View>
-        <ScrollView contentContainerStyle={{ padding: 16, gap: 10, paddingBottom: 32 }}>
-          {pyqSubject.chapters.map((chapter, i) => {
-            const hasPyq = !!pyqHtmlFor(pyqSubject.name, chapter);
-            return (
-              <TouchableOpacity key={i} style={s.listRow} activeOpacity={0.8} onPress={() => setPyqChapter(chapter)}>
-                <View style={s.listNum}><Text style={s.listNumTxt}>{i + 1}</Text></View>
-                <View style={{ flex: 1 }}>
-                  <Text style={s.listRowTitle}>{chapter}</Text>
-                  <Text style={s.listRowSub}>{hasPyq ? 'View previous year questions' : 'Coming soon'}</Text>
-                </View>
-                <Text style={s.listArrow}>→</Text>
-              </TouchableOpacity>
-            );
-          })}
-        </ScrollView>
-      </SafeAreaView>
-=======
       <ChapterList
         subject={pyqSubject}
         sectionType="pyq"
         onBack={() => setPyqSubject(null)}
         onPick={(chapter) => setPyqChapter(chapter)}
       />
->>>>>>> 8765753e94d12be9aade04afbeac2d6b155a50d8
     );
   }
 
-  // ── PYQ LEVEL 1 ─────────────────────────────────────────────────────────────
+  // ── PYQ LEVEL 1: Subject list ───────────────────────────────────────────────
   if (pyqOpen) {
     return (
       <SafeAreaView style={s.safe}>
@@ -579,7 +393,8 @@ const PracticeScreen = () => {
         </View>
         <ScrollView contentContainerStyle={{ padding: 16, gap: 12, paddingBottom: 32 }}>
           {PYQ_SUBJECTS.map((subject, i) => (
-            <TouchableOpacity key={i} style={s.subjectRow} activeOpacity={0.8} onPress={() => setPyqSubject(subject)}>
+            <TouchableOpacity key={i} style={s.subjectRow} activeOpacity={0.8}
+              onPress={() => setPyqSubject(subject)}>
               <View style={[s.subjectIconWrap, { backgroundColor: subject.bg }]}>
                 <Text style={{ fontSize: 26 }}>{subject.emoji}</Text>
               </View>
@@ -595,11 +410,7 @@ const PracticeScreen = () => {
     );
   }
 
-<<<<<<< HEAD
-  // ── IMPORTANT QUESTIONS LEVEL 3 ─────────────────────────────────────────────
-=======
   // ── IMPORTANT QUESTIONS LEVEL 3: questions for a chapter (from API) ──────────
->>>>>>> 8765753e94d12be9aade04afbeac2d6b155a50d8
   if (impOpen && impSubject && impChapter) {
     return (
       <SafeAreaView style={s.safe}>
@@ -610,51 +421,14 @@ const PracticeScreen = () => {
           <Text style={s.pageTitle}>{impChapter}</Text>
           <Text style={s.pageSub}>{impSubject.name}  •  Important Questions</Text>
         </View>
-<<<<<<< HEAD
-        {html ? (
-          <PyqWebView html={html} />
-        ) : (
-          <View style={s.emptyWrap}>
-            <Text style={s.emptyTitle}>Coming soon</Text>
-            <Text style={s.emptySub}>Important questions for this chapter haven't been added yet.</Text>
-          </View>
-        )}
-=======
         <PyqWebView subject={impSubject.name} chapter={impChapter} sectionType="important_questions" />
->>>>>>> 8765753e94d12be9aade04afbeac2d6b155a50d8
       </SafeAreaView>
     );
   }
 
-  // ── IMPORTANT QUESTIONS LEVEL 2 ─────────────────────────────────────────────
+  // ── IMPORTANT QUESTIONS LEVEL 2: Chapter list for the chosen subject ─────────
   if (impOpen && impSubject) {
     return (
-<<<<<<< HEAD
-      <SafeAreaView style={s.safe}>
-        <StatusBar barStyle="dark-content" backgroundColor="#fff" />
-        {Platform.OS === 'android' && <View style={{ height: 24, backgroundColor: '#fff' }} />}
-        <BackHeader onBack={() => setImpSubject(null)} />
-        <View style={s.pageTitleWrap}>
-          <Text style={s.pageTitle}>{impSubject.name}</Text>
-          <Text style={s.pageSub}>Select a chapter  •  Important Questions</Text>
-        </View>
-        <ScrollView contentContainerStyle={{ padding: 16, gap: 10, paddingBottom: 32 }}>
-          {impSubject.chapters.map((chapter, i) => {
-            const hasImp = !!impHtmlFor(impSubject.name, chapter);
-            return (
-              <TouchableOpacity key={i} style={s.listRow} activeOpacity={0.8} onPress={() => setImpChapter(chapter)}>
-                <View style={s.listNum}><Text style={s.listNumTxt}>{i + 1}</Text></View>
-                <View style={{ flex: 1 }}>
-                  <Text style={s.listRowTitle}>{chapter}</Text>
-                  <Text style={s.listRowSub}>{hasImp ? 'View important questions' : 'Coming soon'}</Text>
-                </View>
-                <Text style={s.listArrow}>→</Text>
-              </TouchableOpacity>
-            );
-          })}
-        </ScrollView>
-      </SafeAreaView>
-=======
       <ChapterList
         subject={impSubject}
         sectionType="important_questions"
@@ -663,11 +437,10 @@ const PracticeScreen = () => {
         onBack={() => setImpSubject(null)}
         onPick={(chapter) => setImpChapter(chapter)}
       />
->>>>>>> 8765753e94d12be9aade04afbeac2d6b155a50d8
     );
   }
 
-  // ── IMPORTANT QUESTIONS LEVEL 1 ─────────────────────────────────────────────
+  // ── IMPORTANT QUESTIONS LEVEL 1: Subject list ───────────────────────────────
   if (impOpen) {
     return (
       <SafeAreaView style={s.safe}>
@@ -680,7 +453,8 @@ const PracticeScreen = () => {
         </View>
         <ScrollView contentContainerStyle={{ padding: 16, gap: 12, paddingBottom: 32 }}>
           {PYQ_SUBJECTS.map((subject, i) => (
-            <TouchableOpacity key={i} style={s.subjectRow} activeOpacity={0.8} onPress={() => setImpSubject(subject)}>
+            <TouchableOpacity key={i} style={s.subjectRow} activeOpacity={0.8}
+              onPress={() => setImpSubject(subject)}>
               <View style={[s.subjectIconWrap, { backgroundColor: subject.bg }]}>
                 <Text style={{ fontSize: 26 }}>{subject.emoji}</Text>
               </View>
@@ -691,145 +465,6 @@ const PracticeScreen = () => {
               <Text style={s.listArrow}>→</Text>
             </TouchableOpacity>
           ))}
-        </ScrollView>
-      </SafeAreaView>
-    );
-  }
-
-  // ── MCQ PRACTICE: chapter test (McqTestScreen) ──────────────────────────────
-  // Shared by both MCQ Practice and Mock Test: whenever a chapter is chosen, run it.
-  if (mcqChapter) {
-    return (
-      <McqTestScreen
-        subject={mcqChapSubject}
-        chapter={mcqChapter}
-        questions={getMcqQuestions(mcqChapSubject, mcqChapter)}
-        onExit={() => setMcqChapter(null)}
-      />
-    );
-  }
-
-  // ── MCQ PRACTICE: 4 subject sections ────────────────────────────────────────
-  if (mcqOpen) {
-    return (
-      <SafeAreaView style={s.safe}>
-        <StatusBar barStyle="dark-content" backgroundColor="#fff" />
-        {Platform.OS === 'android' && <View style={{ height: 24, backgroundColor: '#fff' }} />}
-        <BackHeader onBack={() => setMcqOpen(false)} />
-        <View style={s.pageTitleWrap}>
-          <Text style={s.pageTitle}>MCQ Practice</Text>
-          <Text style={s.pageSub}>Choose a chapter to begin</Text>
-        </View>
-        <ScrollView contentContainerStyle={{ padding: 16, paddingBottom: 32 }}>
-          {mcqSubjects.map((subject) => {
-            const isOpen = mcqOpenSub === subject.name;
-            return (
-              <View key={subject.name} style={s.mcqSection}>
-                <TouchableOpacity
-                  style={s.mcqSectionHeader}
-                  activeOpacity={0.8}
-                  onPress={() => setMcqOpenSub(isOpen ? null : subject.name)}>
-                  <View style={[s.mcqSectionIcon, { backgroundColor: subject.bg }]}>
-                    <Text style={{ fontSize: 20 }}>{subject.emoji}</Text>
-                  </View>
-                  <View style={{ flex: 1 }}>
-                    <Text style={s.mcqSectionTitle}>{subject.name}</Text>
-                    <Text style={s.mcqSectionSub}>{subject.chapters.length} chapters</Text>
-                  </View>
-                  <Text style={s.mcqChevron}>{isOpen ? '▾' : '▸'}</Text>
-                </TouchableOpacity>
-
-                {isOpen && (
-                  <View style={{ marginTop: 10, gap: 10 }}>
-                    {subject.chapters.map((chapter, i) => {
-                      const key = subject.name + '||' + chapter;
-                      return (
-                        <McqChapterCard
-                          key={i}
-                          subject={subject.name}
-                          chapter={chapter}
-                          expanded={!!mcqShowMore[key]}
-                          onToggle={() => toggleShowMore(subject.name, chapter)}
-                          onStart={openMcqChapter}
-                        />
-                      );
-                    })}
-                  </View>
-                )}
-              </View>
-            );
-          })}
-        </ScrollView>
-      </SafeAreaView>
-    );
-  }
-
-  // ── MOCK TEST: 4 subject sections, each with a numbered mock-quiz list ───────
-  if (mockOpen) {
-    return (
-      <SafeAreaView style={s.safe}>
-        <StatusBar barStyle="dark-content" backgroundColor="#fff" />
-        {Platform.OS === 'android' && <View style={{ height: 24, backgroundColor: '#fff' }} />}
-        <BackHeader onBack={() => setMockOpen(false)} />
-        <View style={s.pageTitleWrap}>
-          <Text style={s.pageTitle}>Mock Test</Text>
-          <Text style={s.pageSub}>Pick a subject, then a mock quiz to begin</Text>
-        </View>
-        <ScrollView contentContainerStyle={{ padding: 16, paddingBottom: 32 }}>
-          {mcqSubjects.map((subject) => {
-            const isOpen = mockOpenSub === subject.name;
-            return (
-              <View key={subject.name} style={s.mcqSection}>
-                <TouchableOpacity
-                  style={s.mcqSectionHeader}
-                  activeOpacity={0.8}
-                  onPress={() => setMockOpenSub(isOpen ? null : subject.name)}>
-                  <View style={[s.mcqSectionIcon, { backgroundColor: subject.bg }]}>
-                    <Text style={{ fontSize: 20 }}>{subject.emoji}</Text>
-                  </View>
-                  <View style={{ flex: 1 }}>
-                    <Text style={s.mcqSectionTitle}>{subject.name}</Text>
-                    <Text style={s.mcqSectionSub}>{MOCK_QUIZ_COUNT} mock tests</Text>
-                  </View>
-                  <Text style={s.mcqChevron}>{isOpen ? '▾' : '▸'}</Text>
-                </TouchableOpacity>
-
-                {isOpen && (
-                  <View style={{ marginTop: 10, gap: 10 }}>
-                    {Array.from({ length: MOCK_QUIZ_COUNT }, (_, i) => {
-                      const num = String(i + 1).padStart(2, '0');
-                      const label = `Mock Test - ${num}`;
-                      const attempted = !!mockAttempted[subject.name + '||' + label];
-                      return (
-                        <TouchableOpacity
-                          key={i}
-                          style={s.mockRow}
-                          activeOpacity={0.8}
-                          onPress={() => startMockTest(subject.name, label)}>
-                          <View style={[s.mockRowIcon, attempted && s.mockRowIconDone]}>
-                            <Text style={{ fontSize: 18 }}>📄</Text>
-                          </View>
-                          <View style={{ flex: 1 }}>
-                            <Text style={s.mockRowTitle}>{label}</Text>
-                            <Text style={s.mockRowSub}>
-                              {attempted ? 'Already attempted' : 'Tap to start test'}
-                            </Text>
-                          </View>
-                          {attempted ? (
-                            <View style={s.mockBadge}>
-                              <Text style={s.mockBadgeTxt}>Attempted</Text>
-                            </View>
-                          ) : (
-                            <Text style={s.mockRowChevron}>›</Text>
-                          )}
-                        </TouchableOpacity>
-                      );
-                    })}
-                  </View>
-                )}
-              </View>
-            );
-          })}
         </ScrollView>
       </SafeAreaView>
     );
@@ -888,7 +523,9 @@ const PracticeScreen = () => {
         {/* Important Questions */}
         <Text style={s.sectionTitle}>Important Questions</Text>
         <TouchableOpacity style={s.impBanner} activeOpacity={0.85} onPress={() => setImpOpen(true)}>
-          <View style={s.impIconBox}><Text style={{ fontSize: 24 }}>⭐</Text></View>
+          <View style={s.impIconBox}>
+            <Text style={{ fontSize: 24 }}>⭐</Text>
+          </View>
           <View style={{ flex: 1 }}>
             <Text style={s.impTitle}>Important Questions</Text>
             <Text style={s.impSub}>Hand-picked must-do questions, chapter-wise</Text>
@@ -899,19 +536,14 @@ const PracticeScreen = () => {
         {/* Question types */}
         <Text style={s.sectionTitle}>Practice Modes</Text>
         <View style={s.qTypesGrid}>
-          {QUESTION_TYPES.map((qt, i) => {
-            const isMcq = qt.label === 'MCQ Practice';
-            return (
-              <TouchableOpacity key={i} style={s.qTypeCard}
-                activeOpacity={isMcq ? 0.6 : 1}
-                onPress={isMcq ? () => setMcqOpen(true) : undefined}>
-                <Text style={{ fontSize: 28, marginBottom: 8 }}>{qt.icon}</Text>
-                <Text style={s.qTypeLabel}>{qt.label}</Text>
-                <Text style={s.qTypeSub}>{qt.sub}</Text>
-                <View style={s.qTypeBadge}><Text style={s.qTypeBadgeTxt}>{qt.count}</Text></View>
-              </TouchableOpacity>
-            );
-          })}
+          {QUESTION_TYPES.map((qt, i) => (
+            <TouchableOpacity key={i} style={s.qTypeCard}>
+              <Text style={{ fontSize: 28, marginBottom: 8 }}>{qt.icon}</Text>
+              <Text style={s.qTypeLabel}>{qt.label}</Text>
+              <Text style={s.qTypeSub}>{qt.sub}</Text>
+              <View style={s.qTypeBadge}><Text style={s.qTypeBadgeTxt}>{qt.count}</Text></View>
+            </TouchableOpacity>
+          ))}
         </View>
 
         {/* Practice Tests */}
@@ -919,7 +551,7 @@ const PracticeScreen = () => {
         <View style={s.practiceTestsCard}>
           {[
             { icon: '⚡', label: 'Chapter-wise Tests',  sub: 'Test one chapter at a time', count: '120+ Tests' },
-            { icon: '📋', label: 'Mock Test',           sub: 'Subject-wise mock tests',    count: '20 Tests', onPress: () => setMockOpen(true) },
+            { icon: '📋', label: 'Full Syllabus Test',  sub: 'Complete subject mock test',  count: '20 Tests' },
             { icon: '🎯', label: 'Previous Year Papers',sub: '10 years question bank',      count: '50 Papers', onPress: () => setPyqOpen(true) },
             { icon: '⏱',  label: 'Timed Challenge',    sub: '30 sec per question',         count: '200+ Qs' },
           ].map((item, i, arr) => (
@@ -927,7 +559,9 @@ const PracticeScreen = () => {
               style={[s.ptRow, i < arr.length - 1 && s.ptRowBorder]}
               activeOpacity={item.onPress ? 0.6 : 1}
               onPress={item.onPress}>
-              <View style={s.ptIconBox}><Text style={{ fontSize: 20 }}>{item.icon}</Text></View>
+              <View style={s.ptIconBox}>
+                <Text style={{ fontSize: 20 }}>{item.icon}</Text>
+              </View>
               <View style={{ flex: 1 }}>
                 <Text style={s.ptLabel}>{item.label}</Text>
                 <Text style={s.ptSub}>{item.sub}</Text>
@@ -970,6 +604,7 @@ const s = StyleSheet.create({
   xpBadge:          { backgroundColor: '#F0F0F0', borderRadius: 12, paddingVertical: 6, paddingHorizontal: 12, borderWidth: 1.5, borderColor: '#E8E8E8' },
   xpTxt:            { fontSize: 12, fontWeight: '800', color: '#1C1C1E' },
 
+  // Back header + page title (PYQ / Important sub-screens)
   backHeader:       { backgroundColor: '#fff', flexDirection: 'row', alignItems: 'center', paddingHorizontal: 20, paddingVertical: 14, borderBottomWidth: 1.5, borderBottomColor: '#F0F0F0' },
   backRow:          { flexDirection: 'row', alignItems: 'center', gap: 6 },
   backArrow:        { fontSize: 20, color: '#1C1C1E', fontWeight: '700' },
@@ -978,11 +613,13 @@ const s = StyleSheet.create({
   pageTitle:        { fontSize: 20, fontWeight: '900', color: '#1C1C1E', letterSpacing: -0.4 },
   pageSub:          { fontSize: 13, color: '#8E8E93', fontWeight: '600', marginTop: 3 },
 
+  // Subject rows (PYQ / Important level 1)
   subjectRow:       { backgroundColor: '#fff', borderRadius: 18, borderWidth: 1.5, borderColor: '#F0F0F0', flexDirection: 'row', alignItems: 'center', gap: 16, padding: 14 },
   subjectIconWrap:  { width: 54, height: 54, borderRadius: 27, alignItems: 'center', justifyContent: 'center' },
   subjectName:      { fontSize: 17, fontWeight: '900', color: '#1C1C1E', letterSpacing: -0.3 },
   subjectSub:       { fontSize: 12, color: '#8E8E93', fontWeight: '600', marginTop: 3 },
 
+  // Generic list rows (chapters + papers)
   listRow:          { backgroundColor: '#fff', borderRadius: 16, borderWidth: 1.5, borderColor: '#F0F0F0', flexDirection: 'row', alignItems: 'center', gap: 14, padding: 16 },
   listNum:          { width: 32, height: 32, borderRadius: 10, backgroundColor: '#F0F0F0', alignItems: 'center', justifyContent: 'center' },
   listNumTxt:       { fontSize: 14, fontWeight: '900', color: '#1C1C1E' },
@@ -990,54 +627,11 @@ const s = StyleSheet.create({
   listRowSub:       { fontSize: 12, color: '#8E8E93', fontWeight: '600', marginTop: 3 },
   listArrow:        { fontSize: 18, color: '#C7C7CC', fontWeight: '600' },
 
+  // Question WebView + empty state
   webLoading:       { ...StyleSheet.absoluteFillObject, alignItems: 'center', justifyContent: 'center', zIndex: 2 },
   emptyWrap:        { flex: 1, alignItems: 'center', justifyContent: 'center', padding: 28 },
   emptyTitle:       { fontSize: 16, fontWeight: '900', color: '#1C1C1E', marginBottom: 8 },
   emptySub:         { fontSize: 13, color: '#8E8E93', fontWeight: '600', textAlign: 'center', lineHeight: 19 },
-
-  // MCQ Practice
-  mcqSection:       { marginBottom: 14 },
-  mcqSectionHeader: { backgroundColor: '#fff', borderRadius: 16, borderWidth: 1.5, borderColor: '#F0F0F0', flexDirection: 'row', alignItems: 'center', gap: 14, padding: 14 },
-  mcqSectionIcon:   { width: 44, height: 44, borderRadius: 13, alignItems: 'center', justifyContent: 'center' },
-  mcqSectionTitle:  { fontSize: 16, fontWeight: '900', color: '#1C1C1E', letterSpacing: -0.3 },
-  mcqSectionSub:    { fontSize: 12, color: '#8E8E93', fontWeight: '600', marginTop: 2 },
-  mcqChevron:       { fontSize: 18, color: '#8E8E93', fontWeight: '700' },
-  mcqCard:          { backgroundColor: '#fff', borderRadius: 16, borderWidth: 1.5, borderColor: '#EEF0F5', padding: 16 },
-  mcqCardRow:       { flexDirection: 'row', alignItems: 'center', gap: 12 },
-  mcqChapName:      { fontSize: 15, fontWeight: '800', color: '#1E293B', letterSpacing: -0.2 },
-  mcqBarBg:         { flexDirection: 'row', height: 6, borderRadius: 4, backgroundColor: '#E2E8F1', overflow: 'hidden', marginTop: 10 },
-  mcqBarSeg:        { height: 6 },
-  mcqMetaRow:       { flexDirection: 'row', justifyContent: 'space-between', marginTop: 6 },
-  mcqMeta:          { fontSize: 11, color: '#94A3B8', fontWeight: '700' },
-  mcqBtn:           { borderRadius: 12, paddingVertical: 10, paddingHorizontal: 18, borderWidth: 1.5, borderColor: '#CBE3E0', backgroundColor: '#fff' },
-  mcqBtnActive:     { backgroundColor: '#2C8C84', borderColor: '#2C8C84' },
-  mcqBtnTxt:        { fontSize: 14, fontWeight: '800', color: '#2C8C84' },
-  mcqBtnTxtActive:  { color: '#fff' },
-  mcqToggle:        { alignItems: 'center', paddingTop: 12, marginTop: 4 },
-  mcqToggleTxt:     { fontSize: 13, fontWeight: '700', color: '#94A3B8' },
-  mcqSubWrap:       { marginTop: 10, borderTopWidth: 1, borderTopColor: '#F1F5F9', paddingTop: 12, gap: 8 },
-  mcqSubCard:       { flexDirection: 'row', alignItems: 'center', gap: 12, backgroundColor: '#F8FAFC', borderRadius: 12, borderWidth: 1, borderColor: '#EEF2F7', padding: 12 },
-  mcqSubCardName:   { fontSize: 14, fontWeight: '800', color: '#1E293B', letterSpacing: -0.2 },
-  mcqSubBtn:        { borderRadius: 10, paddingVertical: 8, paddingHorizontal: 14, borderWidth: 1.5, borderColor: '#CBE3E0', backgroundColor: '#fff' },
-  mcqSubBtnTxt:     { fontSize: 13, fontWeight: '800', color: '#2C8C84' },
-  mcqSubBtnRow:     { flexDirection: 'row', alignItems: 'center', gap: 6 },
-  mcqSubBtnAlt:     { borderRadius: 10, paddingVertical: 8, paddingHorizontal: 12, borderWidth: 1.5, borderColor: '#CBE3E0', backgroundColor: '#ECF6F5' },
-  mcqSubBtnAltTxt:  { fontSize: 13, fontWeight: '800', color: '#2C8C84' },
-  mcqSubRow:        { flexDirection: 'row', alignItems: 'center', gap: 10, paddingVertical: 9, paddingHorizontal: 4 },
-  mcqSubDot:        { fontSize: 16, color: '#C7A85A', fontWeight: '900' },
-  mcqSubName:       { flex: 1, fontSize: 14, color: '#334155', fontWeight: '600' },
-  mcqSubArrow:      { fontSize: 14, color: '#C7C7CC', fontWeight: '700' },
-  mcqSubEmpty:      { fontSize: 13, color: '#94A3B8', fontWeight: '600', fontStyle: 'italic', paddingVertical: 8, textAlign: 'center' },
-
-  // Mock Test — numbered mock-quiz rows
-  mockRow:          { backgroundColor: '#fff', borderRadius: 14, borderWidth: 1.5, borderColor: '#F0F0F0', flexDirection: 'row', alignItems: 'center', gap: 14, padding: 14 },
-  mockRowIcon:      { width: 40, height: 40, borderRadius: 11, backgroundColor: '#EEF2FF', alignItems: 'center', justifyContent: 'center', borderWidth: 1.5, borderColor: '#E0E7FF' },
-  mockRowIconDone:  { backgroundColor: '#E7F7EC', borderColor: '#CDEBD6' },
-  mockRowTitle:     { fontSize: 15, fontWeight: '800', color: '#1C1C1E', letterSpacing: -0.2 },
-  mockRowSub:       { fontSize: 12, color: '#8E8E93', fontWeight: '600', marginTop: 3 },
-  mockRowChevron:   { fontSize: 20, color: '#C7C7CC', fontWeight: '600' },
-  mockBadge:        { backgroundColor: '#E7F7EC', borderRadius: 8, paddingVertical: 5, paddingHorizontal: 10, borderWidth: 1, borderColor: '#CDEBD6' },
-  mockBadgeTxt:     { fontSize: 11, fontWeight: '800', color: '#2C8C84' },
 
   subChip:          { flexDirection: 'row', alignItems: 'center', gap: 7, paddingVertical: 9, paddingHorizontal: 14, borderRadius: 20, borderWidth: 1.5, borderColor: '#E8E8E8', backgroundColor: '#fff' },
   subChipActive:    { backgroundColor: '#1C1C1E', borderColor: '#1C1C1E' },
@@ -1056,6 +650,7 @@ const s = StyleSheet.create({
   startBtnTxt:      { fontSize: 15, fontWeight: '900', color: '#1C1C1E', letterSpacing: -0.3 },
   sectionTitle:     { fontSize: 17, fontWeight: '900', color: '#1C1C1E', letterSpacing: -0.3, paddingHorizontal: 16, marginTop: 16, marginBottom: 12 },
 
+  // Important Questions banner (main screen)
   impBanner:        { marginHorizontal: 16, backgroundColor: '#fff', borderRadius: 18, borderWidth: 1.5, borderColor: '#F0E6C8', flexDirection: 'row', alignItems: 'center', gap: 14, padding: 16 },
   impIconBox:       { width: 48, height: 48, borderRadius: 14, backgroundColor: '#FBF3DA', alignItems: 'center', justifyContent: 'center', borderWidth: 1.5, borderColor: '#F0E6C8' },
   impTitle:         { fontSize: 15, fontWeight: '900', color: '#1C1C1E', letterSpacing: -0.2 },
