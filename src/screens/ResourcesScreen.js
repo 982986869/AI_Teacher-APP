@@ -4,13 +4,12 @@ import {
   TouchableOpacity, StatusBar, Platform, Image, Dimensions, ActivityIndicator,
 } from 'react-native';
 
-import { getExemplarSolutions } from '../api/resourcesApi';
+import { getExemplarSolutions, getNcertChapters } from '../api/resourcesApi';
 import { getChapterNotes } from '../notes/index';
 import Ch2Images from '../notes/images/Ch2Images';
 import ChapterNotesScreen from './ChapterNotesScreen';
 import ChapterEndScreen from './ChapterEndScreen';
 import Ncert2Screen from './Ncert2Screen';
-import { getNcert2Chapters } from '../data/ncert2Solutions';
 import { ch1ExemplarQuestions } from '../data/ch1ExemplarQuestions';
 import { ch2ExemplarQuestions } from '../data/ch2ExemplarQuestions';
 import { ch3ExemplarQuestions } from '../data/ch3ExemplarQuestions';
@@ -522,6 +521,22 @@ const ResourcesScreen = () => {
     // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [exemplarActive, activeSubject?.name, activeResType?.type, activeChapter?.name, activeClass, exemplarRetry]);
 
+  // NCERT Part-II chapter list is DB-backed too: fetch which chapters have
+  // content (replaces the old static getNcert2Chapters()) when the Part-II
+  // chapter list (LEVEL 3) is active. Section content is fetched in Ncert2Screen.
+  const [ncert2, setNcert2] = useState({ loading: false, chapters: [] });
+  const ncert2ListActive = !!(activeSubject && activeResType?.type === 'ncert2' && !showCards);
+  useEffect(() => {
+    if (!ncert2ListActive) return undefined;
+    let alive = true;
+    setNcert2({ loading: true, chapters: [] });
+    getNcertChapters({ part: 2, subject: activeSubject.name, className: activeClass })
+      .then((d) => { if (alive) setNcert2({ loading: false, chapters: (d && d.chapters) || [] }); })
+      .catch(() => { if (alive) setNcert2({ loading: false, chapters: [] }); });
+    return () => { alive = false; };
+    // eslint-disable-next-line react-hooks/exhaustive-deps
+  }, [ncert2ListActive, activeSubject?.name, activeClass]);
+
 
   // ── LEVEL 5: Chapter Notes — WebView with MathJax ────────────────────────
   if (activeSubject && activeResType && activeChapter && showNotes) {
@@ -606,6 +621,8 @@ const ResourcesScreen = () => {
       <Ncert2Screen
         subjectName={activeSubject.name}
         chapterName={activeChapter.name}
+        part={2}
+        className={activeClass}
         onBack={() => setShowCards(false)}
         title={activeResType.name}
         breadcrumb={['Home', activeBoard, activeClass, activeSubject.name, activeResType.name]}
@@ -667,13 +684,13 @@ const ResourcesScreen = () => {
 
   // ── LEVEL 3: Chapters list ────────────────────────────────────────────────
   if (activeSubject && activeResType) {
-    // For NCERT Solutions Part-II, show only chapters registered in
-    // ncert2Solutions.js. Other resource types (and subjects with no Part-II
-    // registry yet) keep showing the full chapter list.
-    const ncert2Names = getNcert2Chapters(activeSubject.name);
+    // For NCERT Solutions Part-II, show only chapters that have content (fetched
+    // from the API — replaces the old static getNcert2Chapters()). Other resource
+    // types keep showing the full chapter list.
+    const isNcert2 = activeResType?.type === 'ncert2';
     const chaptersToShow =
-      activeResType?.type === 'ncert2' && ncert2Names.length > 0
-        ? activeSubject.chapters.filter((c) => ncert2Names.includes(c.name))
+      isNcert2 && ncert2.chapters.length > 0
+        ? activeSubject.chapters.filter((c) => ncert2.chapters.includes(c.name))
         : activeSubject.chapters;
     return (
       <SafeAreaView style={s.safe}>
@@ -687,18 +704,29 @@ const ResourcesScreen = () => {
           <Text style={s.boardLabel}>{activeSubject.name} Chapters</Text>
         </View>
         <ScrollView contentContainerStyle={{ padding: 16, gap: 10, paddingBottom: 32 }}>
-          {chaptersToShow.map((chapter, i) => (
-            <TouchableOpacity key={i} style={s.listRow}
-              onPress={() => { setActiveChapter(chapter); setShowCards(true); setShowChapterEnd(false); }}
-              activeOpacity={0.8}>
-              <View style={s.listNum}><Text style={s.listNumTxt}>{i + 1}</Text></View>
-              <View style={{ flex: 1 }}>
-                <Text style={s.listRowTitle}>{chapter.name}</Text>
-                <Text style={s.listRowSub}>Tap to explore chapter</Text>
-              </View>
-              <Text style={s.listArrow}>→</Text>
-            </TouchableOpacity>
-          ))}
+          {isNcert2 && ncert2.loading ? (
+            <View style={{ paddingVertical: 48, alignItems: 'center', gap: 12 }}>
+              <ActivityIndicator size="large" color="#1f8a93" />
+              <Text style={{ color: '#64748b', fontSize: 13 }}>Loading chapters…</Text>
+            </View>
+          ) : isNcert2 && chaptersToShow.length === 0 ? (
+            <View style={{ paddingVertical: 48, alignItems: 'center' }}>
+              <Text style={{ color: '#94a3b8', fontSize: 14 }}>No chapters available yet.</Text>
+            </View>
+          ) : (
+            chaptersToShow.map((chapter, i) => (
+              <TouchableOpacity key={i} style={s.listRow}
+                onPress={() => { setActiveChapter(chapter); setShowCards(true); setShowChapterEnd(false); }}
+                activeOpacity={0.8}>
+                <View style={s.listNum}><Text style={s.listNumTxt}>{i + 1}</Text></View>
+                <View style={{ flex: 1 }}>
+                  <Text style={s.listRowTitle}>{chapter.name}</Text>
+                  <Text style={s.listRowSub}>Tap to explore chapter</Text>
+                </View>
+                <Text style={s.listArrow}>→</Text>
+              </TouchableOpacity>
+            ))
+          )}
         </ScrollView>
       </SafeAreaView>
     );

@@ -10,6 +10,7 @@ const {
   getQuestionsByPath,
 } = require('../controllers/resources.controller')
 const { getExemplar } = require('../controllers/exemplar.controller')
+const { getNcert, getNcertChapters } = require('../controllers/ncert.controller')
 
 const router = Router()
 
@@ -27,5 +28,9 @@ router.get('/content/:subjectSlug/:chapterSlug/:sectionType', getQuestionsByPath
 
 // ─── Exemplar Solutions (DB-backed; ?subject=&class=&chapter=) ─────────────────
 router.get('/exemplar', getExemplar)
+
+// ─── NCERT Solutions Part-I/II (DB-backed; ?part=&subject=&class=&chapter=) ─────
+router.get('/ncert/chapters', getNcertChapters)
+router.get('/ncert', getNcert)
 
 module.exports = router
