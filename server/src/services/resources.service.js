@@ -31,11 +31,12 @@ function htmlToText(html) {
 }
 
 // Map a DB question row to the shape McqTestScreen expects, or null if it is
-// not a usable MCQ (no options / no identifiable correct answer).
+// not a usable MCQ (no options / no identifiable correct answer). Question and
+// option bodies are returned as raw HTML + {tex} LaTeX so the client can render
+// them with MathText (MathJax); `questionText` is a plain-text fallback.
 function toMcq(q) {
   const opts = Array.isArray(q.options) ? q.options : []
   if (opts.length < 2) return null
-  const options = opts.map((o) => htmlToText(o.html))
   let correct = opts.findIndex((o) => o.is_correct)
   if (correct < 0 && q.correct_option) {
     correct = opts.findIndex((o) => o.idx === q.correct_option)
@@ -43,8 +44,9 @@ function toMcq(q) {
   if (correct < 0) return null
   return {
     cat: q.year || q.q_number || 'MCQ',
-    question: htmlToText(q.question_html),
-    options,
+    question: q.question_html || '',
+    questionText: htmlToText(q.question_html),
+    options: opts.map((o) => o.html || ''),
     correct,
   }
 }

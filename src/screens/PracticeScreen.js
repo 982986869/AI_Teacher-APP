@@ -9,6 +9,7 @@ import TestQuestionScreen from './testQuestionScreen';
 import ChapterListScreen from './ChapterListScreen';
 import { getMcqQuestions } from '../data/mcqQuestions';
 import { getQuestions, allQuestions } from '../data/questionBank';
+import { getSubtopicTest } from '../data/subtopicBank';
 
 // A spread of ~20 questions across the whole bank for the full-syllabus mock.
 const MOCK_QUESTIONS = (() => {
@@ -349,13 +350,18 @@ const ChapterList = ({
   );
 };
 
-// Fetches real MCQs for a chapter from the API, then renders the test. Falls
-// back to the local sample bank if the chapter has no MCQs (or the call fails),
-// so the flow is always playable.
-const McqLoader = ({ subject, chapter, onExit }) => {
-  const [state, setState] = useState({ loading: true, questions: null });
+// Renders the MCQ test. If `preset` questions are supplied (a sub-topic's real
+// questions from subtopicBank) they're used directly; otherwise it fetches the
+// chapter's MCQs from the API, falling back to the local sample bank — so the
+// flow is always playable.
+const McqLoader = ({ subject, chapter, preset, onExit }) => {
+  const hasPreset = Array.isArray(preset) && preset.length > 0;
+  const [state, setState] = useState(
+    hasPreset ? { loading: false, questions: preset } : { loading: true, questions: null }
+  );
 
   useEffect(() => {
+    if (hasPreset) { setState({ loading: false, questions: preset }); return; }
     let alive = true;
     setState({ loading: true, questions: null });
     getMcqByPath(slugify(subject), slugify(chapter))
@@ -369,7 +375,7 @@ const McqLoader = ({ subject, chapter, onExit }) => {
         setState({ loading: false, questions: getMcqQuestions(subject, chapter) });
       });
     return () => { alive = false; };
-  }, [subject, chapter]);
+  }, [subject, chapter, hasPreset, preset]);
 
   if (state.loading) {
     return (
@@ -584,23 +590,30 @@ const PracticeScreen = () => {
     );
   }
 
-  // ── MCQ PRACTICE: the test itself (real MCQs from the API) ──────────────────
+  // ── MCQ PRACTICE: the test itself (sub-topic preset, else chapter MCQs) ─────
   if (mcqOpen && mcqSel) {
     return (
       <McqLoader
         subject={mcqSel.subject}
         chapter={mcqSel.chapter}
+        preset={mcqSel.preset}
         onExit={() => setMcqSel(null)}
       />
     );
   }
 
-  // ── MCQ PRACTICE: progress picker (subject -> chapter, from mcqPractice.js) ──
+  // ── MCQ PRACTICE: progress picker (subject -> chapter/sub-topic) ────────────
   if (mcqOpen) {
     return (
       <McqPracticeScreen
         onBack={() => setMcqOpen(false)}
         onStartChapter={(subject, chapter) => setMcqSel({ subject, chapter })}
+        onStartSubtopic={(subject, chapter, subtopic) => {
+          // Use the sub-topic's real questions when fetched; otherwise fall back
+          // to the chapter's MCQs (McqLoader fetches them when preset is empty).
+          const preset = getSubtopicTest(chapter, subtopic);
+          setMcqSel({ subject, chapter, subtopic, preset: preset.length ? preset : undefined });
+        }}
       />
     );
   }

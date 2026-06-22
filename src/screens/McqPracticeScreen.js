@@ -42,7 +42,7 @@ function ProgressBar({ answered, total, score }) {
   );
 }
 
-function ChapterCard({ subject, chapter, onStart }) {
+function ChapterCard({ subject, chapter, onStart, onStartSubtopic }) {
   const [open, setOpen] = useState(false);
   const data = (MCQ_DATA[subject] && MCQ_DATA[subject][chapter]) || {};
   const p = data.progress || { answered: 0, total: 50, score: 0 };
@@ -79,7 +79,17 @@ function ChapterCard({ subject, chapter, onStart }) {
 
       {open && subtopics.map((s, i) => (
         <View key={i} style={st.subRow}>
-          <Text style={st.subName} numberOfLines={2}>{s.name}</Text>
+          <View style={st.subTopRow}>
+            <Text style={st.subName} numberOfLines={2}>{s.name}</Text>
+            <Pressable
+              onPress={() => onStartSubtopic(subject, chapter, s.name)}
+              style={[st.subStartBtn, s.answered > 0 ? st.actionBtnFilled : st.actionBtnOutline]}
+            >
+              <Text style={[st.subStartTxt, s.answered > 0 ? st.actionTxtFilled : st.actionTxtOutline]}>
+                {s.answered > 0 ? 'Resume' : 'Start'}
+              </Text>
+            </Pressable>
+          </View>
           <ProgressBar answered={s.answered} total={s.total} score={s.score} />
           <View style={st.metaRow}>
             <Text style={st.subMeta}>{s.answered}/{s.total} Answered</Text>
@@ -91,7 +101,7 @@ function ChapterCard({ subject, chapter, onStart }) {
   );
 }
 
-export default function McqPracticeScreen({ onBack = () => {}, onStartChapter = () => {} }) {
+export default function McqPracticeScreen({ onBack = () => {}, onStartChapter = () => {}, onStartSubtopic = () => {} }) {
   const [subject, setSubject] = useState('Physics');
   const [picker, setPicker] = useState(false);
   const subjMeta = SUBJECTS.find((s) => s.name === subject) || SUBJECTS[0];
@@ -139,7 +149,8 @@ export default function McqPracticeScreen({ onBack = () => {}, onStartChapter = 
         )}
 
         {chapters.map((ch) => (
-          <ChapterCard key={ch} subject={subject} chapter={ch} onStart={onStartChapter} />
+          <ChapterCard key={ch} subject={subject} chapter={ch}
+            onStart={onStartChapter} onStartSubtopic={onStartSubtopic} />
         ))}
         <View style={{ height: 24 }} />
       </ScrollView>
@@ -199,6 +210,9 @@ const st = StyleSheet.create({
     gap: 6, paddingTop: 12, marginTop: 6,
     borderTopWidth: StyleSheet.hairlineWidth, borderTopColor: C.border,
   },
-  subName: { fontSize: 13.5, fontWeight: '600', color: C.text },
+  subTopRow: { flexDirection: 'row', alignItems: 'center', justifyContent: 'space-between', gap: 10 },
+  subName: { flex: 1, fontSize: 13.5, fontWeight: '600', color: C.text },
+  subStartBtn: { paddingVertical: 6, paddingHorizontal: 16, borderRadius: 10, minWidth: 74, alignItems: 'center' },
+  subStartTxt: { fontSize: 13, fontWeight: '700' },
   subMeta: { fontSize: 11.5, color: C.muted },
 });

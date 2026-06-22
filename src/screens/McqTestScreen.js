@@ -1,5 +1,6 @@
 import React, { useState, useEffect } from 'react';
 import { View, Text, StyleSheet, SafeAreaView, ScrollView, TouchableOpacity, StatusBar, Platform, Modal } from 'react-native';
+import MathText from '../components/MathText';
 
 // Purple/pastel palette (from the AiLernova demo)
 const C = {
@@ -239,14 +240,16 @@ export default function McqTestScreen({
                     <Text style={s.revCat}>Q{i + 1} · {q.cat || 'MCQ'}</Text>
                     <View style={[s.revTag, { backgroundColor: tagBg }]}><Text style={[s.revTagTxt, { color: tagColor }]}>{tagTxt}</Text></View>
                   </View>
-                  <Text style={s.revQ}>{q.question}</Text>
-                  <Text style={[s.revAns, { color: C.green }]}>
-                    ✅ Correct: {LETTERS[q.correct]}. {q.options[q.correct]}
-                  </Text>
+                  <MathText value={q.question} fontSize={14} color={C.text} style={{ marginBottom: 6 }} />
+                  <View style={s.revAnsRow}>
+                    <Text style={[s.revAns, { color: C.green }]}>✅ Correct: {LETTERS[q.correct]}. </Text>
+                    <MathText value={q.options[q.correct]} fontSize={13} color={C.green} />
+                  </View>
                   {isAnswered && !isCorrect && (
-                    <Text style={[s.revAns, { color: C.accent }]}>
-                      Your answer: {LETTERS[ans]}. {q.options[ans]}
-                    </Text>
+                    <View style={s.revAnsRow}>
+                      <Text style={[s.revAns, { color: C.accent }]}>Your answer: {LETTERS[ans]}. </Text>
+                      <MathText value={q.options[ans]} fontSize={13} color={C.accent} />
+                    </View>
                   )}
                 </View>
               );
@@ -292,7 +295,12 @@ export default function McqTestScreen({
             <View style={s.qPts}><Text style={s.qPtsTxt}>+{pointsPerCorrect} Marks</Text></View>
           </View>
           <View style={s.qcardBody}>
-            <Text style={s.qText}>{current + 1}. {q.question}</Text>
+            <View style={s.qRow}>
+              <Text style={s.qText}>{current + 1}. </Text>
+              <View style={{ flex: 1 }}>
+                <MathText value={q.question} fontSize={16} color={C.text} />
+              </View>
+            </View>
             <View style={{ gap: 8 }}>
               {q.options.map((opt, i) => {
                 const isSel = sel === i;
@@ -302,7 +310,9 @@ export default function McqTestScreen({
                     <View style={[s.optLtr, isSel && s.optLtrSel]}>
                       <Text style={[s.optLtrTxt, isSel && { color: '#fff' }]}>{LETTERS[i]}</Text>
                     </View>
-                    <Text style={[s.optTxt, isSel && { color: C.primary, fontWeight: '700' }]}>{opt}</Text>
+                    <View style={{ flex: 1 }}>
+                      <MathText value={opt} fontSize={15} color={isSel ? C.primary : C.text} />
+                    </View>
                   </TouchableOpacity>
                 );
               })}
@@ -441,7 +451,8 @@ const s = StyleSheet.create({
   qPts: { backgroundColor: C.primary, paddingVertical: 2, paddingHorizontal: 8, borderRadius: 50 },
   qPtsTxt: { color: '#fff', fontSize: 10, fontWeight: '700' },
   qcardBody: { padding: 14 },
-  qText: { fontSize: 13, fontWeight: '700', color: C.text, lineHeight: 20, marginBottom: 14 },
+  qRow: { flexDirection: 'row', alignItems: 'flex-start', marginBottom: 14 },
+  qText: { fontSize: 16, fontWeight: '700', color: C.text, lineHeight: 22 },
 
   opt: { flexDirection: 'row', alignItems: 'center', gap: 10, paddingVertical: 10, paddingHorizontal: 12, borderWidth: 2, borderColor: C.border, borderRadius: 10, backgroundColor: C.bg },
   optSel: { borderColor: C.primary, backgroundColor: C.primaryLight },
@@ -500,5 +511,6 @@ const s = StyleSheet.create({
   revTag: { paddingVertical: 2, paddingHorizontal: 8, borderRadius: 50 },
   revTagTxt: { fontSize: 10, fontWeight: '800' },
   revQ: { fontSize: 12, fontWeight: '600', color: C.text, marginBottom: 4, lineHeight: 17 },
+  revAnsRow: { flexDirection: 'row', flexWrap: 'wrap', alignItems: 'center', marginTop: 2 },
   revAns: { fontSize: 11, fontWeight: '700', marginTop: 2 },
 });
