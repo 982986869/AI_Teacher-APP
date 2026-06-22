@@ -11,10 +11,15 @@ import { getMcqQuestions } from '../data/mcqQuestions';
 import { getQuestions, allQuestions } from '../data/questionBank';
 import { getSubtopicTest } from '../data/subtopicBank';
 
-// A spread of ~20 questions across the whole bank for the full-syllabus mock.
+// A sectioned mock: 25 in Section A, 24 in B, 6 in C — each question tagged
+// with a `section` so the test screen shows the A/B/C tabs.
 const MOCK_QUESTIONS = (() => {
-  const step = Math.max(1, Math.floor(allQuestions.length / 20));
-  return allQuestions.filter((_, i) => i % step === 0).slice(0, 20);
+  const step = Math.max(1, Math.floor(allQuestions.length / 60));
+  const pool = allQuestions.filter((_, i) => i % step === 0);
+  const A = pool.slice(0, 25).map((q) => ({ ...q, section: 'A' }));
+  const B = pool.slice(25, 49).map((q) => ({ ...q, section: 'B' }));
+  const C = pool.slice(49, 55).map((q) => ({ ...q, section: 'C' }));
+  return [...A, ...B, ...C];
 })();
 
 // Slug must match how rows were inserted (scripts/importResources.js slugify).
