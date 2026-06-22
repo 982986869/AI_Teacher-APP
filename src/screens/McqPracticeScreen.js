@@ -1,0 +1,204 @@
+// McqPracticeScreen.js
+// MCQ Practice landing: pick a subject, then a chapter. Each chapter card shows
+// per-chapter progress (answered / total + a green-red score bar) from
+// mcqPractice.js, with "Show more" to reveal sub-topic progress. Tapping
+// Start/Continue launches the MCQ test for that chapter.
+
+import React, { useState } from 'react';
+import {
+  View, Text, ScrollView, Pressable, StyleSheet, StatusBar, SafeAreaView, Platform,
+} from 'react-native';
+import { Ionicons } from '@expo/vector-icons';
+import MCQ_DATA, { getMcqSubtopics } from '../data/mcqPractice';
+
+const C = {
+  purple: '#534AB7', purpleDeep: '#26215C', purpleLight: '#EEEDFE',
+  green: '#0F8A5F', greenSoft: '#1FB07A', red: '#F0564B', track: '#ECECF3',
+  text: '#22222A', muted: '#7A7A8C', border: '#ECECEC', white: '#FFFFFF',
+  pageBg: '#F4F5FB',
+};
+
+const SUBJECTS = [
+  { name: 'Physics',     emoji: '⚛️', bg: '#1C1C1E' },
+  { name: 'Mathematics', emoji: '📐', bg: '#534AB7' },
+  { name: 'Chemistry',   emoji: '🧪', bg: '#0F6E56' },
+  { name: 'Biology',     emoji: '🧬', bg: '#B0306B' },
+];
+
+const pct = (n) => `${Math.round((n + Number.EPSILON) * 100) / 100}`;
+
+// A track with the answered portion split into green (correct) and red (wrong).
+function ProgressBar({ answered, total, score }) {
+  const ans = total > 0 ? answered / total : 0;
+  const greenFlex = ans * (score / 100);
+  const redFlex = ans * (1 - score / 100);
+  const restFlex = Math.max(0, 1 - ans);
+  return (
+    <View style={st.barTrack}>
+      {greenFlex > 0 && <View style={{ flex: greenFlex, backgroundColor: C.greenSoft }} />}
+      {redFlex > 0 && <View style={{ flex: redFlex, backgroundColor: C.red }} />}
+      <View style={{ flex: restFlex, backgroundColor: 'transparent' }} />
+    </View>
+  );
+}
+
+function ChapterCard({ subject, chapter, onStart }) {
+  const [open, setOpen] = useState(false);
+  const data = (MCQ_DATA[subject] && MCQ_DATA[subject][chapter]) || {};
+  const p = data.progress || { answered: 0, total: 50, score: 0 };
+  const started = p.answered > 0;
+  const subtopics = getMcqSubtopics(subject, chapter);
+
+  return (
+    <View style={st.card}>
+      <View style={st.cardTopRow}>
+        <Text style={st.chapName}>{chapter}</Text>
+        <Pressable
+          onPress={() => onStart(subject, chapter)}
+          style={[st.actionBtn, started ? st.actionBtnFilled : st.actionBtnOutline]}
+        >
+          <Text style={[st.actionTxt, started ? st.actionTxtFilled : st.actionTxtOutline]}>
+            {started ? 'Continue' : 'Start'}
+          </Text>
+        </Pressable>
+      </View>
+
+      <ProgressBar answered={p.answered} total={p.total} score={p.score} />
+
+      <View style={st.metaRow}>
+        <Text style={st.metaTxt}>{p.answered}/{p.total} Answered</Text>
+        <Text style={st.metaTxt}>Score: {pct(p.score)}%</Text>
+      </View>
+
+      {subtopics.length > 0 && (
+        <Pressable style={st.showMore} onPress={() => setOpen((v) => !v)}>
+          <Text style={st.showMoreTxt}>Show more</Text>
+          <Ionicons name={open ? 'chevron-up' : 'chevron-down'} size={14} color={C.muted} />
+        </Pressable>
+      )}
+
+      {open && subtopics.map((s, i) => (
+        <View key={i} style={st.subRow}>
+          <Text style={st.subName} numberOfLines={2}>{s.name}</Text>
+          <ProgressBar answered={s.answered} total={s.total} score={s.score} />
+          <View style={st.metaRow}>
+            <Text style={st.subMeta}>{s.answered}/{s.total} Answered</Text>
+            <Text style={st.subMeta}>Score: {pct(s.score)}%</Text>
+          </View>
+        </View>
+      ))}
+    </View>
+  );
+}
+
+export default function McqPracticeScreen({ onBack = () => {}, onStartChapter = () => {} }) {
+  const [subject, setSubject] = useState('Physics');
+  const [picker, setPicker] = useState(false);
+  const subjMeta = SUBJECTS.find((s) => s.name === subject) || SUBJECTS[0];
+  const chapters = Object.keys(MCQ_DATA[subject] || {});
+
+  return (
+    <SafeAreaView style={st.safe}>
+      <StatusBar barStyle="dark-content" backgroundColor={C.white} />
+      {Platform.OS === 'android' && <View style={{ height: 24, backgroundColor: C.white }} />}
+
+      <View style={st.header}>
+        <Pressable onPress={onBack} hitSlop={12} style={st.backRow}>
+          <Ionicons name="arrow-back" size={22} color={C.text} />
+          <Text style={st.backTxt}>Back</Text>
+        </Pressable>
+        <Text style={st.title}>MCQ Practice</Text>
+        <Text style={st.subtitle}>Pick a subject, then a chapter to begin</Text>
+      </View>
+
+      <ScrollView contentContainerStyle={st.scroll} showsVerticalScrollIndicator={false}>
+        {/* Subject selector */}
+        <Pressable style={st.subjCard} onPress={() => setPicker((v) => !v)}>
+          <View style={[st.subjIcon, { backgroundColor: subjMeta.bg }]}>
+            <Text style={{ fontSize: 24 }}>{subjMeta.emoji}</Text>
+          </View>
+          <View style={{ flex: 1 }}>
+            <Text style={st.subjName}>{subject}</Text>
+            <Text style={st.subjSub}>{chapters.length} chapters</Text>
+          </View>
+          <Ionicons name={picker ? 'chevron-up' : 'chevron-down'} size={20} color={C.muted} />
+        </Pressable>
+
+        {picker && (
+          <View style={st.subjList}>
+            {SUBJECTS.map((s) => (
+              <Pressable key={s.name} style={st.subjOption}
+                onPress={() => { setSubject(s.name); setPicker(false); }}>
+                <Text style={{ fontSize: 18 }}>{s.emoji}</Text>
+                <Text style={[st.subjOptionTxt, s.name === subject && { color: C.purple, fontWeight: '700' }]}>
+                  {s.name}
+                </Text>
+              </Pressable>
+            ))}
+          </View>
+        )}
+
+        {chapters.map((ch) => (
+          <ChapterCard key={ch} subject={subject} chapter={ch} onStart={onStartChapter} />
+        ))}
+        <View style={{ height: 24 }} />
+      </ScrollView>
+    </SafeAreaView>
+  );
+}
+
+const st = StyleSheet.create({
+  safe: { flex: 1, backgroundColor: C.pageBg },
+  header: {
+    paddingHorizontal: 16, paddingTop: 8, paddingBottom: 14, backgroundColor: C.white,
+    borderBottomWidth: StyleSheet.hairlineWidth, borderBottomColor: C.border,
+  },
+  backRow: { flexDirection: 'row', alignItems: 'center', marginBottom: 10 },
+  backTxt: { fontSize: 16, fontWeight: '600', color: C.text, marginLeft: 6 },
+  title: { fontSize: 24, fontWeight: '800', color: C.text },
+  subtitle: { fontSize: 13.5, color: C.muted, marginTop: 3 },
+  scroll: { padding: 16, gap: 14 },
+
+  subjCard: {
+    flexDirection: 'row', alignItems: 'center', backgroundColor: C.white, borderRadius: 16,
+    padding: 14, gap: 12, borderWidth: StyleSheet.hairlineWidth, borderColor: C.border,
+  },
+  subjIcon: { width: 52, height: 52, borderRadius: 14, alignItems: 'center', justifyContent: 'center' },
+  subjName: { fontSize: 18, fontWeight: '700', color: C.text },
+  subjSub: { fontSize: 13, color: C.muted, marginTop: 2 },
+  subjList: {
+    backgroundColor: C.white, borderRadius: 14, borderWidth: StyleSheet.hairlineWidth,
+    borderColor: C.border, overflow: 'hidden', marginTop: -4,
+  },
+  subjOption: { flexDirection: 'row', alignItems: 'center', gap: 12, paddingVertical: 14, paddingHorizontal: 16 },
+  subjOptionTxt: { fontSize: 15, color: C.text },
+
+  card: {
+    backgroundColor: C.white, borderRadius: 16, padding: 16,
+    borderWidth: StyleSheet.hairlineWidth, borderColor: C.border, gap: 10,
+  },
+  cardTopRow: { flexDirection: 'row', alignItems: 'center', justifyContent: 'space-between', gap: 12 },
+  chapName: { flex: 1, fontSize: 16, fontWeight: '700', color: C.text },
+  actionBtn: { paddingVertical: 10, paddingHorizontal: 22, borderRadius: 12, minWidth: 96, alignItems: 'center' },
+  actionBtnFilled: { backgroundColor: C.green },
+  actionBtnOutline: { borderWidth: 1.5, borderColor: C.green, backgroundColor: C.white },
+  actionTxt: { fontSize: 14.5, fontWeight: '700' },
+  actionTxtFilled: { color: C.white },
+  actionTxtOutline: { color: C.green },
+
+  barTrack: {
+    flexDirection: 'row', height: 7, borderRadius: 4, backgroundColor: C.track, overflow: 'hidden',
+  },
+  metaRow: { flexDirection: 'row', justifyContent: 'space-between' },
+  metaTxt: { fontSize: 12.5, color: C.muted },
+
+  showMore: { flexDirection: 'row', alignItems: 'center', justifyContent: 'center', gap: 4, paddingTop: 4 },
+  showMoreTxt: { fontSize: 13, color: C.muted, fontWeight: '600' },
+
+  subRow: {
+    gap: 6, paddingTop: 12, marginTop: 6,
+    borderTopWidth: StyleSheet.hairlineWidth, borderTopColor: C.border,
+  },
+  subName: { fontSize: 13.5, fontWeight: '600', color: C.text },
+  subMeta: { fontSize: 11.5, color: C.muted },
+});

@@ -1,7 +1,20 @@
 import React, { useState, useEffect } from 'react';
 import { View, Text, StyleSheet, SafeAreaView, ScrollView, TouchableOpacity, StatusBar, Platform, ActivityIndicator } from 'react-native';
 import { WebView } from 'react-native-webview';
-import { getQuestionsByPath, getChapters } from '../api/resourcesApi';
+import { getQuestionsByPath, getChapters, getMcqByPath } from '../api/resourcesApi';
+import McqTestScreen from './McqTestScreen';
+import McqPracticeScreen from './McqPracticeScreen';
+import MockTestScreen from './mockTestScreen';
+import TestQuestionScreen from './testQuestionScreen';
+import ChapterListScreen from './ChapterListScreen';
+import { getMcqQuestions } from '../data/mcqQuestions';
+import { getQuestions, allQuestions } from '../data/questionBank';
+
+// A spread of ~20 questions across the whole bank for the full-syllabus mock.
+const MOCK_QUESTIONS = (() => {
+  const step = Math.max(1, Math.floor(allQuestions.length / 20));
+  return allQuestions.filter((_, i) => i % step === 0).slice(0, 20);
+})();
 
 // Slug must match how rows were inserted (scripts/importResources.js slugify).
 const slugify = (s) =>
@@ -336,6 +349,51 @@ const ChapterList = ({
   );
 };
 
+// Fetches real MCQs for a chapter from the API, then renders the test. Falls
+// back to the local sample bank if the chapter has no MCQs (or the call fails),
+// so the flow is always playable.
+const McqLoader = ({ subject, chapter, onExit }) => {
+  const [state, setState] = useState({ loading: true, questions: null });
+
+  useEffect(() => {
+    let alive = true;
+    setState({ loading: true, questions: null });
+    getMcqByPath(slugify(subject), slugify(chapter))
+      .then((qs) => {
+        if (!alive) return;
+        const list = Array.isArray(qs) && qs.length ? qs : getMcqQuestions(subject, chapter);
+        setState({ loading: false, questions: list });
+      })
+      .catch(() => {
+        if (!alive) return;
+        setState({ loading: false, questions: getMcqQuestions(subject, chapter) });
+      });
+    return () => { alive = false; };
+  }, [subject, chapter]);
+
+  if (state.loading) {
+    return (
+      <SafeAreaView style={s.safe}>
+        <StatusBar barStyle="dark-content" backgroundColor="#fff" />
+        {Platform.OS === 'android' && <View style={{ height: 24, backgroundColor: '#fff' }} />}
+        <BackHeader onBack={onExit} />
+        <View style={[s.webLoading, { flex: 1 }]}>
+          <ActivityIndicator size="large" color="#6C63FF" />
+        </View>
+      </SafeAreaView>
+    );
+  }
+
+  return (
+    <McqTestScreen
+      subject={subject}
+      chapter={chapter}
+      questions={state.questions}
+      onExit={onExit}
+    />
+  );
+};
+
 const PracticeScreen = () => {
   const [activeSub, setActiveSub] = useState('Physics');
 
@@ -348,6 +406,17 @@ const PracticeScreen = () => {
   const [impOpen, setImpOpen]       = useState(false);   // showing the Important Q subject list
   const [impSubject, setImpSubject] = useState(null);    // chosen subject (object)
   const [impChapter, setImpChapter] = useState(null);    // chosen chapter (string)
+
+  // MCQ Practice navigation: McqPracticeScreen (progress picker) -> McqLoader (test)
+  const [mcqOpen, setMcqOpen] = useState(false);         // showing the practice picker
+  const [mcqSel, setMcqSel]   = useState(null);          // { subject, chapter } once chosen
+
+  // Mock Test navigation: null -> 'intro' (MockTestScreen) -> 'quiz' (TestQuestionScreen)
+  const [mockStage, setMockStage] = useState(null);
+
+  // Chapter-wise Tests: list chapters (ChapterListScreen) -> attempt (TestQuestionScreen)
+  const [chOpen, setChOpen] = useState(false);  // showing the chapter list
+  const [chSel, setChSel]   = useState(null);   // chosen chapter ({ id, name, count })
 
   const activeFull = SUBJECTS.find(s => s.name === activeSub) || SUBJECTS[0];
   const pct = Math.round((activeFull.done / activeFull.topics) * 100);
@@ -470,6 +539,72 @@ const PracticeScreen = () => {
     );
   }
 
+  // ── CHAPTER-WISE TEST: attempt the chosen chapter (real questions) ──────────
+  if (chOpen && chSel) {
+    return (
+      <TestQuestionScreen
+        bannerText={`${chSel.name} • attempt the questions`}
+        questions={getQuestions(chSel.id)}
+        onExit={() => setChSel(null)}
+        onSubmit={() => { setChSel(null); setChOpen(false); }}
+      />
+    );
+  }
+
+  // ── CHAPTER-WISE TEST: chapter list (from the question bank) ────────────────
+  if (chOpen) {
+    return (
+      <ChapterListScreen
+        subject="Physics · Class 11"
+        onBack={() => setChOpen(false)}
+        onSelectChapter={(ch) => setChSel(ch)}
+      />
+    );
+  }
+
+  // ── MOCK TEST: question-attempt screen (after "Start Test") ─────────────────
+  if (mockStage === 'quiz') {
+    return (
+      <TestQuestionScreen
+        bannerText="Full Syllabus Mock • attempt any 20 questions"
+        questions={MOCK_QUESTIONS}
+        onExit={() => setMockStage('intro')}
+        onSubmit={() => setMockStage(null)}
+      />
+    );
+  }
+
+  // ── MOCK TEST: intro / instructions screen ──────────────────────────────────
+  if (mockStage === 'intro') {
+    return (
+      <MockTestScreen
+        onBack={() => setMockStage(null)}
+        onStartTest={() => setMockStage('quiz')}
+      />
+    );
+  }
+
+  // ── MCQ PRACTICE: the test itself (real MCQs from the API) ──────────────────
+  if (mcqOpen && mcqSel) {
+    return (
+      <McqLoader
+        subject={mcqSel.subject}
+        chapter={mcqSel.chapter}
+        onExit={() => setMcqSel(null)}
+      />
+    );
+  }
+
+  // ── MCQ PRACTICE: progress picker (subject -> chapter, from mcqPractice.js) ──
+  if (mcqOpen) {
+    return (
+      <McqPracticeScreen
+        onBack={() => setMcqOpen(false)}
+        onStartChapter={(subject, chapter) => setMcqSel({ subject, chapter })}
+      />
+    );
+  }
+
   // ── MAIN PRACTICE SCREEN ────────────────────────────────────────────────────
   return (
     <SafeAreaView style={s.safe}>
@@ -537,7 +672,9 @@ const PracticeScreen = () => {
         <Text style={s.sectionTitle}>Practice Modes</Text>
         <View style={s.qTypesGrid}>
           {QUESTION_TYPES.map((qt, i) => (
-            <TouchableOpacity key={i} style={s.qTypeCard}>
+            <TouchableOpacity key={i} style={s.qTypeCard}
+              activeOpacity={qt.label === 'MCQ Practice' ? 0.7 : 1}
+              onPress={qt.label === 'MCQ Practice' ? () => setMcqOpen(true) : undefined}>
               <Text style={{ fontSize: 28, marginBottom: 8 }}>{qt.icon}</Text>
               <Text style={s.qTypeLabel}>{qt.label}</Text>
               <Text style={s.qTypeSub}>{qt.sub}</Text>
@@ -550,8 +687,8 @@ const PracticeScreen = () => {
         <Text style={s.sectionTitle}>Practice Tests</Text>
         <View style={s.practiceTestsCard}>
           {[
-            { icon: '⚡', label: 'Chapter-wise Tests',  sub: 'Test one chapter at a time', count: '120+ Tests' },
-            { icon: '📋', label: 'Full Syllabus Test',  sub: 'Complete subject mock test',  count: '20 Tests' },
+            { icon: '⚡', label: 'Chapter-wise Tests',  sub: 'Test one chapter at a time', count: '120+ Tests', onPress: () => setChOpen(true) },
+            { icon: '📋', label: 'Full Syllabus Test',  sub: 'Complete subject mock test',  count: '20 Tests', onPress: () => setMockStage('intro') },
             { icon: '🎯', label: 'Previous Year Papers',sub: '10 years question bank',      count: '50 Papers', onPress: () => setPyqOpen(true) },
             { icon: '⏱',  label: 'Timed Challenge',    sub: '30 sec per question',         count: '200+ Qs' },
           ].map((item, i, arr) => (

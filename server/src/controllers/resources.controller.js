@@ -38,4 +38,13 @@ async function getQuestionsByPath(req, res, next) {
   } catch (err) { next(err) }
 }
 
-module.exports = { getSubjects, getChapters, getSections, getQuestions, getQuestionsByPath }
+async function getMcqByPath(req, res, next) {
+  try {
+    const { subjectSlug, chapterSlug } = req.params
+    const data = await svc.getMcqByPath(subjectSlug, chapterSlug)
+    if (!data) return ApiResponse.error(res, 'Chapter not found', 404)
+    return ApiResponse.success(res, data)
+  } catch (err) { next(err) }
+}
+
+module.exports = { getSubjects, getChapters, getSections, getQuestions, getQuestionsByPath, getMcqByPath }

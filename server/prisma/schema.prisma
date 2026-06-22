@@ -18,7 +18,7 @@ model User {
   createdAt          DateTime             @default(now())
   updatedAt          DateTime             @updatedAt
   role               UserRole             @default(STUDENT)
-  brain_gym_sessions brain_gym_sessions[]
+  brainGymSessions   BrainGymSession[]
   doubtSessions      DoubtSession[]
   knowledge_sources  knowledge_sources[]
   lessons            Lesson[]
@@ -116,23 +116,6 @@ model Message {
 
   @@index([doubtSessionId, createdAt])
   @@map("messages")
-}
-
-model brain_gym_sessions {
-  id             String   @id @db.Uuid
-  userId         String   @db.Uuid
-  skill          String
-  level          Int
-  totalQuestions Int
-  correctCount   Int
-  wrongCount     Int
-  score          Int
-  xpEarned       Int
-  timeTakenSec   Int      @default(0)
-  createdAt      DateTime @default(now())
-  users          User     @relation(fields: [userId], references: [id], onDelete: Cascade)
-
-  @@index([userId, createdAt(sort: Desc)])
 }
 
 model chapters {

@@ -8,6 +8,7 @@ const {
   getSections,
   getQuestions,
   getQuestionsByPath,
+  getMcqByPath,
 } = require('../controllers/resources.controller')
 
 const router = Router()
@@ -23,5 +24,8 @@ router.get('/sections/:sectionId/questions',     getQuestions)
 
 // ─── Convenience: questions straight from slugs (matches the UI flow) ──────────
 router.get('/content/:subjectSlug/:chapterSlug/:sectionType', getQuestionsByPath)
+
+// ─── MCQ Practice: all MCQs for a chapter, ready for the test screen ───────────
+router.get('/mcq/:subjectSlug/:chapterSlug', getMcqByPath)
 
 module.exports = router

@@ -5,6 +5,50 @@ const db = require('../config/database')
 // Prisma returns BigInt for these tables' ids — convert to Number for JSON.
 const num = (v) => (typeof v === 'bigint' ? Number(v) : v)
 
+// Question/option bodies are stored as HTML. The MCQ test screen renders plain
+// text, so flatten to readable text: keep exponents (^) and subscripts (_),
+// drop the rest of the markup, and decode common entities.
+function htmlToText(html) {
+  if (!html) return ''
+  return String(html)
+    // Inline math is wrapped as {tex}…{/tex}; drop the delimiters (the LaTeX
+    // inside still isn't pretty in plain text — see McqTestScreen math note).
+    .replace(/\{tex\}/gi, '')
+    .replace(/\{\/tex\}/gi, '')
+    .replace(/<sup[^>]*>(.*?)<\/sup>/gis, '^$1')
+    .replace(/<sub[^>]*>(.*?)<\/sub>/gis, '_$1')
+    .replace(/<br\s*\/?>/gi, ' ')
+    .replace(/<\/(p|div|li|h[1-6])>/gi, ' ')
+    .replace(/<[^>]+>/g, '')
+    .replace(/&nbsp;/gi, ' ')
+    .replace(/&amp;/gi, '&')
+    .replace(/&lt;/gi, '<')
+    .replace(/&gt;/gi, '>')
+    .replace(/&quot;/gi, '"')
+    .replace(/&#39;/gi, "'")
+    .replace(/\s+/g, ' ')
+    .trim()
+}
+
+// Map a DB question row to the shape McqTestScreen expects, or null if it is
+// not a usable MCQ (no options / no identifiable correct answer).
+function toMcq(q) {
+  const opts = Array.isArray(q.options) ? q.options : []
+  if (opts.length < 2) return null
+  const options = opts.map((o) => htmlToText(o.html))
+  let correct = opts.findIndex((o) => o.is_correct)
+  if (correct < 0 && q.correct_option) {
+    correct = opts.findIndex((o) => o.idx === q.correct_option)
+  }
+  if (correct < 0) return null
+  return {
+    cat: q.year || q.q_number || 'MCQ',
+    question: htmlToText(q.question_html),
+    options,
+    correct,
+  }
+}
+
 function mapQuestion(q) {
   return {
     id: num(q.id),
@@ -72,10 +116,28 @@ async function getQuestionsByPath(subjectSlug, chapterSlug, sectionType) {
   return listQuestions(section.id)
 }
 
+// ─── MCQ questions for a chapter (across all its sections) ────────────────────
+// MCQs aren't a section type of their own — they live inside pyq /
+// important_questions flagged is_mcq. Gather all of them for the chapter.
+async function getMcqByPath(subjectSlug, chapterSlug) {
+  const subject = await db.subjects.findUnique({ where: { slug: subjectSlug } })
+  if (!subject) return null
+  const chapter = await db.chapters.findFirst({
+    where: { slug: chapterSlug, subject_id: subject.id },
+  })
+  if (!chapter) return null
+  const rows = await db.questions.findMany({
+    where: { is_mcq: true, sections: { chapter_id: chapter.id } },
+    orderBy: [{ section_id: 'asc' }, { position: 'asc' }],
+  })
+  return rows.map(toMcq).filter(Boolean)
+}
+
 module.exports = {
   listSubjects,
   listChapters,
   listSections,
   listQuestions,
   getQuestionsByPath,
+  getMcqByPath,
 }
