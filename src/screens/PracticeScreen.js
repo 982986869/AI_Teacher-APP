@@ -419,6 +419,7 @@ const PracticeScreen = () => {
 
   // Mock Test navigation: null -> 'intro' (MockTestScreen) -> 'quiz' (TestQuestionScreen)
   const [mockStage, setMockStage] = useState(null);
+  const [mockSel, setMockSel]     = useState(null);      // { subject, mockNo } once picked
 
   // Chapter-wise Tests: list chapters (ChapterListScreen) -> attempt (TestQuestionScreen)
   const [chOpen, setChOpen] = useState(false);  // showing the chapter list
@@ -568,24 +569,27 @@ const PracticeScreen = () => {
     );
   }
 
-  // ── MOCK TEST: question-attempt screen (after "Start Test") ─────────────────
+  // ── MOCK TEST: question-attempt screen (after picking a mock) ───────────────
   if (mockStage === 'quiz') {
     return (
       <TestQuestionScreen
-        bannerText="Full Syllabus Mock • attempt any 20 questions"
+        bannerText={`${(mockSel?.subject || '').toUpperCase()} • Mock Test ${String(mockSel?.mockNo || 1).padStart(2, '0')}`}
         questions={MOCK_QUESTIONS}
         onExit={() => setMockStage('intro')}
-        onSubmit={() => setMockStage(null)}
+        onSubmit={() => { setMockSel(null); setMockStage(null); }}
       />
     );
   }
 
-  // ── MOCK TEST: intro / instructions screen ──────────────────────────────────
+  // ── MOCK TEST: subject -> 10 mocks list ─────────────────────────────────────
   if (mockStage === 'intro') {
     return (
       <MockTestScreen
         onBack={() => setMockStage(null)}
-        onStartTest={() => setMockStage('quiz')}
+        onStartMock={({ subject, mockNo }) => {
+          setMockSel({ subject, mockNo });
+          setMockStage('quiz');
+        }}
       />
     );
   }
@@ -701,7 +705,7 @@ const PracticeScreen = () => {
         <View style={s.practiceTestsCard}>
           {[
             { icon: '⚡', label: 'Chapter-wise Tests',  sub: 'Test one chapter at a time', count: '120+ Tests', onPress: () => setChOpen(true) },
-            { icon: '📋', label: 'Full Syllabus Test',  sub: 'Complete subject mock test',  count: '20 Tests', onPress: () => setMockStage('intro') },
+            { icon: '📋', label: 'Mock Test',           sub: 'Subject-wise mock tests',     count: '10 each', onPress: () => setMockStage('intro') },
             { icon: '🎯', label: 'Previous Year Papers',sub: '10 years question bank',      count: '50 Papers', onPress: () => setPyqOpen(true) },
             { icon: '⏱',  label: 'Timed Challenge',    sub: '30 sec per question',         count: '200+ Qs' },
           ].map((item, i, arr) => (
