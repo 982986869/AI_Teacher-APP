@@ -6,13 +6,13 @@
 // Requires react-native-webview:  npx expo install react-native-webview
 // Data import path assumes  src/screens/Ncert2Screen.js  +  src/data/...
 
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import {
   View, Text, ScrollView, TouchableOpacity, StyleSheet,
   ActivityIndicator, Platform, StatusBar,
 } from 'react-native';
 import { WebView } from 'react-native-webview';
-import { getNcert2Sections } from '../data/ncert2Solutions';
+import { getNcertSolutions } from '../api/resourcesApi';
 
 const INK = '#1C1C1E';
 const PAGE_BG = '#f4f4f5';
@@ -188,12 +188,35 @@ export default function Ncert2Screen({
   subjectName,
   chapterName,
   onBack,
+  part = 2,
+  className = 'Class 11',
   title = 'NCERT Solutions Part-II',
   breadcrumb = ['Home', 'Student Subscription', 'Resources', 'Textbook Chapters', 'Textbook Exercises'],
 }) {
-  const sections = getNcert2Sections(subjectName, chapterName);
+  // Sections are DB-backed now. Same shape the old static getNcert2Sections()
+  // returned ([{ key, label, html }]), so the list + WebView render unchanged.
+  const [sections, setSections] = useState([]);
+  const [loading, setLoading] = useState(true);
+  const [error, setError] = useState(null);
+  const [retry, setRetry] = useState(0);
   const [openIndex, setOpenIndex] = useState(null);
   const active = openIndex == null ? null : sections[openIndex];
+
+  useEffect(() => {
+    let alive = true;
+    setLoading(true);
+    setError(null);
+    setOpenIndex(null);
+    getNcertSolutions({ part, subject: subjectName, className, chapter: chapterName })
+      .then((d) => { if (alive) { setSections((d && d.sections) || []); setLoading(false); } })
+      .catch((e) => {
+        if (alive) {
+          setError(e?.response?.data?.error || e?.message || 'Could not load solutions.');
+          setLoading(false);
+        }
+      });
+    return () => { alive = false; };
+  }, [part, subjectName, chapterName, className, retry]);
 
   const handleBack = () => {
     if (openIndex != null) setOpenIndex(null);
@@ -215,12 +238,26 @@ export default function Ncert2Screen({
         </View>
       </View>
 
-      {openIndex == null ? (
+      {loading ? (
+        <View style={styles.centerFill}>
+          <ActivityIndicator size="large" color={INK} />
+          <Text style={styles.loadingTxt}>Loading solutions…</Text>
+        </View>
+      ) : error ? (
+        <View style={styles.emptyWrap}>
+          <Text style={styles.emptyText}>{error}</Text>
+          <TouchableOpacity style={styles.retryBtn} activeOpacity={0.8} onPress={() => setRetry((k) => k + 1)}>
+            <Text style={styles.retryTxt}>Retry</Text>
+          </TouchableOpacity>
+        </View>
+      ) : openIndex == null ? (
         <ScrollView style={{ flex: 1, backgroundColor: PAGE_BG }} contentContainerStyle={styles.scrollBody}>
           <Breadcrumb items={breadcrumb} />
           <View style={styles.card}>
             <Text style={styles.cardTitle}>{chapterName}</Text>
-            {sections.map((sec, i) => (
+            {sections.length === 0 ? (
+              <Text style={styles.emptyInline}>No solutions available for this chapter yet.</Text>
+            ) : sections.map((sec, i) => (
               <TouchableOpacity key={sec.key} style={styles.row} activeOpacity={0.6}
                 onPress={() => setOpenIndex(i)}>
                 <View style={styles.badge}><Text style={styles.badgeText}>{i + 1}</Text></View>
@@ -279,6 +316,10 @@ const styles = StyleSheet.create({
   rowArrow: { fontSize: 18, color: '#9aa3ad' },
   loadingOverlay: { ...StyleSheet.absoluteFillObject, alignItems: 'center', justifyContent: 'center', zIndex: 2 },
   loadingTxt: { marginTop: 10, color: '#888', fontSize: 12 },
+  centerFill: { flex: 1, alignItems: 'center', justifyContent: 'center', backgroundColor: PAGE_BG },
+  retryBtn: { marginTop: 16, borderWidth: 1.5, borderColor: INK, borderRadius: 10, paddingVertical: 9, paddingHorizontal: 20 },
+  retryTxt: { color: INK, fontWeight: '700', fontSize: 14 },
+  emptyInline: { color: '#888', fontSize: 14, padding: 16, paddingTop: 0 },
   emptyWrap: { flex: 1, alignItems: 'center', justifyContent: 'center', padding: 26 },
   emptyText: { color: '#444', fontSize: 16, fontWeight: '700', textAlign: 'center', marginBottom: 14 },
   debugBox: { backgroundColor: '#fff', borderWidth: 1, borderColor: '#e3e3e6', borderRadius: 10, padding: 12, width: '100%', marginBottom: 12 },

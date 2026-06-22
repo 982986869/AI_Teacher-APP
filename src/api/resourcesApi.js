@@ -27,3 +27,25 @@ export const getQuestionsByPath = async (subjectSlug, chapterSlug, sectionType) 
 // ({ cat, question, options: string[], correct: index }).
 export const getMcqByPath = async (subjectSlug, chapterSlug) =>
   (await axiosInstance.get(`/api/resources/mcq/${subjectSlug}/${chapterSlug}`)).data.data;
+
+// Exemplar Solutions (DB-backed). Returns { subject, className, chapter, sections }
+// where sections = [{ label, questions: [{ q, text, options, solutionLabel,
+// solution, questionImages, solutionImages }] }] — the SAME shape the screen used
+// from the old static getExemplarSections(), so rendering stays unchanged.
+export const getExemplarSolutions = async ({ subject, className, chapter }) =>
+  (await axiosInstance.get('/api/resources/exemplar', {
+    params: { subject, class: className, chapter },
+  })).data.data;
+
+// NCERT Solutions (DB-backed). Same shapes the old static helpers returned:
+//   getNcertSolutions -> { part, subject, className, chapter, sections: [{ key, label, html }] }
+//   getNcertChapters  -> { part, subject, className, chapters: [name, ...] }
+export const getNcertSolutions = async ({ part = 2, subject, className, chapter }) =>
+  (await axiosInstance.get('/api/resources/ncert', {
+    params: { part, subject, class: className, chapter },
+  })).data.data;
+
+export const getNcertChapters = async ({ part = 2, subject, className }) =>
+  (await axiosInstance.get('/api/resources/ncert/chapters', {
+    params: { part, subject, class: className },
+  })).data.data;

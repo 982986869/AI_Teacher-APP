@@ -273,3 +273,44 @@ enum UserRole {
   TEACHER
   ADMIN
 }
+
+// NCERT Exemplar "Chapter-end" solutions, migrated from the static frontend data
+// files. One row per question; sections (e.g. Maths "Exercise 1.3"/"Examples 1.2",
+// or "Chapter-end" for Physics/Chemistry/Biology) are preserved via `section` and
+// reconstructed in source order by `position`.
+model exemplar_solutions {
+  id             String   @id @default(uuid()) @db.Uuid
+  subject        String // 'Physics' | 'Chemistry' | 'Biology' | 'Mathematics'
+  className      String // 'Class 11'
+  chapter        String // exact chapter name (matches the frontend EXEMPLAR_QUESTIONS key)
+  section        String // 'Chapter-end' or Maths label e.g. 'Exercise 1.3'
+  qNumber        String // 'Q1', 'Q1(1)'
+  text           String
+  options        Json     @default("[]") // [{ text, correct }] — [] when not MCQ
+  solutionLabel  String
+  solution       String
+  questionImages Json     @default("[]")
+  solutionImages Json     @default("[]")
+  position       Int // 0-based order within the chapter (across sections, source order)
+  createdAt      DateTime @default(now())
+
+  @@index([subject, className, chapter, position])
+  @@map("exemplar_solutions")
+}
+
+model ncert_solutions {
+  id           String   @id @default(uuid()) @db.Uuid
+  part         Int      @default(2) // 1 = NCERT Part-I, 2 = NCERT Part-II
+  subject      String // 'Physics' | 'Chemistry' | 'Biology' | 'Mathematics'
+  className    String   @default("Class 11")
+  chapter      String // exact chapter name (matches the frontend ncert2 CONTENT key)
+  sectionKey   String // 'examples' | 'ex1_1' | 'misc' | 'chapterEnd' ...
+  sectionLabel String // 'Examples' | 'Exercise 1.1' | 'Miscellaneous Exercise' | 'Chapter-end'
+  html         String?  @db.Text // raw HTML rendered in WebView; null = coming soon
+  chapterPos   Int // chapter order within the subject (registry order)
+  position     Int // section order within the chapter
+  createdAt    DateTime @default(now())
+
+  @@index([part, subject, className, chapter, position])
+  @@map("ncert_solutions")
+}
