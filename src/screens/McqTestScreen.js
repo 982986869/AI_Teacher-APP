@@ -24,6 +24,7 @@ export default function McqTestScreen({
   chapter,
   questions = [],
   onExit,
+  onSubmit,              // optional: called on finish with { answers:{[questionId]:selectedIndex}, timeTakenSec }
   pointsPerCorrect = 4,
   negative = 1,
   durationMin = 30,
@@ -88,6 +89,15 @@ export default function McqTestScreen({
   const doSubmit = () => {
     setShowFinish(false);
     setPhase('results');
+    // Optional server-side persistence/scoring (used by DB-backed mock tests).
+    if (onSubmit) {
+      const ansById = {};
+      qs.forEach((q, i) => {
+        if (status[i] === 'answered' && answers[i] != null && q && q.id != null) ansById[q.id] = answers[i];
+      });
+      const timeTakenSec = Math.max(0, durationMin * 60 - secs);
+      try { onSubmit({ answers: ansById, timeTakenSec }); } catch (e) { /* non-fatal */ }
+    }
   };
 
   // Results computation
