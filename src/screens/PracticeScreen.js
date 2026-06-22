@@ -6,7 +6,6 @@ import { getImportantHtml } from '../data/importantQuestions';
 import { getMcqProgress, getMcqSubtopics } from '../data/mcqPractice';
 import { getMcqQuestions } from '../data/mcqQuestions';
 import McqTestScreen from './McqTestScreen';
-import MockTestsScreen from './MockTestsScreen';
 
 // All subjects resolve through allPyq.js (Physics from pyqContent.js,
 // Maths/Chemistry/Biology from their own files).
@@ -348,7 +347,6 @@ const PracticeScreen = () => {
   const [mockOpen, setMockOpen]           = useState(false);    // showing the Mock Test screen
   const [mockOpenSub, setMockOpenSub]     = useState('Physics');// which subject section is expanded
   const [mockAttempted, setMockAttempted] = useState({});       // { 'Subject||Mock Test - 01': true }
-  const [liveMockOpen, setLiveMockOpen]   = useState(false);    // DB-backed Physics mock tests
 
   // Start a numbered mock quiz: mark it attempted, then launch the test screen.
   const startMockTest = (subject, label) => {
@@ -607,11 +605,6 @@ const PracticeScreen = () => {
     );
   }
 
-  // ── LIVE (DB-backed) Physics mock tests ─────────────────────────────────────
-  if (liveMockOpen) {
-    return <MockTestsScreen subject="Physics" onExit={() => setLiveMockOpen(false)} />;
-  }
-
   // ── MOCK TEST: 4 subject sections, each with a numbered mock-quiz list ───────
   if (mockOpen) {
     return (
@@ -624,19 +617,6 @@ const PracticeScreen = () => {
           <Text style={s.pageSub}>Pick a subject, then a mock quiz to begin</Text>
         </View>
         <ScrollView contentContainerStyle={{ padding: 16, paddingBottom: 32 }}>
-          {/* DB-backed live Physics mock tests */}
-          <TouchableOpacity
-            style={s.liveMockCard}
-            activeOpacity={0.85}
-            onPress={() => setLiveMockOpen(true)}>
-            <View style={s.liveMockIcon}><Text style={{ fontSize: 22 }}>⚡</Text></View>
-            <View style={{ flex: 1 }}>
-              <Text style={s.liveMockTitle}>Physics Mock Tests</Text>
-              <Text style={s.liveMockSub}>10 full tests · live from the question bank</Text>
-            </View>
-            <Text style={s.liveMockChevron}>›</Text>
-          </TouchableOpacity>
-
           {mcqSubjects.map((subject) => {
             const isOpen = mockOpenSub === subject.name;
             return (
@@ -891,11 +871,6 @@ const s = StyleSheet.create({
   mcqSubEmpty:      { fontSize: 13, color: '#94A3B8', fontWeight: '600', fontStyle: 'italic', paddingVertical: 8, textAlign: 'center' },
 
   // Mock Test — numbered mock-quiz rows
-  liveMockCard:     { flexDirection: 'row', alignItems: 'center', gap: 12, backgroundColor: '#6C63FF', borderRadius: 14, padding: 16, marginBottom: 16 },
-  liveMockIcon:     { width: 44, height: 44, borderRadius: 12, backgroundColor: 'rgba(255,255,255,0.2)', alignItems: 'center', justifyContent: 'center' },
-  liveMockTitle:    { fontSize: 15, fontWeight: '800', color: '#fff' },
-  liveMockSub:      { fontSize: 11, fontWeight: '600', color: 'rgba(255,255,255,0.85)', marginTop: 3 },
-  liveMockChevron:  { fontSize: 24, color: '#fff', fontWeight: '700' },
   mockRow:          { backgroundColor: '#fff', borderRadius: 14, borderWidth: 1.5, borderColor: '#F0F0F0', flexDirection: 'row', alignItems: 'center', gap: 14, padding: 14 },
   mockRowIcon:      { width: 40, height: 40, borderRadius: 11, backgroundColor: '#EEF2FF', alignItems: 'center', justifyContent: 'center', borderWidth: 1.5, borderColor: '#E0E7FF' },
   mockRowIconDone:  { backgroundColor: '#E7F7EC', borderColor: '#CDEBD6' },

@@ -10,6 +10,5 @@ router.use('/auth',      require('./auth'))
 router.use('/ai',        require('./ai'))
 router.use('/tts',       require('./tts'))
 router.use('/resources', require('./resources'))
-router.use('/mock-tests', require('./mockTests'))
 
 module.exports = router
