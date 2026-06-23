@@ -7,7 +7,7 @@ import McqPracticeScreen from './McqPracticeScreen';
 import MockTestScreen from './mockTestScreen';
 import TestQuestionScreen from './testQuestionScreen';
 import MockResultScreen from './MockResultScreen';
-import ChapterListScreen from './ChapterListScreen';
+import OnlineTestsScreen from './OnlineTestsScreen';
 import { getMcqQuestions } from '../data/mcqQuestions';
 import { getQuestions, allQuestions } from '../data/questionBank';
 import { getSubtopicTest } from '../data/subtopicBank';
@@ -452,9 +452,10 @@ const PracticeScreen = () => {
   const [mockSel, setMockSel]     = useState(null);      // { subject, mockNo } once picked
   const [mockResult, setMockResult] = useState(null);    // computed report after submit
 
-  // Chapter-wise Tests: list chapters (ChapterListScreen) -> attempt (TestQuestionScreen)
+  // Online Tests: subject -> chapter list (OnlineTestsScreen) -> attempt (TestQuestionScreen)
   const [chOpen, setChOpen] = useState(false);  // showing the chapter list
-  const [chSel, setChSel]   = useState(null);   // chosen chapter ({ id, name, count })
+  const [chSel, setChSel]   = useState(null);   // chosen { subject, chapterId, chapterName, questions }
+  const [chResult, setChResult] = useState(null);  // computed report after an online test
 
   const activeFull = SUBJECTS.find(s => s.name === activeSub) || SUBJECTS[0];
   const pct = Math.round((activeFull.done / activeFull.topics) * 100);
@@ -577,25 +578,40 @@ const PracticeScreen = () => {
     );
   }
 
-  // ── CHAPTER-WISE TEST: attempt the chosen chapter (real questions) ──────────
-  if (chOpen && chSel) {
+  // ── ONLINE TESTS: result / report screen (after submit) ────────────────────
+  if (chOpen && chResult) {
     return (
-      <TestQuestionScreen
-        bannerText={`${chSel.name} • attempt the questions`}
-        questions={getQuestions(chSel.id)}
-        onExit={() => setChSel(null)}
-        onSubmit={() => { setChSel(null); setChOpen(false); }}
+      <MockResultScreen
+        title={`${chResult.title} - Result`}
+        result={chResult.data}
+        onReview={() => { setChResult(null); }}
+        onRetake={() => { setChResult(null); }}
+        onClose={() => { setChResult(null); setChSel(null); setChOpen(false); }}
       />
     );
   }
 
-  // ── CHAPTER-WISE TEST: chapter list (from the question bank) ────────────────
+  // ── ONLINE TESTS: attempt the chosen chapter (real questions) ──────────────
+  if (chOpen && chSel) {
+    return (
+      <TestQuestionScreen
+        bannerText={`${chSel.subject} · ${chSel.chapterName} • attempt the questions`}
+        questions={chSel.questions}
+        onExit={() => setChSel(null)}
+        onSubmit={(payload) => {
+          setChResult({ title: chSel.chapterName, data: computeMockResult(payload) });
+          setChSel(null);
+        }}
+      />
+    );
+  }
+
+  // ── ONLINE TESTS: subject -> chapter list (all 4 subjects, offline banks) ───
   if (chOpen) {
     return (
-      <ChapterListScreen
-        subject="Physics · Class 11"
+      <OnlineTestsScreen
         onBack={() => setChOpen(false)}
-        onSelectChapter={(ch) => setChSel(ch)}
+        onStartTest={(sel) => setChSel(sel)}
       />
     );
   }

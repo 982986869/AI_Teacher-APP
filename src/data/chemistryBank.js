@@ -15,6 +15,8 @@ import c1366 from './chemistry_questions/1366_The_s_Block_Elements_FA_ONLY.json'
 import c1367 from './chemistry_questions/1367_Some_p_Block_Elements_FA_ONLY.json';
 import c1368 from './chemistry_questions/1368_Organic_Chemistry_Some_Basic_Principles_and_Techniques.json';
 import c1369 from './chemistry_questions/1369_Hydrocarbons.json';
+// Fetched answers, keyed by question id: { id: { correctAnswer, correctOptionId, explanation } }
+import answerKey from './chemistry_questions/answer_key_chemistry.json';
 
 const rawChapters = [
   c1357, c1358, c1359, c1360, c1361, c1362,
@@ -77,19 +79,22 @@ function normalizeQuestion(q) {
     label: htmlToText(o.option ?? o.text ?? ''),
     optionId: o.id ?? null,
   }));
-  // If the correct option id is present, resolve it to a letter; else null.
+  // Answers come from the fetched answer key (chapter files have null answers).
+  const ak = answerKey[q.id] || {};
+  const correctOptionId = q.correct_option_id ?? ak.correctOptionId ?? null;
   let correctAnswer = null;
-  if (q.correct_option_id != null) {
-    const idx = options.findIndex((o) => String(o.optionId) === String(q.correct_option_id));
+  if (correctOptionId != null) {
+    const idx = options.findIndex((o) => String(o.optionId) === String(correctOptionId));
     if (idx >= 0) correctAnswer = LETTERS[idx];
   }
+  if (!correctAnswer && ak.correctAnswer) correctAnswer = ak.correctAnswer; // letter fallback
   return {
     id: q.id,
     text: htmlToText(q.question ?? q.text ?? ''),
     difficulty: q.difficulty_label ?? q.difficulty ?? null,
     options,
     correctAnswer,
-    explanation: htmlToText(q.explanation ?? ''),
+    explanation: htmlToText(q.explanation ?? ak.explanation ?? ''),
   };
 }
 

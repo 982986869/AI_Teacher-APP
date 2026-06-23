@@ -19,6 +19,8 @@ import c1383 from './maths_questions/1383_Introduction_to_3D_Geometry.json';
 import c1384 from './maths_questions/1384_Limits_and_Derivatives.json';
 import c1386 from './maths_questions/1386_Statistics.json';
 import c1387 from './maths_questions/1387_Probability.json';
+// Fetched answers, keyed by question id: { id: { correctAnswer, correctOptionId, explanation } }
+import answerKey from './maths_questions/answer_key_maths.json';
 
 const rawChapters = [
   c1372, c1373, c1374, c1375, c1376, c1377, c1378, c1379,
@@ -79,18 +81,22 @@ function normalizeQuestion(q) {
     label: htmlToText(o.option ?? o.text ?? ''),
     optionId: o.id ?? null,
   }));
+  // Answers come from the fetched answer key (chapter files have null answers).
+  const ak = answerKey[q.id] || {};
+  const correctOptionId = q.correct_option_id ?? ak.correctOptionId ?? null;
   let correctAnswer = null;
-  if (q.correct_option_id != null) {
-    const idx = options.findIndex((o) => String(o.optionId) === String(q.correct_option_id));
+  if (correctOptionId != null) {
+    const idx = options.findIndex((o) => String(o.optionId) === String(correctOptionId));
     if (idx >= 0) correctAnswer = LETTERS[idx];
   }
+  if (!correctAnswer && ak.correctAnswer) correctAnswer = ak.correctAnswer; // letter fallback
   return {
     id: q.id,
     text: htmlToText(q.question ?? q.text ?? ''),
     difficulty: q.difficulty_label ?? q.difficulty ?? null,
     options,
     correctAnswer,
-    explanation: htmlToText(q.explanation ?? ''),
+    explanation: htmlToText(q.explanation ?? ak.explanation ?? ''),
   };
 }
 
