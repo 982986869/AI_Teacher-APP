@@ -10,5 +10,6 @@ router.use('/auth',      require('./auth'))
 router.use('/ai',        require('./ai'))
 router.use('/tts',       require('./tts'))
 router.use('/resources', require('./resources'))
+router.use('/mcq-practice', require('./mcqPractice'))
 
 module.exports = router

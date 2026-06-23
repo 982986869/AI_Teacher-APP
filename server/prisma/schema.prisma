@@ -8,30 +8,29 @@ datasource db {
 }
 
 model User {
-  id                 String               @id @default(uuid()) @db.Uuid
-  name               String
-  email              String?              @unique
-  phone              String?              @unique
-  passwordHash       String?
-  grade              String?
-  provider           AuthProvider         @default(EMAIL)
-  createdAt          DateTime             @default(now())
-  updatedAt          DateTime             @updatedAt
-  role               UserRole             @default(STUDENT)
-  brainGymSessions   BrainGymSession[]
-  doubtSessions      DoubtSession[]
-  knowledge_sources  knowledge_sources[]
-  lessons            Lesson[]
+  id                String              @id @default(uuid()) @db.Uuid
+  name              String
+  email             String?             @unique
+  phone             String?             @unique
+  passwordHash      String?
+  grade             String?
+  provider          AuthProvider        @default(EMAIL)
+  createdAt         DateTime            @default(now())
+  updatedAt         DateTime            @updatedAt
+  role              UserRole            @default(STUDENT)
+  brainGymSessions  BrainGymSession[]
+  doubtSessions     DoubtSession[]
+  knowledge_sources knowledge_sources[]
+  lessons           Lesson[]
 
   @@map("users")
 }
 
-// One completed Brain Gym quiz round (used for XP, progress and the leaderboard).
 model BrainGymSession {
   id             String   @id @default(uuid()) @db.Uuid
   userId         String   @db.Uuid
-  skill          String // 'reasoning' | 'application' | 'understanding' | 'fluency'
-  level          Int // 1..3
+  skill          String
+  level          Int
   totalQuestions Int
   correctCount   Int
   wrongCount     Int
@@ -39,8 +38,7 @@ model BrainGymSession {
   xpEarned       Int
   timeTakenSec   Int      @default(0)
   createdAt      DateTime @default(now())
-
-  user User @relation(fields: [userId], references: [id], onDelete: Cascade)
+  user           User     @relation(fields: [userId], references: [id], onDelete: Cascade)
 
   @@index([userId, createdAt(sort: Desc)])
   @@map("brain_gym_sessions")
@@ -119,14 +117,15 @@ model Message {
 }
 
 model chapters {
-  id         BigInt     @id @default(autoincrement())
+  id         BigInt      @id @default(autoincrement())
   subject_id BigInt
   name       String
   slug       String
-  position   Int        @default(0)
-  created_at DateTime   @default(now()) @db.Timestamptz(6)
-  subjects   subjects   @relation(fields: [subject_id], references: [id], onDelete: Cascade, onUpdate: NoAction)
+  position   Int         @default(0)
+  created_at DateTime    @default(now()) @db.Timestamptz(6)
+  subjects   subjects    @relation(fields: [subject_id], references: [id], onDelete: Cascade, onUpdate: NoAction)
   sections   sections[]
+  subtopics  subtopics[]
 
   @@unique([subject_id, slug])
   @@index([subject_id], map: "idx_chapters_subject")
@@ -214,6 +213,7 @@ model sections {
   type_key      String
   position      Int           @default(0)
   created_at    DateTime      @default(now()) @db.Timestamptz(6)
+  notes         notes?
   questions     questions[]
   chapters      chapters      @relation(fields: [chapter_id], references: [id], onDelete: Cascade, onUpdate: NoAction)
   section_types section_types @relation(fields: [type_key], references: [key], onDelete: NoAction, onUpdate: NoAction)
@@ -229,6 +229,218 @@ model subjects {
   position   Int        @default(0)
   created_at DateTime   @default(now()) @db.Timestamptz(6)
   chapters   chapters[]
+}
+
+model exemplar_solutions {
+  id             String   @id @default(dbgenerated("gen_random_uuid()")) @db.Uuid
+  subject        String
+  className      String
+  chapter        String
+  section        String
+  qNumber        String
+  text           String
+  options        Json     @default("[]")
+  solutionLabel  String
+  solution       String
+  questionImages Json     @default("[]")
+  solutionImages Json     @default("[]")
+  position       Int
+  createdAt      DateTime @default(now())
+
+  @@index([subject, className, chapter, position])
+  @@map("exemplar_solutions")
+}
+
+model ncert_solutions {
+  id           String   @id @default(dbgenerated("gen_random_uuid()")) @db.Uuid
+  part         Int      @default(2)
+  subject      String
+  className    String   @default("Class 11")
+  chapter      String
+  sectionKey   String
+  sectionLabel String
+  html         String?
+  chapterPos   Int      @default(0)
+  position     Int      @default(0)
+  createdAt    DateTime @default(now()) @db.Timestamptz(6)
+
+  @@index([part, subject, className, chapter, position])
+  @@map("ncert_solutions")
+}
+
+model concept_prereqs {
+  concept_id String @db.Uuid
+  prereq_id  String @db.Uuid
+
+  @@id([concept_id, prereq_id])
+}
+
+model concepts {
+  id        String                 @id @default(dbgenerated("gen_random_uuid()")) @db.Uuid
+  subject   String
+  chapter   String
+  name      String
+  slug      String
+  position  Int                    @default(0)
+  embedding Unsupported("vector")?
+  createdAt DateTime               @default(now()) @db.Timestamptz(6)
+
+  @@unique([subject, chapter, name], map: "concepts_uq")
+  @@index([subject, chapter], map: "concepts_subject_idx")
+}
+
+model lesson_progress {
+  id              String    @id @default(dbgenerated("gen_random_uuid()")) @db.Uuid
+  userId          String    @db.Uuid
+  lessonId        String    @db.Uuid
+  slidesTotal     Int       @default(0)
+  lastSlideIndex  Int       @default(0)
+  slidesCompleted Int       @default(0)
+  completedAt     DateTime? @db.Timestamptz(6)
+  updatedAt       DateTime  @default(now()) @db.Timestamptz(6)
+
+  @@unique([userId, lessonId], map: "lesson_progress_uq")
+  @@index([userId], map: "lesson_progress_user_idx")
+}
+
+model mcq_questions {
+  id                BigInt    @id @default(autoincrement())
+  subtopic_id       BigInt
+  source_id         BigInt?
+  question_html     String
+  difficulty        String?
+  options           Json
+  correct_option_id BigInt?
+  explanation_html  String?
+  position          Int       @default(0)
+  created_at        DateTime  @default(now()) @db.Timestamptz(6)
+  subtopics         subtopics @relation(fields: [subtopic_id], references: [id], onDelete: Cascade, onUpdate: NoAction)
+
+  @@index([subtopic_id], map: "idx_mcq_questions_subtopic")
+}
+
+model mock_test_attempts {
+  id             String     @id @default(dbgenerated("gen_random_uuid()")) @db.Uuid
+  user_id        String?    @db.Uuid
+  test_id        Int
+  answers        Json       @default("{}")
+  total          Int        @default(0)
+  attempted      Int        @default(0)
+  correct_count  Int        @default(0)
+  wrong_count    Int        @default(0)
+  score          Int        @default(0)
+  time_taken_sec Int        @default(0)
+  created_at     DateTime   @default(now()) @db.Timestamptz(6)
+  mock_tests     mock_tests @relation(fields: [test_id], references: [id], onDelete: Cascade, onUpdate: NoAction)
+
+  @@index([test_id], map: "mock_test_attempts_test_idx")
+  @@index([user_id, created_at(sort: Desc)], map: "mock_test_attempts_user_idx")
+}
+
+model mock_test_questions {
+  id                   Int        @id
+  test_id              Int
+  order_index          Int
+  section_name         String?
+  section_id           Int?
+  question             String
+  question_raw         String?
+  options              Json
+  correct_option_ids   Json       @default("[]")
+  correct_option_texts Json       @default("[]")
+  correct_index        Int?
+  explanation          String?
+  mock_tests           mock_tests @relation(fields: [test_id], references: [id], onDelete: Cascade, onUpdate: NoAction)
+
+  @@index([test_id, order_index], map: "mock_test_questions_test_idx")
+}
+
+model mock_tests {
+  id                  Int                   @id
+  subject             String                @default("Physics")
+  name                String
+  category_full_name  String?
+  duration_min        Int?
+  no_of_questions     Int?
+  instruction         String?
+  section_count       Int                   @default(0)
+  question_count      Int                   @default(0)
+  source_extracted_at String?
+  created_at          DateTime              @default(now()) @db.Timestamptz(6)
+  updated_at          DateTime              @default(now()) @db.Timestamptz(6)
+  mock_test_attempts  mock_test_attempts[]
+  mock_test_questions mock_test_questions[]
+}
+
+model notes {
+  id         BigInt   @id @default(autoincrement())
+  section_id BigInt   @unique
+  intro      String?
+  blocks     Json?
+  created_at DateTime @default(now()) @db.Timestamptz(6)
+  sections   sections @relation(fields: [section_id], references: [id], onDelete: Cascade, onUpdate: NoAction)
+
+  @@index([section_id], map: "idx_notes_section")
+}
+
+model student_concepts {
+  id            String   @id @default(dbgenerated("gen_random_uuid()")) @db.Uuid
+  userId        String   @db.Uuid
+  concept_id    String   @db.Uuid
+  mastery       Decimal  @default(0) @db.Decimal
+  confidence    Decimal  @default(0) @db.Decimal
+  weakness      Decimal  @default(0) @db.Decimal
+  evidenceCount Int      @default(0)
+  quizCorrect   Int      @default(0)
+  quizTotal     Int      @default(0)
+  doubts        Int      @default(0)
+  recentFails   Int      @default(0)
+  lastSeen      DateTime @default(now()) @db.Timestamptz(6)
+  updatedAt     DateTime @default(now()) @db.Timestamptz(6)
+
+  @@unique([userId, concept_id], map: "student_concepts_uq")
+  @@index([userId], map: "student_concepts_user_idx")
+}
+
+model student_events {
+  id        String   @id @default(dbgenerated("gen_random_uuid()")) @db.Uuid
+  userId    String   @db.Uuid
+  type      String
+  subject   String?
+  chapter   String?
+  detail    Json?
+  createdAt DateTime @default(now()) @db.Timestamptz(6)
+
+  @@index([userId, createdAt], map: "student_events_user_idx")
+}
+
+model student_memory {
+  id          String   @id @default(dbgenerated("gen_random_uuid()")) @db.Uuid
+  userId      String   @db.Uuid
+  subject     String
+  chapter     String   @default("")
+  doubts      Int      @default(0)
+  mistakes    Int      @default(0)
+  quizCorrect Int      @default(0)
+  quizTotal   Int      @default(0)
+  lastSeen    DateTime @default(now()) @db.Timestamptz(6)
+  updatedAt   DateTime @default(now()) @db.Timestamptz(6)
+
+  @@unique([userId, subject, chapter], map: "student_memory_uq")
+  @@index([userId, subject], map: "student_memory_user_idx")
+}
+
+model subtopics {
+  id            BigInt          @id @default(autoincrement())
+  chapter_id    BigInt
+  name          String
+  position      Int             @default(0)
+  created_at    DateTime        @default(now()) @db.Timestamptz(6)
+  mcq_questions mcq_questions[]
+  chapters      chapters        @relation(fields: [chapter_id], references: [id], onDelete: Cascade, onUpdate: NoAction)
+
+  @@unique([chapter_id, name])
+  @@index([chapter_id], map: "idx_subtopics_chapter")
 }
 
 enum AuthProvider {
@@ -272,45 +484,4 @@ enum UserRole {
   STUDENT
   TEACHER
   ADMIN
-}
-
-// NCERT Exemplar "Chapter-end" solutions, migrated from the static frontend data
-// files. One row per question; sections (e.g. Maths "Exercise 1.3"/"Examples 1.2",
-// or "Chapter-end" for Physics/Chemistry/Biology) are preserved via `section` and
-// reconstructed in source order by `position`.
-model exemplar_solutions {
-  id             String   @id @default(uuid()) @db.Uuid
-  subject        String // 'Physics' | 'Chemistry' | 'Biology' | 'Mathematics'
-  className      String // 'Class 11'
-  chapter        String // exact chapter name (matches the frontend EXEMPLAR_QUESTIONS key)
-  section        String // 'Chapter-end' or Maths label e.g. 'Exercise 1.3'
-  qNumber        String // 'Q1', 'Q1(1)'
-  text           String
-  options        Json     @default("[]") // [{ text, correct }] — [] when not MCQ
-  solutionLabel  String
-  solution       String
-  questionImages Json     @default("[]")
-  solutionImages Json     @default("[]")
-  position       Int // 0-based order within the chapter (across sections, source order)
-  createdAt      DateTime @default(now())
-
-  @@index([subject, className, chapter, position])
-  @@map("exemplar_solutions")
-}
-
-model ncert_solutions {
-  id           String   @id @default(uuid()) @db.Uuid
-  part         Int      @default(2) // 1 = NCERT Part-I, 2 = NCERT Part-II
-  subject      String // 'Physics' | 'Chemistry' | 'Biology' | 'Mathematics'
-  className    String   @default("Class 11")
-  chapter      String // exact chapter name (matches the frontend ncert2 CONTENT key)
-  sectionKey   String // 'examples' | 'ex1_1' | 'misc' | 'chapterEnd' ...
-  sectionLabel String // 'Examples' | 'Exercise 1.1' | 'Miscellaneous Exercise' | 'Chapter-end'
-  html         String?  @db.Text // raw HTML rendered in WebView; null = coming soon
-  chapterPos   Int // chapter order within the subject (registry order)
-  position     Int // section order within the chapter
-  createdAt    DateTime @default(now())
-
-  @@index([part, subject, className, chapter, position])
-  @@map("ncert_solutions")
 }
