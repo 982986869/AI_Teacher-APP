@@ -1,5 +1,6 @@
-import React, { useState, useEffect } from 'react';
-import { View, Text, StyleSheet, SafeAreaView, ScrollView, TouchableOpacity, StatusBar, Platform, Modal } from 'react-native';
+import React, { useState, useEffect, useMemo, useRef } from 'react';
+import { View, Text, StyleSheet, SafeAreaView, ScrollView, TouchableOpacity, StatusBar, Platform, Modal, BackHandler } from 'react-native';
+import { useSafeAreaInsets } from 'react-native-safe-area-context';
 
 // Purple/pastel palette (from the AiLernova demo)
 const C = {
@@ -13,21 +14,28 @@ const C = {
 
 const LETTERS = ['A', 'B', 'C', 'D', 'E', 'F'];
 
+// MM:SS, or HH:MM:SS once the remaining time is an hour or more.
 const fmtTime = (s) => {
-  const m = String(Math.floor(s / 60)).padStart(2, '0');
-  const ss = String(s % 60).padStart(2, '0');
-  return `${m}:${ss}`;
+  const sec = Math.max(0, Math.floor(s));
+  const p = (n) => String(n).padStart(2, '0');
+  const h = Math.floor(sec / 3600);
+  const m = Math.floor((sec % 3600) / 60);
+  const ss = sec % 60;
+  return h > 0 ? `${p(h)}:${p(m)}:${p(ss)}` : `${p(m)}:${p(ss)}`;
 };
 
 export default function McqTestScreen({
   subject,
   chapter,
   questions = [],
+  sections = null,        // optional: [{ sectionName, sectionId, count, attemptAny }] → sectioned mock-test UI
   onExit,
+  onSubmit,               // optional: ({ answers:{[questionId]:idx}, timeTakenSec, results }) → persist server-side
   pointsPerCorrect = 4,
   negative = 1,
   durationMin = 30,
 }) {
+  const insets = useSafeAreaInsets();
   const qs = Array.isArray(questions) ? questions : [];
   const total = qs.length;
   const totalMarks = total * pointsPerCorrect;
@@ -39,6 +47,22 @@ export default function McqTestScreen({
   const [showFinish, setShowFinish] = useState(false);
   const [toast, setToast] = useState(null);
   const [secs, setSecs] = useState(durationMin * 60);
+  const [activeSec, setActiveSec] = useState(0);     // sectioned mode: active section tab
+  const [paletteOpen, setPaletteOpen] = useState(false);
+  const [showExit, setShowExit] = useState(false);   // exit-test confirmation
+  const submittedRef = useRef(false);                // guards against double submit
+
+  // Sectioned mode (mock tests): cumulative global-index ranges per section.
+  const sectionInfo = useMemo(() => {
+    if (!Array.isArray(sections) || sections.length === 0) return null;
+    let start = 0;
+    return sections.map((sec) => {
+      const count = sec.count || 0;
+      const info = { sectionName: sec.sectionName || 'Section', sectionId: sec.sectionId, attemptAny: sec.attemptAny, count, start, end: start + count - 1 };
+      start += count;
+      return info;
+    });
+  }, [sections]);
 
   // Timer (runs only during quiz)
   useEffect(() => {
@@ -64,6 +88,19 @@ export default function McqTestScreen({
   const skippedCount = Object.values(status).filter((v) => v === 'skipped').length;
   const remaining = Math.max(0, total - answeredCount - skippedCount);
 
+  // Hardware back during a mock-test quiz → exit confirmation (don't drop the user
+  // out of the app / flow unexpectedly).
+  useEffect(() => {
+    if (!sectionInfo || phase !== 'quiz') return undefined;
+    const onBack = () => {
+      if (answeredCount > 0) setShowExit(true);
+      else exitTest();
+      return true;
+    };
+    const sub = BackHandler.addEventListener('hardwareBackPress', onBack);
+    return () => sub.remove();
+  }, [sectionInfo, phase, answeredCount, onExit]);
+
   const selectOption = (optIdx) => {
     setAnswers((a) => ({ ...a, [current]: optIdx }));
   };
@@ -85,9 +122,46 @@ export default function McqTestScreen({
     goNext();
   };
 
+  // ── Sectioned-mode helpers (selecting auto-saves; navigation stays in-section) ──
+  const selectSectioned = (optIdx) => {
+    setAnswers((a) => ({ ...a, [current]: optIdx }));
+    setStatus((st) => ({ ...st, [current]: 'answered' }));
+  };
+  const clearAnswer = () => {
+    setAnswers((a) => { const n = { ...a }; delete n[current]; return n; });
+    setStatus((st) => { const n = { ...st }; delete n[current]; return n; });
+  };
+  const gotoSection = (i) => { if (sectionInfo && sectionInfo[i]) { setActiveSec(i); setCurrent(sectionInfo[i].start); } };
+  const secPrev = () => { const sec = sectionInfo[activeSec]; if (sec && current > sec.start) setCurrent((c) => c - 1); };
+  const secNext = () => { const sec = sectionInfo[activeSec]; if (sec && current < sec.end) setCurrent((c) => c + 1); };
+
+  // Persist exactly one attempt for this session (finish OR mid-test exit).
+  // Guarded so the timer, manual finish, and exit can never double-record.
+  const persistAttempt = () => {
+    if (submittedRef.current) return;
+    submittedRef.current = true;
+    if (!onSubmit) return;
+    const ansById = {};
+    qs.forEach((q, i) => {
+      if (status[i] === 'answered' && answers[i] != null && q && q.id != null) ansById[q.id] = answers[i];
+    });
+    const timeTakenSec = Math.max(0, durationMin * 60 - secs);
+    try { onSubmit({ answers: ansById, timeTakenSec, results: computeResults() }); } catch (e) { /* non-fatal */ }
+  };
+
   const doSubmit = () => {
+    persistAttempt();          // records the attempt (guarded)
     setShowFinish(false);
+    setShowExit(false);
     setPhase('results');
+  };
+
+  // Exiting a STARTED test still records an attempt (so it shows "Attempted"),
+  // then leaves. Exiting from the instructions screen records nothing.
+  const exitTest = () => {
+    if (phase === 'quiz') persistAttempt();
+    setShowExit(false);
+    if (onExit) onExit();
   };
 
   // Results computation
@@ -265,6 +339,150 @@ export default function McqTestScreen({
   const q = qs[current];
   const progressPct = total ? ((current + 1) / total) * 100 : 0;
   const sel = answers[current];
+
+  // ── SECTIONED MOCK-TEST QUIZ (DB-backed; teal reference layout) ──────────────
+  if (sectionInfo) {
+    const aSec = Math.min(activeSec, sectionInfo.length - 1);
+    const sec = sectionInfo[aSec];
+    const localIdx = current - sec.start;
+    const isLastOverall = aSec === sectionInfo.length - 1 && localIdx >= sec.count - 1;
+    const requestExit = () => { if (answeredCount > 0) setShowExit(true); else exitTest(); };
+    return (
+      <SafeAreaView style={mt.safe}>
+        <StatusBar barStyle="dark-content" backgroundColor="#fff" />
+        {Platform.OS === 'android' && <View style={{ height: insets.top, backgroundColor: '#fff' }} />}
+        <View style={mt.accent} />
+        <View style={mt.appbar}>
+          <TouchableOpacity style={mt.exitBtn} onPress={requestExit} activeOpacity={0.85}>
+            <Text style={mt.exitTxt}>✕ Exit</Text>
+          </TouchableOpacity>
+          <Text style={mt.appbarTitle} numberOfLines={1}>{chapter}</Text>
+          <TouchableOpacity style={mt.finishTopBtn} onPress={() => setShowFinish(true)} activeOpacity={0.85}>
+            <Text style={mt.finishTopTxt}>Finish</Text>
+          </TouchableOpacity>
+        </View>
+        <ScrollView contentContainerStyle={{ padding: 16, paddingBottom: 110 }}>
+          <View style={mt.card}>
+            <View style={mt.topRow}>
+              <Text style={mt.count}>{localIdx + 1} / {sec.count}</Text>
+              <Text style={[mt.timer, secs < 300 && { color: '#E0322E' }]}>{fmtTime(secs)}</Text>
+            </View>
+
+            <View style={mt.tabs}>
+              {sectionInfo.map((sx, i) => (
+                <TouchableOpacity key={i} style={[mt.tab, i === aSec && mt.tabOn]} activeOpacity={0.85} onPress={() => gotoSection(i)}>
+                  <Text style={[mt.tabTxt, i === aSec && mt.tabTxtOn]}>{sx.sectionName}</Text>
+                </TouchableOpacity>
+              ))}
+            </View>
+
+            {sec.attemptAny != null && (
+              <View style={mt.instr}><Text style={mt.instrTxt}>Attempt any {sec.attemptAny} questions</Text></View>
+            )}
+
+            <Text style={mt.qText}>{q.question}</Text>
+
+            <View style={{ gap: 12, marginTop: 8 }}>
+              {q.options.map((opt, i) => {
+                const isSel = sel === i;
+                return (
+                  <TouchableOpacity key={i} style={[mt.opt, isSel && mt.optSel]} activeOpacity={0.85} onPress={() => selectSectioned(i)}>
+                    <Text style={[mt.optLtr, isSel && mt.optLtrSel]}>{LETTERS[i]}</Text>
+                    <Text style={[mt.optTxt, isSel && mt.optTxtSel]}>{opt}</Text>
+                  </TouchableOpacity>
+                );
+              })}
+            </View>
+
+            <TouchableOpacity style={mt.clearWrap} onPress={clearAnswer} activeOpacity={0.7}>
+              <Text style={mt.clearTxt}>Clear Answer</Text>
+            </TouchableOpacity>
+          </View>
+        </ScrollView>
+
+        {/* bottom: Previous · palette · Next (within the active section) */}
+        <View style={[mt.bottomBar, { paddingBottom: Math.max(insets.bottom, 12) }]}>
+          <TouchableOpacity style={[mt.prevBtn, localIdx === 0 && mt.dim]} disabled={localIdx === 0} onPress={secPrev} activeOpacity={0.85}>
+            <Text style={mt.prevTxt}>← Previous</Text>
+          </TouchableOpacity>
+          <TouchableOpacity style={mt.menuBtn} onPress={() => setPaletteOpen(true)} activeOpacity={0.85}>
+            <Text style={mt.menuTxt}>☰</Text>
+          </TouchableOpacity>
+          {isLastOverall ? (
+            <TouchableOpacity style={[mt.nextBtn, mt.finishNext]} onPress={() => setShowFinish(true)} activeOpacity={0.85}>
+              <Text style={mt.nextTxt}>Finish ✓</Text>
+            </TouchableOpacity>
+          ) : (
+            <TouchableOpacity style={[mt.nextBtn, localIdx >= sec.count - 1 && mt.dim]} disabled={localIdx >= sec.count - 1} onPress={secNext} activeOpacity={0.85}>
+              <Text style={mt.nextTxt}>Next →</Text>
+            </TouchableOpacity>
+          )}
+        </View>
+
+        {/* palette grouped by section + Finish */}
+        <Modal visible={paletteOpen} transparent animationType="slide" onRequestClose={() => setPaletteOpen(false)}>
+          <View style={mt.modalOv}>
+            <View style={mt.sheet}>
+              <View style={mt.handle} />
+              <Text style={mt.sheetTitle}>Question Palette</Text>
+              <ScrollView style={{ maxHeight: 360 }}>
+                {sectionInfo.map((sx, si) => (
+                  <View key={si} style={{ marginBottom: 14 }}>
+                    <Text style={mt.palSec}>{sx.sectionName}{sx.attemptAny != null ? `  ·  attempt any ${sx.attemptAny}` : ''}</Text>
+                    <View style={mt.palGrid}>
+                      {Array.from({ length: sx.count }).map((_, li) => {
+                        const gIdx = sx.start + li;
+                        const answered = status[gIdx] === 'answered';
+                        const isCur = gIdx === current;
+                        return (
+                          <TouchableOpacity key={li} style={[mt.palCell, answered && mt.palAns, isCur && mt.palCur]}
+                            onPress={() => { setActiveSec(si); setCurrent(gIdx); setPaletteOpen(false); }}>
+                            <Text style={[mt.palCellTxt, (answered || isCur) && { color: '#fff' }]}>{li + 1}</Text>
+                          </TouchableOpacity>
+                        );
+                      })}
+                    </View>
+                  </View>
+                ))}
+              </ScrollView>
+              <TouchableOpacity style={mt.finishBtn} onPress={() => { setPaletteOpen(false); setShowFinish(true); }} activeOpacity={0.85}>
+                <Text style={mt.finishTxt}>🏁 Finish Test</Text>
+              </TouchableOpacity>
+              <TouchableOpacity onPress={() => setPaletteOpen(false)}><Text style={mt.closeTxt}>Close</Text></TouchableOpacity>
+            </View>
+          </View>
+        </Modal>
+
+        {/* finish confirm */}
+        <Modal visible={showFinish} transparent animationType="slide" onRequestClose={() => setShowFinish(false)}>
+          <View style={mt.modalOv}>
+            <View style={mt.sheet}>
+              <View style={mt.handle} />
+              <Text style={mt.confirmTitle}>Submit Test?</Text>
+              <Text style={mt.confirmSub}>You've answered {answeredCount} of {total} questions. Unanswered questions are marked skipped.</Text>
+              <TouchableOpacity style={mt.finishBtn} onPress={doSubmit} activeOpacity={0.85}><Text style={mt.finishTxt}>Yes, Submit</Text></TouchableOpacity>
+              <TouchableOpacity onPress={() => setShowFinish(false)}><Text style={mt.closeTxt}>Continue Test</Text></TouchableOpacity>
+            </View>
+          </View>
+        </Modal>
+
+        {/* exit confirm (answers will be lost) */}
+        <Modal visible={showExit} transparent animationType="slide" onRequestClose={() => setShowExit(false)}>
+          <View style={mt.modalOv}>
+            <View style={mt.sheet}>
+              <View style={mt.handle} />
+              <Text style={mt.confirmTitle}>Exit test?</Text>
+              <Text style={mt.confirmSub}>Your current answers will be lost.</Text>
+              <TouchableOpacity style={mt.exitConfirmBtn} onPress={exitTest} activeOpacity={0.85}>
+                <Text style={mt.exitConfirmTxt}>Exit & lose answers</Text>
+              </TouchableOpacity>
+              <TouchableOpacity onPress={() => setShowExit(false)}><Text style={mt.closeTxt}>Continue Test</Text></TouchableOpacity>
+            </View>
+          </View>
+        </Modal>
+      </SafeAreaView>
+    );
+  }
 
   return (
     <SafeAreaView style={s.safe}>
@@ -501,4 +719,66 @@ const s = StyleSheet.create({
   revTagTxt: { fontSize: 10, fontWeight: '800' },
   revQ: { fontSize: 12, fontWeight: '600', color: C.text, marginBottom: 4, lineHeight: 17 },
   revAns: { fontSize: 11, fontWeight: '700', marginTop: 2 },
+});
+
+// ── Sectioned mock-test (teal reference) styles ───────────────────────────────
+const TEAL = '#0E9A93';
+const TEAL_DARK = '#0B7E78';
+const mt = StyleSheet.create({
+  safe: { flex: 1, backgroundColor: '#EEF1F3' },
+  accent: { height: 4, backgroundColor: TEAL },
+  appbar: { flexDirection: 'row', alignItems: 'center', justifyContent: 'space-between', backgroundColor: '#fff', paddingHorizontal: 14, paddingVertical: 10, borderBottomWidth: 1, borderBottomColor: '#E6EAEA' },
+  exitBtn: { paddingVertical: 6, paddingHorizontal: 12, borderRadius: 18, backgroundColor: '#F4F6F6' },
+  exitTxt: { fontSize: 13, fontWeight: '800', color: '#6B7B7B' },
+  appbarTitle: { flex: 1, textAlign: 'center', fontSize: 14, fontWeight: '800', color: '#2D3A3A', marginHorizontal: 8 },
+  finishTopBtn: { paddingVertical: 6, paddingHorizontal: 14, borderRadius: 18, backgroundColor: TEAL },
+  finishTopTxt: { fontSize: 13, fontWeight: '800', color: '#fff' },
+  finishNext: { backgroundColor: '#1C9D5B' },
+  exitConfirmBtn: { backgroundColor: '#E0322E', borderRadius: 50, paddingVertical: 14, alignItems: 'center', marginTop: 6 },
+  exitConfirmTxt: { color: '#fff', fontSize: 15, fontWeight: '800' },
+  card: { backgroundColor: '#fff', borderRadius: 16, padding: 18, borderWidth: 1, borderColor: '#E6EAEA', shadowColor: '#000', shadowOpacity: 0.05, shadowRadius: 8, shadowOffset: { width: 0, height: 3 }, elevation: 2 },
+  topRow: { flexDirection: 'row', justifyContent: 'space-between', alignItems: 'center', marginBottom: 14 },
+  count: { fontSize: 16, fontWeight: '800', color: '#3A4A4A' },
+  timer: { fontSize: 16, fontWeight: '800', color: '#3A4A4A' },
+  tabs: { flexDirection: 'row', flexWrap: 'wrap', gap: 8, marginBottom: 14 },
+  tab: { paddingVertical: 8, paddingHorizontal: 16, borderRadius: 20, backgroundColor: '#EEF1F3' },
+  tabOn: { backgroundColor: TEAL },
+  tabTxt: { fontSize: 13, fontWeight: '700', color: '#6B7B7B' },
+  tabTxtOn: { color: '#fff' },
+  instr: { backgroundColor: '#FCEFC7', borderRadius: 10, paddingVertical: 12, paddingHorizontal: 14, marginBottom: 16 },
+  instrTxt: { fontSize: 14, fontWeight: '700', color: '#8A6D1F' },
+  qText: { fontSize: 16, fontWeight: '600', color: '#3A4A4A', lineHeight: 24, marginBottom: 14 },
+  opt: { flexDirection: 'row', alignItems: 'center', gap: 12, borderWidth: 1.5, borderColor: '#E2E8E8', borderRadius: 12, paddingVertical: 14, paddingHorizontal: 16, backgroundColor: '#fff' },
+  optSel: { borderColor: TEAL, backgroundColor: '#E6F4F3' },
+  optLtr: { fontSize: 15, fontWeight: '800', color: '#8A9A9A', minWidth: 18 },
+  optLtrSel: { color: TEAL },
+  optTxt: { flex: 1, fontSize: 15, fontWeight: '600', color: '#3A4A4A' },
+  optTxtSel: { color: '#0B5E5A' },
+  clearWrap: { alignSelf: 'flex-end', marginTop: 16 },
+  clearTxt: { fontSize: 14, fontWeight: '700', color: TEAL },
+
+  bottomBar: { position: 'absolute', left: 0, right: 0, bottom: 0, flexDirection: 'row', alignItems: 'center', justifyContent: 'space-between', backgroundColor: '#fff', borderTopWidth: 1, borderTopColor: '#E6EAEA', paddingHorizontal: 16, paddingTop: 12, paddingBottom: Platform.OS === 'ios' ? 24 : 12, gap: 12 },
+  prevBtn: { paddingVertical: 12, paddingHorizontal: 18, borderRadius: 10, backgroundColor: '#EEF1F3' },
+  prevTxt: { fontSize: 14, fontWeight: '700', color: '#6B7B7B' },
+  menuBtn: { width: 46, height: 44, borderRadius: 10, backgroundColor: '#EEF1F3', alignItems: 'center', justifyContent: 'center' },
+  menuTxt: { fontSize: 18, color: '#3A4A4A' },
+  nextBtn: { paddingVertical: 12, paddingHorizontal: 22, borderRadius: 10, backgroundColor: TEAL },
+  nextTxt: { fontSize: 14, fontWeight: '800', color: '#fff' },
+  dim: { opacity: 0.45 },
+
+  modalOv: { flex: 1, backgroundColor: 'rgba(20,30,30,0.5)', justifyContent: 'flex-end' },
+  sheet: { backgroundColor: '#fff', borderTopLeftRadius: 22, borderTopRightRadius: 22, padding: 20, paddingBottom: 28 },
+  handle: { width: 36, height: 4, borderRadius: 2, backgroundColor: '#D5DCDC', alignSelf: 'center', marginBottom: 14 },
+  sheetTitle: { fontSize: 16, fontWeight: '800', color: '#3A4A4A', marginBottom: 12, textAlign: 'center' },
+  palSec: { fontSize: 12, fontWeight: '800', color: '#6B7B7B', marginBottom: 8, letterSpacing: 0.3 },
+  palGrid: { flexDirection: 'row', flexWrap: 'wrap', gap: 8 },
+  palCell: { width: 38, height: 38, borderRadius: 9, borderWidth: 1.5, borderColor: '#E2E8E8', backgroundColor: '#fff', alignItems: 'center', justifyContent: 'center' },
+  palAns: { backgroundColor: TEAL, borderColor: TEAL },
+  palCur: { backgroundColor: TEAL_DARK, borderColor: TEAL_DARK },
+  palCellTxt: { fontSize: 13, fontWeight: '700', color: '#6B7B7B' },
+  finishBtn: { backgroundColor: TEAL, borderRadius: 50, paddingVertical: 14, alignItems: 'center', marginTop: 6 },
+  finishTxt: { color: '#fff', fontSize: 15, fontWeight: '800' },
+  closeTxt: { textAlign: 'center', color: '#8A9A9A', fontSize: 13, fontWeight: '700', marginTop: 12 },
+  confirmTitle: { fontSize: 17, fontWeight: '800', color: '#3A4A4A', textAlign: 'center', marginBottom: 6 },
+  confirmSub: { fontSize: 13, color: '#6B7B7B', textAlign: 'center', marginBottom: 16, lineHeight: 19 },
 });

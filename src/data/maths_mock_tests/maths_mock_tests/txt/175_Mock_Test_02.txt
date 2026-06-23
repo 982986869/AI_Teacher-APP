@@ -1,0 +1,698 @@
+======================================================================
+Mock Test - 02  (id 175)
+CBSE > Class 11 > Mathematics
+Duration: 90 min | Questions: 50
+======================================================================
+
+INSTRUCTIONS:
+This question paper contains three sections - A, B and C. Each part is compulsory.
+ Section - A has 20 MCQs, attempt any 16 out of 20.
+ Section - B has 20 MCQs, attempt any 16 out of 20
+ Section - C has 10 MCQs, attempt any 8 out of 10.
+ There is no negative marking.
+ All questions carry equal marks.
+
+------------------------------------------------------------
+Section A
+------------------------------------------------------------
+Q1. Given the sets A = {1, 2, 3}, B = {3, 4}, C = {4, 5, 6}, then A $\mathop \cup \nolimits $(B $\mathop \cap \nolimits $ C) is
+    (A) {1, 2, 3, 4, 5, 6}
+    (B) {3}
+    (C) {1, 2, 3}
+    (D) {1, 2, 3, 4}   <-- CORRECT
+    Answer: D
+    Explanation: Given A = {1, 2, 3}, B = {3, 4} and C = {4, 5, 6}
+B $\cap$ C = {4} 
+A $\cup$ (B $\cap$ C) = {1, 2, 3, 4}
+
+Q2. The function f(x) = log$\left(\frac{1+x}{1-x}\right)$ satisfies the equation
+    (A) $f({x_1}) + f({x_2}) = f({x_1} + {x_2})$
+    (B) $f({x_2}) + f({x_1}) = f({x_1} + {x_2})$
+    (C) $f({x_1}) + f({x_2}) = f\left(\frac{x_1+x_2}{1+x_1 x_2}\right)$   <-- CORRECT
+    (D) $f(x) + f(x + 1) = f({x^2} + x)$
+    Answer: C
+    Explanation: ${f({x_1})\; + f({x_2}) = \;\log \left( {\frac{{1 + {x_1}}}{{1 - {x_1}}}} \right)\; + \log \left( {\frac{{1 + {x_2}}}{{1 - {x_2}}}} \right)}$ 
+$ = \;\log (1 + {x_1}) - \log (1 - {x_1}) $$+ \log (1 + {x_2}) - \log (1 - {x_2})$ 
+${f\left( {\frac{{{x_1} + {x_2}}}{{1 + {x_1}{x_2}}}} \right) = \log \left( {\frac{{1 + \frac{{{x_1} + {x_2}}}{{1 + {x_1}{x_2}}}}}{{1 - \frac{{{x_1} + {x_2}}}{{1 + {x_1}{x_2}}}}}} \right) = \log \left[ {\frac{{1 + {x_1}{x_2} + {x_1} + {x_2}}}{{1 + {x_1}{x_2} - {x_1} - {x_2}}}} \right]}$ 
+${ = \;\log \left[ {\frac{{(1 + {x_1})(1 + {x_2})}}{{(1 - {x_1})(1 - {x_2})}}} \right]}$ 
+${ = \;\log (1 + {x_1})(1 + {x_2}) - \log (1 - {x_1})(1 - {x_2})}$ 
+$ = \;\log ((1 + {x_1}) + \log (1 + {x_2}) $$- \log (1 - {x_1}) - \log (1 - {x_2})$ 
+${\therefore f({x_1})+ f({x_2}) = f\left( {\frac{{{x_1} + {x_2}}}{{1 + {x_1}{x_2}}}} \right)}$
+
+Q3. The equation |4z - 1| = 4|z - 5| represents :
+    (A) a parabola
+    (B) a straight line   <-- CORRECT
+    (C) an ellipse
+    (D) a circle
+    Answer: B
+    Explanation: Given |4z - 1| = 4|z - 5|
+Let Z = x + iy 
+$\Rightarrow$ |4(x + iy) - 1| = 4|x + iy - 5|
+$\Rightarrow$ |(4x - 1) + 4iy| = 4(x - 5) + iy|
+$\Rightarrow$ $\sqrt{(4 x-1)^{2}+(4 y)^{2}}$ = $4 \sqrt{(x-5)^{2}+(y)^{2}}$ 
+Squaring on both sides we get
+(4x - 1)^2 + (4y)^2 = 16[(x - 5)^2 + (y)^2]
+$\Rightarrow$ 16x^2 + 1 - 8x + 16y^2 = 16[x^2 + 25 - 10x + y^2]
+$\Rightarrow$ 16x^2 + 1 - 8x + 16y^2 - 16x^2 - 400 + 160x - 16y^2 = 0
+$\Rightarrow$ 152x - 399 = 0
+$\Rightarrow$ x = $\frac{399}{152}$
+We have x = a constant is a straight line parallel to Y-axis.
+
+Q4. The 5th and 13th terms of an AP are 5 and -3 respectively. The 24th term of this AP is
+    (A) -8
+    (B) -6
+    (C) -11
+    (D) -14   <-- CORRECT
+    Answer: D
+    Explanation: We have, a + 4d = 5 ... (i)
+and a + 12d = -3 ...(ii)
+On solving (i) and (ii), we get a = 9 and d = -1.
+$\therefore$ T_24 = a + 23d = (9 - 23) = -14.
+
+Q5. The equation of the line which passes through the point (2, -3) and cuts off equal intercepts from the axis is
+    (A) x – y = 1
+    (B) x – y – 2 = 0
+    (C) x + y = 1
+    (D) x + y + 1 = 0   <-- CORRECT
+    Answer: D
+    Explanation: The equation of the line which cuts equal intercepts is x + y = a 
+Since it passes through (2, -3), 2 - 3 = a
+Hence a = -1
+Hence the equation of the required line is x + y +1 = 0
+
+Q6. If f (x) = x sin $(\frac {1}{x}),x \neq 0$, then $\lim \limits_{x \rightarrow 0} $ f(x) =
+    (A) 2
+    (B) 1
+    (C) -1
+    (D) 0   <-- CORRECT
+    Answer: D
+    Explanation: $\lim \limits_{x \rightarrow 0} f(x)=\lim \limits_{x \rightarrow 0} x \sin \frac{1}{x}, x \neq 0$
+LHL at x = 0
+$\lim \limits_{x \rightarrow 0^{-}} f(x)=\lim \limits_{h \rightarrow 0} f(0-h)$
+$\Rightarrow \lim \limits_{h \rightarrow 0}-h \sin \left(\frac{1}{-h}\right)$
+= 0
+RHL at x = 0
+$\lim \limits_{x \rightarrow 0^{+}} f(x)=\lim \limits_{h \rightarrow 0} f(0+h)$
+$\Rightarrow \lim \limits_{h \rightarrow 0} h \sin \left(\frac{1}{h}\right)$
+= 0
+$\lim \limits_{x \rightarrow 0^{-}} f(x)=\lim \limits_{x \rightarrow 0^{+}} f(x)$
+Hence, $\lim \limits_{x \rightarrow 0} f(x)^{2}$ exists and is equal to 0.
+
+Q7. Mean of the first n terms of the A.P. a + (a + d) + (a + 2d) + ………is
+    (A) $a+\frac{(n-1) d}{2}$   <-- CORRECT
+    (B) a + nd
+    (C) $\frac{a + nd}{2}$
+    (D) a + (n - 1)d
+    Answer: A
+    Explanation: Mean = $ \frac{{\frac{n}{2}\left[ {2a + (n - 1)d} \right]}}{n} = \frac{{\left[ {2a + (n - 1)d} \right]}}{2} $ = $a+\frac{(n-1) d}{2}$
+
+Q8. If A and B are two sets, then $A \cap (A \cup B)'$ is equal to
+    (A) A
+    (B) $\phi$   <-- CORRECT
+    (C) 1
+    (D) B
+    Answer: B
+    Explanation: $A \cap (A \cup B)' = \phi $ 
+Since $(A \cup B)'$ Set represent the element which are not belongs to it, so there is no common element with the set A. So the answer is null set.
+
+Q9. If f(x) = cos (log x) then $f\left(x^{2}\right) f\left(y^{2}\right)-\frac{1}{2}$ $\left\{f\left(\frac{x^{2}}{y^{2}}\right)+f\left(x^{2} y^{2}\right)\right\}$ has the value
+    (A) 1/2
+    (B) -2
+    (C) None of these   <-- CORRECT
+    (D) -1
+    Answer: C
+    Explanation: f(x) = cos (log x)
+Now, $f\left(x^{2}\right) f\left(y^{2}\right)-\frac{1}{2}$ $\left\{f\left(\frac{x^{2}}{y^{2}}\right)+f\left(x^{2} y^{2}\right)\right\}$
+= cos (log x^2 ) cos ( logy^2) - $\frac{1}{2}\left\{\cos \left(\log \left(\frac{x^{2}}{y^{2}}\right)\right)+\cos \left(\log x^{2} y^{2}\right)\right\}$
+= $\cos (2 \log x) \cos (2 \log y)-\frac{1}{2}$ $\left\{\cos \left(\log x^{2}-\log y^{2}\right)+\cos \left(\log x^{2}+\log y^{2}\right)\right\}$
+$=\cos (2 \log x) \cos (2 \log y)-\frac{1}{2}${ cos( 2 log x - 2 log y) + cos (2 log x + log y)}
+using cosx cos y = 1/2 cos (x + y) + cos (x - y)
+= cos (2 log x) cos ( 2 log y) - cos ( 2 log x) cos( 2 log y)
+= 0
+
+Q10. If z = $\bar z$, then
+    (A) z is purely real   <-- CORRECT
+    (B) z is purely imaginary
+    (C) z is a whole number
+    (D) z is a complex number
+    Answer: A
+    Explanation: Let z = x + iy
+Now z = $\bar{z} \Rightarrow$ x + iy = x - iy $\Rightarrow$ 2iy = 0 $\Rightarrow$ y = 0
+Which means z is purely real.
+
+Q11. If (k -1), (2k +1), (6k + 3) are in GP then k = ?
+    (A) -2
+    (B) 4   <-- CORRECT
+    (C) 0
+    (D) 7
+    Answer: B
+    Explanation: Given that, (k - 1),(2k + 1),(6k + 3) are in GP
+$\Rightarrow \frac{(2 k+1)}{(k-1)}=\frac{(6 k+3)}{(2 k+1)}=\frac{3(2 k+1)}{(2 k+1)}=3$
+$\Rightarrow$ 2k + 1 = 3k - 3
+$\Rightarrow$ k = 4
+
+Q12. A line passes through (2,2) and is perpendicular to the line 3x+y=3, then its y intercept is
+    (A) 1
+    (B) 2/3
+    (C) 1/3
+    (D) 4/3   <-- CORRECT
+    Answer: D
+    Explanation: The line which is perpendicular to the given line is x-3y+k=0
+This passes through the point (2,2)
+Substituting the values,
+2-3(2)+k=0
+k = 4
+Hence the equation of the line is x-3y+4=0
+This can be written as $x\over-4$+$y\over4/3$ = 1
+Hence the y intercept is 4/3
+
+Q13. The value of $\lim \limits_{x \rightarrow \infty} \frac{(x+1)^{10}+(x+2)^{10}+\ldots+(x+100)^{10}}{x^{10}+10^{10}}$ is:
+    (A) 10^12
+    (B) 100   <-- CORRECT
+    (C) 10^10
+    (D) 10
+    Answer: B
+    Explanation: $\lim \limits_{x \rightarrow \infty} \frac{(x+1)^{10}+(x+2)^{10}+\ldots .+(x+100)^{10}}{x^{10}+10^{10}}$
+Dividing N^r and D^r by x^10
+$\Rightarrow \lim \limits_{x \rightarrow \infty} \frac{\left(1+\frac{1}{x}\right)^{10}+\left(1+\frac{2}{x}\right)^{10}+\ldots+\left(1+\frac{100}{x}\right)^{10}}{1+\frac{10^{10}}{x^{10}}}$
+= 1 + 1 + 1 + ... + 100 times
+= 100
+
+Q14. The S.D.of 7 scores 1, 2, 3, 4, 5, 6, 7 is
+    (A) -1
+    (B) 1
+    (C) 2   <-- CORRECT
+    (D) 4
+    Answer: C
+    Explanation: Mean = $\frac{1+2+3+4+5+6+7}{7}$ = $\frac{28}{7}$ = 4
+So, $\sum_{i=1}^{n}\left(X_{i}-\bar{X}\right)^{2}$ = (-3)^2 + (-2)^2 + (-1)^2 + 0 + (1)^2 + (2)^2 + (3)^2 = 28
+Variance = $\frac{1}{n} \sum_{i=1}^{n}\left(X_{i}-\bar{X}\right)^{2}$ = $\frac{28}{7}$ = 4
+S.D = $\sqrt{\operatorname{var}}=\sqrt{4}$ = 2
+
+Q15. In a class of 100 students, 55 students have passed in Mathematics and 67 students have passed in Physics. Then the number of students who have passed in Physics only is
+    (A) 33
+    (B) 47
+    (C) 25
+    (D) 45   <-- CORRECT
+    Answer: D
+    Explanation: Let U denote the set of students of the class and let M and P denote the sets of students who passed in mathematics and physics respectively. Then
+n(U) = 100, n(M) = 55 and n(P) = 67
+Since all the students have passed in any of these subjects, we have 
+n(U) = 100 $\Rightarrow$ n(M $\cup$ P) = 100
+Now we have, n(M $\cup$ P) = n(M) + n(P) - n(M $\cap$ P)
+$\Rightarrow$ 100 = 55 + 67 - n(M $\cap$ P)
+$\Rightarrow$ n(M $\cap$ P) = 122 - 100 = 22
+Which means the number of students who passed in both the subjects = 22
+Hence the number of students who passed only in physics = n(P) - n(M $\cap$ P) = 67 - 22 = 45
+
+Q16. The domain of the function f given by f (x) = $\frac{x^{2}+2 x+1}{x^{2}-x-6}$
+    (A) R – {–3, 2}
+    (B) R – (-3, - 2)
+    (C) R – [3, – 2]
+    (D) R – {-2, 3}   <-- CORRECT
+    Answer: D
+    Explanation: We have, f(x) $=\frac{x^{2}+2 x+1}{x^{2}-x-6}$
+f(x) is not defined, if x^2 - x - 6 = 0
+$\Rightarrow$ (x - 3)(x + 2) = 0
+$\therefore$ x = -2, 3
+$\therefore$ Domain of f = R - {-2, 3}
+
+Q17. The area of the triangle on the complex plane formed by the complex numbers z, – iz and z + iz is:
+    (A) $|\bar{z}|^{2}$
+    (B) $\frac{|z|^{2}}{2}$   <-- CORRECT
+    (C) $\frac{|z|^{2}}{4}$
+    (D) |z|^2
+    Answer: B
+    Explanation: Let z = x + iy. Then – iz = y – ix. Therefore,
+z + iz = (x – y) + i (x + y)
+Required area of the triangle = $\frac{1}{2}$ (x^2 + y^2) = $\frac{|z|^{2}}{2}$
+
+Q18. If n arithmetic means are inserted between 1 and 31 such that the ratio of the first mean and n^th mean is 3:29, then the value of n is:
+    (A) 10
+    (B) 13
+    (C) 12
+    (D) 14   <-- CORRECT
+    Answer: D
+    Explanation: The given series is 1, . ., 31 There are n A.M.s between 1 and 31:1, A_1, A_2, A_3, ..., A_n, 31
+Common difference, d = $\frac{31-1}{n+1}=\frac{30}{n+1}$
+We can write above as:
+$\frac{A_{1}}{A_{n}}=\frac{3}{29}$
+$\Rightarrow \frac{1+d}{1+n d}=\frac{3}{29}$
+$\Rightarrow \frac{1+\frac{30}{n+1}}{1+n \times \frac{30}{n+1}}=\frac{3}{29}$
+$\Rightarrow \frac{n+1+30}{n+1+30 n}=\frac{3}{29}$
+$\Rightarrow \frac{n+31}{31 n+1}=\frac{3}{29}$
+$\Rightarrow$ 29n + 899 = 93n + 3
+$\Rightarrow$ 64n = 896
+$\Rightarrow$ n = 14
+
+Q19. The figure formed by the lines ax $\pm$ by $\pm$ c = 0 is
+    (A) A square
+    (B) A rectangle
+    (C) A trapezium
+    (D) A rhombus   <-- CORRECT
+    Answer: D
+    Explanation: The given lines can be written separately in the following manner:
+ax + by + c = 0 ..(i)
+ax + by - c = 0 ...(ii)
+ax - by - c = 0 ... (iii)
+ax - by - c = 0 ... (iv)
+Graph of the given lines is given below:
+By observong the drawn figure we get following conclusions , 
+AB = BC = CD = DA $=\sqrt{\frac{a^{2}}{c^{2}}+\frac{b^{2}}{c^{2}}}$ $=\frac{\sqrt{a^{2}+b^{2}}}{|c|}$
+Thus, the region formed by the given lines is ABCD, which is a rhombus.
+
+Q20. $\lim\limits_{x \to 0 + } \frac{\sqrt{x}}{\sqrt{16+\sqrt{x}}-4}$ is equal to
+    (A) 0
+    (B) 8   <-- CORRECT
+    (C) does not exist
+    (D) 2
+    Answer: B
+    Explanation: $\lim \limits_{x \rightarrow 0^{+}}\frac{1}{\frac{\sqrt{16+\sqrt{z}}-\sqrt{16}}{(16+\sqrt{z})-(16)}}$ 
+$\Rightarrow$ $\lim \limits_{x \rightarrow 0^{+}}{lim} 2(\sqrt{16+\sqrt{x}})$ 
+= 8
+
+------------------------------------------------------------
+Section B
+------------------------------------------------------------
+Q1. Which of the following, in case of a discrete data, is not equal to the median?
+    (A) lower quartile   <-- CORRECT
+    (B) 5^th decile
+    (C) 50^th percentile
+    (D) 2^nd quartile
+    Answer: A
+    Explanation: As lower quartile is the $\frac{{{{(n + 1)}^{th}}term}}{4}$ whereas median is $\frac{{{{(n + 1)}^{th}}term}}{2}$ or the average of middle most terms
+
+Q2. If aN = {ax : x $ \in $ N}, then the set 3N $\mathop \cap \nolimits $ 7N is
+    (A) 7N
+    (B) 4N
+    (C) 21N   <-- CORRECT
+    (D) 10N
+    Answer: C
+    Explanation: Here 3N = {3, 6, 9,...} and 7N = {7, 14, 21,...}
+Hence 3N $\cap$ 7N = {21, 42, ...} = {21x : x $\in$ N} = 21N
+
+Q3. If f(x) = $\frac{x-1}{x+1}$ then $\left(f \frac{1}{f(x)}\right)$ equals
+    (A) 0
+    (B) x
+    (C) $\frac 1 x$   <-- CORRECT
+    (D) 1
+    Answer: C
+    Explanation: We have ${f(x) = \frac{{x - 1}}{{x + 1}}}$ then
+$f\left( {\frac{1}{{f(x)}}} \right)$ = $\frac{\frac{1}{f(x)}-1}{\frac{1}{f(x)}+1}$ = $\frac{1-f(x)}{1+f(x)}$ 
+=$\frac{{1 - \frac{{x - 1}}{{x + 1}}}}{{1 + \frac{{x - 1}}{{x + 1}}}}$ = $\frac{x+1-x+1}{x+1+x-1}$ = $\frac{2}{2 x}$ = $\frac{1}{x}$
+
+Q4. Find argument of the complex number (0 + 0i)
+    (A) $\pi $
+    (B) 0
+    (C) none of these   <-- CORRECT
+    (D) -$\pi $
+    Answer: C
+    Explanation: Let Z = 0 + 0i = $r\left( cos\theta +isin\theta \right) $ 
+Then comparing the real and imaginary parts, we get 
+r cos $\theta$ = 0 and r sin $\theta$ = 0
+$\therefore$ r^2 (cos^2 $\theta$ + sin^2 $\theta$) = 0
+$\Rightarrow$ r^2 = 0 $\Rightarrow$ r = 0
+$\Rightarrow$ cos $\theta$ = 0 and sin $\theta$ = 0 
+Which is not possible for any value of $\theta$.
+
+Q5. The product (32), $(32)^{\frac 16}, (32)^{\frac 1{36}}$ ... to $\infty$ is equal to
+    (A) 0
+    (B) 32
+    (C) 64   <-- CORRECT
+    (D) 16
+    Answer: C
+    Explanation: We have, 32 $\times$ $(32)^{\frac 16} \times (32)^{\frac 1{36}}$ $\times \infty$
+= $32^{\left(1+\frac{1}{6}+\frac{1}{36}+\ldots \infty\right)}$
+= $32\left(\frac{1}{1-\frac{1}{6}}\right)$ [$\because$ it is a G.P.]
+= $32^{\left(\frac{6}{5}\right)}$
+= $\left(2^{5}\right)^{\left(\frac{6}{5}\right)}$
+= 2^6
+= 64
+
+Q6. $\lim \limits_{x \rightarrow 3} \frac{x-3}{|x-3|}$ is equal to:
+    (A) 1
+    (B) 0
+    (C) -1
+    (D) None of these   <-- CORRECT
+    Answer: D
+    Explanation: $\lim \limits_{x \rightarrow 3} \frac{x-3}{|x-3|}$
+LHL at x = 3
+$\lim \limits_{x \rightarrow 3^{-}} \frac{x-3}{-(x-3)}$ [$\because$ |x - 3| = -(x - 3) x < 3]
+= -1
+RHL at x = 3
+$\lim \limits_{x \rightarrow 3^{+}} \frac{x-3}{x-3}$ [$\therefore$ |x - 3| = x - 3, when x > 3]
+= 1
+LHL $\neq$ RHL
+
+Q7. Let x_1, x_2, x_3, x_4, x_5 be the observations with mean m and standard deviation s. The standard deviation of the observations kx_1, kx_2, kx_3, kx_4, kx_5 is
+    (A) k + s
+    (B) $\frac sk$
+    (C) s
+    (D) |k|s   <-- CORRECT
+    Answer: D
+    Explanation: Given observations are x_1, x_2, x_3, x_4, x_5
+So the mean of the 5 observations is
+m = $\frac{x_1 + x_2 + x_3 + x_4 + x_5}{5}=\frac{\sum \mathrm{x}_{\mathrm{i}}}{5}$
+$\Rightarrow \sum$x_i = x_1, x_2, x_3, x_4, x_5 = 5m ...(i)
+And the standard deviation of the 5 observations is
+s = $\sqrt{\frac{\sum x_{i}^{2}}{5}-\left(\frac{\sum x_{i}}{5}\right)^{2}}$
+Substituting equation (i) in above equation we get
+s = $\sqrt{\frac{\sum x_{i}^{2}}{5}-\left(\frac{5 m}{5}\right)^{2}}$
+s = $\sqrt{\frac{\sum x_{i}^{2}}{5}-m^{2}}$ ...(ii)
+Now we will find the mean and standard deviation of the observations kx_1, kx_2, kx_3, kx_4, kx_5, we get
+So the mean of these 5 observations is
+m_1 = $\frac{kx_1 + kx_2+ kx_3+ kx_4+ kx_5}{5}$
+m_1 = $\frac{\left(x_{1}+x_{2}+x_{3}+x_{4}+x_{5}\right) k}{5}$
+Substituting value from equation (i), we get
+m_1 = $\frac{5mk}{5}$
+m_1 = m + k …(iii)
+And the standard deviation of the 5 observations is
+$\sigma=\sqrt{\frac{\sum\left(\mathrm{x}_{\mathrm{i}}+\mathrm{k}\right)^{2}}{5}-\left(\mathrm{m}_{1}\right)^{2}}$
+$\sigma=\sqrt{\mathrm{k}^{2} \frac{\sum\left(\mathrm{x}_{\mathrm{i}}\right)^{2}}{5}-\left(\mathrm{m}_{1}\right)^{2}}$
+Substituting equation (iii) in above equation we get
+$\sigma=\sqrt{\mathrm{k}^{2} \frac{\sum\left(\mathrm{x}_{\mathrm{i}}\right)^{2}}{5}-(\mathrm{mk})^{2}}$
+$\sigma=\sqrt{\mathrm{k}^{2} \frac{\sum\left(\mathrm{x}_{\mathrm{i}}\right)^{2}}{5}-\mathrm{k}^{2} \mathrm{m}^{2}}$
+$\sigma=\sqrt{\mathrm{k}^{2}\left(\frac{\sum\left(\mathrm{x}_{\mathrm{i}}\right)^{2}}{5}-\mathrm{m}^{2}\right)}$
+Substituting the value from equation (ii), we get
+$\sigma=\sqrt{\mathrm{k}^{2}\left(\mathrm{s}^{2}\right)}$
+$\sigma$ = s
+Hence the standard deviation of new set of observations, i.e., kx_1, kx_2, kx_3, kx_4, kx_5 is |k|s
+
+Q8. If A = {x : x is a multiple of 3, x natural no., x < 30} and B = {x : x is a multiple of 5, x is natural no., x < 30} then A - B is
+    (A) {3, 6, 9, 12, 15, 18, 21, 24, 27, 30}
+    (B) {3, 6, 9, 12, 18, 21, 24, 27, 30}
+    (C) {3, 6, 9, 12, 18, 21, 24, 27}   <-- CORRECT
+    (D) {3, 5, 6, 9, 10, 12, 15, 18, 20, 21, 25, 27, 30}
+    Answer: C
+    Explanation: Since set B represent multiple of 5 so from Set A common multiple of 3 and 5 are excluded.
+
+Q9. Two functions f : R $\rightarrow$ R and g : R $\rightarrow$ R are defined as follows : $f\left( x \right) = \left\{ \begin{gathered} 0\left( {xRational} \right) \\ 1\left( {xIrrational} \right) \\ \end{gathered} \right\}$ ,g(x) = $\left\{\begin{array}{l}-1(x \text { Rational }) \\ 0(x \text { Irrational })\end{array}\right\}$ then (gof)(e) + (fog)( $\pi $) =
+    (A) -1   <-- CORRECT
+    (B) 0
+    (C) 1
+    (D) 2
+    Answer: A
+    Explanation: gof(e) + fog($\pi$) = g(f(e)) + f(g($\pi$))
+= g(1) + f(-1) {$\because$ e is irrational and $\pi$ is rational}
+= -1 + 0 = -1
+
+Q10. The number of solutions of x^2 + Ix - 1I = 1 is
+    (A) 0
+    (B) 2   <-- CORRECT
+    (C) 3
+    (D) 1
+    Answer: B
+    Explanation: x^2 + |x - 1| = x^2 + x - 1, x $\ge$ 1 = x^2 - x + 1, x < 1
+ x^2 + x - 1 = 1
+ $\Rightarrow$ x^2 + x - 2 = 0
+ $\Rightarrow$ x^2 + 2x - x - 2 = 0
+ $\Rightarrow$ x(x + 2) - 1(x + 2) = 0
+ $\Rightarrow$ x + 2 = 0 or, x - 1 = 0
+ $\Rightarrow$ x = -2 or x = 1
+ Since -2 does not satisfy the condition x $\ge$ 1
+ x^2 - x + 1 = 1
+ $\Rightarrow$ x^2 - x = 0
+ $\Rightarrow$ x^2 - x = 0
+ $\Rightarrow$ x(x - 1) = 0
+ $\Rightarrow$ x = 0 or, (x - 1) = 0
+ $\Rightarrow$ x = 0, x = 1
+ x = 1 does not satisfy the condition x < 1
+ So, there are two solutions.
+
+Q11. The third term of G.P. is 4. The product of its first 5 terms is
+    (A) 4^3
+    (B) 4^4
+    (C) 4^6
+    (D) 4^5   <-- CORRECT
+    Answer: D
+    Explanation: Suppose a and r the first term and common ratio, respectively.
+Given that the third term is 4.
+$\therefore$ ar^2 = 4
+Product of first 5 terms = a.ar.ar^2.ar^3.ar^4. = a^5r^10 = (ar^2)^5 = 4^5
+
+Q12. If f (x) = $\sqrt {1 - {x^2}} $, x $\in$ (0, 1), then f'(x), is equal to
+    (A) $\frac{-x}{\sqrt{1-x^2}}$   <-- CORRECT
+    (B) $\sqrt {1 - {x^2}} $
+    (C) $\sqrt {{x^2} - 1} $
+    (D) $\frac{1}{\sqrt{1-x^2}}$
+    Answer: A
+    Explanation: f(x) = $\sqrt {1 - {x^2}} $
+f'(x) = $\frac{1}{2 \sqrt{1-x^2}}-2x$ = $\frac{-x}{\sqrt{1-x^2}}$
+
+Q13. Variance of the data 2, 4, 5, 6, 8, 17 is 23.33. Then variance of 4, 8, 10, 12, 16, 34 will be
+    (A) 93.32   <-- CORRECT
+    (B) 23.23
+    (C) 48.66
+    (D) 25.33
+    Answer: A
+    Explanation: When each observation is multiplied by 2, then variance is multiplied by 2^2 i.e 4.
+=4 $\times$ 23.33 = 93.32
+
+Q14. If the roots of x^2 - bx + c = 0 are two consecutive integers, then b^2 - 4c is
+    (A) 2
+    (B) 3
+    (C) 1   <-- CORRECT
+    (D) 0
+    Answer: C
+    Explanation: Given equation:
+x^2 - bx + c = 0
+Let $\alpha$ and $\alpha + 1$ be the two consective roots of the equation.
+Sum of the roots = $\alpha+\alpha+1$ = $2 \alpha+1$ 
+Product of the roots = $\alpha(\alpha+1)$ = $\alpha(\alpha+1)$ 
+So, sum of the roots = $2 \alpha+1$ = $\frac{-\text { Coeffecient of } x}{\text { Coeffecient of } x^{2}}$ = $\frac{b}{1}$ = b
+Product of the roots = $\alpha^{2}+\alpha$ = $\frac{\text { Constant term }}{\text { Coeffecient of } x^{2}}$ = $\frac{c}{1}$ = c
+Now, b^2 - 4c = $(2 \alpha+1)^{2}-4\left(\alpha^{2}+\alpha\right)$ = $4 \alpha^{2}+4 \alpha+1-4 \alpha^{2}-4 \alpha$ = 1
+
+Q15. How many terms of the GP $\frac{2}{9}-\frac{1}{3}+\frac{1}{2}$... must be taken to make the sum $\frac{55}{72}$?
+    (A) 7
+    (B) 5   <-- CORRECT
+    (C) 6
+    (D) 8
+    Answer: B
+    Explanation: Let the required number of terms be
+Here, we have $a=\frac{2}{9}$, $r=\frac{-1}{3} \times \frac{9}{2}=\frac{-3}{2}<1$ and $S_{n}=\frac{55}{72}$.
+$s_{n}=\frac{a\left(1-r^{n}\right)}{(1-r)} \Rightarrow \frac{\frac{2}{9}\left\{1-\left(\frac{-3}{2}\right)^{n}\right\}}{\left(1+\frac{3}{2}\right)}=\frac{55}{72}$
+$\Rightarrow\left(\frac{2}{9} \times \frac{2}{5}\right)\left\{1-\left(\frac{-3}{2}\right)^{n}\right\}=\frac{55}{72}$
+$\Rightarrow 1-\left(\frac{-3}{2}\right)^{n}=\frac{55}{72} \times \frac{45}{4}=\frac{275}{32}$
+$\Rightarrow\left(\frac{-3}{2}\right)^{n}=\left(1-\frac{275}{32}\right)=\frac{(32-275)}{32}=\frac{-243}{32}=\left(\frac{-3}{2}\right)^{5}$
+$\therefore$ n = 5
+$\therefore$ the required number of terms = 5.
+
+Q16. If sets A and B are defined as A = $\left\{(x, y) | y=\frac{1}{x}, 0 \neq x \in \mathbf{R}\right\}$, B = {(x, y) | y = -x, x $\in$ R}, then
+    (A) A $\cap$ B = B
+    (B) A $\cap$ B = $\phi$   <-- CORRECT
+    (C) A $\cap$ B = A
+    (D) A $\cup$ B = A
+    Answer: B
+    Explanation: We have,A = $\left\{(x, y) | y=\frac{1}{x}, 0 \neq x \in \mathbf{R}\right\}$ and B = {(x, y) | y = -x, x $\in$ R}
+For any element of A $\cap$ B, A and B will have same value of y
+$\Rightarrow$ -x^2 = 1
+$\Rightarrow$ x^2 = -1
+Square of any value cannot be negative
+Thus, there is no value of x for which A and B will have same value of y
+$\Rightarrow$ A $\cap$ B = $\phi$
+
+Q17. If f (x) = $\begin{array}{l}\{\;2x\;-3,\;x\geq2\\\;\;x,\;x<2\end{array}$ then f (1) is equal to
+    (A) - f (2)   <-- CORRECT
+    (B) $f(1)$
+    (C) 2 f (2)
+    (D) $\frac{1}{2}f(2)$
+    Answer: A
+    Explanation: We have f(1) = 1(as 1 < 2)
+f(2) = 2.2 - 3 = 1
+$\therefore$ f(1) = f(2)
+
+Q18. If $\sqrt{a+i b}$ = x + iy, then possible value of $\sqrt{a-i b}$ is
+    (A) x^2 + y^2
+    (B) x + i y
+    (C) $\sqrt{x^{2}+y^{2}}$
+    (D) x - i y   <-- CORRECT
+    Answer: D
+    Explanation: x - i y
+$\sqrt{a+i b}$ = x + iy
+Squaring on both the sides, we get,
+a + ib = x^2 + (iy)^2 + 2ixy
+$\Rightarrow$ a + ib = (x^2 - y^2) + 2ixy
+$\therefore$ a = (x^2 - y^2)
+and b = 2xy
+$\therefore$ a - ib (x^2 - y^2) - 2ixy
+$\Rightarrow$ a - ib = x^2 + i^2y^2 - 2ixy [$\because$ i^2 = -1]
+Taking square root on both the sides, we get:
+$\sqrt{a-i b}$ = x - iy
+
+Q19. If $\frac{(3+5+7+\ldots \text { to } n \text { terms })}{(5+8+11+\ldots \text { to } 10\text { terms) } }=7$ then n = ?
+    (A) 32
+    (B) 35   <-- CORRECT
+    (C) 30
+    (D) 34
+    Answer: B
+    Explanation: Given that, $\frac{(3+5+7+\ldots\text { ton terms) } }{(5+8+11+\ldots \text { to } 10\text { terms) } }=7$
+$\Rightarrow \frac{\frac{n}{2} \cdot[6+(n-1) \times 2]}{\frac{10}{2} \cdot[10+9 \times 3]}=7 \Rightarrow n(n+2)$ = 1295
+$\Rightarrow n^{2}+2 n-1295=0$ 
+$\Rightarrow$ n^2 + 37n - 35n - 1295 = 0
+$\Rightarrow$ n(n + 37) - 35(n + 37) = 0 
+$\Rightarrow$ (n + 37)(n - 35) = 0
+$\Rightarrow$ n = 35 [n cannot take negative values]
+
+Q20. If in an A.P., S_n = qn^2 and S_m = qm^2, where S_r denotes the sum of r terms of the A.P., then S_q equals to:
+    (A) (m + n)q^2
+    (B) $\frac {q^3}{ 2}$
+    (C) q^3   <-- CORRECT
+    (D) mnq
+    Answer: C
+    Explanation: The given series is A.P whose first term is ‘a’ and common difference is ‘d’.
+We know that,
+S_n = $\frac{{n}}{2}$[2a + (n - 1)d]
+$\Rightarrow$ qn^2 = $\frac{{n}}{2}$[2a + (n - 1)d] [$\because$ S_n = qn^2]
+$\Rightarrow$ 2qn = 2a + (n – 1)d
+$\Rightarrow$ 2qn – (n – 1)d = 2a …(i)
+and S_m = $\frac{{m}}{2}$[2a + (m - 1)d]
+$\Rightarrow$ qm = $\frac{{m}}{2}${2}[2a + (m - 1)d] [$\because$ S_m = qm^2]
+$\Rightarrow$ 2qm = 2a + (m - 1) d
+$\Rightarrow$ 2qm – (m – 1)d = 2a …(ii)
+Solving eq. (i) and (ii), we get
+2qn – (n – 1)d = 2qm – (m – 1)d
+$\Rightarrow$ 2qn – 2qm = (n – 1)d – (m – 1)d
+$\Rightarrow$ 2q(n – m) = d[n – 1 – (m – 1)]
+$\Rightarrow$ 2q(n – m) = d[n – 1 – m + 1]
+$\Rightarrow$ 2q(n – m) = d(n – m)
+$\Rightarrow$ 2q = d
+Putting the value of d in eq. (i), we obtain
+2qn - (n – 1)(2q) = 2a
+$\Rightarrow$ 2qn – 2qn + 2q = 2a
+$\Rightarrow$ 2q = 2a
+$\Rightarrow$ q = a
+$\therefore$ a = q and d = 2q. So,
+S_q = $\frac{{q}}{2}$[2a + (q - 1)d]
+$\Rightarrow$ S_q = $\frac{{q}}{2}$[2q + (q - 1)2q]
+$\Rightarrow$ S_q = $\frac{2q^{2}}{2}+\frac{2q^{2}(q-1)}{2}$
+$\Rightarrow$ S_q = q^2 + q^2(q – 1)
+$\Rightarrow$ S_q = q^2 + q^3 – q^2
+$\Rightarrow$ S_q = q^3
+Therefore, the correct option is q^3.
+
+------------------------------------------------------------
+Section C
+------------------------------------------------------------
+Q1. If A = {1, 2, 3, 4 }, B = {4, 5, 6, 7}, A $\cap$ B =
+    (A) {6, 7}
+    (B) {1, 2, 3, 4}
+    (C) {1, 2}
+    (D) {4}   <-- CORRECT
+    Answer: D
+    Explanation: Given A = {1, 2, 3, 4} and B = {4, 5, 6, 7}
+(a $\cap$ B) = {4}
+
+Q2. If f (x) = tan x, $-\frac{\pi}{2}<x<\frac{\pi}{2}$ and g (x) = $\sqrt {1 - {x^2}} $ , then domain of fog is
+    (A) [- 1, 1]   <-- CORRECT
+    (B) $\left[-\frac{\pi}{4}, \frac{\pi}{4}\right]$
+    (C) (- 1, 1)
+    (D) $\left(-\frac{\pi}{2}, \frac{\pi}{2}\right)$
+    Answer: A
+    Explanation: fog(x) = f(g(x)) = $f(\sqrt{1-x^{2}})$
+$\Rightarrow$ fog(x) = tan $\sqrt{1-x^{2}}$
+and it is defined if
+1 - x^2 $\geq$ 0
+$\Rightarrow$ x^2 $\leq$ 1
+$\Rightarrow$ -1 $\leq$ x $\leq$ 1
+
+Q3. Square roots of i are
+    (A) $\pm \frac{1}{\sqrt{2}}(1-i)$
+    (B) -1
+    (C) $\pm \frac{1}{\sqrt{2}}(1+i)$   <-- CORRECT
+    (D) $ \pm 1$
+    Answer: C
+    Explanation: Let $\sqrt { i }$ = x + iy
+Squaring both sides, we get
+i = (x + iy)^2 = x^2 - y^2 + 2xyi 
+Subtracting (i) from (iii), we get
+2y^2 = 1 $\Rightarrow$ y^2 = $\frac{1}{2}$ $\Rightarrow$ y = $\pm \frac{1}{\sqrt{2}}$ 
+Comparing real and imaginary parts, we get x^2 - y^2 = 0 ....(i) and 2xy = 1
+We have (x^2 - y^2)^2 = (x^2 + y^2)^2 - 4x^2y^2 
+$\Rightarrow$ 0 = (x^2 + y^2)^2 - (2xy)^2 = (x^2 + y^2)^2 - 1
+$\Rightarrow$ (x^2 + y^2)^2 = 1
+$\Rightarrow$ x^2 + y^2 = 1 .....(iii)
+Adding (i) and (iii) we get 
+2x^2 = 1 $\Rightarrow$ x^2 = $\frac{1}{2}$ $\Rightarrow$ x = $\pm \frac{1}{\sqrt{2}}$ 
+Hence $\sqrt { i }$ = x + iy = $\pm \frac{1}{\sqrt{2}}(1+i)$
+
+Q4. If a, b, c are in A.P. and x, y, z are in G.P., then the value of x^b-c y^c-a z^a-b is
+    (A) 0
+    (B) 1   <-- CORRECT
+    (C) x^ay^bz^c
+    (D) xyz
+    Answer: B
+    Explanation: a, b and c are in A.P.
+$\therefore$ 2b = a + c .... (i)
+And, x, y and z are in G.P.
+$\therefore$ y^2 = xz
+Now, we can write as ,
+x^b-cy^c-az^a-c
+= x^b+a-2b y^2ab-a-a z^a-b [From (i)]
+= x^a-b y^2(b-a) z^a-b
+= (xz)^a-b(xz)^b-a [From (ii), y^2 = xz]
+= (xz)^0
+= 1
+
+Q5. The measure of variation which is least affected by extreme items is
+    (A) quartile deviation   <-- CORRECT
+    (B) standard deviation
+    (C) range
+    (D) mean deviation
+    Answer: A
+    Explanation: As it only depends on upper and lower quartile not on extreme values.
+
+Q6. Instructions for Question 46 to 50:
+In a colony, as shown in the following picture, an electric pole has been installed. The pole has been tied by strong wire PQ to support this pole, some electricians were working on the staircase PS.
+In the left and right side of the pole, two street lights are fixed at a height of 3m and 4m respectively. These lights are given supply by wires PM and PN. The height OP=5 m and O is the origin.
+What are the coordinates of point P?
+    (A) (0, -5)
+    (B) (5, 0)
+    (C) (0, 5)   <-- CORRECT
+    (D) (0, 10)
+    Answer: C
+    Explanation: (0, 5)
+
+Q7. Instructions for Question 46 to 50:
+In a colony, as shown in the following picture, an electric pole has been installed. The pole has been tied by strong wire PQ to support this pole, some electricians were working on the staircase PS.
+In the left and right side of the pole, two street lights are fixed at a height of 3m and 4m respectively. These lights are given supply by wires PM and PN. The height OP=5 m and O is the origin.
+What is the length of the staircase?
+    (A) 12 m
+    (B) 15 m
+    (C) 13m   <-- CORRECT
+    (D) 20 m
+    Answer: C
+    Explanation: 13 m
+
+Q8. Instructions for Question 46 to 50:
+In a colony, as shown in the following picture, an electric pole has been installed. The pole has been tied by strong wire PQ to support this pole, some electricians were working on the staircase PS.
+In the left and right side of the pole, two street lights are fixed at a height of 3m and 4m respectively. These lights are given supply by wires PM and PN. The height OP=5 m and O is the origin.
+What is the area of the $\triangle$OPQ?
+    (A) 20 m^2   <-- CORRECT
+    (B) 12 m^2
+    (C) 15 m^2
+    (D) 13 m^2
+    Answer: A
+    Explanation: 20 m^2
+
+Q9. Instructions for Question 46 to 50:
+In a colony, as shown in the following picture, an electric pole has been installed. The pole has been tied by strong wire PQ to support this pole, some electricians were working on the staircase PS.
+In the left and right side of the pole, two street lights are fixed at a height of 3m and 4m respectively. These lights are given supply by wires PM and PN. The height OP=5 m and O is the origin.
+What is the equation of line PN?
+    (A) x + 5y = 50
+    (B) x + 15y = -75
+    (C) x - 5y = 20
+    (D) 15x - 2y + 6 = 0   <-- CORRECT
+    Answer: D
+    Explanation: 15x - 2y + 6 = 0
+
+Q10. Instructions for Question 46 to 50:
+In a colony, as shown in the following picture, an electric pole has been installed. The pole has been tied by strong wire PQ to support this pole, some electricians were working on the staircase PS.
+In the left and right side of the pole, two street lights are fixed at a height of 3m and 4m respectively. These lights are given supply by wires PM and PN. The height OP=5 m and O is the origin.
+What is the length of wire PM?
+    (A) 25 m
+    (B) 26 m
+    (C) $\sqrt {26}$ m
+    (D) $\sqrt {101}$   <-- CORRECT
+    Answer: D
+    Explanation: $\sqrt {101}$

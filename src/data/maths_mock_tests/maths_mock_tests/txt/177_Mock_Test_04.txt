@@ -1,0 +1,687 @@
+======================================================================
+Mock Test - 04  (id 177)
+CBSE > Class 11 > Mathematics
+Duration: 90 min | Questions: 50
+======================================================================
+
+INSTRUCTIONS:
+This question paper contains three sections - A, B and C. Each part is compulsory.
+ Section - A has 20 MCQs, attempt any 16 out of 20.
+ Section - B has 20 MCQs, attempt any 16 out of 20
+ Section - C has 10 MCQs, attempt any 8 out of 10.
+ There is no negative marking.
+ All questions carry equal marks.
+
+------------------------------------------------------------
+Section A
+------------------------------------------------------------
+Q1. In a town of 840 persons, 450 persons read Hindi, 300 read English and 200 read both. Then the number of persons who read neither is
+    (A) 180
+    (B) 210
+    (C) 260
+    (D) 290   <-- CORRECT
+    Answer: D
+    Explanation: We have,total number of persons are 840
+Persons who read Hindi and English are 450 and 300 respectively
+Persons who read both are 200
+Now to find: number of persons who read neither
+Suppose U be the total number of persons, H and E be the number of persons who read Hindi and English respectively
+n(U) = 840, n(H) = 450, n(E) = 300, n(H ∩ E) = 200
+Number of persons who read either of them
+n(H ∪ E)= n(H) + n(E) – n(H ∩ E)
+= 450 + 300 – 200 = 550
+Number of persons who read neither,we have
+= Total – n(H ∪ E)
+= 840 – 550 = 290
+Therefore, there are 290 persons who read neither Hindi nor English.
+
+Q2. If f(x) = $\frac{2^{x}+2^{-x}}{2}$ Then f(x + y) f (x - y) is equals to
+    (A) $\frac{1}{4}\{f(2 x)+f(2 y)\}$
+    (B) $\frac{1}{2}\{f(2 x)-f(2 y)\}$
+    (C) $\frac{1}{4}\{f(2 x)-f(2 y)\}$
+    (D) 1/2 {f (2x) + f(2y)}   <-- CORRECT
+    Answer: D
+    Explanation: $f(x+y) f(x-y)=\left(\frac{2^{x+y}+2^{-(x+y)}}{2}\right)\left(\frac{2^{x-y}+2^{-(x-y)}}{2}\right)$
+$=\left(\frac{2^{x+y}+\frac{1}{2^{ x+y}}}{2}\right)\left(\frac{2^{x-y}+\frac{1}{2 ^{x-y}}}{2}\right)$
+$=\left(\frac{2^{2(x+y)}+1}{2 \cdot 2^{(x+y)}}\right)\left(\frac{2^{2(x-y)}+1}{2 \cdot 2^{(x-y)}}\right)$
+$=\left(\frac{2^{2(x+y)} 2^{2(x-y)}+2^{2(x+y)}+2^{2(x-y)}+1}{4 \cdot 2^{(x+y)} 2^{(x-y)}}\right)$
+$=\left(\frac{2^{4 x}+2^{2(x+y)}+2^{2(x-y)}+1}{4 \cdot 2^{2 x}}\right)$
+$=\left(\frac{2^{2 x}+2^{2 y}+2^{-2 y}+2^{-2 x}}{4}\right)$
+$=\frac{1}{2}\left(\frac{2^{2 x}+2^{-2 x}}{2}+\frac{2^{2 y}+2^{-2 y}}{2}\right)$
+$=\frac{1}{2}\{f(2 x)+f(2 y)\}$
+
+Q3. $\left\{\frac{1}{(1-2 i)}+\frac{3}{(1+i)}\right\}\left(\frac{3+4 i}{2-4 i}\right)$ = ?
+    (A) $\left(\frac{3}{4}-\frac{5}{4} i\right)$
+    (B) $\left(\frac{3}{4}+\frac{9}{4} i\right)$
+    (C) $\left(\frac{1}{4}+\frac{9}{4} i\right)$   <-- CORRECT
+    (D) $\left(\frac{1}{2}+\frac{3}{2} i\right)$
+    Answer: C
+    Explanation: $\frac{1}{(1-2 i)}$ = $\frac{1}{(1-2 i)} \times \frac{(1+2 i)}{(1+2 i)}$ = $\left(\frac{1}{5}+\frac{3}{5} i\right)$
+$\frac{3}{(1+i)}$ = $\frac{3}{(1+i)} \times \frac{(1-i)}{(1-i)}$ = $\frac{(3-3 i)}{\left(1-i^{2}\right)}$ = $\left(\frac{3}{2}-\frac{3}{2} i\right)$
+$\frac{(3+4 i)}{(2-4 i)}$ = $\frac{(3+4 i)}{(2-4 i)} \times \frac{(2+4 i)}{(2+4 i)}$ = $\frac{-10+20 i}{\left(4-16 i^{2}\right)}$ = $\left(\frac{-10}{20}+\frac{20}{20} i\right)$ = $\left(\frac{-1}{2}+i\right)$
+$\therefore$ given expression = $\left\{\left(\frac{1}{5}+\frac{3}{2}\right)+\left(\frac{2}{5}-\frac{3}{2} i\right)\right\}\left(\frac{-1}{2}+i\right)$ = $\left(\frac{17}{10}-\frac{11 i}{10}\right)\left(\frac{-1}{2}+i\right)$
+$\left(\frac{-17}{20}+\frac{11}{10}\right)+\left(\frac{17}{10}+\frac{11}{20}\right) i$ = $\left(\frac{5}{20}+\frac{45}{20} i\right)$ = $\left(\frac{1}{4}+\frac{9}{4} i\right)$
+
+Q4. Three vertices of a parallelogram taken in order are (-1, -6), (2, -5) and (7, 2). The fourth vertex is
+    (A) (1, 4)
+    (B) (4, 1)   <-- CORRECT
+    (C) (4, 4)
+    (D) (1, 1)
+    Answer: B
+    Explanation: Let A(-1, -6), B(2, -5) and C(7, 2) be the given vertex. Let D(h, k) be the fourth vertex
+The midpoints of AC and BD are (3, -2) and $\left(\frac{2+h}{2}, \frac{-5+k}{2}\right)$ respectively.
+We know that the diagonals of a parallelogram bisect each other , using this result we get ,
+$\therefore 3=\frac{2+h}{2}$ and $-2=\frac{-5+k}{2}$
+$\Rightarrow$ h = 4 and k = 1
+
+Q5. If the line $\frac{x}{a}+\frac{y}{b}=1$ passes through the points (2, –3) and (4, –5), then (a, b) is
+    (A) (1, – 1)
+    (B) (– 1, 1)
+    (C) (1, 1)
+    (D) (– 1, –1)   <-- CORRECT
+    Answer: D
+    Explanation: Given points are (2, -3) and (4, -5)
+Firstly, we find the equation of line.
+We know that,
+Equation of line when two points are given:
+$\mathbf{y}-\mathbf{y}_{1}=\frac{\mathbf{y}_{2}-\mathbf{y}_{1}}{\mathbf{x}_{2}-\mathbf{x}_{1}}\left(\mathbf{x}-\mathbf{x}_{1}\right)$
+Substituting given points then, we get
+$y-(-3)=\frac{-5-(-3)}{4-2}(x-2)$
+$\Rightarrow \mathrm{y}+3=\frac{-5+3}{2}(\mathrm{x}-2)$
+$\Rightarrow y+3=\frac{-2}{2}(x-2)$
+$\Rightarrow$y + 3 = - 1 (x – 2)
+$\Rightarrow$ y + 3 = - x + 2
+$\Rightarrow$ x + y = 2 – 3
+$\Rightarrow$ x + y = - 1
+$\Rightarrow \frac{\mathrm{x}}{-1}+\frac{\mathrm{y}}{-1}=1$ (Intercept form)
+Comparing the above equation with the given equation $\frac{x}{a}+\frac{y}{b}=1$, therefore,we get the value of a and b
+a = -1 and b = -1
+
+Q6. $\lim \limits_{x \rightarrow \pi / 4} \frac{4 \sqrt{2}-(\cos x+\sin x)^{5}}{1-\sin 2 x}$ is equal to
+    (A) $5 \sqrt{2}$   <-- CORRECT
+    (B) 4$\sqrt{2}$
+    (C) $3 \sqrt{2}$
+    (D) $\sqrt{2}$
+    Answer: A
+    Explanation: $\lim \limits_{x \rightarrow \frac{\pi}{4}} \frac{4 \sqrt{2}-(\cos x+\sin x)^{5}}{1-\sin 2 x}$
+$=\lim \limits_{x \rightarrow \frac{\pi}{4}} \frac{2^{\frac{5}{2}}-\left((\cos x+\sin x)^{2}\right)^{\frac{5}{2}}}{2-(1+\sin 2 x)}$
+$=\lim \limits_{x \rightarrow \frac{\pi}{4}} \frac{2^{\frac{5}{2}}-\left((\cos x+\sin x)^{2}\right)^{\frac{5}{2}}}{2-(\cos x+\sin x)^{2}}$
+Let t= (cos x + sin x)^2
+$x \rightarrow \frac {\pi}{4}$
+$\therefore t=\left(\cos \frac{\pi}{4}+\sin \frac{\pi}{4}\right)^{2} \rightarrow(\sqrt{2})^{2}=2$
+$ \lim \limits_{x \rightarrow \frac{\pi}{4}} \frac{4 \sqrt{2}-(\cos x+\sin x)^{5}}{1-\sin 2 x} =\lim \limits_{t \rightarrow 2} \frac{2^{\frac{5}{2}}-(t)^{\frac{5}{2}}}{2-(t)}$
+$=\frac{5}{2}(2)^{\frac{3}{2}}\left[\because \lim _{x \rightarrow a} \frac{x^{n}-a^{n}}{x-a}=n a^{n-1}\right]$
+$= 5 \sqrt 2$
+
+Q7. Following are the marks obtained by 9 students in a mathematics test:
+50, 69, 20, 33, 53, 39, 40, 65, 59
+The mean deviation from the median is:
+    (A) 14.76
+    (B) 10.5
+    (C) 9
+    (D) 12.67   <-- CORRECT
+    Answer: D
+    Explanation: Given the marks obtained by 9 students in a mathematics test are 50, 69, 20, 33, 53, 39, 40, 65, 59
+As number of students = 9, which is odd.
+So median will be $\frac{9+1}{2}$ = 5^th term.
+Arranging these in ascending order, we get
+20, 33, 39, 40, 50, 53, 59, 65, 69
+So the 5^th term after arranging is 50,
+So median is 50.
+This can be written in table form as,
+ Marks (x_i)
+ d_i = |x_i = median|
+ 20
+ = |20 - 50| = 30
+ 33
+ = |33 - 50| = 17
+ 39
+ = |39 - 50| = 11
+ 40
+ = |40 - 50| = 10
+ 50
+ = |50 - 50| = 0
+ 53
+ = |53 - 50| = 3
+ 59
+ = |59 - 50| = 9
+ 65
+ = |65 - 50| = 15
+ 69
+ = |69 - 50| = 19
+ Total
+ $\sum d_{i}$ = 114
+Hence Mean Deviation becomes,
+M.D = $\frac{\sum {d}_{{i}}}{{n}}=\frac{114}{5}$ = 12.67
+Therefore, the mean deviation about the median of the marks of 9 subjects is 12.67
+
+Q8. if A = {x : x is a multiple of 3} and B = {x : x is a multiple of 5}, then A - B is
+    (A) $\bar{A} \cap \bar{B}$
+    (B) $\overline{A \cap B}$
+    (C) $A \cap \bar{B}$   <-- CORRECT
+    (D) A $\mathop \cap \nolimits $ B
+    Answer: C
+    Explanation: A = {x : x is a multiple of 3}
+A = {3, 6, 9, 12, 15, 18, 21, 24, 27, 30, 33, 36, 39, 42, 45, 48,...}
+B = {x : x is a multiple of 5}
+B = {5, 10, 15, 20, 25, 30, 35, 40, 45, 50,...}
+Now we have:
+A - B = {3, 6, 9, 12, 18, 21, 24, 27, 33, 36, 39, 42, 48, ...}
+= A - ( A $\mathop \cap \nolimits $ B)
+=$A \cap \bar{B}$
+
+Q9. Let, f : R $\rightarrow $ R be defined by f(x) = 2 x + |x| Then f (2x) + f (-x) - f (x) =
+    (A) 2 x
+    (B) -2 x
+    (C) 2 |x|   <-- CORRECT
+    (D) -2 |x|
+    Answer: C
+    Explanation: f(2x) = 2(2x) + |2x| = 4x + 2|x|
+f(-x) = 2(-x) + |-x|
+f(2x) + f(-x) - f(x) = 4x + 2|x| - 2x + |-x| - (2x + |x|)
+= 4x + 2|x| - 2x + |x| - 2x - |x| = 2|x|
+
+Q10. The value of $\frac{i^{592}+i^{590}+i^{588}+i^{586}+i^{584}}{i^{582}+i^{580}+i^{578}+i^{576}+i^{574}}-1$ is
+    (A) -4
+    (B) -2   <-- CORRECT
+    (C) -1
+    (D) -3
+    Answer: B
+    Explanation: -2
+$\frac{i^{502}+i^{590}+i^{588}+i^{586}+i^{584}}{i^{582}+i^{580}+i^{578}+i^{576}+i^{574}}-1$
+$=\frac {i^{4 \times 148}+i^{4 \times 147+2}+i^{4 \times 147}+i^{4 \times 146+2}+i^{4 \times 146}} {i^{4 \times 145+2}+i^{4 \times 145}+i^{4 \times 144+2}+i^{4 \times 144}+i^{4 \times 143+2}}-1$ [$\because$ i^4 = 1 and i^2 =-1]
+$=\frac{1+i^{2}+1+i^{2}+1}{i^{2}+1+i^{2}+1+i^{2}}-1$
+$=\frac{1}{-1}-1$
+= -2
+
+Q11. The number of lines that are parallel to 2x + 6y – 7 = 0 and have an intercept 10 units between the coordinate axis is :
+    (A) 4
+    (B) 2   <-- CORRECT
+    (C) 1
+    (D) 3
+    Answer: B
+    Explanation: The slope of the given line 2x + 6y = 7 is $\frac{-1}{3}$
+Hence the line which is parallel to the above line is 
+y = ($\frac{-1}{3}$)x + c
+That is the y-intercept is (0, c) and the x-intercept is (3c, 0)
+Using the distance formula
+d^2 = (0 - 3c)^2 + (3c - 0)^2
+= 10c^2
+Since the distance is given as 10, then
+100 = 10c^2
+Therefore c = $ \pm$10
+Since two values are possible, two lines can be drawn.
+
+Q12. Area of a triangle is 5 sq. units. Its two vertices are (2, 1) and (3, - 2). Third vertex is on the line y = x + 3. The coordinates of that vertex are
+    (A) ($\frac{7}{2}$, $\frac{13}{2}$)   <-- CORRECT
+    (B) ($\frac{8}{3}$, $\frac{5}{3}$)
+    (C) (8, 14)
+    (D) ($\frac{8}{5}$, $\frac{6}{5}$)
+    Answer: A
+    Explanation: Area of a triangle whose vertices are (x_1, y_1), (x_2, y_2) and (x_3, y_3) is
+$1\over 2$[x_1(y_2 - y_3) + x_2(y_3 - y_1) + x_3(y_1 - y_2)
+The given veritces are (x, y), (2, 1), (3, -2) and area is 5 sq units
+Substituting the values we get
+5 = $1\over 2$[(x(1 + 2) + 2(-2 - y) + 3(y - 1)]
+That is 10 = 3x + y - 7
+or 3x + y = 17
+The third vertex passes lies on the line y = x + 3
+On solving the equations we get,
+x = $\frac{7}{2}$ and y = $\frac{13}{2}$
+Hence, the third vertex is ($\frac{7}{2}$, $\frac{13}{2}$)
+
+Q13. $\lim \limits_{x \rightarrow \infty} \frac{\sqrt{x^{2}-1}}{2 x+1}$ is equal to:
+    (A) -1
+    (B) 0
+    (C) 1
+    (D) $\frac {1}{2}$   <-- CORRECT
+    Answer: D
+    Explanation: $\lim \limits_{x \rightarrow \infty} \frac{\sqrt{x^{2}-1}}{2 x+1}$
+= $\lim \limits_{x \rightarrow \infty} \frac{\sqrt{1-\frac{1}{x^{2}}}}{2+\frac{1}{x}}$
+Dividing the numerator and the denominator by x, we get;
+= $\frac{\sqrt{1-0}}{2+0}$
+= $\frac{1}{2}$
+
+Q14. The following information relates to a sample of size 60: $\sum$x^2 = 18000, $\sum$x = 960. The variance is
+    (A) 16
+    (B) 22
+    (C) 6.63
+    (D) 44   <-- CORRECT
+    Answer: D
+    Explanation: Now we know standard deviation can be written as,
+$\sigma=\sqrt{\frac{\sum x_{i}^{2}}{N}-\left(\frac{\sum x_{i}}{N}\right)^{2}}$
+But given $\sum$x^2=18000, $\sum$x = 960, N = 60, substituting these corresponding values, we get
+$\sigma=\sqrt{\frac{18000}{60}-\left(\frac{960}{60}\right)^{2}}$
+$\sigma=\sqrt{300-(16)^{2}}$
+$\sigma=\sqrt{300-256}$
+$\sigma=\sqrt{44}$
+Now for variance we will square on both sides, we get
+$\sigma ^2$ = 44
+Hence the required variance is 44
+
+Q15. If A and B are two sets, then A $\cup$ (A $\cap$ B) is equal to
+    (A) A   <-- CORRECT
+    (B) B
+    (C) A'
+    (D) B'
+    Answer: A
+    Explanation: Let A = {1, 2, 3, 4} and B = {1, 2, 3, 4, 5, 6}
+Here A $\cap$ B = {1, 2, 3, 4}
+Now A $\cup$ (A $\cap$ B) = {1, 2, 3, 4} = A
+
+Q16. Let f : R $ \to $ R be defined by f(x) = 3x – 4, then f^-1(x) is equal to
+    (A) $\frac{x + 4}{3}$   <-- CORRECT
+    (B) 3x - 4
+    (C) $\frac{x}{3} - 4$
+    (D) 3x + 4
+    Answer: A
+    Explanation: Let y = f(x) = 3x - 4, then
+y = 3x - 4
+$\Rightarrow$ x = $\frac{y+4}{3}$ 
+$\Rightarrow$ f^-1(y) = $\frac{y+4}{3}$ 
+$\Rightarrow$ f^-1 (x) = $\frac{x+4}{3}$
+
+Q17. If $\omega $ is a cube root of unity, then the linear factors of x^3 + y^3 in complex numbers are
+    (A) (x + y)(x + y$\omega$)(x + y$\omega^2$)   <-- CORRECT
+    (B) (x + y)(x - y$\omega$)(x - y$\omega^2$)
+    (C) (x + y)(x + y$\omega$)(x - y$\omega^2$)
+    (D) (x - y) (x + y$\omega$) (x + y$\omega^2$)
+    Answer: A
+    Explanation: We have x^3 + y^3 = (x + y)(x^2 - xy + y^2)
+Now consider x^2 - yx + y^2 = 0 which is a quadratic equation in x with a = 1, b = -y and c = y^2
+Hence the roots are 
+x = $\frac{-(-y) \pm \sqrt{(-y)^{2}-4 \cdot 1 \cdot y^{2}}}{2 \cdot 1}$ = $\frac{y \pm \sqrt{-3 y^{2}}}{2}$ = $\frac{y \pm i y \sqrt{3}}{2}$ = $\frac{y(1 \pm i \sqrt{3})}{2}$ 
+$\Rightarrow$ x = y$\omega$ or y$\omega^2$ 
+Hence, x^3 + y^3 = (x + y)(x^2 - xy + y^2) = (x + y)(x + y$\omega$)(x + y$\omega^2$)
+
+Q18. Two points (a, 0) and (0, b) are joined by a straight line. Another point on this line is
+    (A) (3a, - 2b)   <-- CORRECT
+    (B) (a, -2b)
+    (C) (-3a, 2b)
+    (D) (-a, 2b)
+    Answer: A
+    Explanation: The slope of the line joining the points (a, 0) and (0, b) is [$\frac{[b-0]}{[0-a]}$ = -($\frac{b}{a}$)
+Hence the equation of the line is y = (-$\frac{b}{a}$)x + b
+i.e; ay = -bx + ab
+Substituting the x coordinate 3a in the place of x in the above equation we get y = -2b
+Hence (3a, -2b) is another point on the line.
+
+Q19. The image of the point ($\alpha {\rm{ }},{\rm{ }}\beta $) with respect to the line x + y = 0 is
+    (A) (- $\beta {\rm{ }},{\rm{ }} - {\rm{ }}\alpha $)
+    (B) ($\alpha {\rm{ }},{\rm{ }}\beta $)
+    (C) (- $\beta {\rm{ }},{\rm{ }}\alpha $)   <-- CORRECT
+    (D) ($\beta {\rm{ }},{\rm{ }}\alpha $)
+    Answer: C
+    Explanation: The equation of the line which is perpendicular to the given line x + y = 0 is x - y = 0
+The point of intersection of these two lines is (0, 0) which is the origin
+This point of intersection is the midpoint of the given point ($\alpha,\beta$) and its image, say (a, b)
+Therefore $\alpha +a\over 2$ 
+This implies a = $-\alpha$ 
+Similarly $\beta+b\over 2$ = 0
+This implies b = $-\beta$ 
+Therefore $(-\alpha, -\beta)$ is the image.
+
+Q20. Derivative of tan $\sqrt {{x^2} + 1}$ w.r.t $\sqrt{x^{2}+1}$ is
+    (A) ${\sec ^2}\sqrt {{x^2} + 1} $   <-- CORRECT
+    (B) sec^2 x
+    (C) $\sec ^2\left(\frac{x}{\sqrt{x^2+1}}\right)$
+    (D) $\frac{2 x}{\sqrt{1+x^2}}$
+    Answer: A
+    Explanation: Let $\sqrt{x^{2}+1}$ = t
+Now we have to find $\frac{d(\tan t)}{d t}$ 
+$\Rightarrow$ sec^2 t = $\sec ^{2} \sqrt{x^{2}+1}$
+
+------------------------------------------------------------
+Section B
+------------------------------------------------------------
+Q1. If n = 10, $\bar{X}$ = 12 and $\Sigma x_{i}^{2}$ = 1530, then the coefficient of variation is
+    (A) 35%
+    (B) 41%
+    (C) 36%
+    (D) 25%   <-- CORRECT
+    Answer: D
+    Explanation: Standard deviation is expressed in the following manner:
+$\sigma=\sqrt{\frac{1}{n} \sum_{i} x_{i}^{2}-(X)^{2}}$
+$=\sqrt{\frac{1530}{10}-(12)^{2}}$
+= $\sqrt{9}$
+= 3
+CV = $\frac{\sigma}{X} \times$ 100
+$=\frac{3}{12} \times$ 100
+= 25%
+
+Q2. Let S = {x | x is a positive multiple of 3 less than 100}
+P = {x | x is a prime number less than 20}. Then n(S) + n(P) is
+    (A) 30
+    (B) 41   <-- CORRECT
+    (C) 33
+    (D) 34
+    Answer: B
+    Explanation: We have to find ,n(S) + n(P)
+S = {x | x is a positive multiple of 3 less than 100}
+$\Rightarrow$ S = {3, 6, 9, 12, 15,……, 99}
+$\Rightarrow n(S) = \frac {99}{3} = 33$
+P = {x | x is a prime number less than 20}
+$\Rightarrow$ P = {2, 3, 5, 7, 11, 13, 17, 19}
+$\Rightarrow$ n(P) = 8
+n(S) + n(P) = 33 + 8 = 41
+Therefore, answer is 41
+
+Q3. Let f(x) $=\sqrt{1+x^{2}},$ then
+[[Hint : find f (xy) = $\sqrt{1+x^{2} y^{2}}$, f(x).f(y) $=\sqrt{1+x^{2} y^{2}+x^{2}+y^{2}}]$
+    (A) $f(x y) \geq f(x) \cdot f(y)$
+    (B) $f(x y) \ne f(x) \cdot f(y)$
+    (C) $f(x y) \leq f(x) \cdot f(y)$   <-- CORRECT
+    (D) $f(x y) = f(x) \cdot f(y)$
+    Answer: C
+    Explanation: We have, f(x) $=\sqrt{1+x^{2}}$
+$f(x y)=\sqrt{1+x^{2} y^{2}}$
+$f(x) \cdot f(y)=\sqrt{1+x^{2}} \cdot \sqrt{1+y^{2}}$$=\sqrt{\left(1+x^{2}\right)\left(1+y^{2}\right)}=\sqrt{1+x^{2}+y^{2}+x^{2} y^{2}}$
+Now $\sqrt{1+x^{2} y^{2}} \leq \sqrt{1+x^{2}+y^{2}+x^{2} y^{2}}$
+$\Rightarrow f(x y) \leq f(x) \cdot f(y)$
+
+Q4. If x + iy = (1 + i) (1 + 2i) (1 + 3i), then x^2 + y^2 =
+    (A) 1
+    (B) 0
+    (C) 100   <-- CORRECT
+    (D) 1000
+    Answer: C
+    Explanation: 100
+$\therefore$ x + iy = (1 + i) (1 + 2i) (1 + 3i), then x^2 + y^2 = 
+Taking modulus on both the sides :
+$|x+i y|=|(1+i)$ $(1+2 i)(1+3 i) |$
+$\Rightarrow|x+i y|=|1+i|$ $\times|1+2 i| \times|1+3 i|$
+$\Rightarrow \sqrt{x^{2}+y^{2}}=\sqrt{1^{2}+1^{2}}$ $\sqrt{1^{2}+2^{2}} \sqrt{1^{2}+3^{2}}$
+$\Rightarrow \sqrt{x^{2}+y^{2}}=\sqrt{2} \sqrt{5} \sqrt{10}$
+$\Rightarrow \sqrt{x^{2}+y^{2}}=\sqrt{100}$
+Squaring both the sides
+$\Rightarrow$ x^2 + y^2 = 100
+
+Q5. The lines x + ( k - 1)y + 1 = 0 and 2x + k^2y - 1 = 0 are at right angles if
+    (A) k < 1
+    (B) k = 1
+    (C) k = - 1   <-- CORRECT
+    (D) k > 1
+    Answer: C
+    Explanation: If the lines are at right angles to each other, then the product of their slopes = -1. Slope of any line = -(coefficient of x/coeffiecient of y)
+Therefore the slope of line 1 = -$\frac{1}{k-1}$
+The slope of line 2 = $\frac{-2}{k^2}$
+Therefore $-1 \over (k-1)$ $\times$ $-2 \over k^2$ = - 1
+That is k^2 (k - 1) = -2
+i.e; k^3 - k^2 + 2 = 0
+On factorizing we get (k + 1)(k^2 - 2k - 2) = 0
+This imlpies k + 1 is a factor, hence k = -1
+Hence they are at right angles if k = -1
+
+Q6. $\lim _\limits{x \rightarrow 0} x \sin \frac{1}{x}$ is equals to
+    (A) 1/2
+    (B) 0   <-- CORRECT
+    (C) 1
+    (D) does not exist
+    Answer: B
+    Explanation: $\lim _\limits{x \rightarrow 0} x=0$ and $-1 \leq \sin \frac{1}{x} \leq 1$, by Sandwitch Theorem, we have
+$\lim _\limits{x \rightarrow 0} x \sin \frac{1}{x}=0$
+
+Q7. If covariance between two variables is 0, then the correlation coefficient between them is
+    (A) negative
+    (B) nothing can be said
+    (C) 0   <-- CORRECT
+    (D) positive
+    Answer: C
+    Explanation: Because, $\rho = \frac{{COV(x,y)}}{{{\sigma _x}{\sigma _y}}} = \frac{0}{{{\sigma _x}{\sigma _y}}}$ = 0
+
+Q8. If A = {x : x $\ne$ x} represents
+    (A) { }   <-- CORRECT
+    (B) {1}
+    (C) {0}
+    (D) {x}
+    Answer: A
+    Explanation: Here value of x is not possible so A is a null set.
+
+Q9. If $x \neq 1$ and f (x) $=\frac{x+1}{x-1}$ is a real function, then f (f (f(2))) is
+    (A) 2
+    (B) 4
+    (C) 1
+    (D) 3   <-- CORRECT
+    Answer: D
+    Explanation: $f(x)=\frac{x+1}{x-1}$
+$f(f(x))=\frac{f(x)+1}{f(x)-1}=\frac{\frac{x+1}{x-1}+1}{\frac{x+1}{x-1}-1}$
+$=\frac{x+1+x-1}{x+1-x+1}=\frac{2 x}{2}=x$
+$\mathrm{f}(\mathrm{f}(\mathrm{f}(\mathrm{x})))=\mathrm{f}(\mathrm{x})=\frac{\mathrm{x}+1}{\mathrm{x}-1}$
+$f(f(f(2)))=\frac{2+1}{2-1}$
+= 3
+
+Q10. Compare List I with List II and choose the correct answer using codes given below:
+ List I (Complex number)
+ List II (Conjugate)
+ (i) 3 + $\sqrt{-4}$
+ (p) (-2 -3i)
+ (ii) -3 - 2i
+ (q) (2 + 3i)
+ (iii) -3i - 2
+ (r) (3 - 2i)
+ (iv) -3i + 2
+ (s) (-3 + 2i)
+    (A) (i) - (s), (ii) - (r), (iii) - (p), (iv) - (q)
+    (B) (i) - (r), (ii) - (s), (iii) - (p), (iv) - (q)   <-- CORRECT
+    (C) (i) - (p), (ii) - (s), (iii) - (r), (iv) - (q)
+    (D) (i) - (r), (ii) - (s), (iii) - (q), (iv) - (p)
+    Answer: B
+    Explanation: $\rightarrow$ $(\overline{3+2 i})$ = (3 - 2i)
+ $\rightarrow$ $(\overline{-3-2i})$ = (-3 + 2i)
+ $\rightarrow$ $(\overline{-2-3i})$ = (-2 - 3i)
+ $\rightarrow$ $(\overline{2-3i})$ = (2 + 3i)
+the correct answer is (i) - (r), (ii) - (s), (iii) - (p), (iv) - (q)
+
+Q11. If a, b, c, d, e are in G. P., then $\frac e c$ equals
+    (A) $\frac b a$
+    (B) $\frac c b$
+    (C) $\frac d c$
+    (D) $\frac db$   <-- CORRECT
+    Answer: D
+    Explanation: If a, b, c, d, e are in G.P
+we have $\frac{b}{a}=\frac{c}{b}=\frac{d}{c}=\frac{e}{d}$
+$\therefore \frac{c}{b}=\frac{e}{d} \Rightarrow \frac{e}{c}=\frac{d}{b}$
+
+Q12. $\lim \limits_{x \rightarrow 0} \frac{e^{p x}-e^{q x}}{x}$ is equal to
+    (A) log (p - q)
+    (B) p - q   <-- CORRECT
+    (C) p^q
+    (D) log p - log q
+    Answer: B
+    Explanation: $\lim \limits_{x \rightarrow 0} \frac{e^{p x}+1-1-e^{q x}}{x}$ 
+$\Rightarrow$ $\lim\limits_{x \to 0} \frac {{e}^{px}-1}{x}-\lim\limits_{x \to 0}\frac {{e}^{qx}-1}{x}$ 
+$\Rightarrow$ $\lim \limits_{x \rightarrow 0} \left(\frac{e^{p x}-1}{x}\right)\left(\frac{p}{p}\right)-\lim \limits_{x \rightarrow 0}\left(\frac{e^{q x}-1}{x}\right)\left(\frac{q}{q}\right)$ 
+$\Rightarrow$ p - q
+
+Q13. If the mode of a data is 18 and the mean is 24, then median is
+    (A) 22   <-- CORRECT
+    (B) 24
+    (C) 21
+    (D) 18
+    Answer: A
+    Explanation: Using the formula, 3 median = mode + 2 mean 
+Median = $\frac{18+2(24)}{3}$ = $\frac{66}{3}$ = 22
+
+Q14. If k, l, m, n are four consecutive integers, then i^k + i^l + i^m + i^n is equal to :
+    (A) 2
+    (B) 4
+    (C) 1
+    (D) 0   <-- CORRECT
+    Answer: D
+    Explanation: Given k, l, m, n are four consecutive integers,
+So we have l = k + 1, m = k + 2, n = k + 3
+i^k + i^l + i^m + i^n
+= i^k + i^k+1 + i^k+2 + i^k+3
+= i^k (1 + i + i^2 + i^3) 
+= i^k(1 + i - 1 - i)
+= i^k.0 = 0 [$\because$ i^2 = -1 and i^3 = -i]
+
+Q15. The perpendicular distance of the origin from the line 3x + 4y + 1 = 0 is
+    (A) $\frac{1}{4}$
+    (B) $\frac{1}{5}$   <-- CORRECT
+    (C) 1
+    (D) $\frac{1}{2}$
+    Answer: B
+    Explanation: The perpendicular distance from the origin to the line is given by $Ax_1 +By_1+C\over \sqrt{A^2+B^2}$ 
+For the given line c = 1, A = 3 and B = 4 and since it passes through the origin,
+Substituting the values we get,
+$1\over \sqrt{9+16}$ = $\frac{1}{5}$
+
+Q16. The smallest set A such that A $\mathop \cup \nolimits $ {1, 2} = {1, 2, 3, 5, 9} is
+    (A) {1, 2, 5, 9}
+    (B) {3, 5, 9}   <-- CORRECT
+    (C) {2, 3, 5}
+    (D) {4, 5, 6}
+    Answer: B
+    Explanation: The union of two sets A and B is the set of elements in A, or B, or both.
+So smallest set A = {3, 5, 9}
+
+Q17. If f(x) = $\log \left(\frac{1+x}{1-x}\right)$, then f(x) is
+    (A) even
+    (B) $\frac{f\left(x_1\right)}{f\left(x_2\right)}$ = f(x_1 - x_2)
+    (C) f(x_1)f(x_2) = f(x_1 + x_2)
+    (D) odd   <-- CORRECT
+    Answer: D
+    Explanation: f(-x) = $\log \left( {\frac{{1 - x}}{{1 + x}}} \right)$ 
+= log (1 - x) - log (1 + x)
+= -[log (1 + x) - log (1 - x)]
+= $-\left[\log \frac{1+x}{1-x}\right]$ = -f(x)
+$\Rightarrow $ f is an odd function.
+
+Q18. $2\sqrt { - 9} \sqrt { - 16}$, is equals to
+    (A) 24
+    (B) -48
+    (C) -24   <-- CORRECT
+    (D) 48
+    Answer: C
+    Explanation: $2\sqrt { - 9} \sqrt { - 16} $ 
+= $2\sqrt { 9.(-1)} \sqrt {( -1). 16} $ 
+= $2\sqrt { 9} \sqrt { 16}\sqrt { -1} \sqrt { -1}$ 
+= $2\sqrt { 9} \sqrt { 16}.i.i$ [ $\because$ i^2 = -1]
+= 2.3.4.(-1)
+= -24
+
+Q19. $\left(1-\frac{1}{2}+\frac{1}{4}-\frac{1}{8}+\ldots \text { to } 9 \text { terms }\right)=?$
+    (A) $\frac{161}{225}$
+    (B) $\frac{151}{196}$
+    (C) $\frac{181}{256}$
+    (D) $\frac{171}{256}$   <-- CORRECT
+    Answer: D
+    Explanation: Here, this is a GP in which a = 1 and r = $\frac{-1}{2}$
+$S_{n}=\frac{a\left(1-r^{n}\right)}{(1-r)} \Rightarrow S_{9}=\frac{a\left(1-r^{9}\right)}{(1-r)}=\frac{1 \times\left[1-\left(\frac{-1}{2}\right)^{9}\right]}{\left(1+\frac{1}{2}\right)}=\frac{2}{3} \times\left(1+\frac{1}{2^{9}}\right)$
+$\Rightarrow S_{9}=\frac{2}{3} \times\left(1+\frac{1}{512}\right)=\frac{2}{3} \times \frac{513}{512}=\frac{171}{256}$.
+
+Q20. The next term of the series $\frac{3}{2}+\frac{5}{4}+\frac{9}{8}+\frac{17}{16} \ldots$ is
+    (A) $\frac {25} {32}$
+    (B) $\frac {37} {32}$
+    (C) $\frac {29} {32}$
+    (D) $\frac {33} {32}$   <-- CORRECT
+    Answer: D
+    Explanation: Terms of given sequence can be written as 
+$(1 + \frac{1}{2}),(1 + \frac{1}{4}),(1 + \frac{1}{8}),(1 + \frac{1}{{16}}),(1 + \frac{1}{{32}})$ 
+So the required term is $\frac{33}{32}$.
+
+------------------------------------------------------------
+Section C
+------------------------------------------------------------
+Q1. If A = {1, 2, 3, 4, 5}, then the number of proper subsets of A is
+    (A) 120
+    (B) 30
+    (C) 32
+    (D) 31   <-- CORRECT
+    Answer: D
+    Explanation: The number of proper subsets of any set is given by the formula 2^n - 1 where n is the number of elements in the set.
+Here, we have n = 5
+$\therefore$ Number of proper subsets of A = 2^5 - 1 = 31
+
+Q2. The range of the function f(x) = cos ($\frac{x}{3}$) is
+    (A) $\left[-\frac{1}{3}, \frac{1}{3}\right]$
+    (B) [- 1, 1]   <-- CORRECT
+    (C) [-3, 3]
+    (D) [3, -3]
+    Answer: B
+    Explanation: Since the cosine function takes values between
+-1 and 1 including -1 and 1 also.
+$\therefore$ range of given function = [-1, 1]
+
+Q3. Convert $(8,2 \pi / 3)$ into Argand plane representation.
+    (A) $(-4,4 \sqrt{3})$   <-- CORRECT
+    (B) $(4 \sqrt{3}, 4)$
+    (C) $(-4 \sqrt{3}, 4)$
+    (D) $(4,4 \sqrt{3})$
+    Answer: A
+    Explanation: To convert polar representation $(r, \theta)$ into argand plane $(x, y)$, substitute $x=r \cos \theta$ and $y=r \sin \theta$.
+$ x=8 \cos 2 \pi / 3=8 \cos (\pi-\pi / 3)=8(-1 / 2)=-4 $
+$ y=8 \sin 2 \pi / 3=8 \sin (\pi-\pi / 3)=8(\sqrt{3} / 2)=4 \sqrt{3} $
+
+Q4. The nth term of the GP 12, 4, $\frac{4}{3}$, $\frac{4}{9}$, ... is
+    (A) $\frac{4}{3^{n-4}}$
+    (B) $\frac{4}{3^{n-3}}$
+    (C) $\frac{4}{3^{n-1}}$
+    (D) $\frac{4}{3^{n-2}}$   <-- CORRECT
+    Answer: D
+    Explanation: Given GP is 12, 4, $\frac{4}{3}$, $\frac{4}{9}$, ...
+Here, we have a = 12 and $r=\frac{4}{12}=\frac{1}{3}$
+$\therefore T_{n}=a r^{n-1}=12 \times\left(\frac{1}{3}\right)^{n-1}=4 \times 3 \times \frac{1}{3^{n-1}}=\frac{4}{3^{(n-2)}}$
+
+Q5. Mean deviation from the mean for the observations – 1, 0, 4 is
+    (A) $\frac{3}{2}$
+    (B) 1
+    (C) 2   <-- CORRECT
+    (D) $\frac{2}{3}$
+    Answer: C
+    Explanation: Given observations are -1,0,4
+Mean $\bar x$ = $\frac{-1+0+4}{3}$ = 1
+Now, deviations of x_i from mean are |-1-1|, |0-1|, |4-1| i.e. 2, 1, 3
+Sum of deviations $\boldsymbol{\Sigma}\left|\mathbf{x}_{\mathbf{1}}-\overline{\mathbf{x}}\right|$ = 2 + 1 + 3 = 6
+Mean deviation $\frac{1}{n} \Sigma\left|x_{1}-\bar{x}\right|$ = $\frac{1}{3} \times 6$ = 2
+
+Q6. Instructions for Question 46 to 50:
+Each side of an equilateral triangle is 24 cm. The mid-point of its sides are joined to form another triangle. This process is going continuously infinite.
+The perimeter of 7th triangle is (in cm)
+    (A) $\frac{9}{8}$   <-- CORRECT
+    (B) $\frac{7}{8}$
+    (C) $\frac{3}{4}$
+    (D) $\frac{5}{8}$
+    Answer: A
+    Explanation: $\frac{9}{8}$
+
+Q7. Instructions for Question 46 to 50:
+Each side of an equilateral triangle is 24 cm. The mid-point of its sides are joined to form another triangle. This process is going continuously infinite.
+The sum of perimeter of all triangle is (in cm)
+    (A) 625
+    (B) 169
+    (C) 144   <-- CORRECT
+    (D) 400
+    Answer: C
+    Explanation: 144
+
+Q8. Instructions for Question 46 to 50:
+Each side of an equilateral triangle is 24 cm. The mid-point of its sides are joined to form another triangle. This process is going continuously infinite.
+The area of all the triangle is (in sq cm)
+    (A) 192$\sqrt3$   <-- CORRECT
+    (B) 576
+    (C) 169$\sqrt3$
+    (D) 144$\sqrt3$
+    Answer: A
+    Explanation: 192$\sqrt3$
+
+Q9. Instructions for Question 46 to 50:
+Each side of an equilateral triangle is 24 cm. The mid-point of its sides are joined to form another triangle. This process is going continuously infinite.
+The sum of perimeter of first 6 triangle is (in cm)
+    (A) 120
+    (B) $\frac{567}{4}$   <-- CORRECT
+    (C) $\frac{569}{4}$
+    (D) 144
+    Answer: B
+    Explanation: $\frac{567}{4}$
+
+Q10. Instructions for Question 46 to 50:
+Each side of an equilateral triangle is 24 cm. The mid-point of its sides are joined to form another triangle. This process is going continuously infinite.
+The side of the 5th triangle is (in cm)
+    (A) 0.75
+    (B) 1.5   <-- CORRECT
+    (C) 3
+    (D) 6
+    Answer: B
+    Explanation: 1.5

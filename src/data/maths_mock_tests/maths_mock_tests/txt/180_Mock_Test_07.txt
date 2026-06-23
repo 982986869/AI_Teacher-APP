@@ -1,0 +1,716 @@
+======================================================================
+Mock Test - 07  (id 180)
+CBSE > Class 11 > Mathematics
+Duration: 90 min | Questions: 50
+======================================================================
+
+INSTRUCTIONS:
+This question paper contains three sections - A, B and C. Each part is compulsory.
+ Section - A has 20 MCQs, attempt any 16 out of 20.
+ Section - B has 20 MCQs, attempt any 16 out of 20
+ Section - C has 10 MCQs, attempt any 8 out of 10.
+ There is no negative marking.
+ All questions carry equal marks.
+
+------------------------------------------------------------
+Section A
+------------------------------------------------------------
+Q1. A - B is equal to
+    (A) A^c $\cap$ B^c
+    (B) A $\cap$ B
+    (C) B - A
+    (D) B^c - A^c   <-- CORRECT
+    Answer: D
+    Explanation: Let x $\in$ A - B $\Rightarrow$ x $\in$ A and x $\notin$ B
+$\Rightarrow$ x $\notin$ A^c and x $\in$ B^c 
+$\Rightarrow$ x $\in$ B^c and x $\notin$ A^c
+$\Rightarrow$ x $\in$ B^c - A^c
+$\Rightarrow$ A - B $\subset$ B^c - A^c .....(i)
+Now let some y $\in$ B^c - A^c
+$\Rightarrow$ x $\in$ B^c and x $\in$ A^c
+$\Rightarrow$ x $\notin$ B and x $\in$ A
+$\Rightarrow$ x $\in$ A and x $\notin$ B
+$\Rightarrow$ x $\in$ A - B
+$\Rightarrow$ B^c - A^c $\subset$ A - B ......(ii)
+From (i) and (ii), we get A - B = B^c - A^c
+
+Q2. Consider the following relations: 1. A - B = A - $(A \cap B)$ 2. A = $(A \cap B)$ $\mathop \cup \nolimits $(A - B). 3. A - (B $\mathop \cup \nolimits $ C) = (A - B) $\mathop \cup \nolimits $ (A - C). Which of these is/are correct?
+    (A) 1 and 2   <-- CORRECT
+    (B) 2 only
+    (C) 2 and 3
+    (D) 1 and 3
+    Answer: A
+    Explanation: $A - (A \cap B) = A \cap (A \cap B')\,\,[\because A - B = A \cap B']$
+ $ = A \cap (A' \cap B')\,$[By De - morgan's law]
+ $ = (A \cap A') \cup (A \cap B')\,$
+ $ = \phi \cup (A \cap B') = A \cap B' = A - B\,$
+ $(A \cap B) \cap (A - B) = (A \cap B) \cup (A \cap B')$
+ $ = X \cup (A \cap B')$ Where X = $A \cap B$
+ $ = (X \cup A) \cap (X \cup B')$
+ $ = {\text{A}} \cap ({\text{A}} \cup {\text{B'}})\left[ {{\text{X}} \cup {\text{A}} = ({\text{A}} \cap {\text{B}}) \cup {\text{A}} = {\text{A}} \cup {\text{B'}}} \right]$ $= {\text{A}}(\because {\text{A}}{\text{B}} \subset {\text{A}}){\text{X}} \cup {\text{B'}} $ $= ({\text{A}} \cap {\text{B}}) \cup {\text{B'}} = ({\text{A}} \cup {\text{B'}}) \cap ({\text{B}} \cup {\text{B'}}) = ({\text{A}} \cup {\text{B'}}) \cap {\text{U}}$
+ ${\text{ = A}}\left[ {\because {\text{A}} \subset {\text{A}} \cup {\text{B'}}} \right]$
+ This is correct because,
+ $A - (B \cup C) = (A - B) \cap (A - C)$
+
+Q3. If $\alpha, \beta$ are the roots of the equation ax^2 + bx + c = 0, then $\frac{1}{a \alpha+b}+\frac{1}{a \beta+b}$ =
+    (A) $\frac{b}{ac}$   <-- CORRECT
+    (B) $\frac{a}{bc}$
+    (C) None of these
+    (D) $\frac{c}{ab}$
+    Answer: A
+    Explanation: Given equation:
+ax^2 + bx + c = 0
+Also, $\alpha$ and $\beta$ are the roots of the given equation.
+Then, sum of the roots = $\alpha+\beta$ = -$\frac{b}{a}$ 
+Product of the roots = $\alpha \beta$ = $\frac{c}{a}$ 
+$\therefore$ $\frac{1}{a \alpha+b}+\frac{1}{a \beta+b}$ = $\frac{a \beta+b+a \alpha+b}{(a \alpha+b)(a \beta+b)}$ 
+= $\frac{a(\alpha+\beta)+2 b}{a^{2} \alpha \beta+a b \alpha+a b \beta+b^{2}}$ 
+= $\frac{a(\alpha+\beta)+2 b}{a^{2} \alpha \beta+a b(\alpha+\beta)+b^{2}}$ 
+= $\frac{a\left(-\frac{b}{a}\right)+2 b}{a^{2}\left(\frac{c}{a}\right)+a b\left(-\frac{b}{a}\right)+b^{2}}$ 
+= $\frac{b}{ac}$
+
+Q4. Sum of an infinite G.P. is $\frac 54$ times the sum of all the odd terms. The common ratio of the G.P. is
+    (A) $\frac 1 3$
+    (B) $\frac 1 4$   <-- CORRECT
+    (C) 4
+    (D) $\frac 2 3$
+    Answer: B
+    Explanation: Consider the infinite G.P a, ar, ar^2, ar^3,.... is a G.P with first term a and common ratio r
+Then the odd terms a, ar^2, ar^4,.... is again a G.P with first term a and common ratio r^2 
+We have $S_{\infty}=\frac{a}{1-r}$ 
+Given $S_{\infty}=\frac{5}{4}$. Sum of odd terms
+$\Rightarrow$ a + ar + ar^2 + ar^3 + .... = $\frac{5}{4}$[a + ar^2 + ar^4 + ...]
+$\Rightarrow$ $\frac{a}{1-r}=\frac{5}{4} \cdot \frac{a}{1-r^{2}}$ 
+$\Rightarrow$ $\frac{1}{1-r}=\frac{5}{4} \cdot \frac{a}{(1-r)(1+r)}$ 
+$\Rightarrow$ 4(1 + r) = 5
+$\Rightarrow$ 4r = 1
+$\Rightarrow$ r = $\frac{1}{4}$
+
+Q5. The distance of the point (x, y) from the origin is
+    (A) x + y
+    (B) x - y
+    (C) $\sqrt {{x^2} + {y^2}} $   <-- CORRECT
+    (D) x
+    Answer: C
+    Explanation: Distance between two points is given by $\sqrt{(x_2 - x_1)^2 +(y_2-y_1)^2}$ 
+Therefore the distance from the origin to the point (x, y) is $\sqrt{(x-0)^2 +(y-0)^2}$ = $\sqrt{x^2 +y^2}$
+
+Q6. If $f(x)=\left\{\begin{array}{ll} {x^{2}-1,} & {0<x<2} \\ {2 x+3,} & {2 \leq x<3} \end{array}\right.$, then the quadratic equation whose roots are $\lim _\limits{x \rightarrow 2^{-}} f(x)$ and $\lim _\limits {x \rightarrow 2^{+}} f(x) $ is
+    (A) x^2 - 14x + 49 = 0
+    (B) x^2 - 7x + 8 = 0
+    (C) x^2 - 6x + 9 = 0
+    (D) x^2 - 10x + 21 = 0   <-- CORRECT
+    Answer: D
+    Explanation: Given $f(x)=\left\{\begin{array}{ll} {x^{2}-1,} & {0<x<2} \\ {2 x+3,} & {2 \leq x<3} \end{array}\right.$
+$\therefore \quad \lim _\limits{x \rightarrow 2^{-}} f(x)=\lim _\limits{x \rightarrow 2^{-}}\left(x^{2}-1\right)$
+$\lim _\limits{h \rightarrow 0}\left[(2-h)^{2}-1\right]=\lim _\limits{h \rightarrow 0}\left(4+h^{2}-4 h-1\right)$
+$=\lim _\limits{h \rightarrow 0}\left(h^{2}-4 h+3\right)=3$
+and $\lim _\limits{x \rightarrow 2^{+}} f(x)=\lim _\limits{x \rightarrow 2^{+}}(2 x+3)=\lim _\limits{h \rightarrow 0}[2(2+h)+3]=7$
+Therefore, the quadratic equation whose roots are 3 and 7 is x^2 - (3 + 7)x + 3 $\times$ 7 = 0 i.e., x^2 - 10x + 21 = 0
+
+Q7. If the coefficient of variation between x and y is 0.28, covariance between x and y is 7.6, and the variance of x is 9, then the S.D. of the y series is
+    (A) 9.05   <-- CORRECT
+    (B) 9.8
+    (C) 10.1
+    (D) 10.05
+    Answer: A
+    Explanation: Here, 
+r = 0.28, Cov(x, y) = 7.6, $\sigma_x$ = 3
+So, r = $\frac{\operatorname{Cov}(x, y)}{\sigma_{x} \sigma_{y}}$ 
+$\Rightarrow$ 0.28 = $\frac{7.6}{3 \sigma_{y}}$ 
+$\Rightarrow$ $\sigma_y$ = 9.05
+
+Q8. The inclination of the line x – y + 3 = 0 with the positive direction of x-axis is
+    (A) 45°   <-- CORRECT
+    (B) 135°
+    (C) – 45°
+    (D) –135°
+    Answer: A
+    Explanation: The equation of the line x – y + 3 = 0 can be rewritten as y = x + 3 ⇒ m = tan θ = 1 and therefore $\theta$ = 45°.
+
+Q9. If f : R $\to$ R and g: R $\to$ R are given by f(x) = |x| and g(x) = [x] for each x $ \in $ R, then {x $ \in $ R} : g(f(x_o)) $ \in $ f (g(x))] =
+    (A) Z $\cup$ (-$\infty $, 0)
+    (B) Z
+    (C) $\left( { - \infty ,0} \right)$
+    (D) R   <-- CORRECT
+    Answer: D
+    Explanation: We have, f(x_o) = |x| and g(x) = [x]
+Now, g(f(x_o)) $\in$ f(g(x)), for some x $\in$ R 
+$\Rightarrow$ g(|x|) = f(|x|) $\Rightarrow$ [|x|] = f(|x|) 
+$\Rightarrow$ f(|x|) = [|x|]
+$\Rightarrow$ f(|x|) = n, Where n is a positive integer $\geqslant $ 0 
+$\Rightarrow$ f(x) = n
+Domain of F = R
+$\therefore$ {x $\in$ R : g(f(x_o)) $\in$ f(g(x))} = R
+
+Q10. Mark the correct answer for: arg(1 + i) = ?
+    (A) $\frac{\pi}{4}$   <-- CORRECT
+    (B) $\frac{\pi}{3}$
+    (C) $\pi$
+    (D) $\frac{\pi}{2}$
+    Answer: A
+    Explanation: (1 + i) = $\sqrt{2}\left(\cos \frac{\pi}{4}+i \sin \frac{\pi}{4}\right)$
+$\Rightarrow$ arg(1 + i) = $\frac{\pi}{4}$
+
+Q11. If S_n = $\sum_{r=1}^{n}$ $\frac{1+2+2^{2}+\ldots \text { Sum to } r \text { terms }}{2^{r}}$, then S_n is equal to
+    (A) $1-\frac{1}{2^{n}}$
+    (B) 2^n - 1
+    (C) 2^n - n - 1
+    (D) n - 1 + $\frac{1}{2^{n}}$   <-- CORRECT
+    Answer: D
+    Explanation: We can write from given,
+$\sum_{r=1}^{n}$ $\frac{1+2+2^{2}+\ldots \text { sum to r terms }}{2^{r}}$
+$\Rightarrow$ S_n = $\sum_{r=1}^{n}$ $\frac{1\left(2^{r}-1\right)}{2^{r}}$
+$\Rightarrow$ S_n = $\sum_{r=1}^{n}$ $\left(1-\frac{1}{2^{r}}\right)$
+$\Rightarrow$ S_n = n - $\sum_{r=1}^{n}$ $\left(\frac{1}{2^{r}}\right)$
+$\Rightarrow$ S_n = n - $\left[\frac{\left(\frac{1}{2}\right)\left\{1-\left(\frac{1}{2}\right)^{n}\right\}}{1-\frac{1}{2}}\right]$
+$\Rightarrow$ S_n = n - $\left[1-\left(\frac{1}{2}\right)^{n}\right]$
+$\Rightarrow$ S_n = n - 1 + $\frac{1}{2^{n}}$
+
+Q12. The area of the triangle whose sides are along the lines x = 0, y = 0 and 4x + 5y = 20 is
+    (A) 20 sq.units
+    (B) $\frac{1}{10}$ sq.units
+    (C) $\frac{1}{20}$ sq.units
+    (D) 10 sq.units   <-- CORRECT
+    Answer: D
+    Explanation: The equation 4x + 5y = 20 can be written as $x \over 5$ + $y \over4$ = 1
+This implies the intercepts cut by this line on the X and Y axes are 5 and 4 respectively.
+Hence the area of the triangle is $\frac{1}{2}$[5 $\times$ 4] = 10 square units.
+
+Q13. Maximum value of x^3 - 3x + 2 in [0, 2] is
+    (A) 1
+    (B) 32
+    (C) 2
+    (D) 4   <-- CORRECT
+    Answer: D
+    Explanation: Polynomial functions are continuous and derivable into their entire domain f'(x) > 0. for |x| > 0.
+So it will be an increasing function in [0, 2]
+$\Rightarrow$ f(0) = 2 and f(2) = 4
+So, f(2) will be maximum.
+
+Q14. If the S.D. of a set of observations is 8 and if each observation is divided by - 2, the S.D. of the new set of observations will be
+    (A) -8
+    (B) -4
+    (C) 8
+    (D) 4   <-- CORRECT
+    Answer: D
+    Explanation: If a set of observations, with SD $\sigma$, are multiplied with a non-zero real number a, then SD of the new observations will be $|a| \sigma$
+Dividing the set of observations by -2 is same as multiplying the observations by $\frac{1}{-2}$
+New S.D. = $\left|-\frac{1}{2}\right| \times$ 8
+= $\frac{8}{2}$ = 4
+
+Q15. The coordinates of the foot of the perpendicular from the point (2, 3) on the line x + y – 11 = 0 are
+    (A) (6, 5)
+    (B) (–5, 6)
+    (C) (5, 6)   <-- CORRECT
+    (D) (–6, 5)
+    Answer: C
+    Explanation: Suppose (h, k) be the coordinates of the foot of the perpendicular from the point (2, 3) on the line x + y – 11 = 0.
+Then, the slope of the perpendicular line is $\frac{k-3}{h-2}$.
+Again the slope of the given line x + y – 11 = 0 is – 1
+Using the condition of perpendicularity of lines, we have
+$\frac{k-3}{h-2} \quad(-1)=-1$ or k – h = 1 ... (1)
+Since (h, k) lies on the given line, we have,
+h + k – 11 = 0 or h + k = 11 ... (2)
+Solving (1) and (2), we obtain h = 5 and k = 6.
+Therefore (5, 6) are the required coordinates of the foot of the perpendicular.
+
+Q16. If f(x) = tan x, $-\frac{\pi}{2}<x<\frac{\pi}{2}$ and g(x) = $\sqrt{3-x^2}$, then domain of the function gof is
+    (A) $\left(-\frac{\pi}{2}, \frac{\pi}{2}\right)$
+    (B) $\left(-\frac{\pi}{3}, \frac{\pi}{3}\right)$
+    (C) $\left(-\frac{\pi}{3}, -\frac{\pi}{3}\right)$
+    (D) $\left[-\frac{\pi}{3}, \frac{\pi}{3}\right]$   <-- CORRECT
+    Answer: D
+    Explanation: gof(x) = g(f(x))
+Which is defined only if
+3 - tan^2 x $\geq$ 0
+$\Rightarrow$ 3 $\geq$ tan^2 x
+$\Rightarrow$ -$\sqrt{3}$ $\leq$ tan x $\leq$ $\sqrt{3}$ 
+$\Rightarrow$ $-\frac{\pi}{3} \leq x \leq \frac{\pi}{3}$ 
+So domain of gof is $\left[ { - \frac{\pi }{3},\frac{\pi }{3}} \right]$
+
+Q17. 1 + i + i^2 + i^3 + .... up to 4n terms is equal to
+    (A) -1
+    (B) 0   <-- CORRECT
+    (C) 2
+    (D) 1
+    Answer: B
+    Explanation: 1 + i + i^2 + i^3 + i^4 + i^5 + ..... up to 4n terms
+= $1 + i + {i^2} + {i^2} .i+ {i^2} .{i^2}+ {i^2} .{i^2}.i+...$ up to 4n terms
+= $1 + i + {(-1)} + {(-1.i)} + {(-1).(-1)} + {(-1).(-1).i} +...$ up to 4n terms
+= $1 + i + {(-1)} + {(-i)} + {(1)} + {(i)} +.......$ up to 4n terms
+= $[1 + i + {(-1)} + {(-i)} ]+ [ {(1)} + {(i)} + {(-1)} + {(-i)}]...$ up to 4n terms [combining four terms to get a single term]
+= 0 + 0 + 0 ... up to n terms
+= 0.n = 0
+
+Q18. The nth term of a G.P. is 128 and the sum of its n terms is 225. If its common ratio is 2, then its first term is
+    (A) 3
+    (B) 8
+    (C) 1
+    (D) None of these   <-- CORRECT
+    Answer: D
+    Explanation: We have, a_n = 128, S_n = 225 and r = 2
+a_n = 128
+$\therefore$ ar^(n-1) = 128
+$\Rightarrow$ 2^(n-1) a = 128
+$\Rightarrow \frac{2^{n} a}{2}$ = 128
+$\Rightarrow 2^{n}=\frac{256}{a}$ ....(i)
+Also, S_n = 225
+$\Rightarrow a\left(\frac{r^{n}-1}{r-1}\right)$ = 225
+$\Rightarrow a\left(\frac{2^{n}-1}{2-1}\right)$ = 225
+$\Rightarrow a\left(\frac{256}{a}-1\right)$ = 225 [Using (i)]
+$\Rightarrow$ 256 - a = 225
+$\Rightarrow$ a = 256 - 225
+$\Rightarrow$ a = 31, which is the required first term.
+
+Q19. A line L passes through the points (1, 1) and (2, 0) and another line M which is perpendicular to L passes through the point (1/2, 0). The area of the triangle formed by these lines with y axis is :
+    (A) 25/16   <-- CORRECT
+    (B) 25/8
+    (C) 25/4
+    (D) 25/10
+    Answer: A
+    Explanation: The equation of the line joining the two points (x_1, y_1) and (x_2, y_2) is
+$y - y_1 \over y_2 - y_1$ = $x-x_1\over x_2 - x_1$
+The given points are (1, 1) and (2, 0)
+On substituting the values we get
+$y-1\over 0-1$ = $x-1\over 2-1 $
+On simplifying we get,
+x + y - 2 = 0
+The line which is perpendicular to this line is x - y + k = 0
+Since it passes through (1/2, 0)
+(1/2) - 0 = k
+This implies k = -1/2
+Hence the equation of this line is x - y - 1/2 = 0
+On solving these twolines we get the point of intersection as (5/4, 3/4)
+The point which line x + y - 2 = 0 cuts the Y axis is (0, 2) and the point which the line x - y - 1/2 = 0 cuts the Y axis is (0, -1/2)
+Hend e the area of the triangle = [1/2] x [5/4] x [5/4] = 25/16 squnits
+
+Q20. $\lim \limits_{x \rightarrow \frac{\pi}{4}} \frac{\tan x-1}{x-\frac{\pi}{4}}$ is equal to
+    (A) $\frac 12$
+    (B) 1
+    (C) 2   <-- CORRECT
+    (D) 0
+    Answer: C
+    Explanation: Let $x-\frac{\pi}{4}$ = t
+$\Rightarrow \lim \limits_{t \rightarrow 0} \frac{\tan \left(\frac{\pi}{4}+t\right)-1}{t}$ 
+$\Rightarrow \lim \limits_{t \rightarrow 0} \frac{2 \tan t}{(1-\tan t)(t)}$ 
+= 2
+
+------------------------------------------------------------
+Section B
+------------------------------------------------------------
+Q1. If the standard deviation of a variable X is a, then the standard deviation of variable $\frac{a X+b}{c}$ is
+    (A) $\left|\frac{a}{c}\right| \sigma$   <-- CORRECT
+    (B) $\frac{a \sigma+b}{c}$
+    (C) $a \sigma$
+    (D) $\frac{a}{c} \sigma$
+    Answer: A
+    Explanation: Y = $\frac{a X+b}{c}$
+Y = $\frac{\sum y_{i}}{n}=\frac{\frac{a \sum X+n b}{c}}{n}$
+= $\frac{a \sum X}{n c}+\frac{n b}{n c}$
+= $\frac{a \bar{X}}{c}+\frac{b}{c}$
+Var(X) = $\frac{\sum\left(x_{i}-\bar{X}\right)^{2}}{n}$
+= $\sigma^{2}$
+Var(Y) = $\frac{\sum\left(y_{i}-\bar{Y}\right)^{2}}{n}$
+= $\frac{\sum\left(\frac{a X}{c}+\frac{b}{c}-\frac{a}{c} \bar{X}-\frac{b}{c}\right)^{2}}{n}$
+= $\frac{\sum\left(\frac{a X}{c}-\frac{a}{c} \bar{X}\right)^{2}}{n}$
+= $\left(\frac{a}{c}\right)^{2} \frac{\sum\left(x_{i}-\bar{X}\right)^{2}}{n}$
+= $\left(\frac{a}{c}\right)^{2} \sigma^{2}$
+SD $(\sigma)=\sqrt{\left(\frac{a}{c}\right)^{2} \sigma^{2}}$
+= $\left|\frac{a}{c}\right| \sigma$
+
+Q2. One vertex of the equilateral triangle with centroid at the origin and one side as x + y - 2 = 0 is
+[Hint: Let ABC be the equilateral triangle with vertex A (h, k) and let D ($\alpha$, $\beta$) be the point on BC. Then $\frac{2 \alpha+h}{3}=0=\frac{2 \beta+k}{3}$. Also $\alpha+\beta-2=0$ and $\frac{k-0}{h-0} \times(-1)=-1$.
+    (A) (2, 2)
+    (B) (2, -2)
+    (C) (-2, -2)   <-- CORRECT
+    (D) (-1, -1)
+    Answer: C
+    Explanation: One vertex of the equilateral triangle with centroid at the origin and one side as x + y - 2 = 0 is 
+Suppose ABC be the equilateral triangle with vertex A(h, k)
+Also, centroid is G(0, 0)
+Now, AG $\perp$ BC 
+Slope of line BC or x + y - 2 = 0 is -1
+$\therefore$ Slope of AG, $\frac{k}{h}=1$ or h = k
+Now distance of origin from BC = $\frac{|0+0-2|}{\sqrt{1^{2}+1^{2}}}=\sqrt{2}$
+$\therefore$ Distance of A from BC = $3 \sqrt{2}=\frac{|h+k-2|}{\sqrt{1^{2}+1^{2}}}$
+ $\Rightarrow$|h + k - 2| = 6
+$\Rightarrow$ h + k - 8 = 0 or h + k + 4 = 0
+$\Rightarrow$ h + h - 8 = 0 or h + h + 4 = 0
+$\Rightarrow$ h = 4 or h = -2
+$\therefore$ Vertex is (-2, -2).this is required answer.
+
+Q3. Find the number of injective functions from set A with elements to set B with 4 elements.
+    (A) 64
+    (B) 12
+    (C) 144
+    (D) 24   <-- CORRECT
+    Answer: D
+    Explanation: We know that if A and B are two sets having m and n elements respectively such that ${m \leqslant n,}$ then total number of injective from A to B is ${^n{{\text{C}}_{\text{m}}} \times {\text{m}}!}$ 
+Here, n = 4, m = 3
+$\therefore$ no. of injective =$ {\;^4}{{\text{C}}_3}\; \times 3! = \;4 \times 6 $ = 24
+
+Q4. Mark the correct answer for: arg(-1 + i$\sqrt3$) = ?
+    (A) $\pi$
+    (B) $\frac{\pi}{3}$
+    (C) $\frac{\pi}{2}$
+    (D) $\frac{2 \pi}{3}$   <-- CORRECT
+    Answer: D
+    Explanation: (-1 + i$\sqrt3$) = $2\left(\cos \frac{2 \pi}{3}+i \sin \frac{2 \pi}{3}\right)$ $\Rightarrow$ arg(-1 + i$\sqrt3$) = $\frac{2 \pi}{3}$
+
+Q5. The next term of the sequence 1, 2, 4, 7,11,…. is
+    (A) 14
+    (B) 15
+    (C) 18
+    (D) 16   <-- CORRECT
+    Answer: D
+    Explanation: Here, 
+a_n = $\frac{n(n-1)}{2}$ + 1
+Where n = 1, 2, 3, .....
+a_6 = $\frac{6(6-1)}{2}$ + 1 = 15 + 1 = 16
+
+Q6. $\lim \limits_{x \rightarrow \infty} \frac{\sin x}{x}$ =
+    (A) $\infty$
+    (B) 2
+    (C) 1
+    (D) 0   <-- CORRECT
+    Answer: D
+    Explanation: $\lim \limits_{x \rightarrow \infty} \frac{\sin x}{x}$
+Let $x=\frac{1}{y}$
+$x \rightarrow \infty$
+$\therefore y \rightarrow 0$
+$=\lim \limits_{y \rightarrow 0} \frac{\sin \frac{1}{y}}{\frac{1}{y}}$
+$=\lim \limits_{y \rightarrow 0} y \sin \frac{1}{y}$
+$=\lim \limits_{y \rightarrow 0} y \times \lim \limits_{y \rightarrow 0} \sin \frac{1}{y}$
+$=0 \times \lim \limits_{y \rightarrow 0} \sin \frac{1}{y}$
+= 0
+
+Q7. If the two lines of regression are y = 3x – 5 and y = 2x - 4, then $\rho \left( {X,Y} \right)$ is equal to
+    (A) $\sqrt{\frac{2}{3}}$   <-- CORRECT
+    (B) 1
+    (C) $\sqrt{\frac{3}{2}}$
+    (D) $\sqrt{\frac{1}{6}}$
+    Answer: A
+    Explanation: let us assume that y = 3x – 5 and y = 2x – 4 are lines of regression of x on y and y on x respectively, therefore
+b_xy = $\frac{1}{3}$ 
+b_yz = 2
+$\rho = \pm \sqrt {{b_{xy}}{b_{yx}}} = \pm \sqrt {\frac{2}{3}} $ 
+But sign of $\rho $ is same as ${b_{yx}}$ and ${b_{xy}}$ 
+Therefore $\rho = \sqrt {\frac{2}{3}} $
+
+Q8. The equations of the sides AB, BC and CA of $\triangle$ABC are y - x = 2, x + 2y = 1 and 3x + y + 5 = 0 respectively. The equation of the altitude through B is
+    (A) 4x - y + 2 = 0
+    (B) x - 3y + 4 = 0   <-- CORRECT
+    (C) 3x - y + 2 = 0
+    (D) x - 3y + 1 = 0
+    Answer: B
+    Explanation: The equation of the sides AB, AC and CA of $\triangle$ABC are y - x = 2, x + 2y = 1 and 3x + y + 5 = 0, respectively.
+Solving the equations of AB and BC, i,e, y - x = 2 and x + 2y = 1, we get
+x = -1, y = 1
+So, the coordinates of B are (-1, 1)
+$\therefore$ Slope of AC = -3
+Thus, slope of the altitude through B is $\frac{1}{3}$.
+Equation of the required altitude is given below as per the general formula :
+y - 1 = $\frac{1}{3}$ (x + 1)
+$\Rightarrow$ x - 3y + 4 = 0.
+
+Q9. Two finite sets have m and n elements. The number of elements in the power set of the first is 48 more than the total number of elements in the power set of the second. Then the values of m and n are
+    (A) 6, 3
+    (B) 7, 6
+    (C) 6, 4   <-- CORRECT
+    (D) 3, 7
+    Answer: C
+    Explanation: Let A has m elements and B gas n elements. Then, no. of elements in
+P(A) = 2^m and no. of elements in P(B) = 2^n.]
+By the question,
+2^m = 2^n + 48
+$\Rightarrow $ 2^m - 2^n = 48
+This is possible, if 2^m = 64, 2^n = 16. (As 64 - 16 = 48) 
+$\therefore$ 2m = 64 $\Rightarrow$ 2^m = 2^6 
+$\Rightarrow$ m = 6
+Also, 2^4 = 16 $\Rightarrow$ 2^4 = 24
+$\Rightarrow$ n = 4
+
+Q10. Which of the statements is correct?
+    (A) i > 0
+    (B) 1 + 3i > 2i
+    (C) None of these   <-- CORRECT
+    (D) 3i > 2i
+    Answer: C
+    Explanation: Two complex numbers cannot be compared
+
+Q11. If a, b, c are three positive real numbers then (a + b) (b + c) (c + a) is not less than
+    (A) 8abc   <-- CORRECT
+    (B) (a + b + c)
+    (C) 6abc
+    (D) 2(a + b + c)
+    Answer: A
+    Explanation: Given the numbers are a and b, then we have
+A.M = A = $\frac{a+b}{2}$, G.M. = G = $\sqrt{a b}$ and A.M > G.M
+Now we have $\frac{a+b}{2}>\sqrt{a b}$ ...(i)
+$\frac{b+c}{2}>\sqrt{b c}$ ....(ii)
+$\frac{c+a}{2}>\sqrt{c a}$ ....(iii)
+Multiply (i), (ii) and (iii), we get
+$\frac{a+b}{2} \cdot \frac{b+c}{2} \cdot \frac{c+a}{2}>\sqrt{a b} \cdot \sqrt{b c} \cdot \sqrt{c a}$ 
+$\Rightarrow$ (a + b)(b + c)(c + a) > 8abc
+
+Q12. If f(x) = x sinx, then f' $(\frac{\pi}{2})$ is equal to
+    (A) $\frac12$
+    (B) -1
+    (C) 0
+    (D) 1   <-- CORRECT
+    Answer: D
+    Explanation: f′ (x) = x cosx + sinx
+So, $f^{\prime} (\frac{\pi}{2})=\frac{\pi}{2} \cos \frac{\pi}{2}+\sin \frac{\pi}{2}=1$
+
+Q13. The two lines of regression can never be
+    (A) coincident
+    (B) intersecting
+    (C) parallel   <-- CORRECT
+    (D) perpendicular
+    Answer: C
+    Explanation: because $-1 \leq \rho \leq 1$ 
+So, tan $\theta$ = $\frac{1-\rho^{2}}{\rho} \cdot \frac{\sigma_{x} \sigma_{y}}{\sigma_{x}^{2}+\sigma_{y}^{2}}$
+$\theta = \pi ,\frac{\pi }{2},{0^ \circ }$ 
+So lines can't be parallel.
+
+Q14. If, $\alpha, \beta$ are the roots of the equation x^2 + px + q = 0, then $-\frac{1}{\alpha},-\frac{1}{\beta} $ are the roots of the equation
+    (A) x^2 - px + q = 0
+    (B) x^2 + px + q = 0
+    (C) qx^2 - px + 1 = 0   <-- CORRECT
+    (D) qx^2 + px + 1 = 0
+    Answer: C
+    Explanation: Given equation:
+x^2 + px + 1 = 0
+Also, $\alpha$ and $\beta$ are the roots of the given equation.
+Then, sum of the roots = $\alpha+\beta$ = -p
+Product of the roots = $\alpha\beta$ = q
+Now, for roots
+$-\frac{1}{\alpha},-\frac{1}{\beta}$, we have:
+Sum of the roots = $-\frac{1}{\alpha}-\frac{1}{\beta}$ = $-\frac{\alpha+\beta}{\alpha \beta}$ = $-\left(\frac{-p}{q}\right)$ = $\frac{p}{q}$ 
+Product of the roots = $\frac{1}{\alpha \beta}$ = $\frac{1}{q}$ 
+Hence, the equation involving the roots $-\frac{1}{\alpha},-\frac{1}{\beta}$ is as follows:
+$x^{2}-(\alpha+\beta) x+\alpha \beta$ = 0
+$\Rightarrow$ $x^{2}-\frac{p}{q} x+\frac{1}{q}$ = 0
+$\Rightarrow$ qx^2 - px + 1 = 0
+
+Q15. If (4^3)(4^6)(4^9)(4^12) ... (4^3x) = (0.0625)^-54, the value of x is
+    (A) 10
+    (B) 9
+    (C) 7
+    (D) 8   <-- CORRECT
+    Answer: D
+    Explanation: Given: (4^3)(4^6)(4^9)(4^12) .... (4^3x) = (0.0625)^-54
+$\Rightarrow$ 4^(3 + 6 + 9 + 12 + ... + 3x)= $\left(\frac{625}{10000}\right)^{-54}​​​​​​​$
+$\Rightarrow$ 4^3(1 + 2 + 3 + 4 + ... + x)= $\left(\frac{1}{16}\right)^{-54}​​​​​​​$
+$\Rightarrow 4^{3\left(\frac{x(x+1)}{2}\right)}=\left(\frac{1}{16}\right)^{-54}$
+$\Rightarrow 4^{3\left(\frac{x(x+1)}{2}\right)}=\left(4^{-2}\right)^{-54}$
+Comparing both the sides, we get
+$\Rightarrow 3\left(\frac{x(x+1)}{2}\right)$ = 108
+$\Rightarrow$ x(x + 1) = 72
+$\Rightarrow$ x^2 + x - 72 = 0
+$\Rightarrow$ x^2 + 9x - 8x - 72 = 0
+$\Rightarrow$ x(x + 9) -8(x + 9) = 0
+$\Rightarrow$ (x + 9)(x - 8) = 0
+$\Rightarrow$ x = 8, -9
+$\Rightarrow$ x = 8 [$\therefore$ x is positive]
+
+Q16. Given the 4 lines with equations x + 2y – 3 = 0, 2x + 3y – 4 = 0, 3x + 4y – 5 = 0, 4x + 5y – 6 = 0, then these lines are
+    (A) sides of a Rhombus
+    (B) sides of a parallelogram
+    (C) concurrent   <-- CORRECT
+    (D) the sides of a quadrilateral
+    Answer: C
+    Explanation: The lines are concurrent
+On solving the lies 1 and 2 we get the point of intersection as (-1, 2)
+Similarly on solving lines 2 and 3, the point of intersection is (-1, 2)
+Similarly solving lines 3 and 4, the point of intersection is (-1, 2)
+On solving lines 1 and 4 the point of intersection is (-1, 2)
+Since the point of intersection is the same for all the lines, the lines are concurrent.
+
+Q17. If A = {(x, y) : x^2 + y^2 = 5} and B = {(x, y) : 2x = 5y}, then A $\cap$ B contains
+    (A) infinite points
+    (B) one-point
+    (C) two points   <-- CORRECT
+    (D) no point
+    Answer: C
+    Explanation: From A, x^2 + y^2 = 5 and from B, 2x = 5y
+Now, 2x = 5y $\Rightarrow$ x = $\frac{5}{2 y}$ 
+$\therefore$ x^2 + y^2 = 5 $\Rightarrow$ $\left(\frac{5}{2 y}\right)^{2}$ + y^2 = 5
+$\Rightarrow$ 29y^2 = 20 $\Rightarrow$ y = $\pm \sqrt{\frac{20}{29}}$ 
+$\Rightarrow$ 29y^2 = 20 $\Rightarrow$ y = $\pm \sqrt{\frac{20}{29}}$ 
+$\therefore$ x = $\frac{5}{2}(\pm \sqrt{\frac{20}{29}})$ 
+$\therefore$ Possible ordered pairs = four
+But two ordered pair in which c is positive and y is negative will be rejected as it will not be satisifed by the equation in B. Therefore,
+A $ \cap$ B contains 2 elements.
+
+Q18. (1 + i), when expressed in polar form, is
+    (A) $\sqrt{2}\left[\cos \frac{\pi}{4}+i \sin \frac{\pi}{4}\right]$   <-- CORRECT
+    (B) $2\left[\cos \frac{\pi}{2}+i \sin \frac{\pi}{2}\right]$
+    (C) $2\left[\cos \frac{\pi}{4}+i \sin \frac{\pi}{4}\right]$
+    (D) $2\left[\cos \frac{3\pi}{4}+i \sin \frac{3\pi}{4}\right]$
+    Answer: A
+    Explanation: Let z = (1 + i) and let z = r(cos $\theta$ + i sin $\theta$)
+Then, r cos$\theta$ = 1 and r sin$\theta$ = 1
+Squaring and adding, we get r^2 = 2
+$\Rightarrow$ r = $\sqrt2$
+$\therefore$ $\left\{\cos \theta=\frac{1}{\sqrt{2}} \text { and } \sin \theta=\frac{1}{\sqrt{2}}\right\}$$\Rightarrow$ $\theta$ = $\frac{\pi}{4}$
+$\therefore$ (1 + i) = $\sqrt{2}\left[\cos \frac{\pi}{4}+i \sin \frac{\pi}{4}\right]$
+
+Q19. If second term of a G.P. is 2 and the sum of its infinite terms is 8, then its first term is
+    (A) $\frac {1}{2}$
+    (B) 2
+    (C) $\frac {1}{4}$
+    (D) 4   <-- CORRECT
+    Answer: D
+    Explanation: According to the question , we can write,
+a^2 = 2
+$\therefore$ ar = 2 .... (i)
+Also, $S_{\infty}$ = 8
+$\Rightarrow \frac{a}{(1-r)}$ = 8
+$\Rightarrow \frac{a}{\left(1-\frac{2}{a}\right)}$ = 8 [Using (i)]
+$\Rightarrow$ a^2 = 8(a - 2)
+$\Rightarrow$ a^2 - 8a + 16 = 0
+$\Rightarrow$ (a - 4)^2 = 0
+$\Rightarrow$ a = 4
+
+Q20. The 20^th term of the series $2 \times 4 + 4 \times 6 + 6 \times 8 + ...$ is
+    (A) 840
+    (B) 420
+    (C) 1600
+    (D) 1680   <-- CORRECT
+    Answer: D
+    Explanation: Here,
+a_n = 2n(2n + 2)
+a_20 = 2(20)(2 $\times$ 20 + 2) = 40(42) = 1680
+
+------------------------------------------------------------
+Section C
+------------------------------------------------------------
+Q1. Let A = {1, 2, 3, 4}, B = {2, 3, 4, 5, 6}, then (A $\cap$ B) is equal to :
+    (A) {5, 6}
+    (B) {2, 3, 4}   <-- CORRECT
+    (C) {1}
+    (D) {1, 2, 3}
+    Answer: B
+    Explanation: Here A = {1, 2, 3, 4} and B = {2, 3, 4, 5, 6}
+A $\cap$ B = {1, 2, 3, 4} $\cap$ {2, 3, 4, 5, 6} = {2, 3, 4}
+
+Q2. The domain and range of the function f given by f(x) $=2-|x-5|$ is
+    (A) Domain = R, Range = $(-\infty, 2]$   <-- CORRECT
+    (B) Domain = R^+, Range = $(-\infty, 2]$
+    (C) Domain = R^+, Range = $(-\infty, 1]$
+    (D) Domain = R, Range = $(-\infty, 2)$
+    Answer: A
+    Explanation: We have, f(x) = $2-|x-5|$
+Clearly, f(x) is defined for all x$\in$R
+$\therefore$ Domain of f = R
+Now, $|x-5| \geq 0, \forall x \in R$
+$\Rightarrow -|x-5| \leq 0$
+$\Rightarrow 2-|x-5| \leq 2$
+$\therefore f(x) \leq 2$
+$\therefore$ Range of f $=(-\infty, 2]$
+
+Q3. If z is a non-zero complex number, then $\left|\frac{|\bar{z}|^{2}}{z \bar{z}}\right|$ is equal to
+    (A) $|z|$
+    (B) $\left|\frac{\bar{z}}{z}\right|$   <-- CORRECT
+    (C) $\left|\bar{z}\right|$
+    (D) $-|z|$
+    Answer: B
+    Explanation: $\left|\frac{\bar{z}}{z}\right|$
+$\left|\frac{|\bar{z}|^{2}}{z \bar{z}}\right|=\left|\frac{|\bar{z}|^{2}}{|z|^{2}}\right|$ $\left(\because z \bar{z}=|z|^{2}\right)$
+Let z = a - ib
+$\Rightarrow|z|=\sqrt{a^{2}+b^{2}}$
+Let $\bar{z}$ = a - ib
+$\Rightarrow|z|=\sqrt{a^{2}+b^{2}}$
+$\therefore\left|\frac{|\bar{z}|^{2}}{z \bar{z}}\right|=\left|\frac{|\bar{z}|^{2}}{|z|^{2}}\right|$
+$=\left|\frac{\bar{z}}{z}\right|$
+
+Q4. If A, G, H denote respectively the A.M., G.M. and H.M. between two unequal positive quantities then
+    (A) G < H < A
+    (B) A < G < H
+    (C) A < H < G
+    (D) H < G < A   <-- CORRECT
+    Answer: D
+    Explanation: Let the numbers be a and b, then we have
+A.M = A = $\frac{a+b}{2}$, G.M = G = $\sqrt{a b}$ and H.M = H = $\frac{2 a b}{a+b}$
+Now,
+$(\sqrt{a}-\sqrt{b})^{2}$ = a + b - $2 \sqrt{a b}$
+$\Rightarrow$ a+ b - $2 \sqrt{a b}$ > 0 [Square of any number is always non-negative]
+$\Rightarrow$ a + b > $2 \sqrt{a b}$
+ $\Rightarrow$ $\frac{a+b}{2}>\sqrt{a b}$
+$\Rightarrow$ A > G ...(i)
+Also,
+a + b > $2 \sqrt{a b}$
+$\Rightarrow$ $\sqrt{a b} \cdot a+b>\sqrt{a b} \cdot 2 \sqrt{a b}$
+$\Rightarrow$ $\sqrt{a b} \text { . }$(a + b) > 2ab
+$\Rightarrow \sqrt{a b}>\frac{2 a b}{a+b}$
+$\Rightarrow$ G > H ...(ii)
+Now from (i) and (ii), we get H < G < A
+
+Q5. If x and y are related as y – 4x = 3, then the nature of correlation between x and y is
+    (A) between 0 and 1
+    (B) no correlation
+    (C) perfect positive   <-- CORRECT
+    (D) perfect negative
+    Answer: C
+    Explanation: Comparing the given equation with ax + by + c = 0
+a = -4, b = 1 and c = -3
+So ab < 0
+Hence, $\rho = \frac{{\frac{{ - b}}{a}}}{{\left| {\frac{b}{a}} \right|}} = \frac{{\frac{{ - b}}{a}}}{{\frac{{ - b}}{a}}} = 1$ 
+So a perfect positive correlation.
+
+Q6. Instructions for Question 46 to 50:
+The school organised a farwell party for 100 students and school management decided three types of drinks will be distributed in farewell party i.e., Milk (M), Coffee (C) and Tea (T).
+Organiser reported that 10 students had all three drinks M, C, T. 20 students had M and C; 30 students and C and T; 25 students had M and T. 12 students had M only; 5 students had C only; 8 students had T only.
+The number of students who prefer Milk and Coffee but not tea is
+    (A) 12
+    (B) 10   <-- CORRECT
+    (C) 15
+    (D) 20
+    Answer: B
+    Explanation: 10
+
+Q7. Instructions for Question 46 to 50:
+The school organised a farwell party for 100 students and school management decided three types of drinks will be distributed in farewell party i.e., Milk (M), Coffee (C) and Tea (T).
+Organiser reported that 10 students had all three drinks M, C, T. 20 students had M and C; 30 students and C and T; 25 students had M and T. 12 students had M only; 5 students had C only; 8 students had T only.
+The number of students who prefer Tea is
+    (A) 47
+    (B) 51
+    (C) 53   <-- CORRECT
+    (D) 50
+    Answer: C
+    Explanation: 53
+
+Q8. Instructions for Question 46 to 50:
+The school organised a farwell party for 100 students and school management decided three types of drinks will be distributed in farewell party i.e., Milk (M), Coffee (C) and Tea (T).
+Organiser reported that 10 students had all three drinks M, C, T. 20 students had M and C; 30 students and C and T; 25 students had M and T. 12 students had M only; 5 students had C only; 8 students had T only.
+The number of students who prefer Coffee is
+    (A) 50
+    (B) 47
+    (C) 53
+    (D) 45   <-- CORRECT
+    Answer: D
+    Explanation: 45
+
+Q9. Instructions for Question 46 to 50:
+The school organised a farwell party for 100 students and school management decided three types of drinks will be distributed in farewell party i.e., Milk (M), Coffee (C) and Tea (T).
+Organiser reported that 10 students had all three drinks M, C, T. 20 students had M and C; 30 students and C and T; 25 students had M and T. 12 students had M only; 5 students had C only; 8 students had T only.
+The number of students who prefer Milk is
+    (A) 53
+    (B) 47   <-- CORRECT
+    (C) 50
+    (D) 45
+    Answer: B
+    Explanation: 47
+
+Q10. Instructions for Question 46 to 50:
+The school organised a farwell party for 100 students and school management decided three types of drinks will be distributed in farewell party i.e., Milk (M), Coffee (C) and Tea (T).
+Organiser reported that 10 students had all three drinks M, C, T. 20 students had M and C; 30 students and C and T; 25 students had M and T. 12 students had M only; 5 students had C only; 8 students had T only.
+The number of students who did not take any drink, is
+    (A) 30
+    (B) 25
+    (C) 20   <-- CORRECT
+    (D) 10
+    Answer: C
+    Explanation: 20

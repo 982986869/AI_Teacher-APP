@@ -1,0 +1,1728 @@
+{
+  "testPaperID": 179,
+  "testPaperName": "Mock Test - 06",
+  "category_full_name": "CBSE > Class 11 > Mathematics",
+  "testDuration_min": 90,
+  "noOfQuestions": 50,
+  "instruction": "This question paper contains three sections - A, B and C. Each part is compulsory.\n Section - A has 20 MCQs, attempt any 16 out of 20.\n Section - B has 20 MCQs, attempt any 16 out of 20\n Section - C has 10 MCQs, attempt any 8 out of 10.\n There is no negative marking.\n All questions carry equal marks.",
+  "sections": [
+    {
+      "sectionName": "Section A",
+      "sectionID": 657,
+      "questions": [
+        {
+          "questionID": 295480,
+          "question": "The set (A $\\cup$ B')' $\\cup$ (B $\\cap$ C) is equal to",
+          "question_raw": "<p>The set (A <span class=\"math-tex\">{tex}\\cup{/tex}</span> B&#39;)&#39; <span class=\"math-tex\">{tex}\\cup{/tex}</span> (B <span class=\"math-tex\">{tex}\\cap{/tex}</span> C) is equal to</p>\r\n",
+          "options": [
+            {
+              "id": 420332,
+              "text": "A' $\\cup$ B $\\cup$ C",
+              "is_correct": false
+            },
+            {
+              "id": 420334,
+              "text": "A' $\\cup$ C'",
+              "is_correct": false
+            },
+            {
+              "id": 420335,
+              "text": "A' $\\cap$ B",
+              "is_correct": false
+            },
+            {
+              "id": 420333,
+              "text": "B $\\cap$ (A' $\\cup$ C)",
+              "is_correct": true
+            }
+          ],
+          "correct_option_ids": [
+            420333
+          ],
+          "correct_option_texts": [
+            "B $\\cap$ (A' $\\cup$ C)"
+          ],
+          "explanation": "Therefore,(A $\\cup$ B')' $\\cup$ (B $\\cap$ C) = (A' $\\cap$ B')' $\\cup$ (B $\\cap$ C)\n= (A' $\\cap$ B) $\\cup$ (B $\\cap$ C)\n= B $\\cap$ (A' $\\cup$ C)"
+        },
+        {
+          "questionID": 292225,
+          "question": "If f(x) = cos ( log x) then [ f(x) f(y) $-\\frac{1}{2}$ $f\\left(\\frac{x}{y}\\right)+f(x y)$ ] has the value",
+          "question_raw": "<p>If f(x) = cos ( log x) then [ f(x) f(y)&nbsp;<span class=\"math-tex\">{tex}-\\frac{1}{2}{/tex}</span>&nbsp;<span class=\"math-tex\">{tex}f\\left(\\frac{x}{y}\\right)+f(x y){/tex}</span>&nbsp;] has the value</p>",
+          "options": [
+            {
+              "id": 416997,
+              "text": "-2",
+              "is_correct": false
+            },
+            {
+              "id": 416996,
+              "text": "1/2",
+              "is_correct": false
+            },
+            {
+              "id": 416998,
+              "text": "None of these",
+              "is_correct": true
+            },
+            {
+              "id": 416995,
+              "text": "-1",
+              "is_correct": false
+            }
+          ],
+          "correct_option_ids": [
+            416998
+          ],
+          "correct_option_texts": [
+            "None of these"
+          ],
+          "explanation": "f(x) = cos ( logx)\nNow, f(x) f(y) $-\\frac{1}{2}\\left\\{\\mathrm{f}\\left(\\frac{\\mathrm{x}}{\\mathrm{y}}\\right)+\\mathrm{f}(\\mathrm{xy})\\right\\}$\n= cos(logx) cos(logy) $-\\frac{1}{2}\\{\\cos \\left(\\log \\left(\\frac{x}{y}\\right)\\right)$ + cos (logxy)}\n= cos ( log x) cos (log y) $-\\frac{1}{2}$ {cos(logx - log y) + cos (log x + logy)}\nusing cosx cosy - 1/2 ( cos (x + y ) + cos ( x - y)\n= 0"
+        },
+        {
+          "questionID": 18663,
+          "question": "If z = $\\frac{\\sqrt{3}+i}{2}$, then z^69 is equal to",
+          "question_raw": "<p>If z =&nbsp;<span class=\"math-tex\">{tex}\\frac{\\sqrt{3}+i}{2}{/tex}</span>, then z<sup>69</sup> is equal to</p>",
+          "options": [
+            {
+              "id": 29852,
+              "text": "-i",
+              "is_correct": true
+            },
+            {
+              "id": 29855,
+              "text": "-1",
+              "is_correct": false
+            },
+            {
+              "id": 29854,
+              "text": "1",
+              "is_correct": false
+            },
+            {
+              "id": 29853,
+              "text": "i",
+              "is_correct": false
+            }
+          ],
+          "correct_option_ids": [
+            29852
+          ],
+          "correct_option_texts": [
+            "-i"
+          ],
+          "explanation": "Given z = $\\frac{\\sqrt{3}+i}{2}$ \niz = $i\\left[\\frac{\\sqrt{3}+i}{2}\\right]$ = $\\frac{-1+i \\sqrt{3}}{2}=\\omega$ \n$\\Rightarrow$ z = $\\frac{\\omega}{i}$ \nThen z^69 = $\\left[\\frac{\\omega}{i}\\right]^{69}$ = $\\frac{\\left(\\omega^{3}\\right)^{23}}{\\left(i^{2}\\right)^{34} \\cdot i}$ = $\\frac{1}{(-1)^{34} . i}=\\frac{1}{i}$ = -i [$\\because$ $\\omega^3$ = 1, i^2 = -1]"
+        },
+        {
+          "questionID": 19039,
+          "question": "The lines 8x + 4y = 1, 8x + 4y = 5, 4x + 8y = 3, 4x + 8y = 7 form a",
+          "question_raw": "<p>The lines 8x + 4y = 1, 8x + 4y = 5, 4x + 8y = 3, 4x + 8y = 7 form a</p>",
+          "options": [
+            {
+              "id": 31356,
+              "text": "Rectangle",
+              "is_correct": false
+            },
+            {
+              "id": 31355,
+              "text": "Rhombus",
+              "is_correct": true
+            },
+            {
+              "id": 31357,
+              "text": "Square",
+              "is_correct": false
+            },
+            {
+              "id": 31358,
+              "text": "Trapezium",
+              "is_correct": false
+            }
+          ],
+          "correct_option_ids": [
+            31355
+          ],
+          "correct_option_texts": [
+            "Rhombus"
+          ],
+          "explanation": "On solving the equations 8x + 4y = 1 and 4x + 8y = 3, we get the point of intersection as ($\\frac{-1}{2}$, $\\frac{5}{12}$)\nOn solving the equations 8x + 4y = 5 and 4x + 8y = 7, we get the point of intersection as ($\\frac{1}{4}$, $\\frac{3}{4}$)\nOn solving the equations 8x + 4y = 1 and 4x + 8y = 7, we get the point of intersection as ($\\frac{-5}{12}$, $\\frac{13}{12}$)\nOn solving the equations 8x + 4y = 5 and 4x + 8y = 3, we the point of intersection as ($\\frac{7}{12}$, $\\frac{1}{12}$)\nLet the points A(($\\frac{-1}{2}$, $\\frac{5}{12}$), B($\\frac{7}{12}$, $\\frac{1}{12}$) C($\\frac{1}{4}$, $\\frac{3}{4}$) and D($\\frac{-5}{12}$, $\\frac{13}{12}$) be the vertices of the quadrilateral\nSince the slopes of the opposite sides are equal the quadrilateral is a parallelogram\nThe slope of the diagonal AC is $5/12 - 3/4\\over -1/2 - 1/4$ = 1\nThe slope of the diagonal BD is $1/2 - 13/12\\over 7/12 - (-5/12)$ = -1\nSince the product of the slopes is -1, the diagonals are perpendicular to each other.\nHence the parallelogram is a rhombus."
+        },
+        {
+          "questionID": 19051,
+          "question": "The line which is parallel to X-axis and crosses the curve y = $\\sqrt x $ at an angle of 45^o is:",
+          "question_raw": "<p>The line which is parallel to X-axis and crosses the curve y = <span class=\"math-tex\">{tex}\\sqrt x {/tex}</span> at an angle of 45<sup>o</sup> is:</p>",
+          "options": [
+            {
+              "id": 31405,
+              "text": "y = $\\frac 14$",
+              "is_correct": false
+            },
+            {
+              "id": 31403,
+              "text": "y = $\\frac{1}{2}$",
+              "is_correct": true
+            },
+            {
+              "id": 31404,
+              "text": "y = 1",
+              "is_correct": false
+            },
+            {
+              "id": 31406,
+              "text": "y = $\\frac{3}{2}$",
+              "is_correct": false
+            }
+          ],
+          "correct_option_ids": [
+            31403
+          ],
+          "correct_option_texts": [
+            "y = $\\frac{1}{2}$"
+          ],
+          "explanation": "The equation of the line which is a tangent to the curve y = $\\sqrt x$ is\ny = mx + a/m\nSince it makes and angle of 45^o, m = 1\ny^2 = x implies a = $\\frac{1}{4}$\nHence the equation of the tangent is y = x + $\\frac 14$\nThat is the y-intercept is $\\sqrt \\frac 14$ = $\\frac{1}{2} $\nHence the equation of the line is y = $\\frac{1}{2} $"
+        },
+        {
+          "questionID": 19272,
+          "question": "$\\frac{d}{d x}\\left(\\sin ^{-1} x\\right)=\\frac{1}{\\sqrt{1-x^2}}$ holds true for",
+          "question_raw": "<p><span class=\"math-tex\">{tex}\\frac{d}{d x}\\left(\\sin ^{-1} x\\right)=\\frac{1}{\\sqrt{1-x^2}}{/tex}</span> holds true for</p>",
+          "options": [
+            {
+              "id": 32290,
+              "text": "all real x",
+              "is_correct": false
+            },
+            {
+              "id": 32287,
+              "text": "all x $\\in $ ( - 1, 1)",
+              "is_correct": true
+            },
+            {
+              "id": 32288,
+              "text": "all real x for which |x| > 1",
+              "is_correct": false
+            },
+            {
+              "id": 32289,
+              "text": "all x [-1, 1]",
+              "is_correct": false
+            }
+          ],
+          "correct_option_ids": [
+            32287
+          ],
+          "correct_option_texts": [
+            "all x $\\in $ ( - 1, 1)"
+          ],
+          "explanation": "Domain of sin^-1 x = x $\\in$ [-1, 1] ......(i)\nDomain of $\\frac{1}{\\sqrt{\\left(1-x^{2}\\right)}}$ = x $\\in$ (-1, 1) ....(ii)\nIntersection of (i) and (ii) will give (-1, 1)"
+        },
+        {
+          "questionID": 19407,
+          "question": "The mean and S.D. of 1, 2, 3, 4, 5, 6 is",
+          "question_raw": "<p>The mean and S.D. of 1, 2, 3, 4, 5, 6 is</p>",
+          "options": [
+            {
+              "id": 32829,
+              "text": "3, $\\frac{35}{12}$",
+              "is_correct": false
+            },
+            {
+              "id": 32827,
+              "text": "$\\frac{7}{2}, \\sqrt{\\frac{35}{12}}$",
+              "is_correct": true
+            },
+            {
+              "id": 32828,
+              "text": "3, 3",
+              "is_correct": false
+            },
+            {
+              "id": 32830,
+              "text": "$\\frac{7}{2},\\sqrt 3 $",
+              "is_correct": false
+            }
+          ],
+          "correct_option_ids": [
+            32827
+          ],
+          "correct_option_texts": [
+            "$\\frac{7}{2}, \\sqrt{\\frac{35}{12}}$"
+          ],
+          "explanation": "Mean = $ \\frac{{1 + 2 + 3 + 4 + 5 + 6}}{6} $ = $\\frac{21}{6}$ = $\\frac{7}{2}$ \nS.D = $ \\sqrt {\\frac{{{n^2} - 1}}{{12}}} = \\sqrt {\\frac{{36 - 1}}{{12}}} $ = $\\sqrt{\\frac{35}{12}}$"
+        },
+        {
+          "questionID": 18335,
+          "question": "If A = {2, 3, 4, 8, 10}, B = {3, 4, 5, 10, 12} and C = {4, 5, 6, 12, 14}, then (A $\\cup$ B) $\\cap$ (A $\\cup$ C) is equal to",
+          "question_raw": "<p>If A = {2, 3, 4, 8, 10}, B = {3, 4, 5, 10, 12} and C = {4, 5, 6, 12, 14}, then (A&nbsp;<span class=\"math-tex\">{tex}\\cup{/tex}</span>&nbsp;B)&nbsp;<span class=\"math-tex\">{tex}\\cap{/tex}</span>&nbsp;(A&nbsp;<span class=\"math-tex\">{tex}\\cup{/tex}</span>&nbsp;C)&nbsp;is equal to</p>\r\n",
+          "options": [
+            {
+              "id": 28541,
+              "text": "{2, 4, 5, 10, 12}",
+              "is_correct": false
+            },
+            {
+              "id": 28543,
+              "text": "{3, 8, 10, 12}",
+              "is_correct": false
+            },
+            {
+              "id": 28540,
+              "text": "{2, 3, 4, 5, 8, 10, 12}",
+              "is_correct": true
+            },
+            {
+              "id": 28542,
+              "text": "{4, 5, 8, 10, 12}",
+              "is_correct": false
+            }
+          ],
+          "correct_option_ids": [
+            28540
+          ],
+          "correct_option_texts": [
+            "{2, 3, 4, 5, 8, 10, 12}"
+          ],
+          "explanation": "Given A = {2, 3, 4, 8, 10}, B = {3, 4, 5, 10, 12} and C = {4, 5, 6, 12, 14}\nHere A $\\cup$ B = {2, 3, 4, 5, 8, 10, 12} and A $\\cup$ C = {2, 3, 4, 5, 6, 8, 10, 12, 14}\nNow (A $\\cup$ B) $\\cap$ (A $\\cup$ C) = {2, 3, 4, 5, 8, 10, 12}"
+        },
+        {
+          "questionID": 18426,
+          "question": "The function sin $\\left( {\\sin {\\frac x 3}} \\right)$ is periodic with period",
+          "question_raw": "<p>The function sin <span class=\"math-tex\">{tex}\\left( {\\sin {\\frac x 3}} \\right){/tex}</span> is periodic with period</p>",
+          "options": [
+            {
+              "id": 28906,
+              "text": "$4\\pi $",
+              "is_correct": false
+            },
+            {
+              "id": 28904,
+              "text": "$6\\pi $",
+              "is_correct": true
+            },
+            {
+              "id": 28905,
+              "text": "$2\\pi $",
+              "is_correct": false
+            },
+            {
+              "id": 28907,
+              "text": "$8\\pi $",
+              "is_correct": false
+            }
+          ],
+          "correct_option_ids": [
+            28904
+          ],
+          "correct_option_texts": [
+            "$6\\pi $"
+          ],
+          "explanation": "Let f(x) = sin(sin($\\frac {x}{3}$))\nPeriod of sin x = 2$\\pi$\nPeriod of sin kx = $\\frac {2\\pi}{|k|}$\n= $\\frac {2\\pi}{(\\frac {1}{3})}$\n= 6$\\pi$"
+        },
+        {
+          "questionID": 289420,
+          "question": "If (x + iy) = $\\left(\\frac{a+i b}{c+i d}\\right)$ then (x^2 + y^2) = ?",
+          "question_raw": "<p>If (x + iy) =&nbsp;<span class=\"math-tex\">{tex}\\left(\\frac{a+i b}{c+i d}\\right){/tex}</span>&nbsp;then (x<sup>2</sup> + y<sup>2</sup>) = ?</p>",
+          "options": [
+            {
+              "id": 412932,
+              "text": "$\\frac{\\left(a^{2}-b^{2}\\right)}{\\left(c^{2}+d^{2}\\right)}$",
+              "is_correct": false
+            },
+            {
+              "id": 412931,
+              "text": "$\\frac{\\left(a^{2}+b^{2}\\right)}{\\left(c^{2}+d^{2}\\right)}$",
+              "is_correct": true
+            },
+            {
+              "id": 412934,
+              "text": "$\\frac{\\left(a^{2}-b^{2}\\right)}{\\left(c^{2}-d^{2}\\right)}$",
+              "is_correct": false
+            },
+            {
+              "id": 412933,
+              "text": "$\\frac{\\left(a^{2}+b^{2}\\right)}{\\left(c^{2}-d^{2}\\right)}$",
+              "is_correct": false
+            }
+          ],
+          "correct_option_ids": [
+            412931
+          ],
+          "correct_option_texts": [
+            "$\\frac{\\left(a^{2}+b^{2}\\right)}{\\left(c^{2}+d^{2}\\right)}$"
+          ],
+          "explanation": "(x + iy) =$\\left(\\frac{a+i b}{c+i d}\\right)$ $\\Rightarrow$ |x + iy| = $\\left|\\frac{a+i b}{c+i d}\\right|$ = $\\frac{|a+i b|}{|c+i d|}$\n$\\Rightarrow$ |x + iy|^2 = $\\frac{|a+i b|^{2}}{|c+i d|^{2}}$ $\\Rightarrow$ (x^2 + y^2) = $\\frac{\\left(a^{2}+b^{2}\\right)}{\\left(c^{2}+d^{2}\\right)}$"
+        },
+        {
+          "questionID": 284753,
+          "question": "The two lines ax + by = c and a′x + b′y = c′ are perpendicular if",
+          "question_raw": "<p>The two lines ax + by = c and a&prime;x + b&prime;y = c&prime; are perpendicular if</p>",
+          "options": [
+            {
+              "id": 406973,
+              "text": "ab′ + ba′ = 0",
+              "is_correct": false
+            },
+            {
+              "id": 406970,
+              "text": "aa′ + bb′ = 0",
+              "is_correct": true
+            },
+            {
+              "id": 406972,
+              "text": "ab + a′b′ = 0",
+              "is_correct": false
+            },
+            {
+              "id": 406971,
+              "text": "ab′ = ba′",
+              "is_correct": false
+            }
+          ],
+          "correct_option_ids": [
+            406970
+          ],
+          "correct_option_texts": [
+            "aa′ + bb′ = 0"
+          ],
+          "explanation": "We know that Slope of the line ax + by = c is $\\frac{-a}{b}$, and the slope of the line a′x + b′y = c′ is $\\frac{-a^{\\prime}}{b^{\\prime}}$ The lines are perpendicular if $\\tan \\theta=\\frac{3}{5-x}$ (1) \n$\\frac{-a}{b} \\frac{-a^{\\prime}}{b^{\\prime}}=-1 \\text { or } a a^{\\prime}+b b^{\\prime}=0$"
+        },
+        {
+          "questionID": 19031,
+          "question": "The equations of the lines through (-1, -1) and making angles of 45^o with the line x + y = 0 are",
+          "question_raw": "<p>The equations of the lines through (-1, -1) and making angles of 45<sup>o</sup> with the line x + y = 0 are</p>",
+          "options": [
+            {
+              "id": 31326,
+              "text": "x - 1 = 0, y - 1 = 0",
+              "is_correct": false
+            },
+            {
+              "id": 31323,
+              "text": "x + 1 = 0, y + 1 = 0",
+              "is_correct": true
+            },
+            {
+              "id": 31324,
+              "text": "x + y = 0, y + 1 = 0",
+              "is_correct": false
+            },
+            {
+              "id": 31325,
+              "text": "x – 1 = 0, y – x = 0",
+              "is_correct": false
+            }
+          ],
+          "correct_option_ids": [
+            31323
+          ],
+          "correct_option_texts": [
+            "x + 1 = 0, y + 1 = 0"
+          ],
+          "explanation": "The lines x + 1 = 0 and y + 1 = 0 are perpendicular to each other.\nThe slope of the line x + y = 0 is -1\nHence the angle made by this line with respect to X-axis is 45^o\nIn other words, the angle made by this line with x + 1 = 0 is 45^o\nClearly the other line with which it can make 45^o is y + 1 = 0"
+        },
+        {
+          "questionID": 19224,
+          "question": "$\\lim\\limits_{x \\to 0} \\frac{\\tan x-x}{x^2 \\tan x}$ is equal to",
+          "question_raw": "<p><span class=\"math-tex\">{tex}\\lim\\limits_{x \\to 0} \\frac{\\tan x-x}{x^2 \\tan x}{/tex}</span>&nbsp;is equal to</p>",
+          "options": [
+            {
+              "id": 32096,
+              "text": "$\\frac 1 2$",
+              "is_correct": false
+            },
+            {
+              "id": 32097,
+              "text": "1",
+              "is_correct": false
+            },
+            {
+              "id": 32095,
+              "text": "$\\frac 1 3$",
+              "is_correct": true
+            },
+            {
+              "id": 32098,
+              "text": "0",
+              "is_correct": false
+            }
+          ],
+          "correct_option_ids": [
+            32095
+          ],
+          "correct_option_texts": [
+            "$\\frac 1 3$"
+          ],
+          "explanation": "The following limit is in the form of $\\frac{0}{0}$ \nUsing L'Hospital rule;\n$\\Rightarrow$ $\\lim \\limits_{x \\rightarrow 0} \\frac{\\tan ^{2} x}{\\left(x^{2}\\right)+\\left(x^{2} \\tan ^{2} x\\right)+(\\tan x)(2 x)}$ = $\\lim \\limits_{x \\rightarrow 0} \\left(\\frac{(\\tan x)^{2}}{x^{2}}\\right) \\cdot\\left(\\frac{1}{1+\\tan ^{2} x+\\left(\\frac{2 \\tan x}{x}\\right)}\\right)$ \n$\\Rightarrow$ $1 \\cdot\\left(\\frac{1}{1+0+2}\\right)$\n$\\Rightarrow$ $\\frac{1}{3}$"
+        },
+        {
+          "questionID": 284473,
+          "question": "Let x_1, x_2, ..., x_n be n observations. Let w_i = lx_i + k for i = 1, 2, ..., n, where l and k are constants. If the mean of x_i's is 48 and their standard deviation is 12, the mean of w_i’s is 55 and standard deviation of w_i's is 15, the values of l and k should be.",
+          "question_raw": "<p>Let x<sub>1</sub>, x<sub>2</sub>, ..., x<sub>n</sub> be n observations. Let w<sub>i</sub> = lx<sub>i</sub> + k for i = 1, 2, ..., n, where l and k are constants. If the mean of x<sub>i</sub>&#39;s is 48 and their standard deviation is 12, the mean of w<sub>i</sub>&rsquo;s is 55 and standard deviation of w<sub>i</sub>&#39;s is 15, the values of l and k should be.</p>",
+          "options": [
+            {
+              "id": 406751,
+              "text": "l = – 1.25, k = 5",
+              "is_correct": false
+            },
+            {
+              "id": 406752,
+              "text": "l = 2.5, k = – 5",
+              "is_correct": false
+            },
+            {
+              "id": 406750,
+              "text": "l = 1.25, k = – 5",
+              "is_correct": true
+            },
+            {
+              "id": 406753,
+              "text": "l = 2.5, k = 5",
+              "is_correct": false
+            }
+          ],
+          "correct_option_ids": [
+            406750
+          ],
+          "correct_option_texts": [
+            "l = 1.25, k = – 5"
+          ],
+          "explanation": "Given x_1, x_2, ..., x_n be n observations\nAnd Mean of these n observations, $\\bar{x}$ = 48\nAnd their standard deviation, SD_x = 12.\nAnother series of n observations is given such that\nw_i = lx_i + k for i = 1, 2, ..., n, where l and k are constants\nAnd mean of these n observations, $\\bar{w}$ = 55\nAnd their standard deviation, SD_w = 15\nApplying the given condition for mean we get\nw_i = lx_i + k\nSubstituting the corresponding given values of means, we get\n55 = l(48) + k …(i)\nNow we know\nIf standard deviation of x series is s, then standard deviation of kx series is ks,\nSo standard deviation of x_1, x_2, ..., x_n is SD_x,\nAnd hence the standard deviation of lx_1, lx_2, ..., lx_n is lSD_x.\nSimilarly,\nIf standard deviation of x series is s, then standard deviation of k+x series is s,\nSo standard deviation of lx_1, lx_2, ..., lx_n is lSD_x,\nAnd hence the standard deviation of lx_1+k, lx_2+k, ..., lx_n+k is lSD_x.\nSo applying the given condition for standard deviation, we get\nSD_w = lSD_x\nSubstituting the given values, we get\n15 = l(12)\n$\\Rightarrow 1=\\frac{15}{12}$ = 1.25\nNow substituting the value of l in equation (i), we get\n55 = (1.25)(48) + k\n55 = 60 + k\n⇒ k = 55 - 60 = -5\nHence the values of k and l are -5 and 1.25 respectively"
+        },
+        {
+          "questionID": 291174,
+          "question": "For two sets A $\\cup$ B = A if",
+          "question_raw": "<p>For two sets A <span class=\"math-tex\">{tex}\\cup{/tex}</span> B = A if</p>",
+          "options": [
+            {
+              "id": 416125,
+              "text": "A $\\ne$ B",
+              "is_correct": false
+            },
+            {
+              "id": 416126,
+              "text": "A = B",
+              "is_correct": false
+            },
+            {
+              "id": 416124,
+              "text": "A $\\subseteq$ B",
+              "is_correct": false
+            },
+            {
+              "id": 416123,
+              "text": "B $\\subseteq$ A",
+              "is_correct": true
+            }
+          ],
+          "correct_option_ids": [
+            416123
+          ],
+          "correct_option_texts": [
+            "B $\\subseteq$ A"
+          ],
+          "explanation": "The union of two sets is a set of all those elements that belong to A or to B or to both A and B.\nIf A $\\cup$ B = A , then B $\\subseteq$ A"
+        },
+        {
+          "questionID": 291112,
+          "question": "A relation $\\phi$ from C to R is defined by x $\\phi$ y $\\Leftrightarrow$ | x | = y. Which one is correct?",
+          "question_raw": "<p>A relation <span class=\"math-tex\">{tex}\\phi{/tex}</span>&nbsp;from C to R is defined by x <span class=\"math-tex\">{tex}\\phi{/tex}</span>&nbsp;y <span class=\"math-tex\">{tex}\\Leftrightarrow{/tex}</span>&nbsp;| x | = y. Which one is correct?</p>",
+          "options": [
+            {
+              "id": 416005,
+              "text": "(1 + i) $\\phi$ 2",
+              "is_correct": false
+            },
+            {
+              "id": 416006,
+              "text": "i $\\phi$ 1",
+              "is_correct": true
+            },
+            {
+              "id": 416003,
+              "text": "(2 + 3i) $\\phi$ 13",
+              "is_correct": false
+            },
+            {
+              "id": 416004,
+              "text": "3 $\\phi$ (-3)",
+              "is_correct": false
+            }
+          ],
+          "correct_option_ids": [
+            416006
+          ],
+          "correct_option_texts": [
+            "i $\\phi$ 1"
+          ],
+          "explanation": "i $\\phi$ 1"
+        },
+        {
+          "questionID": 289799,
+          "question": "Compare List I with List II and choose the correct answer using codes given below:\n List I (Complex number)\r\n List II (Conjugate)\r\n (i) (4 - 3i)\r\n (p) 10\r\n (ii) (8 + 6i)\r\n (q) $\\frac{1}{5}$\r\n (iii) $\\frac{1}{(3+4 i)}$\r\n (r) 1\r\n (iv) $\\frac{(3-4 i)}{(3+4 i)}$\r\n (s) 5",
+          "question_raw": "<p>Compare List I with List II and choose the correct answer using codes given below:</p>\r\n\r\n<table border=\"1\" cellpadding=\"3\" cellspacing=\"0\" style=\"width:100%;\">\r\n\t<tbody>\r\n\t\t<tr>\r\n\t\t\t<td style=\"text-align: center;\"><strong>List I (Complex number)</strong></td>\r\n\t\t\t<td style=\"text-align: center;\"><strong>List II (Conjugate)</strong></td>\r\n\t\t</tr>\r\n\t\t<tr>\r\n\t\t\t<td>(i) (4 - 3i)</td>\r\n\t\t\t<td>(p)&nbsp;10</td>\r\n\t\t</tr>\r\n\t\t<tr>\r\n\t\t\t<td>(ii) (8 + 6i)</td>\r\n\t\t\t<td>(q)&nbsp;<span class=\"math-tex\">{tex}\\frac{1}{5}{/tex}</span></td>\r\n\t\t</tr>\r\n\t\t<tr>\r\n\t\t\t<td>(iii) <span class=\"math-tex\">{tex}\\frac{1}{(3+4 i)}{/tex}</span></td>\r\n\t\t\t<td>(r) 1</td>\r\n\t\t</tr>\r\n\t\t<tr>\r\n\t\t\t<td>(iv) <span class=\"math-tex\">{tex}\\frac{(3-4 i)}{(3+4 i)}{/tex}</span></td>\r\n\t\t\t<td>(s) 5</td>\r\n\t\t</tr>\r\n\t</tbody>\r\n</table>",
+          "options": [
+            {
+              "id": 414000,
+              "text": "(i) - (s), (ii) - (p), (iii) - (r), (iv) - (q)",
+              "is_correct": false
+            },
+            {
+              "id": 413999,
+              "text": "(i) - (s), (ii) - (p), (iii) - (q), (iv) - (r)",
+              "is_correct": true
+            },
+            {
+              "id": 414001,
+              "text": "(i) - (p), (ii) - (s), (iii) - (r), (iv) - (q)",
+              "is_correct": false
+            },
+            {
+              "id": 414002,
+              "text": "(i) - (r), (ii) - (p), (iii) - (s), (iv) - (q)",
+              "is_correct": false
+            }
+          ],
+          "correct_option_ids": [
+            413999
+          ],
+          "correct_option_texts": [
+            "(i) - (s), (ii) - (p), (iii) - (q), (iv) - (r)"
+          ],
+          "explanation": "$\\rightarrow$ |4 - 3i| = $\\sqrt{16+9}$ = 5\n $\\rightarrow$ |8 + 6i| = $\\sqrt{64+36}$ = 10\n $\\rightarrow$ $\\frac{1}{|3+4 i|}$ = $\\frac{1}{\\sqrt{9+16}}$= $\\frac{1}{5}$\n $\\rightarrow$ $\\left|\\frac{3-4 i}{3+4 i}\\right|$ = $\\frac{|3-4 i|}{|3+4 i|}=\\frac{\\sqrt{25}}{\\sqrt{25}}$ = 1\n$\\therefore$ the correct answer is (i) - (s), (ii) - (p), (iii) - (q), (iv) - (r)"
+        },
+        {
+          "questionID": 19045,
+          "question": "The area of the quadrilateral formed by the lines |x| + |y| = 1 is",
+          "question_raw": "<p>The area of the quadrilateral formed by the lines |x| + |y| = 1 is</p>",
+          "options": [
+            {
+              "id": 31380,
+              "text": "4",
+              "is_correct": false
+            },
+            {
+              "id": 31379,
+              "text": "2",
+              "is_correct": true
+            },
+            {
+              "id": 31382,
+              "text": "10",
+              "is_correct": false
+            },
+            {
+              "id": 31381,
+              "text": "8",
+              "is_correct": false
+            }
+          ],
+          "correct_option_ids": [
+            31379
+          ],
+          "correct_option_texts": [
+            "2"
+          ],
+          "explanation": "Equations of the lines are\nx $\\ge$ 0, y $\\ge$ 0, then x + y = 1\nx $ \\le$ 0, y $\\le$ 0, then x + y = -1\nx $\\ge$ 0, y $\\le$ 0, then x - y = 2\nx $\\le$ 0, y $\\ge$ 0, then x - y = -2\nClearly these lines form a square, whose coordinates are (1, 1), (1, -1),(-1, -1), (-1, 1)\nHence its area is 4 $\\times$ [$\\frac{1}{2}$]1 $\\times$ 1 = 2 sq units"
+        },
+        {
+          "questionID": 19061,
+          "question": "The point on the axis of y which is equidistant from (- 1, 2) and (3, 4) is",
+          "question_raw": "<p>The point on the axis of y which is equidistant from (- 1, 2) and (3, 4) is</p>",
+          "options": [
+            {
+              "id": 31445,
+              "text": "(0, 4)",
+              "is_correct": false
+            },
+            {
+              "id": 31446,
+              "text": "(4, 0)",
+              "is_correct": false
+            },
+            {
+              "id": 31444,
+              "text": "(5, 0)",
+              "is_correct": false
+            },
+            {
+              "id": 31443,
+              "text": "(0, 5)",
+              "is_correct": true
+            }
+          ],
+          "correct_option_ids": [
+            31443
+          ],
+          "correct_option_texts": [
+            "(0, 5)"
+          ],
+          "explanation": "Let (0, y) be the point on Y-axis which is equidistant from the points (-1, 2) and (3, 4)\nBy applying the distance formula,\n(0 + 1)^2 + (y - 2)^2 = (3 - 0)^2 + (4 - y)^2\non simplifying we get\n4y = 20\nTherefore y = 5\nHence the point on the y-axis is (0, 5)"
+        },
+        {
+          "questionID": 19240,
+          "question": "If k be an integer, then $\\mathop {lim}\\limits_{x \\to {k^ + }}\\;(x - \\left[ x \\right])$ is equal to",
+          "question_raw": "<p>If k be an integer, then <span class=\"math-tex\">{tex}\\mathop {lim}\\limits_{x \\to {k^ + }}\\;(x - \\left[ x \\right]){/tex}</span> is equal to</p>",
+          "options": [
+            {
+              "id": 32160,
+              "text": "1",
+              "is_correct": false
+            },
+            {
+              "id": 32161,
+              "text": "-1",
+              "is_correct": false
+            },
+            {
+              "id": 32162,
+              "text": "k",
+              "is_correct": false
+            },
+            {
+              "id": 32159,
+              "text": "0",
+              "is_correct": true
+            }
+          ],
+          "correct_option_ids": [
+            32159
+          ],
+          "correct_option_texts": [
+            "0"
+          ],
+          "explanation": "$\\underset{x \\rightarrow k^{+}}{lim}(x-[x])$ \n$\\Rightarrow$ $\\underset{h \\rightarrow o}{lim}(k+h-[k+h])$ \n$\\Rightarrow$ $\\underset{h \\rightarrow o}{lim}(k+h-k)$ \n= 0"
+        }
+      ]
+    },
+    {
+      "sectionName": "Section B",
+      "sectionID": 658,
+      "questions": [
+        {
+          "questionID": 292552,
+          "question": "Let x_1, x_2, ..., x_n be values taken by a variable X and y_1, y_2, ..., y_n be the values taken by a variable Y such that y_i = ax_j + b, i = 1, 2, ..., n Then,",
+          "question_raw": "<p>Let x<sub>1</sub>, x<sub>2</sub>, ..., x<sub>n</sub> be values taken by a variable X and y<sub>1</sub>, y<sub>2</sub>, ..., y<sub>n</sub>&nbsp;be the values taken by a variable Y such that y<sub>i&nbsp;</sub>= ax<sub>j</sub> + b, i = 1, 2, ..., n Then,</p>",
+          "options": [
+            {
+              "id": 417531,
+              "text": "Var (Y) = a^2 Var (X)",
+              "is_correct": true
+            },
+            {
+              "id": 417532,
+              "text": "Var (X) = a^2 Var (Y)",
+              "is_correct": false
+            },
+            {
+              "id": 417534,
+              "text": "Var (X) = Var (Y) + b",
+              "is_correct": false
+            },
+            {
+              "id": 417533,
+              "text": "Var (X) = Var (X) + b",
+              "is_correct": false
+            }
+          ],
+          "correct_option_ids": [
+            417531
+          ],
+          "correct_option_texts": [
+            "Var (Y) = a^2 Var (X)"
+          ],
+          "explanation": "We have given, y_i = ax_i + b\nMean (Y) = $\\frac{\\sum f_{1}}{n}$\n$\\bar{Y}=\\frac{a \\sum x_{n}+b n}{n}$\nMean (y) = $\\frac{a \\sum \\bar{x}}{n}+\\frac{n b}{n}$\nThen, Var(Y) = $\\sum \\frac{\\left(y_{1}-\\bar{Y}\\right)^{2}}{n}$\nAnd, Var(X) = $\\sum \\frac{\\left(\\mathrm{x}_{1}-\\overline{\\mathrm{X}}\\right)^{2}}{\\mathrm{n}}$\nVar(Y) = $\\frac{\\sum(a X+b-a \\bar{X}-b)^{2}}{n}$\nVar(Y) = $\\frac{\\sum(a-a \\bar{X})^{2}}{n}$\nVar(Y) = $\\mathrm{a}^{2} \\frac{\\sum\\left(\\mathrm{x}_{1}-\\overline{\\mathrm{X}}\\right)^{2}}{\\mathrm{n}}$\nVar(Y) = a^2 Var (X)"
+        },
+        {
+          "questionID": 18363,
+          "question": "If a set A has n elements then the total number of subsets of A is",
+          "question_raw": "<p>If a set A has n elements then the total number of subsets of A is</p>",
+          "options": [
+            {
+              "id": 28655,
+              "text": "n^2",
+              "is_correct": false
+            },
+            {
+              "id": 28654,
+              "text": "2n",
+              "is_correct": false
+            },
+            {
+              "id": 28652,
+              "text": "2^n",
+              "is_correct": true
+            },
+            {
+              "id": 28653,
+              "text": "n",
+              "is_correct": false
+            }
+          ],
+          "correct_option_ids": [
+            28652
+          ],
+          "correct_option_texts": [
+            "2^n"
+          ],
+          "explanation": "The total no of subsets = 2^n"
+        },
+        {
+          "questionID": 292381,
+          "question": "The range of the function f(x) = |x - 1| is",
+          "question_raw": "<p>The range of the function f(x) = |x - 1| is</p>",
+          "options": [
+            {
+              "id": 417250,
+              "text": "R",
+              "is_correct": false
+            },
+            {
+              "id": 417249,
+              "text": "($0, \\infty$)",
+              "is_correct": false
+            },
+            {
+              "id": 417247,
+              "text": "($-\\infty, 0$)",
+              "is_correct": false
+            },
+            {
+              "id": 417248,
+              "text": "[$0, \\infty$)",
+              "is_correct": true
+            }
+          ],
+          "correct_option_ids": [
+            417248
+          ],
+          "correct_option_texts": [
+            "[$0, \\infty$)"
+          ],
+          "explanation": "A modulus function always gives a positive value\nR(f) =[ $0, \\infty$)"
+        },
+        {
+          "questionID": 289688,
+          "question": "(-1 -$\\sqrt3$ i), when expressed in polar form, is",
+          "question_raw": "<p>(-1 -<span class=\"math-tex\">{tex}\\sqrt3{/tex}</span> i), when expressed in polar form, is</p>",
+          "options": [
+            {
+              "id": 413678,
+              "text": "$3\\left[\\cos \\left(\\frac{-3 \\pi}{2}\\right)+i \\sin \\left(\\frac{-3 \\pi}{2}\\right)\\right]$",
+              "is_correct": false
+            },
+            {
+              "id": 413677,
+              "text": "$2\\left[\\cos \\left(\\frac{-3 \\pi}{4}\\right)+i \\sin \\left(\\frac{-3 \\pi}{4}\\right)\\right]$",
+              "is_correct": false
+            },
+            {
+              "id": 413676,
+              "text": "$2\\left[\\cos \\left(\\frac{-\\pi}{3}\\right)+i \\sin \\left(\\frac{-\\pi}{3}\\right)\\right]$",
+              "is_correct": false
+            },
+            {
+              "id": 413675,
+              "text": "$2\\left[\\cos \\left(\\frac{-2 \\pi}{3}\\right)+i \\sin \\left(\\frac{-2 \\pi}{3}\\right)\\right]$",
+              "is_correct": true
+            }
+          ],
+          "correct_option_ids": [
+            413675
+          ],
+          "correct_option_texts": [
+            "$2\\left[\\cos \\left(\\frac{-2 \\pi}{3}\\right)+i \\sin \\left(\\frac{-2 \\pi}{3}\\right)\\right]$"
+          ],
+          "explanation": "Let z = (-1 -$\\sqrt3$ i) and let z = r(cos$\\theta$ + i sin$\\theta$)\nThen, r cos = -1 and r sin $\\theta$ =$-\\sqrt3i$\nSquaring and adding, we get r^2 = 4 $\\Rightarrow$ r = 2\n$\\therefore$ $\\left[\\cos \\theta=\\frac{-1}{2} \\text { and } \\sin \\theta=\\frac{-\\sqrt{3}}{2}\\right]$ $\\Rightarrow$ $\\theta$ = $\\frac{-2\\pi}{3}$\n$\\therefore$ (-1 -$\\sqrt3$ i) = $2\\left[\\cos \\left(\\frac{-2 \\pi}{3}\\right)+i \\sin \\left(\\frac{-2 \\pi}{3}\\right)\\right]$"
+        },
+        {
+          "questionID": 19002,
+          "question": "The equation y - y_1 = m(x - x_1), m $\\in$ R represents all lines through the point (x_1, y_1) except the line",
+          "question_raw": "<p>The equation&nbsp;y - y<sub>1</sub> = m(x - x<sub>1</sub>), m&nbsp;<span class=\"math-tex\">{tex}\\in{/tex}</span>&nbsp;R&nbsp;represents all lines through the point (x<sub>1</sub>, y<sub>1</sub>) except the line</p>",
+          "options": [
+            {
+              "id": 31208,
+              "text": "parallel to X axis",
+              "is_correct": false
+            },
+            {
+              "id": 31207,
+              "text": "parallel to Y axis",
+              "is_correct": true
+            },
+            {
+              "id": 31210,
+              "text": "parallel to the line x + y = 0",
+              "is_correct": false
+            },
+            {
+              "id": 31209,
+              "text": "parallel to the line x – y = 0",
+              "is_correct": false
+            }
+          ],
+          "correct_option_ids": [
+            31207
+          ],
+          "correct_option_texts": [
+            "parallel to Y axis"
+          ],
+          "explanation": "The vertical lines which are parallel to Y-axis have undefined slopes. Hence the slope of the line 'm' will be undefined.\nTherefore the above equation of the line will represent all lines through (x_1, y_1) except the line parallel to Y-axis."
+        },
+        {
+          "questionID": 292612,
+          "question": "$\\lim \\limits_{x \\rightarrow 0} \\frac{|\\sin x|}{x}$ is",
+          "question_raw": "<p><span class=\"math-tex\">{tex}\\lim \\limits_{x \\rightarrow 0} \\frac{|\\sin x|}{x}{/tex}</span>&nbsp;is</p>",
+          "options": [
+            {
+              "id": 417755,
+              "text": "1",
+              "is_correct": false
+            },
+            {
+              "id": 417758,
+              "text": "None of these",
+              "is_correct": true
+            },
+            {
+              "id": 417757,
+              "text": "0",
+              "is_correct": false
+            },
+            {
+              "id": 417756,
+              "text": "-1",
+              "is_correct": false
+            }
+          ],
+          "correct_option_ids": [
+            417758
+          ],
+          "correct_option_texts": [
+            "None of these"
+          ],
+          "explanation": "We have,\n$|\\sin x|=\\left\\{\\begin{array}{ll} \\sin x, & 0 \\leq x \\leq \\frac{\\pi}{2} \\\\ -\\sin x, & -\\frac{\\pi}{2} \\leq x<0 \\end{array}\\right.$\nNow,\n$\\lim \\limits_{x \\rightarrow 0^{-}} \\frac{|\\sin x|}{x}=\\lim \\limits_{x \\rightarrow 0} \\frac{-\\sin x}{x}$$=-\\lim \\limits_{x \\rightarrow 0} \\frac{\\sin x}{x}=-1$\n$\\lim \\limits_{x \\rightarrow 0^{+}} \\frac{|\\sin x|}{x}=\\lim \\limits_{x \\rightarrow 0} \\frac{\\sin x}{x}=1$\nClearly,\n$\\lim \\limits_{x \\rightarrow 0^{-}} \\frac{|\\sin x|}{x} \\neq \\lim \\limits_{x \\rightarrow 0^{+}} \\frac{|\\sin x|}{x}$\n$\\therefore \\lim \\limits_{x \\rightarrow 0} \\frac{|\\sin x|}{x}$ does not exist."
+        },
+        {
+          "questionID": 292523,
+          "question": "The standard deviation of the data:\n x:\r\n 1\r\n a\r\n a^2\r\n ...\r\n a^n\r\n f:\r\n ^nC_0\r\n ^nC_1\r\n ^nC_2\r\n ...\r\n ^nC_n\r\nis",
+          "question_raw": "<p>The standard deviation of the data:</p>\r\n\r\n<table border=\"1\" cellpadding=\"3\" cellspacing=\"0\" style=\"width:100%\">\r\n\t<tbody>\r\n\t\t<tr>\r\n\t\t\t<td style=\"text-align:center\">x:</td>\r\n\t\t\t<td style=\"text-align:center\">1</td>\r\n\t\t\t<td style=\"text-align:center\">a</td>\r\n\t\t\t<td style=\"text-align:center\">a<sup>2</sup></td>\r\n\t\t\t<td style=\"text-align:center\">...</td>\r\n\t\t\t<td style=\"text-align:center\">a<sup>n</sup></td>\r\n\t\t</tr>\r\n\t\t<tr>\r\n\t\t\t<td style=\"text-align:center\">f:</td>\r\n\t\t\t<td style=\"text-align:center\"><sup>n</sup>C<sub>0</sub></td>\r\n\t\t\t<td style=\"text-align:center\"><sup>n</sup>C<sub>1</sub></td>\r\n\t\t\t<td style=\"text-align:center\"><sup>n</sup>C<sub>2</sub></td>\r\n\t\t\t<td style=\"text-align:center\">...</td>\r\n\t\t\t<td style=\"text-align:center\"><sup>n</sup>C<sub>n</sub></td>\r\n\t\t</tr>\r\n\t</tbody>\r\n</table>\r\n\r\n<p>is</p>",
+          "options": [
+            {
+              "id": 417482,
+              "text": "$\\left(\\frac{1+a}{2}\\right)^{2 n}+\\left(\\frac{1+a^{2}}{2}\\right)^{2n}$",
+              "is_correct": false
+            },
+            {
+              "id": 417481,
+              "text": "$\\left(\\frac{1+a}{2}\\right)^{2 n}-\\left(\\frac{1+a^{2}}{2}\\right)^{n}$",
+              "is_correct": false
+            },
+            {
+              "id": 417480,
+              "text": "$\\left(\\frac{1+a^{2}}{2}\\right)^{n}-\\left(\\frac{1+a}{2}\\right)^{n}$",
+              "is_correct": false
+            },
+            {
+              "id": 417479,
+              "text": "$\\left(\\frac{1+a^{2}}{2}\\right)^{2 n}-\\left(\\frac{1+a}{2}\\right)^{n}$",
+              "is_correct": true
+            }
+          ],
+          "correct_option_ids": [
+            417479
+          ],
+          "correct_option_texts": [
+            "$\\left(\\frac{1+a^{2}}{2}\\right)^{2 n}-\\left(\\frac{1+a}{2}\\right)^{n}$"
+          ],
+          "explanation": "Let us calculate the mean first,\nMean = $\\frac{\\sum f_{1} x_{1}}{\\sum f_{1}}$\n$\\overline{\\mathrm{x}}=\\frac{1 \\times \\frac{\\mathrm{n}}{0} \\mathrm{C}+\\mathrm{a} \\times \\frac{\\mathrm{n}}{1} \\mathrm{C}+\\cdots+\\mathrm{a}^{\\mathrm{n}} \\times \\mathrm{n}^{\\mathrm{n}} \\mathrm{C}}{_{0}^{\\mathrm{n}} \\mathrm{C}+\\frac{\\mathrm{n}}{1} \\mathrm{C}+\\ldots \\mathrm{n}^{\\mathrm{n}} \\mathrm{C}}$\n$\\overline{\\mathrm{x}}=\\mathrm{n}\\left(\\frac{1+\\mathrm{a}^{2}}{2}\\right)^{2 \\mathrm{n}}$\nstandard deviation = $\\left(\\frac{1+a^{2}}{2}\\right)^{2 n}-\\left(\\frac{1+a}{2}\\right)^{n}$"
+        },
+        {
+          "questionID": 18347,
+          "question": "If A , B and C are any three sets , then A – ( B $\\mathop \\cup \\nolimits $ C ) is equal to",
+          "question_raw": "<p>If A , B and C are any three sets , then A &ndash; ( B <span class=\"math-tex\">{tex}\\mathop \\cup \\nolimits {/tex}</span> C ) is equal to</p>\r\n",
+          "options": [
+            {
+              "id": 28589,
+              "text": "( A – B ) $\\mathop \\cup \\nolimits $( A – C )",
+              "is_correct": false
+            },
+            {
+              "id": 28588,
+              "text": "( A – B ) $\\mathop \\cap \\nolimits $ ( A – C )",
+              "is_correct": true
+            },
+            {
+              "id": 28591,
+              "text": "( A – B )$\\mathop \\cap \\nolimits $C",
+              "is_correct": false
+            },
+            {
+              "id": 28590,
+              "text": "( A – B )$\\mathop \\cap \\nolimits $ C",
+              "is_correct": false
+            }
+          ],
+          "correct_option_ids": [
+            28588
+          ],
+          "correct_option_texts": [
+            "( A – B ) $\\mathop \\cap \\nolimits $ ( A – C )"
+          ],
+          "explanation": "$\\eqalign{ & Let\\;x \\in A - (B \\cup C) \\cr & \\Rightarrow x \\in A\\;and\\;x \\notin (B \\cup C) \\cr & \\Rightarrow x \\in A\\;and(x \\notin B\\;and\\;x \\notin C) \\cr & \\Rightarrow (x \\in A\\;and\\;x \\notin B)and(x \\in A\\;and\\;x \\notin C) \\cr & \\Rightarrow x \\in (A - B) \\cap (A - C) \\cr & A - (B \\cup C) = (A - B) \\cap (A - C) \\cr} $"
+        },
+        {
+          "questionID": 291116,
+          "question": "Let R be a relation on N defined by x + 2y = 8. The domain of R is",
+          "question_raw": "<p>Let R be a relation on N defined by x + 2y = 8. The domain of R is</p>",
+          "options": [
+            {
+              "id": 416008,
+              "text": "{2, 4, 6, 8}",
+              "is_correct": false
+            },
+            {
+              "id": 416009,
+              "text": "{2, 4, 6}",
+              "is_correct": true
+            },
+            {
+              "id": 416010,
+              "text": "{1, 2, 3, 4}",
+              "is_correct": false
+            },
+            {
+              "id": 416007,
+              "text": "{2, 4, 8}",
+              "is_correct": false
+            }
+          ],
+          "correct_option_ids": [
+            416009
+          ],
+          "correct_option_texts": [
+            "{2, 4, 6}"
+          ],
+          "explanation": "We have , x + 2y = 8\ny = $\\frac{8-x}{2}$\nsince, x and y are Natural numbers, So x must be an even number.\nif x = 2, y = 3;\nif x = 4, y = 2;\nif x = 6, y = 1.\nSo, relation R = {(2, 3), (4, 2), (6, 1)}\nHence, the domain of R is {2, 4, 6}."
+        },
+        {
+          "questionID": 291707,
+          "question": "If the difference of the roots of x^2 - px + q = 0 is unity, then",
+          "question_raw": "<p>If the difference of the roots of x<sup>2</sup> - px + q = 0 is unity, then</p>\r\n",
+          "options": [
+            {
+              "id": 416490,
+              "text": "4p^2 + q^2 = (1 + 2p)^2",
+              "is_correct": false
+            },
+            {
+              "id": 416489,
+              "text": "p^2 + 4q^2 = (1 + 2q)^2",
+              "is_correct": false
+            },
+            {
+              "id": 416487,
+              "text": "p^2 + 4q = 1",
+              "is_correct": false
+            },
+            {
+              "id": 416488,
+              "text": "p^2 - 4q = 1",
+              "is_correct": true
+            }
+          ],
+          "correct_option_ids": [
+            416488
+          ],
+          "correct_option_texts": [
+            "p^2 - 4q = 1"
+          ],
+          "explanation": "Given equation:\nx^2 - px + q = 0\nAlso, $\\alpha$ and $\\beta$ are the roots of the equation such that $\\alpha-\\beta$,= 1\nSum of the roots = $\\alpha+\\beta$ = $\\frac{-\\text { Coefficient of } x}{\\text { Coefficient of } x^{2}}$ = p\nProduct of the roots = $\\alpha \\beta$ = $\\frac{\\text { Coefficient of } x}{\\text { Coefficient of } x^{2}}$ = q\n$\\therefore$ $(\\alpha+\\beta)^{2}-(\\alpha-\\beta)^{2}=4 \\alpha \\beta$ \n$\\Rightarrow$ p^2 - 1 = 4q\n$\\Rightarrow$ p^2 - 4q = 1"
+        },
+        {
+          "questionID": 289473,
+          "question": "Which term of the AP 92, 88, 84 ,... is 0?",
+          "question_raw": "<p>Which term of the AP 92, 88, 84 ,... is 0?</p>",
+          "options": [
+            {
+              "id": 413047,
+              "text": "24th",
+              "is_correct": true
+            },
+            {
+              "id": 413050,
+              "text": "28th",
+              "is_correct": false
+            },
+            {
+              "id": 413049,
+              "text": "23rd",
+              "is_correct": false
+            },
+            {
+              "id": 413048,
+              "text": "27th",
+              "is_correct": false
+            }
+          ],
+          "correct_option_ids": [
+            413047
+          ],
+          "correct_option_texts": [
+            "24th"
+          ],
+          "explanation": "Let T_n = 0. Then, a + (n - 1)d = 0, where a = 92 and d = - 4.\n$\\therefore$ 92 + (n - 1) $\\times$ ( - 4 ) = 0 $\\Rightarrow$ 4n= 96 $\\Rightarrow$ n = 24.\n$\\therefore$ 24th term is 0."
+        },
+        {
+          "questionID": 285066,
+          "question": "If $y = \\sqrt x + \\frac{1}{{\\sqrt x }},$ then $\\frac{{dy}}{{dx}}$ at x = 1 is equal to",
+          "question_raw": "<p>If&nbsp;<span class=\"math-tex\">{tex}y = \\sqrt x + \\frac{1}{{\\sqrt x }},{/tex}</span>&nbsp;then <span class=\"math-tex\">{tex}\\frac{{dy}}{{dx}}{/tex}</span>&nbsp;at x = 1&nbsp;is equal to</p>\r\n",
+          "options": [
+            {
+              "id": 407404,
+              "text": "$\\frac{1}{\\sqrt{2}}$",
+              "is_correct": false
+            },
+            {
+              "id": 407405,
+              "text": "0",
+              "is_correct": true
+            },
+            {
+              "id": 407402,
+              "text": "1",
+              "is_correct": false
+            },
+            {
+              "id": 407403,
+              "text": "$\\frac{1}{2}$",
+              "is_correct": false
+            }
+          ],
+          "correct_option_ids": [
+            407405
+          ],
+          "correct_option_texts": [
+            "0"
+          ],
+          "explanation": "Given that $y=\\sqrt{x}+\\frac{1}{\\sqrt{x}}$\n$\\frac{d y}{d x}=\\frac{1}{2 \\sqrt{x}}-\\frac{1}{2 x^{3 / 2}}$\n$\\left(\\frac{d y}{d x}\\right)_{\\text {at } x=1}=\\frac{1}{2}-\\frac{1}{2}=0$"
+        },
+        {
+          "questionID": 19406,
+          "question": "The number of families having expenditure range in Rs 16000-19000 is\n Monthly Expenditure\r\n Number of Families\r\n Expenditure more than rs 10000\r\n 100\r\n Expenditure more thanrs 13000\r\n 85\r\n Expenditure more thanrs 16000\r\n 69\r\n Expenditure more thanrs 19000\r\n 50\r\n Expenditure more thanrs 22000\r\n 33\r\n Expenditure more thanrs 25000\r\n 15",
+          "question_raw": "<p>The number of families having expenditure range in Rs 16000-19000 is</p>\r\n\r\n<table border=\"1\" cellpadding=\"3\" cellspacing=\"0\" style=\"width:100%;\">\r\n\t<thead>\r\n\t\t<tr>\r\n\t\t\t<th scope=\"col\">Monthly Expenditure</th>\r\n\t\t\t<th scope=\"col\">Number of Families</th>\r\n\t\t</tr>\r\n\t</thead>\r\n\t<tbody>\r\n\t\t<tr>\r\n\t\t\t<td>Expenditure more than rs 10000</td>\r\n\t\t\t<td>100</td>\r\n\t\t</tr>\r\n\t\t<tr>\r\n\t\t\t<td>Expenditure more thanrs 13000</td>\r\n\t\t\t<td>85</td>\r\n\t\t</tr>\r\n\t\t<tr>\r\n\t\t\t<td>Expenditure more thanrs 16000</td>\r\n\t\t\t<td>69</td>\r\n\t\t</tr>\r\n\t\t<tr>\r\n\t\t\t<td>Expenditure more thanrs 19000</td>\r\n\t\t\t<td>50</td>\r\n\t\t</tr>\r\n\t\t<tr>\r\n\t\t\t<td>Expenditure more thanrs 22000</td>\r\n\t\t\t<td>33</td>\r\n\t\t</tr>\r\n\t\t<tr>\r\n\t\t\t<td>Expenditure more thanrs 25000</td>\r\n\t\t\t<td>15</td>\r\n\t\t</tr>\r\n\t</tbody>\r\n</table>\r\n",
+          "options": [
+            {
+              "id": 32823,
+              "text": "19",
+              "is_correct": true
+            },
+            {
+              "id": 32826,
+              "text": "15",
+              "is_correct": false
+            },
+            {
+              "id": 32825,
+              "text": "17",
+              "is_correct": false
+            },
+            {
+              "id": 32824,
+              "text": "18",
+              "is_correct": false
+            }
+          ],
+          "correct_option_ids": [
+            32823
+          ],
+          "correct_option_texts": [
+            "19"
+          ],
+          "explanation": "19"
+        },
+        {
+          "questionID": 289780,
+          "question": "For any complex number z, arg (z) + arg $(\\bar{z})$ = ?",
+          "question_raw": "<p>For any complex number z, arg (z) + arg&nbsp;<span class=\"math-tex\">{tex}(\\bar{z}){/tex}</span>&nbsp;= ?</p>",
+          "options": [
+            {
+              "id": 413937,
+              "text": "$\\frac{\\pi}{2}$",
+              "is_correct": false
+            },
+            {
+              "id": 413938,
+              "text": "2$\\pi$",
+              "is_correct": false
+            },
+            {
+              "id": 413936,
+              "text": "$\\pi$",
+              "is_correct": false
+            },
+            {
+              "id": 413935,
+              "text": "0",
+              "is_correct": true
+            }
+          ],
+          "correct_option_ids": [
+            413935
+          ],
+          "correct_option_texts": [
+            "0"
+          ],
+          "explanation": "0"
+        },
+        {
+          "questionID": 19058,
+          "question": "The straight-line 3x + y = 9 divides the line segment joining the points (1, 3) and (2, 7) in the ratio",
+          "question_raw": "<p>The straight-line 3x + y = 9 divides the line segment joining the points (1, 3) and (2, 7) in the ratio</p>",
+          "options": [
+            {
+              "id": 31431,
+              "text": "3 : 4",
+              "is_correct": true
+            },
+            {
+              "id": 31434,
+              "text": "5 : 4",
+              "is_correct": false
+            },
+            {
+              "id": 31432,
+              "text": "4 : 2",
+              "is_correct": false
+            },
+            {
+              "id": 31433,
+              "text": "4 : 5",
+              "is_correct": false
+            }
+          ],
+          "correct_option_ids": [
+            31431
+          ],
+          "correct_option_texts": [
+            "3 : 4"
+          ],
+          "explanation": "Let the point be (x, y) and the ratio it divides (1, 3) and (2, 7) be k : 1\nBy section formula, x = $2k+1\\over k+1$, y = $7k+3\\over k+1$ \nhis point also lies on the given line so it would satisfy the equation 3x + y - 9 = 0\n3(2k + 1) + (7k + 3) - 9(k + 1) = 0\nk = $\\frac{3}{4}$\nHence the ratio is ratio = 3 : 4"
+        },
+        {
+          "questionID": 18326,
+          "question": "Let A = {a, b, c}, B = {b, c, d}, C = {a, b, d, e}, then A $\\cap$ (B $\\cup$ C) is",
+          "question_raw": "<p>Let A = {a, b, c}, B = {b, c, d}, C = {a, b, d, e}, then A&nbsp;<span class=\"math-tex\">{tex}\\cap{/tex}</span>&nbsp;(B&nbsp;<span class=\"math-tex\">{tex}\\cup{/tex}</span>&nbsp;C)&nbsp;is</p>",
+          "options": [
+            {
+              "id": 28506,
+              "text": "{a, b, d, e}",
+              "is_correct": false
+            },
+            {
+              "id": 28504,
+              "text": "{a, b, c}",
+              "is_correct": true
+            },
+            {
+              "id": 28507,
+              "text": "{e}",
+              "is_correct": false
+            },
+            {
+              "id": 28505,
+              "text": "{b, c, d}",
+              "is_correct": false
+            }
+          ],
+          "correct_option_ids": [
+            28504
+          ],
+          "correct_option_texts": [
+            "{a, b, c}"
+          ],
+          "explanation": "Here A = {a, b, c}, B = {b, c, d} and C = {a, b, d, e}\nB $\\cup$ C = {a, b, c, d, e}\nA $\\cap$ (B $\\cup$ C) = {a, b, c}"
+        },
+        {
+          "questionID": 292303,
+          "question": "The function f : $R \\rightarrow R$ is defined by f (x) = sin^​​​​4 x - sin ^2^ x +1 f,then R(f) =",
+          "question_raw": "<p>The function f :&nbsp;<span class=\"math-tex\">{tex}R \\rightarrow R{/tex}</span>&nbsp;is defined by f (x) = sin<sup>​​​​4</sup>&nbsp;x - sin <sup>2</sup><sup>&nbsp;</sup>x +1 f,then R(f) =</p>",
+          "options": [
+            {
+              "id": 417092,
+              "text": "(3 / 4 ,1]",
+              "is_correct": false
+            },
+            {
+              "id": 417093,
+              "text": "[ 3 /4 ,1 ]",
+              "is_correct": true
+            },
+            {
+              "id": 417091,
+              "text": "[3 /4 ,1 )",
+              "is_correct": false
+            },
+            {
+              "id": 417094,
+              "text": "( 3 / 4 ,1 )",
+              "is_correct": false
+            }
+          ],
+          "correct_option_ids": [
+            417093
+          ],
+          "correct_option_texts": [
+            "[ 3 /4 ,1 ]"
+          ],
+          "explanation": "f (x) = sin^4 x +1 - sin ^2 x\n$f(x)=\\sin ^{4} x-\\sin ^{2} x+\\frac{1}{4}-\\frac{1}{4}+1$\n$f(x)=\\left(\\sin ^{2} x-\\frac{1}{2}\\right)^{2}+\\frac{3}{4}$\n$\\left(\\sin ^{2} x-\\frac{1}{2}\\right)^{2} \\geq 0$\nMinimum value of f(x) = 3/4\n0 < sin^ 2 x < 1\nSo, maximum value of f(x) = $\\left(1-\\frac{1}{2}\\right)^{2}+\\frac{3}{4}$\n$=\\frac{1}{4}+\\frac{3}{4}$\n= 1\nR(f) =[3/4,1]"
+        },
+        {
+          "questionID": 18650,
+          "question": "If z_1 and z_2 are non-real complex numbers such that |z_1| = |z_2| and Amp. z_1 + Amp. z_2 = $\\pi$, then z_1 =",
+          "question_raw": "<p>If z<sub>1</sub> and z<sub>2</sub> are non-real complex numbers such that |z<sub>1</sub>| = |z<sub>2</sub>|&nbsp;and &nbsp;Amp. z<sub>1</sub> + Amp. z<sub>2</sub> =&nbsp;<span class=\"math-tex\">{tex}\\pi{/tex}</span>, then&nbsp;z<sub>1</sub> =</p>",
+          "options": [
+            {
+              "id": 29803,
+              "text": "-z_2",
+              "is_correct": false
+            },
+            {
+              "id": 29802,
+              "text": "z_2",
+              "is_correct": false
+            },
+            {
+              "id": 29800,
+              "text": "$ - \\overline {{z_2}} $",
+              "is_correct": true
+            },
+            {
+              "id": 29801,
+              "text": "$\\overline {{z_2}} $",
+              "is_correct": false
+            }
+          ],
+          "correct_option_ids": [
+            29800
+          ],
+          "correct_option_texts": [
+            "$ - \\overline {{z_2}} $"
+          ],
+          "explanation": "Let z_1 = $r_{1}\\left(\\cos \\theta_{1}+i \\sin \\theta_{1}\\right)$ and z_2 = $r_{2}\\left(\\cos \\theta_{2}+i \\sin \\theta_{2}\\right)$, where r_1 = |z_1|, r_2 = |z_2| and $\\theta_{1}, \\theta_{2}$ are the amplitudef of the complex numbers.\nGiven |z_1| = |z_2| and$Amp.{z_{1}} + Amp.{z_2} = \\pi $ $\\Rightarrow$ r_1 = r_2 and $ { \\theta }_{ 1 }+{ \\theta }_{ 2 }=\\pi $ \nNow z_1 = ${ r }_{ 1 }\\left( cos{ \\theta }_{ 1 }+isin{ \\theta }_{ 1 } \\right)$ \n$\\Rightarrow$ z_1 = $r_{2}\\left[\\cos \\left(\\pi-\\theta_{2}\\right)+i \\sin \\left(\\pi-\\theta_{2}\\right)\\right]$ \n$\\Rightarrow$ z_1 = $r_{2}\\left(-\\cos \\theta_{2}+i \\sin \\theta_{2}\\right)$ = $-\\left[r_{2}\\left(\\cos \\theta_{2}-i \\sin \\theta_{2}\\right)\\right]$ = $-\\overline{z_{2}}$"
+        },
+        {
+          "questionID": 18928,
+          "question": "pth term of an H.P. is qr and qth term is pr, then rth term of the H.P. is",
+          "question_raw": "<p>pth term of an H.P. is qr and qth term is pr, then rth term of the H.P. is</p>",
+          "options": [
+            {
+              "id": 30913,
+              "text": "pqr",
+              "is_correct": false
+            },
+            {
+              "id": 30914,
+              "text": "pqr^2",
+              "is_correct": false
+            },
+            {
+              "id": 30912,
+              "text": "1",
+              "is_correct": false
+            },
+            {
+              "id": 30911,
+              "text": "pq",
+              "is_correct": true
+            }
+          ],
+          "correct_option_ids": [
+            30911
+          ],
+          "correct_option_texts": [
+            "pq"
+          ],
+          "explanation": "Using the general term of H.P,\na_p = $ \\frac{1}{{a + (p - 1)d}}$ = qr $\\Rightarrow$ $\\frac{1}{q r}$ = a + ( p - 1)d = qr ....(i)\na_q = $\\frac{1}{{a + (q - 1)d}} $ = pr $\\Rightarrow$ $\\frac{1}{p r}$ = a + (q - 1)d = pr ....(ii)\nSolving equation (i) and (ii), we get\na = $\\frac{1}{p q r}$ \nd = $\\frac{1}{p q r}$ \nSo the rth term is,\na_r = $ \\frac{1}{{a + (r - 1)d}} = \\frac{1}{{\\frac{1}{{pqr}} + (r - 1)\\frac{1}{{pqr}}}}$ = pq"
+        },
+        {
+          "questionID": 290457,
+          "question": "GM between 0.15 and 0.0015 is",
+          "question_raw": "<p>GM between 0.15 and 0.0015 is</p>",
+          "options": [
+            {
+              "id": 415377,
+              "text": "0.15",
+              "is_correct": false
+            },
+            {
+              "id": 415378,
+              "text": "0.0015",
+              "is_correct": false
+            },
+            {
+              "id": 415376,
+              "text": "0.015",
+              "is_correct": true
+            },
+            {
+              "id": 415375,
+              "text": "1.5",
+              "is_correct": false
+            }
+          ],
+          "correct_option_ids": [
+            415376
+          ],
+          "correct_option_texts": [
+            "0.015"
+          ],
+          "explanation": "Therefore, GM = $\\sqrt{0.15 \\times 0.0015}=\\sqrt{\\frac{15}{100} \\times \\frac{15}{10000}}=\\sqrt{\\frac{15 \\times 15}{10^{6}}}=\\frac{15}{10^{3}}=\\frac{15}{1000}$ = 0.015."
+        }
+      ]
+    },
+    {
+      "sectionName": "Section C",
+      "sectionID": 659,
+      "questions": [
+        {
+          "questionID": 18339,
+          "question": "The Collection of intelligent students in a class is",
+          "question_raw": "<p>The Collection of intelligent students in a class is</p>",
+          "options": [
+            {
+              "id": 28558,
+              "text": "a singleton set",
+              "is_correct": false
+            },
+            {
+              "id": 28556,
+              "text": "not a Set",
+              "is_correct": true
+            },
+            {
+              "id": 28557,
+              "text": "a null set",
+              "is_correct": false
+            },
+            {
+              "id": 28559,
+              "text": "a finite set",
+              "is_correct": false
+            }
+          ],
+          "correct_option_ids": [
+            28556
+          ],
+          "correct_option_texts": [
+            "not a Set"
+          ],
+          "explanation": "Intelligency can not be measured by numbers i.e the collection is not well defined that's why it can not be called as a Set."
+        },
+        {
+          "questionID": 292262,
+          "question": "If f(x) = cos $\\left(\\log _{e} x\\right)$ Then $f\\left(\\frac{1}{x}\\right) f\\left(\\frac{1}{y}\\right)-\\frac{1}{2}\\left\\{f(x y)+f\\left(\\frac{x}{y}\\right)\\right\\}$ is equal to",
+          "question_raw": "<p>If f(x) = cos&nbsp;<span class=\"math-tex\">{tex}\\left(\\log _{e} x\\right){/tex}</span>&nbsp;Then&nbsp;<span class=\"math-tex\">{tex}f\\left(\\frac{1}{x}\\right) f\\left(\\frac{1}{y}\\right)-\\frac{1}{2}\\left\\{f(x y)+f\\left(\\frac{x}{y}\\right)\\right\\}{/tex}</span> is equal to</p>",
+          "options": [
+            {
+              "id": 417073,
+              "text": "1",
+              "is_correct": false
+            },
+            {
+              "id": 417072,
+              "text": "log (cos (x - y))",
+              "is_correct": false
+            },
+            {
+              "id": 417074,
+              "text": "0",
+              "is_correct": true
+            },
+            {
+              "id": 417071,
+              "text": "cos (x - y)",
+              "is_correct": false
+            }
+          ],
+          "correct_option_ids": [
+            417074
+          ],
+          "correct_option_texts": [
+            "0"
+          ],
+          "explanation": "$f(x)=\\cos \\left(\\log _{e} x\\right)$\nNow, $\\mathrm{f}\\left(\\frac{1}{\\mathrm{x}}\\right) \\mathrm{f}\\left(\\frac{1}{\\mathrm{y}}\\right)-\\frac{1}{2}\\left\\{\\mathrm{f}(\\mathrm{xy})+\\mathrm{f}\\left(\\frac{\\mathrm{x}}{\\mathrm{y}}\\right)\\right\\}$\n$=\\cos \\left(\\log _{e} \\frac{1}{x}\\right) \\cos \\left(\\log _{e} \\frac{1}{y}\\right)$$-\\frac{1}{2}\\left\\{\\cos \\left(\\log _{e} x y\\right)+\\cos \\left(\\log _{e} \\frac{x}{y}\\right)\\right\\}$\n= cos ( - log_e x) cos ( - log y ) $-\\frac{1}{2}${ cos [( log x ) + cos ( log y)]+cos [log x-log y]}\n= cos (log x) cos (log y)-cos (log x) cos (log y)[using cos x cos y = 1/2 ( cos ( x + y) + cos ( x - y)]\n= 0"
+        },
+        {
+          "questionID": 291909,
+          "question": "If z $=\\frac{1}{(2+3 i)^{2}}$, then |z| =",
+          "question_raw": "<p>If z&nbsp;<span class=\"math-tex\">{tex}=\\frac{1}{(2+3 i)^{2}}{/tex}</span>, then&nbsp;|z|&nbsp;=</p>",
+          "options": [
+            {
+              "id": 416623,
+              "text": "$\\frac{1}{13}$",
+              "is_correct": true
+            },
+            {
+              "id": 416626,
+              "text": "$\\frac{1}{11}$",
+              "is_correct": false
+            },
+            {
+              "id": 416625,
+              "text": "$\\frac{1}{12}$",
+              "is_correct": false
+            },
+            {
+              "id": 416624,
+              "text": "$\\frac{1}{5}$",
+              "is_correct": false
+            }
+          ],
+          "correct_option_ids": [
+            416623
+          ],
+          "correct_option_texts": [
+            "$\\frac{1}{13}$"
+          ],
+          "explanation": "$\\frac{1}{13}$\nLet z $=\\frac{1}{(2+3 i)^{2}}$\n$\\Rightarrow z=\\frac{1}{4+9 i^{2}+12 i}$\n$\\Rightarrow z=\\frac{1}{-5+12 i}$\n$\\Rightarrow z=\\frac{1}{-5+12 i}$ $\\times\\frac{-5-12 i}{-5-12 i}$\n$\\Rightarrow z=\\frac{-5-12 i}{25+144}$\n$\\Rightarrow z=\\frac{-5}{169}-\\frac{12 i}{169}$\n$\\Rightarrow|z|=\\sqrt{\\frac{25}{169^{2}}+\\frac{144}{169^{2}}}$\n$\\Rightarrow|z|=\\frac{1}{\\sqrt{169}}$\n$\\Rightarrow|z|=\\frac{1}{13}$"
+        },
+        {
+          "questionID": 18968,
+          "question": "Sum of an infinitely many terms of a G.P. is 3 times the sum of even terms. The common ratio of the G.P. is",
+          "question_raw": "<p>Sum of an infinitely many terms of a G.P. is 3 times the sum of even terms. The common ratio of the G.P. is</p>",
+          "options": [
+            {
+              "id": 31071,
+              "text": "$\\frac 12$",
+              "is_correct": true
+            },
+            {
+              "id": 31072,
+              "text": "2",
+              "is_correct": false
+            },
+            {
+              "id": 31073,
+              "text": "$\\frac 32$",
+              "is_correct": false
+            },
+            {
+              "id": 31074,
+              "text": "$\\frac 14$",
+              "is_correct": false
+            }
+          ],
+          "correct_option_ids": [
+            31071
+          ],
+          "correct_option_texts": [
+            "$\\frac 12$"
+          ],
+          "explanation": "Consider the infinite G . P $a, a r, a r^{2}, a r^{3}, \\dots \\dots \\dots \\dots, \\dots$ with first term a and common ratio r\nThen the even terms $a r, a r^{3}, a r^{5}, \\ldots \\ldots \\ldots \\ldots \\ldots \\ldots \\ldots \\ldots .$ is again an infinite G.P with first term ar and common ratio $r^{2}$\nW e have $S_{\\infty}=\\frac{a}{1-r}$ \nGiven $S_{\\infty}=3$ . Sum of even terms\n$\\Rightarrow a+a r+a r^{2}+a r^{3}+$..........$=3 .\\left[a r+a r^{3}+a r^{5}+\\right.$............]\n$\\Rightarrow \\frac{a}{1-r}=3 \\cdot \\frac{a r}{1-r^{2}}$\n$\\Rightarrow \\frac{1}{1-r}=3 \\cdot \\frac{r}{(1-r)(1+r)}$\n$\\Rightarrow 1(1+r)=3 . r$\n$\\Rightarrow 2 r=1$$\\Rightarrow r=\\frac{1}{2}$"
+        },
+        {
+          "questionID": 292513,
+          "question": "If v is the variance and $\\sigma$ is the standard deviation, then",
+          "question_raw": "<p>If v&nbsp;is the variance and&nbsp;<span class=\"math-tex\">{tex}\\sigma{/tex}</span>&nbsp;is the standard deviation, then</p>",
+          "options": [
+            {
+              "id": 417442,
+              "text": "v^2 = $\\sigma$",
+              "is_correct": false
+            },
+            {
+              "id": 417439,
+              "text": "v = $\\frac{1}{\\sigma^{2}}$",
+              "is_correct": false
+            },
+            {
+              "id": 417440,
+              "text": "v = $\\frac{1}{\\sigma}$",
+              "is_correct": false
+            },
+            {
+              "id": 417441,
+              "text": "v = $\\sigma^{2}$",
+              "is_correct": true
+            }
+          ],
+          "correct_option_ids": [
+            417441
+          ],
+          "correct_option_texts": [
+            "v = $\\sigma^{2}$"
+          ],
+          "explanation": "If v is the variance and $\\sigma$ is the standard deviation, then\nWe know that the formula of standard variance is\n$\\sigma=\\sqrt{\\text { Variance }}$\nSo, variance = $\\sigma^{2}$"
+        },
+        {
+          "questionID": 595998,
+          "question": "Instructions for Question 46 to 50:\nA man deposited ₹ 10000 in a bank at the rate of 5% simple interest annually.\nWhat is the amount paid by him after 20^th year?",
+          "question_raw": "<b>Instructions for Question 46 to 50:</b><br><p>A man deposited ₹ 10000 in a bank at the rate of 5% simple interest annually.<br />\r\n<img alt=\"\" data-imgur-src=\"9l7KYbz.png\" height=\"147\" src=\"https://media-mycbseguide.s3.amazonaws.com/images/imgur/1632316617-cguajh.jpg\" width=\"189\" /></p><br><p>What is the amount paid by him after 20<sup>th</sup> year?</p>",
+          "options": [
+            {
+              "id": 1181582,
+              "text": "₹ 17000",
+              "is_correct": false
+            },
+            {
+              "id": 1181584,
+              "text": "₹ 25000",
+              "is_correct": false
+            },
+            {
+              "id": 1181585,
+              "text": "₹ 21000",
+              "is_correct": false
+            },
+            {
+              "id": 1181583,
+              "text": "₹ 20000",
+              "is_correct": true
+            }
+          ],
+          "correct_option_ids": [
+            1181583
+          ],
+          "correct_option_texts": [
+            "₹ 20000"
+          ],
+          "explanation": "Amount after 20 yr = 10000 + 20 $\\times$ 500\n= 10000 + 10000\n= ₹ 20000"
+        },
+        {
+          "questionID": 596000,
+          "question": "Instructions for Question 46 to 50:\nA man deposited ₹ 10000 in a bank at the rate of 5% simple interest annually.\nWhat is the amount paid by him after 15^th year?",
+          "question_raw": "<b>Instructions for Question 46 to 50:</b><br><p>A man deposited ₹ 10000 in a bank at the rate of 5% simple interest annually.<br />\r\n<img alt=\"\" data-imgur-src=\"9l7KYbz.png\" height=\"147\" src=\"https://media-mycbseguide.s3.amazonaws.com/images/imgur/1632316617-cguajh.jpg\" width=\"189\" /></p><br><p>What is the amount paid by him after 15<sup>th</sup> year?</p>",
+          "options": [
+            {
+              "id": 1181592,
+              "text": "₹ 15000",
+              "is_correct": false
+            },
+            {
+              "id": 1181590,
+              "text": "₹ 17000",
+              "is_correct": true
+            },
+            {
+              "id": 1181593,
+              "text": "₹ 21000",
+              "is_correct": false
+            },
+            {
+              "id": 1181591,
+              "text": "₹ 20000",
+              "is_correct": false
+            }
+          ],
+          "correct_option_ids": [
+            1181590
+          ],
+          "correct_option_texts": [
+            "₹ 17000"
+          ],
+          "explanation": "The amount in the account of man in first, second and third year are ₹ 1000, ₹ 10500, ₹ 11000, ....\nIt is an A.P., where a = 10000 and d = 500\nAmount in 15^th yr = T_15\n= a + 14d\n= 10000 + 14 $\\times$ 500\n= 10000 + 7000\n= ₹ 17000"
+        },
+        {
+          "questionID": 596003,
+          "question": "Instructions for Question 46 to 50:\nA man deposited ₹ 10000 in a bank at the rate of 5% simple interest annually.\nWhat is the amount paid by him after 3^rd year?",
+          "question_raw": "<b>Instructions for Question 46 to 50:</b><br><p>A man deposited ₹ 10000 in a bank at the rate of 5% simple interest annually.<br />\r\n<img alt=\"\" data-imgur-src=\"9l7KYbz.png\" height=\"147\" src=\"https://media-mycbseguide.s3.amazonaws.com/images/imgur/1632316617-cguajh.jpg\" width=\"189\" /></p><br><p>What is the amount paid by him after 3<sup>rd</sup> year?</p>",
+          "options": [
+            {
+              "id": 1181605,
+              "text": "₹ 20000",
+              "is_correct": false
+            },
+            {
+              "id": 1181603,
+              "text": "₹ 500",
+              "is_correct": false
+            },
+            {
+              "id": 1181604,
+              "text": "₹ 11500",
+              "is_correct": true
+            },
+            {
+              "id": 1181602,
+              "text": "₹ 10500",
+              "is_correct": false
+            }
+          ],
+          "correct_option_ids": [
+            1181604
+          ],
+          "correct_option_texts": [
+            "₹ 11500"
+          ],
+          "explanation": "Interest on ₹ 10000 after 3 yr\n$=\\frac{10000 \\times 5 \\times 3}{100}$\n= ₹ 1500\n$\\therefore$ Amount after 3 yr = 10000 + 1500 = ₹ 11500"
+        },
+        {
+          "questionID": 596004,
+          "question": "Instructions for Question 46 to 50:\nA man deposited ₹ 10000 in a bank at the rate of 5% simple interest annually.\nWhat is the interest paid by him after 2^nd year?",
+          "question_raw": "<b>Instructions for Question 46 to 50:</b><br><p>A man deposited ₹ 10000 in a bank at the rate of 5% simple interest annually.<br />\r\n<img alt=\"\" data-imgur-src=\"9l7KYbz.png\" height=\"147\" src=\"https://media-mycbseguide.s3.amazonaws.com/images/imgur/1632316617-cguajh.jpg\" width=\"189\" /></p><br><p>What is the interest paid by him after 2<sup>nd</sup> year?</p>",
+          "options": [
+            {
+              "id": 1181607,
+              "text": "₹ 1000",
+              "is_correct": true
+            },
+            {
+              "id": 1181608,
+              "text": "₹ 500",
+              "is_correct": false
+            },
+            {
+              "id": 1181606,
+              "text": "₹ 700",
+              "is_correct": false
+            },
+            {
+              "id": 1181609,
+              "text": "₹ 1500",
+              "is_correct": false
+            }
+          ],
+          "correct_option_ids": [
+            1181607
+          ],
+          "correct_option_texts": [
+            "₹ 1000"
+          ],
+          "explanation": "Now, interest on ₹ 10000 after 2 yr\n$=\\frac{10000 \\times 5 \\times 2}{100}$\n= ₹ 1000"
+        },
+        {
+          "questionID": 596006,
+          "question": "Instructions for Question 46 to 50:\nA man deposited ₹ 10000 in a bank at the rate of 5% simple interest annually.\nWhat is the amount paid by him after 1^st year?",
+          "question_raw": "<b>Instructions for Question 46 to 50:</b><br><p>A man deposited ₹ 10000 in a bank at the rate of 5% simple interest annually.<br />\r\n<img alt=\"\" data-imgur-src=\"9l7KYbz.png\" height=\"147\" src=\"https://media-mycbseguide.s3.amazonaws.com/images/imgur/1632316617-cguajh.jpg\" width=\"189\" /></p><br><p>What is the amount paid by him after 1<sup>st</sup> year?</p>",
+          "options": [
+            {
+              "id": 1181614,
+              "text": "₹ 10500",
+              "is_correct": true
+            },
+            {
+              "id": 1181615,
+              "text": "₹ 500",
+              "is_correct": false
+            },
+            {
+              "id": 1181617,
+              "text": "₹ 1500",
+              "is_correct": false
+            },
+            {
+              "id": 1181616,
+              "text": "₹ 11500",
+              "is_correct": false
+            }
+          ],
+          "correct_option_ids": [
+            1181614
+          ],
+          "correct_option_texts": [
+            "₹ 10500"
+          ],
+          "explanation": "Interest on ₹ 10000 after 1 yr.\n$=\\frac{10000 \\times 5 \\times 1}{100}$ $\\left(\\because l=\\frac{P \\times R \\times T}{100}\\right)$\n= ₹ 500\nTherefore, amount after 1 yr\n= 10000 + 500\n= 10500"
+        }
+      ]
+    }
+  ]
+}

@@ -65,6 +65,16 @@ async function shutdown(signal) {
 process.on('SIGTERM', () => shutdown('SIGTERM'))
 process.on('SIGINT', () => shutdown('SIGINT'))
 
+// Last-resort guards: a transient async failure (e.g. a Supabase pooler
+// connection reset surfacing as an unhandled rejection) should be logged, not
+// crash the whole server. Requests still fail individually via the error handler.
+process.on('unhandledRejection', (reason) => {
+  console.error('[unhandledRejection]', reason && reason.message ? reason.message : reason)
+})
+process.on('uncaughtException', (err) => {
+  console.error('[uncaughtException]', err && err.message ? err.message : err)
+})
+
 start()
 
 module.exports = app

@@ -1,0 +1,2070 @@
+{
+  "test_id": 232,
+  "test_name": "Mock Test - 09",
+  "instruction": "The Question Paper contains three sections.\n Section A has 25 questions. Attempt any 20 questions.\n Section B has 24 questions. Attempt any 20 questions.\n Section C has 6 questions. Attempt any 5 questions.\n All questions carry equal marks.\n There is no negative marking.",
+  "duration_min": 90,
+  "no_of_questions": 55,
+  "question_types": {
+    "MULTIPLE_CHOICE_QUESTION": 1,
+    "MULTIPLE_RESPONSE_QUESTION": 2,
+    "SUBJECTIVE_QUESTION": 5,
+    "FILL_IN_THE_BLANKS_ONLINE": 18,
+    "NUMERICAL_QUESTION": 16,
+    "TRUE_AND_FALSE_ONLINE_QUESTION": 17
+  },
+  "sections": [
+    {
+      "section_name": "Section A",
+      "section_id": 816,
+      "questions": [
+        {
+          "id": 21865,
+          "type": "40",
+          "question": "Mendeleev proposed that some of the elements were still undiscovered and, therefore, left several gaps in the table. He left the gap under aluminium and a gap under silicon and called these elements Eka-Aluminium and Eka-Silicon. These were later discovered and named.",
+          "question_html": "<p>Mendeleev proposed that some of the elements were still undiscovered and, therefore, left several gaps in the table. He left the gap under aluminium and a gap under silicon and called these elements Eka-Aluminium and Eka-Silicon. These were later discovered and named.</p>",
+          "options": [
+            {
+              "id": 42661,
+              "text": "Mendelivium and Germanium respectively",
+              "html": "Mendelivium and Germanium respectively",
+              "is_correct": false
+            },
+            {
+              "id": 42658,
+              "text": "Gallium and Germanium respectively",
+              "html": "Gallium and Germanium respectively",
+              "is_correct": true
+            },
+            {
+              "id": 42659,
+              "text": "Gallium and Godolinium respectively",
+              "html": "Gallium and Godolinium respectively",
+              "is_correct": false
+            },
+            {
+              "id": 42660,
+              "text": "Barium and Germanium respectively",
+              "html": "Barium and Germanium respectively",
+              "is_correct": false
+            }
+          ],
+          "correct_options": [
+            "Gallium and Germanium respectively"
+          ],
+          "explanation": "Mendeleev arranged the elements according to their atomic weights. He corrected the atomic weights of a few existing elements to explain their chemical and physical behaviour. Moreover, he felt that few elements are still to be discovered, so he left empty spaces for them in his periodic table. Two such elements whose properties he predicted; and were later discovered are Gallium and Germanium respectively.",
+          "solutions": []
+        },
+        {
+          "id": 382955,
+          "type": "MCQ",
+          "question": "The period number in the long form of the periodic table is equal to:",
+          "question_html": "<p>The period number in the long form of the periodic table is equal to:</p>\r\n",
+          "options": [
+            {
+              "id": 589676,
+              "text": "maximum Principal quantum number of any element of the period.",
+              "html": "maximum Principal quantum number of any element of the period.",
+              "is_correct": true
+            },
+            {
+              "id": 589675,
+              "text": "atomic number of any element of the period.",
+              "html": "atomic number of any element of the period.",
+              "is_correct": false
+            },
+            {
+              "id": 589677,
+              "text": "maximum Azimuthal quantum number of any element of the period.",
+              "html": "maximum Azimuthal quantum number of any element of the period.",
+              "is_correct": false
+            },
+            {
+              "id": 589674,
+              "text": "magnetic quantum number of any element of the period.",
+              "html": "magnetic quantum number of any element of the period.",
+              "is_correct": false
+            }
+          ],
+          "correct_options": [
+            "maximum Principal quantum number of any element of the period."
+          ],
+          "explanation": "The principal quantum number is represented by 'n'. it determines the periods of the element e.g Mg maximum principal quantum no. is 3 thus it belong to period 3 of the periodic table.",
+          "solutions": []
+        },
+        {
+          "id": 68851,
+          "type": "MCQ",
+          "question": "Which of the following oxides is neutral?",
+          "question_html": "<p>Which of the following oxides is neutral?</p>",
+          "options": [
+            {
+              "id": 210782,
+              "text": "SnO_(2)",
+              "html": "SnO<sub>2</sub>",
+              "is_correct": false
+            },
+            {
+              "id": 210784,
+              "text": "Na_(2)O",
+              "html": "Na<sub>2</sub>O",
+              "is_correct": false
+            },
+            {
+              "id": 210783,
+              "text": "Al_(2)O_(3)",
+              "html": "Al<sub>2</sub>O<sub>3</sub>",
+              "is_correct": false
+            },
+            {
+              "id": 210781,
+              "text": "CO",
+              "html": "CO",
+              "is_correct": true
+            }
+          ],
+          "correct_options": [
+            "CO"
+          ],
+          "explanation": "CO(carbon monoxide) has a triple covalent bound between C and O and therefore no ionization of any kind. The covalent character of carbon means that there is no tendency for carbon to ionize on its own to form C^(4+) or C^(4-), hence CO stays as neutral oxide.",
+          "solutions": []
+        },
+        {
+          "id": 21957,
+          "type": "MCQ",
+          "question": "The shift in electron density is symbolised by crossed arrow in the below diagram. It depicts\n\n ![image](https://media-mycbseguide.s3.amazonaws.com/images/imgur/EpER5nT.png)",
+          "question_html": "<html><body><p>The shift in electron density is symbolised by crossed arrow in the below diagram. It depicts<br/>\n<img data-imgur-src=\"EpER5nT.png\" src=\"https://media-mycbseguide.s3.amazonaws.com/images/imgur/EpER5nT.png\" style=\"width: 100px; height: 83px;\"/></p></body></html>",
+          "options": [
+            {
+              "id": 43029,
+              "text": "resonance hybrid",
+              "html": "resonance hybrid",
+              "is_correct": false
+            },
+            {
+              "id": 43028,
+              "text": "Lewis structure",
+              "html": "Lewis structure",
+              "is_correct": false
+            },
+            {
+              "id": 43027,
+              "text": "resonance",
+              "html": "resonance",
+              "is_correct": false
+            },
+            {
+              "id": 43026,
+              "text": "dipole moment",
+              "html": "dipole moment",
+              "is_correct": true
+            }
+          ],
+          "correct_options": [
+            "dipole moment"
+          ],
+          "explanation": "The cross base arrow demonstrates the net dipole. On the cross-base arrow, the cross represents the positive charge and the arrow represents the negative charge.",
+          "solutions": []
+        },
+        {
+          "id": 22237,
+          "type": "37",
+          "question": "Oxidation and reduction always occur simultaneously, hence, the word “redox” was coined for this class of chemical reactions. In the following redox reaction, identify the species undergoing oxidation and reduction: 3Fe_(3)O_(4)(s) + 8 Al (s) $\\longrightarrow$ 9 Fe (s) + 4Al_(2)O_(3)(s)",
+          "question_html": "<p>Oxidation and reduction always occur simultaneously, hence, the word &ldquo;redox&rdquo; was coined for this class of chemical reactions. In the following redox reaction, identify the species undergoing oxidation and reduction: 3Fe<sub>3</sub>O<sub>4</sub>(s)&nbsp;+ 8 Al (s) <span class=\"math-tex\">{tex}\\longrightarrow{/tex}</span> 9 Fe (s) + 4Al<sub>2</sub>O<sub>3</sub>(s)</p>",
+          "options": [
+            {
+              "id": 44146,
+              "text": "Aluminium (Al) is oxidised, (Fe_(3)O_(4)) is reduced",
+              "html": "Aluminium (Al) is oxidised, (Fe<sub>3</sub>O<sub>4</sub>) is reduced",
+              "is_correct": true
+            },
+            {
+              "id": 44149,
+              "text": "Al_(2)O_(3) is reduced, Fe_(3)O_(4) is oxidised",
+              "html": "Al<sub>2</sub>O<sub>3</sub> is reduced, Fe<sub>3</sub>O<sub>4</sub> is oxidised",
+              "is_correct": false
+            },
+            {
+              "id": 44148,
+              "text": "Fe_(3)O_(4) is oxidised, Fe is reduced",
+              "html": "Fe<sub>3</sub>O<sub>4</sub> is oxidised, Fe is reduced",
+              "is_correct": false
+            },
+            {
+              "id": 44147,
+              "text": "Fe_(3)O_(4) is oxidised, Aluminium is reduced",
+              "html": "Fe<sub>3</sub>O<sub>4</sub> is oxidised, Aluminium is reduced",
+              "is_correct": false
+            }
+          ],
+          "correct_options": [
+            "Aluminium (Al) is oxidised, (Fe_(3)O_(4)) is reduced"
+          ],
+          "explanation": "In the above reaction, oxygen is transferred from Fe_(3)O_(4) to Al, so Fe_(3)O_(4) is reduced while Al is oxidised. As per the definition of oxidation and reduction, loss of oxygen i.e reduction occurs in Fe_(3)O_(4), and gain of oxygen i.e Oxidation occurs in Al.",
+          "solutions": []
+        },
+        {
+          "id": 69322,
+          "type": "MCQ",
+          "question": "Hydrogen peroxide is used as:",
+          "question_html": "<p>Hydrogen peroxide is used as:</p>\r\n",
+          "options": [
+            {
+              "id": 211041,
+              "text": "A bleaching agent",
+              "html": "A bleaching agent",
+              "is_correct": false
+            },
+            {
+              "id": 211040,
+              "text": "A reducing agent",
+              "html": "A reducing agent",
+              "is_correct": false
+            },
+            {
+              "id": 211038,
+              "text": "All of these",
+              "html": "All of these",
+              "is_correct": true
+            },
+            {
+              "id": 211039,
+              "text": "An oxidizing agent",
+              "html": "An oxidizing agent",
+              "is_correct": false
+            }
+          ],
+          "correct_options": [
+            "All of these"
+          ],
+          "explanation": "Hydrogen peroxide (H_(2)O_(2)) is a very pale blue liquid that appears colourless in a dilute solution, slightly more viscous than water. It is a weak acid. It has strong oxidizing properties and is, therefore, a powerful bleaching agent that is mostly used for bleaching paper but has also found use as a disinfectant and as an oxidizer.\n\nHydrogen peroxide in acid solution is oxidized with KMnO_(4) and reduced with KI. When H_(2)O_(2) serves as an oxidizing agent, the oxygen is reduced to H_(2)O. When H_(2)O_(2) serves as a reducing agent, the oxygen is oxidized to O_(2) and bubbles are noticed.",
+          "solutions": []
+        },
+        {
+          "id": 69571,
+          "type": "MCQ",
+          "question": "The reaction\n\n $C{H_3}CH = C{H_2} + HBr\\xrightarrow{Peroxide} C{H_3}C{H_2}C{H_2}Br$ can be explained by",
+          "question_html": "<p>The reaction<br />\r\n<span class=\"math-tex\">{tex}C{H_3}CH = C{H_2} + HBr\\xrightarrow{Peroxide} C{H_3}C{H_2}C{H_2}Br{/tex}</span>&nbsp; can be explained by</p>",
+          "options": [
+            {
+              "id": 211221,
+              "text": "electrophilic substitution",
+              "html": "electrophilic substitution",
+              "is_correct": false
+            },
+            {
+              "id": 211219,
+              "text": "carbocation formation",
+              "html": "carbocation formation",
+              "is_correct": false
+            },
+            {
+              "id": 211220,
+              "text": "carbanion formation",
+              "html": "carbanion formation",
+              "is_correct": false
+            },
+            {
+              "id": 211218,
+              "text": "free-radical mechanism",
+              "html": "free-radical mechanism",
+              "is_correct": true
+            }
+          ],
+          "correct_options": [
+            "free-radical mechanism"
+          ],
+          "explanation": "In the presence of peroxide and light, the addition of HBr to unsymmetrical alkenes occurs contrary to Markovnikov's rule. The chemistry follows a free-radical mechanism. Organic reactions, which proceed by homolytic fission are called free radical or homopolar or nonpolar reactions.",
+          "solutions": []
+        },
+        {
+          "id": 61914,
+          "type": "Numerical/MCQ",
+          "question": "Fill up the blanks with a suitable word in the statement, \" Physical properties are those properties which are measured or observed ________ changing the identity or the composition of the substance .\"",
+          "question_html": "<p>Fill up the &nbsp;blanks &nbsp;with a suitable word&nbsp;in the statement, &quot; Physical properties are those properties which are measured or observed ________&nbsp;changing the identity or the composition of the substance .&quot;</p>\r\n",
+          "options": [
+            {
+              "id": 202842,
+              "text": "by",
+              "html": "by",
+              "is_correct": false
+            },
+            {
+              "id": 202840,
+              "text": "without",
+              "html": "without",
+              "is_correct": true
+            },
+            {
+              "id": 202841,
+              "text": "with",
+              "html": "with",
+              "is_correct": false
+            },
+            {
+              "id": 202843,
+              "text": "after",
+              "html": "after",
+              "is_correct": false
+            }
+          ],
+          "correct_options": [
+            "without"
+          ],
+          "explanation": "A substance is identified by its composition, hence for measuring physical properties of a substance its identity must be retained, (or should not be changed) Hence, the given statement, \" Physical properties are those properties which are measured or observed without changing the identity or composition of the substance.\" is correct.",
+          "solutions": []
+        },
+        {
+          "id": 21905,
+          "type": "MCQ",
+          "question": "The typical range of molar enthalpies for the strongest intermolecular (Hydrogen) bonds is:",
+          "question_html": "<p>The typical range of molar enthalpies for the strongest intermolecular (Hydrogen) bonds is:</p>",
+          "options": [
+            {
+              "id": 42819,
+              "text": "(50 - 100) kJ",
+              "html": "(50 - 100) kJ&nbsp;",
+              "is_correct": false
+            },
+            {
+              "id": 42818,
+              "text": "(4 - 25) kJ",
+              "html": "(4 - 25) kJ",
+              "is_correct": true
+            },
+            {
+              "id": 42820,
+              "text": "(200 - 300) kJ",
+              "html": "(200 - 300) kJ",
+              "is_correct": false
+            },
+            {
+              "id": 42821,
+              "text": "(300 - 500) kJ",
+              "html": "(300 - 500)&nbsp;kJ",
+              "is_correct": false
+            }
+          ],
+          "correct_options": [
+            "(4 - 25) kJ"
+          ],
+          "explanation": "A hydrogen bond is an electrostatic attraction between two polar groups that occurs when a hydrogen (H) atom linked to a small-sized highly electronegative atom such as nitrogen (N), oxygen (O), or fluorine (F). Therefore unlike a covalent bond, it has very low dissociation energy with a range of molar enthalpy = (4 - 25) kJ.",
+          "solutions": []
+        },
+        {
+          "id": 69553,
+          "type": "MCQ",
+          "question": "In the Lassaigne's test for nitrogen in an organic compound, the Prussian blue colour is obtained due to the formation of :",
+          "question_html": "<p>In the Lassaigne&#39;s test for nitrogen in an organic compound, the Prussian blue colour is obtained due to the formation of :</p>\r\n",
+          "options": [
+            {
+              "id": 211184,
+              "text": "Fe_(2)[Fe(CN)_(6)]",
+              "html": "Fe<sub>2</sub>[Fe(CN)<sub>6</sub>]",
+              "is_correct": false
+            },
+            {
+              "id": 211182,
+              "text": "Fe_(4)[Fe(CN)_(6)]_(3)",
+              "html": "Fe<sub>4</sub>[Fe(CN)<sub>6</sub>]<sub>3</sub>",
+              "is_correct": true
+            },
+            {
+              "id": 211185,
+              "text": "Fe_(3)[Fe(CN)_(6)]_(4)",
+              "html": "Fe<sub>3</sub>[Fe(CN)<sub>6</sub>]<sub>4</sub>",
+              "is_correct": false
+            },
+            {
+              "id": 211183,
+              "text": "Na_(3)[Fe(CN)_(6)]",
+              "html": "Na<sub>3</sub>[Fe(CN)<sub>6</sub>]",
+              "is_correct": false
+            }
+          ],
+          "correct_options": [
+            "Fe_(4)[Fe(CN)_(6)]_(3)"
+          ],
+          "explanation": "In Lassaigne's test, the sodium fusion extract is boiled with iron(II) sulphate and then acidified with concentrated sulphuric acid. The formation of Prussian blue colour confirms the presence of nitrogen. Sodium cyanide first reacts with iron(II)sulphate and forms sodium hexacyanoferrate(II). On heating with concentrated sulphuric acid some iron(II) ions are oxidised to iron(III) ions which react with sodium hexacyanoferrate(II) to produce iron(III) hexacyanoferrate(II) (ferriferrocyanide) which is Prussian blue in colour. Thus the prussion blue colour is due the formation of Fe_(4)[Fe(CN)_(6)]_(3)",
+          "solutions": []
+        },
+        {
+          "id": 21991,
+          "type": "MCQ",
+          "question": "Which of the following attain the linear structure?",
+          "question_html": "<p>Which of the following attain the linear structure?</p>",
+          "options": [
+            {
+              "id": 43165,
+              "text": "CS_(2) and IF_(5)",
+              "html": "CS<sub>2</sub> and IF<sub>5</sub>",
+              "is_correct": false
+            },
+            {
+              "id": 43164,
+              "text": "BeCl_(2) and PCl_(5)",
+              "html": "BeCl<sub>2</sub>&nbsp;and PCl<sub>5</sub>",
+              "is_correct": false
+            },
+            {
+              "id": 43162,
+              "text": "BeCl_(2 )and CS_(2)",
+              "html": "BeCl<sub>2&nbsp;</sub>and CS<sub>2</sub>",
+              "is_correct": true
+            },
+            {
+              "id": 43163,
+              "text": "BeCl_(2) and NO_(2)",
+              "html": "BeCl<sub>2</sub>&nbsp;and NO<sub>2</sub>",
+              "is_correct": false
+            }
+          ],
+          "correct_options": [
+            "BeCl_(2 )and CS_(2)"
+          ],
+          "explanation": "Molecular geometry is determined by the hybridization of the central atom. In CS_(2) the carbon atom is surrounded by two regions of electron density, one for each double bond it forms with the sulfur atoms. The molecular geometry will thus be linear, the basic AX_(2) model.\n\n ![image](https://media-mycbseguide.s3.amazonaws.com/images/cbse/review/ques_21466.png) \n\nThe molecular geometry of BeCl_(2) is linear with symmetric charge distribution around the central atom.\n\n ![image](https://media-mycbseguide.s3.amazonaws.com/images/cbse/review/ques_21466_1.png)",
+          "solutions": []
+        },
+        {
+          "id": 22246,
+          "type": "MCQ",
+          "question": "Aurous chloride and auric chloride are written as Au(l)Cl and Au(lll)Cl_(3). The roman numeral in parenthesis after the symbol of the metal in the molecular formula represents the:",
+          "question_html": "<p>Aurous chloride and auric chloride are written as Au(l)Cl and Au(lll)Cl<sub>3</sub>. The roman numeral in parenthesis after the symbol of the metal in the molecular formula represents the:</p>",
+          "options": [
+            {
+              "id": 44184,
+              "text": "Basic character",
+              "html": "Basic character",
+              "is_correct": false
+            },
+            {
+              "id": 44182,
+              "text": "Oxidation number",
+              "html": "Oxidation number",
+              "is_correct": true
+            },
+            {
+              "id": 44185,
+              "text": "Electronegativity",
+              "html": "Electronegativity",
+              "is_correct": false
+            },
+            {
+              "id": 44183,
+              "text": "Ionic state",
+              "html": "Ionic state",
+              "is_correct": false
+            }
+          ],
+          "correct_options": [
+            "Oxidation number"
+          ],
+          "explanation": "The roman number represents the oxidation number/oxidation state of an element. It is popularly known as Stock notation given by the german scientist Alfred stock.",
+          "solutions": []
+        },
+        {
+          "id": 22360,
+          "type": "MCQ",
+          "question": "Which of the following equations depict the oxidising nature of H_(2)O_(2)?",
+          "question_html": "<p>Which of the following equations depict the oxidising nature of H<sub>2</sub>O<sub>2</sub>?</p>\r\n",
+          "options": [
+            {
+              "id": 44637,
+              "text": "${\\text{2Fe}}{{\\text{3}}^ + } + {\\text{2H}} ^ + {\\text{ }} + {{\\text{H}}_{\\text{2}}}{{\\text{O}}_{\\text{2}}} \\to {\\text{2F}}{{\\text{e}}^{{\\text{2}} + }} + {\\text{ 2}}{{\\text{H}}_{\\text{2}}}{\\text{O}} + {{\\text{O}}_{\\text{2}}}$",
+              "html": "<span class=\"math-tex\">{tex}{\\text{2Fe}}{{\\text{3}}^ + } + {\\text{2H}} ^ + {\\text{ }} + {{\\text{H}}_{\\text{2}}}{{\\text{O}}_{\\text{2}}} \\to {\\text{2F}}{{\\text{e}}^{{\\text{2}} + }} + {\\text{ 2}}{{\\text{H}}_{\\text{2}}}{\\text{O}} + {{\\text{O}}_{\\text{2}}}{/tex}</span>",
+              "is_correct": false
+            },
+            {
+              "id": 44636,
+              "text": "${\\text{2}}{{\\text{I}}^ - } + {\\text{2}}{{\\text{H}}^ + } + {{\\text{H}}_{\\text{2}}}{{\\text{O}}_{\\text{2}}} \\to {{\\text{I}}_{\\text{2}}} + {\\text{2}}{{\\text{H}}_{\\text{2}}}{\\text{O}}$",
+              "html": "<span class=\"math-tex\">{tex}{\\text{2}}{{\\text{I}}^ - } + {\\text{2}}{{\\text{H}}^ + } + {{\\text{H}}_{\\text{2}}}{{\\text{O}}_{\\text{2}}} \\to {{\\text{I}}_{\\text{2}}} + {\\text{2}}{{\\text{H}}_{\\text{2}}}{\\text{O}}{/tex}</span>",
+              "is_correct": true
+            },
+            {
+              "id": 44639,
+              "text": "${\\text{KI}}{{\\text{O}}_{\\text{4}}} + {{\\text{H}}_{\\text{2}}}{{\\text{O}}_{\\text{2}}} \\to {\\text{ KI}}{{\\text{O}}_{\\text{3}}} + {{\\text{H}}_{\\text{2}}}{\\text{O}} + {{\\text{O}}_{\\text{2}}}$",
+              "html": "<span class=\"math-tex\">{tex}{\\text{KI}}{{\\text{O}}_{\\text{4}}} + {{\\text{H}}_{\\text{2}}}{{\\text{O}}_{\\text{2}}} \\to {\\text{ KI}}{{\\text{O}}_{\\text{3}}} + {{\\text{H}}_{\\text{2}}}{\\text{O}} + {{\\text{O}}_{\\text{2}}}{/tex}</span>",
+              "is_correct": false
+            },
+            {
+              "id": 44638,
+              "text": "${\\text{2MnO4}}^ - {\\text{ }} + {\\text{ 6 }}{{\\text{H}}^ + } + {\\text{5}}{{\\text{H}}_{\\text{2}}}{{\\text{O}}_{\\text{2}}} \\to {\\text{2M}}{{\\text{n}}^{{\\text{2}} + }} + {\\text{8}}{{\\text{H}}_{\\text{2}}}{\\text{O}} + {\\text{5}}{{\\text{O}}_{\\text{2}}}$",
+              "html": "<span class=\"math-tex\">{tex}{\\text{2MnO4}}^ - {\\text{ }} + {\\text{ 6 }}{{\\text{H}}^ + } + {\\text{5}}{{\\text{H}}_{\\text{2}}}{{\\text{O}}_{\\text{2}}} \\to {\\text{2M}}{{\\text{n}}^{{\\text{2}} + }} + {\\text{8}}{{\\text{H}}_{\\text{2}}}{\\text{O}} + {\\text{5}}{{\\text{O}}_{\\text{2}}}{/tex}</span>",
+              "is_correct": false
+            }
+          ],
+          "correct_options": [
+            "${\\text{2}}{{\\text{I}}^ - } + {\\text{2}}{{\\text{H}}^ + } + {{\\text{H}}_{\\text{2}}}{{\\text{O}}_{\\text{2}}} \\to {{\\text{I}}_{\\text{2}}} + {\\text{2}}{{\\text{H}}_{\\text{2}}}{\\text{O}}$"
+          ],
+          "explanation": "I^(-) gets oxidize to I_(2) in presence H_(2)O_(2) which itself get reduce to H_(2)O.",
+          "solutions": []
+        },
+        {
+          "id": 69576,
+          "type": "MCQ",
+          "question": "Which of the following is an electrophile?",
+          "question_html": "<p>Which of the following is an&nbsp;electrophile?</p>",
+          "options": [
+            {
+              "id": 211241,
+              "text": "Cyanide ion",
+              "html": "Cyanide ion",
+              "is_correct": false
+            },
+            {
+              "id": 211240,
+              "text": "Ammonia",
+              "html": "Ammonia",
+              "is_correct": false
+            },
+            {
+              "id": 211239,
+              "text": "Water",
+              "html": "Water",
+              "is_correct": false
+            },
+            {
+              "id": 211238,
+              "text": "Dimethyl chloride",
+              "html": "Dimethyl chloride",
+              "is_correct": true
+            }
+          ],
+          "correct_options": [
+            "Dimethyl chloride"
+          ],
+          "explanation": "A reagent that takes away an electron pair is called electrophile (E+) i.e., electron seeking. In neutral molecules such as alkyl halides, due to the polarity of the C-X bond a partial positive charge is generated on the carbon atom and hence the carbon atom becomes an electrophilic centre at which a nucleophile can attack. Dimethyl chloride is thus an electrophile.",
+          "solutions": []
+        },
+        {
+          "id": 21727,
+          "type": "MCQ",
+          "question": "What will be the volume of CO_(2) at NTP obtained on heating 10 grams of (90% pure) limestone",
+          "question_html": "<p>What will be the volume of CO<sub>2</sub> at NTP obtained on heating 10 grams of (90% pure) limestone</p>",
+          "options": [
+            {
+              "id": 42106,
+              "text": "2.016 litre",
+              "html": "2.016 litre",
+              "is_correct": true
+            },
+            {
+              "id": 42108,
+              "text": "2.24 litre",
+              "html": "2.24 litre",
+              "is_correct": false
+            },
+            {
+              "id": 42109,
+              "text": "20.16 litre",
+              "html": "20.16 litre",
+              "is_correct": false
+            },
+            {
+              "id": 42107,
+              "text": "22.4 litre",
+              "html": "22.4 litre",
+              "is_correct": false
+            }
+          ],
+          "correct_options": [
+            "2.016 litre"
+          ],
+          "explanation": "2.016 litre",
+          "solutions": []
+        },
+        {
+          "id": 21854,
+          "type": "MCQ",
+          "question": "The de Broglie wavelength of a tennis ball of mass 60 g moving with a velocity of 10 metres per second is approximately:",
+          "question_html": "<p>The de Broglie wavelength of a tennis ball of mass 60 g moving with a velocity of 10 metres per second is approximately:</p>",
+          "options": [
+            {
+              "id": 42614,
+              "text": "10^(-33)m",
+              "html": "10<sup>-33</sup>m",
+              "is_correct": true
+            },
+            {
+              "id": 42617,
+              "text": "10^(-23)m",
+              "html": "10<sup>-23</sup>m",
+              "is_correct": false
+            },
+            {
+              "id": 42616,
+              "text": "10^(-43)m",
+              "html": "10<sup>-43</sup>m",
+              "is_correct": false
+            },
+            {
+              "id": 42615,
+              "text": "10^(-31)m",
+              "html": "10<sup>-31</sup>m",
+              "is_correct": false
+            }
+          ],
+          "correct_options": [
+            "10^(-33)m"
+          ],
+          "explanation": "The mass of the ball = 60 g = 6 $\\times$ 10^(-2) kg\n\nVelocity of the ball = 10m/s\n\nlet the de broglie wavelength be $\\lambda $ .\n\nWe know, $\\lambda={h\\over mv}$ \n\n $\\lambda ={6.626\\times 10^{-34}\\over6\\times 10^{-2}\\times 10}$ = $1.103\\times 10^{-33}\\approx 10^{-33}m$",
+          "solutions": []
+        },
+        {
+          "id": 22243,
+          "type": "MCQ",
+          "question": "Oxidation number denotes the oxidation state of an element in a compound ascertained on the basis that electron in a covalent bond belongs",
+          "question_html": "<p>Oxidation number denotes the oxidation state of an element in a compound ascertained on the basis that electron in a covalent bond belongs</p>\r\n",
+          "options": [
+            {
+              "id": 44173,
+              "text": "entirely to transition elements if present",
+              "html": "entirely to transition elements if present",
+              "is_correct": false
+            },
+            {
+              "id": 44171,
+              "text": "entirely to less electronegative element",
+              "html": "entirely to less electronegative element",
+              "is_correct": false
+            },
+            {
+              "id": 44170,
+              "text": "entirely to more electronegative element",
+              "html": "entirely to more electronegative element",
+              "is_correct": true
+            },
+            {
+              "id": 44172,
+              "text": "entirely to halogens in a compound",
+              "html": "entirely to halogens in a compound",
+              "is_correct": false
+            }
+          ],
+          "correct_options": [
+            "entirely to more electronegative element"
+          ],
+          "explanation": "Oxidation number is a number assigned to an element in a compound according to some rules. This number enable us to describe oxidation-reduction reactions, and balancing redox chemical reactions. When a covalent bond forms between two atoms with different electronegativities the shared electrons in the bond lie closer to the more electronegative atom eg. HCl\n\nThe oxidation number of an atom is the charge that results when the electrons in a covalent bond are assigned to the more electronegative atom. It is the charge on an atom would possess if the bonding were ionic. In HCl (above) the oxidation number for the hydrogen would be +1 and that of the Cl would be -1",
+          "solutions": []
+        },
+        {
+          "id": 21980,
+          "type": "MCQ",
+          "question": "For a stable molecule the value of bond order must be:",
+          "question_html": "<p>For a stable molecule the value of bond order must be:</p>",
+          "options": [
+            {
+              "id": 43120,
+              "text": "zero",
+              "html": "zero",
+              "is_correct": false
+            },
+            {
+              "id": 43121,
+              "text": "there is no relationship between stability and bond order",
+              "html": "there is no relationship between stability and bond order",
+              "is_correct": false
+            },
+            {
+              "id": 43118,
+              "text": "positive",
+              "html": "positive",
+              "is_correct": true
+            },
+            {
+              "id": 43119,
+              "text": "negative",
+              "html": "negative",
+              "is_correct": false
+            }
+          ],
+          "correct_options": [
+            "positive"
+          ],
+          "explanation": "Bond order $\\propto $ Stability\n\nHence, for a stable molecule, the value of bond order must be positive. When bond order is zero and negative the molecule will not exist.",
+          "solutions": []
+        },
+        {
+          "id": 69554,
+          "type": "MCQ",
+          "question": "Which of the following carbocation is most stable?",
+          "question_html": "<p>Which of the following carbocation is most stable?</p>",
+          "options": [
+            {
+              "id": 211187,
+              "text": "${(C{H_3})_3}C\\mathop C\\limits^ \\oplus {H_2}$",
+              "html": "<span class=\"math-tex\">{tex}{(C{H_3})_3}C\\mathop C\\limits^ \\oplus {H_2}{/tex}</span>",
+              "is_correct": false
+            },
+            {
+              "id": 211188,
+              "text": "$C{H_3}C{H_2}\\mathop C\\limits^ \\oplus {H_2}$",
+              "html": "<span class=\"math-tex\">{tex}C{H_3}C{H_2}\\mathop C\\limits^ \\oplus {H_2}{/tex}</span>",
+              "is_correct": false
+            },
+            {
+              "id": 211186,
+              "text": "${(C{H_3})_3}\\mathop C\\limits^ \\oplus $",
+              "html": "<span class=\"math-tex\">{tex}{(C{H_3})_3}\\mathop C\\limits^ \\oplus {/tex}</span>",
+              "is_correct": true
+            },
+            {
+              "id": 211189,
+              "text": "$C{H_3}\\mathop C\\limits^ \\oplus HC{H_2}C{H_3}$",
+              "html": "<span class=\"math-tex\">{tex}C{H_3}\\mathop C\\limits^ \\oplus HC{H_2}C{H_3}{/tex}</span>",
+              "is_correct": false
+            }
+          ],
+          "correct_options": [
+            "${(C{H_3})_3}\\mathop C\\limits^ \\oplus $"
+          ],
+          "explanation": "${(C{H_3})_3}\\mathop C\\limits^ \\oplus $ i.e. the tertiary carbocation is most stable. Alkyl groups directly attached to the positively charged carbon stabilise the carbocations due to inductive and hyperconjugation effects.",
+          "solutions": []
+        },
+        {
+          "id": 167369,
+          "type": "39",
+          "question": "Two students performed the same experiment separately and each one of them recorded two readings of mass which are given below. Correct reading of mass is 3.0 g. On the basis of given data, mark the correct option out of the following statements.\n\n \n \n \n Student\n\n \n \n Readings\n\n \n \n \n \n A\n\n \n \n 3.01\n\n \n \n 2.99\n\n \n \n \n \n B\n\n \n \n 3.05\n\n \n \n 2.95",
+          "question_html": "<p>Two students performed the same experiment separately and each one of them recorded two readings of mass which are given below. Correct reading of mass is 3.0 g. On the basis of given data, mark the correct option out of the following statements.</p>\r\n\r\n<table border=\"1\" cellpadding=\"3\" cellspacing=\"0\" style=\"width:100%;\">\r\n\t<tbody>\r\n\t\t<tr>\r\n\t\t\t<td>\r\n\t\t\t<p style=\"text-align: center;\"><strong>Student</strong></p>\r\n\t\t\t</td>\r\n\t\t\t<td colspan=\"2\">\r\n\t\t\t<p style=\"text-align: center;\"><strong>Readings</strong></p>\r\n\t\t\t</td>\r\n\t\t</tr>\r\n\t\t<tr>\r\n\t\t\t<td>\r\n\t\t\t<p style=\"text-align: center;\"><strong>A</strong></p>\r\n\t\t\t</td>\r\n\t\t\t<td>\r\n\t\t\t<p style=\"text-align: center;\"><strong>3.01</strong></p>\r\n\t\t\t</td>\r\n\t\t\t<td>\r\n\t\t\t<p style=\"text-align: center;\"><strong>2.99</strong></p>\r\n\t\t\t</td>\r\n\t\t</tr>\r\n\t\t<tr>\r\n\t\t\t<td>\r\n\t\t\t<p style=\"text-align: center;\"><strong>B</strong></p>\r\n\t\t\t</td>\r\n\t\t\t<td>\r\n\t\t\t<p style=\"text-align: center;\"><strong>3.05</strong></p>\r\n\t\t\t</td>\r\n\t\t\t<td>\r\n\t\t\t<p style=\"text-align: center;\"><strong>2.95</strong></p>\r\n\t\t\t</td>\r\n\t\t</tr>\r\n\t</tbody>\r\n</table>",
+          "options": [
+            {
+              "id": 314137,
+              "text": "Results of student B are neither precise nor accurate.",
+              "html": "Results of student B are neither precise nor accurate.",
+              "is_correct": false
+            },
+            {
+              "id": 314136,
+              "text": "Results of both the students are neither accurate nor precise.",
+              "html": "Results of both the students are neither accurate nor precise.",
+              "is_correct": false
+            },
+            {
+              "id": 314135,
+              "text": "Results of student A are both precise and accurate.",
+              "html": "Results of student A are both precise and accurate.",
+              "is_correct": true
+            },
+            {
+              "id": 314138,
+              "text": "Results of student B are both precise and accurate.",
+              "html": "Results of student B are both precise and accurate.",
+              "is_correct": false
+            }
+          ],
+          "correct_options": [
+            "Results of student A are both precise and accurate."
+          ],
+          "explanation": "The average of readings of student A and B is 3.00. But the readings of student A are close to each other as well as close to average value as compare to values of student B. Hence, Results of student A are both precise and accurate.",
+          "solutions": []
+        },
+        {
+          "id": 61941,
+          "type": "MCQ",
+          "question": "Consider the unbalanced chemical equation ,\n\n-- Al + -- $O_2$ → -- $Al_2O_3$ .\n\nThe equation for the above reaction can be balanced by inserting the following in blank spaces.",
+          "question_html": "<p>Consider the unbalanced &nbsp;chemical equation ,<br />\n--&nbsp;Al + -- <span class=\"math-tex\">{tex}O_2{/tex}</span> &rarr; -- <span class=\"math-tex\">{tex}Al_2O_3{/tex}</span>.<br />\nThe&nbsp;equation for the above reaction&nbsp;can be balanced by inserting the following in blank spaces.</p>",
+          "options": [
+            {
+              "id": 202950,
+              "text": "2,3,3",
+              "html": "2,3,3",
+              "is_correct": false
+            },
+            {
+              "id": 202949,
+              "text": "2,3,1",
+              "html": "2,3,1",
+              "is_correct": false
+            },
+            {
+              "id": 202948,
+              "text": "4,3,2",
+              "html": "4,3,2",
+              "is_correct": true
+            },
+            {
+              "id": 202951,
+              "text": "4,2,3",
+              "html": "4,2,3",
+              "is_correct": false
+            }
+          ],
+          "correct_options": [
+            "4,3,2"
+          ],
+          "explanation": "The unbalanced chemical reaction is \n\nAl(s) + O_(2)​(g) $\\longrightarrow$ Al_(2)​O_(3)​(s)\n\nBalance Al atoms by adding 2 to Al on LHS\n\n2Al(s) + O_(2)​(g) $\\longrightarrow$ Al_(2)​O_(3)​(s)\n\nBalance O atoms by adding $\\frac 32$ ​ to O_(2)​ on LHS\n\n2Al(s) + ​ $\\frac 32$ O_(2)​(g) $\\longrightarrow$ Al_(2)​O_(3)​(s)\n\nMultiply the whole equation with 2.\n\n4Al(s) + 3O_(2)​(g) $\\longrightarrow$ 2Al_(2)​O_(3)​(s)",
+          "solutions": []
+        },
+        {
+          "id": 22283,
+          "type": "37",
+          "question": "Consider the elements: Cs, Ne, I, and F.\n\nIdentify the element(s) that exhibits only a Positive oxidation state?",
+          "question_html": "<p>Consider the elements: Cs, Ne, I, and F.<br />\r\nIdentify the element(s) that exhibits only a Positive oxidation state?</p>",
+          "options": [
+            {
+              "id": 44330,
+              "text": "Caesium",
+              "html": "Caesium",
+              "is_correct": true
+            },
+            {
+              "id": 44331,
+              "text": "Iodine",
+              "html": "Iodine",
+              "is_correct": false
+            },
+            {
+              "id": 44332,
+              "text": "Caesium and Iodine",
+              "html": "Caesium and Iodine",
+              "is_correct": false
+            },
+            {
+              "id": 44333,
+              "text": "Neon",
+              "html": "Neon",
+              "is_correct": false
+            }
+          ],
+          "correct_options": [
+            "Caesium"
+          ],
+          "explanation": "Cs is alkali metal so will show a positive oxidation state of +1.",
+          "solutions": []
+        },
+        {
+          "id": 21938,
+          "type": "MCQ",
+          "question": "The bond formed, as a result of the electrostatic attraction between the positive and negative ions was termed as:",
+          "question_html": "<p>The bond formed, as a result of the electrostatic attraction between the positive and negative ions was termed as:</p>",
+          "options": [
+            {
+              "id": 42951,
+              "text": "covalent bond",
+              "html": "covalent bond",
+              "is_correct": false
+            },
+            {
+              "id": 42950,
+              "text": "electrovalent bond",
+              "html": "electrovalent bond",
+              "is_correct": true
+            },
+            {
+              "id": 42953,
+              "text": "single covalency",
+              "html": "single covalency",
+              "is_correct": false
+            },
+            {
+              "id": 42952,
+              "text": "coordinate bond",
+              "html": "coordinate bond",
+              "is_correct": false
+            }
+          ],
+          "correct_options": [
+            "electrovalent bond"
+          ],
+          "explanation": "The chemical bond formed between two atoms due to the transfer of electron(s) from one atom to the other. atom is called an \"ionic bond\" or \"electrovalent bond\". In an electrovalent bond one atom loses an electron to form a positive ion and the other atom gains the electron to form a negative ion. The resulting ions are held together by electrostatic attraction.",
+          "solutions": []
+        },
+        {
+          "id": 22532,
+          "type": "MCQ",
+          "question": "Hybridisation in methane (CH_(4)) ethene (C_(2)H_(4)) ethyne (C_(2)H_(2)) involves s and p orbitals. Choose the correct hybrid orbitals in the options given below for CH_(4),_( )C_(2)H_(4) and C_(2)H_(2) respectively:",
+          "question_html": "<p>Hybridisation in methane (CH<sub>4</sub>) ethene (C<sub>2</sub>H<sub>4</sub>)&nbsp;ethyne (C<sub>2</sub>H<sub>2</sub>) involves s and p orbitals. Choose the correct hybrid orbitals in the options given below for CH<sub>4</sub>,<sub>&nbsp;</sub>C<sub>2</sub>H<sub>4</sub> and&nbsp;C<sub>2</sub>H<sub>2</sub> respectively:</p>",
+          "options": [
+            {
+              "id": 45326,
+              "text": "sp, sp^(3), sp^(2)",
+              "html": "sp, sp<sup>3</sup>, sp<sup>2</sup>",
+              "is_correct": false
+            },
+            {
+              "id": 45327,
+              "text": "sp^(3), sp, sp^(2)",
+              "html": "sp<sup>3</sup>, sp, sp<sup>2</sup>",
+              "is_correct": false
+            },
+            {
+              "id": 45324,
+              "text": "sp^(3), sp^(2), sp",
+              "html": "sp<sup>3</sup>, sp<sup>2</sup>, sp",
+              "is_correct": true
+            },
+            {
+              "id": 45325,
+              "text": "sp^(2), sp, sp^(3)",
+              "html": "sp<sup>2</sup>, sp, sp<sup>3</sup>",
+              "is_correct": false
+            }
+          ],
+          "correct_options": [
+            "sp^(3), sp^(2), sp"
+          ],
+          "explanation": "In methane C is sp^(3) hybridised because of 3 sigma bond formation. While in ethane both the C are sp^(2) hybridised, and in ethyne both the C are sp hybridised.",
+          "solutions": []
+        },
+        {
+          "id": 61944,
+          "type": "MCQ",
+          "question": "The molar mass of Al_(2)O_(3) is:",
+          "question_html": "<p>The molar mass of Al<sub>2</sub>O<sub>3</sub>&nbsp;is:</p>",
+          "options": [
+            {
+              "id": 202960,
+              "text": "102 u",
+              "html": "102 u",
+              "is_correct": true
+            },
+            {
+              "id": 202963,
+              "text": "42 u",
+              "html": "42 u",
+              "is_correct": false
+            },
+            {
+              "id": 202962,
+              "text": "82 u",
+              "html": "82 u",
+              "is_correct": false
+            },
+            {
+              "id": 202961,
+              "text": "92 u",
+              "html": "92 u",
+              "is_correct": false
+            }
+          ],
+          "correct_options": [
+            "102 u"
+          ],
+          "explanation": "Molar mass\n\n= $\\Sigma$ [ 2 $\\times$ (atomic mass of Al) 3 $\\times$ (atomic mass of O)]u\n\n= [(2 $\\times$ 27) + (3 $\\times$ 16)]u\n\n= ( 54 + 48 ) u\n\n= 102 u.",
+          "solutions": []
+        }
+      ]
+    },
+    {
+      "section_name": "Section B",
+      "section_id": 817,
+      "questions": [
+        {
+          "id": 21866,
+          "type": "Numerical/MCQ",
+          "question": "Complete the statement with suitable word /(s)\n\nModern Periodic Law is stated as:\n\nThe physical and chemical properties of different elements are periodic functions of their ______.",
+          "question_html": "<p>Complete the statement with suitable&nbsp; word /(s)<br />\r\nModern Periodic Law is&nbsp;stated as:<br />\r\nThe physical and chemical properties of different elements are periodic functions of their ______.</p>\r\n",
+          "options": [
+            {
+              "id": 42663,
+              "text": "Atomic masses.",
+              "html": "Atomic masses.",
+              "is_correct": false
+            },
+            {
+              "id": 42665,
+              "text": "Isotopic masses",
+              "html": "Isotopic masses",
+              "is_correct": false
+            },
+            {
+              "id": 42662,
+              "text": "Atomic numbers",
+              "html": "Atomic numbers",
+              "is_correct": true
+            },
+            {
+              "id": 42664,
+              "text": "Molecular mass",
+              "html": "Molecular mass",
+              "is_correct": false
+            }
+          ],
+          "correct_options": [
+            "Atomic numbers"
+          ],
+          "explanation": "The Modern periodic law is stated as:\n\nThe physical and chemical properties of elements are periodic functions of their atomic numbers. That is the properties of elements will be repeated after regular intervals.",
+          "solutions": []
+        },
+        {
+          "id": 21982,
+          "type": "MCQ",
+          "question": "In ${\\text{PO}}_4^{3 - }$ ion the formal charge on the oxygen atom of P–O bond is",
+          "question_html": "<p>In <span class=\"math-tex\">{tex}{\\text{PO}}_4^{3 - }{/tex}</span> ion the formal charge on the oxygen atom of P&ndash;O bond is</p>",
+          "options": [
+            {
+              "id": 43126,
+              "text": "– 0.75",
+              "html": "&ndash; 0.75",
+              "is_correct": true
+            },
+            {
+              "id": 43127,
+              "text": "+ 1",
+              "html": "+ 1",
+              "is_correct": false
+            },
+            {
+              "id": 43129,
+              "text": "+ 0.75",
+              "html": "+ 0.75",
+              "is_correct": false
+            },
+            {
+              "id": 43128,
+              "text": "-1",
+              "html": "-1",
+              "is_correct": false
+            }
+          ],
+          "correct_options": [
+            "– 0.75"
+          ],
+          "explanation": "Formal change = $\\frac{Total \\ charge}{no.\\ of\\ o-atom}$ \n\n= $\\frac {-3}4$ = -0.75",
+          "solutions": []
+        },
+        {
+          "id": 22337,
+          "type": "Numerical/MCQ",
+          "question": "H_(2)O_(2) as an antiseptic is used in the name of ________.",
+          "question_html": "<p>H<sub>2</sub>O<sub>2</sub>&nbsp;as an antiseptic is used in the name of ________.</p>\r\n",
+          "options": [
+            {
+              "id": 44545,
+              "text": "bleacher",
+              "html": "bleacher",
+              "is_correct": false
+            },
+            {
+              "id": 44544,
+              "text": "perhydrol",
+              "html": "perhydrol",
+              "is_correct": true
+            },
+            {
+              "id": 44546,
+              "text": "perborate",
+              "html": "perborate",
+              "is_correct": false
+            },
+            {
+              "id": 44547,
+              "text": "percarbonate",
+              "html": "percarbonate",
+              "is_correct": false
+            }
+          ],
+          "correct_options": [
+            "perhydrol"
+          ],
+          "explanation": "Perhydrol is a solution of hydrogen peroxide (H_(2)O_(2)) at a concentration of 30% of weight by volume(w/v) or 100 volume strength. Perhydrol is a mild antiseptic used on the skin to prevent infection of minor cuts, scrapes, and burns. It may also be used as a mouth rinse to help remove mucus or to relieve minor mouth irritation (e.g., due to canker/ cold sores, gingivitis). This product works by releasing oxygen when it is applied to the affected area. The release of oxygen causes foaming, which helps to remove dead skin and clean the area.",
+          "solutions": []
+        },
+        {
+          "id": 22533,
+          "type": "MCQ",
+          "question": "Change in hybridisation affects the carbon’s and the organic compound’s:",
+          "question_html": "<p>Change in hybridisation affects the carbon&rsquo;s and the organic compound&rsquo;s:</p>",
+          "options": [
+            {
+              "id": 45331,
+              "text": "bond strength",
+              "html": "bond strength",
+              "is_correct": false
+            },
+            {
+              "id": 45328,
+              "text": "electronegativity",
+              "html": "electronegativity",
+              "is_correct": true
+            },
+            {
+              "id": 45330,
+              "text": "bond enthalpy",
+              "html": "bond enthalpy",
+              "is_correct": false
+            },
+            {
+              "id": 45329,
+              "text": "bond length",
+              "html": "bond length",
+              "is_correct": false
+            }
+          ],
+          "correct_options": [
+            "electronegativity"
+          ],
+          "explanation": "In hybridization as % of 's' character increases electronegativity also increases.\n\nMore the s character more will be the electronegativity of that atom.\n\nIncreasing order of electronegativity with %s character is sp (50%) > sp^(2)(33.33%) > sp^(3)(25%).",
+          "solutions": []
+        },
+        {
+          "id": 22534,
+          "type": "MCQ",
+          "question": "Condense the following complete structural formula given below. Choose the appropriate answer given below\n\n ![image](https://media-mycbseguide.s3.amazonaws.com/images/testpaper/1.04.11.12.03.Ques.jpg)",
+          "question_html": "<p>Condense the following complete structural formula given below. Choose the appropriate answer given below<br />\r\n<img src=\"https://media-mycbseguide.s3.amazonaws.com/images/testpaper/1.04.11.12.03.Ques.jpg\" style=\"width: 200px; height: 69px;\" /></p>",
+          "options": [
+            {
+              "id": 45334,
+              "text": "(CH_(2))_(3)CH (CH_(3)) CH(CH_(3))_(2)",
+              "html": "(CH<sub>2</sub>)<sub>3</sub>CH (CH<sub>3</sub>) CH(CH<sub>3</sub>)<sub>2</sub>",
+              "is_correct": false
+            },
+            {
+              "id": 45335,
+              "text": "CH_(2)C(CH_(3))_(3)",
+              "html": "CH<sub>2</sub>C(CH<sub>3</sub>)<sub>3</sub>",
+              "is_correct": false
+            },
+            {
+              "id": 45333,
+              "text": "CH_(3)CH_(2)CH = CH_(2)CH_(2)CH_(3)",
+              "html": "CH<sub>3</sub>CH<sub>2</sub>CH = CH<sub>2</sub>CH<sub>2</sub>CH<sub>3</sub>",
+              "is_correct": false
+            },
+            {
+              "id": 45332,
+              "text": "CH_(3)CH = CH(CH_(2))_(3)CH_(3)",
+              "html": "CH<sub>3</sub>CH = CH(CH<sub>2</sub>)<sub>3</sub>CH<sub>3</sub>",
+              "is_correct": true
+            }
+          ],
+          "correct_options": [
+            "CH_(3)CH = CH(CH_(2))_(3)CH_(3)"
+          ],
+          "explanation": "All the single bonds are broken and atoms are written together.",
+          "solutions": []
+        },
+        {
+          "id": 61983,
+          "type": "MCQ",
+          "question": "Rutherford’s $\\alpha$ –particle scattering experiment supported the discovery of:",
+          "question_html": "<p>Rutherford&rsquo;s <span class=\"math-tex\">{tex}\\alpha{/tex}</span>&ndash;particle scattering experiment supported the discovery of:</p>\r\n",
+          "options": [
+            {
+              "id": 203116,
+              "text": "electron",
+              "html": "electron",
+              "is_correct": false
+            },
+            {
+              "id": 203115,
+              "text": "nucleus",
+              "html": "nucleus",
+              "is_correct": true
+            },
+            {
+              "id": 203117,
+              "text": "proton",
+              "html": "proton",
+              "is_correct": false
+            },
+            {
+              "id": 203118,
+              "text": "radioactivity",
+              "html": "radioactivity",
+              "is_correct": false
+            }
+          ],
+          "correct_options": [
+            "nucleus"
+          ],
+          "explanation": "Rutherford's model of an atom: Ernest Rutherford was interested in knowing how the electrons are arranged within an atom. Rutherford designed an experiment for this. In this experiment, fast-moving alpha ( $\\alpha$ )-particles were made to fall on a thin gold foil.\n\nOn the basis of his experiment, Rutherford put forward the model of an atom, which had the following features:\n\n There is a positively charged centre in an atom called the nucleus.\n Nearly all the mass of an atom resides in the nucleus. The electrons revolve around the nucleus in well-defined orbits.\n The size of the nucleus is very small as compared to the size of the atom.",
+          "solutions": []
+        },
+        {
+          "id": 21981,
+          "type": "MCQ",
+          "question": "In acetylene molecule, between the carbon atoms there are",
+          "question_html": "<p>In acetylene molecule, between the carbon atoms there are</p>",
+          "options": [
+            {
+              "id": 43123,
+              "text": "two sigma and one pi bonds",
+              "html": "two sigma and one pi bonds",
+              "is_correct": false
+            },
+            {
+              "id": 43122,
+              "text": "one sigma and two pi bonds",
+              "html": "one sigma and two pi bonds",
+              "is_correct": true
+            },
+            {
+              "id": 43125,
+              "text": "three pi bonds",
+              "html": "three pi bonds",
+              "is_correct": false
+            },
+            {
+              "id": 43124,
+              "text": "three sigma bonds",
+              "html": "three sigma bonds",
+              "is_correct": false
+            }
+          ],
+          "correct_options": [
+            "one sigma and two pi bonds"
+          ],
+          "explanation": "Acetylene is C_(2)H_(2).\n\nC atoms are bound with triple bond i.e. 1 sigma and 2 pie bonds.",
+          "solutions": []
+        },
+        {
+          "id": 22315,
+          "type": "MCQ",
+          "question": "In the earth’s atmosphere, hydrogen exists:",
+          "question_html": "<p>In the earth&rsquo;s atmosphere, hydrogen exists:</p>",
+          "options": [
+            {
+              "id": 44458,
+              "text": "in the form of tritium",
+              "html": "in the form of tritium",
+              "is_correct": false
+            },
+            {
+              "id": 44457,
+              "text": "in the combined form with other elements and compounds.",
+              "html": "in the combined form with other elements and compounds.",
+              "is_correct": true
+            },
+            {
+              "id": 44459,
+              "text": "in the form of protium",
+              "html": "in the form of protium",
+              "is_correct": false
+            },
+            {
+              "id": 44460,
+              "text": "in the form of deuterium",
+              "html": "in the form of deuterium",
+              "is_correct": false
+            }
+          ],
+          "correct_options": [
+            "in the combined form with other elements and compounds."
+          ],
+          "explanation": "In the combined form it constitutes 15.4% of the earth crust and the ocean.",
+          "solutions": []
+        },
+        {
+          "id": 22535,
+          "type": "MCQ",
+          "question": "2-bromo butane can be represented in various ways. Choose the incorrect one from the following",
+          "question_html": "<p>2-bromo butane can be represented in various ways. Choose the incorrect one from the following</p>",
+          "options": [
+            {
+              "id": 45339,
+              "text": "![image](https://media-mycbseguide.s3.amazonaws.com/images/testpaper/1.04.11.12.04.WA3.jpg)",
+              "html": "<img src=\"https://media-mycbseguide.s3.amazonaws.com/images/testpaper/1.04.11.12.04.WA3.jpg\" style=\"height:36px; width:35px\" />",
+              "is_correct": false
+            },
+            {
+              "id": 45337,
+              "text": "CH_(2)CHBrCH_(2)CH_(2)",
+              "html": "CH<sub>2</sub>CHBrCH<sub>2</sub>CH<sub>2</sub>",
+              "is_correct": false
+            },
+            {
+              "id": 45336,
+              "text": "![image](https://media-mycbseguide.s3.amazonaws.com/images/testpaper/1.04.11.12.04.Ans.jpg)",
+              "html": "<img src=\"https://media-mycbseguide.s3.amazonaws.com/images/testpaper/1.04.11.12.04.Ans.jpg\" style=\"height:76px; width:100px\" />",
+              "is_correct": true
+            },
+            {
+              "id": 45338,
+              "text": "![image](https://media-mycbseguide.s3.amazonaws.com/images/testpaper/1.04.11.12.04.WA2.jpg)",
+              "html": "<img src=\"https://media-mycbseguide.s3.amazonaws.com/images/testpaper/1.04.11.12.04.WA2.jpg\" style=\"height:55px; width:75px\" />",
+              "is_correct": false
+            }
+          ],
+          "correct_options": [
+            "![image](https://media-mycbseguide.s3.amazonaws.com/images/testpaper/1.04.11.12.04.Ans.jpg)"
+          ],
+          "explanation": "methyl group is represented at 3rd carbon no bromine is there on 2nd carbon",
+          "solutions": []
+        },
+        {
+          "id": 21759,
+          "type": "MCQ",
+          "question": "What would be the molarity of NaOH in a solution prepared by dissolving its 4 g in enough water to form 250 mL of the solution?",
+          "question_html": "<p>What would be the molarity of NaOH in a&nbsp;solution prepared by dissolving its 4 g in enough water to form 250 mL of the solution?</p>",
+          "options": [
+            {
+              "id": 42236,
+              "text": "2 M",
+              "html": "2 M",
+              "is_correct": false
+            },
+            {
+              "id": 42234,
+              "text": "0.04 M",
+              "html": "0.04 M",
+              "is_correct": false
+            },
+            {
+              "id": 42235,
+              "text": "0.4M",
+              "html": "0.4M",
+              "is_correct": true
+            },
+            {
+              "id": 42237,
+              "text": "4 M",
+              "html": "4 M",
+              "is_correct": false
+            }
+          ],
+          "correct_options": [
+            "0.4M"
+          ],
+          "explanation": "Given that 250 ml of solution contains 4 g NaOH\n\n $\\therefore$ Number of moles of NaOH in 250 ml of the prepared solution = (4/40) \n\n= 0.1 moles \n\n& number of moles of NaOH per litre of this solution \n\n= 0.4 moles\n\nSince Molarity (M)= number of moles of solute present in 1 Litre of the solution,\n\nTherefore, the Molarity of NaOH solution is 0.4 M.",
+          "solutions": []
+        },
+        {
+          "id": 382967,
+          "type": "Numerical/MCQ",
+          "question": "Total number of orbitals associated with third shell will be ________.",
+          "question_html": "<p>Total number of orbitals associated with third shell will be ________.</p>",
+          "options": [
+            {
+              "id": 589723,
+              "text": "2",
+              "html": "2",
+              "is_correct": false
+            },
+            {
+              "id": 589724,
+              "text": "4",
+              "html": "4",
+              "is_correct": false
+            },
+            {
+              "id": 589725,
+              "text": "3",
+              "html": "3",
+              "is_correct": false
+            },
+            {
+              "id": 589722,
+              "text": "9",
+              "html": "9",
+              "is_correct": true
+            }
+          ],
+          "correct_options": [
+            "9"
+          ],
+          "explanation": "No. of orbitals associated with the shell-n^(2)\n\n3^(2) = 9.",
+          "solutions": []
+        },
+        {
+          "id": 22536,
+          "type": "MCQ",
+          "question": "Which of the following is the correct IUPAC name?",
+          "question_html": "<p>Which of the following is the correct IUPAC name?</p>",
+          "options": [
+            {
+              "id": 45342,
+              "text": "5-Ethyl-4, 4-dimethylheptane",
+              "html": "5-Ethyl-4, 4-dimethylheptane",
+              "is_correct": false
+            },
+            {
+              "id": 45341,
+              "text": "3-Ethyl-4,4-dimethylheptane",
+              "html": "3-Ethyl-4,4-dimethylheptane",
+              "is_correct": true
+            },
+            {
+              "id": 45340,
+              "text": "4, 4-Dimethyl-3-ethylheptane",
+              "html": "4, 4-Dimethyl-3-ethylheptane",
+              "is_correct": false
+            },
+            {
+              "id": 45343,
+              "text": "4, 4-Bis(methyl)-3-ethylheptane",
+              "html": "4, 4-Bis(methyl)-3-ethylheptane",
+              "is_correct": false
+            }
+          ],
+          "correct_options": [
+            "3-Ethyl-4,4-dimethylheptane"
+          ],
+          "explanation": "While writing IUPAC name, alkyl groups are written in alphabetical order. thus lower locant 3 is assigned to ethyl. prefix di, tri or tetra are not included in alphabetical order",
+          "solutions": []
+        },
+        {
+          "id": 21970,
+          "type": "MCQ",
+          "question": "The hybridization of orbitals of N atom in ${\\text{NO}}_3^ - $ , ${\\text{NO}}_2^ + $ and $NH_4^ + $ are respectively:",
+          "question_html": "<p>The hybridization of orbitals of N atom in&nbsp;<span class=\"math-tex\">{tex}{\\text{NO}}_3^ - {/tex}</span>, <span class=\"math-tex\">{tex}{\\text{NO}}_2^ + {/tex}</span> and <span class=\"math-tex\">{tex}NH_4^ + {/tex}</span>&nbsp;are respectively:</p>",
+          "options": [
+            {
+              "id": 43080,
+              "text": "sp^(2) , sp^(3) , sp",
+              "html": "sp<sup>2</sup> , sp<sup>3</sup>&nbsp;, sp",
+              "is_correct": false
+            },
+            {
+              "id": 43081,
+              "text": "sp , sp^(3) , sp^(2)",
+              "html": "sp , sp<sup>3</sup>&nbsp;, sp<sup>2</sup>&nbsp;",
+              "is_correct": false
+            },
+            {
+              "id": 43079,
+              "text": "sp , sp^(2) , sp^(3)",
+              "html": "sp , sp<sup>2</sup> , sp<sup>3</sup>",
+              "is_correct": false
+            },
+            {
+              "id": 43078,
+              "text": "sp^(2) , sp , sp^(3)",
+              "html": "sp<sup>2</sup> , sp , sp<sup>3</sup>",
+              "is_correct": true
+            }
+          ],
+          "correct_options": [
+            "sp^(2) , sp , sp^(3)"
+          ],
+          "explanation": "Hybridization of orbitals of N atom in ${\\text{NO}}_3^ - $ , ${\\text{NO}}_2^ + $ and ${\\text{N}}{{\\text{H}}_{\\text{4}}}^ + $ are sp^(2), sp, sp^(3) which can be explained by their Lewis structures. The empty p- orbitals of N take part in hybridization.",
+          "solutions": []
+        },
+        {
+          "id": 22537,
+          "type": "MCQ",
+          "question": "Write the state of hybridisation of carbon in H_(2)C = O and mention the molecular geometry also.",
+          "question_html": "<p>Write the state of hybridisation of carbon in H<sub>2</sub>C&nbsp;= O&nbsp;and mention the molecular geometry also.</p>",
+          "options": [
+            {
+              "id": 45346,
+              "text": "sp hybridised carbon, linear",
+              "html": "sp hybridised carbon, linear",
+              "is_correct": false
+            },
+            {
+              "id": 45345,
+              "text": "sp^(3) hybridised carbon, tetrahedral",
+              "html": "sp<sup>3</sup> hybridised carbon, tetrahedral",
+              "is_correct": false
+            },
+            {
+              "id": 45347,
+              "text": "sp^(3 )hybridised carbon, trigonal pyramidal",
+              "html": "sp<sup>3&nbsp;</sup>hybridised carbon, trigonal pyramidal",
+              "is_correct": false
+            },
+            {
+              "id": 45344,
+              "text": "sp^(2) hybridised carbon, trigonal planar",
+              "html": "sp<sup>2</sup>&nbsp;hybridised carbon, trigonal planar",
+              "is_correct": true
+            }
+          ],
+          "correct_options": [
+            "sp^(2) hybridised carbon, trigonal planar"
+          ],
+          "explanation": "Due to the presence of a double bond in the carbonyl carbon ( $>\\mathrm C=\\mathrm O$ ), carbon is sp^(2) hybridised. This hybridization leads to a trigonal planar geometry which means a bond angle of 120° around the C.",
+          "solutions": []
+        },
+        {
+          "id": 21842,
+          "type": "MCQ",
+          "question": "Valence electrons are used to get a clue of",
+          "question_html": "<p>Valence electrons are used to get a clue of</p>\r\n",
+          "options": [
+            {
+              "id": 42566,
+              "text": "Group Number",
+              "html": "Group Number",
+              "is_correct": true
+            },
+            {
+              "id": 42568,
+              "text": "Period Number",
+              "html": "Period Number",
+              "is_correct": false
+            },
+            {
+              "id": 42569,
+              "text": "Proton Number",
+              "html": "Proton Number",
+              "is_correct": false
+            },
+            {
+              "id": 42567,
+              "text": "Shell Number",
+              "html": "Shell Number",
+              "is_correct": false
+            }
+          ],
+          "correct_options": [
+            "Group Number"
+          ],
+          "explanation": "Group Number",
+          "solutions": []
+        },
+        {
+          "id": 22538,
+          "type": "MCQ",
+          "question": "The IUPAC name for\n\n ![image](https://media-mycbseguide.s3.amazonaws.com/images/testpaper/1.04.11.12.07.Ques.jpg)",
+          "question_html": "<p>The IUPAC name for<br />\r\n<img src=\"https://media-mycbseguide.s3.amazonaws.com/images/testpaper/1.04.11.12.07.Ques.jpg\" style=\"width: 80px; height: 96px;\" /></p>",
+          "options": [
+            {
+              "id": 45351,
+              "text": "m-Nitro-p-chlorotoluene",
+              "html": "m-Nitro-p-chlorotoluene",
+              "is_correct": false
+            },
+            {
+              "id": 45350,
+              "text": "2-Chloro-1-nitro-5-methylbenzene",
+              "html": "2-Chloro-1-nitro-5-methylbenzene",
+              "is_correct": false
+            },
+            {
+              "id": 45348,
+              "text": "1-Chloro-4-methyl-2-nitrobenzene",
+              "html": "1-Chloro-4-methyl-2-nitrobenzene",
+              "is_correct": true
+            },
+            {
+              "id": 45349,
+              "text": "1-Chloro-2-nitro-4-methylbenzene",
+              "html": "1-Chloro-2-nitro-4-methylbenzene",
+              "is_correct": false
+            }
+          ],
+          "correct_options": [
+            "1-Chloro-4-methyl-2-nitrobenzene"
+          ],
+          "explanation": "The given compound contains chloro group at position 1, nitro at position 2 and methyl at position 3. So 1-Chloro-4-methyl-2-nitrobenzene is the IUPAC name of the given compound with groups named in alphabetical order.",
+          "solutions": []
+        },
+        {
+          "id": 21828,
+          "type": "MCQ",
+          "question": "Energy of an electron in stationary state is given by the formula ${{\\text{E}}_{{\\text{n}} = }}{{\\text{R}}_{\\text{H}}}\\left\\{ {1\\frac{1}{{{n^2}}}} \\right\\}$ where n=1,2,3....... . In this equation, R_(H) is called ________.",
+          "question_html": "<p>Energy of an electron in stationary state is given by the formula <span class=\"math-tex\">{tex}{{\\text{E}}_{{\\text{n}} = }}{{\\text{R}}_{\\text{H}}}\\left\\{ {1\\frac{1}{{{n^2}}}} \\right\\}{/tex}</span> where n=1,2,3....... . In this equation, R<sub>H</sub>&nbsp;is called ________.</p>",
+          "options": [
+            {
+              "id": 42510,
+              "text": "Rydberg’s constant",
+              "html": "Rydberg&rsquo;s constant",
+              "is_correct": true
+            },
+            {
+              "id": 42512,
+              "text": "Avagadro’s Number",
+              "html": "Avagadro&rsquo;s Number",
+              "is_correct": false
+            },
+            {
+              "id": 42513,
+              "text": "Proportionality constant",
+              "html": "Proportionality constant",
+              "is_correct": false
+            },
+            {
+              "id": 42511,
+              "text": "Planck’s constant",
+              "html": "Planck&rsquo;s constant",
+              "is_correct": false
+            }
+          ],
+          "correct_options": [
+            "Rydberg’s constant"
+          ],
+          "explanation": "The Rydberg constant, symbol $R_\\infty$ for heavy atoms or R_(H) for hydrogen, named after the Swedish physicist Johannes Rydberg, is a physical constant relating to atomic spectra, in the science of spectroscopy.",
+          "solutions": []
+        },
+        {
+          "id": 22539,
+          "type": "MCQ",
+          "question": "In $\\pi$ (pi) bond formation, one of the below criteria is necessary. Choose the appropriate one.",
+          "question_html": "<p>In <span class=\"math-tex\">{tex}\\pi{/tex}</span> (pi) bond formation, one of the below criteria is necessary. Choose the appropriate one.</p>",
+          "options": [
+            {
+              "id": 45353,
+              "text": "planar orientation of the two p orbitals on adjacent atoms.",
+              "html": "planar orientation of the two p orbitals on adjacent atoms.",
+              "is_correct": false
+            },
+            {
+              "id": 45352,
+              "text": "parallel orientation of the two p orbitals on adjacent atoms.",
+              "html": "parallel orientation of the two p orbitals on adjacent atoms.",
+              "is_correct": true
+            },
+            {
+              "id": 45354,
+              "text": "trigonal orientation of the two p orbitals on adjacent atoms.",
+              "html": "trigonal orientation of the two p orbitals on adjacent atoms.",
+              "is_correct": false
+            },
+            {
+              "id": 45355,
+              "text": "pentagonal orientation of the two p orbitals on adjacent atoms.",
+              "html": "pentagonal orientation of the two p orbitals on adjacent atoms.",
+              "is_correct": false
+            }
+          ],
+          "correct_options": [
+            "parallel orientation of the two p orbitals on adjacent atoms."
+          ],
+          "explanation": "Parallel orientation of p orbitals on adjacent atoms is necessary for side-ways overlapping and formation of $\\pi$ bond.",
+          "solutions": []
+        },
+        {
+          "id": 21786,
+          "type": "MCQ",
+          "question": "The isotope deuterium of hydrogen has",
+          "question_html": "<p>The isotope deuterium of hydrogen has</p>\r\n",
+          "options": [
+            {
+              "id": 42342,
+              "text": "One proton and one neutron",
+              "html": "One proton and one neutron",
+              "is_correct": true
+            },
+            {
+              "id": 42345,
+              "text": "No neutrons and one proton",
+              "html": "No neutrons and one proton",
+              "is_correct": false
+            },
+            {
+              "id": 42343,
+              "text": "One electron and two neutron",
+              "html": "One electron and two neutron",
+              "is_correct": false
+            },
+            {
+              "id": 42344,
+              "text": "One neutrons and two protons",
+              "html": "One neutrons and two protons",
+              "is_correct": false
+            }
+          ],
+          "correct_options": [
+            "One proton and one neutron"
+          ],
+          "explanation": "One proton and one neutron",
+          "solutions": []
+        },
+        {
+          "id": 287424,
+          "type": "14",
+          "question": "Assertion: Absorption spectrum consists of some bright lines separated by dark spaces.\n\nReason: Emission spectrum consists of dark lines.",
+          "question_html": "<p><strong>Assertion:</strong> Absorption spectrum consists of some bright lines separated by dark spaces.<br />\r\n<strong>Reason:</strong> Emission spectrum consists of dark lines.</p>",
+          "options": [
+            {
+              "id": 409896,
+              "text": "Both A and R are true but R is not the correct explanation of A.",
+              "html": "Both A and R are true but R is not the correct explanation of A.",
+              "is_correct": false
+            },
+            {
+              "id": 409895,
+              "text": "Both A and R are true and R is the correct explanation of A.",
+              "html": "Both A and R are true and R is the correct explanation of A.",
+              "is_correct": false
+            },
+            {
+              "id": 409897,
+              "text": "A is true but R is false.",
+              "html": "A is true but R is false.",
+              "is_correct": false
+            },
+            {
+              "id": 409898,
+              "text": "If both Assertion and Reason are false statements.",
+              "html": "If both Assertion and Reason are false statements.",
+              "is_correct": true
+            }
+          ],
+          "correct_options": [
+            "If both Assertion and Reason are false statements."
+          ],
+          "explanation": "The absorption spectrum is produced when white light is passed through a substance and transmitted light is analyzed by a spectrograph. The dark spaces correspond to the light radiation absorbed by the substance. And the emission spectrum is produced by analyzing the radiant energy emitted by an excited substance by a spectrograph. Thus, discontinuous spectra consisting of a series of sharp lines and separated by dark bands are obtained.",
+          "solutions": []
+        },
+        {
+          "id": 593681,
+          "type": "14",
+          "question": "Assertion (A): Chemical reactivity is high at the two extremes and the lowest in the centre.\n\nReason (R): The ionization enthalpy of the extreme left element in a period is the least and the electron gain enthalpy of the element on the extreme right is the highest negative.",
+          "question_html": "<p><strong>Assertion (A):</strong>&nbsp;Chemical reactivity is high at the two extremes and the lowest in the centre.<br />\r\n<strong>Reason (R):</strong>&nbsp;The ionization enthalpy of the extreme left element in a period is the least and the electron gain enthalpy of the element on the extreme right is the highest negative.</p>",
+          "options": [
+            {
+              "id": 1172576,
+              "text": "Both A and R are true and R is the correct explanation of A.",
+              "html": "Both A and R are true and R is the correct explanation of A.",
+              "is_correct": false
+            },
+            {
+              "id": 1172578,
+              "text": "A is true but R is false.",
+              "html": "A is true but R is false.",
+              "is_correct": false
+            },
+            {
+              "id": 1172577,
+              "text": "Both A and R are true but R is not the correct explanation of A.",
+              "html": "Both A and R are true but R is not the correct explanation of A.",
+              "is_correct": true
+            },
+            {
+              "id": 1172579,
+              "text": "A is false but R is true.",
+              "html": "A is false but R is true.",
+              "is_correct": false
+            }
+          ],
+          "correct_options": [
+            "Both A and R are true but R is not the correct explanation of A."
+          ],
+          "explanation": "Chemical reactivity is high at the two extremes and the lowest in the centre. The maximum chemical reactivity at the extreme left (among alkali metals) is exhibited by the loss of an electron leading to the formation of a cation and at the extreme right (among halogens) shown by the gain of an electron forming an anion.",
+          "solutions": []
+        },
+        {
+          "id": 593744,
+          "type": "14",
+          "question": "Assertion (A): Born-Haber cycle is based on Hess's law.\n\nReason (R): Lattice enthalpy can be calculated by Born-Haber cycle.",
+          "question_html": "<p><strong>Assertion (A):</strong> Born-Haber cycle is based on Hess&#39;s law.<br />\r\n<strong>Reason (R):</strong> Lattice enthalpy can be calculated by Born-Haber cycle.</p>",
+          "options": [
+            {
+              "id": 1172823,
+              "text": "A is false but R is true.",
+              "html": "A is false but R is true.",
+              "is_correct": false
+            },
+            {
+              "id": 1172820,
+              "text": "Both A and R are true and R is the correct explanation of A.",
+              "html": "Both A and R are true and R is the correct explanation of A.",
+              "is_correct": false
+            },
+            {
+              "id": 1172821,
+              "text": "Both A and R are true but R is not the correct explanation of A.",
+              "html": "Both A and R are true but R is not the correct explanation of A.",
+              "is_correct": true
+            },
+            {
+              "id": 1172822,
+              "text": "A is true but R is false.",
+              "html": "A is true but R is false.",
+              "is_correct": false
+            }
+          ],
+          "correct_options": [
+            "Both A and R are true but R is not the correct explanation of A."
+          ],
+          "explanation": "Hess's law states that the enthalpy of a reaction is the same, whether it takes place in a single step or in more than one step. In the Born Haber cycle the formation of an ionic compound may occur either by direct combination of the elements or by a stepwise process involving vaporization of elements, conversion of the gaseous atoms into ions and the combination of the gaseous ions to form the ionic solid.",
+          "solutions": []
+        },
+        {
+          "id": 386682,
+          "type": "14",
+          "question": "Assertion (A): The decomposition of hydrogen peroxide to form water and oxygen is an example of a disproportionation reaction.\n\nReason (R): The oxygen of peroxide is in -1 oxidation state and it is converted to zero oxidation state in O_(2 )and -2 oxidation state in H_(2)O.",
+          "question_html": "<p><strong>Assertion (A):</strong> The decomposition of hydrogen peroxide to form water and oxygen is an example of a disproportionation reaction.<br />\n<strong>Reason (R):</strong> The oxygen of peroxide is in -1 oxidation state and it is converted to zero oxidation state in O<sub>2 </sub>and -2 oxidation state in H<sub>2</sub>O.</p>",
+          "options": [
+            {
+              "id": 597393,
+              "text": "A is false but R is true.",
+              "html": "A is false but R is true.",
+              "is_correct": false
+            },
+            {
+              "id": 597390,
+              "text": "Both A and R are true and R is the correct explanation of A.",
+              "html": "Both A and R are true and R is the correct explanation of A.",
+              "is_correct": true
+            },
+            {
+              "id": 597392,
+              "text": "A is true but R is false.",
+              "html": "A is true but R is false.",
+              "is_correct": false
+            },
+            {
+              "id": 597391,
+              "text": "Both A and R are true but R is not the correct explanation of A.",
+              "html": "Both A and R are true but R is not the correct explanation of A.",
+              "is_correct": false
+            }
+          ],
+          "correct_options": [
+            "Both A and R are true and R is the correct explanation of A."
+          ],
+          "explanation": "Both A and R are true and R is the correct explanation of A.\n\n2H_(2)O_(2) (ag) $\\rightarrow$ 2H_(2)O(l) + O_(2)(g).",
+          "solutions": []
+        },
+        {
+          "id": 233727,
+          "type": "14",
+          "question": "Assertion (A): Empirical and molecular formula of Na_(2)CO_(3) is same.\n\nReason (R): Na_(2)CO_(3 )does not form hydrate.",
+          "question_html": "<p><strong>Assertion (A): </strong>Empirical and molecular formula of Na<sub>2</sub>CO<sub>3</sub> is same.<br />\n<strong>Reason (R):</strong>&nbsp;Na<sub>2</sub>CO<sub>3&nbsp;</sub>does not form hydrate.</p>",
+          "options": [
+            {
+              "id": 355110,
+              "text": "Both A and R are true but R is not the correct explanation of A.",
+              "html": "Both A and R are true but R is not the correct explanation of A.",
+              "is_correct": false
+            },
+            {
+              "id": 355109,
+              "text": "Both A and R are true and R is the correct explanation of A.",
+              "html": "Both A and R are true and R is the correct explanation of A.",
+              "is_correct": false
+            },
+            {
+              "id": 355111,
+              "text": "A is true but R is false.",
+              "html": "A is true but R is false.",
+              "is_correct": true
+            },
+            {
+              "id": 355112,
+              "text": "A is false but R is true.",
+              "html": "A is false but R is true.",
+              "is_correct": false
+            }
+          ],
+          "correct_options": [
+            "A is true but R is false."
+          ],
+          "explanation": "A is true but R is false.",
+          "solutions": []
+        }
+      ]
+    },
+    {
+      "section_name": "Section C",
+      "section_id": 818,
+      "questions": [
+        {
+          "id": 61967,
+          "type": "MCQ",
+          "question": "-122 °C in Fahrenheit scale is",
+          "question_html": "<p>-122 &deg;C in Fahrenheit scale is</p>",
+          "options": [
+            {
+              "id": 203052,
+              "text": "-187.6 °F",
+              "html": "-187.6 &deg;F",
+              "is_correct": true
+            },
+            {
+              "id": 203055,
+              "text": "-237.6 °F",
+              "html": "-237.6 &deg;F",
+              "is_correct": false
+            },
+            {
+              "id": 203054,
+              "text": "187.6 °F",
+              "html": "187.6 &deg;F",
+              "is_correct": false
+            },
+            {
+              "id": 203053,
+              "text": "237.6 °F",
+              "html": "237.6 &deg;F",
+              "is_correct": false
+            }
+          ],
+          "correct_options": [
+            "-187.6 °F"
+          ],
+          "explanation": "°F = [ (°C $\\times$ 9/5 ) + 32 ]\n\nSubstituting the given temperature in ^(o) C we get,\n\n $\\therefore$ ^( o)F = [( -122°C $\\times$ 1.8 ) + 32]\n\n= ( -219.6 + 32 )\n\n-122°C = - 187.6 °F",
+          "solutions": []
+        },
+        {
+          "id": 21829,
+          "type": "MCQ",
+          "question": "First element in periodic table to have 8 valence electrons is",
+          "question_html": "<p>First element in periodic table to have 8 valence electrons is</p>\r\n",
+          "options": [
+            {
+              "id": 42515,
+              "text": "nitrogen",
+              "html": "nitrogen",
+              "is_correct": false
+            },
+            {
+              "id": 42514,
+              "text": "neon",
+              "html": "neon",
+              "is_correct": true
+            },
+            {
+              "id": 42517,
+              "text": "fluorine",
+              "html": "fluorine",
+              "is_correct": false
+            },
+            {
+              "id": 42516,
+              "text": "oxygen",
+              "html": "oxygen",
+              "is_correct": false
+            }
+          ],
+          "correct_options": [
+            "neon"
+          ],
+          "explanation": "neon",
+          "solutions": []
+        },
+        {
+          "id": 22540,
+          "type": "Numerical/MCQ",
+          "question": "In general, in the molecules containing multiple bonds, ________ provide the most reactive centres. Choose the most appropriate one.",
+          "question_html": "<p>In general, in the molecules containing multiple bonds, ________ provide the most reactive centres. Choose the most appropriate one.</p>",
+          "options": [
+            {
+              "id": 45359,
+              "text": "$\\sigma$ bond",
+              "html": "<span class=\"math-tex\">{tex}\\sigma{/tex}</span> bond",
+              "is_correct": false
+            },
+            {
+              "id": 45358,
+              "text": "hyperconjugation",
+              "html": "hyperconjugation",
+              "is_correct": false
+            },
+            {
+              "id": 45357,
+              "text": "p orbitals",
+              "html": "p orbitals",
+              "is_correct": false
+            },
+            {
+              "id": 45356,
+              "text": "$\\pi$ bonds",
+              "html": "<span class=\"math-tex\">{tex}\\pi{/tex}</span> bonds",
+              "is_correct": true
+            }
+          ],
+          "correct_options": [
+            "$\\pi$ bonds"
+          ],
+          "explanation": "$\\pi$ bond formed by sideways overlapping of p orbitals/d orbitals on adjacent atoms provides the most reactive centers.",
+          "solutions": []
+        },
+        {
+          "id": 574658,
+          "type": "14",
+          "question": "Instructions for Question 53 to 55:\nIn 1830, Michael Faraday showed that if electricity is passed through a solution of an electrolyte, chemical reactions occurred at the electrodes, which resulted in the liberation and deposition of matter at the electrodes. In the mid-1850s Faraday began to study electrical discharge in partially evacuated tubes, known as cathode ray discharge tubes. When sufficiently high voltage is applied across the electrodes, current starts flowing through a stream of particles moving in the tube from the negative electrode to the positive electrode. These were called cathode rays or cathode ray particles. J.J. Thomson measured the ratio of electrical charge (e) to the mass of the electron (m_(e)) by using a cathode ray tube and applying electrical and magnetic fields perpendicular to each other as well as to the path of electrons. Positively charged particle was characterised in 1919. Later, a need was felt for the presence of electrically neutral particles as one of the constituents of the atom.\n\nAssertion (A): The cathode rays start from cathode and move towards the anode.\n\nReason (R): In the absence of an electrical or magnetic field, cathode rays travel in straight lines.",
+          "question_html": "<b>Instructions for Question 53 to 55:</b><br><p>In 1830, Michael Faraday showed that if electricity is passed through a solution of an electrolyte, chemical reactions occurred at the electrodes, which resulted in the liberation and deposition of matter at the electrodes.&nbsp;In the mid-1850s Faraday began to study electrical discharge in partially evacuated tubes, known as cathode ray discharge tubes.&nbsp;&nbsp;When sufficiently high voltage is applied across the electrodes, current starts flowing through a stream of particles moving in the tube from the negative electrode&nbsp;to the positive electrode. These were called cathode rays or cathode ray particles.&nbsp;J.J. Thomson measured the ratio of electrical charge (e) to the mass of the electron (m<sub>e</sub>) by using a cathode ray tube and applying electrical and magnetic fields perpendicular to each other as well as to the path of electrons. Positively charged particle was characterised in 1919. Later, a need was felt for the presence of&nbsp;electrically neutral particles as one of the constituents of the atom.</p><br><p><strong>Assertion (A):&nbsp;</strong>The cathode rays start from cathode and move towards the anode.<br />\r\n<strong>Reason (R):&nbsp;</strong>In the absence of an electrical or magnetic field, cathode rays travel in straight lines.</p>",
+          "options": [
+            {
+              "id": 1103485,
+              "text": "Both A and R are true but R is not the correct explanation of A.",
+              "html": "Both A and R are true but R is not the correct explanation of A.",
+              "is_correct": true
+            },
+            {
+              "id": 1103488,
+              "text": "A is true but R is false.",
+              "html": "A is true but R is false.",
+              "is_correct": false
+            },
+            {
+              "id": 1103490,
+              "text": "A is false but R is true.",
+              "html": "A is false but R is true.",
+              "is_correct": false
+            },
+            {
+              "id": 1103484,
+              "text": "Both A and R are true and R is the correct explanation of A.",
+              "html": "Both A and R are true and R is the correct explanation of A.",
+              "is_correct": false
+            }
+          ],
+          "correct_options": [
+            "Both A and R are true but R is not the correct explanation of A."
+          ],
+          "explanation": "Both A and R are true but R is not the correct explanation of A.",
+          "solutions": []
+        },
+        {
+          "id": 574837,
+          "type": "14",
+          "question": "Instructions for Question 53 to 55:\nIn 1830, Michael Faraday showed that if electricity is passed through a solution of an electrolyte, chemical reactions occurred at the electrodes, which resulted in the liberation and deposition of matter at the electrodes. In the mid-1850s Faraday began to study electrical discharge in partially evacuated tubes, known as cathode ray discharge tubes. When sufficiently high voltage is applied across the electrodes, current starts flowing through a stream of particles moving in the tube from the negative electrode to the positive electrode. These were called cathode rays or cathode ray particles. J.J. Thomson measured the ratio of electrical charge (e) to the mass of the electron (m_(e)) by using a cathode ray tube and applying electrical and magnetic fields perpendicular to each other as well as to the path of electrons. Positively charged particle was characterised in 1919. Later, a need was felt for the presence of electrically neutral particles as one of the constituents of the atom.\n\nAssertion (A): Thomas argued that the lighter the particle, greater the deflection.\n\nReason (R): Deflection depends upon the mass of the particle.",
+          "question_html": "<b>Instructions for Question 53 to 55:</b><br><p>In 1830, Michael Faraday showed that if electricity is passed through a solution of an electrolyte, chemical reactions occurred at the electrodes, which resulted in the liberation and deposition of matter at the electrodes.&nbsp;In the mid-1850s Faraday began to study electrical discharge in partially evacuated tubes, known as cathode ray discharge tubes.&nbsp;&nbsp;When sufficiently high voltage is applied across the electrodes, current starts flowing through a stream of particles moving in the tube from the negative electrode&nbsp;to the positive electrode. These were called cathode rays or cathode ray particles.&nbsp;J.J. Thomson measured the ratio of electrical charge (e) to the mass of the electron (m<sub>e</sub>) by using a cathode ray tube and applying electrical and magnetic fields perpendicular to each other as well as to the path of electrons. Positively charged particle was characterised in 1919. Later, a need was felt for the presence of&nbsp;electrically neutral particles as one of the constituents of the atom.</p><br><p><strong>Assertion (A): </strong>Thomas argued that the&nbsp;<strong>l</strong>ighter the particle, greater the deflection.<br />\r\n<strong>Reason (R):</strong> Deflection depends upon&nbsp;the mass of the particle.</p>",
+          "options": [
+            {
+              "id": 1104196,
+              "text": "Both A and R are true and R is the correct explanation of A.",
+              "html": "Both A and R are true and R is the correct explanation of A.",
+              "is_correct": true
+            },
+            {
+              "id": 1104199,
+              "text": "A is false but R is true.",
+              "html": "A is false but R is true.",
+              "is_correct": false
+            },
+            {
+              "id": 1104197,
+              "text": "Both A and R are true but R is not the correct explanation of A.",
+              "html": "Both A and R are true but R is not the correct explanation of A.",
+              "is_correct": false
+            },
+            {
+              "id": 1104198,
+              "text": "A is true but R is false.",
+              "html": "A is true but R is false.",
+              "is_correct": false
+            }
+          ],
+          "correct_options": [
+            "Both A and R are true and R is the correct explanation of A."
+          ],
+          "explanation": "Both A and R are true and R is the correct explanation of A.",
+          "solutions": []
+        },
+        {
+          "id": 574926,
+          "type": "14",
+          "question": "Instructions for Question 53 to 55:\nIn 1830, Michael Faraday showed that if electricity is passed through a solution of an electrolyte, chemical reactions occurred at the electrodes, which resulted in the liberation and deposition of matter at the electrodes. In the mid-1850s Faraday began to study electrical discharge in partially evacuated tubes, known as cathode ray discharge tubes. When sufficiently high voltage is applied across the electrodes, current starts flowing through a stream of particles moving in the tube from the negative electrode to the positive electrode. These were called cathode rays or cathode ray particles. J.J. Thomson measured the ratio of electrical charge (e) to the mass of the electron (m_(e)) by using a cathode ray tube and applying electrical and magnetic fields perpendicular to each other as well as to the path of electrons. Positively charged particle was characterised in 1919. Later, a need was felt for the presence of electrically neutral particles as one of the constituents of the atom.\n\nAssertion (A): Television picture tubes are anode ray tubes.\n\nReason (R): Electrons are the basic constituent of all atoms.",
+          "question_html": "<b>Instructions for Question 53 to 55:</b><br><p>In 1830, Michael Faraday showed that if electricity is passed through a solution of an electrolyte, chemical reactions occurred at the electrodes, which resulted in the liberation and deposition of matter at the electrodes.&nbsp;In the mid-1850s Faraday began to study electrical discharge in partially evacuated tubes, known as cathode ray discharge tubes.&nbsp;&nbsp;When sufficiently high voltage is applied across the electrodes, current starts flowing through a stream of particles moving in the tube from the negative electrode&nbsp;to the positive electrode. These were called cathode rays or cathode ray particles.&nbsp;J.J. Thomson measured the ratio of electrical charge (e) to the mass of the electron (m<sub>e</sub>) by using a cathode ray tube and applying electrical and magnetic fields perpendicular to each other as well as to the path of electrons. Positively charged particle was characterised in 1919. Later, a need was felt for the presence of&nbsp;electrically neutral particles as one of the constituents of the atom.</p><br><p><strong>Assertion (A):&nbsp;</strong>Television picture tubes are anode ray tubes.<br />\r\n<strong>Reason (R):&nbsp;</strong>Electrons are the basic constituent of all atoms.</p>",
+          "options": [
+            {
+              "id": 1104552,
+              "text": "Both A and R are true and R is the correct explanation of A.",
+              "html": "Both A and R are true and R is the correct explanation of A.",
+              "is_correct": false
+            },
+            {
+              "id": 1104554,
+              "text": "A is true but R is false.",
+              "html": "A is true but R is false.",
+              "is_correct": false
+            },
+            {
+              "id": 1104553,
+              "text": "Both A and R are true but R is not the correct explanation of A.",
+              "html": "Both A and R are true but R is not the correct explanation of A.",
+              "is_correct": false
+            },
+            {
+              "id": 1104555,
+              "text": "A is false but R is true.",
+              "html": "A is false but R is true.",
+              "is_correct": true
+            }
+          ],
+          "correct_options": [
+            "A is false but R is true."
+          ],
+          "explanation": "A is false but R is true.",
+          "solutions": []
+        }
+      ]
+    }
+  ]
+}
