@@ -26,12 +26,17 @@ const COLORS = {
   pageBg: '#F4F5FB',
 };
 
-export default function ChapterListScreen({ subject = 'Physics · Class 11', onSelectChapter = () => {} }) {
+export default function ChapterListScreen({ subject = 'Physics · Class 11', onSelectChapter = () => {}, onBack }) {
   return (
     <SafeAreaView style={styles.safe}>
       <StatusBar barStyle="dark-content" backgroundColor={COLORS.white} />
 
       <View style={styles.header}>
+        {onBack && (
+          <Pressable onPress={onBack} hitSlop={12} style={styles.backBtn}>
+            <Ionicons name="arrow-back" size={22} color={COLORS.text} />
+          </Pressable>
+        )}
         <Text style={styles.title}>Practice</Text>
         <Text style={styles.subtitle}>{subject}</Text>
       </View>
@@ -66,6 +71,7 @@ const styles = StyleSheet.create({
     borderBottomWidth: StyleSheet.hairlineWidth,
     borderBottomColor: COLORS.border,
   },
+  backBtn: { marginBottom: 6 },
   title: { fontSize: 22, fontWeight: '700', color: COLORS.purpleDeep },
   subtitle: { fontSize: 13, color: COLORS.textMuted, marginTop: 2 },
   list: { padding: 16, gap: 10 },

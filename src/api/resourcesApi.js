@@ -23,6 +23,11 @@ export const getQuestionsByPath = async (subjectSlug, chapterSlug, sectionType) 
     `/api/resources/content/${subjectSlug}/${chapterSlug}/${sectionType}`
   )).data.data;
 
+// MCQ Practice: real MCQs for a chapter, shaped for McqTestScreen
+// ({ cat, question, options: string[], correct: index }).
+export const getMcqByPath = async (subjectSlug, chapterSlug) =>
+  (await axiosInstance.get(`/api/resources/mcq/${subjectSlug}/${chapterSlug}`)).data.data;
+
 // Exemplar Solutions (DB-backed). Returns { subject, className, chapter, sections }
 // where sections = [{ label, questions: [{ q, text, options, solutionLabel,
 // solution, questionImages, solutionImages }] }] — the SAME shape the screen used

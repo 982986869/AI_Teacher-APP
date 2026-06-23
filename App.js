@@ -11,6 +11,7 @@ import { GOOGLE_WEB_CLIENT_ID } from './src/constants/config';
 
 GoogleSignin.configure({ webClientId: GOOGLE_WEB_CLIENT_ID });
 
+// Auto-logout on 401 wired via AuthContext + axiosInstance.
 export default function App() {
   return (
     <SafeAreaProvider>

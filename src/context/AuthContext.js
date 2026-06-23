@@ -1,5 +1,6 @@
 import React, { createContext, useContext, useEffect, useState, useCallback } from 'react';
 import { saveToken, getToken, saveUser, getUser, clearAll } from '../utils/storage';
+import { setUnauthorizedHandler } from '../api/axiosInstance';
 import AsyncStorage from '@react-native-async-storage/async-storage';
 
 const AuthContext = createContext(null);
@@ -53,6 +54,18 @@ export const AuthProvider = ({ children }) => {
     setUser(null);
     setHasOnboarded(false);
     setJustLoggedIn(false);
+  }, []);
+
+  // Let the axios layer clear the session on a 401 (expired/invalid token).
+  // Keeps onboarding so a quick re-login lands straight back on Home.
+  useEffect(() => {
+    setUnauthorizedHandler(() => {
+      clearAll();
+      setToken(null);
+      setUser(null);
+      setJustLoggedIn(false);
+    });
+    return () => setUnauthorizedHandler(null);
   }, []);
 
   return (

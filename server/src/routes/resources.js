@@ -8,6 +8,7 @@ const {
   getSections,
   getQuestions,
   getQuestionsByPath,
+  getMcqByPath,
 } = require('../controllers/resources.controller')
 const { getExemplar } = require('../controllers/exemplar.controller')
 const { getNcert, getNcertChapters } = require('../controllers/ncert.controller')
@@ -25,6 +26,9 @@ router.get('/sections/:sectionId/questions',     getQuestions)
 
 // ─── Convenience: questions straight from slugs (matches the UI flow) ──────────
 router.get('/content/:subjectSlug/:chapterSlug/:sectionType', getQuestionsByPath)
+
+// ─── MCQ Practice: all MCQs for a chapter, ready for the test screen ───────────
+router.get('/mcq/:subjectSlug/:chapterSlug', getMcqByPath)
 
 // ─── Exemplar Solutions (DB-backed; ?subject=&class=&chapter=) ─────────────────
 router.get('/exemplar', getExemplar)

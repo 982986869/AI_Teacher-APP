@@ -39,3 +39,9 @@ yarn-error.*
 # generated native folders
 /ios
 /android
+
+# answer-key fetch script (contains personal auth token/cookie) + its outputs
+src/data/physics_questions/build-answer-key.js
+src/data/physics_questions/answer_key.json
+src/data/physics_questions/answers.txt
+src/data/physics_questions/*.with_answers.json

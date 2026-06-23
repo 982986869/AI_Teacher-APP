@@ -9,6 +9,11 @@ const axiosInstance = axios.create({
   headers: { 'Content-Type': 'application/json' },
 });
 
+// AuthContext registers a callback here so a 401 (expired/invalid token, e.g.
+// after a JWT_SECRET change) can clear the session and route back to login.
+let onUnauthorized = null;
+export const setUnauthorizedHandler = (fn) => { onUnauthorized = fn; };
+
 // Attach JWT to every request
 axiosInstance.interceptors.request.use(
   async (config) => {
@@ -27,8 +32,14 @@ axiosInstance.interceptors.request.use(
 axiosInstance.interceptors.response.use(
   (response) => response,
   (error) => {
-    if (error.response?.status === 401) {
-      // Token expired — AuthContext handles logout
+    const status = error.response?.status;
+    const url = error.config?.url || '';
+    // Auto-logout on 401, but NOT for the auth endpoints themselves — a wrong
+    // password there should surface on the login screen, not wipe the session.
+    const isAuthRoute = url.includes('/api/auth/');
+    if (status === 401 && !isAuthRoute && onUnauthorized) {
+      console.warn('[AXIOS] 401 on', url, '— clearing stale session and routing to login.');
+      onUnauthorized();
     }
     return Promise.reject(error);
   }
