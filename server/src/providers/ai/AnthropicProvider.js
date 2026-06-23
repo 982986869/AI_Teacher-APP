@@ -12,6 +12,20 @@ const {
   buildDoubtSystemPrompt,
   buildDoubtMessages,
 } = require('../../prompts/doubtResolution.prompt')
+const {
+  INTENTS,
+  buildIntentSystemPrompt,
+  buildIntentMessages,
+} = require('../../prompts/intentClassify.prompt')
+const {
+  buildTeacherSystemPrompt,
+  buildTeacherMessages,
+} = require('../../prompts/teacherResponse.prompt')
+const {
+  buildQuizSystemPrompt,
+  buildGradeSystemPrompt,
+  buildGradeMessages,
+} = require('../../prompts/quizGrading.prompt')
 const { normalizeAnimation } = require('../../utils/slideAnimation')
 
 const VISUAL_TYPES = ['DIAGRAM', 'CHART', 'EXAMPLE', 'ANALOGY', 'FORMULA', 'NONE']
@@ -20,6 +34,9 @@ const VISUAL_TYPES = ['DIAGRAM', 'CHART', 'EXAMPLE', 'ANALOGY', 'FORMULA', 'NONE
 // timeout threshold, so a plain create() call is safe.
 const LESSON_MAX_TOKENS = 8000
 const DOUBT_MAX_TOKENS = 1024
+const INTENT_MAX_TOKENS = 60
+// Teacher replies are at most ~5 short lines; a tight ceiling keeps generation fast.
+const TEACHER_MAX_TOKENS = 450
 
 class AnthropicProvider extends AIProvider {
   constructor() {
@@ -89,6 +106,105 @@ class AnthropicProvider extends AIProvider {
       throw new AppError('The AI returned an empty answer. Please try again.', 502)
     }
     return answer
+  }
+
+  // Classify a student message into one of the 8 intents + detect language.
+  // Uses the fast doubt model with a tiny token budget. Falls back gracefully.
+  async classifyIntent(text) {
+    const client = this._getClient()
+    let message
+    try {
+      message = await client.messages.create({
+        model: this.doubtModel,
+        max_tokens: INTENT_MAX_TOKENS,
+        system: buildIntentSystemPrompt(),
+        messages: buildIntentMessages(text),
+      })
+    } catch (err) {
+      throw translateProviderError(err, 'intent classification')
+    }
+    const parsed = parseJsonObject(extractText(message), 'intent')
+    const intent = INTENTS.includes(parsed.intent) ? parsed.intent : 'concept_explanation'
+    const language = ['en', 'hi', 'hinglish'].includes(parsed.language) ? parsed.language : 'en'
+    const confidence = typeof parsed.confidence === 'number' ? parsed.confidence : 0.5
+    return { intent, language, confidence }
+  }
+
+  // Generate the grounded, teacher-style answer for a classified turn.
+  async generateTeacherResponse({ intent, language, contexts, lesson, history, question, slideIndex, level, strategy }) {
+    const client = this._getClient()
+    let message
+    try {
+      message = await client.messages.create({
+        model: this.doubtModel,
+        max_tokens: TEACHER_MAX_TOKENS,
+        system: buildTeacherSystemPrompt({ intent, language, contexts, lesson, level, strategy }),
+        messages: buildTeacherMessages(history, question, slideIndex),
+      })
+    } catch (err) {
+      throw translateProviderError(err, 'teacher response')
+    }
+    const answer = extractText(message).trim()
+    if (!answer) throw new AppError('The AI returned an empty answer. Please try again.', 502)
+    return answer
+  }
+
+  // Streaming variant — calls onText(delta) per chunk, resolves with the full text.
+  async streamTeacherResponse({ intent, language, contexts, lesson, history, question, slideIndex, level, strategy }, onText) {
+    const client = this._getClient()
+    const stream = client.messages.stream({
+      model: this.doubtModel,
+      max_tokens: TEACHER_MAX_TOKENS,
+      system: buildTeacherSystemPrompt({ intent, language, contexts, lesson, level, strategy }),
+      messages: buildTeacherMessages(history, question, slideIndex),
+    })
+    stream.on('text', (t) => { try { if (typeof onText === 'function') onText(t) } catch (e) { /* ignore sink errors */ } })
+    let final
+    try {
+      final = await stream.finalMessage()
+    } catch (err) {
+      throw translateProviderError(err, 'teacher response (stream)')
+    }
+    const answer = extractText(final).trim()
+    if (!answer) throw new AppError('The AI returned an empty answer. Please try again.', 502)
+    return answer
+  }
+
+  // Generate one quiz question + its model answer (grounded in chapter material).
+  async generateQuiz({ subject, chapter, contexts, level, language }) {
+    const client = this._getClient()
+    let message
+    try {
+      message = await client.messages.create({
+        model: this.doubtModel,
+        max_tokens: 400,
+        system: buildQuizSystemPrompt({ subject, chapter, contexts, level, language }),
+        messages: [{ role: 'user', content: 'Set the quiz question now.' }],
+      })
+    } catch (err) {
+      throw translateProviderError(err, 'quiz generation')
+    }
+    const parsed = parseJsonObject(extractText(message), 'quiz')
+    return { question: String(parsed.question || '').trim(), answer: String(parsed.answer || '').trim() }
+  }
+
+  // Grade a student's answer against the expected one. Returns verdict + feedback.
+  async gradeAnswer({ question, expectedAnswer, studentAnswer, language }) {
+    const client = this._getClient()
+    let message
+    try {
+      message = await client.messages.create({
+        model: this.doubtModel,
+        max_tokens: 300,
+        system: buildGradeSystemPrompt({ question, expectedAnswer, language }),
+        messages: buildGradeMessages(studentAnswer),
+      })
+    } catch (err) {
+      throw translateProviderError(err, 'answer grading')
+    }
+    const parsed = parseJsonObject(extractText(message), 'grade')
+    const verdict = ['correct', 'partial', 'incorrect'].includes(parsed.verdict) ? parsed.verdict : 'partial'
+    return { verdict, feedback: String(parsed.feedback || '').trim() }
   }
 }
 

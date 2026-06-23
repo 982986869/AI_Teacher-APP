@@ -1,4 +1,22 @@
 import axiosInstance from './axiosInstance';
+import { API_BASE_URL } from '../constants/config';
+import { getToken } from '../utils/storage';
+
+// Server base URL, normalised like axiosInstance (no trailing slash / "/api").
+const STREAM_BASE = String(API_BASE_URL || '').replace(/\/+$/, '').replace(/\/api$/i, '');
+
+// Parse one SSE record ("event: x\ndata: {...}") into { event, data }.
+function parseSSE(raw) {
+  let event = 'message';
+  let data = '';
+  for (const line of raw.split('\n')) {
+    if (line.startsWith('event:')) event = line.slice(6).trim();
+    else if (line.startsWith('data:')) data += line.slice(5).trim();
+  }
+  let parsed = {};
+  try { parsed = data ? JSON.parse(data) : {}; } catch (e) { parsed = {}; }
+  return { event, data: parsed };
+}
 
 // All AI endpoints require a valid JWT — the token is attached automatically by
 // the axiosInstance request interceptor, so nothing auth-related is needed here.
@@ -30,3 +48,72 @@ export const askDoubt = async (lessonId, { question, slideIndex }) => {
   const res = await axiosInstance.post(`/api/ai/lesson/${lessonId}/doubt`, body);
   return res.data.data;
 };
+
+// POST /api/ai/ask → the unified AI Teacher agent. Returns
+// { intent, language, grounded, confidence, sources, answer, resumeCue, ... }.
+// Used for in-lesson doubts and free-form questions (intent + RAG + teacher style).
+export const askAgent = async ({ text, subject, gradeLevel, lessonId, slideIndex, history, level, pending }) => {
+  const body = { text };
+  if (subject) body.subject = subject;
+  if (gradeLevel) body.gradeLevel = gradeLevel;
+  if (lessonId) body.lessonId = lessonId;
+  if (slideIndex !== undefined && slideIndex !== null) body.slideIndex = slideIndex;
+  if (Array.isArray(history) && history.length) body.history = history;
+  if (level) body.level = level;
+  if (pending) body.pending = pending; // carries quiz / understanding-check state forward
+  const res = await axiosInstance.post('/api/ai/ask', body, { timeout: 30000 });
+  return res.data.data;
+};
+
+// Streaming agent call (SSE over XHR — RN-compatible, no extra library). Calls
+// onMeta/onDelta as events arrive and resolves with the final `done` payload
+// (same shape as askAgent). Lets the teacher start speaking sentence-by-sentence.
+export const askAgentStream = ({ text, subject, gradeLevel, lessonId, slideIndex, history, level, pending }, { onMeta, onDelta } = {}) =>
+  new Promise((resolve, reject) => {
+    (async () => {
+      const token = await getToken().catch(() => null);
+      const body = { text };
+      if (subject) body.subject = subject;
+      if (gradeLevel) body.gradeLevel = gradeLevel;
+      if (lessonId) body.lessonId = lessonId;
+      if (slideIndex !== undefined && slideIndex !== null) body.slideIndex = slideIndex;
+      if (Array.isArray(history) && history.length) body.history = history;
+      if (level) body.level = level;
+      if (pending) body.pending = pending;
+
+      const xhr = new XMLHttpRequest();
+      xhr.open('POST', `${STREAM_BASE}/api/ai/ask/stream`);
+      xhr.setRequestHeader('Content-Type', 'application/json');
+      xhr.setRequestHeader('Accept', 'text/event-stream');
+      if (token) xhr.setRequestHeader('Authorization', `Bearer ${token}`);
+
+      let seen = 0;
+      let buffer = '';
+      let final = null;
+      let failed = null;
+
+      const drain = () => {
+        const full = xhr.responseText || '';
+        buffer += full.slice(seen);
+        seen = full.length;
+        let idx;
+        while ((idx = buffer.indexOf('\n\n')) >= 0) {
+          const raw = buffer.slice(0, idx);
+          buffer = buffer.slice(idx + 2);
+          if (!raw.trim()) continue;
+          const { event, data } = parseSSE(raw);
+          if (event === 'meta') { if (onMeta) onMeta(data); }
+          else if (event === 'delta') { if (onDelta && data && data.t) onDelta(data.t); }
+          else if (event === 'done') { final = data; }
+          else if (event === 'error') { failed = new Error(data.error || 'stream error'); }
+        }
+      };
+
+      xhr.onprogress = drain;
+      xhr.onload = () => { drain(); if (failed) reject(failed); else resolve(final || {}); };
+      xhr.onerror = () => reject(new Error('stream connection failed'));
+      xhr.ontimeout = () => reject(new Error('stream timed out'));
+      xhr.timeout = 45000;
+      xhr.send(JSON.stringify(body));
+    })().catch(reject);
+  });

@@ -340,3 +340,47 @@ export function speakTeacher(text, opts = {}) {
     speakViaDevice(text, opts);
   }
 }
+
+// ── Sequential queue for STREAMING voice playback ─────────────────────────────
+// As an answer streams in, we feed it sentence-by-sentence: each chunk waits for
+// the previous one to finish (chained onDone) so the teacher speaks continuously
+// without two voices overlapping. This lets her start talking ~2s in.
+let _queue = [];
+let _queueBusy = false;
+let _queueToken = 0;
+
+// Clear the queue and stop any current utterance (call when a new turn starts).
+export function resetTeacherQueue() {
+  _queueToken += 1;
+  _queue = [];
+  _queueBusy = false;
+  stopTeacher();
+}
+
+// Enqueue one chunk (usually a sentence) to speak after the current queue drains.
+export function speakTeacherQueued(text, opts = {}) {
+  const t = String(text || '').trim();
+  if (!t || !SPEECH_OK) return;
+  _queue.push({ text: t, opts });
+  if (!_queueBusy) runQueue(_queueToken);
+}
+
+function runQueue(myToken) {
+  if (myToken !== _queueToken) return;
+  const next = _queue.shift();
+  if (!next) { _queueBusy = false; return; }
+  _queueBusy = true;
+  // speakTeacher() stops the previous utterance first, which is safe here because
+  // the previous chunk has already finished (onDone fired) before we advance.
+  speakTeacher(next.text, {
+    ...next.opts,
+    onStart: () => { if (myToken === _queueToken && next.opts.onStart) next.opts.onStart(); },
+    onDone: () => { if (next.opts.onDone) next.opts.onDone(); if (myToken === _queueToken) runQueue(myToken); },
+    onError: () => { if (next.opts.onError) next.opts.onError(); if (myToken === _queueToken) runQueue(myToken); },
+  });
+}
+
+// Is the streaming queue still speaking / holding chunks?
+export function isTeacherQueueActive() {
+  return _queueBusy || _queue.length > 0;
+}
