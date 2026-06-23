@@ -1,0 +1,2499 @@
+{
+  "id": 1383,
+  "name": "Introduction to 3D Geometry",
+  "category_full_name": "CBSE > Class 11 > Mathematics > Introduction to 3D Geometry",
+  "total_questions": 91,
+  "topics": [
+    {
+      "id": 11491,
+      "name": "Coordinate Axes and Coordinate Planes in 3D Space (XI-11.1)",
+      "total_questions": 26,
+      "attempted_questions": 0,
+      "correct_questions": 0,
+      "score": 0
+    },
+    {
+      "id": 11492,
+      "name": "Coordinates of a Point in Space (XI-11.1)",
+      "total_questions": 18,
+      "attempted_questions": 0,
+      "correct_questions": 0,
+      "score": 0
+    },
+    {
+      "id": 11493,
+      "name": "Distance between Two Points (XI-11.2)",
+      "total_questions": 42,
+      "attempted_questions": 0,
+      "correct_questions": 0,
+      "score": 0
+    },
+    {
+      "id": 11520,
+      "name": "Miscellaneous Exercise (XI-11)",
+      "total_questions": 5,
+      "attempted_questions": 0,
+      "correct_questions": 0,
+      "score": 0
+    }
+  ],
+  "questions": [
+    {
+      "id": 19142,
+      "question": "The distance of the point (3, 4, 5) from X-axis is",
+      "question_raw": "<p>The distance of the point (3, 4, 5) from X-axis is</p>",
+      "difficulty": "Medium",
+      "options": [
+        {
+          "id": 31770,
+          "text": "5"
+        },
+        {
+          "id": 31768,
+          "text": "$\\sqrt {34} $"
+        },
+        {
+          "id": 31769,
+          "text": "3"
+        },
+        {
+          "id": 31767,
+          "text": "$\\sqrt {41} $"
+        }
+      ],
+      "correct_option_id": null,
+      "correct_option_text": null,
+      "explanation": null
+    },
+    {
+      "id": 19150,
+      "question": "The radius of the sphere through the points (4, 3, 0), (0, 4, 3), (0, 5, 0) and (4, 0, 3) is",
+      "question_raw": "<p>The radius of the sphere through the points (4, 3, 0), (0, 4, 3), (0, 5, 0) and (4, 0, 3) is</p>",
+      "difficulty": "Medium",
+      "options": [
+        {
+          "id": 31799,
+          "text": "5"
+        },
+        {
+          "id": 31800,
+          "text": "7"
+        },
+        {
+          "id": 31801,
+          "text": "$\\frac{7}{5}$"
+        },
+        {
+          "id": 31802,
+          "text": "$\\frac{5}{7}$"
+        }
+      ],
+      "correct_option_id": null,
+      "correct_option_text": null,
+      "explanation": null
+    },
+    {
+      "id": 19151,
+      "question": "The points (4, 7, 8), (2, 3, 4), (-1, -2, 1) and (1, 2, 5) are the vertices of a",
+      "question_raw": "<p>The points (4, 7, 8), (2, 3, 4), (-1, -2, 1) and (1, 2, 5) are the vertices of a</p>",
+      "difficulty": "Hard",
+      "options": [
+        {
+          "id": 31806,
+          "text": "square"
+        },
+        {
+          "id": 31805,
+          "text": "rectangle"
+        },
+        {
+          "id": 31804,
+          "text": "rhombus"
+        },
+        {
+          "id": 31803,
+          "text": "parallelogram"
+        }
+      ],
+      "correct_option_id": null,
+      "correct_option_text": null,
+      "explanation": null
+    },
+    {
+      "id": 19153,
+      "question": "The graph of the equation x^2 + y^2 = 0 in the three dimensional space is",
+      "question_raw": "<p>The graph of the equation x<sup>2</sup> + y<sup>2</sup> = 0 in the three dimensional space is</p>",
+      "difficulty": "Easy",
+      "options": [
+        {
+          "id": 31812,
+          "text": "Y - axis"
+        },
+        {
+          "id": 31813,
+          "text": "X - axis"
+        },
+        {
+          "id": 31811,
+          "text": "Z - axis"
+        },
+        {
+          "id": 31814,
+          "text": "XY – plane"
+        }
+      ],
+      "correct_option_id": null,
+      "correct_option_text": null,
+      "explanation": null
+    },
+    {
+      "id": 19154,
+      "question": "In three dimensional space, locus of the equation x^2 + z^2 = 0 is",
+      "question_raw": "<p>In three dimensional space, locus of the equation x<sup>2</sup> + z<sup>2</sup> = 0 is</p>",
+      "difficulty": "Easy",
+      "options": [
+        {
+          "id": 31816,
+          "text": "a degenerate circle"
+        },
+        {
+          "id": 31815,
+          "text": "y - axis"
+        },
+        {
+          "id": 31817,
+          "text": "a degenerate sphere"
+        },
+        {
+          "id": 31818,
+          "text": "empty set"
+        }
+      ],
+      "correct_option_id": null,
+      "correct_option_text": null,
+      "explanation": null
+    },
+    {
+      "id": 19158,
+      "question": "The line x = 1, y = 2 is",
+      "question_raw": "<p>The line x = 1, y = 2 is</p>",
+      "difficulty": "Medium",
+      "options": [
+        {
+          "id": 31831,
+          "text": "parallel to Z – axis"
+        },
+        {
+          "id": 31833,
+          "text": "parallel to Y – axis"
+        },
+        {
+          "id": 31832,
+          "text": "parallel to X – axis"
+        },
+        {
+          "id": 31834,
+          "text": "lies in a plane parallel to XY – plane"
+        }
+      ],
+      "correct_option_id": null,
+      "correct_option_text": null,
+      "explanation": null
+    },
+    {
+      "id": 19160,
+      "question": "A point (x, y, z) moves parallel to X- axis. Which of the three variables x, y, z remain fixed?",
+      "question_raw": "<p>A point (x, y, z) moves parallel to X- axis. Which of the three variables x, y, z remain fixed?</p>",
+      "difficulty": "Easy",
+      "options": [
+        {
+          "id": 31840,
+          "text": "x and y"
+        },
+        {
+          "id": 31842,
+          "text": "x"
+        },
+        {
+          "id": 31839,
+          "text": "y and z"
+        },
+        {
+          "id": 31841,
+          "text": "z and x"
+        }
+      ],
+      "correct_option_id": null,
+      "correct_option_text": null,
+      "explanation": null
+    },
+    {
+      "id": 19161,
+      "question": "A point (x, y, z) moves parallel to XY - plane. Which of the three variables x, y, z remain fixed?",
+      "question_raw": "<p>A point (x, y, z) moves parallel to XY - plane. Which of the three variables x, y, z remain fixed?</p>",
+      "difficulty": "Easy",
+      "options": [
+        {
+          "id": 31845,
+          "text": "y"
+        },
+        {
+          "id": 31844,
+          "text": "x"
+        },
+        {
+          "id": 31843,
+          "text": "z"
+        },
+        {
+          "id": 31846,
+          "text": "x and y"
+        }
+      ],
+      "correct_option_id": null,
+      "correct_option_text": null,
+      "explanation": null
+    },
+    {
+      "id": 19167,
+      "question": "The locus of the equation xy + yz = 0 is",
+      "question_raw": "<p>The locus of the equation xy + yz = 0 is</p>",
+      "difficulty": "Medium",
+      "options": [
+        {
+          "id": 31868,
+          "text": "a pair of parallel planes"
+        },
+        {
+          "id": 31870,
+          "text": "a pair of curvy lines"
+        },
+        {
+          "id": 31869,
+          "text": "a pair of straight lines"
+        },
+        {
+          "id": 31867,
+          "text": "a pair of perpendicular planes"
+        }
+      ],
+      "correct_option_id": null,
+      "correct_option_text": null,
+      "explanation": null
+    },
+    {
+      "id": 19168,
+      "question": "The number of spheres of a given radius r and touching the coordinate axes(3D) is",
+      "question_raw": "<p>The number of spheres of a given radius r and touching the coordinate axes(3D) is</p>",
+      "difficulty": "Easy",
+      "options": [
+        {
+          "id": 31872,
+          "text": "4"
+        },
+        {
+          "id": 31874,
+          "text": "10"
+        },
+        {
+          "id": 31871,
+          "text": "8"
+        },
+        {
+          "id": 31873,
+          "text": "6"
+        }
+      ],
+      "correct_option_id": null,
+      "correct_option_text": null,
+      "explanation": null
+    },
+    {
+      "id": 19169,
+      "question": "The equation $\\vec r = \\lambda \\widehat {i}$ represents",
+      "question_raw": "<p>The equation <span class=\"math-tex\">{tex}\\vec r = \\lambda \\widehat {i}{/tex}</span>&nbsp;represents</p>",
+      "difficulty": "Easy",
+      "options": [
+        {
+          "id": 31876,
+          "text": "the Y axis"
+        },
+        {
+          "id": 31877,
+          "text": "the Z axis"
+        },
+        {
+          "id": 31875,
+          "text": "the X axis"
+        },
+        {
+          "id": 31878,
+          "text": "the YOZ plane"
+        }
+      ],
+      "correct_option_id": null,
+      "correct_option_text": null,
+      "explanation": null
+    },
+    {
+      "id": 19170,
+      "question": "The equation $\\vec r = \\lambda \\widehat {i} + \\mu \\widehat {j} $ represents",
+      "question_raw": "<p>The equation <span class=\"math-tex\">{tex}\\vec r = \\lambda \\widehat {i} + \\mu \\widehat {j} {/tex}</span> represents</p>",
+      "difficulty": "Easy",
+      "options": [
+        {
+          "id": 31881,
+          "text": "the Y axis"
+        },
+        {
+          "id": 31882,
+          "text": "the Z axis"
+        },
+        {
+          "id": 31880,
+          "text": "the X aixs"
+        },
+        {
+          "id": 31879,
+          "text": "the plane z = 0"
+        }
+      ],
+      "correct_option_id": null,
+      "correct_option_text": null,
+      "explanation": null
+    },
+    {
+      "id": 19171,
+      "question": "The equation $\\vec r = \\lambda \\widehat {k} $ represents",
+      "question_raw": "<p>The equation <span class=\"math-tex\">{tex}\\vec r = \\lambda \\widehat {k} {/tex}</span> represents</p>",
+      "difficulty": "Easy",
+      "options": [
+        {
+          "id": 31883,
+          "text": "the Z axis"
+        },
+        {
+          "id": 31886,
+          "text": "origin"
+        },
+        {
+          "id": 31885,
+          "text": "the Y axis"
+        },
+        {
+          "id": 31884,
+          "text": "the X axis"
+        }
+      ],
+      "correct_option_id": null,
+      "correct_option_text": null,
+      "explanation": null
+    },
+    {
+      "id": 19173,
+      "question": "The point equidistant from the points (0, 0, 0), (1, 0, 0), (0, 2, 0) and (0, 0, 3) is",
+      "question_raw": "<p>The point equidistant from the points (0, 0, 0), (1, 0, 0), (0, 2, 0) and (0, 0, 3) is</p>",
+      "difficulty": "Medium",
+      "options": [
+        {
+          "id": 31892,
+          "text": "(1, 2, 3)"
+        },
+        {
+          "id": 31893,
+          "text": "($\\frac{-1}{2}$, -1, $\\frac{-3}{2}$)"
+        },
+        {
+          "id": 31891,
+          "text": "($\\frac{1}{2}$, 1, $\\frac{3}{2}$)"
+        },
+        {
+          "id": 31894,
+          "text": "(-1, -2, 3)"
+        }
+      ],
+      "correct_option_id": null,
+      "correct_option_text": null,
+      "explanation": null
+    },
+    {
+      "id": 19174,
+      "question": "The plane x + y = 0 is",
+      "question_raw": "<p>The plane x + y = 0 is</p>",
+      "difficulty": "Medium",
+      "options": [
+        {
+          "id": 31895,
+          "text": "passes through z – axis"
+        },
+        {
+          "id": 31896,
+          "text": "parallel to z – axis"
+        },
+        {
+          "id": 31898,
+          "text": "intersecting to z – axis"
+        },
+        {
+          "id": 31897,
+          "text": "perpendicular to z – axis"
+        }
+      ],
+      "correct_option_id": null,
+      "correct_option_text": null,
+      "explanation": null
+    },
+    {
+      "id": 19175,
+      "question": "The points ( 1 , 1 , 0 ) , ( 0 , 1 , 1 ) , ( 1 , 0 , 1 ) , and ( 2/3 , 2/3 , 2/3 ) are",
+      "question_raw": "<p>The points ( 1 , 1 , 0 ) , ( 0 , 1 , 1 ) , ( 1 , 0 , 1 ) , and ( 2/3 , 2/3 , 2/3 ) are</p>",
+      "difficulty": "Medium",
+      "options": [
+        {
+          "id": 31899,
+          "text": "coplanar"
+        },
+        {
+          "id": 31902,
+          "text": "the angle of a parallelogram"
+        },
+        {
+          "id": 31900,
+          "text": "non coplanar"
+        },
+        {
+          "id": 31901,
+          "text": "the vertices of a parallelogram"
+        }
+      ],
+      "correct_option_id": null,
+      "correct_option_text": null,
+      "explanation": null
+    },
+    {
+      "id": 19179,
+      "question": "A, B, C and D are four points in spaces such that AB = BC = CD = DA. Then ABCD is a",
+      "question_raw": "<p>A, B, C and D are four points in spaces such that AB = BC = CD = DA. Then ABCD is a</p>",
+      "difficulty": "Easy",
+      "options": [
+        {
+          "id": 31916,
+          "text": "rhombus"
+        },
+        {
+          "id": 31918,
+          "text": "skew quadrilateral"
+        },
+        {
+          "id": 31917,
+          "text": "rectangle"
+        },
+        {
+          "id": 31915,
+          "text": "nothing can be said"
+        }
+      ],
+      "correct_option_id": null,
+      "correct_option_text": null,
+      "explanation": null
+    },
+    {
+      "id": 19180,
+      "question": "The foot of the perpendicular from ($\\alpha {\\rm{ }},\\beta {\\rm{ }},{\\rm{ }}\\gamma $) on Y-axis is",
+      "question_raw": "<p>The foot of the perpendicular from (<span class=\"math-tex\">{tex}\\alpha {\\rm{ }},\\beta {\\rm{ }},{\\rm{ }}\\gamma {/tex}</span>) on Y-axis is</p>",
+      "difficulty": "Easy",
+      "options": [
+        {
+          "id": 31919,
+          "text": "(0, $\\beta $, 0)"
+        },
+        {
+          "id": 31920,
+          "text": "(0, 0, 0)"
+        },
+        {
+          "id": 31922,
+          "text": "(0, $\\gamma$, 0)"
+        },
+        {
+          "id": 31921,
+          "text": "(0, $\\alpha$, 0)"
+        }
+      ],
+      "correct_option_id": null,
+      "correct_option_text": null,
+      "explanation": null
+    },
+    {
+      "id": 19181,
+      "question": "The equation $\\vec r = \\lambda \\hat j$ represents",
+      "question_raw": "<p>The equation <span class=\"math-tex\">{tex}\\vec r = \\lambda \\hat j{/tex}</span> represents</p>",
+      "difficulty": "Easy",
+      "options": [
+        {
+          "id": 31923,
+          "text": "the Y axis"
+        },
+        {
+          "id": 31926,
+          "text": "the plane y = 0"
+        },
+        {
+          "id": 31924,
+          "text": "the X axis"
+        },
+        {
+          "id": 31925,
+          "text": "the Z axis"
+        }
+      ],
+      "correct_option_id": null,
+      "correct_option_text": null,
+      "explanation": null
+    },
+    {
+      "id": 19182,
+      "question": "The equation $\\vec r = \\lambda \\widehat {i} + \\mu \\widehat {k} $ represents",
+      "question_raw": "<p>The equation <span class=\"math-tex\">{tex}\\vec r = \\lambda \\widehat {i} + \\mu \\widehat {k} {/tex}</span> represents</p>",
+      "difficulty": "Easy",
+      "options": [
+        {
+          "id": 31930,
+          "text": "the Z axis"
+        },
+        {
+          "id": 31929,
+          "text": "the Y axis"
+        },
+        {
+          "id": 31928,
+          "text": "the X axis"
+        },
+        {
+          "id": 31927,
+          "text": "the plane y = 0"
+        }
+      ],
+      "correct_option_id": null,
+      "correct_option_text": null,
+      "explanation": null
+    },
+    {
+      "id": 19183,
+      "question": "The centre of the sphere, which passes through (a, 0, 0), (0, b, 0) (0, 0, c ) and (0, 0, 0) is where abc $ \\ne $ 0",
+      "question_raw": "<p>The centre of the sphere, which passes through (a, 0, 0), (0, b, 0) (0, 0, c ) and (0, 0, 0) is&nbsp;where abc <span class=\"math-tex\">{tex} \\ne {/tex}</span> 0</p>",
+      "difficulty": "Medium",
+      "options": [
+        {
+          "id": 31932,
+          "text": "(0, 0, $\\frac{c}{2}$)"
+        },
+        {
+          "id": 31934,
+          "text": "(0, $\\frac{b}{2}$, 0)"
+        },
+        {
+          "id": 31931,
+          "text": "($\\frac{a}{2}$, $\\frac{b}{2}$, $\\frac{c}{2}$)"
+        },
+        {
+          "id": 31933,
+          "text": "($\\frac{a}{2}$, 0, 0)"
+        }
+      ],
+      "correct_option_id": null,
+      "correct_option_text": null,
+      "explanation": null
+    },
+    {
+      "id": 19184,
+      "question": "The equations of y axis are",
+      "question_raw": "<p>The equations of&nbsp;y axis are</p>",
+      "difficulty": "Easy",
+      "options": [
+        {
+          "id": 31935,
+          "text": "x = 0, z = 0"
+        },
+        {
+          "id": 31936,
+          "text": "x = 0, y = 0"
+        },
+        {
+          "id": 31938,
+          "text": "x = 0, y = 0, z = 0"
+        },
+        {
+          "id": 31937,
+          "text": "y = 0, z = 0"
+        }
+      ],
+      "correct_option_id": null,
+      "correct_option_text": null,
+      "explanation": null
+    },
+    {
+      "id": 19185,
+      "question": "The equation $\\vec r = \\lambda \\widehat {j} + \\mu \\widehat {k} $ represents",
+      "question_raw": "<p>The equation <span class=\"math-tex\">{tex}\\vec r = \\lambda \\widehat {j} + \\mu \\widehat {k} {/tex}</span> represents</p>",
+      "difficulty": "Easy",
+      "options": [
+        {
+          "id": 31941,
+          "text": "the Y axis"
+        },
+        {
+          "id": 31940,
+          "text": "the X axis"
+        },
+        {
+          "id": 31939,
+          "text": "the plane x = 0"
+        },
+        {
+          "id": 31942,
+          "text": "the Z axis"
+        }
+      ],
+      "correct_option_id": null,
+      "correct_option_text": null,
+      "explanation": null
+    },
+    {
+      "id": 19188,
+      "question": "Three planes x + y = 0, y + z = 0 and x + z = 0",
+      "question_raw": "<p>Three planes x + y = 0, y + z = 0&nbsp;and x + z = 0</p>",
+      "difficulty": "Medium",
+      "options": [
+        {
+          "id": 31951,
+          "text": "meet in a unique point"
+        },
+        {
+          "id": 31954,
+          "text": "meet taken three at a time in parallel lines"
+        },
+        {
+          "id": 31952,
+          "text": "meet in a line"
+        },
+        {
+          "id": 31953,
+          "text": "meet taken two at a time in parallel lines"
+        }
+      ],
+      "correct_option_id": null,
+      "correct_option_text": null,
+      "explanation": null
+    },
+    {
+      "id": 19189,
+      "question": "The centre of the sphere through the points ( 0 , 3 , 4 ) , ( 0 , 5 , 0 ) , ( 4 , 0 , 3 ) and ( - 3 , 4 , 0 ) is",
+      "question_raw": "<p>The centre of the sphere through the points ( 0 , 3 , 4 ) , ( 0 , 5 , 0 ) , ( 4 , 0 , 3 ) and ( - 3 , 4 , 0 ) is</p>",
+      "difficulty": "Medium",
+      "options": [
+        {
+          "id": 31958,
+          "text": "( 0 , 2 , -3 )"
+        },
+        {
+          "id": 31956,
+          "text": "(- 4 , 3 , 0 )"
+        },
+        {
+          "id": 31957,
+          "text": "( 0 , 2 , 3 )"
+        },
+        {
+          "id": 31955,
+          "text": "( 0 , 0 , 0 )"
+        }
+      ],
+      "correct_option_id": null,
+      "correct_option_text": null,
+      "explanation": null
+    },
+    {
+      "id": 19190,
+      "question": "The points A ( 0 , 0 , 0 ) , B ( 1 , $\\sqrt 3 $ , 0 ) , C ( 2 , 0 , 0 ) and D ( 1 , 0 , $\\sqrt 3 $) are the vertices of",
+      "question_raw": "<p>The points A ( 0 , 0 , 0 ) , B ( 1 , <span class=\"math-tex\">{tex}\\sqrt 3 {/tex}</span> , 0 ) , C ( 2 , 0 , 0 ) and D ( 1 , 0 , <span class=\"math-tex\">{tex}\\sqrt 3 {/tex}</span>) are the vertices of</p>",
+      "difficulty": "Hard",
+      "options": [
+        {
+          "id": 31959,
+          "text": "none of these"
+        },
+        {
+          "id": 31960,
+          "text": "square"
+        },
+        {
+          "id": 31962,
+          "text": "parallelogram"
+        },
+        {
+          "id": 31961,
+          "text": "rhombus"
+        }
+      ],
+      "correct_option_id": null,
+      "correct_option_text": null,
+      "explanation": null
+    },
+    {
+      "id": 19191,
+      "question": "The points A (0, 2, 0), B ($\\sqrt 3 $, 1, 0), and $\\mathrm{C}\\left(\\frac{1}{\\sqrt{3}}, 1, \\frac{2 \\sqrt{2}}{\\sqrt{3}}\\right)$ are the vertices of",
+      "question_raw": "<p>The points A (0, 2, 0), B (<span class=\"math-tex\">{tex}\\sqrt 3 {/tex}</span>, 1, 0), and&nbsp;<span class=\"math-tex\">{tex}\\mathrm{C}\\left(\\frac{1}{\\sqrt{3}}, 1, \\frac{2 \\sqrt{2}}{\\sqrt{3}}\\right){/tex}</span>&nbsp;are the vertices of</p>",
+      "difficulty": "Hard",
+      "options": [
+        {
+          "id": 31965,
+          "text": "an isosceles triangle"
+        },
+        {
+          "id": 31963,
+          "text": "an equilateral triangle"
+        },
+        {
+          "id": 31966,
+          "text": "Right angle triangle"
+        },
+        {
+          "id": 31964,
+          "text": "a scalene triangle"
+        }
+      ],
+      "correct_option_id": null,
+      "correct_option_text": null,
+      "explanation": null
+    },
+    {
+      "id": 19192,
+      "question": "The locus of a first degree equation in x, y, z is a",
+      "question_raw": "<p>The locus of a first degree equation in x, y, z is a</p>",
+      "difficulty": "Easy",
+      "options": [
+        {
+          "id": 31970,
+          "text": "Circle"
+        },
+        {
+          "id": 31968,
+          "text": "straight line"
+        },
+        {
+          "id": 31969,
+          "text": "sphere"
+        },
+        {
+          "id": 31967,
+          "text": "plane"
+        }
+      ],
+      "correct_option_id": null,
+      "correct_option_text": null,
+      "explanation": null
+    },
+    {
+      "id": 19193,
+      "question": "Area of $\\Delta ABC$ whose vertices A (-1, 2, 3), B(1, 1, 1) and C (2, - 1, 3) is",
+      "question_raw": "<p>Area of <span class=\"math-tex\">{tex}\\Delta ABC{/tex}</span> whose vertices A (-1, 2, 3), B(1, 1, 1)&nbsp;and C (2, - 1, 3) is</p>",
+      "difficulty": "Medium",
+      "options": [
+        {
+          "id": 31971,
+          "text": "4.5"
+        },
+        {
+          "id": 31972,
+          "text": "0"
+        },
+        {
+          "id": 31973,
+          "text": "9"
+        },
+        {
+          "id": 31974,
+          "text": "6"
+        }
+      ],
+      "correct_option_id": null,
+      "correct_option_text": null,
+      "explanation": null
+    },
+    {
+      "id": 19194,
+      "question": "Perpendicular distance of the point (3, 4, 5) from the y-axis is,",
+      "question_raw": "<p>Perpendicular distance of the point (3, 4, 5) from the y-axis is,</p>",
+      "difficulty": "Medium",
+      "options": [
+        {
+          "id": 31976,
+          "text": "$\\sqrt{41}$"
+        },
+        {
+          "id": 31975,
+          "text": "$\\sqrt{34}$"
+        },
+        {
+          "id": 31978,
+          "text": "5"
+        },
+        {
+          "id": 31977,
+          "text": "4"
+        }
+      ],
+      "correct_option_id": null,
+      "correct_option_text": null,
+      "explanation": null
+    },
+    {
+      "id": 19196,
+      "question": "If the four points (3, -2, -1), (2, 3, -4), (-1, 1, 2) and (4, 5, $\\lambda $) are coplanar then $\\lambda $ is equal to",
+      "question_raw": "<p>If the four points (3, -2, -1), (2, 3, -4), (-1, 1, 2) and (4, 5, <span class=\"math-tex\">{tex}\\lambda {/tex}</span>) are coplanar then <span class=\"math-tex\">{tex}\\lambda {/tex}</span> is equal to</p>",
+      "difficulty": "Medium",
+      "options": [
+        {
+          "id": 31983,
+          "text": "$\\frac{-146}{17}$"
+        },
+        {
+          "id": 31986,
+          "text": "$\\frac{-13}{146}$"
+        },
+        {
+          "id": 31985,
+          "text": "0"
+        },
+        {
+          "id": 31984,
+          "text": "$\\frac{-17}{146}$"
+        }
+      ],
+      "correct_option_id": null,
+      "correct_option_text": null,
+      "explanation": null
+    },
+    {
+      "id": 19197,
+      "question": "The number of spheres of a given radius which touch the coordinate planes is",
+      "question_raw": "<p>The number of spheres of a given radius which touch the coordinate planes is</p>",
+      "difficulty": "Hard",
+      "options": [
+        {
+          "id": 31990,
+          "text": "1"
+        },
+        {
+          "id": 31987,
+          "text": "8"
+        },
+        {
+          "id": 31988,
+          "text": "4"
+        },
+        {
+          "id": 31989,
+          "text": "2"
+        }
+      ],
+      "correct_option_id": null,
+      "correct_option_text": null,
+      "explanation": null
+    },
+    {
+      "id": 19200,
+      "question": "The coordinates of the foot of the perpendicular from the point A (1, 1, 1), on the line joining the points B (1, 4, 6) and C (5, 4, 4) are",
+      "question_raw": "<p>The coordinates of the foot of the perpendicular from the point A (1, 1, 1), on the line joining the points B (1, 4, 6) and C (5, 4, 4) are</p>",
+      "difficulty": "Medium",
+      "options": [
+        {
+          "id": 31999,
+          "text": "(3, 4, 5)"
+        },
+        {
+          "id": 32002,
+          "text": "(-3, 0, 4)"
+        },
+        {
+          "id": 32001,
+          "text": "(-4, 5, 3)"
+        },
+        {
+          "id": 32000,
+          "text": "(4, 5, 3)"
+        }
+      ],
+      "correct_option_id": null,
+      "correct_option_text": null,
+      "explanation": null
+    },
+    {
+      "id": 19201,
+      "question": "The points (1, 2, 3), (-1, -1, -1) and (3, 5, 7) are the vertices of",
+      "question_raw": "<p>The points (1, 2, 3), (-1, -1, -1) and (3, 5, 7) are the vertices of</p>",
+      "difficulty": "Hard",
+      "options": [
+        {
+          "id": 32003,
+          "text": "none of these"
+        },
+        {
+          "id": 32005,
+          "text": "an isosceles triangle"
+        },
+        {
+          "id": 32006,
+          "text": "a right triangle"
+        },
+        {
+          "id": 32004,
+          "text": "an equilateral triangle"
+        }
+      ],
+      "correct_option_id": null,
+      "correct_option_text": null,
+      "explanation": null
+    },
+    {
+      "id": 19207,
+      "question": "The points A (5, - 1, 1), B (7, - 4, 7), C(1, - 6, 10) and D (- 1, - 3, 4) are the vertices of",
+      "question_raw": "<p>The points A (5, - 1, 1), B (7, - 4, 7), C(1, - 6, 10) and D (- 1, - 3, 4) are the vertices of</p>",
+      "difficulty": "Hard",
+      "options": [
+        {
+          "id": 32027,
+          "text": "rhombus"
+        },
+        {
+          "id": 32030,
+          "text": "Trapezium"
+        },
+        {
+          "id": 32029,
+          "text": "rectangle"
+        },
+        {
+          "id": 32028,
+          "text": "square"
+        }
+      ],
+      "correct_option_id": null,
+      "correct_option_text": null,
+      "explanation": null
+    },
+    {
+      "id": 19209,
+      "question": "The centre of sphere passing through four points (0, 0, 0), (0, 2, 0), (1, 0, 0) and (0, 0, 4) is",
+      "question_raw": "<p>The centre of sphere passing through four points (0, 0, 0), (0, 2, 0), (1, 0, 0) and (0, 0, 4) is</p>",
+      "difficulty": "Medium",
+      "options": [
+        {
+          "id": 32035,
+          "text": "($\\frac{1}{2}$, 1, 2)"
+        },
+        {
+          "id": 32038,
+          "text": "(1, $\\frac{1}{2}$, 2)"
+        },
+        {
+          "id": 32036,
+          "text": "($\\frac{-1}{2}$, 1, 2)"
+        },
+        {
+          "id": 32037,
+          "text": "($\\frac{1}{2}$, 1, -2)"
+        }
+      ],
+      "correct_option_id": null,
+      "correct_option_text": null,
+      "explanation": null
+    },
+    {
+      "id": 59278,
+      "question": "The point (3, 2) is reflected in the y – axis and then moved a distance of 5 units towards the negative side of y - axis .The co-ordinates of the point thus obtained are:",
+      "question_raw": "<p>The point (3, 2) is reflected in the y &ndash; axis and then moved a distance of 5 units towards the negative side of y - axis .The co-ordinates of the point thus obtained are:</p>",
+      "difficulty": "Medium",
+      "options": [
+        {
+          "id": 192301,
+          "text": "(–3,3)"
+        },
+        {
+          "id": 192300,
+          "text": "(3,3)"
+        },
+        {
+          "id": 192302,
+          "text": "(3,–3)"
+        },
+        {
+          "id": 192299,
+          "text": "(–3,–3)"
+        }
+      ],
+      "correct_option_id": null,
+      "correct_option_text": null,
+      "explanation": null
+    },
+    {
+      "id": 231450,
+      "question": "Let $\\sqrt{3} \\hat{{i}}+\\hat{{j}}, \\hat{{i}}+\\sqrt{3} \\hat{{j}}$ and $\\beta \\hat{{i}}+(1-\\beta) \\hat{j}$ respectively be the position vectors of the points A, B and C with respect the origin O. If the distance of C from the bisectors of the acute angle between OA and OB is $\\frac{3}{\\sqrt{2}}$, then the sum of all possible values of $\\beta $ is",
+      "question_raw": "<p>Let&nbsp;<span class=\"math-tex\">{tex}\\sqrt{3} \\hat{{i}}+\\hat{{j}}, \\hat{{i}}+\\sqrt{3} \\hat{{j}}{/tex}</span>&nbsp;and&nbsp;<span class=\"math-tex\">{tex}\\beta \\hat{{i}}+(1-\\beta) \\hat{j}{/tex}</span>&nbsp;&nbsp;respectively be the position vectors of the points A, B and C with respect the origin O. If the distance of C from the bisectors of the acute angle between OA and OB&nbsp;is&nbsp;<span class=\"math-tex\">{tex}\\frac{3}{\\sqrt{2}}{/tex}</span>, then the sum of all possible values of&nbsp;<span class=\"math-tex\">{tex}\\beta {/tex}</span> is</p>",
+      "difficulty": "Hard",
+      "options": [
+        {
+          "id": 348464,
+          "text": "2"
+        },
+        {
+          "id": 348463,
+          "text": "4"
+        },
+        {
+          "id": 348462,
+          "text": "3"
+        },
+        {
+          "id": 348461,
+          "text": "1"
+        }
+      ],
+      "correct_option_id": null,
+      "correct_option_text": null,
+      "explanation": null
+    },
+    {
+      "id": 231465,
+      "question": "If the line $\\frac{x-2}{3}=\\frac{y+1}{2}=\\frac{z-1}{-1}$ intersects the plane 2x + 3 y - z + 13 = 0 at a point P and the plane 3x + y + 4z = 16 at a point Q, then PQ is equal to",
+      "question_raw": "<p>If the line&nbsp;<span class=\"math-tex\">{tex}\\frac{x-2}{3}=\\frac{y+1}{2}=\\frac{z-1}{-1}{/tex}</span>&nbsp;intersects the plane&nbsp;2x + 3 y - z + 13 = 0 at a point P and the plane 3x + y + 4z = 16 at a point Q, then PQ is equal to</p>",
+      "difficulty": "Hard",
+      "options": [
+        {
+          "id": 348523,
+          "text": "$2 \\sqrt{7}$"
+        },
+        {
+          "id": 348521,
+          "text": "14"
+        },
+        {
+          "id": 348524,
+          "text": "$2 \\sqrt{14}$"
+        },
+        {
+          "id": 348522,
+          "text": "$\\sqrt{14}$"
+        }
+      ],
+      "correct_option_id": null,
+      "correct_option_text": null,
+      "explanation": null
+    },
+    {
+      "id": 231497,
+      "question": "Two-line $\\frac{x-3}{1}=\\frac{y+1}{3}=\\frac{z-6}{-1}$ and $\\frac{x+5}{7}=\\frac{y-2}{-6}=\\frac{z-3}{4}$ intersect at the point R. The reflection of R in the xy-plane has coordinates",
+      "question_raw": "<p>Two-line&nbsp;<span class=\"math-tex\">{tex}\\frac{x-3}{1}=\\frac{y+1}{3}=\\frac{z-6}{-1}{/tex}</span>&nbsp;and&nbsp;<span class=\"math-tex\">{tex}\\frac{x+5}{7}=\\frac{y-2}{-6}=\\frac{z-3}{4}{/tex}</span>&nbsp;intersect at the point R. The reflection of R in the xy-plane has coordinates</p>",
+      "difficulty": "Hard",
+      "options": [
+        {
+          "id": 348651,
+          "text": "(- 2, 4, 7)"
+        },
+        {
+          "id": 348652,
+          "text": "(2, 4, 7)"
+        },
+        {
+          "id": 348650,
+          "text": "(2, - 4, 7)"
+        },
+        {
+          "id": 348649,
+          "text": "(2, - 4, - 7)"
+        }
+      ],
+      "correct_option_id": null,
+      "correct_option_text": null,
+      "explanation": null
+    },
+    {
+      "id": 231503,
+      "question": "The plane containing the line $\\frac{x-3}{2}=\\frac{y+2}{-1}=\\frac{z-1}{3}$ and also containing its projection on the plane 2x + 3y - z = 5, contains which one of the following points?",
+      "question_raw": "<p>The plane containing the line&nbsp;<span class=\"math-tex\">{tex}\\frac{x-3}{2}=\\frac{y+2}{-1}=\\frac{z-1}{3}{/tex}</span>&nbsp;and&nbsp;also containing its projection on the plane 2x + 3y - z = 5, contains which one of the following points?</p>",
+      "difficulty": "Hard",
+      "options": [
+        {
+          "id": 348673,
+          "text": "(-2, 2, 2)"
+        },
+        {
+          "id": 348676,
+          "text": "(0, -2, 2)"
+        },
+        {
+          "id": 348675,
+          "text": "(2, 0, -2)"
+        },
+        {
+          "id": 348674,
+          "text": "(2, 2, 0)"
+        }
+      ],
+      "correct_option_id": null,
+      "correct_option_text": null,
+      "explanation": null
+    },
+    {
+      "id": 231507,
+      "question": "On which of the following lines lies the point of intersection of the line, $\\frac{x-4}{2}=\\frac{y-5}{2}=\\frac{z-3}{1}$ and the plane, x + y + z = 2?",
+      "question_raw": "<p>On which of the following lines lies the point of intersection of the line,&nbsp;<span class=\"math-tex\">{tex}\\frac{x-4}{2}=\\frac{y-5}{2}=\\frac{z-3}{1}{/tex}</span>&nbsp;and the plane, x + y + z = 2?</p>",
+      "difficulty": "Hard",
+      "options": [
+        {
+          "id": 348689,
+          "text": "$\\frac{x-4}{1}=\\frac{y-5}{1}=\\frac{z-5}{-1}$"
+        },
+        {
+          "id": 348690,
+          "text": "$\\frac{x+3}{3}=\\frac{4-y}{3}=\\frac{z+1}{-2}$"
+        },
+        {
+          "id": 348691,
+          "text": "$\\frac{x-2}{2}=\\frac{y-3}{2}=\\frac{z+3}{3}$"
+        },
+        {
+          "id": 348692,
+          "text": "$\\frac{x-1}{1}=\\frac{y-3}{2}=\\frac{z+4}{-5}$"
+        }
+      ],
+      "correct_option_id": null,
+      "correct_option_text": null,
+      "explanation": null
+    },
+    {
+      "id": 260370,
+      "question": "The coordinates of the foot of the perpendicular drawn from the point (2, 5, 7) on the x-axis are given by",
+      "question_raw": "<p>The coordinates of the foot of the perpendicular drawn from the point (2, 5, 7) on the x-axis are given by</p>",
+      "difficulty": "Easy",
+      "options": [
+        {
+          "id": 376922,
+          "text": "(0, 0, 7)"
+        },
+        {
+          "id": 376920,
+          "text": "(2, 0, 0)"
+        },
+        {
+          "id": 376921,
+          "text": "(0, 5, 0)"
+        },
+        {
+          "id": 376923,
+          "text": "(0, 5, 7)"
+        }
+      ],
+      "correct_option_id": null,
+      "correct_option_text": null,
+      "explanation": null
+    },
+    {
+      "id": 260383,
+      "question": "The distance of a point P(a, b, c) from x-axis is",
+      "question_raw": "<p>The distance of a point P(a, b, c) from x-axis is</p>",
+      "difficulty": "Medium",
+      "options": [
+        {
+          "id": 376962,
+          "text": "$\\sqrt{b^{2}+c^{2}}$"
+        },
+        {
+          "id": 376961,
+          "text": "$\\sqrt{a^{2}+b^{2}}$"
+        },
+        {
+          "id": 376960,
+          "text": "$\\sqrt{a^{2}+c^{2}}$"
+        },
+        {
+          "id": 376963,
+          "text": "b^2 + c^2"
+        }
+      ],
+      "correct_option_id": null,
+      "correct_option_text": null,
+      "explanation": null
+    },
+    {
+      "id": 260387,
+      "question": "The equations of x-axis in space are",
+      "question_raw": "<p>The equations of x-axis in space are</p>",
+      "difficulty": "Easy",
+      "options": [
+        {
+          "id": 376966,
+          "text": "x = 0"
+        },
+        {
+          "id": 376967,
+          "text": "y = 0, z = 0"
+        },
+        {
+          "id": 376965,
+          "text": "x = 0, z = 0"
+        },
+        {
+          "id": 376964,
+          "text": "x = 0, y = 0"
+        }
+      ],
+      "correct_option_id": null,
+      "correct_option_text": null,
+      "explanation": null
+    },
+    {
+      "id": 260484,
+      "question": "Distance of the point $(\\alpha, \\beta, \\gamma)$ from y-axis is",
+      "question_raw": "<p>Distance of the point <span class=\"math-tex\">{tex}(\\alpha, \\beta, \\gamma){/tex}</span> from y-axis is</p>",
+      "difficulty": "Medium",
+      "options": [
+        {
+          "id": 377103,
+          "text": "$\\sqrt{\\alpha^{2}+\\gamma^{2}}$"
+        },
+        {
+          "id": 377101,
+          "text": "$|\\beta|$"
+        },
+        {
+          "id": 377100,
+          "text": "$\\beta$"
+        },
+        {
+          "id": 377102,
+          "text": "$|\\beta|+|\\gamma|$"
+        }
+      ],
+      "correct_option_id": null,
+      "correct_option_text": null,
+      "explanation": null
+    },
+    {
+      "id": 260506,
+      "question": "The reflection of the point ($\\alpha$, $\\beta$, $\\gamma$) in the xy- plane is",
+      "question_raw": "<p>The reflection of the point (<span class=\"math-tex\">{tex}\\alpha{/tex}</span>, <span class=\"math-tex\">{tex}\\beta{/tex}</span>, <span class=\"math-tex\">{tex}\\gamma{/tex}</span>) in the xy- plane is</p>",
+      "difficulty": "Easy",
+      "options": [
+        {
+          "id": 377137,
+          "text": "(0, 0, $\\gamma$)"
+        },
+        {
+          "id": 377136,
+          "text": "($\\alpha$, $\\beta$, 0)"
+        },
+        {
+          "id": 377138,
+          "text": "(-$\\alpha$, -$\\beta$, $\\gamma$)"
+        },
+        {
+          "id": 377139,
+          "text": "($\\alpha$, $\\beta$, -$\\gamma$)"
+        }
+      ],
+      "correct_option_id": null,
+      "correct_option_text": null,
+      "explanation": null
+    },
+    {
+      "id": 267795,
+      "question": "A(3, 2, 0), B (5, 3, 2) and C( -9, 6, -3) are the vertices of a triangle ABC. If the bisector of ABC meets BC at D, then coordinates of D are",
+      "question_raw": "<p>A(3, 2, 0), B (5, 3, 2) and C( -9, 6, -3) are the vertices of a triangle ABC. If the bisector of ABC meets BC at D, then coordinates of D are</p>",
+      "difficulty": "Medium",
+      "options": [
+        {
+          "id": 380998,
+          "text": "( $\\frac{1 9 } 8 , \\frac{-5 7 } {1 6} , \\frac{1 7 } {1 6}$)"
+        },
+        {
+          "id": 380996,
+          "text": "($\\frac{1 9 } 8 , \\frac{5 7 } {1 6} , \\frac{1 7 } {1 6}$)"
+        },
+        {
+          "id": 380997,
+          "text": "($\\frac{-1 9 } 8 , \\frac{5 7 } {1 6} , \\frac{1 7 } {1 6}$)"
+        },
+        {
+          "id": 380999,
+          "text": "( $\\frac{-1 9 } 8 , \\frac{-5 7 } {1 6} , \\frac{1 7 } {1 6}$)"
+        }
+      ],
+      "correct_option_id": null,
+      "correct_option_text": null,
+      "explanation": null
+    },
+    {
+      "id": 269826,
+      "question": "For every point P (x, y, z) on the xy-plane.",
+      "question_raw": "<p>For every point P (x, y, z) on the xy-plane.</p>",
+      "difficulty": "Easy",
+      "options": [
+        {
+          "id": 383222,
+          "text": "z = 0"
+        },
+        {
+          "id": 383221,
+          "text": "y = 0"
+        },
+        {
+          "id": 383223,
+          "text": "x = y = z = 0"
+        },
+        {
+          "id": 383220,
+          "text": "x = 0"
+        }
+      ],
+      "correct_option_id": null,
+      "correct_option_text": null,
+      "explanation": null
+    },
+    {
+      "id": 269829,
+      "question": "For every point P(x, y, z) on the x-axis (except the origin).",
+      "question_raw": "<p>For every point P(x, y, z) on the x-axis (except the origin).</p>",
+      "difficulty": "Easy",
+      "options": [
+        {
+          "id": 383228,
+          "text": "x = 0, y = 0, z $\\neq$ 0"
+        },
+        {
+          "id": 383230,
+          "text": "y = 0, z = 0, x $\\neq$ 0"
+        },
+        {
+          "id": 383231,
+          "text": "x = y = z = 0"
+        },
+        {
+          "id": 383229,
+          "text": "x = 0, z = 0, y $\\neq$ 0"
+        }
+      ],
+      "correct_option_id": null,
+      "correct_option_text": null,
+      "explanation": null
+    },
+    {
+      "id": 270888,
+      "question": "A rectangular parallelopiped is formed by planes drawn through the points (5, 7, 9) and (2, 3, 7) parallel to the coordinate planes. The length of an edge of this rectangular parallelopiped is",
+      "question_raw": "<p>A rectangular&nbsp;parallelopiped&nbsp;is formed by planes drawn through the points (5, 7, 9) and (2, 3, 7) parallel to the coordinate planes. The length of an edge of this rectangular&nbsp;parallelopiped&nbsp;is</p>",
+      "difficulty": "Medium",
+      "options": [
+        {
+          "id": 384456,
+          "text": "2"
+        },
+        {
+          "id": 384458,
+          "text": "4"
+        },
+        {
+          "id": 384459,
+          "text": "All of these"
+        },
+        {
+          "id": 384457,
+          "text": "3"
+        }
+      ],
+      "correct_option_id": null,
+      "correct_option_text": null,
+      "explanation": null
+    },
+    {
+      "id": 270890,
+      "question": "A parallelopiped is formed by planes drawn through the points (2, 3, 5) and (5, 9, 7), parallel to the coordinate planes. The length of a diagonal of the parallelopiped is",
+      "question_raw": "<p>A parallelopiped is formed by planes drawn through the points (2, 3, 5) and (5, 9, 7), parallel to the coordinate planes. The length of a diagonal of the parallelopiped is</p>",
+      "difficulty": "Medium",
+      "options": [
+        {
+          "id": 384464,
+          "text": "7"
+        },
+        {
+          "id": 384466,
+          "text": "$\\sqrt{155}$"
+        },
+        {
+          "id": 384465,
+          "text": "$\\sqrt{38}$"
+        },
+        {
+          "id": 384467,
+          "text": "$\\sqrt{135}$"
+        }
+      ],
+      "correct_option_id": null,
+      "correct_option_text": null,
+      "explanation": null
+    },
+    {
+      "id": 284874,
+      "question": "The length of the foot of perpendicular drawn from the point P (3, 4, 5) on y-axis is",
+      "question_raw": "<p>The length of the foot of perpendicular drawn from the point P (3, 4, 5) on y-axis is</p>",
+      "difficulty": "Medium",
+      "options": [
+        {
+          "id": 407135,
+          "text": "$\\sqrt{34}$"
+        },
+        {
+          "id": 407137,
+          "text": "$5 \\sqrt{2}$"
+        },
+        {
+          "id": 407134,
+          "text": "10"
+        },
+        {
+          "id": 407136,
+          "text": "$\\sqrt{113}$"
+        }
+      ],
+      "correct_option_id": null,
+      "correct_option_text": null,
+      "explanation": null
+    },
+    {
+      "id": 284879,
+      "question": "What is the perpendicular distance of the point P (6, 7, 8) from xy-plane?",
+      "question_raw": "<p>What is the perpendicular distance of the point P (6, 7, 8) from xy-plane?</p>",
+      "difficulty": "Medium",
+      "options": [
+        {
+          "id": 407141,
+          "text": "5"
+        },
+        {
+          "id": 407140,
+          "text": "6"
+        },
+        {
+          "id": 407139,
+          "text": "7"
+        },
+        {
+          "id": 407138,
+          "text": "8"
+        }
+      ],
+      "correct_option_id": null,
+      "correct_option_text": null,
+      "explanation": null
+    },
+    {
+      "id": 284886,
+      "question": "L is the foot of the perpendicular drawn from a point (6, 7, 8) on the xy-plane. What are the coordinates of point L?",
+      "question_raw": "<p>L is the foot of the perpendicular drawn from a point (6, 7, 8) on the xy-plane. What are the coordinates of point L?</p>",
+      "difficulty": "Medium",
+      "options": [
+        {
+          "id": 407144,
+          "text": "(6, 0, 8)"
+        },
+        {
+          "id": 407143,
+          "text": "(6, 7, 0)"
+        },
+        {
+          "id": 407145,
+          "text": "(6, 0, 9)"
+        },
+        {
+          "id": 407142,
+          "text": "(6, 0, 0)"
+        }
+      ],
+      "correct_option_id": null,
+      "correct_option_text": null,
+      "explanation": null
+    },
+    {
+      "id": 284888,
+      "question": "L is the foot of the perpendicular drawn from a point (6, 7, 8) on x-axis. The coordinates of L are",
+      "question_raw": "<p>L is the foot of the perpendicular drawn from a point (6, 7, 8) on x-axis. The coordinates of L are</p>",
+      "difficulty": "Medium",
+      "options": [
+        {
+          "id": 407146,
+          "text": "(6, 0, 0)"
+        },
+        {
+          "id": 407148,
+          "text": "(0, 0, 8)"
+        },
+        {
+          "id": 407149,
+          "text": "(0, 0, 6)"
+        },
+        {
+          "id": 407147,
+          "text": "(0, 7, 0)"
+        }
+      ],
+      "correct_option_id": null,
+      "correct_option_text": null,
+      "explanation": null
+    },
+    {
+      "id": 284892,
+      "question": "What is the locus of a point for which y = 0, z = 0?",
+      "question_raw": "<p>What is the locus of a point for which y = 0, z = 0?</p>",
+      "difficulty": "Easy",
+      "options": [
+        {
+          "id": 407153,
+          "text": "none of these"
+        },
+        {
+          "id": 407151,
+          "text": "equation of y-axis"
+        },
+        {
+          "id": 407150,
+          "text": "equation of x-axis"
+        },
+        {
+          "id": 407152,
+          "text": "equation of z-axis"
+        }
+      ],
+      "correct_option_id": null,
+      "correct_option_text": null,
+      "explanation": null
+    },
+    {
+      "id": 284895,
+      "question": "L is the foot of the perpendicular segment drawn from the point P(3, 4, 5) on the xz plane. What are the coordinates of point L?",
+      "question_raw": "<p>L is the foot of the perpendicular segment drawn from the point P(3, 4, 5) on the xz plane. What are the coordinates of point L?</p>",
+      "difficulty": "Easy",
+      "options": [
+        {
+          "id": 407156,
+          "text": "(3, 0, 5)"
+        },
+        {
+          "id": 407154,
+          "text": "(3, 0, 0)"
+        },
+        {
+          "id": 407157,
+          "text": "(3, 4, 0)"
+        },
+        {
+          "id": 407155,
+          "text": "(0, 4, 5)"
+        }
+      ],
+      "correct_option_id": null,
+      "correct_option_text": null,
+      "explanation": null
+    },
+    {
+      "id": 285164,
+      "question": "The distance of point P(3, 4, 5) from the yz-plane is",
+      "question_raw": "<p>The distance of point P(3, 4, 5) from the yz-plane is</p>",
+      "difficulty": "Easy",
+      "options": [
+        {
+          "id": 407573,
+          "text": "550"
+        },
+        {
+          "id": 407572,
+          "text": "5 units"
+        },
+        {
+          "id": 407570,
+          "text": "3 units"
+        },
+        {
+          "id": 407571,
+          "text": "4 units"
+        }
+      ],
+      "correct_option_id": null,
+      "correct_option_text": null,
+      "explanation": null
+    },
+    {
+      "id": 285175,
+      "question": "Distance of the point (3, 4, 5) from the origin (0, 0, 0) is",
+      "question_raw": "<p>Distance of the point (3, 4, 5) from the origin (0, 0, 0) is</p>",
+      "difficulty": "Medium",
+      "options": [
+        {
+          "id": 407601,
+          "text": "5"
+        },
+        {
+          "id": 407598,
+          "text": "$\\sqrt{50}$"
+        },
+        {
+          "id": 407599,
+          "text": "3"
+        },
+        {
+          "id": 407600,
+          "text": "4"
+        }
+      ],
+      "correct_option_id": null,
+      "correct_option_text": null,
+      "explanation": null
+    },
+    {
+      "id": 285177,
+      "question": "If the distance between the points (a, 0, 1) and (0, 1, 2) is $\\sqrt {27}$, then the value of a is",
+      "question_raw": "<p>If the distance between the points (a, 0, 1) and (0, 1, 2) is <span class=\"math-tex\">{tex}\\sqrt {27}{/tex}</span>, then the value of a is</p>",
+      "difficulty": "Medium",
+      "options": [
+        {
+          "id": 407608,
+          "text": "-5"
+        },
+        {
+          "id": 407607,
+          "text": "$\\pm 5$"
+        },
+        {
+          "id": 407609,
+          "text": "0"
+        },
+        {
+          "id": 407606,
+          "text": "5"
+        }
+      ],
+      "correct_option_id": null,
+      "correct_option_text": null,
+      "explanation": null
+    },
+    {
+      "id": 285184,
+      "question": "x-axis is the intersection of two planes",
+      "question_raw": "<p>x-axis is the intersection of two planes</p>",
+      "difficulty": "Easy",
+      "options": [
+        {
+          "id": 407618,
+          "text": "xy and xz"
+        },
+        {
+          "id": 407621,
+          "text": "none of these"
+        },
+        {
+          "id": 407619,
+          "text": "yz and zx"
+        },
+        {
+          "id": 407620,
+          "text": "xy and yz"
+        }
+      ],
+      "correct_option_id": null,
+      "correct_option_text": null,
+      "explanation": null
+    },
+    {
+      "id": 285191,
+      "question": "The point (-2, -3, -4) lies in the",
+      "question_raw": "<p>The point (-2, -3, -4) lies in the</p>",
+      "difficulty": "Easy",
+      "options": [
+        {
+          "id": 407627,
+          "text": "Seventh octant"
+        },
+        {
+          "id": 407629,
+          "text": "Eighth octant"
+        },
+        {
+          "id": 407628,
+          "text": "Second octant"
+        },
+        {
+          "id": 407626,
+          "text": "First octant"
+        }
+      ],
+      "correct_option_id": null,
+      "correct_option_text": null,
+      "explanation": null
+    },
+    {
+      "id": 285194,
+      "question": "A plane is parallel to yz-plane so it is perpendicular to:",
+      "question_raw": "<p>A plane is parallel to yz-plane so it is perpendicular to:</p>",
+      "difficulty": "Easy",
+      "options": [
+        {
+          "id": 407632,
+          "text": "z-axis"
+        },
+        {
+          "id": 407630,
+          "text": "x-axis"
+        },
+        {
+          "id": 407633,
+          "text": "none of these"
+        },
+        {
+          "id": 407631,
+          "text": "y-axis"
+        }
+      ],
+      "correct_option_id": null,
+      "correct_option_text": null,
+      "explanation": null
+    },
+    {
+      "id": 285198,
+      "question": "The locus of a point for which x = 0 is",
+      "question_raw": "<p>The locus of a point for which x = 0 is</p>",
+      "difficulty": "Easy",
+      "options": [
+        {
+          "id": 407641,
+          "text": "none of these"
+        },
+        {
+          "id": 407640,
+          "text": "zx-plane"
+        },
+        {
+          "id": 407639,
+          "text": "yz-plane"
+        },
+        {
+          "id": 407638,
+          "text": "xy-plane"
+        }
+      ],
+      "correct_option_id": null,
+      "correct_option_text": null,
+      "explanation": null
+    },
+    {
+      "id": 285207,
+      "question": "L is the foot of the perpendicular drawn from a point P (3, 4, 5) on the XY-plane. The coordinates of point L are",
+      "question_raw": "<p>L is the foot of the perpendicular drawn from a point P (3, 4, 5) on the XY-plane. The coordinates of point L are</p>",
+      "difficulty": "Easy",
+      "options": [
+        {
+          "id": 407657,
+          "text": "(3,4,0)"
+        },
+        {
+          "id": 407655,
+          "text": "(0, 4, 5)"
+        },
+        {
+          "id": 407656,
+          "text": "(3, 0, 5)"
+        },
+        {
+          "id": 407654,
+          "text": "(3, 0, 0)"
+        }
+      ],
+      "correct_option_id": null,
+      "correct_option_text": null,
+      "explanation": null
+    },
+    {
+      "id": 285211,
+      "question": "L is the foot of the perpendicular drawn from a point (3, 4, 5) on x-axis. The coordinates of L are",
+      "question_raw": "<p>L is the foot of the perpendicular drawn from a point (3, 4, 5) on x-axis. The coordinates of L are</p>",
+      "difficulty": "Easy",
+      "options": [
+        {
+          "id": 407662,
+          "text": "(3, 0, 0)"
+        },
+        {
+          "id": 407665,
+          "text": "(0, 0, 4)"
+        },
+        {
+          "id": 407663,
+          "text": "(0, 4, 0)"
+        },
+        {
+          "id": 407664,
+          "text": "(0, 0, 5)"
+        }
+      ],
+      "correct_option_id": null,
+      "correct_option_text": null,
+      "explanation": null
+    },
+    {
+      "id": 285227,
+      "question": "Equation of y-axis is considered as",
+      "question_raw": "<p>Equation of y-axis is considered as</p>",
+      "difficulty": "Easy",
+      "options": [
+        {
+          "id": 407688,
+          "text": "z = 0, x = 0"
+        },
+        {
+          "id": 407687,
+          "text": "y = 0, z = 0"
+        },
+        {
+          "id": 407689,
+          "text": "z = 1, x = 0"
+        },
+        {
+          "id": 407686,
+          "text": "x = 0, y = 0"
+        }
+      ],
+      "correct_option_id": null,
+      "correct_option_text": null,
+      "explanation": null
+    },
+    {
+      "id": 292427,
+      "question": "If P (0, 1, 2), Q (4, -2, 1) and O (0, 0, 0) are three points, then $\\angle$POQ =",
+      "question_raw": "<p>If P (0, 1, 2), Q (4, -2, 1) and O (0, 0, 0) are three points, then <span class=\"math-tex\">{tex}\\angle{/tex}</span>POQ =</p>",
+      "difficulty": "Medium",
+      "options": [
+        {
+          "id": 417305,
+          "text": "$\\frac{\\pi}{3}$"
+        },
+        {
+          "id": 417306,
+          "text": "$\\frac{\\pi}{2}$"
+        },
+        {
+          "id": 417304,
+          "text": "$\\frac{\\pi}{4}$"
+        },
+        {
+          "id": 417303,
+          "text": "$\\frac{\\pi}{6}$"
+        }
+      ],
+      "correct_option_id": null,
+      "correct_option_text": null,
+      "explanation": null
+    },
+    {
+      "id": 292428,
+      "question": "If the extremities of the diagonal of a square are (1, -2, 3) and (2, -3, 5), then the length of the side is",
+      "question_raw": "<p>If the extremities of the diagonal of a square are (1, -2, 3) and (2, -3, 5), then the length of the side is</p>",
+      "difficulty": "Medium",
+      "options": [
+        {
+          "id": 417307,
+          "text": "$\\sqrt{6}$"
+        },
+        {
+          "id": 417309,
+          "text": "$\\sqrt{5}$"
+        },
+        {
+          "id": 417310,
+          "text": "$\\sqrt{7}$"
+        },
+        {
+          "id": 417308,
+          "text": "$\\sqrt{3}$"
+        }
+      ],
+      "correct_option_id": null,
+      "correct_option_text": null,
+      "explanation": null
+    },
+    {
+      "id": 292429,
+      "question": "The points (5, -4, 2), (4, -3 , 1), (7, 6, 4) and (8, -7, 5) are the vertices of",
+      "question_raw": "<p>The points (5, -4, 2), (4, -3 , 1), (7, 6, 4) and (8, -7, 5) are the vertices of</p>",
+      "difficulty": "Hard",
+      "options": [
+        {
+          "id": 417314,
+          "text": "None of these"
+        },
+        {
+          "id": 417311,
+          "text": "A rectangle"
+        },
+        {
+          "id": 417312,
+          "text": "A square"
+        },
+        {
+          "id": 417313,
+          "text": "A parallelogram"
+        }
+      ],
+      "correct_option_id": null,
+      "correct_option_text": null,
+      "explanation": null
+    },
+    {
+      "id": 292431,
+      "question": "In a three dimensional space the equation x^2 - 5x + 6 = 0 represents.",
+      "question_raw": "<p>In a three dimensional space the equation x<sup>2</sup> - 5x + 6 = 0 represents.</p>",
+      "difficulty": "Easy",
+      "options": [
+        {
+          "id": 417319,
+          "text": "points"
+        },
+        {
+          "id": 417320,
+          "text": "curves"
+        },
+        {
+          "id": 417321,
+          "text": "planes"
+        },
+        {
+          "id": 417322,
+          "text": "pair of straight lines"
+        }
+      ],
+      "correct_option_id": null,
+      "correct_option_text": null,
+      "explanation": null
+    },
+    {
+      "id": 292432,
+      "question": "Let (3, 4, -1) and (-1, 2, 3) be the end points of a diameter of a sphere. Then, the radius of the sphere is equal to",
+      "question_raw": "<p>Let (3, 4, -1) and (-1, 2, 3) be the end points of a diameter of a sphere. Then, the radius of the sphere is equal to</p>",
+      "difficulty": "Medium",
+      "options": [
+        {
+          "id": 417325,
+          "text": "6"
+        },
+        {
+          "id": 417326,
+          "text": "7"
+        },
+        {
+          "id": 417323,
+          "text": "2"
+        },
+        {
+          "id": 417324,
+          "text": "3"
+        }
+      ],
+      "correct_option_id": null,
+      "correct_option_text": null,
+      "explanation": null
+    },
+    {
+      "id": 292435,
+      "question": "The coordinates of the foot of the perpendicular drawn from the point P(3, 4, 5) on the yz-plane are",
+      "question_raw": "<p>The coordinates of the foot of the perpendicular drawn from the point P(3, 4, 5) on the yz-plane are</p>",
+      "difficulty": "Easy",
+      "options": [
+        {
+          "id": 417336,
+          "text": "(0, 4, 5)"
+        },
+        {
+          "id": 417338,
+          "text": "(3, 0, 0)"
+        },
+        {
+          "id": 417337,
+          "text": "(3, 0, 5)"
+        },
+        {
+          "id": 417335,
+          "text": "(3, 4, 0)"
+        }
+      ],
+      "correct_option_id": null,
+      "correct_option_text": null,
+      "explanation": null
+    },
+    {
+      "id": 523726,
+      "question": "The point equidistant from the points O (0, 0, 0), P (2, 0, 0), Q (0, 4, 0) and R (0, 0, 6) is",
+      "question_raw": "<p>The point equidistant from the points O (0, 0, 0), P (2, 0, 0), Q (0, 4, 0) and R (0, 0, 6) is</p>",
+      "difficulty": "Hard",
+      "options": [
+        {
+          "id": 944987,
+          "text": "$\\left(1, \\frac{2}{3}, \\frac{4}{3}\\right)$"
+        },
+        {
+          "id": 944984,
+          "text": "(3, 2, 1)"
+        },
+        {
+          "id": 944985,
+          "text": "(1, 2, 3)"
+        },
+        {
+          "id": 944986,
+          "text": "$\\left(\\frac{2}{3}, \\frac{4}{3}, 1\\right)$"
+        }
+      ],
+      "correct_option_id": null,
+      "correct_option_text": null,
+      "explanation": null
+    },
+    {
+      "id": 523770,
+      "question": "If the sum of the squares of the distance of a point from the three co-ordinates axes is 48, then its distance from the origin is",
+      "question_raw": "<p>If the sum of the squares of the distance of a point from the three co-ordinates axes is 48, then its distance from the origin is</p>",
+      "difficulty": "Hard",
+      "options": [
+        {
+          "id": 945142,
+          "text": "$2 \\sqrt{6}$"
+        },
+        {
+          "id": 945143,
+          "text": "24"
+        },
+        {
+          "id": 945141,
+          "text": "$6 \\sqrt{2}$"
+        },
+        {
+          "id": 945140,
+          "text": "$3 \\sqrt{2}$"
+        }
+      ],
+      "correct_option_id": null,
+      "correct_option_text": null,
+      "explanation": null
+    },
+    {
+      "id": 523942,
+      "question": "If O is the origin and |OP| = 3 with direction ratios -1, 2, -2, then co-ordinates of P are",
+      "question_raw": "<p>If O is the origin and |OP| = 3 with direction ratios -1, 2, -2, then co-ordinates of P are</p>",
+      "difficulty": "Hard",
+      "options": [
+        {
+          "id": 945751,
+          "text": "$\\left(-\\frac{1}{3}, \\frac{2}{3},-\\frac{2}{3}\\right)$"
+        },
+        {
+          "id": 945746,
+          "text": "(1, 2, 2)"
+        },
+        {
+          "id": 945750,
+          "text": "(-3, 6, -9)"
+        },
+        {
+          "id": 945748,
+          "text": "(-1, 2, -2)"
+        }
+      ],
+      "correct_option_id": null,
+      "correct_option_text": null,
+      "explanation": null
+    },
+    {
+      "id": 535569,
+      "question": "In three dimensional space, the equation x^2 - 5x + 6 = 0 represents:",
+      "question_raw": "<p>In three dimensional space, the equation x<sup>2</sup> - 5x + 6 = 0 represents:</p>",
+      "difficulty": "Hard",
+      "options": [
+        {
+          "id": 972537,
+          "text": "a pair of parallel planes"
+        },
+        {
+          "id": 972534,
+          "text": "a pair of straight lines"
+        },
+        {
+          "id": 972535,
+          "text": "a set containing two distinct points"
+        },
+        {
+          "id": 972536,
+          "text": "a sphere"
+        }
+      ],
+      "correct_option_id": null,
+      "correct_option_text": null,
+      "explanation": null
+    },
+    {
+      "id": 535575,
+      "question": "If P be a point, the sum of squares of whose distances from the planes x + z = 0 and z - x = 0 is 16 units, then the locus of point P is:",
+      "question_raw": "<p>If P be a point, the sum of squares of whose distances from the planes x + z = 0 and z - x = 0 is 16 units, then the locus of point P is:</p>",
+      "difficulty": "Hard",
+      "options": [
+        {
+          "id": 972558,
+          "text": "x^2 + y^2 = 16"
+        },
+        {
+          "id": 972559,
+          "text": "x^2 + z^2 = 16"
+        },
+        {
+          "id": 972561,
+          "text": "y^2 + z^2 = 16"
+        },
+        {
+          "id": 972560,
+          "text": "x^2 - z^2 = 16"
+        }
+      ],
+      "correct_option_id": null,
+      "correct_option_text": null,
+      "explanation": null
+    },
+    {
+      "id": 535714,
+      "question": "The foot of the perpendicular from (p, q, r) on the line x = y = z is the point ($\\alpha$, $\\alpha$, $\\alpha$), then p + q + r =",
+      "question_raw": "<p>The foot of the perpendicular from (p, q, r) on the line x = y = z is the point (<span class=\"math-tex\">{tex}\\alpha{/tex}</span>, <span class=\"math-tex\">{tex}\\alpha{/tex}</span>, <span class=\"math-tex\">{tex}\\alpha{/tex}</span>), then p + q + r =</p>",
+      "difficulty": "Hard",
+      "options": [
+        {
+          "id": 973121,
+          "text": "0"
+        },
+        {
+          "id": 973115,
+          "text": "3"
+        },
+        {
+          "id": 973117,
+          "text": "3$\\alpha$"
+        },
+        {
+          "id": 973118,
+          "text": "$\\alpha$"
+        }
+      ],
+      "correct_option_id": null,
+      "correct_option_text": null,
+      "explanation": null
+    },
+    {
+      "id": 535806,
+      "question": "A point moves such that the sum of the squares of its distances from the six faces of a cube given by x = $\\pm2$, y = $\\pm2$, z = $\\pm2$ is 28 units. The locus of the point is:",
+      "question_raw": "<p>A point moves such that the sum of the squares of its distances from the six faces of a cube given by x = <span class=\"math-tex\">{tex}\\pm2{/tex}</span>, y = <span class=\"math-tex\">{tex}\\pm2{/tex}</span>, z = <span class=\"math-tex\">{tex}\\pm2{/tex}</span> is 28 units. The locus of the point is:</p>",
+      "difficulty": "Hard",
+      "options": [
+        {
+          "id": 973483,
+          "text": "x + y + z = 2"
+        },
+        {
+          "id": 973484,
+          "text": "x^2 + y^2 + z^2 = 1"
+        },
+        {
+          "id": 973485,
+          "text": "x^2 + y^2 + z^2 = 2"
+        },
+        {
+          "id": 973482,
+          "text": "x + y + z = 1"
+        }
+      ],
+      "correct_option_id": null,
+      "correct_option_text": null,
+      "explanation": null
+    },
+    {
+      "id": 882460,
+      "question": "The length of the perpendicular drawn from the point (4, -7, 3) on the y-axis is:",
+      "question_raw": "<p>The length of the perpendicular drawn from the point (4, -7, 3) on the y-axis is:</p>",
+      "difficulty": "Easy",
+      "options": [
+        {
+          "id": 1860632,
+          "text": "5 units"
+        },
+        {
+          "id": 1860633,
+          "text": "7 units"
+        },
+        {
+          "id": 1860630,
+          "text": "3 units"
+        },
+        {
+          "id": 1860631,
+          "text": "4 units"
+        }
+      ],
+      "correct_option_id": null,
+      "correct_option_text": null,
+      "explanation": null
+    },
+    {
+      "id": 882469,
+      "question": "The coordinates of the foot of the perpendicular drawn from the point (-2, 8, 7) on the XZ-plane is",
+      "question_raw": "<p>The coordinates of the foot of the perpendicular drawn from the point (-2, 8, 7) on the XZ-plane is</p>",
+      "difficulty": "Easy",
+      "options": [
+        {
+          "id": 1860666,
+          "text": "(-2, -8, 7)"
+        },
+        {
+          "id": 1860669,
+          "text": "(0, 8, 0)"
+        },
+        {
+          "id": 1860668,
+          "text": "(-2, 0, 7)"
+        },
+        {
+          "id": 1860667,
+          "text": "(2, 8, -7)"
+        }
+      ],
+      "correct_option_id": null,
+      "correct_option_text": null,
+      "explanation": null
+    },
+    {
+      "id": 1058263,
+      "question": "The foot of perpendicular from the origin O to a plane P which meets the co-ordinate axes at the points A, B, C is $(2, a, 4), a \\in N$. If the volume of the tetrahedron OABC is 144 unit^3, then which of the following points is NOT on P?",
+      "question_raw": "<p>The foot of perpendicular from the origin O to a plane P which meets the co-ordinate axes at the points A, B, C is <span class=\"math-tex\">{tex}(2, a, 4), a \\in N{/tex}</span>. If the volume of the tetrahedron OABC is 144 unit<sup>3</sup>, then which of the following points is NOT on P?</p>",
+      "difficulty": "Medium",
+      "options": [
+        {
+          "id": 2176246,
+          "text": "(3, 0, 4)"
+        },
+        {
+          "id": 2176245,
+          "text": "(0, 4, 4)"
+        },
+        {
+          "id": 2176247,
+          "text": "(0, 6, 3)"
+        },
+        {
+          "id": 2176244,
+          "text": "(2, 2, 4)"
+        }
+      ],
+      "correct_option_id": null,
+      "correct_option_text": null,
+      "explanation": null
+    },
+    {
+      "id": 1059316,
+      "question": "Let Q be the cube with the set of vertices {(x_1 x_2, x_3) $\\in$$\\mathbb R^3$ : x_1 x_2, x_3 $\\in${0, 1}}. Let F be the set of all twelve lines containing the diagonals of the six faces of the cube Q.\nLet S be the set of all four lines containing the main diagonals of the cube Q; for instance, the line passing through the vertices (0, 0, 0) and (1, 1, 1) is in S. For lines $l_1$ and $l_2$, let d ($l_1$, $l_2$) denote the shortest distance between them. Then the maximum value of d ($l_1$, $l_2$), as $l_1$ varies over F and $l_2$ varies over S, is",
+      "question_raw": "<p>Let Q be the cube with the set of vertices {(x<sub>1</sub>&nbsp;x<sub>2</sub>, x<sub>3</sub>) <span class=\"math-tex\">{tex}\\in{/tex}</span><span class=\"math-tex\">{tex}\\mathbb R^3{/tex}</span>&nbsp;: x<sub>1</sub>&nbsp;x<sub>2</sub>, x<sub>3&nbsp;</sub><span class=\"math-tex\">{tex}\\in{/tex}</span>{0, 1}}. Let F be the set of all twelve lines containing the diagonals of the six faces of the cube Q.<br />\r\nLet S be the set of all four lines containing the main diagonals of the cube Q;&nbsp;for instance, the line passing through the vertices (0, 0, 0) and (1, 1, 1) is in S. For lines <span class=\"math-tex\">{tex}l_1{/tex}</span>&nbsp;and <span class=\"math-tex\">{tex}l_2{/tex}</span>, let d&nbsp;(<span class=\"math-tex\">{tex}l_1{/tex}</span>, <span class=\"math-tex\">{tex}l_2{/tex}</span>) denote the shortest distance between them. Then the maximum value of d&nbsp; (<span class=\"math-tex\">{tex}l_1{/tex}</span>, <span class=\"math-tex\">{tex}l_2{/tex}</span>),&nbsp; as <span class=\"math-tex\">{tex}l_1{/tex}</span> varies over F and <span class=\"math-tex\">{tex}l_2{/tex}</span> varies over S, is</p>",
+      "difficulty": "Hard",
+      "options": [
+        {
+          "id": 2179059,
+          "text": "$\\frac {1}{\\sqrt8}$"
+        },
+        {
+          "id": 2179058,
+          "text": "$\\frac {1}{\\sqrt6}$"
+        },
+        {
+          "id": 2179061,
+          "text": "$\\frac {1}{\\sqrt3}$"
+        },
+        {
+          "id": 2179063,
+          "text": "$\\frac {1}{\\sqrt12}$"
+        }
+      ],
+      "correct_option_id": null,
+      "correct_option_text": null,
+      "explanation": null
+    },
+    {
+      "id": 1059506,
+      "question": "Consider the lines L_1 and L_2 given by\n$L_1\\frac{x-1}{2}=\\frac{y-3}{1}=\\frac{z-2}{2}$ $L_2\\frac{x-2}{1}=\\frac{y-2}{2}=\\frac{z-3}{3}$ A line L_3 having direction ratios 1, -1, -2, intersects L_1 and L_2 at the points P and Q respectively. Then the length of line segment PQ is",
+      "question_raw": "<p>Consider the lines L<sub>1</sub>&nbsp;and L<sub>2</sub> given by<br />\r\n<span class=\"math-tex\">{tex}L_1\\frac{x-1}{2}=\\frac{y-3}{1}=\\frac{z-2}{2}{/tex}</span>&nbsp;<span class=\"math-tex\">{tex}L_2\\frac{x-2}{1}=\\frac{y-2}{2}=\\frac{z-3}{3}{/tex}</span>&nbsp;A line L<sub>3</sub> having direction ratios 1, -1, -2, intersects L<sub>1</sub>&nbsp;and L<sub>2</sub> at the points P and Q respectively. Then the length of line segment PQ is</p>",
+      "difficulty": "Medium",
+      "options": [
+        {
+          "id": 2179662,
+          "text": "$2\\sqrt6$"
+        },
+        {
+          "id": 2179665,
+          "text": "4"
+        },
+        {
+          "id": 2179663,
+          "text": "$3\\sqrt2$"
+        },
+        {
+          "id": 2179664,
+          "text": "$4\\sqrt3$"
+        }
+      ],
+      "correct_option_id": null,
+      "correct_option_text": null,
+      "explanation": null
+    },
+    {
+      "id": 1151091,
+      "question": "If the point P(a, b, 0) lies on the line $\\frac{\\text x+1}{2}=\\frac{\\text y+2}{3}=\\frac{\\text z+3}{4}$, then (a, b) is:",
+      "question_raw": "<p>If the point P(a, b, 0) lies on the line <span class=\"math-tex\">{tex}\\frac{\\text x+1}{2}=\\frac{\\text y+2}{3}=\\frac{\\text z+3}{4}{/tex}</span>, then (a, b) is:</p>",
+      "difficulty": "Easy",
+      "options": [
+        {
+          "id": 2332579,
+          "text": "$\\left(\\frac{1}{2}, \\frac{2}{3}\\right)$"
+        },
+        {
+          "id": 2332581,
+          "text": "(0, 0)"
+        },
+        {
+          "id": 2332580,
+          "text": "$\\left(\\frac{1}{2}, \\frac{1}{4}\\right)$"
+        },
+        {
+          "id": 2332578,
+          "text": "(1, 2)"
+        }
+      ],
+      "correct_option_id": null,
+      "correct_option_text": null,
+      "explanation": null
+    },
+    {
+      "id": 1151095,
+      "question": "Distance of the point (p, q, r) from y-axis is:",
+      "question_raw": "<p>Distance of the point (p, q, r) from y-axis is:</p>",
+      "difficulty": "Easy",
+      "options": [
+        {
+          "id": 2332587,
+          "text": "|q|"
+        },
+        {
+          "id": 2332588,
+          "text": "|q| + |r|"
+        },
+        {
+          "id": 2332586,
+          "text": "q"
+        },
+        {
+          "id": 2332589,
+          "text": "$\\sqrt{\\mathrm{p}^2+\\mathrm{r}^2}$"
+        }
+      ],
+      "correct_option_id": null,
+      "correct_option_text": null,
+      "explanation": null
+    },
+    {
+      "id": 1324616,
+      "question": "The distance of point P(a, b, c) from y-axis is:",
+      "question_raw": "<p>The distance of point P(a, b, c) from y-axis is:</p>",
+      "difficulty": "Easy",
+      "options": [
+        {
+          "id": 2661946,
+          "text": "$ \\sqrt{a^2+c^2}$"
+        },
+        {
+          "id": 2661944,
+          "text": "b"
+        },
+        {
+          "id": 2661947,
+          "text": "a^2 + c^2"
+        },
+        {
+          "id": 2661945,
+          "text": "b^2"
+        }
+      ],
+      "correct_option_id": null,
+      "correct_option_text": null,
+      "explanation": null
+    },
+    {
+      "id": 1686143,
+      "question": "Let P be a plane $l x+m y+n z=0$ containing the line, $\\frac{1-x}{1}=\\frac{y+4}{2}=\\frac{z+2}{3}$. If plane P divides the line segment AB joining points ${A}(-3,-6,1)$ and ${B}(2,4,-3)$ in ratio $k: 1$ then the value of $k$ is equal to:",
+      "question_raw": "<p>Let P be a plane <span class=\"math-tex\">{tex}l x+m y+n z=0{/tex}</span> containing the line, <span class=\"math-tex\">{tex}\\frac{1-x}{1}=\\frac{y+4}{2}=\\frac{z+2}{3}{/tex}</span>. If plane P divides the line segment AB joining points <span class=\"math-tex\">{tex}{A}(-3,-6,1){/tex}</span> and <span class=\"math-tex\">{tex}{B}(2,4,-3){/tex}</span> in ratio <span class=\"math-tex\">{tex}k: 1{/tex}</span> then the value of <span class=\"math-tex\">{tex}k{/tex}</span> is equal to:</p>",
+      "difficulty": "Easy",
+      "options": [
+        {
+          "id": 3516881,
+          "text": "1.5"
+        },
+        {
+          "id": 3516882,
+          "text": "2"
+        },
+        {
+          "id": 3516883,
+          "text": "4"
+        },
+        {
+          "id": 3516884,
+          "text": "3"
+        }
+      ],
+      "correct_option_id": null,
+      "correct_option_text": null,
+      "explanation": null
+    },
+    {
+      "id": 1686823,
+      "question": "Let the vertices $Q$ and $R$ of the triangle $P Q R$ lie on the line $\\frac{x+3}{5}=\\frac{y-1}{2}=\\frac{z+4}{3}, {QR}$ $=5$ and the coordinates of the point P be $(0,2,3)$. If the area of the triangle $P Q R$ is $\\frac{m}{n}$ then:",
+      "question_raw": "<p>Let the vertices <span class=\"math-tex\">{tex}Q{/tex}</span> and <span class=\"math-tex\">{tex}R{/tex}</span> of the triangle <span class=\"math-tex\">{tex}P Q R{/tex}</span> lie on the line <span class=\"math-tex\">{tex}\\frac{x+3}{5}=\\frac{y-1}{2}=\\frac{z+4}{3}, {QR}{/tex}</span> <span class=\"math-tex\">{tex}=5{/tex}</span> and the coordinates of the point P be <span class=\"math-tex\">{tex}(0,2,3){/tex}</span>. If the area of the triangle <span class=\"math-tex\">{tex}P Q R{/tex}</span> is <span class=\"math-tex\">{tex}\\frac{m}{n}{/tex}</span> then:</p>",
+      "difficulty": "Medium",
+      "options": [
+        {
+          "id": 3518952,
+          "text": "$5 m-2 \\sqrt{21} n=0$"
+        },
+        {
+          "id": 3518953,
+          "text": "$5 m-21 \\sqrt{2} n=0$"
+        },
+        {
+          "id": 3518951,
+          "text": "$2 m-5 \\sqrt{21} n=0$"
+        },
+        {
+          "id": 3518949,
+          "text": "$m-5 \\sqrt{21} n=0$"
+        }
+      ],
+      "correct_option_id": null,
+      "correct_option_text": null,
+      "explanation": null
+    }
+  ]
+}

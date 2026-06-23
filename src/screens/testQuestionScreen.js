@@ -105,7 +105,7 @@ export default function TestQuestionScreen({
 
   const handleSubmit = (auto) => {
     clearInterval(timerRef.current);
-    onSubmit({ answers, answeredCount, total: grandTotal, autoSubmitted: !!auto });
+    onSubmit({ answers, answeredCount, total: grandTotal, questions, autoSubmitted: !!auto });
   };
 
   const isVeryLast = (() => {

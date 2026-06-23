@@ -6,6 +6,7 @@ import McqTestScreen from './McqTestScreen';
 import McqPracticeScreen from './McqPracticeScreen';
 import MockTestScreen from './mockTestScreen';
 import TestQuestionScreen from './testQuestionScreen';
+import MockResultScreen from './MockResultScreen';
 import ChapterListScreen from './ChapterListScreen';
 import { getMcqQuestions } from '../data/mcqQuestions';
 import { getQuestions, allQuestions } from '../data/questionBank';
@@ -21,6 +22,30 @@ const MOCK_QUESTIONS = (() => {
   const C = pool.slice(49, 55).map((q) => ({ ...q, section: 'C' }));
   return [...A, ...B, ...C];
 })();
+
+// Compute a sectioned result from the test submission. Uses each question's
+// correctAnswer when available; otherwise counts as unanswered/incorrect.
+function computeMockResult(payload) {
+  const qs = payload?.questions || [];
+  const answers = payload?.answers || {};
+  const SECT = ['A', 'B', 'C'];
+  const blank = () => ({ correct: 0, incorrect: 0, unanswered: 0, total: 0 });
+  const bySec = { A: blank(), B: blank(), C: blank() };
+  let correct = 0, incorrect = 0, unanswered = 0;
+
+  qs.forEach((q) => {
+    const sec = SECT.includes(q.section) ? q.section : 'A';
+    const picked = answers[q.id];
+    const key = q.correctAnswer || q.correct || null; // letter A/B/C/D if present
+    bySec[sec].total += 1;
+    if (picked == null) { bySec[sec].unanswered += 1; unanswered += 1; }
+    else if (key && picked === key) { bySec[sec].correct += 1; correct += 1; }
+    else { bySec[sec].incorrect += 1; incorrect += 1; }
+  });
+
+  const sections = SECT.map((id) => ({ id, ...bySec[id] })).filter((s) => s.total > 0);
+  return { correct, incorrect, unanswered, total: qs.length, sections };
+}
 
 // Slug must match how rows were inserted (scripts/importResources.js slugify).
 const slugify = (s) =>
@@ -210,7 +235,7 @@ const PYQ_SUBJECTS = [
 ];
 
 const QUESTION_TYPES = [
-  { icon: '🎯', label: 'MCQ Practice',    sub: 'Multiple choice questions',  count: '120+ Qs' },
+  { icon: '🎯', label: 'Practice Questions',    sub: 'Multiple choice questions',  count: '120+ Qs' },
   { icon: '✍️', label: 'Short Answer',    sub: 'Written response questions', count: '80+ Qs' },
   { icon: '🧩', label: 'Fill in Blanks',  sub: 'Complete the statement',     count: '60+ Qs' },
   { icon: '⚡', label: 'Speed Round',     sub: '30 sec per question',        count: '50 Qs' },
@@ -425,6 +450,7 @@ const PracticeScreen = () => {
   // Mock Test navigation: null -> 'intro' (MockTestScreen) -> 'quiz' (TestQuestionScreen)
   const [mockStage, setMockStage] = useState(null);
   const [mockSel, setMockSel]     = useState(null);      // { subject, mockNo } once picked
+  const [mockResult, setMockResult] = useState(null);    // computed report after submit
 
   // Chapter-wise Tests: list chapters (ChapterListScreen) -> attempt (TestQuestionScreen)
   const [chOpen, setChOpen] = useState(false);  // showing the chapter list
@@ -574,6 +600,19 @@ const PracticeScreen = () => {
     );
   }
 
+  // ── MOCK TEST: result / report screen (after submit) ────────────────────────
+  if (mockStage === 'result' && mockResult) {
+    return (
+      <MockResultScreen
+        title={`Mock Test - ${String(mockSel?.mockNo || 1).padStart(2, '0')} - Result`}
+        result={mockResult}
+        onReview={() => setMockStage('quiz')}
+        onRetake={() => { setMockResult(null); setMockStage('quiz'); }}
+        onClose={() => { setMockResult(null); setMockSel(null); setMockStage(null); }}
+      />
+    );
+  }
+
   // ── MOCK TEST: question-attempt screen (after picking a mock) ───────────────
   if (mockStage === 'quiz') {
     return (
@@ -581,7 +620,7 @@ const PracticeScreen = () => {
         bannerText={`${(mockSel?.subject || '').toUpperCase()} • Mock Test ${String(mockSel?.mockNo || 1).padStart(2, '0')}`}
         questions={MOCK_QUESTIONS}
         onExit={() => setMockStage('intro')}
-        onSubmit={() => { setMockSel(null); setMockStage(null); }}
+        onSubmit={(payload) => { setMockResult(computeMockResult(payload)); setMockStage('result'); }}
       />
     );
   }
@@ -695,8 +734,8 @@ const PracticeScreen = () => {
         <View style={s.qTypesGrid}>
           {QUESTION_TYPES.map((qt, i) => (
             <TouchableOpacity key={i} style={s.qTypeCard}
-              activeOpacity={qt.label === 'MCQ Practice' ? 0.7 : 1}
-              onPress={qt.label === 'MCQ Practice' ? () => setMcqOpen(true) : undefined}>
+              activeOpacity={qt.label === 'Practice Questions' ? 0.7 : 1}
+              onPress={qt.label === 'Practice Questions' ? () => setMcqOpen(true) : undefined}>
               <Text style={{ fontSize: 28, marginBottom: 8 }}>{qt.icon}</Text>
               <Text style={s.qTypeLabel}>{qt.label}</Text>
               <Text style={s.qTypeSub}>{qt.sub}</Text>
@@ -709,10 +748,9 @@ const PracticeScreen = () => {
         <Text style={s.sectionTitle}>Practice Tests</Text>
         <View style={s.practiceTestsCard}>
           {[
-            { icon: '⚡', label: 'Chapter-wise Tests',  sub: 'Test one chapter at a time', count: '120+ Tests', onPress: () => setChOpen(true) },
+            { icon: '⚡', label: 'Online Tests',  sub: 'Test one chapter at a time', count: '120+ Tests', onPress: () => setChOpen(true) },
             { icon: '📋', label: 'Mock Test',           sub: 'Subject-wise mock tests',     count: '10 each', onPress: () => setMockStage('intro') },
             { icon: '🎯', label: 'Previous Year Papers',sub: '10 years question bank',      count: '50 Papers', onPress: () => setPyqOpen(true) },
-            { icon: '⏱',  label: 'Timed Challenge',    sub: '30 sec per question',         count: '200+ Qs' },
           ].map((item, i, arr) => (
             <TouchableOpacity key={i}
               style={[s.ptRow, i < arr.length - 1 && s.ptRowBorder]}

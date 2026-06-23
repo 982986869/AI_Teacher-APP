@@ -1,0 +1,4831 @@
+{
+  "id": 1381,
+  "name": "Straight Lines",
+  "category_full_name": "CBSE > Class 11 > Mathematics > Straight Lines",
+  "total_questions": 175,
+  "topics": [
+    {
+      "id": 11584,
+      "name": "Introduction of Straight Lines (XI-9.1)",
+      "total_questions": 45,
+      "attempted_questions": 0,
+      "correct_questions": 0,
+      "score": 0
+    },
+    {
+      "id": 11585,
+      "name": "Slope of a Line (XI-9.1)",
+      "total_questions": 17,
+      "attempted_questions": 0,
+      "correct_questions": 0,
+      "score": 0
+    },
+    {
+      "id": 11586,
+      "name": "Slope of a line when coordinates of any 2 points on the line are given (XI-9.1)",
+      "total_questions": 6,
+      "attempted_questions": 0,
+      "correct_questions": 0,
+      "score": 0
+    },
+    {
+      "id": 11587,
+      "name": "Angle between two lines (XI-9.1)",
+      "total_questions": 14,
+      "attempted_questions": 0,
+      "correct_questions": 0,
+      "score": 0
+    },
+    {
+      "id": 11589,
+      "name": "Horizontal and vertical lines (XI-9.2)",
+      "total_questions": 2,
+      "attempted_questions": 0,
+      "correct_questions": 0,
+      "score": 0
+    },
+    {
+      "id": 11590,
+      "name": "Point-slope form (XI-9.2)",
+      "total_questions": 5,
+      "attempted_questions": 0,
+      "correct_questions": 0,
+      "score": 0
+    },
+    {
+      "id": 11591,
+      "name": "Two-point form (XI-9.2)",
+      "total_questions": 4,
+      "attempted_questions": 0,
+      "correct_questions": 0,
+      "score": 0
+    },
+    {
+      "id": 11592,
+      "name": "Slope-intercept form (XI-9.2)",
+      "total_questions": 7,
+      "attempted_questions": 0,
+      "correct_questions": 0,
+      "score": 0
+    },
+    {
+      "id": 11593,
+      "name": "Intercept - Form (XI-9.2)",
+      "total_questions": 3,
+      "attempted_questions": 0,
+      "correct_questions": 0,
+      "score": 0
+    },
+    {
+      "id": 11596,
+      "name": "Distance of a Point From a Line (XI-9.3)",
+      "total_questions": 18,
+      "attempted_questions": 0,
+      "correct_questions": 0,
+      "score": 0
+    },
+    {
+      "id": 11598,
+      "name": "Miscellaneous Exercise (XI-9)",
+      "total_questions": 42,
+      "attempted_questions": 0,
+      "correct_questions": 0,
+      "score": 0
+    },
+    {
+      "id": 11677,
+      "name": "Condition for ll and perpendicular of lines in terms of their slope (XI-9.1)",
+      "total_questions": 12,
+      "attempted_questions": 0,
+      "correct_questions": 0,
+      "score": 0
+    }
+  ],
+  "questions": [
+    {
+      "id": 18992,
+      "question": "The point which divides the joint of ( 1, 2 ) and ( 3,4 ) externally in the ratio 1 : 1 .",
+      "question_raw": "<p>The point which divides the joint of ( 1, 2 ) and ( 3,4 ) externally in the ratio 1 : 1 .</p>",
+      "difficulty": "Medium",
+      "options": [
+        {
+          "id": 31167,
+          "text": "cannot be found"
+        },
+        {
+          "id": 31170,
+          "text": "lies in the ${{\\rm{1}}^{{\\rm{st}}}}$ quadrant"
+        },
+        {
+          "id": 31168,
+          "text": "lies in ${{\\rm{3}}^{{\\rm{rd}}}}$ quadrant"
+        },
+        {
+          "id": 31169,
+          "text": "lies in the ${{\\rm{2}}^{{\\rm{nd}}}}$ quadrant"
+        }
+      ],
+      "correct_option_id": null,
+      "correct_option_text": null,
+      "explanation": null
+    },
+    {
+      "id": 18994,
+      "question": "The distance of the point ( x , y ) from Y axis is",
+      "question_raw": "<p>The distance of the point ( x , y ) from Y axis is</p>",
+      "difficulty": "Easy",
+      "options": [
+        {
+          "id": 31175,
+          "text": "${\\text{|x|}}$"
+        },
+        {
+          "id": 31177,
+          "text": "x"
+        },
+        {
+          "id": 31176,
+          "text": "${\\text{|y|}}$"
+        },
+        {
+          "id": 31178,
+          "text": "y"
+        }
+      ],
+      "correct_option_id": null,
+      "correct_option_text": null,
+      "explanation": null
+    },
+    {
+      "id": 18995,
+      "question": "Slope of a line is not defined if the line is",
+      "question_raw": "<p>Slope of a line is not defined if the line is</p>",
+      "difficulty": "Easy",
+      "options": [
+        {
+          "id": 31181,
+          "text": "parallel to the line x + y"
+        },
+        {
+          "id": 31180,
+          "text": "parallel to X axis"
+        },
+        {
+          "id": 31179,
+          "text": "parallel to Y axis"
+        },
+        {
+          "id": 31182,
+          "text": "parallel to the line x – y"
+        }
+      ],
+      "correct_option_id": null,
+      "correct_option_text": null,
+      "explanation": null
+    },
+    {
+      "id": 18996,
+      "question": "The distance of the point ($\\alpha {\\rm{ }},{\\rm{ }}\\beta $) from X axis is",
+      "question_raw": "<p>The distance of the point (<span class=\"math-tex\">{tex}\\alpha {\\rm{ }},{\\rm{ }}\\beta {/tex}</span>) from X axis is</p>",
+      "difficulty": "Easy",
+      "options": [
+        {
+          "id": 31186,
+          "text": "none of these."
+        },
+        {
+          "id": 31185,
+          "text": "$\\alpha $"
+        },
+        {
+          "id": 31183,
+          "text": "$| \\beta |$"
+        },
+        {
+          "id": 31184,
+          "text": "$| \\alpha |$"
+        }
+      ],
+      "correct_option_id": null,
+      "correct_option_text": null,
+      "explanation": null
+    },
+    {
+      "id": 18997,
+      "question": "The line through the points (a, b) and (- a, - b) passes through the point",
+      "question_raw": "<p>The line through the points (a, b) and (- a, - b) passes through the point</p>",
+      "difficulty": "Medium",
+      "options": [
+        {
+          "id": 31190,
+          "text": "(2a, - 3b)"
+        },
+        {
+          "id": 31187,
+          "text": "(a^2, ab)"
+        },
+        {
+          "id": 31189,
+          "text": "(3a, - 2b)"
+        },
+        {
+          "id": 31188,
+          "text": "(1, 1)"
+        }
+      ],
+      "correct_option_id": null,
+      "correct_option_text": null,
+      "explanation": null
+    },
+    {
+      "id": 18998,
+      "question": "Projection (the foot of perpendicular) from (x, y) on the x-axis is",
+      "question_raw": "<p>Projection (the foot of perpendicular) from (x, y) on the x-axis is</p>",
+      "difficulty": "Easy",
+      "options": [
+        {
+          "id": 31191,
+          "text": "(x, 0)"
+        },
+        {
+          "id": 31194,
+          "text": "(0, - y)"
+        },
+        {
+          "id": 31192,
+          "text": "(0, y)"
+        },
+        {
+          "id": 31193,
+          "text": "(-x, 0)"
+        }
+      ],
+      "correct_option_id": null,
+      "correct_option_text": null,
+      "explanation": null
+    },
+    {
+      "id": 18999,
+      "question": "The image of the point ($\\alpha {\\rm{ }},{\\rm{ }}\\beta $) with respect to the line x + y = 0 is",
+      "question_raw": "<p>The image of the point (<span class=\"math-tex\">{tex}\\alpha {\\rm{ }},{\\rm{ }}\\beta {/tex}</span>) with respect to the line x + y = 0 is</p>",
+      "difficulty": "Medium",
+      "options": [
+        {
+          "id": 31198,
+          "text": "(- $\\beta {\\rm{ }},{\\rm{ }}\\alpha $)"
+        },
+        {
+          "id": 31195,
+          "text": "(- $\\beta {\\rm{ }},{\\rm{ }} - {\\rm{ }}\\alpha $)"
+        },
+        {
+          "id": 31197,
+          "text": "($\\beta {\\rm{ }},{\\rm{ }}\\alpha $)"
+        },
+        {
+          "id": 31196,
+          "text": "($\\alpha {\\rm{ }},{\\rm{ }}\\beta $)"
+        }
+      ],
+      "correct_option_id": null,
+      "correct_option_text": null,
+      "explanation": null
+    },
+    {
+      "id": 19001,
+      "question": "The image of the point ($\\alpha {\\rm{ }},{\\rm{ }}\\beta $) with respect to the line x = y is",
+      "question_raw": "<p>The image of the point (<span class=\"math-tex\">{tex}\\alpha {\\rm{ }},{\\rm{ }}\\beta {/tex}</span>) with respect to the line x = y is</p>",
+      "difficulty": "Easy",
+      "options": [
+        {
+          "id": 31205,
+          "text": "(- $\\beta {\\rm{ }},{\\rm{ }} - {\\rm{ }}\\alpha $)"
+        },
+        {
+          "id": 31206,
+          "text": "(- $\\alpha {\\rm{ }}, - {\\rm{ }}\\beta $)"
+        },
+        {
+          "id": 31203,
+          "text": "($\\beta {\\rm{ }},{\\rm{ }}\\alpha $)"
+        },
+        {
+          "id": 31204,
+          "text": "($\\alpha {\\rm{ }},{\\rm{ }}\\beta $)"
+        }
+      ],
+      "correct_option_id": null,
+      "correct_option_text": null,
+      "explanation": null
+    },
+    {
+      "id": 19003,
+      "question": "Slope of any line parallel to X axis is",
+      "question_raw": "<p>Slope of any line parallel to X axis is</p>",
+      "difficulty": "Easy",
+      "options": [
+        {
+          "id": 31213,
+          "text": "-1"
+        },
+        {
+          "id": 31211,
+          "text": "0"
+        },
+        {
+          "id": 31214,
+          "text": "2"
+        },
+        {
+          "id": 31212,
+          "text": "1"
+        }
+      ],
+      "correct_option_id": null,
+      "correct_option_text": null,
+      "explanation": null
+    },
+    {
+      "id": 19005,
+      "question": "The straight lines x + y = 0, 3x - y – 4 = 0, x + 3y – 4 = 0 form a triangle which is",
+      "question_raw": "<p>The straight lines x + y = 0, 3x -&nbsp;y &ndash; 4 = 0, x + 3y &ndash; 4 = 0 form a triangle which is</p>",
+      "difficulty": "Medium",
+      "options": [
+        {
+          "id": 31220,
+          "text": "equilateral"
+        },
+        {
+          "id": 31219,
+          "text": "isosceles"
+        },
+        {
+          "id": 31222,
+          "text": "scalene"
+        },
+        {
+          "id": 31221,
+          "text": "right angled"
+        }
+      ],
+      "correct_option_id": null,
+      "correct_option_text": null,
+      "explanation": null
+    },
+    {
+      "id": 19006,
+      "question": "The lines 2x – 3y = 5 and 6x – 9y – 7 = 0 are",
+      "question_raw": "<p>The lines 2x &ndash; 3y = 5 and 6x &ndash; 9y &ndash; 7 = 0 are</p>",
+      "difficulty": "Easy",
+      "options": [
+        {
+          "id": 31225,
+          "text": "coincident"
+        },
+        {
+          "id": 31224,
+          "text": "perpendicular"
+        },
+        {
+          "id": 31226,
+          "text": "Incident"
+        },
+        {
+          "id": 31223,
+          "text": "parallel"
+        }
+      ],
+      "correct_option_id": null,
+      "correct_option_text": null,
+      "explanation": null
+    },
+    {
+      "id": 19009,
+      "question": "The line passing through (1, 1) and parallel to the line 2x – 3y + 5 = 0 is",
+      "question_raw": "<p>The line passing through (1, 1) and parallel to the line 2x &ndash; 3y + 5 = 0 is</p>",
+      "difficulty": "Medium",
+      "options": [
+        {
+          "id": 31235,
+          "text": "2x – 3y + 1= 0"
+        },
+        {
+          "id": 31236,
+          "text": "3x + 2y = 5"
+        },
+        {
+          "id": 31238,
+          "text": "2x + 3y = 5"
+        },
+        {
+          "id": 31237,
+          "text": "3x – 2y = 1"
+        }
+      ],
+      "correct_option_id": null,
+      "correct_option_text": null,
+      "explanation": null
+    },
+    {
+      "id": 19011,
+      "question": "The straight lines x + y - 4 = 0, 3x + y – 4 = 0, x - 3y – 4 = 0 form a triangle which is",
+      "question_raw": "<p>The straight lines x + y - 4 = 0, 3x + y &ndash; 4 = 0, x -&nbsp;3y &ndash; 4 = 0 form a triangle which is</p>",
+      "difficulty": "Easy",
+      "options": [
+        {
+          "id": 31243,
+          "text": "obtuse angled triangle"
+        },
+        {
+          "id": 31245,
+          "text": "equilateral"
+        },
+        {
+          "id": 31246,
+          "text": "Acute angled triangle"
+        },
+        {
+          "id": 31244,
+          "text": "right angled triangle"
+        }
+      ],
+      "correct_option_id": null,
+      "correct_option_text": null,
+      "explanation": null
+    },
+    {
+      "id": 19015,
+      "question": "The acute angle between the lines x – y = 0 and y = 0 is",
+      "question_raw": "<p>The acute angle between the lines x &ndash; y = 0 and y = 0 is</p>",
+      "difficulty": "Medium",
+      "options": [
+        {
+          "id": 31262,
+          "text": "30^o"
+        },
+        {
+          "id": 31260,
+          "text": "75^o"
+        },
+        {
+          "id": 31261,
+          "text": "60^o"
+        },
+        {
+          "id": 31259,
+          "text": "45^o"
+        }
+      ],
+      "correct_option_id": null,
+      "correct_option_text": null,
+      "explanation": null
+    },
+    {
+      "id": 19016,
+      "question": "The vertices of a triangle are (0, 3), (-3, 0) and (3, 0). The orthocenter of the triangle is",
+      "question_raw": "<p>The vertices of a triangle are (0, 3), (-3, 0) and (3, 0). The orthocenter of the triangle is</p>",
+      "difficulty": "Hard",
+      "options": [
+        {
+          "id": 31265,
+          "text": "(3, 0)"
+        },
+        {
+          "id": 31263,
+          "text": "(0, 3)"
+        },
+        {
+          "id": 31264,
+          "text": "(-3, 0)"
+        },
+        {
+          "id": 31266,
+          "text": "(0, -3)"
+        }
+      ],
+      "correct_option_id": null,
+      "correct_option_text": null,
+      "explanation": null
+    },
+    {
+      "id": 19017,
+      "question": "The lines x + ( k - 1)y + 1 = 0 and 2x + k^2y - 1 = 0 are at right angles if",
+      "question_raw": "<p>The lines x + ( k -&nbsp;1)y + 1 = 0 and 2x + k<sup>2</sup>y - 1 = 0&nbsp;are at right angles if</p>",
+      "difficulty": "Medium",
+      "options": [
+        {
+          "id": 31269,
+          "text": "k > 1"
+        },
+        {
+          "id": 31270,
+          "text": "k < 1"
+        },
+        {
+          "id": 31268,
+          "text": "k = 1"
+        },
+        {
+          "id": 31267,
+          "text": "k = - 1"
+        }
+      ],
+      "correct_option_id": null,
+      "correct_option_text": null,
+      "explanation": null
+    },
+    {
+      "id": 19019,
+      "question": "The lines y = mx, y + 2x = 0, y = 2x + $\\lambda $ and y = - mx + $\\lambda $ form a rhombus if m =",
+      "question_raw": "<p>The lines y = mx, y + 2x = 0, y = 2x + <span class=\"math-tex\">{tex}\\lambda {/tex}</span> and y = - mx + <span class=\"math-tex\">{tex}\\lambda {/tex}</span> form a rhombus if m =</p>",
+      "difficulty": "Easy",
+      "options": [
+        {
+          "id": 31276,
+          "text": "- 1"
+        },
+        {
+          "id": 31275,
+          "text": "-2"
+        },
+        {
+          "id": 31278,
+          "text": "2"
+        },
+        {
+          "id": 31277,
+          "text": "1"
+        }
+      ],
+      "correct_option_id": null,
+      "correct_option_text": null,
+      "explanation": null
+    },
+    {
+      "id": 19020,
+      "question": "Two points (a, 0) and (0, b) are joined by a straight line. Another point on this line is",
+      "question_raw": "<p>Two points (a, 0) and (0, b) are joined by a straight line. Another point on this line is</p>",
+      "difficulty": "Easy",
+      "options": [
+        {
+          "id": 31281,
+          "text": "(a, -2b)"
+        },
+        {
+          "id": 31280,
+          "text": "(-3a, 2b)"
+        },
+        {
+          "id": 31279,
+          "text": "(3a, - 2b)"
+        },
+        {
+          "id": 31282,
+          "text": "(-a, 2b)"
+        }
+      ],
+      "correct_option_id": null,
+      "correct_option_text": null,
+      "explanation": null
+    },
+    {
+      "id": 19021,
+      "question": "The coordinates of the foot of perpendicular from (0, 0) upon the line x + y = 2 are",
+      "question_raw": "<p>The coordinates of the foot of perpendicular from (0, 0) upon the line x + y = 2 are</p>",
+      "difficulty": "Easy",
+      "options": [
+        {
+          "id": 31283,
+          "text": "(1, 1)"
+        },
+        {
+          "id": 31285,
+          "text": "(-1, 2)"
+        },
+        {
+          "id": 31286,
+          "text": "(1, -2)"
+        },
+        {
+          "id": 31284,
+          "text": "(1, 2)"
+        }
+      ],
+      "correct_option_id": null,
+      "correct_option_text": null,
+      "explanation": null
+    },
+    {
+      "id": 19023,
+      "question": "A line is drawn through the points (3, 4) and (5, 6). If the is extended to a point whose ordinate is – 1, then the abscissa of that point is",
+      "question_raw": "<p>A line is drawn through the points (3, 4) and (5, 6). If the is extended to a point whose ordinate is &ndash; 1, then the abscissa of that point is</p>",
+      "difficulty": "Medium",
+      "options": [
+        {
+          "id": 31293,
+          "text": "0"
+        },
+        {
+          "id": 31294,
+          "text": "-1"
+        },
+        {
+          "id": 31291,
+          "text": "- 2"
+        },
+        {
+          "id": 31292,
+          "text": "1"
+        }
+      ],
+      "correct_option_id": null,
+      "correct_option_text": null,
+      "explanation": null
+    },
+    {
+      "id": 19024,
+      "question": "The line x + y – 6 = 0 is the right bisector of the segment [PQ]. If P is the point (4, 3), then the point Q is",
+      "question_raw": "<p>The line x + y &ndash; 6 = 0 is the right bisector of the segment [PQ]. If P is the point (4, 3), then the point Q is</p>",
+      "difficulty": "Hard",
+      "options": [
+        {
+          "id": 31298,
+          "text": "(4, 4)"
+        },
+        {
+          "id": 31297,
+          "text": "(3, 3)"
+        },
+        {
+          "id": 31295,
+          "text": "(3, 2)"
+        },
+        {
+          "id": 31296,
+          "text": "(3, 4)"
+        }
+      ],
+      "correct_option_id": null,
+      "correct_option_text": null,
+      "explanation": null
+    },
+    {
+      "id": 19025,
+      "question": "The acute angle between the lines ax + by + c = 0 and (a + b)x = (a – b)y , a $ \\ne $b , is",
+      "question_raw": "<p>The acute angle between the lines ax + by + c = 0 and (a + b)x = (a &ndash; b)y , a <span class=\"math-tex\">{tex} \\ne {/tex}</span>b , is</p>",
+      "difficulty": "Easy",
+      "options": [
+        {
+          "id": 31301,
+          "text": "15^o"
+        },
+        {
+          "id": 31300,
+          "text": "60^o"
+        },
+        {
+          "id": 31302,
+          "text": "30^o"
+        },
+        {
+          "id": 31299,
+          "text": "45^o"
+        }
+      ],
+      "correct_option_id": null,
+      "correct_option_text": null,
+      "explanation": null
+    },
+    {
+      "id": 19027,
+      "question": "The triangle formed by the lines x + y = 1, 2x + 3y – 6 = 0 and 4x – y + 4 = 0 lies in",
+      "question_raw": "<p>The triangle formed by the lines x + y = 1, 2x + 3y &ndash; 6 = 0 and 4x &ndash; y + 4 = 0 lies in</p>",
+      "difficulty": "Hard",
+      "options": [
+        {
+          "id": 31308,
+          "text": "3^rd quadrant"
+        },
+        {
+          "id": 31309,
+          "text": "4^th quadrant"
+        },
+        {
+          "id": 31307,
+          "text": "2^nd quadrant"
+        },
+        {
+          "id": 31310,
+          "text": "1^st quadrant"
+        }
+      ],
+      "correct_option_id": null,
+      "correct_option_text": null,
+      "explanation": null
+    },
+    {
+      "id": 19028,
+      "question": "The area of triangle formed by the lines y = x, y = 2x and y = 3x + 4 is",
+      "question_raw": "<p>The area of triangle formed by the lines y = x, y = 2x and y = 3x + 4 is</p>",
+      "difficulty": "Medium",
+      "options": [
+        {
+          "id": 31312,
+          "text": "7"
+        },
+        {
+          "id": 31313,
+          "text": "9"
+        },
+        {
+          "id": 31314,
+          "text": "8"
+        },
+        {
+          "id": 31311,
+          "text": "4"
+        }
+      ],
+      "correct_option_id": null,
+      "correct_option_text": null,
+      "explanation": null
+    },
+    {
+      "id": 19031,
+      "question": "The equations of the lines through (-1, -1) and making angles of 45^o with the line x + y = 0 are",
+      "question_raw": "<p>The equations of the lines through (-1, -1) and making angles of 45<sup>o</sup> with the line x + y = 0 are</p>",
+      "difficulty": "Medium",
+      "options": [
+        {
+          "id": 31326,
+          "text": "x - 1 = 0, y - 1 = 0"
+        },
+        {
+          "id": 31325,
+          "text": "x – 1 = 0, y – x = 0"
+        },
+        {
+          "id": 31324,
+          "text": "x + y = 0, y + 1 = 0"
+        },
+        {
+          "id": 31323,
+          "text": "x + 1 = 0, y + 1 = 0"
+        }
+      ],
+      "correct_option_id": null,
+      "correct_option_text": null,
+      "explanation": null
+    },
+    {
+      "id": 19032,
+      "question": "Given the 4 lines with equations x + 2y – 3 = 0, 2x + 3y – 4 = 0, 3x + 4y – 5 = 0, 4x + 5y – 6 = 0, then these lines are",
+      "question_raw": "<p>Given the 4 lines with equations x + 2y &ndash; 3 = 0, 2x + 3y &ndash; 4 = 0, 3x + 4y &ndash; 5 = 0, 4x + 5y &ndash; 6 = 0, then these lines are</p>",
+      "difficulty": "Medium",
+      "options": [
+        {
+          "id": 31328,
+          "text": "the sides of a quadrilateral"
+        },
+        {
+          "id": 31329,
+          "text": "sides of a parallelogram"
+        },
+        {
+          "id": 31330,
+          "text": "sides of a Rhombus"
+        },
+        {
+          "id": 31327,
+          "text": "concurrent"
+        }
+      ],
+      "correct_option_id": null,
+      "correct_option_text": null,
+      "explanation": null
+    },
+    {
+      "id": 19033,
+      "question": "The locus of the equation xy = 0 is",
+      "question_raw": "<p>The locus of the equation xy = 0 is</p>",
+      "difficulty": "Easy",
+      "options": [
+        {
+          "id": 31333,
+          "text": "a hyperbola"
+        },
+        {
+          "id": 31332,
+          "text": "a straight line"
+        },
+        {
+          "id": 31331,
+          "text": "a pair of perpendicular lines"
+        },
+        {
+          "id": 31334,
+          "text": "A parabola"
+        }
+      ],
+      "correct_option_id": null,
+      "correct_option_text": null,
+      "explanation": null
+    },
+    {
+      "id": 19034,
+      "question": "The locus of the inequation xy $≥$ 0 is",
+      "question_raw": "<p>The locus of the inequation xy <span class=\"math-tex\">{tex}≥{/tex}</span> 0 is</p>",
+      "difficulty": "Easy",
+      "options": [
+        {
+          "id": 31337,
+          "text": "a straight line"
+        },
+        {
+          "id": 31336,
+          "text": "a pair of straight lines"
+        },
+        {
+          "id": 31338,
+          "text": "a parallel line"
+        },
+        {
+          "id": 31335,
+          "text": "the set of all points either in the 1st quadrant or in the 3rd quadrant including the points on coordinate axis"
+        }
+      ],
+      "correct_option_id": null,
+      "correct_option_text": null,
+      "explanation": null
+    },
+    {
+      "id": 19035,
+      "question": "The acute angle between the lines y = 2x and y = - 2x is",
+      "question_raw": "<p>The acute angle between the lines y = 2x and y = - 2x is</p>",
+      "difficulty": "Medium",
+      "options": [
+        {
+          "id": 31340,
+          "text": "greater than 60^o"
+        },
+        {
+          "id": 31342,
+          "text": "90^o"
+        },
+        {
+          "id": 31341,
+          "text": "60^o"
+        },
+        {
+          "id": 31339,
+          "text": "less than 60^o"
+        }
+      ],
+      "correct_option_id": null,
+      "correct_option_text": null,
+      "explanation": null
+    },
+    {
+      "id": 19037,
+      "question": "The orthogonal projection of the point (2, - 3) on the line x + y = 0 is",
+      "question_raw": "<p>The orthogonal projection of the point (2, - 3) on the line x + y = 0 is</p>",
+      "difficulty": "Medium",
+      "options": [
+        {
+          "id": 31350,
+          "text": "(2, -3)"
+        },
+        {
+          "id": 31347,
+          "text": "($\\frac{5}{2}$, $\\frac{-5}{2}$)"
+        },
+        {
+          "id": 31349,
+          "text": "(2, 3)"
+        },
+        {
+          "id": 31348,
+          "text": "(-2, -3)"
+        }
+      ],
+      "correct_option_id": null,
+      "correct_option_text": null,
+      "explanation": null
+    },
+    {
+      "id": 19039,
+      "question": "The lines 8x + 4y = 1, 8x + 4y = 5, 4x + 8y = 3, 4x + 8y = 7 form a",
+      "question_raw": "<p>The lines 8x + 4y = 1, 8x + 4y = 5, 4x + 8y = 3, 4x + 8y = 7 form a</p>",
+      "difficulty": "Medium",
+      "options": [
+        {
+          "id": 31356,
+          "text": "Rectangle"
+        },
+        {
+          "id": 31358,
+          "text": "Trapezium"
+        },
+        {
+          "id": 31355,
+          "text": "Rhombus"
+        },
+        {
+          "id": 31357,
+          "text": "Square"
+        }
+      ],
+      "correct_option_id": null,
+      "correct_option_text": null,
+      "explanation": null
+    },
+    {
+      "id": 19040,
+      "question": "The number of points on X-axis which are at a distance of c units (c < 3) from (2, 3) is",
+      "question_raw": "<p>The number of points on X-axis which are at a distance of c units (c &lt;&nbsp;3) from (2, 3) is</p>",
+      "difficulty": "Easy",
+      "options": [
+        {
+          "id": 31362,
+          "text": "3"
+        },
+        {
+          "id": 31359,
+          "text": "0"
+        },
+        {
+          "id": 31361,
+          "text": "1"
+        },
+        {
+          "id": 31360,
+          "text": "2"
+        }
+      ],
+      "correct_option_id": null,
+      "correct_option_text": null,
+      "explanation": null
+    },
+    {
+      "id": 19041,
+      "question": "If (x, y) are the coordinates of point in the plane, then $\\left| {\\begin{array}{*{20}{c}} 3&4&2 \\\\ 5&8&2 \\\\ x&y&2 \\end{array}} \\right| $ = 0 represents",
+      "question_raw": "<p>If (x, y) are the coordinates of point in the plane, then <span class=\"math-tex\">{tex}\\left| {\\begin{array}{*{20}{c}} 3&amp;4&amp;2 \\\\ 5&amp;8&amp;2 \\\\ x&amp;y&amp;2 \\end{array}} \\right| {/tex}</span> = 0 represents</p>",
+      "difficulty": "Medium",
+      "options": [
+        {
+          "id": 31363,
+          "text": "a straight line"
+        },
+        {
+          "id": 31365,
+          "text": "a straight line parallel to x axis"
+        },
+        {
+          "id": 31366,
+          "text": "a straight line parallel to y axis"
+        },
+        {
+          "id": 31364,
+          "text": "a circle"
+        }
+      ],
+      "correct_option_id": null,
+      "correct_option_text": null,
+      "explanation": null
+    },
+    {
+      "id": 19042,
+      "question": "The equations of the lines through (1, 1) and making angles of 45^o with the line x + y = 0",
+      "question_raw": "<p>The equations of the lines through (1, 1) and making angles of 45<sup>o</sup> with the line x + y = 0</p>",
+      "difficulty": "Easy",
+      "options": [
+        {
+          "id": 31369,
+          "text": "x – y = 0, y – 1 = 0"
+        },
+        {
+          "id": 31370,
+          "text": "x + y = 0, y – 1 = 0"
+        },
+        {
+          "id": 31368,
+          "text": "x – 1 = 0, x – y = 0"
+        },
+        {
+          "id": 31367,
+          "text": "x – 1 = 0, y – 1 = 0"
+        }
+      ],
+      "correct_option_id": null,
+      "correct_option_text": null,
+      "explanation": null
+    },
+    {
+      "id": 19043,
+      "question": "The number of lines that are parallel to 2x + 6y – 7 = 0 and have an intercept 10 units between the coordinate axis is :",
+      "question_raw": "<p>The number of lines that are parallel to 2x + 6y &ndash; 7 = 0 and have an intercept 10 units between the coordinate axis is :</p>",
+      "difficulty": "Medium",
+      "options": [
+        {
+          "id": 31371,
+          "text": "2"
+        },
+        {
+          "id": 31374,
+          "text": "3"
+        },
+        {
+          "id": 31373,
+          "text": "4"
+        },
+        {
+          "id": 31372,
+          "text": "1"
+        }
+      ],
+      "correct_option_id": null,
+      "correct_option_text": null,
+      "explanation": null
+    },
+    {
+      "id": 19045,
+      "question": "The area of the quadrilateral formed by the lines |x| + |y| = 1 is",
+      "question_raw": "<p>The area of the quadrilateral formed by the lines |x| + |y| = 1 is</p>",
+      "difficulty": "Easy",
+      "options": [
+        {
+          "id": 31381,
+          "text": "8"
+        },
+        {
+          "id": 31380,
+          "text": "4"
+        },
+        {
+          "id": 31382,
+          "text": "10"
+        },
+        {
+          "id": 31379,
+          "text": "2"
+        }
+      ],
+      "correct_option_id": null,
+      "correct_option_text": null,
+      "explanation": null
+    },
+    {
+      "id": 19046,
+      "question": "If a , b , c are in A . P. then straight line ax + by + c = 0 will always pass through a fixed point whose coordinates are",
+      "question_raw": "<p>If a , b , c are in A . P. then straight line ax + by + c = 0 will always pass through a fixed point whose coordinates are</p>",
+      "difficulty": "Easy",
+      "options": [
+        {
+          "id": 31383,
+          "text": "( 1 , - 2 )"
+        },
+        {
+          "id": 31385,
+          "text": "( 1 , 2 )"
+        },
+        {
+          "id": 31386,
+          "text": "( -1 ,2 )"
+        },
+        {
+          "id": 31384,
+          "text": "( - 1 , - 2 )"
+        }
+      ],
+      "correct_option_id": null,
+      "correct_option_text": null,
+      "explanation": null
+    },
+    {
+      "id": 19047,
+      "question": "The line segment joining the points (1, 2) and (-2, 1) is divided by the line 3x + 4y = 7 in the ratio",
+      "question_raw": "<p>The line segment joining the points (1, 2) and (-2, 1) is divided by the line 3x + 4y = 7 in the ratio</p>",
+      "difficulty": "Easy",
+      "options": [
+        {
+          "id": 31389,
+          "text": "4 : 3"
+        },
+        {
+          "id": 31388,
+          "text": "9 : 4"
+        },
+        {
+          "id": 31387,
+          "text": "4 : 9"
+        },
+        {
+          "id": 31390,
+          "text": "3 : 4"
+        }
+      ],
+      "correct_option_id": null,
+      "correct_option_text": null,
+      "explanation": null
+    },
+    {
+      "id": 19048,
+      "question": "A line L passes through the points (1, 1) and (2, 0) and another line M which is perpendicular to L passes through the point (1/2, 0). The area of the triangle formed by these lines with y axis is :",
+      "question_raw": "<p>A line L passes through the points (1, 1) and (2, 0) and another line M which is perpendicular to L passes through the point (1/2, 0). The area of the triangle formed by these lines with y axis is :</p>",
+      "difficulty": "Hard",
+      "options": [
+        {
+          "id": 31391,
+          "text": "25/16"
+        },
+        {
+          "id": 31392,
+          "text": "25/4"
+        },
+        {
+          "id": 31394,
+          "text": "25/10"
+        },
+        {
+          "id": 31393,
+          "text": "25/8"
+        }
+      ],
+      "correct_option_id": null,
+      "correct_option_text": null,
+      "explanation": null
+    },
+    {
+      "id": 19049,
+      "question": "The medians AD and BE of a triangle with vertices A ( 0 , b ) , B ( 0, 0 ) and C ( a , 0 )are perpendicular to each other if",
+      "question_raw": "<p>The medians AD and BE of a triangle with vertices A ( 0 , b ) , B ( 0, 0 ) and C ( a , 0 )are perpendicular to each other if</p>",
+      "difficulty": "Easy",
+      "options": [
+        {
+          "id": 31395,
+          "text": "$a = \\pm \\sqrt 2 b$"
+        },
+        {
+          "id": 31397,
+          "text": "$a = \\sqrt { - 2} b$"
+        },
+        {
+          "id": 31396,
+          "text": "$b = \\pm \\sqrt 2 a$"
+        },
+        {
+          "id": 31398,
+          "text": "$b = \\sqrt { - 2} a$"
+        }
+      ],
+      "correct_option_id": null,
+      "correct_option_text": null,
+      "explanation": null
+    },
+    {
+      "id": 19051,
+      "question": "The line which is parallel to X-axis and crosses the curve y = $\\sqrt x $ at an angle of 45^o is:",
+      "question_raw": "<p>The line which is parallel to X-axis and crosses the curve y = <span class=\"math-tex\">{tex}\\sqrt x {/tex}</span> at an angle of 45<sup>o</sup> is:</p>",
+      "difficulty": "Easy",
+      "options": [
+        {
+          "id": 31406,
+          "text": "y = $\\frac{3}{2}$"
+        },
+        {
+          "id": 31404,
+          "text": "y = 1"
+        },
+        {
+          "id": 31405,
+          "text": "y = $\\frac 14$"
+        },
+        {
+          "id": 31403,
+          "text": "y = $\\frac{1}{2}$"
+        }
+      ],
+      "correct_option_id": null,
+      "correct_option_text": null,
+      "explanation": null
+    },
+    {
+      "id": 19052,
+      "question": "Two opposite vertices of a rectangle are (1, 3), (5, 1). If the equation of a diagonal of this rectangle is y = 2x + c, then the value of c is",
+      "question_raw": "<p>Two opposite vertices of a rectangle are (1, 3), (5, 1). If the equation of a diagonal of this rectangle is y = 2x + c, then the value of c is</p>",
+      "difficulty": "Medium",
+      "options": [
+        {
+          "id": 31410,
+          "text": "2"
+        },
+        {
+          "id": 31409,
+          "text": "-9"
+        },
+        {
+          "id": 31408,
+          "text": "1"
+        },
+        {
+          "id": 31407,
+          "text": "- 4"
+        }
+      ],
+      "correct_option_id": null,
+      "correct_option_text": null,
+      "explanation": null
+    },
+    {
+      "id": 19053,
+      "question": "The equations y = $ \\sqrt {3} x$, y = 1 are the sides of",
+      "question_raw": "<p>The equations y =&nbsp;<span class=\"math-tex\">{tex} \\sqrt {3} x{/tex}</span>, y = 1 are the sides of</p>",
+      "difficulty": "Easy",
+      "options": [
+        {
+          "id": 31411,
+          "text": "a right angled triangle"
+        },
+        {
+          "id": 31414,
+          "text": "Scalene triangle"
+        },
+        {
+          "id": 31413,
+          "text": "an equilateral triangle"
+        },
+        {
+          "id": 31412,
+          "text": "an isosceles triangle"
+        }
+      ],
+      "correct_option_id": null,
+      "correct_option_text": null,
+      "explanation": null
+    },
+    {
+      "id": 19054,
+      "question": "The points (- a, -b), (0, 0), (a, b) and (a^2, ab) are",
+      "question_raw": "<p>The points (- a, -b), (0, 0), (a, b) and (a<sup>2</sup>, ab) are</p>",
+      "difficulty": "Easy",
+      "options": [
+        {
+          "id": 31417,
+          "text": "vertices of a square"
+        },
+        {
+          "id": 31418,
+          "text": "vertices of a parallelogram"
+        },
+        {
+          "id": 31415,
+          "text": "collinear"
+        },
+        {
+          "id": 31416,
+          "text": "vertices of a rectangle"
+        }
+      ],
+      "correct_option_id": null,
+      "correct_option_text": null,
+      "explanation": null
+    },
+    {
+      "id": 19056,
+      "question": "The locus of a point, whose abscissa and ordinate are always equal is",
+      "question_raw": "<p>The locus of a point, whose abscissa and ordinate are always equal is</p>",
+      "difficulty": "Easy",
+      "options": [
+        {
+          "id": 31426,
+          "text": "x + y - 1 = 0"
+        },
+        {
+          "id": 31423,
+          "text": "x – y = 0"
+        },
+        {
+          "id": 31424,
+          "text": "x + y = 1"
+        },
+        {
+          "id": 31425,
+          "text": "x + y + 1 = 0"
+        }
+      ],
+      "correct_option_id": null,
+      "correct_option_text": null,
+      "explanation": null
+    },
+    {
+      "id": 19057,
+      "question": "The ortho centre of the triangle formed by lines xy = 0 and x + y = 1 is :",
+      "question_raw": "<p>The ortho centre of the triangle formed by lines xy = 0 and x + y = 1 is :</p>",
+      "difficulty": "Easy",
+      "options": [
+        {
+          "id": 31427,
+          "text": "(0, 0)"
+        },
+        {
+          "id": 31428,
+          "text": "($\\frac{1}{2}$, $\\frac{1}{2}$)"
+        },
+        {
+          "id": 31429,
+          "text": "($\\frac{1}{3}$, $\\frac{1}{3}$)"
+        },
+        {
+          "id": 31430,
+          "text": "($\\frac{1}{4}$, $\\frac{1}{4}$)"
+        }
+      ],
+      "correct_option_id": null,
+      "correct_option_text": null,
+      "explanation": null
+    },
+    {
+      "id": 19058,
+      "question": "The straight-line 3x + y = 9 divides the line segment joining the points (1, 3) and (2, 7) in the ratio",
+      "question_raw": "<p>The straight-line 3x + y = 9 divides the line segment joining the points (1, 3) and (2, 7) in the ratio</p>",
+      "difficulty": "Medium",
+      "options": [
+        {
+          "id": 31431,
+          "text": "3 : 4"
+        },
+        {
+          "id": 31434,
+          "text": "5 : 4"
+        },
+        {
+          "id": 31432,
+          "text": "4 : 2"
+        },
+        {
+          "id": 31433,
+          "text": "4 : 5"
+        }
+      ],
+      "correct_option_id": null,
+      "correct_option_text": null,
+      "explanation": null
+    },
+    {
+      "id": 19059,
+      "question": "In a $\\Delta ABC,$ if A is the point (1, 2) and equations of the median through B and C are respectively x + y = 5 and x = 4, then B is",
+      "question_raw": "<p>In a <span class=\"math-tex\">{tex}\\Delta ABC,{/tex}</span> if A is the point (1, 2) and equations of the median through B and C are respectively x + y = 5 and x = 4, then B is</p>",
+      "difficulty": "Easy",
+      "options": [
+        {
+          "id": 31437,
+          "text": "(1, 4)"
+        },
+        {
+          "id": 31436,
+          "text": "(4, 1)"
+        },
+        {
+          "id": 31438,
+          "text": "(-2, 7)"
+        },
+        {
+          "id": 31435,
+          "text": "(7, - 2)"
+        }
+      ],
+      "correct_option_id": null,
+      "correct_option_text": null,
+      "explanation": null
+    },
+    {
+      "id": 19061,
+      "question": "The point on the axis of y which is equidistant from (- 1, 2) and (3, 4) is",
+      "question_raw": "<p>The point on the axis of y which is equidistant from (- 1, 2) and (3, 4) is</p>",
+      "difficulty": "Easy",
+      "options": [
+        {
+          "id": 31446,
+          "text": "(4, 0)"
+        },
+        {
+          "id": 31443,
+          "text": "(0, 5)"
+        },
+        {
+          "id": 31445,
+          "text": "(0, 4)"
+        },
+        {
+          "id": 31444,
+          "text": "(5, 0)"
+        }
+      ],
+      "correct_option_id": null,
+      "correct_option_text": null,
+      "explanation": null
+    },
+    {
+      "id": 19064,
+      "question": "The angle between the two straight lines 6y^2 - xy - x^2 + 30y + 36 = 0 is",
+      "question_raw": "<p>The angle between the two straight lines&nbsp;6y<sup>2</sup> - xy - x<sup>2</sup> + 30y + 36 = 0 is</p>",
+      "difficulty": "Easy",
+      "options": [
+        {
+          "id": 31455,
+          "text": "45^o"
+        },
+        {
+          "id": 31456,
+          "text": "30^o"
+        },
+        {
+          "id": 31457,
+          "text": "60^o"
+        },
+        {
+          "id": 31458,
+          "text": "50^o"
+        }
+      ],
+      "correct_option_id": null,
+      "correct_option_text": null,
+      "explanation": null
+    },
+    {
+      "id": 19065,
+      "question": "Area of a triangle is 5 sq. units. Its two vertices are (2, 1) and (3, - 2). Third vertex is on the line y = x + 3. The coordinates of that vertex are",
+      "question_raw": "<p>Area of a triangle is 5 sq. units. Its two vertices are (2, 1) and (3, - 2). Third vertex is on the line y = x + 3. The coordinates of that vertex are</p>",
+      "difficulty": "Easy",
+      "options": [
+        {
+          "id": 31462,
+          "text": "($\\frac{8}{5}$, $\\frac{6}{5}$)"
+        },
+        {
+          "id": 31459,
+          "text": "($\\frac{7}{2}$, $\\frac{13}{2}$)"
+        },
+        {
+          "id": 31461,
+          "text": "($\\frac{8}{3}$, $\\frac{5}{3}$)"
+        },
+        {
+          "id": 31460,
+          "text": "(8, 14)"
+        }
+      ],
+      "correct_option_id": null,
+      "correct_option_text": null,
+      "explanation": null
+    },
+    {
+      "id": 19066,
+      "question": "The foot of the perpendicular from (2, 3) on the line 3x + 4y – 6 = 0 is",
+      "question_raw": "<p>The foot of the perpendicular from (2, 3) on the line 3x + 4y &ndash; 6 = 0 is</p>",
+      "difficulty": "Medium",
+      "options": [
+        {
+          "id": 31463,
+          "text": "$(\\frac {14} {25}, \\frac {27} {25})$"
+        },
+        {
+          "id": 31466,
+          "text": "$(\\frac {14} {25}, - \\frac {27} {25})$"
+        },
+        {
+          "id": 31465,
+          "text": "$( - \\frac {14} {25}, - \\frac {27} {25})$"
+        },
+        {
+          "id": 31464,
+          "text": "$( - \\frac {14} {25}, \\frac {29} {25})$"
+        }
+      ],
+      "correct_option_id": null,
+      "correct_option_text": null,
+      "explanation": null
+    },
+    {
+      "id": 231523,
+      "question": "A straight line L at a distance of 4 units from the origin makes positive intercepts on the coordinate axes and the perpendicular from the origin to this line makes an angle of 60° with the line x + y = 0. Then, an equation of the line L is",
+      "question_raw": "<p>A straight line L at a distance of 4 units from the origin makes positive intercepts on the coordinate axes and the perpendicular from the origin to this line makes an angle of 60&deg; with the line x + y = 0. Then, an equation of the line L is</p>\r\n",
+      "difficulty": "Hard",
+      "options": [
+        {
+          "id": 348755,
+          "text": "$\\sqrt{3} x$ + y = 8"
+        },
+        {
+          "id": 348753,
+          "text": "x + $\\sqrt{3} y$ = 8"
+        },
+        {
+          "id": 348756,
+          "text": "($\\sqrt{3} $ - 1)x + ($\\sqrt{3} $ + 1)y = 8$\\sqrt{2}$"
+        },
+        {
+          "id": 348754,
+          "text": "($\\sqrt{3} y$ + 1)x + ($\\sqrt{3} y$ - 1)y = $8\\sqrt{2}$"
+        }
+      ],
+      "correct_option_id": null,
+      "correct_option_text": null,
+      "explanation": null
+    },
+    {
+      "id": 231532,
+      "question": "If the two lines x + (a - 1)y = 1 and 2x + a^2y = 1, (a $\\in$ R - {0 ,1}) are perpendicular, then the distance of their point of intersection from the origin is",
+      "question_raw": "<p>If the two lines x + (a - 1)y = 1 and 2x + a<sup>2</sup>y = 1, (a <span class=\"math-tex\">{tex}\\in{/tex}</span>&nbsp;R - {0 ,1}) are perpendicular, then the distance of their point of intersection from the origin is</p>\r\n",
+      "difficulty": "Hard",
+      "options": [
+        {
+          "id": 348791,
+          "text": "$\\frac{2}{\\sqrt{5}}$"
+        },
+        {
+          "id": 348790,
+          "text": "$\\frac{\\sqrt{2}}{5}$"
+        },
+        {
+          "id": 348789,
+          "text": "$\\frac{2}{5}$"
+        },
+        {
+          "id": 348792,
+          "text": "$\\sqrt\\frac{2}{{5}}$"
+        }
+      ],
+      "correct_option_id": null,
+      "correct_option_text": null,
+      "explanation": null
+    },
+    {
+      "id": 231534,
+      "question": "Slope of a line passing through P(2, 3) and intersecting the line, x + y = 7 at a distance of 4 units from P, is",
+      "question_raw": "<p>Slope of a line passing through P(2, 3) and intersecting the line, x + y = 7 at a distance of 4 units from P, is</p>",
+      "difficulty": "Hard",
+      "options": [
+        {
+          "id": 348798,
+          "text": "$\\frac{\\sqrt{7}-1}{\\sqrt{7}+1}$"
+        },
+        {
+          "id": 348800,
+          "text": "$\\frac{\\sqrt{5}-1}{\\sqrt{5}+1}$"
+        },
+        {
+          "id": 348797,
+          "text": "$\\frac{1-\\sqrt{5}}{1+\\sqrt{5}}$"
+        },
+        {
+          "id": 348799,
+          "text": "$\\frac{1-\\sqrt{7}}{1+\\sqrt{7}}$"
+        }
+      ],
+      "correct_option_id": null,
+      "correct_option_text": null,
+      "explanation": null
+    },
+    {
+      "id": 231536,
+      "question": "If a point R(4, y, z) lies on the line segment joining the points P{2, -3, 4) and Q(8, 0, 10), then the distance of R from the origin is",
+      "question_raw": "<p>If a point R(4, y, z) lies on the line segment joining the points P{2, -3, 4) and Q(8,&nbsp;0, 10), then the distance of R from the origin is</p>\r\n",
+      "difficulty": "Hard",
+      "options": [
+        {
+          "id": 348805,
+          "text": "$2 \\sqrt{21}$"
+        },
+        {
+          "id": 348806,
+          "text": "$\\sqrt{53}$"
+        },
+        {
+          "id": 348807,
+          "text": "$2 \\sqrt{14}$"
+        },
+        {
+          "id": 348808,
+          "text": "6"
+        }
+      ],
+      "correct_option_id": null,
+      "correct_option_text": null,
+      "explanation": null
+    },
+    {
+      "id": 231539,
+      "question": "Suppose that the points (h, k), (1, 2) and (-3, 4) lie on the line L_1. If a line L_2 passing through the points (h, k) and (4, 3) is perpendicular to L_1, then $\\frac{k}{h}$ equals",
+      "question_raw": "<p>Suppose that the points (h, k), (1, 2) and (-3, 4) lie on the line L<sub>1</sub>.&nbsp;If a line L<sub>2</sub> passing through the points (h, k) and (4, 3) is perpendicular to L<sub>1</sub>,&nbsp;then <span class=\"math-tex\">{tex}\\frac{k}{h}{/tex}</span>&nbsp;equals</p>",
+      "difficulty": "Hard",
+      "options": [
+        {
+          "id": 348820,
+          "text": "0"
+        },
+        {
+          "id": 348817,
+          "text": "$-\\frac{1}{7}$"
+        },
+        {
+          "id": 348818,
+          "text": "3"
+        },
+        {
+          "id": 348819,
+          "text": "$\\frac{1}{3}$"
+        }
+      ],
+      "correct_option_id": null,
+      "correct_option_text": null,
+      "explanation": null
+    },
+    {
+      "id": 231541,
+      "question": "A point on the straight line, 3x + 5y = 15 which is equidistant from the coordinate axes will lie only in",
+      "question_raw": "<p>A point on the straight line, 3x + 5y = 15 which is equidistant from the coordinate axes will lie only in</p>\r\n",
+      "difficulty": "Easy",
+      "options": [
+        {
+          "id": 348828,
+          "text": "I, II and IV quadrants"
+        },
+        {
+          "id": 348827,
+          "text": "I and II quadrants"
+        },
+        {
+          "id": 348825,
+          "text": "IV quadrant"
+        },
+        {
+          "id": 348826,
+          "text": "I quadrant"
+        }
+      ],
+      "correct_option_id": null,
+      "correct_option_text": null,
+      "explanation": null
+    },
+    {
+      "id": 231545,
+      "question": "If a straight line passing through the point P(- 3, 4) is such that its intercepted portion between the coordinate axes is bisected at P, then its equation is",
+      "question_raw": "<p>If a straight line passing through the point P(- 3, 4) is such that its intercepted portion between the coordinate axes is bisected at P, then its equation is</p>\r\n",
+      "difficulty": "Hard",
+      "options": [
+        {
+          "id": 348843,
+          "text": "3x - 4y + 25 = 0"
+        },
+        {
+          "id": 348842,
+          "text": "4x - 3y + 24 = 0"
+        },
+        {
+          "id": 348841,
+          "text": "x - y + 7 = 0"
+        },
+        {
+          "id": 348844,
+          "text": "4x + 3y = 0"
+        }
+      ],
+      "correct_option_id": null,
+      "correct_option_text": null,
+      "explanation": null
+    },
+    {
+      "id": 231547,
+      "question": "If the straight line, 2x - 3y + 17 = 0 is perpendicular to the line passing through the points (7, 17) and (15, $\\beta$), then $\\beta$ equals",
+      "question_raw": "<p>If the straight line, 2x - 3y + 17 = 0 is perpendicular to the line passing through the points (7, 17) and (15, <span class=\"math-tex\">{tex}\\beta{/tex}</span>), then <span class=\"math-tex\">{tex}\\beta{/tex}</span>&nbsp;equals</p>\r\n",
+      "difficulty": "Hard",
+      "options": [
+        {
+          "id": 348850,
+          "text": "-5"
+        },
+        {
+          "id": 348851,
+          "text": "$-\\frac{35}{3}$"
+        },
+        {
+          "id": 348849,
+          "text": "$\\frac{35}{3}$"
+        },
+        {
+          "id": 348852,
+          "text": "5"
+        }
+      ],
+      "correct_option_id": null,
+      "correct_option_text": null,
+      "explanation": null
+    },
+    {
+      "id": 231549,
+      "question": "If in a parallelogram ABDC, the coordinates of A, B and C are respectively (1, 2), (3, 4) and (2, 5), then the equation of the diagonal AD is",
+      "question_raw": "<p>If in a parallelogram ABDC, the coordinates of A, B and C are respectively (1, 2), (3, 4) and (2, 5), then the equation of the diagonal AD is</p>\r\n",
+      "difficulty": "Hard",
+      "options": [
+        {
+          "id": 348859,
+          "text": "5x - 3y + 1 = 0"
+        },
+        {
+          "id": 348860,
+          "text": "5x + 3y - 11 = 0"
+        },
+        {
+          "id": 348858,
+          "text": "3x - 5y + 7 = 0"
+        },
+        {
+          "id": 348857,
+          "text": "3x + 5y - 13 = 0"
+        }
+      ],
+      "correct_option_id": null,
+      "correct_option_text": null,
+      "explanation": null
+    },
+    {
+      "id": 231552,
+      "question": "Two sides of a parallelogram are along the lines, x + y = 3 and x - y + 3 = 0. If its diagonals intersect at (2, 4), then one of its vertex is",
+      "question_raw": "<p>Two sides of a parallelogram are along the lines, x + y = 3 and x - y + 3 = 0. If its diagonals intersect at (2, 4), then one of its vertex is</p>\r\n",
+      "difficulty": "Hard",
+      "options": [
+        {
+          "id": 348870,
+          "text": "(2, 6)"
+        },
+        {
+          "id": 348869,
+          "text": "(3, 6)"
+        },
+        {
+          "id": 348871,
+          "text": "(2, 1)"
+        },
+        {
+          "id": 348872,
+          "text": "(3, 5)"
+        }
+      ],
+      "correct_option_id": null,
+      "correct_option_text": null,
+      "explanation": null
+    },
+    {
+      "id": 231554,
+      "question": "The shortest distance between the point $\\left(\\frac{3}{2}, 0\\right)$ and the curve y = $\\sqrt{x}$, (x > 0), is",
+      "question_raw": "<p>The shortest distance between the point&nbsp;<span class=\"math-tex\">{tex}\\left(\\frac{3}{2}, 0\\right){/tex}</span>&nbsp;and the curve y =&nbsp;<span class=\"math-tex\">{tex}\\sqrt{x}{/tex}</span>, (x &gt; 0), is</p>\r\n",
+      "difficulty": "Hard",
+      "options": [
+        {
+          "id": 348877,
+          "text": "$\\frac{3}{2}$"
+        },
+        {
+          "id": 348880,
+          "text": "$\\frac{\\sqrt{5}}{2}$"
+        },
+        {
+          "id": 348879,
+          "text": "$\\frac{\\sqrt{3}}{2}$"
+        },
+        {
+          "id": 348878,
+          "text": "$\\frac{5}{4}$"
+        }
+      ],
+      "correct_option_id": null,
+      "correct_option_text": null,
+      "explanation": null
+    },
+    {
+      "id": 231557,
+      "question": "If the line 3x + 4y - 24 = 0 intersects the X-axis at the point A and the Y-axis at the point B, then the incentre of the triangle OAB, where O is the origin, is",
+      "question_raw": "<p>If the line 3x + 4y - 24 = 0 intersects the X-axis at the point A and the Y-axis at the point B, then the incentre of the triangle OAB, where O is the origin, is</p>\r\n",
+      "difficulty": "Hard",
+      "options": [
+        {
+          "id": 348891,
+          "text": "(4, 4)"
+        },
+        {
+          "id": 348892,
+          "text": "(2, 2)"
+        },
+        {
+          "id": 348890,
+          "text": "(3, 4)"
+        },
+        {
+          "id": 348889,
+          "text": "(4, 3)"
+        }
+      ],
+      "correct_option_id": null,
+      "correct_option_text": null,
+      "explanation": null
+    },
+    {
+      "id": 231564,
+      "question": "Let k be an integer such that the triangle with vertices (k, - 3k), (5, k) and (- k, 2) has area 28 sq units. Then, the orthocentre of this triangle is at the point",
+      "question_raw": "<p>Let k be an integer such that the triangle with vertices (k, - 3k), (5, k) and (- k, 2) has area 28 sq units. Then, the orthocentre of this triangle is at the point</p>\r\n",
+      "difficulty": "Hard",
+      "options": [
+        {
+          "id": 348920,
+          "text": "$\\left(2, \\frac{1}{2}\\right)$"
+        },
+        {
+          "id": 348919,
+          "text": "$\\left(1,-\\frac{3}{4}\\right)$"
+        },
+        {
+          "id": 348917,
+          "text": "$\\left(2,-\\frac{1}{2}\\right)$"
+        },
+        {
+          "id": 348918,
+          "text": "$\\left(1, \\frac{3}{4}\\right)$"
+        }
+      ],
+      "correct_option_id": null,
+      "correct_option_text": null,
+      "explanation": null
+    },
+    {
+      "id": 231569,
+      "question": "Let a, b, c and d be non-zero numbers. If the point of intersection of the lines 4ax + 2ay + c = 0 and 5bx + 2by + d = 0 lies in the fourth quadrant and is equidistant from the two axes, then",
+      "question_raw": "<p>Let a, b, c and d be non-zero numbers. If the point of intersection of the lines 4ax + 2ay + c = 0 and 5bx + 2by + d = 0 lies in the fourth quadrant and is equidistant from the two axes, then</p>\r\n",
+      "difficulty": "Hard",
+      "options": [
+        {
+          "id": 348939,
+          "text": "2ad - 3bc = 0"
+        },
+        {
+          "id": 348937,
+          "text": "2bc - 3ad = 0"
+        },
+        {
+          "id": 348940,
+          "text": "3bc + 2ad = 0"
+        },
+        {
+          "id": 348938,
+          "text": "2bc + 3ad = 0"
+        }
+      ],
+      "correct_option_id": null,
+      "correct_option_text": null,
+      "explanation": null
+    },
+    {
+      "id": 231570,
+      "question": "Let PS be the median of the triangle with vertices P(2, 2), Q(6, -1) and R(7, 3), then the equation of the line passing through (1, -1) and parallel to PS is:",
+      "question_raw": "<p>Let&nbsp;PS be the median of the triangle with vertices P(2, 2), Q(6, -1) and R(7, 3),&nbsp;then the equation of the line passing through (1, -1) and parallel to PS is:</p>",
+      "difficulty": "Hard",
+      "options": [
+        {
+          "id": 348944,
+          "text": "2x - 9y - 11 = 0"
+        },
+        {
+          "id": 348942,
+          "text": "2x + 9y + 7 = 0"
+        },
+        {
+          "id": 348943,
+          "text": "4x + 7y + 3 = 0"
+        },
+        {
+          "id": 348941,
+          "text": "4x - 7y - 11 = 0"
+        }
+      ],
+      "correct_option_id": null,
+      "correct_option_text": null,
+      "explanation": null
+    },
+    {
+      "id": 231572,
+      "question": "The x-coordinate of the incentre of the triangle that has the coordinates of mid-points of its sides as (0, 1), (1, 1) and (1, 0) is",
+      "question_raw": "<p>The x-coordinate of the incentre of the triangle that has the coordinates of mid-points of its sides as (0, 1), (1, 1) and (1, 0) is</p>\r\n",
+      "difficulty": "Hard",
+      "options": [
+        {
+          "id": 348949,
+          "text": "2 + $\\sqrt{2}$"
+        },
+        {
+          "id": 348952,
+          "text": "1 - $\\sqrt{2}$"
+        },
+        {
+          "id": 348950,
+          "text": "2 - $\\sqrt{2}$"
+        },
+        {
+          "id": 348951,
+          "text": "1 + $\\sqrt{2}$"
+        }
+      ],
+      "correct_option_id": null,
+      "correct_option_text": null,
+      "explanation": null
+    },
+    {
+      "id": 231577,
+      "question": "A straight line L through the point (3, -2) is inclined at an angle 60° to the line $\\sqrt{3}$x + y = 1. If L also intersects the X-axis, then the equation of L is",
+      "question_raw": "<p>A straight line L through the point (3, -2) is inclined at an angle 60&deg; to the line <span class=\"math-tex\">{tex}\\sqrt{3}{/tex}</span>x + y = 1. If L also intersects the X-axis, then the equation of L is</p>\r\n",
+      "difficulty": "Hard",
+      "options": [
+        {
+          "id": 348970,
+          "text": "y - $\\sqrt{3}$x + 2 + 3$\\sqrt{3}$ = 0"
+        },
+        {
+          "id": 348969,
+          "text": "y + $\\sqrt{3}$x + 2 - 3$\\sqrt{3}$ = 0"
+        },
+        {
+          "id": 348971,
+          "text": "$\\sqrt{3}$y - x + 3 + 2$\\sqrt{3}$ = 0"
+        },
+        {
+          "id": 348972,
+          "text": "$\\sqrt{3}$y + x - 3 + 2$\\sqrt{3}$ = 0"
+        }
+      ],
+      "correct_option_id": null,
+      "correct_option_text": null,
+      "explanation": null
+    },
+    {
+      "id": 231579,
+      "question": "The locus of the orthocentre of the triangle formed by the lines (1 + p)x - py + p(1 + p) = 0, (1 + q)x - qy + q(1 + q) = 0 and y = 0, where p $\\ne$ q, is",
+      "question_raw": "<p>The locus of the orthocentre of the triangle formed by the lines (1 + p)x - py + p(1 + p) = 0, (1 + q)x - qy + q(1 + q) = 0 and y = 0, where p&nbsp;<span class=\"math-tex\">{tex}\\ne{/tex}</span> q, is<!--(l+ q) = 0 and y = 0, where p * q, is--></p>\r\n",
+      "difficulty": "Hard",
+      "options": [
+        {
+          "id": 348978,
+          "text": "a parabola"
+        },
+        {
+          "id": 348977,
+          "text": "a hyperbola"
+        },
+        {
+          "id": 348980,
+          "text": "a straight line"
+        },
+        {
+          "id": 348979,
+          "text": "an ellipse"
+        }
+      ],
+      "correct_option_id": null,
+      "correct_option_text": null,
+      "explanation": null
+    },
+    {
+      "id": 231581,
+      "question": "Let O(0, 0), P(3, 4) and Q(6, 0) be the vertices of a $\\triangle$OPQ. The point R inside the $\\triangle$OPQ is such that the triangles OPR, PQR and OQR are of equal area. The coordinates of R are",
+      "question_raw": "<p>Let O(0, 0), P(3, 4) and Q(6, 0) be the vertices of a <span class=\"math-tex\">{tex}\\triangle{/tex}</span>OPQ. The point R inside the <span class=\"math-tex\">{tex}\\triangle{/tex}</span>OPQ is such that the triangles OPR, PQR and OQR are of equal area. The coordinates of R are</p>\r\n",
+      "difficulty": "Hard",
+      "options": [
+        {
+          "id": 348987,
+          "text": "$\\left(3, \\frac{4}{3}\\right)$"
+        },
+        {
+          "id": 348985,
+          "text": "$\\left(\\frac{4}{3}, 3\\right)$"
+        },
+        {
+          "id": 348986,
+          "text": "$\\left(3, \\frac{2}{3}\\right)$"
+        },
+        {
+          "id": 348988,
+          "text": "$\\left(\\frac{4}{3}, \\frac{2}{3}\\right)$"
+        }
+      ],
+      "correct_option_id": null,
+      "correct_option_text": null,
+      "explanation": null
+    },
+    {
+      "id": 231585,
+      "question": "The number of integer values of m, for which the x-coordinate of the point of intersection of the lines 3x + 4y = 9 and y = mx + 1 is also an integer, is",
+      "question_raw": "<p>The number of integer values of m, for which the x-coordinate of the point of intersection of the lines 3x + 4y = 9 and y = mx + 1 is also an integer, is</p>\r\n",
+      "difficulty": "Hard",
+      "options": [
+        {
+          "id": 349002,
+          "text": "0"
+        },
+        {
+          "id": 349003,
+          "text": "4"
+        },
+        {
+          "id": 349004,
+          "text": "1"
+        },
+        {
+          "id": 349001,
+          "text": "2"
+        }
+      ],
+      "correct_option_id": null,
+      "correct_option_text": null,
+      "explanation": null
+    },
+    {
+      "id": 231586,
+      "question": "A straight line through the origin O meets the parallel lines 4x + 2y = 9 and 2x + y + 6 = 0 at points P and Q respectively. Then, point O divides the segment PQ in the ratio",
+      "question_raw": "<p>A straight line through the origin O meets the parallel lines 4x + 2y = 9 and 2x + y + 6 = 0 at points P and Q respectively. Then, point O divides the segment PQ in the ratio</p>\r\n",
+      "difficulty": "Hard",
+      "options": [
+        {
+          "id": 349007,
+          "text": "2 : 1"
+        },
+        {
+          "id": 349005,
+          "text": "1 : 2"
+        },
+        {
+          "id": 349006,
+          "text": "3 : 4"
+        },
+        {
+          "id": 349008,
+          "text": "4 : 3"
+        }
+      ],
+      "correct_option_id": null,
+      "correct_option_text": null,
+      "explanation": null
+    },
+    {
+      "id": 231596,
+      "question": "If P (1, 2), Q (4, 6), R (5, 7) and S(a, b) are the vertices of a parallelogram PQRS, then",
+      "question_raw": "<p>If P (1, 2), Q (4, 6), R (5, 7) and S(a, b) are the vertices of a parallelogram PQRS, then</p>\r\n",
+      "difficulty": "Hard",
+      "options": [
+        {
+          "id": 349045,
+          "text": "a = 2, b = 4"
+        },
+        {
+          "id": 349048,
+          "text": "a = 3, b = 5"
+        },
+        {
+          "id": 349047,
+          "text": "a = 2, b = 3"
+        },
+        {
+          "id": 349046,
+          "text": "a = 3, b = 4"
+        }
+      ],
+      "correct_option_id": null,
+      "correct_option_text": null,
+      "explanation": null
+    },
+    {
+      "id": 231599,
+      "question": "The diagonals of a parallelogram PQRS are along the lines x + 3y = 4 and 6x - 2y = 7. Then, PQRS must be a",
+      "question_raw": "<p>The diagonals of a parallelogram PQRS are along the lines x + 3y = 4 and 6x - 2y = 7. Then, PQRS must be a</p>",
+      "difficulty": "Hard",
+      "options": [
+        {
+          "id": 349059,
+          "text": "cyclic quadrilateral"
+        },
+        {
+          "id": 349060,
+          "text": "rhombus"
+        },
+        {
+          "id": 349058,
+          "text": "square"
+        },
+        {
+          "id": 349057,
+          "text": "rectangle"
+        }
+      ],
+      "correct_option_id": null,
+      "correct_option_text": null,
+      "explanation": null
+    },
+    {
+      "id": 231601,
+      "question": "The graph of the function cosx cos (x + 2) - cos^2 (x + 1) is",
+      "question_raw": "<p>The graph of the function cosx cos (x + 2) - cos<sup>2</sup> (x + 1) is</p>\r\n",
+      "difficulty": "Hard",
+      "options": [
+        {
+          "id": 349065,
+          "text": "a straight line passing through (0, - sin^2 1) with slope 2"
+        },
+        {
+          "id": 349066,
+          "text": "a straight line passing through (0, 0)"
+        },
+        {
+          "id": 349068,
+          "text": "a straight line passing through the point $\\left(\\frac{\\pi}{2},-\\sin ^{2} 1\\right)$ and parallel to the X-axis"
+        },
+        {
+          "id": 349067,
+          "text": "a parabola with vertex (1, - sin^2 1)"
+        }
+      ],
+      "correct_option_id": null,
+      "correct_option_text": null,
+      "explanation": null
+    },
+    {
+      "id": 231612,
+      "question": "The point (4, 1) undergoes the following three transformations successively\n Reflection about the line y = x.\r\n Transformation through a distance 2 units along the positive direction of X-axis.\r\n Rotation through an angle $\\frac{\\pi}{4}$ about the origin in the counter clockwise direction.\r\nThen, the final position of the point is given by the coordinates.",
+      "question_raw": "<p>The point (4, 1) undergoes the following three transformations successively</p>\r\n\r\n<ol start=\"1\" style=\"list-style-type:lower-roman\">\r\n\t<li>Reflection about the line y = x.</li>\r\n\t<li>Transformation through a distance 2 units along the positive direction of X-axis.</li>\r\n\t<li>Rotation through an angle <span class=\"math-tex\">{tex}\\frac{\\pi}{4}{/tex}</span>&nbsp;about the origin in the counter clockwise direction.</li>\r\n</ol>\r\n\r\n<p>Then, the final position of the point is given by the coordinates.</p>",
+      "difficulty": "Hard",
+      "options": [
+        {
+          "id": 349112,
+          "text": "$(\\sqrt{2}, 7 \\sqrt{2})$"
+        },
+        {
+          "id": 349110,
+          "text": "$(-\\sqrt{2}, 7 \\sqrt{2})$"
+        },
+        {
+          "id": 349109,
+          "text": "$\\left(\\frac{1}{\\sqrt{2}}, \\frac{7}{\\sqrt{2}}\\right)$"
+        },
+        {
+          "id": 349111,
+          "text": "$\\left(-\\frac{1}{\\sqrt{2}}, \\frac{7}{\\sqrt{2}}\\right)$"
+        }
+      ],
+      "correct_option_id": null,
+      "correct_option_text": null,
+      "explanation": null
+    },
+    {
+      "id": 231621,
+      "question": "Two sides of a rhombus are along the lines, x - y + 1 = 0 and 7x - y - 5 = 0. If its diagonals intersect at (-1, - 2), then which one of the following is a vertex of this rhombus?",
+      "question_raw": "<p>Two sides of a rhombus are along the lines, x - y +&nbsp;1 = 0 and 7x - y - 5 = 0. If its diagonals intersect at (-1, - 2), then which one of the following is a vertex of this rhombus?</p>\r\n",
+      "difficulty": "Hard",
+      "options": [
+        {
+          "id": 349148,
+          "text": "$\\left(-\\frac{10}{3},-\\frac{7}{3}\\right)$"
+        },
+        {
+          "id": 349147,
+          "text": "$\\left(\\frac{1}{3},-\\frac{8}{3}\\right)$"
+        },
+        {
+          "id": 349145,
+          "text": "(-3, -9)"
+        },
+        {
+          "id": 349146,
+          "text": "(-3, -8)"
+        }
+      ],
+      "correct_option_id": null,
+      "correct_option_text": null,
+      "explanation": null
+    },
+    {
+      "id": 231623,
+      "question": "Area of the parallelogram formed by the lines y = mx, y = mx + 1, y = nx and y = nx+ 1 equals",
+      "question_raw": "<p>Area of the parallelogram formed by the lines y = mx, y = mx + 1, y = nx and y = nx+ 1 equals</p>\r\n",
+      "difficulty": "Hard",
+      "options": [
+        {
+          "id": 349154,
+          "text": "$\\frac{2}{|m+n|}$"
+        },
+        {
+          "id": 349156,
+          "text": "$\\frac{1}{|m-n|}$"
+        },
+        {
+          "id": 349155,
+          "text": "$\\frac{1}{|m+n|}$"
+        },
+        {
+          "id": 349153,
+          "text": "$\\frac{|m+n|}{(m-n)^{2}}$"
+        }
+      ],
+      "correct_option_id": null,
+      "correct_option_text": null,
+      "explanation": null
+    },
+    {
+      "id": 231625,
+      "question": "The points $\\left(0, \\frac{8}{3}\\right),(1,3)$ and (82, 30) are vertices of",
+      "question_raw": "<p>The points&nbsp;<span class=\"math-tex\">{tex}\\left(0, \\frac{8}{3}\\right),(1,3){/tex}</span>&nbsp;and (82, 30) are vertices of</p>",
+      "difficulty": "Hard",
+      "options": [
+        {
+          "id": 349163,
+          "text": "A right angled triangle"
+        },
+        {
+          "id": 349162,
+          "text": "An acute angled triangle"
+        },
+        {
+          "id": 349164,
+          "text": "None of these"
+        },
+        {
+          "id": 349161,
+          "text": "An obtuse angled triangle"
+        }
+      ],
+      "correct_option_id": null,
+      "correct_option_text": null,
+      "explanation": null
+    },
+    {
+      "id": 231627,
+      "question": "The straight lines x + y = 0, 3x + y - 4 = 0, x + 3y - 4 = 0 form a triangle which is",
+      "question_raw": "<p>The straight lines x + y = 0, 3x + y - 4 = 0, x + 3y - 4 = 0 form a triangle which is</p>",
+      "difficulty": "Hard",
+      "options": [
+        {
+          "id": 349169,
+          "text": "Isosceles"
+        },
+        {
+          "id": 349171,
+          "text": "Right angled"
+        },
+        {
+          "id": 349170,
+          "text": "Equilateral"
+        },
+        {
+          "id": 349172,
+          "text": "Scalene triangle"
+        }
+      ],
+      "correct_option_id": null,
+      "correct_option_text": null,
+      "explanation": null
+    },
+    {
+      "id": 284748,
+      "question": "The inclination of the line x – y + 3 = 0 with the positive direction of x-axis is",
+      "question_raw": "<p>The inclination of the line x &ndash; y + 3 = 0 with the positive direction of x-axis is</p>",
+      "difficulty": "Easy",
+      "options": [
+        {
+          "id": 406964,
+          "text": "– 45°"
+        },
+        {
+          "id": 406965,
+          "text": "–135°"
+        },
+        {
+          "id": 406963,
+          "text": "135°"
+        },
+        {
+          "id": 406962,
+          "text": "45°"
+        }
+      ],
+      "correct_option_id": null,
+      "correct_option_text": null,
+      "explanation": null
+    },
+    {
+      "id": 284753,
+      "question": "The two lines ax + by = c and a′x + b′y = c′ are perpendicular if",
+      "question_raw": "<p>The two lines ax + by = c and a&prime;x + b&prime;y = c&prime; are perpendicular if</p>",
+      "difficulty": "Medium",
+      "options": [
+        {
+          "id": 406972,
+          "text": "ab + a′b′ = 0"
+        },
+        {
+          "id": 406973,
+          "text": "ab′ + ba′ = 0"
+        },
+        {
+          "id": 406970,
+          "text": "aa′ + bb′ = 0"
+        },
+        {
+          "id": 406971,
+          "text": "ab′ = ba′"
+        }
+      ],
+      "correct_option_id": null,
+      "correct_option_text": null,
+      "explanation": null
+    },
+    {
+      "id": 284759,
+      "question": "The equation of the line passing through (1, 2) and perpendicular to x + y + 7 = 0 is",
+      "question_raw": "<p>The equation of the line passing through (1, 2) and perpendicular to x + y + 7 = 0 is</p>",
+      "difficulty": "Medium",
+      "options": [
+        {
+          "id": 406978,
+          "text": "y – x – 1 = 0"
+        },
+        {
+          "id": 406981,
+          "text": "y – x – 2 = 0."
+        },
+        {
+          "id": 406980,
+          "text": "y – x + 2 = 0"
+        },
+        {
+          "id": 406979,
+          "text": "y – x + 1 = 0"
+        }
+      ],
+      "correct_option_id": null,
+      "correct_option_text": null,
+      "explanation": null
+    },
+    {
+      "id": 284767,
+      "question": "The distance of the point P (1, – 3) from the line 2y – 3x = 4 is",
+      "question_raw": "<p>The distance of the point P (1, &ndash; 3) from the line 2y &ndash; 3x = 4 is</p>",
+      "difficulty": "Medium",
+      "options": [
+        {
+          "id": 406992,
+          "text": "13"
+        },
+        {
+          "id": 406991,
+          "text": "$\\frac{7}{13} \\sqrt{13}$"
+        },
+        {
+          "id": 406990,
+          "text": "$\\sqrt{13}$"
+        },
+        {
+          "id": 406993,
+          "text": "$3\\sqrt{13}$"
+        }
+      ],
+      "correct_option_id": null,
+      "correct_option_text": null,
+      "explanation": null
+    },
+    {
+      "id": 284778,
+      "question": "The intercept cut off by a line from y-axis is twice than that from x-axis, and the line passes through the point (1, 2). The equation of the line is",
+      "question_raw": "<p>The intercept cut off by a line from y-axis is twice than that from x-axis, and the line passes through the point (1, 2). The equation of the line is</p>",
+      "difficulty": "Medium",
+      "options": [
+        {
+          "id": 407011,
+          "text": "2x + y + 4 = 0"
+        },
+        {
+          "id": 407010,
+          "text": "2x + y = 4"
+        },
+        {
+          "id": 407012,
+          "text": "2x – y = 4"
+        },
+        {
+          "id": 407013,
+          "text": "2x – y + 4 = 0"
+        }
+      ],
+      "correct_option_id": null,
+      "correct_option_text": null,
+      "explanation": null
+    },
+    {
+      "id": 284786,
+      "question": "A line passes through P (1, 2) such that its intercept between the axes is bisected at P. The equation of the line is",
+      "question_raw": "<p>A line passes through P (1, 2) such that its intercept between the axes is bisected at P. The equation of the line is</p>",
+      "difficulty": "Medium",
+      "options": [
+        {
+          "id": 407022,
+          "text": "2x + y – 4 = 0"
+        },
+        {
+          "id": 407024,
+          "text": "x – y + 1 = 0"
+        },
+        {
+          "id": 407025,
+          "text": "x + 2y = 5"
+        },
+        {
+          "id": 407023,
+          "text": "x + y – 3 = 0"
+        }
+      ],
+      "correct_option_id": null,
+      "correct_option_text": null,
+      "explanation": null
+    },
+    {
+      "id": 284793,
+      "question": "The reflection of the point (4, -13) about the line 5x + y + 6 = 0 is",
+      "question_raw": "<p>The reflection of the point (4, -13) about the line 5x + y + 6 = 0 is</p>",
+      "difficulty": "Hard",
+      "options": [
+        {
+          "id": 407038,
+          "text": "(-1, -14)"
+        },
+        {
+          "id": 407040,
+          "text": "(0, 0)"
+        },
+        {
+          "id": 407039,
+          "text": "(3, 4)"
+        },
+        {
+          "id": 407041,
+          "text": "(1, 2)"
+        }
+      ],
+      "correct_option_id": null,
+      "correct_option_text": null,
+      "explanation": null
+    },
+    {
+      "id": 284803,
+      "question": "A point moves such that its distance from the point (4, 0) is half that of its distance from the line x = 16. The locus of the point is",
+      "question_raw": "<p>A point moves such that its distance from the point (4, 0) is half that of its distance from the line x = 16. The locus of the point is</p>",
+      "difficulty": "Hard",
+      "options": [
+        {
+          "id": 407059,
+          "text": "4x^2 + 3y^2 = 192"
+        },
+        {
+          "id": 407061,
+          "text": "3x^2 + 2y^2 = 192"
+        },
+        {
+          "id": 407060,
+          "text": "x^2 + y^2 = 192"
+        },
+        {
+          "id": 407058,
+          "text": "3x^2 + 4y^2 = 192"
+        }
+      ],
+      "correct_option_id": null,
+      "correct_option_text": null,
+      "explanation": null
+    },
+    {
+      "id": 285014,
+      "question": "A line cutting off intercept – 3 from the y-axis and the tengent at angle to the x-axis is $\\frac{3}{5}$, its equation is",
+      "question_raw": "<p>A line cutting off intercept &ndash; 3 from the y-axis and the tengent at angle to the x-axis&nbsp;is&nbsp;<span class=\"math-tex\">{tex}\\frac{3}{5}{/tex}</span>, its equation is</p>",
+      "difficulty": "Hard",
+      "options": [
+        {
+          "id": 407290,
+          "text": "5y – 3x + 15 = 0"
+        },
+        {
+          "id": 407291,
+          "text": "3y – 5x + 15 = 0"
+        },
+        {
+          "id": 407293,
+          "text": "5y + 3x – 15 = 0"
+        },
+        {
+          "id": 407292,
+          "text": "5y – 3x – 15 = 0"
+        }
+      ],
+      "correct_option_id": null,
+      "correct_option_text": null,
+      "explanation": null
+    },
+    {
+      "id": 285021,
+      "question": "The equation of the straight line passing through the point (3, 2) and perpendicular to the line y = x is",
+      "question_raw": "<p>The equation of the straight line passing through the point (3, 2) and perpendicular to the line y = x is</p>",
+      "difficulty": "Easy",
+      "options": [
+        {
+          "id": 407313,
+          "text": "x – y = 1"
+        },
+        {
+          "id": 407310,
+          "text": "x + y = 5"
+        },
+        {
+          "id": 407311,
+          "text": "x – y = 5"
+        },
+        {
+          "id": 407312,
+          "text": "x + y = 1"
+        }
+      ],
+      "correct_option_id": null,
+      "correct_option_text": null,
+      "explanation": null
+    },
+    {
+      "id": 285030,
+      "question": "The equation of the line passing through the point (1, 2) and perpendicular to the line x + y + 1 = 0 is",
+      "question_raw": "<p>The equation of the line passing through the point (1, 2) and perpendicular to the line x + y + 1 = 0 is</p>",
+      "difficulty": "Medium",
+      "options": [
+        {
+          "id": 407330,
+          "text": "y – x – 1 = 0"
+        },
+        {
+          "id": 407332,
+          "text": "y – x + 2 = 0"
+        },
+        {
+          "id": 407331,
+          "text": "y – x – 2 = 0"
+        },
+        {
+          "id": 407333,
+          "text": "y – x + 1 = 0"
+        }
+      ],
+      "correct_option_id": null,
+      "correct_option_text": null,
+      "explanation": null
+    },
+    {
+      "id": 285100,
+      "question": "The coordinates of the foot of perpendiculars from the point (2, 3) on the line y = 3x + 4 is given by",
+      "question_raw": "<p>The coordinates of the foot of perpendiculars from the point (2, 3) on the line y = 3x + 4 is given by</p>",
+      "difficulty": "Hard",
+      "options": [
+        {
+          "id": 407462,
+          "text": "$\\frac{-1}{10}, \\frac{37}{10}$"
+        },
+        {
+          "id": 407464,
+          "text": "$\\frac{10}{37},-10$"
+        },
+        {
+          "id": 407463,
+          "text": "$\\frac{37}{10}, \\frac{-1}{10}$"
+        },
+        {
+          "id": 407465,
+          "text": "$\\frac{2}{3},-\\frac{1}{3}$"
+        }
+      ],
+      "correct_option_id": null,
+      "correct_option_text": null,
+      "explanation": null
+    },
+    {
+      "id": 285131,
+      "question": "If the coordinates of the middle point of the portion of a line intercepted between the coordinate axes is (3, 2), then the equation of the line will be",
+      "question_raw": "<p>If the coordinates of the middle point of the portion of a line intercepted between the coordinate axes is (3, 2), then the equation of the line will be</p>",
+      "difficulty": "Hard",
+      "options": [
+        {
+          "id": 407495,
+          "text": "3x + 2y = 12"
+        },
+        {
+          "id": 407496,
+          "text": "4x – 3y = 6"
+        },
+        {
+          "id": 407494,
+          "text": "2x + 3y = 12"
+        },
+        {
+          "id": 407497,
+          "text": "5x – 2y = 10"
+        }
+      ],
+      "correct_option_id": null,
+      "correct_option_text": null,
+      "explanation": null
+    },
+    {
+      "id": 285140,
+      "question": "Equation of the line passing through (1, 2) and parallel to the line y = 3x - 1 is",
+      "question_raw": "<p>Equation of the line passing through (1, 2) and parallel to the line y = 3x - 1 is</p>",
+      "difficulty": "Medium",
+      "options": [
+        {
+          "id": 407517,
+          "text": "y – 2 = x – 1"
+        },
+        {
+          "id": 407515,
+          "text": "y + 2 = 3 (x + 1)"
+        },
+        {
+          "id": 407516,
+          "text": "y - 2 = 3 (x – 1)"
+        },
+        {
+          "id": 407514,
+          "text": "y + 2 = x + 1"
+        }
+      ],
+      "correct_option_id": null,
+      "correct_option_text": null,
+      "explanation": null
+    },
+    {
+      "id": 285144,
+      "question": "For specifying a straight line, how many geometrical parameters should be known?",
+      "question_raw": "<p>For specifying a straight line, how many geometrical parameters should be known?</p>",
+      "difficulty": "Easy",
+      "options": [
+        {
+          "id": 407530,
+          "text": "1"
+        },
+        {
+          "id": 407533,
+          "text": "3"
+        },
+        {
+          "id": 407531,
+          "text": "2"
+        },
+        {
+          "id": 407532,
+          "text": "4"
+        }
+      ],
+      "correct_option_id": null,
+      "correct_option_text": null,
+      "explanation": null
+    },
+    {
+      "id": 285156,
+      "question": "Equations of diagonals of the square formed by the lines x = 0, y = 0, x = 1 and y = 1 are",
+      "question_raw": "<p>Equations of diagonals of the square formed by the lines x = 0, y = 0, x = 1 and y = 1 are</p>",
+      "difficulty": "Easy",
+      "options": [
+        {
+          "id": 407553,
+          "text": "y = 2x, y + 2x = 1"
+        },
+        {
+          "id": 407552,
+          "text": "2y = x, y + x = $\\frac 13$"
+        },
+        {
+          "id": 407551,
+          "text": "y = x, x + y = 2"
+        },
+        {
+          "id": 407550,
+          "text": "y = x, y + x = 1"
+        }
+      ],
+      "correct_option_id": null,
+      "correct_option_text": null,
+      "explanation": null
+    },
+    {
+      "id": 285159,
+      "question": "A point equidistant from the lines 4x + 3y + 10 = 0, 5x – 12y + 26 = 0 and 7x + 24y – 50 = 0 is",
+      "question_raw": "<p>A point equidistant from the lines 4x + 3y + 10 = 0, 5x &ndash; 12y + 26 = 0 and 7x + 24y &ndash; 50 = 0 is</p>",
+      "difficulty": "Hard",
+      "options": [
+        {
+          "id": 407561,
+          "text": "(0, 1)"
+        },
+        {
+          "id": 407560,
+          "text": "(0, 0)"
+        },
+        {
+          "id": 407558,
+          "text": "(1, -1)"
+        },
+        {
+          "id": 407559,
+          "text": "(1, 1)"
+        }
+      ],
+      "correct_option_id": null,
+      "correct_option_text": null,
+      "explanation": null
+    },
+    {
+      "id": 285176,
+      "question": "One vertex of the equilateral triangle with centroid at the origin and one side as x + y - 2 = 0 is\n[Hint: Let ABC be the equilateral triangle with vertex A (h, k) and let D ($\\alpha$, $\\beta$) be the point on BC. Then $\\frac{2 \\alpha+h}{3}=0=\\frac{2 \\beta+k}{3}$. Also $\\alpha+\\beta-2=0$ and $\\frac{k-0}{h-0} \\times(-1)=-1$.",
+      "question_raw": "<p>One vertex of the equilateral triangle with centroid at the origin and one side as x + y - 2 = 0 is<br />\r\n[<strong>Hint:</strong> Let ABC be the equilateral triangle with vertex A (h, k) and let D (<span class=\"math-tex\">{tex}\\alpha{/tex}</span>, <span class=\"math-tex\">{tex}\\beta{/tex}</span>) be the point on BC. Then&nbsp;<span class=\"math-tex\">{tex}\\frac{2 \\alpha+h}{3}=0=\\frac{2 \\beta+k}{3}{/tex}</span>. Also&nbsp;<span class=\"math-tex\">{tex}\\alpha+\\beta-2=0{/tex}</span>&nbsp;and&nbsp;<span class=\"math-tex\">{tex}\\frac{k-0}{h-0} \\times(-1)=-1{/tex}</span>.</p>",
+      "difficulty": "Medium",
+      "options": [
+        {
+          "id": 407604,
+          "text": "(-2, -2)"
+        },
+        {
+          "id": 407603,
+          "text": "(2, 2)"
+        },
+        {
+          "id": 407605,
+          "text": "(2, -2)"
+        },
+        {
+          "id": 407602,
+          "text": "(-1, -1)"
+        }
+      ],
+      "correct_option_id": null,
+      "correct_option_text": null,
+      "explanation": null
+    },
+    {
+      "id": 294432,
+      "question": "The equations of the sides AB, BC and CA of $\\triangle$ABC are y - x = 2, x + 2y = 1 and 3x + y + 5 = 0 respectively. The equation of the altitude through B is",
+      "question_raw": "<p>The equations of the sides AB, BC and CA of <span class=\"math-tex\">{tex}\\triangle{/tex}</span>ABC are y - x =&nbsp;2,&nbsp;x&nbsp;+ 2y = 1 and 3x + y + 5 = 0 respectively. The equation of the altitude through B is</p>",
+      "difficulty": "Easy",
+      "options": [
+        {
+          "id": 418984,
+          "text": "x - 3y + 1 = 0"
+        },
+        {
+          "id": 418985,
+          "text": "x - 3y + 4 = 0"
+        },
+        {
+          "id": 418987,
+          "text": "4x - y + 2 = 0"
+        },
+        {
+          "id": 418986,
+          "text": "3x - y + 2 = 0"
+        }
+      ],
+      "correct_option_id": null,
+      "correct_option_text": null,
+      "explanation": null
+    },
+    {
+      "id": 294436,
+      "question": "The line segment joining the points (-3, -4) and (1, -2) is divided by y-axis in the ratio.",
+      "question_raw": "<p>The line segment joining the points (-3, -4) and (1, -2) is divided by y-axis in the ratio.</p>",
+      "difficulty": "Medium",
+      "options": [
+        {
+          "id": 419002,
+          "text": "3 : 1"
+        },
+        {
+          "id": 419001,
+          "text": "2 : 3"
+        },
+        {
+          "id": 419003,
+          "text": "3 : 2"
+        },
+        {
+          "id": 419000,
+          "text": "1 : 3"
+        }
+      ],
+      "correct_option_id": null,
+      "correct_option_text": null,
+      "explanation": null
+    },
+    {
+      "id": 294437,
+      "question": "The area of a triangle with vertices at (- 4, -1), (1, 2) and (4, - 3) is",
+      "question_raw": "<p>The area of a triangle with vertices at (- 4, -1), (1, 2) and (4, - 3) is</p>",
+      "difficulty": "Medium",
+      "options": [
+        {
+          "id": 419005,
+          "text": "16"
+        },
+        {
+          "id": 419006,
+          "text": "15"
+        },
+        {
+          "id": 419004,
+          "text": "17"
+        },
+        {
+          "id": 419007,
+          "text": "14"
+        }
+      ],
+      "correct_option_id": null,
+      "correct_option_text": null,
+      "explanation": null
+    },
+    {
+      "id": 294439,
+      "question": "A (6, 3), B(-3, 5), C(4, -2) and D (x, 3x) are four points. If $\\triangle$DBC : $\\triangle$ABC = 1 : 2 , then x is equal to",
+      "question_raw": "<p>A (6, 3), B(-3, 5), C(4, -2) and D (x, 3x) are four points. If <span class=\"math-tex\">{tex}\\triangle{/tex}</span>DBC : <span class=\"math-tex\">{tex}\\triangle{/tex}</span>ABC = 1 : 2 , then x is equal to</p>",
+      "difficulty": "Medium",
+      "options": [
+        {
+          "id": 419013,
+          "text": "$\\frac {8} {11}$"
+        },
+        {
+          "id": 419015,
+          "text": "4"
+        },
+        {
+          "id": 419012,
+          "text": "$\\frac {11} {8}$"
+        },
+        {
+          "id": 419014,
+          "text": "3"
+        }
+      ],
+      "correct_option_id": null,
+      "correct_option_text": null,
+      "explanation": null
+    },
+    {
+      "id": 294440,
+      "question": "If p be the length of the perpendicular from the origin on the line $\\frac {x} {a} + \\frac {y} {b} = 1$, then",
+      "question_raw": "<p>If p be the length of the perpendicular from the origin on the line&nbsp;<span class=\"math-tex\">{tex}\\frac {x} {a} + \\frac {y} {b} = 1{/tex}</span>, then</p>",
+      "difficulty": "Medium",
+      "options": [
+        {
+          "id": 419019,
+          "text": "p^2 = 2a^2 + 2b^2"
+        },
+        {
+          "id": 419018,
+          "text": "$\\frac{1}{p^{2}}=\\frac{1}{a^{2}}+\\frac{1}{b^{2}}$"
+        },
+        {
+          "id": 419017,
+          "text": "$p^{2}=\\frac{1}{a^{2}}+\\frac{1}{b^{2}}$"
+        },
+        {
+          "id": 419016,
+          "text": "p^2 = a^2 + b^2"
+        }
+      ],
+      "correct_option_id": null,
+      "correct_option_text": null,
+      "explanation": null
+    },
+    {
+      "id": 294441,
+      "question": "The equation of the line passing through (1, 5) and perpendicular to the line 3x - 5y + 7 = 0 is",
+      "question_raw": "<p>The equation of the line passing through (1, 5) and perpendicular to the line 3x - 5y + 7 = 0 is</p>",
+      "difficulty": "Easy",
+      "options": [
+        {
+          "id": 419021,
+          "text": "3x - 5y + 7 = 0"
+        },
+        {
+          "id": 419020,
+          "text": "5x + 3y - 20 = 0"
+        },
+        {
+          "id": 419022,
+          "text": "3x - 5y + 6 = 0"
+        },
+        {
+          "id": 419023,
+          "text": "5x + 3y + 7 = 0"
+        }
+      ],
+      "correct_option_id": null,
+      "correct_option_text": null,
+      "explanation": null
+    },
+    {
+      "id": 294442,
+      "question": "The inclination of the straight line passing through the point (-3, 6) and the mid-point of the line joining the point (4, -5) and (-2 ,9) is",
+      "question_raw": "<p>The inclination of the straight line passing through the point (-3, 6) and the mid-point of the line joining the point (4, -5) and (-2 ,9) is</p>",
+      "difficulty": "Medium",
+      "options": [
+        {
+          "id": 419026,
+          "text": "$\\frac {\\pi} {3}$"
+        },
+        {
+          "id": 419027,
+          "text": "$\\frac {3\\pi} {4}$"
+        },
+        {
+          "id": 419025,
+          "text": "$\\frac {\\pi} {6}$"
+        },
+        {
+          "id": 419024,
+          "text": "$\\frac {\\pi} {4}$"
+        }
+      ],
+      "correct_option_id": null,
+      "correct_option_text": null,
+      "explanation": null
+    },
+    {
+      "id": 294445,
+      "question": "Three vertices of a parallelogram taken in order are (-1, -6), (2, -5) and (7, 2). The fourth vertex is",
+      "question_raw": "<p>Three vertices of a parallelogram taken in order are (-1, -6), (2, -5) and (7, 2). The fourth vertex is</p>",
+      "difficulty": "Medium",
+      "options": [
+        {
+          "id": 419036,
+          "text": "(1, 4)"
+        },
+        {
+          "id": 419037,
+          "text": "(4, 1)"
+        },
+        {
+          "id": 419039,
+          "text": "(4, 4)"
+        },
+        {
+          "id": 419038,
+          "text": "(1, 1)"
+        }
+      ],
+      "correct_option_id": null,
+      "correct_option_text": null,
+      "explanation": null
+    },
+    {
+      "id": 294446,
+      "question": "The angle between the lines 2x - y + 3 = 0 and x + 2y + 3 = 0 is",
+      "question_raw": "<p>The angle between the lines 2x - y + 3 = 0 and x + 2y + 3 = 0 is</p>",
+      "difficulty": "Medium",
+      "options": [
+        {
+          "id": 419040,
+          "text": "90°"
+        },
+        {
+          "id": 419041,
+          "text": "60°"
+        },
+        {
+          "id": 419042,
+          "text": "45°"
+        },
+        {
+          "id": 419043,
+          "text": "30°"
+        }
+      ],
+      "correct_option_id": null,
+      "correct_option_text": null,
+      "explanation": null
+    },
+    {
+      "id": 294447,
+      "question": "The centroid of a triangle is (2, 7) and two of its vertices are (4, 8) and (-2, 6). The third vertex is",
+      "question_raw": "<p>The centroid of a triangle is (2, 7) and two of its vertices are (4, 8) and (-2, 6). The third vertex is</p>",
+      "difficulty": "Medium",
+      "options": [
+        {
+          "id": 419044,
+          "text": "(0, 0)"
+        },
+        {
+          "id": 419045,
+          "text": "(4, 7)"
+        },
+        {
+          "id": 419047,
+          "text": "(7, 7)"
+        },
+        {
+          "id": 419046,
+          "text": "(7, 4)"
+        }
+      ],
+      "correct_option_id": null,
+      "correct_option_text": null,
+      "explanation": null
+    },
+    {
+      "id": 294457,
+      "question": "The acute angle between the medians drawn from the acute angles of a right angled isosceles triangle is",
+      "question_raw": "<p>The acute angle between the medians drawn from the acute angles of a right angled isosceles triangle is</p>",
+      "difficulty": "Easy",
+      "options": [
+        {
+          "id": 419059,
+          "text": "cos^-1 $\\left(\\frac{5}{6}\\right)$"
+        },
+        {
+          "id": 419056,
+          "text": "cos^-1 $\\left(\\frac{2}{3}\\right)$"
+        },
+        {
+          "id": 419058,
+          "text": "cos^-1 $\\left(\\frac{4}{5}\\right)$"
+        },
+        {
+          "id": 419057,
+          "text": "cos^-1 $\\left(\\frac{3}{4}\\right)$"
+        }
+      ],
+      "correct_option_id": null,
+      "correct_option_text": null,
+      "explanation": null
+    },
+    {
+      "id": 294458,
+      "question": "The equation of the straight line which passes through the point (-4, 3) such that the portion of the line between the axes is divided internally by the point in the ratio 5 : 3.",
+      "question_raw": "<p>The equation of the straight line which passes through the point (-4, 3) such that the portion of the line between the axes is divided internally by the point in the ratio 5 : 3.</p>",
+      "difficulty": "Hard",
+      "options": [
+        {
+          "id": 419063,
+          "text": "9x - 20y - 96 = 0"
+        },
+        {
+          "id": 419060,
+          "text": "9x - 20y + 96 = 0"
+        },
+        {
+          "id": 419061,
+          "text": "9x + 20y = 24"
+        },
+        {
+          "id": 419062,
+          "text": "20x + 9y + 53 = 0"
+        }
+      ],
+      "correct_option_id": null,
+      "correct_option_text": null,
+      "explanation": null
+    },
+    {
+      "id": 295933,
+      "question": "Two vertices of a triangle are (-2, -1) and (3, 2) and the third vertex lies on the line x + y = 5. If the area of the triangle is 4 square units, then the third vertex is",
+      "question_raw": "<p>Two vertices of a triangle are (-2, -1) and (3, 2) and the third vertex lies on the line x + y = 5. If the area of the triangle is 4 square units, then the third vertex is</p>",
+      "difficulty": "Medium",
+      "options": [
+        {
+          "id": 420647,
+          "text": "(5, 0) or (4, 1)"
+        },
+        {
+          "id": 420648,
+          "text": "(0, 5) or (1, 4)"
+        },
+        {
+          "id": 420646,
+          "text": "(5, 0) or (1, 4)"
+        },
+        {
+          "id": 420645,
+          "text": "(0, 5) or (4, 1)"
+        }
+      ],
+      "correct_option_id": null,
+      "correct_option_text": null,
+      "explanation": null
+    },
+    {
+      "id": 510908,
+      "question": "If the line x cos$\\theta$ + y sin $\\theta$ = 2, $\\theta$ $\\in$ [0, 2$\\pi$] touches the circle x^2 + y^2 - 2x = 0 then the number of such tangent(s), is :",
+      "question_raw": "<p>If the line x cos<span class=\"math-tex\">{tex}\\theta{/tex}</span> + y sin <span class=\"math-tex\">{tex}\\theta{/tex}</span> = 2,&nbsp;<span class=\"math-tex\">{tex}\\theta{/tex}</span>&nbsp;<span class=\"math-tex\">{tex}\\in{/tex}</span>&nbsp;[0, 2<span class=\"math-tex\">{tex}\\pi{/tex}</span>] touches the circle x<sup>2</sup> + y<sup>2</sup> - 2x = 0 then the number of such tangent(s), is :</p>",
+      "difficulty": "Hard",
+      "options": [
+        {
+          "id": 903149,
+          "text": "2"
+        },
+        {
+          "id": 903148,
+          "text": "1"
+        },
+        {
+          "id": 903150,
+          "text": "4"
+        },
+        {
+          "id": 903147,
+          "text": "0"
+        }
+      ],
+      "correct_option_id": null,
+      "correct_option_text": null,
+      "explanation": null
+    },
+    {
+      "id": 510928,
+      "question": "In a $\\Delta$ABC if b = a $(\\sqrt{3}-1)$ and $\\angle C$ = 30^o then the measure of the angle A is :",
+      "question_raw": "<p>In a&nbsp;<span class=\"math-tex\">{tex}\\Delta{/tex}</span>ABC if b = a&nbsp;<span class=\"math-tex\">{tex}(\\sqrt{3}-1){/tex}</span>&nbsp;and&nbsp;<span class=\"math-tex\">{tex}\\angle C{/tex}</span>&nbsp;= 30<sup>o</sup>&nbsp;then the measure of the angle A is :</p>",
+      "difficulty": "Hard",
+      "options": [
+        {
+          "id": 903207,
+          "text": "15^o"
+        },
+        {
+          "id": 903209,
+          "text": "75^o"
+        },
+        {
+          "id": 903210,
+          "text": "105^o"
+        },
+        {
+          "id": 903208,
+          "text": "45^o"
+        }
+      ],
+      "correct_option_id": null,
+      "correct_option_text": null,
+      "explanation": null
+    },
+    {
+      "id": 511274,
+      "question": "If the two lines are perpendicular then difference of their inclination angle is",
+      "question_raw": "<p>If the two lines are perpendicular then difference of their inclination angle is</p>",
+      "difficulty": "Medium",
+      "options": [
+        {
+          "id": 904290,
+          "text": "180°"
+        },
+        {
+          "id": 904287,
+          "text": "45°"
+        },
+        {
+          "id": 904288,
+          "text": "90°"
+        },
+        {
+          "id": 904289,
+          "text": "60°"
+        }
+      ],
+      "correct_option_id": null,
+      "correct_option_text": null,
+      "explanation": null
+    },
+    {
+      "id": 511285,
+      "question": "A line with positive rational slope, passes through the point M(6, 0) and is at a distance of 5 from N(1, 3). The slope of line equals :",
+      "question_raw": "<p>A line with positive rational slope, passes through the point M(6, 0) and is at a distance of 5 from N(1, 3). The slope of line equals :</p>",
+      "difficulty": "Hard",
+      "options": [
+        {
+          "id": 904321,
+          "text": "$\\frac{8}{15}$"
+        },
+        {
+          "id": 904319,
+          "text": "$\\frac{15}{8}$"
+        },
+        {
+          "id": 904323,
+          "text": "$\\frac{5}{8}$"
+        },
+        {
+          "id": 904325,
+          "text": "$\\frac{8}{5}$"
+        }
+      ],
+      "correct_option_id": null,
+      "correct_option_text": null,
+      "explanation": null
+    },
+    {
+      "id": 511312,
+      "question": "If m_1 and m_2 are roots of the equation x^2 + $(\\sqrt{3}+2) x+\\sqrt{3}-1$ = 0, then the area of $\\triangle$ formed by the line y = m_1x, y = m_2x, y = c is :",
+      "question_raw": "<p>If m<sub>1</sub> and m<sub>2</sub> are roots of the equation x<sup>2</sup> +&nbsp;<span class=\"math-tex\">{tex}(\\sqrt{3}+2) x+\\sqrt{3}-1{/tex}</span>&nbsp;= 0, then the area of&nbsp;<span class=\"math-tex\">{tex}\\triangle{/tex}</span>&nbsp;formed by the line y = m<sub>1</sub>x, y = m<sub>2</sub>x, y = c is :</p>",
+      "difficulty": "Medium",
+      "options": [
+        {
+          "id": 904394,
+          "text": "$\\frac{\\sqrt{33}+\\sqrt{21}}{4} c^{3}$"
+        },
+        {
+          "id": 904392,
+          "text": "$\\frac{\\sqrt{33}+\\sqrt{11}}{16} c$"
+        },
+        {
+          "id": 904393,
+          "text": "$\\frac{\\sqrt{33}+\\sqrt{10}}{4} c^{2}$"
+        },
+        {
+          "id": 904391,
+          "text": "$\\frac{\\sqrt{33}+\\sqrt{11}}{4} c^{2}$"
+        }
+      ],
+      "correct_option_id": null,
+      "correct_option_text": null,
+      "explanation": null
+    },
+    {
+      "id": 511374,
+      "question": "If centroid of a triangle be (1, 4) and the co-ordinates of its any two vertices are (4, - 8) and (-9, 7), then the area of the triangle is :",
+      "question_raw": "<p>If centroid of a triangle be (1, 4) and the co-ordinates of its any two vertices are (4, - 8) and (-9, 7), then the area of the triangle is :</p>",
+      "difficulty": "Medium",
+      "options": [
+        {
+          "id": 904580,
+          "text": "$\\frac{333}{2}$"
+        },
+        {
+          "id": 904581,
+          "text": "$\\frac{273}{3}$"
+        },
+        {
+          "id": 904579,
+          "text": "$\\frac{305}{3}$"
+        },
+        {
+          "id": 904582,
+          "text": "$\\frac{297}{2}$"
+        }
+      ],
+      "correct_option_id": null,
+      "correct_option_text": null,
+      "explanation": null
+    },
+    {
+      "id": 511385,
+      "question": "The coordinates of a point dividing the line segment joining (1, 2) and (4, 5) externally in the ratio 2:1 is ________.",
+      "question_raw": "<p>The coordinates of a point dividing the line segment joining (1, 2) and (4, 5) externally in the ratio 2:1 is ________.</p>",
+      "difficulty": "Hard",
+      "options": [
+        {
+          "id": 904612,
+          "text": "(4, 5)"
+        },
+        {
+          "id": 904613,
+          "text": "(6, 8)"
+        },
+        {
+          "id": 904611,
+          "text": "(7, 8)"
+        },
+        {
+          "id": 904614,
+          "text": "(8, 6)"
+        }
+      ],
+      "correct_option_id": null,
+      "correct_option_text": null,
+      "explanation": null
+    },
+    {
+      "id": 511386,
+      "question": "The sides of a triangle ABC are positive integers. The smallest side has length 1. Which of the following statement is true?",
+      "question_raw": "<p>The sides of a triangle ABC are positive integers. The smallest side has length 1. Which of the following statement is true?</p>",
+      "difficulty": "Hard",
+      "options": [
+        {
+          "id": 904615,
+          "text": "The area of triangle ABC is always rational number."
+        },
+        {
+          "id": 904616,
+          "text": "The area of triangle ABC is always an irrational number."
+        },
+        {
+          "id": 904618,
+          "text": "The perimeter of triangle ABC is an odd integer."
+        },
+        {
+          "id": 904617,
+          "text": "The perimeter of triangle ABC is an even integer."
+        }
+      ],
+      "correct_option_id": null,
+      "correct_option_text": null,
+      "explanation": null
+    },
+    {
+      "id": 511411,
+      "question": "Area of square formed by the lines x^2 y^2 -2xy^2 - 3y^2 - 4x^2 y + 8xy + 12y = 0 is :",
+      "question_raw": "<p>Area of square formed by the lines x<sup>2</sup> y<sup>2</sup> -2xy<sup>2</sup> - 3y<sup>2</sup> - 4x<sup>2</sup> y + 8xy + 12y = 0 is :</p>",
+      "difficulty": "Medium",
+      "options": [
+        {
+          "id": 904684,
+          "text": "151"
+        },
+        {
+          "id": 904686,
+          "text": "191"
+        },
+        {
+          "id": 904683,
+          "text": "150"
+        },
+        {
+          "id": 904685,
+          "text": "16"
+        }
+      ],
+      "correct_option_id": null,
+      "correct_option_text": null,
+      "explanation": null
+    },
+    {
+      "id": 511432,
+      "question": "The equation of line segment AB is y = .x. If A and B lie on the same side of the line mirror 2x - y = 1, then image of AB is :",
+      "question_raw": "<p>The equation of line segment AB is y = .x. If A and B lie on the same side of the line mirror 2x - y = 1, then image of AB is :</p>",
+      "difficulty": "Hard",
+      "options": [
+        {
+          "id": 904744,
+          "text": "7x + y - 6 = 0"
+        },
+        {
+          "id": 904746,
+          "text": "7x - y + 6 = 0"
+        },
+        {
+          "id": 904745,
+          "text": "7x - y - 6 = 0"
+        },
+        {
+          "id": 904743,
+          "text": "7x + y + 6 = 0"
+        }
+      ],
+      "correct_option_id": null,
+      "correct_option_text": null,
+      "explanation": null
+    },
+    {
+      "id": 511444,
+      "question": "Consider straight line ax + by = c where a,b,c $\\in$ R^+ and a, b, c are distinct. If the line meets the coordinate axes at P and Q respectively and the area of $\\triangle$OPQ is independent of a, b and c then which of the following may be true? (where O is the origin)",
+      "question_raw": "<p>Consider straight line ax + by = c where a,b,c <span class=\"math-tex\">{tex}\\in{/tex}</span>&nbsp;R<sup>+</sup> and a, b, c are distinct. If the line meets the coordinate axes at P and Q respectively and the area of <span class=\"math-tex\">{tex}\\triangle{/tex}</span>OPQ is independent of a, b and c then which of the following may be true? (where O is the origin)</p>",
+      "difficulty": "Hard",
+      "options": [
+        {
+          "id": 904784,
+          "text": "a, c, b are in G.P."
+        },
+        {
+          "id": 904785,
+          "text": "a, b, c are in A.P."
+        },
+        {
+          "id": 904783,
+          "text": "a, b, c are in G. P."
+        },
+        {
+          "id": 904786,
+          "text": "a, c, b are in A.P."
+        }
+      ],
+      "correct_option_id": null,
+      "correct_option_text": null,
+      "explanation": null
+    },
+    {
+      "id": 511491,
+      "question": "Area of parallelogram formed by the lines x + y + 1 = 0, x + y + 3 = 0, 3x + 4y - 1 = 0 and 3x + 4y - 5 = 0 is :",
+      "question_raw": "<p>Area of parallelogram formed by the lines x + y + 1 = 0, x + y + 3 = 0, 3x + 4y - 1&nbsp;= 0 and 3x + 4y - 5 = 0 is :</p>",
+      "difficulty": "Medium",
+      "options": [
+        {
+          "id": 904930,
+          "text": "16"
+        },
+        {
+          "id": 904927,
+          "text": "$4 \\sqrt{2}$"
+        },
+        {
+          "id": 904929,
+          "text": "$8 \\sqrt{2}$"
+        },
+        {
+          "id": 904928,
+          "text": "8"
+        }
+      ],
+      "correct_option_id": null,
+      "correct_option_text": null,
+      "explanation": null
+    },
+    {
+      "id": 511520,
+      "question": "Two mutually perpendicular straight lines through origin form an isosceles triangle with the line 2x + y = 5, then the area of triangle is :",
+      "question_raw": "<p>Two mutually perpendicular straight lines through origin form an isosceles triangle with the line 2x + y = 5, then the area of triangle is :</p>",
+      "difficulty": "Medium",
+      "options": [
+        {
+          "id": 905020,
+          "text": "3"
+        },
+        {
+          "id": 905022,
+          "text": "1"
+        },
+        {
+          "id": 905021,
+          "text": "a"
+        },
+        {
+          "id": 905019,
+          "text": "5"
+        }
+      ],
+      "correct_option_id": null,
+      "correct_option_text": null,
+      "explanation": null
+    },
+    {
+      "id": 511546,
+      "question": "If P ($\\alpha$ + 1, $\\alpha$ - 3) be any point in xy plane, then the number of integral values of $\\alpha$ for which the point P lies between the lines x + 2y = 1 and 2x + 4y = 14, is :",
+      "question_raw": "<p>If P (<span class=\"math-tex\">{tex}\\alpha{/tex}</span> + 1, <span class=\"math-tex\">{tex}\\alpha{/tex}</span> - 3) be any point in xy plane, then the number of integral values of <span class=\"math-tex\">{tex}\\alpha{/tex}</span> for which the point P lies between the lines x + 2y = 1 and 2x + 4y = 14, is :</p>",
+      "difficulty": "Medium",
+      "options": [
+        {
+          "id": 905096,
+          "text": "1"
+        },
+        {
+          "id": 905097,
+          "text": "2"
+        },
+        {
+          "id": 905098,
+          "text": "3"
+        },
+        {
+          "id": 905095,
+          "text": "0"
+        }
+      ],
+      "correct_option_id": null,
+      "correct_option_text": null,
+      "explanation": null
+    },
+    {
+      "id": 511579,
+      "question": "A light beam emanating from the point A (3,10) reflects from the line 2x + y - 6 = 0 and then passes through the point B (5, 6). The equation of the incident and reflected beams are respectively :",
+      "question_raw": "<p>A light beam emanating from the point A (3,10) reflects from the line 2x + y - 6 = 0 and then passes through the point B (5, 6). The equation of the incident and reflected beams are respectively :</p>",
+      "difficulty": "Medium",
+      "options": [
+        {
+          "id": 905207,
+          "text": "x + 2y - 8 = 0 and y = 6"
+        },
+        {
+          "id": 905205,
+          "text": "x - 2y + 8 = 0 and x = 5"
+        },
+        {
+          "id": 905210,
+          "text": "x - 2y + 8 = 0 and y = 10"
+        },
+        {
+          "id": 905203,
+          "text": "4x - 3y + 18 = 0 and y = 6"
+        }
+      ],
+      "correct_option_id": null,
+      "correct_option_text": null,
+      "explanation": null
+    },
+    {
+      "id": 511593,
+      "question": "The true set of real values of $\\lambda$ for which the point P with co-ordinate $\\left(\\lambda, \\lambda^{2}\\right)$ does not lie inside the triangle formed by the lines, x - y = 0; x + y - 2 = 0 and x + 3 = 0 is :",
+      "question_raw": "<p>The true set of real values of <span class=\"math-tex\">{tex}\\lambda{/tex}</span> for which the point P with co-ordinate <span class=\"math-tex\">{tex}\\left(\\lambda, \\lambda^{2}\\right){/tex}</span> does not lie inside the triangle formed by the lines, x - y = 0; x + y - 2 = 0 and x + 3 = 0 is :</p>",
+      "difficulty": "Medium",
+      "options": [
+        {
+          "id": 905244,
+          "text": "$[0, \\infty]$"
+        },
+        {
+          "id": 905243,
+          "text": "$(-\\infty,-2]$"
+        },
+        {
+          "id": 905246,
+          "text": "$(-\\infty,-2] \\cup[0, \\infty]$"
+        },
+        {
+          "id": 905245,
+          "text": "[-2, 0]"
+        }
+      ],
+      "correct_option_id": null,
+      "correct_option_text": null,
+      "explanation": null
+    },
+    {
+      "id": 511605,
+      "question": "If algebraic sum of distances of a variable line from points A(3, 0), B(0, 3) and C(- 3, - 3) is zero, then the line passes through the fixed point :",
+      "question_raw": "<p>If algebraic sum of distances of a variable line from points A(3, 0), B(0, 3) and C(- 3, - 3) is zero, then the line passes through the fixed point :</p>",
+      "difficulty": "Medium",
+      "options": [
+        {
+          "id": 905283,
+          "text": "(3, 3)"
+        },
+        {
+          "id": 905285,
+          "text": "(1, 1)"
+        },
+        {
+          "id": 905284,
+          "text": "(-1, -1)"
+        },
+        {
+          "id": 905286,
+          "text": "(0, 0)"
+        }
+      ],
+      "correct_option_id": null,
+      "correct_option_text": null,
+      "explanation": null
+    },
+    {
+      "id": 511630,
+      "question": "If 2x + y = 0 and 3x + 2y = 0 are two sides of a parallelogram whose one diagonal is x - y = 0. The slope of other diagonal is:",
+      "question_raw": "<p>If 2x + y = 0 and 3x + 2y = 0 are two sides of a parallelogram whose one diagonal is x - y = 0. The slope of other diagonal is:</p>",
+      "difficulty": "Medium",
+      "options": [
+        {
+          "id": 905368,
+          "text": "$\\frac{-19}{11}$"
+        },
+        {
+          "id": 905369,
+          "text": "$\\frac{11}{19}$"
+        },
+        {
+          "id": 905367,
+          "text": "$\\frac{19}{11}$"
+        },
+        {
+          "id": 905370,
+          "text": "$\\frac{-11}{19}$"
+        }
+      ],
+      "correct_option_id": null,
+      "correct_option_text": null,
+      "explanation": null
+    },
+    {
+      "id": 511643,
+      "question": "The equation of adjacent sides AB and AD of a parallelogram ABCD are 3x - 4y + 21 = 0 and 4x - 3y -14 = 0 respectively. The perpendicular distances between the parallel sides AB, DC and AD, BC are $\\frac{14}{5}$ and $\\frac{7}{5}$ respectively. If area of parallelogram is 2k, then k is equal to :",
+      "question_raw": "<p>The equation of adjacent sides AB and AD of a parallelogram ABCD are 3x - 4y + 21 = 0 and 4x&nbsp;- 3y&nbsp;-14 = 0 respectively. The perpendicular distances between the parallel sides AB, DC and AD, BC are&nbsp;<span class=\"math-tex\">{tex}\\frac{14}{5}{/tex}</span>&nbsp;and&nbsp;<span class=\"math-tex\">{tex}\\frac{7}{5}{/tex}</span>&nbsp;respectively. If area of parallelogram is 2k, then k is equal to :&nbsp;</p>",
+      "difficulty": "Medium",
+      "options": [
+        {
+          "id": 905417,
+          "text": "4"
+        },
+        {
+          "id": 905418,
+          "text": "9"
+        },
+        {
+          "id": 905415,
+          "text": "6"
+        },
+        {
+          "id": 905416,
+          "text": "7"
+        }
+      ],
+      "correct_option_id": null,
+      "correct_option_text": null,
+      "explanation": null
+    },
+    {
+      "id": 511688,
+      "question": "A ray of light passing through the point A (1, 2) is reflected at a point B on the x-axis and then passes through (5, 3). Then the equation of AB is :",
+      "question_raw": "<p>A ray of light passing through the point A (1, 2) is reflected at a point B on the x-axis and then passes through (5, 3). Then the equation of AB is :</p>",
+      "difficulty": "Medium",
+      "options": [
+        {
+          "id": 905561,
+          "text": "4x + 5y = 14"
+        },
+        {
+          "id": 905562,
+          "text": "4x - 5y = -6"
+        },
+        {
+          "id": 905559,
+          "text": "5x + 4y = 13"
+        },
+        {
+          "id": 905560,
+          "text": "5x - 4y = -3"
+        }
+      ],
+      "correct_option_id": null,
+      "correct_option_text": null,
+      "explanation": null
+    },
+    {
+      "id": 511717,
+      "question": "P is a point on the line y + 2x = 1 and Q and R are two points on the line 3y + 6x = 6 such that the triangle PQR is an equilateral triangle. Area of this triangle is equal to :",
+      "question_raw": "<p>P is a point on the line y + 2x = 1&nbsp;and Q and R are two points on the line 3y + 6x = 6 such that the triangle PQR is an equilateral triangle. Area of this triangle is equal to :</p>",
+      "difficulty": "Medium",
+      "options": [
+        {
+          "id": 905657,
+          "text": "$\\frac{1}{3 \\sqrt{5}}$"
+        },
+        {
+          "id": 905655,
+          "text": "$\\frac{1}{15}$"
+        },
+        {
+          "id": 905658,
+          "text": "$\\frac{1}{2 \\sqrt{15}}$"
+        },
+        {
+          "id": 905656,
+          "text": "$\\frac{1}{5 \\sqrt{3}}$"
+        }
+      ],
+      "correct_option_id": null,
+      "correct_option_text": null,
+      "explanation": null
+    },
+    {
+      "id": 511728,
+      "question": "On the portion of the straight line, x + 2y = 4 intercepted between the axes, a square is constructed on the side of the line away from the origin. Then the point of intersection of its diagonals has co-ordinates :",
+      "question_raw": "<p>On the portion of the straight line, x + 2y = 4 intercepted between the axes, a square is constructed on the side of the line away from the origin. Then the point of intersection of its diagonals has co-ordinates :</p>",
+      "difficulty": "Medium",
+      "options": [
+        {
+          "id": 905690,
+          "text": "(2, 2)"
+        },
+        {
+          "id": 905689,
+          "text": "(3, 3)"
+        },
+        {
+          "id": 905687,
+          "text": "(2, 3)"
+        },
+        {
+          "id": 905688,
+          "text": "(3, 2)"
+        }
+      ],
+      "correct_option_id": null,
+      "correct_option_text": null,
+      "explanation": null
+    },
+    {
+      "id": 511752,
+      "question": "A line inclined at an angle of 135^o to the x - axis passes through the point A (3, 4). There are two points P and Q on the line such that AP = AQ = $2 \\sqrt{2}$. The co-ordinates of P and Q are respectively :",
+      "question_raw": "<p>A line inclined at an angle of 135<sup>o</sup> to the x - axis passes through the point A (3, 4). There are two points P and Q on the line such that AP = AQ = <span class=\"math-tex\">{tex}2 \\sqrt{2}{/tex}</span>. The co-ordinates of P and Q are respectively :</p>",
+      "difficulty": "Medium",
+      "options": [
+        {
+          "id": 905760,
+          "text": "(1, - 6) and (- 5, 2)"
+        },
+        {
+          "id": 905761,
+          "text": "(1, 6) and (5 ,-2)"
+        },
+        {
+          "id": 905759,
+          "text": "(-1 ,-6 ) and (5, 2)"
+        },
+        {
+          "id": 905762,
+          "text": "(1, 6) and (5, 2)"
+        }
+      ],
+      "correct_option_id": null,
+      "correct_option_text": null,
+      "explanation": null
+    },
+    {
+      "id": 511761,
+      "question": "The two adjacent sides of a parallelogram are given by 2x^2 + 2y^2 - 5xy = 0 and 5x + 2y = 1 is one of its diagonal. If area of parallelogram is S, then $\\sqrt{S}$ is equal to :",
+      "question_raw": "<p>The two adjacent sides of a parallelogram are given by 2x<sup>2</sup> + 2y<sup>2</sup> - 5xy = 0 and 5x + 2y = 1&nbsp;is one of its diagonal. If area of parallelogram is S, then <span class=\"math-tex\">{tex}\\sqrt{S}{/tex}</span>&nbsp;is equal to :</p>",
+      "difficulty": "Medium",
+      "options": [
+        {
+          "id": 905786,
+          "text": "$\\frac{1}{6}$"
+        },
+        {
+          "id": 905785,
+          "text": "$\\frac{3}{4}$"
+        },
+        {
+          "id": 905783,
+          "text": "$\\frac{1}{2}$"
+        },
+        {
+          "id": 905784,
+          "text": "$\\frac{2}{3}$"
+        }
+      ],
+      "correct_option_id": null,
+      "correct_option_text": null,
+      "explanation": null
+    },
+    {
+      "id": 511789,
+      "question": "The image of P (a, b) in the line x + y = 0 is Q and the image of Q in the line x - y = 0 is R, then the mid-point of PR is :",
+      "question_raw": "<p>The image of P (a, b) in the line x + y = 0 is Q and the image of Q in the line x&nbsp;- y = 0 is R, then the mid-point of PR is :</p>",
+      "difficulty": "Hard",
+      "options": [
+        {
+          "id": 905864,
+          "text": "$\\left(\\frac{a+b}{2}, \\frac{b+a}{2}\\right)$"
+        },
+        {
+          "id": 905863,
+          "text": "(a + b, b + a)"
+        },
+        {
+          "id": 905866,
+          "text": "(0, 0)"
+        },
+        {
+          "id": 905865,
+          "text": "(a - b ,b - a)"
+        }
+      ],
+      "correct_option_id": null,
+      "correct_option_text": null,
+      "explanation": null
+    },
+    {
+      "id": 511801,
+      "question": "The distance of the line 2x - 3y = 4 from the point (1, 1) in the direction of the line x + y = 1 is :",
+      "question_raw": "<p>The distance of the line 2x - 3y = 4 from the point (1, 1) in the direction of the line x&nbsp;+ y = 1&nbsp;is :</p>",
+      "difficulty": "Medium",
+      "options": [
+        {
+          "id": 905894,
+          "text": "$2 \\sqrt{2}$"
+        },
+        {
+          "id": 905892,
+          "text": "$5 \\sqrt{2}$"
+        },
+        {
+          "id": 905893,
+          "text": "$\\frac{1}{\\sqrt{2}}$"
+        },
+        {
+          "id": 905891,
+          "text": "$\\sqrt{2}$"
+        }
+      ],
+      "correct_option_id": null,
+      "correct_option_text": null,
+      "explanation": null
+    },
+    {
+      "id": 511844,
+      "question": "In a $\\triangle$ABC, if A (2 ,-1), B (-3, -2) and equation of angle bisector of $\\angle B$ of triangle is 3x - 2y + 5 = 0, then equation of BC is :",
+      "question_raw": "<p>In a <span class=\"math-tex\">{tex}\\triangle{/tex}</span>ABC, if A (2 ,-1), B (-3, -2) and equation of angle bisector of <span class=\"math-tex\">{tex}\\angle B{/tex}</span>&nbsp;of triangle is 3x - 2y + 5 = 0, then equation of BC is :</p>",
+      "difficulty": "Medium",
+      "options": [
+        {
+          "id": 906033,
+          "text": "4x + 9y + 30 = 0"
+        },
+        {
+          "id": 906034,
+          "text": "x - 5y - 7 = 0"
+        },
+        {
+          "id": 906031,
+          "text": "x + y + 5 = 0"
+        },
+        {
+          "id": 906032,
+          "text": "5x + y + 17 = 0"
+        }
+      ],
+      "correct_option_id": null,
+      "correct_option_text": null,
+      "explanation": null
+    },
+    {
+      "id": 511856,
+      "question": "If $\\alpha, \\beta, \\gamma>0$ then the minimum value of the function f(x) = $\\sqrt{\\alpha^{2}+x^{2}}+\\sqrt{(x-\\beta)^{2}+\\gamma^{2}}$ is :",
+      "question_raw": "<p>If&nbsp;<span class=\"math-tex\">{tex}\\alpha, \\beta, \\gamma&gt;0{/tex}</span>&nbsp;then the minimum value of the function f(x) =&nbsp;<span class=\"math-tex\">{tex}\\sqrt{\\alpha^{2}+x^{2}}+\\sqrt{(x-\\beta)^{2}+\\gamma^{2}}{/tex}</span>&nbsp;is :</p>",
+      "difficulty": "Medium",
+      "options": [
+        {
+          "id": 906064,
+          "text": "$\\sqrt{\\beta^{2}+(\\alpha+\\gamma)^{2}}$"
+        },
+        {
+          "id": 906063,
+          "text": "$\\alpha+\\beta+\\gamma$"
+        },
+        {
+          "id": 906066,
+          "text": "$\\sqrt{\\gamma^{2}+(\\alpha+\\beta)^{2}}$"
+        },
+        {
+          "id": 906065,
+          "text": "$\\sqrt{\\alpha^{2}+(\\beta+\\gamma)^{2}}$"
+        }
+      ],
+      "correct_option_id": null,
+      "correct_option_text": null,
+      "explanation": null
+    },
+    {
+      "id": 511872,
+      "question": "On the portion of the straight line x + y = 2 which is intercepted between the axes, a square is constructed away from the origin, with this portion as one of its side. If p denote the perpendicular distance of a side of this square from the origin, then the maximum value of p is :",
+      "question_raw": "<p>On the portion of the straight line x + y = 2 which is intercepted between the axes, a square is constructed away from the origin, with this portion as one of its side. If p denote the perpendicular distance of a side of this square from the origin, then the maximum value of p is :</p>",
+      "difficulty": "Medium",
+      "options": [
+        {
+          "id": 906115,
+          "text": "$3 \\sqrt{2}$"
+        },
+        {
+          "id": 906117,
+          "text": "$\\frac{2}{\\sqrt{3}}$"
+        },
+        {
+          "id": 906118,
+          "text": "$\\frac{3}{\\sqrt{2}}$"
+        },
+        {
+          "id": 906116,
+          "text": "$2 \\sqrt{3}$"
+        }
+      ],
+      "correct_option_id": null,
+      "correct_option_text": null,
+      "explanation": null
+    },
+    {
+      "id": 511973,
+      "question": "The sides of $\\triangle$ABC are shown in given figure. Let D be any internal point and e ,f g are perpendicular distance of D from sides of triangle then the value of (5e + 12f +13g) is equal to :",
+      "question_raw": "<html><body><p>The sides of <span class=\"math-tex\">{tex}\\triangle{/tex}</span>ABC are shown in given figure. Let D be any internal point and e ,f g are perpendicular distance of D from sides of triangle then the value of (5e + 12f +13g) is equal to :<br/>\n<img alt=\"\" data-imgur-src=\"s5beuDy.png\" src=\"https://media-mycbseguide.s3.amazonaws.com/images/imgur/1619691789-6p6ur8.jpg\" style=\"width: 200px; height: 99px;\"/></p></body></html>",
+      "difficulty": "Medium",
+      "options": [
+        {
+          "id": 906507,
+          "text": "15"
+        },
+        {
+          "id": 906509,
+          "text": "60"
+        },
+        {
+          "id": 906508,
+          "text": "30"
+        },
+        {
+          "id": 906510,
+          "text": "120"
+        }
+      ],
+      "correct_option_id": null,
+      "correct_option_text": null,
+      "explanation": null
+    },
+    {
+      "id": 523934,
+      "question": "If the image of point P(2, 3) in a line L is Q(4, 5), then the image of point R(0, 0) in the same line is:",
+      "question_raw": "<p>If the image of point P(2, 3) in a line L is Q(4, 5), then the image of point R(0, 0) in the same line is:</p>",
+      "difficulty": "Medium",
+      "options": [
+        {
+          "id": 945721,
+          "text": "(4, 5)"
+        },
+        {
+          "id": 945722,
+          "text": "(3, 4)"
+        },
+        {
+          "id": 945720,
+          "text": "(2, 2)"
+        },
+        {
+          "id": 945723,
+          "text": "(7, 7)"
+        }
+      ],
+      "correct_option_id": null,
+      "correct_option_text": null,
+      "explanation": null
+    },
+    {
+      "id": 523989,
+      "question": "Let A = {(x_1, y_1) 3x_1 - 4y_1 - 3 = 0} and B = {(x_2, y_2)| (x_2 - 3)^2 + (y_2 - 4)^2 = 0} If $\\sqrt{\\left(x_{1}-x_{2}\\right)^{2}+\\left(y_{1}-y_{2}\\right)^{2}}$ is minimum, then (x_1, y_1) $\\equiv$ (a, b), where a - b = $\\frac{p}{q}$, p, q $\\in$ N, the least value of (p - q), is:",
+      "question_raw": "<p>Let A = {(x<sub>1</sub>, y<sub>1</sub>)&nbsp;3x<sub>1</sub>&nbsp;-&nbsp;4y<sub>1</sub>&nbsp;- 3 = 0} and B = {(x<sub>2</sub>, y<sub>2</sub>)| (x<sub>2</sub> - 3)<sup>2</sup> + (y<sub>2</sub> - 4)<sup>2</sup> = 0} If&nbsp;<span class=\"math-tex\">{tex}\\sqrt{\\left(x_{1}-x_{2}\\right)^{2}+\\left(y_{1}-y_{2}\\right)^{2}}{/tex}</span>&nbsp;is minimum, then (x<sub>1</sub>, y<sub>1</sub>)&nbsp;<span class=\"math-tex\">{tex}\\equiv{/tex}</span>&nbsp;(a, b), where a - b =&nbsp;<span class=\"math-tex\">{tex}\\frac{p}{q}{/tex}</span>, p, q&nbsp;<span class=\"math-tex\">{tex}\\in{/tex}</span>&nbsp;N, the least value of (p - q), is:</p>",
+      "difficulty": "Hard",
+      "options": [
+        {
+          "id": 945924,
+          "text": "3"
+        },
+        {
+          "id": 945925,
+          "text": "2"
+        },
+        {
+          "id": 945926,
+          "text": "4"
+        },
+        {
+          "id": 945927,
+          "text": "1"
+        }
+      ],
+      "correct_option_id": null,
+      "correct_option_text": null,
+      "explanation": null
+    },
+    {
+      "id": 524181,
+      "question": "For a > b > c > 0, the distance between (1, 1) and the point of intersection of the lines ax + by + c = 0 and bx + ay + c = 0 is less than $2 \\sqrt{2}$. Then,",
+      "question_raw": "<p>For a &gt; b &gt; c &gt; 0, the distance between (1, 1) and the point of intersection of the lines ax + by + c = 0 and bx + ay + c = 0 is less than <span class=\"math-tex\">{tex}2 \\sqrt{2}{/tex}</span>. Then,</p>",
+      "difficulty": "Medium",
+      "options": [
+        {
+          "id": 946599,
+          "text": "a + b - c < 0"
+        },
+        {
+          "id": 946596,
+          "text": "a + b - c > 0"
+        },
+        {
+          "id": 946597,
+          "text": "a - b + c < 0"
+        },
+        {
+          "id": 946598,
+          "text": "a - b + c > 0"
+        }
+      ],
+      "correct_option_id": null,
+      "correct_option_text": null,
+      "explanation": null
+    },
+    {
+      "id": 524199,
+      "question": "If x_1, x_2, x_3 as well as y_1, y_2, y_3, are in G.P. with the same common ratio, then the points (x_1, y_1), (x_2, y_2) and (x_3, y_3).",
+      "question_raw": "<p>If x<sub>1</sub>, x<sub>2</sub>, x<sub>3</sub> as well as y<sub>1</sub>,&nbsp;y<sub>2</sub>, y<sub>3</sub>, are in G.P.&nbsp;with the same common ratio, then the points (x<sub>1</sub>, y<sub>1</sub>), (x<sub>2</sub>, y<sub>2</sub>) and (x<sub>3</sub>, y<sub>3</sub>).</p>",
+      "difficulty": "Hard",
+      "options": [
+        {
+          "id": 946657,
+          "text": "lie on an ellipse"
+        },
+        {
+          "id": 946656,
+          "text": "lie on a straight line"
+        },
+        {
+          "id": 946658,
+          "text": "lie on a circle"
+        },
+        {
+          "id": 946659,
+          "text": "are vertices of a triangle"
+        }
+      ],
+      "correct_option_id": null,
+      "correct_option_text": null,
+      "explanation": null
+    },
+    {
+      "id": 524839,
+      "question": "Let L denote the line in the xy-plane with x and y intercepts as 3 and 1 respectively. Then the image of the point (-1, -4) in this line is:",
+      "question_raw": "<p>Let L denote the line in the xy-plane with x and y intercepts as 3 and 1 respectively. Then the image of the point (-1, -4) in this line is:</p>",
+      "difficulty": "Medium",
+      "options": [
+        {
+          "id": 948951,
+          "text": "$\\left(\\frac{8}{5}, \\frac{29}{5}\\right)$"
+        },
+        {
+          "id": 948952,
+          "text": "$\\left(\\frac{29}{5}, \\frac{11}{5}\\right)$"
+        },
+        {
+          "id": 948948,
+          "text": "$\\left(\\frac{11}{5}, \\frac{28}{5}\\right)$"
+        },
+        {
+          "id": 948950,
+          "text": "$\\left(\\frac{29}{5}, \\frac{8}{5}\\right)$"
+        }
+      ],
+      "correct_option_id": null,
+      "correct_option_text": null,
+      "explanation": null
+    },
+    {
+      "id": 524916,
+      "question": "The sides of a rhombus ABCD are parallel to the lines, x - y + 2 = 0 and 7x - y + 3 = 0. If the diagonals of the rhombus intersect at P(1, 2) and the vertex A (different from the origin) is on the y-axis, then the ordinate of A is:",
+      "question_raw": "<p>The sides of a rhombus ABCD are parallel to the lines, x - y + 2 = 0 and 7x - y + 3 = 0. If the diagonals of the rhombus intersect at P(1, 2) and the vertex A (different from the origin) is on the y-axis, then the ordinate of A is:</p>",
+      "difficulty": "Hard",
+      "options": [
+        {
+          "id": 949199,
+          "text": "$\\frac {5}{2}$"
+        },
+        {
+          "id": 949197,
+          "text": "$\\frac {7}{4}$"
+        },
+        {
+          "id": 949196,
+          "text": "2"
+        },
+        {
+          "id": 949198,
+          "text": "$\\frac {7}{2}$"
+        }
+      ],
+      "correct_option_id": null,
+      "correct_option_text": null,
+      "explanation": null
+    },
+    {
+      "id": 524982,
+      "question": "If the perpendicular bisector of the line segment joining the points P(1, 4) and Q(k, 3) has y-intercept equal to -4, then a value of k is:",
+      "question_raw": "<p>If the perpendicular bisector of the line segment joining the points P(1, 4) and Q(k, 3) has y-intercept equal to -4, then a value of k is:</p>",
+      "difficulty": "Medium",
+      "options": [
+        {
+          "id": 949427,
+          "text": "$\\sqrt{15}$"
+        },
+        {
+          "id": 949425,
+          "text": "-4"
+        },
+        {
+          "id": 949426,
+          "text": "$\\sqrt{14}$"
+        },
+        {
+          "id": 949424,
+          "text": "-2"
+        }
+      ],
+      "correct_option_id": null,
+      "correct_option_text": null,
+      "explanation": null
+    },
+    {
+      "id": 525133,
+      "question": "A triangle ABC lying in the first quadrant has two vertices as A(1, 2) and B(3, 1). If $\\angle$BAC = 90^o, and ar ($\\triangle$ABC) = $5 \\sqrt{5}$ sq. units, then the abscissa of the vertex C is:",
+      "question_raw": "<p>A triangle ABC lying in the first quadrant has two vertices as A(1, 2) and B(3, 1). If <span class=\"math-tex\">{tex}\\angle{/tex}</span>BAC = 90<sup>o</sup>, and ar (<span class=\"math-tex\">{tex}\\triangle{/tex}</span>ABC) =&nbsp;<span class=\"math-tex\">{tex}5 \\sqrt{5}{/tex}</span>&nbsp;sq. units, then the abscissa of the vertex C is:</p>",
+      "difficulty": "Medium",
+      "options": [
+        {
+          "id": 949686,
+          "text": "2 + $\\sqrt 5$"
+        },
+        {
+          "id": 949685,
+          "text": "1 + $2\\sqrt 5$"
+        },
+        {
+          "id": 949684,
+          "text": "1 + $\\sqrt 5$"
+        },
+        {
+          "id": 949687,
+          "text": "$2 \\sqrt{5}$ - 1"
+        }
+      ],
+      "correct_option_id": null,
+      "correct_option_text": null,
+      "explanation": null
+    },
+    {
+      "id": 525145,
+      "question": "A light ray emerging from the point source placed at P(1, 3) is reflected at a point Q in the axis of x. If the reflected ray passes through the point R (6, 7), then the abscissa of Q is:",
+      "question_raw": "<p>A light ray emerging from the point source placed at P(1, 3) is reflected at a point Q in the axis of x. If the reflected ray passes through the point R (6, 7), then the abscissa of Q is:</p>",
+      "difficulty": "Medium",
+      "options": [
+        {
+          "id": 949722,
+          "text": "$\\frac {7}{2}$"
+        },
+        {
+          "id": 949721,
+          "text": "3"
+        },
+        {
+          "id": 949720,
+          "text": "1"
+        },
+        {
+          "id": 949723,
+          "text": "$\\frac {5}{2}$"
+        }
+      ],
+      "correct_option_id": null,
+      "correct_option_text": null,
+      "explanation": null
+    },
+    {
+      "id": 525147,
+      "question": "Let O(0, 0), P(3, 4), Q(6, 0) be the vertices of the triangles OPQ. The point R inside the triangle OPQ is such that the triangles OPR, PQR, OQR are of equal area. The coordinates of R are:",
+      "question_raw": "<p>Let O(0, 0), P(3, 4), Q(6, 0) be the vertices of the triangles OPQ. The point R inside the triangle OPQ is such that the triangles OPR, PQR, OQR are of equal area. The coordinates of R are:</p>",
+      "difficulty": "Medium",
+      "options": [
+        {
+          "id": 949728,
+          "text": "$\\left(\\frac{4}{3}, 3\\right)$"
+        },
+        {
+          "id": 949730,
+          "text": "$\\left(3, \\frac{4}{3}\\right)$"
+        },
+        {
+          "id": 949731,
+          "text": "$\\left(\\frac{4}{3}, \\frac{2}{3}\\right)$"
+        },
+        {
+          "id": 949729,
+          "text": "$\\left(3, \\frac{2}{3}\\right)$"
+        }
+      ],
+      "correct_option_id": null,
+      "correct_option_text": null,
+      "explanation": null
+    },
+    {
+      "id": 525149,
+      "question": "The number of intergral points (integral point means both the coordinates should be integer) exactly in the interior of the triangle with vertices (0, 0), (0, 21) and (21, 0), is:",
+      "question_raw": "<p>The number of intergral points (integral point means both the coordinates should be integer) exactly in the interior of the triangle with vertices (0, 0), (0, 21) and (21, 0), is:</p>",
+      "difficulty": "Medium",
+      "options": [
+        {
+          "id": 949737,
+          "text": "190"
+        },
+        {
+          "id": 949738,
+          "text": "233"
+        },
+        {
+          "id": 949739,
+          "text": "105"
+        },
+        {
+          "id": 949736,
+          "text": "133"
+        }
+      ],
+      "correct_option_id": null,
+      "correct_option_text": null,
+      "explanation": null
+    },
+    {
+      "id": 525151,
+      "question": "In a triangle ABC, coordinates of A are (1, 2) and the equations of the medians through B and C are x + y = 5 and x = 4 respectively. Then area of $\\triangle$ABC (in sq. units) is:",
+      "question_raw": "<p>In a triangle ABC, coordinates of A are (1, 2) and the equations of the medians through B and C are x + y = 5 and x = 4 respectively. Then area of <span class=\"math-tex\">{tex}\\triangle{/tex}</span>ABC (in sq. units) is:</p>",
+      "difficulty": "Medium",
+      "options": [
+        {
+          "id": 949747,
+          "text": "4"
+        },
+        {
+          "id": 949744,
+          "text": "5"
+        },
+        {
+          "id": 949745,
+          "text": "9"
+        },
+        {
+          "id": 949746,
+          "text": "12"
+        }
+      ],
+      "correct_option_id": null,
+      "correct_option_text": null,
+      "explanation": null
+    },
+    {
+      "id": 525155,
+      "question": "The point (2, 1) is translated parallel to the line L : x - y = 4 by $2 \\sqrt{3}$ units. If the new points Q lies in the third quadrant, then the equation of the line passing through Q and perpendicular to L is:",
+      "question_raw": "<p>The point (2, 1) is translated parallel to the line L : x - y = 4 by <span class=\"math-tex\">{tex}2 \\sqrt{3}{/tex}</span>&nbsp;units. If the new points Q lies in the third quadrant, then the equation of the line passing through Q and perpendicular to L is:</p>",
+      "difficulty": "Hard",
+      "options": [
+        {
+          "id": 949763,
+          "text": "x + y = 3 - $2\\sqrt 6$"
+        },
+        {
+          "id": 949762,
+          "text": "x + y = 3 - $3\\sqrt 6$"
+        },
+        {
+          "id": 949761,
+          "text": "2x + 2y = 1 - $\\sqrt 6$"
+        },
+        {
+          "id": 949760,
+          "text": "x + y = 2 - $\\sqrt 6$"
+        }
+      ],
+      "correct_option_id": null,
+      "correct_option_text": null,
+      "explanation": null
+    },
+    {
+      "id": 525159,
+      "question": "A ray of light along x + $\\sqrt 3$y = $\\sqrt 3$ gets reflected upon reaching x-axis, the equation of the reflected ray is:",
+      "question_raw": "<p>A ray of light along x + <span class=\"math-tex\">{tex}\\sqrt 3{/tex}</span>y&nbsp;= <span class=\"math-tex\">{tex}\\sqrt 3{/tex}</span>&nbsp;gets reflected upon reaching x-axis, the equation of the reflected ray is:</p>",
+      "difficulty": "Medium",
+      "options": [
+        {
+          "id": 949779,
+          "text": "$\\sqrt 3$y = x - 1"
+        },
+        {
+          "id": 949777,
+          "text": "$\\sqrt 3$y = x - $\\sqrt 3$"
+        },
+        {
+          "id": 949778,
+          "text": "y = $\\sqrt 3$x - $\\sqrt 3$"
+        },
+        {
+          "id": 949776,
+          "text": "y = x + $\\sqrt 3$"
+        }
+      ],
+      "correct_option_id": null,
+      "correct_option_text": null,
+      "explanation": null
+    },
+    {
+      "id": 525169,
+      "question": "Let 0 < $\\alpha$ < $\\frac{\\pi}{2}$ be fixed angle. if P = (cos $\\theta$, sin $\\theta$) and Q = (cos($\\alpha$ - $\\theta$), sin($\\alpha$ - $\\theta$)), then Q is obtained from P by:",
+      "question_raw": "<p>Let 0 &lt;&nbsp;<span class=\"math-tex\">{tex}\\alpha{/tex}</span>&nbsp;&lt;&nbsp;<span class=\"math-tex\">{tex}\\frac{\\pi}{2}{/tex}</span>&nbsp;be fixed angle. if&nbsp;P = (cos <span class=\"math-tex\">{tex}\\theta{/tex}</span>, sin <span class=\"math-tex\">{tex}\\theta{/tex}</span>) and Q = (cos(<span class=\"math-tex\">{tex}\\alpha{/tex}</span>&nbsp;- <span class=\"math-tex\">{tex}\\theta{/tex}</span>), sin(<span class=\"math-tex\">{tex}\\alpha{/tex}</span>&nbsp;- <span class=\"math-tex\">{tex}\\theta{/tex}</span>)), then Q is obtained from P by:</p>",
+      "difficulty": "Medium",
+      "options": [
+        {
+          "id": 949808,
+          "text": "clockwise rotation around origin through an angle $\\alpha$"
+        },
+        {
+          "id": 949811,
+          "text": "reflection in the line through the origin with slope tan ($\\frac \\alpha 2$)"
+        },
+        {
+          "id": 949809,
+          "text": "anticlockwise rotation around origin through an angle $\\alpha$"
+        },
+        {
+          "id": 949810,
+          "text": "reflection in the line through origin with slope tan $\\alpha$"
+        }
+      ],
+      "correct_option_id": null,
+      "correct_option_text": null,
+      "explanation": null
+    },
+    {
+      "id": 1057348,
+      "question": "A straight line cuts off the intercepts OA = a and OB = b on the positive directions of x-axis and y-axis respectively. If the perpendicular from origin O to this line makes an angle of $\\frac {\\pi}6$ with positive direction of y-axis and the area of $\\triangle$OAB is $\\frac{98}{3} \\sqrt{3}$, then a^2 - b^2 is equal to:",
+      "question_raw": "<p>A straight line cuts off the intercepts OA = a and OB = b on the positive directions of x-axis and y-axis respectively. If the perpendicular from origin O to this line makes an angle&nbsp;of <span class=\"math-tex\">{tex}\\frac {\\pi}6{/tex}</span> with positive direction of y-axis and the area of&nbsp;<span class=\"math-tex\">{tex}\\triangle{/tex}</span>OAB is <span class=\"math-tex\">{tex}\\frac{98}{3} \\sqrt{3}{/tex}</span>, then a<sup>2</sup> - b<sup>2</sup> is equal to:</p>",
+      "difficulty": "Medium",
+      "options": [
+        {
+          "id": 2173851,
+          "text": "98"
+        },
+        {
+          "id": 2173850,
+          "text": "$\\frac{196}{3}$"
+        },
+        {
+          "id": 2173849,
+          "text": "196"
+        },
+        {
+          "id": 2173848,
+          "text": "$\\frac{392}{3}$"
+        }
+      ],
+      "correct_option_id": null,
+      "correct_option_text": null,
+      "explanation": null
+    },
+    {
+      "id": 1057372,
+      "question": "A light ray emits from the origin making an angle 30^o with the positive x-axis. After getting reflected by the line x + y = 1, if this ray intersects x-axis at Q, then the abscissa of Q is",
+      "question_raw": "<p>A light ray emits from the origin making an angle 30<sup>o</sup>&nbsp;with the positive x-axis. After getting reflected by the line x + y&nbsp;= 1, if this ray intersects x-axis at Q, then the abscissa of Q is</p>",
+      "difficulty": "Medium",
+      "options": [
+        {
+          "id": 2173899,
+          "text": "$\\frac{\\sqrt{3}}{2(\\sqrt{3}+1)}$"
+        },
+        {
+          "id": 2173897,
+          "text": "$\\frac{2}{3+\\sqrt{3}}$"
+        },
+        {
+          "id": 2173896,
+          "text": "$\\frac{2}{(\\sqrt{3}-1)}$"
+        },
+        {
+          "id": 2173898,
+          "text": "$\\frac{2}{3-\\sqrt{3}}$"
+        }
+      ],
+      "correct_option_id": null,
+      "correct_option_text": null,
+      "explanation": null
+    },
+    {
+      "id": 1057383,
+      "question": "Let B and C be the two points on the line y + x = 0 such that B and C are symmetric with respect to the origin. Suppose A is a point on y - 2x = 2 such that $\\triangle$ABC is an equilateral triangle. Then, the area of the $\\triangle$ABC is",
+      "question_raw": "<p>Let B and C be the two points on the line y + x = 0 such that B and C are symmetric with respect to the origin. Suppose A is a point on y - 2x = 2 such that <span class=\"math-tex\">{tex}\\triangle{/tex}</span>ABC is an equilateral triangle. Then, the area of the <span class=\"math-tex\">{tex}\\triangle{/tex}</span>ABC is</p>",
+      "difficulty": "Medium",
+      "options": [
+        {
+          "id": 2173908,
+          "text": "$3 \\sqrt{3}$"
+        },
+        {
+          "id": 2173910,
+          "text": "$\\frac{8}{\\sqrt{3}}$"
+        },
+        {
+          "id": 2173909,
+          "text": "$2 \\sqrt{3}$"
+        },
+        {
+          "id": 2173912,
+          "text": "$\\frac{10}{\\sqrt{3}}$"
+        }
+      ],
+      "correct_option_id": null,
+      "correct_option_text": null,
+      "explanation": null
+    },
+    {
+      "id": 1057387,
+      "question": "The combined equation of the two lines ax + by + c = 0 and a'x + b'y + c’ = 0 can be written as (ax + by + c) (a'x + b'y + c') = 0.\nThe equation of the angle bisectors of the lines represented by the equation 2x^2 + xy - 3y^2 = 0 is",
+      "question_raw": "<p>The combined equation of the two lines ax + by + c = 0 and a&#39;x + b&#39;y + c&rsquo; = 0 can be written as (ax + by + c) (a&#39;x + b&#39;y + c&#39;) = 0.<br />\r\nThe equation of the angle bisectors of the lines represented by the equation 2x<sup>2</sup> + xy - 3y<sup>2</sup> = 0 is</p>",
+      "difficulty": "Medium",
+      "options": [
+        {
+          "id": 2173922,
+          "text": "x^2 - y^2 + 10xy = 0"
+        },
+        {
+          "id": 2173921,
+          "text": "3x^2 + 5xy + 2y^2 = 0"
+        },
+        {
+          "id": 2173923,
+          "text": "3x^2 + xy - 2y^2 = 0"
+        },
+        {
+          "id": 2173920,
+          "text": "x^2 - y^2 - 10xy = 0"
+        }
+      ],
+      "correct_option_id": null,
+      "correct_option_text": null,
+      "explanation": null
+    },
+    {
+      "id": 1057458,
+      "question": "Let R be the point (3, 7) and let P and Q be two points on the line x + y = 5 such that PQR is an equilateral triangle. Then the area of $\\triangle$PQR is :",
+      "question_raw": "<p>Let R be the point (3, 7) and let P and Q be two points on the line x + y = 5 such that PQR is an equilateral triangle. Then the area of <span class=\"math-tex\">{tex}\\triangle{/tex}</span>PQR is :</p>",
+      "difficulty": "Medium",
+      "options": [
+        {
+          "id": 2174084,
+          "text": "$\\frac{25}{\\sqrt{3}}$"
+        },
+        {
+          "id": 2174083,
+          "text": "$\\frac{25 \\sqrt{3}}{2}$"
+        },
+        {
+          "id": 2174082,
+          "text": "$\\frac{25}{4 \\sqrt{3}}$"
+        },
+        {
+          "id": 2174085,
+          "text": "$\\frac{25}{2 \\sqrt{3}}$"
+        }
+      ],
+      "correct_option_id": null,
+      "correct_option_text": null,
+      "explanation": null
+    },
+    {
+      "id": 1057469,
+      "question": "The equation of one of the straight lines which passes through the point (1, 3) and makes an angle tan^-1($\\sqrt2$) with the straight line, y + 1 = 3$\\sqrt2$x is:",
+      "question_raw": "<p>The equation of one of the straight lines which passes through the point (1, 3) and makes an angle tan<sup>-1</sup>(<span class=\"math-tex\">{tex}\\sqrt2{/tex}</span>) with the straight line, y + 1 = 3<span class=\"math-tex\">{tex}\\sqrt2{/tex}</span>x is:</p>",
+      "difficulty": "Medium",
+      "options": [
+        {
+          "id": 2174112,
+          "text": "4$\\sqrt2$x + 5y -(15 + 4$\\sqrt2$) = 0"
+        },
+        {
+          "id": 2174111,
+          "text": "4$\\sqrt2$x + 5y - 4$\\sqrt2$ = 0"
+        },
+        {
+          "id": 2174113,
+          "text": "5$\\sqrt2$x + 4y - (15 + 4$\\sqrt2$) = 0"
+        },
+        {
+          "id": 2174110,
+          "text": "4$\\sqrt2$x - 5y - (5 + 4$\\sqrt2$) = 0"
+        }
+      ],
+      "correct_option_id": null,
+      "correct_option_text": null,
+      "explanation": null
+    },
+    {
+      "id": 1057497,
+      "question": "The foot of the perpendicular drawn from the origin, on the line, 3x + y = $\\lambda$($\\lambda$ $\\ne$ 0) is P. If the line meets x-axis at A and y-axis at B, then the ratio BP : PA is",
+      "question_raw": "<p>The foot of the perpendicular drawn from the origin, on the line, 3x + y = <span class=\"math-tex\">{tex}\\lambda{/tex}</span>(<span class=\"math-tex\">{tex}\\lambda{/tex}</span> <span class=\"math-tex\">{tex}\\ne{/tex}</span> 0) is P. If the line meets x-axis at A and y-axis at B, then the ratio BP : PA is</p>",
+      "difficulty": "Hard",
+      "options": [
+        {
+          "id": 2174188,
+          "text": "3 : 1"
+        },
+        {
+          "id": 2174191,
+          "text": "9 : 1"
+        },
+        {
+          "id": 2174189,
+          "text": "1 : 3"
+        },
+        {
+          "id": 2174190,
+          "text": "1 : 9"
+        }
+      ],
+      "correct_option_id": null,
+      "correct_option_text": null,
+      "explanation": null
+    },
+    {
+      "id": 1057532,
+      "question": "If the point $\\left(\\alpha, \\frac{7 \\sqrt{3}}{3}\\right)$ lies on the curve traced by the midpoint of the line segments of the line x cos$\\theta$ + y sin$\\theta$ = 7, $\\theta$$\\in\\left(0, \\frac{\\pi}{2}\\right)$ between the co-ordinates axes, then $\\alpha$ is equal to",
+      "question_raw": "<p>If the point&nbsp;<span class=\"math-tex\">{tex}\\left(\\alpha, \\frac{7 \\sqrt{3}}{3}\\right){/tex}</span>&nbsp;lies on the curve traced by the midpoint of the line segments of the line&nbsp;x cos<span class=\"math-tex\">{tex}\\theta{/tex}</span>&nbsp;+ y sin<span class=\"math-tex\">{tex}\\theta{/tex}</span>&nbsp;= 7,&nbsp;<span class=\"math-tex\">{tex}\\theta{/tex}</span><span class=\"math-tex\">{tex}\\in\\left(0, \\frac{\\pi}{2}\\right){/tex}</span>&nbsp;between the co-ordinates axes, then&nbsp;<span class=\"math-tex\">{tex}\\alpha{/tex}</span>&nbsp;is equal to</p>",
+      "difficulty": "Medium",
+      "options": [
+        {
+          "id": 2174300,
+          "text": "$-7 \\sqrt{3}$"
+        },
+        {
+          "id": 2174299,
+          "text": "-7"
+        },
+        {
+          "id": 2174301,
+          "text": "$7 \\sqrt{3}$"
+        },
+        {
+          "id": 2174298,
+          "text": "7"
+        }
+      ],
+      "correct_option_id": null,
+      "correct_option_text": null,
+      "explanation": null
+    },
+    {
+      "id": 1057559,
+      "question": "If the three lines x - 3y = p, ax + 2y = q and ax + y = r form a right-angled triangle then:",
+      "question_raw": "<p>If the three lines x - 3y&nbsp;= p, ax + 2y = q and ax + y = r form a right-angled triangle then:</p>",
+      "difficulty": "Hard",
+      "options": [
+        {
+          "id": 2174377,
+          "text": "a^2 - 9a + 12 = 0"
+        },
+        {
+          "id": 2174375,
+          "text": "a^2 - 6a - 12 = 0"
+        },
+        {
+          "id": 2174374,
+          "text": "a^2 - 9a + 18 = 0"
+        },
+        {
+          "id": 2174376,
+          "text": "a^2 - 6a - 18 = 0"
+        }
+      ],
+      "correct_option_id": null,
+      "correct_option_text": null,
+      "explanation": null
+    },
+    {
+      "id": 1057681,
+      "question": "Let $\\alpha_1$, $\\alpha_2$ ($\\alpha_1$ < $\\alpha_2$) be the values of a for the points ($\\alpha$, -3), (2, 0) and (1, $\\alpha$) to be collinear. Then the equation of the line, passing through ($\\alpha_1$, $\\alpha_2$) and making an angle of $\\frac{\\pi}{3}$ with the positive direction of the x-axis, is:",
+      "question_raw": "<p>Let <span class=\"math-tex\">{tex}\\alpha_1{/tex}</span>, <span class=\"math-tex\">{tex}\\alpha_2{/tex}</span>&nbsp;(<span class=\"math-tex\">{tex}\\alpha_1{/tex}</span>&nbsp;&lt; <span class=\"math-tex\">{tex}\\alpha_2{/tex}</span>) be the values of a for the points (<span class=\"math-tex\">{tex}\\alpha{/tex}</span>, -3), (2, 0) and (1, <span class=\"math-tex\">{tex}\\alpha{/tex}</span>) to be collinear. Then the equation of the line, passing through (<span class=\"math-tex\">{tex}\\alpha_1{/tex}</span>, <span class=\"math-tex\">{tex}\\alpha_2{/tex}</span>) and making an angle of <span class=\"math-tex\">{tex}\\frac{\\pi}{3}{/tex}</span> with the positive direction of the x-axis, is:</p>",
+      "difficulty": "Medium",
+      "options": [
+        {
+          "id": 2174729,
+          "text": "$\\sqrt{3}$x - y + $\\sqrt{3}$ + 3 = 0"
+        },
+        {
+          "id": 2174728,
+          "text": "x - $\\sqrt{3}$y - 3$\\sqrt{3}$ + 1 = 0"
+        },
+        {
+          "id": 2174730,
+          "text": "x - $\\sqrt{3}$y + 3$\\sqrt{3}$ + 1 = 0"
+        },
+        {
+          "id": 2174731,
+          "text": "$\\sqrt{3}$x - y + $\\sqrt{3}$ - 3 = 0"
+        }
+      ],
+      "correct_option_id": null,
+      "correct_option_text": null,
+      "explanation": null
+    },
+    {
+      "id": 1057968,
+      "question": "Two sides of a parallelogram are along the lines 4x + 5y = 0 and 7x + 2y = 0. If the equation of one of the diagonals of the parallelogram is 11x + 7y = 9, then other diagonal passes through, the point:",
+      "question_raw": "<p>Two sides of a parallelogram are along the lines 4x + 5y = 0 and 7x + 2y = 0. If the equation of one of the diagonals of the parallelogram is 11x + 7y = 9, then other diagonal passes through, the point:</p>",
+      "difficulty": "Medium",
+      "options": [
+        {
+          "id": 2175469,
+          "text": "(1, 3)"
+        },
+        {
+          "id": 2175466,
+          "text": "(1, 2)"
+        },
+        {
+          "id": 2175468,
+          "text": "(2, 1)"
+        },
+        {
+          "id": 2175467,
+          "text": "(2, 2)"
+        }
+      ],
+      "correct_option_id": null,
+      "correct_option_text": null,
+      "explanation": null
+    },
+    {
+      "id": 1057990,
+      "question": "A ray of light is incident along a line which meets another line, 7x - y + 1 = 0, at the point (0, 1). The ray is then reflected from this point along the line, y + 2x = 1. Then the equation of the line of incidence of the ray of light is:",
+      "question_raw": "<p>A ray of light is incident along a line which meets another line, 7x - y + 1 = 0, at the point&nbsp;(0, 1). The ray is then reflected from this point along the line, y + 2x = 1. Then the equation of the line of incidence of the ray of light is:</p>",
+      "difficulty": "Hard",
+      "options": [
+        {
+          "id": 2175528,
+          "text": "41x + 25y - 25 = 0"
+        },
+        {
+          "id": 2175530,
+          "text": "41x - 38y + 38 = 0"
+        },
+        {
+          "id": 2175526,
+          "text": "41x - 25y + 25 = 0"
+        },
+        {
+          "id": 2175532,
+          "text": "41x + 38y - 38 = 0"
+        }
+      ],
+      "correct_option_id": null,
+      "correct_option_text": null,
+      "explanation": null
+    },
+    {
+      "id": 1686094,
+      "question": "The distance of the point $(2,3)$ from the line $2 x-3 y+28=0$, measured parallel to the line $\\sqrt{3 x}-y+1=0$, is equal to",
+      "question_raw": "<p>The distance of the point <span class=\"math-tex\">{tex}(2,3){/tex}</span> from the line <span class=\"math-tex\">{tex}2 x-3 y+28=0{/tex}</span>, measured parallel to the line <span class=\"math-tex\">{tex}\\sqrt{3 x}-y+1=0{/tex}</span>, is equal to</p>",
+      "difficulty": "Medium",
+      "options": [
+        {
+          "id": 3516735,
+          "text": "$3+4 \\sqrt{2}$"
+        },
+        {
+          "id": 3516736,
+          "text": "$4+6 \\sqrt{3}$"
+        },
+        {
+          "id": 3516734,
+          "text": "$6 \\sqrt{3}$"
+        },
+        {
+          "id": 3516733,
+          "text": "$4 \\sqrt{2}$"
+        }
+      ],
+      "correct_option_id": null,
+      "correct_option_text": null,
+      "explanation": null
+    },
+    {
+      "id": 1686098,
+      "question": "Let A be the point of intersection of the lines $3 x+2 y=14,5 x-y=6$ and B be the point of intersection of the lines $4 x+3 y=8,6 x+$ $y=5$. The distance of the point ${P}(5,-2)$ from the line $A B$ is",
+      "question_raw": "<p>Let A be the point of intersection of the lines <span class=\"math-tex\">{tex}3 x+2 y=14,5 x-y=6{/tex}</span> and B be the point of intersection of the lines <span class=\"math-tex\">{tex}4 x+3 y=8,6 x+{/tex}</span> <span class=\"math-tex\">{tex}y=5{/tex}</span>. The distance of the point <span class=\"math-tex\">{tex}{P}(5,-2){/tex}</span> from the line <span class=\"math-tex\">{tex}A B{/tex}</span> is</p>",
+      "difficulty": "Medium",
+      "options": [
+        {
+          "id": 3516750,
+          "text": "8"
+        },
+        {
+          "id": 3516751,
+          "text": "$\\frac{5}{2}$"
+        },
+        {
+          "id": 3516749,
+          "text": "$\\frac{13}{2}$"
+        },
+        {
+          "id": 3516752,
+          "text": "6"
+        }
+      ],
+      "correct_option_id": null,
+      "correct_option_text": null,
+      "explanation": null
+    },
+    {
+      "id": 1686349,
+      "question": "A man is walking on a straight line. The arithmetic mean of the reciprocals of the intercepts of this line on the coordinate axes is $\\frac{1}{4}$. Three stones $\\mathrm{A}, \\mathrm{B}$ and C are placed at the points $(1,1),(2,2)$ and $(4,4)$ respectively. Then which of these stones is / are on the path of the man?",
+      "question_raw": "<p>A man is walking on a straight line. The arithmetic mean of the reciprocals of the intercepts of this line on the coordinate axes is <span class=\"math-tex\">{tex}\\frac{1}{4}{/tex}</span>. Three stones <span class=\"math-tex\">{tex}\\mathrm{A}, \\mathrm{B}{/tex}</span> and C are placed at the points <span class=\"math-tex\">{tex}(1,1),(2,2){/tex}</span> and <span class=\"math-tex\">{tex}(4,4){/tex}</span> respectively. Then which of these stones is / are on the path of the man?</p>",
+      "difficulty": "Easy",
+      "options": [
+        {
+          "id": 3517506,
+          "text": "C only"
+        },
+        {
+          "id": 3517510,
+          "text": "B only"
+        },
+        {
+          "id": 3517508,
+          "text": "All the three"
+        },
+        {
+          "id": 3517505,
+          "text": "A only"
+        }
+      ],
+      "correct_option_id": null,
+      "correct_option_text": null,
+      "explanation": null
+    },
+    {
+      "id": 1686406,
+      "question": "Let $A B C$ be a triangle with $A(-3,1)$ and $\\angle {ACB}=\\theta, 0 \\lt \\theta \\lt \\frac{\\pi}{2}$. If the equation of the median through B is $2 x+y-3=0$ and the equation of angle bisector of C is $7 x-4 y-1=0$, then $\\tan \\theta$ is equal to:",
+      "question_raw": "<p>Let <span class=\"math-tex\">{tex}A B C{/tex}</span> be a triangle with <span class=\"math-tex\">{tex}A(-3,1){/tex}</span> and <span class=\"math-tex\">{tex}\\angle {ACB}=\\theta, 0 \\lt \\theta \\lt \\frac{\\pi}{2}{/tex}</span>. If the equation of the median through B is <span class=\"math-tex\">{tex}2 x+y-3=0{/tex}</span> and the equation of angle bisector of C is <span class=\"math-tex\">{tex}7 x-4 y-1=0{/tex}</span>, then <span class=\"math-tex\">{tex}\\tan \\theta{/tex}</span> is equal to:</p>",
+      "difficulty": "Easy",
+      "options": [
+        {
+          "id": 3517666,
+          "text": "$\\frac{1}{2}$"
+        },
+        {
+          "id": 3517668,
+          "text": "$\\frac{3}{4}$"
+        },
+        {
+          "id": 3517665,
+          "text": "$\\frac{4}{3}$"
+        },
+        {
+          "id": 3517667,
+          "text": "2"
+        }
+      ],
+      "correct_option_id": null,
+      "correct_option_text": null,
+      "explanation": null
+    },
+    {
+      "id": 1686574,
+      "question": "The portion of the line $4 x+5 y=20$ in the first quadrant is trisected by the lines ${L}_{1}$ and ${L}_{2}$ passing through the origin. The tangent of an angle between the lines ${L}_{1}$ and ${L}_{2}$ is:",
+      "question_raw": "<p>The portion of the line <span class=\"math-tex\">{tex}4 x+5 y=20{/tex}</span> in the first quadrant is trisected by the lines <span class=\"math-tex\">{tex}{L}_{1}{/tex}</span> and <span class=\"math-tex\">{tex}{L}_{2}{/tex}</span> passing through the origin. The tangent of an angle between the lines <span class=\"math-tex\">{tex}{L}_{1}{/tex}</span> and <span class=\"math-tex\">{tex}{L}_{2}{/tex}</span> is:</p>",
+      "difficulty": "Medium",
+      "options": [
+        {
+          "id": 3518151,
+          "text": "$\\frac{25}{41}$"
+        },
+        {
+          "id": 3518150,
+          "text": "$\\frac{8}{5}$"
+        },
+        {
+          "id": 3518152,
+          "text": "$\\frac{2}{5}$"
+        },
+        {
+          "id": 3518153,
+          "text": "$\\frac{30}{41}$"
+        }
+      ],
+      "correct_option_id": null,
+      "correct_option_text": null,
+      "explanation": null
+    },
+    {
+      "id": 1686628,
+      "question": "Let the triangle PQR be the image of the triangle with vertices $(1,3),(3,1)$ and $(2,4)$ in the line $x+2 y=2$. If the centroid of $\\triangle {PQR}$ is the point $(\\alpha, \\beta)$, then $15(\\alpha-\\beta)$ is equal to:",
+      "question_raw": "<p>Let the triangle PQR be the image of the triangle with vertices <span class=\"math-tex\">{tex}(1,3),(3,1){/tex}</span> and <span class=\"math-tex\">{tex}(2,4){/tex}</span> in the line <span class=\"math-tex\">{tex}x+2 y=2{/tex}</span>. If the centroid of <span class=\"math-tex\">{tex}\\triangle {PQR}{/tex}</span> is the point <span class=\"math-tex\">{tex}(\\alpha, \\beta){/tex}</span>, then <span class=\"math-tex\">{tex}15(\\alpha-\\beta){/tex}</span> is equal to:</p>",
+      "difficulty": "Easy",
+      "options": [
+        {
+          "id": 3518337,
+          "text": "22"
+        },
+        {
+          "id": 3518336,
+          "text": "21"
+        },
+        {
+          "id": 3518335,
+          "text": "19"
+        },
+        {
+          "id": 3518334,
+          "text": "24"
+        }
+      ],
+      "correct_option_id": null,
+      "correct_option_text": null,
+      "explanation": null
+    }
+  ]
+}

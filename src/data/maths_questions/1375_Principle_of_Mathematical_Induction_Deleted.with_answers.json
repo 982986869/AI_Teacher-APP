@@ -1,0 +1,3738 @@
+{
+  "id": 1375,
+  "name": "Principle of Mathematical Induction (Deleted)",
+  "category_full_name": "CBSE > Class 11 > Mathematics > Principle of Mathematical Induction (Deleted)",
+  "total_questions": 128,
+  "topics": [
+    {
+      "id": 11544,
+      "name": "Motivation (XI-4.1)",
+      "total_questions": 87,
+      "attempted_questions": 0,
+      "correct_questions": 0,
+      "score": 0
+    },
+    {
+      "id": 11545,
+      "name": "The Principle of Mathematical Induction (XI-4.1)",
+      "total_questions": 41,
+      "attempted_questions": 0,
+      "correct_questions": 0,
+      "score": 0
+    }
+  ],
+  "questions": [
+    {
+      "id": 18556,
+      "question": "n^2 + 3n is always divisible by which number, provided n is an integer?",
+      "question_raw": "<p>n<sup>2</sup>&nbsp;+ 3n is always divisible by which number, provided n is an integer?</p>",
+      "difficulty": "Medium",
+      "options": [
+        {
+          "id": 29427,
+          "text": "5"
+        },
+        {
+          "id": 29424,
+          "text": "2"
+        },
+        {
+          "id": 29426,
+          "text": "4"
+        },
+        {
+          "id": 29425,
+          "text": "3"
+        }
+      ],
+      "correct_option_id": null,
+      "correct_option_text": null,
+      "explanation": "<p>P(n) = n<sup>2</sup>&nbsp;+ 3n<br />\r\nP(1) = 1 + 3<br />\r\nP(1) = 4<br />\r\nLet&rsquo;s assume that P(k) is true and divisible by 4. Therefore, P(k) = k<sup>2</sup>&nbsp;+ 3k can be written as 4c.<br />\r\nWe need to check if P(k + 1) is divisible by 4<br />\r\nP(k+1) = (k + 1)<sup>2</sup>&nbsp;+ 3(k + 1)<br />\r\nP(k+1) = k<sup>2</sup>&nbsp;+ 1 + 2k + 3k + 3<br />\r\nP(k+1) = k<sup>2</sup>&nbsp;+ 5k + 4<br />\r\nP(k+1) = (k<sup>2</sup>&nbsp;+ 3k) + 2k + 4<br />\r\nP(k+1) = 4c + 2k + 4<br />\r\nP(k+1) = 4c + 2(k + 2)<br />\r\nClearly the second part of the equation is not divisible by 4. However P(k) = 4c is divisible by 2 and<br />\r\nP(k + 1) is also divisible by 2. Therefore, 2 divides P(n).</p>",
+      "correctAnswer": "B",
+      "correctOptionId": 29424
+    },
+    {
+      "id": 18567,
+      "question": "If n is a +ve integer, then 3^3n - 26n - 1 is divisible by",
+      "question_raw": "<p>If n is a +ve integer, then&nbsp;3<sup>3n</sup> - 26n - 1&nbsp;is divisible by</p>",
+      "difficulty": "Medium",
+      "options": [
+        {
+          "id": 29471,
+          "text": "627"
+        },
+        {
+          "id": 29470,
+          "text": "239"
+        },
+        {
+          "id": 29469,
+          "text": "547"
+        },
+        {
+          "id": 29468,
+          "text": "676"
+        }
+      ],
+      "correct_option_id": null,
+      "correct_option_text": null,
+      "explanation": "<p>For n = 1 the value is 0. But when n = 2 the value is 676.&nbsp;</p>",
+      "correctAnswer": "D",
+      "correctOptionId": 29468
+    },
+    {
+      "id": 18568,
+      "question": "If n is a +ve integer, then 2^3n - 7n - 1 is divisible by",
+      "question_raw": "<p>If n is a +ve integer, then 2<sup>3n</sup> - 7n - 1 is divisible by</p>",
+      "difficulty": "Medium",
+      "options": [
+        {
+          "id": 29473,
+          "text": "36"
+        },
+        {
+          "id": 29475,
+          "text": "81"
+        },
+        {
+          "id": 29474,
+          "text": "64"
+        },
+        {
+          "id": 29472,
+          "text": "49"
+        }
+      ],
+      "correct_option_id": null,
+      "correct_option_text": null,
+      "explanation": "<p>When n = 2 the value is 49.&nbsp;</p>",
+      "correctAnswer": "D",
+      "correctOptionId": 29472
+    },
+    {
+      "id": 18569,
+      "question": "If n is a +ve integer, then ${3.5^{2n + 1}} + {2^{3n + 1}}$ is divisible by",
+      "question_raw": "<p>If n is a +ve integer, then <span class=\"math-tex\">{tex}{3.5^{2n + 1}} + {2^{3n + 1}}{/tex}</span> is divisible by</p>",
+      "difficulty": "Medium",
+      "options": [
+        {
+          "id": 29476,
+          "text": "17"
+        },
+        {
+          "id": 29478,
+          "text": "64"
+        },
+        {
+          "id": 29479,
+          "text": "32"
+        },
+        {
+          "id": 29477,
+          "text": "24"
+        }
+      ],
+      "correct_option_id": null,
+      "correct_option_text": null,
+      "explanation": "<p>When n = 1 the value is 391 which is divisible by 17.</p>",
+      "correctAnswer": "A",
+      "correctOptionId": 29476
+    },
+    {
+      "id": 18570,
+      "question": "If n is a +ve integer, then 7^2n - 4 is divisible by",
+      "question_raw": "<p>If n is a +ve integer, then 7<sup>2n</sup> - 4 is divisible by</p>",
+      "difficulty": "Medium",
+      "options": [
+        {
+          "id": 29483,
+          "text": "3297"
+        },
+        {
+          "id": 29482,
+          "text": "2973"
+        },
+        {
+          "id": 29480,
+          "text": "2397"
+        },
+        {
+          "id": 29481,
+          "text": "2937"
+        }
+      ],
+      "correct_option_id": null,
+      "correct_option_text": null,
+      "explanation": "<p>When n = 2 the value is 2397.</p>",
+      "correctAnswer": "C",
+      "correctOptionId": 29480
+    },
+    {
+      "id": 18571,
+      "question": "Let P(k) = 1 + 3 + 5 + …………….+ (2k - 1) = (3 + k^2). Then which of the following is true?",
+      "question_raw": "<p>Let P(k) = 1 + 3 + 5 + &hellip;&hellip;&hellip;&hellip;&hellip;.+ (2k -&nbsp;1) =&nbsp;(3 + k<sup>2</sup>). Then which of the following is true?</p>",
+      "difficulty": "Hard",
+      "options": [
+        {
+          "id": 29485,
+          "text": "P(k) $ \\Rightarrow $P(k + 2)"
+        },
+        {
+          "id": 29486,
+          "text": "P (1) is correct"
+        },
+        {
+          "id": 29484,
+          "text": "P(k) $\\Rightarrow $ P(k + 1)"
+        },
+        {
+          "id": 29487,
+          "text": "P(k) $ \\Rightarrow $P(k + 3)"
+        }
+      ],
+      "correct_option_id": null,
+      "correct_option_text": null,
+      "explanation": "<p>P(k) = 1 + 3 + ... + (2k - 1) = 3 + k<sup>2</sup> .....(i)<br />\r\nWhen k = 1, LHS of p(k)&nbsp;&nbsp;<span class=\"math-tex\">{tex}\\ne{/tex}</span>&nbsp;R.H.S of P(k)<br />\r\nSo P(1) is not ture.<br />\r\nNow P(k + 1); 1 + 3 + 5 + .... + (2k - 1) + (2k + 1)<br />\r\n= 3 + (k + 1)<sup>2</sup>&nbsp; .....(ii)<br />\r\nLet P(k) is true&nbsp;<br />\r\n<span class=\"math-tex\">{tex}\\therefore{/tex}</span>&nbsp;1 + 3 + 5 + ..... + (2k - 1) = k<sup>2</sup> + 3<br />\r\n<span class=\"math-tex\">{tex}\\Rightarrow{/tex}</span>&nbsp;1 + 3 + 5 + .... + (2k - 1)<br />\r\n= 3 + k<sup>2</sup> + 2k + 1 = (k + 1)<sup>2</sup> + 3<br />\r\n<span class=\"math-tex\">{tex}\\Rightarrow{/tex}</span>&nbsp;P(k + 1) true&nbsp;<br />\r\n<span class=\"math-tex\">{tex}\\therefore{/tex}</span>&nbsp;P(k)&nbsp;<span class=\"math-tex\">{tex}\\Rightarrow{/tex}</span> P(k + 1)</p>",
+      "correctAnswer": "C",
+      "correctOptionId": 29484
+    },
+    {
+      "id": 18572,
+      "question": "The inequality 2^n + 1 < n! is true for:",
+      "question_raw": "<p>The inequality &nbsp;2<sup>n</sup> + 1 &lt; n! is true for:</p>",
+      "difficulty": "Medium",
+      "options": [
+        {
+          "id": 29488,
+          "text": "all n > 3"
+        },
+        {
+          "id": 29489,
+          "text": "all n > 1"
+        },
+        {
+          "id": 29491,
+          "text": "all n > 2"
+        },
+        {
+          "id": 29490,
+          "text": "all n"
+        }
+      ],
+      "correct_option_id": null,
+      "correct_option_text": null,
+      "explanation": "<p>When n = 1, we get&nbsp;3 &lt; 1, and when n = 2, we get&nbsp;5 &lt; 2. When n = 3, we get 9 &lt; 6, which are invalid inequations. Only when n = 4 we get&nbsp;17 &lt; 24, which is valid.</p>",
+      "correctAnswer": "A",
+      "correctOptionId": 29488
+    },
+    {
+      "id": 18573,
+      "question": "For each $n \\in N$, a^2n-1 + b^2n-1 is divisible by:",
+      "question_raw": "<p>For each <span class=\"math-tex\">{tex}n \\in N{/tex}</span>,&nbsp;a<sup>2n-1</sup> + b<sup>2n-1</sup>&nbsp;is divisible by:</p>",
+      "difficulty": "Medium",
+      "options": [
+        {
+          "id": 29494,
+          "text": "(a + b)^3"
+        },
+        {
+          "id": 29492,
+          "text": "a + b"
+        },
+        {
+          "id": 29493,
+          "text": "(a + b)^2"
+        },
+        {
+          "id": 29495,
+          "text": "(a + b)^4"
+        }
+      ],
+      "correct_option_id": null,
+      "correct_option_text": null,
+      "explanation": "<p>When n = 1 we have&nbsp;a + b and the subsequent substitution of n as 2, 3,... will result in the expression whose factor is&nbsp;a + b.</p>",
+      "correctAnswer": "B",
+      "correctOptionId": 29492
+    },
+    {
+      "id": 18574,
+      "question": "For each n $ \\in $ N, n (n + 1) (2n + 1) is divisible by :",
+      "question_raw": "<p>For each n <span class=\"math-tex\">{tex} \\in {/tex}</span> N, n (n + 1) (2n + 1) is divisible by :</p>",
+      "difficulty": "Medium",
+      "options": [
+        {
+          "id": 29496,
+          "text": "6"
+        },
+        {
+          "id": 29497,
+          "text": "2"
+        },
+        {
+          "id": 29498,
+          "text": "8"
+        },
+        {
+          "id": 29499,
+          "text": "15"
+        }
+      ],
+      "correct_option_id": null,
+      "correct_option_text": null,
+      "explanation": "<p>When n = 1 the value is 6. The subsequent substitution will give the value as a multiple of 6.</p>",
+      "correctAnswer": "A",
+      "correctOptionId": 29496
+    },
+    {
+      "id": 18575,
+      "question": "For each n $ \\in $ N, 3(5^2n + 1) + 2^3n + 1 is divisible by :",
+      "question_raw": "<p>For each n <span class=\"math-tex\">{tex} \\in {/tex}</span> N, 3(5<sup>2n + 1</sup>) + 2<sup>3n + 1</sup> is divisible by :</p>",
+      "difficulty": "Medium",
+      "options": [
+        {
+          "id": 29502,
+          "text": "21"
+        },
+        {
+          "id": 29503,
+          "text": "23"
+        },
+        {
+          "id": 29501,
+          "text": "19"
+        },
+        {
+          "id": 29500,
+          "text": "17"
+        }
+      ],
+      "correct_option_id": null,
+      "correct_option_text": null,
+      "explanation": "<p>When n = 1 we have 391 which is divisible by 17.</p>",
+      "correctAnswer": "D",
+      "correctOptionId": 29500
+    },
+    {
+      "id": 18576,
+      "question": "For each n $ \\in $ N, 2^3n - 1 is divisible by :",
+      "question_raw": "<p>For each n <span class=\"math-tex\">{tex} \\in {/tex}</span> N,&nbsp;2<sup>3n</sup> - 1 is divisible by :</p>",
+      "difficulty": "Medium",
+      "options": [
+        {
+          "id": 29506,
+          "text": "16"
+        },
+        {
+          "id": 29504,
+          "text": "7"
+        },
+        {
+          "id": 29505,
+          "text": "8"
+        },
+        {
+          "id": 29507,
+          "text": "19"
+        }
+      ],
+      "correct_option_id": null,
+      "correct_option_text": null,
+      "explanation": "<p>When n = 1 the value is 7.</p>",
+      "correctAnswer": "B",
+      "correctOptionId": 29504
+    },
+    {
+      "id": 18577,
+      "question": "For each n $ \\in $ N, 3^2n - 1 is divisible by :",
+      "question_raw": "<p>For each n <span class=\"math-tex\">{tex} \\in {/tex}</span> N, 3<sup>2n</sup> - 1&nbsp;is divisible by :</p>",
+      "difficulty": "Medium",
+      "options": [
+        {
+          "id": 29510,
+          "text": "32"
+        },
+        {
+          "id": 29509,
+          "text": "16"
+        },
+        {
+          "id": 29508,
+          "text": "8"
+        },
+        {
+          "id": 29511,
+          "text": "19"
+        }
+      ],
+      "correct_option_id": null,
+      "correct_option_text": null,
+      "explanation": "<p>when n = 1 the value is 8 which is the multiple of 8.</p>",
+      "correctAnswer": "C",
+      "correctOptionId": 29508
+    },
+    {
+      "id": 18578,
+      "question": "The statement P(n) : (n + 3)^2 > 2^n+3 is true for:",
+      "question_raw": "<p>The statement P(n) : (n + 3)<sup>2</sup> &gt; 2<sup>n+3</sup>&nbsp;is true for:</p>",
+      "difficulty": "Medium",
+      "options": [
+        {
+          "id": 29513,
+          "text": "all n $≥$ 2"
+        },
+        {
+          "id": 29515,
+          "text": "all n"
+        },
+        {
+          "id": 29512,
+          "text": "no n $ \\in $ N"
+        },
+        {
+          "id": 29514,
+          "text": "all n $≥$ 3"
+        }
+      ],
+      "correct_option_id": null,
+      "correct_option_text": null,
+      "explanation": "<p>When n = 1 we get&nbsp;16 &gt; 16, which is false. when n = 2 we get&nbsp;25 &gt; 32, which is false as well. As n = 3, 4, 5.... the inequality does not hold correct.</p>",
+      "correctAnswer": "C",
+      "correctOptionId": 29512
+    },
+    {
+      "id": 18579,
+      "question": "The smallest positive integer n for which 2^n(1 $\\times$ 2 $\\times$ 3 $\\times$ ... $\\times$ n) < n^n holds is :",
+      "question_raw": "<p>The smallest positive integer n&nbsp;for which&nbsp;2<sup>n</sup>(1&nbsp;<span class=\"math-tex\">{tex}\\times{/tex}</span>&nbsp;2&nbsp;<span class=\"math-tex\">{tex}\\times{/tex}</span>&nbsp;3&nbsp;<span class=\"math-tex\">{tex}\\times{/tex}</span>&nbsp;...&nbsp;<span class=\"math-tex\">{tex}\\times{/tex}</span>&nbsp;n) &lt; n<sup>n</sup> holds is :</p>",
+      "difficulty": "Medium",
+      "options": [
+        {
+          "id": 29516,
+          "text": "6"
+        },
+        {
+          "id": 29519,
+          "text": "4"
+        },
+        {
+          "id": 29518,
+          "text": "5"
+        },
+        {
+          "id": 29517,
+          "text": "3"
+        }
+      ],
+      "correct_option_id": null,
+      "correct_option_text": null,
+      "explanation": "<p>When n = 1, we get&nbsp;2 &lt; 1, which is not valid. When n takes values 2, 3, 4, 5 the inequality is invalid. But when n = 6 we have&nbsp;46080 &lt; 46656, which is valid.</p>",
+      "correctAnswer": "A",
+      "correctOptionId": 29516
+    },
+    {
+      "id": 18580,
+      "question": "If ${10^n} + 3 \\times {4^{n + 1}} + k$ is divisible by 9 for all n $ \\in $ N , then the least positive integral value of k is :",
+      "question_raw": "<p>If <span class=\"math-tex\">{tex}{10^n} + 3 \\times {4^{n + 1}} + k{/tex}</span> is divisible by 9 for all n <span class=\"math-tex\">{tex} \\in {/tex}</span> N , then the least positive integral value of k is :</p>",
+      "difficulty": "Medium",
+      "options": [
+        {
+          "id": 29521,
+          "text": "1"
+        },
+        {
+          "id": 29523,
+          "text": "7"
+        },
+        {
+          "id": 29522,
+          "text": "3"
+        },
+        {
+          "id": 29520,
+          "text": "5"
+        }
+      ],
+      "correct_option_id": null,
+      "correct_option_text": null,
+      "explanation": "<p>When n = 1 we have 58. Given that the expression is divisible by 9 . Hence the least value of k will be 5,so that the value becomes 63 which is divisible by 9.</p>",
+      "correctAnswer": "D",
+      "correctOptionId": 29520
+    },
+    {
+      "id": 18581,
+      "question": "The smallest positive integer n, for which (1 $\\times$ 2 $\\times$ 3 $\\times$ ... $\\times$ n) < $\\left(\\frac{n+1}{2}\\right)^n$ holds:",
+      "question_raw": "<p>The smallest positive integer n, for which (1&nbsp;<span class=\"math-tex\">{tex}\\times{/tex}</span>&nbsp;2&nbsp;<span class=\"math-tex\">{tex}\\times{/tex}</span>&nbsp;3&nbsp;<span class=\"math-tex\">{tex}\\times{/tex}</span>&nbsp;...&nbsp;<span class=\"math-tex\">{tex}\\times{/tex}</span>&nbsp;n) &lt;&nbsp;<span class=\"math-tex\">{tex}\\left(\\frac{n+1}{2}\\right)^n{/tex}</span> holds:</p>",
+      "difficulty": "Medium",
+      "options": [
+        {
+          "id": 29526,
+          "text": "3"
+        },
+        {
+          "id": 29527,
+          "text": "5"
+        },
+        {
+          "id": 29525,
+          "text": "4"
+        },
+        {
+          "id": 29524,
+          "text": "2"
+        }
+      ],
+      "correct_option_id": null,
+      "correct_option_text": null,
+      "explanation": "<p>When n = 1 we get&nbsp;1 &lt; 1, which is invalid. When n = 2 we get&nbsp;2 &lt;&nbsp;<span class=\"math-tex\">{tex}\\frac{9}{4}{/tex}</span>, which is valid.</p>",
+      "correctAnswer": "D",
+      "correctOptionId": 29524
+    },
+    {
+      "id": 18582,
+      "question": "Let P(n) : n^2 - n + 41 is a prime number. Then :",
+      "question_raw": "<p>Let P(n) : n<sup>2</sup> - n + 41 is a prime number. Then :</p>",
+      "difficulty": "Medium",
+      "options": [
+        {
+          "id": 29529,
+          "text": "P(3) is not true"
+        },
+        {
+          "id": 29528,
+          "text": "P (41) is not true"
+        },
+        {
+          "id": 29531,
+          "text": "P(1) is not true"
+        },
+        {
+          "id": 29530,
+          "text": "P(5) is not true"
+        }
+      ],
+      "correct_option_id": null,
+      "correct_option_text": null,
+      "explanation": "<p>Since when n = 41 we have&nbsp;(41)<sup>2</sup>, which is not a prime number.</p>",
+      "correctAnswer": "B",
+      "correctOptionId": 29528
+    },
+    {
+      "id": 18583,
+      "question": "Let that P(n) $\\Rightarrow$ P(n + 1) for all natural numbers n. Also, if P (m) is true, m $\\in $ N, then we conclude that",
+      "question_raw": "<p>Let that P(n)&nbsp;<span class=\"math-tex\">{tex}\\Rightarrow{/tex}</span>&nbsp;P(n + 1) for all natural numbers n.&nbsp; Also, if P (m) is true, m <span class=\"math-tex\">{tex}\\in {/tex}</span> N, then we conclude that</p>",
+      "difficulty": "Hard",
+      "options": [
+        {
+          "id": 29534,
+          "text": "P ( n ) is true for all n $<$ m"
+        },
+        {
+          "id": 29532,
+          "text": "P (n) is true for all n $ ≥$ m"
+        },
+        {
+          "id": 29533,
+          "text": "P ( n ) is true for all n"
+        },
+        {
+          "id": 29535,
+          "text": "P ( n ) is true for all n > m"
+        }
+      ],
+      "correct_option_id": null,
+      "correct_option_text": null,
+      "explanation": "<p>This criteria is from the basic principle of mathematical induction.</p>",
+      "correctAnswer": "B",
+      "correctOptionId": 29532
+    },
+    {
+      "id": 18584,
+      "question": "Consider the statement P(n) : n^2 $ \\ge$ 100. Here P(n) $\\Rightarrow$ P(n + 1) for all natural numbers n. What does it mean",
+      "question_raw": "<p>Consider the statement P(n) : n<sup>2</sup>&nbsp;<span class=\"math-tex\">{tex} \\ge{/tex}</span>&nbsp;100. Here P(n)&nbsp;<span class=\"math-tex\">{tex}\\Rightarrow{/tex}</span>&nbsp;P(n + 1) for all natural numbers n. What does it mean</p>",
+      "difficulty": "Medium",
+      "options": [
+        {
+          "id": 29538,
+          "text": "P (n) is true for all n $≥ $ 2"
+        },
+        {
+          "id": 29536,
+          "text": "none of these"
+        },
+        {
+          "id": 29539,
+          "text": "p(n) is true for all n"
+        },
+        {
+          "id": 29537,
+          "text": "P(n) is true for all n $≥$ 3"
+        }
+      ],
+      "correct_option_id": null,
+      "correct_option_text": null,
+      "explanation": "<p>Since the statement is not true for n = 1, we cannot predict the validity for all natural numbers n.</p>",
+      "correctAnswer": "B",
+      "correctOptionId": 29536
+    },
+    {
+      "id": 18585,
+      "question": "The smallest positive integer ‘ n ‘ for which P ( n ) : ${2^n} < \\left( {1 \\times 2 \\times 3 \\times ............ \\times n} \\right)$ holds is :",
+      "question_raw": "<p>The smallest positive integer &lsquo; n &lsquo; for which P ( n ) : <span class=\"math-tex\">{tex}{2^n} &lt; \\left( {1 \\times 2 \\times 3 \\times ............ \\times n} \\right){/tex}</span> holds is :</p>",
+      "difficulty": "Medium",
+      "options": [
+        {
+          "id": 29540,
+          "text": "4"
+        },
+        {
+          "id": 29542,
+          "text": "3"
+        },
+        {
+          "id": 29543,
+          "text": "1"
+        },
+        {
+          "id": 29541,
+          "text": "2"
+        }
+      ],
+      "correct_option_id": null,
+      "correct_option_text": null,
+      "explanation": "<p>Since the values of n as 1,2,3gives inavlid inequations but when n = 4 we have&nbsp;<span class=\"math-tex\">{tex}16 &lt;24{/tex}</span>, which is valid.</p>",
+      "correctAnswer": "A",
+      "correctOptionId": 29540
+    },
+    {
+      "id": 18586,
+      "question": "If x^n - 1 is divisible by x – k for all n belongs to natural numbers N, then the least positive integral value of k is:",
+      "question_raw": "<p>If x<sup>n</sup> - 1 is divisible by x &ndash; k for all n belongs to natural numbers N, then the least positive integral value of k is:</p>",
+      "difficulty": "Medium",
+      "options": [
+        {
+          "id": 29546,
+          "text": "3"
+        },
+        {
+          "id": 29547,
+          "text": "4"
+        },
+        {
+          "id": 29544,
+          "text": "1"
+        },
+        {
+          "id": 29545,
+          "text": "2"
+        }
+      ],
+      "correct_option_id": null,
+      "correct_option_text": null,
+      "explanation": "<p>If f(x) = x<sup>n</sup> - 1 is divisible by x - k<br />\r\nThen f(k) = 0<br />\r\nTherefore, k<sup>n</sup> = 1 and thus least positive integral value of k is 1.</p>",
+      "correctAnswer": "C",
+      "correctOptionId": 29544
+    },
+    {
+      "id": 18587,
+      "question": "A student was asked to prove a statement P ( n ) by method of induction . He proved P ( k + 1 ) is true whenever P ( k ) Is true for all k ≥ 5 , $k \\in N$ and P ( 5 ) is true . On the basis of this he could conclude that P ( n ) is true",
+      "question_raw": "<p>A student was asked to prove a statement P ( n ) by method of induction . He proved P ( k + 1 ) is true whenever P ( k ) Is true for all k &ge; 5 , <span class=\"math-tex\">{tex}k \\in N{/tex}</span> and P ( 5 ) is true . On the basis of this he could conclude that P ( n ) is true</p>",
+      "difficulty": "Easy",
+      "options": [
+        {
+          "id": 29548,
+          "text": "for all n $≥$ 5"
+        },
+        {
+          "id": 29551,
+          "text": "for all $n \\in \\mathbf{N}$"
+        },
+        {
+          "id": 29550,
+          "text": "for all n $>$ 5"
+        },
+        {
+          "id": 29549,
+          "text": "for all n $<$ 5"
+        }
+      ],
+      "correct_option_id": null,
+      "correct_option_text": null,
+      "explanation": "<p>Yes because if it is true for n = k then it is true for all n ,which is the basic concept of mathematical induction.</p>",
+      "correctAnswer": "A",
+      "correctOptionId": 29548
+    },
+    {
+      "id": 18588,
+      "question": "If a, b, c $\\in$ N, a^n + b^n is divisible by c, when n is odd but not when n is even, then the value of c is :",
+      "question_raw": "<p>If &nbsp;a, b, c&nbsp;<span class=\"math-tex\">{tex}\\in{/tex}</span>&nbsp;N, a<sup>n</sup> + b<sup>n</sup>&nbsp;is divisible by c, when n is odd but not when n is even, then the value of c is :</p>",
+      "difficulty": "Medium",
+      "options": [
+        {
+          "id": 29554,
+          "text": "a - b"
+        },
+        {
+          "id": 29555,
+          "text": "a^3 - b^3"
+        },
+        {
+          "id": 29552,
+          "text": "a + b"
+        },
+        {
+          "id": 29553,
+          "text": "a^3 + b^3"
+        }
+      ],
+      "correct_option_id": null,
+      "correct_option_text": null,
+      "explanation": "<p>Since&nbsp;a + b will be a factor of a<sup>n</sup>&nbsp;+ b<sup>n</sup>.</p>",
+      "correctAnswer": "C",
+      "correctOptionId": 29552
+    },
+    {
+      "id": 18589,
+      "question": "1.2.3 + 2.3.4 + 3.4.5 + ………..up to n terms is equal to $\\frac{1}{4}$n (n + 1) (n + 2) (n + 3) is true for",
+      "question_raw": "<p>1.2.3 + 2.3.4 + 3.4.5 + &hellip;&hellip;&hellip;..up to n terms is equal to&nbsp;<span class=\"math-tex\">{tex}\\frac{1}{4}{/tex}</span>n (n + 1) (n + 2) (n + 3) is true for&nbsp;</p>",
+      "difficulty": "Hard",
+      "options": [
+        {
+          "id": 29558,
+          "text": "for all integers n"
+        },
+        {
+          "id": 29556,
+          "text": "all natural numbers n"
+        },
+        {
+          "id": 29557,
+          "text": "whole numbers n"
+        },
+        {
+          "id": 29559,
+          "text": "for all real number n"
+        }
+      ],
+      "correct_option_id": null,
+      "correct_option_text": null,
+      "explanation": "<p>By the method of mathematical induction the given statement is true&nbsp;for n = 1, 2, 3.....</p>",
+      "correctAnswer": "B",
+      "correctOptionId": 29556
+    },
+    {
+      "id": 18590,
+      "question": "1 + 2 + 3 + .................. n = $\\frac{1}{2} ( n ( n +1))$, is true",
+      "question_raw": "<p>1&nbsp;+ 2 + 3&nbsp;+ ..................&nbsp;n =&nbsp;<span class=\"math-tex\">{tex}\\frac{1}{2} ( n ( n +1)){/tex}</span>, is true</p>",
+      "difficulty": "Hard",
+      "options": [
+        {
+          "id": 29560,
+          "text": "for all natural numbers n"
+        },
+        {
+          "id": 29562,
+          "text": "for n = 2 only"
+        },
+        {
+          "id": 29561,
+          "text": "only for n > 2"
+        },
+        {
+          "id": 29563,
+          "text": "only for n < 2"
+        }
+      ],
+      "correct_option_id": null,
+      "correct_option_text": null,
+      "explanation": "<p>By&nbsp;the process of mathematical induction, the given statement is true for all natural numbers n.</p>",
+      "correctAnswer": "A",
+      "correctOptionId": 29560
+    },
+    {
+      "id": 18591,
+      "question": "The sum of the terms in the n^th bracket of the series 1 + (2 + 3 + 4) + (5 + 6 + 7 + 8 + 9)…. is",
+      "question_raw": "<p>The sum of the terms in the n<sup>th</sup> bracket of the series 1 + (2 + 3 + 4) + (5 + 6 + 7 + 8 + 9)&hellip;. is</p>",
+      "difficulty": "Medium",
+      "options": [
+        {
+          "id": 29567,
+          "text": "(n + 1)^3 + 4n^2"
+        },
+        {
+          "id": 29565,
+          "text": "(n + 1)^3 + 8n^2"
+        },
+        {
+          "id": 29564,
+          "text": "(n - 1)^3 + n^3"
+        },
+        {
+          "id": 29566,
+          "text": "$\\frac{(n+1)(n+2)}{6 n}$"
+        }
+      ],
+      "correct_option_id": null,
+      "correct_option_text": null,
+      "explanation": "<p>For&nbsp;n = 1, we have<br />\r\nSum of the terms in first bracket&nbsp;=&nbsp;1 and,&nbsp;(n &minus; 1)<sup>3</sup> + n<sup>3</sup> = (1 &minus; 1)<sup>3</sup> + 1<sup>3</sup> = 1<br />\r\nFor&nbsp;n = 2, we have<br />\r\nSum of the terms in the second bracket&nbsp;= 2 + 3 + 4 =&nbsp;9 and,&nbsp;(n &minus; 1)<sup>3</sup> + n<sup>3</sup> = (2&nbsp;&minus; 1)<sup>3</sup> + 2<sup>3</sup> = 1 + 8 = 9<br />\r\nFor&nbsp;n = 3, we have<br />\r\nSum of the terms in the third bracket&nbsp;= (5 + 6 + 7 + 8 + 9) = 35&nbsp;and,&nbsp;(3 &minus; 1)<sup>3</sup> + 3<sup>3</sup> = 8 + 27 = 35</p>",
+      "correctAnswer": "C",
+      "correctOptionId": 29564
+    },
+    {
+      "id": 18592,
+      "question": "For all $n \\in N$, 2.4^2n + 1 + 3^3n + 1 is divisible by :",
+      "question_raw": "<p>For all <span class=\"math-tex\">{tex}n \\in N{/tex}</span>,&nbsp;2.4<sup>2n + 1</sup> + 3<sup>3n + 1</sup> is divisible by :</p>",
+      "difficulty": "Medium",
+      "options": [
+        {
+          "id": 29568,
+          "text": "11"
+        },
+        {
+          "id": 29569,
+          "text": "7"
+        },
+        {
+          "id": 29571,
+          "text": "209"
+        },
+        {
+          "id": 29570,
+          "text": "5"
+        }
+      ],
+      "correct_option_id": null,
+      "correct_option_text": null,
+      "explanation": "<p>Now, for n = 1,<br />\n2.4<sup>2 + 1</sup> + 3<sup>3 + 1</sup> = 2.4<sup>3</sup> + 3<sup>4</sup>&nbsp;<br />\n= 2&nbsp;<span class=\"math-tex\">{tex}\\times{/tex}</span>&nbsp;64 + 81 = 128 + 81 = 209,<br />\nfor n = 2,<br />\n2.4<sup>5</sup> + 3<sup>7</sup>&nbsp;<br />\n= 8&nbsp;<span class=\"math-tex\">{tex}\\times{/tex}</span>&nbsp;256 + 2187 = 2048 + 2187 = 4235<br />\nNote that the H.C.F. of 209 and 4235 is 11. So, 2.4<sup>2n + 1</sup> + 3<sup>3n + 1</sup> is divisible by 11.</p>",
+      "correctAnswer": "A",
+      "correctOptionId": 29568
+    },
+    {
+      "id": 18593,
+      "question": "If P (n) : 49^n +16^n + $\\lambda$ is divisible by 64 for n $\\in$ N is true, then the least negative integral value of $\\lambda$ is",
+      "question_raw": "<p>If P (n) : 49<sup>n</sup>&nbsp;+16<sup>n</sup>&nbsp;+ <span class=\"math-tex\">{tex}\\lambda{/tex}</span> is divisible by 64 for n <span class=\"math-tex\">{tex}\\in{/tex}</span> N is true, then the least negative integral value of&nbsp;<span class=\"math-tex\">{tex}\\lambda{/tex}</span> is</p>",
+      "difficulty": "Medium",
+      "options": [
+        {
+          "id": 29575,
+          "text": "-4"
+        },
+        {
+          "id": 29573,
+          "text": "-2"
+        },
+        {
+          "id": 29572,
+          "text": "-1"
+        },
+        {
+          "id": 29574,
+          "text": "-3"
+        }
+      ],
+      "correct_option_id": null,
+      "correct_option_text": null,
+      "explanation": "<p>When n = 1 we have the value of the expression as 65 . Given that the expression is divisible be 64. Hence the value is -1.</p>",
+      "correctAnswer": "C",
+      "correctOptionId": 29572
+    },
+    {
+      "id": 18594,
+      "question": "$\\frac{3}{4}+\\frac{15}{16}+\\frac{63}{64}+...$ to n terms is equal to",
+      "question_raw": "<p><span class=\"math-tex\">{tex}\\frac{3}{4}+\\frac{15}{16}+\\frac{63}{64}+...{/tex}</span> to n terms is equal to</p>",
+      "difficulty": "Medium",
+      "options": [
+        {
+          "id": 29578,
+          "text": "$n+\\frac{4^n}{3}-\\frac{1}{3}$"
+        },
+        {
+          "id": 29576,
+          "text": "$n+\\frac{4^{-n}}{3}-\\frac{1}{3}$"
+        },
+        {
+          "id": 29577,
+          "text": "$n+\\frac{4^{-n}}{3}+\\frac{1}{3}$"
+        },
+        {
+          "id": 29579,
+          "text": "$n-\\frac{4^n}{3}-\\frac{1}{3}$"
+        }
+      ],
+      "correct_option_id": null,
+      "correct_option_text": null,
+      "explanation": "<p><span class=\"math-tex\">{tex}\\frac{3}{4}+\\frac{15}{16}+\\frac{63}{64}+\\ldots .{/tex}</span>&nbsp;to n terms<br />\r\n=&nbsp;<span class=\"math-tex\">{tex}\\left(1-\\frac{1}{4}\\right)+\\left(1-\\frac{1}{16}\\right)+\\left(1-\\frac{1}{64}\\right){/tex}</span>&nbsp;+ .... to n terms<br />\r\n= n -&nbsp;<span class=\"math-tex\">{tex}\\frac{1}{4}\\left(1+\\frac{1}{4}\\right.\\left.+\\frac{1}{4^{2}}+\\ldots . . \\text { to } \\mathrm{n} \\text { terms }\\right) {/tex}</span>&nbsp;<br />\r\n=&nbsp;<span class=\"math-tex\">{tex}n-\\frac{1}{4} \\cdot \\frac{1-\\left(\\frac{1}{4}\\right)^{n}}{1-\\frac{1}{4}}{/tex}</span>&nbsp;<br />\r\n=&nbsp;<span class=\"math-tex\">{tex}n-\\frac{1}{3}\\left(1-4^{-n}\\right){/tex}</span></p>",
+      "correctAnswer": "B",
+      "correctOptionId": 29576
+    },
+    {
+      "id": 18595,
+      "question": "10^2n - 1 + 1 $\\forall n \\in N$ is divisible by :",
+      "question_raw": "<p>10<sup>2n - 1</sup> + 1&nbsp;<span class=\"math-tex\">{tex}\\forall n \\in N{/tex}</span> is divisible by :</p>",
+      "difficulty": "Medium",
+      "options": [
+        {
+          "id": 29580,
+          "text": "11"
+        },
+        {
+          "id": 29581,
+          "text": "7"
+        },
+        {
+          "id": 29583,
+          "text": "2"
+        },
+        {
+          "id": 29582,
+          "text": "3"
+        }
+      ],
+      "correct_option_id": null,
+      "correct_option_text": null,
+      "explanation": "<p>Put n = 1 we get 11, hence it is divisible by 11.</p>",
+      "correctAnswer": "A",
+      "correctOptionId": 29580
+    },
+    {
+      "id": 18596,
+      "question": "For all odd positive integers n, the number $n({n^2} - 1)$ is divisible by :",
+      "question_raw": "<p>For all odd positive integers n, the number <span class=\"math-tex\">{tex}n({n^2} - 1){/tex}</span> is divisible by :</p>",
+      "difficulty": "Medium",
+      "options": [
+        {
+          "id": 29587,
+          "text": "36"
+        },
+        {
+          "id": 29585,
+          "text": "16"
+        },
+        {
+          "id": 29586,
+          "text": "9"
+        },
+        {
+          "id": 29584,
+          "text": "24"
+        }
+      ],
+      "correct_option_id": null,
+      "correct_option_text": null,
+      "explanation": "<p>When n = 1 we have 0 : When n = 2 we have 24. When n = 3 we have 120 .....where all these values are multiples of 24.</p>",
+      "correctAnswer": "D",
+      "correctOptionId": 29584
+    },
+    {
+      "id": 18597,
+      "question": "$\\frac{\\frac{1}{2} \\cdot \\frac{2}{2}}{1^3}+\\frac{\\frac{2}{2} \\cdot \\frac{3}{2}}{1^3+2^3}+\\frac{\\frac{3}{2} \\cdot \\frac{4}{2}}{1^3+2^3+3^3}+\\ldots$ upto n terms is equal to",
+      "question_raw": "<p><span class=\"math-tex\">{tex}\\frac{\\frac{1}{2} \\cdot \\frac{2}{2}}{1^3}+\\frac{\\frac{2}{2} \\cdot \\frac{3}{2}}{1^3+2^3}+\\frac{\\frac{3}{2} \\cdot \\frac{4}{2}}{1^3+2^3+3^3}+\\ldots{/tex}</span> upto n terms is equal to</p>",
+      "difficulty": "Medium",
+      "options": [
+        {
+          "id": 29589,
+          "text": "$\\frac {n}{n + 2}$"
+        },
+        {
+          "id": 29591,
+          "text": "$\\frac{n-1}{n-2}$"
+        },
+        {
+          "id": 29590,
+          "text": "$\\frac{n+1}{n+2}$"
+        },
+        {
+          "id": 29588,
+          "text": "$\\frac{n}{n+1}$"
+        }
+      ],
+      "correct_option_id": null,
+      "correct_option_text": null,
+      "explanation": "<p>Replace n = 1 we have&nbsp;<span class=\"math-tex\">{tex}\\frac{ 1}{2}{/tex}</span>. When n = 2 we have&nbsp;<span class=\"math-tex\">{tex}\\frac{1}{2} + \\frac{1}{6} = \\frac{2}{3}{/tex}</span>, (by the principle of mathematical induction when n = 1 we need to take one term from LHS. and for n = 2 we need to take the sum of two terms from the LHS. ....)</p>",
+      "correctAnswer": "D",
+      "correctOptionId": 29588
+    },
+    {
+      "id": 18598,
+      "question": "$\\frac{1}{3.5}+\\frac{1}{5.7}+\\frac{1}{7.9}+\\ldots$ up to n terms is equal to",
+      "question_raw": "<p><span class=\"math-tex\">{tex}\\frac{1}{3.5}+\\frac{1}{5.7}+\\frac{1}{7.9}+\\ldots{/tex}</span> up to n terms is equal to</p>",
+      "difficulty": "Easy",
+      "options": [
+        {
+          "id": 29593,
+          "text": "$\\frac{n}{(2 n+3)}$"
+        },
+        {
+          "id": 29592,
+          "text": "$\\frac{n}{3(2 n+3)}$"
+        },
+        {
+          "id": 29595,
+          "text": "$\\frac{1}{(n+3)(n+6)}$"
+        },
+        {
+          "id": 29594,
+          "text": "$\\frac{1}{(n+2)(n+4)}$"
+        }
+      ],
+      "correct_option_id": null,
+      "correct_option_text": null,
+      "explanation": "<p>By the process of mathematical induction when n = 1 we have&nbsp;<span class=\"math-tex\">{tex}\\frac{1}{15} {/tex}</span>.<br />\r\nWhen n = 2 we have LHS :&nbsp;<span class=\"math-tex\">{tex}\\frac{1}{15} + \\frac{1}{35} = \\frac{2}{21}{/tex}</span>, RHS :<span class=\"math-tex\">{tex}\\frac{2}{(3( 4+3))}= \\frac{2}{21}{/tex}</span>, which is true.</p>",
+      "correctAnswer": "B",
+      "correctOptionId": 29592
+    },
+    {
+      "id": 18599,
+      "question": "For $n \\in N$, x^n + 1 + (x + 1)^2n - 1 is divisible by:",
+      "question_raw": "<p>For <span class=\"math-tex\">{tex}n \\in N{/tex}</span>,&nbsp;x<sup>n + 1</sup> + (x + 1)<sup>2n - 1</sup> is divisible by:</p>",
+      "difficulty": "Medium",
+      "options": [
+        {
+          "id": 29599,
+          "text": "x^2 + x - 1"
+        },
+        {
+          "id": 29596,
+          "text": "x^2 + x + 1"
+        },
+        {
+          "id": 29598,
+          "text": "x + 1"
+        },
+        {
+          "id": 29597,
+          "text": "x"
+        }
+      ],
+      "correct_option_id": null,
+      "correct_option_text": null,
+      "explanation": "<p>When n = 1 we get x<sup>2</sup>&nbsp;+ x&nbsp;+ 1</p>",
+      "correctAnswer": "B",
+      "correctOptionId": 29596
+    },
+    {
+      "id": 18600,
+      "question": "The product of three consecutive natural numbers is divisible by",
+      "question_raw": "<p>The product of three consecutive natural numbers is divisible by</p>",
+      "difficulty": "Medium",
+      "options": [
+        {
+          "id": 29602,
+          "text": "11"
+        },
+        {
+          "id": 29603,
+          "text": "3"
+        },
+        {
+          "id": 29600,
+          "text": "6"
+        },
+        {
+          "id": 29601,
+          "text": "8"
+        }
+      ],
+      "correct_option_id": null,
+      "correct_option_text": null,
+      "explanation": "<p>By replacing n by 1 we get 6.</p>",
+      "correctAnswer": "C",
+      "correctOptionId": 29600
+    },
+    {
+      "id": 18601,
+      "question": "For $n \\in N$, 3^2n + 2 - 2^3n - 9 is divisible by",
+      "question_raw": "<p>For <span class=\"math-tex\">{tex}n \\in N{/tex}</span>,&nbsp;3<sup>2n + 2</sup> - 2<sup>3</sup>n - 9&nbsp;is divisible by</p>",
+      "difficulty": "Medium",
+      "options": [
+        {
+          "id": 29606,
+          "text": "3"
+        },
+        {
+          "id": 29605,
+          "text": "81"
+        },
+        {
+          "id": 29607,
+          "text": "9"
+        },
+        {
+          "id": 29604,
+          "text": "64"
+        }
+      ],
+      "correct_option_id": null,
+      "correct_option_text": null,
+      "explanation": "<p>We have,<br />\r\n3<sup>2n + 2</sup> &minus; 2<sup>3</sup> <span class=\"math-tex\">{tex}\\cdot{/tex}</span> n &minus; 9<br />\r\n= (3<sup>2</sup>)<sup>n+1</sup> &minus; 8n &minus; 9<br />\r\n= (1 + 8)<sup>n + 1</sup> &minus; 8(n + 1) &minus; 1<br />\r\n={1 + (n + 1)8+ <sup>n+1</sup>C<sub>2</sub> ​8<sup>2</sup> + <sup>n+1</sup>C<sub>3</sub> ​8<sup>3</sup> +..... + <sup>n+1</sup>C<sup>n+1</sup> ​8<sup>n+1</sup>} &minus; 8(n + 1) &minus; 1<br />\r\n= 64 {<sup>n+1</sup>C<sub>2</sub> ​+ <sup>n+1</sup>C<sub>3</sub> ​<span class=\"math-tex\">{tex}\\cdot{/tex}</span>&nbsp;8 +......}, which is divisible by 64.</p>",
+      "correctAnswer": "D",
+      "correctOptionId": 29604
+    },
+    {
+      "id": 18602,
+      "question": "For all positive integers n, the number 4^n + 15n - 1 is divisible by :",
+      "question_raw": "<p>For all positive integers n, the number&nbsp;4<sup>n</sup> + 15n - 1 is divisible by :</p>",
+      "difficulty": "Medium",
+      "options": [
+        {
+          "id": 29610,
+          "text": "36"
+        },
+        {
+          "id": 29611,
+          "text": "24"
+        },
+        {
+          "id": 29609,
+          "text": "16"
+        },
+        {
+          "id": 29608,
+          "text": "9"
+        }
+      ],
+      "correct_option_id": null,
+      "correct_option_text": null,
+      "explanation": "<p>Replace n = 1 we get 18 n = 2 we get 45.... By the principle of mathematical induction it is divisible by 9.</p>",
+      "correctAnswer": "D",
+      "correctOptionId": 29608
+    },
+    {
+      "id": 18603,
+      "question": "For all $n \\in N$, 7^2n - 48n - 1 is divisible by :",
+      "question_raw": "<p>For all <span class=\"math-tex\">{tex}n \\in N{/tex}</span>,&nbsp;7<sup>2n</sup> - 48n - 1&nbsp;is divisible by :</p>",
+      "difficulty": "Medium",
+      "options": [
+        {
+          "id": 29612,
+          "text": "2304"
+        },
+        {
+          "id": 29614,
+          "text": "25"
+        },
+        {
+          "id": 29613,
+          "text": "1234"
+        },
+        {
+          "id": 29615,
+          "text": "26"
+        }
+      ],
+      "correct_option_id": null,
+      "correct_option_text": null,
+      "explanation": "<p>When n = 1 the value is 0. When n = 2 the value is 2304..... Hence by the principle of mathematical induction the expression is divisible by 2304.</p>",
+      "correctAnswer": "A",
+      "correctOptionId": 29612
+    },
+    {
+      "id": 18604,
+      "question": "For all $n \\in N$ 5^2n - 1 is divisible by :",
+      "question_raw": "<p>For all <span class=\"math-tex\">{tex}n \\in N{/tex}</span>&nbsp;5<sup>2n</sup> - 1 is divisible by :</p>",
+      "difficulty": "Medium",
+      "options": [
+        {
+          "id": 29618,
+          "text": "25"
+        },
+        {
+          "id": 29619,
+          "text": "11"
+        },
+        {
+          "id": 29617,
+          "text": "26"
+        },
+        {
+          "id": 29616,
+          "text": "24"
+        }
+      ],
+      "correct_option_id": null,
+      "correct_option_text": null,
+      "explanation": "<p>Replace n = 1, 2, 3..&nbsp; the answers are divisible by 24.&nbsp;</p>",
+      "correctAnswer": "D",
+      "correctOptionId": 29616
+    },
+    {
+      "id": 18605,
+      "question": "For all $n \\in N$, 3^2n + 7 is divisible by :",
+      "question_raw": "<p>For all <span class=\"math-tex\">{tex}n \\in N{/tex}</span>,&nbsp;3<sup>2n</sup> + 7 is divisible by :</p>",
+      "difficulty": "Medium",
+      "options": [
+        {
+          "id": 29620,
+          "text": "8"
+        },
+        {
+          "id": 29623,
+          "text": "9"
+        },
+        {
+          "id": 29622,
+          "text": "11"
+        },
+        {
+          "id": 29621,
+          "text": "3"
+        }
+      ],
+      "correct_option_id": null,
+      "correct_option_text": null,
+      "explanation": "<p>When n = 1 the value is 16 which is a multple of 8, n = 2 the value is 88 which is a multiple of 8..... By PMI the expression is divisible by 8 for all natural numbers.</p>",
+      "correctAnswer": "A",
+      "correctOptionId": 29620
+    },
+    {
+      "id": 18606,
+      "question": "For all $n \\in N$, 3n^5 + 5n^3 + 7n is divisible by :",
+      "question_raw": "<p>For all <span class=\"math-tex\">{tex}n \\in N{/tex}</span>,&nbsp;3n<sup>5</sup> + 5n<sup>3</sup> + 7n is divisible by :</p>",
+      "difficulty": "Medium",
+      "options": [
+        {
+          "id": 29626,
+          "text": "5"
+        },
+        {
+          "id": 29627,
+          "text": "3"
+        },
+        {
+          "id": 29624,
+          "text": "15"
+        },
+        {
+          "id": 29625,
+          "text": "10"
+        }
+      ],
+      "correct_option_id": null,
+      "correct_option_text": null,
+      "explanation": "<p>For n = 1 the value is 15. For n = 2 the value is 150 which is a multiple of 15... By PMI the expression is divisible by 15.</p>",
+      "correctAnswer": "C",
+      "correctOptionId": 29624
+    },
+    {
+      "id": 18607,
+      "question": "The nth terms of the series 3 + 7 + 13 + 21 +………. is =",
+      "question_raw": "<p>The nth terms of the series 3 + 7 + 13 + 21 +&hellip;&hellip;&hellip;. is =&nbsp;</p>",
+      "difficulty": "Easy",
+      "options": [
+        {
+          "id": 29631,
+          "text": "4n + 1"
+        },
+        {
+          "id": 29628,
+          "text": "n^2 + n + 1"
+        },
+        {
+          "id": 29629,
+          "text": "4n - 1"
+        },
+        {
+          "id": 29630,
+          "text": "n + 2"
+        }
+      ],
+      "correct_option_id": null,
+      "correct_option_text": null,
+      "explanation": "<p>Put n = 1 we have 3. When n = 2,&nbsp;4&nbsp;+ 2&nbsp;+ 1 = 7...</p>",
+      "correctAnswer": "B",
+      "correctOptionId": 29628
+    },
+    {
+      "id": 18608,
+      "question": "The nth terms of the series 4 + 14 + 30 + 52 + 80 + 114 + ….. is =",
+      "question_raw": "<p>The nth terms of the series 4 + 14 + 30&nbsp;+ 52 + 80 + 114 + &hellip;.. is =</p>",
+      "difficulty": "Easy",
+      "options": [
+        {
+          "id": 29633,
+          "text": "2n^2 + 2"
+        },
+        {
+          "id": 29634,
+          "text": "5n - 1"
+        },
+        {
+          "id": 29632,
+          "text": "3n^2 + n"
+        },
+        {
+          "id": 29635,
+          "text": "2n^2 + 2n"
+        }
+      ],
+      "correct_option_id": null,
+      "correct_option_text": null,
+      "explanation": "<p>When n = 1 we get 4. When n = 2 we get 12 + 2 = 14...&nbsp;</p>",
+      "correctAnswer": "C",
+      "correctOptionId": 29632
+    },
+    {
+      "id": 18609,
+      "question": "3 + 13 + 29 + 51 + 79 +……….. to n terms is",
+      "question_raw": "<p>3 + 13 + 29 + 51 + 79 +&hellip;&hellip;&hellip;.. to n terms is</p>",
+      "difficulty": "Easy",
+      "options": [
+        {
+          "id": 29638,
+          "text": "n^2 + 5n^3"
+        },
+        {
+          "id": 29639,
+          "text": "n^2 + 4n^3"
+        },
+        {
+          "id": 29636,
+          "text": "n^3 + 2n^2"
+        },
+        {
+          "id": 29637,
+          "text": "2n^2 + 7n"
+        }
+      ],
+      "correct_option_id": null,
+      "correct_option_text": null,
+      "explanation": "<p>When n = 1 we have 3 when n = 2 we have<br />\r\nLHS : 3&nbsp;+ 13 = 16 &nbsp;<br />\r\nRHS : 8&nbsp;+ 8 = 16 ..... By PMI this is the sum of the n terms of the series.</p>",
+      "correctAnswer": "C",
+      "correctOptionId": 29636
+    },
+    {
+      "id": 18610,
+      "question": "The sum of n terms of the series 1^3 + 3^3 + 5^3 + ...... is",
+      "question_raw": "<p>The sum of n terms of the series&nbsp;1<sup>3</sup> + 3<sup>3</sup> + 5<sup>3</sup> + ...... is</p>",
+      "difficulty": "Easy",
+      "options": [
+        {
+          "id": 29640,
+          "text": "n^2(2n^2 - 1)"
+        },
+        {
+          "id": 29642,
+          "text": "n^2(n^2 + 1)"
+        },
+        {
+          "id": 29641,
+          "text": "n^2(2n^2 + 1)"
+        },
+        {
+          "id": 29643,
+          "text": "n^2(n^2 - 1)"
+        }
+      ],
+      "correct_option_id": null,
+      "correct_option_text": null,
+      "explanation": "<p>When n = 1 we get 1. When n = 2 we get&nbsp;<br />\r\nRHS : 4 <span class=\"math-tex\">{tex}\\times{/tex}</span>&nbsp;7 = 28 &nbsp;<br />\r\nLHS : 1&nbsp;+ 27 = 28...... By PMI this is true.</p>",
+      "correctAnswer": "A",
+      "correctOptionId": 29640
+    },
+    {
+      "id": 18611,
+      "question": "If n is an odd positive integer, then a^n + b^n is divisible by:",
+      "question_raw": "<p>If n is an odd positive integer, then a<sup>n</sup> + b<sup>n</sup> is divisible by:</p>",
+      "difficulty": "Medium",
+      "options": [
+        {
+          "id": 29646,
+          "text": "a^2 + b^2"
+        },
+        {
+          "id": 29647,
+          "text": "a^2 - b^2"
+        },
+        {
+          "id": 29644,
+          "text": "a + b"
+        },
+        {
+          "id": 29645,
+          "text": "a - b"
+        }
+      ],
+      "correct_option_id": null,
+      "correct_option_text": null,
+      "explanation": "<p>Since when n = 1 we get a&nbsp;+ b. Hence by the method of mathematical induction, it is true.</p>",
+      "correctAnswer": "C",
+      "correctOptionId": 29644
+    },
+    {
+      "id": 18612,
+      "question": "If n is an even positive integer, a^n + b^n is divisible by :",
+      "question_raw": "<p>If n is an even positive integer, a<sup>n</sup> + b<sup>n</sup> is divisible by :</p>",
+      "difficulty": "Medium",
+      "options": [
+        {
+          "id": 29648,
+          "text": "none of these"
+        },
+        {
+          "id": 29651,
+          "text": "a^2 + b^2"
+        },
+        {
+          "id": 29650,
+          "text": "a - b"
+        },
+        {
+          "id": 29649,
+          "text": "a + b"
+        }
+      ],
+      "correct_option_id": null,
+      "correct_option_text": null,
+      "explanation": "<p>If n is even we get a<sup>2</sup>&nbsp;+ b<sup>2</sup>&nbsp;which is not divisible by a&nbsp;+ b. same case when n = 4.</p>",
+      "correctAnswer": "A",
+      "correctOptionId": 29648
+    },
+    {
+      "id": 18613,
+      "question": "For all $n \\in N, \\frac{n^5}{5}+\\frac{n^3}{3}+\\frac{7n}{15 }$ is",
+      "question_raw": "<p>For all <span class=\"math-tex\">{tex}n \\in N, \\frac{n^5}{5}+\\frac{n^3}{3}+\\frac{7n}{15 }{/tex}</span> is</p>",
+      "difficulty": "Easy",
+      "options": [
+        {
+          "id": 29653,
+          "text": "an integer"
+        },
+        {
+          "id": 29654,
+          "text": "a natural number"
+        },
+        {
+          "id": 29652,
+          "text": "a positive fraction"
+        },
+        {
+          "id": 29655,
+          "text": "a negative fraction"
+        }
+      ],
+      "correct_option_id": null,
+      "correct_option_text": null,
+      "explanation": "<p>a natural number</p>",
+      "correctAnswer": "B",
+      "correctOptionId": 29654
+    },
+    {
+      "id": 18614,
+      "question": "The sum of n terms of the series 1 + (1 + a) + (1 + a + a^2) + (1 + a + a^2 + a^3)....., is",
+      "question_raw": "<p>The sum of n terms of the series&nbsp;1 + (1 + a) + (1 + a + a<sup>2</sup>) + (1 + a + a<sup>2</sup> + a<sup>3</sup>).....,&nbsp;is</p>",
+      "difficulty": "Easy",
+      "options": [
+        {
+          "id": 29658,
+          "text": "$-\\frac{n}{1-a}+\\frac{a\\left(1-a^n\\right)}{(1-a)^2}$"
+        },
+        {
+          "id": 29659,
+          "text": "$-\\frac{n}{1-a}+\\frac{a\\left(1-a^n\\right)}{(1-a^2)}$"
+        },
+        {
+          "id": 29657,
+          "text": "$\\frac{\\mathrm{n}}{1-\\mathrm{a}}+\\frac{\\mathrm{a}\\left(1+\\mathrm{a}^{\\mathrm{n}}\\right)}{(1-\\mathrm{a})^2}$"
+        },
+        {
+          "id": 29656,
+          "text": "$\\frac{n}{1-a}-\\frac{a\\left(1-a^n\\right)}{(1-a)^2}$"
+        }
+      ],
+      "correct_option_id": null,
+      "correct_option_text": null,
+      "explanation": "<p>Replace n = 1 we get 1. Replace n = 2 we get LHS; a&nbsp;+ 2 RHS : a&nbsp;+ 2.</p>",
+      "correctAnswer": "D",
+      "correctOptionId": 29656
+    },
+    {
+      "id": 18615,
+      "question": "If 3 + 5 + 9 + 17 + 33 +……. to n terms = 2^n+1 + n - 2, then n^th term of LHS is",
+      "question_raw": "<p>If 3 + 5 + 9 + 17 + 33 +&hellip;&hellip;. to n terms = 2<sup>n+1</sup> + n - 2,&nbsp;then n<sup>th</sup> term of LHS is</p>",
+      "difficulty": "Easy",
+      "options": [
+        {
+          "id": 29660,
+          "text": "2^n + 1"
+        },
+        {
+          "id": 29661,
+          "text": "3n - 1"
+        },
+        {
+          "id": 29663,
+          "text": "2n - 1"
+        },
+        {
+          "id": 29662,
+          "text": "2n + 1"
+        }
+      ],
+      "correct_option_id": null,
+      "correct_option_text": null,
+      "explanation": "<p>3 = 2<sup>1</sup>&nbsp;+ 1<br />\r\n5 =&nbsp;2<sup>2</sup>&nbsp;+&nbsp;1&nbsp;<br />\r\n9 =&nbsp;2<sup>3</sup>&nbsp;+&nbsp;1........&nbsp;the nth term is 2<sup>n</sup>&nbsp;+ 1</p>",
+      "correctAnswer": "A",
+      "correctOptionId": 29660
+    },
+    {
+      "id": 18616,
+      "question": "$\\frac{(n+2) !}{(n-1) !}$ is divisible by:",
+      "question_raw": "<p><span class=\"math-tex\">{tex}\\frac{(n+2) !}{(n-1) !}{/tex}</span> is divisible by:</p>",
+      "difficulty": "Medium",
+      "options": [
+        {
+          "id": 29664,
+          "text": "6"
+        },
+        {
+          "id": 29667,
+          "text": "26"
+        },
+        {
+          "id": 29666,
+          "text": "24"
+        },
+        {
+          "id": 29665,
+          "text": "11"
+        }
+      ],
+      "correct_option_id": null,
+      "correct_option_text": null,
+      "explanation": "<p>When n = 1 we have 3! = 6 and n = 2 we have 4! = 24 which is divisible by 6.</p>",
+      "correctAnswer": "A",
+      "correctOptionId": 29664
+    },
+    {
+      "id": 285171,
+      "question": "Let P(n): 2^n < (1 $\\times$ 2 $\\times$ 3 $\\times$ .. $\\times$ n). Then the smallest positive integer for which P(n) is true is",
+      "question_raw": "<p>Let P(n): 2<sup>n</sup>&nbsp;&lt; (1 <span class=\"math-tex\">{tex}\\times{/tex}</span>&nbsp;2&nbsp;<span class=\"math-tex\">{tex}\\times{/tex}</span>&nbsp;3&nbsp;<span class=\"math-tex\">{tex}\\times{/tex}</span>&nbsp;.. <span class=\"math-tex\">{tex}\\times{/tex}</span>&nbsp;n). Then the smallest positive integer for which P(n) is true is</p>",
+      "difficulty": "Hard",
+      "options": [
+        {
+          "id": 407592,
+          "text": "3"
+        },
+        {
+          "id": 407590,
+          "text": "1"
+        },
+        {
+          "id": 407591,
+          "text": "2"
+        },
+        {
+          "id": 407593,
+          "text": "4"
+        }
+      ],
+      "correct_option_id": null,
+      "correct_option_text": null,
+      "explanation": "<p>Given P(n) : 2<sup>n</sup>&nbsp;&lt; (1 <span class=\"math-tex\">{tex}\\times{/tex}</span>&nbsp;2&nbsp;<span class=\"math-tex\">{tex}\\times{/tex}</span>&nbsp;3&nbsp;<span class=\"math-tex\">{tex}\\times{/tex}</span>&nbsp;.. <span class=\"math-tex\">{tex}\\times{/tex}</span>&nbsp;n)<br />\r\nFor n = 1, 2 &lt; 2<br />\r\nFor n =&nbsp;2, 4 &lt; 4<br />\r\nFor n = 3, 6 &lt; 6<br />\r\nFor n =&nbsp;4, 8 &lt; 24<br />\r\n<span class=\"math-tex\">{tex}\\therefore{/tex}</span>&nbsp;the smallest positive integer for which P(n) is true is 4.</p>",
+      "correctAnswer": "D",
+      "correctOptionId": 407593
+    },
+    {
+      "id": 285289,
+      "question": "For all n $\\in$ N, 3.5^2n + 1 + 2^3^n + 1 is divisible by",
+      "question_raw": "<p>For all n&nbsp;<span class=\"math-tex\">{tex}\\in{/tex}</span> N, 3.5<sup>2n + 1</sup>&nbsp;+ 2<sup>3</sup><sup>n + 1</sup>&nbsp;is divisible by</p>",
+      "difficulty": "Medium",
+      "options": [
+        {
+          "id": 407726,
+          "text": "17"
+        },
+        {
+          "id": 407727,
+          "text": "19"
+        },
+        {
+          "id": 407729,
+          "text": "25"
+        },
+        {
+          "id": 407728,
+          "text": "23"
+        }
+      ],
+      "correct_option_id": null,
+      "correct_option_text": null,
+      "explanation": "<p>Given; P(n): 3.5<sup>2n + 1</sup>&nbsp;+ 2<sup>3n + 1</sup><br />\r\n<span class=\"math-tex\">{tex}\\Rightarrow{/tex}</span>&nbsp;P(1) = 3.5<sup>2+1</sup>&nbsp;+ 2<sup>3 + 1</sup>&nbsp;= 375 + 16 = 391 = 17&nbsp;<span class=\"math-tex\">{tex}\\times{/tex}</span> 23<br />\r\n<span class=\"math-tex\">{tex}\\Rightarrow{/tex}</span>&nbsp;P(2) = 3.5<sup>4+1</sup>&nbsp;+ 2<sup>6+1</sup>&nbsp;= 9375 + 256 = 9503 = 17 <span class=\"math-tex\">{tex}\\times{/tex}</span>&nbsp;559<br />\r\nThese are divisible by 17.</p>",
+      "correctAnswer": "A",
+      "correctOptionId": 407726
+    },
+    {
+      "id": 285290,
+      "question": "If x^n – 1 is divisible by x – k, then the least positive integral value of k is",
+      "question_raw": "<p>If x<sup>n</sup>&nbsp;&ndash; 1 is divisible by x &ndash; k, then the least positive integral value of k is</p>",
+      "difficulty": "Medium",
+      "options": [
+        {
+          "id": 407733,
+          "text": "4"
+        },
+        {
+          "id": 407730,
+          "text": "1"
+        },
+        {
+          "id": 407732,
+          "text": "3"
+        },
+        {
+          "id": 407731,
+          "text": "2"
+        }
+      ],
+      "correct_option_id": null,
+      "correct_option_text": null,
+      "explanation": "<p>Given; P(n): x<sup>n</sup>&nbsp;&ndash; 1 is divisible by x &ndash; k<br />\r\n<span class=\"math-tex\">{tex}\\Rightarrow{/tex}</span>&nbsp;P(1) : x &ndash; 1<br />\r\n<span class=\"math-tex\">{tex}\\Rightarrow{/tex}</span>&nbsp;P(2) : x<sup>2</sup>&nbsp;&ndash; 1 = (x&minus;1)(x+1)<br />\r\n<span class=\"math-tex\">{tex}\\Rightarrow{/tex}</span>&nbsp;P(3) : x<sup>3</sup>&nbsp;&ndash; 1 = (x&minus;1)(x<sup>2</sup>+xy+1)<br />\r\n<span class=\"math-tex\">{tex}\\Rightarrow{/tex}</span>&nbsp;P(4) : x<sup>4</sup>&nbsp;&minus; 1 = (x<sup>2</sup>&minus;1)(x<sup>2</sup>+1) = (x&minus;1)(x+1)(x<sup>2</sup>+1)<br />\r\n<span class=\"math-tex\">{tex}\\therefore{/tex}</span>&nbsp;The least positive integral value of k is 1.</p>",
+      "correctAnswer": "B",
+      "correctOptionId": 407730
+    },
+    {
+      "id": 290252,
+      "question": "sin (40° + $\\theta$) cos (10° + $\\theta$) - cos (40° + $\\theta$) sin (10° + $\\theta$) = ?",
+      "question_raw": "<p>sin (40&deg; + <span class=\"math-tex\">{tex}\\theta{/tex}</span>) cos (10&deg; + <span class=\"math-tex\">{tex}\\theta{/tex}</span>) - cos (40&deg; + <span class=\"math-tex\">{tex}\\theta{/tex}</span>) sin (10&deg; + <span class=\"math-tex\">{tex}\\theta{/tex}</span>) = ?</p>",
+      "difficulty": "Medium",
+      "options": [
+        {
+          "id": 414701,
+          "text": "$\\sqrt{2}$"
+        },
+        {
+          "id": 414699,
+          "text": "$\\frac{\\sqrt{3}}{2}$"
+        },
+        {
+          "id": 414702,
+          "text": "2$\\sqrt{2}$"
+        },
+        {
+          "id": 414700,
+          "text": "$\\frac{1}{2}$"
+        }
+      ],
+      "correct_option_id": null,
+      "correct_option_text": null,
+      "explanation": "<p><span class=\"math-tex\">{tex}\\sin \\left(40^{\\circ}+\\theta\\right) \\cos \\left(10^{\\circ}+\\theta\\right){/tex}</span><span class=\"math-tex\">{tex}-\\cos \\left(40^{\\circ}+\\theta\\right) \\sin \\left(10^{\\circ}+\\theta\\right){/tex}</span><br />\r\n<span class=\"math-tex\">{tex}=\\sin \\left\\{\\left(40^{\\circ}+\\theta\\right)-\\left(10^{\\circ}+\\theta\\right)\\right\\}{/tex}</span>&nbsp;[<span class=\"math-tex\">{tex}\\because{/tex}</span>&nbsp;sin A cos B - cos A sin B = sin (A - B)]<br />\r\n<span class=\"math-tex\">{tex}=\\sin 30^{\\circ}=\\frac{1}{2}{/tex}</span></p>",
+      "correctAnswer": "D",
+      "correctOptionId": 414700
+    },
+    {
+      "id": 291574,
+      "question": "If x^n -1 is divisible by x - $\\lambda$, then the least positive integral value of $\\lambda$ is",
+      "question_raw": "<p>If x<sup>n</sup>&nbsp;-1 is divisible by x - <span class=\"math-tex\">{tex}\\lambda{/tex}</span>, then the least positive integral value of <span class=\"math-tex\">{tex}\\lambda{/tex}</span> is</p>",
+      "difficulty": "Medium",
+      "options": [
+        {
+          "id": 416379,
+          "text": "1"
+        },
+        {
+          "id": 416381,
+          "text": "3"
+        },
+        {
+          "id": 416380,
+          "text": "2"
+        },
+        {
+          "id": 416382,
+          "text": "4"
+        }
+      ],
+      "correct_option_id": null,
+      "correct_option_text": null,
+      "explanation": "<p>Given x<sup>n&nbsp;</sup>-1&nbsp;is divisible by x - <span class=\"math-tex\">{tex}\\lambda{/tex}</span><br />\r\n<span class=\"math-tex\">{tex}\\Rightarrow{/tex}</span>&nbsp;x = <span class=\"math-tex\">{tex}\\lambda{/tex}</span> is the root of the eqn x<sup>n&nbsp;</sup>- 1<br />\r\n<span class=\"math-tex\">{tex}\\Rightarrow{/tex}</span><span class=\"math-tex\">{tex}\\lambda{/tex}</span><sup>n&nbsp;</sup>- 1 = 0<br />\r\n<span class=\"math-tex\">{tex}\\Rightarrow{/tex}</span><span class=\"math-tex\">{tex}\\lambda{/tex}</span><sup>n&nbsp;</sup>=&nbsp;1<br />\r\nLeast value of <span class=\"math-tex\">{tex}\\lambda{/tex}</span> = 1</p>",
+      "correctAnswer": "A",
+      "correctOptionId": 416379
+    },
+    {
+      "id": 291584,
+      "question": "If 10^n + 3 $\\times$ 4^n+2 + $\\lambda$ is divisible by 9 for all n $\\in$ N, then the least positive integral value of $\\lambda$ is",
+      "question_raw": "<p>If 10<sup>n</sup>&nbsp;+ 3 <span class=\"math-tex\">{tex}\\times{/tex}</span> 4<sup>n+2</sup>&nbsp;+ <span class=\"math-tex\">{tex}\\lambda{/tex}</span> is divisible by 9 for all n&nbsp;<span class=\"math-tex\">{tex}\\in{/tex}</span>&nbsp;N, then the least positive integral value of <span class=\"math-tex\">{tex}\\lambda{/tex}</span> is</p>",
+      "difficulty": "Medium",
+      "options": [
+        {
+          "id": 416383,
+          "text": "5"
+        },
+        {
+          "id": 416384,
+          "text": "3"
+        },
+        {
+          "id": 416386,
+          "text": "1"
+        },
+        {
+          "id": 416385,
+          "text": "7"
+        }
+      ],
+      "correct_option_id": null,
+      "correct_option_text": null,
+      "explanation": "<p>Given 10<sup>n</sup>+3&nbsp;<span class=\"math-tex\">{tex}\\times{/tex}</span> 4<sup>n+2&nbsp;</sup>+ <span class=\"math-tex\">{tex}\\lambda{/tex}</span>&nbsp;is divisible by 9<br />\r\nFor n = 1,<br />\r\n10 + 3&nbsp;<span class=\"math-tex\">{tex}\\times{/tex}</span>&nbsp;4<sup>3</sup>&nbsp;+&nbsp;<span class=\"math-tex\">{tex}\\lambda{/tex}</span><br />\r\n10 + 3&nbsp;<span class=\"math-tex\">{tex}\\times{/tex}</span>&nbsp;64 +&nbsp;<span class=\"math-tex\">{tex}\\lambda{/tex}</span><br />\r\n= 202 +&nbsp;<span class=\"math-tex\">{tex}\\lambda{/tex}</span><br />\r\n202 when divided by 9 gives remainder 4<br />\r\nFor n = 2,<br />\r\n10<sup>2</sup>&nbsp;+ 3&nbsp;<span class=\"math-tex\">{tex}\\times{/tex}</span>&nbsp;4<sup>4</sup>&nbsp;+&nbsp;<span class=\"math-tex\">{tex}\\lambda{/tex}</span><br />\r\n= 100 + 3&nbsp;<span class=\"math-tex\">{tex}\\times{/tex}</span>&nbsp;256 +&nbsp;<span class=\"math-tex\">{tex}\\lambda{/tex}</span><br />\r\n= 868 +&nbsp;<span class=\"math-tex\">{tex}\\lambda{/tex}</span><br />\r\n868 when divided by 9 gives remainder 4<br />\r\n<span class=\"math-tex\">{tex}\\therefore{/tex}</span>&nbsp;<span class=\"math-tex\">{tex}\\lambda{/tex}</span>&nbsp;= 4 + 1 = 5</p>",
+      "correctAnswer": "A",
+      "correctOptionId": 416383
+    },
+    {
+      "id": 523688,
+      "question": "The remainder when 8^2n - 62^2n+1 is divided by 9 is ________.",
+      "question_raw": "<p>The remainder when 8<sup>2n</sup> - 62<sup>2n+1</sup> is divided by 9 is ________.</p>",
+      "difficulty": "Medium",
+      "options": [
+        {
+          "id": 944833,
+          "text": "7"
+        },
+        {
+          "id": 944832,
+          "text": "2"
+        },
+        {
+          "id": 944834,
+          "text": "8"
+        },
+        {
+          "id": 944835,
+          "text": "0"
+        }
+      ],
+      "correct_option_id": null,
+      "correct_option_text": null,
+      "explanation": "<p>2</p>",
+      "correctAnswer": "B",
+      "correctOptionId": 944832
+    },
+    {
+      "id": 523694,
+      "question": "The number (49^2 - 4)(49^3 - 49) is divisible by:",
+      "question_raw": "<p>The number (49<sup>2</sup> - 4)(49<sup>3</sup> - 49) is divisible by:</p>",
+      "difficulty": "Medium",
+      "options": [
+        {
+          "id": 944856,
+          "text": "6!"
+        },
+        {
+          "id": 944858,
+          "text": "7!"
+        },
+        {
+          "id": 944857,
+          "text": "5!"
+        },
+        {
+          "id": 944859,
+          "text": "9!"
+        }
+      ],
+      "correct_option_id": null,
+      "correct_option_text": null,
+      "explanation": "<p>5!</p>",
+      "correctAnswer": "C",
+      "correctOptionId": 944857
+    },
+    {
+      "id": 523698,
+      "question": "For each n $\\in$ N, 2^3n - 1 is divisible by:",
+      "question_raw": "<p>For each n&nbsp;<span class=\"math-tex\">{tex}\\in{/tex}</span> N, 2<sup>3n</sup>&nbsp;- 1 is divisible by:</p>",
+      "difficulty": "Medium",
+      "options": [
+        {
+          "id": 944873,
+          "text": "8"
+        },
+        {
+          "id": 944874,
+          "text": "6"
+        },
+        {
+          "id": 944872,
+          "text": "7"
+        },
+        {
+          "id": 944875,
+          "text": "16"
+        }
+      ],
+      "correct_option_id": null,
+      "correct_option_text": null,
+      "explanation": "<p>7</p>",
+      "correctAnswer": "C",
+      "correctOptionId": 944872
+    },
+    {
+      "id": 523700,
+      "question": "The sum of n terms of 1 + $\\frac{1+2}{2}+\\frac{1+2+3}{3}$ + ... is:",
+      "question_raw": "<p>The sum of n terms of 1 +&nbsp;<span class=\"math-tex\">{tex}\\frac{1+2}{2}+\\frac{1+2+3}{3}{/tex}</span>&nbsp;+ ... is:</p>",
+      "difficulty": "Medium",
+      "options": [
+        {
+          "id": 944880,
+          "text": "$\\frac{m(n+3)}{4}$"
+        },
+        {
+          "id": 944881,
+          "text": "$\\frac{(n+3)}{4}$"
+        },
+        {
+          "id": 944883,
+          "text": "$\\frac{m(n-3)}{4}$"
+        },
+        {
+          "id": 944882,
+          "text": "$\\frac{m(n-3)}{3}$"
+        }
+      ],
+      "correct_option_id": null,
+      "correct_option_text": null,
+      "explanation": "<p><span class=\"math-tex\">{tex}\\frac{m(n+3)}{4}{/tex}</span></p>",
+      "correctAnswer": "A",
+      "correctOptionId": 944880
+    },
+    {
+      "id": 523701,
+      "question": "When 2^301 is divided by 5, the least positive remainder is:",
+      "question_raw": "<p>When 2<sup>301</sup> is divided by 5, the least positive remainder is:</p>",
+      "difficulty": "Medium",
+      "options": [
+        {
+          "id": 944885,
+          "text": "8"
+        },
+        {
+          "id": 944887,
+          "text": "6"
+        },
+        {
+          "id": 944886,
+          "text": "2"
+        },
+        {
+          "id": 944884,
+          "text": "4"
+        }
+      ],
+      "correct_option_id": null,
+      "correct_option_text": null,
+      "explanation": "<p>2</p>",
+      "correctAnswer": "C",
+      "correctOptionId": 944886
+    },
+    {
+      "id": 523715,
+      "question": "The maximum sum of coefficient in the expansion of (1 - x sin$\\theta$ + x^2)^n is:",
+      "question_raw": "<p>The maximum sum of coefficient in the expansion of (1 - x sin<span class=\"math-tex\">{tex}\\theta{/tex}</span>&nbsp;+ x<sup>2</sup>)<sup>n</sup> is:</p>",
+      "difficulty": "Medium",
+      "options": [
+        {
+          "id": 944940,
+          "text": "1"
+        },
+        {
+          "id": 944942,
+          "text": "3^n"
+        },
+        {
+          "id": 944941,
+          "text": "2^n"
+        },
+        {
+          "id": 944943,
+          "text": "0"
+        }
+      ],
+      "correct_option_id": null,
+      "correct_option_text": null,
+      "explanation": "<p>3<sup>n</sup></p>",
+      "correctAnswer": "B",
+      "correctOptionId": 944942
+    },
+    {
+      "id": 523718,
+      "question": "If x $\\in$ {1, 2, 3 ... 9} and f_n(x) = xxx ... x (n digits), then f^2_n (3) + f_n(2) =",
+      "question_raw": "<p>If x <span class=\"math-tex\">{tex}\\in{/tex}</span>&nbsp;{1, 2, 3 ... 9} and f<sub>n</sub>(x) = xxx ... x (n digits), then f<sup>2</sup><sub>n&nbsp;</sub>(3) + f<sub>n</sub>(2) =</p>",
+      "difficulty": "Medium",
+      "options": [
+        {
+          "id": 944952,
+          "text": "2f_2n (1)"
+        },
+        {
+          "id": 944953,
+          "text": "f^2_n (1)"
+        },
+        {
+          "id": 944954,
+          "text": "f_2n (1)"
+        },
+        {
+          "id": 944955,
+          "text": "-f_2n (4)"
+        }
+      ],
+      "correct_option_id": null,
+      "correct_option_text": null,
+      "explanation": "<p>f<sup>2</sup><sub>n</sub> (1)</p>",
+      "correctAnswer": "B",
+      "correctOptionId": 944953
+    },
+    {
+      "id": 523743,
+      "question": "Let S(k) = 1 + 3 + 5 ... + (2k − 1) = 3 + k^2. Then which of the following is true?",
+      "question_raw": "<p>Let S(k) = 1 + 3 + 5 ... + (2k &minus; 1) = 3 + k<sup>2</sup>. Then which of the following is true?</p>",
+      "difficulty": "Medium",
+      "options": [
+        {
+          "id": 945049,
+          "text": "S(k) $\\Rightarrow$ S(k + 1)"
+        },
+        {
+          "id": 945048,
+          "text": "Principle of mathematical induction can be used to prove the formula"
+        },
+        {
+          "id": 945051,
+          "text": "S(1) is correct"
+        },
+        {
+          "id": 945050,
+          "text": "S(k) $\\not \\Rightarrow$ S(k + 1)"
+        }
+      ],
+      "correct_option_id": null,
+      "correct_option_text": null,
+      "explanation": "<p>S(k) <span class=\"math-tex\">{tex}\\Rightarrow{/tex}</span>&nbsp;S(k + 1)</p>",
+      "correctAnswer": "A",
+      "correctOptionId": 945049
+    },
+    {
+      "id": 523754,
+      "question": "Statement -1: For every natural number n $\\geq 2 \\frac{1}{\\sqrt{1}}+\\frac{1}{\\sqrt{2}}+\\ldots +\\frac{1}{\\sqrt{n}}>\\sqrt{n}$\nStatement -2: For every natural number n $\\geq$ 2, $\\sqrt{n(n+1)}$ < n + 1",
+      "question_raw": "<p>Statement -1: For every natural number n&nbsp;<span class=\"math-tex\">{tex}\\geq 2 \\frac{1}{\\sqrt{1}}+\\frac{1}{\\sqrt{2}}+\\ldots +\\frac{1}{\\sqrt{n}}&gt;\\sqrt{n}{/tex}</span><br />\r\nStatement -2: For every natural number n&nbsp;<span class=\"math-tex\">{tex}\\geq{/tex}</span>&nbsp;2,&nbsp;<span class=\"math-tex\">{tex}\\sqrt{n(n+1)}{/tex}</span> &lt; n + 1</p>",
+      "difficulty": "Hard",
+      "options": [
+        {
+          "id": 945084,
+          "text": "Statement -1 is true, Statement -2 is true; Statement -2 is not a correct explanation for Statement -1"
+        },
+        {
+          "id": 945080,
+          "text": "Statement -1 is false, Statement -2 is true"
+        },
+        {
+          "id": 945083,
+          "text": "Statement -1 is true, Statement -2 is true, Statement -2 is a correct explanation for Statement -1"
+        },
+        {
+          "id": 945086,
+          "text": "Statement -1 is true, Statement -2 is false"
+        }
+      ],
+      "correct_option_id": null,
+      "correct_option_text": null,
+      "explanation": "<p>Statement -1&nbsp;is true, Statement -2&nbsp;is true; Statement -2&nbsp;is not a correct explanation for Statement -1</p>",
+      "correctAnswer": "A",
+      "correctOptionId": 945084
+    },
+    {
+      "id": 523758,
+      "question": "For every positive integer value of n, 3^n > n^3 when:",
+      "question_raw": "<p>For every positive integer value of n, 3<sup>n&nbsp;</sup>&gt; n<sup>3</sup> when:</p>",
+      "difficulty": "Medium",
+      "options": [
+        {
+          "id": 945103,
+          "text": "n < 4"
+        },
+        {
+          "id": 945102,
+          "text": "n $\\geq$ 4"
+        },
+        {
+          "id": 945100,
+          "text": "n > 2"
+        },
+        {
+          "id": 945101,
+          "text": "n $\\geq$ 3"
+        }
+      ],
+      "correct_option_id": null,
+      "correct_option_text": null,
+      "explanation": "<p>n&nbsp;<span class=\"math-tex\">{tex}\\geq{/tex}</span>&nbsp;4</p>",
+      "correctAnswer": "B",
+      "correctOptionId": 945102
+    },
+    {
+      "id": 523775,
+      "question": "If n is a natural number, then:",
+      "question_raw": "<p>If n is a natural number, then:</p>",
+      "difficulty": "Medium",
+      "options": [
+        {
+          "id": 945162,
+          "text": "1^2 + 2^2 + ... + n^2 > n^3"
+        },
+        {
+          "id": 945161,
+          "text": "1^2 + 2^2 + ... + n^2 = $\\frac{n^{3}}{3}$"
+        },
+        {
+          "id": 945160,
+          "text": "1^2 + 2^2 + ... + n^2 < $\\frac{n^{3}}{3}$"
+        },
+        {
+          "id": 945163,
+          "text": "1^2 + 2^2 + ... + n^2 > $\\frac{n^{3}}{3}$"
+        }
+      ],
+      "correct_option_id": null,
+      "correct_option_text": null,
+      "explanation": "<p>1<sup>2</sup>&nbsp;+ 2<sup>2</sup>&nbsp;+ ... + n<sup>2</sup>&nbsp;&gt;&nbsp;<span class=\"math-tex\">{tex}\\frac{n^{3}}{3}{/tex}</span></p>",
+      "correctAnswer": "D",
+      "correctOptionId": 945163
+    },
+    {
+      "id": 523785,
+      "question": "A particle is moving in a straight line. At time t, the distance between the particle from its starting point is given by x = t - 6t^2 + t^3. Its acceleration will be zero at:",
+      "question_raw": "<p>A particle is moving in a straight line. At time t, the distance between the particle from its starting point is given by x = t - 6t<sup>2&nbsp;</sup>+ t<sup>3</sup>. Its acceleration will be zero at:</p>",
+      "difficulty": "Medium",
+      "options": [
+        {
+          "id": 945196,
+          "text": "t = 1 unit time"
+        },
+        {
+          "id": 945197,
+          "text": "t = 2 unit time"
+        },
+        {
+          "id": 945198,
+          "text": "t = 3 unit time"
+        },
+        {
+          "id": 945199,
+          "text": "t = 4 unit time"
+        }
+      ],
+      "correct_option_id": null,
+      "correct_option_text": null,
+      "explanation": "<p>t = 2&nbsp;unit time</p>",
+      "correctAnswer": "B",
+      "correctOptionId": 945197
+    },
+    {
+      "id": 523791,
+      "question": "The product of cos$\\theta$ cos2$\\theta$ cos3$\\theta$ ... cos(2^n−1$\\theta$) is:",
+      "question_raw": "<p>The product of cos<span class=\"math-tex\">{tex}\\theta{/tex}</span>&nbsp;cos2<span class=\"math-tex\">{tex}\\theta{/tex}</span>&nbsp;cos3<span class=\"math-tex\">{tex}\\theta{/tex}</span>&nbsp;... cos(2<sup>n&minus;1</sup><span class=\"math-tex\">{tex}\\theta{/tex}</span>) is:</p>",
+      "difficulty": "Medium",
+      "options": [
+        {
+          "id": 945218,
+          "text": "$\\frac{\\operatorname{cosn} \\theta}{2^{n} \\cos \\theta}$"
+        },
+        {
+          "id": 945217,
+          "text": "$\\frac{\\cos \\left(2^{n} \\theta\\right)}{2^{n} \\cos \\theta}$"
+        },
+        {
+          "id": 945219,
+          "text": "$\\frac{\\sin \\left(2^{n} \\theta\\right)}{\\sin \\theta}$"
+        },
+        {
+          "id": 945216,
+          "text": "$\\frac{\\sin \\left(2^{n} \\theta\\right)}{2^{n} \\sin \\theta}$"
+        }
+      ],
+      "correct_option_id": null,
+      "correct_option_text": null,
+      "explanation": "<p><span class=\"math-tex\">{tex}\\frac{\\sin \\left(2^{n} \\theta\\right)}{2^{n} \\sin \\theta}{/tex}</span></p>",
+      "correctAnswer": "D",
+      "correctOptionId": 945216
+    },
+    {
+      "id": 523794,
+      "question": "The acceleration of a particle starting from rest moving in a straight line with uniform acceleration is 8 m/s^2. The time taken by the particle to move the second metre is:",
+      "question_raw": "<p>The acceleration of a particle starting from rest moving in a straight line with uniform acceleration is 8 m/s<sup>2</sup>. The time taken by the particle to move the second metre is:</p>",
+      "difficulty": "Medium",
+      "options": [
+        {
+          "id": 945230,
+          "text": "(1 + $\\sqrt 2$)s"
+        },
+        {
+          "id": 945231,
+          "text": "($\\sqrt 2$ - 1)"
+        },
+        {
+          "id": 945228,
+          "text": "$\\frac{\\sqrt{2}-1}{2} s$"
+        },
+        {
+          "id": 945229,
+          "text": "$\\frac{\\sqrt{2}+1}{2} s$"
+        }
+      ],
+      "correct_option_id": null,
+      "correct_option_text": null,
+      "explanation": "<p><span class=\"math-tex\">{tex}\\frac{\\sqrt{2}-1}{2} s{/tex}</span></p>",
+      "correctAnswer": "C",
+      "correctOptionId": 945228
+    },
+    {
+      "id": 523803,
+      "question": "If P(n) : 3^n < n!, n $\\in$ N, then P(n) is true:",
+      "question_raw": "<p>If P(n) : 3<sup>n</sup>&nbsp;&lt; n!, n&nbsp;<span class=\"math-tex\">{tex}\\in{/tex}</span>&nbsp;N, then P(n) is true:</p>",
+      "difficulty": "Medium",
+      "options": [
+        {
+          "id": 945252,
+          "text": "For n $\\geq$ 6"
+        },
+        {
+          "id": 945253,
+          "text": "For n $\\geq$ 7"
+        },
+        {
+          "id": 945254,
+          "text": "For n $\\geq$ 3"
+        },
+        {
+          "id": 945255,
+          "text": "For all n"
+        }
+      ],
+      "correct_option_id": null,
+      "correct_option_text": null,
+      "explanation": "<p>For n&nbsp;<span class=\"math-tex\">{tex}\\geq{/tex}</span> 7</p>",
+      "correctAnswer": "B",
+      "correctOptionId": 945253
+    },
+    {
+      "id": 523810,
+      "question": "If n is a positive integer, then n^3 + 2n is divisible by:",
+      "question_raw": "<p>If n&nbsp;is a positive integer, then n<sup>3&nbsp;</sup>+ 2n is divisible by:</p>",
+      "difficulty": "Medium",
+      "options": [
+        {
+          "id": 945279,
+          "text": "15"
+        },
+        {
+          "id": 945278,
+          "text": "6"
+        },
+        {
+          "id": 945276,
+          "text": "3"
+        },
+        {
+          "id": 945277,
+          "text": "2"
+        }
+      ],
+      "correct_option_id": null,
+      "correct_option_text": null,
+      "explanation": "<p>3</p>",
+      "correctAnswer": "C",
+      "correctOptionId": 945276
+    },
+    {
+      "id": 523815,
+      "question": "If the number of terms in the expansion of $\\left(1-\\frac{2}{x}+\\frac{4}{x^{2}}\\right)^{n}$, x $\\ne$ 0, is 28, then the sum of the coefficients of all the terms in this expansion is:",
+      "question_raw": "<p>If the number of terms in the expansion of&nbsp;<span class=\"math-tex\">{tex}\\left(1-\\frac{2}{x}+\\frac{4}{x^{2}}\\right)^{n}{/tex}</span>, x&nbsp;<span class=\"math-tex\">{tex}\\ne{/tex}</span>&nbsp;0, is 28, then the sum of the coefficients of all the terms in this expansion is:</p>",
+      "difficulty": "Medium",
+      "options": [
+        {
+          "id": 945292,
+          "text": "64"
+        },
+        {
+          "id": 945295,
+          "text": "729"
+        },
+        {
+          "id": 945294,
+          "text": "243"
+        },
+        {
+          "id": 945293,
+          "text": "2187"
+        }
+      ],
+      "correct_option_id": null,
+      "correct_option_text": null,
+      "explanation": "<p>729</p>",
+      "correctAnswer": "B",
+      "correctOptionId": 945295
+    },
+    {
+      "id": 523831,
+      "question": "If P = n(n^2 − 1^2)(n^2 − 2^2)(n^2 − 3^2) ... (n^2 − r^2), n > r, n $\\in$ N then P is necessarily divisible by:",
+      "question_raw": "<p>If P = n(n<sup>2&nbsp;</sup>&minus; 1<sup>2</sup>)(n<sup>2&nbsp;</sup>&minus; 2<sup>2</sup>)(n<sup>2&nbsp;</sup>&minus; 3<sup>2</sup>) ... (n<sup>2&nbsp;</sup>&minus; r<sup>2</sup>), n &gt; r, n <span class=\"math-tex\">{tex}\\in{/tex}</span>&nbsp;N then P is necessarily divisible by:</p>",
+      "difficulty": "Medium",
+      "options": [
+        {
+          "id": 945352,
+          "text": "(2r + 2)!"
+        },
+        {
+          "id": 945354,
+          "text": "(2r + 1)!"
+        },
+        {
+          "id": 945355,
+          "text": "(2r + 3)!"
+        },
+        {
+          "id": 945353,
+          "text": "(2r + 4)!"
+        }
+      ],
+      "correct_option_id": null,
+      "correct_option_text": null,
+      "explanation": "<p>(2r + 1)!</p>",
+      "correctAnswer": "B",
+      "correctOptionId": 945354
+    },
+    {
+      "id": 523900,
+      "question": "If P(n) : 46^n + 19^n + k is divisible by 64 for n $\\in$ N is true, then the least negative integer value of k is.",
+      "question_raw": "<p>If P(n) : 46<sup>n&nbsp;</sup>+ 19<sup>n</sup> + k is divisible by 64 for n <span class=\"math-tex\">{tex}\\in{/tex}</span> N&nbsp;is true, then the least negative integer value of k is.</p>",
+      "difficulty": "Medium",
+      "options": [
+        {
+          "id": 945601,
+          "text": "1"
+        },
+        {
+          "id": 945602,
+          "text": "2"
+        },
+        {
+          "id": 945600,
+          "text": "-1"
+        },
+        {
+          "id": 945603,
+          "text": "-2"
+        }
+      ],
+      "correct_option_id": null,
+      "correct_option_text": null,
+      "explanation": "<p>-1</p>",
+      "correctAnswer": "C",
+      "correctOptionId": 945600
+    },
+    {
+      "id": 523940,
+      "question": "If $\\frac{1}{2 \\times 4}+\\frac{1}{4 \\times 6}+\\frac{1}{6 \\times 8}$ + ... n terms = $\\frac{k n}{n+1}$, then k is equal to:",
+      "question_raw": "<p>If&nbsp;<span class=\"math-tex\">{tex}\\frac{1}{2 \\times 4}+\\frac{1}{4 \\times 6}+\\frac{1}{6 \\times 8}{/tex}</span>&nbsp;+ ... n terms =&nbsp;<span class=\"math-tex\">{tex}\\frac{k n}{n+1}{/tex}</span>, then k is equal to:</p>",
+      "difficulty": "Medium",
+      "options": [
+        {
+          "id": 945740,
+          "text": "$\\frac 14$"
+        },
+        {
+          "id": 945742,
+          "text": "1"
+        },
+        {
+          "id": 945743,
+          "text": "$\\frac 18$"
+        },
+        {
+          "id": 945741,
+          "text": "$\\frac 12$"
+        }
+      ],
+      "correct_option_id": null,
+      "correct_option_text": null,
+      "explanation": "<p><span class=\"math-tex\">{tex}\\frac 14{/tex}</span></p>",
+      "correctAnswer": "A",
+      "correctOptionId": 945740
+    },
+    {
+      "id": 524004,
+      "question": "Statement p(n) : 3^2n+1 + 2^n-1, $\\forall$ n $\\in$ N is divisible by ________.",
+      "question_raw": "<p>Statement p(n) : 3<sup>2n+1</sup>&nbsp;+ 2<sup>n-1</sup>,&nbsp;<span class=\"math-tex\">{tex}\\forall{/tex}</span>&nbsp;n&nbsp;<span class=\"math-tex\">{tex}\\in{/tex}</span>&nbsp;N is divisible by ________.</p>",
+      "difficulty": "Medium",
+      "options": [
+        {
+          "id": 945978,
+          "text": "7"
+        },
+        {
+          "id": 945979,
+          "text": "4"
+        },
+        {
+          "id": 945976,
+          "text": "2"
+        },
+        {
+          "id": 945977,
+          "text": "5"
+        }
+      ],
+      "correct_option_id": null,
+      "correct_option_text": null,
+      "explanation": "<p>7</p>",
+      "correctAnswer": "A",
+      "correctOptionId": 945978
+    },
+    {
+      "id": 524018,
+      "question": "For given series: 1^2 + 2 $\\times$ 2^2 + 3^2 + 2 $\\times$ 4^2 + 5^2 + 2 $\\times$ 6^2 + ..., if S_n is the sum of n terms, then:",
+      "question_raw": "<p>For given series: 1<sup>2&nbsp;</sup>+ 2 <span class=\"math-tex\">{tex}\\times{/tex}</span>&nbsp;2<sup>2&nbsp;</sup>+ 3<sup>2&nbsp;</sup>+ 2 <span class=\"math-tex\">{tex}\\times{/tex}</span>&nbsp;4<sup>2&nbsp;</sup>+ 5<sup>2&nbsp;</sup>+ 2 <span class=\"math-tex\">{tex}\\times{/tex}</span>&nbsp;6<sup>2&nbsp;</sup>+ ..., if S<sub>n</sub> is the sum of n terms, then:</p>",
+      "difficulty": "Medium",
+      "options": [
+        {
+          "id": 946030,
+          "text": "Both and are true"
+        },
+        {
+          "id": 946029,
+          "text": "S_n = $\\frac{n^2(n+1)}{2}$, If n is odd"
+        },
+        {
+          "id": 946028,
+          "text": "S_n = $\\frac{n(n+1)^{2}}{2}$, If n is even"
+        },
+        {
+          "id": 946031,
+          "text": "Both and are false"
+        }
+      ],
+      "correct_option_id": null,
+      "correct_option_text": null,
+      "explanation": "<p>Both and are true</p>",
+      "correctAnswer": "A",
+      "correctOptionId": 946030
+    },
+    {
+      "id": 524053,
+      "question": "The inequality n! > 2^n-1 is true for:",
+      "question_raw": "<p>The inequality n! &gt; 2<sup>n-1</sup>&nbsp;is true for:</p>",
+      "difficulty": "Medium",
+      "options": [
+        {
+          "id": 946160,
+          "text": "n > 2"
+        },
+        {
+          "id": 946163,
+          "text": "n > 4"
+        },
+        {
+          "id": 946162,
+          "text": "n > 3"
+        },
+        {
+          "id": 946161,
+          "text": "n $\\in$ N"
+        }
+      ],
+      "correct_option_id": null,
+      "correct_option_text": null,
+      "explanation": "<p>n &gt; 2</p>",
+      "correctAnswer": "A",
+      "correctOptionId": 946160
+    },
+    {
+      "id": 524057,
+      "question": "The remainder when 5^4n is divided by 13, is:",
+      "question_raw": "<p>The remainder when 5<sup>4n</sup> is divided by 13, is:</p>",
+      "difficulty": "Medium",
+      "options": [
+        {
+          "id": 946171,
+          "text": "10"
+        },
+        {
+          "id": 946170,
+          "text": "9"
+        },
+        {
+          "id": 946169,
+          "text": "8"
+        },
+        {
+          "id": 946168,
+          "text": "1"
+        }
+      ],
+      "correct_option_id": null,
+      "correct_option_text": null,
+      "explanation": "<p>1</p>",
+      "correctAnswer": "D",
+      "correctOptionId": 946168
+    },
+    {
+      "id": 524064,
+      "question": "Statement p(n) : n^2 $\\geq$ 3n ________ is true.",
+      "question_raw": "<p>Statement p(n) : n<sup>2</sup>&nbsp;<span class=\"math-tex\">{tex}\\geq{/tex}</span>&nbsp;3n ________ is true.</p>",
+      "difficulty": "Medium",
+      "options": [
+        {
+          "id": 946198,
+          "text": "for all odd natural numbers n"
+        },
+        {
+          "id": 946193,
+          "text": "$\\forall$ n $\\in$ N, n > 1"
+        },
+        {
+          "id": 946192,
+          "text": "$\\forall$ n $\\in$ N"
+        },
+        {
+          "id": 946195,
+          "text": "$\\forall$ n $\\in$ N, n $\\geq$ 3"
+        }
+      ],
+      "correct_option_id": null,
+      "correct_option_text": null,
+      "explanation": "<p><span class=\"math-tex\">{tex}\\forall{/tex}</span>&nbsp;n&nbsp;<span class=\"math-tex\">{tex}\\in{/tex}</span>&nbsp;N, n <span class=\"math-tex\">{tex}\\geq{/tex}</span>&nbsp;3</p>",
+      "correctAnswer": "D",
+      "correctOptionId": 946195
+    },
+    {
+      "id": 524109,
+      "question": "p(n) : $2^{2^n}$ has ________ at unit's place for n > 1.",
+      "question_raw": "<p>p(n) :&nbsp;<span class=\"math-tex\">{tex}2^{2^n}{/tex}</span>&nbsp;has ________ at unit&#39;s place for n &gt; 1.</p>",
+      "difficulty": "Medium",
+      "options": [
+        {
+          "id": 946355,
+          "text": "4"
+        },
+        {
+          "id": 946354,
+          "text": "0"
+        },
+        {
+          "id": 946353,
+          "text": "6"
+        },
+        {
+          "id": 946352,
+          "text": "2"
+        }
+      ],
+      "correct_option_id": null,
+      "correct_option_text": null,
+      "explanation": "<p>6</p>",
+      "correctAnswer": "C",
+      "correctOptionId": 946353
+    },
+    {
+      "id": 524116,
+      "question": "Using mathematical induction, the numbers ${a_n}$'s are defined by a_0 = 1, a_n+1 = 3n^2 + n + $a_{n}$ (n $\\geq$ 0). Then, a_n is equal to:",
+      "question_raw": "<p>Using mathematical induction, the numbers <span class=\"math-tex\">{tex}{a_n}{/tex}</span>&#39;s are defined by a<sub>0&nbsp;</sub>= 1, a<sub>n+1&nbsp;</sub>= 3n<sup>2&nbsp;</sup>+ n + <span class=\"math-tex\">{tex}a_{n}{/tex}</span> (n <span class=\"math-tex\">{tex}\\geq{/tex}</span>&nbsp;0). Then, a<sub>n</sub> is equal to:</p>",
+      "difficulty": "Medium",
+      "options": [
+        {
+          "id": 946377,
+          "text": "n^3 - n^2 + 1"
+        },
+        {
+          "id": 946378,
+          "text": "n^3 - n^2"
+        },
+        {
+          "id": 946379,
+          "text": "n^3 + n^2"
+        },
+        {
+          "id": 946376,
+          "text": "n^3 + n^2 + 1"
+        }
+      ],
+      "correct_option_id": null,
+      "correct_option_text": null,
+      "explanation": "<p>n<sup>3</sup> - n<sup>2</sup> + 1</p>",
+      "correctAnswer": "A",
+      "correctOptionId": 946377
+    },
+    {
+      "id": 524127,
+      "question": "The statement P(n) :1 $\\times$ 1! + 2 $\\times$ 2! + 3 $\\times$ 3! + ... + n $\\times$ n! = (n + 1)! − 1 is:",
+      "question_raw": "<p>The statement P(n) :1 <span class=\"math-tex\">{tex}\\times{/tex}</span>&nbsp;1! + 2 <span class=\"math-tex\">{tex}\\times{/tex}</span>&nbsp;2! + 3 <span class=\"math-tex\">{tex}\\times{/tex}</span>&nbsp;3! + ... + n <span class=\"math-tex\">{tex}\\times{/tex}</span>&nbsp;n! = (n + 1)! &minus; 1 is:</p>",
+      "difficulty": "Medium",
+      "options": [
+        {
+          "id": 946415,
+          "text": "True for all n < 1"
+        },
+        {
+          "id": 946414,
+          "text": "True for all n $\\in$ N"
+        },
+        {
+          "id": 946412,
+          "text": "True for all n > 1"
+        },
+        {
+          "id": 946413,
+          "text": "Not true for any n"
+        }
+      ],
+      "correct_option_id": null,
+      "correct_option_text": null,
+      "explanation": "<p>True for all n <span class=\"math-tex\">{tex}\\in{/tex}</span>&nbsp;N</p>",
+      "correctAnswer": "B",
+      "correctOptionId": 946414
+    },
+    {
+      "id": 524155,
+      "question": "If 1^3 + 2^3 + 3^3 + ... + 50^3 = m^2, then m = ________.",
+      "question_raw": "<p>If 1<sup>3</sup> + 2<sup>3</sup> + 3<sup>3</sup> + ... + 50<sup>3</sup> = m<sup>2</sup>, then m&nbsp;= ________.</p>",
+      "difficulty": "Medium",
+      "options": [
+        {
+          "id": 946505,
+          "text": "1225"
+        },
+        {
+          "id": 946507,
+          "text": "2450"
+        },
+        {
+          "id": 946508,
+          "text": "1375"
+        },
+        {
+          "id": 946504,
+          "text": "1275"
+        }
+      ],
+      "correct_option_id": null,
+      "correct_option_text": null,
+      "explanation": "<p>1275</p>",
+      "correctAnswer": "D",
+      "correctOptionId": 946504
+    },
+    {
+      "id": 524156,
+      "question": "If n $\\in$ N, then 11^n+2 + 12^2n+1 is divisible by:",
+      "question_raw": "<p>If n&nbsp;<span class=\"math-tex\">{tex}\\in{/tex}</span>&nbsp;N, then 11<sup>n+2</sup> + 12<sup>2n+1</sup> is divisible by:</p>",
+      "difficulty": "Medium",
+      "options": [
+        {
+          "id": 946513,
+          "text": "123"
+        },
+        {
+          "id": 946514,
+          "text": "133"
+        },
+        {
+          "id": 946512,
+          "text": "113"
+        },
+        {
+          "id": 946515,
+          "text": "143"
+        }
+      ],
+      "correct_option_id": null,
+      "correct_option_text": null,
+      "explanation": "<p>133</p>",
+      "correctAnswer": "B",
+      "correctOptionId": 946514
+    },
+    {
+      "id": 524175,
+      "question": "Consider the statement: P(n): n^2 - n + 41 is prime. Then which one of the following is true?",
+      "question_raw": "<p>Consider the statement: P(n): n<sup>2</sup> - n + 41 is prime.&nbsp;Then which one of the following is true?</p>",
+      "difficulty": "Medium",
+      "options": [
+        {
+          "id": 946578,
+          "text": "Both P(3) and P(5) are false."
+        },
+        {
+          "id": 946577,
+          "text": "P(3) is false but P(5) is true."
+        },
+        {
+          "id": 946576,
+          "text": "Both P(3) and P(5) are true."
+        },
+        {
+          "id": 946579,
+          "text": "P(5) is false but P(3) is true."
+        }
+      ],
+      "correct_option_id": null,
+      "correct_option_text": null,
+      "explanation": "<p>P(n) = n<sup>2</sup>&nbsp;-&nbsp;n + 41<br />\r\n<span class=\"math-tex\">{tex}\\Rightarrow{/tex}</span>&nbsp;P(3) = 9 - 3 + 41 = 47 (prime)<br />\r\n&amp; P(5) = 25 - 5 + 41 = 61 (prime)<br />\r\n<span class=\"math-tex\">{tex}\\therefore{/tex}</span>&nbsp;P(3) and P(5) are both prime i.e., true.</p>",
+      "correctAnswer": "C",
+      "correctOptionId": 946576
+    },
+    {
+      "id": 524206,
+      "question": "The sum of 1 + 3 + 5 + 7.. upto n terms is:",
+      "question_raw": "<p>The sum of 1 + 3 + 5 + 7.. upto n terms is:</p>",
+      "difficulty": "Medium",
+      "options": [
+        {
+          "id": 946677,
+          "text": "n^2"
+        },
+        {
+          "id": 946679,
+          "text": "2n^2"
+        },
+        {
+          "id": 946676,
+          "text": "2n + 1"
+        },
+        {
+          "id": 946678,
+          "text": "2n^2 - 1"
+        }
+      ],
+      "correct_option_id": null,
+      "correct_option_text": null,
+      "explanation": "<p>n<sup>2</sup></p>",
+      "correctAnswer": "A",
+      "correctOptionId": 946677
+    },
+    {
+      "id": 524209,
+      "question": "The least positive integer which makes n! < $\\left[\\frac{n+1}{2}\\right]^{n}$ is ________, where [ ] is the greatest integer function.",
+      "question_raw": "<p>The least positive integer which makes n! &lt;&nbsp;<span class=\"math-tex\">{tex}\\left[\\frac{n+1}{2}\\right]^{n}{/tex}</span>&nbsp;is ________, where [ ] is the greatest integer function.</p>",
+      "difficulty": "Medium",
+      "options": [
+        {
+          "id": 946685,
+          "text": "4"
+        },
+        {
+          "id": 946687,
+          "text": "6"
+        },
+        {
+          "id": 946684,
+          "text": "2"
+        },
+        {
+          "id": 946686,
+          "text": "3"
+        }
+      ],
+      "correct_option_id": null,
+      "correct_option_text": null,
+      "explanation": "<p>3</p>",
+      "correctAnswer": "D",
+      "correctOptionId": 946686
+    },
+    {
+      "id": 524211,
+      "question": "For a positive integer n, let a(n) = 1 + $\\frac{1}{2}+\\frac{1}{3}+\\frac{1}{4}+\\ldots+\\frac{1}{\\left(2^{n}\\right)-1}$. Then",
+      "question_raw": "<p>For a positive integer n, let a(n) = 1 +&nbsp;<span class=\"math-tex\">{tex}\\frac{1}{2}+\\frac{1}{3}+\\frac{1}{4}+\\ldots+\\frac{1}{\\left(2^{n}\\right)-1}{/tex}</span>. Then</p>",
+      "difficulty": "Medium",
+      "options": [
+        {
+          "id": 946695,
+          "text": "a(200) $\\leq$ 100"
+        },
+        {
+          "id": 946692,
+          "text": "a(100) $\\leq$ 100"
+        },
+        {
+          "id": 946693,
+          "text": "a(100) $\\geq$ 100"
+        },
+        {
+          "id": 946697,
+          "text": "a(200) < 100"
+        }
+      ],
+      "correct_option_id": null,
+      "correct_option_text": null,
+      "explanation": "<p>a(100)&nbsp;<span class=\"math-tex\">{tex}\\leq{/tex}</span> 100</p>",
+      "correctAnswer": "B",
+      "correctOptionId": 946692
+    },
+    {
+      "id": 524234,
+      "question": "If p(n) = n^2 + n, $\\forall$ n $\\in$ N, then p(n) is:",
+      "question_raw": "<p>If p(n) = n<sup>2&nbsp;</sup>+ n, <span class=\"math-tex\">{tex}\\forall{/tex}</span>&nbsp;n <span class=\"math-tex\">{tex}\\in{/tex}</span>&nbsp;N, then p(n) is:</p>",
+      "difficulty": "Medium",
+      "options": [
+        {
+          "id": 946783,
+          "text": "multiple of 4"
+        },
+        {
+          "id": 946782,
+          "text": "odd integer"
+        },
+        {
+          "id": 946780,
+          "text": "even positive integer"
+        },
+        {
+          "id": 946781,
+          "text": "prime number"
+        }
+      ],
+      "correct_option_id": null,
+      "correct_option_text": null,
+      "explanation": "<p>even positive integer</p>",
+      "correctAnswer": "C",
+      "correctOptionId": 946780
+    },
+    {
+      "id": 524284,
+      "question": "If m, n are any two odd positive integers with n < m, then the largest positive integer which divides all the numbers of the type m^2 - n^2 is:",
+      "question_raw": "<p>If m, n are any two odd positive integers with n &lt; m, then the largest positive integer which divides all the numbers of the type m<sup>2</sup> - n<sup>2</sup> is:</p>",
+      "difficulty": "Medium",
+      "options": [
+        {
+          "id": 946953,
+          "text": "6"
+        },
+        {
+          "id": 946954,
+          "text": "8"
+        },
+        {
+          "id": 946952,
+          "text": "4"
+        },
+        {
+          "id": 946955,
+          "text": "9"
+        }
+      ],
+      "correct_option_id": null,
+      "correct_option_text": null,
+      "explanation": "<p>8</p>",
+      "correctAnswer": "B",
+      "correctOptionId": 946954
+    },
+    {
+      "id": 524298,
+      "question": "If $\\sum_\\limits{r=1}^{k} r=\\frac{1}{2}$ (n^2 + 11n + 30), then k = ________.",
+      "question_raw": "<p>If&nbsp;<span class=\"math-tex\">{tex}\\sum_\\limits{r=1}^{k} r=\\frac{1}{2}{/tex}</span>&nbsp;(n<sup>2</sup> + 11n + 30), then k = ________.</p>",
+      "difficulty": "Medium",
+      "options": [
+        {
+          "id": 946996,
+          "text": "n + 4"
+        },
+        {
+          "id": 947000,
+          "text": "n + 6"
+        },
+        {
+          "id": 946998,
+          "text": "n + 7"
+        },
+        {
+          "id": 947003,
+          "text": "n + 5"
+        }
+      ],
+      "correct_option_id": null,
+      "correct_option_text": null,
+      "explanation": "<p>n + 5</p>",
+      "correctAnswer": "D",
+      "correctOptionId": 947003
+    },
+    {
+      "id": 524305,
+      "question": "Sum of $\\frac{1^{3}}{1}+\\frac{1^{3}+2^{3}}{1+2}$ + ... to n terms is:",
+      "question_raw": "<p>Sum of&nbsp;<span class=\"math-tex\">{tex}\\frac{1^{3}}{1}+\\frac{1^{3}+2^{3}}{1+2}{/tex}</span>&nbsp;+ ... to n terms is:</p>",
+      "difficulty": "Medium",
+      "options": [
+        {
+          "id": 947025,
+          "text": "n(n + 1)(n + 2)"
+        },
+        {
+          "id": 947026,
+          "text": "$\\frac{(n+1)(n+2)}{6}$"
+        },
+        {
+          "id": 947024,
+          "text": "$\\frac{(n+1)(n+2)}{3}$"
+        },
+        {
+          "id": 947027,
+          "text": "$\\frac{n(n+1)(n+2)}{2}$"
+        }
+      ],
+      "correct_option_id": null,
+      "correct_option_text": null,
+      "explanation": "<p><span class=\"math-tex\">{tex}\\frac{(n+1)(n+2)}{6}{/tex}</span></p>",
+      "correctAnswer": "B",
+      "correctOptionId": 947026
+    },
+    {
+      "id": 524312,
+      "question": "If $\\sum_\\limits{r=6}^{n+5}$ (r - 5)^3 = $\\left\\{\\sum_\\limits{r=2}^{P}(r-1)\\right\\}^{2}$, then p = ________.",
+      "question_raw": "<p>If&nbsp;<span class=\"math-tex\">{tex}\\sum_\\limits{r=6}^{n+5}{/tex}</span>&nbsp;(r - 5)<sup>3</sup> =&nbsp;<span class=\"math-tex\">{tex}\\left\\{\\sum_\\limits{r=2}^{P}(r-1)\\right\\}^{2}{/tex}</span>, then p = ________.</p>",
+      "difficulty": "Medium",
+      "options": [
+        {
+          "id": 947042,
+          "text": "n + 1"
+        },
+        {
+          "id": 947041,
+          "text": "n - 1"
+        },
+        {
+          "id": 947043,
+          "text": "n + 3"
+        },
+        {
+          "id": 947040,
+          "text": "n + 2"
+        }
+      ],
+      "correct_option_id": null,
+      "correct_option_text": null,
+      "explanation": "<p>n + 1</p>",
+      "correctAnswer": "A",
+      "correctOptionId": 947042
+    },
+    {
+      "id": 524334,
+      "question": "Which one of the following is true?",
+      "question_raw": "<p>Which one of the following is true?</p>",
+      "difficulty": "Medium",
+      "options": [
+        {
+          "id": 947108,
+          "text": "$\\left(1+\\frac{1}{n}\\right)^{n}$ < n^2, n is a positive integer"
+        },
+        {
+          "id": 947109,
+          "text": "$\\left(1+\\frac{1}{n}\\right)^{n}$ < 2, n is a positive integer"
+        },
+        {
+          "id": 947110,
+          "text": "$\\left(1+\\frac{1}{n}\\right)^{n}$ < n^3, n is a positive integer"
+        },
+        {
+          "id": 947111,
+          "text": "$\\left(1+\\frac{1}{n}\\right)^{n}$ > 2, n is a positive integer"
+        }
+      ],
+      "correct_option_id": null,
+      "correct_option_text": null,
+      "explanation": "<p><span class=\"math-tex\">{tex}\\left(1+\\frac{1}{n}\\right)^{n}{/tex}</span>&nbsp;&gt;&nbsp;2, n is a positive integer</p>",
+      "correctAnswer": "D",
+      "correctOptionId": 947111
+    },
+    {
+      "id": 524351,
+      "question": "p(n) = n^3 + (n + 1)^3(n + 2)^3 where n $\\in$ N is divisible by:",
+      "question_raw": "<p>p(n) = n<sup>3&nbsp;</sup>+ (n + 1)<sup>3</sup>(n + 2)<sup>3&nbsp;</sup>where n <span class=\"math-tex\">{tex}\\in{/tex}</span>&nbsp;N is divisible by:</p>",
+      "difficulty": "Medium",
+      "options": [
+        {
+          "id": 947180,
+          "text": "9"
+        },
+        {
+          "id": 947181,
+          "text": "7"
+        },
+        {
+          "id": 947183,
+          "text": "15"
+        },
+        {
+          "id": 947182,
+          "text": "13"
+        }
+      ],
+      "correct_option_id": null,
+      "correct_option_text": null,
+      "explanation": "<p>9</p>",
+      "correctAnswer": "A",
+      "correctOptionId": 947180
+    },
+    {
+      "id": 524391,
+      "question": "Statement p(n) : 8n $\\leq$ 2^n - 16 is true for n > ..., n $\\in$ N.",
+      "question_raw": "<p>Statement p(n) : 8n&nbsp;<span class=\"math-tex\">{tex}\\leq{/tex}</span>&nbsp;2<sup>n</sup>&nbsp;- 16 is true for n &gt; ..., n <span class=\"math-tex\">{tex}\\in{/tex}</span>&nbsp;N.</p>",
+      "difficulty": "Medium",
+      "options": [
+        {
+          "id": 947328,
+          "text": "1"
+        },
+        {
+          "id": 947330,
+          "text": "5"
+        },
+        {
+          "id": 947329,
+          "text": "2"
+        },
+        {
+          "id": 947331,
+          "text": "4"
+        }
+      ],
+      "correct_option_id": null,
+      "correct_option_text": null,
+      "explanation": "<p>5</p>",
+      "correctAnswer": "B",
+      "correctOptionId": 947330
+    },
+    {
+      "id": 524397,
+      "question": "p(n) = 3^4n+2 + 5^2n+1 is divisible by:",
+      "question_raw": "<p>p(n) = 3<sup>4n+2&nbsp;</sup>+ 5<sup>2n+1&nbsp;</sup>is divisible by:</p>",
+      "difficulty": "Medium",
+      "options": [
+        {
+          "id": 947355,
+          "text": "61"
+        },
+        {
+          "id": 947351,
+          "text": "14"
+        },
+        {
+          "id": 947348,
+          "text": "12"
+        },
+        {
+          "id": 947353,
+          "text": "16"
+        }
+      ],
+      "correct_option_id": null,
+      "correct_option_text": null,
+      "explanation": "<p>14</p>",
+      "correctAnswer": "B",
+      "correctOptionId": 947351
+    },
+    {
+      "id": 524403,
+      "question": "By the principle of induction $\\forall$ n $\\in$ N, 3^2n when divided by 8, leaves remainder:",
+      "question_raw": "<p>By the principle of induction <span class=\"math-tex\">{tex}\\forall{/tex}</span>&nbsp;n <span class=\"math-tex\">{tex}\\in{/tex}</span>&nbsp;N, 3<sup>2n</sup> when divided by 8, leaves remainder:</p>",
+      "difficulty": "Medium",
+      "options": [
+        {
+          "id": 947375,
+          "text": "1"
+        },
+        {
+          "id": 947374,
+          "text": "7"
+        },
+        {
+          "id": 947372,
+          "text": "2"
+        },
+        {
+          "id": 947373,
+          "text": "3"
+        }
+      ],
+      "correct_option_id": null,
+      "correct_option_text": null,
+      "explanation": "<p>1</p>",
+      "correctAnswer": "A",
+      "correctOptionId": 947375
+    },
+    {
+      "id": 524450,
+      "question": "The sum of the series $\\frac{2}{3}+\\frac{8}{9}+\\frac{26}{27}+\\frac{80}{81}$ + ... to n terms is:",
+      "question_raw": "<p>The sum of the series&nbsp;<span class=\"math-tex\">{tex}\\frac{2}{3}+\\frac{8}{9}+\\frac{26}{27}+\\frac{80}{81}{/tex}</span>&nbsp;+ ... to n terms is:</p>",
+      "difficulty": "Medium",
+      "options": [
+        {
+          "id": 947545,
+          "text": "n + $\\frac 12$(3^n - 1)"
+        },
+        {
+          "id": 947540,
+          "text": "n - $\\frac 12$(1 - 3^-n)"
+        },
+        {
+          "id": 947542,
+          "text": "n - $\\frac 12$(3^n - 1)"
+        },
+        {
+          "id": 947541,
+          "text": "n - $\\frac 12$(3^-n - 1)"
+        }
+      ],
+      "correct_option_id": null,
+      "correct_option_text": null,
+      "explanation": "<p>n -&nbsp;<span class=\"math-tex\">{tex}\\frac 12{/tex}</span>(1 - 3<sup>-n</sup>)</p>",
+      "correctAnswer": "B",
+      "correctOptionId": 947540
+    },
+    {
+      "id": 524458,
+      "question": "The greatest positive integer which divides (n + 1)(n + 2)(n + 3) ...(n + r), $\\forall$ n $\\in$ N, is ________.",
+      "question_raw": "<p>The greatest positive integer which divides (n + 1)(n + 2)(n + 3) ...(n + r),&nbsp;<span class=\"math-tex\">{tex}\\forall{/tex}</span>&nbsp;n&nbsp;<span class=\"math-tex\">{tex}\\in{/tex}</span>&nbsp;N, is ________.</p>",
+      "difficulty": "Medium",
+      "options": [
+        {
+          "id": 947573,
+          "text": "(n + r)!"
+        },
+        {
+          "id": 947579,
+          "text": "r!"
+        },
+        {
+          "id": 947578,
+          "text": "n!"
+        },
+        {
+          "id": 947575,
+          "text": "n + r + 1"
+        }
+      ],
+      "correct_option_id": null,
+      "correct_option_text": null,
+      "explanation": "<p>r!</p>",
+      "correctAnswer": "B",
+      "correctOptionId": 947579
+    },
+    {
+      "id": 524482,
+      "question": "Let P(n) : 2^n < (1 $\\times$ 2 $\\times$ 3 $\\times$ .. $\\times$ n). Then the smallest positive integer for which P(n) is true is:",
+      "question_raw": "<p>Let P(n) : 2<sup>n&nbsp;</sup>&lt; (1 <span class=\"math-tex\">{tex}\\times{/tex}</span>&nbsp;2 <span class=\"math-tex\">{tex}\\times{/tex}</span>&nbsp;3 <span class=\"math-tex\">{tex}\\times{/tex}</span>&nbsp;.. <span class=\"math-tex\">{tex}\\times{/tex}</span>&nbsp;n). Then the smallest positive integer for which P(n) is true is:</p>",
+      "difficulty": "Medium",
+      "options": [
+        {
+          "id": 947674,
+          "text": "3"
+        },
+        {
+          "id": 947672,
+          "text": "1"
+        },
+        {
+          "id": 947673,
+          "text": "2"
+        },
+        {
+          "id": 947675,
+          "text": "4"
+        }
+      ],
+      "correct_option_id": null,
+      "correct_option_text": null,
+      "explanation": "<p>4</p>",
+      "correctAnswer": "D",
+      "correctOptionId": 947675
+    },
+    {
+      "id": 524512,
+      "question": "If $\\frac{(n+2) !}{6(n-1) !}$ divisible by n, n $\\in$ N and 1 $\\leq$ n $\\leq$ 9, Then n is:",
+      "question_raw": "<p>If&nbsp;<span class=\"math-tex\">{tex}\\frac{(n+2) !}{6(n-1) !}{/tex}</span>&nbsp;divisible by n, n&nbsp;<span class=\"math-tex\">{tex}\\in{/tex}</span>&nbsp;N and 1&nbsp;<span class=\"math-tex\">{tex}\\leq{/tex}</span>&nbsp;n&nbsp;<span class=\"math-tex\">{tex}\\leq{/tex}</span>&nbsp;9, Then n is:</p>",
+      "difficulty": "Medium",
+      "options": [
+        {
+          "id": 947785,
+          "text": "6"
+        },
+        {
+          "id": 947781,
+          "text": "4"
+        },
+        {
+          "id": 947782,
+          "text": "2"
+        },
+        {
+          "id": 947787,
+          "text": "1"
+        }
+      ],
+      "correct_option_id": null,
+      "correct_option_text": null,
+      "explanation": "<p>1</p>",
+      "correctAnswer": "D",
+      "correctOptionId": 947787
+    },
+    {
+      "id": 524523,
+      "question": "For every positive integer n, 7^n − 3^n is divisible by:",
+      "question_raw": "<p>For every positive integer n, 7<sup>n&nbsp;</sup>&minus; 3<sup>n</sup> is divisible by:</p>",
+      "difficulty": "Medium",
+      "options": [
+        {
+          "id": 947830,
+          "text": "4"
+        },
+        {
+          "id": 947831,
+          "text": "5"
+        },
+        {
+          "id": 947829,
+          "text": "3"
+        },
+        {
+          "id": 947828,
+          "text": "7"
+        }
+      ],
+      "correct_option_id": null,
+      "correct_option_text": null,
+      "explanation": "<p>4</p>",
+      "correctAnswer": "A",
+      "correctOptionId": 947830
+    },
+    {
+      "id": 524561,
+      "question": "If $\\frac{4^{n}}{n+1}<\\frac{(2 n) !}{(n !)^{2}}$, then p(n) is true for:",
+      "question_raw": "<p>If&nbsp;<span class=\"math-tex\">{tex}\\frac{4^{n}}{n+1}&lt;\\frac{(2 n) !}{(n !)^{2}}{/tex}</span>, then p(n) is true for:</p>",
+      "difficulty": "Medium",
+      "options": [
+        {
+          "id": 947960,
+          "text": "n $\\geq$ 1"
+        },
+        {
+          "id": 947963,
+          "text": "n $\\geq$ 2"
+        },
+        {
+          "id": 947961,
+          "text": "n > 0"
+        },
+        {
+          "id": 947962,
+          "text": "n < 0"
+        }
+      ],
+      "correct_option_id": null,
+      "correct_option_text": null,
+      "explanation": "<p>n&nbsp;<span class=\"math-tex\">{tex}\\geq{/tex}</span>&nbsp;2</p>",
+      "correctAnswer": "B",
+      "correctOptionId": 947963
+    },
+    {
+      "id": 524573,
+      "question": "If n $\\in$ N, p(n) = 2^n−1 then p(n) $\\leq$",
+      "question_raw": "<p>If n <span class=\"math-tex\">{tex}\\in{/tex}</span>&nbsp;N, p(n) = 2<sup>n&minus;1</sup> then p(n)&nbsp;<span class=\"math-tex\">{tex}\\leq{/tex}</span></p>",
+      "difficulty": "Medium",
+      "options": [
+        {
+          "id": 948005,
+          "text": "n^2"
+        },
+        {
+          "id": 948007,
+          "text": "n!"
+        },
+        {
+          "id": 948006,
+          "text": "(n - 1)!"
+        },
+        {
+          "id": 948004,
+          "text": "n"
+        }
+      ],
+      "correct_option_id": null,
+      "correct_option_text": null,
+      "explanation": "<p>n!</p>",
+      "correctAnswer": "B",
+      "correctOptionId": 948007
+    },
+    {
+      "id": 524597,
+      "question": "Inequality 3^n < (n + 1)!, n $\\in$ N ________.",
+      "question_raw": "<p>Inequality 3<sup>n</sup>&nbsp;&lt; (n + 1)!, n&nbsp;<span class=\"math-tex\">{tex}\\in{/tex}</span> N ________.</p>",
+      "difficulty": "Medium",
+      "options": [
+        {
+          "id": 948101,
+          "text": "is true for n $\\geq$ 4"
+        },
+        {
+          "id": 948096,
+          "text": "is false for n = 4"
+        },
+        {
+          "id": 948099,
+          "text": "is false for n = 13"
+        },
+        {
+          "id": 948103,
+          "text": "is true for n > 2"
+        }
+      ],
+      "correct_option_id": null,
+      "correct_option_text": null,
+      "explanation": "<p>is true for n <span class=\"math-tex\">{tex}\\geq{/tex}</span>&nbsp;4</p>",
+      "correctAnswer": "A",
+      "correctOptionId": 948101
+    },
+    {
+      "id": 524622,
+      "question": "The sum of the series 1 $\\times$ 3 + 3 $\\times$ 5 + 5 $\\times$ 7 + ... to n terms is:",
+      "question_raw": "<p>The sum of the series 1 <span class=\"math-tex\">{tex}\\times{/tex}</span>&nbsp;3 + 3 <span class=\"math-tex\">{tex}\\times{/tex}</span>&nbsp;5 + 5 <span class=\"math-tex\">{tex}\\times{/tex}</span>&nbsp;7 + ... to n terms is:</p>",
+      "difficulty": "Medium",
+      "options": [
+        {
+          "id": 948193,
+          "text": "$\\frac{n\\left(4 n^{2}+6 n\\right)-1}{3}$"
+        },
+        {
+          "id": 948199,
+          "text": "$\\frac{n^{2}+1}{4}$"
+        },
+        {
+          "id": 948197,
+          "text": "$\\frac{n(n+1)(n+2)}{2}$"
+        },
+        {
+          "id": 948198,
+          "text": "$\\frac{n(n+1)(n+1)}{2}$"
+        }
+      ],
+      "correct_option_id": null,
+      "correct_option_text": null,
+      "explanation": "<p><span class=\"math-tex\">{tex}\\frac{n\\left(4 n^{2}+6 n\\right)-1}{3}{/tex}</span></p>",
+      "correctAnswer": "A",
+      "correctOptionId": 948193
+    },
+    {
+      "id": 524627,
+      "question": "A student was asked to prove a statement P(n) by induction. He proved that P(k + 1) is true whenever P(k) is true for all k > 5 $\\in$ N and also that P(5) is true. On the basis of this he could conclude that P(n) is true:",
+      "question_raw": "<p>A student was asked to prove a statement P(n) by induction. He proved that P(k + 1) is true whenever P(k) is true for all k &gt; 5 <span class=\"math-tex\">{tex}\\in{/tex}</span>&nbsp;N and also that P(5) is true. On the basis of this he could conclude that P(n) is true:</p>",
+      "difficulty": "Medium",
+      "options": [
+        {
+          "id": 948217,
+          "text": "For all n > ​​5"
+        },
+        {
+          "id": 948218,
+          "text": "For all n $\\geq$ 5"
+        },
+        {
+          "id": 948219,
+          "text": "For all n < 5"
+        },
+        {
+          "id": 948216,
+          "text": "For all n $\\in$ N"
+        }
+      ],
+      "correct_option_id": null,
+      "correct_option_text": null,
+      "explanation": "<p>For all n&nbsp;<span class=\"math-tex\">{tex}\\geq{/tex}</span> 5</p>",
+      "correctAnswer": "B",
+      "correctOptionId": 948218
+    },
+    {
+      "id": 524652,
+      "question": "If n $\\in$ N and n > 1, then:",
+      "question_raw": "<p>If n&nbsp;<span class=\"math-tex\">{tex}\\in{/tex}</span>&nbsp;N and n &gt; 1, then:</p>",
+      "difficulty": "Medium",
+      "options": [
+        {
+          "id": 948297,
+          "text": "n! $\\geq \\left(\\frac{n+1}{2}\\right)^{n}$"
+        },
+        {
+          "id": 948298,
+          "text": "n! < $\\left(\\frac{n+1}{2}\\right)^{n}$"
+        },
+        {
+          "id": 948299,
+          "text": "n! < $\\left(\\frac{n+2}{4}\\right)^{n}$"
+        },
+        {
+          "id": 948296,
+          "text": "n! > $\\left(\\frac{n+1}{2}\\right)^{n}$"
+        }
+      ],
+      "correct_option_id": null,
+      "correct_option_text": null,
+      "explanation": "<p>n! &lt;&nbsp;<span class=\"math-tex\">{tex}\\left(\\frac{n+1}{2}\\right)^{n}{/tex}</span></p>",
+      "correctAnswer": "B",
+      "correctOptionId": 948298
+    },
+    {
+      "id": 524666,
+      "question": "If p(n) : $\\frac{n^{n}}{3^{n}}<n !<\\frac{n^{n}}{2^{n}}$, $\\forall$ n $\\geq$ k, n $\\in$ N is true, then k = ________.",
+      "question_raw": "<p>If p(n) :&nbsp;<span class=\"math-tex\">{tex}\\frac{n^{n}}{3^{n}}&lt;n !&lt;\\frac{n^{n}}{2^{n}}{/tex}</span>,&nbsp;<span class=\"math-tex\">{tex}\\forall{/tex}</span>&nbsp;n&nbsp;<span class=\"math-tex\">{tex}\\geq{/tex}</span>&nbsp;k, n&nbsp;<span class=\"math-tex\">{tex}\\in{/tex}</span>&nbsp;N is true, then k = ________.</p>",
+      "difficulty": "Medium",
+      "options": [
+        {
+          "id": 948352,
+          "text": "3"
+        },
+        {
+          "id": 948355,
+          "text": "6"
+        },
+        {
+          "id": 948353,
+          "text": "4"
+        },
+        {
+          "id": 948354,
+          "text": "5"
+        }
+      ],
+      "correct_option_id": null,
+      "correct_option_text": null,
+      "explanation": "<p>6</p>",
+      "correctAnswer": "B",
+      "correctOptionId": 948355
+    },
+    {
+      "id": 524680,
+      "question": "For all n $\\in$ N, 41^n − 14^n is a multiple of:",
+      "question_raw": "<p>For all n <span class=\"math-tex\">{tex}\\in{/tex}</span>&nbsp;N, 41<sup>n&nbsp;</sup>&minus; 14<sup>n</sup> is a multiple of:</p>",
+      "difficulty": "Medium",
+      "options": [
+        {
+          "id": 948402,
+          "text": "25"
+        },
+        {
+          "id": 948401,
+          "text": "27"
+        },
+        {
+          "id": 948400,
+          "text": "26"
+        },
+        {
+          "id": 948403,
+          "text": "24"
+        }
+      ],
+      "correct_option_id": null,
+      "correct_option_text": null,
+      "explanation": "<p>27</p>",
+      "correctAnswer": "B",
+      "correctOptionId": 948401
+    },
+    {
+      "id": 524709,
+      "question": "$\\frac{(2 n) !}{2^{2 n}(n !)^{2}}$ is $\\leq$",
+      "question_raw": "<p><span class=\"math-tex\">{tex}\\frac{(2 n) !}{2^{2 n}(n !)^{2}}{/tex}</span>&nbsp;is&nbsp;<span class=\"math-tex\">{tex}\\leq{/tex}</span></p>",
+      "difficulty": "Medium",
+      "options": [
+        {
+          "id": 948500,
+          "text": "$\\frac{1}{3 n+1}$"
+        },
+        {
+          "id": 948502,
+          "text": "$\\frac{1}{(3 n+1)^{\\frac 1 2}}$"
+        },
+        {
+          "id": 948506,
+          "text": "$\\frac{1}{(3 n-1)^{\\frac 1 2}}$"
+        },
+        {
+          "id": 948504,
+          "text": "$\\frac{1}{(3 n+1)^{2}}$"
+        }
+      ],
+      "correct_option_id": null,
+      "correct_option_text": null,
+      "explanation": "<p><span class=\"math-tex\">{tex}\\frac{1}{(3 n+1)^{\\frac 1 2}}{/tex}</span></p>",
+      "correctAnswer": "B",
+      "correctOptionId": 948502
+    },
+    {
+      "id": 524718,
+      "question": "For all n $\\in$ N, 1 + $\\frac{1}{1+2}+\\frac{1}{1+2+3}+\\ldots+\\frac{1}{1+2+3+\\ldots+n}$ is equal to:",
+      "question_raw": "<p>For all n&nbsp;<span class=\"math-tex\">{tex}\\in{/tex}</span>&nbsp;N, 1 +&nbsp;<span class=\"math-tex\">{tex}\\frac{1}{1+2}+\\frac{1}{1+2+3}+\\ldots+\\frac{1}{1+2+3+\\ldots+n}{/tex}</span>&nbsp;is equal to:</p>",
+      "difficulty": "Medium",
+      "options": [
+        {
+          "id": 948533,
+          "text": "$\\frac{n}{n+1}$"
+        },
+        {
+          "id": 948534,
+          "text": "$\\frac{2 n}{n-1}$"
+        },
+        {
+          "id": 948535,
+          "text": "$\\frac{2 n}{n+1}$"
+        },
+        {
+          "id": 948532,
+          "text": "$\\frac{3 n}{n+1}$"
+        }
+      ],
+      "correct_option_id": null,
+      "correct_option_text": null,
+      "explanation": "<p><span class=\"math-tex\">{tex}\\frac{2 n}{n+1}{/tex}</span></p>",
+      "correctAnswer": "C",
+      "correctOptionId": 948535
+    },
+    {
+      "id": 524726,
+      "question": "p(1) : 49^1 + 24^n-1 is dividible by ________ for n $\\in$ N.",
+      "question_raw": "<p>p(1) : 49<sup>1</sup>&nbsp;+ 24<sup>n-1</sup>&nbsp;is dividible by ________ for n&nbsp;<span class=\"math-tex\">{tex}\\in{/tex}</span> N.</p>",
+      "difficulty": "Medium",
+      "options": [
+        {
+          "id": 948566,
+          "text": "7"
+        },
+        {
+          "id": 948567,
+          "text": "25"
+        },
+        {
+          "id": 948565,
+          "text": "49"
+        },
+        {
+          "id": 948564,
+          "text": "4"
+        }
+      ],
+      "correct_option_id": null,
+      "correct_option_text": null,
+      "explanation": "<p>25</p>",
+      "correctAnswer": "B",
+      "correctOptionId": 948567
+    },
+    {
+      "id": 524759,
+      "question": "If n $\\in$ N, then sin $\\theta$ + sin 2$\\theta$ + sin 3$\\theta$ + ... + sin n$\\theta$ =",
+      "question_raw": "<p>If n <span class=\"math-tex\">{tex}\\in{/tex}</span>&nbsp;N, then sin&nbsp;<span class=\"math-tex\">{tex}\\theta{/tex}</span>&nbsp;+ sin 2<span class=\"math-tex\">{tex}\\theta{/tex}</span>&nbsp;+ sin 3<span class=\"math-tex\">{tex}\\theta{/tex}</span>&nbsp;+ ... + sin n<span class=\"math-tex\">{tex}\\theta{/tex}</span>&nbsp;=</p>",
+      "difficulty": "Medium",
+      "options": [
+        {
+          "id": 948677,
+          "text": "$\\frac{\\sin \\left[\\frac{(n+1)}{2} \\theta\\right] \\sin \\theta}{\\sin \\left(\\frac{\\theta}{2}\\right)}$"
+        },
+        {
+          "id": 948676,
+          "text": "$\\sin \\left[\\frac{n(n+1) \\theta}{2}\\right]$"
+        },
+        {
+          "id": 948680,
+          "text": "$\\frac{\\sin \\left[\\frac{(n+1)}{2} \\theta\\right] \\sin \\left(\\frac{n \\theta}{2}\\right)}{\\sin \\left(\\frac{\\theta}{2}\\right)}$"
+        },
+        {
+          "id": 948681,
+          "text": "$\\frac{\\sin \\left[\\frac{(n+1)}{2} \\theta\\right] \\sin ^{n}\\left(\\frac{\\theta}{2}\\right)}{\\sin \\left(\\frac{\\theta}{2}\\right)}$"
+        }
+      ],
+      "correct_option_id": null,
+      "correct_option_text": null,
+      "explanation": "<p><span class=\"math-tex\">{tex}\\frac{\\sin \\left[\\frac{(n+1)}{2} \\theta\\right] \\sin \\left(\\frac{n \\theta}{2}\\right)}{\\sin \\left(\\frac{\\theta}{2}\\right)}{/tex}</span></p>",
+      "correctAnswer": "C",
+      "correctOptionId": 948680
+    },
+    {
+      "id": 524766,
+      "question": "10^n + 3(4^n+2) + 5 is divisible by (n $\\in$ N):",
+      "question_raw": "<p>10<sup>n&nbsp;</sup>+ 3(4<sup>n+2</sup>) + 5 is divisible by (n <span class=\"math-tex\">{tex}\\in{/tex}</span>&nbsp;N):</p>",
+      "difficulty": "Medium",
+      "options": [
+        {
+          "id": 948704,
+          "text": "7"
+        },
+        {
+          "id": 948706,
+          "text": "9"
+        },
+        {
+          "id": 948705,
+          "text": "5"
+        },
+        {
+          "id": 948707,
+          "text": "17"
+        }
+      ],
+      "correct_option_id": null,
+      "correct_option_text": null,
+      "explanation": "<p>9</p>",
+      "correctAnswer": "B",
+      "correctOptionId": 948706
+    },
+    {
+      "id": 524767,
+      "question": "$\\int_\\limits{0}^{\\frac{\\pi}{2}} \\frac{\\sin ^{2} n x}{\\sin x} d x$ = ________ $\\forall$ n $\\in$ N",
+      "question_raw": "<p><span class=\"math-tex\">{tex}\\int_\\limits{0}^{\\frac{\\pi}{2}} \\frac{\\sin ^{2} n x}{\\sin x} d x{/tex}</span>&nbsp;= ________&nbsp;<span class=\"math-tex\">{tex}\\forall{/tex}</span>&nbsp;n&nbsp;<span class=\"math-tex\">{tex}\\in{/tex}</span>&nbsp;N</p>",
+      "difficulty": "Medium",
+      "options": [
+        {
+          "id": 948710,
+          "text": "1"
+        },
+        {
+          "id": 948711,
+          "text": "0"
+        },
+        {
+          "id": 948708,
+          "text": "1 + $\\frac{1}{2}+\\frac{1}{3}+\\ldots+\\frac{1}{n}$"
+        },
+        {
+          "id": 948709,
+          "text": "1 + $\\frac{1}{3}+\\frac{1}{5}+\\ldots+\\frac{1}{2 n-1}$"
+        }
+      ],
+      "correct_option_id": null,
+      "correct_option_text": null,
+      "explanation": "<p>1 +&nbsp;<span class=\"math-tex\">{tex}\\frac{1}{3}+\\frac{1}{5}+\\ldots+\\frac{1}{2 n-1}{/tex}</span></p>",
+      "correctAnswer": "D",
+      "correctOptionId": 948709
+    },
+    {
+      "id": 524854,
+      "question": "The greatest positive integer, which divides n(n + 1)(n + 2)(n + 3) for all n $\\in$ N, is:",
+      "question_raw": "<p>The greatest positive integer, which divides n(n + 1)(n + 2)(n + 3) for all n <span class=\"math-tex\">{tex}\\in{/tex}</span> N, is:</p>",
+      "difficulty": "Medium",
+      "options": [
+        {
+          "id": 948998,
+          "text": "6"
+        },
+        {
+          "id": 948996,
+          "text": "2"
+        },
+        {
+          "id": 948999,
+          "text": "24"
+        },
+        {
+          "id": 949001,
+          "text": "120"
+        }
+      ],
+      "correct_option_id": null,
+      "correct_option_text": null,
+      "explanation": "<p>24</p>",
+      "correctAnswer": "C",
+      "correctOptionId": 948999
+    },
+    {
+      "id": 524855,
+      "question": "$\\frac{(n+2) !}{(n-1) !}$ is divisible by:",
+      "question_raw": "<p><span class=\"math-tex\">{tex}\\frac{(n+2) !}{(n-1) !}{/tex}</span>&nbsp;is divisible by:</p>",
+      "difficulty": "Medium",
+      "options": [
+        {
+          "id": 949002,
+          "text": "6"
+        },
+        {
+          "id": 949003,
+          "text": "7"
+        },
+        {
+          "id": 949000,
+          "text": "3"
+        },
+        {
+          "id": 948997,
+          "text": "4"
+        }
+      ],
+      "correct_option_id": null,
+      "correct_option_text": null,
+      "explanation": "<p>6</p>",
+      "correctAnswer": "A",
+      "correctOptionId": 949002
+    },
+    {
+      "id": 524882,
+      "question": "If a_n = $\\sqrt{7+\\sqrt{7+\\sqrt{7+\\ldots}}}$ n times then using the principle of mathematical induction which of the following is true?",
+      "question_raw": "<p>If a<sub>n</sub>&nbsp;=&nbsp;<span class=\"math-tex\">{tex}\\sqrt{7+\\sqrt{7+\\sqrt{7+\\ldots}}}{/tex}</span>&nbsp;n times then using the principle of mathematical induction which of the following is true?</p>",
+      "difficulty": "Medium",
+      "options": [
+        {
+          "id": 949093,
+          "text": "a_n > 3, $\\forall$ n $\\geq$ 1"
+        },
+        {
+          "id": 949094,
+          "text": "a_n < 4, $\\forall$ n $\\geq$ 1"
+        },
+        {
+          "id": 949095,
+          "text": "a_n > 6, $\\forall$ n $\\geq$ 1"
+        },
+        {
+          "id": 949092,
+          "text": "a_n > 7, $\\forall$ n $\\geq$ 1"
+        }
+      ],
+      "correct_option_id": null,
+      "correct_option_text": null,
+      "explanation": "<p>Here, a<sub>1</sub>&nbsp;=&nbsp;<span class=\"math-tex\">{tex}\\sqrt{7}{/tex}</span>&nbsp;&lt; 4 and if a<sub>m</sub>&nbsp;&lt; 4,<br />\r\nthen a<sub>m+1</sub>&nbsp;=&nbsp;<span class=\"math-tex\">{tex}\\sqrt{7+a_{m}}{/tex}</span>&nbsp;&lt;&nbsp;<span class=\"math-tex\">{tex}\\sqrt{7+4}{/tex}</span> &lt; 4</p>",
+      "correctAnswer": "B",
+      "correctOptionId": 949094
+    },
+    {
+      "id": 524915,
+      "question": "Which of the following result is valid?",
+      "question_raw": "<p>Which of the following result is valid?</p>",
+      "difficulty": "Hard",
+      "options": [
+        {
+          "id": 949193,
+          "text": "(1 + x)^n $\\geq$ (1 + nx), For all natural numbers n, Where x > − 1"
+        },
+        {
+          "id": 949192,
+          "text": "(1 + x)^n > (1 + nx), For all natural numbers n"
+        },
+        {
+          "id": 949194,
+          "text": "(1 + x)^n $\\leq$ (1 + nx), For all natural numbers n"
+        },
+        {
+          "id": 949195,
+          "text": "(1 + x)^n < (1 + nx), For all natural numbers n"
+        }
+      ],
+      "correct_option_id": null,
+      "correct_option_text": null,
+      "explanation": "<p>(1 + x)<sup>n&nbsp;</sup><span class=\"math-tex\">{tex}\\geq{/tex}</span>&nbsp;(1 + nx), For all natural numbers n, Where x &gt; &minus; 1</p>",
+      "correctAnswer": "A",
+      "correctOptionId": 949193
+    },
+    {
+      "id": 524917,
+      "question": "If A = $\\left[\\begin{array}{ll} 1 & 0 \\\\ 1 & 1 \\end{array}\\right]$ and I = $​​\\left[\\begin{array}{ll} 1 & 0 \\\\ 0 & 1 \\end{array}\\right]$, then which of the following is true for $\\forall$ n $\\geq$ 1, n $\\in$ N?",
+      "question_raw": "<p>If A =&nbsp;<span class=\"math-tex\">{tex}\\left[\\begin{array}{ll} 1 &amp; 0 \\\\ 1 &amp; 1 \\end{array}\\right]{/tex}</span>&nbsp;and I =&nbsp;<span class=\"math-tex\">{tex}​​\\left[\\begin{array}{ll} 1 &amp; 0 \\\\ 0 &amp; 1 \\end{array}\\right]{/tex}</span>, then which of the following is true for&nbsp;<span class=\"math-tex\">{tex}\\forall{/tex}</span>&nbsp;n&nbsp;<span class=\"math-tex\">{tex}\\geq{/tex}</span>&nbsp;1, n&nbsp;<span class=\"math-tex\">{tex}\\in{/tex}</span>&nbsp;N?</p>",
+      "difficulty": "Hard",
+      "options": [
+        {
+          "id": 949203,
+          "text": "A^n = nA - (n - 1) I"
+        },
+        {
+          "id": 949202,
+          "text": "A^n = 2^n-1 A - (n - 1) I"
+        },
+        {
+          "id": 949201,
+          "text": "A^n = nA + (n - 1) I"
+        },
+        {
+          "id": 949200,
+          "text": "A^n = 2^n-1 A + (n - 1) I"
+        }
+      ],
+      "correct_option_id": null,
+      "correct_option_text": null,
+      "explanation": "<p>A<sup>n</sup> = nA -&nbsp;(n - 1) I</p>",
+      "correctAnswer": "A",
+      "correctOptionId": 949203
+    },
+    {
+      "id": 734493,
+      "question": "For all n $\\in$ N, 8^n - 3^n is divisible by",
+      "question_raw": "<p>For all n&nbsp;<span class=\"math-tex\">{tex}\\in{/tex}</span>&nbsp;N, 8<sup>n</sup>&nbsp;- 3<sup>n</sup>&nbsp;is divisible by</p>",
+      "difficulty": "Medium",
+      "options": [
+        {
+          "id": 1533416,
+          "text": "3"
+        },
+        {
+          "id": 1533419,
+          "text": "7"
+        },
+        {
+          "id": 1533418,
+          "text": "6"
+        },
+        {
+          "id": 1533417,
+          "text": "5"
+        }
+      ],
+      "correct_option_id": null,
+      "correct_option_text": null,
+      "explanation": "<p>For n = 1, we get<br />\r\n8<sup>n</sup>&nbsp;- 3<sup>n</sup>&nbsp;= 8<sup>1</sup>&nbsp;- 3<sup>1</sup>&nbsp;= 5, which is divisible by 5 ...(i)<br />\r\nLet the result be true for n = m&nbsp;<span class=\"math-tex\">{tex}\\in{/tex}</span>&nbsp;N<br />\r\ni.e., 8<sup>m</sup>&nbsp;- 3<sup>m</sup>&nbsp;is divisible by 5<br />\r\ni.e., 8<sup>m</sup>&nbsp;- 3<sup>m</sup>&nbsp;= 5k&nbsp;<span class=\"math-tex\">{tex}\\forall{/tex}</span>&nbsp;k&nbsp;<span class=\"math-tex\">{tex}\\in{/tex}</span>&nbsp;N ...(ii)<br />\r\nP(m + 1) : 8<sup>m+1</sup> -&nbsp;3<sup>m+1</sup><br />\r\n= 8<sup>m</sup>&nbsp;<span class=\"math-tex\">{tex}\\cdot{/tex}</span>&nbsp;8 - 3<sup>m</sup>&nbsp;<span class=\"math-tex\">{tex}\\cdot{/tex}</span>&nbsp;3<br />\r\n= (5k + 3<sup>m</sup>) 8 - 3<sup>m</sup>&nbsp;<span class=\"math-tex\">{tex}\\cdot{/tex}</span>&nbsp;3 ...[From (ii)]<br />\r\n= 3<sup>m</sup>&nbsp;<span class=\"math-tex\">{tex}\\cdot{/tex}</span>&nbsp;8 + 40k - 3<sup>m</sup>&nbsp;<span class=\"math-tex\">{tex}\\cdot{/tex}</span>&nbsp;3<br />\r\n= 3<sup>m</sup>&nbsp;(8 - 3) + 40k<br />\r\n= 5<span class=\"math-tex\">{tex}\\cdot{/tex}</span>3<sup>m</sup>&nbsp;+ 40k<br />\r\n= 5(3<sup>m</sup>&nbsp;+ 8k), which is divisible by 5<br />\r\n<span class=\"math-tex\">{tex}\\Rightarrow{/tex}</span>&nbsp;the result is true for n = m + 1<br />\r\nUsing mathematical induction, we find from (i) and (ii), P(n) : 8<sup>n</sup> - 3<sup>n</sup> is divisible by 5, is true for n = 1 and n = m+ 1<br />\r\nHence, 8<sup>n</sup> - 3<sup>n</sup> is divisible by 5, for all n <span class=\"math-tex\">{tex}\\in{/tex}</span> N</p>",
+      "correctAnswer": "D",
+      "correctOptionId": 1533417
+    },
+    {
+      "id": 734500,
+      "question": "For all n $\\in$ N, 1 + 2 + 3 + ... + n is",
+      "question_raw": "<p>For all n&nbsp;<span class=\"math-tex\">{tex}\\in{/tex}</span>&nbsp;N, 1 + 2 + 3 + ... + n is</p>",
+      "difficulty": "Hard",
+      "options": [
+        {
+          "id": 1533441,
+          "text": "less than $\\frac{(2 n-1)^{2}}{4}$"
+        },
+        {
+          "id": 1533438,
+          "text": "less than $\\frac{(2 n+1)^{2}}{8}$"
+        },
+        {
+          "id": 1533436,
+          "text": "equal to $\\frac{(2 n+1)^{2}}{8}$"
+        },
+        {
+          "id": 1533439,
+          "text": "greater than $\\frac{(2 n+1)^{2}}{8}$"
+        }
+      ],
+      "correct_option_id": null,
+      "correct_option_text": null,
+      "explanation": "<p>Let P(n): 1 + 2 + 3 + .. . + n &lt;&nbsp;<span class=\"math-tex\">{tex}\\frac{(2 n+1)^{2}}{8}{/tex}</span></p>\r\n\r\n<ol start=\"1\" style=\"list-style-type:lower-alpha\">\r\n\t<li>P(1) : 1 &lt;&nbsp;<span class=\"math-tex\">{tex}\\frac{9}{8}{/tex}</span>, which is true<br />\r\n\t<span class=\"math-tex\">{tex}\\therefore{/tex}</span>&nbsp;P(1) is true</li>\r\n\t<li>Let P(m) be true, then 1 + 2 + 3 + ... + m &lt;&nbsp;<span class=\"math-tex\">{tex}\\frac{1}{8}{/tex}</span>&nbsp;(2m + 1)<sup>2</sup><br />\r\n\tAdding (m + 1) on both sides, we get 1 + 2 + 3 + ... + m + (m + 1) &lt;&nbsp;<span class=\"math-tex\">{tex}\\frac{(2 m+1)^{2}}{8}{/tex}</span>&nbsp;+ (m + 1)<br />\r\n\t<span class=\"math-tex\">{tex}\\Rightarrow{/tex}</span>&nbsp;1 + 2 + 3 + ... + m + (m + 1) &lt;&nbsp;<span class=\"math-tex\">{tex}\\frac{4 m^{2}+12 m+9}{8}{/tex}</span><br />\r\n\t<span class=\"math-tex\">{tex}\\Rightarrow{/tex}</span>&nbsp;1 + 2 + 3 + ... + m + (m + 1) &lt;&nbsp;<span class=\"math-tex\">{tex}\\frac{(2 m+3)^{2}}{8}{/tex}</span><br />\r\n\t<span class=\"math-tex\">{tex}\\Rightarrow{/tex}</span>&nbsp;1 + 2 + 3 + ... + m + (m + 1) &lt;&nbsp;<span class=\"math-tex\">{tex}\\frac{[2(m+1)+1]^{2}}{8}{/tex}</span><br />\r\n\t<span class=\"math-tex\">{tex}\\Rightarrow{/tex}</span>&nbsp;P(m + 1) is true</li>\r\n</ol>\r\n\r\n<p><span class=\"math-tex\">{tex}\\therefore{/tex}</span>&nbsp;By the principle of mathematical induction, P(n) is true for all n <span class=\"math-tex\">{tex}\\in{/tex}</span> N.<br />\r\nHence, this option is correct.</p>",
+      "correctAnswer": "B",
+      "correctOptionId": 1533438
+    },
+    {
+      "id": 734509,
+      "question": "($\\sqrt{3}$ + 1)^4 + ($\\sqrt{3}$ - 1)^4 is equal to",
+      "question_raw": "<p>(<span class=\"math-tex\">{tex}\\sqrt{3}{/tex}</span>&nbsp;+ 1)<sup>4</sup>&nbsp;+ (<span class=\"math-tex\">{tex}\\sqrt{3}{/tex}</span>&nbsp;- 1)<sup>4</sup>&nbsp;is equal to</p>",
+      "difficulty": "Hard",
+      "options": [
+        {
+          "id": 1533468,
+          "text": "a negative integer"
+        },
+        {
+          "id": 1533469,
+          "text": "a Positive integer"
+        },
+        {
+          "id": 1533467,
+          "text": "an irrational number"
+        },
+        {
+          "id": 1533466,
+          "text": "a rational number"
+        }
+      ],
+      "correct_option_id": null,
+      "correct_option_text": null,
+      "explanation": "<p>Since, (x + a)<sup>n</sup>&nbsp;+ (x - a)<sup>n</sup><br />\r\n= 2[<sup>n</sup>C<sub>0</sub>&nbsp;x<sup>n</sup>a<sup>0</sup>&nbsp;+&nbsp;<sup>n</sup>C<sub>2</sub>&nbsp;x<sup>n-2</sup>&nbsp;a<sup>2</sup>&nbsp;+&nbsp;<sup>n</sup>C<sub>4</sub>&nbsp;x<sup>n-4</sup>&nbsp;a<sup>4</sup>&nbsp;+ ...]<br />\r\n<span class=\"math-tex\">{tex}\\therefore{/tex}</span>&nbsp;(<span class=\"math-tex\">{tex}\\sqrt{3}{/tex}</span>&nbsp;+ 1)<sup>4</sup>&nbsp;+ (<span class=\"math-tex\">{tex}\\sqrt{3}{/tex}</span>&nbsp;- 1)<sup>4</sup><br />\r\n= 2(<sup>4</sup>C<sub>0</sub>&nbsp;(<span class=\"math-tex\">{tex}\\sqrt{3}{/tex}</span>)<sup>4</sup>&nbsp;+&nbsp;<sup>4</sup>C<sub>2</sub>&nbsp;(<span class=\"math-tex\">{tex}\\sqrt{3}{/tex}</span>)<sup>2</sup>&nbsp;(1)<sup>2</sup>&nbsp;+&nbsp;<sup>4</sup>C<sub>4</sub>&nbsp;(<span class=\"math-tex\">{tex}\\sqrt{3}{/tex}</span>)<sup>0</sup>&nbsp;(1)<sup>4</sup>)<br />\r\n= 2[9 + 6(3) + 1] = 56 =&nbsp;a rational number.</p>",
+      "correctAnswer": "D",
+      "correctOptionId": 1533466
+    }
+  ]
+}
