@@ -1,0 +1,2135 @@
+{
+  "id": 1377,
+  "name": "Linear Inequalities",
+  "category_full_name": "CBSE > Class 11 > Mathematics > Linear Inequalities",
+  "total_questions": 73,
+  "topics": [
+    {
+      "id": 11559,
+      "name": "Inequalities (XI-5.1)",
+      "total_questions": 73,
+      "attempted_questions": 0,
+      "correct_questions": 0,
+      "score": 0
+    }
+  ],
+  "questions": [
+    {
+      "id": 18692,
+      "question": "Identify the solution set for –( x – 3 ) < 5 – 2x",
+      "question_raw": "<p>Identify the solution set for &ndash;( x &ndash; 3 ) &lt; 5 &ndash; 2x</p>",
+      "difficulty": "Medium",
+      "options": [
+        {
+          "id": 29971,
+          "text": "$( - \\infty , - 2)$"
+        },
+        {
+          "id": 29969,
+          "text": "$( - \\infty , - 5)$"
+        },
+        {
+          "id": 29970,
+          "text": "$( - \\infty , - 1)$"
+        },
+        {
+          "id": 29968,
+          "text": "$( - \\infty , 2)$"
+        }
+      ],
+      "correct_option_id": null,
+      "correct_option_text": null,
+      "explanation": "<p><span class=\"math-tex\">{tex}-(x-3)&lt;5-2 x{/tex}</span><br />\r\n<span class=\"math-tex\">{tex}\\Rightarrow-x+3&lt;5-2 x{/tex}</span><br />\r\n<span class=\"math-tex\">{tex}\\Rightarrow-x+3+x&lt;5-2 x+x{/tex}</span><br />\r\n<span class=\"math-tex\">{tex}\\Rightarrow 3&lt;5-x{/tex}</span><br />\r\n<span class=\"math-tex\">{tex}\\Rightarrow 3-5&lt;5-x-5{/tex}</span><br />\r\n<span class=\"math-tex\">{tex}\\Rightarrow-2&lt;-x{/tex}</span><br />\r\n<span class=\"math-tex\">{tex}\\Rightarrow x \\in(-\\infty, 2){/tex}</span></p>",
+      "correctAnswer": "D",
+      "correctOptionId": 29968
+    },
+    {
+      "id": 18693,
+      "question": "What is the solution set for $\\frac{2(x-1)}{5} \\leq \\frac{3(2+x)}{7}$?",
+      "question_raw": "<p>What is the solution set for <span class=\"math-tex\">{tex}\\frac{2(x-1)}{5} \\leq \\frac{3(2+x)}{7}{/tex}</span>?</p>",
+      "difficulty": "Medium",
+      "options": [
+        {
+          "id": 29973,
+          "text": "$( - 24,\\infty )$"
+        },
+        {
+          "id": 29972,
+          "text": "$[ - 44,\\infty )$"
+        },
+        {
+          "id": 29975,
+          "text": "$( - 12,\\infty )$"
+        },
+        {
+          "id": 29974,
+          "text": "$( - 4,\\infty )$"
+        }
+      ],
+      "correct_option_id": null,
+      "correct_option_text": null,
+      "explanation": "<p>Given <span class=\"math-tex\">{tex}\\frac{2(x-1)}{5} \\leq \\frac{3(2+x)}{7}{/tex}</span>&nbsp;<br />\r\nMultiplying both sides by LCM&nbsp;(5, 7) = 35, we get<br />\r\n<span class=\"math-tex\">{tex}35 \\cdot \\frac{2(x-1)}{5} \\leq 35 \\cdot \\frac{3(2+x)}{7}{/tex}</span>&nbsp;<br />\r\n<span class=\"math-tex\">{tex}\\Rightarrow{/tex}</span>&nbsp;14(x - 1)&nbsp;<span class=\"math-tex\">{tex}\\le{/tex}</span>&nbsp;15(2 + x)<br />\r\n<span class=\"math-tex\">{tex}\\Rightarrow{/tex}</span>&nbsp;14x - 14&nbsp;<span class=\"math-tex\">{tex}\\le{/tex}</span>&nbsp;30 + 15x<br />\r\n<span class=\"math-tex\">{tex}\\Rightarrow{/tex}</span>&nbsp;14x - 15x&nbsp;<span class=\"math-tex\">{tex}\\le{/tex}</span>&nbsp;30 + 14<br />\r\n<span class=\"math-tex\">{tex}\\Rightarrow{/tex}</span>&nbsp;-x&nbsp;<span class=\"math-tex\">{tex}\\le{/tex}</span>&nbsp;44<br />\r\n<span class=\"math-tex\">{tex}\\Rightarrow{/tex}</span>&nbsp;x&nbsp;<span class=\"math-tex\">{tex}\\ge{/tex}</span>&nbsp;-44<br />\r\nSolution set&nbsp;is&nbsp;<span class=\"math-tex\">{tex}\\left[ -44,\\infty \\right) {/tex}</span></p>",
+      "correctAnswer": "B",
+      "correctOptionId": 29972
+    },
+    {
+      "id": 18694,
+      "question": "Identify the solution set for $\\frac{(x-1)}{3}+4<\\frac{(x-5)}{5}-2$",
+      "question_raw": "<p>Identify the solution set for <span class=\"math-tex\">{tex}\\frac{(x-1)}{3}+4&lt;\\frac{(x-5)}{5}-2{/tex}</span></p>",
+      "difficulty": "Medium",
+      "options": [
+        {
+          "id": 29978,
+          "text": "($ - \\infty $,-10)"
+        },
+        {
+          "id": 29979,
+          "text": "$( - \\infty , - 15)$"
+        },
+        {
+          "id": 29977,
+          "text": "$( - \\infty , - 5)$"
+        },
+        {
+          "id": 29976,
+          "text": "$( - \\infty , - 50)$"
+        }
+      ],
+      "correct_option_id": null,
+      "correct_option_text": null,
+      "explanation": "<p><span class=\"math-tex\">{tex}\\frac{(x-1)}{3}+4&lt;\\frac{(x-5)}{5}-2{/tex}</span>&nbsp;<br />\r\n<span class=\"math-tex\">{tex}\\Rightarrow{/tex}</span>&nbsp;<span class=\"math-tex\">{tex}\\frac{x-1+12}{3}&lt;\\frac{x-5-10}{5}{/tex}</span>&nbsp;<br />\r\n<span class=\"math-tex\">{tex}\\Rightarrow{/tex}</span>&nbsp;<span class=\"math-tex\">{tex}\\frac{x+11}{3}&lt;\\frac{x-15}{5}{/tex}</span><br />\r\nMultiplying both sides by LCM&nbsp;(3, 5) = 15, we get<br />\r\n<span class=\"math-tex\">{tex}\\Rightarrow{/tex}</span>&nbsp;5(x + 11) &lt; 3(x - 15)<br />\r\n<span class=\"math-tex\">{tex}\\Rightarrow{/tex}</span>&nbsp;5x + 55 &lt; 3x - 45<br />\r\n<span class=\"math-tex\">{tex}\\Rightarrow{/tex}</span>&nbsp;2x &lt; -100<br />\r\n<span class=\"math-tex\">{tex}\\Rightarrow{/tex}</span>&nbsp;x &lt; -50<br />\r\nSo solution set is<span class=\"math-tex\">{tex}( - \\infty , - 50){/tex}</span></p>",
+      "correctAnswer": "D",
+      "correctOptionId": 29976
+    },
+    {
+      "id": 18695,
+      "question": "What is the solution set for $\\frac{2 x-3}{3 x-7}>0$?",
+      "question_raw": "<p>What is the solution set for <span class=\"math-tex\">{tex}\\frac{2 x-3}{3 x-7}&gt;0{/tex}</span>?</p>",
+      "difficulty": "Medium",
+      "options": [
+        {
+          "id": 29981,
+          "text": "$\\left(-\\infty,-\\frac{3}{2}\\right) \\cup\\left(\\frac{5}{3}, \\infty\\right)$"
+        },
+        {
+          "id": 29982,
+          "text": "$\\left(-\\infty,-\\frac{3}{2}\\right) \\cup\\left(\\frac{7}{4}, \\infty\\right)$"
+        },
+        {
+          "id": 29983,
+          "text": "$\\left(-\\infty,-\\frac{1}{2}\\right) \\cup\\left(\\frac{7}{3}, \\infty\\right)$"
+        },
+        {
+          "id": 29980,
+          "text": "$\\left(-\\infty, \\frac{3}{2}\\right) \\cup\\left(\\frac{7}{3}, \\infty\\right)$"
+        }
+      ],
+      "correct_option_id": null,
+      "correct_option_text": null,
+      "explanation": "<p><span class=\"math-tex\">{tex}\\frac{2 x-3}{3 x-7}&gt;0{/tex}</span><br />\n<span class=\"math-tex\">{tex}\\Rightarrow{/tex}</span> (2x - 3 &gt; 0 and&nbsp;3x - 7 &gt; 0) or (2x - 3 &lt; 0&nbsp;and 3x - 7 &lt; 0)<br />\n<span class=\"math-tex\">{tex}\\Rightarrow{/tex}</span> (x &gt; <span class=\"math-tex\">{tex}\\frac { 3 }{ 2 }{/tex}</span>&nbsp;and&nbsp;x &gt; <span class=\"math-tex\">{tex}\\frac { 7 }{ 3 }{/tex}</span>) or (x &lt; <span class=\"math-tex\">{tex}\\frac { 3 }{ 2 }{/tex}</span>&nbsp;and&nbsp;x &lt; <span class=\"math-tex\">{tex}\\frac { 7 }{ 3 }{/tex}</span>)<br />\n<span class=\"math-tex\">{tex}\\Rightarrow x&gt;\\frac { 7 }{ 3 }{/tex}</span>&nbsp;or&nbsp;<span class=\"math-tex\">{tex}x&lt;\\frac { 3 }{ 2 }{/tex}</span><br />\n<span class=\"math-tex\">{tex}\\Rightarrow x\\in \\left( \\frac { 7 }{ 3 } ,\\infty \\right) {/tex}</span>&nbsp;or&nbsp;<span class=\"math-tex\">{tex}x\\in \\left( -\\infty ,\\frac { 3 }{ 2 } \\right){/tex}</span><br />\nHence the solution set is&nbsp;<span class=\"math-tex\">{tex}\\left(-\\infty, \\frac{3}{2}\\right) \\cup\\left(\\frac{7}{3}, \\infty\\right){/tex}</span></p>",
+      "correctAnswer": "D",
+      "correctOptionId": 29980
+    },
+    {
+      "id": 18696,
+      "question": "Identify the solution set for $\\frac{7 x-5}{8 x+3}>4$",
+      "question_raw": "<p>Identify the solution set for <span class=\"math-tex\">{tex}\\frac{7 x-5}{8 x+3}&gt;4{/tex}</span></p>",
+      "difficulty": "Medium",
+      "options": [
+        {
+          "id": 29986,
+          "text": "$\\left(-\\frac{31}{28},-\\frac{3}{8}\\right)$"
+        },
+        {
+          "id": 29984,
+          "text": "$\\left(-\\frac{17}{25},-\\frac{3}{8}\\right)$"
+        },
+        {
+          "id": 29987,
+          "text": "$\\left(-\\frac{25}{28},-\\frac{3}{8}\\right)$"
+        },
+        {
+          "id": 29985,
+          "text": "$\\left(-\\frac{5}{7},-\\frac{3}{8}\\right)$"
+        }
+      ],
+      "correct_option_id": null,
+      "correct_option_text": null,
+      "explanation": "<p><span class=\"math-tex\">{tex}\\frac{7 x-5}{8 x+3}&gt;4{/tex}</span><br />\r\n<span class=\"math-tex\">{tex}\\Rightarrow \\frac{7 x-5}{8 x+3}-4&gt;0{/tex}</span><br />\r\n<span class=\"math-tex\">{tex}\\Rightarrow \\frac{7 x-5-4(8 x+3)}{8 x+3}&gt;0{/tex}</span><br />\r\n<span class=\"math-tex\">{tex}\\Rightarrow \\frac{7 x-5-32 x-12}{8 x+3}&gt;0{/tex}</span><br />\r\n<span class=\"math-tex\">{tex}\\Rightarrow \\frac{-(25 x+17)}{8 x+3}&gt;0{/tex}</span><br />\r\n<span class=\"math-tex\">{tex}\\Rightarrow \\frac{(25 x+17)}{8 x+3}&lt;0{/tex}</span><br />\r\n<span class=\"math-tex\">{tex}\\Rightarrow{/tex}</span>&nbsp;(25x + 17 &gt; 0 and 8x + 3 &lt; 0)&nbsp;or (25x + 17 &lt; 0 and 8x + 3 &gt; 0)<br />\r\n[<span class=\"math-tex\">{tex}\\because{/tex}</span> <span class=\"math-tex\">{tex}\\frac{a}{b}&lt;0{/tex}</span> <span class=\"math-tex\">{tex}\\Rightarrow{/tex}</span>&nbsp;(a &gt; 0 and b &lt; 0) or (a &lt; 0 and b &gt; 0)]<br />\r\n<span class=\"math-tex\">{tex}\\Rightarrow\\left(x&gt;\\frac{-17}{25} \\text { and } x&lt;\\frac{-3}{8} \\right){/tex}</span>&nbsp;or&nbsp;<span class=\"math-tex\">{tex}\\left(x&lt;\\frac{-17}{25} \\text { and } x&gt;\\frac{-3}{8}\\right){/tex}</span><br />\r\n<span class=\"math-tex\">{tex}\\Rightarrow \\frac{-17}{25}&lt;x&lt;\\frac{-3}{8}{/tex}</span>&nbsp;[Since x &lt; <span class=\"math-tex\">{tex}\\frac{-17}{25}{/tex}</span> and x &gt; <span class=\"math-tex\">{tex}\\frac{-3}{8}{/tex}</span> is not possible]</p>",
+      "correctAnswer": "B",
+      "correctOptionId": 29984
+    },
+    {
+      "id": 18697,
+      "question": "What is the solution set for $0<\\frac{-x}{2}<3$",
+      "question_raw": "<p>What is the solution set for <span class=\"math-tex\">{tex}0&lt;\\frac{-x}{2}&lt;3{/tex}</span></p>",
+      "difficulty": "Medium",
+      "options": [
+        {
+          "id": 29991,
+          "text": "(-5, 6)"
+        },
+        {
+          "id": 29990,
+          "text": "(5, 6)"
+        },
+        {
+          "id": 29989,
+          "text": "(-6, 6)"
+        },
+        {
+          "id": 29988,
+          "text": "(-6, 0)"
+        }
+      ],
+      "correct_option_id": null,
+      "correct_option_text": null,
+      "explanation": "<p><span class=\"math-tex\">{tex}0&lt;\\frac{-x}{2}&lt;3{/tex}</span>&nbsp;<br />\r\nMultiplying throughout&nbsp;&nbsp;by 2, we get<br />\r\n0 &lt; -x &lt; 6<br />\r\n<span class=\"math-tex\">{tex}\\Rightarrow{/tex}</span>&nbsp;0 &gt; x &gt; -6<br />\r\nSo solution set is&nbsp;(-6, 0)</p>",
+      "correctAnswer": "D",
+      "correctOptionId": 29988
+    },
+    {
+      "id": 18698,
+      "question": "Identify solution set for |4 - x| + 1 < 3?",
+      "question_raw": "<p>Identify solution set for |4 - x| + 1 &lt; 3?</p>",
+      "difficulty": "Medium",
+      "options": [
+        {
+          "id": 29992,
+          "text": "(2, 6)"
+        },
+        {
+          "id": 29994,
+          "text": "(2, 3)"
+        },
+        {
+          "id": 29995,
+          "text": "(3, 6)"
+        },
+        {
+          "id": 29993,
+          "text": "(2, 4)"
+        }
+      ],
+      "correct_option_id": null,
+      "correct_option_text": null,
+      "explanation": "<p>|4 - x| + 1 &lt; 3<br />\r\n<span class=\"math-tex\">{tex}\\Rightarrow{/tex}</span>&nbsp;|4 - x| &lt; 2<br />\r\n<span class=\"math-tex\">{tex}\\Rightarrow{/tex}</span>&nbsp;-2 &lt; 4 - x &lt; 2<br />\r\n<span class=\"math-tex\">{tex}\\Rightarrow{/tex}</span>&nbsp;-2 - 4 &lt; -x &lt; 2 - 4<br />\r\n<span class=\"math-tex\">{tex}\\Rightarrow{/tex}</span>&nbsp;-6 &lt; -x &lt; -2<br />\r\n<span class=\"math-tex\">{tex}\\Rightarrow{/tex}</span>&nbsp;6 &gt; x &gt; 2<br />\r\n<span class=\"math-tex\">{tex}\\Rightarrow{/tex}</span>&nbsp;x&nbsp;<span class=\"math-tex\">{tex}\\in{/tex}</span>&nbsp;(2, 6)<br />\r\nSo solution set is&nbsp;(2, 6)</p>",
+      "correctAnswer": "A",
+      "correctOptionId": 29992
+    },
+    {
+      "id": 18699,
+      "question": "What is the solution set for $\\frac{|x-2|}{x-2}>0$?",
+      "question_raw": "<p>What is the solution set for <span class=\"math-tex\">{tex}\\frac{|x-2|}{x-2}&gt;0{/tex}</span>?</p>",
+      "difficulty": "Medium",
+      "options": [
+        {
+          "id": 29998,
+          "text": "(0, 2)"
+        },
+        {
+          "id": 29997,
+          "text": "(-$\\infty $, -2)"
+        },
+        {
+          "id": 29996,
+          "text": "(2, $\\infty $)"
+        },
+        {
+          "id": 29999,
+          "text": "(-$\\infty $, 2)"
+        }
+      ],
+      "correct_option_id": null,
+      "correct_option_text": null,
+      "explanation": "<p>We have |x - 2|&nbsp;<span class=\"math-tex\">{tex}\\ge{/tex}</span>&nbsp;0&nbsp; [ <span class=\"math-tex\">{tex}\\because {/tex}</span>&nbsp;|x| or absolute value of x is always positive or zero but never negative]<br />\r\nNow&nbsp;<span class=\"math-tex\">{tex}\\frac{|x-2|}{x-2}&gt;0{/tex}</span>&nbsp;<span class=\"math-tex\">{tex}\\Rightarrow {/tex}</span>&nbsp;x - 2 &gt; 0&nbsp; [<span class=\"math-tex\">{tex}\\because{/tex}</span>&nbsp;<span class=\"math-tex\">{tex}\\frac{a}{b}{/tex}</span>&nbsp;&gt; 0, a&nbsp;<span class=\"math-tex\">{tex}\\ge{/tex}</span>&nbsp;0&nbsp;<span class=\"math-tex\">{tex}\\Rightarrow{/tex}</span>&nbsp;b &gt; 0]&nbsp;<br />\r\n<span class=\"math-tex\">{tex}\\Rightarrow {/tex}</span>&nbsp;x &gt; 2&nbsp;<br />\r\n<span class=\"math-tex\">{tex}\\Rightarrow x\\epsilon \\left( 2,\\infty \\right) {/tex}</span></p>",
+      "correctAnswer": "C",
+      "correctOptionId": 29996
+    },
+    {
+      "id": 18700,
+      "question": "Identify the solution set for $\\frac{1}{|x|-3}<\\frac{1}{2}$?",
+      "question_raw": "<p>Identify the solution set for <span class=\"math-tex\">{tex}\\frac{1}{|x|-3}&lt;\\frac{1}{2}{/tex}</span>?</p>",
+      "difficulty": "Medium",
+      "options": [
+        {
+          "id": 30000,
+          "text": "$( - \\infty , - 5)\\mathop \\cup \\nolimits \\left( { - 3,3} \\right)\\mathop \\cup \\nolimits (5,\\infty )$"
+        },
+        {
+          "id": 30003,
+          "text": "$(-5,\\infty )$"
+        },
+        {
+          "id": 30001,
+          "text": "($ - \\infty , - 5)\\mathop \\cup \\nolimits^ (5,\\infty )$"
+        },
+        {
+          "id": 30002,
+          "text": "$(5,\\infty )$"
+        }
+      ],
+      "correct_option_id": null,
+      "correct_option_text": null,
+      "explanation": "<p><span class=\"math-tex\">{tex}\\frac{1}{|x|-3}&lt;\\frac{1}{2}{/tex}</span><br />\r\n<span class=\"math-tex\">{tex}\\Rightarrow \\frac{1}{|x|-3}-\\frac{1}{2}&lt;0{/tex}</span><br />\r\n<span class=\"math-tex\">{tex}\\Rightarrow \\frac{2-|x|+3}{2(|x|-3)}&lt;0{/tex}</span><br />\r\n<span class=\"math-tex\">{tex}\\Rightarrow \\frac{5-|x|}{(|x|-3)}&lt;0{/tex}</span><br />\r\n<span class=\"math-tex\">{tex}\\Rightarrow{/tex}</span>&nbsp;(5 - |x| &lt; 0 and |x| - 3 &gt; 0) or (5 - |x| &gt; 0 and |x| - 3 &lt; 0)<br />\r\n<span class=\"math-tex\">{tex}\\Rightarrow{/tex}</span>&nbsp;(|x| &gt; 5&nbsp;and |x| &gt; 3) or (|x| &lt; 5 and |x| &lt; 3)<br />\r\n<span class=\"math-tex\">{tex}\\Rightarrow{/tex}</span>&nbsp;|x| &gt; 5 or |x| &lt; 3 [<span class=\"math-tex\">{tex}\\because{/tex}</span>&nbsp;|x| &gt; a <span class=\"math-tex\">{tex}\\Rightarrow{/tex}</span> x &lt; -a or x &gt; a and |x| &lt; a <span class=\"math-tex\">{tex}\\Rightarrow{/tex}</span>&nbsp;-a &lt; x &lt; a]<br />\r\n<span class=\"math-tex\">{tex}\\Rightarrow{/tex}</span>&nbsp;(x &lt; -5 or x &gt; 5) or -3 &lt; x &lt; 3<br />\r\n<span class=\"math-tex\">{tex}\\Rightarrow{/tex}</span> x <span class=\"math-tex\">{tex}\\epsilon{/tex}</span>&nbsp;(<span class=\"math-tex\">{tex}-\\infty{/tex}</span>, -5) or x <span class=\"math-tex\">{tex}\\epsilon{/tex}</span>&nbsp;(5, <span class=\"math-tex\">{tex}\\infty{/tex}</span>) or x <span class=\"math-tex\">{tex}\\epsilon{/tex}</span>&nbsp;(-3, 3)<br />\r\n<span class=\"math-tex\">{tex}\\Rightarrow x \\epsilon(-\\infty,-5) \\cup(5, \\infty) \\cup(-3,3){/tex}</span></p>",
+      "correctAnswer": "A",
+      "correctOptionId": 30000
+    },
+    {
+      "id": 18701,
+      "question": "What is the solution set for $\\left|\\frac{2 x-1}{x-1}\\right|>2$ ?",
+      "question_raw": "<p>What is the solution set for <span class=\"math-tex\">{tex}\\left|\\frac{2 x-1}{x-1}\\right|&gt;2{/tex}</span> ?</p>",
+      "difficulty": "Medium",
+      "options": [
+        {
+          "id": 30005,
+          "text": "$\\left(-\\frac{3}{4}, 1\\right) \\cup(1, \\infty)$"
+        },
+        {
+          "id": 30004,
+          "text": "$\\left(\\frac{3}{4}, 1\\right) \\cup(1, \\infty)$"
+        },
+        {
+          "id": 30007,
+          "text": "$\\left(-\\frac{1}{4}, 1\\right) \\cup(-1, \\infty)$"
+        },
+        {
+          "id": 30006,
+          "text": "$\\left(\\frac{1}{4}, 1\\right) \\cup(1, \\infty)$"
+        }
+      ],
+      "correct_option_id": null,
+      "correct_option_text": null,
+      "explanation": "<p><span class=\"math-tex\">{tex}\\left|\\frac{2 x-1}{x-1}\\right|&gt;2{/tex}</span></p>\r\n\r\n<p><span class=\"math-tex\">{tex}\\Rightarrow { { { \\frac { 2x-1 }{ x-1 } &gt;2 } } }\\quad or\\quad \\frac { 2x-1 }{ x-1 } &lt;-2\\quad \\quad \\quad \\quad \\quad \\left[ \\because \\left| x \\right| &gt;a\\Rightarrow x&lt;-a\\quad or\\quad x&gt;a \\right] {/tex}</span></p>\r\n\r\n<p>First consider&nbsp;<span class=\"math-tex\">{tex} \\frac { 2x-1 }{ x-1 } &gt;2{/tex}</span></p>\r\n\r\n<p><span class=\"math-tex\">{tex} \\frac { 2x-1 }{ x-1 } -2&gt;0{/tex}</span><br />\r\n<span class=\"math-tex\">{tex}\\Rightarrow \\frac{2 x-1-2(x-1)}{x-1}&gt;0{/tex}</span><br />\r\n<span class=\"math-tex\">{tex}\\Rightarrow \\frac{2 x-1-2 x+2}{x-1}&gt;0{/tex}</span><br />\r\n<span class=\"math-tex\">{tex}\\Rightarrow \\frac{1}{x-1}&gt;0{/tex}</span><br />\r\n<span class=\"math-tex\">{tex}\\Rightarrow x-1&gt;0{/tex}</span><br />\r\n<span class=\"math-tex\">{tex}\\Rightarrow x&gt;1{/tex}</span><br />\r\n<span class=\"math-tex\">{tex}\\Rightarrow x \\epsilon(1, \\infty){/tex}</span></p>\r\n\r\n<p>Now&nbsp;<span class=\"math-tex\">{tex} \\frac { 2x-1 }{ x-1 } &lt;-2{/tex}</span><br />\r\n<span class=\"math-tex\">{tex}\\Rightarrow \\frac{2 x-1}{x-1}+2&lt;0{/tex}</span><br />\r\n<span class=\"math-tex\">{tex}\\Rightarrow \\frac{2 x-1+2(x-1)}{x-1}&lt;0{/tex}</span><br />\r\n<span class=\"math-tex\">{tex}\\Rightarrow \\frac{4 x-3}{x-1}&lt;0{/tex}</span><br />\r\n<span class=\"math-tex\">{tex}\\Rightarrow(4 x-3&gt;0 \\text { and } x-1&lt;0) \\text { or }(4 x-3&lt;0 \\text { and } x-1&gt;0){/tex}</span><br />\r\n<span class=\"math-tex\">{tex}\\left[\\because \\frac{a}{b}&lt;0 \\Rightarrow(a&gt;0 \\text { and } b&lt;0) \\quad \\text { or } \\quad(a&lt;0 \\text { and } \\quad b&gt;0)\\right]{/tex}</span><br />\r\n<span class=\"math-tex\">{tex}\\Rightarrow\\left(x&gt;\\frac{3}{4} \\quad \\text { and } \\quad x&lt;1 \\quad\\right) \\quad \\text { or } \\quad\\left(x&lt;\\frac{3}{4} \\quad \\text { and } \\quad x&gt;1\\right){/tex}</span><br />\r\n<span class=\"math-tex\">{tex}\\left[\\text { Since } \\quad x&lt;\\frac{3}{4} \\quad \\text { and } \\quad x&gt;1 \\text { is } \\quad \\text { not } \\quad \\text { possible }\\right]{/tex}</span><br />\r\n<span class=\"math-tex\">{tex}\\Rightarrow x \\in\\left(\\frac{3}{4}, 1\\right){/tex}</span></p>",
+      "correctAnswer": "B",
+      "correctOptionId": 30004
+    },
+    {
+      "id": 18702,
+      "question": "In the first three papers each of 100 marks , Rishi got 95 , 72 , 83 marks . If he wants an average of greater than or equal to 75 marks and less than 80 marks, find the range of marks he should score in the 4th paper .",
+      "question_raw": "<p>In the first three papers each of 100 marks , Rishi got 95 , 72 , 83 marks . If he wants an average of greater than or equal to 75 marks and less than 80 marks, find the range of marks he should score in the 4th paper .</p>\r\n",
+      "difficulty": "Medium",
+      "options": [
+        {
+          "id": 30010,
+          "text": "75 $ < {\\text{ }} \\times {\\text{ }} < $80"
+        },
+        {
+          "id": 30008,
+          "text": "$ 50 \\le x \\lt 70$"
+        },
+        {
+          "id": 30011,
+          "text": "73 $ < {\\text{ }} \\times {\\text{ }} < $100"
+        },
+        {
+          "id": 30009,
+          "text": "25 $ < {\\text{ }} \\times {\\text{ }} < $75"
+        }
+      ],
+      "correct_option_id": null,
+      "correct_option_text": null,
+      "explanation": "<p>Let the marks scored by Rishi in the fourth paper be x.</p>\r\n\r\n<p>Then<span class=\"math-tex\">{tex}75\\le \\frac { 95+72+83+x }{ 4 } &lt;80{/tex}</span>&nbsp;<br />\r\n<span class=\"math-tex\">{tex}\\\\ \\Rightarrow 75\\le \\frac { 250+x }{ 4 } &lt;80{/tex}</span></p>\r\n\r\n<p>Multipling the inequality throughout by 4 ,we get<br />\r\n<span class=\"math-tex\">{tex}300\\le 250+x&lt;320{/tex}</span><br />\r\n<span class=\"math-tex\">{tex}\\\\ \\Rightarrow 300-250\\le 250+x-250&lt;320-250{/tex}</span></p>\r\n\r\n<p><span class=\"math-tex\">{tex}\\\\ \\Rightarrow 50\\le x&lt;70{/tex}</span></p>",
+      "correctAnswer": "B",
+      "correctOptionId": 30008
+    },
+    {
+      "id": 18703,
+      "question": "A man wants to cut three lengths from a single piece of board of length 91 cm. The second length is to be 3 cm longer than the shortest and third length is to be twice as long as the shortest. What are the possible lengths for the shortest board if the third piece is to be at least 5 cm longer than the second?",
+      "question_raw": "<p>A man wants to cut three lengths from a single piece of board of length 91 cm. The second length is to be 3 cm longer than the shortest and third length is to be twice as long as the shortest. What are the possible lengths for the shortest board if the third piece is to be at least 5 cm longer than the second?</p>",
+      "difficulty": "Medium",
+      "options": [
+        {
+          "id": 30012,
+          "text": "8 $\\le$ x $\\le$ 22"
+        },
+        {
+          "id": 30014,
+          "text": "5 $\\le$ x $\\le$ 91"
+        },
+        {
+          "id": 30015,
+          "text": "3 $\\le$ x $\\le$ 91"
+        },
+        {
+          "id": 30013,
+          "text": "3 $\\le$ x $\\le$ 5"
+        }
+      ],
+      "correct_option_id": null,
+      "correct_option_text": null,
+      "explanation": "<p>Let the length of the shortest piece be x cm. Then we have the length of the second and third pieces are x + 3 and 2x centimeters respectively.<br />\nAccording to the question,<br />\nx + (x + 3) + 2x&nbsp;<span class=\"math-tex\">{tex}\\le{/tex}</span>&nbsp;91<br />\n<span class=\"math-tex\">{tex}\\Rightarrow{/tex}</span>&nbsp;4x + 3&nbsp;<span class=\"math-tex\">{tex}\\le{/tex}</span>&nbsp;91<br />\n<span class=\"math-tex\">{tex}\\Rightarrow{/tex}</span>&nbsp;4x&nbsp;<span class=\"math-tex\">{tex}\\le{/tex}</span>&nbsp;88<br />\n<span class=\"math-tex\">{tex}\\Rightarrow{/tex}</span>&nbsp;x&nbsp;<span class=\"math-tex\">{tex}\\le{/tex}</span>&nbsp;22<br />\nAlso 2x&nbsp;<span class=\"math-tex\">{tex}\\ge{/tex}</span>&nbsp;(x + 3) + 5<br />\n<span class=\"math-tex\">{tex}\\Rightarrow{/tex}</span>&nbsp;2x&nbsp;<span class=\"math-tex\">{tex}\\ge{/tex}</span>&nbsp;x + 8<br />\n<span class=\"math-tex\">{tex}\\Rightarrow{/tex}</span>&nbsp;x&nbsp;<span class=\"math-tex\">{tex}\\ge{/tex}</span>&nbsp;8<br />\n<span class=\"math-tex\">{tex}\\Rightarrow{/tex}</span>&nbsp;8&nbsp;<span class=\"math-tex\">{tex}\\le{/tex}</span>&nbsp;x&nbsp;<span class=\"math-tex\">{tex}\\le{/tex}</span>&nbsp;22<br />\nHence the shortest piece may be atleast 8 cm long but it cannot be more than 22cm in length.</p>",
+      "correctAnswer": "A",
+      "correctOptionId": 30012
+    },
+    {
+      "id": 18704,
+      "question": "Find all pairs of consecutive odd natural numbers, both of which are larger than 10, such that their sum is less than 40.",
+      "question_raw": "<p>Find all pairs of consecutive odd natural numbers, both of which are larger than 10, such that their sum is less than 40.</p>",
+      "difficulty": "Medium",
+      "options": [
+        {
+          "id": 30018,
+          "text": "(11, 13), (13, 15), (15, 17), (17, 21)"
+        },
+        {
+          "id": 30017,
+          "text": "(9, 11), (13, 15), (15, 17), (17, 19)"
+        },
+        {
+          "id": 30019,
+          "text": "(11, 13), (13, 15), (17, 19), (19, 21)"
+        },
+        {
+          "id": 30016,
+          "text": "(11, 13), (13, 15), (15, 17), (17, 19)"
+        }
+      ],
+      "correct_option_id": null,
+      "correct_option_text": null,
+      "explanation": "<p>Let the consecutive odd natural numbers be x and x + 2.<br />\nAccording to the question, x &gt; 10 and&nbsp;x + (x + 2) &lt; 40&nbsp;<br />\nNow&nbsp;x + (x + 2) &lt; 40&nbsp;<span class=\"math-tex\">{tex}\\Rightarrow{/tex}</span>&nbsp;2x &lt; 38&nbsp;<span class=\"math-tex\">{tex}\\Rightarrow{/tex}</span>&nbsp;x &lt; 19<br />\nHence the maximum value of x is 17 and minimum value is 11.<br />\nSo the possible pairs of odd natural numbers are&nbsp;(11, 13), (13, 15), (15, 17), (17, 19)</p>",
+      "correctAnswer": "D",
+      "correctOptionId": 30016
+    },
+    {
+      "id": 18705,
+      "question": "The marks scored by Rohit in two tests were 65 and 70. Find the minimum marks he should score in the third test to have an average of atleast 65 marks.",
+      "question_raw": "<p>The marks scored by Rohit in two tests were 65 and 70. Find the minimum marks he should score in the third test to have an average of atleast 65 marks.</p>\r\n",
+      "difficulty": "Medium",
+      "options": [
+        {
+          "id": 30023,
+          "text": "75"
+        },
+        {
+          "id": 30020,
+          "text": "60"
+        },
+        {
+          "id": 30022,
+          "text": "70"
+        },
+        {
+          "id": 30021,
+          "text": "65"
+        }
+      ],
+      "correct_option_id": null,
+      "correct_option_text": null,
+      "explanation": "<p>Then<br />\r\n<span class=\"math-tex\">{tex}\\frac{65+70+x}{3} \\geq 65{/tex}</span><br />\r\n<span class=\"math-tex\">{tex}\\Rightarrow 135+x \\geq 195{/tex}</span><br />\r\n<span class=\"math-tex\">{tex}\\Rightarrow x \\geq 60{/tex}</span></p>\r\n\r\n<p>Hence Rohit should get a minimum of 60 marks to get an average of atleast 65 marks.</p>",
+      "correctAnswer": "B",
+      "correctOptionId": 30020
+    },
+    {
+      "id": 18707,
+      "question": "The longest side of a triangle is three times the shortest side and the third side is 2 cm shorter than the longest side if the perimeter of the triangles is at least 61 cm, find the minimum length of the shortest side.",
+      "question_raw": "<p>The longest side of a triangle is three times the shortest side and the third side is 2 cm shorter than the longest side if the perimeter of the triangles is at least 61 cm, find the minimum length of the shortest side.</p>",
+      "difficulty": "Medium",
+      "options": [
+        {
+          "id": 30030,
+          "text": "16 cm"
+        },
+        {
+          "id": 30028,
+          "text": "9 cm"
+        },
+        {
+          "id": 30031,
+          "text": "61 cm"
+        },
+        {
+          "id": 30029,
+          "text": "11 cm"
+        }
+      ],
+      "correct_option_id": null,
+      "correct_option_text": null,
+      "explanation": "<p>Let the shortest side of a triangle be x cm. Then the length&nbsp;of the longest side is 3x cm and the length of the third side is (3x - 2) cm.<br />\r\nGiven&nbsp;the perimeter of the triangles at least 61cm<br />\r\n<span class=\"math-tex\">{tex}\\Rightarrow{/tex}</span>&nbsp;x + 3x + (3x - 2)&nbsp;<span class=\"math-tex\">{tex}\\ge{/tex}</span>&nbsp;61<br />\r\n<span class=\"math-tex\">{tex}\\Rightarrow{/tex}</span>&nbsp;7x - 2&nbsp;<span class=\"math-tex\">{tex}\\ge{/tex}</span>&nbsp;61<br />\r\n<span class=\"math-tex\">{tex}\\Rightarrow{/tex}</span>&nbsp;7x&nbsp;<span class=\"math-tex\">{tex}\\ge{/tex}</span>&nbsp;63<br />\r\n<span class=\"math-tex\">{tex}\\Rightarrow{/tex}</span>&nbsp;x&nbsp;<span class=\"math-tex\">{tex}\\ge{/tex}</span>&nbsp;9&nbsp;<br />\r\nHence&nbsp;the minimum length of the shortest side = 9 cm</p>",
+      "correctAnswer": "B",
+      "correctOptionId": 30028
+    },
+    {
+      "id": 18709,
+      "question": "Solve the inequality 3 - 2x $ \\leq$ 9",
+      "question_raw": "<p>Solve the inequality 3 - 2x&nbsp;<span class=\"math-tex\">{tex} \\leq{/tex}</span>&nbsp;9</p>",
+      "difficulty": "Medium",
+      "options": [
+        {
+          "id": 30038,
+          "text": "x $\\geq $ -6"
+        },
+        {
+          "id": 30037,
+          "text": "x $ \\leq$ -3"
+        },
+        {
+          "id": 30039,
+          "text": "x $ \\leq$ -6"
+        },
+        {
+          "id": 30036,
+          "text": "x $\\ge$ -3"
+        }
+      ],
+      "correct_option_id": null,
+      "correct_option_text": null,
+      "explanation": "<p>3 - 2x&nbsp;<span class=\"math-tex\">{tex}\\le{/tex}</span>&nbsp;9&nbsp;<br />\r\n<span class=\"math-tex\">{tex}\\Rightarrow{/tex}</span>&nbsp;-2x&nbsp;<span class=\"math-tex\">{tex}\\le{/tex}</span>&nbsp;9 - 3<br />\r\n<span class=\"math-tex\">{tex}\\Rightarrow{/tex}</span>&nbsp;-2x&nbsp;<span class=\"math-tex\">{tex}\\le{/tex}</span>&nbsp;6<br />\r\n<span class=\"math-tex\">{tex}\\Rightarrow{/tex}</span>&nbsp;-x&nbsp;<span class=\"math-tex\">{tex}\\le{/tex}</span>&nbsp;3<br />\r\n<span class=\"math-tex\">{tex}\\Rightarrow{/tex}</span>&nbsp;x&nbsp;<span class=\"math-tex\">{tex}\\ge{/tex}</span>&nbsp;-3</p>",
+      "correctAnswer": "D",
+      "correctOptionId": 30036
+    },
+    {
+      "id": 18710,
+      "question": "Given that x is an integer, find the values of x which satisfy both 2x + 3 > 7and x + 4 < 10",
+      "question_raw": "<p>Given that x is an integer, find the values of x which satisfy both&nbsp;2x + 3 &gt; 7and&nbsp;x + 4 &lt; 10</p>",
+      "difficulty": "Medium",
+      "options": [
+        {
+          "id": 30043,
+          "text": "3"
+        },
+        {
+          "id": 30041,
+          "text": "4, 5"
+        },
+        {
+          "id": 30042,
+          "text": "4"
+        },
+        {
+          "id": 30040,
+          "text": "3, 4, 5"
+        }
+      ],
+      "correct_option_id": null,
+      "correct_option_text": null,
+      "explanation": "<p>2x + 3 &gt; 7&nbsp;<br />\r\n<span class=\"math-tex\">{tex}\\Rightarrow{/tex}</span>&nbsp;2x + 3 - 3 &gt; 7 - 3<br />\r\n<span class=\"math-tex\">{tex}\\Rightarrow{/tex}</span>&nbsp;2x &gt; 4<br />\r\n<span class=\"math-tex\">{tex}\\Rightarrow{/tex}</span>&nbsp;x &gt; 2<br />\r\nSince x is an integer the solution set&nbsp;= {x : x &gt; 2, x&nbsp;<span class=\"math-tex\">{tex}\\in{/tex}</span>&nbsp;Z} = {3, 4, 5, 6, 7 .....}<br />\r\nNow&nbsp;x + 4 &lt; 10<br />\r\n<span class=\"math-tex\">{tex}\\Rightarrow{/tex}</span>&nbsp;x + 4 - 4 &lt; 10 - 4<br />\r\n<span class=\"math-tex\">{tex}\\Rightarrow{/tex}</span>&nbsp;x &lt; 6<br />\r\nSince x is an integer the solution set =&nbsp;{x : x &gt; 6, x&nbsp;<span class=\"math-tex\">{tex}\\in{/tex}</span>&nbsp;Z} = {.... -1, 0, 1, 2, 3, 4, 5}<br />\r\nHence the integer values which satisfy both the inequalities are&nbsp;{3, 4, 5, 6, 7 .....}&nbsp;<span class=\"math-tex\">{tex}\\cap{/tex}</span>&nbsp;{.... -1, 0, 1, 2, 3, 4, 5} = {3, 4, 5}</p>",
+      "correctAnswer": "D",
+      "correctOptionId": 30040
+    },
+    {
+      "id": 18711,
+      "question": "The solution for the simultaneous linear inequalities 2x - 3 $\\leq$ 7 and -x $ \\leq$ 2 is :",
+      "question_raw": "<p>The solution for the simultaneous linear inequalities 2x - 3&nbsp;<span class=\"math-tex\">{tex}\\leq{/tex}</span>&nbsp;7&nbsp;and -x&nbsp;<span class=\"math-tex\">{tex} \\leq{/tex}</span>&nbsp;2 is :</p>",
+      "difficulty": "Medium",
+      "options": [
+        {
+          "id": 30044,
+          "text": "$ - {\\text{ 2}} \\leq {\\text{x}} \\leq {\\text{5}}$"
+        },
+        {
+          "id": 30046,
+          "text": "$ - {\\text{ 5 }} \\leq {\\text{ x }} \\leq {\\text{ }} - {\\text{ 2}}$"
+        },
+        {
+          "id": 30047,
+          "text": "${\\text{ 2}} \\leq {\\text{x}} \\leq {\\text{5}}$"
+        },
+        {
+          "id": 30045,
+          "text": "$ - {\\text{ 1 }} < {\\text{ x }} \\leq {\\text{ 2}}$"
+        }
+      ],
+      "correct_option_id": null,
+      "correct_option_text": null,
+      "explanation": "<p>&nbsp;2x - 3&nbsp;<span class=\"math-tex\">{tex} \\leq{/tex}</span>&nbsp;7&nbsp;<br />\r\n<span class=\"math-tex\">{tex}\\Rightarrow{/tex}</span>&nbsp;2x - 3 + 3&nbsp;<span class=\"math-tex\">{tex} \\leq{/tex}</span>&nbsp;7 + 3<br />\r\n<span class=\"math-tex\">{tex}\\Rightarrow{/tex}</span>&nbsp;2x&nbsp;<span class=\"math-tex\">{tex} \\leq{/tex}</span>&nbsp;10<br />\r\n<span class=\"math-tex\">{tex}\\Rightarrow{/tex}</span>&nbsp;x&nbsp;<span class=\"math-tex\">{tex} \\leq{/tex}</span>&nbsp;5<br />\r\nNow -x&nbsp;<span class=\"math-tex\">{tex} \\leq{/tex}</span>&nbsp;2<br />\r\n<span class=\"math-tex\">{tex}\\Rightarrow{/tex}</span>&nbsp;x&nbsp;<span class=\"math-tex\">{tex} \\geq{/tex}</span>&nbsp;-2<br />\r\nTherefore the solution of the simultaneous linear equalities is&nbsp;<span class=\"math-tex\">{tex} - {\\text{ 2}} \\leq {\\text{x}} \\leq {\\text{5}}{/tex}</span>.</p>",
+      "correctAnswer": "A",
+      "correctOptionId": 30044
+    },
+    {
+      "id": 18712,
+      "question": "{4, 5, 6} is the solution set of",
+      "question_raw": "<p>{4, 5, 6}&nbsp;is the solution set of</p>",
+      "difficulty": "Easy",
+      "options": [
+        {
+          "id": 30051,
+          "text": "x > 4 and x > 7, x $\\in$ Z"
+        },
+        {
+          "id": 30050,
+          "text": "x > 4 and x < 7, x $\\in$ Z"
+        },
+        {
+          "id": 30049,
+          "text": "x $\\ge$ 4 and x $\\le$ 7, x $\\in$ Z"
+        },
+        {
+          "id": 30048,
+          "text": "x $\\ge$ 4 and x < 7, x $\\in$ N"
+        }
+      ],
+      "correct_option_id": null,
+      "correct_option_text": null,
+      "explanation": "<p>x&nbsp;<span class=\"math-tex\">{tex}\\ge{/tex}</span>&nbsp;4, x&nbsp;<span class=\"math-tex\">{tex}\\in{/tex}</span>Z<br />\r\n<span class=\"math-tex\">{tex}\\Rightarrow{/tex}</span>&nbsp;x&nbsp;<span class=\"math-tex\">{tex}\\in{/tex}</span>&nbsp;{4, 5, 6, 7, 8, .....}<br />\r\nx &lt; 7<br />\r\n<span class=\"math-tex\">{tex}\\Rightarrow{/tex}</span>&nbsp;x&nbsp;<span class=\"math-tex\">{tex}\\in{/tex}</span>&nbsp;{.... 2, 3, 4, 5, 6}<br />\r\nHence solution set of the system is&nbsp;{4, 5, 6, 7, 8 ....}&nbsp;<span class=\"math-tex\">{tex}\\cap{/tex}</span>&nbsp;{...... 2, 3, 4, 5, 6}&nbsp;</p>",
+      "correctAnswer": "D",
+      "correctOptionId": 30048
+    },
+    {
+      "id": 18713,
+      "question": "What are the integer values of x which satisfy the inequalities x > -2 and x < 2?",
+      "question_raw": "<p>What are the integer values of x which satisfy the inequalities&nbsp;x &gt; -2 and x &lt; 2?</p>",
+      "difficulty": "Easy",
+      "options": [
+        {
+          "id": 30053,
+          "text": "- 1, 0, 1, 2, 3"
+        },
+        {
+          "id": 30055,
+          "text": "-1, 0, 3, 4"
+        },
+        {
+          "id": 30054,
+          "text": "1, 2, 3, 4"
+        },
+        {
+          "id": 30052,
+          "text": "- 1, 0, 1"
+        }
+      ],
+      "correct_option_id": null,
+      "correct_option_text": null,
+      "explanation": "<p>x &gt; - 2 and x &lt; 2<br />\r\n<span class=\"math-tex\">{tex}\\Rightarrow{/tex}</span>&nbsp;-2 &lt; x &lt; 2, x&nbsp;<span class=\"math-tex\">{tex}\\in{/tex}</span>&nbsp;Z<br />\r\n<span class=\"math-tex\">{tex}\\Rightarrow{/tex}</span>&nbsp;x = -1, 0, 1</p>",
+      "correctAnswer": "D",
+      "correctOptionId": 30052
+    },
+    {
+      "id": 18714,
+      "question": "Given that x is an integer, find the values of x which satisfy the simultaneous linear inequalities ${\\text{2 }} + {\\text{ x }} < {\\text{ 6 and }} {\\text{2}} - {\\text{3x }} < {\\text{ }} - {\\text{ 1}}$.",
+      "question_raw": "<p>Given that x is an integer, find the values of x which satisfy the simultaneous linear inequalities <span class=\"math-tex\">{tex}{\\text{2 }} + {\\text{ x }} &lt; {\\text{ 6 and }} {\\text{2}} - {\\text{3x }} &lt; {\\text{ }} - {\\text{ 1}}{/tex}</span>.</p>",
+      "difficulty": "Easy",
+      "options": [
+        {
+          "id": 30057,
+          "text": "1 , 2 , 3"
+        },
+        {
+          "id": 30058,
+          "text": "2 , 3, 4,"
+        },
+        {
+          "id": 30056,
+          "text": "2 , 3"
+        },
+        {
+          "id": 30059,
+          "text": "1 , 2, 3, 4."
+        }
+      ],
+      "correct_option_id": null,
+      "correct_option_text": null,
+      "explanation": "<p>We have&nbsp;<span class=\"math-tex\">{tex}{\\text{2 }} + {\\text{ x }} &lt; {\\text{ 6}}{/tex}</span>&nbsp;<br />\r\n<span class=\"math-tex\">{tex}\\Rightarrow{/tex}</span>&nbsp;2&nbsp;+&nbsp;x&nbsp;&minus; 2 &lt;&nbsp;6 &minus; 2&nbsp;<br />\r\n<span class=\"math-tex\">{tex}\\Rightarrow x&lt;4{/tex}</span>&nbsp;<br />\r\nNow&nbsp;<br />\r\n2 - 3x &lt; -1<br />\r\n<span class=\"math-tex\">{tex}\\Rightarrow2-3x-2&lt;-1-2{/tex}</span><br />\r\n<span class=\"math-tex\">{tex}\\Rightarrow{/tex}</span> -3x &lt; -3<br />\r\n<span class=\"math-tex\">{tex}\\\\ \\\\ \\Rightarrow \\frac { -3x }{ -3 } &gt;\\frac { -3 }{ -3 } {/tex}</span><br />\r\n<span class=\"math-tex\">{tex}\\Rightarrow {/tex}</span>&nbsp;x &gt; 1<br />\r\nHence the solution of the given system of equations is given by&nbsp;1 &lt; x &lt; 4,&nbsp;<span class=\"math-tex\">{tex} x\\in Z\\quad {/tex}</span><span class=\"math-tex\">{tex}\\Rightarrow{/tex}</span>&nbsp;&nbsp;x = 2, 3</p>",
+      "correctAnswer": "C",
+      "correctOptionId": 30056
+    },
+    {
+      "id": 18715,
+      "question": "Solve : 30x < 200, when x is a natural number :",
+      "question_raw": "<p>Solve : 30x &lt; 200, when x is a natural number :</p>",
+      "difficulty": "Easy",
+      "options": [
+        {
+          "id": 30063,
+          "text": "{4, 5, 6, 7, 8, 9}"
+        },
+        {
+          "id": 30060,
+          "text": "{1, 2, 3, 4, 5, 6}"
+        },
+        {
+          "id": 30061,
+          "text": "{2, 3, 4, 5, 6}"
+        },
+        {
+          "id": 30062,
+          "text": "{1, 2, 3, 4, 5, 6, 7}"
+        }
+      ],
+      "correct_option_id": null,
+      "correct_option_text": null,
+      "explanation": "<p>30x &lt; 200<br />\r\n<span class=\"math-tex\">{tex}\\Rightarrow{/tex}</span>&nbsp;<span class=\"math-tex\">{tex}\\frac{30 x}{30}&lt;\\frac{200}{30}{/tex}</span>&nbsp;<br />\r\n<span class=\"math-tex\">{tex}\\Rightarrow{/tex}</span>&nbsp;x &lt;&nbsp;<span class=\"math-tex\">{tex}\\frac{20}{3}{/tex}</span>&nbsp;=&nbsp;<span class=\"math-tex\">{tex}6\\frac{2}{3}{/tex}</span>, x&nbsp;<span class=\"math-tex\">{tex}\\in{/tex}</span>&nbsp;N<br />\r\n<span class=\"math-tex\">{tex}\\Rightarrow{/tex}</span>&nbsp;x = 1, 2, 3, 4, 5, 6</p>",
+      "correctAnswer": "B",
+      "correctOptionId": 30060
+    },
+    {
+      "id": 18716,
+      "question": "The solution set for: 3x - 7 > x + 3.",
+      "question_raw": "<p>The solution set for: 3x - 7 &gt; x + 3.</p>",
+      "difficulty": "Easy",
+      "options": [
+        {
+          "id": 30066,
+          "text": "(- 5, $\\infty $)"
+        },
+        {
+          "id": 30065,
+          "text": "(-5, 5)"
+        },
+        {
+          "id": 30067,
+          "text": "(5, -$\\infty $)"
+        },
+        {
+          "id": 30064,
+          "text": "(5, $\\infty $)"
+        }
+      ],
+      "correct_option_id": null,
+      "correct_option_text": null,
+      "explanation": "<p>3x - 7 &gt; x + 3<br />\r\n<span class=\"math-tex\">{tex}\\Rightarrow{/tex}</span> 3x - 7 + 7 &gt; x + 3 + 7<br />\r\n<span class=\"math-tex\">{tex}\\Rightarrow{/tex}</span> 3x &gt; x + 10<br />\r\n<span class=\"math-tex\">{tex}\\Rightarrow{/tex}</span> 2x &gt; 10<br />\r\n<span class=\"math-tex\">{tex}\\Rightarrow{/tex}</span> x &gt; 5</p>",
+      "correctAnswer": "D",
+      "correctOptionId": 30064
+    },
+    {
+      "id": 18717,
+      "question": "The solution set for (x + 3) + 4 > -2x + 5:",
+      "question_raw": "<p>The solution set for (x + 3) + 4 &gt; -2x + 5:</p>",
+      "difficulty": "Medium",
+      "options": [
+        {
+          "id": 30070,
+          "text": "(- $\\infty $, - 2)"
+        },
+        {
+          "id": 30069,
+          "text": "(2, $\\infty $)"
+        },
+        {
+          "id": 30071,
+          "text": "(- $\\infty $, 2)"
+        },
+        {
+          "id": 30068,
+          "text": "$\\left( \\frac { -2 }{ 3 } ,\\infty \\right) \\quad \\quad \\quad $"
+        }
+      ],
+      "correct_option_id": null,
+      "correct_option_text": null,
+      "explanation": "<p>(x + 3) + 4 &gt; -2x + 5<br />\r\n<span class=\"math-tex\">{tex}\\Rightarrow{/tex}</span>&nbsp;x + 7 &gt; -2x + 5<br />\r\n<span class=\"math-tex\">{tex}\\Rightarrow{/tex}</span>&nbsp;x + 7 + 2x &gt; -2x + 5 + 2x<br />\r\n<span class=\"math-tex\">{tex}\\Rightarrow{/tex}</span>&nbsp;3x + 7 &gt; 5<br />\r\n<span class=\"math-tex\">{tex}\\Rightarrow{/tex}</span>&nbsp;3x + 7 - 7 &gt; 5 - 7<br />\r\n<span class=\"math-tex\">{tex}\\Rightarrow{/tex}</span>&nbsp;3x &gt; -2<br />\r\n<span class=\"math-tex\">{tex}\\Rightarrow{/tex}</span>&nbsp;x &gt;&nbsp;<span class=\"math-tex\">{tex}\\frac{-2}{3}{/tex}</span>&nbsp;<br />\r\n<span class=\"math-tex\">{tex}\\Rightarrow{/tex}</span>&nbsp;<span class=\"math-tex\">{tex} x\\in\\left( \\frac { -2 }{ 3 } ,\\infty \\right) {/tex}</span></p>",
+      "correctAnswer": "D",
+      "correctOptionId": 30068
+    },
+    {
+      "id": 18718,
+      "question": "Solve the system of inequalities 2x + 5 $\\le$ 0, x - 3 $\\le$ 0.",
+      "question_raw": "<p>Solve the system of inequalities 2x + 5&nbsp;<span class=\"math-tex\">{tex}\\le{/tex}</span>&nbsp;0, x - 3&nbsp;<span class=\"math-tex\">{tex}\\le{/tex}</span>&nbsp;0.</p>",
+      "difficulty": "Medium",
+      "options": [
+        {
+          "id": 30073,
+          "text": "$ x ≥ {\\frac 52}$"
+        },
+        {
+          "id": 30075,
+          "text": "$ x ≤ {\\frac 52}$"
+        },
+        {
+          "id": 30074,
+          "text": "$ x ≥ - {\\frac 52}$"
+        },
+        {
+          "id": 30072,
+          "text": "$ x ≤ - {\\frac 52}$"
+        }
+      ],
+      "correct_option_id": null,
+      "correct_option_text": null,
+      "explanation": "<p>2x +&nbsp;5&nbsp;<span class=\"math-tex\">{tex}\\le{/tex}</span>&nbsp;0<br />\r\n<span class=\"math-tex\">{tex}\\Rightarrow{/tex}</span>&nbsp;2x &lt; -5<br />\r\n<span class=\"math-tex\">{tex}\\Rightarrow{/tex}</span>&nbsp;x&nbsp;<span class=\"math-tex\">{tex}\\le{/tex}</span>&nbsp;<span class=\"math-tex\">{tex}\\frac{-5}{2}{/tex}</span>&nbsp;<br />\r\n<span class=\"math-tex\">{tex}\\Rightarrow{/tex}</span>&nbsp;<span class=\"math-tex\">{tex}x \\epsilon\\left(-\\infty, \\frac{-5}{2}\\right]{/tex}</span><br />\r\nNow x - 3&nbsp;<span class=\"math-tex\">{tex}\\le{/tex}</span>&nbsp;0<br />\r\n<span class=\"math-tex\">{tex}\\Rightarrow{/tex}</span>&nbsp;x&nbsp;<span class=\"math-tex\">{tex}\\le{/tex}</span>&nbsp;3<br />\r\n<span class=\"math-tex\">{tex}\\Rightarrow{/tex}</span>&nbsp;<span class=\"math-tex\">{tex}x \\in(-\\infty, 3]{/tex}</span><br />\r\nHence the solution set is&nbsp;<span class=\"math-tex\">{tex}\\left( -\\infty ,\\frac { -5 }{ 2 } \\right] \\cap { \\left( -\\infty ,3 \\right] } {/tex}</span>&nbsp;=&nbsp;<span class=\"math-tex\">{tex}\\left( -\\infty ,\\frac { -5 }{ 2 } \\right]{/tex}</span>&nbsp;<br />\r\n<span class=\"math-tex\">{tex}\\Rightarrow{/tex}</span><span class=\"math-tex\">{tex} x ≤ - {\\frac 52}{/tex}</span></p>",
+      "correctAnswer": "D",
+      "correctOptionId": 30072
+    },
+    {
+      "id": 18719,
+      "question": "Solve the system of inequalities x - 2 > 0, 3x < 18",
+      "question_raw": "<p>Solve the system of inequalities x - 2 &gt; 0, 3x &lt; 18</p>",
+      "difficulty": "Medium",
+      "options": [
+        {
+          "id": 30076,
+          "text": "2 < x < 6"
+        },
+        {
+          "id": 30079,
+          "text": "3 < x < 18"
+        },
+        {
+          "id": 30077,
+          "text": "1 < x < 3"
+        },
+        {
+          "id": 30078,
+          "text": "-6 < x < -2"
+        }
+      ],
+      "correct_option_id": null,
+      "correct_option_text": null,
+      "explanation": "<p>x - 2 &gt; 0<br />\r\n<span class=\"math-tex\">{tex}\\Rightarrow{/tex}</span>&nbsp;x &gt; 2<br />\r\n<span class=\"math-tex\">{tex}\\Rightarrow{/tex}</span>&nbsp;<span class=\"math-tex\">{tex}x \\in(2, \\infty){/tex}</span>&nbsp;<br />\r\nNow&nbsp;3x &lt; 18<br />\r\n<span class=\"math-tex\">{tex}\\Rightarrow{/tex}</span>&nbsp;x &lt; 6<br />\r\n<span class=\"math-tex\">{tex}\\Rightarrow{/tex}</span>&nbsp;<span class=\"math-tex\">{tex}x \\in(-\\infty, 6){/tex}</span>&nbsp;<br />\r\nSo solution set is&nbsp;<span class=\"math-tex\">{tex}\\left( 2,\\infty \\right) \\cap { \\left( -\\infty ,6 \\right) }{/tex}</span>&nbsp;= (2, 6)<br />\r\n<span class=\"math-tex\">{tex}\\Rightarrow{/tex}</span>&nbsp;2 &lt; x &lt; 6</p>",
+      "correctAnswer": "A",
+      "correctOptionId": 30076
+    },
+    {
+      "id": 18720,
+      "question": "Solve the system of inequalities ${\\text{4x }} + {\\text{ 3 }} \\geq {\\text{ 2x }} + {\\text{ 17 }},{\\text{ 3x }}-{\\text{ 5 }} < {\\text{ }} - {\\text{ 2}}$ , for the values of x, then",
+      "question_raw": "<p>Solve the system of inequalities <span class=\"math-tex\">{tex}{\\text{4x }} + {\\text{ 3 }} \\geq {\\text{ 2x }} + {\\text{ 17 }},{\\text{ 3x }}-{\\text{ 5 }} &lt; {\\text{ }} - {\\text{ 2}}{/tex}</span>&nbsp;, for the values of x, then</p>",
+      "difficulty": "Medium",
+      "options": [
+        {
+          "id": 30082,
+          "text": "$( - 4,12)$"
+        },
+        {
+          "id": 30083,
+          "text": "(-2, 2)"
+        },
+        {
+          "id": 30080,
+          "text": "no solution"
+        },
+        {
+          "id": 30081,
+          "text": "$\\left(-\\frac{3}{2}, \\frac{2}{5}\\right)$"
+        }
+      ],
+      "correct_option_id": null,
+      "correct_option_text": null,
+      "explanation": "<p>We have given:&nbsp;<span class=\"math-tex\">{tex}4 x+3 \\geq 2 x+17{/tex}</span><br />\r\n<span class=\"math-tex\">{tex}\\Rightarrow 4 x-2 x \\geq 17-3 \\Rightarrow 2 x \\geq 1{/tex}</span><br />\r\n<span class=\"math-tex\">{tex}\\Rightarrow x \\geq \\frac{14}{2}{/tex}</span>&nbsp;[Dividing by 2 on both sides]<br />\r\n<span class=\"math-tex\">{tex}\\Rightarrow{/tex}</span>&nbsp;<span class=\"math-tex\">{tex}x \\geq 7{/tex}</span>&nbsp;..... (i)<br />\r\n<img alt=\"\" data-imgur-src=\"KSRJpA8.png\" src=\"https://media-mycbseguide.s3.amazonaws.com/images/imgur/KSRJpA8.png\" style=\"width: 180px; height: 27px;\" /><br />\r\nAlso we have 3x - 5 &lt; -2<br />\r\n<span class=\"math-tex\">{tex}\\Rightarrow \\quad 3 x&lt;-2+5 \\Rightarrow 3 x&lt;3{/tex}</span><br />\r\n<span class=\"math-tex\">{tex}\\Rightarrow \\quad x&lt;1{/tex}</span><br />\r\n<img alt=\"\" data-imgur-src=\"csByTMN.png\" src=\"https://media-mycbseguide.s3.amazonaws.com/images/imgur/csByTMN.png\" style=\"width: 180px; height: 29px;\" /><br />\r\nOn combining (i) and (ii), we see that solution is not possible because nothing is common between these two solutions.(i.e., x &lt; 1, x <span class=\"math-tex\">{tex}\\geq{/tex}</span> 7)</p>",
+      "correctAnswer": "C",
+      "correctOptionId": 30080
+    },
+    {
+      "id": 18721,
+      "question": "Solve the system of inequalities (x + 5) - 7(x - 2) $\\ge$ 4x + 9, 2(x - 3) - 7(x + 5) $\\le$ 3x - 9",
+      "question_raw": "<p>Solve the system of inequalities&nbsp;(x + 5) - 7(x - 2)&nbsp;<span class=\"math-tex\">{tex}\\ge{/tex}</span>&nbsp;4x + 9, 2(x - 3) - 7(x + 5)&nbsp;<span class=\"math-tex\">{tex}\\le{/tex}</span>&nbsp;3x - 9</p>",
+      "difficulty": "Medium",
+      "options": [
+        {
+          "id": 30085,
+          "text": "$ - {\\text{ 4 }} \\leq {\\text{ x }} \\leq {\\text{ 4}}$"
+        },
+        {
+          "id": 30087,
+          "text": "$\\frac{-9}{4} \\leq {\\text{ x }} \\leq {\\text{ 1}}$"
+        },
+        {
+          "id": 30084,
+          "text": "$ - {\\text{ 4 }} \\leq {\\text{ x }} \\leq {\\text{ 1}}$"
+        },
+        {
+          "id": 30086,
+          "text": "$ - {\\text{ 1 }} \\leq {\\text{ x }} \\leq {\\text{ 1}}$"
+        }
+      ],
+      "correct_option_id": null,
+      "correct_option_text": null,
+      "explanation": "<p>(x + 5) - 7(x - 2)&nbsp;<span class=\"math-tex\">{tex}\\ge{/tex}</span>&nbsp;4x + 9<br />\n<span class=\"math-tex\">{tex}\\Rightarrow{/tex}</span>&nbsp;x + 5 - 7x + 14&nbsp;<span class=\"math-tex\">{tex}\\ge{/tex}</span>&nbsp;4x + 9<br />\n<span class=\"math-tex\">{tex}\\Rightarrow{/tex}</span>&nbsp;-6x + 19&nbsp;<span class=\"math-tex\">{tex}\\ge{/tex}</span>&nbsp;4x + 9<br />\n<span class=\"math-tex\">{tex}\\Rightarrow{/tex}</span>&nbsp;-6x - 4x&nbsp;<span class=\"math-tex\">{tex}\\ge{/tex}</span>&nbsp;9 - 19<br />\n<span class=\"math-tex\">{tex}\\Rightarrow{/tex}</span>&nbsp;-10x&nbsp;<span class=\"math-tex\">{tex}\\ge{/tex}</span>&nbsp;-10<br />\n<span class=\"math-tex\">{tex}\\Rightarrow{/tex}</span>&nbsp;x&nbsp;<span class=\"math-tex\">{tex}\\le{/tex}</span>&nbsp;1<br />\n<span class=\"math-tex\">{tex}\\Rightarrow{/tex}</span>&nbsp;<span class=\"math-tex\">{tex}x \\in(-\\infty, 1]{/tex}</span>&nbsp;<br />\n2(x - 3) - 7(x + 5)&nbsp;<span class=\"math-tex\">{tex}\\le{/tex}</span>&nbsp;3x - 9<br />\n<span class=\"math-tex\">{tex}\\Rightarrow{/tex}</span>&nbsp;2x - 6 - 7x - 35&nbsp;<span class=\"math-tex\">{tex}\\le{/tex}</span>&nbsp;3x &lt; 9&nbsp;<br />\n<span class=\"math-tex\">{tex}\\Rightarrow{/tex}</span>&nbsp;-5x - 41&nbsp;<span class=\"math-tex\">{tex}\\le{/tex}</span>&nbsp;3x - 9<br />\n<span class=\"math-tex\">{tex}\\Rightarrow{/tex}</span>&nbsp;-5x - 3x&nbsp;<span class=\"math-tex\">{tex}\\le{/tex}</span>&nbsp;41 - 9<br />\n<span class=\"math-tex\">{tex}\\Rightarrow{/tex}</span>&nbsp;-8x&nbsp;<span class=\"math-tex\">{tex}\\le{/tex}</span>&nbsp;32<br />\n<span class=\"math-tex\">{tex}\\Rightarrow{/tex}</span>&nbsp;-x&nbsp;<span class=\"math-tex\">{tex}\\le{/tex}</span>&nbsp;<span class=\"math-tex\">{tex}\\frac{32}{8}{/tex}</span>&nbsp;= 4<br />\n<span class=\"math-tex\">{tex}\\Rightarrow{/tex}</span>&nbsp;x&nbsp;<span class=\"math-tex\">{tex}\\ge{/tex}</span>&nbsp;-4<br />\n<span class=\"math-tex\">{tex}\\Rightarrow{/tex}</span>&nbsp;<span class=\"math-tex\">{tex}x \\epsilon[-4, \\infty){/tex}</span><br />\nHence the solution&nbsp; set is&nbsp;<span class=\"math-tex\">{tex}\\left[ -4,\\infty \\right) \\cap { \\left( -\\infty ,1 \\right] }{/tex}</span>&nbsp;= [-4, 1]<br />\nWhich means&nbsp;<span class=\"math-tex\">{tex} - {\\text{ 4 }} \\leq {\\text{ x }} \\leq {\\text{ 1}}{/tex}</span></p>",
+      "correctAnswer": "C",
+      "correctOptionId": 30084
+    },
+    {
+      "id": 18723,
+      "question": "Solve the system of inequalities: x - 5 > 0, $\\frac{2 x-4}{x+2}$ < 2",
+      "question_raw": "<p>Solve the system of inequalities: x - 5 &gt; 0, <span class=\"math-tex\">{tex}\\frac{2 x-4}{x+2}{/tex}</span>&nbsp;&lt; 2</p>",
+      "difficulty": "Medium",
+      "options": [
+        {
+          "id": 30094,
+          "text": "x > 2"
+        },
+        {
+          "id": 30093,
+          "text": "x < -2"
+        },
+        {
+          "id": 30095,
+          "text": "x > -5"
+        },
+        {
+          "id": 30092,
+          "text": "x > 5"
+        }
+      ],
+      "correct_option_id": null,
+      "correct_option_text": null,
+      "explanation": "<p>&nbsp;x - 5 &gt; 0<br />\r\n<span class=\"math-tex\">{tex}\\Rightarrow{/tex}</span>&nbsp;x &gt; 5<br />\r\n<span class=\"math-tex\">{tex}\\Rightarrow{/tex}</span>&nbsp;<span class=\"math-tex\">{tex}x \\in(5, \\infty){/tex}</span>&nbsp;<br />\r\nNow&nbsp;<span class=\"math-tex\">{tex}\\frac{2 x-4}{x+2}{/tex}</span>&nbsp;&lt; 2<br />\r\n<span class=\"math-tex\">{tex}\\frac{2 x-4}{x+2}{/tex}</span>&nbsp;- 2 &lt; 0<br />\r\n<span class=\"math-tex\">{tex}\\Rightarrow{/tex}</span>&nbsp;<span class=\"math-tex\">{tex}\\frac{2 x-4-2(x+2)}{x+2}{/tex}</span>&nbsp;&lt; 0<br />\r\n<span class=\"math-tex\">{tex}\\Rightarrow{/tex}</span>&nbsp;<span class=\"math-tex\">{tex}\\frac{2 x-4-2 x-4}{x+2}{/tex}</span>&nbsp;&lt; 0<br />\r\n<span class=\"math-tex\">{tex}\\Rightarrow{/tex}</span>&nbsp;<span class=\"math-tex\">{tex}\\frac{-8}{x+2}{/tex}</span>&nbsp;&lt; 0<br />\r\n<span class=\"math-tex\">{tex}\\Rightarrow{/tex}</span>&nbsp;x + 2 &gt; 0&nbsp; [<span class=\"math-tex\">{tex}\\because{/tex}</span>&nbsp;<span class=\"math-tex\">{tex}\\frac{a}{b}{/tex}</span>&nbsp;&lt; 0, a &lt; 0&nbsp;<span class=\"math-tex\">{tex}\\Rightarrow{/tex}</span>&nbsp;b &gt; 0]<br />\r\n<span class=\"math-tex\">{tex}\\Rightarrow{/tex}</span>&nbsp;x &gt; -2<br />\r\n<span class=\"math-tex\">{tex}\\Rightarrow{/tex}</span>&nbsp;<span class=\"math-tex\">{tex}x \\in(-2, \\infty){/tex}</span>&nbsp;<br />\r\nHence the solution set is&nbsp;<span class=\"math-tex\">{tex}\\left( 5,\\infty \\right) \\cap \\left( -2,\\infty \\right) =\\left( 5,\\infty \\right) {/tex}</span>&nbsp;<br />\r\nWhich means x &gt; 5.</p>",
+      "correctAnswer": "D",
+      "correctOptionId": 30092
+    },
+    {
+      "id": 18724,
+      "question": "Solve the system of inequalities: $\\frac{x+7}{x-8}>2, \\frac{2 x+1}{7 x-1}>5$",
+      "question_raw": "<p>Solve the system of inequalities: <span class=\"math-tex\">{tex}\\frac{x+7}{x-8}&gt;2, \\frac{2 x+1}{7 x-1}&gt;5{/tex}</span></p>",
+      "difficulty": "Medium",
+      "options": [
+        {
+          "id": 30098,
+          "text": "(3, 6)"
+        },
+        {
+          "id": 30099,
+          "text": "(4, 8)"
+        },
+        {
+          "id": 30096,
+          "text": "no solution"
+        },
+        {
+          "id": 30097,
+          "text": "(2, 5)"
+        }
+      ],
+      "correct_option_id": null,
+      "correct_option_text": null,
+      "explanation": "<p><span class=\"math-tex\">{tex}\\frac {x + 7} {x - 8} &gt; 2{/tex}</span>&nbsp;<br />\r\n<span class=\"math-tex\">{tex}\\Rightarrow \\frac {x + 7} {x - 8} -2&gt; 0{/tex}</span><br />\r\n<span class=\"math-tex\">{tex}\\Rightarrow{/tex}</span>&nbsp;<span class=\"math-tex\">{tex}\\frac{x+7-2(x-8)}{x-8}{/tex}</span>&nbsp;&gt; 0<br />\r\n<span class=\"math-tex\">{tex}\\Rightarrow{/tex}</span>&nbsp;<span class=\"math-tex\">{tex}\\frac{x+7-2 x+16}{x-8}{/tex}</span>&nbsp;&gt; 0<br />\r\n<span class=\"math-tex\">{tex}\\Rightarrow{/tex}</span>&nbsp;<span class=\"math-tex\">{tex}\\frac{(23-x)}{x-8}{/tex}</span>&nbsp;&gt; 0 [<span class=\"math-tex\">{tex}\\because{/tex}</span>&nbsp;<span class=\"math-tex\">{tex}\\frac{a}{b}{/tex}</span>&nbsp;&gt; 0&nbsp;<span class=\"math-tex\">{tex}\\Rightarrow{/tex}</span>&nbsp;(a &gt; 0 and b &gt; 0) or (a &lt; 0 and b &lt; 0)]<br />\r\n<span class=\"math-tex\">{tex}\\Rightarrow{/tex}</span>&nbsp;(23 - x &gt; 0 and x - 8 &gt; 0) or (23 - x &lt; 0 and x - 8 &lt; 0)<br />\r\n<span class=\"math-tex\">{tex}\\Rightarrow{/tex}</span>&nbsp;(x &lt; 23 and x &gt; 8) or (x &gt; 23 and x &lt; 8)<br />\r\n<span class=\"math-tex\">{tex}\\Rightarrow{/tex}</span>&nbsp;8 &lt; x &lt; 23&nbsp;[Since x &gt; 23 and x &lt; 8 is not possible]<br />\r\n<span class=\"math-tex\">{tex}\\Rightarrow x\\epsilon \\left( 8,23 \\right) {/tex}</span><br />\r\nNow&nbsp;<span class=\"math-tex\">{tex}{{2x + 1} \\over {7x - 1}}{/tex}</span>&nbsp;&gt; 5&nbsp;<br />\r\n<span class=\"math-tex\">{tex}\\Rightarrow \\frac {2x + 1} {7x - 1}{/tex}</span>&nbsp;- 5 &gt; 0<br />\r\n<span class=\"math-tex\">{tex}\\Rightarrow{/tex}</span>&nbsp;<span class=\"math-tex\">{tex}\\frac{2 x+1-5(7 x-1)}{7 x-1}{/tex}</span>&nbsp;&gt; 0<br />\r\n<span class=\"math-tex\">{tex}\\Rightarrow{/tex}</span>&nbsp;<span class=\"math-tex\">{tex}\\frac{2 x+1-35 x+5}{7 x-1}{/tex}</span>&nbsp;&gt; 0<br />\r\n<span class=\"math-tex\">{tex}\\Rightarrow{/tex}</span>&nbsp;<span class=\"math-tex\">{tex}\\frac{(6-33 x)}{7 x-1}{/tex}</span>&nbsp;&gt; 0 [<span class=\"math-tex\">{tex}\\because{/tex}</span>&nbsp;<span class=\"math-tex\">{tex}\\frac{a}{b}{/tex}</span>&nbsp;&gt; 0&nbsp;<span class=\"math-tex\">{tex}\\Rightarrow{/tex}</span>&nbsp;(a &gt; 0 and b &gt; 0) or (a &lt; 0 and b &lt; 0)]<br />\r\n<span class=\"math-tex\">{tex}\\Rightarrow{/tex}</span>&nbsp;(6 - 33x &gt; 0 and 7x - 1 &gt; 0) or (6 - 33x &lt; 0 and 7x - 1 &lt; 0)<br />\r\n<span class=\"math-tex\">{tex}\\Rightarrow{/tex}</span>&nbsp;(x &lt;&nbsp;<span class=\"math-tex\">{tex}\\frac{6}{33}{/tex}</span>&nbsp;and x &gt;&nbsp;<span class=\"math-tex\">{tex}\\frac{1}{7}{/tex}</span>) or (x &gt;&nbsp;<span class=\"math-tex\">{tex}\\frac{2}{11}{/tex}</span>&nbsp;and x &lt;&nbsp;<span class=\"math-tex\">{tex}\\frac{1}{7}{/tex}</span>)<br />\r\n<span class=\"math-tex\">{tex}\\Rightarrow{/tex}</span>&nbsp;<span class=\"math-tex\">{tex}\\frac{1}{7}&lt;x&lt;\\frac{2}{11}{/tex}</span>&nbsp;<br />\r\n<span class=\"math-tex\">{tex}\\Rightarrow{/tex}</span>&nbsp;<span class=\"math-tex\">{tex}x \\in\\left(\\frac{1}{7}, \\frac{2}{11}\\right){/tex}</span>&nbsp;[Since x &gt;&nbsp;<span class=\"math-tex\">{tex}\\frac{2}{11}{/tex}</span>&nbsp;and x &lt;&nbsp;<span class=\"math-tex\">{tex}\\frac{1}{7}{/tex}</span>&nbsp;is not possible]<br />\r\nHence, the solution of the system&nbsp;<span class=\"math-tex\">{tex}\\frac{x+7}{x-8}&gt;2, \\frac{2 x+1}{7 x-1}&gt;5{/tex}</span>&nbsp;will be&nbsp;<span class=\"math-tex\">{tex}\\left( 8,23 \\right) \\cap \\left( \\frac { 1 }{ 7 } ,\\frac { 2 }{ 11 } \\right) =\\phi {/tex}</span></p>",
+      "correctAnswer": "C",
+      "correctOptionId": 30096
+    },
+    {
+      "id": 18725,
+      "question": "Solve the system of inequalities -2 $ \\leq$ 6x - 1 < 2",
+      "question_raw": "<p>Solve the system of inequalities -2&nbsp;<span class=\"math-tex\">{tex} \\leq{/tex}</span>&nbsp;6x - 1 &lt; 2</p>",
+      "difficulty": "Medium",
+      "options": [
+        {
+          "id": 30101,
+          "text": "$-\\frac{1}{7} \\leq x>\\frac{1}{2}$"
+        },
+        {
+          "id": 30103,
+          "text": "$-\\frac{1}{6}<x<\\frac{5}{2}$"
+        },
+        {
+          "id": 30102,
+          "text": "$-\\frac{1}{6}<x<\\frac{3}{2}$"
+        },
+        {
+          "id": 30100,
+          "text": "$-\\frac{1}{6} \\leq x<\\frac{1}{2} $"
+        }
+      ],
+      "correct_option_id": null,
+      "correct_option_text": null,
+      "explanation": "<p>-2&nbsp;<span class=\"math-tex\">{tex} \\leq{/tex}</span>&nbsp;6x - 1 &lt; 2<br />\r\n<span class=\"math-tex\">{tex}\\Rightarrow{/tex}</span>&nbsp;-2 + 1&nbsp;<span class=\"math-tex\">{tex} \\leq{/tex}</span>&nbsp;6x - 1 + 1 &lt; 2 + 1<br />\r\n<span class=\"math-tex\">{tex}\\Rightarrow{/tex}</span>&nbsp;-1&nbsp;<span class=\"math-tex\">{tex} \\leq{/tex}</span>&nbsp;6x &lt; 3<br />\r\n<span class=\"math-tex\">{tex}\\Rightarrow{/tex}</span>&nbsp;<span class=\"math-tex\">{tex}\\frac{-1}{6} \\leq \\frac{6 x}{6}&lt;\\frac{3}{6}{/tex}</span>&nbsp;<br />\r\n<span class=\"math-tex\">{tex}\\Rightarrow{/tex}</span>&nbsp;<span class=\"math-tex\">{tex}\\frac{-1}{6} \\leq x&lt;\\frac{1}{2}{/tex}</span>&nbsp;</p>",
+      "correctAnswer": "D",
+      "correctOptionId": 30100
+    },
+    {
+      "id": 18726,
+      "question": "Solve the system of inequalities -2 < 1 - 3x < 7",
+      "question_raw": "<p>Solve the system of inequalities -2 &lt; 1 - 3x &lt; 7&nbsp;</p>",
+      "difficulty": "Medium",
+      "options": [
+        {
+          "id": 30105,
+          "text": "-2 < x < 2"
+        },
+        {
+          "id": 30106,
+          "text": "-1 < x < 1"
+        },
+        {
+          "id": 30104,
+          "text": "-2 < x < 1"
+        },
+        {
+          "id": 30107,
+          "text": "-1 < x < 10"
+        }
+      ],
+      "correct_option_id": null,
+      "correct_option_text": null,
+      "explanation": "<p>-2 &lt; 1 - 3x &lt; 7&nbsp;<br />\r\n<span class=\"math-tex\">{tex}\\Rightarrow{/tex}</span>&nbsp;-2 - 1 &lt; 1 - 3x - 1 &lt; 7 - 1<br />\r\n<span class=\"math-tex\">{tex}\\Rightarrow{/tex}</span>&nbsp;-3 &lt; -3x &lt; 6<br />\r\n<span class=\"math-tex\">{tex}\\Rightarrow{/tex}</span>&nbsp;<span class=\"math-tex\">{tex}\\frac{-3}{-3}&gt;\\frac{-3 x}{-3}&gt;\\frac{6}{-3}{/tex}</span>&nbsp;<br />\r\n<span class=\"math-tex\">{tex}\\Rightarrow{/tex}</span>&nbsp;1 &gt; x &gt; -2<br />\r\n<span class=\"math-tex\">{tex}\\Rightarrow{/tex}</span>&nbsp;-2 &lt; x &lt; 1&nbsp;</p>",
+      "correctAnswer": "C",
+      "correctOptionId": 30104
+    },
+    {
+      "id": 18727,
+      "question": "Solve the system of inequalities: $-15<\\frac{3(x-2)}{5} \\leq 0$",
+      "question_raw": "<p>Solve the system of inequalities:&nbsp;<span class=\"math-tex\">{tex}-15&lt;\\frac{3(x-2)}{5} \\leq 0{/tex}</span>&nbsp;</p>",
+      "difficulty": "Medium",
+      "options": [
+        {
+          "id": 30110,
+          "text": "-13 < x < 13"
+        },
+        {
+          "id": 30109,
+          "text": "-23 < x < 23"
+        },
+        {
+          "id": 30108,
+          "text": "-23 < x $\\le$ 2"
+        },
+        {
+          "id": 30111,
+          "text": "-13 < x < 2"
+        }
+      ],
+      "correct_option_id": null,
+      "correct_option_text": null,
+      "explanation": "<p><span class=\"math-tex\">{tex}-15&lt;\\frac{3(x-2)}{5} \\leq 0{/tex}</span>&nbsp;<br />\r\n<span class=\"math-tex\">{tex}\\Rightarrow{/tex}</span>&nbsp;<span class=\"math-tex\">{tex}-15 \\cdot \\frac{5}{3}&lt;\\frac{3(x-2)}{5} \\cdot \\frac{5}{3} \\leq 0 \\cdot \\frac{5}{3}{/tex}</span>&nbsp;<br />\r\n<span class=\"math-tex\">{tex}\\Rightarrow{/tex}</span>&nbsp;-25 &lt; (x - 2)&nbsp;<span class=\"math-tex\">{tex}\\le{/tex}</span>&nbsp;0 + 2<br />\r\n<span class=\"math-tex\">{tex}\\Rightarrow{/tex}</span>&nbsp;-25 + 2 &lt; x - 2 + 2&nbsp;<span class=\"math-tex\">{tex}\\le{/tex}</span>&nbsp;2<br />\r\n<span class=\"math-tex\">{tex}\\Rightarrow{/tex}</span>&nbsp;-23 &lt; x&nbsp;<span class=\"math-tex\">{tex}\\le{/tex}</span>&nbsp;2</p>",
+      "correctAnswer": "C",
+      "correctOptionId": 30108
+    },
+    {
+      "id": 18728,
+      "question": "The solution set for |3x - 2| $\\leq \\frac{1}{2}$",
+      "question_raw": "<p>The solution set for |3x - 2|&nbsp;<span class=\"math-tex\">{tex}\\leq \\frac{1}{2}{/tex}</span>&nbsp;</p>",
+      "difficulty": "Medium",
+      "options": [
+        {
+          "id": 30114,
+          "text": "[$\\frac{5}{6}$, $\\frac{1}{2}$]"
+        },
+        {
+          "id": 30113,
+          "text": "[$\\frac{2}{3}$, $\\frac{2}{3}$]"
+        },
+        {
+          "id": 30112,
+          "text": "[$\\frac{1}{2}$, $\\frac{5}{6}$]"
+        },
+        {
+          "id": 30115,
+          "text": "[$\\frac{5}{6}$, $\\frac{2}{3}$]"
+        }
+      ],
+      "correct_option_id": null,
+      "correct_option_text": null,
+      "explanation": "<p>|3x - 2|&nbsp;<span class=\"math-tex\">{tex}\\le{/tex}</span>&nbsp;<span class=\"math-tex\">{tex}\\frac{1}{2}{/tex}</span>&nbsp;<br />\r\n<span class=\"math-tex\">{tex}\\Rightarrow{/tex}</span>&nbsp;<span class=\"math-tex\">{tex}\\frac{-1}{2} \\leq 3 x-2 \\leq \\frac{1}{2}{/tex}</span>&nbsp;<br />\r\n<span class=\"math-tex\">{tex}\\Rightarrow{/tex}</span>&nbsp;<span class=\"math-tex\">{tex}\\frac{-1}{2}+2 \\leq 3 x-2+2 \\leq \\frac{1}{2}+2{/tex}</span>&nbsp;<br />\r\n<span class=\"math-tex\">{tex}\\Rightarrow{/tex}</span>&nbsp;<span class=\"math-tex\">{tex}\\frac{3}{2} \\leq 3 x \\leq \\frac{5}{2}{/tex}</span>&nbsp; [<span class=\"math-tex\">{tex}\\because{/tex}</span>&nbsp;<span class=\"math-tex\">{tex}|x| \\leq a \\Leftrightarrow-a \\leq x \\leq a{/tex}</span>]<br />\r\n<span class=\"math-tex\">{tex}\\Rightarrow{/tex}</span>&nbsp;<span class=\"math-tex\">{tex}\\frac{3}{2} \\cdot \\frac{1}{3} \\leq 3 x \\cdot \\frac{1}{3} \\leq \\frac{5}{2} \\cdot \\frac{1}{3}{/tex}</span>&nbsp;<br />\r\n&nbsp;<span class=\"math-tex\">{tex}\\Rightarrow{/tex}</span>&nbsp;<span class=\"math-tex\">{tex}\\frac{1}{2} \\leq x \\leq \\frac{5}{6}{/tex}</span>&nbsp;<br />\r\n<span class=\"math-tex\">{tex}\\Rightarrow{/tex}</span>&nbsp;<span class=\"math-tex\">{tex}x \\in\\left[\\frac{1}{2}, \\frac{5}{6}\\right]{/tex}</span>&nbsp;</p>",
+      "correctAnswer": "C",
+      "correctOptionId": 30112
+    },
+    {
+      "id": 18729,
+      "question": "The solution set for |x| > 7",
+      "question_raw": "<p>The solution set for&nbsp;|x| &gt; 7</p>",
+      "difficulty": "Medium",
+      "options": [
+        {
+          "id": 30117,
+          "text": "(7, $\\infty $)"
+        },
+        {
+          "id": 30119,
+          "text": "(-7, $\\infty $)"
+        },
+        {
+          "id": 30118,
+          "text": "$\\left( { - \\infty , - 7} \\right)\\mathop \\cap \\; (7,\\infty )$"
+        },
+        {
+          "id": 30116,
+          "text": "$\\left( { - \\infty , - 7} \\right)\\mathop \\cup \\;(7,\\infty )$"
+        }
+      ],
+      "correct_option_id": null,
+      "correct_option_text": null,
+      "explanation": "<p>|x| &gt; 7<br />\r\n<span class=\"math-tex\">{tex}\\Rightarrow{/tex}</span>&nbsp;-7 &gt; x &gt; 7<br />\r\n<span class=\"math-tex\">{tex}\\Rightarrow{/tex}</span>&nbsp;x &lt; -7 or x &gt; 7 [<span class=\"math-tex\">{tex}\\because{/tex}</span>&nbsp;|x| &gt; a&nbsp;<span class=\"math-tex\">{tex}\\Leftrightarrow{/tex}</span>&nbsp;x &lt; -a or x &gt; a]<br />\r\n<span class=\"math-tex\">{tex}\\Rightarrow{/tex}</span>&nbsp;<span class=\"math-tex\">{tex}x \\in(-\\infty,-7){/tex}</span>&nbsp;or&nbsp;<span class=\"math-tex\">{tex}x \\in(7, \\infty){/tex}</span>&nbsp;<br />\r\n<span class=\"math-tex\">{tex}\\Rightarrow{/tex}</span>&nbsp;<span class=\"math-tex\">{tex}x \\epsilon(-\\infty,-7) \\cup(7, \\infty){/tex}</span></p>",
+      "correctAnswer": "D",
+      "correctOptionId": 30116
+    },
+    {
+      "id": 18730,
+      "question": "The solution set for: $\\frac{|x|-1}{|x|-2} \\geq 0, x \\neq \\pm 2$",
+      "question_raw": "<p>The solution set for: <span class=\"math-tex\">{tex}\\frac{|x|-1}{|x|-2} \\geq 0, x \\neq \\pm 2{/tex}</span></p>",
+      "difficulty": "Medium",
+      "options": [
+        {
+          "id": 30122,
+          "text": "($ - \\infty , - 2)\\mathop \\cup (2,\\infty )$"
+        },
+        {
+          "id": 30120,
+          "text": "$( - \\infty , - 2)\\mathop \\cup \\nolimits \\left( { - 1,1} \\right)\\mathop \\cup \\nolimits (2,\\infty )$"
+        },
+        {
+          "id": 30121,
+          "text": "$\\left( { - 1,2} \\right)\\mathop \\cup (3,\\infty )$"
+        },
+        {
+          "id": 30123,
+          "text": "(-2, 2)"
+        }
+      ],
+      "correct_option_id": null,
+      "correct_option_text": null,
+      "explanation": "<p>Given<span class=\"math-tex\">{tex}\\frac{|x|-1}{|x|-2} \\geq 0, x \\neq \\pm 2{/tex}</span>&nbsp;<br />\r\n<span class=\"math-tex\">{tex}\\frac{|x|-1}{|x|-2} \\geq 0{/tex}</span><br />\r\n<span class=\"math-tex\">{tex}\\Rightarrow{/tex}</span>&nbsp;|x| - 1&nbsp;<span class=\"math-tex\">{tex}\\ge{/tex}</span>&nbsp;0 and |x| - 2&nbsp;<span class=\"math-tex\">{tex}\\ge{/tex}</span>&nbsp;0 or |x| - 1&nbsp;<span class=\"math-tex\">{tex}\\le{/tex}</span>&nbsp;0 and |x| - 2&nbsp;<span class=\"math-tex\">{tex}\\le{/tex}</span>&nbsp;0&nbsp;[<span class=\"math-tex\">{tex}\\because{/tex}</span>&nbsp;<span class=\"math-tex\">{tex}\\frac{a}{b} \\geq 0{/tex}</span>&nbsp;<span class=\"math-tex\">{tex}\\Rightarrow{/tex}</span>&nbsp;(a&nbsp;<span class=\"math-tex\">{tex}\\ge{/tex}</span>&nbsp;0 and b&nbsp;<span class=\"math-tex\">{tex}\\ge{/tex}</span>&nbsp;0) or (a&nbsp;<span class=\"math-tex\">{tex}\\le{/tex}</span>&nbsp;0 and b&nbsp;<span class=\"math-tex\">{tex}\\le{/tex}</span>&nbsp;0)]<br />\r\n<span class=\"math-tex\">{tex}\\Rightarrow{/tex}</span>&nbsp;|x|&nbsp;<span class=\"math-tex\">{tex}\\ge{/tex}</span>&nbsp;1 and |x|&nbsp;<span class=\"math-tex\">{tex}\\ge{/tex}</span>&nbsp;2 or |x|&nbsp;<span class=\"math-tex\">{tex}\\le{/tex}</span>&nbsp;1 and |x|&nbsp;<span class=\"math-tex\">{tex}\\le{/tex}</span>&nbsp;2<br />\r\n<span class=\"math-tex\">{tex}\\Rightarrow{/tex}</span>&nbsp;|x|&nbsp;<span class=\"math-tex\">{tex}\\ge{/tex}</span>&nbsp;2 or |x|&nbsp;<span class=\"math-tex\">{tex}\\le{/tex}</span>&nbsp;1 [<span class=\"math-tex\">{tex}\\because{/tex}</span>&nbsp;|x|&nbsp;<span class=\"math-tex\">{tex}\\ge{/tex}</span>&nbsp;a&nbsp;<span class=\"math-tex\">{tex}\\Rightarrow{/tex}</span>&nbsp;x&nbsp;<span class=\"math-tex\">{tex}\\ge{/tex}</span>&nbsp;a or x&nbsp;<span class=\"math-tex\">{tex}\\le{/tex}</span>&nbsp;-a and |x|&nbsp;<span class=\"math-tex\">{tex}\\le{/tex}</span>&nbsp;a&nbsp;<span class=\"math-tex\">{tex}\\Rightarrow{/tex}</span>&nbsp;<span class=\"math-tex\">{tex}-a \\leq x \\leq a{/tex}</span>&nbsp;]<br />\r\n<span class=\"math-tex\">{tex}\\Rightarrow{/tex}</span>&nbsp;x&nbsp;<span class=\"math-tex\">{tex}\\ge{/tex}</span>&nbsp;2 or x&nbsp;<span class=\"math-tex\">{tex}\\le{/tex}</span>&nbsp;-2 or&nbsp;<span class=\"math-tex\">{tex}-1 \\leq x \\leq 1{/tex}</span><br />\r\n<span class=\"math-tex\">{tex}\\Rightarrow{/tex}</span>&nbsp;<span class=\"math-tex\">{tex}x \\in(2, \\infty){/tex}</span>&nbsp;or&nbsp;<span class=\"math-tex\">{tex}x \\in(-\\infty,-2){/tex}</span>&nbsp;or&nbsp;<span class=\"math-tex\">{tex}x \\epsilon(-1,1){/tex}</span><br />\r\n<span class=\"math-tex\">{tex}\\Rightarrow{/tex}</span>&nbsp;<span class=\"math-tex\">{tex}x \\in(2, \\infty) \\cup(-\\infty,-2) \\cup(-1,1){/tex}</span></p>",
+      "correctAnswer": "B",
+      "correctOptionId": 30120
+    },
+    {
+      "id": 18731,
+      "question": "The solution set for: $\\left|\\frac{2(3-x)}{5}\\right|<\\frac{3}{5}$",
+      "question_raw": "<p>The solution set for: <span class=\"math-tex\">{tex}\\left|\\frac{2(3-x)}{5}\\right|&lt;\\frac{3}{5}{/tex}</span></p>",
+      "difficulty": "Medium",
+      "options": [
+        {
+          "id": 30126,
+          "text": "$(\\frac 1 2, \\frac 32)$"
+        },
+        {
+          "id": 30125,
+          "text": "$(\\frac 14, \\frac 34)$"
+        },
+        {
+          "id": 30124,
+          "text": "$(\\frac 32, \\frac 92)$"
+        },
+        {
+          "id": 30127,
+          "text": "$(\\frac 34, \\frac 94)$"
+        }
+      ],
+      "correct_option_id": null,
+      "correct_option_text": null,
+      "explanation": "<p><span class=\"math-tex\">{tex}\\left|\\frac{2(3-x)}{5}\\right|&lt;\\frac{3}{5}{/tex}</span><br />\r\n<span class=\"math-tex\">{tex}\\Rightarrow-\\frac{3}{5}&lt;\\frac{2(3-x)}{5}&lt;\\frac{3}{5}{/tex}</span><br />\r\n<span class=\"math-tex\">{tex}\\Rightarrow-\\frac{3}{5} \\cdot \\frac{5}{2}&lt;\\frac{2(3-x)}{5} \\cdot \\frac{5}{2}&lt;\\frac{3}{5} \\cdot \\frac{5}{2}{/tex}</span><br />\r\n<span class=\"math-tex\">{tex}\\Rightarrow-\\frac{3}{2}&lt;3-x&lt;\\frac{3}{2}{/tex}</span><br />\r\n<span class=\"math-tex\">{tex}\\Rightarrow-\\frac{3}{2}-3&lt;3-x-3&lt;\\frac{3}{2}-3{/tex}</span>&nbsp;<span class=\"math-tex\">{tex}[\\because|x|&lt;a \\Leftrightarrow-a&lt;x&lt;a]{/tex}</span><br />\r\n<span class=\"math-tex\">{tex}\\Rightarrow-\\frac{9}{2}&lt;-x&lt;\\frac{-3}{2}{/tex}</span><br />\r\n<span class=\"math-tex\">{tex}\\Rightarrow \\frac{9}{2}&gt;x&gt;\\frac{3}{2}{/tex}</span><br />\r\n<span class=\"math-tex\">{tex}\\Rightarrow x \\in\\left(\\frac{3}{2}, \\frac{9}{2}\\right){/tex}</span></p>",
+      "correctAnswer": "C",
+      "correctOptionId": 30124
+    },
+    {
+      "id": 18732,
+      "question": "Find all pairs of consecutive even positive integers, both of which are larger than 5, such that their sum is less than 23.",
+      "question_raw": "<p>Find all pairs of consecutive even positive integers, both of which are larger than 5, such that their sum is less than 23.</p>",
+      "difficulty": "Medium",
+      "options": [
+        {
+          "id": 30128,
+          "text": "(6, 8),(8, 10), (10, 12)"
+        },
+        {
+          "id": 30131,
+          "text": "(8, 6), (6, 4), (10, 6)"
+        },
+        {
+          "id": 30129,
+          "text": "(3, 5), (5, 7), (7, 9)"
+        },
+        {
+          "id": 30130,
+          "text": "(4, 6), (6, 8), (8, 10)"
+        }
+      ],
+      "correct_option_id": null,
+      "correct_option_text": null,
+      "explanation": "<p>Let the consecutive even positive integers be x and x + 2.<br />\r\nBy data, x &gt; 5 and&nbsp;x&nbsp; + (x + 2) &lt; 23<br />\r\nNow&nbsp;x + (x + 2) &lt; 23<br />\r\n<span class=\"math-tex\">{tex}\\Rightarrow{/tex}</span>&nbsp;2x + 2 &lt; 23<br />\r\n<span class=\"math-tex\">{tex}\\Rightarrow{/tex}</span>&nbsp;2x &lt; 21<br />\r\n<span class=\"math-tex\">{tex}\\Rightarrow{/tex}</span>&nbsp;x &lt;&nbsp;<span class=\"math-tex\">{tex}\\frac{21}{2}{/tex}</span>&nbsp;=&nbsp;<span class=\"math-tex\">{tex}10\\frac{1}{2}{/tex}</span><br />\r\nSo we have the least possible value of x is 6 and the maximum value of x is 10.<br />\r\nTherefore the possible pairs of&nbsp;consecutive even positive integers are&nbsp;(6, 8), (8, 10), (10, 12).</p>",
+      "correctAnswer": "A",
+      "correctOptionId": 30128
+    },
+    {
+      "id": 18733,
+      "question": "Solve: 3x + 5 < x - 7, when x is a real number",
+      "question_raw": "<p>Solve: 3x + 5 &lt; x - 7, when x is a real number</p>",
+      "difficulty": "Medium",
+      "options": [
+        {
+          "id": 30135,
+          "text": "x > -12"
+        },
+        {
+          "id": 30132,
+          "text": "x < -6"
+        },
+        {
+          "id": 30133,
+          "text": "x > -6"
+        },
+        {
+          "id": 30134,
+          "text": "x < -12"
+        }
+      ],
+      "correct_option_id": null,
+      "correct_option_text": null,
+      "explanation": "<p>3x + 5 &lt; x - 7<br />\r\n<span class=\"math-tex\">{tex}\\Rightarrow{/tex}</span>&nbsp;3x +&nbsp;5 - x &lt; x - 7 - x<br />\r\n<span class=\"math-tex\">{tex}\\Rightarrow{/tex}</span>&nbsp;2x + 5 &lt; -7<br />\r\n<span class=\"math-tex\">{tex}\\Rightarrow{/tex}</span>&nbsp;2x + 5 - 5 &lt; -7 - 5<br />\r\n<span class=\"math-tex\">{tex}\\Rightarrow{/tex}</span>&nbsp;2x &lt; -12<br />\r\n<span class=\"math-tex\">{tex}\\Rightarrow{/tex}</span>&nbsp;<span class=\"math-tex\">{tex}\\frac{2x}{2}{/tex}</span>&nbsp;&lt; -&nbsp;<span class=\"math-tex\">{tex}\\frac{12}{2}{/tex}</span>&nbsp;<br />\r\n<span class=\"math-tex\">{tex}\\Rightarrow{/tex}</span>&nbsp;x &lt; -6&nbsp;</p>",
+      "correctAnswer": "B",
+      "correctOptionId": 30132
+    },
+    {
+      "id": 18734,
+      "question": "If x belongs to set of integers, A is the solution set of 2(x - 1) < 3x - 1 and B is the solution set of 4x - 3 $\\leq $ 8 + x, find A $\\cap$ B",
+      "question_raw": "<p>If x belongs to set of integers, A is the solution set of&nbsp;2(x - 1) &lt; 3x - 1&nbsp;and B is the solution set of 4x - 3&nbsp;<span class=\"math-tex\">{tex}\\leq {/tex}</span>&nbsp;8 + x, find A <span class=\"math-tex\">{tex}\\cap{/tex}</span> B</p>",
+      "difficulty": "Medium",
+      "options": [
+        {
+          "id": 30137,
+          "text": "{1, 2, 3}"
+        },
+        {
+          "id": 30138,
+          "text": "{0, 2, 4}"
+        },
+        {
+          "id": 30139,
+          "text": "{0, 1, 2}"
+        },
+        {
+          "id": 30136,
+          "text": "{0, 1, 2, 3}"
+        }
+      ],
+      "correct_option_id": null,
+      "correct_option_text": null,
+      "explanation": "<p>Given&nbsp;2(x - 1) &lt; 3x - 1&nbsp;<br />\r\n<span class=\"math-tex\">{tex}\\Rightarrow{/tex}</span>&nbsp;2x - 2 &lt; 3x - 1<br />\r\n<span class=\"math-tex\">{tex}\\Rightarrow{/tex}</span>&nbsp;2x - 2 + 2 &lt; 3x - 1 + 2<br />\r\n<span class=\"math-tex\">{tex}\\Rightarrow{/tex}</span>&nbsp;2x &lt; 3x + 1<br />\r\n<span class=\"math-tex\">{tex}\\Rightarrow{/tex}</span>&nbsp;2x - 3x &lt; 3x + 1 - 3x&nbsp;<br />\r\n<span class=\"math-tex\">{tex}\\Rightarrow{/tex}</span>&nbsp;-x &lt; + 1<br />\r\n<span class=\"math-tex\">{tex}\\Rightarrow{/tex}</span>&nbsp;x &gt; -1 but x&nbsp;<span class=\"math-tex\">{tex}\\in{/tex}</span>&nbsp;Z<br />\r\nHence&nbsp;A = {0, 1, 2, 3, 4, ....}<br />\r\nNow&nbsp;4x - 3&nbsp;<span class=\"math-tex\">{tex}\\leq{/tex}</span>&nbsp;8 + x<br />\r\n<span class=\"math-tex\">{tex}\\Rightarrow{/tex}</span>&nbsp;4x - 3&nbsp;+ 3&nbsp;<span class=\"math-tex\">{tex}\\leq{/tex}</span>&nbsp;8 + x + 3<br />\r\n<span class=\"math-tex\">{tex}\\Rightarrow{/tex}</span>&nbsp;4x&nbsp;<span class=\"math-tex\">{tex}\\leq{/tex}</span>&nbsp;11 + x<br />\r\n<span class=\"math-tex\">{tex}\\Rightarrow{/tex}</span>&nbsp;4x - x&nbsp;<span class=\"math-tex\">{tex}\\leq{/tex}</span>&nbsp;11 + x - x<br />\r\n<span class=\"math-tex\">{tex}\\Rightarrow{/tex}</span>&nbsp;3x&nbsp;<span class=\"math-tex\">{tex}\\leq{/tex}</span>&nbsp;11<br />\r\n<span class=\"math-tex\">{tex}\\Rightarrow{/tex}</span>&nbsp;<span class=\"math-tex\">{tex}\\frac{3x}{3}{/tex}</span>&nbsp;<span class=\"math-tex\">{tex}\\leq{/tex}</span>&nbsp;<span class=\"math-tex\">{tex}\\frac{11}{3}{/tex}</span>&nbsp;<br />\r\n<span class=\"math-tex\">{tex}\\Rightarrow{/tex}</span>&nbsp;x&nbsp;<span class=\"math-tex\">{tex}\\leq{/tex}</span>&nbsp;<span class=\"math-tex\">{tex}\\frac{11}{3}{/tex}</span>&nbsp;<br />\r\n<span class=\"math-tex\">{tex}\\Rightarrow{/tex}</span>&nbsp;x&nbsp;<span class=\"math-tex\">{tex}\\leq{/tex}</span>&nbsp;<span class=\"math-tex\">{tex}3\\frac{2}{3}{/tex}</span>, but x&nbsp;<span class=\"math-tex\">{tex}\\in{/tex}</span>&nbsp;Z<br />\r\nTherefore&nbsp;B = {....., -2, -1, 0, 1, 2, 3}<br />\r\nHence&nbsp;A&nbsp;<span class=\"math-tex\">{tex}\\cap{/tex}</span>&nbsp;B = {0, 1, 2, 3}</p>",
+      "correctAnswer": "D",
+      "correctOptionId": 30136
+    },
+    {
+      "id": 18735,
+      "question": "The solution set of the inequation: $\\frac{2 x-1}{3}-\\frac{3 x}{5}+1<0, x \\in W$ is:",
+      "question_raw": "<p>The solution set of the inequation: <span class=\"math-tex\">{tex}\\frac{2 x-1}{3}-\\frac{3 x}{5}+1&lt;0, x \\in W{/tex}</span>&nbsp;is:</p>",
+      "difficulty": "Medium",
+      "options": [
+        {
+          "id": 30140,
+          "text": "null set"
+        },
+        {
+          "id": 30141,
+          "text": "x $ \\in$ N"
+        },
+        {
+          "id": 30142,
+          "text": "x $ \\in$ W"
+        },
+        {
+          "id": 30143,
+          "text": "x $ \\in$ S"
+        }
+      ],
+      "correct_option_id": null,
+      "correct_option_text": null,
+      "explanation": "<p><span class=\"math-tex\">{tex}\\frac{2 x-1}{3}-\\frac{3 x}{5}+1&lt;0{/tex}</span>&nbsp;<br />\r\n<span class=\"math-tex\">{tex}\\Rightarrow 15 \\cdot \\frac{2 x-1}{3}-15 \\cdot \\frac{3 x}{5}+15&lt;0{/tex}</span>&nbsp;[Multiply&nbsp;the inequality throughout by the&nbsp;&nbsp;L.C.M]<br />\r\n<span class=\"math-tex\">{tex}\\Rightarrow{/tex}</span>&nbsp;5(2x - 1) -3(3x) + 15 &lt; 0<br />\r\n<span class=\"math-tex\">{tex}\\Rightarrow{/tex}</span>&nbsp;10x - 5 - 9x + 15 &lt; 0<br />\r\n<span class=\"math-tex\">{tex}\\Rightarrow{/tex}</span>&nbsp;x + 10 &lt; 0<br />\r\n<span class=\"math-tex\">{tex}\\Rightarrow{/tex}</span>&nbsp;x &lt; -10, but given x&nbsp;<span class=\"math-tex\">{tex}\\in{/tex}</span>&nbsp;W<br />\r\nHence the solution set will be null set.</p>",
+      "correctAnswer": "A",
+      "correctOptionId": 30140
+    },
+    {
+      "id": 18736,
+      "question": "The solution set of 6x - 1 > 5 is :",
+      "question_raw": "<p>The solution set of&nbsp;6x - 1 &gt; 5 is :</p>",
+      "difficulty": "Medium",
+      "options": [
+        {
+          "id": 30146,
+          "text": "{x : x < 1, x $\\in$ N}"
+        },
+        {
+          "id": 30145,
+          "text": "{x : x < 1, x $\\in$ W}"
+        },
+        {
+          "id": 30144,
+          "text": "{x : x > 1, x $\\in$ R}"
+        },
+        {
+          "id": 30147,
+          "text": "{x : x > 1, x $\\in$ N}"
+        }
+      ],
+      "correct_option_id": null,
+      "correct_option_text": null,
+      "explanation": "<p>6x - 1 &gt; 5<br />\r\n<span class=\"math-tex\">{tex}\\Rightarrow{/tex}</span>&nbsp;6x - 1 + 1 &gt; 5 + 1<br />\r\n<span class=\"math-tex\">{tex}\\Rightarrow{/tex}</span>&nbsp;6x &gt; 6<br />\r\n<span class=\"math-tex\">{tex}\\Rightarrow{/tex}</span>&nbsp;x &gt; 1<br />\r\nHence the solution set is&nbsp;{x : x &gt; 1, x&nbsp;<span class=\"math-tex\">{tex}\\in{/tex}</span>&nbsp;R}</p>",
+      "correctAnswer": "C",
+      "correctOptionId": 30144
+    },
+    {
+      "id": 18746,
+      "question": "If a, b, c are real numbers such that a $\\leq$ b, c < 0, then",
+      "question_raw": "<p>If a, b, c are real numbers such that a&nbsp;<span class=\"math-tex\">{tex}\\leq{/tex}</span>&nbsp;b, c &lt; 0, then</p>",
+      "difficulty": "Easy",
+      "options": [
+        {
+          "id": 30186,
+          "text": "ac > bc"
+        },
+        {
+          "id": 30184,
+          "text": "ac $ \\geq$ bc"
+        },
+        {
+          "id": 30187,
+          "text": "ac < bc"
+        },
+        {
+          "id": 30185,
+          "text": "ac $\\leq$ bc"
+        }
+      ],
+      "correct_option_id": null,
+      "correct_option_text": null,
+      "explanation": "<p>The sign of the inequality is to be reversed&nbsp;(<span class=\"math-tex\">{tex}\\le{/tex}</span>&nbsp;to&nbsp;<span class=\"math-tex\">{tex}\\ge{/tex}</span>&nbsp;or&nbsp;<span class=\"math-tex\">{tex}\\ge{/tex}</span>&nbsp;to&nbsp;<span class=\"math-tex\">{tex}\\le{/tex}</span>)&nbsp;if both sides of an inequality are multiplied by the same negative real number.</p>",
+      "correctAnswer": "B",
+      "correctOptionId": 30184
+    },
+    {
+      "id": 18747,
+      "question": "If a, b, c are real numbers such that a > b, c < 0",
+      "question_raw": "<p>If a, b, c are real numbers such that&nbsp;a &gt; b, c &lt; 0</p>",
+      "difficulty": "Easy",
+      "options": [
+        {
+          "id": 30188,
+          "text": "ac < bc"
+        },
+        {
+          "id": 30191,
+          "text": "ac $\\ne$ bc"
+        },
+        {
+          "id": 30190,
+          "text": "ac $\\geq$ bc"
+        },
+        {
+          "id": 30189,
+          "text": "ac > bc"
+        }
+      ],
+      "correct_option_id": null,
+      "correct_option_text": null,
+      "explanation": "<p>The sign of the inequality is to be reversed &nbsp;(&lt; to &gt; or &gt; to &lt;)&nbsp;if both sides of an inequality are multiplied by the same negative real number.</p>",
+      "correctAnswer": "A",
+      "correctOptionId": 30188
+    },
+    {
+      "id": 18749,
+      "question": "If ${\\text{x }} < {\\text{ 5}}$, then",
+      "question_raw": "<p>If <span class=\"math-tex\">{tex}{\\text{x }} &lt; {\\text{ 5}}{/tex}</span>, then</p>",
+      "difficulty": "Easy",
+      "options": [
+        {
+          "id": 30197,
+          "text": "$ - {\\text{ x }} < {\\text{ 5}}$"
+        },
+        {
+          "id": 30199,
+          "text": "none of these ."
+        },
+        {
+          "id": 30198,
+          "text": "${\\text{x }} > {\\text{ }} - {\\text{ 5}}$"
+        },
+        {
+          "id": 30196,
+          "text": "$ - {\\text{ x }} > {\\text{ }} - {\\text{ 5}}$"
+        }
+      ],
+      "correct_option_id": null,
+      "correct_option_text": null,
+      "explanation": "<p>Given&nbsp;<span class=\"math-tex\">{tex}{\\text{x }} &lt; {\\text{ 5}}{/tex}</span></p>\r\n\r\n<p>Multiplying both sides of the above inequality by -1,we get</p>\r\n\r\n<p><span class=\"math-tex\">{tex} - {\\text{ x }} &gt; {\\text{ }} - {\\text{ 5}}{/tex}</span>&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; [The sign of the inequality is to be reversed &nbsp;if both sides of an inequality are multiplied by the same negative real number]</p>",
+      "correctAnswer": "D",
+      "correctOptionId": 30196
+    },
+    {
+      "id": 18751,
+      "question": "solution set of the inequations ${\\text{x }} \\geq {\\text{ 2 }},{\\text{ x}} \\leq {\\text{ }} - {\\text{ 3}}$ is",
+      "question_raw": "<p>solution set of the inequations <span class=\"math-tex\">{tex}{\\text{x }} \\geq {\\text{ 2 }},{\\text{ x}} \\leq {\\text{ }} - {\\text{ 3}}{/tex}</span> is</p>",
+      "difficulty": "Easy",
+      "options": [
+        {
+          "id": 30205,
+          "text": "( -3, 2 )"
+        },
+        {
+          "id": 30207,
+          "text": "[2 , -3 ]"
+        },
+        {
+          "id": 30206,
+          "text": "[ -3, 2 ]"
+        },
+        {
+          "id": 30204,
+          "text": "{ }"
+        }
+      ],
+      "correct_option_id": null,
+      "correct_option_text": null,
+      "explanation": "<p><span class=\"math-tex\">{tex}{\\text{x }} \\geq {\\text{ 2 }}{/tex}</span>&nbsp;<span class=\"math-tex\">{tex}\\Rightarrow x\\epsilon \\left[2,\\infty \\right) {/tex}</span></p>\r\n\r\n<p><span class=\"math-tex\">{tex}{\\text{ x}} \\leq {\\text{ }} - {\\text{ 3}}{/tex}</span><span class=\"math-tex\">{tex}\\Rightarrow x\\epsilon \\left(-\\infty, -3 \\right]{/tex}</span></p>\r\n\r\n<p>Hence solution set of&nbsp;<span class=\"math-tex\">{tex}{\\text{x }} \\geq {\\text{ 2 }}{/tex}</span>&nbsp;and&nbsp;<span class=\"math-tex\">{tex}{\\text{ x}} \\leq {\\text{ }} - {\\text{ 3}}{/tex}</span>&nbsp; is&nbsp;<span class=\"math-tex\">{tex}\\\\ \\left[ 2,\\infty \\right) \\cap \\left( -\\infty ,-3 \\right] =\\Phi {/tex}</span></p>",
+      "correctAnswer": "D",
+      "correctOptionId": 30204
+    },
+    {
+      "id": 18753,
+      "question": "If -3x + 17 < -13, then",
+      "question_raw": "<p>If&nbsp;-3x + 17 &lt; -13, then</p>",
+      "difficulty": "Medium",
+      "options": [
+        {
+          "id": 30215,
+          "text": "$x \\in ( \\infty ,-10]$"
+        },
+        {
+          "id": 30214,
+          "text": "$x \\in ( - \\infty ,10]$"
+        },
+        {
+          "id": 30212,
+          "text": "$x \\in (10,\\infty )$"
+        },
+        {
+          "id": 30213,
+          "text": "$x \\in [10,\\infty )$"
+        }
+      ],
+      "correct_option_id": null,
+      "correct_option_text": null,
+      "explanation": "<p>- 3x + 17 &lt; - 13<br />\r\n<span class=\"math-tex\">{tex}\\Rightarrow {/tex}</span>&nbsp;- 3x + 17 - 17 &lt; - 13 - 17<br />\r\n<span class=\"math-tex\">{tex}\\Rightarrow {/tex}</span>&nbsp;- 3x &lt; - 30<br />\r\n<span class=\"math-tex\">{tex}\\Rightarrow \\frac { -{ { 3x } } }{ -{ { 3 } } } &gt;\\frac { -3{ 0 } }{ -{ { 3 } } } {/tex}</span><br />\r\n<span class=\"math-tex\">{tex}\\Rightarrow{/tex}</span> x &gt; 10<br />\r\n<span class=\"math-tex\">{tex}\\Rightarrow x \\in (10,\\infty ){/tex}</span></p>",
+      "correctAnswer": "C",
+      "correctOptionId": 30212
+    },
+    {
+      "id": 18754,
+      "question": "If x is a real number and ${\\text{| x | }} < {\\text{ 3}}$, then",
+      "question_raw": "<p>If x is a real number and <span class=\"math-tex\">{tex}{\\text{| x | }} &lt; {\\text{ 3}}{/tex}</span>, then</p>",
+      "difficulty": "Medium",
+      "options": [
+        {
+          "id": 30219,
+          "text": "$x \\geq 3$"
+        },
+        {
+          "id": 30217,
+          "text": "$ - {\\text{ 3 }} \\leq {\\text{x }} \\leq {\\text{ 3}}$"
+        },
+        {
+          "id": 30218,
+          "text": "${\\text{x }} \\geq {\\text{ }} - {\\text{3}}$"
+        },
+        {
+          "id": 30216,
+          "text": "- 3 < x < 3"
+        }
+      ],
+      "correct_option_id": null,
+      "correct_option_text": null,
+      "explanation": "<p>We have&nbsp;<span class=\"math-tex\">{tex}\\left| x \\right| &lt;a\\Leftrightarrow -a&lt;x&lt;a{/tex}</span></p>",
+      "correctAnswer": "D",
+      "correctOptionId": 30216
+    },
+    {
+      "id": 18755,
+      "question": "If ${\\text{| x}}-{\\text{1}}{\\text{| }} > {\\text{5}}$, then",
+      "question_raw": "<p>If <span class=\"math-tex\">{tex}{\\text{| x}}-{\\text{1}}{\\text{| }} &gt; {\\text{5}}{/tex}</span>, then</p>",
+      "difficulty": "Medium",
+      "options": [
+        {
+          "id": 30223,
+          "text": "$x \\in (6,\\infty )$"
+        },
+        {
+          "id": 30221,
+          "text": "$x \\in [6,\\infty )$"
+        },
+        {
+          "id": 30220,
+          "text": "$x \\in \\left( { - \\infty , - 4} \\right)\\mathop \\cup \\nolimits^ (6,\\infty )$"
+        },
+        {
+          "id": 30222,
+          "text": "$x \\in \\left( { - \\infty , - 4} \\right)\\mathop \\cup \\nolimits^ (6,\\infty ]$"
+        }
+      ],
+      "correct_option_id": null,
+      "correct_option_text": null,
+      "explanation": "<p><span class=\"math-tex\">{tex}{\\text{| x}}-{\\text{1}}{\\text{| }} &gt; {\\text{5}}{/tex}</span>&nbsp;</p>\r\n\r\n<p>&nbsp; &nbsp; <span class=\"math-tex\">{tex}\\Rightarrow x-1&lt;-5\\quad or\\quad x-1&gt;5\\\\ \\Rightarrow x-1+1&lt;-5+1\\quad or\\quad x-1+1&gt;5+1\\\\ \\Rightarrow x&lt;-4\\quad or\\quad x&gt;6{/tex}</span>&nbsp; <span class=\"math-tex\">{tex}\\left[ \\because \\left| x \\right| &gt;a\\Leftrightarrow x&lt;-a\\quad or\\quad x&gt;a \\right] {/tex}</span>&nbsp; &nbsp;</p>\r\n\r\n<p><span class=\"math-tex\">{tex}\\Rightarrow x \\in \\left( { - \\infty , - 4} \\right)\\mathop \\cup \\nolimits^ (6,\\infty ){/tex}</span> &nbsp; &nbsp; &nbsp;</p>",
+      "correctAnswer": "C",
+      "correctOptionId": 30220
+    },
+    {
+      "id": 18756,
+      "question": "If ${\\text{|x}} + {\\text{2|}} \\leq {\\text{9}}$, then",
+      "question_raw": "<p>If <span class=\"math-tex\">{tex}{\\text{|x}} + {\\text{2|}} \\leq {\\text{9}}{/tex}</span>, then</p>",
+      "difficulty": "Medium",
+      "options": [
+        {
+          "id": 30226,
+          "text": "$x \\in(-\\infty,-7) \\cup(11, \\infty)$"
+        },
+        {
+          "id": 30227,
+          "text": "$x \\in(-7, -\\infty) \\cup[\\infty, 11)$"
+        },
+        {
+          "id": 30225,
+          "text": "x $\\in $ ( - 7 , 11 )"
+        },
+        {
+          "id": 30224,
+          "text": "x $\\in $ [ - 11 , 7 ]"
+        }
+      ],
+      "correct_option_id": null,
+      "correct_option_text": null,
+      "explanation": "<p><span class=\"math-tex\">{tex}{\\text{|x}} + {\\text{2|}} \\leq {\\text{9}}{/tex}</span><br />\r\n<span class=\"math-tex\">{tex}\\Rightarrow -9\\leq x+2\\le 9{/tex}</span>&nbsp;&nbsp;<span class=\"math-tex\">{tex}\\left[ \\because \\left| x \\right| \\le a\\Leftrightarrow -a\\le x\\le a \\right] {/tex}</span><br />\r\n<span class=\"math-tex\">{tex}\\Rightarrow -9-2\\leq x+2-2\\le 9-2{/tex}</span><br />\r\n<span class=\"math-tex\">{tex}\\Rightarrow -11\\leq x\\le 7{/tex}</span><br />\r\n<span class=\"math-tex\">{tex}\\\\ x\\epsilon \\left[ -11,7 \\right] {/tex}</span></p>",
+      "correctAnswer": "D",
+      "correctOptionId": 30224
+    },
+    {
+      "id": 18761,
+      "question": "If x and b are real numbers . If b $>$ 0 and ${\\text{|x|}} > b$, then",
+      "question_raw": "<p>If x and b are real numbers . If b <span class=\"math-tex\">{tex}&gt;{/tex}</span> 0 and <span class=\"math-tex\">{tex}{\\text{|x|}} &gt; b{/tex}</span>, then</p>",
+      "difficulty": "Easy",
+      "options": [
+        {
+          "id": 30245,
+          "text": "$x \\in ( - b,\\infty )$"
+        },
+        {
+          "id": 30246,
+          "text": "$x \\in \\left( { - \\infty , - b} \\right)\\mathop \\cup \\nolimits^ (b,\\infty )$"
+        },
+        {
+          "id": 30244,
+          "text": "$x \\in ( - b,b)$"
+        },
+        {
+          "id": 30247,
+          "text": "$x \\in[-\\infty, b)$"
+        }
+      ],
+      "correct_option_id": null,
+      "correct_option_text": null,
+      "explanation": "<p>We have&nbsp;<span class=\"math-tex\">{tex}\\left| x \\right| &gt;a\\Leftrightarrow x&lt;-a{/tex}</span>&nbsp; or x &gt; a&nbsp;<br />\r\nSo&nbsp;<span class=\"math-tex\">{tex}{\\text{|x|}} &gt; b{/tex}</span>&nbsp;<span class=\"math-tex\">{tex}\\Rightarrow x&lt;-b{/tex}</span>&nbsp; or x &gt; b<br />\r\n<span class=\"math-tex\">{tex}\\Rightarrow x \\in \\left( { - \\infty , - b} \\right)\\mathop \\cup \\nolimits^ (b,\\infty ){/tex}</span></p>",
+      "correctAnswer": "B",
+      "correctOptionId": 30246
+    },
+    {
+      "id": 18766,
+      "question": "The solution set of the inequation 3x < 5, when x is a natural number is",
+      "question_raw": "<p>The solution set of the inequation 3x &lt;&nbsp;5, when x is a natural number is</p>",
+      "difficulty": "Easy",
+      "options": [
+        {
+          "id": 30265,
+          "text": "{0, 1}"
+        },
+        {
+          "id": 30264,
+          "text": "{1}"
+        },
+        {
+          "id": 30266,
+          "text": "{1, 2}"
+        },
+        {
+          "id": 30267,
+          "text": "{4}"
+        }
+      ],
+      "correct_option_id": null,
+      "correct_option_text": null,
+      "explanation": "<p>3x &lt; 5<br />\r\n<span class=\"math-tex\">{tex}\\Rightarrow x&lt;{ { \\frac { 5 }{ 3 } } }{/tex}</span>&nbsp;<br />\r\n<span class=\"math-tex\">{tex}\\Rightarrow x&lt;{ { 1\\frac { 2 }{ 3 } }}{/tex}</span>&nbsp;<br />\r\nHence&nbsp;solution set =&nbsp;<span class=\"math-tex\">{tex}\\{ x:x&lt;{ { 1\\frac { 2 }{ 3 } } },x\\in N\\}{/tex}</span>&nbsp;= {1}</p>",
+      "correctAnswer": "B",
+      "correctOptionId": 30264
+    },
+    {
+      "id": 285149,
+      "question": "If $\\frac{|x-2|}{x-2} \\geq 0$, then",
+      "question_raw": "<p>If <span class=\"math-tex\">{tex}\\frac{|x-2|}{x-2} \\geq 0{/tex}</span>, then&nbsp;</p>\r\n",
+      "difficulty": "Medium",
+      "options": [
+        {
+          "id": 407538,
+          "text": "$x \\in[2, \\infty)$"
+        },
+        {
+          "id": 407541,
+          "text": "$x \\in(-\\infty, 2]$"
+        },
+        {
+          "id": 407540,
+          "text": "$x \\in(-\\infty, 2)$"
+        },
+        {
+          "id": 407539,
+          "text": "$x \\in(2, \\infty)$"
+        }
+      ],
+      "correct_option_id": null,
+      "correct_option_text": null,
+      "explanation": "<p>Since&nbsp;<span class=\"math-tex\">{tex}\\frac{|x-2|}{x-2} \\geq 0{/tex}</span>, for |x - 2|&nbsp;<span class=\"math-tex\">{tex}\\geq{/tex}</span>&nbsp;0, and x - 2&nbsp;<span class=\"math-tex\">{tex}\\ne{/tex}</span> 0 solution set (2,<span class=\"math-tex\">{tex}\\infty{/tex}</span>)</p>",
+      "correctAnswer": "D",
+      "correctOptionId": 407539
+    },
+    {
+      "id": 285161,
+      "question": "Solutions of the inequalities comprising a system in variable x are represented on number lines as given below, then",
+      "question_raw": "<p>Solutions of the inequalities comprising a system in variable x are represented on number lines as given below, then<br />\r\n<img alt=\"\" data-imgur-src=\"7mFLOL7.png\" src=\"https://media-mycbseguide.s3.amazonaws.com/images/imgur/7mFLOL7.png\" style=\"width: 300px; height: 28px;\" /></p>",
+      "difficulty": "Medium",
+      "options": [
+        {
+          "id": 407565,
+          "text": "x $\\in$ [– 4, 3]"
+        },
+        {
+          "id": 407564,
+          "text": "x $\\in$ (–$\\infty$, – 4) $\\cup$ [3, $\\infty$)"
+        },
+        {
+          "id": 407562,
+          "text": "x $\\in$ (– $\\infty$, – 4] $\\cup$ [3, $\\infty$)"
+        },
+        {
+          "id": 407563,
+          "text": "x $\\in$ [– 3, 1]"
+        }
+      ],
+      "correct_option_id": null,
+      "correct_option_text": null,
+      "explanation": "<p>Common solution of the inequalities is from &ndash; <span class=\"math-tex\">{tex}\\infty{/tex}</span>&nbsp;to &ndash; 4 and 3 to&nbsp;<span class=\"math-tex\">{tex}\\infty{/tex}</span></p>\n\n<p>&nbsp;{(&ndash; <span class=\"math-tex\">{tex}\\infty{/tex}</span>, &ndash; 4] <span class=\"math-tex\">{tex}\\cup{/tex}</span>&nbsp;[3, <span class=\"math-tex\">{tex}\\infty{/tex}</span>)}&nbsp;<span class=\"math-tex\">{tex}\\cap{/tex}</span>&nbsp;{(&ndash; <span class=\"math-tex\">{tex}\\infty{/tex}</span>, &ndash; 3] <span class=\"math-tex\">{tex}\\cup{/tex}</span>&nbsp;[1, <span class=\"math-tex\">{tex}\\infty{/tex}</span>)} =&nbsp;(&ndash; <span class=\"math-tex\">{tex}\\infty{/tex}</span>, &ndash; 4] <span class=\"math-tex\">{tex}\\cup{/tex}</span>&nbsp;[3, <span class=\"math-tex\">{tex}\\infty{/tex}</span>)</p>",
+      "correctAnswer": "C",
+      "correctOptionId": 407562
+    },
+    {
+      "id": 285166,
+      "question": "If |x + 3| $\\geq$ 10 , then",
+      "question_raw": "<p>If |x + 3| <span class=\"math-tex\">{tex}\\geq{/tex}</span>&nbsp;10 , then</p>",
+      "difficulty": "Medium",
+      "options": [
+        {
+          "id": 407577,
+          "text": ""
+        },
+        {
+          "id": 407575,
+          "text": ""
+        },
+        {
+          "id": 407576,
+          "text": ""
+        },
+        {
+          "id": 407574,
+          "text": ""
+        }
+      ],
+      "correct_option_id": null,
+      "correct_option_text": null,
+      "explanation": "<p><img src=\"https://media-mycbseguide.s3.amazonaws.com/images/question_images/1708425014-zmc7vp.jpg\" style=\"height:95px; width:250px\" /></p>",
+      "correctAnswer": "A",
+      "correctOptionId": 407577
+    },
+    {
+      "id": 293908,
+      "question": "If x < 7 , then",
+      "question_raw": "<p>If x &lt; 7 , then</p>",
+      "difficulty": "Easy",
+      "options": [
+        {
+          "id": 418645,
+          "text": "-x $\\le$ -7"
+        },
+        {
+          "id": 418647,
+          "text": "-x $\\ge$ -7"
+        },
+        {
+          "id": 418644,
+          "text": "-x < -7"
+        },
+        {
+          "id": 418646,
+          "text": "-x > -7"
+        }
+      ],
+      "correct_option_id": null,
+      "correct_option_text": null,
+      "explanation": "<p>x &lt; 7<br />\nWe know that when we change the sign of inequalities then greater tan changes to less than and vice versa also true.<br />\n<span class=\"math-tex\">{tex}\\Rightarrow{/tex}</span>&nbsp;-x &gt; -7</p>",
+      "correctAnswer": "D",
+      "correctOptionId": 418646
+    },
+    {
+      "id": 293910,
+      "question": "If x is a real number and |x| < 5, then",
+      "question_raw": "<p>If x is a real number and |x| &lt; 5, then</p>",
+      "difficulty": "Easy",
+      "options": [
+        {
+          "id": 418651,
+          "text": "-5 $\\le$ x $\\le$ 5"
+        },
+        {
+          "id": 418648,
+          "text": "x $\\ge$ 5"
+        },
+        {
+          "id": 418649,
+          "text": "- 5 < x < 5"
+        },
+        {
+          "id": 418650,
+          "text": "x $\\le$ -5"
+        }
+      ],
+      "correct_option_id": null,
+      "correct_option_text": null,
+      "explanation": "<p>|x| &lt; 5<br />\n<span class=\"math-tex\">{tex}\\Rightarrow{/tex}</span>&nbsp;-5 &lt; x &lt; 5</p>",
+      "correctAnswer": "C",
+      "correctOptionId": 418649
+    },
+    {
+      "id": 293922,
+      "question": "If x and a are real numbers such that a > 0 and |x| > a, then",
+      "question_raw": "<p>If x and a are real numbers such that a &gt; 0 and |x| &gt; a, then</p>",
+      "difficulty": "Easy",
+      "options": [
+        {
+          "id": 418688,
+          "text": "$x \\in(-a, \\infty)$"
+        },
+        {
+          "id": 418689,
+          "text": "$x \\in[-\\infty, a]$"
+        },
+        {
+          "id": 418694,
+          "text": "$x \\in(-\\infty,-a) \\cup(a, \\infty)$"
+        },
+        {
+          "id": 418690,
+          "text": "x $\\in$ (-a, a)"
+        }
+      ],
+      "correct_option_id": null,
+      "correct_option_text": null,
+      "explanation": "<p>|x| &gt; a<br />\n<span class=\"math-tex\">{tex}\\Rightarrow{/tex}</span>&nbsp;x &lt; -a or&nbsp;x &gt; a<br />\n<span class=\"math-tex\">{tex}\\Rightarrow{/tex}</span>x&nbsp;<span class=\"math-tex\">{tex}\\in{/tex}</span>&nbsp;(<span class=\"math-tex\">{tex}-\\infty{/tex}</span>, -a)&nbsp;&nbsp;<span class=\"math-tex\">{tex}\\cup{/tex}</span>&nbsp;(a, <span class=\"math-tex\">{tex}\\infty{/tex}</span>)</p>",
+      "correctAnswer": "C",
+      "correctOptionId": 418694
+    },
+    {
+      "id": 293935,
+      "question": "The solution set of the inequation |x + 2| $\\le$ 5 is",
+      "question_raw": "<p>The solution set of the inequation |x&nbsp;+ 2| <span class=\"math-tex\">{tex}\\le{/tex}</span> 5 is</p>",
+      "difficulty": "Medium",
+      "options": [
+        {
+          "id": 418724,
+          "text": "(-7, 5)"
+        },
+        {
+          "id": 418726,
+          "text": "[-5, 5]"
+        },
+        {
+          "id": 418725,
+          "text": "[-7, 3]"
+        },
+        {
+          "id": 418727,
+          "text": "(-7, 3)"
+        }
+      ],
+      "correct_option_id": null,
+      "correct_option_text": null,
+      "explanation": "<p>|x + 2| <span class=\"math-tex\">{tex}\\le{/tex}</span> 5<br />\r\n<span class=\"math-tex\">{tex}\\Rightarrow{/tex}</span>&nbsp;-5 <span class=\"math-tex\">{tex}\\le{/tex}</span> x + 2 <span class=\"math-tex\">{tex}\\le{/tex}</span> 5<br />\r\n<span class=\"math-tex\">{tex}\\Rightarrow{/tex}</span>&nbsp;-7 <span class=\"math-tex\">{tex}\\le{/tex}</span> x <span class=\"math-tex\">{tex}\\le{/tex}</span> 3<br />\r\n<span class=\"math-tex\">{tex}\\Rightarrow{/tex}</span>&nbsp; x&nbsp;<span class=\"math-tex\">{tex}\\in{/tex}</span>&nbsp;[-7, 3]</p>",
+      "correctAnswer": "C",
+      "correctOptionId": 418725
+    },
+    {
+      "id": 534933,
+      "question": "If log_x 7 > log_x 3 then:",
+      "question_raw": "<p>If log<sub>x</sub> 7 &gt; log<sub>x</sub> 3 then:</p>\r\n",
+      "difficulty": "Medium",
+      "options": [
+        {
+          "id": 969990,
+          "text": "x > 1"
+        },
+        {
+          "id": 969991,
+          "text": "x < 1"
+        },
+        {
+          "id": 969993,
+          "text": "3 < x < 7"
+        },
+        {
+          "id": 969992,
+          "text": "1 < x < 3"
+        }
+      ],
+      "correct_option_id": null,
+      "correct_option_text": null,
+      "explanation": "<p>3 &lt; 7 <span class=\"math-tex\">{tex}\\Rightarrow{/tex}</span> log<sub>x</sub> 3 &lt; log<sub>x</sub> 7 only when x &gt; 1</p>",
+      "correctAnswer": "A",
+      "correctOptionId": 969990
+    },
+    {
+      "id": 1056709,
+      "question": "If log_0.3(x−1) < log_0.09(x - 1), then x lies in the interval-",
+      "question_raw": "<p>&nbsp;If&nbsp;log<sub>0.3</sub>(x&minus;1) &lt; log<sub>0.09</sub>(x - 1), then&nbsp;x&nbsp;lies in the interval-</p>",
+      "difficulty": "Medium",
+      "options": [
+        {
+          "id": 2172276,
+          "text": "(1, 2)"
+        },
+        {
+          "id": 2172278,
+          "text": "(-1, -2)"
+        },
+        {
+          "id": 2172277,
+          "text": "(-2, -1)"
+        },
+        {
+          "id": 2172275,
+          "text": "$(2, \\infty)$"
+        }
+      ],
+      "correct_option_id": null,
+      "correct_option_text": null,
+      "explanation": "<p>First of all for&nbsp;log(x - 1)&nbsp;to be defined,&nbsp;x &minus; 1 &gt; 0<br />\r\n<span class=\"math-tex\">{tex}\\Rightarrow x&gt;1{/tex}</span>&nbsp;...(i)<br />\r\nNow,&nbsp;<span class=\"math-tex\">{tex} \\log _{0.3}(x-1)&lt;\\log _{0.09}(x-1){/tex}</span><br />\r\n<span class=\"math-tex\">{tex}\\Rightarrow \\log _{0.3}(x-1)&lt;\\log _{(0.3)} 2(x-1){/tex}</span><br />\r\n<span class=\"math-tex\">{tex}\\Rightarrow \\log _{0.3}(x-1)&lt;\\frac{1}{2} \\log _{0.3}(x-1){/tex}</span><br />\r\n<span class=\"math-tex\">{tex} \\Rightarrow 2 \\log _{0.3}(x-1)&lt;\\log _{0.3}(x-1) {/tex}</span><br />\r\n<span class=\"math-tex\">{tex} \\Rightarrow \\log _{0.3}(x-1)^2&lt;\\log _{0.3}(x-1){/tex}</span><br />\r\n<span class=\"math-tex\">{tex}\\Rightarrow{/tex}</span>&nbsp;(x - 1)<sup>2&nbsp;</sup>&gt; (x - 1)<br />\r\n[Here inequality is reversed because base lies between 0 and 1]<br />\r\n<span class=\"math-tex\">{tex}\\Rightarrow{/tex}</span>&nbsp;(x - 1)<sup>2&nbsp;</sup>- (x - 1) &gt; 0 <span class=\"math-tex\">{tex}\\Rightarrow{/tex}</span>&nbsp;(x - 1)(x - 2) &gt; 0 ...(ii)&nbsp;<br />\r\nOn combining (i) and (ii), we get x &gt; 2<br />\r\n<span class=\"math-tex\">{tex}\\therefore x \\in(2, \\infty){/tex}</span></p>",
+      "correctAnswer": "D",
+      "correctOptionId": 2172275
+    },
+    {
+      "id": 1056718,
+      "question": "The largest interval for which x^12 - x^9 + x^4 - x + 1 > 0 is",
+      "question_raw": "<p>The largest interval for which x<sup>12&nbsp;</sup>- x<sup>9&nbsp;</sup>+ x<sup>4&nbsp;</sup>- x + 1&nbsp;&gt; 0 is</p>",
+      "difficulty": "Medium",
+      "options": [
+        {
+          "id": 2172302,
+          "text": "$-\\infty<x<\\infty$"
+        },
+        {
+          "id": 2172300,
+          "text": "0 < x < 1"
+        },
+        {
+          "id": 2172299,
+          "text": "$-4<x \\leq 0$"
+        },
+        {
+          "id": 2172301,
+          "text": "-100 < x < 100"
+        }
+      ],
+      "correct_option_id": null,
+      "correct_option_text": null,
+      "explanation": "<p>Given expression&nbsp;<span class=\"math-tex\">{tex} x^{12}-x^9+x^4-x+1=f(x){/tex}</span>&nbsp;(let)<br />\r\nFor&nbsp;x &lt; 0, put&nbsp;x = -y&nbsp;where&nbsp;y &gt; 0&nbsp;then we get<br />\r\nf(x) =&nbsp;<span class=\"math-tex\">{tex}y^{12}+y^9+y^4+y+1&gt;0{/tex}</span>&nbsp;&nbsp;for&nbsp;y &gt; 0<br />\r\n&nbsp;For&nbsp;0 &lt; x &lt; 1,&nbsp;x<sup>9&nbsp;</sup>&lt; x<sup>4</sup>&nbsp;<span class=\"math-tex\">{tex} \\Rightarrow-x^9+x^4&gt;0{/tex}</span><br />\r\nAlso 1 - x &gt; 0 and x<sup>12&nbsp;</sup>&gt; 0<br />\r\n<span class=\"math-tex\">{tex}\\Rightarrow x^{12}-x^9+x^4+1-x&gt;0 {/tex}</span>&nbsp;<span class=\"math-tex\">{tex}\\Rightarrow {/tex}</span>&nbsp;f(x) &gt; 0<br />\r\nFor&nbsp;x &gt; 1:&nbsp;f(x) =&nbsp;<span class=\"math-tex\">{tex}x\\left(x^3-1\\right)\\left(x^8+1\\right)+1&gt;0{/tex}</span><br />\r\nSo, f(x) &gt; 0&nbsp;for<span class=\"math-tex\">{tex}-\\infty&lt;x&lt;\\infty{/tex}</span>.</p>",
+      "correctAnswer": "A",
+      "correctOptionId": 2172302
+    },
+    {
+      "id": 1056738,
+      "question": "The least value of the expression 2 log_10x - log_x(0.01), for x > 1, is",
+      "question_raw": "<p>The least value of the expression 2&nbsp;log<sub>10</sub>x - log<sub>x</sub>(0.01), for&nbsp;x &gt; 1, is</p>",
+      "difficulty": "Hard",
+      "options": [
+        {
+          "id": 2172349,
+          "text": "10"
+        },
+        {
+          "id": 2172353,
+          "text": "-0.01"
+        },
+        {
+          "id": 2172351,
+          "text": "4"
+        },
+        {
+          "id": 2172354,
+          "text": "0.01"
+        }
+      ],
+      "correct_option_id": null,
+      "correct_option_text": null,
+      "explanation": "<p>Let&nbsp;y = 2log<sub>10</sub>x &minus; log<sub>x</sub>0.01<br />\r\n<span class=\"math-tex\">{tex}=2 \\log _{10} x-\\frac{\\log _{10} 0.01}{\\log _{10} x}=2 \\log _{10} x+\\frac{2}{\\log _{10} x}{/tex}</span><br />\r\n<span class=\"math-tex\">{tex}=2\\left[\\log _{10} x+\\frac{2}{\\log _{10} x}\\right] {/tex}</span>&nbsp;Here x &gt; 1&nbsp;<span class=\"math-tex\">{tex}\\Rightarrow{/tex}</span>&nbsp;log<sub>10</sub>&nbsp;x &gt; 0<br />\r\nAlso sum of a real positive number and its reciprocal is always greater than or equal to 2.<br />\r\n<span class=\"math-tex\">{tex}\\therefore y \\geq 2 \\times 2 \\Rightarrow y \\geq 4 \\text {, }{/tex}</span>&nbsp;<span class=\"math-tex\">{tex}\\therefore{/tex}</span>&nbsp;Least value of y is 4.</p>",
+      "correctAnswer": "C",
+      "correctOptionId": 2172351
+    },
+    {
+      "id": 1056742,
+      "question": "Let a > 0, b > 0 and c > 0. Then the roots of the equation ax^2 + bx + c = 0",
+      "question_raw": "<p>Let&nbsp;a &gt; 0, b &gt; 0&nbsp;and&nbsp;c &gt; 0. Then the roots of the equation&nbsp;ax<sup>2&nbsp;</sup>+ bx + c = 0</p>",
+      "difficulty": "Hard",
+      "options": [
+        {
+          "id": 2172362,
+          "text": "are real and negative"
+        },
+        {
+          "id": 2172364,
+          "text": "have negative real parts"
+        },
+        {
+          "id": 2172365,
+          "text": "both are real and negative and have negative real parts"
+        },
+        {
+          "id": 2172366,
+          "text": "have positive real parts"
+        }
+      ],
+      "correct_option_id": null,
+      "correct_option_text": null,
+      "explanation": "<p>Since, a, b,&nbsp;&nbsp;c &gt; 0; therefore a, b, c should be real because order relation is not defined in the set of complex numbers.<br />\r\n<span class=\"math-tex\">{tex}\\therefore{/tex}</span>&nbsp;Roots of equation are either real or complex conjugate.<br />\r\nLet&nbsp;<span class=\"math-tex\">{tex}\\alpha{/tex}</span>, <span class=\"math-tex\">{tex}\\beta{/tex}</span>&nbsp;be the roots of&nbsp;ax<sup>2&nbsp;</sup>+ bx + c = 0, then<br />\r\n<span class=\"math-tex\">{tex}\\alpha+\\beta=-\\frac{b}{a}=-v e,{/tex}</span>&nbsp;<span class=\"math-tex\">{tex}\\alpha \\beta=\\frac{c}{a}=+v e{/tex}</span><br />\r\n<span class=\"math-tex\">{tex}\\Rightarrow {/tex}</span>&nbsp;Either both&nbsp;<span class=\"math-tex\">{tex}\\alpha{/tex}</span>, <span class=\"math-tex\">{tex}\\beta{/tex}</span>&nbsp;are -ve, if roots are real or both&nbsp;<span class=\"math-tex\">{tex}\\alpha{/tex}</span>, <span class=\"math-tex\">{tex}\\beta{/tex}</span>&nbsp;have -ve real parts, if roots are complex conjugate.</p>",
+      "correctAnswer": "C",
+      "correctOptionId": 2172365
+    },
+    {
+      "id": 1056756,
+      "question": "The equation x + 2y + 2z = 1 and 2x + 4y + 4z = 9 have",
+      "question_raw": "<p>The equation&nbsp;x + 2y + 2z = 1&nbsp;and&nbsp;2x + 4y + 4z = 9&nbsp;have</p>",
+      "difficulty": "Hard",
+      "options": [
+        {
+          "id": 2172396,
+          "text": "Only two solutions"
+        },
+        {
+          "id": 2172398,
+          "text": "None of these"
+        },
+        {
+          "id": 2172395,
+          "text": "Only one solution"
+        },
+        {
+          "id": 2172397,
+          "text": "Infinite number of solutions"
+        }
+      ],
+      "correct_option_id": null,
+      "correct_option_text": null,
+      "explanation": "<p>The given equations are<br />\r\n<span class=\"math-tex\">{tex}x+2 y+2 z=1{/tex}</span>&nbsp;...(i)<br />\r\nand&nbsp;2x + 4y + 4z = 9&nbsp;...(ii)<br />\r\nOn multiplying (i), by 2 and then subtracting from (ii), we get 0 = 7, which is not possible<br />\r\n<span class=\"math-tex\">{tex}\\therefore{/tex}</span>&nbsp;No solution.</p>",
+      "correctAnswer": "B",
+      "correctOptionId": 2172398
+    },
+    {
+      "id": 1057225,
+      "question": "The number of integral solutions x of $\\log _{\\left(x+\\frac{7}{2}\\right)}\\left(\\frac{x-7}{2 x-3}\\right)^2 \\geq$ 0 is",
+      "question_raw": "<p>The number of integral solutions x of&nbsp;<span class=\"math-tex\">{tex}\\log _{\\left(x+\\frac{7}{2}\\right)}\\left(\\frac{x-7}{2 x-3}\\right)^2 \\geq{/tex}</span> 0 is</p>",
+      "difficulty": "Hard",
+      "options": [
+        {
+          "id": 2173502,
+          "text": "8"
+        },
+        {
+          "id": 2173504,
+          "text": "7"
+        },
+        {
+          "id": 2173501,
+          "text": "6"
+        },
+        {
+          "id": 2173503,
+          "text": "5"
+        }
+      ],
+      "correct_option_id": null,
+      "correct_option_text": null,
+      "explanation": "<p>Given&nbsp;<span class=\"math-tex\">{tex}\\log _{x+\\frac{7}{2}}\\left(\\frac{x-7}{2 x-3}\\right)^2 \\geq 0{/tex}</span><br />\r\nWhere,&nbsp;<span class=\"math-tex\">{tex}\\frac{x-7}{2 x-3} \\neq 0 \\Rightarrow x \\neq 7{/tex}</span><br />\r\n<span class=\"math-tex\">{tex}2 x-3+0 \\Rightarrow x \\neq 3 / 2{/tex}</span><br />\r\nFeasible region:&nbsp;<span class=\"math-tex\">{tex}x+\\frac{7}{2}&gt;0 \\Rightarrow x&gt;-\\frac{7}{2}{/tex}</span><br />\r\nand&nbsp;<span class=\"math-tex\">{tex}x+\\frac{7}{2} \\neq 1 \\Rightarrow x \\neq \\frac{-5}{2}{/tex}</span><br />\r\n<span class=\"math-tex\">{tex}x \\in\\left(\\frac{-7}{2}, \\infty\\right)-\\left\\{-\\frac{5}{2}, \\frac{3}{2}, 7\\right\\}{/tex}</span><br />\r\nNow,&nbsp;<span class=\"math-tex\">{tex} \\log _a b \\geq 0{/tex}</span>&nbsp;if&nbsp;a &gt; 1&nbsp;and&nbsp;<span class=\"math-tex\">{tex} b \\geq 1{/tex}</span>&nbsp;&nbsp;or&nbsp;&nbsp;a <span class=\"math-tex\">{tex}\\in{/tex}</span>&nbsp;(0, 1)&nbsp;and&nbsp;<span class=\"math-tex\">{tex} b \\in(0,1){/tex}</span><br />\r\n<strong>Condition-1:&nbsp;<span class=\"math-tex\">{tex}x+\\frac{7}{2}&gt;1{/tex}</span>&nbsp;</strong>and<strong>&nbsp;<span class=\"math-tex\">{tex}\\left(\\frac{x-7}{2 x-3}\\right)^2 \\geq 1{/tex}</span><br />\r\n<span class=\"math-tex\">{tex}x&gt;1-\\frac{7}{2} \\Rightarrow x&gt;-\\frac{5}{2}{/tex}</span>&nbsp;</strong>and&nbsp;<span class=\"math-tex\">{tex}(2 x-3)^2-(x-7)^2 \\geq 0{/tex}</span>&nbsp;<span class=\"math-tex\">{tex}(3 x-10)(x+4) \\leq 0{/tex}</span><br />\r\nThen,&nbsp;<span class=\"math-tex\">{tex}x \\in\\left[-4, \\frac{10}{3}\\right]{/tex}</span><br />\r\nIntersection:&nbsp;<span class=\"math-tex\">{tex}x \\in\\left(\\frac{-5}{2}, \\frac{10}{3}\\right]{/tex}</span><br />\r\n<strong>Condition-2:</strong>&nbsp;<span class=\"math-tex\">{tex}x+\\frac{7}{2} \\in(0,1){/tex}</span>&nbsp;and&nbsp;<span class=\"math-tex\">{tex}\\left(\\frac{x-7}{2 x-3}\\right)^2 \\in(0,1){/tex}</span><br />\r\n<span class=\"math-tex\">{tex}0&lt;x+\\frac{7}{2}&lt;1 \\Rightarrow-\\frac{7}{2}&lt;x&lt;\\frac{-5}{2}{/tex}</span><br />\r\n<span class=\"math-tex\">{tex}\\left(\\frac{\\mathrm{x}-7}{2 \\mathrm{x}-3}\\right)^2&lt;1 \\Rightarrow(\\mathrm{x}-7)^2&lt;(2 \\mathrm{x}-3)^2{/tex}</span><br />\r\n<span class=\"math-tex\">{tex}x \\in(-\\infty,-4) \\cup\\left(\\frac{10}{3}, \\infty\\right){/tex}</span><br />\r\nThere is no common values of x.<br />\r\nWe get&nbsp;<span class=\"math-tex\">{tex}x \\in\\left(\\frac{-5}{2}, \\frac{10}{3}\\right]-\\left\\{\\frac{3}{2}\\right\\}{/tex}</span><br />\r\nIntegral value of x are {-2, -1, 0, 1, 2, 3}<br />\r\nNo. of integral values = 6</p>",
+      "correctAnswer": "C",
+      "correctOptionId": 2173501
+    },
+    {
+      "id": 1057235,
+      "question": "Let $ S=\\left\\{x \\in[-6,3]-\\{-2,1\\}: \\frac{|x+3|-1}{|x|-2} \\geq 0\\right\\}$ and $\\mathrm{T}=\\left\\{\\mathrm{x} \\in \\mathbb{Z}: x^2-7|x|+9 \\leq 0\\right\\}$. Then the number of elements in $\\mathrm{S} \\cap \\mathrm{T} \\text { is: }$",
+      "question_raw": "<p>Let&nbsp;<span class=\"math-tex\">{tex} S=\\left\\{x \\in[-6,3]-\\{-2,1\\}: \\frac{|x+3|-1}{|x|-2} \\geq 0\\right\\}{/tex}</span>&nbsp;and&nbsp;<span class=\"math-tex\">{tex}\\mathrm{T}=\\left\\{\\mathrm{x} \\in \\mathbb{Z}: x^2-7|x|+9 \\leq 0\\right\\}{/tex}</span>.&nbsp;Then the number of elements in&nbsp;<span class=\"math-tex\">{tex}\\mathrm{S} \\cap \\mathrm{T} \\text { is: }{/tex}</span></p>",
+      "difficulty": "Hard",
+      "options": [
+        {
+          "id": 2173531,
+          "text": "4"
+        },
+        {
+          "id": 2173532,
+          "text": "3"
+        },
+        {
+          "id": 2173530,
+          "text": "5"
+        },
+        {
+          "id": 2173529,
+          "text": "7"
+        }
+      ],
+      "correct_option_id": null,
+      "correct_option_text": null,
+      "explanation": "<p><span class=\"math-tex\">{tex}\\because{/tex}</span>&nbsp;S = {-6,-5 ,-4 , 3}<br />\r\nwhere&nbsp;-5, -4, 3 Satisfy T&nbsp;<span class=\"math-tex\">{tex}\\therefore{/tex}</span>&nbsp;<span class=\"math-tex\">{tex}\\mathrm{S} \\cap \\mathrm{T}=\\{-5,-4,3\\}{/tex}</span></p>",
+      "correctAnswer": "B",
+      "correctOptionId": 2173532
+    },
+    {
+      "id": 1057240,
+      "question": "Let $S_1=\\left\\{x \\in R-\\{1,2\\}: \\frac{(x+2)\\left(x^2+3 x+5\\right)}{-2+3 x-x^2} \\geq 0\\right\\}$ and $S_2=\\left\\{\\mathrm{x} \\in \\mathrm{R}: 3^{2 x}-3^{x+1}-3^{x+2}+27 \\leq 0\\right\\}$. Then $S_1 \\cup S_2$ is equal to:",
+      "question_raw": "<p>Let&nbsp;<span class=\"math-tex\">{tex}S_1=\\left\\{x \\in R-\\{1,2\\}: \\frac{(x+2)\\left(x^2+3 x+5\\right)}{-2+3 x-x^2} \\geq 0\\right\\}{/tex}</span>&nbsp;and&nbsp;<span class=\"math-tex\">{tex}S_2=\\left\\{\\mathrm{x} \\in \\mathrm{R}: 3^{2 x}-3^{x+1}-3^{x+2}+27 \\leq 0\\right\\}{/tex}</span>. Then&nbsp;<span class=\"math-tex\">{tex}S_1 \\cup S_2{/tex}</span>&nbsp;is equal to:</p>",
+      "difficulty": "Hard",
+      "options": [
+        {
+          "id": 2173546,
+          "text": "$(-\\infty,-2] \\cup[1,2]$"
+        },
+        {
+          "id": 2173545,
+          "text": "$(-\\infty,-2] \\cup(1,2)$"
+        },
+        {
+          "id": 2173547,
+          "text": "$(-2,1] \\cup(2, \\infty)$"
+        },
+        {
+          "id": 2173548,
+          "text": "$(-\\infty, 2]$"
+        }
+      ],
+      "correct_option_id": null,
+      "correct_option_text": null,
+      "explanation": "<p>For, S<sub>1</sub>&nbsp;we have<br />\r\n<span class=\"math-tex\">{tex}\\Rightarrow \\frac{(x+2)\\left(x^2+3 x+5\\right)}{x^2-3 x+2} \\leq 0 {/tex}</span>&nbsp;<span class=\"math-tex\">{tex}\\Rightarrow x \\in(-\\infty,-2] \\cup(1,2){/tex}</span><br />\r\nFor S<sub>2</sub>, we have&nbsp;<span class=\"math-tex\">{tex}=3^x\\left(3^x-3\\right)-3^2\\left(3^x-3\\right) \\leq 0{/tex}</span><br />\r\nFor&nbsp;<span class=\"math-tex\">{tex} S_2, x \\in[1,2] \\Rightarrow(-\\infty,-2] \\cup[1,2]{/tex}</span></p>",
+      "correctAnswer": "A",
+      "correctOptionId": 2173546
+    },
+    {
+      "id": 1057245,
+      "question": "The number of elements in the set {x $\\in$ R : (|x| - 3)|x + 4| = 6} is equal to:",
+      "question_raw": "<p>The number of elements in the set&nbsp;{x <span class=\"math-tex\">{tex}\\in{/tex}</span> R : (|x| - 3)|x + 4| = 6}&nbsp;is equal to:</p>",
+      "difficulty": "Hard",
+      "options": [
+        {
+          "id": 2173559,
+          "text": "1"
+        },
+        {
+          "id": 2173557,
+          "text": "4"
+        },
+        {
+          "id": 2173558,
+          "text": "2"
+        },
+        {
+          "id": 2173560,
+          "text": "3"
+        }
+      ],
+      "correct_option_id": null,
+      "correct_option_text": null,
+      "explanation": "<p><img src=\"https://media-mycbseguide.s3.amazonaws.com/images/question_images/1699421266-w5ffqg.jpg\" style=\"height:36px; width:250px\" /><br />\r\n<strong>Case I:&nbsp;<span class=\"math-tex\">{tex}x \\in(-\\infty,-4){/tex}</span></strong><br />\r\n(x + 3)(x + 4) = 6 <span class=\"math-tex\">{tex}\\Rightarrow{/tex}</span> x<sup>2&nbsp;</sup>+ 7x + 6 = 0 <span class=\"math-tex\">{tex}\\Rightarrow{/tex}</span> x = -6<br />\r\n<strong>Case II:&nbsp;</strong><span class=\"math-tex\">{tex}x \\in(-4,0){/tex}</span><br />\r\n(x + 3)(x + 4) = -6 <span class=\"math-tex\">{tex}\\Rightarrow{/tex}</span>&nbsp;x<sup>2&nbsp;</sup>+ 7x + 18 = 0 <span class=\"math-tex\">{tex}\\Rightarrow{/tex}</span>&nbsp;No. real roots<br />\r\n<strong>Case III:</strong>&nbsp;<span class=\"math-tex\">{tex} x \\in(0, \\infty){/tex}</span><br />\r\n(x - 3)(x + 4) = 6&nbsp;<span class=\"math-tex\">{tex}\\Rightarrow{/tex}</span> x<sup>2</sup> + x - 18 = 0&nbsp;<span class=\"math-tex\">{tex} \\Rightarrow x=\\frac{\\sqrt{73}-1}{2}{/tex}</span><br />\r\nSo, the given set contains only 2 elements.</p>",
+      "correctAnswer": "C",
+      "correctOptionId": 2173558
+    },
+    {
+      "id": 1057249,
+      "question": "If A = $\\{x \\in R:|x|<2\\}$ and B = $\\{x \\in R:|x-2| \\geq 3\\} $; then:",
+      "question_raw": "<p>If&nbsp;A =&nbsp;<span class=\"math-tex\">{tex}\\{x \\in R:|x|&lt;2\\}{/tex}</span>&nbsp;and&nbsp;B =&nbsp;<span class=\"math-tex\">{tex}\\{x \\in R:|x-2| \\geq 3\\} {/tex}</span>; then:</p>",
+      "difficulty": "Medium",
+      "options": [
+        {
+          "id": 2173570,
+          "text": "B - A = R - (-2, 5)"
+        },
+        {
+          "id": 2173572,
+          "text": "A - B = [-1, 2)"
+        },
+        {
+          "id": 2173571,
+          "text": "A $\\cup$ B = R - (2, 5)"
+        },
+        {
+          "id": 2173569,
+          "text": "A $\\cap$ B = (-2, -1)"
+        }
+      ],
+      "correct_option_id": null,
+      "correct_option_text": null,
+      "explanation": "<p>A = {x: x <span class=\"math-tex\">{tex}\\in{/tex}</span>&nbsp;(-2, 2)};&nbsp;B =&nbsp;<span class=\"math-tex\">{tex}\\{x: x \\in(-\\infty,-1] \\cup[5, \\infty)\\}{/tex}</span><br />\r\n<span class=\"math-tex\">{tex}A \\cap B=\\{x: x \\in(-2,-1]\\} ; {/tex}</span>&nbsp;<span class=\"math-tex\">{tex}A \\cup B=\\{x: x \\in(-\\infty, 2) \\cup[5, \\infty)\\}{/tex}</span><br />\r\n<span class=\"math-tex\">{tex}A-B=\\{x: x \\in(-1,2)\\} ;{/tex}</span>&nbsp;<span class=\"math-tex\">{tex} B-A=\\{x: x \\in(-\\infty,-2] \\cup[5, \\infty)\\}{/tex}</span></p>",
+      "correctAnswer": "A",
+      "correctOptionId": 2173570
+    },
+    {
+      "id": 1057256,
+      "question": "A relation on the set A = $\\{x:|x|<3, x \\in Z\\},$ where Z is the set of integers is defined by R = {$(x, y): y=|x|, $ $x \\neq-1$}. Then the number of elements in the power set of R is:",
+      "question_raw": "<p>A relation on the set A =&nbsp;<span class=\"math-tex\">{tex}\\{x:|x|&lt;3, x \\in Z\\},{/tex}</span>&nbsp;where Z is the set of integers is defined by R =&nbsp;{<span class=\"math-tex\">{tex}(x, y): y=|x|, {/tex}</span>&nbsp;<span class=\"math-tex\">{tex}x \\neq-1{/tex}</span>}.&nbsp;Then the number of elements in the power set of R is:</p>",
+      "difficulty": "Medium",
+      "options": [
+        {
+          "id": 2173591,
+          "text": "16"
+        },
+        {
+          "id": 2173592,
+          "text": "8"
+        },
+        {
+          "id": 2173593,
+          "text": "64"
+        },
+        {
+          "id": 2173590,
+          "text": "32"
+        }
+      ],
+      "correct_option_id": null,
+      "correct_option_text": null,
+      "explanation": "<p>A = {x : |x| &lt; 3, x <span class=\"math-tex\">{tex}\\in{/tex}</span> Z}<br />\r\nA = {-2, -1, 0, 1, 2}; R = {(x, y) : y = |x|, x <span class=\"math-tex\">{tex}\\neq{/tex}</span>&nbsp;-1}<br />\r\nR = {(-2, 2), (0, 0), (1, 1), (2, 2)}<br />\r\nR has four elements<br />\r\nNumber of elements in the power set of R =&nbsp;2<sup>4&nbsp;</sup>= 16</p>",
+      "correctAnswer": "A",
+      "correctOptionId": 2173591
+    },
+    {
+      "id": 1057260,
+      "question": "If a_1, a_2 ..., a_n are positive real numbers whose product is a fixed number c, then the minimum value of a_1 + a_2 +...+ a_n-1 + 2a_n is",
+      "question_raw": "<p>If a<sub>1</sub>, a<sub>2</sub> ..., a<sub>n</sub>&nbsp;are positive real numbers whose product is a fixed number c, then the minimum value of&nbsp;a<sub>1&nbsp;</sub>+ a<sub>2&nbsp;</sub>+...+ a<sub>n-1&nbsp;</sub>+ 2a<sub>n</sub> is</p>",
+      "difficulty": "Hard",
+      "options": [
+        {
+          "id": 2173599,
+          "text": "(n+1)c^1/n"
+        },
+        {
+          "id": 2173601,
+          "text": "(n + 1)(2c)^1/n"
+        },
+        {
+          "id": 2173598,
+          "text": "n(2c)^1/n"
+        },
+        {
+          "id": 2173600,
+          "text": "2nc^1/n"
+        }
+      ],
+      "correct_option_id": null,
+      "correct_option_text": null,
+      "explanation": "<p>Since for positive real numbers,<br />\r\n<span class=\"math-tex\">{tex}\\text { A.M. } \\geq \\text { GM. }{/tex}</span><br />\r\n<span class=\"math-tex\">{tex}\\therefore \\frac{\\left(a_1+a_2+\\ldots+a_{n-1}+2 a_n\\right)}{n} \\geq\\left(a_1 a_2 \\ldots a_{n-1} 2 a_n\\right)^{1 / n}{/tex}</span><br />\r\n<span class=\"math-tex\">{tex}\\Rightarrow{/tex}</span>&nbsp;&nbsp;a<sub>1&nbsp;</sub>+ a<sub>2&nbsp;</sub>+ a<sub>3&nbsp;</sub>+...+ a<sub>n-1&nbsp;</sub>+ 2&nbsp;<span class=\"math-tex\">{tex}a_n \\geq n(2 c)^{1 / n}{/tex}</span><br />\r\nHence, required minimum value =&nbsp;n(2c)<sup>1/n</sup></p>",
+      "correctAnswer": "C",
+      "correctOptionId": 2173598
+    },
+    {
+      "id": 1057264,
+      "question": "The number of points of intersection of two curves y = 2 sinx and y = 5x^2 + 2x + 3 is",
+      "question_raw": "<p>The number of points of intersection of two curves&nbsp;y = 2 sinx&nbsp;and&nbsp;y = 5x<sup>2&nbsp;</sup>+ 2x + 3&nbsp;is</p>",
+      "difficulty": "Hard",
+      "options": [
+        {
+          "id": 2173615,
+          "text": "1"
+        },
+        {
+          "id": 2173614,
+          "text": "0"
+        },
+        {
+          "id": 2173616,
+          "text": "2"
+        },
+        {
+          "id": 2173617,
+          "text": "$\\infty$"
+        }
+      ],
+      "correct_option_id": null,
+      "correct_option_text": null,
+      "explanation": "<p>Given:&nbsp;y = 5x<sup>2&nbsp;</sup>+ 2x + 3&nbsp;=&nbsp;<span class=\"math-tex\">{tex}5\\left(x+\\frac{1}{5}\\right)^2+\\frac{14}{5}&gt;2, \\forall x \\in R{/tex}</span><br />\r\nwhile&nbsp;y = 2sin x <span class=\"math-tex\">{tex}\\leq{/tex}</span> 2&nbsp;<span class=\"math-tex\">{tex} \\forall x \\in R{/tex}</span><br />\r\n<span class=\"math-tex\">{tex}\\therefore{/tex}</span>&nbsp;The two curves do not meet at all.</p>",
+      "correctAnswer": "B",
+      "correctOptionId": 2173614
+    }
+  ]
+}

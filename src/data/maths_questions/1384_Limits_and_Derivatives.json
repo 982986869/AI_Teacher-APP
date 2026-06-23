@@ -1,0 +1,4732 @@
+{
+  "id": 1384,
+  "name": "Limits and Derivatives",
+  "category_full_name": "CBSE > Class 11 > Mathematics > Limits and Derivatives",
+  "total_questions": 174,
+  "topics": [
+    {
+      "id": 11600,
+      "name": "Limits (XI-12.1)",
+      "total_questions": 67,
+      "attempted_questions": 0,
+      "correct_questions": 0,
+      "score": 0
+    },
+    {
+      "id": 11601,
+      "name": "Limits of Trigonometric Functions (XI-12.1)",
+      "total_questions": 61,
+      "attempted_questions": 0,
+      "correct_questions": 0,
+      "score": 0
+    },
+    {
+      "id": 11602,
+      "name": "Derivatives (XI-12.2)",
+      "total_questions": 46,
+      "attempted_questions": 0,
+      "correct_questions": 0,
+      "score": 0
+    }
+  ],
+  "questions": [
+    {
+      "id": 19217,
+      "question": "$\\mathop {Lt}\\limits_{x \\to 0} \\frac{\\log (1+a x)-\\log (1+b x)}{x}$ is equal to",
+      "question_raw": "<p><span class=\"math-tex\">{tex}\\mathop {Lt}\\limits_{x \\to 0} \\frac{\\log (1+a x)-\\log (1+b x)}{x}{/tex}</span> is equal to</p>",
+      "difficulty": "Medium",
+      "options": [
+        {
+          "id": 32069,
+          "text": "log a + log b"
+        },
+        {
+          "id": 32067,
+          "text": "a – b"
+        },
+        {
+          "id": 32070,
+          "text": "log a – log b"
+        },
+        {
+          "id": 32068,
+          "text": "a + b"
+        }
+      ],
+      "correct_option_id": null,
+      "correct_option_text": null,
+      "explanation": null
+    },
+    {
+      "id": 19218,
+      "question": "If $f(x)=\\left|4 x-x^2-3\\right|$ when $x €[0,4]$, then, which of the following is correct?",
+      "question_raw": "<p>If <span class=\"math-tex\">{tex}f(x)=\\left|4 x-x^2-3\\right|{/tex}</span> when <span class=\"math-tex\">{tex}x €[0,4]{/tex}</span>, then, which of the following is correct?</p>",
+      "difficulty": "Medium",
+      "options": [
+        {
+          "id": 32072,
+          "text": "$x=0$ is the global maximum"
+        },
+        {
+          "id": 32071,
+          "text": "$x=3$ is the global maximum"
+        },
+        {
+          "id": 32074,
+          "text": "$x=1$ is the global maximum"
+        },
+        {
+          "id": 32073,
+          "text": "$x=2$ is the global maximum"
+        }
+      ],
+      "correct_option_id": null,
+      "correct_option_text": null,
+      "explanation": null
+    },
+    {
+      "id": 19219,
+      "question": "Let f(x) = x sin$\\frac 1 x$, x $ \\ne $ 0, then the value of the function at x = 0, so that f is continuous at x = 0, is",
+      "question_raw": "<p>Let f(x) = x sin<span class=\"math-tex\">{tex}\\frac 1 x{/tex}</span>, x&nbsp;<span class=\"math-tex\">{tex} \\ne {/tex}</span>&nbsp;0, then the value of the function at x = 0, so that f is continuous at x = 0, is</p>",
+      "difficulty": "Medium",
+      "options": [
+        {
+          "id": 32075,
+          "text": "0"
+        },
+        {
+          "id": 32078,
+          "text": "$% MathType!Translator!2!1!LaTeX.tdl!LaTeX 2.09 and later! % MathType!MTEF!2!1!+- % feaagGart1ev2aaatCvAUfeBSjuyZL2yd9gzLbvyNv2CaerbuLwBLn % hiov2DGi1BTfMBaeXatLxBI9gBaerbd9wDYLwzYbItLDharqqtubsr % 4rNCHbGeaGqiVu0Je9sqqrpepC0xbbL8F4rqqrFfpeea0xe9Lq-Jc9 % vqaqpepm0xbba9pwe9Q8fs0-yqaqpepae9pg0FirpepeKkFr0xfr-x % fr-xb9adbaqaaeGaciGaaiaabeqaamaabaabaaqcfayaaiabgkziUk % abg6HiLcaa!39D7! \\[ \\to \\infty \\]% MathType!End!2!1! $$\\sqrt{2}$"
+        },
+        {
+          "id": 32076,
+          "text": "-1"
+        },
+        {
+          "id": 32077,
+          "text": "1"
+        }
+      ],
+      "correct_option_id": null,
+      "correct_option_text": null,
+      "explanation": null
+    },
+    {
+      "id": 19220,
+      "question": "$\\lim \\limits_{x \\to 0}\\frac{\\tan x-\\sin x}{x^3}$ is equal to",
+      "question_raw": "<p><span class=\"math-tex\">{tex}\\lim \\limits_{x \\to 0}\\frac{\\tan x-\\sin x}{x^3}{/tex}</span>&nbsp;is equal to</p>",
+      "difficulty": "Medium",
+      "options": [
+        {
+          "id": 32082,
+          "text": "4"
+        },
+        {
+          "id": 32080,
+          "text": "1"
+        },
+        {
+          "id": 32079,
+          "text": "$\\frac 1 2$"
+        },
+        {
+          "id": 32081,
+          "text": "0"
+        }
+      ],
+      "correct_option_id": null,
+      "correct_option_text": null,
+      "explanation": null
+    },
+    {
+      "id": 19221,
+      "question": "$\\lim \\limits_{x \\to 0} \\frac{x \\log (1+x)}{1-\\cos x}$ is equal to",
+      "question_raw": "<p><span class=\"math-tex\">{tex}\\lim \\limits_{x \\to 0} \\frac{x \\log (1+x)}{1-\\cos x}{/tex}</span> is equal to</p>",
+      "difficulty": "Medium",
+      "options": [
+        {
+          "id": 32086,
+          "text": "0"
+        },
+        {
+          "id": 32085,
+          "text": "$\\frac 12$"
+        },
+        {
+          "id": 32083,
+          "text": "2"
+        },
+        {
+          "id": 32084,
+          "text": "1"
+        }
+      ],
+      "correct_option_id": null,
+      "correct_option_text": null,
+      "explanation": null
+    },
+    {
+      "id": 19222,
+      "question": "$\\lim \\limits_{x \\rightarrow 0} \\frac{e^{p x}-e^{q x}}{x}$ is equal to",
+      "question_raw": "<p><span class=\"math-tex\">{tex}\\lim \\limits_{x \\rightarrow 0} \\frac{e^{p x}-e^{q x}}{x}{/tex}</span> is equal to</p>",
+      "difficulty": "Medium",
+      "options": [
+        {
+          "id": 32090,
+          "text": "p^q"
+        },
+        {
+          "id": 32089,
+          "text": "log (p - q)"
+        },
+        {
+          "id": 32088,
+          "text": "log p - log q"
+        },
+        {
+          "id": 32087,
+          "text": "p - q"
+        }
+      ],
+      "correct_option_id": null,
+      "correct_option_text": null,
+      "explanation": null
+    },
+    {
+      "id": 19223,
+      "question": "$\\lim \\limits_{x \\rightarrow 0} \\frac{(1-x)^n-1}{x}$ is",
+      "question_raw": "<p><span class=\"math-tex\">{tex}\\lim \\limits_{x \\rightarrow 0} \\frac{(1-x)^n-1}{x}{/tex}</span> is</p>",
+      "difficulty": "Medium",
+      "options": [
+        {
+          "id": 32091,
+          "text": "-n"
+        },
+        {
+          "id": 32094,
+          "text": "$n^2$"
+        },
+        {
+          "id": 32093,
+          "text": "n $\\!$"
+        },
+        {
+          "id": 32092,
+          "text": "(n - 1) $\\!$"
+        }
+      ],
+      "correct_option_id": null,
+      "correct_option_text": null,
+      "explanation": null
+    },
+    {
+      "id": 19224,
+      "question": "$\\lim\\limits_{x \\to 0} \\frac{\\tan x-x}{x^2 \\tan x}$ is equal to",
+      "question_raw": "<p><span class=\"math-tex\">{tex}\\lim\\limits_{x \\to 0} \\frac{\\tan x-x}{x^2 \\tan x}{/tex}</span>&nbsp;is equal to</p>",
+      "difficulty": "Medium",
+      "options": [
+        {
+          "id": 32096,
+          "text": "$\\frac 1 2$"
+        },
+        {
+          "id": 32098,
+          "text": "0"
+        },
+        {
+          "id": 32095,
+          "text": "$\\frac 1 3$"
+        },
+        {
+          "id": 32097,
+          "text": "1"
+        }
+      ],
+      "correct_option_id": null,
+      "correct_option_text": null,
+      "explanation": null
+    },
+    {
+      "id": 19225,
+      "question": "$\\mathop {lim}\\limits_{x \\to 0} \\;\\;\\left[ {\\cos x} \\right]$",
+      "question_raw": "<p><span class=\"math-tex\">{tex}\\mathop {lim}\\limits_{x \\to 0} \\;\\;\\left[ {\\cos x} \\right]{/tex}</span></p>",
+      "difficulty": "Medium",
+      "options": [
+        {
+          "id": 32099,
+          "text": "is equal to 0"
+        },
+        {
+          "id": 32102,
+          "text": "does not exist"
+        },
+        {
+          "id": 32101,
+          "text": "is equal to – 1"
+        },
+        {
+          "id": 32100,
+          "text": "is equal to 1"
+        }
+      ],
+      "correct_option_id": null,
+      "correct_option_text": null,
+      "explanation": null
+    },
+    {
+      "id": 19226,
+      "question": "$\\lim\\limits_{x \\to 0}\\frac{\\sin x-x}{x^3}$ is equal to",
+      "question_raw": "<p><span class=\"math-tex\">{tex}\\lim\\limits_{x \\to 0}\\frac{\\sin x-x}{x^3}{/tex}</span> is equal to</p>",
+      "difficulty": "Medium",
+      "options": [
+        {
+          "id": 32104,
+          "text": "$\\frac 16$"
+        },
+        {
+          "id": 32105,
+          "text": "$ -\\frac 1 3$"
+        },
+        {
+          "id": 32103,
+          "text": "$-\\frac 16$"
+        },
+        {
+          "id": 32106,
+          "text": "0"
+        }
+      ],
+      "correct_option_id": null,
+      "correct_option_text": null,
+      "explanation": null
+    },
+    {
+      "id": 19227,
+      "question": "$\\lim\\limits_{x \\to 0} \\left(\\frac{\\sin x-x}{x}\\right) \\cos \\left(\\frac{1}{x}\\right)$ is equal to",
+      "question_raw": "<p><span class=\"math-tex\">{tex}\\lim\\limits_{x \\to 0} \\left(\\frac{\\sin x-x}{x}\\right) \\cos \\left(\\frac{1}{x}\\right){/tex}</span> is equal to</p>",
+      "difficulty": "Medium",
+      "options": [
+        {
+          "id": 32107,
+          "text": "0"
+        },
+        {
+          "id": 32108,
+          "text": "1"
+        },
+        {
+          "id": 32109,
+          "text": "$\\frac 12$"
+        },
+        {
+          "id": 32110,
+          "text": "-1"
+        }
+      ],
+      "correct_option_id": null,
+      "correct_option_text": null,
+      "explanation": null
+    },
+    {
+      "id": 19228,
+      "question": "$\\lim\\limits_{x \\to 0} \\left(\\frac{\\sin x-x}{x^4}\\right) \\sin x$ equal to",
+      "question_raw": "<p><span class=\"math-tex\">{tex}\\lim\\limits_{x \\to 0} \\left(\\frac{\\sin x-x}{x^4}\\right) \\sin x{/tex}</span> equal to</p>",
+      "difficulty": "Medium",
+      "options": [
+        {
+          "id": 32112,
+          "text": "$ - \\frac 13$"
+        },
+        {
+          "id": 32114,
+          "text": "$\\frac1 3$"
+        },
+        {
+          "id": 32111,
+          "text": "$ - \\frac 1 6$"
+        },
+        {
+          "id": 32113,
+          "text": "$\\frac 16$"
+        }
+      ],
+      "correct_option_id": null,
+      "correct_option_text": null,
+      "explanation": null
+    },
+    {
+      "id": 19229,
+      "question": "Let f(x) = $\\frac{2-(256-7 x)^{1 / 8}}{(5 x+32)^{1 / 5}-2}, x \\neq 0$, then for f to be continuous at x = 0, f(0) must be equal to",
+      "question_raw": "<p>Let f(x) =&nbsp;<span class=\"math-tex\">{tex}\\frac{2-(256-7 x)^{1 / 8}}{(5 x+32)^{1 / 5}-2}, x \\neq 0{/tex}</span>, then for f to be continuous at x = 0, f(0) must be equal to</p>",
+      "difficulty": "Medium",
+      "options": [
+        {
+          "id": 32115,
+          "text": "$\\frac {7} {64}$"
+        },
+        {
+          "id": 32117,
+          "text": "$ - \\frac {7} {64}$"
+        },
+        {
+          "id": 32116,
+          "text": "1"
+        },
+        {
+          "id": 32118,
+          "text": "-1"
+        }
+      ],
+      "correct_option_id": null,
+      "correct_option_text": null,
+      "explanation": null
+    },
+    {
+      "id": 19230,
+      "question": "If $\\begin{array}{c} \\frac{\\sin [x]}{[x]},[x] \\neq 0 \\\\ 0 \\quad,[x]=0 \\end{array}$, where [.] denotes the greatest integer function, then $\\lim \\limits _{x \\rightarrow 0} f(x)$ is equal to",
+      "question_raw": "<p>If&nbsp;<span class=\"math-tex\">{tex}\\begin{array}{c} \\frac{\\sin [x]}{[x]},[x] \\neq 0 \\\\ 0 \\quad,[x]=0 \\end{array}{/tex}</span>, where [.] denotes the greatest integer function, then&nbsp;<span class=\"math-tex\">{tex}\\lim \\limits _{x \\rightarrow 0} f(x){/tex}</span>&nbsp;is equal to</p>",
+      "difficulty": "Medium",
+      "options": [
+        {
+          "id": 32121,
+          "text": "is equal to -1"
+        },
+        {
+          "id": 32122,
+          "text": "is equal to 1"
+        },
+        {
+          "id": 32119,
+          "text": "does not exist"
+        },
+        {
+          "id": 32120,
+          "text": "is equal to 0"
+        }
+      ],
+      "correct_option_id": null,
+      "correct_option_text": null,
+      "explanation": null
+    },
+    {
+      "id": 19231,
+      "question": "$\\mathop {lim}\\limits_{x \\to \\infty } x\\left( {{a^{1/x}} - 1} \\right)$, where a > 0, is equal to",
+      "question_raw": "<p><span class=\"math-tex\">{tex}\\mathop {lim}\\limits_{x \\to \\infty } x\\left( {{a^{1/x}} - 1} \\right){/tex}</span>, where a &gt; 0, is equal to</p>",
+      "difficulty": "Medium",
+      "options": [
+        {
+          "id": 32124,
+          "text": "log_a e"
+        },
+        {
+          "id": 32123,
+          "text": "log_e a"
+        },
+        {
+          "id": 32125,
+          "text": "1"
+        },
+        {
+          "id": 32126,
+          "text": "e"
+        }
+      ],
+      "correct_option_id": null,
+      "correct_option_text": null,
+      "explanation": null
+    },
+    {
+      "id": 19232,
+      "question": "$\\lim\\limits_{x \\to \\infty } \\frac{\\sum \\limits_{r=1}^n r}{n^2}$ is equal to",
+      "question_raw": "<p><span class=\"math-tex\">{tex}\\lim\\limits_{x \\to \\infty } \\frac{\\sum \\limits_{r=1}^n r}{n^2}{/tex}</span> is equal to</p>",
+      "difficulty": "Medium",
+      "options": [
+        {
+          "id": 32130,
+          "text": "1"
+        },
+        {
+          "id": 32129,
+          "text": "$\\frac 14$"
+        },
+        {
+          "id": 32127,
+          "text": "$\\frac 1 2$"
+        },
+        {
+          "id": 32128,
+          "text": "$\\frac 1 3$"
+        }
+      ],
+      "correct_option_id": null,
+      "correct_option_text": null,
+      "explanation": null
+    },
+    {
+      "id": 19233,
+      "question": "$\\lim\\limits_{n \\to \\infty } \\frac{\\sum \\limits_{r=1}^n r^2}{n^3}$ is equal to",
+      "question_raw": "<p><span class=\"math-tex\">{tex}\\lim\\limits_{n \\to \\infty } \\frac{\\sum \\limits_{r=1}^n r^2}{n^3}{/tex}</span> is equal to</p>",
+      "difficulty": "Medium",
+      "options": [
+        {
+          "id": 32134,
+          "text": "0"
+        },
+        {
+          "id": 32131,
+          "text": "$\\frac 1 3$"
+        },
+        {
+          "id": 32132,
+          "text": "$\\frac 12$"
+        },
+        {
+          "id": 32133,
+          "text": "$\\frac 1 4$"
+        }
+      ],
+      "correct_option_id": null,
+      "correct_option_text": null,
+      "explanation": null
+    },
+    {
+      "id": 19234,
+      "question": "$\\lim\\limits_{x \\to 0} \\frac 1 x$",
+      "question_raw": "<p><span class=\"math-tex\">{tex}\\lim\\limits_{x \\to 0} \\frac 1 x{/tex}</span></p>",
+      "difficulty": "Easy",
+      "options": [
+        {
+          "id": 32135,
+          "text": "does not exist"
+        },
+        {
+          "id": 32138,
+          "text": "is equal to 0"
+        },
+        {
+          "id": 32136,
+          "text": "tends to $\\infty $"
+        },
+        {
+          "id": 32137,
+          "text": "tends to $-\\infty $"
+        }
+      ],
+      "correct_option_id": null,
+      "correct_option_text": null,
+      "explanation": null
+    },
+    {
+      "id": 19235,
+      "question": "$\\mathop {lim}\\limits_{x \\to 0} \\;\\;x\\left[ x \\right]$ is equal to",
+      "question_raw": "<p><span class=\"math-tex\">{tex}\\mathop {lim}\\limits_{x \\to 0} \\;\\;x\\left[ x \\right]{/tex}</span> is equal to</p>",
+      "difficulty": "Easy",
+      "options": [
+        {
+          "id": 32140,
+          "text": "2"
+        },
+        {
+          "id": 32141,
+          "text": "1 or -1"
+        },
+        {
+          "id": 32142,
+          "text": "$\\frac12$"
+        },
+        {
+          "id": 32139,
+          "text": "0"
+        }
+      ],
+      "correct_option_id": null,
+      "correct_option_text": null,
+      "explanation": null
+    },
+    {
+      "id": 19236,
+      "question": "$\\lim\\limits_{x \\to 0} \\frac{(1+x)^n-1}{x}$ is equal to",
+      "question_raw": "<p><span class=\"math-tex\">{tex}\\lim\\limits_{x \\to 0} \\frac{(1+x)^n-1}{x}{/tex}</span> is equal to</p>",
+      "difficulty": "Medium",
+      "options": [
+        {
+          "id": 32145,
+          "text": "-n"
+        },
+        {
+          "id": 32144,
+          "text": "1"
+        },
+        {
+          "id": 32146,
+          "text": "0"
+        },
+        {
+          "id": 32143,
+          "text": "n"
+        }
+      ],
+      "correct_option_id": null,
+      "correct_option_text": null,
+      "explanation": null
+    },
+    {
+      "id": 19237,
+      "question": "$\\lim \\limits_{n \\rightarrow \\infty}\\left\\{\\frac{1}{1-n^{2}}+\\frac{2}{1-n^{2}}+\\ldots+\\frac{n}{1-n^{2}}\\right\\}$ is equal to:",
+      "question_raw": "<p><span class=\"math-tex\">{tex}\\lim \\limits_{n \\rightarrow \\infty}\\left\\{\\frac{1}{1-n^{2}}+\\frac{2}{1-n^{2}}+\\ldots+\\frac{n}{1-n^{2}}\\right\\}{/tex}</span>&nbsp;is equal to:</p>",
+      "difficulty": "Medium",
+      "options": [
+        {
+          "id": 32148,
+          "text": "0"
+        },
+        {
+          "id": 32150,
+          "text": "1"
+        },
+        {
+          "id": 32149,
+          "text": "$\\frac{1}{2}$"
+        },
+        {
+          "id": 32147,
+          "text": "$ - \\frac{1}{2}$"
+        }
+      ],
+      "correct_option_id": null,
+      "correct_option_text": null,
+      "explanation": null
+    },
+    {
+      "id": 19238,
+      "question": "$\\lim \\limits_{h \\rightarrow 0} \\frac{\\sin ^2(x+h)-\\sin ^2 x}{h}$ is equal to",
+      "question_raw": "<p><span class=\"math-tex\">{tex}\\lim \\limits_{h \\rightarrow 0} \\frac{\\sin ^2(x+h)-\\sin ^2 x}{h}{/tex}</span> is equal to</p>",
+      "difficulty": "Medium",
+      "options": [
+        {
+          "id": 32153,
+          "text": "cos^2 x"
+        },
+        {
+          "id": 32152,
+          "text": "sin x cos x"
+        },
+        {
+          "id": 32151,
+          "text": "sin 2x"
+        },
+        {
+          "id": 32154,
+          "text": "2 sin x"
+        }
+      ],
+      "correct_option_id": null,
+      "correct_option_text": null,
+      "explanation": null
+    },
+    {
+      "id": 19239,
+      "question": "If a is a real number, then $\\lim \\limits_{x \\rightarrow a} \\frac{|x-a|}{x-a}$",
+      "question_raw": "<p>If a is a real number, then <span class=\"math-tex\">{tex}\\lim \\limits_{x \\rightarrow a} \\frac{|x-a|}{x-a}{/tex}</span></p>",
+      "difficulty": "Easy",
+      "options": [
+        {
+          "id": 32156,
+          "text": "is equal to -1"
+        },
+        {
+          "id": 32157,
+          "text": "is equal to 0"
+        },
+        {
+          "id": 32158,
+          "text": "is equal to 1"
+        },
+        {
+          "id": 32155,
+          "text": "does not exist"
+        }
+      ],
+      "correct_option_id": null,
+      "correct_option_text": null,
+      "explanation": null
+    },
+    {
+      "id": 19240,
+      "question": "If k be an integer, then $\\mathop {lim}\\limits_{x \\to {k^ + }}\\;(x - \\left[ x \\right])$ is equal to",
+      "question_raw": "<p>If k be an integer, then <span class=\"math-tex\">{tex}\\mathop {lim}\\limits_{x \\to {k^ + }}\\;(x - \\left[ x \\right]){/tex}</span> is equal to</p>",
+      "difficulty": "Medium",
+      "options": [
+        {
+          "id": 32161,
+          "text": "-1"
+        },
+        {
+          "id": 32162,
+          "text": "k"
+        },
+        {
+          "id": 32160,
+          "text": "1"
+        },
+        {
+          "id": 32159,
+          "text": "0"
+        }
+      ],
+      "correct_option_id": null,
+      "correct_option_text": null,
+      "explanation": null
+    },
+    {
+      "id": 19241,
+      "question": "$\\lim\\limits_{x \\to {a^ - } }\\frac{|x-a|}{x-a}$ is equal to",
+      "question_raw": "<p><span class=\"math-tex\">{tex}\\lim\\limits_{x \\to {a^ - } }\\frac{|x-a|}{x-a}{/tex}</span> is equal to</p>",
+      "difficulty": "Easy",
+      "options": [
+        {
+          "id": 32165,
+          "text": "1"
+        },
+        {
+          "id": 32163,
+          "text": "- 1"
+        },
+        {
+          "id": 32164,
+          "text": "0"
+        },
+        {
+          "id": 32166,
+          "text": "a"
+        }
+      ],
+      "correct_option_id": null,
+      "correct_option_text": null,
+      "explanation": null
+    },
+    {
+      "id": 19242,
+      "question": "If k be an integer, then $\\mathop {lim}\\limits_{x \\to {k^ - }^{}} \\;\\;(x - \\left[ x \\right])$ is equal to",
+      "question_raw": "<p>If k be an integer, then <span class=\"math-tex\">{tex}\\mathop {lim}\\limits_{x \\to {k^ - }^{}} \\;\\;(x - \\left[ x \\right]){/tex}</span> is equal to</p>",
+      "difficulty": "Easy",
+      "options": [
+        {
+          "id": 32168,
+          "text": "0"
+        },
+        {
+          "id": 32170,
+          "text": "k"
+        },
+        {
+          "id": 32169,
+          "text": "-1"
+        },
+        {
+          "id": 32167,
+          "text": "1"
+        }
+      ],
+      "correct_option_id": null,
+      "correct_option_text": null,
+      "explanation": null
+    },
+    {
+      "id": 19243,
+      "question": "$\\lim\\limits_{x \\to 0}\\left(\\frac{\\tan x-x}{x}\\right) \\sin \\left(\\frac{1}{x}\\right)$ is equal to",
+      "question_raw": "<p><span class=\"math-tex\">{tex}\\lim\\limits_{x \\to 0}\\left(\\frac{\\tan x-x}{x}\\right) \\sin \\left(\\frac{1}{x}\\right){/tex}</span> is equal to</p>",
+      "difficulty": "Medium",
+      "options": [
+        {
+          "id": 32172,
+          "text": "1"
+        },
+        {
+          "id": 32174,
+          "text": "-1"
+        },
+        {
+          "id": 32171,
+          "text": "0"
+        },
+        {
+          "id": 32173,
+          "text": "a real number other than 0 and 1"
+        }
+      ],
+      "correct_option_id": null,
+      "correct_option_text": null,
+      "explanation": null
+    },
+    {
+      "id": 19244,
+      "question": "$\\lim\\limits_{x \\to 3}\\frac{\\sqrt{x^2+10}-\\sqrt{19}}{x-3}$ is equal to",
+      "question_raw": "<p><span class=\"math-tex\">{tex}\\lim\\limits_{x \\to 3}\\frac{\\sqrt{x^2+10}-\\sqrt{19}}{x-3}{/tex}</span> is equal to</p>",
+      "difficulty": "Medium",
+      "options": [
+        {
+          "id": 32178,
+          "text": "1"
+        },
+        {
+          "id": 32175,
+          "text": "$\\frac{3}{\\sqrt{19}}$"
+        },
+        {
+          "id": 32177,
+          "text": "$\\frac {6} {\\sqrt {19} }$"
+        },
+        {
+          "id": 32176,
+          "text": "0"
+        }
+      ],
+      "correct_option_id": null,
+      "correct_option_text": null,
+      "explanation": null
+    },
+    {
+      "id": 19245,
+      "question": "Maximum value of x^3 - 3x + 2 in [0, 2] is",
+      "question_raw": "<p>Maximum value of x<sup>3</sup> - 3x + 2 in [0, 2] is</p>",
+      "difficulty": "Medium",
+      "options": [
+        {
+          "id": 32180,
+          "text": "2"
+        },
+        {
+          "id": 32179,
+          "text": "4"
+        },
+        {
+          "id": 32181,
+          "text": "1"
+        },
+        {
+          "id": 32182,
+          "text": "32"
+        }
+      ],
+      "correct_option_id": null,
+      "correct_option_text": null,
+      "explanation": null
+    },
+    {
+      "id": 19246,
+      "question": "$\\lim\\limits_{x \\to 0 + } \\frac{\\sqrt{x}}{\\sqrt{16+\\sqrt{x}}-4}$ is equal to",
+      "question_raw": "<p><span class=\"math-tex\">{tex}\\lim\\limits_{x \\to 0 + } \\frac{\\sqrt{x}}{\\sqrt{16+\\sqrt{x}}-4}{/tex}</span>&nbsp;is equal to&nbsp;</p>",
+      "difficulty": "Medium",
+      "options": [
+        {
+          "id": 32184,
+          "text": "0"
+        },
+        {
+          "id": 32183,
+          "text": "8"
+        },
+        {
+          "id": 32186,
+          "text": "2"
+        },
+        {
+          "id": 32185,
+          "text": "does not exist"
+        }
+      ],
+      "correct_option_id": null,
+      "correct_option_text": null,
+      "explanation": null
+    },
+    {
+      "id": 19247,
+      "question": "$\\lim \\limits_{x \\rightarrow \\frac{\\pi}{4}} \\frac{\\sec x-\\sqrt{2}}{x-\\frac{\\pi}{4}}$ is equal to",
+      "question_raw": "<p><span class=\"math-tex\">{tex}\\lim \\limits_{x \\rightarrow \\frac{\\pi}{4}} \\frac{\\sec x-\\sqrt{2}}{x-\\frac{\\pi}{4}}{/tex}</span> is equal to</p>",
+      "difficulty": "Medium",
+      "options": [
+        {
+          "id": 32190,
+          "text": "-1"
+        },
+        {
+          "id": 32187,
+          "text": "$\\sqrt 2 $"
+        },
+        {
+          "id": 32188,
+          "text": "$\\sqrt 3$"
+        },
+        {
+          "id": 32189,
+          "text": "0"
+        }
+      ],
+      "correct_option_id": null,
+      "correct_option_text": null,
+      "explanation": null
+    },
+    {
+      "id": 19248,
+      "question": "What is the value of $\\lim _\\limits{x \\rightarrow 0} \\frac{x \\tan x}{\\cot x}$ ?",
+      "question_raw": "<p>What is the value of <span class=\"math-tex\">{tex}\\lim _\\limits{x \\rightarrow 0} \\frac{x \\tan x}{\\cot x}{/tex}</span> ?<br />\n&nbsp;</p>",
+      "difficulty": "Medium",
+      "options": [
+        {
+          "id": 32192,
+          "text": "1"
+        },
+        {
+          "id": 32193,
+          "text": "$\\frac{1}{2}$"
+        },
+        {
+          "id": 32191,
+          "text": "0"
+        },
+        {
+          "id": 32194,
+          "text": "2"
+        }
+      ],
+      "correct_option_id": null,
+      "correct_option_text": null,
+      "explanation": null
+    },
+    {
+      "id": 19249,
+      "question": "$\\mathop {lim}\\limits_{x \\to \\infty }\\;\\left( {\\sqrt {{x^2} + x + 1} - x} \\right)$ is equal to",
+      "question_raw": "<p><span class=\"math-tex\">{tex}\\mathop {lim}\\limits_{x \\to \\infty }\\;\\left( {\\sqrt {{x^2} + x + 1} - x} \\right){/tex}</span> is equal to</p>",
+      "difficulty": "Medium",
+      "options": [
+        {
+          "id": 32197,
+          "text": "2"
+        },
+        {
+          "id": 32195,
+          "text": "$\\frac{1}{2}$"
+        },
+        {
+          "id": 32198,
+          "text": "-1"
+        },
+        {
+          "id": 32196,
+          "text": "0"
+        }
+      ],
+      "correct_option_id": null,
+      "correct_option_text": null,
+      "explanation": null
+    },
+    {
+      "id": 19250,
+      "question": "$\\mathop {lim}\\limits_{x \\to \\infty } \\;\\;\\left( {\\sqrt {{x^2} + 1} - x} \\right)$ is equal to",
+      "question_raw": "<p><span class=\"math-tex\">{tex}\\mathop {lim}\\limits_{x \\to \\infty } \\;\\;\\left( {\\sqrt {{x^2} + 1} - x} \\right){/tex}</span> is equal to</p>",
+      "difficulty": "Medium",
+      "options": [
+        {
+          "id": 32200,
+          "text": "$\\frac{1}{2}$"
+        },
+        {
+          "id": 32199,
+          "text": "0"
+        },
+        {
+          "id": 32201,
+          "text": "2"
+        },
+        {
+          "id": 32202,
+          "text": "-1"
+        }
+      ],
+      "correct_option_id": null,
+      "correct_option_text": null,
+      "explanation": null
+    },
+    {
+      "id": 19251,
+      "question": "$\\lim \\limits_{x \\rightarrow \\frac{\\pi}{4}} \\frac{\\tan x-1}{x-\\frac{\\pi}{4}}$ is equal to",
+      "question_raw": "<p><span class=\"math-tex\">{tex}\\lim \\limits_{x \\rightarrow \\frac{\\pi}{4}} \\frac{\\tan x-1}{x-\\frac{\\pi}{4}}{/tex}</span> is equal to</p>",
+      "difficulty": "Medium",
+      "options": [
+        {
+          "id": 32203,
+          "text": "2"
+        },
+        {
+          "id": 32206,
+          "text": "0"
+        },
+        {
+          "id": 32204,
+          "text": "$\\frac 12$"
+        },
+        {
+          "id": 32205,
+          "text": "1"
+        }
+      ],
+      "correct_option_id": null,
+      "correct_option_text": null,
+      "explanation": null
+    },
+    {
+      "id": 19252,
+      "question": "$\\lim \\limits_{h \\to 0} \\frac{\\sin \\sqrt{x+h-\\sin \\sqrt{x}}}{h}$ is equal to",
+      "question_raw": "<p><span class=\"math-tex\">{tex}\\lim \\limits_{h \\to 0} \\frac{\\sin \\sqrt{x+h-\\sin \\sqrt{x}}}{h}{/tex}</span> is equal to</p>",
+      "difficulty": "Medium",
+      "options": [
+        {
+          "id": 32209,
+          "text": "$\\frac {cos \\sqrt x } {3\\sqrt x }$"
+        },
+        {
+          "id": 32208,
+          "text": "$\\frac {1} {2\\sin \\sqrt x }$"
+        },
+        {
+          "id": 32210,
+          "text": "$\\sin \\sqrt x $"
+        },
+        {
+          "id": 32207,
+          "text": "$\\frac{\\cos \\sqrt{x}}{2 \\sqrt{x}}$"
+        }
+      ],
+      "correct_option_id": null,
+      "correct_option_text": null,
+      "explanation": null
+    },
+    {
+      "id": 19253,
+      "question": "$\\mathop {lim}\\limits_{x \\to 1} \\;\\left( {\\cos \\left[ x \\right]} \\right)$ is equal to",
+      "question_raw": "<p><span class=\"math-tex\">{tex}\\mathop {lim}\\limits_{x \\to 1} \\;\\left( {\\cos \\left[ x \\right]} \\right){/tex}</span>&nbsp;is equal to&nbsp;</p>",
+      "difficulty": "Medium",
+      "options": [
+        {
+          "id": 32211,
+          "text": "does not exist"
+        },
+        {
+          "id": 32214,
+          "text": "0"
+        },
+        {
+          "id": 32212,
+          "text": "1"
+        },
+        {
+          "id": 32213,
+          "text": "cos 1"
+        }
+      ],
+      "correct_option_id": null,
+      "correct_option_text": null,
+      "explanation": null
+    },
+    {
+      "id": 19254,
+      "question": "$\\lim \\limits_{x \\rightarrow 0} \\frac{\\tan x}{\\log (1+x)}$ is equal to",
+      "question_raw": "<p><span class=\"math-tex\">{tex}\\lim \\limits_{x \\rightarrow 0} \\frac{\\tan x}{\\log (1+x)}{/tex}</span> is equal to</p>",
+      "difficulty": "Medium",
+      "options": [
+        {
+          "id": 32215,
+          "text": "1"
+        },
+        {
+          "id": 32218,
+          "text": "log 2"
+        },
+        {
+          "id": 32217,
+          "text": "does not exist"
+        },
+        {
+          "id": 32216,
+          "text": "0"
+        }
+      ],
+      "correct_option_id": null,
+      "correct_option_text": null,
+      "explanation": null
+    },
+    {
+      "id": 19255,
+      "question": "If f(x) = $\\int \\frac{x+\\sin x}{x+\\cos x} d x$, then $\\lim\\limits_{x \\to \\infty } f'(x) $ =",
+      "question_raw": "<p>If f(x) =&nbsp;<span class=\"math-tex\">{tex}\\int \\frac{x+\\sin x}{x+\\cos x} d x{/tex}</span>,&nbsp;then <span class=\"math-tex\">{tex}\\lim\\limits_{x \\to \\infty } f'(x) {/tex}</span>&nbsp;=</p>",
+      "difficulty": "Medium",
+      "options": [
+        {
+          "id": 32222,
+          "text": "2"
+        },
+        {
+          "id": 32220,
+          "text": "0"
+        },
+        {
+          "id": 32219,
+          "text": "1"
+        },
+        {
+          "id": 32221,
+          "text": "$\\infty $"
+        }
+      ],
+      "correct_option_id": null,
+      "correct_option_text": null,
+      "explanation": null
+    },
+    {
+      "id": 19256,
+      "question": "$\\lim \\limits_{x \\rightarrow 0}\\left(\\frac{1+\\tan x}{1-\\tan x}\\right)^{\\frac{1}{x}}$ is equal to",
+      "question_raw": "<p><span class=\"math-tex\">{tex}\\lim \\limits_{x \\rightarrow 0}\\left(\\frac{1+\\tan x}{1-\\tan x}\\right)^{\\frac{1}{x}}{/tex}</span> is equal to</p>",
+      "difficulty": "Medium",
+      "options": [
+        {
+          "id": 32224,
+          "text": "1"
+        },
+        {
+          "id": 32223,
+          "text": "e^2"
+        },
+        {
+          "id": 32225,
+          "text": "0"
+        },
+        {
+          "id": 32226,
+          "text": "2"
+        }
+      ],
+      "correct_option_id": null,
+      "correct_option_text": null,
+      "explanation": null
+    },
+    {
+      "id": 19257,
+      "question": "$\\lim \\limits_{x \\rightarrow 0} \\frac{\\sin x^n}{(\\sin x)^m}$, n > m > 0 is equal to",
+      "question_raw": "<p><span class=\"math-tex\">{tex}\\lim \\limits_{x \\rightarrow 0} \\frac{\\sin x^n}{(\\sin x)^m}{/tex}</span>,&nbsp;n &gt; m &gt; 0 is equal to</p>",
+      "difficulty": "Medium",
+      "options": [
+        {
+          "id": 32229,
+          "text": "$\\frac n m$"
+        },
+        {
+          "id": 32230,
+          "text": "$\\frac m n$"
+        },
+        {
+          "id": 32227,
+          "text": "0"
+        },
+        {
+          "id": 32228,
+          "text": "1"
+        }
+      ],
+      "correct_option_id": null,
+      "correct_option_text": null,
+      "explanation": null
+    },
+    {
+      "id": 19258,
+      "question": "$\\lim \\limits_{x \\rightarrow 4} \\frac{3-\\sqrt{5+x}}{1-\\sqrt{5-x}}$ =",
+      "question_raw": "<p><span class=\"math-tex\">{tex}\\lim \\limits_{x \\rightarrow 4} \\frac{3-\\sqrt{5+x}}{1-\\sqrt{5-x}}{/tex}</span>&nbsp;=</p>",
+      "difficulty": "Medium",
+      "options": [
+        {
+          "id": 32234,
+          "text": "does not exist"
+        },
+        {
+          "id": 32231,
+          "text": "$ - \\frac{1}{3}$"
+        },
+        {
+          "id": 32233,
+          "text": "0"
+        },
+        {
+          "id": 32232,
+          "text": "$\\frac 1 3$"
+        }
+      ],
+      "correct_option_id": null,
+      "correct_option_text": null,
+      "explanation": null
+    },
+    {
+      "id": 19259,
+      "question": "If G(x) = $\\sqrt {25 - {x^2}} $ then $\\lim \\limits_{x \\rightarrow 1} \\frac{G(x)-G(1)}{x-1}$ has the value",
+      "question_raw": "<p>If G(x) = <span class=\"math-tex\">{tex}\\sqrt {25 - {x^2}} {/tex}</span> then <span class=\"math-tex\">{tex}\\lim \\limits_{x \\rightarrow 1} \\frac{G(x)-G(1)}{x-1}{/tex}</span> has the value</p>",
+      "difficulty": "Medium",
+      "options": [
+        {
+          "id": 32236,
+          "text": "$\\frac 1 5$"
+        },
+        {
+          "id": 32237,
+          "text": "$ - \\sqrt {24} $"
+        },
+        {
+          "id": 32235,
+          "text": "$\\frac {-1}{\\sqrt {24} }$"
+        },
+        {
+          "id": 32238,
+          "text": "$\\frac {1} {24}$"
+        }
+      ],
+      "correct_option_id": null,
+      "correct_option_text": null,
+      "explanation": null
+    },
+    {
+      "id": 19260,
+      "question": "If $y = \\sqrt {\\log x + \\sqrt {\\log x + \\sqrt {\\log x + ...to\\;\\infty } } } $ then $\\frac {dy} {dx}$ is equal to",
+      "question_raw": "<p>If <span class=\"math-tex\">{tex}y = \\sqrt {\\log x + \\sqrt {\\log x + \\sqrt {\\log x + ...to\\;\\infty } } } {/tex}</span> then <span class=\"math-tex\">{tex}\\frac {dy} {dx}{/tex}</span> is equal to</p>",
+      "difficulty": "Medium",
+      "options": [
+        {
+          "id": 32241,
+          "text": "$\\frac{x}{2 y-1}$"
+        },
+        {
+          "id": 32239,
+          "text": "$\\frac{1}{x(2 y-1)}$"
+        },
+        {
+          "id": 32240,
+          "text": "$\\frac{\\log x}{(2 y-1)}$"
+        },
+        {
+          "id": 32242,
+          "text": "$\\frac{y}{2 x-1}$"
+        }
+      ],
+      "correct_option_id": null,
+      "correct_option_text": null,
+      "explanation": null
+    },
+    {
+      "id": 19261,
+      "question": "If f be a function such that f(9) = 9 and f'(9) = 3, then $\\lim\\limits_{x \\to 9} \\frac{\\sqrt{f(x)}-3}{\\sqrt{x}-3}$ is equal to",
+      "question_raw": "<p>If f be a function such that f(9) = 9 and f&#39;(9) = 3, then <span class=\"math-tex\">{tex}\\lim\\limits_{x \\to 9} \\frac{\\sqrt{f(x)}-3}{\\sqrt{x}-3}{/tex}</span> is equal to</p>",
+      "difficulty": "Medium",
+      "options": [
+        {
+          "id": 32244,
+          "text": "9"
+        },
+        {
+          "id": 32243,
+          "text": "3"
+        },
+        {
+          "id": 32246,
+          "text": "0"
+        },
+        {
+          "id": 32245,
+          "text": "1"
+        }
+      ],
+      "correct_option_id": null,
+      "correct_option_text": null,
+      "explanation": null
+    },
+    {
+      "id": 19262,
+      "question": "$\\lim \\limits_{h \\rightarrow 0} \\frac{\\sqrt[3]{8+h}-2}{h}$ is equal to",
+      "question_raw": "<p><span class=\"math-tex\">{tex}\\lim \\limits_{h \\rightarrow 0} \\frac{\\sqrt[3]{8+h}-2}{h}{/tex}</span> is equal to</p>",
+      "difficulty": "Medium",
+      "options": [
+        {
+          "id": 32247,
+          "text": "$\\frac 1 {12}$"
+        },
+        {
+          "id": 32250,
+          "text": "2"
+        },
+        {
+          "id": 32249,
+          "text": "$\\frac {1 }{24}$"
+        },
+        {
+          "id": 32248,
+          "text": "$\\frac 13$"
+        }
+      ],
+      "correct_option_id": null,
+      "correct_option_text": null,
+      "explanation": null
+    },
+    {
+      "id": 19263,
+      "question": "If f (x) = $\\sqrt {1 - {x^2}} $, x $\\in$ (0, 1), then f'(x), is equal to",
+      "question_raw": "<p>If f (x) = <span class=\"math-tex\">{tex}\\sqrt {1 - {x^2}} {/tex}</span>, x&nbsp;<span class=\"math-tex\">{tex}\\in{/tex}</span>&nbsp;(0, 1), then f&#39;(x),&nbsp;is equal to</p>",
+      "difficulty": "Medium",
+      "options": [
+        {
+          "id": 32253,
+          "text": "$\\sqrt {1 - {x^2}} $"
+        },
+        {
+          "id": 32252,
+          "text": "$\\frac{1}{\\sqrt{1-x^2}}$"
+        },
+        {
+          "id": 32254,
+          "text": "$\\sqrt {{x^2} - 1} $"
+        },
+        {
+          "id": 32251,
+          "text": "$\\frac{-x}{\\sqrt{1-x^2}}$"
+        }
+      ],
+      "correct_option_id": null,
+      "correct_option_text": null,
+      "explanation": null
+    },
+    {
+      "id": 19264,
+      "question": "If y = sin^-1 x and z = ${\\cos ^{ - 1}}\\sqrt {1 - {x^2}}$, then $\\frac {dy} {dz}$ =",
+      "question_raw": "<p>If y = sin<sup>-1</sup> x and z = <span class=\"math-tex\">{tex}{\\cos ^{ - 1}}\\sqrt {1 - {x^2}}{/tex}</span>, then <span class=\"math-tex\">{tex}\\frac {dy} {dz}{/tex}</span> =</p>",
+      "difficulty": "Medium",
+      "options": [
+        {
+          "id": 32256,
+          "text": "-1"
+        },
+        {
+          "id": 32258,
+          "text": "$\\tan ^{-1} \\frac{x}{\\sqrt{1-x^2}}$"
+        },
+        {
+          "id": 32255,
+          "text": "1"
+        },
+        {
+          "id": 32257,
+          "text": "0"
+        }
+      ],
+      "correct_option_id": null,
+      "correct_option_text": null,
+      "explanation": null
+    },
+    {
+      "id": 19265,
+      "question": "$\\frac{d}{d x}\\left\\{\\tan ^{-1}\\left(\\frac{3 x-x^3}{1-3 x^2}\\right)\\right\\}$ is equal to",
+      "question_raw": "<p><span class=\"math-tex\">{tex}\\frac{d}{d x}\\left\\{\\tan ^{-1}\\left(\\frac{3 x-x^3}{1-3 x^2}\\right)\\right\\}{/tex}</span> is equal to</p>",
+      "difficulty": "Medium",
+      "options": [
+        {
+          "id": 32261,
+          "text": "sec^23x"
+        },
+        {
+          "id": 32259,
+          "text": "$\\frac{3}{1+x^2}$"
+        },
+        {
+          "id": 32260,
+          "text": "$\\frac {3}{1 + 9x^2}$"
+        },
+        {
+          "id": 32262,
+          "text": "$\\frac {1}{1 + x^2}$"
+        }
+      ],
+      "correct_option_id": null,
+      "correct_option_text": null,
+      "explanation": null
+    },
+    {
+      "id": 19266,
+      "question": "The function, f(x) = (x - a)^2 $\\cos \\frac {1} {x - a}$ for x $\\ne$ 0 and f(a) = 0, is",
+      "question_raw": "<p>The function, f(x) = (x - a)<sup>2</sup>&nbsp;<span class=\"math-tex\">{tex}\\cos \\frac {1} {x - a}{/tex}</span>&nbsp;for x&nbsp;<span class=\"math-tex\">{tex}\\ne{/tex}</span>&nbsp;0&nbsp;and f(a) = 0, is</p>",
+      "difficulty": "Hard",
+      "options": [
+        {
+          "id": 32263,
+          "text": "derivable at x = a"
+        },
+        {
+          "id": 32266,
+          "text": "neither continuous nor derivable at x = a"
+        },
+        {
+          "id": 32265,
+          "text": "not continuous at x = a"
+        },
+        {
+          "id": 32264,
+          "text": "continuous but not derivable at x = 0"
+        }
+      ],
+      "correct_option_id": null,
+      "correct_option_text": null,
+      "explanation": null
+    },
+    {
+      "id": 19267,
+      "question": "$\\frac{d}{d x}\\left(\\cos ^{-1}\\left(\\frac{x^{-1}-x}{x^{-1}+x}\\right)\\right)$ is equal to",
+      "question_raw": "<p><span class=\"math-tex\">{tex}\\frac{d}{d x}\\left(\\cos ^{-1}\\left(\\frac{x^{-1}-x}{x^{-1}+x}\\right)\\right){/tex}</span> is equal to</p>",
+      "difficulty": "Medium",
+      "options": [
+        {
+          "id": 32268,
+          "text": "$\\frac { - 2} {\\sqrt {1 + x^2}}$"
+        },
+        {
+          "id": 32269,
+          "text": "$\\frac {4} {1 + {x^2}}$, x > 0"
+        },
+        {
+          "id": 32267,
+          "text": "$\\frac {2} {1 + x^2}$, x > 0"
+        },
+        {
+          "id": 32270,
+          "text": "1 - x^2"
+        }
+      ],
+      "correct_option_id": null,
+      "correct_option_text": null,
+      "explanation": null
+    },
+    {
+      "id": 19268,
+      "question": "$\\frac{d}{d x}\\left(\\sin ^{-1}\\left(\\frac{2}{x^{-1}+x}\\right)\\right)$ is equal to",
+      "question_raw": "<p><span class=\"math-tex\">{tex}\\frac{d}{d x}\\left(\\sin ^{-1}\\left(\\frac{2}{x^{-1}+x}\\right)\\right){/tex}</span> is equal to</p>",
+      "difficulty": "Medium",
+      "options": [
+        {
+          "id": 32273,
+          "text": "$\\frac {1} {\\sqrt {x + x^2}} $"
+        },
+        {
+          "id": 32271,
+          "text": "$\\frac {2} {1 + {x^2}}$, 0 |x| < 1"
+        },
+        {
+          "id": 32274,
+          "text": "$\\sqrt{1-x^2}$"
+        },
+        {
+          "id": 32272,
+          "text": "$\\frac {2} {\\sqrt {1 + x^2}}$, |x| < 1"
+        }
+      ],
+      "correct_option_id": null,
+      "correct_option_text": null,
+      "explanation": null
+    },
+    {
+      "id": 19269,
+      "question": "$\\frac{d}{d x}\\left(\\tan ^{-1}\\left(\\frac{x}{\\sqrt{1-x^2}}\\right)\\right)$ is equal to",
+      "question_raw": "<p><span class=\"math-tex\">{tex}\\frac{d}{d x}\\left(\\tan ^{-1}\\left(\\frac{x}{\\sqrt{1-x^2}}\\right)\\right){/tex}</span> is equal to</p>",
+      "difficulty": "Medium",
+      "options": [
+        {
+          "id": 32276,
+          "text": "$\\frac {1} {1 + x^2}$"
+        },
+        {
+          "id": 32278,
+          "text": "1 + x^2"
+        },
+        {
+          "id": 32277,
+          "text": "$\\frac { - 1} {\\sqrt 1 - {x^2}} $"
+        },
+        {
+          "id": 32275,
+          "text": "$\\frac {1} {\\sqrt {1 - x^2}} $"
+        }
+      ],
+      "correct_option_id": null,
+      "correct_option_text": null,
+      "explanation": null
+    },
+    {
+      "id": 19270,
+      "question": "$\\frac{d}{d x}\\left(\\tan ^{-1}\\left(\\frac{2}{x^{-1}-x}\\right)\\right)$ is equal to",
+      "question_raw": "<p><span class=\"math-tex\">{tex}\\frac{d}{d x}\\left(\\tan ^{-1}\\left(\\frac{2}{x^{-1}-x}\\right)\\right){/tex}</span> is equal to</p>",
+      "difficulty": "Medium",
+      "options": [
+        {
+          "id": 32282,
+          "text": "$\\sqrt{1-x^2}$"
+        },
+        {
+          "id": 32281,
+          "text": "$\\frac {1} {1 + x^2},x \\ne 0, \\pm 1$"
+        },
+        {
+          "id": 32279,
+          "text": "$\\frac{2}{1+x^2},x \\ne 0, \\pm 1$"
+        },
+        {
+          "id": 32280,
+          "text": "$\\frac { - 2} {\\sqrt {1 - x^2}} $"
+        }
+      ],
+      "correct_option_id": null,
+      "correct_option_text": null,
+      "explanation": null
+    },
+    {
+      "id": 19271,
+      "question": "If $\\sin x = \\frac {t} {\\sqrt {1 + t^2}}$, then $\\frac {dx} {dt}$ is equal to",
+      "question_raw": "<p>If <span class=\"math-tex\">{tex}\\sin x = \\frac {t} {\\sqrt {1 + t^2}}{/tex}</span>, then&nbsp;<span class=\"math-tex\">{tex}\\frac {dx}  {dt}{/tex}</span> is equal to</p>",
+      "difficulty": "Medium",
+      "options": [
+        {
+          "id": 32284,
+          "text": "$\\frac {1}{\\left( 1 + t^2 \\right)^{3/2}}$"
+        },
+        {
+          "id": 32286,
+          "text": "$\\cos x+ t^2$"
+        },
+        {
+          "id": 32283,
+          "text": "$\\frac {1} {1 + t^2}$"
+        },
+        {
+          "id": 32285,
+          "text": "$\\frac {1} {\\sqrt {1 - t^2}} $"
+        }
+      ],
+      "correct_option_id": null,
+      "correct_option_text": null,
+      "explanation": null
+    },
+    {
+      "id": 19272,
+      "question": "$\\frac{d}{d x}\\left(\\sin ^{-1} x\\right)=\\frac{1}{\\sqrt{1-x^2}}$ holds true for",
+      "question_raw": "<p><span class=\"math-tex\">{tex}\\frac{d}{d x}\\left(\\sin ^{-1} x\\right)=\\frac{1}{\\sqrt{1-x^2}}{/tex}</span> holds true for</p>",
+      "difficulty": "Hard",
+      "options": [
+        {
+          "id": 32288,
+          "text": "all real x for which |x| > 1"
+        },
+        {
+          "id": 32289,
+          "text": "all x [-1, 1]"
+        },
+        {
+          "id": 32290,
+          "text": "all real x"
+        },
+        {
+          "id": 32287,
+          "text": "all x $\\in $ ( - 1, 1)"
+        }
+      ],
+      "correct_option_id": null,
+      "correct_option_text": null,
+      "explanation": null
+    },
+    {
+      "id": 19273,
+      "question": "Derivative of tan $\\sqrt {{x^2} + 1}$ w.r.t $\\sqrt{x^{2}+1}$ is",
+      "question_raw": "<p>Derivative of tan <span class=\"math-tex\">{tex}\\sqrt {{x^2} + 1}{/tex}</span>&nbsp;w.r.t&nbsp;<span class=\"math-tex\">{tex}\\sqrt{x^{2}+1}{/tex}</span> is</p>",
+      "difficulty": "Medium",
+      "options": [
+        {
+          "id": 32294,
+          "text": "$\\frac{2 x}{\\sqrt{1+x^2}}$"
+        },
+        {
+          "id": 32292,
+          "text": "sec^2 x"
+        },
+        {
+          "id": 32293,
+          "text": "$\\sec ^2\\left(\\frac{x}{\\sqrt{x^2+1}}\\right)$"
+        },
+        {
+          "id": 32291,
+          "text": "${\\sec ^2}\\sqrt {{x^2} + 1} $"
+        }
+      ],
+      "correct_option_id": null,
+      "correct_option_text": null,
+      "explanation": null
+    },
+    {
+      "id": 19274,
+      "question": "If y = $\\frac {1 - x} {1 + x}$ then y_6 =",
+      "question_raw": "<p>If y =&nbsp;<span class=\"math-tex\">{tex}\\frac {1 - x} {1 + x}{/tex}</span>&nbsp;then y<sub>6</sub> =</p>",
+      "difficulty": "Medium",
+      "options": [
+        {
+          "id": 32296,
+          "text": "$\\frac{(-2).(6!)}{(1 + x)^7}$"
+        },
+        {
+          "id": 32297,
+          "text": "$\\frac{6!}{{{{(1 + x)}^7}}}$"
+        },
+        {
+          "id": 32298,
+          "text": "$\\frac{(-2).(7!)}{(1 + x)^6}$"
+        },
+        {
+          "id": 32295,
+          "text": "$\\frac{(2).(6!)}{(1 + x)^7}$"
+        }
+      ],
+      "correct_option_id": null,
+      "correct_option_text": null,
+      "explanation": null
+    },
+    {
+      "id": 19275,
+      "question": "If y = log $(x + \\sqrt {1 + {x^2})} $ then $\\frac {d^2y} {dx^2}$ =",
+      "question_raw": "<p>If y = log <span class=\"math-tex\">{tex}(x + \\sqrt {1 + {x^2})} {/tex}</span> then <span class=\"math-tex\">{tex}\\frac {d^2y} {dx^2}{/tex}</span>&nbsp;=&nbsp;</p>",
+      "difficulty": "Medium",
+      "options": [
+        {
+          "id": 32299,
+          "text": "$\\frac { - x} {(x^2 + 1)^{3/2}}$"
+        },
+        {
+          "id": 32302,
+          "text": "$\\frac {1} {\\sqrt {x^2 + 1}}$"
+        },
+        {
+          "id": 32300,
+          "text": "$\\frac{-2 x}{\\left(x^2+1\\right)^{3 / 2}}$"
+        },
+        {
+          "id": 32301,
+          "text": "$\\frac {x} {(x^2 + 1)^{3/2}}$"
+        }
+      ],
+      "correct_option_id": null,
+      "correct_option_text": null,
+      "explanation": null
+    },
+    {
+      "id": 19276,
+      "question": "If y = log x, then y_n =",
+      "question_raw": "<p>If y = log x, then y<sub>n</sub> =&nbsp;</p>",
+      "difficulty": "Medium",
+      "options": [
+        {
+          "id": 32303,
+          "text": "$\\frac{(-1)^{n-1}(n-1) !}{x^n}$"
+        },
+        {
+          "id": 32306,
+          "text": "$\\frac{(-1)^n \\cdot n !}{x^n}$"
+        },
+        {
+          "id": 32304,
+          "text": "$\\frac{(-1)^n(n-1) !}{x^n}$"
+        },
+        {
+          "id": 32305,
+          "text": "$\\frac{(-1)^n \\cdot n !}{x^{n+1}}$"
+        }
+      ],
+      "correct_option_id": null,
+      "correct_option_text": null,
+      "explanation": null
+    },
+    {
+      "id": 19277,
+      "question": "The derivative of $\\sec ^{-1}\\left(\\frac{1}{2 x^2-1}\\right)$ with respect to $\\sqrt {1 - {x^2}} $ at x = $\\frac{1}{2}$ is",
+      "question_raw": "<p>The derivative of <span class=\"math-tex\">{tex}\\sec ^{-1}\\left(\\frac{1}{2 x^2-1}\\right){/tex}</span> with respect to <span class=\"math-tex\">{tex}\\sqrt {1 - {x^2}} {/tex}</span>&nbsp;at x =&nbsp;<span class=\"math-tex\">{tex}\\frac{1}{2}{/tex}</span>&nbsp;is</p>",
+      "difficulty": "Medium",
+      "options": [
+        {
+          "id": 32310,
+          "text": "1"
+        },
+        {
+          "id": 32309,
+          "text": "-2"
+        },
+        {
+          "id": 32307,
+          "text": "4"
+        },
+        {
+          "id": 32308,
+          "text": "2"
+        }
+      ],
+      "correct_option_id": null,
+      "correct_option_text": null,
+      "explanation": null
+    },
+    {
+      "id": 19278,
+      "question": "$\\frac{d}{d x}\\left(\\frac{x}{2} \\sqrt{x^2+a^2}+\\frac{a^2}{2} \\log \\left(x+\\sqrt{x^2+a^2}\\right)\\right)$ is equal to",
+      "question_raw": "<p><span class=\"math-tex\">{tex}\\frac{d}{d x}\\left(\\frac{x}{2} \\sqrt{x^2+a^2}+\\frac{a^2}{2} \\log \\left(x+\\sqrt{x^2+a^2}\\right)\\right){/tex}</span> is equal to</p>",
+      "difficulty": "Medium",
+      "options": [
+        {
+          "id": 32312,
+          "text": "$\\frac {1} {\\sqrt {x^2 + a^2}} $"
+        },
+        {
+          "id": 32314,
+          "text": "$\\sqrt{x^2-a^2}$"
+        },
+        {
+          "id": 32311,
+          "text": "$\\sqrt {{x^2} + {a^2}} $"
+        },
+        {
+          "id": 32313,
+          "text": "$\\frac{1}{x+\\sqrt{x^2+a^2}}$"
+        }
+      ],
+      "correct_option_id": null,
+      "correct_option_text": null,
+      "explanation": null
+    },
+    {
+      "id": 19279,
+      "question": "$\\frac{d}{d x}\\left(x \\sqrt{a^2-x^2}+a^2 \\sin ^{-1}\\left(\\frac{x}{a}\\right)\\right)$ is equal to",
+      "question_raw": "<p><span class=\"math-tex\">{tex}\\frac{d}{d x}\\left(x \\sqrt{a^2-x^2}+a^2 \\sin ^{-1}\\left(\\frac{x}{a}\\right)\\right){/tex}</span> is equal to</p>",
+      "difficulty": "Medium",
+      "options": [
+        {
+          "id": 32316,
+          "text": "$\\sqrt {{a^2} - {x^2}} $"
+        },
+        {
+          "id": 32315,
+          "text": "$2\\sqrt {{a^2} - {x^2}} $"
+        },
+        {
+          "id": 32318,
+          "text": "1 + x^2"
+        },
+        {
+          "id": 32317,
+          "text": "$\\frac {1} {\\log x}$"
+        }
+      ],
+      "correct_option_id": null,
+      "correct_option_text": null,
+      "explanation": null
+    },
+    {
+      "id": 19280,
+      "question": "$\\frac{d}{d x}\\left(\\sin ^{-1}\\left(\\sqrt{1-x^2}\\right)\\right)$is equal to",
+      "question_raw": "<p><span class=\"math-tex\">{tex}\\frac{d}{d x}\\left(\\sin ^{-1}\\left(\\sqrt{1-x^2}\\right)\\right){/tex}</span>is equal to</p>",
+      "difficulty": "Medium",
+      "options": [
+        {
+          "id": 32319,
+          "text": "$-\\frac{x}{|x| \\sqrt{1-x^2}}$ for 0 < |x| < 1"
+        },
+        {
+          "id": 32320,
+          "text": "$-\\frac{x}{\\sqrt{1-x^2}}$ for 0 < |x| < 1"
+        },
+        {
+          "id": 32321,
+          "text": "$-\\frac{1}{\\sqrt{1-x^2}}$ for |x| < 1"
+        },
+        {
+          "id": 32322,
+          "text": "1 + x^2"
+        }
+      ],
+      "correct_option_id": null,
+      "correct_option_text": null,
+      "explanation": null
+    },
+    {
+      "id": 19281,
+      "question": "$\\frac{d}{d x}\\left(\\cos ^{-1}\\left(\\sqrt{\\left.1-x^2\\right)}\\right)\\right.$ is equal to",
+      "question_raw": "<p><span class=\"math-tex\">{tex}\\frac{d}{d x}\\left(\\cos ^{-1}\\left(\\sqrt{\\left.1-x^2\\right)}\\right)\\right.{/tex}</span> is equal to</p>",
+      "difficulty": "Medium",
+      "options": [
+        {
+          "id": 32324,
+          "text": "$\\frac{1}{\\sqrt{1-x^2}}$ for 0 < |x| < 1"
+        },
+        {
+          "id": 32326,
+          "text": "$\\frac{2}{\\sqrt{4-(2 x)^2}}$ for |x| < 1"
+        },
+        {
+          "id": 32325,
+          "text": "$\\frac{1}{\\sqrt{1+x^2}}$ for |x| < 1"
+        },
+        {
+          "id": 32323,
+          "text": "$\\frac{x}{|x| \\sqrt{1-x^2}}$ for 0 <|x| < 1"
+        }
+      ],
+      "correct_option_id": null,
+      "correct_option_text": null,
+      "explanation": null
+    },
+    {
+      "id": 19282,
+      "question": "$\\frac{d}{d x}\\left(\\sec ^{-1} x\\right)$ is equal to",
+      "question_raw": "<p><span class=\"math-tex\">{tex}\\frac{d}{d x}\\left(\\sec ^{-1} x\\right){/tex}</span> is equal to</p>",
+      "difficulty": "Medium",
+      "options": [
+        {
+          "id": 32329,
+          "text": "$\\frac{1}{3 x \\sqrt{x^2-x}}$ for |x| > 1"
+        },
+        {
+          "id": 32328,
+          "text": "$\\frac{-1}{x \\sqrt{x^2-1}}$ for |x| > 1"
+        },
+        {
+          "id": 32327,
+          "text": "$\\frac{1}{|x| \\sqrt{x^2-1}}$ for |x| > 1"
+        },
+        {
+          "id": 32330,
+          "text": "$\\frac{1}{1+x^2}$"
+        }
+      ],
+      "correct_option_id": null,
+      "correct_option_text": null,
+      "explanation": null
+    },
+    {
+      "id": 19283,
+      "question": "$\\frac{d}{d x}\\left(\\cos e c^{-1} x\\right)$ is equal to",
+      "question_raw": "<p><span class=\"math-tex\">{tex}\\frac{d}{d x}\\left(\\cos e c^{-1} x\\right){/tex}</span> is equal to</p>",
+      "difficulty": "Medium",
+      "options": [
+        {
+          "id": 32333,
+          "text": "$\\frac{-1}{2 x \\sqrt{x^2-1}}$ for |x| > 1"
+        },
+        {
+          "id": 32331,
+          "text": "$\\frac{-1}{|x| \\sqrt{x^2-1}}$ for |x| > 1"
+        },
+        {
+          "id": 32332,
+          "text": "$\\frac{1}{x \\sqrt{x^2-1}}$ for |x| > 1"
+        },
+        {
+          "id": 32334,
+          "text": "$\\frac{1}{x \\sqrt{x^3-2 x}}$ for |x| > 1"
+        }
+      ],
+      "correct_option_id": null,
+      "correct_option_text": null,
+      "explanation": null
+    },
+    {
+      "id": 19284,
+      "question": "What is the value of $\\frac{d}{d x}\\left(\\frac{\\sec x}{\\operatorname{cosec} x \\tan x}\\right)$ ?",
+      "question_raw": "<p>What is the value of <span class=\"math-tex\">{tex}\\frac{d}{d x}\\left(\\frac{\\sec x}{\\operatorname{cosec} x \\tan x}\\right){/tex}</span> ?<br />\n&nbsp;</p>",
+      "difficulty": "Medium",
+      "options": [
+        {
+          "id": 32338,
+          "text": "sinx"
+        },
+        {
+          "id": 32336,
+          "text": "1"
+        },
+        {
+          "id": 32337,
+          "text": "cosx"
+        },
+        {
+          "id": 32335,
+          "text": "0"
+        }
+      ],
+      "correct_option_id": null,
+      "correct_option_text": null,
+      "explanation": null
+    },
+    {
+      "id": 19285,
+      "question": "$\\frac{d^2}{d x^2}\\left(\\cos ^{-1}(1-x)\\right)$ is equal to",
+      "question_raw": "<p><span class=\"math-tex\">{tex}\\frac{d^2}{d x^2}\\left(\\cos ^{-1}(1-x)\\right){/tex}</span> is equal to</p>",
+      "difficulty": "Medium",
+      "options": [
+        {
+          "id": 32341,
+          "text": "$\\frac{1}{2\\left(2 x-x^2\\right)^{3 / 2}}$"
+        },
+        {
+          "id": 32339,
+          "text": "$\\frac{x-1}{\\left(2 x-x^2\\right)^{3 / 2}}$"
+        },
+        {
+          "id": 32340,
+          "text": "$\\frac{1-x}{\\left(2 x-x^2\\right)^{3 / 2}}$"
+        },
+        {
+          "id": 32342,
+          "text": "$\\frac{1}{1-x^2}$"
+        }
+      ],
+      "correct_option_id": null,
+      "correct_option_text": null,
+      "explanation": null
+    },
+    {
+      "id": 19286,
+      "question": "If y = $\\sqrt{x+\\sqrt{x+\\sqrt{x+\\ldots+t o \\infty} \\infty}}$ then $\\frac {dy} {dx}$ =",
+      "question_raw": "<p>If y = <span class=\"math-tex\">{tex}\\sqrt{x+\\sqrt{x+\\sqrt{x+\\ldots+t o \\infty} \\infty}}{/tex}</span> then <span class=\"math-tex\">{tex}\\frac {dy} {dx}{/tex}</span>&nbsp;=</p>",
+      "difficulty": "Medium",
+      "options": [
+        {
+          "id": 32345,
+          "text": "$\\frac {x} {y + 1}$"
+        },
+        {
+          "id": 32344,
+          "text": "$\\sqrt{\\frac{x}{y+1}}$"
+        },
+        {
+          "id": 32343,
+          "text": "$\\frac {1} {2y - 1}$"
+        },
+        {
+          "id": 32346,
+          "text": "$\\frac {1} {2y + 1}$"
+        }
+      ],
+      "correct_option_id": null,
+      "correct_option_text": null,
+      "explanation": null
+    },
+    {
+      "id": 19287,
+      "question": "$\\left\\{ \\begin{gathered} x\\;\\;\\;\\;\\;\\;,\\;\\;0 \\leq x < 1 \\\\ 3 - x\\;,\\;\\;\\;1 \\leq x \\leq 2 \\\\ \\end{gathered} \\right.$, then at x = 1, f (x) is",
+      "question_raw": "<p><span class=\"math-tex\">{tex}\\left\\{ \\begin{gathered} x\\;\\;\\;\\;\\;\\;,\\;\\;0 \\leq x &lt; 1 \\\\ 3 - x\\;,\\;\\;\\;1 \\leq x \\leq 2 \\\\ \\end{gathered} \\right.{/tex}</span>, then at x = 1, f (x) is</p>",
+      "difficulty": "Hard",
+      "options": [
+        {
+          "id": 32350,
+          "text": "continuous at x = 1"
+        },
+        {
+          "id": 32348,
+          "text": "Limit exists at x = 1"
+        },
+        {
+          "id": 32349,
+          "text": "Left continuous at x = 1"
+        },
+        {
+          "id": 32347,
+          "text": "Right continuous at x = 1"
+        }
+      ],
+      "correct_option_id": null,
+      "correct_option_text": null,
+      "explanation": null
+    },
+    {
+      "id": 19288,
+      "question": "f(x) = $ \\left\\{ \\begin{gathered} {x^3},\\;\\;\\left| x \\right| \\leq 1 \\\\ x\\;\\;,\\;\\;\\left| x \\right| > 1 \\\\ \\end{gathered} \\right.$ then f(x) is",
+      "question_raw": "<p>f(x) =&nbsp;<span class=\"math-tex\">{tex} \\left\\{ \\begin{gathered} {x^3},\\;\\;\\left| x \\right| \\leq 1 \\\\ x\\;\\;,\\;\\;\\left| x \\right| &gt; 1 \\\\ \\end{gathered} \\right.{/tex}</span>&nbsp;then f(x) is</p>\r\n",
+      "difficulty": "Hard",
+      "options": [
+        {
+          "id": 32352,
+          "text": "not continuous at -1 and 1"
+        },
+        {
+          "id": 32351,
+          "text": "not derivable at – 1 and 1"
+        },
+        {
+          "id": 32354,
+          "text": "not continuous at x = 0"
+        },
+        {
+          "id": 32353,
+          "text": "derivable at all x $ \\in$ R"
+        }
+      ],
+      "correct_option_id": null,
+      "correct_option_text": null,
+      "explanation": null
+    },
+    {
+      "id": 19289,
+      "question": "If x = f(t) and y = g (t), then $\\frac {d^2y} {dx^2}$ is qual to",
+      "question_raw": "<p>If x = f(t) and y = g (t), then <span class=\"math-tex\">{tex}\\frac {d^2y} {dx^2}{/tex}</span> is qual to</p>",
+      "difficulty": "Medium",
+      "options": [
+        {
+          "id": 32357,
+          "text": "$\\frac{g^{\\prime \\prime}(t) f^{\\prime}(t)-g^{\\prime}(t) f^{\\prime \\prime}(t)}{\\left(f^{\\prime}(t)\\right)^2}$"
+        },
+        {
+          "id": 32355,
+          "text": "$\\frac{g^{\\prime \\prime}(t) f^{\\prime}(t)-g^{\\prime}(t) f^{\\prime \\prime}(t)}{\\left(f^{\\prime}(t)\\right)^3}$"
+        },
+        {
+          "id": 32358,
+          "text": "$\\frac{f^{\\prime}(t) \\cdot g^{\\prime \\prime}(t)}{g^{\\prime}(t) \\cdot f^{\\prime \\prime}(t)}$"
+        },
+        {
+          "id": 32356,
+          "text": "$\\frac{g^{\\prime \\prime}(t)}{f^{\\prime \\prime}(t)}$"
+        }
+      ],
+      "correct_option_id": null,
+      "correct_option_text": null,
+      "explanation": null
+    },
+    {
+      "id": 19290,
+      "question": "f(x) = |[x] x| in -1 $ \\le $ x $ \\le $ 2 is",
+      "question_raw": "<p>f(x) = |[x] x| in&nbsp;-1&nbsp;<span class=\"math-tex\">{tex} \\le {/tex}</span> x <span class=\"math-tex\">{tex} \\le {/tex}</span> 2 is</p>\r\n",
+      "difficulty": "Hard",
+      "options": [
+        {
+          "id": 32359,
+          "text": "continuous at x = 0"
+        },
+        {
+          "id": 32360,
+          "text": "discontinuous at x = 0"
+        },
+        {
+          "id": 32361,
+          "text": "differentiable at x = 0"
+        },
+        {
+          "id": 32362,
+          "text": "continuous at x = 2"
+        }
+      ],
+      "correct_option_id": null,
+      "correct_option_text": null,
+      "explanation": null
+    },
+    {
+      "id": 19291,
+      "question": "$\\frac{d}{d x}\\left(\\tan ^{-1}\\left(\\frac{x-a}{1+x a}\\right)\\right)$, x, a > 0, is",
+      "question_raw": "<p><span class=\"math-tex\">{tex}\\frac{d}{d x}\\left(\\tan ^{-1}\\left(\\frac{x-a}{1+x a}\\right)\\right){/tex}</span>, x, a &gt; 0, is</p>",
+      "difficulty": "Medium",
+      "options": [
+        {
+          "id": 32364,
+          "text": "$\\frac {1} {1 + x}$"
+        },
+        {
+          "id": 32366,
+          "text": "${\\tan ^1}\\sqrt x - {\\tan ^{ - 1}}\\sqrt a $"
+        },
+        {
+          "id": 32363,
+          "text": "$\\frac {1} {2\\sqrt x (1 + x^2)}$"
+        },
+        {
+          "id": 32365,
+          "text": "$\\frac{1}{1+x}-\\frac{1}{1+a}$"
+        }
+      ],
+      "correct_option_id": null,
+      "correct_option_text": null,
+      "explanation": null
+    },
+    {
+      "id": 59283,
+      "question": "$\\mathop {Lt}\\limits_{x \\to \\pi /4} \\;\\;\\;\\frac{{\\cos x - \\sin x}}{{x - \\frac{\\pi }{4}}}$ is equal to",
+      "question_raw": "<p><span class=\"math-tex\">{tex}\\mathop {Lt}\\limits_{x \\to \\pi /4} \\;\\;\\;\\frac{{\\cos x - \\sin x}}{{x - \\frac{\\pi }{4}}}{/tex}</span> is equal to</p>\r\n",
+      "difficulty": "Medium",
+      "options": [
+        {
+          "id": 192322,
+          "text": "– 1"
+        },
+        {
+          "id": 192320,
+          "text": "$ - \\frac{1}{{\\sqrt 2 }}$"
+        },
+        {
+          "id": 192321,
+          "text": "$\\frac{2}{{\\sqrt 2 }}$"
+        },
+        {
+          "id": 192319,
+          "text": "$ - \\frac{2}{{\\sqrt 2 }}$"
+        }
+      ],
+      "correct_option_id": null,
+      "correct_option_text": null,
+      "explanation": null
+    },
+    {
+      "id": 284664,
+      "question": "$\\lim\\limits_{x \\rightarrow 0} \\frac{\\sin x}{x(1+\\cos x)}$ is equal to",
+      "question_raw": "<p><span class=\"math-tex\">{tex}\\lim\\limits_{x \\rightarrow 0} \\frac{\\sin x}{x(1+\\cos x)}{/tex}</span>&nbsp;is equal to</p>\r\n",
+      "difficulty": "Medium",
+      "options": [
+        {
+          "id": 406926,
+          "text": "0"
+        },
+        {
+          "id": 406927,
+          "text": "$\\frac{1}{2}$"
+        },
+        {
+          "id": 406928,
+          "text": "1"
+        },
+        {
+          "id": 406929,
+          "text": "-1"
+        }
+      ],
+      "correct_option_id": null,
+      "correct_option_text": null,
+      "explanation": null
+    },
+    {
+      "id": 284665,
+      "question": "$\\lim _\\limits{x \\rightarrow \\frac{\\pi}{2}} \\frac{1-\\sin x}{\\cos x}$ is equal to",
+      "question_raw": "<p><span class=\"math-tex\">{tex}\\lim _\\limits{x \\rightarrow \\frac{\\pi}{2}} \\frac{1-\\sin x}{\\cos x}{/tex}</span> is equal to</p>\r\n",
+      "difficulty": "Medium",
+      "options": [
+        {
+          "id": 406930,
+          "text": "0"
+        },
+        {
+          "id": 406932,
+          "text": "1"
+        },
+        {
+          "id": 406933,
+          "text": "does not exit"
+        },
+        {
+          "id": 406931,
+          "text": "-1"
+        }
+      ],
+      "correct_option_id": null,
+      "correct_option_text": null,
+      "explanation": null
+    },
+    {
+      "id": 284669,
+      "question": "$\\lim _\\limits{x \\rightarrow 0} \\frac{|x|}{x}$ is equal to:",
+      "question_raw": "<p><span class=\"math-tex\">{tex}\\lim _\\limits{x \\rightarrow 0} \\frac{|x|}{x}{/tex}</span>&nbsp;is equal to:</p>\r\n",
+      "difficulty": "Medium",
+      "options": [
+        {
+          "id": 406936,
+          "text": "0"
+        },
+        {
+          "id": 406937,
+          "text": "does not exists"
+        },
+        {
+          "id": 406935,
+          "text": "-1"
+        },
+        {
+          "id": 406934,
+          "text": "1"
+        }
+      ],
+      "correct_option_id": null,
+      "correct_option_text": null,
+      "explanation": null
+    },
+    {
+      "id": 284670,
+      "question": "$\\lim _\\limits{x \\rightarrow 1}$[x - 1], where [.] is the greatest integer function, is equal to:",
+      "question_raw": "<p><span class=\"math-tex\">{tex}\\lim _\\limits{x \\rightarrow 1}{/tex}</span>[x - 1],&nbsp;where [.] is the greatest integer function, is equal to:</p>",
+      "difficulty": "Medium",
+      "options": [
+        {
+          "id": 406938,
+          "text": "1"
+        },
+        {
+          "id": 406940,
+          "text": "0"
+        },
+        {
+          "id": 406939,
+          "text": "2"
+        },
+        {
+          "id": 406941,
+          "text": "None of these"
+        }
+      ],
+      "correct_option_id": null,
+      "correct_option_text": null,
+      "explanation": null
+    },
+    {
+      "id": 284671,
+      "question": "$\\lim _\\limits{x \\rightarrow 0} x \\sin \\frac{1}{x}$ is equals to",
+      "question_raw": "<p><span class=\"math-tex\">{tex}\\lim _\\limits{x \\rightarrow 0} x \\sin \\frac{1}{x}{/tex}</span> is equals to</p>",
+      "difficulty": "Medium",
+      "options": [
+        {
+          "id": 406945,
+          "text": "does not exist"
+        },
+        {
+          "id": 406944,
+          "text": "1/2"
+        },
+        {
+          "id": 406943,
+          "text": "1"
+        },
+        {
+          "id": 406942,
+          "text": "0"
+        }
+      ],
+      "correct_option_id": null,
+      "correct_option_text": null,
+      "explanation": null
+    },
+    {
+      "id": 284676,
+      "question": "$\\lim _\\limits{n \\rightarrow \\infty} \\frac{1+2+3+\\ldots+n}{n^{2}}, n \\in \\mathbf{N}$, is equal to",
+      "question_raw": "<p><span class=\"math-tex\">{tex}\\lim _\\limits{n \\rightarrow \\infty} \\frac{1+2+3+\\ldots+n}{n^{2}}, n \\in \\mathbf{N}{/tex}</span>, is equal to</p>\r\n",
+      "difficulty": "Medium",
+      "options": [
+        {
+          "id": 406948,
+          "text": "$\\frac12$"
+        },
+        {
+          "id": 406946,
+          "text": "0"
+        },
+        {
+          "id": 406949,
+          "text": "$\\frac14$"
+        },
+        {
+          "id": 406947,
+          "text": "1"
+        }
+      ],
+      "correct_option_id": null,
+      "correct_option_text": null,
+      "explanation": null
+    },
+    {
+      "id": 284679,
+      "question": "If f(x) = x sinx, then f' $(\\frac{\\pi}{2})$ is equal to",
+      "question_raw": "<p>If f(x) = x sinx, then f&#39; <span class=\"math-tex\">{tex}(\\frac{\\pi}{2}){/tex}</span>&nbsp;is equal to</p>\r\n",
+      "difficulty": "Medium",
+      "options": [
+        {
+          "id": 406951,
+          "text": "1"
+        },
+        {
+          "id": 406950,
+          "text": "0"
+        },
+        {
+          "id": 406952,
+          "text": "-1"
+        },
+        {
+          "id": 406953,
+          "text": "$\\frac12$"
+        }
+      ],
+      "correct_option_id": null,
+      "correct_option_text": null,
+      "explanation": null
+    },
+    {
+      "id": 284973,
+      "question": "$\\lim _\\limits{x \\rightarrow \\pi} \\frac{\\sin x}{x-\\pi}$ is equal to",
+      "question_raw": "<p><span class=\"math-tex\">{tex}\\lim _\\limits{x \\rightarrow \\pi} \\frac{\\sin x}{x-\\pi}{/tex}</span>&nbsp;is equal to</p>",
+      "difficulty": "Medium",
+      "options": [
+        {
+          "id": 407215,
+          "text": "2"
+        },
+        {
+          "id": 407214,
+          "text": "1"
+        },
+        {
+          "id": 407216,
+          "text": "-1"
+        },
+        {
+          "id": 407217,
+          "text": "-2"
+        }
+      ],
+      "correct_option_id": null,
+      "correct_option_text": null,
+      "explanation": null
+    },
+    {
+      "id": 284978,
+      "question": "$\\lim _\\limits{x \\rightarrow 0} \\frac{x^{2} \\cos x}{1-\\cos x}$ is equal to",
+      "question_raw": "<p><span class=\"math-tex\">{tex}\\lim _\\limits{x \\rightarrow 0} \\frac{x^{2} \\cos x}{1-\\cos x}{/tex}</span> is equal to</p>",
+      "difficulty": "Medium",
+      "options": [
+        {
+          "id": 407222,
+          "text": "2"
+        },
+        {
+          "id": 407225,
+          "text": "1"
+        },
+        {
+          "id": 407224,
+          "text": "-3/2"
+        },
+        {
+          "id": 407223,
+          "text": "3/2"
+        }
+      ],
+      "correct_option_id": null,
+      "correct_option_text": null,
+      "explanation": null
+    },
+    {
+      "id": 284990,
+      "question": "$\\lim _\\limits{x \\rightarrow 1} \\frac{x^{m}-1}{x^{n}-1}$ is equal to:",
+      "question_raw": "<p><span class=\"math-tex\">{tex}\\lim _\\limits{x \\rightarrow 1} \\frac{x^{m}-1}{x^{n}-1}{/tex}</span>&nbsp;is equal to:</p>\r\n",
+      "difficulty": "Medium",
+      "options": [
+        {
+          "id": 407235,
+          "text": "$\\frac mn$"
+        },
+        {
+          "id": 407234,
+          "text": "1"
+        },
+        {
+          "id": 407236,
+          "text": "-$\\frac mn$"
+        },
+        {
+          "id": 407237,
+          "text": "$\\frac {m^2}{n^2}$"
+        }
+      ],
+      "correct_option_id": null,
+      "correct_option_text": null,
+      "explanation": null
+    },
+    {
+      "id": 284993,
+      "question": "$\\lim _\\limits{\\theta \\rightarrow 0} \\frac{1-\\cos 4 \\theta}{1-\\cos 6 \\theta}$ is equal to",
+      "question_raw": "<p><span class=\"math-tex\">{tex}\\lim _\\limits{\\theta \\rightarrow 0} \\frac{1-\\cos 4 \\theta}{1-\\cos 6 \\theta}{/tex}</span>&nbsp;is equal to</p>\r\n",
+      "difficulty": "Medium",
+      "options": [
+        {
+          "id": 407242,
+          "text": "4/9"
+        },
+        {
+          "id": 407243,
+          "text": "1/2"
+        },
+        {
+          "id": 407245,
+          "text": "-1"
+        },
+        {
+          "id": 407244,
+          "text": "-1/2"
+        }
+      ],
+      "correct_option_id": null,
+      "correct_option_text": null,
+      "explanation": null
+    },
+    {
+      "id": 284998,
+      "question": "$\\lim _\\limits{x \\rightarrow 0} \\frac{cosec x-\\cot x}{x}$ is equal to",
+      "question_raw": "<p><span class=\"math-tex\">{tex}\\lim _\\limits{x \\rightarrow 0} \\frac{cosec x-\\cot x}{x}{/tex}</span>&nbsp;is equal to</p>",
+      "difficulty": "Medium",
+      "options": [
+        {
+          "id": 407251,
+          "text": "1"
+        },
+        {
+          "id": 407252,
+          "text": "-$\\frac{1}{2}$"
+        },
+        {
+          "id": 407250,
+          "text": "$\\frac{1}{2}$"
+        },
+        {
+          "id": 407253,
+          "text": "-1"
+        }
+      ],
+      "correct_option_id": null,
+      "correct_option_text": null,
+      "explanation": null
+    },
+    {
+      "id": 285004,
+      "question": "$\\lim _\\limits{x \\rightarrow 0} \\frac{\\sin x}{\\sqrt{x+1}-\\sqrt{1-x}}$ is equal to",
+      "question_raw": "<p><span class=\"math-tex\">{tex}\\lim _\\limits{x \\rightarrow 0} \\frac{\\sin x}{\\sqrt{x+1}-\\sqrt{1-x}}{/tex}</span> is equal to</p>",
+      "difficulty": "Medium",
+      "options": [
+        {
+          "id": 407266,
+          "text": "2"
+        },
+        {
+          "id": 407269,
+          "text": "-1"
+        },
+        {
+          "id": 407268,
+          "text": "1"
+        },
+        {
+          "id": 407267,
+          "text": "0"
+        }
+      ],
+      "correct_option_id": null,
+      "correct_option_text": null,
+      "explanation": null
+    },
+    {
+      "id": 285011,
+      "question": "$\\lim _\\limits{x \\rightarrow \\frac{\\pi}{4}} \\frac{\\sec ^{2} x-2}{\\tan x-1}$ is equal to",
+      "question_raw": "<p><span class=\"math-tex\">{tex}\\lim _\\limits{x \\rightarrow \\frac{\\pi}{4}} \\frac{\\sec ^{2} x-2}{\\tan x-1}{/tex}</span> is equal to&nbsp;</p>",
+      "difficulty": "Medium",
+      "options": [
+        {
+          "id": 407279,
+          "text": "1"
+        },
+        {
+          "id": 407278,
+          "text": "3"
+        },
+        {
+          "id": 407281,
+          "text": "2"
+        },
+        {
+          "id": 407280,
+          "text": "0"
+        }
+      ],
+      "correct_option_id": null,
+      "correct_option_text": null,
+      "explanation": null
+    },
+    {
+      "id": 285022,
+      "question": "$\\lim _\\limits{x \\rightarrow 1} \\frac{(\\sqrt{x}-1)(2 x-3)}{2 x^{2}+x-3}$ is equal to:",
+      "question_raw": "<p><span class=\"math-tex\">{tex}\\lim _\\limits{x \\rightarrow 1} \\frac{(\\sqrt{x}-1)(2 x-3)}{2 x^{2}+x-3}{/tex}</span> is equal to:</p>",
+      "difficulty": "Medium",
+      "options": [
+        {
+          "id": 407315,
+          "text": "$\\frac {-1}{10}$"
+        },
+        {
+          "id": 407317,
+          "text": "2"
+        },
+        {
+          "id": 407316,
+          "text": "1"
+        },
+        {
+          "id": 407314,
+          "text": "$\\frac 1{10}$"
+        }
+      ],
+      "correct_option_id": null,
+      "correct_option_text": null,
+      "explanation": null
+    },
+    {
+      "id": 285037,
+      "question": "$\\lim _\\limits{x \\rightarrow 0} \\frac{|\\sin x|}{x}$ is equal to",
+      "question_raw": "<p><span class=\"math-tex\">{tex}\\lim _\\limits{x \\rightarrow 0} \\frac{|\\sin x|}{x}{/tex}</span> is equal to</p>",
+      "difficulty": "Medium",
+      "options": [
+        {
+          "id": 407343,
+          "text": "-1"
+        },
+        {
+          "id": 407344,
+          "text": "Does not exist"
+        },
+        {
+          "id": 407342,
+          "text": "1"
+        },
+        {
+          "id": 407345,
+          "text": "0"
+        }
+      ],
+      "correct_option_id": null,
+      "correct_option_text": null,
+      "explanation": null
+    },
+    {
+      "id": 285043,
+      "question": "If $f(x)=\\left\\{\\begin{array}{ll} {x^{2}-1,} & {0<x<2} \\\\ {2 x+3,} & {2 \\leq x<3} \\end{array}\\right.$, then the quadratic equation whose roots are $\\lim _\\limits{x \\rightarrow 2^{-}} f(x)$ and $\\lim _\\limits {x \\rightarrow 2^{+}} f(x) $ is",
+      "question_raw": "<p>If&nbsp;<span class=\"math-tex\">{tex}f(x)=\\left\\{\\begin{array}{ll} {x^{2}-1,} &amp; {0&lt;x&lt;2} \\\\ {2 x+3,} &amp; {2 \\leq x&lt;3} \\end{array}\\right.{/tex}</span>, then the quadratic equation whose roots are&nbsp;<span class=\"math-tex\">{tex}\\lim _\\limits{x \\rightarrow 2^{-}} f(x){/tex}</span>&nbsp;and&nbsp;<span class=\"math-tex\">{tex}\\lim _\\limits {x \\rightarrow 2^{+}} f(x) {/tex}</span> is</p>\r\n",
+      "difficulty": "Medium",
+      "options": [
+        {
+          "id": 407362,
+          "text": "x^2 - 6x + 9 = 0"
+        },
+        {
+          "id": 407363,
+          "text": "x^2 - 7x + 8 = 0"
+        },
+        {
+          "id": 407364,
+          "text": "x^2 - 14x + 49 = 0"
+        },
+        {
+          "id": 407365,
+          "text": "x^2 - 10x + 21 = 0"
+        }
+      ],
+      "correct_option_id": null,
+      "correct_option_text": null,
+      "explanation": null
+    },
+    {
+      "id": 285053,
+      "question": "$\\lim _\\limits{x \\rightarrow 0} \\frac{\\tan 2 x-x}{3 x-\\sin x}$ is equal to",
+      "question_raw": "<p><span class=\"math-tex\">{tex}\\lim _\\limits{x \\rightarrow 0} \\frac{\\tan 2 x-x}{3 x-\\sin x}{/tex}</span> is equal to</p>",
+      "difficulty": "Medium",
+      "options": [
+        {
+          "id": 407382,
+          "text": "2"
+        },
+        {
+          "id": 407385,
+          "text": "$\\frac{1}{4}$"
+        },
+        {
+          "id": 407384,
+          "text": "-$\\frac{1}{2}$"
+        },
+        {
+          "id": 407383,
+          "text": "$\\frac{1}{2}$"
+        }
+      ],
+      "correct_option_id": null,
+      "correct_option_text": null,
+      "explanation": null
+    },
+    {
+      "id": 285060,
+      "question": "If f(x) = x - [x], $\\in$ R then $f^{\\prime}\\left(\\frac{1}{2}\\right)$ is equal to",
+      "question_raw": "<p>If f(x) = x - [x],&nbsp;<span class=\"math-tex\">{tex}\\in{/tex}</span>&nbsp;R then&nbsp;<span class=\"math-tex\">{tex}f^{\\prime}\\left(\\frac{1}{2}\\right){/tex}</span>&nbsp;is equal to</p>",
+      "difficulty": "Medium",
+      "options": [
+        {
+          "id": 407393,
+          "text": "-1"
+        },
+        {
+          "id": 407391,
+          "text": "1"
+        },
+        {
+          "id": 407390,
+          "text": "$\\frac{3}{2}$"
+        },
+        {
+          "id": 407392,
+          "text": "0"
+        }
+      ],
+      "correct_option_id": null,
+      "correct_option_text": null,
+      "explanation": null
+    },
+    {
+      "id": 285066,
+      "question": "If $y = \\sqrt x + \\frac{1}{{\\sqrt x }},$ then $\\frac{{dy}}{{dx}}$ at x = 1 is equal to",
+      "question_raw": "<p>If&nbsp;<span class=\"math-tex\">{tex}y = \\sqrt x + \\frac{1}{{\\sqrt x }},{/tex}</span>&nbsp;then <span class=\"math-tex\">{tex}\\frac{{dy}}{{dx}}{/tex}</span>&nbsp;at x = 1&nbsp;is equal to</p>\r\n",
+      "difficulty": "Medium",
+      "options": [
+        {
+          "id": 407404,
+          "text": "$\\frac{1}{\\sqrt{2}}$"
+        },
+        {
+          "id": 407402,
+          "text": "1"
+        },
+        {
+          "id": 407405,
+          "text": "0"
+        },
+        {
+          "id": 407403,
+          "text": "$\\frac{1}{2}$"
+        }
+      ],
+      "correct_option_id": null,
+      "correct_option_text": null,
+      "explanation": null
+    },
+    {
+      "id": 285070,
+      "question": "If f(x) = $\\frac{x-4}{2 \\sqrt{x}}$, then f'(1) is equal to:",
+      "question_raw": "<p>If&nbsp;f(x) =&nbsp;<span class=\"math-tex\">{tex}\\frac{x-4}{2 \\sqrt{x}}{/tex}</span>, then f&#39;(1) is equal to:</p>\r\n",
+      "difficulty": "Medium",
+      "options": [
+        {
+          "id": 407408,
+          "text": "1"
+        },
+        {
+          "id": 407406,
+          "text": "$\\frac{5}{4}$"
+        },
+        {
+          "id": 407407,
+          "text": "$\\frac{4}{5}$"
+        },
+        {
+          "id": 407409,
+          "text": "0"
+        }
+      ],
+      "correct_option_id": null,
+      "correct_option_text": null,
+      "explanation": null
+    },
+    {
+      "id": 285073,
+      "question": "If $y = \\frac{{1 + \\frac{1}{{{x^2}}}}}{{1 - \\frac{1}{{{x^2}}}}}$ then $\\frac{{dy}}{{dx}}$ is equal to",
+      "question_raw": "<p>If&nbsp;<span class=\"math-tex\">{tex}y = \\frac{{1 + \\frac{1}{{{x^2}}}}}{{1 - \\frac{1}{{{x^2}}}}}{/tex}</span>&nbsp;then&nbsp; <span class=\"math-tex\">{tex}\\frac{{dy}}{{dx}}{/tex}</span>&nbsp;is equal to</p>\r\n",
+      "difficulty": "Medium",
+      "options": [
+        {
+          "id": 407414,
+          "text": "$\\frac{-4 x}{\\left(x^{2}-1\\right)^{2}}$"
+        },
+        {
+          "id": 407416,
+          "text": "$\\frac{1-x^{2}}{4 x}$"
+        },
+        {
+          "id": 407417,
+          "text": "$\\frac{4 x}{x^{2}-1}$"
+        },
+        {
+          "id": 407415,
+          "text": "$\\frac{-4 x}{x^{2}-1}$"
+        }
+      ],
+      "correct_option_id": null,
+      "correct_option_text": null,
+      "explanation": null
+    },
+    {
+      "id": 285078,
+      "question": "If $y = \\frac{{\\sin x + \\cos x}}{{\\sin x - \\cos x}},$ then $\\frac{{dy}}{{dx}}$ at x = 0 is equal to",
+      "question_raw": "<p>If&nbsp;<span class=\"math-tex\">{tex}y = \\frac{{\\sin x + \\cos x}}{{\\sin x - \\cos x}},{/tex}</span>&nbsp;then&nbsp;<span class=\"math-tex\">{tex}\\frac{{dy}}{{dx}}{/tex}</span>&nbsp;at x = 0 is equal to</p>\r\n",
+      "difficulty": "Medium",
+      "options": [
+        {
+          "id": 407423,
+          "text": "0"
+        },
+        {
+          "id": 407425,
+          "text": "Does not exist"
+        },
+        {
+          "id": 407422,
+          "text": "-2"
+        },
+        {
+          "id": 407424,
+          "text": "$\\frac12$"
+        }
+      ],
+      "correct_option_id": null,
+      "correct_option_text": null,
+      "explanation": null
+    },
+    {
+      "id": 285083,
+      "question": "If $y = \\frac{{\\sin (x + 9)}}{{\\cos x}}{\\text{ }}$ then $\\frac{{dy}}{{dx}}$ at x = 0 is equal to",
+      "question_raw": "<p>If&nbsp;<span class=\"math-tex\">{tex}y = \\frac{{\\sin (x + 9)}}{{\\cos x}}{\\text{ }}{/tex}</span>&nbsp;then&nbsp;<span class=\"math-tex\">{tex}\\frac{{dy}}{{dx}}{/tex}</span>&nbsp;at x = 0 is equal to</p>\r\n",
+      "difficulty": "Medium",
+      "options": [
+        {
+          "id": 407430,
+          "text": "cos 9"
+        },
+        {
+          "id": 407431,
+          "text": "sin 9"
+        },
+        {
+          "id": 407432,
+          "text": "0"
+        },
+        {
+          "id": 407433,
+          "text": "1"
+        }
+      ],
+      "correct_option_id": null,
+      "correct_option_text": null,
+      "explanation": null
+    },
+    {
+      "id": 285089,
+      "question": "If f(x) = 1+ x + $\\frac{x^{2}}{2}+\\dots+\\frac{x^{100}}{100}$, then f'(1) is equal to",
+      "question_raw": "<p>If f(x) = 1+ x +&nbsp;<span class=\"math-tex\">{tex}\\frac{x^{2}}{2}+\\dots+\\frac{x^{100}}{100}{/tex}</span>, then f&#39;(1) is equal to</p>\r\n",
+      "difficulty": "Medium",
+      "options": [
+        {
+          "id": 407444,
+          "text": "does not exist"
+        },
+        {
+          "id": 407445,
+          "text": "0"
+        },
+        {
+          "id": 407442,
+          "text": "$\\frac{1}{100}$"
+        },
+        {
+          "id": 407443,
+          "text": "100"
+        }
+      ],
+      "correct_option_id": null,
+      "correct_option_text": null,
+      "explanation": null
+    },
+    {
+      "id": 285096,
+      "question": "If $f(x)=\\frac{x^{n}-a^{n}}{x-a}$ for some constant, a, then f'(a) is equal to",
+      "question_raw": "<p>If&nbsp;<span class=\"math-tex\">{tex}f(x)=\\frac{x^{n}-a^{n}}{x-a}{/tex}</span>&nbsp;for some constant, a, then f&#39;(a) is equal to&nbsp;</p>\r\n",
+      "difficulty": "Medium",
+      "options": [
+        {
+          "id": 407454,
+          "text": "1"
+        },
+        {
+          "id": 407455,
+          "text": "0"
+        },
+        {
+          "id": 407456,
+          "text": "does not exist"
+        },
+        {
+          "id": 407457,
+          "text": "1/2"
+        }
+      ],
+      "correct_option_id": null,
+      "correct_option_text": null,
+      "explanation": null
+    },
+    {
+      "id": 285098,
+      "question": "If f(x) = x^100 + x^99 ... + x + 1, then f'(1) is equal to:",
+      "question_raw": "<p>If f(x) = x<sup>100</sup> + x<sup>99</sup> ... + x + 1, then f&#39;(1) is equal to:</p>\r\n",
+      "difficulty": "Medium",
+      "options": [
+        {
+          "id": 407459,
+          "text": "5049"
+        },
+        {
+          "id": 407461,
+          "text": "50051"
+        },
+        {
+          "id": 407458,
+          "text": "5050"
+        },
+        {
+          "id": 407460,
+          "text": "5051"
+        }
+      ],
+      "correct_option_id": null,
+      "correct_option_text": null,
+      "explanation": null
+    },
+    {
+      "id": 285105,
+      "question": "If f(x) = 1 - x + x^2 - x^3 + ... - x^99 + x^100, then f'(1) is equal to:",
+      "question_raw": "<p>If f(x) = 1 - x + x<sup>2</sup> - x<sup>3</sup> + ... - x<sup>99</sup> + x<sup>100</sup>, then f&#39;(1) is equal to:</p>",
+      "difficulty": "Medium",
+      "options": [
+        {
+          "id": 407468,
+          "text": "-150"
+        },
+        {
+          "id": 407469,
+          "text": "50"
+        },
+        {
+          "id": 407466,
+          "text": "150"
+        },
+        {
+          "id": 407467,
+          "text": "-50"
+        }
+      ],
+      "correct_option_id": null,
+      "correct_option_text": null,
+      "explanation": null
+    },
+    {
+      "id": 292506,
+      "question": "$\\lim \\limits_{n \\rightarrow \\infty} \\frac{1^{2}+2^{2}+3^{2}+\\ldots+n^{2}}{n^{3}}$ is equal to:",
+      "question_raw": "<p><span class=\"math-tex\">{tex}\\lim \\limits_{n \\rightarrow \\infty} \\frac{1^{2}+2^{2}+3^{2}+\\ldots+n^{2}}{n^{3}}{/tex}</span>&nbsp;is equal to:</p>\r\n",
+      "difficulty": "Medium",
+      "options": [
+        {
+          "id": 417418,
+          "text": "0"
+        },
+        {
+          "id": 417417,
+          "text": "$\\frac {1}{4}$"
+        },
+        {
+          "id": 417415,
+          "text": "$\\frac {1}{3}$"
+        },
+        {
+          "id": 417416,
+          "text": "$\\frac {1}{2}$"
+        }
+      ],
+      "correct_option_id": null,
+      "correct_option_text": null,
+      "explanation": null
+    },
+    {
+      "id": 292507,
+      "question": "$\\lim \\limits_{x \\rightarrow 0} \\frac{\\sin 2 x}{x} $ is equal to",
+      "question_raw": "<p><span class=\"math-tex\">{tex}\\lim \\limits_{x \\rightarrow 0} \\frac{\\sin 2 x}{x} {/tex}</span>&nbsp;is equal to</p>\r\n",
+      "difficulty": "Medium",
+      "options": [
+        {
+          "id": 417421,
+          "text": "$\\frac {1}{2}$"
+        },
+        {
+          "id": 417422,
+          "text": "2"
+        },
+        {
+          "id": 417419,
+          "text": "0"
+        },
+        {
+          "id": 417420,
+          "text": "1"
+        }
+      ],
+      "correct_option_id": null,
+      "correct_option_text": null,
+      "explanation": null
+    },
+    {
+      "id": 292512,
+      "question": "If f (x) = x sin $(\\frac {1}{x}),x \\neq 0$, then $\\lim \\limits_{x \\rightarrow 0} $ f(x) =",
+      "question_raw": "<p>If f (x) = x sin&nbsp;<span class=\"math-tex\">{tex}(\\frac {1}{x}),x \\neq 0{/tex}</span>, then&nbsp;<span class=\"math-tex\">{tex}\\lim \\limits_{x \\rightarrow 0} {/tex}</span>&nbsp;f(x) =</p>",
+      "difficulty": "Medium",
+      "options": [
+        {
+          "id": 417437,
+          "text": "-1"
+        },
+        {
+          "id": 417435,
+          "text": "1"
+        },
+        {
+          "id": 417438,
+          "text": "2"
+        },
+        {
+          "id": 417436,
+          "text": "0"
+        }
+      ],
+      "correct_option_id": null,
+      "correct_option_text": null,
+      "explanation": null
+    },
+    {
+      "id": 292516,
+      "question": "$\\lim \\limits_{x \\rightarrow 0} \\frac{1-\\cos 2 x}{x}$ is",
+      "question_raw": "<p><span class=\"math-tex\">{tex}\\lim \\limits_{x \\rightarrow 0} \\frac{1-\\cos 2 x}{x}{/tex}</span>&nbsp;is</p>",
+      "difficulty": "Medium",
+      "options": [
+        {
+          "id": 417452,
+          "text": "1"
+        },
+        {
+          "id": 417451,
+          "text": "0"
+        },
+        {
+          "id": 417453,
+          "text": "2"
+        },
+        {
+          "id": 417454,
+          "text": "4"
+        }
+      ],
+      "correct_option_id": null,
+      "correct_option_text": null,
+      "explanation": null
+    },
+    {
+      "id": 292520,
+      "question": "$\\lim \\limits_{x \\rightarrow 0} \\frac{(1-\\cos 2 x) \\sin 5 x}{x^{2} \\sin 3 x}$",
+      "question_raw": "<p><span class=\"math-tex\">{tex}\\lim \\limits_{x \\rightarrow 0} \\frac{(1-\\cos 2 x) \\sin 5 x}{x^{2} \\sin 3 x}{/tex}</span></p>",
+      "difficulty": "Medium",
+      "options": [
+        {
+          "id": 417468,
+          "text": "$\\frac {3}{10}$"
+        },
+        {
+          "id": 417469,
+          "text": "$\\frac {6}{5}$"
+        },
+        {
+          "id": 417467,
+          "text": "$\\frac {10}{3}$"
+        },
+        {
+          "id": 417470,
+          "text": "$\\frac {5}{6}$"
+        }
+      ],
+      "correct_option_id": null,
+      "correct_option_text": null,
+      "explanation": null
+    },
+    {
+      "id": 292522,
+      "question": "$\\lim \\limits_{x \\rightarrow 0} \\frac{x}{\\tan x}$ =",
+      "question_raw": "<p><span class=\"math-tex\">{tex}\\lim \\limits_{x \\rightarrow 0} \\frac{x}{\\tan x}{/tex}</span>&nbsp;=</p>",
+      "difficulty": "Medium",
+      "options": [
+        {
+          "id": 417478,
+          "text": "2"
+        },
+        {
+          "id": 417475,
+          "text": "0"
+        },
+        {
+          "id": 417477,
+          "text": "4"
+        },
+        {
+          "id": 417476,
+          "text": "1"
+        }
+      ],
+      "correct_option_id": null,
+      "correct_option_text": null,
+      "explanation": null
+    },
+    {
+      "id": 292524,
+      "question": "$\\lim \\limits_{x \\rightarrow \\infty} \\frac{\\sin x}{x}$ =",
+      "question_raw": "<p><span class=\"math-tex\">{tex}\\lim \\limits_{x \\rightarrow \\infty} \\frac{\\sin x}{x}{/tex}</span>&nbsp;=</p>",
+      "difficulty": "Medium",
+      "options": [
+        {
+          "id": 417483,
+          "text": "0"
+        },
+        {
+          "id": 417484,
+          "text": "$\\infty$"
+        },
+        {
+          "id": 417486,
+          "text": "2"
+        },
+        {
+          "id": 417485,
+          "text": "1"
+        }
+      ],
+      "correct_option_id": null,
+      "correct_option_text": null,
+      "explanation": null
+    },
+    {
+      "id": 292526,
+      "question": "$\\lim \\limits_{x \\rightarrow 0} \\frac{\\sin x^{0}}{x}$ is equal to",
+      "question_raw": "<p><span class=\"math-tex\">{tex}\\lim \\limits_{x \\rightarrow 0} \\frac{\\sin x^{0}}{x}{/tex}</span>&nbsp;is equal to</p>",
+      "difficulty": "Medium",
+      "options": [
+        {
+          "id": 417493,
+          "text": "x"
+        },
+        {
+          "id": 417492,
+          "text": "$\\pi$"
+        },
+        {
+          "id": 417491,
+          "text": "1"
+        },
+        {
+          "id": 417494,
+          "text": "$\\frac {\\pi}{180}$"
+        }
+      ],
+      "correct_option_id": null,
+      "correct_option_text": null,
+      "explanation": null
+    },
+    {
+      "id": 292546,
+      "question": "$\\lim \\limits_{x \\rightarrow 3} \\frac{x-3}{|x-3|}$ is equal to:",
+      "question_raw": "<p><span class=\"math-tex\">{tex}\\lim \\limits_{x \\rightarrow 3} \\frac{x-3}{|x-3|}{/tex}</span>&nbsp;is equal to:</p>",
+      "difficulty": "Medium",
+      "options": [
+        {
+          "id": 417509,
+          "text": "0"
+        },
+        {
+          "id": 417507,
+          "text": "1"
+        },
+        {
+          "id": 417510,
+          "text": "None of these"
+        },
+        {
+          "id": 417508,
+          "text": "-1"
+        }
+      ],
+      "correct_option_id": null,
+      "correct_option_text": null,
+      "explanation": null
+    },
+    {
+      "id": 292548,
+      "question": "$\\lim \\limits_{x \\rightarrow a} \\frac{x^{n}-a^{n}}{x-a}$ is equal to:",
+      "question_raw": "<p><span class=\"math-tex\">{tex}\\lim \\limits_{x \\rightarrow a} \\frac{x^{n}-a^{n}}{x-a}{/tex}</span>&nbsp;is equal to:</p>",
+      "difficulty": "Easy",
+      "options": [
+        {
+          "id": 417515,
+          "text": "na^n"
+        },
+        {
+          "id": 417516,
+          "text": "na^n-1"
+        },
+        {
+          "id": 417518,
+          "text": "1"
+        },
+        {
+          "id": 417517,
+          "text": "na"
+        }
+      ],
+      "correct_option_id": null,
+      "correct_option_text": null,
+      "explanation": null
+    },
+    {
+      "id": 292551,
+      "question": "$\\lim \\limits_{x \\rightarrow \\pi / 4} \\frac{\\sqrt{2} \\cos x-1}{\\cot x-1}$ is equal to",
+      "question_raw": "<p><span class=\"math-tex\">{tex}\\lim \\limits_{x \\rightarrow \\pi / 4} \\frac{\\sqrt{2} \\cos x-1}{\\cot x-1}{/tex}</span>&nbsp;is equal to</p>\r\n",
+      "difficulty": "Medium",
+      "options": [
+        {
+          "id": 417527,
+          "text": "$\\frac{1}{\\sqrt{2}}$"
+        },
+        {
+          "id": 417529,
+          "text": "$\\frac{1}{2\\sqrt{2}}$"
+        },
+        {
+          "id": 417530,
+          "text": "1"
+        },
+        {
+          "id": 417528,
+          "text": "$\\frac{1}{{2}}$"
+        }
+      ],
+      "correct_option_id": null,
+      "correct_option_text": null,
+      "explanation": null
+    },
+    {
+      "id": 292555,
+      "question": "$\\lim \\limits_{x \\rightarrow \\infty} \\frac{\\sqrt{x^{2}-1}}{2 x+1}$ is equal to:",
+      "question_raw": "<p><span class=\"math-tex\">{tex}\\lim \\limits_{x \\rightarrow \\infty} \\frac{\\sqrt{x^{2}-1}}{2 x+1}{/tex}</span>&nbsp;is equal to:</p>",
+      "difficulty": "Medium",
+      "options": [
+        {
+          "id": 417546,
+          "text": "$\\frac {1}{2}$"
+        },
+        {
+          "id": 417543,
+          "text": "1"
+        },
+        {
+          "id": 417545,
+          "text": "-1"
+        },
+        {
+          "id": 417544,
+          "text": "0"
+        }
+      ],
+      "correct_option_id": null,
+      "correct_option_text": null,
+      "explanation": null
+    },
+    {
+      "id": 292567,
+      "question": "$\\lim \\limits_{h \\rightarrow 0} 2\\left\\{\\frac{\\sqrt{3} \\sin (\\pi / 6+h)-\\cos (\\pi / 6+h)}{\\sqrt{3} h(\\sqrt{3} \\cos h-\\sin h)}\\right\\}$ is equal to",
+      "question_raw": "<p><span class=\"math-tex\">{tex}\\lim \\limits_{h \\rightarrow 0} 2\\left\\{\\frac{\\sqrt{3} \\sin (\\pi / 6+h)-\\cos (\\pi / 6+h)}{\\sqrt{3} h(\\sqrt{3} \\cos h-\\sin h)}\\right\\}{/tex}</span>&nbsp;is equal to</p>",
+      "difficulty": "Medium",
+      "options": [
+        {
+          "id": 417594,
+          "text": "$- \\frac {4}{3}$"
+        },
+        {
+          "id": 417592,
+          "text": "$\\frac {4}{3}$"
+        },
+        {
+          "id": 417593,
+          "text": "$-2 \\sqrt{3}$"
+        },
+        {
+          "id": 417591,
+          "text": "$\\frac {2}{3}$"
+        }
+      ],
+      "correct_option_id": null,
+      "correct_option_text": null,
+      "explanation": null
+    },
+    {
+      "id": 292569,
+      "question": "$\\lim \\limits_{h \\rightarrow 0}\\left\\{\\frac{1}{h^{} \\sqrt[3]{8+h}}-\\frac{1}{2 h}\\right\\}=$",
+      "question_raw": "<p><span class=\"math-tex\">{tex}\\lim \\limits_{h \\rightarrow 0}\\left\\{\\frac{1}{h^{} \\sqrt[3]{8+h}}-\\frac{1}{2 h}\\right\\}={/tex}</span></p>\r\n",
+      "difficulty": "Medium",
+      "options": [
+        {
+          "id": 417602,
+          "text": "$-\\frac {1}{48}$"
+        },
+        {
+          "id": 417599,
+          "text": "$-\\frac {1}{12}$"
+        },
+        {
+          "id": 417600,
+          "text": "$-\\frac {4}{3}$"
+        },
+        {
+          "id": 417601,
+          "text": "$-\\frac {16}{3}$"
+        }
+      ],
+      "correct_option_id": null,
+      "correct_option_text": null,
+      "explanation": null
+    },
+    {
+      "id": 292582,
+      "question": "$\\lim \\limits_{n \\rightarrow \\infty}\\left\\{\\frac{1}{1.3}+\\frac{1}{3.5}+\\frac{1}{5.7}\\right.$$\\left.+\\ldots+\\frac{1}{(2 n+1)(2 n+3)}\\right\\}$ is equal to",
+      "question_raw": "<p><span class=\"math-tex\">{tex}\\lim \\limits_{n \\rightarrow \\infty}\\left\\{\\frac{1}{1.3}+\\frac{1}{3.5}+\\frac{1}{5.7}\\right.{/tex}</span><span class=\"math-tex\">{tex}\\left.+\\ldots+\\frac{1}{(2 n+1)(2 n+3)}\\right\\}{/tex}</span>&nbsp;is equal to</p>",
+      "difficulty": "Medium",
+      "options": [
+        {
+          "id": 417651,
+          "text": "0"
+        },
+        {
+          "id": 417654,
+          "text": "2"
+        },
+        {
+          "id": 417652,
+          "text": "$\\frac {1}{2}$"
+        },
+        {
+          "id": 417653,
+          "text": "$- \\frac 12$"
+        }
+      ],
+      "correct_option_id": null,
+      "correct_option_text": null,
+      "explanation": null
+    },
+    {
+      "id": 292583,
+      "question": "$\\lim \\limits_{x \\rightarrow 1} \\frac{\\sin \\pi x}{x-1}$ is equal to",
+      "question_raw": "<p><span class=\"math-tex\">{tex}\\lim \\limits_{x \\rightarrow 1} \\frac{\\sin \\pi x}{x-1}{/tex}</span>&nbsp;is equal to</p>",
+      "difficulty": "Medium",
+      "options": [
+        {
+          "id": 417655,
+          "text": "$- \\pi$"
+        },
+        {
+          "id": 417657,
+          "text": "$- \\frac {1}{\\pi}$"
+        },
+        {
+          "id": 417656,
+          "text": "$ \\pi$"
+        },
+        {
+          "id": 417658,
+          "text": "$ \\frac {1}{\\pi}$"
+        }
+      ],
+      "correct_option_id": null,
+      "correct_option_text": null,
+      "explanation": null
+    },
+    {
+      "id": 292584,
+      "question": "If $\\lim \\limits_{x \\rightarrow 1} \\frac{x+x^{2}+x^{3}+\\ldots+x^{n}-n}{x-1}$ = 5050, then n equals:",
+      "question_raw": "<p>If&nbsp;<span class=\"math-tex\">{tex}\\lim \\limits_{x \\rightarrow 1} \\frac{x+x^{2}+x^{3}+\\ldots+x^{n}-n}{x-1}{/tex}</span>&nbsp;= 5050, then n equals:</p>",
+      "difficulty": "Medium",
+      "options": [
+        {
+          "id": 417662,
+          "text": "250"
+        },
+        {
+          "id": 417660,
+          "text": "100"
+        },
+        {
+          "id": 417661,
+          "text": "150"
+        },
+        {
+          "id": 417659,
+          "text": "10"
+        }
+      ],
+      "correct_option_id": null,
+      "correct_option_text": null,
+      "explanation": null
+    },
+    {
+      "id": 292585,
+      "question": "The value of $\\lim \\limits_{x \\rightarrow \\infty} \\frac{\\sqrt{1+x^{4}}+\\left(1+x^{2}\\right)}{x^{2}}$ is:",
+      "question_raw": "<p>The value of&nbsp;<span class=\"math-tex\">{tex}\\lim \\limits_{x \\rightarrow \\infty} \\frac{\\sqrt{1+x^{4}}+\\left(1+x^{2}\\right)}{x^{2}}{/tex}</span>&nbsp;is:</p>",
+      "difficulty": "Medium",
+      "options": [
+        {
+          "id": 417664,
+          "text": "1"
+        },
+        {
+          "id": 417665,
+          "text": "2"
+        },
+        {
+          "id": 417663,
+          "text": "-1"
+        },
+        {
+          "id": 417666,
+          "text": "0"
+        }
+      ],
+      "correct_option_id": null,
+      "correct_option_text": null,
+      "explanation": null
+    },
+    {
+      "id": 292586,
+      "question": "$\\lim \\limits_{x \\rightarrow 0} \\frac{\\sqrt{1+x}-1}{x}$ is equal to:",
+      "question_raw": "<p><span class=\"math-tex\">{tex}\\lim \\limits_{x \\rightarrow 0} \\frac{\\sqrt{1+x}-1}{x}{/tex}</span>&nbsp;is equal to:</p>",
+      "difficulty": "Medium",
+      "options": [
+        {
+          "id": 417670,
+          "text": "1"
+        },
+        {
+          "id": 417667,
+          "text": "$\\frac {1}{2}$"
+        },
+        {
+          "id": 417669,
+          "text": "0"
+        },
+        {
+          "id": 417668,
+          "text": "2"
+        }
+      ],
+      "correct_option_id": null,
+      "correct_option_text": null,
+      "explanation": null
+    },
+    {
+      "id": 292587,
+      "question": "$\\lim \\limits_{x \\rightarrow \\pi / 3} \\frac{\\sin \\left(\\frac{\\pi}{3}-x\\right)}{2 \\cos x-1}$ is equal to",
+      "question_raw": "<p><span class=\"math-tex\">{tex}\\lim \\limits_{x \\rightarrow \\pi / 3} \\frac{\\sin \\left(\\frac{\\pi}{3}-x\\right)}{2 \\cos x-1}{/tex}</span>&nbsp;is equal to</p>\r\n",
+      "difficulty": "Medium",
+      "options": [
+        {
+          "id": 417674,
+          "text": "$\\sqrt{5}$"
+        },
+        {
+          "id": 417671,
+          "text": "$\\sqrt{3}$"
+        },
+        {
+          "id": 417672,
+          "text": "$\\frac{1}{2}$"
+        },
+        {
+          "id": 417673,
+          "text": "$\\frac{1}{\\sqrt{3}}$"
+        }
+      ],
+      "correct_option_id": null,
+      "correct_option_text": null,
+      "explanation": null
+    },
+    {
+      "id": 292588,
+      "question": "$\\lim \\limits_{x \\rightarrow 3} \\frac{\\sum \\limits_{r=1}^{n} x^{r}-\\sum \\limits_{r=1}^{n} 3^{r}}{x-3}$ is equal to",
+      "question_raw": "<p><span class=\"math-tex\">{tex}\\lim \\limits_{x \\rightarrow 3} \\frac{\\sum \\limits_{r=1}^{n} x^{r}-\\sum \\limits_{r=1}^{n} 3^{r}}{x-3}{/tex}</span>&nbsp;is equal to</p>",
+      "difficulty": "Medium",
+      "options": [
+        {
+          "id": 417675,
+          "text": "$\\frac{(2 n-1) \\times 3^{n}}{4}$"
+        },
+        {
+          "id": 417677,
+          "text": "(2n - 1) 3^n + 1"
+        },
+        {
+          "id": 417678,
+          "text": "$\\frac{(2 n-1) \\times 3^{n}-1}{4}$"
+        },
+        {
+          "id": 417676,
+          "text": "$\\frac{(2 n-1) \\times 3^{n}+1}{4}$"
+        }
+      ],
+      "correct_option_id": null,
+      "correct_option_text": null,
+      "explanation": null
+    },
+    {
+      "id": 292589,
+      "question": "$\\lim \\limits_{n \\rightarrow \\infty} \\frac{1-2+3-4+5-6+\\ldots +(2 n-1)-2 n}{\\sqrt{n^{2}+1}+\\sqrt{n^{2}-1}}$ is equal to",
+      "question_raw": "<p><span class=\"math-tex\">{tex}\\lim \\limits_{n \\rightarrow \\infty} \\frac{1-2+3-4+5-6+\\ldots +(2 n-1)-2 n}{\\sqrt{n^{2}+1}+\\sqrt{n^{2}-1}}{/tex}</span>&nbsp;is equal to</p>",
+      "difficulty": "Medium",
+      "options": [
+        {
+          "id": 417681,
+          "text": "1"
+        },
+        {
+          "id": 417679,
+          "text": "$\\frac{1}{2}$"
+        },
+        {
+          "id": 417680,
+          "text": "$-\\frac{1}{2}$"
+        },
+        {
+          "id": 417682,
+          "text": "-1"
+        }
+      ],
+      "correct_option_id": null,
+      "correct_option_text": null,
+      "explanation": null
+    },
+    {
+      "id": 292590,
+      "question": "If $f(x)\\left\\{\\begin{array}{cl} x \\sin \\frac{1}{x}, & x \\neq 0 \\\\ 0, & x=0 \\end{array}\\right.$, then $\\lim \\limits_{x \\rightarrow 0} f(x)$ equals",
+      "question_raw": "<p>If&nbsp;<span class=\"math-tex\">{tex}f(x)\\left\\{\\begin{array}{cl} x \\sin \\frac{1}{x}, &amp; x \\neq 0 \\\\ 0, &amp; x=0 \\end{array}\\right.{/tex}</span>, then&nbsp;<span class=\"math-tex\">{tex}\\lim \\limits_{x \\rightarrow 0} f(x){/tex}</span>&nbsp;equals</p>",
+      "difficulty": "Medium",
+      "options": [
+        {
+          "id": 417684,
+          "text": "0"
+        },
+        {
+          "id": 417685,
+          "text": "-1"
+        },
+        {
+          "id": 417683,
+          "text": "1"
+        },
+        {
+          "id": 417686,
+          "text": "2"
+        }
+      ],
+      "correct_option_id": null,
+      "correct_option_text": null,
+      "explanation": null
+    },
+    {
+      "id": 292591,
+      "question": "$\\lim \\limits_{n \\rightarrow \\infty} \\frac{n !}{(n+1) !+n !}$ is equal to",
+      "question_raw": "<p><span class=\"math-tex\">{tex}\\lim \\limits_{n \\rightarrow \\infty} \\frac{n !}{(n+1) !+n !}{/tex}</span>&nbsp;is equal to</p>",
+      "difficulty": "Medium",
+      "options": [
+        {
+          "id": 417689,
+          "text": "2"
+        },
+        {
+          "id": 417690,
+          "text": "1"
+        },
+        {
+          "id": 417688,
+          "text": "0"
+        },
+        {
+          "id": 417687,
+          "text": "$\\frac{1}{2}$"
+        }
+      ],
+      "correct_option_id": null,
+      "correct_option_text": null,
+      "explanation": null
+    },
+    {
+      "id": 292592,
+      "question": "$\\lim \\limits_{x \\rightarrow \\pi / 4} \\frac{4 \\sqrt{2}-(\\cos x+\\sin x)^{5}}{1-\\sin 2 x}$ is equal to",
+      "question_raw": "<p><span class=\"math-tex\">{tex}\\lim \\limits_{x \\rightarrow \\pi / 4} \\frac{4 \\sqrt{2}-(\\cos x+\\sin x)^{5}}{1-\\sin 2 x}{/tex}</span>&nbsp;is equal to</p>",
+      "difficulty": "Medium",
+      "options": [
+        {
+          "id": 417692,
+          "text": "$3 \\sqrt{2}$"
+        },
+        {
+          "id": 417694,
+          "text": "4$\\sqrt{2}$"
+        },
+        {
+          "id": 417693,
+          "text": "$\\sqrt{2}$"
+        },
+        {
+          "id": 417691,
+          "text": "$5 \\sqrt{2}$"
+        }
+      ],
+      "correct_option_id": null,
+      "correct_option_text": null,
+      "explanation": null
+    },
+    {
+      "id": 292593,
+      "question": "$\\lim \\limits_{x \\rightarrow 2} \\frac{\\sqrt{1+\\sqrt{2+x}}-\\sqrt 3}{x-2}$ is equal to",
+      "question_raw": "<p><span class=\"math-tex\">{tex}\\lim \\limits_{x \\rightarrow 2} \\frac{\\sqrt{1+\\sqrt{2+x}}-\\sqrt 3}{x-2}{/tex}</span>&nbsp;is equal to</p>",
+      "difficulty": "Medium",
+      "options": [
+        {
+          "id": 417696,
+          "text": "$\\frac{1}{\\sqrt{3}}$"
+        },
+        {
+          "id": 417698,
+          "text": "$\\sqrt{3}$"
+        },
+        {
+          "id": 417695,
+          "text": "$\\frac{1}{8 \\sqrt{3}}$"
+        },
+        {
+          "id": 417697,
+          "text": "$8 \\sqrt{3}$"
+        }
+      ],
+      "correct_option_id": null,
+      "correct_option_text": null,
+      "explanation": null
+    },
+    {
+      "id": 292594,
+      "question": "$\\lim \\limits_{x \\rightarrow \\infty} a^{x} \\sin \\left(\\frac{b}{a^{x}}\\right)$, a, b > 1 is equal to",
+      "question_raw": "<p><span class=\"math-tex\">{tex}\\lim \\limits_{x \\rightarrow \\infty} a^{x} \\sin \\left(\\frac{b}{a^{x}}\\right){/tex}</span>,&nbsp;a, b &gt;&nbsp;1&nbsp;is equal to</p>",
+      "difficulty": "Medium",
+      "options": [
+        {
+          "id": 417699,
+          "text": "b"
+        },
+        {
+          "id": 417701,
+          "text": "a log_e b"
+        },
+        {
+          "id": 417702,
+          "text": "b log_e a"
+        },
+        {
+          "id": 417700,
+          "text": "a"
+        }
+      ],
+      "correct_option_id": null,
+      "correct_option_text": null,
+      "explanation": null
+    },
+    {
+      "id": 292595,
+      "question": "$\\lim \\limits_{x \\rightarrow 0} \\frac{8}{x^{8}}\\left\\{1-\\cos \\frac{x^{2}}{2}-\\cos \\frac{x^{2}}{4}\\right.$$\\left.+\\cos \\frac{x^{2}}{2} \\cos \\frac{x^{2}}{4}\\right\\}$ is equal to",
+      "question_raw": "<p><span class=\"math-tex\">{tex}\\lim \\limits_{x \\rightarrow 0} \\frac{8}{x^{8}}\\left\\{1-\\cos \\frac{x^{2}}{2}-\\cos \\frac{x^{2}}{4}\\right.{/tex}</span><span class=\"math-tex\">{tex}\\left.+\\cos \\frac{x^{2}}{2} \\cos \\frac{x^{2}}{4}\\right\\}{/tex}</span>&nbsp;is equal to</p>",
+      "difficulty": "Medium",
+      "options": [
+        {
+          "id": 417703,
+          "text": "$\\frac {1}{16}$"
+        },
+        {
+          "id": 417704,
+          "text": "$-\\frac {1}{16}$"
+        },
+        {
+          "id": 417705,
+          "text": "$\\frac {1}{32}$"
+        },
+        {
+          "id": 417706,
+          "text": "$-\\frac {1}{32}$"
+        }
+      ],
+      "correct_option_id": null,
+      "correct_option_text": null,
+      "explanation": null
+    },
+    {
+      "id": 292596,
+      "question": "If $\\alpha$ is a repeated root of ax^2 + bx + c = 0, then $\\lim \\limits_{x \\rightarrow \\alpha} \\frac{\\tan \\left(a x^{2}+b x+c\\right)}{(x-\\alpha)^{2}}$ is",
+      "question_raw": "<p>If <span class=\"math-tex\">{tex}\\alpha{/tex}</span>&nbsp;is a repeated root of ax<sup>2</sup> + bx + c = 0, then&nbsp;<span class=\"math-tex\">{tex}\\lim \\limits_{x \\rightarrow \\alpha} \\frac{\\tan \\left(a x^{2}+b x+c\\right)}{(x-\\alpha)^{2}}{/tex}</span>&nbsp;is</p>",
+      "difficulty": "Medium",
+      "options": [
+        {
+          "id": 417707,
+          "text": "a"
+        },
+        {
+          "id": 417708,
+          "text": "b"
+        },
+        {
+          "id": 417710,
+          "text": "0"
+        },
+        {
+          "id": 417709,
+          "text": "c"
+        }
+      ],
+      "correct_option_id": null,
+      "correct_option_text": null,
+      "explanation": null
+    },
+    {
+      "id": 292599,
+      "question": "The value of $\\lim \\limits_{x \\rightarrow 0} \\frac{\\sqrt{a^{2}-a x+x^{2}}-\\sqrt{a^{2}+a x+x^{2}}}{\\sqrt{a+x}-\\sqrt{a-x}}$ is:",
+      "question_raw": "<p>The value of&nbsp;<span class=\"math-tex\">{tex}\\lim \\limits_{x \\rightarrow 0} \\frac{\\sqrt{a^{2}-a x+x^{2}}-\\sqrt{a^{2}+a x+x^{2}}}{\\sqrt{a+x}-\\sqrt{a-x}}{/tex}</span>&nbsp;is:</p>",
+      "difficulty": "Medium",
+      "options": [
+        {
+          "id": 417713,
+          "text": "-a"
+        },
+        {
+          "id": 417712,
+          "text": "$\\sqrt{a}$"
+        },
+        {
+          "id": 417714,
+          "text": "$-\\sqrt{a}$"
+        },
+        {
+          "id": 417711,
+          "text": "a"
+        }
+      ],
+      "correct_option_id": null,
+      "correct_option_text": null,
+      "explanation": null
+    },
+    {
+      "id": 292600,
+      "question": "The value of $\\lim \\limits_{x \\rightarrow 0} \\frac{1-\\cos x+2 \\sin x-\\sin ^{3} x-x^{2}+3 x^{4}}{\\tan ^{3} x-6 \\sin ^{2} x+x-5 x^{3}}$ is",
+      "question_raw": "<p>The value of&nbsp;<span class=\"math-tex\">{tex}\\lim \\limits_{x \\rightarrow 0} \\frac{1-\\cos x+2 \\sin x-\\sin ^{3} x-x^{2}+3 x^{4}}{\\tan ^{3} x-6 \\sin ^{2} x+x-5 x^{3}}{/tex}</span>&nbsp;is</p>",
+      "difficulty": "Medium",
+      "options": [
+        {
+          "id": 417718,
+          "text": "-2"
+        },
+        {
+          "id": 417717,
+          "text": "-1"
+        },
+        {
+          "id": 417716,
+          "text": "2"
+        },
+        {
+          "id": 417715,
+          "text": "1"
+        }
+      ],
+      "correct_option_id": null,
+      "correct_option_text": null,
+      "explanation": null
+    },
+    {
+      "id": 292601,
+      "question": "$\\lim \\limits_{\\theta \\rightarrow \\pi / 2} \\frac{1-\\sin \\theta}{(\\pi / 2-\\theta) \\cos \\theta}$ is equal to",
+      "question_raw": "<p><span class=\"math-tex\">{tex}\\lim \\limits_{\\theta \\rightarrow \\pi / 2} \\frac{1-\\sin \\theta}{(\\pi / 2-\\theta) \\cos \\theta}{/tex}</span>&nbsp;is equal to</p>",
+      "difficulty": "Medium",
+      "options": [
+        {
+          "id": 417719,
+          "text": "1"
+        },
+        {
+          "id": 417720,
+          "text": "-1"
+        },
+        {
+          "id": 417721,
+          "text": "$\\frac {1}{2}$"
+        },
+        {
+          "id": 417722,
+          "text": "$-\\frac {1}{2}$"
+        }
+      ],
+      "correct_option_id": null,
+      "correct_option_text": null,
+      "explanation": null
+    },
+    {
+      "id": 292602,
+      "question": "The value of $\\lim \\limits_{x \\rightarrow \\pi / 2}(\\sec x-\\tan x)$ is",
+      "question_raw": "<p>The value of&nbsp;<span class=\"math-tex\">{tex}\\lim \\limits_{x \\rightarrow \\pi / 2}(\\sec x-\\tan x){/tex}</span>&nbsp;is</p>",
+      "difficulty": "Medium",
+      "options": [
+        {
+          "id": 417726,
+          "text": "0"
+        },
+        {
+          "id": 417724,
+          "text": "-1"
+        },
+        {
+          "id": 417723,
+          "text": "2"
+        },
+        {
+          "id": 417725,
+          "text": "1"
+        }
+      ],
+      "correct_option_id": null,
+      "correct_option_text": null,
+      "explanation": null
+    },
+    {
+      "id": 292603,
+      "question": "The value of $\\lim \\limits_{n \\rightarrow \\infty} \\frac{n !}{(n+1) !-n !}$ is",
+      "question_raw": "<p>The value of&nbsp;<span class=\"math-tex\">{tex}\\lim \\limits_{n \\rightarrow \\infty} \\frac{n !}{(n+1) !-n !}{/tex}</span> is</p>",
+      "difficulty": "Medium",
+      "options": [
+        {
+          "id": 417727,
+          "text": "0"
+        },
+        {
+          "id": 417728,
+          "text": "1"
+        },
+        {
+          "id": 417729,
+          "text": "-1"
+        },
+        {
+          "id": 417730,
+          "text": "2"
+        }
+      ],
+      "correct_option_id": null,
+      "correct_option_text": null,
+      "explanation": null
+    },
+    {
+      "id": 292605,
+      "question": "The value of $\\lim \\limits_{n \\rightarrow \\infty} \\frac{(n+2) !+(n+1) !}{(n+2) !-(n+1) !}$ is:",
+      "question_raw": "<p>The value of&nbsp;<span class=\"math-tex\">{tex}\\lim \\limits_{n \\rightarrow \\infty} \\frac{(n+2) !+(n+1) !}{(n+2) !-(n+1) !}{/tex}</span>&nbsp;is:</p>",
+      "difficulty": "Medium",
+      "options": [
+        {
+          "id": 417733,
+          "text": "1"
+        },
+        {
+          "id": 417734,
+          "text": "2"
+        },
+        {
+          "id": 417731,
+          "text": "0"
+        },
+        {
+          "id": 417732,
+          "text": "-1"
+        }
+      ],
+      "correct_option_id": null,
+      "correct_option_text": null,
+      "explanation": null
+    },
+    {
+      "id": 292607,
+      "question": "The value of $\\lim \\limits_{x \\rightarrow \\infty} \\frac{(x+1)^{10}+(x+2)^{10}+\\ldots+(x+100)^{10}}{x^{10}+10^{10}}$ is:",
+      "question_raw": "<p>The value of&nbsp;<span class=\"math-tex\">{tex}\\lim \\limits_{x \\rightarrow \\infty} \\frac{(x+1)^{10}+(x+2)^{10}+\\ldots+(x+100)^{10}}{x^{10}+10^{10}}{/tex}</span>&nbsp;is:</p>",
+      "difficulty": "Medium",
+      "options": [
+        {
+          "id": 417735,
+          "text": "10"
+        },
+        {
+          "id": 417736,
+          "text": "100"
+        },
+        {
+          "id": 417738,
+          "text": "10^12"
+        },
+        {
+          "id": 417737,
+          "text": "10^10"
+        }
+      ],
+      "correct_option_id": null,
+      "correct_option_text": null,
+      "explanation": null
+    },
+    {
+      "id": 292608,
+      "question": "The value of $\\lim \\limits_{n \\rightarrow \\infty}\\left\\{\\frac{1+2+3+\\ldots+n}{n+2}-\\frac{n}{2}\\right\\}$ is:",
+      "question_raw": "<p>The value of&nbsp;<span class=\"math-tex\">{tex}\\lim \\limits_{n \\rightarrow \\infty}\\left\\{\\frac{1+2+3+\\ldots+n}{n+2}-\\frac{n}{2}\\right\\}{/tex}</span>&nbsp;is:</p>",
+      "difficulty": "Medium",
+      "options": [
+        {
+          "id": 417739,
+          "text": "$\\frac {1}{2}$"
+        },
+        {
+          "id": 417740,
+          "text": "1"
+        },
+        {
+          "id": 417742,
+          "text": "$-\\frac {1}{2}$"
+        },
+        {
+          "id": 417741,
+          "text": "-1"
+        }
+      ],
+      "correct_option_id": null,
+      "correct_option_text": null,
+      "explanation": null
+    },
+    {
+      "id": 292610,
+      "question": "$\\lim \\limits_{x \\rightarrow \\infty} \\frac{|x|}{x}$ is equal to",
+      "question_raw": "<p><span class=\"math-tex\">{tex}\\lim \\limits_{x \\rightarrow \\infty} \\frac{|x|}{x}{/tex}</span>&nbsp;is equal to</p>",
+      "difficulty": "Medium",
+      "options": [
+        {
+          "id": 417749,
+          "text": "0"
+        },
+        {
+          "id": 417750,
+          "text": "2"
+        },
+        {
+          "id": 417747,
+          "text": "1"
+        },
+        {
+          "id": 417748,
+          "text": "-1"
+        }
+      ],
+      "correct_option_id": null,
+      "correct_option_text": null,
+      "explanation": null
+    },
+    {
+      "id": 292612,
+      "question": "$\\lim \\limits_{x \\rightarrow 0} \\frac{|\\sin x|}{x}$ is",
+      "question_raw": "<p><span class=\"math-tex\">{tex}\\lim \\limits_{x \\rightarrow 0} \\frac{|\\sin x|}{x}{/tex}</span>&nbsp;is</p>",
+      "difficulty": "Medium",
+      "options": [
+        {
+          "id": 417757,
+          "text": "0"
+        },
+        {
+          "id": 417755,
+          "text": "1"
+        },
+        {
+          "id": 417758,
+          "text": "None of these"
+        },
+        {
+          "id": 417756,
+          "text": "-1"
+        }
+      ],
+      "correct_option_id": null,
+      "correct_option_text": null,
+      "explanation": null
+    },
+    {
+      "id": 292614,
+      "question": "If $f(x)=\\left\\{\\begin{array}{cl} \\frac{\\sin [x]}{[x]}, & {[x] \\neq 0} \\\\ 0 & ,[x]=0 \\end{array}\\right.$, where $[\\cdot]$ denotes the greatest integer function, then $\\lim \\limits_{x \\rightarrow 0} f(x)$ is equal to",
+      "question_raw": "<p>If&nbsp;<span class=\"math-tex\">{tex}f(x)=\\left\\{\\begin{array}{cl} \\frac{\\sin [x]}{[x]}, &amp; {[x] \\neq 0} \\\\ 0 &amp; ,[x]=0 \\end{array}\\right.{/tex}</span>, where&nbsp;<span class=\"math-tex\">{tex}[\\cdot]{/tex}</span>&nbsp;denotes the greatest integer function, then&nbsp;<span class=\"math-tex\">{tex}\\lim \\limits_{x \\rightarrow 0} f(x){/tex}</span>&nbsp;is equal to</p>",
+      "difficulty": "Medium",
+      "options": [
+        {
+          "id": 417766,
+          "text": "None of these"
+        },
+        {
+          "id": 417765,
+          "text": "-1"
+        },
+        {
+          "id": 417764,
+          "text": "0"
+        },
+        {
+          "id": 417763,
+          "text": "1"
+        }
+      ],
+      "correct_option_id": null,
+      "correct_option_text": null,
+      "explanation": null
+    },
+    {
+      "id": 295920,
+      "question": "If y = 1 + $\\frac{x}{1 !}+\\frac{x^{2}}{2 !}+\\frac{x^{3}}{3 !}$ + ..., then $\\frac{d y}{d x}$ =",
+      "question_raw": "<p>If y = 1&nbsp;+&nbsp;<span class=\"math-tex\">{tex}\\frac{x}{1 !}+\\frac{x^{2}}{2 !}+\\frac{x^{3}}{3 !}{/tex}</span> + ..., then&nbsp;&nbsp;<span class=\"math-tex\">{tex}\\frac{d y}{d x}{/tex}</span>&nbsp;=</p>\r\n",
+      "difficulty": "Medium",
+      "options": [
+        {
+          "id": 420644,
+          "text": "y^2"
+        },
+        {
+          "id": 420643,
+          "text": "y"
+        },
+        {
+          "id": 420642,
+          "text": "y - 1"
+        },
+        {
+          "id": 420641,
+          "text": "y + 1"
+        }
+      ],
+      "correct_option_id": null,
+      "correct_option_text": null,
+      "explanation": null
+    },
+    {
+      "id": 511969,
+      "question": "Let \nIf f(x) is continuous at x = 0, then the value of a, is :",
+      "question_raw": "<p>Let&nbsp;</p>\r\n\r\n<p><img alt=\"\" data-imgur-src=\"vouWYHu.png\" src=\"https://media-mycbseguide.s3.amazonaws.com/images/imgur/1619691764-ajt7pz.jpg\" style=\"width: 200px; height: 48px;\" />&nbsp;<br />\r\nIf f(x) is continuous at x = 0, then the value of a, is :</p>\r\n",
+      "difficulty": "Medium",
+      "options": [
+        {
+          "id": 906491,
+          "text": "1"
+        },
+        {
+          "id": 906494,
+          "text": "$\\frac{1}{6}$"
+        },
+        {
+          "id": 906493,
+          "text": "$\\frac{1}{3}$"
+        },
+        {
+          "id": 906492,
+          "text": "$\\frac{1}{2}$"
+        }
+      ],
+      "correct_option_id": null,
+      "correct_option_text": null,
+      "explanation": null
+    },
+    {
+      "id": 537016,
+      "question": "$\\lim _\\limits{x \\rightarrow 0}\\left(\\frac{1}{x}-\\frac{1}{x^{2}} \\log (1+x)\\right)$ equals:",
+      "question_raw": "<p><span class=\"math-tex\">{tex}\\lim _\\limits{x \\rightarrow 0}\\left(\\frac{1}{x}-\\frac{1}{x^{2}} \\log (1+x)\\right){/tex}</span>&nbsp;equals:</p>\r\n",
+      "difficulty": "Medium",
+      "options": [
+        {
+          "id": 977004,
+          "text": "-$\\frac 12$"
+        },
+        {
+          "id": 977005,
+          "text": "-2"
+        },
+        {
+          "id": 977006,
+          "text": "$\\frac 12$"
+        },
+        {
+          "id": 977007,
+          "text": "2"
+        }
+      ],
+      "correct_option_id": null,
+      "correct_option_text": null,
+      "explanation": null
+    },
+    {
+      "id": 882495,
+      "question": "$\\lim _\\limits{x \\rightarrow \\frac{\\pi}{2}}(\\sec x)^{\\cot x}$ equals:",
+      "question_raw": "<p><span class=\"math-tex\">{tex}\\lim _\\limits{x \\rightarrow \\frac{\\pi}{2}}(\\sec x)^{\\cot x}{/tex}</span>&nbsp;equals:</p>",
+      "difficulty": "Easy",
+      "options": [
+        {
+          "id": 1860773,
+          "text": "e^2"
+        },
+        {
+          "id": 1860771,
+          "text": "0"
+        },
+        {
+          "id": 1860770,
+          "text": "1"
+        },
+        {
+          "id": 1860772,
+          "text": "-1"
+        }
+      ],
+      "correct_option_id": null,
+      "correct_option_text": null,
+      "explanation": null
+    },
+    {
+      "id": 1057479,
+      "question": "$\\lim _\\limits{x \\rightarrow 0}\\left(\\left(\\frac{1-\\cos ^2 \\cdot(3 x)}{\\cos ^3(4 x)}\\right)\\left(\\frac{\\sin ^3(4 x)}{\\left(\\log _e(2 x+1)\\right)^5}\\right)\\right)$ is equal to ________.",
+      "question_raw": "<p><span class=\"math-tex\">{tex}\\lim _\\limits{x \\rightarrow 0}\\left(\\left(\\frac{1-\\cos ^2 \\cdot(3 x)}{\\cos ^3(4 x)}\\right)\\left(\\frac{\\sin ^3(4 x)}{\\left(\\log _e(2 x+1)\\right)^5}\\right)\\right){/tex}</span>&nbsp;is equal to ________.</p>",
+      "difficulty": "Hard",
+      "options": [
+        {
+          "id": 2174138,
+          "text": "9"
+        },
+        {
+          "id": 2174139,
+          "text": "18"
+        },
+        {
+          "id": 2174141,
+          "text": "15"
+        },
+        {
+          "id": 2174142,
+          "text": "24"
+        }
+      ],
+      "correct_option_id": null,
+      "correct_option_text": null,
+      "explanation": null
+    },
+    {
+      "id": 1057495,
+      "question": "$\\lim \\limits_{n \\rightarrow \\infty} \\left\\{\\left(2^{\\frac{1}{2}}-2^{\\frac{1}{3}}\\right)\\left(2^{\\frac{1}{2}}-2^{\\frac{1}{5}}\\right)\\right.$...$\\left.\\left(2^{\\frac{1}{2}}-2^{\\frac{1}{2 n+1}}\\right)\\right\\}$ is equal to",
+      "question_raw": "<p><span class=\"math-tex\">{tex}\\lim \\limits_{n \\rightarrow \\infty} \\left\\{\\left(2^{\\frac{1}{2}}-2^{\\frac{1}{3}}\\right)\\left(2^{\\frac{1}{2}}-2^{\\frac{1}{5}}\\right)\\right.{/tex}</span>...<span class=\"math-tex\">{tex}\\left.\\left(2^{\\frac{1}{2}}-2^{\\frac{1}{2 n+1}}\\right)\\right\\}{/tex}</span> is equal to</p>",
+      "difficulty": "Hard",
+      "options": [
+        {
+          "id": 2174183,
+          "text": "1"
+        },
+        {
+          "id": 2174187,
+          "text": "0"
+        },
+        {
+          "id": 2174181,
+          "text": "$\\frac{1}{\\sqrt{2}}$"
+        },
+        {
+          "id": 2174185,
+          "text": "$\\sqrt2$"
+        }
+      ],
+      "correct_option_id": null,
+      "correct_option_text": null,
+      "explanation": null
+    },
+    {
+      "id": 1057499,
+      "question": "$\\lim _\\limits{x \\rightarrow \\infty} \\frac{(\\sqrt{3 x+1}+\\sqrt{3 x-1})^6+(\\sqrt{3 x+1}-\\sqrt{3 x-1})^6}{\\left(x+\\sqrt{x^2-1}\\right)^6+\\left(x-\\sqrt{x^2-1}\\right)^6} x^3$",
+      "question_raw": "<p><span class=\"math-tex\">{tex}\\lim _\\limits{x \\rightarrow \\infty} \\frac{(\\sqrt{3 x+1}+\\sqrt{3 x-1})^6+(\\sqrt{3 x+1}-\\sqrt{3 x-1})^6}{\\left(x+\\sqrt{x^2-1}\\right)^6+\\left(x-\\sqrt{x^2-1}\\right)^6} x^3{/tex}</span></p>",
+      "difficulty": "Hard",
+      "options": [
+        {
+          "id": 2174197,
+          "text": "is equal to 27"
+        },
+        {
+          "id": 2174199,
+          "text": "is equal to $\\frac {27}2$"
+        },
+        {
+          "id": 2174198,
+          "text": "does not exist"
+        },
+        {
+          "id": 2174196,
+          "text": "is equal to 9"
+        }
+      ],
+      "correct_option_id": null,
+      "correct_option_text": null,
+      "explanation": null
+    },
+    {
+      "id": 1057509,
+      "question": "Let f, g and h be the real valued functions defined on R a f(x) = $\\left\\{\\begin{array}{cc} \\frac{ x }{| x |}, & x \\neq 0 \\\\ 1, & x =0 \\end{array},\\right.$ g(x) = $\\left\\{\\begin{array}{cc} \\frac{\\sin (x+1)}{(x+1)}, & x \\neq-1 \\\\ 1, & x=-1 \\end{array}\\right.$ and h(x) = 2[x] - f(x), where [x] is the greatest integer $\\le$ x. Then the value of $\\lim _\\limits{x \\rightarrow 1} $ g(h(x - 1)) is",
+      "question_raw": "<p>Let f, g and h be the real valued functions defined on R&nbsp;a f(x) =&nbsp;<span class=\"math-tex\">{tex}\\left\\{\\begin{array}{cc} \\frac{ x }{| x |}, &amp; x \\neq 0 \\\\ 1, &amp; x =0 \\end{array},\\right.{/tex}</span>&nbsp;g(x) =&nbsp;<span class=\"math-tex\">{tex}\\left\\{\\begin{array}{cc} \\frac{\\sin (x+1)}{(x+1)}, &amp; x \\neq-1 \\\\ 1, &amp; x=-1 \\end{array}\\right.{/tex}</span>&nbsp;and h(x) = 2[x] - f(x), where [x] is the greatest integer&nbsp;<span class=\"math-tex\">{tex}\\le{/tex}</span>&nbsp;x. Then the value of&nbsp;<span class=\"math-tex\">{tex}\\lim _\\limits{x \\rightarrow 1} {/tex}</span> g(h(x - 1)) is</p>",
+      "difficulty": "Hard",
+      "options": [
+        {
+          "id": 2174222,
+          "text": "1"
+        },
+        {
+          "id": 2174223,
+          "text": "sin(1)"
+        },
+        {
+          "id": 2174224,
+          "text": "-1"
+        },
+        {
+          "id": 2174225,
+          "text": "0"
+        }
+      ],
+      "correct_option_id": null,
+      "correct_option_text": null,
+      "explanation": null
+    },
+    {
+      "id": 1057518,
+      "question": "The value of $\\lim _\\limits{n \\rightarrow \\infty} \\frac{1+2-3+4+5-6+\\ldots+(3 n-2)+(3 n-1)-3 n}{\\sqrt{2 n^4+4 n+3}-\\sqrt{n^4+5 n+4}}$",
+      "question_raw": "<p>The value of&nbsp;<span class=\"math-tex\">{tex}\\lim _\\limits{n \\rightarrow \\infty} \\frac{1+2-3+4+5-6+\\ldots+(3 n-2)+(3 n-1)-3 n}{\\sqrt{2 n^4+4 n+3}-\\sqrt{n^4+5 n+4}}{/tex}</span></p>",
+      "difficulty": "Hard",
+      "options": [
+        {
+          "id": 2174255,
+          "text": "$3(\\sqrt{2}+1)$"
+        },
+        {
+          "id": 2174254,
+          "text": "$\\frac{\\sqrt{2}+1}{2}$"
+        },
+        {
+          "id": 2174257,
+          "text": "$\\frac{3}{2 \\sqrt{2}}$"
+        },
+        {
+          "id": 2174256,
+          "text": "$\\frac{3}{2}(\\sqrt{2}+1)$"
+        }
+      ],
+      "correct_option_id": null,
+      "correct_option_text": null,
+      "explanation": null
+    },
+    {
+      "id": 1057526,
+      "question": "$\\lim _\\limits{t \\rightarrow 0}\\left(1^{\\frac{1}{{\\sin ^2 t}}}+2^{\\frac{1}{\\sin ^2 t}}+\\ldots .+n^{\\frac{1}{\\sin ^2 t}}\\right)^{\\sin ^2 t}$ is equal to",
+      "question_raw": "<p><span class=\"math-tex\">{tex}\\lim _\\limits{t \\rightarrow 0}\\left(1^{\\frac{1}{{\\sin ^2 t}}}+2^{\\frac{1}{\\sin ^2 t}}+\\ldots .+n^{\\frac{1}{\\sin ^2 t}}\\right)^{\\sin ^2 t}{/tex}</span>&nbsp;is equal to</p>",
+      "difficulty": "Hard",
+      "options": [
+        {
+          "id": 2174283,
+          "text": "n"
+        },
+        {
+          "id": 2174284,
+          "text": "$\\frac{n(n+1)}{2}$"
+        },
+        {
+          "id": 2174285,
+          "text": "n^2"
+        },
+        {
+          "id": 2174282,
+          "text": "n^2 + n"
+        }
+      ],
+      "correct_option_id": null,
+      "correct_option_text": null,
+      "explanation": null
+    },
+    {
+      "id": 1057538,
+      "question": "The set of all values of a for which $\\lim _\\limits{x \\rightarrow a}$([x - 5] - [2x + 2]) = 0, where [a] denotes the greater integer less than or equal to a is equal to",
+      "question_raw": "<p>The set of all values of a for which&nbsp;<span class=\"math-tex\">{tex}\\lim _\\limits{x \\rightarrow a}{/tex}</span>([x - 5] - [2x + 2]) = 0, where [a] denotes the greater&nbsp;integer less than or equal to a is equal to</p>",
+      "difficulty": "Hard",
+      "options": [
+        {
+          "id": 2174318,
+          "text": "(-7.5, -6.5)"
+        },
+        {
+          "id": 2174320,
+          "text": "[-7.5, -6.5]"
+        },
+        {
+          "id": 2174319,
+          "text": "(-7.5, -6.5]"
+        },
+        {
+          "id": 2174321,
+          "text": "[-7.5, -6.5)"
+        }
+      ],
+      "correct_option_id": null,
+      "correct_option_text": null,
+      "explanation": null
+    },
+    {
+      "id": 1057546,
+      "question": "If $\\lim _\\limits{n \\rightarrow \\infty}\\left(\\sqrt{n^2-n-1}+n \\alpha+\\beta\\right)$ = 0, then 8($\\alpha$ + $\\beta$) is equal to:",
+      "question_raw": "<p>If&nbsp;<span class=\"math-tex\">{tex}\\lim _\\limits{n \\rightarrow \\infty}\\left(\\sqrt{n^2-n-1}+n \\alpha+\\beta\\right){/tex}</span>&nbsp;= 0, then 8(<span class=\"math-tex\">{tex}\\alpha{/tex}</span>&nbsp;+&nbsp;<span class=\"math-tex\">{tex}\\beta{/tex}</span>) is equal to:</p>",
+      "difficulty": "Hard",
+      "options": [
+        {
+          "id": 2174345,
+          "text": "8"
+        },
+        {
+          "id": 2174343,
+          "text": "-8"
+        },
+        {
+          "id": 2174342,
+          "text": "4"
+        },
+        {
+          "id": 2174344,
+          "text": "-4"
+        }
+      ],
+      "correct_option_id": null,
+      "correct_option_text": null,
+      "explanation": null
+    },
+    {
+      "id": 1057554,
+      "question": "The value of $\\lim _\\limits{x \\rightarrow 1} \\frac{\\left(x^2-1\\right) \\sin ^2(\\pi x)}{x^4-2 x^3+2 x-1}$ is equal to:",
+      "question_raw": "<p>The value of&nbsp;<span class=\"math-tex\">{tex}\\lim _\\limits{x \\rightarrow 1} \\frac{\\left(x^2-1\\right) \\sin ^2(\\pi x)}{x^4-2 x^3+2 x-1}{/tex}</span> is equal to:</p>",
+      "difficulty": "Hard",
+      "options": [
+        {
+          "id": 2174358,
+          "text": "$\\frac{\\pi^2}{6}$"
+        },
+        {
+          "id": 2174360,
+          "text": "$\\frac{\\pi^2}{2}$"
+        },
+        {
+          "id": 2174361,
+          "text": "$\\pi^2$"
+        },
+        {
+          "id": 2174359,
+          "text": "$\\frac{\\pi^2}{3}$"
+        }
+      ],
+      "correct_option_id": null,
+      "correct_option_text": null,
+      "explanation": null
+    },
+    {
+      "id": 1057570,
+      "question": "Let a be an integer such that $\\lim _\\limits{x \\rightarrow 7} \\frac{18-[1-x]}{[x-3 a]}$ exists, where [t] is greater integer $\\le$ t. Then a is equal to:",
+      "question_raw": "<p>Let a be an integer such that&nbsp;<span class=\"math-tex\">{tex}\\lim _\\limits{x \\rightarrow 7} \\frac{18-[1-x]}{[x-3 a]}{/tex}</span>&nbsp;exists, where [t] is greater integer&nbsp;<span class=\"math-tex\">{tex}\\le{/tex}</span> t. Then a is equal to:</p>",
+      "difficulty": "Hard",
+      "options": [
+        {
+          "id": 2174407,
+          "text": "6"
+        },
+        {
+          "id": 2174404,
+          "text": "-6"
+        },
+        {
+          "id": 2174405,
+          "text": "-2"
+        },
+        {
+          "id": 2174406,
+          "text": "2"
+        }
+      ],
+      "correct_option_id": null,
+      "correct_option_text": null,
+      "explanation": null
+    },
+    {
+      "id": 1057586,
+      "question": "$\\lim \\limits_{x \\rightarrow \\frac{\\pi}{2}}\\left(\\operatorname { t a n } ^ { 2 } x \\left(\\left(2 \\sin ^2 x+3 \\sin x+4\\right)^{\\frac{1}{2}}\\right.\\right.$$\\left.\\left.-\\left(\\sin ^2 x+6 \\sin x+2\\right)^{\\frac{1}{2}}\\right)\\right)$ is equal to",
+      "question_raw": "<p><span class=\"math-tex\">{tex}\\lim \\limits_{x \\rightarrow \\frac{\\pi}{2}}\\left(\\operatorname { t a n } ^ { 2 } x \\left(\\left(2 \\sin ^2 x+3 \\sin x+4\\right)^{\\frac{1}{2}}\\right.\\right.{/tex}</span><span class=\"math-tex\">{tex}\\left.\\left.-\\left(\\sin ^2 x+6 \\sin x+2\\right)^{\\frac{1}{2}}\\right)\\right){/tex}</span> is equal to</p>",
+      "difficulty": "Hard",
+      "options": [
+        {
+          "id": 2174445,
+          "text": "$-\\frac {1}{18}$"
+        },
+        {
+          "id": 2174447,
+          "text": "$-\\frac 16$"
+        },
+        {
+          "id": 2174444,
+          "text": "$\\frac 1{12}$"
+        },
+        {
+          "id": 2174446,
+          "text": "$-\\frac {1}{12}$"
+        }
+      ],
+      "correct_option_id": null,
+      "correct_option_text": null,
+      "explanation": null
+    },
+    {
+      "id": 1057602,
+      "question": "$\\lim _\\limits{x \\rightarrow 0} \\frac{\\sin ^2\\left(\\pi \\cos ^4 x\\right)}{x^4}$ is equal to:",
+      "question_raw": "<p><span class=\"math-tex\">{tex}\\lim _\\limits{x \\rightarrow 0} \\frac{\\sin ^2\\left(\\pi \\cos ^4 x\\right)}{x^4}{/tex}</span>&nbsp;is equal to:</p>",
+      "difficulty": "Hard",
+      "options": [
+        {
+          "id": 2174490,
+          "text": "4$\\pi^2$"
+        },
+        {
+          "id": 2174488,
+          "text": "$\\pi^2$"
+        },
+        {
+          "id": 2174491,
+          "text": "4$\\pi$"
+        },
+        {
+          "id": 2174489,
+          "text": "2$\\pi^2$"
+        }
+      ],
+      "correct_option_id": null,
+      "correct_option_text": null,
+      "explanation": null
+    },
+    {
+      "id": 1057638,
+      "question": "If $\\lim _\\limits{x \\rightarrow 2} \\frac{\\tan (x-2)\\left\\{x^2+(k-2) x-2 k\\right\\}}{x^2-4 x+4}$ = 5, then k is equal to:",
+      "question_raw": "<p>If&nbsp;<span class=\"math-tex\">{tex}\\lim _\\limits{x \\rightarrow 2} \\frac{\\tan (x-2)\\left\\{x^2+(k-2) x-2 k\\right\\}}{x^2-4 x+4}{/tex}</span> = 5, then k is equal to:</p>",
+      "difficulty": "Hard",
+      "options": [
+        {
+          "id": 2174604,
+          "text": "0"
+        },
+        {
+          "id": 2174606,
+          "text": "2"
+        },
+        {
+          "id": 2174607,
+          "text": "3"
+        },
+        {
+          "id": 2174605,
+          "text": "1"
+        }
+      ],
+      "correct_option_id": null,
+      "correct_option_text": null,
+      "explanation": null
+    },
+    {
+      "id": 1057659,
+      "question": "Let $\\alpha$(a) and $\\beta$(a) be the roots of the equation $(\\sqrt[3]{1+a}-1) x^2$ + $(\\sqrt{1+a}-1) x+(\\sqrt[6]{1+a}-1)$ = 0 where a > -1, Then $\\lim _\\limits{a \\rightarrow 0^{+}} \\alpha$(a) and $\\lim _\\limits{a \\rightarrow 0^{+}} \\beta$(a) are",
+      "question_raw": "<p>Let <span class=\"math-tex\">{tex}\\alpha{/tex}</span>(a) and <span class=\"math-tex\">{tex}\\beta{/tex}</span>(a) be the roots of the equation&nbsp;<span class=\"math-tex\">{tex}(\\sqrt[3]{1+a}-1) x^2{/tex}</span>&nbsp;+&nbsp;<span class=\"math-tex\">{tex}(\\sqrt{1+a}-1) x+(\\sqrt[6]{1+a}-1){/tex}</span>&nbsp;= 0 where a &gt; -1, Then&nbsp;<span class=\"math-tex\">{tex}\\lim _\\limits{a \\rightarrow 0^{+}} \\alpha{/tex}</span>(a) and&nbsp;<span class=\"math-tex\">{tex}\\lim _\\limits{a \\rightarrow 0^{+}} \\beta{/tex}</span>(a) are</p>",
+      "difficulty": "Hard",
+      "options": [
+        {
+          "id": 2174667,
+          "text": "$-\\frac{9}{2}$ and 3"
+        },
+        {
+          "id": 2174665,
+          "text": "$-\\frac{1}{2}$ and -1"
+        },
+        {
+          "id": 2174666,
+          "text": "$-\\frac{7}{2}$ and 2"
+        },
+        {
+          "id": 2174664,
+          "text": "$-\\frac{5}{2}$ and 1"
+        }
+      ],
+      "correct_option_id": null,
+      "correct_option_text": null,
+      "explanation": null
+    },
+    {
+      "id": 1057662,
+      "question": "If $\\lim _\\limits{x \\rightarrow \\infty}\\left(\\frac{x^2+x+1}{x+1}-a x-b\\right)$ = 4, then",
+      "question_raw": "<p>If&nbsp;<span class=\"math-tex\">{tex}\\lim _\\limits{x \\rightarrow \\infty}\\left(\\frac{x^2+x+1}{x+1}-a x-b\\right){/tex}</span> = 4, then</p>",
+      "difficulty": "Hard",
+      "options": [
+        {
+          "id": 2174678,
+          "text": "a = 2,b = -3"
+        },
+        {
+          "id": 2174676,
+          "text": "a = 1, b = 4"
+        },
+        {
+          "id": 2174679,
+          "text": "a = 2, b = 3"
+        },
+        {
+          "id": 2174677,
+          "text": "a = 1, b = -4"
+        }
+      ],
+      "correct_option_id": null,
+      "correct_option_text": null,
+      "explanation": null
+    },
+    {
+      "id": 1057714,
+      "question": "Let x = 2 be a root of the equation x^2 + px + q = 0 and f(x)$\\left\\{\\begin{array}{cc} \\frac{1-\\cos \\left(x^2-4 p x+q^2+8 q+16\\right)}{(x-2 p)^4}, & x \\neq 2 p \\\\ 0, & x=2 p \\end{array}\\right.$. Then $\\lim _\\limits{x \\rightarrow 2 p^{+}}[f(x)]$ where [.] denotes greatest integer function, is",
+      "question_raw": "<p>Let x = 2 be a root of the equation x<sup>2</sup> + px + q = 0 and f(x)<span class=\"math-tex\">{tex}\\left\\{\\begin{array}{cc} \\frac{1-\\cos \\left(x^2-4 p x+q^2+8 q+16\\right)}{(x-2 p)^4}, &amp; x \\neq 2 p \\\\ 0, &amp; x=2 p \\end{array}\\right.{/tex}</span>. Then&nbsp;<span class=\"math-tex\">{tex}\\lim _\\limits{x \\rightarrow 2 p^{+}}[f(x)]{/tex}</span>&nbsp;where [.] denotes greatest integer function, is</p>",
+      "difficulty": "Hard",
+      "options": [
+        {
+          "id": 2174816,
+          "text": "2"
+        },
+        {
+          "id": 2174817,
+          "text": "1"
+        },
+        {
+          "id": 2174819,
+          "text": "-1"
+        },
+        {
+          "id": 2174818,
+          "text": "0"
+        }
+      ],
+      "correct_option_id": null,
+      "correct_option_text": null,
+      "explanation": null
+    },
+    {
+      "id": 1057747,
+      "question": "If $\\lim _\\limits{x \\rightarrow 0} \\frac{\\alpha e^x+\\beta e^{-x}+\\gamma \\sin x}{x \\sin ^2 x}=\\frac{2}{3}$, where $\\alpha$, $\\beta$, $\\gamma$ $\\in$ R, then which of the following is NOT correct?",
+      "question_raw": "<p>If&nbsp;<span class=\"math-tex\">{tex}\\lim _\\limits{x \\rightarrow 0} \\frac{\\alpha e^x+\\beta e^{-x}+\\gamma \\sin x}{x \\sin ^2 x}=\\frac{2}{3}{/tex}</span>, where&nbsp;<span class=\"math-tex\">{tex}\\alpha{/tex}</span>,&nbsp;<span class=\"math-tex\">{tex}\\beta{/tex}</span>,&nbsp;<span class=\"math-tex\">{tex}\\gamma{/tex}</span>&nbsp;<span class=\"math-tex\">{tex}\\in{/tex}</span>&nbsp;R, then which of the following is NOT correct?</p>",
+      "difficulty": "Hard",
+      "options": [
+        {
+          "id": 2174883,
+          "text": "$\\alpha$$\\beta$ + $\\beta$$\\gamma$ + $\\gamma$$\\alpha$ + 1 = 0"
+        },
+        {
+          "id": 2174885,
+          "text": "$\\alpha^2$ - $\\beta^2$ + $\\gamma^2$ = 4"
+        },
+        {
+          "id": 2174882,
+          "text": "$\\alpha^2$ + $\\beta^2$ + $\\gamma^2$ = 6"
+        },
+        {
+          "id": 2174884,
+          "text": "$\\alpha$$\\beta^2$ + $\\beta$$\\gamma^2$ + $\\gamma$$\\alpha^2$ + 3 = 0"
+        }
+      ],
+      "correct_option_id": null,
+      "correct_option_text": null,
+      "explanation": null
+    },
+    {
+      "id": 1057763,
+      "question": "Let $\\beta$ = $\\lim _\\limits{x \\rightarrow 0} \\frac{\\alpha x-\\left(e^{3 x}-1\\right)}{\\alpha x\\left(e^{3 x}-1\\right)}$ for some $\\alpha$ $\\in$ R. Then the value of $\\alpha$ + $\\beta$ is:",
+      "question_raw": "<p>Let&nbsp;<span class=\"math-tex\">{tex}\\beta{/tex}</span>&nbsp;=&nbsp;<span class=\"math-tex\">{tex}\\lim _\\limits{x \\rightarrow 0} \\frac{\\alpha x-\\left(e^{3 x}-1\\right)}{\\alpha x\\left(e^{3 x}-1\\right)}{/tex}</span>&nbsp;for some&nbsp;<span class=\"math-tex\">{tex}\\alpha{/tex}</span>&nbsp;<span class=\"math-tex\">{tex}\\in{/tex}</span>&nbsp;R. Then the value of&nbsp;<span class=\"math-tex\">{tex}\\alpha{/tex}</span>&nbsp;+&nbsp;<span class=\"math-tex\">{tex}\\beta{/tex}</span> is:</p>",
+      "difficulty": "Hard",
+      "options": [
+        {
+          "id": 2174919,
+          "text": "$\\frac 72$"
+        },
+        {
+          "id": 2174916,
+          "text": "$\\frac{14}{5}$"
+        },
+        {
+          "id": 2174917,
+          "text": "$\\frac 32$"
+        },
+        {
+          "id": 2174918,
+          "text": "$\\frac 52$"
+        }
+      ],
+      "correct_option_id": null,
+      "correct_option_text": null,
+      "explanation": null
+    },
+    {
+      "id": 1057777,
+      "question": "$\\lim _\\limits{x \\rightarrow \\frac{\\pi}{4}} \\frac{8 \\sqrt{2}-(\\cos x+\\sin x)^7}{\\sqrt{2}-\\sqrt{2} \\sin 2 x}$ is equal to",
+      "question_raw": "<p><span class=\"math-tex\">{tex}\\lim _\\limits{x \\rightarrow \\frac{\\pi}{4}} \\frac{8 \\sqrt{2}-(\\cos x+\\sin x)^7}{\\sqrt{2}-\\sqrt{2} \\sin 2 x}{/tex}</span>&nbsp;is equal to</p>",
+      "difficulty": "Hard",
+      "options": [
+        {
+          "id": 2174964,
+          "text": "$7 \\sqrt{2}$"
+        },
+        {
+          "id": 2174958,
+          "text": "14"
+        },
+        {
+          "id": 2174960,
+          "text": "7"
+        },
+        {
+          "id": 2174962,
+          "text": "$14 \\sqrt{2}$"
+        }
+      ],
+      "correct_option_id": null,
+      "correct_option_text": null,
+      "explanation": null
+    },
+    {
+      "id": 1057805,
+      "question": "$\\lim _\\limits{x \\rightarrow 0} \\frac{\\cos (\\sin x)-\\cos x}{x^4}$ is equal to:",
+      "question_raw": "<p><span class=\"math-tex\">{tex}\\lim _\\limits{x \\rightarrow 0} \\frac{\\cos (\\sin x)-\\cos x}{x^4}{/tex}</span>&nbsp;is equal to:</p>",
+      "difficulty": "Hard",
+      "options": [
+        {
+          "id": 2175035,
+          "text": "$\\frac 14$"
+        },
+        {
+          "id": 2175037,
+          "text": "$\\frac 1 {12}$"
+        },
+        {
+          "id": 2175036,
+          "text": "$\\frac 16$"
+        },
+        {
+          "id": 2175034,
+          "text": "$\\frac 13$"
+        }
+      ],
+      "correct_option_id": null,
+      "correct_option_text": null,
+      "explanation": null
+    },
+    {
+      "id": 1057820,
+      "question": "Let f : R $\\rightarrow$ R be a function such that f(2) = 4 and f(2) = 1. Then, the value of $\\lim _\\limits{x \\rightarrow 2} \\frac{x^2 f(2)-4 f(x)}{x-2}$ is equal to",
+      "question_raw": "<p>Let f : R <span class=\"math-tex\">{tex}\\rightarrow{/tex}</span> R be a function such that f(2) = 4 and f(2) = 1. Then, the value of&nbsp;<span class=\"math-tex\">{tex}\\lim _\\limits{x \\rightarrow 2} \\frac{x^2 f(2)-4 f(x)}{x-2}{/tex}</span>&nbsp;is equal to</p>",
+      "difficulty": "Hard",
+      "options": [
+        {
+          "id": 2175073,
+          "text": "12"
+        },
+        {
+          "id": 2175070,
+          "text": "4"
+        },
+        {
+          "id": 2175072,
+          "text": "16"
+        },
+        {
+          "id": 2175071,
+          "text": "8"
+        }
+      ],
+      "correct_option_id": null,
+      "correct_option_text": null,
+      "explanation": null
+    },
+    {
+      "id": 1058129,
+      "question": "If f(x) = 3x^10 - 7x^8 + 5x^6 - 21x^3 + 3x^2 - 7, then $\\lim _\\limits{\\alpha \\rightarrow 0} \\frac{f(1-\\alpha)-f(1)}{\\alpha^3+3 \\alpha}$ is",
+      "question_raw": "<p>If f(x) = 3x<sup>10</sup> - 7x<sup>8</sup> + 5x<sup>6</sup> - 21x<sup>3</sup> + 3x<sup>2</sup> - 7, then&nbsp;<span class=\"math-tex\">{tex}\\lim _\\limits{\\alpha \\rightarrow 0} \\frac{f(1-\\alpha)-f(1)}{\\alpha^3+3 \\alpha}{/tex}</span>&nbsp;is</p>",
+      "difficulty": "Hard",
+      "options": [
+        {
+          "id": 2175912,
+          "text": "$-\\frac{53}{3}$"
+        },
+        {
+          "id": 2175915,
+          "text": "$\\frac{55}{3}$"
+        },
+        {
+          "id": 2175914,
+          "text": "$-\\frac{55}{3}$"
+        },
+        {
+          "id": 2175913,
+          "text": "$\\frac{53}{3}$"
+        }
+      ],
+      "correct_option_id": null,
+      "correct_option_text": null,
+      "explanation": null
+    },
+    {
+      "id": 1058154,
+      "question": "$\\lim _\\limits{x \\rightarrow 1} \\frac{\\sqrt{1-\\cos 2(x-1)}}{x-1}$",
+      "question_raw": "<p><span class=\"math-tex\">{tex}\\lim _\\limits{x \\rightarrow 1} \\frac{\\sqrt{1-\\cos 2(x-1)}}{x-1}{/tex}</span></p>",
+      "difficulty": "Hard",
+      "options": [
+        {
+          "id": 2175975,
+          "text": "does not exist because x -1 $\\rightarrow$ 0"
+        },
+        {
+          "id": 2175977,
+          "text": "does not exist because the left hand limit is not equal to the right hand limit."
+        },
+        {
+          "id": 2175972,
+          "text": "exists and it equals $\\sqrt 2$"
+        },
+        {
+          "id": 2175973,
+          "text": "exists and it equals $\\sqrt 3$"
+        }
+      ],
+      "correct_option_id": null,
+      "correct_option_text": null,
+      "explanation": null
+    },
+    {
+      "id": 1058177,
+      "question": "The value of $\\lim _\\limits{x \\rightarrow 0} \\frac{\\sqrt{\\frac{1}{2}(1-\\cos 2 x)}}{x}$",
+      "question_raw": "<p>The value of&nbsp;<span class=\"math-tex\">{tex}\\lim _\\limits{x \\rightarrow 0} \\frac{\\sqrt{\\frac{1}{2}(1-\\cos 2 x)}}{x}{/tex}</span></p>",
+      "difficulty": "Hard",
+      "options": [
+        {
+          "id": 2176041,
+          "text": "-1"
+        },
+        {
+          "id": 2176042,
+          "text": "0"
+        },
+        {
+          "id": 2176040,
+          "text": "1"
+        },
+        {
+          "id": 2176043,
+          "text": "none of these"
+        }
+      ],
+      "correct_option_id": null,
+      "correct_option_text": null,
+      "explanation": null
+    },
+    {
+      "id": 1058190,
+      "question": "If $\\lim _\\limits{x \\rightarrow 0} \\frac{e^{a x}-\\cos (b x)-\\frac{c x e^{-c x}}{2}}{1-\\cos (2 x)}$ = 17, then 5a^2 + b^2 is equal to",
+      "question_raw": "<p>If&nbsp;<span class=\"math-tex\">{tex}\\lim _\\limits{x \\rightarrow 0} \\frac{e^{a x}-\\cos (b x)-\\frac{c x e^{-c x}}{2}}{1-\\cos (2 x)}{/tex}</span>&nbsp;= 17, then 5a<sup>2</sup> + b<sup>2</sup> is equal to</p>",
+      "difficulty": "Hard",
+      "options": [
+        {
+          "id": 2176077,
+          "text": "76"
+        },
+        {
+          "id": 2176079,
+          "text": "64"
+        },
+        {
+          "id": 2176078,
+          "text": "68"
+        },
+        {
+          "id": 2176076,
+          "text": "72"
+        }
+      ],
+      "correct_option_id": null,
+      "correct_option_text": null,
+      "explanation": null
+    },
+    {
+      "id": 1687303,
+      "question": "Let $y(x)=(1+x)\\left(1+x^{2}\\right)\\left(1+x^{4}\\right)\\left(1+x^{16}\\right)$. They $y^{\\prime}-y^{\\prime \\prime}$ at $x=-1$ is equal to:",
+      "question_raw": "<p>Let <span class=\"math-tex\">{tex}y(x)=(1+x)\\left(1+x^{2}\\right)\\left(1+x^{4}\\right)\\left(1+x^{16}\\right){/tex}</span>. They&nbsp;<span class=\"math-tex\">{tex}y^{\\prime}-y^{\\prime \\prime}{/tex}</span> at <span class=\"math-tex\">{tex}x=-1{/tex}</span> is equal to:</p>",
+      "difficulty": "Easy",
+      "options": [
+        {
+          "id": 3520400,
+          "text": "464"
+        },
+        {
+          "id": 3520402,
+          "text": "496"
+        },
+        {
+          "id": 3520399,
+          "text": "944"
+        },
+        {
+          "id": 3520398,
+          "text": "976"
+        }
+      ],
+      "correct_option_id": null,
+      "correct_option_text": null,
+      "explanation": null
+    }
+  ]
+}

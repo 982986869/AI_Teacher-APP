@@ -1,0 +1,2204 @@
+{
+  "id": 1372,
+  "name": "Sets",
+  "category_full_name": "CBSE > Class 11 > Mathematics > Sets",
+  "total_questions": 125,
+  "topics": [
+    {
+      "id": 11070,
+      "name": "Sets and their Representations (XI-1.1)",
+      "total_questions": 14,
+      "attempted_questions": 10,
+      "correct_questions": 5,
+      "score": 50.0
+    },
+    {
+      "id": 11071,
+      "name": "The Empty Set (XI-1.2)",
+      "total_questions": 4,
+      "attempted_questions": 4,
+      "correct_questions": 4,
+      "score": 100.0
+    },
+    {
+      "id": 11072,
+      "name": "Finite Sets (XI-1.2)",
+      "total_questions": 4,
+      "attempted_questions": 4,
+      "correct_questions": 4,
+      "score": 100.0
+    },
+    {
+      "id": 11073,
+      "name": "Infinite Sets (XI-1.2)",
+      "total_questions": 1,
+      "attempted_questions": 1,
+      "correct_questions": 1,
+      "score": 100.0
+    },
+    {
+      "id": 11074,
+      "name": "Equal Sets (XI-1.2)",
+      "total_questions": 6,
+      "attempted_questions": 1,
+      "correct_questions": 0,
+      "score": 0.0
+    },
+    {
+      "id": 11075,
+      "name": "Subsets (XI-1.3)",
+      "total_questions": 32,
+      "attempted_questions": 5,
+      "correct_questions": 0,
+      "score": 0.0
+    },
+    {
+      "id": 11078,
+      "name": "Venn Diagrams (XI-1.4)",
+      "total_questions": 1,
+      "attempted_questions": 1,
+      "correct_questions": 1,
+      "score": 100.0
+    },
+    {
+      "id": 11079,
+      "name": "Union of sets (XI-1.4)",
+      "total_questions": 13,
+      "attempted_questions": 4,
+      "correct_questions": 2,
+      "score": 50.0
+    },
+    {
+      "id": 11080,
+      "name": "Intersection of sets (XI-1.4)",
+      "total_questions": 30,
+      "attempted_questions": 9,
+      "correct_questions": 6,
+      "score": 66.67
+    },
+    {
+      "id": 11081,
+      "name": "Difference of sets (XI-1.4)",
+      "total_questions": 7,
+      "attempted_questions": 7,
+      "correct_questions": 5,
+      "score": 71.43
+    },
+    {
+      "id": 11082,
+      "name": "Complement of a Set (XI-1.5)",
+      "total_questions": 13,
+      "attempted_questions": 1,
+      "correct_questions": 1,
+      "score": 100.0
+    }
+  ],
+  "questions": [
+    {
+      "id": 18367,
+      "question": "Two finite sets have m and n elements. The total number of subsets of the first set is 56 more than the total number of subsets of the second set. The values of m and n are",
+      "question_raw": "<p>Two finite sets have m and n elements. The total number of subsets of the first set is 56&nbsp;more than the total number of subsets of the second set. The values of m and n are</p>",
+      "difficulty": "Easy",
+      "options": [
+        {
+          "id": 28669,
+          "text": "6, 4"
+        },
+        {
+          "id": 28671,
+          "text": "7, 4"
+        },
+        {
+          "id": 28668,
+          "text": "6, 3"
+        },
+        {
+          "id": 28670,
+          "text": "3, 3"
+        }
+      ],
+      "correct_option_id": null,
+      "correct_option_text": null,
+      "explanation": null
+    },
+    {
+      "id": 18368,
+      "question": "The number of proper subsets of the set {1, 2, 3} is :",
+      "question_raw": "<p>The number of proper subsets of the set {1, 2, 3} is :</p>",
+      "difficulty": "Easy",
+      "options": [
+        {
+          "id": 28672,
+          "text": "7"
+        },
+        {
+          "id": 28674,
+          "text": "6"
+        },
+        {
+          "id": 28673,
+          "text": "8"
+        },
+        {
+          "id": 28675,
+          "text": "5"
+        }
+      ],
+      "correct_option_id": null,
+      "correct_option_text": null,
+      "explanation": null
+    },
+    {
+      "id": 18373,
+      "question": "The number of non-empty subsets of the set {1, 2, 3, 4} is:",
+      "question_raw": "<p>The number of non-empty subsets of the set {1, 2, 3, 4} is:</p>",
+      "difficulty": "Easy",
+      "options": [
+        {
+          "id": 28693,
+          "text": "14"
+        },
+        {
+          "id": 28695,
+          "text": "17"
+        },
+        {
+          "id": 28692,
+          "text": "15"
+        },
+        {
+          "id": 28694,
+          "text": "16"
+        }
+      ],
+      "correct_option_id": null,
+      "correct_option_text": null,
+      "explanation": null
+    },
+    {
+      "id": 18375,
+      "question": "If A and B are two given sets , then A $\\cap$ (A $\\cap$ B)^c is equal to",
+      "question_raw": "<p>If A and B are two given sets , then A&nbsp;<span class=\"math-tex\">{tex}\\cap{/tex}</span>&nbsp;(A&nbsp;<span class=\"math-tex\">{tex}\\cap{/tex}</span>&nbsp;B)<sup>c</sup>&nbsp;is equal to</p>",
+      "difficulty": "Easy",
+      "options": [
+        {
+          "id": 28703,
+          "text": "$\\phi $"
+        },
+        {
+          "id": 28700,
+          "text": "A $\\cap$ B^c"
+        },
+        {
+          "id": 28701,
+          "text": "A"
+        },
+        {
+          "id": 28702,
+          "text": "B"
+        }
+      ],
+      "correct_option_id": null,
+      "correct_option_text": null,
+      "explanation": null
+    },
+    {
+      "id": 18384,
+      "question": "Let A and B be two non- empty subsets of a set X such that A is not a subset of B, then",
+      "question_raw": "<p>Let A and B be two non- empty subsets of a set X such that A is not a subset of B, then</p>",
+      "difficulty": "Easy",
+      "options": [
+        {
+          "id": 28738,
+          "text": "B is always a subset of A"
+        },
+        {
+          "id": 28737,
+          "text": "A and B are always disjoint"
+        },
+        {
+          "id": 28739,
+          "text": "A is always a subset of B"
+        },
+        {
+          "id": 28736,
+          "text": "A and the complement of B are always non-disjoint"
+        }
+      ],
+      "correct_option_id": null,
+      "correct_option_text": null,
+      "explanation": null
+    },
+    {
+      "id": 18386,
+      "question": "If A = {(x, y) : x^2 + y^2 = 25} and B = {(x, y) : x^2 + 9y^2 = 144} then A $\\mathop \\cap \\nolimits $ B contains",
+      "question_raw": "<p>If A = {(x, y) : x<sup>2</sup> + y<sup>2</sup> = 25} and B = {(x, y) : x<sup>2</sup> + 9y<sup>2</sup> = 144} then A&nbsp;<span class=\"math-tex\">{tex}\\mathop \\cap \\nolimits {/tex}</span> B contains</p>",
+      "difficulty": "Medium",
+      "options": [
+        {
+          "id": 28745,
+          "text": "one point"
+        },
+        {
+          "id": 28746,
+          "text": "three points"
+        },
+        {
+          "id": 28744,
+          "text": "four points"
+        },
+        {
+          "id": 28747,
+          "text": "two points"
+        }
+      ],
+      "correct_option_id": null,
+      "correct_option_text": null,
+      "explanation": null
+    },
+    {
+      "id": 69777,
+      "question": "The number of subsets (Improper) of a set containing n elements is",
+      "question_raw": "<p>The number of subsets (Improper) of a set containing n elements is</p>",
+      "difficulty": "Easy",
+      "options": [
+        {
+          "id": 211307,
+          "text": "2^n - 2"
+        },
+        {
+          "id": 211309,
+          "text": "n"
+        },
+        {
+          "id": 211306,
+          "text": "2^n"
+        },
+        {
+          "id": 211308,
+          "text": "2^n - 1"
+        }
+      ],
+      "correct_option_id": null,
+      "correct_option_text": null,
+      "explanation": null
+    },
+    {
+      "id": 69779,
+      "question": "For any two sets A and B, $A \\cap(A \\cup B)$= . . . .",
+      "question_raw": "<p>For any two sets A and B, <span class=\"math-tex\">{tex}A \\cap(A \\cup B){/tex}</span>= . . . .</p>",
+      "difficulty": "Easy",
+      "options": [
+        {
+          "id": 211310,
+          "text": "A"
+        },
+        {
+          "id": 211313,
+          "text": "$\\ne$$\\phi$"
+        },
+        {
+          "id": 211311,
+          "text": "B"
+        },
+        {
+          "id": 211312,
+          "text": "$\\phi$"
+        }
+      ],
+      "correct_option_id": null,
+      "correct_option_text": null,
+      "explanation": null
+    },
+    {
+      "id": 69781,
+      "question": "If $A \\cup B = B$ then",
+      "question_raw": "<p>If <span class=\"math-tex\">{tex}A \\cup B = B{/tex}</span> then</p>",
+      "difficulty": "Easy",
+      "options": [
+        {
+          "id": 211315,
+          "text": "A $\\neq$ $\\phi$"
+        },
+        {
+          "id": 211314,
+          "text": "$A \\subseteq B$"
+        },
+        {
+          "id": 211317,
+          "text": "$B \\subset A$"
+        },
+        {
+          "id": 211316,
+          "text": "B = $\\phi$"
+        }
+      ],
+      "correct_option_id": null,
+      "correct_option_text": null,
+      "explanation": null
+    },
+    {
+      "id": 69784,
+      "question": "For any two sets A and B, A$\\cup$B = A if",
+      "question_raw": "<p>For any two sets A and B, A<span class=\"math-tex\">{tex}\\cup{/tex}</span>B = A if</p>",
+      "difficulty": "Easy",
+      "options": [
+        {
+          "id": 211325,
+          "text": "A $\\neq$B"
+        },
+        {
+          "id": 211322,
+          "text": "$B \\subseteq A$"
+        },
+        {
+          "id": 211324,
+          "text": "A = B"
+        },
+        {
+          "id": 211323,
+          "text": "B$\\in$A"
+        }
+      ],
+      "correct_option_id": null,
+      "correct_option_text": null,
+      "explanation": null
+    },
+    {
+      "id": 69786,
+      "question": "If A and B are two sets then $A \\cap\\left(A \\cap B^{\\prime}\\right)$= . . . .",
+      "question_raw": "<p>If A and B are two sets then&nbsp;<span class=\"math-tex\">{tex}A \\cap\\left(A \\cap B^{\\prime}\\right){/tex}</span>=&nbsp;. . . .</p>",
+      "difficulty": "Easy",
+      "options": [
+        {
+          "id": 211327,
+          "text": "A"
+        },
+        {
+          "id": 211329,
+          "text": "$\\in$"
+        },
+        {
+          "id": 211326,
+          "text": "$\\phi$"
+        },
+        {
+          "id": 211328,
+          "text": "B"
+        }
+      ],
+      "correct_option_id": null,
+      "correct_option_text": null,
+      "explanation": null
+    },
+    {
+      "id": 69788,
+      "question": "If A = {1, 2, 3, 4, 5, 6} then the number of proper subsets is",
+      "question_raw": "<p>If A = {1, 2, 3, 4, 5, 6} then the number of proper subsets is</p>",
+      "difficulty": "Easy",
+      "options": [
+        {
+          "id": 211335,
+          "text": "64"
+        },
+        {
+          "id": 211334,
+          "text": "63"
+        },
+        {
+          "id": 211337,
+          "text": "25"
+        },
+        {
+          "id": 211336,
+          "text": "36"
+        }
+      ],
+      "correct_option_id": null,
+      "correct_option_text": null,
+      "explanation": null
+    },
+    {
+      "id": 69789,
+      "question": "Let A = $\\{ x:x \\notin R,x \\geqslant 4\\}$and B = $\\{ x:x \\notin R,x < 5\\}$ then $A \\cap B$ is",
+      "question_raw": "<p>Let A = <span class=\"math-tex\">{tex}\\{ x:x \\notin R,x \\geqslant 4\\}{/tex}</span>and B =&nbsp;<span class=\"math-tex\">{tex}\\{ x:x \\notin R,x &lt; 5\\}{/tex}</span>&nbsp;then <span class=\"math-tex\">{tex}A \\cap B{/tex}</span>&nbsp;is</p>",
+      "difficulty": "Medium",
+      "options": [
+        {
+          "id": 211339,
+          "text": "{4, 5}"
+        },
+        {
+          "id": 211338,
+          "text": "{4}"
+        },
+        {
+          "id": 211340,
+          "text": "$\\{x:x\\in R,\\;4\\leq x<5\\}$"
+        },
+        {
+          "id": 211341,
+          "text": "{5, 4}"
+        }
+      ],
+      "correct_option_id": null,
+      "correct_option_text": null,
+      "explanation": null
+    },
+    {
+      "id": 92443,
+      "question": "The number of subsets of a set containing n elements is",
+      "question_raw": "<p>The number of subsets of a set containing n elements is</p>\r\n",
+      "difficulty": "Easy",
+      "options": [
+        {
+          "id": 234131,
+          "text": "2^n-1"
+        },
+        {
+          "id": 234132,
+          "text": "2^n"
+        },
+        {
+          "id": 234133,
+          "text": "n"
+        },
+        {
+          "id": 234130,
+          "text": "2^n - 2"
+        }
+      ],
+      "correct_option_id": null,
+      "correct_option_text": null,
+      "explanation": null
+    },
+    {
+      "id": 92445,
+      "question": "For any two sets A and B, $A \\cap (A \\cup B) = ....$",
+      "question_raw": "<p>For any two sets A and B,&nbsp;<span class=\"math-tex\">{tex}A \\cap (A \\cup B) = ....{/tex}</span>&nbsp;</p>",
+      "difficulty": "Easy",
+      "options": [
+        {
+          "id": 234137,
+          "text": "$\\ne$$\\phi$"
+        },
+        {
+          "id": 234136,
+          "text": "$\\phi$"
+        },
+        {
+          "id": 234135,
+          "text": "A"
+        },
+        {
+          "id": 234134,
+          "text": "B"
+        }
+      ],
+      "correct_option_id": null,
+      "correct_option_text": null,
+      "explanation": null
+    },
+    {
+      "id": 92446,
+      "question": "If A $\\cap$ B = B then",
+      "question_raw": "<p>If A&nbsp;<span class=\"math-tex\">{tex}\\cap{/tex}</span> B = B then</p>",
+      "difficulty": "Easy",
+      "options": [
+        {
+          "id": 234138,
+          "text": "B $ \\subseteq $ A"
+        },
+        {
+          "id": 234140,
+          "text": "B = $\\phi$"
+        },
+        {
+          "id": 234139,
+          "text": "A = $\\phi$"
+        },
+        {
+          "id": 234141,
+          "text": "B $\\ne$ $\\phi$"
+        }
+      ],
+      "correct_option_id": null,
+      "correct_option_text": null,
+      "explanation": null
+    },
+    {
+      "id": 231037,
+      "question": "Let f(x) = x^2 ,x $\\in$ R. For any A $\\subseteq$ R, define g(A) = {x $\\in$ R : f(x) $\\in$ A}. If S = [0,4], then which one of the following statements is not true?",
+      "question_raw": "<p>Let f(x) = x<sup>2</sup>&nbsp;,x <span class=\"math-tex\">{tex}\\in{/tex}</span> R. For any A <span class=\"math-tex\">{tex}\\subseteq{/tex}</span> R, define g(A) = {x <span class=\"math-tex\">{tex}\\in{/tex}</span> R :&nbsp;f(x) <span class=\"math-tex\">{tex}\\in{/tex}</span>&nbsp;A}. If S = [0,4], then which one of the following statements is not true?</p>\r\n",
+      "difficulty": "Hard",
+      "options": [
+        {
+          "id": 346811,
+          "text": "g(f(S)) $\\ne$ S"
+        },
+        {
+          "id": 346812,
+          "text": "g(f(S)) = g(S)"
+        },
+        {
+          "id": 346813,
+          "text": "f(g(S)) $\\ne$ f(S)"
+        },
+        {
+          "id": 346810,
+          "text": "f(g(S)) = S"
+        }
+      ],
+      "correct_option_id": null,
+      "correct_option_text": null,
+      "explanation": null
+    },
+    {
+      "id": 231179,
+      "question": "If X and Y are two non-empty sets where f : X $\\rightarrow$ Y, is function is defined such that\nf(C ) = {f(x) : x $\\in$ C } for C $\\subseteq$ X and\nf^-1(D ) = {x:f(x) $\\in$ C } for D $\\subseteq$ Y\nFor any A $\\subseteq$ Y and B $\\subseteq$ Y, then",
+      "question_raw": "<p>If X and Y are two non-empty sets where f : X <span class=\"math-tex\">{tex}\\rightarrow{/tex}</span>&nbsp;Y, is function is defined such that<br />\r\nf(C ) = {f(x) : x <span class=\"math-tex\">{tex}\\in{/tex}</span>&nbsp;C } for C <span class=\"math-tex\">{tex}\\subseteq{/tex}</span>&nbsp;X&nbsp;and<br />\r\nf<sup>-1</sup>(D&nbsp;) = {x:f(x)&nbsp;<span class=\"math-tex\">{tex}\\in{/tex}</span> C } for D&nbsp;<span class=\"math-tex\">{tex}\\subseteq{/tex}</span>&nbsp;Y<br />\r\nFor any&nbsp;A&nbsp;<span class=\"math-tex\">{tex}\\subseteq{/tex}</span>&nbsp;Y&nbsp;and B <span class=\"math-tex\">{tex}\\subseteq{/tex}</span> Y, then</p>\r\n",
+      "difficulty": "Hard",
+      "options": [
+        {
+          "id": 347378,
+          "text": "$f^{-1}\\{f(A)\\}=A$"
+        },
+        {
+          "id": 347379,
+          "text": "$f^{-1}\\{f(A)\\}=A$, only if f(X) = Y"
+        },
+        {
+          "id": 347380,
+          "text": "$f\\left\\{f^{-1}(B)\\right\\}=B$, only if B $\\subseteq$ f(x)"
+        },
+        {
+          "id": 347381,
+          "text": "$f\\left\\{f^{-1}(B)\\right\\}=B$"
+        }
+      ],
+      "correct_option_id": null,
+      "correct_option_text": null,
+      "explanation": null
+    },
+    {
+      "id": 231350,
+      "question": "If P = $\\{\\theta: \\sin \\theta-\\cos \\theta=\\sqrt{2} \\cos \\theta\\}$ and $Q=\\{\\theta: \\sin \\theta+\\cos \\theta=\\sqrt{2} \\sin \\theta\\}$ be two sets. Then,",
+      "question_raw": "<p>If P =&nbsp;<span class=\"math-tex\">{tex}\\{\\theta: \\sin \\theta-\\cos \\theta=\\sqrt{2} \\cos \\theta\\}{/tex}</span>&nbsp;and&nbsp;<span class=\"math-tex\">{tex}Q=\\{\\theta: \\sin \\theta+\\cos \\theta=\\sqrt{2} \\sin \\theta\\}{/tex}</span>&nbsp;be two sets. Then,</p>\r\n",
+      "difficulty": "Medium",
+      "options": [
+        {
+          "id": 348063,
+          "text": "P $ \\not\\subset $ Q"
+        },
+        {
+          "id": 348064,
+          "text": "P = Q"
+        },
+        {
+          "id": 348062,
+          "text": "Q $ \\not\\subset$ P"
+        },
+        {
+          "id": 348061,
+          "text": "P $\\subset$ Q and Q - P $\\ne$ $\\phi$"
+        }
+      ],
+      "correct_option_id": null,
+      "correct_option_text": null,
+      "explanation": null
+    },
+    {
+      "id": 284412,
+      "question": "Each set X_r contains 5 elements and each set Y_r contains 2 elements and $\\bigcup_\\limits{r=1}^{20} x_{r} = S = \\bigcup_\\limits{r=1}^{n} Y_{r}$. If each element of S belong to exactly 10 of the X_r’s and to exactly 4 of the Y_r’s, then n is",
+      "question_raw": "<p>Each set X<sub>r</sub> contains 5 elements and each set Y<sub>r</sub>&nbsp;contains 2 elements and <span class=\"math-tex\">{tex}\\bigcup_\\limits{r=1}^{20} x_{r} = S = \\bigcup_\\limits{r=1}^{n} Y_{r}{/tex}</span>. If each element of S belong to exactly 10 of the X<sub>r</sub>&rsquo;s and to exactly 4 of the Y<sub>r</sub>&rsquo;s, then n is</p>",
+      "difficulty": "Hard",
+      "options": [
+        {
+          "id": 406687,
+          "text": "20"
+        },
+        {
+          "id": 406689,
+          "text": "50"
+        },
+        {
+          "id": 406688,
+          "text": "100"
+        },
+        {
+          "id": 406686,
+          "text": "10"
+        }
+      ],
+      "correct_option_id": null,
+      "correct_option_text": null,
+      "explanation": null
+    },
+    {
+      "id": 284416,
+      "question": "Two finite sets have m and n elements respectively. The total number of subsets of first set is 56 more than the total number of subsets of the second set. The values of m and n respectively are.",
+      "question_raw": "<p>Two finite sets have m and n elements respectively. The total number of subsets of first set is 56 more than the total number of subsets of the second set. The values of m and n respectively are.</p>",
+      "difficulty": "Medium",
+      "options": [
+        {
+          "id": 406702,
+          "text": "7, 6"
+        },
+        {
+          "id": 406703,
+          "text": "5, 1"
+        },
+        {
+          "id": 406704,
+          "text": "6, 3"
+        },
+        {
+          "id": 406705,
+          "text": "8, 7"
+        }
+      ],
+      "correct_option_id": null,
+      "correct_option_text": null,
+      "explanation": null
+    },
+    {
+      "id": 284485,
+      "question": "Suppose A_1, A_2, ..,.A_30 are thirty sets each having 5 elements and B_1, B_2 ,...,B_n are n sets each having 3 elements. Let $\\bigcup _\\limits { i = 1 } ^ { 30 } A _ { i } = \\bigcup _\\limits { j = 1 } ^ { n } B _ { j } = S$ and each element of S belongs to exactly 10 of $A_{i}^{'s}$ and exactly 9 of $B_{i}^{'s}$. Then n is equal to.",
+      "question_raw": "<p>Suppose A<sub>1</sub>, A<sub>2</sub>, ..,.A<sub>30</sub> are thirty sets each having 5 elements and B<sub>1</sub>, B<sub>2</sub> ,...,B<sub>n</sub> are n sets each having 3 elements. Let <span class=\"math-tex\">{tex}\\bigcup _\\limits { i = 1 } ^ { 30 } A _ { i } = \\bigcup _\\limits { j = 1 } ^ { n } B _ { j } = S{/tex}</span> and each element of S belongs to exactly 10 of <span class=\"math-tex\">{tex}A_{i}^{'s}{/tex}</span> and exactly 9 of <span class=\"math-tex\">{tex}B_{i}^{'s}{/tex}</span>. Then n is equal to.</p>",
+      "difficulty": "Hard",
+      "options": [
+        {
+          "id": 406779,
+          "text": "3"
+        },
+        {
+          "id": 406781,
+          "text": "35"
+        },
+        {
+          "id": 406778,
+          "text": "15"
+        },
+        {
+          "id": 406780,
+          "text": "45"
+        }
+      ],
+      "correct_option_id": null,
+      "correct_option_text": null,
+      "explanation": null
+    },
+    {
+      "id": 284486,
+      "question": "Two finite sets have m and n elements. The number of subsets of the first set is 112 more than that of the second set. The values of m and n are, respectively,",
+      "question_raw": "<p>Two finite sets have m and n elements. The number of subsets of the first set is 112 more than that of the second set. The values of m and n are, respectively,</p>",
+      "difficulty": "Medium",
+      "options": [
+        {
+          "id": 406782,
+          "text": "4, 7"
+        },
+        {
+          "id": 406783,
+          "text": "7, 4"
+        },
+        {
+          "id": 406784,
+          "text": "4, 4"
+        },
+        {
+          "id": 406785,
+          "text": "7, 7"
+        }
+      ],
+      "correct_option_id": null,
+      "correct_option_text": null,
+      "explanation": null
+    },
+    {
+      "id": 284489,
+      "question": "Let F_1 be the set of parallelograms, F_2 the set of rectangles, F_3 the set of rhombuses, F_4 the set of squares and F_5 the set of trapeziums in a plane. Then F_1 may be equal to",
+      "question_raw": "<p>Let F<sub>1</sub> be the set of parallelograms, F<sub>2</sub> the set of rectangles, F<sub>3</sub> the set of rhombuses, F<sub>4</sub> the set of squares and F<sub>5</sub> the set of trapeziums in a plane. Then F<sub>1</sub> may be equal to</p>",
+      "difficulty": "Hard",
+      "options": [
+        {
+          "id": 406791,
+          "text": "F_3 $\\cap$ F_4"
+        },
+        {
+          "id": 406793,
+          "text": "F_2 $\\cup$ F_3 $\\cup$ F_4 $\\cup$ F_1"
+        },
+        {
+          "id": 406792,
+          "text": "F_2 $\\cup$ F_5"
+        },
+        {
+          "id": 406790,
+          "text": "F_2 $\\cap$ F_3"
+        }
+      ],
+      "correct_option_id": null,
+      "correct_option_text": null,
+      "explanation": null
+    },
+    {
+      "id": 284492,
+      "question": "Let S = set of points inside the square, T = the set of points inside the triangle and C = the set of points inside the circle. If the triangle and circle intersect each other and are contained in a square. Then",
+      "question_raw": "<p>Let S = set of points inside the square, T = the set of points inside the triangle and&nbsp;C = the set of points inside the circle. If the triangle and circle intersect each other and are contained in a square. Then</p>",
+      "difficulty": "Hard",
+      "options": [
+        {
+          "id": 406795,
+          "text": "S $\\cup$ T $\\cup$ C = C"
+        },
+        {
+          "id": 406794,
+          "text": "S $\\cap$ T $\\cap$ C = $\\phi$"
+        },
+        {
+          "id": 406797,
+          "text": "S $\\cap$ T = S $\\cap$ C"
+        },
+        {
+          "id": 406796,
+          "text": "S $\\cup$ T $\\cup$ C = S"
+        }
+      ],
+      "correct_option_id": null,
+      "correct_option_text": null,
+      "explanation": null
+    },
+    {
+      "id": 284506,
+      "question": "If sets A and B are defined as A = $\\left\\{(x, y) | y=\\frac{1}{x}, 0 \\neq x \\in \\mathbf{R}\\right\\}$, B = {(x, y) | y = -x, x $\\in$ R}, then",
+      "question_raw": "<p>If sets A and B are defined as A =&nbsp;<span class=\"math-tex\">{tex}\\left\\{(x, y) | y=\\frac{1}{x}, 0 \\neq x \\in \\mathbf{R}\\right\\}{/tex}</span>, B = {(x, y) | y = -x, x&nbsp;<span class=\"math-tex\">{tex}\\in{/tex}</span>&nbsp;R}, then</p>",
+      "difficulty": "Hard",
+      "options": [
+        {
+          "id": 406820,
+          "text": "A $\\cap$ B = $\\phi$"
+        },
+        {
+          "id": 406819,
+          "text": "A $\\cap$ B = B"
+        },
+        {
+          "id": 406821,
+          "text": "A $\\cup$ B = A"
+        },
+        {
+          "id": 406818,
+          "text": "A $\\cap$ B = A"
+        }
+      ],
+      "correct_option_id": null,
+      "correct_option_text": null,
+      "explanation": null
+    },
+    {
+      "id": 284513,
+      "question": "If A and B are two sets, then A $\\cap$ (A $\\cup$ B) equals",
+      "question_raw": "<p>If A and B are two sets, then A <span class=\"math-tex\">{tex}\\cap{/tex}</span>&nbsp;(A <span class=\"math-tex\">{tex}\\cup{/tex}</span>&nbsp;B) equals</p>",
+      "difficulty": "Hard",
+      "options": [
+        {
+          "id": 406824,
+          "text": "$\\phi$"
+        },
+        {
+          "id": 406825,
+          "text": "A $\\cap$ B"
+        },
+        {
+          "id": 406822,
+          "text": "A"
+        },
+        {
+          "id": 406823,
+          "text": "B"
+        }
+      ],
+      "correct_option_id": null,
+      "correct_option_text": null,
+      "explanation": null
+    },
+    {
+      "id": 284514,
+      "question": "If A = {1, 3, 5, 7, 9, 11, 13, 15, 17} ,B = {2, 4, ... , 18} and N the set of natural numbers is the universal set, then A′ $\\cup$ (A $\\cup$ B) $\\cap$ B′) is",
+      "question_raw": "<p>If A = {1, 3, 5, 7, 9, 11, 13, 15, 17} ,B = {2, 4, ... , 18} and N the set of natural&nbsp;numbers is the universal set, then A&prime; <span class=\"math-tex\">{tex}\\cup{/tex}</span>&nbsp;(A <span class=\"math-tex\">{tex}\\cup{/tex}</span>&nbsp;B) <span class=\"math-tex\">{tex}\\cap{/tex}</span>&nbsp;B&prime;) is</p>",
+      "difficulty": "Medium",
+      "options": [
+        {
+          "id": 406829,
+          "text": "B"
+        },
+        {
+          "id": 406826,
+          "text": "$\\phi$"
+        },
+        {
+          "id": 406827,
+          "text": "N"
+        },
+        {
+          "id": 406828,
+          "text": "A"
+        }
+      ],
+      "correct_option_id": null,
+      "correct_option_text": null,
+      "explanation": null
+    },
+    {
+      "id": 291034,
+      "question": "For any set A, (A')' is equal to",
+      "question_raw": "<p>For any set A, (A&#39;)&#39; is equal to</p>",
+      "difficulty": "Easy",
+      "options": [
+        {
+          "id": 415844,
+          "text": "A"
+        },
+        {
+          "id": 415845,
+          "text": "$\\phi$"
+        },
+        {
+          "id": 415843,
+          "text": "A'"
+        },
+        {
+          "id": 415846,
+          "text": "A''"
+        }
+      ],
+      "correct_option_id": null,
+      "correct_option_text": null,
+      "explanation": null
+    },
+    {
+      "id": 291061,
+      "question": "If A = {1, 3, 5, B} and B = {2, 4}, then",
+      "question_raw": "<p>If A = {1, 3, 5, B} and B = {2, 4}, then</p>",
+      "difficulty": "Easy",
+      "options": [
+        {
+          "id": 415899,
+          "text": "4 $\\in$ A"
+        },
+        {
+          "id": 415902,
+          "text": "None of these"
+        },
+        {
+          "id": 415900,
+          "text": "{4} $\\subset$ A"
+        },
+        {
+          "id": 415901,
+          "text": "B $\\subset$ A"
+        }
+      ],
+      "correct_option_id": null,
+      "correct_option_text": null,
+      "explanation": null
+    },
+    {
+      "id": 291099,
+      "question": "Let A = {x : x $\\in$ R, x > 4} and B = {x $\\in$ R : x < 5}. Then, A $\\cap$ B =",
+      "question_raw": "<p>Let A = {x : x <span class=\"math-tex\">{tex}\\in{/tex}</span> R, x &gt; 4} and B = {x <span class=\"math-tex\">{tex}\\in{/tex}</span> R : x &lt; 5}. Then, A&nbsp;<span class=\"math-tex\">{tex}\\cap{/tex}</span>&nbsp;B =</p>",
+      "difficulty": "Medium",
+      "options": [
+        {
+          "id": 415978,
+          "text": "[4, 5]"
+        },
+        {
+          "id": 415975,
+          "text": "(4, 5]"
+        },
+        {
+          "id": 415976,
+          "text": "[4, 5)"
+        },
+        {
+          "id": 415977,
+          "text": "(4, 5)"
+        }
+      ],
+      "correct_option_id": null,
+      "correct_option_text": null,
+      "explanation": null
+    },
+    {
+      "id": 291174,
+      "question": "For two sets A $\\cup$ B = A if",
+      "question_raw": "<p>For two sets A <span class=\"math-tex\">{tex}\\cup{/tex}</span> B = A if</p>",
+      "difficulty": "Easy",
+      "options": [
+        {
+          "id": 416126,
+          "text": "A = B"
+        },
+        {
+          "id": 416123,
+          "text": "B $\\subseteq$ A"
+        },
+        {
+          "id": 416124,
+          "text": "A $\\subseteq$ B"
+        },
+        {
+          "id": 416125,
+          "text": "A $\\ne$ B"
+        }
+      ],
+      "correct_option_id": null,
+      "correct_option_text": null,
+      "explanation": null
+    },
+    {
+      "id": 291198,
+      "question": "For any two sets A and B, A $\\cap$ (A $\\cup$ B)' is equal to",
+      "question_raw": "<p>For any two sets A and B, A <span class=\"math-tex\">{tex}\\cap{/tex}</span> (A <span class=\"math-tex\">{tex}\\cup{/tex}</span> B)&#39; is equal to</p>",
+      "difficulty": "Easy",
+      "options": [
+        {
+          "id": 416200,
+          "text": "B"
+        },
+        {
+          "id": 416202,
+          "text": "A $\\cap$ B"
+        },
+        {
+          "id": 416201,
+          "text": "$\\phi$"
+        },
+        {
+          "id": 416199,
+          "text": "A"
+        }
+      ],
+      "correct_option_id": null,
+      "correct_option_text": null,
+      "explanation": null
+    },
+    {
+      "id": 503697,
+      "question": "The set A = {x : x $\\in$ R, x^2 = 16 and 2x = 6} equals",
+      "question_raw": "<p>The set A = {x : x <span class=\"math-tex\">{tex}\\in{/tex}</span>&nbsp;R, x<sup>2&nbsp;</sup>= 16 and 2x = 6} equals</p>",
+      "difficulty": "Hard",
+      "options": [
+        {
+          "id": 879177,
+          "text": "{3}"
+        },
+        {
+          "id": 879178,
+          "text": "{4}"
+        },
+        {
+          "id": 879175,
+          "text": "$\\phi$"
+        },
+        {
+          "id": 879176,
+          "text": "{14, 3, 4}"
+        }
+      ],
+      "correct_option_id": null,
+      "correct_option_text": null,
+      "explanation": null
+    },
+    {
+      "id": 503703,
+      "question": "If A and B are any two sets, then A $\\cup$ (A $\\cap$ B) is equal to",
+      "question_raw": "<p>If A and B are any two sets, then A&nbsp;<span class=\"math-tex\">{tex}\\cup{/tex}</span>&nbsp;(A&nbsp;<span class=\"math-tex\">{tex}\\cap{/tex}</span>&nbsp;B) is equal to</p>",
+      "difficulty": "Hard",
+      "options": [
+        {
+          "id": 879200,
+          "text": "B"
+        },
+        {
+          "id": 879201,
+          "text": "A^C"
+        },
+        {
+          "id": 879199,
+          "text": "A"
+        },
+        {
+          "id": 879202,
+          "text": "B^C"
+        }
+      ],
+      "correct_option_id": null,
+      "correct_option_text": null,
+      "explanation": null
+    },
+    {
+      "id": 503707,
+      "question": "If A and B are two given sets, then A $\\cap$ (A $\\cap$ B)^C is equal to",
+      "question_raw": "<p>If A and B are two given sets, then A&nbsp;<span class=\"math-tex\">{tex}\\cap{/tex}</span>&nbsp;(A <span class=\"math-tex\">{tex}\\cap{/tex}</span>&nbsp;B)<sup>C</sup>&nbsp;is equal to</p>",
+      "difficulty": "Hard",
+      "options": [
+        {
+          "id": 879218,
+          "text": "A $\\cap$ B^C"
+        },
+        {
+          "id": 879216,
+          "text": "B"
+        },
+        {
+          "id": 879217,
+          "text": "$\\phi$"
+        },
+        {
+          "id": 879215,
+          "text": "A"
+        }
+      ],
+      "correct_option_id": null,
+      "correct_option_text": null,
+      "explanation": null
+    },
+    {
+      "id": 503711,
+      "question": "If the sets A and B are defined as A = {(x, y) : y = $\\frac {1}{x}$, 0 $\\neq$ x $\\in$ R} $\\bigcup \\limits_{i=1}^{30} A_{i}=\\bigcup \\limits_{j=1}^{n} B_{j}$, then",
+      "question_raw": "<p>If the sets A and B are defined as A = {(x, y) : y = <span class=\"math-tex\">{tex}\\frac {1}{x}{/tex}</span>, 0 <span class=\"math-tex\">{tex}\\neq{/tex}</span>&nbsp;x <span class=\"math-tex\">{tex}\\in{/tex}</span>&nbsp;R}&nbsp;<span class=\"math-tex\">{tex}\\bigcup \\limits_{i=1}^{30} A_{i}=\\bigcup \\limits_{j=1}^{n} B_{j}{/tex}</span>, then</p>",
+      "difficulty": "Hard",
+      "options": [
+        {
+          "id": 879234,
+          "text": "A $\\cap$ B $\\ne$ $\\phi$"
+        },
+        {
+          "id": 879233,
+          "text": "A $\\cap$ B = $\\phi$"
+        },
+        {
+          "id": 879231,
+          "text": "A $\\cap$ B = A"
+        },
+        {
+          "id": 879232,
+          "text": "A $\\cap$ B = B"
+        }
+      ],
+      "correct_option_id": null,
+      "correct_option_text": null,
+      "explanation": null
+    },
+    {
+      "id": 503739,
+      "question": "If P, Q and R are subsets of a set A, then R $\\times$ (P^c $\\cup$ Q^c)^c = ________",
+      "question_raw": "<p>If P, Q and R are subsets of a set A, then R <span class=\"math-tex\">{tex}\\times{/tex}</span>&nbsp;(P<sup>c</sup> <span class=\"math-tex\">{tex}\\cup{/tex}</span>&nbsp;Q<sup>c</sup>)<sup>c</sup> = ________</p>",
+      "difficulty": "Hard",
+      "options": [
+        {
+          "id": 879345,
+          "text": "(P $\\times$ Q) $\\cup$ (P $\\times$ R)"
+        },
+        {
+          "id": 879344,
+          "text": "(R $\\times$ Q) $\\cap$ (R $\\times$ P)"
+        },
+        {
+          "id": 879343,
+          "text": "(R $\\times$ P) $\\cap$ (R $\\times$ Q)"
+        },
+        {
+          "id": 879346,
+          "text": "(R $\\times$ P) $\\cup$ (R $\\times$ Q)"
+        }
+      ],
+      "correct_option_id": null,
+      "correct_option_text": null,
+      "explanation": null
+    },
+    {
+      "id": 503747,
+      "question": "If A and B are two sets, then A $\\cup$ B = A $\\cap$ B iff",
+      "question_raw": "<p>If A and B are two sets, then&nbsp; A <span class=\"math-tex\">{tex}\\cup{/tex}</span>&nbsp;B = A <span class=\"math-tex\">{tex}\\cap{/tex}</span>&nbsp;B iff</p>",
+      "difficulty": "Hard",
+      "options": [
+        {
+          "id": 879377,
+          "text": "A = B"
+        },
+        {
+          "id": 879375,
+          "text": "A $\\subseteq$ B"
+        },
+        {
+          "id": 879378,
+          "text": "A $\\ne$ B"
+        },
+        {
+          "id": 879376,
+          "text": "B $\\subseteq$ A"
+        }
+      ],
+      "correct_option_id": null,
+      "correct_option_text": null,
+      "explanation": null
+    },
+    {
+      "id": 503751,
+      "question": "Let A and B be two sets. Then",
+      "question_raw": "<p>Let A and B be two sets. Then</p>",
+      "difficulty": "Hard",
+      "options": [
+        {
+          "id": 879393,
+          "text": "A $\\cap$ B = A $\\cup$ B"
+        },
+        {
+          "id": 879391,
+          "text": "$A \\cup B \\subseteq A \\cap B$"
+        },
+        {
+          "id": 879394,
+          "text": "A $\\cap$ B $\\ne$ A $\\cup$ B"
+        },
+        {
+          "id": 879392,
+          "text": "$A \\cap B \\subseteq A \\cup B$"
+        }
+      ],
+      "correct_option_id": null,
+      "correct_option_text": null,
+      "explanation": null
+    },
+    {
+      "id": 503755,
+      "question": "Let A = {(x, y) : y = e^x, x $\\in$ R}, B = {(x, y) : y = e^−x, x $\\in$ R}. Then",
+      "question_raw": "<p>Let A = {(x, y) : y = e<sup>x</sup>, x <span class=\"math-tex\">{tex}\\in{/tex}</span>&nbsp;R}, B = {(x, y) : y = e<sup>&minus;x</sup>, x <span class=\"math-tex\">{tex}\\in{/tex}</span>&nbsp;R}. Then</p>",
+      "difficulty": "Hard",
+      "options": [
+        {
+          "id": 879408,
+          "text": "$A \\cap B \\neq \\phi$"
+        },
+        {
+          "id": 879407,
+          "text": "$A \\cap B=\\phi$"
+        },
+        {
+          "id": 879410,
+          "text": "A $\\cup$ B $\\ne$ R^2"
+        },
+        {
+          "id": 879409,
+          "text": "A $\\cup$ B = R^2"
+        }
+      ],
+      "correct_option_id": null,
+      "correct_option_text": null,
+      "explanation": null
+    },
+    {
+      "id": 503770,
+      "question": "If A and B are two sets, then A $\\cap$ (A $\\cup$ B)′ is equal to",
+      "question_raw": "<p>If A and B are two sets, then A <span class=\"math-tex\">{tex}\\cap{/tex}</span>&nbsp;(A <span class=\"math-tex\">{tex}\\cup{/tex}</span>&nbsp;B)&prime; is equal to</p>",
+      "difficulty": "Hard",
+      "options": [
+        {
+          "id": 879468,
+          "text": "B"
+        },
+        {
+          "id": 879467,
+          "text": "A"
+        },
+        {
+          "id": 879469,
+          "text": "$\\phi$"
+        },
+        {
+          "id": 879470,
+          "text": "Zero"
+        }
+      ],
+      "correct_option_id": null,
+      "correct_option_text": null,
+      "explanation": null
+    },
+    {
+      "id": 503772,
+      "question": "Let U = {1, 2, 3, 4, 5, 6, 7, 8, 9, 10}, A = {1, 2, 5}, B = {6, 7}, then A $\\cap$ B′ is",
+      "question_raw": "<p>Let U = {1, 2, 3, 4, 5, 6, 7, 8, 9, 10}, A = {1, 2, 5}, B = {6, 7}, then A <span class=\"math-tex\">{tex}\\cap{/tex}</span>&nbsp;B&prime; is</p>",
+      "difficulty": "Hard",
+      "options": [
+        {
+          "id": 879478,
+          "text": "B"
+        },
+        {
+          "id": 879477,
+          "text": "A'"
+        },
+        {
+          "id": 879476,
+          "text": "A"
+        },
+        {
+          "id": 879475,
+          "text": "B'"
+        }
+      ],
+      "correct_option_id": null,
+      "correct_option_text": null,
+      "explanation": null
+    },
+    {
+      "id": 511597,
+      "question": "If Q = {x : x = $\\frac {1}{y}$, where y $\\in$ N}, then",
+      "question_raw": "<p>If Q = {x : x = <span class=\"math-tex\">{tex}\\frac {1}{y}{/tex}</span>, where y&nbsp;<span class=\"math-tex\">{tex}\\in{/tex}</span>&nbsp;N}, then</p>",
+      "difficulty": "Hard",
+      "options": [
+        {
+          "id": 905261,
+          "text": "2 $\\in$ Q"
+        },
+        {
+          "id": 905262,
+          "text": "$\\frac{2}{3}$ $\\in$ Q"
+        },
+        {
+          "id": 905257,
+          "text": "0 $\\in$ Q"
+        },
+        {
+          "id": 905260,
+          "text": "1 $\\in$ Q"
+        }
+      ],
+      "correct_option_id": null,
+      "correct_option_text": null,
+      "explanation": null
+    },
+    {
+      "id": 523936,
+      "question": "Let Z be the set of integers. If A = {x $\\in$ Z: $2^{(x+2)\\left(x^{2}-5 x+6\\right)}$ = 1} and B = {x $\\in$ Z: -3 < 2x - 1 < 9}, then the number of subsets of the set A $\\times$ B, is:",
+      "question_raw": "<p>Let Z be the set of integers. If A = {x <span class=\"math-tex\">{tex}\\in{/tex}</span>&nbsp;Z: <span class=\"math-tex\">{tex}2^{(x+2)\\left(x^{2}-5 x+6\\right)}{/tex}</span>&nbsp;= 1} and B = {x <span class=\"math-tex\">{tex}\\in{/tex}</span>&nbsp;Z: -3 &lt; 2x - 1 &lt; 9}, then the number of subsets of the set A&nbsp;<span class=\"math-tex\">{tex}\\times{/tex}</span>&nbsp;B, is:</p>",
+      "difficulty": "Hard",
+      "options": [
+        {
+          "id": 945728,
+          "text": "2^15"
+        },
+        {
+          "id": 945734,
+          "text": "2^10"
+        },
+        {
+          "id": 945732,
+          "text": "2^12"
+        },
+        {
+          "id": 945729,
+          "text": "2^18"
+        }
+      ],
+      "correct_option_id": null,
+      "correct_option_text": null,
+      "explanation": null
+    },
+    {
+      "id": 523953,
+      "question": "Let A, B and C be sets such that $ \\phi \\neq A \\cap B \\subseteq C$. Then which of the following statements is not true?",
+      "question_raw": "<p>Let A, B and C be sets such that <span class=\"math-tex\">{tex} \\phi \\neq A \\cap B \\subseteq C{/tex}</span>. Then which of the following statements is not true?</p>",
+      "difficulty": "Hard",
+      "options": [
+        {
+          "id": 945784,
+          "text": "$B \\cap C \\neq \\phi$"
+        },
+        {
+          "id": 945785,
+          "text": "If (A - B) $\\subseteq$ C, then A $\\subseteq$ C"
+        },
+        {
+          "id": 945787,
+          "text": "If (A - C) $\\subseteq$ B, then A $\\subseteq$ B"
+        },
+        {
+          "id": 945786,
+          "text": "$(C \\cup A) \\cap(C \\cup B)$ = C"
+        }
+      ],
+      "correct_option_id": null,
+      "correct_option_text": null,
+      "explanation": null
+    },
+    {
+      "id": 523987,
+      "question": "If A = {a, b}, B = {c, d), C = {d, e}, then {(a, c), (a, d), (a, e), (b, c), (b, d), (b, e)} is equal to",
+      "question_raw": "<p>If A = {a, b}, B =&nbsp;{c, d), C = {d, e}, then {(a, c), (a, d), (a, e), (b, c), (b, d), (b, e)} is equal to</p>",
+      "difficulty": "Hard",
+      "options": [
+        {
+          "id": 945912,
+          "text": "$A \\cap(B \\cup C)$"
+        },
+        {
+          "id": 945917,
+          "text": "$A \\times(B \\cap C)$"
+        },
+        {
+          "id": 945913,
+          "text": "$\\mathrm{A} \\times(\\mathrm{B} \\cup \\mathrm{C})$"
+        },
+        {
+          "id": 945915,
+          "text": "$A \\cup(B \\cap C)$"
+        }
+      ],
+      "correct_option_id": null,
+      "correct_option_text": null,
+      "explanation": null
+    },
+    {
+      "id": 523988,
+      "question": "If X and Y are two sets, then X $\\cap$ (X $\\cup$ Y)^c equals.",
+      "question_raw": "<p>If X and Y are two sets, then X&nbsp;<span class=\"math-tex\">{tex}\\cap{/tex}</span>&nbsp;(X <span class=\"math-tex\">{tex}\\cup{/tex}</span>&nbsp;Y)<sup>c</sup> equals.</p>",
+      "difficulty": "Hard",
+      "options": [
+        {
+          "id": 945921,
+          "text": "Y"
+        },
+        {
+          "id": 945923,
+          "text": "0"
+        },
+        {
+          "id": 945920,
+          "text": "X"
+        },
+        {
+          "id": 945922,
+          "text": "$\\phi$"
+        }
+      ],
+      "correct_option_id": null,
+      "correct_option_text": null,
+      "explanation": null
+    },
+    {
+      "id": 524227,
+      "question": "Two finite sets have m and n elements. The total number of subsets of the first set is 48 more than the total number of subsets of the second set. The values of m and n are",
+      "question_raw": "<p>Two finite sets have m and n elements. The total number of subsets of the first set is 48 more than the total number of subsets of the second set. The values of m and n are</p>",
+      "difficulty": "Hard",
+      "options": [
+        {
+          "id": 946754,
+          "text": "6, 4"
+        },
+        {
+          "id": 946755,
+          "text": "7, 4"
+        },
+        {
+          "id": 946752,
+          "text": "7, 6"
+        },
+        {
+          "id": 946753,
+          "text": "6, 3"
+        }
+      ],
+      "correct_option_id": null,
+      "correct_option_text": null,
+      "explanation": null
+    },
+    {
+      "id": 524245,
+      "question": "If X = $\\left\\{(x, y): y=\\left(\\frac{1}{4}\\right)^{n}, x \\in \\mathrm{R}\\right\\}$ and Y = {(x, y) : y = x, x $\\in$ R}, then",
+      "question_raw": "<p>If X =&nbsp;<span class=\"math-tex\">{tex}\\left\\{(x, y): y=\\left(\\frac{1}{4}\\right)^{n}, x \\in \\mathrm{R}\\right\\}{/tex}</span>&nbsp;and Y =&nbsp;{(x, y) : y&nbsp;= x, x&nbsp;<span class=\"math-tex\">{tex}\\in{/tex}</span>&nbsp;R}, then</p>",
+      "difficulty": "Hard",
+      "options": [
+        {
+          "id": 946820,
+          "text": "X = Y"
+        },
+        {
+          "id": 946821,
+          "text": "$X \\cap Y=\\phi$"
+        },
+        {
+          "id": 946822,
+          "text": "$\\mathrm{X} \\cap \\mathrm{Y} \\neq \\phi$"
+        },
+        {
+          "id": 946823,
+          "text": "X $\\ne$ Y"
+        }
+      ],
+      "correct_option_id": null,
+      "correct_option_text": null,
+      "explanation": null
+    },
+    {
+      "id": 524271,
+      "question": "If A = {x : x is a multiple of 4} and B = {x : x is a multiple of 6}, then A $\\cap$ B consists of all multiples of",
+      "question_raw": "<p>If A = {x : x is a multiple of 4} and B = {x : x is a multiple of 6}, then A <span class=\"math-tex\">{tex}\\cap{/tex}</span>&nbsp;B consists of all multiples of</p>",
+      "difficulty": "Hard",
+      "options": [
+        {
+          "id": 946904,
+          "text": "16"
+        },
+        {
+          "id": 946907,
+          "text": "4"
+        },
+        {
+          "id": 946905,
+          "text": "12"
+        },
+        {
+          "id": 946906,
+          "text": "8"
+        }
+      ],
+      "correct_option_id": null,
+      "correct_option_text": null,
+      "explanation": null
+    },
+    {
+      "id": 524291,
+      "question": "The number of elements in set { x : x is a letter of word TRIGONOMETRY } is __________",
+      "question_raw": "<p>The number of elements in set { x : x is a letter of word TRIGONOMETRY } is __________</p>",
+      "difficulty": "Hard",
+      "options": [
+        {
+          "id": 946977,
+          "text": "8"
+        },
+        {
+          "id": 946976,
+          "text": "9"
+        },
+        {
+          "id": 946978,
+          "text": "7"
+        },
+        {
+          "id": 946979,
+          "text": "10"
+        }
+      ],
+      "correct_option_id": null,
+      "correct_option_text": null,
+      "explanation": null
+    },
+    {
+      "id": 524314,
+      "question": "If N_a = {an : n $\\in$ N}, then N_5 $\\cap$ N_7 =",
+      "question_raw": "<p>If N<sub>a</sub> = {an : n <span class=\"math-tex\">{tex}\\in{/tex}</span>&nbsp;N}, then N<sub>5</sub>&nbsp;<span class=\"math-tex\">{tex}\\cap{/tex}</span> N<sub>7</sub> =</p>",
+      "difficulty": "Hard",
+      "options": [
+        {
+          "id": 947049,
+          "text": "N_12"
+        },
+        {
+          "id": 947051,
+          "text": "N_35"
+        },
+        {
+          "id": 947047,
+          "text": "N_7"
+        },
+        {
+          "id": 947045,
+          "text": "N_5"
+        }
+      ],
+      "correct_option_id": null,
+      "correct_option_text": null,
+      "explanation": null
+    },
+    {
+      "id": 524315,
+      "question": "Let S = {1, 2, 3,..., 100}. The number of non-empty subsets A of S such that the product of elements in A is even is:",
+      "question_raw": "<p>Let S = {1, 2, 3,..., 100}. The number of non-empty subsets A of S such that the product of elements in A is even is:</p>",
+      "difficulty": "Hard",
+      "options": [
+        {
+          "id": 947055,
+          "text": "2^50 + 1"
+        },
+        {
+          "id": 947054,
+          "text": "2^50 - 1"
+        },
+        {
+          "id": 947053,
+          "text": "2^50(2^50 - 1)"
+        },
+        {
+          "id": 947052,
+          "text": "2^100 - 1"
+        }
+      ],
+      "correct_option_id": null,
+      "correct_option_text": null,
+      "explanation": null
+    },
+    {
+      "id": 524336,
+      "question": "Two sets A and B are as under:\nA = {(a, b) $\\in$ R $\\times$ R: |a - 5| < 1 and |b - 5| < 1}; B = {(a, b) $\\in$ R $\\times$ R : 4 (a - 6)^2 + 9(b - 5)^2 $\\leq$ 36}. Then",
+      "question_raw": "<p>Two sets A and B are as under:<br />\r\nA = {(a, b) <span class=\"math-tex\">{tex}\\in{/tex}</span>&nbsp;R <span class=\"math-tex\">{tex}\\times{/tex}</span>&nbsp;R: |a - 5|&nbsp;&lt; 1 and |b - 5|&nbsp;&lt; 1}; B = {(a, b) <span class=\"math-tex\">{tex}\\in{/tex}</span>&nbsp;R&nbsp;<span class=\"math-tex\">{tex}\\times{/tex}</span>&nbsp;R : 4 (a - 6)<sup>2</sup> + 9(b - 5)<sup>2</sup>&nbsp;<span class=\"math-tex\">{tex}\\leq{/tex}</span> 36}. Then</p>",
+      "difficulty": "Hard",
+      "options": [
+        {
+          "id": 947127,
+          "text": "B $ \\subset $ A"
+        },
+        {
+          "id": 947124,
+          "text": "A $ \\subset $ B"
+        },
+        {
+          "id": 947126,
+          "text": "neither A $ \\subset $ B nor B $ \\subset $ A"
+        },
+        {
+          "id": 947125,
+          "text": "A $\\cap$ B = $\\phi$ (an empty set)"
+        }
+      ],
+      "correct_option_id": null,
+      "correct_option_text": null,
+      "explanation": null
+    },
+    {
+      "id": 524350,
+      "question": "Let P = {$\\theta$ : sin$\\theta$ - cos$\\theta$ = $\\sqrt{2} \\cos \\theta$} and Q = {$\\theta$ : sin$\\theta$ + cos$\\theta$ = $\\sqrt{2} \\sin \\theta$} be two sets. Then",
+      "question_raw": "<p>Let&nbsp; P = {<span class=\"math-tex\">{tex}\\theta{/tex}</span>&nbsp;: sin<span class=\"math-tex\">{tex}\\theta{/tex}</span>&nbsp;- cos<span class=\"math-tex\">{tex}\\theta{/tex}</span>&nbsp;=&nbsp;<span class=\"math-tex\">{tex}\\sqrt{2} \\cos \\theta{/tex}</span>} and Q = {<span class=\"math-tex\">{tex}\\theta{/tex}</span>&nbsp;: sin<span class=\"math-tex\">{tex}\\theta{/tex}</span>&nbsp;+ cos<span class=\"math-tex\">{tex}\\theta{/tex}</span>&nbsp;=&nbsp;<span class=\"math-tex\">{tex}\\sqrt{2} \\sin \\theta{/tex}</span>} be two sets. Then</p>",
+      "difficulty": "Hard",
+      "options": [
+        {
+          "id": 947177,
+          "text": "Q $ \\not\\subset $ P"
+        },
+        {
+          "id": 947179,
+          "text": "P = Q"
+        },
+        {
+          "id": 947178,
+          "text": "P $ \\not\\subset $ Q"
+        },
+        {
+          "id": 947176,
+          "text": "P $ \\subset $ Q and Q - P $\\neq$ $\\phi$"
+        }
+      ],
+      "correct_option_id": null,
+      "correct_option_text": null,
+      "explanation": null
+    },
+    {
+      "id": 524365,
+      "question": "Let S = {1, 2, 3, 4}. The total number of unordered pairs of disjoint subsets of S is equal to",
+      "question_raw": "<p>Let S = {1, 2, 3, 4}. The total number of unordered pairs of disjoint subsets of S is equal to</p>",
+      "difficulty": "Hard",
+      "options": [
+        {
+          "id": 947233,
+          "text": "34"
+        },
+        {
+          "id": 947234,
+          "text": "42"
+        },
+        {
+          "id": 947232,
+          "text": "25"
+        },
+        {
+          "id": 947235,
+          "text": "41"
+        }
+      ],
+      "correct_option_id": null,
+      "correct_option_text": null,
+      "explanation": null
+    },
+    {
+      "id": 524366,
+      "question": "If A = {1, 2, 3, 4, 5}, then the number of proper subsets of A is",
+      "question_raw": "<p>If&nbsp;A = {1, 2, 3, 4, 5}, then the number of proper subsets of A is</p>",
+      "difficulty": "Hard",
+      "options": [
+        {
+          "id": 947238,
+          "text": "48"
+        },
+        {
+          "id": 947237,
+          "text": "38"
+        },
+        {
+          "id": 947239,
+          "text": "54"
+        },
+        {
+          "id": 947236,
+          "text": "31"
+        }
+      ],
+      "correct_option_id": null,
+      "correct_option_text": null,
+      "explanation": null
+    },
+    {
+      "id": 524380,
+      "question": "Let S = {1, 2, 3,..., 9}. For k = 1, 2,..., 5, let N_k be the number of subsets of S, each containing five elements out of which exactly k are odd. Then N_1 + N_2 + N_3 + N_4 + N_5 = ________.",
+      "question_raw": "<p>Let S = {1, 2, 3,..., 9}. For k = 1, 2,..., 5, let N<sub>k</sub> be the number of subsets of S, each containing five elements out of which exactly k are odd. Then N<sub>1</sub>&nbsp;+ N<sub>2</sub> + N<sub>3</sub> + N<sub>4</sub> + N<sub>5</sub> = ________.</p>",
+      "difficulty": "Hard",
+      "options": [
+        {
+          "id": 947292,
+          "text": "126"
+        },
+        {
+          "id": 947289,
+          "text": "252"
+        },
+        {
+          "id": 947291,
+          "text": "125"
+        },
+        {
+          "id": 947288,
+          "text": "210"
+        }
+      ],
+      "correct_option_id": null,
+      "correct_option_text": null,
+      "explanation": null
+    },
+    {
+      "id": 524390,
+      "question": "If A = {x : x is root of x^2 - 1 = 0}, B = {x : x is a root of x^2 - 2x + 1 = 0}, then",
+      "question_raw": "<p>If A = {x :&nbsp;x is root of x<sup>2</sup> - 1 = 0},&nbsp;B = {x :&nbsp;x is a root of x<sup>2</sup>&nbsp;-&nbsp;2x + 1 = 0}, then</p>",
+      "difficulty": "Hard",
+      "options": [
+        {
+          "id": 947321,
+          "text": "A $\\cup$ B = A"
+        },
+        {
+          "id": 947322,
+          "text": "A $\\cap$ B ={1}"
+        },
+        {
+          "id": 947320,
+          "text": "A $\\cup$ B = B"
+        },
+        {
+          "id": 947323,
+          "text": "A $\\cap$ B = $\\phi$"
+        }
+      ],
+      "correct_option_id": null,
+      "correct_option_text": null,
+      "explanation": null
+    },
+    {
+      "id": 524410,
+      "question": "Let S be a set of all distinct numbers of the form $\\frac {P}{Q}$, where p, q $\\in$ {1, 2, 3, 4, 5, 6}. What is the cardinality of the set S?",
+      "question_raw": "<p>Let S be a set of all distinct numbers of the form <span class=\"math-tex\">{tex}\\frac {P}{Q}{/tex}</span>, where p, q <span class=\"math-tex\">{tex}\\in{/tex}</span>&nbsp;{1, 2, 3, 4, 5, 6}. What is the cardinality of the set S?</p>",
+      "difficulty": "Hard",
+      "options": [
+        {
+          "id": 947402,
+          "text": "32"
+        },
+        {
+          "id": 947401,
+          "text": "23"
+        },
+        {
+          "id": 947403,
+          "text": "36"
+        },
+        {
+          "id": 947400,
+          "text": "21"
+        }
+      ],
+      "correct_option_id": null,
+      "correct_option_text": null,
+      "explanation": null
+    },
+    {
+      "id": 524439,
+      "question": "Let A = {x : x $\\leq $ 9, x $\\in$ N}. Let B = {a, b, c} be the subset of A where (a + b + c) is a multiple of 3. What is the largest possible number of subsets like B?",
+      "question_raw": "<p>Let A = {x : x&nbsp;<span class=\"math-tex\">{tex}\\leq {/tex}</span>&nbsp;9, x <span class=\"math-tex\">{tex}\\in{/tex}</span>&nbsp;N}. Let B = {a, b, c} be the subset of A where (a + b + c) is a multiple of 3. What is the largest possible number of subsets like B?</p>",
+      "difficulty": "Hard",
+      "options": [
+        {
+          "id": 947507,
+          "text": "30"
+        },
+        {
+          "id": 947505,
+          "text": "21"
+        },
+        {
+          "id": 947504,
+          "text": "12"
+        },
+        {
+          "id": 947506,
+          "text": "27"
+        }
+      ],
+      "correct_option_id": null,
+      "correct_option_text": null,
+      "explanation": null
+    },
+    {
+      "id": 524455,
+      "question": "If U = {1, 2, 3, 4, 5, 6, 7, 8, 9},\nA = {x $\\in$ N : 30 < x^2 < 70},\nB = {x : x is a prime number less than 10}, then which of the following is false?",
+      "question_raw": "<p>If U = {1, 2, 3, 4, 5, 6, 7, 8, 9},<br />\r\nA = {x <span class=\"math-tex\">{tex}\\in{/tex}</span>&nbsp;N : 30 &lt; x<sup>2&nbsp;</sup>&lt; 70},<br />\r\nB = {x : x is a prime number less than 10}, then which of the following is false?</p>",
+      "difficulty": "Hard",
+      "options": [
+        {
+          "id": 947568,
+          "text": "A $\\cup$ B = {2, 3, 5, 6, 7, 8}"
+        },
+        {
+          "id": 947571,
+          "text": "A $\\triangle$ B = {2, 3, 5, 6, 8}"
+        },
+        {
+          "id": 947570,
+          "text": "A - B = {6, 8}"
+        },
+        {
+          "id": 947569,
+          "text": "A $\\cap$ B = {7, 8}"
+        }
+      ],
+      "correct_option_id": null,
+      "correct_option_text": null,
+      "explanation": null
+    },
+    {
+      "id": 524477,
+      "question": "Two finite sets have m and n elements, the total number of subsets of the first set is 56 more than the total number of subsets of the second set. Then:",
+      "question_raw": "<p>Two finite sets have m and n elements, the total number of subsets of the first set is 56 more than the total number of subsets of the second set. Then:</p>",
+      "difficulty": "Hard",
+      "options": [
+        {
+          "id": 947654,
+          "text": "m = 5, n = 6"
+        },
+        {
+          "id": 947652,
+          "text": "m = 3, n = 6"
+        },
+        {
+          "id": 947655,
+          "text": "m = 6, n = 5"
+        },
+        {
+          "id": 947653,
+          "text": "m = 6, n = 3"
+        }
+      ],
+      "correct_option_id": null,
+      "correct_option_text": null,
+      "explanation": null
+    },
+    {
+      "id": 524548,
+      "question": "If L, M and N are three non-empty sets such that L $\\cap$ M = N and L $\\cap$ N = M, then",
+      "question_raw": "<p>If L, M and N are three non-empty sets such that L <span class=\"math-tex\">{tex}\\cap{/tex}</span>&nbsp;M = N and L <span class=\"math-tex\">{tex}\\cap{/tex}</span>&nbsp;N = M, then</p>",
+      "difficulty": "Hard",
+      "options": [
+        {
+          "id": 947917,
+          "text": "M $\\cup$ N = L"
+        },
+        {
+          "id": 947919,
+          "text": "M $ \\subset $ N'"
+        },
+        {
+          "id": 947918,
+          "text": "M = N"
+        },
+        {
+          "id": 947916,
+          "text": "M $ \\subset $ N"
+        }
+      ],
+      "correct_option_id": null,
+      "correct_option_text": null,
+      "explanation": null
+    },
+    {
+      "id": 524559,
+      "question": "If X = {4^n - 3n - 1 : n $\\in$ N} and Y = {9 (n - 1) : n $\\in$ N}, where N is the set of natural numbers, then X $\\cup$ Y is equal to:",
+      "question_raw": "<p>If X&nbsp;= {4<sup>n</sup>&nbsp;- 3n&nbsp;- 1&nbsp;: n&nbsp;<span class=\"math-tex\">{tex}\\in{/tex}</span>&nbsp;N}&nbsp;and Y = {9 (n - 1) : n <span class=\"math-tex\">{tex}\\in{/tex}</span>&nbsp;N}, where N is the set of natural numbers, then X <span class=\"math-tex\">{tex}\\cup{/tex}</span> Y is equal to:</p>\r\n",
+      "difficulty": "Medium",
+      "options": [
+        {
+          "id": 947952,
+          "text": "X"
+        },
+        {
+          "id": 947955,
+          "text": "Y - X"
+        },
+        {
+          "id": 947953,
+          "text": "Y"
+        },
+        {
+          "id": 947954,
+          "text": "N"
+        }
+      ],
+      "correct_option_id": null,
+      "correct_option_text": null,
+      "explanation": null
+    },
+    {
+      "id": 524562,
+      "question": "Let X={1,2,3,4,5,6}. Insert appropriate symbol in 9 ________ X.",
+      "question_raw": "<p>Let X={1,2,3,4,5,6}. Insert appropriate symbol in 9 ________ X.</p>",
+      "difficulty": "Hard",
+      "options": [
+        {
+          "id": 947967,
+          "text": "$\\in $"
+        },
+        {
+          "id": 947966,
+          "text": "<"
+        },
+        {
+          "id": 947964,
+          "text": "$\\notin$"
+        },
+        {
+          "id": 947965,
+          "text": "="
+        }
+      ],
+      "correct_option_id": null,
+      "correct_option_text": null,
+      "explanation": null
+    },
+    {
+      "id": 524575,
+      "question": "If A, B, C are three sets such that A $\\cup$ B = A $\\cup$ C and A $\\cap$ B = A $\\cap$ C, then",
+      "question_raw": "<p>If A, B, C are three sets such that A <span class=\"math-tex\">{tex}\\cup{/tex}</span>&nbsp;B = A <span class=\"math-tex\">{tex}\\cup{/tex}</span>&nbsp;C and A <span class=\"math-tex\">{tex}\\cap{/tex}</span>&nbsp;B = A <span class=\"math-tex\">{tex}\\cap{/tex}</span>&nbsp;C, then</p>",
+      "difficulty": "Hard",
+      "options": [
+        {
+          "id": 948016,
+          "text": "A = B = C"
+        },
+        {
+          "id": 948012,
+          "text": "A = B"
+        },
+        {
+          "id": 948013,
+          "text": "B = C"
+        },
+        {
+          "id": 948014,
+          "text": "A = C"
+        }
+      ],
+      "correct_option_id": null,
+      "correct_option_text": null,
+      "explanation": null
+    },
+    {
+      "id": 524589,
+      "question": "The set $(\\mathrm{A} \\cup \\mathrm{B} \\cup \\mathrm{C}) \\cap$$\\left(A \\cap B^{\\prime} \\cap C^{\\prime}\\right)^{\\prime} \\cap C^{\\prime}$ is equal to",
+      "question_raw": "<p>The set&nbsp;<span class=\"math-tex\">{tex}(\\mathrm{A} \\cup \\mathrm{B} \\cup \\mathrm{C}) \\cap{/tex}</span><span class=\"math-tex\">{tex}\\left(A \\cap B^{\\prime} \\cap C^{\\prime}\\right)^{\\prime} \\cap C^{\\prime}{/tex}</span> is equal to</p>",
+      "difficulty": "Hard",
+      "options": [
+        {
+          "id": 948067,
+          "text": "A $\\cap$ C'"
+        },
+        {
+          "id": 948064,
+          "text": "B $\\cap$ C'"
+        },
+        {
+          "id": 948066,
+          "text": "A $\\cap$ C"
+        },
+        {
+          "id": 948065,
+          "text": "B' $\\cap$ C'"
+        }
+      ],
+      "correct_option_id": null,
+      "correct_option_text": null,
+      "explanation": null
+    },
+    {
+      "id": 524610,
+      "question": "If A and B are two sets, then (A - B) $\\cup$ (B - A) $\\cup$ (A $\\cap$ B) is equal to",
+      "question_raw": "<p>If A and B are two sets, then (A - B) <span class=\"math-tex\">{tex}\\cup{/tex}</span>&nbsp;(B - A) <span class=\"math-tex\">{tex}\\cup{/tex}</span>&nbsp;(A <span class=\"math-tex\">{tex}\\cap{/tex}</span>&nbsp;B) is equal to</p>",
+      "difficulty": "Hard",
+      "options": [
+        {
+          "id": 948151,
+          "text": "only B"
+        },
+        {
+          "id": 948149,
+          "text": "A $\\cup$ B"
+        },
+        {
+          "id": 948148,
+          "text": "only A"
+        },
+        {
+          "id": 948150,
+          "text": "(A $\\cup$ B')"
+        }
+      ],
+      "correct_option_id": null,
+      "correct_option_text": null,
+      "explanation": null
+    },
+    {
+      "id": 524735,
+      "question": "If A = {4n + 2 : n is a natural number} and B = {3n : n is a natural number}, then what is (A $\\cap$B) equal to?",
+      "question_raw": "<p>If A = {4n + 2 : n is a natural number} and B = {3n : n is a natural number}, then what is (A <span class=\"math-tex\">{tex}\\cap{/tex}</span>B) equal to?</p>",
+      "difficulty": "Hard",
+      "options": [
+        {
+          "id": 948600,
+          "text": "{12n^2 + 6n : n is a natural number}"
+        },
+        {
+          "id": 948601,
+          "text": "{24n + 12 : n is a natural number}"
+        },
+        {
+          "id": 948602,
+          "text": "{60n + 30 : n is a natural number}"
+        },
+        {
+          "id": 948603,
+          "text": "{12n + 6 : n is a natural number}"
+        }
+      ],
+      "correct_option_id": null,
+      "correct_option_text": null,
+      "explanation": null
+    },
+    {
+      "id": 524784,
+      "question": "Which is the simplified representation of (A′ $\\cap$ B′ $\\cap$ C') $\\cup$ (B $\\cap$ C) $\\cup$ (A $\\cap$ C) where A, B, C are subsets of set X?",
+      "question_raw": "<p>Which is the simplified representation of (A&prime; <span class=\"math-tex\">{tex}\\cap{/tex}</span>&nbsp;B&prime; <span class=\"math-tex\">{tex}\\cap{/tex}</span>&nbsp;C&#39;) <span class=\"math-tex\">{tex}\\cup{/tex}</span>&nbsp;(B <span class=\"math-tex\">{tex}\\cap{/tex}</span>&nbsp;C) <span class=\"math-tex\">{tex}\\cup{/tex}</span>&nbsp;(A <span class=\"math-tex\">{tex}\\cap{/tex}</span>&nbsp;C) where A, B, C are subsets of set X?</p>",
+      "difficulty": "Hard",
+      "options": [
+        {
+          "id": 948775,
+          "text": "X $\\cap$ (A $\\cup$ B $\\cup$ C)"
+        },
+        {
+          "id": 948772,
+          "text": "A"
+        },
+        {
+          "id": 948773,
+          "text": "B"
+        },
+        {
+          "id": 948774,
+          "text": "C"
+        }
+      ],
+      "correct_option_id": null,
+      "correct_option_text": null,
+      "explanation": null
+    },
+    {
+      "id": 524828,
+      "question": "Which one of the following is correct?",
+      "question_raw": "<p>Which one of the following is correct?</p>",
+      "difficulty": "Hard",
+      "options": [
+        {
+          "id": 948918,
+          "text": "A - (B $\\cap$ C) = (A $\\cap$ B') $\\cap$ C)"
+        },
+        {
+          "id": 948919,
+          "text": "A $\\cap$ (B - C) = (A $\\cap$ B) $\\cap$ C)"
+        },
+        {
+          "id": 948914,
+          "text": "A $\\cup$ (B − C) = A $\\cap$ (B $\\cap$ C′)"
+        },
+        {
+          "id": 948917,
+          "text": "A - (B $\\cup$ C) = (A $\\cap$ B') $\\cap$ C′)"
+        }
+      ],
+      "correct_option_id": null,
+      "correct_option_text": null,
+      "explanation": null
+    },
+    {
+      "id": 524866,
+      "question": "If F(n) denotes the set of all divisors of n except 1. What is the least value of y satisfying [F(20) $\\cap$ F(16)] $ \\subseteq $ F(y)?",
+      "question_raw": "<p>If F(n) denotes the set of all divisors of n except 1. What is the least value of y satisfying [F(20) <span class=\"math-tex\">{tex}\\cap{/tex}</span>&nbsp;F(16)] <span class=\"math-tex\">{tex} \\subseteq {/tex}</span>&nbsp;F(y)?</p>",
+      "difficulty": "Hard",
+      "options": [
+        {
+          "id": 949028,
+          "text": "1"
+        },
+        {
+          "id": 949030,
+          "text": "2"
+        },
+        {
+          "id": 949033,
+          "text": "4"
+        },
+        {
+          "id": 949035,
+          "text": "8"
+        }
+      ],
+      "correct_option_id": null,
+      "correct_option_text": null,
+      "explanation": null
+    },
+    {
+      "id": 1056746,
+      "question": "Let the number of elements in sets A and B be five and two respectively. Then the number of subsets of A $\\times$ B each having at least 3 and at most 6 element is:",
+      "question_raw": "<p>Let the number of elements in sets A and B be five and two respectively. Then the number of subsets of A <span class=\"math-tex\">{tex}\\times{/tex}</span> B each having at least 3 and at most 6 element is:</p>",
+      "difficulty": "Hard",
+      "options": [
+        {
+          "id": 2172369,
+          "text": "782"
+        },
+        {
+          "id": 2172370,
+          "text": "772"
+        },
+        {
+          "id": 2172368,
+          "text": "752"
+        },
+        {
+          "id": 2172367,
+          "text": "792"
+        }
+      ],
+      "correct_option_id": null,
+      "correct_option_text": null,
+      "explanation": null
+    },
+    {
+      "id": 1056752,
+      "question": "Let A = {x $\\in$ R : |x + 1| < 2} and B = {x $\\in$ R : |x - 1| $\\ge$ 2}. Then which one of the following statements is NOT true?",
+      "question_raw": "<p>Let A = {x <span class=\"math-tex\">{tex}\\in{/tex}</span>&nbsp;R : |x + 1| &lt; 2} and B = {x <span class=\"math-tex\">{tex}\\in{/tex}</span>&nbsp;R : |x - 1| <span class=\"math-tex\">{tex}\\ge{/tex}</span>&nbsp;2}. Then which one of the following statements is <strong>NOT</strong> true?</p>",
+      "difficulty": "Hard",
+      "options": [
+        {
+          "id": 2172387,
+          "text": "A - B = (-1, 1)"
+        },
+        {
+          "id": 2172388,
+          "text": "B - A = R - (-3 ,1)"
+        },
+        {
+          "id": 2172389,
+          "text": "A $\\cap$ B = (-3, -1]"
+        },
+        {
+          "id": 2172390,
+          "text": "A $\\cup$ B = R - [1, 3)"
+        }
+      ],
+      "correct_option_id": null,
+      "correct_option_text": null,
+      "explanation": null
+    },
+    {
+      "id": 1686292,
+      "question": "Out of all the patients in a hospital $89 \\%$ are found to be suffering from heart ailment and $98 \\%$ are suffering from lungs infection. If K% of them are suffering from both ailments, then K can not belong to the set",
+      "question_raw": "<p>Out of all the patients in a hospital <span class=\"math-tex\">{tex}89 \\%{/tex}</span> are found to be suffering from heart ailment and <span class=\"math-tex\">{tex}98 \\%{/tex}</span> are suffering from lungs infection. If K% of them are suffering from both ailments, then K can not belong to the set</p>",
+      "difficulty": "Easy",
+      "options": [
+        {
+          "id": 3517301,
+          "text": "$\\{80,83,86,89\\}$"
+        },
+        {
+          "id": 3517303,
+          "text": "$\\{84,87,90,93\\}$"
+        },
+        {
+          "id": 3517304,
+          "text": "$\\{84,86,88,90\\}$"
+        },
+        {
+          "id": 3517302,
+          "text": "$\\{79,81,83,85\\}$"
+        }
+      ],
+      "correct_option_id": null,
+      "correct_option_text": null,
+      "explanation": null
+    },
+    {
+      "id": 1686586,
+      "question": "Let $A=\\{1,2,3, \\ldots, 10\\}$ and $B=\\left\\{\\frac{m}{n}: m, n \\in A, m \\lt n\\right.$ and $\\left.\\operatorname{gcd}(m, n)=1\\right\\}$. Then $n({~B})$ is equal to:",
+      "question_raw": "<p>Let <span class=\"math-tex\">{tex}A=\\{1,2,3, \\ldots, 10\\}{/tex}</span> and <span class=\"math-tex\">{tex}B=\\left\\{\\frac{m}{n}: m, n \\in A, m \\lt n\\right.{/tex}</span> and <span class=\"math-tex\">{tex}\\left.\\operatorname{gcd}(m, n)=1\\right\\}{/tex}</span>. Then <span class=\"math-tex\">{tex}n({~B}){/tex}</span> is equal to:</p>",
+      "difficulty": "Medium",
+      "options": [
+        {
+          "id": 3518190,
+          "text": "31"
+        },
+        {
+          "id": 3518193,
+          "text": "29"
+        },
+        {
+          "id": 3518192,
+          "text": "37"
+        },
+        {
+          "id": 3518191,
+          "text": "36"
+        }
+      ],
+      "correct_option_id": null,
+      "correct_option_text": null,
+      "explanation": null
+    }
+  ]
+}
