@@ -1,0 +1,1728 @@
+{
+  "testPaperID": 183,
+  "testPaperName": "Mock Test - 10",
+  "category_full_name": "CBSE > Class 11 > Mathematics",
+  "testDuration_min": 90,
+  "noOfQuestions": 50,
+  "instruction": "This question paper contains three sections - A, B and C. Each part is compulsory.\n Section - A has 20 MCQs, attempt any 16 out of 20.\n Section - B has 20 MCQs, attempt any 16 out of 20\n Section - C has 10 MCQs, attempt any 8 out of 10.\n There is no negative marking.\n All questions carry equal marks.",
+  "sections": [
+    {
+      "sectionName": "Section A",
+      "sectionID": 669,
+      "questions": [
+        {
+          "questionID": 18368,
+          "question": "The number of proper subsets of the set {1, 2, 3} is :",
+          "question_raw": "<p>The number of proper subsets of the set {1, 2, 3} is :</p>",
+          "options": [
+            {
+              "id": 28674,
+              "text": "6",
+              "is_correct": false
+            },
+            {
+              "id": 28673,
+              "text": "8",
+              "is_correct": false
+            },
+            {
+              "id": 28675,
+              "text": "5",
+              "is_correct": false
+            },
+            {
+              "id": 28672,
+              "text": "7",
+              "is_correct": true
+            }
+          ],
+          "correct_option_ids": [
+            28672
+          ],
+          "correct_option_texts": [
+            "7"
+          ],
+          "explanation": "The no. of proper subsets = 2^n - 1 = 2^3 - 1 = 7\nHere n = no of elements of given set = 3."
+        },
+        {
+          "questionID": 291043,
+          "question": "If A = {1, 2, 3), B = {1, 4, 6, 9} and R is a relation from A to B defined by x is greater than y. The range R is",
+          "question_raw": "<p>If A = {1, 2, 3), B = {1, 4, 6, 9} and R is a relation from A to B defined by x is greater than y.&nbsp;The range R is</p>",
+          "options": [
+            {
+              "id": 415864,
+              "text": "{4, 6, 9}",
+              "is_correct": false
+            },
+            {
+              "id": 415863,
+              "text": "{1, 4, 6, 9}",
+              "is_correct": false
+            },
+            {
+              "id": 415865,
+              "text": "{1}",
+              "is_correct": true
+            },
+            {
+              "id": 415866,
+              "text": "{6, 9}",
+              "is_correct": false
+            }
+          ],
+          "correct_option_ids": [
+            415865
+          ],
+          "correct_option_texts": [
+            "{1}"
+          ],
+          "explanation": "As per condition of the relation, x > y.\nSo, required relation will be : {(2, 1), (3, 1)}\nSince we know that Range is the set of elements written after comma in each ordered pair.\nTherefore, Range = {1}"
+        },
+        {
+          "questionID": 18998,
+          "question": "Projection (the foot of perpendicular) from (x, y) on the x-axis is",
+          "question_raw": "<p>Projection (the foot of perpendicular) from (x, y) on the x-axis is</p>",
+          "options": [
+            {
+              "id": 31194,
+              "text": "(0, - y)",
+              "is_correct": false
+            },
+            {
+              "id": 31193,
+              "text": "(-x, 0)",
+              "is_correct": false
+            },
+            {
+              "id": 31192,
+              "text": "(0, y)",
+              "is_correct": false
+            },
+            {
+              "id": 31191,
+              "text": "(x, 0)",
+              "is_correct": true
+            }
+          ],
+          "correct_option_ids": [
+            31191
+          ],
+          "correct_option_texts": [
+            "(x, 0)"
+          ],
+          "explanation": "Let L be the foot of the perpendicular from the X-axis. Therefore its y coordinate is zero.\nTherefore the coordinates of the point L is (x, 0)."
+        },
+        {
+          "questionID": 290399,
+          "question": "(0.15 + 0.015 + 0.0015 + ... to 8 terms) = ?",
+          "question_raw": "<p>(0.15 + 0.015 + 0.0015 + ... to 8 terms) = ?</p>",
+          "options": [
+            {
+              "id": 415197,
+              "text": "$\\frac{1}{6}\\left(1-\\frac{1}{10^{8}}\\right)$",
+              "is_correct": true
+            },
+            {
+              "id": 415196,
+              "text": "$\\frac{1}{6}\\left(1+\\frac{1}{10^{8}}\\right)$",
+              "is_correct": false
+            },
+            {
+              "id": 415195,
+              "text": "$\\frac{1}{6}\\left(1-\\frac{1}{10^{7}}\\right)$",
+              "is_correct": false
+            },
+            {
+              "id": 415198,
+              "text": "$\\frac{1}{6}\\left(1+\\frac{1}{10^{7}}\\right)$",
+              "is_correct": false
+            }
+          ],
+          "correct_option_ids": [
+            415197
+          ],
+          "correct_option_texts": [
+            "$\\frac{1}{6}\\left(1-\\frac{1}{10^{8}}\\right)$"
+          ],
+          "explanation": "Here, we have a = 0.15 and $r=\\frac{0.015}{0.15}=\\frac{0.015}{0.015 \\times 10}=\\frac{1}{10}<1$\n$\\therefore S_{n}=\\frac{a\\left(1-r^{n}\\right)}{(1-r)}=\\frac{0.15\\left[1-\\frac{1}{10^{n}}\\right]}{\\left(1-\\frac{1}{10}\\right)}=\\left(\\frac{15}{100} \\times \\frac{10}{9}\\right)\\left(1-\\frac{1}{10^{n}}\\right)=\\frac{1}{6}\\left(1-\\frac{1}{10^{n}}\\right)$\n$\\therefore S_{8}=\\frac{1}{6}\\left(1-\\frac{1}{10^{8}}\\right)$"
+        },
+        {
+          "questionID": 19018,
+          "question": "A line is equally inclined to the axis and the length of perpendicular from the origin upon the line is $\\sqrt 2 $. A possible equation of the line is",
+          "question_raw": "<p>A line is equally inclined to the axis and the length of perpendicular from the origin upon the line is <span class=\"math-tex\">{tex}\\sqrt 2 {/tex}</span>. A possible equation of the line is</p>\r\n",
+          "options": [
+            {
+              "id": 31271,
+              "text": "x + y = 2",
+              "is_correct": true
+            },
+            {
+              "id": 31274,
+              "text": "y = $\\sqrt 2 $ x + 2",
+              "is_correct": false
+            },
+            {
+              "id": 31273,
+              "text": "y = x + 1",
+              "is_correct": false
+            },
+            {
+              "id": 31272,
+              "text": "y = x + $\\sqrt 2 $",
+              "is_correct": false
+            }
+          ],
+          "correct_option_ids": [
+            31271
+          ],
+          "correct_option_texts": [
+            "x + y = 2"
+          ],
+          "explanation": "Since the line is equally inclined, the slope of the line should be -1, because it makes 135^o in the positive direction of the X-axis.\nThis implies the equation of the line is y = -x + c \ni.e; x + y - c = 0\ndistance of the line from the origin is given as $\\sqrt 2$ \nTherefore $\\sqrt 2$ = $|c|\\over \\sqrt{1^2+1^2}$ \nThis implies c = 2\nHence, the equation of the line is x + y = 2"
+        },
+        {
+          "questionID": 292596,
+          "question": "If $\\alpha$ is a repeated root of ax^2 + bx + c = 0, then $\\lim \\limits_{x \\rightarrow \\alpha} \\frac{\\tan \\left(a x^{2}+b x+c\\right)}{(x-\\alpha)^{2}}$ is",
+          "question_raw": "<p>If <span class=\"math-tex\">{tex}\\alpha{/tex}</span>&nbsp;is a repeated root of ax<sup>2</sup> + bx + c = 0, then&nbsp;<span class=\"math-tex\">{tex}\\lim \\limits_{x \\rightarrow \\alpha} \\frac{\\tan \\left(a x^{2}+b x+c\\right)}{(x-\\alpha)^{2}}{/tex}</span>&nbsp;is</p>",
+          "options": [
+            {
+              "id": 417708,
+              "text": "b",
+              "is_correct": false
+            },
+            {
+              "id": 417710,
+              "text": "0",
+              "is_correct": false
+            },
+            {
+              "id": 417709,
+              "text": "c",
+              "is_correct": false
+            },
+            {
+              "id": 417707,
+              "text": "a",
+              "is_correct": true
+            }
+          ],
+          "correct_option_ids": [
+            417707
+          ],
+          "correct_option_texts": [
+            "a"
+          ],
+          "explanation": "$\\lim \\limits_{x \\rightarrow \\alpha}\\left[\\frac{\\tan \\left(a x^{2}+b x+c\\right)}{(x-\\alpha)^{2}}\\right]$\n$=\\lim \\limits_{x \\rightarrow \\alpha}\\left[\\frac{\\tan \\{a(x-\\alpha)(x-\\alpha)\\}}{a(x-\\alpha)^{2}}\\right] \\times a$\n$=\\lim \\limits_{x \\rightarrow \\alpha}\\left[\\frac{\\tan \\left\\{a(x-\\alpha)^{2}\\right\\}}{a(x-\\alpha)^{2}}\\right] \\times a$\n$=1 \\times a\\left[\\lim \\limits_{\\theta \\rightarrow 0}\\left(\\frac{\\tan \\theta}{\\theta}\\right)=1\\right]$\n= a"
+        },
+        {
+          "questionID": 19436,
+          "question": "Mode of the data 3, 2, 5, 2, 3, 5, 6, 6, 5, 3, 5, 2, 5 is",
+          "question_raw": "<p>Mode of the data 3, 2, 5, 2, 3, 5, 6, 6, 5, 3, 5, 2, 5 is</p>",
+          "options": [
+            {
+              "id": 32945,
+              "text": "4",
+              "is_correct": false
+            },
+            {
+              "id": 32946,
+              "text": "3",
+              "is_correct": false
+            },
+            {
+              "id": 32944,
+              "text": "6",
+              "is_correct": false
+            },
+            {
+              "id": 32943,
+              "text": "5",
+              "is_correct": true
+            }
+          ],
+          "correct_option_ids": [
+            32943
+          ],
+          "correct_option_texts": [
+            "5"
+          ],
+          "explanation": "Most repeated value is the mode. Here it is 5"
+        },
+        {
+          "questionID": 291074,
+          "question": "The symmetric difference of A = {1, 2, 3} and B = {3, 4, 5} is",
+          "question_raw": "<p>The symmetric difference of A = {1, 2, 3} and B = {3, 4, 5} is</p>\r\n",
+          "options": [
+            {
+              "id": 415927,
+              "text": "{1, 2}",
+              "is_correct": false
+            },
+            {
+              "id": 415930,
+              "text": "{2, 5, 1, 4, 3}",
+              "is_correct": false
+            },
+            {
+              "id": 415928,
+              "text": "{1, 2, 4, 5}",
+              "is_correct": true
+            },
+            {
+              "id": 415929,
+              "text": "{4, 3}",
+              "is_correct": false
+            }
+          ],
+          "correct_option_ids": [
+            415928
+          ],
+          "correct_option_texts": [
+            "{1, 2, 4, 5}"
+          ],
+          "explanation": "Here, we have A = {1, 2, 3} and B = {3, 4, 5}\nThe symmetric difference of A and B is given by :- (A - B) $\\cup$ (B - A)\nNow, we have:\n(A - B) = {1, 2}\n(B - A) = { 4, 5}\n(A - B) $\\cup$ (B - A)\n= {1, 2, 4, 5}"
+        },
+        {
+          "questionID": 18449,
+          "question": "If B is the set of numbers obtained by adding 1 to each of the even numbers, then its set builder notation is",
+          "question_raw": "<p>If B is the set of numbers obtained by adding 1 to each of the even numbers, then its set builder notation is</p>",
+          "options": [
+            {
+              "id": 28997,
+              "text": "B = {x : x is even}",
+              "is_correct": false
+            },
+            {
+              "id": 28996,
+              "text": "B = {x : x is odd and x $ \\in $ Z}",
+              "is_correct": true
+            },
+            {
+              "id": 28998,
+              "text": "B = {x : x is odd and x $> $1}",
+              "is_correct": false
+            },
+            {
+              "id": 28999,
+              "text": "B = {x : x is an integer}",
+              "is_correct": false
+            }
+          ],
+          "correct_option_ids": [
+            28996
+          ],
+          "correct_option_texts": [
+            "B = {x : x is odd and x $ \\in $ Z}"
+          ],
+          "explanation": "If we add an odd number and 1 then we get even number\n$\\therefore$ B = {x : x is odd and x $ \\in $ Z}"
+        },
+        {
+          "questionID": 294440,
+          "question": "If p be the length of the perpendicular from the origin on the line $\\frac {x} {a} + \\frac {y} {b} = 1$, then",
+          "question_raw": "<p>If p be the length of the perpendicular from the origin on the line&nbsp;<span class=\"math-tex\">{tex}\\frac {x} {a} + \\frac {y} {b} = 1{/tex}</span>, then</p>",
+          "options": [
+            {
+              "id": 419019,
+              "text": "p^2 = 2a^2 + 2b^2",
+              "is_correct": false
+            },
+            {
+              "id": 419016,
+              "text": "p^2 = a^2 + b^2",
+              "is_correct": false
+            },
+            {
+              "id": 419017,
+              "text": "$p^{2}=\\frac{1}{a^{2}}+\\frac{1}{b^{2}}$",
+              "is_correct": false
+            },
+            {
+              "id": 419018,
+              "text": "$\\frac{1}{p^{2}}=\\frac{1}{a^{2}}+\\frac{1}{b^{2}}$",
+              "is_correct": true
+            }
+          ],
+          "correct_option_ids": [
+            419018
+          ],
+          "correct_option_texts": [
+            "$\\frac{1}{p^{2}}=\\frac{1}{a^{2}}+\\frac{1}{b^{2}}$"
+          ],
+          "explanation": "It is given that p is the length of the perpendicular from the origin on the line\n$\\frac{x}{a}+\\frac{y}{b}=1$\n$\\frac{1}{a} x+\\frac{1}{b}$ y - 1 = 0\nUsing the formula of the distance we get, \n$\\therefore p=\\left|\\frac{0+0-1}{\\sqrt{\\frac{1}{a^{2}}+\\frac{1}{b^{2}}}}\\right|$\nSquaring both sides,\n$\\Rightarrow \\frac{1}{p^{2}}=\\frac{1}{a^{2}}+\\frac{1}{b^{2}}$"
+        },
+        {
+          "questionID": 289764,
+          "question": "The sum of all 3-digit numbers divisible by 5 is",
+          "question_raw": "<p>The sum of all 3-digit numbers divisible by 5 is</p>",
+          "options": [
+            {
+              "id": 413884,
+              "text": "98550",
+              "is_correct": true
+            },
+            {
+              "id": 413886,
+              "text": "96950",
+              "is_correct": false
+            },
+            {
+              "id": 413885,
+              "text": "95850",
+              "is_correct": false
+            },
+            {
+              "id": 413883,
+              "text": "97650",
+              "is_correct": false
+            }
+          ],
+          "correct_option_ids": [
+            413884
+          ],
+          "correct_option_texts": [
+            "98550"
+          ],
+          "explanation": "We have, Sn = 100 + 105 + 110 + ... + 995\n$a+(n-1) d=995 \\Rightarrow 100+(n-1) \\times 5=995$ \n$\\Rightarrow(n-1)=\\frac{895}{5}=179 \\Rightarrow n=180$\n$S_{n}=\\frac{n}{2}(a+l)=\\frac{180}{2} \\times(100+995)$= $(90 \\times 1095)$ = 98550"
+        },
+        {
+          "questionID": 19028,
+          "question": "The area of triangle formed by the lines y = x, y = 2x and y = 3x + 4 is",
+          "question_raw": "<p>The area of triangle formed by the lines y = x, y = 2x and y = 3x + 4 is</p>",
+          "options": [
+            {
+              "id": 31312,
+              "text": "7",
+              "is_correct": false
+            },
+            {
+              "id": 31311,
+              "text": "4",
+              "is_correct": true
+            },
+            {
+              "id": 31314,
+              "text": "8",
+              "is_correct": false
+            },
+            {
+              "id": 31313,
+              "text": "9",
+              "is_correct": false
+            }
+          ],
+          "correct_option_ids": [
+            31311
+          ],
+          "correct_option_texts": [
+            "4"
+          ],
+          "explanation": "Area of the triangle formed by the coordinates (x_1, y_1), (x_2, y_2) and (x_3, y_3) is given by\n$1\\over 2$[x_1(y_2 - y_3) + x_2(y_3 - y_1) + x_3(y_1 - y_2)]\nOn solving the lines 1 and 2, the point of intersection is (0, 0)\nOn solving the lines 2 and 3, the point of intersection is (4, 8)\nOn solving the line 3 and 1 , the point of intersection is (-2, -2)\nNow substituting the values to find the area of the triangle,\nArea = $1\\over 2$| [0 + 4(-2 - 0) + (-2)(0 - 8)] |\n= 4 sq units"
+        },
+        {
+          "questionID": 292569,
+          "question": "$\\lim \\limits_{h \\rightarrow 0}\\left\\{\\frac{1}{h^{} \\sqrt[3]{8+h}}-\\frac{1}{2 h}\\right\\}=$",
+          "question_raw": "<p><span class=\"math-tex\">{tex}\\lim \\limits_{h \\rightarrow 0}\\left\\{\\frac{1}{h^{} \\sqrt[3]{8+h}}-\\frac{1}{2 h}\\right\\}={/tex}</span></p>\r\n",
+          "options": [
+            {
+              "id": 417600,
+              "text": "$-\\frac {4}{3}$",
+              "is_correct": false
+            },
+            {
+              "id": 417602,
+              "text": "$-\\frac {1}{48}$",
+              "is_correct": true
+            },
+            {
+              "id": 417599,
+              "text": "$-\\frac {1}{12}$",
+              "is_correct": false
+            },
+            {
+              "id": 417601,
+              "text": "$-\\frac {16}{3}$",
+              "is_correct": false
+            }
+          ],
+          "correct_option_ids": [
+            417602
+          ],
+          "correct_option_texts": [
+            "$-\\frac {1}{48}$"
+          ],
+          "explanation": "$\\lim \\limits_{h \\rightarrow 0}\\left[\\frac{1}{h \\sqrt[3]{8+h}}-\\frac{1}{2 h}\\right]$\n$=\\lim \\limits_{h \\rightarrow 0}\\left[\\frac{1}{h}\\left\\{\\frac{1}{\\sqrt[3]{8+h}}-\\frac{1}{2}\\right\\}\\right]$\n$=\\lim \\limits_{h \\rightarrow 0}\\left[\\frac{1}{h}\\left\\{\\frac{2-(8+h)^{1 / 3}}{2 \\times \\sqrt[3]{8+h}}\\right\\}\\right]$\n$=\\lim \\limits_{h \\rightarrow 0}\\left[\\frac{1}{h}\\left\\{\\frac{8^{1 / 3}-(8+h)^{1 / 3}}{2 \\sqrt[3]{8+h}}\\right\\}\\right]$ [A^3 - B^3 = (A - B)(A^2 + AB + B^2) or A - B $\\frac{A^{3}-B^{3}}{A^{2}+A B+B^{2}}$]\n$=\\lim \\limits_{h \\rightarrow 0}\\left[\\frac{8-(8+h)}{h\\{2 \\sqrt[3]{8+h}\\}\\left\\{4+2(8+h)^{1 / 3}+(8+h)^{2 / 3}\\right\\}}\\right]$\n$=\\left[\\frac{-1}{2 \\times \\sqrt[3]{8}\\left\\{4+2 \\times 8^{1 / 3}+8^{2 / 3}\\right\\}}\\right]$\n$=\\frac{-1}{2 \\times 2(4+4+4)}$\n$=\\frac{-1}{48}$"
+        },
+        {
+          "questionID": 19391,
+          "question": "If the mean of the squares of first n natural numbers be 11, then n is equal to",
+          "question_raw": "<p>If the mean of the squares of first n natural numbers be 11, then n is equal to</p>",
+          "options": [
+            {
+              "id": 32764,
+              "text": "11",
+              "is_correct": false
+            },
+            {
+              "id": 32763,
+              "text": "5",
+              "is_correct": true
+            },
+            {
+              "id": 32765,
+              "text": "$\\frac{-13}{2}$",
+              "is_correct": false
+            },
+            {
+              "id": 32766,
+              "text": "13",
+              "is_correct": false
+            }
+          ],
+          "correct_option_ids": [
+            32763
+          ],
+          "correct_option_texts": [
+            "5"
+          ],
+          "explanation": "Mean = $\\frac{{\\frac{{n(n + 1)(2n + 1)}}{6}}}{n} = \\frac{{(n + 1)(2n + 1)}}{6}$ \n$\\Rightarrow$ 11 = $\\frac{(n+1)(2 n+1)}{6}$ \n$\\Rightarrow$ 66 = (n + 1)(2n + 1)\n$\\Rightarrow$ 2n^2 + 3n - 65 = 0\n$\\Rightarrow$ 2n^2 + 13n - 10n - 65 = 0\n$\\Rightarrow$ (2n + 13)(n - 5) = 0\n$\\Rightarrow$ n = 5, $\\frac{-13}{2}$ \nSo, n = 5"
+        },
+        {
+          "questionID": 291050,
+          "question": "Let A and B be two sets in the same universal set. Then, A - B =",
+          "question_raw": "<p>Let A and B be two&nbsp;sets in the same universal set. Then, A - B =</p>",
+          "options": [
+            {
+              "id": 415880,
+              "text": "A' $\\cap$ B",
+              "is_correct": false
+            },
+            {
+              "id": 415882,
+              "text": "A' $\\cap$ B'",
+              "is_correct": false
+            },
+            {
+              "id": 415881,
+              "text": "A $\\cap$ B'",
+              "is_correct": true
+            },
+            {
+              "id": 415879,
+              "text": "A $\\cap$ B",
+              "is_correct": false
+            }
+          ],
+          "correct_option_ids": [
+            415881
+          ],
+          "correct_option_texts": [
+            "A $\\cap$ B'"
+          ],
+          "explanation": "A - B belongs to those elements of A that do not belong to B.\n$\\therefore$ A - B = A $\\cap$ B'."
+        },
+        {
+          "questionID": 292267,
+          "question": "If f (x) $=\\frac{\\sin ^{4} x+\\cos ^{2} x}{\\sin ^{2} x+\\cos ^{4} x}$ for x $\\in R$ then f (2002).",
+          "question_raw": "<p>If f (x)&nbsp;<span class=\"math-tex\">{tex}=\\frac{\\sin ^{4} x+\\cos ^{2} x}{\\sin ^{2} x+\\cos ^{4} x}{/tex}</span>&nbsp;for x&nbsp;<span class=\"math-tex\">{tex}\\in R{/tex}</span> then f (2002).</p>",
+          "options": [
+            {
+              "id": 417089,
+              "text": "3",
+              "is_correct": false
+            },
+            {
+              "id": 417087,
+              "text": "1",
+              "is_correct": true
+            },
+            {
+              "id": 417090,
+              "text": "4",
+              "is_correct": false
+            },
+            {
+              "id": 417088,
+              "text": "2",
+              "is_correct": false
+            }
+          ],
+          "correct_option_ids": [
+            417087
+          ],
+          "correct_option_texts": [
+            "1"
+          ],
+          "explanation": "$f(x)=\\frac{\\left(\\sin ^{2} x\\right)^{2}+\\cos ^{2} x}{1-\\cos ^{2} x+\\left(\\cos ^{2} x\\right)^{2}}$\n$=\\frac{\\left(1-\\cos ^{2} x\\right)^{2}+\\cos ^{2} x}{1-\\cos ^{2} x+\\cos ^{4} x}$\n$=\\frac{1+\\cos ^{4} x-2 \\cos ^{2} x+\\cos ^{2} x}{1-\\cos ^{2} x+\\cos ^{4} x}$\n$=\\frac{1+\\cos ^{4} x-\\cos ^{2} x}{1-\\cos ^{2} x+\\cos ^{4} x}=1$\nNow, f (2002) = 1"
+        },
+        {
+          "questionID": 19066,
+          "question": "The foot of the perpendicular from (2, 3) on the line 3x + 4y – 6 = 0 is",
+          "question_raw": "<p>The foot of the perpendicular from (2, 3) on the line 3x + 4y &ndash; 6 = 0 is</p>",
+          "options": [
+            {
+              "id": 31464,
+              "text": "$( - \\frac {14} {25}, \\frac {29} {25})$",
+              "is_correct": false
+            },
+            {
+              "id": 31466,
+              "text": "$(\\frac {14} {25}, - \\frac {27} {25})$",
+              "is_correct": false
+            },
+            {
+              "id": 31463,
+              "text": "$(\\frac {14} {25}, \\frac {27} {25})$",
+              "is_correct": true
+            },
+            {
+              "id": 31465,
+              "text": "$( - \\frac {14} {25}, - \\frac {27} {25})$",
+              "is_correct": false
+            }
+          ],
+          "correct_option_ids": [
+            31463
+          ],
+          "correct_option_texts": [
+            "$(\\frac {14} {25}, \\frac {27} {25})$"
+          ],
+          "explanation": "The equation of the line perpendicular to the given line 3x + 4y = 6 is 4x - 3y + k = 0\nSince this line passes through (2, 3)\n4(2) - 3(3) + k = 0\nTherefore k = 1\nTherefore the line which is perpendicular to the given line is 4x - 3y + 1 = 0\nOn solving both the equations we get, x = $\\frac{14}{25}$ and y = $\\frac{27}{25}$\nHence the foot of the perpendicular is ($\\frac{14}{25}$, $\\frac{27}{25}$)"
+        },
+        {
+          "questionID": 290463,
+          "question": "The sum of the infinite geometric series $\\left(1-\\frac{1}{3}+\\frac{1}{3^{2}}-\\frac{1}{3^{3}}+\\ldots \\infty\\right)=$ ?",
+          "question_raw": "<p>The sum of the infinite geometric series&nbsp;<span class=\"math-tex\">{tex}\\left(1-\\frac{1}{3}+\\frac{1}{3^{2}}-\\frac{1}{3^{3}}+\\ldots \\infty\\right)={/tex}</span>&nbsp;?</p>",
+          "options": [
+            {
+              "id": 415399,
+              "text": "$\\frac{3}{4}$",
+              "is_correct": true
+            },
+            {
+              "id": 415400,
+              "text": "$\\frac{2}{3}$",
+              "is_correct": false
+            },
+            {
+              "id": 415402,
+              "text": "$\\frac{4}{9}$",
+              "is_correct": false
+            },
+            {
+              "id": 415401,
+              "text": "$\\frac{2}{9}$",
+              "is_correct": false
+            }
+          ],
+          "correct_option_ids": [
+            415399
+          ],
+          "correct_option_texts": [
+            "$\\frac{3}{4}$"
+          ],
+          "explanation": "Given, a = 1 and R = $\\frac{-1}{3}$. Clearly, |r| = $\\frac{1}{3}<1$.\n$\\therefore S_{\\infty}=\\frac{a}{(1-r)}=\\frac{1}{\\left(1+\\frac{1}{3}\\right)}=\\frac{3}{4}$."
+        },
+        {
+          "questionID": 19013,
+          "question": "The line which passes through the point ( 0 , 1 ) and perpendicular to the line x – 2y + 11 = 0 is",
+          "question_raw": "<p>The line which passes through the point ( 0 , 1 ) and perpendicular to the line x &ndash; 2y + 11 = 0 is</p>",
+          "options": [
+            {
+              "id": 31253,
+              "text": "2x – y + 3 = 0",
+              "is_correct": false
+            },
+            {
+              "id": 31254,
+              "text": "2x – y - 3 = 0",
+              "is_correct": false
+            },
+            {
+              "id": 31251,
+              "text": "2x + y – 1 = 0",
+              "is_correct": true
+            },
+            {
+              "id": 31252,
+              "text": "2x – y + 1 = 0",
+              "is_correct": false
+            }
+          ],
+          "correct_option_ids": [
+            31251
+          ],
+          "correct_option_texts": [
+            "2x + y – 1 = 0"
+          ],
+          "explanation": "The line which is perpendicular to the given line is 2x + y + k = 0\nSince it passes through (0,1)\n2(0) + 1 + k = 0\nThis implies k = -1\nHence the equation of the required line is 2x + y - 1 = 0"
+        },
+        {
+          "questionID": 19225,
+          "question": "$\\mathop {lim}\\limits_{x \\to 0} \\;\\;\\left[ {\\cos x} \\right]$",
+          "question_raw": "<p><span class=\"math-tex\">{tex}\\mathop {lim}\\limits_{x \\to 0} \\;\\;\\left[ {\\cos x} \\right]{/tex}</span></p>",
+          "options": [
+            {
+              "id": 32102,
+              "text": "does not exist",
+              "is_correct": false
+            },
+            {
+              "id": 32100,
+              "text": "is equal to 1",
+              "is_correct": false
+            },
+            {
+              "id": 32101,
+              "text": "is equal to – 1",
+              "is_correct": false
+            },
+            {
+              "id": 32099,
+              "text": "is equal to 0",
+              "is_correct": true
+            }
+          ],
+          "correct_option_ids": [
+            32099
+          ],
+          "correct_option_texts": [
+            "is equal to 0"
+          ],
+          "explanation": "L.H.L. = $\\underset{x \\rightarrow 0}{lim}[\\cos (x-h)]$ = 0\nR.H.L = $\\underset{x \\rightarrow 0}{lim}[\\cos (x+h)]$ = 0"
+        }
+      ]
+    },
+    {
+      "sectionName": "Section B",
+      "sectionID": 670,
+      "questions": [
+        {
+          "questionID": 19400,
+          "question": "If the median = (mode + 2 mean)$\\mu $, then $\\mu $ is equal to",
+          "question_raw": "<p>If the median = (mode + 2 mean)<span class=\"math-tex\">{tex}\\mu {/tex}</span>, then <span class=\"math-tex\">{tex}\\mu {/tex}</span> is equal to</p>",
+          "options": [
+            {
+              "id": 32799,
+              "text": "$\\frac{1}{3}$",
+              "is_correct": true
+            },
+            {
+              "id": 32800,
+              "text": "3",
+              "is_correct": false
+            },
+            {
+              "id": 32802,
+              "text": "$\\frac{2}{3}$",
+              "is_correct": false
+            },
+            {
+              "id": 32801,
+              "text": "2",
+              "is_correct": false
+            }
+          ],
+          "correct_option_ids": [
+            32799
+          ],
+          "correct_option_texts": [
+            "$\\frac{1}{3}$"
+          ],
+          "explanation": "We know that 3 median = mode + 2 mean\nSo, \n3(mode + 2mean) $\\mu$ = mode + 2mean\n$\\mu$ = $\\frac{1}{3}$"
+        },
+        {
+          "questionID": 284514,
+          "question": "If A = {1, 3, 5, 7, 9, 11, 13, 15, 17} ,B = {2, 4, ... , 18} and N the set of natural numbers is the universal set, then A′ $\\cup$ (A $\\cup$ B) $\\cap$ B′) is",
+          "question_raw": "<p>If A = {1, 3, 5, 7, 9, 11, 13, 15, 17} ,B = {2, 4, ... , 18} and N the set of natural&nbsp;numbers is the universal set, then A&prime; <span class=\"math-tex\">{tex}\\cup{/tex}</span>&nbsp;(A <span class=\"math-tex\">{tex}\\cup{/tex}</span>&nbsp;B) <span class=\"math-tex\">{tex}\\cap{/tex}</span>&nbsp;B&prime;) is</p>",
+          "options": [
+            {
+              "id": 406829,
+              "text": "B",
+              "is_correct": false
+            },
+            {
+              "id": 406826,
+              "text": "$\\phi$",
+              "is_correct": false
+            },
+            {
+              "id": 406827,
+              "text": "N",
+              "is_correct": true
+            },
+            {
+              "id": 406828,
+              "text": "A",
+              "is_correct": false
+            }
+          ],
+          "correct_option_ids": [
+            406827
+          ],
+          "correct_option_texts": [
+            "N"
+          ],
+          "explanation": "We have,A′ $\\cup$ (A $\\cup$ B) $\\cap$ B′\n= A′ $\\cup$ [(B’ $\\cap$ A) $\\cup$ (B’ $\\cap$ B)] {$\\because$ Distributive property of set: (A $\\cap$ B) $\\cup$ (A $\\cap$ C) = A $\\cap$ (B $\\cup$ C)}\n= A′ $\\cup$ [(A $\\cap$ B’) $\\cup$ Φ] {$\\because$ (B’ $\\cap$ B) = $\\phi$}\n= A′ $\\cup$ (A $\\cap$ B’) = (A’ $\\cup$ A) $\\cap$ (A’ $\\cup$ B’) {$\\because$ Distributive property of set: (A $\\cup$ B) $\\cap$ (A $\\cup$ C) = A $\\cup$ (B $\\cap$ C)}\n= Φ $\\cap$ (A’ $\\cup$ B’) {$\\because$ (A’ $\\cap$ A) = $\\phi$}\n= (A’ $\\cup$ B’) = (A $\\cap$ B)’ {$\\because$ (A’ $\\cup$ B’)\n= (A $\\cap$ B)’} A′ $\\cup$ (A $\\cup$ B) $\\cap$ B′ = (A $\\cap$ B)’\nA contains all odd numbers and B contains all even numbers\nTherefore, A $\\cap$ B = $\\phi$\n⇒ A′ $\\cup$ (A $\\cup$ B) $\\cap$ B′ = {$\\phi$}’\n⇒ A′ $\\cup$ (A $\\cup$ B) $\\cap$ B′ = N"
+        },
+        {
+          "questionID": 18398,
+          "question": "If f(x) = $\\frac{1}{\\sqrt{x-|x|}}$, then D_f is equal to",
+          "question_raw": "<p>If f(x) =&nbsp;<span class=\"math-tex\">{tex}\\frac{1}{\\sqrt{x-|x|}}{/tex}</span>,&nbsp;then D<sub>f</sub> is equal to</p>",
+          "options": [
+            {
+              "id": 28792,
+              "text": "$\\phi $",
+              "is_correct": true
+            },
+            {
+              "id": 28793,
+              "text": "$(0,\\infty )$",
+              "is_correct": false
+            },
+            {
+              "id": 28794,
+              "text": "$( - \\infty ,{\\rm{ }}0)$",
+              "is_correct": false
+            },
+            {
+              "id": 28795,
+              "text": "R",
+              "is_correct": false
+            }
+          ],
+          "correct_option_ids": [
+            28792
+          ],
+          "correct_option_texts": [
+            "$\\phi $"
+          ],
+          "explanation": "This function is defined only if \nx - |x| > 0\n$\\Rightarrow$ x > |x|\nWhich is not possible because\n|x| $\\ge$ x\nso, $x \\in \\phi $"
+        },
+        {
+          "questionID": 19011,
+          "question": "The straight lines x + y - 4 = 0, 3x + y – 4 = 0, x - 3y – 4 = 0 form a triangle which is",
+          "question_raw": "<p>The straight lines x + y - 4 = 0, 3x + y &ndash; 4 = 0, x -&nbsp;3y &ndash; 4 = 0 form a triangle which is</p>",
+          "options": [
+            {
+              "id": 31245,
+              "text": "equilateral",
+              "is_correct": false
+            },
+            {
+              "id": 31244,
+              "text": "right angled triangle",
+              "is_correct": true
+            },
+            {
+              "id": 31243,
+              "text": "obtuse angled triangle",
+              "is_correct": false
+            },
+            {
+              "id": 31246,
+              "text": "Acute angled triangle",
+              "is_correct": false
+            }
+          ],
+          "correct_option_ids": [
+            31244
+          ],
+          "correct_option_texts": [
+            "right angled triangle"
+          ],
+          "explanation": "The triangle formed by these lines is a right-angled triangle.\nIf the lines are perpendicular to each other, then the product of their slopes is -1\nThe slope of lines 3x + y – 4 = 0, x - 3y – 4 = 0 are -3 and $\\frac{1}{3}$ respectively.\nThe product of the slopes is -1.\nHence these two lines are perpendicular to each other.\nThis infers that the triangle formed by these lines is a right angled triangle."
+        },
+        {
+          "questionID": 290383,
+          "question": "$1+\\sqrt{3}+3+3 \\sqrt{3}$ + ... upto 10 terms = ?",
+          "question_raw": "<p><span class=\"math-tex\">{tex}1+\\sqrt{3}+3+3 \\sqrt{3}{/tex}</span>&nbsp;+ ... upto 10 terms = ?</p>",
+          "options": [
+            {
+              "id": 415168,
+              "text": "$100(\\sqrt{3}+1)$",
+              "is_correct": false
+            },
+            {
+              "id": 415167,
+              "text": "$81(\\sqrt{3}+1)$",
+              "is_correct": false
+            },
+            {
+              "id": 415170,
+              "text": "None of these",
+              "is_correct": false
+            },
+            {
+              "id": 415169,
+              "text": "$121(\\sqrt{3}+1)$",
+              "is_correct": true
+            }
+          ],
+          "correct_option_ids": [
+            415169
+          ],
+          "correct_option_texts": [
+            "$121(\\sqrt{3}+1)$"
+          ],
+          "explanation": "Here, a = 1 and r = $\\frac{\\sqrt{3}}{1}$ = $\\sqrt{3}$ > 1.\n$\\therefore S_{n}=\\frac{a\\left(r^{n}-1\\right)}{(r-1)} \\Rightarrow S_{10}=\\frac{a\\left(r^{10}-1\\right)}{(r-1)}=\\frac{1 \\times\\left[(\\sqrt{3})^{10}-1\\right]}{(\\sqrt{3}-1)}=\\frac{\\left(3^{5}-1\\right)}{(\\sqrt{3}-1)} \\times \\frac{(\\sqrt{3}+1)}{(\\sqrt{3}+1)}$\n$\\Rightarrow S_{10}=\\frac{(243-1)}{2} \\times(\\sqrt{3}+1)=\\frac{242}{2} \\cdot(\\sqrt{3}+1)$ = $121(\\sqrt{3}+1)$."
+        },
+        {
+          "questionID": 285011,
+          "question": "$\\lim _\\limits{x \\rightarrow \\frac{\\pi}{4}} \\frac{\\sec ^{2} x-2}{\\tan x-1}$ is equal to",
+          "question_raw": "<p><span class=\"math-tex\">{tex}\\lim _\\limits{x \\rightarrow \\frac{\\pi}{4}} \\frac{\\sec ^{2} x-2}{\\tan x-1}{/tex}</span> is equal to&nbsp;</p>",
+          "options": [
+            {
+              "id": 407279,
+              "text": "1",
+              "is_correct": false
+            },
+            {
+              "id": 407281,
+              "text": "2",
+              "is_correct": true
+            },
+            {
+              "id": 407278,
+              "text": "3",
+              "is_correct": false
+            },
+            {
+              "id": 407280,
+              "text": "0",
+              "is_correct": false
+            }
+          ],
+          "correct_option_ids": [
+            407281
+          ],
+          "correct_option_texts": [
+            "2"
+          ],
+          "explanation": "Given, $\\lim _\\limits{x \\rightarrow \\frac{\\pi}{4}} \\frac{\\sec ^{2} x-2}{\\tan x-1}=\\lim _\\limits{x \\rightarrow \\frac{\\pi}{4}} \\frac{1+\\tan ^{2} x-2}{\\tan x-1}$\n$=\\lim _\\limits{x \\rightarrow \\frac{\\pi}{4}} \\frac{\\tan ^{2} x-1}{\\tan x-1}=\\lim _\\limits{x \\rightarrow \\frac{\\pi}{4}} \\frac{(\\tan x+1)(\\tan x-1)}{(\\tan x-1)}$\n$=\\lim _\\limits{x \\rightarrow \\frac{\\pi}{4}}(\\tan x+1)=\\tan \\frac{\\pi}{4}+1=1+1=2$"
+        },
+        {
+          "questionID": 284463,
+          "question": "Mean deviation for n observations x_1, x_2, ..., x_n from their mean $\\bar x$ is given by",
+          "question_raw": "<p>Mean deviation for n observations x<sub>1</sub>, x<sub>2</sub>, ..., x<sub>n</sub> from their mean <span class=\"math-tex\">{tex}\\bar x{/tex}</span>&nbsp;is given by</p>\r\n",
+          "options": [
+            {
+              "id": 406724,
+              "text": "$\\sum_\\limits{i=1}^{n}\\left(x_{i}-\\bar{x}\\right)^{2}$",
+              "is_correct": false
+            },
+            {
+              "id": 406722,
+              "text": "$\\sum_\\limits{i=1}^{n}\\left(x_{i}-\\bar{x}\\right)$",
+              "is_correct": false
+            },
+            {
+              "id": 406725,
+              "text": "$\\frac{1}{n}\\sum _\\limits{i=1}^{n}\\left(x_{i}-\\bar{x}\\right)^{2}$",
+              "is_correct": false
+            },
+            {
+              "id": 406723,
+              "text": "$\\frac{1}{n}\\sum _\\limits{i=1}^{n}\\left|x_{i}-\\bar{x}\\right|$",
+              "is_correct": true
+            }
+          ],
+          "correct_option_ids": [
+            406723
+          ],
+          "correct_option_texts": [
+            "$\\frac{1}{n}\\sum _\\limits{i=1}^{n}\\left|x_{i}-\\bar{x}\\right|$"
+          ],
+          "explanation": "We know for n observations x_1, x_2, ..., x_n having $\\bar x$ is given by\nM.D = $\\frac{\\sum {d}_{{i}}}{{n}}$\nBut we know\nd_i = $\\left|\\mathrm{x}_{\\mathrm{i}}-\\overline{\\mathrm{x}}\\right|$\nSo mean deviation becomes,\nM.D = $\\frac{\\sum\\left|{x}_{{i}}-\\overline{{x}}\\right|}{{n}}$\nOr\nM.D = $\\frac{1}{{n}} \\sum_\\limits{{i}=0}^{{n}}\\left|{x}_{{i}}-\\overline{{x}}\\right|$"
+        },
+        {
+          "questionID": 18359,
+          "question": "Which of the following is a set?\n A collection of vowels in English alphabets is a set.\n The collection of most talented writers of India is a set.\n The collection of most difficult topics in Mathematics is a set.\n The collection of good cricket players of India is a set.",
+          "question_raw": "<p>Which of the following is a set?</p>\r\n\r\n<ol start=\"1\" style=\"list-style-type: upper-alpha;\">\r\n\t<li>A collection of vowels in English alphabets is a set.</li>\r\n\t<li>The collection of most talented writers of India is a set.</li>\r\n\t<li>The collection of most difficult topics in Mathematics is a set.</li>\r\n\t<li>The collection of good cricket players of India is a set.</li>\r\n</ol>",
+          "options": [
+            {
+              "id": 28638,
+              "text": "C",
+              "is_correct": false
+            },
+            {
+              "id": 28637,
+              "text": "B",
+              "is_correct": false
+            },
+            {
+              "id": 28639,
+              "text": "D",
+              "is_correct": false
+            },
+            {
+              "id": 28636,
+              "text": "A",
+              "is_correct": true
+            }
+          ],
+          "correct_option_ids": [
+            28636
+          ],
+          "correct_option_texts": [
+            "A"
+          ],
+          "explanation": "The set is {a, e, i, o, u}"
+        },
+        {
+          "questionID": 292336,
+          "question": "The domain of the function $f(x)=\\sqrt{\\frac{(x+1)(x-3)}{x-2}}$ is",
+          "question_raw": "<p>The domain of the function&nbsp;<span class=\"math-tex\">{tex}f(x)=\\sqrt{\\frac{(x+1)(x-3)}{x-2}}{/tex}</span> is</p>",
+          "options": [
+            {
+              "id": 417150,
+              "text": "$\\:[1,-2\\:] \\cup\\:[-3, \\infty)$",
+              "is_correct": false
+            },
+            {
+              "id": 417148,
+              "text": "$(-1,2) \\cup\\:[3, \\infty)$",
+              "is_correct": false
+            },
+            {
+              "id": 417147,
+              "text": "$\\:[-1,2) \\cup\\:[3, \\infty)$",
+              "is_correct": true
+            },
+            {
+              "id": 417149,
+              "text": "$\\:[-1,2\\:] \\cup\\:[3, \\infty)$",
+              "is_correct": false
+            }
+          ],
+          "correct_option_ids": [
+            417147
+          ],
+          "correct_option_texts": [
+            "$\\:[-1,2) \\cup\\:[3, \\infty)$"
+          ],
+          "explanation": "Here $\\frac{(x+1)(x-3)}{(x-2)} \\geq 0$\nBut $x \\neq 2$\nso, $x \\in[-1,2) \\cup[3, \\infty)$"
+        },
+        {
+          "questionID": 19000,
+          "question": "The distance between the lines 5x – 12y + 65 = 0 and 5x – 12y – 39 = 0",
+          "question_raw": "<p>The distance between the lines 5x &ndash; 12y + 65 = 0 and 5x &ndash; 12y &ndash; 39 = 0</p>",
+          "options": [
+            {
+              "id": 31202,
+              "text": "- 8",
+              "is_correct": false
+            },
+            {
+              "id": 31199,
+              "text": "2",
+              "is_correct": false
+            },
+            {
+              "id": 31201,
+              "text": "- 2",
+              "is_correct": false
+            },
+            {
+              "id": 31200,
+              "text": "8",
+              "is_correct": true
+            }
+          ],
+          "correct_option_ids": [
+            31200
+          ],
+          "correct_option_texts": [
+            "8"
+          ],
+          "explanation": "To find the distance between two parallel lines given by the equations $A x+B y+C_1=0$ and $A x+B y+C_2=0$, we can use the formula:\n$ \\text { Distance }=\\frac{\\left|C_2-C_1\\right|}{\\sqrt{A^2+B^2}} $\nFor the lines $5 x-12 y+65=0$ and $5 x-12 y-39=0$ : - Here, $A=5, B=-12, C_1=65$, and $C_2=-39$. Now, we calculate the distance:\n$ \\text { Distance }=\\frac{|-39-65|}{\\sqrt{5^2+(-12)^2}}=\\frac{|-104|}{\\sqrt{25+144}}=\\frac{104}{\\sqrt{169}}=\\frac{104}{13}=8 $"
+        },
+        {
+          "questionID": 295627,
+          "question": "If 1 + $\\frac{1+2}{2}$ + $\\frac{1+2+3}{3}$ + ...... to n terms is S. Then, S is equal to",
+          "question_raw": "<p>If 1 +&nbsp;<span class=\"math-tex\">{tex}\\frac{1+2}{2}{/tex}</span>&nbsp;+&nbsp;<span class=\"math-tex\">{tex}\\frac{1+2+3}{3}{/tex}</span>&nbsp;+ ......&nbsp;to n&nbsp;terms is S. Then, S&nbsp;is equal to</p>",
+          "options": [
+            {
+              "id": 420376,
+              "text": "$\\frac{n(n+3)}{4}$",
+              "is_correct": true
+            },
+            {
+              "id": 420379,
+              "text": "n^2",
+              "is_correct": false
+            },
+            {
+              "id": 420377,
+              "text": "$\\frac{n(n+2)}{4}$",
+              "is_correct": false
+            },
+            {
+              "id": 420378,
+              "text": "$\\frac{n(n+1)(n+2)}{6}$",
+              "is_correct": false
+            }
+          ],
+          "correct_option_ids": [
+            420376
+          ],
+          "correct_option_texts": [
+            "$\\frac{n(n+3)}{4}$"
+          ],
+          "explanation": "Let T_n be the nth term of the given series.\nThus, we have:\nT_n = $\\frac{1+2+3+4+5+\\ldots+n}{n}$ = $\\frac{n(n+1)}{2 n}$ = $\\frac{n}{2}+\\frac{1}{2}$\nNow, sum of n terms is,\nS_n be the sum of n terms of the given series.\nThus, we have:\nS_n = $\\sum_{k=1}^{n}$ $\\left(\\frac{k}{2}+\\frac{1}{2}\\right)$\n$\\Rightarrow$ S_n = $\\sum_{k=1}^{n}$ $\\frac{k}{2}+\\frac{n}{2}$\n$\\Rightarrow$ S_n = $\\frac{n(n+1)}{4}$ + $\\frac{n}{2}$\n$\\Rightarrow$ S_n = $\\frac{n}{2}$ $\\left(\\frac{n+1}{2}+1\\right)$\n$\\Rightarrow$ S_n = $\\frac{n}{2}$ $\\left(\\frac{n+3}{2}\\right)$\n$\\Rightarrow$ S_n = $\\frac{n(n+3)}{4}$"
+        },
+        {
+          "questionID": 285089,
+          "question": "If f(x) = 1+ x + $\\frac{x^{2}}{2}+\\dots+\\frac{x^{100}}{100}$, then f'(1) is equal to",
+          "question_raw": "<p>If f(x) = 1+ x +&nbsp;<span class=\"math-tex\">{tex}\\frac{x^{2}}{2}+\\dots+\\frac{x^{100}}{100}{/tex}</span>, then f&#39;(1) is equal to</p>\r\n",
+          "options": [
+            {
+              "id": 407444,
+              "text": "does not exist",
+              "is_correct": false
+            },
+            {
+              "id": 407442,
+              "text": "$\\frac{1}{100}$",
+              "is_correct": false
+            },
+            {
+              "id": 407445,
+              "text": "0",
+              "is_correct": false
+            },
+            {
+              "id": 407443,
+              "text": "100",
+              "is_correct": true
+            }
+          ],
+          "correct_option_ids": [
+            407443
+          ],
+          "correct_option_texts": [
+            "100"
+          ],
+          "explanation": "Given, $f(x)=1+x+\\frac{x^{2}}{2}+\\cdots+\\frac{x^{100}}{100}$\n$f^{\\prime}(x)=1+\\frac{2 x}{2}+\\cdots+\\frac{100 x^{99}}{100}$\n$\\therefore$ f'(x) = 1 + 1 + 1 + .... + 1 (100 times) = 100"
+        },
+        {
+          "questionID": 292545,
+          "question": "The mean deviation of the numbers 3, 4, 5, 6, 7 from the mean is",
+          "question_raw": "<p>The mean deviation of the numbers 3, 4, 5,&nbsp;6, 7 from the mean is</p>",
+          "options": [
+            {
+              "id": 417505,
+              "text": "1.2",
+              "is_correct": true
+            },
+            {
+              "id": 417504,
+              "text": "5",
+              "is_correct": false
+            },
+            {
+              "id": 417503,
+              "text": "25",
+              "is_correct": false
+            },
+            {
+              "id": 417506,
+              "text": "0",
+              "is_correct": false
+            }
+          ],
+          "correct_option_ids": [
+            417505
+          ],
+          "correct_option_texts": [
+            "1.2"
+          ],
+          "explanation": "Mean (X) = $\\frac{3+4+5+6+7}{5}$\n= $\\frac{25}{5}$ = 5\nTaking the absolute value of deviation of each term from the mean, we get:\nMD = $\\frac{|(3-5)|+|(4-5)|+|(5-5)|+|(6-5)|+|(7-5)|}{5}$\n= $\\frac{2+1+0+1+2}{5}$\n= $\\frac{6}{5}$\n= 1.2"
+        },
+        {
+          "questionID": 18638,
+          "question": "If ${\\left( { - 1 + \\sqrt 3 i} \\right)^n} + {\\left( { - 1 - \\sqrt 3 i} \\right)^n} = {2^n}\\alpha $ then $\\alpha $ is equal to :",
+          "question_raw": "<p>If <span class=\"math-tex\">{tex}{\\left( { - 1 + \\sqrt 3 i} \\right)^n} + {\\left( { - 1 - \\sqrt 3 i} \\right)^n} = {2^n}\\alpha {/tex}</span> then <span class=\"math-tex\">{tex}\\alpha {/tex}</span> is equal to :</p>",
+          "options": [
+            {
+              "id": 29754,
+              "text": "-1",
+              "is_correct": false
+            },
+            {
+              "id": 29752,
+              "text": "$ { \\left( \\omega \\right) }^{ n }+{ \\left( { \\omega }^{ 2 } \\right) }^{ n } $",
+              "is_correct": true
+            },
+            {
+              "id": 29755,
+              "text": "1",
+              "is_correct": false
+            },
+            {
+              "id": 29753,
+              "text": "2",
+              "is_correct": false
+            }
+          ],
+          "correct_option_ids": [
+            29752
+          ],
+          "correct_option_texts": [
+            "$ { \\left( \\omega \\right) }^{ n }+{ \\left( { \\omega }^{ 2 } \\right) }^{ n } $"
+          ],
+          "explanation": "We have $-1+i \\sqrt{3}=2 \\omega$ and $-1-i \\sqrt{3}=2 \\omega^{2}$ \nNow \n$(-1+\\sqrt{3} i)^{n}+(-1-\\sqrt{3} i)^{n}$ = $(2 \\omega)^{n}+\\left(2 \\omega^{2}\\right)^{n}$ = $2^{n}\\left[(\\omega)^{n}+\\left(\\omega^{2}\\right)^{n}\\right]$"
+        },
+        {
+          "questionID": 284842,
+          "question": "The minimum value of the expression 3^x + 3^1 - x, x $ \\in $ R, is",
+          "question_raw": "<p>The minimum value of the expression 3<sup>x</sup> + 3<sup>1 - x</sup>, x <span class=\"math-tex\">{tex} \\in {/tex}</span> R, is</p>",
+          "options": [
+            {
+              "id": 407110,
+              "text": "0",
+              "is_correct": false
+            },
+            {
+              "id": 407113,
+              "text": "$2 \\sqrt3$",
+              "is_correct": true
+            },
+            {
+              "id": 407111,
+              "text": "$\\frac{1}{3}$",
+              "is_correct": false
+            },
+            {
+              "id": 407112,
+              "text": "3",
+              "is_correct": false
+            }
+          ],
+          "correct_option_ids": [
+            407113
+          ],
+          "correct_option_texts": [
+            "$2 \\sqrt3$"
+          ],
+          "explanation": "We know A.M. $\\ge$ G.M. for positive numbers.\nThus, $\\frac{3^{x}+3^{1-x}}{2} \\geq \\sqrt{3^{x} \\cdot 3^{1-x}}$\n$\\Rightarrow$ $\\frac{3^{x}+3^{1-x}}{2} \\geq \\sqrt{3^{x} \\cdot \\frac{3}{3^{x}}}$\n$\\Rightarrow$ $3^{x}+3^{1-x} \\geq 2 \\sqrt{3}$."
+        },
+        {
+          "questionID": 291093,
+          "question": "Which of the following statement is false :",
+          "question_raw": "<p>Which of the following statement is false :</p>\r\n",
+          "options": [
+            {
+              "id": 415960,
+              "text": "A - B = A - (A $\\cap$ B)",
+              "is_correct": false
+            },
+            {
+              "id": 415959,
+              "text": "A - B = A $\\cap$ B'",
+              "is_correct": false
+            },
+            {
+              "id": 415962,
+              "text": "A - B = (A $\\cup$ B) - B",
+              "is_correct": false
+            },
+            {
+              "id": 415961,
+              "text": "A - B = A - B'",
+              "is_correct": true
+            }
+          ],
+          "correct_option_ids": [
+            415961
+          ],
+          "correct_option_texts": [
+            "A - B = A - B'"
+          ],
+          "explanation": "We know that A - B = A $\\cap$ B' \nHere, we see that A - B = A$\\cap$B\n$\\therefore$ this option is false."
+        },
+        {
+          "questionID": 291088,
+          "question": "A relation R is defined from {2, 3, 4, 5} to {3, 6, 7, 10} by: x R y $\\Leftrightarrow$ x is relatively prime to y. Then domain of R is",
+          "question_raw": "<p>A relation R is defined from {2, 3, 4, 5} to {3, 6, 7, 10} by: x R y&nbsp;<span class=\"math-tex\">{tex}\\Leftrightarrow{/tex}</span>&nbsp;x is relatively prime to y. Then domain of R is</p>",
+          "options": [
+            {
+              "id": 415950,
+              "text": "{2, 3, 4, 5}",
+              "is_correct": true
+            },
+            {
+              "id": 415947,
+              "text": "{2, 3, 5}",
+              "is_correct": false
+            },
+            {
+              "id": 415948,
+              "text": "{3, 5}",
+              "is_correct": false
+            },
+            {
+              "id": 415949,
+              "text": "{2, 3, 4}",
+              "is_correct": false
+            }
+          ],
+          "correct_option_ids": [
+            415950
+          ],
+          "correct_option_texts": [
+            "{2, 3, 4, 5}"
+          ],
+          "explanation": "Relatively prime numbers are those numbers that have only 1 as the common factor.\nSo, according to this definition we get to know that (2, 3), (2, 7), (3, 7), (3, 10), (4, 3), (4, 7), (5, 3), (5, 6), (5, 7) are relatively prime.\nSo, R = {(2, 3), (2, 7), (3, 7), (3, 10), (4, 3), (4, 7), (5, 3), (5, 6) ,(5, 7)}.\nTherefore, the Domain of R is the values of x or the first element of the ordered pair.\nSo, Domain = {2, 3, 4, 5}"
+        },
+        {
+          "questionID": 289334,
+          "question": "Mark the correct answer for: i^91 = ?",
+          "question_raw": "<p>Mark&nbsp;the correct answer for: i<sup>91</sup>&nbsp;= ?</p>",
+          "options": [
+            {
+              "id": 412781,
+              "text": "1",
+              "is_correct": false
+            },
+            {
+              "id": 412782,
+              "text": "i",
+              "is_correct": false
+            },
+            {
+              "id": 412780,
+              "text": "-1",
+              "is_correct": false
+            },
+            {
+              "id": 412779,
+              "text": "-i",
+              "is_correct": true
+            }
+          ],
+          "correct_option_ids": [
+            412779
+          ],
+          "correct_option_texts": [
+            "-i"
+          ],
+          "explanation": "i^91 = (i^4)^22 $\\times$i^3 = 1$\\times$i^2 = 1$\\times$(-1)$\\times$i = -i"
+        },
+        {
+          "questionID": 18930,
+          "question": "The number of numbers between x and x^2 which are divisible by x is",
+          "question_raw": "<p>The number of numbers between x&nbsp;and x<sup>2</sup> which are divisible by x&nbsp;is</p>",
+          "options": [
+            {
+              "id": 30921,
+              "text": "x",
+              "is_correct": false
+            },
+            {
+              "id": 30922,
+              "text": "x - 3",
+              "is_correct": false
+            },
+            {
+              "id": 30920,
+              "text": "x – 1",
+              "is_correct": false
+            },
+            {
+              "id": 30919,
+              "text": "x – 2",
+              "is_correct": true
+            }
+          ],
+          "correct_option_ids": [
+            30919
+          ],
+          "correct_option_texts": [
+            "x – 2"
+          ],
+          "explanation": "The required sequence is 2x, 3x, 4x ... (x - 1)x\nHence we get T_1 = a = 2x and T_n = (x - 1)x\nSo using the nth term formula for A.P\nT_n = a + (n - 1)d \n$\\Rightarrow$ x(x - 1) = 2x + (n - 1)x\n$\\Rightarrow$ x - 1 = (n + 1)\n$\\Rightarrow$ n = x - 2\nHence the number of numbers between x and x^2 which are divisible by x is x - 2."
+        },
+        {
+          "questionID": 18961,
+          "question": "The sum of first n terms of the series 1 – 1 + 1 – 1 + … is",
+          "question_raw": "<p>The sum of first n terms of the series 1 &ndash; 1 + 1 &ndash; 1 + &hellip; is</p>",
+          "options": [
+            {
+              "id": 31044,
+              "text": "- 1",
+              "is_correct": false
+            },
+            {
+              "id": 31046,
+              "text": "$ \\pm 1$",
+              "is_correct": false
+            },
+            {
+              "id": 31045,
+              "text": "(-1)^n",
+              "is_correct": false
+            },
+            {
+              "id": 31043,
+              "text": "1 if n is odd and 0 when n is even",
+              "is_correct": true
+            }
+          ],
+          "correct_option_ids": [
+            31043
+          ],
+          "correct_option_texts": [
+            "1 if n is odd and 0 when n is even"
+          ],
+          "explanation": "1 - 1 + 1 - 1 + ..... + .... upto n terms\n= [1 - 1] + [1 - 1] + [1 - 1] + .....+ [1 - 1] = 0 when n is even\n= [1 - 1] + [1 - 1] + [1 - 1] + .... + [1 - 1] + 1 = 1 when n is odd"
+        }
+      ]
+    },
+    {
+      "sectionName": "Section C",
+      "sectionID": 671,
+      "questions": [
+        {
+          "questionID": 18353,
+          "question": "If A = {0, 1, 5, 4, 7}. Then the total number subsets of A are",
+          "question_raw": "<p>If A = {0, 1, 5, 4, 7}. Then the total number subsets of A are</p>",
+          "options": [
+            {
+              "id": 28612,
+              "text": "32",
+              "is_correct": true
+            },
+            {
+              "id": 28615,
+              "text": "20",
+              "is_correct": false
+            },
+            {
+              "id": 28614,
+              "text": "40",
+              "is_correct": false
+            },
+            {
+              "id": 28613,
+              "text": "64",
+              "is_correct": false
+            }
+          ],
+          "correct_option_ids": [
+            28612
+          ],
+          "correct_option_texts": [
+            "32"
+          ],
+          "explanation": "In any set having 'n' elements the total no of subsets = 2^n\nSo total subset = 2^5 = 32"
+        },
+        {
+          "questionID": 18425,
+          "question": "If f : N $ \\times $ N $ \\to $N is such that f(m, n) = m + n where N is the set of natural number, then which of the following is true?",
+          "question_raw": "<p>If f : N <span class=\"math-tex\">{tex} \\times {/tex}</span>&nbsp;N <span class=\"math-tex\">{tex} \\to {/tex}</span>N is such that f(m, n) = m + n where N is the set of natural number, then which of the following is true?</p>",
+          "options": [
+            {
+              "id": 28901,
+              "text": "f is one-one but not onto",
+              "is_correct": false
+            },
+            {
+              "id": 28902,
+              "text": "f is one-one and onto",
+              "is_correct": false
+            },
+            {
+              "id": 28903,
+              "text": "f is onto but not one-one",
+              "is_correct": false
+            },
+            {
+              "id": 28900,
+              "text": "f is neither one-one nor onto",
+              "is_correct": true
+            }
+          ],
+          "correct_option_ids": [
+            28900
+          ],
+          "correct_option_texts": [
+            "f is neither one-one nor onto"
+          ],
+          "explanation": "One - One: f(1, 2) = 1 + 2 = 3; f(2, 1) = 2 + 1\n$\\therefore$ f is not one - one\nonto: f(1, 1) = 2, f(1, 2) = 3, f(2, 1) = 3\nf(1, 3) = 4 = f(3, 1) and so on\n$\\therefore$ range of f = {2, 3, 4, 5, ....} $\\ne$ N\n$\\therefore$ f is not onto."
+        },
+        {
+          "questionID": 291913,
+          "question": "If z $=\\frac{1}{1-\\cos \\theta-i \\sin \\theta}$, then Re (z) =",
+          "question_raw": "<p>If z&nbsp;<span class=\"math-tex\">{tex}=\\frac{1}{1-\\cos \\theta-i \\sin \\theta}{/tex}</span>, then Re (z) =</p>",
+          "options": [
+            {
+              "id": 416640,
+              "text": "$\\frac{1}{2}$",
+              "is_correct": true
+            },
+            {
+              "id": 416639,
+              "text": "0",
+              "is_correct": false
+            },
+            {
+              "id": 416641,
+              "text": "$\\cot \\frac{\\theta}{2}$",
+              "is_correct": false
+            },
+            {
+              "id": 416642,
+              "text": "$\\frac{1}{2} \\cot \\frac{\\theta}{2}$",
+              "is_correct": false
+            }
+          ],
+          "correct_option_ids": [
+            416640
+          ],
+          "correct_option_texts": [
+            "$\\frac{1}{2}$"
+          ],
+          "explanation": "$\\frac{1}{2}$\n$z=\\frac{1}{1-\\cos \\theta-i \\sin \\theta}$\n$z=\\frac{1}{1-\\cos \\theta-i \\sin \\theta}$ $\\times \\frac{1-\\cos \\theta+i \\sin \\theta}{1-\\cos \\theta+i \\sin \\theta}$\n$\\Rightarrow z=\\frac{1-\\cos \\theta+i \\sin \\theta}{(1-\\cos \\theta)^{2}-(i \\sin \\theta)^{2}}$\n$\\Rightarrow z=\\frac{1-\\cos \\theta+i \\sin \\theta}{1+\\cos ^{2} \\theta-2 \\cos \\theta+\\sin ^{2} \\theta}$\n$\\Rightarrow z=\\frac{1-\\cos \\theta+i \\sin \\theta}{1+1-2 \\cos \\theta}$\n$\\Rightarrow z=\\frac{1-\\cos \\theta+i \\sin \\theta}{2(1-\\cos \\theta)}$\n$\\Rightarrow$ Re (z) $=\\frac{(1-\\cos \\theta)}{2(1-\\cos \\theta)}=\\frac{1}{2}$"
+        },
+        {
+          "questionID": 290123,
+          "question": "Three numbers are in AP whose sum is 24 and whose product is 440. The largest of these numbers is",
+          "question_raw": "<p>Three numbers are in AP whose sum is 24 and whose product is 440. The largest of these numbers is</p>",
+          "options": [
+            {
+              "id": 414274,
+              "text": "12",
+              "is_correct": false
+            },
+            {
+              "id": 414273,
+              "text": "9",
+              "is_correct": false
+            },
+            {
+              "id": 414272,
+              "text": "11",
+              "is_correct": true
+            },
+            {
+              "id": 414271,
+              "text": "13",
+              "is_correct": false
+            }
+          ],
+          "correct_option_ids": [
+            414272
+          ],
+          "correct_option_texts": [
+            "11"
+          ],
+          "explanation": "Let the numbers be (a - d), a and (a + d). Then,\n$\\Rightarrow$ (a - d) + a + (a + d) = 24 $\\Rightarrow$ 3a = 24 $\\Rightarrow$ a =8\nAnd,( 8 - d) $\\times$ 8 $\\times$ (8 + d) = 440 $\\Rightarrow$ (64 - d^2) = 55 $\\Rightarrow$ $d^{2}=$ 9 $\\Rightarrow$ d = $\\pm$3.\nTherefore, the numbers are {(8 - 3) , 8 and (8 + 3)} or {(8+ 3), 8 and (8 - 3)} i.e 5, 8, 11 and 11, 8, 5.\nThe required largest of these numbers is 11."
+        },
+        {
+          "questionID": 19432,
+          "question": "Regression coefficient of X on Y is 0.25, then the regression coefficient of Y on X is",
+          "question_raw": "<p>Regression coefficient of X on Y is 0.25, then the regression coefficient of Y on X is</p>",
+          "options": [
+            {
+              "id": 32929,
+              "text": "greater than 4",
+              "is_correct": false
+            },
+            {
+              "id": 32930,
+              "text": "4",
+              "is_correct": false
+            },
+            {
+              "id": 32927,
+              "text": "lies in ( 0 , 4 ]",
+              "is_correct": true
+            },
+            {
+              "id": 32928,
+              "text": "less than 4",
+              "is_correct": false
+            }
+          ],
+          "correct_option_ids": [
+            32927
+          ],
+          "correct_option_texts": [
+            "lies in ( 0 , 4 ]"
+          ],
+          "explanation": "Here,\n${b_{xy}} = r.\\frac{{{\\sigma _x}}}{{{\\sigma _y}}} = 0.25$ $ \\Rightarrow \\frac{{{\\sigma _x}}}{{{\\sigma _y}}} = \\frac{{0.25}}{r}$ \nNow, ${b_{yx}} = r.\\frac{{{\\sigma _y}}}{{{\\sigma _x}}} = r.\\frac{r}{{0.25}} = {r^2} \\times 4$ \nAs, $0 < {r^2} \\le 1$ \nSo, $[\\begin{array}{l} 0 < 4{r^2} \\le 4\\\\ 0 < {b_{yx}} \\le 4 \\end{array}$"
+        },
+        {
+          "questionID": 595417,
+          "question": "Instructions for Question 46 to 50:\nAn equation of the form ax^2 + bx + c, a $\\neq$ 0 is called quadratic equation in variable x, where a, b and c are numbers (real or complex).\nThe roots of quadratic equation ax^2 + bx + c = 0, a $\\neq$ 0 are\n$\\alpha=\\frac{-b+\\sqrt{b^{2}-4 a c}}{2 a}$\nand $\\beta=\\frac{-b-\\sqrt{b^{2}-4 a c}}{2 a}$\nNow, if we look at these roots of quadratic equation\nax^2 + bx + c = 0; a $\\neq$ 0, we observe that the roots depend upon the value of the quantity b^2 - 4ac. This quantity is known as the discriminant of the quadratic equation and denoted by D.\nThere are following cases:\nCase I If b^2 - 4ac = 0 i.e. D = 0, then $\\alpha=\\beta=-\\frac{b}{2 a}$\nThus, if b^2 - 4ac = 0, then the quadratic equation has real and equal roots and each equal to $\\frac {-b}{2a}$.\nCase II If a, b and c are rational numbers and b^2 - 4ac > 0 and it is a perfect square, then D = $\\sqrt{b^{2}-4 a c}$ is a rational number and hence $\\alpha$ and $\\beta$ are rational and unequal.\nCase III If b^2 - 4ac > 0 and it is not a perfect square, then roots are irrational and unequal.\nCase IV If b^2 - 4ac < 0, then the roots are complex conjugate of each other.\nRoots of quadratic equation 3x^2 - 4x + $\\frac{20}{3}$ = 0 are given by",
+          "question_raw": "<b>Instructions for Question 46 to 50:</b><br><p>An equation of the form ax<sup>2&nbsp;</sup>+ bx + c, a <span class=\"math-tex\">{tex}\\neq{/tex}</span> 0&nbsp;is called quadratic equation in variable x, where a, b&nbsp;and c&nbsp;are numbers (real or complex).<br />\r\nThe roots of quadratic equation ax<sup>2&nbsp;</sup>+ bx + c = 0, a <span class=\"math-tex\">{tex}\\neq{/tex}</span> 0&nbsp;are<br />\r\n<span class=\"math-tex\">{tex}\\alpha=\\frac{-b+\\sqrt{b^{2}-4 a c}}{2 a}{/tex}</span><br />\r\nand&nbsp;<span class=\"math-tex\">{tex}\\beta=\\frac{-b-\\sqrt{b^{2}-4 a c}}{2 a}{/tex}</span><br />\r\nNow, if we look at these roots of quadratic equation<br />\r\nax<sup>2&nbsp;</sup>+ bx + c = 0; a <span class=\"math-tex\">{tex}\\neq{/tex}</span> 0, we observe that the roots depend upon the value of the quantity b<sup>2&nbsp;</sup>- 4ac. This quantity is known as the discriminant of the quadratic equation and denoted by D.<br />\r\nThere are following cases:<br />\r\n<strong>Case I</strong> If b<sup>2</sup> - 4ac = 0 i.e. D = 0, then&nbsp;<span class=\"math-tex\">{tex}\\alpha=\\beta=-\\frac{b}{2 a}{/tex}</span><br />\r\nThus, if b<sup>2&nbsp;</sup>- 4ac = 0, then the quadratic equation has real and equal roots and each equal to <span class=\"math-tex\">{tex}\\frac {-b}{2a}{/tex}</span>.<br />\r\n<strong>Case II</strong> If a, b&nbsp;and c&nbsp;are rational numbers and b<sup>2&nbsp;</sup>- 4ac &gt; 0&nbsp;and it is a perfect square, then D = <span class=\"math-tex\">{tex}\\sqrt{b^{2}-4 a c}{/tex}</span>&nbsp;is a rational number and hence <span class=\"math-tex\">{tex}\\alpha{/tex}</span>&nbsp;and <span class=\"math-tex\">{tex}\\beta{/tex}</span>&nbsp;are rational and unequal.<br />\r\n<strong>Case III</strong> If b<sup>2&nbsp;</sup>- 4ac &gt; 0&nbsp;and it is not a perfect square, then roots are irrational and unequal.<br />\r\n<strong>Case IV</strong> If b<sup>2&nbsp;</sup>- 4ac &lt; 0, then the roots are complex conjugate of each other.</p><br><p>Roots of quadratic equation 3x<sup>2&nbsp;</sup>- 4x + <span class=\"math-tex\">{tex}\\frac{20}{3}{/tex}</span>&nbsp;= 0&nbsp;are given by</p>\r\n",
+          "options": [
+            {
+              "id": 1179258,
+              "text": "$\\frac{2}{3} \\pm \\frac{4}{3} i$",
+              "is_correct": true
+            },
+            {
+              "id": 1179261,
+              "text": "$-\\frac{3}{4} \\pm \\frac{5}{4} i$",
+              "is_correct": false
+            },
+            {
+              "id": 1179260,
+              "text": "$\\frac{3}{4} \\pm \\frac{5}{4} i$",
+              "is_correct": false
+            },
+            {
+              "id": 1179259,
+              "text": "$\\frac{4}{3} \\pm \\frac{2}{3} i$",
+              "is_correct": false
+            }
+          ],
+          "correct_option_ids": [
+            1179258
+          ],
+          "correct_option_texts": [
+            "$\\frac{2}{3} \\pm \\frac{4}{3} i$"
+          ],
+          "explanation": "$\\frac{2}{3} \\pm \\frac{4}{3} i$"
+        },
+        {
+          "questionID": 595419,
+          "question": "Instructions for Question 46 to 50:\nAn equation of the form ax^2 + bx + c, a $\\neq$ 0 is called quadratic equation in variable x, where a, b and c are numbers (real or complex).\nThe roots of quadratic equation ax^2 + bx + c = 0, a $\\neq$ 0 are\n$\\alpha=\\frac{-b+\\sqrt{b^{2}-4 a c}}{2 a}$\nand $\\beta=\\frac{-b-\\sqrt{b^{2}-4 a c}}{2 a}$\nNow, if we look at these roots of quadratic equation\nax^2 + bx + c = 0; a $\\neq$ 0, we observe that the roots depend upon the value of the quantity b^2 - 4ac. This quantity is known as the discriminant of the quadratic equation and denoted by D.\nThere are following cases:\nCase I If b^2 - 4ac = 0 i.e. D = 0, then $\\alpha=\\beta=-\\frac{b}{2 a}$\nThus, if b^2 - 4ac = 0, then the quadratic equation has real and equal roots and each equal to $\\frac {-b}{2a}$.\nCase II If a, b and c are rational numbers and b^2 - 4ac > 0 and it is a perfect square, then D = $\\sqrt{b^{2}-4 a c}$ is a rational number and hence $\\alpha$ and $\\beta$ are rational and unequal.\nCase III If b^2 - 4ac > 0 and it is not a perfect square, then roots are irrational and unequal.\nCase IV If b^2 - 4ac < 0, then the roots are complex conjugate of each other.\nRoots of quadratic equation -x^2 + x - 2 = 0 are given by",
+          "question_raw": "<b>Instructions for Question 46 to 50:</b><br><p>An equation of the form ax<sup>2&nbsp;</sup>+ bx + c, a <span class=\"math-tex\">{tex}\\neq{/tex}</span> 0&nbsp;is called quadratic equation in variable x, where a, b&nbsp;and c&nbsp;are numbers (real or complex).<br />\r\nThe roots of quadratic equation ax<sup>2&nbsp;</sup>+ bx + c = 0, a <span class=\"math-tex\">{tex}\\neq{/tex}</span> 0&nbsp;are<br />\r\n<span class=\"math-tex\">{tex}\\alpha=\\frac{-b+\\sqrt{b^{2}-4 a c}}{2 a}{/tex}</span><br />\r\nand&nbsp;<span class=\"math-tex\">{tex}\\beta=\\frac{-b-\\sqrt{b^{2}-4 a c}}{2 a}{/tex}</span><br />\r\nNow, if we look at these roots of quadratic equation<br />\r\nax<sup>2&nbsp;</sup>+ bx + c = 0; a <span class=\"math-tex\">{tex}\\neq{/tex}</span> 0, we observe that the roots depend upon the value of the quantity b<sup>2&nbsp;</sup>- 4ac. This quantity is known as the discriminant of the quadratic equation and denoted by D.<br />\r\nThere are following cases:<br />\r\n<strong>Case I</strong> If b<sup>2</sup> - 4ac = 0 i.e. D = 0, then&nbsp;<span class=\"math-tex\">{tex}\\alpha=\\beta=-\\frac{b}{2 a}{/tex}</span><br />\r\nThus, if b<sup>2&nbsp;</sup>- 4ac = 0, then the quadratic equation has real and equal roots and each equal to <span class=\"math-tex\">{tex}\\frac {-b}{2a}{/tex}</span>.<br />\r\n<strong>Case II</strong> If a, b&nbsp;and c&nbsp;are rational numbers and b<sup>2&nbsp;</sup>- 4ac &gt; 0&nbsp;and it is a perfect square, then D = <span class=\"math-tex\">{tex}\\sqrt{b^{2}-4 a c}{/tex}</span>&nbsp;is a rational number and hence <span class=\"math-tex\">{tex}\\alpha{/tex}</span>&nbsp;and <span class=\"math-tex\">{tex}\\beta{/tex}</span>&nbsp;are rational and unequal.<br />\r\n<strong>Case III</strong> If b<sup>2&nbsp;</sup>- 4ac &gt; 0&nbsp;and it is not a perfect square, then roots are irrational and unequal.<br />\r\n<strong>Case IV</strong> If b<sup>2&nbsp;</sup>- 4ac &lt; 0, then the roots are complex conjugate of each other.</p><br><p>Roots of quadratic equation -x<sup>2&nbsp;</sup>+ x - 2 = 0&nbsp;are given by</p>\r\n",
+          "options": [
+            {
+              "id": 1179267,
+              "text": "$\\frac{1 \\pm \\sqrt{5} i}{2}$",
+              "is_correct": false
+            },
+            {
+              "id": 1179269,
+              "text": "$\\frac{3 \\pm 2 i}{4}$",
+              "is_correct": false
+            },
+            {
+              "id": 1179266,
+              "text": "$\\frac{1 \\pm \\sqrt{7} i}{2}$",
+              "is_correct": false
+            },
+            {
+              "id": 1179268,
+              "text": "$\\frac{-1 \\pm \\sqrt{7} i}{-2}$",
+              "is_correct": true
+            }
+          ],
+          "correct_option_ids": [
+            1179268
+          ],
+          "correct_option_texts": [
+            "$\\frac{-1 \\pm \\sqrt{7} i}{-2}$"
+          ],
+          "explanation": "$\\frac{-1 \\pm \\sqrt{7} i}{-2}$"
+        },
+        {
+          "questionID": 595422,
+          "question": "Instructions for Question 46 to 50:\nAn equation of the form ax^2 + bx + c, a $\\neq$ 0 is called quadratic equation in variable x, where a, b and c are numbers (real or complex).\nThe roots of quadratic equation ax^2 + bx + c = 0, a $\\neq$ 0 are\n$\\alpha=\\frac{-b+\\sqrt{b^{2}-4 a c}}{2 a}$\nand $\\beta=\\frac{-b-\\sqrt{b^{2}-4 a c}}{2 a}$\nNow, if we look at these roots of quadratic equation\nax^2 + bx + c = 0; a $\\neq$ 0, we observe that the roots depend upon the value of the quantity b^2 - 4ac. This quantity is known as the discriminant of the quadratic equation and denoted by D.\nThere are following cases:\nCase I If b^2 - 4ac = 0 i.e. D = 0, then $\\alpha=\\beta=-\\frac{b}{2 a}$\nThus, if b^2 - 4ac = 0, then the quadratic equation has real and equal roots and each equal to $\\frac {-b}{2a}$.\nCase II If a, b and c are rational numbers and b^2 - 4ac > 0 and it is a perfect square, then D = $\\sqrt{b^{2}-4 a c}$ is a rational number and hence $\\alpha$ and $\\beta$ are rational and unequal.\nCase III If b^2 - 4ac > 0 and it is not a perfect square, then roots are irrational and unequal.\nCase IV If b^2 - 4ac < 0, then the roots are complex conjugate of each other.\nRoots of quadratic equation 2x^2 + x + 1 = 0 are given by",
+          "question_raw": "<b>Instructions for Question 46 to 50:</b><br><p>An equation of the form ax<sup>2&nbsp;</sup>+ bx + c, a <span class=\"math-tex\">{tex}\\neq{/tex}</span> 0&nbsp;is called quadratic equation in variable x, where a, b&nbsp;and c&nbsp;are numbers (real or complex).<br />\r\nThe roots of quadratic equation ax<sup>2&nbsp;</sup>+ bx + c = 0, a <span class=\"math-tex\">{tex}\\neq{/tex}</span> 0&nbsp;are<br />\r\n<span class=\"math-tex\">{tex}\\alpha=\\frac{-b+\\sqrt{b^{2}-4 a c}}{2 a}{/tex}</span><br />\r\nand&nbsp;<span class=\"math-tex\">{tex}\\beta=\\frac{-b-\\sqrt{b^{2}-4 a c}}{2 a}{/tex}</span><br />\r\nNow, if we look at these roots of quadratic equation<br />\r\nax<sup>2&nbsp;</sup>+ bx + c = 0; a <span class=\"math-tex\">{tex}\\neq{/tex}</span> 0, we observe that the roots depend upon the value of the quantity b<sup>2&nbsp;</sup>- 4ac. This quantity is known as the discriminant of the quadratic equation and denoted by D.<br />\r\nThere are following cases:<br />\r\n<strong>Case I</strong> If b<sup>2</sup> - 4ac = 0 i.e. D = 0, then&nbsp;<span class=\"math-tex\">{tex}\\alpha=\\beta=-\\frac{b}{2 a}{/tex}</span><br />\r\nThus, if b<sup>2&nbsp;</sup>- 4ac = 0, then the quadratic equation has real and equal roots and each equal to <span class=\"math-tex\">{tex}\\frac {-b}{2a}{/tex}</span>.<br />\r\n<strong>Case II</strong> If a, b&nbsp;and c&nbsp;are rational numbers and b<sup>2&nbsp;</sup>- 4ac &gt; 0&nbsp;and it is a perfect square, then D = <span class=\"math-tex\">{tex}\\sqrt{b^{2}-4 a c}{/tex}</span>&nbsp;is a rational number and hence <span class=\"math-tex\">{tex}\\alpha{/tex}</span>&nbsp;and <span class=\"math-tex\">{tex}\\beta{/tex}</span>&nbsp;are rational and unequal.<br />\r\n<strong>Case III</strong> If b<sup>2&nbsp;</sup>- 4ac &gt; 0&nbsp;and it is not a perfect square, then roots are irrational and unequal.<br />\r\n<strong>Case IV</strong> If b<sup>2&nbsp;</sup>- 4ac &lt; 0, then the roots are complex conjugate of each other.</p><br><p>Roots of quadratic equation 2x<sup>2&nbsp;</sup>+ x + 1&nbsp;= 0&nbsp;are given by</p>\r\n",
+          "options": [
+            {
+              "id": 1179281,
+              "text": "$\\frac{3 \\pm \\sqrt{7} i}{4}$",
+              "is_correct": false
+            },
+            {
+              "id": 1179280,
+              "text": "$\\frac{3 \\pm \\sqrt{3} i}{4}$",
+              "is_correct": false
+            },
+            {
+              "id": 1179279,
+              "text": "$\\frac{\\sqrt{7} \\pm i}{4}$",
+              "is_correct": false
+            },
+            {
+              "id": 1179278,
+              "text": "$\\frac{-1 \\pm \\sqrt{7} i}{4}$",
+              "is_correct": true
+            }
+          ],
+          "correct_option_ids": [
+            1179278
+          ],
+          "correct_option_texts": [
+            "$\\frac{-1 \\pm \\sqrt{7} i}{4}$"
+          ],
+          "explanation": "$\\frac{-1 \\pm \\sqrt{7} i}{4}$"
+        },
+        {
+          "questionID": 595424,
+          "question": "Instructions for Question 46 to 50:\nAn equation of the form ax^2 + bx + c, a $\\neq$ 0 is called quadratic equation in variable x, where a, b and c are numbers (real or complex).\nThe roots of quadratic equation ax^2 + bx + c = 0, a $\\neq$ 0 are\n$\\alpha=\\frac{-b+\\sqrt{b^{2}-4 a c}}{2 a}$\nand $\\beta=\\frac{-b-\\sqrt{b^{2}-4 a c}}{2 a}$\nNow, if we look at these roots of quadratic equation\nax^2 + bx + c = 0; a $\\neq$ 0, we observe that the roots depend upon the value of the quantity b^2 - 4ac. This quantity is known as the discriminant of the quadratic equation and denoted by D.\nThere are following cases:\nCase I If b^2 - 4ac = 0 i.e. D = 0, then $\\alpha=\\beta=-\\frac{b}{2 a}$\nThus, if b^2 - 4ac = 0, then the quadratic equation has real and equal roots and each equal to $\\frac {-b}{2a}$.\nCase II If a, b and c are rational numbers and b^2 - 4ac > 0 and it is a perfect square, then D = $\\sqrt{b^{2}-4 a c}$ is a rational number and hence $\\alpha$ and $\\beta$ are rational and unequal.\nCase III If b^2 - 4ac > 0 and it is not a perfect square, then roots are irrational and unequal.\nCase IV If b^2 - 4ac < 0, then the roots are complex conjugate of each other.\nRoots of quadratic equation 25x^2 - 30x + 11 = 0 are given by",
+          "question_raw": "<b>Instructions for Question 46 to 50:</b><br><p>An equation of the form ax<sup>2&nbsp;</sup>+ bx + c, a <span class=\"math-tex\">{tex}\\neq{/tex}</span> 0&nbsp;is called quadratic equation in variable x, where a, b&nbsp;and c&nbsp;are numbers (real or complex).<br />\r\nThe roots of quadratic equation ax<sup>2&nbsp;</sup>+ bx + c = 0, a <span class=\"math-tex\">{tex}\\neq{/tex}</span> 0&nbsp;are<br />\r\n<span class=\"math-tex\">{tex}\\alpha=\\frac{-b+\\sqrt{b^{2}-4 a c}}{2 a}{/tex}</span><br />\r\nand&nbsp;<span class=\"math-tex\">{tex}\\beta=\\frac{-b-\\sqrt{b^{2}-4 a c}}{2 a}{/tex}</span><br />\r\nNow, if we look at these roots of quadratic equation<br />\r\nax<sup>2&nbsp;</sup>+ bx + c = 0; a <span class=\"math-tex\">{tex}\\neq{/tex}</span> 0, we observe that the roots depend upon the value of the quantity b<sup>2&nbsp;</sup>- 4ac. This quantity is known as the discriminant of the quadratic equation and denoted by D.<br />\r\nThere are following cases:<br />\r\n<strong>Case I</strong> If b<sup>2</sup> - 4ac = 0 i.e. D = 0, then&nbsp;<span class=\"math-tex\">{tex}\\alpha=\\beta=-\\frac{b}{2 a}{/tex}</span><br />\r\nThus, if b<sup>2&nbsp;</sup>- 4ac = 0, then the quadratic equation has real and equal roots and each equal to <span class=\"math-tex\">{tex}\\frac {-b}{2a}{/tex}</span>.<br />\r\n<strong>Case II</strong> If a, b&nbsp;and c&nbsp;are rational numbers and b<sup>2&nbsp;</sup>- 4ac &gt; 0&nbsp;and it is a perfect square, then D = <span class=\"math-tex\">{tex}\\sqrt{b^{2}-4 a c}{/tex}</span>&nbsp;is a rational number and hence <span class=\"math-tex\">{tex}\\alpha{/tex}</span>&nbsp;and <span class=\"math-tex\">{tex}\\beta{/tex}</span>&nbsp;are rational and unequal.<br />\r\n<strong>Case III</strong> If b<sup>2&nbsp;</sup>- 4ac &gt; 0&nbsp;and it is not a perfect square, then roots are irrational and unequal.<br />\r\n<strong>Case IV</strong> If b<sup>2&nbsp;</sup>- 4ac &lt; 0, then the roots are complex conjugate of each other.</p><br><p>Roots of quadratic equation 25x<sup>2&nbsp;</sup>- 30x + 11 = 0&nbsp;are given by</p>\r\n",
+          "options": [
+            {
+              "id": 1179288,
+              "text": "$\\frac{1}{2} \\pm \\frac{\\sqrt{3}}{2} i$",
+              "is_correct": false
+            },
+            {
+              "id": 1179289,
+              "text": "$-\\frac{1}{2} \\pm \\frac{\\sqrt{3}}{2} i$",
+              "is_correct": false
+            },
+            {
+              "id": 1179286,
+              "text": "$\\frac{\\sqrt{2}}{5} \\pm \\frac{3}{5} i$",
+              "is_correct": false
+            },
+            {
+              "id": 1179287,
+              "text": "$\\frac{3}{5} \\pm \\frac{\\sqrt{2}}{5} i$",
+              "is_correct": true
+            }
+          ],
+          "correct_option_ids": [
+            1179287
+          ],
+          "correct_option_texts": [
+            "$\\frac{3}{5} \\pm \\frac{\\sqrt{2}}{5} i$"
+          ],
+          "explanation": "$\\frac{3}{5} \\pm \\frac{\\sqrt{2}}{5} i$"
+        },
+        {
+          "questionID": 595427,
+          "question": "Instructions for Question 46 to 50:\nAn equation of the form ax^2 + bx + c, a $\\neq$ 0 is called quadratic equation in variable x, where a, b and c are numbers (real or complex).\nThe roots of quadratic equation ax^2 + bx + c = 0, a $\\neq$ 0 are\n$\\alpha=\\frac{-b+\\sqrt{b^{2}-4 a c}}{2 a}$\nand $\\beta=\\frac{-b-\\sqrt{b^{2}-4 a c}}{2 a}$\nNow, if we look at these roots of quadratic equation\nax^2 + bx + c = 0; a $\\neq$ 0, we observe that the roots depend upon the value of the quantity b^2 - 4ac. This quantity is known as the discriminant of the quadratic equation and denoted by D.\nThere are following cases:\nCase I If b^2 - 4ac = 0 i.e. D = 0, then $\\alpha=\\beta=-\\frac{b}{2 a}$\nThus, if b^2 - 4ac = 0, then the quadratic equation has real and equal roots and each equal to $\\frac {-b}{2a}$.\nCase II If a, b and c are rational numbers and b^2 - 4ac > 0 and it is a perfect square, then D = $\\sqrt{b^{2}-4 a c}$ is a rational number and hence $\\alpha$ and $\\beta$ are rational and unequal.\nCase III If b^2 - 4ac > 0 and it is not a perfect square, then roots are irrational and unequal.\nCase IV If b^2 - 4ac < 0, then the roots are complex conjugate of each other.\nRoots of quadratic equation 2x^2 - 2$\\sqrt{3} x$ + $\\frac{21}{8}$ = 0 are given by",
+          "question_raw": "<b>Instructions for Question 46 to 50:</b><br><p>An equation of the form ax<sup>2&nbsp;</sup>+ bx + c, a <span class=\"math-tex\">{tex}\\neq{/tex}</span> 0&nbsp;is called quadratic equation in variable x, where a, b&nbsp;and c&nbsp;are numbers (real or complex).<br />\r\nThe roots of quadratic equation ax<sup>2&nbsp;</sup>+ bx + c = 0, a <span class=\"math-tex\">{tex}\\neq{/tex}</span> 0&nbsp;are<br />\r\n<span class=\"math-tex\">{tex}\\alpha=\\frac{-b+\\sqrt{b^{2}-4 a c}}{2 a}{/tex}</span><br />\r\nand&nbsp;<span class=\"math-tex\">{tex}\\beta=\\frac{-b-\\sqrt{b^{2}-4 a c}}{2 a}{/tex}</span><br />\r\nNow, if we look at these roots of quadratic equation<br />\r\nax<sup>2&nbsp;</sup>+ bx + c = 0; a <span class=\"math-tex\">{tex}\\neq{/tex}</span> 0, we observe that the roots depend upon the value of the quantity b<sup>2&nbsp;</sup>- 4ac. This quantity is known as the discriminant of the quadratic equation and denoted by D.<br />\r\nThere are following cases:<br />\r\n<strong>Case I</strong> If b<sup>2</sup> - 4ac = 0 i.e. D = 0, then&nbsp;<span class=\"math-tex\">{tex}\\alpha=\\beta=-\\frac{b}{2 a}{/tex}</span><br />\r\nThus, if b<sup>2&nbsp;</sup>- 4ac = 0, then the quadratic equation has real and equal roots and each equal to <span class=\"math-tex\">{tex}\\frac {-b}{2a}{/tex}</span>.<br />\r\n<strong>Case II</strong> If a, b&nbsp;and c&nbsp;are rational numbers and b<sup>2&nbsp;</sup>- 4ac &gt; 0&nbsp;and it is a perfect square, then D = <span class=\"math-tex\">{tex}\\sqrt{b^{2}-4 a c}{/tex}</span>&nbsp;is a rational number and hence <span class=\"math-tex\">{tex}\\alpha{/tex}</span>&nbsp;and <span class=\"math-tex\">{tex}\\beta{/tex}</span>&nbsp;are rational and unequal.<br />\r\n<strong>Case III</strong> If b<sup>2&nbsp;</sup>- 4ac &gt; 0&nbsp;and it is not a perfect square, then roots are irrational and unequal.<br />\r\n<strong>Case IV</strong> If b<sup>2&nbsp;</sup>- 4ac &lt; 0, then the roots are complex conjugate of each other.</p><br><p>Roots of quadratic equation 2x<sup>2&nbsp;</sup>- 2<span class=\"math-tex\">{tex}\\sqrt{3} x{/tex}</span>&nbsp;+ <span class=\"math-tex\">{tex}\\frac{21}{8}{/tex}</span>&nbsp;= 0&nbsp;are given by</p>\r\n",
+          "options": [
+            {
+              "id": 1179301,
+              "text": "$-\\frac{3}{4} \\pm \\frac{\\sqrt{3}}{2} i$",
+              "is_correct": false
+            },
+            {
+              "id": 1179299,
+              "text": "$-\\frac{\\sqrt{3}}{2} \\pm \\frac{3}{4} i$",
+              "is_correct": false
+            },
+            {
+              "id": 1179298,
+              "text": "$\\frac{\\sqrt{3}}{2} \\pm \\frac{3}{4} i$",
+              "is_correct": true
+            },
+            {
+              "id": 1179300,
+              "text": "$\\frac{3}{4} \\pm \\frac{\\sqrt{3}}{2} i$",
+              "is_correct": false
+            }
+          ],
+          "correct_option_ids": [
+            1179298
+          ],
+          "correct_option_texts": [
+            "$\\frac{\\sqrt{3}}{2} \\pm \\frac{3}{4} i$"
+          ],
+          "explanation": "$\\frac{\\sqrt{3}}{2} \\pm \\frac{3}{4} i$"
+        }
+      ]
+    }
+  ]
+}

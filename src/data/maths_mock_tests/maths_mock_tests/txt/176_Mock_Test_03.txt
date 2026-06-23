@@ -1,0 +1,645 @@
+======================================================================
+Mock Test - 03  (id 176)
+CBSE > Class 11 > Mathematics
+Duration: 90 min | Questions: 50
+======================================================================
+
+INSTRUCTIONS:
+This question paper contains three sections - A, B and C. Each part is compulsory.
+ Section - A has 20 MCQs, attempt any 16 out of 20.
+ Section - B has 20 MCQs, attempt any 16 out of 20
+ Section - C has 10 MCQs, attempt any 8 out of 10.
+ There is no negative marking.
+ All questions carry equal marks.
+
+------------------------------------------------------------
+Section A
+------------------------------------------------------------
+Q1. The symmetric difference of A and B is equal to
+    (A) {(A $\cup$ B) - A} $\cup$ {(A $\cup$ B) - B}
+    (B) (A - B) $\cup$ (B - A)   <-- CORRECT
+    (C) (A - B) $\cap$ (B - A)
+    (D) (A $\cup$ B) - (B $\cap$ A)
+    Answer: B
+    Explanation: The symmetric difference of any two sets A and B is given by:- (A - B) $\cup$ (B - A)
+
+Q2. If R is a relation from a finite set A having m elements to a finite set B having n elements, then the number of relations from A to B is
+    (A) 2^mn -1
+    (B) 2mn
+    (C) 2^mn   <-- CORRECT
+    (D) m^n
+    Answer: C
+    Explanation: Since we know that a relation from A to B consists of mn ordered pairs if they contain m and n elements respectively.
+Each subset of those mn pairs will be a relation. so, each pair has two choices, either to be in that particular relation or not.
+So, we have a total of 2^mn relations.
+
+Q3. The amplitude of $\frac{1}{i}$ is equal to
+    (A) $-\frac{\pi}{2}$   <-- CORRECT
+    (B) $\pi$
+    (C) 0
+    (D) $\frac{\pi}{2}$
+    Answer: A
+    Explanation: $-\frac{\pi}{2}$
+Let z $=\frac{1}{i}$
+$\Rightarrow z=\frac{1}{i} \times \frac{i}{i}$
+$\Rightarrow z = \frac{i}{i^{2}}$
+$\Rightarrow$ z = -i
+Since, z(0, -1) lies on the negative imaginary axis.
+Therefore, arg (z) $=\frac{-\pi}{2}$
+
+Q4. If a, b, c are in GP then log a, log b, log c are in
+    (A) AP   <-- CORRECT
+    (B) H.M.
+    (C) GP
+    (D) HP
+    Answer: A
+    Explanation: Here, a, b, c are in GP
+b^2 = ac $\Rightarrow$ log(b^2) - log(ac)
+$\Rightarrow$ 2 log b = log a + log c $\Rightarrow$ log a, log b, log c are in AP.
+
+Q5. The line segment joining the points (-3, -4) and (1, -2) is divided by y-axis in the ratio.
+    (A) 2 : 3
+    (B) 3 : 2
+    (C) 3 : 1   <-- CORRECT
+    (D) 1 : 3
+    Answer: C
+    Explanation: Let the points (-3, -4) and (1, -2) be divided by y-axis (0, t) in the ratio m : n.
+Using section formula we get the following points , 
+$\therefore\left(\frac{m-3 n}{m+n}\right.$, $\left.\frac{-2 m-4 n}{m+n}\right)$ = (0, t)
+$\Rightarrow 0=\frac{m-3 n}{m+n}$
+$\Rightarrow$ m : n = 3 : 1
+
+Q6. If y = log $(x + \sqrt {1 + {x^2})} $ then $\frac {d^2y} {dx^2}$ =
+    (A) $\frac{-2 x}{\left(x^2+1\right)^{3 / 2}}$
+    (B) $\frac {1} {\sqrt {x^2 + 1}}$
+    (C) $\frac {x} {(x^2 + 1)^{3/2}}$
+    (D) $\frac { - x} {(x^2 + 1)^{3/2}}$   <-- CORRECT
+    Answer: D
+    Explanation: Substitute x = tan $\theta$ 
+Then y = log (sin $\theta$ + 1) - log (cos $\theta$)
+y'($\theta$) = $\left(\frac{\cos \theta}{1+\sin \theta}\right)-\left(\frac{-\sin \theta}{\cos \theta}\right)$ 
+y'($\theta$) = sec $\theta$ 
+y'(x) = $\frac{1}{\sqrt{\left(1+x^{2}\right)}}$ 
+y''(x) = $\frac{-x}{\left(x^{2}+1\right)^{3 / 2}}$
+
+Q7. The coefficient of correlation between two variables is independent of
+    (A) neither scale nor origin
+    (B) both origin and the scale   <-- CORRECT
+    (C) scale but not origin
+    (D) origin but not scale
+    Answer: B
+    Explanation: Because variance and Covariance are independent of change in origin.
+
+Q8. Let F_1 be the set of parallelograms, F_2 the set of rectangles, F_3 the set of rhombuses, F_4 the set of squares and F_5 the set of trapeziums in a plane. Then F_1 may be equal to
+    (A) F_2 $\cup$ F_5
+    (B) F_3 $\cap$ F_4
+    (C) F_2 $\cap$ F_3
+    (D) F_2 $\cup$ F_3 $\cup$ F_4 $\cup$ F_1   <-- CORRECT
+    Answer: D
+    Explanation: We know that
+Every rectangle, square and rhombus is a parallelogram
+But, no trapezium is a paralleogrm
+Thus, F_1 = F_2 $\cup$ F_3 $\cup$ F_4 $\cup$ F_1
+
+Q9. Let A = {1, 2, 3}, B = {2, 3, 4}, then which of the following is a function from A to B ?
+    (A) {(1,3), (2,2), (3,3)}   <-- CORRECT
+    (B) {(1,2), (1,3), (2,3), (3,3)}
+    (C) {(1, 3), (1, 4)}
+    (D) {(1,2), (2,3), (3,2), (3,4)}
+    Answer: A
+    Explanation: A relation is a function if first entry in each pair (element) is not repeated.
+
+Q10. $\frac{1+2 i+3 i^{2}}{1-2 i+3 i^{2}}$ equals.
+    (A) -i   <-- CORRECT
+    (B) 4
+    (C) i
+    (D) -1
+    Answer: A
+    Explanation: -i
+Let z $=\frac{1+2 i+3 i^{2}}{1-2 i+3 i^{2}}$
+$\Rightarrow z=\frac{1+2 i-3}{1-2 i-3}$
+$\Rightarrow z=\frac{-2+2 i}{-2-2 i}$ $\times\frac{-2+2 i}{-2+2 i}$
+$\Rightarrow z=\frac{(-2+2 i)^{2}}{(-2)^{2}-(2 i)^{2}}$
+$\Rightarrow z=\frac{4+4 i^{2}-8 i}{4+4}$
+$\Rightarrow z=\frac{4-4-8 i}{8}$
+$\Rightarrow z=\frac{-8 i}{8}$
+$\Rightarrow$ z = -i
+
+Q11. The first three of four given numbers are in G.P. and their last three are in A.P. with common difference 6. If first and fourth numbers are equal, then the first number is
+    (A) 6
+    (B) 8   <-- CORRECT
+    (C) 4
+    (D) 2
+    Answer: B
+    Explanation: As per given question,
+The first and the last numbers are equal.
+let the four given numbers be p, q, r and p
+The first three of four given numbers are in G.P.
+$\therefore$ q^2 = p $\cdot$ r ...(i)
+And, the last three numbers are in A.P. with common difference 6.
+We have,
+First term = q
+Second term = r = q + 6
+Third term = p = q + 12
+Also, 2r = q + p
+Now, put the values of p and r in (i):
+q^2 = (q + 12)(q + 6)
+$\Rightarrow$ q^2 = q^2 + 18q + 72
+$\Rightarrow$ 18q + 72 = 0
+$\Rightarrow$ q + 4 = 0
+$\Rightarrow$ q = -4
+Now put the value of q in p = q + 12
+p = -4 + 12 = 8
+
+Q12. The lines x + 2y – 3 = 0, 2x + y – 3 = 0 and the line l are concurrent. If the line I passes through the origin, then its equation is
+    (A) x + y = 0
+    (B) x – y = 0   <-- CORRECT
+    (C) x - 2y = 0
+    (D) x + 2y = 0
+    Answer: B
+    Explanation: Equation of a line passing through the intersection of two lies is given by ax_1 + by_1 +c_1 + k(ax_2 + by_2 + c_2) = 0
+Hence x + 2y - 3 + k(2x + y - 3) = 0
+Since it passes through (0, 0)
+-3 -3k = 0
+This implies k = -1
+Sustituting for k we get,
+x + 2y - 3 +(-1)(2x + y - 3) = 0
+-x + y = 0 or x - y = 0
+
+Q13. $\lim _\limits{x \rightarrow 1}$[x - 1], where [.] is the greatest integer function, is equal to:
+    (A) 0
+    (B) None of these   <-- CORRECT
+    (C) 2
+    (D) 1
+    Answer: B
+    Explanation: R.H.S = $\lim _\limits{x \rightarrow 1^{+}}$ [x - 1] = 0
+and L.H.S = $\lim _\limits{x \rightarrow 1^{-}}$ [x - 1] = -1
+
+Q14. If the mean of 3, 4, x, 7, 10 is 6, then the value of x is
+    (A) 7
+    (B) 6   <-- CORRECT
+    (C) 4
+    (D) 5
+    Answer: B
+    Explanation: Mean = $\frac{3+4+x+7+10}{5}$ = $\frac{24+x}{5}$ 
+$\Rightarrow$ 6 = $\frac{24+x}{5}$ 
+$\Rightarrow$ 30 = 24 + x
+$\Rightarrow$ 30 - 24 = x
+$\Rightarrow$ x = 6
+
+Q15. If A, B and C are non – empty sets, then (A - B) $\mathop \cup \nolimits $ (B - A) equals:
+    (A) (A $\cap$ B) - B
+    (B) (A $\mathop \cup \nolimits $ B) – (A $\mathop \cap \nolimits $ B)   <-- CORRECT
+    (C) (A $\mathop \cup \nolimits $ B) - B
+    (D) (A $\mathop \cap \nolimits $ B) $\mathop \cup \nolimits $ (A $\mathop \cup \nolimits $ B)
+    Answer: B
+    Explanation: We have (A $\cup$ B) = (A - B) $\cup$ (A $\cap$ B)
+Hence (A $\cup$ B) - (A $\cap$ B) = (A - B) $\cup$ (B - A)
+
+Q16. The domain of the real-valued function $f(x)=\frac{(x-3)(x-1)}{\sqrt{x^2-4}}$ is
+    (A) (-$\infty $, - 2) $ \cup $ ( 1, $\infty $)
+    (B) (-$\infty $, - 2) $ \cup $ (2, $\infty $)   <-- CORRECT
+    (C) (1, 2)
+    (D) (-$\infty $, - 1) $ \cup $ ( 1, $\infty $).
+    Answer: B
+    Explanation: For f(x) to be real, we much have,
+${{x^2}\; - \;4\; > 0}$ 
+${ \Rightarrow (x - 2)(x + 2) > 0}$ 
+${ \Rightarrow - \infty < - 2\;or\;2 < x < \infty }$ 
+$\therefore$ Domain ${ = \;( - \infty , - 2) \cup (2,\infty )}$ ($\infty$ means infinity)
+
+Q17. If a + ib = c + id, then
+    (A) a^2 + b^2 = c^2 + d^2   <-- CORRECT
+    (B) b^2 + c^2 = 0
+    (C) a^2 + c^2 = 0
+    (D) b^2 + d^2 = 0
+    Answer: A
+    Explanation: Given that: a + ib = c + id
+$\Rightarrow$ |a + ib| = |c + id|
+$\Rightarrow$ $\sqrt{a^{2}+b^{2}}=\sqrt{c^{2}+d^{2}}$
+Squaring both sides, we get a^2 + b^2 = c^2 + d^2
+
+Q18. The number of numbers between 105 and 1000 which are divisible by 7 is
+    (A) 142
+    (B) 125
+    (C) 127   <-- CORRECT
+    (D) 128
+    Answer: C
+    Explanation: 112, 119, ....994
+a_n = a + (n - 1)d = 994
+$\Rightarrow$ 112 + (n - 1)7 = 994
+$\Rightarrow$ (n - 1)7 = 882
+$\Rightarrow$ (n - 1) = 126
+n = 127
+
+Q19. If (x, y) are the coordinates of point in the plane, then $\left| {\begin{array}{*{20}{c}} 3&4&2 \\ 5&8&2 \\ x&y&2 \end{array}} \right| $ = 0 represents
+    (A) a circle
+    (B) a straight line parallel to x axis
+    (C) a straight line parallel to y axis
+    (D) a straight line   <-- CORRECT
+    Answer: D
+    Explanation: The given determinant can be written as 2$\begin{vmatrix} 3 & 4 & 1\\ 5 & 8 & 1\\ x & y & 1 \end{vmatrix}$ = 0
+On expansion we get 
+2[3(8 - y) - 4(5 - x) + 1(5y - 8x)]
+On simplifying the equation 2(-4x + 2y + 4) = 0 represents a striaght line.
+
+Q20. If $\begin{array}{c} \frac{\sin [x]}{[x]},[x] \neq 0 \\ 0 \quad,[x]=0 \end{array}$, where [.] denotes the greatest integer function, then $\lim \limits _{x \rightarrow 0} f(x)$ is equal to
+    (A) does not exist   <-- CORRECT
+    (B) is equal to 1
+    (C) is equal to 0
+    (D) is equal to -1
+    Answer: A
+    Explanation: $\mathop {Lt}\limits_{x \to 0^+}\frac{sin\;[x]}{[x]}$ = 1
+$\Rightarrow \mathop {Lt}\limits_{x \to 0^-}\frac{sin\;[x]}{[x]}$ = sin 1
+$\Rightarrow$ L.H.L.$\neq$ R.H.L.
+hence limit does not exist.
+
+------------------------------------------------------------
+Section B
+------------------------------------------------------------
+Q1. If for a sample of size 60, we have the following information $\Sigma x_{i}^{2}$ = 18000 and $\Sigma x_{i}$ = 960, then the variance is
+    (A) 22
+    (B) 44   <-- CORRECT
+    (C) 16
+    (D) 6.63
+    Answer: B
+    Explanation: Given, 
+$\Sigma x_{i}^{2}$ = 18000, $\Sigma x_{i}$ = 960 and n = 60
+$\therefore$ Variance
+= $\frac{\sum x_{i}^{2}}{n}-\left(\frac{\sum x_{i}}{n}\right)^{2}$
+= $\frac{18000}{60}-\left(\frac{960}{60}\right)^{2}$
+= 300 - 256
+= 44
+
+Q2. For any two sets A and B, $A \cap (A \cup B) = ....$
+    (A) $\ne$$\phi$
+    (B) B
+    (C) $\phi$
+    (D) A   <-- CORRECT
+    Answer: D
+    Explanation: Since, $A \subseteq A \cup B$, therefore, $A \cap(A \cup B)$ = A
+
+Q3. Let f(x) = x^2 and g(x) = $\sqrt x$, then
+    (A) (gof)(- 2) = 2   <-- CORRECT
+    (B) (gof) (2) = 4
+    (C) (fog) (2) = 4
+    (D) (fog) (3) = 6
+    Answer: A
+    Explanation: gof(x) = g(f(x)) = g(x^2) = $\sqrt{x^2}$ = x
+$\therefore$ gof(-2) = 2
+
+Q4. The solution set of x^2 + 2 = 0 is
+    (A) $(\sqrt{2} i,-\sqrt{2} i)$   <-- CORRECT
+    (B) $(\sqrt{2}i,-\sqrt{2})$
+    (C) $(\sqrt{2},-\sqrt{2})$
+    (D) $(\sqrt{2},-\sqrt{2} i)$
+    Answer: A
+    Explanation: x^2 + 2 = 0 $\Rightarrow$ x^2 = - 2 $\Rightarrow$ $\pm \sqrt{2} i$
+Solution set is $(\sqrt{2} i,-\sqrt{2} i)$
+
+Q5. If S be the sum, P the product and R be the sum of the reciprocals of n terms of a GP, then P^2 is equal to
+    (A) $(\frac {R}{S})^n$
+    (B) $\frac {R}{S}$
+    (C) $\frac {S}{R}$
+    (D) $(\frac {S}{R})^n$   <-- CORRECT
+    Answer: D
+    Explanation: According to the question,
+Sum of n terms of the G.P., S = $\frac{a\left(r^{n}-1\right)}{(r-1)}$
+Product of n terms of the G.P., P = a^nr$\left[\frac{n(n-1)}{2}\right]$
+Sum of the reciprocals of n terms of the G.P., R = $\frac{\left[\frac{1}{r^{n}}-1\right]}{a\left(\frac{1}{r}-1\right)}=\frac{\left(r^{n}-1\right)}{a r^{(n-1)}(r-1)}$
+$\therefore P^{2}=\left\{a^{2} r^{\frac{2(n-1)}{2}}\right\}^{n}$
+$\Rightarrow P^{2}=\left\{\frac{\frac{a\left(r^{n}-1\right)}{(r-1)}}{\frac{\left(r^{n-1}\right)}{a r^{(n-1)}(r-1)}}\right\}^{n}$
+$\Rightarrow P^{2}=\left\{\frac{S}{R}\right\}^{n}$
+Let the first term of the G.P. be a and the common ratio be r.
+Sum of n terms, S = $\frac{a\left(r^{n}-1\right)}{r-1}$
+Product of the G.P., P = a^n$r^{\frac{n(n+1)}{2}}$
+Sum of the reciprocals of n terms, R = $\frac{\left(\frac{1}{r^{\infty}-1}\right)}{a\left(\frac{1}{r-1}\right)}=\frac{\left(\frac{1-r^{n}}{r^{n}}\right)}{a\left(\frac{1-r}{r}\right)}$
+p^2 = $\left\{a^{2} r^{\frac{(n+1)}{2}}\right\}^{n}$
+p^2 = $\left\{\begin{array}{l} \frac{a\left(r^{n-1}-1\right)}{r-1} \\ \frac{\left(\frac{1+n}{r^{n}}\right)}{a\left(\frac{1+}{r}\right)} \end{array}\right\}=\left\{\frac{S}{R}\right\}^{n}$
+
+Q6. The derivative of $\sec ^{-1}\left(\frac{1}{2 x^2-1}\right)$ with respect to $\sqrt {1 - {x^2}} $ at x = $\frac{1}{2}$ is
+    (A) -2
+    (B) 4   <-- CORRECT
+    (C) 2
+    (D) 1
+    Answer: B
+    Explanation: Substitute x = cos $\theta$ 
+$\Rightarrow$ $\frac{d(2 \theta)}{d(\sin \theta)}=\frac{\frac{d(2 \theta)}{d t}}{\frac{d(\sin \theta)}{d t}}$ 
+$\Rightarrow$ 2 sec $\theta$ 
+$\Rightarrow$ 2(2) = 4
+
+Q7. For a frequency distribution mean deviation from mean is computed by
+    (A) M.D. = $\frac{\sum f|d|}{\sum f}$   <-- CORRECT
+    (B) M.D. = $\frac{\Sigma f}{\Sigma f|d|}$
+    (C) M.D. = $\frac{\Sigma f d}{\Sigma f}$
+    (D) M.D. = $\frac{\Sigma d}{\Sigma f}$
+    Answer: A
+    Explanation: The general formula of Mean is $\overline{\mathrm{x}}=\frac{\sum \mathrm{x}_{1} \mathrm{f}_{1}}{\sum \mathrm{f}_{1}}$
+For mean deviation, d = (x-mean)
+M.D. = $\frac{\sum f|d|}{\sum f}$
+
+Q8. The set (A $\cup$ B $\cup$ C) $\cap$ (A $\cap$ B′ $\cap$ C′)′ $\cap$ C′ is equal to
+    (A) B $\cap$ C'   <-- CORRECT
+    (B) A $\cap$ C
+    (C) B $\cup$ C'
+    (D) A $\cup$ C'
+    Answer: A
+    Explanation: We have,(A $\cup$ B $\cup$ C) $\cap$ (A $\cap$ B′ $\cap$ C′)′ $\cap$ C′
+= (A $\cup$ (B $\cup$ C)) $\cap$ (A′ $\cup$ (B $\cup$ C)) $\cap$ C′
+= (A $\cap$ A′) $\cup$ (B $\cup$ C) $\cap$ C′
+= $\phi$ $\cup$ (B $\cup$ C) $\cap$ C′
+= B $\cap$ C′ $\cup$ $\phi$ = B $\cap$ C′
+
+Q9. If 3 f (x) + 5 $f\left(\frac{1}{x}\right)=\frac{1}{x}-3$ for all non - zero x then f(x)=
+    (A) $\frac{1}{14}\left(-\frac{3}{x}+5 x+6\right)$
+    (B) $\frac{1}{16}\left(-\frac{3}{x}+5 x-6\right)$   <-- CORRECT
+    (C) $\frac{1}{14}\left(-\frac{3}{x}+5 x-6\right)$
+    (D) $\frac{1}{14}\left(\frac{3}{x}+5 x-6\right)$
+    Answer: B
+    Explanation: $3 f(x)+5 f\left(\frac{1}{x}\right)=\frac{1}{x}-3 $ ... (1)
+Replacing x by 1/x;
+$3 f\left(\frac{1}{x}\right)+5 f(x)$= x - 3 ... (2)
+Multiply eqn 1 by 3 and eqn 2 by 5 and then subtract them 
+We get,
+$-16 f(x)=\frac{3}{x}-5 x+6$
+$f(x)=\frac{1}{16}\left(-\frac{3}{x}+5 x-6\right)$
+
+Q10. The value of p and q (p $\ne$ 0, q $\ne$ 0) for which p, q are the roots of the equation x^2 + px + q ab = 0 are
+    (A) p = 1, q = 2
+    (B) p = 1, q = -2   <-- CORRECT
+    (C) p = - 1, q = - 2
+    (D) p = - 1, q = 2
+    Answer: B
+    Explanation: It is given that, p and q (p $\ne$ 0, q $\ne$ 0) are the roots of the equation x^2 + px + q = 0.
+$\therefore$ Sum of roots = p + q = -p
+$\Rightarrow$ 2p + q = 0 ... (i)
+Product of roots = pq = q
+$\Rightarrow$ qp - 1 = 0
+$\Rightarrow$ p = 1, q = 0 but q $\ne$ 0
+Now, substituting p = 1 in (i), we get,
+2 + q = 0
+$\Rightarrow$ q = -2
+
+Q11. If a, b, c are in GP and $a^{\frac{1}{x}}=b^{\frac{1}{y}}=c^{\frac{1}{z}}$ then x, y, z are in
+    (A) GP
+    (B) H.M.
+    (C) AP   <-- CORRECT
+    (D) HP
+    Answer: C
+    Explanation: Let $a^{1 \over x}=b^{1 \over y}=c^{1 \over z} = k$ Then, a = k^x, b = k^y and c = k^z.
+Since, a, b, c are in GP
+$\Rightarrow b^{2}=a c \Rightarrow\left(k^{y}\right)^{2}=\left(k^{x} \times k^{z}\right)$
+$\Rightarrow$ k^2y = k^(x+z) $\Rightarrow$ 2y = x + z
+$\Rightarrow$ x, y, z are in AP.
+
+Q12. $\lim _\limits{x \rightarrow \frac{\pi}{2}} \frac{1-\sin x}{\cos x}$ is equal to
+    (A) -1
+    (B) does not exit
+    (C) 0   <-- CORRECT
+    (D) 1
+    Answer: C
+    Explanation: $\lim _\limits{x \rightarrow \frac{\pi}{2}} \frac{1-\sin x}{\cos x}=\lim _\limits{y \rightarrow 0} \frac{1-\sin (\frac{\pi}{2}-y)}{\cos (\frac{\pi}{2}-y)} \quad \text { taking } \frac{\pi}{2}-x=y$
+$=\lim _\limits{y \rightarrow 0} \frac{1-\cos y}{\sin y}=\lim _\limits{y \rightarrow 0} \frac{2 \sin ^{2} \frac{y}{2}}{2 \sin \frac{y}{2} \cos \frac{y}{2}}$
+$=\lim _\limits{y \rightarrow 0} \tan \frac{y}{2}=0$
+
+Q13. A batsman scores runs in 10 innings as 38, 70, 48, 34, 42, 55, 63, 46, 54 and 44. The mean deviation about mean is
+    (A) 7.6
+    (B) 10.6
+    (C) 6.4
+    (D) 8.6   <-- CORRECT
+    Answer: D
+    Explanation: First we arrange score in the ascending order
+Then scores are : 34, 38, 42, 44, 46, 48, 54, 55, 63, 70
+As there are 10 items in this data,
+So, median will be the mean of fifth and sixth term
+$\therefore$ Median = $\frac{46+48}{2}$ = 47
+Now, deviation from median for each value
+d_i = 13, 9, 5, 3, 1, 1, 7, 8, 16, 23
+$\therefore$ Required Mean deviation = $\frac{\sum d_{i}}{10}=\frac{86}{10}$ = 8.6
+
+Q14. If z $=\frac{1+7 i}{(2-i)^{2}}$, then
+    (A) amp (z) $=\frac{\pi}{4}$
+    (B) $|z|=\frac{1}{2}$
+    (C) $|z|=2$
+    (D) amp (z) $=\frac{3 \pi}{4}$   <-- CORRECT
+    Answer: D
+    Explanation: amp (z) $=\frac{3 \pi}{4}$
+$z=\frac{1+7 i}{(2-i)^{2}}$
+$\Rightarrow z=\frac{1+7 i}{4+i^{2}-4 i}$
+$\Rightarrow z=\frac{1+7 i}{4-1-4 i}$ [$\because$ i^2 = -1]
+$\Rightarrow z=\frac{1+7 i}{3-4 i}$
+$\Rightarrow z=\frac{1+7 i}{3-4 i} \times \frac{3+4 i}{3+4 i}$
+$\Rightarrow z=\frac{3+4 i+21 i+28 i^{2}}{9-16 i^{2}}$
+$\Rightarrow z=\frac{3-28+25 i}{9+16}$
+$\Rightarrow z=\frac{-25+25 i}{25}$
+$\Rightarrow$ = -1 + i
+$\tan \alpha=\left|\frac{\operatorname{Im}(z)}{\operatorname{Re}(z)}\right|$
+= 1
+$\Rightarrow \alpha=\frac{\pi}4$
+since, z lies in the second quadrant.
+Therefore amp (z) $=\pi-a$
+$=\pi-\frac{\pi}{4}$
+$=\frac{3 \pi}{4}$
+
+Q15. The 10th common term between the series 3 + 7 + 11 + ... and 1 + 6 + 11 + ... is:
+    (A) 201
+    (B) 193
+    (C) 191   <-- CORRECT
+    (D) 211
+    Answer: C
+    Explanation: The first common term is 11.
+Now, the next common term is obtained by adding L.C.M. of the common difference 4 and 5, i.e., 20.
+Thus, 10^th common term = T_10 of the AP whose a = 11 and d = 20
+T_10 = a + 9d = 11 + 9 (20) = 191
+
+Q16. Let A = {1, 2, 3, 4} then total number of subsets of A are given by
+    (A) 8
+    (B) 12
+    (C) 16   <-- CORRECT
+    (D) 4
+    Answer: C
+    Explanation: Total no. of subsets = 2^n = 2^4 = 16
+Here n is the Cardinal no of the given set.
+
+Q17. The range of the function f(x) $=\frac{x+2}{|x+2|}, x \neq-2$ is
+    (A) $(0, \infty)$
+    (B) {-1, 0, 1 }
+    (C) {-1, 1}   <-- CORRECT
+    (D) {1}
+    Answer: C
+    Explanation: We have $f(x)=\frac{x+2}{|x+2|}$
+when x > -2,
+f(x) = $\frac{x+2}{x+2}=1$
+When x < -2
+We have $=\frac{x+2}{-(x+2)}$ = -1
+R(f) = {-1, 1}
+
+Q18. The value of (1 + i)^4 + (1 - i)^4 is
+    (A) -4
+    (B) -8   <-- CORRECT
+    (C) 8
+    (D) 4
+    Answer: B
+    Explanation: -8
+Using a^4 + b^4 = (a^2 + b^2) - 2a^2b^2
+(1 + i)^4 + (1 - i)^4
+= ((1 + i)^2 + (1 - i)^2)^2 - 2(1 + i)^2 (1 - i)^2
+= (1 + i2 + 2i + 1 + i^2 - 2i)^2 - 2(1 + i^2 + 2i) (1 + i^2 - 2i)
+= (1 - 1 + 2i + 1 - 1 - 2i)^2 - 2(1 - 1 + 2i) (1 - 1 - 2i)
+= (0) - 2(2i) (-2i) ($\because$ i^2 = -1)
+= 8i^2
+= -8
+
+Q19. The next term of the sequence 1, 3, 6, 10, …. is
+    (A) 13
+    (B) 14
+    (C) 15   <-- CORRECT
+    (D) 16
+    Answer: C
+    Explanation: In this sequence the n^th term is, a_n = 1 + 2 + 3 + .....+ n
+So, for n = 5, a_5 = 1 + 2 + 3 + 4 + 5
+
+Q20. Sum of first 5 terms of an A.P. is one fourth of the sum of next five terms. If the first term = 2, then the common difference of the A.P. is
+    (A) 6
+    (B) 3
+    (C) - 6   <-- CORRECT
+    (D) -3
+    Answer: C
+    Explanation: Given a = 2
+Let d be the common difference of the A.P.
+Given S_5 = $\frac{1}{4}\left[S_{10}-S_{5}\right]$ ....(i)
+We have $\frac{n}{2}[2 a+(n-1) d]$ 
+$\therefore$ S_5 = $\frac{5}{2}[4+4 d]$ = 20 + 45d ....(iii)
+So S_10 - S_5 = 10 + 35d ....(ii)
+From (i) and (ii) we get 10 + 10d = $\frac{1}{4}[10+35 d]$ 
+$\Rightarrow$ 40 + 40d - 10 - 35d = 0
+$\Rightarrow$ 5d = -30
+$\Rightarrow$ d = -6
+
+------------------------------------------------------------
+Section C
+------------------------------------------------------------
+Q1. Let U = {1, 2, 3, 4, 5, 6, 7, 8, 9, 10}, A = {1, 2, 5}, B = {6, 7}. Then A $\cap$ B' is
+    (A) B’
+    (B) A’
+    (C) A   <-- CORRECT
+    (D) B
+    Answer: C
+    Explanation: Given U = {1, 2, 3, 4, 5, 6, 7, 8, 9, 10}, A = {1, 2, 5}, B = {6, 7}
+B' = {1, 2, 3, 4, 5, 8, 9, 10}
+A $\cap$ B' = {1, 2, 5} = A
+
+Q2. If 2 f (x) - $3 f\left(\frac{1}{x}\right)=x^{2}$ (x $\ne$ 0) Then f(2) is equal to
+    (A) $-\frac{7}{4}$   <-- CORRECT
+    (B) 2
+    (C) $\frac{5}{2}$
+    (D) -1
+    Answer: A
+    Explanation: $2 f(x)-3 f\left(\frac{1}{x}\right)=x^{2} $ .... (1)
+Replace x by 1/x in eqn 1)
+$2 f\left(\frac{1}{x}\right)-3 f(x)=\frac{1}{x^{2}} $ ... (2)
+Multiply eqn 1 by 2 and eqn 2 by 3 and add them .
+On adding we get,
+$-5 f(x)=2 x^{2}+\frac{3}{x^{2}}$
+$f(x)=\frac{-1}{5}\left(2 x^{2}+\frac{3}{x^{2}}\right)$
+$f(2)=\frac{-1}{5}\left(2 \times 2^{2}+\frac{3}{2^{2}}\right)=\frac{-1}{5}\left(8+\frac{3}{4}\right)$
+$=\frac{-1}{5}\left(\frac{35}{4}\right)=\frac{-7}{4}$
+
+Q3. If z = x + iy ; x, y $\in $ R then :
+    (A) $z\bar z > {\left| z \right|^2}$
+    (B) $z\bar z \ne {\left| z \right|^2}$
+    (C) $z\bar z = {\left| z \right|^2}$   <-- CORRECT
+    (D) $z\bar z < {\left| z \right|^2}$
+    Answer: C
+    Explanation: If z = x + iy then $\bar { Z }$ = x - iy
+Now $z \bar{z}$ = (x + iy) $\cdot$ (x - iy) = x^2 + y^2 = |z|^2 [$\because$ |z| = $\sqrt{x^{2}+y^{2}}$]
+
+Q4. The sum to n terms of the series $\frac{1}{\sqrt{1}+\sqrt{3}}$ + $\frac{1}{\sqrt{3}+\sqrt{5}}$ + $\frac{1}{\sqrt{5}+\sqrt{7}}$ + ...... is
+    (A) $\sqrt{2 n+1}$
+    (B) $\frac{1}{2}\{\sqrt{2 n+1}-1\}$   <-- CORRECT
+    (C) $\frac{1}{2} \sqrt{2 n+1}$
+    (D) $\sqrt{2 n+1}-1$
+    Answer: B
+    Explanation: Let T_n be the nth term of the given series.
+Thus, we have:
+T_n = $\frac{1}{\sqrt{2 n-1}+\sqrt{2 n+1}}$ = $\frac{\sqrt{2 n+1}-\sqrt{2 n-1}}{2}$
+Now,we calculate the sum
+Let S_n be the n term of the given series.
+Thus, we have:
+S_n = $\sum_{k=1}^{n} T_{k}$
+= $\sum_{k=1}^{n}$ $\left(\frac{\sqrt{2 k+1}-\sqrt{2 k-1}}{2}\right)$
+= $\frac{1}{2}$ $\sum_{k=1}^{n}$ $(\sqrt{2 k+1}-\sqrt{2 k-1})$
+= $\frac{1}{2}$ $[(\sqrt{3}-\sqrt{1})+(\sqrt{5}-\sqrt{3})$ + $(\sqrt{7}-\sqrt{5})+\ldots+$ $(\sqrt{2 n+1}-\sqrt{2 n-1})]$
+= $\frac{1}{2}$ $\{(-1)+\sqrt{2 n+1}\}$
+= $\frac{1}{2}$ $\{\sqrt{2 n+1}-1\}$
+
+Q5. The G.M. of the numbers 4, 8, 16 is
+    (A) 28
+    (B) $\frac{28}{3}$
+    (C) $\frac{28}{7}$
+    (D) 8   <-- CORRECT
+    Answer: D
+    Explanation: G.M between two numbers a and b is given by,
+G.M = $\sqrt{a b}$ 
+= $\sqrt{4 \times 16}$ = $\sqrt{64}$ = 8
+
+Q6. Instructions for Question 46 to 50:
+A parking lot in an IT company is triangular shaped with two of its vertices at B(-2, 0) and C(1, 12). The third vertex A is at mid point of the line joining the points (1, 1) and (3, 11).
+The line obtained in (iv) divides the parking lot in two unequal areas. Volunteers are asked to put posters on Child Labour and Education for All in these two areas. Suggest which posters should be put up in which area of the parking lot.
+    (A) Child Labour deserves more space
+    (B) Education for All deserves more space
+    (C) Both should be given equal space   <-- CORRECT
+    (D) No poster should be put up
+    Answer: C
+    Explanation: Both are socially relevant topics and are like the two sides of the same coin. Both the poster should be treated equally.
+
+Q7. Instructions for Question 46 to 50:
+A parking lot in an IT company is triangular shaped with two of its vertices at B(-2, 0) and C(1, 12). The third vertex A is at mid point of the line joining the points (1, 1) and (3, 11).
+Find the equation of line perpendicular to BC and passing through the vertex A.
+    (A) x - 4y = 26
+    (B) x + 2y = 26
+    (C) x - 2y = 26
+    (D) x + 4y = 26   <-- CORRECT
+    Answer: D
+    Explanation: Equation of line perpendicular to 4x - y + 8 = 0 and passing through A(2, 6)
+y - 6 = $\frac{-1}{4}$ (x - 2)
+$\Rightarrow$ 4y - 24 = -x + 2
+$\Rightarrow$ x + 4y = 26
+
+Q8. Instructions for Question 46 to 50:
+A parking lot in an IT company is triangular shaped with two of its vertices at B(-2, 0) and C(1, 12). The third vertex A is at mid point of the line joining the points (1, 1) and (3, 11).
+Find the equation of line parallel to BC and passing through the vertex A.
+    (A) 4x - y = 2   <-- CORRECT
+    (B) 4y - x = 2
+    (C) 4y - x = -2
+    (D) 4x - y = -2
+    Answer: A
+    Explanation: Equation of line parallel to 4x - y + 8 = 0 and passing through A(2, 6) is:
+y - 6 = 4(x - 2)
+$\Rightarrow$ 4x - y - 2 = 0
+$\Rightarrow$ 4x - y = 2
+
+Q9. Instructions for Question 46 to 50:
+A parking lot in an IT company is triangular shaped with two of its vertices at B(-2, 0) and C(1, 12). The third vertex A is at mid point of the line joining the points (1, 1) and (3, 11).
+Find the equation of line that passes through the points B(-2, 0) and C(1, 12).
+    (A) 4y - 4x = 8
+    (B) 4x - y + 8 = 0   <-- CORRECT
+    (C) y + 4x = 8
+    (D) 4x - y - 8 = 0
+    Answer: B
+    Explanation: Equation of line through B(-2, 0) and C(1, 12) is given by $\frac{y-y_{1}}{y_{2}-y_{1}}=\frac{x-x_{1}}{x_{2}-x_{1}}$
+$\Rightarrow \frac{y-0}{12-0}=\frac{x+2}{1+2}$
+$\Rightarrow \frac{y}{12}=\frac{x+2}{3}$
+$\Rightarrow$ 4x - y + 8 = 0
+
+Q10. Instructions for Question 46 to 50:
+A parking lot in an IT company is triangular shaped with two of its vertices at B(-2, 0) and C(1, 12). The third vertex A is at mid point of the line joining the points (1, 1) and (3, 11).
+Find the coordinates of A.
+    (A) (1, -1)
+    (B) (-1, -5)
+    (C) (2, 6)   <-- CORRECT
+    (D) (-2, -6)
+    Answer: C
+    Explanation: A is the midpoint of line segment joining (1, 1) and (3, 11). By midpoint formula,
+A = $\left(\frac{1+3}{2}, \frac{1+11}{2}\right)$
+= (2, 6)

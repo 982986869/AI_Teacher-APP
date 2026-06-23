@@ -1,0 +1,661 @@
+======================================================================
+Mock Test - 10  (id 183)
+CBSE > Class 11 > Mathematics
+Duration: 90 min | Questions: 50
+======================================================================
+
+INSTRUCTIONS:
+This question paper contains three sections - A, B and C. Each part is compulsory.
+ Section - A has 20 MCQs, attempt any 16 out of 20.
+ Section - B has 20 MCQs, attempt any 16 out of 20
+ Section - C has 10 MCQs, attempt any 8 out of 10.
+ There is no negative marking.
+ All questions carry equal marks.
+
+------------------------------------------------------------
+Section A
+------------------------------------------------------------
+Q1. The number of proper subsets of the set {1, 2, 3} is :
+    (A) 6
+    (B) 8
+    (C) 5
+    (D) 7   <-- CORRECT
+    Answer: D
+    Explanation: The no. of proper subsets = 2^n - 1 = 2^3 - 1 = 7
+Here n = no of elements of given set = 3.
+
+Q2. If A = {1, 2, 3), B = {1, 4, 6, 9} and R is a relation from A to B defined by x is greater than y. The range R is
+    (A) {4, 6, 9}
+    (B) {1, 4, 6, 9}
+    (C) {1}   <-- CORRECT
+    (D) {6, 9}
+    Answer: C
+    Explanation: As per condition of the relation, x > y.
+So, required relation will be : {(2, 1), (3, 1)}
+Since we know that Range is the set of elements written after comma in each ordered pair.
+Therefore, Range = {1}
+
+Q3. Projection (the foot of perpendicular) from (x, y) on the x-axis is
+    (A) (0, - y)
+    (B) (-x, 0)
+    (C) (0, y)
+    (D) (x, 0)   <-- CORRECT
+    Answer: D
+    Explanation: Let L be the foot of the perpendicular from the X-axis. Therefore its y coordinate is zero.
+Therefore the coordinates of the point L is (x, 0).
+
+Q4. (0.15 + 0.015 + 0.0015 + ... to 8 terms) = ?
+    (A) $\frac{1}{6}\left(1-\frac{1}{10^{8}}\right)$   <-- CORRECT
+    (B) $\frac{1}{6}\left(1+\frac{1}{10^{8}}\right)$
+    (C) $\frac{1}{6}\left(1-\frac{1}{10^{7}}\right)$
+    (D) $\frac{1}{6}\left(1+\frac{1}{10^{7}}\right)$
+    Answer: A
+    Explanation: Here, we have a = 0.15 and $r=\frac{0.015}{0.15}=\frac{0.015}{0.015 \times 10}=\frac{1}{10}<1$
+$\therefore S_{n}=\frac{a\left(1-r^{n}\right)}{(1-r)}=\frac{0.15\left[1-\frac{1}{10^{n}}\right]}{\left(1-\frac{1}{10}\right)}=\left(\frac{15}{100} \times \frac{10}{9}\right)\left(1-\frac{1}{10^{n}}\right)=\frac{1}{6}\left(1-\frac{1}{10^{n}}\right)$
+$\therefore S_{8}=\frac{1}{6}\left(1-\frac{1}{10^{8}}\right)$
+
+Q5. A line is equally inclined to the axis and the length of perpendicular from the origin upon the line is $\sqrt 2 $. A possible equation of the line is
+    (A) x + y = 2   <-- CORRECT
+    (B) y = $\sqrt 2 $ x + 2
+    (C) y = x + 1
+    (D) y = x + $\sqrt 2 $
+    Answer: A
+    Explanation: Since the line is equally inclined, the slope of the line should be -1, because it makes 135^o in the positive direction of the X-axis.
+This implies the equation of the line is y = -x + c 
+i.e; x + y - c = 0
+distance of the line from the origin is given as $\sqrt 2$ 
+Therefore $\sqrt 2$ = $|c|\over \sqrt{1^2+1^2}$ 
+This implies c = 2
+Hence, the equation of the line is x + y = 2
+
+Q6. If $\alpha$ is a repeated root of ax^2 + bx + c = 0, then $\lim \limits_{x \rightarrow \alpha} \frac{\tan \left(a x^{2}+b x+c\right)}{(x-\alpha)^{2}}$ is
+    (A) b
+    (B) 0
+    (C) c
+    (D) a   <-- CORRECT
+    Answer: D
+    Explanation: $\lim \limits_{x \rightarrow \alpha}\left[\frac{\tan \left(a x^{2}+b x+c\right)}{(x-\alpha)^{2}}\right]$
+$=\lim \limits_{x \rightarrow \alpha}\left[\frac{\tan \{a(x-\alpha)(x-\alpha)\}}{a(x-\alpha)^{2}}\right] \times a$
+$=\lim \limits_{x \rightarrow \alpha}\left[\frac{\tan \left\{a(x-\alpha)^{2}\right\}}{a(x-\alpha)^{2}}\right] \times a$
+$=1 \times a\left[\lim \limits_{\theta \rightarrow 0}\left(\frac{\tan \theta}{\theta}\right)=1\right]$
+= a
+
+Q7. Mode of the data 3, 2, 5, 2, 3, 5, 6, 6, 5, 3, 5, 2, 5 is
+    (A) 4
+    (B) 3
+    (C) 6
+    (D) 5   <-- CORRECT
+    Answer: D
+    Explanation: Most repeated value is the mode. Here it is 5
+
+Q8. The symmetric difference of A = {1, 2, 3} and B = {3, 4, 5} is
+    (A) {1, 2}
+    (B) {2, 5, 1, 4, 3}
+    (C) {1, 2, 4, 5}   <-- CORRECT
+    (D) {4, 3}
+    Answer: C
+    Explanation: Here, we have A = {1, 2, 3} and B = {3, 4, 5}
+The symmetric difference of A and B is given by :- (A - B) $\cup$ (B - A)
+Now, we have:
+(A - B) = {1, 2}
+(B - A) = { 4, 5}
+(A - B) $\cup$ (B - A)
+= {1, 2, 4, 5}
+
+Q9. If B is the set of numbers obtained by adding 1 to each of the even numbers, then its set builder notation is
+    (A) B = {x : x is even}
+    (B) B = {x : x is odd and x $ \in $ Z}   <-- CORRECT
+    (C) B = {x : x is odd and x $> $1}
+    (D) B = {x : x is an integer}
+    Answer: B
+    Explanation: If we add an odd number and 1 then we get even number
+$\therefore$ B = {x : x is odd and x $ \in $ Z}
+
+Q10. If p be the length of the perpendicular from the origin on the line $\frac {x} {a} + \frac {y} {b} = 1$, then
+    (A) p^2 = 2a^2 + 2b^2
+    (B) p^2 = a^2 + b^2
+    (C) $p^{2}=\frac{1}{a^{2}}+\frac{1}{b^{2}}$
+    (D) $\frac{1}{p^{2}}=\frac{1}{a^{2}}+\frac{1}{b^{2}}$   <-- CORRECT
+    Answer: D
+    Explanation: It is given that p is the length of the perpendicular from the origin on the line
+$\frac{x}{a}+\frac{y}{b}=1$
+$\frac{1}{a} x+\frac{1}{b}$ y - 1 = 0
+Using the formula of the distance we get, 
+$\therefore p=\left|\frac{0+0-1}{\sqrt{\frac{1}{a^{2}}+\frac{1}{b^{2}}}}\right|$
+Squaring both sides,
+$\Rightarrow \frac{1}{p^{2}}=\frac{1}{a^{2}}+\frac{1}{b^{2}}$
+
+Q11. The sum of all 3-digit numbers divisible by 5 is
+    (A) 98550   <-- CORRECT
+    (B) 96950
+    (C) 95850
+    (D) 97650
+    Answer: A
+    Explanation: We have, Sn = 100 + 105 + 110 + ... + 995
+$a+(n-1) d=995 \Rightarrow 100+(n-1) \times 5=995$ 
+$\Rightarrow(n-1)=\frac{895}{5}=179 \Rightarrow n=180$
+$S_{n}=\frac{n}{2}(a+l)=\frac{180}{2} \times(100+995)$= $(90 \times 1095)$ = 98550
+
+Q12. The area of triangle formed by the lines y = x, y = 2x and y = 3x + 4 is
+    (A) 7
+    (B) 4   <-- CORRECT
+    (C) 8
+    (D) 9
+    Answer: B
+    Explanation: Area of the triangle formed by the coordinates (x_1, y_1), (x_2, y_2) and (x_3, y_3) is given by
+$1\over 2$[x_1(y_2 - y_3) + x_2(y_3 - y_1) + x_3(y_1 - y_2)]
+On solving the lines 1 and 2, the point of intersection is (0, 0)
+On solving the lines 2 and 3, the point of intersection is (4, 8)
+On solving the line 3 and 1 , the point of intersection is (-2, -2)
+Now substituting the values to find the area of the triangle,
+Area = $1\over 2$| [0 + 4(-2 - 0) + (-2)(0 - 8)] |
+= 4 sq units
+
+Q13. $\lim \limits_{h \rightarrow 0}\left\{\frac{1}{h^{} \sqrt[3]{8+h}}-\frac{1}{2 h}\right\}=$
+    (A) $-\frac {4}{3}$
+    (B) $-\frac {1}{48}$   <-- CORRECT
+    (C) $-\frac {1}{12}$
+    (D) $-\frac {16}{3}$
+    Answer: B
+    Explanation: $\lim \limits_{h \rightarrow 0}\left[\frac{1}{h \sqrt[3]{8+h}}-\frac{1}{2 h}\right]$
+$=\lim \limits_{h \rightarrow 0}\left[\frac{1}{h}\left\{\frac{1}{\sqrt[3]{8+h}}-\frac{1}{2}\right\}\right]$
+$=\lim \limits_{h \rightarrow 0}\left[\frac{1}{h}\left\{\frac{2-(8+h)^{1 / 3}}{2 \times \sqrt[3]{8+h}}\right\}\right]$
+$=\lim \limits_{h \rightarrow 0}\left[\frac{1}{h}\left\{\frac{8^{1 / 3}-(8+h)^{1 / 3}}{2 \sqrt[3]{8+h}}\right\}\right]$ [A^3 - B^3 = (A - B)(A^2 + AB + B^2) or A - B $\frac{A^{3}-B^{3}}{A^{2}+A B+B^{2}}$]
+$=\lim \limits_{h \rightarrow 0}\left[\frac{8-(8+h)}{h\{2 \sqrt[3]{8+h}\}\left\{4+2(8+h)^{1 / 3}+(8+h)^{2 / 3}\right\}}\right]$
+$=\left[\frac{-1}{2 \times \sqrt[3]{8}\left\{4+2 \times 8^{1 / 3}+8^{2 / 3}\right\}}\right]$
+$=\frac{-1}{2 \times 2(4+4+4)}$
+$=\frac{-1}{48}$
+
+Q14. If the mean of the squares of first n natural numbers be 11, then n is equal to
+    (A) 11
+    (B) 5   <-- CORRECT
+    (C) $\frac{-13}{2}$
+    (D) 13
+    Answer: B
+    Explanation: Mean = $\frac{{\frac{{n(n + 1)(2n + 1)}}{6}}}{n} = \frac{{(n + 1)(2n + 1)}}{6}$ 
+$\Rightarrow$ 11 = $\frac{(n+1)(2 n+1)}{6}$ 
+$\Rightarrow$ 66 = (n + 1)(2n + 1)
+$\Rightarrow$ 2n^2 + 3n - 65 = 0
+$\Rightarrow$ 2n^2 + 13n - 10n - 65 = 0
+$\Rightarrow$ (2n + 13)(n - 5) = 0
+$\Rightarrow$ n = 5, $\frac{-13}{2}$ 
+So, n = 5
+
+Q15. Let A and B be two sets in the same universal set. Then, A - B =
+    (A) A' $\cap$ B
+    (B) A' $\cap$ B'
+    (C) A $\cap$ B'   <-- CORRECT
+    (D) A $\cap$ B
+    Answer: C
+    Explanation: A - B belongs to those elements of A that do not belong to B.
+$\therefore$ A - B = A $\cap$ B'.
+
+Q16. If f (x) $=\frac{\sin ^{4} x+\cos ^{2} x}{\sin ^{2} x+\cos ^{4} x}$ for x $\in R$ then f (2002).
+    (A) 3
+    (B) 1   <-- CORRECT
+    (C) 4
+    (D) 2
+    Answer: B
+    Explanation: $f(x)=\frac{\left(\sin ^{2} x\right)^{2}+\cos ^{2} x}{1-\cos ^{2} x+\left(\cos ^{2} x\right)^{2}}$
+$=\frac{\left(1-\cos ^{2} x\right)^{2}+\cos ^{2} x}{1-\cos ^{2} x+\cos ^{4} x}$
+$=\frac{1+\cos ^{4} x-2 \cos ^{2} x+\cos ^{2} x}{1-\cos ^{2} x+\cos ^{4} x}$
+$=\frac{1+\cos ^{4} x-\cos ^{2} x}{1-\cos ^{2} x+\cos ^{4} x}=1$
+Now, f (2002) = 1
+
+Q17. The foot of the perpendicular from (2, 3) on the line 3x + 4y – 6 = 0 is
+    (A) $( - \frac {14} {25}, \frac {29} {25})$
+    (B) $(\frac {14} {25}, - \frac {27} {25})$
+    (C) $(\frac {14} {25}, \frac {27} {25})$   <-- CORRECT
+    (D) $( - \frac {14} {25}, - \frac {27} {25})$
+    Answer: C
+    Explanation: The equation of the line perpendicular to the given line 3x + 4y = 6 is 4x - 3y + k = 0
+Since this line passes through (2, 3)
+4(2) - 3(3) + k = 0
+Therefore k = 1
+Therefore the line which is perpendicular to the given line is 4x - 3y + 1 = 0
+On solving both the equations we get, x = $\frac{14}{25}$ and y = $\frac{27}{25}$
+Hence the foot of the perpendicular is ($\frac{14}{25}$, $\frac{27}{25}$)
+
+Q18. The sum of the infinite geometric series $\left(1-\frac{1}{3}+\frac{1}{3^{2}}-\frac{1}{3^{3}}+\ldots \infty\right)=$ ?
+    (A) $\frac{3}{4}$   <-- CORRECT
+    (B) $\frac{2}{3}$
+    (C) $\frac{4}{9}$
+    (D) $\frac{2}{9}$
+    Answer: A
+    Explanation: Given, a = 1 and R = $\frac{-1}{3}$. Clearly, |r| = $\frac{1}{3}<1$.
+$\therefore S_{\infty}=\frac{a}{(1-r)}=\frac{1}{\left(1+\frac{1}{3}\right)}=\frac{3}{4}$.
+
+Q19. The line which passes through the point ( 0 , 1 ) and perpendicular to the line x – 2y + 11 = 0 is
+    (A) 2x – y + 3 = 0
+    (B) 2x – y - 3 = 0
+    (C) 2x + y – 1 = 0   <-- CORRECT
+    (D) 2x – y + 1 = 0
+    Answer: C
+    Explanation: The line which is perpendicular to the given line is 2x + y + k = 0
+Since it passes through (0,1)
+2(0) + 1 + k = 0
+This implies k = -1
+Hence the equation of the required line is 2x + y - 1 = 0
+
+Q20. $\mathop {lim}\limits_{x \to 0} \;\;\left[ {\cos x} \right]$
+    (A) does not exist
+    (B) is equal to 1
+    (C) is equal to – 1
+    (D) is equal to 0   <-- CORRECT
+    Answer: D
+    Explanation: L.H.L. = $\underset{x \rightarrow 0}{lim}[\cos (x-h)]$ = 0
+R.H.L = $\underset{x \rightarrow 0}{lim}[\cos (x+h)]$ = 0
+
+------------------------------------------------------------
+Section B
+------------------------------------------------------------
+Q1. If the median = (mode + 2 mean)$\mu $, then $\mu $ is equal to
+    (A) $\frac{1}{3}$   <-- CORRECT
+    (B) 3
+    (C) $\frac{2}{3}$
+    (D) 2
+    Answer: A
+    Explanation: We know that 3 median = mode + 2 mean
+So, 
+3(mode + 2mean) $\mu$ = mode + 2mean
+$\mu$ = $\frac{1}{3}$
+
+Q2. If A = {1, 3, 5, 7, 9, 11, 13, 15, 17} ,B = {2, 4, ... , 18} and N the set of natural numbers is the universal set, then A′ $\cup$ (A $\cup$ B) $\cap$ B′) is
+    (A) B
+    (B) $\phi$
+    (C) N   <-- CORRECT
+    (D) A
+    Answer: C
+    Explanation: We have,A′ $\cup$ (A $\cup$ B) $\cap$ B′
+= A′ $\cup$ [(B’ $\cap$ A) $\cup$ (B’ $\cap$ B)] {$\because$ Distributive property of set: (A $\cap$ B) $\cup$ (A $\cap$ C) = A $\cap$ (B $\cup$ C)}
+= A′ $\cup$ [(A $\cap$ B’) $\cup$ Φ] {$\because$ (B’ $\cap$ B) = $\phi$}
+= A′ $\cup$ (A $\cap$ B’) = (A’ $\cup$ A) $\cap$ (A’ $\cup$ B’) {$\because$ Distributive property of set: (A $\cup$ B) $\cap$ (A $\cup$ C) = A $\cup$ (B $\cap$ C)}
+= Φ $\cap$ (A’ $\cup$ B’) {$\because$ (A’ $\cap$ A) = $\phi$}
+= (A’ $\cup$ B’) = (A $\cap$ B)’ {$\because$ (A’ $\cup$ B’)
+= (A $\cap$ B)’} A′ $\cup$ (A $\cup$ B) $\cap$ B′ = (A $\cap$ B)’
+A contains all odd numbers and B contains all even numbers
+Therefore, A $\cap$ B = $\phi$
+⇒ A′ $\cup$ (A $\cup$ B) $\cap$ B′ = {$\phi$}’
+⇒ A′ $\cup$ (A $\cup$ B) $\cap$ B′ = N
+
+Q3. If f(x) = $\frac{1}{\sqrt{x-|x|}}$, then D_f is equal to
+    (A) $\phi $   <-- CORRECT
+    (B) $(0,\infty )$
+    (C) $( - \infty ,{\rm{ }}0)$
+    (D) R
+    Answer: A
+    Explanation: This function is defined only if 
+x - |x| > 0
+$\Rightarrow$ x > |x|
+Which is not possible because
+|x| $\ge$ x
+so, $x \in \phi $
+
+Q4. The straight lines x + y - 4 = 0, 3x + y – 4 = 0, x - 3y – 4 = 0 form a triangle which is
+    (A) equilateral
+    (B) right angled triangle   <-- CORRECT
+    (C) obtuse angled triangle
+    (D) Acute angled triangle
+    Answer: B
+    Explanation: The triangle formed by these lines is a right-angled triangle.
+If the lines are perpendicular to each other, then the product of their slopes is -1
+The slope of lines 3x + y – 4 = 0, x - 3y – 4 = 0 are -3 and $\frac{1}{3}$ respectively.
+The product of the slopes is -1.
+Hence these two lines are perpendicular to each other.
+This infers that the triangle formed by these lines is a right angled triangle.
+
+Q5. $1+\sqrt{3}+3+3 \sqrt{3}$ + ... upto 10 terms = ?
+    (A) $100(\sqrt{3}+1)$
+    (B) $81(\sqrt{3}+1)$
+    (C) None of these
+    (D) $121(\sqrt{3}+1)$   <-- CORRECT
+    Answer: D
+    Explanation: Here, a = 1 and r = $\frac{\sqrt{3}}{1}$ = $\sqrt{3}$ > 1.
+$\therefore S_{n}=\frac{a\left(r^{n}-1\right)}{(r-1)} \Rightarrow S_{10}=\frac{a\left(r^{10}-1\right)}{(r-1)}=\frac{1 \times\left[(\sqrt{3})^{10}-1\right]}{(\sqrt{3}-1)}=\frac{\left(3^{5}-1\right)}{(\sqrt{3}-1)} \times \frac{(\sqrt{3}+1)}{(\sqrt{3}+1)}$
+$\Rightarrow S_{10}=\frac{(243-1)}{2} \times(\sqrt{3}+1)=\frac{242}{2} \cdot(\sqrt{3}+1)$ = $121(\sqrt{3}+1)$.
+
+Q6. $\lim _\limits{x \rightarrow \frac{\pi}{4}} \frac{\sec ^{2} x-2}{\tan x-1}$ is equal to
+    (A) 1
+    (B) 2   <-- CORRECT
+    (C) 3
+    (D) 0
+    Answer: B
+    Explanation: Given, $\lim _\limits{x \rightarrow \frac{\pi}{4}} \frac{\sec ^{2} x-2}{\tan x-1}=\lim _\limits{x \rightarrow \frac{\pi}{4}} \frac{1+\tan ^{2} x-2}{\tan x-1}$
+$=\lim _\limits{x \rightarrow \frac{\pi}{4}} \frac{\tan ^{2} x-1}{\tan x-1}=\lim _\limits{x \rightarrow \frac{\pi}{4}} \frac{(\tan x+1)(\tan x-1)}{(\tan x-1)}$
+$=\lim _\limits{x \rightarrow \frac{\pi}{4}}(\tan x+1)=\tan \frac{\pi}{4}+1=1+1=2$
+
+Q7. Mean deviation for n observations x_1, x_2, ..., x_n from their mean $\bar x$ is given by
+    (A) $\sum_\limits{i=1}^{n}\left(x_{i}-\bar{x}\right)^{2}$
+    (B) $\sum_\limits{i=1}^{n}\left(x_{i}-\bar{x}\right)$
+    (C) $\frac{1}{n}\sum _\limits{i=1}^{n}\left(x_{i}-\bar{x}\right)^{2}$
+    (D) $\frac{1}{n}\sum _\limits{i=1}^{n}\left|x_{i}-\bar{x}\right|$   <-- CORRECT
+    Answer: D
+    Explanation: We know for n observations x_1, x_2, ..., x_n having $\bar x$ is given by
+M.D = $\frac{\sum {d}_{{i}}}{{n}}$
+But we know
+d_i = $\left|\mathrm{x}_{\mathrm{i}}-\overline{\mathrm{x}}\right|$
+So mean deviation becomes,
+M.D = $\frac{\sum\left|{x}_{{i}}-\overline{{x}}\right|}{{n}}$
+Or
+M.D = $\frac{1}{{n}} \sum_\limits{{i}=0}^{{n}}\left|{x}_{{i}}-\overline{{x}}\right|$
+
+Q8. Which of the following is a set?
+ A collection of vowels in English alphabets is a set.
+ The collection of most talented writers of India is a set.
+ The collection of most difficult topics in Mathematics is a set.
+ The collection of good cricket players of India is a set.
+    (A) C
+    (B) B
+    (C) D
+    (D) A   <-- CORRECT
+    Answer: D
+    Explanation: The set is {a, e, i, o, u}
+
+Q9. The domain of the function $f(x)=\sqrt{\frac{(x+1)(x-3)}{x-2}}$ is
+    (A) $\:[1,-2\:] \cup\:[-3, \infty)$
+    (B) $(-1,2) \cup\:[3, \infty)$
+    (C) $\:[-1,2) \cup\:[3, \infty)$   <-- CORRECT
+    (D) $\:[-1,2\:] \cup\:[3, \infty)$
+    Answer: C
+    Explanation: Here $\frac{(x+1)(x-3)}{(x-2)} \geq 0$
+But $x \neq 2$
+so, $x \in[-1,2) \cup[3, \infty)$
+
+Q10. The distance between the lines 5x – 12y + 65 = 0 and 5x – 12y – 39 = 0
+    (A) - 8
+    (B) 2
+    (C) - 2
+    (D) 8   <-- CORRECT
+    Answer: D
+    Explanation: To find the distance between two parallel lines given by the equations $A x+B y+C_1=0$ and $A x+B y+C_2=0$, we can use the formula:
+$ \text { Distance }=\frac{\left|C_2-C_1\right|}{\sqrt{A^2+B^2}} $
+For the lines $5 x-12 y+65=0$ and $5 x-12 y-39=0$ : - Here, $A=5, B=-12, C_1=65$, and $C_2=-39$. Now, we calculate the distance:
+$ \text { Distance }=\frac{|-39-65|}{\sqrt{5^2+(-12)^2}}=\frac{|-104|}{\sqrt{25+144}}=\frac{104}{\sqrt{169}}=\frac{104}{13}=8 $
+
+Q11. If 1 + $\frac{1+2}{2}$ + $\frac{1+2+3}{3}$ + ...... to n terms is S. Then, S is equal to
+    (A) $\frac{n(n+3)}{4}$   <-- CORRECT
+    (B) n^2
+    (C) $\frac{n(n+2)}{4}$
+    (D) $\frac{n(n+1)(n+2)}{6}$
+    Answer: A
+    Explanation: Let T_n be the nth term of the given series.
+Thus, we have:
+T_n = $\frac{1+2+3+4+5+\ldots+n}{n}$ = $\frac{n(n+1)}{2 n}$ = $\frac{n}{2}+\frac{1}{2}$
+Now, sum of n terms is,
+S_n be the sum of n terms of the given series.
+Thus, we have:
+S_n = $\sum_{k=1}^{n}$ $\left(\frac{k}{2}+\frac{1}{2}\right)$
+$\Rightarrow$ S_n = $\sum_{k=1}^{n}$ $\frac{k}{2}+\frac{n}{2}$
+$\Rightarrow$ S_n = $\frac{n(n+1)}{4}$ + $\frac{n}{2}$
+$\Rightarrow$ S_n = $\frac{n}{2}$ $\left(\frac{n+1}{2}+1\right)$
+$\Rightarrow$ S_n = $\frac{n}{2}$ $\left(\frac{n+3}{2}\right)$
+$\Rightarrow$ S_n = $\frac{n(n+3)}{4}$
+
+Q12. If f(x) = 1+ x + $\frac{x^{2}}{2}+\dots+\frac{x^{100}}{100}$, then f'(1) is equal to
+    (A) does not exist
+    (B) $\frac{1}{100}$
+    (C) 0
+    (D) 100   <-- CORRECT
+    Answer: D
+    Explanation: Given, $f(x)=1+x+\frac{x^{2}}{2}+\cdots+\frac{x^{100}}{100}$
+$f^{\prime}(x)=1+\frac{2 x}{2}+\cdots+\frac{100 x^{99}}{100}$
+$\therefore$ f'(x) = 1 + 1 + 1 + .... + 1 (100 times) = 100
+
+Q13. The mean deviation of the numbers 3, 4, 5, 6, 7 from the mean is
+    (A) 1.2   <-- CORRECT
+    (B) 5
+    (C) 25
+    (D) 0
+    Answer: A
+    Explanation: Mean (X) = $\frac{3+4+5+6+7}{5}$
+= $\frac{25}{5}$ = 5
+Taking the absolute value of deviation of each term from the mean, we get:
+MD = $\frac{|(3-5)|+|(4-5)|+|(5-5)|+|(6-5)|+|(7-5)|}{5}$
+= $\frac{2+1+0+1+2}{5}$
+= $\frac{6}{5}$
+= 1.2
+
+Q14. If ${\left( { - 1 + \sqrt 3 i} \right)^n} + {\left( { - 1 - \sqrt 3 i} \right)^n} = {2^n}\alpha $ then $\alpha $ is equal to :
+    (A) -1
+    (B) $ { \left( \omega \right) }^{ n }+{ \left( { \omega }^{ 2 } \right) }^{ n } $   <-- CORRECT
+    (C) 1
+    (D) 2
+    Answer: B
+    Explanation: We have $-1+i \sqrt{3}=2 \omega$ and $-1-i \sqrt{3}=2 \omega^{2}$ 
+Now 
+$(-1+\sqrt{3} i)^{n}+(-1-\sqrt{3} i)^{n}$ = $(2 \omega)^{n}+\left(2 \omega^{2}\right)^{n}$ = $2^{n}\left[(\omega)^{n}+\left(\omega^{2}\right)^{n}\right]$
+
+Q15. The minimum value of the expression 3^x + 3^1 - x, x $ \in $ R, is
+    (A) 0
+    (B) $2 \sqrt3$   <-- CORRECT
+    (C) $\frac{1}{3}$
+    (D) 3
+    Answer: B
+    Explanation: We know A.M. $\ge$ G.M. for positive numbers.
+Thus, $\frac{3^{x}+3^{1-x}}{2} \geq \sqrt{3^{x} \cdot 3^{1-x}}$
+$\Rightarrow$ $\frac{3^{x}+3^{1-x}}{2} \geq \sqrt{3^{x} \cdot \frac{3}{3^{x}}}$
+$\Rightarrow$ $3^{x}+3^{1-x} \geq 2 \sqrt{3}$.
+
+Q16. Which of the following statement is false :
+    (A) A - B = A - (A $\cap$ B)
+    (B) A - B = A $\cap$ B'
+    (C) A - B = (A $\cup$ B) - B
+    (D) A - B = A - B'   <-- CORRECT
+    Answer: D
+    Explanation: We know that A - B = A $\cap$ B' 
+Here, we see that A - B = A$\cap$B
+$\therefore$ this option is false.
+
+Q17. A relation R is defined from {2, 3, 4, 5} to {3, 6, 7, 10} by: x R y $\Leftrightarrow$ x is relatively prime to y. Then domain of R is
+    (A) {2, 3, 4, 5}   <-- CORRECT
+    (B) {2, 3, 5}
+    (C) {3, 5}
+    (D) {2, 3, 4}
+    Answer: A
+    Explanation: Relatively prime numbers are those numbers that have only 1 as the common factor.
+So, according to this definition we get to know that (2, 3), (2, 7), (3, 7), (3, 10), (4, 3), (4, 7), (5, 3), (5, 6), (5, 7) are relatively prime.
+So, R = {(2, 3), (2, 7), (3, 7), (3, 10), (4, 3), (4, 7), (5, 3), (5, 6) ,(5, 7)}.
+Therefore, the Domain of R is the values of x or the first element of the ordered pair.
+So, Domain = {2, 3, 4, 5}
+
+Q18. Mark the correct answer for: i^91 = ?
+    (A) 1
+    (B) i
+    (C) -1
+    (D) -i   <-- CORRECT
+    Answer: D
+    Explanation: i^91 = (i^4)^22 $\times$i^3 = 1$\times$i^2 = 1$\times$(-1)$\times$i = -i
+
+Q19. The number of numbers between x and x^2 which are divisible by x is
+    (A) x
+    (B) x - 3
+    (C) x – 1
+    (D) x – 2   <-- CORRECT
+    Answer: D
+    Explanation: The required sequence is 2x, 3x, 4x ... (x - 1)x
+Hence we get T_1 = a = 2x and T_n = (x - 1)x
+So using the nth term formula for A.P
+T_n = a + (n - 1)d 
+$\Rightarrow$ x(x - 1) = 2x + (n - 1)x
+$\Rightarrow$ x - 1 = (n + 1)
+$\Rightarrow$ n = x - 2
+Hence the number of numbers between x and x^2 which are divisible by x is x - 2.
+
+Q20. The sum of first n terms of the series 1 – 1 + 1 – 1 + … is
+    (A) - 1
+    (B) $ \pm 1$
+    (C) (-1)^n
+    (D) 1 if n is odd and 0 when n is even   <-- CORRECT
+    Answer: D
+    Explanation: 1 - 1 + 1 - 1 + ..... + .... upto n terms
+= [1 - 1] + [1 - 1] + [1 - 1] + .....+ [1 - 1] = 0 when n is even
+= [1 - 1] + [1 - 1] + [1 - 1] + .... + [1 - 1] + 1 = 1 when n is odd
+
+------------------------------------------------------------
+Section C
+------------------------------------------------------------
+Q1. If A = {0, 1, 5, 4, 7}. Then the total number subsets of A are
+    (A) 32   <-- CORRECT
+    (B) 20
+    (C) 40
+    (D) 64
+    Answer: A
+    Explanation: In any set having 'n' elements the total no of subsets = 2^n
+So total subset = 2^5 = 32
+
+Q2. If f : N $ \times $ N $ \to $N is such that f(m, n) = m + n where N is the set of natural number, then which of the following is true?
+    (A) f is one-one but not onto
+    (B) f is one-one and onto
+    (C) f is onto but not one-one
+    (D) f is neither one-one nor onto   <-- CORRECT
+    Answer: D
+    Explanation: One - One: f(1, 2) = 1 + 2 = 3; f(2, 1) = 2 + 1
+$\therefore$ f is not one - one
+onto: f(1, 1) = 2, f(1, 2) = 3, f(2, 1) = 3
+f(1, 3) = 4 = f(3, 1) and so on
+$\therefore$ range of f = {2, 3, 4, 5, ....} $\ne$ N
+$\therefore$ f is not onto.
+
+Q3. If z $=\frac{1}{1-\cos \theta-i \sin \theta}$, then Re (z) =
+    (A) $\frac{1}{2}$   <-- CORRECT
+    (B) 0
+    (C) $\cot \frac{\theta}{2}$
+    (D) $\frac{1}{2} \cot \frac{\theta}{2}$
+    Answer: A
+    Explanation: $\frac{1}{2}$
+$z=\frac{1}{1-\cos \theta-i \sin \theta}$
+$z=\frac{1}{1-\cos \theta-i \sin \theta}$ $\times \frac{1-\cos \theta+i \sin \theta}{1-\cos \theta+i \sin \theta}$
+$\Rightarrow z=\frac{1-\cos \theta+i \sin \theta}{(1-\cos \theta)^{2}-(i \sin \theta)^{2}}$
+$\Rightarrow z=\frac{1-\cos \theta+i \sin \theta}{1+\cos ^{2} \theta-2 \cos \theta+\sin ^{2} \theta}$
+$\Rightarrow z=\frac{1-\cos \theta+i \sin \theta}{1+1-2 \cos \theta}$
+$\Rightarrow z=\frac{1-\cos \theta+i \sin \theta}{2(1-\cos \theta)}$
+$\Rightarrow$ Re (z) $=\frac{(1-\cos \theta)}{2(1-\cos \theta)}=\frac{1}{2}$
+
+Q4. Three numbers are in AP whose sum is 24 and whose product is 440. The largest of these numbers is
+    (A) 12
+    (B) 9
+    (C) 11   <-- CORRECT
+    (D) 13
+    Answer: C
+    Explanation: Let the numbers be (a - d), a and (a + d). Then,
+$\Rightarrow$ (a - d) + a + (a + d) = 24 $\Rightarrow$ 3a = 24 $\Rightarrow$ a =8
+And,( 8 - d) $\times$ 8 $\times$ (8 + d) = 440 $\Rightarrow$ (64 - d^2) = 55 $\Rightarrow$ $d^{2}=$ 9 $\Rightarrow$ d = $\pm$3.
+Therefore, the numbers are {(8 - 3) , 8 and (8 + 3)} or {(8+ 3), 8 and (8 - 3)} i.e 5, 8, 11 and 11, 8, 5.
+The required largest of these numbers is 11.
+
+Q5. Regression coefficient of X on Y is 0.25, then the regression coefficient of Y on X is
+    (A) greater than 4
+    (B) 4
+    (C) lies in ( 0 , 4 ]   <-- CORRECT
+    (D) less than 4
+    Answer: C
+    Explanation: Here,
+${b_{xy}} = r.\frac{{{\sigma _x}}}{{{\sigma _y}}} = 0.25$ $ \Rightarrow \frac{{{\sigma _x}}}{{{\sigma _y}}} = \frac{{0.25}}{r}$ 
+Now, ${b_{yx}} = r.\frac{{{\sigma _y}}}{{{\sigma _x}}} = r.\frac{r}{{0.25}} = {r^2} \times 4$ 
+As, $0 < {r^2} \le 1$ 
+So, $[\begin{array}{l} 0 < 4{r^2} \le 4\\ 0 < {b_{yx}} \le 4 \end{array}$
+
+Q6. Instructions for Question 46 to 50:
+An equation of the form ax^2 + bx + c, a $\neq$ 0 is called quadratic equation in variable x, where a, b and c are numbers (real or complex).
+The roots of quadratic equation ax^2 + bx + c = 0, a $\neq$ 0 are
+$\alpha=\frac{-b+\sqrt{b^{2}-4 a c}}{2 a}$
+and $\beta=\frac{-b-\sqrt{b^{2}-4 a c}}{2 a}$
+Now, if we look at these roots of quadratic equation
+ax^2 + bx + c = 0; a $\neq$ 0, we observe that the roots depend upon the value of the quantity b^2 - 4ac. This quantity is known as the discriminant of the quadratic equation and denoted by D.
+There are following cases:
+Case I If b^2 - 4ac = 0 i.e. D = 0, then $\alpha=\beta=-\frac{b}{2 a}$
+Thus, if b^2 - 4ac = 0, then the quadratic equation has real and equal roots and each equal to $\frac {-b}{2a}$.
+Case II If a, b and c are rational numbers and b^2 - 4ac > 0 and it is a perfect square, then D = $\sqrt{b^{2}-4 a c}$ is a rational number and hence $\alpha$ and $\beta$ are rational and unequal.
+Case III If b^2 - 4ac > 0 and it is not a perfect square, then roots are irrational and unequal.
+Case IV If b^2 - 4ac < 0, then the roots are complex conjugate of each other.
+Roots of quadratic equation 3x^2 - 4x + $\frac{20}{3}$ = 0 are given by
+    (A) $\frac{2}{3} \pm \frac{4}{3} i$   <-- CORRECT
+    (B) $-\frac{3}{4} \pm \frac{5}{4} i$
+    (C) $\frac{3}{4} \pm \frac{5}{4} i$
+    (D) $\frac{4}{3} \pm \frac{2}{3} i$
+    Answer: A
+    Explanation: $\frac{2}{3} \pm \frac{4}{3} i$
+
+Q7. Instructions for Question 46 to 50:
+An equation of the form ax^2 + bx + c, a $\neq$ 0 is called quadratic equation in variable x, where a, b and c are numbers (real or complex).
+The roots of quadratic equation ax^2 + bx + c = 0, a $\neq$ 0 are
+$\alpha=\frac{-b+\sqrt{b^{2}-4 a c}}{2 a}$
+and $\beta=\frac{-b-\sqrt{b^{2}-4 a c}}{2 a}$
+Now, if we look at these roots of quadratic equation
+ax^2 + bx + c = 0; a $\neq$ 0, we observe that the roots depend upon the value of the quantity b^2 - 4ac. This quantity is known as the discriminant of the quadratic equation and denoted by D.
+There are following cases:
+Case I If b^2 - 4ac = 0 i.e. D = 0, then $\alpha=\beta=-\frac{b}{2 a}$
+Thus, if b^2 - 4ac = 0, then the quadratic equation has real and equal roots and each equal to $\frac {-b}{2a}$.
+Case II If a, b and c are rational numbers and b^2 - 4ac > 0 and it is a perfect square, then D = $\sqrt{b^{2}-4 a c}$ is a rational number and hence $\alpha$ and $\beta$ are rational and unequal.
+Case III If b^2 - 4ac > 0 and it is not a perfect square, then roots are irrational and unequal.
+Case IV If b^2 - 4ac < 0, then the roots are complex conjugate of each other.
+Roots of quadratic equation -x^2 + x - 2 = 0 are given by
+    (A) $\frac{1 \pm \sqrt{5} i}{2}$
+    (B) $\frac{3 \pm 2 i}{4}$
+    (C) $\frac{1 \pm \sqrt{7} i}{2}$
+    (D) $\frac{-1 \pm \sqrt{7} i}{-2}$   <-- CORRECT
+    Answer: D
+    Explanation: $\frac{-1 \pm \sqrt{7} i}{-2}$
+
+Q8. Instructions for Question 46 to 50:
+An equation of the form ax^2 + bx + c, a $\neq$ 0 is called quadratic equation in variable x, where a, b and c are numbers (real or complex).
+The roots of quadratic equation ax^2 + bx + c = 0, a $\neq$ 0 are
+$\alpha=\frac{-b+\sqrt{b^{2}-4 a c}}{2 a}$
+and $\beta=\frac{-b-\sqrt{b^{2}-4 a c}}{2 a}$
+Now, if we look at these roots of quadratic equation
+ax^2 + bx + c = 0; a $\neq$ 0, we observe that the roots depend upon the value of the quantity b^2 - 4ac. This quantity is known as the discriminant of the quadratic equation and denoted by D.
+There are following cases:
+Case I If b^2 - 4ac = 0 i.e. D = 0, then $\alpha=\beta=-\frac{b}{2 a}$
+Thus, if b^2 - 4ac = 0, then the quadratic equation has real and equal roots and each equal to $\frac {-b}{2a}$.
+Case II If a, b and c are rational numbers and b^2 - 4ac > 0 and it is a perfect square, then D = $\sqrt{b^{2}-4 a c}$ is a rational number and hence $\alpha$ and $\beta$ are rational and unequal.
+Case III If b^2 - 4ac > 0 and it is not a perfect square, then roots are irrational and unequal.
+Case IV If b^2 - 4ac < 0, then the roots are complex conjugate of each other.
+Roots of quadratic equation 2x^2 + x + 1 = 0 are given by
+    (A) $\frac{3 \pm \sqrt{7} i}{4}$
+    (B) $\frac{3 \pm \sqrt{3} i}{4}$
+    (C) $\frac{\sqrt{7} \pm i}{4}$
+    (D) $\frac{-1 \pm \sqrt{7} i}{4}$   <-- CORRECT
+    Answer: D
+    Explanation: $\frac{-1 \pm \sqrt{7} i}{4}$
+
+Q9. Instructions for Question 46 to 50:
+An equation of the form ax^2 + bx + c, a $\neq$ 0 is called quadratic equation in variable x, where a, b and c are numbers (real or complex).
+The roots of quadratic equation ax^2 + bx + c = 0, a $\neq$ 0 are
+$\alpha=\frac{-b+\sqrt{b^{2}-4 a c}}{2 a}$
+and $\beta=\frac{-b-\sqrt{b^{2}-4 a c}}{2 a}$
+Now, if we look at these roots of quadratic equation
+ax^2 + bx + c = 0; a $\neq$ 0, we observe that the roots depend upon the value of the quantity b^2 - 4ac. This quantity is known as the discriminant of the quadratic equation and denoted by D.
+There are following cases:
+Case I If b^2 - 4ac = 0 i.e. D = 0, then $\alpha=\beta=-\frac{b}{2 a}$
+Thus, if b^2 - 4ac = 0, then the quadratic equation has real and equal roots and each equal to $\frac {-b}{2a}$.
+Case II If a, b and c are rational numbers and b^2 - 4ac > 0 and it is a perfect square, then D = $\sqrt{b^{2}-4 a c}$ is a rational number and hence $\alpha$ and $\beta$ are rational and unequal.
+Case III If b^2 - 4ac > 0 and it is not a perfect square, then roots are irrational and unequal.
+Case IV If b^2 - 4ac < 0, then the roots are complex conjugate of each other.
+Roots of quadratic equation 25x^2 - 30x + 11 = 0 are given by
+    (A) $\frac{1}{2} \pm \frac{\sqrt{3}}{2} i$
+    (B) $-\frac{1}{2} \pm \frac{\sqrt{3}}{2} i$
+    (C) $\frac{\sqrt{2}}{5} \pm \frac{3}{5} i$
+    (D) $\frac{3}{5} \pm \frac{\sqrt{2}}{5} i$   <-- CORRECT
+    Answer: D
+    Explanation: $\frac{3}{5} \pm \frac{\sqrt{2}}{5} i$
+
+Q10. Instructions for Question 46 to 50:
+An equation of the form ax^2 + bx + c, a $\neq$ 0 is called quadratic equation in variable x, where a, b and c are numbers (real or complex).
+The roots of quadratic equation ax^2 + bx + c = 0, a $\neq$ 0 are
+$\alpha=\frac{-b+\sqrt{b^{2}-4 a c}}{2 a}$
+and $\beta=\frac{-b-\sqrt{b^{2}-4 a c}}{2 a}$
+Now, if we look at these roots of quadratic equation
+ax^2 + bx + c = 0; a $\neq$ 0, we observe that the roots depend upon the value of the quantity b^2 - 4ac. This quantity is known as the discriminant of the quadratic equation and denoted by D.
+There are following cases:
+Case I If b^2 - 4ac = 0 i.e. D = 0, then $\alpha=\beta=-\frac{b}{2 a}$
+Thus, if b^2 - 4ac = 0, then the quadratic equation has real and equal roots and each equal to $\frac {-b}{2a}$.
+Case II If a, b and c are rational numbers and b^2 - 4ac > 0 and it is a perfect square, then D = $\sqrt{b^{2}-4 a c}$ is a rational number and hence $\alpha$ and $\beta$ are rational and unequal.
+Case III If b^2 - 4ac > 0 and it is not a perfect square, then roots are irrational and unequal.
+Case IV If b^2 - 4ac < 0, then the roots are complex conjugate of each other.
+Roots of quadratic equation 2x^2 - 2$\sqrt{3} x$ + $\frac{21}{8}$ = 0 are given by
+    (A) $-\frac{3}{4} \pm \frac{\sqrt{3}}{2} i$
+    (B) $-\frac{\sqrt{3}}{2} \pm \frac{3}{4} i$
+    (C) $\frac{\sqrt{3}}{2} \pm \frac{3}{4} i$   <-- CORRECT
+    (D) $\frac{3}{4} \pm \frac{\sqrt{3}}{2} i$
+    Answer: C
+    Explanation: $\frac{\sqrt{3}}{2} \pm \frac{3}{4} i$

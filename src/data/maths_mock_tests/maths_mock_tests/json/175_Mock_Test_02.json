@@ -1,0 +1,1728 @@
+{
+  "testPaperID": 175,
+  "testPaperName": "Mock Test - 02",
+  "category_full_name": "CBSE > Class 11 > Mathematics",
+  "testDuration_min": 90,
+  "noOfQuestions": 50,
+  "instruction": "This question paper contains three sections - A, B and C. Each part is compulsory.\n Section - A has 20 MCQs, attempt any 16 out of 20.\n Section - B has 20 MCQs, attempt any 16 out of 20\n Section - C has 10 MCQs, attempt any 8 out of 10.\n There is no negative marking.\n All questions carry equal marks.",
+  "sections": [
+    {
+      "sectionName": "Section A",
+      "sectionID": 645,
+      "questions": [
+        {
+          "questionID": 18365,
+          "question": "Given the sets A = {1, 2, 3}, B = {3, 4}, C = {4, 5, 6}, then A $\\mathop \\cup \\nolimits $(B $\\mathop \\cap \\nolimits $ C) is",
+          "question_raw": "<p>Given the sets A = {1, 2, 3}, B = {3, 4}, C = {4, 5, 6}, then A <span class=\"math-tex\">{tex}\\mathop \\cup \\nolimits {/tex}</span>(B <span class=\"math-tex\">{tex}\\mathop \\cap \\nolimits {/tex}</span> C) is</p>",
+          "options": [
+            {
+              "id": 28661,
+              "text": "{1, 2, 3, 4, 5, 6}",
+              "is_correct": false
+            },
+            {
+              "id": 28662,
+              "text": "{3}",
+              "is_correct": false
+            },
+            {
+              "id": 28663,
+              "text": "{1, 2, 3}",
+              "is_correct": false
+            },
+            {
+              "id": 28660,
+              "text": "{1, 2, 3, 4}",
+              "is_correct": true
+            }
+          ],
+          "correct_option_ids": [
+            28660
+          ],
+          "correct_option_texts": [
+            "{1, 2, 3, 4}"
+          ],
+          "explanation": "Given A = {1, 2, 3}, B = {3, 4} and C = {4, 5, 6}\nB $\\cap$ C = {4} \nA $\\cup$ (B $\\cap$ C) = {1, 2, 3, 4}"
+        },
+        {
+          "questionID": 18420,
+          "question": "The function f(x) = log$\\left(\\frac{1+x}{1-x}\\right)$ satisfies the equation",
+          "question_raw": "<p>The function f(x) = log<span class=\"math-tex\">{tex}\\left(\\frac{1+x}{1-x}\\right){/tex}</span> satisfies the equation</p>",
+          "options": [
+            {
+              "id": 28881,
+              "text": "$f({x_1}) + f({x_2}) = f({x_1} + {x_2})$",
+              "is_correct": false
+            },
+            {
+              "id": 28883,
+              "text": "$f({x_2}) + f({x_1}) = f({x_1} + {x_2})$",
+              "is_correct": false
+            },
+            {
+              "id": 28880,
+              "text": "$f({x_1}) + f({x_2}) = f\\left(\\frac{x_1+x_2}{1+x_1 x_2}\\right)$",
+              "is_correct": true
+            },
+            {
+              "id": 28882,
+              "text": "$f(x) + f(x + 1) = f({x^2} + x)$",
+              "is_correct": false
+            }
+          ],
+          "correct_option_ids": [
+            28880
+          ],
+          "correct_option_texts": [
+            "$f({x_1}) + f({x_2}) = f\\left(\\frac{x_1+x_2}{1+x_1 x_2}\\right)$"
+          ],
+          "explanation": "${f({x_1})\\; + f({x_2}) = \\;\\log \\left( {\\frac{{1 + {x_1}}}{{1 - {x_1}}}} \\right)\\; + \\log \\left( {\\frac{{1 + {x_2}}}{{1 - {x_2}}}} \\right)}$ \n$ = \\;\\log (1 + {x_1}) - \\log (1 - {x_1}) $$+ \\log (1 + {x_2}) - \\log (1 - {x_2})$ \n${f\\left( {\\frac{{{x_1} + {x_2}}}{{1 + {x_1}{x_2}}}} \\right) = \\log \\left( {\\frac{{1 + \\frac{{{x_1} + {x_2}}}{{1 + {x_1}{x_2}}}}}{{1 - \\frac{{{x_1} + {x_2}}}{{1 + {x_1}{x_2}}}}}} \\right) = \\log \\left[ {\\frac{{1 + {x_1}{x_2} + {x_1} + {x_2}}}{{1 + {x_1}{x_2} - {x_1} - {x_2}}}} \\right]}$ \n${ = \\;\\log \\left[ {\\frac{{(1 + {x_1})(1 + {x_2})}}{{(1 - {x_1})(1 - {x_2})}}} \\right]}$ \n${ = \\;\\log (1 + {x_1})(1 + {x_2}) - \\log (1 - {x_1})(1 - {x_2})}$ \n$ = \\;\\log ((1 + {x_1}) + \\log (1 + {x_2}) $$- \\log (1 - {x_1}) - \\log (1 - {x_2})$ \n${\\therefore f({x_1})+ f({x_2}) = f\\left( {\\frac{{{x_1} + {x_2}}}{{1 + {x_1}{x_2}}}} \\right)}$"
+        },
+        {
+          "questionID": 18637,
+          "question": "The equation |4z - 1| = 4|z - 5| represents :",
+          "question_raw": "<p>The equation |4z - 1| = 4|z - 5| represents :</p>",
+          "options": [
+            {
+              "id": 29750,
+              "text": "a parabola",
+              "is_correct": false
+            },
+            {
+              "id": 29748,
+              "text": "a straight line",
+              "is_correct": true
+            },
+            {
+              "id": 29751,
+              "text": "an ellipse",
+              "is_correct": false
+            },
+            {
+              "id": 29749,
+              "text": "a circle",
+              "is_correct": false
+            }
+          ],
+          "correct_option_ids": [
+            29748
+          ],
+          "correct_option_texts": [
+            "a straight line"
+          ],
+          "explanation": "Given |4z - 1| = 4|z - 5|\nLet Z = x + iy \n$\\Rightarrow$ |4(x + iy) - 1| = 4|x + iy - 5|\n$\\Rightarrow$ |(4x - 1) + 4iy| = 4(x - 5) + iy|\n$\\Rightarrow$ $\\sqrt{(4 x-1)^{2}+(4 y)^{2}}$ = $4 \\sqrt{(x-5)^{2}+(y)^{2}}$ \nSquaring on both sides we get\n(4x - 1)^2 + (4y)^2 = 16[(x - 5)^2 + (y)^2]\n$\\Rightarrow$ 16x^2 + 1 - 8x + 16y^2 = 16[x^2 + 25 - 10x + y^2]\n$\\Rightarrow$ 16x^2 + 1 - 8x + 16y^2 - 16x^2 - 400 + 160x - 16y^2 = 0\n$\\Rightarrow$ 152x - 399 = 0\n$\\Rightarrow$ x = $\\frac{399}{152}$\nWe have x = a constant is a straight line parallel to Y-axis."
+        },
+        {
+          "questionID": 290568,
+          "question": "The 5th and 13th terms of an AP are 5 and -3 respectively. The 24th term of this AP is",
+          "question_raw": "<p>The 5th and 13th terms of an AP are 5 and -3 respectively. The 24th term of this AP is</p>",
+          "options": [
+            {
+              "id": 415688,
+              "text": "-8",
+              "is_correct": false
+            },
+            {
+              "id": 415687,
+              "text": "-6",
+              "is_correct": false
+            },
+            {
+              "id": 415689,
+              "text": "-11",
+              "is_correct": false
+            },
+            {
+              "id": 415690,
+              "text": "-14",
+              "is_correct": true
+            }
+          ],
+          "correct_option_ids": [
+            415690
+          ],
+          "correct_option_texts": [
+            "-14"
+          ],
+          "explanation": "We have, a + 4d = 5 ... (i)\nand a + 12d = -3 ...(ii)\nOn solving (i) and (ii), we get a = 9 and d = -1.\n$\\therefore$ T_24 = a + 23d = (9 - 23) = -14."
+        },
+        {
+          "questionID": 19010,
+          "question": "The equation of the line which passes through the point (2, -3) and cuts off equal intercepts from the axis is",
+          "question_raw": "<p>The equation of the line which passes through the point (2, -3) and cuts off equal intercepts from the axis is</p>\r\n",
+          "options": [
+            {
+              "id": 31241,
+              "text": "x – y = 1",
+              "is_correct": false
+            },
+            {
+              "id": 31242,
+              "text": "x – y – 2 = 0",
+              "is_correct": false
+            },
+            {
+              "id": 31240,
+              "text": "x + y = 1",
+              "is_correct": false
+            },
+            {
+              "id": 31239,
+              "text": "x + y + 1 = 0",
+              "is_correct": true
+            }
+          ],
+          "correct_option_ids": [
+            31239
+          ],
+          "correct_option_texts": [
+            "x + y + 1 = 0"
+          ],
+          "explanation": "The equation of the line which cuts equal intercepts is x + y = a \nSince it passes through (2, -3), 2 - 3 = a\nHence a = -1\nHence the equation of the required line is x + y +1 = 0"
+        },
+        {
+          "questionID": 292512,
+          "question": "If f (x) = x sin $(\\frac {1}{x}),x \\neq 0$, then $\\lim \\limits_{x \\rightarrow 0} $ f(x) =",
+          "question_raw": "<p>If f (x) = x sin&nbsp;<span class=\"math-tex\">{tex}(\\frac {1}{x}),x \\neq 0{/tex}</span>, then&nbsp;<span class=\"math-tex\">{tex}\\lim \\limits_{x \\rightarrow 0} {/tex}</span>&nbsp;f(x) =</p>",
+          "options": [
+            {
+              "id": 417438,
+              "text": "2",
+              "is_correct": false
+            },
+            {
+              "id": 417435,
+              "text": "1",
+              "is_correct": false
+            },
+            {
+              "id": 417437,
+              "text": "-1",
+              "is_correct": false
+            },
+            {
+              "id": 417436,
+              "text": "0",
+              "is_correct": true
+            }
+          ],
+          "correct_option_ids": [
+            417436
+          ],
+          "correct_option_texts": [
+            "0"
+          ],
+          "explanation": "$\\lim \\limits_{x \\rightarrow 0} f(x)=\\lim \\limits_{x \\rightarrow 0} x \\sin \\frac{1}{x}, x \\neq 0$\nLHL at x = 0\n$\\lim \\limits_{x \\rightarrow 0^{-}} f(x)=\\lim \\limits_{h \\rightarrow 0} f(0-h)$\n$\\Rightarrow \\lim \\limits_{h \\rightarrow 0}-h \\sin \\left(\\frac{1}{-h}\\right)$\n= 0\nRHL at x = 0\n$\\lim \\limits_{x \\rightarrow 0^{+}} f(x)=\\lim \\limits_{h \\rightarrow 0} f(0+h)$\n$\\Rightarrow \\lim \\limits_{h \\rightarrow 0} h \\sin \\left(\\frac{1}{h}\\right)$\n= 0\n$\\lim \\limits_{x \\rightarrow 0^{-}} f(x)=\\lim \\limits_{x \\rightarrow 0^{+}} f(x)$\nHence, $\\lim \\limits_{x \\rightarrow 0} f(x)^{2}$ exists and is equal to 0."
+        },
+        {
+          "questionID": 19430,
+          "question": "Mean of the first n terms of the A.P. a + (a + d) + (a + 2d) + ………is",
+          "question_raw": "<p>Mean of the first n terms of the A.P. a + (a + d) + (a + 2d) + &hellip;&hellip;&hellip;is</p>",
+          "options": [
+            {
+              "id": 32919,
+              "text": "$a+\\frac{(n-1) d}{2}$",
+              "is_correct": true
+            },
+            {
+              "id": 32922,
+              "text": "a + nd",
+              "is_correct": false
+            },
+            {
+              "id": 32920,
+              "text": "$\\frac{a + nd}{2}$",
+              "is_correct": false
+            },
+            {
+              "id": 32921,
+              "text": "a + (n - 1)d",
+              "is_correct": false
+            }
+          ],
+          "correct_option_ids": [
+            32919
+          ],
+          "correct_option_texts": [
+            "$a+\\frac{(n-1) d}{2}$"
+          ],
+          "explanation": "Mean = $ \\frac{{\\frac{n}{2}\\left[ {2a + (n - 1)d} \\right]}}{n} = \\frac{{\\left[ {2a + (n - 1)d} \\right]}}{2} $ = $a+\\frac{(n-1) d}{2}$"
+        },
+        {
+          "questionID": 18319,
+          "question": "If A and B are two sets, then $A \\cap (A \\cup B)'$ is equal to",
+          "question_raw": "<p>If A and B are two sets, then&nbsp;<span class=\"math-tex\">{tex}A \\cap (A \\cup B)'{/tex}</span> is equal to</p>",
+          "options": [
+            {
+              "id": 28477,
+              "text": "A",
+              "is_correct": false
+            },
+            {
+              "id": 28476,
+              "text": "$\\phi$",
+              "is_correct": true
+            },
+            {
+              "id": 28479,
+              "text": "1",
+              "is_correct": false
+            },
+            {
+              "id": 28478,
+              "text": "B",
+              "is_correct": false
+            }
+          ],
+          "correct_option_ids": [
+            28476
+          ],
+          "correct_option_texts": [
+            "$\\phi$"
+          ],
+          "explanation": "$A \\cap (A \\cup B)' = \\phi $ \nSince $(A \\cup B)'$ Set represent the element which are not belongs to it, so there is no common element with the set A. So the answer is null set."
+        },
+        {
+          "questionID": 292218,
+          "question": "If f(x) = cos (log x) then $f\\left(x^{2}\\right) f\\left(y^{2}\\right)-\\frac{1}{2}$ $\\left\\{f\\left(\\frac{x^{2}}{y^{2}}\\right)+f\\left(x^{2} y^{2}\\right)\\right\\}$ has the value",
+          "question_raw": "<p>If f(x) = cos (log x) then&nbsp;<span class=\"math-tex\">{tex}f\\left(x^{2}\\right) f\\left(y^{2}\\right)-\\frac{1}{2}{/tex}</span>&nbsp;<span class=\"math-tex\">{tex}\\left\\{f\\left(\\frac{x^{2}}{y^{2}}\\right)+f\\left(x^{2} y^{2}\\right)\\right\\}{/tex}</span> has the value</p>",
+          "options": [
+            {
+              "id": 416989,
+              "text": "1/2",
+              "is_correct": false
+            },
+            {
+              "id": 416987,
+              "text": "-2",
+              "is_correct": false
+            },
+            {
+              "id": 416990,
+              "text": "None of these",
+              "is_correct": true
+            },
+            {
+              "id": 416988,
+              "text": "-1",
+              "is_correct": false
+            }
+          ],
+          "correct_option_ids": [
+            416990
+          ],
+          "correct_option_texts": [
+            "None of these"
+          ],
+          "explanation": "f(x) = cos (log x)\nNow, $f\\left(x^{2}\\right) f\\left(y^{2}\\right)-\\frac{1}{2}$ $\\left\\{f\\left(\\frac{x^{2}}{y^{2}}\\right)+f\\left(x^{2} y^{2}\\right)\\right\\}$\n= cos (log x^2 ) cos ( logy^2) - $\\frac{1}{2}\\left\\{\\cos \\left(\\log \\left(\\frac{x^{2}}{y^{2}}\\right)\\right)+\\cos \\left(\\log x^{2} y^{2}\\right)\\right\\}$\n= $\\cos (2 \\log x) \\cos (2 \\log y)-\\frac{1}{2}$ $\\left\\{\\cos \\left(\\log x^{2}-\\log y^{2}\\right)+\\cos \\left(\\log x^{2}+\\log y^{2}\\right)\\right\\}$\n$=\\cos (2 \\log x) \\cos (2 \\log y)-\\frac{1}{2}${ cos( 2 log x - 2 log y) + cos (2 log x + log y)}\nusing cosx cos y = 1/2 cos (x + y) + cos (x - y)\n= cos (2 log x) cos ( 2 log y) - cos ( 2 log x) cos( 2 log y)\n= 0"
+        },
+        {
+          "questionID": 18669,
+          "question": "If z = $\\bar z$, then",
+          "question_raw": "<p>If z = <span class=\"math-tex\">{tex}\\bar z{/tex}</span>, then</p>",
+          "options": [
+            {
+              "id": 29876,
+              "text": "z is purely real",
+              "is_correct": true
+            },
+            {
+              "id": 29877,
+              "text": "z is purely imaginary",
+              "is_correct": false
+            },
+            {
+              "id": 29879,
+              "text": "z is a whole number",
+              "is_correct": false
+            },
+            {
+              "id": 29878,
+              "text": "z is a complex number",
+              "is_correct": false
+            }
+          ],
+          "correct_option_ids": [
+            29876
+          ],
+          "correct_option_texts": [
+            "z is purely real"
+          ],
+          "explanation": "Let z = x + iy\nNow z = $\\bar{z} \\Rightarrow$ x + iy = x - iy $\\Rightarrow$ 2iy = 0 $\\Rightarrow$ y = 0\nWhich means z is purely real."
+        },
+        {
+          "questionID": 290151,
+          "question": "If (k -1), (2k +1), (6k + 3) are in GP then k = ?",
+          "question_raw": "<p>If (k -1), (2k +1), (6k + 3) are in GP then k = ?</p>",
+          "options": [
+            {
+              "id": 414377,
+              "text": "-2",
+              "is_correct": false
+            },
+            {
+              "id": 414376,
+              "text": "4",
+              "is_correct": true
+            },
+            {
+              "id": 414378,
+              "text": "0",
+              "is_correct": false
+            },
+            {
+              "id": 414375,
+              "text": "7",
+              "is_correct": false
+            }
+          ],
+          "correct_option_ids": [
+            414376
+          ],
+          "correct_option_texts": [
+            "4"
+          ],
+          "explanation": "Given that, (k - 1),(2k + 1),(6k + 3) are in GP\n$\\Rightarrow \\frac{(2 k+1)}{(k-1)}=\\frac{(6 k+3)}{(2 k+1)}=\\frac{3(2 k+1)}{(2 k+1)}=3$\n$\\Rightarrow$ 2k + 1 = 3k - 3\n$\\Rightarrow$ k = 4"
+        },
+        {
+          "questionID": 19063,
+          "question": "A line passes through (2,2) and is perpendicular to the line 3x+y=3, then its y intercept is",
+          "question_raw": "<p>A line passes through (2,2) and is perpendicular to the line 3x+y=3, then its y intercept is</p>",
+          "options": [
+            {
+              "id": 31452,
+              "text": "1",
+              "is_correct": false
+            },
+            {
+              "id": 31453,
+              "text": "2/3",
+              "is_correct": false
+            },
+            {
+              "id": 31454,
+              "text": "1/3",
+              "is_correct": false
+            },
+            {
+              "id": 31451,
+              "text": "4/3",
+              "is_correct": true
+            }
+          ],
+          "correct_option_ids": [
+            31451
+          ],
+          "correct_option_texts": [
+            "4/3"
+          ],
+          "explanation": "The line which is perpendicular to the given line is x-3y+k=0\nThis passes through the point (2,2)\nSubstituting the values,\n2-3(2)+k=0\nk = 4\nHence the equation of the line is x-3y+4=0\nThis can be written as $x\\over-4$+$y\\over4/3$ = 1\nHence the y intercept is 4/3"
+        },
+        {
+          "questionID": 292607,
+          "question": "The value of $\\lim \\limits_{x \\rightarrow \\infty} \\frac{(x+1)^{10}+(x+2)^{10}+\\ldots+(x+100)^{10}}{x^{10}+10^{10}}$ is:",
+          "question_raw": "<p>The value of&nbsp;<span class=\"math-tex\">{tex}\\lim \\limits_{x \\rightarrow \\infty} \\frac{(x+1)^{10}+(x+2)^{10}+\\ldots+(x+100)^{10}}{x^{10}+10^{10}}{/tex}</span>&nbsp;is:</p>",
+          "options": [
+            {
+              "id": 417738,
+              "text": "10^12",
+              "is_correct": false
+            },
+            {
+              "id": 417736,
+              "text": "100",
+              "is_correct": true
+            },
+            {
+              "id": 417737,
+              "text": "10^10",
+              "is_correct": false
+            },
+            {
+              "id": 417735,
+              "text": "10",
+              "is_correct": false
+            }
+          ],
+          "correct_option_ids": [
+            417736
+          ],
+          "correct_option_texts": [
+            "100"
+          ],
+          "explanation": "$\\lim \\limits_{x \\rightarrow \\infty} \\frac{(x+1)^{10}+(x+2)^{10}+\\ldots .+(x+100)^{10}}{x^{10}+10^{10}}$\nDividing N^r and D^r by x^10\n$\\Rightarrow \\lim \\limits_{x \\rightarrow \\infty} \\frac{\\left(1+\\frac{1}{x}\\right)^{10}+\\left(1+\\frac{2}{x}\\right)^{10}+\\ldots+\\left(1+\\frac{100}{x}\\right)^{10}}{1+\\frac{10^{10}}{x^{10}}}$\n= 1 + 1 + 1 + ... + 100 times\n= 100"
+        },
+        {
+          "questionID": 19423,
+          "question": "The S.D.of 7 scores 1, 2, 3, 4, 5, 6, 7 is",
+          "question_raw": "<p>The S.D.of 7 scores 1, 2, 3, 4, 5, 6, 7&nbsp;is</p>",
+          "options": [
+            {
+              "id": 32894,
+              "text": "-1",
+              "is_correct": false
+            },
+            {
+              "id": 32893,
+              "text": "1",
+              "is_correct": false
+            },
+            {
+              "id": 32891,
+              "text": "2",
+              "is_correct": true
+            },
+            {
+              "id": 32892,
+              "text": "4",
+              "is_correct": false
+            }
+          ],
+          "correct_option_ids": [
+            32891
+          ],
+          "correct_option_texts": [
+            "2"
+          ],
+          "explanation": "Mean = $\\frac{1+2+3+4+5+6+7}{7}$ = $\\frac{28}{7}$ = 4\nSo, $\\sum_{i=1}^{n}\\left(X_{i}-\\bar{X}\\right)^{2}$ = (-3)^2 + (-2)^2 + (-1)^2 + 0 + (1)^2 + (2)^2 + (3)^2 = 28\nVariance = $\\frac{1}{n} \\sum_{i=1}^{n}\\left(X_{i}-\\bar{X}\\right)^{2}$ = $\\frac{28}{7}$ = 4\nS.D = $\\sqrt{\\operatorname{var}}=\\sqrt{4}$ = 2"
+        },
+        {
+          "questionID": 18370,
+          "question": "In a class of 100 students, 55 students have passed in Mathematics and 67 students have passed in Physics. Then the number of students who have passed in Physics only is",
+          "question_raw": "<p>In a class of 100 students, 55 students have passed in Mathematics and 67 students have passed in Physics. Then the number of students who have passed in Physics only is</p>",
+          "options": [
+            {
+              "id": 28681,
+              "text": "33",
+              "is_correct": false
+            },
+            {
+              "id": 28683,
+              "text": "47",
+              "is_correct": false
+            },
+            {
+              "id": 28682,
+              "text": "25",
+              "is_correct": false
+            },
+            {
+              "id": 28680,
+              "text": "45",
+              "is_correct": true
+            }
+          ],
+          "correct_option_ids": [
+            28680
+          ],
+          "correct_option_texts": [
+            "45"
+          ],
+          "explanation": "Let U denote the set of students of the class and let M and P denote the sets of students who passed in mathematics and physics respectively. Then\nn(U) = 100, n(M) = 55 and n(P) = 67\nSince all the students have passed in any of these subjects, we have \nn(U) = 100 $\\Rightarrow$ n(M $\\cup$ P) = 100\nNow we have, n(M $\\cup$ P) = n(M) + n(P) - n(M $\\cap$ P)\n$\\Rightarrow$ 100 = 55 + 67 - n(M $\\cap$ P)\n$\\Rightarrow$ n(M $\\cap$ P) = 122 - 100 = 22\nWhich means the number of students who passed in both the subjects = 22\nHence the number of students who passed only in physics = n(P) - n(M $\\cap$ P) = 67 - 22 = 45"
+        },
+        {
+          "questionID": 285158,
+          "question": "The domain of the function f given by f (x) = $\\frac{x^{2}+2 x+1}{x^{2}-x-6}$",
+          "question_raw": "<p>The domain of the function f given by f (x)&nbsp;=&nbsp;<span class=\"math-tex\">{tex}\\frac{x^{2}+2 x+1}{x^{2}-x-6}{/tex}</span></p>",
+          "options": [
+            {
+              "id": 407555,
+              "text": "R – {–3, 2}",
+              "is_correct": false
+            },
+            {
+              "id": 407557,
+              "text": "R – (-3, - 2)",
+              "is_correct": false
+            },
+            {
+              "id": 407556,
+              "text": "R – [3, – 2]",
+              "is_correct": false
+            },
+            {
+              "id": 407554,
+              "text": "R – {-2, 3}",
+              "is_correct": true
+            }
+          ],
+          "correct_option_ids": [
+            407554
+          ],
+          "correct_option_texts": [
+            "R – {-2, 3}"
+          ],
+          "explanation": "We have, f(x) $=\\frac{x^{2}+2 x+1}{x^{2}-x-6}$\nf(x) is not defined, if x^2 - x - 6 = 0\n$\\Rightarrow$ (x - 3)(x + 2) = 0\n$\\therefore$ x = -2, 3\n$\\therefore$ Domain of f = R - {-2, 3}"
+        },
+        {
+          "questionID": 284927,
+          "question": "The area of the triangle on the complex plane formed by the complex numbers z, – iz and z + iz is:",
+          "question_raw": "<p>The area of the triangle on the complex plane formed by the complex numbers z, &ndash; iz and z + iz is:</p>",
+          "options": [
+            {
+              "id": 407183,
+              "text": "$|\\bar{z}|^{2}$",
+              "is_correct": false
+            },
+            {
+              "id": 407184,
+              "text": "$\\frac{|z|^{2}}{2}$",
+              "is_correct": true
+            },
+            {
+              "id": 407185,
+              "text": "$\\frac{|z|^{2}}{4}$",
+              "is_correct": false
+            },
+            {
+              "id": 407182,
+              "text": "|z|^2",
+              "is_correct": false
+            }
+          ],
+          "correct_option_ids": [
+            407184
+          ],
+          "correct_option_texts": [
+            "$\\frac{|z|^{2}}{2}$"
+          ],
+          "explanation": "Let z = x + iy. Then – iz = y – ix. Therefore,\nz + iz = (x – y) + i (x + y)\nRequired area of the triangle = $\\frac{1}{2}$ (x^2 + y^2) = $\\frac{|z|^{2}}{2}$"
+        },
+        {
+          "questionID": 295657,
+          "question": "If n arithmetic means are inserted between 1 and 31 such that the ratio of the first mean and n^th mean is 3:29, then the value of n is:",
+          "question_raw": "<p>If&nbsp;<em>n</em>&nbsp;arithmetic means are inserted between 1 and 31 such that the ratio of the first mean and&nbsp;<em>n</em><sup>th</sup> mean is 3:29, then the value of&nbsp;<em>n</em>&nbsp;is:</p>",
+          "options": [
+            {
+              "id": 420440,
+              "text": "10",
+              "is_correct": false
+            },
+            {
+              "id": 420442,
+              "text": "13",
+              "is_correct": false
+            },
+            {
+              "id": 420441,
+              "text": "12",
+              "is_correct": false
+            },
+            {
+              "id": 420443,
+              "text": "14",
+              "is_correct": true
+            }
+          ],
+          "correct_option_ids": [
+            420443
+          ],
+          "correct_option_texts": [
+            "14"
+          ],
+          "explanation": "The given series is 1, . ., 31 There are n A.M.s between 1 and 31:1, A_1, A_2, A_3, ..., A_n, 31\nCommon difference, d = $\\frac{31-1}{n+1}=\\frac{30}{n+1}$\nWe can write above as:\n$\\frac{A_{1}}{A_{n}}=\\frac{3}{29}$\n$\\Rightarrow \\frac{1+d}{1+n d}=\\frac{3}{29}$\n$\\Rightarrow \\frac{1+\\frac{30}{n+1}}{1+n \\times \\frac{30}{n+1}}=\\frac{3}{29}$\n$\\Rightarrow \\frac{n+1+30}{n+1+30 n}=\\frac{3}{29}$\n$\\Rightarrow \\frac{n+31}{31 n+1}=\\frac{3}{29}$\n$\\Rightarrow$ 29n + 899 = 93n + 3\n$\\Rightarrow$ 64n = 896\n$\\Rightarrow$ n = 14"
+        },
+        {
+          "questionID": 294459,
+          "question": "The figure formed by the lines ax $\\pm$ by $\\pm$ c = 0 is",
+          "question_raw": "<p>The figure formed by the lines ax&nbsp;<span class=\"math-tex\">{tex}\\pm{/tex}</span>&nbsp;by&nbsp;<span class=\"math-tex\">{tex}\\pm{/tex}</span>&nbsp;c = 0 is</p>",
+          "options": [
+            {
+              "id": 419065,
+              "text": "A square",
+              "is_correct": false
+            },
+            {
+              "id": 419064,
+              "text": "A rectangle",
+              "is_correct": false
+            },
+            {
+              "id": 419067,
+              "text": "A trapezium",
+              "is_correct": false
+            },
+            {
+              "id": 419066,
+              "text": "A rhombus",
+              "is_correct": true
+            }
+          ],
+          "correct_option_ids": [
+            419066
+          ],
+          "correct_option_texts": [
+            "A rhombus"
+          ],
+          "explanation": "The given lines can be written separately in the following manner:\nax + by + c = 0 ..(i)\nax + by - c = 0 ...(ii)\nax - by - c = 0 ... (iii)\nax - by - c = 0 ... (iv)\nGraph of the given lines is given below:\nBy observong the drawn figure we get following conclusions , \nAB = BC = CD = DA $=\\sqrt{\\frac{a^{2}}{c^{2}}+\\frac{b^{2}}{c^{2}}}$ $=\\frac{\\sqrt{a^{2}+b^{2}}}{|c|}$\nThus, the region formed by the given lines is ABCD, which is a rhombus."
+        },
+        {
+          "questionID": 19246,
+          "question": "$\\lim\\limits_{x \\to 0 + } \\frac{\\sqrt{x}}{\\sqrt{16+\\sqrt{x}}-4}$ is equal to",
+          "question_raw": "<p><span class=\"math-tex\">{tex}\\lim\\limits_{x \\to 0 + } \\frac{\\sqrt{x}}{\\sqrt{16+\\sqrt{x}}-4}{/tex}</span>&nbsp;is equal to&nbsp;</p>",
+          "options": [
+            {
+              "id": 32184,
+              "text": "0",
+              "is_correct": false
+            },
+            {
+              "id": 32183,
+              "text": "8",
+              "is_correct": true
+            },
+            {
+              "id": 32185,
+              "text": "does not exist",
+              "is_correct": false
+            },
+            {
+              "id": 32186,
+              "text": "2",
+              "is_correct": false
+            }
+          ],
+          "correct_option_ids": [
+            32183
+          ],
+          "correct_option_texts": [
+            "8"
+          ],
+          "explanation": "$\\lim \\limits_{x \\rightarrow 0^{+}}\\frac{1}{\\frac{\\sqrt{16+\\sqrt{z}}-\\sqrt{16}}{(16+\\sqrt{z})-(16)}}$ \n$\\Rightarrow$ $\\lim \\limits_{x \\rightarrow 0^{+}}{lim} 2(\\sqrt{16+\\sqrt{x}})$ \n= 8"
+        }
+      ]
+    },
+    {
+      "sectionName": "Section B",
+      "sectionID": 646,
+      "questions": [
+        {
+          "questionID": 19409,
+          "question": "Which of the following, in case of a discrete data, is not equal to the median?",
+          "question_raw": "<p>Which of the following, in case of a discrete data, is not equal to the median?</p>",
+          "options": [
+            {
+              "id": 32835,
+              "text": "lower quartile",
+              "is_correct": true
+            },
+            {
+              "id": 32837,
+              "text": "5^th decile",
+              "is_correct": false
+            },
+            {
+              "id": 32838,
+              "text": "50^th percentile",
+              "is_correct": false
+            },
+            {
+              "id": 32836,
+              "text": "2^nd quartile",
+              "is_correct": false
+            }
+          ],
+          "correct_option_ids": [
+            32835
+          ],
+          "correct_option_texts": [
+            "lower quartile"
+          ],
+          "explanation": "As lower quartile is the $\\frac{{{{(n + 1)}^{th}}term}}{4}$ whereas median is $\\frac{{{{(n + 1)}^{th}}term}}{2}$ or the average of middle most terms"
+        },
+        {
+          "questionID": 18350,
+          "question": "If aN = {ax : x $ \\in $ N}, then the set 3N $\\mathop \\cap \\nolimits $ 7N is",
+          "question_raw": "<p>&nbsp;If aN = {ax : x <span class=\"math-tex\">{tex} \\in {/tex}</span> N}, then the set 3N <span class=\"math-tex\">{tex}\\mathop \\cap \\nolimits {/tex}</span> 7N is</p>",
+          "options": [
+            {
+              "id": 28603,
+              "text": "7N",
+              "is_correct": false
+            },
+            {
+              "id": 28602,
+              "text": "4N",
+              "is_correct": false
+            },
+            {
+              "id": 28600,
+              "text": "21N",
+              "is_correct": true
+            },
+            {
+              "id": 28601,
+              "text": "10N",
+              "is_correct": false
+            }
+          ],
+          "correct_option_ids": [
+            28600
+          ],
+          "correct_option_texts": [
+            "21N"
+          ],
+          "explanation": "Here 3N = {3, 6, 9,...} and 7N = {7, 14, 21,...}\nHence 3N $\\cap$ 7N = {21, 42, ...} = {21x : x $\\in$ N} = 21N"
+        },
+        {
+          "questionID": 18417,
+          "question": "If f(x) = $\\frac{x-1}{x+1}$ then $\\left(f \\frac{1}{f(x)}\\right)$ equals",
+          "question_raw": "<p>If f(x) =&nbsp;<span class=\"math-tex\">{tex}\\frac{x-1}{x+1}{/tex}</span> then <span class=\"math-tex\">{tex}\\left(f \\frac{1}{f(x)}\\right){/tex}</span>&nbsp;equals</p>",
+          "options": [
+            {
+              "id": 28871,
+              "text": "0",
+              "is_correct": false
+            },
+            {
+              "id": 28870,
+              "text": "x",
+              "is_correct": false
+            },
+            {
+              "id": 28868,
+              "text": "$\\frac 1 x$",
+              "is_correct": true
+            },
+            {
+              "id": 28869,
+              "text": "1",
+              "is_correct": false
+            }
+          ],
+          "correct_option_ids": [
+            28868
+          ],
+          "correct_option_texts": [
+            "$\\frac 1 x$"
+          ],
+          "explanation": "We have ${f(x) = \\frac{{x - 1}}{{x + 1}}}$ then\n$f\\left( {\\frac{1}{{f(x)}}} \\right)$ = $\\frac{\\frac{1}{f(x)}-1}{\\frac{1}{f(x)}+1}$ = $\\frac{1-f(x)}{1+f(x)}$ \n=$\\frac{{1 - \\frac{{x - 1}}{{x + 1}}}}{{1 + \\frac{{x - 1}}{{x + 1}}}}$ = $\\frac{x+1-x+1}{x+1+x-1}$ = $\\frac{2}{2 x}$ = $\\frac{1}{x}$"
+        },
+        {
+          "questionID": 18686,
+          "question": "Find argument of the complex number (0 + 0i)",
+          "question_raw": "<p>Find argument of the complex number&nbsp;&nbsp;(0 + 0i)</p>",
+          "options": [
+            {
+              "id": 29946,
+              "text": "$\\pi $",
+              "is_correct": false
+            },
+            {
+              "id": 29945,
+              "text": "0",
+              "is_correct": false
+            },
+            {
+              "id": 29944,
+              "text": "none of these",
+              "is_correct": true
+            },
+            {
+              "id": 29947,
+              "text": "-$\\pi $",
+              "is_correct": false
+            }
+          ],
+          "correct_option_ids": [
+            29944
+          ],
+          "correct_option_texts": [
+            "none of these"
+          ],
+          "explanation": "Let Z = 0 + 0i = $r\\left( cos\\theta +isin\\theta \\right) $ \nThen comparing the real and imaginary parts, we get \nr cos $\\theta$ = 0 and r sin $\\theta$ = 0\n$\\therefore$ r^2 (cos^2 $\\theta$ + sin^2 $\\theta$) = 0\n$\\Rightarrow$ r^2 = 0 $\\Rightarrow$ r = 0\n$\\Rightarrow$ cos $\\theta$ = 0 and sin $\\theta$ = 0 \nWhich is not possible for any value of $\\theta$."
+        },
+        {
+          "questionID": 292500,
+          "question": "The product (32), $(32)^{\\frac 16}, (32)^{\\frac 1{36}}$ ... to $\\infty$ is equal to",
+          "question_raw": "<p>The product (32), <span class=\"math-tex\">{tex}(32)^{\\frac 16}, (32)^{\\frac 1{36}}{/tex}</span> ... to&nbsp;<span class=\"math-tex\">{tex}\\infty{/tex}</span>&nbsp;is equal to</p>",
+          "options": [
+            {
+              "id": 417406,
+              "text": "0",
+              "is_correct": false
+            },
+            {
+              "id": 417405,
+              "text": "32",
+              "is_correct": false
+            },
+            {
+              "id": 417403,
+              "text": "64",
+              "is_correct": true
+            },
+            {
+              "id": 417404,
+              "text": "16",
+              "is_correct": false
+            }
+          ],
+          "correct_option_ids": [
+            417403
+          ],
+          "correct_option_texts": [
+            "64"
+          ],
+          "explanation": "We have, 32 $\\times$ $(32)^{\\frac 16} \\times (32)^{\\frac 1{36}}$ $\\times \\infty$\n= $32^{\\left(1+\\frac{1}{6}+\\frac{1}{36}+\\ldots \\infty\\right)}$\n= $32\\left(\\frac{1}{1-\\frac{1}{6}}\\right)$ [$\\because$ it is a G.P.]\n= $32^{\\left(\\frac{6}{5}\\right)}$\n= $\\left(2^{5}\\right)^{\\left(\\frac{6}{5}\\right)}$\n= 2^6\n= 64"
+        },
+        {
+          "questionID": 292546,
+          "question": "$\\lim \\limits_{x \\rightarrow 3} \\frac{x-3}{|x-3|}$ is equal to:",
+          "question_raw": "<p><span class=\"math-tex\">{tex}\\lim \\limits_{x \\rightarrow 3} \\frac{x-3}{|x-3|}{/tex}</span>&nbsp;is equal to:</p>",
+          "options": [
+            {
+              "id": 417507,
+              "text": "1",
+              "is_correct": false
+            },
+            {
+              "id": 417509,
+              "text": "0",
+              "is_correct": false
+            },
+            {
+              "id": 417508,
+              "text": "-1",
+              "is_correct": false
+            },
+            {
+              "id": 417510,
+              "text": "None of these",
+              "is_correct": true
+            }
+          ],
+          "correct_option_ids": [
+            417510
+          ],
+          "correct_option_texts": [
+            "None of these"
+          ],
+          "explanation": "$\\lim \\limits_{x \\rightarrow 3} \\frac{x-3}{|x-3|}$\nLHL at x = 3\n$\\lim \\limits_{x \\rightarrow 3^{-}} \\frac{x-3}{-(x-3)}$ [$\\because$ |x - 3| = -(x - 3) x < 3]\n= -1\nRHL at x = 3\n$\\lim \\limits_{x \\rightarrow 3^{+}} \\frac{x-3}{x-3}$ [$\\therefore$ |x - 3| = x - 3, when x > 3]\n= 1\nLHL $\\neq$ RHL"
+        },
+        {
+          "questionID": 284471,
+          "question": "Let x_1, x_2, x_3, x_4, x_5 be the observations with mean m and standard deviation s. The standard deviation of the observations kx_1, kx_2, kx_3, kx_4, kx_5 is",
+          "question_raw": "<p>Let x<sub>1</sub>, x<sub>2</sub>, x<sub>3</sub>, x<sub>4</sub>, x<sub>5</sub> be the observations with mean m and standard deviation s. The standard deviation of the observations kx<sub>1</sub>, kx<sub>2</sub>, kx<sub>3</sub>, kx<sub>4</sub>, kx<sub>5&nbsp;</sub>is</p>",
+          "options": [
+            {
+              "id": 406746,
+              "text": "k + s",
+              "is_correct": false
+            },
+            {
+              "id": 406747,
+              "text": "$\\frac sk$",
+              "is_correct": false
+            },
+            {
+              "id": 406749,
+              "text": "s",
+              "is_correct": false
+            },
+            {
+              "id": 406748,
+              "text": "|k|s",
+              "is_correct": true
+            }
+          ],
+          "correct_option_ids": [
+            406748
+          ],
+          "correct_option_texts": [
+            "|k|s"
+          ],
+          "explanation": "Given observations are x_1, x_2, x_3, x_4, x_5\nSo the mean of the 5 observations is\nm = $\\frac{x_1 + x_2 + x_3 + x_4 + x_5}{5}=\\frac{\\sum \\mathrm{x}_{\\mathrm{i}}}{5}$\n$\\Rightarrow \\sum$x_i = x_1, x_2, x_3, x_4, x_5 = 5m ...(i)\nAnd the standard deviation of the 5 observations is\ns = $\\sqrt{\\frac{\\sum x_{i}^{2}}{5}-\\left(\\frac{\\sum x_{i}}{5}\\right)^{2}}$\nSubstituting equation (i) in above equation we get\ns = $\\sqrt{\\frac{\\sum x_{i}^{2}}{5}-\\left(\\frac{5 m}{5}\\right)^{2}}$\ns = $\\sqrt{\\frac{\\sum x_{i}^{2}}{5}-m^{2}}$ ...(ii)\nNow we will find the mean and standard deviation of the observations kx_1, kx_2, kx_3, kx_4, kx_5, we get\nSo the mean of these 5 observations is\nm_1 = $\\frac{kx_1 + kx_2+ kx_3+ kx_4+ kx_5}{5}$\nm_1 = $\\frac{\\left(x_{1}+x_{2}+x_{3}+x_{4}+x_{5}\\right) k}{5}$\nSubstituting value from equation (i), we get\nm_1 = $\\frac{5mk}{5}$\nm_1 = m + k …(iii)\nAnd the standard deviation of the 5 observations is\n$\\sigma=\\sqrt{\\frac{\\sum\\left(\\mathrm{x}_{\\mathrm{i}}+\\mathrm{k}\\right)^{2}}{5}-\\left(\\mathrm{m}_{1}\\right)^{2}}$\n$\\sigma=\\sqrt{\\mathrm{k}^{2} \\frac{\\sum\\left(\\mathrm{x}_{\\mathrm{i}}\\right)^{2}}{5}-\\left(\\mathrm{m}_{1}\\right)^{2}}$\nSubstituting equation (iii) in above equation we get\n$\\sigma=\\sqrt{\\mathrm{k}^{2} \\frac{\\sum\\left(\\mathrm{x}_{\\mathrm{i}}\\right)^{2}}{5}-(\\mathrm{mk})^{2}}$\n$\\sigma=\\sqrt{\\mathrm{k}^{2} \\frac{\\sum\\left(\\mathrm{x}_{\\mathrm{i}}\\right)^{2}}{5}-\\mathrm{k}^{2} \\mathrm{m}^{2}}$\n$\\sigma=\\sqrt{\\mathrm{k}^{2}\\left(\\frac{\\sum\\left(\\mathrm{x}_{\\mathrm{i}}\\right)^{2}}{5}-\\mathrm{m}^{2}\\right)}$\nSubstituting the value from equation (ii), we get\n$\\sigma=\\sqrt{\\mathrm{k}^{2}\\left(\\mathrm{s}^{2}\\right)}$\n$\\sigma$ = s\nHence the standard deviation of new set of observations, i.e., kx_1, kx_2, kx_3, kx_4, kx_5 is |k|s"
+        },
+        {
+          "questionID": 69790,
+          "question": "If A = {x : x is a multiple of 3, x natural no., x < 30} and B = {x : x is a multiple of 5, x is natural no., x < 30} then A - B is",
+          "question_raw": "<p>If A = {x : x is a multiple of 3, x natural no., x &lt; 30} and B = {x : x is a multiple of 5, x is natural no., x &lt; 30} then A - B&nbsp;is</p>",
+          "options": [
+            {
+              "id": 211345,
+              "text": "{3, 6, 9, 12, 15, 18, 21, 24, 27, 30}",
+              "is_correct": false
+            },
+            {
+              "id": 211344,
+              "text": "{3, 6, 9, 12, 18, 21, 24, 27, 30}",
+              "is_correct": false
+            },
+            {
+              "id": 211343,
+              "text": "{3, 6, 9, 12, 18, 21, 24, 27}",
+              "is_correct": true
+            },
+            {
+              "id": 211342,
+              "text": "{3, 5, 6, 9, 10, 12, 15, 18, 20, 21, 25, 27, 30}",
+              "is_correct": false
+            }
+          ],
+          "correct_option_ids": [
+            211343
+          ],
+          "correct_option_texts": [
+            "{3, 6, 9, 12, 18, 21, 24, 27}"
+          ],
+          "explanation": "Since set B represent multiple of 5 so from Set A common multiple of 3 and 5 are excluded."
+        },
+        {
+          "questionID": 18436,
+          "question": "Two functions f : R $\\rightarrow$ R and g : R $\\rightarrow$ R are defined as follows : $f\\left( x \\right) = \\left\\{ \\begin{gathered} 0\\left( {xRational} \\right) \\\\ 1\\left( {xIrrational} \\right) \\\\ \\end{gathered} \\right\\}$ ,g(x) = $\\left\\{\\begin{array}{l}-1(x \\text { Rational }) \\\\ 0(x \\text { Irrational })\\end{array}\\right\\}$ then (gof)(e) + (fog)( $\\pi $) =",
+          "question_raw": "<p>Two functions&nbsp;f : R&nbsp;<span class=\"math-tex\">{tex}\\rightarrow{/tex}</span>&nbsp;R and g&nbsp;: R&nbsp;<span class=\"math-tex\">{tex}\\rightarrow{/tex}</span>&nbsp;R are defined as follows : <span class=\"math-tex\">{tex}f\\left( x \\right) = \\left\\{ \\begin{gathered} 0\\left( {xRational} \\right) \\\\ 1\\left( {xIrrational} \\right) \\\\ \\end{gathered} \\right\\}{/tex}</span> ,g(x) =&nbsp;<span class=\"math-tex\">{tex}\\left\\{\\begin{array}{l}-1(x \\text { Rational }) \\\\ 0(x \\text { Irrational })\\end{array}\\right\\}{/tex}</span>&nbsp;then (gof)(e) + (fog)( <span class=\"math-tex\">{tex}\\pi {/tex}</span>) =</p>",
+          "options": [
+            {
+              "id": 28944,
+              "text": "-1",
+              "is_correct": true
+            },
+            {
+              "id": 28945,
+              "text": "0",
+              "is_correct": false
+            },
+            {
+              "id": 28946,
+              "text": "1",
+              "is_correct": false
+            },
+            {
+              "id": 28947,
+              "text": "2",
+              "is_correct": false
+            }
+          ],
+          "correct_option_ids": [
+            28944
+          ],
+          "correct_option_texts": [
+            "-1"
+          ],
+          "explanation": "gof(e) + fog($\\pi$) = g(f(e)) + f(g($\\pi$))\n= g(1) + f(-1) {$\\because$ e is irrational and $\\pi$ is rational}\n= -1 + 0 = -1"
+        },
+        {
+          "questionID": 291665,
+          "question": "The number of solutions of x^2 + Ix - 1I = 1 is",
+          "question_raw": "<p>The number of solutions of x<sup>2</sup> + Ix - 1I = 1 is&nbsp;</p>",
+          "options": [
+            {
+              "id": 416439,
+              "text": "0",
+              "is_correct": false
+            },
+            {
+              "id": 416441,
+              "text": "2",
+              "is_correct": true
+            },
+            {
+              "id": 416442,
+              "text": "3",
+              "is_correct": false
+            },
+            {
+              "id": 416440,
+              "text": "1",
+              "is_correct": false
+            }
+          ],
+          "correct_option_ids": [
+            416441
+          ],
+          "correct_option_texts": [
+            "2"
+          ],
+          "explanation": "x^2 + |x - 1| = x^2 + x - 1, x $\\ge$ 1 = x^2 - x + 1, x < 1\n x^2 + x - 1 = 1\n $\\Rightarrow$ x^2 + x - 2 = 0\n $\\Rightarrow$ x^2 + 2x - x - 2 = 0\n $\\Rightarrow$ x(x + 2) - 1(x + 2) = 0\n $\\Rightarrow$ x + 2 = 0 or, x - 1 = 0\n $\\Rightarrow$ x = -2 or x = 1\n Since -2 does not satisfy the condition x $\\ge$ 1\n x^2 - x + 1 = 1\n $\\Rightarrow$ x^2 - x = 0\n $\\Rightarrow$ x^2 - x = 0\n $\\Rightarrow$ x(x - 1) = 0\n $\\Rightarrow$ x = 0 or, (x - 1) = 0\n $\\Rightarrow$ x = 0, x = 1\n x = 1 does not satisfy the condition x < 1\n So, there are two solutions."
+        },
+        {
+          "questionID": 284902,
+          "question": "The third term of G.P. is 4. The product of its first 5 terms is",
+          "question_raw": "<p>The third term of G.P. is 4. The product of its first 5 terms is</p>",
+          "options": [
+            {
+              "id": 407162,
+              "text": "4^3",
+              "is_correct": false
+            },
+            {
+              "id": 407163,
+              "text": "4^4",
+              "is_correct": false
+            },
+            {
+              "id": 407165,
+              "text": "4^6",
+              "is_correct": false
+            },
+            {
+              "id": 407164,
+              "text": "4^5",
+              "is_correct": true
+            }
+          ],
+          "correct_option_ids": [
+            407164
+          ],
+          "correct_option_texts": [
+            "4^5"
+          ],
+          "explanation": "Suppose a and r the first term and common ratio, respectively.\nGiven that the third term is 4.\n$\\therefore$ ar^2 = 4\nProduct of first 5 terms = a.ar.ar^2.ar^3.ar^4. = a^5r^10 = (ar^2)^5 = 4^5"
+        },
+        {
+          "questionID": 19263,
+          "question": "If f (x) = $\\sqrt {1 - {x^2}} $, x $\\in$ (0, 1), then f'(x), is equal to",
+          "question_raw": "<p>If f (x) = <span class=\"math-tex\">{tex}\\sqrt {1 - {x^2}} {/tex}</span>, x&nbsp;<span class=\"math-tex\">{tex}\\in{/tex}</span>&nbsp;(0, 1), then f&#39;(x),&nbsp;is equal to</p>",
+          "options": [
+            {
+              "id": 32251,
+              "text": "$\\frac{-x}{\\sqrt{1-x^2}}$",
+              "is_correct": true
+            },
+            {
+              "id": 32253,
+              "text": "$\\sqrt {1 - {x^2}} $",
+              "is_correct": false
+            },
+            {
+              "id": 32254,
+              "text": "$\\sqrt {{x^2} - 1} $",
+              "is_correct": false
+            },
+            {
+              "id": 32252,
+              "text": "$\\frac{1}{\\sqrt{1-x^2}}$",
+              "is_correct": false
+            }
+          ],
+          "correct_option_ids": [
+            32251
+          ],
+          "correct_option_texts": [
+            "$\\frac{-x}{\\sqrt{1-x^2}}$"
+          ],
+          "explanation": "f(x) = $\\sqrt {1 - {x^2}} $\nf'(x) = $\\frac{1}{2 \\sqrt{1-x^2}}-2x$ = $\\frac{-x}{\\sqrt{1-x^2}}$"
+        },
+        {
+          "questionID": 284414,
+          "question": "Variance of the data 2, 4, 5, 6, 8, 17 is 23.33. Then variance of 4, 8, 10, 12, 16, 34 will be",
+          "question_raw": "<p>Variance of the data 2, 4, 5, 6, 8, 17 is 23.33. Then variance of 4, 8, 10, 12, 16, 34 will be</p>",
+          "options": [
+            {
+              "id": 406696,
+              "text": "93.32",
+              "is_correct": true
+            },
+            {
+              "id": 406694,
+              "text": "23.23",
+              "is_correct": false
+            },
+            {
+              "id": 406697,
+              "text": "48.66",
+              "is_correct": false
+            },
+            {
+              "id": 406695,
+              "text": "25.33",
+              "is_correct": false
+            }
+          ],
+          "correct_option_ids": [
+            406696
+          ],
+          "correct_option_texts": [
+            "93.32"
+          ],
+          "explanation": "When each observation is multiplied by 2, then variance is multiplied by 2^2 i.e 4.\n=4 $\\times$ 23.33 = 93.32"
+        },
+        {
+          "questionID": 291674,
+          "question": "If the roots of x^2 - bx + c = 0 are two consecutive integers, then b^2 - 4c is",
+          "question_raw": "<p>If the roots of x<sup>2</sup> - bx + c = 0 are two consecutive integers, then b<sup>2</sup> - 4c is</p>",
+          "options": [
+            {
+              "id": 416449,
+              "text": "2",
+              "is_correct": false
+            },
+            {
+              "id": 416450,
+              "text": "3",
+              "is_correct": false
+            },
+            {
+              "id": 416448,
+              "text": "1",
+              "is_correct": true
+            },
+            {
+              "id": 416447,
+              "text": "0",
+              "is_correct": false
+            }
+          ],
+          "correct_option_ids": [
+            416448
+          ],
+          "correct_option_texts": [
+            "1"
+          ],
+          "explanation": "Given equation:\nx^2 - bx + c = 0\nLet $\\alpha$ and $\\alpha + 1$ be the two consective roots of the equation.\nSum of the roots = $\\alpha+\\alpha+1$ = $2 \\alpha+1$ \nProduct of the roots = $\\alpha(\\alpha+1)$ = $\\alpha(\\alpha+1)$ \nSo, sum of the roots = $2 \\alpha+1$ = $\\frac{-\\text { Coeffecient of } x}{\\text { Coeffecient of } x^{2}}$ = $\\frac{b}{1}$ = b\nProduct of the roots = $\\alpha^{2}+\\alpha$ = $\\frac{\\text { Constant term }}{\\text { Coeffecient of } x^{2}}$ = $\\frac{c}{1}$ = c\nNow, b^2 - 4c = $(2 \\alpha+1)^{2}-4\\left(\\alpha^{2}+\\alpha\\right)$ = $4 \\alpha^{2}+4 \\alpha+1-4 \\alpha^{2}-4 \\alpha$ = 1"
+        },
+        {
+          "questionID": 290421,
+          "question": "How many terms of the GP $\\frac{2}{9}-\\frac{1}{3}+\\frac{1}{2}$... must be taken to make the sum $\\frac{55}{72}$?",
+          "question_raw": "<p>How many terms of the GP&nbsp;<span class=\"math-tex\">{tex}\\frac{2}{9}-\\frac{1}{3}+\\frac{1}{2}{/tex}</span>... must be taken to make the sum&nbsp;<span class=\"math-tex\">{tex}\\frac{55}{72}{/tex}</span>?</p>",
+          "options": [
+            {
+              "id": 415269,
+              "text": "7",
+              "is_correct": false
+            },
+            {
+              "id": 415268,
+              "text": "5",
+              "is_correct": true
+            },
+            {
+              "id": 415267,
+              "text": "6",
+              "is_correct": false
+            },
+            {
+              "id": 415270,
+              "text": "8",
+              "is_correct": false
+            }
+          ],
+          "correct_option_ids": [
+            415268
+          ],
+          "correct_option_texts": [
+            "5"
+          ],
+          "explanation": "Let the required number of terms be\nHere, we have $a=\\frac{2}{9}$, $r=\\frac{-1}{3} \\times \\frac{9}{2}=\\frac{-3}{2}<1$ and $S_{n}=\\frac{55}{72}$.\n$s_{n}=\\frac{a\\left(1-r^{n}\\right)}{(1-r)} \\Rightarrow \\frac{\\frac{2}{9}\\left\\{1-\\left(\\frac{-3}{2}\\right)^{n}\\right\\}}{\\left(1+\\frac{3}{2}\\right)}=\\frac{55}{72}$\n$\\Rightarrow\\left(\\frac{2}{9} \\times \\frac{2}{5}\\right)\\left\\{1-\\left(\\frac{-3}{2}\\right)^{n}\\right\\}=\\frac{55}{72}$\n$\\Rightarrow 1-\\left(\\frac{-3}{2}\\right)^{n}=\\frac{55}{72} \\times \\frac{45}{4}=\\frac{275}{32}$\n$\\Rightarrow\\left(\\frac{-3}{2}\\right)^{n}=\\left(1-\\frac{275}{32}\\right)=\\frac{(32-275)}{32}=\\frac{-243}{32}=\\left(\\frac{-3}{2}\\right)^{5}$\n$\\therefore$ n = 5\n$\\therefore$ the required number of terms = 5."
+        },
+        {
+          "questionID": 284506,
+          "question": "If sets A and B are defined as A = $\\left\\{(x, y) | y=\\frac{1}{x}, 0 \\neq x \\in \\mathbf{R}\\right\\}$, B = {(x, y) | y = -x, x $\\in$ R}, then",
+          "question_raw": "<p>If sets A and B are defined as A =&nbsp;<span class=\"math-tex\">{tex}\\left\\{(x, y) | y=\\frac{1}{x}, 0 \\neq x \\in \\mathbf{R}\\right\\}{/tex}</span>, B = {(x, y) | y = -x, x&nbsp;<span class=\"math-tex\">{tex}\\in{/tex}</span>&nbsp;R}, then</p>",
+          "options": [
+            {
+              "id": 406819,
+              "text": "A $\\cap$ B = B",
+              "is_correct": false
+            },
+            {
+              "id": 406820,
+              "text": "A $\\cap$ B = $\\phi$",
+              "is_correct": true
+            },
+            {
+              "id": 406818,
+              "text": "A $\\cap$ B = A",
+              "is_correct": false
+            },
+            {
+              "id": 406821,
+              "text": "A $\\cup$ B = A",
+              "is_correct": false
+            }
+          ],
+          "correct_option_ids": [
+            406820
+          ],
+          "correct_option_texts": [
+            "A $\\cap$ B = $\\phi$"
+          ],
+          "explanation": "We have,A = $\\left\\{(x, y) | y=\\frac{1}{x}, 0 \\neq x \\in \\mathbf{R}\\right\\}$ and B = {(x, y) | y = -x, x $\\in$ R}\nFor any element of A $\\cap$ B, A and B will have same value of y\n$\\Rightarrow$ -x^2 = 1\n$\\Rightarrow$ x^2 = -1\nSquare of any value cannot be negative\nThus, there is no value of x for which A and B will have same value of y\n$\\Rightarrow$ A $\\cap$ B = $\\phi$"
+        },
+        {
+          "questionID": 18408,
+          "question": "If f (x) = $\\begin{array}{l}\\{\\;2x\\;-3,\\;x\\geq2\\\\\\;\\;x,\\;x<2\\end{array}$ then f (1) is equal to",
+          "question_raw": "<p>If f (x) = <span class=\"math-tex\">{tex}\\begin{array}{l}\\{\\;2x\\;-3,\\;x\\geq2\\\\\\;\\;x,\\;x&lt;2\\end{array}{/tex}</span> then f (1) is equal to</p>",
+          "options": [
+            {
+              "id": 28834,
+              "text": "- f (2)",
+              "is_correct": true
+            },
+            {
+              "id": 28832,
+              "text": "$f(1)$",
+              "is_correct": false
+            },
+            {
+              "id": 28833,
+              "text": "2 f (2)",
+              "is_correct": false
+            },
+            {
+              "id": 28835,
+              "text": "$\\frac{1}{2}f(2)$",
+              "is_correct": false
+            }
+          ],
+          "correct_option_ids": [
+            28834
+          ],
+          "correct_option_texts": [
+            "- f (2)"
+          ],
+          "explanation": "We have f(1) = 1(as 1 < 2)\nf(2) = 2.2 - 3 = 1\n$\\therefore$ f(1) = f(2)"
+        },
+        {
+          "questionID": 291848,
+          "question": "If $\\sqrt{a+i b}$ = x + iy, then possible value of $\\sqrt{a-i b}$ is",
+          "question_raw": "<p>If&nbsp;<span class=\"math-tex\">{tex}\\sqrt{a+i b}{/tex}</span>&nbsp;= x + iy, then possible value of&nbsp;<span class=\"math-tex\">{tex}\\sqrt{a-i b}{/tex}</span>&nbsp;is</p>",
+          "options": [
+            {
+              "id": 416515,
+              "text": "x^2 + y^2",
+              "is_correct": false
+            },
+            {
+              "id": 416517,
+              "text": "x + i y",
+              "is_correct": false
+            },
+            {
+              "id": 416516,
+              "text": "$\\sqrt{x^{2}+y^{2}}$",
+              "is_correct": false
+            },
+            {
+              "id": 416518,
+              "text": "x - i y",
+              "is_correct": true
+            }
+          ],
+          "correct_option_ids": [
+            416518
+          ],
+          "correct_option_texts": [
+            "x - i y"
+          ],
+          "explanation": "x - i y\n$\\sqrt{a+i b}$ = x + iy\nSquaring on both the sides, we get,\na + ib = x^2 + (iy)^2 + 2ixy\n$\\Rightarrow$ a + ib = (x^2 - y^2) + 2ixy\n$\\therefore$ a = (x^2 - y^2)\nand b = 2xy\n$\\therefore$ a - ib (x^2 - y^2) - 2ixy\n$\\Rightarrow$ a - ib = x^2 + i^2y^2 - 2ixy [$\\because$ i^2 = -1]\nTaking square root on both the sides, we get:\n$\\sqrt{a-i b}$ = x - iy"
+        },
+        {
+          "questionID": 290135,
+          "question": "If $\\frac{(3+5+7+\\ldots \\text { to } n \\text { terms })}{(5+8+11+\\ldots \\text { to } 10\\text { terms) } }=7$ then n = ?",
+          "question_raw": "<p>If&nbsp;<span class=\"math-tex\">{tex}\\frac{(3+5+7+\\ldots \\text { to } n \\text { terms })}{(5+8+11+\\ldots \\text { to } 10\\text { terms) } }=7{/tex}</span>&nbsp;then n = ?</p>",
+          "options": [
+            {
+              "id": 414313,
+              "text": "32",
+              "is_correct": false
+            },
+            {
+              "id": 414311,
+              "text": "35",
+              "is_correct": true
+            },
+            {
+              "id": 414314,
+              "text": "30",
+              "is_correct": false
+            },
+            {
+              "id": 414312,
+              "text": "34",
+              "is_correct": false
+            }
+          ],
+          "correct_option_ids": [
+            414311
+          ],
+          "correct_option_texts": [
+            "35"
+          ],
+          "explanation": "Given that, $\\frac{(3+5+7+\\ldots\\text { ton terms) } }{(5+8+11+\\ldots \\text { to } 10\\text { terms) } }=7$\n$\\Rightarrow \\frac{\\frac{n}{2} \\cdot[6+(n-1) \\times 2]}{\\frac{10}{2} \\cdot[10+9 \\times 3]}=7 \\Rightarrow n(n+2)$ = 1295\n$\\Rightarrow n^{2}+2 n-1295=0$ \n$\\Rightarrow$ n^2 + 37n - 35n - 1295 = 0\n$\\Rightarrow$ n(n + 37) - 35(n + 37) = 0 \n$\\Rightarrow$ (n + 37)(n - 35) = 0\n$\\Rightarrow$ n = 35 [n cannot take negative values]"
+        },
+        {
+          "questionID": 284937,
+          "question": "If in an A.P., S_n = qn^2 and S_m = qm^2, where S_r denotes the sum of r terms of the A.P., then S_q equals to:",
+          "question_raw": "<p>If in an A.P., S<sub>n</sub> = qn<sup>2</sup> and S<sub>m</sub> = qm<sup>2</sup>, where S<sub>r</sub> denotes the sum of r terms of the A.P., then S<sub>q</sub> equals to:</p>",
+          "options": [
+            {
+              "id": 407193,
+              "text": "(m + n)q^2",
+              "is_correct": false
+            },
+            {
+              "id": 407190,
+              "text": "$\\frac {q^3}{ 2}$",
+              "is_correct": false
+            },
+            {
+              "id": 407192,
+              "text": "q^3",
+              "is_correct": true
+            },
+            {
+              "id": 407191,
+              "text": "mnq",
+              "is_correct": false
+            }
+          ],
+          "correct_option_ids": [
+            407192
+          ],
+          "correct_option_texts": [
+            "q^3"
+          ],
+          "explanation": "The given series is A.P whose first term is ‘a’ and common difference is ‘d’.\nWe know that,\nS_n = $\\frac{{n}}{2}$[2a + (n - 1)d]\n$\\Rightarrow$ qn^2 = $\\frac{{n}}{2}$[2a + (n - 1)d] [$\\because$ S_n = qn^2]\n$\\Rightarrow$ 2qn = 2a + (n – 1)d\n$\\Rightarrow$ 2qn – (n – 1)d = 2a …(i)\nand S_m = $\\frac{{m}}{2}$[2a + (m - 1)d]\n$\\Rightarrow$ qm = $\\frac{{m}}{2}${2}[2a + (m - 1)d] [$\\because$ S_m = qm^2]\n$\\Rightarrow$ 2qm = 2a + (m - 1) d\n$\\Rightarrow$ 2qm – (m – 1)d = 2a …(ii)\nSolving eq. (i) and (ii), we get\n2qn – (n – 1)d = 2qm – (m – 1)d\n$\\Rightarrow$ 2qn – 2qm = (n – 1)d – (m – 1)d\n$\\Rightarrow$ 2q(n – m) = d[n – 1 – (m – 1)]\n$\\Rightarrow$ 2q(n – m) = d[n – 1 – m + 1]\n$\\Rightarrow$ 2q(n – m) = d(n – m)\n$\\Rightarrow$ 2q = d\nPutting the value of d in eq. (i), we obtain\n2qn - (n – 1)(2q) = 2a\n$\\Rightarrow$ 2qn – 2qn + 2q = 2a\n$\\Rightarrow$ 2q = 2a\n$\\Rightarrow$ q = a\n$\\therefore$ a = q and d = 2q. So,\nS_q = $\\frac{{q}}{2}$[2a + (q - 1)d]\n$\\Rightarrow$ S_q = $\\frac{{q}}{2}$[2q + (q - 1)2q]\n$\\Rightarrow$ S_q = $\\frac{2q^{2}}{2}+\\frac{2q^{2}(q-1)}{2}$\n$\\Rightarrow$ S_q = q^2 + q^2(q – 1)\n$\\Rightarrow$ S_q = q^2 + q^3 – q^2\n$\\Rightarrow$ S_q = q^3\nTherefore, the correct option is q^3."
+        }
+      ]
+    },
+    {
+      "sectionName": "Section C",
+      "sectionID": 647,
+      "questions": [
+        {
+          "questionID": 18341,
+          "question": "If A = {1, 2, 3, 4 }, B = {4, 5, 6, 7}, A $\\cap$ B =",
+          "question_raw": "<p>If A = {1, 2, 3, 4 }, B = {4, 5, 6, 7}, A&nbsp;<span class=\"math-tex\">{tex}\\cap{/tex}</span> B =&nbsp;</p>",
+          "options": [
+            {
+              "id": 28567,
+              "text": "{6, 7}",
+              "is_correct": false
+            },
+            {
+              "id": 28566,
+              "text": "{1, 2, 3, 4}",
+              "is_correct": false
+            },
+            {
+              "id": 28565,
+              "text": "{1, 2}",
+              "is_correct": false
+            },
+            {
+              "id": 28564,
+              "text": "{4}",
+              "is_correct": true
+            }
+          ],
+          "correct_option_ids": [
+            28564
+          ],
+          "correct_option_texts": [
+            "{4}"
+          ],
+          "explanation": "Given A = {1, 2, 3, 4} and B = {4, 5, 6, 7}\n(a $\\cap$ B) = {4}"
+        },
+        {
+          "questionID": 18400,
+          "question": "If f (x) = tan x, $-\\frac{\\pi}{2}<x<\\frac{\\pi}{2}$ and g (x) = $\\sqrt {1 - {x^2}} $ , then domain of fog is",
+          "question_raw": "<p>If f (x) = tan x, <span class=\"math-tex\">{tex}-\\frac{\\pi}{2}&lt;x&lt;\\frac{\\pi}{2}{/tex}</span> and g (x) = <span class=\"math-tex\">{tex}\\sqrt {1 - {x^2}} {/tex}</span> , then domain of fog is</p>",
+          "options": [
+            {
+              "id": 28800,
+              "text": "[- 1, 1]",
+              "is_correct": true
+            },
+            {
+              "id": 28803,
+              "text": "$\\left[-\\frac{\\pi}{4}, \\frac{\\pi}{4}\\right]$",
+              "is_correct": false
+            },
+            {
+              "id": 28802,
+              "text": "(- 1, 1)",
+              "is_correct": false
+            },
+            {
+              "id": 28801,
+              "text": "$\\left(-\\frac{\\pi}{2}, \\frac{\\pi}{2}\\right)$",
+              "is_correct": false
+            }
+          ],
+          "correct_option_ids": [
+            28800
+          ],
+          "correct_option_texts": [
+            "[- 1, 1]"
+          ],
+          "explanation": "fog(x) = f(g(x)) = $f(\\sqrt{1-x^{2}})$\n$\\Rightarrow$ fog(x) = tan $\\sqrt{1-x^{2}}$\nand it is defined if\n1 - x^2 $\\geq$ 0\n$\\Rightarrow$ x^2 $\\leq$ 1\n$\\Rightarrow$ -1 $\\leq$ x $\\leq$ 1"
+        },
+        {
+          "questionID": 18678,
+          "question": "Square roots of i are",
+          "question_raw": "<p>Square roots of i are</p>",
+          "options": [
+            {
+              "id": 29913,
+              "text": "$\\pm \\frac{1}{\\sqrt{2}}(1-i)$",
+              "is_correct": false
+            },
+            {
+              "id": 29915,
+              "text": "-1",
+              "is_correct": false
+            },
+            {
+              "id": 29912,
+              "text": "$\\pm \\frac{1}{\\sqrt{2}}(1+i)$",
+              "is_correct": true
+            },
+            {
+              "id": 29914,
+              "text": "$ \\pm 1$",
+              "is_correct": false
+            }
+          ],
+          "correct_option_ids": [
+            29912
+          ],
+          "correct_option_texts": [
+            "$\\pm \\frac{1}{\\sqrt{2}}(1+i)$"
+          ],
+          "explanation": "Let $\\sqrt { i }$ = x + iy\nSquaring both sides, we get\ni = (x + iy)^2 = x^2 - y^2 + 2xyi \nSubtracting (i) from (iii), we get\n2y^2 = 1 $\\Rightarrow$ y^2 = $\\frac{1}{2}$ $\\Rightarrow$ y = $\\pm \\frac{1}{\\sqrt{2}}$ \nComparing real and imaginary parts, we get x^2 - y^2 = 0 ....(i) and 2xy = 1\nWe have (x^2 - y^2)^2 = (x^2 + y^2)^2 - 4x^2y^2 \n$\\Rightarrow$ 0 = (x^2 + y^2)^2 - (2xy)^2 = (x^2 + y^2)^2 - 1\n$\\Rightarrow$ (x^2 + y^2)^2 = 1\n$\\Rightarrow$ x^2 + y^2 = 1 .....(iii)\nAdding (i) and (iii) we get \n2x^2 = 1 $\\Rightarrow$ x^2 = $\\frac{1}{2}$ $\\Rightarrow$ x = $\\pm \\frac{1}{\\sqrt{2}}$ \nHence $\\sqrt { i }$ = x + iy = $\\pm \\frac{1}{\\sqrt{2}}(1+i)$"
+        },
+        {
+          "questionID": 295687,
+          "question": "If a, b, c are in A.P. and x, y, z are in G.P., then the value of x^b-c y^c-a z^a-b is",
+          "question_raw": "<p>If a, b, c are in A.P. and x, y, z are in G.P., then the value of x<sup>b-c</sup> y<sup>c-a</sup> z<sup>a-b</sup> is</p>",
+          "options": [
+            {
+              "id": 420468,
+              "text": "0",
+              "is_correct": false
+            },
+            {
+              "id": 420469,
+              "text": "1",
+              "is_correct": true
+            },
+            {
+              "id": 420471,
+              "text": "x^ay^bz^c",
+              "is_correct": false
+            },
+            {
+              "id": 420470,
+              "text": "xyz",
+              "is_correct": false
+            }
+          ],
+          "correct_option_ids": [
+            420469
+          ],
+          "correct_option_texts": [
+            "1"
+          ],
+          "explanation": "a, b and c are in A.P.\n$\\therefore$ 2b = a + c .... (i)\nAnd, x, y and z are in G.P.\n$\\therefore$ y^2 = xz\nNow, we can write as ,\nx^b-cy^c-az^a-c\n= x^b+a-2b y^2ab-a-a z^a-b [From (i)]\n= x^a-b y^2(b-a) z^a-b\n= (xz)^a-b(xz)^b-a [From (ii), y^2 = xz]\n= (xz)^0\n= 1"
+        },
+        {
+          "questionID": 19384,
+          "question": "The measure of variation which is least affected by extreme items is",
+          "question_raw": "<p>The measure of variation which is least affected by extreme items is</p>",
+          "options": [
+            {
+              "id": 32735,
+              "text": "quartile deviation",
+              "is_correct": true
+            },
+            {
+              "id": 32736,
+              "text": "standard deviation",
+              "is_correct": false
+            },
+            {
+              "id": 32737,
+              "text": "range",
+              "is_correct": false
+            },
+            {
+              "id": 32738,
+              "text": "mean deviation",
+              "is_correct": false
+            }
+          ],
+          "correct_option_ids": [
+            32735
+          ],
+          "correct_option_texts": [
+            "quartile deviation"
+          ],
+          "explanation": "As it only depends on upper and lower quartile not on extreme values."
+        },
+        {
+          "questionID": 575326,
+          "question": "Instructions for Question 46 to 50:\nIn a colony, as shown in the following picture, an electric pole has been installed. The pole has been tied by strong wire PQ to support this pole, some electricians were working on the staircase PS.\nIn the left and right side of the pole, two street lights are fixed at a height of 3m and 4m respectively. These lights are given supply by wires PM and PN. The height OP=5 m and O is the origin.\nWhat are the coordinates of point P?",
+          "question_raw": "<b>Instructions for Question 46 to 50:</b><br><p>In a colony, as&nbsp;shown in the following picture, an electric pole has been installed. The pole has been tied by strong wire PQ to support this pole, some electricians were working on the staircase PS.</p>\n\n<p><img alt=\"\" data-imgur-src=\"bzEFArT.png\" src=\"https://media-mycbseguide.s3.amazonaws.com/images/imgur/1607930274-cbwwbr.jpg\" style=\"width: 300px; height: 239px;\" /></p>\n\n<p>In the left and right side of the pole, two&nbsp;street lights are fixed at a height of 3m and 4m respectively. These lights are given supply by wires PM and PN. The height OP=5 m and O is the origin.</p><br><p>What are the coordinates of point P?</p>",
+          "options": [
+            {
+              "id": 1106154,
+              "text": "(0, -5)",
+              "is_correct": false
+            },
+            {
+              "id": 1106151,
+              "text": "(5, 0)",
+              "is_correct": false
+            },
+            {
+              "id": 1106153,
+              "text": "(0, 5)",
+              "is_correct": true
+            },
+            {
+              "id": 1106155,
+              "text": "(0, 10)",
+              "is_correct": false
+            }
+          ],
+          "correct_option_ids": [
+            1106153
+          ],
+          "correct_option_texts": [
+            "(0, 5)"
+          ],
+          "explanation": "(0, 5)"
+        },
+        {
+          "questionID": 575412,
+          "question": "Instructions for Question 46 to 50:\nIn a colony, as shown in the following picture, an electric pole has been installed. The pole has been tied by strong wire PQ to support this pole, some electricians were working on the staircase PS.\nIn the left and right side of the pole, two street lights are fixed at a height of 3m and 4m respectively. These lights are given supply by wires PM and PN. The height OP=5 m and O is the origin.\nWhat is the length of the staircase?",
+          "question_raw": "<b>Instructions for Question 46 to 50:</b><br><p>In a colony, as&nbsp;shown in the following picture, an electric pole has been installed. The pole has been tied by strong wire PQ to support this pole, some electricians were working on the staircase PS.</p>\n\n<p><img alt=\"\" data-imgur-src=\"bzEFArT.png\" src=\"https://media-mycbseguide.s3.amazonaws.com/images/imgur/1607930274-cbwwbr.jpg\" style=\"width: 300px; height: 239px;\" /></p>\n\n<p>In the left and right side of the pole, two&nbsp;street lights are fixed at a height of 3m and 4m respectively. These lights are given supply by wires PM and PN. The height OP=5 m and O is the origin.</p><br><p>What is the length of the staircase?</p>",
+          "options": [
+            {
+              "id": 1106496,
+              "text": "12 m",
+              "is_correct": false
+            },
+            {
+              "id": 1106498,
+              "text": "15 m",
+              "is_correct": false
+            },
+            {
+              "id": 1106500,
+              "text": "13m",
+              "is_correct": true
+            },
+            {
+              "id": 1106502,
+              "text": "20 m",
+              "is_correct": false
+            }
+          ],
+          "correct_option_ids": [
+            1106500
+          ],
+          "correct_option_texts": [
+            "13m"
+          ],
+          "explanation": "13 m"
+        },
+        {
+          "questionID": 575646,
+          "question": "Instructions for Question 46 to 50:\nIn a colony, as shown in the following picture, an electric pole has been installed. The pole has been tied by strong wire PQ to support this pole, some electricians were working on the staircase PS.\nIn the left and right side of the pole, two street lights are fixed at a height of 3m and 4m respectively. These lights are given supply by wires PM and PN. The height OP=5 m and O is the origin.\nWhat is the area of the $\\triangle$OPQ?",
+          "question_raw": "<b>Instructions for Question 46 to 50:</b><br><p>In a colony, as&nbsp;shown in the following picture, an electric pole has been installed. The pole has been tied by strong wire PQ to support this pole, some electricians were working on the staircase PS.</p>\n\n<p><img alt=\"\" data-imgur-src=\"bzEFArT.png\" src=\"https://media-mycbseguide.s3.amazonaws.com/images/imgur/1607930274-cbwwbr.jpg\" style=\"width: 300px; height: 239px;\" /></p>\n\n<p>In the left and right side of the pole, two&nbsp;street lights are fixed at a height of 3m and 4m respectively. These lights are given supply by wires PM and PN. The height OP=5 m and O is the origin.</p><br><p>What is the area of the <span class=\"math-tex\">{tex}\\triangle{/tex}</span>OPQ?</p>",
+          "options": [
+            {
+              "id": 1107435,
+              "text": "20 m^2",
+              "is_correct": true
+            },
+            {
+              "id": 1107430,
+              "text": "12 m^2",
+              "is_correct": false
+            },
+            {
+              "id": 1107431,
+              "text": "15 m^2",
+              "is_correct": false
+            },
+            {
+              "id": 1107433,
+              "text": "13 m^2",
+              "is_correct": false
+            }
+          ],
+          "correct_option_ids": [
+            1107435
+          ],
+          "correct_option_texts": [
+            "20 m^2"
+          ],
+          "explanation": "20 m^2"
+        },
+        {
+          "questionID": 575704,
+          "question": "Instructions for Question 46 to 50:\nIn a colony, as shown in the following picture, an electric pole has been installed. The pole has been tied by strong wire PQ to support this pole, some electricians were working on the staircase PS.\nIn the left and right side of the pole, two street lights are fixed at a height of 3m and 4m respectively. These lights are given supply by wires PM and PN. The height OP=5 m and O is the origin.\nWhat is the equation of line PN?",
+          "question_raw": "<b>Instructions for Question 46 to 50:</b><br><p>In a colony, as&nbsp;shown in the following picture, an electric pole has been installed. The pole has been tied by strong wire PQ to support this pole, some electricians were working on the staircase PS.</p>\n\n<p><img alt=\"\" data-imgur-src=\"bzEFArT.png\" src=\"https://media-mycbseguide.s3.amazonaws.com/images/imgur/1607930274-cbwwbr.jpg\" style=\"width: 300px; height: 239px;\" /></p>\n\n<p>In the left and right side of the pole, two&nbsp;street lights are fixed at a height of 3m and 4m respectively. These lights are given supply by wires PM and PN. The height OP=5 m and O is the origin.</p><br><p>What is the equation of line PN?</p>",
+          "options": [
+            {
+              "id": 1107665,
+              "text": "x + 5y = 50",
+              "is_correct": false
+            },
+            {
+              "id": 1107661,
+              "text": "x + 15y = -75",
+              "is_correct": false
+            },
+            {
+              "id": 1107669,
+              "text": "x - 5y = 20",
+              "is_correct": false
+            },
+            {
+              "id": 1107663,
+              "text": "15x - 2y + 6 = 0",
+              "is_correct": true
+            }
+          ],
+          "correct_option_ids": [
+            1107663
+          ],
+          "correct_option_texts": [
+            "15x - 2y + 6 = 0"
+          ],
+          "explanation": "15x - 2y + 6 = 0"
+        },
+        {
+          "questionID": 575852,
+          "question": "Instructions for Question 46 to 50:\nIn a colony, as shown in the following picture, an electric pole has been installed. The pole has been tied by strong wire PQ to support this pole, some electricians were working on the staircase PS.\nIn the left and right side of the pole, two street lights are fixed at a height of 3m and 4m respectively. These lights are given supply by wires PM and PN. The height OP=5 m and O is the origin.\nWhat is the length of wire PM?",
+          "question_raw": "<b>Instructions for Question 46 to 50:</b><br><p>In a colony, as&nbsp;shown in the following picture, an electric pole has been installed. The pole has been tied by strong wire PQ to support this pole, some electricians were working on the staircase PS.</p>\n\n<p><img alt=\"\" data-imgur-src=\"bzEFArT.png\" src=\"https://media-mycbseguide.s3.amazonaws.com/images/imgur/1607930274-cbwwbr.jpg\" style=\"width: 300px; height: 239px;\" /></p>\n\n<p>In the left and right side of the pole, two&nbsp;street lights are fixed at a height of 3m and 4m respectively. These lights are given supply by wires PM and PN. The height OP=5 m and O is the origin.</p><br><p>What is the length of wire PM?</p>",
+          "options": [
+            {
+              "id": 1108256,
+              "text": "25 m",
+              "is_correct": false
+            },
+            {
+              "id": 1108254,
+              "text": "26 m",
+              "is_correct": false
+            },
+            {
+              "id": 1108253,
+              "text": "$\\sqrt {26}$ m",
+              "is_correct": false
+            },
+            {
+              "id": 1108252,
+              "text": "$\\sqrt {101}$",
+              "is_correct": true
+            }
+          ],
+          "correct_option_ids": [
+            1108252
+          ],
+          "correct_option_texts": [
+            "$\\sqrt {101}$"
+          ],
+          "explanation": "$\\sqrt {101}$"
+        }
+      ]
+    }
+  ]
+}

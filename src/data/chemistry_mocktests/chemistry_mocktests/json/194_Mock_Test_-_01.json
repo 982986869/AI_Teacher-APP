@@ -1,0 +1,2070 @@
+{
+  "test_id": 194,
+  "test_name": "Mock Test - 01",
+  "instruction": "The Question Paper contains three sections.\n Section A has 25 questions. Attempt any 20 questions.\n Section B has 24 questions. Attempt any 20 questions.\n Section C has 6 questions. Attempt any 5 questions.\n All questions carry equal marks.\n There is no negative marking.",
+  "duration_min": 90,
+  "no_of_questions": 55,
+  "question_types": {
+    "MULTIPLE_CHOICE_QUESTION": 1,
+    "MULTIPLE_RESPONSE_QUESTION": 2,
+    "SUBJECTIVE_QUESTION": 5,
+    "FILL_IN_THE_BLANKS_ONLINE": 18,
+    "NUMERICAL_QUESTION": 16,
+    "TRUE_AND_FALSE_ONLINE_QUESTION": 17
+  },
+  "sections": [
+    {
+      "section_name": "Section A",
+      "section_id": 702,
+      "questions": [
+        {
+          "id": 21871,
+          "type": "MCQ",
+          "question": "According to IUPAC nomenclature for elements with Z greater than 100, the root 'sept' corresponds to the digit:",
+          "question_html": "<p>According to&nbsp;IUPAC nomenclature for elements with Z greater than 100, the root&nbsp;&#39;sept&#39; corresponds to the digit:</p>",
+          "options": [
+            {
+              "id": 42684,
+              "text": "3",
+              "html": "3",
+              "is_correct": false
+            },
+            {
+              "id": 42683,
+              "text": "8",
+              "html": "8",
+              "is_correct": false
+            },
+            {
+              "id": 42685,
+              "text": "4",
+              "html": "4",
+              "is_correct": false
+            },
+            {
+              "id": 42682,
+              "text": "7",
+              "html": "7",
+              "is_correct": true
+            }
+          ],
+          "correct_options": [
+            "7"
+          ],
+          "explanation": "Sept is for 7.\n\n \n \n Numerical\n 0\n 1\n 2\n 3\n 4\n 5\n 6\n 7\n 8\n 9\n \n \n roots\n nil\n un\n bi\n tri\n quad\n pent\n hex\n sept\n oct\n en",
+          "solutions": []
+        },
+        {
+          "id": 62019,
+          "type": "MCQ",
+          "question": "Find the energy of the photon which has a wavelength of 0.50 $\\mathop A\\limits^ \\circ $ ?\n\n(Hint: h = Planck’s constant = 6.626 $\\times$ 10^(-34) J)",
+          "question_html": "<p>Find the energy of the photon which has a wavelength of 0.50 <span class=\"math-tex\">{tex}\\mathop A\\limits^ \\circ {/tex}</span>?<br />\r\n(Hint: h = Planck&rsquo;s constant = 6.626 <span class=\"math-tex\">{tex}\\times{/tex}</span>&nbsp;10<sup>-34</sup> J)</p>",
+          "options": [
+            {
+              "id": 203261,
+              "text": "0.98 $\\times$ 10^(-15) J",
+              "html": "0.98 <span class=\"math-tex\">{tex}\\times{/tex}</span>&nbsp;10<sup>-15</sup> J",
+              "is_correct": false
+            },
+            {
+              "id": 203259,
+              "text": "3.98 $\\times$ 10^(-15) J",
+              "html": "3.98 <span class=\"math-tex\">{tex}\\times{/tex}</span>&nbsp;10<sup>-15</sup> J",
+              "is_correct": true
+            },
+            {
+              "id": 203260,
+              "text": "2.98 $\\times$ 10^(-15) J",
+              "html": "2.98 <span class=\"math-tex\">{tex}\\times{/tex}</span>&nbsp;10<sup>-15</sup> J",
+              "is_correct": false
+            },
+            {
+              "id": 203262,
+              "text": "1.98 $\\times$ 10^(-15) J",
+              "html": "1.98 <span class=\"math-tex\">{tex}\\times{/tex}</span>&nbsp;10<sup>-15</sup> J",
+              "is_correct": false
+            }
+          ],
+          "correct_options": [
+            "3.98 $\\times$ 10^(-15) J"
+          ],
+          "explanation": "Energy (E) of a photon having wavelength ( $\\lambda$ ) is given by the expression, $E={hc\\over \\lambda}$ \n\nwhere, h = Planck’s constant = 6.626 $\\times$ 10^(-34)\n\nc = velocity of light in vacuum = 3 $\\times$ 10^(8) m/s \n\nWavelength $\\lambda = 0.50 A^° = 0.50\\times 10^{-10} m$ $\\lambda$ = 0.50 Å = 0.50 $\\times$ 10^(-10) m\n\nSubstituting the values in the given expression of E:\n\n $6.626\\times 10^{-34}\\times 3\\times 10^8\\over 0.50\\times 10^{-10}$ = 3.98 $\\times$ 10^(-15) J",
+          "solutions": []
+        },
+        {
+          "id": 21879,
+          "type": "MCQ",
+          "question": "All the orbitals in the valence shell of the noble gases:",
+          "question_html": "<p>All the orbitals in the valence shell of the noble gases:</p>",
+          "options": [
+            {
+              "id": 42715,
+              "text": "completely filled by electrons and it is very easy to remove electrons.",
+              "html": "completely filled by electrons and it is very easy to remove electrons.",
+              "is_correct": false
+            },
+            {
+              "id": 42714,
+              "text": "are completely filled by electrons.",
+              "html": "are completely filled by electrons.",
+              "is_correct": true
+            },
+            {
+              "id": 42716,
+              "text": "not completely filled by electrons and the arrangement is not stable.",
+              "html": "not completely filled by electrons and the arrangement is not stable.",
+              "is_correct": false
+            },
+            {
+              "id": 42717,
+              "text": "not completely filled by electrons and it is very easy to alter this stable arrangement by the addition or removal of electrons.",
+              "html": "not completely filled by electrons and it is very easy to alter this stable arrangement by the addition or removal of electrons.",
+              "is_correct": false
+            }
+          ],
+          "correct_options": [
+            "are completely filled by electrons."
+          ],
+          "explanation": "These elements are called noble elements because they contain ns^(2), np^(6) valence shell electronic configuration. A complete octet in the outermost shell makes these elements chemically stable, and therefore they do not easily react with other elements to form compounds.",
+          "solutions": []
+        },
+        {
+          "id": 21962,
+          "type": "MCQ",
+          "question": "The tetrahedral molecule below where there are two lone pairs of electrons is\n\n ![image](https://media-mycbseguide.s3.amazonaws.com/images/testpaper/1.04.11.04.28.Ques.jpg)",
+          "question_html": "<p>The tetrahedral molecule below where there are two lone pairs of electrons is<br />\r\n<img src=\"https://media-mycbseguide.s3.amazonaws.com/images/testpaper/1.04.11.04.28.Ques.jpg\" style=\"width: 100px; height: 99px;\" /></p>",
+          "options": [
+            {
+              "id": 43048,
+              "text": "O_(3)",
+              "html": "O<sub>3</sub>",
+              "is_correct": false
+            },
+            {
+              "id": 43046,
+              "text": "H_(2)O",
+              "html": "H<sub>2</sub>O",
+              "is_correct": true
+            },
+            {
+              "id": 43047,
+              "text": "SO_(2)",
+              "html": "SO<sub>2</sub>",
+              "is_correct": false
+            },
+            {
+              "id": 43049,
+              "text": "BF_(3)",
+              "html": "BF<sub>3</sub>",
+              "is_correct": false
+            }
+          ],
+          "correct_options": [
+            "H_(2)O"
+          ],
+          "explanation": "An important feature of water is its polar nature. The structure has a bent molecular geometry for the two hydrogens from the oxygen vertex. The oxygen atom also has two lone pairs of electrons.",
+          "solutions": []
+        },
+        {
+          "id": 22260,
+          "type": "MCQ",
+          "question": "Assign oxidation number to P in NaH_(2)PO_(4.)",
+          "question_html": "<p>Assign oxidation number to P in NaH<sub>2</sub>PO<sub>4.</sub></p>",
+          "options": [
+            {
+              "id": 44240,
+              "text": "+1",
+              "html": "+1",
+              "is_correct": false
+            },
+            {
+              "id": 44239,
+              "text": "+4",
+              "html": "+4",
+              "is_correct": false
+            },
+            {
+              "id": 44238,
+              "text": "5.0",
+              "html": "5.0",
+              "is_correct": true
+            },
+            {
+              "id": 44241,
+              "text": "+6",
+              "html": "+6",
+              "is_correct": false
+            }
+          ],
+          "correct_options": [
+            "5.0"
+          ],
+          "explanation": "The oxidation state of P in NaH_(2)PO_(4 )is +5.\n\nLet the oxidation number of P be x. As we already know the oxidation number of other atoms so we can calculate that of P too.\n\nNa = +1\n\nH= +1 (+2 for hydrogen molecule)\n\nO = -2\n\nNow calculating oxidation number of P:-\n\n1 +2 + x +(-8) = 0\n\nOn solving we get x = +5.",
+          "solutions": []
+        },
+        {
+          "id": 22331,
+          "type": "MCQ",
+          "question": "In the gas phase, water is a bent molecule with a bond angle of:",
+          "question_html": "<p>In the gas phase, water is a bent molecule with a bond angle of:</p>",
+          "options": [
+            {
+              "id": 44522,
+              "text": "124.5^(o)",
+              "html": "124.5<sup>o</sup>",
+              "is_correct": false
+            },
+            {
+              "id": 44523,
+              "text": "114.5^(o)",
+              "html": "114.5<sup>o</sup>",
+              "is_correct": false
+            },
+            {
+              "id": 44524,
+              "text": "109.5^(o)",
+              "html": "109.5<sup>o</sup>",
+              "is_correct": false
+            },
+            {
+              "id": 44521,
+              "text": "104.5^(o)",
+              "html": "104.5<sup>o</sup>",
+              "is_correct": true
+            }
+          ],
+          "correct_options": [
+            "104.5^(o)"
+          ],
+          "explanation": "Because the two non-bonding pairs remain closer to the oxygen atom, these exert a stronger repulsion against the two covalent bonding pairs, effectively pushing the two hydrogen atoms closer together. The result is a distorted tetrahedral arrangement in which the H—O—H angle is 104.5^(o).",
+          "solutions": []
+        },
+        {
+          "id": 22549,
+          "type": "MCQ",
+          "question": "The following compound is:\n\n ![image](https://media-mycbseguide.s3.amazonaws.com/images/testpaper/1.04.11.12.18.Ques.jpg)",
+          "question_html": "<p>The following compound is:<br />\r\n<img src=\"https://media-mycbseguide.s3.amazonaws.com/images/testpaper/1.04.11.12.18.Ques.jpg\" style=\"width: 60px; height: 91px;\" /></p>",
+          "options": [
+            {
+              "id": 45392,
+              "text": "Tropone",
+              "html": "Tropone",
+              "is_correct": true
+            },
+            {
+              "id": 45395,
+              "text": "Heterocyclic compound",
+              "html": "Heterocyclic compound",
+              "is_correct": false
+            },
+            {
+              "id": 45393,
+              "text": "Oxy cyclohextane",
+              "html": "Oxy cyclohextane",
+              "is_correct": false
+            },
+            {
+              "id": 45394,
+              "text": "Aliphatic compounds",
+              "html": "Aliphatic compounds",
+              "is_correct": false
+            }
+          ],
+          "correct_options": [
+            "Tropone"
+          ],
+          "explanation": "Tropone or 2, 4, 6-cycloheptatriene-1-one is a non-benzenoid aromatic compound. The compound consists of a ring of seven carbon atoms with three conjugated alkene groups and a ketone group.",
+          "solutions": []
+        },
+        {
+          "id": 21714,
+          "type": "73",
+          "question": "Which of the following statements about pure substances and mixture is correct?",
+          "question_html": "<p>Which of the following statements&nbsp;about pure substances and mixture is correct?</p>",
+          "options": [
+            {
+              "id": 42055,
+              "text": "Pure substances have variable composition, whereas mixtures may contain the components in any ratio and their composition is variable.",
+              "html": "Pure substances have variable composition, whereas mixtures may contain the components in any ratio and their composition is variable.",
+              "is_correct": false
+            },
+            {
+              "id": 42054,
+              "text": "Pure substances have fixed composition, whereas mixtures may contain the components in any ratio and their composition is variable.",
+              "html": "Pure substances have fixed composition, whereas mixtures may contain the components in any ratio and their composition is variable.",
+              "is_correct": true
+            },
+            {
+              "id": 42056,
+              "text": "Pure substances have fixed composition, whereas mixtures may contain the components in fixed ratio and their composition is fixed.",
+              "html": "Pure substances have fixed composition, whereas mixtures may contain the components in fixed ratio and their composition is fixed.",
+              "is_correct": false
+            },
+            {
+              "id": 42057,
+              "text": "Pure substances do not have a fixed composition, whereas mixtures may contain the components in any fixed ratio.",
+              "html": "Pure substances do not have a fixed composition, whereas mixtures may contain the components in any fixed ratio.",
+              "is_correct": false
+            }
+          ],
+          "correct_options": [
+            "Pure substances have fixed composition, whereas mixtures may contain the components in any ratio and their composition is variable."
+          ],
+          "explanation": "Pure substances have only one component, therefore the composition is fixed throughout whereas mixtures have variable composition accordingly they may be either homogeneous or heterogeneous.",
+          "solutions": []
+        },
+        {
+          "id": 21810,
+          "type": "MCQ",
+          "question": "If nucleon (mass) and proton (atomic) number is 40 and 20 respectively, element is",
+          "question_html": "<p>If nucleon (mass) and proton (atomic) number is 40 and 20 respectively, element is</p>\r\n",
+          "options": [
+            {
+              "id": 42440,
+              "text": "phosphorus",
+              "html": "phosphorus",
+              "is_correct": false
+            },
+            {
+              "id": 42438,
+              "text": "calcium",
+              "html": "calcium",
+              "is_correct": true
+            },
+            {
+              "id": 42441,
+              "text": "potassium",
+              "html": "potassium",
+              "is_correct": false
+            },
+            {
+              "id": 42439,
+              "text": "chlorine",
+              "html": "chlorine",
+              "is_correct": false
+            }
+          ],
+          "correct_options": [
+            "calcium"
+          ],
+          "explanation": "calcium",
+          "solutions": []
+        },
+        {
+          "id": 382975,
+          "type": "MCQ",
+          "question": "Which of the elements whose atomic numbers are given below, cannot be accommodated in the present set up of the long form of the periodic table?",
+          "question_html": "<p>Which of the elements whose atomic numbers are given below, cannot be accommodated in the present set up of the long form of the periodic table?</p>\r\n",
+          "options": [
+            {
+              "id": 589755,
+              "text": "118",
+              "html": "118",
+              "is_correct": false
+            },
+            {
+              "id": 589754,
+              "text": "107",
+              "html": "107",
+              "is_correct": false
+            },
+            {
+              "id": 589757,
+              "text": "102",
+              "html": "102",
+              "is_correct": false
+            },
+            {
+              "id": 589756,
+              "text": "126",
+              "html": "126",
+              "is_correct": true
+            }
+          ],
+          "correct_options": [
+            "126"
+          ],
+          "explanation": "In the present form of the periodic table, elements till atomic number 118 are accommodated. Therefore 126 not present.",
+          "solutions": []
+        },
+        {
+          "id": 68968,
+          "type": "MCQ",
+          "question": "A molecule or ion is stable if:",
+          "question_html": "<p>A molecule or ion is stable if:</p>",
+          "options": [
+            {
+              "id": 210839,
+              "text": "N_(b) < N_(a)",
+              "html": "N<sub>b</sub> &lt; N<sub>a</sub>",
+              "is_correct": false
+            },
+            {
+              "id": 210837,
+              "text": "N_(a) < N_(b)",
+              "html": "N<sub>a</sub> &lt; N<sub>b</sub>",
+              "is_correct": true
+            },
+            {
+              "id": 210838,
+              "text": "N_(b) = N_(a)",
+              "html": "N<sub>b</sub> = N<sub>a</sub>",
+              "is_correct": false
+            },
+            {
+              "id": 210840,
+              "text": "$N_a \\times N_b = 1$",
+              "html": "<span class=\"math-tex\">{tex}N_a \\times N_b = 1{/tex}</span>",
+              "is_correct": false
+            }
+          ],
+          "correct_options": [
+            "N_(a) < N_(b)"
+          ],
+          "explanation": "Stability of molecule: It is determined by bond order. Higher is the bond order greater is the stability of the molecule.\n\nBond order is defined as the number of covalent bonds between the two combining atoms of a molecule.\n\nBond order = 0.5 (N_(b) – N_(a))\n\nIf N_(b) > N_(a), then the molecule will be stable.\n\nN_(b) = number of bonding electrons or number of electrons in bonding M.O’s.\n\nN_(a) = number of antibonding electrons.",
+          "solutions": []
+        },
+        {
+          "id": 22277,
+          "type": "MCQ",
+          "question": "The oxidizing power of halogens increase in the order of:",
+          "question_html": "<p>The oxidizing power of halogens increase in the order of:</p>",
+          "options": [
+            {
+              "id": 44306,
+              "text": "I_(2) < Br_(2) < Cl_(2) < F_(2)",
+              "html": "I<sub>2</sub>&nbsp;&lt; Br<sub>2</sub>&nbsp;&lt; Cl<sub>2</sub>&nbsp;&lt; F<sub>2</sub>",
+              "is_correct": true
+            },
+            {
+              "id": 44307,
+              "text": "Br_(2) < Cl_(2) < F_(2) < I_(2)",
+              "html": "Br<sub>2</sub>&nbsp;&lt; Cl<sub>2</sub>&nbsp;&lt; F<sub>2</sub>&nbsp;&lt; I<sub>2</sub>",
+              "is_correct": false
+            },
+            {
+              "id": 44308,
+              "text": "Cl_(2) < F_(2) < I_(2) < Br_(2)",
+              "html": "Cl<sub>2</sub>&nbsp;&lt; F<sub>2</sub>&nbsp;&lt; I<sub>2</sub>&nbsp;&lt; Br<sub>2</sub>",
+              "is_correct": false
+            },
+            {
+              "id": 44309,
+              "text": "F_(2) < I_(2) < Br_(2) < Cl_(2)",
+              "html": "F<sub>2</sub>&nbsp;&lt; I<sub>2</sub>&nbsp;&lt; Br<sub>2</sub>&nbsp;&lt; Cl<sub>2</sub>",
+              "is_correct": false
+            }
+          ],
+          "correct_options": [
+            "I_(2) < Br_(2) < Cl_(2) < F_(2)"
+          ],
+          "explanation": "Halogens have high electronegativity and electron affinity. They have a greater tendency to accept electrons or easily reduced, therefore they are a strong oxidizing agent.\n\nAs the reduction potential decrease down the group, the oxidizing power decrease down the group the order of the oxidizing power will be as under\n\nF_(2) > Cl_(2)> Br_(2)> I_(2)\n\nThe oxidizing power depends on,\n\nThe heat of dissociation of halogen molecule.\n\nElectron affinity of the atom.\n\nHydration energy of the ion.\n\nHeat of vaporization\n\nIf a halogen has low energy of dissociation, a high electron affinity, and higher hydration of its ion, it will have high oxidizing power.\n\nF has although low electron affinity than Cl but low dissociation energy and has high hydration energy of its ion, therefore Fluorine is the strongest oxidizing agent.",
+          "solutions": []
+        },
+        {
+          "id": 22342,
+          "type": "MCQ",
+          "question": "Why does H^(+) ion always get associated with other atoms or molecules?",
+          "question_html": "<p>Why does H<sup>+</sup> ion always get associated with other atoms or molecules?</p>",
+          "options": [
+            {
+              "id": 44565,
+              "text": "Its reactivity is similar to halogens.",
+              "html": "Its reactivity is similar to halogens.",
+              "is_correct": false
+            },
+            {
+              "id": 44567,
+              "text": "Ionisation enthalpy of hydrogen resembles that of alkali metals.",
+              "html": "Ionisation enthalpy of hydrogen resembles that of alkali metals.",
+              "is_correct": false
+            },
+            {
+              "id": 44564,
+              "text": "Loss of an electron from hydrogen atom results in a nucleus of very small size as compared to other atoms or ions. Due to small size it cannot exist free.",
+              "html": "Loss of an electron from hydrogen atom results in a nucleus of very small size as compared to other atoms or ions. Due to small size it cannot exist free.",
+              "is_correct": true
+            },
+            {
+              "id": 44566,
+              "text": "It resembles both alkali metals and halogens.",
+              "html": "It resembles both alkali metals and halogens.",
+              "is_correct": false
+            }
+          ],
+          "correct_options": [
+            "Loss of an electron from hydrogen atom results in a nucleus of very small size as compared to other atoms or ions. Due to small size it cannot exist free."
+          ],
+          "explanation": "Loss of an electron from hydrogen atom results in a nucleus of very small size as compared to other atoms or ions. H^(+) ion has exceptionally small size, so it can not exist freely.",
+          "solutions": []
+        },
+        {
+          "id": 22563,
+          "type": "MCQ",
+          "question": "The fragrance of flowers is due to the presence of some steam volatile organic compounds called essential oils. These are generally insoluble in water at room temperature but are miscible with water vapour in vapour phase. A suitable method for the extraction of these oils from the flowers is:",
+          "question_html": "<p>The fragrance of flowers is due to the presence of some steam volatile organic compounds called essential oils. These are generally insoluble in water at room temperature but are miscible with water vapour in vapour phase. A suitable method for the extraction of these oils from the flowers is:</p>\r\n",
+          "options": [
+            {
+              "id": 45449,
+              "text": "Crystallisation",
+              "html": "Crystallisation",
+              "is_correct": false
+            },
+            {
+              "id": 45450,
+              "text": "Distillation under reduced pressure",
+              "html": "Distillation under reduced pressure",
+              "is_correct": false
+            },
+            {
+              "id": 45451,
+              "text": "Distillation",
+              "html": "Distillation",
+              "is_correct": false
+            },
+            {
+              "id": 45448,
+              "text": "Steam distillation",
+              "html": "Steam distillation",
+              "is_correct": true
+            }
+          ],
+          "correct_options": [
+            "Steam distillation"
+          ],
+          "explanation": "Steam distillation is a technique applied to separate substances which are steam volatile and are immiscible with water. Essential oils are insoluble in water and soluble in steam and have high vapour pressure. Therefore, they can be separated by steam distillation.",
+          "solutions": []
+        },
+        {
+          "id": 68724,
+          "type": "MCQ",
+          "question": "The empirical formula of sucrose is",
+          "question_html": "<p>The empirical formula of sucrose is</p>",
+          "options": [
+            {
+              "id": 210692,
+              "text": "CHO",
+              "html": "CHO",
+              "is_correct": false
+            },
+            {
+              "id": 210690,
+              "text": "C_(12)H_(22)O_(11)",
+              "html": "C<sub>12</sub>H<sub>22</sub>O<sub>11</sub>",
+              "is_correct": true
+            },
+            {
+              "id": 210693,
+              "text": "C(H_(2)O)_(2)",
+              "html": "C(H<sub>2</sub>O)<sub>2</sub>",
+              "is_correct": false
+            },
+            {
+              "id": 210691,
+              "text": "CH_(2)O",
+              "html": "CH<sub>2</sub>O",
+              "is_correct": false
+            }
+          ],
+          "correct_options": [
+            "C_(12)H_(22)O_(11)"
+          ],
+          "explanation": "C_(12)H_(22)O_(11)\n\nConsider the relation of molecular formula and empirical formula of a compound given by the expression ,\n\nMolecular formula = ( Empirical formula )_(n) \n\nWhere n Is a common positive integer .\n\nSince ,there is no common integer to differentiate between empirical formula of Sucrose C_(6) H_(22) O_(11) hence,\n\nSucrose has the same empirical and molecular formula .",
+          "solutions": []
+        },
+        {
+          "id": 21804,
+          "type": "MCQ",
+          "question": "According to the quantum-theoretical model of an atom, each orbital is designated by three quantum numbers labelled as n, l, and m​​​​​​. These are referred to respectively as:",
+          "question_html": "<p>According to the quantum-theoretical model of an atom, each orbital is designated by three quantum numbers labelled as n, l, and m​​​​​​. These are referred to respectively as:</p>",
+          "options": [
+            {
+              "id": 42417,
+              "text": "Azimuthal quantum number or orbital angular momentum, Principal quantum number, and spin quantum number.",
+              "html": "Azimuthal quantum number or orbital angular momentum, Principal quantum number, and spin quantum number.",
+              "is_correct": false
+            },
+            {
+              "id": 42414,
+              "text": "Principal quantum number, Azimuthal quantum number or orbital angular momentum, and Magnetic orbital quantum number.",
+              "html": "Principal quantum number, Azimuthal quantum number or orbital angular momentum, and Magnetic orbital quantum number.",
+              "is_correct": true
+            },
+            {
+              "id": 42416,
+              "text": "Principal quantum number, Azimuthal quantum number or orbital angular momentum, and spin quantum number",
+              "html": "Principal quantum number, Azimuthal quantum number or orbital angular momentum, and spin quantum number",
+              "is_correct": false
+            },
+            {
+              "id": 42415,
+              "text": "Azimuthal quantum number or orbital angular momentum, Principal quantum number, and Magnetic orbital quantum number.",
+              "html": "Azimuthal quantum number or orbital angular momentum, Principal quantum number, and Magnetic orbital quantum number.",
+              "is_correct": false
+            }
+          ],
+          "correct_options": [
+            "Principal quantum number, Azimuthal quantum number or orbital angular momentum, and Magnetic orbital quantum number."
+          ],
+          "explanation": "Quantum numbers designate specific shells, subshells, orbitals, and spins of electrons. \n\nThere are a total of four quantum numbers:\n\n The principal quantum number (n), describes the energy of an electron and the most probable distance of the electron from the nucleus. In other words, it refers to the size of the orbital and the energy level an electron is placed in.\n The orbital angular momentum quantum number (l), describes the shape of the orbital. It can also be used to determine the number of angular nodes.\n The magnetic quantum number (m), describes the energy levels in a subshell.\n The electron spin quantum number (ms) refers to the spin on the electron, which can either be up or down.",
+          "solutions": []
+        },
+        {
+          "id": 478281,
+          "type": "MCQ",
+          "question": "Thiosulphate reacts differently with iodine and bromine in the reactions given below:\n\n $2 \\mathrm{S}_{2} \\mathrm{O}_{3}^{2-}+\\mathrm{I}_{2}$ $\\rightarrow \\mathrm{S}_{4} \\mathrm{O}_{6}^{2-}+2 \\mathrm{I}^-$ \n\n $\\mathrm{S}_{2} \\mathrm{O}_{3}^{2-}$ + 2Br_(2) + 5H_(2)O $\\rightarrow 2 \\mathrm{SO}_{4}^{2-}$ + 2Br^(-) + 10H^(+)\n\nWhich of the following statements justifies the above dual behavior of thiosulphate?",
+          "question_html": "<p>Thiosulphate reacts differently with iodine and bromine in the reactions given below:<br />\r\n<span class=\"math-tex\">{tex}2 \\mathrm{S}_{2} \\mathrm{O}_{3}^{2-}+\\mathrm{I}_{2}{/tex}</span>&nbsp;<span class=\"math-tex\">{tex}\\rightarrow \\mathrm{S}_{4} \\mathrm{O}_{6}^{2-}+2 \\mathrm{I}^-{/tex}</span><br />\r\n<span class=\"math-tex\">{tex}\\mathrm{S}_{2} \\mathrm{O}_{3}^{2-}{/tex}</span>&nbsp;+ 2Br<sub>2</sub> + 5H<sub>2</sub>O&nbsp;<span class=\"math-tex\">{tex}\\rightarrow 2 \\mathrm{SO}_{4}^{2-}{/tex}</span>&nbsp;+ 2Br<sup>-</sup> + 10H<sup>+</sup><br />\r\nWhich of the following statements justifies the above dual behavior of thiosulphate?</p>",
+          "options": [
+            {
+              "id": 831163,
+              "text": "Bromine undergoes oxidation and iodine undergoes reduction in these reactions.",
+              "html": "Bromine undergoes oxidation and iodine undergoes reduction in these reactions.",
+              "is_correct": false
+            },
+            {
+              "id": 831161,
+              "text": "Bromine is a weaker oxidant than iodine.",
+              "html": "Bromine is a weaker oxidant than iodine.",
+              "is_correct": false
+            },
+            {
+              "id": 831162,
+              "text": "Thiosulphate undergoes oxidation by bromine and reduction by iodine in these reactions.",
+              "html": "Thiosulphate undergoes oxidation by bromine and reduction by iodine in these reactions.",
+              "is_correct": false
+            },
+            {
+              "id": 831160,
+              "text": "Bromine is a stronger oxidant than iodine.",
+              "html": "Bromine is a stronger oxidant than iodine.",
+              "is_correct": true
+            }
+          ],
+          "correct_options": [
+            "Bromine is a stronger oxidant than iodine."
+          ],
+          "explanation": "$2 \\mathrm{S}_{2} \\mathrm{O}_{3}^{2-}(\\mathrm{aq})+\\mathrm{I}_{2}^{0}(\\mathrm{s})$ $\\rightarrow{2.5} \\mathrm{S}_{4} \\mathrm{O}_{6}^{2-}$ (aq) + 2I^(-) (aq)\n\n $\\mathrm{S}_{2} \\mathrm{O}_{3}^{2-}$ (aq) + 2Br_(2) (I) + 5H_(2)O(I) $\\rightarrow 2 \\mathrm{SO}_{4}^{2-} $ (aq) + 4Br^(-) (aq) + 10H^(+) (aq)\n\nBromine being stronger oxidizing agent than I_(2), therefore it oxidises S of $\\mathrm{S}_{2} \\mathrm{O}_{3}^{2-}$ to higher oxidation state +6 $ \\mathrm{SO}_{4}^{2-} $ whereas I_(2) oxidises it only into $ \\mathrm{S}_{4} \\mathrm{O}_{6}^{2-}$ ion.",
+          "solutions": []
+        },
+        {
+          "id": 21954,
+          "type": "MCQ",
+          "question": "In NO^(-)_(3) ion, the number of bond pairs and lone pairs of electrons on nitrogen atom are",
+          "question_html": "<p>In NO<sup>-</sup><sub>3</sub>&nbsp;ion, the number of bond pairs and lone pairs of electrons on nitrogen atom are</p>",
+          "options": [
+            {
+              "id": 43014,
+              "text": "4,0",
+              "html": "4,0",
+              "is_correct": true
+            },
+            {
+              "id": 43017,
+              "text": "3, 1",
+              "html": "3, 1",
+              "is_correct": false
+            },
+            {
+              "id": 43016,
+              "text": "1, 3",
+              "html": "1, 3",
+              "is_correct": false
+            },
+            {
+              "id": 43015,
+              "text": "2, 2",
+              "html": "2, 2",
+              "is_correct": false
+            }
+          ],
+          "correct_options": [
+            "4,0"
+          ],
+          "explanation": "The nitrate ion is formed by the loss of the hydrogen ion, and so its structure is:\n\n ![image](https://media-mycbseguide.s3.amazonaws.com/images/cbse/review/Ques_21429.jpg) \n\nAround the central nitrogen there are 4 pairs of shared electrons, and no remaining lone pair. The original lone pair has now become a bonding pair. Two of those pairs make up a double bond. The double bond unit and the two single bonds arrange themselves as far apart as possible in a trigonal planar arrangement - exactly the same as the carbonate ion.",
+          "solutions": []
+        },
+        {
+          "id": 22545,
+          "type": "MCQ",
+          "question": "Which of the following organic compound Wohler synthesised from an inorganic compound, ammonium cyanate in the presence of heat?",
+          "question_html": "<p>Which of the following organic compound&nbsp;Wohler synthesised from an inorganic compound, ammonium cyanate&nbsp;in the presence of heat?</p>",
+          "options": [
+            {
+              "id": 45376,
+              "text": "Urea",
+              "html": "Urea",
+              "is_correct": true
+            },
+            {
+              "id": 45378,
+              "text": "ammonium hydroxide",
+              "html": "ammonium hydroxide",
+              "is_correct": false
+            },
+            {
+              "id": 45379,
+              "text": "ammonia",
+              "html": "ammonia",
+              "is_correct": false
+            },
+            {
+              "id": 45377,
+              "text": "HOCH(CN_(2))",
+              "html": "HOCH(CN<sub>2</sub>)",
+              "is_correct": false
+            }
+          ],
+          "correct_options": [
+            "Urea"
+          ],
+          "explanation": "The reaction can be given as starting with solutions of potassium cyanate and ammonium chloride which are mixed, heated and cooled again to get ammonium cyanate salt which on decomposition gives the urea.",
+          "solutions": []
+        },
+        {
+          "id": 61920,
+          "type": "MCQ",
+          "question": "Significant figures are:",
+          "question_html": "<p>Significant figures are:</p>",
+          "options": [
+            {
+              "id": 202867,
+              "text": "first three digits after the decimal point",
+              "html": "first three digits after the decimal point",
+              "is_correct": false
+            },
+            {
+              "id": 202866,
+              "text": "digits before the decimal point",
+              "html": "digits before the decimal point",
+              "is_correct": false
+            },
+            {
+              "id": 202865,
+              "text": "digits after the decimal point",
+              "html": "digits after the decimal point",
+              "is_correct": false
+            },
+            {
+              "id": 202864,
+              "text": "meaningful digits which are known with certainty",
+              "html": "meaningful digits which are known with certainty",
+              "is_correct": true
+            }
+          ],
+          "correct_options": [
+            "meaningful digits which are known with certainty"
+          ],
+          "explanation": "Significant digits are certain digits that have significance or meaning to certain digits in a number. Such digits help scientists to use them with more precise information about measurement and other numeric data. These digits also help them in rounding off a very large or very small number",
+          "solutions": []
+        },
+        {
+          "id": 61952,
+          "type": "MCQ",
+          "question": "The molarity of NaOH in a solution prepared by dissolving its 4.0 g in enough water to form 250 mL of the solution is,",
+          "question_html": "<p>The molarity of NaOH in a&nbsp;solution prepared by dissolving its 4.0 g in enough water to form 250 mL of the solution is,</p>",
+          "options": [
+            {
+              "id": 202992,
+              "text": "0.4 M",
+              "html": "0.4 M",
+              "is_correct": true
+            },
+            {
+              "id": 202994,
+              "text": "0.02 M",
+              "html": "0.02 M",
+              "is_correct": false
+            },
+            {
+              "id": 202993,
+              "text": "0.04M",
+              "html": "0.04M",
+              "is_correct": false
+            },
+            {
+              "id": 202995,
+              "text": "0.002 M",
+              "html": "0.002 M",
+              "is_correct": false
+            }
+          ],
+          "correct_options": [
+            "0.4 M"
+          ],
+          "explanation": "Since Molarity = $[ \\frac { moles of solute * }{ volume of solution( mL ) } \\times 1000 ] M $ \n\n $\\therefore$ substituting the given values, we get -\n\nMolarity (M) = $\\frac{ 0.10 }{ 250 } \\times 1000 M$ = 0.4M\n\n* moles of solute ie. NaOH = $\\frac{4}{40} $ mole\n\n= 0.1mol",
+          "solutions": []
+        },
+        {
+          "id": 22272,
+          "type": "MCQ",
+          "question": "The oxidation number of an element in a compound is evaluated on the basis of certain rules. Which of the following rules is not correct in this respect?",
+          "question_html": "<p>The oxidation number of an element in a compound is evaluated on the basis of certain rules. Which of the following rules is not correct in this respect?</p>",
+          "options": [
+            {
+              "id": 44288,
+              "text": "An element in the free or the uncombined state bears oxidation number zero.",
+              "html": "An element in the free or the uncombined state bears oxidation number zero.",
+              "is_correct": false
+            },
+            {
+              "id": 44289,
+              "text": "In all its compounds, the oxidation number of fluorine is – 1.",
+              "html": "In all its compounds, the oxidation number of fluorine is &ndash; 1.",
+              "is_correct": false
+            },
+            {
+              "id": 44286,
+              "text": "The oxidation number of hydrogen is always +1.",
+              "html": "The oxidation number of hydrogen is always +1.",
+              "is_correct": true
+            },
+            {
+              "id": 44287,
+              "text": "The algebraic sum of all the oxidation numbers in a compound is zero.",
+              "html": "The algebraic sum of all the oxidation numbers in a compound is zero.",
+              "is_correct": false
+            }
+          ],
+          "correct_options": [
+            "The oxidation number of hydrogen is always +1."
+          ],
+          "explanation": "Normally hydrogen's oxidation number is +1, except for when it is part of a binary compound (2 elements) along with a metal. For example, LiH, NaH, CaH_(​​​​2), all have hydrogen with oxidation number -1.",
+          "solutions": []
+        },
+        {
+          "id": 21943,
+          "type": "MCQ",
+          "question": "A qualitative measure of the stability of an ionic compound is provided by:",
+          "question_html": "<p>A qualitative measure of the stability of an ionic compound is provided by:</p>",
+          "options": [
+            {
+              "id": 42972,
+              "text": "ionization enthalpy",
+              "html": "ionization enthalpy",
+              "is_correct": false
+            },
+            {
+              "id": 42971,
+              "text": "Electron affinity",
+              "html": "Electron affinity",
+              "is_correct": false
+            },
+            {
+              "id": 42973,
+              "text": "electron gain enthalpy",
+              "html": "electron gain enthalpy",
+              "is_correct": false
+            },
+            {
+              "id": 42970,
+              "text": "lattice enthalpy",
+              "html": "lattice enthalpy",
+              "is_correct": true
+            }
+          ],
+          "correct_options": [
+            "lattice enthalpy"
+          ],
+          "explanation": "Lattice energy is an estimate of the bond strength in ionic compounds. It is defined as the heat of formation for ions of opposite charge in the gas phase to combine into an ionic solid. The stability of the ionic bond is directly proportional to lattice energy.",
+          "solutions": []
+        },
+        {
+          "id": 22591,
+          "type": "MCQ",
+          "question": "Which one of the following compounds is used in the estimation of oxygen?",
+          "question_html": "<p>Which one of the following compounds is used in the estimation of oxygen?</p>",
+          "options": [
+            {
+              "id": 45563,
+              "text": "silver nitrate",
+              "html": "silver nitrate",
+              "is_correct": false
+            },
+            {
+              "id": 45561,
+              "text": "copper oxide",
+              "html": "copper oxide",
+              "is_correct": false
+            },
+            {
+              "id": 45560,
+              "text": "iodine pentoxide",
+              "html": "iodine pentoxide&nbsp;",
+              "is_correct": true
+            },
+            {
+              "id": 45562,
+              "text": "sodium peroxide",
+              "html": "sodium peroxide",
+              "is_correct": false
+            }
+          ],
+          "correct_options": [
+            "iodine pentoxide"
+          ],
+          "explanation": "I_(2)O_(5) is used. A definite mass of an organic compound is decomposed by heating in a stream of nitrogen gas. The mixture of gaseous products containing oxygen is passed over red-hot coke when all the oxygen is converted to carbon monoxide. This mixture is passed through warm iodine pentoxide when carbon monoxide is oxidised to carbon dioxide producing iodine.",
+          "solutions": []
+        },
+        {
+          "id": 21743,
+          "type": "MCQ",
+          "question": "A solution is prepared by adding 2 g of a substance A to 18 g of water. Calculate the mass percent of the solute?",
+          "question_html": "<p>A solution is prepared by adding 2 g of a substance A to 18 g of water. Calculate the mass percent of the solute?</p>",
+          "options": [
+            {
+              "id": 42171,
+              "text": "11.11 %",
+              "html": "11.11&nbsp;%",
+              "is_correct": false
+            },
+            {
+              "id": 42173,
+              "text": "0.50 %",
+              "html": "0.50 %",
+              "is_correct": false
+            },
+            {
+              "id": 42172,
+              "text": "1.01%",
+              "html": "1.01%",
+              "is_correct": false
+            },
+            {
+              "id": 42170,
+              "text": "10.00 %",
+              "html": "10.00 %",
+              "is_correct": true
+            }
+          ],
+          "correct_options": [
+            "10.00 %"
+          ],
+          "explanation": "Mass percent is calculated using the expression,\n\nMass percent = ${ Weight \\ of\\ solute \\over Weight\\ of \\ solution }\\times 100$ \n\n = $ {weight\\ of\\ solute \\over weight\\ of \\ solute\\ + \\ weight\\ of \\ solvent }\\times 100$ \n\nSubstituting the given values in the above expression we get,\n\nMass percent = ${ 2 \\over 2 +18 }\\times 100 $ \n\n= ${ 2 \\over 20 }\\times 100 $ \n\n= 10.00 %",
+          "solutions": []
+        }
+      ]
+    },
+    {
+      "section_name": "Section B",
+      "section_id": 703,
+      "questions": [
+        {
+          "id": 62018,
+          "type": "MCQ",
+          "question": "Find the energy of the photons which correspond to light of frequency 3 $\\times$ 10^(15) Hz (Hint: h = Planck’s constant = 6.626 $\\times$ 10^(-34) Js)?",
+          "question_html": "<p>Find the energy of the photons which correspond to light of frequency 3 <span class=\"math-tex\">{tex}\\times{/tex}</span> 10<sup>15</sup>&nbsp;Hz (Hint: h = Planck&rsquo;s constant = 6.626 <span class=\"math-tex\">{tex}\\times{/tex}</span> 10<sup>-34</sup> Js)?</p>",
+          "options": [
+            {
+              "id": 203256,
+              "text": "0.988 $\\times$ 10^(-18) J",
+              "html": "0.988 <span class=\"math-tex\">{tex}\\times{/tex}</span> 10<sup>-18</sup> J",
+              "is_correct": false
+            },
+            {
+              "id": 203255,
+              "text": "1.988 $\\times$ 10^(-18) J",
+              "html": "1.988 <span class=\"math-tex\">{tex}\\times{/tex}</span> 10<sup>-18</sup> J",
+              "is_correct": true
+            },
+            {
+              "id": 203258,
+              "text": "1.308 $\\times$ 10^(-18) J",
+              "html": "1.308 <span class=\"math-tex\">{tex}\\times{/tex}</span> 10<sup>-18</sup> J",
+              "is_correct": false
+            },
+            {
+              "id": 203257,
+              "text": "2.988 $\\times$ 10^(-18) J",
+              "html": "2.988 <span class=\"math-tex\">{tex}\\times{/tex}</span> 10<sup>-18</sup> J",
+              "is_correct": false
+            }
+          ],
+          "correct_options": [
+            "1.988 $\\times$ 10^(-18) J"
+          ],
+          "explanation": "We know Planck's equation is\n\nE = hv\n\nwhere E is energy, h is Planck’s constant and v is frequency.\n\nE = 6.626 $\\times$ 10^(-34) $\\times$ 3 $\\times$ 10^(15 )= 1.988 $\\times$ 10^(-18) J",
+          "solutions": []
+        },
+        {
+          "id": 21988,
+          "type": "MCQ",
+          "question": "The electronic configuration of the outer most shell of the most electronegative element is",
+          "question_html": "<p>The electronic configuration of the outer most shell of the most electronegative element is</p>",
+          "options": [
+            {
+              "id": 43152,
+              "text": "4s^(2)4p^(5)",
+              "html": "4s<sup>2</sup>4p<sup>5</sup>",
+              "is_correct": false
+            },
+            {
+              "id": 43153,
+              "text": "5s^(2)5^(5)",
+              "html": "5s<sup>2</sup>5<sup>5</sup>",
+              "is_correct": false
+            },
+            {
+              "id": 43150,
+              "text": "2s^(2)2p^(5)",
+              "html": "2s<sup>2</sup>2p<sup>5</sup>",
+              "is_correct": true
+            },
+            {
+              "id": 43151,
+              "text": "3s^(2)3p^(5)",
+              "html": "3s<sup>2</sup>3p<sup>5</sup>",
+              "is_correct": false
+            }
+          ],
+          "correct_options": [
+            "2s^(2)2p^(5)"
+          ],
+          "explanation": "Most electronegative element is F. Its atomic number is 9. So electronic configuration is 2s^(2)2p^(5).",
+          "solutions": []
+        },
+        {
+          "id": 22368,
+          "type": "MCQ",
+          "question": "The hardness of water may be temporary or permanent. Permanent hardness is due to the presence of:",
+          "question_html": "<p>The hardness of water may be temporary or permanent. Permanent hardness is due to the presence of:</p>",
+          "options": [
+            {
+              "id": 44669,
+              "text": "carbonates of Ca and Mg in water",
+              "html": "carbonates of Ca and Mg in water",
+              "is_correct": false
+            },
+            {
+              "id": 44670,
+              "text": "hydrogen carbonates of Ca and Mg in water",
+              "html": "hydrogen carbonates of Ca and Mg in water",
+              "is_correct": false
+            },
+            {
+              "id": 44668,
+              "text": "chlorides of Ca and Mg in water",
+              "html": "chlorides of Ca and Mg in water",
+              "is_correct": true
+            },
+            {
+              "id": 44671,
+              "text": "carbonates of alkali metals in water",
+              "html": "carbonates of alkali metals in water",
+              "is_correct": false
+            }
+          ],
+          "correct_options": [
+            "chlorides of Ca and Mg in water"
+          ],
+          "explanation": "Permanent hardness in water is hardness due to the presence of the chlorides, nitrates, and sulphates of calcium and magnesium, which will not be precipitated by boiling. Water can be softened using washing soda or an ion-exchange resin.",
+          "solutions": []
+        },
+        {
+          "id": 386565,
+          "type": "MCQ",
+          "question": "The IUPAC name for $\\text{C}{{\\text{H}}_{\\text{3}}}\\text{-}\\overset{\\text{O}}{\\mathop{\\overset{\\text{ }\\!\\!|\\!\\!\\text{ }\\!\\!|\\!\\!\\text{ }}{\\mathop{\\text{C}}}\\,}}\\,\\text{-C}{{\\text{H}}_{\\text{2}}}\\text{-C}{{\\text{H}}_{\\text{2}}}\\text{-}\\overset{\\text{O}}{\\mathop{\\overset{\\text{ }\\!\\!|\\!\\!\\text{ }\\!\\!|\\!\\!\\text{ }}{\\mathop{\\text{C}}}\\,}}\\,\\text{-OH}$ is ________.",
+          "question_html": "<p>The IUPAC name for&nbsp; <span class=\"math-tex\">{tex}\\text{C}{{\\text{H}}_{\\text{3}}}\\text{-}\\overset{\\text{O}}{\\mathop{\\overset{\\text{ }\\!\\!|\\!\\!\\text{ }\\!\\!|\\!\\!\\text{ }}{\\mathop{\\text{C}}}\\,}}\\,\\text{-C}{{\\text{H}}_{\\text{2}}}\\text{-C}{{\\text{H}}_{\\text{2}}}\\text{-}\\overset{\\text{O}}{\\mathop{\\overset{\\text{ }\\!\\!|\\!\\!\\text{ }\\!\\!|\\!\\!\\text{ }}{\\mathop{\\text{C}}}\\,}}\\,\\text{-OH}{/tex}</span>&nbsp;is ________.</p>",
+          "options": [
+            {
+              "id": 597275,
+              "text": "1-hydroxypentane-1,4-dione",
+              "html": "1-hydroxypentane-1,4-dione",
+              "is_correct": false
+            },
+            {
+              "id": 597276,
+              "text": "1, 4-dioxopentanol",
+              "html": "1, 4-dioxopentanol",
+              "is_correct": false
+            },
+            {
+              "id": 597274,
+              "text": "4-oxopentanoic acid",
+              "html": "4-oxopentanoic acid",
+              "is_correct": true
+            },
+            {
+              "id": 597277,
+              "text": "1-carboxybutan-3-one",
+              "html": "1-carboxybutan-3-one",
+              "is_correct": false
+            }
+          ],
+          "correct_options": [
+            "4-oxopentanoic acid"
+          ],
+          "explanation": "If more than one functional group is present in the chain, one will be the main functional group on a priority basis and mentioned as a suffix, while the others are written as prefix mentioned as oxo along with the position. The longest chain is identified and naming is done accordingly.",
+          "solutions": []
+        },
+        {
+          "id": 61942,
+          "type": "Numerical/MCQ",
+          "question": "^(--) $Ba_3N_2$ +^(-) $H_2O$ → ^(--) Ba $(OH)_2$ + ^(--) $NH_3$ .\n\nThe above equation can be balanced by inserting the following in blank spaces from LHS to RHS respectively.",
+          "question_html": "<p><sup>--</sup>&nbsp;<span class=\"math-tex\">{tex}Ba_3N_2{/tex}</span> +<sup>-</sup>&nbsp;<span class=\"math-tex\">{tex}H_2O{/tex}</span> &rarr; <sup>--</sup>&nbsp;Ba&nbsp;<span class=\"math-tex\">{tex}(OH)_2{/tex}</span> + <sup>--</sup>&nbsp;<span class=\"math-tex\">{tex}NH_3{/tex}</span> .</p>\r\n\r\n<p>The above equation can be balanced by inserting the following in blank spaces from LHS to RHS respectively.</p>",
+          "options": [
+            {
+              "id": 202953,
+              "text": "2,6,1,2",
+              "html": "2,6,1,2",
+              "is_correct": false
+            },
+            {
+              "id": 202952,
+              "text": "1,6,3,2",
+              "html": "1,6,3,2",
+              "is_correct": true
+            },
+            {
+              "id": 202955,
+              "text": "1,6,3,6",
+              "html": "1,6,3,6",
+              "is_correct": false
+            },
+            {
+              "id": 202954,
+              "text": "1,3,6,2",
+              "html": "1,3,6,2",
+              "is_correct": false
+            }
+          ],
+          "correct_options": [
+            "1,6,3,2"
+          ],
+          "explanation": "The given equation gets stoichiometrically balanced when the coefficients ( 1, 6, 3, 2 ) starting from LHS to RHS are inserted in given blank spaces.\n\nThus, the balanced equation for the reaction is,\n\nBa_(3)N_(2) + 6H_(2)O $\\longrightarrow$ 3Ba(OH)_(2) + 2NH_(3)",
+          "solutions": []
+        },
+        {
+          "id": 62010,
+          "type": "MCQ",
+          "question": "The mass of an electron is",
+          "question_html": "<p>The mass of an electron is</p>\r\n",
+          "options": [
+            {
+              "id": 203223,
+              "text": "9.1094 $\\times$ 10^(-31) kg",
+              "html": "9.1094 <span class=\"math-tex\">{tex}\\times{/tex}</span> 10<sup>-31</sup> kg",
+              "is_correct": true
+            },
+            {
+              "id": 203225,
+              "text": "1.672614 $\\times$ 10^(-27 )kg",
+              "html": "1.672614 <span class=\"math-tex\">{tex}\\times{/tex}</span> 10<sup>-27&nbsp;</sup>kg",
+              "is_correct": false
+            },
+            {
+              "id": 203224,
+              "text": "1.758820 $\\times$ 10^(11) kg",
+              "html": "1.758820 <span class=\"math-tex\">{tex}\\times{/tex}</span> 10<sup>11</sup> kg",
+              "is_correct": false
+            },
+            {
+              "id": 203226,
+              "text": "1.67492 $\\times$ 10^(-27)kg",
+              "html": "1.67492 <span class=\"math-tex\">{tex}\\times{/tex}</span>&nbsp;10<sup>-27</sup>kg",
+              "is_correct": false
+            }
+          ],
+          "correct_options": [
+            "9.1094 $\\times$ 10^(-31) kg"
+          ],
+          "explanation": "The electron is a subatomic particle, symbol e^(−) or $\\beta^-$ , with a negative elementary electric charge.\n\nThe electron has a mass that is approximately $1\\over 1836$ that of the proton.\n\nSo mass of electron = ${1\\over 1836}\\times 1.6726219 × 10^{-27}$ = 9.1094 $\\times$ 10^(-31) kg",
+          "solutions": []
+        },
+        {
+          "id": 22001,
+          "type": "35",
+          "question": "Which of the following statements are not correct?",
+          "question_html": "<p>Which of the following statements are not correct?</p>",
+          "options": [
+            {
+              "id": 43205,
+              "text": "VSEPR Theory can explain the square planar geometry of XeF_(4).",
+              "html": "VSEPR Theory can explain the square planar geometry of XeF<sub>4</sub>.",
+              "is_correct": false
+            },
+            {
+              "id": 43204,
+              "text": "Hybrid orbitals form stronger bonds than pure orbitals.",
+              "html": "Hybrid orbitals form stronger bonds than pure orbitals.",
+              "is_correct": false
+            },
+            {
+              "id": 43203,
+              "text": "In canonical structures, there is no difference in the arrangement of atoms.",
+              "html": "In canonical structures, there is no difference in the arrangement of atoms.",
+              "is_correct": false
+            },
+            {
+              "id": 43202,
+              "text": "NaCl being an ionic compound is a good conductor of electricity in the solid state.",
+              "html": "NaCl being an ionic compound is a good conductor of electricity in the solid state.",
+              "is_correct": true
+            }
+          ],
+          "correct_options": [
+            "NaCl being an ionic compound is a good conductor of electricity in the solid state."
+          ],
+          "explanation": "NaCl is not a good conductor in solid-state. NaCl is a good conductor of electricity only in their molten state or in aqueous solution.",
+          "solutions": []
+        },
+        {
+          "id": 22318,
+          "type": "MCQ",
+          "question": "Dihydrogen reacts with dioxygen to form water. The reaction is:",
+          "question_html": "<p>Dihydrogen reacts with dioxygen to form water. The reaction is:</p>",
+          "options": [
+            {
+              "id": 44471,
+              "text": "Slightly endothermic",
+              "html": "Slightly endothermic",
+              "is_correct": false
+            },
+            {
+              "id": 44472,
+              "text": "Occurs at room temperature",
+              "html": "Occurs at room temperature",
+              "is_correct": false
+            },
+            {
+              "id": 44469,
+              "text": "Highly exothermic",
+              "html": "Highly exothermic",
+              "is_correct": true
+            },
+            {
+              "id": 44470,
+              "text": "Highly endothermic",
+              "html": "Highly endothermic",
+              "is_correct": false
+            }
+          ],
+          "correct_options": [
+            "Highly exothermic"
+          ],
+          "explanation": "The formation of water from its elements produces, in addition to water, a tremendous amount of energy, 572 kJ to be exact.\n\n2H_(2) + O_(2) $\\to$ 2H_(2)O + Energy\n\nThis is an example of an exothermic reaction, a reaction that produces energy. It is also an example of what is called a combustion reaction, where a substance (in this case hydrogen gas) is combined with oxygen.",
+          "solutions": []
+        },
+        {
+          "id": 22560,
+          "type": "MCQ",
+          "question": "A covalent bond when cleaved heterolytically yields:",
+          "question_html": "<p>A covalent bond when cleaved heterolytically yields:</p>",
+          "options": [
+            {
+              "id": 45438,
+              "text": "free radicals",
+              "html": "free radicals",
+              "is_correct": false
+            },
+            {
+              "id": 45436,
+              "text": "both carbonium ion and carbanion",
+              "html": "both carbonium ion and carbanion",
+              "is_correct": true
+            },
+            {
+              "id": 45437,
+              "text": "carbanion",
+              "html": "carbanion",
+              "is_correct": false
+            },
+            {
+              "id": 45439,
+              "text": "carbonium ion",
+              "html": "carbonium ion",
+              "is_correct": false
+            }
+          ],
+          "correct_options": [
+            "both carbonium ion and carbanion"
+          ],
+          "explanation": "Heterolytic cleavage produces carbonium ion and carbanion. In heterolytic cleavage, the bond breaks in such a fashion that the shared pair of electrons remains with one of the fragments. After heterolysis, one atom has a sextet electronic structure and a positive charge and the other, a valence octet with at least one lone pair and a negative charge. A species having a carbon atom possessing electrons and a positive charge is called a carbocation (earlier called carbonium ion). There is also a carbon species carrying a negative charge on a carbon atom which gets the unshared pair of electrons which is called carbanion.",
+          "solutions": []
+        },
+        {
+          "id": 21748,
+          "type": "MCQ",
+          "question": "$- - - - - {\\text{ B}}{{\\text{a}}_{\\text{3}}}{{\\text{N}}_{\\text{2}}} + - - - - - {\\text{ }}{{\\text{H}}_{\\text{2}}}{\\text{O }} \\to {\\text{ }} - - - - - - {\\text{ Ba }}{\\left( {{\\text{OH}}} \\right)_{\\text{2}}} + {\\text{ }} - - - - - - {\\text{ N}}{{\\text{H}}_{\\text{3}}}$ . This equation can be balanced by inserting the following in blank spaces from left to right.",
+          "question_html": "<p><span class=\"math-tex\">{tex}- - - - - {\\text{ B}}{{\\text{a}}_{\\text{3}}}{{\\text{N}}_{\\text{2}}} + - - - - - {\\text{ }}{{\\text{H}}_{\\text{2}}}{\\text{O }} \\to {\\text{ }} - - - - - - {\\text{ Ba }}{\\left( {{\\text{OH}}} \\right)_{\\text{2}}} + {\\text{ }} - - - - - - {\\text{ N}}{{\\text{H}}_{\\text{3}}}{/tex}</span>. This equation can be balanced by inserting the following in blank spaces from left to right.</p>",
+          "options": [
+            {
+              "id": 42193,
+              "text": "1,6,3,6",
+              "html": "1,6,3,6",
+              "is_correct": false
+            },
+            {
+              "id": 42190,
+              "text": "1,6,3,2",
+              "html": "1,6,3,2",
+              "is_correct": true
+            },
+            {
+              "id": 42191,
+              "text": "2,6,1,2",
+              "html": "2,6,1,2",
+              "is_correct": false
+            },
+            {
+              "id": 42192,
+              "text": "1,3,6,2",
+              "html": "1,3,6,2",
+              "is_correct": false
+            }
+          ],
+          "correct_options": [
+            "1,6,3,2"
+          ],
+          "explanation": "The given equation when balanced is as follows:\n\nBa_(3)N_(2) + 6H_(2) O $\\longrightarrow$ 3 Ba(OH)_(2 )+ 2NH_(3)\n\nHence, '1, 6, 3, 2 ' should be inserted in provided blank spaces from left to right.",
+          "solutions": []
+        },
+        {
+          "id": 62036,
+          "type": "MCQ",
+          "question": "2 $\\times$ 10^(8) atoms of carbon are arranged side by side. Find the radius of carbon atom if the length of this arrangement is 2.4 cm.",
+          "question_html": "<p>2 <span class=\"math-tex\">{tex}\\times{/tex}</span> 10<sup>8</sup> atoms of carbon are arranged side by side. Find the radius of carbon atom if the length of this arrangement is 2.4 cm.</p>",
+          "options": [
+            {
+              "id": 203330,
+              "text": "5.7 $\\times$ $10^{-11}$ m",
+              "html": "5.7 <span class=\"math-tex\">{tex}\\times{/tex}</span> <span class=\"math-tex\">{tex}10^{-11}{/tex}</span> m",
+              "is_correct": false
+            },
+            {
+              "id": 203329,
+              "text": "3.0 $\\times$ 10^(-11) m",
+              "html": "3.0 <span class=\"math-tex\">{tex}\\times{/tex}</span> 10<sup>-11</sup> m",
+              "is_correct": false
+            },
+            {
+              "id": 203328,
+              "text": "1.2 $\\times$ 10^(-11) m",
+              "html": "1.2 <span class=\"math-tex\">{tex}\\times{/tex}</span> 10<sup>-11</sup> m",
+              "is_correct": false
+            },
+            {
+              "id": 203327,
+              "text": "6.0 $\\times$ 10^(-11) m",
+              "html": "6.0 <span class=\"math-tex\">{tex}\\times{/tex}</span>&nbsp;10<sup>-11</sup> m",
+              "is_correct": true
+            }
+          ],
+          "correct_options": [
+            "6.0 $\\times$ 10^(-11) m"
+          ],
+          "explanation": "Total Length = 2.4 cm\n\nTotal number of atoms along the length = 2 $\\times$ 10^(8)\n\nTherefore diameter of each atom = $2.4 \\over 2 × 10^8$ = 1.2 $\\times$ 10^(-8 )cm\n\nAnd radius of the atom = $ 1.2 \\times 10^{-8}\\over 2$ = 0.60 $\\times$ 10^(-8) cm \n\n= 6.0 $\\times$ 10^(-11)m",
+          "solutions": []
+        },
+        {
+          "id": 68843,
+          "type": "MCQ",
+          "question": "Considering the elements B, C, N, F and Si, the correct order of their non-metallic character is:",
+          "question_html": "<p>Considering the elements B, C, N, F and Si, the correct order of their non-metallic character is:</p>",
+          "options": [
+            {
+              "id": 210769,
+              "text": "F > N > C > B >Si",
+              "html": "F &gt; N &gt; C &gt; B &gt;Si",
+              "is_correct": true
+            },
+            {
+              "id": 210770,
+              "text": "B > C > Si > N > F",
+              "html": "B &gt; C &gt; Si &gt; N &gt; F",
+              "is_correct": false
+            },
+            {
+              "id": 210771,
+              "text": "Si > C > B > N > F",
+              "html": "Si &gt; C &gt; B &gt; N &gt; F",
+              "is_correct": false
+            },
+            {
+              "id": 210772,
+              "text": "F >N > C > Si > B",
+              "html": "F &gt;N &gt; C &gt; Si &gt; B",
+              "is_correct": false
+            }
+          ],
+          "correct_options": [
+            "F > N > C > B >Si"
+          ],
+          "explanation": "In a period, the non-metallic character increases from left to right. Thus, among B, C, N and F, non-metallic character decreases in the order: F > N > C > B. However, within a group, non-metallic character decreases from top to bottom. Thus, C is more non-metallic than Si. Therefore, the correct sequence of decreasing non-metallic character is: F > N > C > B > Si.\n\nThe same can be verified with first ionization potential of the atoms. The values are F (17.42) > N (14.53) > C (11.26) > B (8.298) > Si (8.151). Lower ionization potential implies easy tendency to loose electrons. The potential of B and Si appears to be close but it is the bigger size of Si that helps it loose electron comparatively faster.",
+          "solutions": []
+        },
+        {
+          "id": 21974,
+          "type": "MCQ",
+          "question": "The ${\\text{s}}{{\\text{p}}^{\\text{3}}}{{\\text{d}}^{\\text{2}}}$ hybridization of central atom of a molecule would lead to",
+          "question_html": "<p>The <span class=\"math-tex\">{tex}{\\text{s}}{{\\text{p}}^{\\text{3}}}{{\\text{d}}^{\\text{2}}}{/tex}</span> hybridization of central atom of a molecule would lead to</p>",
+          "options": [
+            {
+              "id": 43096,
+              "text": "Trigonal bipyramidal geometry",
+              "html": "Trigonal bipyramidal geometry",
+              "is_correct": false
+            },
+            {
+              "id": 43097,
+              "text": "square planar geometry",
+              "html": "square planar geometry",
+              "is_correct": false
+            },
+            {
+              "id": 43095,
+              "text": "Tetrahedral geometry",
+              "html": "Tetrahedral geometry",
+              "is_correct": false
+            },
+            {
+              "id": 43094,
+              "text": "Octahedral geometry",
+              "html": "Octahedral geometry",
+              "is_correct": true
+            }
+          ],
+          "correct_options": [
+            "Octahedral geometry"
+          ],
+          "explanation": "In sp^(3)d^(2) Hybridization one s, three p and two d-orbitals get hybridized to form six sp^(3)d^(2) hybrid orbitals which adopt octahedral arrangement as given in image below\n\n ![image](https://media-mycbseguide.s3.amazonaws.com/images/cbse/review/ques_21449.jpeg)",
+          "solutions": []
+        },
+        {
+          "id": 22552,
+          "type": "MCQ",
+          "question": "Propanal and propanone are",
+          "question_html": "<p>Propanal and propanone are</p>",
+          "options": [
+            {
+              "id": 45406,
+              "text": "Chain isomers",
+              "html": "Chain isomers",
+              "is_correct": false
+            },
+            {
+              "id": 45407,
+              "text": "Steroisomers",
+              "html": "Steroisomers",
+              "is_correct": false
+            },
+            {
+              "id": 45404,
+              "text": "Functional group isomers",
+              "html": "Functional group isomers",
+              "is_correct": true
+            },
+            {
+              "id": 45405,
+              "text": "Position isomers",
+              "html": "Position isomers",
+              "is_correct": false
+            }
+          ],
+          "correct_options": [
+            "Functional group isomers"
+          ],
+          "explanation": "Two or more compounds having the same molecular formula but different functional groups are called functional isomers and this phenomenon is termed as functional group isomerism. For example, the molecular formula C_(3)H_(6)O represents both a ketone and aldehyde: $CH_3COCH_3\\; and\\;CH_3CH_2CHO$",
+          "solutions": []
+        },
+        {
+          "id": 382954,
+          "type": "MCQ",
+          "question": "Which of the following conclusions could not be derived from Rutherford’s $\\alpha$ -particle scattering experiment?",
+          "question_html": "<p>Which of the following conclusions could not be derived from Rutherford&rsquo;s <span class=\"math-tex\">{tex}\\alpha{/tex}</span> -particle scattering experiment?</p>",
+          "options": [
+            {
+              "id": 589671,
+              "text": "Most of the space in the atom is empty.",
+              "html": "Most of the space in the atom is empty.",
+              "is_correct": false
+            },
+            {
+              "id": 589673,
+              "text": "Electrons and the nucleus are held together by electrostatic forces of attraction.",
+              "html": "Electrons and the nucleus are held together by electrostatic forces of attraction.",
+              "is_correct": false
+            },
+            {
+              "id": 589672,
+              "text": "The radius of the atom is about 10^(–10) m while that of nucleus is 10^(–15) m.",
+              "html": "The radius of the atom is about 10<sup>&ndash;10</sup> m while that of nucleus is 10<sup>&ndash;15</sup> m.",
+              "is_correct": false
+            },
+            {
+              "id": 589670,
+              "text": "Electrons move in a circular path of fixed energy called orbits.",
+              "html": "Electrons move in a circular path of fixed energy called orbits.",
+              "is_correct": true
+            }
+          ],
+          "correct_options": [
+            "Electrons move in a circular path of fixed energy called orbits."
+          ],
+          "explanation": "The Rutherford model cannot explain the stability of an atom. As if the electrons were stationary. electrostatic attraction between them will pull the electron towards the nucleus. It says nothing about the electronic structure of atoms. It can't explain how the electrons are distributed around the nucleus and what are energies of these electrons.",
+          "solutions": []
+        },
+        {
+          "id": 478336,
+          "type": "MCQ",
+          "question": "Ionic species are stabilized by the dispersal of charge. Which of the following carboxylate ion is the most stable?",
+          "question_html": "<p>Ionic species are stabilized by the dispersal of charge. Which of the following carboxylate ion is the most stable?</p>",
+          "options": [
+            {
+              "id": 831220,
+              "text": "![image](https://media-mycbseguide.s3.amazonaws.com/images/imgur/1613991541-3v32ds.jpg)",
+              "html": "<img alt=\"\" data-imgur-src=\"X4rS02l.png\" src=\"https://media-mycbseguide.s3.amazonaws.com/images/imgur/1613991541-3v32ds.jpg\" style=\"width: 135px; height: 78px;\"/>",
+              "is_correct": true
+            },
+            {
+              "id": 831223,
+              "text": "$F-C{{H}_{3}}-\\overset{O}{\\mathop{\\overset{||}{\\mathop{C}}\\,}}\\,-O$",
+              "html": "<span class=\"math-tex\">{tex}F-C{{H}_{3}}-\\overset{O}{\\mathop{\\overset{||}{\\mathop{C}}\\,}}\\,-O{/tex}</span>",
+              "is_correct": false
+            },
+            {
+              "id": 831222,
+              "text": "$Cl-C{{H}_{3}}-\\overset{O}{\\mathop{\\overset{||}{\\mathop{C}}\\,}}\\,-O$",
+              "html": "<span class=\"math-tex\">{tex}Cl-C{{H}_{3}}-\\overset{O}{\\mathop{\\overset{||}{\\mathop{C}}\\,}}\\,-O{/tex}</span>",
+              "is_correct": false
+            },
+            {
+              "id": 831221,
+              "text": "$C{{H}_{3}}-\\overset{O}{\\mathop{\\overset{||}{\\mathop{C}}\\,}}\\,-O$",
+              "html": "<span class=\"math-tex\">{tex}C{{H}_{3}}-\\overset{O}{\\mathop{\\overset{||}{\\mathop{C}}\\,}}\\,-O{/tex}</span>",
+              "is_correct": false
+            }
+          ],
+          "correct_options": [
+            "![image](https://media-mycbseguide.s3.amazonaws.com/images/imgur/1613991541-3v32ds.jpg)"
+          ],
+          "explanation": "The stabilisation of carboxylate ion depends on the dispersal of negative charges. The negative charge is dispersed by two factors, i.e,+R effect of the carboxylate ion and Inductive effect of the halogens. In all the given structures, the +R effect is common but halogen atoms are different. Therefore, the dispersal of the negative charge depends upon halogen atoms. Fluorine is most electronegative, in this structure two Fluorine atoms are present and more dispersal of negative charge is there.",
+          "solutions": []
+        },
+        {
+          "id": 21799,
+          "type": "MCQ",
+          "question": "Correct expression for all series of lines in the hydrogen spectrum is (n_(1) = 1, 2 , 3...) and n_(2) = n_(1) + 1, n_(1) + 2, ..., and $\\bar \\nu $ is the wave number)",
+          "question_html": "<p>Correct expression for all series of lines in the hydrogen spectrum is (n<sub>1</sub> = 1, 2 , 3...) and n<sub>2</sub> = n<sub>1</sub> + 1, n<sub>1</sub> + 2, ...,&nbsp;and <span class=\"math-tex\">{tex}\\bar \\nu {/tex}</span> is the wave number)</p>",
+          "options": [
+            {
+              "id": 42394,
+              "text": "$\\bar \\nu = 109,737{\\text{}}\\left( {\\frac{1}{{{\\text{n}}_1^2}} - {\\text{}}\\frac{1}{{{\\text{n}}_2^2}}} \\right)$",
+              "html": "<span class=\"math-tex\">{tex}\\bar \\nu = 109,737{\\text{}}\\left( {\\frac{1}{{{\\text{n}}_1^2}} - {\\text{}}\\frac{1}{{{\\text{n}}_2^2}}} \\right){/tex}</span>",
+              "is_correct": true
+            },
+            {
+              "id": 42397,
+              "text": "$\\bar \\nu = 109,677{\\text{}}\\left( {\\frac{1}{{{\\text{n}}_1^4}} - {\\text{}}\\frac{1}{{{\\text{n}}_2^2}}} \\right)$",
+              "html": "<span class=\"math-tex\">{tex}\\bar \\nu = 109,677{\\text{}}\\left( {\\frac{1}{{{\\text{n}}_1^4}} - {\\text{}}\\frac{1}{{{\\text{n}}_2^2}}} \\right){/tex}</span>",
+              "is_correct": false
+            },
+            {
+              "id": 42395,
+              "text": "$\\bar \\nu = 109,677{\\text{}}\\left( {\\frac{1}{{{\\text{n}}_1^3}} - {\\text{}}\\frac{1}{{{\\text{n}}_2^2}}} \\right)$",
+              "html": "<span class=\"math-tex\">{tex}\\bar \\nu = 109,677{\\text{}}\\left( {\\frac{1}{{{\\text{n}}_1^3}} - {\\text{}}\\frac{1}{{{\\text{n}}_2^2}}} \\right){/tex}</span>",
+              "is_correct": false
+            },
+            {
+              "id": 42396,
+              "text": "$\\bar \\nu = 109,777{\\text{}}\\left( {\\frac{1}{{{\\text{n}}_1^2}} - {\\text{}}\\frac{1}{{{\\text{n}}_2^3}}} \\right)$",
+              "html": "<span class=\"math-tex\">{tex}\\bar \\nu = 109,777{\\text{}}\\left( {\\frac{1}{{{\\text{n}}_1^2}} - {\\text{}}\\frac{1}{{{\\text{n}}_2^3}}} \\right){/tex}</span>",
+              "is_correct": false
+            }
+          ],
+          "correct_options": [
+            "$\\bar \\nu = 109,737{\\text{}}\\left( {\\frac{1}{{{\\text{n}}_1^2}} - {\\text{}}\\frac{1}{{{\\text{n}}_2^2}}} \\right)$"
+          ],
+          "explanation": "In an amazing demonstration of mathematical insight, in 1885 Balmer came up with a simple formula for predicting the wavelength of any of the lines in atomic Hydrogen in what we now know as the Balmer series.\n\nThree years later, Rydberg generalized this so that it was possible to determine the wavelengths of any of the lines in the hydrogen emission spectrum. Rydberg suggested that all atomic spectra formed families with this pattern (he was unaware of Balmer's work).\n\nIt turns out that there are families of spectra following Rydberg's pattern, notably in the alkali metals, sodium, potassium, etc., but not with the precision the hydrogen atom lines fit the Balmer formula, and low values of n_(2) predicted wavelengths that deviate considerably.\n\nRydberg's general equation is as follows:\n\n $\\overline \\nu = {1\\over \\lambda}=R_h\\left ({1\\over n_1^2}-{1\\over n_2^2}\\right)$ \n\nwhere\n\n R_(H) is the Rydberg constant and is 1,09,677 cm^(-1)\n n_(1) and n_(2) are integers (whole numbers) with n_(2)>n_(1)",
+          "solutions": []
+        },
+        {
+          "id": 21883,
+          "type": "MCQ",
+          "question": "The first ionisation enthalpies of Na, Mg, Al and Si are in the order:",
+          "question_html": "<p>The first ionisation enthalpies of Na, Mg, Al and Si are in the order:</p>",
+          "options": [
+            {
+              "id": 42731,
+              "text": "$\\mathrm { Na } > \\mathrm { Mg } > \\mathrm { Al } > \\mathrm { Si }$",
+              "html": "<span class=\"math-tex\">{tex}\\mathrm { Na } &gt; \\mathrm { Mg } &gt; \\mathrm { Al } &gt; \\mathrm { Si }{/tex}</span>",
+              "is_correct": false
+            },
+            {
+              "id": 42733,
+              "text": "$\\mathrm { Na } > \\mathrm { Mg } > \\mathrm { Al } < \\mathrm { Si }$",
+              "html": "<span class=\"math-tex\">{tex}\\mathrm { Na } &gt; \\mathrm { Mg } &gt; \\mathrm { Al } &lt; \\mathrm { Si }{/tex}</span>",
+              "is_correct": false
+            },
+            {
+              "id": 42732,
+              "text": "$\\mathrm { Na } < \\mathrm { Mg } < \\mathrm { Al } < \\mathrm { Si }$",
+              "html": "<span class=\"math-tex\">{tex}\\mathrm { Na } &lt; \\mathrm { Mg } &lt; \\mathrm { Al } &lt; \\mathrm { Si }{/tex}</span>",
+              "is_correct": false
+            },
+            {
+              "id": 42730,
+              "text": "$\\mathrm { Na } < \\mathrm {Al } < \\mathrm { Si } < \\mathrm { Mg }$",
+              "html": "<span class=\"math-tex\">{tex}\\mathrm { Na } &lt; \\mathrm {Al } &lt; \\mathrm { Si } &lt; \\mathrm { Mg }{/tex}</span>",
+              "is_correct": true
+            }
+          ],
+          "correct_options": [
+            "$\\mathrm { Na } < \\mathrm {Al } < \\mathrm { Si } < \\mathrm { Mg }$"
+          ],
+          "explanation": "$\\mathrm { Na } < \\mathrm {Al } < \\mathrm { Si } < \\mathrm { Mg }$",
+          "solutions": []
+        },
+        {
+          "id": 21847,
+          "type": "MCQ",
+          "question": "Which color of light has the greatest energy per photon?",
+          "question_html": "<p>Which color of light has the greatest energy per photon?</p>",
+          "options": [
+            {
+              "id": 42589,
+              "text": "Red",
+              "html": "Red",
+              "is_correct": false
+            },
+            {
+              "id": 42587,
+              "text": "Blue",
+              "html": "Blue",
+              "is_correct": false
+            },
+            {
+              "id": 42586,
+              "text": "Violet",
+              "html": "Violet",
+              "is_correct": true
+            },
+            {
+              "id": 42588,
+              "text": "Green",
+              "html": "Green",
+              "is_correct": false
+            }
+          ],
+          "correct_options": [
+            "Violet"
+          ],
+          "explanation": "Waves with a short wavelength have the most energy. Red waves have a relatively long wavelength (in the 700 nm range), and violet waves are much shorter - roughly half that. Because violet waves have the shortest wavelength of the visible light spectrum, they carry the most energy.",
+          "solutions": []
+        },
+        {
+          "id": 594572,
+          "type": "14",
+          "question": "Assertion (A): Cathode rays get deflected towards the positive plate of the electric field.\n\nReason (R): Cathode rays consist of negatively charged particles known as electrons.",
+          "question_html": "<p><strong>Assertion (A):</strong>&nbsp;Cathode rays get deflected towards the positive plate of the electric field.<br />\r\n<strong>Reason (R):</strong>&nbsp;Cathode rays consist of negatively charged particles known as electrons.</p>",
+          "options": [
+            {
+              "id": 1176038,
+              "text": "Both A and R are true and R is the correct explanation of A.",
+              "html": "Both A and R are true and R is the correct explanation of A.",
+              "is_correct": true
+            },
+            {
+              "id": 1176039,
+              "text": "Both A and R are true but R is not the correct explanation of A.",
+              "html": "Both A and R are true but R is not the correct explanation of A.",
+              "is_correct": false
+            },
+            {
+              "id": 1176040,
+              "text": "A is true but R is false.",
+              "html": "A is true but R is false.",
+              "is_correct": false
+            },
+            {
+              "id": 1176041,
+              "text": "A is false but R is true.",
+              "html": "A is false but R is true.",
+              "is_correct": false
+            }
+          ],
+          "correct_options": [
+            "Both A and R are true and R is the correct explanation of A."
+          ],
+          "explanation": "In an electric field, negatively charged particles always move towards the positive plate and its vice-versa.",
+          "solutions": []
+        },
+        {
+          "id": 593721,
+          "type": "14",
+          "question": "Assertion (A): First ionization enthalpy of boron is slightly less than that of beryllium.\n\nReason (R): Ionization enthalpy increases as we go across the period.",
+          "question_html": "<p><strong>Assertion (A):</strong> First ionization enthalpy of boron is slightly less than that of beryllium.<br />\r\n<strong>Reason (R):</strong> Ionization enthalpy increases as we go across the period.</p>",
+          "options": [
+            {
+              "id": 1172732,
+              "text": "Both A and R are true and R is the correct explanation of A.",
+              "html": "Both A and R are true and R is the correct explanation of A.",
+              "is_correct": false
+            },
+            {
+              "id": 1172735,
+              "text": "A is false but R is true.",
+              "html": "A is false but R is true.",
+              "is_correct": false
+            },
+            {
+              "id": 1172734,
+              "text": "A is true but R is false.",
+              "html": "A is true but R is false.",
+              "is_correct": false
+            },
+            {
+              "id": 1172733,
+              "text": "Both A and R are true but R is not the correct explanation of A.",
+              "html": "Both A and R are true but R is not the correct explanation of A.",
+              "is_correct": true
+            }
+          ],
+          "correct_options": [
+            "Both A and R are true but R is not the correct explanation of A."
+          ],
+          "explanation": "When we consider the same principal quantum level, an s-electron is attracted to the nucleus more than a p-electron or the penetration of a 2s electron to the nucleus is more than that of a 2p electron. Therefore 2p electron of boron is more shielded from the nucleus by the inner core of electrons than the 2s electrons of beryllium.",
+          "solutions": []
+        },
+        {
+          "id": 593718,
+          "type": "14",
+          "question": "Assertion (A): In an HF molecule, the hydrogen bond exists between the hydrogen atom of one molecule and the hydrogen atom of another molecule.\n\nReason (R): Hydrogen bond acts as a bridge between two atoms which holds one atom by a covalent bond and the other by a hydrogen bond.",
+          "question_html": "<p><strong>Assertion (A): </strong>In an HF molecule, the hydrogen bond exists between the hydrogen atom of one molecule and the hydrogen&nbsp;atom of another molecule.<br />\r\n<strong>Reason (R): </strong>Hydrogen bond acts as a bridge between two atoms which holds one atom by a covalent bond and the other by a hydrogen bond.</p>",
+          "options": [
+            {
+              "id": 1172723,
+              "text": "A is false but R is true.",
+              "html": "A is false but R is true.",
+              "is_correct": true
+            },
+            {
+              "id": 1172722,
+              "text": "A is true but R is false.",
+              "html": "A is true but R is false.",
+              "is_correct": false
+            },
+            {
+              "id": 1172721,
+              "text": "Both A and R are true but R is not the correct explanation of A.",
+              "html": "Both A and R are true but R is not the correct explanation of A.",
+              "is_correct": false
+            },
+            {
+              "id": 1172720,
+              "text": "Both A and R are true and R is the correct explanation of A.",
+              "html": "Both A and R are true and R is the correct explanation of A.",
+              "is_correct": false
+            }
+          ],
+          "correct_options": [
+            "A is false but R is true."
+          ],
+          "explanation": "In HF molecule, the hydrogen bond exists between the hydrogen atom of one molecule and the fluorine atom of another molecule hydrogen bond acts as a bridge between two atoms which holds one atom by covalent bond and the other by hydrogen bond.",
+          "solutions": []
+        },
+        {
+          "id": 594543,
+          "type": "14",
+          "question": "Assertion (A): Among halogens, fluorine is the best oxidant.\n\nReason (R): Fluorine oxidizes chloride ion to chlorine, bromide ion to bromine, and iodide ion to iodine respectively.",
+          "question_html": "<p><strong>Assertion (A):</strong> Among halogens, fluorine is the best oxidant.<br />\r\n<strong>Reason (R):</strong>&nbsp;Fluorine oxidizes chloride ion to chlorine, bromide ion to bromine, and iodide ion to iodine respectively.</p>",
+          "options": [
+            {
+              "id": 1175924,
+              "text": "A is true but R is false.",
+              "html": "A is true but R is false.",
+              "is_correct": false
+            },
+            {
+              "id": 1175922,
+              "text": "Both A and R are true and R is the correct explanation of A.",
+              "html": "Both A and R are true and R is the correct explanation of A.",
+              "is_correct": true
+            },
+            {
+              "id": 1175925,
+              "text": "A is false but R is true.",
+              "html": "A is false but R is true.",
+              "is_correct": false
+            },
+            {
+              "id": 1175923,
+              "text": "Both A and R are true but R is not the correct explanation of A.",
+              "html": "Both A and R are true but R is not the correct explanation of A.",
+              "is_correct": false
+            }
+          ],
+          "correct_options": [
+            "Both A and R are true and R is the correct explanation of A."
+          ],
+          "explanation": "Amongs halogen fluorine is best oxidant. Fluorine oxidizes chloride ion to chlorine, bromide ion to bromine and iodide ion to iodine respectively.",
+          "solutions": []
+        },
+        {
+          "id": 443005,
+          "type": "14",
+          "question": "Assertion (A): Resonance occur in the conjugated system.\n\nReason (R): In resonance complete transfer of electron occur.",
+          "question_html": "<p><strong>Assertion (A): </strong>Resonance occur in the conjugated system.<br />\n<strong>Reason (R):</strong> In resonance complete transfer of electron occur.</p>",
+          "options": [
+            {
+              "id": 761611,
+              "text": "A is true but R is false.",
+              "html": "A is true but R is false.",
+              "is_correct": false
+            },
+            {
+              "id": 761609,
+              "text": "Both A and R are true and R is the correct explanation of A.",
+              "html": "Both A and R are true and R is the correct explanation of A.",
+              "is_correct": true
+            },
+            {
+              "id": 761610,
+              "text": "Both A and R are true but R is not the correct explanation of A.",
+              "html": "Both A and R are true but R is not the correct explanation of A.",
+              "is_correct": false
+            },
+            {
+              "id": 761612,
+              "text": "A is false but R is true.",
+              "html": "A is false but R is true.",
+              "is_correct": false
+            }
+          ],
+          "correct_options": [
+            "Both A and R are true and R is the correct explanation of A."
+          ],
+          "explanation": "Both A and R are true and R is the correct explanation of A.",
+          "solutions": []
+        }
+      ]
+    },
+    {
+      "section_name": "Section C",
+      "section_id": 704,
+      "questions": [
+        {
+          "id": 167377,
+          "type": "35",
+          "question": "Which of the following statements about a compound is incorrect?",
+          "question_html": "<p>Which of the following statements about a compound is incorrect?</p>",
+          "options": [
+            {
+              "id": 314169,
+              "text": "A compound cannot be separated into its constituent elements by physical methods of separation.",
+              "html": "A compound cannot be separated into its constituent elements by physical methods of separation.",
+              "is_correct": false
+            },
+            {
+              "id": 314167,
+              "text": "A compound retains the physical properties of its constituent elements.",
+              "html": "A compound retains the physical properties of its constituent elements.",
+              "is_correct": true
+            },
+            {
+              "id": 314168,
+              "text": "A molecule of a compound has atoms of different elements.",
+              "html": "A molecule of a compound has atoms of different elements.",
+              "is_correct": false
+            },
+            {
+              "id": 314170,
+              "text": "The ratio of atoms of different elements in a compound is fixed.",
+              "html": "The ratio of atoms of different elements in a compound is fixed.",
+              "is_correct": false
+            }
+          ],
+          "correct_options": [
+            "A compound retains the physical properties of its constituent elements."
+          ],
+          "explanation": "The compound does not retain the physical properties of its constituent elements. As compound has unique properties than its parent atoms. For example: water is a nonflammable liquid and does not support combustion. It is composed of two elements: hydrogen, an extremely flammable gas, and oxygen, a gas that supports combustion.",
+          "solutions": []
+        },
+        {
+          "id": 21800,
+          "type": "MCQ",
+          "question": "According to Bohr’s theory the frequency of radiation absorbed or emitted when transition occurs between two stationary states that differ in energy by $\\Delta {\\text{E}},$ is given by",
+          "question_html": "<p>According to Bohr&rsquo;s theory the frequency of radiation absorbed or emitted when transition occurs between two stationary states that differ in energy by <span class=\"math-tex\">{tex}\\Delta {\\text{E}},{/tex}</span> is given by</p>",
+          "options": [
+            {
+              "id": 42400,
+              "text": "$\\Delta {\\text{E }} = $ $\\frac{1}{{h\\nu }}$",
+              "html": "<span class=\"math-tex\">{tex}\\Delta {\\text{E }} = {/tex}</span><span class=\"math-tex\">{tex}\\frac{1}{{h\\nu }}{/tex}</span>",
+              "is_correct": false
+            },
+            {
+              "id": 42401,
+              "text": "$\\Delta {\\text{E = }}$ $\\frac{2}{{h\\nu }}$",
+              "html": "<span class=\"math-tex\">{tex}\\Delta {\\text{E = }}{/tex}</span><span class=\"math-tex\">{tex}\\frac{2}{{h\\nu }}{/tex}</span>",
+              "is_correct": false
+            },
+            {
+              "id": 42399,
+              "text": "$\\Delta {\\text{E }} = $ $2h\\nu $",
+              "html": "<span class=\"math-tex\">{tex}\\Delta {\\text{E }} = {/tex}</span>&nbsp;<span class=\"math-tex\">{tex}2h\\nu {/tex}</span>",
+              "is_correct": false
+            },
+            {
+              "id": 42398,
+              "text": "$\\Delta {\\text{E}} = $ $h\\nu $",
+              "html": "<span class=\"math-tex\">{tex}\\Delta {\\text{E}} = {/tex}</span> <span class=\"math-tex\">{tex}h\\nu {/tex}</span>",
+              "is_correct": true
+            }
+          ],
+          "correct_options": [
+            "$\\Delta {\\text{E}} = $ $h\\nu $"
+          ],
+          "explanation": "In his model of the atom, Bohr used Planck's quantum hypothesis, and of course his knowledge from prior findings. Bohr uses Ryberg's formula for explaining how the electrons emit light as they move from one orbital to another. The point Bohr was trying to get across is that energy is not continuous in an atom. We can say that an atom that is in the lowest energy level is in the ground state, and when it moves to a higher level it is in an excited state. The energy of a photon, lost or gained, is calculated using Planck's equation: (h is Planck's constant, 6.62607 $\\times$ 10^(-34 )J s / cycles, and v stands for frequency in cycles/s)\n\nEnergy Difference( $\\Delta$ E) = $h\\nu$",
+          "solutions": []
+        },
+        {
+          "id": 22553,
+          "type": "MCQ",
+          "question": "What is the type of hybridisation of each carbon in the compound (CH_(3))_(2)CO?",
+          "question_html": "<p>What is the type of hybridisation of each carbon in the compound (CH<sub>3</sub>)<sub>2</sub>CO?</p>\r\n",
+          "options": [
+            {
+              "id": 45408,
+              "text": "sp^(3), sp^(2)",
+              "html": "sp<sup>3</sup>, sp<sup>2</sup>&nbsp;",
+              "is_correct": true
+            },
+            {
+              "id": 45409,
+              "text": "sp^(3), sp",
+              "html": "sp<sup>3</sup>, sp",
+              "is_correct": false
+            },
+            {
+              "id": 45410,
+              "text": "sp^(2)​​​​, sp^(​​​​​2)",
+              "html": "sp<sup>2</sup>​​​​, sp<sup>​​​​​2</sup>",
+              "is_correct": false
+            },
+            {
+              "id": 45411,
+              "text": "sp^(3), sp^(3)",
+              "html": "sp<sup>3</sup>, sp<sup>3</sup>",
+              "is_correct": false
+            }
+          ],
+          "correct_options": [
+            "sp^(3), sp^(2)"
+          ],
+          "explanation": "The hybridisation of the C in CH_(3) (all are single bonds) is sp^(3) and that of C of $>\\mathrm C=\\mathrm O$ (double bond) bond is sp^(2).",
+          "solutions": []
+        },
+        {
+          "id": 576037,
+          "type": "14",
+          "question": "Instructions for Question 53 to 55:\nOnce an organic compound is extracted from a natural source or synthesised in the laboratory, it is essential to purify it. Various methods used for the purification of organic compounds are based on the nature of the compound and the impurity present in it. Finally, the purity of a compound is ascertained by determining its melting or boiling point. This is one of the most commonly used techniques for the purification of solid organic compounds. In crystallisation Impurities, which impart colour to the solution are removed by adsorbing over activated charcoal. In distillation Liquids having different boiling points vaporise at different temperatures. The vapours are cooled and the liquids so formed are collected separately. Steam Distillation is applied to separate substances which are steam volatile and are immiscible with water. Distillation under reduced pressure: This method is used to purify liquids having very high boiling points.\n\nAssertion (A): Crystallisation is based on the difference in the solubilities of the compound and the impurities in a suitable solvent.\n\nReason (R): The impure compound is dissolved in a solvent.",
+          "question_html": "<b>Instructions for Question 53 to 55:</b><br><p>Once an organic compound is extracted from a natural source or synthesised in the laboratory, it is essential to purify it. Various methods used for the purification of organic compounds are based on the nature of the compound and the impurity present in it.&nbsp;Finally, the purity of a compound is ascertained by determining its melting or boiling point.&nbsp;This is one of the most commonly used techniques for the purification of solid organic compounds. In crystallisation&nbsp;Impurities, which impart colour to the solution are removed by adsorbing over activated charcoal. In distillation&nbsp;Liquids having different boiling points vaporise at different temperatures. The vapours are cooled and the liquids so formed are collected separately.&nbsp;Steam Distillation&nbsp;is applied to separate substances which are steam volatile and are immiscible with water. Distillation under reduced pressure: This method is used to purify liquids having very high boiling points.</p><br><p><strong>Assertion (A):&nbsp;</strong>Crystallisation is based on the difference in the solubilities of the compound and the impurities in a suitable solvent.<br />\r\n<strong>Reason (R):&nbsp;</strong>The impure compound is dissolved in a solvent.</p>",
+          "options": [
+            {
+              "id": 1108998,
+              "text": "A is true but R is false.",
+              "html": "A is true but R is false.",
+              "is_correct": false
+            },
+            {
+              "id": 1108997,
+              "text": "Both A and R are true but R is not the correct explanation of A.",
+              "html": "Both A and R are true but R is not the correct explanation of A.",
+              "is_correct": true
+            },
+            {
+              "id": 1108996,
+              "text": "Both A and R are true and R is the correct explanation of A.",
+              "html": "Both A and R are true and R is the correct explanation of A.",
+              "is_correct": false
+            },
+            {
+              "id": 1109001,
+              "text": "A is false but R is true.",
+              "html": "A is false but R is true.",
+              "is_correct": false
+            }
+          ],
+          "correct_options": [
+            "Both A and R are true but R is not the correct explanation of A."
+          ],
+          "explanation": "Both A and R are true but R is not the correct explanation of A.",
+          "solutions": []
+        },
+        {
+          "id": 576132,
+          "type": "14",
+          "question": "Instructions for Question 53 to 55:\nOnce an organic compound is extracted from a natural source or synthesised in the laboratory, it is essential to purify it. Various methods used for the purification of organic compounds are based on the nature of the compound and the impurity present in it. Finally, the purity of a compound is ascertained by determining its melting or boiling point. This is one of the most commonly used techniques for the purification of solid organic compounds. In crystallisation Impurities, which impart colour to the solution are removed by adsorbing over activated charcoal. In distillation Liquids having different boiling points vaporise at different temperatures. The vapours are cooled and the liquids so formed are collected separately. Steam Distillation is applied to separate substances which are steam volatile and are immiscible with water. Distillation under reduced pressure: This method is used to purify liquids having very high boiling points.\n\nAssertion (A): In chromatography, a mixture of substance is applied onto a stationary phase.\n\nReason (R): The moving phase is called mobile phase.",
+          "question_html": "<b>Instructions for Question 53 to 55:</b><br><p>Once an organic compound is extracted from a natural source or synthesised in the laboratory, it is essential to purify it. Various methods used for the purification of organic compounds are based on the nature of the compound and the impurity present in it.&nbsp;Finally, the purity of a compound is ascertained by determining its melting or boiling point.&nbsp;This is one of the most commonly used techniques for the purification of solid organic compounds. In crystallisation&nbsp;Impurities, which impart colour to the solution are removed by adsorbing over activated charcoal. In distillation&nbsp;Liquids having different boiling points vaporise at different temperatures. The vapours are cooled and the liquids so formed are collected separately.&nbsp;Steam Distillation&nbsp;is applied to separate substances which are steam volatile and are immiscible with water. Distillation under reduced pressure: This method is used to purify liquids having very high boiling points.</p><br><p><strong>Assertion (A):</strong> In chromatography, a mixture of substance is applied onto a stationary phase.<br />\r\n<strong>Reason (R): </strong>The moving phase is called mobile phase.</p>",
+          "options": [
+            {
+              "id": 1109377,
+              "text": "Both A and R are true but R is not the correct explanation of A.",
+              "html": "Both A and R are true but R is not the correct explanation of A.",
+              "is_correct": true
+            },
+            {
+              "id": 1109378,
+              "text": "A is true but R is false.",
+              "html": "A is true but R is false.",
+              "is_correct": false
+            },
+            {
+              "id": 1109375,
+              "text": "Both A and R are true and R is the correct explanation of A.",
+              "html": "Both A and R are true and R is the correct explanation of A.",
+              "is_correct": false
+            },
+            {
+              "id": 1109379,
+              "text": "A is false but R is true.",
+              "html": "A is false but R is true.",
+              "is_correct": false
+            }
+          ],
+          "correct_options": [
+            "Both A and R are true but R is not the correct explanation of A."
+          ],
+          "explanation": "Both A and R are true but R is not the correct explanation of A.",
+          "solutions": []
+        },
+        {
+          "id": 576172,
+          "type": "14",
+          "question": "Instructions for Question 53 to 55:\nOnce an organic compound is extracted from a natural source or synthesised in the laboratory, it is essential to purify it. Various methods used for the purification of organic compounds are based on the nature of the compound and the impurity present in it. Finally, the purity of a compound is ascertained by determining its melting or boiling point. This is one of the most commonly used techniques for the purification of solid organic compounds. In crystallisation Impurities, which impart colour to the solution are removed by adsorbing over activated charcoal. In distillation Liquids having different boiling points vaporise at different temperatures. The vapours are cooled and the liquids so formed are collected separately. Steam Distillation is applied to separate substances which are steam volatile and are immiscible with water. Distillation under reduced pressure: This method is used to purify liquids having very high boiling points.\n\nAssertion (A): Aniline is separated by steam distillation from an aniline-water mixture.\n\nReason (R): Steam distillation is used to purify liquids having very high boiling points.",
+          "question_html": "<b>Instructions for Question 53 to 55:</b><br><p>Once an organic compound is extracted from a natural source or synthesised in the laboratory, it is essential to purify it. Various methods used for the purification of organic compounds are based on the nature of the compound and the impurity present in it.&nbsp;Finally, the purity of a compound is ascertained by determining its melting or boiling point.&nbsp;This is one of the most commonly used techniques for the purification of solid organic compounds. In crystallisation&nbsp;Impurities, which impart colour to the solution are removed by adsorbing over activated charcoal. In distillation&nbsp;Liquids having different boiling points vaporise at different temperatures. The vapours are cooled and the liquids so formed are collected separately.&nbsp;Steam Distillation&nbsp;is applied to separate substances which are steam volatile and are immiscible with water. Distillation under reduced pressure: This method is used to purify liquids having very high boiling points.</p><br><p><strong>Assertion (A):&nbsp;</strong>Aniline is separated by steam distillation from an aniline-water mixture.<br />\r\n<strong>Reason (R):&nbsp;</strong>Steam distillation is used to purify liquids having very high boiling points.</p>",
+          "options": [
+            {
+              "id": 1109538,
+              "text": "A is true but R is false.",
+              "html": "A is true but R is false.",
+              "is_correct": true
+            },
+            {
+              "id": 1109539,
+              "text": "A is false but R is true.",
+              "html": "A is false but R is true.",
+              "is_correct": false
+            },
+            {
+              "id": 1109536,
+              "text": "Both A and R are true and R is the correct explanation of A.",
+              "html": "Both A and R are true and R is the correct explanation of A.",
+              "is_correct": false
+            },
+            {
+              "id": 1109537,
+              "text": "Both A and R are true but R is not the correct explanation of A.",
+              "html": "Both A and R are true but R is not the correct explanation of A.",
+              "is_correct": false
+            }
+          ],
+          "correct_options": [
+            "A is true but R is false."
+          ],
+          "explanation": "A is true but R is false.",
+          "solutions": []
+        }
+      ]
+    }
+  ]
+}

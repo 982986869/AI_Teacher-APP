@@ -1,0 +1,675 @@
+======================================================================
+Mock Test - 06  (id 179)
+CBSE > Class 11 > Mathematics
+Duration: 90 min | Questions: 50
+======================================================================
+
+INSTRUCTIONS:
+This question paper contains three sections - A, B and C. Each part is compulsory.
+ Section - A has 20 MCQs, attempt any 16 out of 20.
+ Section - B has 20 MCQs, attempt any 16 out of 20
+ Section - C has 10 MCQs, attempt any 8 out of 10.
+ There is no negative marking.
+ All questions carry equal marks.
+
+------------------------------------------------------------
+Section A
+------------------------------------------------------------
+Q1. The set (A $\cup$ B')' $\cup$ (B $\cap$ C) is equal to
+    (A) A' $\cup$ B $\cup$ C
+    (B) A' $\cup$ C'
+    (C) A' $\cap$ B
+    (D) B $\cap$ (A' $\cup$ C)   <-- CORRECT
+    Answer: D
+    Explanation: Therefore,(A $\cup$ B')' $\cup$ (B $\cap$ C) = (A' $\cap$ B')' $\cup$ (B $\cap$ C)
+= (A' $\cap$ B) $\cup$ (B $\cap$ C)
+= B $\cap$ (A' $\cup$ C)
+
+Q2. If f(x) = cos ( log x) then [ f(x) f(y) $-\frac{1}{2}$ $f\left(\frac{x}{y}\right)+f(x y)$ ] has the value
+    (A) -2
+    (B) 1/2
+    (C) None of these   <-- CORRECT
+    (D) -1
+    Answer: C
+    Explanation: f(x) = cos ( logx)
+Now, f(x) f(y) $-\frac{1}{2}\left\{\mathrm{f}\left(\frac{\mathrm{x}}{\mathrm{y}}\right)+\mathrm{f}(\mathrm{xy})\right\}$
+= cos(logx) cos(logy) $-\frac{1}{2}\{\cos \left(\log \left(\frac{x}{y}\right)\right)$ + cos (logxy)}
+= cos ( log x) cos (log y) $-\frac{1}{2}$ {cos(logx - log y) + cos (log x + logy)}
+using cosx cosy - 1/2 ( cos (x + y ) + cos ( x - y)
+= 0
+
+Q3. If z = $\frac{\sqrt{3}+i}{2}$, then z^69 is equal to
+    (A) -i   <-- CORRECT
+    (B) -1
+    (C) 1
+    (D) i
+    Answer: A
+    Explanation: Given z = $\frac{\sqrt{3}+i}{2}$ 
+iz = $i\left[\frac{\sqrt{3}+i}{2}\right]$ = $\frac{-1+i \sqrt{3}}{2}=\omega$ 
+$\Rightarrow$ z = $\frac{\omega}{i}$ 
+Then z^69 = $\left[\frac{\omega}{i}\right]^{69}$ = $\frac{\left(\omega^{3}\right)^{23}}{\left(i^{2}\right)^{34} \cdot i}$ = $\frac{1}{(-1)^{34} . i}=\frac{1}{i}$ = -i [$\because$ $\omega^3$ = 1, i^2 = -1]
+
+Q4. The lines 8x + 4y = 1, 8x + 4y = 5, 4x + 8y = 3, 4x + 8y = 7 form a
+    (A) Rectangle
+    (B) Rhombus   <-- CORRECT
+    (C) Square
+    (D) Trapezium
+    Answer: B
+    Explanation: On solving the equations 8x + 4y = 1 and 4x + 8y = 3, we get the point of intersection as ($\frac{-1}{2}$, $\frac{5}{12}$)
+On solving the equations 8x + 4y = 5 and 4x + 8y = 7, we get the point of intersection as ($\frac{1}{4}$, $\frac{3}{4}$)
+On solving the equations 8x + 4y = 1 and 4x + 8y = 7, we get the point of intersection as ($\frac{-5}{12}$, $\frac{13}{12}$)
+On solving the equations 8x + 4y = 5 and 4x + 8y = 3, we the point of intersection as ($\frac{7}{12}$, $\frac{1}{12}$)
+Let the points A(($\frac{-1}{2}$, $\frac{5}{12}$), B($\frac{7}{12}$, $\frac{1}{12}$) C($\frac{1}{4}$, $\frac{3}{4}$) and D($\frac{-5}{12}$, $\frac{13}{12}$) be the vertices of the quadrilateral
+Since the slopes of the opposite sides are equal the quadrilateral is a parallelogram
+The slope of the diagonal AC is $5/12 - 3/4\over -1/2 - 1/4$ = 1
+The slope of the diagonal BD is $1/2 - 13/12\over 7/12 - (-5/12)$ = -1
+Since the product of the slopes is -1, the diagonals are perpendicular to each other.
+Hence the parallelogram is a rhombus.
+
+Q5. The line which is parallel to X-axis and crosses the curve y = $\sqrt x $ at an angle of 45^o is:
+    (A) y = $\frac 14$
+    (B) y = $\frac{1}{2}$   <-- CORRECT
+    (C) y = 1
+    (D) y = $\frac{3}{2}$
+    Answer: B
+    Explanation: The equation of the line which is a tangent to the curve y = $\sqrt x$ is
+y = mx + a/m
+Since it makes and angle of 45^o, m = 1
+y^2 = x implies a = $\frac{1}{4}$
+Hence the equation of the tangent is y = x + $\frac 14$
+That is the y-intercept is $\sqrt \frac 14$ = $\frac{1}{2} $
+Hence the equation of the line is y = $\frac{1}{2} $
+
+Q6. $\frac{d}{d x}\left(\sin ^{-1} x\right)=\frac{1}{\sqrt{1-x^2}}$ holds true for
+    (A) all real x
+    (B) all x $\in $ ( - 1, 1)   <-- CORRECT
+    (C) all real x for which |x| > 1
+    (D) all x [-1, 1]
+    Answer: B
+    Explanation: Domain of sin^-1 x = x $\in$ [-1, 1] ......(i)
+Domain of $\frac{1}{\sqrt{\left(1-x^{2}\right)}}$ = x $\in$ (-1, 1) ....(ii)
+Intersection of (i) and (ii) will give (-1, 1)
+
+Q7. The mean and S.D. of 1, 2, 3, 4, 5, 6 is
+    (A) 3, $\frac{35}{12}$
+    (B) $\frac{7}{2}, \sqrt{\frac{35}{12}}$   <-- CORRECT
+    (C) 3, 3
+    (D) $\frac{7}{2},\sqrt 3 $
+    Answer: B
+    Explanation: Mean = $ \frac{{1 + 2 + 3 + 4 + 5 + 6}}{6} $ = $\frac{21}{6}$ = $\frac{7}{2}$ 
+S.D = $ \sqrt {\frac{{{n^2} - 1}}{{12}}} = \sqrt {\frac{{36 - 1}}{{12}}} $ = $\sqrt{\frac{35}{12}}$
+
+Q8. If A = {2, 3, 4, 8, 10}, B = {3, 4, 5, 10, 12} and C = {4, 5, 6, 12, 14}, then (A $\cup$ B) $\cap$ (A $\cup$ C) is equal to
+    (A) {2, 4, 5, 10, 12}
+    (B) {3, 8, 10, 12}
+    (C) {2, 3, 4, 5, 8, 10, 12}   <-- CORRECT
+    (D) {4, 5, 8, 10, 12}
+    Answer: C
+    Explanation: Given A = {2, 3, 4, 8, 10}, B = {3, 4, 5, 10, 12} and C = {4, 5, 6, 12, 14}
+Here A $\cup$ B = {2, 3, 4, 5, 8, 10, 12} and A $\cup$ C = {2, 3, 4, 5, 6, 8, 10, 12, 14}
+Now (A $\cup$ B) $\cap$ (A $\cup$ C) = {2, 3, 4, 5, 8, 10, 12}
+
+Q9. The function sin $\left( {\sin {\frac x 3}} \right)$ is periodic with period
+    (A) $4\pi $
+    (B) $6\pi $   <-- CORRECT
+    (C) $2\pi $
+    (D) $8\pi $
+    Answer: B
+    Explanation: Let f(x) = sin(sin($\frac {x}{3}$))
+Period of sin x = 2$\pi$
+Period of sin kx = $\frac {2\pi}{|k|}$
+= $\frac {2\pi}{(\frac {1}{3})}$
+= 6$\pi$
+
+Q10. If (x + iy) = $\left(\frac{a+i b}{c+i d}\right)$ then (x^2 + y^2) = ?
+    (A) $\frac{\left(a^{2}-b^{2}\right)}{\left(c^{2}+d^{2}\right)}$
+    (B) $\frac{\left(a^{2}+b^{2}\right)}{\left(c^{2}+d^{2}\right)}$   <-- CORRECT
+    (C) $\frac{\left(a^{2}-b^{2}\right)}{\left(c^{2}-d^{2}\right)}$
+    (D) $\frac{\left(a^{2}+b^{2}\right)}{\left(c^{2}-d^{2}\right)}$
+    Answer: B
+    Explanation: (x + iy) =$\left(\frac{a+i b}{c+i d}\right)$ $\Rightarrow$ |x + iy| = $\left|\frac{a+i b}{c+i d}\right|$ = $\frac{|a+i b|}{|c+i d|}$
+$\Rightarrow$ |x + iy|^2 = $\frac{|a+i b|^{2}}{|c+i d|^{2}}$ $\Rightarrow$ (x^2 + y^2) = $\frac{\left(a^{2}+b^{2}\right)}{\left(c^{2}+d^{2}\right)}$
+
+Q11. The two lines ax + by = c and a′x + b′y = c′ are perpendicular if
+    (A) ab′ + ba′ = 0
+    (B) aa′ + bb′ = 0   <-- CORRECT
+    (C) ab + a′b′ = 0
+    (D) ab′ = ba′
+    Answer: B
+    Explanation: We know that Slope of the line ax + by = c is $\frac{-a}{b}$, and the slope of the line a′x + b′y = c′ is $\frac{-a^{\prime}}{b^{\prime}}$ The lines are perpendicular if $\tan \theta=\frac{3}{5-x}$ (1) 
+$\frac{-a}{b} \frac{-a^{\prime}}{b^{\prime}}=-1 \text { or } a a^{\prime}+b b^{\prime}=0$
+
+Q12. The equations of the lines through (-1, -1) and making angles of 45^o with the line x + y = 0 are
+    (A) x - 1 = 0, y - 1 = 0
+    (B) x + 1 = 0, y + 1 = 0   <-- CORRECT
+    (C) x + y = 0, y + 1 = 0
+    (D) x – 1 = 0, y – x = 0
+    Answer: B
+    Explanation: The lines x + 1 = 0 and y + 1 = 0 are perpendicular to each other.
+The slope of the line x + y = 0 is -1
+Hence the angle made by this line with respect to X-axis is 45^o
+In other words, the angle made by this line with x + 1 = 0 is 45^o
+Clearly the other line with which it can make 45^o is y + 1 = 0
+
+Q13. $\lim\limits_{x \to 0} \frac{\tan x-x}{x^2 \tan x}$ is equal to
+    (A) $\frac 1 2$
+    (B) 1
+    (C) $\frac 1 3$   <-- CORRECT
+    (D) 0
+    Answer: C
+    Explanation: The following limit is in the form of $\frac{0}{0}$ 
+Using L'Hospital rule;
+$\Rightarrow$ $\lim \limits_{x \rightarrow 0} \frac{\tan ^{2} x}{\left(x^{2}\right)+\left(x^{2} \tan ^{2} x\right)+(\tan x)(2 x)}$ = $\lim \limits_{x \rightarrow 0} \left(\frac{(\tan x)^{2}}{x^{2}}\right) \cdot\left(\frac{1}{1+\tan ^{2} x+\left(\frac{2 \tan x}{x}\right)}\right)$ 
+$\Rightarrow$ $1 \cdot\left(\frac{1}{1+0+2}\right)$
+$\Rightarrow$ $\frac{1}{3}$
+
+Q14. Let x_1, x_2, ..., x_n be n observations. Let w_i = lx_i + k for i = 1, 2, ..., n, where l and k are constants. If the mean of x_i's is 48 and their standard deviation is 12, the mean of w_i’s is 55 and standard deviation of w_i's is 15, the values of l and k should be.
+    (A) l = – 1.25, k = 5
+    (B) l = 2.5, k = – 5
+    (C) l = 1.25, k = – 5   <-- CORRECT
+    (D) l = 2.5, k = 5
+    Answer: C
+    Explanation: Given x_1, x_2, ..., x_n be n observations
+And Mean of these n observations, $\bar{x}$ = 48
+And their standard deviation, SD_x = 12.
+Another series of n observations is given such that
+w_i = lx_i + k for i = 1, 2, ..., n, where l and k are constants
+And mean of these n observations, $\bar{w}$ = 55
+And their standard deviation, SD_w = 15
+Applying the given condition for mean we get
+w_i = lx_i + k
+Substituting the corresponding given values of means, we get
+55 = l(48) + k …(i)
+Now we know
+If standard deviation of x series is s, then standard deviation of kx series is ks,
+So standard deviation of x_1, x_2, ..., x_n is SD_x,
+And hence the standard deviation of lx_1, lx_2, ..., lx_n is lSD_x.
+Similarly,
+If standard deviation of x series is s, then standard deviation of k+x series is s,
+So standard deviation of lx_1, lx_2, ..., lx_n is lSD_x,
+And hence the standard deviation of lx_1+k, lx_2+k, ..., lx_n+k is lSD_x.
+So applying the given condition for standard deviation, we get
+SD_w = lSD_x
+Substituting the given values, we get
+15 = l(12)
+$\Rightarrow 1=\frac{15}{12}$ = 1.25
+Now substituting the value of l in equation (i), we get
+55 = (1.25)(48) + k
+55 = 60 + k
+⇒ k = 55 - 60 = -5
+Hence the values of k and l are -5 and 1.25 respectively
+
+Q15. For two sets A $\cup$ B = A if
+    (A) A $\ne$ B
+    (B) A = B
+    (C) A $\subseteq$ B
+    (D) B $\subseteq$ A   <-- CORRECT
+    Answer: D
+    Explanation: The union of two sets is a set of all those elements that belong to A or to B or to both A and B.
+If A $\cup$ B = A , then B $\subseteq$ A
+
+Q16. A relation $\phi$ from C to R is defined by x $\phi$ y $\Leftrightarrow$ | x | = y. Which one is correct?
+    (A) (1 + i) $\phi$ 2
+    (B) i $\phi$ 1   <-- CORRECT
+    (C) (2 + 3i) $\phi$ 13
+    (D) 3 $\phi$ (-3)
+    Answer: B
+    Explanation: i $\phi$ 1
+
+Q17. Compare List I with List II and choose the correct answer using codes given below:
+ List I (Complex number)
+ List II (Conjugate)
+ (i) (4 - 3i)
+ (p) 10
+ (ii) (8 + 6i)
+ (q) $\frac{1}{5}$
+ (iii) $\frac{1}{(3+4 i)}$
+ (r) 1
+ (iv) $\frac{(3-4 i)}{(3+4 i)}$
+ (s) 5
+    (A) (i) - (s), (ii) - (p), (iii) - (r), (iv) - (q)
+    (B) (i) - (s), (ii) - (p), (iii) - (q), (iv) - (r)   <-- CORRECT
+    (C) (i) - (p), (ii) - (s), (iii) - (r), (iv) - (q)
+    (D) (i) - (r), (ii) - (p), (iii) - (s), (iv) - (q)
+    Answer: B
+    Explanation: $\rightarrow$ |4 - 3i| = $\sqrt{16+9}$ = 5
+ $\rightarrow$ |8 + 6i| = $\sqrt{64+36}$ = 10
+ $\rightarrow$ $\frac{1}{|3+4 i|}$ = $\frac{1}{\sqrt{9+16}}$= $\frac{1}{5}$
+ $\rightarrow$ $\left|\frac{3-4 i}{3+4 i}\right|$ = $\frac{|3-4 i|}{|3+4 i|}=\frac{\sqrt{25}}{\sqrt{25}}$ = 1
+$\therefore$ the correct answer is (i) - (s), (ii) - (p), (iii) - (q), (iv) - (r)
+
+Q18. The area of the quadrilateral formed by the lines |x| + |y| = 1 is
+    (A) 4
+    (B) 2   <-- CORRECT
+    (C) 10
+    (D) 8
+    Answer: B
+    Explanation: Equations of the lines are
+x $\ge$ 0, y $\ge$ 0, then x + y = 1
+x $ \le$ 0, y $\le$ 0, then x + y = -1
+x $\ge$ 0, y $\le$ 0, then x - y = 2
+x $\le$ 0, y $\ge$ 0, then x - y = -2
+Clearly these lines form a square, whose coordinates are (1, 1), (1, -1),(-1, -1), (-1, 1)
+Hence its area is 4 $\times$ [$\frac{1}{2}$]1 $\times$ 1 = 2 sq units
+
+Q19. The point on the axis of y which is equidistant from (- 1, 2) and (3, 4) is
+    (A) (0, 4)
+    (B) (4, 0)
+    (C) (5, 0)
+    (D) (0, 5)   <-- CORRECT
+    Answer: D
+    Explanation: Let (0, y) be the point on Y-axis which is equidistant from the points (-1, 2) and (3, 4)
+By applying the distance formula,
+(0 + 1)^2 + (y - 2)^2 = (3 - 0)^2 + (4 - y)^2
+on simplifying we get
+4y = 20
+Therefore y = 5
+Hence the point on the y-axis is (0, 5)
+
+Q20. If k be an integer, then $\mathop {lim}\limits_{x \to {k^ + }}\;(x - \left[ x \right])$ is equal to
+    (A) 1
+    (B) -1
+    (C) k
+    (D) 0   <-- CORRECT
+    Answer: D
+    Explanation: $\underset{x \rightarrow k^{+}}{lim}(x-[x])$ 
+$\Rightarrow$ $\underset{h \rightarrow o}{lim}(k+h-[k+h])$ 
+$\Rightarrow$ $\underset{h \rightarrow o}{lim}(k+h-k)$ 
+= 0
+
+------------------------------------------------------------
+Section B
+------------------------------------------------------------
+Q1. Let x_1, x_2, ..., x_n be values taken by a variable X and y_1, y_2, ..., y_n be the values taken by a variable Y such that y_i = ax_j + b, i = 1, 2, ..., n Then,
+    (A) Var (Y) = a^2 Var (X)   <-- CORRECT
+    (B) Var (X) = a^2 Var (Y)
+    (C) Var (X) = Var (Y) + b
+    (D) Var (X) = Var (X) + b
+    Answer: A
+    Explanation: We have given, y_i = ax_i + b
+Mean (Y) = $\frac{\sum f_{1}}{n}$
+$\bar{Y}=\frac{a \sum x_{n}+b n}{n}$
+Mean (y) = $\frac{a \sum \bar{x}}{n}+\frac{n b}{n}$
+Then, Var(Y) = $\sum \frac{\left(y_{1}-\bar{Y}\right)^{2}}{n}$
+And, Var(X) = $\sum \frac{\left(\mathrm{x}_{1}-\overline{\mathrm{X}}\right)^{2}}{\mathrm{n}}$
+Var(Y) = $\frac{\sum(a X+b-a \bar{X}-b)^{2}}{n}$
+Var(Y) = $\frac{\sum(a-a \bar{X})^{2}}{n}$
+Var(Y) = $\mathrm{a}^{2} \frac{\sum\left(\mathrm{x}_{1}-\overline{\mathrm{X}}\right)^{2}}{\mathrm{n}}$
+Var(Y) = a^2 Var (X)
+
+Q2. If a set A has n elements then the total number of subsets of A is
+    (A) n^2
+    (B) 2n
+    (C) 2^n   <-- CORRECT
+    (D) n
+    Answer: C
+    Explanation: The total no of subsets = 2^n
+
+Q3. The range of the function f(x) = |x - 1| is
+    (A) R
+    (B) ($0, \infty$)
+    (C) ($-\infty, 0$)
+    (D) [$0, \infty$)   <-- CORRECT
+    Answer: D
+    Explanation: A modulus function always gives a positive value
+R(f) =[ $0, \infty$)
+
+Q4. (-1 -$\sqrt3$ i), when expressed in polar form, is
+    (A) $3\left[\cos \left(\frac{-3 \pi}{2}\right)+i \sin \left(\frac{-3 \pi}{2}\right)\right]$
+    (B) $2\left[\cos \left(\frac{-3 \pi}{4}\right)+i \sin \left(\frac{-3 \pi}{4}\right)\right]$
+    (C) $2\left[\cos \left(\frac{-\pi}{3}\right)+i \sin \left(\frac{-\pi}{3}\right)\right]$
+    (D) $2\left[\cos \left(\frac{-2 \pi}{3}\right)+i \sin \left(\frac{-2 \pi}{3}\right)\right]$   <-- CORRECT
+    Answer: D
+    Explanation: Let z = (-1 -$\sqrt3$ i) and let z = r(cos$\theta$ + i sin$\theta$)
+Then, r cos = -1 and r sin $\theta$ =$-\sqrt3i$
+Squaring and adding, we get r^2 = 4 $\Rightarrow$ r = 2
+$\therefore$ $\left[\cos \theta=\frac{-1}{2} \text { and } \sin \theta=\frac{-\sqrt{3}}{2}\right]$ $\Rightarrow$ $\theta$ = $\frac{-2\pi}{3}$
+$\therefore$ (-1 -$\sqrt3$ i) = $2\left[\cos \left(\frac{-2 \pi}{3}\right)+i \sin \left(\frac{-2 \pi}{3}\right)\right]$
+
+Q5. The equation y - y_1 = m(x - x_1), m $\in$ R represents all lines through the point (x_1, y_1) except the line
+    (A) parallel to X axis
+    (B) parallel to Y axis   <-- CORRECT
+    (C) parallel to the line x + y = 0
+    (D) parallel to the line x – y = 0
+    Answer: B
+    Explanation: The vertical lines which are parallel to Y-axis have undefined slopes. Hence the slope of the line 'm' will be undefined.
+Therefore the above equation of the line will represent all lines through (x_1, y_1) except the line parallel to Y-axis.
+
+Q6. $\lim \limits_{x \rightarrow 0} \frac{|\sin x|}{x}$ is
+    (A) 1
+    (B) None of these   <-- CORRECT
+    (C) 0
+    (D) -1
+    Answer: B
+    Explanation: We have,
+$|\sin x|=\left\{\begin{array}{ll} \sin x, & 0 \leq x \leq \frac{\pi}{2} \\ -\sin x, & -\frac{\pi}{2} \leq x<0 \end{array}\right.$
+Now,
+$\lim \limits_{x \rightarrow 0^{-}} \frac{|\sin x|}{x}=\lim \limits_{x \rightarrow 0} \frac{-\sin x}{x}$$=-\lim \limits_{x \rightarrow 0} \frac{\sin x}{x}=-1$
+$\lim \limits_{x \rightarrow 0^{+}} \frac{|\sin x|}{x}=\lim \limits_{x \rightarrow 0} \frac{\sin x}{x}=1$
+Clearly,
+$\lim \limits_{x \rightarrow 0^{-}} \frac{|\sin x|}{x} \neq \lim \limits_{x \rightarrow 0^{+}} \frac{|\sin x|}{x}$
+$\therefore \lim \limits_{x \rightarrow 0} \frac{|\sin x|}{x}$ does not exist.
+
+Q7. The standard deviation of the data:
+ x:
+ 1
+ a
+ a^2
+ ...
+ a^n
+ f:
+ ^nC_0
+ ^nC_1
+ ^nC_2
+ ...
+ ^nC_n
+is
+    (A) $\left(\frac{1+a}{2}\right)^{2 n}+\left(\frac{1+a^{2}}{2}\right)^{2n}$
+    (B) $\left(\frac{1+a}{2}\right)^{2 n}-\left(\frac{1+a^{2}}{2}\right)^{n}$
+    (C) $\left(\frac{1+a^{2}}{2}\right)^{n}-\left(\frac{1+a}{2}\right)^{n}$
+    (D) $\left(\frac{1+a^{2}}{2}\right)^{2 n}-\left(\frac{1+a}{2}\right)^{n}$   <-- CORRECT
+    Answer: D
+    Explanation: Let us calculate the mean first,
+Mean = $\frac{\sum f_{1} x_{1}}{\sum f_{1}}$
+$\overline{\mathrm{x}}=\frac{1 \times \frac{\mathrm{n}}{0} \mathrm{C}+\mathrm{a} \times \frac{\mathrm{n}}{1} \mathrm{C}+\cdots+\mathrm{a}^{\mathrm{n}} \times \mathrm{n}^{\mathrm{n}} \mathrm{C}}{_{0}^{\mathrm{n}} \mathrm{C}+\frac{\mathrm{n}}{1} \mathrm{C}+\ldots \mathrm{n}^{\mathrm{n}} \mathrm{C}}$
+$\overline{\mathrm{x}}=\mathrm{n}\left(\frac{1+\mathrm{a}^{2}}{2}\right)^{2 \mathrm{n}}$
+standard deviation = $\left(\frac{1+a^{2}}{2}\right)^{2 n}-\left(\frac{1+a}{2}\right)^{n}$
+
+Q8. If A , B and C are any three sets , then A – ( B $\mathop \cup \nolimits $ C ) is equal to
+    (A) ( A – B ) $\mathop \cup \nolimits $( A – C )
+    (B) ( A – B ) $\mathop \cap \nolimits $ ( A – C )   <-- CORRECT
+    (C) ( A – B )$\mathop \cap \nolimits $C
+    (D) ( A – B )$\mathop \cap \nolimits $ C
+    Answer: B
+    Explanation: $\eqalign{ & Let\;x \in A - (B \cup C) \cr & \Rightarrow x \in A\;and\;x \notin (B \cup C) \cr & \Rightarrow x \in A\;and(x \notin B\;and\;x \notin C) \cr & \Rightarrow (x \in A\;and\;x \notin B)and(x \in A\;and\;x \notin C) \cr & \Rightarrow x \in (A - B) \cap (A - C) \cr & A - (B \cup C) = (A - B) \cap (A - C) \cr} $
+
+Q9. Let R be a relation on N defined by x + 2y = 8. The domain of R is
+    (A) {2, 4, 6, 8}
+    (B) {2, 4, 6}   <-- CORRECT
+    (C) {1, 2, 3, 4}
+    (D) {2, 4, 8}
+    Answer: B
+    Explanation: We have , x + 2y = 8
+y = $\frac{8-x}{2}$
+since, x and y are Natural numbers, So x must be an even number.
+if x = 2, y = 3;
+if x = 4, y = 2;
+if x = 6, y = 1.
+So, relation R = {(2, 3), (4, 2), (6, 1)}
+Hence, the domain of R is {2, 4, 6}.
+
+Q10. If the difference of the roots of x^2 - px + q = 0 is unity, then
+    (A) 4p^2 + q^2 = (1 + 2p)^2
+    (B) p^2 + 4q^2 = (1 + 2q)^2
+    (C) p^2 + 4q = 1
+    (D) p^2 - 4q = 1   <-- CORRECT
+    Answer: D
+    Explanation: Given equation:
+x^2 - px + q = 0
+Also, $\alpha$ and $\beta$ are the roots of the equation such that $\alpha-\beta$,= 1
+Sum of the roots = $\alpha+\beta$ = $\frac{-\text { Coefficient of } x}{\text { Coefficient of } x^{2}}$ = p
+Product of the roots = $\alpha \beta$ = $\frac{\text { Coefficient of } x}{\text { Coefficient of } x^{2}}$ = q
+$\therefore$ $(\alpha+\beta)^{2}-(\alpha-\beta)^{2}=4 \alpha \beta$ 
+$\Rightarrow$ p^2 - 1 = 4q
+$\Rightarrow$ p^2 - 4q = 1
+
+Q11. Which term of the AP 92, 88, 84 ,... is 0?
+    (A) 24th   <-- CORRECT
+    (B) 28th
+    (C) 23rd
+    (D) 27th
+    Answer: A
+    Explanation: Let T_n = 0. Then, a + (n - 1)d = 0, where a = 92 and d = - 4.
+$\therefore$ 92 + (n - 1) $\times$ ( - 4 ) = 0 $\Rightarrow$ 4n= 96 $\Rightarrow$ n = 24.
+$\therefore$ 24th term is 0.
+
+Q12. If $y = \sqrt x + \frac{1}{{\sqrt x }},$ then $\frac{{dy}}{{dx}}$ at x = 1 is equal to
+    (A) $\frac{1}{\sqrt{2}}$
+    (B) 0   <-- CORRECT
+    (C) 1
+    (D) $\frac{1}{2}$
+    Answer: B
+    Explanation: Given that $y=\sqrt{x}+\frac{1}{\sqrt{x}}$
+$\frac{d y}{d x}=\frac{1}{2 \sqrt{x}}-\frac{1}{2 x^{3 / 2}}$
+$\left(\frac{d y}{d x}\right)_{\text {at } x=1}=\frac{1}{2}-\frac{1}{2}=0$
+
+Q13. The number of families having expenditure range in Rs 16000-19000 is
+ Monthly Expenditure
+ Number of Families
+ Expenditure more than rs 10000
+ 100
+ Expenditure more thanrs 13000
+ 85
+ Expenditure more thanrs 16000
+ 69
+ Expenditure more thanrs 19000
+ 50
+ Expenditure more thanrs 22000
+ 33
+ Expenditure more thanrs 25000
+ 15
+    (A) 19   <-- CORRECT
+    (B) 15
+    (C) 17
+    (D) 18
+    Answer: A
+    Explanation: 19
+
+Q14. For any complex number z, arg (z) + arg $(\bar{z})$ = ?
+    (A) $\frac{\pi}{2}$
+    (B) 2$\pi$
+    (C) $\pi$
+    (D) 0   <-- CORRECT
+    Answer: D
+    Explanation: 0
+
+Q15. The straight-line 3x + y = 9 divides the line segment joining the points (1, 3) and (2, 7) in the ratio
+    (A) 3 : 4   <-- CORRECT
+    (B) 5 : 4
+    (C) 4 : 2
+    (D) 4 : 5
+    Answer: A
+    Explanation: Let the point be (x, y) and the ratio it divides (1, 3) and (2, 7) be k : 1
+By section formula, x = $2k+1\over k+1$, y = $7k+3\over k+1$ 
+his point also lies on the given line so it would satisfy the equation 3x + y - 9 = 0
+3(2k + 1) + (7k + 3) - 9(k + 1) = 0
+k = $\frac{3}{4}$
+Hence the ratio is ratio = 3 : 4
+
+Q16. Let A = {a, b, c}, B = {b, c, d}, C = {a, b, d, e}, then A $\cap$ (B $\cup$ C) is
+    (A) {a, b, d, e}
+    (B) {a, b, c}   <-- CORRECT
+    (C) {e}
+    (D) {b, c, d}
+    Answer: B
+    Explanation: Here A = {a, b, c}, B = {b, c, d} and C = {a, b, d, e}
+B $\cup$ C = {a, b, c, d, e}
+A $\cap$ (B $\cup$ C) = {a, b, c}
+
+Q17. The function f : $R \rightarrow R$ is defined by f (x) = sin^​​​​4 x - sin ^2^ x +1 f,then R(f) =
+    (A) (3 / 4 ,1]
+    (B) [ 3 /4 ,1 ]   <-- CORRECT
+    (C) [3 /4 ,1 )
+    (D) ( 3 / 4 ,1 )
+    Answer: B
+    Explanation: f (x) = sin^4 x +1 - sin ^2 x
+$f(x)=\sin ^{4} x-\sin ^{2} x+\frac{1}{4}-\frac{1}{4}+1$
+$f(x)=\left(\sin ^{2} x-\frac{1}{2}\right)^{2}+\frac{3}{4}$
+$\left(\sin ^{2} x-\frac{1}{2}\right)^{2} \geq 0$
+Minimum value of f(x) = 3/4
+0 < sin^ 2 x < 1
+So, maximum value of f(x) = $\left(1-\frac{1}{2}\right)^{2}+\frac{3}{4}$
+$=\frac{1}{4}+\frac{3}{4}$
+= 1
+R(f) =[3/4,1]
+
+Q18. If z_1 and z_2 are non-real complex numbers such that |z_1| = |z_2| and Amp. z_1 + Amp. z_2 = $\pi$, then z_1 =
+    (A) -z_2
+    (B) z_2
+    (C) $ - \overline {{z_2}} $   <-- CORRECT
+    (D) $\overline {{z_2}} $
+    Answer: C
+    Explanation: Let z_1 = $r_{1}\left(\cos \theta_{1}+i \sin \theta_{1}\right)$ and z_2 = $r_{2}\left(\cos \theta_{2}+i \sin \theta_{2}\right)$, where r_1 = |z_1|, r_2 = |z_2| and $\theta_{1}, \theta_{2}$ are the amplitudef of the complex numbers.
+Given |z_1| = |z_2| and$Amp.{z_{1}} + Amp.{z_2} = \pi $ $\Rightarrow$ r_1 = r_2 and $ { \theta }_{ 1 }+{ \theta }_{ 2 }=\pi $ 
+Now z_1 = ${ r }_{ 1 }\left( cos{ \theta }_{ 1 }+isin{ \theta }_{ 1 } \right)$ 
+$\Rightarrow$ z_1 = $r_{2}\left[\cos \left(\pi-\theta_{2}\right)+i \sin \left(\pi-\theta_{2}\right)\right]$ 
+$\Rightarrow$ z_1 = $r_{2}\left(-\cos \theta_{2}+i \sin \theta_{2}\right)$ = $-\left[r_{2}\left(\cos \theta_{2}-i \sin \theta_{2}\right)\right]$ = $-\overline{z_{2}}$
+
+Q19. pth term of an H.P. is qr and qth term is pr, then rth term of the H.P. is
+    (A) pqr
+    (B) pqr^2
+    (C) 1
+    (D) pq   <-- CORRECT
+    Answer: D
+    Explanation: Using the general term of H.P,
+a_p = $ \frac{1}{{a + (p - 1)d}}$ = qr $\Rightarrow$ $\frac{1}{q r}$ = a + ( p - 1)d = qr ....(i)
+a_q = $\frac{1}{{a + (q - 1)d}} $ = pr $\Rightarrow$ $\frac{1}{p r}$ = a + (q - 1)d = pr ....(ii)
+Solving equation (i) and (ii), we get
+a = $\frac{1}{p q r}$ 
+d = $\frac{1}{p q r}$ 
+So the rth term is,
+a_r = $ \frac{1}{{a + (r - 1)d}} = \frac{1}{{\frac{1}{{pqr}} + (r - 1)\frac{1}{{pqr}}}}$ = pq
+
+Q20. GM between 0.15 and 0.0015 is
+    (A) 0.15
+    (B) 0.0015
+    (C) 0.015   <-- CORRECT
+    (D) 1.5
+    Answer: C
+    Explanation: Therefore, GM = $\sqrt{0.15 \times 0.0015}=\sqrt{\frac{15}{100} \times \frac{15}{10000}}=\sqrt{\frac{15 \times 15}{10^{6}}}=\frac{15}{10^{3}}=\frac{15}{1000}$ = 0.015.
+
+------------------------------------------------------------
+Section C
+------------------------------------------------------------
+Q1. The Collection of intelligent students in a class is
+    (A) a singleton set
+    (B) not a Set   <-- CORRECT
+    (C) a null set
+    (D) a finite set
+    Answer: B
+    Explanation: Intelligency can not be measured by numbers i.e the collection is not well defined that's why it can not be called as a Set.
+
+Q2. If f(x) = cos $\left(\log _{e} x\right)$ Then $f\left(\frac{1}{x}\right) f\left(\frac{1}{y}\right)-\frac{1}{2}\left\{f(x y)+f\left(\frac{x}{y}\right)\right\}$ is equal to
+    (A) 1
+    (B) log (cos (x - y))
+    (C) 0   <-- CORRECT
+    (D) cos (x - y)
+    Answer: C
+    Explanation: $f(x)=\cos \left(\log _{e} x\right)$
+Now, $\mathrm{f}\left(\frac{1}{\mathrm{x}}\right) \mathrm{f}\left(\frac{1}{\mathrm{y}}\right)-\frac{1}{2}\left\{\mathrm{f}(\mathrm{xy})+\mathrm{f}\left(\frac{\mathrm{x}}{\mathrm{y}}\right)\right\}$
+$=\cos \left(\log _{e} \frac{1}{x}\right) \cos \left(\log _{e} \frac{1}{y}\right)$$-\frac{1}{2}\left\{\cos \left(\log _{e} x y\right)+\cos \left(\log _{e} \frac{x}{y}\right)\right\}$
+= cos ( - log_e x) cos ( - log y ) $-\frac{1}{2}${ cos [( log x ) + cos ( log y)]+cos [log x-log y]}
+= cos (log x) cos (log y)-cos (log x) cos (log y)[using cos x cos y = 1/2 ( cos ( x + y) + cos ( x - y)]
+= 0
+
+Q3. If z $=\frac{1}{(2+3 i)^{2}}$, then |z| =
+    (A) $\frac{1}{13}$   <-- CORRECT
+    (B) $\frac{1}{11}$
+    (C) $\frac{1}{12}$
+    (D) $\frac{1}{5}$
+    Answer: A
+    Explanation: $\frac{1}{13}$
+Let z $=\frac{1}{(2+3 i)^{2}}$
+$\Rightarrow z=\frac{1}{4+9 i^{2}+12 i}$
+$\Rightarrow z=\frac{1}{-5+12 i}$
+$\Rightarrow z=\frac{1}{-5+12 i}$ $\times\frac{-5-12 i}{-5-12 i}$
+$\Rightarrow z=\frac{-5-12 i}{25+144}$
+$\Rightarrow z=\frac{-5}{169}-\frac{12 i}{169}$
+$\Rightarrow|z|=\sqrt{\frac{25}{169^{2}}+\frac{144}{169^{2}}}$
+$\Rightarrow|z|=\frac{1}{\sqrt{169}}$
+$\Rightarrow|z|=\frac{1}{13}$
+
+Q4. Sum of an infinitely many terms of a G.P. is 3 times the sum of even terms. The common ratio of the G.P. is
+    (A) $\frac 12$   <-- CORRECT
+    (B) 2
+    (C) $\frac 32$
+    (D) $\frac 14$
+    Answer: A
+    Explanation: Consider the infinite G . P $a, a r, a r^{2}, a r^{3}, \dots \dots \dots \dots, \dots$ with first term a and common ratio r
+Then the even terms $a r, a r^{3}, a r^{5}, \ldots \ldots \ldots \ldots \ldots \ldots \ldots \ldots .$ is again an infinite G.P with first term ar and common ratio $r^{2}$
+W e have $S_{\infty}=\frac{a}{1-r}$ 
+Given $S_{\infty}=3$ . Sum of even terms
+$\Rightarrow a+a r+a r^{2}+a r^{3}+$..........$=3 .\left[a r+a r^{3}+a r^{5}+\right.$............]
+$\Rightarrow \frac{a}{1-r}=3 \cdot \frac{a r}{1-r^{2}}$
+$\Rightarrow \frac{1}{1-r}=3 \cdot \frac{r}{(1-r)(1+r)}$
+$\Rightarrow 1(1+r)=3 . r$
+$\Rightarrow 2 r=1$$\Rightarrow r=\frac{1}{2}$
+
+Q5. If v is the variance and $\sigma$ is the standard deviation, then
+    (A) v^2 = $\sigma$
+    (B) v = $\frac{1}{\sigma^{2}}$
+    (C) v = $\frac{1}{\sigma}$
+    (D) v = $\sigma^{2}$   <-- CORRECT
+    Answer: D
+    Explanation: If v is the variance and $\sigma$ is the standard deviation, then
+We know that the formula of standard variance is
+$\sigma=\sqrt{\text { Variance }}$
+So, variance = $\sigma^{2}$
+
+Q6. Instructions for Question 46 to 50:
+A man deposited ₹ 10000 in a bank at the rate of 5% simple interest annually.
+What is the amount paid by him after 20^th year?
+    (A) ₹ 17000
+    (B) ₹ 25000
+    (C) ₹ 21000
+    (D) ₹ 20000   <-- CORRECT
+    Answer: D
+    Explanation: Amount after 20 yr = 10000 + 20 $\times$ 500
+= 10000 + 10000
+= ₹ 20000
+
+Q7. Instructions for Question 46 to 50:
+A man deposited ₹ 10000 in a bank at the rate of 5% simple interest annually.
+What is the amount paid by him after 15^th year?
+    (A) ₹ 15000
+    (B) ₹ 17000   <-- CORRECT
+    (C) ₹ 21000
+    (D) ₹ 20000
+    Answer: B
+    Explanation: The amount in the account of man in first, second and third year are ₹ 1000, ₹ 10500, ₹ 11000, ....
+It is an A.P., where a = 10000 and d = 500
+Amount in 15^th yr = T_15
+= a + 14d
+= 10000 + 14 $\times$ 500
+= 10000 + 7000
+= ₹ 17000
+
+Q8. Instructions for Question 46 to 50:
+A man deposited ₹ 10000 in a bank at the rate of 5% simple interest annually.
+What is the amount paid by him after 3^rd year?
+    (A) ₹ 20000
+    (B) ₹ 500
+    (C) ₹ 11500   <-- CORRECT
+    (D) ₹ 10500
+    Answer: C
+    Explanation: Interest on ₹ 10000 after 3 yr
+$=\frac{10000 \times 5 \times 3}{100}$
+= ₹ 1500
+$\therefore$ Amount after 3 yr = 10000 + 1500 = ₹ 11500
+
+Q9. Instructions for Question 46 to 50:
+A man deposited ₹ 10000 in a bank at the rate of 5% simple interest annually.
+What is the interest paid by him after 2^nd year?
+    (A) ₹ 1000   <-- CORRECT
+    (B) ₹ 500
+    (C) ₹ 700
+    (D) ₹ 1500
+    Answer: A
+    Explanation: Now, interest on ₹ 10000 after 2 yr
+$=\frac{10000 \times 5 \times 2}{100}$
+= ₹ 1000
+
+Q10. Instructions for Question 46 to 50:
+A man deposited ₹ 10000 in a bank at the rate of 5% simple interest annually.
+What is the amount paid by him after 1^st year?
+    (A) ₹ 10500   <-- CORRECT
+    (B) ₹ 500
+    (C) ₹ 1500
+    (D) ₹ 11500
+    Answer: A
+    Explanation: Interest on ₹ 10000 after 1 yr.
+$=\frac{10000 \times 5 \times 1}{100}$ $\left(\because l=\frac{P \times R \times T}{100}\right)$
+= ₹ 500
+Therefore, amount after 1 yr
+= 10000 + 500
+= 10500

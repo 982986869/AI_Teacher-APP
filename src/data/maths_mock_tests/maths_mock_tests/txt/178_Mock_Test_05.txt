@@ -1,0 +1,653 @@
+======================================================================
+Mock Test - 05  (id 178)
+CBSE > Class 11 > Mathematics
+Duration: 90 min | Questions: 50
+======================================================================
+
+INSTRUCTIONS:
+This question paper contains three sections - A, B and C. Each part is compulsory.
+ Section - A has 20 MCQs, attempt any 16 out of 20.
+ Section - B has 20 MCQs, attempt any 16 out of 20
+ Section - C has 10 MCQs, attempt any 8 out of 10.
+ There is no negative marking.
+ All questions carry equal marks.
+
+------------------------------------------------------------
+Section A
+------------------------------------------------------------
+Q1. Two finite sets have m and n elements respectively. The total number of subsets of first set is 56 more than the total number of subsets of the second set. The values of m and n respectively are.
+    (A) 7, 6
+    (B) 5, 1
+    (C) 6, 3   <-- CORRECT
+    (D) 8, 7
+    Answer: C
+    Explanation: Since, let A and B be such sets, i.e., n (A) = m, and n(B) = n
+Thus, n (P(A)) = 2^m , n (P(B)) = 2^n
+Therefore, n (P(A)) – n (P(B)) = 56, i.e., 2^m – 2^n = 56
+$\Rightarrow$ 2^n (2^m–n – 1) = 2^3 7
+$\Rightarrow$ n = 3, 2^m–n – 1 = 7
+$\Rightarrow$ m = 6
+
+Q2. The domain of the function $f(x)=\sqrt{2-2 x-x^{2}}$
+    (A) $[-2-\sqrt{3},-2+\sqrt{3}]$
+    (B) $1-\sqrt{3}, \sqrt{3}$
+    (C) $[-1-\sqrt{3},-1+\sqrt{3}]$   <-- CORRECT
+    (D) (-2, 2)
+    Answer: C
+    Explanation: For f(x) to be defined,
+2 - 2x - x^2 $\ge$ 0
+x^2 + 2x - 2 $\le$ 0
+(x - (1 - √3)) (x - (-1 + √3)) $\le$ 0
+$x \in[-1-\sqrt{3},-1+\sqrt{3}]$
+
+Q3. Amp. (z - 2 - 3i) = $\frac{\pi}{4}$ then locus of z is
+    (A) x - y = 2
+    (B) x + y = 0
+    (C) x + y = 2
+    (D) x – y + 1 = 0   <-- CORRECT
+    Answer: D
+    Explanation: Let z = x + iy
+Then z - 2 - 3i = (x + iy) - 2 - 3i = (x - 2) + i(y - 3)
+Let $\theta $ be the amplitude of z.
+Then Amp (z - 2 - 3i) = $\frac{\pi}{4}$ 
+$\Rightarrow$ tan^-1$\left(\frac{y-3}{x-2}\right)$ = $\frac{\Pi}{4}$ 
+$\Rightarrow$ $\frac{y-3}{x-2}=\tan \frac{\Pi}{4}$ = 1
+$\Rightarrow$ y - 3 = x - 2
+$\Rightarrow$ x - y + 1 = 0
+
+Q4. The equation of the line with slope $\frac {-3} {2} $ and which is concurrent with the lines 4x + 3y - 7 = 0 and 8x + 5y - 1 = 0 is
+    (A) 3x + 2y - 63 = 0
+    (B) 2y - 3x - 2 = 0
+    (C) 2y + 3x + 2 = 0
+    (D) 3x + 2y - 2 = 0   <-- CORRECT
+    Answer: D
+    Explanation: Given:
+4x + 3y - 7 = 0 ...(i)
+8x + 5y - 1 = 0 ...(ii)
+The equation of the line with slope $-\frac{3}{2}$ is given below: y = $-\frac{3}{2}$ x + c
+$\Rightarrow \frac{3}{2}$ x + y - c = 0 ...(iii)
+The lines (i), (ii) and (iii) are concurrent, using condition we get,
+$\therefore\left|\begin{array}{ccc} 4 & 3 & -7 \\ 8 & 5 & -1 \\ \frac{3}{2} & 1 & -c \end{array}\right|=0$
+$\Rightarrow$ 4(-5c + 1) - 3 (- 8c + $\frac{3}{2}$) - 7 (8 - $\frac{15}{2}$) = 0
+$\Rightarrow$ - 20c + 4 + 24c - $\frac{9}{2}$ - 56 + $\frac{105}{2}$ = 0
+$\Rightarrow \frac{-40 c+8+48 c-9-112+105}{2}=0$
+$\Rightarrow$ 8c = 8
+$\Rightarrow$ c = 1
+On substituting c = 1 in y = $-\frac{3}{2}$ x + c, we get
+y = $-\frac{3}{2}$ x + 1
+$\Rightarrow$ 3x + 2y - 2 = 0
+
+Q5. The point (4, 1) undergoes the following two successive transformations :
+ Reflection about the line y = x
+ Translation through a distance 2 units along the positive x-axis Then the final coordinates of the point are
+    (A) (4, 3)
+    (B) $\frac 72$, $\frac 72$
+    (C) (3, 4)   <-- CORRECT
+    (D) (1, 4)
+    Answer: C
+    Explanation: We haveReflection of A (4, 1) in y = x is 5(1, 4).
+Now translation of point B through a distance ‘2’ units along the positive x-axis shifts B to C( 1 + 2, 4) or C(3, 4).
+
+Q6. If y = $\frac {1 - x} {1 + x}$ then y_6 =
+    (A) $\frac{6!}{{{{(1 + x)}^7}}}$
+    (B) $\frac{(-2).(6!)}{(1 + x)^7}$
+    (C) $\frac{(-2).(7!)}{(1 + x)^6}$
+    (D) $\frac{(2).(6!)}{(1 + x)^7}$   <-- CORRECT
+    Answer: D
+    Explanation: y_1 = $\frac{-2}{(1+x)^2}$ 
+y_2 = $\frac{(-2)(-2)}{(1+x)^3}$ 
+y_3 = $\frac{(-2)(-2)(-3)}{(1+x)^4}$ 
+y_4 = $\frac{(-2)(-2)(-3)(-4)}{(1+x)^5}$ 
+y_5 = $\frac{(-2)(-2)(-3)(-4)(-5)}{(1+x)^6}$ 
+y_6 = $\frac{(-2)(-2)(-3)(-4)(-5)(-6)}{(1+x)^7}$
+= $\frac{(2).(6!)}{(1 + x)^7}$
+
+Q7. If the correlation coefficient between two variables is 1, then the two least square lines of regression are
+    (A) parallel
+    (B) coincident   <-- CORRECT
+    (C) at right angles
+    (D) intersecting
+    Answer: B
+    Explanation: The angle between two regression lines is given by
+tan $\theta$ = $\frac{1-r^{2}}{r} \cdot \frac{\sigma_{x} \sigma_{y}}{\sigma_{x}^{2}+\sigma_{y}^{2}}$ 
+if, r = 1, then 
+$\theta=0, \pi$
+
+Q8. If n(A) = 3 and n(B) = 6 and A $ \subseteq $ B, then n(A $\cup$ B) = ?
+    (A) 9
+    (B) 6   <-- CORRECT
+    (C) 3
+    (D) 12
+    Answer: B
+    Explanation: A $\subseteq$ B
+$\Rightarrow$ n(A $\cup$ B) = n(B) = 6
+
+Q9. If $e^{f(x)}=\frac{10+x}{10-x}, x \in$(-10, 10) and f(x) = k f $\left(\frac{200 x}{100+x^{2}}\right)$ Then k =
+    (A) 0.6
+    (B) 0.8
+    (C) 0.7
+    (D) 0.5   <-- CORRECT
+    Answer: D
+    Explanation: $e^{f(x)}=\frac{10+x}{10-x}$
+$f(x)=\ln \left(\frac{10+x}{10-x}\right)$
+$f(x)=k f\left(\frac{200 x}{100+x^{2}}\right)$
+$\ln \left(\frac{10+x}{10-x}\right)=k \ln \left(\frac{10+\frac{200 x}{100+x^{2}}}{10-\frac{200 x}{100+x^{2}}}\right)$
+$\ln \left(\frac{10+x}{10-x}\right)=k \ln \left(\frac{1000+10 x^{2}+200 x}{1000+10 x^{2}-200 x}\right)$
+$=\mathrm{k} \ln \left(\frac{100+\mathrm{x}^{2}+20 \mathrm{x}}{100+\mathrm{x}^{2}-20 \mathrm{x}}\right)$
+$\ln \left(\frac{10+x}{10-x}\right)=k \ln \left(\frac{10+x}{10-x}\right)^{2}$
+$\ln \left(\frac{10+x}{10-x}\right)=\ln \left(\frac{10+x}{10-x}\right)^{2 k}$
+2k = 1
+k = 1/2
+= 0.5
+
+Q10. If the complex number z = x + iy satisfies the condition |z + 1| = 1, then z lies on
+    (A) x-axis
+    (B) y-axis
+    (C) circle with centre (1, 0) and radius 1
+    (D) circle with centre (–1, 0) and radius 1   <-- CORRECT
+    Answer: D
+    Explanation: |z + 1| = 1 $\Rightarrow$ |(x + 1) + iy| = 1
+$\Rightarrow$ (x + 1)^2 + y^2 = 1
+which is a circle with centre (–1, 0) and radius 1.
+
+Q11. The equations of the lines through (1, 1) and making angles of 45^o with the line x + y = 0
+    (A) x – y = 0, y – 1 = 0
+    (B) x – 1 = 0, y – 1 = 0   <-- CORRECT
+    (C) x – 1 = 0, x – y = 0
+    (D) x + y = 0, y – 1 = 0
+    Answer: B
+    Explanation: If the lines make equal angles of 45^o with the given line, x + y = 0.
+Then these lines must be perpendicular with each other.
+This is possible only when the two lines are parallel to X-axis and Y-axis.
+That is the equations should be x = a constant and y = a constant.
+Since it passes through (1, 1)
+The equations should be x = 1 or x - 1 = 0 and y = 1 or y - 1 = 0
+
+Q12. The ortho centre of the triangle formed by lines xy = 0 and x + y = 1 is :
+    (A) ($\frac{1}{2}$, $\frac{1}{2}$)
+    (B) ($\frac{1}{4}$, $\frac{1}{4}$)
+    (C) (0, 0)   <-- CORRECT
+    (D) ($\frac{1}{3}$, $\frac{1}{3}$)
+    Answer: C
+    Explanation: Given xy = 0 and x + y = 1, indicates that the straight line passes through (1, 0) and (0, 1). Hence it is a right-angled triangle whose vertex is the origin. Therefore the orthocenter is also at the origin (0, 0), this is one of the properties of right-angled triangle whose vertex is the origin.
+
+Q13. $\lim\limits_{x \to 0}\left(\frac{\tan x-x}{x}\right) \sin \left(\frac{1}{x}\right)$ is equal to
+    (A) a real number other than 0 and 1
+    (B) 0   <-- CORRECT
+    (C) -1
+    (D) 1
+    Answer: B
+    Explanation: $\lim\limits_{x \to 0}\left(\frac{\tan x-x}{x}\right) \sin \left(\frac{1}{x}\right)$ 
+$\Rightarrow$ (0) Finite number = 0
+
+Q14. If Cov(X, Y) = 0, then $\rho \left( {X,Y} \right)$ =
+    (A) 1
+    (B) $ \pm $1
+    (C) - 1
+    (D) 0   <-- CORRECT
+    Answer: D
+    Explanation: Here, $\rho (x,y) = \frac{{{\mathop{\rm cov}} (x,y)}}{{\mathop \sigma \nolimits_x \mathop \sigma \nolimits_y }} = \frac{0}{{\mathop \sigma \nolimits_x \mathop \sigma \nolimits_y }} $ = 0
+
+Q15. Two finite sets have m and n elements. The number of elements in the power set of first set is 48 more than the total number of elements in power set of the second set. Then, the values of m and n are:
+    (A) 6, 4   <-- CORRECT
+    (B) 6, 3
+    (C) 7, 6
+    (D) 7, 4
+    Answer: A
+    Explanation: Let A and B be the set which contain m and n elements respectively.
+Then n (P(A)) = 2^m and n (P(B)) = 2^n
+Also given that, n (P(A)) = n (P(B)) +48
+$\Rightarrow$ 2^m = 2^n + 48
+Therefore, Above equation is only true when m = 6 and n = 4
+
+Q16. The range of the function f(x) = $\frac{x}{|x|} \text { is }$
+    (A) R - {-1, 1}
+    (B) {-1, 2}
+    (C) {-1, 1}   <-- CORRECT
+    (D) R -{0}
+    Answer: C
+    Explanation: We know that 
+$|x|=-x \operatorname{in}(-\infty, 0) \text { and }|x|=x \text { in }[0, \infty)$
+So, $f(x)=\frac{x}{-x}=-1 \text { in }(-\infty, 0)$
+And $f(x)=\frac{x}{x}=1 \text { in }(0, \infty)$
+As clearly shown above f(x) has only two values 1 and -1
+So, range of f (x) = {-1, 1}
+
+Q17. -2, when expressed in polar form, is
+    (A) 2[cos$\pi$ + i sin$\pi$]   <-- CORRECT
+    (B) $-2\left(\cos \frac{\pi}{2}+i \sin \frac{\pi}{2}\right)$
+    (C) 2[cos3$\pi$ + i sin3$\pi$]
+    (D) 2[cos2$\pi$ + i sin2$\pi$]
+    Answer: A
+    Explanation: Let z = -2 + 0 $\times$ i and let z = r(cos$\theta$ + i sin$\theta$)
+Then, r cos $\theta$ = -2 and r sin $\theta$ = 0
+Squaring and adding, we get r^2 =4 $\Rightarrow$ r = 2.
+$\therefore$ [cos$\theta$ = -1 and sin$\theta$ = 0] $\Rightarrow$ $\theta$ = $\pi$
+$\therefore$ -2 = 2[cos$\pi$ + i sin$\pi$]
+
+Q18. In a $\Delta ABC,$ if A is the point (1, 2) and equations of the median through B and C are respectively x + y = 5 and x = 4, then B is
+    (A) (4, 1)
+    (B) (1, 4)
+    (C) (7, - 2)   <-- CORRECT
+    (D) (-2, 7)
+    Answer: C
+    Explanation: Let F be the midpoint on AC
+Hence the coordinate of F is $\frac{x_1 + 1}{2}$ and $\frac{5-x_1 + 2}{2}$
+This point lies on x = 4
+Therefore $\frac{x_1 + 1}{2}$ = 4
+Therefore x_1 = 7 
+Therefore y = 5 - 7 = -2
+Hence the coordinates of B is (7, -2)
+
+Q19. If p_1 and p_2 are the lengths of the perpendiculars from the origin upon the lines x sec $\theta$ + y cosec $\theta$ = a and x cos $\theta$ - y sin $\theta$ = a cos 2 $\theta$ respectively, then
+    (A) p_1^2 + 2p_2^2 = a^2
+    (B) p_1^2 + 4p_2^2 = a^2
+    (C) p_1^2 + p_2^2 = a^2
+    (D) 4 p_1^2 + p_2^2 = a^2   <-- CORRECT
+    Answer: D
+    Explanation: 4 p_1^2 + p_2^2 = a^2
+The given lines are
+x sec $\theta$ + y cosec $\theta$ = a ...(i)
+x cos $\theta$ - y sin $\theta$ = a 2 cos $\theta$ ...(ii)
+p_1 and p_2 are the perpendiculars from the origin upon the lines (i) and (ii), respectively , hence using the formula,
+$p_{1}=\left|\frac{-a}{\sqrt{\sec ^{2} \theta+\cos e c^{2} \theta}}\right|$ and $p_{2}=\left|\frac{-a \cos 2 \theta}{\sqrt{\cos ^{2} \theta+\sin ^{2} \theta}}\right|$
+$\Rightarrow p_{1}=\left|\frac{-a \sin \theta \cos \theta}{\sqrt{\sin ^{2} \theta+\cos ^{2} \theta}}\right|$ and $p_{2}=|-a \cos 2 \theta|$
+$\Rightarrow p_{1}=\frac{1}{2}$$|-a \times 2 \sin \theta \cos \theta|$ and p_2 $=|-a \cos 2 \theta|$
+$\Rightarrow p_{1}=\frac{1}{2}$ $|-a \sin 2 \theta|$ and p_2 $=|-a \cos 2 \theta|$
+$\Rightarrow$ 4p_12 + p_2^2 = a^2 (sin^2 2$\theta$ + cos^2 2$\theta$)
+= a^2
+
+Q20. $\lim \limits_{n \rightarrow \infty} \frac{1^{2}+2^{2}+3^{2}+\ldots+n^{2}}{n^{3}}$ is equal to:
+    (A) $\frac {1}{2}$
+    (B) $\frac {1}{3}$   <-- CORRECT
+    (C) $\frac {1}{4}$
+    (D) 0
+    Answer: B
+    Explanation: $\lim \limits_{n \rightarrow \infty} \frac{1^{2}+2^{2}+3^{2} \cdots \cdots n^{2}}{n^{3}}$
+= $\lim \limits_{n \rightarrow \infty} \frac{\Sigma n^{2}}{n^{3}}$
+= $\lim \limits_{n \rightarrow \infty} \frac{n(n+1)(2 n+1)}{6 n^{3}}$
+= $\lim \limits_{n \rightarrow 0} \frac{(n+1)(2 n+1)}{6 n^{2}}$
+Dividing the numerator and the denominator by n^2, we get
+$\lim \limits_{n \rightarrow \infty} \frac{\frac{(n+1)}{n} \times \frac{(2 n+1)}{n}}{6}$
+= $\lim \limits_{n \rightarrow \infty} \frac{\left(1+\frac{1}{n}\right)\left(2+\frac{1}{n}\right)}{6}$
+= $\frac{2}{6}=\frac{1}{3}$
+
+------------------------------------------------------------
+Section B
+------------------------------------------------------------
+Q1. If the angle between two lines of regression is 90^o, then it represents
+    (A) no linear correlation   <-- CORRECT
+    (B) perfect negative correlation
+    (C) Moderate correlation
+    (D) perfect positive correlation
+    Answer: A
+    Explanation: $[r = \tan \left( {\frac{\pi }{2} - \theta } \right)]$ 
+Here $[\theta = \frac{\pi }{2}]$ 
+Hence r = 0, therefore there is no linear correlation.
+
+Q2. If A, B and C are any three sets, then A $\mathop \cap \nolimits $ (B $\mathop \cup \nolimits $ C) is equal to
+    (A) (A – B) $\mathop \cap \nolimits $ (A – C)
+    (B) (A $\mathop \cup \nolimits $ B) $\mathop \cup \nolimits $ (A $\mathop \cup \nolimits $ C)
+    (C) (A $\mathop \cup \nolimits $ B) $\mathop \cap \nolimits $ (A $\mathop \cap \nolimits $ C)
+    (D) (A $\mathop \cap \nolimits $ B) $\mathop \cup \nolimits $ (A $\mathop \cap \nolimits $ C)   <-- CORRECT
+    Answer: D
+    Explanation: Let x $\in$ A $\cup$ (B $\cap$ C)
+x $\in$ A or x $\in$ (B and C)
+x $\in$ A or {x $\in$ B and x $\in$ C}
+{x $\in$ (A or B) and x $\in$ (A or C)
+x $\in$ (A or B) $\cap$ x $\in$ (A or C)
+x $\in$ (A $\cup$ B) $\cap$ x $\in$ (A $\cap$ C)
+x $\in$ (A $\cup$ B) $\cap$ (A $\cup$ C)
+Therefore, A $\cup$ (B $\cap$ C) $\subset$ (A $\cup$ B) $\cap$ (A $\cup$ C) .....(i)
+Similarly,
+(A $\cup$ B) $\cap$ (A $\cup$ C) $\subset$ A $\cup$ (B $\cap$ C) .....(ii)
+So
+A $\cup$ (B $\cup$ C) = (A $\cup$ B) $\cap$ (A $\cup$ C)
+
+Q3. If A = [a, b], B = [c, d], C = [d, e] then {(a, c), (a, d), (a,e), (b,c), (b, d), (b, e)} is equal to
+    (A) $A \times (B\; \cap C)$
+    (B) $A \cap (B\; \cup C)$
+    (C) $A \cup (B\; \cap C)$
+    (D) $A \times (B\; \cup C)$   <-- CORRECT
+    Answer: D
+    Explanation: A $\times$ (B $\cup$ C) = (A $\times$ B) $\cup$ A $\times$ C
+= {a, b} $\times$ {c, d} $\cup$ {a, b} $\times$ {d, c}
+= {(a, c), (a, d), (b, c), (b, d)} $\cup$ {(a, d), (a, c), (b, d), (b, c)}
+= {(a, c), (a, d), (a, c), (b, c), (b, d), (b, e)}
+
+Q4. If z = (3i - 1)^2 then |z| = ?
+    (A) 4
+    (B) 8
+    (C) 6
+    (D) 10   <-- CORRECT
+    Answer: D
+    Explanation: z = (3i - 1)^2 = (9i^2 + 1 - 6i) = (-9 + 1 - 6i) = (-8 - 6i)
+$\Rightarrow$ |z|^2 = {(-8)^2 + (-6)^2} = (64 + 36) = 100
+$\Rightarrow$ |z| = $\sqrt{100}$ = 10
+
+Q5. Equation of the line passing through (1, 2) and parallel to the line y = 3x - 1 is
+    (A) y + 2 = x + 1
+    (B) y + 2 = 3 (x + 1)
+    (C) y – 2 = x – 1
+    (D) y - 2 = 3 (x – 1)   <-- CORRECT
+    Answer: D
+    Explanation: Line is parallel to the line y = 3x - 1.
+Therefore, slope of the line is ‘3’.
+Also, line passes through the point (1,2).
+Thus, equation of the line is: y - 2 = 3(x - 1)
+
+Q6. The derivative of $\sec ^{-1}\left(\frac{1}{2 x^2-1}\right)$ with respect to $\sqrt {1 - {x^2}} $ at x = $\frac{1}{2}$ is
+    (A) -2
+    (B) 1
+    (C) 4   <-- CORRECT
+    (D) 2
+    Answer: C
+    Explanation: Substitute x = cos $\theta$ 
+$\Rightarrow$ $\frac{d(2 \theta)}{d(\sin \theta)}=\frac{\frac{d(2 \theta)}{d t}}{\frac{d(\sin \theta)}{d t}}$ 
+$\Rightarrow$ 2 sec $\theta$ 
+$\Rightarrow$ 2(2) = 4
+
+Q7. If the S.D. of the 1, 2, 3, 4, 5,………………..10 is $\sigma $, then the S.D. of 11, 12, 13, 14,…………….. 20 is
+    (A) $\sigma $ + 10
+    (B) $\sigma $   <-- CORRECT
+    (C) $\frac{\sigma }{10}$
+    (D) 10$\sigma $
+    Answer: B
+    Explanation: S.D = $\sqrt {\frac{{{n^2} - 1}}{{12}}} $ 
+Where n is the number of observations
+In case of 1, 2, 3, ......,10 as well as in case of 11, 12, 13,......, 20
+S.D = $ \sqrt {\frac{{{{(10)}^2} - 1}}{{12}}} = \sqrt {\frac{99}{12}} $ = 2.87
+
+Q8. If Q = {x : x = $\frac{1}{y}$, where y $ \in $ N}, then
+    (A) 2 $ \in $ Q
+    (B) $\frac{1}{2}$ $ \notin $ Q
+    (C) 0 $ \in $ Q
+    (D) 1 $ \in $ Q   <-- CORRECT
+    Answer: D
+    Explanation: N is set of natural number, so
+x = $\frac{1}{y}$
+When y = 1 then x = 1
+So, 1 $ \in $Q
+
+Q9. If f(x) = $64 x^{3}+\frac{1}{x^{3}}$ and $\alpha, \beta$ are the roots of $4 x+\frac{1}{x}=3$ Then
+    (A) f $(\alpha)=f(\beta)$ = 32
+    (B) f $(\alpha)=f(\beta)$ = -9   <-- CORRECT
+    (C) f $(\alpha) \neq f(\beta)$
+    (D) f $(\alpha)=f(\beta)$ = 63
+    Answer: B
+    Explanation: $f(x)=64 x^{3}+\frac{1}{x^{3}}$
+$=\left(4 x+\frac{1}{x}\right)^{3}-3(4 x)\left(\frac{1}{x}\right)\left(4 x+\frac{1}{x}\right)$
+Since, $4 x+\frac{1}{x}=3$ and $\alpha\ and\ \beta$ are its roots, 
+f(x) = 3^3 - 12(3)
+= 27-36
+= -9
+so,$f(\alpha)=f(\beta)=-9$
+
+Q10. -3i, when expressed in polar form, is
+    (A) $3\left[\cos \left(-\frac{\pi}{2}\right)+i \sin \left(-\frac{\pi}{2}\right)\right]$   <-- CORRECT
+    (B) $3\left[\cos \left(\frac{\pi}{4}\right)+i \sin \left(\frac{\pi}{4}\right)\right]$
+    (C) $3\left[\cos \left(\frac{\pi}{2}\right)+i \sin \left(\frac{\pi}{2}\right)\right]$
+    (D) $-3\left[\cos \frac{\pi}{2}+i \sin \frac{\pi}{2}\right]$
+    Answer: A
+    Explanation: Let z = 0 - 3i and let z = r(cos $\theta$ + i sin $\theta$)
+Then, r cos$\theta$ = $\theta$ and r sin$\theta$ = -3
+Squaring and adding, we get r^2 = 9
+$\Rightarrow$ r = 3
+$\therefore$ [cos$\theta$ = 0 and sin$\theta$ = -1] $\Rightarrow$ $\theta$ = $-\frac{\pi}{2}$
+$\therefore$ -3i = $3\left[\cos \left(-\frac{\pi}{2}\right)+i \sin \left(-\frac{\pi}{2}\right)\right]$
+
+Q11. If x is positive, the sum to infinity of the series $\frac{1}{1+x}-\frac{1-x}{(1+x)^{2}}+\frac{(1-x)^{2}}{(1+x)^{3}}-\frac{(1-x)^{3}}{(1+x)^{4}}$.
+    (A) $\frac {1}{2}$   <-- CORRECT
+    (B) $\frac {3}{4}$
+    (C) 2
+    (D) 1
+    Answer: A
+    Explanation: Suppose the sum of the series,
+S $=\frac{1}{(1+x)}-\frac{(1-x)}{(1+x)^{2}}$$+\frac{(1-x)^{2}}{(1+x)^{3}}-\frac{(1-x)^{3}}{(1+x)^{4}}$ + ... $\infty$
+It is clear that it is a G.P. with a $=\frac{1}{(1+x)}$ and $r=-\frac{(1-x)}{(1+x)}$
+$\therefore S=\frac{a}{(1-r)}$
+$\Rightarrow S=\frac{\frac{1}{(1+x)}}{\left[1-\left(-\frac{(1-x)}{(1+x)}\right)\right]}$
+$\Rightarrow S=\frac{\frac{1}{(1+x)}}{\left[1+\frac{(1-x)}{(1+x)}\right]}$
+$\Rightarrow S=\frac{\frac{1}{(1+x)}}{\left[\frac{(1+x)+(1-x)}{(1+x)}\right]}$
+$\Rightarrow S=\frac{1}{2}$
+
+Q12. $\frac{d}{d x}\left\{\tan ^{-1}\left(\frac{3 x-x^3}{1-3 x^2}\right)\right\}$ is equal to
+    (A) $\frac{3}{1+x^2}$   <-- CORRECT
+    (B) $\frac {3}{1 + 9x^2}$
+    (C) sec^23x
+    (D) $\frac {1}{1 + x^2}$
+    Answer: A
+    Explanation: Substitute x = tan $\theta$; $\frac{dx}{d\theta}$ = sec^2 $\theta$ 
+$\Rightarrow$ y = 3$\theta$ 
+$\Rightarrow$ $\frac{dy}{dx}$ = 3 cos^2 $\theta$ = $\frac{3}{1+x^{2}}$
+
+Q13. A batsman scores runs in 10 innings as 38, 70, 48, 34, 42, 55, 63, 46, 54 and 44 then the mean score is
+    (A) 4.94
+    (B) 0.494
+    (C) 49.4   <-- CORRECT
+    (D) 494
+    Answer: C
+    Explanation: Mean (x) = $\frac{(38+70+48+34+42+55+63+46+54+44)}{10}$ 
+= $\frac{494}{10}$ 
+= 49.4
+
+Q14. If z is purely real and Re ( z) > 0, then Amp. (z) is
+    (A) - $\pi $
+    (B) $\pi $
+    (C) 0   <-- CORRECT
+    (D) 1
+    Answer: C
+    Explanation: To find the amplitude of a complex number Z = x + iy first find a value of $\theta $ which satisfy the equation $\theta =\tan ^{ -1 }{ \left| \frac { y }{ x } \right| } ,0\le \theta \le \frac { \Pi }{ 2 } $ 
+Now depending on the complex number lies in the first, second, third or fourth quadrants the amplitudes will be $\theta ,\left( \Pi -\theta \right) ,-\left( \Pi -\theta \right) ,-\left( \theta \right) $ respectively.
+Given z is purely real and Re (z) > 0
+$\therefore$ Z = x + 0i, x > 0
+Now $\tan ^{ -1 }{ \left| \frac { y }{ x } \right| } =\tan ^{ -1 }{ \left| \frac { 0 }{ 1 } \right| } $ = tan^-1 0 = 0
+Also Z = x + 0i, x > 0 lies in the first quadrant 
+Hence Amp(Z) = 0
+
+Q15. The locus of the inequation xy $≥$ 0 is
+    (A) a straight line
+    (B) the set of all points either in the 1st quadrant or in the 3rd quadrant including the points on coordinate axis   <-- CORRECT
+    (C) a parallel line
+    (D) a pair of straight lines
+    Answer: B
+    Explanation: It is the set of all points either in the 1st quadrant or in the 3rd quadrant including the points on coordiate axis. This is because the inequality $\ge$ indicates that the points belong either to 1st or 3rd quadrant.
+
+Q16. If A and B are two given sets , then A $\cap$ (A $\cap$ B)^c is equal to
+    (A) A
+    (B) $\phi $
+    (C) B
+    (D) A $\cap$ B^c   <-- CORRECT
+    Answer: D
+    Explanation: A $\cap$ B^c
+A and B are two sets.
+A $\cap$ B is the common region in both the sets.
+(A $\cap$ B^c) is all the region in the universal set except A $\cap$ B
+Now, A $\cap$ (A $\cap$ B)^c = A $\cap$ B^c
+
+Q17. If R is a relation on the set A = {1, 2, 3, 4, 5, 6, 7, 8, 9} given by x R y $\Leftrightarrow$ y = 3 x, then R =
+    (A) {(3, 1), (2, 6), (3, 9)}
+    (B) None of these   <-- CORRECT
+    (C) {(3, 1), (6, 2), (9, 3)}
+    (D) {(3, 1), (6, 2), (8, 2),(9, 3)}
+    Answer: B
+    Explanation: Here, y = 3x;
+If x = 1; then y = 3.
+If x = 2; then y = 6.
+If x = 3; then y = 9.
+Therefore the required relation will be R = {(1, 3), (2, 6), (3, 9)}.
+
+Q18. If z is a complex number, then
+    (A) ∣z^2∣ = |z|^2   <-- CORRECT
+    (B) ∣z^2∣ $\ge$ |z|^2
+    (C) ∣z^2∣ < |z|^2
+    (D) ∣z^2∣ > |z|^2
+    Answer: A
+    Explanation: If z is a complex number, then z = x + iyz = x + iy
+|z| = |x + iy| and |z|^2 = |x + iy|^2
+^$\Rightarrow$ |z|^2 = x^2 + y^2 ...(i)
+and z^2 = (x + iy)^2 = x^2 + i^2y^2 + i^2xy
+$\Rightarrow$^ $\left|z^{2}\right|=\sqrt{\left(x^{2}-y^{2}\right)^{2}+(2 x y)^{2}}$
+$\Rightarrow$^ $\left|z^{2}\right|=\sqrt{x^{4}+y^{4}-2 x^{2} y^{2}+4 x^{2} y^{2}}$
+$\Rightarrow$^ $\left|z^{2}\right|=\sqrt{x^{4}+y^{4}-2 x^{2} y^{2}}=\sqrt{\left(x^{2}+y^{2}\right)^{2}}$
+$\Rightarrow$ |z^2| = x^2 + y^2 ..(ii)
+From Eqs. (i) and (ii)
+|z|^2 = |z|^2
+
+Q19. Which term of the AP 40, 35, 30,... is the first negative term?
+    (A) 9th
+    (B) 10th   <-- CORRECT
+    (C) 12th
+    (D) 14th
+    Answer: B
+    Explanation: Let T_n < 0 . Then, {a + (n - 1) d} < 0, where a = 40 and d = -5
+$\therefore$ {40 + (n-1) $\times$ (-5)} < 0 $\Rightarrow$ 45 < 5n $\Rightarrow$ 5n > 45 $\Rightarrow$ n > 9
+$\therefore$ 10th term is the first negative term.
+
+Q20. In A.M.'s are introduced between 3 and 17 such that the ratio of the last mean to the first mean is 3 : 1, then the value of n is:
+    (A) 10
+    (B) 4
+    (C) 6   <-- CORRECT
+    (D) 8
+    Answer: C
+    Explanation: Let A_1, A_2, A_3, A_4 .... A_n be the n arithmetic means between 3 and 17.
+Let d be the common difference of the A.P. 3, A_1, A_2, A_3, A_4 .... A_n and 17.
+We have , common difference as,
+d = $\frac{17-3}{n+1}=\frac{14}{n+1}$
+Now, A_1 = 3 + d = 3 + $\frac{14}{n+1}=\frac{3 n+17}{n+1}$
+And, A_n = 3 + nd = 3 + n$\left(\frac{14}{n+1}\right)=\frac{17 n+3}{n+1}$
+$\therefore \frac{A_{n}}{A_{1}}=\frac{3}{1}$
+$\Rightarrow \frac{\left(\frac{17 n+3}{n+1}\right)}{\left(\frac{3 n+17}{n+1}\right)}=\frac{3}{1} $
+$\Rightarrow \frac{17 n+3}{3 n+17}=\frac{3}{1} $
+$\Rightarrow$ 17n + 3 = 9n + 51
+$\Rightarrow$ 8n = 48
+$\Rightarrow$ n = 6
+
+------------------------------------------------------------
+Section C
+------------------------------------------------------------
+Q1. If A and B are two sets, then A $\cap$ (A $\cup$ B) equals
+    (A) A $\cap$ B
+    (B) B
+    (C) $\phi$
+    (D) A   <-- CORRECT
+    Answer: D
+    Explanation: Let us assume that x $\in$ A $\cap$ (A $\cup$ B)
+$\Rightarrow$ x $\in$ A and x $\in$ (A $\cup$ B)
+$\Rightarrow$ x $\in$ A and (x $\in$ A or x $\in$ B)
+$\Rightarrow$ (x $\in$ A and x $\in$ A) or (x $\in$ A and x $\in$ B)
+$\Rightarrow$ x $\in$ A or x $\in$ A $\cap$ B
+$\Rightarrow$ x $\in$ A
+Therefore, A $\cap$ (A $\cup$ B) = A
+
+Q2. If f(x) = $\frac{x}{x-1}=\frac{1}{y}$, then f(y) =
+    (A) x
+    (B) 1 + x
+    (C) x - 1
+    (D) 1 - x   <-- CORRECT
+    Answer: D
+    Explanation: We have, f(x) = $\frac{x}{{x - 1}} = \frac{1}{y}$ 
+$\therefore$ y = $ \frac{{x - 1}}{x}$ 
+Now, f(x) = $ \frac{x}{{x - 1}}$ 
+$\Rightarrow$ f(y) = $\frac{y}{y-1}=\frac{\frac{x-1}{z}}{\frac{x-1}{x}-1}=\frac{x-1}{x-1-x}$ = $\frac{x-1}{-1}$ = 1 - x
+
+Q3. Which of the following is correct ?
+    (A) ${\text{2 }} + {\text{ 3i }} < {\text{ 3 }} + {\text{ 4i}}$
+    (B) none of these   <-- CORRECT
+    (C) ${\text{1 }} + {\text{i }} < {\text{ 1}} - {\text{ i}}$
+    (D) ${\text{3 }} - {\text{4i }} < {\text{ 2 }}-{\text{ 3i}}$
+    Answer: B
+    Explanation: There is no linear ordering in the set of complex numbers.Hence it is not possible to say one complex number is smaller or bigger than the other
+
+Q4. The sum of an infinite G.P. is 4 and the sum of the cubes of its terms is 92. The common ratio of the original G.P. is
+    (A) $\frac {1}{3}$
+    (B) $-\frac {1}{2}$
+    (C) $\frac {2}{3}$
+    (D) $\frac {1}{2}$   <-- CORRECT
+    Answer: D
+    Explanation: According to the question , we can write,
+Let the G.P. be a, ar, ar2, ar3, ...., $\infty$
+$S_{\infty}$ = 4
+$\Rightarrow \frac{a}{1-r}$ = 4 ...(i)
+Also, sum of the cubes, S1 = 92
+$\Rightarrow \frac{a^{3}}{\left(1-r^{3}\right)}$ = 92 ...(ii)
+Putting the value of a form (i) to (ii):
+$\Rightarrow \frac{(4(1-r))^{3}}{\left(1-r^{3}\right)}$ = 92
+$\Rightarrow \frac{64(1-r)^{3}}{\left(1-r^{3}\right)}$ = 92
+$\Rightarrow \frac{(1-r)^{3}}{(1-r)\left(1+r+r^{2}\right)}=\frac{92}{64}$
+$\Rightarrow \frac{(1-r)^{2}}{\left(1+r+r^{2}\right)}=\frac{23}{16}$
+$\Rightarrow$ 16(1 - 2r + r^2) = 23(1 + r + r^2)
+$\Rightarrow$ 7r^2 + 55r + 7 = 0
+Using the quadratic formula:
+$\Rightarrow r=\frac{-55+\sqrt{55^{2}-4 \times 7 \times 7}}{2 \times 7}$
+$\Rightarrow r=\frac{-55+\sqrt{55^{2}-14^{2}}}{14}$
+$\Rightarrow r=\frac{-55+\sqrt{2829}}{14}$
+Original ratio is calculated.
+
+Q5. For a normal distribution, we have
+    (A) mean = median = mode   <-- CORRECT
+    (B) median = mode
+    (C) mean = mode
+    (D) mean = median
+    Answer: A
+    Explanation: As in normal distribution, the curve is symmetric and unimodal. So, mean is at peak, mode is also at peak and median as well.
+
+Q6. Instructions for Question 46 to 50:
+One morning a big circus arrived in the Ramleela maidan at Delhi. The arrival of the circus was seen in the morning at 08:00 AM by Gopal. He passed this information on 08:15 to 2 other residents of the city.
+Each of these 2 people then informed the other 2 residents at 08:30, and again at 08:45, they reported the arrival of the circus every 2 to other uninformed residents 
+This chain continued the same way till 12:00 PM. By 12:00 PM enough people were informed about the arrival of the circus.
+By 12:00 PM total how many people were informed about the arrival of the circus?
+    (A) 131000
+    (B) 65536
+    (C) 141000
+    (D) 131017   <-- CORRECT
+    Answer: D
+    Explanation: 131017
+
+Q7. Instructions for Question 46 to 50:
+One morning a big circus arrived in the Ramleela maidan at Delhi. The arrival of the circus was seen in the morning at 08:00 AM by Gopal. He passed this information on 08:15 to 2 other residents of the city.
+Each of these 2 people then informed the other 2 residents at 08:30, and again at 08:45, they reported the arrival of the circus every 2 to other uninformed residents 
+This chain continued the same way till 12:00 PM. By 12:00 PM enough people were informed about the arrival of the circus.
+By 10:00 AM total how many people were informed about the arrival of the circus?
+    (A) 300
+    (B) 500
+    (C) 256
+    (D) 511   <-- CORRECT
+    Answer: D
+    Explanation: 511
+
+Q8. Instructions for Question 46 to 50:
+One morning a big circus arrived in the Ramleela maidan at Delhi. The arrival of the circus was seen in the morning at 08:00 AM by Gopal. He passed this information on 08:15 to 2 other residents of the city.
+Each of these 2 people then informed the other 2 residents at 08:30, and again at 08:45, they reported the arrival of the circus every 2 to other uninformed residents 
+This chain continued the same way till 12:00 PM. By 12:00 PM enough people were informed about the arrival of the circus.
+From 10:00 AM to 11:00 AM how many people were informed about the circus?
+    (A) 7000
+    (B) 7936   <-- CORRECT
+    (C) 8000
+    (D) 7680
+    Answer: B
+    Explanation: 7936
+
+Q9. Instructions for Question 46 to 50:
+One morning a big circus arrived in the Ramleela maidan at Delhi. The arrival of the circus was seen in the morning at 08:00 AM by Gopal. He passed this information on 08:15 to 2 other residents of the city.
+Each of these 2 people then informed the other 2 residents at 08:30, and again at 08:45, they reported the arrival of the circus every 2 to other uninformed residents 
+This chain continued the same way till 12:00 PM. By 12:00 PM enough people were informed about the arrival of the circus.
+What are the three terms between 16 and 256?
+    (A) 64,32,128
+    (B) 16,32,256
+    (C) 16,32,64
+    (D) 32,64,128   <-- CORRECT
+    Answer: D
+    Explanation: 32,64,128
+
+Q10. Instructions for Question 46 to 50:
+One morning a big circus arrived in the Ramleela maidan at Delhi. The arrival of the circus was seen in the morning at 08:00 AM by Gopal. He passed this information on 08:15 to 2 other residents of the city.
+Each of these 2 people then informed the other 2 residents at 08:30, and again at 08:45, they reported the arrival of the circus every 2 to other uninformed residents 
+This chain continued the same way till 12:00 PM. By 12:00 PM enough people were informed about the arrival of the circus.
+At 10:30 AM how many people were informed about the circus?
+    (A) 2048
+    (B) 512
+    (C) 1024   <-- CORRECT
+    (D) 2047
+    Answer: C
+    Explanation: 1024

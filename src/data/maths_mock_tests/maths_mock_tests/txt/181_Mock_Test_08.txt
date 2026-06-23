@@ -1,0 +1,689 @@
+======================================================================
+Mock Test - 08  (id 181)
+CBSE > Class 11 > Mathematics
+Duration: 90 min | Questions: 50
+======================================================================
+
+INSTRUCTIONS:
+This question paper contains three sections - A, B and C. Each part is compulsory.
+ Section - A has 20 MCQs, attempt any 16 out of 20.
+ Section - B has 20 MCQs, attempt any 16 out of 20
+ Section - C has 10 MCQs, attempt any 8 out of 10.
+ There is no negative marking.
+ All questions carry equal marks.
+
+------------------------------------------------------------
+Section A
+------------------------------------------------------------
+Q1. If n (A) = 3 and n(B) = 6 and A $ \subseteq $ B, then n(A $\cap$ B) is equal to
+    (A) 0
+    (B) 6
+    (C) 3   <-- CORRECT
+    (D) 9
+    Answer: C
+    Explanation: A $\subseteq$ B
+$\Rightarrow$ n(A $\cap$ B) = n(A) = 3
+
+Q2. If n(A) = 10, n(B) = 6 and n (C) = 5 for three disjoint sets A, B and C, then $n(A \cup B \cup C) $ =
+    (A) 21   <-- CORRECT
+    (B) 11
+    (C) 1
+    (D) 9
+    Answer: A
+    Explanation: Since A, B, C are disjoint 
+$\therefore$ $n(A \cup B \cup C)$ = n(a) + n(B) + n(C)
+= 10 + 6 + 5 = 21
+
+Q3. Mark the correct answer for $\sqrt{-9} \times \sqrt{-25}$ = ?
+    (A) 15i
+    (B) -15i
+    (C) -15   <-- CORRECT
+    (D) 15
+    Answer: C
+    Explanation: $\sqrt{-9} \times \sqrt{-25}$ = (3i)$\times$(5i) = (15$\times$i^2) = [15$\times$(-1)] = -15
+
+Q4. If the sum of n terms of a GP is (2^n -1) then its common ratio is
+    (A) 2   <-- CORRECT
+    (B) 3
+    (C) $\frac{1}{2}$
+    (D) $\frac{-1}{2}$
+    Answer: A
+    Explanation: Given,S_n = (2^n - 1) $\Rightarrow$ S_1 = (2^1 - 1) = 1, S_2 = (2^2 - 1) = (4 - 1) = 3.
+T_1 = 1, T_2 = (S_2 - S_1) = ( 3 - 1 ) = 2
+$\Rightarrow r=\frac{T_{2}}{T_{1}}=\frac{2}{1}=2$
+Therefore, the common ratio is 2.
+
+Q5. The lines y = mx, y + 2x = 0, y = 2x + $\lambda $ and y = - mx + $\lambda $ form a rhombus if m =
+    (A) -2   <-- CORRECT
+    (B) 2
+    (C) 1
+    (D) - 1
+    Answer: A
+    Explanation: Rhombus is a parallelogram in which the opposite sides are equal and parallel.
+Therefore the lines y = mx and y = -2x are parallel, similarly y = 2x + $\lambda$ and y = -mx + $\lambda$ are parallel.
+If two lines are equal, then their slopes are equal.
+This implies m = -2
+
+Q6. $\lim \limits_{n \rightarrow \infty} \frac{1-2+3-4+5-6+\ldots +(2 n-1)-2 n}{\sqrt{n^{2}+1}+\sqrt{n^{2}-1}}$ is equal to
+    (A) $-\frac{1}{2}$   <-- CORRECT
+    (B) 1
+    (C) -1
+    (D) $\frac{1}{2}$
+    Answer: A
+    Explanation: $\lim \limits_{n \rightarrow \infty}\left[\frac{1-2+3-4+5-6+\ldots(2 n-1)-2 n}{\sqrt{n^{2}+1}+\sqrt{n^{2}-1}}\right]$
+$=\lim \limits_{n \rightarrow \infty}\left[\frac{(1+3+5+\ldots 2 n-1)-(2+4+6+\ldots 2 n)}{(\sqrt{n^{2}+1}+\sqrt{n^{2}-1})}\right]$
+$=\lim \limits_{n \rightarrow \infty}\left[\frac{\frac{n}{2}(1+2 n-1)-\frac{n}{2}(2+2 n)}{(\sqrt{n^{2}+1}+\sqrt{n^{2}-1})}\right]$
+$=\lim \limits_{n \rightarrow \infty}\left[\frac{n^{2}-n(n+1)}{(\sqrt{n^{2}+1}+\sqrt{n^{2}-1})}\right]$
+$=\lim \limits_{n \rightarrow \infty}\left[\frac{-n}{(\sqrt{n^{2}+1}+\sqrt{n^{2}-1})}\right]$
+Dividing the numerator and the denominator by n
+$=\lim \limits_{n \rightarrow \infty}\left[\frac{-1}{\sqrt{1+\frac{1}{n^{2}}}+\sqrt{1-\frac{1}{n^{2}}}}\right]$
+$=\frac{-1}{1+1}$
+$=\frac{-1}{2}$
+
+Q7. Which of the following is not a measure of central tendency:
+    (A) median
+    (B) mode
+    (C) range   <-- CORRECT
+    (D) mean
+    Answer: C
+    Explanation: Meausre of central tendencies give the middle most or average value whereas range gives the difference between highest and lowest value.
+
+Q8. The angle between the lines 2x - y + 3 = 0 and x + 2y + 3 = 0 is
+    (A) 60°
+    (B) 90°   <-- CORRECT
+    (C) 45°
+    (D) 30°
+    Answer: B
+    Explanation: Let m_1 and m_2 be the slope of the lines 2x - y + 3 = 0 and x + 2y + 3 = 0, respectively.
+Let $\theta$ be the angle between them.
+Here,
+m_1 = 2 and m_2 = - $\frac{1}{2}$
+$\therefore$ m_1m_2 = -1
+Therefore, the angle between the given lines is 90° , as it satisfy the condition of product of slopes of two lines is -1.
+
+Q9. If f (x) = $x^{3}-\frac{1}{x^{3}}$, then f (x) + f ($\frac 1x$) is equal to
+    (A) 2$\frac {1}{x^3}$
+    (B) 2x^3
+    (C) 1
+    (D) 0   <-- CORRECT
+    Answer: D
+    Explanation: Since $f(x)=x^{3}-\frac{1}{x^{3}}$
+$f\left(\frac{1}{x}\right)=\frac{1}{x^{3}}-\frac{1}{\frac{1}{x^{3}}}=\frac{1}{x^{3}}-x^{3}$
+Hence, $f(x)+f\left(\frac{1}{x}\right)=x^{3}-\frac{1}{x^{3}}+\frac{1}{x^{3}}-x^{3}=0$
+
+Q10. If $\left(\frac{2-\sqrt{-9}}{1-\sqrt{-4}}\right)$= (x + iy) then
+    (A) x = $\frac{2}{5}$, y = $\frac{3}{5}$
+    (B) x = $\frac{3}{5}$, y = $\frac{2}{5}$
+    (C) x = $\frac{1}{5}$, y = $\frac{8}{5}$
+    (D) x = $\frac{8}{5}$, y = $\frac{1}{5}$   <-- CORRECT
+    Answer: D
+    Explanation: $\left(\frac{2-\sqrt{-9}}{1-\sqrt{-4}}\right)$ = $\left(\frac{2-3 i}{1-2 i}\right)$ = $\frac{(2-3 i)}{(1-2 i)} \times \frac{(1+2 i)}{(1+2 i)}$ = $\frac{(2-3 i)(1+2 i)}{(1-2 i)(1+2 i)}$ = $\frac{\left(2+4 i-3 i-6 i^{2}\right)}{\left(1-4 i^{2}\right)}$
+$\frac{(2+i+6)}{(1+4)}$ = $\frac{(8+i)}{5}$ = $\left(\frac{8}{5}+\frac{1}{5} i\right)$
+
+Q11. If S_n denotes the sum of first n terms of an A.P. < a_n > such that $\frac{S_{n}}{S_{n}}=\frac{m^{2}}{n^{2}}$, then $\frac{a_{m}}{a_{n}}$ =
+    (A) $\frac{m+1}{n+1}$
+    (B) $\frac{2 m-1}{2 n-1}$   <-- CORRECT
+    (C) $\frac{2 m+1}{2 n+1}$
+    (D) $\frac{m-1}{n-1}$
+    Answer: B
+    Explanation: Given in the question,
+$\frac{S_{m}}{S_{n}}=\frac{m^{2}}{n^{2}}$
+$\Rightarrow \frac{\frac{m}{2}\{2 a+(m-1) d\}}{\frac{n}{2}\{2 a+(n-1) d\}}=\frac{m^{2}}{n^{2}}$
+$\Rightarrow \frac{\{2 a+(m-1) d\}}{\{2 a+(n-1) d\}}=\frac{m}{n}$
+$\Rightarrow$ 2an + ndm - nd = 2am + nmd - md
+$\Rightarrow$ 2an - 2am - nd + md = 0
+$\Rightarrow$ 2a(n - m) - d(n - m) = 0
+$\Rightarrow$ 2a(n - m) = d(n - m)
+$\Rightarrow$ d = 2a ...(i)
+Ratio of $\frac{a_{m}}{a_{n}}=\frac{a+(m-1) d}{a+(n-1) d}$
+$\Rightarrow \frac{a_{m}}{a_{n}}=\frac{a+(m-) 2 a}{a+(n-) 2 a}$ From (1)
+= $\frac{a+2 a m-2 a}{a+2 a n-2 a}$
+= $\frac{2 a m-a}{2 a n-a}$
+= $\frac{2 m-1}{2 n-1}$
+
+Q12. The equations of the lines passing through the point (1, 0) and at a distance $\frac{\sqrt{3}}{2}$ from the origin, are
+    (A) $\sqrt{3} x+y-\sqrt{3}=0, \sqrt{3} x-y-\sqrt{3}=0$   <-- CORRECT
+    (B) $x+\sqrt{3} y-\sqrt{3}=0, x-\sqrt{3} y-\sqrt{3}=0$
+    (C) $x-\sqrt{3} y-\sqrt{3}=0, x+\sqrt{3} y+\sqrt{3}=0$
+    (D) $\sqrt{3} x+y+\sqrt{3}=0, \sqrt{3} x-y+\sqrt{3}=0$
+    Answer: A
+    Explanation: Suppose equation of any line passing through the point (1, 0) is
+y – y_1 = m(x – x_1)
+⇒ y – 0 = m(x – 1)
+⇒ y = mx – m
+⇒ mx – y – m = 0 …(i)
+Given that distance of the line from origin is $\frac{\sqrt{3}}{2}$
+$\mathrm{d}=\left|\frac{\mathrm{Ax}_{1}+\mathrm{By}_{1}+\mathrm{C}}{\sqrt{\mathrm{A}^{2}+\mathrm{B}^{2}}}\right|$
+$\Rightarrow \frac{\sqrt{3}}{2}=\left|\frac{m \times 0+(-1) \times 0+(-m)}{\sqrt{(m)^{2}+(-1)^{2}}}\right|$
+$\Rightarrow \frac{\sqrt{3}}{2}=\left|\frac{-m}{\sqrt{m^{2}+1}}\right|$
+$\Rightarrow \frac{\sqrt{3}}{2}=\frac{\mathrm{m}}{\sqrt{\mathrm{m}^{2}+1}}$
+Squaring both sides, we obtain
+$\Rightarrow \frac{3}{4}=\frac{m^{2}}{m^{2}+1}$
+$\Rightarrow$ 3(m^2 + 1) = 4m^2
+$\Rightarrow$ 3m^2 + 3 = 4m^2
+$\Rightarrow$ 4m^2 – 3m^2 = 3
+$\Rightarrow$ m^2 = 3
+$\Rightarrow$ m = ±$\sqrt3$
+Substituting the value of m = $\sqrt3$ in eq. (i), we obtain
+$\sqrt3$x – y – $\sqrt3$ = 0
+Now, putting the value of m = -$\sqrt3$ in eq. (i), we get
+-$\sqrt3$x – y – (-$\sqrt3$) = 0
+$\Rightarrow$ -$\sqrt3$x – y + $\sqrt3$ = 0
+
+Q13. $\lim\limits_{x \to \infty } \frac{\sum \limits_{r=1}^n r}{n^2}$ is equal to
+    (A) $\frac 14$
+    (B) $\frac 1 2$   <-- CORRECT
+    (C) $\frac 1 3$
+    (D) 1
+    Answer: B
+    Explanation: $\lim _\limits{n \rightarrow \infty} \frac{\frac{n(n+1)}{2}}{n^{2}}$ = $\lim \limits_{n \rightarrow \infty}\frac{(n+1)}{2 n}$ 
+Substitute n = $\frac{l}{t}$
+$\Rightarrow$ $\lim \limits_{t \rightarrow 0}\frac{(1+t)}{2}=\frac{1}{2}$
+
+Q14. The mean weight of a group of 10 items is 28 and that of another group of n items is 35. The mean of a combined group of 10 + n items is found to be 30. The value of n is
+    (A) 12
+    (B) 2
+    (C) 10
+    (D) 4   <-- CORRECT
+    Answer: D
+    Explanation: Sum of weights of 10 items = 280
+Sum of weights of n items = 35n
+So, sum of weights of (10 + n) items = 280 + 35n
+So, mean = $\frac{280 + 35n}{10 + n}$
+30(10 + n) = 280 + 35n 
+On solving we get, n = 4
+
+Q15. The equation of the straight line passing through the point (3, 2) and perpendicular to the line y = x is
+    (A) x – y = 1
+    (B) x + y = 5   <-- CORRECT
+    (C) x + y = 1
+    (D) x – y = 5
+    Answer: B
+    Explanation: Here,it is the straight line passing through the point (3, 2)
+and perpendicular to the line y = x
+Suppose the equation of line ‘L’ is
+y – y_1 = m(x – x_1)
+Since, L is passing through the point (3, 2)
+$\therefore$ y – 2 = m(x – 3) …(i)
+Now, given eq. is y = x
+Since, the above equation is in y = mx + b form
+Therefore, the slope of this equation is 1
+It is also given that line L and y = x are perpendicular to each other.
+We know that, when two lines are perpendicular, then
+m_1 $\times$ m_2 = -1
+$\therefore$ m $\times$ 1 = -1
+$\Rightarrow$ m = -1
+Substituting the value of m in eq. (i), we ob
+y – 2 = (-1)(x – 3)
+$\Rightarrow$ y – 2 = -x + 3
+$\Rightarrow$ x + y = 3 + 2
+$\Rightarrow$ x + y = 5
+
+Q16. The range of the function f(x) = $\frac{x^2-3 x+2}{x^2+x-6}$ is
+    (A) $R-\left\{1, \frac{1}{5}\right\}$   <-- CORRECT
+    (B) R – {1}
+    (C) R
+    (D) ${\bf{R}} - \left\{ {{\frac 1 5}} \right\}$
+    Answer: A
+    Explanation: Let, y = $\frac{x^{2}-3 x+2}{x^{2}+x-6}$ 
+$\Rightarrow$ y(x^2 + x - 6) = x^2 - 3x + 2
+$\Rightarrow$ (y - 1)x^2 + (y + 3)x - 6y - 2 = 0
+x = $\frac{-b \pm \sqrt{b^{2}-4 a c}}{2 a}$ 
+$\Rightarrow$ x = $\frac{-(y+3) \pm \sqrt{(y+3)^{2}-4(y-1)(-6 y-2)}}{2(y-1)}$ 
+$\Rightarrow$ x = $\frac{-(y+3) \pm \sqrt{25 y^{2}-10 y+1}}{2(y-1)}$
+Now for x to be defined, y - 1 $\ne$ 0 $\Rightarrow$ y $\ne$ 1
+Also, 
+25y^2 - 10y + 1 $\ge$ 0
+$\Rightarrow$ (5y - 1)^2 $\ge$ 0
+But domain of f(x): x $\ne$ 2, -3
+But, 
+When, y = $\frac{1}{5}$, x = 2
+So, range = R - {1, $\frac{1}{5}$}
+
+Q17. Let x, y $ \in$ R, then x + iy is a purely imaginary number if
+    (A) x $ \ne $ 0, y = 0
+    (B) x $ \ne $ 0, y $ \ne $ 0
+    (C) x = 0, y $ \ne $ 0   <-- CORRECT
+    (D) x = 0, y = 0
+    Answer: C
+    Explanation: A purely imaginary number is a complex number which has only an imaginary part (iy) 
+But if y = 0 the complex number iy will become 0 which is real.
+Hence the condition for a number to be purely imaginary is x = 0 and $ y\neq 0$
+
+Q18. The ratio of the ${{\rm{7}}^{{\rm{th}}}}$ to the (n - 1)th mean between 1 and 31, when n arithmetic means are inserted between them, is 5 : 9. The value of n is
+    (A) 12
+    (B) 15
+    (C) 14   <-- CORRECT
+    (D) 13
+    Answer: C
+    Explanation: Let A_1, A_2, A_3, A_4 ..., A_n be the n arithmetic means inserted between 1 and 31.
+The we have 1, A_1, A_2, A_3, A_4 ..., A_n, 31 is an A.P with a = 1, T_n = 31 and number of terms = n + 2
+Now, T_n = 31 $\Rightarrow$ 1 + [(n + 2) - 1]d = 31
+$\Rightarrow$ d = $\frac{30}{n+1}$
+Hence we get T_7 = a + 7d = 1 + 7$\left[\frac{30}{n+1}\right]$ ...(i)
+And T_n - 1 = a(n - 1) + d = 1 + (n - 1)$\left[\frac{30}{n+1}\right]$ ...(ii)
+Given $\frac{T_{7}}{T_{n-1}}=\frac{5}{9}$
+$\Rightarrow \frac{1+7\left[\frac{30}{n+1}\right]}{1+(n-1)\left[\frac{30}{n+1}\right]}=\frac{5}{9}$
+$\Rightarrow \frac{\frac{n+1+210}{n+1}}{\frac{31 n-29}{n+1}}=\frac{5}{9}$
+$\Rightarrow$ 9n + 1899 = 155n - 145
+$\Rightarrow$ 2044 = 146 n
+$\Rightarrow$ n = $\frac{2044}{146}$ = 14
+
+Q19. Slope of a line is not defined if the line is
+    (A) parallel to the line x – y
+    (B) parallel to X axis
+    (C) parallel to Y axis   <-- CORRECT
+    (D) parallel to the line x + y
+    Answer: C
+    Explanation: Vertical lines have undefined slopes. Hence a line which is parallel to Y-axis has undefined slopes.
+
+Q20. $\lim \limits_{x \to 0} \frac{x \log (1+x)}{1-\cos x}$ is equal to
+    (A) 2   <-- CORRECT
+    (B) 0
+    (C) $\frac 12$
+    (D) 1
+    Answer: A
+    Explanation: $\lim \limits_{x \rightarrow 0} \frac{x \log (1+x)}{1-\cos x} \cdot \frac{x}{x}$
+$\Rightarrow$ $\lim \limits_{x \rightarrow 0}\left(\frac{\log (1+x)}{x}\right) \cdot\left(\frac{x^{2}}{1-\cos x}\right)$
+$\Rightarrow$ $1 \cdot \frac{1}{\frac{1}{2}}$
+$\Rightarrow$ 2
+
+------------------------------------------------------------
+Section B
+------------------------------------------------------------
+Q1. The sum of the squares deviations for 10 observations taken from their mean 50 is 250. The coefficient of variation is:
+    (A) 70%
+    (B) 50%
+    (C) 10%   <-- CORRECT
+    (D) 40%
+    Answer: C
+    Explanation: Given, n = 10 mean 250
+SD, $\sigma=\sqrt{\left(\frac{250}{10}\right)}$
+$\sigma=\sqrt{25}$
+SD = 5
+Now, Coefficient of variance = $\frac{\mathrm{SD}}{\mathrm{Mean}} \times$ 100
+Cv = $\frac{5}{50} \times$ 100
+Cv = 50
+Hence, Coefficient of Variation is 10
+
+Q2. The tangent of angle between the lines whose intercepts on the axes are a, -b and b, -a, respectively, is
+    (A) $\frac{b^{2}-a^{2}}{2}$
+    (B) $\frac{a^{2}-b^{2}}{a b}$
+    (C) $\frac{b^{2}+a^{2}}{2ab}$
+    (D) $\frac{b^{2}-a^{2}}{2 a b}$   <-- CORRECT
+    Answer: D
+    Explanation: Suppose the first equation of line having intercepts on the axes a, -b is
+$\frac{x}{a}+\frac{y}{-b}=1$
+$\Rightarrow \frac{x}{a}-\frac{y}{b}=1$
+$\Rightarrow$ bx – ay = ab …(i)
+Suppose the second equation of line having intercepts on the axes b, -a is
+$\frac{x}{b}+\frac{y}{-a}=1$
+$\frac{x}{b}+\frac{y}{-a}=1$
+$\Rightarrow$ ax – by = ab …(ii)
+Now, we find the slope of eq. (i) we get
+bx – ay = ab
+$\Rightarrow$ ay = bx – ab
+$\Rightarrow \mathrm{y}=\frac{\mathrm{b}}{\mathrm{a}} \mathrm{x}-\mathrm{b}$
+Since, the above equation is in y = mx + b form
+Therefore, the slope of eq. (i) is
+$\mathrm{m}_{1}=\frac{\mathrm{b}}{\mathrm{a}}$
+Now, we find the slope of eq. (ii)
+ax – by = ab
+⇒ by = ax – ab
+$\Rightarrow \mathrm{y}=\frac{\mathrm{a}}{\mathrm{b}} \mathrm{x}-\mathrm{a}$
+Since, the above equation is in y = mx + b form
+Therefore, the slope of eq. (i) is
+$\mathrm{m}_{2}=\frac{\mathrm{a}}{\mathrm{b}}$
+Let $\theta$ be the angle between the given two lines.
+$\therefore \tan \theta=\left|\frac{\mathbf{m}_{1}-\mathbf{m}_{2}}{1+\mathbf{m}_{1} \mathbf{m}_{2}}\right|$
+Substituting the values of m_1 and m_2 in above eq., we obtain
+$\Rightarrow \tan \theta=\left|\begin{array}{c} {\frac{b}{a}-\frac{a}{b}} \\ {1+\left(\frac{b}{a}\right)\left(\frac{a}{b}\right)} \end{array}\right|$
+$\Rightarrow \tan \theta=\left|\begin{array}{c} {\frac{b^{2}-a^{2}}{a b}} \\ {1+1} \end{array}\right|$
+$\Rightarrow \tan \theta=\left|\frac{b^{2}-a^{2}}{2 a b}\right|$
+$\Rightarrow \tan \theta=\frac{b^{2}-a^{2}}{2 a b}$
+Therefore,thethe required angle is $\frac{b^{2}-a^{2}}{2 a b}$
+
+Q3. The domain of the function f(x) = $ \sqrt {1 - \cos x} $ is
+    (A) $\{ {\rm{x }} = {\rm{ 2 n}}\pi :{\rm{ n}} \in {\rm{I}}\} $
+    (B) $[0,{\rm{ 2}}\pi ]$
+    (C) $\{ {\rm{x }} \ne {\rm{ 2 n}}\pi :{\rm{ n}} \in {\rm{I}}\} $
+    (D) R   <-- CORRECT
+    Answer: D
+    Explanation: This function exists only if
+1 - cos x $\ge$ 0
+$\Rightarrow$ cos x $\le$ 1
+It is possible $\forall x \in R$
+
+Q4. If z = (2 + $\sqrt{-5}$) then |z| = ?
+    (A) 9
+    (B) 6
+    (C) 7
+    (D) 3   <-- CORRECT
+    Answer: D
+    Explanation: z = (2+ $\sqrt{-5}$) => |z|^2 = {2^2 + ($\sqrt{-5}$)^2} = (4 + 5) = 9
+$\Rightarrow$ |z| = 3
+
+Q5. The sum of an infinite series is 8 and its second term is 2. Its common ratio is
+    (A) $\frac{1}{2}$   <-- CORRECT
+    (B) $\frac{3}{4}$
+    (C) $\frac{1}{ 4}$
+    (D) $\frac{2}{3}$
+    Answer: A
+    Explanation: Let the given geometric series be (a + ar + ar^2 + ... $\infty$)
+Then ar = 2 and $\frac{a}{(1-r)}$ = 8
+Putting, r = $\frac{2}{a}$, we get
+$\frac{a}{\left(1-\frac{2}{a}\right)}=8 \Rightarrow \frac{a^{2}}{(a-2)} = 8$ $\Rightarrow$ a^2 = 8 a - 16
+a^2 - 8a + 16 = 0 $\Rightarrow$ (a - 4)^2 = 0 $\Rightarrow$ a - 4 = 0 $\Rightarrow$ a = 4.
+$\therefore r=\frac{2}{4}=\frac{1}{2}$
+Therefore, the required common ratio is $\frac{1}{2}$.
+
+Q6. What is the value of $\frac{d}{d x}\left(\frac{\sec x}{\operatorname{cosec} x \tan x}\right)$ ?
+    (A) sinx
+    (B) 1
+    (C) 0   <-- CORRECT
+    (D) cosx
+    Answer: C
+    Explanation: $\frac{d}{d x}\left(\frac{\sec x}{\operatorname{cosec} x \tan x}\right)=\frac{d}{d x}\left(\frac{\frac{1}{\cos x}}{\frac{1}{\sin x} \cdot \frac{\sin x}{\cos x}}\right)$
+$ =\frac{d}{d x} $(1)
+$ =0 $
+
+Q7. Consider the first 10 positive integers. If we multiply each number by –1 and then add 1 to each number, the variance of the numbers so obtained is
+    (A) 8.25   <-- CORRECT
+    (B) 2.87
+    (C) 6.5
+    (D) 3.87
+    Answer: A
+    Explanation: First 10 positive integers are 1, 2, 3, 4, 5, 6, 7, 8, 9, 10
+on multiplying each number by – 1, we get
+- 1, -2, -3, -4, -5, -6, -7, -8, -9, -10
+on adding 1 to each of the number, we get
+0, - 1, -2, -3, -4, -5, -6, -7, -8, -9
+$\therefore \ \sum$x_i = 0 -1 -2 -3 -4 -5 -6 -7 -8 -9 = - 45
+and
+$\sum$ x_i^2= 0^2 + (- 1)^2 + (-2)^2 + (-3)^2 + (-4)^2 + … + (-9)^2
+But we know $\sum \mathrm{n}^{2}=\frac{\mathrm{n}(\mathrm{n}+1)(2 \mathrm{n}+1)}{6}$, so the above equation on applying this formula when n = 9, we get
+$\Sigma{x}_{{i}}^{2}=\frac{9(9+1)\left(2(9)+1\right)}{6}=\frac{9 \times 10 \times 19}{6}$ = 285
+Now we know,
+$\sigma=\sqrt{\frac{\sum x_{i}^{2}}{N}-\left(\frac{\sum x_{i}}{N}\right)^{2}}$
+Substituting the corresponding values, we get
+$\sigma=\sqrt{\frac{285}{10}-\left(\frac{-45}{10}\right)^{2}}$
+$\sigma=\sqrt{28.5-20.25}$
+$\sigma=\sqrt{28.5-20.25}$
+$\sigma=\sqrt{8.25}$
+Now for variance we will square on both sides, we get
+$\sigma ^2$ = 8.25
+Hence the variance of the numbers so obtained is 8.25
+
+Q8. The acute angle between the lines x – y = 0 and y = 0 is
+    (A) 45^o   <-- CORRECT
+    (B) 60^o
+    (C) 75^o
+    (D) 30^o
+    Answer: A
+    Explanation: Slope of the line x - y = 0 is 1. This implies the tan$\theta$ = 1 Hence, the angle made by the line with X-axis is 45^o
+The angle made by the line y = 0 with the Y-axis is 90^o. Therefore the acute angle between the lines is 45^o.
+
+Q9. If f : $Q \rightarrow Q$ is defined as f(x) = x^2 then, f ^-1 (9) is equal to
+    (A) {-3, 3}   <-- CORRECT
+    (B) -3
+    (C) $\phi$
+    (D) 3
+    Answer: A
+    Explanation: $f(x)=x^{2}$
+Replace f(x) by y.
+y = x^2
+x = $\sqrt{y}$
+Replace x by $ f^{-1}$ (x) and y by x
+$f^{-1} (x)=\sqrt{x}$
+so, $f^{-1}(9)=\sqrt{9}$
+= $\pm 3$
+
+Q10. If $\omega $ is a cube root of unity, then $\left( {1 + \omega } \right)\left( {1 + {\omega ^2}} \right)\left( {1 + {\omega ^4}} \right)\left( {1 + {\omega ^8}} \right)...$ upto 2n factors is
+    (A) -1
+    (B) 1   <-- CORRECT
+    (C) 2
+    (D) 0
+    Answer: B
+    Explanation: $\left( {1 + \omega } \right)\left( {1 + {\omega ^2}} \right)\left( {1 + {\omega ^4}} \right)\left( {1 + {\omega ^8}} \right)$ .... upto 2n factors
+= $\left( {1 + \omega } \right)\left( {1 + {\omega ^2}} \right)\left( {1 + {\omega ^3.\omega}} \right)\left( {1 + {\omega ^3.\omega ^3.\omega^2}} \right)...$ upto 2n factors
+= $\left( {1 + \omega } \right)\left( {1 + {\omega ^2}} \right)\left( {1 +{\omega}} \right)\left( {1 + {\omega^2}} \right)....$ upto 2n factors [ since ${ \omega }^{ 3 }=1$ ]
+=$\left(- {\omega ^2 } \right)\left( {- {\omega }} \right)\left(- {\omega ^2 } \right)\left( {- {\omega }} \right)...$ upto 2n factors $\left[ \because 1+\omega +{ \omega }^{ 2 }=0 \right] $ 
+= $\left(- {\omega ^2 } \right)\left( {- {\omega }} \right)\left(- {\omega ^2 } \right)\left( {- {\omega }} \right)...$upto 2n factors 
+= $\left[\left(-\omega^{2}\right)(-\omega)\right]\left[\left(-\omega^{2}\right)(-\omega)\right]$ ... n factors
+= $\omega^{3} \cdot \omega^{3} \cdot \omega^{3} \dots$ n factors [Since ${ \omega }^{ 3 }$ = 1]
+= 1.1.1 .... n factos
+= 1^n = 1
+
+Q11. Which term of the AP 27, 24, 21, 18,... is -81?
+    (A) 37th   <-- CORRECT
+    (B) 29th
+    (C) 39th
+    (D) 38th
+    Answer: A
+    Explanation: Let T_n = -81. Then, a + (n - 1)d = -81, where a = 27 and d = -3,
+$\therefore$ 27 + (n- 1) $\times$ (-3 ) = -81 $\Rightarrow$ 3n = (30 + 81) = 111 $\Rightarrow$ n= 37.
+$\therefore$ 37th term is -81
+
+Q12. The value of $\lim \limits_{x \rightarrow 0} \frac{1-\cos x+2 \sin x-\sin ^{3} x-x^{2}+3 x^{4}}{\tan ^{3} x-6 \sin ^{2} x+x-5 x^{3}}$ is
+    (A) 2   <-- CORRECT
+    (B) -1
+    (C) -2
+    (D) 1
+    Answer: A
+    Explanation: $\lim \limits_{x \rightarrow 0} \frac{(1-\cos x)+2 \sin x-\sin ^{3} x-x^{2}+3 x^{4}}{\tan ^{3} x-6 \sin ^{2} x+x-5 x^{3}}$
+Dividing N^r and D^r by x;
+$\lim \limits_{x \rightarrow 0} \frac{\frac{2 \sin ^{2} \frac{x}{2}}{x}+\frac{2 \sin x}{x}-\frac{\sin ^{3} x}{x}-x+3 x^{3}}{\frac{\tan ^{2} x}{x}-\frac{6 \sin ^{2} x}{x}+1-5 x^{2}}$
+$\lim \limits_{x \rightarrow 0} \frac{\frac{2 x}{4} \frac{\sin ^{2} \frac{x}{2}}{\frac{x^{2}}{4}}+\frac{2 \sin x}{x}-\frac{x^{2} \sin ^{3} x}{x^{3}}-x+3 x^{3}}{x^{2}\left(\frac{\tan 3 x}{x^{3}}\right)-\frac{6 x \sin ^{2} x}{x^{2}}+1-5 x^{2}}$
+$=\frac{0+2-0-0+0}{0-0+1-0}=2$
+
+Q13. Coefficient of correlation between the observations ( 1, 6 ) , ( 2 , 5 ) , ( 3 , 4) , ( 4 , 3 ) , ( 5 , 2 ) , ( 6 , 1 ) is
+    (A) - 1   <-- CORRECT
+    (B) 2
+    (C) 0
+    (D) 1
+    Answer: A
+    Explanation: $use,r(x,y) = \frac{{\frac{1}{n}\sum\limits_{i = 1}^n {({X_i} - \bar X)({Y_i} - \bar Y)} }}{{\sqrt {\frac{1}{n}\sum\limits_{i = 1}^n {{{({X_i} - \bar X)}^2}} } \sqrt {\frac{1}{n}\sum\limits_{i = 1}^n {{{({Y_i} - \bar Y)}^2}} } }}$
+
+Q14. The points z = x + iy which satisfy the equation |z| = 1 lie on
+    (A) the line x = 1
+    (B) the line x + y = 1
+    (C) the line y = 1
+    (D) the circle whose centre is origin and radius = 1   <-- CORRECT
+    Answer: D
+    Explanation: z = x + iy
+Now |z| = 1 $\Rightarrow$ |x + iy| = 1
+$\Rightarrow$ $\sqrt{x^{2}+y^{2}}$ = 1 $\Rightarrow$ x^2 + y^2 = 1
+Which is the equation of a circle whose centre is origin and radius = 1
+
+Q15. In a G.P. (m + n)^th and (m – n)^th terms are respectively p and q. Its m^th term is
+    (A) pq
+    (B) $\frac {p + q} {2}$
+    (C) $\sqrt {p\;q} $   <-- CORRECT
+    (D) p-q
+    Answer: C
+    Explanation: Let a be the first term and r be the common ratio of the G.P
+Then since T_n = a^n-1, we get
+T_m+n = p $\Rightarrow$ ar^m+n-1 = p ....(i)
+T_m-n = q $\Rightarrow$ ar^m-n-1 = q ...(ii)
+Now dividing equation (i) by (ii)
+$\frac { ar^{ m+n-1 } }{ ar^{ m-n-1 } } =\frac { p }{ q } \Rightarrow$ r^(m + n - 1) - (m - n - 1) = $\frac pq$
+$\Rightarrow$ $r2n = \frac { p }{ q }$
+Taking square root on both sides we get r^n = $\sqrt { \frac { p }{ q } }$ ....(iii)
+Substituting equation (iii) in (i), we get 
+$a.\sqrt { \frac { p }{ q } } .r^{ m-1 }$ = p
+$\Rightarrow a.r^{ m-1 }=p.\sqrt { \frac { q }{ p } } =\sqrt { pq } $
+
+Q16. The vertices of a triangle are (0, 3), (-3, 0) and (3, 0). The orthocenter of the triangle is
+    (A) (3, 0)
+    (B) (-3, 0)
+    (C) (0, 3)   <-- CORRECT
+    (D) (0, -3)
+    Answer: C
+    Explanation: From the given points it is clear that these points form a right-angled isosceles triangle.
+The orthocentre of all right angle lies on its right-angle vertex.
+Here the right angle vertex is (0, 3)
+Hence the orthocentre is (0, 3)
+
+Q17. The range of f(x) = $\frac{1}{1-2 \cos x}$.
+    (A) $(-\infty,-1) \cup[1 / 3, \infty)$
+    (B) [1/3, 1]
+    (C) [-1, 1/3]   <-- CORRECT
+    (D) [-1 /3, 1]
+    Answer: C
+    Explanation: we know, $-1 \leq \cos x \leq 1$
+$-2 \leq-2 \cos x \leq 2$
+$-1 \leq(1-2 \cos x) \leq 3$
+$-1 \leq\left(\frac{1}{1-2 \cos x}\right) \leq \frac{1}{3}$
+So, R(f) = [-1, 1/3]
+
+Q18. Multiplicative inverse of the non zero complex number x + iy (x, y $\in$ R)
+    (A) $-\frac{x}{x+y}+\frac{y}{x+y} i$
+    (B) $-\frac{x}{x^2+y^2}+\frac{y}{x^2+y^2} i$
+    (C) $\frac{x}{x+y}-\frac{y}{x+y} i$
+    (D) $\frac{x}{x^2+y^2}-\frac{y}{x^2+y^2} i$   <-- CORRECT
+    Answer: D
+    Explanation: Multiplicative inverse of the complex number x + iy = $\frac{1}{x+i y}=\frac{1}{x+i y} \cdot \frac{x-i y}{x-i y}=\frac{x-i y}{x^2+y^2}$ [$\because$ i^2 = -1]
+
+Q19. If x, y, z are in A.P., then (x + 2y – z) (x + z – y) (z + 2y – x) is equal to
+    (A) xyz
+    (B) 2xyz
+    (C) 3xyz
+    (D) 4xyz   <-- CORRECT
+    Answer: D
+    Explanation: If the numbers x, y, z are in A.P., we have y = $\frac{x+z}{2}$ ....(i)
+(x + 2y - z) (x+ z - y) (z + 2y - x)
+= (x + x + z - x) (x + z - $\frac{x+z}{2}$) (z + x + z - x) [using (i)]
+= $(2 x)\left(\frac{x+z}{2}\right)(2 z)$ 
+= 4xyz [using (i)]
+
+Q20. If the first, second and last term of an A.P are a, b and 2a respectively, then its sum is:
+    (A) $\frac{3 a b}{2(b-a)}$   <-- CORRECT
+    (B) $\frac{a b}{b-a}$
+    (C) $\frac{5 a b}{2(b-a)}$
+    (D) $\begin{aligned} &\frac{a b}{2(b-a)} \end{aligned}$
+    Answer: A
+    Explanation: Let the A.P. be a, a + d, a + 2d .... a + nd
+Here, let d be the common difference and n be the total number of terms.
+Provided in the question,
+a_1 = a
+a_2 = b
+$\Rightarrow$ a + d = b
+$\Rightarrow$ d = b - a ...(i)
+a_n = 2a
+$\Rightarrow$ a + (n - 1)d = 2a
+$\Rightarrow$ (n - 1)d = a
+$\Rightarrow$ d = $\frac{a}{n-1}$ ...(ii)
+From equations (i) and (ii), we have:
+$\Rightarrow \frac{a}{n-1}$ = b - a
+$\Rightarrow \frac{a}{b-a}$ + 1 = n
+$\Rightarrow \frac{a+b-a}{b-a}$ = n
+$\Rightarrow \frac{b}{b-a}$ = n
+Now, sum of n terms of an A.P.:
+S = $\frac{n}{2}${a + a_n}
+= $\frac{n}{2}$(3a)
+= $\frac{3 a b}{2(b-a)}$
+
+------------------------------------------------------------
+Section C
+------------------------------------------------------------
+Q1. If A and B are two sets, then A $\cap$ (A $\cup$ B) is equal to
+    (A) A   <-- CORRECT
+    (B) B'
+    (C) B
+    (D) A'
+    Answer: A
+    Explanation: Let A = {1, 2, 3, 4} and B = {1, 2, 3, 4, 5, 6}
+Here A $\cup$ B = {1, 2, 3, 4, 5, 6}
+Now A $\cap$ (A $\cup$ B) = {1, 2, 3, 4} = A
+
+Q2. If A = { 1, 2, 3}, B = {x, y} Then the number of functions that can be defined from A into B is
+    (A) 3
+    (B) 12
+    (C) 8   <-- CORRECT
+    (D) 6
+    Answer: C
+    Explanation: Since A has 3 elements and B has 2 elemets, then number of functions from A to B is $2^3=8$
+
+Q3. If (a + ib) = $\sqrt{\frac{1+i}{1-i}}$ then the value of (a^2 + b^2) is
+    (A) 2
+    (B) 1   <-- CORRECT
+    (C) -2
+    (D) -1
+    Answer: B
+    Explanation: (a + ib) = $\frac{\sqrt{1+i}}{\sqrt{1-i}}$ $\Rightarrow$ (a - ib) = $\frac{\sqrt{1+i}}{\sqrt{1-i}}$
+$\Rightarrow$ (a + ib)(a - ib) = $\frac{\sqrt{1+i}}{\sqrt{1-i}} \times \frac{\sqrt{1-i}}{\sqrt{1+i}}$= 1
+$\Rightarrow$ (a^2 + b^2) = 1
+
+Q4. (1+ 3 + 5 + 7+ ... + 999) = ?
+    (A) 249500
+    (B) 251001
+    (C) 249496
+    (D) 250000   <-- CORRECT
+    Answer: D
+    Explanation: Here,we have a = 1, d = 2 and l = 999.
+Let $T_{n}=999 \Rightarrow a+(n-1) d=999$
+$\Rightarrow 1+(n-1) \times 2=999$
+$\Rightarrow(n-1)=\frac{998}{2}=499 \Rightarrow n=500$
+$\therefore \quad S_{n}=\frac{n}{2}(a+l)=\frac{500}{2} \cdot(1+999)=(250 \times 1000)$ = 250000.
+
+Q5. The Q.D. of the daily wages (in ₹) of 7 persons given below: 12, 7, 15, 10, 17, 19, 25 is
+    (A) 5
+    (B) 9
+    (C) 4.5   <-- CORRECT
+    (D) 14.5
+    Answer: C
+    Explanation: The given data in ascending order is
+7, 10, 12, 15, 17, 19, 25
+Q_1 = $\frac{{{{(n + 1)}^{th}}term}}{4}$ = 2^nd term = 10
+Q_3 = $\frac{{3{{(n + 1)}^{th}}term}}{4}$ = 6^th term = 19
+Q.D. = $ \frac{{{Q_3} - {Q_1}}}{2} = \frac{{19 - 10}}{2} = \frac{9}{2} $ = 4.5
+
+Q6. Instructions for Question 46 to 50:
+In an University, out of 100 students 15 students offered Mathematics only, 12 students offered Statistics only, 8 students offered only Physics, 40 students offered Physics and Mathematics, 20 students offered Physics and Statistics, 10 students offered Mathematics and Statistics, 65 students offered Physics.
+The number of students who did not offer any of the above three subjects is
+    (A) 4
+    (B) 3
+    (C) 5
+    (D) 1   <-- CORRECT
+    Answer: D
+    Explanation: 1
+
+Q7. Instructions for Question 46 to 50:
+In an University, out of 100 students 15 students offered Mathematics only, 12 students offered Statistics only, 8 students offered only Physics, 40 students offered Physics and Mathematics, 20 students offered Physics and Statistics, 10 students offered Mathematics and Statistics, 65 students offered Physics.
+The number of students who offered mathematics and statistics but not physics is
+    (A) 5
+    (B) 6
+    (C) 4
+    (D) 7   <-- CORRECT
+    Answer: D
+    Explanation: 7
+
+Q8. Instructions for Question 46 to 50:
+In an University, out of 100 students 15 students offered Mathematics only, 12 students offered Statistics only, 8 students offered only Physics, 40 students offered Physics and Mathematics, 20 students offered Physics and Statistics, 10 students offered Mathematics and Statistics, 65 students offered Physics.
+The number of students who offered statistics is
+    (A) 31
+    (B) 39   <-- CORRECT
+    (C) 34
+    (D) 35
+    Answer: B
+    Explanation: 39
+
+Q9. Instructions for Question 46 to 50:
+In an University, out of 100 students 15 students offered Mathematics only, 12 students offered Statistics only, 8 students offered only Physics, 40 students offered Physics and Mathematics, 20 students offered Physics and Statistics, 10 students offered Mathematics and Statistics, 65 students offered Physics.
+The number of students who offered Mathematics is
+    (A) 65
+    (B) 55
+    (C) 60
+    (D) 62   <-- CORRECT
+    Answer: D
+    Explanation: 62
+
+Q10. Instructions for Question 46 to 50:
+In an University, out of 100 students 15 students offered Mathematics only, 12 students offered Statistics only, 8 students offered only Physics, 40 students offered Physics and Mathematics, 20 students offered Physics and Statistics, 10 students offered Mathematics and Statistics, 65 students offered Physics.
+The number of students who offered all the three subjects is
+    (A) 5
+    (B) 3   <-- CORRECT
+    (C) 4
+    (D) 2
+    Answer: B
+    Explanation: 3

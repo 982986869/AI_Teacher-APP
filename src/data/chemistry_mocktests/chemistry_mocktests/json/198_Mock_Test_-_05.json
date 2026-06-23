@@ -1,0 +1,2070 @@
+{
+  "test_id": 198,
+  "test_name": "Mock Test - 05",
+  "instruction": "The Question Paper contains three sections.\n Section A has 25 questions. Attempt any 20 questions.\n Section B has 24 questions. Attempt any 20 questions.\n Section C has 6 questions. Attempt any 5 questions.\n All questions carry equal marks.\n There is no negative marking.",
+  "duration_min": 90,
+  "no_of_questions": 55,
+  "question_types": {
+    "MULTIPLE_CHOICE_QUESTION": 1,
+    "MULTIPLE_RESPONSE_QUESTION": 2,
+    "SUBJECTIVE_QUESTION": 5,
+    "FILL_IN_THE_BLANKS_ONLINE": 18,
+    "NUMERICAL_QUESTION": 16,
+    "TRUE_AND_FALSE_ONLINE_QUESTION": 17
+  },
+  "sections": [
+    {
+      "section_name": "Section A",
+      "section_id": 714,
+      "questions": [
+        {
+          "id": 21887,
+          "type": "MCQ",
+          "question": "Generally, the first ionization energy increases along a period including some exceptions. One which is NOT an exception is ______.",
+          "question_html": "<p>Generally, the first ionization energy increases along a period including&nbsp;some exceptions. One which is NOT an exception is ______.</p>",
+          "options": [
+            {
+              "id": 42749,
+              "text": "Mg and Al",
+              "html": "Mg and Al",
+              "is_correct": false
+            },
+            {
+              "id": 42746,
+              "text": "Na and Mg",
+              "html": "Na and Mg",
+              "is_correct": true
+            },
+            {
+              "id": 42748,
+              "text": "Be and B",
+              "html": "Be and B",
+              "is_correct": false
+            },
+            {
+              "id": 42747,
+              "text": "N and O",
+              "html": "N and O",
+              "is_correct": false
+            }
+          ],
+          "correct_options": [
+            "Na and Mg"
+          ],
+          "explanation": "The high ionization energy of B, N, and Mg is due to the presence of stable electronic configuration in these atoms as compared to the next element in the period. For example, Be (Is^(2) 2s^(2)) has completely filled orbitals as compared to B (1s^(2) 2s^(2) 2p^(1)) where there is one electron in p-orbital that can easily be lost. Therefore, B has lower ionization energy than Be.",
+          "solutions": []
+        },
+        {
+          "id": 382960,
+          "type": "35",
+          "question": "Which of the following statements about the electron is incorrect?",
+          "question_html": "<p>Which of the following statements about the electron is incorrect?</p>",
+          "options": [
+            {
+              "id": 589696,
+              "text": "It is a basic constituent of all atoms.",
+              "html": "It is a basic constituent of all atoms.",
+              "is_correct": false
+            },
+            {
+              "id": 589697,
+              "text": "It is a constituent of cathode rays.",
+              "html": "It is a constituent of cathode rays.",
+              "is_correct": false
+            },
+            {
+              "id": 589695,
+              "text": "It is a negatively charged particle.",
+              "html": "It is a negatively charged particle.",
+              "is_correct": false
+            },
+            {
+              "id": 589694,
+              "text": "The mass of electron is equal to the mass of neutron.",
+              "html": "The mass of electron is equal to the mass of neutron.",
+              "is_correct": true
+            }
+          ],
+          "correct_options": [
+            "The mass of electron is equal to the mass of neutron."
+          ],
+          "explanation": "Mass of one electron= 9.1 $\\times$ 10^(-31) kg\n\nMass of neutron =1.67 $\\times$ 10^(-27) kg. Therefore, they are not equal.",
+          "solutions": []
+        },
+        {
+          "id": 21904,
+          "type": "MCQ",
+          "question": "The increasing order of bond dissociation energies of the following species is_____.",
+          "question_html": "<p>The increasing order of bond dissociation energies of the following species is_____.</p>",
+          "options": [
+            {
+              "id": 42816,
+              "text": "F_(2) < N_(2) < Cl_(2) < O_(2)",
+              "html": "F<sub>2</sub> &lt; N<sub>2</sub>&nbsp;&lt; Cl<sub>2</sub>&nbsp;&lt; O<sub>2</sub>",
+              "is_correct": false
+            },
+            {
+              "id": 42814,
+              "text": "F_(2) < Cl_(2) < O_(2) < N_(2)",
+              "html": "F<sub>2</sub> &lt; Cl<sub>2</sub> &lt; O<sub>2</sub> &lt; N<sub>2</sub>",
+              "is_correct": true
+            },
+            {
+              "id": 42815,
+              "text": "N_(2 )< O_(2 )< F_(2) < Cl_(2)",
+              "html": "N<sub>2&nbsp;</sub>&lt; O<sub>2&nbsp;</sub>&lt; F<sub>2</sub> &lt; Cl<sub>2</sub>",
+              "is_correct": false
+            },
+            {
+              "id": 42817,
+              "text": "Cl_(2) < O_(2) < N_(2) < F_(2)",
+              "html": "Cl<sub>2</sub>&nbsp;&lt; O<sub>2</sub>&nbsp;&lt; N<sub>2</sub>&nbsp;&lt; F<sub>2</sub>",
+              "is_correct": false
+            }
+          ],
+          "correct_options": [
+            "F_(2) < Cl_(2) < O_(2) < N_(2)"
+          ],
+          "explanation": "As bond order increases bond dissociation energy also increases.\n\nThus N_(2)\n\n The triple bonded N_(2) with bond order = 3 has the highest bond dissociation energy.\n The doubly bonded O_(2) with bond order = 2 has lesser bond dissociation energy than N_(2)\n F_(2) and Cl_(2) both are single bonded having the same bond order = 1 \n\nBut, the electron-electron repulsive force (e-e repulsion) is maximum in the F_(2) molecule due to its small size. This accounts for the lower bond dissociation energy of F_(2 ) as compared to Cl_(2).",
+          "solutions": []
+        },
+        {
+          "id": 21939,
+          "type": "MCQ",
+          "question": "The number of dots around the Lewis symbols for the elements represent:",
+          "question_html": "<p>The number of dots around the Lewis symbols for the elements represent:</p>",
+          "options": [
+            {
+              "id": 42955,
+              "text": "group valence of the element",
+              "html": "group valence of the element",
+              "is_correct": false
+            },
+            {
+              "id": 42957,
+              "text": "coordinate valency",
+              "html": "coordinate valency",
+              "is_correct": false
+            },
+            {
+              "id": 42956,
+              "text": "electrovalency",
+              "html": "electrovalency",
+              "is_correct": false
+            },
+            {
+              "id": 42954,
+              "text": "the number of valence electrons of the element",
+              "html": "the number of valence electrons of the element",
+              "is_correct": true
+            }
+          ],
+          "correct_options": [
+            "the number of valence electrons of the element"
+          ],
+          "explanation": "Gilbert N. Lewis is widely known for his use of simple symbolic representations of elements that show valence electrons as dots.\n\nThe Lewis electron-dot symbols focus on the electrons in the highest principal energy level in the atom, the valence electrons.\n\nAfter all, these are the electrons that participate in chemical reactions. Lewis electron-dot symbols work well for the representative elements.",
+          "solutions": []
+        },
+        {
+          "id": 69171,
+          "type": "MCQ",
+          "question": "Which of the following is most powerful oxidizing agent in the following:",
+          "question_html": "<p>Which of the following is most powerful oxidizing agent in the following:</p>",
+          "options": [
+            {
+              "id": 210974,
+              "text": "KMnO_(4)",
+              "html": "KMnO<sub>4</sub>",
+              "is_correct": false
+            },
+            {
+              "id": 210976,
+              "text": "K_(2)Cr_(2)O_(7)",
+              "html": "K<sub>2</sub>Cr<sub>2</sub>O<sub>7</sub>",
+              "is_correct": false
+            },
+            {
+              "id": 210973,
+              "text": "O_(3)",
+              "html": "O<sub>3</sub>",
+              "is_correct": true
+            },
+            {
+              "id": 210975,
+              "text": "H_(2)O_(2)",
+              "html": "H<sub>2</sub>O<sub>2</sub>",
+              "is_correct": false
+            }
+          ],
+          "correct_options": [
+            "O_(3)"
+          ],
+          "explanation": "Ozone act as powerful oxidising agent because it can easily decompose to give an atom of nascent oxygen which is more reactive than O_(2).",
+          "solutions": []
+        },
+        {
+          "id": 22325,
+          "type": "MCQ",
+          "question": "Ammonia (NH_(3)) is an example of:",
+          "question_html": "<p>Ammonia (NH<sub>3</sub>) is an example of:</p>",
+          "options": [
+            {
+              "id": 44498,
+              "text": "electron-precise compounds",
+              "html": "electron-precise compounds",
+              "is_correct": false
+            },
+            {
+              "id": 44500,
+              "text": "electron acceptors",
+              "html": "electron acceptors",
+              "is_correct": false
+            },
+            {
+              "id": 44499,
+              "text": "electron-deficient compounds",
+              "html": "electron-deficient compounds",
+              "is_correct": false
+            },
+            {
+              "id": 44497,
+              "text": "electron-rich hydrides",
+              "html": "electron-rich hydrides",
+              "is_correct": true
+            }
+          ],
+          "correct_options": [
+            "electron-rich hydrides"
+          ],
+          "explanation": "Dihydrogen under certain reaction conditions combines with almost all elements except noble gases to form compounds called hydrides. Electron –rich hydrides, as the name suggests, are compounds of hydrogen with other elements that have excess electrons present as lone-pairs. For example, ammonia –NH_(3) is a hydride of nitrogen that has one lone pair, water (H_(2)O) is a hydride of oxygen that has two lone pairs, etc. As these are electron-rich species, they can donate electrons that is they are lewis bases.",
+          "solutions": []
+        },
+        {
+          "id": 22561,
+          "type": "MCQ",
+          "question": "Electronegativity of carbon atoms depends upon their state of hybridisation. In which of the following compounds, the carbon marked with asterisk is most electronegative?",
+          "question_html": "<p>Electronegativity of carbon atoms depends upon their state of hybridisation. In which of the following compounds, the carbon marked with asterisk is most electronegative?</p>\r\n",
+          "options": [
+            {
+              "id": 45440,
+              "text": "$\\text{C}{\\text{H}}_\\text3-\\text{ C}{\\text{H}}_\\text2-\\text{ }\\ast\\text{C}{\\text{H}}_\\text2-\\text{ C}{\\text{H}}_\\text3$",
+              "html": "<span class=\"math-tex\">{tex}\\text{C}{\\text{H}}_\\text3-\\text{ C}{\\text{H}}_\\text2-\\text{ }\\ast\\text{C}{\\text{H}}_\\text2-\\text{ C}{\\text{H}}_\\text3{/tex}</span>",
+              "is_correct": false
+            },
+            {
+              "id": 45442,
+              "text": "$\\text{C}{\\text{H}}_\\text3-\\text{ C}{\\text{H}}_\\text2-\\text{ C }\\equiv\\text{ }\\ast\\text{CH}$",
+              "html": "<span class=\"math-tex\">{tex}\\text{C}{\\text{H}}_\\text3-\\text{ C}{\\text{H}}_\\text2-\\text{ C }\\equiv\\text{ }\\ast\\text{CH}{/tex}</span>",
+              "is_correct": true
+            },
+            {
+              "id": 45441,
+              "text": "$\\text{C}{\\text{H}}_\\text3-\\text{ }\\ast\\text{CH }=\\text{ CH }-\\text{ C}{\\text{H}}_\\text3$",
+              "html": "<span class=\"math-tex\">{tex}\\text{C}{\\text{H}}_\\text3-\\text{ }\\ast\\text{CH }=\\text{ CH }-\\text{ C}{\\text{H}}_\\text3{/tex}</span>",
+              "is_correct": false
+            },
+            {
+              "id": 45443,
+              "text": "${\\text{C}}{{\\text{H}}_{\\text{3}}}-{\\text{ C}}{{\\text{H}}_{\\text{2}}}-{\\text{ CH }} = {\\text{ }}*{\\text{C}}{{\\text{H}}_{\\text{2}}}$",
+              "html": "<span class=\"math-tex\">{tex}{\\text{C}}{{\\text{H}}_{\\text{3}}}-{\\text{ C}}{{\\text{H}}_{\\text{2}}}-{\\text{ CH }} = {\\text{ }}*{\\text{C}}{{\\text{H}}_{\\text{2}}}{/tex}</span>",
+              "is_correct": false
+            }
+          ],
+          "correct_options": [
+            "$\\text{C}{\\text{H}}_\\text3-\\text{ C}{\\text{H}}_\\text2-\\text{ C }\\equiv\\text{ }\\ast\\text{CH}$"
+          ],
+          "explanation": "Greater is the s character of the hybridised orbital, greater is the electronegativity of the atom. In a triply bonded C, there is sp hybridisation. In sp hybridization, the atom has maximum s character (50%). So in this case the carbon with a triple bond has maximum electronegativity.",
+          "solutions": []
+        },
+        {
+          "id": 61976,
+          "type": "MCQ",
+          "question": "For the reaction, 2 N_(2)H_(4) (l) + N_(2)O_(4 )(l) $\\to $ 3N_(2)(g) + 4H_(2)O(l), if 160 g of N_(2)H_(4 )is mixed with 160 g N_(2)O_(4), the yield of H_(2)O is:",
+          "question_html": "<p>For the reaction, 2 N<sub>2</sub>H<sub>4</sub> (l) + N<sub>2</sub>O<sub>4 </sub>(l) <span class=\"math-tex\">{tex}\\to {/tex}</span> 3N<sub>2</sub>(g) + 4H<sub>2</sub>O(l), if 160 g of N<sub>2</sub>H<sub>4 </sub>is mixed with 160 g N<sub>2</sub>O<sub>4</sub>, the yield of H<sub>2</sub>O is:</p>",
+          "options": [
+            {
+              "id": 203089,
+              "text": "115.0 g",
+              "html": "115.0 g",
+              "is_correct": false
+            },
+            {
+              "id": 203087,
+              "text": "124.56 g",
+              "html": "124.56 g",
+              "is_correct": true
+            },
+            {
+              "id": 203088,
+              "text": "120.5 g",
+              "html": "120.5 g",
+              "is_correct": false
+            },
+            {
+              "id": 203090,
+              "text": "105.0 g",
+              "html": "105.0 g",
+              "is_correct": false
+            }
+          ],
+          "correct_options": [
+            "124.56 g"
+          ],
+          "explanation": "Calculations:\n\nMoles of N_(2)H_(4)\n\n= $\\frac{160}{32}$ \n\n= 5 moles \n\nMoles of N_(2)O_(4)\n\n= $\\frac{160}{92}$ \n\n= 1.739 moles\n\nAs per stoichiometry of the given reaction,\n\n2 moles of N_(2)H_(4) require 1 mole of N_(2)O_(4),\n\n $\\therefore$ 5 mole of N_(2)H_(4) will need 2.5 moles of N_(2)O_(4)\n\n. But we have only 1.73 mole of N_(2)O_(4) so it would be consumed first.\n\nThus N_(2)O_(4) is the limiting reagent for this reaction.\n\nAgain, since 1 mole of N_(2)O_(4 )yields water\n\n= 4 mole of water\n\n $ \\therefore$ 1.73 mole of N_(2)O_(4) will yield water\n\n= 6.92 moles\n\n $\\equiv $ (6.92 $\\times$ 18) g\n\n= 124.56g of water",
+          "solutions": []
+        },
+        {
+          "id": 61980,
+          "type": "MCQ",
+          "question": "The total energy of an electron in the first excited state of the hydrogen atom is about −3.4 eV. What is the kinetic energy of the electron in this state?",
+          "question_html": "<p>The total energy of an electron in the first excited state of the hydrogen atom is about &minus;3.4 eV. What is the kinetic energy of the electron in this state?</p>",
+          "options": [
+            {
+              "id": 203104,
+              "text": "+6.8 eV",
+              "html": "+6.8 eV",
+              "is_correct": false
+            },
+            {
+              "id": 203103,
+              "text": "+3.4 eV",
+              "html": "+3.4 eV",
+              "is_correct": true
+            },
+            {
+              "id": 203106,
+              "text": "-3.4 eV",
+              "html": "-3.4 eV",
+              "is_correct": false
+            },
+            {
+              "id": 203105,
+              "text": "+1.7 eV",
+              "html": "+1.7 eV",
+              "is_correct": false
+            }
+          ],
+          "correct_options": [
+            "+3.4 eV"
+          ],
+          "explanation": "Total energy of the electron, E = −3.4 eV\n\nKinetic energy of the electron is equal to the negative of the total energy.\n\nK = −E = − (− 3.4) = +3.4 eV\n\nHence, the kinetic energy of the electron in the given state is +3.4 eV.",
+          "solutions": []
+        },
+        {
+          "id": 22576,
+          "type": "MCQ",
+          "question": "The elements present in an organic compound are converted from covalent form into the ionic form by fusing the compound with sodium metal. This test is called:",
+          "question_html": "<p>The elements present in an organic compound are converted from covalent form into the ionic form by fusing the compound with sodium metal. This test is called:</p>\r\n",
+          "options": [
+            {
+              "id": 45503,
+              "text": "Feulgen test",
+              "html": "Feulgen test",
+              "is_correct": false
+            },
+            {
+              "id": 45502,
+              "text": "Fehling’s test",
+              "html": "Fehling&rsquo;s test",
+              "is_correct": false
+            },
+            {
+              "id": 45501,
+              "text": "Iodoform test",
+              "html": "Iodoform test",
+              "is_correct": false
+            },
+            {
+              "id": 45500,
+              "text": "Lassaigne’s test",
+              "html": "Lassaigne&rsquo;s test",
+              "is_correct": true
+            }
+          ],
+          "correct_options": [
+            "Lassaigne’s test"
+          ],
+          "explanation": "Nitrogen, sulphur, halogens, and phosphorus present in an organic compound are detected by “Lassaigne’s test”. The elements present in the compound are converted from the covalent form into the ionic form by fusing the compound with sodium metal. Cyanide, sulphide and halide of sodium so formed on sodium fusion are extracted from the fused mass by boiling it with distilled water. This extract is known as sodium fusion extract.",
+          "solutions": []
+        },
+        {
+          "id": 21942,
+          "type": "MCQ",
+          "question": "788 kJ of energy is required to separate one mole of solid NaCl into one mole of Na^(+) (g) and one mole of Cl^(-) (g) to an infinite distance. This process explains:",
+          "question_html": "<p>788 kJ of energy is required to separate one mole of solid NaCl into one mole of Na<sup>+</sup> (g) and one mole of Cl<sup>-</sup> (g) to an infinite distance. This process explains:</p>",
+          "options": [
+            {
+              "id": 42969,
+              "text": "electron gain enthalpy",
+              "html": "electron gain enthalpy",
+              "is_correct": false
+            },
+            {
+              "id": 42967,
+              "text": "Electron affinity",
+              "html": "Electron affinity",
+              "is_correct": false
+            },
+            {
+              "id": 42966,
+              "text": "lattice enthalpy",
+              "html": "lattice enthalpy",
+              "is_correct": true
+            },
+            {
+              "id": 42968,
+              "text": "ionization enthalpy",
+              "html": "ionization enthalpy",
+              "is_correct": false
+            }
+          ],
+          "correct_options": [
+            "lattice enthalpy"
+          ],
+          "explanation": "Lattice enthalpy is simply the change in Enthalpy associated with the formation of one mole of an ionic compound from its oppositely charged ions in their standard states under standard conditions.",
+          "solutions": []
+        },
+        {
+          "id": 69179,
+          "type": "MCQ",
+          "question": "Which of the following are not redox reactions?\n\na) K_(4)[Fe(CN)_(6)] + H_(2)SO_(4) + H_(2)O $ \\to $ K_(2)SO_(4) + CO + FeSO_(4) + (NH_(4))_(2)SO_(4).\n\nb) $CuS{O_4} + N{H_3} \\to [Cu{(N{H_3})_4}S{O_4}$ .\n\nc)​​​​​​​ $Mg + {N_2} \\to M{g_3}{N_2}$ .\n\nd) ${I_2} + 3C{l_2} \\to 2IC{l_3}$",
+          "question_html": "<p>Which of the following are not redox reactions?</p>\n\n<p>a) K<sub>4</sub>[Fe(CN)<sub>6</sub>] + H<sub>2</sub>SO<sub>4</sub> + H<sub>2</sub>O <span class=\"math-tex\">{tex} \\to {/tex}</span>&nbsp;K<sub>2</sub>SO<sub>4</sub> + CO + FeSO<sub>4</sub> + (NH<sub>4</sub>)<sub>2</sub>SO<sub>4</sub>.</p>\n\n<p>b)&nbsp;&nbsp;<span class=\"math-tex\">{tex}CuS{O_4} + N{H_3} \\to [Cu{(N{H_3})_4}S{O_4}{/tex}</span>.</p>\n\n<p>c)​​​​​​​&nbsp;<span class=\"math-tex\">{tex}Mg + {N_2} \\to M{g_3}{N_2}{/tex}</span>.</p>\n\n<p>d)&nbsp;<span class=\"math-tex\">{tex}{I_2} + 3C{l_2} \\to 2IC{l_3}{/tex}</span></p>",
+          "options": [
+            {
+              "id": 211005,
+              "text": "a, b",
+              "html": "a, b",
+              "is_correct": true
+            },
+            {
+              "id": 211007,
+              "text": "b only",
+              "html": "b only",
+              "is_correct": false
+            },
+            {
+              "id": 211006,
+              "text": "b, d",
+              "html": "b, d",
+              "is_correct": false
+            },
+            {
+              "id": 211008,
+              "text": "c, d",
+              "html": "c, d",
+              "is_correct": false
+            }
+          ],
+          "correct_options": [
+            "a, b"
+          ],
+          "explanation": "a) K_(4)[Fe(CN)_(6)] + H_(2)SO_(4) + H_(2)O $ \\to $ K_(2)SO_(4) + CO + FeSO_(4) + (NH_(4))_(2)SO_(4)\n\nb) $CuS{O_4} + N{H_3} \\to [Cu{(N{H_3})_4}S{O_4}$ \n\nSince, oxidation number of each element does not change in these reactions, so these are not redox reactions.",
+          "solutions": []
+        },
+        {
+          "id": 22311,
+          "type": "MCQ",
+          "question": "Which is used hydrogen generators:",
+          "question_html": "<p>Which is used hydrogen generators:</p>",
+          "options": [
+            {
+              "id": 44444,
+              "text": "HI",
+              "html": "HI",
+              "is_correct": false
+            },
+            {
+              "id": 44443,
+              "text": "$S _ { 6 } H _ { 3 }$",
+              "html": "<span class=\"math-tex\">{tex}S _ { 6 } H _ { 3 }{/tex}</span>",
+              "is_correct": false
+            },
+            {
+              "id": 44441,
+              "text": "NaH",
+              "html": "NaH",
+              "is_correct": true
+            },
+            {
+              "id": 44442,
+              "text": "high ionization enthalpy",
+              "html": "high ionization enthalpy",
+              "is_correct": false
+            }
+          ],
+          "correct_options": [
+            "NaH"
+          ],
+          "explanation": "NaH\n\n $N a H + H _ { 2 } O \\rightarrow N a O H + H _ { 2 } \\uparrow$",
+          "solutions": []
+        },
+        {
+          "id": 22542,
+          "type": "MCQ",
+          "question": "Delocalisation of σ-electrons of C - H bond of an alkyl group directly attached to an atom of unsaturated system or to an atom with an unshared p-orbital is called",
+          "question_html": "<p>Delocalisation of &sigma;-electrons of C - H bond of an alkyl group directly attached to an atom of unsaturated system or to an atom with an unshared p-orbital is called</p>",
+          "options": [
+            {
+              "id": 45366,
+              "text": "Elimination reactions",
+              "html": "Elimination reactions",
+              "is_correct": false
+            },
+            {
+              "id": 45367,
+              "text": "Rearrangement reactions",
+              "html": "Rearrangement reactions",
+              "is_correct": false
+            },
+            {
+              "id": 45365,
+              "text": "Substitution reactions",
+              "html": "Substitution reactions",
+              "is_correct": false
+            },
+            {
+              "id": 45364,
+              "text": "Hyperconjugation",
+              "html": "Hyperconjugation",
+              "is_correct": true
+            }
+          ],
+          "correct_options": [
+            "Hyperconjugation"
+          ],
+          "explanation": "The interaction of the electrons in a sigma bond (usually C–H or C–C) with an adjacent empty (or partially filled) non-bonding p-orbital, antibonding $\\sigma$ or $\\pi$ orbital or filled $\\pi$ orbital, to give an extended molecular orbital that increases the stability of the system is Hyperconjugation.",
+          "solutions": []
+        },
+        {
+          "id": 61911,
+          "type": "MCQ",
+          "question": "In a homogeneous mixture, the components are:",
+          "question_html": "<p>In a homogeneous mixture, the components are:</p>",
+          "options": [
+            {
+              "id": 202829,
+              "text": "do not mix with each other and its composition is uniform throughout.",
+              "html": "&nbsp;do not mix with each other and its composition is uniform throughout.",
+              "is_correct": false
+            },
+            {
+              "id": 202831,
+              "text": "do not mix with each other and its composition is not uniform throughout.",
+              "html": "&nbsp;do not mix with each other and its composition is not uniform throughout.",
+              "is_correct": false
+            },
+            {
+              "id": 202828,
+              "text": "completely mixed with each other and its composition is uniform throughout.",
+              "html": "completely mixed with each other and its composition is &nbsp;uniform throughout.",
+              "is_correct": true
+            },
+            {
+              "id": 202830,
+              "text": "completely mix with each other and its composition is not uniform throughout.",
+              "html": "&nbsp;completely mix with each other and its composition is not uniform throughout.",
+              "is_correct": false
+            }
+          ],
+          "correct_options": [
+            "completely mixed with each other and its composition is uniform throughout."
+          ],
+          "explanation": "In a homogeneous mixture,\n\n the components are mixed together completely.\n has a uniform composition throughout.",
+          "solutions": []
+        },
+        {
+          "id": 21823,
+          "type": "MCQ",
+          "question": "The number of radial nodes for 3p orbital is __________.",
+          "question_html": "<p>The number of radial nodes for 3p orbital is __________.</p>",
+          "options": [
+            {
+              "id": 42491,
+              "text": "2",
+              "html": "2",
+              "is_correct": false
+            },
+            {
+              "id": 42492,
+              "text": "3",
+              "html": "3",
+              "is_correct": false
+            },
+            {
+              "id": 42490,
+              "text": "1",
+              "html": "1",
+              "is_correct": true
+            },
+            {
+              "id": 42493,
+              "text": "4",
+              "html": "4",
+              "is_correct": false
+            }
+          ],
+          "correct_options": [
+            "1"
+          ],
+          "explanation": "Number of radial nodes = n−l−1\n\nwhere n = principal quantum number, l = azimuthal quantum number\n\nFor 3p orbital, n=3 and l=1\n\n $\\therefore$ The number of radial nodes for 3p orbital =3−1−1=3−2=1.",
+          "solutions": []
+        },
+        {
+          "id": 22264,
+          "type": "MCQ",
+          "question": "Electrochemical processes for extraction of highly reactive metal and non-metal involves one of the following. Choose the most appropriate option.",
+          "question_html": "<p>Electrochemical processes for extraction of highly reactive metal and non-metal involves one of the following. Choose the most appropriate option.</p>",
+          "options": [
+            {
+              "id": 44257,
+              "text": "reaction with inert gases",
+              "html": "reaction with inert gases",
+              "is_correct": false
+            },
+            {
+              "id": 44254,
+              "text": "redox processes",
+              "html": "redox processes",
+              "is_correct": true
+            },
+            {
+              "id": 44255,
+              "text": "oxidation processes",
+              "html": "oxidation processes",
+              "is_correct": false
+            },
+            {
+              "id": 44256,
+              "text": "reduction processes",
+              "html": "reduction processes",
+              "is_correct": false
+            }
+          ],
+          "correct_options": [
+            "redox processes"
+          ],
+          "explanation": "The electrochemical process for extraction of metal or non-metal from its ore involves the redox reaction i.e. oxidation and reduction takes place simultaneously. For example, extraction of Na and Cl_(2 )from NaCl.",
+          "solutions": []
+        },
+        {
+          "id": 21936,
+          "type": "MCQ",
+          "question": "The inertness of noble gas was observed to be due to their electronic configurations. Choose the most appropriate:",
+          "question_html": "<p>The inertness of noble gas was observed to be due to their electronic configurations. Choose the most appropriate:</p>",
+          "options": [
+            {
+              "id": 42945,
+              "text": "Atomic mass is low so they are stable.",
+              "html": "Atomic mass is low so they are stable.",
+              "is_correct": false
+            },
+            {
+              "id": 42943,
+              "text": "Noble gases form ions to complete their outermost orbitals.",
+              "html": "Noble gases form ions to complete their outermost orbitals.",
+              "is_correct": false
+            },
+            {
+              "id": 42944,
+              "text": "Total number of electrons in the outermost shell is duplets.",
+              "html": "Total number of electrons in the outermost shell is duplets.",
+              "is_correct": false
+            },
+            {
+              "id": 42942,
+              "text": "Outermost orbitals of the noble gases are fully filled.",
+              "html": "Outermost orbitals of the noble gases are fully filled<strong>.</strong>",
+              "is_correct": true
+            }
+          ],
+          "correct_options": [
+            "Outermost orbitals of the noble gases are fully filled."
+          ],
+          "explanation": "The six noble gases (Helium, Neon, Argon, Krypton, Xenon, Radon) are found in group 18 of the periodic table. These elements were considered to be inert gases until the 1960s because their oxidation number of 0 prevents the noble gases from forming compounds readily. All noble gases have the maximum number of electrons possible in their outer shell (2 for Helium, 8 for all others), making them stable.",
+          "solutions": []
+        },
+        {
+          "id": 22557,
+          "type": "MCQ",
+          "question": "Carius tube is used in the estimations of which one of the following?",
+          "question_html": "<p>Carius tube is used in the estimations of which one of the following?</p>\r\n",
+          "options": [
+            {
+              "id": 45426,
+              "text": "sulphur and nitrogen",
+              "html": "sulphur and nitrogen",
+              "is_correct": false
+            },
+            {
+              "id": 45427,
+              "text": "sulphur and oxygen",
+              "html": "sulphur and oxygen",
+              "is_correct": false
+            },
+            {
+              "id": 45425,
+              "text": "halogen and nitrogen",
+              "html": "halogen and nitrogen",
+              "is_correct": false
+            },
+            {
+              "id": 45424,
+              "text": "halogen and sulphur",
+              "html": "halogen and sulphur",
+              "is_correct": true
+            }
+          ],
+          "correct_options": [
+            "halogen and sulphur"
+          ],
+          "explanation": "It is used in the estimation of Halogen and Sulphur. For estimation of sulphur a known mass of an organic compound is heated in a hard glass tube called a Carius tube with sodium peroxide or fuming nitric acid. For estimation of halogen, a known mass of an organic compound is heated with fuming nitric acid in the presence of silver nitrate contained in a Carius tube, in a furnace.",
+          "solutions": []
+        },
+        {
+          "id": 61953,
+          "type": "Numerical/MCQ",
+          "question": "Choose the most appropriate option to complete the statement - \" Whenever there is a rearrangement of atoms which makes or breaks chemical bonds __________.\"",
+          "question_html": "<p>Choose the most appropriate option to complete the statement - &quot; Whenever there is a rearrangement of atoms which makes or breaks chemical bonds __________.&quot;</p>\r\n",
+          "options": [
+            {
+              "id": 202997,
+              "text": "reactants disappear",
+              "html": "reactants disappear",
+              "is_correct": false
+            },
+            {
+              "id": 202998,
+              "text": "products appear,",
+              "html": "products appear,",
+              "is_correct": false
+            },
+            {
+              "id": 202999,
+              "text": "catalysts are produced.",
+              "html": "catalysts are produced.",
+              "is_correct": false
+            },
+            {
+              "id": 202996,
+              "text": "a chemical reaction takes place",
+              "html": "a chemical reaction takes place",
+              "is_correct": true
+            }
+          ],
+          "correct_options": [
+            "a chemical reaction takes place"
+          ],
+          "explanation": "The occurrence of a chemical reaction is always associated with the breaking and formation of bonds of the reactant and products along with rearrangement of their atoms, hence the statement at option 1 is most appropriate i.e. \" Whenever there is a rearrangement of atoms which makes or breaks chemical bonds a chemical reaction takes place.\"",
+          "solutions": []
+        },
+        {
+          "id": 21843,
+          "type": "Numerical/MCQ",
+          "question": "15 km is equal to ______ m?",
+          "question_html": "<p>15 km is equal to ______ m?</p>",
+          "options": [
+            {
+              "id": 42571,
+              "text": "1500 m",
+              "html": "1500 m",
+              "is_correct": false
+            },
+            {
+              "id": 42572,
+              "text": "150 m",
+              "html": "150&nbsp;m",
+              "is_correct": false
+            },
+            {
+              "id": 42573,
+              "text": "0.0015 m",
+              "html": "0.0015&nbsp;m",
+              "is_correct": false
+            },
+            {
+              "id": 42570,
+              "text": "15000 m",
+              "html": "15000 m",
+              "is_correct": true
+            }
+          ],
+          "correct_options": [
+            "15000 m"
+          ],
+          "explanation": "Since, 1 km\n\n= 1000 m\n\n $\\therefore$ 15 km \n\n= ( 15 $\\times$ 1000 ) m\n\n= 15000 m.",
+          "solutions": []
+        },
+        {
+          "id": 22269,
+          "type": "MCQ",
+          "question": "Silver article turns black when kept in the open for a few days due to formation of",
+          "question_html": "<p>Silver article turns black when kept in the open for a few days due to formation of</p>\r\n",
+          "options": [
+            {
+              "id": 44277,
+              "text": "H_(2)S",
+              "html": "H<sub>2</sub>S",
+              "is_correct": false
+            },
+            {
+              "id": 44274,
+              "text": "Ag_(2)S",
+              "html": "Ag<sub>2</sub>S",
+              "is_correct": true
+            },
+            {
+              "id": 44276,
+              "text": "AgS",
+              "html": "AgS",
+              "is_correct": false
+            },
+            {
+              "id": 44275,
+              "text": "AgSO_(4)",
+              "html": "AgSO<sub>4</sub>",
+              "is_correct": false
+            }
+          ],
+          "correct_options": [
+            "Ag_(2)S"
+          ],
+          "explanation": "Ag_(2)S",
+          "solutions": []
+        },
+        {
+          "id": 21940,
+          "type": "MCQ",
+          "question": "The formation of the Cl_(2 )molecule can be understood in terms of the sharing of a pair of electrons between the two chlorine atoms, each chlorine atom contributing one electron to the shared pair. Choose the most appropriate name of the bond that is formed:",
+          "question_html": "<p>The formation of the Cl<sub>2 </sub>molecule can be understood in terms of the sharing of a pair of electrons between the two chlorine atoms, each chlorine atom contributing one electron to the shared pair. Choose the most appropriate name of the bond that is formed:</p>",
+          "options": [
+            {
+              "id": 42961,
+              "text": "ionic bond",
+              "html": "ionic bond",
+              "is_correct": false
+            },
+            {
+              "id": 42959,
+              "text": "double bond",
+              "html": "double bond",
+              "is_correct": false
+            },
+            {
+              "id": 42958,
+              "text": "a single covalent bond",
+              "html": "a single covalent bond",
+              "is_correct": true
+            },
+            {
+              "id": 42960,
+              "text": "multiple bond",
+              "html": "multiple bond",
+              "is_correct": false
+            }
+          ],
+          "correct_options": [
+            "a single covalent bond"
+          ],
+          "explanation": "Two chlorine atoms will each share one electron to get a full outer shell and form a stable Cl_(2) molecule. By sharing the two electrons where the shells touch each chlorine atom can count 8 electrons in its outer shell. These full outer shells with their shared electrons are now stable and the Cl_(2) molecule will not react further with other chlorine atoms. One pair of shared electrons form a single covalent bond.",
+          "solutions": []
+        },
+        {
+          "id": 22544,
+          "type": "MCQ",
+          "question": "Covalent bonds are formed with other carbon atoms due to:",
+          "question_html": "<p>Covalent bonds are formed with other carbon atoms due to:</p>",
+          "options": [
+            {
+              "id": 45373,
+              "text": "ionisation",
+              "html": "ionisation",
+              "is_correct": false
+            },
+            {
+              "id": 45375,
+              "text": "substitution",
+              "html": "substitution",
+              "is_correct": false
+            },
+            {
+              "id": 45374,
+              "text": "coordination",
+              "html": "coordination",
+              "is_correct": false
+            },
+            {
+              "id": 45372,
+              "text": "catenation",
+              "html": "catenation",
+              "is_correct": true
+            }
+          ],
+          "correct_options": [
+            "catenation"
+          ],
+          "explanation": "Catenation is the linkage of atoms of the same element into longer chains. Catenation occurs most readily in carbon, which forms covalent bonds with other carbon atoms to form longer chains and structures. This is the reason for the presence of the vast number of organic compounds in nature.",
+          "solutions": []
+        },
+        {
+          "id": 167379,
+          "type": "35",
+          "question": "Which of the following reactions is not correct according to the law of conservation of mass.",
+          "question_html": "<p>Which of the following reactions is not correct according to the law of conservation of mass.</p>\r\n",
+          "options": [
+            {
+              "id": 314176,
+              "text": "2Mg(s) + O_(2)(g) $\\rightarrow$ 2MgO(s)",
+              "html": "2Mg(s) + O<sub>2</sub>(g) <span class=\"math-tex\">{tex}\\rightarrow{/tex}</span>&nbsp;2MgO(s)",
+              "is_correct": false
+            },
+            {
+              "id": 314175,
+              "text": "C_(3)H_(8)(g) + O_(2)(g) $\\rightarrow $ CO_(2) (g) + H_(2)O (g)",
+              "html": "C<sub>3</sub>H<sub>8</sub>(g) + O<sub>2</sub>(g) <span class=\"math-tex\">{tex}\\rightarrow {/tex}</span>CO<sub>2</sub> (g) + H<sub>2</sub>O (g)",
+              "is_correct": true
+            },
+            {
+              "id": 314177,
+              "text": "P_(4)(s) + 5O_(2)(g) $ \\rightarrow$ P_(4)O_(10)(s)",
+              "html": "P<sub>4</sub>(s) + 5O<sub>2</sub>(g)&nbsp;<span class=\"math-tex\">{tex} \\rightarrow{/tex}</span>&nbsp;P<sub>4</sub>O<sub>10</sub>(s)",
+              "is_correct": false
+            },
+            {
+              "id": 314178,
+              "text": "CH_(4)(g) + 2O_(2)(g) $\\rightarrow$ CO_(2)(g) + 2H_(2)O(g)",
+              "html": "CH<sub>4</sub>(g) + 2O<sub>2</sub>(g) <span class=\"math-tex\">{tex}\\rightarrow{/tex}</span>&nbsp;CO<sub>2</sub>(g) + 2H<sub>2</sub>O(g)",
+              "is_correct": false
+            }
+          ],
+          "correct_options": [
+            "C_(3)H_(8)(g) + O_(2)(g) $\\rightarrow $ CO_(2) (g) + H_(2)O (g)"
+          ],
+          "explanation": "According to law of conservation of mass, the number of atoms in each side of reaction must be equal. i.e mass of reactant = mass of product.\n\nIn this equation, No. of atoms in the reactant side is not equal to the no. of atoms in the product side.\n\nHence, law of conservation of mass is not satisfied.",
+          "solutions": []
+        }
+      ]
+    },
+    {
+      "section_name": "Section B",
+      "section_id": 715,
+      "questions": [
+        {
+          "id": 62051,
+          "type": "MCQ",
+          "question": "The wave character of electrons is used in the construction of",
+          "question_html": "<p>The&nbsp;wave character of electrons is used in the construction of</p>",
+          "options": [
+            {
+              "id": 203390,
+              "text": "fluorescence microscope",
+              "html": "fluorescence microscope",
+              "is_correct": false
+            },
+            {
+              "id": 203387,
+              "text": "electron microscope",
+              "html": "electron microscope",
+              "is_correct": true
+            },
+            {
+              "id": 203389,
+              "text": "compound microscope",
+              "html": "compound microscope",
+              "is_correct": false
+            },
+            {
+              "id": 203388,
+              "text": "light microscope",
+              "html": "light microscope",
+              "is_correct": false
+            }
+          ],
+          "correct_options": [
+            "electron microscope"
+          ],
+          "explanation": "The electron microscope uses a beam of accelerated electrons as a source of illumination. The wavelength of an electron being much shorter than the visible light the electron microscope has a higher resolving power.",
+          "solutions": []
+        },
+        {
+          "id": 21989,
+          "type": "MCQ",
+          "question": "Using MO theory predicts which of the following species has the shortest bond length?",
+          "question_html": "<p>Using MO theory predicts which of the following species has the shortest bond length?</p>",
+          "options": [
+            {
+              "id": 43154,
+              "text": "$O_2^{2 + }$",
+              "html": "<span class=\"math-tex\">{tex}O_2^{2 + }{/tex}</span>",
+              "is_correct": true
+            },
+            {
+              "id": 43155,
+              "text": "${\\text{O}}_2^ - $",
+              "html": "<span class=\"math-tex\">{tex}{\\text{O}}_2^ - {/tex}</span>",
+              "is_correct": false
+            },
+            {
+              "id": 43157,
+              "text": "${\\text{O}}_2^ + $",
+              "html": "<span class=\"math-tex\">{tex}{\\text{O}}_2^ + {/tex}</span>",
+              "is_correct": false
+            },
+            {
+              "id": 43156,
+              "text": "${\\text{O}}_2^{2 - }$",
+              "html": "<span class=\"math-tex\">{tex}{\\text{O}}_2^{2 - }{/tex}</span>",
+              "is_correct": false
+            }
+          ],
+          "correct_options": [
+            "$O_2^{2 + }$"
+          ],
+          "explanation": "Bond length is inversely proportional to bond order. $O_2^{2 + }$ has highest bond order as electrons are removed from antibonding MO.",
+          "solutions": []
+        },
+        {
+          "id": 22323,
+          "type": "MCQ",
+          "question": "The ionic hydrides are crystalline, non-volatile but on melting does one of the following:",
+          "question_html": "<p>The ionic hydrides are crystalline, non-volatile but on melting does one of the following:</p>",
+          "options": [
+            {
+              "id": 44490,
+              "text": "Liberates lithium at anode",
+              "html": "Liberates lithium at anode",
+              "is_correct": false
+            },
+            {
+              "id": 44492,
+              "text": "Liberate water",
+              "html": "Liberate water",
+              "is_correct": false
+            },
+            {
+              "id": 44489,
+              "text": "Conducts electricity",
+              "html": "Conducts electricity",
+              "is_correct": true
+            },
+            {
+              "id": 44491,
+              "text": "Liberates dihydrogen gas at cathode",
+              "html": "Liberates dihydrogen gas at cathode",
+              "is_correct": false
+            }
+          ],
+          "correct_options": [
+            "Conducts electricity"
+          ],
+          "explanation": "They are formed when hydrogen molecule reacts with most s-block elements which are highly electropositive in nature. In solid-state, the ionic hydrides are crystalline, non-conducting, and non-volatile. However, in a liquid state, it conducts electricity. Ionic hydrides on electrolysis liberate hydrogen gas at the anode.",
+          "solutions": []
+        },
+        {
+          "id": 22583,
+          "type": "MCQ",
+          "question": "Polarisation of $\\sigma$ -bond caused by the polarisation of adjacent $\\sigma$ -bond is termed as:",
+          "question_html": "<p>Polarisation of <span class=\"math-tex\">{tex}\\sigma{/tex}</span>-bond caused by the polarisation of adjacent <span class=\"math-tex\">{tex}\\sigma{/tex}</span>-bond is termed as:</p>",
+          "options": [
+            {
+              "id": 45530,
+              "text": "Hyperconjugation",
+              "html": "Hyperconjugation",
+              "is_correct": false
+            },
+            {
+              "id": 45531,
+              "text": "Metamerism",
+              "html": "Metamerism",
+              "is_correct": false
+            },
+            {
+              "id": 45528,
+              "text": "Inductive effect",
+              "html": "Inductive effect",
+              "is_correct": true
+            },
+            {
+              "id": 45529,
+              "text": "Resonance effect",
+              "html": "Resonance effect",
+              "is_correct": false
+            }
+          ],
+          "correct_options": [
+            "Inductive effect"
+          ],
+          "explanation": "Polarisation of $\\sigma$ -bond caused by the polarisation of the adjacent $\\sigma$ -bond is referred to as the inductive effect. This effect is passed on to the subsequent bonds also but the effect decreases rapidly as the number of intervening bonds increases and becomes vanishingly small after three bonds. The inductive effect is related to the ability of substituent(s) to either withdraw or donate electron density to the attached carbon atom.",
+          "solutions": []
+        },
+        {
+          "id": 386615,
+          "type": "MCQ",
+          "question": "In the organic compound CH_(2)=CH–CH_(2)–CH_(2)–C $ \\equiv $ CH, the pair of hydridised orbitals involved in the formation of C_(2)–C_(3) bond is:",
+          "question_html": "<p>In the organic compound CH<sub>2</sub>=CH&ndash;CH<sub>2</sub>&ndash;CH<sub>2</sub>&ndash;C<span class=\"math-tex\">{tex} \\equiv {/tex}</span>CH, the pair of hydridised orbitals involved in the formation of C<sub>2</sub>&ndash;C<sub>3</sub> bond is:</p>",
+          "options": [
+            {
+              "id": 597317,
+              "text": "sp^(3)-sp^(3)",
+              "html": "sp<sup>3</sup>-sp<sup>3</sup>",
+              "is_correct": false
+            },
+            {
+              "id": 597314,
+              "text": "sp-sp^(2)",
+              "html": "sp-sp<sup>2</sup>",
+              "is_correct": false
+            },
+            {
+              "id": 597315,
+              "text": "sp-sp^(3)",
+              "html": "sp-sp<sup>3</sup>",
+              "is_correct": false
+            },
+            {
+              "id": 597316,
+              "text": "sp^(2)-sp^(3)",
+              "html": "sp<sup>2</sup>-sp<sup>3</sup>",
+              "is_correct": true
+            }
+          ],
+          "correct_options": [
+            "sp^(2)-sp^(3)"
+          ],
+          "explanation": "C_(2)-C \n\n $(C{H_2} = \\mathop {CH}\\limits^{(S{P^2})} - \\mathop {C{H_2}}\\limits^{(S{P^3})} - C{H_2} - C \\equiv CH)$",
+          "solutions": []
+        },
+        {
+          "id": 61993,
+          "type": "MCQ",
+          "question": "Mg^(2+) is isoelectronic with:",
+          "question_html": "<p>Mg<sup>2+</sup> is isoelectronic with:</p>",
+          "options": [
+            {
+              "id": 203158,
+              "text": "K^(+)",
+              "html": "K<sup>+</sup>",
+              "is_correct": false
+            },
+            {
+              "id": 203155,
+              "text": "Na^(+)",
+              "html": "Na<sup>+</sup>",
+              "is_correct": true
+            },
+            {
+              "id": 203156,
+              "text": "Zn^(2+)",
+              "html": "Zn<sup>2+</sup>",
+              "is_correct": false
+            },
+            {
+              "id": 203157,
+              "text": "Cu^(2+)",
+              "html": "Cu<sup>2+</sup>",
+              "is_correct": false
+            }
+          ],
+          "correct_options": [
+            "Na^(+)"
+          ],
+          "explanation": "Isoelectronic species refers to the elements that have the same number of electrons.\n\nMg^(2+) is 10 electron species $(1s^2, 2s^2, 2p^6)$ . Its configuration is like that of Ne.\n\nThus it is isoelectronic with any element having 10e^(-) or we can say 8e^(- )in its valence shell.\n\nAtomic number of Sodium (Na) is 11 after loosing one electron it became Na^(+) and have 10 electrons.\n\nThus Mg^(2+) is isoelectronic with Na^(+).",
+          "solutions": []
+        },
+        {
+          "id": 386454,
+          "type": "MCQ",
+          "question": "Which of the followings options represents the correct bond order?",
+          "question_html": "<p>Which of the followings options represents the correct bond order?</p>",
+          "options": [
+            {
+              "id": 597166,
+              "text": "$\\mathrm{O}_{2}^{-}>\\mathrm{O}_{2}>\\mathrm{O}_{2}^{+}$",
+              "html": "<span class=\"math-tex\">{tex}\\mathrm{O}_{2}^{-}&gt;\\mathrm{O}_{2}&gt;\\mathrm{O}_{2}^{+}{/tex}</span>",
+              "is_correct": false
+            },
+            {
+              "id": 597167,
+              "text": "$\\mathrm{O}_{2}^{-}<\\mathrm{O}_{2}<\\mathrm{O}_{2}^{+}$",
+              "html": "<span class=\"math-tex\">{tex}\\mathrm{O}_{2}^{-}&lt;\\mathrm{O}_{2}&lt;\\mathrm{O}_{2}^{+}{/tex}</span>",
+              "is_correct": true
+            },
+            {
+              "id": 597168,
+              "text": "$\\mathrm{O}_{2}^{-}>\\mathrm{O}_{2}<\\mathrm{O}_{2}^{+}$",
+              "html": "<span class=\"math-tex\">{tex}\\mathrm{O}_{2}^{-}&gt;\\mathrm{O}_{2}&lt;\\mathrm{O}_{2}^{+}{/tex}</span>",
+              "is_correct": false
+            },
+            {
+              "id": 597169,
+              "text": "$\\mathrm{O}_{2}^{-}<\\mathrm{O}_{2}>\\mathrm{O}_{2}^{+}$",
+              "html": "<span class=\"math-tex\">{tex}\\mathrm{O}_{2}^{-}&lt;\\mathrm{O}_{2}&gt;\\mathrm{O}_{2}^{+}{/tex}</span>",
+              "is_correct": false
+            }
+          ],
+          "correct_options": [
+            "$\\mathrm{O}_{2}^{-}<\\mathrm{O}_{2}<\\mathrm{O}_{2}^{+}$"
+          ],
+          "explanation": "N_(b) electron > N_(a) electrons and also depends on bond order.\n\nB.O. = $\\frac{1}{2}$ (N_(b) - N_(a))\n\nB.O of O_(2) =2, O",
+          "solutions": []
+        },
+        {
+          "id": 22364,
+          "type": "MCQ",
+          "question": "Dihydrogen can be prepared on a commercial scale by different methods. In its preparation by the action of steam on hydrocarbons, a mixture of CO and H_(2) gas is formed. It is known as ________.",
+          "question_html": "<p>Dihydrogen can be prepared on a commercial scale by different methods. In its preparation by the action of steam on hydrocarbons, a mixture of CO and H<sub>2</sub> gas is formed. It is known as ________.</p>\r\n",
+          "options": [
+            {
+              "id": 44653,
+              "text": "starter gas",
+              "html": "starter gas",
+              "is_correct": false
+            },
+            {
+              "id": 44655,
+              "text": "industrial gas",
+              "html": "industrial gas",
+              "is_correct": false
+            },
+            {
+              "id": 44654,
+              "text": "producer gas",
+              "html": "producer gas",
+              "is_correct": false
+            },
+            {
+              "id": 44652,
+              "text": "water-gas",
+              "html": "water-gas",
+              "is_correct": true
+            }
+          ],
+          "correct_options": [
+            "water-gas"
+          ],
+          "explanation": "Water gas is a combustion fuel containing carbon monoxide (CO) and hydrogen gas (H_(2)). Water-gas is made by passing steam overheated hydrocarbons. The water-gas shift reaction can be used to reduce carbon dioxide levels and enrich hydrogen content, making water gas.",
+          "solutions": []
+        },
+        {
+          "id": 22572,
+          "type": "MCQ",
+          "question": "Inorganic compounds, when homolytic cleavage takes place, one of the electrons of the shared pair in a covalent bond goes with each of the bonded atoms. This results in the formation of:",
+          "question_html": "<p>Inorganic compounds, when homolytic cleavage takes place, one of the electrons of the shared pair in a covalent bond goes with each of the bonded atoms. This results in the formation of:</p>\r\n",
+          "options": [
+            {
+              "id": 45487,
+              "text": "a sextet electronic structure",
+              "html": "a sextet electronic structure",
+              "is_correct": false
+            },
+            {
+              "id": 45484,
+              "text": "free radicals",
+              "html": "free radicals",
+              "is_correct": true
+            },
+            {
+              "id": 45485,
+              "text": "carbanions",
+              "html": "carbanions",
+              "is_correct": false
+            },
+            {
+              "id": 45486,
+              "text": "carbonium ion",
+              "html": "carbonium ion",
+              "is_correct": false
+            }
+          ],
+          "correct_options": [
+            "free radicals"
+          ],
+          "explanation": "In homolytic cleavage or homolysis, the two electrons in a cleaved covalent bond are divided equally between the products. Thus, in homolytic cleavage, the movement of a single electron takes place instead of an electron pair. This process is also known as homolytic fission. Such cleavage results in the formation of neutral species (atom or group) which contains an unpaired electron. These species are called free radicals.",
+          "solutions": []
+        },
+        {
+          "id": 68726,
+          "type": "MCQ",
+          "question": "The number of grams of oxygen in 0.10 mol of Na_(2)CO_(3). 10H_(2)O is",
+          "question_html": "<p>The number of grams of oxygen in 0.10 mol of Na<sub>2</sub>CO<sub>3</sub>. 10H<sub>2</sub>O is</p>",
+          "options": [
+            {
+              "id": 210700,
+              "text": "12.8 g",
+              "html": "12.8 g",
+              "is_correct": false
+            },
+            {
+              "id": 210699,
+              "text": "18 g",
+              "html": "18 g",
+              "is_correct": false
+            },
+            {
+              "id": 210698,
+              "text": "20.8 g",
+              "html": "20.8 g",
+              "is_correct": true
+            },
+            {
+              "id": 210701,
+              "text": "10 g",
+              "html": "10&nbsp;g",
+              "is_correct": false
+            }
+          ],
+          "correct_options": [
+            "20.8 g"
+          ],
+          "explanation": "Calculations:\n\n1 mole of Na_(2)CO_(3).10H_(2)O contains 13 moles of oxygen atoms. \n\n0.1 mole Na_(2)CO_(3).10H_(2)O contains 13 × 0.1 = 1.3 moles of oxygen atoms. \n\nMass of oxygen atoms = 1.3 × 16 = 20.8 g.\n\n $\\therefore$ 0.10 mole of Na_(2 )CO_(3). 10 H_(2 )O would contain a number of grams of oxygen atoms = 20.8 g",
+          "solutions": []
+        },
+        {
+          "id": 21789,
+          "type": "MCQ",
+          "question": "Charge on the electron was experimentally determined by:",
+          "question_html": "<p>Charge on the electron was experimentally determined by:</p>\r\n",
+          "options": [
+            {
+              "id": 42357,
+              "text": "Electrical discharge carried out in the modified cathode ray tube",
+              "html": "Electrical discharge carried out in the modified cathode ray tube",
+              "is_correct": false
+            },
+            {
+              "id": 42356,
+              "text": "X-ray tube experiments",
+              "html": "X-ray tube experiments",
+              "is_correct": false
+            },
+            {
+              "id": 42355,
+              "text": "Cathode ray discharge tube experiments",
+              "html": "Cathode ray discharge tube experiments",
+              "is_correct": false
+            },
+            {
+              "id": 42354,
+              "text": "R.A. Millikan's oil drop experiment",
+              "html": "<p style=\"text-align: justify;\">R.A. Millikan&#39;s oil drop experiment</p>",
+              "is_correct": true
+            }
+          ],
+          "correct_options": [
+            "R.A. Millikan's oil drop experiment"
+          ],
+          "explanation": "In this experiment, a spray of oil droplets produced by an atomizer is allowed to fall in between two oppositely charged plates. These atoms are converted into ions with the help of X-rays. The oil droplets may absorb some of the electrons thus produced and acquire charge. The velocity of the charged oil droplet is measured as it falls freely under the influence of gravity and then in an electric field. From the values of velocity measured, it is possible to calculate the charge on the droplet which is considered to be the charge of the electron.",
+          "solutions": []
+        },
+        {
+          "id": 22595,
+          "type": "MCQ",
+          "question": "Write the state of hybridisation of carbon in the compound, $HC \\equiv N$ and shape of the molecule.",
+          "question_html": "<p>Write the state of hybridisation of carbon in the compound, <span class=\"math-tex\">{tex}HC \\equiv N{/tex}</span>&nbsp;and shape of the molecule.</p>",
+          "options": [
+            {
+              "id": 45576,
+              "text": "sp hybridised carbon, linear",
+              "html": "sp&nbsp;hybridised carbon, linear",
+              "is_correct": true
+            },
+            {
+              "id": 45579,
+              "text": "sp^(3) hybridised carbon, trigonal pyramidal",
+              "html": "sp<sup>3</sup> hybridised carbon, trigonal pyramidal",
+              "is_correct": false
+            },
+            {
+              "id": 45577,
+              "text": "sp^(3) hybridised carbon, tetrahedral",
+              "html": "sp<sup>3</sup>&nbsp;hybridised carbon, tetrahedral",
+              "is_correct": false
+            },
+            {
+              "id": 45578,
+              "text": "sp^(3 )hybridised carbon, trigonal planar",
+              "html": "sp<sup>3&nbsp;</sup>hybridised carbon, trigonal planar",
+              "is_correct": false
+            }
+          ],
+          "correct_options": [
+            "sp hybridised carbon, linear"
+          ],
+          "explanation": "As the C is bonded to N by a triple bond so it is sp hybridized andand the molecule is linear in shape.",
+          "solutions": []
+        },
+        {
+          "id": 68954,
+          "type": "MCQ",
+          "question": "Considering x-axis as the internuclear axis which out of the following will not from a sigma bond and why?",
+          "question_html": "<p>Considering x-axis as the internuclear axis which out of the following will not from a sigma bond and why?</p>",
+          "options": [
+            {
+              "id": 210820,
+              "text": "1s and 2s",
+              "html": "1s and 2s",
+              "is_correct": false
+            },
+            {
+              "id": 210819,
+              "text": "1s and 2P_(x)",
+              "html": "1s and 2P<sub>x</sub>",
+              "is_correct": false
+            },
+            {
+              "id": 210818,
+              "text": "1s and 1s",
+              "html": "1s and 1s",
+              "is_correct": false
+            },
+            {
+              "id": 210817,
+              "text": "2p_(y)and 2p_(y)",
+              "html": "2p<sub>y</sub>and 2p<sub>y</sub>",
+              "is_correct": true
+            }
+          ],
+          "correct_options": [
+            "2p_(y)and 2p_(y)"
+          ],
+          "explanation": "For p-orbitals (l = 1), there are three possible orientations corresponding to m = -1, 0, +1 values. This means that there are three p - orbitals in each p-subshell. These are designated as p_(x), p_(y) and p_(z);\n\nThese three orbitals are equal in energy but differ in their orientations. Each orbital consists of two lobes symmetrical about a particular axis. Depending upon the orientation of the lobes, these are designated as 2p_(x), 2p_(y) and 2p_(z), as they are symmetrical about x, y and z-axes respectively. That is, 2p_(x) orbital has two lobes symmetrical around x-axis and the lobes of 2p_(z) orbital are symmetrical around z-axis while 2p_(y) orbital has two lobes symmetrical around y-axix so it doesn't form sigma bond.",
+          "solutions": []
+        },
+        {
+          "id": 22592,
+          "type": "MCQ",
+          "question": "Electrophiles are electron seeking species. Which of the following groups contain only electrophile\n\n ${\\text{B}}{{\\text{F}}_{\\text{3}}},{\\text{ N}}{{\\text{H}}_{\\text{3}}},{\\text{ }}{{\\text{H}}_{\\text{2}}}{\\text{O}}$ \n $AlCl_3, SO_3,NO_2^ + $ \n ${\\text{NO}}_2^ + ,{\\text{C}}{{\\text{H}}_{\\text{3}}}^ + ,{\\text{C}}{{\\text{H}}_{\\text{3}}} - \\mathop C\\limits^ + = {\\text{O}}$ \n ${{\\text{C}}_{\\text{2}}}{\\text{H}}_5^ + , CH_3^+, NH_2^-$",
+          "question_html": "<p>Electrophiles are electron seeking species. Which of the following groups contain only electrophile</p>\r\n\r\n<ol start=\"1\" style=\"list-style-type: lower-roman;\">\r\n\t<li><span class=\"math-tex\">{tex}{\\text{B}}{{\\text{F}}_{\\text{3}}},{\\text{ N}}{{\\text{H}}_{\\text{3}}},{\\text{ }}{{\\text{H}}_{\\text{2}}}{\\text{O}}{/tex}</span></li>\r\n\t<li><span class=\"math-tex\">{tex}AlCl_3, SO_3,NO_2^ + {/tex}</span></li>\r\n\t<li><span class=\"math-tex\">{tex}{\\text{NO}}_2^ + ,{\\text{C}}{{\\text{H}}_{\\text{3}}}^ + ,{\\text{C}}{{\\text{H}}_{\\text{3}}} - \\mathop C\\limits^ + = {\\text{O}}{/tex}</span></li>\r\n\t<li><span class=\"math-tex\">{tex}{{\\text{C}}_{\\text{2}}}{\\text{H}}_5^ + , CH_3^+, NH_2^-{/tex}</span></li>\r\n</ol>\r\n",
+          "options": [
+            {
+              "id": 45565,
+              "text": "(i) and (ii)",
+              "html": "(i) and (ii)",
+              "is_correct": false
+            },
+            {
+              "id": 45564,
+              "text": "(ii) and (iii)",
+              "html": "(ii) and (iii)",
+              "is_correct": true
+            },
+            {
+              "id": 45566,
+              "text": "(i) and (iv)",
+              "html": "(i) and (iv)",
+              "is_correct": false
+            },
+            {
+              "id": 45567,
+              "text": "(i) and (iii)",
+              "html": "(i) and (iii)",
+              "is_correct": false
+            }
+          ],
+          "correct_options": [
+            "(ii) and (iii)"
+          ],
+          "explanation": "Electrophile are electron loving species which can be positively charged ions or neutral molecules which are electron deficient. (ii) and (iii) contains all the electrophiles.",
+          "solutions": []
+        },
+        {
+          "id": 62004,
+          "type": "MCQ",
+          "question": "Oil drop experiment is for determining the:",
+          "question_html": "<p>Oil drop experiment is for determining the:</p>",
+          "options": [
+            {
+              "id": 203202,
+              "text": "deviation of the electron.",
+              "html": "deviation of the electron.",
+              "is_correct": false
+            },
+            {
+              "id": 203199,
+              "text": "charge on the electrons",
+              "html": "charge on the electrons",
+              "is_correct": true
+            },
+            {
+              "id": 203201,
+              "text": "number of electrons",
+              "html": "number of electrons",
+              "is_correct": false
+            },
+            {
+              "id": 203200,
+              "text": "mass of the electron",
+              "html": "mass of the electron",
+              "is_correct": false
+            }
+          ],
+          "correct_options": [
+            "charge on the electrons"
+          ],
+          "explanation": "The oil drop experiment was performed by Robert A. Millikan and Harvey Fletcher in 1909 to measure the elementary electric charge (the charge of the electron). The experiment entailed observing tiny electrically charged droplets of oil located between two parallel metal surfaces, forming the plates of a capacitor.",
+          "solutions": []
+        },
+        {
+          "id": 22540,
+          "type": "Numerical/MCQ",
+          "question": "In general, in the molecules containing multiple bonds, ________ provide the most reactive centres. Choose the most appropriate one.",
+          "question_html": "<p>In general, in the molecules containing multiple bonds, ________ provide the most reactive centres. Choose the most appropriate one.</p>",
+          "options": [
+            {
+              "id": 45359,
+              "text": "$\\sigma$ bond",
+              "html": "<span class=\"math-tex\">{tex}\\sigma{/tex}</span> bond",
+              "is_correct": false
+            },
+            {
+              "id": 45356,
+              "text": "$\\pi$ bonds",
+              "html": "<span class=\"math-tex\">{tex}\\pi{/tex}</span> bonds",
+              "is_correct": true
+            },
+            {
+              "id": 45358,
+              "text": "hyperconjugation",
+              "html": "hyperconjugation",
+              "is_correct": false
+            },
+            {
+              "id": 45357,
+              "text": "p orbitals",
+              "html": "p orbitals",
+              "is_correct": false
+            }
+          ],
+          "correct_options": [
+            "$\\pi$ bonds"
+          ],
+          "explanation": "$\\pi$ bond formed by sideways overlapping of p orbitals/d orbitals on adjacent atoms provides the most reactive centers.",
+          "solutions": []
+        },
+        {
+          "id": 21793,
+          "type": "MCQ",
+          "question": "Isobars are atoms having the",
+          "question_html": "<p>Isobars are&nbsp;atoms having the</p>\r\n",
+          "options": [
+            {
+              "id": 42370,
+              "text": "same mass number but different atomic number",
+              "html": "same mass number but different atomic number",
+              "is_correct": true
+            },
+            {
+              "id": 42372,
+              "text": "same number of neutrons but different mass number",
+              "html": "same number of neutrons but different mass number",
+              "is_correct": false
+            },
+            {
+              "id": 42371,
+              "text": "same atomic number but different mass number",
+              "html": "same atomic number but different mass number",
+              "is_correct": false
+            },
+            {
+              "id": 42373,
+              "text": "same atomic number but different number of neutrons",
+              "html": "same atomic number but different number of neutrons",
+              "is_correct": false
+            }
+          ],
+          "correct_options": [
+            "same mass number but different atomic number"
+          ],
+          "explanation": "Isobars are atoms (nuclides) of different chemical elements that have the same number of nucleons. Correspondingly, isobars differ in atomic number (or the number of protons) but have the same mass number.",
+          "solutions": []
+        },
+        {
+          "id": 22585,
+          "type": "MCQ",
+          "question": "The addition of HCl to alkene proceeds in two steps. The first step is the attack of H+ ion to ![image](https://media-mycbseguide.s3.amazonaws.com/images/imgur/1614838315-grtzpq.jpg) the portion which can be shown as:\n\n ![image](https://media-mycbseguide.s3.amazonaws.com/images/imgur/hp9e2Cc.png) \n ![image](https://media-mycbseguide.s3.amazonaws.com/images/imgur/wRdea7j.png) \n ![image](https://media-mycbseguide.s3.amazonaws.com/images/imgur/q4Fc8eU.png) \nAll of these are possible",
+          "question_html": "<p>The addition of HCl to alkene proceeds in two steps. The first step is the attack of H+ ion to <img alt=\"\" data-imgur-src=\"q3XP5cQ.png\" src=\"https://media-mycbseguide.s3.amazonaws.com/images/imgur/1614838315-grtzpq.jpg\" style=\"width: 57px; height: 28px;\"/> the portion which can be shown as:</p>\n<ol start=\"1\" style=\"list-style-type: upper-alpha;\">\n<li><img alt=\"\" data-imgur-src=\"hp9e2Cc.png\" src=\"https://media-mycbseguide.s3.amazonaws.com/images/imgur/hp9e2Cc.png\" style=\"width: 100px; height: 32px;\"/></li>\n<li><img alt=\"\" data-imgur-src=\"wRdea7j.png\" src=\"https://media-mycbseguide.s3.amazonaws.com/images/imgur/wRdea7j.png\" style=\"width: 100px; height: 34px;\"/></li>\n<li><img alt=\"\" data-imgur-src=\"q4Fc8eU.png\" src=\"https://media-mycbseguide.s3.amazonaws.com/images/imgur/q4Fc8eU.png\" style=\"width: 100px; height: 35px;\"/></li>\n<li>All of these are possible</li>\n</ol>",
+          "options": [
+            {
+              "id": 45538,
+              "text": "C",
+              "html": "C",
+              "is_correct": false
+            },
+            {
+              "id": 45536,
+              "text": "B",
+              "html": "B",
+              "is_correct": true
+            },
+            {
+              "id": 45537,
+              "text": "A",
+              "html": "A",
+              "is_correct": false
+            },
+            {
+              "id": 45539,
+              "text": "D",
+              "html": "D",
+              "is_correct": false
+            }
+          ],
+          "correct_options": [
+            "B"
+          ],
+          "explanation": "Since arrows are shown in the direction of movement of electrons, so the correct depiction is B.",
+          "solutions": []
+        },
+        {
+          "id": 61986,
+          "type": "MCQ",
+          "question": "Isotopes are the atoms with",
+          "question_html": "<p>Isotopes are the atoms with</p>\r\n",
+          "options": [
+            {
+              "id": 203127,
+              "text": "same atomic number but different mass number",
+              "html": "same atomic number but different mass number",
+              "is_correct": true
+            },
+            {
+              "id": 203128,
+              "text": "same mass number but different atomic number",
+              "html": "same mass number but different atomic number",
+              "is_correct": false
+            },
+            {
+              "id": 203129,
+              "text": "same number of neutrons but different mass number",
+              "html": "same number of neutrons but different mass number",
+              "is_correct": false
+            },
+            {
+              "id": 203130,
+              "text": "same atomic number but different number of electrons",
+              "html": "same atomic number but different number of electrons",
+              "is_correct": false
+            }
+          ],
+          "correct_options": [
+            "same atomic number but different mass number"
+          ],
+          "explanation": "The atoms of a chemical element can exist in different types. These are called isotopes. They have the same number of protons (and electrons), but different numbers of neutrons. Different isotopes of the same element have different masses.",
+          "solutions": []
+        },
+        {
+          "id": 594600,
+          "type": "14",
+          "question": "Assertion (A): Line emission spectra help in the study of electronic configuration.\n\nReason (R): Each element has a unique line emission spectrum.",
+          "question_html": "<p><strong>Assertion (A):</strong>&nbsp;Line emission spectra help in the study of electronic configuration.<br />\r\n<strong>Reason (R):</strong>&nbsp;Each element has a unique line emission spectrum.</p>",
+          "options": [
+            {
+              "id": 1176153,
+              "text": "A is false but R is true.",
+              "html": "A is false but R is true.",
+              "is_correct": false
+            },
+            {
+              "id": 1176150,
+              "text": "Both A and R are true and R is the correct explanation of A.",
+              "html": "Both A and R are true and R is the correct explanation of A.",
+              "is_correct": false
+            },
+            {
+              "id": 1176151,
+              "text": "Both A and R are true but R is not the correct explanation of A.",
+              "html": "Both A and R are true but R is not the correct explanation of A.",
+              "is_correct": true
+            },
+            {
+              "id": 1176152,
+              "text": "A is true but R is false.",
+              "html": "A is true but R is false.",
+              "is_correct": false
+            }
+          ],
+          "correct_options": [
+            "Both A and R are true but R is not the correct explanation of A."
+          ],
+          "explanation": "Line emission spectra gives information about electronic configuration which is unique to element by virtue of having that type of electronic arrangement.",
+          "solutions": []
+        },
+        {
+          "id": 593672,
+          "type": "14",
+          "question": "Assertion (A): O^(2-), F^(-), Na^(+) and Mg^(2+) have the same number of electrons (10) and same atomic radius.\n\nReason (R): Some atoms and ions which contain the same number of electrons, are called isoelectronic species.",
+          "question_html": "<p><strong>Assertion (A):&nbsp;</strong>O<sup>2-</sup>,&nbsp;F<sup>-</sup>, Na<sup>+</sup>&nbsp;and Mg<sup>2+</sup>&nbsp;have the same number of electrons (10) and same atomic radius.<br />\r\n<strong>Reason (R): </strong>Some atoms and ions which contain the same number of electrons, are called&nbsp;isoelectronic species.</p>",
+          "options": [
+            {
+              "id": 1172543,
+              "text": "A is false but R is true.",
+              "html": "A is false but R is true.",
+              "is_correct": true
+            },
+            {
+              "id": 1172542,
+              "text": "A is true but R is false.",
+              "html": "A is true but R is false.",
+              "is_correct": false
+            },
+            {
+              "id": 1172541,
+              "text": "Both A and R are true but R is not the correct explanation of A.",
+              "html": "Both A and R are true but R is not the correct explanation of A.",
+              "is_correct": false
+            },
+            {
+              "id": 1172540,
+              "text": "Both A and R are true and R is the correct explanation of A.",
+              "html": "Both A and R are true and R is the correct explanation of A.",
+              "is_correct": false
+            }
+          ],
+          "correct_options": [
+            "A is false but R is true."
+          ],
+          "explanation": "O^(2-), F^(-), Na^(+ )and Mg^(2+) have the same number of electrons (10). Their radii would be different because of their different nuclear charges.",
+          "solutions": []
+        },
+        {
+          "id": 593693,
+          "type": "14",
+          "question": "Assertion (A): Though the central atom of both NH_(3) and H_(2)O molecules are sp^(3) hybridized, yet H–N–H bond angle is greater than that of H–O–H.\n\nReason (R): This is because the nitrogen atom has one lone pair and the oxygen atom has two lone pairs.",
+          "question_html": "<p><strong>Assertion (A):&nbsp;</strong>Though&nbsp;the central atom of both NH<sub>3</sub>&nbsp;and H<sub>2</sub>O molecules are sp<sup>3</sup> hybridized, yet H&ndash;N&ndash;H bond angle is greater than that of H&ndash;O&ndash;H.<br />\r\n<strong>Reason (R):&nbsp;</strong>This is because the nitrogen atom has one lone pair and the oxygen atom has two lone pairs.</p>",
+          "options": [
+            {
+              "id": 1172620,
+              "text": "Both A and R are true and R is the correct explanation of A.",
+              "html": "Both A and R are true and R is the correct explanation of A.",
+              "is_correct": true
+            },
+            {
+              "id": 1172623,
+              "text": "A is false but R is true.",
+              "html": "A is false but R is true.",
+              "is_correct": false
+            },
+            {
+              "id": 1172621,
+              "text": "Both A and R are true but R is not the correct explanation of A.",
+              "html": "Both A and R are true but R is not the correct explanation of A.",
+              "is_correct": false
+            },
+            {
+              "id": 1172622,
+              "text": "A is true but R is false.",
+              "html": "A is true but R is false.",
+              "is_correct": false
+            }
+          ],
+          "correct_options": [
+            "Both A and R are true and R is the correct explanation of A."
+          ],
+          "explanation": "The central atom of both NH_(3) and H_(2)O molecules are sp^(3) hybridized, yet H–N–H bond angle is greater than that of H–O–H. This is because the nitrogen atom has one lone pair and the oxygen atom has two lone pairs.",
+          "solutions": []
+        },
+        {
+          "id": 386680,
+          "type": "14",
+          "question": "Assertion (A): Among halogens fluorine is the best oxidant.\n\nReason (R): Fluorine is the most electronegative atom.",
+          "question_html": "<p><strong>Assertion (A): </strong>Among halogens fluorine is the best oxidant.<br />\n<strong>Reason (R):</strong> Fluorine is the most electronegative atom.</p>",
+          "options": [
+            {
+              "id": 597383,
+              "text": "Both A and R are true but R is not the correct explanation of A.",
+              "html": "Both A and R are true but R is not the correct explanation of A.",
+              "is_correct": false
+            },
+            {
+              "id": 597382,
+              "text": "Both A and R are true and R is the correct explanation of A.",
+              "html": "Both A and R are true and R is the correct explanation of A.",
+              "is_correct": true
+            },
+            {
+              "id": 597384,
+              "text": "A is true but R is false.",
+              "html": "A is true but R is false.",
+              "is_correct": false
+            },
+            {
+              "id": 597385,
+              "text": "A is false but R is true.",
+              "html": "A is false but R is true.",
+              "is_correct": false
+            }
+          ],
+          "correct_options": [
+            "Both A and R are true and R is the correct explanation of A."
+          ],
+          "explanation": "Fluorine is most electronegative element that is why it is best oxidant among halogens.",
+          "solutions": []
+        },
+        {
+          "id": 386667,
+          "type": "14",
+          "question": "Assertion (A): Significant figures for 0.200 is 3 where as for 200 it is 1.\n\nReason (R): Zero at the end or right of a number are significant provided they are not on the right side of the decimal point.",
+          "question_html": "<p><strong>Assertion (A):</strong> Significant figures for 0.200 is 3 where as for 200 it is 1.<br />\n<strong>Reason (R):</strong> Zero at the end or right of a number are significant provided they are not on the right side of the decimal point.</p>",
+          "options": [
+            {
+              "id": 597366,
+              "text": "Both A and R are true and R is correct explanation of A.",
+              "html": "Both A and R are true and R is correct explanation of A.",
+              "is_correct": false
+            },
+            {
+              "id": 597367,
+              "text": "Both A and R are true but R is not a correct explanation of A.",
+              "html": "Both A and R are true but R is not a correct explanation of A.",
+              "is_correct": false
+            },
+            {
+              "id": 597368,
+              "text": "A is true but R is false.",
+              "html": "A is true but R is false.",
+              "is_correct": true
+            },
+            {
+              "id": 597369,
+              "text": "Both A and R are false.",
+              "html": "Both A and R are false.",
+              "is_correct": false
+            }
+          ],
+          "correct_options": [
+            "A is true but R is false."
+          ],
+          "explanation": "Significant figures for 0.200 = 3\n\nSignificant figure for 200 = 1\n\nZeros at the end of a number without decimal point, may or may not be significant depending on the accuracy of the measurement.",
+          "solutions": []
+        }
+      ]
+    },
+    {
+      "section_name": "Section C",
+      "section_id": 716,
+      "questions": [
+        {
+          "id": 61923,
+          "type": "Numerical/MCQ",
+          "question": "Molecular mass of a compound is the ________ of atomic masses of elements present in a molecule.",
+          "question_html": "<p>Molecular mass of a compound is the ________ of atomic masses of elements present in a molecule.</p>\r\n",
+          "options": [
+            {
+              "id": 202877,
+              "text": "average",
+              "html": "average",
+              "is_correct": false
+            },
+            {
+              "id": 202879,
+              "text": "lowest",
+              "html": "lowest",
+              "is_correct": false
+            },
+            {
+              "id": 202878,
+              "text": "maximum",
+              "html": "maximum",
+              "is_correct": false
+            },
+            {
+              "id": 202876,
+              "text": "sum",
+              "html": "sum",
+              "is_correct": true
+            }
+          ],
+          "correct_options": [
+            "sum"
+          ],
+          "explanation": "Molecular mass is the sum of atomic masses of the elements present in a molecule.\n\nFor example ; Molecular mass of CO_(2 )= $\\Sigma$ atomic mass of one carbon atom & atomic mass of two oxygen atoms\n\n= [ 12 + 2(16) ]u\n\n= 44u.",
+          "solutions": []
+        },
+        {
+          "id": 62016,
+          "type": "MCQ",
+          "question": "Radio frequency region of the electromagnetic spectrum is used for broadcasting. It is",
+          "question_html": "<p>Radio frequency region of the electromagnetic spectrum is used for broadcasting. It is</p>",
+          "options": [
+            {
+              "id": 203248,
+              "text": "Around $10^{10}$ Hz",
+              "html": "Around <span class=\"math-tex\">{tex}10^{10}{/tex}</span> Hz",
+              "is_correct": false
+            },
+            {
+              "id": 203249,
+              "text": "Around $10^{13}$ Hz",
+              "html": "Around <span class=\"math-tex\">{tex}10^{13}{/tex}</span> Hz",
+              "is_correct": false
+            },
+            {
+              "id": 203250,
+              "text": "Around ${{10}^{15}}$ Hz",
+              "html": "Around <span class=\"math-tex\">{tex}{{10}^{15}}{/tex}</span> Hz",
+              "is_correct": false
+            },
+            {
+              "id": 203247,
+              "text": "Around $10^6$ Hz",
+              "html": "Around <span class=\"math-tex\">{tex}10^6{/tex}</span> Hz",
+              "is_correct": true
+            }
+          ],
+          "correct_options": [
+            "Around $10^6$ Hz"
+          ],
+          "explanation": "Radiofrequency (RF) is any of the electromagnetic wave frequencies that lie in the range extending from around 3 kHz to 300 GHz, which include those frequencies used in radio communication or radar. RF usually refers to electrical rather than mechanical oscillations.",
+          "solutions": []
+        },
+        {
+          "id": 22578,
+          "type": "MCQ",
+          "question": "Aniline is separated from aniline-water mixture using following technique:",
+          "question_html": "<p>Aniline is separated from aniline-water mixture&nbsp;using&nbsp;following&nbsp;technique:</p>\r\n",
+          "options": [
+            {
+              "id": 45511,
+              "text": "Fractional distillation",
+              "html": "Fractional distillation",
+              "is_correct": false
+            },
+            {
+              "id": 45508,
+              "text": "Steam distillation",
+              "html": "Steam distillation",
+              "is_correct": true
+            },
+            {
+              "id": 45510,
+              "text": "Chromatography",
+              "html": "Chromatography",
+              "is_correct": false
+            },
+            {
+              "id": 45509,
+              "text": "Differential extraction",
+              "html": "Differential extraction",
+              "is_correct": false
+            }
+          ],
+          "correct_options": [
+            "Steam distillation"
+          ],
+          "explanation": "Steam distillation is a special type of distillation (a separation process) for temperature-sensitive materials like natural aromatic compounds. It was a popular laboratory method for purification of organic compounds.",
+          "solutions": []
+        },
+        {
+          "id": 594750,
+          "type": "MCQ",
+          "question": "Instructions for Question 53 to 55:\nA quantitative measure of the tendency of an element to lose electrons is given by its Ionization Enthalpy. It represents the energy required to remove an electron from an isolated gaseous atom (X) in its ground state. The ionization enthalpy is expressed in units of kJ mol^(-1). We can define the second ionization enthalpy as the energy required to remove the second most loosely bound electron. Energy is always required to remove electrons from an atom and hence ionization enthalpies are always positive. The second ionization enthalpy will be higher than the first ionization enthalpy.\n\n ![image](https://media-mycbseguide.s3.amazonaws.com/images/imgur/1632228324-zzkbgx.jpg) \n\nVariation of first ionization enthalpies ( $\\Delta_i$ H) with atomic number for elements with Z = 1 to 60. On the other hand, minima occur at the alkali metals and their low ionization enthalpies can be correlated with their high reactivity. In addition, you will notice two trends the first ionization enthalpy generally increases as we go across a period and decreases as we descend in a group. The ionization enthalpy and atomic radius are closely related properties.\n\nThe second ionization enthalpy will be higher than the first ionization enthalpy because",
+          "question_html": "<b>Instructions for Question 53 to 55:</b><br><p>A quantitative measure of the tendency of an element to lose electrons is given by its Ionization Enthalpy. It represents the energy required to remove an electron from an isolated gaseous atom (X) in its ground state.&nbsp;The ionization enthalpy is expressed in units of kJ mol<sup>-1</sup>. We can define the second ionization enthalpy as the energy required to remove the second most loosely bound electron.&nbsp;Energy is always required to remove electrons from an atom and hence ionization enthalpies are always positive. The second ionization enthalpy will be higher than the first ionization enthalpy.<br />\r\n<img alt=\"\" src=\"https://media-mycbseguide.s3.amazonaws.com/images/imgur/1632228324-zzkbgx.jpg\" style=\"height:181px; width:250px\" /><br />\r\nVariation of first ionization enthalpies (<span class=\"math-tex\">{tex}\\Delta_i{/tex}</span>H) with atomic number for elements with Z = 1 to 60.&nbsp;On the other hand, minima occur at the alkali metals and their low ionization enthalpies can be correlated&nbsp;with their high reactivity. In addition, you will notice two trends the first ionization enthalpy generally increases as we go across a period and decreases as we descend in a group.&nbsp;The ionization enthalpy and atomic radius are closely related properties.</p><br><p>The second ionization enthalpy will be higher than the first ionization enthalpy because</p>",
+          "options": [
+            {
+              "id": 1176751,
+              "text": "it is more difficult to remove an electron from a negatively charged ion",
+              "html": "it is more difficult to remove an electron from a negatively charged ion",
+              "is_correct": false
+            },
+            {
+              "id": 1176752,
+              "text": "it is more difficult to remove an electron from a neutrally charged ion",
+              "html": "it is more difficult to remove an electron from a neutrally charged ion",
+              "is_correct": false
+            },
+            {
+              "id": 1176750,
+              "text": "it is more difficult to remove an electron from a positively charged ion",
+              "html": "it is more difficult to remove an electron from a positively charged ion",
+              "is_correct": true
+            },
+            {
+              "id": 1176753,
+              "text": "it's not difficult to remove an electron from a neutrally charged ion",
+              "html": "it&#39;s not difficult to&nbsp;remove an electron from a neutrally charged ion",
+              "is_correct": false
+            }
+          ],
+          "correct_options": [
+            "it is more difficult to remove an electron from a positively charged ion"
+          ],
+          "explanation": "it is more difficult to remove an electron from a positively charged ion",
+          "solutions": []
+        },
+        {
+          "id": 594751,
+          "type": "MCQ",
+          "question": "Instructions for Question 53 to 55:\nA quantitative measure of the tendency of an element to lose electrons is given by its Ionization Enthalpy. It represents the energy required to remove an electron from an isolated gaseous atom (X) in its ground state. The ionization enthalpy is expressed in units of kJ mol^(-1). We can define the second ionization enthalpy as the energy required to remove the second most loosely bound electron. Energy is always required to remove electrons from an atom and hence ionization enthalpies are always positive. The second ionization enthalpy will be higher than the first ionization enthalpy.\n\n ![image](https://media-mycbseguide.s3.amazonaws.com/images/imgur/1632228324-zzkbgx.jpg) \n\nVariation of first ionization enthalpies ( $\\Delta_i$ H) with atomic number for elements with Z = 1 to 60. On the other hand, minima occur at the alkali metals and their low ionization enthalpies can be correlated with their high reactivity. In addition, you will notice two trends the first ionization enthalpy generally increases as we go across a period and decreases as we descend in a group. The ionization enthalpy and atomic radius are closely related properties.\n\nWhich of the following statements is incorrect?",
+          "question_html": "<b>Instructions for Question 53 to 55:</b><br><p>A quantitative measure of the tendency of an element to lose electrons is given by its Ionization Enthalpy. It represents the energy required to remove an electron from an isolated gaseous atom (X) in its ground state.&nbsp;The ionization enthalpy is expressed in units of kJ mol<sup>-1</sup>. We can define the second ionization enthalpy as the energy required to remove the second most loosely bound electron.&nbsp;Energy is always required to remove electrons from an atom and hence ionization enthalpies are always positive. The second ionization enthalpy will be higher than the first ionization enthalpy.<br />\r\n<img alt=\"\" src=\"https://media-mycbseguide.s3.amazonaws.com/images/imgur/1632228324-zzkbgx.jpg\" style=\"height:181px; width:250px\" /><br />\r\nVariation of first ionization enthalpies (<span class=\"math-tex\">{tex}\\Delta_i{/tex}</span>H) with atomic number for elements with Z = 1 to 60.&nbsp;On the other hand, minima occur at the alkali metals and their low ionization enthalpies can be correlated&nbsp;with their high reactivity. In addition, you will notice two trends the first ionization enthalpy generally increases as we go across a period and decreases as we descend in a group.&nbsp;The ionization enthalpy and atomic radius are closely related properties.</p><br><p>Which of the following statements is incorrect?</p>",
+          "options": [
+            {
+              "id": 1176756,
+              "text": "isoelectronic ions belong to the same period",
+              "html": "isoelectronic ions belong to the same period&nbsp;",
+              "is_correct": true
+            },
+            {
+              "id": 1176754,
+              "text": "E_(1) of O is lower than that of N but I.E_(2) O is higher than that of N",
+              "html": "E<sub>1</sub>&nbsp;of O is lower than that of N but I.E<sub>2</sub>&nbsp;O is higher than that of N&nbsp;",
+              "is_correct": false
+            },
+            {
+              "id": 1176755,
+              "text": "The enthalpy of N to gain an electron is almost zero but of P is 74.3 kJ mol^(-1)",
+              "html": "The enthalpy of N to gain an electron is almost zero but of P is 74.3 kJ mol<sup>-1</sup>",
+              "is_correct": false
+            },
+            {
+              "id": 1176757,
+              "text": "The covalent radius of iodine is less than its Van der Waal’s radius",
+              "html": "The covalent radius of iodine is less than its Van der Waal&rsquo;s radius",
+              "is_correct": false
+            }
+          ],
+          "correct_options": [
+            "isoelectronic ions belong to the same period"
+          ],
+          "explanation": "isoelectronic ions belong to the same period",
+          "solutions": []
+        },
+        {
+          "id": 594752,
+          "type": "MCQ",
+          "question": "Instructions for Question 53 to 55:\nA quantitative measure of the tendency of an element to lose electrons is given by its Ionization Enthalpy. It represents the energy required to remove an electron from an isolated gaseous atom (X) in its ground state. The ionization enthalpy is expressed in units of kJ mol^(-1). We can define the second ionization enthalpy as the energy required to remove the second most loosely bound electron. Energy is always required to remove electrons from an atom and hence ionization enthalpies are always positive. The second ionization enthalpy will be higher than the first ionization enthalpy.\n\n ![image](https://media-mycbseguide.s3.amazonaws.com/images/imgur/1632228324-zzkbgx.jpg) \n\nVariation of first ionization enthalpies ( $\\Delta_i$ H) with atomic number for elements with Z = 1 to 60. On the other hand, minima occur at the alkali metals and their low ionization enthalpies can be correlated with their high reactivity. In addition, you will notice two trends the first ionization enthalpy generally increases as we go across a period and decreases as we descend in a group. The ionization enthalpy and atomic radius are closely related properties.\n\nThe first ionization enthalpy ( $\\Delta_i$ H) values of the third-period elements, Na, Mg and Si are respectively 496, 737 and 786 kJ mol^(–1). The first $\\Delta_i$ H value for Al is",
+          "question_html": "<b>Instructions for Question 53 to 55:</b><br><p>A quantitative measure of the tendency of an element to lose electrons is given by its Ionization Enthalpy. It represents the energy required to remove an electron from an isolated gaseous atom (X) in its ground state.&nbsp;The ionization enthalpy is expressed in units of kJ mol<sup>-1</sup>. We can define the second ionization enthalpy as the energy required to remove the second most loosely bound electron.&nbsp;Energy is always required to remove electrons from an atom and hence ionization enthalpies are always positive. The second ionization enthalpy will be higher than the first ionization enthalpy.<br />\r\n<img alt=\"\" src=\"https://media-mycbseguide.s3.amazonaws.com/images/imgur/1632228324-zzkbgx.jpg\" style=\"height:181px; width:250px\" /><br />\r\nVariation of first ionization enthalpies (<span class=\"math-tex\">{tex}\\Delta_i{/tex}</span>H) with atomic number for elements with Z = 1 to 60.&nbsp;On the other hand, minima occur at the alkali metals and their low ionization enthalpies can be correlated&nbsp;with their high reactivity. In addition, you will notice two trends the first ionization enthalpy generally increases as we go across a period and decreases as we descend in a group.&nbsp;The ionization enthalpy and atomic radius are closely related properties.</p><br><p>The first ionization enthalpy (<span class=\"math-tex\">{tex}\\Delta_i{/tex}</span>H) values of the third-period elements, Na, Mg and Si are respectively 496, 737 and 786 kJ mol<sup>&ndash;1</sup>. The first <span class=\"math-tex\">{tex}\\Delta_i{/tex}</span>H value for Al is</p>",
+          "options": [
+            {
+              "id": 1176760,
+              "text": "lower than that of Si",
+              "html": "lower than that of Si",
+              "is_correct": false
+            },
+            {
+              "id": 1176761,
+              "text": "lower than that of Ar",
+              "html": "lower than that of Ar",
+              "is_correct": false
+            },
+            {
+              "id": 1176759,
+              "text": "lower than that of Mg",
+              "html": "lower than that of Mg",
+              "is_correct": true
+            },
+            {
+              "id": 1176758,
+              "text": "lower than that of Na",
+              "html": "lower than that of Na",
+              "is_correct": false
+            }
+          ],
+          "correct_options": [
+            "lower than that of Mg"
+          ],
+          "explanation": "lower than that of Mg",
+          "solutions": []
+        }
+      ]
+    }
+  ]
+}

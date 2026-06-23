@@ -1,0 +1,1728 @@
+{
+  "testPaperID": 178,
+  "testPaperName": "Mock Test - 05",
+  "category_full_name": "CBSE > Class 11 > Mathematics",
+  "testDuration_min": 90,
+  "noOfQuestions": 50,
+  "instruction": "This question paper contains three sections - A, B and C. Each part is compulsory.\n Section - A has 20 MCQs, attempt any 16 out of 20.\n Section - B has 20 MCQs, attempt any 16 out of 20\n Section - C has 10 MCQs, attempt any 8 out of 10.\n There is no negative marking.\n All questions carry equal marks.",
+  "sections": [
+    {
+      "sectionName": "Section A",
+      "sectionID": 654,
+      "questions": [
+        {
+          "questionID": 284416,
+          "question": "Two finite sets have m and n elements respectively. The total number of subsets of first set is 56 more than the total number of subsets of the second set. The values of m and n respectively are.",
+          "question_raw": "<p>Two finite sets have m and n elements respectively. The total number of subsets of first set is 56 more than the total number of subsets of the second set. The values of m and n respectively are.</p>",
+          "options": [
+            {
+              "id": 406702,
+              "text": "7, 6",
+              "is_correct": false
+            },
+            {
+              "id": 406703,
+              "text": "5, 1",
+              "is_correct": false
+            },
+            {
+              "id": 406704,
+              "text": "6, 3",
+              "is_correct": true
+            },
+            {
+              "id": 406705,
+              "text": "8, 7",
+              "is_correct": false
+            }
+          ],
+          "correct_option_ids": [
+            406704
+          ],
+          "correct_option_texts": [
+            "6, 3"
+          ],
+          "explanation": "Since, let A and B be such sets, i.e., n (A) = m, and n(B) = n\nThus, n (P(A)) = 2^m , n (P(B)) = 2^n\nTherefore, n (P(A)) – n (P(B)) = 56, i.e., 2^m – 2^n = 56\n$\\Rightarrow$ 2^n (2^m–n – 1) = 2^3 7\n$\\Rightarrow$ n = 3, 2^m–n – 1 = 7\n$\\Rightarrow$ m = 6"
+        },
+        {
+          "questionID": 292333,
+          "question": "The domain of the function $f(x)=\\sqrt{2-2 x-x^{2}}$",
+          "question_raw": "<p>The domain of the function&nbsp;<span class=\"math-tex\">{tex}f(x)=\\sqrt{2-2 x-x^{2}}{/tex}</span></p>",
+          "options": [
+            {
+              "id": 417138,
+              "text": "$[-2-\\sqrt{3},-2+\\sqrt{3}]$",
+              "is_correct": false
+            },
+            {
+              "id": 417135,
+              "text": "$1-\\sqrt{3}, \\sqrt{3}$",
+              "is_correct": false
+            },
+            {
+              "id": 417136,
+              "text": "$[-1-\\sqrt{3},-1+\\sqrt{3}]$",
+              "is_correct": true
+            },
+            {
+              "id": 417137,
+              "text": "(-2, 2)",
+              "is_correct": false
+            }
+          ],
+          "correct_option_ids": [
+            417136
+          ],
+          "correct_option_texts": [
+            "$[-1-\\sqrt{3},-1+\\sqrt{3}]$"
+          ],
+          "explanation": "For f(x) to be defined,\n2 - 2x - x^2 $\\ge$ 0\nx^2 + 2x - 2 $\\le$ 0\n(x - (1 - √3)) (x - (-1 + √3)) $\\le$ 0\n$x \\in[-1-\\sqrt{3},-1+\\sqrt{3}]$"
+        },
+        {
+          "questionID": 18649,
+          "question": "Amp. (z - 2 - 3i) = $\\frac{\\pi}{4}$ then locus of z is",
+          "question_raw": "<p>Amp. (z - 2 - 3i) =&nbsp;<span class=\"math-tex\">{tex}\\frac{\\pi}{4}{/tex}</span> then locus of z is</p>",
+          "options": [
+            {
+              "id": 29797,
+              "text": "x - y = 2",
+              "is_correct": false
+            },
+            {
+              "id": 29798,
+              "text": "x + y = 0",
+              "is_correct": false
+            },
+            {
+              "id": 29799,
+              "text": "x + y = 2",
+              "is_correct": false
+            },
+            {
+              "id": 29796,
+              "text": "x – y + 1 = 0",
+              "is_correct": true
+            }
+          ],
+          "correct_option_ids": [
+            29796
+          ],
+          "correct_option_texts": [
+            "x – y + 1 = 0"
+          ],
+          "explanation": "Let z = x + iy\nThen z - 2 - 3i = (x + iy) - 2 - 3i = (x - 2) + i(y - 3)\nLet $\\theta $ be the amplitude of z.\nThen Amp (z - 2 - 3i) = $\\frac{\\pi}{4}$ \n$\\Rightarrow$ tan^-1$\\left(\\frac{y-3}{x-2}\\right)$ = $\\frac{\\Pi}{4}$ \n$\\Rightarrow$ $\\frac{y-3}{x-2}=\\tan \\frac{\\Pi}{4}$ = 1\n$\\Rightarrow$ y - 3 = x - 2\n$\\Rightarrow$ x - y + 1 = 0"
+        },
+        {
+          "questionID": 294449,
+          "question": "The equation of the line with slope $\\frac {-3} {2} $ and which is concurrent with the lines 4x + 3y - 7 = 0 and 8x + 5y - 1 = 0 is",
+          "question_raw": "<p>The equation of the line with slope&nbsp;<span class=\"math-tex\">{tex}\\frac {-3} {2} {/tex}</span>&nbsp;and which is concurrent with the lines 4x + 3y - 7 = 0 and 8x + 5y - 1 = 0 is</p>",
+          "options": [
+            {
+              "id": 419052,
+              "text": "3x + 2y - 63 = 0",
+              "is_correct": false
+            },
+            {
+              "id": 419054,
+              "text": "2y - 3x - 2 = 0",
+              "is_correct": false
+            },
+            {
+              "id": 419055,
+              "text": "2y + 3x + 2 = 0",
+              "is_correct": false
+            },
+            {
+              "id": 419053,
+              "text": "3x + 2y - 2 = 0",
+              "is_correct": true
+            }
+          ],
+          "correct_option_ids": [
+            419053
+          ],
+          "correct_option_texts": [
+            "3x + 2y - 2 = 0"
+          ],
+          "explanation": "Given:\n4x + 3y - 7 = 0 ...(i)\n8x + 5y - 1 = 0 ...(ii)\nThe equation of the line with slope $-\\frac{3}{2}$ is given below: y = $-\\frac{3}{2}$ x + c\n$\\Rightarrow \\frac{3}{2}$ x + y - c = 0 ...(iii)\nThe lines (i), (ii) and (iii) are concurrent, using condition we get,\n$\\therefore\\left|\\begin{array}{ccc} 4 & 3 & -7 \\\\ 8 & 5 & -1 \\\\ \\frac{3}{2} & 1 & -c \\end{array}\\right|=0$\n$\\Rightarrow$ 4(-5c + 1) - 3 (- 8c + $\\frac{3}{2}$) - 7 (8 - $\\frac{15}{2}$) = 0\n$\\Rightarrow$ - 20c + 4 + 24c - $\\frac{9}{2}$ - 56 + $\\frac{105}{2}$ = 0\n$\\Rightarrow \\frac{-40 c+8+48 c-9-112+105}{2}=0$\n$\\Rightarrow$ 8c = 8\n$\\Rightarrow$ c = 1\nOn substituting c = 1 in y = $-\\frac{3}{2}$ x + c, we get\ny = $-\\frac{3}{2}$ x + 1\n$\\Rightarrow$ 3x + 2y - 2 = 0"
+        },
+        {
+          "questionID": 285151,
+          "question": "The point (4, 1) undergoes the following two successive transformations :\n Reflection about the line y = x\n Translation through a distance 2 units along the positive x-axis Then the final coordinates of the point are",
+          "question_raw": "<p>The point (4, 1) undergoes the following two successive transformations :</p>\r\n\r\n<ol start=\"1\" style=\"list-style-type: lower-roman;\">\r\n\t<li>Reflection about the line y = x</li>\r\n\t<li>Translation through a distance 2 units along the positive x-axis Then the final coordinates of the point are</li>\r\n</ol>",
+          "options": [
+            {
+              "id": 407546,
+              "text": "(4, 3)",
+              "is_correct": false
+            },
+            {
+              "id": 407549,
+              "text": "$\\frac 72$, $\\frac 72$",
+              "is_correct": false
+            },
+            {
+              "id": 407547,
+              "text": "(3, 4)",
+              "is_correct": true
+            },
+            {
+              "id": 407548,
+              "text": "(1, 4)",
+              "is_correct": false
+            }
+          ],
+          "correct_option_ids": [
+            407547
+          ],
+          "correct_option_texts": [
+            "(3, 4)"
+          ],
+          "explanation": "We haveReflection of A (4, 1) in y = x is 5(1, 4).\nNow translation of point B through a distance ‘2’ units along the positive x-axis shifts B to C( 1 + 2, 4) or C(3, 4)."
+        },
+        {
+          "questionID": 19274,
+          "question": "If y = $\\frac {1 - x} {1 + x}$ then y_6 =",
+          "question_raw": "<p>If y =&nbsp;<span class=\"math-tex\">{tex}\\frac {1 - x} {1 + x}{/tex}</span>&nbsp;then y<sub>6</sub> =</p>",
+          "options": [
+            {
+              "id": 32297,
+              "text": "$\\frac{6!}{{{{(1 + x)}^7}}}$",
+              "is_correct": false
+            },
+            {
+              "id": 32296,
+              "text": "$\\frac{(-2).(6!)}{(1 + x)^7}$",
+              "is_correct": false
+            },
+            {
+              "id": 32298,
+              "text": "$\\frac{(-2).(7!)}{(1 + x)^6}$",
+              "is_correct": false
+            },
+            {
+              "id": 32295,
+              "text": "$\\frac{(2).(6!)}{(1 + x)^7}$",
+              "is_correct": true
+            }
+          ],
+          "correct_option_ids": [
+            32295
+          ],
+          "correct_option_texts": [
+            "$\\frac{(2).(6!)}{(1 + x)^7}$"
+          ],
+          "explanation": "y_1 = $\\frac{-2}{(1+x)^2}$ \ny_2 = $\\frac{(-2)(-2)}{(1+x)^3}$ \ny_3 = $\\frac{(-2)(-2)(-3)}{(1+x)^4}$ \ny_4 = $\\frac{(-2)(-2)(-3)(-4)}{(1+x)^5}$ \ny_5 = $\\frac{(-2)(-2)(-3)(-4)(-5)}{(1+x)^6}$ \ny_6 = $\\frac{(-2)(-2)(-3)(-4)(-5)(-6)}{(1+x)^7}$\n= $\\frac{(2).(6!)}{(1 + x)^7}$"
+        },
+        {
+          "questionID": 19426,
+          "question": "If the correlation coefficient between two variables is 1, then the two least square lines of regression are",
+          "question_raw": "<p>If the correlation coefficient between two variables is 1, then the two least square lines of regression are</p>",
+          "options": [
+            {
+              "id": 32904,
+              "text": "parallel",
+              "is_correct": false
+            },
+            {
+              "id": 32903,
+              "text": "coincident",
+              "is_correct": true
+            },
+            {
+              "id": 32905,
+              "text": "at right angles",
+              "is_correct": false
+            },
+            {
+              "id": 32906,
+              "text": "intersecting",
+              "is_correct": false
+            }
+          ],
+          "correct_option_ids": [
+            32903
+          ],
+          "correct_option_texts": [
+            "coincident"
+          ],
+          "explanation": "The angle between two regression lines is given by\ntan $\\theta$ = $\\frac{1-r^{2}}{r} \\cdot \\frac{\\sigma_{x} \\sigma_{y}}{\\sigma_{x}^{2}+\\sigma_{y}^{2}}$ \nif, r = 1, then \n$\\theta=0, \\pi$"
+        },
+        {
+          "questionID": 18344,
+          "question": "If n(A) = 3 and n(B) = 6 and A $ \\subseteq $ B, then n(A $\\cup$ B) = ?",
+          "question_raw": "<p>If n(A) = 3 and n(B) = 6 and A&nbsp;<span class=\"math-tex\">{tex} \\subseteq {/tex}</span> B, then&nbsp;n(A&nbsp;<span class=\"math-tex\">{tex}\\cup{/tex}</span>&nbsp;B) = ?</p>",
+          "options": [
+            {
+              "id": 28578,
+              "text": "9",
+              "is_correct": false
+            },
+            {
+              "id": 28576,
+              "text": "6",
+              "is_correct": true
+            },
+            {
+              "id": 28577,
+              "text": "3",
+              "is_correct": false
+            },
+            {
+              "id": 28579,
+              "text": "12",
+              "is_correct": false
+            }
+          ],
+          "correct_option_ids": [
+            28576
+          ],
+          "correct_option_texts": [
+            "6"
+          ],
+          "explanation": "A $\\subseteq$ B\n$\\Rightarrow$ n(A $\\cup$ B) = n(B) = 6"
+        },
+        {
+          "questionID": 292313,
+          "question": "If $e^{f(x)}=\\frac{10+x}{10-x}, x \\in$(-10, 10) and f(x) = k f $\\left(\\frac{200 x}{100+x^{2}}\\right)$ Then k =",
+          "question_raw": "<p>If&nbsp;<span class=\"math-tex\">{tex}e^{f(x)}=\\frac{10+x}{10-x}, x \\in{/tex}</span>(-10, 10) and f(x) = k f&nbsp;<span class=\"math-tex\">{tex}\\left(\\frac{200 x}{100+x^{2}}\\right){/tex}</span> Then k =</p>",
+          "options": [
+            {
+              "id": 417108,
+              "text": "0.6",
+              "is_correct": false
+            },
+            {
+              "id": 417110,
+              "text": "0.8",
+              "is_correct": false
+            },
+            {
+              "id": 417109,
+              "text": "0.7",
+              "is_correct": false
+            },
+            {
+              "id": 417107,
+              "text": "0.5",
+              "is_correct": true
+            }
+          ],
+          "correct_option_ids": [
+            417107
+          ],
+          "correct_option_texts": [
+            "0.5"
+          ],
+          "explanation": "$e^{f(x)}=\\frac{10+x}{10-x}$\n$f(x)=\\ln \\left(\\frac{10+x}{10-x}\\right)$\n$f(x)=k f\\left(\\frac{200 x}{100+x^{2}}\\right)$\n$\\ln \\left(\\frac{10+x}{10-x}\\right)=k \\ln \\left(\\frac{10+\\frac{200 x}{100+x^{2}}}{10-\\frac{200 x}{100+x^{2}}}\\right)$\n$\\ln \\left(\\frac{10+x}{10-x}\\right)=k \\ln \\left(\\frac{1000+10 x^{2}+200 x}{1000+10 x^{2}-200 x}\\right)$\n$=\\mathrm{k} \\ln \\left(\\frac{100+\\mathrm{x}^{2}+20 \\mathrm{x}}{100+\\mathrm{x}^{2}-20 \\mathrm{x}}\\right)$\n$\\ln \\left(\\frac{10+x}{10-x}\\right)=k \\ln \\left(\\frac{10+x}{10-x}\\right)^{2}$\n$\\ln \\left(\\frac{10+x}{10-x}\\right)=\\ln \\left(\\frac{10+x}{10-x}\\right)^{2 k}$\n2k = 1\nk = 1/2\n= 0.5"
+        },
+        {
+          "questionID": 284924,
+          "question": "If the complex number z = x + iy satisfies the condition |z + 1| = 1, then z lies on",
+          "question_raw": "<p>If the complex number z = x + iy satisfies the condition |z + 1| = 1, then z lies on</p>",
+          "options": [
+            {
+              "id": 407178,
+              "text": "x-axis",
+              "is_correct": false
+            },
+            {
+              "id": 407181,
+              "text": "y-axis",
+              "is_correct": false
+            },
+            {
+              "id": 407179,
+              "text": "circle with centre (1, 0) and radius 1",
+              "is_correct": false
+            },
+            {
+              "id": 407180,
+              "text": "circle with centre (–1, 0) and radius 1",
+              "is_correct": true
+            }
+          ],
+          "correct_option_ids": [
+            407180
+          ],
+          "correct_option_texts": [
+            "circle with centre (–1, 0) and radius 1"
+          ],
+          "explanation": "|z + 1| = 1 $\\Rightarrow$ |(x + 1) + iy| = 1\n$\\Rightarrow$ (x + 1)^2 + y^2 = 1\nwhich is a circle with centre (–1, 0) and radius 1."
+        },
+        {
+          "questionID": 19042,
+          "question": "The equations of the lines through (1, 1) and making angles of 45^o with the line x + y = 0",
+          "question_raw": "<p>The equations of the lines through (1, 1) and making angles of 45<sup>o</sup> with the line x + y = 0</p>",
+          "options": [
+            {
+              "id": 31369,
+              "text": "x – y = 0, y – 1 = 0",
+              "is_correct": false
+            },
+            {
+              "id": 31367,
+              "text": "x – 1 = 0, y – 1 = 0",
+              "is_correct": true
+            },
+            {
+              "id": 31368,
+              "text": "x – 1 = 0, x – y = 0",
+              "is_correct": false
+            },
+            {
+              "id": 31370,
+              "text": "x + y = 0, y – 1 = 0",
+              "is_correct": false
+            }
+          ],
+          "correct_option_ids": [
+            31367
+          ],
+          "correct_option_texts": [
+            "x – 1 = 0, y – 1 = 0"
+          ],
+          "explanation": "If the lines make equal angles of 45^o with the given line, x + y = 0.\nThen these lines must be perpendicular with each other.\nThis is possible only when the two lines are parallel to X-axis and Y-axis.\nThat is the equations should be x = a constant and y = a constant.\nSince it passes through (1, 1)\nThe equations should be x = 1 or x - 1 = 0 and y = 1 or y - 1 = 0"
+        },
+        {
+          "questionID": 19057,
+          "question": "The ortho centre of the triangle formed by lines xy = 0 and x + y = 1 is :",
+          "question_raw": "<p>The ortho centre of the triangle formed by lines xy = 0 and x + y = 1 is :</p>",
+          "options": [
+            {
+              "id": 31428,
+              "text": "($\\frac{1}{2}$, $\\frac{1}{2}$)",
+              "is_correct": false
+            },
+            {
+              "id": 31430,
+              "text": "($\\frac{1}{4}$, $\\frac{1}{4}$)",
+              "is_correct": false
+            },
+            {
+              "id": 31427,
+              "text": "(0, 0)",
+              "is_correct": true
+            },
+            {
+              "id": 31429,
+              "text": "($\\frac{1}{3}$, $\\frac{1}{3}$)",
+              "is_correct": false
+            }
+          ],
+          "correct_option_ids": [
+            31427
+          ],
+          "correct_option_texts": [
+            "(0, 0)"
+          ],
+          "explanation": "Given xy = 0 and x + y = 1, indicates that the straight line passes through (1, 0) and (0, 1). Hence it is a right-angled triangle whose vertex is the origin. Therefore the orthocenter is also at the origin (0, 0), this is one of the properties of right-angled triangle whose vertex is the origin."
+        },
+        {
+          "questionID": 19243,
+          "question": "$\\lim\\limits_{x \\to 0}\\left(\\frac{\\tan x-x}{x}\\right) \\sin \\left(\\frac{1}{x}\\right)$ is equal to",
+          "question_raw": "<p><span class=\"math-tex\">{tex}\\lim\\limits_{x \\to 0}\\left(\\frac{\\tan x-x}{x}\\right) \\sin \\left(\\frac{1}{x}\\right){/tex}</span> is equal to</p>",
+          "options": [
+            {
+              "id": 32173,
+              "text": "a real number other than 0 and 1",
+              "is_correct": false
+            },
+            {
+              "id": 32171,
+              "text": "0",
+              "is_correct": true
+            },
+            {
+              "id": 32174,
+              "text": "-1",
+              "is_correct": false
+            },
+            {
+              "id": 32172,
+              "text": "1",
+              "is_correct": false
+            }
+          ],
+          "correct_option_ids": [
+            32171
+          ],
+          "correct_option_texts": [
+            "0"
+          ],
+          "explanation": "$\\lim\\limits_{x \\to 0}\\left(\\frac{\\tan x-x}{x}\\right) \\sin \\left(\\frac{1}{x}\\right)$ \n$\\Rightarrow$ (0) Finite number = 0"
+        },
+        {
+          "questionID": 19435,
+          "question": "If Cov(X, Y) = 0, then $\\rho \\left( {X,Y} \\right)$ =",
+          "question_raw": "<p>If Cov(X, Y) = 0, then <span class=\"math-tex\">{tex}\\rho \\left( {X,Y} \\right){/tex}</span>&nbsp;=&nbsp;</p>",
+          "options": [
+            {
+              "id": 32940,
+              "text": "1",
+              "is_correct": false
+            },
+            {
+              "id": 32942,
+              "text": "$ \\pm $1",
+              "is_correct": false
+            },
+            {
+              "id": 32941,
+              "text": "- 1",
+              "is_correct": false
+            },
+            {
+              "id": 32939,
+              "text": "0",
+              "is_correct": true
+            }
+          ],
+          "correct_option_ids": [
+            32939
+          ],
+          "correct_option_texts": [
+            "0"
+          ],
+          "explanation": "Here, $\\rho (x,y) = \\frac{{{\\mathop{\\rm cov}} (x,y)}}{{\\mathop \\sigma \\nolimits_x \\mathop \\sigma \\nolimits_y }} = \\frac{0}{{\\mathop \\sigma \\nolimits_x \\mathop \\sigma \\nolimits_y }} $ = 0"
+        },
+        {
+          "questionID": 291192,
+          "question": "Two finite sets have m and n elements. The number of elements in the power set of first set is 48 more than the total number of elements in power set of the second set. Then, the values of m and n are:",
+          "question_raw": "<p>Two finite sets have m and n elements. The number of elements in the power set of first set is 48 more than the total number of elements in power set of the second set. Then, the values of m and n are:</p>",
+          "options": [
+            {
+              "id": 416189,
+              "text": "6, 4",
+              "is_correct": true
+            },
+            {
+              "id": 416188,
+              "text": "6, 3",
+              "is_correct": false
+            },
+            {
+              "id": 416187,
+              "text": "7, 6",
+              "is_correct": false
+            },
+            {
+              "id": 416190,
+              "text": "7, 4",
+              "is_correct": false
+            }
+          ],
+          "correct_option_ids": [
+            416189
+          ],
+          "correct_option_texts": [
+            "6, 4"
+          ],
+          "explanation": "Let A and B be the set which contain m and n elements respectively.\nThen n (P(A)) = 2^m and n (P(B)) = 2^n\nAlso given that, n (P(A)) = n (P(B)) +48\n$\\Rightarrow$ 2^m = 2^n + 48\nTherefore, Above equation is only true when m = 6 and n = 4"
+        },
+        {
+          "questionID": 292378,
+          "question": "The range of the function f(x) = $\\frac{x}{|x|} \\text { is }$",
+          "question_raw": "<p>The range of the function f(x) =&nbsp;<span class=\"math-tex\">{tex}\\frac{x}{|x|} \\text { is }{/tex}</span></p>",
+          "options": [
+            {
+              "id": 417240,
+              "text": "R - {-1, 1}",
+              "is_correct": false
+            },
+            {
+              "id": 417242,
+              "text": "{-1, 2}",
+              "is_correct": false
+            },
+            {
+              "id": 417241,
+              "text": "{-1, 1}",
+              "is_correct": true
+            },
+            {
+              "id": 417239,
+              "text": "R -{0}",
+              "is_correct": false
+            }
+          ],
+          "correct_option_ids": [
+            417241
+          ],
+          "correct_option_texts": [
+            "{-1, 1}"
+          ],
+          "explanation": "We know that \n$|x|=-x \\operatorname{in}(-\\infty, 0) \\text { and }|x|=x \\text { in }[0, \\infty)$\nSo, $f(x)=\\frac{x}{-x}=-1 \\text { in }(-\\infty, 0)$\nAnd $f(x)=\\frac{x}{x}=1 \\text { in }(0, \\infty)$\nAs clearly shown above f(x) has only two values 1 and -1\nSo, range of f (x) = {-1, 1}"
+        },
+        {
+          "questionID": 289532,
+          "question": "-2, when expressed in polar form, is",
+          "question_raw": "<p>-2, when expressed in polar form, is</p>",
+          "options": [
+            {
+              "id": 413195,
+              "text": "2[cos$\\pi$ + i sin$\\pi$]",
+              "is_correct": true
+            },
+            {
+              "id": 413196,
+              "text": "$-2\\left(\\cos \\frac{\\pi}{2}+i \\sin \\frac{\\pi}{2}\\right)$",
+              "is_correct": false
+            },
+            {
+              "id": 413198,
+              "text": "2[cos3$\\pi$ + i sin3$\\pi$]",
+              "is_correct": false
+            },
+            {
+              "id": 413197,
+              "text": "2[cos2$\\pi$ + i sin2$\\pi$]",
+              "is_correct": false
+            }
+          ],
+          "correct_option_ids": [
+            413195
+          ],
+          "correct_option_texts": [
+            "2[cos$\\pi$ + i sin$\\pi$]"
+          ],
+          "explanation": "Let z = -2 + 0 $\\times$ i and let z = r(cos$\\theta$ + i sin$\\theta$)\nThen, r cos $\\theta$ = -2 and r sin $\\theta$ = 0\nSquaring and adding, we get r^2 =4 $\\Rightarrow$ r = 2.\n$\\therefore$ [cos$\\theta$ = -1 and sin$\\theta$ = 0] $\\Rightarrow$ $\\theta$ = $\\pi$\n$\\therefore$ -2 = 2[cos$\\pi$ + i sin$\\pi$]"
+        },
+        {
+          "questionID": 19059,
+          "question": "In a $\\Delta ABC,$ if A is the point (1, 2) and equations of the median through B and C are respectively x + y = 5 and x = 4, then B is",
+          "question_raw": "<p>In a <span class=\"math-tex\">{tex}\\Delta ABC,{/tex}</span> if A is the point (1, 2) and equations of the median through B and C are respectively x + y = 5 and x = 4, then B is</p>",
+          "options": [
+            {
+              "id": 31436,
+              "text": "(4, 1)",
+              "is_correct": false
+            },
+            {
+              "id": 31437,
+              "text": "(1, 4)",
+              "is_correct": false
+            },
+            {
+              "id": 31435,
+              "text": "(7, - 2)",
+              "is_correct": true
+            },
+            {
+              "id": 31438,
+              "text": "(-2, 7)",
+              "is_correct": false
+            }
+          ],
+          "correct_option_ids": [
+            31435
+          ],
+          "correct_option_texts": [
+            "(7, - 2)"
+          ],
+          "explanation": "Let F be the midpoint on AC\nHence the coordinate of F is $\\frac{x_1 + 1}{2}$ and $\\frac{5-x_1 + 2}{2}$\nThis point lies on x = 4\nTherefore $\\frac{x_1 + 1}{2}$ = 4\nTherefore x_1 = 7 \nTherefore y = 5 - 7 = -2\nHence the coordinates of B is (7, -2)"
+        },
+        {
+          "questionID": 294433,
+          "question": "If p_1 and p_2 are the lengths of the perpendiculars from the origin upon the lines x sec $\\theta$ + y cosec $\\theta$ = a and x cos $\\theta$ - y sin $\\theta$ = a cos 2 $\\theta$ respectively, then",
+          "question_raw": "<p>If p<sub>1</sub> and p<sub>2 </sub>are the lengths of the perpendiculars from the origin upon the lines x sec <span class=\"math-tex\">{tex}\\theta{/tex}</span> + y cosec <span class=\"math-tex\">{tex}\\theta{/tex}</span> = a and x cos <span class=\"math-tex\">{tex}\\theta{/tex}</span> - y sin <span class=\"math-tex\">{tex}\\theta{/tex}</span>&nbsp;= a cos 2 <span class=\"math-tex\">{tex}\\theta{/tex}</span> respectively, then</p>",
+          "options": [
+            {
+              "id": 418991,
+              "text": "p_1^2 + 2p_2^2 = a^2",
+              "is_correct": false
+            },
+            {
+              "id": 418989,
+              "text": "p_1^2 + 4p_2^2 = a^2",
+              "is_correct": false
+            },
+            {
+              "id": 418990,
+              "text": "p_1^2 + p_2^2 = a^2",
+              "is_correct": false
+            },
+            {
+              "id": 418988,
+              "text": "4 p_1^2 + p_2^2 = a^2",
+              "is_correct": true
+            }
+          ],
+          "correct_option_ids": [
+            418988
+          ],
+          "correct_option_texts": [
+            "4 p_1^2 + p_2^2 = a^2"
+          ],
+          "explanation": "4 p_1^2 + p_2^2 = a^2\nThe given lines are\nx sec $\\theta$ + y cosec $\\theta$ = a ...(i)\nx cos $\\theta$ - y sin $\\theta$ = a 2 cos $\\theta$ ...(ii)\np_1 and p_2 are the perpendiculars from the origin upon the lines (i) and (ii), respectively , hence using the formula,\n$p_{1}=\\left|\\frac{-a}{\\sqrt{\\sec ^{2} \\theta+\\cos e c^{2} \\theta}}\\right|$ and $p_{2}=\\left|\\frac{-a \\cos 2 \\theta}{\\sqrt{\\cos ^{2} \\theta+\\sin ^{2} \\theta}}\\right|$\n$\\Rightarrow p_{1}=\\left|\\frac{-a \\sin \\theta \\cos \\theta}{\\sqrt{\\sin ^{2} \\theta+\\cos ^{2} \\theta}}\\right|$ and $p_{2}=|-a \\cos 2 \\theta|$\n$\\Rightarrow p_{1}=\\frac{1}{2}$$|-a \\times 2 \\sin \\theta \\cos \\theta|$ and p_2 $=|-a \\cos 2 \\theta|$\n$\\Rightarrow p_{1}=\\frac{1}{2}$ $|-a \\sin 2 \\theta|$ and p_2 $=|-a \\cos 2 \\theta|$\n$\\Rightarrow$ 4p_12 + p_2^2 = a^2 (sin^2 2$\\theta$ + cos^2 2$\\theta$)\n= a^2"
+        },
+        {
+          "questionID": 292506,
+          "question": "$\\lim \\limits_{n \\rightarrow \\infty} \\frac{1^{2}+2^{2}+3^{2}+\\ldots+n^{2}}{n^{3}}$ is equal to:",
+          "question_raw": "<p><span class=\"math-tex\">{tex}\\lim \\limits_{n \\rightarrow \\infty} \\frac{1^{2}+2^{2}+3^{2}+\\ldots+n^{2}}{n^{3}}{/tex}</span>&nbsp;is equal to:</p>\r\n",
+          "options": [
+            {
+              "id": 417416,
+              "text": "$\\frac {1}{2}$",
+              "is_correct": false
+            },
+            {
+              "id": 417415,
+              "text": "$\\frac {1}{3}$",
+              "is_correct": true
+            },
+            {
+              "id": 417417,
+              "text": "$\\frac {1}{4}$",
+              "is_correct": false
+            },
+            {
+              "id": 417418,
+              "text": "0",
+              "is_correct": false
+            }
+          ],
+          "correct_option_ids": [
+            417415
+          ],
+          "correct_option_texts": [
+            "$\\frac {1}{3}$"
+          ],
+          "explanation": "$\\lim \\limits_{n \\rightarrow \\infty} \\frac{1^{2}+2^{2}+3^{2} \\cdots \\cdots n^{2}}{n^{3}}$\n= $\\lim \\limits_{n \\rightarrow \\infty} \\frac{\\Sigma n^{2}}{n^{3}}$\n= $\\lim \\limits_{n \\rightarrow \\infty} \\frac{n(n+1)(2 n+1)}{6 n^{3}}$\n= $\\lim \\limits_{n \\rightarrow 0} \\frac{(n+1)(2 n+1)}{6 n^{2}}$\nDividing the numerator and the denominator by n^2, we get\n$\\lim \\limits_{n \\rightarrow \\infty} \\frac{\\frac{(n+1)}{n} \\times \\frac{(2 n+1)}{n}}{6}$\n= $\\lim \\limits_{n \\rightarrow \\infty} \\frac{\\left(1+\\frac{1}{n}\\right)\\left(2+\\frac{1}{n}\\right)}{6}$\n= $\\frac{2}{6}=\\frac{1}{3}$"
+        }
+      ]
+    },
+    {
+      "sectionName": "Section B",
+      "sectionID": 655,
+      "questions": [
+        {
+          "questionID": 19368,
+          "question": "If the angle between two lines of regression is 90^o, then it represents",
+          "question_raw": "<p>If the angle between two lines of regression is 90<sup>o</sup>, then it represents</p>",
+          "options": [
+            {
+              "id": 32671,
+              "text": "no linear correlation",
+              "is_correct": true
+            },
+            {
+              "id": 32672,
+              "text": "perfect negative correlation",
+              "is_correct": false
+            },
+            {
+              "id": 32674,
+              "text": "Moderate correlation",
+              "is_correct": false
+            },
+            {
+              "id": 32673,
+              "text": "perfect positive correlation",
+              "is_correct": false
+            }
+          ],
+          "correct_option_ids": [
+            32671
+          ],
+          "correct_option_texts": [
+            "no linear correlation"
+          ],
+          "explanation": "$[r = \\tan \\left( {\\frac{\\pi }{2} - \\theta } \\right)]$ \nHere $[\\theta = \\frac{\\pi }{2}]$ \nHence r = 0, therefore there is no linear correlation."
+        },
+        {
+          "questionID": 18349,
+          "question": "If A, B and C are any three sets, then A $\\mathop \\cap \\nolimits $ (B $\\mathop \\cup \\nolimits $ C) is equal to",
+          "question_raw": "<p>If A, B and C are any three sets, then A <span class=\"math-tex\">{tex}\\mathop \\cap \\nolimits {/tex}</span> (B <span class=\"math-tex\">{tex}\\mathop \\cup \\nolimits {/tex}</span>&nbsp;C) is equal to</p>\r\n",
+          "options": [
+            {
+              "id": 28599,
+              "text": "(A – B) $\\mathop \\cap \\nolimits $ (A – C)",
+              "is_correct": false
+            },
+            {
+              "id": 28598,
+              "text": "(A $\\mathop \\cup \\nolimits $ B) $\\mathop \\cup \\nolimits $ (A $\\mathop \\cup \\nolimits $ C)",
+              "is_correct": false
+            },
+            {
+              "id": 28597,
+              "text": "(A $\\mathop \\cup \\nolimits $ B) $\\mathop \\cap \\nolimits $ (A $\\mathop \\cap \\nolimits $ C)",
+              "is_correct": false
+            },
+            {
+              "id": 28596,
+              "text": "(A $\\mathop \\cap \\nolimits $ B) $\\mathop \\cup \\nolimits $ (A $\\mathop \\cap \\nolimits $ C)",
+              "is_correct": true
+            }
+          ],
+          "correct_option_ids": [
+            28596
+          ],
+          "correct_option_texts": [
+            "(A $\\mathop \\cap \\nolimits $ B) $\\mathop \\cup \\nolimits $ (A $\\mathop \\cap \\nolimits $ C)"
+          ],
+          "explanation": "Let x $\\in$ A $\\cup$ (B $\\cap$ C)\nx $\\in$ A or x $\\in$ (B and C)\nx $\\in$ A or {x $\\in$ B and x $\\in$ C}\n{x $\\in$ (A or B) and x $\\in$ (A or C)\nx $\\in$ (A or B) $\\cap$ x $\\in$ (A or C)\nx $\\in$ (A $\\cup$ B) $\\cap$ x $\\in$ (A $\\cap$ C)\nx $\\in$ (A $\\cup$ B) $\\cap$ (A $\\cup$ C)\nTherefore, A $\\cup$ (B $\\cap$ C) $\\subset$ (A $\\cup$ B) $\\cap$ (A $\\cup$ C) .....(i)\nSimilarly,\n(A $\\cup$ B) $\\cap$ (A $\\cup$ C) $\\subset$ A $\\cup$ (B $\\cap$ C) .....(ii)\nSo\nA $\\cup$ (B $\\cup$ C) = (A $\\cup$ B) $\\cap$ (A $\\cup$ C)"
+        },
+        {
+          "questionID": 18427,
+          "question": "If A = [a, b], B = [c, d], C = [d, e] then {(a, c), (a, d), (a,e), (b,c), (b, d), (b, e)} is equal to",
+          "question_raw": "<p>If A = [a, b], B = [c, d], C = [d, e] then {(a, c), (a, d), (a,e), (b,c), (b, d), (b, e)} is equal to</p>",
+          "options": [
+            {
+              "id": 28911,
+              "text": "$A \\times (B\\; \\cap C)$",
+              "is_correct": false
+            },
+            {
+              "id": 28910,
+              "text": "$A \\cap (B\\; \\cup C)$",
+              "is_correct": false
+            },
+            {
+              "id": 28909,
+              "text": "$A \\cup (B\\; \\cap C)$",
+              "is_correct": false
+            },
+            {
+              "id": 28908,
+              "text": "$A \\times (B\\; \\cup C)$",
+              "is_correct": true
+            }
+          ],
+          "correct_option_ids": [
+            28908
+          ],
+          "correct_option_texts": [
+            "$A \\times (B\\; \\cup C)$"
+          ],
+          "explanation": "A $\\times$ (B $\\cup$ C) = (A $\\times$ B) $\\cup$ A $\\times$ C\n= {a, b} $\\times$ {c, d} $\\cup$ {a, b} $\\times$ {d, c}\n= {(a, c), (a, d), (b, c), (b, d)} $\\cup$ {(a, d), (a, c), (b, d), (b, c)}\n= {(a, c), (a, d), (a, c), (b, c), (b, d), (b, e)}"
+        },
+        {
+          "questionID": 289755,
+          "question": "If z = (3i - 1)^2 then |z| = ?",
+          "question_raw": "<p>If z = (3i&nbsp;-&nbsp;1)<sup>2</sup> then |z|&nbsp;= ?</p>",
+          "options": [
+            {
+              "id": 413853,
+              "text": "4",
+              "is_correct": false
+            },
+            {
+              "id": 413852,
+              "text": "8",
+              "is_correct": false
+            },
+            {
+              "id": 413854,
+              "text": "6",
+              "is_correct": false
+            },
+            {
+              "id": 413851,
+              "text": "10",
+              "is_correct": true
+            }
+          ],
+          "correct_option_ids": [
+            413851
+          ],
+          "correct_option_texts": [
+            "10"
+          ],
+          "explanation": "z = (3i - 1)^2 = (9i^2 + 1 - 6i) = (-9 + 1 - 6i) = (-8 - 6i)\n$\\Rightarrow$ |z|^2 = {(-8)^2 + (-6)^2} = (64 + 36) = 100\n$\\Rightarrow$ |z| = $\\sqrt{100}$ = 10"
+        },
+        {
+          "questionID": 285140,
+          "question": "Equation of the line passing through (1, 2) and parallel to the line y = 3x - 1 is",
+          "question_raw": "<p>Equation of the line passing through (1, 2) and parallel to the line y = 3x - 1 is</p>",
+          "options": [
+            {
+              "id": 407514,
+              "text": "y + 2 = x + 1",
+              "is_correct": false
+            },
+            {
+              "id": 407515,
+              "text": "y + 2 = 3 (x + 1)",
+              "is_correct": false
+            },
+            {
+              "id": 407517,
+              "text": "y – 2 = x – 1",
+              "is_correct": false
+            },
+            {
+              "id": 407516,
+              "text": "y - 2 = 3 (x – 1)",
+              "is_correct": true
+            }
+          ],
+          "correct_option_ids": [
+            407516
+          ],
+          "correct_option_texts": [
+            "y - 2 = 3 (x – 1)"
+          ],
+          "explanation": "Line is parallel to the line y = 3x - 1.\nTherefore, slope of the line is ‘3’.\nAlso, line passes through the point (1,2).\nThus, equation of the line is: y - 2 = 3(x - 1)"
+        },
+        {
+          "questionID": 19277,
+          "question": "The derivative of $\\sec ^{-1}\\left(\\frac{1}{2 x^2-1}\\right)$ with respect to $\\sqrt {1 - {x^2}} $ at x = $\\frac{1}{2}$ is",
+          "question_raw": "<p>The derivative of <span class=\"math-tex\">{tex}\\sec ^{-1}\\left(\\frac{1}{2 x^2-1}\\right){/tex}</span> with respect to <span class=\"math-tex\">{tex}\\sqrt {1 - {x^2}} {/tex}</span>&nbsp;at x =&nbsp;<span class=\"math-tex\">{tex}\\frac{1}{2}{/tex}</span>&nbsp;is</p>",
+          "options": [
+            {
+              "id": 32309,
+              "text": "-2",
+              "is_correct": false
+            },
+            {
+              "id": 32310,
+              "text": "1",
+              "is_correct": false
+            },
+            {
+              "id": 32307,
+              "text": "4",
+              "is_correct": true
+            },
+            {
+              "id": 32308,
+              "text": "2",
+              "is_correct": false
+            }
+          ],
+          "correct_option_ids": [
+            32307
+          ],
+          "correct_option_texts": [
+            "4"
+          ],
+          "explanation": "Substitute x = cos $\\theta$ \n$\\Rightarrow$ $\\frac{d(2 \\theta)}{d(\\sin \\theta)}=\\frac{\\frac{d(2 \\theta)}{d t}}{\\frac{d(\\sin \\theta)}{d t}}$ \n$\\Rightarrow$ 2 sec $\\theta$ \n$\\Rightarrow$ 2(2) = 4"
+        },
+        {
+          "questionID": 19431,
+          "question": "If the S.D. of the 1, 2, 3, 4, 5,………………..10 is $\\sigma $, then the S.D. of 11, 12, 13, 14,…………….. 20 is",
+          "question_raw": "<p>If the S.D. of the 1, 2, 3, 4, 5,&hellip;&hellip;&hellip;&hellip;&hellip;&hellip;..10 is <span class=\"math-tex\">{tex}\\sigma {/tex}</span>, then the S.D. of 11, 12, 13, 14,&hellip;&hellip;&hellip;&hellip;&hellip;.. 20 is</p>",
+          "options": [
+            {
+              "id": 32924,
+              "text": "$\\sigma $ + 10",
+              "is_correct": false
+            },
+            {
+              "id": 32923,
+              "text": "$\\sigma $",
+              "is_correct": true
+            },
+            {
+              "id": 32926,
+              "text": "$\\frac{\\sigma }{10}$",
+              "is_correct": false
+            },
+            {
+              "id": 32925,
+              "text": "10$\\sigma $",
+              "is_correct": false
+            }
+          ],
+          "correct_option_ids": [
+            32923
+          ],
+          "correct_option_texts": [
+            "$\\sigma $"
+          ],
+          "explanation": "S.D = $\\sqrt {\\frac{{{n^2} - 1}}{{12}}} $ \nWhere n is the number of observations\nIn case of 1, 2, 3, ......,10 as well as in case of 11, 12, 13,......, 20\nS.D = $ \\sqrt {\\frac{{{{(10)}^2} - 1}}{{12}}} = \\sqrt {\\frac{99}{12}} $ = 2.87"
+        },
+        {
+          "questionID": 18356,
+          "question": "If Q = {x : x = $\\frac{1}{y}$, where y $ \\in $ N}, then",
+          "question_raw": "<p>If Q = {x : x = <span class=\"math-tex\">{tex}\\frac{1}{y}{/tex}</span>, where y <span class=\"math-tex\">{tex} \\in {/tex}</span> N}, then</p>",
+          "options": [
+            {
+              "id": 28626,
+              "text": "2 $ \\in $ Q",
+              "is_correct": false
+            },
+            {
+              "id": 28627,
+              "text": "$\\frac{1}{2}$ $ \\notin $ Q",
+              "is_correct": false
+            },
+            {
+              "id": 28625,
+              "text": "0 $ \\in $ Q",
+              "is_correct": false
+            },
+            {
+              "id": 28624,
+              "text": "1 $ \\in $ Q",
+              "is_correct": true
+            }
+          ],
+          "correct_option_ids": [
+            28624
+          ],
+          "correct_option_texts": [
+            "1 $ \\in $ Q"
+          ],
+          "explanation": "N is set of natural number, so\nx = $\\frac{1}{y}$\nWhen y = 1 then x = 1\nSo, 1 $ \\in $Q"
+        },
+        {
+          "questionID": 292317,
+          "question": "If f(x) = $64 x^{3}+\\frac{1}{x^{3}}$ and $\\alpha, \\beta$ are the roots of $4 x+\\frac{1}{x}=3$ Then",
+          "question_raw": "<p>If f(x) =&nbsp;<span class=\"math-tex\">{tex}64 x^{3}+\\frac{1}{x^{3}}{/tex}</span>&nbsp;and&nbsp;<span class=\"math-tex\">{tex}\\alpha, \\beta{/tex}</span>&nbsp;are the roots of&nbsp;<span class=\"math-tex\">{tex}4 x+\\frac{1}{x}=3{/tex}</span> Then</p>",
+          "options": [
+            {
+              "id": 417118,
+              "text": "f $(\\alpha)=f(\\beta)$ = 32",
+              "is_correct": false
+            },
+            {
+              "id": 417115,
+              "text": "f $(\\alpha)=f(\\beta)$ = -9",
+              "is_correct": true
+            },
+            {
+              "id": 417117,
+              "text": "f $(\\alpha) \\neq f(\\beta)$",
+              "is_correct": false
+            },
+            {
+              "id": 417116,
+              "text": "f $(\\alpha)=f(\\beta)$ = 63",
+              "is_correct": false
+            }
+          ],
+          "correct_option_ids": [
+            417115
+          ],
+          "correct_option_texts": [
+            "f $(\\alpha)=f(\\beta)$ = -9"
+          ],
+          "explanation": "$f(x)=64 x^{3}+\\frac{1}{x^{3}}$\n$=\\left(4 x+\\frac{1}{x}\\right)^{3}-3(4 x)\\left(\\frac{1}{x}\\right)\\left(4 x+\\frac{1}{x}\\right)$\nSince, $4 x+\\frac{1}{x}=3$ and $\\alpha\\ and\\ \\beta$ are its roots, \nf(x) = 3^3 - 12(3)\n= 27-36\n= -9\nso,$f(\\alpha)=f(\\beta)=-9$"
+        },
+        {
+          "questionID": 289540,
+          "question": "-3i, when expressed in polar form, is",
+          "question_raw": "<p>-3i, when expressed in polar form, is</p>",
+          "options": [
+            {
+              "id": 413219,
+              "text": "$3\\left[\\cos \\left(-\\frac{\\pi}{2}\\right)+i \\sin \\left(-\\frac{\\pi}{2}\\right)\\right]$",
+              "is_correct": true
+            },
+            {
+              "id": 413222,
+              "text": "$3\\left[\\cos \\left(\\frac{\\pi}{4}\\right)+i \\sin \\left(\\frac{\\pi}{4}\\right)\\right]$",
+              "is_correct": false
+            },
+            {
+              "id": 413220,
+              "text": "$3\\left[\\cos \\left(\\frac{\\pi}{2}\\right)+i \\sin \\left(\\frac{\\pi}{2}\\right)\\right]$",
+              "is_correct": false
+            },
+            {
+              "id": 413221,
+              "text": "$-3\\left[\\cos \\frac{\\pi}{2}+i \\sin \\frac{\\pi}{2}\\right]$",
+              "is_correct": false
+            }
+          ],
+          "correct_option_ids": [
+            413219
+          ],
+          "correct_option_texts": [
+            "$3\\left[\\cos \\left(-\\frac{\\pi}{2}\\right)+i \\sin \\left(-\\frac{\\pi}{2}\\right)\\right]$"
+          ],
+          "explanation": "Let z = 0 - 3i and let z = r(cos $\\theta$ + i sin $\\theta$)\nThen, r cos$\\theta$ = $\\theta$ and r sin$\\theta$ = -3\nSquaring and adding, we get r^2 = 9\n$\\Rightarrow$ r = 3\n$\\therefore$ [cos$\\theta$ = 0 and sin$\\theta$ = -1] $\\Rightarrow$ $\\theta$ = $-\\frac{\\pi}{2}$\n$\\therefore$ -3i = $3\\left[\\cos \\left(-\\frac{\\pi}{2}\\right)+i \\sin \\left(-\\frac{\\pi}{2}\\right)\\right]$"
+        },
+        {
+          "questionID": 292495,
+          "question": "If x is positive, the sum to infinity of the series $\\frac{1}{1+x}-\\frac{1-x}{(1+x)^{2}}+\\frac{(1-x)^{2}}{(1+x)^{3}}-\\frac{(1-x)^{3}}{(1+x)^{4}}$.",
+          "question_raw": "<p>If x is positive, the sum to infinity of the series&nbsp;<span class=\"math-tex\">{tex}\\frac{1}{1+x}-\\frac{1-x}{(1+x)^{2}}+\\frac{(1-x)^{2}}{(1+x)^{3}}-\\frac{(1-x)^{3}}{(1+x)^{4}}{/tex}</span>.</p>",
+          "options": [
+            {
+              "id": 417387,
+              "text": "$\\frac {1}{2}$",
+              "is_correct": true
+            },
+            {
+              "id": 417388,
+              "text": "$\\frac {3}{4}$",
+              "is_correct": false
+            },
+            {
+              "id": 417390,
+              "text": "2",
+              "is_correct": false
+            },
+            {
+              "id": 417389,
+              "text": "1",
+              "is_correct": false
+            }
+          ],
+          "correct_option_ids": [
+            417387
+          ],
+          "correct_option_texts": [
+            "$\\frac {1}{2}$"
+          ],
+          "explanation": "Suppose the sum of the series,\nS $=\\frac{1}{(1+x)}-\\frac{(1-x)}{(1+x)^{2}}$$+\\frac{(1-x)^{2}}{(1+x)^{3}}-\\frac{(1-x)^{3}}{(1+x)^{4}}$ + ... $\\infty$\nIt is clear that it is a G.P. with a $=\\frac{1}{(1+x)}$ and $r=-\\frac{(1-x)}{(1+x)}$\n$\\therefore S=\\frac{a}{(1-r)}$\n$\\Rightarrow S=\\frac{\\frac{1}{(1+x)}}{\\left[1-\\left(-\\frac{(1-x)}{(1+x)}\\right)\\right]}$\n$\\Rightarrow S=\\frac{\\frac{1}{(1+x)}}{\\left[1+\\frac{(1-x)}{(1+x)}\\right]}$\n$\\Rightarrow S=\\frac{\\frac{1}{(1+x)}}{\\left[\\frac{(1+x)+(1-x)}{(1+x)}\\right]}$\n$\\Rightarrow S=\\frac{1}{2}$"
+        },
+        {
+          "questionID": 19265,
+          "question": "$\\frac{d}{d x}\\left\\{\\tan ^{-1}\\left(\\frac{3 x-x^3}{1-3 x^2}\\right)\\right\\}$ is equal to",
+          "question_raw": "<p><span class=\"math-tex\">{tex}\\frac{d}{d x}\\left\\{\\tan ^{-1}\\left(\\frac{3 x-x^3}{1-3 x^2}\\right)\\right\\}{/tex}</span> is equal to</p>",
+          "options": [
+            {
+              "id": 32259,
+              "text": "$\\frac{3}{1+x^2}$",
+              "is_correct": true
+            },
+            {
+              "id": 32260,
+              "text": "$\\frac {3}{1 + 9x^2}$",
+              "is_correct": false
+            },
+            {
+              "id": 32261,
+              "text": "sec^23x",
+              "is_correct": false
+            },
+            {
+              "id": 32262,
+              "text": "$\\frac {1}{1 + x^2}$",
+              "is_correct": false
+            }
+          ],
+          "correct_option_ids": [
+            32259
+          ],
+          "correct_option_texts": [
+            "$\\frac{3}{1+x^2}$"
+          ],
+          "explanation": "Substitute x = tan $\\theta$; $\\frac{dx}{d\\theta}$ = sec^2 $\\theta$ \n$\\Rightarrow$ y = 3$\\theta$ \n$\\Rightarrow$ $\\frac{dy}{dx}$ = 3 cos^2 $\\theta$ = $\\frac{3}{1+x^{2}}$"
+        },
+        {
+          "questionID": 19366,
+          "question": "A batsman scores runs in 10 innings as 38, 70, 48, 34, 42, 55, 63, 46, 54 and 44 then the mean score is",
+          "question_raw": "<p>A batsman scores runs in 10 innings as 38, 70, 48, 34, 42, 55, 63, 46, 54 and 44&nbsp;then the mean score is</p>",
+          "options": [
+            {
+              "id": 32664,
+              "text": "4.94",
+              "is_correct": false
+            },
+            {
+              "id": 32665,
+              "text": "0.494",
+              "is_correct": false
+            },
+            {
+              "id": 32663,
+              "text": "49.4",
+              "is_correct": true
+            },
+            {
+              "id": 32666,
+              "text": "494",
+              "is_correct": false
+            }
+          ],
+          "correct_option_ids": [
+            32663
+          ],
+          "correct_option_texts": [
+            "49.4"
+          ],
+          "explanation": "Mean (x) = $\\frac{(38+70+48+34+42+55+63+46+54+44)}{10}$ \n= $\\frac{494}{10}$ \n= 49.4"
+        },
+        {
+          "questionID": 18684,
+          "question": "If z is purely real and Re ( z) > 0, then Amp. (z) is",
+          "question_raw": "<p>If z is purely real and Re ( z) &gt; 0, then Amp. (z) is</p>",
+          "options": [
+            {
+              "id": 29938,
+              "text": "- $\\pi $",
+              "is_correct": false
+            },
+            {
+              "id": 29937,
+              "text": "$\\pi $",
+              "is_correct": false
+            },
+            {
+              "id": 29936,
+              "text": "0",
+              "is_correct": true
+            },
+            {
+              "id": 29939,
+              "text": "1",
+              "is_correct": false
+            }
+          ],
+          "correct_option_ids": [
+            29936
+          ],
+          "correct_option_texts": [
+            "0"
+          ],
+          "explanation": "To find the amplitude of a complex number Z = x + iy first find a value of $\\theta $ which satisfy the equation $\\theta =\\tan ^{ -1 }{ \\left| \\frac { y }{ x } \\right| } ,0\\le \\theta \\le \\frac { \\Pi }{ 2 } $ \nNow depending on the complex number lies in the first, second, third or fourth quadrants the amplitudes will be $\\theta ,\\left( \\Pi -\\theta \\right) ,-\\left( \\Pi -\\theta \\right) ,-\\left( \\theta \\right) $ respectively.\nGiven z is purely real and Re (z) > 0\n$\\therefore$ Z = x + 0i, x > 0\nNow $\\tan ^{ -1 }{ \\left| \\frac { y }{ x } \\right| } =\\tan ^{ -1 }{ \\left| \\frac { 0 }{ 1 } \\right| } $ = tan^-1 0 = 0\nAlso Z = x + 0i, x > 0 lies in the first quadrant \nHence Amp(Z) = 0"
+        },
+        {
+          "questionID": 19034,
+          "question": "The locus of the inequation xy $≥$ 0 is",
+          "question_raw": "<p>The locus of the inequation xy <span class=\"math-tex\">{tex}≥{/tex}</span> 0 is</p>",
+          "options": [
+            {
+              "id": 31337,
+              "text": "a straight line",
+              "is_correct": false
+            },
+            {
+              "id": 31335,
+              "text": "the set of all points either in the 1st quadrant or in the 3rd quadrant including the points on coordinate axis",
+              "is_correct": true
+            },
+            {
+              "id": 31338,
+              "text": "a parallel line",
+              "is_correct": false
+            },
+            {
+              "id": 31336,
+              "text": "a pair of straight lines",
+              "is_correct": false
+            }
+          ],
+          "correct_option_ids": [
+            31335
+          ],
+          "correct_option_texts": [
+            "the set of all points either in the 1st quadrant or in the 3rd quadrant including the points on coordinate axis"
+          ],
+          "explanation": "It is the set of all points either in the 1st quadrant or in the 3rd quadrant including the points on coordiate axis. This is because the inequality $\\ge$ indicates that the points belong either to 1st or 3rd quadrant."
+        },
+        {
+          "questionID": 18375,
+          "question": "If A and B are two given sets , then A $\\cap$ (A $\\cap$ B)^c is equal to",
+          "question_raw": "<p>If A and B are two given sets , then A&nbsp;<span class=\"math-tex\">{tex}\\cap{/tex}</span>&nbsp;(A&nbsp;<span class=\"math-tex\">{tex}\\cap{/tex}</span>&nbsp;B)<sup>c</sup>&nbsp;is equal to</p>",
+          "options": [
+            {
+              "id": 28701,
+              "text": "A",
+              "is_correct": false
+            },
+            {
+              "id": 28703,
+              "text": "$\\phi $",
+              "is_correct": false
+            },
+            {
+              "id": 28702,
+              "text": "B",
+              "is_correct": false
+            },
+            {
+              "id": 28700,
+              "text": "A $\\cap$ B^c",
+              "is_correct": true
+            }
+          ],
+          "correct_option_ids": [
+            28700
+          ],
+          "correct_option_texts": [
+            "A $\\cap$ B^c"
+          ],
+          "explanation": "A $\\cap$ B^c\nA and B are two sets.\nA $\\cap$ B is the common region in both the sets.\n(A $\\cap$ B^c) is all the region in the universal set except A $\\cap$ B\nNow, A $\\cap$ (A $\\cap$ B)^c = A $\\cap$ B^c"
+        },
+        {
+          "questionID": 291012,
+          "question": "If R is a relation on the set A = {1, 2, 3, 4, 5, 6, 7, 8, 9} given by x R y $\\Leftrightarrow$ y = 3 x, then R =",
+          "question_raw": "<p>If R is a relation on the set A = {1, 2, 3, 4, 5, 6, 7, 8, 9} given by x R y&nbsp;<span class=\"math-tex\">{tex}\\Leftrightarrow{/tex}</span>&nbsp;y = 3 x, then R =</p>",
+          "options": [
+            {
+              "id": 415817,
+              "text": "{(3, 1), (2, 6), (3, 9)}",
+              "is_correct": false
+            },
+            {
+              "id": 415818,
+              "text": "None of these",
+              "is_correct": true
+            },
+            {
+              "id": 415816,
+              "text": "{(3, 1), (6, 2), (9, 3)}",
+              "is_correct": false
+            },
+            {
+              "id": 415815,
+              "text": "{(3, 1), (6, 2), (8, 2),(9, 3)}",
+              "is_correct": false
+            }
+          ],
+          "correct_option_ids": [
+            415818
+          ],
+          "correct_option_texts": [
+            "None of these"
+          ],
+          "explanation": "Here, y = 3x;\nIf x = 1; then y = 3.\nIf x = 2; then y = 6.\nIf x = 3; then y = 9.\nTherefore the required relation will be R = {(1, 3), (2, 6), (3, 9)}."
+        },
+        {
+          "questionID": 285338,
+          "question": "If z is a complex number, then",
+          "question_raw": "<p>If z is a complex number, then</p>",
+          "options": [
+            {
+              "id": 407807,
+              "text": "∣z^2∣ = |z|^2",
+              "is_correct": true
+            },
+            {
+              "id": 407809,
+              "text": "∣z^2∣ $\\ge$ |z|^2",
+              "is_correct": false
+            },
+            {
+              "id": 407808,
+              "text": "∣z^2∣ < |z|^2",
+              "is_correct": false
+            },
+            {
+              "id": 407806,
+              "text": "∣z^2∣ > |z|^2",
+              "is_correct": false
+            }
+          ],
+          "correct_option_ids": [
+            407807
+          ],
+          "correct_option_texts": [
+            "∣z^2∣ = |z|^2"
+          ],
+          "explanation": "If z is a complex number, then z = x + iyz = x + iy\n|z| = |x + iy| and |z|^2 = |x + iy|^2\n^$\\Rightarrow$ |z|^2 = x^2 + y^2 ...(i)\nand z^2 = (x + iy)^2 = x^2 + i^2y^2 + i^2xy\n$\\Rightarrow$^ $\\left|z^{2}\\right|=\\sqrt{\\left(x^{2}-y^{2}\\right)^{2}+(2 x y)^{2}}$\n$\\Rightarrow$^ $\\left|z^{2}\\right|=\\sqrt{x^{4}+y^{4}-2 x^{2} y^{2}+4 x^{2} y^{2}}$\n$\\Rightarrow$^ $\\left|z^{2}\\right|=\\sqrt{x^{4}+y^{4}-2 x^{2} y^{2}}=\\sqrt{\\left(x^{2}+y^{2}\\right)^{2}}$\n$\\Rightarrow$ |z^2| = x^2 + y^2 ..(ii)\nFrom Eqs. (i) and (ii)\n|z|^2 = |z|^2"
+        },
+        {
+          "questionID": 289483,
+          "question": "Which term of the AP 40, 35, 30,... is the first negative term?",
+          "question_raw": "<p>Which term of the AP 40, 35, 30,... is the first negative term?</p>",
+          "options": [
+            {
+              "id": 413071,
+              "text": "9th",
+              "is_correct": false
+            },
+            {
+              "id": 413072,
+              "text": "10th",
+              "is_correct": true
+            },
+            {
+              "id": 413073,
+              "text": "12th",
+              "is_correct": false
+            },
+            {
+              "id": 413074,
+              "text": "14th",
+              "is_correct": false
+            }
+          ],
+          "correct_option_ids": [
+            413072
+          ],
+          "correct_option_texts": [
+            "10th"
+          ],
+          "explanation": "Let T_n < 0 . Then, {a + (n - 1) d} < 0, where a = 40 and d = -5\n$\\therefore$ {40 + (n-1) $\\times$ (-5)} < 0 $\\Rightarrow$ 45 < 5n $\\Rightarrow$ 5n > 45 $\\Rightarrow$ n > 9\n$\\therefore$ 10th term is the first negative term."
+        },
+        {
+          "questionID": 295644,
+          "question": "In A.M.'s are introduced between 3 and 17 such that the ratio of the last mean to the first mean is 3 : 1, then the value of n is:",
+          "question_raw": "<p>In A.M.&#39;s are introduced between 3 and 17 such that the ratio of the last mean to the first mean is 3 : 1, then the value of n is:</p>",
+          "options": [
+            {
+              "id": 420411,
+              "text": "10",
+              "is_correct": false
+            },
+            {
+              "id": 420410,
+              "text": "4",
+              "is_correct": false
+            },
+            {
+              "id": 420408,
+              "text": "6",
+              "is_correct": true
+            },
+            {
+              "id": 420409,
+              "text": "8",
+              "is_correct": false
+            }
+          ],
+          "correct_option_ids": [
+            420408
+          ],
+          "correct_option_texts": [
+            "6"
+          ],
+          "explanation": "Let A_1, A_2, A_3, A_4 .... A_n be the n arithmetic means between 3 and 17.\nLet d be the common difference of the A.P. 3, A_1, A_2, A_3, A_4 .... A_n and 17.\nWe have , common difference as,\nd = $\\frac{17-3}{n+1}=\\frac{14}{n+1}$\nNow, A_1 = 3 + d = 3 + $\\frac{14}{n+1}=\\frac{3 n+17}{n+1}$\nAnd, A_n = 3 + nd = 3 + n$\\left(\\frac{14}{n+1}\\right)=\\frac{17 n+3}{n+1}$\n$\\therefore \\frac{A_{n}}{A_{1}}=\\frac{3}{1}$\n$\\Rightarrow \\frac{\\left(\\frac{17 n+3}{n+1}\\right)}{\\left(\\frac{3 n+17}{n+1}\\right)}=\\frac{3}{1} $\n$\\Rightarrow \\frac{17 n+3}{3 n+17}=\\frac{3}{1} $\n$\\Rightarrow$ 17n + 3 = 9n + 51\n$\\Rightarrow$ 8n = 48\n$\\Rightarrow$ n = 6"
+        }
+      ]
+    },
+    {
+      "sectionName": "Section C",
+      "sectionID": 656,
+      "questions": [
+        {
+          "questionID": 284513,
+          "question": "If A and B are two sets, then A $\\cap$ (A $\\cup$ B) equals",
+          "question_raw": "<p>If A and B are two sets, then A <span class=\"math-tex\">{tex}\\cap{/tex}</span>&nbsp;(A <span class=\"math-tex\">{tex}\\cup{/tex}</span>&nbsp;B) equals</p>",
+          "options": [
+            {
+              "id": 406825,
+              "text": "A $\\cap$ B",
+              "is_correct": false
+            },
+            {
+              "id": 406823,
+              "text": "B",
+              "is_correct": false
+            },
+            {
+              "id": 406824,
+              "text": "$\\phi$",
+              "is_correct": false
+            },
+            {
+              "id": 406822,
+              "text": "A",
+              "is_correct": true
+            }
+          ],
+          "correct_option_ids": [
+            406822
+          ],
+          "correct_option_texts": [
+            "A"
+          ],
+          "explanation": "Let us assume that x $\\in$ A $\\cap$ (A $\\cup$ B)\n$\\Rightarrow$ x $\\in$ A and x $\\in$ (A $\\cup$ B)\n$\\Rightarrow$ x $\\in$ A and (x $\\in$ A or x $\\in$ B)\n$\\Rightarrow$ (x $\\in$ A and x $\\in$ A) or (x $\\in$ A and x $\\in$ B)\n$\\Rightarrow$ x $\\in$ A or x $\\in$ A $\\cap$ B\n$\\Rightarrow$ x $\\in$ A\nTherefore, A $\\cap$ (A $\\cup$ B) = A"
+        },
+        {
+          "questionID": 18419,
+          "question": "If f(x) = $\\frac{x}{x-1}=\\frac{1}{y}$, then f(y) =",
+          "question_raw": "<p>If f(x) = <span class=\"math-tex\">{tex}\\frac{x}{x-1}=\\frac{1}{y}{/tex}</span>, then f(y) =</p>",
+          "options": [
+            {
+              "id": 28878,
+              "text": "x",
+              "is_correct": false
+            },
+            {
+              "id": 28879,
+              "text": "1 + x",
+              "is_correct": false
+            },
+            {
+              "id": 28877,
+              "text": "x - 1",
+              "is_correct": false
+            },
+            {
+              "id": 28876,
+              "text": "1 - x",
+              "is_correct": true
+            }
+          ],
+          "correct_option_ids": [
+            28876
+          ],
+          "correct_option_texts": [
+            "1 - x"
+          ],
+          "explanation": "We have, f(x) = $\\frac{x}{{x - 1}} = \\frac{1}{y}$ \n$\\therefore$ y = $ \\frac{{x - 1}}{x}$ \nNow, f(x) = $ \\frac{x}{{x - 1}}$ \n$\\Rightarrow$ f(y) = $\\frac{y}{y-1}=\\frac{\\frac{x-1}{z}}{\\frac{x-1}{x}-1}=\\frac{x-1}{x-1-x}$ = $\\frac{x-1}{-1}$ = 1 - x"
+        },
+        {
+          "questionID": 18691,
+          "question": "Which of the following is correct ?",
+          "question_raw": "<p>Which of the following is correct ?</p>",
+          "options": [
+            {
+              "id": 29965,
+              "text": "${\\text{2 }} + {\\text{ 3i }} < {\\text{ 3 }} + {\\text{ 4i}}$",
+              "is_correct": false
+            },
+            {
+              "id": 29964,
+              "text": "none of these",
+              "is_correct": true
+            },
+            {
+              "id": 29967,
+              "text": "${\\text{1 }} + {\\text{i }} < {\\text{ 1}} - {\\text{ i}}$",
+              "is_correct": false
+            },
+            {
+              "id": 29966,
+              "text": "${\\text{3 }} - {\\text{4i }} < {\\text{ 2 }}-{\\text{ 3i}}$",
+              "is_correct": false
+            }
+          ],
+          "correct_option_ids": [
+            29964
+          ],
+          "correct_option_texts": [
+            "none of these"
+          ],
+          "explanation": "There is no linear ordering in the set of complex numbers.Hence it is not possible to say one complex number is smaller or bigger than the other"
+        },
+        {
+          "questionID": 295697,
+          "question": "The sum of an infinite G.P. is 4 and the sum of the cubes of its terms is 92. The common ratio of the original G.P. is",
+          "question_raw": "<p>The sum of an infinite G.P. is 4 and the sum of the cubes of its terms is 92. The common ratio of the original G.P. is</p>",
+          "options": [
+            {
+              "id": 420498,
+              "text": "$\\frac {1}{3}$",
+              "is_correct": false
+            },
+            {
+              "id": 420499,
+              "text": "$-\\frac {1}{2}$",
+              "is_correct": false
+            },
+            {
+              "id": 420497,
+              "text": "$\\frac {2}{3}$",
+              "is_correct": false
+            },
+            {
+              "id": 420496,
+              "text": "$\\frac {1}{2}$",
+              "is_correct": true
+            }
+          ],
+          "correct_option_ids": [
+            420496
+          ],
+          "correct_option_texts": [
+            "$\\frac {1}{2}$"
+          ],
+          "explanation": "According to the question , we can write,\nLet the G.P. be a, ar, ar2, ar3, ...., $\\infty$\n$S_{\\infty}$ = 4\n$\\Rightarrow \\frac{a}{1-r}$ = 4 ...(i)\nAlso, sum of the cubes, S1 = 92\n$\\Rightarrow \\frac{a^{3}}{\\left(1-r^{3}\\right)}$ = 92 ...(ii)\nPutting the value of a form (i) to (ii):\n$\\Rightarrow \\frac{(4(1-r))^{3}}{\\left(1-r^{3}\\right)}$ = 92\n$\\Rightarrow \\frac{64(1-r)^{3}}{\\left(1-r^{3}\\right)}$ = 92\n$\\Rightarrow \\frac{(1-r)^{3}}{(1-r)\\left(1+r+r^{2}\\right)}=\\frac{92}{64}$\n$\\Rightarrow \\frac{(1-r)^{2}}{\\left(1+r+r^{2}\\right)}=\\frac{23}{16}$\n$\\Rightarrow$ 16(1 - 2r + r^2) = 23(1 + r + r^2)\n$\\Rightarrow$ 7r^2 + 55r + 7 = 0\nUsing the quadratic formula:\n$\\Rightarrow r=\\frac{-55+\\sqrt{55^{2}-4 \\times 7 \\times 7}}{2 \\times 7}$\n$\\Rightarrow r=\\frac{-55+\\sqrt{55^{2}-14^{2}}}{14}$\n$\\Rightarrow r=\\frac{-55+\\sqrt{2829}}{14}$\nOriginal ratio is calculated."
+        },
+        {
+          "questionID": 19418,
+          "question": "For a normal distribution, we have",
+          "question_raw": "<p>For a normal distribution, we have</p>",
+          "options": [
+            {
+              "id": 32871,
+              "text": "mean = median = mode",
+              "is_correct": true
+            },
+            {
+              "id": 32873,
+              "text": "median = mode",
+              "is_correct": false
+            },
+            {
+              "id": 32874,
+              "text": "mean = mode",
+              "is_correct": false
+            },
+            {
+              "id": 32872,
+              "text": "mean = median",
+              "is_correct": false
+            }
+          ],
+          "correct_option_ids": [
+            32871
+          ],
+          "correct_option_texts": [
+            "mean = median = mode"
+          ],
+          "explanation": "As in normal distribution, the curve is symmetric and unimodal. So, mean is at peak, mode is also at peak and median as well."
+        },
+        {
+          "questionID": 576270,
+          "question": "Instructions for Question 46 to 50:\nOne morning a big circus arrived in the Ramleela maidan at Delhi. The arrival of the circus was seen in the morning at 08:00 AM by Gopal. He passed this information on 08:15 to 2 other residents of the city.\nEach of these 2 people then informed the other 2 residents at 08:30, and again at 08:45, they reported the arrival of the circus every 2 to other uninformed residents \nThis chain continued the same way till 12:00 PM. By 12:00 PM enough people were informed about the arrival of the circus.\nBy 12:00 PM total how many people were informed about the arrival of the circus?",
+          "question_raw": "<b>Instructions for Question 46 to 50:</b><br><p>One morning a big circus arrived in the Ramleela maidan at Delhi. The arrival of the circus was seen in the morning at 08:00 AM by Gopal. He passed this information on 08:15 to 2 other residents of the city.<br />\nEach of these 2 people then informed the other 2 residents at 08:30, and again at 08:45, they reported the arrival of the circus every 2 to other uninformed residents &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<br />\nThis chain continued the same way till 12:00 PM. By 12:00 PM enough people were informed about the arrival of the circus.</p>\n\n<p><img data-imgur-src=\"Zbw5q37.jpg\" src=\"https://media-mycbseguide.s3.amazonaws.com/images/imgur/1607587778-xnjp3n.jpg\" style=\"width: 300px; height: 230px;\" /></p><br><p>By 12:00 PM total how many people were informed about the arrival of the circus?</p>",
+          "options": [
+            {
+              "id": 1109926,
+              "text": "131000",
+              "is_correct": false
+            },
+            {
+              "id": 1109931,
+              "text": "65536",
+              "is_correct": false
+            },
+            {
+              "id": 1109930,
+              "text": "141000",
+              "is_correct": false
+            },
+            {
+              "id": 1109928,
+              "text": "131017",
+              "is_correct": true
+            }
+          ],
+          "correct_option_ids": [
+            1109928
+          ],
+          "correct_option_texts": [
+            "131017"
+          ],
+          "explanation": "131017"
+        },
+        {
+          "questionID": 576356,
+          "question": "Instructions for Question 46 to 50:\nOne morning a big circus arrived in the Ramleela maidan at Delhi. The arrival of the circus was seen in the morning at 08:00 AM by Gopal. He passed this information on 08:15 to 2 other residents of the city.\nEach of these 2 people then informed the other 2 residents at 08:30, and again at 08:45, they reported the arrival of the circus every 2 to other uninformed residents \nThis chain continued the same way till 12:00 PM. By 12:00 PM enough people were informed about the arrival of the circus.\nBy 10:00 AM total how many people were informed about the arrival of the circus?",
+          "question_raw": "<b>Instructions for Question 46 to 50:</b><br><p>One morning a big circus arrived in the Ramleela maidan at Delhi. The arrival of the circus was seen in the morning at 08:00 AM by Gopal. He passed this information on 08:15 to 2 other residents of the city.<br />\nEach of these 2 people then informed the other 2 residents at 08:30, and again at 08:45, they reported the arrival of the circus every 2 to other uninformed residents &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<br />\nThis chain continued the same way till 12:00 PM. By 12:00 PM enough people were informed about the arrival of the circus.</p>\n\n<p><img data-imgur-src=\"Zbw5q37.jpg\" src=\"https://media-mycbseguide.s3.amazonaws.com/images/imgur/1607587778-xnjp3n.jpg\" style=\"width: 300px; height: 230px;\" /></p><br><p>By 10:00 AM total how many people were informed about the arrival of the circus?</p>",
+          "options": [
+            {
+              "id": 1110274,
+              "text": "300",
+              "is_correct": false
+            },
+            {
+              "id": 1110275,
+              "text": "500",
+              "is_correct": false
+            },
+            {
+              "id": 1110273,
+              "text": "256",
+              "is_correct": false
+            },
+            {
+              "id": 1110272,
+              "text": "511",
+              "is_correct": true
+            }
+          ],
+          "correct_option_ids": [
+            1110272
+          ],
+          "correct_option_texts": [
+            "511"
+          ],
+          "explanation": "511"
+        },
+        {
+          "questionID": 576416,
+          "question": "Instructions for Question 46 to 50:\nOne morning a big circus arrived in the Ramleela maidan at Delhi. The arrival of the circus was seen in the morning at 08:00 AM by Gopal. He passed this information on 08:15 to 2 other residents of the city.\nEach of these 2 people then informed the other 2 residents at 08:30, and again at 08:45, they reported the arrival of the circus every 2 to other uninformed residents \nThis chain continued the same way till 12:00 PM. By 12:00 PM enough people were informed about the arrival of the circus.\nFrom 10:00 AM to 11:00 AM how many people were informed about the circus?",
+          "question_raw": "<b>Instructions for Question 46 to 50:</b><br><p>One morning a big circus arrived in the Ramleela maidan at Delhi. The arrival of the circus was seen in the morning at 08:00 AM by Gopal. He passed this information on 08:15 to 2 other residents of the city.<br />\nEach of these 2 people then informed the other 2 residents at 08:30, and again at 08:45, they reported the arrival of the circus every 2 to other uninformed residents &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<br />\nThis chain continued the same way till 12:00 PM. By 12:00 PM enough people were informed about the arrival of the circus.</p>\n\n<p><img data-imgur-src=\"Zbw5q37.jpg\" src=\"https://media-mycbseguide.s3.amazonaws.com/images/imgur/1607587778-xnjp3n.jpg\" style=\"width: 300px; height: 230px;\" /></p><br><p>From 10:00 AM to 11:00 AM&nbsp; how many people were informed about the circus?</p>",
+          "options": [
+            {
+              "id": 1110519,
+              "text": "7000",
+              "is_correct": false
+            },
+            {
+              "id": 1110521,
+              "text": "7936",
+              "is_correct": true
+            },
+            {
+              "id": 1110513,
+              "text": "8000",
+              "is_correct": false
+            },
+            {
+              "id": 1110520,
+              "text": "7680",
+              "is_correct": false
+            }
+          ],
+          "correct_option_ids": [
+            1110521
+          ],
+          "correct_option_texts": [
+            "7936"
+          ],
+          "explanation": "7936"
+        },
+        {
+          "questionID": 576506,
+          "question": "Instructions for Question 46 to 50:\nOne morning a big circus arrived in the Ramleela maidan at Delhi. The arrival of the circus was seen in the morning at 08:00 AM by Gopal. He passed this information on 08:15 to 2 other residents of the city.\nEach of these 2 people then informed the other 2 residents at 08:30, and again at 08:45, they reported the arrival of the circus every 2 to other uninformed residents \nThis chain continued the same way till 12:00 PM. By 12:00 PM enough people were informed about the arrival of the circus.\nWhat are the three terms between 16 and 256?",
+          "question_raw": "<b>Instructions for Question 46 to 50:</b><br><p>One morning a big circus arrived in the Ramleela maidan at Delhi. The arrival of the circus was seen in the morning at 08:00 AM by Gopal. He passed this information on 08:15 to 2 other residents of the city.<br />\nEach of these 2 people then informed the other 2 residents at 08:30, and again at 08:45, they reported the arrival of the circus every 2 to other uninformed residents &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<br />\nThis chain continued the same way till 12:00 PM. By 12:00 PM enough people were informed about the arrival of the circus.</p>\n\n<p><img data-imgur-src=\"Zbw5q37.jpg\" src=\"https://media-mycbseguide.s3.amazonaws.com/images/imgur/1607587778-xnjp3n.jpg\" style=\"width: 300px; height: 230px;\" /></p><br><p>What are the three terms between 16 and&nbsp; 256?</p>",
+          "options": [
+            {
+              "id": 1110868,
+              "text": "64,32,128",
+              "is_correct": false
+            },
+            {
+              "id": 1110870,
+              "text": "16,32,256",
+              "is_correct": false
+            },
+            {
+              "id": 1110875,
+              "text": "16,32,64",
+              "is_correct": false
+            },
+            {
+              "id": 1110873,
+              "text": "32,64,128",
+              "is_correct": true
+            }
+          ],
+          "correct_option_ids": [
+            1110873
+          ],
+          "correct_option_texts": [
+            "32,64,128"
+          ],
+          "explanation": "32,64,128"
+        },
+        {
+          "questionID": 576549,
+          "question": "Instructions for Question 46 to 50:\nOne morning a big circus arrived in the Ramleela maidan at Delhi. The arrival of the circus was seen in the morning at 08:00 AM by Gopal. He passed this information on 08:15 to 2 other residents of the city.\nEach of these 2 people then informed the other 2 residents at 08:30, and again at 08:45, they reported the arrival of the circus every 2 to other uninformed residents \nThis chain continued the same way till 12:00 PM. By 12:00 PM enough people were informed about the arrival of the circus.\nAt 10:30 AM how many people were informed about the circus?",
+          "question_raw": "<b>Instructions for Question 46 to 50:</b><br><p>One morning a big circus arrived in the Ramleela maidan at Delhi. The arrival of the circus was seen in the morning at 08:00 AM by Gopal. He passed this information on 08:15 to 2 other residents of the city.<br />\nEach of these 2 people then informed the other 2 residents at 08:30, and again at 08:45, they reported the arrival of the circus every 2 to other uninformed residents &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<br />\nThis chain continued the same way till 12:00 PM. By 12:00 PM enough people were informed about the arrival of the circus.</p>\n\n<p><img data-imgur-src=\"Zbw5q37.jpg\" src=\"https://media-mycbseguide.s3.amazonaws.com/images/imgur/1607587778-xnjp3n.jpg\" style=\"width: 300px; height: 230px;\" /></p><br><p>At 10:30 AM how many people were informed about the circus?</p>",
+          "options": [
+            {
+              "id": 1111047,
+              "text": "2048",
+              "is_correct": false
+            },
+            {
+              "id": 1111044,
+              "text": "512",
+              "is_correct": false
+            },
+            {
+              "id": 1111046,
+              "text": "1024",
+              "is_correct": true
+            },
+            {
+              "id": 1111050,
+              "text": "2047",
+              "is_correct": false
+            }
+          ],
+          "correct_option_ids": [
+            1111046
+          ],
+          "correct_option_texts": [
+            "1024"
+          ],
+          "explanation": "1024"
+        }
+      ]
+    }
+  ]
+}

@@ -1,0 +1,620 @@
+======================================================================
+Mock Test - 09  (id 182)
+CBSE > Class 11 > Mathematics
+Duration: 90 min | Questions: 50
+======================================================================
+
+INSTRUCTIONS:
+This question paper contains three sections - A, B and C. Each part is compulsory.
+ Section - A has 20 MCQs, attempt any 16 out of 20.
+ Section - B has 20 MCQs, attempt any 16 out of 20
+ Section - C has 10 MCQs, attempt any 8 out of 10.
+ There is no negative marking.
+ All questions carry equal marks.
+
+------------------------------------------------------------
+Section A
+------------------------------------------------------------
+Q1. The set (A $\cap$ B′)′ $\cup$ (B $\cap$ C) is equal to
+    (A) A′ $\cap$ B
+    (B) A′ $\cup$ B   <-- CORRECT
+    (C) A′ $\cup$ C′
+    (D) A′ $\cup$ B $\cup$ C
+    Answer: B
+    Explanation: We have,(A $\cap$ B′)′ ∪ (B $\cap$ C)
+= [A’ $\cup$ (B′)′] $\cup$ (B $\cap$ C) {$\because$ (A $\cap$ B)’ = A’ $\cup$ B’}
+= (A’ $\cup$ B) $\cup$ (B $\cap$ C) {$\because$ (B’)’ = B}
+= A’ $\cup$ (B $\cup$ (B $\cap$ C)) = A’ $\cup$ B
+Hence, (A $\cap$ B′)′ $\cup$ (B $\cap$ C) = A’ $\cup$ B
+
+Q2. The domain of definition of f(x) = $\sqrt{\frac{x+3}{(2-x)(x-5)}}$ is
+    (A) $(-\infty,-3] \cup[2,5]$
+    (B) $(-\infty,-3) \cup(2,5)$
+    (C) $(-\infty,-3] \cup(2,5)$   <-- CORRECT
+    (D) $(-\infty,-2] \cup[3,5]$
+    Answer: C
+    Explanation: For given function 
+$\frac{x+3}{(2-x)(x-5)} \geq 0$
+$\frac{x+3}{(x-2)(x-5)} \leq 0$
+Therefore, $x \in(-\infty,-3] \cup(2,5)$
+
+Q3. The line segment joining the points (1, 2) and (-2, 1) is divided by the line 3x + 4y = 7 in the ratio
+    (A) 9 : 4
+    (B) 4 : 9   <-- CORRECT
+    (C) 4 : 3
+    (D) 3 : 4
+    Answer: B
+    Explanation: Let the line divide in the ratio k:1
+By applying section formula $k.x_2 -1.x_1\over k+1$, $k.y_2-1.y_1\over k+1$
+Substituting the values
+$-2k+1\over k+1$, $k+2\over k+1$
+This given line 3x + 4y = 7 passes through this point.
+Hence, 3($-2k+1\over k+1$) + 4($k+2\over k+1$ )= 7
+On simplifying, we get,
+k = $\frac {4}{9}$
+Hence the ratio is 4 : 9
+
+Q4. If pth, qth and rth terms of a GP be a, b, c respectively then $a^{(q-r)}. b^{(r-p)}.$$c^{(p-q)}$ = ?
+    (A) -1
+    (B) 0
+    (C) 2
+    (D) 1   <-- CORRECT
+    Answer: D
+    Explanation: Suppose A be the first term and R be the common ratio of the GP.
+Then, $T_{p}=A R^{(p-1)}, T_{q}=A R^{(q-1)}$ and $T_{r}=A R^{(r-1)}$.
+$\therefore$ $a=A R^{(p-1)}, b=A R^{(q-1)}$ and c = AR^(r -1).
+$\therefore a^{(q-r)} \cdot b^{(r-p)} \cdot c^{(p-q)}$ $=A^{(q-r)} \cdot R^{(p-1)(q-r)} \cdot A^{(r-p)} R^{(r-p)(q-1)} \cdot A^{(p-q)} R^{(r-1)(p-q)}$
+$=A^{0} R^{0}=1$.
+
+Q5. If a + b + c = 0, then the family of lines 3ax + by + 2c = 0 pass through fixed point.
+    (A) (2, $\frac {2} {3}$)
+    (B) ($\frac {2} {3}$, 2)   <-- CORRECT
+    (C) (-2, $\frac {1} {3}$)
+    (D) (-2, $\frac {2} {3}$)
+    Answer: B
+    Explanation: Given, a + b + c = 0
+Substituting c = -a - b in 3 ax + by + 2c = 0, we get
+3ax + by - 2a - 2b = .0
+$\Rightarrow$ a(3x - 2) + b(y - 2) = 0
+$\Rightarrow$ (3x - 2) + $\frac{b}{a}$ (y - 2) = 0
+This line is of the general form , 
+L_1 + $\lambda$L_2 = 0, which passes through the intersection of the lines L_1 and L_2,
+i.e. 3x - 2 = 0 and y - 2 = 0.
+Solve 3x - 2 = 0 and y - 2 = 0, we get the value of x and y, 
+x = $\frac{2}{3}$, y = 2
+Hence, the required fixed point is ($\frac{2}{3}$, 2).
+
+Q6. $\lim \limits_{x \rightarrow 0} \frac{8}{x^{8}}\left\{1-\cos \frac{x^{2}}{2}-\cos \frac{x^{2}}{4}\right.$$\left.+\cos \frac{x^{2}}{2} \cos \frac{x^{2}}{4}\right\}$ is equal to
+    (A) $\frac {1}{16}$
+    (B) $-\frac {1}{32}$
+    (C) $-\frac {1}{16}$
+    (D) $\frac {1}{32}$   <-- CORRECT
+    Answer: D
+    Explanation: $\lim \limits_{x \rightarrow 0} \frac{8}{x^{8}}\left[1-\cos \frac{x^{2}}{2}-\cos \frac{x^{2}}{4}\right.$$\left.+\cos \frac{x^{2}}{2} \cos \frac{x^{2}}{4}\right]$
+$=\lim \limits_{x \rightarrow 0} \frac{8}{x^{8}}\left[\left(1-\cos \frac{x^{2}}{4}\right)\right.$$\left.-\cos \frac{x^{2}}{2}\left(1-\cos \frac{x^{2}}{4}\right)\right]$
+$=\lim \limits_{x \rightarrow 0} \frac{8}{x^{8}}\left[\left(1-\cos \frac{x^{2}}{4}\right)\left(1-\cos \frac{x^{2}}{2}\right)\right]$
+$=\lim \limits_{x \rightarrow 0} \frac{8}{x^{8}}\left[\left(2 \sin ^{2} \frac{x^{2}}{8}\right)\left(2 \sin ^{2} \frac{x^{2}}{4}\right)\right]$
+$=\lim \limits_{x \rightarrow 0} 4 \times 8 \frac{\left(\sin ^{2} \frac{x^{2}}{8}\right)}{\left(64 \times \frac{x^{4}}{64}\right)} \frac{\left(\sin ^{2} \frac{x^{2}}{4}\right)}{16\left(\frac{x^{4}}{16}\right)}$
+$=\frac{32}{64 \times 16}$
+$=\frac{1}{32}$
+
+Q7. If the variance of the data is V, then its S.D. is
+    (A) V^2
+    (B) - $\sqrt V $
+    (C) $\sqrt V $   <-- CORRECT
+    (D) ±$\sqrt V $
+    Answer: C
+    Explanation: Standard deviation have the same units as the data but the variance is mean of the square of differences.
+
+Q8. If A $\subset$ B, then
+    (A) ${ A }^{ c }\subset { B }^{ c }$
+    (B) ${ B }^{ c }⊄{ A }^{ c }$
+    (C) ${ B }^{ c }\subset { A }^{ c }$   <-- CORRECT
+    (D) ${ A }^{ c }={ B }^{ c }$
+    Answer: C
+    Explanation: Let A $\subset$ B
+To prove B^c $\subset$ A^c, it is enough to show that x $\in$ B^c $\Rightarrow$ x $\in$ A^c 
+Let x $\in$ B^c
+$\Rightarrow$ x $\notin$ B
+$\Rightarrow$ x $\notin$ A since A $\subset$ B
+$\Rightarrow$ x $\in$ A^c
+Hence B^c $\subset$ A^c
+
+Q9. Which of the following functions is not one-one?
+    (A) x^2 + 1   <-- CORRECT
+    (B) $\frac{3 + x}{3 - x}$
+    (C) $\sqrt x $
+    (D) $\frac{3 - x}{3 + x}$
+    Answer: A
+    Explanation: Here the image of 1 is 2 and the image of -1 is 2, therefore function is not one-one.
+
+Q10. The triangle formed by the lines x + y = 1, 2x + 3y – 6 = 0 and 4x – y + 4 = 0 lies in
+    (A) 4^th quadrant
+    (B) 3^rd quadrant
+    (C) 2^nd quadrant   <-- CORRECT
+    (D) 1^st quadrant
+    Answer: C
+    Explanation: On solving line 1 and line 2 we get x = -3 and y = 4. Hence the point of intersection is (-3, 4)
+On solving line 2 and line 3 we get x = ($\frac{-3}{7}$) and y = $\frac{16}{7}$. Hence the point of intersection is ($\frac{-3}{7}$, $\frac{16}{7}$)
+On solving line 3 and line 1 we get x = $\frac{-3}{7}$ and y = $\frac{-8}{7}$. Hence the point of intersection is ($\frac{-3}{7}$, $\frac{-8}{7}$)
+All the above points lie in the second quadrant. Hence the triangle formed by these lines also lie in the second quadrant.
+
+Q11. The second and 7th terms of an AP are 2 and 22 respectively. The sum of its first 35 terms is
+    (A) 2240
+    (B) 2310   <-- CORRECT
+    (C) 2160
+    (D) 2470
+    Answer: B
+    Explanation: Here, a + d = 2 and a + 6d = 22.
+On solving, we obtain d = 4 and a = -2.
+$\therefore S_{35}=\frac{35}{2} \cdot[2 a+34 d]=\frac{35}{2} \cdot[2 \times(-2)+34 \times 4]$
+$=\left(\frac{35}{2} \times 132\right)=(35 \times 66)$ = 2310.
+
+Q12. The acute angle between the lines ax + by + c = 0 and (a + b)x = (a – b)y , a $ \ne $b , is
+    (A) 15^o
+    (B) 30^o
+    (C) 45^o   <-- CORRECT
+    (D) 60^o
+    Answer: C
+    Explanation: The slope of the first line is -($\frac{a}{b}$) and slope of the second line is $a+b \over a-b$ 
+Angle between the lines is $tan\theta$ = $|m_2 - m_1|\over 1+ m_1m_2$ 
+Let m_1 = -($\frac{a}{b}$) and m_2 = $a+b \over a-b$ 
+Hence $tan \theta$ =[ $(-a/b) - (a+b)/a-b)\over1 +(-a/b)(a+b)/(a-b)$]
+On simplifying we get, 
+tan $ \theta$ = 1
+This implies $\theta$ = 45^o
+
+Q13. $\lim \limits_{n \rightarrow \infty}\left\{\frac{1}{1-n^{2}}+\frac{2}{1-n^{2}}+\ldots+\frac{n}{1-n^{2}}\right\}$ is equal to:
+    (A) $\frac{1}{2}$
+    (B) 0
+    (C) 1
+    (D) $ - \frac{1}{2}$   <-- CORRECT
+    Answer: D
+    Explanation: $\lim \limits_{n \rightarrow \infty}\left[\frac{1}{1-n^{2}}+\frac{2}{1-n^{2}}+ \ldots+\frac{n}{1-n^{2}}\right]$
+= $\lim \limits_{n \rightarrow \infty}\left(\frac{1}{1-n^{2}}\right)$ [1 + 2 + 3 ... n]
+= $\lim \limits_{n \rightarrow \infty}\left(\frac{1}{1-n^{2}}\right)\left[\frac{n(n+1)}{2}\right]$
+= $\lim \limits_{n \rightarrow \infty} \frac{1}{2}\left[\frac{n(n+1)}{(1-n)(1+n)}\right]$
+= $\lim \limits_{n \rightarrow \infty} \frac{1}{2} \frac{n}{1-n}$
+= $\lim \limits_{n \rightarrow \infty} \frac{1}{2} \frac{1}{\frac{1}{n}-1}$
+= $\frac{1}{2}$(-1)
+= $\frac{-1}{2}$
+
+Q14. Which of the following is not a measure of dispersion?
+    (A) standard deviation
+    (B) mode   <-- CORRECT
+    (C) variance
+    (D) mean deviation
+    Answer: B
+    Explanation: It is a measure of central tendancy.
+
+Q15. The number of subsets (Improper) of a set containing n elements is
+    (A) 2^n - 2
+    (B) n
+    (C) 2^n   <-- CORRECT
+    (D) 2^n - 1
+    Answer: C
+    Explanation: 2^n
+The no. of subsets containing n elements is 2^n.
+
+Q16. The domain of definition of the function f(x) = log |x| is
+    (A) R - {0}   <-- CORRECT
+    (B) $(0, \infty)$
+    (C) R
+    (D) $(-\infty, 0)$
+    Answer: A
+    Explanation: Since log x is defined for x$\ge 0$, therefore domain of log |x| is R - {0}
+
+Q17. The distance between the parallel lines 4x + 3y + 11 = 0 and 8x + 6y = 15 is
+    (A) $\frac{5}{2}$
+    (B) $\frac{7}{2}$
+    (C) 4
+    (D) $\frac{7}{10}$   <-- CORRECT
+    Answer: D
+    Explanation: Distance between two parallel lines is given by $|c_1-c_2|\over \sqrt{A^2+B^2}$ 
+c_1 = 2 $\times$ 11 = 22 and c_2 = 15 and A = 8 and B = 6
+Now substituting the values we get
+$|22 - 15|\over\sqrt{36+64}$ = $\frac{7}{10}$
+
+Q18. If (26+ 21 + 16+ ... + x) = 11 then x = ?
+    (A) -24   <-- CORRECT
+    (B) -18
+    (C) -12
+    (D) -30
+    Answer: A
+    Explanation: Let the number of terms be n. Then,we have
+$\frac{n}{2} \cdot[2 a+(n-1) d]=11$
+$ \frac{n}{2}[2 \times 26+(n-1) \times(-5)]=11 \Rightarrow n(57-5 n)=22$
+$\Rightarrow$ 5n^2 -57n + 22 = 0 $\Rightarrow$ 5n^2 -55n - 2n + 22 = 0
+$\Rightarrow 5n(n-11)-2(n-11)=0$
+$\Rightarrow(n-11)(5n-2)=0 \Rightarrow n=11$ $\left[\because n \neq \frac{2}{5}\right]$
+T_11 = (a+ 10d) = [26 + 10 $\times$ (-5)] = (26 - 50) = -24
+$\Rightarrow$ x = -24.
+
+Q19. The line through the points (a, b) and (- a, - b) passes through the point
+    (A) (1, 1)
+    (B) (2a, - 3b)
+    (C) (3a, - 2b)
+    (D) (a^2, ab)   <-- CORRECT
+    Answer: D
+    Explanation: Equation of a line passing through (x_1, y_1) and (x_2, y_2) is given by
+$y-y_1 \over y_2-y_1$=$x - x_1\over x_2-x_1$ 
+Substituting the given values we get,
+$y-b\over -b-b$^ =^ $x-a \over -a-a$ 
+That is $y-b \over -2b $ = $x-a \over -2a$ 
+On cross multiplying and rearranging we get,
+bx - ay = 0
+If this passes through the given point (a^2, ab) then
+b(a^2) - a(ab) = 0
+
+Q20. $\lim\limits_{n \to \infty } \frac{\sum \limits_{r=1}^n r^2}{n^3}$ is equal to
+    (A) $\frac 12$
+    (B) $\frac 1 3$   <-- CORRECT
+    (C) $\frac 1 4$
+    (D) 0
+    Answer: B
+    Explanation: $\lim \limits_{n \rightarrow \infty} \frac{\frac{n(n+1)(2 n+1)}{6}}{n^{3}}$ = $\lim \limits_{n \rightarrow \infty}\frac{\left(2 n^{2}+3 n+1\right)}{6 n^{2}}$
+Substitute n = $\frac{l}{t}$
+$\Rightarrow$ $\lim \limits_{t \rightarrow 0}\frac{\left(2+3 t+t^{2}\right)}{6}=\frac{1}{3}$
+
+------------------------------------------------------------
+Section B
+------------------------------------------------------------
+Q1. Standard deviations for first 10 natural numbers is
+    (A) 5.5
+    (B) 2.97
+    (C) 3.87
+    (D) 2.87   <-- CORRECT
+    Answer: D
+    Explanation: We know the standard deviation of the first n natural numbers is $\sqrt{\frac{n^{2}-1}{12}}$
+Now for first 10 natural numbers, n=10, substituting this in the above equation of standard deviation we get
+$\sigma=\sqrt{\frac{(10)^{2}-1}{12}}$
+$\sigma=\sqrt{\frac{100-1}{12}}$
+$\sigma=\sqrt{\frac{99}{12}}$
+$\sigma=\sqrt{8.25}$
+$\sigma$ = 2.87
+Hence the Standard deviations for first 10 natural numbers is 2.87
+
+Q2. For any two sets A and B, $A \cap(A \cup B)$= . . . .
+    (A) $\ne$$\phi$
+    (B) $\phi$
+    (C) A   <-- CORRECT
+    (D) B
+    Answer: C
+    Explanation: Common between set A and $(A \cup B)$is set A itself
+
+Q3. If f: $R \rightarrow R$ be given by $f(x)=\frac{4^{x}}{4^{x}+2}$ for all $x \in R$ Then,
+    (A) f (x) + f ( 1 - x) = 1   <-- CORRECT
+    (B) f (x) = f(1-x)
+    (C) f (x) + f (x - 1) = 1
+    (D) f (x) + f (1 -x) = 0
+    Answer: A
+    Explanation: $f(x)=\frac{4^{x}}{4^{x}+2}$
+$f(1-x)=\frac{4^{1-x}}{4^{1-x}+2}$
+$=\frac{4.4^{-x}}{4.4^{-x}+2}$
+$=\frac{\frac{2}{4^{x}}}{\frac{2}{4^{x}}+1}$
+$=\frac{2}{2+4^{x}}$
+$f(x-1)=\frac{4^{x-1}}{4^{x-1}+2}$
+$=\frac{4^{x}}{4^{x}+8}$
+$f(x)+f(1-x)=\frac{4^{x}}{4^{x}+2}+\frac{2}{2+4^{x}}=\frac{4^{x}+2}{4^{x}+2}=1$
+$f(x)+f(x-1)=\frac{4^{x}}{4^{x}+2}+\frac{4^{x}}{4^{x}+8} \neq 1$
+
+Q4. The lines 2x – 3y = 5 and 6x – 9y – 7 = 0 are
+    (A) parallel   <-- CORRECT
+    (B) Incident
+    (C) perpendicular
+    (D) coincident
+    Answer: A
+    Explanation: The given lines are parallel lines condition for the line to be parallel is $a_1\over a_2$= $b_1\over b_2$ $\ne $$C_1\over C_2$ 
+Substituting the values,
+$2\over 6$ =$-3\over -9$$\ne$$5\over 7$ 
+Hence they are parallel lines.
+
+Q5. The sum of terms equidistant from the beginning and end in A.P. is equal to
+    (A) first term
+    (B) last term
+    (C) sum of the first and the last terms   <-- CORRECT
+    (D) 0
+    Answer: C
+    Explanation: Let the first term of the A.P be a , last term be l and the common difference be d 
+Now the A.P will be of the form $a, a+d, a+2 d, \ldots \ldots \ldots ., l-2 d$ ,l-d,l
+Sum of two term equidistant from the beggining and end (say r + 1 t term) = a + r d + b-r d=a + b = sum of the first term and last ter
+
+Q6. If y = sin^-1 x and z = ${\cos ^{ - 1}}\sqrt {1 - {x^2}}$, then $\frac {dy} {dz}$ =
+    (A) -1
+    (B) 0
+    (C) 1   <-- CORRECT
+    (D) $\tan ^{-1} \frac{x}{\sqrt{1-x^2}}$
+    Answer: C
+    Explanation: We have;
+sin y = x and cos z = $\sqrt{1-x^{2}}$ $\Rightarrow$ cos z = cos y
+$\Rightarrow$ z = y
+$\Rightarrow$ $\frac{dy}{dz}$ = 1
+
+Q7. Ram spends equal amounts on purchasing three kinds of pens being sold at ₹5, ₹10 and ₹15 per piece. Average cost of each pen is
+    (A) ₹10
+    (B) ₹12
+    (C) ₹9
+    (D) ₹$\frac{90}{11}$   <-- CORRECT
+    Answer: D
+    Explanation: Average price of each pen is given by the harmonic mean of 5, 10, 15.
+i.e. H.M = $\frac{3}{{\frac{1}{a} + \frac{1}{b} + \frac{1}{c}}} = \frac{3}{{\frac{1}{5} + \frac{1}{{10}} + \frac{1}{{15}}}} = \frac{3}{{\frac{{6 + 3 + 2}}{{30}}}}$ = $\frac{90}{11}$
+
+Q8. If A and B are two sets , then $A\mathop \cup \nolimits B = A\mathop \cap \nolimits B$ iff
+    (A) A $ \subseteq $ B
+    (B) A $\ne$ B
+    (C) B $ \subseteq $ A
+    (D) A = B   <-- CORRECT
+    Answer: D
+    Explanation: Let A=B,Then,
+Conversely, let , now we have to prove that A=B.
+Let 
+So, ...(2)
+Let 
+So, ...(3)
+Thus, ...(4)
+From(1) and (4),we get
+
+Q9. If f(x) = $\frac{|x|}{x} ; x \neq 0$ then f(x) - f(-x) is equal to
+    (A) 1
+    (B) 2   <-- CORRECT
+    (C) -1
+    (D) 0
+    Answer: B
+    Explanation: f(x) = $\frac{|x|}{x}$ = $\frac{x}{x}$ = 1 
+f(-x) = $\frac{|-x|}{-x}$ = $\frac{x}{-x}$ = -1
+f(x) - f(-x) = 1 - (-1) = 1 + 1 = 2
+
+Q10. The distance between the parallel lines 3x + 4y + 13 = 0 and 3x + 4y - 13 = 0 is
+    (A) $\frac{26}{3}$
+    (B) $\frac{26}{5}$   <-- CORRECT
+    (C) 26
+    (D) $\frac{26}{4}$
+    Answer: B
+    Explanation: Distance between parallel lines is given by $|C_1-C_2| \over \sqrt {A^2+B^2} $ 
+Now substituting the values we get, $|13-(-13)|\over \sqrt{3^2+4^2}$ = $26\over 5$
+
+Q11. Sum of all two digit numbers which when divided by 4 yield unity as remainder is:
+    (A) 1250
+    (B) 1230
+    (C) 1200
+    (D) 1210   <-- CORRECT
+    Answer: D
+    Explanation: From the given series we can write,
+a_1 = 13, a_2 = 17, a_n = 97
+d = a_2 − a_1 = 7 − 3 = 4
+a_n = 97
+$\Rightarrow$ a + (n − 1) d = 97
+$\Rightarrow$ 13 + (n − 1)4 = 97
+$\Rightarrow$ n = 22 
+Sum of the above series:
+S_22 = $\frac{22}{2}${2 $\times$ 13 + (22 − 1)4} = 11{26 + 84} = 1210
+
+Q12. $\lim _\limits{x \rightarrow \pi} \frac{\sin x}{x-\pi}$ is equal to
+    (A) -1   <-- CORRECT
+    (B) 2
+    (C) -2
+    (D) 1
+    Answer: A
+    Explanation: Given, $\lim _\limits{x \rightarrow \pi} \frac{\sin x}{x-\pi}=\lim _\limits{x \rightarrow \pi} \frac{\sin (\pi-x)}{-(\pi-x)}$
+$=-1\left[\because \lim _\limits{x \rightarrow 0} \frac{\sin x}{x}=1 \text { and } \pi-x \rightarrow 0 \Rightarrow x \rightarrow \pi\right]$
+
+Q13. The median of the data 13, 14, 16, 18, 20, 22 is
+    (A) 19
+    (B) 18
+    (C) 16
+    (D) 17   <-- CORRECT
+    Answer: D
+    Explanation: Median = $\frac{{\left[ {{{(\frac{n}{2})}^{th}} + {{(\frac{{n + 1}}{2})}^{th}}} \right]term}}{2} $ = $\frac{3^{r d}+4^{t h}term}{2}$ = $\frac{16+18}{2}$ = $\frac{34}{2}$ = 17
+
+Q14. The values of x and y $\in $ R for which the numbers -3 + x^2yi, x^2 + y + 4i are conjugates of each other are
+    (A) 1, -4
+    (B) -1, -4
+    (C) $ \pm 1, - 4$   <-- CORRECT
+    (D) -1, 4
+    Answer: C
+    Explanation: Let z_1 = -3 + x^2yi and z_2 = x^2 + y + 4i $\Rightarrow$ $\bar z_{1}$ = -3 - x^2yi, $\bar z_{2}$ = x^2 + y - 4i
+Given the numbers are conjugates of each other $\overline{z_{1}}=z_{2}$ and $\overline{z_{2}}=z_{1}$ 
+$\Rightarrow$ -3 - x^2yi = x^2 + y + 4i and x^2 + y - 4i = -3 + x^2yi
+$\Rightarrow$ x^2 + y = -3 and x^2y = -4
+$\Rightarrow$ $\frac{-4}{y}$ + y = -3
+$\Rightarrow$ y^2 + 3y - 4 = 0 $\Rightarrow$ (y + 4)(y - 1) = 0
+$\Rightarrow$ y = 1, -4
+When y = 1 we get x^2 = 4 $\Rightarrow$ x = $\pm \sqrt{-4}=\pm 2 i$, which is not possible since given x is a real number.
+When y = $-4$ we get $x^{ 2 }=1\Rightarrow x=\pm \sqrt { 1 } =\pm 1 $ 
+Hence the possible values of x and y are $\pm 1,-4$
+
+Q15. The sum of the infinite series $\left(\frac{2}{5}+\frac{3}{5^{2}}+\frac{2}{5^{3}}+\frac{3}{5^{4}}+\ldots \infty\right)=$?
+    (A) $\frac{13}{15}$
+    (B) $\frac{11}{15}$
+    (C) $\frac{11}{24}$
+    (D) $\frac{13}{24}$   <-- CORRECT
+    Answer: D
+    Explanation: Given series can be written as, $\left\{\frac{2}{5}+\frac{2}{5^{3}}+\frac{2}{5^{5}}+\ldots \infty\right\}+\left\{\frac{3}{5^{2}}+\frac{3}{5^{4}}+\ldots \infty\right\}$
+$=\frac{\left(\frac{2}{5}\right)}{\left\{1-\frac{2}{125} \times \frac{5}{2}\right\}}+\frac{\left(\frac{3}{5^{2}}\right)}{\left\{1-\frac{3}{5^{4}} \times \frac{5^{2}}{3}\right\}}=\frac{\left(\frac{2}{5}\right)}{\left(1-\frac{1}{25}\right)}+\frac{\left(\frac{3}{25}\right)}{\left(1-\frac{1}{25}\right)}$
+$=\left(\frac{2}{5} \times \frac{25}{24}\right)+\left(\frac{3}{25} \times \frac{25}{24}\right)=\left(\frac{5}{12}+\frac{1}{8}\right)=\frac{(10+3)}{24}=\frac{13}{24}$.
+
+Q16. If A and B be two sets such that n(A) = 70 , n(B) = 60 , and n(A $\mathop \cup \nolimits $ B) = 110 . Then n (A $\mathop \cap \nolimits $ B) is equal to
+    (A) 20   <-- CORRECT
+    (B) 100
+    (C) 240
+    (D) 120
+    Answer: A
+    Explanation: n(A $\cap$ B) = n(A) + n(B) - n(A $\cup$ B)
+= 70 + 60 - 100
+= 20
+
+Q17. If A = {1, 2, 4}, B = {2, 4, 5}, c = {2, 5}, then (A - B) $\times$ (B - C) is
+    (A) {(1, 4)}   <-- CORRECT
+    (B) {(1, 2), (1, 5), (2, 5)}
+    (C) (1, 4)
+    (D) (2, 5)
+    Answer: A
+    Explanation: (A – B) = {1, 2, 4} – {2, 4, 5} = {1}
+and (B - C) = {2, 4, 5} – {2, 5}
+= {4}
+Now, (A−B) $\times$ (B − C) = {1} $\times$ {4}
+= {(1, 4)}
+Since, it is a set so it is written in curly braces.
+Therefore, option B is correct.
+
+Q18. Compare List I with List II and choose the correct answer using codes given below:
+ List I (Complex number)
+ List II (Conjugate)
+ (i) arg(z_1z_2)
+ (p) $\frac{\pi}{2}$
+ (ii) arg$\left(\frac{z_{1}}{z_{2}}\right)$
+ (q) arg(z_1) -arg(z_2)
+ (iii) arg(z) + arg(z) 
+ (r) arg(z_1) + arg(z_2)
+ (iv) arg (i)
+ (s) $2\pi$
+    (A) (i) - (s), (ii) - (r), (iii) - (q), (iv) - (p)
+    (B) (i) - (q), (ii) - (r), (iii) - (s), (iv) - (p)
+    (C) (i) - (r), (ii) - (q), (iii) - (p), (iv) - (s)
+    (D) (i) - (r), (ii) - (q), (iii) - (s), (iv) - (p)   <-- CORRECT
+    Answer: D
+    Explanation: arg (z_1z_2) = arg (z_1) + arg (z_2)
+ arg $\left(\frac{z_{1}}{z_{2}}\right)$ = arg (z_1) + arg (z_2)
+ arg (z) + arg$(\overline z)$ = $2\pi$
+ arg (i) = $\frac{\pi}{2}$
+the correct answer is (i) - (r), (ii) - (q), (iii) - (s), (iv) - (p)
+
+Q19. The first and last term of an A. P. are a and l respectively. If S is the sum of all the terms of the A.P. and the common difference is given by $\frac{l^{2}-a^{2}}{k-(l+a)}$, then k =
+    (A) S
+    (B) 3S
+    (C) 4S
+    (D) 2S   <-- CORRECT
+    Answer: D
+    Explanation: Given as per the question,
+S = $\frac{n}{2}$(l + a)
+$\Rightarrow$ (l + a) = $\frac{2 S}{n}$
+Hence, d = $\frac{l^{2}-a^{2}}{k-(l+a)}$
+$\Rightarrow$ d = $\frac{(l+a)(l-a)}{k-(l+a)}$
+$\Rightarrow$ d = $\frac{[(n-1) d] \times \frac{2 S}{n}}{k-\frac{2 S}{n}}$
+$\Rightarrow$ k - $\frac{2 S}{n}$ = (n - 1) $\frac{2 S}{n}$
+$\Rightarrow$ k = $\frac{2 S}{n}$(n - 1 + 1)
+$\Rightarrow $ k = 2S
+
+Q20. A sequence may be defined as a
+    (A) progression having real values
+    (B) relation, whose range $\subseteq$ N (natural numbers
+    (C) function whose range $\subseteq$ N
+    (D) function whose domain $\subseteq$ N   <-- CORRECT
+    Answer: D
+    Explanation: Definition.
+A sequence is a function f : N $\rightarrow$ X having domain $\subseteq$ N.
+
+------------------------------------------------------------
+Section C
+------------------------------------------------------------
+Q1. Sets A and B have 3 and 6 elements respectively. What can be the minimum number of elements in ${A \cup B}$.
+    (A) 18
+    (B) 3
+    (C) 9
+    (D) 6   <-- CORRECT
+    Answer: D
+    Explanation: n(A) = 3
+n(B) = 6
+n(AUB) = n(A) + n(B) - n(A$\begin{array}{l}\cap\\\end{array}$B)
+for minimum number of elements in ${A \cup B}$ 
+n(A$\begin{array}{l}\cap\\\end{array}$B) = 3
+So n(A $\cup$ B) = 6
+
+Q2. The domain and range of real function f defined by f (x) $=\sqrt{x-1}$ is given by
+    (A) Domain $=(1, \infty)$, Range $=(0, \infty)$
+    (B) Domain $=[1, \infty),$ Range $=(\infty, \infty)$
+    (C) Domain $=[\infty, \infty)$, Range $=[0, \infty)$
+    (D) Domain $=[1, \infty)$, Range $=[0, \infty)$   <-- CORRECT
+    Answer: D
+    Explanation: We have, f(x) $=\sqrt{x-1}$
+Clearly, f(x) is defined if $x-1 \geq 0$
+$\Rightarrow \quad x \geq 1$
+$\therefore$ Domain of f $=[1, \infty)$
+Now for $x \geq 1, x-1 \geq 0$
+$\Rightarrow \quad \sqrt{x-1} \geq 0$
+$\Rightarrow$ Range of f $=[0, \infty)$
+
+Q3. If p^2 + p + 1 = 0, then, the value of p^3n is equal to
+    (A) 1
+    (B) -1
+    (C) 1 or -1   <-- CORRECT
+    (D) 0
+    Answer: C
+    Explanation: p^2 + p + 1 = 0 $\Rightarrow$ p = $\frac{-(1) \pm \sqrt{1^{2}-4 \cdot 1 \cdot 1}}{2}$ = $\frac{-1 \pm \sqrt{-3}}{2}=\frac{-1 \pm \sqrt{3} i}{2}=\omega, \omega^{2}$ 
+Now p = $\omega$ $\Rightarrow$ p^3n = $(\omega^3)^n$ = 1^n = 1 or -1, depending n is even or odd
+Also p = $\omega^2$ $\Rightarrow$ p^3n = $(\omega^2)^{3n}$ = $(\omega^3)^{2n}$ = 1^2n = 1
+Hence p = 1, -1
+
+Q4. The first and 5th terms of an AP are -14 and 2 respectively and the sum of its n terms is 40. Then, n = ?
+    (A) 12
+    (B) 8
+    (C) 13
+    (D) 10   <-- CORRECT
+    Answer: D
+    Explanation: Here, a = -14 and $a_{5}=$ a+ 4d = 2 $\Rightarrow$ - 14 + 4d = 2 $\Rightarrow$ 4d = 16 $\Rightarrow$ d = 4
+$\therefore$ a = -14 and d = 4.
+$\Rightarrow \frac{n}{2} \cdot[2 \times(-14)+(n-1) \times 4]=40$
+$\Rightarrow$ n(4n- 32) = 80
+$\Rightarrow$ n(n - 8) = 20
+$\Rightarrow$ n(n- 10) + 2(n - 10) = 0
+$\Rightarrow$ (n - 10)(n + 2) = 0
+$\Rightarrow$ n = 10
+
+Q5. If the mean of numbers 27, 31, 89, 107, 156 is 82, then the mean of 130, 126, 68, 50, 1 is :
+    (A) 80
+    (B) 75   <-- CORRECT
+    (C) 157
+    (D) 82
+    Answer: B
+    Explanation: mean = $ \frac{{130 + 126 + 68 + 50 + 1}}{5} = \frac{{375}}{5} $ = 75
+
+Q6. Instructions for Question 46 to 50:
+A complex number z is pure real if and only if $\bar{z}$ = z and is pure imaginary if and only if $\bar{z}$ = -z.
+If z_1 and z_2 are complex numbers such that $\left|\frac{z_{1}-z_{2}}{z_{1}+z_{2}}\right|$ = 1
+    (A) z_1 and z_2 are pure imaginary
+    (B) $\frac{z_{1}}{z_{2}}$ is pure imaginary   <-- CORRECT
+    (C) $\frac{z_{1}}{z_{2}}$ is pure real
+    (D) z_1 is pure real
+    Answer: B
+    Explanation: $\frac{z_{1}}{z_{2}}$ is pure imaginary
+
+Q7. Instructions for Question 46 to 50:
+A complex number z is pure real if and only if $\bar{z}$ = z and is pure imaginary if and only if $\bar{z}$ = -z.
+If z = $\frac{3+2 i \sin \theta}{1-2 i \sin \theta}\left(0<\theta \leq \frac{\pi}{2}\right)$ is pure imaginary, then $\theta$ is equal to
+    (A) $\frac{\pi}{6}$
+    (B) $\frac{\pi}{3}$   <-- CORRECT
+    (C) $\frac{\pi}{12}$
+    (D) $\frac{\pi}{4}$
+    Answer: B
+    Explanation: $\frac{\pi}{3}$
+
+Q8. Instructions for Question 46 to 50:
+A complex number z is pure real if and only if $\bar{z}$ = z and is pure imaginary if and only if $\bar{z}$ = -z.
+If x and y are real numbers and the complex number
+$\frac{(2+i) x-i}{4+i}+\frac{(1-i) y+2 i}{4 i}$ is pure real, the relation between x and y is
+    (A) 17x - 8y = 16
+    (B) 17x - 8y = -16
+    (C) 8x - 17y = 16   <-- CORRECT
+    (D) 8x + 17y = 16
+    Answer: C
+    Explanation: 8x - 17y = 16
+
+Q9. Instructions for Question 46 to 50:
+A complex number z is pure real if and only if $\bar{z}$ = z and is pure imaginary if and only if $\bar{z}$ = -z.
+$\overline {z_{1} z_{2}}$ is
+    (A) $\frac{1}{\bar{z}_{1} \bar{z}_{2}}$
+    (B) $\frac {\bar {Z_1}}{\bar {Z_2}}$
+    (C) $\bar{z}_{1} \bar{z}_{2}$   <-- CORRECT
+    (D) $\bar{z}_{1}+\bar{z}_{2}$
+    Answer: C
+    Explanation: $\bar{z}_{1} \bar{z}_{2}$
+
+Q10. Instructions for Question 46 to 50:
+A complex number z is pure real if and only if $\bar{z}$ = z and is pure imaginary if and only if $\bar{z}$ = -z.
+If (1 + i)z = (1 - i)$\bar{z}$, then $-1 \bar{z}$ is
+    (A) Z   <-- CORRECT
+    (B) $\bar{z}$
+    (C) $-\bar{z}$
+    (D) Z^-1
+    Answer: A
+    Explanation: Z
