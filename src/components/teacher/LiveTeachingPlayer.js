@@ -474,7 +474,7 @@ export default function LiveTeachingPlayer({ lesson, ttsOk = true, onAsk, onAskS
             <TextInput
               style={st.askInput}
               placeholder="Type your question…"
-              placeholderTextColor="rgba(255,255,255,0.6)"
+              placeholderTextColor="rgba(44,48,67,0.45)"
               value={qInput} onChangeText={setQInput}
               onSubmitEditing={() => sendDoubt()} returnKeyType="send" autoFocus
             />
@@ -566,12 +566,12 @@ const st = StyleSheet.create({
   wave: { flexDirection: 'row', alignItems: 'flex-end', justifyContent: 'center', height: 38, gap: 3 },
   waveBar: { width: 4, borderRadius: 3 },
 
-  badge: { flexDirection: 'row', alignItems: 'center', gap: 6, marginTop: 10, backgroundColor: 'rgba(20,22,32,0.9)', borderWidth: 1, borderColor: C.line, borderRadius: 13, paddingHorizontal: 12, paddingVertical: 5 },
-  badgeOn: { backgroundColor: 'rgba(20,22,32,0.92)' },
+  badge: { flexDirection: 'row', alignItems: 'center', gap: 6, marginTop: 10, backgroundColor: '#FFFFFF', borderWidth: 1, borderColor: C.line, borderRadius: 13, paddingHorizontal: 12, paddingVertical: 5 },
+  badgeOn: { backgroundColor: '#FFF1E9', borderColor: 'rgba(255,138,92,0.35)' },
   badgeDot: { width: 7, height: 7, borderRadius: 4, backgroundColor: C.dim },
-  badgeDotOn: { backgroundColor: '#57D697' },
+  badgeDotOn: { backgroundColor: '#2BB083' },
   badgeTxt: { fontSize: 11.5, fontWeight: '800', color: C.dim, letterSpacing: 0.3 },
-  badgeTxtOn: { color: '#E9E9F2' },
+  badgeTxtOn: { color: C.ink },
 
   caption: { width: '100%', alignItems: 'center', paddingHorizontal: 16, marginTop: 14 },
   askedLabel: { fontSize: 11, fontWeight: '800', color: C.dim, textAlign: 'center', marginBottom: 5, maxWidth: SCREEN_W * 0.8 },
@@ -605,12 +605,12 @@ const st = StyleSheet.create({
   resumeBtn: { backgroundColor: C.accent, borderRadius: 24, paddingVertical: 12, paddingHorizontal: 26, shadowColor: C.accent, shadowOpacity: 0.45, shadowRadius: 12, shadowOffset: { width: 0, height: 5 }, elevation: 6 },
   resumeTxt: { color: '#fff', fontSize: 14, fontWeight: '900' },
   askRow: { flexDirection: 'row', gap: 8, alignItems: 'center', alignSelf: 'stretch' },
-  askInput: { flex: 1, backgroundColor: 'rgba(255,255,255,0.08)', borderWidth: 1, borderColor: C.line, borderRadius: 24, paddingVertical: 12, paddingHorizontal: 18, color: '#fff', fontSize: 14, fontWeight: '600' },
+  askInput: { flex: 1, backgroundColor: 'rgba(44,48,67,0.05)', borderWidth: 1, borderColor: C.line, borderRadius: 24, paddingVertical: 12, paddingHorizontal: 18, color: C.ink, fontSize: 14, fontWeight: '600' },
   askSend: { width: 46, height: 46, borderRadius: 23, backgroundColor: C.accent, alignItems: 'center', justifyContent: 'center' },
   askSendTxt: { color: '#fff', fontSize: 18, fontWeight: '900' },
 
   // clean rounded control dock — Previous · Pause · Ask Teacher · Refresh · Next
-  dock: { flexDirection: 'row', alignItems: 'flex-start', justifyContent: 'space-around', alignSelf: 'stretch', backgroundColor: 'rgba(255,255,255,0.045)', borderWidth: 1, borderColor: C.line, borderRadius: 24, paddingHorizontal: 6, paddingVertical: 10 },
+  dock: { flexDirection: 'row', alignItems: 'flex-start', justifyContent: 'space-around', alignSelf: 'stretch', backgroundColor: '#FFFFFF', borderWidth: 1, borderColor: C.line, borderRadius: 24, paddingHorizontal: 6, paddingVertical: 10, shadowColor: '#2C3043', shadowOpacity: 0.06, shadowRadius: 10, shadowOffset: { width: 0, height: 3 }, elevation: 3 },
   dItem: { alignItems: 'center', justifyContent: 'flex-start', gap: 7, minWidth: 56 },
   dIcon: { fontSize: 20, fontWeight: '900', color: C.ink, height: 46, lineHeight: 46, textAlign: 'center' },
   dPlay: { width: 46, height: 46, borderRadius: 23, backgroundColor: C.accent, alignItems: 'center', justifyContent: 'center', shadowColor: C.accent, shadowOpacity: 0.5, shadowRadius: 10, shadowOffset: { width: 0, height: 3 }, elevation: 5 },

@@ -389,7 +389,7 @@ const styles = StyleSheet.create({
 
   // dots + controls
   dots: { flexDirection: 'row', justifyContent: 'center', gap: 6, marginTop: 14 },
-  dot: { width: 7, height: 7, borderRadius: 4, backgroundColor: 'rgba(255,255,255,0.18)' },
+  dot: { width: 7, height: 7, borderRadius: 4, backgroundColor: 'rgba(44,48,67,0.16)' },
   dotOn: { width: 20, backgroundColor: BOARD.orange },
   dotDone: { backgroundColor: BOARD.green },
 

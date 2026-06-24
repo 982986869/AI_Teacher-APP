@@ -261,7 +261,7 @@ const ManagePanel = () => {
 
       <Text style={[st.lbl, { marginTop: 26 }]}>UPLOADED CONTENT</Text>
       {loadingList ? (
-        <ActivityIndicator color="#FF8A3D" style={{ marginTop: 16 }} />
+        <ActivityIndicator color="#FF8A5C" style={{ marginTop: 16 }} />
       ) : sources.length === 0 ? (
         <Text style={st.empty}>No material uploaded yet.</Text>
       ) : (
@@ -307,34 +307,34 @@ const st = StyleSheet.create({
   safe:        { flex: 1, backgroundColor: '#fff' },
   header:      { flexDirection: 'row', justifyContent: 'space-between', alignItems: 'center', paddingHorizontal: 16, paddingVertical: 12, borderBottomWidth: 1.5, borderBottomColor: '#F0F0F0' },
   backBtn:     { width: 60 },
-  backTxt:     { fontSize: 15, fontWeight: '800', color: '#1C1C1E' },
-  headerTitle: { fontSize: 18, fontWeight: '900', color: '#1C1C1E', letterSpacing: -0.3 },
+  backTxt:     { fontSize: 15, fontWeight: '800', color: '#2C3043' },
+  headerTitle: { fontSize: 18, fontWeight: '900', color: '#2C3043', letterSpacing: -0.3 },
 
   tabs:        { flexDirection: 'row', gap: 8, paddingHorizontal: 16, paddingTop: 12 },
   tab:         { flex: 1, paddingVertical: 10, borderRadius: 12, backgroundColor: '#F4F4F5', alignItems: 'center' },
-  tabOn:       { backgroundColor: '#1C1C1E' },
+  tabOn:       { backgroundColor: '#FF8A5C' },
   tabTxt:      { fontSize: 13, fontWeight: '800', color: '#8E8E93' },
   tabTxtOn:    { color: '#fff' },
 
   body:        { padding: 20, paddingBottom: 48 },
-  q:           { fontSize: 22, fontWeight: '900', color: '#1C1C1E', letterSpacing: -0.5 },
+  q:           { fontSize: 22, fontWeight: '900', color: '#2C3043', letterSpacing: -0.5 },
   hint:        { fontSize: 13, color: '#8E8E93', fontWeight: '600', marginTop: 6, marginBottom: 18, lineHeight: 19 },
   lbl:         { fontSize: 10, fontWeight: '800', color: '#8E8E93', letterSpacing: 0.8, marginBottom: 10 },
 
   chip:        { paddingVertical: 9, paddingHorizontal: 16, borderRadius: 18, borderWidth: 2, borderColor: '#E8E8E8', backgroundColor: '#fff' },
-  chipOn:      { backgroundColor: '#1C1C1E', borderColor: '#1C1C1E' },
+  chipOn:      { backgroundColor: '#FF8A5C', borderColor: '#FF8A5C' },
   chipTxt:     { fontSize: 13, fontWeight: '800', color: '#8E8E93' },
   chipTxtOn:   { color: '#fff' },
 
-  input:       { backgroundColor: '#FFF8F0', borderWidth: 2, borderColor: '#FFE0C2', borderRadius: 16, paddingVertical: 14, paddingHorizontal: 18, fontSize: 16, fontWeight: '700', color: '#1C1C1E', minHeight: 80, textAlignVertical: 'top' },
-  inputSm:     { backgroundColor: '#FFF8F0', borderWidth: 2, borderColor: '#FFE0C2', borderRadius: 14, paddingVertical: 12, paddingHorizontal: 16, fontSize: 15, fontWeight: '700', color: '#1C1C1E' },
-  textArea:    { backgroundColor: '#FFF8F0', borderWidth: 2, borderColor: '#FFE0C2', borderRadius: 16, paddingVertical: 14, paddingHorizontal: 18, fontSize: 15, fontWeight: '600', color: '#1C1C1E', minHeight: 160, textAlignVertical: 'top' },
+  input:       { backgroundColor: '#FFF8F0', borderWidth: 2, borderColor: '#FFE0C2', borderRadius: 16, paddingVertical: 14, paddingHorizontal: 18, fontSize: 16, fontWeight: '700', color: '#2C3043', minHeight: 80, textAlignVertical: 'top' },
+  inputSm:     { backgroundColor: '#FFF8F0', borderWidth: 2, borderColor: '#FFE0C2', borderRadius: 14, paddingVertical: 12, paddingHorizontal: 16, fontSize: 15, fontWeight: '700', color: '#2C3043' },
+  textArea:    { backgroundColor: '#FFF8F0', borderWidth: 2, borderColor: '#FFE0C2', borderRadius: 16, paddingVertical: 14, paddingHorizontal: 18, fontSize: 15, fontWeight: '600', color: '#2C3043', minHeight: 160, textAlignVertical: 'top' },
   row2:        { flexDirection: 'row', gap: 12, marginTop: 14 },
 
   err:         { color: '#C0392B', fontSize: 12, fontWeight: '600', marginTop: 12 },
   ok:          { color: '#1C7A3D', fontSize: 12, fontWeight: '700', marginTop: 12 },
 
-  btn:         { backgroundColor: '#FF8A3D', borderRadius: 16, paddingVertical: 16, alignItems: 'center', marginTop: 20 },
+  btn:         { backgroundColor: '#FF8A5C', borderRadius: 16, paddingVertical: 16, alignItems: 'center', marginTop: 20 },
   btnTxt:      { color: '#fff', fontSize: 16, fontWeight: '900', letterSpacing: -0.3 },
   row:         { flexDirection: 'row', alignItems: 'center' },
 
@@ -359,7 +359,7 @@ const st = StyleSheet.create({
   // Manage list
   empty:       { fontSize: 13, color: '#A0A0A5', fontWeight: '600', marginTop: 12, textAlign: 'center' },
   srcItem:     { flexDirection: 'row', alignItems: 'center', gap: 10, backgroundColor: '#FAFAFA', borderWidth: 1.5, borderColor: '#EFEFEF', borderRadius: 14, padding: 14, marginTop: 10 },
-  srcTitle:    { fontSize: 14, fontWeight: '800', color: '#1C1C1E' },
+  srcTitle:    { fontSize: 14, fontWeight: '800', color: '#2C3043' },
   srcMeta:     { fontSize: 11, fontWeight: '600', color: '#8E8E93', marginTop: 3 },
   delBtn:      { backgroundColor: '#FDECEA', borderRadius: 10, paddingVertical: 7, paddingHorizontal: 12 },
   delTxt:      { fontSize: 12, fontWeight: '800', color: '#C0392B' },

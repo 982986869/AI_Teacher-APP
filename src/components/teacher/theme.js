@@ -1,32 +1,32 @@
-// Shared premium-dark "whiteboard/chalkboard" theme for the AI Teacher teaching
-// experience. Kept in one place so WhiteboardCanvas, DiagramRenderer and the
-// TeachingPlayer scenes stay visually consistent.
+// Shared "whiteboard" theme for the AI Teacher teaching experience. Kept in one
+// place so WhiteboardCanvas, DiagramRenderer and the TeachingPlayer scenes stay
+// visually consistent. Light peach & mint look (markers tuned to read on white).
 
 export const BOARD = {
-  // Board surface
-  bg: '#0E1116',
-  bgInner: '#11161D',
-  frame: 'rgba(255,255,255,0.08)',
-  grid: 'rgba(255,255,255,0.04)',
+  // Board surface (clean white)
+  bg: '#FFFFFF',
+  bgInner: '#FFFBF7',
+  frame: 'rgba(44,48,67,0.10)',
+  grid: 'rgba(44,48,67,0.05)',
 
-  // Chalk / marker colors
-  chalk: '#F4F1E8',
-  white: '#F4F1E8',
-  yellow: '#FFD66B',
-  blue: '#6FB7FF',
-  green: '#7BE0A4',
-  pink: '#FF9CC2',
-  orange: '#FF8A3D',
-  purple: '#C4A3FF',
+  // Marker colors (dark ink + accents that read on a white board)
+  chalk: '#2C3043',
+  white: '#2C3043',
+  yellow: '#E0A52E',
+  blue: '#3C9DF0',
+  green: '#2BB083',
+  pink: '#EE6F96',
+  orange: '#EF8A43',
+  purple: '#8A7CF0',
 
-  // Cards / bubbles on the dark stage
-  stage: '#0B0E13',
-  card: '#161C25',
-  cardBorder: 'rgba(255,255,255,0.10)',
-  textDim: '#A7B0BE',
-  textBright: '#F4F6FA',
+  // Cards / bubbles on the light stage
+  stage: '#FFF9F5',
+  card: '#FFFFFF',
+  cardBorder: 'rgba(44,48,67,0.10)',
+  textDim: '#5E6473',
+  textBright: '#2C3043',
 
-  glow: '#FF8A3D',
+  glow: '#FF8A5C',
 };
 
 // A small rotating palette so successive strokes/steps feel hand-drawn & lively.
