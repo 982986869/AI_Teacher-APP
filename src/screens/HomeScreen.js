@@ -400,7 +400,7 @@ const HomeScreen = ({ navigation }) => {
 
 // Pastel palette cycled across the AI Teacher quick-question pills.
 const QPILL_PASTELS = [
-  { bg: '#EFE9FF', border: '#DCD2FF', text: '#6A5AE0' }, // lavender
+  { bg: '#FFEDE8', border: '#FFD8D0', text: '#C24A42' }, // lavender
   { bg: '#E2FBEF', border: '#BCEFD7', text: '#1E9466' }, // mint
   { bg: '#FFF0E6', border: '#FFDCC2', text: '#D9712B' }, // peach
   { bg: '#E6F4FF', border: '#C5E4FF', text: '#2C7BD4' }, // sky
@@ -526,24 +526,24 @@ const s = StyleSheet.create({
   // AI Teacher
   aiSection:      { marginHorizontal: PAD, marginBottom: 10, marginTop: 4 },
   aiSectionLabel: { fontSize: 16, fontWeight: '900', color: '#1C1C1E', letterSpacing: -0.3, marginBottom: 10, paddingHorizontal: 2 },
-  aiHeaderCard:   { backgroundColor: '#EFE9FF', borderRadius: 26, borderBottomLeftRadius: 0, borderBottomRightRadius: 0, padding: 20, borderWidth: 1, borderBottomWidth: 0, borderColor: '#E2D7FF' },
+  aiHeaderCard:   { backgroundColor: '#FFEDE8', borderRadius: 26, borderBottomLeftRadius: 0, borderBottomRightRadius: 0, padding: 20, borderWidth: 1, borderBottomWidth: 0, borderColor: '#FFD8D0' },
   aiTopRow:       { flexDirection: 'row', justifyContent: 'space-between', alignItems: 'center' },
   aiLeft:         { flexDirection: 'row', alignItems: 'center', gap: 12 },
-  aiAvatar:       { width: 48, height: 48, backgroundColor: '#fff', borderRadius: 16, alignItems: 'center', justifyContent: 'center', borderWidth: 1, borderColor: '#E7DEFF', shadowColor: '#7C6CF2', shadowOpacity: 0.18, shadowRadius: 8, shadowOffset: { width: 0, height: 3 }, elevation: 2 },
-  aiName:         { fontSize: 17, fontWeight: '900', color: '#3A2E6B', letterSpacing: -0.3 },
-  aiSub:          { fontSize: 10, color: '#9286C9', fontWeight: '700', marginTop: 2 },
+  aiAvatar:       { width: 48, height: 48, backgroundColor: '#fff', borderRadius: 16, alignItems: 'center', justifyContent: 'center', borderWidth: 1, borderColor: '#FFE0D8', shadowColor: '#FF6F61', shadowOpacity: 0.18, shadowRadius: 8, shadowOffset: { width: 0, height: 3 }, elevation: 2 },
+  aiName:         { fontSize: 17, fontWeight: '900', color: '#2C3043', letterSpacing: -0.3 },
+  aiSub:          { fontSize: 10, color: '#9A93A6', fontWeight: '700', marginTop: 2 },
   aiOnline:       { flexDirection: 'row', alignItems: 'center', gap: 6, backgroundColor: '#E2FBEF', borderWidth: 1, borderColor: '#BCEFD7', borderRadius: 18, paddingVertical: 6, paddingHorizontal: 11 },
   aiDot:          { width: 7, height: 7, backgroundColor: '#27B07A', borderRadius: 3.5 },
   aiOnlineTxt:    { fontSize: 10, color: '#1E9466', fontWeight: '800' },
-  aiDesc:         { color: '#6E64A0', fontSize: 12, fontWeight: '600', lineHeight: 18, marginTop: 12 },
-  chipSection:    { backgroundColor: '#EFE9FF', paddingHorizontal: 20, paddingBottom: 16, borderLeftWidth: 1, borderRightWidth: 1, borderColor: '#E2D7FF' },
-  chipLbl:        { fontSize: 9, fontWeight: '800', color: '#A99FD8', textTransform: 'uppercase', letterSpacing: 0.8, marginBottom: 9 },
-  chip:           { paddingVertical: 8, paddingHorizontal: 16, borderRadius: 18, borderWidth: 2, borderColor: '#DCD2FF', backgroundColor: '#fff' },
-  chipOn:         { backgroundColor: '#7C6CF2', borderColor: '#7C6CF2' },
-  chipTxt:        { fontSize: 13, fontWeight: '800', color: '#8478BE' },
+  aiDesc:         { color: '#6E6A82', fontSize: 12, fontWeight: '600', lineHeight: 18, marginTop: 12 },
+  chipSection:    { backgroundColor: '#FFEDE8', paddingHorizontal: 20, paddingBottom: 16, borderLeftWidth: 1, borderRightWidth: 1, borderColor: '#FFD8D0' },
+  chipLbl:        { fontSize: 9, fontWeight: '800', color: '#ABA6B2', textTransform: 'uppercase', letterSpacing: 0.8, marginBottom: 9 },
+  chip:           { paddingVertical: 8, paddingHorizontal: 16, borderRadius: 18, borderWidth: 2, borderColor: '#FFD8D0', backgroundColor: '#fff' },
+  chipOn:         { backgroundColor: '#FF6F61', borderColor: '#FF6F61' },
+  chipTxt:        { fontSize: 13, fontWeight: '800', color: '#8A8296' },
   chipTxtOn:      { color: '#fff' },
-  previewCard:    { backgroundColor: '#fff', borderWidth: 1, borderTopWidth: 0, borderColor: '#E2D7FF', borderBottomLeftRadius: 26, borderBottomRightRadius: 26, paddingHorizontal: 14, paddingTop: 12, paddingBottom: 14 },
-  openAiBtn:      { backgroundColor: '#7C6CF2', borderRadius: 14, paddingVertical: 13, alignItems: 'center', marginTop: 12, shadowColor: '#7C6CF2', shadowOpacity: 0.35, shadowRadius: 10, shadowOffset: { width: 0, height: 4 }, elevation: 4 },
+  previewCard:    { backgroundColor: '#fff', borderWidth: 1, borderTopWidth: 0, borderColor: '#FFD8D0', borderBottomLeftRadius: 26, borderBottomRightRadius: 26, paddingHorizontal: 14, paddingTop: 12, paddingBottom: 14 },
+  openAiBtn:      { backgroundColor: '#FF6F61', borderRadius: 14, paddingVertical: 13, alignItems: 'center', marginTop: 12, shadowColor: '#FF6F61', shadowOpacity: 0.35, shadowRadius: 10, shadowOffset: { width: 0, height: 4 }, elevation: 4 },
   openAiTxt:      { color: '#fff', fontSize: 15, fontWeight: '900', letterSpacing: -0.3 },
   chatWrap:       { borderLeftWidth: 1.5, borderRightWidth: 1.5, borderColor: '#F0F0F0', backgroundColor: '#F7F7F7' },
   chatMsgs:       { maxHeight: 220 },
@@ -556,7 +556,7 @@ const s = StyleSheet.create({
   bMe:            { backgroundColor: '#1C1C1E', borderBottomRightRadius: 4 },
   bubbleTxt:      { fontSize: 13, fontWeight: '600', color: '#1C1C1E', lineHeight: 20 },
   quickQs:        { padding: 14, paddingTop: 8, backgroundColor: '#F7F7F7' },
-  qsLbl:          { fontSize: 9, fontWeight: '800', color: '#A99FD8', textTransform: 'uppercase', letterSpacing: 0.6, marginBottom: 8 },
+  qsLbl:          { fontSize: 9, fontWeight: '800', color: '#ABA6B2', textTransform: 'uppercase', letterSpacing: 0.6, marginBottom: 8 },
   qPill:          { borderWidth: 1.5, borderRadius: 18, paddingVertical: 8, paddingHorizontal: 13 },
   qPillTxt:       { fontSize: 11, fontWeight: '700' },
   inputArea:      { backgroundColor: '#fff', borderWidth: 1.5, borderColor: '#F0F0F0', borderRadius: 0, borderBottomLeftRadius: 26, borderBottomRightRadius: 26, padding: 12, paddingBottom: 14 },

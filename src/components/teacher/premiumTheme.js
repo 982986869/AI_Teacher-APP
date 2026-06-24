@@ -16,13 +16,13 @@ export const T = {
   borderStrong: 'rgba(44,48,67,0.16)',
 
   // Brand (peach / coral)
-  primary: '#FF8A5C',
-  primaryBright: '#FF7A45',
-  primarySoft: 'rgba(255,138,92,0.16)',
+  primary: '#FF6F61',
+  primaryBright: '#FF5C4D',
+  primarySoft: 'rgba(255,111,97,0.16)',
 
   // State accents
-  speaking: '#FF8A5C',   // peach
-  listening: '#2EBE9A',  // mint
+  speaking: '#FF6F61',   // peach
+  listening: '#0FA39A',  // mint
   thinking: '#F5A623',   // amber
 
   // Text (dark slate)
@@ -31,7 +31,7 @@ export const T = {
   textFaint: '#9097A6',
 
   // Semantic
-  success: '#2BB083',    // mint-green
+  success: '#0FA39A',    // mint-green
   danger: '#F2685F',
 
   // Radii
@@ -61,9 +61,9 @@ export const C = {
   // diagram / token colors — tuned to read on a white board
   orange: '#EF8A43',
   blue: '#3C9DF0',
-  green: '#2BB083',
+  green: '#0FA39A',
   pink: '#EE6F96',
-  accent: '#FF8A5C',     // peach primary
+  accent: '#FF6F61',     // peach primary
 
   // bottom area — peach fading into mint (warm → cool)
   peachBands: ['#FFF9F5', '#FFF4EE', '#FFEFE7', '#F1F8F3', '#E9F6EF', '#E3F5EC'],

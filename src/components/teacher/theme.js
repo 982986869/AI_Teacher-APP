@@ -14,7 +14,7 @@ export const BOARD = {
   white: '#2C3043',
   yellow: '#E0A52E',
   blue: '#3C9DF0',
-  green: '#2BB083',
+  green: '#0FA39A',
   pink: '#EE6F96',
   orange: '#EF8A43',
   purple: '#8A7CF0',
@@ -26,7 +26,7 @@ export const BOARD = {
   textDim: '#5E6473',
   textBright: '#2C3043',
 
-  glow: '#FF8A5C',
+  glow: '#FF6F61',
 };
 
 // A small rotating palette so successive strokes/steps feel hand-drawn & lively.

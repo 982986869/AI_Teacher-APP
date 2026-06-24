@@ -12,7 +12,7 @@ import { Ionicons } from '@expo/vector-icons';
 import MCQ_DATA, { getMcqSubtopics } from '../data/mcqPractice';
 
 const C = {
-  purple: '#534AB7', purpleDeep: '#26215C', purpleLight: '#EEEDFE',
+  purple: '#E0554A', purpleDeep: '#26215C', purpleLight: '#EEEDFE',
   green: '#0F8A5F', greenSoft: '#1FB07A', red: '#F0564B', track: '#ECECF3',
   text: '#22222A', muted: '#7A7A8C', border: '#ECECEC', white: '#FFFFFF',
   pageBg: '#F4F5FB',
@@ -20,7 +20,7 @@ const C = {
 
 const SUBJECTS = [
   { name: 'Physics',     emoji: '⚛️', bg: '#1C1C1E' },
-  { name: 'Mathematics', emoji: '📐', bg: '#534AB7' },
+  { name: 'Mathematics', emoji: '📐', bg: '#E0554A' },
   { name: 'Chemistry',   emoji: '🧪', bg: '#0F6E56' },
   { name: 'Biology',     emoji: '🧬', bg: '#B0306B' },
 ];
