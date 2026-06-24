@@ -1,0 +1,3162 @@
+{
+  "id": 1383,
+  "name": "Introduction to 3D Geometry",
+  "full_name": "CBSE > Class 11 > Mathematics > Introduction to 3D Geometry",
+  "tests": [
+    {
+      "testPaperID": 657,
+      "testPaperName": "3D Geometry Test 01",
+      "is_paid": false,
+      "category_full_name": "CBSE > Class 11 > Mathematics > Introduction to 3D Geometry",
+      "noOfQuestions": 15,
+      "has_answers": true,
+      "sections": [
+        {
+          "sectionName": "General",
+          "sectionID": null,
+          "questions": [
+            {
+              "questionID": 19142,
+              "question": "The distance of the point (3, 4, 5) from X-axis is",
+              "question_raw": "<p>The distance of the point (3, 4, 5) from X-axis is</p>",
+              "options": [
+                {
+                  "label": "A",
+                  "id": 31770,
+                  "text": "5",
+                  "is_correct": false
+                },
+                {
+                  "label": "B",
+                  "id": 31768,
+                  "text": "$\\sqrt {34} $",
+                  "is_correct": false
+                },
+                {
+                  "label": "C",
+                  "id": 31769,
+                  "text": "3",
+                  "is_correct": false
+                },
+                {
+                  "label": "D",
+                  "id": 31767,
+                  "text": "$\\sqrt {41} $",
+                  "is_correct": true
+                }
+              ],
+              "correct_option_ids": [
+                31767
+              ],
+              "correct_option_labels": [
+                "D"
+              ],
+              "correct_option_texts": [
+                "$\\sqrt {41} $"
+              ],
+              "explanation": "The distance of the point (3, 4, 5) from X-axis is: let L be the foot of the perpendicular from the point (3, 4, 5) to X-axis, then coordinate of L will be (3, 0, 0) because on X-axis y and z coordinate are zero then the distance of the point (3, 4, 5) from X-axis i.e. from L (3, 0, 0) is given by $\\sqrt {{{(3 - 3)}^2} + {{(4 - 0)}^2} + {{(5 - 0)}^2}} $ = $\\sqrt {41} $"
+            },
+            {
+              "questionID": 19143,
+              "question": "The direction cosines of X -axis are",
+              "question_raw": "<p>The direction cosines of X -axis are</p>\r\n",
+              "options": [
+                {
+                  "label": "A",
+                  "id": 31774,
+                  "text": "$<$ 0 , 1 , 1 $>$",
+                  "is_correct": false
+                },
+                {
+                  "label": "B",
+                  "id": 31772,
+                  "text": "$<$ 0 , 1 , 0 $>$",
+                  "is_correct": false
+                },
+                {
+                  "label": "C",
+                  "id": 31773,
+                  "text": "$<$ 0 , 0 , 1 $>$",
+                  "is_correct": false
+                },
+                {
+                  "label": "D",
+                  "id": 31771,
+                  "text": "$<$ 1 , 0 , 0 $>$",
+                  "is_correct": true
+                }
+              ],
+              "correct_option_ids": [
+                31771
+              ],
+              "correct_option_labels": [
+                "D"
+              ],
+              "correct_option_texts": [
+                "$<$ 1 , 0 , 0 $>$"
+              ],
+              "explanation": "As we know that if a lines makes angles a , b and c with X-axis , Y-axis and Z-axis respectively then direction cosines are given by < cos a , cos b ,cos c >\nIn our case line is X-axis itself which we know makes angle of 0$^ \\circ $ , 90$^ \\circ $ , 90$^ \\circ $ with X-axis , Y-axis and Z-axis respectively then direction cosine will be\n<cos 0$^ \\circ $ , cos 90$^ \\circ $, cos 90$^ \\circ $>\n= < 1, 0, 0 >"
+            },
+            {
+              "questionID": 19144,
+              "question": "The medians of a triangle are concurrent at the point called",
+              "question_raw": "<p>The medians of a triangle are concurrent at the point called</p>",
+              "options": [
+                {
+                  "label": "A",
+                  "id": 31777,
+                  "text": "orthocentre",
+                  "is_correct": false
+                },
+                {
+                  "label": "B",
+                  "id": 31776,
+                  "text": "incentre",
+                  "is_correct": false
+                },
+                {
+                  "label": "C",
+                  "id": 31775,
+                  "text": "centroid",
+                  "is_correct": true
+                },
+                {
+                  "label": "D",
+                  "id": 31778,
+                  "text": "circumcentre",
+                  "is_correct": false
+                }
+              ],
+              "correct_option_ids": [
+                31775
+              ],
+              "correct_option_labels": [
+                "C"
+              ],
+              "correct_option_texts": [
+                "centroid"
+              ],
+              "explanation": "The centroid is the point of concurrency of the medians of the triangle. It is a point of the centre of gravity of the triangle."
+            },
+            {
+              "questionID": 19145,
+              "question": "The direction cosines of any normal to the XY plane are",
+              "question_raw": "<p>The direction cosines of any normal to the XY plane are</p>\r\n",
+              "options": [
+                {
+                  "label": "A",
+                  "id": 31781,
+                  "text": "$<$ 0 , 1 , 0 $>$",
+                  "is_correct": false
+                },
+                {
+                  "label": "B",
+                  "id": 31780,
+                  "text": "$<$ 1 , 0 , 0 $>$",
+                  "is_correct": false
+                },
+                {
+                  "label": "C",
+                  "id": 31779,
+                  "text": "$<$ 0 , 0 , 1 $>$",
+                  "is_correct": true
+                },
+                {
+                  "label": "D",
+                  "id": 31782,
+                  "text": "$<$ 1 , 1 , 0 $>$",
+                  "is_correct": false
+                }
+              ],
+              "correct_option_ids": [
+                31779
+              ],
+              "correct_option_labels": [
+                "C"
+              ],
+              "correct_option_texts": [
+                "$<$ 0 , 0 , 1 $>$"
+              ],
+              "explanation": "Concept used - Parellel lines have same direction cosines\nExplanation We know Z axis is perpendicular to XY plane and direction cosines of Z axis are <0,0,1>\nand as any normal to XY plane will be parallel to Z axis and parellel lines have same direction cosines so answer is <0,0,1>"
+            },
+            {
+              "questionID": 19146,
+              "question": "How many lines through the origin make equal angles with the coordinate axes ?",
+              "question_raw": "<p>How many lines through the origin make equal angles with the coordinate axes ?</p>",
+              "options": [
+                {
+                  "label": "A",
+                  "id": 31784,
+                  "text": "1",
+                  "is_correct": false
+                },
+                {
+                  "label": "B",
+                  "id": 31785,
+                  "text": "4",
+                  "is_correct": false
+                },
+                {
+                  "label": "C",
+                  "id": 31786,
+                  "text": "2",
+                  "is_correct": false
+                },
+                {
+                  "label": "D",
+                  "id": 31783,
+                  "text": "8",
+                  "is_correct": true
+                }
+              ],
+              "correct_option_ids": [
+                31783
+              ],
+              "correct_option_labels": [
+                "D"
+              ],
+              "correct_option_texts": [
+                "8"
+              ],
+              "explanation": "$since \\ \\alpha = \\beta =\\ \\gamma$\n$cos^2\\alpha +cos^2\\beta+cos^2\\gamma=1\\\\ hence \\ 3 cos^2\\alpha=1\\\\ hence \\ cos \\alpha=\\frac{1}{\\sqrt3}\\\\ \\ cos \\beta=\\frac{1}{\\sqrt3}\\\\\\ cos \\gamma=\\frac{1}{\\sqrt3} dcs \\ of \\ lines \\ will \\ be\\ \\\\(\\pm \\frac{1}{\\sqrt3},\\pm \\frac{1}{\\sqrt3},\\pm \\frac{1}{\\sqrt3}) $\nhence the lines will be 8"
+            },
+            {
+              "questionID": 19147,
+              "question": "the numbers 3, 4 , 5 can be",
+              "question_raw": "<p>the numbers 3, 4 , 5 can be</p>",
+              "options": [
+                {
+                  "label": "A",
+                  "id": 31787,
+                  "text": "direction numbers of a line in space",
+                  "is_correct": true
+                },
+                {
+                  "label": "B",
+                  "id": 31788,
+                  "text": "direction cosines of a line in space",
+                  "is_correct": false
+                },
+                {
+                  "label": "C",
+                  "id": 31790,
+                  "text": "coordinates of a point in the plane x + y – z = 0",
+                  "is_correct": false
+                },
+                {
+                  "label": "D",
+                  "id": 31789,
+                  "text": "coordinates of a point on the line y = 4 , z = 0",
+                  "is_correct": false
+                }
+              ],
+              "correct_option_ids": [
+                31787
+              ],
+              "correct_option_labels": [
+                "A"
+              ],
+              "correct_option_texts": [
+                "direction numbers of a line in space"
+              ],
+              "explanation": "the numbers 3, 4 , 5 can be direction ratio of any line these not satisfying any other option"
+            },
+            {
+              "questionID": 19148,
+              "question": "If the directions cosines of a line are k,k,k, then",
+              "question_raw": "<p>If the directions cosines of a line are k,k,k, then</p>",
+              "options": [
+                {
+                  "label": "A",
+                  "id": 31794,
+                  "text": "0 $<$ k $<$ 1",
+                  "is_correct": false
+                },
+                {
+                  "label": "B",
+                  "id": 31793,
+                  "text": "k $>$ 0",
+                  "is_correct": false
+                },
+                {
+                  "label": "C",
+                  "id": 31792,
+                  "text": "k = 1",
+                  "is_correct": false
+                },
+                {
+                  "label": "D",
+                  "id": 31791,
+                  "text": "$k = \\frac{1}{{\\sqrt {3} }}$ or $k = - \\frac{1}{{\\sqrt 3 }}$",
+                  "is_correct": true
+                }
+              ],
+              "correct_option_ids": [
+                31791
+              ],
+              "correct_option_labels": [
+                "D"
+              ],
+              "correct_option_texts": [
+                "$k = \\frac{1}{{\\sqrt {3} }}$ or $k = - \\frac{1}{{\\sqrt 3 }}$"
+              ],
+              "explanation": "We know that if l, m, n are direction cosines of a lines then l^2 +m^2 +n^2= 1\nso, k^2 + k^2 +k^2 = 1\n3 k^2 = 1\nk^2 = $\\frac{1}{3}$\ntaking squareroot on both sides , we have $k = \\frac{1}{{\\sqrt {3} }}$ or $k = - \\frac{1}{{\\sqrt 3 }}$"
+            },
+            {
+              "questionID": 19149,
+              "question": "The lines, which do not lie in the same plane, are called?",
+              "question_raw": "<p>The lines, which do not lie in the same plane, are called?</p>",
+              "options": [
+                {
+                  "label": "A",
+                  "id": 31798,
+                  "text": "intersecting",
+                  "is_correct": false
+                },
+                {
+                  "label": "B",
+                  "id": 31797,
+                  "text": "coincident",
+                  "is_correct": false
+                },
+                {
+                  "label": "C",
+                  "id": 31795,
+                  "text": "skew lines",
+                  "is_correct": true
+                },
+                {
+                  "label": "D",
+                  "id": 31796,
+                  "text": "parallel",
+                  "is_correct": false
+                }
+              ],
+              "correct_option_ids": [
+                31795
+              ],
+              "correct_option_labels": [
+                "C"
+              ],
+              "correct_option_texts": [
+                "skew lines"
+              ],
+              "explanation": "Lines which lie in the same plane can be parallel, coincident or intersecting.\nSkew lines are those lines which lie in different planes and never meet to each other."
+            },
+            {
+              "questionID": 19150,
+              "question": "The radius of the sphere through the points (4, 3, 0), (0, 4, 3), (0, 5, 0) and (4, 0, 3) is",
+              "question_raw": "<p>The radius of the sphere through the points (4, 3, 0), (0, 4, 3), (0, 5, 0) and (4, 0, 3) is</p>",
+              "options": [
+                {
+                  "label": "A",
+                  "id": 31799,
+                  "text": "5",
+                  "is_correct": true
+                },
+                {
+                  "label": "B",
+                  "id": 31802,
+                  "text": "$\\frac{5}{7}$",
+                  "is_correct": false
+                },
+                {
+                  "label": "C",
+                  "id": 31800,
+                  "text": "7",
+                  "is_correct": false
+                },
+                {
+                  "label": "D",
+                  "id": 31801,
+                  "text": "$\\frac{7}{5}$",
+                  "is_correct": false
+                }
+              ],
+              "correct_option_ids": [
+                31799
+              ],
+              "correct_option_labels": [
+                "A"
+              ],
+              "correct_option_texts": [
+                "5"
+              ],
+              "explanation": "We know that general equation of sphere is x^2 + y^2 + z^2 + 2gx + 2fy + 2hz + c = 0\nSince sphere passing through the points (4, 3, 0), (0, 4, 3), (0, 5, 0) and (4, 0, 3) so putting these values one by one in given equation, we get\n16 + 9 + 8g + 6f + c = 0 $\\Rightarrow$ 8g + 6f + c = -25 ......(i)\n16 + 9 + 8f + 6h + c = 0 $\\Rightarrow$ 8f + 6h + c = -25 ......(ii)\n25 + 10f + c = 0 ......(iii)\n16 + 9 + 8g + 6h + c = 0 $\\Rightarrow$ 8g + 6h + c = -25 ......(iv)\nBy (ii) - (iv) we have f = g\nUsing this in (i) we have 16f +c = -25 .....(v)\nNow solving (iii) and (v) we get f = 0 \nUsing value of f we have g = 0, h = 0, c = -25\nNow radius =$\\sqrt {{{( - g)}^2} + ( - f) + {{( - h)}^2} - c} $ = $\\sqrt {25} $ = 5"
+            },
+            {
+              "questionID": 19151,
+              "question": "The points (4, 7, 8), (2, 3, 4), (-1, -2, 1) and (1, 2, 5) are the vertices of a",
+              "question_raw": "<p>The points (4, 7, 8), (2, 3, 4), (-1, -2, 1) and (1, 2, 5) are the vertices of a</p>",
+              "options": [
+                {
+                  "label": "A",
+                  "id": 31805,
+                  "text": "rectangle",
+                  "is_correct": false
+                },
+                {
+                  "label": "B",
+                  "id": 31803,
+                  "text": "parallelogram",
+                  "is_correct": true
+                },
+                {
+                  "label": "C",
+                  "id": 31806,
+                  "text": "square",
+                  "is_correct": false
+                },
+                {
+                  "label": "D",
+                  "id": 31804,
+                  "text": "rhombus",
+                  "is_correct": false
+                }
+              ],
+              "correct_option_ids": [
+                31803
+              ],
+              "correct_option_labels": [
+                "B"
+              ],
+              "correct_option_texts": [
+                "parallelogram"
+              ],
+              "explanation": "The vertices of a quadrilateral are A( 4, 7, 8), B(2, 3, 4) ,C (- 1, -2, 1) and D(1, 2, 5) \nAB =$\\sqrt {{{(4 - 2)}^2} + {{(7 - 3)}^2} + {{(8 - 4)}^2}} $ = $\\sqrt{4+16+16}$ = $\\sqrt{36}$ = 6 \nBC =$\\sqrt {{{(2 + 1)}^2} + {{(3 + 2)}^2} + {{(4 - 1)}^2}}$ = $\\sqrt{9+25+9}$ = $\\sqrt{43}$ \nCD =$\\sqrt {{{(1 + 1)}^2} + {{(2 + 2)}^2} + {{(5 - 1)}^2}} $ = $\\sqrt{4+16+16}$ = $\\sqrt{36}$ = 6\nDA = $\\sqrt {{{(4 - 1)}^2} + {{(7 - 2)}^2} + {{(8 - 5)}^2}} $ = $\\sqrt{9+25+9}$ = $\\sqrt{43}$ \nHere opposite sides of quadrilateral ABCD are equal, so it may be parallelogram or rectangle\nNow , diagonal AC =$\\sqrt {{{(4 + 1)}^2} + {{(7 +2)}^2} + {{(8 -1)}^2}} $ = $\\sqrt{25+81+49}$ = $\\sqrt{155}$ \nBD = $\\sqrt {{{(2 - 1)}^2} + {{(3 - 2)}^2} + {{(4 - 5)}^2}}$ = $\\sqrt{1+1+1}$ = $\\sqrt{3}$ \nHere the length of diagonals AC and BD are different so ABCD is a parallelogram."
+            },
+            {
+              "questionID": 19152,
+              "question": "The equation xy = 0 in three dimensional space represents",
+              "question_raw": "<p>The equation xy = 0 in three dimensional space represents</p>",
+              "options": [
+                {
+                  "label": "A",
+                  "id": 31810,
+                  "text": "a pair of straight lines",
+                  "is_correct": false
+                },
+                {
+                  "label": "B",
+                  "id": 31807,
+                  "text": "a pair of planes at right angles",
+                  "is_correct": true
+                },
+                {
+                  "label": "C",
+                  "id": 31809,
+                  "text": "a plane",
+                  "is_correct": false
+                },
+                {
+                  "label": "D",
+                  "id": 31808,
+                  "text": "a pair of parallel lines",
+                  "is_correct": false
+                }
+              ],
+              "correct_option_ids": [
+                31807
+              ],
+              "correct_option_labels": [
+                "B"
+              ],
+              "correct_option_texts": [
+                "a pair of planes at right angles"
+              ],
+              "explanation": "Since xy = 0 implies x = 0 or y = 0.i.e YZ plane or XZ plane. Hence it represents a pair of planes at right angles."
+            },
+            {
+              "questionID": 19153,
+              "question": "The graph of the equation x^2 + y^2 = 0 in the three dimensional space is",
+              "question_raw": "<p>The graph of the equation x<sup>2</sup> + y<sup>2</sup> = 0 in the three dimensional space is</p>",
+              "options": [
+                {
+                  "label": "A",
+                  "id": 31813,
+                  "text": "X - axis",
+                  "is_correct": false
+                },
+                {
+                  "label": "B",
+                  "id": 31814,
+                  "text": "XY – plane",
+                  "is_correct": false
+                },
+                {
+                  "label": "C",
+                  "id": 31812,
+                  "text": "Y - axis",
+                  "is_correct": false
+                },
+                {
+                  "label": "D",
+                  "id": 31811,
+                  "text": "Z - axis",
+                  "is_correct": true
+                }
+              ],
+              "correct_option_ids": [
+                31811
+              ],
+              "correct_option_labels": [
+                "D"
+              ],
+              "correct_option_texts": [
+                "Z - axis"
+              ],
+              "explanation": "x^2 + y^2 = 0 $\\Rightarrow $ x = 0 and y = 0 represents a point (0, 0) in space in 2D. In 3D the collection of all these points forms Z-axis."
+            },
+            {
+              "questionID": 19154,
+              "question": "In three dimensional space, locus of the equation x^2 + z^2 = 0 is",
+              "question_raw": "<p>In three dimensional space, locus of the equation x<sup>2</sup> + z<sup>2</sup> = 0 is</p>",
+              "options": [
+                {
+                  "label": "A",
+                  "id": 31818,
+                  "text": "empty set",
+                  "is_correct": false
+                },
+                {
+                  "label": "B",
+                  "id": 31816,
+                  "text": "a degenerate circle",
+                  "is_correct": false
+                },
+                {
+                  "label": "C",
+                  "id": 31815,
+                  "text": "y - axis",
+                  "is_correct": true
+                },
+                {
+                  "label": "D",
+                  "id": 31817,
+                  "text": "a degenerate sphere",
+                  "is_correct": false
+                }
+              ],
+              "correct_option_ids": [
+                31815
+              ],
+              "correct_option_labels": [
+                "C"
+              ],
+              "correct_option_texts": [
+                "y - axis"
+              ],
+              "explanation": "x^2 + z^2 = 0 $\\Rightarrow$ x = 0 and z = 0 it will represent a point in 2d and in 3d the collection of all these point will form Y axis."
+            },
+            {
+              "questionID": 19155,
+              "question": "The distance of the point (x, y, z) from the XY–plane is",
+              "question_raw": "<p>The distance of the point (x, y, z) from the XY&ndash;plane is</p>",
+              "options": [
+                {
+                  "label": "A",
+                  "id": 31821,
+                  "text": "y",
+                  "is_correct": false
+                },
+                {
+                  "label": "B",
+                  "id": 31819,
+                  "text": "|z|",
+                  "is_correct": true
+                },
+                {
+                  "label": "C",
+                  "id": 31822,
+                  "text": "z",
+                  "is_correct": false
+                },
+                {
+                  "label": "D",
+                  "id": 31820,
+                  "text": "x",
+                  "is_correct": false
+                }
+              ],
+              "correct_option_ids": [
+                31819
+              ],
+              "correct_option_labels": [
+                "B"
+              ],
+              "correct_option_texts": [
+                "|z|"
+              ],
+              "explanation": "Let L be the foot of a perpendicular segment from point P (x, y, z) on the XY plane.\nNow since L is the foot of perpendicular on XY plane so z coordinate will be zero so the point L will be (x, y, 0)\nThen the distance between these two will be $\\sqrt {{{(x - x)}^2} + {{(y - y)}^2} + {{(z - 0)}^2}} $ = $\\sqrt {{z^2}} $ = |z|"
+            },
+            {
+              "questionID": 19156,
+              "question": "The angle between the lines x = 1, y = 2 and y = - 1, z = 0 is",
+              "question_raw": "<p>The angle between the lines x = 1, y = 2 and y = - 1, z = 0 is</p>",
+              "options": [
+                {
+                  "label": "A",
+                  "id": 31826,
+                  "text": "0^o",
+                  "is_correct": false
+                },
+                {
+                  "label": "B",
+                  "id": 31823,
+                  "text": "90^o",
+                  "is_correct": true
+                },
+                {
+                  "label": "C",
+                  "id": 31824,
+                  "text": "30^o",
+                  "is_correct": false
+                },
+                {
+                  "label": "D",
+                  "id": 31825,
+                  "text": "60^o",
+                  "is_correct": false
+                }
+              ],
+              "correct_option_ids": [
+                31823
+              ],
+              "correct_option_labels": [
+                "B"
+              ],
+              "correct_option_texts": [
+                "90^o"
+              ],
+              "explanation": "x = 1, y = 2 represents XY plane and y = - 1, z = 0 represents YZ plane. Since XY perpendicular to YZ. Hence angle is 90 degrees."
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "testPaperID": 658,
+      "testPaperName": "3D Geometry Test 02",
+      "is_paid": true,
+      "category_full_name": "CBSE > Class 11 > Mathematics > Introduction to 3D Geometry",
+      "noOfQuestions": 15,
+      "has_answers": true,
+      "sections": [
+        {
+          "sectionName": "General",
+          "sectionID": null,
+          "questions": [
+            {
+              "questionID": 19157,
+              "question": "The lines having drs as a_1a_2 + b_1b_2 + c_1c_2 = 0 are",
+              "question_raw": "<p>The lines having drs as a<sub>1</sub>a<sub>2&nbsp;</sub>+ b<sub>1</sub>b<sub>2&nbsp;</sub>+ c<sub>1</sub>c<sub>2&nbsp;</sub>= 0 are</p>",
+              "options": [
+                {
+                  "label": "A",
+                  "id": 31827,
+                  "text": "perpendicular",
+                  "is_correct": true
+                },
+                {
+                  "label": "B",
+                  "id": 31828,
+                  "text": "coincident",
+                  "is_correct": false
+                },
+                {
+                  "label": "C",
+                  "id": 31829,
+                  "text": "parallel",
+                  "is_correct": false
+                },
+                {
+                  "label": "D",
+                  "id": 31830,
+                  "text": "skew",
+                  "is_correct": false
+                }
+              ],
+              "correct_option_ids": [
+                31827
+              ],
+              "correct_option_labels": [
+                "A"
+              ],
+              "correct_option_texts": [
+                "perpendicular"
+              ],
+              "explanation": "cos $\\theta$ = $\\frac{a_{1} a_{2}+b_{1} b_{2}+c_{1} c_{2}}{\\sqrt{a_{1}^{2}+b_{1}^{2}+c_{1}^{2}} \\sqrt{a_{2}^{2}+b_{2}^{2}+c_{2}^{2}}}$ \nbut a_1a_2 + b_1b_2 + c_1c_2 = 0\nHence cos $\\theta$ = 0\n$\\theta$ = 90^o\nHence lines are perpendicular."
+            },
+            {
+              "questionID": 19158,
+              "question": "The line x = 1, y = 2 is",
+              "question_raw": "<p>The line x = 1, y = 2 is</p>",
+              "options": [
+                {
+                  "label": "A",
+                  "id": 31833,
+                  "text": "parallel to Y – axis",
+                  "is_correct": false
+                },
+                {
+                  "label": "B",
+                  "id": 31832,
+                  "text": "parallel to X – axis",
+                  "is_correct": false
+                },
+                {
+                  "label": "C",
+                  "id": 31834,
+                  "text": "lies in a plane parallel to XY – plane",
+                  "is_correct": false
+                },
+                {
+                  "label": "D",
+                  "id": 31831,
+                  "text": "parallel to Z – axis",
+                  "is_correct": true
+                }
+              ],
+              "correct_option_ids": [
+                31831
+              ],
+              "correct_option_labels": [
+                "D"
+              ],
+              "correct_option_texts": [
+                "parallel to Z – axis"
+              ],
+              "explanation": "Since z coordinate is zero it is parallel to Z axis."
+            },
+            {
+              "questionID": 19159,
+              "question": "The equation (x – 1)(x – 2) = 0 represents, in three dimensional space, a",
+              "question_raw": "<p>The equation (x &ndash; 1)(x &ndash; 2) = 0 represents, in three dimensional space, a</p>",
+              "options": [
+                {
+                  "label": "A",
+                  "id": 31836,
+                  "text": "sphere",
+                  "is_correct": false
+                },
+                {
+                  "label": "B",
+                  "id": 31835,
+                  "text": "pair of parallel planes",
+                  "is_correct": true
+                },
+                {
+                  "label": "C",
+                  "id": 31837,
+                  "text": "pair of straight lines",
+                  "is_correct": false
+                },
+                {
+                  "label": "D",
+                  "id": 31838,
+                  "text": "an empty set",
+                  "is_correct": false
+                }
+              ],
+              "correct_option_ids": [
+                31835
+              ],
+              "correct_option_labels": [
+                "B"
+              ],
+              "correct_option_texts": [
+                "pair of parallel planes"
+              ],
+              "explanation": "The equation (x - 1) (x - 2) = 0 represents, in three dimensional space, a pair of parallel planes.\n(x - 1) (x - 2) = 0 $\\Rightarrow$ (x - 1) = 0, (x - 2) = 0\nx = 1 and x = 2 \nAccording to the equation ax + by + cz = d and by the formula $\\frac{{a_1}}{{a_2}} = \\frac{{b_1}}{{b_2}} = \\frac{{c_1}}{{c_2}}$ we have both the planes represent pair of parallel planes."
+            },
+            {
+              "questionID": 19160,
+              "question": "A point (x, y, z) moves parallel to X- axis. Which of the three variables x, y, z remain fixed?",
+              "question_raw": "<p>A point (x, y, z) moves parallel to X- axis. Which of the three variables x, y, z remain fixed?</p>",
+              "options": [
+                {
+                  "label": "A",
+                  "id": 31842,
+                  "text": "x",
+                  "is_correct": false
+                },
+                {
+                  "label": "B",
+                  "id": 31841,
+                  "text": "z and x",
+                  "is_correct": false
+                },
+                {
+                  "label": "C",
+                  "id": 31839,
+                  "text": "y and z",
+                  "is_correct": true
+                },
+                {
+                  "label": "D",
+                  "id": 31840,
+                  "text": "x and y",
+                  "is_correct": false
+                }
+              ],
+              "correct_option_ids": [
+                31839
+              ],
+              "correct_option_labels": [
+                "C"
+              ],
+              "correct_option_texts": [
+                "y and z"
+              ],
+              "explanation": "A point (x, y, z) moves parallel to X-axis then value of x will vary and remaining will be fixed."
+            },
+            {
+              "questionID": 19161,
+              "question": "A point (x, y, z) moves parallel to XY - plane. Which of the three variables x, y, z remain fixed?",
+              "question_raw": "<p>A point (x, y, z) moves parallel to XY - plane. Which of the three variables x, y, z remain fixed?</p>",
+              "options": [
+                {
+                  "label": "A",
+                  "id": 31844,
+                  "text": "x",
+                  "is_correct": false
+                },
+                {
+                  "label": "B",
+                  "id": 31846,
+                  "text": "x and y",
+                  "is_correct": false
+                },
+                {
+                  "label": "C",
+                  "id": 31845,
+                  "text": "y",
+                  "is_correct": false
+                },
+                {
+                  "label": "D",
+                  "id": 31843,
+                  "text": "z",
+                  "is_correct": true
+                }
+              ],
+              "correct_option_ids": [
+                31843
+              ],
+              "correct_option_labels": [
+                "D"
+              ],
+              "correct_option_texts": [
+                "z"
+              ],
+              "explanation": "A point (x, y, z) moves parallel to XY - plane then x and y-coordinate will vary and z will fixed."
+            },
+            {
+              "questionID": 19162,
+              "question": "The plane x = 0 divides the join of (- 2, 3, 4) and (1, -2, 3) in the ratio",
+              "question_raw": "<p>The plane x = 0 divides the join of (- 2, 3, 4) and (1, -2, 3) in the ratio</p>",
+              "options": [
+                {
+                  "label": "A",
+                  "id": 31849,
+                  "text": "1: 2",
+                  "is_correct": false
+                },
+                {
+                  "label": "B",
+                  "id": 31848,
+                  "text": "3 : 2",
+                  "is_correct": false
+                },
+                {
+                  "label": "C",
+                  "id": 31850,
+                  "text": "4 : 3",
+                  "is_correct": false
+                },
+                {
+                  "label": "D",
+                  "id": 31847,
+                  "text": "2 : 1",
+                  "is_correct": true
+                }
+              ],
+              "correct_option_ids": [
+                31847
+              ],
+              "correct_option_labels": [
+                "D"
+              ],
+              "correct_option_texts": [
+                "2 : 1"
+              ],
+              "explanation": "Given:\nPlace: x = 0 and two points (−2, 3, 4) and (1, −2, 3)\nLet say a point (x, y, z) in x = 0 place\nSo, x = $\\frac{m+n(-2)}{m+n}=\\frac{m-2 n}{m+n}$ \n0 = $\\frac{m-2 n}{m+n}$ $\\Rightarrow$ m = 2n\nSo, $\\frac{m}{n}=\\frac{2}{1} \\Rightarrow$ 2 : 1"
+            },
+            {
+              "questionID": 19163,
+              "question": "The direction cosines of the line joining (1, - 1, 1) and (-1, 1, 1) are",
+              "question_raw": "<p>The direction cosines of the line joining (1, - 1, 1)&nbsp;and (-1, 1, 1) are</p>",
+              "options": [
+                {
+                  "label": "A",
+                  "id": 31854,
+                  "text": "< 1, - 1, 1 >",
+                  "is_correct": false
+                },
+                {
+                  "label": "B",
+                  "id": 31853,
+                  "text": "< 2, - 2, 0 >",
+                  "is_correct": false
+                },
+                {
+                  "label": "C",
+                  "id": 31851,
+                  "text": "$<\\frac{1}{\\sqrt{2}},-\\frac{1}{\\sqrt{2}}, 0>$",
+                  "is_correct": true
+                },
+                {
+                  "label": "D",
+                  "id": 31852,
+                  "text": "< 1, -1, 0 >",
+                  "is_correct": false
+                }
+              ],
+              "correct_option_ids": [
+                31851
+              ],
+              "correct_option_labels": [
+                "C"
+              ],
+              "correct_option_texts": [
+                "$<\\frac{1}{\\sqrt{2}},-\\frac{1}{\\sqrt{2}}, 0>$"
+              ],
+              "explanation": "The direction ratio of the line joining (x_1, y_1, z_1) and (x_2, y_2, z_2) = < x_1 - x_2, y_1 - y_2, z_1 - z_2 >\nThe direction ratio of the line joining (1, -1, 1) and (-1, 1, 1) = < 1 + 1, -1 - 1, 1 - 1 > = < 2, -2, 0 >\nThe direction cosines of the line = <$\\frac{{ 2}}{{\\sqrt {{{( - 2)}^2} + {{(2)}^2} + {{(0)}^2}} }},\\frac{-2}{{\\sqrt {{{( -2)}^2} + {{(2)}^2} + {{(0)}^2}} }},\\frac{0}{{\\sqrt {{{( - 2)}^2} + {{(2)}^2} + {{(0)}^2}} }}$ > = $ < \\frac{{ 2}}{{\\sqrt 8 }},\\frac{-2}{{\\sqrt 8 }},\\frac{0}{{\\sqrt 8 }} > $ = $ < \\frac{{ 2}}{{2\\sqrt 2 }},\\frac{-2}{{2\\sqrt 2 }},\\frac{0}{{2\\sqrt 2 }} > $=$ < \\frac{{ 1}}{{\\sqrt 2 }},\\frac{-1}{{\\sqrt 2 }},0 > $"
+            },
+            {
+              "questionID": 19164,
+              "question": "The line $\\frac{x-x_1}{0}=\\frac{y-y_1}{1}=\\frac{z-z_1}{2}$ is",
+              "question_raw": "<p>The line <span class=\"math-tex\">{tex}\\frac{x-x_1}{0}=\\frac{y-y_1}{1}=\\frac{z-z_1}{2}{/tex}</span> is</p>",
+              "options": [
+                {
+                  "label": "A",
+                  "id": 31856,
+                  "text": "at right angles to plane YOZ",
+                  "is_correct": false
+                },
+                {
+                  "label": "B",
+                  "id": 31858,
+                  "text": "is perpendicular to Y-axis",
+                  "is_correct": false
+                },
+                {
+                  "label": "C",
+                  "id": 31857,
+                  "text": "is parallel to Y-axis",
+                  "is_correct": false
+                },
+                {
+                  "label": "D",
+                  "id": 31855,
+                  "text": "at right angles to x –axis",
+                  "is_correct": true
+                }
+              ],
+              "correct_option_ids": [
+                31855
+              ],
+              "correct_option_labels": [
+                "D"
+              ],
+              "correct_option_texts": [
+                "at right angles to x –axis"
+              ],
+              "explanation": "Since the drs i.e. a = 0. Hence, the line is perpendicular to the x-axis."
+            },
+            {
+              "questionID": 19165,
+              "question": "The line x = x_1, y = y_1 is",
+              "question_raw": "<p>The line x = x<sub>1</sub>, y = y<sub>1</sub> is</p>",
+              "options": [
+                {
+                  "label": "A",
+                  "id": 31859,
+                  "text": "parallel to z axis",
+                  "is_correct": true
+                },
+                {
+                  "label": "B",
+                  "id": 31861,
+                  "text": "parallel to y axis",
+                  "is_correct": false
+                },
+                {
+                  "label": "C",
+                  "id": 31860,
+                  "text": "parallel to x axis",
+                  "is_correct": false
+                },
+                {
+                  "label": "D",
+                  "id": 31862,
+                  "text": "perpendicular to y axis",
+                  "is_correct": false
+                }
+              ],
+              "correct_option_ids": [
+                31859
+              ],
+              "correct_option_labels": [
+                "A"
+              ],
+              "correct_option_texts": [
+                "parallel to z axis"
+              ],
+              "explanation": "The line x = x_1, y = y_1 is parallel to Z-axis as here value of x and y is fixed. Here whatever be the value of z, x and y will be fixed So it represents a plane parallel to Z-axis."
+            },
+            {
+              "questionID": 19166,
+              "question": "Skew lines are",
+              "question_raw": "<p>Skew lines are</p>",
+              "options": [
+                {
+                  "label": "A",
+                  "id": 31864,
+                  "text": "parallel lines",
+                  "is_correct": false
+                },
+                {
+                  "label": "B",
+                  "id": 31866,
+                  "text": "intersecting lines",
+                  "is_correct": false
+                },
+                {
+                  "label": "C",
+                  "id": 31863,
+                  "text": "none of these",
+                  "is_correct": true
+                },
+                {
+                  "label": "D",
+                  "id": 31865,
+                  "text": "coplanar lines",
+                  "is_correct": false
+                }
+              ],
+              "correct_option_ids": [
+                31863
+              ],
+              "correct_option_labels": [
+                "C"
+              ],
+              "correct_option_texts": [
+                "none of these"
+              ],
+              "explanation": "Skew lines are those lines which lie in different planes and never meet."
+            },
+            {
+              "questionID": 19167,
+              "question": "The locus of the equation xy + yz = 0 is",
+              "question_raw": "<p>The locus of the equation xy + yz = 0 is</p>",
+              "options": [
+                {
+                  "label": "A",
+                  "id": 31869,
+                  "text": "a pair of straight lines",
+                  "is_correct": false
+                },
+                {
+                  "label": "B",
+                  "id": 31870,
+                  "text": "a pair of curvy lines",
+                  "is_correct": false
+                },
+                {
+                  "label": "C",
+                  "id": 31867,
+                  "text": "a pair of perpendicular planes",
+                  "is_correct": true
+                },
+                {
+                  "label": "D",
+                  "id": 31868,
+                  "text": "a pair of parallel planes",
+                  "is_correct": false
+                }
+              ],
+              "correct_option_ids": [
+                31867
+              ],
+              "correct_option_labels": [
+                "C"
+              ],
+              "correct_option_texts": [
+                "a pair of perpendicular planes"
+              ],
+              "explanation": "xy represents the plane through origin and perpendicular to z-axis. Similarly yz represents the plane through origin and perpendicular to x-axis. Hence it represents pair of perpendicular lines."
+            },
+            {
+              "questionID": 19168,
+              "question": "The number of spheres of a given radius r and touching the coordinate axes(3D) is",
+              "question_raw": "<p>The number of spheres of a given radius r and touching the coordinate axes(3D) is</p>",
+              "options": [
+                {
+                  "label": "A",
+                  "id": 31872,
+                  "text": "4",
+                  "is_correct": false
+                },
+                {
+                  "label": "B",
+                  "id": 31871,
+                  "text": "8",
+                  "is_correct": true
+                },
+                {
+                  "label": "C",
+                  "id": 31874,
+                  "text": "10",
+                  "is_correct": false
+                },
+                {
+                  "label": "D",
+                  "id": 31873,
+                  "text": "6",
+                  "is_correct": false
+                }
+              ],
+              "correct_option_ids": [
+                31871
+              ],
+              "correct_option_labels": [
+                "B"
+              ],
+              "correct_option_texts": [
+                "8"
+              ],
+              "explanation": "Each octant will have one sphere of radius r touching axes. So there are 8 such spheres."
+            },
+            {
+              "questionID": 19169,
+              "question": "The equation $\\vec r = \\lambda \\widehat {i}$ represents",
+              "question_raw": "<p>The equation <span class=\"math-tex\">{tex}\\vec r = \\lambda \\widehat {i}{/tex}</span>&nbsp;represents</p>",
+              "options": [
+                {
+                  "label": "A",
+                  "id": 31877,
+                  "text": "the Z axis",
+                  "is_correct": false
+                },
+                {
+                  "label": "B",
+                  "id": 31875,
+                  "text": "the X axis",
+                  "is_correct": true
+                },
+                {
+                  "label": "C",
+                  "id": 31876,
+                  "text": "the Y axis",
+                  "is_correct": false
+                },
+                {
+                  "label": "D",
+                  "id": 31878,
+                  "text": "the YOZ plane",
+                  "is_correct": false
+                }
+              ],
+              "correct_option_ids": [
+                31875
+              ],
+              "correct_option_labels": [
+                "B"
+              ],
+              "correct_option_texts": [
+                "the X axis"
+              ],
+              "explanation": "The equation $\\vec r = \\lambda \\widehat {i}$ represents X- axis\n $\\vec r = \\lambda \\widehat {i}$ \n$\\vec r = \\ x \\widehat {i} +\\ y \\widehat {j}+\\ z \\widehat {k}$ = $\\lambda \\ \\widehat {i} +\\ 0 \\widehat {j}+\\ 0 \\widehat {k}$ \nx = $\\lambda$, y = 0, z = 0 this is a general point on X-axis. So given equation represent X axis."
+            },
+            {
+              "questionID": 19170,
+              "question": "The equation $\\vec r = \\lambda \\widehat {i} + \\mu \\widehat {j} $ represents",
+              "question_raw": "<p>The equation <span class=\"math-tex\">{tex}\\vec r = \\lambda \\widehat {i} + \\mu \\widehat {j} {/tex}</span> represents</p>",
+              "options": [
+                {
+                  "label": "A",
+                  "id": 31879,
+                  "text": "the plane z = 0",
+                  "is_correct": true
+                },
+                {
+                  "label": "B",
+                  "id": 31882,
+                  "text": "the Z axis",
+                  "is_correct": false
+                },
+                {
+                  "label": "C",
+                  "id": 31881,
+                  "text": "the Y axis",
+                  "is_correct": false
+                },
+                {
+                  "label": "D",
+                  "id": 31880,
+                  "text": "the X aixs",
+                  "is_correct": false
+                }
+              ],
+              "correct_option_ids": [
+                31879
+              ],
+              "correct_option_labels": [
+                "A"
+              ],
+              "correct_option_texts": [
+                "the plane z = 0"
+              ],
+              "explanation": "The equation $\\vec r = \\lambda \\widehat {i} + \\mu \\widehat {j} $ represents the plane z = 0 as the equation can be written as $\\vec r = \\lambda \\widehat {i} + \\mu \\widehat {j} +\\ 0 \\widehat {k} $ \nIn this z-coordinate is zero. So, this represents XY plane i.e. the plane Z = 0"
+            },
+            {
+              "questionID": 19171,
+              "question": "The equation $\\vec r = \\lambda \\widehat {k} $ represents",
+              "question_raw": "<p>The equation <span class=\"math-tex\">{tex}\\vec r = \\lambda \\widehat {k} {/tex}</span> represents</p>",
+              "options": [
+                {
+                  "label": "A",
+                  "id": 31885,
+                  "text": "the Y axis",
+                  "is_correct": false
+                },
+                {
+                  "label": "B",
+                  "id": 31884,
+                  "text": "the X axis",
+                  "is_correct": false
+                },
+                {
+                  "label": "C",
+                  "id": 31883,
+                  "text": "the Z axis",
+                  "is_correct": true
+                },
+                {
+                  "label": "D",
+                  "id": 31886,
+                  "text": "origin",
+                  "is_correct": false
+                }
+              ],
+              "correct_option_ids": [
+                31883
+              ],
+              "correct_option_labels": [
+                "C"
+              ],
+              "correct_option_texts": [
+                "the Z axis"
+              ],
+              "explanation": "The equation $\\vec r = \\lambda \\widehat {k} $ can be represented in the form $\\vec r = \\ 0 \\widehat {i} +\\ 0\\widehat {j}+\\lambda \\widehat {k}$. Here x, y coordinate are 0 and z is any real number. It represents a general point on Z-axis \nSo, it represent Z-axis."
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "testPaperID": 659,
+      "testPaperName": "3D Geometry Test 03",
+      "is_paid": true,
+      "category_full_name": "CBSE > Class 11 > Mathematics > Introduction to 3D Geometry",
+      "noOfQuestions": 15,
+      "has_answers": true,
+      "sections": [
+        {
+          "sectionName": "General",
+          "sectionID": null,
+          "questions": [
+            {
+              "questionID": 19172,
+              "question": "The distance between the planes $\\vec r.\\hat n = {p_{1}}and$ $\\vec r.( - \\hat n) = {p_{2}}is$",
+              "question_raw": "<p>The distance between the planes <span class=\"math-tex\">{tex}\\vec r.\\hat n = {p_{1}}and{/tex}</span> <span class=\"math-tex\">{tex}\\vec r.( - \\hat n) = {p_{2}}is{/tex}</span></p>",
+              "options": [
+                {
+                  "label": "A",
+                  "id": 31888,
+                  "text": "$\\left| {{p_1} - {p_2}} \\right|$",
+                  "is_correct": false
+                },
+                {
+                  "label": "B",
+                  "id": 31889,
+                  "text": "${p_2} - {p_1}$",
+                  "is_correct": false
+                },
+                {
+                  "label": "C",
+                  "id": 31890,
+                  "text": "${p_2}*{p_1}$",
+                  "is_correct": false
+                },
+                {
+                  "label": "D",
+                  "id": 31887,
+                  "text": "${p_1} + {p_2}$",
+                  "is_correct": true
+                }
+              ],
+              "correct_option_ids": [
+                31887
+              ],
+              "correct_option_labels": [
+                "D"
+              ],
+              "correct_option_texts": [
+                "${p_1} + {p_2}$"
+              ],
+              "explanation": "P_1 is distance of first plane from origion in the direction of normal vector and P_2 is distance of second plane from origion opposite to normal vector. So distance between planes is $P_1-\\left(-P_2\\right)\\;=\\;P_1+P_2$"
+            },
+            {
+              "questionID": 19173,
+              "question": "The point equidistant from the points (0, 0, 0), (1, 0, 0), (0, 2, 0) and (0, 0, 3) is",
+              "question_raw": "<p>The point equidistant from the points (0, 0, 0), (1, 0, 0), (0, 2, 0) and (0, 0, 3) is</p>",
+              "options": [
+                {
+                  "label": "A",
+                  "id": 31892,
+                  "text": "(1, 2, 3)",
+                  "is_correct": false
+                },
+                {
+                  "label": "B",
+                  "id": 31891,
+                  "text": "($\\frac{1}{2}$, 1, $\\frac{3}{2}$)",
+                  "is_correct": true
+                },
+                {
+                  "label": "C",
+                  "id": 31893,
+                  "text": "($\\frac{-1}{2}$, -1, $\\frac{-3}{2}$)",
+                  "is_correct": false
+                },
+                {
+                  "label": "D",
+                  "id": 31894,
+                  "text": "(-1, -2, 3)",
+                  "is_correct": false
+                }
+              ],
+              "correct_option_ids": [
+                31891
+              ],
+              "correct_option_labels": [
+                "B"
+              ],
+              "correct_option_texts": [
+                "($\\frac{1}{2}$, 1, $\\frac{3}{2}$)"
+              ],
+              "explanation": "Let the point equidistant from the points (0, 0, 0), (1, 0, 0), (0, 2, 0) and (0, 0, 3) is (x, y, z)\nThen according to the given condition and distance formula between two points we have \n$\\sqrt{(x-0)^{2}+(y-0)^{2}+(z-0)^{2}}$ = $\\sqrt{(x-1)^{2}+(y-0)^{2}+(z-0)^{2}}$ = $\\sqrt{(x-0)^{2}+(y-2)^{2}+(z-0)^{2}}$ = $\\sqrt{(x-0)^{2}+(y-0)^{2}+(z-3)^{2}}$ \n$\\sqrt {{x^2} + {y^2} + {z^2}} $ = $\\sqrt{(x-1)^{2}+y^{2}+z^{2}}$ = $\\sqrt{x^{2}+(y-2)^{2}+z^{2}}$ = $\\sqrt{x^{2}+y^{2}+(z-3)^{2}}$ \nTaking ist two expressions and solving them we get x^2 = (x - 1)^2 $\\Rightarrow$ x^2 = x^2 - 2x + 1 $\\Rightarrow$ -2x + 1 = 0 $\\Rightarrow$ x = $\\frac{1}{2}$ \nSimilarly by taking i^st and 3^rd we get y = 1 and by taking ist and 4th we get z = $\\frac{3}{2}$ \nSo the required point is ($\\frac{1}{2}$, 1, $\\frac{3}{2}$)"
+            },
+            {
+              "questionID": 19174,
+              "question": "The plane x + y = 0 is",
+              "question_raw": "<p>The plane x + y = 0 is</p>",
+              "options": [
+                {
+                  "label": "A",
+                  "id": 31895,
+                  "text": "passes through z – axis",
+                  "is_correct": true
+                },
+                {
+                  "label": "B",
+                  "id": 31896,
+                  "text": "parallel to z – axis",
+                  "is_correct": false
+                },
+                {
+                  "label": "C",
+                  "id": 31898,
+                  "text": "intersecting to z – axis",
+                  "is_correct": false
+                },
+                {
+                  "label": "D",
+                  "id": 31897,
+                  "text": "perpendicular to z – axis",
+                  "is_correct": false
+                }
+              ],
+              "correct_option_ids": [
+                31895
+              ],
+              "correct_option_labels": [
+                "A"
+              ],
+              "correct_option_texts": [
+                "passes through z – axis"
+              ],
+              "explanation": "Co-ordinates of any point on z-axis are (0, 0, z)\n$\\therefore$ The plane x + y = 0 will pass through z-axis if (0, 0, z) satisfies x + y = 0 ....(i)\nNow L.H.S of (i) = x + y\nFor (0, 0, z), L.H.S of (i) = 0 + 0 = 0 = R.H.S of (i)\nHence the result."
+            },
+            {
+              "questionID": 19175,
+              "question": "The points ( 1 , 1 , 0 ) , ( 0 , 1 , 1 ) , ( 1 , 0 , 1 ) , and ( 2/3 , 2/3 , 2/3 ) are",
+              "question_raw": "<p>The points ( 1 , 1 , 0 ) , ( 0 , 1 , 1 ) , ( 1 , 0 , 1 ) , and ( 2/3 , 2/3 , 2/3 ) are</p>",
+              "options": [
+                {
+                  "label": "A",
+                  "id": 31901,
+                  "text": "the vertices of a parallelogram",
+                  "is_correct": false
+                },
+                {
+                  "label": "B",
+                  "id": 31899,
+                  "text": "coplanar",
+                  "is_correct": true
+                },
+                {
+                  "label": "C",
+                  "id": 31900,
+                  "text": "non coplanar",
+                  "is_correct": false
+                },
+                {
+                  "label": "D",
+                  "id": 31902,
+                  "text": "the angle of a parallelogram",
+                  "is_correct": false
+                }
+              ],
+              "correct_option_ids": [
+                31899
+              ],
+              "correct_option_labels": [
+                "B"
+              ],
+              "correct_option_texts": [
+                "coplanar"
+              ],
+              "explanation": "$\\vec{a}=1 \\hat{i}+1 \\hat{j}+0 \\hat{k}), \\vec{b}=(0 \\hat{i}+1 \\hat{j}+1 \\hat{k}), \\vec{c}=((\\hat{i}+0 \\hat{j}+1 \\hat{k}), \\vec{d}=(2 / 3 \\hat{i}+2 / 3 \\hat{j}+2 / 3 \\hat{k})$\n$\\overrightarrow{A B}=-\\overrightarrow{1 i}+0 \\hat{j}+1 \\hat{k}, \\overrightarrow{A C}=-0 \\hat{i}+-1 \\hat{j}+1 \\hat{k}, \\overrightarrow{A D}=-1 / 3 \\hat{i}+-1 / 3 \\hat{j}+2 / 3 \\hat{k}$\n$\\text { Consider }\\left|\\begin{array}{ccc}{-1} & {0} & {1} \\\\ {0} & {-1} & {1} \\\\ {-1 / 3} & {-1 / 3} & {2 / 3}\\end{array}\\right|=-1(-1 / 3)+1(-1 / 3)$\n=0 \nHence points are coplanar"
+            },
+            {
+              "questionID": 19176,
+              "question": "The lines $\\frac{x-1}{2}=\\frac{y-2}{3}=\\frac{z-3}{4}$ and $\\frac{x-1}{3}=\\frac{y-2}{4}=\\frac{z-3}{5}$ are",
+              "question_raw": "<p>&nbsp;The lines <span class=\"math-tex\">{tex}\\frac{x-1}{2}=\\frac{y-2}{3}=\\frac{z-3}{4}{/tex}</span>&nbsp;and&nbsp;<span class=\"math-tex\">{tex}\\frac{x-1}{3}=\\frac{y-2}{4}=\\frac{z-3}{5}{/tex}</span>&nbsp;are&nbsp;</p>",
+              "options": [
+                {
+                  "label": "A",
+                  "id": 31906,
+                  "text": "perpendicular",
+                  "is_correct": false
+                },
+                {
+                  "label": "B",
+                  "id": 31905,
+                  "text": "parallel",
+                  "is_correct": false
+                },
+                {
+                  "label": "C",
+                  "id": 31903,
+                  "text": "intersecting",
+                  "is_correct": true
+                },
+                {
+                  "label": "D",
+                  "id": 31904,
+                  "text": "skew",
+                  "is_correct": false
+                }
+              ],
+              "correct_option_ids": [
+                31903
+              ],
+              "correct_option_labels": [
+                "C"
+              ],
+              "correct_option_texts": [
+                "intersecting"
+              ],
+              "explanation": "Here (a_1, b_1, c_1) = (2, 3, 4)\nand, (a_2, b_2, c_2) = (3, 4, 5)\nConsider $\\left| {\\begin{array}{*{20}{c}} {x_2 - x_1}&{y_2 - y_1}&{z_2 - z_1} \\\\ {a_1}&{b_1}&{c_1} \\\\ {a_2}&{b_2}&{c_2} \\end{array}} \\right|$ \nWe get\n$\\left| {\\begin{array}{*{20}{c}} 0&0&0 \\\\ 2&3&4 \\\\ 3&4&5 \\end{array}} \\right|$ = 0\nSince the shortest distance is zero hence the lines are intersecting."
+            },
+            {
+              "questionID": 19177,
+              "question": "The lines l_1 and l_2 intersect. The shortest distance between them is",
+              "question_raw": "<p>The lines l<sub>1</sub> and l<sub>2</sub> intersect. The shortest distance between them is</p>",
+              "options": [
+                {
+                  "label": "A",
+                  "id": 31908,
+                  "text": "positive",
+                  "is_correct": false
+                },
+                {
+                  "label": "B",
+                  "id": 31907,
+                  "text": "zero",
+                  "is_correct": true
+                },
+                {
+                  "label": "C",
+                  "id": 31909,
+                  "text": "negative",
+                  "is_correct": false
+                },
+                {
+                  "label": "D",
+                  "id": 31910,
+                  "text": "infinity",
+                  "is_correct": false
+                }
+              ],
+              "correct_option_ids": [
+                31907
+              ],
+              "correct_option_labels": [
+                "B"
+              ],
+              "correct_option_texts": [
+                "zero"
+              ],
+              "explanation": "Since the lines intersect. Hence they have a common point in them. Hence the distance will be zero."
+            },
+            {
+              "questionID": 19178,
+              "question": "Volume of a tetrahedron is kX area of one face X length of the perpendicular from the opposite vertex upon it, where k is",
+              "question_raw": "<p>Volume of a tetrahedron is kX area of one face X length of the perpendicular from the opposite vertex upon it, where k is</p>",
+              "options": [
+                {
+                  "label": "A",
+                  "id": 31914,
+                  "text": "it is $\\frac{1}{4}$",
+                  "is_correct": false
+                },
+                {
+                  "label": "B",
+                  "id": 31911,
+                  "text": "it is $\\frac{1}{6}$",
+                  "is_correct": true
+                },
+                {
+                  "label": "C",
+                  "id": 31913,
+                  "text": "it is $\\frac{1}{2}$",
+                  "is_correct": false
+                },
+                {
+                  "label": "D",
+                  "id": 31912,
+                  "text": "it is $\\frac{1}{3}$",
+                  "is_correct": false
+                }
+              ],
+              "correct_option_ids": [
+                31911
+              ],
+              "correct_option_labels": [
+                "B"
+              ],
+              "correct_option_texts": [
+                "it is $\\frac{1}{6}$"
+              ],
+              "explanation": "Volume of tetrahedron = $\\frac{1}{6}[\\bar a \\bar b \\bar c]$ where a, b, c are co-terminus edges of the tetrahedron. a $\\times$ b is area of one face and c is the perpendicular from the opposite vertex."
+            },
+            {
+              "questionID": 19179,
+              "question": "A, B, C and D are four points in spaces such that AB = BC = CD = DA. Then ABCD is a",
+              "question_raw": "<p>A, B, C and D are four points in spaces such that AB = BC = CD = DA. Then ABCD is a</p>",
+              "options": [
+                {
+                  "label": "A",
+                  "id": 31918,
+                  "text": "skew quadrilateral",
+                  "is_correct": false
+                },
+                {
+                  "label": "B",
+                  "id": 31917,
+                  "text": "rectangle",
+                  "is_correct": false
+                },
+                {
+                  "label": "C",
+                  "id": 31916,
+                  "text": "rhombus",
+                  "is_correct": false
+                },
+                {
+                  "label": "D",
+                  "id": 31915,
+                  "text": "nothing can be said",
+                  "is_correct": true
+                }
+              ],
+              "correct_option_ids": [
+                31915
+              ],
+              "correct_option_labels": [
+                "D"
+              ],
+              "correct_option_texts": [
+                "nothing can be said"
+              ],
+              "explanation": "It can be square or rhombus(all sides are equal). Angle property must be mentioned."
+            },
+            {
+              "questionID": 19180,
+              "question": "The foot of the perpendicular from ($\\alpha {\\rm{ }},\\beta {\\rm{ }},{\\rm{ }}\\gamma $) on Y-axis is",
+              "question_raw": "<p>The foot of the perpendicular from (<span class=\"math-tex\">{tex}\\alpha {\\rm{ }},\\beta {\\rm{ }},{\\rm{ }}\\gamma {/tex}</span>) on Y-axis is</p>",
+              "options": [
+                {
+                  "label": "A",
+                  "id": 31920,
+                  "text": "(0, 0, 0)",
+                  "is_correct": false
+                },
+                {
+                  "label": "B",
+                  "id": 31922,
+                  "text": "(0, $\\gamma$, 0)",
+                  "is_correct": false
+                },
+                {
+                  "label": "C",
+                  "id": 31921,
+                  "text": "(0, $\\alpha$, 0)",
+                  "is_correct": false
+                },
+                {
+                  "label": "D",
+                  "id": 31919,
+                  "text": "(0, $\\beta $, 0)",
+                  "is_correct": true
+                }
+              ],
+              "correct_option_ids": [
+                31919
+              ],
+              "correct_option_labels": [
+                "D"
+              ],
+              "correct_option_texts": [
+                "(0, $\\beta $, 0)"
+              ],
+              "explanation": "Let P($\\alpha {\\rm{ }},\\beta {\\rm{ }},{\\rm{ }}\\gamma $) be the point and Q (0,b,0) be any point on Y-axis.\nDirection of PQ = ($\\alpha,\\beta-b,\\gamma)$ \nDirection of y-axis (0, b, 0)\nSince PQ perpendicular to y-axis. Hence a_1a_2 + b_1b_2 + c_1c_2 = 0\n0 + b($\\beta$ - b) + 0 = 0\nb($\\beta$ - b) = 0\n$\\beta$ = b\nHence the foot of perpendicular will be $(0,\\beta,0)$"
+            },
+            {
+              "questionID": 19181,
+              "question": "The equation $\\vec r = \\lambda \\hat j$ represents",
+              "question_raw": "<p>The equation <span class=\"math-tex\">{tex}\\vec r = \\lambda \\hat j{/tex}</span> represents</p>",
+              "options": [
+                {
+                  "label": "A",
+                  "id": 31925,
+                  "text": "the Z axis",
+                  "is_correct": false
+                },
+                {
+                  "label": "B",
+                  "id": 31923,
+                  "text": "the Y axis",
+                  "is_correct": true
+                },
+                {
+                  "label": "C",
+                  "id": 31926,
+                  "text": "the plane y = 0",
+                  "is_correct": false
+                },
+                {
+                  "label": "D",
+                  "id": 31924,
+                  "text": "the X axis",
+                  "is_correct": false
+                }
+              ],
+              "correct_option_ids": [
+                31923
+              ],
+              "correct_option_labels": [
+                "B"
+              ],
+              "correct_option_texts": [
+                "the Y axis"
+              ],
+              "explanation": "The equation $\\vec r = \\lambda \\hat j$ $\\Rightarrow$$ \\ x \\hat i +\\ y \\hat j+\\ z \\hat k$ = $\\lambda \\hat j$ $\\Rightarrow$ x = 0, y = $\\lambda$, z = 0 which represent Y-axis."
+            },
+            {
+              "questionID": 19182,
+              "question": "The equation $\\vec r = \\lambda \\widehat {i} + \\mu \\widehat {k} $ represents",
+              "question_raw": "<p>The equation <span class=\"math-tex\">{tex}\\vec r = \\lambda \\widehat {i} + \\mu \\widehat {k} {/tex}</span> represents</p>",
+              "options": [
+                {
+                  "label": "A",
+                  "id": 31929,
+                  "text": "the Y axis",
+                  "is_correct": false
+                },
+                {
+                  "label": "B",
+                  "id": 31928,
+                  "text": "the X axis",
+                  "is_correct": false
+                },
+                {
+                  "label": "C",
+                  "id": 31930,
+                  "text": "the Z axis",
+                  "is_correct": false
+                },
+                {
+                  "label": "D",
+                  "id": 31927,
+                  "text": "the plane y = 0",
+                  "is_correct": true
+                }
+              ],
+              "correct_option_ids": [
+                31927
+              ],
+              "correct_option_labels": [
+                "D"
+              ],
+              "correct_option_texts": [
+                "the plane y = 0"
+              ],
+              "explanation": "The equation $\\vec r = \\lambda \\widehat {i} + \\mu \\widehat {k} $ $\\Rightarrow$$\\ x \\widehat {i} +\\ y \\widehat {i}+ \\ z \\widehat {k} $ =$ \\lambda \\widehat {i} +\\ 0 \\widehat {j} + \\mu \\widehat {k} $ $\\Rightarrow$ x = $\\lambda$, y = 0, z = $\\mu$ which represent generally XY plane i.e the plane y = 0."
+            },
+            {
+              "questionID": 19183,
+              "question": "The centre of the sphere, which passes through (a, 0, 0), (0, b, 0) (0, 0, c ) and (0, 0, 0) is where abc $ \\ne $ 0",
+              "question_raw": "<p>The centre of the sphere, which passes through (a, 0, 0), (0, b, 0) (0, 0, c ) and (0, 0, 0) is&nbsp;where abc <span class=\"math-tex\">{tex} \\ne {/tex}</span> 0</p>",
+              "options": [
+                {
+                  "label": "A",
+                  "id": 31931,
+                  "text": "($\\frac{a}{2}$, $\\frac{b}{2}$, $\\frac{c}{2}$)",
+                  "is_correct": true
+                },
+                {
+                  "label": "B",
+                  "id": 31932,
+                  "text": "(0, 0, $\\frac{c}{2}$)",
+                  "is_correct": false
+                },
+                {
+                  "label": "C",
+                  "id": 31933,
+                  "text": "($\\frac{a}{2}$, 0, 0)",
+                  "is_correct": false
+                },
+                {
+                  "label": "D",
+                  "id": 31934,
+                  "text": "(0, $\\frac{b}{2}$, 0)",
+                  "is_correct": false
+                }
+              ],
+              "correct_option_ids": [
+                31931
+              ],
+              "correct_option_labels": [
+                "A"
+              ],
+              "correct_option_texts": [
+                "($\\frac{a}{2}$, $\\frac{b}{2}$, $\\frac{c}{2}$)"
+              ],
+              "explanation": "General equation of the sphere is x^2 + y^2 + z^2 + 2gx + 2fy + 2hz + d = 0......(i)\nSince (i) passes through the point (0, 0, 0) using this in (i) we get d = 0\nSimilarly (i) passes through (a, 0, 0), (0, b, 0) (0, 0, c) using these values in (i)\na^2 + 2ag = 0 $\\Rightarrow$ a(a + 2g) = 0\nb^2 + 2bf = 0 $\\Rightarrow$ b(b + 2f) = 0\nc^2 + 2ch = 0 $\\Rightarrow$ c(c + 2h) = 0\nBut as abc $\\ne $ 0 So, a $\\ne $ 0, b $\\ne $ 0, c $\\ne $ 0\nSo from above equations we have a = - 2g, b = - 2f, c = -2h centre is (-f, -g, -h) = ($\\frac{a}{2}$, $\\frac{b}{2}$, $\\frac{c}{2}$)"
+            },
+            {
+              "questionID": 19184,
+              "question": "The equations of y axis are",
+              "question_raw": "<p>The equations of&nbsp;y axis are</p>",
+              "options": [
+                {
+                  "label": "A",
+                  "id": 31936,
+                  "text": "x = 0, y = 0",
+                  "is_correct": false
+                },
+                {
+                  "label": "B",
+                  "id": 31935,
+                  "text": "x = 0, z = 0",
+                  "is_correct": true
+                },
+                {
+                  "label": "C",
+                  "id": 31937,
+                  "text": "y = 0, z = 0",
+                  "is_correct": false
+                },
+                {
+                  "label": "D",
+                  "id": 31938,
+                  "text": "x = 0, y = 0, z = 0",
+                  "is_correct": false
+                }
+              ],
+              "correct_option_ids": [
+                31935
+              ],
+              "correct_option_labels": [
+                "B"
+              ],
+              "correct_option_texts": [
+                "x = 0, z = 0"
+              ],
+              "explanation": "Since on Y-axis x and z coordinate are 0.\nSo, Equations of Y-axis are x = 0 and z = 0"
+            },
+            {
+              "questionID": 19185,
+              "question": "The equation $\\vec r = \\lambda \\widehat {j} + \\mu \\widehat {k} $ represents",
+              "question_raw": "<p>The equation <span class=\"math-tex\">{tex}\\vec r = \\lambda \\widehat {j} + \\mu \\widehat {k} {/tex}</span> represents</p>",
+              "options": [
+                {
+                  "label": "A",
+                  "id": 31941,
+                  "text": "the Y axis",
+                  "is_correct": false
+                },
+                {
+                  "label": "B",
+                  "id": 31939,
+                  "text": "the plane x = 0",
+                  "is_correct": true
+                },
+                {
+                  "label": "C",
+                  "id": 31942,
+                  "text": "the Z axis",
+                  "is_correct": false
+                },
+                {
+                  "label": "D",
+                  "id": 31940,
+                  "text": "the X axis",
+                  "is_correct": false
+                }
+              ],
+              "correct_option_ids": [
+                31939
+              ],
+              "correct_option_labels": [
+                "B"
+              ],
+              "correct_option_texts": [
+                "the plane x = 0"
+              ],
+              "explanation": "The equation $\\vec r = \\lambda \\widehat {j} + \\mu \\widehat {k} $ $\\Rightarrow$$ \\ x \\widehat {i} +\\ y\\widehat {j}+ \\ z \\widehat {k} =\\ 0 \\widehat {i}+ \\lambda \\widehat {j} + \\mu \\widehat {k} $ $\\Rightarrow$ x = 0, y = $\\lambda$, z = $\\mu$ which represent generally YZ plane i.e. X = 0 plane."
+            },
+            {
+              "questionID": 19186,
+              "question": "Distance between two parallel planes 2x+y+2z=8 and 4x+2y+4z+5=0 is",
+              "question_raw": "<p>Distance between two parallel planes 2x+y+2z=8 and 4x+2y+4z+5=0 is</p>",
+              "options": [
+                {
+                  "label": "A",
+                  "id": 31946,
+                  "text": "$\\frac {9}{2}$",
+                  "is_correct": false
+                },
+                {
+                  "label": "B",
+                  "id": 31943,
+                  "text": "$\\frac {7}{2}$",
+                  "is_correct": true
+                },
+                {
+                  "label": "C",
+                  "id": 31945,
+                  "text": "$\\frac{5}{2}$",
+                  "is_correct": false
+                },
+                {
+                  "label": "D",
+                  "id": 31944,
+                  "text": "$\\frac {3}{2}$",
+                  "is_correct": false
+                }
+              ],
+              "correct_option_ids": [
+                31943
+              ],
+              "correct_option_labels": [
+                "B"
+              ],
+              "correct_option_texts": [
+                "$\\frac {7}{2}$"
+              ],
+              "explanation": "Given planes are \n2x+2y+2z-8=0\nand 2x+y+2z+$\\frac{5}{2}$=0\nDistance between planes =$\\frac {|c_1-c_2|}{\\sqrt {a^2+b^2+c^2}}\\\\ $.\n$=|\\frac {-8-\\frac{5}{2}}{\\sqrt {2^2+1^2+2^2}}|\\\\ =\\frac{ \\frac{21}{2}}{3}=\\frac {7}{2}$"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "testPaperID": 660,
+      "testPaperName": "3D Geometry Test 04",
+      "is_paid": true,
+      "category_full_name": "CBSE > Class 11 > Mathematics > Introduction to 3D Geometry",
+      "noOfQuestions": 15,
+      "has_answers": true,
+      "sections": [
+        {
+          "sectionName": "General",
+          "sectionID": null,
+          "questions": [
+            {
+              "questionID": 19187,
+              "question": "There is one and only one sphere through",
+              "question_raw": "<p>There is one and only one sphere through</p>",
+              "options": [
+                {
+                  "label": "A",
+                  "id": 31949,
+                  "text": "3 points not lie in the same line",
+                  "is_correct": false
+                },
+                {
+                  "label": "B",
+                  "id": 31947,
+                  "text": "4 points not in the same plane",
+                  "is_correct": true
+                },
+                {
+                  "label": "C",
+                  "id": 31948,
+                  "text": "4 points not lie in the same straight line",
+                  "is_correct": false
+                },
+                {
+                  "label": "D",
+                  "id": 31950,
+                  "text": "4 points lie in the same straight line",
+                  "is_correct": false
+                }
+              ],
+              "correct_option_ids": [
+                31947
+              ],
+              "correct_option_labels": [
+                "B"
+              ],
+              "correct_option_texts": [
+                "4 points not in the same plane"
+              ],
+              "explanation": "Yes, it is true because if we assume 2 spheres or more than that they will coincide."
+            },
+            {
+              "questionID": 19188,
+              "question": "Three planes x + y = 0, y + z = 0 and x + z = 0",
+              "question_raw": "<p>Three planes x + y = 0, y + z = 0&nbsp;and x + z = 0</p>",
+              "options": [
+                {
+                  "label": "A",
+                  "id": 31952,
+                  "text": "meet in a line",
+                  "is_correct": false
+                },
+                {
+                  "label": "B",
+                  "id": 31953,
+                  "text": "meet taken two at a time in parallel lines",
+                  "is_correct": false
+                },
+                {
+                  "label": "C",
+                  "id": 31954,
+                  "text": "meet taken three at a time in parallel lines",
+                  "is_correct": false
+                },
+                {
+                  "label": "D",
+                  "id": 31951,
+                  "text": "meet in a unique point",
+                  "is_correct": true
+                }
+              ],
+              "correct_option_ids": [
+                31951
+              ],
+              "correct_option_labels": [
+                "D"
+              ],
+              "correct_option_texts": [
+                "meet in a unique point"
+              ],
+              "explanation": "x + y = 0 .....(1)\ny + z = 0 .....(2)\nx + z = 0 ......(3)\nSubtracting 1 and 2 we get x - z = 0 .......(4)\nAdding 3 and 4 we get x = 0, y = 0 and z = 0"
+            },
+            {
+              "questionID": 19189,
+              "question": "The centre of the sphere through the points ( 0 , 3 , 4 ) , ( 0 , 5 , 0 ) , ( 4 , 0 , 3 ) and ( - 3 , 4 , 0 ) is",
+              "question_raw": "<p>The centre of the sphere through the points ( 0 , 3 , 4 ) , ( 0 , 5 , 0 ) , ( 4 , 0 , 3 ) and ( - 3 , 4 , 0 ) is</p>",
+              "options": [
+                {
+                  "label": "A",
+                  "id": 31957,
+                  "text": "( 0 , 2 , 3 )",
+                  "is_correct": false
+                },
+                {
+                  "label": "B",
+                  "id": 31958,
+                  "text": "( 0 , 2 , -3 )",
+                  "is_correct": false
+                },
+                {
+                  "label": "C",
+                  "id": 31956,
+                  "text": "(- 4 , 3 , 0 )",
+                  "is_correct": false
+                },
+                {
+                  "label": "D",
+                  "id": 31955,
+                  "text": "( 0 , 0 , 0 )",
+                  "is_correct": true
+                }
+              ],
+              "correct_option_ids": [
+                31955
+              ],
+              "correct_option_labels": [
+                "D"
+              ],
+              "correct_option_texts": [
+                "( 0 , 0 , 0 )"
+              ],
+              "explanation": "Let the equation of the required sphere be \n$\\mathrm{x}^{2}+\\mathrm{y}^{2}+\\mathrm{z}^{2}+2 \\mathrm{ux}+2 \\mathrm{vy}+2 \\mathrm{wz}+\\mathrm{d}=0$ ...........(1)\nsince it passes through (0,3,4),(0,5,0),(4,0,3) and (-3,4,0) therefore\n$0^{2}+3^{2}+4^{2}+2 u(0)+2 v(3)+2 w(4)+d=0$\n$4^{2}+0^{2}+3^{2}+2 u(4)+2 v(0)+2 w(3)+d=0$\n$(-3)^{2}+4^{2}+0^{2}+2 u(-3)+2 v(4)+2 w(0)+d=0$\n$\\Rightarrow 6 v+8 w+25+d=0 \\ldots \\ldots \\ldots .(2)$\n$\\Rightarrow 8 u+6 w+25+d=0 \\ldots \\ldots \\ldots(3)$\n$\\Rightarrow-6 u+8 v+25+d=0 \\ldots \\ldots \\ldots .(4)$\n$\\Rightarrow 10 \\mathrm{v}+25+\\mathrm{d}=0 \\ldots \\ldots \\ldots \\text { (5) }$\nSubtracting (5) from (2),(3),(4) respectively, we get \n$\\Rightarrow-4 \\mathrm{v}+8 \\mathrm{w}=0 \\ldots \\ldots .(6)$\n$\\Rightarrow 8 u+6 w-10 v=0............(7)$\n$\\Rightarrow-6 u-2 v=0 \\ldots \\ldots .(8)$\nSolving these, we get, u=v=w=0\n$\\therefore$ Centre of sphere (-u,-v,-w)=(0,0,0)"
+            },
+            {
+              "questionID": 19190,
+              "question": "The points A ( 0 , 0 , 0 ) , B ( 1 , $\\sqrt 3 $ , 0 ) , C ( 2 , 0 , 0 ) and D ( 1 , 0 , $\\sqrt 3 $) are the vertices of",
+              "question_raw": "<p>The points A ( 0 , 0 , 0 ) , B ( 1 , <span class=\"math-tex\">{tex}\\sqrt 3 {/tex}</span> , 0 ) , C ( 2 , 0 , 0 ) and D ( 1 , 0 , <span class=\"math-tex\">{tex}\\sqrt 3 {/tex}</span>) are the vertices of</p>",
+              "options": [
+                {
+                  "label": "A",
+                  "id": 31961,
+                  "text": "rhombus",
+                  "is_correct": false
+                },
+                {
+                  "label": "B",
+                  "id": 31960,
+                  "text": "square",
+                  "is_correct": false
+                },
+                {
+                  "label": "C",
+                  "id": 31959,
+                  "text": "none of these",
+                  "is_correct": true
+                },
+                {
+                  "label": "D",
+                  "id": 31962,
+                  "text": "parallelogram",
+                  "is_correct": false
+                }
+              ],
+              "correct_option_ids": [
+                31959
+              ],
+              "correct_option_labels": [
+                "C"
+              ],
+              "correct_option_texts": [
+                "none of these"
+              ],
+              "explanation": "Direction ratios of AB are $(1-0, \\sqrt{3}-0,0-0) \\text { i.e }(1, \\sqrt{3}, 0)$\nDirection ratios of BC are$(1-0, \\sqrt{3}-0,0-0) \\text { i.e }(1,-\\sqrt{3}, 0)$\nDirection ratios of CD are $(-1-0,0-0, \\sqrt{3}-0) \\text { i.e }(-1,0, \\sqrt{3})$\nDirection ratios of CD are $(-1-0,0-0,-\\sqrt{3}-0) \\text { i.e }(-1,0, \\sqrt{3})$\nIf ABCD is a parallelogram, then\n$\\mathrm{AB} \\| \\mathrm{CD} \\text { and } \\mathrm{AD} \\| \\mathrm{BC}$\nNow,$\\frac{1}{-1} \\neq \\frac{\\sqrt{3}}{0} \\neq \\frac{0}{\\sqrt{3}}$ $\\left[\\because\\frac{{\\mathbf a}_1}{{\\mathbf a}_2}\\neq\\frac{\\mathbf b1}{{\\mathbf b}_2}\\neq\\frac{{\\mathbf c}_1}{{\\mathbf c}_2}\\right]$\n$\\therefore$ AB is not parallel to CD\nSimilarly $\\frac{-1}{1} \\neq \\frac{0}{\\sqrt{-3}} \\neq \\frac{-\\sqrt{3}}{0}$\n$\\Rightarrow$ AD and BC are not parallel \n$\\therefore$ ABCD is not a parallelogram and hence it is not a square or rhombus"
+            },
+            {
+              "questionID": 19191,
+              "question": "The points A (0, 2, 0), B ($\\sqrt 3 $, 1, 0), and $\\mathrm{C}\\left(\\frac{1}{\\sqrt{3}}, 1, \\frac{2 \\sqrt{2}}{\\sqrt{3}}\\right)$ are the vertices of",
+              "question_raw": "<p>The points A (0, 2, 0), B (<span class=\"math-tex\">{tex}\\sqrt 3 {/tex}</span>, 1, 0), and&nbsp;<span class=\"math-tex\">{tex}\\mathrm{C}\\left(\\frac{1}{\\sqrt{3}}, 1, \\frac{2 \\sqrt{2}}{\\sqrt{3}}\\right){/tex}</span>&nbsp;are the vertices of</p>",
+              "options": [
+                {
+                  "label": "A",
+                  "id": 31963,
+                  "text": "an equilateral triangle",
+                  "is_correct": true
+                },
+                {
+                  "label": "B",
+                  "id": 31965,
+                  "text": "an isosceles triangle",
+                  "is_correct": false
+                },
+                {
+                  "label": "C",
+                  "id": 31966,
+                  "text": "Right angle triangle",
+                  "is_correct": false
+                },
+                {
+                  "label": "D",
+                  "id": 31964,
+                  "text": "a scalene triangle",
+                  "is_correct": false
+                }
+              ],
+              "correct_option_ids": [
+                31963
+              ],
+              "correct_option_labels": [
+                "A"
+              ],
+              "correct_option_texts": [
+                "an equilateral triangle"
+              ],
+              "explanation": "To check which type of triangle these points form we need to check the distance between the two points\nAB=$\\sqrt{(\\sqrt 3)^2+1+0}$ = 2\nBC = $\\sqrt{\\left(\\frac{1}{\\sqrt{3}}-\\sqrt{3}\\right)^2+\\left(\\frac{2 \\sqrt{2}}{\\sqrt{3}}\\right)^2}$ = 2,\nSimilarly AC = 2 by distance formula between two points.\nSince all sides are same so the triangle is equilateral."
+            },
+            {
+              "questionID": 19192,
+              "question": "The locus of a first degree equation in x, y, z is a",
+              "question_raw": "<p>The locus of a first degree equation in x, y, z is a</p>",
+              "options": [
+                {
+                  "label": "A",
+                  "id": 31969,
+                  "text": "sphere",
+                  "is_correct": false
+                },
+                {
+                  "label": "B",
+                  "id": 31967,
+                  "text": "plane",
+                  "is_correct": true
+                },
+                {
+                  "label": "C",
+                  "id": 31970,
+                  "text": "Circle",
+                  "is_correct": false
+                },
+                {
+                  "label": "D",
+                  "id": 31968,
+                  "text": "straight line",
+                  "is_correct": false
+                }
+              ],
+              "correct_option_ids": [
+                31967
+              ],
+              "correct_option_labels": [
+                "B"
+              ],
+              "correct_option_texts": [
+                "plane"
+              ],
+              "explanation": "First-degree equation in x, y, z can be written in the form Ax + By + Cz + d = 0. Which represents a plane Where A, B and C are the direction ratios of normal to the plane."
+            },
+            {
+              "questionID": 19193,
+              "question": "Area of $\\Delta ABC$ whose vertices A (-1, 2, 3), B(1, 1, 1) and C (2, - 1, 3) is",
+              "question_raw": "<p>Area of <span class=\"math-tex\">{tex}\\Delta ABC{/tex}</span> whose vertices A (-1, 2, 3), B(1, 1, 1)&nbsp;and C (2, - 1, 3) is</p>",
+              "options": [
+                {
+                  "label": "A",
+                  "id": 31971,
+                  "text": "4.5",
+                  "is_correct": true
+                },
+                {
+                  "label": "B",
+                  "id": 31973,
+                  "text": "9",
+                  "is_correct": false
+                },
+                {
+                  "label": "C",
+                  "id": 31974,
+                  "text": "6",
+                  "is_correct": false
+                },
+                {
+                  "label": "D",
+                  "id": 31972,
+                  "text": "0",
+                  "is_correct": false
+                }
+              ],
+              "correct_option_ids": [
+                31971
+              ],
+              "correct_option_labels": [
+                "A"
+              ],
+              "correct_option_texts": [
+                "4.5"
+              ],
+              "explanation": "Formula is $\\frac{1}{2}|\\vec AB \\times\\vec AC| $ where $\\vec AB$ has coordinates = P.V. of B - P.V of A = 2, -1, -2 and $\\vec AC$ has coordinates = 3, -3, 0 \nArea of triangle ABC = $\\frac{1}{2}\\left|\\begin{array}{ccc} i & j & k \\\\ 2 & -1 & 2 \\\\ 3 & -3 & 0 \\end{array}\\right|$ = $\\frac{1}{2}|6 i+6 j+3 k|$\n= $\\frac{1}{2} \\times 9$ \n= 4.5"
+            },
+            {
+              "questionID": 19194,
+              "question": "Perpendicular distance of the point (3, 4, 5) from the y-axis is,",
+              "question_raw": "<p>Perpendicular distance of the point (3, 4, 5) from the y-axis is,</p>",
+              "options": [
+                {
+                  "label": "A",
+                  "id": 31978,
+                  "text": "5",
+                  "is_correct": false
+                },
+                {
+                  "label": "B",
+                  "id": 31976,
+                  "text": "$\\sqrt{41}$",
+                  "is_correct": false
+                },
+                {
+                  "label": "C",
+                  "id": 31975,
+                  "text": "$\\sqrt{34}$",
+                  "is_correct": true
+                },
+                {
+                  "label": "D",
+                  "id": 31977,
+                  "text": "4",
+                  "is_correct": false
+                }
+              ],
+              "correct_option_ids": [
+                31975
+              ],
+              "correct_option_labels": [
+                "C"
+              ],
+              "correct_option_texts": [
+                "$\\sqrt{34}$"
+              ],
+              "explanation": "Distance of $(\\alpha, \\beta, \\gamma)$ from y-axis is given by d = $\\sqrt{\\alpha^{2}+\\gamma^{2}}$ \n$\\therefore$$$ Distance (d) of (3, 4, 5) from y-axis is \nd = $\\sqrt{3^{2}+5^{2}}$ = $\\sqrt{9+25}$ = $\\sqrt{34}$"
+            },
+            {
+              "questionID": 19195,
+              "question": "G is the centroid of triangle ABC . If P.V. of the points G , A , B , C are respectively , $3\\hat i + 7\\hat j + \\hat k,2\\hat i + \\hat j + \\hat k,x\\hat i + 3\\hat j + \\hat k,and4\\hat i + y\\hat j + \\hat k,then\\left( {x,y} \\right) = $",
+              "question_raw": "<p>G is the centroid of triangle ABC . If P.V. of the points G , A , B , C are respectively , <span class=\"math-tex\">{tex}3\\hat i + 7\\hat j + \\hat k,2\\hat i + \\hat j + \\hat k,x\\hat i + 3\\hat j + \\hat k,and4\\hat i + y\\hat j + \\hat k,then\\left( {x,y} \\right) = {/tex}</span></p>\r\n",
+              "options": [
+                {
+                  "label": "A",
+                  "id": 31981,
+                  "text": "( 3 , 3)",
+                  "is_correct": false
+                },
+                {
+                  "label": "B",
+                  "id": 31982,
+                  "text": "( 17 , 3 )",
+                  "is_correct": false
+                },
+                {
+                  "label": "C",
+                  "id": 31980,
+                  "text": "( 7 , 17 )",
+                  "is_correct": false
+                },
+                {
+                  "label": "D",
+                  "id": 31979,
+                  "text": "( 3 , 17 )",
+                  "is_correct": true
+                }
+              ],
+              "correct_option_ids": [
+                31979
+              ],
+              "correct_option_labels": [
+                "D"
+              ],
+              "correct_option_texts": [
+                "( 3 , 17 )"
+              ],
+              "explanation": "$\\vec{g}=\\frac{\\vec{a}+ \\vec{b}+ \\vec{c}}{3}$ centroid formula\n$3(3 \\hat{i}+7 \\hat{j}+\\hat{k})$=$2 \\hat{i}+\\hat{j}+\\hat{k}+x \\hat{i}+3 \\hat{j}+\\hat{k}+4 \\hat{i}+y \\hat{j}+\\hat{k}$\n$9 \\hat{i}+21 \\hat{j}+3 \\hat{k}$=$(6+x) \\hat{i}+(4+y) \\hat{j}+3 \\hat{k}$\n9=6+x and 21=4+y\nx=3 and y=17"
+            },
+            {
+              "questionID": 19196,
+              "question": "If the four points (3, -2, -1), (2, 3, -4), (-1, 1, 2) and (4, 5, $\\lambda $) are coplanar then $\\lambda $ is equal to",
+              "question_raw": "<p>If the four points (3, -2, -1), (2, 3, -4), (-1, 1, 2) and (4, 5, <span class=\"math-tex\">{tex}\\lambda {/tex}</span>) are coplanar then <span class=\"math-tex\">{tex}\\lambda {/tex}</span> is equal to</p>",
+              "options": [
+                {
+                  "label": "A",
+                  "id": 31984,
+                  "text": "$\\frac{-17}{146}$",
+                  "is_correct": false
+                },
+                {
+                  "label": "B",
+                  "id": 31983,
+                  "text": "$\\frac{-146}{17}$",
+                  "is_correct": true
+                },
+                {
+                  "label": "C",
+                  "id": 31985,
+                  "text": "0",
+                  "is_correct": false
+                },
+                {
+                  "label": "D",
+                  "id": 31986,
+                  "text": "$\\frac{-13}{146}$",
+                  "is_correct": false
+                }
+              ],
+              "correct_option_ids": [
+                31983
+              ],
+              "correct_option_labels": [
+                "B"
+              ],
+              "correct_option_texts": [
+                "$\\frac{-146}{17}$"
+              ],
+              "explanation": "Since A(3, -2, -1), B(2, 3, -4), C(-1, 1, 2) and D(4, 5, $\\lambda $) are coplanar\n$\\overrightarrow {AB} = - 1\\hat i + 5\\hat j - 3\\hat k$ \n$\\overrightarrow {AC} = - 4\\hat i + 3\\hat j + 3\\hat k$ \n$\\overrightarrow {AD} = 1\\hat i + 7\\hat j + (\\lambda + 1)\\hat k$ \nHence $[\\overrightarrow {AB} \\;\\overrightarrow {AC} \\;\\overrightarrow {AD} ] = 0\\left| {\\begin{array}{*{20}{c}} { - 1}&5&{ - 3} \\\\ { - 4}&3&3 \\\\ 1&7&{\\lambda + 1} \\end{array}} \\right| $ = 0\n-1(3$\\lambda$ + 3 - 21) - 5(-4$\\lambda$ - 4 - 4) - 3(-28 - 3) = 0\n$\\lambda$ = $\\frac{-146}{17}$"
+            },
+            {
+              "questionID": 19197,
+              "question": "The number of spheres of a given radius which touch the coordinate planes is",
+              "question_raw": "<p>The number of spheres of a given radius which touch the coordinate planes is</p>",
+              "options": [
+                {
+                  "label": "A",
+                  "id": 31990,
+                  "text": "1",
+                  "is_correct": false
+                },
+                {
+                  "label": "B",
+                  "id": 31987,
+                  "text": "8",
+                  "is_correct": true
+                },
+                {
+                  "label": "C",
+                  "id": 31989,
+                  "text": "2",
+                  "is_correct": false
+                },
+                {
+                  "label": "D",
+                  "id": 31988,
+                  "text": "4",
+                  "is_correct": false
+                }
+              ],
+              "correct_option_ids": [
+                31987
+              ],
+              "correct_option_labels": [
+                "B"
+              ],
+              "correct_option_texts": [
+                "8"
+              ],
+              "explanation": "There are 8 quadrants in 3D, so for a given radius, there will be 8 possible spheres touching all the 3 coordinate planes."
+            },
+            {
+              "questionID": 19198,
+              "question": "The plane XOZ divides the join of (1, -1, 5) and (2, 3, 4) in the ratio k : 1, then the value of k is",
+              "question_raw": "<p>The plane XOZ divides the join of (1, -1, 5) and (2, 3, 4) in the ratio k : 1, then the value of k is</p>",
+              "options": [
+                {
+                  "label": "A",
+                  "id": 31994,
+                  "text": "-3",
+                  "is_correct": false
+                },
+                {
+                  "label": "B",
+                  "id": 31991,
+                  "text": "$\\frac{1}{3}$",
+                  "is_correct": true
+                },
+                {
+                  "label": "C",
+                  "id": 31992,
+                  "text": "3",
+                  "is_correct": false
+                },
+                {
+                  "label": "D",
+                  "id": 31993,
+                  "text": "$\\frac{-1}{3}$",
+                  "is_correct": false
+                }
+              ],
+              "correct_option_ids": [
+                31991
+              ],
+              "correct_option_labels": [
+                "B"
+              ],
+              "correct_option_texts": [
+                "$\\frac{1}{3}$"
+              ],
+              "explanation": "Since XOZ plane is given y coordinate must be zero \n$\\frac{k \\times 3 + 1 \\times (-1)}{k + 1}$=0\n3k -1 = 0\nk = $\\frac{1}{3}$"
+            },
+            {
+              "questionID": 19199,
+              "question": "A line AB in three-dimensional space makes angles 45° and 120° with the positive X-axis and the positive Y-axis, respectively. lf AB makes an acute angle $\\theta$ with the positive X-axis, then $\\theta$ is equal to",
+              "question_raw": "<p>A line AB in three-dimensional space makes angles 45&deg; and 120&deg; with the positive X-axis and the positive Y-axis, respectively. lf AB makes an acute angle&nbsp;<span class=\"math-tex\">{tex}\\theta{/tex}</span>&nbsp;with the positive X-axis, then&nbsp;<span class=\"math-tex\">{tex}\\theta{/tex}</span>&nbsp;is equal to&nbsp;</p>",
+              "options": [
+                {
+                  "label": "A",
+                  "id": 31996,
+                  "text": "45°",
+                  "is_correct": false
+                },
+                {
+                  "label": "B",
+                  "id": 31998,
+                  "text": "75^o",
+                  "is_correct": false
+                },
+                {
+                  "label": "C",
+                  "id": 31995,
+                  "text": "60°",
+                  "is_correct": true
+                },
+                {
+                  "label": "D",
+                  "id": 31997,
+                  "text": "90°",
+                  "is_correct": false
+                }
+              ],
+              "correct_option_ids": [
+                31995
+              ],
+              "correct_option_labels": [
+                "C"
+              ],
+              "correct_option_texts": [
+                "60°"
+              ],
+              "explanation": "We know that,\ncos^2 45^o + cos^2 120^o + cos^2 $\\theta$ = 0\n$\\Rightarrow$ $\\frac{1}{2}+\\frac{1}{4}+\\cos ^{2} \\theta$ = 1\n$\\Rightarrow$ cos^2 $\\theta$ = $\\frac{1}{4}$ \n$\\Rightarrow$ cos $\\theta$ = $\\pm \\frac{1}{2}$ \n$\\Rightarrow$ $\\theta$ = 60^o or 120^o \nSince $\\theta$ is acute, therefore $\\theta$ = 60^o"
+            },
+            {
+              "questionID": 19200,
+              "question": "The coordinates of the foot of the perpendicular from the point A (1, 1, 1), on the line joining the points B (1, 4, 6) and C (5, 4, 4) are",
+              "question_raw": "<p>The coordinates of the foot of the perpendicular from the point A (1, 1, 1), on the line joining the points B (1, 4, 6) and C (5, 4, 4) are</p>",
+              "options": [
+                {
+                  "label": "A",
+                  "id": 32001,
+                  "text": "(-4, 5, 3)",
+                  "is_correct": false
+                },
+                {
+                  "label": "B",
+                  "id": 32000,
+                  "text": "(4, 5, 3)",
+                  "is_correct": false
+                },
+                {
+                  "label": "C",
+                  "id": 32002,
+                  "text": "(-3, 0, 4)",
+                  "is_correct": false
+                },
+                {
+                  "label": "D",
+                  "id": 31999,
+                  "text": "(3, 4, 5)",
+                  "is_correct": true
+                }
+              ],
+              "correct_option_ids": [
+                31999
+              ],
+              "correct_option_labels": [
+                "D"
+              ],
+              "correct_option_texts": [
+                "(3, 4, 5)"
+              ],
+              "explanation": "Equation of line BC\n$\\frac{{x - 1}}{4} = \\frac{{y - 4}}{0} = \\frac{{z - 6}}{{ - 2}} = \\lambda $ \nHence x = 4$\\lambda$ + 1, y = 4 and z = -2$\\lambda$ + 6\nLet M (x, y, z) be any point on line BC\nSince AM Perpendicular to BC\nDirection of AM = (4$\\lambda$ + 1 - 1, 0, -2$\\lambda$ + 6 - 1)4(4$\\lambda$) + 0 - 2(-2$\\lambda$ + 5) = 0\n$20\\lambda $ = 10\n$\\lambda = \\frac{1}{2}$ \nHence M (x, y, z) = ($\\frac{4 \\times 1}{2+1}$ ,4, $\\frac{-2 \\times 1}{2+6}$)\nM = (3,4,5)"
+            },
+            {
+              "questionID": 19201,
+              "question": "The points (1, 2, 3), (-1, -1, -1) and (3, 5, 7) are the vertices of",
+              "question_raw": "<p>The points (1, 2, 3), (-1, -1, -1) and (3, 5, 7) are the vertices of</p>",
+              "options": [
+                {
+                  "label": "A",
+                  "id": 32004,
+                  "text": "an equilateral triangle",
+                  "is_correct": false
+                },
+                {
+                  "label": "B",
+                  "id": 32005,
+                  "text": "an isosceles triangle",
+                  "is_correct": false
+                },
+                {
+                  "label": "C",
+                  "id": 32003,
+                  "text": "none of these",
+                  "is_correct": true
+                },
+                {
+                  "label": "D",
+                  "id": 32006,
+                  "text": "a right triangle",
+                  "is_correct": false
+                }
+              ],
+              "correct_option_ids": [
+                32003
+              ],
+              "correct_option_labels": [
+                "C"
+              ],
+              "correct_option_texts": [
+                "none of these"
+              ],
+              "explanation": "Let A = (1, 2, 3), B = (-1, -1, -1) and C = (3, 5, 7)\nBy distance formula between two points (x_1, y_1, z_1) and (x_2, y_2, z_2) = $\\sqrt {{{(x_1 - x_2)}^2} + {{(y_1 - y_2)}^2} + {{(z_1 - z_2)}^2}} $ \nWe get AB = $\\sqrt {29} $ , BC = $\\sqrt {116} $ = 2$\\sqrt {29} $ \nAC =$\\sqrt {29} $ \nAs we know the triangle is possible only if the sum of any two sides is greater than 3rd but in our case, this condition is not holding so the triangle is not possible, these are collinear points."
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "testPaperID": 661,
+      "testPaperName": "3D Geometry Test 05",
+      "is_paid": true,
+      "category_full_name": "CBSE > Class 11 > Mathematics > Introduction to 3D Geometry",
+      "noOfQuestions": 15,
+      "has_answers": true,
+      "sections": [
+        {
+          "sectionName": "General",
+          "sectionID": null,
+          "questions": [
+            {
+              "questionID": 19202,
+              "question": "A line making angles ${45^0}and{60^0}$ with the positive directions of the axis of x and y makes with the positive direction of Z axis , an angle of",
+              "question_raw": "<p>A line making angles <span class=\"math-tex\">{tex}{45^0}and{60^0}{/tex}</span> with the positive directions of the axis of x and y makes with the positive direction of Z axis , an angle of</p>\r\n",
+              "options": [
+                {
+                  "label": "A",
+                  "id": 32009,
+                  "text": "${60^0}$",
+                  "is_correct": false
+                },
+                {
+                  "label": "B",
+                  "id": 32008,
+                  "text": "${45^0}$",
+                  "is_correct": false
+                },
+                {
+                  "label": "C",
+                  "id": 32007,
+                  "text": "${60^0}or120{^0}$",
+                  "is_correct": true
+                },
+                {
+                  "label": "D",
+                  "id": 32010,
+                  "text": "${120^0}$",
+                  "is_correct": false
+                }
+              ],
+              "correct_option_ids": [
+                32007
+              ],
+              "correct_option_labels": [
+                "C"
+              ],
+              "correct_option_texts": [
+                "${60^0}or120{^0}$"
+              ],
+              "explanation": "cos^2$\\alpha$+ cos^2$\\beta$ + cos^2$\\gamma$ =1\n$\\alpha =45 , \\beta =60$\nput the values in above equation \n($ {1/ \\sqrt{2}}$)^2 +( 1/2)^2+ cos^2$\\gamma$ =1\ncos$\\gamma = \\pm 1/2$"
+            },
+            {
+              "questionID": 19203,
+              "question": "The coordinates of the point which divides the line segment joining the points ( 5 , 4, 2 ) and ( - 1 , - 2 , 4 ) in the ratio 2 : 3 externally is",
+              "question_raw": "<p>The coordinates of the point which divides the line segment joining the points ( 5 , 4, 2 ) and ( - 1 , - 2 , 4 ) in the ratio 2 : 3 externally is</p>",
+              "options": [
+                {
+                  "label": "A",
+                  "id": 32014,
+                  "text": "none of these",
+                  "is_correct": false
+                },
+                {
+                  "label": "B",
+                  "id": 32013,
+                  "text": "( 13/5 , 8/5 , 14/5 )",
+                  "is_correct": false
+                },
+                {
+                  "label": "C",
+                  "id": 32012,
+                  "text": "( 17/5 , 16/5 , - 2/5 )",
+                  "is_correct": false
+                },
+                {
+                  "label": "D",
+                  "id": 32011,
+                  "text": "( 17 , 16 , -2 )",
+                  "is_correct": true
+                }
+              ],
+              "correct_option_ids": [
+                32011
+              ],
+              "correct_option_labels": [
+                "D"
+              ],
+              "correct_option_texts": [
+                "( 17 , 16 , -2 )"
+              ],
+              "explanation": "( 17 , 16 , -2 )"
+            },
+            {
+              "questionID": 19204,
+              "question": "The angle between a line with direction ratios 2 : 2 : 1 and a line joining (3, 1, 4) to (7, 2, 12)",
+              "question_raw": "<p>The angle between a line with direction ratios 2 : 2 : 1 and a line joining (3, 1, 4)&nbsp;&nbsp;to (7, 2, 12)</p>",
+              "options": [
+                {
+                  "label": "A",
+                  "id": 32018,
+                  "text": "tan^-1 $( - \\frac{3}{2})$",
+                  "is_correct": false
+                },
+                {
+                  "label": "B",
+                  "id": 32016,
+                  "text": "cos^-1 $(\\frac{3}{2})$",
+                  "is_correct": false
+                },
+                {
+                  "label": "C",
+                  "id": 32017,
+                  "text": "tan^-1 $( - \\frac{2}{ 3})$",
+                  "is_correct": false
+                },
+                {
+                  "label": "D",
+                  "id": 32015,
+                  "text": "cos^-1 $\\left(\\frac{2}{3}\\right)$",
+                  "is_correct": true
+                }
+              ],
+              "correct_option_ids": [
+                32015
+              ],
+              "correct_option_labels": [
+                "D"
+              ],
+              "correct_option_texts": [
+                "cos^-1 $\\left(\\frac{2}{3}\\right)$"
+              ],
+              "explanation": "The angle between a line with direction ratios 2 : 2 : 1 and a line joining (3, 1, 4) to (7, 2, 12)\nDirection ratios of the line joining the points A(3, 1, 4), B(7, 2, 12) is <x2-x1 , y2-y1, z2-z1> = < 7-3 , 2-1 , 12-4> = <4 ,1 ,8>\nNow as the angle between two lines having direction ratios <a1,b1,c1> and <a2,b2,c2> is given by\n$\\operatorname{Cos}^{-1} \\frac{a 1 a 2+b 1 b 2+c 1 c 2}{\\sqrt{a 1^2+b 1^2+c 1^2} \\sqrt{a 2^2+b 2^2+c 2^2}}$\nUsing the vuales we have\n$\\cos ^{-1} \\frac{2 \\times 4+2 \\times 1+1 \\times 8}{\\sqrt{2^2+2^2+1^2} \\sqrt{4^2+1^2+8^2}}$\n$=\\cos ^{-1} \\frac{18}{27}=\\cos ^{-1} \\frac{2}{3}$"
+            },
+            {
+              "questionID": 19205,
+              "question": "Lines OA, OB are drawn from 0 with direction cosines proportional to <1, - 2, - 1> and <3, - 2, 3> respectively. The direction ratios of the normal to the plane AOB are",
+              "question_raw": "<p>Lines OA, OB are drawn from 0 with direction cosines proportional to &lt;1, - 2, - 1&gt;&nbsp;and &lt;3, - 2, 3&gt; respectively. The direction ratios of the normal to the plane AOB are</p>",
+              "options": [
+                {
+                  "label": "A",
+                  "id": 32022,
+                  "text": "<- 4, - 3, 2>",
+                  "is_correct": false
+                },
+                {
+                  "label": "B",
+                  "id": 32020,
+                  "text": "<4, 3, 2>",
+                  "is_correct": false
+                },
+                {
+                  "label": "C",
+                  "id": 32021,
+                  "text": "<-4, 3, 2>",
+                  "is_correct": false
+                },
+                {
+                  "label": "D",
+                  "id": 32019,
+                  "text": "<4, 3, -2>",
+                  "is_correct": true
+                }
+              ],
+              "correct_option_ids": [
+                32019
+              ],
+              "correct_option_labels": [
+                "D"
+              ],
+              "correct_option_texts": [
+                "<4, 3, -2>"
+              ],
+              "explanation": "Let the direction ratios of normal to plane be a, b, c.\nThe line in the plane with drs 1, -2, -1 and 3, -2, 3 must be perpendicular to normal \nThen a_1a_2 + b_1b_2 + c_1c_2 = 0\nThus a - 2b - c = 0\n3a - 2b + 3c = 0\nSolving by cross multiplication a = -8k, b = -6k, c = 4k\nDirection of normal will be 4, 3, -2."
+            },
+            {
+              "questionID": 19206,
+              "question": "The projections of a vector on the three coordinate axes are 6, -3 and 2, respectively. The direction cosines of the vector are",
+              "question_raw": "<p>The projections of a vector on the three coordinate axes are 6, -3 and 2, respectively. The direction cosines of the vector are</p>",
+              "options": [
+                {
+                  "label": "A",
+                  "id": 32024,
+                  "text": "$-\\frac {6}{7},-\\frac{3}{7},\\frac{2}{7}$",
+                  "is_correct": false
+                },
+                {
+                  "label": "B",
+                  "id": 32023,
+                  "text": "$\\frac{6}{7},-\\frac{3}{7},\\frac{2}{7}$",
+                  "is_correct": true
+                },
+                {
+                  "label": "C",
+                  "id": 32025,
+                  "text": "6, -3, 2",
+                  "is_correct": false
+                },
+                {
+                  "label": "D",
+                  "id": 32026,
+                  "text": "-6, 3, -2",
+                  "is_correct": false
+                }
+              ],
+              "correct_option_ids": [
+                32023
+              ],
+              "correct_option_labels": [
+                "B"
+              ],
+              "correct_option_texts": [
+                "$\\frac{6}{7},-\\frac{3}{7},\\frac{2}{7}$"
+              ],
+              "explanation": "Projection of vector on coordinate axes are \nx_2 - x_1, y_2 - y_1, z_2 - z_1\n$\\Rightarrow$ x_2 - x_1 = 6, y_2 - y_1 = -3, z_2 - z_1 = 2\nNow, $\\sqrt{\\left(x_{2}-x_{1}\\right)^{2}+\\left(y_{2}-y_{1}\\right)^{2}+\\left(z_{2}-z_{1}\\right)^{2}}$ = $\\sqrt{36+9+4}$ = 7\nSo, the direction cosines of the vector are $\\frac{6}{7},-\\frac{3}{7}, \\frac{2}{7}$"
+            },
+            {
+              "questionID": 19207,
+              "question": "The points A (5, - 1, 1), B (7, - 4, 7), C(1, - 6, 10) and D (- 1, - 3, 4) are the vertices of",
+              "question_raw": "<p>The points A (5, - 1, 1), B (7, - 4, 7), C(1, - 6, 10) and D (- 1, - 3, 4) are the vertices of</p>",
+              "options": [
+                {
+                  "label": "A",
+                  "id": 32030,
+                  "text": "Trapezium",
+                  "is_correct": false
+                },
+                {
+                  "label": "B",
+                  "id": 32029,
+                  "text": "rectangle",
+                  "is_correct": false
+                },
+                {
+                  "label": "C",
+                  "id": 32027,
+                  "text": "rhombus",
+                  "is_correct": true
+                },
+                {
+                  "label": "D",
+                  "id": 32028,
+                  "text": "square",
+                  "is_correct": false
+                }
+              ],
+              "correct_option_ids": [
+                32027
+              ],
+              "correct_option_labels": [
+                "C"
+              ],
+              "correct_option_texts": [
+                "rhombus"
+              ],
+              "explanation": "Distance between AB = 7, BC = 7, CD = 7 and DA = 7\nWhereas distance between AC and BD is not equal."
+            },
+            {
+              "questionID": 19208,
+              "question": "If the projections of $\\overrightarrow {PQ} $ on OX, OY, OZ are respectively 1, 2, 3 and 4, then the magnitude of $\\overrightarrow {PQ} $ is",
+              "question_raw": "<p>If the projections of <span class=\"math-tex\">{tex}\\overrightarrow {PQ} {/tex}</span> on OX, OY, OZ are respectively 1, 2, 3 and 4, then the magnitude of <span class=\"math-tex\">{tex}\\overrightarrow {PQ} {/tex}</span> is</p>\r\n",
+              "options": [
+                {
+                  "label": "A",
+                  "id": 32034,
+                  "text": "169",
+                  "is_correct": false
+                },
+                {
+                  "label": "B",
+                  "id": 32031,
+                  "text": "13",
+                  "is_correct": true
+                },
+                {
+                  "label": "C",
+                  "id": 32033,
+                  "text": "144",
+                  "is_correct": false
+                },
+                {
+                  "label": "D",
+                  "id": 32032,
+                  "text": "19",
+                  "is_correct": false
+                }
+              ],
+              "correct_option_ids": [
+                32031
+              ],
+              "correct_option_labels": [
+                "B"
+              ],
+              "correct_option_texts": [
+                "13"
+              ],
+              "explanation": "Let $\\overrightarrow {PQ} = x\\hat i + y\\hat j + z\\hat k$ \nSince $OX = \\hat iOY = \\hat jOZ = \\hat k$ \nProjection of PQ on OX = $\\frac{{\\overrightarrow {PQ} .\\overrightarrow {OX} }}{{|OX|}}$ \n12 = $\\frac{x}{1}$ \nx = 12\nSimilarly\nProjection of PQ on OY = $ \\frac{{\\overrightarrow {PQ} .\\overrightarrow {OY} }}{{|OY|}}$ \n3 = $\\frac{y}{1}$ \ny = 3\nSimilarly\nProjection of PQ on OZ = $\\frac{{\\overrightarrow {PQ} .\\overrightarrow {OZ} }}{{|OZ|}}$ \n4 = $\\frac{z}{1}$ \nz = 4\nHence $\\overrightarrow {PQ} = 12\\hat i + 3\\hat j + 4\\hat k$ \n$\\left| {PQ} \\right| = \\sqrt {{{12}^2} + {3^2} + {4^2}} = 13$"
+            },
+            {
+              "questionID": 19209,
+              "question": "The centre of sphere passing through four points (0, 0, 0), (0, 2, 0), (1, 0, 0) and (0, 0, 4) is",
+              "question_raw": "<p>The centre of sphere passing through four points (0, 0, 0), (0, 2, 0), (1, 0, 0) and (0, 0, 4) is</p>",
+              "options": [
+                {
+                  "label": "A",
+                  "id": 32037,
+                  "text": "($\\frac{1}{2}$, 1, -2)",
+                  "is_correct": false
+                },
+                {
+                  "label": "B",
+                  "id": 32035,
+                  "text": "($\\frac{1}{2}$, 1, 2)",
+                  "is_correct": true
+                },
+                {
+                  "label": "C",
+                  "id": 32038,
+                  "text": "(1, $\\frac{1}{2}$, 2)",
+                  "is_correct": false
+                },
+                {
+                  "label": "D",
+                  "id": 32036,
+                  "text": "($\\frac{-1}{2}$, 1, 2)",
+                  "is_correct": false
+                }
+              ],
+              "correct_option_ids": [
+                32035
+              ],
+              "correct_option_labels": [
+                "B"
+              ],
+              "correct_option_texts": [
+                "($\\frac{1}{2}$, 1, 2)"
+              ],
+              "explanation": "Equation of sphere is given by x^2 + y^2 + z^2 + 2ux + 2vy + 2wz + d = 0\nSince sphere passing through four points (0, 0, 0), (0, 2, 0), (1, 0, 0) and (0, 0, 4)\nSubstituting in the given equation we get d =0\n4 + 4v = 0\nv = -1\n1 + 2u = 0\nu = $\\frac{-1}{2}$\n16 + 8w = 0\nw = -2\nCentre of sphere (-u, -v, -w) = ($\\frac{1}{2}$, 1, 2)"
+            },
+            {
+              "questionID": 19210,
+              "question": "The ratio in which the line joining (2, 4, 5) (3, 5, -4) is divided by the YZ – plane is",
+              "question_raw": "<p>The ratio in which the line joining (2, 4, 5) (3, 5, -4) is divided by the YZ &ndash; plane is</p>",
+              "options": [
+                {
+                  "label": "A",
+                  "id": 32042,
+                  "text": "4 : - 3",
+                  "is_correct": false
+                },
+                {
+                  "label": "B",
+                  "id": 32040,
+                  "text": "2 : 3",
+                  "is_correct": false
+                },
+                {
+                  "label": "C",
+                  "id": 32039,
+                  "text": "- 2 : 3",
+                  "is_correct": true
+                },
+                {
+                  "label": "D",
+                  "id": 32041,
+                  "text": "3 : 2",
+                  "is_correct": false
+                }
+              ],
+              "correct_option_ids": [
+                32039
+              ],
+              "correct_option_labels": [
+                "C"
+              ],
+              "correct_option_texts": [
+                "- 2 : 3"
+              ],
+              "explanation": "The ratio in which the line joining (2, 4, 5) (3, 5, - 4) is divided by the YZ – plane is the point in YZ plane will be P(0, y, z) let it divides the line joining points A(2, 4, 5) and B(3, 5, - 4) in the ratio k : 1 \nThen X coordinate of point P will be given by $3k+2 \\over k+1$ which is equal to zero. \ni.e. $3k+2 \\over k+1$= 0 $\\Rightarrow$ 3k + 2 = 0 $\\Rightarrow$ k = $\\frac{-2}{3}$ \nSo, YZ plane divides in -2 : 3"
+            },
+            {
+              "questionID": 19211,
+              "question": "The area of the triangle whose vertices are (1, 2, 3), (2, 5, -1), (-1, 1, 2) is ________ sq. units.",
+              "question_raw": "<p>The area of the triangle whose vertices are (1, 2, 3), (2, 5, -1), (-1, 1, 2) is ________ sq. units.</p>",
+              "options": [
+                {
+                  "label": "A",
+                  "id": 32044,
+                  "text": "150",
+                  "is_correct": false
+                },
+                {
+                  "label": "B",
+                  "id": 32045,
+                  "text": "145",
+                  "is_correct": false
+                },
+                {
+                  "label": "C",
+                  "id": 32043,
+                  "text": "$\\frac{\\sqrt{155}}{2}$",
+                  "is_correct": true
+                },
+                {
+                  "label": "D",
+                  "id": 32046,
+                  "text": "165",
+                  "is_correct": false
+                }
+              ],
+              "correct_option_ids": [
+                32043
+              ],
+              "correct_option_labels": [
+                "C"
+              ],
+              "correct_option_texts": [
+                "$\\frac{\\sqrt{155}}{2}$"
+              ],
+              "explanation": "Let $\\vec a = (1\\hat i + 2\\hat j + 3\\hat k)$, $\\vec{b}=(2 \\hat{i}+5 \\hat{j}-1 \\hat{k})$, $\\vec{c}=(-1 \\hat{i}+1 \\hat{j}+2 \\hat{k})$ \nArea of triangle = $\\frac{1}{2}[\\vec a*\\vec b + \\vec b*\\vec c + \\vec c*\\vec a]$ \n= $ \\frac{1}{2}\\left[ {\\left| {\\begin{array}{*{20}{c}} {\\hat i}&{\\hat j}&{\\hat k} \\\\ 1&2&3 \\\\ 2&5&{ - 1} \\end{array}} \\right|} \\right] + \\left[ {\\left| {\\begin{array}{*{20}{c}} {\\hat i}&{\\hat j}&{\\hat k} \\\\ 2&5&{ - 1} \\\\ { - 1}&1&2 \\end{array}} \\right|} \\right] + \\left[ {\\left| {\\begin{array}{*{20}{c}} {\\hat i}&{\\hat j}&{\\hat k} \\\\ { - 1}&1&2 \\\\ 1&2&3 \\end{array}} \\right|} \\right]$ \n= $ \\frac{1}{2}[ - 17\\hat i + 7\\hat j + 1\\hat k + 11\\hat i - 3\\hat j + 7\\hat k - 1\\hat i + 5\\hat j - 3\\hat k]$ \n= $ \\frac{1}{2}[ - 7\\hat i + 9\\hat j + 5\\hat k]$ \nArea = $ \\frac{1}{2}\\sqrt {49 + 81 + 25} $ \nArea = $\\frac{\\sqrt{155}}{2}$"
+            },
+            {
+              "questionID": 19212,
+              "question": "The direction ratios of a normal to the plane through ( 1 , 0 , 0 ) , ( 0 , 1 , 0 ) , which makes an angle of $\\frac \\pi 4$ with the plane x + y = 3",
+              "question_raw": "<p>The direction ratios of a normal to the plane through ( 1 , 0 , 0 ) , ( 0 , 1 , 0 ) , which makes an angle of <span class=\"math-tex\">{tex}\\frac \\pi 4{/tex}</span>&nbsp;with the plane x + y = 3</p>",
+              "options": [
+                {
+                  "label": "A",
+                  "id": 32047,
+                  "text": "$ < 1,1,\\sqrt 2 >$",
+                  "is_correct": true
+                },
+                {
+                  "label": "B",
+                  "id": 32048,
+                  "text": "$ < 1,\\sqrt 2 ,1 > $",
+                  "is_correct": false
+                },
+                {
+                  "label": "C",
+                  "id": 32050,
+                  "text": "$< \\sqrt 2 ,1,1 > $",
+                  "is_correct": false
+                },
+                {
+                  "label": "D",
+                  "id": 32049,
+                  "text": "<1, 1, 2>",
+                  "is_correct": false
+                }
+              ],
+              "correct_option_ids": [
+                32047
+              ],
+              "correct_option_labels": [
+                "A"
+              ],
+              "correct_option_texts": [
+                "$ < 1,1,\\sqrt 2 >$"
+              ],
+              "explanation": "Equation of plane through (1, 0, 0), (0, 1, 0) be ax + by + cx + d = 0\nLet $\\overrightarrow n = (a,b,c)$ unit vector normal to the plane\n$\\sqrt {{a^2} + {b^2} + {c^2}} = 1$\nEquation of plane gives a + d = 0 and b + d = 0\nsolving we get a - b = 0 ....(1).\nplane makes angles $\\frac \\pi 4$ with x + y = 3\n$\\cos {45^o} = \\frac{{a(1) + b(1) + c(1)}}{{1*\\sqrt 2 }}$\na + b = 1 ...(2)\nsolving (1) and (2) we get\na = b = $\\frac 12$\nHence $\\sqrt {{a^2} + {b^2} + {c^2}} = 1$\n$c = \\frac {1}{\\sqrt 2 }$\ndrs of normal $(\\frac 12, \\frac 12, \\frac {1}{\\sqrt 2 })$\ndrs of normal $(1,1,\\sqrt 2 )$"
+            },
+            {
+              "questionID": 19213,
+              "question": "A tetrahedron has vertices at O (0, 0, 0), A (1, 2, 1), B (2, 1, 3) and C (-1, 1, 2), then the angle between the faces OAB and ABC will be",
+              "question_raw": "<p>A tetrahedron has vertices at O (0, 0, 0), A (1, 2, 1), B (2, 1, 3) and C (-1, 1, 2), then the angle between the faces OAB and ABC will be</p>",
+              "options": [
+                {
+                  "label": "A",
+                  "id": 32053,
+                  "text": "90^o",
+                  "is_correct": false
+                },
+                {
+                  "label": "B",
+                  "id": 32051,
+                  "text": "cos^-1 $\\left(\\frac{19}{35}\\right)$",
+                  "is_correct": true
+                },
+                {
+                  "label": "C",
+                  "id": 32054,
+                  "text": "30^o",
+                  "is_correct": false
+                },
+                {
+                  "label": "D",
+                  "id": 32052,
+                  "text": "cos^-1 $\\left(\\frac{17}{31}\\right)$",
+                  "is_correct": false
+                }
+              ],
+              "correct_option_ids": [
+                32051
+              ],
+              "correct_option_labels": [
+                "B"
+              ],
+              "correct_option_texts": [
+                "cos^-1 $\\left(\\frac{19}{35}\\right)$"
+              ],
+              "explanation": "Let n_1 and n_2 be the normals to the plane OAB and ABC\n$\\overrightarrow n_1=\\overrightarrow {OA}\\times\\overrightarrow {OB}=\\left |\\begin {array}{ccc} \\hat i & \\hat j & \\hat k\\\\1 & 2 & 1\\\\ 2 & 1 & 3\\end {array}\\right |$ \nn_1 = (5, -1, -3)\n$\\overrightarrow n_2=\\overrightarrow {AB}\\times\\overrightarrow {AC}=\\left |\\begin {array}{ccc} \\hat i & \\hat j & \\hat k\\\\1 & -2 & 2\\\\- 2 & -1 & 1\\end {array}\\right |$ \nn_2 = (1, -5, -3)\n$cos\\theta=\\large\\frac{\\overrightarrow n_1.\\overrightarrow n_2}{|\\overrightarrow n_1||\\overrightarrow n_2|} $ \n= $\\large\\frac{5+5+9}{\\sqrt {35}.\\sqrt {35}}\\\\$ \n= $\\frac{19}{35}$ \n$\\theta =cos^{-1}(\\frac{19}{35})$"
+            },
+            {
+              "questionID": 19214,
+              "question": "The equation of any plane parallel to y – axis",
+              "question_raw": "<p>The equation of any plane parallel to y &ndash; axis</p>",
+              "options": [
+                {
+                  "label": "A",
+                  "id": 32058,
+                  "text": "x = d",
+                  "is_correct": false
+                },
+                {
+                  "label": "B",
+                  "id": 32057,
+                  "text": "y = d",
+                  "is_correct": false
+                },
+                {
+                  "label": "C",
+                  "id": 32055,
+                  "text": "ax + cz + d = 0, a^2 + c^2 $ \\ne$ 0",
+                  "is_correct": true
+                },
+                {
+                  "label": "D",
+                  "id": 32056,
+                  "text": "ax + cz = 0, a^2 + c^2 $\\ne$ 0",
+                  "is_correct": false
+                }
+              ],
+              "correct_option_ids": [
+                32055
+              ],
+              "correct_option_labels": [
+                "C"
+              ],
+              "correct_option_texts": [
+                "ax + cz + d = 0, a^2 + c^2 $ \\ne$ 0"
+              ],
+              "explanation": "Since the plane ax + by + cz + d = 0 is parallel to y axis hence b = 0.\nHence ax + cz + d = 0."
+            },
+            {
+              "questionID": 19215,
+              "question": "An angle between two diagonals of a cube is",
+              "question_raw": "<p>An angle between two diagonals of a cube is</p>",
+              "options": [
+                {
+                  "label": "A",
+                  "id": 32060,
+                  "text": "cos^-1 $\\left(\\frac{1}{\\sqrt{2}}\\right)$",
+                  "is_correct": false
+                },
+                {
+                  "label": "B",
+                  "id": 32062,
+                  "text": "cos^-1 $\\left(\\frac{8}{5}\\right)$",
+                  "is_correct": false
+                },
+                {
+                  "label": "C",
+                  "id": 32061,
+                  "text": "cos^-1 $\\left(\\frac{9}{5}\\right)$",
+                  "is_correct": false
+                },
+                {
+                  "label": "D",
+                  "id": 32059,
+                  "text": "cos^-1 $\\left(\\frac{1}{3}\\right)$",
+                  "is_correct": true
+                }
+              ],
+              "correct_option_ids": [
+                32059
+              ],
+              "correct_option_labels": [
+                "D"
+              ],
+              "correct_option_texts": [
+                "cos^-1 $\\left(\\frac{1}{3}\\right)$"
+              ],
+              "explanation": "Let a be the length of the cube and one corner D(0,0,0) as the origin.the diagonals will have co-ordinates as follows:\nA(a,0,0) G(0,a,a) ie diagonal AG and diagonal DF where F(a,a,a)\n$cos\\theta=\\frac{a X -a+a Xa+a X a}{ \\sqrt {-a^2+a^2+a^2}\\sqrt {a^2+a^2+a^2}}$\n$cos \\theta =\\frac{-a^2+a^2+a^2}{\\sqrt {3a^2}\\sqrt {3a^2}}$\ncos^-1 = $\\left(\\frac{1}{3}\\right)$"
+            },
+            {
+              "questionID": 19216,
+              "question": "The points P (0, 0, 0), Q (2, 0, 0), R (1, $\\sqrt 3 $, 0) and S$\\left(1, \\frac{1}{\\sqrt{3}}, \\frac{2 \\sqrt{2}}{\\sqrt{3}}\\right)$ lie",
+              "question_raw": "<p>The points P (0, 0, 0), Q (2, 0, 0), R (1, <span class=\"math-tex\">{tex}\\sqrt 3 {/tex}</span>, 0) and S<span class=\"math-tex\">{tex}\\left(1, \\frac{1}{\\sqrt{3}}, \\frac{2 \\sqrt{2}}{\\sqrt{3}}\\right){/tex}</span> lie</p>",
+              "options": [
+                {
+                  "label": "A",
+                  "id": 32065,
+                  "text": "in a plane at right angles to Z – axis",
+                  "is_correct": false
+                },
+                {
+                  "label": "B",
+                  "id": 32066,
+                  "text": "in XOY plane",
+                  "is_correct": false
+                },
+                {
+                  "label": "C",
+                  "id": 32064,
+                  "text": "in a line",
+                  "is_correct": false
+                },
+                {
+                  "label": "D",
+                  "id": 32063,
+                  "text": "none of these",
+                  "is_correct": true
+                }
+              ],
+              "correct_option_ids": [
+                32063
+              ],
+              "correct_option_labels": [
+                "D"
+              ],
+              "correct_option_texts": [
+                "none of these"
+              ],
+              "explanation": "The equation of plane passing through (0, 0, 0) is a(x - 0) + b(y - 0) + c(z - 0) = 0\nax + by + cz = 0. If it passes through Q (2, 0, 0), R (1, $\\sqrt 3 $, 0) then we get\n2a = 0; a +$\\sqrt 3$ b = 0 i.e. we get a = 0 and b = 0\nNow if we put co-ordinates of S it does not satisfy the equation.\nHence points are not coplanar."
+            }
+          ]
+        }
+      ]
+    }
+  ]
+}

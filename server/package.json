@@ -15,6 +15,7 @@
     "db:mock:setup:chem": "node scripts/seed-physics-mock-tests.js scripts/data/chemistry_mock_tests.json",
     "db:mock:setup:maths": "node scripts/seed-physics-mock-tests.js scripts/data/maths_mock_tests.json",
     "db:mock:setup:bio": "node scripts/seed-physics-mock-tests.js scripts/data/biology_mock_tests.json",
+    "db:online:setup": "node scripts/seed-online-tests.js",
     "db:migrate": "prisma migrate dev",
     "db:migrate:deploy": "prisma migrate deploy",
     "db:studio": "prisma studio",

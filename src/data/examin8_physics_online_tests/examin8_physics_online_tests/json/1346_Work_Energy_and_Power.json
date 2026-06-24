@@ -1,0 +1,3162 @@
+{
+  "id": 1346,
+  "name": "Work Energy and Power",
+  "full_name": "CBSE > Class 11 > Physics > Work Energy and Power",
+  "tests": [
+    {
+      "testPaperID": 552,
+      "testPaperName": "Work, Energy and Power Test 01",
+      "is_paid": false,
+      "category_full_name": "CBSE > Class 11 > Physics > Work Energy and Power",
+      "noOfQuestions": 15,
+      "has_answers": true,
+      "sections": [
+        {
+          "sectionName": "General",
+          "sectionID": null,
+          "questions": [
+            {
+              "questionID": 17572,
+              "question": "The scalar product of two vectors A and B is",
+              "question_raw": "<p>The scalar product of two vectors A and B is</p>",
+              "options": [
+                {
+                  "label": "A",
+                  "id": 25489,
+                  "text": "vector",
+                  "is_correct": false
+                },
+                {
+                  "label": "B",
+                  "id": 25488,
+                  "text": "a scalar",
+                  "is_correct": true
+                },
+                {
+                  "label": "C",
+                  "id": 25491,
+                  "text": "a complex number",
+                  "is_correct": false
+                },
+                {
+                  "label": "D",
+                  "id": 25490,
+                  "text": "a tensor",
+                  "is_correct": false
+                }
+              ],
+              "correct_option_ids": [
+                25488
+              ],
+              "correct_option_labels": [
+                "B"
+              ],
+              "correct_option_texts": [
+                "a scalar"
+              ],
+              "explanation": "Scalar product means dot product and the dot product of 2 vectors gives a scalar. For example dot product of force and displacement gives work which is scalar."
+            },
+            {
+              "questionID": 17573,
+              "question": "The scalar product of two vectors A and B in terms of the magnitudes and angle $\\theta $ is",
+              "question_raw": "<p>The scalar product of two vectors A and B in terms of the magnitudes and angle <span class=\"math-tex\">{tex}\\theta {/tex}</span>&nbsp;is</p>",
+              "options": [
+                {
+                  "label": "A",
+                  "id": 25494,
+                  "text": "$\\left| {\\bf{A}} \\right|\\left| {\\bf{B}} \\right|{\\rm{cot}}\\theta $",
+                  "is_correct": false
+                },
+                {
+                  "label": "B",
+                  "id": 25492,
+                  "text": "$\\left| {\\bf{A}} \\right|\\left| {\\bf{B}} \\right|{\\rm{cos}}\\theta $",
+                  "is_correct": true
+                },
+                {
+                  "label": "C",
+                  "id": 25495,
+                  "text": "$\\left| {\\bf{A}} \\right|\\left| {\\bf{B}} \\right|{\\rm{tan}}\\theta $",
+                  "is_correct": false
+                },
+                {
+                  "label": "D",
+                  "id": 25493,
+                  "text": "$\\left| {\\bf{A}} \\right|\\left| {\\bf{B}} \\right|{\\rm{sin}}\\theta $",
+                  "is_correct": false
+                }
+              ],
+              "correct_option_ids": [
+                25492
+              ],
+              "correct_option_labels": [
+                "B"
+              ],
+              "correct_option_texts": [
+                "$\\left| {\\bf{A}} \\right|\\left| {\\bf{B}} \\right|{\\rm{cos}}\\theta $"
+              ],
+              "explanation": "The scalar product of two vectors can be constructed by taking the component of one vector in the direction of the other and multiplying it times the magnitude of the other vector. This can be expressed in the form $\\vec A.\\vec B = |A||B|\\cos \\theta $"
+            },
+            {
+              "questionID": 17574,
+              "question": "The scalar product of two vectors $\\overrightarrow A$ and $\\overrightarrow B$ in terms of the projections of the vectors on the x, y and z axis is",
+              "question_raw": "<p>The scalar product of two vectors <strong><span class=\"math-tex\">{tex}\\overrightarrow A{/tex}</span></strong> and <strong><span class=\"math-tex\">{tex}\\overrightarrow B{/tex}</span></strong> in terms of the projections of the vectors on the x, y and z axis is</p>",
+              "options": [
+                {
+                  "label": "A",
+                  "id": 25499,
+                  "text": "$\\overrightarrow A$.$\\overrightarrow B$ = $A_x B_x-A_y B_y-A_z B_z$",
+                  "is_correct": false
+                },
+                {
+                  "label": "B",
+                  "id": 25498,
+                  "text": "$\\overrightarrow A$.$\\overrightarrow B$ = $A_x B_x+A_y B_y-A_z B_z$",
+                  "is_correct": false
+                },
+                {
+                  "label": "C",
+                  "id": 25497,
+                  "text": "$\\overrightarrow A$.$\\overrightarrow B$ = $A_x B_x-A_y B_y+A_z B_z$",
+                  "is_correct": false
+                },
+                {
+                  "label": "D",
+                  "id": 25496,
+                  "text": "$\\overrightarrow A$.$\\overrightarrow B$ = $A_x B_x+A_y B_y+A_z B_z$",
+                  "is_correct": true
+                }
+              ],
+              "correct_option_ids": [
+                25496
+              ],
+              "correct_option_labels": [
+                "D"
+              ],
+              "correct_option_texts": [
+                "$\\overrightarrow A$.$\\overrightarrow B$ = $A_x B_x+A_y B_y+A_z B_z$"
+              ],
+              "explanation": "$\\overrightarrow A$ = A_x i + A_y j+ A_zk\n$\\overrightarrow B$ = B_x i + B_y j+ B_zk\n$\\overrightarrow A$.$\\overrightarrow B$ = (A_x i + A_y j+ A_zk). (B_x i+ B_y j+ B_zk) \n$\\overrightarrow A$.$\\overrightarrow B$ = A_xB_x + A_yB_y + A_zB_z , this is required result."
+            },
+            {
+              "questionID": 17575,
+              "question": "The scalar product of vectors is",
+              "question_raw": "<p>The scalar product of vectors is</p>",
+              "options": [
+                {
+                  "label": "A",
+                  "id": 25503,
+                  "text": "non commutative and not distributive",
+                  "is_correct": false
+                },
+                {
+                  "label": "B",
+                  "id": 25502,
+                  "text": "commutative and not distributive",
+                  "is_correct": false
+                },
+                {
+                  "label": "C",
+                  "id": 25501,
+                  "text": "non commutative and distributive",
+                  "is_correct": false
+                },
+                {
+                  "label": "D",
+                  "id": 25500,
+                  "text": "commutative and distributive",
+                  "is_correct": true
+                }
+              ],
+              "correct_option_ids": [
+                25500
+              ],
+              "correct_option_labels": [
+                "D"
+              ],
+              "correct_option_texts": [
+                "commutative and distributive"
+              ],
+              "explanation": "The scalar product is:\n Commutative:\n $\\vec A.\\vec B = \\vec B.\\vec A$ \n |A||B| cos $\\theta$ = |B||A| cos $\\theta$\n Distributive \n $\\vec A.(\\vec B + \\vec C) = \\vec A.\\vec B + \\vec A.\\vec C$"
+            },
+            {
+              "questionID": 17576,
+              "question": "The change in kinetic energy of a particle is equal to the",
+              "question_raw": "<p>The change in kinetic energy of a particle is equal to the</p>",
+              "options": [
+                {
+                  "label": "A",
+                  "id": 25506,
+                  "text": "work done on it by some force.",
+                  "is_correct": false
+                },
+                {
+                  "label": "B",
+                  "id": 25504,
+                  "text": "work done on it by the net force.",
+                  "is_correct": true
+                },
+                {
+                  "label": "C",
+                  "id": 25505,
+                  "text": "loss in ambient kinetic energy.",
+                  "is_correct": false
+                },
+                {
+                  "label": "D",
+                  "id": 25507,
+                  "text": "work done on it by the aerodynamic force.",
+                  "is_correct": false
+                }
+              ],
+              "correct_option_ids": [
+                25504
+              ],
+              "correct_option_labels": [
+                "B"
+              ],
+              "correct_option_texts": [
+                "work done on it by the net force."
+              ],
+              "explanation": "If a body of mass m moving with velocity u under the action of force F. Its velocity become v after displaced by s, then by using equation of motion :-\n$\\eqalign{ & {v^2} = {u^2} + 2as \\cr & {v^2} - {u^2} = 2as \\cr & m{v^2} - m{u^2} = 2mas \\cr & {1 \\over 2}m{v^2} - {1 \\over 2}m{u^2} = Fs \\cr & {K_f} - {K_i} = W \\cr & \\Delta K = W \\cr} $"
+            },
+            {
+              "questionID": 17577,
+              "question": "The work done by the force is defined to be",
+              "question_raw": "<p>The work done by the force is defined to be</p>",
+              "options": [
+                {
+                  "label": "A",
+                  "id": 25508,
+                  "text": "the product of component of the force in the direction of the displacement and the magnitude of the displacement",
+                  "is_correct": true
+                },
+                {
+                  "label": "B",
+                  "id": 25510,
+                  "text": "the product of component of the force in the direction perpendicular to displacement and the magnitude of the displacement",
+                  "is_correct": false
+                },
+                {
+                  "label": "C",
+                  "id": 25511,
+                  "text": "the negative product of component of the force in the direction of the displacement and the magnitude of this displacement",
+                  "is_correct": false
+                },
+                {
+                  "label": "D",
+                  "id": 25509,
+                  "text": "the product of force and the magnitude of the displacement",
+                  "is_correct": false
+                }
+              ],
+              "correct_option_ids": [
+                25508
+              ],
+              "correct_option_labels": [
+                "A"
+              ],
+              "correct_option_texts": [
+                "the product of component of the force in the direction of the displacement and the magnitude of the displacement"
+              ],
+              "explanation": "Work done is given by \nW = (Fcos$\\theta$)d\nhere Fcos$\\theta$ is the component of applied force in direction of displacement and d is magnitude of displacement."
+            },
+            {
+              "questionID": 17578,
+              "question": "If F is a force and d is the displacement in the direction of force then the work done by the force is given by",
+              "question_raw": "<p>If F is a force and d is the displacement in the direction of force then the work done by the force is given by</p>",
+              "options": [
+                {
+                  "label": "A",
+                  "id": 25513,
+                  "text": "- F.d",
+                  "is_correct": false
+                },
+                {
+                  "label": "B",
+                  "id": 25512,
+                  "text": "F.d",
+                  "is_correct": true
+                },
+                {
+                  "label": "C",
+                  "id": 25515,
+                  "text": "-2F.d",
+                  "is_correct": false
+                },
+                {
+                  "label": "D",
+                  "id": 25514,
+                  "text": "2F.d",
+                  "is_correct": false
+                }
+              ],
+              "correct_option_ids": [
+                25512
+              ],
+              "correct_option_labels": [
+                "B"
+              ],
+              "correct_option_texts": [
+                "F.d"
+              ],
+              "explanation": "Work done is equal to force in the direction of displacement multiplied by displacement i.e., \n$W = \\vec F.\\vec d$"
+            },
+            {
+              "questionID": 17579,
+              "question": "In which case is the work done zero?",
+              "question_raw": "<p>In which case is the work done zero?</p>",
+              "options": [
+                {
+                  "label": "A",
+                  "id": 25517,
+                  "text": "Force and displacement are in the same direction",
+                  "is_correct": false
+                },
+                {
+                  "label": "B",
+                  "id": 25518,
+                  "text": "Force and displacement are at an angle of 45$^\\circ $",
+                  "is_correct": false
+                },
+                {
+                  "label": "C",
+                  "id": 25519,
+                  "text": "Force and displacement are at an angle of 75$^\\circ $",
+                  "is_correct": false
+                },
+                {
+                  "label": "D",
+                  "id": 25516,
+                  "text": "Force and displacement are perpendicular to each other",
+                  "is_correct": true
+                }
+              ],
+              "correct_option_ids": [
+                25516
+              ],
+              "correct_option_labels": [
+                "D"
+              ],
+              "correct_option_texts": [
+                "Force and displacement are perpendicular to each other"
+              ],
+              "explanation": "Work done, W = Fdcos$\\theta$\nwhere $\\theta$ is the angle between F and d. If both are perpendicular then $\\theta$ = 90 degrees, so cos$\\theta$ = 0 and thus work done is zero."
+            },
+            {
+              "questionID": 17580,
+              "question": "The S.I unit of force is",
+              "question_raw": "<p>The S.I unit of force is</p>",
+              "options": [
+                {
+                  "label": "A",
+                  "id": 25522,
+                  "text": "erg",
+                  "is_correct": false
+                },
+                {
+                  "label": "B",
+                  "id": 25523,
+                  "text": "dyne",
+                  "is_correct": false
+                },
+                {
+                  "label": "C",
+                  "id": 25520,
+                  "text": "Newton",
+                  "is_correct": true
+                },
+                {
+                  "label": "D",
+                  "id": 25521,
+                  "text": "Joule",
+                  "is_correct": false
+                }
+              ],
+              "correct_option_ids": [
+                25520
+              ],
+              "correct_option_labels": [
+                "C"
+              ],
+              "correct_option_texts": [
+                "Newton"
+              ],
+              "explanation": "In the International System of Units (SI) the newton is the unit for force. It is equal to the amount of net force required to accelerate a mass of one kilogram at a rate of 1 m/sec^2 in direction of the applied force. It is named after Isaac Newton in recognition of his work on classical mechanics, specifically Newton's second law of motion."
+            },
+            {
+              "questionID": 17581,
+              "question": "In a graph of F(x) vs x, the area under the curve represents the",
+              "question_raw": "<p>In a graph of F(x) vs x, the area under the curve represents the</p>",
+              "options": [
+                {
+                  "label": "A",
+                  "id": 25524,
+                  "text": "work done by F(x).",
+                  "is_correct": true
+                },
+                {
+                  "label": "B",
+                  "id": 25526,
+                  "text": "energy of F(x)",
+                  "is_correct": false
+                },
+                {
+                  "label": "C",
+                  "id": 25527,
+                  "text": "momentum of F(x)",
+                  "is_correct": false
+                },
+                {
+                  "label": "D",
+                  "id": 25525,
+                  "text": "impulse of F(x)",
+                  "is_correct": false
+                }
+              ],
+              "correct_option_ids": [
+                25524
+              ],
+              "correct_option_labels": [
+                "A"
+              ],
+              "correct_option_texts": [
+                "work done by F(x)."
+              ],
+              "explanation": "Work done by a variable force is given by \nW = ${\\int F(x)dx } $\nThe above integration gives us the area under the curve F(x) Vs x."
+            },
+            {
+              "questionID": 17582,
+              "question": "Work-energy theorem does not give information on",
+              "question_raw": "<p>Work-energy theorem does not give information on</p>",
+              "options": [
+                {
+                  "label": "A",
+                  "id": 25531,
+                  "text": "difference of kinetic energies",
+                  "is_correct": false
+                },
+                {
+                  "label": "B",
+                  "id": 25528,
+                  "text": "time dependence",
+                  "is_correct": true
+                },
+                {
+                  "label": "C",
+                  "id": 25529,
+                  "text": "change in kinetic energy",
+                  "is_correct": false
+                },
+                {
+                  "label": "D",
+                  "id": 25530,
+                  "text": "work done",
+                  "is_correct": false
+                }
+              ],
+              "correct_option_ids": [
+                25528
+              ],
+              "correct_option_labels": [
+                "B"
+              ],
+              "correct_option_texts": [
+                "time dependence"
+              ],
+              "explanation": "According to the work-energy theorem, the net work done on a body equals the change in its kinetic energy. So it does not give any information about time dependence."
+            },
+            {
+              "questionID": 17583,
+              "question": "Physically, the notion of potential energy is applicable only to:",
+              "question_raw": "<p>Physically, the notion of potential energy is applicable only to:</p>",
+              "options": [
+                {
+                  "label": "A",
+                  "id": 25534,
+                  "text": "The class of forces where work is done against the force gets converted to kinetic energy",
+                  "is_correct": false
+                },
+                {
+                  "label": "B",
+                  "id": 25535,
+                  "text": "The class of forces where work done against the force gets converted to thermal energy",
+                  "is_correct": false
+                },
+                {
+                  "label": "C",
+                  "id": 25532,
+                  "text": "The class of forces where work is done against the force gets stored up as energy.",
+                  "is_correct": true
+                },
+                {
+                  "label": "D",
+                  "id": 25533,
+                  "text": "The class of forces where work is done against the force gets dissipated",
+                  "is_correct": false
+                }
+              ],
+              "correct_option_ids": [
+                25532
+              ],
+              "correct_option_labels": [
+                "C"
+              ],
+              "correct_option_texts": [
+                "The class of forces where work is done against the force gets stored up as energy."
+              ],
+              "explanation": "Potential energy is the , stored energy of an object. It is the energy by virtue of an object's position relative to other objects. Potential energy is often associated with restoring forces such as a spring . It is applicable only for the conservative forces."
+            },
+            {
+              "questionID": 17584,
+              "question": "The work done by a conservative forces depends",
+              "question_raw": "<p>The work done by a conservative forces depends</p>",
+              "options": [
+                {
+                  "label": "A",
+                  "id": 25537,
+                  "text": "depends on the path",
+                  "is_correct": false
+                },
+                {
+                  "label": "B",
+                  "id": 25536,
+                  "text": "only on the end points",
+                  "is_correct": true
+                },
+                {
+                  "label": "C",
+                  "id": 25539,
+                  "text": "on both the end points as well as the path",
+                  "is_correct": false
+                },
+                {
+                  "label": "D",
+                  "id": 25538,
+                  "text": "on the position of the forces",
+                  "is_correct": false
+                }
+              ],
+              "correct_option_ids": [
+                25536
+              ],
+              "correct_option_labels": [
+                "B"
+              ],
+              "correct_option_texts": [
+                "only on the end points"
+              ],
+              "explanation": "A force is said to be conservative if work done by this force is independent of path and is dependent only on end points."
+            },
+            {
+              "questionID": 17585,
+              "question": "The total mechanical energy of a system is conserved if the forces, doing work on it, are",
+              "question_raw": "<p>The total mechanical energy of a system is conserved if the&nbsp;forces, doing work on it, are</p>",
+              "options": [
+                {
+                  "label": "A",
+                  "id": 25540,
+                  "text": "conservative",
+                  "is_correct": true
+                },
+                {
+                  "label": "B",
+                  "id": 25542,
+                  "text": "viscous",
+                  "is_correct": false
+                },
+                {
+                  "label": "C",
+                  "id": 25543,
+                  "text": "damped",
+                  "is_correct": false
+                },
+                {
+                  "label": "D",
+                  "id": 25541,
+                  "text": "not conservative",
+                  "is_correct": false
+                }
+              ],
+              "correct_option_ids": [
+                25540
+              ],
+              "correct_option_labels": [
+                "A"
+              ],
+              "correct_option_texts": [
+                "conservative"
+              ],
+              "explanation": "Mechanical energy is the sum of kinetic energy and potential energy in an object that is used to do a particular work. In other words, it describes the energy of an object because of its motion or position, or both."
+            },
+            {
+              "questionID": 17586,
+              "question": "For a ball dropped from a tower of height h, the total mechanical energy is",
+              "question_raw": "<p>For a ball dropped from a tower of height h, the total mechanical energy is</p>",
+              "options": [
+                {
+                  "label": "A",
+                  "id": 25547,
+                  "text": "the difference of potential and kinetic energies",
+                  "is_correct": false
+                },
+                {
+                  "label": "B",
+                  "id": 25544,
+                  "text": "the sum of potential and kinetic energies",
+                  "is_correct": true
+                },
+                {
+                  "label": "C",
+                  "id": 25545,
+                  "text": "the kinetic energy",
+                  "is_correct": false
+                },
+                {
+                  "label": "D",
+                  "id": 25546,
+                  "text": "the potential energy",
+                  "is_correct": false
+                }
+              ],
+              "correct_option_ids": [
+                25544
+              ],
+              "correct_option_labels": [
+                "B"
+              ],
+              "correct_option_texts": [
+                "the sum of potential and kinetic energies"
+              ],
+              "explanation": "Mechanical energy = K.E + P.E\n A falling ball will have both these energies in between topmost and bottomost points of its motion so, mechanical energy is the sum of potential and kinetic energies."
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "testPaperID": 553,
+      "testPaperName": "Work, Energy and Power Test 02",
+      "is_paid": true,
+      "category_full_name": "CBSE > Class 11 > Physics > Work Energy and Power",
+      "noOfQuestions": 15,
+      "has_answers": true,
+      "sections": [
+        {
+          "sectionName": "General",
+          "sectionID": null,
+          "questions": [
+            {
+              "questionID": 17587,
+              "question": "The potential energy of a spring whose spring constant is k and is compressed by x is",
+              "question_raw": "<p>The potential energy of a spring whose spring constant is k and is compressed by x is</p>",
+              "options": [
+                {
+                  "label": "A",
+                  "id": 25550,
+                  "text": "$2k{x^2}$",
+                  "is_correct": false
+                },
+                {
+                  "label": "B",
+                  "id": 25548,
+                  "text": "$\\frac{1}{2}k{x^2}$",
+                  "is_correct": true
+                },
+                {
+                  "label": "C",
+                  "id": 25551,
+                  "text": "$\\frac{1}{4}k{x^2}$",
+                  "is_correct": false
+                },
+                {
+                  "label": "D",
+                  "id": 25549,
+                  "text": "$k{x^2}$",
+                  "is_correct": false
+                }
+              ],
+              "correct_option_ids": [
+                25548
+              ],
+              "correct_option_labels": [
+                "B"
+              ],
+              "correct_option_texts": [
+                "$\\frac{1}{2}k{x^2}$"
+              ],
+              "explanation": "If a spring is stretched or compressed by a distance x from its natural length under the action of restoring force then\n F = -kx\nTherefore, $d U=-F . d x$\n$U=\\int_\\limits{0}^{x}-F . d x=\\int_\\limits{0}^{x} k x . d x=k\\left[\\frac{x^{2}}{2}\\right]_{0}^{x}$\n$U=\\frac{1}{2} k x^{2}$"
+            },
+            {
+              "questionID": 17588,
+              "question": "Mass and energy are equivalent and are related by",
+              "question_raw": "<p>Mass and energy are equivalent and are related by</p>",
+              "options": [
+                {
+                  "label": "A",
+                  "id": 25553,
+                  "text": "$E = m{c^2}/2$",
+                  "is_correct": false
+                },
+                {
+                  "label": "B",
+                  "id": 25555,
+                  "text": "$E = m{c^3}$",
+                  "is_correct": false
+                },
+                {
+                  "label": "C",
+                  "id": 25552,
+                  "text": "$E = m{c^2}$",
+                  "is_correct": true
+                },
+                {
+                  "label": "D",
+                  "id": 25554,
+                  "text": "$E = 2m{c^2}$",
+                  "is_correct": false
+                }
+              ],
+              "correct_option_ids": [
+                25552
+              ],
+              "correct_option_labels": [
+                "C"
+              ],
+              "correct_option_texts": [
+                "$E = m{c^2}$"
+              ],
+              "explanation": "Mass-energy equivalence states that anything having mass has an equivalent amount of energy and vice versa. With these fundamental quantities directly relating to one another by Einstein's theory of special relativity, it shows that matter (as mass) and energy can be converted into each other according to the famous equation $E = m{c^2}$."
+            },
+            {
+              "questionID": 17589,
+              "question": "Power is defined as",
+              "question_raw": "<p>Power is defined as</p>",
+              "options": [
+                {
+                  "label": "A",
+                  "id": 25559,
+                  "text": "ability to do work.",
+                  "is_correct": false
+                },
+                {
+                  "label": "B",
+                  "id": 25556,
+                  "text": "the time rate at which work is done.",
+                  "is_correct": true
+                },
+                {
+                  "label": "C",
+                  "id": 25558,
+                  "text": "stored energy.",
+                  "is_correct": false
+                },
+                {
+                  "label": "D",
+                  "id": 25557,
+                  "text": "energy due to motion.",
+                  "is_correct": false
+                }
+              ],
+              "correct_option_ids": [
+                25556
+              ],
+              "correct_option_labels": [
+                "B"
+              ],
+              "correct_option_texts": [
+                "the time rate at which work is done."
+              ],
+              "explanation": "Power is the rate of doing work. It is the amount of energy consumed per unit time. Having no direction, it is a scalar quantity. In the SI system, the unit of power is the joule per second (J/s), known as the watt. The integral of power over time defines the work performed.\n$P = {{dW} \\over {dt}} = {{d(\\vec F.\\vec s)} \\over {dt}}$"
+            },
+            {
+              "questionID": 17590,
+              "question": "S.I unit of power is",
+              "question_raw": "<p>S.I unit of power is</p>",
+              "options": [
+                {
+                  "label": "A",
+                  "id": 25561,
+                  "text": "Newton",
+                  "is_correct": false
+                },
+                {
+                  "label": "B",
+                  "id": 25562,
+                  "text": "Joule",
+                  "is_correct": false
+                },
+                {
+                  "label": "C",
+                  "id": 25560,
+                  "text": "Watt",
+                  "is_correct": true
+                },
+                {
+                  "label": "D",
+                  "id": 25563,
+                  "text": "Angstrom",
+                  "is_correct": false
+                }
+              ],
+              "correct_option_ids": [
+                25560
+              ],
+              "correct_option_labels": [
+                "C"
+              ],
+              "correct_option_texts": [
+                "Watt"
+              ],
+              "explanation": "The SI unit of power is Watt(equivalent to one joule per second)."
+            },
+            {
+              "questionID": 17591,
+              "question": "Which of the following laws used to solve problems in collisions?",
+              "question_raw": "<p>Which of the following laws used to solve problems in collisions?</p>",
+              "options": [
+                {
+                  "label": "A",
+                  "id": 25564,
+                  "text": "Laws of conservation of linear momentum",
+                  "is_correct": true
+                },
+                {
+                  "label": "B",
+                  "id": 25565,
+                  "text": "Newton’s laws",
+                  "is_correct": false
+                },
+                {
+                  "label": "C",
+                  "id": 25567,
+                  "text": "Kepler’s laws",
+                  "is_correct": false
+                },
+                {
+                  "label": "D",
+                  "id": 25566,
+                  "text": "Kirchhoff’s laws",
+                  "is_correct": false
+                }
+              ],
+              "correct_option_ids": [
+                25564
+              ],
+              "correct_option_labels": [
+                "A"
+              ],
+              "correct_option_texts": [
+                "Laws of conservation of linear momentum"
+              ],
+              "explanation": "If an external force is absent then the linear momentum of the system remains conserved."
+            },
+            {
+              "questionID": 17592,
+              "question": "In an elastic collision the total kinetic energy of the system is",
+              "question_raw": "<p>In an elastic collision the total kinetic energy of the system is</p>",
+              "options": [
+                {
+                  "label": "A",
+                  "id": 25568,
+                  "text": "the same after the collision as before.",
+                  "is_correct": true
+                },
+                {
+                  "label": "B",
+                  "id": 25570,
+                  "text": "greater than the total kinetic energy before.",
+                  "is_correct": false
+                },
+                {
+                  "label": "C",
+                  "id": 25569,
+                  "text": "is less than the total kinetic energy before.",
+                  "is_correct": false
+                },
+                {
+                  "label": "D",
+                  "id": 25571,
+                  "text": "zero after the collision.",
+                  "is_correct": false
+                }
+              ],
+              "correct_option_ids": [
+                25568
+              ],
+              "correct_option_labels": [
+                "A"
+              ],
+              "correct_option_texts": [
+                "the same after the collision as before."
+              ],
+              "explanation": "Kinetic energy is transferred to other forms of energy—such as thermal energy, potential energy, and sound—during the collision process. After the collision, if recovery of kinetic energy is 100% then it is called an elastic collision. So that in an elastic collision the total kinetic energy of the system is the same after the collision as before."
+            },
+            {
+              "questionID": 17593,
+              "question": "In an inelastic collision, the total kinetic energy of the system is",
+              "question_raw": "<p>In an inelastic collision, the total kinetic energy of the system is&nbsp;</p>",
+              "options": [
+                {
+                  "label": "A",
+                  "id": 25572,
+                  "text": "less than before the collision.",
+                  "is_correct": true
+                },
+                {
+                  "label": "B",
+                  "id": 25574,
+                  "text": "greater than the total kinetic energy before.",
+                  "is_correct": false
+                },
+                {
+                  "label": "C",
+                  "id": 25573,
+                  "text": "same after the collision as before.",
+                  "is_correct": false
+                },
+                {
+                  "label": "D",
+                  "id": 25575,
+                  "text": "zero after the collision.",
+                  "is_correct": false
+                }
+              ],
+              "correct_option_ids": [
+                25572
+              ],
+              "correct_option_labels": [
+                "A"
+              ],
+              "correct_option_texts": [
+                "less than before the collision."
+              ],
+              "explanation": "Kinetic energy is transferred to other forms of energy—such as thermal energy, potential energy, and sound—during the collision process. After collision if recovery of kinetic energy is less than 100% then it is called inelastic collision i.e., some part of kinetic energy is not recovered. So that in an inelastic collision the total kinetic energy after the collision is less than before the collision."
+            },
+            {
+              "questionID": 17594,
+              "question": "In a completely inelastic collision the colliding bodies move",
+              "question_raw": "<p>In a completely inelastic collision&nbsp;the colliding bodies move</p>",
+              "options": [
+                {
+                  "label": "A",
+                  "id": 25578,
+                  "text": "in opposite directions after the collision.",
+                  "is_correct": false
+                },
+                {
+                  "label": "B",
+                  "id": 25576,
+                  "text": "as one body after the collision.",
+                  "is_correct": true
+                },
+                {
+                  "label": "C",
+                  "id": 25579,
+                  "text": "at an angle after the collision.",
+                  "is_correct": false
+                },
+                {
+                  "label": "D",
+                  "id": 25577,
+                  "text": "in same direction after the collision.",
+                  "is_correct": false
+                }
+              ],
+              "correct_option_ids": [
+                25576
+              ],
+              "correct_option_labels": [
+                "B"
+              ],
+              "correct_option_texts": [
+                "as one body after the collision."
+              ],
+              "explanation": "For a perfectly inelastic collision coefficient of restitution is zero. i.e, e = 0 so that relative velocity of separation will be zero means the colliding bodies stick together and move as one body after the collision."
+            },
+            {
+              "questionID": 17595,
+              "question": "Considering a completely inelastic collision of a particle of mass m_1 moving with initial velocity v_1 and a stationary particle of mass m_2, the final velocity is given by",
+              "question_raw": "<p>Considering a completely inelastic collision of a particle of mass m<sub>1</sub> moving with initial velocity v<sub>1</sub> and a stationary particle of mass m<sub>2</sub>, the final velocity is given by</p>",
+              "options": [
+                {
+                  "label": "A",
+                  "id": 25583,
+                  "text": "$\\frac{m_1}{2 m_1+m_2} v_1$",
+                  "is_correct": false
+                },
+                {
+                  "label": "B",
+                  "id": 25580,
+                  "text": "$\\frac{m_1}{m_1+m_2} v_1$",
+                  "is_correct": true
+                },
+                {
+                  "label": "C",
+                  "id": 25582,
+                  "text": "$\\frac{m_1}{m_1+2 m_2} v_1$",
+                  "is_correct": false
+                },
+                {
+                  "label": "D",
+                  "id": 25581,
+                  "text": "$\\frac{m_2}{m_1+m_2} v_1$",
+                  "is_correct": false
+                }
+              ],
+              "correct_option_ids": [
+                25580
+              ],
+              "correct_option_labels": [
+                "B"
+              ],
+              "correct_option_texts": [
+                "$\\frac{m_1}{m_1+m_2} v_1$"
+              ],
+              "explanation": "For a completely inelastic collision momentum remains conserved i.e,\np_i = p_f\nm_1v_1 + 0 = (m_1 + m_2)v\n$v=\\frac{m_1}{\\left(m_1+m_2\\right)} v_1$"
+            },
+            {
+              "questionID": 17596,
+              "question": "Considering a completely inelastic collision of a particle of mass ${{\\text{m}}_{\\text{1}}}$moving with initial velocity ${{\\text{v}}_{\\text{1}}}$ and a stationary particle of mass ${{\\text{m}}_{\\text{2}}}$. The ratio of final to initial kinetic energy is",
+              "question_raw": "<p>Considering a completely inelastic collision of a particle of mass <span class=\"math-tex\">{tex}{{\\text{m}}_{\\text{1}}}{/tex}</span>moving with initial velocity <span class=\"math-tex\">{tex}{{\\text{v}}_{\\text{1}}}{/tex}</span> and a stationary particle of mass <span class=\"math-tex\">{tex}{{\\text{m}}_{\\text{2}}}{/tex}</span>. The ratio of final to initial kinetic energy is</p>",
+              "options": [
+                {
+                  "label": "A",
+                  "id": 25586,
+                  "text": "$\\frac{{m_1}} {{2{m_1} + {m_2}}}$",
+                  "is_correct": false
+                },
+                {
+                  "label": "B",
+                  "id": 25587,
+                  "text": "$\\frac{{m_1}}{{{m_1} + 2{m_2}}}$",
+                  "is_correct": false
+                },
+                {
+                  "label": "C",
+                  "id": 25585,
+                  "text": "$\\frac{{m_2}}{{{m_1} + {m_2}}}$",
+                  "is_correct": false
+                },
+                {
+                  "label": "D",
+                  "id": 25584,
+                  "text": "$\\frac{{m_1}}{{{m_1} + {m_2}}}$",
+                  "is_correct": true
+                }
+              ],
+              "correct_option_ids": [
+                25584
+              ],
+              "correct_option_labels": [
+                "D"
+              ],
+              "correct_option_texts": [
+                "$\\frac{{m_1}}{{{m_1} + {m_2}}}$"
+              ],
+              "explanation": "p_i = p_f\nm_1v_1 + 0 = (m_1 + m_2)v\n$v=\\frac{m_1}{\\left(m_1+m_2\\right)} v_1$\n$K_i=\\frac{1}{2} m_1 v_1^2$\n$K_f=\\frac{1}{2}\\left(m_1+m_2\\right)\\left(\\frac{m_1}{\\left(m_1+m_2\\right)} v_1\\right)^2$\n$\\frac{K_f}{K_i}=\\frac{\\frac{1}{2}\\left(m_1+m_2\\right)\\left(\\frac{m_1}{\\left(m_1+m_2\\right)} v_1\\right)^2}{\\frac{1}{2} m_1 v_1{ }^2}=\\frac{m_1}{\\left(m_1+m_2\\right)}$"
+            },
+            {
+              "questionID": 17597,
+              "question": "A dog weighing 25 kg, while chasing a cat, jumps over a fence of height 1.6 m. What is the potential energy of dog at the top of fence?\n(Take gravity due to earth 'g'=10 m s^-2)",
+              "question_raw": "<p>A dog weighing 25 kg, while chasing a cat, jumps over a fence of height 1.6 m. What is the potential energy of dog at the top of fence?<br />\r\n(Take gravity due to earth &#39;g&#39;=10 m s<sup>-2</sup>)</p>",
+              "options": [
+                {
+                  "label": "A",
+                  "id": 25589,
+                  "text": "160 Joules",
+                  "is_correct": false
+                },
+                {
+                  "label": "B",
+                  "id": 25590,
+                  "text": "320 Joules",
+                  "is_correct": false
+                },
+                {
+                  "label": "C",
+                  "id": 25591,
+                  "text": "480 Joules",
+                  "is_correct": false
+                },
+                {
+                  "label": "D",
+                  "id": 25588,
+                  "text": "400 Joules",
+                  "is_correct": true
+                }
+              ],
+              "correct_option_ids": [
+                25588
+              ],
+              "correct_option_labels": [
+                "D"
+              ],
+              "correct_option_texts": [
+                "400 Joules"
+              ],
+              "explanation": "Mass of the dog = m = 25 kg\nHeight of fence = h = 1.6 m\nAcceleration due to gravity = g = 10 m/s²\n$\\therefore$ Potential energy of dog = m.g.h = 25×10×1.6 = 25×16 = 400 kgm²/s = 400 J"
+            },
+            {
+              "questionID": 17598,
+              "question": "A body of mass 2 kg initially at rest moves under the action of an applied horizontal force of 7 N on a table with coefficient of kinetic friction = 0.1. Compute the work done by the applied force in 10 s.",
+              "question_raw": "<p>A body of mass 2 kg initially at rest moves under the action of an applied horizontal force of 7 N on a table with coefficient of kinetic friction = 0.1. Compute the work done by the applied force in 10 s.</p>",
+              "options": [
+                {
+                  "label": "A",
+                  "id": 25595,
+                  "text": "842 J",
+                  "is_correct": false
+                },
+                {
+                  "label": "B",
+                  "id": 25593,
+                  "text": "800 J",
+                  "is_correct": false
+                },
+                {
+                  "label": "C",
+                  "id": 25592,
+                  "text": "882 J",
+                  "is_correct": true
+                },
+                {
+                  "label": "D",
+                  "id": 25594,
+                  "text": "822 J",
+                  "is_correct": false
+                }
+              ],
+              "correct_option_ids": [
+                25592
+              ],
+              "correct_option_labels": [
+                "C"
+              ],
+              "correct_option_texts": [
+                "882 J"
+              ],
+              "explanation": "$\\eqalign{ & f = {\\mu _k}R = {\\mu _k}mg = 0.1 \\times 2 \\times 9.8 = 1.96N \\cr & F = 7N \\cr & {F_{net}} = F - f = 7 - 1.96 = 5.04N \\cr & a = {{{F_{net}}} \\over m} = {{5.04} \\over 2} = 2.52m/{\\sec ^2} \\cr} $\nDisplacement in 10 second\n$s = ut + {1 \\over 2}a{t^2} = 0 + {1 \\over 2} \\times 2.52 \\times 10 \\times 10 = 126m$\nWork done by applied force \n${W_F} = Fs\\cos 0^\\circ = 7 \\times 126 \\times 1 = 882J$"
+            },
+            {
+              "questionID": 17599,
+              "question": "A body of mass 2 kg initially at rest moves under the action of an applied horizontal force of 7 N on a table with a coefficient of kinetic friction = 0.1. Compute the (a) work done by the net force on the body in 10 s,(b) change in kinetic energy of the body in 10 s?",
+              "question_raw": "<p>A body of mass 2 kg initially at rest moves under the action of an applied horizontal force of 7 N on a table with a coefficient of kinetic friction = 0.1. Compute the (a) work done by the net force on the body in 10 s,(b) change in kinetic energy of the body in 10 s?</p>",
+              "options": [
+                {
+                  "label": "A",
+                  "id": 25597,
+                  "text": "600 J, 600 J",
+                  "is_correct": false
+                },
+                {
+                  "label": "B",
+                  "id": 25598,
+                  "text": "555 J, 555 J",
+                  "is_correct": false
+                },
+                {
+                  "label": "C",
+                  "id": 25596,
+                  "text": "635 J, 635 J",
+                  "is_correct": true
+                },
+                {
+                  "label": "D",
+                  "id": 25599,
+                  "text": "655 J, 655 J",
+                  "is_correct": false
+                }
+              ],
+              "correct_option_ids": [
+                25596
+              ],
+              "correct_option_labels": [
+                "C"
+              ],
+              "correct_option_texts": [
+                "635 J, 635 J"
+              ],
+              "explanation": "f = $\\mu_k$R = $\\mu_k$mg = 0.1 $\\times$ 2 $\\times$ 9.8 = 1.96N\nF = 7N\nFnet = F − f = 7 − 1.96 = 5.04N\n$a=\\frac{F_{n e t}}{m}=\\frac{5.04}{2}$ = 2.52 m/sec^2\ndisplacement in 10 second\n$s = ut + {1 \\over 2}a{t^2} = 0 + {1 \\over 2} $ $\\times$ 2.52 $\\times$ 10 $\\times$ 10 = 126m\nwork done by net force \nW_ = F_net s cos0^o = 5.04 $\\times$ 126 $\\times$ 1 = 635\nchange in kinetic energy = work done by a net force\n$\\Delta K$ = W = 635J"
+            },
+            {
+              "questionID": 17600,
+              "question": "The casing of a rocket in flight burns up due to friction. At whose expense is the heat energy required for burning obtained?",
+              "question_raw": "<p>The casing of a rocket in flight burns up due to friction. At whose expense is the heat energy required for burning obtained?</p>",
+              "options": [
+                {
+                  "label": "A",
+                  "id": 25603,
+                  "text": "Reaction force energy",
+                  "is_correct": false
+                },
+                {
+                  "label": "B",
+                  "id": 25602,
+                  "text": "Earth’s gravitational energy",
+                  "is_correct": false
+                },
+                {
+                  "label": "C",
+                  "id": 25601,
+                  "text": "Atmosphere",
+                  "is_correct": false
+                },
+                {
+                  "label": "D",
+                  "id": 25600,
+                  "text": "Rocket",
+                  "is_correct": true
+                }
+              ],
+              "correct_option_ids": [
+                25600
+              ],
+              "correct_option_labels": [
+                "D"
+              ],
+              "correct_option_texts": [
+                "Rocket"
+              ],
+              "explanation": "The heat energy required for the burning of the casing of the rocket comes from the rocket itself. As a result of work done against friction the kinetic energy of the rocket continuously decreases and this work against friction reappears as heat energy. This results in a reduction of the mass of the rocket."
+            },
+            {
+              "questionID": 17601,
+              "question": "A body constrained to move along the z-axis of a coordinate system is subject to a constant force F given by ${\\bf{F}} = - {\\bf{\\hat i}} + 2{\\bf{\\hat j}} + 3{\\bf{\\hat k}}{\\rm{N}}$, where $\\hat i,{\\rm{\\hat j}}$ and $\\hat k$ are unit vectors along the x-, y- and z-axis of the system respectively. What is the work done by this force in moving the body a distance of 4 m along the z-axis?",
+              "question_raw": "<p>A body constrained to move along the z-axis of a coordinate system is subject to a constant force F given by <span class=\"math-tex\">{tex}{\\bf{F}} = - {\\bf{\\hat i}} + 2{\\bf{\\hat j}} + 3{\\bf{\\hat k}}{\\rm{N}}{/tex}</span>, where <span class=\"math-tex\">{tex}\\hat i,{\\rm{\\hat j}}{/tex}</span>&nbsp;and&nbsp;<span class=\"math-tex\">{tex}\\hat k{/tex}</span> are unit vectors along the x-, y- and z-axis of the system respectively. What is the work done by this force in moving the body a distance of 4 m along the z-axis?</p>",
+              "options": [
+                {
+                  "label": "A",
+                  "id": 25605,
+                  "text": "9 J",
+                  "is_correct": false
+                },
+                {
+                  "label": "B",
+                  "id": 25604,
+                  "text": "12 J",
+                  "is_correct": true
+                },
+                {
+                  "label": "C",
+                  "id": 25607,
+                  "text": "15 J",
+                  "is_correct": false
+                },
+                {
+                  "label": "D",
+                  "id": 25606,
+                  "text": "7 J",
+                  "is_correct": false
+                }
+              ],
+              "correct_option_ids": [
+                25604
+              ],
+              "correct_option_labels": [
+                "B"
+              ],
+              "correct_option_texts": [
+                "12 J"
+              ],
+              "explanation": "given that \n$\\overrightarrow{\\mathbf{F}}=-\\hat{\\mathbf{i}}+2 \\hat{\\mathbf{j}}+3 \\hat{\\mathbf{k}}$\n$\\vec{s}=4 \\hat{\\mathbf{k}}$\n$W=\\vec{F} \\cdot \\vec{s}=(-\\hat{\\mathbf{i}}+2 \\hat{\\mathbf{j}}+3 \\hat{\\mathbf{k}}) \\cdot 4 \\hat{\\mathbf{k}}$ = 12 J"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "testPaperID": 554,
+      "testPaperName": "Work, Energy and Power Test 03",
+      "is_paid": true,
+      "category_full_name": "CBSE > Class 11 > Physics > Work Energy and Power",
+      "noOfQuestions": 15,
+      "has_answers": true,
+      "sections": [
+        {
+          "sectionName": "General",
+          "sectionID": null,
+          "questions": [
+            {
+              "questionID": 17602,
+              "question": "Find the angle between the force ${\\bf{F}} = 3{\\bf{\\hat i}} + 4{\\bf{\\hat j}} - 5{\\bf{\\hat k}}$ and displacement ${\\bf{d}} = 5{\\bf{\\hat i}} + 4{\\bf{\\hat j}} + 3{\\bf{\\hat k}}$.",
+              "question_raw": "<p>Find the angle between the force <span class=\"math-tex\">{tex}{\\bf{F}} = 3{\\bf{\\hat i}} + 4{\\bf{\\hat j}} - 5{\\bf{\\hat k}}{/tex}</span>&nbsp;and displacement <span class=\"math-tex\">{tex}{\\bf{d}} = 5{\\bf{\\hat i}} + 4{\\bf{\\hat j}} + 3{\\bf{\\hat k}}{/tex}</span>.</p>",
+              "options": [
+                {
+                  "label": "A",
+                  "id": 25611,
+                  "text": "$\\theta=\\sin ^{-1}\\left(\\frac{11}{25}\\right)$",
+                  "is_correct": false
+                },
+                {
+                  "label": "B",
+                  "id": 25610,
+                  "text": "$\\theta=\\sin ^{-1}\\left(\\frac{8}{25}\\right)$",
+                  "is_correct": false
+                },
+                {
+                  "label": "C",
+                  "id": 25609,
+                  "text": "$\\theta=\\cos ^{-1}\\left(\\frac{11}{25}\\right)$",
+                  "is_correct": false
+                },
+                {
+                  "label": "D",
+                  "id": 25608,
+                  "text": "$\\theta=\\cos ^{-1}\\left(\\frac{8}{25}\\right)$",
+                  "is_correct": true
+                }
+              ],
+              "correct_option_ids": [
+                25608
+              ],
+              "correct_option_labels": [
+                "D"
+              ],
+              "correct_option_texts": [
+                "$\\theta=\\cos ^{-1}\\left(\\frac{8}{25}\\right)$"
+              ],
+              "explanation": "$W=\\vec{F} \\cdot \\vec{d}$\n$\\vec{F} \\cdot \\vec{d}$ = Fd cos$ \\theta$\n$\\cos \\theta$ = $\\frac{\\vec{F} \\cdot \\vec{d}}{F d}$ = $\\frac{(3 \\hat{\\mathbf{i}}+4 \\hat{\\mathbf{j}}-5 \\hat{\\mathbf{k}}) \\cdot(5 \\hat{\\mathbf{i}}+4 \\hat{\\mathbf{j}}+3 \\hat{\\mathbf{k}})}{\\sqrt{3^{2}+4^{2}+(-5)^{2}} \\times \\sqrt{5^{2}+4^{2}+3^{2}}}$ $=\\frac{15+16-15}{\\sqrt{50} \\times \\sqrt{50}}=\\frac{16}{50}=\\frac{8}{25}$\n$\\theta=\\cos ^{-1}\\left(\\frac{8}{25}\\right)$ = 71^o"
+            },
+            {
+              "questionID": 17603,
+              "question": "Find the projection of F on d, if force ${\\bf{F}} = 3{\\bf{\\hat i}} + 4{\\bf{\\hat j}} - 5{\\bf{\\hat k}}$ and displacement ${\\bf{d}} = 5{\\bf{\\hat i}} + 4{\\bf{\\hat j}} + 3{\\bf{\\hat k}}$",
+              "question_raw": "<p>Find the projection of F on d, if force <span class=\"math-tex\">{tex}{\\bf{F}} = 3{\\bf{\\hat i}} + 4{\\bf{\\hat j}} - 5{\\bf{\\hat k}}{/tex}</span> and displacement <span class=\"math-tex\">{tex}{\\bf{d}} = 5{\\bf{\\hat i}} + 4{\\bf{\\hat j}} + 3{\\bf{\\hat k}}{/tex}</span></p>",
+              "options": [
+                {
+                  "label": "A",
+                  "id": 25612,
+                  "text": "$\\frac{8}{{25}}\\left( {5{\\bf{\\hat i}} + 4{\\bf{\\hat j}} + 3{\\bf{\\hat k}}} \\right)$",
+                  "is_correct": true
+                },
+                {
+                  "label": "B",
+                  "id": 25613,
+                  "text": "$\\frac{3}{{25}}\\left( {5{\\bf{\\hat i}} + 4{\\bf{\\hat j}} + 3{\\bf{\\hat k}}} \\right)$",
+                  "is_correct": false
+                },
+                {
+                  "label": "C",
+                  "id": 25615,
+                  "text": "$\\frac{17}{{25}}\\left( {5{\\bf{\\hat i}} + 4{\\bf{\\hat j}} + 3{\\bf{\\hat k}}} \\right)$",
+                  "is_correct": false
+                },
+                {
+                  "label": "D",
+                  "id": 25614,
+                  "text": "$\\frac{11}{{25}}\\left( {5{\\bf{\\hat i}} + 4{\\bf{\\hat j}} + 3{\\bf{\\hat k}}} \\right)$",
+                  "is_correct": false
+                }
+              ],
+              "correct_option_ids": [
+                25612
+              ],
+              "correct_option_labels": [
+                "A"
+              ],
+              "correct_option_texts": [
+                "$\\frac{8}{{25}}\\left( {5{\\bf{\\hat i}} + 4{\\bf{\\hat j}} + 3{\\bf{\\hat k}}} \\right)$"
+              ],
+              "explanation": "The vector projection of a vector $\\vec A$ on a nonzero vector $\\vec B$ is also known as the vector component $\\vec A$ in the direction of $\\vec B$ and is equal to $\\left( {\\vec A.\\hat B} \\right).\\hat B$ \nHere projection of $\\vec F$ on vector $\\vec d$ = $\\left( {\\vec F.\\hat d} \\right).\\hat d $ = $(\\vec{F} \\cdot \\hat{d}) \\cdot \\hat{d}=\\left[(3 \\hat{\\mathbf{i}}+4 \\hat{\\mathbf{j}}-5 \\hat{\\mathbf{k}}) \\cdot \\frac{(5 \\hat{\\mathbf{i}}+4 \\hat{\\mathbf{j}}+3 \\hat{\\mathbf{k}})}{\\sqrt{5^2+4^2+3^2}}\\right] \\cdot\\left[\\frac{(5 \\hat{\\mathbf{i}}+4 \\hat{\\mathbf{j}}+3 \\hat{\\mathbf{k}})}{\\sqrt{5^2+4^2+3^2}}\\right]$\n$=\\left[(3 \\hat{\\mathbf{i}}+4 \\hat{\\mathbf{j}}-5 \\hat{\\mathbf{k}}) \\cdot \\frac{(5 \\hat{\\mathbf{i}}+4 \\hat{\\mathbf{j}}+3 \\hat{\\mathbf{k}})}{\\sqrt{50}}\\right] \\cdot\\left[\\frac{(5 \\hat{\\mathbf{i}}+4 \\hat{\\mathbf{j}}+3 \\hat{\\mathbf{k}})}{\\sqrt{50}}\\right]$\n$=\\left[\\frac{1}{\\sqrt{50}}(15+16-15)\\right] \\cdot\\left[\\frac{(5 \\hat{\\mathbf{i}}+4 \\hat{\\mathbf{j}}+3 \\hat{\\mathbf{k}})}{\\sqrt{50}}\\right]$\n$=\\frac{16}{\\sqrt{50}} \\cdot\\left[\\frac{(5 \\hat{\\mathbf{i}}+4 \\hat{\\mathbf{j}}+3 \\hat{\\mathbf{k}})}{\\sqrt{50}}\\right]=\\frac{8}{25}(5 \\hat{\\mathbf{i}}+4 \\hat{\\mathbf{j}}+3 \\hat{\\mathbf{k}})$"
+            },
+            {
+              "questionID": 17604,
+              "question": "Balram exerts a steady force of magnitude 150 N on the stalled car as shown in the figure below; he pushes it a distance of 20 m. The car also has a flat tyre, so to make the car move straight. He pushes at an angle of 30^o to the direction of motion. How much work does he do?",
+              "question_raw": "<p>Balram exerts a steady force of magnitude 150 N on the stalled car as shown in the figure below; he pushes it a distance of 20 m. The car also has a flat tyre, so to make the car move straight. He pushes at an angle of 30<sup>o</sup> to the direction of motion. How much work does he do?<br />\n<img src=\"https://media-mycbseguide.s3.amazonaws.com/images/testpaper/1.02.11.06.34.Ques.JPG\" style=\"width: 150px; height: 45px;\" /></p>",
+              "options": [
+                {
+                  "label": "A",
+                  "id": 25619,
+                  "text": "2299 J",
+                  "is_correct": false
+                },
+                {
+                  "label": "B",
+                  "id": 25617,
+                  "text": "2323 J",
+                  "is_correct": false
+                },
+                {
+                  "label": "C",
+                  "id": 25618,
+                  "text": "2654 J",
+                  "is_correct": false
+                },
+                {
+                  "label": "D",
+                  "id": 25616,
+                  "text": "2598 J",
+                  "is_correct": true
+                }
+              ],
+              "correct_option_ids": [
+                25616
+              ],
+              "correct_option_labels": [
+                "D"
+              ],
+              "correct_option_texts": [
+                "2598 J"
+              ],
+              "explanation": "W = Fs cos$ \\theta$ = $ 150 \\times 20 \\times {{\\sqrt 3 } \\over 2} $ = 2598J"
+            },
+            {
+              "questionID": 17605,
+              "question": "Balram exerts a steady force of magnitude F = 200${\\bf{\\hat i}}$+ 2.0$\\hat j$ on the stalled car as shown in the figure above, he pushes it a distance s = 10${\\bf{\\hat i}}$ + 10$\\hat j$ m. How much work does he do?",
+              "question_raw": "<p>Balram exerts a steady force of magnitude F = 200<span class=\"math-tex\">{tex}{\\bf{\\hat i}}{/tex}</span>+ 2.0<span class=\"math-tex\">{tex}\\hat j{/tex}</span> on the stalled car as shown in the figure above, he pushes it a distance s = 10<span class=\"math-tex\">{tex}{\\bf{\\hat i}}{/tex}</span> + 10<span class=\"math-tex\">{tex}\\hat j{/tex}</span> m. How much work does he do?<br />\r\n<img src=\"https://media-mycbseguide.s3.amazonaws.com/images/testpaper/1.02.11.06.35.Ques.JPG\" style=\"width: 150px; height: 47px;\" /></p>",
+              "options": [
+                {
+                  "label": "A",
+                  "id": 25620,
+                  "text": "2020 J",
+                  "is_correct": true
+                },
+                {
+                  "label": "B",
+                  "id": 25623,
+                  "text": "2320 J",
+                  "is_correct": false
+                },
+                {
+                  "label": "C",
+                  "id": 25622,
+                  "text": "2220 J",
+                  "is_correct": false
+                },
+                {
+                  "label": "D",
+                  "id": 25621,
+                  "text": "2120 J",
+                  "is_correct": false
+                }
+              ],
+              "correct_option_ids": [
+                25620
+              ],
+              "correct_option_labels": [
+                "A"
+              ],
+              "correct_option_texts": [
+                "2020 J"
+              ],
+              "explanation": "$\\vec{F}=200 \\hat{i}+2 \\hat{j}$\n$\\vec{s}=10 \\hat{i}+10 \\hat{j}$\n$W=\\vec{F} \\cdot \\vec{s}=(200 \\hat{i}+2 \\hat{j}) \\cdot(10 \\hat{i}+10 \\hat{j})$\nW = 2000 + 20 = 2020 J"
+            },
+            {
+              "questionID": 17606,
+              "question": "A railway porter is holding a weight of 100 kgs on his head and is standing still. What is the work done by him?",
+              "question_raw": "<p>A railway porter is holding a weight of 100 kgs on his head and is standing still. What is the work done by him?</p>",
+              "options": [
+                {
+                  "label": "A",
+                  "id": 25627,
+                  "text": "200 J",
+                  "is_correct": false
+                },
+                {
+                  "label": "B",
+                  "id": 25626,
+                  "text": "1000 J",
+                  "is_correct": false
+                },
+                {
+                  "label": "C",
+                  "id": 25625,
+                  "text": "100 J",
+                  "is_correct": false
+                },
+                {
+                  "label": "D",
+                  "id": 25624,
+                  "text": "0 J",
+                  "is_correct": true
+                }
+              ],
+              "correct_option_ids": [
+                25624
+              ],
+              "correct_option_labels": [
+                "D"
+              ],
+              "correct_option_texts": [
+                "0 J"
+              ],
+              "explanation": "W = Force $\\times$ displacement in the direction of the force\nWork done will be zero because porter is stationary (i.e. displacement is zero)"
+            },
+            {
+              "questionID": 17607,
+              "question": "Balram pushes 500kg weight on a horizontal frictionless surface a distance of 10 m. The work done by the gravitational force is:",
+              "question_raw": "<p>Balram pushes 500kg weight on a horizontal frictionless surface a distance of 10 m. The work done by the gravitational force&nbsp;is:</p>",
+              "options": [
+                {
+                  "label": "A",
+                  "id": 25629,
+                  "text": "100 J",
+                  "is_correct": false
+                },
+                {
+                  "label": "B",
+                  "id": 25630,
+                  "text": "5000 J",
+                  "is_correct": false
+                },
+                {
+                  "label": "C",
+                  "id": 25628,
+                  "text": "0 J",
+                  "is_correct": true
+                },
+                {
+                  "label": "D",
+                  "id": 25631,
+                  "text": "200 J",
+                  "is_correct": false
+                }
+              ],
+              "correct_option_ids": [
+                25628
+              ],
+              "correct_option_labels": [
+                "C"
+              ],
+              "correct_option_texts": [
+                "0 J"
+              ],
+              "explanation": "the angle between force and displacement is 90^o\nW = Fscos90^o = 0"
+            },
+            {
+              "questionID": 17608,
+              "question": "Weight of 20kg falls from a height of 10 m. The work done by the gravitational force is (Take g = 10 ms^−2)",
+              "question_raw": "<p>Weight of 20kg falls from a height of 10 m. The work done by the gravitational force is (Take g = 10 ms<sup>&minus;2</sup>)</p>",
+              "options": [
+                {
+                  "label": "A",
+                  "id": 25632,
+                  "text": "2000 J",
+                  "is_correct": true
+                },
+                {
+                  "label": "B",
+                  "id": 25633,
+                  "text": "1500 J",
+                  "is_correct": false
+                },
+                {
+                  "label": "C",
+                  "id": 25635,
+                  "text": "3000 J",
+                  "is_correct": false
+                },
+                {
+                  "label": "D",
+                  "id": 25634,
+                  "text": "2500 J",
+                  "is_correct": false
+                }
+              ],
+              "correct_option_ids": [
+                25632
+              ],
+              "correct_option_labels": [
+                "A"
+              ],
+              "correct_option_texts": [
+                "2000 J"
+              ],
+              "explanation": "W = Fscos$\\theta$ = mghcos0^o\nW = 20 $\\times$ 10 $\\times$ 10 $\\times$ 1 = 2000 J"
+            },
+            {
+              "questionID": 17609,
+              "question": "A raindrop of mass 2.00 g falls from a height of 1.00 km. It hits the ground with a speed of 50.0 m/s. What is the work done by the gravitational force? (Take g = 10 ms^−2)",
+              "question_raw": "<p>A raindrop of mass 2.00 g falls from a height of 1.00 km. It hits the ground with a speed of 50.0 m/s. What is the work done by the gravitational force? (Take g = 10 ms<sup>&minus;2</sup>)</p>",
+              "options": [
+                {
+                  "label": "A",
+                  "id": 25636,
+                  "text": "20 J",
+                  "is_correct": true
+                },
+                {
+                  "label": "B",
+                  "id": 25639,
+                  "text": "26 J",
+                  "is_correct": false
+                },
+                {
+                  "label": "C",
+                  "id": 25637,
+                  "text": "22 J",
+                  "is_correct": false
+                },
+                {
+                  "label": "D",
+                  "id": 25638,
+                  "text": "24 J",
+                  "is_correct": false
+                }
+              ],
+              "correct_option_ids": [
+                25636
+              ],
+              "correct_option_labels": [
+                "A"
+              ],
+              "correct_option_texts": [
+                "20 J"
+              ],
+              "explanation": "W = Fscos$\\theta$ = mghcos0^o\nW = 2 $\\times$ 10^ − 3 $\\times$ 10 $\\times$ 1000 $\\times$ 1 = 20J"
+            },
+            {
+              "questionID": 17610,
+              "question": "A raindrop of mass 2.00 g falls from a height of 1.00 km. It hits the ground with a speed of 50.0 m/s. What is the work done by the resistive forces if any? (Take g = 10 ms^−2)",
+              "question_raw": "<p>A raindrop of mass 2.00 g falls from a height of 1.00 km. It hits the ground with a speed of 50.0 m/s. What is the work done by the resistive forces if any? (Take g = 10 ms<sup>&minus;2</sup>)</p>",
+              "options": [
+                {
+                  "label": "A",
+                  "id": 25642,
+                  "text": "– 19.5 J",
+                  "is_correct": false
+                },
+                {
+                  "label": "B",
+                  "id": 25643,
+                  "text": "– 22.5 J",
+                  "is_correct": false
+                },
+                {
+                  "label": "C",
+                  "id": 25640,
+                  "text": "- 17.5 J",
+                  "is_correct": true
+                },
+                {
+                  "label": "D",
+                  "id": 25641,
+                  "text": "– 27.5 J",
+                  "is_correct": false
+                }
+              ],
+              "correct_option_ids": [
+                25640
+              ],
+              "correct_option_labels": [
+                "C"
+              ],
+              "correct_option_texts": [
+                "- 17.5 J"
+              ],
+              "explanation": "From work kinetic energy theorem\n$\\Delta$K = W_mg + W_air\nW_mg = Fscos$\\theta$ = mghcos0^o\nW_mg = 2 $\\times$ 10 ^- 3 $\\times$ 10 $\\times$ 1000 $\\times$ 1 = 20J\n$1\\over2$ $\\times$2 $\\times$ 10^ - 3(50^2 − 0) = 20 + W_air\n2.5 = 20 + W_air\nW_air = − 17.5J"
+            },
+            {
+              "questionID": 17611,
+              "question": "A 6.0-kg block initially at rest is pulled to the right along a horizontal frictionless surface by a constant horizontal force of 12 N. Find the speed of the block after it has moved 3.0 m?",
+              "question_raw": "<p>A 6.0-kg block initially at rest is pulled to the right along a horizontal&nbsp;frictionless surface by a constant horizontal force of 12 N. Find the speed of the block after it has moved 3.0 m?</p>",
+              "options": [
+                {
+                  "label": "A",
+                  "id": 25646,
+                  "text": "4.5 m/s",
+                  "is_correct": false
+                },
+                {
+                  "label": "B",
+                  "id": 25647,
+                  "text": "5.5 m/s",
+                  "is_correct": false
+                },
+                {
+                  "label": "C",
+                  "id": 25645,
+                  "text": "2.5 m/s",
+                  "is_correct": false
+                },
+                {
+                  "label": "D",
+                  "id": 25644,
+                  "text": "3.5 m/s",
+                  "is_correct": true
+                }
+              ],
+              "correct_option_ids": [
+                25644
+              ],
+              "correct_option_labels": [
+                "D"
+              ],
+              "correct_option_texts": [
+                "3.5 m/s"
+              ],
+              "explanation": "From work kinetic energy theorem\nK.E. = $\\frac{1}{2}$m v^2\n$\\Delta$K = W\n$\\frac{1}{2}$mv^2 - $\\frac{1}{2}$mu^2 = Fs\n$\\left(\\frac{1}{2} \\times 6 \\times v^{2}\\right)$ − 0 = 12 $\\times$ 3\n3 v^2 = 36\nv^2 = 12\nv = 3.5m/sec"
+            },
+            {
+              "questionID": 17612,
+              "question": "A 6.0-kg block initially at rest is pulled to the right along a horizontal, surface having a coefficient of kinetic friction of 0.15, by a constant horizontal force of 12 N. Find the speed of the block after it has moved 3.0 m?",
+              "question_raw": "<p>A 6.0-kg block initially at rest is pulled to the right along a horizontal, surface having a coefficient of kinetic friction of 0.15, by a constant horizontal force of 12 N. Find the speed of the block after it has moved 3.0 m?</p>",
+              "options": [
+                {
+                  "label": "A",
+                  "id": 25648,
+                  "text": "1.8 m/s",
+                  "is_correct": true
+                },
+                {
+                  "label": "B",
+                  "id": 25650,
+                  "text": "0.8 m/s",
+                  "is_correct": false
+                },
+                {
+                  "label": "C",
+                  "id": 25651,
+                  "text": "3.8 m/s",
+                  "is_correct": false
+                },
+                {
+                  "label": "D",
+                  "id": 25649,
+                  "text": "2.8 m/s",
+                  "is_correct": false
+                }
+              ],
+              "correct_option_ids": [
+                25648
+              ],
+              "correct_option_labels": [
+                "A"
+              ],
+              "correct_option_texts": [
+                "1.8 m/s"
+              ],
+              "explanation": "$\\Delta$K = W\nF = 12N\nf = $\\mu$R = $\\mu$mg = 0.15 $\\times$ 6 $\\times$ 9.8 = 8.82N\nF_net = F - f = 12 - 8.82 = 3.18N\n1/2mv^2 - 1/2mu^2 = W\n1/2mv^2-0 = F_net x $x$\n$\\left(\\frac{1}{2} \\times 6 \\times v^{2}\\right)$ = 3.18 $\\times$ 3\n3v^2 = 3.18 $\\times$ 3\nv^2 = 3.18v = 1.8m/sec"
+            },
+            {
+              "questionID": 17613,
+              "question": "A pump on the ground floor of a building can pump up water to fill a tank of volume 30m^3 in 15 min. If the tank is 40 m above the ground, and the efficiency of the pump is 30%, how much electric power is consumed by the pump?",
+              "question_raw": "<p>A pump on the ground floor of a building can pump up water to fill a tank of volume 30m<sup>3</sup> in 15 min. If the tank is 40 m above the ground, and the efficiency of the pump is 30%, how much electric power is consumed by the pump?</p>",
+              "options": [
+                {
+                  "label": "A",
+                  "id": 25652,
+                  "text": "43.3 kW",
+                  "is_correct": true
+                },
+                {
+                  "label": "B",
+                  "id": 25653,
+                  "text": "33.6 kW",
+                  "is_correct": false
+                },
+                {
+                  "label": "C",
+                  "id": 25654,
+                  "text": "38.3 kW",
+                  "is_correct": false
+                },
+                {
+                  "label": "D",
+                  "id": 25655,
+                  "text": "45.2 kW",
+                  "is_correct": false
+                }
+              ],
+              "correct_option_ids": [
+                25652
+              ],
+              "correct_option_labels": [
+                "A"
+              ],
+              "correct_option_texts": [
+                "43.3 kW"
+              ],
+              "explanation": "P = $W\\over t$\nW = mgh\n30m^3 = 30000 = 3 $\\times$ 10^4 lit\nmass of 30000 lit water = 30000 Kg\n$P = {{mgh} \\over t} = {{3 \\times {{10}^4} \\times 9.8 \\times 40} \\over {15 \\times 60}} = 1.30 \\times {10^4}W$ \nefficiency = power output / power consumption\n$\\eta=\\frac{P}{P_{\\mathrm{c}}}$\n$P_{c}=\\frac{P}{\\eta}=\\frac{1.30 \\times 10^{4}}{0.3}$ = 4.33 × 10^4 = 43.3KW."
+            },
+            {
+              "questionID": 17614,
+              "question": "The bob of a pendulum is released from a horizontal position. If the length of the pendulum is 1.5 m, what is the speed with which the bob arrives at the lowermost point, given that it dissipated 5$\\% $ of its initial energy against air resistance?",
+              "question_raw": "<p>The bob of a pendulum is released from a horizontal position. If the length of the pendulum is 1.5 m, what is the speed with which the bob arrives at the lowermost point, given that it dissipated 5<span class=\"math-tex\">{tex}\\% {/tex}</span> of its initial energy against air resistance?</p>",
+              "options": [
+                {
+                  "label": "A",
+                  "id": 25658,
+                  "text": "4.9 m/s",
+                  "is_correct": false
+                },
+                {
+                  "label": "B",
+                  "id": 25657,
+                  "text": "5.5 m/s",
+                  "is_correct": false
+                },
+                {
+                  "label": "C",
+                  "id": 25659,
+                  "text": "4.7 m/s",
+                  "is_correct": false
+                },
+                {
+                  "label": "D",
+                  "id": 25656,
+                  "text": "5.3 m/s",
+                  "is_correct": true
+                }
+              ],
+              "correct_option_ids": [
+                25656
+              ],
+              "correct_option_labels": [
+                "D"
+              ],
+              "correct_option_texts": [
+                "5.3 m/s"
+              ],
+              "explanation": "95% of potential energy is converted into kinetic energy.\napplying conservation of mechanical energy between horizontal and lowermost points\n$mgl \\times {{95} \\over {100}} = {1 \\over 2}m{v^2}$\n$gl \\times {{95} \\over {100}} = {1 \\over 2}{v^2}$\nv = $\\sqrt {{{2 \\times gl \\times 95} \\over {100}}}$ = $\\sqrt {{{2 \\times 9.8 \\times 1.5 \\times 95} \\over {100}}}$ = 5.3m/s"
+            },
+            {
+              "questionID": 17615,
+              "question": "Consider a collision between two pool balls. Ball 1 is at rest and ball 2 is moving towards it with a speed of 2 ms^-1. The mass of each ball is 0.3 kg. After the balls collide elastically, ball 2 comes to an immediate stop and ball 1 move off. What is the final velocity of ball 1?",
+              "question_raw": "<p>Consider a collision between two pool balls. Ball 1 is at rest and ball 2 is moving towards it with a speed of 2 ms<sup>-1</sup>. The mass of each ball is 0.3 kg. After the balls collide elastically, ball 2 comes to an immediate stop and ball 1 move off. What is the final velocity of ball 1?</p>",
+              "options": [
+                {
+                  "label": "A",
+                  "id": 25660,
+                  "text": "2 m/s",
+                  "is_correct": true
+                },
+                {
+                  "label": "B",
+                  "id": 25662,
+                  "text": "2.2 m/s",
+                  "is_correct": false
+                },
+                {
+                  "label": "C",
+                  "id": 25663,
+                  "text": "2.4 m/s",
+                  "is_correct": false
+                },
+                {
+                  "label": "D",
+                  "id": 25661,
+                  "text": "1.87 m/s",
+                  "is_correct": false
+                }
+              ],
+              "correct_option_ids": [
+                25660
+              ],
+              "correct_option_labels": [
+                "A"
+              ],
+              "correct_option_texts": [
+                "2 m/s"
+              ],
+              "explanation": "Inelastic collision (e = 1) if the mass of colliding bodies is the same then their velocities after collision interchanged.\nm_1 = m_2 = m\nu_1 = 0\nu_2 = 2m/s\n${v_1} = \\left( {{{{m_1} - {m_2}} \\over {{m_1} + {m_2}}}} \\right){u_1} + \\left( {{{2{m_2}} \\over {{m_1} + {m_2}}}} \\right){u_2} $ = 2m/s\n${v_2} = \\left( {{{2{m_1}} \\over {{m_1} + {m_2}}}} \\right){u_1} + \\left( {{{{m_2} - {m_1}} \\over {{m_1} - {m_2}}}} \\right){u_2} $ = 0"
+            },
+            {
+              "questionID": 17616,
+              "question": "Consider two 2 marbles. Marble 1 has mass 100 g and marble 2 has mass 50 g. Edward rolls marble 1 along the ground towards marble 2 in the positive x-direction. Marble 2 is initially at rest and marble 1 has a velocity of 3 m /s in the positive x-direction. After they collide elastically, both marbles are moving. What is the final velocity of each marble?",
+              "question_raw": "<p>Consider two 2 marbles. Marble 1 has mass 100 g and marble 2 has mass 50 g. Edward rolls marble 1&nbsp;along the ground towards marble 2&nbsp;in the positive x-direction. Marble 2&nbsp;is initially at rest and marble 1&nbsp;has a velocity of 3 m /s in the positive x-direction. After they collide elastically, both marbles are moving. What is the final velocity of each marble?</p>",
+              "options": [
+                {
+                  "label": "A",
+                  "id": 25666,
+                  "text": "ball 1 moves to the right at 2 m /s and ball 2 moves to the left with a velocity of 2m /s",
+                  "is_correct": false
+                },
+                {
+                  "label": "B",
+                  "id": 25667,
+                  "text": "ball 1 moves to the right at 5 m /s and ball 2 moves to the left with a velocity of 3m /s",
+                  "is_correct": false
+                },
+                {
+                  "label": "C",
+                  "id": 25664,
+                  "text": "ball 1 moves to the right with a velocity of 1m/s and ball 2 also moves to the right at 4 m/s",
+                  "is_correct": true
+                },
+                {
+                  "label": "D",
+                  "id": 25665,
+                  "text": "ball 1 moves to the right at 3 m /s and ball 2 moves to the left with a velocity of 2m /s",
+                  "is_correct": false
+                }
+              ],
+              "correct_option_ids": [
+                25664
+              ],
+              "correct_option_labels": [
+                "C"
+              ],
+              "correct_option_texts": [
+                "ball 1 moves to the right with a velocity of 1m/s and ball 2 also moves to the right at 4 m/s"
+              ],
+              "explanation": "m_1 = 100gm\nm_2 = 50gm\nu_1 = 3m/s\nu_2 = 0\n$v_{1}=$$\\left(\\frac{m_{1}-m_{2}}{m_{1}+m_{2}}\\right) u_{1}+\\left(\\frac{2 m_{2}}{m_{1}+m_{2}}\\right) u_{2}$ = $\\left(\\frac{50}{150} \\times 3\\right)$ + 0 = 1 m/s\n$v_{2}$ = $\\left(\\frac{2 m_{1}}{m_{1}+m_{2}}\\right) u_{1}+\\left(\\frac{m_{2}-m_{1}}{m_{1}-m_{2}}\\right) u_{2}$ = $\\left(\\frac{200}{150} \\times 3\\right)+0$ = 4m/s"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "testPaperID": 555,
+      "testPaperName": "Work, Energy and Power Test 04",
+      "is_paid": true,
+      "category_full_name": "CBSE > Class 11 > Physics > Work Energy and Power",
+      "noOfQuestions": 15,
+      "has_answers": true,
+      "sections": [
+        {
+          "sectionName": "General",
+          "sectionID": null,
+          "questions": [
+            {
+              "questionID": 17617,
+              "question": "Two billiard balls each with a mass of 150g collide head-on in an elastic collision. Ball 1 was travelling at a speed of 2 m /s and ball 2 at a speed of 1.5 m /s. After the collision, ball 1 travels away from ball 2 at a velocity of 1.5 m /s .What is the velocity of ball 2?",
+              "question_raw": "<p>Two billiard balls each with a mass of 150g collide head-on in an elastic collision. Ball 1 was travelling at a speed of 2 m /s and ball 2 at a speed of 1.5 m /s. After the collision, ball 1 travels away from ball 2 at a velocity of 1.5 m /s .What is the velocity of ball 2?</p>",
+              "options": [
+                {
+                  "label": "A",
+                  "id": 25670,
+                  "text": "ball 2 moves with a velocity of 2.5 m /s",
+                  "is_correct": false
+                },
+                {
+                  "label": "B",
+                  "id": 25668,
+                  "text": "ball 2 moves with a velocity of 2 m/s",
+                  "is_correct": true
+                },
+                {
+                  "label": "C",
+                  "id": 25669,
+                  "text": "ball 2 moves with a velocity of 3.5 m/s",
+                  "is_correct": false
+                },
+                {
+                  "label": "D",
+                  "id": 25671,
+                  "text": "ball 2 moves with a velocity of 3.7 m/s",
+                  "is_correct": false
+                }
+              ],
+              "correct_option_ids": [
+                25668
+              ],
+              "correct_option_labels": [
+                "B"
+              ],
+              "correct_option_texts": [
+                "ball 2 moves with a velocity of 2 m/s"
+              ],
+              "explanation": "In the elastic collision (e = 1) if the mass of colliding bodies is the same then their velocities after collision interchanged.\nm_1 = 150gm\nm_2 = 150gm\nu_1 = 2m/s\nu_2 = −1.5m/s\n$v_{1}=\\left(\\frac{m_{1}-m_{2}}{m_{1}+m_{2}}\\right) u_{1}+\\left(\\frac{2 m_{2}}{m_{1}+m_{2}}\\right) u_{2}$ = −u_2 = −1.5m/s\nv_2 = $\\left(\\frac{2 m_{1}}{m_{1}+m_{2}}\\right) u_{1}+\\left(\\frac{m_{2}-m_{1}}{m_{1}-m_{2}}\\right) u_{2}$ = u_1 = 2 m/s\nso that ball 2 moves with a velocity of 2 m/s"
+            },
+            {
+              "questionID": 17618,
+              "question": "Consider the collision of two cars. Car 1 is at rest and Car 2 is moving at a speed of 2 m /s in the negative x-direction. Both cars each have a mass of 500 kg. The cars collide inelastically and stick together. What is the resulting velocity of the resulting mass of metal?",
+              "question_raw": "<p>Consider the collision of two cars. Car 1 is at rest and Car 2 is moving at a speed of 2 m /s in the negative x-direction. Both cars each have a mass of 500 kg. The cars collide inelastically and stick together. What is the resulting velocity of the resulting mass of metal?</p>",
+              "options": [
+                {
+                  "label": "A",
+                  "id": 25672,
+                  "text": "1 m/s to the left",
+                  "is_correct": true
+                },
+                {
+                  "label": "B",
+                  "id": 25675,
+                  "text": "1.5 m /s to the left",
+                  "is_correct": false
+                },
+                {
+                  "label": "C",
+                  "id": 25673,
+                  "text": "1.2 m /s to the left",
+                  "is_correct": false
+                },
+                {
+                  "label": "D",
+                  "id": 25674,
+                  "text": "1.4 m /s to the left",
+                  "is_correct": false
+                }
+              ],
+              "correct_option_ids": [
+                25672
+              ],
+              "correct_option_labels": [
+                "A"
+              ],
+              "correct_option_texts": [
+                "1 m/s to the left"
+              ],
+              "explanation": "from conservation of linear momentum initial momentum = final momentum\n$\\vec{p}_{i}=\\vec{p}_{f}$\n(500 $\\times$ 0) + [500 $\\times$ (−2)] = (500 + 500)v\n- 1000 = 1000v\nv = −1m/s negative sign indicates that cars move to the left."
+            },
+            {
+              "questionID": 17619,
+              "question": "A body of mass 0.5 kg travels in a straight line with velocity v = $a x^{\\frac 3 2}$ where a = $5 m^{\\frac {−1}{2}}s^{−1}$. What is the work done by the net force during its displacement from x = 0 to x = 2 m is:",
+              "question_raw": "<p>A body of mass 0.5 kg travels in a straight line with velocity v = <span class=\"math-tex\">{tex}a x^{\\frac 3 2}{/tex}</span> where a = <span class=\"math-tex\">{tex}5 m^{\\frac {−1}{2}}s^{−1}{/tex}</span>. What is the work done by the net force during its displacement from x = 0 to x = 2 m is:</p>",
+              "options": [
+                {
+                  "label": "A",
+                  "id": 25678,
+                  "text": "10 J",
+                  "is_correct": false
+                },
+                {
+                  "label": "B",
+                  "id": 25679,
+                  "text": "100 J",
+                  "is_correct": false
+                },
+                {
+                  "label": "C",
+                  "id": 25676,
+                  "text": "50 J",
+                  "is_correct": true
+                },
+                {
+                  "label": "D",
+                  "id": 25677,
+                  "text": "1.5 J",
+                  "is_correct": false
+                }
+              ],
+              "correct_option_ids": [
+                25676
+              ],
+              "correct_option_labels": [
+                "C"
+              ],
+              "correct_option_texts": [
+                "50 J"
+              ],
+              "explanation": "Mass of the body, m = 0.5 kg\nThe velocity of the body v = $ax^{\\frac 3 2}$\na = 5 $m^{\\frac {-1}{2}}$s^-1\nInitial velocity at x = 0 is u = 0\nFinal velocity at x = 2 m is v = 10$\\sqrt2$ m/s\nwork done = Change in kinetic energy\nW = K_f - K_i\nW =$\\frac 12$mv^2 - 0\nW = $\\frac 12 \\times$ 0.5 $\\times$ (10$\\sqrt 2$)^2 = $\\frac 12 \\times$0.5 $\\times$ 200 = 50J"
+            },
+            {
+              "questionID": 17620,
+              "question": "A person trying to lose weight (dieter) lifts a 10 kg mass, one thousand times, to a height of 0.5 m each time. Assume that the potential energy lost each time she lowers the mass is dissipated. How much work does she do against the gravitational force?",
+              "question_raw": "<p>A person trying to lose weight (dieter) lifts a 10 kg mass, one thousand times, to a height of 0.5 m each time. Assume that the potential energy lost each time she lowers the mass is dissipated. How much work does she do against the gravitational force?</p>",
+              "options": [
+                {
+                  "label": "A",
+                  "id": 25680,
+                  "text": "49000 J",
+                  "is_correct": true
+                },
+                {
+                  "label": "B",
+                  "id": 25681,
+                  "text": "45000 J",
+                  "is_correct": false
+                },
+                {
+                  "label": "C",
+                  "id": 25683,
+                  "text": "59000 J",
+                  "is_correct": false
+                },
+                {
+                  "label": "D",
+                  "id": 25682,
+                  "text": "55000 J",
+                  "is_correct": false
+                }
+              ],
+              "correct_option_ids": [
+                25680
+              ],
+              "correct_option_labels": [
+                "A"
+              ],
+              "correct_option_texts": [
+                "49000 J"
+              ],
+              "explanation": "Work done by force applied against gravity for one lift will be\nW = Fs = mgh = 10 $\\times$ 9.8 $\\times$ 0.5 = 49J\nSo work done for 1000 lifts = 49 $\\times$ 1000 = 49000 J"
+            },
+            {
+              "questionID": 17621,
+              "question": "A person trying to lose weight (dieter) lifts a 10 kg mass, one thousand times, to a height of 0.5 m each time. Assume that the potential energy lost each time she lowers the mass is dissipated. Fat supplies 3.8 ${\\times }$ 10^7 J of energy per kilogram which is converted to mechanical energy with a 20% efficiency rate. How much fat will the dieter use up?",
+              "question_raw": "<p>A person trying to lose weight (dieter) lifts a 10 kg mass, one thousand times, to a height of 0.5 m each time. Assume that the potential energy lost each time she lowers the mass is dissipated. Fat supplies 3.8 <span class=\"math-tex\">{tex}{\\times }{/tex}</span>&nbsp;10<sup>7</sup> J of energy per kilogram which is converted to mechanical energy with a 20% efficiency rate. How much fat will the dieter use up?</p>",
+              "options": [
+                {
+                  "label": "A",
+                  "id": 25685,
+                  "text": "7.45 $ \\times $ 10^-3 kg",
+                  "is_correct": false
+                },
+                {
+                  "label": "B",
+                  "id": 25684,
+                  "text": "6.45$ \\times $ 10^-3 kg",
+                  "is_correct": true
+                },
+                {
+                  "label": "C",
+                  "id": 25687,
+                  "text": "8.85 $ \\times $ 10^-3 kg",
+                  "is_correct": false
+                },
+                {
+                  "label": "D",
+                  "id": 25686,
+                  "text": "8.45 $ \\times $ 10^-3 kg",
+                  "is_correct": false
+                }
+              ],
+              "correct_option_ids": [
+                25684
+              ],
+              "correct_option_labels": [
+                "B"
+              ],
+              "correct_option_texts": [
+                "6.45$ \\times $ 10^-3 kg"
+              ],
+              "explanation": "Work done by force applied against gravity for one lift will be\nW = Fs = mgh = 10 $\\times$ 9.8 $\\times$ 0.5 = 49J\nSo work done for 1000 lifts = 49 $\\times$ 1000 = 49000 J\nefficiency = $Work \\ done \\over energy \\ from \\ fat$\nenergy from fat used = $Work \\ done \\over efficiency$\nE = $ {W \\over \\eta } = {{49000} \\over {0.2}} $ = 245000J\nEnergy from per kilogram fat = 3.8 ${\\times }$ 10^7 J\nFat used $ = {{245000} \\over {3.8 \\times {{10}^7}}} $ = 64473 $\\times$ 10^-7 = 6.45 $\\times$ 10^-3 Kg"
+            },
+            {
+              "questionID": 17622,
+              "question": "The Sun converts an enormous amount of matter to energy. Each second, 4.19 ${\\times }$ 10^9 kg-approximately the capacity of 400 average-sized cargo ships-is changed to energy. What is the power output of the Sun?",
+              "question_raw": "<p>The Sun converts an enormous amount of matter to energy. Each second, 4.19 <span class=\"math-tex\">{tex}{\\times }{/tex}</span>&nbsp;10<sup>9</sup> kg-approximately the capacity of 400 average-sized cargo ships-is changed to energy. What is the power output of the Sun?</p>",
+              "options": [
+                {
+                  "label": "A",
+                  "id": 25689,
+                  "text": "0.72 $ \\times $ 10^26 W",
+                  "is_correct": false
+                },
+                {
+                  "label": "B",
+                  "id": 25688,
+                  "text": "3.77 $ \\times $ 10^26 W",
+                  "is_correct": true
+                },
+                {
+                  "label": "C",
+                  "id": 25690,
+                  "text": "1.57 $ \\times $ 10^26 W",
+                  "is_correct": false
+                },
+                {
+                  "label": "D",
+                  "id": 25691,
+                  "text": "2.62 $ \\times $ 10^26 W",
+                  "is_correct": false
+                }
+              ],
+              "correct_option_ids": [
+                25688
+              ],
+              "correct_option_labels": [
+                "B"
+              ],
+              "correct_option_texts": [
+                "3.77 $ \\times $ 10^26 W"
+              ],
+              "explanation": "The energy liberated per second \nE = mc^2 = 4.19 $\\times$ 10^9 $\\times$ 3 $\\times$ 10^8 $\\times$3 $\\times$ 10^8 = 37.71 $\\times$ 10^25 J\npower output of the sun is equal to energy output per second \nP = ${W \\over t} = {{37.71 \\times {{10}^{25}}} \\over 1} $ = 3.77 $\\times$ 10^26 W"
+            },
+            {
+              "questionID": 17623,
+              "question": "A block having a mass of 0.80 kg is given an initial velocity of 1.2 m/s to the right and collides with a spring of negligible mass and force constant k = 50 N/m. Assuming the surface to be frictionless, calculate the maximum compression of the spring after the collision.",
+              "question_raw": "<p>A block having a mass of 0.80 kg is given an initial velocity of 1.2 m/s to the right and collides with a spring of negligible mass and force constant k = 50 N/m. Assuming the surface to be frictionless, calculate the maximum compression of the spring after the collision.</p>",
+              "options": [
+                {
+                  "label": "A",
+                  "id": 25694,
+                  "text": "0.25 m",
+                  "is_correct": false
+                },
+                {
+                  "label": "B",
+                  "id": 25693,
+                  "text": "0.10 m",
+                  "is_correct": false
+                },
+                {
+                  "label": "C",
+                  "id": 25695,
+                  "text": "0.20 m",
+                  "is_correct": false
+                },
+                {
+                  "label": "D",
+                  "id": 25692,
+                  "text": "0.15 m",
+                  "is_correct": true
+                }
+              ],
+              "correct_option_ids": [
+                25692
+              ],
+              "correct_option_labels": [
+                "D"
+              ],
+              "correct_option_texts": [
+                "0.15 m"
+              ],
+              "explanation": "for maximum compression \n${1 \\over 2}k{x^2} = {1 \\over 2}m{v^2}$\nx = $ \\sqrt {{{m{v^2}} \\over k}} = \\sqrt {{{0.8 \\times 1.2 \\times 1.2} \\over {50}}} $ = 0.15m\nthe maximum compression of the spring after the collision = 0.15m."
+            },
+            {
+              "questionID": 17624,
+              "question": "The launching mechanism of a toy gun consists of a spring of unknown spring constant. When the spring is compressed 0.120 m, the gun, when fired vertically, is able to launch a 35.0-g projectile to a maximum height of 20.0 m above the position of the projectile before firing. Neglecting all resistive forces, determine the spring constant.",
+              "question_raw": "<p>The launching mechanism of a toy gun consists of a spring of unknown spring constant. When the spring is compressed 0.120 m, the gun, when fired vertically, is able to launch a 35.0-g projectile to a maximum height of 20.0 m above the position of the projectile before firing. Neglecting all resistive forces, determine the spring constant.</p>",
+              "options": [
+                {
+                  "label": "A",
+                  "id": 25696,
+                  "text": "953 N/m",
+                  "is_correct": true
+                },
+                {
+                  "label": "B",
+                  "id": 25699,
+                  "text": "993 N/m",
+                  "is_correct": false
+                },
+                {
+                  "label": "C",
+                  "id": 25697,
+                  "text": "903 N/m",
+                  "is_correct": false
+                },
+                {
+                  "label": "D",
+                  "id": 25698,
+                  "text": "873 N/m",
+                  "is_correct": false
+                }
+              ],
+              "correct_option_ids": [
+                25696
+              ],
+              "correct_option_labels": [
+                "A"
+              ],
+              "correct_option_texts": [
+                "953 N/m"
+              ],
+              "explanation": "The potential energy of spring converted into potential energy\n${1 \\over 2}k{x^2} $ = mgh\nk = ${{2mgh} \\over {{x^2}}}$ =$ {{2 \\times 35 \\times {{10}^{ - 3}} \\times 9.8 \\times 20} \\over {0.12 \\times 0.12}} $ = 953N/m"
+            },
+            {
+              "questionID": 17625,
+              "question": "A 3.00-kg crate slides down a ramp. The ramp is 1.00 m in length and inclined at an angle of 30.0^o. The crate starts from rest at the top, experiences a constant frictional force of magnitude 5.00 N, and continues to move a short distance on the flat floor after it leaves the ramp. Use energy methods to determine the speed of the crate at the bottom of the ramp?",
+              "question_raw": "<p>A 3.00-kg crate slides down a ramp. The ramp is 1.00 m in length and inclined at an angle of 30.0<sup>o</sup>. The crate starts from rest at the top, experiences a constant frictional force of magnitude 5.00 N, and continues to move a short distance on the flat floor after it leaves the ramp. Use energy methods to determine the speed of the crate at the bottom of the ramp?</p>",
+              "options": [
+                {
+                  "label": "A",
+                  "id": 25702,
+                  "text": "1.76 m/s",
+                  "is_correct": false
+                },
+                {
+                  "label": "B",
+                  "id": 25701,
+                  "text": "2.25 m/s",
+                  "is_correct": false
+                },
+                {
+                  "label": "C",
+                  "id": 25700,
+                  "text": "2.54 m/s",
+                  "is_correct": true
+                },
+                {
+                  "label": "D",
+                  "id": 25703,
+                  "text": "2.78 m/s",
+                  "is_correct": false
+                }
+              ],
+              "correct_option_ids": [
+                25700
+              ],
+              "correct_option_labels": [
+                "C"
+              ],
+              "correct_option_texts": [
+                "2.54 m/s"
+              ],
+              "explanation": "Height of ramp \nh = lsin30^o = 1 $\\times$ 1/2 = 0.5m\nfrom work kinetic energy theorem\nK_f - K_i = W_mg + W_f\n$1\\over 2$mv^2 - 0 = mgh + fd\n$1\\over 2$ $\\times$ 3v^2 = (3 $\\times$ 9.8 $\\times$0.5) + [5 $\\times$ ( - 1)]\n$\\frac{3}{2}$v^2 = 14.7 - 5\nv^2 = 9.7 $\\times$ $\\frac{2}{3}$\nv = $\\sqrt{\\frac{9.7 \\times 2}{3}}$ = 2.54m/s"
+            },
+            {
+              "questionID": 17626,
+              "question": "A bullet of mass 0.012 kg and horizontal speed 70 m ${\\rm{s}}{-^{\\rm{1}}}$ strikes a block of wood of mass 0.4 kg and instantly comes to rest with respect to the block. The block is suspended from the ceiling by means of thin wires. Calculate the height to which the block rises. Also, estimate the amount of heat produced in the bloc?.",
+              "question_raw": "<p>A bullet of mass 0.012 kg and horizontal speed 70 m <span class=\"math-tex\">{tex}{\\rm{s}}{-^{\\rm{1}}}{/tex}</span> strikes a block of wood of mass 0.4 kg and instantly comes to rest with respect to the block. The block is suspended from the ceiling by means of thin wires. Calculate the height to which the block rises. Also, estimate the amount of heat produced in the bloc?.</p>",
+              "options": [
+                {
+                  "label": "A",
+                  "id": 25706,
+                  "text": "23.2 cm, 38.5 J",
+                  "is_correct": false
+                },
+                {
+                  "label": "B",
+                  "id": 25704,
+                  "text": "21.2 cm, 28.5 J",
+                  "is_correct": true
+                },
+                {
+                  "label": "C",
+                  "id": 25707,
+                  "text": "29.2 cm, 29.5 J",
+                  "is_correct": false
+                },
+                {
+                  "label": "D",
+                  "id": 25705,
+                  "text": "72.2 cm, 28.5 J",
+                  "is_correct": false
+                }
+              ],
+              "correct_option_ids": [
+                25704
+              ],
+              "correct_option_labels": [
+                "B"
+              ],
+              "correct_option_texts": [
+                "21.2 cm, 28.5 J"
+              ],
+              "explanation": "mass of bullet m = 0.012 kg\nmass of block = 0.4 kg\nThe initial speed of a bullet, u =70m/s\nLet the final speed of block and bullet which move together = v m/s\nAccording to the law of conservation of momentum,\n$v\\sqrt{\\frac{9.7 \\times 2}{3}}$\nv =$ {{mu} \\over {M + m}} = {{0.012 \\times 70} \\over {0.412}} $ = 2.04m/s\nLet block rises to a height h after the collision, then\nLoss in K.E. of block and bullet = Gain in P.E. after the collision.\n${1 \\over 2}\\left( {m + M} \\right){v^2} $ = (m + M)gh\nh = $ {{{v^2}} \\over {2g}} = {{2.04 \\times 2.04} \\over {2 \\times 9.8}} $ = 0.212m = 21.2 cm\nHeat produced in the block = loss of K.E. = K.E. of bullet - K.E. of block and bullet\nHeat produced in the block = ${1 \\over 2}m{u^2} - {1 \\over 2}\\left( {m + M} \\right){v^2}$ = $ \\left( {{1 \\over 2} \\times 0.012 \\times 70 \\times 70} \\right) - \\left( {{1 \\over 2} \\times 0.412 \\times 2.04 \\times 2.04} \\right) $ = 28.5J"
+            },
+            {
+              "questionID": 17627,
+              "question": "A 1 kg block situated on a rough incline is connected to a spring of spring constant 100 Nm^-1 as shown in Figure. The block is released from rest with the spring in the unstretched position. The block moves 10 cm down the incline before coming to rest. Find the coefficient of friction between the block and the incline. Assume that the spring has a negligible mass and the pulley is frictionless.",
+              "question_raw": "<p>A 1 kg block situated on a rough incline is connected to a spring of spring constant 100 Nm<sup>-1</sup> as shown in Figure. The block is released from rest with the spring in the unstretched position. The block moves 10 cm down the incline before coming to rest. Find the coefficient of friction between the block and the incline. Assume that the spring has a negligible mass and the pulley is frictionless.<br />\r\n<img src=\"https://media-mycbseguide.s3.amazonaws.com/images/testpaper/1.02.11.06.57.Ques.JPG\" style=\"width: 100px; height: 62px;\" /></p>",
+              "options": [
+                {
+                  "label": "A",
+                  "id": 25708,
+                  "text": "0.112",
+                  "is_correct": true
+                },
+                {
+                  "label": "B",
+                  "id": 25711,
+                  "text": "0.25",
+                  "is_correct": false
+                },
+                {
+                  "label": "C",
+                  "id": 25709,
+                  "text": "0.3",
+                  "is_correct": false
+                },
+                {
+                  "label": "D",
+                  "id": 25710,
+                  "text": "0.07",
+                  "is_correct": false
+                }
+              ],
+              "correct_option_ids": [
+                25708
+              ],
+              "correct_option_labels": [
+                "A"
+              ],
+              "correct_option_texts": [
+                "0.112"
+              ],
+              "explanation": "The weight of the block can be resolved in two components.\nthe component parallel to incline plane (mgsin37^o)and a component perpendicular to the plane (mgcos37^o) \nat equilibrium\nR = mg cos 37^o \nf = $\\mu$R = $\\mu$mg cos 37\nThe net force acting on the block = mgsin37^o - f \n= mgsin37^o − $\\mu $mgcos37^o \nAt equilibrium, the work done by the block is equal to the potential energy of the spring, i.e.,\n= (mg sin 37^o - $\\mu$mg cos 37^o) $x$ = $\\frac{1}{2}$kx^2 \n$(1 \\times 9.8 \\times 0.6)-(\\mu \\times 1 \\times 9.8 \\times 0.8)$ $=\\frac{1}{2} \\times 100 \\times 0.1$\n5.88 - 7.84$\\mu$ = 5\n$\\mu=\\frac{0.88}{0.784}$ = 0.112"
+            },
+            {
+              "questionID": 17628,
+              "question": "A bolt of mass 0.3 kg falls from the ceiling of an elevator moving down with a uniform speed of 7 m/s. It hits the floor of the elevator (length of the elevator = 3 m) and does not rebound. What is the heat produced by the impact?",
+              "question_raw": "<p>A bolt of mass 0.3 kg falls from the ceiling of an elevator moving down with a uniform speed of 7 m/s. It hits the floor of the elevator (length of the elevator = 3 m) and does not rebound. What is the heat produced by the impact?</p>",
+              "options": [
+                {
+                  "label": "A",
+                  "id": 25713,
+                  "text": "8.42 J",
+                  "is_correct": false
+                },
+                {
+                  "label": "B",
+                  "id": 25715,
+                  "text": "9.22 J",
+                  "is_correct": false
+                },
+                {
+                  "label": "C",
+                  "id": 25712,
+                  "text": "8.82 J",
+                  "is_correct": true
+                },
+                {
+                  "label": "D",
+                  "id": 25714,
+                  "text": "8.11 J",
+                  "is_correct": false
+                }
+              ],
+              "correct_option_ids": [
+                25712
+              ],
+              "correct_option_labels": [
+                "C"
+              ],
+              "correct_option_texts": [
+                "8.82 J"
+              ],
+              "explanation": "The whole of the potential energy of bolt converted into heat energy \nheat produced by the impact = mgh = 0.3 $\\times$ 9.8 $\\times$ 3 = 8.82J"
+            },
+            {
+              "questionID": 17629,
+              "question": "A trolley of mass 200 kg moves with a uniform speed of 36 km/h on a frictionless track. A child of mass 20 kg runs on the trolley from one end to the other (10 m away) with a speed of 4 ms^-1 relatives to the trolley in a direction opposite to its motion, and jumps out of the trolley. What is the final speed of the trolley?",
+              "question_raw": "<p>A trolley of mass 200 kg moves with a uniform speed of 36 km/h on a frictionless track. A child of mass 20 kg runs on the trolley from one end to the other (10 m away) with a speed of 4 ms<sup>-1</sup> relatives to the trolley in a direction opposite to its motion, and jumps out of the trolley. What is the final speed of the trolley?</p>",
+              "options": [
+                {
+                  "label": "A",
+                  "id": 25718,
+                  "text": "9.36 m/s",
+                  "is_correct": false
+                },
+                {
+                  "label": "B",
+                  "id": 25719,
+                  "text": "8.13 m/s",
+                  "is_correct": false
+                },
+                {
+                  "label": "C",
+                  "id": 25716,
+                  "text": "10.36 m/s",
+                  "is_correct": true
+                },
+                {
+                  "label": "D",
+                  "id": 25717,
+                  "text": "11.36 m/s",
+                  "is_correct": false
+                }
+              ],
+              "correct_option_ids": [
+                25716
+              ],
+              "correct_option_labels": [
+                "C"
+              ],
+              "correct_option_texts": [
+                "10.36 m/s"
+              ],
+              "explanation": "Mass of trolley M = 200Kg\nmass of child m = 20Kg\nspeed of trolley v = 36Km/hr = 36 $\\times$ $5\\over 18$ = 10m/s\nLet v' be the final velocity of the trolley with respect to the ground.\nThe final velocity of the boy with respect to the ground = v' - 4\nfrom conservation of linear momentum\np_i = p_f\n(M + m)v = Mv' +m(v' − 4)\n(200 + 20) $\\times$ 10 = 200v' + 20(v' − 4)\n2200 = 220v' - 80\n= $2280\\over 220$ = 10.36m/s"
+            },
+            {
+              "questionID": 17630,
+              "question": "A trolley of mass 200 kg moves with a uniform speed of 36 km/h on a frictionless track. A child of mass 20 kg runs on the trolley from one end to the other (10 m away) with a speed of 4 ms^−1 relatives to the trolley in a direction opposite to its motion, and jumps out of the trolley. How much has the trolley moved from the time the child begins to run?",
+              "question_raw": "<p>A trolley of mass 200 kg moves with a uniform speed of 36 km/h on a frictionless track. A child of mass 20 kg runs on the trolley from one end to the other (10 m away) with a speed of 4 ms<sup>&minus;1</sup> relatives to the trolley in a direction opposite to its motion, and jumps out of the trolley. How much has the trolley moved from the time the child begins to run?</p>",
+              "options": [
+                {
+                  "label": "A",
+                  "id": 25720,
+                  "text": "25.9 m",
+                  "is_correct": true
+                },
+                {
+                  "label": "B",
+                  "id": 25722,
+                  "text": "23.3 m",
+                  "is_correct": false
+                },
+                {
+                  "label": "C",
+                  "id": 25721,
+                  "text": "24.1 m",
+                  "is_correct": false
+                },
+                {
+                  "label": "D",
+                  "id": 25723,
+                  "text": "27.8 m",
+                  "is_correct": false
+                }
+              ],
+              "correct_option_ids": [
+                25720
+              ],
+              "correct_option_labels": [
+                "A"
+              ],
+              "correct_option_texts": [
+                "25.9 m"
+              ],
+              "explanation": "Mass of trolly M = 200Kg\nmass of child m = 20Kg\nspeed of trolley v = 36Km/hr = 36 $\\times$ $5\\over 18$ = 10m/s\nLet v' be the final velocity of the trolley with respect to the ground.\nThe final velocity of the boy with respect to the ground = v' - 4 \nfrom conservation of linear momentum\np_i = p_f\n(M + m)v = Mv' + m(v' − 4)\n(200 + 20) $\\times$ 10 = 200v' + 20(v' − 4)\n2200 = 220v' - 80\nv' = $2280\\over 220$ = 10.36m/s\nTime taken by the boy to run, t = $10\\over 4$ = 2.5 sec\nDistance moved by the trolley = v't = 10.36 $\\times$ 2.5 = 25.9 m"
+            },
+            {
+              "questionID": 17631,
+              "question": "A 50.0-kg marathon runner runs up the stairs to the top of a 443-m-tall Tower. To lift herself to the top in 15.0 minutes, what must be her average power output?",
+              "question_raw": "<p>A 50.0-kg marathon runner runs up the stairs to the top of a 443-m-tall Tower. To lift herself to the top in 15.0 minutes, what must be her average power output?</p>",
+              "options": [
+                {
+                  "label": "A",
+                  "id": 25724,
+                  "text": "241 W",
+                  "is_correct": true
+                },
+                {
+                  "label": "B",
+                  "id": 25725,
+                  "text": "221 W",
+                  "is_correct": false
+                },
+                {
+                  "label": "C",
+                  "id": 25727,
+                  "text": "261 W",
+                  "is_correct": false
+                },
+                {
+                  "label": "D",
+                  "id": 25726,
+                  "text": "201 W",
+                  "is_correct": false
+                }
+              ],
+              "correct_option_ids": [
+                25724
+              ],
+              "correct_option_labels": [
+                "A"
+              ],
+              "correct_option_texts": [
+                "241 W"
+              ],
+              "explanation": "P = $ {W \\over t}$\nW = mgh = 50 $\\times$ 9.8 $\\times$ 443\nt = 15 $\\times$ 60sec\nP = ${{50 \\times 9.8 \\times 443} \\over {15 \\times 60}} $ = 241 W."
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "testPaperID": 556,
+      "testPaperName": "Work, Energy and Power Test 05",
+      "is_paid": true,
+      "category_full_name": "CBSE > Class 11 > Physics > Work Energy and Power",
+      "noOfQuestions": 15,
+      "has_answers": true,
+      "sections": [
+        {
+          "sectionName": "General",
+          "sectionID": null,
+          "questions": [
+            {
+              "questionID": 17632,
+              "question": "A 75.0-kg painter climbs a ladder that is 2.75 m long leaning against a vertical wall. The ladder makes an angle of $30^\\circ $ with the wall. How much work does gravity do on the painter?",
+              "question_raw": "<p>A 75.0-kg painter climbs a ladder that is 2.75 m long leaning against a vertical wall. The ladder makes an angle of &nbsp;<span class=\"math-tex\">{tex}30^\\circ {/tex}</span>&nbsp;with the wall. How much work does gravity do on the painter?</p>",
+              "options": [
+                {
+                  "label": "A",
+                  "id": 25728,
+                  "text": "-1750 J",
+                  "is_correct": true
+                },
+                {
+                  "label": "B",
+                  "id": 25729,
+                  "text": "-1850 J",
+                  "is_correct": false
+                },
+                {
+                  "label": "C",
+                  "id": 25730,
+                  "text": "-1950 J",
+                  "is_correct": false
+                },
+                {
+                  "label": "D",
+                  "id": 25731,
+                  "text": "-2050 J",
+                  "is_correct": false
+                }
+              ],
+              "correct_option_ids": [
+                25728
+              ],
+              "correct_option_labels": [
+                "A"
+              ],
+              "correct_option_texts": [
+                "-1750 J"
+              ],
+              "explanation": "W = −mgh\nh = $ x\\cos 30^\\circ = 2.75 \\times {{\\sqrt 3 } \\over 2}$\n$W = - 75 \\times 9.8 \\times 2.75 \\times {{\\sqrt 3 } \\over 2} $ = - 1750J"
+            },
+            {
+              "questionID": 17633,
+              "question": "A 0.800-kg ball is tied to the end of a string 1.60 m long and swung in a vertical circle. (a) During one complete circle, starting anywhere, calculate the total work done on the ball by\n the tension in the string and\n gravity",
+              "question_raw": "<p>A 0.800-kg ball is tied to the end of a string 1.60 m long and swung in a vertical circle. (a) During one complete circle, starting anywhere, calculate the total work done on the ball by</p>\r\n\r\n<ol start=\"1\" style=\"list-style-type: lower-roman;\">\r\n\t<li>the tension in the string and</li>\r\n\t<li>gravity</li>\r\n</ol>",
+              "options": [
+                {
+                  "label": "A",
+                  "id": 25733,
+                  "text": "10 J, 10 J",
+                  "is_correct": false
+                },
+                {
+                  "label": "B",
+                  "id": 25735,
+                  "text": "30 J, 30 J",
+                  "is_correct": false
+                },
+                {
+                  "label": "C",
+                  "id": 25732,
+                  "text": "0, 0",
+                  "is_correct": true
+                },
+                {
+                  "label": "D",
+                  "id": 25734,
+                  "text": "25 J, -25 J",
+                  "is_correct": false
+                }
+              ],
+              "correct_option_ids": [
+                25732
+              ],
+              "correct_option_labels": [
+                "C"
+              ],
+              "correct_option_texts": [
+                "0, 0"
+              ],
+              "explanation": "Work done by the conservative force in round trip will be zero (displacement = 0).\nSo that work done by tension and gravity will be zero."
+            },
+            {
+              "questionID": 17634,
+              "question": "A 0.800-kg ball is tied to the end of a string 1.60 m long and swung in a vertical circle. Calculate the total work done on the ball by\n the tension in the string and\n gravity for motion along the semicircle from the lowest to the highest point on the path.",
+              "question_raw": "<p>A 0.800-kg ball is tied to the end of a string 1.60 m long and swung in a vertical circle. Calculate the total work done on the ball by</p>\n\n<ol start=\"1\" style=\"list-style-type: lower-roman;\">\n\t<li>the tension in the string and</li>\n\t<li>gravity for motion along the semicircle from the lowest to the highest point on the path.</li>\n</ol>",
+              "options": [
+                {
+                  "label": "A",
+                  "id": 25739,
+                  "text": "0, -281 J",
+                  "is_correct": false
+                },
+                {
+                  "label": "B",
+                  "id": 25737,
+                  "text": "0, -2.51 J",
+                  "is_correct": false
+                },
+                {
+                  "label": "C",
+                  "id": 25736,
+                  "text": "0, -25.1 J",
+                  "is_correct": true
+                },
+                {
+                  "label": "D",
+                  "id": 25738,
+                  "text": "0, -251 J",
+                  "is_correct": false
+                }
+              ],
+              "correct_option_ids": [
+                25736
+              ],
+              "correct_option_labels": [
+                "C"
+              ],
+              "correct_option_texts": [
+                "0, -25.1 J"
+              ],
+              "explanation": "work done by tension will be zero because tension is perpendicular to the displacement.\nW = Tscos90^o = 0\nwork is done by gravity in a semicircle from the lowest to the highest point on the path\nW = mghcos180^o = 0.8 $\\times$ 9.8 $\\times$ 3.2 $\\times$ (−1) = −25.1J"
+            },
+            {
+              "questionID": 17635,
+              "question": "Adult cheetahs, the fastest of the great cats, have a mass of about 70 kg and have been clocked running at up to 72 mph (32 m/s). How many joules of kinetic energy does such a swift cheetah have?",
+              "question_raw": "<p>Adult cheetahs, the fastest of the great cats, have a mass of about 70 kg and have been clocked running at up to 72 mph (32 m/s). How many joules of kinetic energy does such a swift cheetah have?</p>",
+              "options": [
+                {
+                  "label": "A",
+                  "id": 25743,
+                  "text": "34,000 J",
+                  "is_correct": false
+                },
+                {
+                  "label": "B",
+                  "id": 25741,
+                  "text": "29,000 J",
+                  "is_correct": false
+                },
+                {
+                  "label": "C",
+                  "id": 25742,
+                  "text": "32,000 J",
+                  "is_correct": false
+                },
+                {
+                  "label": "D",
+                  "id": 25740,
+                  "text": "35840 J",
+                  "is_correct": true
+                }
+              ],
+              "correct_option_ids": [
+                25740
+              ],
+              "correct_option_labels": [
+                "D"
+              ],
+              "correct_option_texts": [
+                "35840 J"
+              ],
+              "explanation": "The kinetic energy of a cheetah \nK = $ {1 \\over 2}m{v^2}$\nm = 70Kg\nv = 32m/s\nK = $\\frac{1}{2}$ $\\times$ 70 $\\times$ 32 $\\times$ 32 = 35840J"
+            },
+            {
+              "questionID": 17636,
+              "question": "A sled with mass 8.00 kg moves in a straight line on a frictionless horizontal surface. At one point in its path, its speed is 4.00 m/s; after it has traveled 2.50 m beyond this point, its speed is 6.00 m/s. Use the work-energy theorem to find the force acting on the sled, assuming that this force is constant and that it acts in the direction of the sled’s motion.",
+              "question_raw": "<p>A sled with mass 8.00 kg moves in a straight line on a frictionless horizontal surface. At one point in its path, its speed is 4.00 m/s; after it has traveled 2.50 m beyond this point, its speed is 6.00 m/s. Use the work-energy theorem to find the force acting on the sled, assuming that this force is constant and that it acts in the direction of the sled&rsquo;s motion.</p>",
+              "options": [
+                {
+                  "label": "A",
+                  "id": 25745,
+                  "text": "30.0 N",
+                  "is_correct": false
+                },
+                {
+                  "label": "B",
+                  "id": 25747,
+                  "text": "28.0 N",
+                  "is_correct": false
+                },
+                {
+                  "label": "C",
+                  "id": 25744,
+                  "text": "32.0 N",
+                  "is_correct": true
+                },
+                {
+                  "label": "D",
+                  "id": 25746,
+                  "text": "34.0 N",
+                  "is_correct": false
+                }
+              ],
+              "correct_option_ids": [
+                25744
+              ],
+              "correct_option_labels": [
+                "C"
+              ],
+              "correct_option_texts": [
+                "32.0 N"
+              ],
+              "explanation": "from work-energy theorem\nchange in kinetic energy = work done\n$\\Delta K$ = W\nK_f − K_i = F_s\n${1 \\over 2}m{v_f}^2 - {1 \\over 2}m{v_i}^2 = Fs $\n${1 \\over 2}m\\left( {{v_f}^2 - {v_i}^2} \\right) = Fs$ \nm = 8Kg, s = 2.5m\nv_f = 6m/s, v_i = 4m/s\n$1 \\over 2$ $\\times$ 8(6^2 − 4^2) = F $\\times$ 2.5\n4 $\\times$20 = F $\\times$ 2.5\nF = ${{80} \\over {2.5}}$ = 32N"
+            },
+            {
+              "questionID": 17637,
+              "question": "A 12-pack of Omni-Cola (mass 4.30 kg) is initially at rest on a horizontal floor. It is then pushed in a straight line for 1.20 m by a trained dog that exerts a horizontal force with magnitude 36.0 N. Use the work-energy theorem to find the final speed of the 12-pack if there is no friction between the 12-pack and the floor.",
+              "question_raw": "<p>A 12-pack of Omni-Cola (mass 4.30 kg) is initially at rest on a horizontal floor. It is then pushed in a straight line for 1.20 m by a trained dog that exerts a horizontal force with magnitude 36.0 N. Use the work-energy theorem to find the final speed of the 12-pack if there is no friction between the 12-pack and the floor.</p>",
+              "options": [
+                {
+                  "label": "A",
+                  "id": 25750,
+                  "text": "4.38 m/s",
+                  "is_correct": false
+                },
+                {
+                  "label": "B",
+                  "id": 25751,
+                  "text": "4.68 m/s",
+                  "is_correct": false
+                },
+                {
+                  "label": "C",
+                  "id": 25748,
+                  "text": "4.48 m/s",
+                  "is_correct": true
+                },
+                {
+                  "label": "D",
+                  "id": 25749,
+                  "text": "4.58 m/s",
+                  "is_correct": false
+                }
+              ],
+              "correct_option_ids": [
+                25748
+              ],
+              "correct_option_labels": [
+                "C"
+              ],
+              "correct_option_texts": [
+                "4.48 m/s"
+              ],
+              "explanation": "from work-energy theorem\nchange in kinetic energy = work done\n$\\Delta K$ = W\nK_f - K_i = Fs\n${1 \\over 2}m{v^2} - 0 $ = Fs \nm = 4.30Kg, s = 1.2m, F = 36N\nv_f = vm/s, v_i = 0\n${1 \\over 2}m{v^2} = Fs$\n$1\\over 2$ $\\times$ 4.3 $\\times$ v^2 = 36 $\\times$ 1.2\n$v = \\sqrt {{{36 \\times 1.2 \\times 2} \\over {4.3}}} $ = 4.48m/s"
+            },
+            {
+              "questionID": 17638,
+              "question": "A12-pack of Omni-Cola (mass 4.30 kg) is initially at rest on a horizontal floor. It is then pushed in a straight line for 1.20 m by a trained dog that exerts a horizontal force with magnitude 36.0 N. Use the work-energy theorem to find the final speed of the 12-pack if the coefficient of kinetic friction between the 12-pack and the floor is 0.30?",
+              "question_raw": "<p>A12-pack of Omni-Cola (mass 4.30 kg) is initially at rest on a horizontal floor. It is then pushed in a straight line for 1.20 m by a trained dog that exerts a horizontal force with magnitude 36.0 N. Use the work-energy theorem to find the final speed of the 12-pack if the coefficient of kinetic friction between the 12-pack and the floor is 0.30?</p>",
+              "options": [
+                {
+                  "label": "A",
+                  "id": 25753,
+                  "text": "3.81 m/s",
+                  "is_correct": false
+                },
+                {
+                  "label": "B",
+                  "id": 25755,
+                  "text": "4.01 m/s",
+                  "is_correct": false
+                },
+                {
+                  "label": "C",
+                  "id": 25752,
+                  "text": "3.61 m/s",
+                  "is_correct": true
+                },
+                {
+                  "label": "D",
+                  "id": 25754,
+                  "text": "4.22 m/s",
+                  "is_correct": false
+                }
+              ],
+              "correct_option_ids": [
+                25752
+              ],
+              "correct_option_labels": [
+                "C"
+              ],
+              "correct_option_texts": [
+                "3.61 m/s"
+              ],
+              "explanation": "$\\Delta$K = W\nF = 36N\nf = $\\mu$R = $\\mu$mg = 0.3 $\\times$ 4.3 $\\times$ 9.8 = 12.642N\nF_net = F - f = 36 - 12.642 = 23.358N\ns = 1.2 m\n$\\frac{1}{2} m v^{2}$ - 0 = F_net $\\times$ s\n$\\frac{1}{2}$$ \\times$ 4.3 $ \\times$ v^2 = 23.358 $ \\times$ 1.2\n${v^2} = {{23.358 \\times 1.2 \\times 2} \\over {4.3}} $ = 13.03\nv = $ \\sqrt {13.03} $ = 3.61m/s"
+            },
+            {
+              "questionID": 17639,
+              "question": "A 6.0-kg box moving at 3.0 m/s on a horizontal, frictionless surface runs into a light spring of force constant 75 N/cm Use the work–energy theorem to find the maximum compression of the spring.",
+              "question_raw": "<p>A 6.0-kg box moving at 3.0 m/s on a horizontal, frictionless surface runs into a light spring of force constant 75 N/cm Use the work&ndash;energy theorem to find the maximum compression of the spring.</p>",
+              "options": [
+                {
+                  "label": "A",
+                  "id": 25756,
+                  "text": "8.5 cm",
+                  "is_correct": true
+                },
+                {
+                  "label": "B",
+                  "id": 25759,
+                  "text": "9.5 cm",
+                  "is_correct": false
+                },
+                {
+                  "label": "C",
+                  "id": 25757,
+                  "text": "7.5 cm",
+                  "is_correct": false
+                },
+                {
+                  "label": "D",
+                  "id": 25758,
+                  "text": "6.5 cm",
+                  "is_correct": false
+                }
+              ],
+              "correct_option_ids": [
+                25756
+              ],
+              "correct_option_labels": [
+                "A"
+              ],
+              "correct_option_texts": [
+                "8.5 cm"
+              ],
+              "explanation": "For maximum compression of spring, kinetic energy will be converted into the potential energy of spring.\n${1 \\over 2}k{x^2} = {1 \\over 2}m{v^2}$\n${x^2} = {{m{v^2}} \\over k} = {{6 \\times 3 \\times 3} \\over {75 \\times {{10}^2}}}$\n$x = \\sqrt {{{6 \\times 3 \\times 3} \\over {75 \\times {{10}^2}}}} $ = 0.085m = 8.5cm"
+            },
+            {
+              "questionID": 17640,
+              "question": "How many joules of energy does a 100-watt light bulb use per hour? How fast would a 70-kg person have to run to have that amount of kinetic energy?",
+              "question_raw": "<p>How many joules of energy does a 100-watt light bulb use per hour? How fast would a 70-kg person have to run to have that amount of kinetic energy?</p>",
+              "options": [
+                {
+                  "label": "A",
+                  "id": 25760,
+                  "text": "360000 J, 101 m/s",
+                  "is_correct": true
+                },
+                {
+                  "label": "B",
+                  "id": 25761,
+                  "text": "380000 J, 120 m/s",
+                  "is_correct": false
+                },
+                {
+                  "label": "C",
+                  "id": 25762,
+                  "text": "320000 J, 130 m/s",
+                  "is_correct": false
+                },
+                {
+                  "label": "D",
+                  "id": 25763,
+                  "text": "340000 J, 140 m/s",
+                  "is_correct": false
+                }
+              ],
+              "correct_option_ids": [
+                25760
+              ],
+              "correct_option_labels": [
+                "A"
+              ],
+              "correct_option_texts": [
+                "360000 J, 101 m/s"
+              ],
+              "explanation": "Energy = P $\\times$ Time = 100 $\\times$ 1Hr\nEnergy = 100 $\\times$ 1 $\\times$ 60 $\\times$ 60 = 360000 J\nfor a 70 Kg man $K = {1 \\over 2}m{v^2}$ \nspeed of man v = $ \\sqrt {{{2K} \\over m}} = \\sqrt {{{2 \\times 360000} \\over {70}}} $ = 101m/s"
+            },
+            {
+              "questionID": 17641,
+              "question": "A tandem (two-person) bicycle team must overcome a force of 165 N to maintain a speed of 9.00 m/s. Find the power required per rider, assuming that each contributes equally?",
+              "question_raw": "<p>A tandem (two-person) bicycle team must overcome a force of 165 N to maintain a speed of 9.00 m/s. Find the power required per rider, assuming that each contributes equally?</p>",
+              "options": [
+                {
+                  "label": "A",
+                  "id": 25767,
+                  "text": "798 W",
+                  "is_correct": false
+                },
+                {
+                  "label": "B",
+                  "id": 25764,
+                  "text": "742.5 W",
+                  "is_correct": true
+                },
+                {
+                  "label": "C",
+                  "id": 25765,
+                  "text": "702 W",
+                  "is_correct": false
+                },
+                {
+                  "label": "D",
+                  "id": 25766,
+                  "text": "765 W",
+                  "is_correct": false
+                }
+              ],
+              "correct_option_ids": [
+                25764
+              ],
+              "correct_option_labels": [
+                "B"
+              ],
+              "correct_option_texts": [
+                "742.5 W"
+              ],
+              "explanation": "Total power required to overcome a force of 165 N and to maintain a speed of 9.00 m/s\nF = 165N\nv = 9m/s\nP = Fv = 165 $\\times$ 9 = 1485W\nif each rider contribute equal power, then the power required per rider will be $P\\over 2$ = $1485\\over 2$ = 742.5W"
+            },
+            {
+              "questionID": 17642,
+              "question": "You are asked to design spring bumpers for the walls of a parking garage. A freely rolling 1200-kg car moving at 0.65 m/s is to compress the spring no more than 0.090 m before stopping. What should be the force constant of the spring? Assume that the spring has negligible mass.",
+              "question_raw": "<p>You are asked to design spring bumpers for the walls of a parking garage. A freely rolling 1200-kg car moving at 0.65 m/s is to compress the spring no more than 0.090 m before stopping. What should be the force constant of the spring? Assume that the spring has negligible mass.</p>",
+              "options": [
+                {
+                  "label": "A",
+                  "id": 25769,
+                  "text": "5.3 $ \\times $ 10^4 N/m",
+                  "is_correct": false
+                },
+                {
+                  "label": "B",
+                  "id": 25768,
+                  "text": "6.25 $ \\times $ 10^4 N/m",
+                  "is_correct": true
+                },
+                {
+                  "label": "C",
+                  "id": 25770,
+                  "text": "5.8 $ \\times $ 10^4 N/m",
+                  "is_correct": false
+                },
+                {
+                  "label": "D",
+                  "id": 25771,
+                  "text": "6.6 $ \\times $10^4 N/m",
+                  "is_correct": false
+                }
+              ],
+              "correct_option_ids": [
+                25768
+              ],
+              "correct_option_labels": [
+                "B"
+              ],
+              "correct_option_texts": [
+                "6.25 $ \\times $ 10^4 N/m"
+              ],
+              "explanation": "The kinetic energy of the car will be converted into the potential energy of spring.\n${1 \\over 2}k{x^2} = {1 \\over 2}m{v^2}$\n$k = {{m{v^2}} \\over {{x^2}}}$\nm = 1200Kg\nv = 0.65m/s\nx = 0.09m\n$k = {{1200 \\times 0.65 \\times 0.65} \\over {0.09 \\times 0.09}} $ = 6.25 $\\times$ 10^4N/m"
+            },
+            {
+              "questionID": 17643,
+              "question": "On an essentially frictionless, horizontal ice rink, a skater moving at 3.0 m/s encounters a rough patch that reduces her speed to 1.65 m/s due to a friction force that is 25$\\% $ of her weight. Use the work-energy theorem to find the length of this rough patch?",
+              "question_raw": "<p>On an essentially frictionless, horizontal ice rink, a skater moving at 3.0 m/s encounters a rough patch that reduces her speed to 1.65 m/s due to a friction force that is 25<span class=\"math-tex\">{tex}\\% {/tex}</span> of her weight. Use the work-energy theorem to find the length of this rough patch?</p>",
+              "options": [
+                {
+                  "label": "A",
+                  "id": 25773,
+                  "text": "1.1 m",
+                  "is_correct": false
+                },
+                {
+                  "label": "B",
+                  "id": 25772,
+                  "text": "1.3 m",
+                  "is_correct": true
+                },
+                {
+                  "label": "C",
+                  "id": 25774,
+                  "text": "0.9 m",
+                  "is_correct": false
+                },
+                {
+                  "label": "D",
+                  "id": 25775,
+                  "text": "1.5 m",
+                  "is_correct": false
+                }
+              ],
+              "correct_option_ids": [
+                25772
+              ],
+              "correct_option_labels": [
+                "B"
+              ],
+              "correct_option_texts": [
+                "1.3 m"
+              ],
+              "explanation": "Using the work-energy theorem, change in kinetic energy = work done by the friction force\n$\\Delta K$ =W_f\n$\\frac{1}{2} m\\left(v_{f}^{2}-v_{i}^{2}\\right)$ = -fd\n$\\frac{1}{2} m\\left(v_{f}^{2}-v_{i}^{2}\\right)$ = $-m g \\times \\frac{25}{100} \\times d$\n$\\frac{1}{2} m\\left[(1.65)^{2}-(3)^{2}\\right]$ = $-m \\times 9.8 \\times \\frac{25}{100} \\times d$\n$\\frac{1}{2} \\times(2.7225-9)=-9.8 \\times \\frac{25}{100} \\times d$\n$-\\frac{6.2775}{2}=-9.8 \\times \\frac{25}{100} \\times d$\nd = $\\frac{6.2775 \\times 100}{2 \\times 9.8 \\times 25}$ = 1.3 m"
+            },
+            {
+              "questionID": 17644,
+              "question": "A pump is required to lift 800 kg of water per minute from a well 14.0 m deep and eject it with a speed of 18.0 m/s. How much work is done per minute in lifting the water?",
+              "question_raw": "<p>A pump is required to lift 800 kg of water per minute from a well 14.0 m deep and eject it with a speed of 18.0 m/s. How much work is done per minute in lifting the water?</p>",
+              "options": [
+                {
+                  "label": "A",
+                  "id": 25779,
+                  "text": "1.40 $ \\times $ 10^5 J",
+                  "is_correct": false
+                },
+                {
+                  "label": "B",
+                  "id": 25778,
+                  "text": "1.30 $ \\times $ 10^5 J",
+                  "is_correct": false
+                },
+                {
+                  "label": "C",
+                  "id": 25777,
+                  "text": "1.20 $ \\times $ 10^5 J",
+                  "is_correct": false
+                },
+                {
+                  "label": "D",
+                  "id": 25776,
+                  "text": "1.10 $ \\times $ 10^5 J",
+                  "is_correct": true
+                }
+              ],
+              "correct_option_ids": [
+                25776
+              ],
+              "correct_option_labels": [
+                "D"
+              ],
+              "correct_option_texts": [
+                "1.10 $ \\times $ 10^5 J"
+              ],
+              "explanation": "mass is given by ,m = 800Kg per minute\nh = 14m\nwork done per minute in lifting the water is given by :-\nW = mgh = 800 $\\times$ 9.8 $\\times$ 14 = 109760J = 1.1 $\\times$ 10^5J"
+            },
+            {
+              "questionID": 17645,
+              "question": "A pump is required to lift 800 kg of water (about 210 gallons) per minute from a well 14.0 m deep and eject it with a speed of 18.0 m/s. How much work is done in giving the water the kinetic energy it has when ejected?",
+              "question_raw": "<p>A pump is required to lift 800 kg of water (about 210 gallons) per minute from a well 14.0 m deep and eject it with a speed of 18.0 m/s. How much work is done in giving the water the kinetic energy it has when ejected?</p>",
+              "options": [
+                {
+                  "label": "A",
+                  "id": 25782,
+                  "text": "1.10 $ \\times $ 10^5J",
+                  "is_correct": false
+                },
+                {
+                  "label": "B",
+                  "id": 25780,
+                  "text": "1.30 $ \\times $ 10^5J",
+                  "is_correct": true
+                },
+                {
+                  "label": "C",
+                  "id": 25783,
+                  "text": "1.40 $ \\times $ 10^5J",
+                  "is_correct": false
+                },
+                {
+                  "label": "D",
+                  "id": 25781,
+                  "text": "1.20 $ \\times $ 10^5J",
+                  "is_correct": false
+                }
+              ],
+              "correct_option_ids": [
+                25780
+              ],
+              "correct_option_labels": [
+                "B"
+              ],
+              "correct_option_texts": [
+                "1.30 $ \\times $ 10^5J"
+              ],
+              "explanation": "Work is done in giving kinetic energy is equal to change in kinetic energy\nW = $ \\Delta K$\n$W = {1 \\over 2}m{v^2} - 0$\nW = $\\frac{1}{2}$ $\\times$ 800 $\\times$ 18 $\\times$ 18 = 129600J = 1.3 $\\times$ 10^5J"
+            },
+            {
+              "questionID": 21690,
+              "question": "In which of the following cases is the work done positively?",
+              "question_raw": "<p>In which of the following cases is the work done positively?</p>",
+              "options": [
+                {
+                  "label": "A",
+                  "id": 41960,
+                  "text": "Work is done by friction on a body sliding down an inclined plane.",
+                  "is_correct": false
+                },
+                {
+                  "label": "B",
+                  "id": 41959,
+                  "text": "Work is done by gravitational force while a man in lifts a bucket out of a well by means of a rope tied to the bucket.",
+                  "is_correct": false
+                },
+                {
+                  "label": "C",
+                  "id": 41961,
+                  "text": "Work is done by the resistive force of air on a vibrating pendulum in bringing it to rest.",
+                  "is_correct": false
+                },
+                {
+                  "label": "D",
+                  "id": 41958,
+                  "text": "Work is done by an applied force on a body moving on a rough horizontal plane with uniform velocity.",
+                  "is_correct": true
+                }
+              ],
+              "correct_option_ids": [
+                41958
+              ],
+              "correct_option_labels": [
+                "D"
+              ],
+              "correct_option_texts": [
+                "Work is done by an applied force on a body moving on a rough horizontal plane with uniform velocity."
+              ],
+              "explanation": "When a body is moving on a rough horizontal surface then there will be 2 forces acting on the body \n Applied force ( in the direction of motion)\n friction ( opposite to the direction of motion)\nAs applied force is in the same direction as displacement so work is done will be positive."
+            }
+          ]
+        }
+      ]
+    }
+  ]
+}

@@ -1,0 +1,877 @@
+CHAPTER: Mechanical Properties of Fluids  (id 1350)
+CBSE > Class 11 > Physics > Mechanical Properties of Fluids
+Online tests: 5
+
+========================================================================
+Mechanical Properties of Fluids Test 01  (id 572) [FREE]
+CBSE > Class 11 > Physics > Mechanical Properties of Fluids
+Questions: 15 | Answers: YES
+========================================================================
+
+Q1. The basic property of a fluid that makes it different from solids is that:
+    (A) It can be compressed
+    (B) It does not expand on heating
+    (C) It can flow   <-- CORRECT
+    (D) It has a large density
+    Answer: C
+    Explanation: Fluids can flow due to unbalanced forces between the atoms of fluids.
+
+Q2. Density is defined as:
+    (A) the volume of 10 kg of the material
+    (B) the volume of 1 kg of the material
+    (C) volume per unit mass
+    (D) mass per unit volume   <-- CORRECT
+    Answer: D
+    Explanation: Density is defined as the compactness of a substance.
+Mathematically,
+Density(D) = $Mass (M) \over Volume (V)$
+
+Q3. The specific gravity of a material is:
+    (A) the ratio of its mass to the mass of water
+    (B) the ratio of its volume to the density of water
+    (C) the ratio of its density to the density of water   <-- CORRECT
+    (D) the ratio of its mass to the density of water
+    Answer: C
+    Explanation: The specific gravity of an object is the ratio between the density of an object to a reference liquid. Usually, this reference liquid is water, which has a density of 1 g/mL or 1 g/cm^3.
+Water has a specific gravity equal to 1. Materials with a specific gravity less than 1 are less dense than water, and will float on the pure liquid; substances with a specific gravity more than 1 are denser than water and will sink.
+
+Q4. Pressure p at any point in a fluid at rest is:
+    (A) the force parallel to the area at that point per unit area
+    (B) the normal force at that point per unit volume
+    (C) the normal force at that point per unit area   <-- CORRECT
+    (D) the normal force at that point per unit mass
+    Answer: C
+    Explanation: It is important to note that it is valid only for a fluid at rest. In the case of a moving fluid, pressures in different directions could be different depending upon fluid accelerations in different directions.
+
+Q5. According to Pascal’s Law:
+    (A) pressure in a fluid increases with temperature
+    (B) pressure in a fluid decreases with temperature
+    (C) pressure in a fluid at rest is the same at all points if they are at the same height   <-- CORRECT
+    (D) pressure in a fluid at rest is the same at all points if they are at different heights
+    Answer: C
+    Explanation: According to Pascal's Law,
+P-P_0 = hdg
+from above
+Change in pressure is directly proportional to a depth from the free surface.
+At the same horizontal line, all points are at the same depth and have the same value of acceleration due to gravity and density of water as well.
+
+Q6. The pressure at a depth of h in a fluid of density $\rho $ at a place where the acceleration due to gravity is g and the pressure at h = 0 is ${{\rm{p}}_0}$ is given by:
+    (A) p = ${{\rm{p}}_0}$+ $3\rho $ gh
+    (B) p = ${{\rm{p}}_0}$ + $2\rho $ gh
+    (C) p = ${{\rm{p}}_0}$ + $\rho $ gh   <-- CORRECT
+    (D) p = $\rho $ gh
+    Answer: C
+    Explanation: According to Pascal's Law,
+Change in Pressure (P - P_0) = h$\rho $g
+if h = 0 then P - P_0 = 0
+and P = P_0
+
+Q7. The units of pressure in SI system is:
+    (A) Newton
+    (B) Pascal   <-- CORRECT
+    (C) Watt
+    (D) Joule
+    Answer: B
+    Explanation: Pressure is defined as force per unit area. The SI unit for pressure is the pascal (Pa), equal to one newton per square meter (N/m^2, or kg m^-1 s^−2). This name for the unit was added in 1971; before that, pressure in SI was expressed simply in newtons per square meter.
+
+Q8. Gauge pressure at a point is:
+    (A) the pressure at that point - atmospheric pressure   <-- CORRECT
+    (B) the pressure at that point + atmospheric pressure
+    (C) $\frac{\text { (pressure at that point }+ \text { atmospheric pressure) }}{2}$
+    (D) $\frac{\text { (pressure at that point-atmospheric pressure) }}{2}$
+    Answer: A
+    Explanation: Gauge pressure is zero-referenced against ambient air pressure, so it is equal to absolute pressure minus atmospheric pressure. Negative signs are usually omitted. 
+The difference between absolute pressure and atmospheric pressure is what we call gauge pressure (P_gauge). It can be calculated if we know the absolute and atmospheric pressures using this formula: 
+P_gauge = P_abs − P_atm
+
+Q9. According to Pascal’s law for transmission of fluid pressure, external pressure applied on any part of a fluid contained in a vessel is ________ in all directions.
+    (A) not transmitted
+    (B) transmitted undiminished and equally   <-- CORRECT
+    (C) transmitted and decreased
+    (D) transmitted and increased
+    Answer: B
+    Explanation: Pascal's principle is defined as a change in pressure at any point in an enclosed fluid at rest is transmitted undiminished to all points in the fluid.
+This principle is stated mathematically as
+$\Delta P = \rho g(\Delta h)$ 
+$\Delta P$ is the hydrostatic pressure (given in pascals in the SI system), or the difference in pressure at two points within a fluid column, due to the weight of the fluid.
+
+Q10. In a hydraulic lift, the force applied on the smaller cylinder of area A_1 is F_1. If the area of the larger cylinder is A_2 the maximum weight that can be lifted is:
+    (A) F_1A_2
+    (B) ${F_1}$
+    (C) $\frac{A_2}{A_1} F_1$   <-- CORRECT
+    (D) $\frac{A_1}{A_2} F_1$
+    Answer: C
+    Explanation: According to Pascal's Law,
+Pressure applied to any point inside the liquid is transmitted equally in all direction so,
+Pressure applied to the smaller cylinder is equal to the pressure on the other cylinder, which is given by
+$\frac{F_1}{A_1}=\frac{F_2}{A_2}$ 
+So,
+Maximum force on the other side is,
+F_2 = $\frac{A_2}{A_1} \times F_1$
+
+Q11. The streamline in a flow is a curve:
+    (A) whose perpendicular at any point is in the direction of the fluid velocity at that point.
+    (B) whose tangent at any point is in the direction of the fluid velocity at that point.   <-- CORRECT
+    (C) which shows all points of equal pressure.
+    (D) which shows all points of equal velocity.
+    Answer: B
+    Explanation: A streamline is one that drawn is tangential to the velocity vector at every point in the flow at a given instant and forms a powerful tool in understanding flows. This definition leads to the equation for streamlines.${du\over u}={dv\over v}={dw\over w}$ 
+where u, v, and w are the velocity components in x, y, and z directions respectively as sketched.
+
+Q12. Flow is said to be steady if:
+    (A) the flow rate decreases 10$\% $ every second
+    (B) the flow rate does not change with time   <-- CORRECT
+    (C) the flow rate decreases 20% every second
+    (D) the flow rate increases with time
+    Answer: B
+    Explanation: The flow velocity u of a fluid is a vector field u = u(x, t)
+which gives the velocity of an element of fluid at a position x and time t.
+The flow of a fluid is said to be steady if u do not vary with time. That is if ${\delta u \over \delta t}$ = 0.
+
+Q13. If a pipe carrying incompressible liquid has an area A_1 and velocity V_1 at one point A_2 nd V_2 at another point, the equation of continuity gives the relation:
+    (A) A_1V_1 = A_2V_2   <-- CORRECT
+    (B) A_1 = A_2V_2
+    (C) A_1V_1 = 2A_2V_2
+    (D) A_1V_1 = A_1V_2
+    Answer: A
+    Explanation: we apply the principle of mass conservation. Since there is no flow through the sidewalls of the duct, what mass comes in overA_1 goes out of A_2, Over a short time interval $\Delta t$ 
+Volume flow in over A_1 = A_1V_1$\Delta$t
+Volume flow out over A_2 = A_2V_2$\Delta$t
+Therefore
+mass in over A = $\rho$A_1V_1$\Delta$t
+mass out over A = $\rho$A_2V_2$\Delta$t
+So:$\rho$ A_1V_1 = $\rho$A_2V_2$\Delta$t
+As volume is the same so this equation can be written as|
+A_1V_1 = A_2V_2
+This equation is called the continuity equation for steady one-dimensional flow.
+
+Q14. in laminar flow:
+    (A) adjacent layers of fluid slide smoothly past each other and the flow is steady   <-- CORRECT
+    (B) adjacent layers of fluid move in circle crossing each other and the flow is steady
+    (C) adjacent layers of fluid do not slide smoothly past each other and the flow is unsteady
+    (D) adjacent layers of fluid slide smoothly past each other and the flow is unsteady
+    Answer: A
+    Explanation: laminar flow (or streamline flow) occurs when a fluid flows in parallel layers, with no disruption between the layers. At low velocities, the fluid tends to flow without lateral mixing, and adjacent layers slide past one another like playing cards.
+
+Q15. At large flow velocities, the flow of fluid becomes:
+    (A) turbulent   <-- CORRECT
+    (B) laminar
+    (C) compressible
+    (D) viscous
+    Answer: A
+    Explanation: When any liquid is flowing more than the velocity of its critical velocity then flow becomes turbulent.
+
+========================================================================
+Mechanical Properties of Fluids Test 02  (id 573) [PAID]
+CBSE > Class 11 > Physics > Mechanical Properties of Fluids
+Questions: 15 | Answers: YES
+========================================================================
+
+Q1. According to Bernoulli’s equation for a varying cross-section pipe carrying incompressible liquid, pressure p, density $\rho $ velocity v and height h at a place where the acceleration due to gravity is g.
+    (A) P + $ \rho {v^2} + \rho gh $ = constant
+    (B) P + $\frac{1}{2}\rho {v^2} + 2\rho gh$ = constant
+    (C) P + $ \frac{1}{2}\rho {v^2} + \rho gh $ = constant   <-- CORRECT
+    (D) $P + \frac{1}{3}\rho {v^2} + \rho gh $ = constant
+    Answer: C
+    Explanation: According to the conservation of energy,
+The total energy of any system is always conserved.
+And Bernoulli's Theorem says that at any point in the pipe in which the liquid is flowing the sum of all the energies (Pressure Energy, Kinetic Energy, Potential Energy) is always constant.
+
+Q2. If a ball is spinning in an airflow it develops pressure difference between the lower and upper faces due to differences in the:
+    (A) the viscosity of air giving rise to lift
+    (B) the density of air giving rise to lift
+    (C) velocities of air giving rise to lift   <-- CORRECT
+    (D) height of air giving rise to lift
+    Answer: C
+    Explanation: The Magnus effect is an observable phenomenon that is commonly associated with a spinning object that drags air faster around one side, creating a difference in pressure that moves it in the direction of the lower-pressure side.
+The Magnus effect often occurs when a spinning sphere (or cylinder) curves away from its principal flight path.
+This phenomenon is important in the study of the physics of many ball sports. It is also an important factor in the study of the effects of spinning on guided missiles—and has some engineering uses, for instance in the design of rotor ships and Flettner aeroplanes.
+
+Q3. The lift on an aircraft wing arises because of:
+    (A) velocity increase and pressure increase on the lower side of the wing
+    (B) velocity decrease and pressure increase on the lower side of the wing   <-- CORRECT
+    (C) velocity increase and pressure decrease on the lower side of the wing
+    (D) velocity decrease and pressure decrease on the lower side of the wing
+    Answer: B
+    Explanation: This is the application of Bernoulli's Theorem.
+If air speeds up the pressure are lowered. Thus, a wing generates lift because the air goes faster over the top creating a region of low pressure, and thus lift.
+
+Q4. The coefficient of viscosity for a fluid is defined as the ratio of:
+    (A) compressive stress to the strain rate
+    (B) tensile stress to the strain rate
+    (C) shearing stress to the flow rate
+    (D) shearing stress to the strain rate   <-- CORRECT
+    Answer: D
+    Explanation: The degree to which a fluid resists flows under an applied force expressed as the ratio of the shearing stress to the velocity gradient. The coefficient of viscosity of liquids decreases as temperature increases because the bonds between molecules are weakened.
+
+Q5. According to Stokes’ law if $\eta $ is the coefficient of viscosity, 'R' the radius of the sphere and it is moving with a velocity v the viscous drag force F is given by:
+    (A) F_d = $6\pi \eta R $
+    (B) F_d = $ 6\pi \eta R v$   <-- CORRECT
+    (C) F_d = $ 6\pi R v$
+    (D) F_d = $ 2\pi \eta R v$
+    Answer: B
+    Explanation: The force of viscosity on a small sphere moving through a viscous fluid is given by:
+F_d = $ 6\pi \eta R v$
+Where:
+ F_d is the frictional force - known as Stokes' drag – acting on the interface between the fluid and the particle
+ η is the dynamic viscosity 
+ R is the radius of the spherical object
+ v is the flow velocity relative to the object.
+In SI units, F_d is given in Newtons, η in Pa·s, R in meters, and v in m/s.
+
+Q6. If $\rho $ is the density of the fluid flowing with a speed v, D stands for the dimension of the pipe, and $\eta $ is the viscosity of the fluid Reynolds number R_e is given by:
+    (A) R_e = $\rho vD\eta$
+    (B) R_e = $\rho v \over\eta$
+    (C) R_e = $\rho vD\over\eta$   <-- CORRECT
+    (D) $R_e= $ $ \rho D\over\eta$
+    Answer: C
+    Explanation: It is a dimensionless number comprised of the physical characteristics of the flow. An increasing Reynolds number indicates increasing turbulence of flow.
+It is defined as: $R_e =$$ \rho vD\over\eta$ 
+where;
+v is the flow velocity
+D is a characteristic linear dimension
+ρ fluid density(kg/m^3)
+$\eta$ is dynamic viscosity (Pa.s)
+ν kinematic viscosity (m^2/s), v = $\eta\over\rho$
+
+Q7. The molecules on the surface, are:
+    (A) The balanced attractions cause the surface to resist being stretched
+    (B) The unbalanced attractions cause the surface to stretch less
+    (C) The unbalanced attractions cause the surface to stretch more
+    (D) The unbalanced attractions cause the surface to resist being stretched   <-- CORRECT
+    Answer: D
+    Explanation: The surface tension of liquid results from an imbalance of intermolecular attractive forces, the cohesive forces between molecules: A molecule in the bulk liquid experiences cohesive forces with other molecules in all directions. A molecule at the surface of a liquid experiences only net inward cohesive forces. The unbalanced attraction of molecules at the surface of a liquid tends to pull the molecules back into the bulk liquid leaving the minimum number of molecules on the surface. It required energy to increase the surface area of a liquid because a larger surface area contains more molecules in the unbalanced situation and this may result as the surface being stretched.
+
+Q8. Water drops are spherical because of:
+    (A) surface tension   <-- CORRECT
+    (B) viscosity
+    (C) elasticity
+    (D) low shear strain
+    Answer: A
+    Explanation: In fluids, there are primarily 2 forces cohesive force and adhesive force. Cohesive force is the one that acts between the same molecules and adhesive force is the one that acts between different molecules. 
+The cohesive force gives rise to a phenomenon called surface tension. In this phenomenon a fluid surface tends to pull itself inwards, causing a reduction of the exposed surface.
+For a water droplet that is left alone, cohesive forces undoubtedly dominate, leading to surface tension. Surface tension makes all the molecules of water to stick with each other closely, this results in its spherical shape.
+
+Q9. If a film of width L is stretched in the longitudinal direction a distance d by force F, surface tension is given by:
+    (A) S = $\frac{F}{L}$
+    (B) S = $\frac{F}{2L}$   <-- CORRECT
+    (C) S = $\frac{F}{3L}$
+    (D) S = $\frac{F}{4L}$
+    Answer: B
+    Explanation: Let L be the width of the film. Since the film has two surfaces, the total length along which the surface force acts on the slider is 2L. The surface tension S in the film is defined as the ratio of the surface force F to the length d (perpendicular to the force) along which the force acts
+$S=\frac{F}{d}$
+Hence, in the case, d = 2L
+$S=\frac{F}{2L}$
+
+Q10. Capillary Rise of water is explained by:
+    (A) low shear strain
+    (B) elasticity
+    (C) surface tension   <-- CORRECT
+    (D) viscosity
+    Answer: C
+    Explanation: Capillary action(sometimes capillarity or wicking) is the ability of a liquid to flow in narrow spaces without the assistance of, or even in opposition to, external forces like gravity. The effect can be seen in the drawing up of liquids between the hairs of a paint-brush, in porous materials such as paper and plaster, in some non-porous materials such as sand and liquefied carbon fiber, or in a cell. It occurs because of intermolecular forces between the liquid and surrounding solid surfaces. If the diameter of the tube is sufficiently small, then the combination of surface tension (which is caused by cohesion within the liquid) and adhesive forces between the liquid and container wall act to propel the liquid.
+
+Q11. An iron needle floats on the surface of the water. This phenomenon is attributed to:
+    (A) Viscosity
+    (B) Up thrust of liquid
+    (C) Surface tension   <-- CORRECT
+    (D) Gravitational forces
+    Answer: C
+    Explanation: The answer lies in the surface tension of the water, As the cohesive forces between the molecules are responsible for the surface tension. When the molecules on the glass or container do not have a surface to stick to, they cohere more strongly to the molecules they are associated with. Since the molecules on top have no neighbours on the top to cohere to, they associate with their other neighbours more strongly. This creates a strong bond between the top layer of molecules. The molecules inward face no net force because they all cancel out each other. However, the surface molecules face a net inward force because there is no force for them on the surface to cancel it. This causes the molecules on the surface to 'contract' and resists being broken or stretched.
+When a small body like a needle is placed onto the water carefully, the surface tension will not break due to the small mass of the object. 
+As long as the surface tension is undisturbed, the needle will continue to float. Agitating the water will cause the surface tension to break and hence the needle will then sink
+.
+
+Q12. The excess pressure across the surface of a soap bubble of radius R(with $\sigma$ as the surface tension of soap solution) is:
+    (A) $\frac{2\sigma}R$
+    (B) $\frac\sigma R$
+    (C) $\frac{4\sigma}R$   <-- CORRECT
+    (D) $\frac{8\sigma}R$
+    Answer: C
+    Explanation: Let the pressure of the air outside the bubble be P1, that within the soap solution be p' and that of the air inside the bubble be P_2. Looking at the outer surface the solution is on the concave side of the surface hence 
+P′ - P_1 = $\frac{2\sigma}R$ 
+Where R is the radius of the bubble. As the thickness of the bubble is small on a macroscopic scale, the difference in the radii of the two surfaces will be negligible. 
+Similarly looking at the inner surface the air is on the concave side of the surface hence​
+​​​​​​P_2 − P′ = $\frac{2\sigma}R$ 
+Adding two equations 
+P_2 − P_1 = $\frac{4\sigma}R$
+
+Q13. Two soap bubbles are blown simultaneously. In the first soap bubble, the excess pressure is 4 times of second soap bubble. The ratio of radii of first to second soap bubble is:
+    (A) 2:1
+    (B) 1:2
+    (C) 1:4   <-- CORRECT
+    (D) 4:1
+    Answer: C
+    Explanation: Using relation for excess pressure in the soap bubble
+$P_2-P_1=\frac{4\sigma}R$ 
+$\triangle P=\frac{4\sigma}R$
+thus
+$\triangle P \propto \frac{1}{R}$
+given $$
+$\triangle P_{1}=4 \triangle P_{2}$
+$\frac{\triangle P_{1}}{\triangle P_{2}}=\frac{R_{2}}{R_{1}} \Rightarrow \frac{4 \triangle P_{2}}{\triangle P_{2}}=\frac{R_{2}}{R_{1}}$
+$\frac{R_{1}}{R_{2}}$ = 1:4
+
+Q14. A drop of oil is placed on the surface of the water. Which of the following statements is correct?
+    (A) It will remain on it as a sphere
+    (B) It will partly change to spherical droplets and partly as a thin film
+    (C) It will spread as a thin layer   <-- CORRECT
+    (D) It will float as a distorted drop on the water surface
+    Answer: C
+    Explanation: When any liquid is poured onto another liquid there are different phenomena that can take place depending on the properties of liquids, In case of crude oil and water:
+The two liquids are non-miscible and the first is lighter than the second. The first liquid then spreads on the surface of the second liquid forming a thin layer. The thickness of this layer depends on the properties of the two liquids. This is the case for most hydrocarbons, including both refined products and crude oil of API gravity(API gravity is thus an inverse measure of a petroleum liquid's density relative to that of water (also known as specific gravity). greater than 10.
+
+Q15. Two small drops of mercury, each of radius R coalesce to form a single large drop. The ratio of the total surface energies before and after the change is
+    (A) $2^{\frac{1}{3}}: 1$   <-- CORRECT
+    (B) 2 : 1
+    (C) $1: 2^{\frac{2}{3}}$
+    (D) 1 : 2
+    Answer: A
+    Explanation: $2 \times \frac { 4 } { 3 } \pi r ^ { 3 } = \frac { 4 } { 3 } \pi R ^ { 3 }$ 
+$2 ^ \frac{1}{3} r $ = R or $\frac { r } { R } = \frac { 1 } { 2 ^ \frac{1}{3 } }$
+$\frac{\text { surface energy of } 2 \text { small drops }}{\text { surface energy of large drop }}$ $=\frac{2 \times 4 \pi \times r^2 \times T}{4 \pi \times R^2 \times T}$
+$\frac{E_1}{E_2}=\frac{2 r^2}{R^2}=\frac{2}{2^{\frac{2}{3}}}=2^{1 / 3}: 1$
+
+========================================================================
+Mechanical Properties of Fluids Test 03  (id 574) [PAID]
+CBSE > Class 11 > Physics > Mechanical Properties of Fluids
+Questions: 15 | Answers: YES
+========================================================================
+
+Q1. A wooden block is taken to the bottom of a deep, calm lake of water and then released. It rises up with a:
+    (A) constant velocity
+    (B) decreasing velocity
+    (C) decreasing acceleration
+    (D) constant acceleration   <-- CORRECT
+    Answer: D
+    Explanation: The wooden block rises up with acceleration,
+a = $Upthrust-weight \ of \ block\over mass\ of\ block$ 
+Upthrust and mass of block will be constant. So the acceleration will also be a constant throughout the motion.
+
+Q2. A man in a lift is holding a can filled with water but having a hole in its bottom. When will the drainage of water be maximum?
+    (A) when the lift is stationary
+    (B) when the lift goes down with uniform velocity
+    (C) when the lift is going down with acceleration
+    (D) when the lift is going up with the acceleration   <-- CORRECT
+    Answer: D
+    Explanation: Force acting on the liquid contained in the cylinder in the vertical directions are
+ $P_1\triangle S$ upward due to the liquid below it
+ $P_2\triangle S$ downward due to the liquid above it
+ Applying newton's second law
+ ${P_1}\Delta S - {P_2}\Delta S - mg = m{a_0}$
+ $({P_1} - {P_2})\Delta S = m(g + {a_0}) $ = $ \Delta Sz\rho (g + {a_0})$
+ ${P_1} - {P_2} = \rho (g + {a_0})z$
+ weight mg = $\triangle$S z $\rho$ g where $\rho$ is the density of liquid
+ Net force = mass $\times$ acceleration
+Thus pressure difference is greatest when lift moves upwards with acceleration a because for uniform motion $a_0$ will be zero and for lift moving downwards the term in the bracket would be (g - $a_0$). So due to the maximum pressure difference between top and bottom, drainage of water will be maximum in this case.
+
+Q3. In old age, arteries carrying blood in the human body, become narrow resulting in an increase in blood pressure. This follows from:
+    (A) Archimedes principle
+    (B) Pascal’s law
+    (C) Bernoulli's principle   <-- CORRECT
+    (D) Stoke’s law
+    Answer: C
+    Explanation: According to the Bernoulli principle for fluids: in ideal state pressure and density are inversely related or in other words, a slow-moving fluid exerts more pressure than a fast-moving fluid. Due to narrowness and other obstruction, the velocity of the flow of blood gets decreased in old age. This results in increased pressure inside the blood vessel.
+
+Q4. Soap helps in better cleansing of clothes because:
+    (A) chemicals of soap change
+    (B) it increases the surface tension of the solution
+    (C) it reduces the surface tension of the solution   <-- CORRECT
+    (D) it absorbs the dirt
+    Answer: C
+    Explanation: Surfactants are substances that help lower the surface tension of water, so as to increase the wetting ability of water which helps in cleaning the clothes.
+Soaps (which are a type of detergent) contain surfactants in significant amounts, which help water spread uniformly over clothes.
+
+Q5. If two soap bubbles of different radii are in communication with each other
+    (A) Air flows from the larger bubble into the smaller one until the two bubbles are of equal size
+    (B) The sizes of the bubbles remain unchanged
+    (C) Air flows from the larger into the smaller bubble until the radius of the smaller one becomes half that of the larger one
+    (D) Air flows from the smaller bubble into the larger one and large bubble grows at the expense of the smaller one   <-- CORRECT
+    Answer: D
+    Explanation: Excess pressure in a soap bubble is given by $P _ { 2 } - P _ { 1 } = \frac { 4 S } { R }$ $\Delta P = \frac { 4 S } { R }$ $\Rightarrow \triangle P \propto \frac { 1 } { R }$ 
+Thus pressure difference will be large in smaller bubble or we can say that pressure inside the smaller bubble will be greater than bigger bubble. As air always flow from a high pressure to low pressure end thus in this case air will flow from smaller bubble to larger bubble and larger bubble will grow at the expanse of smaller bubble.
+
+Q6. More liquid rises in a thin tube because of:
+    (A) Smaller value of S.T
+    (B) A larger value of surface tension
+    (C) A larger value of the radius
+    (D) A smaller value of the radius   <-- CORRECT
+    Answer: D
+    Explanation: The rise of liquid in a thin tube is caused by forces of attraction between the molecules of water and the glass walls and among the molecules of liquid themselves. The narrower the bore of the capillary tube, the higher the water liquid.
+
+Q7. The surface tension of the soap solution is 25 $\times$ 10^-3 Nm^-1. The excess pressure inside a soap bubble of diameter 1 cm is:
+    (A) 10 Pa
+    (B) 20 Pa   <-- CORRECT
+    (C) 15 Pa
+    (D) 5 Pa
+    Answer: B
+    Explanation: given surface tension S = 25 $\times$ 10^−3N/m
+diameter = 1cm
+thus radius r = $d\over 2$ = 0.5cm excess pressure inside soap bubble
+$\triangle P=\frac{4 S}{r}=\frac{4 \times 25 \times 10^{-3} \times 100}{0.5}$.
+$\Delta P$ = 20pa
+
+Q8. When a soap bubble is charged, it:
+    (A) Decreases
+    (B) Does not undergo any change in size
+    (C) Expands   <-- CORRECT
+    (D) Disappears
+    Answer: C
+    Explanation: A charge will be distributed uniformly on the surface of a bubble if the bubble is charged. The bubble will expand because the charged particles uniformly distributed on it cause them to repel each other due to the electrostatic force. This will happen to both positive and negatively charged bubbles because of the charge on it.
+
+Q9. A drop of oil is placed on the surface of the water. Which of the following statements is correct?
+    (A) It will remain on it as a sphere
+    (B) It will spread as a thin layer   <-- CORRECT
+    (C) It will float as a distorted drop on the water surface
+    (D) It will partly change to spherical droplets and partly as a thin film
+    Answer: B
+    Explanation: When any liquid is poured onto another liquid there are different phenomena that can take place depending on the properties of liquids, In case of crude oil and water:
+The two liquids are non-miscible and the first is lighter than the second. The first liquid then spreads on the surface of the second liquid forming a thin layer. The thickness of this layer depends on the properties of the two liquids. This is the case for most hydrocarbons, including both refined products and crude oil of API gravity(API gravity is thus an inverse measure of a petroleum liquid's density relative to that of water (also known as specific gravity). greater than 10.
+
+Q10. Small droplets of liquid are usually more spherical in shape than larger drops of the same liquid because:
+    (A) the force of surface tension is equal and opposite to the force of gravity
+    (B) the force of surface tension predominates the force of gravity   <-- CORRECT
+    (C) the force of gravity and force of surface tension act in the same direction and are equal
+    (D) the force of gravity predominates the force of surface tension
+    Answer: B
+    Explanation: In small drops effect of gravity can be ignored because all the points can be considered at the same height. Thus to acquire minimum energy they will acquire spherical shape while in larger drops due to finite radius of drop all the points cannot be assumed at same height thus drop will try to acquire spherical shape but due to effect of gravity, its shape will be a little distorted from the pure spherical shape.
+
+Q11. Water rises to a height of 16.3 cm in a capillary of height 18 cm above the water level. If the tube is suddenly cut at a height of 12 cm.
+    (A) water will stay at a height of 12 cm in the capillary tube   <-- CORRECT
+    (B) the height of the water in the capillary will be 10.3 cm
+    (C) water will come as a fountain from the capillary tube
+    (D) water will flow down the sides of the capillary tube
+    Answer: A
+    Explanation: water will stay at a height of 12 cm in the capillary tube
+
+Q12. A spherical soap bubble has a radius ′r′. The surface tension of the soap film is T. The energy needed to double the diameter of the bubble at the same temperature is:
+    (A) $8\pi {r^2}\sigma$
+    (B) $4\pi {r^2}\sigma$
+    (C) $14\pi {r^2}T$
+    (D) $24\pi\;r^2\sigma$   <-- CORRECT
+    Answer: D
+    Explanation: $24\pi\;r^2\sigma$
+
+Q13. A liquid drop of radius R is broken up into N small droplets. The work done is proportional to( take $N^\frac13$ >> 1).
+    (A) $N^\frac13$   <-- CORRECT
+    (B) N
+    (C) $N^{\frac{-2}{3}}$
+    (D) $N^{ - 0.{\rm{5}}}$
+    Answer: A
+    Explanation: When a droplet of radius R is broken into N small droplets total volume will remain constant. Let the radius of small droplets be r. Then
+$\frac{4}{3} \pi R^{3}=N \frac{4}{3} \pi r^{3}$
+$r=\frac{R}{{N} ^\frac{1}{3}}$
+work done will be equal to the change in surface energy, thus
+W = $S_{f}-S_{i}=N 4 \pi r^{2} T-4 \pi R^{2} T$
+W = $N 4 \pi\left(\frac{R}{N^{\frac{1}{3}}}\right)^{2} T-4 \pi R^{2} T$
+W = $4 \pi R^{2} T\left(N^{\frac{1}{3}}-1\right)$
+if $N^\frac{1}{3}$ is very large thus it becomes
+W = 4$\pi$R^2T$N^\frac{1}{3}$
+thus
+$W \propto N^{\frac{1}{3}}$
+
+Q14. An air bubble of radius r is formed inside a tank of water at depth h. The atmospheric pressure is equal to a water column of height H. the pressure inside the bubble is:
+    (A) $\rho g\left(h+H\right)+\frac{4T}r$
+    (B) $\rho g\left(h+H\right)+\frac{8T}r$
+    (C) $\rho g\left(h+H\right)+\frac{2T}r$   <-- CORRECT
+    (D) $\rho g\left(h+H\right)+\frac Tr$
+    Answer: C
+    Explanation: Excess pressure in an air bubble is given by
+P_2 − P_1 = $\frac{2 T}{r}$ $\longrightarrow$ surface tension r $\longrightarrow$ the radius of the bubble if the bubble is at a depth h inside then
+$P_{1}=P_{a t m}+h \rho g$
+given $P_{a t m}=H \rho g$
+$P_{1}=\rho g(H+h)$
+thus
+$P_{2}=\rho g(h+H)+\frac{2 T}{r}$
+
+Q15. It is easier to spray water to which soap is added, because:
+    (A) Addition of soap to water increases the surface tension of water
+    (B) Addition of soap to water increases its density
+    (C) Addition of soap to water makes surface tension of water zero
+    (D) Addition of soap to water decreases the surface tension of water   <-- CORRECT
+    Answer: D
+    Explanation: The addition of soap decreases the surface tension of water, as we know the energy of spraying is directly proportional to the surface tension.
+
+========================================================================
+Mechanical Properties of Fluids Test 04  (id 575) [PAID]
+CBSE > Class 11 > Physics > Mechanical Properties of Fluids
+Questions: 15 | Answers: YES
+========================================================================
+
+Q1. A capillary tube remains dipped in a water container so that loss in weight of the capillary tube is:
+    (A) less than the upward buoyant force
+    (B) more than the upward buoyant force
+    (C) equal to the upward buoyant force   <-- CORRECT
+    (D) half of the buoyant force
+    Answer: C
+    Explanation: This is Archimedes principle when an object submerged in a liquid its weight is equal to the Buoyant force.
+
+Q2. One thousand small water droplets of equal size combine to form a big drop. The ratio of the final surface energy to the total initial surface energy is:
+    (A) 1:10   <-- CORRECT
+    (B) 1:1000
+    (C) 1000:1
+    (D) 10:1
+    Answer: A
+    Explanation: Let 1000 small droplets of radius r combine to form a bigger drop of radius R. As total volume remains constant 
+$1000 \times \frac{4}{3} \pi r^{3}=\frac{4}{3} \pi R^{3}$
+$\Rightarrow$ R = 10r
+initial surface energy
+$S_{i}$ = surface area $\times$ surface tension
+$S_{i}=1000 \times 4 \pi r^{2} \times T$
+final surface energy
+$S_{f}=4 \pi R^{2} \times T$
+$S_{f}=100 \times 4 \pi r^{2} \times T$
+taking ratio
+$\frac{S_{f}}{S_{i}}=\frac{100 \times 4 \pi r^{2} \times T}{1000 \times 4 \pi r^{2} \times T}$
+$\Rightarrow$ 1:10
+
+Q3. The unit of surface tension in S.I units is given by:
+    (A) dynes per cm^2
+    (B) Newtons per meter   <-- CORRECT
+    (C) dynes per cm
+    (D) Newtons per meter^2
+    Answer: B
+    Explanation: surface tension is measured in force per unit length. The S.I unit is a newton per meter but the CGS unit dyne per centimeter is also used.
+
+Q4. What will be the height of a liquid column in a capillary tube on the surface of the moon?
+    (A) 36 times that on earth's surface
+    (B) Six times that on the earth's surface   <-- CORRECT
+    (C) It will remain unchanged
+    (D) 1/6th of what was on earth's surface
+    Answer: B
+    Explanation: The height to which the liquid rises in a capillary tube is inversion all proportional to the acceleration due to gravity.
+$h=\frac{2 S \cos \theta}{r \rho g}$
+thus if all other parameters are fixed 
+$h \propto\frac{1}{g}$
+On the surface of the moon, acceleration due to gravity is $1\over6$th as that on the surface of the earth. Therefore the water will rise to a height 6 times that on earth's surface.
+
+Q5. Two match sticks are laid side by side on the surface of the water. When a drop of light oil on the end of a third match stick is touched to the surface film between the two floating sticks, the two match sticks
+    (A) will remain as they are
+    (B) will be joined
+    (C) will move apart rapidly   <-- CORRECT
+    (D) will come closer
+    Answer: C
+    Explanation: They will move apart rapidly because the surface tension of oil is lesser than that of water.
+
+Q6. Soldering of two metals possible because of the property of:
+    (A) surface tension
+    (B) cohesion   <-- CORRECT
+    (C) osmosis
+    (D) viscosity
+    Answer: B
+    Explanation: Cohesion is the attractive force among the same kind of materials. Thus soldering of two metals is possible due to cohesion.
+
+Q7. When the adhesive force in the case of liquid and glass is greater than the cohesive forces between the liquid molecules, the shape of the meniscus of liquid in a capillary tube is?
+    (A) Circular
+    (B) Concave   <-- CORRECT
+    (C) Convex
+    (D) Plane
+    Answer: B
+    Explanation: The formation of meniscus depends on cohesive and adhesive forces in a liquid. For water, adhesive forces are stronger than the cohesive forces, therefore, water in a container stick to the wall of the container and owing to the capillary action rises a little bit and form a concave meniscus.
+When liquid water is confined in a tube, its surface (meniscus) has a concave shape because water wets the surface and creeps up the side.
+
+Q8. If the work done in blowing a bubble of volume V is W, then the work done in blowing a soap bubble of volume 2V will be
+    (A) $\sqrt 2 W$
+    (B) 2W
+    (C) W
+    (D) $\sqrt[3]4W$   <-- CORRECT
+    Answer: D
+    Explanation: Work done to blow a bubble will be equal to its surface energy 
+W = S = surface area $\times$ surface tension S = A $\times$ T
+Given that work done to blow a bubble of volume V is W. 
+W = S = surface area $\times$ surface tension, S = A $\times$ T for volume V
+S = 4$\pi$r^2 $\times$ T
+S $\propto$ r^2 but radius r $\propto$ Volume$(v)^{1\over 3}$
+thus S $\propto$ $(V)^{2\over 3}$
+$\Rightarrow$ $W \propto V^{\frac{2}{3}}$
+$\Rightarrow$ thus if the volume is doubled 
+the W_2 becomes $(2)^{\frac{2}{3}} \Rightarrow(4)^{\frac{1}{3}} W_{1}$
+thus $W_{2}=\sqrt[3]{4} W_{1}$
+
+Q9. Two tubes of the same material but of different radii are dipped in a liquid. The height to which a liquid rises in one tube is 2.2cm and in the other is 6.6 cm. The ratio of their radii is:
+    (A) 3:1   <-- CORRECT
+    (B) 1:9
+    (C) 9:1
+    (D) 1:3
+    Answer: A
+    Explanation: Using the relation for the height of the liquid in a capillary tube 
+$h=\frac{2 S \cos \theta}{r \rho g}$
+thus if all other parameters are fixed
+$h \propto \frac{1}{r}$
+$\Rightarrow \frac{h_{1}}{h_{2}}=\frac{r_{2}}{r_{1}}$ given h_1 = 2.2 and h_2 = 6.6
+$\frac{2.2}{6.6}=\frac{r_{2}}{r_{1}}$
+$\frac{r_{1}}{r_{2}}$ = 3 : 1
+
+Q10. A raft of wood of density 600kg/m^3 and mass 120 kg floats in water. How much weight can be put on the raft to make it just sink?
+    (A) 80kg   <-- CORRECT
+    (B) 40kg
+    (C) 120 kg
+    (D) 200kg
+    Answer: A
+    Explanation: Given mass of raft M = 120 k.g.
+density of raft = 600 k.g./m^3
+thus volume of raft V = 
+$V = \frac{{Mass}}{{density}} = \frac{{120}}{{600}} = 0.2{m^3}$
+when raft just sinks inside after placing extra mass m. thus weight of
+(raft + extra mass m)
+will be equal to the buoyant force. so
+(M + m)g = $V\rho g$
+$120 + m = 0.2 \times 1000$
+m = 80 kg.
+
+Q11. If a block of iron of unknown mass ​​​of size 5 cm $ \times $ 5 cm $ \times $ 5 cm was completely submerged in water, what is the mass of the block. (density of water = 1 gm/cm^3)
+    (A) 100 ​​​​​​gm
+    (B) 125 gm​​​​   <-- CORRECT
+    (C) 90 ​​​​gm
+    (D) 80 ​​​gm
+    Answer: B
+    Explanation: When it is submerged completely its weight will be balanced by the buoyant force which is equal to the mass of water displaced. Thus let the mass of block be m than at equilibrium
+mg = Vρg
+m = 5 $\times$ 5 $\times$5 $\times$ 1
+m = 125gm
+
+Q12. A boy is carrying a bucket of water in one hand with a 0.05 kg cork piece in it. After some time he takes out the cork piece and holds it on the other hand. The boy will carry:
+    (A) Same load as before   <-- CORRECT
+    (B) Either less or more load depending on the density of plastic
+    (C) Less load than before
+    (D) More load than before
+    Answer: A
+    Explanation: as there is no change in total weight only the place of the cork piece has changed.
+
+Q13. A beaker is partly filled with water, the beaker and the contents have a mass of 50 gm. A piece of wood having a volume of 5 cc. is floated in the beaker. The density of wood is 0.8 g/cc. the mass of the beaker and its contents is:
+    (A) 54 g   <-- CORRECT
+    (B) 46 g
+    (C) 56.25 g
+    (D) 50 g
+    Answer: A
+    Explanation: v = $m\over d$
+m = v $\times$ d . . . . .(mass = density $\times$ volume)
+total mass = 50 + 0.8 $\times$ 5 = 50 + 4 = 54 g
+
+Q14. A bird, resting on the floor of an airtight box, which is being carried by a boy, starts flying. The boy will feel that the box:
+    (A) Is now lighter
+    (B) Is now heavier
+    (C) Lighter in the beginning and heavier afterwards
+    (D) Shows no change in weight   <-- CORRECT
+    Answer: D
+    Explanation: If the cage is completely closed, it doesn't make a difference if the bird is hovering inside it or if it sits on the ground. When flying, the bird pushes air to the ground which will exert a downward force on the cage exactly equal to the weight of the bird. This is a direct consequence of the conservation of momentum and Newton's second & third law. Since no additional external force is acting on the cage-bird-system when the bird is flying as compared to when it's not, the acceleration on the cage can be no different. The effect due to the flying of the bird only concerns the internal forces and since action = reaction, hence there is no change in the weight of the box.
+
+Q15. A cube of side 10 cm is floating in equilibrium in a tank of water. When a mass of 10 gm is placed on the cube, the depth of the cube inside the water increases by: (g = 10 ms^−2 density of water = 10^3 kg m^−3)
+    (A) 1mm   <-- CORRECT
+    (B) 1 cm
+    (C) 0.1 m
+    (D) 0.1 mm
+    Answer: A
+    Explanation: Consider initially x c.m. height of cube is inside the water. For floatation, its weight will be balanced by a buoyant force which is equal to the weight of water displaced. Thus let the mass of cube is m. Given side of cube = 10 c.m. thus at equilibrium
+Weight of cube = buoyant force
+mg = V$\rho$g
+where $\rho$ is the density of water and volume of cube inside will be $\left(\frac{10}{100}\right)^{2}$metre^3
+m = $x\left(\frac{10}{100}\right)^{2} 1000$
+m = 10x $\rightarrow$ (1)
+now if a block of 10 g is placed on it then let the height of cube inside is (x + y)
+thus at equilibrium
+$\left(m+\frac{10}{1000}\right) g=(x+y)\left(\frac{10}{100}\right)^{2} 1000 g$
+using(1)
+(10x + $\frac{1}{{100}}$) = (x + y)10 $\Rightarrow$ 1000x + 1 = 1000x + 1000y
+y = $1\over 1000$metre = 1mm
+Thus after placing 10gm mass height of cube in water will increase by 1mm.
+
+========================================================================
+Mechanical Properties of Fluids Test 05  (id 576) [PAID]
+CBSE > Class 11 > Physics > Mechanical Properties of Fluids
+Questions: 15 | Answers: YES
+========================================================================
+
+Q1. A wooden cube just floats inside the water when a 200gm mass is placed on it. When the mass is removed, the cube is 2 cm above the water level. The size of the cube is:
+    (A) 15 cm
+    (B) 20 cm
+    (C) 5 cm
+    (D) 10 cm   <-- CORRECT
+    Answer: D
+    Explanation: Let the side of the cube be x, the density of water be $\rho$, the mass of cube is m, acceleration due to gravity be g.
+When the weight is on the block,
+Using Archimedes’ Principle,
+Weight of the block + Weight of the mass = Buoyant force (B_1)
+Since Bouyant force is equal to the volume of liquid displaced by the body thus 
+B_1 = $\rho g x^{3}$
+thus (m + 200) g = $\rho$ gx^3
+m = $\rho$x^3 - 200 $\rightarrow$ (1)
+when mass is removed the wooden cube is 2 cm outside
+thus volume of cube inside = volume of water displaced = (x - 2) x^2
+again balance the buoyant force B_2 = $\rho$g(x - 2) x^2
+$\rho$g(x - 2) x^2 = mg
+$\Rightarrow$ $\rho$(x - 2) x^2 = m
+substitute for m
+$\rho$(x - 2) x^2 = $\rho$x^3 - 200
+$\Rightarrow$ 2 $\rho$x^2 = 200
+take $\rho$ = 1 gram/cm^3
+$\Rightarrow$ x = 10 cm
+
+Q2. Pressure applied to an enclosed fluid is:
+    (A) increased in proportion to the mass of the fluid and then transmitted.
+    (B) transmitted unchanged to every portion of the fluid and walls of the containing vessel.   <-- CORRECT
+    (C) diminished and transmitted to the wall of the container.
+    (D) increased and applied to every part of the fluid.
+    Answer: B
+    Explanation: According to Pascal's law (or the principle of transmission of fluid-pressure) is a principle in fluid mechanics that states that a pressure change occurring anywhere in a confined incompressible fluid is transmitted throughout the fluid such that the same change occurs everywhere.
+
+Q3. A parrot is in a wire case, which is hanging from a spring balance. Initially, the parrot sits in the cage and in the second instance the parrot flies inside the cage, the reading of the balance will be:
+    (A) Normal when the parrot flies in the cage
+    (B) Remain unchanged
+    (C) Lesser when the parrot flies in the cage   <-- CORRECT
+    (D) Greater when the parrot flies in the cage
+    Answer: C
+    Explanation: For the bird to stay in the air, the wings must push down on the air under them. If the cage is airtight, the air exerts an equal force on the floor of the cage. The net force down on the scale will remain constant. If the cage is not airtight (i.e; the wire cage), the air will move down and horizontal. The force down will be less than the weight of the bird.
+
+Q4. If there would be smaller gravitational effects, which of the following forces do you think would alter in some respect?
+    (A) Electrostatic forces
+    (B) Nuclear forces
+    (C) Viscous forces
+    (D) Buoyant forces   <-- CORRECT
+    Answer: D
+    Explanation: Buoyancy force on an object is equal to the weight of the fluid displaced by the object, or the density of the fluid multiplied by the submerged volume times the gravitational acceleration.
+
+Q5. If you float on your back on the water, your weight is:
+    (A) Half to your normal weight
+    (B) Equal to your normal weight
+    (C) Greater than the weight of water you displace
+    (D) Zero   <-- CORRECT
+    Answer: D
+    Explanation: Due to the buoyant force of water, the buoyancy of water reduces your body weight by 90%. When you get into the pool, your body displaces a volume of water (the "hole" in the water that your body fits into). As long as your body displaces water weighs more than you do, you float. This is basically Archimedes' Law. You weigh less than the water you're in, because your lungs are full of air, like a balloon, and like a balloon, the air in your lungs lifts you to the surface naturally.
+
+Q6. The height of the mercury column in a simple barometer is h. As the tube is inclined to the vertical at an angle $\alpha$ the length of the mercury column along the length of the tube is l, then:
+    (A) l = h
+    (B) l = h sin$\alpha$
+    (C) $1=\frac{h}{\cos \alpha}$
+    (D) l = h cos$\alpha$   <-- CORRECT
+    Answer: D
+    Explanation: This will form a right-angled triangle with base l and hypotenuse h and the angle between base and hypotenuse is 
+$\alpha$ thus cos$\alpha$ = $\frac{l}{h}$ 
+l = h cos $\alpha$
+
+Q7. A cylindrical vessel is filled with an equal mass of mercury and water. The overall height of the two layers is 43.8 cm. The relative density of mercury is 13.6. Then the pressure of the liquid on the bottom of the vessel is:
+    (A) P_atm + 6 cm of Hg   <-- CORRECT
+    (B) P_atm + 1.5 cm of Hg
+    (C) P_atm + 16.6 cm of Hg
+    (D) P_atm +​​​​​​ 3 cm of Hg
+    Answer: A
+    Explanation: Given total height H of vessel = 43.8 cm 
+As mass of mercury and water is equal
+$\rho_{h g} V_{h g}=\rho_{w} V_{w} $ given $ \rho_{h g}$ = 13.6 $\rho_{w} $)
+13.6 $\times$ $\pi r^{2} h_{h g}$ = $\pi r^{2} h_{w}$
+h_w = 13.6 $h_{h g}$ $\rightarrow$ (1)
+given h_w + h_hg = 43.8 $\rightarrow$ (2)
+from(1) and (2)
+h_w = 40.8 cm and h_hg = 3 cm 
+Thus pressure at bottom will be
+P = P_atm + $\rho_{h g} g h_{h g} + \rho_{w} g h_{w} $
+P = $P_{a t m} + \left(\rho_{h g} g \times 3\right) + \frac{\rho_{h g}}{13.6} g \times 40.8$ 
+P = P_atm + 3cm of Hg + 3cm of Hg
+P = P_atm + 6 cm of Hg
+
+Q8. Two bodies are in equilibrium when suspended in water from the arms of a balance. The mass of one body is 36 gm and its density is 9 gm/cc. If the mass of the other is 48 gm, its density in gm/cm^3 is:
+    (A) 5
+    (B) 3.0   <-- CORRECT
+    (C) $\frac{3}{2}$
+    (D) $\frac{4}{3}$
+    Answer: B
+    Explanation: W_1 = W_2 
+$m_1 g -v_1\rho_\omega g = m_2g - v_2\rho_\omega g$
+by simplifying the equation, we get 
+​​36−4 = 48−V_2
+V_2 = 48−32 = 16m^3
+the density of body is given by 
+$\rho=\frac{m_2}{V_2}$
+$ = \frac{48}{16}$ = 3g/cm^3
+
+Q9. Three liquids of densities d, 2d, and 3 d are mixed in equal volumes. Then the density of the mixture is:
+    (A) 5d
+    (B) 2d   <-- CORRECT
+    (C) d
+    (D) 3d
+    Answer: B
+    Explanation: The density of the mixture is given by
+$\rho_{\operatorname{mix}}=\frac{\text {total mass}}{\text {total volume}}=\frac{m_{1}+m_{2}+m_{3}}{v_{1}+v_{2}+v_{3}}$
+asv_1 = v_2 = v_3
+$\rho_{\operatorname{mix}}=\frac{\rho_{1} v+\rho_{2} v+\rho_{3} v}{v+v+v}$
+$\Rightarrow \frac{d v+2 d v+3 d v}{3 v}$
+$\rho_{m ix}$ = 2d
+
+Q10. Three liquids of densities d, 2d and 3d are mixed in equal proportion of weights. If density of water is d, then the specific gravity of the mixture is
+    (A) $\frac{13}{9}$
+    (B) $\frac{23}{18}$
+    (C) $\frac{11}{7}$
+    (D) $\frac{18}{11}$   <-- CORRECT
+    Answer: D
+    Explanation: w_1 = w_2 = w_3
+$\Rightarrow$ m_1 = m_2 = m_3 = m (say)
+Then, v_1 = $\frac{m}{d}$, v_2 = $\frac{m}{2d}$, v_3 = $\frac{m}{3d}$
+$\therefore$ d_max = $\frac{mass}{volume}$= $\frac{3m}{v_1+v_2+v_3}$ = $\frac{18}{11}d$
+So, specific gravity of mixture = $\frac{d_{max}}{d_{water}}$ = $\frac{18}{11}$
+
+Q11. What fraction of the volume of a solid piece of metal of sp gr 7.2 floats above the surface of a container of mercury of sp. gr. 13.6?
+    (A) 0.53
+    (B) 0.78
+    (C) 0.47   <-- CORRECT
+    (D) 0.75
+    Answer: C
+    Explanation: V = Volume of metal
+V’ = Volume of mercury displaced 
+Weight of body = Weight of mercury displaced 
+= 7.2 $\times$ 9810 $\times$ V = 13.6 $\times$9810 $\times$V′
+$\Rightarrow$ ${V'\over V }= 0.53$ 
+Fraction of volume above mercury = 1 - 0.53 = 0.47
+
+Q12. Which one of the following statements is correct for fluid passing through the narrow part of the non-uniform pipe?
+    (A) its velocity increases but its pressure decreases   <-- CORRECT
+    (B) its velocity and pressure both decrease
+    (C) its velocity decreases but its pressure increases
+    (D) its velocity and pressure both increase
+    Answer: A
+    Explanation: Consider two points A and B in the pipe at the same horizontal level. At point A, let a_1 be the area of cross-section of the pipe, v_1 the velocity of fluid flow, and p_1 the fluid pressure. let a_2, v_2, p_2 be the corresponding quantities at point B. then from Bernoulli's theorem we have, 
+$p_1 +{1\over 2}\rho v_1^2 = p_2 +{1\over 2}\rho v_2^2 $
+$\Rightarrow (p_1-p_2) = {1\over 2} \rho (v_2^2-v_1^2) \ $....(1)
+if a_2 < a_1, it follows from continuity equation a_1v_1= a_2v_2 that v_1 > v_2 from eq (1) it follows that p_2 < p_1, Hence at the narrow part of the pipe, the fluid velocity increase but its pressure decrease.
+
+Q13. A cylindrical jar of cross-sectional area 0.01 m^2 is filled with water to a height of 50 cm. It carries a tight-fitting piston of negligible mass. What is the pressure at the bottom of the jar when the mass of 1 kg is placed on the piston? Take g = 10ms^−2.
+    (A) 2000 Pa
+    (B) 6000 Pa   <-- CORRECT
+    (C) 5000 Pa
+    (D) 4000 Pa
+    Answer: B
+    Explanation: The pressure at the bottom of the jar is due to the weight of a column of water of height h = 50 cm = 0.5 m and the weight of a load of m = 1 kg.
+The total force acting on the base = $h\rho g A+ mg $ 
+= 0.5 $\times $ 1000 $\times $ 10 $\times $ 0.01 + 1 $\times $10 = 60N
+$\therefore$ Pressure =$ {force \over area} = {60\over 0.01 } = 6000 \ Nm^{-2} \ $ or 6000 Pa
+
+Q14. Two vessels A and B of different shapes have the same base area and are filled with water up to the same height h. The force exerted by water on the base is ${{\rm{F}}_{\rm{A}}}$ for vessel A and ${{\rm{F}}_{\rm{B}}}$ for vessel B. The respective weights of the vessels are ${{\rm{W}}_{\rm{A}}}$ and ${{\rm{W}}_{\rm{B}}}$. Then
+    (A) F_A > F_B; W_A > W_B
+    (B) F_A < F_B; W_A > WB
+    (C) F_A = F_B; W_A > W_B   <-- CORRECT
+    (D) F_A = F_B; W_A = W_B
+    Answer: C
+    Explanation: Since h is, the same for both vessels, pressure = $h\rho g$ is the same. Now force = $pressure \times base \ area $. Since the base area is the same, the force exerted by water on the base is the same for both vessels. Thus $F_A= F_B$.
+The liquid exerts pressure, and hence force, not only on the base but also on the sides of the vessel. This force is normal to the sides of the vessel. For vessel B, this force has no component in the downward direction. but for vessel A, this force ( which is normal to the sides) has a non-zero component vertically downwards. Hence vessel A gives higher reading than vessel B when they are weighed on a weighing scale. Thus $W_A > W_B$
+
+Q15. A tank with a square base of area 2.0 m^2 is divided into two compartments by a vertical partition in the middle. There is a small hinged door of face area 20 cm$^{\rm{2}}$ at the bottom of the partition. Water is filled in one compartment and acid, of relative density 1.7, in the other, both to a height of 4m. If g = 10 ms^-2 the force necessary to keep the door closed is:
+    (A) 40.52 N
+    (B) 54.88 N   <-- CORRECT
+    (C) 20.92 N
+    (D) 80.88 N
+    Answer: B
+    Explanation: Water compartment
+P = $ h\rho g $
+= 4 $\times$ 1.0 $\times$ 10^3 $\times$ 9.8
+= 39.2 $\times$ 10^3Pa
+Acid Compartment,
+P' = $h\rho'g$
+= 4 $\times$ 1.7 $\times$ 10^3 $\times$ 9.8
+= 66.64 $\times$ 10^3Pa
+Now,
+P′ − P = 66.64 $\times$ 10^3 − 39.2 $\times$ 10^3
+P′ − P = 27.44 $\times$ 10^3 Pa
+A = 20 cm^2 = 20 $\times$ 10^−4m^2
+Force using pressure,
+Pressure = $ {Force \over Area}$
+Force = pressure $\times$ area F = 27.44 $\times$ 10^3 $\times$ 20 $\times$ 10^−4
+F = 54.88 N

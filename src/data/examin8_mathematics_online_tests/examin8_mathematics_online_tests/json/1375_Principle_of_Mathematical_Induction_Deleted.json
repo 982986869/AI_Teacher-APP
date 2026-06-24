@@ -1,0 +1,3162 @@
+{
+  "id": 1375,
+  "name": "Principle of Mathematical Induction (Deleted)",
+  "full_name": "CBSE > Class 11 > Mathematics > Principle of Mathematical Induction (Deleted)",
+  "tests": [
+    {
+      "testPaperID": 617,
+      "testPaperName": "Mathematical Induction Test 01",
+      "is_paid": false,
+      "category_full_name": "CBSE > Class 11 > Mathematics > Principle of Mathematical Induction (Deleted)",
+      "noOfQuestions": 15,
+      "has_answers": true,
+      "sections": [
+        {
+          "sectionName": "General",
+          "sectionID": null,
+          "questions": [
+            {
+              "questionID": 18542,
+              "question": "Let $P\\left( n \\right)$ be a statement and let $P\\left( n \\right) \\Rightarrow P\\left( {n + 1} \\right)$ for all natural numbers n, then what will the nature of $P\\left( n \\right)$ ?",
+              "question_raw": "<p>Let <span class=\"math-tex\">{tex}P\\left( n \\right){/tex}</span> be a statement and let <span class=\"math-tex\">{tex}P\\left( n \\right) \\Rightarrow P\\left( {n + 1} \\right){/tex}</span> for all natural numbers n, then what will the nature of &nbsp;<span class=\"math-tex\">{tex}P\\left( n \\right){/tex}</span>&nbsp;?</p>",
+              "options": [
+                {
+                  "label": "A",
+                  "id": 29370,
+                  "text": "it satisfies only all n $>$ 1",
+                  "is_correct": false
+                },
+                {
+                  "label": "B",
+                  "id": 29371,
+                  "text": "It is true for all n > m, m being a fixed positive integer",
+                  "is_correct": false
+                },
+                {
+                  "label": "C",
+                  "id": 29369,
+                  "text": "true for all n",
+                  "is_correct": false
+                },
+                {
+                  "label": "D",
+                  "id": 29368,
+                  "text": "Nature cannot be identified.",
+                  "is_correct": true
+                }
+              ],
+              "correct_option_ids": [
+                29368
+              ],
+              "correct_option_labels": [
+                "D"
+              ],
+              "correct_option_texts": [
+                "Nature cannot be identified."
+              ],
+              "explanation": "Since the statement is conditional statement ( if....then)."
+            },
+            {
+              "questionID": 18543,
+              "question": "Let P(n) b e a statement 2^n < n!, where n is a natural number, then P(n) is true for",
+              "question_raw": "<p>Let P(n) b e a statement 2<sup>n</sup> &lt; n!, where n is a natural number, then P(n) is true for</p>",
+              "options": [
+                {
+                  "label": "A",
+                  "id": 29373,
+                  "text": "all n > 2",
+                  "is_correct": false
+                },
+                {
+                  "label": "B",
+                  "id": 29375,
+                  "text": "all n > 3",
+                  "is_correct": true
+                },
+                {
+                  "label": "C",
+                  "id": 29372,
+                  "text": "all n < 3",
+                  "is_correct": false
+                },
+                {
+                  "label": "D",
+                  "id": 29374,
+                  "text": "all n",
+                  "is_correct": false
+                }
+              ],
+              "correct_option_ids": [
+                29375
+              ],
+              "correct_option_labels": [
+                "B"
+              ],
+              "correct_option_texts": [
+                "all n > 3"
+              ],
+              "explanation": "Since for example n = 4 will give LHS as 16 and RHS as 4! = 1 $\\times$ 2 $\\times$ 3 $\\times$ 4 = 24"
+            },
+            {
+              "questionID": 18544,
+              "question": "If x > -1, then the statement (1 + x)^n > 1 + nx is true for",
+              "question_raw": "<p>If x &gt; -1, then the statement (1 + x)<sup>n</sup> &gt; 1 + nx is true for</p>",
+              "options": [
+                {
+                  "label": "A",
+                  "id": 29378,
+                  "text": "all n > 1",
+                  "is_correct": false
+                },
+                {
+                  "label": "B",
+                  "id": 29376,
+                  "text": "all n > 1 provided x $ \\ne $ 0",
+                  "is_correct": true
+                },
+                {
+                  "label": "C",
+                  "id": 29377,
+                  "text": "all n $ \\in $ N",
+                  "is_correct": false
+                },
+                {
+                  "label": "D",
+                  "id": 29379,
+                  "text": "all n > 2",
+                  "is_correct": false
+                }
+              ],
+              "correct_option_ids": [
+                29376
+              ],
+              "correct_option_labels": [
+                "B"
+              ],
+              "correct_option_texts": [
+                "all n > 1 provided x $ \\ne $ 0"
+              ],
+              "explanation": "For example, if x = 0 and n > 1, say n = 2 then the given inequality will become 1^2 > 1, which is not true. Hence both the conditions on x and n are needed."
+            },
+            {
+              "questionID": 18545,
+              "question": "The smallest +ve integer n, for which n! < $\\left(\\frac{n+1}{2}\\right)^n$ holds is",
+              "question_raw": "<p>The smallest +ve integer n, for which&nbsp;n! &lt;&nbsp;<span class=\"math-tex\">{tex}\\left(\\frac{n+1}{2}\\right)^n{/tex}</span> holds is</p>",
+              "options": [
+                {
+                  "label": "A",
+                  "id": 29380,
+                  "text": "2",
+                  "is_correct": true
+                },
+                {
+                  "label": "B",
+                  "id": 29381,
+                  "text": "1",
+                  "is_correct": false
+                },
+                {
+                  "label": "C",
+                  "id": 29383,
+                  "text": "4",
+                  "is_correct": false
+                },
+                {
+                  "label": "D",
+                  "id": 29382,
+                  "text": "3",
+                  "is_correct": false
+                }
+              ],
+              "correct_option_ids": [
+                29380
+              ],
+              "correct_option_labels": [
+                "A"
+              ],
+              "correct_option_texts": [
+                "2"
+              ],
+              "explanation": "When n = 2, LHS: n! = 2! = 2 $\\times$ 1 = 2\nRHS: $(\\frac{3}{2})^2= \\frac{9}{4}$ \nBut if n = 1, the inequation does not hold good."
+            },
+            {
+              "questionID": 18546,
+              "question": "If P(n) = 2 + 4 + 6 +………………..+ 2n, n $ \\in $ N, then P(k) = k(k + 1) + 2 $ \\Rightarrow $ P (k + 1) = (k + 1) (k + 2) + 2 for all k $ \\in $ N. So we can conclude that P(n) = n (n + 1) + 2 for",
+              "question_raw": "<p>If P(n) = 2 + 4 + 6 +&hellip;&hellip;&hellip;&hellip;&hellip;&hellip;..+ 2n, n <span class=\"math-tex\">{tex} \\in {/tex}</span> N, then P(k) = k(k + 1) + 2 <span class=\"math-tex\">{tex} \\Rightarrow {/tex}</span> P (k + 1) = (k + 1) (k + 2) + 2 for all k <span class=\"math-tex\">{tex} \\in {/tex}</span> N. So we can conclude that P(n) = n (n + 1) + 2&nbsp;for</p>",
+              "options": [
+                {
+                  "label": "A",
+                  "id": 29387,
+                  "text": "all n $ \\in $ N",
+                  "is_correct": false
+                },
+                {
+                  "label": "B",
+                  "id": 29385,
+                  "text": "n > 1",
+                  "is_correct": false
+                },
+                {
+                  "label": "C",
+                  "id": 29386,
+                  "text": "n > 2",
+                  "is_correct": false
+                },
+                {
+                  "label": "D",
+                  "id": 29384,
+                  "text": "nothing can be said",
+                  "is_correct": true
+                }
+              ],
+              "correct_option_ids": [
+                29384
+              ],
+              "correct_option_labels": [
+                "D"
+              ],
+              "correct_option_texts": [
+                "nothing can be said"
+              ],
+              "explanation": "Because the statement is incomplete without the conclusion."
+            },
+            {
+              "questionID": 18547,
+              "question": "(x^n - y^n) is divisible by (x - y) for",
+              "question_raw": "<p>(x<sup>n</sup> - y<sup>n</sup>)&nbsp;is divisible by (x - y) for&nbsp;</p>",
+              "options": [
+                {
+                  "label": "A",
+                  "id": 29388,
+                  "text": "all n $ \\in $ N",
+                  "is_correct": true
+                },
+                {
+                  "label": "B",
+                  "id": 29389,
+                  "text": "n > 1",
+                  "is_correct": false
+                },
+                {
+                  "label": "C",
+                  "id": 29390,
+                  "text": "n > 2",
+                  "is_correct": false
+                },
+                {
+                  "label": "D",
+                  "id": 29391,
+                  "text": "n > 3",
+                  "is_correct": false
+                }
+              ],
+              "correct_option_ids": [
+                29388
+              ],
+              "correct_option_labels": [
+                "A"
+              ],
+              "correct_option_texts": [
+                "all n $ \\in $ N"
+              ],
+              "explanation": "Replacing n by 1, 2, 3... we get the expression with the factor (x - y). Hence it is divisible by (x - y)."
+            },
+            {
+              "questionID": 18548,
+              "question": "The greatest positive integer, which divides n (n + 1) (n + 2) (n + 3) for all n $ \\in $ N , is",
+              "question_raw": "<p>The greatest positive integer, which divides n (n + 1) (n + 2) (n + 3) for all n <span class=\"math-tex\">{tex} \\in {/tex}</span> N , is</p>",
+              "options": [
+                {
+                  "label": "A",
+                  "id": 29393,
+                  "text": "2",
+                  "is_correct": false
+                },
+                {
+                  "label": "B",
+                  "id": 29395,
+                  "text": "120",
+                  "is_correct": false
+                },
+                {
+                  "label": "C",
+                  "id": 29392,
+                  "text": "24",
+                  "is_correct": true
+                },
+                {
+                  "label": "D",
+                  "id": 29394,
+                  "text": "6",
+                  "is_correct": false
+                }
+              ],
+              "correct_option_ids": [
+                29392
+              ],
+              "correct_option_labels": [
+                "C"
+              ],
+              "correct_option_texts": [
+                "24"
+              ],
+              "explanation": "If n = 1 then the statement becomes 1 $\\times$ 2 $\\times$ 3 $\\times$ 4 = 24: the consecutive natural numbers when substituted will be multiples of 24."
+            },
+            {
+              "questionID": 18549,
+              "question": "Let P(n) denote the statement n^2 + n is odd, It is seen that P(n) $ \\Rightarrow$ P(n + 1), therefore P(n) is true for all",
+              "question_raw": "<p>Let P(n) denote the statement&nbsp;n<sup>2</sup> + n is odd, It is seen that P(n)&nbsp;<span class=\"math-tex\">{tex} \\Rightarrow{/tex}</span> P(n + 1), therefore P(n) is true for all</p>",
+              "options": [
+                {
+                  "label": "A",
+                  "id": 29398,
+                  "text": "n > 2",
+                  "is_correct": false
+                },
+                {
+                  "label": "B",
+                  "id": 29399,
+                  "text": "n > 1",
+                  "is_correct": false
+                },
+                {
+                  "label": "C",
+                  "id": 29396,
+                  "text": "none of these",
+                  "is_correct": true
+                },
+                {
+                  "label": "D",
+                  "id": 29397,
+                  "text": "n",
+                  "is_correct": false
+                }
+              ],
+              "correct_option_ids": [
+                29396
+              ],
+              "correct_option_labels": [
+                "C"
+              ],
+              "correct_option_texts": [
+                "none of these"
+              ],
+              "explanation": "Since if n = 1 the answer is 2 which is even. Also p(1) = p(2) is also not true since p(2) is 6 which is even."
+            },
+            {
+              "questionID": 18550,
+              "question": "The greatest positive integer, which divides (n + 1)(n + 2)(n + 3) ......(n + r) $\\forall n \\in W$, is",
+              "question_raw": "<p>The greatest positive integer, which divides (n + 1)(n + 2)(n + 3) ......(n + r)&nbsp;<span class=\"math-tex\">{tex}\\forall n \\in W{/tex}</span>, is</p>",
+              "options": [
+                {
+                  "label": "A",
+                  "id": 29401,
+                  "text": "r",
+                  "is_correct": false
+                },
+                {
+                  "label": "B",
+                  "id": 29402,
+                  "text": "n + r",
+                  "is_correct": false
+                },
+                {
+                  "label": "C",
+                  "id": 29400,
+                  "text": "r!",
+                  "is_correct": true
+                },
+                {
+                  "label": "D",
+                  "id": 29403,
+                  "text": "(r + 1)!",
+                  "is_correct": false
+                }
+              ],
+              "correct_option_ids": [
+                29400
+              ],
+              "correct_option_labels": [
+                "C"
+              ],
+              "correct_option_texts": [
+                "r!"
+              ],
+              "explanation": "If n = 0 the given expression becomes 1 $\\times$ 2 $\\times$ 3 $\\times$ 4........r = r!. Also when n = 1 one more extra term will be there in the product 2 $\\times$ 3 $\\times$ 4........(r + 1) which is also divisible by r!."
+            },
+            {
+              "questionID": 18551,
+              "question": "The statement P(n) : 1$\\times$1! + 2$\\times$2! + 3$\\times$3! + .....+ n$\\times$n! = (n + 1)! - 1 is",
+              "question_raw": "<p>The statement P(n) :&nbsp;1<span class=\"math-tex\">{tex}\\times{/tex}</span>1! + 2<span class=\"math-tex\">{tex}\\times{/tex}</span>2! + 3<span class=\"math-tex\">{tex}\\times{/tex}</span>3! + .....+ n<span class=\"math-tex\">{tex}\\times{/tex}</span>n! = (n + 1)! - 1&nbsp;is&nbsp;</p>",
+              "options": [
+                {
+                  "label": "A",
+                  "id": 29407,
+                  "text": "true for all n > 2",
+                  "is_correct": false
+                },
+                {
+                  "label": "B",
+                  "id": 29406,
+                  "text": "true for all n > 1",
+                  "is_correct": false
+                },
+                {
+                  "label": "C",
+                  "id": 29405,
+                  "text": "not true for any n",
+                  "is_correct": false
+                },
+                {
+                  "label": "D",
+                  "id": 29404,
+                  "text": "true for all n $ \\in $ N",
+                  "is_correct": true
+                }
+              ],
+              "correct_option_ids": [
+                29404
+              ],
+              "correct_option_labels": [
+                "D"
+              ],
+              "correct_option_texts": [
+                "true for all n $ \\in $ N"
+              ],
+              "explanation": "Replace n = 1, 2, 3 then LHS = RHS"
+            },
+            {
+              "questionID": 18552,
+              "question": "A student was asked to prove a statement P(n) by method of induction. He proved that P(3) is true and that P(n) $ \\Rightarrow $ P(n + 1) for all natural numbers n. On the basis of this the criteria applied on n for P(n) to be true",
+              "question_raw": "<p>A student was asked to prove a statement P(n) by method of induction. He proved that P(3) is true and that P(n)&nbsp;<span class=\"math-tex\">{tex} \\Rightarrow {/tex}</span>&nbsp;P(n + 1) for all natural numbers n. On the basis of this the criteria applied on n for &nbsp;P(n) to be&nbsp;true&nbsp;</p>",
+              "options": [
+                {
+                  "label": "A",
+                  "id": 29410,
+                  "text": "for no n",
+                  "is_correct": false
+                },
+                {
+                  "label": "B",
+                  "id": 29411,
+                  "text": "for all n $≥$ 2",
+                  "is_correct": false
+                },
+                {
+                  "label": "C",
+                  "id": 29409,
+                  "text": "for all n $ \\in $ N",
+                  "is_correct": false
+                },
+                {
+                  "label": "D",
+                  "id": 29408,
+                  "text": "for all n $≥$ 3",
+                  "is_correct": true
+                }
+              ],
+              "correct_option_ids": [
+                29408
+              ],
+              "correct_option_labels": [
+                "D"
+              ],
+              "correct_option_texts": [
+                "for all n $≥$ 3"
+              ],
+              "explanation": "Since by the principle of mathematical induction if p(n) is true for n = 3 then that will be the minimum point to be considered for the process. Also that P(n) $\\Rightarrow$ P(n + 1)."
+            },
+            {
+              "questionID": 18553,
+              "question": "3^2n+2 - 8^n - 9 is divisible by 64 for all",
+              "question_raw": "<p>3<sup>2n+2</sup> - 8<sup>n</sup> - 9 is divisible by 64 for all</p>",
+              "options": [
+                {
+                  "label": "A",
+                  "id": 29415,
+                  "text": "n $ \\in $ N, n $>$ 3",
+                  "is_correct": false
+                },
+                {
+                  "label": "B",
+                  "id": 29414,
+                  "text": "n $ \\in $ N, n $>$ 2",
+                  "is_correct": false
+                },
+                {
+                  "label": "C",
+                  "id": 29412,
+                  "text": "n $ \\in $ N",
+                  "is_correct": true
+                },
+                {
+                  "label": "D",
+                  "id": 29413,
+                  "text": "n $ \\in $ N, n $≥$2",
+                  "is_correct": false
+                }
+              ],
+              "correct_option_ids": [
+                29412
+              ],
+              "correct_option_labels": [
+                "C"
+              ],
+              "correct_option_texts": [
+                "n $ \\in $ N"
+              ],
+              "explanation": "When n = 1 the value is 64. By induction process the consecutive replacement of n = 2, 3, 4.... will be multiples of 64."
+            },
+            {
+              "questionID": 18554,
+              "question": "The inequality n! > 2^n-1 is true",
+              "question_raw": "<p>The inequality&nbsp;n! &gt; 2<sup>n-1</sup> is true</p>",
+              "options": [
+                {
+                  "label": "A",
+                  "id": 29419,
+                  "text": "for no n $ \\in $ N",
+                  "is_correct": false
+                },
+                {
+                  "label": "B",
+                  "id": 29416,
+                  "text": "for all n$ $> 2, $n ∈N$",
+                  "is_correct": true
+                },
+                {
+                  "label": "C",
+                  "id": 29417,
+                  "text": "for all n > 1",
+                  "is_correct": false
+                },
+                {
+                  "label": "D",
+                  "id": 29418,
+                  "text": "for all n $ \\in $ N",
+                  "is_correct": false
+                }
+              ],
+              "correct_option_ids": [
+                29416
+              ],
+              "correct_option_labels": [
+                "B"
+              ],
+              "correct_option_texts": [
+                "for all n$ $> 2, $n ∈N$"
+              ],
+              "explanation": "Since when n = 1, we get the inequality as 1 > 1, which is not true. Also for n = 2, we get 2 > 2, which is false. Hence the given statement is true for n > 2."
+            },
+            {
+              "questionID": 18555,
+              "question": "The statement 3^n > 4n is true for all",
+              "question_raw": "<p>The statement 3<sup>n</sup> &gt; 4n is true for all</p>",
+              "options": [
+                {
+                  "label": "A",
+                  "id": 29420,
+                  "text": "n > 1, n $ \\in $ N",
+                  "is_correct": false
+                },
+                {
+                  "label": "B",
+                  "id": 29422,
+                  "text": "n > 2, n $ \\in $ N",
+                  "is_correct": true
+                },
+                {
+                  "label": "C",
+                  "id": 29423,
+                  "text": "n > 3, n $ \\in $ N",
+                  "is_correct": false
+                },
+                {
+                  "label": "D",
+                  "id": 29421,
+                  "text": "n $ \\in $ N",
+                  "is_correct": false
+                }
+              ],
+              "correct_option_ids": [
+                29422
+              ],
+              "correct_option_labels": [
+                "B"
+              ],
+              "correct_option_texts": [
+                "n > 2, n $ \\in $ N"
+              ],
+              "explanation": "3^n > 4n for all n > 1 can be proved by induction."
+            },
+            {
+              "questionID": 18556,
+              "question": "n^2 + 3n is always divisible by which number, provided n is an integer?",
+              "question_raw": "<p>n<sup>2</sup>&nbsp;+ 3n is always divisible by which number, provided n is an integer?</p>",
+              "options": [
+                {
+                  "label": "A",
+                  "id": 29426,
+                  "text": "4",
+                  "is_correct": false
+                },
+                {
+                  "label": "B",
+                  "id": 29424,
+                  "text": "2",
+                  "is_correct": true
+                },
+                {
+                  "label": "C",
+                  "id": 29427,
+                  "text": "5",
+                  "is_correct": false
+                },
+                {
+                  "label": "D",
+                  "id": 29425,
+                  "text": "3",
+                  "is_correct": false
+                }
+              ],
+              "correct_option_ids": [
+                29424
+              ],
+              "correct_option_labels": [
+                "B"
+              ],
+              "correct_option_texts": [
+                "2"
+              ],
+              "explanation": "P(n) = n^2 + 3n\nP(1) = 1 + 3\nP(1) = 4\nLet’s assume that P(k) is true and divisible by 4. Therefore, P(k) = k^2 + 3k can be written as 4c.\nWe need to check if P(k + 1) is divisible by 4\nP(k+1) = (k + 1)^2 + 3(k + 1)\nP(k+1) = k^2 + 1 + 2k + 3k + 3\nP(k+1) = k^2 + 5k + 4\nP(k+1) = (k^2 + 3k) + 2k + 4\nP(k+1) = 4c + 2k + 4\nP(k+1) = 4c + 2(k + 2)\nClearly the second part of the equation is not divisible by 4. However P(k) = 4c is divisible by 2 and\nP(k + 1) is also divisible by 2. Therefore, 2 divides P(n)."
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "testPaperID": 618,
+      "testPaperName": "Mathematical Induction Test 02",
+      "is_paid": true,
+      "category_full_name": "CBSE > Class 11 > Mathematics > Principle of Mathematical Induction (Deleted)",
+      "noOfQuestions": 15,
+      "has_answers": true,
+      "sections": [
+        {
+          "sectionName": "General",
+          "sectionID": null,
+          "questions": [
+            {
+              "questionID": 18557,
+              "question": "The statement 2^n+2 < 3^n is true for all",
+              "question_raw": "<p>The statement &nbsp;2<sup>n+2</sup> &lt; 3<sup>n</sup>&nbsp;is true for all</p>",
+              "options": [
+                {
+                  "label": "A",
+                  "id": 29428,
+                  "text": "n > 3",
+                  "is_correct": true
+                },
+                {
+                  "label": "B",
+                  "id": 29431,
+                  "text": "n > 4",
+                  "is_correct": false
+                },
+                {
+                  "label": "C",
+                  "id": 29430,
+                  "text": "n $ \\in $ N",
+                  "is_correct": false
+                },
+                {
+                  "label": "D",
+                  "id": 29429,
+                  "text": "n > 2",
+                  "is_correct": false
+                }
+              ],
+              "correct_option_ids": [
+                29428
+              ],
+              "correct_option_labels": [
+                "A"
+              ],
+              "correct_option_texts": [
+                "n > 3"
+              ],
+              "explanation": "When n = 1: 8 < 3, is not true. When n = 2: 16 < 9, is false. When n = 3: 32 < 27, is not valid. But when n = 4: 64 < 81, is true."
+            },
+            {
+              "questionID": 18558,
+              "question": "The smallest positive integer for which the statement 3^n+1 < 4^n is true for",
+              "question_raw": "<p>The smallest positive integer for which&nbsp;the statement 3<sup>n+1</sup> &lt; 4<sup>n</sup>&nbsp;is true for</p>",
+              "options": [
+                {
+                  "label": "A",
+                  "id": 29435,
+                  "text": "3",
+                  "is_correct": false
+                },
+                {
+                  "label": "B",
+                  "id": 29432,
+                  "text": "4",
+                  "is_correct": true
+                },
+                {
+                  "label": "C",
+                  "id": 29433,
+                  "text": "2",
+                  "is_correct": false
+                },
+                {
+                  "label": "D",
+                  "id": 29434,
+                  "text": "1",
+                  "is_correct": false
+                }
+              ],
+              "correct_option_ids": [
+                29432
+              ],
+              "correct_option_labels": [
+                "B"
+              ],
+              "correct_option_texts": [
+                "4"
+              ],
+              "explanation": "When n = 1; 9 < 4 not valid. When n = 2; 27 < 16 not true. When n = 3; 81 < 64 is in correct. when n = 4; 242 < 256, is true."
+            },
+            {
+              "questionID": 18559,
+              "question": "For all n $ \\in $ N, 49^n + 16n - 1 is divisible by",
+              "question_raw": "<p>For all n <span class=\"math-tex\">{tex} \\in {/tex}</span> N, &nbsp;49<sup>n</sup> + 16n - 1 is divisible by</p>",
+              "options": [
+                {
+                  "label": "A",
+                  "id": 29438,
+                  "text": "29",
+                  "is_correct": false
+                },
+                {
+                  "label": "B",
+                  "id": 29436,
+                  "text": "64",
+                  "is_correct": true
+                },
+                {
+                  "label": "C",
+                  "id": 29439,
+                  "text": "3",
+                  "is_correct": false
+                },
+                {
+                  "label": "D",
+                  "id": 29437,
+                  "text": "19",
+                  "is_correct": false
+                }
+              ],
+              "correct_option_ids": [
+                29436
+              ],
+              "correct_option_labels": [
+                "B"
+              ],
+              "correct_option_texts": [
+                "64"
+              ],
+              "explanation": "Replace n = 1, we have 64."
+            },
+            {
+              "questionID": 18560,
+              "question": "2^3n - 1 is divisible by",
+              "question_raw": "<p>2<sup>3n&nbsp;</sup>- 1 is divisible by</p>",
+              "options": [
+                {
+                  "label": "A",
+                  "id": 29442,
+                  "text": "3",
+                  "is_correct": false
+                },
+                {
+                  "label": "B",
+                  "id": 29443,
+                  "text": "9",
+                  "is_correct": false
+                },
+                {
+                  "label": "C",
+                  "id": 29441,
+                  "text": "6",
+                  "is_correct": false
+                },
+                {
+                  "label": "D",
+                  "id": 29440,
+                  "text": "7",
+                  "is_correct": true
+                }
+              ],
+              "correct_option_ids": [
+                29440
+              ],
+              "correct_option_labels": [
+                "D"
+              ],
+              "correct_option_texts": [
+                "7"
+              ],
+              "explanation": "If n = 1 we get 7. For n = 2, we get 63 which is divisible by 7."
+            },
+            {
+              "questionID": 18561,
+              "question": "7^2n + 3^n-1$\\cdot$ 2^3n - 3 is divisible by",
+              "question_raw": "<p>7<sup>2n</sup> + 3<sup>n-1</sup><span class=\"math-tex\">{tex}\\cdot{/tex}</span>&nbsp;2<sup>3n - 3</sup>&nbsp;is divisible by</p>",
+              "options": [
+                {
+                  "label": "A",
+                  "id": 29447,
+                  "text": "16",
+                  "is_correct": false
+                },
+                {
+                  "label": "B",
+                  "id": 29445,
+                  "text": "24",
+                  "is_correct": false
+                },
+                {
+                  "label": "C",
+                  "id": 29444,
+                  "text": "25",
+                  "is_correct": true
+                },
+                {
+                  "label": "D",
+                  "id": 29446,
+                  "text": "9",
+                  "is_correct": false
+                }
+              ],
+              "correct_option_ids": [
+                29444
+              ],
+              "correct_option_labels": [
+                "C"
+              ],
+              "correct_option_texts": [
+                "25"
+              ],
+              "explanation": "when n = 1, we have 50, which is divisible by 25."
+            },
+            {
+              "questionID": 18562,
+              "question": "If n $ \\in $ N then n^3 + 2n is divisible by",
+              "question_raw": "<p>If n <span class=\"math-tex\">{tex} \\in {/tex}</span> N then n<sup>3</sup> + 2n is divisible by</p>",
+              "options": [
+                {
+                  "label": "A",
+                  "id": 29448,
+                  "text": "3",
+                  "is_correct": true
+                },
+                {
+                  "label": "B",
+                  "id": 29449,
+                  "text": "2",
+                  "is_correct": false
+                },
+                {
+                  "label": "C",
+                  "id": 29451,
+                  "text": "4",
+                  "is_correct": false
+                },
+                {
+                  "label": "D",
+                  "id": 29450,
+                  "text": "6",
+                  "is_correct": false
+                }
+              ],
+              "correct_option_ids": [
+                29448
+              ],
+              "correct_option_labels": [
+                "A"
+              ],
+              "correct_option_texts": [
+                "3"
+              ],
+              "explanation": "When n = 1 the value is 3 and when n = 2 the value is 12. So the value of the expression when n = 1, 2, 3.... are multiples of 3. Hence it is divisible by 3."
+            },
+            {
+              "questionID": 18563,
+              "question": "If n is a positive integer, then 2.7^n + 3.5^n - 5 is divisible by",
+              "question_raw": "<p>If n is a positive integer, then 2.7<sup>n</sup> + 3.5<sup>n</sup> - 5 is divisible by</p>",
+              "options": [
+                {
+                  "label": "A",
+                  "id": 29454,
+                  "text": "17",
+                  "is_correct": false
+                },
+                {
+                  "label": "B",
+                  "id": 29453,
+                  "text": "64",
+                  "is_correct": false
+                },
+                {
+                  "label": "C",
+                  "id": 29455,
+                  "text": "676",
+                  "is_correct": false
+                },
+                {
+                  "label": "D",
+                  "id": 29452,
+                  "text": "24",
+                  "is_correct": true
+                }
+              ],
+              "correct_option_ids": [
+                29452
+              ],
+              "correct_option_labels": [
+                "D"
+              ],
+              "correct_option_texts": [
+                "24"
+              ],
+              "explanation": "When n = 1 the value is 24. When n = 2, the value is 168, which is the multiple of 24."
+            },
+            {
+              "questionID": 18564,
+              "question": "If n is a +ve integer, then 4^n + 3n + 5 is divisible by",
+              "question_raw": "<p>If n is a +ve integer, then 4<sup>n</sup> + 3n + 5&nbsp;is divisible by</p>",
+              "options": [
+                {
+                  "label": "A",
+                  "id": 29459,
+                  "text": "2",
+                  "is_correct": false
+                },
+                {
+                  "label": "B",
+                  "id": 29456,
+                  "text": "3",
+                  "is_correct": true
+                },
+                {
+                  "label": "C",
+                  "id": 29458,
+                  "text": "6",
+                  "is_correct": false
+                },
+                {
+                  "label": "D",
+                  "id": 29457,
+                  "text": "4",
+                  "is_correct": false
+                }
+              ],
+              "correct_option_ids": [
+                29456
+              ],
+              "correct_option_labels": [
+                "B"
+              ],
+              "correct_option_texts": [
+                "3"
+              ],
+              "explanation": "Since n = 1 gives the value as 12 and when n = 2 gives 27.... Hence the statement is divisible by 3."
+            },
+            {
+              "questionID": 18565,
+              "question": "If n is a +ve integer, then 2.4^2n + 1 + 3^3n + 1 is divisible by",
+              "question_raw": "<p>If n is a +ve integer, then&nbsp;2.4<sup>2n + 1</sup> + 3<sup>3n + 1</sup> is divisible by</p>",
+              "options": [
+                {
+                  "label": "A",
+                  "id": 29462,
+                  "text": "9",
+                  "is_correct": false
+                },
+                {
+                  "label": "B",
+                  "id": 29460,
+                  "text": "11",
+                  "is_correct": true
+                },
+                {
+                  "label": "C",
+                  "id": 29461,
+                  "text": "2",
+                  "is_correct": false
+                },
+                {
+                  "label": "D",
+                  "id": 29463,
+                  "text": "7",
+                  "is_correct": false
+                }
+              ],
+              "correct_option_ids": [
+                29460
+              ],
+              "correct_option_labels": [
+                "B"
+              ],
+              "correct_option_texts": [
+                "11"
+              ],
+              "explanation": "When n is replaced by 1,2,3... the value obtained is a multiple of 11."
+            },
+            {
+              "questionID": 18566,
+              "question": "If n is a +ve integer, then 10^n + 3.4^n+2 + 5 is divisible by",
+              "question_raw": "<p>If n is a +ve integer, then&nbsp;10<sup>n</sup> + 3.4<sup>n+2</sup> + 5&nbsp;is divisible by</p>",
+              "options": [
+                {
+                  "label": "A",
+                  "id": 29466,
+                  "text": "4",
+                  "is_correct": false
+                },
+                {
+                  "label": "B",
+                  "id": 29465,
+                  "text": "3",
+                  "is_correct": false
+                },
+                {
+                  "label": "C",
+                  "id": 29464,
+                  "text": "9",
+                  "is_correct": true
+                },
+                {
+                  "label": "D",
+                  "id": 29467,
+                  "text": "15",
+                  "is_correct": false
+                }
+              ],
+              "correct_option_ids": [
+                29464
+              ],
+              "correct_option_labels": [
+                "C"
+              ],
+              "correct_option_texts": [
+                "9"
+              ],
+              "explanation": "When n is replaced by 1, 2, 3.. the value obtained is a multiple of 9."
+            },
+            {
+              "questionID": 18567,
+              "question": "If n is a +ve integer, then 3^3n - 26n - 1 is divisible by",
+              "question_raw": "<p>If n is a +ve integer, then&nbsp;3<sup>3n</sup> - 26n - 1&nbsp;is divisible by</p>",
+              "options": [
+                {
+                  "label": "A",
+                  "id": 29468,
+                  "text": "676",
+                  "is_correct": true
+                },
+                {
+                  "label": "B",
+                  "id": 29471,
+                  "text": "627",
+                  "is_correct": false
+                },
+                {
+                  "label": "C",
+                  "id": 29470,
+                  "text": "239",
+                  "is_correct": false
+                },
+                {
+                  "label": "D",
+                  "id": 29469,
+                  "text": "547",
+                  "is_correct": false
+                }
+              ],
+              "correct_option_ids": [
+                29468
+              ],
+              "correct_option_labels": [
+                "A"
+              ],
+              "correct_option_texts": [
+                "676"
+              ],
+              "explanation": "For n = 1 the value is 0. But when n = 2 the value is 676."
+            },
+            {
+              "questionID": 18568,
+              "question": "If n is a +ve integer, then 2^3n - 7n - 1 is divisible by",
+              "question_raw": "<p>If n is a +ve integer, then 2<sup>3n</sup> - 7n - 1 is divisible by</p>",
+              "options": [
+                {
+                  "label": "A",
+                  "id": 29473,
+                  "text": "36",
+                  "is_correct": false
+                },
+                {
+                  "label": "B",
+                  "id": 29472,
+                  "text": "49",
+                  "is_correct": true
+                },
+                {
+                  "label": "C",
+                  "id": 29474,
+                  "text": "64",
+                  "is_correct": false
+                },
+                {
+                  "label": "D",
+                  "id": 29475,
+                  "text": "81",
+                  "is_correct": false
+                }
+              ],
+              "correct_option_ids": [
+                29472
+              ],
+              "correct_option_labels": [
+                "B"
+              ],
+              "correct_option_texts": [
+                "49"
+              ],
+              "explanation": "When n = 2 the value is 49."
+            },
+            {
+              "questionID": 18569,
+              "question": "If n is a +ve integer, then ${3.5^{2n + 1}} + {2^{3n + 1}}$ is divisible by",
+              "question_raw": "<p>If n is a +ve integer, then <span class=\"math-tex\">{tex}{3.5^{2n + 1}} + {2^{3n + 1}}{/tex}</span> is divisible by</p>",
+              "options": [
+                {
+                  "label": "A",
+                  "id": 29477,
+                  "text": "24",
+                  "is_correct": false
+                },
+                {
+                  "label": "B",
+                  "id": 29479,
+                  "text": "32",
+                  "is_correct": false
+                },
+                {
+                  "label": "C",
+                  "id": 29478,
+                  "text": "64",
+                  "is_correct": false
+                },
+                {
+                  "label": "D",
+                  "id": 29476,
+                  "text": "17",
+                  "is_correct": true
+                }
+              ],
+              "correct_option_ids": [
+                29476
+              ],
+              "correct_option_labels": [
+                "D"
+              ],
+              "correct_option_texts": [
+                "17"
+              ],
+              "explanation": "When n = 1 the value is 391 which is divisible by 17."
+            },
+            {
+              "questionID": 18570,
+              "question": "If n is a +ve integer, then 7^2n - 4 is divisible by",
+              "question_raw": "<p>If n is a +ve integer, then 7<sup>2n</sup> - 4 is divisible by</p>",
+              "options": [
+                {
+                  "label": "A",
+                  "id": 29481,
+                  "text": "2937",
+                  "is_correct": false
+                },
+                {
+                  "label": "B",
+                  "id": 29483,
+                  "text": "3297",
+                  "is_correct": false
+                },
+                {
+                  "label": "C",
+                  "id": 29480,
+                  "text": "2397",
+                  "is_correct": true
+                },
+                {
+                  "label": "D",
+                  "id": 29482,
+                  "text": "2973",
+                  "is_correct": false
+                }
+              ],
+              "correct_option_ids": [
+                29480
+              ],
+              "correct_option_labels": [
+                "C"
+              ],
+              "correct_option_texts": [
+                "2397"
+              ],
+              "explanation": "When n = 2 the value is 2397."
+            },
+            {
+              "questionID": 18571,
+              "question": "Let P(k) = 1 + 3 + 5 + …………….+ (2k - 1) = (3 + k^2). Then which of the following is true?",
+              "question_raw": "<p>Let P(k) = 1 + 3 + 5 + &hellip;&hellip;&hellip;&hellip;&hellip;.+ (2k -&nbsp;1) =&nbsp;(3 + k<sup>2</sup>). Then which of the following is true?</p>",
+              "options": [
+                {
+                  "label": "A",
+                  "id": 29484,
+                  "text": "P(k) $\\Rightarrow $ P(k + 1)",
+                  "is_correct": true
+                },
+                {
+                  "label": "B",
+                  "id": 29486,
+                  "text": "P (1) is correct",
+                  "is_correct": false
+                },
+                {
+                  "label": "C",
+                  "id": 29487,
+                  "text": "P(k) $ \\Rightarrow $P(k + 3)",
+                  "is_correct": false
+                },
+                {
+                  "label": "D",
+                  "id": 29485,
+                  "text": "P(k) $ \\Rightarrow $P(k + 2)",
+                  "is_correct": false
+                }
+              ],
+              "correct_option_ids": [
+                29484
+              ],
+              "correct_option_labels": [
+                "A"
+              ],
+              "correct_option_texts": [
+                "P(k) $\\Rightarrow $ P(k + 1)"
+              ],
+              "explanation": "P(k) = 1 + 3 + ... + (2k - 1) = 3 + k^2 .....(i)\nWhen k = 1, LHS of p(k) $\\ne$ R.H.S of P(k)\nSo P(1) is not ture.\nNow P(k + 1); 1 + 3 + 5 + .... + (2k - 1) + (2k + 1)\n= 3 + (k + 1)^2 .....(ii)\nLet P(k) is true \n$\\therefore$ 1 + 3 + 5 + ..... + (2k - 1) = k^2 + 3\n$\\Rightarrow$ 1 + 3 + 5 + .... + (2k - 1)\n= 3 + k^2 + 2k + 1 = (k + 1)^2 + 3\n$\\Rightarrow$ P(k + 1) true \n$\\therefore$ P(k) $\\Rightarrow$ P(k + 1)"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "testPaperID": 619,
+      "testPaperName": "Mathematical Induction Test 03",
+      "is_paid": true,
+      "category_full_name": "CBSE > Class 11 > Mathematics > Principle of Mathematical Induction (Deleted)",
+      "noOfQuestions": 15,
+      "has_answers": true,
+      "sections": [
+        {
+          "sectionName": "General",
+          "sectionID": null,
+          "questions": [
+            {
+              "questionID": 18572,
+              "question": "The inequality 2^n + 1 < n! is true for:",
+              "question_raw": "<p>The inequality &nbsp;2<sup>n</sup> + 1 &lt; n! is true for:</p>",
+              "options": [
+                {
+                  "label": "A",
+                  "id": 29489,
+                  "text": "all n > 1",
+                  "is_correct": false
+                },
+                {
+                  "label": "B",
+                  "id": 29491,
+                  "text": "all n > 2",
+                  "is_correct": false
+                },
+                {
+                  "label": "C",
+                  "id": 29488,
+                  "text": "all n > 3",
+                  "is_correct": true
+                },
+                {
+                  "label": "D",
+                  "id": 29490,
+                  "text": "all n",
+                  "is_correct": false
+                }
+              ],
+              "correct_option_ids": [
+                29488
+              ],
+              "correct_option_labels": [
+                "C"
+              ],
+              "correct_option_texts": [
+                "all n > 3"
+              ],
+              "explanation": "When n = 1, we get 3 < 1, and when n = 2, we get 5 < 2. When n = 3, we get 9 < 6, which are invalid inequations. Only when n = 4 we get 17 < 24, which is valid."
+            },
+            {
+              "questionID": 18573,
+              "question": "For each $n \\in N$, a^2n-1 + b^2n-1 is divisible by:",
+              "question_raw": "<p>For each <span class=\"math-tex\">{tex}n \\in N{/tex}</span>,&nbsp;a<sup>2n-1</sup> + b<sup>2n-1</sup>&nbsp;is divisible by:</p>",
+              "options": [
+                {
+                  "label": "A",
+                  "id": 29495,
+                  "text": "(a + b)^4",
+                  "is_correct": false
+                },
+                {
+                  "label": "B",
+                  "id": 29492,
+                  "text": "a + b",
+                  "is_correct": true
+                },
+                {
+                  "label": "C",
+                  "id": 29494,
+                  "text": "(a + b)^3",
+                  "is_correct": false
+                },
+                {
+                  "label": "D",
+                  "id": 29493,
+                  "text": "(a + b)^2",
+                  "is_correct": false
+                }
+              ],
+              "correct_option_ids": [
+                29492
+              ],
+              "correct_option_labels": [
+                "B"
+              ],
+              "correct_option_texts": [
+                "a + b"
+              ],
+              "explanation": "When n = 1 we have a + b and the subsequent substitution of n as 2, 3,... will result in the expression whose factor is a + b."
+            },
+            {
+              "questionID": 18574,
+              "question": "For each n $ \\in $ N, n (n + 1) (2n + 1) is divisible by :",
+              "question_raw": "<p>For each n <span class=\"math-tex\">{tex} \\in {/tex}</span> N, n (n + 1) (2n + 1) is divisible by :</p>",
+              "options": [
+                {
+                  "label": "A",
+                  "id": 29496,
+                  "text": "6",
+                  "is_correct": true
+                },
+                {
+                  "label": "B",
+                  "id": 29498,
+                  "text": "8",
+                  "is_correct": false
+                },
+                {
+                  "label": "C",
+                  "id": 29499,
+                  "text": "15",
+                  "is_correct": false
+                },
+                {
+                  "label": "D",
+                  "id": 29497,
+                  "text": "2",
+                  "is_correct": false
+                }
+              ],
+              "correct_option_ids": [
+                29496
+              ],
+              "correct_option_labels": [
+                "A"
+              ],
+              "correct_option_texts": [
+                "6"
+              ],
+              "explanation": "When n = 1 the value is 6. The subsequent substitution will give the value as a multiple of 6."
+            },
+            {
+              "questionID": 18575,
+              "question": "For each n $ \\in $ N, 3(5^2n + 1) + 2^3n + 1 is divisible by :",
+              "question_raw": "<p>For each n <span class=\"math-tex\">{tex} \\in {/tex}</span> N, 3(5<sup>2n + 1</sup>) + 2<sup>3n + 1</sup> is divisible by :</p>",
+              "options": [
+                {
+                  "label": "A",
+                  "id": 29503,
+                  "text": "23",
+                  "is_correct": false
+                },
+                {
+                  "label": "B",
+                  "id": 29501,
+                  "text": "19",
+                  "is_correct": false
+                },
+                {
+                  "label": "C",
+                  "id": 29500,
+                  "text": "17",
+                  "is_correct": true
+                },
+                {
+                  "label": "D",
+                  "id": 29502,
+                  "text": "21",
+                  "is_correct": false
+                }
+              ],
+              "correct_option_ids": [
+                29500
+              ],
+              "correct_option_labels": [
+                "C"
+              ],
+              "correct_option_texts": [
+                "17"
+              ],
+              "explanation": "When n = 1 we have 391 which is divisible by 17."
+            },
+            {
+              "questionID": 18576,
+              "question": "For each n $ \\in $ N, 2^3n - 1 is divisible by :",
+              "question_raw": "<p>For each n <span class=\"math-tex\">{tex} \\in {/tex}</span> N,&nbsp;2<sup>3n</sup> - 1 is divisible by :</p>",
+              "options": [
+                {
+                  "label": "A",
+                  "id": 29505,
+                  "text": "8",
+                  "is_correct": false
+                },
+                {
+                  "label": "B",
+                  "id": 29504,
+                  "text": "7",
+                  "is_correct": true
+                },
+                {
+                  "label": "C",
+                  "id": 29506,
+                  "text": "16",
+                  "is_correct": false
+                },
+                {
+                  "label": "D",
+                  "id": 29507,
+                  "text": "19",
+                  "is_correct": false
+                }
+              ],
+              "correct_option_ids": [
+                29504
+              ],
+              "correct_option_labels": [
+                "B"
+              ],
+              "correct_option_texts": [
+                "7"
+              ],
+              "explanation": "When n = 1 the value is 7."
+            },
+            {
+              "questionID": 18577,
+              "question": "For each n $ \\in $ N, 3^2n - 1 is divisible by :",
+              "question_raw": "<p>For each n <span class=\"math-tex\">{tex} \\in {/tex}</span> N, 3<sup>2n</sup> - 1&nbsp;is divisible by :</p>",
+              "options": [
+                {
+                  "label": "A",
+                  "id": 29510,
+                  "text": "32",
+                  "is_correct": false
+                },
+                {
+                  "label": "B",
+                  "id": 29511,
+                  "text": "19",
+                  "is_correct": false
+                },
+                {
+                  "label": "C",
+                  "id": 29508,
+                  "text": "8",
+                  "is_correct": true
+                },
+                {
+                  "label": "D",
+                  "id": 29509,
+                  "text": "16",
+                  "is_correct": false
+                }
+              ],
+              "correct_option_ids": [
+                29508
+              ],
+              "correct_option_labels": [
+                "C"
+              ],
+              "correct_option_texts": [
+                "8"
+              ],
+              "explanation": "when n = 1 the value is 8 which is the multiple of 8."
+            },
+            {
+              "questionID": 18578,
+              "question": "The statement P(n) : (n + 3)^2 > 2^n+3 is true for:",
+              "question_raw": "<p>The statement P(n) : (n + 3)<sup>2</sup> &gt; 2<sup>n+3</sup>&nbsp;is true for:</p>",
+              "options": [
+                {
+                  "label": "A",
+                  "id": 29512,
+                  "text": "no n $ \\in $ N",
+                  "is_correct": true
+                },
+                {
+                  "label": "B",
+                  "id": 29515,
+                  "text": "all n",
+                  "is_correct": false
+                },
+                {
+                  "label": "C",
+                  "id": 29514,
+                  "text": "all n $≥$ 3",
+                  "is_correct": false
+                },
+                {
+                  "label": "D",
+                  "id": 29513,
+                  "text": "all n $≥$ 2",
+                  "is_correct": false
+                }
+              ],
+              "correct_option_ids": [
+                29512
+              ],
+              "correct_option_labels": [
+                "A"
+              ],
+              "correct_option_texts": [
+                "no n $ \\in $ N"
+              ],
+              "explanation": "When n = 1 we get 16 > 16, which is false. when n = 2 we get 25 > 32, which is false as well. As n = 3, 4, 5.... the inequality does not hold correct."
+            },
+            {
+              "questionID": 18579,
+              "question": "The smallest positive integer n for which 2^n(1 $\\times$ 2 $\\times$ 3 $\\times$ ... $\\times$ n) < n^n holds is :",
+              "question_raw": "<p>The smallest positive integer n&nbsp;for which&nbsp;2<sup>n</sup>(1&nbsp;<span class=\"math-tex\">{tex}\\times{/tex}</span>&nbsp;2&nbsp;<span class=\"math-tex\">{tex}\\times{/tex}</span>&nbsp;3&nbsp;<span class=\"math-tex\">{tex}\\times{/tex}</span>&nbsp;...&nbsp;<span class=\"math-tex\">{tex}\\times{/tex}</span>&nbsp;n) &lt; n<sup>n</sup> holds is :</p>",
+              "options": [
+                {
+                  "label": "A",
+                  "id": 29519,
+                  "text": "4",
+                  "is_correct": false
+                },
+                {
+                  "label": "B",
+                  "id": 29516,
+                  "text": "6",
+                  "is_correct": true
+                },
+                {
+                  "label": "C",
+                  "id": 29517,
+                  "text": "3",
+                  "is_correct": false
+                },
+                {
+                  "label": "D",
+                  "id": 29518,
+                  "text": "5",
+                  "is_correct": false
+                }
+              ],
+              "correct_option_ids": [
+                29516
+              ],
+              "correct_option_labels": [
+                "B"
+              ],
+              "correct_option_texts": [
+                "6"
+              ],
+              "explanation": "When n = 1, we get 2 < 1, which is not valid. When n takes values 2, 3, 4, 5 the inequality is invalid. But when n = 6 we have 46080 < 46656, which is valid."
+            },
+            {
+              "questionID": 18580,
+              "question": "If ${10^n} + 3 \\times {4^{n + 1}} + k$ is divisible by 9 for all n $ \\in $ N , then the least positive integral value of k is :",
+              "question_raw": "<p>If <span class=\"math-tex\">{tex}{10^n} + 3 \\times {4^{n + 1}} + k{/tex}</span> is divisible by 9 for all n <span class=\"math-tex\">{tex} \\in {/tex}</span> N , then the least positive integral value of k is :</p>",
+              "options": [
+                {
+                  "label": "A",
+                  "id": 29522,
+                  "text": "3",
+                  "is_correct": false
+                },
+                {
+                  "label": "B",
+                  "id": 29523,
+                  "text": "7",
+                  "is_correct": false
+                },
+                {
+                  "label": "C",
+                  "id": 29521,
+                  "text": "1",
+                  "is_correct": false
+                },
+                {
+                  "label": "D",
+                  "id": 29520,
+                  "text": "5",
+                  "is_correct": true
+                }
+              ],
+              "correct_option_ids": [
+                29520
+              ],
+              "correct_option_labels": [
+                "D"
+              ],
+              "correct_option_texts": [
+                "5"
+              ],
+              "explanation": "When n = 1 we have 58. Given that the expression is divisible by 9 . Hence the least value of k will be 5,so that the value becomes 63 which is divisible by 9."
+            },
+            {
+              "questionID": 18581,
+              "question": "The smallest positive integer n, for which (1 $\\times$ 2 $\\times$ 3 $\\times$ ... $\\times$ n) < $\\left(\\frac{n+1}{2}\\right)^n$ holds:",
+              "question_raw": "<p>The smallest positive integer n, for which (1&nbsp;<span class=\"math-tex\">{tex}\\times{/tex}</span>&nbsp;2&nbsp;<span class=\"math-tex\">{tex}\\times{/tex}</span>&nbsp;3&nbsp;<span class=\"math-tex\">{tex}\\times{/tex}</span>&nbsp;...&nbsp;<span class=\"math-tex\">{tex}\\times{/tex}</span>&nbsp;n) &lt;&nbsp;<span class=\"math-tex\">{tex}\\left(\\frac{n+1}{2}\\right)^n{/tex}</span> holds:</p>",
+              "options": [
+                {
+                  "label": "A",
+                  "id": 29525,
+                  "text": "4",
+                  "is_correct": false
+                },
+                {
+                  "label": "B",
+                  "id": 29526,
+                  "text": "3",
+                  "is_correct": false
+                },
+                {
+                  "label": "C",
+                  "id": 29527,
+                  "text": "5",
+                  "is_correct": false
+                },
+                {
+                  "label": "D",
+                  "id": 29524,
+                  "text": "2",
+                  "is_correct": true
+                }
+              ],
+              "correct_option_ids": [
+                29524
+              ],
+              "correct_option_labels": [
+                "D"
+              ],
+              "correct_option_texts": [
+                "2"
+              ],
+              "explanation": "When n = 1 we get 1 < 1, which is invalid. When n = 2 we get 2 < $\\frac{9}{4}$, which is valid."
+            },
+            {
+              "questionID": 18582,
+              "question": "Let P(n) : n^2 - n + 41 is a prime number. Then :",
+              "question_raw": "<p>Let P(n) : n<sup>2</sup> - n + 41 is a prime number. Then :</p>",
+              "options": [
+                {
+                  "label": "A",
+                  "id": 29531,
+                  "text": "P(1) is not true",
+                  "is_correct": false
+                },
+                {
+                  "label": "B",
+                  "id": 29529,
+                  "text": "P(3) is not true",
+                  "is_correct": false
+                },
+                {
+                  "label": "C",
+                  "id": 29528,
+                  "text": "P (41) is not true",
+                  "is_correct": true
+                },
+                {
+                  "label": "D",
+                  "id": 29530,
+                  "text": "P(5) is not true",
+                  "is_correct": false
+                }
+              ],
+              "correct_option_ids": [
+                29528
+              ],
+              "correct_option_labels": [
+                "C"
+              ],
+              "correct_option_texts": [
+                "P (41) is not true"
+              ],
+              "explanation": "Since when n = 41 we have (41)^2, which is not a prime number."
+            },
+            {
+              "questionID": 18583,
+              "question": "Let that P(n) $\\Rightarrow$ P(n + 1) for all natural numbers n. Also, if P (m) is true, m $\\in $ N, then we conclude that",
+              "question_raw": "<p>Let that P(n)&nbsp;<span class=\"math-tex\">{tex}\\Rightarrow{/tex}</span>&nbsp;P(n + 1) for all natural numbers n.&nbsp; Also, if P (m) is true, m <span class=\"math-tex\">{tex}\\in {/tex}</span> N, then we conclude that</p>",
+              "options": [
+                {
+                  "label": "A",
+                  "id": 29533,
+                  "text": "P ( n ) is true for all n",
+                  "is_correct": false
+                },
+                {
+                  "label": "B",
+                  "id": 29532,
+                  "text": "P (n) is true for all n $ ≥$ m",
+                  "is_correct": true
+                },
+                {
+                  "label": "C",
+                  "id": 29534,
+                  "text": "P ( n ) is true for all n $<$ m",
+                  "is_correct": false
+                },
+                {
+                  "label": "D",
+                  "id": 29535,
+                  "text": "P ( n ) is true for all n > m",
+                  "is_correct": false
+                }
+              ],
+              "correct_option_ids": [
+                29532
+              ],
+              "correct_option_labels": [
+                "B"
+              ],
+              "correct_option_texts": [
+                "P (n) is true for all n $ ≥$ m"
+              ],
+              "explanation": "This criteria is from the basic principle of mathematical induction."
+            },
+            {
+              "questionID": 18584,
+              "question": "Consider the statement P(n) : n^2 $ \\ge$ 100. Here P(n) $\\Rightarrow$ P(n + 1) for all natural numbers n. What does it mean",
+              "question_raw": "<p>Consider the statement P(n) : n<sup>2</sup>&nbsp;<span class=\"math-tex\">{tex} \\ge{/tex}</span>&nbsp;100. Here P(n)&nbsp;<span class=\"math-tex\">{tex}\\Rightarrow{/tex}</span>&nbsp;P(n + 1) for all natural numbers n. What does it mean</p>",
+              "options": [
+                {
+                  "label": "A",
+                  "id": 29537,
+                  "text": "P(n) is true for all n $≥$ 3",
+                  "is_correct": false
+                },
+                {
+                  "label": "B",
+                  "id": 29536,
+                  "text": "none of these",
+                  "is_correct": true
+                },
+                {
+                  "label": "C",
+                  "id": 29539,
+                  "text": "p(n) is true for all n",
+                  "is_correct": false
+                },
+                {
+                  "label": "D",
+                  "id": 29538,
+                  "text": "P (n) is true for all n $≥ $ 2",
+                  "is_correct": false
+                }
+              ],
+              "correct_option_ids": [
+                29536
+              ],
+              "correct_option_labels": [
+                "B"
+              ],
+              "correct_option_texts": [
+                "none of these"
+              ],
+              "explanation": "Since the statement is not true for n = 1, we cannot predict the validity for all natural numbers n."
+            },
+            {
+              "questionID": 18585,
+              "question": "The smallest positive integer ‘ n ‘ for which P ( n ) : ${2^n} < \\left( {1 \\times 2 \\times 3 \\times ............ \\times n} \\right)$ holds is :",
+              "question_raw": "<p>The smallest positive integer &lsquo; n &lsquo; for which P ( n ) : <span class=\"math-tex\">{tex}{2^n} &lt; \\left( {1 \\times 2 \\times 3 \\times ............ \\times n} \\right){/tex}</span> holds is :</p>",
+              "options": [
+                {
+                  "label": "A",
+                  "id": 29541,
+                  "text": "2",
+                  "is_correct": false
+                },
+                {
+                  "label": "B",
+                  "id": 29543,
+                  "text": "1",
+                  "is_correct": false
+                },
+                {
+                  "label": "C",
+                  "id": 29542,
+                  "text": "3",
+                  "is_correct": false
+                },
+                {
+                  "label": "D",
+                  "id": 29540,
+                  "text": "4",
+                  "is_correct": true
+                }
+              ],
+              "correct_option_ids": [
+                29540
+              ],
+              "correct_option_labels": [
+                "D"
+              ],
+              "correct_option_texts": [
+                "4"
+              ],
+              "explanation": "Since the values of n as 1,2,3gives inavlid inequations but when n = 4 we have $16 <24$, which is valid."
+            },
+            {
+              "questionID": 18586,
+              "question": "If x^n - 1 is divisible by x – k for all n belongs to natural numbers N, then the least positive integral value of k is:",
+              "question_raw": "<p>If x<sup>n</sup> - 1 is divisible by x &ndash; k for all n belongs to natural numbers N, then the least positive integral value of k is:</p>",
+              "options": [
+                {
+                  "label": "A",
+                  "id": 29545,
+                  "text": "2",
+                  "is_correct": false
+                },
+                {
+                  "label": "B",
+                  "id": 29544,
+                  "text": "1",
+                  "is_correct": true
+                },
+                {
+                  "label": "C",
+                  "id": 29546,
+                  "text": "3",
+                  "is_correct": false
+                },
+                {
+                  "label": "D",
+                  "id": 29547,
+                  "text": "4",
+                  "is_correct": false
+                }
+              ],
+              "correct_option_ids": [
+                29544
+              ],
+              "correct_option_labels": [
+                "B"
+              ],
+              "correct_option_texts": [
+                "1"
+              ],
+              "explanation": "If f(x) = x^n - 1 is divisible by x - k\nThen f(k) = 0\nTherefore, k^n = 1 and thus least positive integral value of k is 1."
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "testPaperID": 620,
+      "testPaperName": "Mathematical Induction Test 04",
+      "is_paid": true,
+      "category_full_name": "CBSE > Class 11 > Mathematics > Principle of Mathematical Induction (Deleted)",
+      "noOfQuestions": 15,
+      "has_answers": true,
+      "sections": [
+        {
+          "sectionName": "General",
+          "sectionID": null,
+          "questions": [
+            {
+              "questionID": 18587,
+              "question": "A student was asked to prove a statement P ( n ) by method of induction . He proved P ( k + 1 ) is true whenever P ( k ) Is true for all k ≥ 5 , $k \\in N$ and P ( 5 ) is true . On the basis of this he could conclude that P ( n ) is true",
+              "question_raw": "<p>A student was asked to prove a statement P ( n ) by method of induction . He proved P ( k + 1 ) is true whenever P ( k ) Is true for all k &ge; 5 , <span class=\"math-tex\">{tex}k \\in N{/tex}</span> and P ( 5 ) is true . On the basis of this he could conclude that P ( n ) is true</p>",
+              "options": [
+                {
+                  "label": "A",
+                  "id": 29551,
+                  "text": "for all $n \\in \\mathbf{N}$",
+                  "is_correct": false
+                },
+                {
+                  "label": "B",
+                  "id": 29549,
+                  "text": "for all n $<$ 5",
+                  "is_correct": false
+                },
+                {
+                  "label": "C",
+                  "id": 29548,
+                  "text": "for all n $≥$ 5",
+                  "is_correct": true
+                },
+                {
+                  "label": "D",
+                  "id": 29550,
+                  "text": "for all n $>$ 5",
+                  "is_correct": false
+                }
+              ],
+              "correct_option_ids": [
+                29548
+              ],
+              "correct_option_labels": [
+                "C"
+              ],
+              "correct_option_texts": [
+                "for all n $≥$ 5"
+              ],
+              "explanation": "Yes because if it is true for n = k then it is true for all n ,which is the basic concept of mathematical induction."
+            },
+            {
+              "questionID": 18588,
+              "question": "If a, b, c $\\in$ N, a^n + b^n is divisible by c, when n is odd but not when n is even, then the value of c is :",
+              "question_raw": "<p>If &nbsp;a, b, c&nbsp;<span class=\"math-tex\">{tex}\\in{/tex}</span>&nbsp;N, a<sup>n</sup> + b<sup>n</sup>&nbsp;is divisible by c, when n is odd but not when n is even, then the value of c is :</p>",
+              "options": [
+                {
+                  "label": "A",
+                  "id": 29552,
+                  "text": "a + b",
+                  "is_correct": true
+                },
+                {
+                  "label": "B",
+                  "id": 29554,
+                  "text": "a - b",
+                  "is_correct": false
+                },
+                {
+                  "label": "C",
+                  "id": 29553,
+                  "text": "a^3 + b^3",
+                  "is_correct": false
+                },
+                {
+                  "label": "D",
+                  "id": 29555,
+                  "text": "a^3 - b^3",
+                  "is_correct": false
+                }
+              ],
+              "correct_option_ids": [
+                29552
+              ],
+              "correct_option_labels": [
+                "A"
+              ],
+              "correct_option_texts": [
+                "a + b"
+              ],
+              "explanation": "Since a + b will be a factor of a^n + b^n."
+            },
+            {
+              "questionID": 18589,
+              "question": "1.2.3 + 2.3.4 + 3.4.5 + ………..up to n terms is equal to $\\frac{1}{4}$n (n + 1) (n + 2) (n + 3) is true for",
+              "question_raw": "<p>1.2.3 + 2.3.4 + 3.4.5 + &hellip;&hellip;&hellip;..up to n terms is equal to&nbsp;<span class=\"math-tex\">{tex}\\frac{1}{4}{/tex}</span>n (n + 1) (n + 2) (n + 3) is true for&nbsp;</p>",
+              "options": [
+                {
+                  "label": "A",
+                  "id": 29559,
+                  "text": "for all real number n",
+                  "is_correct": false
+                },
+                {
+                  "label": "B",
+                  "id": 29556,
+                  "text": "all natural numbers n",
+                  "is_correct": true
+                },
+                {
+                  "label": "C",
+                  "id": 29557,
+                  "text": "whole numbers n",
+                  "is_correct": false
+                },
+                {
+                  "label": "D",
+                  "id": 29558,
+                  "text": "for all integers n",
+                  "is_correct": false
+                }
+              ],
+              "correct_option_ids": [
+                29556
+              ],
+              "correct_option_labels": [
+                "B"
+              ],
+              "correct_option_texts": [
+                "all natural numbers n"
+              ],
+              "explanation": "By the method of mathematical induction the given statement is true for n = 1, 2, 3....."
+            },
+            {
+              "questionID": 18590,
+              "question": "1 + 2 + 3 + .................. n = $\\frac{1}{2} ( n ( n +1))$, is true",
+              "question_raw": "<p>1&nbsp;+ 2 + 3&nbsp;+ ..................&nbsp;n =&nbsp;<span class=\"math-tex\">{tex}\\frac{1}{2} ( n ( n +1)){/tex}</span>, is true</p>",
+              "options": [
+                {
+                  "label": "A",
+                  "id": 29563,
+                  "text": "only for n < 2",
+                  "is_correct": false
+                },
+                {
+                  "label": "B",
+                  "id": 29560,
+                  "text": "for all natural numbers n",
+                  "is_correct": true
+                },
+                {
+                  "label": "C",
+                  "id": 29562,
+                  "text": "for n = 2 only",
+                  "is_correct": false
+                },
+                {
+                  "label": "D",
+                  "id": 29561,
+                  "text": "only for n > 2",
+                  "is_correct": false
+                }
+              ],
+              "correct_option_ids": [
+                29560
+              ],
+              "correct_option_labels": [
+                "B"
+              ],
+              "correct_option_texts": [
+                "for all natural numbers n"
+              ],
+              "explanation": "By the process of mathematical induction, the given statement is true for all natural numbers n."
+            },
+            {
+              "questionID": 18591,
+              "question": "The sum of the terms in the n^th bracket of the series 1 + (2 + 3 + 4) + (5 + 6 + 7 + 8 + 9)…. is",
+              "question_raw": "<p>The sum of the terms in the n<sup>th</sup> bracket of the series 1 + (2 + 3 + 4) + (5 + 6 + 7 + 8 + 9)&hellip;. is</p>",
+              "options": [
+                {
+                  "label": "A",
+                  "id": 29565,
+                  "text": "(n + 1)^3 + 8n^2",
+                  "is_correct": false
+                },
+                {
+                  "label": "B",
+                  "id": 29567,
+                  "text": "(n + 1)^3 + 4n^2",
+                  "is_correct": false
+                },
+                {
+                  "label": "C",
+                  "id": 29566,
+                  "text": "$\\frac{(n+1)(n+2)}{6 n}$",
+                  "is_correct": false
+                },
+                {
+                  "label": "D",
+                  "id": 29564,
+                  "text": "(n - 1)^3 + n^3",
+                  "is_correct": true
+                }
+              ],
+              "correct_option_ids": [
+                29564
+              ],
+              "correct_option_labels": [
+                "D"
+              ],
+              "correct_option_texts": [
+                "(n - 1)^3 + n^3"
+              ],
+              "explanation": "For n = 1, we have\nSum of the terms in first bracket = 1 and, (n − 1)^3 + n^3 = (1 − 1)^3 + 1^3 = 1\nFor n = 2, we have\nSum of the terms in the second bracket = 2 + 3 + 4 = 9 and, (n − 1)^3 + n^3 = (2 − 1)^3 + 2^3 = 1 + 8 = 9\nFor n = 3, we have\nSum of the terms in the third bracket = (5 + 6 + 7 + 8 + 9) = 35 and, (3 − 1)^3 + 3^3 = 8 + 27 = 35"
+            },
+            {
+              "questionID": 18592,
+              "question": "For all $n \\in N$, 2.4^2n + 1 + 3^3n + 1 is divisible by :",
+              "question_raw": "<p>For all <span class=\"math-tex\">{tex}n \\in N{/tex}</span>,&nbsp;2.4<sup>2n + 1</sup> + 3<sup>3n + 1</sup> is divisible by :</p>",
+              "options": [
+                {
+                  "label": "A",
+                  "id": 29570,
+                  "text": "5",
+                  "is_correct": false
+                },
+                {
+                  "label": "B",
+                  "id": 29568,
+                  "text": "11",
+                  "is_correct": true
+                },
+                {
+                  "label": "C",
+                  "id": 29569,
+                  "text": "7",
+                  "is_correct": false
+                },
+                {
+                  "label": "D",
+                  "id": 29571,
+                  "text": "209",
+                  "is_correct": false
+                }
+              ],
+              "correct_option_ids": [
+                29568
+              ],
+              "correct_option_labels": [
+                "B"
+              ],
+              "correct_option_texts": [
+                "11"
+              ],
+              "explanation": "Now, for n = 1,\n2.4^2 + 1 + 3^3 + 1 = 2.4^3 + 3^4 \n= 2 $\\times$ 64 + 81 = 128 + 81 = 209,\nfor n = 2,\n2.4^5 + 3^7 \n= 8 $\\times$ 256 + 2187 = 2048 + 2187 = 4235\nNote that the H.C.F. of 209 and 4235 is 11. So, 2.4^2n + 1 + 3^3n + 1 is divisible by 11."
+            },
+            {
+              "questionID": 18593,
+              "question": "If P (n) : 49^n +16^n + $\\lambda$ is divisible by 64 for n $\\in$ N is true, then the least negative integral value of $\\lambda$ is",
+              "question_raw": "<p>If P (n) : 49<sup>n</sup>&nbsp;+16<sup>n</sup>&nbsp;+ <span class=\"math-tex\">{tex}\\lambda{/tex}</span> is divisible by 64 for n <span class=\"math-tex\">{tex}\\in{/tex}</span> N is true, then the least negative integral value of&nbsp;<span class=\"math-tex\">{tex}\\lambda{/tex}</span> is</p>",
+              "options": [
+                {
+                  "label": "A",
+                  "id": 29572,
+                  "text": "-1",
+                  "is_correct": true
+                },
+                {
+                  "label": "B",
+                  "id": 29573,
+                  "text": "-2",
+                  "is_correct": false
+                },
+                {
+                  "label": "C",
+                  "id": 29574,
+                  "text": "-3",
+                  "is_correct": false
+                },
+                {
+                  "label": "D",
+                  "id": 29575,
+                  "text": "-4",
+                  "is_correct": false
+                }
+              ],
+              "correct_option_ids": [
+                29572
+              ],
+              "correct_option_labels": [
+                "A"
+              ],
+              "correct_option_texts": [
+                "-1"
+              ],
+              "explanation": "When n = 1 we have the value of the expression as 65 . Given that the expression is divisible be 64. Hence the value is -1."
+            },
+            {
+              "questionID": 18594,
+              "question": "$\\frac{3}{4}+\\frac{15}{16}+\\frac{63}{64}+...$ to n terms is equal to",
+              "question_raw": "<p><span class=\"math-tex\">{tex}\\frac{3}{4}+\\frac{15}{16}+\\frac{63}{64}+...{/tex}</span> to n terms is equal to</p>",
+              "options": [
+                {
+                  "label": "A",
+                  "id": 29577,
+                  "text": "$n+\\frac{4^{-n}}{3}+\\frac{1}{3}$",
+                  "is_correct": false
+                },
+                {
+                  "label": "B",
+                  "id": 29579,
+                  "text": "$n-\\frac{4^n}{3}-\\frac{1}{3}$",
+                  "is_correct": false
+                },
+                {
+                  "label": "C",
+                  "id": 29576,
+                  "text": "$n+\\frac{4^{-n}}{3}-\\frac{1}{3}$",
+                  "is_correct": true
+                },
+                {
+                  "label": "D",
+                  "id": 29578,
+                  "text": "$n+\\frac{4^n}{3}-\\frac{1}{3}$",
+                  "is_correct": false
+                }
+              ],
+              "correct_option_ids": [
+                29576
+              ],
+              "correct_option_labels": [
+                "C"
+              ],
+              "correct_option_texts": [
+                "$n+\\frac{4^{-n}}{3}-\\frac{1}{3}$"
+              ],
+              "explanation": "$\\frac{3}{4}+\\frac{15}{16}+\\frac{63}{64}+\\ldots .$ to n terms\n= $\\left(1-\\frac{1}{4}\\right)+\\left(1-\\frac{1}{16}\\right)+\\left(1-\\frac{1}{64}\\right)$ + .... to n terms\n= n - $\\frac{1}{4}\\left(1+\\frac{1}{4}\\right.\\left.+\\frac{1}{4^{2}}+\\ldots . . \\text { to } \\mathrm{n} \\text { terms }\\right) $ \n= $n-\\frac{1}{4} \\cdot \\frac{1-\\left(\\frac{1}{4}\\right)^{n}}{1-\\frac{1}{4}}$ \n= $n-\\frac{1}{3}\\left(1-4^{-n}\\right)$"
+            },
+            {
+              "questionID": 18595,
+              "question": "10^2n - 1 + 1 $\\forall n \\in N$ is divisible by :",
+              "question_raw": "<p>10<sup>2n - 1</sup> + 1&nbsp;<span class=\"math-tex\">{tex}\\forall n \\in N{/tex}</span> is divisible by :</p>",
+              "options": [
+                {
+                  "label": "A",
+                  "id": 29581,
+                  "text": "7",
+                  "is_correct": false
+                },
+                {
+                  "label": "B",
+                  "id": 29580,
+                  "text": "11",
+                  "is_correct": true
+                },
+                {
+                  "label": "C",
+                  "id": 29582,
+                  "text": "3",
+                  "is_correct": false
+                },
+                {
+                  "label": "D",
+                  "id": 29583,
+                  "text": "2",
+                  "is_correct": false
+                }
+              ],
+              "correct_option_ids": [
+                29580
+              ],
+              "correct_option_labels": [
+                "B"
+              ],
+              "correct_option_texts": [
+                "11"
+              ],
+              "explanation": "Put n = 1 we get 11, hence it is divisible by 11."
+            },
+            {
+              "questionID": 18596,
+              "question": "For all odd positive integers n, the number $n({n^2} - 1)$ is divisible by :",
+              "question_raw": "<p>For all odd positive integers n, the number <span class=\"math-tex\">{tex}n({n^2} - 1){/tex}</span> is divisible by :</p>",
+              "options": [
+                {
+                  "label": "A",
+                  "id": 29585,
+                  "text": "16",
+                  "is_correct": false
+                },
+                {
+                  "label": "B",
+                  "id": 29584,
+                  "text": "24",
+                  "is_correct": true
+                },
+                {
+                  "label": "C",
+                  "id": 29586,
+                  "text": "9",
+                  "is_correct": false
+                },
+                {
+                  "label": "D",
+                  "id": 29587,
+                  "text": "36",
+                  "is_correct": false
+                }
+              ],
+              "correct_option_ids": [
+                29584
+              ],
+              "correct_option_labels": [
+                "B"
+              ],
+              "correct_option_texts": [
+                "24"
+              ],
+              "explanation": "When n = 1 we have 0 : When n = 2 we have 24. When n = 3 we have 120 .....where all these values are multiples of 24."
+            },
+            {
+              "questionID": 18597,
+              "question": "$\\frac{\\frac{1}{2} \\cdot \\frac{2}{2}}{1^3}+\\frac{\\frac{2}{2} \\cdot \\frac{3}{2}}{1^3+2^3}+\\frac{\\frac{3}{2} \\cdot \\frac{4}{2}}{1^3+2^3+3^3}+\\ldots$ upto n terms is equal to",
+              "question_raw": "<p><span class=\"math-tex\">{tex}\\frac{\\frac{1}{2} \\cdot \\frac{2}{2}}{1^3}+\\frac{\\frac{2}{2} \\cdot \\frac{3}{2}}{1^3+2^3}+\\frac{\\frac{3}{2} \\cdot \\frac{4}{2}}{1^3+2^3+3^3}+\\ldots{/tex}</span> upto n terms is equal to</p>",
+              "options": [
+                {
+                  "label": "A",
+                  "id": 29591,
+                  "text": "$\\frac{n-1}{n-2}$",
+                  "is_correct": false
+                },
+                {
+                  "label": "B",
+                  "id": 29588,
+                  "text": "$\\frac{n}{n+1}$",
+                  "is_correct": true
+                },
+                {
+                  "label": "C",
+                  "id": 29589,
+                  "text": "$\\frac {n}{n + 2}$",
+                  "is_correct": false
+                },
+                {
+                  "label": "D",
+                  "id": 29590,
+                  "text": "$\\frac{n+1}{n+2}$",
+                  "is_correct": false
+                }
+              ],
+              "correct_option_ids": [
+                29588
+              ],
+              "correct_option_labels": [
+                "B"
+              ],
+              "correct_option_texts": [
+                "$\\frac{n}{n+1}$"
+              ],
+              "explanation": "Replace n = 1 we have $\\frac{ 1}{2}$. When n = 2 we have $\\frac{1}{2} + \\frac{1}{6} = \\frac{2}{3}$, (by the principle of mathematical induction when n = 1 we need to take one term from LHS. and for n = 2 we need to take the sum of two terms from the LHS. ....)"
+            },
+            {
+              "questionID": 18598,
+              "question": "$\\frac{1}{3.5}+\\frac{1}{5.7}+\\frac{1}{7.9}+\\ldots$ up to n terms is equal to",
+              "question_raw": "<p><span class=\"math-tex\">{tex}\\frac{1}{3.5}+\\frac{1}{5.7}+\\frac{1}{7.9}+\\ldots{/tex}</span> up to n terms is equal to</p>",
+              "options": [
+                {
+                  "label": "A",
+                  "id": 29593,
+                  "text": "$\\frac{n}{(2 n+3)}$",
+                  "is_correct": false
+                },
+                {
+                  "label": "B",
+                  "id": 29594,
+                  "text": "$\\frac{1}{(n+2)(n+4)}$",
+                  "is_correct": false
+                },
+                {
+                  "label": "C",
+                  "id": 29595,
+                  "text": "$\\frac{1}{(n+3)(n+6)}$",
+                  "is_correct": false
+                },
+                {
+                  "label": "D",
+                  "id": 29592,
+                  "text": "$\\frac{n}{3(2 n+3)}$",
+                  "is_correct": true
+                }
+              ],
+              "correct_option_ids": [
+                29592
+              ],
+              "correct_option_labels": [
+                "D"
+              ],
+              "correct_option_texts": [
+                "$\\frac{n}{3(2 n+3)}$"
+              ],
+              "explanation": "By the process of mathematical induction when n = 1 we have $\\frac{1}{15} $.\nWhen n = 2 we have LHS : $\\frac{1}{15} + \\frac{1}{35} = \\frac{2}{21}$, RHS :$\\frac{2}{(3( 4+3))}= \\frac{2}{21}$, which is true."
+            },
+            {
+              "questionID": 18608,
+              "question": "The nth terms of the series 4 + 14 + 30 + 52 + 80 + 114 + ….. is =",
+              "question_raw": "<p>The nth terms of the series 4 + 14 + 30&nbsp;+ 52 + 80 + 114 + &hellip;.. is =</p>",
+              "options": [
+                {
+                  "label": "A",
+                  "id": 29634,
+                  "text": "5n - 1",
+                  "is_correct": false
+                },
+                {
+                  "label": "B",
+                  "id": 29635,
+                  "text": "2n^2 + 2n",
+                  "is_correct": false
+                },
+                {
+                  "label": "C",
+                  "id": 29632,
+                  "text": "3n^2 + n",
+                  "is_correct": true
+                },
+                {
+                  "label": "D",
+                  "id": 29633,
+                  "text": "2n^2 + 2",
+                  "is_correct": false
+                }
+              ],
+              "correct_option_ids": [
+                29632
+              ],
+              "correct_option_labels": [
+                "C"
+              ],
+              "correct_option_texts": [
+                "3n^2 + n"
+              ],
+              "explanation": "When n = 1 we get 4. When n = 2 we get 12 + 2 = 14..."
+            },
+            {
+              "questionID": 18600,
+              "question": "The product of three consecutive natural numbers is divisible by",
+              "question_raw": "<p>The product of three consecutive natural numbers is divisible by</p>",
+              "options": [
+                {
+                  "label": "A",
+                  "id": 29603,
+                  "text": "3",
+                  "is_correct": false
+                },
+                {
+                  "label": "B",
+                  "id": 29602,
+                  "text": "11",
+                  "is_correct": false
+                },
+                {
+                  "label": "C",
+                  "id": 29601,
+                  "text": "8",
+                  "is_correct": false
+                },
+                {
+                  "label": "D",
+                  "id": 29600,
+                  "text": "6",
+                  "is_correct": true
+                }
+              ],
+              "correct_option_ids": [
+                29600
+              ],
+              "correct_option_labels": [
+                "D"
+              ],
+              "correct_option_texts": [
+                "6"
+              ],
+              "explanation": "By replacing n by 1 we get 6."
+            },
+            {
+              "questionID": 18601,
+              "question": "For $n \\in N$, 3^2n + 2 - 2^3n - 9 is divisible by",
+              "question_raw": "<p>For <span class=\"math-tex\">{tex}n \\in N{/tex}</span>,&nbsp;3<sup>2n + 2</sup> - 2<sup>3</sup>n - 9&nbsp;is divisible by</p>",
+              "options": [
+                {
+                  "label": "A",
+                  "id": 29606,
+                  "text": "3",
+                  "is_correct": false
+                },
+                {
+                  "label": "B",
+                  "id": 29604,
+                  "text": "64",
+                  "is_correct": true
+                },
+                {
+                  "label": "C",
+                  "id": 29605,
+                  "text": "81",
+                  "is_correct": false
+                },
+                {
+                  "label": "D",
+                  "id": 29607,
+                  "text": "9",
+                  "is_correct": false
+                }
+              ],
+              "correct_option_ids": [
+                29604
+              ],
+              "correct_option_labels": [
+                "B"
+              ],
+              "correct_option_texts": [
+                "64"
+              ],
+              "explanation": "We have,\n3^2n + 2 − 2^3 $\\cdot$ n − 9\n= (3^2)^n+1 − 8n − 9\n= (1 + 8)^n + 1 − 8(n + 1) − 1\n={1 + (n + 1)8+ ^n+1C_2 ​8^2 + ^n+1C_3 ​8^3 +..... + ^n+1C^n+1 ​8^n+1} − 8(n + 1) − 1\n= 64 {^n+1C_2 ​+ ^n+1C_3 ​$\\cdot$ 8 +......}, which is divisible by 64."
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "testPaperID": 621,
+      "testPaperName": "Mathematical Induction Test 05",
+      "is_paid": true,
+      "category_full_name": "CBSE > Class 11 > Mathematics > Principle of Mathematical Induction (Deleted)",
+      "noOfQuestions": 15,
+      "has_answers": true,
+      "sections": [
+        {
+          "sectionName": "General",
+          "sectionID": null,
+          "questions": [
+            {
+              "questionID": 18602,
+              "question": "For all positive integers n, the number 4^n + 15n - 1 is divisible by :",
+              "question_raw": "<p>For all positive integers n, the number&nbsp;4<sup>n</sup> + 15n - 1 is divisible by :</p>",
+              "options": [
+                {
+                  "label": "A",
+                  "id": 29610,
+                  "text": "36",
+                  "is_correct": false
+                },
+                {
+                  "label": "B",
+                  "id": 29608,
+                  "text": "9",
+                  "is_correct": true
+                },
+                {
+                  "label": "C",
+                  "id": 29609,
+                  "text": "16",
+                  "is_correct": false
+                },
+                {
+                  "label": "D",
+                  "id": 29611,
+                  "text": "24",
+                  "is_correct": false
+                }
+              ],
+              "correct_option_ids": [
+                29608
+              ],
+              "correct_option_labels": [
+                "B"
+              ],
+              "correct_option_texts": [
+                "9"
+              ],
+              "explanation": "Replace n = 1 we get 18 n = 2 we get 45.... By the principle of mathematical induction it is divisible by 9."
+            },
+            {
+              "questionID": 18603,
+              "question": "For all $n \\in N$, 7^2n - 48n - 1 is divisible by :",
+              "question_raw": "<p>For all <span class=\"math-tex\">{tex}n \\in N{/tex}</span>,&nbsp;7<sup>2n</sup> - 48n - 1&nbsp;is divisible by :</p>",
+              "options": [
+                {
+                  "label": "A",
+                  "id": 29615,
+                  "text": "26",
+                  "is_correct": false
+                },
+                {
+                  "label": "B",
+                  "id": 29614,
+                  "text": "25",
+                  "is_correct": false
+                },
+                {
+                  "label": "C",
+                  "id": 29612,
+                  "text": "2304",
+                  "is_correct": true
+                },
+                {
+                  "label": "D",
+                  "id": 29613,
+                  "text": "1234",
+                  "is_correct": false
+                }
+              ],
+              "correct_option_ids": [
+                29612
+              ],
+              "correct_option_labels": [
+                "C"
+              ],
+              "correct_option_texts": [
+                "2304"
+              ],
+              "explanation": "When n = 1 the value is 0. When n = 2 the value is 2304..... Hence by the principle of mathematical induction the expression is divisible by 2304."
+            },
+            {
+              "questionID": 18604,
+              "question": "For all $n \\in N$ 5^2n - 1 is divisible by :",
+              "question_raw": "<p>For all <span class=\"math-tex\">{tex}n \\in N{/tex}</span>&nbsp;5<sup>2n</sup> - 1 is divisible by :</p>",
+              "options": [
+                {
+                  "label": "A",
+                  "id": 29618,
+                  "text": "25",
+                  "is_correct": false
+                },
+                {
+                  "label": "B",
+                  "id": 29619,
+                  "text": "11",
+                  "is_correct": false
+                },
+                {
+                  "label": "C",
+                  "id": 29616,
+                  "text": "24",
+                  "is_correct": true
+                },
+                {
+                  "label": "D",
+                  "id": 29617,
+                  "text": "26",
+                  "is_correct": false
+                }
+              ],
+              "correct_option_ids": [
+                29616
+              ],
+              "correct_option_labels": [
+                "C"
+              ],
+              "correct_option_texts": [
+                "24"
+              ],
+              "explanation": "Replace n = 1, 2, 3.. the answers are divisible by 24."
+            },
+            {
+              "questionID": 18605,
+              "question": "For all $n \\in N$, 3^2n + 7 is divisible by :",
+              "question_raw": "<p>For all <span class=\"math-tex\">{tex}n \\in N{/tex}</span>,&nbsp;3<sup>2n</sup> + 7 is divisible by :</p>",
+              "options": [
+                {
+                  "label": "A",
+                  "id": 29623,
+                  "text": "9",
+                  "is_correct": false
+                },
+                {
+                  "label": "B",
+                  "id": 29621,
+                  "text": "3",
+                  "is_correct": false
+                },
+                {
+                  "label": "C",
+                  "id": 29620,
+                  "text": "8",
+                  "is_correct": true
+                },
+                {
+                  "label": "D",
+                  "id": 29622,
+                  "text": "11",
+                  "is_correct": false
+                }
+              ],
+              "correct_option_ids": [
+                29620
+              ],
+              "correct_option_labels": [
+                "C"
+              ],
+              "correct_option_texts": [
+                "8"
+              ],
+              "explanation": "When n = 1 the value is 16 which is a multple of 8, n = 2 the value is 88 which is a multiple of 8..... By PMI the expression is divisible by 8 for all natural numbers."
+            },
+            {
+              "questionID": 18606,
+              "question": "For all $n \\in N$, 3n^5 + 5n^3 + 7n is divisible by :",
+              "question_raw": "<p>For all <span class=\"math-tex\">{tex}n \\in N{/tex}</span>,&nbsp;3n<sup>5</sup> + 5n<sup>3</sup> + 7n is divisible by :</p>",
+              "options": [
+                {
+                  "label": "A",
+                  "id": 29624,
+                  "text": "15",
+                  "is_correct": true
+                },
+                {
+                  "label": "B",
+                  "id": 29627,
+                  "text": "3",
+                  "is_correct": false
+                },
+                {
+                  "label": "C",
+                  "id": 29626,
+                  "text": "5",
+                  "is_correct": false
+                },
+                {
+                  "label": "D",
+                  "id": 29625,
+                  "text": "10",
+                  "is_correct": false
+                }
+              ],
+              "correct_option_ids": [
+                29624
+              ],
+              "correct_option_labels": [
+                "A"
+              ],
+              "correct_option_texts": [
+                "15"
+              ],
+              "explanation": "For n = 1 the value is 15. For n = 2 the value is 150 which is a multiple of 15... By PMI the expression is divisible by 15."
+            },
+            {
+              "questionID": 18607,
+              "question": "The nth terms of the series 3 + 7 + 13 + 21 +………. is =",
+              "question_raw": "<p>The nth terms of the series 3 + 7 + 13 + 21 +&hellip;&hellip;&hellip;. is =&nbsp;</p>",
+              "options": [
+                {
+                  "label": "A",
+                  "id": 29630,
+                  "text": "n + 2",
+                  "is_correct": false
+                },
+                {
+                  "label": "B",
+                  "id": 29631,
+                  "text": "4n + 1",
+                  "is_correct": false
+                },
+                {
+                  "label": "C",
+                  "id": 29629,
+                  "text": "4n - 1",
+                  "is_correct": false
+                },
+                {
+                  "label": "D",
+                  "id": 29628,
+                  "text": "n^2 + n + 1",
+                  "is_correct": true
+                }
+              ],
+              "correct_option_ids": [
+                29628
+              ],
+              "correct_option_labels": [
+                "D"
+              ],
+              "correct_option_texts": [
+                "n^2 + n + 1"
+              ],
+              "explanation": "Put n = 1 we have 3. When n = 2, 4 + 2 + 1 = 7..."
+            },
+            {
+              "questionID": 18608,
+              "question": "The nth terms of the series 4 + 14 + 30 + 52 + 80 + 114 + ….. is =",
+              "question_raw": "<p>The nth terms of the series 4 + 14 + 30&nbsp;+ 52 + 80 + 114 + &hellip;.. is =</p>",
+              "options": [
+                {
+                  "label": "A",
+                  "id": 29634,
+                  "text": "5n - 1",
+                  "is_correct": false
+                },
+                {
+                  "label": "B",
+                  "id": 29635,
+                  "text": "2n^2 + 2n",
+                  "is_correct": false
+                },
+                {
+                  "label": "C",
+                  "id": 29632,
+                  "text": "3n^2 + n",
+                  "is_correct": true
+                },
+                {
+                  "label": "D",
+                  "id": 29633,
+                  "text": "2n^2 + 2",
+                  "is_correct": false
+                }
+              ],
+              "correct_option_ids": [
+                29632
+              ],
+              "correct_option_labels": [
+                "C"
+              ],
+              "correct_option_texts": [
+                "3n^2 + n"
+              ],
+              "explanation": "When n = 1 we get 4. When n = 2 we get 12 + 2 = 14..."
+            },
+            {
+              "questionID": 18609,
+              "question": "3 + 13 + 29 + 51 + 79 +……….. to n terms is",
+              "question_raw": "<p>3 + 13 + 29 + 51 + 79 +&hellip;&hellip;&hellip;.. to n terms is</p>",
+              "options": [
+                {
+                  "label": "A",
+                  "id": 29639,
+                  "text": "n^2 + 4n^3",
+                  "is_correct": false
+                },
+                {
+                  "label": "B",
+                  "id": 29638,
+                  "text": "n^2 + 5n^3",
+                  "is_correct": false
+                },
+                {
+                  "label": "C",
+                  "id": 29637,
+                  "text": "2n^2 + 7n",
+                  "is_correct": false
+                },
+                {
+                  "label": "D",
+                  "id": 29636,
+                  "text": "n^3 + 2n^2",
+                  "is_correct": true
+                }
+              ],
+              "correct_option_ids": [
+                29636
+              ],
+              "correct_option_labels": [
+                "D"
+              ],
+              "correct_option_texts": [
+                "n^3 + 2n^2"
+              ],
+              "explanation": "When n = 1 we have 3 when n = 2 we have\nLHS : 3 + 13 = 16 \nRHS : 8 + 8 = 16 ..... By PMI this is the sum of the n terms of the series."
+            },
+            {
+              "questionID": 18610,
+              "question": "The sum of n terms of the series 1^3 + 3^3 + 5^3 + ...... is",
+              "question_raw": "<p>The sum of n terms of the series&nbsp;1<sup>3</sup> + 3<sup>3</sup> + 5<sup>3</sup> + ...... is</p>",
+              "options": [
+                {
+                  "label": "A",
+                  "id": 29642,
+                  "text": "n^2(n^2 + 1)",
+                  "is_correct": false
+                },
+                {
+                  "label": "B",
+                  "id": 29643,
+                  "text": "n^2(n^2 - 1)",
+                  "is_correct": false
+                },
+                {
+                  "label": "C",
+                  "id": 29641,
+                  "text": "n^2(2n^2 + 1)",
+                  "is_correct": false
+                },
+                {
+                  "label": "D",
+                  "id": 29640,
+                  "text": "n^2(2n^2 - 1)",
+                  "is_correct": true
+                }
+              ],
+              "correct_option_ids": [
+                29640
+              ],
+              "correct_option_labels": [
+                "D"
+              ],
+              "correct_option_texts": [
+                "n^2(2n^2 - 1)"
+              ],
+              "explanation": "When n = 1 we get 1. When n = 2 we get \nRHS : 4 $\\times$ 7 = 28 \nLHS : 1 + 27 = 28...... By PMI this is true."
+            },
+            {
+              "questionID": 18611,
+              "question": "If n is an odd positive integer, then a^n + b^n is divisible by:",
+              "question_raw": "<p>If n is an odd positive integer, then a<sup>n</sup> + b<sup>n</sup> is divisible by:</p>",
+              "options": [
+                {
+                  "label": "A",
+                  "id": 29644,
+                  "text": "a + b",
+                  "is_correct": true
+                },
+                {
+                  "label": "B",
+                  "id": 29646,
+                  "text": "a^2 + b^2",
+                  "is_correct": false
+                },
+                {
+                  "label": "C",
+                  "id": 29647,
+                  "text": "a^2 - b^2",
+                  "is_correct": false
+                },
+                {
+                  "label": "D",
+                  "id": 29645,
+                  "text": "a - b",
+                  "is_correct": false
+                }
+              ],
+              "correct_option_ids": [
+                29644
+              ],
+              "correct_option_labels": [
+                "A"
+              ],
+              "correct_option_texts": [
+                "a + b"
+              ],
+              "explanation": "Since when n = 1 we get a + b. Hence by the method of mathematical induction, it is true."
+            },
+            {
+              "questionID": 18612,
+              "question": "If n is an even positive integer, a^n + b^n is divisible by :",
+              "question_raw": "<p>If n is an even positive integer, a<sup>n</sup> + b<sup>n</sup> is divisible by :</p>",
+              "options": [
+                {
+                  "label": "A",
+                  "id": 29650,
+                  "text": "a - b",
+                  "is_correct": false
+                },
+                {
+                  "label": "B",
+                  "id": 29651,
+                  "text": "a^2 + b^2",
+                  "is_correct": false
+                },
+                {
+                  "label": "C",
+                  "id": 29648,
+                  "text": "none of these",
+                  "is_correct": true
+                },
+                {
+                  "label": "D",
+                  "id": 29649,
+                  "text": "a + b",
+                  "is_correct": false
+                }
+              ],
+              "correct_option_ids": [
+                29648
+              ],
+              "correct_option_labels": [
+                "C"
+              ],
+              "correct_option_texts": [
+                "none of these"
+              ],
+              "explanation": "If n is even we get a^2 + b^2 which is not divisible by a + b. same case when n = 4."
+            },
+            {
+              "questionID": 18613,
+              "question": "For all $n \\in N, \\frac{n^5}{5}+\\frac{n^3}{3}+\\frac{7n}{15 }$ is",
+              "question_raw": "<p>For all <span class=\"math-tex\">{tex}n \\in N, \\frac{n^5}{5}+\\frac{n^3}{3}+\\frac{7n}{15 }{/tex}</span> is</p>",
+              "options": [
+                {
+                  "label": "A",
+                  "id": 29655,
+                  "text": "a negative fraction",
+                  "is_correct": false
+                },
+                {
+                  "label": "B",
+                  "id": 29654,
+                  "text": "a natural number",
+                  "is_correct": true
+                },
+                {
+                  "label": "C",
+                  "id": 29652,
+                  "text": "a positive fraction",
+                  "is_correct": false
+                },
+                {
+                  "label": "D",
+                  "id": 29653,
+                  "text": "an integer",
+                  "is_correct": false
+                }
+              ],
+              "correct_option_ids": [
+                29654
+              ],
+              "correct_option_labels": [
+                "B"
+              ],
+              "correct_option_texts": [
+                "a natural number"
+              ],
+              "explanation": "a natural number"
+            },
+            {
+              "questionID": 18614,
+              "question": "The sum of n terms of the series 1 + (1 + a) + (1 + a + a^2) + (1 + a + a^2 + a^3)....., is",
+              "question_raw": "<p>The sum of n terms of the series&nbsp;1 + (1 + a) + (1 + a + a<sup>2</sup>) + (1 + a + a<sup>2</sup> + a<sup>3</sup>).....,&nbsp;is</p>",
+              "options": [
+                {
+                  "label": "A",
+                  "id": 29659,
+                  "text": "$-\\frac{n}{1-a}+\\frac{a\\left(1-a^n\\right)}{(1-a^2)}$",
+                  "is_correct": false
+                },
+                {
+                  "label": "B",
+                  "id": 29657,
+                  "text": "$\\frac{\\mathrm{n}}{1-\\mathrm{a}}+\\frac{\\mathrm{a}\\left(1+\\mathrm{a}^{\\mathrm{n}}\\right)}{(1-\\mathrm{a})^2}$",
+                  "is_correct": false
+                },
+                {
+                  "label": "C",
+                  "id": 29658,
+                  "text": "$-\\frac{n}{1-a}+\\frac{a\\left(1-a^n\\right)}{(1-a)^2}$",
+                  "is_correct": false
+                },
+                {
+                  "label": "D",
+                  "id": 29656,
+                  "text": "$\\frac{n}{1-a}-\\frac{a\\left(1-a^n\\right)}{(1-a)^2}$",
+                  "is_correct": true
+                }
+              ],
+              "correct_option_ids": [
+                29656
+              ],
+              "correct_option_labels": [
+                "D"
+              ],
+              "correct_option_texts": [
+                "$\\frac{n}{1-a}-\\frac{a\\left(1-a^n\\right)}{(1-a)^2}$"
+              ],
+              "explanation": "Replace n = 1 we get 1. Replace n = 2 we get LHS; a + 2 RHS : a + 2."
+            },
+            {
+              "questionID": 18615,
+              "question": "If 3 + 5 + 9 + 17 + 33 +……. to n terms = 2^n+1 + n - 2, then n^th term of LHS is",
+              "question_raw": "<p>If 3 + 5 + 9 + 17 + 33 +&hellip;&hellip;. to n terms = 2<sup>n+1</sup> + n - 2,&nbsp;then n<sup>th</sup> term of LHS is</p>",
+              "options": [
+                {
+                  "label": "A",
+                  "id": 29661,
+                  "text": "3n - 1",
+                  "is_correct": false
+                },
+                {
+                  "label": "B",
+                  "id": 29662,
+                  "text": "2n + 1",
+                  "is_correct": false
+                },
+                {
+                  "label": "C",
+                  "id": 29660,
+                  "text": "2^n + 1",
+                  "is_correct": true
+                },
+                {
+                  "label": "D",
+                  "id": 29663,
+                  "text": "2n - 1",
+                  "is_correct": false
+                }
+              ],
+              "correct_option_ids": [
+                29660
+              ],
+              "correct_option_labels": [
+                "C"
+              ],
+              "correct_option_texts": [
+                "2^n + 1"
+              ],
+              "explanation": "3 = 2^1 + 1\n5 = 2^2 + 1 \n9 = 2^3 + 1........ the nth term is 2^n + 1"
+            },
+            {
+              "questionID": 18616,
+              "question": "$\\frac{(n+2) !}{(n-1) !}$ is divisible by:",
+              "question_raw": "<p><span class=\"math-tex\">{tex}\\frac{(n+2) !}{(n-1) !}{/tex}</span> is divisible by:</p>",
+              "options": [
+                {
+                  "label": "A",
+                  "id": 29665,
+                  "text": "11",
+                  "is_correct": false
+                },
+                {
+                  "label": "B",
+                  "id": 29664,
+                  "text": "6",
+                  "is_correct": true
+                },
+                {
+                  "label": "C",
+                  "id": 29667,
+                  "text": "26",
+                  "is_correct": false
+                },
+                {
+                  "label": "D",
+                  "id": 29666,
+                  "text": "24",
+                  "is_correct": false
+                }
+              ],
+              "correct_option_ids": [
+                29664
+              ],
+              "correct_option_labels": [
+                "B"
+              ],
+              "correct_option_texts": [
+                "6"
+              ],
+              "explanation": "When n = 1 we have 3! = 6 and n = 2 we have 4! = 24 which is divisible by 6."
+            }
+          ]
+        }
+      ]
+    }
+  ]
+}

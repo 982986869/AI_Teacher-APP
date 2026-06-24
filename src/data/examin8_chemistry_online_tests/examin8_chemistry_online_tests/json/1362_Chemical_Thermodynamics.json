@@ -1,0 +1,3162 @@
+{
+  "id": 1362,
+  "name": "Chemical Thermodynamics",
+  "full_name": "CBSE > Class 11 > Chemistry > Chemical Thermodynamics",
+  "tests": [
+    {
+      "testPaperID": 956,
+      "testPaperName": "Thermodynamics CBSE Online Test 01",
+      "is_paid": false,
+      "category_full_name": "CBSE > Class 11 > Chemistry > Chemical Thermodynamics",
+      "noOfQuestions": 15,
+      "has_answers": true,
+      "sections": [
+        {
+          "sectionName": "General",
+          "sectionID": null,
+          "questions": [
+            {
+              "questionID": 22085,
+              "question": "Thermodynamics is the branch of physical science concerned with",
+              "question_raw": "<p>Thermodynamics is the branch of physical science concerned with</p>",
+              "options": [
+                {
+                  "label": "A",
+                  "id": 43538,
+                  "text": "heat and its transformations to and from other forms of energy.",
+                  "is_correct": true
+                },
+                {
+                  "label": "B",
+                  "id": 43539,
+                  "text": "mass and its transformations to and from other forms of energy.",
+                  "is_correct": false
+                },
+                {
+                  "label": "C",
+                  "id": 43541,
+                  "text": "potential and its transformations to and from other forms of energy.",
+                  "is_correct": false
+                },
+                {
+                  "label": "D",
+                  "id": 43540,
+                  "text": "kinetic energy and its transformations to and from other forms of energy.",
+                  "is_correct": false
+                }
+              ],
+              "correct_option_ids": [
+                43538
+              ],
+              "correct_option_labels": [
+                "A"
+              ],
+              "correct_option_texts": [
+                "heat and its transformations to and from other forms of energy."
+              ],
+              "explanation": "Thermodynamics deals with heat and its transformation from one form to another. The branch of physical science that deals with the relations between heat and other forms of energy (such as mechanical, electrical, or chemical energy) and by extension of the relationships between all forms of energy."
+            },
+            {
+              "questionID": 22086,
+              "question": "In a closed system, which of the following take place?",
+              "question_raw": "<p>In a closed system, which of the following take place?</p>",
+              "options": [
+                {
+                  "label": "A",
+                  "id": 43544,
+                  "text": "The boundaries prevent the flow of matter out of it but not vice versa.",
+                  "is_correct": false
+                },
+                {
+                  "label": "B",
+                  "id": 43543,
+                  "text": "The boundaries permit the flow of matter into it but not vice versa.",
+                  "is_correct": false
+                },
+                {
+                  "label": "C",
+                  "id": 43545,
+                  "text": "The boundaries permit the flow of matter into or out of it.",
+                  "is_correct": false
+                },
+                {
+                  "label": "D",
+                  "id": 43542,
+                  "text": "The boundaries prevent the flow of matter into or out of it.",
+                  "is_correct": true
+                }
+              ],
+              "correct_option_ids": [
+                43542
+              ],
+              "correct_option_labels": [
+                "D"
+              ],
+              "correct_option_texts": [
+                "The boundaries prevent the flow of matter into or out of it."
+              ],
+              "explanation": "In a closed system, there is no flow of matter from system to surrounding or vice versa. For example, a certain quantity of fluid bounded within a closed cylinder constitutes a closed system."
+            },
+            {
+              "questionID": 22087,
+              "question": "In an open system, which of the following take place?",
+              "question_raw": "<p>In an open system, which of the following take place?</p>",
+              "options": [
+                {
+                  "label": "A",
+                  "id": 43548,
+                  "text": "The boundaries prevent the flow of energy into it.",
+                  "is_correct": false
+                },
+                {
+                  "label": "B",
+                  "id": 43547,
+                  "text": "The boundaries prevent the flow of matter into or out of it.",
+                  "is_correct": false
+                },
+                {
+                  "label": "C",
+                  "id": 43546,
+                  "text": "The boundaries permit the flow of matter into or out of it.",
+                  "is_correct": true
+                },
+                {
+                  "label": "D",
+                  "id": 43549,
+                  "text": "The boundaries prevent the flow of matter but not of energy.",
+                  "is_correct": false
+                }
+              ],
+              "correct_option_ids": [
+                43546
+              ],
+              "correct_option_labels": [
+                "C"
+              ],
+              "correct_option_texts": [
+                "The boundaries permit the flow of matter into or out of it."
+              ],
+              "explanation": "In an open system, there is a flow of matter and energy in and out of the system or vice versa. For example, an air compressor in which the air enters at low pressure and exit at high pressure and there is energy interaction with the surrounding."
+            },
+            {
+              "questionID": 22088,
+              "question": "First law of thermodynamics is a restatement of:",
+              "question_raw": "<p>First law of thermodynamics is a restatement of:</p>",
+              "options": [
+                {
+                  "label": "A",
+                  "id": 43550,
+                  "text": "law of conservation of energy.",
+                  "is_correct": true
+                },
+                {
+                  "label": "B",
+                  "id": 43552,
+                  "text": "law of conservation of parity.",
+                  "is_correct": false
+                },
+                {
+                  "label": "C",
+                  "id": 43553,
+                  "text": "law of conservation of charge.",
+                  "is_correct": false
+                },
+                {
+                  "label": "D",
+                  "id": 43551,
+                  "text": "law of conservation of mass.",
+                  "is_correct": false
+                }
+              ],
+              "correct_option_ids": [
+                43550
+              ],
+              "correct_option_labels": [
+                "A"
+              ],
+              "correct_option_texts": [
+                "law of conservation of energy."
+              ],
+              "explanation": "It is a restatement of the law of conservation of energy.\nIt states that Thermodynamics is the branch of physical science that deals with the relations between heat and other forms of energy (such as mechanical, electrical, or chemical energy) and by extension, of the relationships between all forms of energy."
+            },
+            {
+              "questionID": 22089,
+              "question": "According to the first law of thermodynamics $\\Delta$U = q + w, here what is a sign of q and w?",
+              "question_raw": "<p>According to the first law of thermodynamics <span class=\"math-tex\">{tex}\\Delta{/tex}</span>U = q + w, here what is a sign of q and w?</p>",
+              "options": [
+                {
+                  "label": "A",
+                  "id": 43556,
+                  "text": "q is negative if heat is transferred from the system and w is negative if work is done by the system.",
+                  "is_correct": false
+                },
+                {
+                  "label": "B",
+                  "id": 43554,
+                  "text": "q is positive if heat is transferred into the system and w is positive if work is done on the system.",
+                  "is_correct": true
+                },
+                {
+                  "label": "C",
+                  "id": 43557,
+                  "text": "q is negative if heat is transferred into the system and w is negative if work is done on the system.",
+                  "is_correct": false
+                },
+                {
+                  "label": "D",
+                  "id": 43555,
+                  "text": "q is positive if heat is transferred into the system and w is positive if work is done by the system.",
+                  "is_correct": false
+                }
+              ],
+              "correct_option_ids": [
+                43554
+              ],
+              "correct_option_labels": [
+                "B"
+              ],
+              "correct_option_texts": [
+                "q is positive if heat is transferred into the system and w is positive if work is done on the system."
+              ],
+              "explanation": "The first law is simply the conservation of energy equation. q is positive if heat is added to the system, and negative if heat is removed; w is positive if work is done on the system, and negative if work is done by the system."
+            },
+            {
+              "questionID": 22090,
+              "question": "If V_f is the final volume and V_i is the initial volume and ${{\\text{p}}_{{\\text{ex}}}}$ external pressure then the work is done can be calculated by?",
+              "question_raw": "<p>If V<sub>f</sub> is the final volume and V<sub>i</sub> is the initial volume and&nbsp;<span class=\"math-tex\">{tex}{{\\text{p}}_{{\\text{ex}}}}{/tex}</span> external pressure then the work is done can be calculated by?</p>",
+              "options": [
+                {
+                  "label": "A",
+                  "id": 43561,
+                  "text": "$\\mathop \\smallint \\limits_{{V_i}}^{{V_f}} {p_{ex}}dV$",
+                  "is_correct": false
+                },
+                {
+                  "label": "B",
+                  "id": 43558,
+                  "text": "$ - \\mathop \\smallint \\limits_{{V_i}}^{{V_f}} {p_{ex}}dV$",
+                  "is_correct": true
+                },
+                {
+                  "label": "C",
+                  "id": 43559,
+                  "text": "$ - \\mathop \\smallint \\limits_{{V_i}}^0 {p_{ex}}dV$",
+                  "is_correct": false
+                },
+                {
+                  "label": "D",
+                  "id": 43560,
+                  "text": "$\\mathop \\smallint \\limits_0^{{V_f}} {p_{ex}}dV$",
+                  "is_correct": false
+                }
+              ],
+              "correct_option_ids": [
+                43558
+              ],
+              "correct_option_labels": [
+                "B"
+              ],
+              "correct_option_texts": [
+                "$ - \\mathop \\smallint \\limits_{{V_i}}^{{V_f}} {p_{ex}}dV$"
+              ],
+              "explanation": "$ - \\mathop \\smallint \\limits_{{V_i}}^{{V_f}} {p_{ex}}dV$ = w\nIt is equal to the integration of change in volume with respect to the initial and final volume."
+            },
+            {
+              "questionID": 22091,
+              "question": "For the isothermal reversible free expansion of an ideal gas from V_i, the initial volume to V_f, the final volume of the work done on the gas is:",
+              "question_raw": "<p>For the isothermal reversible free expansion of an ideal gas from V<sub>i</sub>, the initial volume to V<sub>f</sub>, the final volume of the work done on the gas is:</p>",
+              "options": [
+                {
+                  "label": "A",
+                  "id": 43562,
+                  "text": "w = $- nRTln\\left( {\\frac{{{V_f}}}{{{V_i}}}} \\right)$",
+                  "is_correct": true
+                },
+                {
+                  "label": "B",
+                  "id": 43565,
+                  "text": "w = $- nRln\\left( {\\frac{{{V_f}}}{{{V_i}}}} \\right)$",
+                  "is_correct": false
+                },
+                {
+                  "label": "C",
+                  "id": 43563,
+                  "text": "w = $ - RTln\\left( {\\frac{{{V_f}}}{{{V_i}}}} \\right)$",
+                  "is_correct": false
+                },
+                {
+                  "label": "D",
+                  "id": 43564,
+                  "text": "w = $ - nTln\\left( {\\frac{{{V_f}}}{{{V_i}}}} \\right)$",
+                  "is_correct": false
+                }
+              ],
+              "correct_option_ids": [
+                43562
+              ],
+              "correct_option_labels": [
+                "A"
+              ],
+              "correct_option_texts": [
+                "w = $- nRTln\\left( {\\frac{{{V_f}}}{{{V_i}}}} \\right)$"
+              ],
+              "explanation": "w = $- nRTln\\left( {\\frac{{{V_f}}}{{{V_i}}}} \\right)$\nThis is work done by the system in an isothermal process where\nw is the work done\nn is the number of moles\nR is the universal gas constant \nT is the temperature in Kelvin scale"
+            },
+            {
+              "questionID": 22092,
+              "question": "The correct equation for the change in enthalpy is:",
+              "question_raw": "<p>The correct equation for the change in enthalpy is:</p>",
+              "options": [
+                {
+                  "label": "A",
+                  "id": 43568,
+                  "text": "$\\Delta$H = $\\Delta$U + $\\frac{p}{V}$",
+                  "is_correct": false
+                },
+                {
+                  "label": "B",
+                  "id": 43569,
+                  "text": "$\\Delta$H = $\\Delta$U + n $\\frac{p}{V}$",
+                  "is_correct": false
+                },
+                {
+                  "label": "C",
+                  "id": 43567,
+                  "text": "$\\Delta$H = $\\Delta$U + T$\\Delta$V",
+                  "is_correct": false
+                },
+                {
+                  "label": "D",
+                  "id": 43566,
+                  "text": "$\\Delta$H = $\\Delta$U + p$\\Delta$V",
+                  "is_correct": true
+                }
+              ],
+              "correct_option_ids": [
+                43566
+              ],
+              "correct_option_labels": [
+                "D"
+              ],
+              "correct_option_texts": [
+                "$\\Delta$H = $\\Delta$U + p$\\Delta$V"
+              ],
+              "explanation": "Enthalpy is a thermodynamic quantity equivalent to the total heat content of a system. It is equal to the internal energy of the system plus the product of pressure and volume."
+            },
+            {
+              "questionID": 22093,
+              "question": "The molar specific heat capacity of a substance is the quantity of heat needed to raise the temperature of one",
+              "question_raw": "<p>The molar specific heat capacity of a substance is the&nbsp;quantity of heat needed to raise the temperature of one</p>\r\n",
+              "options": [
+                {
+                  "label": "A",
+                  "id": 43573,
+                  "text": "kilogram by one degree Fahrenheit.",
+                  "is_correct": false
+                },
+                {
+                  "label": "B",
+                  "id": 43572,
+                  "text": "mole by one degree Fahrenheit.",
+                  "is_correct": false
+                },
+                {
+                  "label": "C",
+                  "id": 43571,
+                  "text": "gram by one degree celsius.",
+                  "is_correct": false
+                },
+                {
+                  "label": "D",
+                  "id": 43570,
+                  "text": "mole by one degree celsius or one kelvin.",
+                  "is_correct": true
+                }
+              ],
+              "correct_option_ids": [
+                43570
+              ],
+              "correct_option_labels": [
+                "D"
+              ],
+              "correct_option_texts": [
+                "mole by one degree celsius or one kelvin."
+              ],
+              "explanation": "Molar specific heat capacity can be defined as the amount of heat energy required to raise the temperature of 1 mole of a substance by 1^o C."
+            },
+            {
+              "questionID": 22094,
+              "question": "Which one among the following is the correct option for right relationship between C_p and C_v for one mole of ideal gas?",
+              "question_raw": "<p>Which one among the following is the correct option for right relationship between C<sub>p</sub> and C<sub>v</sub> for one mole of ideal gas?</p>",
+              "options": [
+                {
+                  "label": "A",
+                  "id": 43577,
+                  "text": "C_P = RC_V",
+                  "is_correct": false
+                },
+                {
+                  "label": "B",
+                  "id": 43574,
+                  "text": "C_p - C_v = R",
+                  "is_correct": true
+                },
+                {
+                  "label": "C",
+                  "id": 43576,
+                  "text": "C_P - C_V = R",
+                  "is_correct": false
+                },
+                {
+                  "label": "D",
+                  "id": 43575,
+                  "text": "C_P + C_V = R",
+                  "is_correct": false
+                }
+              ],
+              "correct_option_ids": [
+                43574
+              ],
+              "correct_option_labels": [
+                "B"
+              ],
+              "correct_option_texts": [
+                "C_p - C_v = R"
+              ],
+              "explanation": "For a mole of an ideal gas, The difference between C_p and C_v is always constant i.e. equals to the gas constant.\nTherefore, for one mole of an ideal gas, C_p - C_V = R."
+            },
+            {
+              "questionID": 22095,
+              "question": "Calorimetry is an experimental technique or process of:",
+              "question_raw": "<p>Calorimetry is an experimental technique or process of:</p>",
+              "options": [
+                {
+                  "label": "A",
+                  "id": 43579,
+                  "text": "measuring the amount of chemicals consumed.",
+                  "is_correct": false
+                },
+                {
+                  "label": "B",
+                  "id": 43581,
+                  "text": "measuring the maximum pressure developed in a reaction.",
+                  "is_correct": false
+                },
+                {
+                  "label": "C",
+                  "id": 43580,
+                  "text": "measuring the amount of work done in a reaction.",
+                  "is_correct": false
+                },
+                {
+                  "label": "D",
+                  "id": 43578,
+                  "text": "measuring the energy changes associated with chemical or physical processes.",
+                  "is_correct": true
+                }
+              ],
+              "correct_option_ids": [
+                43578
+              ],
+              "correct_option_labels": [
+                "D"
+              ],
+              "correct_option_texts": [
+                "measuring the energy changes associated with chemical or physical processes."
+              ],
+              "explanation": "Calorimetry is an experimental technique or process of measuring the heat of chemical reactions or physical changes as well as heat capacity."
+            },
+            {
+              "questionID": 22096,
+              "question": "An exothermic process:",
+              "question_raw": "<p>An exothermic process:</p>",
+              "options": [
+                {
+                  "label": "A",
+                  "id": 43584,
+                  "text": "results in a increase in the internal energy of the system.",
+                  "is_correct": false
+                },
+                {
+                  "label": "B",
+                  "id": 43582,
+                  "text": "results in a decrease in the enthalpy of the system.",
+                  "is_correct": true
+                },
+                {
+                  "label": "C",
+                  "id": 43583,
+                  "text": "results in a increase in the enthalpy of the system.",
+                  "is_correct": false
+                },
+                {
+                  "label": "D",
+                  "id": 43585,
+                  "text": "results in a decrease in the temperature of the system.",
+                  "is_correct": false
+                }
+              ],
+              "correct_option_ids": [
+                43582
+              ],
+              "correct_option_labels": [
+                "B"
+              ],
+              "correct_option_texts": [
+                "results in a decrease in the enthalpy of the system."
+              ],
+              "explanation": "Exothermic process results in a decrease in enthalpy of the system hence for exothermic reaction $\\Delta$H = -ve."
+            },
+            {
+              "questionID": 22097,
+              "question": "The enthalpy change of a chemical reaction ${\\Delta _{\\text{r}}}{\\text{H}}$ equals (a_i and b_i are stoichiometric coefficients)?",
+              "question_raw": "<p>The enthalpy change of a chemical reaction <span class=\"math-tex\">{tex}{\\Delta _{\\text{r}}}{\\text{H}}{/tex}</span> equals (a<sub>i</sub> and b<sub>i</sub> are stoichiometric coefficients)?</p>",
+              "options": [
+                {
+                  "label": "A",
+                  "id": 43586,
+                  "text": "$\\mathop \\sum \\limits_i {a_i}{H_{products}} - \\mathop \\sum \\limits_i {b_i}{H_{reactants}}$",
+                  "is_correct": true
+                },
+                {
+                  "label": "B",
+                  "id": 43588,
+                  "text": "$\\mathop \\sum \\limits_i {a_i}{H_{products}}$",
+                  "is_correct": false
+                },
+                {
+                  "label": "C",
+                  "id": 43587,
+                  "text": "$\\mathop \\sum \\limits_i {a_i}{H_{products}} + \\mathop \\sum \\limits_i {b_i}{H_{reactants}}$",
+                  "is_correct": false
+                },
+                {
+                  "label": "D",
+                  "id": 43589,
+                  "text": "$\\mathop \\sum \\limits_i {a_i}{H_{products}} \\pm \\mathop \\sum \\limits_i {b_i}{H_{reactants}}$",
+                  "is_correct": false
+                }
+              ],
+              "correct_option_ids": [
+                43586
+              ],
+              "correct_option_labels": [
+                "A"
+              ],
+              "correct_option_texts": [
+                "$\\mathop \\sum \\limits_i {a_i}{H_{products}} - \\mathop \\sum \\limits_i {b_i}{H_{reactants}}$"
+              ],
+              "explanation": "The enthalpy of reaction (${\\Delta _r}H$) = (Sum of enthalpies of products)- (sum of enthalpies of reactants) = $\\sum {{a_i}{H_{(product)}}} - \\sum {{b_i}{H_{(reactant)}}} $"
+            },
+            {
+              "questionID": 22098,
+              "question": "Standard enthalpy of fusion or molar enthalpy of fusion is:",
+              "question_raw": "<p>Standard enthalpy of fusion or molar enthalpy of fusion is:</p>",
+              "options": [
+                {
+                  "label": "A",
+                  "id": 43593,
+                  "text": "the enthalpy change that accompanies vaporization of one kg of a solid substance in the standard state.",
+                  "is_correct": false
+                },
+                {
+                  "label": "B",
+                  "id": 43591,
+                  "text": "the enthalpy change that accompanies melting of one kg of a solid substance in the standard state.",
+                  "is_correct": false
+                },
+                {
+                  "label": "C",
+                  "id": 43590,
+                  "text": "the enthalpy change that accompanies melting of one mole of a solid substance in the standard state.",
+                  "is_correct": true
+                },
+                {
+                  "label": "D",
+                  "id": 43592,
+                  "text": "the enthalpy change that accompanies vaporization of one mole of a solid substance in the standard state.",
+                  "is_correct": false
+                }
+              ],
+              "correct_option_ids": [
+                43590
+              ],
+              "correct_option_labels": [
+                "C"
+              ],
+              "correct_option_texts": [
+                "the enthalpy change that accompanies melting of one mole of a solid substance in the standard state."
+              ],
+              "explanation": "Molar enthalpy of fusion (always increases i.e. $\\Delta$H = positive) is the amount of energy needed to change completely one mole of a substance from the solid phase to the liquid phase in the standard state."
+            },
+            {
+              "questionID": 22099,
+              "question": "Standard Molar Enthalpy of formation is:",
+              "question_raw": "<p>Standard Molar Enthalpy of formation is:</p>",
+              "options": [
+                {
+                  "label": "A",
+                  "id": 43596,
+                  "text": "the standard enthalpy change for the formation of one mole of a compound from its elements in at a pressure of 10 bar and 30°C.",
+                  "is_correct": false
+                },
+                {
+                  "label": "B",
+                  "id": 43597,
+                  "text": "the standard enthalpy change for the formation of one mole of a compound from its elements in at a pressure of 2 bar and 25^o C.",
+                  "is_correct": false
+                },
+                {
+                  "label": "C",
+                  "id": 43595,
+                  "text": "the standard enthalpy change for the formation of one kg of a compound from its elements in their most stable states of aggregation.",
+                  "is_correct": false
+                },
+                {
+                  "label": "D",
+                  "id": 43594,
+                  "text": "the standard enthalpy change for the formation of one mole of a compound from its elements in their most stable states of aggregation.",
+                  "is_correct": true
+                }
+              ],
+              "correct_option_ids": [
+                43594
+              ],
+              "correct_option_labels": [
+                "D"
+              ],
+              "correct_option_texts": [
+                "the standard enthalpy change for the formation of one mole of a compound from its elements in their most stable states of aggregation."
+              ],
+              "explanation": "The standard enthalpy change for the formation of one mole of a compound from its elements in their most stable states of aggregation (reference states) is called standard molar enthalpy of formation."
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "testPaperID": 957,
+      "testPaperName": "Thermodynamics CBSE Online Test 02",
+      "is_paid": true,
+      "category_full_name": "CBSE > Class 11 > Chemistry > Chemical Thermodynamics",
+      "noOfQuestions": 15,
+      "has_answers": true,
+      "sections": [
+        {
+          "sectionName": "General",
+          "sectionID": null,
+          "questions": [
+            {
+              "questionID": 22100,
+              "question": "According to Hess’s Law, if a reaction takes place in several steps then its standard reaction enthalpy is:",
+              "question_raw": "<p>According to Hess&rsquo;s Law, if a reaction takes place in several steps then its standard reaction enthalpy is:</p>",
+              "options": [
+                {
+                  "label": "A",
+                  "id": 43598,
+                  "text": "the sum of the standard enthalpies of the intermediate reactions into which the overall reaction may be divided at the same temperature.",
+                  "is_correct": true
+                },
+                {
+                  "label": "B",
+                  "id": 43599,
+                  "text": "the difference of the standard enthalpies of the intermediate reactions into which the overall reaction may be divided at the same temperature.",
+                  "is_correct": false
+                },
+                {
+                  "label": "C",
+                  "id": 43600,
+                  "text": "the sum of the standard enthalpies of the intermediate reactions into which the overall reaction may be divided at 2 bar.",
+                  "is_correct": false
+                },
+                {
+                  "label": "D",
+                  "id": 43601,
+                  "text": "the sum of the standard enthalpies of the intermediate reactions into which the overall reaction may be divided at 35°C.",
+                  "is_correct": false
+                }
+              ],
+              "correct_option_ids": [
+                43598
+              ],
+              "correct_option_labels": [
+                "A"
+              ],
+              "correct_option_texts": [
+                "the sum of the standard enthalpies of the intermediate reactions into which the overall reaction may be divided at the same temperature."
+              ],
+              "explanation": "Hess’s Law states that if a reaction takes place in several steps then its standard reaction enthalpy is the sum of the standard enthalpies of the intermediate reactions into which the overall reaction may be divided at the same temperature."
+            },
+            {
+              "questionID": 22101,
+              "question": "Enthalpy of atomization is enthalpy change on breaking:",
+              "question_raw": "<p>Enthalpy of atomization is enthalpy change on breaking:</p>",
+              "options": [
+                {
+                  "label": "A",
+                  "id": 43603,
+                  "text": "one kg of bonds completely to obtain atoms in the gas phase.",
+                  "is_correct": false
+                },
+                {
+                  "label": "B",
+                  "id": 43605,
+                  "text": "one kg of bonds completely to obtain atoms in the liquid phase.",
+                  "is_correct": false
+                },
+                {
+                  "label": "C",
+                  "id": 43604,
+                  "text": "one mole of bonds completely to obtain atoms in the liquid phase.",
+                  "is_correct": false
+                },
+                {
+                  "label": "D",
+                  "id": 43602,
+                  "text": "one mole of bonds completely to obtain atoms in the gas phase.",
+                  "is_correct": true
+                }
+              ],
+              "correct_option_ids": [
+                43602
+              ],
+              "correct_option_labels": [
+                "D"
+              ],
+              "correct_option_texts": [
+                "one mole of bonds completely to obtain atoms in the gas phase."
+              ],
+              "explanation": "Enthalpy of atomization is the enthalpy change that takes place on breaking one mole of bonds completely of a compound or an element, to obtain atoms in the gas phase."
+            },
+            {
+              "questionID": 22102,
+              "question": "In the case of compounds such as CH_3CH_2Cl, CH_3NO_2, etc. which of the following term is used as bond enthalpy?",
+              "question_raw": "<p>In the case of compounds such as CH<sub>3</sub>CH<sub>2</sub>Cl, CH<sub>3</sub>NO<sub>2</sub>,&nbsp;etc. which of the following term is used as bond enthalpy?</p>",
+              "options": [
+                {
+                  "label": "A",
+                  "id": 43609,
+                  "text": "Minimum bond enthalpy",
+                  "is_correct": false
+                },
+                {
+                  "label": "B",
+                  "id": 43606,
+                  "text": "Mean bond enthalpy",
+                  "is_correct": true
+                },
+                {
+                  "label": "C",
+                  "id": 43607,
+                  "text": "Bond dissociation enthalpy",
+                  "is_correct": false
+                },
+                {
+                  "label": "D",
+                  "id": 43608,
+                  "text": "Maximum bond enthalpy",
+                  "is_correct": false
+                }
+              ],
+              "correct_option_ids": [
+                43606
+              ],
+              "correct_option_labels": [
+                "B"
+              ],
+              "correct_option_texts": [
+                "Mean bond enthalpy"
+              ],
+              "explanation": "For polyatomic molecules, the term means bond enthalpy is used for the enthalpy changes associated with chemical bonds."
+            },
+            {
+              "questionID": 22103,
+              "question": "Enthalpy of the solution of a substance is the enthalpy change:",
+              "question_raw": "<p>Enthalpy of the solution of a substance is the enthalpy change:</p>",
+              "options": [
+                {
+                  "label": "A",
+                  "id": 43613,
+                  "text": "when one kg of it reacts with a specified amount of solvent.",
+                  "is_correct": false
+                },
+                {
+                  "label": "B",
+                  "id": 43612,
+                  "text": "when one mole of it reacts with a specified amount of solvent.",
+                  "is_correct": false
+                },
+                {
+                  "label": "C",
+                  "id": 43610,
+                  "text": "when one mole of it dissolves in a specified amount of solvent.",
+                  "is_correct": true
+                },
+                {
+                  "label": "D",
+                  "id": 43611,
+                  "text": "when one kg of it dissolves in a specified amount of solvent.",
+                  "is_correct": false
+                }
+              ],
+              "correct_option_ids": [
+                43610
+              ],
+              "correct_option_labels": [
+                "C"
+              ],
+              "correct_option_texts": [
+                "when one mole of it dissolves in a specified amount of solvent."
+              ],
+              "explanation": "Enthalpy of the solution of a substance is the enthalpy change when one mole of it dissolves in a specified amount of solvent."
+            },
+            {
+              "questionID": 22104,
+              "question": "The lattice enthalpy of an ionic compound is the enthalpy change which occurs when",
+              "question_raw": "<p>The lattice enthalpy of an ionic compound is the enthalpy change which occurs when</p>",
+              "options": [
+                {
+                  "label": "A",
+                  "id": 43616,
+                  "text": "one mole of an ionic compound dissociates into its ions in a liquid state.",
+                  "is_correct": false
+                },
+                {
+                  "label": "B",
+                  "id": 43615,
+                  "text": "one gm of an ionic compound dissociates into its ions in a gaseous state.",
+                  "is_correct": false
+                },
+                {
+                  "label": "C",
+                  "id": 43617,
+                  "text": "one kg of an ionic compound dissociates into its ions in a liquid state.",
+                  "is_correct": false
+                },
+                {
+                  "label": "D",
+                  "id": 43614,
+                  "text": "one mole of an ionic compound dissociates into its ions in a gaseous state.",
+                  "is_correct": true
+                }
+              ],
+              "correct_option_ids": [
+                43614
+              ],
+              "correct_option_labels": [
+                "D"
+              ],
+              "correct_option_texts": [
+                "one mole of an ionic compound dissociates into its ions in a gaseous state."
+              ],
+              "explanation": "The lattice enthalpy of an ionic compound is the enthalpy change which occurs when one mole of an ionic compound dissociates into its ions in a gaseous state."
+            },
+            {
+              "questionID": 22105,
+              "question": "Spontaneity in the context of chemical thermodynamics means",
+              "question_raw": "<p>Spontaneity in the context of chemical thermodynamics means</p>",
+              "options": [
+                {
+                  "label": "A",
+                  "id": 43618,
+                  "text": "having the potential to proceed without the assistance of an external agency.",
+                  "is_correct": true
+                },
+                {
+                  "label": "B",
+                  "id": 43619,
+                  "text": "having the potential to proceed with the assistance of an external agency.",
+                  "is_correct": false
+                },
+                {
+                  "label": "C",
+                  "id": 43620,
+                  "text": "having the potential to proceed instantaneously.",
+                  "is_correct": false
+                },
+                {
+                  "label": "D",
+                  "id": 43621,
+                  "text": "having the potential to proceed fast.",
+                  "is_correct": false
+                }
+              ],
+              "correct_option_ids": [
+                43618
+              ],
+              "correct_option_labels": [
+                "A"
+              ],
+              "correct_option_texts": [
+                "having the potential to proceed without the assistance of an external agency."
+              ],
+              "explanation": "Spontaneity means a reaction occurring on its own without any help of an external agency."
+            },
+            {
+              "questionID": 22106,
+              "question": "Entropy is a state function and measures",
+              "question_raw": "<p>Entropy is a state function and measures</p>",
+              "options": [
+                {
+                  "label": "A",
+                  "id": 43624,
+                  "text": "the internal energy of the system.",
+                  "is_correct": false
+                },
+                {
+                  "label": "B",
+                  "id": 43625,
+                  "text": "the enthalpy of the system.",
+                  "is_correct": false
+                },
+                {
+                  "label": "C",
+                  "id": 43622,
+                  "text": "the degree of randomness or disorder in the system.",
+                  "is_correct": true
+                },
+                {
+                  "label": "D",
+                  "id": 43623,
+                  "text": "the degree of regularity or order in the system.",
+                  "is_correct": false
+                }
+              ],
+              "correct_option_ids": [
+                43622
+              ],
+              "correct_option_labels": [
+                "C"
+              ],
+              "correct_option_texts": [
+                "the degree of randomness or disorder in the system."
+              ],
+              "explanation": "Entropy is a state function and it measures the degree of randomness or disorder of a system. It is denoted by 'S'."
+            },
+            {
+              "questionID": 22107,
+              "question": "Change in entropy of a reversible process can be calculated by:",
+              "question_raw": "<p>Change in entropy of a reversible process can be calculated by:</p>",
+              "options": [
+                {
+                  "label": "A",
+                  "id": 43629,
+                  "text": "$\\Delta {S_{sys}} = RT{q_{sys,rev}}$",
+                  "is_correct": false
+                },
+                {
+                  "label": "B",
+                  "id": 43626,
+                  "text": "$\\Delta {S_{sys}} = \\frac{{{q_{sys,rev}}}}{T}$",
+                  "is_correct": true
+                },
+                {
+                  "label": "C",
+                  "id": 43628,
+                  "text": "$\\Delta {S_{sys}} = T{q_{sys,rev}}$",
+                  "is_correct": false
+                },
+                {
+                  "label": "D",
+                  "id": 43627,
+                  "text": "$\\Delta {S_{sys}} = \\frac{{{q_{sys,rev}}}}{{2T}}$",
+                  "is_correct": false
+                }
+              ],
+              "correct_option_ids": [
+                43626
+              ],
+              "correct_option_labels": [
+                "B"
+              ],
+              "correct_option_texts": [
+                "$\\Delta {S_{sys}} = \\frac{{{q_{sys,rev}}}}{T}$"
+              ],
+              "explanation": "$\\Delta {S_{sys}} = \\frac{{{q_{sys,rev}}}}{T}$. The equation can be used to calculate the change in entropy of a system of a reversible process as entropy is a state property.\nWhere, q_sys, rev = Heat supplied to a system at temperature T."
+            },
+            {
+              "questionID": 22108,
+              "question": "If change in Gibbs energy $\\Delta {\\text{G}}$ is negative (< 0) at constant pressure and temperature?",
+              "question_raw": "<p>If change in Gibbs energy <span class=\"math-tex\">{tex}\\Delta {\\text{G}}{/tex}</span> is negative (&lt; 0) at constant pressure and temperature?</p>",
+              "options": [
+                {
+                  "label": "A",
+                  "id": 43630,
+                  "text": "The process is spontaneous",
+                  "is_correct": true
+                },
+                {
+                  "label": "B",
+                  "id": 43631,
+                  "text": "The process is non spontaneous",
+                  "is_correct": false
+                },
+                {
+                  "label": "C",
+                  "id": 43632,
+                  "text": "The process will never take place",
+                  "is_correct": false
+                },
+                {
+                  "label": "D",
+                  "id": 43633,
+                  "text": "The process will rarely take place",
+                  "is_correct": false
+                }
+              ],
+              "correct_option_ids": [
+                43630
+              ],
+              "correct_option_labels": [
+                "A"
+              ],
+              "correct_option_texts": [
+                "The process is spontaneous"
+              ],
+              "explanation": "$\\Delta {\\text{G}}$ gives criteria for the spontaneous and non-spontaneous process at constant temperature and pressure. $\\Delta {\\text{G}}$ < 0 (negative) means reaction is spontaneous and $\\Delta {\\text{G}}$ > 0 (positive) means reaction is non spontaneous."
+            },
+            {
+              "questionID": 22109,
+              "question": "Standard Gibbs energy change ${\\Delta _{\\text{r}}}{{\\text{G}}^0}$ is related to the equilibrium constant of the reaction as follows:",
+              "question_raw": "<p>Standard Gibbs energy change&nbsp;<span class=\"math-tex\">{tex}{\\Delta _{\\text{r}}}{{\\text{G}}^0}{/tex}</span>&nbsp;is related to the equilibrium constant of the reaction as follows:</p>",
+              "options": [
+                {
+                  "label": "A",
+                  "id": 43635,
+                  "text": "${\\Delta _{\\text{r}}}{{\\text{G}}^0}$= -nRTln K",
+                  "is_correct": false
+                },
+                {
+                  "label": "B",
+                  "id": 43634,
+                  "text": "${\\Delta _{\\text{r}}}{{\\text{G}}^0}$ = -RTln K",
+                  "is_correct": true
+                },
+                {
+                  "label": "C",
+                  "id": 43637,
+                  "text": "${\\Delta _{\\text{r}}}{{\\text{G}}^0}$ = -Rln K",
+                  "is_correct": false
+                },
+                {
+                  "label": "D",
+                  "id": 43636,
+                  "text": "${\\Delta _{\\text{r}}}{{\\text{G}}^0}$ = -Tln K",
+                  "is_correct": false
+                }
+              ],
+              "correct_option_ids": [
+                43634
+              ],
+              "correct_option_labels": [
+                "B"
+              ],
+              "correct_option_texts": [
+                "${\\Delta _{\\text{r}}}{{\\text{G}}^0}$ = -RTln K"
+              ],
+              "explanation": "${\\Delta _{\\text{r}}}{{\\text{G}}^0}$ = -RTln K \nwhere ${\\Delta _{\\text{r}}}{{\\text{G}}^0}$ is standard Gibbs energy change, K is the equilibrium constant, R is the universal gas constant and T is the temperature in kelvin scale."
+            },
+            {
+              "questionID": 22110,
+              "question": "A thermodynamic state function is a physical quantity whose value:",
+              "question_raw": "<p>A thermodynamic state function is a physical quantity whose value:</p>",
+              "options": [
+                {
+                  "label": "A",
+                  "id": 43638,
+                  "text": "independent of path.",
+                  "is_correct": true
+                },
+                {
+                  "label": "B",
+                  "id": 43640,
+                  "text": "determine PV work.",
+                  "is_correct": false
+                },
+                {
+                  "label": "C",
+                  "id": 43639,
+                  "text": "determine heat changes.",
+                  "is_correct": false
+                },
+                {
+                  "label": "D",
+                  "id": 43641,
+                  "text": "depends on temperature only.",
+                  "is_correct": false
+                }
+              ],
+              "correct_option_ids": [
+                43638
+              ],
+              "correct_option_labels": [
+                "A"
+              ],
+              "correct_option_texts": [
+                "independent of path."
+              ],
+              "explanation": "State function is one which is only dependent on the initial and final state of the system and is independent of the path by which that change has occurred."
+            },
+            {
+              "questionID": 22111,
+              "question": "For an adiabatic change:",
+              "question_raw": "<p>For an adiabatic change:</p>",
+              "options": [
+                {
+                  "label": "A",
+                  "id": 43643,
+                  "text": "$\\Delta {\\text{T}}$ = 0",
+                  "is_correct": false
+                },
+                {
+                  "label": "B",
+                  "id": 43645,
+                  "text": "w = 0",
+                  "is_correct": false
+                },
+                {
+                  "label": "C",
+                  "id": 43644,
+                  "text": "$\\Delta {\\text{p}}$ = 0",
+                  "is_correct": false
+                },
+                {
+                  "label": "D",
+                  "id": 43642,
+                  "text": "q = 0",
+                  "is_correct": true
+                }
+              ],
+              "correct_option_ids": [
+                43642
+              ],
+              "correct_option_labels": [
+                "D"
+              ],
+              "correct_option_texts": [
+                "q = 0"
+              ],
+              "explanation": "An adiabatic process would not allow the exchange of heat between the system and surroundings, hence q = 0."
+            },
+            {
+              "questionID": 22112,
+              "question": "By convention, standard enthalpy for the formation of an element in reference state is:",
+              "question_raw": "<p>&nbsp;By convention, standard enthalpy for the formation&nbsp;of an element&nbsp;in reference state&nbsp;is:</p>",
+              "options": [
+                {
+                  "label": "A",
+                  "id": 43649,
+                  "text": "different for each element.",
+                  "is_correct": false
+                },
+                {
+                  "label": "B",
+                  "id": 43646,
+                  "text": "zero",
+                  "is_correct": true
+                },
+                {
+                  "label": "C",
+                  "id": 43648,
+                  "text": "< 0",
+                  "is_correct": false
+                },
+                {
+                  "label": "D",
+                  "id": 43647,
+                  "text": "unity",
+                  "is_correct": false
+                }
+              ],
+              "correct_option_ids": [
+                43646
+              ],
+              "correct_option_labels": [
+                "B"
+              ],
+              "correct_option_texts": [
+                "zero"
+              ],
+              "explanation": "By convention, enthalpies of formation of all elements in their most stable state of aggregation (reference state) at 25^oC and 1atm are taken as zero."
+            },
+            {
+              "questionID": 22113,
+              "question": "$\\Delta {{\\text{U}}^\\ominus} $of combustion of methane is -X kJ ${\\text{mo}}{{\\text{l}}^{ - {\\text{1}}}}$. The value of $\\Delta {{\\text{H}}^\\ominus}$ is",
+              "question_raw": "<p><span class=\"math-tex\">{tex}\\Delta {{\\text{U}}^\\ominus} {/tex}</span>of combustion of methane is -X kJ <span class=\"math-tex\">{tex}{\\text{mo}}{{\\text{l}}^{ - {\\text{1}}}}{/tex}</span>. The value of <span class=\"math-tex\">{tex}\\Delta {{\\text{H}}^\\ominus}{/tex}</span>&nbsp;is</p>",
+              "options": [
+                {
+                  "label": "A",
+                  "id": 43652,
+                  "text": "> $\\Delta {{\\text{U}}^\\ominus}$",
+                  "is_correct": false
+                },
+                {
+                  "label": "B",
+                  "id": 43653,
+                  "text": "= 0",
+                  "is_correct": false
+                },
+                {
+                  "label": "C",
+                  "id": 43651,
+                  "text": "= $\\Delta {{\\text{U}}^\\ominus}$",
+                  "is_correct": false
+                },
+                {
+                  "label": "D",
+                  "id": 43650,
+                  "text": "$ < {\\text{ }}\\Delta {{\\text{U}}^\\ominus}$",
+                  "is_correct": true
+                }
+              ],
+              "correct_option_ids": [
+                43650
+              ],
+              "correct_option_labels": [
+                "D"
+              ],
+              "correct_option_texts": [
+                "$ < {\\text{ }}\\Delta {{\\text{U}}^\\ominus}$"
+              ],
+              "explanation": "CH_4 (g) + 2O_2 (g) → CO_2 (g) + 2H_2O (l)\n We know, $\\Delta {H^\\ominus} = {\\text{ }}\\Delta {U^\\ominus} + {\\text{ }}\\Delta {n_g}$ RT\nΔn_g is negative as product water in combustion reaction is in liquid state.\n$\\Delta {H^\\ominus} = {\\text{ }}-X-{\\text{ }}\\Delta {n_g}RT $\nThis implies $\\Delta H \\ominus$ will be more negative than $\\Delta U \\ominus$\nHence, $\\Delta H \\ominus$ < $\\Delta U \\ominus$"
+            },
+            {
+              "questionID": 22114,
+              "question": "The enthalpy of combustion of methane, graphite and dihydrogen at 298 K are, -890.3 kJ mol^-1, -393.5 kJ mol^-1 and -285.8 kJ mol^-1 respectively. Enthalpy of formation of CH_4 (g) will be",
+              "question_raw": "<p>The enthalpy of combustion of methane, graphite and dihydrogen at 298<span style=\"font-size: 10.8333px;\"> </span>K are, -890.3 kJ mol<sup>-1</sup>, -393.5 kJ mol<sup>-1</sup>&nbsp;and -285.8 kJ mol<sup>-1</sup> respectively. Enthalpy of formation of CH<sub>4</sub> (g) will be</p>",
+              "options": [
+                {
+                  "label": "A",
+                  "id": 43655,
+                  "text": "-52.27 kJ mol^-1",
+                  "is_correct": false
+                },
+                {
+                  "label": "B",
+                  "id": 43654,
+                  "text": "-74.8 kJ mol^-1",
+                  "is_correct": true
+                },
+                {
+                  "label": "C",
+                  "id": 43657,
+                  "text": "+52.26 kJ mol^-1",
+                  "is_correct": false
+                },
+                {
+                  "label": "D",
+                  "id": 43656,
+                  "text": "+74.8 kJ mol^-1",
+                  "is_correct": false
+                }
+              ],
+              "correct_option_ids": [
+                43654
+              ],
+              "correct_option_labels": [
+                "B"
+              ],
+              "correct_option_texts": [
+                "-74.8 kJ mol^-1"
+              ],
+              "explanation": "$\\mathrm{CH}_{4}+2 \\mathrm{O}_{2} \\rightarrow \\mathrm{CO}_{2}+2 \\mathrm{H}_{2} \\mathrm{O}$ $\\Delta \\mathrm{H}_{1}=-890.3 \\mathrm{KJ} / \\mathrm{mol}$ ...(1)\n$\\mathrm{C}(\\mathrm{s})+\\mathrm{O}_{2} \\rightarrow \\mathrm{CO}_{2}$ $\\Delta \\mathrm{H}_{2}=-393.5 \\mathrm{KJ} / \\mathrm{mol}$ ...(2)\n$\\mathrm{H}_{2}+0.5 \\mathrm{O}_{2} \\rightarrow \\mathrm{H}_{2} \\mathrm{O}$ $\\Delta \\mathrm{H}_{3}=-285.8 \\mathrm{KJ} / \\mathrm{mol}$ ...(3)\n$\\mathrm{C}(\\mathrm{s})+2 \\mathrm{H}_{2} \\rightarrow \\mathrm{CH}_{4}$ $\\Delta \\mathrm{H}=\\Delta \\mathrm{H}_{2}+2\\left(\\Delta \\mathrm{H}_{3}\\right)-\\Delta \\mathrm{H}_{1}$\n$\\triangle$H = -393.5 +2(-285.8) - (-890.3)\n= -74.8 kJ/mol"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "testPaperID": 958,
+      "testPaperName": "Thermodynamics CBSE Online Test 03",
+      "is_paid": true,
+      "category_full_name": "CBSE > Class 11 > Chemistry > Chemical Thermodynamics",
+      "noOfQuestions": 15,
+      "has_answers": true,
+      "sections": [
+        {
+          "sectionName": "General",
+          "sectionID": null,
+          "questions": [
+            {
+              "questionID": 22115,
+              "question": "A reaction, A + B $\\to$ C + D + q is found to have a positive entropy change. The reaction will be:",
+              "question_raw": "<p>A reaction, A + B&nbsp;<span class=\"math-tex\">{tex}\\to{/tex}</span>&nbsp;C + D + q&nbsp; is found to have a positive entropy change. The reaction will be:</p>",
+              "options": [
+                {
+                  "label": "A",
+                  "id": 43661,
+                  "text": "nonspontaneous at all temperature.",
+                  "is_correct": false
+                },
+                {
+                  "label": "B",
+                  "id": 43658,
+                  "text": "spontaneous at all temperature.",
+                  "is_correct": true
+                },
+                {
+                  "label": "C",
+                  "id": 43660,
+                  "text": "spontaneous only at low temperature.",
+                  "is_correct": false
+                },
+                {
+                  "label": "D",
+                  "id": 43659,
+                  "text": "spontaneous only at high temperature.",
+                  "is_correct": false
+                }
+              ],
+              "correct_option_ids": [
+                43658
+              ],
+              "correct_option_labels": [
+                "B"
+              ],
+              "correct_option_texts": [
+                "spontaneous at all temperature."
+              ],
+              "explanation": "$\\Delta$G = $\\Delta$H -T $\\Delta$S\n$\\Delta$S is positive and $\\Delta$H is negative as heat is liberated in the reaction.\nSo $\\Delta$G is negative hence reaction will be spontaneous at all temperatures."
+            },
+            {
+              "questionID": 22116,
+              "question": "In a process, 701 J of heat is absorbed by a system and 394 J of work is done by the system. What is the change in internal energy for the process?",
+              "question_raw": "<p>In a process, 701 J of heat is absorbed by a system and 394 J of work is done by the system. What is the change in internal energy for the process?</p>",
+              "options": [
+                {
+                  "label": "A",
+                  "id": 43664,
+                  "text": "$\\Delta {\\text{U}}$ = 347 J",
+                  "is_correct": false
+                },
+                {
+                  "label": "B",
+                  "id": 43662,
+                  "text": "$\\Delta {\\text{U}}$ = 307 J",
+                  "is_correct": true
+                },
+                {
+                  "label": "C",
+                  "id": 43663,
+                  "text": "$\\Delta {\\text{U}}$ = 327 J",
+                  "is_correct": false
+                },
+                {
+                  "label": "D",
+                  "id": 43665,
+                  "text": "$\\Delta {\\text{U}}$ = 367 J",
+                  "is_correct": false
+                }
+              ],
+              "correct_option_ids": [
+                43662
+              ],
+              "correct_option_labels": [
+                "B"
+              ],
+              "correct_option_texts": [
+                "$\\Delta {\\text{U}}$ = 307 J"
+              ],
+              "explanation": "$\\Delta {\\text{U}}$ = q + w (1st law of thermodynamics)\nq = +701J (heat is absorbed by system)\nw = -394 J (work is done by system)\n$\\Delta {\\text{U}}$ = 701- 394\n= 307J"
+            },
+            {
+              "questionID": 22117,
+              "question": "The reaction of cyanamide, NH_2CN (s), with dioxygen was carried out in a bomb calorimeter, and $\\Delta$U was found to be 742.7 kJ mol^-1 at 298 K. Calculate enthalpy change for the reaction at 298 K.\nNH_2CN(s) + $\\frac{3}{2}$O_2(g) + N_2(g) +CO_2(g) + H_2O(l)?",
+              "question_raw": "<p>The reaction of cyanamide, NH<sub>2</sub>CN (s), with dioxygen was carried out in a bomb calorimeter, and <span class=\"math-tex\">{tex}\\Delta{/tex}</span>U was found to be 742.7 kJ mol<sup>-1</sup> at 298 K. Calculate enthalpy change for the reaction at 298 K.<br />\r\nNH<sub>2</sub>CN(s) +&nbsp;<span class=\"math-tex\">{tex}\\frac{3}{2}{/tex}</span>O<sub>2</sub>(g)&nbsp;+ N<sub>2</sub>(g) +CO<sub>2</sub>(g) + H<sub>2</sub>O(l)?</p>",
+              "options": [
+                {
+                  "label": "A",
+                  "id": 43668,
+                  "text": "-767.8 kJ",
+                  "is_correct": false
+                },
+                {
+                  "label": "B",
+                  "id": 43666,
+                  "text": "+741.5 kJ mol^-1",
+                  "is_correct": false
+                },
+                {
+                  "label": "C",
+                  "id": 43667,
+                  "text": "-741.5 kJ",
+                  "is_correct": true
+                },
+                {
+                  "label": "D",
+                  "id": 43669,
+                  "text": "-702.2 kJ",
+                  "is_correct": false
+                }
+              ],
+              "correct_option_ids": [
+                43667
+              ],
+              "correct_option_labels": [
+                "C"
+              ],
+              "correct_option_texts": [
+                "-741.5 kJ"
+              ],
+              "explanation": "Here, $\\Delta$n_g = 2 - ($\\frac{3}{2}$) = $\\frac{1}{2}$\n$\\Delta$H° = $\\Delta$U° + $\\Delta$n_gRT\n$\\Delta$H° = - 742.7 kJ/mol + (0.5 mol $\\times$ 8.314 $\\times$ 10^-3kJ/mol $\\times$ 298K)\n$\\Rightarrow $ $\\Delta$H° = ( - 742.7 kJ + 1238.786 $\\times$ 10^-3kJ) mol^-1\n$\\Rightarrow $ $\\Delta$H° = - 741.46 kJ mol^-1"
+            },
+            {
+              "questionID": 22118,
+              "question": "Calculate the number of kJ of heat necessary to raise the temperature of 60.0 g of aluminium from 35^o C to 55^o C. [Molar heat capacity of Al is 24 J mol^-1K^-1 ]",
+              "question_raw": "<p>Calculate the number of kJ of heat necessary to raise the temperature of 60.0 g of aluminium from 35<sup>o</sup> C to 55<sup>o</sup> C. [Molar heat capacity of Al is 24 J&nbsp;mol<sup>-1</sup>K<sup>-1</sup>&nbsp;]</p>",
+              "options": [
+                {
+                  "label": "A",
+                  "id": 43673,
+                  "text": "1.78 kJ",
+                  "is_correct": false
+                },
+                {
+                  "label": "B",
+                  "id": 43671,
+                  "text": "1.34 kJ",
+                  "is_correct": false
+                },
+                {
+                  "label": "C",
+                  "id": 43670,
+                  "text": "1.067 kJ",
+                  "is_correct": true
+                },
+                {
+                  "label": "D",
+                  "id": 43672,
+                  "text": "1.52 kJ",
+                  "is_correct": false
+                }
+              ],
+              "correct_option_ids": [
+                43670
+              ],
+              "correct_option_labels": [
+                "C"
+              ],
+              "correct_option_texts": [
+                "1.067 kJ"
+              ],
+              "explanation": "Given, Mass of Al = 60.0g \nMolar mass = 27 g/mol\nMolar heat capacity, C = 24 J mol^-1 K^-1. $\\Delta$T = 55^oC - 35^oC = 20^oC or 20 K.\nHeat, q = nC $\\Delta$T = ${\\frac{{60}}{{27}}}$ $\\times$ 24 $\\times$ 20 = 1066.66 J = 1.067 kJ, where n = 60.0/27 mole"
+            },
+            {
+              "questionID": 22119,
+              "question": "Calculate the enthalpy change on freezing of 1.0 mol of water at 10.0°C to the ice at -10.0^o C. ${\\Delta _{{\\text{fus}}}}$H = 6.03 kJ ${\\text{mo}}{{\\text{l}}^{ - {\\text{1}}}}$at 0°C.\n C_P[H_2O(l)] = 75.3 Jmol^-1K^-1\n C_P[H_2O(s)] = 36.8 Jmol^-1K^-1",
+              "question_raw": "<p>Calculate the enthalpy change on freezing of 1.0 mol of water at 10.0&deg;C to the ice at -10.0<sup>o</sup> C. <span class=\"math-tex\">{tex}{\\Delta _{{\\text{fus}}}}{/tex}</span>H = 6.03 kJ <span class=\"math-tex\">{tex}{\\text{mo}}{{\\text{l}}^{ - {\\text{1}}}}{/tex}</span>at 0&deg;C.</p>\r\n\r\n<ol start=\"1\" style=\"list-style-type: lower-alpha;\">\r\n\t<li>C<sub>P</sub>[H<sub>2</sub>O(l)]&nbsp;= 75.3 Jmol<sup>-1</sup>K<sup>-1</sup></li>\r\n\t<li>C<sub>P</sub>[H<sub>2</sub>O(s)] = 36.8&nbsp;Jmol<sup>-1</sup>K<sup>-1</sup></li>\r\n</ol>",
+              "options": [
+                {
+                  "label": "A",
+                  "id": 43677,
+                  "text": "$\\Delta$H = -6.114kJmol^-1",
+                  "is_correct": false
+                },
+                {
+                  "label": "B",
+                  "id": 43675,
+                  "text": "$\\Delta$H = -5.231 kJmol^-1",
+                  "is_correct": false
+                },
+                {
+                  "label": "C",
+                  "id": 43674,
+                  "text": "$\\Delta$H = -7.151 kJ mol^-1",
+                  "is_correct": true
+                },
+                {
+                  "label": "D",
+                  "id": 43676,
+                  "text": "$\\Delta$H = - 7.415kJ mol^-1",
+                  "is_correct": false
+                }
+              ],
+              "correct_option_ids": [
+                43674
+              ],
+              "correct_option_labels": [
+                "C"
+              ],
+              "correct_option_texts": [
+                "$\\Delta$H = -7.151 kJ mol^-1"
+              ],
+              "explanation": "Water (10.0^oC) $ \\to $ ice (-10.0^oC) $\\Delta H = ?$\nThe enthalpy change for the conversion of 1 mole liquid water at 10.0^oC into 1 mole liquid water 0^oC, water (10.0^o C) $ \\rightleftharpoons$ water(0^o C).\n$\\triangle H_1=C_p\\times H_2O(l)\\times\\triangle T$ = -75.3 Jmol^-1 K^-1 = -753 J mol^-1 \nEnthalpy of fusion, water (0^o C) $ \\rightleftharpoons$ ice(0^o C) , $\\Delta {H_2} = {\\Delta _{fus}}H$\n${l}\\triangle H_2\\;=\\;\\triangle H_{freezing}=-\\triangle H_{fusion\\;}$ = -6.06 kJ mol^-1 \nEnthalpy change for conversion of 1 mole of ice at 0^oC to 1 mole of ice at 10^oC, Ice (0^o C) $\\rightleftharpoons$ ice(10.0^o C); $\\Delta {H_3} = {C_p}[{H_2}O(s)]\\Delta T$ = -36.8 Jmol^-1K^-1 x 10K =-368 J mol^-1\n$\\Delta H = {\\text{ }}\\Delta {H_1} + {\\text{ }}\\Delta {H_2} + {\\text{ }}\\Delta {H_3}$= - (0.753 + 6.03 + 0.368)kJ mol^-1 = -7.151 kJmol^-1"
+            },
+            {
+              "questionID": 22120,
+              "question": "Enthalpy of combustion of carbon to CO_2 is 393.5 kJ mol^-1. Calculate the heat released upon formation of 35.2 g of CO_2 from carbon and dioxygen gas.",
+              "question_raw": "<p>Enthalpy of combustion of carbon to CO<sub>2</sub>&nbsp;is 393.5 kJ mol<sup>-1</sup>. Calculate the heat released upon formation of 35.2 g of CO<sub>2&nbsp;</sub>from carbon and dioxygen gas.</p>",
+              "options": [
+                {
+                  "label": "A",
+                  "id": 43678,
+                  "text": "-315 kJ",
+                  "is_correct": true
+                },
+                {
+                  "label": "B",
+                  "id": 43679,
+                  "text": "-375 kJ",
+                  "is_correct": false
+                },
+                {
+                  "label": "C",
+                  "id": 43680,
+                  "text": "-275 kJ",
+                  "is_correct": false
+                },
+                {
+                  "label": "D",
+                  "id": 43681,
+                  "text": "-398 kJ",
+                  "is_correct": false
+                }
+              ],
+              "correct_option_ids": [
+                43678
+              ],
+              "correct_option_labels": [
+                "A"
+              ],
+              "correct_option_texts": [
+                "-315 kJ"
+              ],
+              "explanation": "When 1 mole of CO_2 is produced energy released is –393.5 kJ mol^-^1. Moles of CO_2 given = $\\frac{35.2}{44}$ = 0.8 moles\nSo energy released = 0.8 $\\times$ -393.5 kJ/mol = -315 kJ/mol"
+            },
+            {
+              "questionID": 22121,
+              "question": "Enthalpies of formation of CO(g), CO_2(g), N_2O(g), and N_2O_4(g) are -110, –393, 81, and 9.7 kJ mol^-1 respectively. Find the value of ${\\Delta _{\\text{r}}}{\\text{H}}$ for the reaction:${{\\text{N}}_{\\text{2}}}{{\\text{O}}_{\\text{4}}}\\left( {\\text{g}} \\right){\\text{ }} + {\\text{ 3CO}}\\left( {\\text{g}} \\right){\\text{ }} \\to {\\text{ }}{{\\text{N}}_{\\text{2}}}{\\text{O}}\\left( {\\text{g}} \\right){\\text{ }} + {\\text{ 3C}}{{\\text{O}}_{\\text{2}}}\\left( {\\text{g}} \\right)$",
+              "question_raw": "<p>Enthalpies of formation of CO(g), CO<sub>2</sub>(g), N<sub>2</sub>O(g),&nbsp;and N<sub>2</sub>O<sub>4</sub>(g) are -110, &ndash;393, 81, and 9.7 kJ mol<sup>-1&nbsp;</sup>respectively. Find the value of <span class=\"math-tex\">{tex}{\\Delta _{\\text{r}}}{\\text{H}}{/tex}</span> for the reaction:<span class=\"math-tex\">{tex}{{\\text{N}}_{\\text{2}}}{{\\text{O}}_{\\text{4}}}\\left( {\\text{g}} \\right){\\text{ }} + {\\text{ 3CO}}\\left( {\\text{g}} \\right){\\text{ }} \\to {\\text{ }}{{\\text{N}}_{\\text{2}}}{\\text{O}}\\left( {\\text{g}} \\right){\\text{ }} + {\\text{ 3C}}{{\\text{O}}_{\\text{2}}}\\left( {\\text{g}} \\right){/tex}</span></p>",
+              "options": [
+                {
+                  "label": "A",
+                  "id": 43682,
+                  "text": "-778 kJ",
+                  "is_correct": true
+                },
+                {
+                  "label": "B",
+                  "id": 43684,
+                  "text": "- 850 kJ",
+                  "is_correct": false
+                },
+                {
+                  "label": "C",
+                  "id": 43685,
+                  "text": "-600 kJ",
+                  "is_correct": false
+                },
+                {
+                  "label": "D",
+                  "id": 43683,
+                  "text": "-802 kJ",
+                  "is_correct": false
+                }
+              ],
+              "correct_option_ids": [
+                43682
+              ],
+              "correct_option_labels": [
+                "A"
+              ],
+              "correct_option_texts": [
+                "-778 kJ"
+              ],
+              "explanation": "Heat of reaction, $\\Delta_r$H = ${\\textstyle\\sum_{}}\\triangle_rH_{products}-{\\textstyle\\sum_{}}{\\textstyle{\\scriptstyle\\triangle}_r}{\\textstyle{\\scriptstyle H}_{reactants}}{\\textstyle\\;}{\\textstyle\\;}$ \n$\\Rightarrow$ $\\Delta_{r} H$ = [$\\Delta_{f} H$(N_2O) + 3$\\Delta_{f} H$(CO_2)] - [$\\Delta_{f} H$(N_2O_4) + 3$\\Delta_{f} H$(CO)]\n$\\Rightarrow$ $\\Delta_{r} H$ = [81 + {3 $\\times$ (-393)}] - 99.7 + {3 $\\times$ (-110)}] kJ\n$\\Rightarrow$ $\\Delta_{r} H$ = -777.7 kJ $\\approx$ -778 kJ"
+            },
+            {
+              "questionID": 22122,
+              "question": "Given N_2(g) + 3H_2(g) $\\to$ NH_3(g); $\\Delta_r$H° = -92.4 kJ mol^-1. What is the standard enthalpy of formation of NH_3 gas?",
+              "question_raw": "<p>Given N<sub>2</sub>(g) + 3H<sub>2</sub>(g)&nbsp;<span class=\"math-tex\">{tex}\\to{/tex}</span>&nbsp;NH<sub>3</sub>(g);&nbsp;<span class=\"math-tex\">{tex}\\Delta_r{/tex}</span>H&deg; = -92.4 kJ mol<sup>-1</sup>. What is the standard enthalpy of formation of NH<sub>3</sub>&nbsp;gas?</p>",
+              "options": [
+                {
+                  "label": "A",
+                  "id": 43688,
+                  "text": "-56.5 kJ mol^-1",
+                  "is_correct": false
+                },
+                {
+                  "label": "B",
+                  "id": 43686,
+                  "text": "-46.2 kJ mol^-1",
+                  "is_correct": true
+                },
+                {
+                  "label": "C",
+                  "id": 43687,
+                  "text": "-41.3 kJ mol^-1",
+                  "is_correct": false
+                },
+                {
+                  "label": "D",
+                  "id": 43689,
+                  "text": "-36.9 kJ mol^-1",
+                  "is_correct": false
+                }
+              ],
+              "correct_option_ids": [
+                43686
+              ],
+              "correct_option_labels": [
+                "B"
+              ],
+              "correct_option_texts": [
+                "-46.2 kJ mol^-1"
+              ],
+              "explanation": "Given, N_2(g) + 3H_2(g) $\\to$ 2NH_3(g) ; $\\Delta_r$H° = –92.4 kJ mol^-1.\nChemical reaction for the enthalpy of formation of NH_3 (g) is as follows:\n${\\frac{1}{2}{N_{2\\;}}(g)\\; + \\frac{3}{2}{H_2}(g)\\; \\to N{H_3}(g)}$\nTherefore, ${{\\Delta _f}{H^\\circ } = \\frac{{ - 92.4}}{2} = }$ - 46.2 kJ/mol"
+            },
+            {
+              "questionID": 22123,
+              "question": "Calculate the standard enthalpy of formation of CH_3OH(l) from the following data:\nCH_3OH (1) + O_2(g) $\\rightarrow$ CO_2(g) + 2H_2O (1); $\\Delta_rH^o$ = -726 kJ mol^-1 \nC(graphite) + O_2(g) $\\rightarrow$ CO_2(g); $\\Delta_{\\mathrm{c}} \\mathrm{H}^{o}$ = -393 kJ mol^-1\nH_2(g + O_2(g) $\\rightarrow$ H_2O (1); $\\Delta_{\\mathrm{c}} \\mathrm{H}^{o}$ = -286 kJ mol^-1",
+              "question_raw": "<p>Calculate the standard enthalpy of formation of CH<sub>3</sub>OH(l) from the following data:<br />\r\nCH<sub>3</sub>OH (1) + O<sub>2</sub>(g)&nbsp;<span class=\"math-tex\">{tex}\\rightarrow{/tex}</span>&nbsp;CO<sub>2</sub>(g) + 2H<sub>2</sub>O (1);&nbsp;<span class=\"math-tex\">{tex}\\Delta_rH^o{/tex}</span>&nbsp;= -726 kJ mol<sup>-1</sup>&nbsp;<br />\r\nC(graphite) + O<sub>2</sub>(g)&nbsp;<span class=\"math-tex\">{tex}\\rightarrow{/tex}</span>&nbsp;CO<sub>2</sub>(g);&nbsp;<span class=\"math-tex\">{tex}\\Delta_{\\mathrm{c}} \\mathrm{H}^{o}{/tex}</span>&nbsp;= -393 kJ mol<sup>-1</sup><br />\r\nH<sub>2</sub>(g + O<sub>2</sub>(g)&nbsp;<span class=\"math-tex\">{tex}\\rightarrow{/tex}</span>&nbsp;H<sub>2</sub>O (1);&nbsp;<span class=\"math-tex\">{tex}\\Delta_{\\mathrm{c}} \\mathrm{H}^{o}{/tex}</span>&nbsp;= -286 kJ mol<sup>-1</sup>&nbsp;</p>",
+              "options": [
+                {
+                  "label": "A",
+                  "id": 43691,
+                  "text": "-209 kJ mol^-1",
+                  "is_correct": false
+                },
+                {
+                  "label": "B",
+                  "id": 43693,
+                  "text": "-339 kJ mol^-1",
+                  "is_correct": false
+                },
+                {
+                  "label": "C",
+                  "id": 43690,
+                  "text": "-239 kJ mol^-1",
+                  "is_correct": true
+                },
+                {
+                  "label": "D",
+                  "id": 43692,
+                  "text": "-269 kJ mol^-1",
+                  "is_correct": false
+                }
+              ],
+              "correct_option_ids": [
+                43690
+              ],
+              "correct_option_labels": [
+                "C"
+              ],
+              "correct_option_texts": [
+                "-239 kJ mol^-1"
+              ],
+              "explanation": "Required reaction for the formation of methanol is:\nC(s) + 2H_2(g) + $\\frac{1}{2}{O_2}$ (g) $\\to$ CH_3OH(l) $\\Delta_f$H^o = ?\nEnthalpy for the combustion of methanol;\n CH_3OH (l) + $\\frac{3}{2}{O_2}$(g) $\\to$ CO_2(g) + 2H_2O (l) $\\Delta_f$H^o = - 726 kJ mol^-1 ...(1)\n Enthalpy for the formation of 1 mole of CO_2(g)\n C(s) + O_2 (g) $\\to$ CO_2(g) $\\Delta_f$H^o = - 393 kJ mol^-1 ...(2)\n Enthalpy for the formation of 2 moles of H_2O(l)\n H_2(g) + $\\frac{1}{2}{O_2}$ (g) $\\to$ H_2O(l) $\\Delta_f$H^o = - 286 kJ mol^-1 ...(3)\nNow, [eq...(3) $\\times$ 2 + eq ...(2) + [ by reversing equation(1)] we get]\nC(s) + 2H_2(g) + $\\frac{1}{2}{O_2}$ (g) $\\to$ CH_3OH (l) $\\Delta_f$H^o = - 239 kJ mol^-1"
+            },
+            {
+              "questionID": 22124,
+              "question": "Calculate the enthalpy change for the process ${\\text{CC}}{{\\text{l}}_{\\text{4}}}\\left( {\\text{g}} \\right){\\text{ }} \\to {\\text{ C }}\\left( {\\text{g}} \\right){\\text{ }} + {\\text{ 4 Cl }}\\left( {\\text{g}} \\right)$and calculate the bond enthalpy of C--Cl in ${\\text{CC}}{{\\text{l}}_{\\text{4}}}$ (g).\n${\\Delta _{{\\text{vap}}}}{{\\text{H}}^0}\\left( {{\\text{CC}}{{\\text{l}}_{\\text{4}}}} \\right){\\text{ }} = {\\text{ 3}}0.{\\text{5 kJ mo}}{{\\text{l}}^{ - {\\text{1}}}}$.\n${\\Delta _{\\text{f}}}{{\\text{H}}^0}\\left( {{\\text{CC}}{{\\text{l}}_{\\text{4}}}} \\right){\\text{ }} = {\\text{ }} - {\\text{135}}.{\\text{5 kJ mo}}{{\\text{l}}^{ - {\\text{1}}}}$.\n${\\Delta _{\\text{a}}}{{\\text{H}}^0}\\left( {\\text{C}} \\right){\\text{ }} = {\\text{ 715}}.0{\\text{ kJ mo}}{{\\text{l}}^{ - {\\text{1}}}}$, where ${\\Delta _{\\text{a}}}{{\\text{H}}^0}$ is enthalpy of atomisation\n${\\Delta _{\\text{a}}}{{\\text{H}}^0}\\left( {{\\text{C}}{{\\text{l}}_{\\text{2}}}} \\right)$= 242 kJ ${\\text{mo}}{{\\text{l}}^{ - {\\text{1}}}}$",
+              "question_raw": "<p>Calculate the enthalpy change for the process <span class=\"math-tex\">{tex}{\\text{CC}}{{\\text{l}}_{\\text{4}}}\\left( {\\text{g}} \\right){\\text{ }} \\to {\\text{ C }}\\left( {\\text{g}} \\right){\\text{ }} + {\\text{ 4 Cl }}\\left( {\\text{g}} \\right){/tex}</span>and calculate the&nbsp;bond enthalpy of C--Cl in <span class=\"math-tex\">{tex}{\\text{CC}}{{\\text{l}}_{\\text{4}}}{/tex}</span> (g).<br />\r\n<span class=\"math-tex\">{tex}{\\Delta _{{\\text{vap}}}}{{\\text{H}}^0}\\left( {{\\text{CC}}{{\\text{l}}_{\\text{4}}}} \\right){\\text{ }} = {\\text{ 3}}0.{\\text{5 kJ mo}}{{\\text{l}}^{ - {\\text{1}}}}{/tex}</span>.<br />\r\n<span class=\"math-tex\">{tex}{\\Delta _{\\text{f}}}{{\\text{H}}^0}\\left( {{\\text{CC}}{{\\text{l}}_{\\text{4}}}} \\right){\\text{ }} = {\\text{ }} - {\\text{135}}.{\\text{5 kJ mo}}{{\\text{l}}^{ - {\\text{1}}}}{/tex}</span>.<br />\r\n<span class=\"math-tex\">{tex}{\\Delta _{\\text{a}}}{{\\text{H}}^0}\\left( {\\text{C}} \\right){\\text{ }} = {\\text{ 715}}.0{\\text{ kJ mo}}{{\\text{l}}^{ - {\\text{1}}}}{/tex}</span>, where <span class=\"math-tex\">{tex}{\\Delta _{\\text{a}}}{{\\text{H}}^0}{/tex}</span> is enthalpy of atomisation<br />\r\n<span class=\"math-tex\">{tex}{\\Delta _{\\text{a}}}{{\\text{H}}^0}\\left( {{\\text{C}}{{\\text{l}}_{\\text{2}}}} \\right){/tex}</span>= 242 kJ <span class=\"math-tex\">{tex}{\\text{mo}}{{\\text{l}}^{ - {\\text{1}}}}{/tex}</span></p>",
+              "options": [
+                {
+                  "label": "A",
+                  "id": 43694,
+                  "text": "326 kJ ${\\text{mo}}{{\\text{l}}^{ - {\\text{1}}}}$",
+                  "is_correct": true
+                },
+                {
+                  "label": "B",
+                  "id": 43697,
+                  "text": "397 kJ ${\\text{mo}}{{\\text{l}}^{ - {\\text{1}}}}$",
+                  "is_correct": false
+                },
+                {
+                  "label": "C",
+                  "id": 43695,
+                  "text": "307 kJ ${\\text{mo}}{{\\text{l}}^{ - {\\text{1}}}}$",
+                  "is_correct": false
+                },
+                {
+                  "label": "D",
+                  "id": 43696,
+                  "text": "345 kJ ${\\text{mo}}{{\\text{l}}^{ - {\\text{1}}}}$",
+                  "is_correct": false
+                }
+              ],
+              "correct_option_ids": [
+                43694
+              ],
+              "correct_option_labels": [
+                "A"
+              ],
+              "correct_option_texts": [
+                "326 kJ ${\\text{mo}}{{\\text{l}}^{ - {\\text{1}}}}$"
+              ],
+              "explanation": "$\\mathrm{C}(\\mathrm{s})+2 \\mathrm{Cl}_{2}(\\mathrm{g}) \\rightarrow \\mathrm{CCl}_{4}(\\mathrm{l})$ $\\Delta_{\\mathrm{f}} \\mathrm{H}^{0}\\left(\\mathrm{CCl}_{4}\\right)=-135.5 \\mathrm{KJ} / \\mathrm{mol}$ ....(1)\n$\\mathrm{C}(\\mathrm{s}) \\rightarrow \\mathrm{C}(\\mathrm{g})$ $\\Delta_{\\mathrm{a}} \\mathrm{H}^{0}(\\mathrm{C})=715.0 $KJ mol^-1 ......(2)\n$\\mathrm{Cl}_{2}(\\mathrm{g}) \\rightarrow 2 \\mathrm{Cl}(\\mathrm{g})$ $\\Delta_{\\mathrm{a}} \\mathrm{H}^{0}\\left(\\mathrm{Cl}_{2}\\right)=242 \\ {{kJ}} \\mathrm{mol}^{-1}$ .....(3)\n$\\mathrm{CCl}_{4}(1) \\rightarrow \\mathrm{CCl}_{4}(\\mathrm{g})$ $\\Delta_{\\mathrm{vap}} \\mathrm{H}^{0}\\left(\\mathrm{CCl}_{4}\\right)=30.5 \\mathrm{kJ} \\mathrm{mol}^{-1}$ ....(4)\n$\\mathrm{CCl}_{4}(\\mathrm{g}) \\rightarrow \\mathrm{CCl}_{4}(\\mathrm{l})$ $\\Delta_{\\mathrm{vap}} \\mathrm{H}^{0}\\left(\\mathrm{CCl}_{4}\\right)=-30.5 \\mathrm{kJ} \\mathrm{mol}^{-1}$ ....(5)\nEquation (1) - (2) - 2(3) + (4)\nSo For CCl_4 (g) → C (g) + 4 Cl (g) reaction ΔH^0 = -( -135.5 - 715 - 2(242) + 30.5) = 1304 KJ/mol\nBond enthalpy of C—Cl bond will be 1304/4 KJ/mol = 326KJ/mol"
+            },
+            {
+              "questionID": 22125,
+              "question": "For an isolated system, $\\Delta {\\text{U}}$ = 0, what will be $\\Delta {\\text{S}}$?",
+              "question_raw": "<p>For an isolated system, <span class=\"math-tex\">{tex}\\Delta {\\text{U}}{/tex}</span> = 0, what will be <span class=\"math-tex\">{tex}\\Delta {\\text{S}}{/tex}</span>?</p>",
+              "options": [
+                {
+                  "label": "A",
+                  "id": 43701,
+                  "text": "$\\Delta {\\text{S}}$ will increase for some time and then reduce",
+                  "is_correct": false
+                },
+                {
+                  "label": "B",
+                  "id": 43699,
+                  "text": "$\\Delta {\\text{S}}$ > 0",
+                  "is_correct": true
+                },
+                {
+                  "label": "C",
+                  "id": 43700,
+                  "text": "$\\Delta {\\text{S}}$ < 0",
+                  "is_correct": false
+                },
+                {
+                  "label": "D",
+                  "id": 43698,
+                  "text": "$\\Delta {\\text{S}}$ = 0",
+                  "is_correct": false
+                }
+              ],
+              "correct_option_ids": [
+                43699
+              ],
+              "correct_option_labels": [
+                "B"
+              ],
+              "correct_option_texts": [
+                "$\\Delta {\\text{S}}$ > 0"
+              ],
+              "explanation": "For an isolated system, $\\begin{array}{l}\\triangle U=\\;0\\\\\\\\\\\\\\end{array}$and for a spontaneous process, Total entropy change must be positive.\nMoreover, $\\begin{array}{l}\\triangle S=\\;\\frac{q_{rev}}T=\\frac{\\triangle H}T=\\;\\frac{\\triangle U\\;+p\\triangle V}T=\\;\\frac{0+p\\triangle V}T\\\\i.e.\\;T\\triangle S>0\\;\\\\Or\\;\\;\\;\\triangle S>0\\\\\\\\\\\\\\end{array}$"
+            },
+            {
+              "questionID": 22126,
+              "question": "For the reaction at 298 K, 2A + B $\\to$ C, $\\Delta$H = 400 kJ mol^-1 and $\\Delta {\\text{S}}$ = 0.2 kJ K^-1mol^-1. At what temperature will the reaction become spontaneous considering $\\Delta {\\text{H}}$ and $\\Delta {\\text{S}}$ to be constant over the temperature range.",
+              "question_raw": "<p>For the reaction at 298 K, 2A + B&nbsp;<span class=\"math-tex\">{tex}\\to{/tex}</span> C, <span class=\"math-tex\">{tex}\\Delta{/tex}</span>H = 400 kJ mol<sup>-1&nbsp;</sup>and <span class=\"math-tex\">{tex}\\Delta {\\text{S}}{/tex}</span> = 0.2 kJ K<sup>-1</sup>mol<sup>-1</sup>. At what temperature will the reaction become spontaneous considering <span class=\"math-tex\">{tex}\\Delta {\\text{H}}{/tex}</span> and <span class=\"math-tex\">{tex}\\Delta {\\text{S}}{/tex}</span> to be constant over the temperature range.</p>",
+              "options": [
+                {
+                  "label": "A",
+                  "id": 43705,
+                  "text": "3500 K",
+                  "is_correct": false
+                },
+                {
+                  "label": "B",
+                  "id": 43703,
+                  "text": "2500 K",
+                  "is_correct": false
+                },
+                {
+                  "label": "C",
+                  "id": 43704,
+                  "text": "1500 K",
+                  "is_correct": false
+                },
+                {
+                  "label": "D",
+                  "id": 43702,
+                  "text": "2000 K",
+                  "is_correct": true
+                }
+              ],
+              "correct_option_ids": [
+                43702
+              ],
+              "correct_option_labels": [
+                "D"
+              ],
+              "correct_option_texts": [
+                "2000 K"
+              ],
+              "explanation": "Gibbs free energy, $\\Delta$G = $\\Delta$H - T$\\Delta$S\nAt equilibrium $\\Delta$G = 0; then T= $\\frac{\\Delta H}{\\Delta S}$ = 2000K\nTherefore, above 2000K, the reaction will be spontaneous."
+            },
+            {
+              "questionID": 22127,
+              "question": "For the reaction, 2Cl(g) $\\rightarrow$ Cl_2(g), what are the signs of $\\Delta {\\text{H}}$ and $\\Delta {\\text{S}}$?",
+              "question_raw": "<p>For the reaction, 2Cl(g)&nbsp;<span class=\"math-tex\">{tex}\\rightarrow{/tex}</span>&nbsp;Cl<sub>2</sub>(g), what are the signs of <span class=\"math-tex\">{tex}\\Delta {\\text{H}}{/tex}</span> and <span class=\"math-tex\">{tex}\\Delta {\\text{S}}{/tex}</span>?</p>",
+              "options": [
+                {
+                  "label": "A",
+                  "id": 43706,
+                  "text": "$\\Delta H$ < 0, $\\Delta S$ < 0",
+                  "is_correct": true
+                },
+                {
+                  "label": "B",
+                  "id": 43707,
+                  "text": "$\\Delta H$ < 0, $\\Delta S$ > 0",
+                  "is_correct": false
+                },
+                {
+                  "label": "C",
+                  "id": 43709,
+                  "text": "$\\Delta H$ > 0, $\\Delta S$ > 0",
+                  "is_correct": false
+                },
+                {
+                  "label": "D",
+                  "id": 43708,
+                  "text": "$\\Delta H$ > 0, $\\Delta S$ < 0",
+                  "is_correct": false
+                }
+              ],
+              "correct_option_ids": [
+                43706
+              ],
+              "correct_option_labels": [
+                "A"
+              ],
+              "correct_option_texts": [
+                "$\\Delta H$ < 0, $\\Delta S$ < 0"
+              ],
+              "explanation": "As in this case bond formation between two Cl atom is taking place so energy will be released so $\\Delta$H < 0 and since 2 atoms are combining to form 1 molecule randomness decreases so $\\Delta$S < 0."
+            },
+            {
+              "questionID": 22128,
+              "question": "For the reaction 2A(g) + B(g) $\\to$ 2D(g) $\\Delta {U^0}$ = - 10.5kJ and $\\Delta {S^0}$ = - 44.1J K^-1. Calculate $\\Delta {{\\text{G}}^0}$ for the reaction, and predict whether the reaction may occur spontaneously?",
+              "question_raw": "<p>For the reaction 2A(g) + B(g) <span class=\"math-tex\">{tex}\\to{/tex}</span> 2D(g) &nbsp;<span class=\"math-tex\">{tex}\\Delta {U^0}{/tex}</span> = - 10.5kJ&nbsp;and&nbsp;<span class=\"math-tex\">{tex}\\Delta {S^0}{/tex}</span> = - 44.1J K<sup>-1</sup>. Calculate <span class=\"math-tex\">{tex}\\Delta {{\\text{G}}^0}{/tex}</span> for the reaction, and predict whether the reaction may occur spontaneously?</p>",
+              "options": [
+                {
+                  "label": "A",
+                  "id": 43711,
+                  "text": "0.164 kJ, the reaction is spontaneous",
+                  "is_correct": false
+                },
+                {
+                  "label": "B",
+                  "id": 43712,
+                  "text": "0.225 kJ, the reaction is not spontaneous",
+                  "is_correct": false
+                },
+                {
+                  "label": "C",
+                  "id": 43710,
+                  "text": "0.165 kJ, the reaction is not spontaneous",
+                  "is_correct": true
+                },
+                {
+                  "label": "D",
+                  "id": 43713,
+                  "text": "0.225 kJ, the reaction is spontaneous",
+                  "is_correct": false
+                }
+              ],
+              "correct_option_ids": [
+                43710
+              ],
+              "correct_option_labels": [
+                "C"
+              ],
+              "correct_option_texts": [
+                "0.165 kJ, the reaction is not spontaneous"
+              ],
+              "explanation": "$\\Delta {G^0} = \\Delta {H^0} - T\\Delta {S^0}$\nand $\\Delta {H^0} = \\Delta {U^0} + \\Delta {n_g}RT$\nHere $\\Delta {n_g} = - 1$,\n$\\Delta$H° = - 10.5 kJ + (-1 $\\times$ 8.314 $\\times$ 10^-3 kJ K^-1mol^-1 $\\times$ 298K = - 10.5 (-2.477) kJ mol^-1\n$\\Delta$H° = - 12.977 kJ mol^-1\nNow, $\\Delta$G° = - 12.977 - (298 $\\times$ 44.1 $\\times$ 10^-3) = - 12.977 + 13.14 = + 0.165 kJ mol^-1\nThe reaction will not occur spontaneously because $\\Delta$G°is positive."
+            },
+            {
+              "questionID": 22129,
+              "question": "The equilibrium constant for a reaction is 10. What will be the value of $\\Delta G^0$? R = 8.314 JK^-1, T= 300 K, T = 300 K?",
+              "question_raw": "<p>The equilibrium constant for a reaction is 10. What will be the value of <span class=\"math-tex\">{tex}\\Delta G^0{/tex}</span>? R = 8.314 JK<sup>-1</sup>, T= 300 K, T = 300 K?</p>",
+              "options": [
+                {
+                  "label": "A",
+                  "id": 43717,
+                  "text": "-6.132 kJ mol^-1",
+                  "is_correct": false
+                },
+                {
+                  "label": "B",
+                  "id": 43715,
+                  "text": "-5.456 kJ mol^-1",
+                  "is_correct": false
+                },
+                {
+                  "label": "C",
+                  "id": 43716,
+                  "text": "-5.978 kJ mol^-1",
+                  "is_correct": false
+                },
+                {
+                  "label": "D",
+                  "id": 43714,
+                  "text": "-5.744 kJ mol^-1",
+                  "is_correct": true
+                }
+              ],
+              "correct_option_ids": [
+                43714
+              ],
+              "correct_option_labels": [
+                "D"
+              ],
+              "correct_option_texts": [
+                "-5.744 kJ mol^-1"
+              ],
+              "explanation": "$\\Delta$_rG^0 = -RTln K_c.\n$\\Delta G^0$ = -2.303 $\\times$ 8.314 $\\times$ 300 $\\times$ log10 = -5744.14 Jmol^-1 = -5.74414 kJmol^-1"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "testPaperID": 959,
+      "testPaperName": "Thermodynamics CBSE Online Test 04",
+      "is_paid": true,
+      "category_full_name": "CBSE > Class 11 > Chemistry > Chemical Thermodynamics",
+      "noOfQuestions": 15,
+      "has_answers": true,
+      "sections": [
+        {
+          "sectionName": "General",
+          "sectionID": null,
+          "questions": [
+            {
+              "questionID": 22130,
+              "question": "Comment on the thermodynamic stability of NO(g), Given:\n$\\frac{1}{2}$N_2 (g) +$\\frac{{1}}{2}$ O_2(g) $ \\to $ NO (g); ${\\Delta _{\\text{r}}}{{\\text{H}}^0}$ = 90 kJ mol^-1\nNO(g) +$\\frac{1}{2}$ O_2(g) $ \\to $ NO_2 (g); ${\\Delta _{\\text{r}}}{{\\text{H}}^0}$ = -74 kJ mol^-1",
+              "question_raw": "<p>Comment on the thermodynamic stability of NO(g), Given:<br />\r\n<span class=\"math-tex\">{tex}\\frac{1}{2}{/tex}</span>N<sub>2</sub> (g) +<span class=\"math-tex\">{tex}\\frac{{1}}{2}{/tex}</span> O<sub>2</sub>(g) <span class=\"math-tex\">{tex} \\to {/tex}</span>&nbsp;NO (g); <span class=\"math-tex\">{tex}{\\Delta _{\\text{r}}}{{\\text{H}}^0}{/tex}</span>&nbsp;= 90 kJ mol<sup>-1</sup><br />\r\nNO(g) +<span class=\"math-tex\">{tex}\\frac{1}{2}{/tex}</span> O<sub>2</sub>(g) <span class=\"math-tex\">{tex} \\to {/tex}</span>&nbsp;NO<sub>2</sub> (g);&nbsp;<span class=\"math-tex\">{tex}{\\Delta _{\\text{r}}}{{\\text{H}}^0}{/tex}</span>&nbsp;= -74 kJ mol<sup>-1</sup></p>",
+              "options": [
+                {
+                  "label": "A",
+                  "id": 43721,
+                  "text": "NO_2 (g) is stable, but NO(g) is formed",
+                  "is_correct": false
+                },
+                {
+                  "label": "B",
+                  "id": 43718,
+                  "text": "NO(g) is unstable, but NO_2 (g) is formed",
+                  "is_correct": true
+                },
+                {
+                  "label": "C",
+                  "id": 43720,
+                  "text": "NO_2 (g) is unstable, but NO(g) is formed",
+                  "is_correct": false
+                },
+                {
+                  "label": "D",
+                  "id": 43719,
+                  "text": "NO(g) is stable, but NO_2 (g) is formed",
+                  "is_correct": false
+                }
+              ],
+              "correct_option_ids": [
+                43718
+              ],
+              "correct_option_labels": [
+                "B"
+              ],
+              "correct_option_texts": [
+                "NO(g) is unstable, but NO_2 (g) is formed"
+              ],
+              "explanation": "NO(g) is unstable because the formation of NO is endothermic, but NO_2(g) is formed because its formation is exothermic. Therefore, unstable NO(g) converts into stable NO_2(g)."
+            },
+            {
+              "questionID": 22131,
+              "question": "Calculate the heat and the work associated with a process in which 5 mol of gas expands reversibly at constant temperature T = 298 K from a pressure of 10.00 to 1.00 atm",
+              "question_raw": "<p>Calculate the heat and the work associated with a process in which 5&nbsp;mol of gas expands reversibly at constant temperature T = 298 K from a pressure of 10.00 to 1.00 atm</p>",
+              "options": [
+                {
+                  "label": "A",
+                  "id": 43723,
+                  "text": "27.0 kJ, -28.5 kJ",
+                  "is_correct": false
+                },
+                {
+                  "label": "B",
+                  "id": 43725,
+                  "text": "30.5 kJ, -28.5 kJ",
+                  "is_correct": false
+                },
+                {
+                  "label": "C",
+                  "id": 43722,
+                  "text": "28.5 kJ, -28.5 kJ",
+                  "is_correct": true
+                },
+                {
+                  "label": "D",
+                  "id": 43724,
+                  "text": "25.5 kJ, -28.5 kJ",
+                  "is_correct": false
+                }
+              ],
+              "correct_option_ids": [
+                43722
+              ],
+              "correct_option_labels": [
+                "C"
+              ],
+              "correct_option_texts": [
+                "28.5 kJ, -28.5 kJ"
+              ],
+              "explanation": "$\\begin{array}{l}Work\\;done\\;for\\;an\\;isothermal\\;process,\\;w=-2.303nRT\\;\\log\\frac{P_1}{P_2}=-2.303\\times5\\times8.314\\times298\\times\\log\\frac{10}1=-2.303\\times5\\times8.314\\times298\\times1=-28529.24J=-28.5kJ\\\\Acoording\\;to\\;equation\\;of\\;first\\;law\\;of\\;thermodynamics,\\;\\triangle U=\\;q+w\\\\For\\;isothermal\\;process,\\triangle U=0;\\;\\\\\\Rightarrow Heat,\\;q=-w=-(-28.5\\;kJ)=28.5\\;kJ\\\\\\end{array}$"
+            },
+            {
+              "questionID": 22132,
+              "question": "Thermodynamics is not concerned about",
+              "question_raw": "<p>Thermodynamics is not concerned about</p>",
+              "options": [
+                {
+                  "label": "A",
+                  "id": 43728,
+                  "text": "the extent to which a chemical reaction proceeds.",
+                  "is_correct": false
+                },
+                {
+                  "label": "B",
+                  "id": 43729,
+                  "text": "the feasibility of a chemical reaction.",
+                  "is_correct": false
+                },
+                {
+                  "label": "C",
+                  "id": 43726,
+                  "text": "the rate at which a reaction proceeds.",
+                  "is_correct": true
+                },
+                {
+                  "label": "D",
+                  "id": 43727,
+                  "text": "energy changes involved in a chemical reaction.",
+                  "is_correct": false
+                }
+              ],
+              "correct_option_ids": [
+                43726
+              ],
+              "correct_option_labels": [
+                "C"
+              ],
+              "correct_option_texts": [
+                "the rate at which a reaction proceeds."
+              ],
+              "explanation": "Thermodynamics tells whether a reaction will take place or not. It doesn't tell about the rate (speed) of reaction."
+            },
+            {
+              "questionID": 22133,
+              "question": "Which of the following statements is correct?\n The presence of reactants in a closed vessel made up of copper is an example of a closed system.\n There is an exchange of energy as well as a matter between the system and the surroundings in a closed system.\n The presence of reacting species in a covered beaker is an example of an open system.\n The presence of reactants in a thermos flask or any other closed insulated vessel is an example of a closed system.",
+              "question_raw": "<p>Which of the following statements is correct?</p>\n\n<ol start=\"1\" style=\"list-style-type:upper-alpha\">\n\t<li>The presence of reactants in a closed vessel made up of copper is an example of a closed system.</li>\n\t<li>There is an exchange of energy as well as a matter between the system and the surroundings in a closed system.</li>\n\t<li>The presence of reacting species in a covered beaker is an example of an open system.</li>\n\t<li>The presence of reactants in a thermos flask or any other closed insulated vessel is an example of a closed system.</li>\n</ol>",
+              "options": [
+                {
+                  "label": "A",
+                  "id": 43731,
+                  "text": "B",
+                  "is_correct": false
+                },
+                {
+                  "label": "B",
+                  "id": 43732,
+                  "text": "C",
+                  "is_correct": false
+                },
+                {
+                  "label": "C",
+                  "id": 43733,
+                  "text": "A",
+                  "is_correct": false
+                },
+                {
+                  "label": "D",
+                  "id": 43730,
+                  "text": "D",
+                  "is_correct": true
+                }
+              ],
+              "correct_option_ids": [
+                43730
+              ],
+              "correct_option_labels": [
+                "D"
+              ],
+              "correct_option_texts": [
+                "D"
+              ],
+              "explanation": "In a closed system, there is no exchange of matter with the surroundings, but there can be an exchange of energy (typically in the form of heat). In this case, a closed insulated vessel like a thermos flask prevents both the exchange of matter and minimizes the exchange of energy with the surroundings, making it a closed system."
+            },
+            {
+              "questionID": 22134,
+              "question": "The state of a gas constant can be described by quoting the relationship between",
+              "question_raw": "<p>The state of a gas constant&nbsp;can be described by quoting the relationship between</p>",
+              "options": [
+                {
+                  "label": "A",
+                  "id": 43736,
+                  "text": "temperature, amount, pressure",
+                  "is_correct": false
+                },
+                {
+                  "label": "B",
+                  "id": 43734,
+                  "text": "pressure, volume, temperature, amount",
+                  "is_correct": true
+                },
+                {
+                  "label": "C",
+                  "id": 43737,
+                  "text": "amount, volume, temperature",
+                  "is_correct": false
+                },
+                {
+                  "label": "D",
+                  "id": 43735,
+                  "text": "pressure, volume, temperature",
+                  "is_correct": false
+                }
+              ],
+              "correct_option_ids": [
+                43734
+              ],
+              "correct_option_labels": [
+                "B"
+              ],
+              "correct_option_texts": [
+                "pressure, volume, temperature, amount"
+              ],
+              "explanation": "State of gas constant is determined by stating the value of P,V,n,T.\ni.e. $R=\\frac{PV}{nT}$"
+            },
+            {
+              "questionID": 22135,
+              "question": "The volume of gas is reduced to half from its original volume. The specific heat will be",
+              "question_raw": "<p>The volume of gas is reduced to half from its original volume. The specific heat will be</p>",
+              "options": [
+                {
+                  "label": "A",
+                  "id": 43741,
+                  "text": "increase four times",
+                  "is_correct": false
+                },
+                {
+                  "label": "B",
+                  "id": 43740,
+                  "text": "be doubled",
+                  "is_correct": false
+                },
+                {
+                  "label": "C",
+                  "id": 43738,
+                  "text": "remain constant",
+                  "is_correct": true
+                },
+                {
+                  "label": "D",
+                  "id": 43739,
+                  "text": "reduce to half",
+                  "is_correct": false
+                }
+              ],
+              "correct_option_ids": [
+                43738
+              ],
+              "correct_option_labels": [
+                "C"
+              ],
+              "correct_option_texts": [
+                "remain constant"
+              ],
+              "explanation": "Specfic heat (c) of a substance is defined as the amount of heat required to raise the temperature of 1 gram of substance through 1^0C.\n $\\begin{array}{l}C=\\frac q{\\triangle T}\\;\\\\\\\\\\\\\\end{array}$,Specific heat is independent of volume, so it will remain constant."
+            },
+            {
+              "questionID": 22136,
+              "question": "During complete combustion of one mole of butane, 2658 kJ of heat is released. The thermochemical reaction for above change is",
+              "question_raw": "<p>During complete combustion of one mole of butane, 2658 kJ of heat is released. The thermochemical reaction for above change is</p>",
+              "options": [
+                {
+                  "label": "A",
+                  "id": 43744,
+                  "text": "$\\begin{gathered} {C_4}{H_{10}}\\left( g \\right) + {O_2}\\left( g \\right) \\to 4C{O_2}\\left( g \\right) + 5{H_2}O\\left( l \\right){\\Delta _c}H \\hfill= -1329.0{\\text{ }}kJ{\\text{ }}mo{l^{-1}} \\hfill \\\\ \\end{gathered}$",
+                  "is_correct": false
+                },
+                {
+                  "label": "B",
+                  "id": 43743,
+                  "text": "$\\begin{gathered} 2{C_4}{H_{10}}\\left( g \\right) + 13{O_2}\\left( g \\right) \\to 8C{O_2}\\left( g \\right) + 10{H_2}O\\left( l \\right){\\Delta _c}H \\hfill= -2658.0{\\text{ }}kJ{\\text{ }}mo{l^{-1}} \\hfill \\\\ \\end{gathered}$",
+                  "is_correct": true
+                },
+                {
+                  "label": "C",
+                  "id": 43742,
+                  "text": "$\\begin{gathered} {C_4}{H_{10}}\\left( g \\right) + {O_2}\\left( g \\right) \\to 4C{O_2}\\left( g \\right) + 5{H_2}O\\left( l \\right){\\text{ }}{\\Delta _c}H \\hfill = -2658.0{\\text{ }}kJ\\,mo{l^{-1}} \\hfill \\\\ \\end{gathered} $",
+                  "is_correct": false
+                },
+                {
+                  "label": "D",
+                  "id": 43745,
+                  "text": "$\\begin{gathered} {C_4}{H_{10}}\\left( g \\right) + {O_2}\\left( g \\right) \\to 4C{O_2}\\left( g \\right) + 5{H_2}O\\left( l \\right){\\Delta _c}H \\hfill= + 2658.0{\\text{ }}kJ{\\text{ }}mo{l^{-1}} \\hfill \\\\ \\end{gathered}$",
+                  "is_correct": false
+                }
+              ],
+              "correct_option_ids": [
+                43743
+              ],
+              "correct_option_labels": [
+                "B"
+              ],
+              "correct_option_texts": [
+                "$\\begin{gathered} 2{C_4}{H_{10}}\\left( g \\right) + 13{O_2}\\left( g \\right) \\to 8C{O_2}\\left( g \\right) + 10{H_2}O\\left( l \\right){\\Delta _c}H \\hfill= -2658.0{\\text{ }}kJ{\\text{ }}mo{l^{-1}} \\hfill \\\\ \\end{gathered}$"
+              ],
+              "explanation": "Enthapy of combustion is the energy released when 1mole of a hydrocarbon (butane ) reacts completely in presence of excess of oxygen. The chemical equation for exothermic reaction for combustion of one mole of butane is represented as;\n$\\begin{gathered} 2{C_4}{H_{10}}\\left( g \\right) + 13{O_2}\\left( g \\right) \\to 8C{O_2}\\left( g \\right) + 10{H_2}O\\left( l \\right){\\Delta _c}H \\hfill= -2658.0{\\text{ }}kJ{\\text{ }}mo{l^{-1}} \\hfill \\\\ \\end{gathered}$"
+            },
+            {
+              "questionID": 22137,
+              "question": "${\\Delta _{\\text{f}}}{{\\text{U}}^ \\ominus }$of formation of CH_4 (g) at certain temperature is –393 kJmol^-1. The value of ${\\Delta _{\\text{f}}}{{\\text{H}}^\\ominus}$ is",
+              "question_raw": "<p><span class=\"math-tex\">{tex}{\\Delta _{\\text{f}}}{{\\text{U}}^ \\ominus }{/tex}</span>of formation of CH<sub>4</sub> (g) at certain temperature is &ndash;393 kJmol<sup>-1</sup>. The value of <span class=\"math-tex\">{tex}{\\Delta _{\\text{f}}}{{\\text{H}}^\\ominus}{/tex}</span>&nbsp;is</p>",
+              "options": [
+                {
+                  "label": "A",
+                  "id": 43748,
+                  "text": "> ${\\Delta _{\\text{f}}}{{\\text{U}}^\\ominus}$",
+                  "is_correct": false
+                },
+                {
+                  "label": "B",
+                  "id": 43747,
+                  "text": "zero",
+                  "is_correct": false
+                },
+                {
+                  "label": "C",
+                  "id": 43746,
+                  "text": "<${\\Delta _{\\text{f}}}{{\\text{U}}^\\ominus}$",
+                  "is_correct": true
+                },
+                {
+                  "label": "D",
+                  "id": 43749,
+                  "text": "equal to ${\\Delta _{\\text{f}}}{{\\text{U}}^\\ominus}$",
+                  "is_correct": false
+                }
+              ],
+              "correct_option_ids": [
+                43746
+              ],
+              "correct_option_labels": [
+                "C"
+              ],
+              "correct_option_texts": [
+                "<${\\Delta _{\\text{f}}}{{\\text{U}}^\\ominus}$"
+              ],
+              "explanation": "The combustion of metahne is given as follows: CH_4(g) + 2O_2(g) $\\to$ CO_2(g) + 2H_2O(l)\nSince $\\Delta_{f} H^{\\circ}=\\Delta_{f} U^{\\circ}+\\Delta n_{g} R T$ and $\\triangle_{f} U^{\\circ}$ = - 393 kJmol^-1, $\\triangle_{f} H^{\\circ}$ = (-393) + $\\triangle n_{g} R T$\n(Here, $\\triangle n_{g}<0$) $\\Rightarrow \\Delta_{f} H^{\\circ}<\\Delta_{f} U^{\\circ}$"
+            },
+            {
+              "questionID": 22138,
+              "question": "In an adiabatic process, no transfer of heat takes place between system and surroundings. Choose the correct option for free expansion of an ideal gas under adiabatic condition from the following.",
+              "question_raw": "<p>In an adiabatic process, no transfer of heat takes place between system and surroundings. Choose the correct option for free expansion of an ideal gas under adiabatic condition from the following.</p>",
+              "options": [
+                {
+                  "label": "A",
+                  "id": 43751,
+                  "text": "q = 0, $\\Delta {\\text{T }} \\ne $ 0, w = 0",
+                  "is_correct": false
+                },
+                {
+                  "label": "B",
+                  "id": 43750,
+                  "text": "q = 0, $\\Delta {\\text{T}}$ = 0, w = 0",
+                  "is_correct": true
+                },
+                {
+                  "label": "C",
+                  "id": 43752,
+                  "text": "q $ \\ne $ 0, $\\Delta {\\text{T}}$ = 0, w = 0",
+                  "is_correct": false
+                },
+                {
+                  "label": "D",
+                  "id": 43753,
+                  "text": "q = 0, $\\Delta {\\text{T}}$ < 0, w $ \\ne $ 0",
+                  "is_correct": false
+                }
+              ],
+              "correct_option_ids": [
+                43750
+              ],
+              "correct_option_labels": [
+                "B"
+              ],
+              "correct_option_texts": [
+                "q = 0, $\\Delta {\\text{T}}$ = 0, w = 0"
+              ],
+              "explanation": "For free expansion $P_{ext} =0$. So w=0 and for adiabatic process q = 0 ; Now from from 1st law of thermodynamics,\n$\\Delta$U = q + w =0 + 0 = 0 therefore $\\Delta$U = 0\nSince, there is no change of internal energy, and temperature will also remain constant, making $\\Delta$T=0"
+            },
+            {
+              "questionID": 22139,
+              "question": "The pressure-volume work for an ideal gas can be calculated by using the expression w = −$\\mathop \\smallint \\limits_{{V_i}}^{{V_f}} {p_{ex}}dV$. The work can also be calculated from the pV–plot by using the area under the curve within the specified limits. When an ideal gas is compressed (a) reversibly or (b) irreversibly from volume V_i to V_f. choose the correct option.",
+              "question_raw": "<p>The pressure-volume work for an ideal gas can be calculated by using the expression w = &minus;<span class=\"math-tex\">{tex}\\mathop \\smallint \\limits_{{V_i}}^{{V_f}} {p_{ex}}dV{/tex}</span>. The work can also be calculated from the pV&ndash;plot by using the area under the curve within the specified limits. When an ideal gas is compressed (a) reversibly or (b) irreversibly from volume V<sub>i</sub> to V<sub>f</sub>. choose the correct option.</p>",
+              "options": [
+                {
+                  "label": "A",
+                  "id": 43756,
+                  "text": "w (reversible) > w (irreversible)",
+                  "is_correct": false
+                },
+                {
+                  "label": "B",
+                  "id": 43755,
+                  "text": "w (reversible) = w (irreversible)",
+                  "is_correct": false
+                },
+                {
+                  "label": "C",
+                  "id": 43754,
+                  "text": "w (reversible) < w (irreversible)",
+                  "is_correct": true
+                },
+                {
+                  "label": "D",
+                  "id": 43757,
+                  "text": "w (reversible) = w (irreversible) + ${{\\text{p}}_{{\\text{ex}}}}.\\Delta {\\text{V}}$",
+                  "is_correct": false
+                }
+              ],
+              "correct_option_ids": [
+                43754
+              ],
+              "correct_option_labels": [
+                "C"
+              ],
+              "correct_option_texts": [
+                "w (reversible) < w (irreversible)"
+              ],
+              "explanation": "w (reversible) < w (irreversible) (for compression process)\nJustification: Area under the curve is always more in irreversible compression as can be seen from Fig (a) and (b)."
+            },
+            {
+              "questionID": 22140,
+              "question": "The entropy change can be calculated by using the expression $\\Delta {\\text{S }} = $$\\frac{{{q_{rev}}}}{T}$ When water freezes in a glass beaker, choose the correct statement amongst the following :",
+              "question_raw": "<p>The entropy change can be calculated by using the expression <span class=\"math-tex\">{tex}\\Delta {\\text{S }} = {/tex}</span><span class=\"math-tex\">{tex}\\frac{{{q_{rev}}}}{T}{/tex}</span> When water freezes in a glass beaker, choose the correct statement amongst the following :</p>",
+              "options": [
+                {
+                  "label": "A",
+                  "id": 43761,
+                  "text": "$\\Delta {\\text{S}}$ (system) decreases and $\\Delta {\\text{S}}$ (surroundings) also decreases.",
+                  "is_correct": false
+                },
+                {
+                  "label": "B",
+                  "id": 43760,
+                  "text": "$\\Delta {\\text{S}}$ (system) increases but $\\Delta {\\text{S}}$ (surroundings) decreases.",
+                  "is_correct": false
+                },
+                {
+                  "label": "C",
+                  "id": 43758,
+                  "text": "$\\Delta {\\text{S}}$ (system) decreases but $\\Delta {\\text{S}}$ (surroundings) increases.",
+                  "is_correct": true
+                },
+                {
+                  "label": "D",
+                  "id": 43759,
+                  "text": "$\\Delta {\\text{S}}$ (system) decreases but $\\Delta {\\text{S}}$ (surroundings) remains the same.",
+                  "is_correct": false
+                }
+              ],
+              "correct_option_ids": [
+                43758
+              ],
+              "correct_option_labels": [
+                "C"
+              ],
+              "correct_option_texts": [
+                "$\\Delta {\\text{S}}$ (system) decreases but $\\Delta {\\text{S}}$ (surroundings) increases."
+              ],
+              "explanation": "For freezing of process since process is spontaneous therefore if ΔS (system) decreases but ΔS (surroundings) increases.Also, Freezing is exothermic process. The heat released increases the entropy of surrounding."
+            },
+            {
+              "questionID": 22141,
+              "question": "On the basis of thermochemical equations (A), (B) and (C), find out which of the algebraic relationships given in options (i) to (iv) is correct:\n C(graphite) + O_2(g) $\\rightarrow$ CO_2(g); $ \\triangle_{r} H$ = x KJ mol^-1\n C(graphite) + $\\frac{1}{2} O_{2}(g) \\rightarrow C O(g) ; \\Delta_{r} H$ = y KJ mol^-1\n $C O(g)+\\frac{1}{2} O_{2}(g) \\rightarrow C O_{2}(g) ; \\Delta_{r} H=z k J m o l^{-1}$",
+              "question_raw": "<p>On the basis of thermochemical equations (A), (B) and (C), find out which of the algebraic relationships given in options (i) to (iv) is correct:</p>\r\n\r\n<ol start=\"1\" style=\"list-style-type: upper-alpha;\">\r\n\t<li>C(graphite) + O<sub>2</sub>(g)&nbsp;<span class=\"math-tex\">{tex}\\rightarrow{/tex}</span>&nbsp;CO<sub>2</sub>(g);&nbsp;<span class=\"math-tex\">{tex} \\triangle_{r} H{/tex}</span>&nbsp;= x KJ mol<sup>-1</sup></li>\r\n\t<li>C(graphite) +&nbsp;<span class=\"math-tex\">{tex}\\frac{1}{2} O_{2}(g) \\rightarrow C O(g) ; \\Delta_{r} H{/tex}</span>&nbsp;= y KJ mol<sup>-1</sup></li>\r\n\t<li><span class=\"math-tex\">{tex}C O(g)+\\frac{1}{2} O_{2}(g) \\rightarrow C O_{2}(g) ; \\Delta_{r} H=z k J m o l^{-1}{/tex}</span></li>\r\n</ol>",
+              "options": [
+                {
+                  "label": "A",
+                  "id": 43764,
+                  "text": "x = y – z",
+                  "is_correct": false
+                },
+                {
+                  "label": "B",
+                  "id": 43763,
+                  "text": "z = x + y",
+                  "is_correct": false
+                },
+                {
+                  "label": "C",
+                  "id": 43762,
+                  "text": "x = y + z",
+                  "is_correct": true
+                },
+                {
+                  "label": "D",
+                  "id": 43765,
+                  "text": "y = 2z – x",
+                  "is_correct": false
+                }
+              ],
+              "correct_option_ids": [
+                43762
+              ],
+              "correct_option_labels": [
+                "C"
+              ],
+              "correct_option_texts": [
+                "x = y + z"
+              ],
+              "explanation": "We have, C(graphite) + O_2(g) $\\rightarrow$ CO_2(g); $\\triangle_{r} H$ = x KJ mol ^-1 ..... (1)\nC(graphite) $+\\frac{1}{2} O_{2}(g) \\rightarrow C O(g) ; \\Delta_{r} H=y k J m o l^{-1}$ .... (2)\nSubtacting (1) and (2), we get;\n$C O(g)+\\frac{1}{2} O_{2}(g) \\rightarrow C O_{2}(g)$; $\\triangle_{r} H$ = (x-y) kJmol^-1\n$\\therefore$ z = x - y $\\Rightarrow$ x = y + z"
+            },
+            {
+              "questionID": 22142,
+              "question": "Consider the reactions given below. On the basis of these reactions find out which of the algebraic relations given in options (i) to (iv) is correct?\n C (g) + 4 H (g) $ \\to {\\text{ C}}{{\\text{H}}_{\\text{4}}}\\left( {\\text{g}} \\right);{\\text{ }}{\\Delta _{\\text{r}}}{\\text{H }} = {\\text{ x kJ mo}}{{\\text{l}}^{-{\\text{1}}}}$\n C (graphite,s) + ${\\text{2}}{{\\text{H}}_{\\text{2}}}\\left( {\\text{g}} \\right){\\text{ }} \\to {\\text{ C}}{{\\text{H}}_{\\text{4}}}\\left( {\\text{g}} \\right);{\\text{ }}{\\Delta _{\\text{r}}}{\\text{H }} = {\\text{ y kJ mo}}{{\\text{l}}^{-{\\text{1}}}}$",
+              "question_raw": "<p>Consider the reactions given below. On the basis of these reactions find out which of the algebraic relations given in options (i) to (iv) is correct?</p>\r\n\r\n<ol start=\"1\" style=\"list-style-type: upper-alpha;\">\r\n\t<li>C (g) + 4 H (g) <span class=\"math-tex\">{tex} \\to {\\text{ C}}{{\\text{H}}_{\\text{4}}}\\left( {\\text{g}} \\right);{\\text{ }}{\\Delta _{\\text{r}}}{\\text{H }} = {\\text{ x kJ mo}}{{\\text{l}}^{-{\\text{1}}}}{/tex}</span></li>\r\n\t<li>C (graphite,s) + <span class=\"math-tex\">{tex}{\\text{2}}{{\\text{H}}_{\\text{2}}}\\left( {\\text{g}} \\right){\\text{ }} \\to {\\text{ C}}{{\\text{H}}_{\\text{4}}}\\left( {\\text{g}} \\right);{\\text{ }}{\\Delta _{\\text{r}}}{\\text{H }} = {\\text{ y kJ mo}}{{\\text{l}}^{-{\\text{1}}}}{/tex}</span></li>\r\n</ol>",
+              "options": [
+                {
+                  "label": "A",
+                  "id": 43766,
+                  "text": "x > y",
+                  "is_correct": true
+                },
+                {
+                  "label": "B",
+                  "id": 43769,
+                  "text": "x < y",
+                  "is_correct": false
+                },
+                {
+                  "label": "C",
+                  "id": 43767,
+                  "text": "x = y",
+                  "is_correct": false
+                },
+                {
+                  "label": "D",
+                  "id": 43768,
+                  "text": "x = 2y",
+                  "is_correct": false
+                }
+              ],
+              "correct_option_ids": [
+                43766
+              ],
+              "correct_option_labels": [
+                "A"
+              ],
+              "correct_option_texts": [
+                "x > y"
+              ],
+              "explanation": "Here, x > y. Because in equation (B) all the reactants are in their most stable states of aggregation hence have zero standard molar enthalpies of formation."
+            },
+            {
+              "questionID": 22143,
+              "question": "The enthalpies of elements in their standard states are taken as zero. The enthalpy of formation of a compound is:",
+              "question_raw": "<p>The enthalpies of elements in their standard states are taken as zero. The enthalpy of formation of a compound is:</p>",
+              "options": [
+                {
+                  "label": "A",
+                  "id": 43771,
+                  "text": "is always negative.",
+                  "is_correct": false
+                },
+                {
+                  "label": "B",
+                  "id": 43770,
+                  "text": "may be positive or negative.",
+                  "is_correct": true
+                },
+                {
+                  "label": "C",
+                  "id": 43772,
+                  "text": "is always positive.",
+                  "is_correct": false
+                },
+                {
+                  "label": "D",
+                  "id": 43773,
+                  "text": "is never negative.",
+                  "is_correct": false
+                }
+              ],
+              "correct_option_ids": [
+                43770
+              ],
+              "correct_option_labels": [
+                "B"
+              ],
+              "correct_option_texts": [
+                "may be positive or negative."
+              ],
+              "explanation": "Standard molar enthalpy of formation of a compound from its elements can be +ve or –ve.\nFor example: $C+O_{2}(g) \\rightarrow C O_{2}(g) ; \\Delta_{r} H$ = 393.5 kJ mol^-1\n$N_{2}(g)+\\frac{1}{2} O_{2}(g) \\rightarrow N_{2} O(g);$ $\\Delta_{r} H$ = +92 k J mol^-1"
+            },
+            {
+              "questionID": 22144,
+              "question": "Enthalpy of sublimation of a substance is equal to",
+              "question_raw": "<p>Enthalpy of sublimation of a substance is equal to</p>",
+              "options": [
+                {
+                  "label": "A",
+                  "id": 43774,
+                  "text": "enthalpy of fusion + enthalpy of vapourisation",
+                  "is_correct": true
+                },
+                {
+                  "label": "B",
+                  "id": 43777,
+                  "text": "twice the enthalpy of vapourisation",
+                  "is_correct": false
+                },
+                {
+                  "label": "C",
+                  "id": 43775,
+                  "text": "enthalpy of fusion",
+                  "is_correct": false
+                },
+                {
+                  "label": "D",
+                  "id": 43776,
+                  "text": "enthalpy of vapourisation",
+                  "is_correct": false
+                }
+              ],
+              "correct_option_ids": [
+                43774
+              ],
+              "correct_option_labels": [
+                "A"
+              ],
+              "correct_option_texts": [
+                "enthalpy of fusion + enthalpy of vapourisation"
+              ],
+              "explanation": "The process of sublimation involves the change of solid into vapour. Though in sublimation a solid does not pass through the liquid phase on its way to the gas phase, the enthalpy change is equal to the sum of enthalpy of fusion and enthalpy of vaporization because enthalpy is a state function."
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "testPaperID": 960,
+      "testPaperName": "Thermodynamics CBSE Online Test 05",
+      "is_paid": true,
+      "category_full_name": "CBSE > Class 11 > Chemistry > Chemical Thermodynamics",
+      "noOfQuestions": 15,
+      "has_answers": true,
+      "sections": [
+        {
+          "sectionName": "General",
+          "sectionID": null,
+          "questions": [
+            {
+              "questionID": 22145,
+              "question": "Which of the following statement is not correct?",
+              "question_raw": "<p>Which of the following statement is not correct?</p>",
+              "options": [
+                {
+                  "label": "A",
+                  "id": 43779,
+                  "text": "$\\Delta {\\text{G}}$ is zero for a reaction at equilibrium",
+                  "is_correct": false
+                },
+                {
+                  "label": "B",
+                  "id": 43781,
+                  "text": "$\\Delta {\\text{G}}$ is positive for a non-spontaneous reaction",
+                  "is_correct": false
+                },
+                {
+                  "label": "C",
+                  "id": 43778,
+                  "text": "$\\Delta {\\text{G}}$ is positive for a spontaneous reaction",
+                  "is_correct": true
+                },
+                {
+                  "label": "D",
+                  "id": 43780,
+                  "text": "$\\Delta {\\text{G}}$ is negative for a spontaneous reaction",
+                  "is_correct": false
+                }
+              ],
+              "correct_option_ids": [
+                43778
+              ],
+              "correct_option_labels": [
+                "C"
+              ],
+              "correct_option_texts": [
+                "$\\Delta {\\text{G}}$ is positive for a spontaneous reaction"
+              ],
+              "explanation": "ΔG <0 (negative) for a spontaneous change."
+            },
+            {
+              "questionID": 22146,
+              "question": "When gasoline burns in a car engine, the heat released causes the products CO_2 and H_2O to expand, which pushes the pistons outward. Excess heat is removed by the car’s cooling system. If the expanding gases do 451J of work on the pistons and the system loses 325 J to the surroundings as heat, calculate the change in energy ($\\Delta {\\text{E}}$).",
+              "question_raw": "<p>When gasoline burns in a car engine, the heat released causes the products CO<sub>2&nbsp;</sub>and H<sub>2</sub>O&nbsp;to expand, which pushes the pistons outward. Excess heat is removed by the car&rsquo;s cooling system. If the expanding gases do 451J of work on the pistons and the system loses 325 J to the surroundings as heat, calculate the change in energy (<span class=\"math-tex\">{tex}\\Delta {\\text{E}}{/tex}</span>).</p>",
+              "options": [
+                {
+                  "label": "A",
+                  "id": 43782,
+                  "text": "-776 J",
+                  "is_correct": true
+                },
+                {
+                  "label": "B",
+                  "id": 43783,
+                  "text": "-702 J",
+                  "is_correct": false
+                },
+                {
+                  "label": "C",
+                  "id": 43784,
+                  "text": "-745 J",
+                  "is_correct": false
+                },
+                {
+                  "label": "D",
+                  "id": 43785,
+                  "text": "-797 J",
+                  "is_correct": false
+                }
+              ],
+              "correct_option_ids": [
+                43782
+              ],
+              "correct_option_labels": [
+                "A"
+              ],
+              "correct_option_texts": [
+                "-776 J"
+              ],
+              "explanation": "q = - 325J w = - 415J\nNow, $\\Delta$U = q + w = - 325 + (- 451J) = - 776J"
+            },
+            {
+              "questionID": 22147,
+              "question": "For the reaction H_2(g) + $\\frac{1}{2}$ O_2(g) $\\rightarrow$ H_2O(l) 285.8 kJ,\nSelect the correct statement.",
+              "question_raw": "<p>For the reaction H<sub>2</sub>(g) +&nbsp;<span class=\"math-tex\">{tex}\\frac{1}{2}{/tex}</span> O<sub>2</sub>(g)&nbsp;<span class=\"math-tex\">{tex}\\rightarrow{/tex}</span>&nbsp;H<sub>2</sub>O(l) 285.8 kJ,<br />\nSelect the correct statement.</p>",
+              "options": [
+                {
+                  "label": "A",
+                  "id": 43789,
+                  "text": "$\\Delta {\\text{H}}$ > 0, endothermic",
+                  "is_correct": false
+                },
+                {
+                  "label": "B",
+                  "id": 43786,
+                  "text": "$\\Delta {\\text{H}}$ < 0, exothermic",
+                  "is_correct": true
+                },
+                {
+                  "label": "C",
+                  "id": 43788,
+                  "text": "$\\Delta {\\text{H}}$ < 0, endothermic",
+                  "is_correct": false
+                },
+                {
+                  "label": "D",
+                  "id": 43787,
+                  "text": "$\\Delta {\\text{H}}$ > 0, exothermic",
+                  "is_correct": false
+                }
+              ],
+              "correct_option_ids": [
+                43786
+              ],
+              "correct_option_labels": [
+                "B"
+              ],
+              "correct_option_texts": [
+                "$\\Delta {\\text{H}}$ < 0, exothermic"
+              ],
+              "explanation": "Heat is liberated in the process so the reaction is exothermic and $\\Delta$H < 0."
+            },
+            {
+              "questionID": 22148,
+              "question": "For the process, H_2O (l) + 40.7 kJ $\\rightarrow$ H_2O (g)\nSelect the correct statement.",
+              "question_raw": "<p>For the process,&nbsp;H<sub>2</sub>O (l)&nbsp; + 40.7 kJ <span class=\"math-tex\">{tex}\\rightarrow{/tex}</span>&nbsp;H<sub>2</sub>O (g)<br />\nSelect the correct statement.</p>",
+              "options": [
+                {
+                  "label": "A",
+                  "id": 43793,
+                  "text": "$\\Delta {\\text{H}}$ < 0 hence process is exothermic.",
+                  "is_correct": false
+                },
+                {
+                  "label": "B",
+                  "id": 43790,
+                  "text": "$\\Delta {\\text{H}}$ > 0 hence process is endothermic.",
+                  "is_correct": true
+                },
+                {
+                  "label": "C",
+                  "id": 43792,
+                  "text": "$\\Delta {\\text{H}}$ > 0 hence process is exothermic.",
+                  "is_correct": false
+                },
+                {
+                  "label": "D",
+                  "id": 43791,
+                  "text": "$\\Delta {\\text{H}}$ < 0 hence process is endothermic.",
+                  "is_correct": false
+                }
+              ],
+              "correct_option_ids": [
+                43790
+              ],
+              "correct_option_labels": [
+                "B"
+              ],
+              "correct_option_texts": [
+                "$\\Delta {\\text{H}}$ > 0 hence process is endothermic."
+              ],
+              "explanation": "Heat is utilized in this reaction so the reaction is endothermic and for an endothermic process $\\Delta {\\text{H}}$ > 0."
+            },
+            {
+              "questionID": 22149,
+              "question": "A layer of copper welded to the bottom of a skillet weighs 125 g. How much heat is needed to raise the temperature of the copper layer from 25°C to 300°C? The specific heat capacity (C) of Cu is 0.387J/g K.",
+              "question_raw": "<p>A layer of copper welded to the bottom of a skillet weighs 125 g. How much heat is needed to raise the temperature of the copper layer from 25&deg;C to 300&deg;C? The specific heat capacity (C) of Cu is 0.387J/g K.</p>",
+              "options": [
+                {
+                  "label": "A",
+                  "id": 43794,
+                  "text": "1.33 $\\times$ 10^4J",
+                  "is_correct": true
+                },
+                {
+                  "label": "B",
+                  "id": 43796,
+                  "text": "1.55 $\\times$ 10^4J",
+                  "is_correct": false
+                },
+                {
+                  "label": "C",
+                  "id": 43795,
+                  "text": "1.11 $\\times$ 10^4J",
+                  "is_correct": false
+                },
+                {
+                  "label": "D",
+                  "id": 43797,
+                  "text": "1.76 $\\times$ 10^4J",
+                  "is_correct": false
+                }
+              ],
+              "correct_option_ids": [
+                43794
+              ],
+              "correct_option_labels": [
+                "A"
+              ],
+              "correct_option_texts": [
+                "1.33 $\\times$ 10^4J"
+              ],
+              "explanation": "q = mc $\\Delta$T\nq = (125 g) ${ \\times \\left( {\\frac{{0.387\\;J}}{{gK\\;}}} \\right)\\; \\times }$ (300 - 25)K = 1.33 $\\times$ 10^4J"
+            },
+            {
+              "questionID": 22150,
+              "question": "You place 50.0 mL of 0.500 M NaOH in a coffee-cup calorimeter at 25.00°C and carefully add 25.0 mL of 0.500 M HCI, also at 25 .00°C. After stirring, the final temperature is 27.21°C. Calculate ${{\\text{q}}_{{\\text{soln}}}}$ (in J) and $\\Delta {{\\text{H}}_{{\\text{rxn}}}}$ (in kJ/mol)?(Assume the total volume is the sum of the individual volumes and that the final solution has the same density and specific heat capacity as water: d = 1.00 g/mL and C = 4. 184 J/g·K.)",
+              "question_raw": "<p>You place 50.0 mL of 0.500 M NaOH in a coffee-cup calorimeter at 25.00&deg;C and carefully add 25.0 mL of 0.500 M HCI, also at 25 .00&deg;C. After stirring, the final temperature is 27.21&deg;C. Calculate <span class=\"math-tex\">{tex}{{\\text{q}}_{{\\text{soln}}}}{/tex}</span> (in J) and <span class=\"math-tex\">{tex}\\Delta {{\\text{H}}_{{\\text{rxn}}}}{/tex}</span> (in kJ/mol)?(Assume the total volume is the sum of the individual volumes and that the final solution has the same density and specific heat capacity as water: d = 1.00 g/mL and C = 4. 184 J/g&middot;K.)</p>",
+              "options": [
+                {
+                  "label": "A",
+                  "id": 43798,
+                  "text": "693 J, -55.4 kJ/mol",
+                  "is_correct": true
+                },
+                {
+                  "label": "B",
+                  "id": 43799,
+                  "text": "623 J, -55.4 kJ/mol",
+                  "is_correct": false
+                },
+                {
+                  "label": "C",
+                  "id": 43801,
+                  "text": "733 J, -55.4 kJ/mol",
+                  "is_correct": false
+                },
+                {
+                  "label": "D",
+                  "id": 43800,
+                  "text": "593 J, -55.4 kJ/mol",
+                  "is_correct": false
+                }
+              ],
+              "correct_option_ids": [
+                43798
+              ],
+              "correct_option_labels": [
+                "A"
+              ],
+              "correct_option_texts": [
+                "693 J, -55.4 kJ/mol"
+              ],
+              "explanation": "HCl(aq) + NaOH(aq) $\\to$ NaCl(aq) + H_2O(l)\nH^+ (aq) + OH^-(aq) $\\to$ H_2O(l)\nFor NaOH 0.500 M $\\times$0.0500 L = 0.0250 mol OH^-\nFor HCl 0.500 M $\\times$ 0.0250 L = 0.0125 mol H^+\nHCl is the limiting reactant.\n0.0125 mol of H_2O will form during the reaction\nTotal volume after mixing = 0.0750\nNow,0.0750 L $\\times$ 10^3 mL/L $\\times$ 1.00 g/mL = 75.0 g of water\nq = mass $\\times$ specific heat $\\times$ $\\Delta$T = 75.0 g $\\times$ 4.18 J/g°C$\\times$ (27.21 - 25.00)°C = 693 J\nNow, ${\\vartriangle {H_{reaction}} = \\;\\frac{{{q_{reaction}}}}{{moles\\;of\\;{H_2}O}} = \\frac{{ - 693}}{{0.0125\\;mol}} \\times \\frac{{1kJ}}{{{{10}^{3\\;}}J}} = \\;}$ - 55.4 kJ mol^-1 of H_2O"
+            },
+            {
+              "questionID": 22151,
+              "question": "A cylinder confines 2.00 L gas under a pressure of 1.00 atm. The external pressure is also 1.00 atm. The gas is heated slowly, with the piston sliding freely outward to maintain the pressure of the gas close to 1.00 atm. Suppose the heating continues until a final volume of 3.50 L is reached. Calculate the work done on the gas?",
+              "question_raw": "<p>A cylinder confines 2.00 L gas under a pressure of 1.00 atm. The external pressure is also 1.00 atm. The gas is heated slowly, with the piston sliding freely outward to maintain the pressure of the gas close to 1.00 atm. Suppose the heating continues until a final volume of 3.50 L is reached. Calculate the work done on the gas?</p>",
+              "options": [
+                {
+                  "label": "A",
+                  "id": 43802,
+                  "text": "-152 J",
+                  "is_correct": true
+                },
+                {
+                  "label": "B",
+                  "id": 43804,
+                  "text": "-112 J",
+                  "is_correct": false
+                },
+                {
+                  "label": "C",
+                  "id": 43805,
+                  "text": "-172 J",
+                  "is_correct": false
+                },
+                {
+                  "label": "D",
+                  "id": 43803,
+                  "text": "-132 J",
+                  "is_correct": false
+                }
+              ],
+              "correct_option_ids": [
+                43802
+              ],
+              "correct_option_labels": [
+                "A"
+              ],
+              "correct_option_texts": [
+                "-152 J"
+              ],
+              "explanation": "This is an expression of a system from 2.00 to 3.00L against a cons tan t external pressure of 1 atm. The work done on the system = w = -P_extV = -(1.00atm)(3.50L-2.00L) = -1.50 L atm = (-1.50 L atm) (101.325 J L^-1 atm^-1) = -152J"
+            },
+            {
+              "questionID": 22152,
+              "question": "Suppose a 10.00 kg mass drops through a height difference of 3.00 m, and the resulting work is used to turn a paddle in 200.0 g water, initially at 15.00°C. The final water temperature is found to be 15.35°C. Assuming that the work is done is used entirely to increase the water temperature, calculate the conversion factor between joules and calories.",
+              "question_raw": "<p>Suppose a 10.00 kg mass drops through a height difference of 3.00 m, and the resulting work is used to turn a paddle in 200.0 g water, initially at 15.00&deg;C. The final water temperature is found to be 15.35&deg;C. Assuming that the work is done is used entirely to increase the water temperature, calculate the conversion factor between joules and calories.</p>",
+              "options": [
+                {
+                  "label": "A",
+                  "id": 43809,
+                  "text": "1 calorie $ \\approx $ 3.2J",
+                  "is_correct": false
+                },
+                {
+                  "label": "B",
+                  "id": 43808,
+                  "text": "1 calorie $ \\approx $ 6.1J",
+                  "is_correct": false
+                },
+                {
+                  "label": "C",
+                  "id": 43807,
+                  "text": "1 calorie $ \\approx $ 5.2J",
+                  "is_correct": false
+                },
+                {
+                  "label": "D",
+                  "id": 43806,
+                  "text": "1 calorie $ \\approx $ 4.2J",
+                  "is_correct": true
+                }
+              ],
+              "correct_option_ids": [
+                43806
+              ],
+              "correct_option_labels": [
+                "D"
+              ],
+              "correct_option_texts": [
+                "1 calorie $ \\approx $ 4.2J"
+              ],
+              "explanation": "Total work done on the water = w = - mg $\\Delta$h = - (10) $\\times$ (9.8) $\\times$ (-3) = 294J\nThe heat required to increase the temperature of water by the same amount = q = mc $\\Delta$T = 200 $\\times$ 1 $\\times$ 0.35 = 70cal\nBecause the work is done has the same effect on water as a direct transfer of heat, The two expression can be set equal to each other, giving\n70cal = 294J\n1 cal $\\approx$ 4.2J"
+            },
+            {
+              "questionID": 22153,
+              "question": "Standard Molar Enthalpy of Formation is the standard enthalpy change for the formation of:",
+              "question_raw": "<p>Standard Molar Enthalpy of Formation is the standard enthalpy change for the formation of:</p>",
+              "options": [
+                {
+                  "label": "A",
+                  "id": 43811,
+                  "text": "one kg of a compound from its elements in their most stable states of aggregation.",
+                  "is_correct": false
+                },
+                {
+                  "label": "B",
+                  "id": 43810,
+                  "text": "one mole of a compound from its elements in their most stable states of aggregation.",
+                  "is_correct": true
+                },
+                {
+                  "label": "C",
+                  "id": 43813,
+                  "text": "one mole of a compound from its elements in at a pressure of 2 bar and 25° C.",
+                  "is_correct": false
+                },
+                {
+                  "label": "D",
+                  "id": 43812,
+                  "text": "one mole of a compound from its elements in at a pressure of 10 bar and 30° C.",
+                  "is_correct": false
+                }
+              ],
+              "correct_option_ids": [
+                43810
+              ],
+              "correct_option_labels": [
+                "B"
+              ],
+              "correct_option_texts": [
+                "one mole of a compound from its elements in their most stable states of aggregation."
+              ],
+              "explanation": "The standard enthalpy change for the formation of one mole of a compound from its elements in their most stable states of aggregation (reference states) is the standard molar enthalpy of formation."
+            },
+            {
+              "questionID": 22154,
+              "question": "Suppose that 1.00 kJ of heat is transferred to 2.00 mol argon (at 298 K, 1 atm). What will the final temperature T_f, if the heat is transferred at constant volume?",
+              "question_raw": "<p>Suppose that 1.00 kJ of heat is transferred to 2.00 mol argon (at 298 K, 1 atm). What will the final temperature T<sub>f</sub>, if the heat is transferred at constant volume?</p>",
+              "options": [
+                {
+                  "label": "A",
+                  "id": 43816,
+                  "text": "308 K",
+                  "is_correct": false
+                },
+                {
+                  "label": "B",
+                  "id": 43817,
+                  "text": "347 K",
+                  "is_correct": false
+                },
+                {
+                  "label": "C",
+                  "id": 43814,
+                  "text": "338 K",
+                  "is_correct": true
+                },
+                {
+                  "label": "D",
+                  "id": 43815,
+                  "text": "313 K",
+                  "is_correct": false
+                }
+              ],
+              "correct_option_ids": [
+                43814
+              ],
+              "correct_option_labels": [
+                "C"
+              ],
+              "correct_option_texts": [
+                "338 K"
+              ],
+              "explanation": "Argon is monoatomic, Here, ${{C_v} = \\frac{3}{2}R = \\;\\frac{3}{2} \\times 8.314J{K^{ - 1}}mo{l^{ - 1}}}$ = 12.47J K^-1 mol^-1\nAs volume is kept constan t, q_v = nC_v $\\Delta$T\n$\\Rightarrow$ 1000J = (2.00mol) $\\times$ (12.47JK^-1 mol^-1) $\\times$ $\\Delta$T\n$\\Rightarrow $ $\\Delta$ T = 40.09K\n$\\Rightarrow $ T_f = 298 + 40.1 = 338K"
+            },
+            {
+              "questionID": 22155,
+              "question": "Suppose that 1.00 kJ of heat is transferred to 2.00 mol argon (at 298 K, 1 atm). What will the final temperature T_f be if the heat is transferred at constant pressure?",
+              "question_raw": "<p>Suppose that 1.00 kJ of heat is transferred to 2.00 mol argon (at 298 K, 1 atm). What will the final temperature T<sub>f</sub> be if the heat is transferred at constant pressure?</p>",
+              "options": [
+                {
+                  "label": "A",
+                  "id": 43821,
+                  "text": "376 K",
+                  "is_correct": false
+                },
+                {
+                  "label": "B",
+                  "id": 43819,
+                  "text": "301 K",
+                  "is_correct": false
+                },
+                {
+                  "label": "C",
+                  "id": 43818,
+                  "text": "322 K",
+                  "is_correct": true
+                },
+                {
+                  "label": "D",
+                  "id": 43820,
+                  "text": "335 K",
+                  "is_correct": false
+                }
+              ],
+              "correct_option_ids": [
+                43818
+              ],
+              "correct_option_labels": [
+                "C"
+              ],
+              "correct_option_texts": [
+                "322 K"
+              ],
+              "explanation": "Argon is monoatomic, Here, $C _ { p } = \\frac { 5 } { 2 } R = \\frac { 5 } { 2 } \\times 8.314 J K ^ { - 1 } m o l ^ { - 1 } = 20.79 J K ^ { - 1 } m o l ^ { - 1 }$\nAs pressure is kept constant, $q _ { p } = n C _ { p } \\Delta T$\n$\\Rightarrow 1000 J = ( 2.00 m o l ) \\times \\left( 20.79 J K ^ { - 1 } m o l ^ { - 1 } \\right) \\times \\Delta T$\n$\\Rightarrow \\Delta T = 24.05 K$\n$\\Rightarrow T _ { f } = 298 + 24.05 = 322.05 K$"
+            },
+            {
+              "questionID": 22156,
+              "question": "Red phosphorus reacts with liquid bromine in an exothermic reaction $2P(s)\\;+3Br_2(l)\\rightarrow2PBr_3(g)\\:;\\;\\triangle H=-243kJ$ Calculate the enthalpy change when 2.63 g phosphorus reacts with an excess of bromine in this way.",
+              "question_raw": "<p>Red phosphorus reacts with liquid bromine in an exothermic reaction <span class=\"math-tex\">{tex}2P(s)\\;+3Br_2(l)\\rightarrow2PBr_3(g)\\:;\\;\\triangle H=-243kJ{/tex}</span> Calculate the enthalpy change when 2.63 g phosphorus reacts with an excess of bromine in this way.</p>",
+              "options": [
+                {
+                  "label": "A",
+                  "id": 43822,
+                  "text": "−10.3 kJ",
+                  "is_correct": true
+                },
+                {
+                  "label": "B",
+                  "id": 43824,
+                  "text": "−6.8 kJ",
+                  "is_correct": false
+                },
+                {
+                  "label": "C",
+                  "id": 43825,
+                  "text": "−12.3 kJ",
+                  "is_correct": false
+                },
+                {
+                  "label": "D",
+                  "id": 43823,
+                  "text": "−8.3 kJ",
+                  "is_correct": false
+                }
+              ],
+              "correct_option_ids": [
+                43822
+              ],
+              "correct_option_labels": [
+                "A"
+              ],
+              "correct_option_texts": [
+                "−10.3 kJ"
+              ],
+              "explanation": "The given reaction is, $2 P ( s ) + 3 B r _ { 2 } ( l ) \\rightarrow 2 P B r _ { 3 } ( g ) ; \\Delta H = - 243 k J$\nmoles of $P ( s ) = \\frac { 2.63 } { 31 } = 0.084 \\text { moles. }$\nHeat liberated, when 2 mol of P(s) reacted = -243 kJ\nHeat liberated, when 0.084 mol of P(s) reacted $= \\frac { 243 } { 2 } \\times 0.084 = -10.206 k J$"
+            },
+            {
+              "questionID": 22157,
+              "question": "To vaporize 100.0 g carbon tetrachloride at its normal boiling point, 349.9 K, and P =1 atm, 19.5 kJ of heat is required. Calculate $\\Delta {{\\text{H}}_{{\\text{vap}}}}$ for CCl_4?",
+              "question_raw": "<p>To vaporize 100.0 g carbon tetrachloride at its normal boiling point, 349.9 K, and P =1 atm, 19.5 kJ of heat is required. Calculate <span class=\"math-tex\">{tex}\\Delta {{\\text{H}}_{{\\text{vap}}}}{/tex}</span> for CCl<sub>4</sub>?</p>",
+              "options": [
+                {
+                  "label": "A",
+                  "id": 43828,
+                  "text": "34.0 kJ",
+                  "is_correct": false
+                },
+                {
+                  "label": "B",
+                  "id": 43826,
+                  "text": "30.0 kJ",
+                  "is_correct": true
+                },
+                {
+                  "label": "C",
+                  "id": 43829,
+                  "text": "42.0 kJ",
+                  "is_correct": false
+                },
+                {
+                  "label": "D",
+                  "id": 43827,
+                  "text": "23.0 kJ",
+                  "is_correct": false
+                }
+              ],
+              "correct_option_ids": [
+                43826
+              ],
+              "correct_option_labels": [
+                "B"
+              ],
+              "correct_option_texts": [
+                "30.0 kJ"
+              ],
+              "explanation": "Number of moles of CCl_4 = ${\\frac{{100}}{{154}}}$ = 0.6493 moles.\nHeat required for 0.6493 moles = 19.5kJ\n$\\Rightarrow$ Heat required for 1.00 moles = ${ \\frac{{19.5}}{{0.6493\\;}}}$ = 30.032kJ"
+            },
+            {
+              "questionID": 22158,
+              "question": "Calculate the heat and the work associated with a process in which 5.00 mol of gas expands reversibly at constant temperature $T = 298k$ from a pressure of 10.00 to 1.00 atm",
+              "question_raw": "<p>Calculate the heat and the work associated with a process in which 5.00 mol of gas expands reversibly at constant temperature <span class=\"math-tex\">{tex}T = 298k{/tex}</span>&nbsp;from a pressure of 10.00 to 1.00 atm</p>",
+              "options": [
+                {
+                  "label": "A",
+                  "id": 43833,
+                  "text": "30.5 kJ, -28.5 kJ",
+                  "is_correct": false
+                },
+                {
+                  "label": "B",
+                  "id": 43831,
+                  "text": "27.0 kJ, -28.5 kJ",
+                  "is_correct": false
+                },
+                {
+                  "label": "C",
+                  "id": 43830,
+                  "text": "28.5 kJ, -28.5 kJ",
+                  "is_correct": true
+                },
+                {
+                  "label": "D",
+                  "id": 43832,
+                  "text": "25.5 kJ, -28.5 kJ",
+                  "is_correct": false
+                }
+              ],
+              "correct_option_ids": [
+                43830
+              ],
+              "correct_option_labels": [
+                "C"
+              ],
+              "correct_option_texts": [
+                "28.5 kJ, -28.5 kJ"
+              ],
+              "explanation": "At constant $T , \\frac { P _ { 1 } } { P _ { 2 } } = \\frac { 10 a t m } { 1 a t m } = 10$; n = 5 mol, T = 298K\nThus, work ​​​​​​​$w = - 2.303nRT\\log \\frac{{{P_1}}}{{{P_2}}} = - 2.303 \\times 5 \\times 8.314 \\times 298 \\times \\log 10$$ = - 2.85 \\times {10^4}J = - 28.5kJ$\nHere, heat $\\Delta U = 0 ; \\Rightarrow q = - w = + 28.5 k J$"
+            },
+            {
+              "questionID": 22159,
+              "question": "Suppose 5.00 mol of an ideal monatomic gas at an initial temperature of 298 K and pressure of 10.0 atm is expanded adiabatically and reversibly until the pressure has decreased to 1.00 atm. Calculate the enthalpy change, and the work is done?",
+              "question_raw": "<p>Suppose 5.00 mol of an ideal monatomic gas at an initial temperature of 298 K and pressure of 10.0 atm is expanded adiabatically and reversibly until the pressure has decreased to 1.00 atm. Calculate the enthalpy change, and the work is done?</p>",
+              "options": [
+                {
+                  "label": "A",
+                  "id": 43837,
+                  "text": "-20300 J, -11200 J",
+                  "is_correct": false
+                },
+                {
+                  "label": "B",
+                  "id": 43834,
+                  "text": "-18600 J, -11200 J",
+                  "is_correct": true
+                },
+                {
+                  "label": "C",
+                  "id": 43835,
+                  "text": "-17200 J, -11200 J",
+                  "is_correct": false
+                },
+                {
+                  "label": "D",
+                  "id": 43836,
+                  "text": "-16300 J, -11200 J",
+                  "is_correct": false
+                }
+              ],
+              "correct_option_ids": [
+                43834
+              ],
+              "correct_option_labels": [
+                "B"
+              ],
+              "correct_option_texts": [
+                "-18600 J, -11200 J"
+              ],
+              "explanation": "The initial volume = V_1 = $- \\frac{{nR{T_1}}}{{{P_1}}} = \\frac{{\\left( {5mol} \\right)\\; \\times \\left( {0.08206\\;Latm{K^{ - 1}}mo{l^{ - 1\\;}}} \\right) \\times 298K}}{{10atm}} $ = 12.2 L\nThe heat capacity ratio for a monoatomic gas = $ \\gamma = \\frac{{{C_p}}}{{{C_v}}} = \\frac{{\\frac{5}{2}R}}{{\\frac{3}{2}R}} = \\frac{5}{3}$\nFor reversible adiabatic process = ${\\frac{{{P_1}}}{{{P_2}}}{{\\left( {{V_1}} \\right)}^\\gamma } = {{\\left( {{V_2}} \\right)}^\\gamma }}$\n${ \\Rightarrow \\frac{{10}}{1}{{\\left( {12.2L} \\right)}^{\\frac{{^5}}{3}}} = {{\\left( {{V_2}} \\right)}^{\\frac{5}{3}}}\\;}$\n${ \\Rightarrow {V_2} = \\left( {12.2L} \\right) \\times {{\\left( {10} \\right)}^{\\frac{3}{5}}}\\; = \\;48.7L}$\nFinal temperature can now be calculated from ideal gas law\n${{T_2}\\; = \\frac{{{P_2}{V_2}}}{{nR}} = 119K}$\nNow, work done ${ = \\;w = \\vartriangle U = n{C_v}\\vartriangle T}$\n= 5 $\\times$ (${\\left( {\\frac{3}{2}R} \\right)}$ $\\times$ (119 - 298) = 5 $\\times$ ( ${\\left( {\\frac{3}{2} \\times 8.314} \\right) \\times }$ (119 - 298) = -11200J\nAlso, Enthalpy change = $ \\vartriangle H = n{C_p}\\vartriangle T = 5 \\times \\left( {\\frac{5}{2}R} \\right) \\times$ (119 - 298) ${ = 5 \\times \\left( {\\frac{5}{2} \\times 8.314} \\right) \\times }$ (119 - 298) = - 18600J"
+            }
+          ]
+        }
+      ]
+    }
+  ]
+}

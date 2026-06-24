@@ -1,0 +1,3162 @@
+{
+  "id": 1373,
+  "name": "Relations and Functions",
+  "full_name": "CBSE > Class 11 > Mathematics > Relations and Functions",
+  "tests": [
+    {
+      "testPaperID": 607,
+      "testPaperName": "Relations and Functions Test 01",
+      "is_paid": false,
+      "category_full_name": "CBSE > Class 11 > Mathematics > Relations and Functions",
+      "noOfQuestions": 15,
+      "has_answers": true,
+      "sections": [
+        {
+          "sectionName": "General",
+          "sectionID": null,
+          "questions": [
+            {
+              "questionID": 18392,
+              "question": "The domain of the function $\\sqrt {\\cos x - } 1$ is",
+              "question_raw": "<p>The domain of the function <span class=\"math-tex\">{tex}\\sqrt {\\cos x - } 1{/tex}</span> is</p>",
+              "options": [
+                {
+                  "label": "A",
+                  "id": 28771,
+                  "text": "{n $\\pi $: n $ \\in $ I}",
+                  "is_correct": false
+                },
+                {
+                  "label": "B",
+                  "id": 28770,
+                  "text": "{ }",
+                  "is_correct": false
+                },
+                {
+                  "label": "C",
+                  "id": 28768,
+                  "text": "{2 n $\\pi $: n $ \\in $ I}",
+                  "is_correct": true
+                },
+                {
+                  "label": "D",
+                  "id": 28769,
+                  "text": "R",
+                  "is_correct": false
+                }
+              ],
+              "correct_option_ids": [
+                28768
+              ],
+              "correct_option_labels": [
+                "C"
+              ],
+              "correct_option_texts": [
+                "{2 n $\\pi $: n $ \\in $ I}"
+              ],
+              "explanation": "This function exists only if\nThis function exists only if\n$\\cos x-1 \\geq 0$\n$\\Rightarrow \\cos x \\geq 1$\n$\\Rightarrow \\cos x>1$\nOR\n$\\cos x = 1$ \nsince maximum value of cosine function is 1 so, cos x >1 is not possible\nso, \n $\\cos x = 1$\n$\\cos x=\\cos 2 n \\pi$\n$\\Rightarrow x=2 n \\pi(n \\in I)$"
+            },
+            {
+              "questionID": 18393,
+              "question": "The domain of the function f(x) = $ \\sqrt {\\left| x \\right| - x} $ is",
+              "question_raw": "<p>The domain of the function f(x) =&nbsp;<span class=\"math-tex\">{tex} \\sqrt {\\left| x \\right| - x} {/tex}</span> is</p>",
+              "options": [
+                {
+                  "label": "A",
+                  "id": 28772,
+                  "text": "R",
+                  "is_correct": true
+                },
+                {
+                  "label": "B",
+                  "id": 28774,
+                  "text": "$[0,\\infty )$",
+                  "is_correct": false
+                },
+                {
+                  "label": "C",
+                  "id": 28773,
+                  "text": "$( - \\infty ,0]$",
+                  "is_correct": false
+                },
+                {
+                  "label": "D",
+                  "id": 28775,
+                  "text": "$[0,-\\infty )$",
+                  "is_correct": false
+                }
+              ],
+              "correct_option_ids": [
+                28772
+              ],
+              "correct_option_labels": [
+                "A"
+              ],
+              "correct_option_texts": [
+                "R"
+              ],
+              "explanation": "f(x) = $ \\sqrt {\\left| x \\right| - x} $ \nThis function exists only if |x| - x $ \\ge$ 0\n$ \\Rightarrow $ |x| $ \\ge$ x\n$\\forall $ $x \\in R$ it is true \nSo domain of f(x) is R."
+            },
+            {
+              "questionID": 18394,
+              "question": "The domain of the function f(x) = $ \\sqrt {1 - \\cos x} $ is",
+              "question_raw": "<p>The domain of the function f(x) =&nbsp;<span class=\"math-tex\">{tex} \\sqrt {1 - \\cos x} {/tex}</span> is</p>",
+              "options": [
+                {
+                  "label": "A",
+                  "id": 28776,
+                  "text": "R",
+                  "is_correct": true
+                },
+                {
+                  "label": "B",
+                  "id": 28779,
+                  "text": "$\\{ {\\rm{x }} \\ne {\\rm{ 2 n}}\\pi :{\\rm{ n}} \\in {\\rm{I}}\\} $",
+                  "is_correct": false
+                },
+                {
+                  "label": "C",
+                  "id": 28778,
+                  "text": "$\\{ {\\rm{x }} = {\\rm{ 2 n}}\\pi :{\\rm{ n}} \\in {\\rm{I}}\\} $",
+                  "is_correct": false
+                },
+                {
+                  "label": "D",
+                  "id": 28777,
+                  "text": "$[0,{\\rm{ 2}}\\pi ]$",
+                  "is_correct": false
+                }
+              ],
+              "correct_option_ids": [
+                28776
+              ],
+              "correct_option_labels": [
+                "A"
+              ],
+              "correct_option_texts": [
+                "R"
+              ],
+              "explanation": "This function exists only if\n1 - cos x $\\ge$ 0\n$\\Rightarrow$ cos x $\\le$ 1\nIt is possible $\\forall x \\in R$"
+            },
+            {
+              "questionID": 18395,
+              "question": "The domain of the function f(x) = $\\sqrt {\\sin x - 1} $ is",
+              "question_raw": "<p>The domain of the function f(x) = <span class=\"math-tex\">{tex}\\sqrt {\\sin x - 1} {/tex}</span> is</p>",
+              "options": [
+                {
+                  "label": "A",
+                  "id": 28781,
+                  "text": "$\\left\\{\\frac{\\pi}{2}\\right\\}$",
+                  "is_correct": false
+                },
+                {
+                  "label": "B",
+                  "id": 28783,
+                  "text": "$\\left\\{x \\in R: x=2 n \\pi \\pm \\frac{\\pi}{2}, n \\in I\\right\\}$",
+                  "is_correct": false
+                },
+                {
+                  "label": "C",
+                  "id": 28780,
+                  "text": "$\\left\\{x \\in R: x=2 n \\pi+\\frac{\\pi}{2}, n \\in I\\right\\}$",
+                  "is_correct": true
+                },
+                {
+                  "label": "D",
+                  "id": 28782,
+                  "text": "$ - \\phi $",
+                  "is_correct": false
+                }
+              ],
+              "correct_option_ids": [
+                28780
+              ],
+              "correct_option_labels": [
+                "C"
+              ],
+              "correct_option_texts": [
+                "$\\left\\{x \\in R: x=2 n \\pi+\\frac{\\pi}{2}, n \\in I\\right\\}$"
+              ],
+              "explanation": "This exists only if\nsin x - 1 $\\ge$ 0\nsin x $\\ge$ 1 \nsin x > 1, not possible\n$\\therefore$ sin x = 1\n$\\Rightarrow$ sin x = sin $\\left(2 n \\pi+\\frac{\\pi}{2}\\right)$ \n$\\Rightarrow$ x = $2 n \\pi+\\frac{\\pi}{2}(n \\in I)$"
+            },
+            {
+              "questionID": 18396,
+              "question": "Let x be any real, then [x + y] = [x] + [y] holds for",
+              "question_raw": "<p>Let x be any real, then [x + y] = [x] + [y] holds for</p>\r\n",
+              "options": [
+                {
+                  "label": "A",
+                  "id": 28784,
+                  "text": "y $ \\in $ I",
+                  "is_correct": true
+                },
+                {
+                  "label": "B",
+                  "id": 28787,
+                  "text": "y $ \\in $ R, y $ \\in $ Q",
+                  "is_correct": false
+                },
+                {
+                  "label": "C",
+                  "id": 28785,
+                  "text": "y $ \\in $ R",
+                  "is_correct": false
+                },
+                {
+                  "label": "D",
+                  "id": 28786,
+                  "text": "y $ \\in $ Q",
+                  "is_correct": false
+                }
+              ],
+              "correct_option_ids": [
+                28784
+              ],
+              "correct_option_labels": [
+                "A"
+              ],
+              "correct_option_texts": [
+                "y $ \\in $ I"
+              ],
+              "explanation": "[x] = x $\\forall$ x $\\in$ I\nSo,\n[x + y] = [x] + [y] only if x and y $\\in$ I"
+            },
+            {
+              "questionID": 18397,
+              "question": "The function f(x) = x + cos x",
+              "question_raw": "<p>The function f(x) = x + cos x</p>",
+              "options": [
+                {
+                  "label": "A",
+                  "id": 28791,
+                  "text": "none of tis defined for all imaginary",
+                  "is_correct": false
+                },
+                {
+                  "label": "B",
+                  "id": 28790,
+                  "text": "assumes only negative values",
+                  "is_correct": false
+                },
+                {
+                  "label": "C",
+                  "id": 28788,
+                  "text": "is defined for all reals",
+                  "is_correct": true
+                },
+                {
+                  "label": "D",
+                  "id": 28789,
+                  "text": "assumes only positive values",
+                  "is_correct": false
+                }
+              ],
+              "correct_option_ids": [
+                28788
+              ],
+              "correct_option_labels": [
+                "C"
+              ],
+              "correct_option_texts": [
+                "is defined for all reals"
+              ],
+              "explanation": "f(x) = x; g(x) = cos x \nD_f = R\nD_g = R\nD_f+g = D_f $\\cap$ D_g\nSo,\nD_f+g = R\nSo given function is defined for all reals."
+            },
+            {
+              "questionID": 18398,
+              "question": "If f(x) = $\\frac{1}{\\sqrt{x-|x|}}$, then D_f is equal to",
+              "question_raw": "<p>If f(x) =&nbsp;<span class=\"math-tex\">{tex}\\frac{1}{\\sqrt{x-|x|}}{/tex}</span>,&nbsp;then D<sub>f</sub> is equal to</p>",
+              "options": [
+                {
+                  "label": "A",
+                  "id": 28793,
+                  "text": "$(0,\\infty )$",
+                  "is_correct": false
+                },
+                {
+                  "label": "B",
+                  "id": 28792,
+                  "text": "$\\phi $",
+                  "is_correct": true
+                },
+                {
+                  "label": "C",
+                  "id": 28794,
+                  "text": "$( - \\infty ,{\\rm{ }}0)$",
+                  "is_correct": false
+                },
+                {
+                  "label": "D",
+                  "id": 28795,
+                  "text": "R",
+                  "is_correct": false
+                }
+              ],
+              "correct_option_ids": [
+                28792
+              ],
+              "correct_option_labels": [
+                "B"
+              ],
+              "correct_option_texts": [
+                "$\\phi $"
+              ],
+              "explanation": "This function is defined only if \nx - |x| > 0\n$\\Rightarrow$ x > |x|\nWhich is not possible because\n|x| $\\ge$ x\nso, $x \\in \\phi $"
+            },
+            {
+              "questionID": 18399,
+              "question": "If f(x) = tan x, $-\\frac{\\pi}{2}<x<\\frac{\\pi}{2}$ and g(x) = $\\sqrt{3-x^2}$, then domain of the function gof is",
+              "question_raw": "<p>If f(x) = tan x, <span class=\"math-tex\">{tex}-\\frac{\\pi}{2}&lt;x&lt;\\frac{\\pi}{2}{/tex}</span> and g(x) = <span class=\"math-tex\">{tex}\\sqrt{3-x^2}{/tex}</span>, then domain of the function gof is</p>",
+              "options": [
+                {
+                  "label": "A",
+                  "id": 28798,
+                  "text": "$\\left(-\\frac{\\pi}{3}, -\\frac{\\pi}{3}\\right)$",
+                  "is_correct": false
+                },
+                {
+                  "label": "B",
+                  "id": 28796,
+                  "text": "$\\left[-\\frac{\\pi}{3}, \\frac{\\pi}{3}\\right]$",
+                  "is_correct": true
+                },
+                {
+                  "label": "C",
+                  "id": 28799,
+                  "text": "$\\left(-\\frac{\\pi}{3}, \\frac{\\pi}{3}\\right)$",
+                  "is_correct": false
+                },
+                {
+                  "label": "D",
+                  "id": 28797,
+                  "text": "$\\left(-\\frac{\\pi}{2}, \\frac{\\pi}{2}\\right)$",
+                  "is_correct": false
+                }
+              ],
+              "correct_option_ids": [
+                28796
+              ],
+              "correct_option_labels": [
+                "B"
+              ],
+              "correct_option_texts": [
+                "$\\left[-\\frac{\\pi}{3}, \\frac{\\pi}{3}\\right]$"
+              ],
+              "explanation": "gof(x) = g(f(x))\nWhich is defined only if\n3 - tan^2 x $\\geq$ 0\n$\\Rightarrow$ 3 $\\geq$ tan^2 x\n$\\Rightarrow$ -$\\sqrt{3}$ $\\leq$ tan x $\\leq$ $\\sqrt{3}$ \n$\\Rightarrow$ $-\\frac{\\pi}{3} \\leq x \\leq \\frac{\\pi}{3}$ \nSo domain of gof is $\\left[ { - \\frac{\\pi }{3},\\frac{\\pi }{3}} \\right]$"
+            },
+            {
+              "questionID": 18400,
+              "question": "If f (x) = tan x, $-\\frac{\\pi}{2}<x<\\frac{\\pi}{2}$ and g (x) = $\\sqrt {1 - {x^2}} $ , then domain of fog is",
+              "question_raw": "<p>If f (x) = tan x, <span class=\"math-tex\">{tex}-\\frac{\\pi}{2}&lt;x&lt;\\frac{\\pi}{2}{/tex}</span> and g (x) = <span class=\"math-tex\">{tex}\\sqrt {1 - {x^2}} {/tex}</span> , then domain of fog is</p>",
+              "options": [
+                {
+                  "label": "A",
+                  "id": 28803,
+                  "text": "$\\left[-\\frac{\\pi}{4}, \\frac{\\pi}{4}\\right]$",
+                  "is_correct": false
+                },
+                {
+                  "label": "B",
+                  "id": 28802,
+                  "text": "(- 1, 1)",
+                  "is_correct": false
+                },
+                {
+                  "label": "C",
+                  "id": 28801,
+                  "text": "$\\left(-\\frac{\\pi}{2}, \\frac{\\pi}{2}\\right)$",
+                  "is_correct": false
+                },
+                {
+                  "label": "D",
+                  "id": 28800,
+                  "text": "[- 1, 1]",
+                  "is_correct": true
+                }
+              ],
+              "correct_option_ids": [
+                28800
+              ],
+              "correct_option_labels": [
+                "D"
+              ],
+              "correct_option_texts": [
+                "[- 1, 1]"
+              ],
+              "explanation": "fog(x) = f(g(x)) = $f(\\sqrt{1-x^{2}})$\n$\\Rightarrow$ fog(x) = tan $\\sqrt{1-x^{2}}$\nand it is defined if\n1 - x^2 $\\geq$ 0\n$\\Rightarrow$ x^2 $\\leq$ 1\n$\\Rightarrow$ -1 $\\leq$ x $\\leq$ 1"
+            },
+            {
+              "questionID": 18401,
+              "question": "If f(x) =$\\sqrt { - x} $, then domain of fof is",
+              "question_raw": "<p>If f(x) =<span class=\"math-tex\">{tex}\\sqrt { - x} {/tex}</span>, then domain of fof is</p>",
+              "options": [
+                {
+                  "label": "A",
+                  "id": 28805,
+                  "text": "$( - \\infty ,{\\rm{ }}0)$",
+                  "is_correct": false
+                },
+                {
+                  "label": "B",
+                  "id": 28804,
+                  "text": "none of these",
+                  "is_correct": true
+                },
+                {
+                  "label": "C",
+                  "id": 28807,
+                  "text": "$( - \\infty ,\\infty )$",
+                  "is_correct": false
+                },
+                {
+                  "label": "D",
+                  "id": 28806,
+                  "text": "$({\\rm{ }}0,\\infty )$",
+                  "is_correct": false
+                }
+              ],
+              "correct_option_ids": [
+                28804
+              ],
+              "correct_option_labels": [
+                "B"
+              ],
+              "correct_option_texts": [
+                "none of these"
+              ],
+              "explanation": "$\\sqrt {f(x)} $ is defined only if\nf(x) will be non negative.\nHence $ \\sqrt { - f(x)} {\\rm{ }}$is defined only for 0."
+            },
+            {
+              "questionID": 18402,
+              "question": "If y = tan $\\sqrt {{\\frac \\pi 9} - {x^2}} $ then",
+              "question_raw": "<p>If y = tan <span class=\"math-tex\">{tex}\\sqrt {{\\frac \\pi 9} - {x^2}} {/tex}</span> then</p>",
+              "options": [
+                {
+                  "label": "A",
+                  "id": 28809,
+                  "text": "$ - \\sqrt 3 \\le y \\le \\sqrt 3 $",
+                  "is_correct": false
+                },
+                {
+                  "label": "B",
+                  "id": 28811,
+                  "text": "$-3 \\le y \\le 3$",
+                  "is_correct": false
+                },
+                {
+                  "label": "C",
+                  "id": 28808,
+                  "text": "$0 \\leq y \\leq \\sqrt 3 $",
+                  "is_correct": true
+                },
+                {
+                  "label": "D",
+                  "id": 28810,
+                  "text": "$0 \\le y \\le 3$",
+                  "is_correct": false
+                }
+              ],
+              "correct_option_ids": [
+                28808
+              ],
+              "correct_option_labels": [
+                "C"
+              ],
+              "correct_option_texts": [
+                "$0 \\leq y \\leq \\sqrt 3 $"
+              ],
+              "explanation": "Let $z = \\sqrt {\\frac{\\pi }{9} - {x^2}} $ and it is defined if \n$\\frac{\\pi}{9}-x^{2} \\geq 0$ \n$\\Rightarrow$ x^2 $\\leq$ $\\frac{\\pi}{9}$ \n$\\therefore 0 \\leq z \\leq \\frac{\\pi }{3}$ \n$\\therefore 0 \\leq \\tan z \\leq \\sqrt 3 $"
+            },
+            {
+              "questionID": 18403,
+              "question": "The interval in which the values of f(x) lie where f(x) = 3 sin $\\sqrt{\\frac{\\pi^2}{16}-x^2}$ is",
+              "question_raw": "<p>The interval in which the values of f(x) lie where f(x) = 3 sin <span class=\"math-tex\">{tex}\\sqrt{\\frac{\\pi^2}{16}-x^2}{/tex}</span> is</p>",
+              "options": [
+                {
+                  "label": "A",
+                  "id": 28813,
+                  "text": "[-3, 3]",
+                  "is_correct": false
+                },
+                {
+                  "label": "B",
+                  "id": 28815,
+                  "text": "$\\left[\\frac{\\pi}{4}, -\\frac{\\pi}{4}\\right]$",
+                  "is_correct": false
+                },
+                {
+                  "label": "C",
+                  "id": 28812,
+                  "text": "$\\left[0, \\frac{3}{\\sqrt{2}}\\right]$",
+                  "is_correct": true
+                },
+                {
+                  "label": "D",
+                  "id": 28814,
+                  "text": "$\\left[-\\frac{\\pi}{4}, \\frac{\\pi}{4}\\right]$",
+                  "is_correct": false
+                }
+              ],
+              "correct_option_ids": [
+                28812
+              ],
+              "correct_option_labels": [
+                "C"
+              ],
+              "correct_option_texts": [
+                "$\\left[0, \\frac{3}{\\sqrt{2}}\\right]$"
+              ],
+              "explanation": "z = $\\sqrt{\\frac{\\pi^{2}}{16}-x^{2}}$ \n$\\therefore$ $0 \\leq z \\leq \\frac{\\pi}{4}$ \n$\\therefore$ 0 $\\leq$ sin z $\\leq$ $\\frac{1}{\\sqrt{2}}$ \n0 $\\leq$ 3 sin z $\\leq$ $\\frac{3}{\\sqrt{2}}$"
+            },
+            {
+              "questionID": 18404,
+              "question": "The range of the function f(x) = $\\frac{x^2-3 x+2}{x^2+x-6}$ is",
+              "question_raw": "<p>The range of the function f(x) =&nbsp;<span class=\"math-tex\">{tex}\\frac{x^2-3 x+2}{x^2+x-6}{/tex}</span> is</p>",
+              "options": [
+                {
+                  "label": "A",
+                  "id": 28817,
+                  "text": "R – {1}",
+                  "is_correct": false
+                },
+                {
+                  "label": "B",
+                  "id": 28818,
+                  "text": "R",
+                  "is_correct": false
+                },
+                {
+                  "label": "C",
+                  "id": 28816,
+                  "text": "$R-\\left\\{1, \\frac{1}{5}\\right\\}$",
+                  "is_correct": true
+                },
+                {
+                  "label": "D",
+                  "id": 28819,
+                  "text": "${\\bf{R}} - \\left\\{ {{\\frac 1 5}} \\right\\}$",
+                  "is_correct": false
+                }
+              ],
+              "correct_option_ids": [
+                28816
+              ],
+              "correct_option_labels": [
+                "C"
+              ],
+              "correct_option_texts": [
+                "$R-\\left\\{1, \\frac{1}{5}\\right\\}$"
+              ],
+              "explanation": "Let, y = $\\frac{x^{2}-3 x+2}{x^{2}+x-6}$ \n$\\Rightarrow$ y(x^2 + x - 6) = x^2 - 3x + 2\n$\\Rightarrow$ (y - 1)x^2 + (y + 3)x - 6y - 2 = 0\nx = $\\frac{-b \\pm \\sqrt{b^{2}-4 a c}}{2 a}$ \n$\\Rightarrow$ x = $\\frac{-(y+3) \\pm \\sqrt{(y+3)^{2}-4(y-1)(-6 y-2)}}{2(y-1)}$ \n$\\Rightarrow$ x = $\\frac{-(y+3) \\pm \\sqrt{25 y^{2}-10 y+1}}{2(y-1)}$\nNow for x to be defined, y - 1 $\\ne$ 0 $\\Rightarrow$ y $\\ne$ 1\nAlso, \n25y^2 - 10y + 1 $\\ge$ 0\n$\\Rightarrow$ (5y - 1)^2 $\\ge$ 0\nBut domain of f(x): x $\\ne$ 2, -3\nBut, \nWhen, y = $\\frac{1}{5}$, x = 2\nSo, range = R - {1, $\\frac{1}{5}$}"
+            },
+            {
+              "questionID": 18405,
+              "question": "If f(x) = log$\\left(\\frac{1+x}{1-x}\\right)$, then $f\\left(\\frac{2 x}{1+x^2}\\right)$ is equal to",
+              "question_raw": "<p>If f(x) = log<span class=\"math-tex\">{tex}\\left(\\frac{1+x}{1-x}\\right){/tex}</span>, then <span class=\"math-tex\">{tex}f\\left(\\frac{2 x}{1+x^2}\\right){/tex}</span> is equal to</p>",
+              "options": [
+                {
+                  "label": "A",
+                  "id": 28822,
+                  "text": "4f(x)",
+                  "is_correct": false
+                },
+                {
+                  "label": "B",
+                  "id": 28820,
+                  "text": "2f(x)",
+                  "is_correct": true
+                },
+                {
+                  "label": "C",
+                  "id": 28821,
+                  "text": "f(x)",
+                  "is_correct": false
+                },
+                {
+                  "label": "D",
+                  "id": 28823,
+                  "text": "$\\frac {f(x)}{2}$",
+                  "is_correct": false
+                }
+              ],
+              "correct_option_ids": [
+                28820
+              ],
+              "correct_option_labels": [
+                "B"
+              ],
+              "correct_option_texts": [
+                "2f(x)"
+              ],
+              "explanation": "f(x) = $\\log \\left(\\frac{1+x}{1-x}\\right)$\n$f\\left(\\frac{2 x}{1+x^2}\\right)=\\log \\left(\\frac{1+\\frac{2 x}{1+x^2}}{1-\\frac{2 x}{1+x^2}}\\right)$\n$=\\log \\left(\\frac{1+x^2+2 x}{1+x^2-2 x}\\right)=\\log \\left(\\frac{1+x}{1-x}\\right)^2$\n$=2 \\log \\left(\\frac{1+x}{1-x}\\right)=2 f(x)$"
+            },
+            {
+              "questionID": 18406,
+              "question": "If f(x) = $\\frac{|x|}{x} ; x \\neq 0$ then f(x) - f(-x) is equal to",
+              "question_raw": "<p>If f(x) =&nbsp;<span class=\"math-tex\">{tex}\\frac{|x|}{x} ; x \\neq 0{/tex}</span> then f(x) -&nbsp;f(-x)&nbsp;is equal to</p>",
+              "options": [
+                {
+                  "label": "A",
+                  "id": 28824,
+                  "text": "2",
+                  "is_correct": true
+                },
+                {
+                  "label": "B",
+                  "id": 28825,
+                  "text": "0",
+                  "is_correct": false
+                },
+                {
+                  "label": "C",
+                  "id": 28826,
+                  "text": "1",
+                  "is_correct": false
+                },
+                {
+                  "label": "D",
+                  "id": 28827,
+                  "text": "-1",
+                  "is_correct": false
+                }
+              ],
+              "correct_option_ids": [
+                28824
+              ],
+              "correct_option_labels": [
+                "A"
+              ],
+              "correct_option_texts": [
+                "2"
+              ],
+              "explanation": "f(x) = $\\frac{|x|}{x}$ = $\\frac{x}{x}$ = 1 \nf(-x) = $\\frac{|-x|}{-x}$ = $\\frac{x}{-x}$ = -1\nf(x) - f(-x) = 1 - (-1) = 1 + 1 = 2"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "testPaperID": 608,
+      "testPaperName": "Relations and Functions Test 02",
+      "is_paid": true,
+      "category_full_name": "CBSE > Class 11 > Mathematics > Relations and Functions",
+      "noOfQuestions": 15,
+      "has_answers": true,
+      "sections": [
+        {
+          "sectionName": "General",
+          "sectionID": null,
+          "questions": [
+            {
+              "questionID": 18407,
+              "question": "Which of the following functions is not one-one?",
+              "question_raw": "<p>Which of the following functions is not one-one?</p>",
+              "options": [
+                {
+                  "label": "A",
+                  "id": 28830,
+                  "text": "$\\frac{3 - x}{3 + x}$",
+                  "is_correct": false
+                },
+                {
+                  "label": "B",
+                  "id": 28829,
+                  "text": "$\\sqrt x $",
+                  "is_correct": false
+                },
+                {
+                  "label": "C",
+                  "id": 28831,
+                  "text": "$\\frac{3 + x}{3 - x}$",
+                  "is_correct": false
+                },
+                {
+                  "label": "D",
+                  "id": 28828,
+                  "text": "x^2 + 1",
+                  "is_correct": true
+                }
+              ],
+              "correct_option_ids": [
+                28828
+              ],
+              "correct_option_labels": [
+                "D"
+              ],
+              "correct_option_texts": [
+                "x^2 + 1"
+              ],
+              "explanation": "Here the image of 1 is 2 and the image of -1 is 2, therefore function is not one-one."
+            },
+            {
+              "questionID": 18408,
+              "question": "If f (x) = $\\begin{array}{l}\\{\\;2x\\;-3,\\;x\\geq2\\\\\\;\\;x,\\;x<2\\end{array}$ then f (1) is equal to",
+              "question_raw": "<p>If f (x) = <span class=\"math-tex\">{tex}\\begin{array}{l}\\{\\;2x\\;-3,\\;x\\geq2\\\\\\;\\;x,\\;x&lt;2\\end{array}{/tex}</span> then f (1) is equal to</p>",
+              "options": [
+                {
+                  "label": "A",
+                  "id": 28833,
+                  "text": "2 f (2)",
+                  "is_correct": false
+                },
+                {
+                  "label": "B",
+                  "id": 28835,
+                  "text": "$\\frac{1}{2}f(2)$",
+                  "is_correct": false
+                },
+                {
+                  "label": "C",
+                  "id": 28834,
+                  "text": "- f (2)",
+                  "is_correct": true
+                },
+                {
+                  "label": "D",
+                  "id": 28832,
+                  "text": "$f(1)$",
+                  "is_correct": false
+                }
+              ],
+              "correct_option_ids": [
+                28834
+              ],
+              "correct_option_labels": [
+                "C"
+              ],
+              "correct_option_texts": [
+                "- f (2)"
+              ],
+              "explanation": "We have f(1) = 1(as 1 < 2)\nf(2) = 2.2 - 3 = 1\n$\\therefore$ f(1) = f(2)"
+            },
+            {
+              "questionID": 18409,
+              "question": "The domain of the real-valued function $f(x)=\\frac{(x-3)(x-1)}{\\sqrt{x^2-4}}$ is",
+              "question_raw": "<p>The domain of the real-valued function <span class=\"math-tex\">{tex}f(x)=\\frac{(x-3)(x-1)}{\\sqrt{x^2-4}}{/tex}</span> is</p>",
+              "options": [
+                {
+                  "label": "A",
+                  "id": 28838,
+                  "text": "(-$\\infty $, - 2) $ \\cup $ ( 1, $\\infty $)",
+                  "is_correct": false
+                },
+                {
+                  "label": "B",
+                  "id": 28839,
+                  "text": "(-$\\infty $, - 1) $ \\cup $ ( 1, $\\infty $).",
+                  "is_correct": false
+                },
+                {
+                  "label": "C",
+                  "id": 28836,
+                  "text": "(-$\\infty $, - 2) $ \\cup $ (2, $\\infty $)",
+                  "is_correct": true
+                },
+                {
+                  "label": "D",
+                  "id": 28837,
+                  "text": "(1, 2)",
+                  "is_correct": false
+                }
+              ],
+              "correct_option_ids": [
+                28836
+              ],
+              "correct_option_labels": [
+                "C"
+              ],
+              "correct_option_texts": [
+                "(-$\\infty $, - 2) $ \\cup $ (2, $\\infty $)"
+              ],
+              "explanation": "For f(x) to be real, we much have,\n${{x^2}\\; - \\;4\\; > 0}$ \n${ \\Rightarrow (x - 2)(x + 2) > 0}$ \n${ \\Rightarrow - \\infty < - 2\\;or\\;2 < x < \\infty }$ \n$\\therefore$ Domain ${ = \\;( - \\infty , - 2) \\cup (2,\\infty )}$ ($\\infty$ means infinity)"
+            },
+            {
+              "questionID": 18410,
+              "question": "A condition for a function y = f(x) to have an inverse is that it should be,",
+              "question_raw": "<p>A condition for a function y = f(x) to have an inverse is that it should be,&nbsp;</p>",
+              "options": [
+                {
+                  "label": "A",
+                  "id": 28841,
+                  "text": "continuous every where",
+                  "is_correct": false
+                },
+                {
+                  "label": "B",
+                  "id": 28840,
+                  "text": "strictly monotone and continuous in the domain",
+                  "is_correct": true
+                },
+                {
+                  "label": "C",
+                  "id": 28843,
+                  "text": "defined for all x",
+                  "is_correct": false
+                },
+                {
+                  "label": "D",
+                  "id": 28842,
+                  "text": "an even function",
+                  "is_correct": false
+                }
+              ],
+              "correct_option_ids": [
+                28840
+              ],
+              "correct_option_labels": [
+                "B"
+              ],
+              "correct_option_texts": [
+                "strictly monotone and continuous in the domain"
+              ],
+              "explanation": "By theorem, A continuous and strictly monotonic function is invertible and the inverse function is also continuous."
+            },
+            {
+              "questionID": 18411,
+              "question": "Find the number of injective functions from set A with elements to set B with 4 elements.",
+              "question_raw": "<p>Find the number&nbsp;of injective functions from set A with elements to set B with 4 elements.</p>",
+              "options": [
+                {
+                  "label": "A",
+                  "id": 28844,
+                  "text": "24",
+                  "is_correct": true
+                },
+                {
+                  "label": "B",
+                  "id": 28846,
+                  "text": "144",
+                  "is_correct": false
+                },
+                {
+                  "label": "C",
+                  "id": 28847,
+                  "text": "64",
+                  "is_correct": false
+                },
+                {
+                  "label": "D",
+                  "id": 28845,
+                  "text": "12",
+                  "is_correct": false
+                }
+              ],
+              "correct_option_ids": [
+                28844
+              ],
+              "correct_option_labels": [
+                "A"
+              ],
+              "correct_option_texts": [
+                "24"
+              ],
+              "explanation": "We know that if A and B are two sets having m and n elements respectively such that ${m \\leqslant n,}$ then total number of injective from A to B is ${^n{{\\text{C}}_{\\text{m}}} \\times {\\text{m}}!}$ \nHere, n = 4, m = 3\n$\\therefore$ no. of injective =$ {\\;^4}{{\\text{C}}_3}\\; \\times 3! = \\;4 \\times 6 $ = 24"
+            },
+            {
+              "questionID": 18412,
+              "question": "The range of the function f(x) = $\\frac{x^2-x+1}{x^2+x+1}$ is",
+              "question_raw": "<p>The range of the function f(x) =&nbsp;<span class=\"math-tex\">{tex}\\frac{x^2-x+1}{x^2+x+1}{/tex}</span> is</p>",
+              "options": [
+                {
+                  "label": "A",
+                  "id": 28850,
+                  "text": "R",
+                  "is_correct": false
+                },
+                {
+                  "label": "B",
+                  "id": 28851,
+                  "text": "[-3, $\\infty $)",
+                  "is_correct": false
+                },
+                {
+                  "label": "C",
+                  "id": 28849,
+                  "text": "[3, $\\infty $)",
+                  "is_correct": false
+                },
+                {
+                  "label": "D",
+                  "id": 28848,
+                  "text": "$\\left[\\frac{1}{3}, 3\\right]$",
+                  "is_correct": true
+                }
+              ],
+              "correct_option_ids": [
+                28848
+              ],
+              "correct_option_labels": [
+                "D"
+              ],
+              "correct_option_texts": [
+                "$\\left[\\frac{1}{3}, 3\\right]$"
+              ],
+              "explanation": "Let y = $ \\;\\frac{{{{\\text{x}}^2} - {\\text{x}} + 1}}{{{{\\text{x}}^2} + {\\text{x}} + 1}}$ \n$\\Rightarrow$ y (x^2 + x + 1) = x^2 - x + 1 \n$\\Rightarrow $ (y - 1)x^2 + (y + 1)x + y - 1 = 0\nFor x to be real, we must have\n(y + 1)^2 - 4(y - 1)^2 $\\ge$ 0 (Discriminant = b^2 - 4ac) \n$\\Rightarrow$ -3y^2 + 10y - 3 $\\ge$ 0 $\\Rightarrow$ 3y^2 - 10y + 3 $\\le$ 0\n$\\Rightarrow$ (3y - 1)(y - 3) $\\le$ 0\n$\\Rightarrow$ $\\frac{1}{3} \\leq y \\leq 3$ $\\Rightarrow$ y $\\in$ $\\left[\\frac{1}{3}, 3\\right]$ \n$\\therefore$ Range ${ = \\left[ {\\frac{1}{3},\\;3} \\right]}$"
+            },
+            {
+              "questionID": 18413,
+              "question": "On the set Z of all integers define f : Z $ \\to $ Z as follows : f(x) = $\\frac{x}{2}$ if x is even, and f(x) = 0 if x is odd, then f is",
+              "question_raw": "<p>On the set Z of all integers define f :&nbsp;Z <span class=\"math-tex\">{tex} \\to {/tex}</span> Z as follows : f(x) = <span class=\"math-tex\">{tex}\\frac{x}{2}{/tex}</span>&nbsp;if x is even, and f(x) = 0 if x is odd, then f is</p>",
+              "options": [
+                {
+                  "label": "A",
+                  "id": 28854,
+                  "text": "one-one but not onto",
+                  "is_correct": false
+                },
+                {
+                  "label": "B",
+                  "id": 28853,
+                  "text": "one-one and onto",
+                  "is_correct": false
+                },
+                {
+                  "label": "C",
+                  "id": 28855,
+                  "text": "into",
+                  "is_correct": false
+                },
+                {
+                  "label": "D",
+                  "id": 28852,
+                  "text": "onto but not one-one",
+                  "is_correct": true
+                }
+              ],
+              "correct_option_ids": [
+                28852
+              ],
+              "correct_option_labels": [
+                "D"
+              ],
+              "correct_option_texts": [
+                "onto but not one-one"
+              ],
+              "explanation": "we have, f : z $\\rightarrow$ z defined by,\n${\\left\\{ {\\begin{array}{*{20}{l}} {\\frac{x}{2},\\;if\\;x\\;is\\;even} \\\\ {0,\\;if\\;x\\;is\\;odd} \\end{array}} \\right.}$ \nOne - One: - Here f(1) = 0, f(3) = 0\n$\\therefore$ 1 $\\ne$ 3 $\\Rightarrow$ f(1) = f(3)\nf is one - one.\nOnto: Let ${y \\in z}$ be arbitrary\nIf y is even then there exists an even number ${2y \\in z}$ such that\nf(2y) = $ \\frac{{2y}}{2} $ = y\nIf y is odd then there exists an even number ${2y \\in z}$ such that\nf(2y) = $\\frac{{2y}}{2}$ = y \nf is onto."
+            },
+            {
+              "questionID": 18414,
+              "question": "Let f : R $ \\to $ R be defined by f(x) = 3x – 4, then f^-1(x) is equal to",
+              "question_raw": "<p>Let f : R <span class=\"math-tex\">{tex} \\to {/tex}</span> R be defined by f(x) = 3x &ndash; 4, then f<sup>-1</sup>(x) is equal to</p>",
+              "options": [
+                {
+                  "label": "A",
+                  "id": 28859,
+                  "text": "3x - 4",
+                  "is_correct": false
+                },
+                {
+                  "label": "B",
+                  "id": 28856,
+                  "text": "$\\frac{x + 4}{3}$",
+                  "is_correct": true
+                },
+                {
+                  "label": "C",
+                  "id": 28857,
+                  "text": "$\\frac{x}{3} - 4$",
+                  "is_correct": false
+                },
+                {
+                  "label": "D",
+                  "id": 28858,
+                  "text": "3x + 4",
+                  "is_correct": false
+                }
+              ],
+              "correct_option_ids": [
+                28856
+              ],
+              "correct_option_labels": [
+                "B"
+              ],
+              "correct_option_texts": [
+                "$\\frac{x + 4}{3}$"
+              ],
+              "explanation": "Let y = f(x) = 3x - 4, then\ny = 3x - 4\n$\\Rightarrow$ x = $\\frac{y+4}{3}$ \n$\\Rightarrow$ f^-1(y) = $\\frac{y+4}{3}$ \n$\\Rightarrow$ f^-1 (x) = $\\frac{x+4}{3}$"
+            },
+            {
+              "questionID": 18415,
+              "question": "The number of bijective functions from the set A to itself when A constrains 106 elements is",
+              "question_raw": "<p>The number of bijective functions from the set A to itself when A constrains 106 elements is</p>",
+              "options": [
+                {
+                  "label": "A",
+                  "id": 28860,
+                  "text": "$\\left| \\!{\\underline {\\, {106} \\,}} \\right. $",
+                  "is_correct": true
+                },
+                {
+                  "label": "B",
+                  "id": 28861,
+                  "text": "(106)^2",
+                  "is_correct": false
+                },
+                {
+                  "label": "C",
+                  "id": 28863,
+                  "text": "2^106",
+                  "is_correct": false
+                },
+                {
+                  "label": "D",
+                  "id": 28862,
+                  "text": "106",
+                  "is_correct": false
+                }
+              ],
+              "correct_option_ids": [
+                28860
+              ],
+              "correct_option_labels": [
+                "A"
+              ],
+              "correct_option_texts": [
+                "$\\left| \\!{\\underline {\\, {106} \\,}} \\right. $"
+              ],
+              "explanation": "If x and y are any two infinite sets having the same number if elements say, then the number of injective function from x to y is 106!."
+            },
+            {
+              "questionID": 18416,
+              "question": "In the set W of whole numbers an equivalence relation R defined as follow : aRb iff both a and b leave same remainder when divided by 5. The equivalence class of 1 is given by",
+              "question_raw": "<p>In the set W of whole numbers an equivalence relation R defined as follow : aRb iff both a and b leave same remainder when divided by 5. The equivalence class of 1 is given by</p>",
+              "options": [
+                {
+                  "label": "A",
+                  "id": 28866,
+                  "text": "{2, 7, 12, 17…}",
+                  "is_correct": false
+                },
+                {
+                  "label": "B",
+                  "id": 28864,
+                  "text": "{1, 6, 11, 16, ….}",
+                  "is_correct": true
+                },
+                {
+                  "label": "C",
+                  "id": 28865,
+                  "text": "{0, 5, 10, 15,…}",
+                  "is_correct": false
+                },
+                {
+                  "label": "D",
+                  "id": 28867,
+                  "text": "{4, 9, 14, 19, …}.",
+                  "is_correct": false
+                }
+              ],
+              "correct_option_ids": [
+                28864
+              ],
+              "correct_option_labels": [
+                "B"
+              ],
+              "correct_option_texts": [
+                "{1, 6, 11, 16, ….}"
+              ],
+              "explanation": "Here, R on w is defined by,\nR = {(a, b) : a and b leave same remainder when divided by 5}\n$\\therefore$ Equivalence of 1 is,\n[1] = { x$ \\in$ w : x leave same remainder when divided by 5}\n= { x $ \\in$ w : x leaves remainder 1 when divided by 5} [$\\therefore$ 1 leaves remainder 1 when divided by 5]\n= {1, 6, 11, 16......}"
+            },
+            {
+              "questionID": 18417,
+              "question": "If f(x) = $\\frac{x-1}{x+1}$ then $\\left(f \\frac{1}{f(x)}\\right)$ equals",
+              "question_raw": "<p>If f(x) =&nbsp;<span class=\"math-tex\">{tex}\\frac{x-1}{x+1}{/tex}</span> then <span class=\"math-tex\">{tex}\\left(f \\frac{1}{f(x)}\\right){/tex}</span>&nbsp;equals</p>",
+              "options": [
+                {
+                  "label": "A",
+                  "id": 28869,
+                  "text": "1",
+                  "is_correct": false
+                },
+                {
+                  "label": "B",
+                  "id": 28870,
+                  "text": "x",
+                  "is_correct": false
+                },
+                {
+                  "label": "C",
+                  "id": 28868,
+                  "text": "$\\frac 1 x$",
+                  "is_correct": true
+                },
+                {
+                  "label": "D",
+                  "id": 28871,
+                  "text": "0",
+                  "is_correct": false
+                }
+              ],
+              "correct_option_ids": [
+                28868
+              ],
+              "correct_option_labels": [
+                "C"
+              ],
+              "correct_option_texts": [
+                "$\\frac 1 x$"
+              ],
+              "explanation": "We have ${f(x) = \\frac{{x - 1}}{{x + 1}}}$ then\n$f\\left( {\\frac{1}{{f(x)}}} \\right)$ = $\\frac{\\frac{1}{f(x)}-1}{\\frac{1}{f(x)}+1}$ = $\\frac{1-f(x)}{1+f(x)}$ \n=$\\frac{{1 - \\frac{{x - 1}}{{x + 1}}}}{{1 + \\frac{{x - 1}}{{x + 1}}}}$ = $\\frac{x+1-x+1}{x+1+x-1}$ = $\\frac{2}{2 x}$ = $\\frac{1}{x}$"
+            },
+            {
+              "questionID": 18418,
+              "question": "If $A = \\{ (x,y):{x^2} + {y^2} = 25\\} $ and $B = \\{ (x,y):{x^2} + 9{y^2} + {y^2} = 144\\} ,$ then $A \\cap B$ contains",
+              "question_raw": "<p>If <span class=\"math-tex\">{tex}A = \\{ (x,y):{x^2} + {y^2} = 25\\} {/tex}</span> and <span class=\"math-tex\">{tex}B = \\{ (x,y):{x^2} + 9{y^2} + {y^2} = 144\\} ,{/tex}</span> then <span class=\"math-tex\">{tex}A \\cap B{/tex}</span> contains</p>\r\n",
+              "options": [
+                {
+                  "label": "A",
+                  "id": 28875,
+                  "text": "three points",
+                  "is_correct": false
+                },
+                {
+                  "label": "B",
+                  "id": 28874,
+                  "text": "two points",
+                  "is_correct": false
+                },
+                {
+                  "label": "C",
+                  "id": 28872,
+                  "text": "four points",
+                  "is_correct": true
+                },
+                {
+                  "label": "D",
+                  "id": 28873,
+                  "text": "one point",
+                  "is_correct": false
+                }
+              ],
+              "correct_option_ids": [
+                28872
+              ],
+              "correct_option_labels": [
+                "C"
+              ],
+              "correct_option_texts": [
+                "four points"
+              ],
+              "explanation": "We will solve equations in A and B simultaneously and find values of x and y. The no. of possible ordered pairs from these values will be elements in ${A \\cap B.}$\nNow, From B,${{x^2} + 9{y^2} + {y^2} = \\;144}$ and \nFrom ${A,\\;{x^2} + {y^2}\\; = \\;25}$\n${\\therefore 9{y^2} + 25\\; = \\;144\\; \\Rightarrow 9{y^2}\\; = 119}$\n${ \\Rightarrow y\\; = \\; \\pm \\sqrt {\\frac{{119}}{9}} }$\n${\\therefore {x^2} + {y^2} = 25\\; \\Rightarrow {x^2}\\; = 25 = \\frac{{119}}{9}\\; = \\;\\frac{{106}}{9}}$\n${ \\Rightarrow x\\; = \\; \\pm \\sqrt {\\frac{{106}}{9}} }$\n$\\therefore$ x has two value, y has two values\n$\\therefore$ possible ordered pairs = 4\n$\\therefore$ ${A \\cap B}$ has 4 elements"
+            },
+            {
+              "questionID": 18419,
+              "question": "If f(x) = $\\frac{x}{x-1}=\\frac{1}{y}$, then f(y) =",
+              "question_raw": "<p>If f(x) = <span class=\"math-tex\">{tex}\\frac{x}{x-1}=\\frac{1}{y}{/tex}</span>, then f(y) =</p>",
+              "options": [
+                {
+                  "label": "A",
+                  "id": 28876,
+                  "text": "1 - x",
+                  "is_correct": true
+                },
+                {
+                  "label": "B",
+                  "id": 28877,
+                  "text": "x - 1",
+                  "is_correct": false
+                },
+                {
+                  "label": "C",
+                  "id": 28879,
+                  "text": "1 + x",
+                  "is_correct": false
+                },
+                {
+                  "label": "D",
+                  "id": 28878,
+                  "text": "x",
+                  "is_correct": false
+                }
+              ],
+              "correct_option_ids": [
+                28876
+              ],
+              "correct_option_labels": [
+                "A"
+              ],
+              "correct_option_texts": [
+                "1 - x"
+              ],
+              "explanation": "We have, f(x) = $\\frac{x}{{x - 1}} = \\frac{1}{y}$ \n$\\therefore$ y = $ \\frac{{x - 1}}{x}$ \nNow, f(x) = $ \\frac{x}{{x - 1}}$ \n$\\Rightarrow$ f(y) = $\\frac{y}{y-1}=\\frac{\\frac{x-1}{z}}{\\frac{x-1}{x}-1}=\\frac{x-1}{x-1-x}$ = $\\frac{x-1}{-1}$ = 1 - x"
+            },
+            {
+              "questionID": 18420,
+              "question": "The function f(x) = log$\\left(\\frac{1+x}{1-x}\\right)$ satisfies the equation",
+              "question_raw": "<p>The function f(x) = log<span class=\"math-tex\">{tex}\\left(\\frac{1+x}{1-x}\\right){/tex}</span> satisfies the equation</p>",
+              "options": [
+                {
+                  "label": "A",
+                  "id": 28880,
+                  "text": "$f({x_1}) + f({x_2}) = f\\left(\\frac{x_1+x_2}{1+x_1 x_2}\\right)$",
+                  "is_correct": true
+                },
+                {
+                  "label": "B",
+                  "id": 28881,
+                  "text": "$f({x_1}) + f({x_2}) = f({x_1} + {x_2})$",
+                  "is_correct": false
+                },
+                {
+                  "label": "C",
+                  "id": 28883,
+                  "text": "$f({x_2}) + f({x_1}) = f({x_1} + {x_2})$",
+                  "is_correct": false
+                },
+                {
+                  "label": "D",
+                  "id": 28882,
+                  "text": "$f(x) + f(x + 1) = f({x^2} + x)$",
+                  "is_correct": false
+                }
+              ],
+              "correct_option_ids": [
+                28880
+              ],
+              "correct_option_labels": [
+                "A"
+              ],
+              "correct_option_texts": [
+                "$f({x_1}) + f({x_2}) = f\\left(\\frac{x_1+x_2}{1+x_1 x_2}\\right)$"
+              ],
+              "explanation": "${f({x_1})\\; + f({x_2}) = \\;\\log \\left( {\\frac{{1 + {x_1}}}{{1 - {x_1}}}} \\right)\\; + \\log \\left( {\\frac{{1 + {x_2}}}{{1 - {x_2}}}} \\right)}$ \n$ = \\;\\log (1 + {x_1}) - \\log (1 - {x_1}) $$+ \\log (1 + {x_2}) - \\log (1 - {x_2})$ \n${f\\left( {\\frac{{{x_1} + {x_2}}}{{1 + {x_1}{x_2}}}} \\right) = \\log \\left( {\\frac{{1 + \\frac{{{x_1} + {x_2}}}{{1 + {x_1}{x_2}}}}}{{1 - \\frac{{{x_1} + {x_2}}}{{1 + {x_1}{x_2}}}}}} \\right) = \\log \\left[ {\\frac{{1 + {x_1}{x_2} + {x_1} + {x_2}}}{{1 + {x_1}{x_2} - {x_1} - {x_2}}}} \\right]}$ \n${ = \\;\\log \\left[ {\\frac{{(1 + {x_1})(1 + {x_2})}}{{(1 - {x_1})(1 - {x_2})}}} \\right]}$ \n${ = \\;\\log (1 + {x_1})(1 + {x_2}) - \\log (1 - {x_1})(1 - {x_2})}$ \n$ = \\;\\log ((1 + {x_1}) + \\log (1 + {x_2}) $$- \\log (1 - {x_1}) - \\log (1 - {x_2})$ \n${\\therefore f({x_1})+ f({x_2}) = f\\left( {\\frac{{{x_1} + {x_2}}}{{1 + {x_1}{x_2}}}} \\right)}$"
+            },
+            {
+              "questionID": 18421,
+              "question": "If f (x + y + z) = f (x) f (y ) f (z) for all x , y z and if f (2) = 4, f’ (0) = 5 and f (0) $ \\ne $0, then f’ (2) is equal to",
+              "question_raw": "<p>If f (x + y + z) = f (x) f (y ) f (z) for all x , y z and if f (2) = 4, f&rsquo; (0) = 5 and f (0) <span class=\"math-tex\">{tex} \\ne {/tex}</span>0, then f&rsquo; (2) is equal to</p>",
+              "options": [
+                {
+                  "label": "A",
+                  "id": 28886,
+                  "text": "$ \\pm 80$",
+                  "is_correct": false
+                },
+                {
+                  "label": "B",
+                  "id": 28887,
+                  "text": "$ \\pm 100$",
+                  "is_correct": false
+                },
+                {
+                  "label": "C",
+                  "id": 28884,
+                  "text": "$20$",
+                  "is_correct": true
+                },
+                {
+                  "label": "D",
+                  "id": 28885,
+                  "text": "$ \\pm 30$",
+                  "is_correct": false
+                }
+              ],
+              "correct_option_ids": [
+                28884
+              ],
+              "correct_option_labels": [
+                "C"
+              ],
+              "correct_option_texts": [
+                "$20$"
+              ],
+              "explanation": "We know that if ${{\\text{f}}({\\text{x}} + {\\text{y}} + {\\text{z}})\\; = \\;{\\text{f}}({\\text{x}}){\\text{f}}({\\text{y}}){\\text{f}}({\\text{z}}),}$ then\n${{\\text{f}}({\\text{x}})\\; = \\;{{\\text{a}}^{{\\text{kx}}}}}$, a and k being constants\nNow, ${{\\text{f}}(2)\\; = \\;{{\\text{a}}^{2{\\text{k}}}}\\; \\Rightarrow \\;{{({{\\text{a}}^{\\text{k}}})}^2}\\; = {2^2}\\; \\Rightarrow \\;{{\\text{a}}^{\\text{k}}}\\; = \\pm 2}$\n${\\therefore \\;{\\text{f}}({\\text{x}})\\; = \\;{{({{\\text{a}}^{\\text{k}}})}^{\\text{x}}}\\; = \\;{{( \\pm \\;2)}^{\\text{x}}}}$\n${\\therefore \\;{\\text{f'}}({\\text{x}})\\; = \\;{{(2)}^{\\text{x}}}{{\\log }_{\\text{e}}}2}$ (as negative log is not defined)\n${ \\Rightarrow \\;{\\text{f'}}(0)\\; = \\;({{\\log }_{\\text{e}}}2)\\; \\Rightarrow \\;5\\; = \\;{{\\log }_{\\text{e}}}2}$\n${\\therefore \\;{\\text{f'}}({\\text{x}})\\; = \\;{{(2)}^{\\text{x}}}.5\\; \\Rightarrow {\\text{f'}}(2)\\; = {{(2)}^2}\\;.5\\; = \\;20}$"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "testPaperID": 609,
+      "testPaperName": "Relations and Functions Test 03",
+      "is_paid": true,
+      "category_full_name": "CBSE > Class 11 > Mathematics > Relations and Functions",
+      "noOfQuestions": 15,
+      "has_answers": true,
+      "sections": [
+        {
+          "sectionName": "General",
+          "sectionID": null,
+          "questions": [
+            {
+              "questionID": 18422,
+              "question": "The domain of the function $\\frac{1}{[x]}+\\sqrt{2 x-x^2}$ is",
+              "question_raw": "<p>The domain of the function <span class=\"math-tex\">{tex}\\frac{1}{[x]}+\\sqrt{2 x-x^2}{/tex}</span> is</p>",
+              "options": [
+                {
+                  "label": "A",
+                  "id": 28891,
+                  "text": "[1, 2)",
+                  "is_correct": false
+                },
+                {
+                  "label": "B",
+                  "id": 28890,
+                  "text": "[0, 1)",
+                  "is_correct": false
+                },
+                {
+                  "label": "C",
+                  "id": 28889,
+                  "text": "[0, 2]",
+                  "is_correct": false
+                },
+                {
+                  "label": "D",
+                  "id": 28888,
+                  "text": "[1, 2]",
+                  "is_correct": true
+                }
+              ],
+              "correct_option_ids": [
+                28888
+              ],
+              "correct_option_labels": [
+                "D"
+              ],
+              "correct_option_texts": [
+                "[1, 2]"
+              ],
+              "explanation": "We have, f(x) = $ \\frac{1}{{\\left[ x \\right]}} + \\sqrt {2x - {x^2}}$ \nFor f(x) to be real, x $\\in$ [0, 1] and 2x - x^2 = 0 \n$\\Rightarrow$ x $\\notin$ [0, 1] and x^2 - 2x = 0\n$\\Rightarrow$ x $\\notin$ [0, 1] and x(x - 2) = 0 \n$\\Rightarrow$ x $\\notin$ [0, 1] and x = 0, 2\n$\\therefore$ Domain = [1, 2]"
+            },
+            {
+              "questionID": 18423,
+              "question": "If A = {(x, y) : x^2 + y^2 = 5} and B = {(x, y) : 2x = 5y}, then A $\\cap$ B contains",
+              "question_raw": "<p>If A = {(x, y) : x<sup>2</sup> + y<sup>2</sup> = 5} and B = {(x, y) : 2x = 5y}, then A&nbsp;<span class=\"math-tex\">{tex}\\cap{/tex}</span>&nbsp;B contains</p>",
+              "options": [
+                {
+                  "label": "A",
+                  "id": 28894,
+                  "text": "one-point",
+                  "is_correct": false
+                },
+                {
+                  "label": "B",
+                  "id": 28895,
+                  "text": "infinite points",
+                  "is_correct": false
+                },
+                {
+                  "label": "C",
+                  "id": 28892,
+                  "text": "two points",
+                  "is_correct": true
+                },
+                {
+                  "label": "D",
+                  "id": 28893,
+                  "text": "no point",
+                  "is_correct": false
+                }
+              ],
+              "correct_option_ids": [
+                28892
+              ],
+              "correct_option_labels": [
+                "C"
+              ],
+              "correct_option_texts": [
+                "two points"
+              ],
+              "explanation": "From A, x^2 + y^2 = 5 and from B, 2x = 5y\nNow, 2x = 5y $\\Rightarrow$ x = $\\frac{5}{2 y}$ \n$\\therefore$ x^2 + y^2 = 5 $\\Rightarrow$ $\\left(\\frac{5}{2 y}\\right)^{2}$ + y^2 = 5\n$\\Rightarrow$ 29y^2 = 20 $\\Rightarrow$ y = $\\pm \\sqrt{\\frac{20}{29}}$ \n$\\Rightarrow$ 29y^2 = 20 $\\Rightarrow$ y = $\\pm \\sqrt{\\frac{20}{29}}$ \n$\\therefore$ x = $\\frac{5}{2}(\\pm \\sqrt{\\frac{20}{29}})$ \n$\\therefore$ Possible ordered pairs = four\nBut two ordered pair in which c is positive and y is negative will be rejected as it will not be satisifed by the equation in B. Therefore,\nA $ \\cap$ B contains 2 elements."
+            },
+            {
+              "questionID": 18424,
+              "question": "If f : R $ \\to $ R is given by f(x) = |x| and A = {x $\\in$ R : x < 0} , then f^-1(A) equals",
+              "question_raw": "<p>If f : R <span class=\"math-tex\">{tex} \\to {/tex}</span> R is given by f(x) = |x| and A = {x&nbsp;<span class=\"math-tex\">{tex}\\in{/tex}</span>&nbsp;R : x &lt; 0} , then f<sup>-1</sup>(A)&nbsp;equals</p>",
+              "options": [
+                {
+                  "label": "A",
+                  "id": 28896,
+                  "text": "$\\phi $",
+                  "is_correct": true
+                },
+                {
+                  "label": "B",
+                  "id": 28898,
+                  "text": "A",
+                  "is_correct": false
+                },
+                {
+                  "label": "C",
+                  "id": 28899,
+                  "text": "A $\\cup$ {0}",
+                  "is_correct": false
+                },
+                {
+                  "label": "D",
+                  "id": 28897,
+                  "text": "R",
+                  "is_correct": false
+                }
+              ],
+              "correct_option_ids": [
+                28896
+              ],
+              "correct_option_labels": [
+                "A"
+              ],
+              "correct_option_texts": [
+                "$\\phi $"
+              ],
+              "explanation": "Here, A = {x $\\in$ R : x < 0} $\\subseteq$ co-domain\nf^-1(A) Contains those elements in R(domain) whose image is negative.\nSince, f(x) = |x|\n$\\therefore$ no image of any elements of R(domain) is negative\n$\\therefore$ f^-1(A) = $\\phi$"
+            },
+            {
+              "questionID": 18425,
+              "question": "If f : N $ \\times $ N $ \\to $N is such that f(m, n) = m + n where N is the set of natural number, then which of the following is true?",
+              "question_raw": "<p>If f : N <span class=\"math-tex\">{tex} \\times {/tex}</span>&nbsp;N <span class=\"math-tex\">{tex} \\to {/tex}</span>N is such that f(m, n) = m + n where N is the set of natural number, then which of the following is true?</p>",
+              "options": [
+                {
+                  "label": "A",
+                  "id": 28901,
+                  "text": "f is one-one but not onto",
+                  "is_correct": false
+                },
+                {
+                  "label": "B",
+                  "id": 28902,
+                  "text": "f is one-one and onto",
+                  "is_correct": false
+                },
+                {
+                  "label": "C",
+                  "id": 28900,
+                  "text": "f is neither one-one nor onto",
+                  "is_correct": true
+                },
+                {
+                  "label": "D",
+                  "id": 28903,
+                  "text": "f is onto but not one-one",
+                  "is_correct": false
+                }
+              ],
+              "correct_option_ids": [
+                28900
+              ],
+              "correct_option_labels": [
+                "C"
+              ],
+              "correct_option_texts": [
+                "f is neither one-one nor onto"
+              ],
+              "explanation": "One - One: f(1, 2) = 1 + 2 = 3; f(2, 1) = 2 + 1\n$\\therefore$ f is not one - one\nonto: f(1, 1) = 2, f(1, 2) = 3, f(2, 1) = 3\nf(1, 3) = 4 = f(3, 1) and so on\n$\\therefore$ range of f = {2, 3, 4, 5, ....} $\\ne$ N\n$\\therefore$ f is not onto."
+            },
+            {
+              "questionID": 18426,
+              "question": "The function sin $\\left( {\\sin {\\frac x 3}} \\right)$ is periodic with period",
+              "question_raw": "<p>The function sin <span class=\"math-tex\">{tex}\\left( {\\sin {\\frac x 3}} \\right){/tex}</span> is periodic with period</p>",
+              "options": [
+                {
+                  "label": "A",
+                  "id": 28904,
+                  "text": "$6\\pi $",
+                  "is_correct": true
+                },
+                {
+                  "label": "B",
+                  "id": 28905,
+                  "text": "$2\\pi $",
+                  "is_correct": false
+                },
+                {
+                  "label": "C",
+                  "id": 28907,
+                  "text": "$8\\pi $",
+                  "is_correct": false
+                },
+                {
+                  "label": "D",
+                  "id": 28906,
+                  "text": "$4\\pi $",
+                  "is_correct": false
+                }
+              ],
+              "correct_option_ids": [
+                28904
+              ],
+              "correct_option_labels": [
+                "A"
+              ],
+              "correct_option_texts": [
+                "$6\\pi $"
+              ],
+              "explanation": "Let f(x) = sin(sin($\\frac {x}{3}$))\nPeriod of sin x = 2$\\pi$\nPeriod of sin kx = $\\frac {2\\pi}{|k|}$\n= $\\frac {2\\pi}{(\\frac {1}{3})}$\n= 6$\\pi$"
+            },
+            {
+              "questionID": 18427,
+              "question": "If A = [a, b], B = [c, d], C = [d, e] then {(a, c), (a, d), (a,e), (b,c), (b, d), (b, e)} is equal to",
+              "question_raw": "<p>If A = [a, b], B = [c, d], C = [d, e] then {(a, c), (a, d), (a,e), (b,c), (b, d), (b, e)} is equal to</p>",
+              "options": [
+                {
+                  "label": "A",
+                  "id": 28911,
+                  "text": "$A \\times (B\\; \\cap C)$",
+                  "is_correct": false
+                },
+                {
+                  "label": "B",
+                  "id": 28908,
+                  "text": "$A \\times (B\\; \\cup C)$",
+                  "is_correct": true
+                },
+                {
+                  "label": "C",
+                  "id": 28910,
+                  "text": "$A \\cap (B\\; \\cup C)$",
+                  "is_correct": false
+                },
+                {
+                  "label": "D",
+                  "id": 28909,
+                  "text": "$A \\cup (B\\; \\cap C)$",
+                  "is_correct": false
+                }
+              ],
+              "correct_option_ids": [
+                28908
+              ],
+              "correct_option_labels": [
+                "B"
+              ],
+              "correct_option_texts": [
+                "$A \\times (B\\; \\cup C)$"
+              ],
+              "explanation": "A $\\times$ (B $\\cup$ C) = (A $\\times$ B) $\\cup$ A $\\times$ C\n= {a, b} $\\times$ {c, d} $\\cup$ {a, b} $\\times$ {d, c}\n= {(a, c), (a, d), (b, c), (b, d)} $\\cup$ {(a, d), (a, c), (b, d), (b, c)}\n= {(a, c), (a, d), (a, c), (b, c), (b, d), (b, e)}"
+            },
+            {
+              "questionID": 18428,
+              "question": "The function f(x) = ${10^x}$ from R to [0, $\\infty $) is",
+              "question_raw": "<p>The function f(x) = <span class=\"math-tex\">{tex}{10^x}{/tex}</span> from R to [0, <span class=\"math-tex\">{tex}\\infty {/tex}</span>) is</p>",
+              "options": [
+                {
+                  "label": "A",
+                  "id": 28912,
+                  "text": "one-one and into",
+                  "is_correct": true
+                },
+                {
+                  "label": "B",
+                  "id": 28913,
+                  "text": "one-one and onto",
+                  "is_correct": false
+                },
+                {
+                  "label": "C",
+                  "id": 28914,
+                  "text": "a constant function",
+                  "is_correct": false
+                },
+                {
+                  "label": "D",
+                  "id": 28915,
+                  "text": "an identity function",
+                  "is_correct": false
+                }
+              ],
+              "correct_option_ids": [
+                28912
+              ],
+              "correct_option_labels": [
+                "A"
+              ],
+              "correct_option_texts": [
+                "one-one and into"
+              ],
+              "explanation": "We have, ${f:R \\to \\left[ {0,\\omega } \\right]}$ defined by,\n${f(x) = \\;{{10}^x}}$\none - one: ${f({x_1})\\; = \\;f({x_2})}$\n${ \\Rightarrow \\;{{10}^{{x_1}}}\\; = {{10}^{{x_2}}}\\; \\Rightarrow \\;{x_1}\\; = \\;{x_2}}$\n$\\therefore$ f is one - one\nonto: Here, ${0 \\in \\left[ {0,\\omega } \\right]}$ (Co - domain)\nNow, ${f(x)\\; = \\;0\\; \\Rightarrow \\;{{10}^x}\\; = \\;0}$\nBut this is not possible for ${x \\in R}$\n$\\therefore$ 0 does not has pre - image\n$\\therefore$ f is not onto"
+            },
+            {
+              "questionID": 18429,
+              "question": "For all x $ \\in $ (0, 1)",
+              "question_raw": "<p>For all x <span class=\"math-tex\">{tex} \\in {/tex}</span> (0, 1)</p>",
+              "options": [
+                {
+                  "label": "A",
+                  "id": 28919,
+                  "text": "log_e x > x",
+                  "is_correct": false
+                },
+                {
+                  "label": "B",
+                  "id": 28918,
+                  "text": "sin x > x",
+                  "is_correct": false
+                },
+                {
+                  "label": "C",
+                  "id": 28917,
+                  "text": "e^x < 1 + x",
+                  "is_correct": false
+                },
+                {
+                  "label": "D",
+                  "id": 28916,
+                  "text": "log_e (1+ x) < x",
+                  "is_correct": true
+                }
+              ],
+              "correct_option_ids": [
+                28916
+              ],
+              "correct_option_labels": [
+                "D"
+              ],
+              "correct_option_texts": [
+                "log_e (1+ x) < x"
+              ],
+              "explanation": "Let f(x) = x - log(1 + x) in [0, x]; x $ \\in$ (0, 1) clearly, f is continuous on [0, x] and differentiable on (0, x).\nTherefore by Lagrange's mean value theorem, there exists c $ \\in$ (0, x) such that,\nf'(c) = $ \\;\\frac{{{\\text{f}}({\\text{x}})\\; - \\;{\\text{f}}(0)}}{{{\\text{x}} - 0}}$ \n$\\Rightarrow$ 1 - $\\frac{1}{c}$ = $\\frac{x-\\log (1+x)-0}{x}$ {$\\because$ f'(x) = 1 - $\\frac{1}{1+x}$}\n$\\Rightarrow$ $\\frac{x-\\log (1+x)}{x}$ = 1 - $\\frac{1}{1+c}$ $\\Rightarrow$ $\\frac{x-\\log (1+x)}{x}$ > 0 [$\\because$ c $\\in$ (0, 1) $\\Rightarrow$ 1 - $\\frac{1}{1+c}$ > 0]\n$\\Rightarrow$ x - log (1 + x) > 0 [$\\because$ x $\\in$ (0, 1)]\n$\\Rightarrow$ log (1 + x) < x"
+            },
+            {
+              "questionID": 18430,
+              "question": "The domain of the function $f(x) = \\sqrt {x - 1} + \\sqrt {6 - x} $",
+              "question_raw": "<p>The domain of the function <span class=\"math-tex\">{tex}f(x) = \\sqrt {x - 1} + \\sqrt {6 - x} {/tex}</span></p>",
+              "options": [
+                {
+                  "label": "A",
+                  "id": 28923,
+                  "text": "[-2, 6]",
+                  "is_correct": false
+                },
+                {
+                  "label": "B",
+                  "id": 28922,
+                  "text": "[2, 6]",
+                  "is_correct": false
+                },
+                {
+                  "label": "C",
+                  "id": 28920,
+                  "text": "[1, 6]",
+                  "is_correct": true
+                },
+                {
+                  "label": "D",
+                  "id": 28921,
+                  "text": "(-$\\infty $, 6)",
+                  "is_correct": false
+                }
+              ],
+              "correct_option_ids": [
+                28920
+              ],
+              "correct_option_labels": [
+                "C"
+              ],
+              "correct_option_texts": [
+                "[1, 6]"
+              ],
+              "explanation": "For f(x) to be real, we must have,\n${x - 1 \\geqslant 0\\;and\\;6 - x \\geqslant 0}$ \n${ \\Rightarrow \\;x \\geqslant \\varphi \\;and\\;x - 6\\; \\leqslant 6}$ \n$\\therefore$ Domain = [1, 6]"
+            },
+            {
+              "questionID": 18431,
+              "question": "Let f(x) = x^2 and g(x) = $\\sqrt x$, then",
+              "question_raw": "<p>Let f(x) = x<sup>2</sup> and g(x) = <span class=\"math-tex\">{tex}\\sqrt x{/tex}</span>,&nbsp;then</p>",
+              "options": [
+                {
+                  "label": "A",
+                  "id": 28925,
+                  "text": "(fog) (2) = 4",
+                  "is_correct": false
+                },
+                {
+                  "label": "B",
+                  "id": 28927,
+                  "text": "(fog) (3) = 6",
+                  "is_correct": false
+                },
+                {
+                  "label": "C",
+                  "id": 28926,
+                  "text": "(gof) (2) = 4",
+                  "is_correct": false
+                },
+                {
+                  "label": "D",
+                  "id": 28924,
+                  "text": "(gof)(- 2) = 2",
+                  "is_correct": true
+                }
+              ],
+              "correct_option_ids": [
+                28924
+              ],
+              "correct_option_labels": [
+                "D"
+              ],
+              "correct_option_texts": [
+                "(gof)(- 2) = 2"
+              ],
+              "explanation": "gof(x) = g(f(x)) = g(x^2) = $\\sqrt{x^2}$ = x\n$\\therefore$ gof(-2) = 2"
+            },
+            {
+              "questionID": 18432,
+              "question": "Suppose that g (x) = 1 + $\\sqrt x $ and f (g(x)) = 3 + 2$\\sqrt x $ + x, then f (x) is",
+              "question_raw": "<p>Suppose that g (x) = 1 + <span class=\"math-tex\">{tex}\\sqrt x {/tex}</span> and f (g(x)) = 3 + 2<span class=\"math-tex\">{tex}\\sqrt x {/tex}</span> + x, then f (x) is</p>",
+              "options": [
+                {
+                  "label": "A",
+                  "id": 28928,
+                  "text": "2 + x^2",
+                  "is_correct": true
+                },
+                {
+                  "label": "B",
+                  "id": 28929,
+                  "text": "1 + 2x^2",
+                  "is_correct": false
+                },
+                {
+                  "label": "C",
+                  "id": 28930,
+                  "text": "1 + x",
+                  "is_correct": false
+                },
+                {
+                  "label": "D",
+                  "id": 28931,
+                  "text": "2 + x",
+                  "is_correct": false
+                }
+              ],
+              "correct_option_ids": [
+                28928
+              ],
+              "correct_option_labels": [
+                "A"
+              ],
+              "correct_option_texts": [
+                "2 + x^2"
+              ],
+              "explanation": "We have g(x) = 1 + $\\sqrt{x}$ and f(g(x)) = 3 + 2$\\sqrt{x}$ + x \n$\\Rightarrow$ f(1 + $\\sqrt{x}$) = 3 + 2$\\sqrt{x}$ + x = (1 + $\\sqrt{x}$)^2 + 2\n$\\therefore$ f(x) = x^2 + 2"
+            },
+            {
+              "questionID": 18433,
+              "question": "If f : [1, $\\infty \\infty $) $ \\to $ [2, $\\infty \\infty $) is given by f(x) = x + $\\frac{1}{x}$ then f^-1(x) equals]",
+              "question_raw": "<p>If f : [1, <span class=\"math-tex\">{tex}\\infty \\infty {/tex}</span>) <span class=\"math-tex\">{tex} \\to {/tex}</span> [2, <span class=\"math-tex\">{tex}\\infty \\infty {/tex}</span>) is given by f(x) = x +&nbsp;<span class=\"math-tex\">{tex}\\frac{1}{x}{/tex}</span>&nbsp;then f<sup>-1</sup>(x) equals]</p>",
+              "options": [
+                {
+                  "label": "A",
+                  "id": 28933,
+                  "text": "$\\frac{x}{1+x^2}$",
+                  "is_correct": false
+                },
+                {
+                  "label": "B",
+                  "id": 28934,
+                  "text": "$\\frac{x \\sqrt{x^2-4}}{2}$",
+                  "is_correct": false
+                },
+                {
+                  "label": "C",
+                  "id": 28935,
+                  "text": "$1 + \\sqrt {{x^2} - 4} $",
+                  "is_correct": false
+                },
+                {
+                  "label": "D",
+                  "id": 28932,
+                  "text": "$\\frac{x+\\sqrt{x^2-4}}{2}$",
+                  "is_correct": true
+                }
+              ],
+              "correct_option_ids": [
+                28932
+              ],
+              "correct_option_labels": [
+                "D"
+              ],
+              "correct_option_texts": [
+                "$\\frac{x+\\sqrt{x^2-4}}{2}$"
+              ],
+              "explanation": "Let y = f(x), then\ny = x + $\\frac{1}{x}$ $\\Rightarrow$ y = $\\frac{x^{2}+1}{x}$ \n$\\Rightarrow$ x^2 + 1 = xy $\\Rightarrow$ x^2 - xy + 1 = 0 \n$\\Rightarrow$ x = $\\frac{y \\pm \\sqrt{y^{2}-4}}{2}$ \n$\\Rightarrow$ f^-1(y) = $\\frac{y \\pm \\sqrt{y^{2}-4}}{2}$ (negative sign is rejected)\nf^-1 (x) = $\\frac{x+\\sqrt{x^{2}-4}}{2}$"
+            },
+            {
+              "questionID": 18434,
+              "question": "The minimum value of (x - $\\alpha $) (x – $\\beta $) is",
+              "question_raw": "<p>The minimum value of (x -&nbsp;<span class=\"math-tex\">{tex}\\alpha {/tex}</span>) (x &ndash; <span class=\"math-tex\">{tex}\\beta {/tex}</span>) is</p>",
+              "options": [
+                {
+                  "label": "A",
+                  "id": 28938,
+                  "text": "$\\frac{1}{4}(\\alpha-\\beta)^2$",
+                  "is_correct": false
+                },
+                {
+                  "label": "B",
+                  "id": 28936,
+                  "text": "$-\\frac{1}{4}(\\alpha-\\beta)^2$",
+                  "is_correct": true
+                },
+                {
+                  "label": "C",
+                  "id": 28939,
+                  "text": "0",
+                  "is_correct": false
+                },
+                {
+                  "label": "D",
+                  "id": 28937,
+                  "text": "$\\alpha {\\rm{ }}\\beta $",
+                  "is_correct": false
+                }
+              ],
+              "correct_option_ids": [
+                28936
+              ],
+              "correct_option_labels": [
+                "B"
+              ],
+              "correct_option_texts": [
+                "$-\\frac{1}{4}(\\alpha-\\beta)^2$"
+              ],
+              "explanation": "Let f(x) = (x - $\\alpha$)(x - $\\beta$) then, \nf'(x) = $(x - \\alpha ).1\\; + 1.\\;(x\\; - \\beta )$ \n$ \\Rightarrow$ f'(x) = 2x - ($\\alpha$ + $\\beta$) \n$\\Rightarrow$ f''(x) = 2\nNow, f''(x) = 0 $\\Rightarrow$ 2x - $(\\alpha+\\beta)$ = 0\n$\\Rightarrow$ x = $\\frac{\\alpha+\\beta}{2}$ \nAt x = $\\frac{\\alpha+\\beta}{2}$, f''(x) = 2 > 0\n$\\therefore$ x = $ \\frac{{\\alpha \\; + \\beta }}{2}$ is point of minimum value and minimum value is,\n$f\\left(\\frac{\\alpha+\\beta}{2}\\right)$ = $\\left(\\frac{\\alpha+\\beta}{2}-\\alpha\\right)\\left(\\frac{\\alpha+\\beta}{2}-\\beta\\right)$ \n= $\\left(\\frac{\\beta-\\alpha}{2}\\right)\\left(\\frac{\\alpha-\\beta}{2}\\right)$ = $-\\frac{1}{4}(\\alpha-\\beta)^{2}$"
+            },
+            {
+              "questionID": 18435,
+              "question": "If f (x) = ${(25 - {x^4})^{1/4}}$ for 0 < x <$\\sqrt 5 $, then $f\\left(f\\left(\\frac{1}{2}\\right)\\right)$ =",
+              "question_raw": "<p>If f (x) = <span class=\"math-tex\">{tex}{(25 - {x^4})^{1/4}}{/tex}</span> for 0 &lt; x &lt;<span class=\"math-tex\">{tex}\\sqrt 5 {/tex}</span>, then <span class=\"math-tex\">{tex}f\\left(f\\left(\\frac{1}{2}\\right)\\right){/tex}</span>&nbsp;=&nbsp;</p>",
+              "options": [
+                {
+                  "label": "A",
+                  "id": 28940,
+                  "text": "2^-1",
+                  "is_correct": true
+                },
+                {
+                  "label": "B",
+                  "id": 28943,
+                  "text": "2^-4",
+                  "is_correct": false
+                },
+                {
+                  "label": "C",
+                  "id": 28942,
+                  "text": "2^-2",
+                  "is_correct": false
+                },
+                {
+                  "label": "D",
+                  "id": 28941,
+                  "text": "2^-3",
+                  "is_correct": false
+                }
+              ],
+              "correct_option_ids": [
+                28940
+              ],
+              "correct_option_labels": [
+                "A"
+              ],
+              "correct_option_texts": [
+                "2^-1"
+              ],
+              "explanation": "fof(x) = f(f(x)) = $\\left\\{ {f{{\\left( {25 - {x^4}} \\right)}^{\\frac{1}{4}}}} \\right\\}$\n= $\\left\\{25-\\left(25-x^{4}\\right)\\right\\}^{\\frac{1}{4}}$ = $\\left(x^{4}\\right)^{\\frac{1}{4}}$ = x \n$\\therefore$ $f\\left(f\\left(\\frac{1}{2}\\right)\\right)$ = $\\frac{1}{2}$\n= 2^-1"
+            },
+            {
+              "questionID": 18436,
+              "question": "Two functions f : R $\\rightarrow$ R and g : R $\\rightarrow$ R are defined as follows : $f\\left( x \\right) = \\left\\{ \\begin{gathered} 0\\left( {xRational} \\right) \\\\ 1\\left( {xIrrational} \\right) \\\\ \\end{gathered} \\right\\}$ ,g(x) = $\\left\\{\\begin{array}{l}-1(x \\text { Rational }) \\\\ 0(x \\text { Irrational })\\end{array}\\right\\}$ then (gof)(e) + (fog)( $\\pi $) =",
+              "question_raw": "<p>Two functions&nbsp;f : R&nbsp;<span class=\"math-tex\">{tex}\\rightarrow{/tex}</span>&nbsp;R and g&nbsp;: R&nbsp;<span class=\"math-tex\">{tex}\\rightarrow{/tex}</span>&nbsp;R are defined as follows : <span class=\"math-tex\">{tex}f\\left( x \\right) = \\left\\{ \\begin{gathered} 0\\left( {xRational} \\right) \\\\ 1\\left( {xIrrational} \\right) \\\\ \\end{gathered} \\right\\}{/tex}</span> ,g(x) =&nbsp;<span class=\"math-tex\">{tex}\\left\\{\\begin{array}{l}-1(x \\text { Rational }) \\\\ 0(x \\text { Irrational })\\end{array}\\right\\}{/tex}</span>&nbsp;then (gof)(e) + (fog)( <span class=\"math-tex\">{tex}\\pi {/tex}</span>) =</p>",
+              "options": [
+                {
+                  "label": "A",
+                  "id": 28944,
+                  "text": "-1",
+                  "is_correct": true
+                },
+                {
+                  "label": "B",
+                  "id": 28946,
+                  "text": "1",
+                  "is_correct": false
+                },
+                {
+                  "label": "C",
+                  "id": 28947,
+                  "text": "2",
+                  "is_correct": false
+                },
+                {
+                  "label": "D",
+                  "id": 28945,
+                  "text": "0",
+                  "is_correct": false
+                }
+              ],
+              "correct_option_ids": [
+                28944
+              ],
+              "correct_option_labels": [
+                "A"
+              ],
+              "correct_option_texts": [
+                "-1"
+              ],
+              "explanation": "gof(e) + fog($\\pi$) = g(f(e)) + f(g($\\pi$))\n= g(1) + f(-1) {$\\because$ e is irrational and $\\pi$ is rational}\n= -1 + 0 = -1"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "testPaperID": 610,
+      "testPaperName": "Relations and Functions Test 04",
+      "is_paid": true,
+      "category_full_name": "CBSE > Class 11 > Mathematics > Relations and Functions",
+      "noOfQuestions": 15,
+      "has_answers": true,
+      "sections": [
+        {
+          "sectionName": "General",
+          "sectionID": null,
+          "questions": [
+            {
+              "questionID": 18437,
+              "question": "If f(x) = $\\frac {x} {x - 1}$ then $\\frac{f(a)}{f(a+1)}$ =",
+              "question_raw": "<p>If f(x) =&nbsp;<span class=\"math-tex\">{tex}\\frac {x} {x - 1}{/tex}</span>&nbsp;then&nbsp;<span class=\"math-tex\">{tex}\\frac{f(a)}{f(a+1)}{/tex}</span>&nbsp;=</p>",
+              "options": [
+                {
+                  "label": "A",
+                  "id": 28948,
+                  "text": "f(a^2)",
+                  "is_correct": true
+                },
+                {
+                  "label": "B",
+                  "id": 28951,
+                  "text": "f(-a)",
+                  "is_correct": false
+                },
+                {
+                  "label": "C",
+                  "id": 28949,
+                  "text": "$f\\left(-\\frac{a}{a-1}\\right)$",
+                  "is_correct": false
+                },
+                {
+                  "label": "D",
+                  "id": 28950,
+                  "text": "$f\\left(\\frac{1}{a}\\right)$",
+                  "is_correct": false
+                }
+              ],
+              "correct_option_ids": [
+                28948
+              ],
+              "correct_option_labels": [
+                "A"
+              ],
+              "correct_option_texts": [
+                "f(a^2)"
+              ],
+              "explanation": "$\\frac{f(a)}{f(a+1)}$ = $\\frac{{\\frac{a}{{a - 1}}}}{{\\frac{{a + 1}}{{a + 1 - 1}}}} = \\frac{{\\frac{a}{{a - 1}}}}{{\\frac{{a + 1}}{a}}}$ \n= $\\frac{a}{a-1} \\times \\frac{a}{a+1}$ = $\\frac{a^{2}}{a^{2}-1}$ \nf(a^2) = $\\frac{a^{2}}{a^{2}-1}$ \n$\\therefore$ $\\frac{f(a)}{f(a+1)}$ = f(a^2)"
+            },
+            {
+              "questionID": 18438,
+              "question": "Let function f : R $ \\to $ R be defined by f (x )= 2x + sin x for x $ \\in $ R. Then f is",
+              "question_raw": "<p>Let function f : R <span class=\"math-tex\">{tex} \\to {/tex}</span> R be defined by f (x )= 2x + sin x for x <span class=\"math-tex\">{tex} \\in {/tex}</span> R. Then f is</p>",
+              "options": [
+                {
+                  "label": "A",
+                  "id": 28955,
+                  "text": "neither one-to-one nor onto",
+                  "is_correct": false
+                },
+                {
+                  "label": "B",
+                  "id": 28952,
+                  "text": "one-to-one and onto",
+                  "is_correct": true
+                },
+                {
+                  "label": "C",
+                  "id": 28953,
+                  "text": "one-to-one but NOT onto",
+                  "is_correct": false
+                },
+                {
+                  "label": "D",
+                  "id": 28954,
+                  "text": "onto but NOT one-to-one",
+                  "is_correct": false
+                }
+              ],
+              "correct_option_ids": [
+                28952
+              ],
+              "correct_option_labels": [
+                "B"
+              ],
+              "correct_option_texts": [
+                "one-to-one and onto"
+              ],
+              "explanation": "one - one: ${f({x_1})\\; = \\;f({x_2})}$\n${ \\Rightarrow \\;2{x_1} + \\sin \\;{x_1}\\; = \\;2{x_2} + \\;\\sin \\;{x_2}}$\n${ \\Rightarrow 2({x_1}\\; - \\;{x_2})\\; + \\;(\\;\\sin \\;{x_1}\\; - \\;\\sin \\;{x_2})\\; = \\;0}$\n${ \\Rightarrow {x_1}\\; - \\;{x_2}\\; = \\;0}$"
+            },
+            {
+              "questionID": 18439,
+              "question": "Coefficient of x^3 in the expansion of tan x is",
+              "question_raw": "<p>Coefficient of x<sup>3</sup> in the expansion of tan x is</p>",
+              "options": [
+                {
+                  "label": "A",
+                  "id": 28959,
+                  "text": "$\\frac {2}{15}$",
+                  "is_correct": false
+                },
+                {
+                  "label": "B",
+                  "id": 28958,
+                  "text": "$\\frac 14$",
+                  "is_correct": false
+                },
+                {
+                  "label": "C",
+                  "id": 28956,
+                  "text": "$\\frac 13$",
+                  "is_correct": true
+                },
+                {
+                  "label": "D",
+                  "id": 28957,
+                  "text": "$\\frac 12$",
+                  "is_correct": false
+                }
+              ],
+              "correct_option_ids": [
+                28956
+              ],
+              "correct_option_labels": [
+                "C"
+              ],
+              "correct_option_texts": [
+                "$\\frac 13$"
+              ],
+              "explanation": "tan x = $ x + \\frac{{{x^3}}}{3} + \\frac{{2{x^5}}}{{15}} + ...$\n$\\therefore$ coefficient of x^3 = $\\frac{1}{3}$"
+            },
+            {
+              "questionID": 18440,
+              "question": "If f(x) = $\\frac{2 x+1}{3 x-2}$, then (fof)(2) is equal to",
+              "question_raw": "<p>If f(x) =&nbsp;<span class=\"math-tex\">{tex}\\frac{2 x+1}{3 x-2}{/tex}</span>, then (fof)(2) is equal to</p>",
+              "options": [
+                {
+                  "label": "A",
+                  "id": 28962,
+                  "text": "4",
+                  "is_correct": false
+                },
+                {
+                  "label": "B",
+                  "id": 28961,
+                  "text": "3",
+                  "is_correct": false
+                },
+                {
+                  "label": "C",
+                  "id": 28963,
+                  "text": "1",
+                  "is_correct": false
+                },
+                {
+                  "label": "D",
+                  "id": 28960,
+                  "text": "2",
+                  "is_correct": true
+                }
+              ],
+              "correct_option_ids": [
+                28960
+              ],
+              "correct_option_labels": [
+                "D"
+              ],
+              "correct_option_texts": [
+                "2"
+              ],
+              "explanation": "f(2) = $\\frac{2.2+1}{3.2-2}$ = $\\frac{4+1}{6-2}$ = $\\frac{5}{4}$ \n$\\therefore$ (fof)(2) = f(f(2))\n= $f\\left(\\frac{5}{4}\\right)$ = $\\frac{2 \\cdot \\frac{5}{4}+1}{3 \\cdot \\frac{5}{4}-2}$ \n= $\\frac{10+4}{15-8}$ = $\\frac{14}{7}$ = 2"
+            },
+            {
+              "questionID": 18441,
+              "question": "If f(x) = $\\log \\left(\\frac{1+x}{1-x}\\right)$, then f(x) is",
+              "question_raw": "<p>If f(x) =&nbsp;<span class=\"math-tex\">{tex}\\log \\left(\\frac{1+x}{1-x}\\right){/tex}</span>, then f(x) is</p>",
+              "options": [
+                {
+                  "label": "A",
+                  "id": 28967,
+                  "text": "even",
+                  "is_correct": false
+                },
+                {
+                  "label": "B",
+                  "id": 28966,
+                  "text": "$\\frac{f\\left(x_1\\right)}{f\\left(x_2\\right)}$ = f(x_1 - x_2)",
+                  "is_correct": false
+                },
+                {
+                  "label": "C",
+                  "id": 28964,
+                  "text": "odd",
+                  "is_correct": true
+                },
+                {
+                  "label": "D",
+                  "id": 28965,
+                  "text": "f(x_1)f(x_2) = f(x_1 + x_2)",
+                  "is_correct": false
+                }
+              ],
+              "correct_option_ids": [
+                28964
+              ],
+              "correct_option_labels": [
+                "C"
+              ],
+              "correct_option_texts": [
+                "odd"
+              ],
+              "explanation": "f(-x) = $\\log \\left( {\\frac{{1 - x}}{{1 + x}}} \\right)$ \n= log (1 - x) - log (1 + x)\n= -[log (1 + x) - log (1 - x)]\n= $-\\left[\\log \\frac{1+x}{1-x}\\right]$ = -f(x)\n$\\Rightarrow $ f is an odd function."
+            },
+            {
+              "questionID": 18442,
+              "question": "Let the function f be defined by f(x) = $\\frac{2 x+1}{1-3 x}$, then f^-1(x) is",
+              "question_raw": "<p>Let the function f be defined by f(x) =&nbsp;<span class=\"math-tex\">{tex}\\frac{2 x+1}{1-3 x}{/tex}</span>, then f<sup>-1</sup>(x) is</p>",
+              "options": [
+                {
+                  "label": "A",
+                  "id": 28968,
+                  "text": "$\\frac{x-1}{3 x+2}$",
+                  "is_correct": true
+                },
+                {
+                  "label": "B",
+                  "id": 28970,
+                  "text": "$\\frac{x+1}{3 x-2}$",
+                  "is_correct": false
+                },
+                {
+                  "label": "C",
+                  "id": 28969,
+                  "text": "$\\frac{3 x+2}{x-1}$",
+                  "is_correct": false
+                },
+                {
+                  "label": "D",
+                  "id": 28971,
+                  "text": "$\\frac{2 x+1}{1-3 x}$",
+                  "is_correct": false
+                }
+              ],
+              "correct_option_ids": [
+                28968
+              ],
+              "correct_option_labels": [
+                "A"
+              ],
+              "correct_option_texts": [
+                "$\\frac{x-1}{3 x+2}$"
+              ],
+              "explanation": "Let y = f(x), then\ny = $\\frac{2 x+1}{1-3 x}$ \n$\\Rightarrow$ y(1- 3x) = 2x + 1 \n$\\Rightarrow$ y - 3xy = 2x + 1\n$\\Rightarrow$ 3xy + 2x = y - 1\n$\\Rightarrow$ x(3y + 2) = y - 1\n$\\Rightarrow$ x = $\\frac{y-1}{3 y+2}$ \n$\\Rightarrow$ f^-1(y) = $\\frac{y-1}{3 y+2}$ \n$\\Rightarrow$ f^-1(x) = $\\frac{x-1}{3 x+2}$"
+            },
+            {
+              "questionID": 18443,
+              "question": "If A = {x : x^2 - 5x + 6 = 0}, B = {2, 4}, C = {4, 5} then $A \\times (B \\cap C)$ is",
+              "question_raw": "<p>If A = {x : x<sup>2</sup> - 5x + 6 = 0}, B = {2, 4}, C = {4, 5} then <span class=\"math-tex\">{tex}A \\times (B \\cap C){/tex}</span> is</p>",
+              "options": [
+                {
+                  "label": "A",
+                  "id": 28973,
+                  "text": "{(4, 2), (4, 3)}",
+                  "is_correct": false
+                },
+                {
+                  "label": "B",
+                  "id": 28974,
+                  "text": "{(2, 4), (3, 4), (4, 4)}",
+                  "is_correct": false
+                },
+                {
+                  "label": "C",
+                  "id": 28975,
+                  "text": "{(2, 2), (3, 3), (4, 4), (5, 5)}",
+                  "is_correct": false
+                },
+                {
+                  "label": "D",
+                  "id": 28972,
+                  "text": "{(2,4), (3, 4)}",
+                  "is_correct": true
+                }
+              ],
+              "correct_option_ids": [
+                28972
+              ],
+              "correct_option_labels": [
+                "D"
+              ],
+              "correct_option_texts": [
+                "{(2,4), (3, 4)}"
+              ],
+              "explanation": "x^2 - 5x + 6 = 0\n$\\Rightarrow$ x^2 - 2x - 3x + 6 = 0\n$\\Rightarrow$ x(x - 2) - 3(x - 2) = 0\n$\\Rightarrow$ (x - 3)(x - 2) = 0\n$\\therefore$ A = {2, 3}; Also, B = {2, 4}, c = {4, 5}\nNow, B $\\cap$ C = {4}\n$\\therefore$ $A \\times B \\cap C\\;$ = {2, 3} $\\times$ {4}\n= {(2, 4), (3, 4)}"
+            },
+            {
+              "questionID": 18444,
+              "question": "In a city 20 percent of the population travels by car, 50 percent travels by bus and 10 percent travels by both car and bus. Then persons travelling by a car or bus is",
+              "question_raw": "<p>In a city 20 percent of the population travels by car, 50 percent travels by bus and 10 percent travels by both car and bus. Then persons travelling by a car or bus is</p>",
+              "options": [
+                {
+                  "label": "A",
+                  "id": 28976,
+                  "text": "60 percent",
+                  "is_correct": true
+                },
+                {
+                  "label": "B",
+                  "id": 28978,
+                  "text": "80 percent",
+                  "is_correct": false
+                },
+                {
+                  "label": "C",
+                  "id": 28977,
+                  "text": "40 percent",
+                  "is_correct": false
+                },
+                {
+                  "label": "D",
+                  "id": 28979,
+                  "text": "70 percent",
+                  "is_correct": false
+                }
+              ],
+              "correct_option_ids": [
+                28976
+              ],
+              "correct_option_labels": [
+                "A"
+              ],
+              "correct_option_texts": [
+                "60 percent"
+              ],
+              "explanation": "Let A denote the set of persons traveling by car, B denotes the set of persons traveling by bus, then\nn(A) = 20, n(B) = 50, n(A $\\cap$ B) = 10\n$\\therefore$ n(A $\\cup$ B) = n(A) + n(B) - n(A $\\cap$ B)\n= 20 + 50 - 10 = 60"
+            },
+            {
+              "questionID": 18445,
+              "question": "If g(x) = x^2 + x - 2 and $\\frac 1 2$(gof)(x) = 2x^2 - 5x + 2, then f(x) is equal to",
+              "question_raw": "<p>If g(x) =&nbsp;x<sup>2</sup> + x - 2 and&nbsp;<span class=\"math-tex\">{tex}\\frac 1  2{/tex}</span>(gof)(x) = 2x<sup>2</sup> - 5x + 2,&nbsp;then f(x) is equal to</p>",
+              "options": [
+                {
+                  "label": "A",
+                  "id": 28980,
+                  "text": "2x - 3",
+                  "is_correct": true
+                },
+                {
+                  "label": "B",
+                  "id": 28983,
+                  "text": "2x^2 - 3x - 1",
+                  "is_correct": false
+                },
+                {
+                  "label": "C",
+                  "id": 28982,
+                  "text": "2x^2 + 3x + 1",
+                  "is_correct": false
+                },
+                {
+                  "label": "D",
+                  "id": 28981,
+                  "text": "2x + 3",
+                  "is_correct": false
+                }
+              ],
+              "correct_option_ids": [
+                28980
+              ],
+              "correct_option_labels": [
+                "A"
+              ],
+              "correct_option_texts": [
+                "2x - 3"
+              ],
+              "explanation": "Consider, f(x) = 2x - 3; g(x) = x^2 + x - 2\n$\\therefore$ gof(x) = g[f(x)] = g[2x - 3]\n= (2x - 3)^2 + 2x - 3 - 2\n= 4x^2 + 9 - 12x + 12x - 3 - 2\n= 4x^2 - 10x + 4\n$\\Rightarrow$ $\\frac{1}{2}$gof(x) = 2x^2 - 5x + 2\n$\\therefore$ f(x) = 2x - 3 is correct."
+            },
+            {
+              "questionID": 18446,
+              "question": "The minimum value of sin x + cos x is",
+              "question_raw": "<p>The minimum value of sin x + cos x is</p>",
+              "options": [
+                {
+                  "label": "A",
+                  "id": 28987,
+                  "text": "0",
+                  "is_correct": false
+                },
+                {
+                  "label": "B",
+                  "id": 28984,
+                  "text": "$ - \\sqrt 2 $",
+                  "is_correct": true
+                },
+                {
+                  "label": "C",
+                  "id": 28986,
+                  "text": "$ - 2\\sqrt 2 $",
+                  "is_correct": false
+                },
+                {
+                  "label": "D",
+                  "id": 28985,
+                  "text": "$\\sqrt 2 $",
+                  "is_correct": false
+                }
+              ],
+              "correct_option_ids": [
+                28984
+              ],
+              "correct_option_labels": [
+                "B"
+              ],
+              "correct_option_texts": [
+                "$ - \\sqrt 2 $"
+              ],
+              "explanation": "Let ${f(x)\\; = \\;\\sin \\;x + \\;cos\\;x}$\n${\\therefore \\;f'(x)\\; = {\\text{co}}s\\;x\\; - \\;\\sin \\;x}$\n${ \\Rightarrow \\;f''\\;(x)\\; = \\; - \\sin \\;x\\; - \\;\\cos \\;x}$\nNow, ${f'(x)\\; = 0}$\n${ \\Rightarrow \\;\\cos \\;x\\; - \\;\\sin \\;x\\; = \\;0\\; \\Rightarrow \\;\\sin \\;x\\; = \\;\\cos \\;x\\; \\Rightarrow \\;\\tan \\;x\\; = \\;1}$\n${ \\Rightarrow \\;x\\; = n\\pi \\; + \\;\\frac{\\pi }{4},\\;{\\text{n}} \\in \\;{\\text{z}}}$\nAt ${{\\text{x}}\\; = \\pi \\; + \\frac{\\pi }{4},}$\n${{\\text{f''}}\\;({\\text{x}})\\; = \\; - \\sin \\;\\left( {\\pi \\; + \\frac{\\pi }{4}} \\right)\\; - \\;\\cos \\;\\;\\left( {\\pi \\; + \\frac{\\pi }{4}} \\right)}$\n${ = \\;\\sin \\left( {\\frac{\\pi }{4}} \\right)\\; + \\cos \\left( {\\frac{\\pi }{4}} \\right)\\; = \\frac{1}{{\\sqrt 2 }}\\; + \\frac{1}{{\\sqrt 2 }}\\; = \\sqrt {2\\;} \\;\\; > \\;0}$\n${\\therefore \\;{\\text{x}}\\; = \\;\\pi \\; + \\frac{\\pi }{4}}$ is point of minimum\nMinimum value ${ = \\;\\sin \\left( {\\pi \\; + \\frac{\\pi }{4}} \\right)\\;\\; + \\cos \\left( {\\pi \\; + \\frac{\\pi }{4}} \\right)}$\n${ = \\; - \\sin \\left( {\\frac{\\pi }{4}} \\right)\\; - \\;\\cos \\left( {\\frac{\\pi }{4}} \\right)}$\n${ = \\; - \\frac{1}{{\\sqrt 2 }}\\; - \\frac{1}{{\\sqrt 2 }}\\; = \\; - \\frac{2}{{\\sqrt 2 }}\\; = \\; - \\sqrt 2 }$"
+            },
+            {
+              "questionID": 18447,
+              "question": "The range of the function f(x) = cos ($\\frac{x}{3}$) is",
+              "question_raw": "<p>The range of the function f(x) = cos (<span class=\"math-tex\">{tex}\\frac{x}{3}{/tex}</span>) is</p>",
+              "options": [
+                {
+                  "label": "A",
+                  "id": 28988,
+                  "text": "[- 1, 1]",
+                  "is_correct": true
+                },
+                {
+                  "label": "B",
+                  "id": 28989,
+                  "text": "$\\left[-\\frac{1}{3}, \\frac{1}{3}\\right]$",
+                  "is_correct": false
+                },
+                {
+                  "label": "C",
+                  "id": 28991,
+                  "text": "[3, -3]",
+                  "is_correct": false
+                },
+                {
+                  "label": "D",
+                  "id": 28990,
+                  "text": "[-3, 3]",
+                  "is_correct": false
+                }
+              ],
+              "correct_option_ids": [
+                28988
+              ],
+              "correct_option_labels": [
+                "A"
+              ],
+              "correct_option_texts": [
+                "[- 1, 1]"
+              ],
+              "explanation": "Since the cosine function takes values between\n-1 and 1 including -1 and 1 also.\n$\\therefore$ range of given function = [-1, 1]"
+            },
+            {
+              "questionID": 18448,
+              "question": "If n(A) = 10, n(B) = 6 and n (C) = 5 for three disjoint sets A, B and C, then $n(A \\cup B \\cup C) $ =",
+              "question_raw": "<p>If n(A) = 10, n(B) = 6 and n (C) = 5 for three disjoint sets A, B and C, then <span class=\"math-tex\">{tex}n(A \\cup B \\cup C) {/tex}</span> =&nbsp;</p>",
+              "options": [
+                {
+                  "label": "A",
+                  "id": 28992,
+                  "text": "21",
+                  "is_correct": true
+                },
+                {
+                  "label": "B",
+                  "id": 28995,
+                  "text": "9",
+                  "is_correct": false
+                },
+                {
+                  "label": "C",
+                  "id": 28994,
+                  "text": "1",
+                  "is_correct": false
+                },
+                {
+                  "label": "D",
+                  "id": 28993,
+                  "text": "11",
+                  "is_correct": false
+                }
+              ],
+              "correct_option_ids": [
+                28992
+              ],
+              "correct_option_labels": [
+                "A"
+              ],
+              "correct_option_texts": [
+                "21"
+              ],
+              "explanation": "Since A, B, C are disjoint \n$\\therefore$ $n(A \\cup B \\cup C)$ = n(a) + n(B) + n(C)\n= 10 + 6 + 5 = 21"
+            },
+            {
+              "questionID": 18449,
+              "question": "If B is the set of numbers obtained by adding 1 to each of the even numbers, then its set builder notation is",
+              "question_raw": "<p>If B is the set of numbers obtained by adding 1 to each of the even numbers, then its set builder notation is</p>",
+              "options": [
+                {
+                  "label": "A",
+                  "id": 28998,
+                  "text": "B = {x : x is odd and x $> $1}",
+                  "is_correct": false
+                },
+                {
+                  "label": "B",
+                  "id": 28999,
+                  "text": "B = {x : x is an integer}",
+                  "is_correct": false
+                },
+                {
+                  "label": "C",
+                  "id": 28996,
+                  "text": "B = {x : x is odd and x $ \\in $ Z}",
+                  "is_correct": true
+                },
+                {
+                  "label": "D",
+                  "id": 28997,
+                  "text": "B = {x : x is even}",
+                  "is_correct": false
+                }
+              ],
+              "correct_option_ids": [
+                28996
+              ],
+              "correct_option_labels": [
+                "C"
+              ],
+              "correct_option_texts": [
+                "B = {x : x is odd and x $ \\in $ Z}"
+              ],
+              "explanation": "If we add an odd number and 1 then we get even number\n$\\therefore$ B = {x : x is odd and x $ \\in $ Z}"
+            },
+            {
+              "questionID": 18450,
+              "question": "Let A and B be two sets containing four and two elements respectively.Then,the number of subsets of A×B,each having at least three elements is:",
+              "question_raw": "<p>Let A and B be two sets containing four and two elements respectively.Then,the number of subsets of A&times;B,each having at least three elements is:</p>",
+              "options": [
+                {
+                  "label": "A",
+                  "id": 29001,
+                  "text": "256",
+                  "is_correct": false
+                },
+                {
+                  "label": "B",
+                  "id": 29003,
+                  "text": "510",
+                  "is_correct": false
+                },
+                {
+                  "label": "C",
+                  "id": 29002,
+                  "text": "275",
+                  "is_correct": false
+                },
+                {
+                  "label": "D",
+                  "id": 29000,
+                  "text": "219",
+                  "is_correct": true
+                }
+              ],
+              "correct_option_ids": [
+                29000
+              ],
+              "correct_option_labels": [
+                "D"
+              ],
+              "correct_option_texts": [
+                "219"
+              ],
+              "explanation": "$n(A)=4,n(B)=2\\\\ n(A×B)=8\\\\ \\therefore \\ Number\\ of\\ subsets\\ having\\ at\\ least\\ 3\\ elements\\\\ =2^8-(1+^8C_1+^8C_2)=219$"
+            },
+            {
+              "questionID": 18451,
+              "question": "The relation R = {1, 1), (2, 2), (3, 3)} on the set {1, 2, 3) is",
+              "question_raw": "<p>The relation R = {1, 1), (2, 2), (3, 3)} on the set {1, 2, 3) is</p>",
+              "options": [
+                {
+                  "label": "A",
+                  "id": 29005,
+                  "text": "reflexive relation only",
+                  "is_correct": false
+                },
+                {
+                  "label": "B",
+                  "id": 29007,
+                  "text": "transitive relation only",
+                  "is_correct": false
+                },
+                {
+                  "label": "C",
+                  "id": 29006,
+                  "text": "symmetric relation only",
+                  "is_correct": false
+                },
+                {
+                  "label": "D",
+                  "id": 29004,
+                  "text": "an equivalence relation",
+                  "is_correct": true
+                }
+              ],
+              "correct_option_ids": [
+                29004
+              ],
+              "correct_option_labels": [
+                "D"
+              ],
+              "correct_option_texts": [
+                "an equivalence relation"
+              ],
+              "explanation": "Given Relation R = {(1, 1), (2, 2), (3, 3)}\nReflexive: If a relation has {(a, b)} as its element, then it should also have {(a, a), (b, b)} as its elements too.\nSymmetric: If a relation has (a, b) as its element, then it should also have {(b, a)} as its element too.\nTransitive: If a relation has {(a, b), (b, c)} as its elements, then it should also have {(a,c)} as its element too.\nNow, the given relation satisfies all these three properties.\nTherefore, its an equivalence relation."
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "testPaperID": 611,
+      "testPaperName": "Relations and Functions Test 05",
+      "is_paid": true,
+      "category_full_name": "CBSE > Class 11 > Mathematics > Relations and Functions",
+      "noOfQuestions": 15,
+      "has_answers": true,
+      "sections": [
+        {
+          "sectionName": "General",
+          "sectionID": null,
+          "questions": [
+            {
+              "questionID": 18452,
+              "question": "In Z, the set of all integers, the inverse of –7 w.r.t. $*$ defined by a * b = a + b + 7 for all a, b $ \\in $ Z, is",
+              "question_raw": "<p>In Z, the set of all integers, the inverse of &ndash;7 w.r.t.&nbsp;<strong><span class=\"math-tex\">{tex}*{/tex}</span></strong>&nbsp;defined by a&nbsp;*&nbsp;b = a + b + 7 for all a, b <span class=\"math-tex\">{tex} \\in {/tex}</span> Z, is</p>",
+              "options": [
+                {
+                  "label": "A",
+                  "id": 29011,
+                  "text": "- 14",
+                  "is_correct": false
+                },
+                {
+                  "label": "B",
+                  "id": 29010,
+                  "text": "14",
+                  "is_correct": false
+                },
+                {
+                  "label": "C",
+                  "id": 29009,
+                  "text": "7",
+                  "is_correct": false
+                },
+                {
+                  "label": "D",
+                  "id": 29008,
+                  "text": "- 7",
+                  "is_correct": true
+                }
+              ],
+              "correct_option_ids": [
+                29008
+              ],
+              "correct_option_labels": [
+                "D"
+              ],
+              "correct_option_texts": [
+                "- 7"
+              ],
+              "explanation": "We have, a $\\times$ b = a + b + 7\nLet e be an identity element then, \na $\\times$ e = a = e $\\times$ a\n$\\Rightarrow$ a $\\times$ e = a and e $\\times$ a = a\n$\\Rightarrow$ e = -7 $\\in$ z\n$\\therefore$ -7 is identity elements\nSince the inverse of identity elements, e is itself.\n$\\therefore $ inverse of - 7 = - 7"
+            },
+            {
+              "questionID": 18453,
+              "question": "A class has 175 students. The following data shows the number of students opting one or more subject. Maths - 100, Physics - 70, Chemistry - 40, Maths and Physics - 30, Maths and Chemistry - 38, Physics and Chemistry - 23, Maths, Physics and Chemistry - 18. How many have opted for Mathematics alone?",
+              "question_raw": "<p>A class has 175 students. The following data shows the number of students opting one or more subject. Maths - 100, Physics - 70, Chemistry - 40, Maths and Physics - 30, Maths and Chemistry - 38, Physics and Chemistry - 23, Maths, Physics and Chemistry - 18. How many have opted for Mathematics alone?</p>\r\n",
+              "options": [
+                {
+                  "label": "A",
+                  "id": 29015,
+                  "text": "30",
+                  "is_correct": false
+                },
+                {
+                  "label": "B",
+                  "id": 29012,
+                  "text": "50",
+                  "is_correct": true
+                },
+                {
+                  "label": "C",
+                  "id": 29014,
+                  "text": "35",
+                  "is_correct": false
+                },
+                {
+                  "label": "D",
+                  "id": 29013,
+                  "text": "48",
+                  "is_correct": false
+                }
+              ],
+              "correct_option_ids": [
+                29012
+              ],
+              "correct_option_labels": [
+                "B"
+              ],
+              "correct_option_texts": [
+                "50"
+              ],
+              "explanation": "Let M denote the set of students who had taken mathematics, P the set of students who had taken physics and C the set of students who had taken chemistry. Then we have\nn(U) = 175, n(M) = 100, n(P) = 70, n(C) = 40, n(M $\\cap$ P) = 30, n(M $\\cap$ C) = 38, n(P $\\cap$ C) = 23, n(M $\\cap$ P $\\cap$ C) = 18\n$\\therefore$ no. of students who opted for mathematics alone = n(M $\\cap$ P' $\\cap$ C')\n= n(M $\\cap$ P' $\\cap$ C')\n= n[M $\\cap$ (P $\\cap$ C)'] = n(M) - n(M $\\cap$ (P $\\cup$ C))\n= n(M) - n[(M $\\cap$ P) $\\cup$ (M $\\cap$ C)]\n= n(M) - n[(M $\\cap$ P) $\\cup$ (M $\\cap$ C)]\n= n(M) - [n(M $\\cap$ P) + n(M $\\cap$ C) - n(M $\\cap$ P $\\cap$ C)]\n= 100 - [30 + 38 - 18]\n= 100 - [50] = 50"
+            },
+            {
+              "questionID": 18454,
+              "question": "Let $f\\left(x+\\frac{1}{x}\\right)=x^2+\\frac{1}{x^2}, x \\neq 0$, then f(x) =",
+              "question_raw": "<p>Let <span class=\"math-tex\">{tex}f\\left(x+\\frac{1}{x}\\right)=x^2+\\frac{1}{x^2}, x \\neq 0{/tex}</span>, then f(x) =</p>",
+              "options": [
+                {
+                  "label": "A",
+                  "id": 29018,
+                  "text": "${x^2}$",
+                  "is_correct": false
+                },
+                {
+                  "label": "B",
+                  "id": 29019,
+                  "text": "${x^2} + 1$",
+                  "is_correct": false
+                },
+                {
+                  "label": "C",
+                  "id": 29017,
+                  "text": "${x^2} - 1$",
+                  "is_correct": false
+                },
+                {
+                  "label": "D",
+                  "id": 29016,
+                  "text": "${x^2} - 2$",
+                  "is_correct": true
+                }
+              ],
+              "correct_option_ids": [
+                29016
+              ],
+              "correct_option_labels": [
+                "D"
+              ],
+              "correct_option_texts": [
+                "${x^2} - 2$"
+              ],
+              "explanation": "${{\\text{f}}\\left( {{\\text{x}} + \\frac{1}{{\\text{x}}}} \\right) = {{\\text{x}}^2} + \\frac{1}{{{{\\text{x}}^2}}} = {{\\left( {{\\text{x}} + \\frac{1}{{\\text{x}}}} \\right)}^2} - 2}$\n${\\therefore {\\text{f}}{\\text{x}}) = {{\\text{x}}^2} - 2}$"
+            },
+            {
+              "questionID": 18455,
+              "question": "Suppose f : [2, 2] $ \\to $R be defined by $f(x) = \\left\\{ \\begin{gathered} \\; - 1\\;\\;for\\;\\;\\;\\;\\;\\;\\; - 2 \\leq x \\leq 0 \\\\ x - 1\\;for\\;\\;\\;\\;\\;\\;\\;0 \\leq x \\leq 2\\;\\;\\; \\\\ \\end{gathered} \\right.,$ Then { x $ \\in $ [-2, 2]: x $ \\le $ 0 and f (| x |) = x} =",
+              "question_raw": "<p>Suppose f : [2, 2] <span class=\"math-tex\">{tex} \\to {/tex}</span>R be defined by <span class=\"math-tex\">{tex}f(x) = \\left\\{ \\begin{gathered} \\; - 1\\;\\;for\\;\\;\\;\\;\\;\\;\\; - 2 \\leq x \\leq 0 \\\\ x - 1\\;for\\;\\;\\;\\;\\;\\;\\;0 \\leq x \\leq 2\\;\\;\\; \\\\ \\end{gathered} \\right.,{/tex}</span> Then { x&nbsp;&nbsp;<span class=\"math-tex\">{tex} \\in {/tex}</span> [-2, 2]: x <span class=\"math-tex\">{tex} \\le {/tex}</span> 0 and f (| x |) = x} =</p>",
+              "options": [
+                {
+                  "label": "A",
+                  "id": 29020,
+                  "text": "$\\left\\{-\\frac{1}{2}\\right\\}$",
+                  "is_correct": true
+                },
+                {
+                  "label": "B",
+                  "id": 29023,
+                  "text": "$\\phi $",
+                  "is_correct": false
+                },
+                {
+                  "label": "C",
+                  "id": 29022,
+                  "text": "{-1}",
+                  "is_correct": false
+                },
+                {
+                  "label": "D",
+                  "id": 29021,
+                  "text": "{0}",
+                  "is_correct": false
+                }
+              ],
+              "correct_option_ids": [
+                29020
+              ],
+              "correct_option_labels": [
+                "A"
+              ],
+              "correct_option_texts": [
+                "$\\left\\{-\\frac{1}{2}\\right\\}$"
+              ],
+              "explanation": "f : [-2, 2] $\\rightarrow$ R is defined by\n${{\\text{f}}({\\text{x}})\\; = \\left\\{ {\\begin{array}{*{20}{l}} { - 1,\\;\\;\\; - 2 \\leqslant {\\text{x}} \\leqslant 2} \\\\ {{\\text{x}} - 1,\\;0 \\leqslant {\\text{x}} \\leqslant 2} \\end{array}} \\right.\\;}$\nLet x $\\leq$ 0 and f(|x|) = x\nNow, f(|x|) = x $\\Rightarrow$ |x| - 1 = x\n${ \\Rightarrow - {\\text{x}} - 1\\; = \\;{\\text{x}}\\;\\left[ {\\because \\;\\left| {\\text{x}} \\right|\\; \\geqslant \\;0} \\right]}$\n${ \\Rightarrow \\; - {\\text{x}} - 1\\; = \\;{\\text{x}}\\;(\\;{\\text{as}}\\;{\\text{x}} \\leqslant 0)}$\n${ \\Rightarrow \\;2{\\text{x}}\\; = \\; - 1\\;\\; \\Rightarrow \\;{\\text{x}}\\; = \\; - \\frac{1}{2}}$\n$\\therefore\\{\\mathrm{x} \\in[-2,2]: \\mathrm{x} \\leqslant 0$ and $\\mathrm{f}(|\\mathrm{x}|=\\mathrm{x}\\}=\\left\\{-\\frac{1}{2}\\right\\}$"
+            },
+            {
+              "questionID": 18456,
+              "question": "If f : R $\\to$ R and g: R $\\to$ R are given by f(x) = |x| and g(x) = [x] for each x $ \\in $ R, then {x $ \\in $ R} : g(f(x_o)) $ \\in $ f (g(x))] =",
+              "question_raw": "<p>If f : R&nbsp;<span class=\"math-tex\">{tex}\\to{/tex}</span>&nbsp;R and g: R&nbsp;<span class=\"math-tex\">{tex}\\to{/tex}</span>&nbsp;R are given by f(x)&nbsp;= |x| and g(x) = [x] for each x <span class=\"math-tex\">{tex} \\in {/tex}</span> R, then {x <span class=\"math-tex\">{tex} \\in {/tex}</span> R} : g(f(x<sub>o</sub>)) <span class=\"math-tex\">{tex} \\in {/tex}</span>&nbsp;f&nbsp;(g(x))] =</p>",
+              "options": [
+                {
+                  "label": "A",
+                  "id": 29024,
+                  "text": "R",
+                  "is_correct": true
+                },
+                {
+                  "label": "B",
+                  "id": 29026,
+                  "text": "Z",
+                  "is_correct": false
+                },
+                {
+                  "label": "C",
+                  "id": 29025,
+                  "text": "$\\left( { - \\infty ,0} \\right)$",
+                  "is_correct": false
+                },
+                {
+                  "label": "D",
+                  "id": 29027,
+                  "text": "Z $\\cup$ (-$\\infty $, 0)",
+                  "is_correct": false
+                }
+              ],
+              "correct_option_ids": [
+                29024
+              ],
+              "correct_option_labels": [
+                "A"
+              ],
+              "correct_option_texts": [
+                "R"
+              ],
+              "explanation": "We have, f(x_o) = |x| and g(x) = [x]\nNow, g(f(x_o)) $\\in$ f(g(x)), for some x $\\in$ R \n$\\Rightarrow$ g(|x|) = f(|x|) $\\Rightarrow$ [|x|] = f(|x|) \n$\\Rightarrow$ f(|x|) = [|x|]\n$\\Rightarrow$ f(|x|) = n, Where n is a positive integer $\\geqslant $ 0 \n$\\Rightarrow$ f(x) = n\nDomain of F = R\n$\\therefore$ {x $\\in$ R : g(f(x_o)) $\\in$ f(g(x))} = R"
+            },
+            {
+              "questionID": 18457,
+              "question": "If f : $R \\to R$and g : $R \\to R$are defined by f (x) = 2x + 3 and g(x) = ${x^2} + 7,$ then the values of x such that g (f (x)) = 8 are",
+              "question_raw": "<p>If f : <span class=\"math-tex\">{tex}R \\to R{/tex}</span>and g : <span class=\"math-tex\">{tex}R \\to R{/tex}</span>are defined by f (x) = 2x + 3 and g(x) = <span class=\"math-tex\">{tex}{x^2} + 7,{/tex}</span> then the values of x such that g (f (x)) = 8 are</p>",
+              "options": [
+                {
+                  "label": "A",
+                  "id": 29028,
+                  "text": "- 1, - 2",
+                  "is_correct": true
+                },
+                {
+                  "label": "B",
+                  "id": 29030,
+                  "text": "1, 2",
+                  "is_correct": false
+                },
+                {
+                  "label": "C",
+                  "id": 29029,
+                  "text": "- 1, 2",
+                  "is_correct": false
+                },
+                {
+                  "label": "D",
+                  "id": 29031,
+                  "text": "1, - 2",
+                  "is_correct": false
+                }
+              ],
+              "correct_option_ids": [
+                29028
+              ],
+              "correct_option_labels": [
+                "A"
+              ],
+              "correct_option_texts": [
+                "- 1, - 2"
+              ],
+              "explanation": "${{\\text{g}}\\left( {{\\text{f}}({\\text{x}})} \\right)\\; = \\;{\\text{g}}\\left( {\\;2{\\text{x}}\\; + 3} \\right)\\; = \\;{{\\left( {2{\\text{x}}\\; + 3} \\right)}^2}\\; + 7}$\n${ = \\;4{{\\text{x}}^2}\\; + 9\\; + 12{\\text{x}}\\; + 7\\; = \\;4{{\\text{x}}^2}\\; + 12{\\text{x}}\\; + \\;16}$\n$\\therefore{\\;{\\text{g}}\\left( {{\\text{f}}({\\text{x}})} \\right)\\; = \\;8}$\n${ \\Rightarrow \\;4{{\\text{x}}^2}\\; + 12{\\text{x}}\\; + \\;16\\; = \\;8}$\n${ \\Rightarrow \\;{{\\text{x}}^2}\\; + 3{\\text{x}}\\; + \\;4\\; = \\;2\\; \\Rightarrow \\;\\;{{\\text{x}}^2}\\; + 3{\\text{x}}\\; + \\;2\\; = \\;0}$\n${ \\Rightarrow \\;{{\\text{x}}^2}\\; + 2{\\text{x}}\\; + {\\text{x}}\\; + 2\\; = 0}$\n${ \\Rightarrow {\\text{x}}\\left( {({\\text{x}} + 2)\\; + 1(\\;{\\text{x}} + 2)} \\right)\\; = \\;0}$\n${ \\Rightarrow \\;\\left( {{\\text{x}}\\; + 1} \\right)\\;\\left( {{\\text{x}}\\; + 2} \\right)\\; = \\;0\\; \\Rightarrow \\;{\\text{x}}\\; = \\; - 1,\\; - 2}$"
+            },
+            {
+              "questionID": 18458,
+              "question": "Consider the following relations: 1. A - B = A - $(A \\cap B)$ 2. A = $(A \\cap B)$ $\\mathop \\cup \\nolimits $(A - B). 3. A - (B $\\mathop \\cup \\nolimits $ C) = (A - B) $\\mathop \\cup \\nolimits $ (A - C). Which of these is/are correct?",
+              "question_raw": "<p>Consider the following relations: 1. A - B = A - <span class=\"math-tex\">{tex}(A \\cap B){/tex}</span> 2. A = <span class=\"math-tex\">{tex}(A \\cap B){/tex}</span> <span class=\"math-tex\">{tex}\\mathop \\cup \\nolimits {/tex}</span>(A - B). 3. A - (B <span class=\"math-tex\">{tex}\\mathop \\cup \\nolimits {/tex}</span> C) = (A - B) <span class=\"math-tex\">{tex}\\mathop \\cup \\nolimits {/tex}</span> (A - C). Which of these is/are correct?</p>\r\n",
+              "options": [
+                {
+                  "label": "A",
+                  "id": 29034,
+                  "text": "2 and 3",
+                  "is_correct": false
+                },
+                {
+                  "label": "B",
+                  "id": 29035,
+                  "text": "1 and 3",
+                  "is_correct": false
+                },
+                {
+                  "label": "C",
+                  "id": 29033,
+                  "text": "2 only",
+                  "is_correct": false
+                },
+                {
+                  "label": "D",
+                  "id": 29032,
+                  "text": "1 and 2",
+                  "is_correct": true
+                }
+              ],
+              "correct_option_ids": [
+                29032
+              ],
+              "correct_option_labels": [
+                "D"
+              ],
+              "correct_option_texts": [
+                "1 and 2"
+              ],
+              "explanation": "$A - (A \\cap B) = A \\cap (A \\cap B')\\,\\,[\\because A - B = A \\cap B']$\n $ = A \\cap (A' \\cap B')\\,$[By De - morgan's law]\n $ = (A \\cap A') \\cup (A \\cap B')\\,$\n $ = \\phi \\cup (A \\cap B') = A \\cap B' = A - B\\,$\n $(A \\cap B) \\cap (A - B) = (A \\cap B) \\cup (A \\cap B')$\n $ = X \\cup (A \\cap B')$ Where X = $A \\cap B$\n $ = (X \\cup A) \\cap (X \\cup B')$\n $ = {\\text{A}} \\cap ({\\text{A}} \\cup {\\text{B'}})\\left[ {{\\text{X}} \\cup {\\text{A}} = ({\\text{A}} \\cap {\\text{B}}) \\cup {\\text{A}} = {\\text{A}} \\cup {\\text{B'}}} \\right]$ $= {\\text{A}}(\\because {\\text{A}}{\\text{B}} \\subset {\\text{A}}){\\text{X}} \\cup {\\text{B'}} $ $= ({\\text{A}} \\cap {\\text{B}}) \\cup {\\text{B'}} = ({\\text{A}} \\cup {\\text{B'}}) \\cap ({\\text{B}} \\cup {\\text{B'}}) = ({\\text{A}} \\cup {\\text{B'}}) \\cap {\\text{U}}$\n ${\\text{ = A}}\\left[ {\\because {\\text{A}} \\subset {\\text{A}} \\cup {\\text{B'}}} \\right]$\n This is correct because,\n $A - (B \\cup C) = (A - B) \\cap (A - C)$"
+            },
+            {
+              "questionID": 18459,
+              "question": "If A is the set of even natural numbers less than 8 and B is the set of prime numbers less than 7, then the number of relations from A to B is",
+              "question_raw": "<p>If A is the set of even natural numbers less than 8 and B is the set of prime numbers less than 7, then the number of relations from A to B is</p>",
+              "options": [
+                {
+                  "label": "A",
+                  "id": 29038,
+                  "text": "${3^2}$",
+                  "is_correct": false
+                },
+                {
+                  "label": "B",
+                  "id": 29036,
+                  "text": "${2^9}$",
+                  "is_correct": true
+                },
+                {
+                  "label": "C",
+                  "id": 29039,
+                  "text": "${2^9} - 1$",
+                  "is_correct": false
+                },
+                {
+                  "label": "D",
+                  "id": 29037,
+                  "text": "${9^2}$",
+                  "is_correct": false
+                }
+              ],
+              "correct_option_ids": [
+                29036
+              ],
+              "correct_option_labels": [
+                "B"
+              ],
+              "correct_option_texts": [
+                "${2^9}$"
+              ],
+              "explanation": "Here, A = {2, 3, 4}; B={2, 3, 5}\nn(A) = 3, n(B) = 3\n$\\therefore$no. of relations from A to B $ = {2^{n(A) \\times n(B)}} = {2^{3 \\times 3}} = {2^9}$"
+            },
+            {
+              "questionID": 18460,
+              "question": "Two finite sets have m and n elements. The number of elements in the power set of the first is 48 more than the total number of elements in the power set of the second. Then the values of m and n are",
+              "question_raw": "<p>Two finite sets have m and n elements. The number of elements in the power set of the first is 48 more than the total number of elements in the power set of the second. Then the values of m and n are</p>",
+              "options": [
+                {
+                  "label": "A",
+                  "id": 29042,
+                  "text": "7, 6",
+                  "is_correct": false
+                },
+                {
+                  "label": "B",
+                  "id": 29041,
+                  "text": "6, 3",
+                  "is_correct": false
+                },
+                {
+                  "label": "C",
+                  "id": 29040,
+                  "text": "6, 4",
+                  "is_correct": true
+                },
+                {
+                  "label": "D",
+                  "id": 29043,
+                  "text": "3, 7",
+                  "is_correct": false
+                }
+              ],
+              "correct_option_ids": [
+                29040
+              ],
+              "correct_option_labels": [
+                "C"
+              ],
+              "correct_option_texts": [
+                "6, 4"
+              ],
+              "explanation": "Let A has m elements and B gas n elements. Then, no. of elements in\nP(A) = 2^m and no. of elements in P(B) = 2^n.]\nBy the question,\n2^m = 2^n + 48\n$\\Rightarrow $ 2^m - 2^n = 48\nThis is possible, if 2^m = 64, 2^n = 16. (As 64 - 16 = 48) \n$\\therefore$ 2m = 64 $\\Rightarrow$ 2^m = 2^6 \n$\\Rightarrow$ m = 6\nAlso, 2^4 = 16 $\\Rightarrow$ 2^4 = 24\n$\\Rightarrow$ n = 4"
+            },
+            {
+              "questionID": 18461,
+              "question": "Let S be the set of all real numbers. Then the relation R = {(a, b) : 1 + ab > 0} on S is",
+              "question_raw": "<p>Let S be the set of all real numbers. Then the relation R = {(a, b) : 1 + ab &gt; 0} on S is</p>",
+              "options": [
+                {
+                  "label": "A",
+                  "id": 29047,
+                  "text": "reflexive symmetric and transitive.",
+                  "is_correct": false
+                },
+                {
+                  "label": "B",
+                  "id": 29044,
+                  "text": "reflexive and symmetric but not transitive.",
+                  "is_correct": true
+                },
+                {
+                  "label": "C",
+                  "id": 29046,
+                  "text": "symmetric and transitive but not reflexive.",
+                  "is_correct": false
+                },
+                {
+                  "label": "D",
+                  "id": 29045,
+                  "text": "reflexive and transitive but not symmetric.",
+                  "is_correct": false
+                }
+              ],
+              "correct_option_ids": [
+                29044
+              ],
+              "correct_option_labels": [
+                "B"
+              ],
+              "correct_option_texts": [
+                "reflexive and symmetric but not transitive."
+              ],
+              "explanation": "Reflexive: since 1 + a^2 > 0 $\\forall \\;{\\text{a}} \\in {\\text{S}}$ \n$ \\Rightarrow \\;1 + \\;{\\text{a}},\\;{\\text{a}} > \\;0\\forall \\;{\\text{a}}\\; \\in \\;{\\text{S}}$ $\\Rightarrow(a, a) \\in R \\forall a$ \n$ \\Rightarrow $ R is reflexive.\nSymmetric: Let a, b $ \\in $ S Such that (a, b) $ \\in $ R, then,\n1 + ab > 0 $\\Rightarrow$ 1 + ba > 0 $\\Rightarrow$ (b, a ) $\\in$ R\n$ \\Rightarrow $ R is symmetric.\nTransitivity: Here 1 + 1.2 = 1 + 2 = 3 > 0 \n$\\Rightarrow$ 1 + (-2)(-3) = 1 + 6 = 7 > 0\n$\\Rightarrow$ (1, 2), (-2, -3) $\\in$ R\nNow, 1 + 1(-3) = 1 - 3 = -2 < 0\n$\\therefore $ (1, -3) $\\notin$ R\n$\\therefore$ R is not a transition."
+            },
+            {
+              "questionID": 18462,
+              "question": "A function f : [0, $\\infty $] $ \\to $ [0, $\\infty $) defined as $f(x) =\\frac {x} {1 + x}$ is",
+              "question_raw": "<p>A function f : [0, <span class=\"math-tex\">{tex}\\infty {/tex}</span>] <span class=\"math-tex\">{tex} \\to {/tex}</span> [0, <span class=\"math-tex\">{tex}\\infty {/tex}</span>) defined as <span class=\"math-tex\">{tex}f(x) =\\frac  {x} {1 + x}{/tex}</span> is</p>",
+              "options": [
+                {
+                  "label": "A",
+                  "id": 29050,
+                  "text": "onto but not one-one",
+                  "is_correct": false
+                },
+                {
+                  "label": "B",
+                  "id": 29049,
+                  "text": "one-one and onto",
+                  "is_correct": false
+                },
+                {
+                  "label": "C",
+                  "id": 29051,
+                  "text": "neither one-one nor onto",
+                  "is_correct": false
+                },
+                {
+                  "label": "D",
+                  "id": 29048,
+                  "text": "one-one but not onto",
+                  "is_correct": true
+                }
+              ],
+              "correct_option_ids": [
+                29048
+              ],
+              "correct_option_labels": [
+                "D"
+              ],
+              "correct_option_texts": [
+                "one-one but not onto"
+              ],
+              "explanation": "${{\\text{f}}:\\left[ {0,\\omega } \\right]\\; \\to \\left( {0,\\omega } \\right)}$ is defined by,\n${{\\text{f}}({\\text{x}})\\; = \\;\\frac{{\\text{x}}}{{1 + {\\text{x}}}}}$\none - one : ${{\\text{f}}({{\\text{x}}_1})\\; = \\;{\\text{f}}({{\\text{x}}_2})}$\n$\\Rightarrow \\frac{\\mathrm{x}_1}{1+\\mathrm{x}_1}=\\frac{\\mathrm{x}_2}{1+\\mathrm{x}_2}$ $\\Rightarrow \\mathrm{x}_1\\left(1+\\mathrm{x}_2\\right)=\\mathrm{x}_2\\left(1+\\mathrm{x}_1\\right) \\Rightarrow \\mathrm{x}_1=\\mathrm{x}_2$\n$ \\Rightarrow $ f is one - one\nonto: Let ${{\\text{y}} \\in \\left( {0,\\omega } \\right)}$ (co - domain) be arbitrary, such that f(x) = y\n$\\Rightarrow \\frac{x}{1+x=y}$ $\\Rightarrow \\mathrm{x}=\\frac{\\mathrm{y}}{1-\\mathrm{y}} \\notin(0, \\omega) \\forall \\mathrm{y} \\in(0, \\omega)$\ne.g. y = 2 $\\Rightarrow \\mathrm{x}=\\frac{2}{1-2}=\\frac{2}{-1}=-2 \\notin(0, \\omega)$\n$\\therefore$ f is not onto"
+            },
+            {
+              "questionID": 18433,
+              "question": "If f : [1, $\\infty \\infty $) $ \\to $ [2, $\\infty \\infty $) is given by f(x) = x + $\\frac{1}{x}$ then f^-1(x) equals]",
+              "question_raw": "<p>If f : [1, <span class=\"math-tex\">{tex}\\infty \\infty {/tex}</span>) <span class=\"math-tex\">{tex} \\to {/tex}</span> [2, <span class=\"math-tex\">{tex}\\infty \\infty {/tex}</span>) is given by f(x) = x +&nbsp;<span class=\"math-tex\">{tex}\\frac{1}{x}{/tex}</span>&nbsp;then f<sup>-1</sup>(x) equals]</p>",
+              "options": [
+                {
+                  "label": "A",
+                  "id": 28934,
+                  "text": "$\\frac{x \\sqrt{x^2-4}}{2}$",
+                  "is_correct": false
+                },
+                {
+                  "label": "B",
+                  "id": 28932,
+                  "text": "$\\frac{x+\\sqrt{x^2-4}}{2}$",
+                  "is_correct": true
+                },
+                {
+                  "label": "C",
+                  "id": 28933,
+                  "text": "$\\frac{x}{1+x^2}$",
+                  "is_correct": false
+                },
+                {
+                  "label": "D",
+                  "id": 28935,
+                  "text": "$1 + \\sqrt {{x^2} - 4} $",
+                  "is_correct": false
+                }
+              ],
+              "correct_option_ids": [
+                28932
+              ],
+              "correct_option_labels": [
+                "B"
+              ],
+              "correct_option_texts": [
+                "$\\frac{x+\\sqrt{x^2-4}}{2}$"
+              ],
+              "explanation": "Let y = f(x), then\ny = x + $\\frac{1}{x}$ $\\Rightarrow$ y = $\\frac{x^{2}+1}{x}$ \n$\\Rightarrow$ x^2 + 1 = xy $\\Rightarrow$ x^2 - xy + 1 = 0 \n$\\Rightarrow$ x = $\\frac{y \\pm \\sqrt{y^{2}-4}}{2}$ \n$\\Rightarrow$ f^-1(y) = $\\frac{y \\pm \\sqrt{y^{2}-4}}{2}$ (negative sign is rejected)\nf^-1 (x) = $\\frac{x+\\sqrt{x^{2}-4}}{2}$"
+            },
+            {
+              "questionID": 18464,
+              "question": "A function f from the natural numbers to the set of integers defined by f(n) = $ \\left\\{ \\begin{gathered} \\frac{{n - 1}}{2},\\;\\;when\\;n\\;is\\;odd \\\\ - \\frac{n}{2},\\;\\;\\;\\;when\\;n\\;is\\;even \\\\ \\end{gathered} \\right.$ is",
+              "question_raw": "<p>A function f from the natural numbers to the set of integers defined by f(n) =&nbsp;<span class=\"math-tex\">{tex} \\left\\{ \\begin{gathered} \\frac{{n - 1}}{2},\\;\\;when\\;n\\;is\\;odd \\\\ - \\frac{n}{2},\\;\\;\\;\\;when\\;n\\;is\\;even \\\\ \\end{gathered} \\right.{/tex}</span>&nbsp;is&nbsp;</p>",
+              "options": [
+                {
+                  "label": "A",
+                  "id": 29059,
+                  "text": "neither one-one nor onto",
+                  "is_correct": false
+                },
+                {
+                  "label": "B",
+                  "id": 29057,
+                  "text": "one-one but not onto",
+                  "is_correct": false
+                },
+                {
+                  "label": "C",
+                  "id": 29058,
+                  "text": "onto but not one-one",
+                  "is_correct": false
+                },
+                {
+                  "label": "D",
+                  "id": 29056,
+                  "text": "both one-one and onto",
+                  "is_correct": true
+                }
+              ],
+              "correct_option_ids": [
+                29056
+              ],
+              "correct_option_labels": [
+                "D"
+              ],
+              "correct_option_texts": [
+                "both one-one and onto"
+              ],
+              "explanation": "F(n) = {$\\frac{n-1}{2}$, when n is odd; $\\frac{-n}{2}$, when n is even \none - one : Let n_1, n_2 $\\in$ N\nCase I: n_1 is even, n_2 is even \n$\\therefore$ f(n_1) - f(n_2) $\\Rightarrow$ $\\frac{-n_{1}}{2}=\\frac{-n_{2}}{2}$ $\\Rightarrow$ n_1 = n_2\nCase II: n_1 is odd, n_2 is odd \n$\\therefore$ f(n_1) - f(n_2) $\\Rightarrow$ $\\frac{-n-1}{2}=\\frac{-n-2}{2}$ $\\Rightarrow$ n_1 = n_2 \nCase III: n_1 is even, n_2 is odd \n$\\therefore f({n_1}) - \\frac{{ - {n_1}}}{2} = $ even as n_1 is even\n$\\therefore $ f(n_2) is odd, $\\frac{{{n_2} - 1}}{2}$ = even as n_2 is odd\nBut f(n_1) takes values, -1, -2, -3,..... f(n^2) take values, 0, 1, 2, 3,.....\n$\\therefore {n_1} \\ne {n_2} \\Rightarrow f({n_1}) \\ne f({n_2})$ \nSimilarly n, is odd, n_2, is even, then $\\therefore {n_1} \\ne {n_2} \\Rightarrow f({n_1}) \\ne f({n_2})$ \n$\\Rightarrow $ f is one - one\nonto: f(n) = {$\\frac{n-1}{2}$, when n is odd; $\\frac{-n}{2}$, when n is even} \n$\\therefore$ f(1) = 0, f(2) = 1, f(5) = 2, f(7) = 3, f(9) - 4, ... f(2)= -1, f(4) = -2, f(6) = -3, f(8) = -4, ......\n$\\therefore$ Range of f = {......, -2, -1, 0, 1, 2, 3, ....) = z\n$\\therefore$ F is onto"
+            },
+            {
+              "questionID": 18465,
+              "question": "Domain of definition of the function f(x) = $\\frac{3}{4-x^2}+\\log _{10}\\left(x^3-x\\right)$ is",
+              "question_raw": "<p>Domain of definition of the function f(x) =&nbsp;<span class=\"math-tex\">{tex}\\frac{3}{4-x^2}+\\log _{10}\\left(x^3-x\\right){/tex}</span> is</p>",
+              "options": [
+                {
+                  "label": "A",
+                  "id": 29062,
+                  "text": "(-1, 0) $\\cup$ (1, 2)",
+                  "is_correct": false
+                },
+                {
+                  "label": "B",
+                  "id": 29061,
+                  "text": "(1, 2)",
+                  "is_correct": false
+                },
+                {
+                  "label": "C",
+                  "id": 29063,
+                  "text": "(1, 2) $\\mathop \\cup \\nolimits $ (2, $\\infty $)",
+                  "is_correct": false
+                },
+                {
+                  "label": "D",
+                  "id": 29060,
+                  "text": "(- 1, 0) $\\cup$ (1, 2) $\\cup$ ( 2, $\\infty $)",
+                  "is_correct": true
+                }
+              ],
+              "correct_option_ids": [
+                29060
+              ],
+              "correct_option_labels": [
+                "D"
+              ],
+              "correct_option_texts": [
+                "(- 1, 0) $\\cup$ (1, 2) $\\cup$ ( 2, $\\infty $)"
+              ],
+              "explanation": "For f(x) to be real, we must have\n4 - x^2 $ \\ne$ 0 and x^3 - x > 0\n$\\Rightarrow$ x^2 $ \\ne$ 4 and x(x^2 - 1) > 0\n$\\Rightarrow$ x $ \\ne$ 2, -2 and x(x - 1)(x + 1) > 0\n$\\Rightarrow$ x $ \\ne$ 2, -2 and -1 < x < 0, 1 < x < $\\infty$\n$\\therefore$ Domain = (-1, 0) $\\cup$ (1, 2) $\\cup$ (2, $\\infty$)"
+            },
+            {
+              "questionID": 18466,
+              "question": "If f : $R \\to R$ satisfies f (x + y) = f (x ) + f (y) for all x, y $ \\in $ R and f (1) = 7, then $\\sum\\limits_{r = 1}^n {f(r)} $ is",
+              "question_raw": "<p>If f : <span class=\"math-tex\">{tex}R \\to R{/tex}</span> satisfies f (x + y) = f (x ) + f (y) for all x, y <span class=\"math-tex\">{tex} \\in {/tex}</span> R and f (1) = 7, then <span class=\"math-tex\">{tex}\\sum\\limits_{r = 1}^n {f(r)} {/tex}</span> is</p>",
+              "options": [
+                {
+                  "label": "A",
+                  "id": 29065,
+                  "text": "$\\frac {7n} {2}$",
+                  "is_correct": false
+                },
+                {
+                  "label": "B",
+                  "id": 29067,
+                  "text": "7n(n + 1)",
+                  "is_correct": false
+                },
+                {
+                  "label": "C",
+                  "id": 29066,
+                  "text": "$\\frac {7(n + 1)} {2}$",
+                  "is_correct": false
+                },
+                {
+                  "label": "D",
+                  "id": 29064,
+                  "text": "$\\frac {7n(n + 1)} {2}$",
+                  "is_correct": true
+                }
+              ],
+              "correct_option_ids": [
+                29064
+              ],
+              "correct_option_labels": [
+                "D"
+              ],
+              "correct_option_texts": [
+                "$\\frac {7n(n + 1)} {2}$"
+              ],
+              "explanation": "Given f(x+y) = f(x) + f(y).....(i) and f(1) = 7\nPut x=1, y=1 in equation (i), we obtain quad\nf(1+1) = f(1) + f(1) = 14 $\\Rightarrow$ f(2) = 14\nSimilarly f(1 + 1 + 1) = f(2) + f(1) = 14 + 7 $\\Rightarrow$ f(3) = 21\nSince we have f(1) = 1 $\\times$ 7 = 7, f(2) = 2 $\\times$ 7 = 14, f(3) = 3 $\\times$ 7 = 21,........\nwe can get f(n) = n $\\times$ 7 = 7n\nNow $\\sum \\limits_{r=1}^{n}$ f(r) = f(1) + f(2) + f(3) + ..... + f(n)\n7^r=1 + 14 + 21 + ..... + 7n\n= 7[1 + 2 + 3 + ..... + n] = 7 $\\frac{n(n+1)}{2}$"
+            }
+          ]
+        }
+      ]
+    }
+  ]
+}

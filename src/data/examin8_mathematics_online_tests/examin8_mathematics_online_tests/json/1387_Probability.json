@@ -1,0 +1,3162 @@
+{
+  "id": 1387,
+  "name": "Probability",
+  "full_name": "CBSE > Class 11 > Mathematics > Probability",
+  "tests": [
+    {
+      "testPaperID": 677,
+      "testPaperName": "Probability Test 01",
+      "is_paid": false,
+      "category_full_name": "CBSE > Class 11 > Mathematics > Probability",
+      "noOfQuestions": 15,
+      "has_answers": true,
+      "sections": [
+        {
+          "sectionName": "General",
+          "sectionID": null,
+          "questions": [
+            {
+              "questionID": 19441,
+              "question": "Probability of getting a number between 1 and 100, which is divisible by 1 and itself only is",
+              "question_raw": "<p>Probability of getting a number between 1 and 100, which is divisible by 1 and itself only&nbsp;is</p>",
+              "options": [
+                {
+                  "label": "A",
+                  "id": 32965,
+                  "text": "$\\frac{25}{99}$",
+                  "is_correct": false
+                },
+                {
+                  "label": "B",
+                  "id": 32966,
+                  "text": "$\\frac{3}{4}$",
+                  "is_correct": false
+                },
+                {
+                  "label": "C",
+                  "id": 32963,
+                  "text": "$\\frac{25}{98}$",
+                  "is_correct": true
+                },
+                {
+                  "label": "D",
+                  "id": 32964,
+                  "text": "$\\frac{1}{4}$",
+                  "is_correct": false
+                }
+              ],
+              "correct_option_ids": [
+                32963
+              ],
+              "correct_option_labels": [
+                "C"
+              ],
+              "correct_option_texts": [
+                "$\\frac{25}{98}$"
+              ],
+              "explanation": "The numbers which are divisible by 1 and itself are prime numbers.\nPrime numbers between 1 and 100 are 2, 3, 5, 7, 11, 13, 17, 19, 23, 29, 31, 37, 41, 43, 47, 53, 59, 61, 67, 71, 73, 79, 83, 89, 97. Total prime numbers 25 out of 98 numbers.\nP(Getting a number divisible by 1 and itself) =$\\frac{favourable\\;outcomes}{total\\;no.\\;of\\;outcomes}$ =$\\frac{25}{98}$"
+            },
+            {
+              "questionID": 19442,
+              "question": "Two players toss four coins each. The probability that both obtain the same number of heads is",
+              "question_raw": "<p>Two players toss four coins each. The probability that both obtain the same number of heads is</p>",
+              "options": [
+                {
+                  "label": "A",
+                  "id": 32968,
+                  "text": "$\\frac{5}{256}$",
+                  "is_correct": false
+                },
+                {
+                  "label": "B",
+                  "id": 32969,
+                  "text": "$\\frac{1}{16}$",
+                  "is_correct": false
+                },
+                {
+                  "label": "C",
+                  "id": 32967,
+                  "text": "$\\frac{35}{128}$",
+                  "is_correct": true
+                },
+                {
+                  "label": "D",
+                  "id": 32970,
+                  "text": "$\\frac{110}{256}$",
+                  "is_correct": false
+                }
+              ],
+              "correct_option_ids": [
+                32967
+              ],
+              "correct_option_labels": [
+                "C"
+              ],
+              "correct_option_texts": [
+                "$\\frac{35}{128}$"
+              ],
+              "explanation": "Let X denote the same number of heads Both will get.\nSo X can take values \nX = 0 ( both get 0 number of head)\nX = 1 ( both get 1 head)\nX = 2 ( both get 2 heads)\nX = 3 ( both get 3 heads)\nX = 4 ( both get 4 heads)\nSo, P(X = 0) = Probabilty of getting no heads = $\\frac{1}{16} \\times \\frac{1}{16}$ = $\\frac{1}{256}$ [by multiplication theorem P(X_i $ \\cap $ X_j) = P(X_i).P(X_j) ]\nP(X = 1) = Probabilty of getting 1 head = $\\frac{4}{16} \\times \\frac{4}{16}$ = $\\frac{16}{256}$\nP(X = 2) = Probabilty of getting 2 heads = $\\frac{6}{16} \\times \\frac{6}{16}$ = $\\frac{36}{256}$\nP (X = 3) = Probabilty of getting 3 heads = $\\frac{4}{16} \\times \\frac{4}{16}$ = $\\frac{16}{256}$\nP(X = 4) = Probabilty of getting 4 heads = $\\frac{1}{16} \\times \\frac{1}{16}$ = $\\frac{1}{256}$\nTherefore P (both get same number of head in a throw of 4 coins each)\n= P(X = 0) + P(X = 1) + P(X = 2) + P(X = 3) + P(X = 4)\n= $\\frac{1}{256}$ + $\\frac{16}{256}$ + $\\frac{36}{256}$ + $\\frac{16}{256}$ + $\\frac{1}{256}$\n= $\\frac{70}{256}$ = $\\frac{35}{128}$"
+            },
+            {
+              "questionID": 19443,
+              "question": "Three fair dice are tossed once. The probability that they show the same numbers is",
+              "question_raw": "<p>Three fair dice are tossed once. The probability that they show the same numbers &nbsp;is</p>",
+              "options": [
+                {
+                  "label": "A",
+                  "id": 32971,
+                  "text": "$\\frac{7}{36}$",
+                  "is_correct": false
+                },
+                {
+                  "label": "B",
+                  "id": 32973,
+                  "text": "$\\frac{1}{12}$",
+                  "is_correct": false
+                },
+                {
+                  "label": "C",
+                  "id": 32974,
+                  "text": "$\\frac{1}{18}$",
+                  "is_correct": false
+                },
+                {
+                  "label": "D",
+                  "id": 32972,
+                  "text": "$\\frac{1}{36}$",
+                  "is_correct": true
+                }
+              ],
+              "correct_option_ids": [
+                32972
+              ],
+              "correct_option_labels": [
+                "D"
+              ],
+              "correct_option_texts": [
+                "$\\frac{1}{36}$"
+              ],
+              "explanation": "When three dice are rolled, total number of outcomes = n(S) = n = 6^3 = 216\nIt is given that the numbers on all the three dice are identical\nHence the favourable outcomes are (1, 1, 1), (2, 2, 2), (3, 3, 3), (4, 4, 4), (5, 5, 5), (6, 6, 6)\nHence no. of favourable outcomes = m = 6\nHence required probability =$\\frac { m }{ n } =\\frac { 6 }{ 216 } =\\frac { 1 }{ 36 } $"
+            },
+            {
+              "questionID": 19444,
+              "question": "A cubical dice has 3 on three faces, 2 on two faces and 1 on the 6^th face. It is tossed twice. The chance that both the tosses show an even number is",
+              "question_raw": "<p>A cubical dice has 3 on three faces, 2 on two faces and 1 on the 6<sup>th</sup> face. It is tossed twice. The chance that both the tosses show an even number is</p>",
+              "options": [
+                {
+                  "label": "A",
+                  "id": 32977,
+                  "text": "$\\frac{1}{36}$",
+                  "is_correct": false
+                },
+                {
+                  "label": "B",
+                  "id": 32975,
+                  "text": "$\\frac{1}{9}$",
+                  "is_correct": true
+                },
+                {
+                  "label": "C",
+                  "id": 32976,
+                  "text": "$\\frac{1}{4}$",
+                  "is_correct": false
+                },
+                {
+                  "label": "D",
+                  "id": 32978,
+                  "text": "$\\frac{5}{36}$",
+                  "is_correct": false
+                }
+              ],
+              "correct_option_ids": [
+                32975
+              ],
+              "correct_option_labels": [
+                "B"
+              ],
+              "correct_option_texts": [
+                "$\\frac{1}{9}$"
+              ],
+              "explanation": "Let X denote getting an even number on each dice on throwing twice.\nBy only one way it can be done by having 2 in both dice.\nSince 2 occupy two faces of dice.\nSo P(getting 2 in 1st dice) = $\\frac{2}{6}$\nAlso P ( getting 2 in 2nd dice) = $\\frac{2}{6}$\nSo P ( getting 2 in both dice dice) = $\\frac{2}{6} \\times \\frac{2}{6}$ = $\\frac{1}{9}$ [from multiplication theorem of probability P(A $ \\cap $ B) = P(A) $\\times$ P(B) for any two non-empty sets A, B]"
+            },
+            {
+              "questionID": 19445,
+              "question": "A coin is tossed once. If a head comes up, then it is tossed again and if a tail comes up, a dice is thrown. The number of points in the sample space of the experiment is:",
+              "question_raw": "<p>A coin is tossed once. If a head comes up, then it is tossed again and if a tail comes up, a dice is thrown. The number of points in the sample space of the experiment is:</p>",
+              "options": [
+                {
+                  "label": "A",
+                  "id": 32982,
+                  "text": "4",
+                  "is_correct": false
+                },
+                {
+                  "label": "B",
+                  "id": 32981,
+                  "text": "24",
+                  "is_correct": false
+                },
+                {
+                  "label": "C",
+                  "id": 32980,
+                  "text": "12",
+                  "is_correct": false
+                },
+                {
+                  "label": "D",
+                  "id": 32979,
+                  "text": "8",
+                  "is_correct": true
+                }
+              ],
+              "correct_option_ids": [
+                32979
+              ],
+              "correct_option_labels": [
+                "D"
+              ],
+              "correct_option_texts": [
+                "8"
+              ],
+              "explanation": "Sample Space is S = {HH, HT, T1, T2, T3, T4, T5, T6}\nSo number of outcomes in sample space is 8."
+            },
+            {
+              "questionID": 19446,
+              "question": "A drawer contains 5 brown socks and 4 blue socks well mixed. A man reaches the drawer and pulls out socks at random. What is the probability that they match?",
+              "question_raw": "<p>A drawer contains 5 brown socks and 4 blue socks well mixed. A man reaches the drawer and pulls out socks at random. What is the probability that they match?</p>",
+              "options": [
+                {
+                  "label": "A",
+                  "id": 32985,
+                  "text": "$\\frac{5}{9}$",
+                  "is_correct": false
+                },
+                {
+                  "label": "B",
+                  "id": 32986,
+                  "text": "$\\frac{7}{12}$",
+                  "is_correct": false
+                },
+                {
+                  "label": "C",
+                  "id": 32984,
+                  "text": "$\\frac{5}{8}$",
+                  "is_correct": false
+                },
+                {
+                  "label": "D",
+                  "id": 32983,
+                  "text": "$\\frac{4}{9}$",
+                  "is_correct": true
+                }
+              ],
+              "correct_option_ids": [
+                32983
+              ],
+              "correct_option_labels": [
+                "D"
+              ],
+              "correct_option_texts": [
+                "$\\frac{4}{9}$"
+              ],
+              "explanation": "Out of 9 socks, 2 can be drawn in ${ }^9 C_2$ ways. Therefore, the total number of cases is ${ }^9 C_2$. Two socks drawn from the drawer will match if either both are brown or both are blue. Therefore, favorable number of cases is ${ }^5 C_2+{ }^4 C_2$. Hence, the required probability is\n$ =\\frac{{ }^5 C_2+{ }^4 C_2}{{ }^9 C_2}=\\frac{4}{9}$"
+            },
+            {
+              "questionID": 19447,
+              "question": "A bag contains 5 white, 7 red and 4 black balls. Four balls are drawn one by one without replacement. The chance that atleast one ball will be black is",
+              "question_raw": "<p>A bag contains 5 white, 7 red and 4 black balls. Four balls are drawn one by one without replacement. The chance that atleast one ball will be black is</p>",
+              "options": [
+                {
+                  "label": "A",
+                  "id": 32988,
+                  "text": "$\\frac { 1815 }{ 1820 } $",
+                  "is_correct": false
+                },
+                {
+                  "label": "B",
+                  "id": 32989,
+                  "text": "$\\frac { 1818 }{ 1820 } $",
+                  "is_correct": false
+                },
+                {
+                  "label": "C",
+                  "id": 32987,
+                  "text": "$\\frac { 1819 }{ 1820 } $",
+                  "is_correct": true
+                },
+                {
+                  "label": "D",
+                  "id": 32990,
+                  "text": "$\\frac { 175 }{ 182 } $",
+                  "is_correct": false
+                }
+              ],
+              "correct_option_ids": [
+                32987
+              ],
+              "correct_option_labels": [
+                "C"
+              ],
+              "correct_option_texts": [
+                "$\\frac { 1819 }{ 1820 } $"
+              ],
+              "explanation": "P(atleast one will be black) = 1 - P(4 balls are not black)\n= 1 - $\\frac{^{4} C_{4}}{16 C_{4}}$ = 1 - $\\frac{1}{1820}$ = $\\frac{1819}{1820}$"
+            },
+            {
+              "questionID": 19448,
+              "question": "A and B take turn in throwing a pair of dice. A wins if he throws a total of 5 before B throws a total of 7. If A has the first throw, the probability of his winning the game is",
+              "question_raw": "<p>A and B take turn in throwing a pair of dice. A wins if he throws a total of 5 before B throws a total of 7. If A has the first throw, the probability of his winning the game is</p>",
+              "options": [
+                {
+                  "label": "A",
+                  "id": 32994,
+                  "text": "$\\frac{4}{7}$",
+                  "is_correct": false
+                },
+                {
+                  "label": "B",
+                  "id": 32991,
+                  "text": "$\\frac{3}{7}$",
+                  "is_correct": true
+                },
+                {
+                  "label": "C",
+                  "id": 32993,
+                  "text": "$\\frac{9}{11}$",
+                  "is_correct": false
+                },
+                {
+                  "label": "D",
+                  "id": 32992,
+                  "text": "$\\frac{9}{41}$",
+                  "is_correct": false
+                }
+              ],
+              "correct_option_ids": [
+                32991
+              ],
+              "correct_option_labels": [
+                "B"
+              ],
+              "correct_option_texts": [
+                "$\\frac{3}{7}$"
+              ],
+              "explanation": "P(A wins) = $\\frac{1}{9} + \\frac{8}{9} \\times \\frac{5}{6} \\times \\frac{1}{9}$ + $ \\frac{8}{9} \\times \\frac{5}{6} \\times \\frac{8}{9} \\times \\frac{5}{6} \\times \\frac{1}{9}$+........... = $\\frac{(\\frac{1}{9})}{1 - \\frac{8}{9} \\times \\frac{5}{6}}$ = $\\frac{3}{7}$"
+            },
+            {
+              "questionID": 19449,
+              "question": "A determinant is chosen at random from the set of all determinants of order 2 with elements 0 or 1 only. The probability that the value of the determinant chosen is positive is",
+              "question_raw": "<p>A determinant is chosen at random from the set of all determinants of order 2 with elements 0 or 1 only. The probability that the value of the determinant chosen is positive is</p>",
+              "options": [
+                {
+                  "label": "A",
+                  "id": 32997,
+                  "text": "$\\frac{2}{16}$",
+                  "is_correct": false
+                },
+                {
+                  "label": "B",
+                  "id": 32998,
+                  "text": "$\\frac{1}{4}$",
+                  "is_correct": false
+                },
+                {
+                  "label": "C",
+                  "id": 32996,
+                  "text": "$\\frac{1}{16}$",
+                  "is_correct": false
+                },
+                {
+                  "label": "D",
+                  "id": 32995,
+                  "text": "$\\frac{3}{16}$",
+                  "is_correct": true
+                }
+              ],
+              "correct_option_ids": [
+                32995
+              ],
+              "correct_option_labels": [
+                "D"
+              ],
+              "correct_option_texts": [
+                "$\\frac{3}{16}$"
+              ],
+              "explanation": "Total Number of 2nd order determinants possible with entries only 0 and 1 is ^​​​​​​2^4 = 16 \nOut of these 16 different determinants, only three determinants will have value in positive.\nSo the probability of getting 3 favorable items out of 16 is $\\frac{3}{16}$."
+            },
+            {
+              "questionID": 19450,
+              "question": "If the letters of the word ‘ INDEPENDENCE ‘ are written down at random in a row, then the chance that no two E’s occur together is",
+              "question_raw": "<p>If the letters of the word &lsquo; INDEPENDENCE &lsquo; are written down at random in a row, then the chance that no two E&rsquo;s occur together is</p>",
+              "options": [
+                {
+                  "label": "A",
+                  "id": 33000,
+                  "text": "1/ 55",
+                  "is_correct": false
+                },
+                {
+                  "label": "B",
+                  "id": 33001,
+                  "text": "54/ 55",
+                  "is_correct": false
+                },
+                {
+                  "label": "C",
+                  "id": 33002,
+                  "text": "53/ 55",
+                  "is_correct": false
+                },
+                {
+                  "label": "D",
+                  "id": 32999,
+                  "text": "14/ 55",
+                  "is_correct": true
+                }
+              ],
+              "correct_option_ids": [
+                32999
+              ],
+              "correct_option_labels": [
+                "D"
+              ],
+              "correct_option_texts": [
+                "14/ 55"
+              ],
+              "explanation": "Let S be the sample space, then n(S) = ${{12!} \\over {4!3!2!}}$ as E is repeated four times,N three times and D two times"
+            },
+            {
+              "questionID": 19451,
+              "question": "The letters of the word ASSASSIN are written at random in a row. The chance that all the similar letters occur together is",
+              "question_raw": "<p>The letters of the word ASSASSIN&nbsp;are written at random in a row. The chance that all the similar letters occur together is</p>",
+              "options": [
+                {
+                  "label": "A",
+                  "id": 33004,
+                  "text": "$\\frac{34}{35}$",
+                  "is_correct": false
+                },
+                {
+                  "label": "B",
+                  "id": 33003,
+                  "text": "$\\frac{1}{35}$",
+                  "is_correct": true
+                },
+                {
+                  "label": "C",
+                  "id": 33005,
+                  "text": "$\\frac{1}{14}$",
+                  "is_correct": false
+                },
+                {
+                  "label": "D",
+                  "id": 33006,
+                  "text": "$\\frac{3}{14}$",
+                  "is_correct": false
+                }
+              ],
+              "correct_option_ids": [
+                33003
+              ],
+              "correct_option_labels": [
+                "B"
+              ],
+              "correct_option_texts": [
+                "$\\frac{1}{35}$"
+              ],
+              "explanation": "$\\frac{4!}{8!2!4!}$ = $\\frac{1}{35}$"
+            },
+            {
+              "questionID": 19452,
+              "question": "A box contains n pairs of shoes and 2r shoes are selected (r < n).The probability that there is exactly one pair is",
+              "question_raw": "<p>A box contains&nbsp;n pairs of shoes and 2r shoes are selected (r &lt; n).The probability that there is exactly one pair is</p>",
+              "options": [
+                {
+                  "label": "A",
+                  "id": 33009,
+                  "text": "$\\frac {(n.^{n-1}C_{r-1})2^{r-1}}{^{2n}C_{2r}}$",
+                  "is_correct": true
+                },
+                {
+                  "label": "B",
+                  "id": 33007,
+                  "text": "$\\frac{^{n-1}C_{r-1}}{^{2n}C_{2r}}$",
+                  "is_correct": false
+                },
+                {
+                  "label": "C",
+                  "id": 33010,
+                  "text": "$\\frac{^{n+1}C_{r+1}}{^{n}C_{2r}}$",
+                  "is_correct": false
+                },
+                {
+                  "label": "D",
+                  "id": 33008,
+                  "text": "$\\frac{n.^{n-1}C_{r-1}}{^{2n}C_{2r}}$",
+                  "is_correct": false
+                }
+              ],
+              "correct_option_ids": [
+                33009
+              ],
+              "correct_option_labels": [
+                "A"
+              ],
+              "correct_option_texts": [
+                "$\\frac {(n.^{n-1}C_{r-1})2^{r-1}}{^{2n}C_{2r}}$"
+              ],
+              "explanation": "The box contains 2n shoes. We can choose 2r shoes out of 2n shoes in $^{2n}C_{2r}$ ways. We can choose one complete pair out of n pairs in $^nC_1$ ways. Now, we have to avoid a complete pair. While choosing (2r-2)shoes out of remaining ( n-1)pairs of shoes, we first choose (r-1) pairs out of (n-1) pairs. This can be done in $^{n-1}C_{r-1}$ways. From each of these (r-1) pairs, choose (r-1) single (unmatching) shoes from each pair. This can be done in $2^{r-1}$ ways. Thus, the number of favourable ways is $(^nC_1)(^{n-1}C_{r-1}).2^{r-1}$.\nHence, the probability of the required event \n= $\\frac{n(^{n-1}C_{r-1}).2^{r-1}}{^{2n}C_{2r}}$"
+            },
+            {
+              "questionID": 19453,
+              "question": "Let A be set of 4 elements. From the set of all functions from A to A, a function is chosen at random. The chance that the selected function is an onto function is",
+              "question_raw": "<p>Let A be set of 4 elements. From the set of all functions from A to A, a function is chosen at random. The chance that the selected function is an onto function is</p>",
+              "options": [
+                {
+                  "label": "A",
+                  "id": 33014,
+                  "text": "$\\frac{1}{32}$",
+                  "is_correct": false
+                },
+                {
+                  "label": "B",
+                  "id": 33011,
+                  "text": "$\\frac{3}{32}$",
+                  "is_correct": true
+                },
+                {
+                  "label": "C",
+                  "id": 33012,
+                  "text": "$\\frac{29}{32}$",
+                  "is_correct": false
+                },
+                {
+                  "label": "D",
+                  "id": 33013,
+                  "text": "$\\frac{1}{64}$",
+                  "is_correct": false
+                }
+              ],
+              "correct_option_ids": [
+                33011
+              ],
+              "correct_option_labels": [
+                "B"
+              ],
+              "correct_option_texts": [
+                "$\\frac{3}{32}$"
+              ],
+              "explanation": "No. of function from A to A = 4^4\nNo. of onto function from A to A = 4! \n$\\therefore$ Required probability $= \\frac{{4!}}{{{4^4}}} = \\frac{3}{{32}}$"
+            },
+            {
+              "questionID": 19454,
+              "question": "Both A and B throw a dice. The chance that B throws a number higher than that thrown by A is",
+              "question_raw": "<p>Both A and B throw a dice. The chance that B throws a number higher than that thrown by A is</p>",
+              "options": [
+                {
+                  "label": "A",
+                  "id": 33016,
+                  "text": "$\\frac{1}{2}$",
+                  "is_correct": false
+                },
+                {
+                  "label": "B",
+                  "id": 33018,
+                  "text": "$\\frac{13}{36}$",
+                  "is_correct": false
+                },
+                {
+                  "label": "C",
+                  "id": 33015,
+                  "text": "$\\frac{15}{36}$",
+                  "is_correct": true
+                },
+                {
+                  "label": "D",
+                  "id": 33017,
+                  "text": "$\\frac{21}{36}$",
+                  "is_correct": false
+                }
+              ],
+              "correct_option_ids": [
+                33015
+              ],
+              "correct_option_labels": [
+                "C"
+              ],
+              "correct_option_texts": [
+                "$\\frac{15}{36}$"
+              ],
+              "explanation": "Total possible ways of getting number in B's dice throw greater that A's dice throw are\n{(1, 2), (1, 3), (1, 4), (1, 5), (1, 6), (2, 3), ( 2, 4), (2, 5), (2, 6), (3, 4), (3, 5), (3, 6), (4, 5), (4, 6), (5, 6)} = 15\nTotal number of elements in the sample space = 6 $\\times$ 6 = 36\nTherefore P(probability of B is greater than A) = $\\frac{15}{36}$"
+            },
+            {
+              "questionID": 19455,
+              "question": "Both A and B throw a dice. The chance that B throws a number not less than that thrown by A is",
+              "question_raw": "<p>Both A and B throw a dice. The chance that B throws a number not less than that thrown by A is</p>",
+              "options": [
+                {
+                  "label": "A",
+                  "id": 33019,
+                  "text": "$\\frac{21}{36}$",
+                  "is_correct": true
+                },
+                {
+                  "label": "B",
+                  "id": 33020,
+                  "text": "$\\frac{1}{2}$",
+                  "is_correct": false
+                },
+                {
+                  "label": "C",
+                  "id": 33021,
+                  "text": "$\\frac{15}{36}$",
+                  "is_correct": false
+                },
+                {
+                  "label": "D",
+                  "id": 33022,
+                  "text": "$\\frac{19}{36}$",
+                  "is_correct": false
+                }
+              ],
+              "correct_option_ids": [
+                33019
+              ],
+              "correct_option_labels": [
+                "A"
+              ],
+              "correct_option_texts": [
+                "$\\frac{21}{36}$"
+              ],
+              "explanation": "Given: B getting number not less than A means B can get number on dice greater than or equal to A.\nFor throwing A and B on dice, the number of elements in the sample space is 6 $\\times$ 6 = 36 i.e. n(S) = 36\nLet E be the event of \"B getting number not less than A\", So it can happen in 21 ways out of 36 ways.\nThe ways are E = {(1, 1), (1, 2), (1, 3), (1, 4), (1, 5), (1, 6), (2, 2), (2, 3), (2, 4), (2, 5), (2, 6), (3, 3), (3, 4), (3, 5), (3, 6),(4, 4),(4, 5),(4, 6), (5, 5),(5, 6), (6, 6)} i.e. n(E) = 21\nTherefore, P(E) = $\\frac{n(E)}{n(S)}$ = $\\frac{21}{36}$"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "testPaperID": 678,
+      "testPaperName": "Probability Test 02",
+      "is_paid": true,
+      "category_full_name": "CBSE > Class 11 > Mathematics > Probability",
+      "noOfQuestions": 15,
+      "has_answers": true,
+      "sections": [
+        {
+          "sectionName": "General",
+          "sectionID": null,
+          "questions": [
+            {
+              "questionID": 19456,
+              "question": "Both A and B throw a dice. The chance that B throws a number not greater than that thrown by A is",
+              "question_raw": "<p>Both A and B throw a dice. The chance that B throws a number not greater than that thrown by A is</p>",
+              "options": [
+                {
+                  "label": "A",
+                  "id": 33026,
+                  "text": "$\\frac{14}{36}$",
+                  "is_correct": false
+                },
+                {
+                  "label": "B",
+                  "id": 33025,
+                  "text": "$\\frac{15}{36}$",
+                  "is_correct": false
+                },
+                {
+                  "label": "C",
+                  "id": 33023,
+                  "text": "$\\frac{21}{36}$",
+                  "is_correct": true
+                },
+                {
+                  "label": "D",
+                  "id": 33024,
+                  "text": "$\\frac{1}{2}$",
+                  "is_correct": false
+                }
+              ],
+              "correct_option_ids": [
+                33023
+              ],
+              "correct_option_labels": [
+                "C"
+              ],
+              "correct_option_texts": [
+                "$\\frac{21}{36}$"
+              ],
+              "explanation": "Total no. of outcomes = 6^2 = 36\nFavourable no. of outcomes = {(1, 1), (2, 1), (2, 2), (3, 1), (3, 2), (3, 3), (4, 1), (4, 2), (4, 3), (4, 4), (5, 1), (5, 2), (5, 3), (5, 4), (5, 5), (6, 1), (6, 2), (6, 3), (6, 4), (6, 5), (6, 6)} = 21\nProbability = $\\frac{\\text {favourable outcomes}}{\\text {total no. of outcomes}}$ \nProbability = $\\frac{21}{36}$"
+            },
+            {
+              "questionID": 19457,
+              "question": "Two dice are thrown. The number of sample points in the sample space when 6 does not appear on either dice is",
+              "question_raw": "<p>Two dice are thrown. The number of sample points in the sample space when 6 does not appear on either dice is</p>",
+              "options": [
+                {
+                  "label": "A",
+                  "id": 33028,
+                  "text": "11",
+                  "is_correct": false
+                },
+                {
+                  "label": "B",
+                  "id": 33030,
+                  "text": "30",
+                  "is_correct": false
+                },
+                {
+                  "label": "C",
+                  "id": 33027,
+                  "text": "25",
+                  "is_correct": true
+                },
+                {
+                  "label": "D",
+                  "id": 33029,
+                  "text": "18",
+                  "is_correct": false
+                }
+              ],
+              "correct_option_ids": [
+                33027
+              ],
+              "correct_option_labels": [
+                "C"
+              ],
+              "correct_option_texts": [
+                "25"
+              ],
+              "explanation": "Total no. of outcomes = 6^2 = 36\nThe pair which shows 6 on either dice are {(6, 1), (6, 2), (6, 3), (6, 4), (6, 5), (1, 6), (2, 6), (3, 6), (4, 6), (5, 6), (6, 6)} = 11\nSo the total number of sample points in sample space when 6 on either dice do not appear = 36 - 11 = 25"
+            },
+            {
+              "questionID": 19458,
+              "question": "8 coins are tossed at a time. The probability of getting 6 heads up is",
+              "question_raw": "<p>8 coins are tossed at a time. The probability of getting 6 heads up is</p>",
+              "options": [
+                {
+                  "label": "A",
+                  "id": 33033,
+                  "text": "$\\frac{57}{64}$",
+                  "is_correct": false
+                },
+                {
+                  "label": "B",
+                  "id": 33032,
+                  "text": "$\\frac{229}{256}$",
+                  "is_correct": false
+                },
+                {
+                  "label": "C",
+                  "id": 33034,
+                  "text": "$\\frac{37}{256}$",
+                  "is_correct": false
+                },
+                {
+                  "label": "D",
+                  "id": 33031,
+                  "text": "$\\frac{7}{64}$",
+                  "is_correct": true
+                }
+              ],
+              "correct_option_ids": [
+                33031
+              ],
+              "correct_option_labels": [
+                "D"
+              ],
+              "correct_option_texts": [
+                "$\\frac{7}{64}$"
+              ],
+              "explanation": "Total ways of getting 6 heads out of 8 toss of coins is 28.\nTotal number of outcome is 2^8 = 256\nTherefore probability is $\\frac{28}{256}=\\frac7{64}$"
+            },
+            {
+              "questionID": 19459,
+              "question": "A dice is rolled 6 times. The probability of obtaining 2 and 4 exactly three times each is",
+              "question_raw": "<p>A dice is rolled 6 times. The probability of obtaining 2 and 4 exactly three times each is</p>",
+              "options": [
+                {
+                  "label": "A",
+                  "id": 33036,
+                  "text": "$\\frac{1}{46656}$",
+                  "is_correct": false
+                },
+                {
+                  "label": "B",
+                  "id": 33037,
+                  "text": "$\\frac{1}{5184}$",
+                  "is_correct": false
+                },
+                {
+                  "label": "C",
+                  "id": 33038,
+                  "text": "$\\frac{3}{5184}$",
+                  "is_correct": false
+                },
+                {
+                  "label": "D",
+                  "id": 33035,
+                  "text": "$\\frac{5}{11664}$",
+                  "is_correct": true
+                }
+              ],
+              "correct_option_ids": [
+                33035
+              ],
+              "correct_option_labels": [
+                "D"
+              ],
+              "correct_option_texts": [
+                "$\\frac{5}{11664}$"
+              ],
+              "explanation": "Total ways of getting 2 and 4 exactly 3 times is $\\frac{6!}{(3! 3!)}$ = 20\nTotal number of ways in throwing 6 dice is 6^6\nTherefore probability is $\\frac{20}{6^6}$ = $\\frac{5}{11664}$"
+            },
+            {
+              "questionID": 19460,
+              "question": "A dice has 3 faces each bearing 2 and three faces each bearing 6. It is rolled once. The probability of showing up six is",
+              "question_raw": "<p>A dice has 3 faces each bearing 2&nbsp;and three faces each bearing 6. It is rolled once. The probability of showing up&nbsp;six&nbsp;is</p>",
+              "options": [
+                {
+                  "label": "A",
+                  "id": 33041,
+                  "text": "1",
+                  "is_correct": false
+                },
+                {
+                  "label": "B",
+                  "id": 33042,
+                  "text": "$\\frac{5}{6}$",
+                  "is_correct": false
+                },
+                {
+                  "label": "C",
+                  "id": 33040,
+                  "text": "$\\frac{1}{6}$",
+                  "is_correct": false
+                },
+                {
+                  "label": "D",
+                  "id": 33039,
+                  "text": "$\\frac{1}{2}$",
+                  "is_correct": true
+                }
+              ],
+              "correct_option_ids": [
+                33039
+              ],
+              "correct_option_labels": [
+                "D"
+              ],
+              "correct_option_texts": [
+                "$\\frac{1}{2}$"
+              ],
+              "explanation": "Total no. of outcomes = 6 = {2, 2, 2, 6, 6, 6}\np(getting a six) = $\\frac{3}{6}$ = $\\frac{1}{2}$"
+            },
+            {
+              "questionID": 19461,
+              "question": "The total area under the standard normal curve is",
+              "question_raw": "<p>The total area under the standard normal curve is</p>",
+              "options": [
+                {
+                  "label": "A",
+                  "id": 33043,
+                  "text": "$\\frac{1}{2}$",
+                  "is_correct": false
+                },
+                {
+                  "label": "B",
+                  "id": 33045,
+                  "text": "1",
+                  "is_correct": true
+                },
+                {
+                  "label": "C",
+                  "id": 33044,
+                  "text": "2",
+                  "is_correct": false
+                },
+                {
+                  "label": "D",
+                  "id": 33046,
+                  "text": "0",
+                  "is_correct": false
+                }
+              ],
+              "correct_option_ids": [
+                33045
+              ],
+              "correct_option_labels": [
+                "B"
+              ],
+              "correct_option_texts": [
+                "1"
+              ],
+              "explanation": "Since a standard normal curve represents a pdf and integral of pdf is same as area under a curve and integral of pdf is always 1."
+            },
+            {
+              "questionID": 19462,
+              "question": "Neelam and Nidhi throw with a dice. The chance that both Neelam and Nidhi throw the same number is",
+              "question_raw": "<p>Neelam and Nidhi throw with a dice. The chance that both Neelam and Nidhi throw the same number is</p>",
+              "options": [
+                {
+                  "label": "A",
+                  "id": 33049,
+                  "text": "$\\frac{1}{2}$",
+                  "is_correct": false
+                },
+                {
+                  "label": "B",
+                  "id": 33047,
+                  "text": "$\\frac{1}{6}$",
+                  "is_correct": true
+                },
+                {
+                  "label": "C",
+                  "id": 33050,
+                  "text": "$\\frac{1}{3}$",
+                  "is_correct": false
+                },
+                {
+                  "label": "D",
+                  "id": 33048,
+                  "text": "$\\frac{1}{36}$",
+                  "is_correct": false
+                }
+              ],
+              "correct_option_ids": [
+                33047
+              ],
+              "correct_option_labels": [
+                "B"
+              ],
+              "correct_option_texts": [
+                "$\\frac{1}{6}$"
+              ],
+              "explanation": "Total numbers of outcomes = 6^2 = 36\nNo. of outcomes in which both throws same no. = {(1, 1), (2, 2), (3, 3), (4, 4), (5, 5), (6, 6)} = 6\np(both throws same no.) = $\\frac{6}{36}$ = $\\frac{1}{6}$"
+            },
+            {
+              "questionID": 19463,
+              "question": "A dice is tossed once and even number has come up. The chance that it is either 2 or 4 is",
+              "question_raw": "<p>A dice is tossed once and even number has come up. The chance that it is either 2 or 4 is</p>",
+              "options": [
+                {
+                  "label": "A",
+                  "id": 33053,
+                  "text": "$\\frac{5}{6}$",
+                  "is_correct": false
+                },
+                {
+                  "label": "B",
+                  "id": 33051,
+                  "text": "$\\frac{2}{3}$",
+                  "is_correct": true
+                },
+                {
+                  "label": "C",
+                  "id": 33052,
+                  "text": "$\\frac{1}{3}$",
+                  "is_correct": false
+                },
+                {
+                  "label": "D",
+                  "id": 33054,
+                  "text": "$\\frac{1}{6}$",
+                  "is_correct": false
+                }
+              ],
+              "correct_option_ids": [
+                33051
+              ],
+              "correct_option_labels": [
+                "B"
+              ],
+              "correct_option_texts": [
+                "$\\frac{2}{3}$"
+              ],
+              "explanation": "Total number of ways of getting even number is 3\nOut of these 3 even numbers we have to get either 2 or 4 which can be done in 2 ways.\nSo the required probability is $\\frac{2}{3}$"
+            },
+            {
+              "questionID": 19464,
+              "question": "A pair of dice is tossed once and a total of 8 has come up. The chance that both the dice show up same number is",
+              "question_raw": "<p>A pair of dice is tossed once and a total of 8 has come up. The chance that both the dice show up same number is</p>",
+              "options": [
+                {
+                  "label": "A",
+                  "id": 33058,
+                  "text": "$\\frac{1}{32}$",
+                  "is_correct": false
+                },
+                {
+                  "label": "B",
+                  "id": 33055,
+                  "text": "$\\frac{1}{5}$",
+                  "is_correct": true
+                },
+                {
+                  "label": "C",
+                  "id": 33056,
+                  "text": "$\\frac{1}{6}$",
+                  "is_correct": false
+                },
+                {
+                  "label": "D",
+                  "id": 33057,
+                  "text": "$\\frac{5}{216}$",
+                  "is_correct": false
+                }
+              ],
+              "correct_option_ids": [
+                33055
+              ],
+              "correct_option_labels": [
+                "B"
+              ],
+              "correct_option_texts": [
+                "$\\frac{1}{5}$"
+              ],
+              "explanation": "On tossing a pair of dice total outcomes are 36.\nOut of which getting a total of 8 have possibilities {(2, 6), (6, 2), (3, 5), (5, 3), (4, 4)} = 5 and from these 5 outcomes getting same no. on both dice is (4, 4) = 1\nSo, the probability is $\\frac{1}{5}$"
+            },
+            {
+              "questionID": 19465,
+              "question": "The probability of having atleast one head in 5 throws of a coin is",
+              "question_raw": "<p>The probability of having atleast one head in 5 throws of a coin is</p>",
+              "options": [
+                {
+                  "label": "A",
+                  "id": 33059,
+                  "text": "$\\frac{31}{32}$",
+                  "is_correct": true
+                },
+                {
+                  "label": "B",
+                  "id": 33061,
+                  "text": "$\\frac{1}{32}$",
+                  "is_correct": false
+                },
+                {
+                  "label": "C",
+                  "id": 33060,
+                  "text": "$\\frac{5}{32}$",
+                  "is_correct": false
+                },
+                {
+                  "label": "D",
+                  "id": 33062,
+                  "text": "$\\frac{3}{32}$",
+                  "is_correct": false
+                }
+              ],
+              "correct_option_ids": [
+                33059
+              ],
+              "correct_option_labels": [
+                "A"
+              ],
+              "correct_option_texts": [
+                "$\\frac{31}{32}$"
+              ],
+              "explanation": "Required probability = 1 - (probability of having no head in 5 throws of a coin)\n= 1 - [Probability of having tails in 5 throws of a coin]\n= $1 - \\frac{1}{{{2^5}}}$ \n= $1 - \\frac{1}{{32}} = \\frac{{32 - 1}}{{32}}$ \n= $ \\frac{{31}}{{32}}$"
+            },
+            {
+              "questionID": 19466,
+              "question": "A fair coin is tossed a fixed number of times. If the probability of getting 4 heads is equal to the probability of getting 7 heads, then the probability of getting 2 heads is",
+              "question_raw": "<p>A fair coin is tossed a fixed number of times. If the probability of getting 4 heads is equal to the probability of getting 7 heads, then the probability of getting 2 heads is</p>\r\n",
+              "options": [
+                {
+                  "label": "A",
+                  "id": 33065,
+                  "text": "$\\frac{1}{1024}$",
+                  "is_correct": false
+                },
+                {
+                  "label": "B",
+                  "id": 33066,
+                  "text": "$\\frac{3}{1024}$",
+                  "is_correct": false
+                },
+                {
+                  "label": "C",
+                  "id": 33064,
+                  "text": "$\\frac{3}{4096}$",
+                  "is_correct": false
+                },
+                {
+                  "label": "D",
+                  "id": 33063,
+                  "text": "$\\frac{55}{2048}$",
+                  "is_correct": true
+                }
+              ],
+              "correct_option_ids": [
+                33063
+              ],
+              "correct_option_labels": [
+                "D"
+              ],
+              "correct_option_texts": [
+                "$\\frac{55}{2048}$"
+              ],
+              "explanation": "Let a coin be tossed n number of times and X be a random variable denoting the no. of heads then, X follows the binomial distribution.\nNow, P(X = 4) = P(X = 7)\n$ \\Rightarrow {}^n{C_4}{\\left( {\\frac{1}{2}} \\right)^4}{\\left( {\\frac{1}{2}} \\right)^{n - 4}} = {}^n{C_7}{\\left( {\\frac{1}{2}} \\right)^{n - 7}}{\\left( {\\frac{1}{2}} \\right)^7}$ \n$\\Rightarrow {}^n{C_4} = {}^n{C_7} = {}^n{C_{7 - 4}}$ \n$\\Rightarrow$ 4 = 7 - n $\\Rightarrow$ n = 11\n$\\therefore$ P(X = 2) = ${}^{11}{C_2}{\\left( {\\frac{1}{2}} \\right)^{11 - 2}}.{\\left( {\\frac{1}{2}} \\right)^2}$ \n= $ {}^{11}{C_2}{\\left( {\\frac{1}{2}} \\right)^{11}} = \\frac{{11}}{2} \\times \\frac{{10}}{1} \\times \\frac{1}{{{2^{11}}}}$ \n= $ \\frac{{55}}{{{2^{11}}}}$"
+            },
+            {
+              "questionID": 19467,
+              "question": "From a pack of 52 cards, the cards are drawn one by one till an ace appears. The chance that an ace does not come up in first 26 cards is",
+              "question_raw": "<p>From a pack of 52 cards, the cards are drawn one by one till an ace appears. The chance that an ace does not come up in first 26 cards is</p>",
+              "options": [
+                {
+                  "label": "A",
+                  "id": 33067,
+                  "text": "none of these",
+                  "is_correct": true
+                },
+                {
+                  "label": "B",
+                  "id": 33070,
+                  "text": "$\\frac{23}{27}$",
+                  "is_correct": false
+                },
+                {
+                  "label": "C",
+                  "id": 33069,
+                  "text": "$\\frac{109}{153}$",
+                  "is_correct": false
+                },
+                {
+                  "label": "D",
+                  "id": 33068,
+                  "text": "$\\frac{46}{153}$",
+                  "is_correct": false
+                }
+              ],
+              "correct_option_ids": [
+                33067
+              ],
+              "correct_option_labels": [
+                "A"
+              ],
+              "correct_option_texts": [
+                "none of these"
+              ],
+              "explanation": "We know that probability having first success at the r^th trial = pq^r-1\nHere. r = 27 and p = probability of getting ace $ = \\frac{4}{{52}}$ \nq = probability of not getting ace $= \\frac{{48}}{{52}}$ \n$\\therefore$ Required probability $= \\frac{4}{{52}} \\times {\\left( {\\frac{{48}}{{52}}} \\right)^{26}}$"
+            },
+            {
+              "questionID": 19468,
+              "question": "Three of the 6 vertices of a regular hexagon are chosen at random .The probability that the triangle with these vertices is equilateral is",
+              "question_raw": "<p>Three of the 6 vertices of a regular hexagon are chosen at random .The probability that the triangle with these vertices is equilateral is</p>",
+              "options": [
+                {
+                  "label": "A",
+                  "id": 33074,
+                  "text": "1/ 20",
+                  "is_correct": false
+                },
+                {
+                  "label": "B",
+                  "id": 33073,
+                  "text": "1/ 5",
+                  "is_correct": false
+                },
+                {
+                  "label": "C",
+                  "id": 33072,
+                  "text": "1/ 2",
+                  "is_correct": false
+                },
+                {
+                  "label": "D",
+                  "id": 33071,
+                  "text": "1/ 10",
+                  "is_correct": true
+                }
+              ],
+              "correct_option_ids": [
+                33071
+              ],
+              "correct_option_labels": [
+                "D"
+              ],
+              "correct_option_texts": [
+                "1/ 10"
+              ],
+              "explanation": "Total of triangles formed $= {}^6{C_3} = 20$\nNo. of equilateral triangles which can be formed in a regular hexagon = 2\n$\\therefore$ required probability $= \\frac{2}{{20}} = \\frac{1}{{10}}$"
+            },
+            {
+              "questionID": 19469,
+              "question": "In a certain town, 40% persons have brown hair, 25% have brown eyes, and 15% have both. If a person selected at random has brown hair, the chance that a person selected at random with brown hair is with brown eyes",
+              "question_raw": "<p>In a certain town, 40% persons have brown hair, 25% have brown eyes, and 15% have both. If a person selected at random has brown hair, the chance that a person selected at random with brown hair is with brown eyes</p>",
+              "options": [
+                {
+                  "label": "A",
+                  "id": 33075,
+                  "text": "$\\frac{3}{8}$",
+                  "is_correct": true
+                },
+                {
+                  "label": "B",
+                  "id": 33078,
+                  "text": "$\\frac{3}{20}$",
+                  "is_correct": false
+                },
+                {
+                  "label": "C",
+                  "id": 33077,
+                  "text": "$\\frac{1}{3}$",
+                  "is_correct": false
+                },
+                {
+                  "label": "D",
+                  "id": 33076,
+                  "text": "$\\frac{2}{3}$",
+                  "is_correct": false
+                }
+              ],
+              "correct_option_ids": [
+                33075
+              ],
+              "correct_option_labels": [
+                "A"
+              ],
+              "correct_option_texts": [
+                "$\\frac{3}{8}$"
+              ],
+              "explanation": "Let A be the event that a person has brown hair, B be the event that a person has brown eyes. Then,\nP(A) = $\\frac{40}{100}$, P(B) = $\\frac{25}{100}$, $P(A \\cap B)=\\frac{15}{100}$ \nRequired probability = $P\\left( {\\frac{B}{A}} \\right) = \\frac{{P(A \\cap B)}}{{P(A)}} = \\frac{{\\frac{{15}}{{100}}}}{{\\frac{{40}}{{100}}}} = \\frac{3}{8}$"
+            },
+            {
+              "questionID": 19470,
+              "question": "The probability that a card drawn at random from a pack of 52 cards is either a king or a heart is",
+              "question_raw": "<p>The probability that a card drawn at random from a pack of 52 cards is either a king or a heart is</p>",
+              "options": [
+                {
+                  "label": "A",
+                  "id": 33080,
+                  "text": "$\\frac{1}{52}$",
+                  "is_correct": false
+                },
+                {
+                  "label": "B",
+                  "id": 33082,
+                  "text": "$\\frac{1}{4}$",
+                  "is_correct": false
+                },
+                {
+                  "label": "C",
+                  "id": 33081,
+                  "text": "$\\frac{1}{13}$",
+                  "is_correct": false
+                },
+                {
+                  "label": "D",
+                  "id": 33079,
+                  "text": "$\\frac{16}{52}$",
+                  "is_correct": true
+                }
+              ],
+              "correct_option_ids": [
+                33079
+              ],
+              "correct_option_labels": [
+                "D"
+              ],
+              "correct_option_texts": [
+                "$\\frac{16}{52}$"
+              ],
+              "explanation": "Let s be the sample space then n(S) = ${}^{52}{C_1}$ = 52\nA be the event of getting a king then n(A) = ${}^4{C_1}$ = 4, B be the event of getting a heart other than a king, then n(B) = ${}^{12}{C_1}$ = 12\nHence total number of ways, P(A or B) = P(A $\\cup$ B) = $\\frac{n(A \\cup B)}{n(S)}$ = ( ${}^4{C_1}$ + ${}^{12}{C_1}$ )/ ${}^{52}{C_1}$ = $\\frac{16}{52}$"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "testPaperID": 679,
+      "testPaperName": "Probability Test 03",
+      "is_paid": true,
+      "category_full_name": "CBSE > Class 11 > Mathematics > Probability",
+      "noOfQuestions": 15,
+      "has_answers": true,
+      "sections": [
+        {
+          "sectionName": "General",
+          "sectionID": null,
+          "questions": [
+            {
+              "questionID": 19471,
+              "question": "If the integers m and n are chosen at random between 1 and 100, then the probability that a number of the form 7^m + 7^n is divisible by 5 is",
+              "question_raw": "<p>If the integers m and n are chosen at random between 1 and 100, then the probability that a number of the form&nbsp;7<sup>m</sup> + 7<sup>n</sup> is divisible by 5 is</p>",
+              "options": [
+                {
+                  "label": "A",
+                  "id": 33086,
+                  "text": "$\\frac{3}{4}$",
+                  "is_correct": false
+                },
+                {
+                  "label": "B",
+                  "id": 33084,
+                  "text": "$\\frac{1}{7}$",
+                  "is_correct": false
+                },
+                {
+                  "label": "C",
+                  "id": 33083,
+                  "text": "$\\frac{1}{5}$",
+                  "is_correct": true
+                },
+                {
+                  "label": "D",
+                  "id": 33085,
+                  "text": "$\\frac{1}{4}$",
+                  "is_correct": false
+                }
+              ],
+              "correct_option_ids": [
+                33083
+              ],
+              "correct_option_labels": [
+                "C"
+              ],
+              "correct_option_texts": [
+                "$\\frac{1}{5}$"
+              ],
+              "explanation": "We know that 7^k, K$\\in$ N, has 1, 3, 9, 7 at the unit's place for k = 4p, 4p - 1, 4p - 2, 4p - 3 respectively, where p = 1, 2, 3,..... Clearly, 7^m + 7^n will be divisible by 5 if 7^m has 3 or 7 in the unit's place and 7^n has 7 or 3 in the unit's place or 7^m has 1 or 9 in the unit's place and 7^n has 9 or 1 in the unit's place.\nThus, for any choice of m,n the digit in the unit's place of 7^m = 7^n is 2, 4, 6, 0 or 8. It is divisible by 5 only when this digit is 0.\nHence, required probability = $\\frac{1}{5}$"
+            },
+            {
+              "questionID": 19472,
+              "question": "The probability that the length of a randomly chosen chord of a circle lies between $\\frac{2}{3}$ and $\\frac{5}{6}$ of it's diameter is",
+              "question_raw": "<p>The probability that the length of a randomly chosen chord of a circle lies between <span class=\"math-tex\">{tex}\\frac{2}{3}{/tex}</span> and <span class=\"math-tex\">{tex}\\frac{5}{6}{/tex}</span> of it&#39;s diameter is</p>",
+              "options": [
+                {
+                  "label": "A",
+                  "id": 33088,
+                  "text": "$\\frac{5}{6}$",
+                  "is_correct": false
+                },
+                {
+                  "label": "B",
+                  "id": 33090,
+                  "text": "$\\frac{5}{12}$",
+                  "is_correct": false
+                },
+                {
+                  "label": "C",
+                  "id": 33087,
+                  "text": "$\\frac{1}{4}$",
+                  "is_correct": true
+                },
+                {
+                  "label": "D",
+                  "id": 33089,
+                  "text": "$\\frac{1}{16}$",
+                  "is_correct": false
+                }
+              ],
+              "correct_option_ids": [
+                33087
+              ],
+              "correct_option_labels": [
+                "C"
+              ],
+              "correct_option_texts": [
+                "$\\frac{1}{4}$"
+              ],
+              "explanation": "If l is the length of a chord, r, the distance of the mid-point of the chord from the centre of the circle and a radius of the given circle, then \nr = a cos $\\theta$, l = 2a sin $\\theta$ \nGiven: $\\frac{2}{3} 2 a<2 a \\sin \\theta<\\frac{2}{3} 2 a$ \n$\\Rightarrow$ $\\frac{5}{6} a<a \\cos \\theta<\\frac{\\sqrt{5}}{3} a$ \n$\\Rightarrow$ $\\frac{\\sqrt{11}}{6}<r<\\frac{\\sqrt{5}}{3} a$ \nThus the given condition is satisfied if the mid-point of the chord lies within the region between the concentric circles of radius $\\frac{\\sqrt{11}}{6}$ and $\\frac{\\sqrt{5}}{3}$. \nHence, the required probability = $\\frac{\\text { The area of the circular annulus }}{\\text { Area of the given circle }}$ \n= $\\left(\\frac{5}{9}-\\frac{11}{36}\\right)=\\frac{1}{4}$"
+            },
+            {
+              "questionID": 19473,
+              "question": "The letters of the word ORIENTAL are arranged in all possible ways. The chance that the consonants and vowels occur alternately is",
+              "question_raw": "<p>The letters of the word ORIENTAL&nbsp;are arranged in all possible ways. The chance that the consonants and vowels occur alternately is</p>",
+              "options": [
+                {
+                  "label": "A",
+                  "id": 33091,
+                  "text": "$\\frac{1}{35}$",
+                  "is_correct": true
+                },
+                {
+                  "label": "B",
+                  "id": 33093,
+                  "text": "$\\frac{1}{70}$",
+                  "is_correct": false
+                },
+                {
+                  "label": "C",
+                  "id": 33092,
+                  "text": "$\\frac{2}{35}$",
+                  "is_correct": false
+                },
+                {
+                  "label": "D",
+                  "id": 33094,
+                  "text": "$\\frac{3}{35}$",
+                  "is_correct": false
+                }
+              ],
+              "correct_option_ids": [
+                33091
+              ],
+              "correct_option_labels": [
+                "A"
+              ],
+              "correct_option_texts": [
+                "$\\frac{1}{35}$"
+              ],
+              "explanation": "Consonants can be placed in 4! ways.\nVowels can be placed in between consonants in 4! ways\n$\\therefore$ Total no. of ways in which the consonants and vowels occur alternatively = $2 \\times 4! \\times 4!$ \nAlso, total no. of ways in which the letters of the word 'ORIENTAL' can be arranged = 8!\n$\\therefore$ Required probability = $ \\frac{{2 \\times 4! \\times 4!}}{{8!}} = \\frac{1}{{35}}$"
+            },
+            {
+              "questionID": 19474,
+              "question": "8 coins are tossed at a time. The probability of getting atleast 6 heads up is",
+              "question_raw": "<p>8 coins are tossed at a time. The probability of getting atleast 6 heads up is</p>",
+              "options": [
+                {
+                  "label": "A",
+                  "id": 33098,
+                  "text": "$\\frac{1}{64}$",
+                  "is_correct": false
+                },
+                {
+                  "label": "B",
+                  "id": 33097,
+                  "text": "$\\frac{57}{64}$",
+                  "is_correct": false
+                },
+                {
+                  "label": "C",
+                  "id": 33095,
+                  "text": "$\\frac{37}{256}$",
+                  "is_correct": true
+                },
+                {
+                  "label": "D",
+                  "id": 33096,
+                  "text": "$\\frac{229}{256}$",
+                  "is_correct": false
+                }
+              ],
+              "correct_option_ids": [
+                33095
+              ],
+              "correct_option_labels": [
+                "C"
+              ],
+              "correct_option_texts": [
+                "$\\frac{37}{256}$"
+              ],
+              "explanation": "Let A be the event getting atleast 6 heads up, then, \nn(A) = $ \\frac{{8!}}{{6! \\times 2!}} + \\frac{{8!}}{{7! \\times 1!}} + 1$ [Using permutation of like letters]\n= 37\nAlso, Total no. of outcomes = 2^8 = 256\n$\\therefore$ Required probability = $\\frac{{37}}{{256}}$"
+            },
+            {
+              "questionID": 19475,
+              "question": "There are 2 boxes. One box contains 3 white balls and 2 black balls. The other box contains 7 yellow balls and 3 black balls. If a box is selected at random and from it, a ball is drawn, the probability that the ball drawn is black is",
+              "question_raw": "<p>There are 2 boxes. One box contains 3 white balls and 2 black balls. The other box contains 7 yellow balls and 3 black balls. If a box is selected at random and from it, a ball is drawn, the probability that the ball drawn is black is</p>",
+              "options": [
+                {
+                  "label": "A",
+                  "id": 33102,
+                  "text": "$\\frac{1}{20}$",
+                  "is_correct": false
+                },
+                {
+                  "label": "B",
+                  "id": 33100,
+                  "text": "$\\frac{1}{5}$",
+                  "is_correct": false
+                },
+                {
+                  "label": "C",
+                  "id": 33101,
+                  "text": "$\\frac{1}{3}$",
+                  "is_correct": false
+                },
+                {
+                  "label": "D",
+                  "id": 33099,
+                  "text": "$\\frac{7}{20}$",
+                  "is_correct": true
+                }
+              ],
+              "correct_option_ids": [
+                33099
+              ],
+              "correct_option_labels": [
+                "D"
+              ],
+              "correct_option_texts": [
+                "$\\frac{7}{20}$"
+              ],
+              "explanation": "Let E_1 = selecting b on I\nE_2 = selecting b on II\nA = drawing a black ball\n$\\therefore$ P(E_1) = P(E_2) = $\\frac{1}{2}$ \nNow, $P\\left( {\\frac{A}{{{E_1}}}} \\right) = \\frac{2}{5},P\\left( {\\frac{A}{{{E_2}}}} \\right) = \\frac{3}{{10}}$ \n$\\therefore$ By law of total probabiliy,\n$P(A) = P({E_1}).P\\left( {\\frac{A}{{{E_2}}}} \\right) + P({E_2}).P\\left( {\\frac{A}{{{E_1}}}} \\right)$ \n= $ \\frac{1}{2} \\times \\frac{2}{5} + \\frac{1}{2} \\times \\frac{3}{{10}} = \\frac{7}{{20}}$"
+            },
+            {
+              "questionID": 19476,
+              "question": "If A and B are two mutually exclusive events, then P (A + B) is equal to",
+              "question_raw": "<p>If A and B are two mutually exclusive events, then P (A + B) is equal to</p>\r\n",
+              "options": [
+                {
+                  "label": "A",
+                  "id": 33105,
+                  "text": "P(A) P(B’) + P(A’) P(B)",
+                  "is_correct": false
+                },
+                {
+                  "label": "B",
+                  "id": 33104,
+                  "text": "P(A) P(B)",
+                  "is_correct": false
+                },
+                {
+                  "label": "C",
+                  "id": 33106,
+                  "text": "P (A) P (B’) P(A’) P (B)",
+                  "is_correct": false
+                },
+                {
+                  "label": "D",
+                  "id": 33103,
+                  "text": "P(A) + P(B)",
+                  "is_correct": true
+                }
+              ],
+              "correct_option_ids": [
+                33103
+              ],
+              "correct_option_labels": [
+                "D"
+              ],
+              "correct_option_texts": [
+                "P(A) + P(B)"
+              ],
+              "explanation": "For two mutually exclusive events A and B, we have $A \\cap B = \\phi $ i.e. there is no common elements exist between them, then we have from addition theorem of probability, P(A or B) = P(A $ \\cup$ B) = P(A + B) = P(A) + P(B) - P(A $ \\cap $ B) = P(A) + P(B) [as P(A $ \\cap $ B) = 0]"
+            },
+            {
+              "questionID": 19477,
+              "question": "If ${E_1}$ and ${E_2}$ are two independent events, then P $\\left( {{E_1} \\cap {E_2}} \\right)$ is equal to",
+              "question_raw": "<p>If <span class=\"math-tex\">{tex}{E_1}{/tex}</span> and <span class=\"math-tex\">{tex}{E_2}{/tex}</span> are two independent events, then P <span class=\"math-tex\">{tex}\\left( {{E_1} \\cap {E_2}} \\right){/tex}</span> is equal to</p>",
+              "options": [
+                {
+                  "label": "A",
+                  "id": 33107,
+                  "text": "$P\\left( {{E_1})P({E_2}} \\right)$",
+                  "is_correct": true
+                },
+                {
+                  "label": "B",
+                  "id": 33108,
+                  "text": "$P\\left( {{E_1}) + P({E_2}} \\right) + P({E_1} + \\cup {E_2})$",
+                  "is_correct": false
+                },
+                {
+                  "label": "C",
+                  "id": 33110,
+                  "text": "$P\\left( {{E_1})-\\;P\\;({E_2}} \\right)$",
+                  "is_correct": false
+                },
+                {
+                  "label": "D",
+                  "id": 33109,
+                  "text": "$P\\left( {{E_1})+\\;P\\;({E_2}} \\right)$",
+                  "is_correct": false
+                }
+              ],
+              "correct_option_ids": [
+                33107
+              ],
+              "correct_option_labels": [
+                "A"
+              ],
+              "correct_option_texts": [
+                "$P\\left( {{E_1})P({E_2}} \\right)$"
+              ],
+              "explanation": "We have, $P({E_1} \\cap {E_2}) = P({E_1}).P(\\frac{{{E_2}}}{{{E_1}}})$\nSince E_1 and E_2 are independents, therefore\n$P = \\left( {\\frac{{{E_2}}}{{P({E_1}) = P({E_2})}}} \\right)$\n$\\therefore P({E_1} \\cap {E_2}) = P({E_1}).P({E_2})$"
+            },
+            {
+              "questionID": 19478,
+              "question": "If E is an event, then P $\\left( {\\bar E} \\right)$ is equal to",
+              "question_raw": "<p>If E is an event, then P <span class=\"math-tex\">{tex}\\left( {\\bar E} \\right){/tex}</span> is equal to</p>",
+              "options": [
+                {
+                  "label": "A",
+                  "id": 33111,
+                  "text": "1 – P (E)",
+                  "is_correct": true
+                },
+                {
+                  "label": "B",
+                  "id": 33112,
+                  "text": "P (E)",
+                  "is_correct": false
+                },
+                {
+                  "label": "C",
+                  "id": 33114,
+                  "text": "1 + P (E)",
+                  "is_correct": false
+                },
+                {
+                  "label": "D",
+                  "id": 33113,
+                  "text": "- P (E)",
+                  "is_correct": false
+                }
+              ],
+              "correct_option_ids": [
+                33111
+              ],
+              "correct_option_labels": [
+                "A"
+              ],
+              "correct_option_texts": [
+                "1 – P (E)"
+              ],
+              "explanation": "We have, $(E \\cup \\overline E ) $ = S\n$\\therefore P(E \\cup \\overline E )$ = P(S)\n$ \\Rightarrow P(E) + P(\\overline E ) = P(S)$ {Using addition therom and E and $\\overline E $ are mutually exclusive}\n$\\Rightarrow P(E) + P(\\overline E ) = 1$ {Probability in sample space is unque}\n$\\Rightarrow P(\\overline E ) $ = 1 - P(E)"
+            },
+            {
+              "questionID": 19479,
+              "question": "The probability that a teacher will give an unannounced test during any class is $\\frac 15$. If a student is absent twice, then the probability that he misses atleast one test is",
+              "question_raw": "<p>The probability that a teacher will give an unannounced test during any class is&nbsp;<span class=\"math-tex\">{tex}\\frac 15{/tex}</span>. If a student is absent twice, then the probability that he misses atleast one test is</p>",
+              "options": [
+                {
+                  "label": "A",
+                  "id": 33116,
+                  "text": "$\\frac 4 5$",
+                  "is_correct": false
+                },
+                {
+                  "label": "B",
+                  "id": 33118,
+                  "text": "$\\frac 25$",
+                  "is_correct": false
+                },
+                {
+                  "label": "C",
+                  "id": 33115,
+                  "text": "$\\frac {9} {25}$",
+                  "is_correct": true
+                },
+                {
+                  "label": "D",
+                  "id": 33117,
+                  "text": "$\\frac {7}{25}$",
+                  "is_correct": false
+                }
+              ],
+              "correct_option_ids": [
+                33115
+              ],
+              "correct_option_labels": [
+                "C"
+              ],
+              "correct_option_texts": [
+                "$\\frac {9} {25}$"
+              ],
+              "explanation": "Required probability = 1 - P[student does not miss any test]\n= 1 - P[teacher does not take a test when the student was absent]\n= $1 - \\left[ {1 - \\frac{1}{5}} \\right] \\times \\left[ {1 - \\frac{1}{5}} \\right]$ \n= $1 - \\frac{4}{5} \\times \\frac{4}{5} = 1 - \\frac{{16}}{{25}}$ \n= $\\frac{9}{{25}}$"
+            },
+            {
+              "questionID": 19480,
+              "question": "If the probability for A to fail in an examination is 0.2 and that for B is 0.3, then the probability that either A fails or B fails is",
+              "question_raw": "<p>If the probability for A to fail in an examination is 0.2 and that for B is 0.3, then the probability that either A fails or B fails is</p>",
+              "options": [
+                {
+                  "label": "A",
+                  "id": 33119,
+                  "text": "0.44",
+                  "is_correct": true
+                },
+                {
+                  "label": "B",
+                  "id": 33120,
+                  "text": "0.5",
+                  "is_correct": false
+                },
+                {
+                  "label": "C",
+                  "id": 33121,
+                  "text": "0.06",
+                  "is_correct": false
+                },
+                {
+                  "label": "D",
+                  "id": 33122,
+                  "text": "0.08",
+                  "is_correct": false
+                }
+              ],
+              "correct_option_ids": [
+                33119
+              ],
+              "correct_option_labels": [
+                "A"
+              ],
+              "correct_option_texts": [
+                "0.44"
+              ],
+              "explanation": "Required probability = 1 - P[neither a fails nor B fails]\n= 1 - P[A does not fail] x [B does not fail]\n= 1 - 0.8 x 0.7\n= 0.44"
+            },
+            {
+              "questionID": 19481,
+              "question": "In a single throw of two dice, the probability of getting a total of 7 or 9 is",
+              "question_raw": "<p>In a single throw of two dice, the probability of getting a total of 7 or 9 is</p>",
+              "options": [
+                {
+                  "label": "A",
+                  "id": 33125,
+                  "text": "$\\frac{4} {18}$",
+                  "is_correct": false
+                },
+                {
+                  "label": "B",
+                  "id": 33124,
+                  "text": "$\\frac{1}{ 3}$",
+                  "is_correct": false
+                },
+                {
+                  "label": "C",
+                  "id": 33126,
+                  "text": "$\\frac{7} {18}$",
+                  "is_correct": false
+                },
+                {
+                  "label": "D",
+                  "id": 33123,
+                  "text": "$\\frac{5} {18}$",
+                  "is_correct": true
+                }
+              ],
+              "correct_option_ids": [
+                33123
+              ],
+              "correct_option_labels": [
+                "D"
+              ],
+              "correct_option_texts": [
+                "$\\frac{5} {18}$"
+              ],
+              "explanation": "A = getting a total of 7\nB = getting a total of 9\nThen, A = {(6,1), (1, 6), (4, 3), (3, 4)}\nB = {(6, 3), (3, 6), (5, 4), (4, 5)}\n$\\therefore$ Required probability ${ = \\;P(A\\; \\cup \\;B)}$\n= P(A) + P(B)\n$=\\frac{4}{6^2}+\\frac{4}{6^2}=\\frac{8}{6^2}=\\frac{8}{36}=\\frac{4}{18}$"
+            },
+            {
+              "questionID": 19482,
+              "question": "Three numbers are chosen at random without replacement from {1,2,3,.......,10}.The probability that the minimum of the chosen numbers is 3,or their maximum is 7,is",
+              "question_raw": "<p>Three numbers are chosen at random without replacement from {1,2,3,.......,10}.The probability that the minimum of the chosen numbers is 3,or their maximum is 7,is</p>",
+              "options": [
+                {
+                  "label": "A",
+                  "id": 33130,
+                  "text": "3/40",
+                  "is_correct": false
+                },
+                {
+                  "label": "B",
+                  "id": 33129,
+                  "text": "5/40",
+                  "is_correct": false
+                },
+                {
+                  "label": "C",
+                  "id": 33128,
+                  "text": "$7/40$",
+                  "is_correct": false
+                },
+                {
+                  "label": "D",
+                  "id": 33127,
+                  "text": "11/40",
+                  "is_correct": true
+                }
+              ],
+              "correct_option_ids": [
+                33127
+              ],
+              "correct_option_labels": [
+                "D"
+              ],
+              "correct_option_texts": [
+                "11/40"
+              ],
+              "explanation": "Let A(B) denote the event that minimum (maximum) number on the chosen tickets is 3(7).\nWe have,\nP(A)=P(choosing 3 and two other numbers from 4 to 10)\n=$\\frac{^7C_2}{^{10}C_3}=\\frac{7}{40}\\\\ $.\nP(B)=P(choosing 7 and choosing two other numbers from 1 to 6)=$\\frac{^6C_2}{^{10}C_3}=\\frac{1}{8}=\\frac{5}{40}$.\n$P(A\\cap B)=$P(choosing 3 and 7 and one other number from 4 to 6)\n=$\\frac{3}{^{10}C_3}=\\frac{1}{40}\\\\ $\n$\\therefore P(A\\cup B)=P(A)+P(B)-P(A\\cap B)$\n=7/40+5/40-1/40=11/40."
+            },
+            {
+              "questionID": 19483,
+              "question": "Let A and B be two independent events. The probability that both A and B occur is $\\frac {1}{12}$ and the probability that neither A nor B occurs is $\\frac 12$. The respective probabilities of A and B are",
+              "question_raw": "<p>Let A and B be two independent events. The probability that both A and B occur is <span class=\"math-tex\">{tex}\\frac {1}{12}{/tex}</span> and the probability that neither A nor B occurs is&nbsp;<span class=\"math-tex\">{tex}\\frac 12{/tex}</span>. The respective probabilities of A and B are</p>",
+              "options": [
+                {
+                  "label": "A",
+                  "id": 33133,
+                  "text": "$\\frac 1 6$ and $\\frac 1 2$",
+                  "is_correct": false
+                },
+                {
+                  "label": "B",
+                  "id": 33131,
+                  "text": "$\\frac{1}{3}$ and $\\frac{1}{4}$ or $\\frac{1}{4}$ and $\\frac{1}{3}$",
+                  "is_correct": true
+                },
+                {
+                  "label": "C",
+                  "id": 33132,
+                  "text": "$\\frac 12$ and $\\frac{1}{6}$",
+                  "is_correct": false
+                },
+                {
+                  "label": "D",
+                  "id": 33134,
+                  "text": "none of thse",
+                  "is_correct": false
+                }
+              ],
+              "correct_option_ids": [
+                33131
+              ],
+              "correct_option_labels": [
+                "B"
+              ],
+              "correct_option_texts": [
+                "$\\frac{1}{3}$ and $\\frac{1}{4}$ or $\\frac{1}{4}$ and $\\frac{1}{3}$"
+              ],
+              "explanation": "Since A & B are independents and therefore $\\bar A $ & $\\bar B$ are independent\n$\\therefore P(A \\cap B) = P(A)P(B)$ and $P(\\overline A \\cap \\overline B ) = P(\\overline A )\\,.\\,P(\\overline B )$ \n$\\Rightarrow P(\\bar A \\cdot P(\\bar B) = \\frac{1}{12}$......(1)\n$P(\\bar A )\\cdot P(\\bar B ) = \\frac{1}{2}$ \n$ \\Rightarrow [1 - P(A)][1 - P(B)] = \\frac{1}{2}$ $\\Rightarrow 1 - P(B) - P(A) + P(A)\\cdot P(B) = \\frac{1}{2}$ \n$\\Rightarrow 1 - P(B) - P(A) + \\frac{1}{{12}} = \\frac{1}{{2}}$ ...(By (1))\n$\\Rightarrow P(B) = \\frac{7}{{12}} - P(A)$ ...(2)\n$\\therefore$ From (1), $P(A)\\left[ {\\frac{7}{{12}} - P(A)} \\right] = \\frac{1}{{12}}$ \n$\\Rightarrow$ 12P(A)^2 - 7P(A) + 1 = 0\n$\\Rightarrow $ (4(P(A) - 1) (3P(A) - 1) = 0\n$\\Rightarrow $ P(A) = $\\frac{1}{4}$ or P(A) = $\\frac{1}{3}$ \nWhen $P(A) = \\frac{1}{4}(1)$ gives $P(B) = \\frac{1}{3}$ and when $P(A) = \\frac{1}{3},(1)$ gives $P(B) = \\frac{1}{4}$"
+            },
+            {
+              "questionID": 19484,
+              "question": "Two events A and B have probabilities 0.25 and 0.50 respectively. The probability that both A and B occur simultaneously is 0.14. Then the probability that neither A nor B occurs is",
+              "question_raw": "<p>Two events A and B have probabilities 0.25 and 0.50 respectively. The probability that both A and B occur simultaneously is 0.14. Then the probability that neither A nor B occurs is</p>",
+              "options": [
+                {
+                  "label": "A",
+                  "id": 33137,
+                  "text": "0.89",
+                  "is_correct": false
+                },
+                {
+                  "label": "B",
+                  "id": 33135,
+                  "text": "0.39",
+                  "is_correct": true
+                },
+                {
+                  "label": "C",
+                  "id": 33136,
+                  "text": "0.375",
+                  "is_correct": false
+                },
+                {
+                  "label": "D",
+                  "id": 33138,
+                  "text": "0.86",
+                  "is_correct": false
+                }
+              ],
+              "correct_option_ids": [
+                33135
+              ],
+              "correct_option_labels": [
+                "B"
+              ],
+              "correct_option_texts": [
+                "0.39"
+              ],
+              "explanation": "We have, P(A) = 0.25, P(B) = 0.50, $P(A \\cap B) $ = 0.14\n$\\therefore$ Required Probability $= P(\\overline A \\cap \\overline B )$\n$= 1 - P(A \\cap B)$\n= 1 - [P(A) + P(B) - P(A $\\cap$ B)]\n= 1 - [0.25 + 0.50 - 0.15]\n= 0.39"
+            },
+            {
+              "questionID": 19485,
+              "question": "India plays two matches each with West Indies and Australia. In any match the probabilities of India getting points 0, 1 and 2 are 0.45, 0.5 and 0.5 respectively. Assuming that the outcomes are independent, the probability of India getting atleast 7 points is",
+              "question_raw": "<p>India plays two matches each with West Indies and Australia. In any match the probabilities of India getting points 0, 1 and 2 are 0.45, 0.5 and 0.5 respectively. Assuming that the outcomes are independent, the probability of India getting atleast 7 points is</p>",
+              "options": [
+                {
+                  "label": "A",
+                  "id": 33139,
+                  "text": "$\\frac {1}{16}$",
+                  "is_correct": false
+                },
+                {
+                  "label": "B",
+                  "id": 33142,
+                  "text": "0.525",
+                  "is_correct": false
+                },
+                {
+                  "label": "C",
+                  "id": 33141,
+                  "text": "0.1125",
+                  "is_correct": false
+                },
+                {
+                  "label": "D",
+                  "id": 33140,
+                  "text": "0.8750",
+                  "is_correct": true
+                }
+              ],
+              "correct_option_ids": [
+                33140
+              ],
+              "correct_option_labels": [
+                "D"
+              ],
+              "correct_option_texts": [
+                "0.8750"
+              ],
+              "explanation": "Here, there are total 5 ways by which India can get at least 7 points.\n2 points + 2 points + 2 points + 2 points =$(0.5 \\times 0.5 \\times 0.5 \\times 0.5)$\n1 point + 2 points + 2 points + 2 points = $(0.05 \\times 0.5 \\times 0.5 \\times 0.5)$\n2 points + 1 point + 2 points + 2 points $=(0.5 \\times 0.05 \\times 0.5 \\times 0.5)$\n2 points + 2 points + 1 point + 2 points =$(0.5 \\times 0.5 \\times 0.05 \\times 0.5)$\nP(atleast 7 points) = $0.5 \\times 0.5 \\times 0.5 \\times 0.5+4[0.05 \\times 0.5 \\times 0.5 \\times 0.5]$\n= 0.0625 + 4(0.00625)\n= 0.0625 + 0.025\n= 0.0875"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "testPaperID": 680,
+      "testPaperName": "Probability Test 04",
+      "is_paid": true,
+      "category_full_name": "CBSE > Class 11 > Mathematics > Probability",
+      "noOfQuestions": 15,
+      "has_answers": true,
+      "sections": [
+        {
+          "sectionName": "General",
+          "sectionID": null,
+          "questions": [
+            {
+              "questionID": 19486,
+              "question": "An unbiased dice is rolled four times. The probability that the minimum number on any toss is not less than 3 is",
+              "question_raw": "<p>An unbiased dice is rolled four times. The probability that the minimum number on any toss is not less than 3 is</p>",
+              "options": [
+                {
+                  "label": "A",
+                  "id": 33146,
+                  "text": "$\\frac{80}{81}$",
+                  "is_correct": false
+                },
+                {
+                  "label": "B",
+                  "id": 33143,
+                  "text": "$\\frac{16}{81}$",
+                  "is_correct": true
+                },
+                {
+                  "label": "C",
+                  "id": 33145,
+                  "text": "$\\frac{65} {81}$",
+                  "is_correct": false
+                },
+                {
+                  "label": "D",
+                  "id": 33144,
+                  "text": "$\\frac{1}{81}$",
+                  "is_correct": false
+                }
+              ],
+              "correct_option_ids": [
+                33143
+              ],
+              "correct_option_labels": [
+                "B"
+              ],
+              "correct_option_texts": [
+                "$\\frac{16}{81}$"
+              ],
+              "explanation": "The probability that the outcome of a single throw of a die is any one of 4, 3, 4, 5 and 5 is equal to $\\frac{4}{6} = \\frac{2}{3}$ of the die is rolled four times, the required probability is equal to\n${\\left( {\\frac{2}{3}} \\right)^4} = \\frac{{16}}{{81}}$"
+            },
+            {
+              "questionID": 19487,
+              "question": "The probability that a man will live for 10 more years is $\\frac 14$ and that his wife will live 10 more years is $\\frac 13$. The probability that neither will be alive in 10 years is",
+              "question_raw": "<p>The probability that a man will live for 10 more years is <span class=\"math-tex\">{tex}\\frac 14{/tex}</span> and that his wife will live 10 more years is&nbsp;<span class=\"math-tex\">{tex}\\frac 13{/tex}</span>. The probability that neither will be alive in 10 years is</p>",
+              "options": [
+                {
+                  "label": "A",
+                  "id": 33148,
+                  "text": "$\\frac {5} {12}$",
+                  "is_correct": false
+                },
+                {
+                  "label": "B",
+                  "id": 33149,
+                  "text": "$\\frac {7}{12}$",
+                  "is_correct": false
+                },
+                {
+                  "label": "C",
+                  "id": 33150,
+                  "text": "$\\frac {11}{12}$",
+                  "is_correct": false
+                },
+                {
+                  "label": "D",
+                  "id": 33147,
+                  "text": "$\\frac 12$",
+                  "is_correct": true
+                }
+              ],
+              "correct_option_ids": [
+                33147
+              ],
+              "correct_option_labels": [
+                "D"
+              ],
+              "correct_option_texts": [
+                "$\\frac 12$"
+              ],
+              "explanation": "Probability that a man will not live 10 more years $= 1 - \\frac{1}{4} = \\frac{3}{4}$\nProbability that a man will not live for 10 more years $= 1 - \\frac{1}{3} = \\frac{2}{3}$\n$\\therefore$ Required probability $= \\frac{3}{4} \\times \\frac{2}{3} = \\frac{1}{2}$"
+            },
+            {
+              "questionID": 19488,
+              "question": "The probability of having atleast one tail in five throws with a coin is",
+              "question_raw": "<p>The probability of having atleast one tail in five throws with a coin is</p>",
+              "options": [
+                {
+                  "label": "A",
+                  "id": 33152,
+                  "text": "$\\frac{1} {32}$",
+                  "is_correct": false
+                },
+                {
+                  "label": "B",
+                  "id": 33154,
+                  "text": "1",
+                  "is_correct": false
+                },
+                {
+                  "label": "C",
+                  "id": 33153,
+                  "text": "$\\frac{1}{5}$",
+                  "is_correct": false
+                },
+                {
+                  "label": "D",
+                  "id": 33151,
+                  "text": "$\\frac{31} {32}$",
+                  "is_correct": true
+                }
+              ],
+              "correct_option_ids": [
+                33151
+              ],
+              "correct_option_labels": [
+                "D"
+              ],
+              "correct_option_texts": [
+                "$\\frac{31} {32}$"
+              ],
+              "explanation": "Required probability = 1 - P [not getting any tail in five throws with a coin]\n$ = 1 - \\frac{1}{2} \\times \\frac{1}{2} \\times \\frac{1}{2} \\times \\frac{1}{2} \\times \\frac{1}{2}$ \n$= 1 - \\frac{1}{{{2^6}}} = 1 - \\frac{1}{{32}} = \\frac{{31}}{32}$"
+            },
+            {
+              "questionID": 19489,
+              "question": "If E is any event associated with an experiment, then range of P(E).",
+              "question_raw": "<p>If E is any event associated with an experiment, then range of P(E).</p>",
+              "options": [
+                {
+                  "label": "A",
+                  "id": 33158,
+                  "text": "P (E) $ \\le $ 0",
+                  "is_correct": false
+                },
+                {
+                  "label": "B",
+                  "id": 33157,
+                  "text": "P (E) $ \\ge $ 0",
+                  "is_correct": false
+                },
+                {
+                  "label": "C",
+                  "id": 33155,
+                  "text": "$0 \\le P\\;(E) \\le 1$",
+                  "is_correct": true
+                },
+                {
+                  "label": "D",
+                  "id": 33156,
+                  "text": "P (E) $ \\ge $1",
+                  "is_correct": false
+                }
+              ],
+              "correct_option_ids": [
+                33155
+              ],
+              "correct_option_labels": [
+                "C"
+              ],
+              "correct_option_texts": [
+                "$0 \\le P\\;(E) \\le 1$"
+              ],
+              "explanation": "Let A be the event associated with a random experiment. Let m be the no. of cases favourable to the event A and n be the total no. of outcomes.\nThen, we have,\n$P(A) = \\frac{m}{n}$\nClealry, $0 \\leqslant m \\leqslant n.$ \nTherefore, $0 \\leqslant \\frac{m}{n} \\leqslant 1$\n$\\Rightarrow 0 \\leqslant P(A) \\leqslant 1$"
+            },
+            {
+              "questionID": 19490,
+              "question": "A and B toss 3 coins. The probability that they both obtain the same number of heads is",
+              "question_raw": "<p>A and B toss 3 coins. The probability that they both obtain the same number of heads is</p>",
+              "options": [
+                {
+                  "label": "A",
+                  "id": 33161,
+                  "text": "$\\frac{1}{ 9}$",
+                  "is_correct": false
+                },
+                {
+                  "label": "B",
+                  "id": 33160,
+                  "text": "$\\frac{3} {16}$",
+                  "is_correct": false
+                },
+                {
+                  "label": "C",
+                  "id": 33159,
+                  "text": "$\\frac{5}{16}$",
+                  "is_correct": true
+                },
+                {
+                  "label": "D",
+                  "id": 33162,
+                  "text": "$\\frac{3}{ 8}$",
+                  "is_correct": false
+                }
+              ],
+              "correct_option_ids": [
+                33159
+              ],
+              "correct_option_labels": [
+                "C"
+              ],
+              "correct_option_texts": [
+                "$\\frac{5}{16}$"
+              ],
+              "explanation": "Required probability = P [A gets no head and B gets no head] + P [A gets 1 head and B gets 1 head] + P [A gets 2 heads and B gets 2 heads] + P [A gets 3 heads and B gets 3 heads]\n$= \\frac{1}{8} \\times \\frac{1}{8} + \\frac{3}{8} \\times \\frac{3}{8} + \\frac{3}{8} \\times \\frac{3}{8} + \\frac{1}{8} \\times \\frac{1}{8}$ \n$= \\frac{{1 + 9 + 9 + 1}}{{64}} = \\frac{{20}}{{64}} = \\frac{5}{{16}}$"
+            },
+            {
+              "questionID": 19491,
+              "question": "Three identical dice are rolled. The probability that the same number will appear on each of them is",
+              "question_raw": "<p>Three identical dice are rolled. The probability that the same number will appear on each of them is</p>",
+              "options": [
+                {
+                  "label": "A",
+                  "id": 33163,
+                  "text": "$\\frac{1}{36}$",
+                  "is_correct": true
+                },
+                {
+                  "label": "B",
+                  "id": 33164,
+                  "text": "$\\frac{1}{6}$",
+                  "is_correct": false
+                },
+                {
+                  "label": "C",
+                  "id": 33165,
+                  "text": "$\\frac{1}{18}$",
+                  "is_correct": false
+                },
+                {
+                  "label": "D",
+                  "id": 33166,
+                  "text": "$\\frac{3}{28}$",
+                  "is_correct": false
+                }
+              ],
+              "correct_option_ids": [
+                33163
+              ],
+              "correct_option_labels": [
+                "A"
+              ],
+              "correct_option_texts": [
+                "$\\frac{1}{36}$"
+              ],
+              "explanation": "Since throwing a single die three times is equivalent to throw three dice at a time.\n$\\therefore $ Sample space = {(1, 1, 1), (2, 2, 2), (3, 3, 3), (4, 4, 4), (5, 5, 5), (6, 6, 6), .......}\nHere, n(5) = 6^3\n$\\therefore $ Required Probability $= \\frac{6}{{{6^3}}} = \\frac{1}{{{6^2}}} = \\frac{1}{{36}}$"
+            },
+            {
+              "questionID": 19492,
+              "question": "Suppose n $( \\ge {\\rm{3}})$ persons are sitting in a row. Two of them are selected at random. The probability that they are not together is",
+              "question_raw": "<p>Suppose n <span class=\"math-tex\">{tex}( \\ge {\\rm{3}}){/tex}</span> persons are sitting in a row. Two of them are selected at random. The probability that they are not together is</p>",
+              "options": [
+                {
+                  "label": "A",
+                  "id": 33167,
+                  "text": "$1 - \\frac{2}{n}$",
+                  "is_correct": true
+                },
+                {
+                  "label": "B",
+                  "id": 33169,
+                  "text": "$\\frac{2}{ n} - 1$",
+                  "is_correct": false
+                },
+                {
+                  "label": "C",
+                  "id": 33170,
+                  "text": "n!",
+                  "is_correct": false
+                },
+                {
+                  "label": "D",
+                  "id": 33168,
+                  "text": "$n - \\frac{1}{n}$",
+                  "is_correct": false
+                }
+              ],
+              "correct_option_ids": [
+                33167
+              ],
+              "correct_option_labels": [
+                "A"
+              ],
+              "correct_option_texts": [
+                "$1 - \\frac{2}{n}$"
+              ],
+              "explanation": "n persons can be arranged in n! ways. If any two persons are together, then this may be arranged in (n - 1)! 2! ways.\nNow the probability of two persons sitting together is = $\\frac{(n-1) ! 2 !}{n !}=\\frac{(n-1) ! 2 \\times 1}{n(n-1) !}=\\frac{2}{n} \\text {. }$. Hence, the probability that the two persons are not together is = 1 - $\\frac{2}{n}$"
+            },
+            {
+              "questionID": 19493,
+              "question": "One ticket is selected at random from 100 tickets numbered 00, 01, 02…, 99. Suppose S and T are the sum and product of the digits of the number on the ticket, then the probability of getting S = 7 and T = 0 is",
+              "question_raw": "<p>One ticket is selected at random from 100 tickets numbered 00, 01, 02&hellip;, 99. Suppose S and T are the sum and product of the digits of the number on the ticket, then the probability of getting S = 7 and T = 0 is</p>",
+              "options": [
+                {
+                  "label": "A",
+                  "id": 33171,
+                  "text": "$\\frac{1} {50}$",
+                  "is_correct": true
+                },
+                {
+                  "label": "B",
+                  "id": 33172,
+                  "text": "$\\frac{2}{19}$",
+                  "is_correct": false
+                },
+                {
+                  "label": "C",
+                  "id": 33174,
+                  "text": "$\\frac{19}{100}$",
+                  "is_correct": false
+                },
+                {
+                  "label": "D",
+                  "id": 33173,
+                  "text": "$\\frac{1}{ 4}$",
+                  "is_correct": false
+                }
+              ],
+              "correct_option_ids": [
+                33171
+              ],
+              "correct_option_labels": [
+                "A"
+              ],
+              "correct_option_texts": [
+                "$\\frac{1} {50}$"
+              ],
+              "explanation": "Given 100 tickets numbered 00, 01, 02…, 99. , S and T are the sum and product of the digits of the number on the ticket.\nhere the number of elements in the sample space = 100\nNow, S = 7 i.e. sum of the digits is 7, S = {07, 70, 16, 61, 25, 52, 34, 43}, and T = 0 i.e. product of the digits = 0, T = {00, 01, 02, 03, 04, 05, 06, 07, 08, 09, 10, 20, 30, 40, 50, 60, 70, 80, 90}\nT = 0 and S = 7 $ \\Rightarrow $ T $ \\cap$ S = {07, 70} $ \\Rightarrow $ n(T $ \\cap$ S) = 2\nHence P(T = 0 and S = 7) = P( T $ \\cap$ S) = $\\frac{2}{100}$ = $\\frac{1}{50}$"
+            },
+            {
+              "questionID": 19494,
+              "question": "A box contains 10 eggs out of which 4 are rotten. Two eggs are taken out together. If one of them is found to be good, the probability that other is also is",
+              "question_raw": "<p>A box contains 10 eggs out of which 4 are rotten. Two eggs are taken out together. If one of them is found to be good, the probability that other is also is</p>",
+              "options": [
+                {
+                  "label": "A",
+                  "id": 33176,
+                  "text": "$\\frac{8}{15}$",
+                  "is_correct": false
+                },
+                {
+                  "label": "B",
+                  "id": 33178,
+                  "text": "$\\frac{2}{3}$",
+                  "is_correct": false
+                },
+                {
+                  "label": "C",
+                  "id": 33177,
+                  "text": "$\\frac{1}{ 3}$",
+                  "is_correct": false
+                },
+                {
+                  "label": "D",
+                  "id": 33175,
+                  "text": "$\\frac{5} {13}$",
+                  "is_correct": true
+                }
+              ],
+              "correct_option_ids": [
+                33175
+              ],
+              "correct_option_labels": [
+                "D"
+              ],
+              "correct_option_texts": [
+                "$\\frac{5} {13}$"
+              ],
+              "explanation": "Let $$E_1 = one of the two eggs is good and\nE_2 = both the selected eggs are good.\nHere, $E_2$ is subset of\n$\\therefore p(\\frac {E_2}{E_1})=\\frac {p(E_1\\cap E_2)}{p(E_1)}$\n$=\\frac{p(E_2)}{p(E_1)}$$=\\frac{^6C_2}{^6C_2+^6C_1.4C_3}=\\frac{15}{15+24}=\\frac{5}{13}$"
+            },
+            {
+              "questionID": 19495,
+              "question": "A digit is selected at random from either of the two sets {1, 2, 3, 4, 5, 6, 7, 8, 9} and {1, 2, 3, 4, 5, 6, 7, 8, 9}. What is the chance that the sum of the digits selected is 10?",
+              "question_raw": "<p>A digit is selected at random from either of the two sets {1, 2, 3, 4, 5, 6, 7, 8, 9} and {1, 2, 3, 4, 5, 6, 7, 8, 9}. What is the chance that the sum of the digits selected is 10?</p>",
+              "options": [
+                {
+                  "label": "A",
+                  "id": 33179,
+                  "text": "$\\frac{1}{9}$",
+                  "is_correct": true
+                },
+                {
+                  "label": "B",
+                  "id": 33182,
+                  "text": "$\\frac{2}{9}$",
+                  "is_correct": false
+                },
+                {
+                  "label": "C",
+                  "id": 33181,
+                  "text": "$\\frac{10}{18}$",
+                  "is_correct": false
+                },
+                {
+                  "label": "D",
+                  "id": 33180,
+                  "text": "$\\frac{10}{81}$",
+                  "is_correct": false
+                }
+              ],
+              "correct_option_ids": [
+                33179
+              ],
+              "correct_option_labels": [
+                "A"
+              ],
+              "correct_option_texts": [
+                "$\\frac{1}{9}$"
+              ],
+              "explanation": "Let A = {1, 2, 3, 4, 5, 6, 7, 8, 9} then, n (A $\\times$ A) = g^2\nLet B be the event that sum of the digits is 10. Then,\nB = {(1, 9), (9, 1), (4,6), (6, 4), (8, 2), (2, 8), (7, 3), (3, 7), (5, 5)}\n$\\therefore $ Required probability $ = \\frac{{n(B)}}{{n(A \\times A)}} = \\frac{9}{{{9^2}}} = \\frac{1}{9}$"
+            },
+            {
+              "questionID": 19496,
+              "question": "If two squares are chosen at random on a chess board, the probability that they have a side common is",
+              "question_raw": "<p>If two squares are chosen at random on a chess board, the probability that they have a side common is</p>",
+              "options": [
+                {
+                  "label": "A",
+                  "id": 33184,
+                  "text": "$\\frac{2}{ 7}$",
+                  "is_correct": false
+                },
+                {
+                  "label": "B",
+                  "id": 33185,
+                  "text": "$\\frac{1}{ 9}$",
+                  "is_correct": false
+                },
+                {
+                  "label": "C",
+                  "id": 33183,
+                  "text": "$\\frac{1}{18}$",
+                  "is_correct": true
+                },
+                {
+                  "label": "D",
+                  "id": 33186,
+                  "text": "$\\frac{4}{ 9}$",
+                  "is_correct": false
+                }
+              ],
+              "correct_option_ids": [
+                33183
+              ],
+              "correct_option_labels": [
+                "C"
+              ],
+              "correct_option_texts": [
+                "$\\frac{1}{18}$"
+              ],
+              "explanation": "Total number of squares = 64.\nTwo squares can be selected in $^{64}C_2$ ways.\nIn each column, there are 7 pairs of adjacent squares where each pair share 1 side in common.\nTotal such pairs = 8 $\\times$ 7 = 56.\nIn each row, there are 7 pairs of adjacent squares where each pair share 1 side in common.\nTotal such pairs = 8 $\\times$ 7 = 56.\nTherefore, favourable cases = 56 + 56 = 112.\nRequired probability = $\\frac{112}{^{64}C_2}=\\frac{112}{2016}=\\frac{1}{18}$"
+            },
+            {
+              "questionID": 19497,
+              "question": "A coin tail on both sides is tossed twice. The probability of getting a head is",
+              "question_raw": "<p>A coin tail on both sides is tossed twice. The probability of getting a head&nbsp;is</p>",
+              "options": [
+                {
+                  "label": "A",
+                  "id": 33189,
+                  "text": "$\\frac{1}{2}$",
+                  "is_correct": false
+                },
+                {
+                  "label": "B",
+                  "id": 33190,
+                  "text": "$\\frac{3}{ 4}$",
+                  "is_correct": false
+                },
+                {
+                  "label": "C",
+                  "id": 33188,
+                  "text": "1",
+                  "is_correct": false
+                },
+                {
+                  "label": "D",
+                  "id": 33187,
+                  "text": "0",
+                  "is_correct": true
+                }
+              ],
+              "correct_option_ids": [
+                33187
+              ],
+              "correct_option_labels": [
+                "D"
+              ],
+              "correct_option_texts": [
+                "0"
+              ],
+              "explanation": "Since a coin tail has both faces as tail. So getting head is an impossible event. So its probability is zero."
+            },
+            {
+              "questionID": 19498,
+              "question": "The chance that an event E occurs or does not occurs",
+              "question_raw": "<p>The chance that an event E occurs&nbsp;or does not occurs</p>",
+              "options": [
+                {
+                  "label": "A",
+                  "id": 33194,
+                  "text": "3",
+                  "is_correct": false
+                },
+                {
+                  "label": "B",
+                  "id": 33193,
+                  "text": "2",
+                  "is_correct": false
+                },
+                {
+                  "label": "C",
+                  "id": 33191,
+                  "text": "1",
+                  "is_correct": true
+                },
+                {
+                  "label": "D",
+                  "id": 33192,
+                  "text": "0",
+                  "is_correct": false
+                }
+              ],
+              "correct_option_ids": [
+                33191
+              ],
+              "correct_option_labels": [
+                "C"
+              ],
+              "correct_option_texts": [
+                "1"
+              ],
+              "explanation": "Let E denotes the given event. Then, $\\overline E$ denotes E does not occur\nWe have, $E \\cup \\overline E = S$ \n$ \\Rightarrow P(E \\cup \\overline E ) = P(S) = 1[\\because P(S) = 1]$ \n$\\therefore $ Required probability is, $P(E \\cup \\overline E ) = 1$"
+            },
+            {
+              "questionID": 19499,
+              "question": "Mean number of ‘sixes’ in four throws of a fair dic is",
+              "question_raw": "<p>Mean number of &lsquo;sixes&rsquo; in four throws of a fair dic is</p>",
+              "options": [
+                {
+                  "label": "A",
+                  "id": 33198,
+                  "text": "$\\frac{6}{4}$",
+                  "is_correct": false
+                },
+                {
+                  "label": "B",
+                  "id": 33196,
+                  "text": "$\\frac{1}{4}$",
+                  "is_correct": false
+                },
+                {
+                  "label": "C",
+                  "id": 33197,
+                  "text": "1",
+                  "is_correct": false
+                },
+                {
+                  "label": "D",
+                  "id": 33195,
+                  "text": "$\\frac{4}{6}$",
+                  "is_correct": true
+                }
+              ],
+              "correct_option_ids": [
+                33195
+              ],
+              "correct_option_labels": [
+                "D"
+              ],
+              "correct_option_texts": [
+                "$\\frac{4}{6}$"
+              ],
+              "explanation": "Let X be a random variable denoting the no. of sixes. Then X follows B(4, P)\nHere, p Denotes the probability of getting a six in a single throw of a die\n$\\therefore$ Required probability = nP\n$ = 4 \\times \\frac{1}{6} = \\frac{4}{6}$"
+            },
+            {
+              "questionID": 19500,
+              "question": "From a deck of 52 cards, the probability of drawing a court card is",
+              "question_raw": "<p>From a deck of 52 cards, the probability of drawing a court card is</p>",
+              "options": [
+                {
+                  "label": "A",
+                  "id": 33201,
+                  "text": "$\\frac{1}{13}$",
+                  "is_correct": false
+                },
+                {
+                  "label": "B",
+                  "id": 33200,
+                  "text": "$\\frac{4}{13}$",
+                  "is_correct": false
+                },
+                {
+                  "label": "C",
+                  "id": 33199,
+                  "text": "$\\frac{3}{13}$",
+                  "is_correct": true
+                },
+                {
+                  "label": "D",
+                  "id": 33202,
+                  "text": "$\\frac{1}{4}$",
+                  "is_correct": false
+                }
+              ],
+              "correct_option_ids": [
+                33199
+              ],
+              "correct_option_labels": [
+                "C"
+              ],
+              "correct_option_texts": [
+                "$\\frac{3}{13}$"
+              ],
+              "explanation": "Since there are 12 court cards in a pack of 52 cards. Therefore,\nRequired probability = $\\frac{{12}}{{52}} = \\frac{3}{{13}}$"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "testPaperID": 681,
+      "testPaperName": "Probability Test 05",
+      "is_paid": true,
+      "category_full_name": "CBSE > Class 11 > Mathematics > Probability",
+      "noOfQuestions": 15,
+      "has_answers": true,
+      "sections": [
+        {
+          "sectionName": "General",
+          "sectionID": null,
+          "questions": [
+            {
+              "questionID": 19501,
+              "question": "A coin is tossed 6 times. The probability of getting a head three times is",
+              "question_raw": "<p>A coin is tossed 6 times. The probability of getting a head three times is</p>",
+              "options": [
+                {
+                  "label": "A",
+                  "id": 33204,
+                  "text": "$\\frac{3}{64}$",
+                  "is_correct": false
+                },
+                {
+                  "label": "B",
+                  "id": 33206,
+                  "text": "$\\frac{1}{2}$",
+                  "is_correct": false
+                },
+                {
+                  "label": "C",
+                  "id": 33205,
+                  "text": "$\\frac{1}{ 8}$",
+                  "is_correct": false
+                },
+                {
+                  "label": "D",
+                  "id": 33203,
+                  "text": "$\\frac{5}{16}$",
+                  "is_correct": true
+                }
+              ],
+              "correct_option_ids": [
+                33203
+              ],
+              "correct_option_labels": [
+                "D"
+              ],
+              "correct_option_texts": [
+                "$\\frac{5}{16}$"
+              ],
+              "explanation": "Let X be a random variable denoting the no. of heads.\nThen, X $ \\sim$ B(6, P), Where P is the probability of getting a head in a single toss of a coin\n$\\therefore P = \\frac{1}{2}$ \n$\\therefore $Required probability = P(X = 3)\n= $ {}^6{C_3}{\\left( {\\frac{1}{2}} \\right)^3}{\\left( {\\frac{1}{2}} \\right)^{6 - 3}}$ \n= $ \\frac{6}{3} \\times \\frac{5}{2} \\times \\frac{4}{1} \\times {\\left( {\\frac{1}{2}} \\right)^6} = \\frac{5}{{16}}$"
+            },
+            {
+              "questionID": 19502,
+              "question": "Five letters are sent to different persons and addresses on the five envelopes are written at random. The probability that all the letters reach correct destiny is",
+              "question_raw": "<p>Five letters are sent to different persons and addresses on the five envelopes are written at random. The probability that all the letters reach correct destiny is</p>",
+              "options": [
+                {
+                  "label": "A",
+                  "id": 33209,
+                  "text": "$\\frac{1}{5}$",
+                  "is_correct": false
+                },
+                {
+                  "label": "B",
+                  "id": 33207,
+                  "text": "$\\frac{1}{120}$",
+                  "is_correct": true
+                },
+                {
+                  "label": "C",
+                  "id": 33208,
+                  "text": "$\\frac{44} {120}$",
+                  "is_correct": false
+                },
+                {
+                  "label": "D",
+                  "id": 33210,
+                  "text": "$\\frac{2}{5}$",
+                  "is_correct": false
+                }
+              ],
+              "correct_option_ids": [
+                33207
+              ],
+              "correct_option_labels": [
+                "B"
+              ],
+              "correct_option_texts": [
+                "$\\frac{1}{120}$"
+              ],
+              "explanation": "Let A denote the event that all the letters reach the correct destiny. Then,\nn(A) = 1\nAlso, five letters can be sent of different persons in 5! ways\n$\\therefore $ Required probability $ = P(A) = \\frac{1}{{5!}} = \\frac{1}{{120}}$"
+            },
+            {
+              "questionID": 19503,
+              "question": "The letters are sent to different persons and addresses on the three envelopes are written at random. The chance that none of the letters reaches correct destiny is",
+              "question_raw": "<p>The letters are sent to different persons and addresses on the three envelopes are written at random. The chance that none of the letters reaches correct destiny is</p>",
+              "options": [
+                {
+                  "label": "A",
+                  "id": 33213,
+                  "text": "0",
+                  "is_correct": false
+                },
+                {
+                  "label": "B",
+                  "id": 33214,
+                  "text": "1",
+                  "is_correct": false
+                },
+                {
+                  "label": "C",
+                  "id": 33211,
+                  "text": "$\\frac{1}{3}$",
+                  "is_correct": true
+                },
+                {
+                  "label": "D",
+                  "id": 33212,
+                  "text": "$\\frac{2}{ 3}$",
+                  "is_correct": false
+                }
+              ],
+              "correct_option_ids": [
+                33211
+              ],
+              "correct_option_labels": [
+                "C"
+              ],
+              "correct_option_texts": [
+                "$\\frac{1}{3}$"
+              ],
+              "explanation": "Let A denote the event that none of the letters reaches the correct destiny. Then, n(A) = 2 as\n$\\begin{array}{*{20}{l}} {\\;\\;\\;\\;\\;\\;\\;{\\text{Persons}}} \\\\ {{\\text{A}}\\;\\;\\;\\;\\;\\;{\\text{B}}\\;\\;\\;\\;{\\text{C}}} \\\\ { \\downarrow \\;\\;\\;\\;\\; \\downarrow \\;\\;\\; \\downarrow } \\\\ {{\\text{c}}\\;\\;\\;\\;\\;\\;{\\text{a}}\\;\\;\\;\\;\\;{\\text{b}}\\;\\;\\; \\leftarrow \\;{\\text{letters}}} \\\\ {{\\text{b}}\\;\\;\\;\\;\\;{\\text{c}}\\;\\;\\;\\;\\;\\;{\\text{a}}\\;\\;\\; \\leftarrow \\;{\\text{letters}}} \\end{array}$ \nAlso, three letters can be sent of different persons in 3! ways\n$\\therefore $ required probability = $ P(A) = \\frac{2}{{3!}} = \\frac{2}{6} = \\frac{1}{3}$"
+            },
+            {
+              "questionID": 19504,
+              "question": "A pack of cards contain 4 aces, 4 kings, 4 queens and 4 jacks. Two cards are drawn at random. The probability that atleast one of them is a king is",
+              "question_raw": "<p>A pack of cards contain 4 aces, 4 kings, 4 queens and 4 jacks. Two cards are drawn at random. The probability that atleast one of them is a king is</p>",
+              "options": [
+                {
+                  "label": "A",
+                  "id": 33216,
+                  "text": "$\\frac{3}{16}$",
+                  "is_correct": false
+                },
+                {
+                  "label": "B",
+                  "id": 33218,
+                  "text": "$\\frac{1}{9}$",
+                  "is_correct": false
+                },
+                {
+                  "label": "C",
+                  "id": 33215,
+                  "text": "$\\frac{9}{20}$",
+                  "is_correct": true
+                },
+                {
+                  "label": "D",
+                  "id": 33217,
+                  "text": "$\\frac{1}{5}$",
+                  "is_correct": false
+                }
+              ],
+              "correct_option_ids": [
+                33215
+              ],
+              "correct_option_labels": [
+                "C"
+              ],
+              "correct_option_texts": [
+                "$\\frac{9}{20}$"
+              ],
+              "explanation": "Required probability = 1 - P [none of the two cards is a king]\n$= 1 - \\frac{{12{C_2}}}{{16{C_2}}}$\n$ = 1 - \\frac{{11}}{{20}} = \\frac{9}{{20}}$"
+            },
+            {
+              "questionID": 19505,
+              "question": "Three houses are available in a locality. Three persons apply for the houses. Each applies for one house without consulting others. The probability that all the three apply for the same house is",
+              "question_raw": "<p>Three houses are available in a locality. Three persons apply for the houses. Each applies for one house without consulting others. The probability that all the three apply for the same house is</p>",
+              "options": [
+                {
+                  "label": "A",
+                  "id": 33222,
+                  "text": "$\\frac{4}{15}$",
+                  "is_correct": false
+                },
+                {
+                  "label": "B",
+                  "id": 33219,
+                  "text": "$\\frac{1}{9}$",
+                  "is_correct": true
+                },
+                {
+                  "label": "C",
+                  "id": 33221,
+                  "text": "$\\frac{1}{4}$",
+                  "is_correct": false
+                },
+                {
+                  "label": "D",
+                  "id": 33220,
+                  "text": "$\\frac{1}{3}$",
+                  "is_correct": false
+                }
+              ],
+              "correct_option_ids": [
+                33219
+              ],
+              "correct_option_labels": [
+                "B"
+              ],
+              "correct_option_texts": [
+                "$\\frac{1}{9}$"
+              ],
+              "explanation": "For a particular house being selected\nProbability = $\\frac {1}{3}$ \nProbability that all the persons apply for the same house \n= $3(\\frac{1}{3}×\\frac{1}{3}×\\frac{1}{3})=\\frac{1}{9}$"
+            },
+            {
+              "questionID": 19506,
+              "question": "From each of the four married couples, one of the partners is selected at random. The probability that those selected are of the same sex is",
+              "question_raw": "<p>From each of the four married couples, one of the partners is selected at random. The probability that those selected are of the same sex is</p>",
+              "options": [
+                {
+                  "label": "A",
+                  "id": 33224,
+                  "text": "$\\frac{1}{4}$",
+                  "is_correct": false
+                },
+                {
+                  "label": "B",
+                  "id": 33225,
+                  "text": "$\\frac{1}{2}$",
+                  "is_correct": false
+                },
+                {
+                  "label": "C",
+                  "id": 33223,
+                  "text": "$\\frac{1}{8}$",
+                  "is_correct": true
+                },
+                {
+                  "label": "D",
+                  "id": 33226,
+                  "text": "$\\frac{1}{16}$",
+                  "is_correct": false
+                }
+              ],
+              "correct_option_ids": [
+                33223
+              ],
+              "correct_option_labels": [
+                "C"
+              ],
+              "correct_option_texts": [
+                "$\\frac{1}{8}$"
+              ],
+              "explanation": "Here, s = {(M M M M), (F F F F), ......}\nClearly, n (s) = 16\n$\\therefore $ Required proability = P [( M M M M) or (F F F F)]\n= P [(M M M M) + (F F F F)]\n= $\\frac{2}{{16}} + \\frac{2}{{16}} = \\frac{4}{{16}} = \\frac{1}{8}$"
+            },
+            {
+              "questionID": 19507,
+              "question": "The probability of having atleast one tail in 4 throws with a coin is",
+              "question_raw": "<p>The probability of having atleast one tail in 4 throws with a coin is</p>",
+              "options": [
+                {
+                  "label": "A",
+                  "id": 33228,
+                  "text": "$\\frac{1}{16}$",
+                  "is_correct": false
+                },
+                {
+                  "label": "B",
+                  "id": 33227,
+                  "text": "$\\frac{15} {16}$",
+                  "is_correct": true
+                },
+                {
+                  "label": "C",
+                  "id": 33229,
+                  "text": "$\\frac{1}{ 4}$",
+                  "is_correct": false
+                },
+                {
+                  "label": "D",
+                  "id": 33230,
+                  "text": "1",
+                  "is_correct": false
+                }
+              ],
+              "correct_option_ids": [
+                33227
+              ],
+              "correct_option_labels": [
+                "B"
+              ],
+              "correct_option_texts": [
+                "$\\frac{15} {16}$"
+              ],
+              "explanation": "Required probability = 1 - (Probability of getting no tail in 4 throws of a coin)\n= $1 - \\frac{1}{{{2^4}}} = 1 - \\frac{1}{{16}}$ \n= $\\frac{15} {16}$"
+            },
+            {
+              "questionID": 19508,
+              "question": "The letters of the word PROBABILITY are arranged in all possible ways. The chance that two B’s and also two I’s occur together is",
+              "question_raw": "<p>The letters of the word PROBABILITY&nbsp;are arranged in all possible ways. The chance that two B&rsquo;s and also two I&rsquo;s occur together is</p>",
+              "options": [
+                {
+                  "label": "A",
+                  "id": 33231,
+                  "text": "$\\frac{2} {55}$",
+                  "is_correct": true
+                },
+                {
+                  "label": "B",
+                  "id": 33234,
+                  "text": "$\\frac{2}{165}$",
+                  "is_correct": false
+                },
+                {
+                  "label": "C",
+                  "id": 33232,
+                  "text": "$\\frac{1}{55}$",
+                  "is_correct": false
+                },
+                {
+                  "label": "D",
+                  "id": 33233,
+                  "text": "$\\frac{4} {165}$",
+                  "is_correct": false
+                }
+              ],
+              "correct_option_ids": [
+                33231
+              ],
+              "correct_option_labels": [
+                "A"
+              ],
+              "correct_option_texts": [
+                "$\\frac{2} {55}$"
+              ],
+              "explanation": "No. of ways in which letters of the word 'PROBABILITY' can be arranges $ = \\frac{{11!}}{{2! \\times 2!}}$ \nNow, consider two B's as one letter and two I's as one letter.\nThen no. of ways in which the letters can be arranged = 9!\n$\\therefore $Required probability = $ \\frac{{9!}}{{\\frac{{11!}}{{2! \\times 2!}}}}$ \n= $\\frac{{9!}}{{11!}} \\times 2! \\times 2! = \\frac{2}{{55}}$"
+            },
+            {
+              "questionID": 19509,
+              "question": "Two persons A and B appear in an interview for two vacancies. If the probabilities of their selection are $\\frac 14$ and $\\frac 16$ respectively, then the probability that none of them is selected is",
+              "question_raw": "<p>Two persons A and B appear in an interview for two vacancies. If the probabilities of their selection are <span class=\"math-tex\">{tex}\\frac 14{/tex}</span> and <span class=\"math-tex\">{tex}\\frac 16{/tex}</span> respectively, then the probability that none of them is selected is</p>",
+              "options": [
+                {
+                  "label": "A",
+                  "id": 33237,
+                  "text": "$\\frac {19}{12}$",
+                  "is_correct": false
+                },
+                {
+                  "label": "B",
+                  "id": 33238,
+                  "text": "$\\frac {1}{24}$",
+                  "is_correct": false
+                },
+                {
+                  "label": "C",
+                  "id": 33235,
+                  "text": "$\\frac 5 8$",
+                  "is_correct": true
+                },
+                {
+                  "label": "D",
+                  "id": 33236,
+                  "text": "$\\frac {5}{12}$",
+                  "is_correct": false
+                }
+              ],
+              "correct_option_ids": [
+                33235
+              ],
+              "correct_option_labels": [
+                "C"
+              ],
+              "correct_option_texts": [
+                "$\\frac 5 8$"
+              ],
+              "explanation": "Required probability = $P\\left[ {\\bar A \\cap \\bar B} \\right]$ \n= $P\\left[ {\\bar A} \\right].\\,P\\left[ {\\bar B} \\right]$ ($\\because$ $\\bar A$ and $\\bar B$ are independent)\n= $ [1 - P(A)].[1 - P(B)]$ \n= $\\left( {1 - \\frac{1}{4}} \\right).\\left( {1 - \\frac{1}{6}} \\right) = \\frac{3}{4} \\times \\frac{5}{6}$ \n= $ \\frac{5}{8}$"
+            },
+            {
+              "questionID": 19510,
+              "question": "A fair coin is tossed n times and let X denotes the number of heads obtained. If P (X = 4), P (X = 5) and P (X = 6) are in A.P., then n is equal to",
+              "question_raw": "<p>A fair coin is tossed n times and let X denotes the number of heads obtained. If P (X = 4), P (X = 5) and P (X = 6) are in A.P., then n is equal to</p>",
+              "options": [
+                {
+                  "label": "A",
+                  "id": 33240,
+                  "text": "14",
+                  "is_correct": false
+                },
+                {
+                  "label": "B",
+                  "id": 33239,
+                  "text": "7 or 14",
+                  "is_correct": true
+                },
+                {
+                  "label": "C",
+                  "id": 33242,
+                  "text": "21",
+                  "is_correct": false
+                },
+                {
+                  "label": "D",
+                  "id": 33241,
+                  "text": "7",
+                  "is_correct": false
+                }
+              ],
+              "correct_option_ids": [
+                33239
+              ],
+              "correct_option_labels": [
+                "B"
+              ],
+              "correct_option_texts": [
+                "7 or 14"
+              ],
+              "explanation": "Since P(X = 4), P(X = 5) and P(X = 6) are in A.P, therefore,\n2P(X = 5) = P(X = 4) + P(X = 6)\n$\\Rightarrow( 2×{ ^nC_5})(\\frac{1}{2})^n= ^nC_4(\\frac{1}{2})^n+^nC_6(\\frac{1}{2})^n$ \n$\\Rightarrow$ $2 \\times^{n} C_{5}=^{n} C_{4}+^{n} C_{6}$ \n$\\Rightarrow$ n = 7 or 14"
+            },
+            {
+              "questionID": 19511,
+              "question": "A five digit number is formed by the digits 1, 2, 3, 4, 5, 6 and 8. The probability that the number has even digit at both ends is",
+              "question_raw": "<p>A five digit number is formed by the digits 1, 2, 3, 4, 5, 6 and 8. The probability that the number has even digit at both ends is</p>",
+              "options": [
+                {
+                  "label": "A",
+                  "id": 33244,
+                  "text": "$\\frac{1}{5}$",
+                  "is_correct": false
+                },
+                {
+                  "label": "B",
+                  "id": 33245,
+                  "text": "$\\frac{1}{3}$",
+                  "is_correct": false
+                },
+                {
+                  "label": "C",
+                  "id": 33243,
+                  "text": "$\\frac {2}{7}$",
+                  "is_correct": true
+                },
+                {
+                  "label": "D",
+                  "id": 33246,
+                  "text": "$\\frac{2}{9}$",
+                  "is_correct": false
+                }
+              ],
+              "correct_option_ids": [
+                33243
+              ],
+              "correct_option_labels": [
+                "C"
+              ],
+              "correct_option_texts": [
+                "$\\frac {2}{7}$"
+              ],
+              "explanation": "Five digits out of seven digits can be arranged in $^7P_5$ ways = 2520\nThere are 4 even numbers (2, 4, 6, 8).\nTwo can be arranged at the end in $^4P_2$ ways = 12\nRemaining three places of five digit numbers can be filled with remaining 5 digits in $^5P_3$ ways = 60\nSo, required probability $=\\frac{12×60}{2520}=\\frac{2}{7}$"
+            },
+            {
+              "questionID": 19512,
+              "question": "A sum of money is rounded of to the nearest rupee. The probability that the error occurred in rounding off is atleast 15 paise is",
+              "question_raw": "<p>A sum of money is rounded of to the nearest rupee. The probability that the error occurred in rounding off is atleast 15 paise is</p>",
+              "options": [
+                {
+                  "label": "A",
+                  "id": 33249,
+                  "text": "$\\frac{71}{101}$",
+                  "is_correct": false
+                },
+                {
+                  "label": "B",
+                  "id": 33248,
+                  "text": "$\\frac{29}{100}$",
+                  "is_correct": false
+                },
+                {
+                  "label": "C",
+                  "id": 33247,
+                  "text": "$\\frac{71} {100}$",
+                  "is_correct": true
+                },
+                {
+                  "label": "D",
+                  "id": 33250,
+                  "text": "$\\frac{29}{101}$",
+                  "is_correct": false
+                }
+              ],
+              "correct_option_ids": [
+                33247
+              ],
+              "correct_option_labels": [
+                "C"
+              ],
+              "correct_option_texts": [
+                "$\\frac{71} {100}$"
+              ],
+              "explanation": "The sample space is, s = {-0.50, -0.49, -0.48, ......., -0.01, 0.00, 0.01, ....... 0.49}\nLet A be the event that the round of error is at least 15 paise.\nThen A^c is the event that the round of error is at most 14 paise.\nThe sample space of A^c is, \nA^c = {-0.14, -0.15, ........, -0.01, 0.00, 0.01, ........., 0.14}\n$\\therefore P({A^c}) = \\frac{{29}}{{100}}$ \n$\\therefore P(A) = 1 - p({A^c}) = 1 - \\frac{{29}}{{100}} = \\frac{{71}}{{100}}$"
+            },
+            {
+              "questionID": 19513,
+              "question": "Three numbers are chosen at random from 1 to 20. The probability that they are consecutive is",
+              "question_raw": "<p>Three numbers are chosen at random from 1 to 20. The probability that they are consecutive is</p>",
+              "options": [
+                {
+                  "label": "A",
+                  "id": 33251,
+                  "text": "$\\frac{3}{190}$",
+                  "is_correct": true
+                },
+                {
+                  "label": "B",
+                  "id": 33253,
+                  "text": "$\\frac{1}{57}$",
+                  "is_correct": false
+                },
+                {
+                  "label": "C",
+                  "id": 33254,
+                  "text": "$\\frac{1}{47}$",
+                  "is_correct": false
+                },
+                {
+                  "label": "D",
+                  "id": 33252,
+                  "text": "$\\frac{1}{60}$",
+                  "is_correct": false
+                }
+              ],
+              "correct_option_ids": [
+                33251
+              ],
+              "correct_option_labels": [
+                "A"
+              ],
+              "correct_option_texts": [
+                "$\\frac{3}{190}$"
+              ],
+              "explanation": "Total no. of elements in the sample space is ${}^{20}{C_3}$ i.e. = 1140 ways.Now as three numbers are consecutive,the Numbers may be 1, 2, 3 or 2, 3, 4 or 3, 4, 5 or .... 18,19, 20. this can be done in 18 ways. Hence the probability of getting three consecutive numbers is $\\frac{18}{1140}$ = $\\frac{3}{190}$"
+            },
+            {
+              "questionID": 19514,
+              "question": "A positive integer is chosen at random. The probability that sum of the digits of its square is 39 is",
+              "question_raw": "<p>A positive integer is chosen at random. The probability that sum of the digits of its square is 39 is</p>",
+              "options": [
+                {
+                  "label": "A",
+                  "id": 33258,
+                  "text": "1",
+                  "is_correct": false
+                },
+                {
+                  "label": "B",
+                  "id": 33255,
+                  "text": "0",
+                  "is_correct": true
+                },
+                {
+                  "label": "C",
+                  "id": 33257,
+                  "text": "$\\frac{1}{11}$",
+                  "is_correct": false
+                },
+                {
+                  "label": "D",
+                  "id": 33256,
+                  "text": "$\\frac{2}{39}$",
+                  "is_correct": false
+                }
+              ],
+              "correct_option_ids": [
+                33255
+              ],
+              "correct_option_labels": [
+                "B"
+              ],
+              "correct_option_texts": [
+                "0"
+              ],
+              "explanation": "There is no positive integer for which sum of square of digits is 39. So required probability is zero"
+            },
+            {
+              "questionID": 19515,
+              "question": "A box contains 100 tickets numbered 1, 2, 3,........,100. Two tickets are chosen at random. If it is given that Maximum number on the two chosen tickets is not more than 10, then the probability that the minimum number on them is not less than 5 is,",
+              "question_raw": "<p>A box contains 100 tickets numbered 1, 2, 3,........,100. Two tickets are chosen at random. If it is given that Maximum number on the two chosen tickets is not more than 10, then the probability that the minimum number on them is not less than 5 is,</p>",
+              "options": [
+                {
+                  "label": "A",
+                  "id": 33260,
+                  "text": "$\\frac{2}{3}$",
+                  "is_correct": false
+                },
+                {
+                  "label": "B",
+                  "id": 33262,
+                  "text": "$\\frac{3}{5}$",
+                  "is_correct": false
+                },
+                {
+                  "label": "C",
+                  "id": 33259,
+                  "text": "$\\frac{1}{3}$",
+                  "is_correct": true
+                },
+                {
+                  "label": "D",
+                  "id": 33261,
+                  "text": "$\\frac{2}{5}$",
+                  "is_correct": false
+                }
+              ],
+              "correct_option_ids": [
+                33259
+              ],
+              "correct_option_labels": [
+                "C"
+              ],
+              "correct_option_texts": [
+                "$\\frac{1}{3}$"
+              ],
+              "explanation": "Let A be the event, maximum number is not more than 10 and B be the event, minimum number is not less than 5\n$\\therefore P(A)=\\frac{^{10}C_2}{^{100}C_2}\\ and P(A \\cap B)=\\frac{^6C_2}{^{100}C_2}$ \nRequired probability = P(B/A)$=\\frac{P(A\\cap B)}{P(B)}=\\frac{^6C_2}{^{10}C_2}=\\frac{1}{3}$"
+            }
+          ]
+        }
+      ]
+    }
+  ]
+}

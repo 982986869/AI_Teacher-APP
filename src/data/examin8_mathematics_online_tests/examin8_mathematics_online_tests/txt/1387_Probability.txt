@@ -1,0 +1,874 @@
+CHAPTER: Probability  (id 1387)
+CBSE > Class 11 > Mathematics > Probability
+Online tests: 5
+
+========================================================================
+Probability Test 01  (id 677) [FREE]
+CBSE > Class 11 > Mathematics > Probability
+Questions: 15 | Answers: YES
+========================================================================
+
+Q1. Probability of getting a number between 1 and 100, which is divisible by 1 and itself only is
+    (A) $\frac{25}{99}$
+    (B) $\frac{3}{4}$
+    (C) $\frac{25}{98}$   <-- CORRECT
+    (D) $\frac{1}{4}$
+    Answer: C
+    Explanation: The numbers which are divisible by 1 and itself are prime numbers.
+Prime numbers between 1 and 100 are 2, 3, 5, 7, 11, 13, 17, 19, 23, 29, 31, 37, 41, 43, 47, 53, 59, 61, 67, 71, 73, 79, 83, 89, 97. Total prime numbers 25 out of 98 numbers.
+P(Getting a number divisible by 1 and itself) =$\frac{favourable\;outcomes}{total\;no.\;of\;outcomes}$ =$\frac{25}{98}$
+
+Q2. Two players toss four coins each. The probability that both obtain the same number of heads is
+    (A) $\frac{5}{256}$
+    (B) $\frac{1}{16}$
+    (C) $\frac{35}{128}$   <-- CORRECT
+    (D) $\frac{110}{256}$
+    Answer: C
+    Explanation: Let X denote the same number of heads Both will get.
+So X can take values 
+X = 0 ( both get 0 number of head)
+X = 1 ( both get 1 head)
+X = 2 ( both get 2 heads)
+X = 3 ( both get 3 heads)
+X = 4 ( both get 4 heads)
+So, P(X = 0) = Probabilty of getting no heads = $\frac{1}{16} \times \frac{1}{16}$ = $\frac{1}{256}$ [by multiplication theorem P(X_i $ \cap $ X_j) = P(X_i).P(X_j) ]
+P(X = 1) = Probabilty of getting 1 head = $\frac{4}{16} \times \frac{4}{16}$ = $\frac{16}{256}$
+P(X = 2) = Probabilty of getting 2 heads = $\frac{6}{16} \times \frac{6}{16}$ = $\frac{36}{256}$
+P (X = 3) = Probabilty of getting 3 heads = $\frac{4}{16} \times \frac{4}{16}$ = $\frac{16}{256}$
+P(X = 4) = Probabilty of getting 4 heads = $\frac{1}{16} \times \frac{1}{16}$ = $\frac{1}{256}$
+Therefore P (both get same number of head in a throw of 4 coins each)
+= P(X = 0) + P(X = 1) + P(X = 2) + P(X = 3) + P(X = 4)
+= $\frac{1}{256}$ + $\frac{16}{256}$ + $\frac{36}{256}$ + $\frac{16}{256}$ + $\frac{1}{256}$
+= $\frac{70}{256}$ = $\frac{35}{128}$
+
+Q3. Three fair dice are tossed once. The probability that they show the same numbers is
+    (A) $\frac{7}{36}$
+    (B) $\frac{1}{12}$
+    (C) $\frac{1}{18}$
+    (D) $\frac{1}{36}$   <-- CORRECT
+    Answer: D
+    Explanation: When three dice are rolled, total number of outcomes = n(S) = n = 6^3 = 216
+It is given that the numbers on all the three dice are identical
+Hence the favourable outcomes are (1, 1, 1), (2, 2, 2), (3, 3, 3), (4, 4, 4), (5, 5, 5), (6, 6, 6)
+Hence no. of favourable outcomes = m = 6
+Hence required probability =$\frac { m }{ n } =\frac { 6 }{ 216 } =\frac { 1 }{ 36 } $
+
+Q4. A cubical dice has 3 on three faces, 2 on two faces and 1 on the 6^th face. It is tossed twice. The chance that both the tosses show an even number is
+    (A) $\frac{1}{36}$
+    (B) $\frac{1}{9}$   <-- CORRECT
+    (C) $\frac{1}{4}$
+    (D) $\frac{5}{36}$
+    Answer: B
+    Explanation: Let X denote getting an even number on each dice on throwing twice.
+By only one way it can be done by having 2 in both dice.
+Since 2 occupy two faces of dice.
+So P(getting 2 in 1st dice) = $\frac{2}{6}$
+Also P ( getting 2 in 2nd dice) = $\frac{2}{6}$
+So P ( getting 2 in both dice dice) = $\frac{2}{6} \times \frac{2}{6}$ = $\frac{1}{9}$ [from multiplication theorem of probability P(A $ \cap $ B) = P(A) $\times$ P(B) for any two non-empty sets A, B]
+
+Q5. A coin is tossed once. If a head comes up, then it is tossed again and if a tail comes up, a dice is thrown. The number of points in the sample space of the experiment is:
+    (A) 4
+    (B) 24
+    (C) 12
+    (D) 8   <-- CORRECT
+    Answer: D
+    Explanation: Sample Space is S = {HH, HT, T1, T2, T3, T4, T5, T6}
+So number of outcomes in sample space is 8.
+
+Q6. A drawer contains 5 brown socks and 4 blue socks well mixed. A man reaches the drawer and pulls out socks at random. What is the probability that they match?
+    (A) $\frac{5}{9}$
+    (B) $\frac{7}{12}$
+    (C) $\frac{5}{8}$
+    (D) $\frac{4}{9}$   <-- CORRECT
+    Answer: D
+    Explanation: Out of 9 socks, 2 can be drawn in ${ }^9 C_2$ ways. Therefore, the total number of cases is ${ }^9 C_2$. Two socks drawn from the drawer will match if either both are brown or both are blue. Therefore, favorable number of cases is ${ }^5 C_2+{ }^4 C_2$. Hence, the required probability is
+$ =\frac{{ }^5 C_2+{ }^4 C_2}{{ }^9 C_2}=\frac{4}{9}$
+
+Q7. A bag contains 5 white, 7 red and 4 black balls. Four balls are drawn one by one without replacement. The chance that atleast one ball will be black is
+    (A) $\frac { 1815 }{ 1820 } $
+    (B) $\frac { 1818 }{ 1820 } $
+    (C) $\frac { 1819 }{ 1820 } $   <-- CORRECT
+    (D) $\frac { 175 }{ 182 } $
+    Answer: C
+    Explanation: P(atleast one will be black) = 1 - P(4 balls are not black)
+= 1 - $\frac{^{4} C_{4}}{16 C_{4}}$ = 1 - $\frac{1}{1820}$ = $\frac{1819}{1820}$
+
+Q8. A and B take turn in throwing a pair of dice. A wins if he throws a total of 5 before B throws a total of 7. If A has the first throw, the probability of his winning the game is
+    (A) $\frac{4}{7}$
+    (B) $\frac{3}{7}$   <-- CORRECT
+    (C) $\frac{9}{11}$
+    (D) $\frac{9}{41}$
+    Answer: B
+    Explanation: P(A wins) = $\frac{1}{9} + \frac{8}{9} \times \frac{5}{6} \times \frac{1}{9}$ + $ \frac{8}{9} \times \frac{5}{6} \times \frac{8}{9} \times \frac{5}{6} \times \frac{1}{9}$+........... = $\frac{(\frac{1}{9})}{1 - \frac{8}{9} \times \frac{5}{6}}$ = $\frac{3}{7}$
+
+Q9. A determinant is chosen at random from the set of all determinants of order 2 with elements 0 or 1 only. The probability that the value of the determinant chosen is positive is
+    (A) $\frac{2}{16}$
+    (B) $\frac{1}{4}$
+    (C) $\frac{1}{16}$
+    (D) $\frac{3}{16}$   <-- CORRECT
+    Answer: D
+    Explanation: Total Number of 2nd order determinants possible with entries only 0 and 1 is ^​​​​​​2^4 = 16 
+Out of these 16 different determinants, only three determinants will have value in positive.
+So the probability of getting 3 favorable items out of 16 is $\frac{3}{16}$.
+
+Q10. If the letters of the word ‘ INDEPENDENCE ‘ are written down at random in a row, then the chance that no two E’s occur together is
+    (A) 1/ 55
+    (B) 54/ 55
+    (C) 53/ 55
+    (D) 14/ 55   <-- CORRECT
+    Answer: D
+    Explanation: Let S be the sample space, then n(S) = ${{12!} \over {4!3!2!}}$ as E is repeated four times,N three times and D two times
+
+Q11. The letters of the word ASSASSIN are written at random in a row. The chance that all the similar letters occur together is
+    (A) $\frac{34}{35}$
+    (B) $\frac{1}{35}$   <-- CORRECT
+    (C) $\frac{1}{14}$
+    (D) $\frac{3}{14}$
+    Answer: B
+    Explanation: $\frac{4!}{8!2!4!}$ = $\frac{1}{35}$
+
+Q12. A box contains n pairs of shoes and 2r shoes are selected (r < n).The probability that there is exactly one pair is
+    (A) $\frac {(n.^{n-1}C_{r-1})2^{r-1}}{^{2n}C_{2r}}$   <-- CORRECT
+    (B) $\frac{^{n-1}C_{r-1}}{^{2n}C_{2r}}$
+    (C) $\frac{^{n+1}C_{r+1}}{^{n}C_{2r}}$
+    (D) $\frac{n.^{n-1}C_{r-1}}{^{2n}C_{2r}}$
+    Answer: A
+    Explanation: The box contains 2n shoes. We can choose 2r shoes out of 2n shoes in $^{2n}C_{2r}$ ways. We can choose one complete pair out of n pairs in $^nC_1$ ways. Now, we have to avoid a complete pair. While choosing (2r-2)shoes out of remaining ( n-1)pairs of shoes, we first choose (r-1) pairs out of (n-1) pairs. This can be done in $^{n-1}C_{r-1}$ways. From each of these (r-1) pairs, choose (r-1) single (unmatching) shoes from each pair. This can be done in $2^{r-1}$ ways. Thus, the number of favourable ways is $(^nC_1)(^{n-1}C_{r-1}).2^{r-1}$.
+Hence, the probability of the required event 
+= $\frac{n(^{n-1}C_{r-1}).2^{r-1}}{^{2n}C_{2r}}$
+
+Q13. Let A be set of 4 elements. From the set of all functions from A to A, a function is chosen at random. The chance that the selected function is an onto function is
+    (A) $\frac{1}{32}$
+    (B) $\frac{3}{32}$   <-- CORRECT
+    (C) $\frac{29}{32}$
+    (D) $\frac{1}{64}$
+    Answer: B
+    Explanation: No. of function from A to A = 4^4
+No. of onto function from A to A = 4! 
+$\therefore$ Required probability $= \frac{{4!}}{{{4^4}}} = \frac{3}{{32}}$
+
+Q14. Both A and B throw a dice. The chance that B throws a number higher than that thrown by A is
+    (A) $\frac{1}{2}$
+    (B) $\frac{13}{36}$
+    (C) $\frac{15}{36}$   <-- CORRECT
+    (D) $\frac{21}{36}$
+    Answer: C
+    Explanation: Total possible ways of getting number in B's dice throw greater that A's dice throw are
+{(1, 2), (1, 3), (1, 4), (1, 5), (1, 6), (2, 3), ( 2, 4), (2, 5), (2, 6), (3, 4), (3, 5), (3, 6), (4, 5), (4, 6), (5, 6)} = 15
+Total number of elements in the sample space = 6 $\times$ 6 = 36
+Therefore P(probability of B is greater than A) = $\frac{15}{36}$
+
+Q15. Both A and B throw a dice. The chance that B throws a number not less than that thrown by A is
+    (A) $\frac{21}{36}$   <-- CORRECT
+    (B) $\frac{1}{2}$
+    (C) $\frac{15}{36}$
+    (D) $\frac{19}{36}$
+    Answer: A
+    Explanation: Given: B getting number not less than A means B can get number on dice greater than or equal to A.
+For throwing A and B on dice, the number of elements in the sample space is 6 $\times$ 6 = 36 i.e. n(S) = 36
+Let E be the event of "B getting number not less than A", So it can happen in 21 ways out of 36 ways.
+The ways are E = {(1, 1), (1, 2), (1, 3), (1, 4), (1, 5), (1, 6), (2, 2), (2, 3), (2, 4), (2, 5), (2, 6), (3, 3), (3, 4), (3, 5), (3, 6),(4, 4),(4, 5),(4, 6), (5, 5),(5, 6), (6, 6)} i.e. n(E) = 21
+Therefore, P(E) = $\frac{n(E)}{n(S)}$ = $\frac{21}{36}$
+
+========================================================================
+Probability Test 02  (id 678) [PAID]
+CBSE > Class 11 > Mathematics > Probability
+Questions: 15 | Answers: YES
+========================================================================
+
+Q1. Both A and B throw a dice. The chance that B throws a number not greater than that thrown by A is
+    (A) $\frac{14}{36}$
+    (B) $\frac{15}{36}$
+    (C) $\frac{21}{36}$   <-- CORRECT
+    (D) $\frac{1}{2}$
+    Answer: C
+    Explanation: Total no. of outcomes = 6^2 = 36
+Favourable no. of outcomes = {(1, 1), (2, 1), (2, 2), (3, 1), (3, 2), (3, 3), (4, 1), (4, 2), (4, 3), (4, 4), (5, 1), (5, 2), (5, 3), (5, 4), (5, 5), (6, 1), (6, 2), (6, 3), (6, 4), (6, 5), (6, 6)} = 21
+Probability = $\frac{\text {favourable outcomes}}{\text {total no. of outcomes}}$ 
+Probability = $\frac{21}{36}$
+
+Q2. Two dice are thrown. The number of sample points in the sample space when 6 does not appear on either dice is
+    (A) 11
+    (B) 30
+    (C) 25   <-- CORRECT
+    (D) 18
+    Answer: C
+    Explanation: Total no. of outcomes = 6^2 = 36
+The pair which shows 6 on either dice are {(6, 1), (6, 2), (6, 3), (6, 4), (6, 5), (1, 6), (2, 6), (3, 6), (4, 6), (5, 6), (6, 6)} = 11
+So the total number of sample points in sample space when 6 on either dice do not appear = 36 - 11 = 25
+
+Q3. 8 coins are tossed at a time. The probability of getting 6 heads up is
+    (A) $\frac{57}{64}$
+    (B) $\frac{229}{256}$
+    (C) $\frac{37}{256}$
+    (D) $\frac{7}{64}$   <-- CORRECT
+    Answer: D
+    Explanation: Total ways of getting 6 heads out of 8 toss of coins is 28.
+Total number of outcome is 2^8 = 256
+Therefore probability is $\frac{28}{256}=\frac7{64}$
+
+Q4. A dice is rolled 6 times. The probability of obtaining 2 and 4 exactly three times each is
+    (A) $\frac{1}{46656}$
+    (B) $\frac{1}{5184}$
+    (C) $\frac{3}{5184}$
+    (D) $\frac{5}{11664}$   <-- CORRECT
+    Answer: D
+    Explanation: Total ways of getting 2 and 4 exactly 3 times is $\frac{6!}{(3! 3!)}$ = 20
+Total number of ways in throwing 6 dice is 6^6
+Therefore probability is $\frac{20}{6^6}$ = $\frac{5}{11664}$
+
+Q5. A dice has 3 faces each bearing 2 and three faces each bearing 6. It is rolled once. The probability of showing up six is
+    (A) 1
+    (B) $\frac{5}{6}$
+    (C) $\frac{1}{6}$
+    (D) $\frac{1}{2}$   <-- CORRECT
+    Answer: D
+    Explanation: Total no. of outcomes = 6 = {2, 2, 2, 6, 6, 6}
+p(getting a six) = $\frac{3}{6}$ = $\frac{1}{2}$
+
+Q6. The total area under the standard normal curve is
+    (A) $\frac{1}{2}$
+    (B) 1   <-- CORRECT
+    (C) 2
+    (D) 0
+    Answer: B
+    Explanation: Since a standard normal curve represents a pdf and integral of pdf is same as area under a curve and integral of pdf is always 1.
+
+Q7. Neelam and Nidhi throw with a dice. The chance that both Neelam and Nidhi throw the same number is
+    (A) $\frac{1}{2}$
+    (B) $\frac{1}{6}$   <-- CORRECT
+    (C) $\frac{1}{3}$
+    (D) $\frac{1}{36}$
+    Answer: B
+    Explanation: Total numbers of outcomes = 6^2 = 36
+No. of outcomes in which both throws same no. = {(1, 1), (2, 2), (3, 3), (4, 4), (5, 5), (6, 6)} = 6
+p(both throws same no.) = $\frac{6}{36}$ = $\frac{1}{6}$
+
+Q8. A dice is tossed once and even number has come up. The chance that it is either 2 or 4 is
+    (A) $\frac{5}{6}$
+    (B) $\frac{2}{3}$   <-- CORRECT
+    (C) $\frac{1}{3}$
+    (D) $\frac{1}{6}$
+    Answer: B
+    Explanation: Total number of ways of getting even number is 3
+Out of these 3 even numbers we have to get either 2 or 4 which can be done in 2 ways.
+So the required probability is $\frac{2}{3}$
+
+Q9. A pair of dice is tossed once and a total of 8 has come up. The chance that both the dice show up same number is
+    (A) $\frac{1}{32}$
+    (B) $\frac{1}{5}$   <-- CORRECT
+    (C) $\frac{1}{6}$
+    (D) $\frac{5}{216}$
+    Answer: B
+    Explanation: On tossing a pair of dice total outcomes are 36.
+Out of which getting a total of 8 have possibilities {(2, 6), (6, 2), (3, 5), (5, 3), (4, 4)} = 5 and from these 5 outcomes getting same no. on both dice is (4, 4) = 1
+So, the probability is $\frac{1}{5}$
+
+Q10. The probability of having atleast one head in 5 throws of a coin is
+    (A) $\frac{31}{32}$   <-- CORRECT
+    (B) $\frac{1}{32}$
+    (C) $\frac{5}{32}$
+    (D) $\frac{3}{32}$
+    Answer: A
+    Explanation: Required probability = 1 - (probability of having no head in 5 throws of a coin)
+= 1 - [Probability of having tails in 5 throws of a coin]
+= $1 - \frac{1}{{{2^5}}}$ 
+= $1 - \frac{1}{{32}} = \frac{{32 - 1}}{{32}}$ 
+= $ \frac{{31}}{{32}}$
+
+Q11. A fair coin is tossed a fixed number of times. If the probability of getting 4 heads is equal to the probability of getting 7 heads, then the probability of getting 2 heads is
+    (A) $\frac{1}{1024}$
+    (B) $\frac{3}{1024}$
+    (C) $\frac{3}{4096}$
+    (D) $\frac{55}{2048}$   <-- CORRECT
+    Answer: D
+    Explanation: Let a coin be tossed n number of times and X be a random variable denoting the no. of heads then, X follows the binomial distribution.
+Now, P(X = 4) = P(X = 7)
+$ \Rightarrow {}^n{C_4}{\left( {\frac{1}{2}} \right)^4}{\left( {\frac{1}{2}} \right)^{n - 4}} = {}^n{C_7}{\left( {\frac{1}{2}} \right)^{n - 7}}{\left( {\frac{1}{2}} \right)^7}$ 
+$\Rightarrow {}^n{C_4} = {}^n{C_7} = {}^n{C_{7 - 4}}$ 
+$\Rightarrow$ 4 = 7 - n $\Rightarrow$ n = 11
+$\therefore$ P(X = 2) = ${}^{11}{C_2}{\left( {\frac{1}{2}} \right)^{11 - 2}}.{\left( {\frac{1}{2}} \right)^2}$ 
+= $ {}^{11}{C_2}{\left( {\frac{1}{2}} \right)^{11}} = \frac{{11}}{2} \times \frac{{10}}{1} \times \frac{1}{{{2^{11}}}}$ 
+= $ \frac{{55}}{{{2^{11}}}}$
+
+Q12. From a pack of 52 cards, the cards are drawn one by one till an ace appears. The chance that an ace does not come up in first 26 cards is
+    (A) none of these   <-- CORRECT
+    (B) $\frac{23}{27}$
+    (C) $\frac{109}{153}$
+    (D) $\frac{46}{153}$
+    Answer: A
+    Explanation: We know that probability having first success at the r^th trial = pq^r-1
+Here. r = 27 and p = probability of getting ace $ = \frac{4}{{52}}$ 
+q = probability of not getting ace $= \frac{{48}}{{52}}$ 
+$\therefore$ Required probability $= \frac{4}{{52}} \times {\left( {\frac{{48}}{{52}}} \right)^{26}}$
+
+Q13. Three of the 6 vertices of a regular hexagon are chosen at random .The probability that the triangle with these vertices is equilateral is
+    (A) 1/ 20
+    (B) 1/ 5
+    (C) 1/ 2
+    (D) 1/ 10   <-- CORRECT
+    Answer: D
+    Explanation: Total of triangles formed $= {}^6{C_3} = 20$
+No. of equilateral triangles which can be formed in a regular hexagon = 2
+$\therefore$ required probability $= \frac{2}{{20}} = \frac{1}{{10}}$
+
+Q14. In a certain town, 40% persons have brown hair, 25% have brown eyes, and 15% have both. If a person selected at random has brown hair, the chance that a person selected at random with brown hair is with brown eyes
+    (A) $\frac{3}{8}$   <-- CORRECT
+    (B) $\frac{3}{20}$
+    (C) $\frac{1}{3}$
+    (D) $\frac{2}{3}$
+    Answer: A
+    Explanation: Let A be the event that a person has brown hair, B be the event that a person has brown eyes. Then,
+P(A) = $\frac{40}{100}$, P(B) = $\frac{25}{100}$, $P(A \cap B)=\frac{15}{100}$ 
+Required probability = $P\left( {\frac{B}{A}} \right) = \frac{{P(A \cap B)}}{{P(A)}} = \frac{{\frac{{15}}{{100}}}}{{\frac{{40}}{{100}}}} = \frac{3}{8}$
+
+Q15. The probability that a card drawn at random from a pack of 52 cards is either a king or a heart is
+    (A) $\frac{1}{52}$
+    (B) $\frac{1}{4}$
+    (C) $\frac{1}{13}$
+    (D) $\frac{16}{52}$   <-- CORRECT
+    Answer: D
+    Explanation: Let s be the sample space then n(S) = ${}^{52}{C_1}$ = 52
+A be the event of getting a king then n(A) = ${}^4{C_1}$ = 4, B be the event of getting a heart other than a king, then n(B) = ${}^{12}{C_1}$ = 12
+Hence total number of ways, P(A or B) = P(A $\cup$ B) = $\frac{n(A \cup B)}{n(S)}$ = ( ${}^4{C_1}$ + ${}^{12}{C_1}$ )/ ${}^{52}{C_1}$ = $\frac{16}{52}$
+
+========================================================================
+Probability Test 03  (id 679) [PAID]
+CBSE > Class 11 > Mathematics > Probability
+Questions: 15 | Answers: YES
+========================================================================
+
+Q1. If the integers m and n are chosen at random between 1 and 100, then the probability that a number of the form 7^m + 7^n is divisible by 5 is
+    (A) $\frac{3}{4}$
+    (B) $\frac{1}{7}$
+    (C) $\frac{1}{5}$   <-- CORRECT
+    (D) $\frac{1}{4}$
+    Answer: C
+    Explanation: We know that 7^k, K$\in$ N, has 1, 3, 9, 7 at the unit's place for k = 4p, 4p - 1, 4p - 2, 4p - 3 respectively, where p = 1, 2, 3,..... Clearly, 7^m + 7^n will be divisible by 5 if 7^m has 3 or 7 in the unit's place and 7^n has 7 or 3 in the unit's place or 7^m has 1 or 9 in the unit's place and 7^n has 9 or 1 in the unit's place.
+Thus, for any choice of m,n the digit in the unit's place of 7^m = 7^n is 2, 4, 6, 0 or 8. It is divisible by 5 only when this digit is 0.
+Hence, required probability = $\frac{1}{5}$
+
+Q2. The probability that the length of a randomly chosen chord of a circle lies between $\frac{2}{3}$ and $\frac{5}{6}$ of it's diameter is
+    (A) $\frac{5}{6}$
+    (B) $\frac{5}{12}$
+    (C) $\frac{1}{4}$   <-- CORRECT
+    (D) $\frac{1}{16}$
+    Answer: C
+    Explanation: If l is the length of a chord, r, the distance of the mid-point of the chord from the centre of the circle and a radius of the given circle, then 
+r = a cos $\theta$, l = 2a sin $\theta$ 
+Given: $\frac{2}{3} 2 a<2 a \sin \theta<\frac{2}{3} 2 a$ 
+$\Rightarrow$ $\frac{5}{6} a<a \cos \theta<\frac{\sqrt{5}}{3} a$ 
+$\Rightarrow$ $\frac{\sqrt{11}}{6}<r<\frac{\sqrt{5}}{3} a$ 
+Thus the given condition is satisfied if the mid-point of the chord lies within the region between the concentric circles of radius $\frac{\sqrt{11}}{6}$ and $\frac{\sqrt{5}}{3}$. 
+Hence, the required probability = $\frac{\text { The area of the circular annulus }}{\text { Area of the given circle }}$ 
+= $\left(\frac{5}{9}-\frac{11}{36}\right)=\frac{1}{4}$
+
+Q3. The letters of the word ORIENTAL are arranged in all possible ways. The chance that the consonants and vowels occur alternately is
+    (A) $\frac{1}{35}$   <-- CORRECT
+    (B) $\frac{1}{70}$
+    (C) $\frac{2}{35}$
+    (D) $\frac{3}{35}$
+    Answer: A
+    Explanation: Consonants can be placed in 4! ways.
+Vowels can be placed in between consonants in 4! ways
+$\therefore$ Total no. of ways in which the consonants and vowels occur alternatively = $2 \times 4! \times 4!$ 
+Also, total no. of ways in which the letters of the word 'ORIENTAL' can be arranged = 8!
+$\therefore$ Required probability = $ \frac{{2 \times 4! \times 4!}}{{8!}} = \frac{1}{{35}}$
+
+Q4. 8 coins are tossed at a time. The probability of getting atleast 6 heads up is
+    (A) $\frac{1}{64}$
+    (B) $\frac{57}{64}$
+    (C) $\frac{37}{256}$   <-- CORRECT
+    (D) $\frac{229}{256}$
+    Answer: C
+    Explanation: Let A be the event getting atleast 6 heads up, then, 
+n(A) = $ \frac{{8!}}{{6! \times 2!}} + \frac{{8!}}{{7! \times 1!}} + 1$ [Using permutation of like letters]
+= 37
+Also, Total no. of outcomes = 2^8 = 256
+$\therefore$ Required probability = $\frac{{37}}{{256}}$
+
+Q5. There are 2 boxes. One box contains 3 white balls and 2 black balls. The other box contains 7 yellow balls and 3 black balls. If a box is selected at random and from it, a ball is drawn, the probability that the ball drawn is black is
+    (A) $\frac{1}{20}$
+    (B) $\frac{1}{5}$
+    (C) $\frac{1}{3}$
+    (D) $\frac{7}{20}$   <-- CORRECT
+    Answer: D
+    Explanation: Let E_1 = selecting b on I
+E_2 = selecting b on II
+A = drawing a black ball
+$\therefore$ P(E_1) = P(E_2) = $\frac{1}{2}$ 
+Now, $P\left( {\frac{A}{{{E_1}}}} \right) = \frac{2}{5},P\left( {\frac{A}{{{E_2}}}} \right) = \frac{3}{{10}}$ 
+$\therefore$ By law of total probabiliy,
+$P(A) = P({E_1}).P\left( {\frac{A}{{{E_2}}}} \right) + P({E_2}).P\left( {\frac{A}{{{E_1}}}} \right)$ 
+= $ \frac{1}{2} \times \frac{2}{5} + \frac{1}{2} \times \frac{3}{{10}} = \frac{7}{{20}}$
+
+Q6. If A and B are two mutually exclusive events, then P (A + B) is equal to
+    (A) P(A) P(B’) + P(A’) P(B)
+    (B) P(A) P(B)
+    (C) P (A) P (B’) P(A’) P (B)
+    (D) P(A) + P(B)   <-- CORRECT
+    Answer: D
+    Explanation: For two mutually exclusive events A and B, we have $A \cap B = \phi $ i.e. there is no common elements exist between them, then we have from addition theorem of probability, P(A or B) = P(A $ \cup$ B) = P(A + B) = P(A) + P(B) - P(A $ \cap $ B) = P(A) + P(B) [as P(A $ \cap $ B) = 0]
+
+Q7. If ${E_1}$ and ${E_2}$ are two independent events, then P $\left( {{E_1} \cap {E_2}} \right)$ is equal to
+    (A) $P\left( {{E_1})P({E_2}} \right)$   <-- CORRECT
+    (B) $P\left( {{E_1}) + P({E_2}} \right) + P({E_1} + \cup {E_2})$
+    (C) $P\left( {{E_1})-\;P\;({E_2}} \right)$
+    (D) $P\left( {{E_1})+\;P\;({E_2}} \right)$
+    Answer: A
+    Explanation: We have, $P({E_1} \cap {E_2}) = P({E_1}).P(\frac{{{E_2}}}{{{E_1}}})$
+Since E_1 and E_2 are independents, therefore
+$P = \left( {\frac{{{E_2}}}{{P({E_1}) = P({E_2})}}} \right)$
+$\therefore P({E_1} \cap {E_2}) = P({E_1}).P({E_2})$
+
+Q8. If E is an event, then P $\left( {\bar E} \right)$ is equal to
+    (A) 1 – P (E)   <-- CORRECT
+    (B) P (E)
+    (C) 1 + P (E)
+    (D) - P (E)
+    Answer: A
+    Explanation: We have, $(E \cup \overline E ) $ = S
+$\therefore P(E \cup \overline E )$ = P(S)
+$ \Rightarrow P(E) + P(\overline E ) = P(S)$ {Using addition therom and E and $\overline E $ are mutually exclusive}
+$\Rightarrow P(E) + P(\overline E ) = 1$ {Probability in sample space is unque}
+$\Rightarrow P(\overline E ) $ = 1 - P(E)
+
+Q9. The probability that a teacher will give an unannounced test during any class is $\frac 15$. If a student is absent twice, then the probability that he misses atleast one test is
+    (A) $\frac 4 5$
+    (B) $\frac 25$
+    (C) $\frac {9} {25}$   <-- CORRECT
+    (D) $\frac {7}{25}$
+    Answer: C
+    Explanation: Required probability = 1 - P[student does not miss any test]
+= 1 - P[teacher does not take a test when the student was absent]
+= $1 - \left[ {1 - \frac{1}{5}} \right] \times \left[ {1 - \frac{1}{5}} \right]$ 
+= $1 - \frac{4}{5} \times \frac{4}{5} = 1 - \frac{{16}}{{25}}$ 
+= $\frac{9}{{25}}$
+
+Q10. If the probability for A to fail in an examination is 0.2 and that for B is 0.3, then the probability that either A fails or B fails is
+    (A) 0.44   <-- CORRECT
+    (B) 0.5
+    (C) 0.06
+    (D) 0.08
+    Answer: A
+    Explanation: Required probability = 1 - P[neither a fails nor B fails]
+= 1 - P[A does not fail] x [B does not fail]
+= 1 - 0.8 x 0.7
+= 0.44
+
+Q11. In a single throw of two dice, the probability of getting a total of 7 or 9 is
+    (A) $\frac{4} {18}$
+    (B) $\frac{1}{ 3}$
+    (C) $\frac{7} {18}$
+    (D) $\frac{5} {18}$   <-- CORRECT
+    Answer: D
+    Explanation: A = getting a total of 7
+B = getting a total of 9
+Then, A = {(6,1), (1, 6), (4, 3), (3, 4)}
+B = {(6, 3), (3, 6), (5, 4), (4, 5)}
+$\therefore$ Required probability ${ = \;P(A\; \cup \;B)}$
+= P(A) + P(B)
+$=\frac{4}{6^2}+\frac{4}{6^2}=\frac{8}{6^2}=\frac{8}{36}=\frac{4}{18}$
+
+Q12. Three numbers are chosen at random without replacement from {1,2,3,.......,10}.The probability that the minimum of the chosen numbers is 3,or their maximum is 7,is
+    (A) 3/40
+    (B) 5/40
+    (C) $7/40$
+    (D) 11/40   <-- CORRECT
+    Answer: D
+    Explanation: Let A(B) denote the event that minimum (maximum) number on the chosen tickets is 3(7).
+We have,
+P(A)=P(choosing 3 and two other numbers from 4 to 10)
+=$\frac{^7C_2}{^{10}C_3}=\frac{7}{40}\\ $.
+P(B)=P(choosing 7 and choosing two other numbers from 1 to 6)=$\frac{^6C_2}{^{10}C_3}=\frac{1}{8}=\frac{5}{40}$.
+$P(A\cap B)=$P(choosing 3 and 7 and one other number from 4 to 6)
+=$\frac{3}{^{10}C_3}=\frac{1}{40}\\ $
+$\therefore P(A\cup B)=P(A)+P(B)-P(A\cap B)$
+=7/40+5/40-1/40=11/40.
+
+Q13. Let A and B be two independent events. The probability that both A and B occur is $\frac {1}{12}$ and the probability that neither A nor B occurs is $\frac 12$. The respective probabilities of A and B are
+    (A) $\frac 1 6$ and $\frac 1 2$
+    (B) $\frac{1}{3}$ and $\frac{1}{4}$ or $\frac{1}{4}$ and $\frac{1}{3}$   <-- CORRECT
+    (C) $\frac 12$ and $\frac{1}{6}$
+    (D) none of thse
+    Answer: B
+    Explanation: Since A & B are independents and therefore $\bar A $ & $\bar B$ are independent
+$\therefore P(A \cap B) = P(A)P(B)$ and $P(\overline A \cap \overline B ) = P(\overline A )\,.\,P(\overline B )$ 
+$\Rightarrow P(\bar A \cdot P(\bar B) = \frac{1}{12}$......(1)
+$P(\bar A )\cdot P(\bar B ) = \frac{1}{2}$ 
+$ \Rightarrow [1 - P(A)][1 - P(B)] = \frac{1}{2}$ $\Rightarrow 1 - P(B) - P(A) + P(A)\cdot P(B) = \frac{1}{2}$ 
+$\Rightarrow 1 - P(B) - P(A) + \frac{1}{{12}} = \frac{1}{{2}}$ ...(By (1))
+$\Rightarrow P(B) = \frac{7}{{12}} - P(A)$ ...(2)
+$\therefore$ From (1), $P(A)\left[ {\frac{7}{{12}} - P(A)} \right] = \frac{1}{{12}}$ 
+$\Rightarrow$ 12P(A)^2 - 7P(A) + 1 = 0
+$\Rightarrow $ (4(P(A) - 1) (3P(A) - 1) = 0
+$\Rightarrow $ P(A) = $\frac{1}{4}$ or P(A) = $\frac{1}{3}$ 
+When $P(A) = \frac{1}{4}(1)$ gives $P(B) = \frac{1}{3}$ and when $P(A) = \frac{1}{3},(1)$ gives $P(B) = \frac{1}{4}$
+
+Q14. Two events A and B have probabilities 0.25 and 0.50 respectively. The probability that both A and B occur simultaneously is 0.14. Then the probability that neither A nor B occurs is
+    (A) 0.89
+    (B) 0.39   <-- CORRECT
+    (C) 0.375
+    (D) 0.86
+    Answer: B
+    Explanation: We have, P(A) = 0.25, P(B) = 0.50, $P(A \cap B) $ = 0.14
+$\therefore$ Required Probability $= P(\overline A \cap \overline B )$
+$= 1 - P(A \cap B)$
+= 1 - [P(A) + P(B) - P(A $\cap$ B)]
+= 1 - [0.25 + 0.50 - 0.15]
+= 0.39
+
+Q15. India plays two matches each with West Indies and Australia. In any match the probabilities of India getting points 0, 1 and 2 are 0.45, 0.5 and 0.5 respectively. Assuming that the outcomes are independent, the probability of India getting atleast 7 points is
+    (A) $\frac {1}{16}$
+    (B) 0.525
+    (C) 0.1125
+    (D) 0.8750   <-- CORRECT
+    Answer: D
+    Explanation: Here, there are total 5 ways by which India can get at least 7 points.
+2 points + 2 points + 2 points + 2 points =$(0.5 \times 0.5 \times 0.5 \times 0.5)$
+1 point + 2 points + 2 points + 2 points = $(0.05 \times 0.5 \times 0.5 \times 0.5)$
+2 points + 1 point + 2 points + 2 points $=(0.5 \times 0.05 \times 0.5 \times 0.5)$
+2 points + 2 points + 1 point + 2 points =$(0.5 \times 0.5 \times 0.05 \times 0.5)$
+P(atleast 7 points) = $0.5 \times 0.5 \times 0.5 \times 0.5+4[0.05 \times 0.5 \times 0.5 \times 0.5]$
+= 0.0625 + 4(0.00625)
+= 0.0625 + 0.025
+= 0.0875
+
+========================================================================
+Probability Test 04  (id 680) [PAID]
+CBSE > Class 11 > Mathematics > Probability
+Questions: 15 | Answers: YES
+========================================================================
+
+Q1. An unbiased dice is rolled four times. The probability that the minimum number on any toss is not less than 3 is
+    (A) $\frac{80}{81}$
+    (B) $\frac{16}{81}$   <-- CORRECT
+    (C) $\frac{65} {81}$
+    (D) $\frac{1}{81}$
+    Answer: B
+    Explanation: The probability that the outcome of a single throw of a die is any one of 4, 3, 4, 5 and 5 is equal to $\frac{4}{6} = \frac{2}{3}$ of the die is rolled four times, the required probability is equal to
+${\left( {\frac{2}{3}} \right)^4} = \frac{{16}}{{81}}$
+
+Q2. The probability that a man will live for 10 more years is $\frac 14$ and that his wife will live 10 more years is $\frac 13$. The probability that neither will be alive in 10 years is
+    (A) $\frac {5} {12}$
+    (B) $\frac {7}{12}$
+    (C) $\frac {11}{12}$
+    (D) $\frac 12$   <-- CORRECT
+    Answer: D
+    Explanation: Probability that a man will not live 10 more years $= 1 - \frac{1}{4} = \frac{3}{4}$
+Probability that a man will not live for 10 more years $= 1 - \frac{1}{3} = \frac{2}{3}$
+$\therefore$ Required probability $= \frac{3}{4} \times \frac{2}{3} = \frac{1}{2}$
+
+Q3. The probability of having atleast one tail in five throws with a coin is
+    (A) $\frac{1} {32}$
+    (B) 1
+    (C) $\frac{1}{5}$
+    (D) $\frac{31} {32}$   <-- CORRECT
+    Answer: D
+    Explanation: Required probability = 1 - P [not getting any tail in five throws with a coin]
+$ = 1 - \frac{1}{2} \times \frac{1}{2} \times \frac{1}{2} \times \frac{1}{2} \times \frac{1}{2}$ 
+$= 1 - \frac{1}{{{2^6}}} = 1 - \frac{1}{{32}} = \frac{{31}}{32}$
+
+Q4. If E is any event associated with an experiment, then range of P(E).
+    (A) P (E) $ \le $ 0
+    (B) P (E) $ \ge $ 0
+    (C) $0 \le P\;(E) \le 1$   <-- CORRECT
+    (D) P (E) $ \ge $1
+    Answer: C
+    Explanation: Let A be the event associated with a random experiment. Let m be the no. of cases favourable to the event A and n be the total no. of outcomes.
+Then, we have,
+$P(A) = \frac{m}{n}$
+Clealry, $0 \leqslant m \leqslant n.$ 
+Therefore, $0 \leqslant \frac{m}{n} \leqslant 1$
+$\Rightarrow 0 \leqslant P(A) \leqslant 1$
+
+Q5. A and B toss 3 coins. The probability that they both obtain the same number of heads is
+    (A) $\frac{1}{ 9}$
+    (B) $\frac{3} {16}$
+    (C) $\frac{5}{16}$   <-- CORRECT
+    (D) $\frac{3}{ 8}$
+    Answer: C
+    Explanation: Required probability = P [A gets no head and B gets no head] + P [A gets 1 head and B gets 1 head] + P [A gets 2 heads and B gets 2 heads] + P [A gets 3 heads and B gets 3 heads]
+$= \frac{1}{8} \times \frac{1}{8} + \frac{3}{8} \times \frac{3}{8} + \frac{3}{8} \times \frac{3}{8} + \frac{1}{8} \times \frac{1}{8}$ 
+$= \frac{{1 + 9 + 9 + 1}}{{64}} = \frac{{20}}{{64}} = \frac{5}{{16}}$
+
+Q6. Three identical dice are rolled. The probability that the same number will appear on each of them is
+    (A) $\frac{1}{36}$   <-- CORRECT
+    (B) $\frac{1}{6}$
+    (C) $\frac{1}{18}$
+    (D) $\frac{3}{28}$
+    Answer: A
+    Explanation: Since throwing a single die three times is equivalent to throw three dice at a time.
+$\therefore $ Sample space = {(1, 1, 1), (2, 2, 2), (3, 3, 3), (4, 4, 4), (5, 5, 5), (6, 6, 6), .......}
+Here, n(5) = 6^3
+$\therefore $ Required Probability $= \frac{6}{{{6^3}}} = \frac{1}{{{6^2}}} = \frac{1}{{36}}$
+
+Q7. Suppose n $( \ge {\rm{3}})$ persons are sitting in a row. Two of them are selected at random. The probability that they are not together is
+    (A) $1 - \frac{2}{n}$   <-- CORRECT
+    (B) $\frac{2}{ n} - 1$
+    (C) n!
+    (D) $n - \frac{1}{n}$
+    Answer: A
+    Explanation: n persons can be arranged in n! ways. If any two persons are together, then this may be arranged in (n - 1)! 2! ways.
+Now the probability of two persons sitting together is = $\frac{(n-1) ! 2 !}{n !}=\frac{(n-1) ! 2 \times 1}{n(n-1) !}=\frac{2}{n} \text {. }$. Hence, the probability that the two persons are not together is = 1 - $\frac{2}{n}$
+
+Q8. One ticket is selected at random from 100 tickets numbered 00, 01, 02…, 99. Suppose S and T are the sum and product of the digits of the number on the ticket, then the probability of getting S = 7 and T = 0 is
+    (A) $\frac{1} {50}$   <-- CORRECT
+    (B) $\frac{2}{19}$
+    (C) $\frac{19}{100}$
+    (D) $\frac{1}{ 4}$
+    Answer: A
+    Explanation: Given 100 tickets numbered 00, 01, 02…, 99. , S and T are the sum and product of the digits of the number on the ticket.
+here the number of elements in the sample space = 100
+Now, S = 7 i.e. sum of the digits is 7, S = {07, 70, 16, 61, 25, 52, 34, 43}, and T = 0 i.e. product of the digits = 0, T = {00, 01, 02, 03, 04, 05, 06, 07, 08, 09, 10, 20, 30, 40, 50, 60, 70, 80, 90}
+T = 0 and S = 7 $ \Rightarrow $ T $ \cap$ S = {07, 70} $ \Rightarrow $ n(T $ \cap$ S) = 2
+Hence P(T = 0 and S = 7) = P( T $ \cap$ S) = $\frac{2}{100}$ = $\frac{1}{50}$
+
+Q9. A box contains 10 eggs out of which 4 are rotten. Two eggs are taken out together. If one of them is found to be good, the probability that other is also is
+    (A) $\frac{8}{15}$
+    (B) $\frac{2}{3}$
+    (C) $\frac{1}{ 3}$
+    (D) $\frac{5} {13}$   <-- CORRECT
+    Answer: D
+    Explanation: Let $$E_1 = one of the two eggs is good and
+E_2 = both the selected eggs are good.
+Here, $E_2$ is subset of
+$\therefore p(\frac {E_2}{E_1})=\frac {p(E_1\cap E_2)}{p(E_1)}$
+$=\frac{p(E_2)}{p(E_1)}$$=\frac{^6C_2}{^6C_2+^6C_1.4C_3}=\frac{15}{15+24}=\frac{5}{13}$
+
+Q10. A digit is selected at random from either of the two sets {1, 2, 3, 4, 5, 6, 7, 8, 9} and {1, 2, 3, 4, 5, 6, 7, 8, 9}. What is the chance that the sum of the digits selected is 10?
+    (A) $\frac{1}{9}$   <-- CORRECT
+    (B) $\frac{2}{9}$
+    (C) $\frac{10}{18}$
+    (D) $\frac{10}{81}$
+    Answer: A
+    Explanation: Let A = {1, 2, 3, 4, 5, 6, 7, 8, 9} then, n (A $\times$ A) = g^2
+Let B be the event that sum of the digits is 10. Then,
+B = {(1, 9), (9, 1), (4,6), (6, 4), (8, 2), (2, 8), (7, 3), (3, 7), (5, 5)}
+$\therefore $ Required probability $ = \frac{{n(B)}}{{n(A \times A)}} = \frac{9}{{{9^2}}} = \frac{1}{9}$
+
+Q11. If two squares are chosen at random on a chess board, the probability that they have a side common is
+    (A) $\frac{2}{ 7}$
+    (B) $\frac{1}{ 9}$
+    (C) $\frac{1}{18}$   <-- CORRECT
+    (D) $\frac{4}{ 9}$
+    Answer: C
+    Explanation: Total number of squares = 64.
+Two squares can be selected in $^{64}C_2$ ways.
+In each column, there are 7 pairs of adjacent squares where each pair share 1 side in common.
+Total such pairs = 8 $\times$ 7 = 56.
+In each row, there are 7 pairs of adjacent squares where each pair share 1 side in common.
+Total such pairs = 8 $\times$ 7 = 56.
+Therefore, favourable cases = 56 + 56 = 112.
+Required probability = $\frac{112}{^{64}C_2}=\frac{112}{2016}=\frac{1}{18}$
+
+Q12. A coin tail on both sides is tossed twice. The probability of getting a head is
+    (A) $\frac{1}{2}$
+    (B) $\frac{3}{ 4}$
+    (C) 1
+    (D) 0   <-- CORRECT
+    Answer: D
+    Explanation: Since a coin tail has both faces as tail. So getting head is an impossible event. So its probability is zero.
+
+Q13. The chance that an event E occurs or does not occurs
+    (A) 3
+    (B) 2
+    (C) 1   <-- CORRECT
+    (D) 0
+    Answer: C
+    Explanation: Let E denotes the given event. Then, $\overline E$ denotes E does not occur
+We have, $E \cup \overline E = S$ 
+$ \Rightarrow P(E \cup \overline E ) = P(S) = 1[\because P(S) = 1]$ 
+$\therefore $ Required probability is, $P(E \cup \overline E ) = 1$
+
+Q14. Mean number of ‘sixes’ in four throws of a fair dic is
+    (A) $\frac{6}{4}$
+    (B) $\frac{1}{4}$
+    (C) 1
+    (D) $\frac{4}{6}$   <-- CORRECT
+    Answer: D
+    Explanation: Let X be a random variable denoting the no. of sixes. Then X follows B(4, P)
+Here, p Denotes the probability of getting a six in a single throw of a die
+$\therefore$ Required probability = nP
+$ = 4 \times \frac{1}{6} = \frac{4}{6}$
+
+Q15. From a deck of 52 cards, the probability of drawing a court card is
+    (A) $\frac{1}{13}$
+    (B) $\frac{4}{13}$
+    (C) $\frac{3}{13}$   <-- CORRECT
+    (D) $\frac{1}{4}$
+    Answer: C
+    Explanation: Since there are 12 court cards in a pack of 52 cards. Therefore,
+Required probability = $\frac{{12}}{{52}} = \frac{3}{{13}}$
+
+========================================================================
+Probability Test 05  (id 681) [PAID]
+CBSE > Class 11 > Mathematics > Probability
+Questions: 15 | Answers: YES
+========================================================================
+
+Q1. A coin is tossed 6 times. The probability of getting a head three times is
+    (A) $\frac{3}{64}$
+    (B) $\frac{1}{2}$
+    (C) $\frac{1}{ 8}$
+    (D) $\frac{5}{16}$   <-- CORRECT
+    Answer: D
+    Explanation: Let X be a random variable denoting the no. of heads.
+Then, X $ \sim$ B(6, P), Where P is the probability of getting a head in a single toss of a coin
+$\therefore P = \frac{1}{2}$ 
+$\therefore $Required probability = P(X = 3)
+= $ {}^6{C_3}{\left( {\frac{1}{2}} \right)^3}{\left( {\frac{1}{2}} \right)^{6 - 3}}$ 
+= $ \frac{6}{3} \times \frac{5}{2} \times \frac{4}{1} \times {\left( {\frac{1}{2}} \right)^6} = \frac{5}{{16}}$
+
+Q2. Five letters are sent to different persons and addresses on the five envelopes are written at random. The probability that all the letters reach correct destiny is
+    (A) $\frac{1}{5}$
+    (B) $\frac{1}{120}$   <-- CORRECT
+    (C) $\frac{44} {120}$
+    (D) $\frac{2}{5}$
+    Answer: B
+    Explanation: Let A denote the event that all the letters reach the correct destiny. Then,
+n(A) = 1
+Also, five letters can be sent of different persons in 5! ways
+$\therefore $ Required probability $ = P(A) = \frac{1}{{5!}} = \frac{1}{{120}}$
+
+Q3. The letters are sent to different persons and addresses on the three envelopes are written at random. The chance that none of the letters reaches correct destiny is
+    (A) 0
+    (B) 1
+    (C) $\frac{1}{3}$   <-- CORRECT
+    (D) $\frac{2}{ 3}$
+    Answer: C
+    Explanation: Let A denote the event that none of the letters reaches the correct destiny. Then, n(A) = 2 as
+$\begin{array}{*{20}{l}} {\;\;\;\;\;\;\;{\text{Persons}}} \\ {{\text{A}}\;\;\;\;\;\;{\text{B}}\;\;\;\;{\text{C}}} \\ { \downarrow \;\;\;\;\; \downarrow \;\;\; \downarrow } \\ {{\text{c}}\;\;\;\;\;\;{\text{a}}\;\;\;\;\;{\text{b}}\;\;\; \leftarrow \;{\text{letters}}} \\ {{\text{b}}\;\;\;\;\;{\text{c}}\;\;\;\;\;\;{\text{a}}\;\;\; \leftarrow \;{\text{letters}}} \end{array}$ 
+Also, three letters can be sent of different persons in 3! ways
+$\therefore $ required probability = $ P(A) = \frac{2}{{3!}} = \frac{2}{6} = \frac{1}{3}$
+
+Q4. A pack of cards contain 4 aces, 4 kings, 4 queens and 4 jacks. Two cards are drawn at random. The probability that atleast one of them is a king is
+    (A) $\frac{3}{16}$
+    (B) $\frac{1}{9}$
+    (C) $\frac{9}{20}$   <-- CORRECT
+    (D) $\frac{1}{5}$
+    Answer: C
+    Explanation: Required probability = 1 - P [none of the two cards is a king]
+$= 1 - \frac{{12{C_2}}}{{16{C_2}}}$
+$ = 1 - \frac{{11}}{{20}} = \frac{9}{{20}}$
+
+Q5. Three houses are available in a locality. Three persons apply for the houses. Each applies for one house without consulting others. The probability that all the three apply for the same house is
+    (A) $\frac{4}{15}$
+    (B) $\frac{1}{9}$   <-- CORRECT
+    (C) $\frac{1}{4}$
+    (D) $\frac{1}{3}$
+    Answer: B
+    Explanation: For a particular house being selected
+Probability = $\frac {1}{3}$ 
+Probability that all the persons apply for the same house 
+= $3(\frac{1}{3}×\frac{1}{3}×\frac{1}{3})=\frac{1}{9}$
+
+Q6. From each of the four married couples, one of the partners is selected at random. The probability that those selected are of the same sex is
+    (A) $\frac{1}{4}$
+    (B) $\frac{1}{2}$
+    (C) $\frac{1}{8}$   <-- CORRECT
+    (D) $\frac{1}{16}$
+    Answer: C
+    Explanation: Here, s = {(M M M M), (F F F F), ......}
+Clearly, n (s) = 16
+$\therefore $ Required proability = P [( M M M M) or (F F F F)]
+= P [(M M M M) + (F F F F)]
+= $\frac{2}{{16}} + \frac{2}{{16}} = \frac{4}{{16}} = \frac{1}{8}$
+
+Q7. The probability of having atleast one tail in 4 throws with a coin is
+    (A) $\frac{1}{16}$
+    (B) $\frac{15} {16}$   <-- CORRECT
+    (C) $\frac{1}{ 4}$
+    (D) 1
+    Answer: B
+    Explanation: Required probability = 1 - (Probability of getting no tail in 4 throws of a coin)
+= $1 - \frac{1}{{{2^4}}} = 1 - \frac{1}{{16}}$ 
+= $\frac{15} {16}$
+
+Q8. The letters of the word PROBABILITY are arranged in all possible ways. The chance that two B’s and also two I’s occur together is
+    (A) $\frac{2} {55}$   <-- CORRECT
+    (B) $\frac{2}{165}$
+    (C) $\frac{1}{55}$
+    (D) $\frac{4} {165}$
+    Answer: A
+    Explanation: No. of ways in which letters of the word 'PROBABILITY' can be arranges $ = \frac{{11!}}{{2! \times 2!}}$ 
+Now, consider two B's as one letter and two I's as one letter.
+Then no. of ways in which the letters can be arranged = 9!
+$\therefore $Required probability = $ \frac{{9!}}{{\frac{{11!}}{{2! \times 2!}}}}$ 
+= $\frac{{9!}}{{11!}} \times 2! \times 2! = \frac{2}{{55}}$
+
+Q9. Two persons A and B appear in an interview for two vacancies. If the probabilities of their selection are $\frac 14$ and $\frac 16$ respectively, then the probability that none of them is selected is
+    (A) $\frac {19}{12}$
+    (B) $\frac {1}{24}$
+    (C) $\frac 5 8$   <-- CORRECT
+    (D) $\frac {5}{12}$
+    Answer: C
+    Explanation: Required probability = $P\left[ {\bar A \cap \bar B} \right]$ 
+= $P\left[ {\bar A} \right].\,P\left[ {\bar B} \right]$ ($\because$ $\bar A$ and $\bar B$ are independent)
+= $ [1 - P(A)].[1 - P(B)]$ 
+= $\left( {1 - \frac{1}{4}} \right).\left( {1 - \frac{1}{6}} \right) = \frac{3}{4} \times \frac{5}{6}$ 
+= $ \frac{5}{8}$
+
+Q10. A fair coin is tossed n times and let X denotes the number of heads obtained. If P (X = 4), P (X = 5) and P (X = 6) are in A.P., then n is equal to
+    (A) 14
+    (B) 7 or 14   <-- CORRECT
+    (C) 21
+    (D) 7
+    Answer: B
+    Explanation: Since P(X = 4), P(X = 5) and P(X = 6) are in A.P, therefore,
+2P(X = 5) = P(X = 4) + P(X = 6)
+$\Rightarrow( 2×{ ^nC_5})(\frac{1}{2})^n= ^nC_4(\frac{1}{2})^n+^nC_6(\frac{1}{2})^n$ 
+$\Rightarrow$ $2 \times^{n} C_{5}=^{n} C_{4}+^{n} C_{6}$ 
+$\Rightarrow$ n = 7 or 14
+
+Q11. A five digit number is formed by the digits 1, 2, 3, 4, 5, 6 and 8. The probability that the number has even digit at both ends is
+    (A) $\frac{1}{5}$
+    (B) $\frac{1}{3}$
+    (C) $\frac {2}{7}$   <-- CORRECT
+    (D) $\frac{2}{9}$
+    Answer: C
+    Explanation: Five digits out of seven digits can be arranged in $^7P_5$ ways = 2520
+There are 4 even numbers (2, 4, 6, 8).
+Two can be arranged at the end in $^4P_2$ ways = 12
+Remaining three places of five digit numbers can be filled with remaining 5 digits in $^5P_3$ ways = 60
+So, required probability $=\frac{12×60}{2520}=\frac{2}{7}$
+
+Q12. A sum of money is rounded of to the nearest rupee. The probability that the error occurred in rounding off is atleast 15 paise is
+    (A) $\frac{71}{101}$
+    (B) $\frac{29}{100}$
+    (C) $\frac{71} {100}$   <-- CORRECT
+    (D) $\frac{29}{101}$
+    Answer: C
+    Explanation: The sample space is, s = {-0.50, -0.49, -0.48, ......., -0.01, 0.00, 0.01, ....... 0.49}
+Let A be the event that the round of error is at least 15 paise.
+Then A^c is the event that the round of error is at most 14 paise.
+The sample space of A^c is, 
+A^c = {-0.14, -0.15, ........, -0.01, 0.00, 0.01, ........., 0.14}
+$\therefore P({A^c}) = \frac{{29}}{{100}}$ 
+$\therefore P(A) = 1 - p({A^c}) = 1 - \frac{{29}}{{100}} = \frac{{71}}{{100}}$
+
+Q13. Three numbers are chosen at random from 1 to 20. The probability that they are consecutive is
+    (A) $\frac{3}{190}$   <-- CORRECT
+    (B) $\frac{1}{57}$
+    (C) $\frac{1}{47}$
+    (D) $\frac{1}{60}$
+    Answer: A
+    Explanation: Total no. of elements in the sample space is ${}^{20}{C_3}$ i.e. = 1140 ways.Now as three numbers are consecutive,the Numbers may be 1, 2, 3 or 2, 3, 4 or 3, 4, 5 or .... 18,19, 20. this can be done in 18 ways. Hence the probability of getting three consecutive numbers is $\frac{18}{1140}$ = $\frac{3}{190}$
+
+Q14. A positive integer is chosen at random. The probability that sum of the digits of its square is 39 is
+    (A) 1
+    (B) 0   <-- CORRECT
+    (C) $\frac{1}{11}$
+    (D) $\frac{2}{39}$
+    Answer: B
+    Explanation: There is no positive integer for which sum of square of digits is 39. So required probability is zero
+
+Q15. A box contains 100 tickets numbered 1, 2, 3,........,100. Two tickets are chosen at random. If it is given that Maximum number on the two chosen tickets is not more than 10, then the probability that the minimum number on them is not less than 5 is,
+    (A) $\frac{2}{3}$
+    (B) $\frac{3}{5}$
+    (C) $\frac{1}{3}$   <-- CORRECT
+    (D) $\frac{2}{5}$
+    Answer: C
+    Explanation: Let A be the event, maximum number is not more than 10 and B be the event, minimum number is not less than 5
+$\therefore P(A)=\frac{^{10}C_2}{^{100}C_2}\ and P(A \cap B)=\frac{^6C_2}{^{100}C_2}$ 
+Required probability = P(B/A)$=\frac{P(A\cap B)}{P(B)}=\frac{^6C_2}{^{10}C_2}=\frac{1}{3}$

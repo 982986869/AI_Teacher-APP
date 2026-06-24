@@ -1,0 +1,3162 @@
+{
+  "id": 1384,
+  "name": "Limits and Derivatives",
+  "full_name": "CBSE > Class 11 > Mathematics > Limits and Derivatives",
+  "tests": [
+    {
+      "testPaperID": 662,
+      "testPaperName": "Limits and Derivatives Test 01",
+      "is_paid": false,
+      "category_full_name": "CBSE > Class 11 > Mathematics > Limits and Derivatives",
+      "noOfQuestions": 15,
+      "has_answers": true,
+      "sections": [
+        {
+          "sectionName": "General",
+          "sectionID": null,
+          "questions": [
+            {
+              "questionID": 19217,
+              "question": "$\\mathop {Lt}\\limits_{x \\to 0} \\frac{\\log (1+a x)-\\log (1+b x)}{x}$ is equal to",
+              "question_raw": "<p><span class=\"math-tex\">{tex}\\mathop {Lt}\\limits_{x \\to 0} \\frac{\\log (1+a x)-\\log (1+b x)}{x}{/tex}</span> is equal to</p>",
+              "options": [
+                {
+                  "label": "A",
+                  "id": 32067,
+                  "text": "a – b",
+                  "is_correct": true
+                },
+                {
+                  "label": "B",
+                  "id": 32069,
+                  "text": "log a + log b",
+                  "is_correct": false
+                },
+                {
+                  "label": "C",
+                  "id": 32070,
+                  "text": "log a – log b",
+                  "is_correct": false
+                },
+                {
+                  "label": "D",
+                  "id": 32068,
+                  "text": "a + b",
+                  "is_correct": false
+                }
+              ],
+              "correct_option_ids": [
+                32067
+              ],
+              "correct_option_labels": [
+                "A"
+              ],
+              "correct_option_texts": [
+                "a – b"
+              ],
+              "explanation": "$\\mathop {Lt}\\limits_{x \\to 0} \\frac{\\log (1+a x)}{x}-\\mathop {Lt}\\limits_{x \\to 0} \\frac{log (1 + bx)}{x}$ \n$\\Rightarrow$ $\\mathop {Lt}\\limits_{x \\to 0}\\frac{\\log (1+a x)}{x} \\cdot \\frac{a}{a}-\\mathop {Lt}\\limits_{x \\to 0} \\frac{\\log (1+b x)}{x} \\cdot \\frac{b}{b}$ \n$\\Rightarrow$ a - b"
+            },
+            {
+              "questionID": 19218,
+              "question": "If $f(x)=\\left|4 x-x^2-3\\right|$ when $x €[0,4]$, then, which of the following is correct?",
+              "question_raw": "<p>If <span class=\"math-tex\">{tex}f(x)=\\left|4 x-x^2-3\\right|{/tex}</span> when <span class=\"math-tex\">{tex}x €[0,4]{/tex}</span>, then, which of the following is correct?</p>",
+              "options": [
+                {
+                  "label": "A",
+                  "id": 32073,
+                  "text": "$x=2$ is the global maximum",
+                  "is_correct": false
+                },
+                {
+                  "label": "B",
+                  "id": 32072,
+                  "text": "$x=0$ is the global maximum",
+                  "is_correct": false
+                },
+                {
+                  "label": "C",
+                  "id": 32074,
+                  "text": "$x=1$ is the global maximum",
+                  "is_correct": false
+                },
+                {
+                  "label": "D",
+                  "id": 32071,
+                  "text": "$x=3$ is the global maximum",
+                  "is_correct": true
+                }
+              ],
+              "correct_option_ids": [
+                32071
+              ],
+              "correct_option_labels": [
+                "D"
+              ],
+              "correct_option_texts": [
+                "$x=3$ is the global maximum"
+              ],
+              "explanation": "Clearly, $x=1,3$ are the points of global minimum (as the values being equal).\nAnd, $x=0,4$ are the points of global maximum (as the values being equal).\nAnd, $x=2$, is the point of local maximum (as the values being equal).\nThus, $x=3$ is the global maximum."
+            },
+            {
+              "questionID": 19219,
+              "question": "Let f(x) = x sin$\\frac 1 x$, x $ \\ne $ 0, then the value of the function at x = 0, so that f is continuous at x = 0, is",
+              "question_raw": "<p>Let f(x) = x sin<span class=\"math-tex\">{tex}\\frac 1 x{/tex}</span>, x&nbsp;<span class=\"math-tex\">{tex} \\ne {/tex}</span>&nbsp;0, then the value of the function at x = 0, so that f is continuous at x = 0, is</p>",
+              "options": [
+                {
+                  "label": "A",
+                  "id": 32078,
+                  "text": "$% MathType!Translator!2!1!LaTeX.tdl!LaTeX 2.09 and later! % MathType!MTEF!2!1!+- % feaagGart1ev2aaatCvAUfeBSjuyZL2yd9gzLbvyNv2CaerbuLwBLn % hiov2DGi1BTfMBaeXatLxBI9gBaerbd9wDYLwzYbItLDharqqtubsr % 4rNCHbGeaGqiVu0Je9sqqrpepC0xbbL8F4rqqrFfpeea0xe9Lq-Jc9 % vqaqpepm0xbba9pwe9Q8fs0-yqaqpepae9pg0FirpepeKkFr0xfr-x % fr-xb9adbaqaaeGaciGaaiaabeqaamaabaabaaqcfayaaiabgkziUk % abg6HiLcaa!39D7! \\[ \\to \\infty \\]% MathType!End!2!1! $$\\sqrt{2}$",
+                  "is_correct": false
+                },
+                {
+                  "label": "B",
+                  "id": 32077,
+                  "text": "1",
+                  "is_correct": false
+                },
+                {
+                  "label": "C",
+                  "id": 32076,
+                  "text": "-1",
+                  "is_correct": false
+                },
+                {
+                  "label": "D",
+                  "id": 32075,
+                  "text": "0",
+                  "is_correct": true
+                }
+              ],
+              "correct_option_ids": [
+                32075
+              ],
+              "correct_option_labels": [
+                "D"
+              ],
+              "correct_option_texts": [
+                "0"
+              ],
+              "explanation": "Here, if we directly put x = 0, f(0) = 0 $\\times$ sin ($\\frac{1}{0}$) = 0.\nAt L.H.L, put x = 0 - h$% MathType!Translator!2!1!LaTeX.tdl!LaTeX 2.09 and later! % MathType!MTEF!2!1!+- % feaagGart1ev2aaatCvAUfeBSjuyZL2yd9gzLbvyNv2CaerbuLwBLn % hiov2DGi1BTfMBaeXatLxBI9gBaerbd9wDYLwzYbItLDharqqtubsr % 4rNCHbGeaGqiVu0Je9sqqrpepC0xbbL8F4rqqrFfpeea0xe9Lq-Jc9 % vqaqpepm0xbba9pwe9Q8fs0-yqaqpepae9pg0FirpepeKkFr0xfr-x % fr-xb9adbaqaaeGaciGaaiaabeqaamaabaabaaqcfayaamaaxababa % GaciiBaiaacMgacaGGTbaabaGaamiAaiabgkziUkaaicdaaeqaaaaa % !3D0B! \\[\\mathop {\\lim }\\limits_{h \\to 0} \\]% MathType!End!2!1! $, $\\mathop {lim}\\limits_{x \\to 0} x.\\sin \\frac1x$ f(0 - h) = 0.\nAt R.H.L, put x = 0 + h ,$\\mathop {lim}\\limits_{x \\to 0} x.\\sin \\frac1x$$% MathType!Translator!2!1!LaTeX.tdl!LaTeX 2.09 and later! % MathType!MTEF!2!1!+- % feaagGart1ev2aaatCvAUfeBSjuyZL2yd9gzLbvyNv2CaerbuLwBLn % hiov2DGi1BTfMBaeXatLxBI9gBaerbd9wDYLwzYbItLDharqqtubsr % 4rNCHbGeaGqiVu0Je9sqqrpepC0xbbL8F4rqqrFfpeea0xe9Lq-Jc9 % vqaqpepm0xbba9pwe9Q8fs0-yqaqpepae9pg0FirpepeKkFr0xfr-x % fr-xb9adbaqaaeGaciGaaiaabeqaamaabaabaaqcfayaamaaxababa % GaciiBaiaacMgacaGGTbaabaGaamiAaiabgkziUkaaicdaaeqaaaaa % !3D0B! \\[\\mathop {\\lim }\\limits_{h \\to 0} \\]% MathType!End!2!1! $, f(0 + h) = 0.\nHence, L.H.L = f(0) = R.H.L.\nf(x) is continuous at x = 0."
+            },
+            {
+              "questionID": 19220,
+              "question": "$\\lim \\limits_{x \\to 0}\\frac{\\tan x-\\sin x}{x^3}$ is equal to",
+              "question_raw": "<p><span class=\"math-tex\">{tex}\\lim \\limits_{x \\to 0}\\frac{\\tan x-\\sin x}{x^3}{/tex}</span>&nbsp;is equal to</p>",
+              "options": [
+                {
+                  "label": "A",
+                  "id": 32081,
+                  "text": "0",
+                  "is_correct": false
+                },
+                {
+                  "label": "B",
+                  "id": 32079,
+                  "text": "$\\frac 1 2$",
+                  "is_correct": true
+                },
+                {
+                  "label": "C",
+                  "id": 32080,
+                  "text": "1",
+                  "is_correct": false
+                },
+                {
+                  "label": "D",
+                  "id": 32082,
+                  "text": "4",
+                  "is_correct": false
+                }
+              ],
+              "correct_option_ids": [
+                32079
+              ],
+              "correct_option_labels": [
+                "B"
+              ],
+              "correct_option_texts": [
+                "$\\frac 1 2$"
+              ],
+              "explanation": "The function can be written as \n$\\lim \\limits_{x \\rightarrow 0} \\frac{\\sin x(1-\\cos x)}{\\left(x^{3}\\right)(\\cos x)}$ \n$\\Rightarrow$ $\\lim _\\limits {x \\rightarrow 0} \\left(\\frac{\\sin x}{x}\\right) \\cdot\\left(\\frac{1-\\cos x}{x^2}\\right) \\cdot\\left(\\frac{1}{\\cos x}\\right)$ \n$\\Rightarrow$ $1 \\cdot \\frac{1}{2} \\cdot 1$ \n$\\Rightarrow$ $\\frac{1}{2}$"
+            },
+            {
+              "questionID": 19221,
+              "question": "$\\lim \\limits_{x \\to 0} \\frac{x \\log (1+x)}{1-\\cos x}$ is equal to",
+              "question_raw": "<p><span class=\"math-tex\">{tex}\\lim \\limits_{x \\to 0} \\frac{x \\log (1+x)}{1-\\cos x}{/tex}</span> is equal to</p>",
+              "options": [
+                {
+                  "label": "A",
+                  "id": 32085,
+                  "text": "$\\frac 12$",
+                  "is_correct": false
+                },
+                {
+                  "label": "B",
+                  "id": 32084,
+                  "text": "1",
+                  "is_correct": false
+                },
+                {
+                  "label": "C",
+                  "id": 32086,
+                  "text": "0",
+                  "is_correct": false
+                },
+                {
+                  "label": "D",
+                  "id": 32083,
+                  "text": "2",
+                  "is_correct": true
+                }
+              ],
+              "correct_option_ids": [
+                32083
+              ],
+              "correct_option_labels": [
+                "D"
+              ],
+              "correct_option_texts": [
+                "2"
+              ],
+              "explanation": "$\\lim \\limits_{x \\rightarrow 0} \\frac{x \\log (1+x)}{1-\\cos x} \\cdot \\frac{x}{x}$\n$\\Rightarrow$ $\\lim \\limits_{x \\rightarrow 0}\\left(\\frac{\\log (1+x)}{x}\\right) \\cdot\\left(\\frac{x^{2}}{1-\\cos x}\\right)$\n$\\Rightarrow$ $1 \\cdot \\frac{1}{\\frac{1}{2}}$\n$\\Rightarrow$ 2"
+            },
+            {
+              "questionID": 19222,
+              "question": "$\\lim \\limits_{x \\rightarrow 0} \\frac{e^{p x}-e^{q x}}{x}$ is equal to",
+              "question_raw": "<p><span class=\"math-tex\">{tex}\\lim \\limits_{x \\rightarrow 0} \\frac{e^{p x}-e^{q x}}{x}{/tex}</span> is equal to</p>",
+              "options": [
+                {
+                  "label": "A",
+                  "id": 32089,
+                  "text": "log (p - q)",
+                  "is_correct": false
+                },
+                {
+                  "label": "B",
+                  "id": 32087,
+                  "text": "p - q",
+                  "is_correct": true
+                },
+                {
+                  "label": "C",
+                  "id": 32090,
+                  "text": "p^q",
+                  "is_correct": false
+                },
+                {
+                  "label": "D",
+                  "id": 32088,
+                  "text": "log p - log q",
+                  "is_correct": false
+                }
+              ],
+              "correct_option_ids": [
+                32087
+              ],
+              "correct_option_labels": [
+                "B"
+              ],
+              "correct_option_texts": [
+                "p - q"
+              ],
+              "explanation": "$\\lim \\limits_{x \\rightarrow 0} \\frac{e^{p x}+1-1-e^{q x}}{x}$ \n$\\Rightarrow$ $\\lim\\limits_{x \\to 0} \\frac {{e}^{px}-1}{x}-\\lim\\limits_{x \\to 0}\\frac {{e}^{qx}-1}{x}$ \n$\\Rightarrow$ $\\lim \\limits_{x \\rightarrow 0} \\left(\\frac{e^{p x}-1}{x}\\right)\\left(\\frac{p}{p}\\right)-\\lim \\limits_{x \\rightarrow 0}\\left(\\frac{e^{q x}-1}{x}\\right)\\left(\\frac{q}{q}\\right)$ \n$\\Rightarrow$ p - q"
+            },
+            {
+              "questionID": 19223,
+              "question": "$\\lim \\limits_{x \\rightarrow 0} \\frac{(1-x)^n-1}{x}$ is",
+              "question_raw": "<p><span class=\"math-tex\">{tex}\\lim \\limits_{x \\rightarrow 0} \\frac{(1-x)^n-1}{x}{/tex}</span> is</p>",
+              "options": [
+                {
+                  "label": "A",
+                  "id": 32092,
+                  "text": "(n - 1) $\\!$",
+                  "is_correct": false
+                },
+                {
+                  "label": "B",
+                  "id": 32091,
+                  "text": "-n",
+                  "is_correct": true
+                },
+                {
+                  "label": "C",
+                  "id": 32094,
+                  "text": "$n^2$",
+                  "is_correct": false
+                },
+                {
+                  "label": "D",
+                  "id": 32093,
+                  "text": "n $\\!$",
+                  "is_correct": false
+                }
+              ],
+              "correct_option_ids": [
+                32091
+              ],
+              "correct_option_labels": [
+                "B"
+              ],
+              "correct_option_texts": [
+                "-n"
+              ],
+              "explanation": "The given limit is in the form f $\\frac 00$ using L'hospital Rude\nPutting x = 0 in $\\frac{n(1-x)^{n-1}}{1}\\cdot (-1)$"
+            },
+            {
+              "questionID": 19224,
+              "question": "$\\lim\\limits_{x \\to 0} \\frac{\\tan x-x}{x^2 \\tan x}$ is equal to",
+              "question_raw": "<p><span class=\"math-tex\">{tex}\\lim\\limits_{x \\to 0} \\frac{\\tan x-x}{x^2 \\tan x}{/tex}</span>&nbsp;is equal to</p>",
+              "options": [
+                {
+                  "label": "A",
+                  "id": 32098,
+                  "text": "0",
+                  "is_correct": false
+                },
+                {
+                  "label": "B",
+                  "id": 32095,
+                  "text": "$\\frac 1 3$",
+                  "is_correct": true
+                },
+                {
+                  "label": "C",
+                  "id": 32096,
+                  "text": "$\\frac 1 2$",
+                  "is_correct": false
+                },
+                {
+                  "label": "D",
+                  "id": 32097,
+                  "text": "1",
+                  "is_correct": false
+                }
+              ],
+              "correct_option_ids": [
+                32095
+              ],
+              "correct_option_labels": [
+                "B"
+              ],
+              "correct_option_texts": [
+                "$\\frac 1 3$"
+              ],
+              "explanation": "The following limit is in the form of $\\frac{0}{0}$ \nUsing L'Hospital rule;\n$\\Rightarrow$ $\\lim \\limits_{x \\rightarrow 0} \\frac{\\tan ^{2} x}{\\left(x^{2}\\right)+\\left(x^{2} \\tan ^{2} x\\right)+(\\tan x)(2 x)}$ = $\\lim \\limits_{x \\rightarrow 0} \\left(\\frac{(\\tan x)^{2}}{x^{2}}\\right) \\cdot\\left(\\frac{1}{1+\\tan ^{2} x+\\left(\\frac{2 \\tan x}{x}\\right)}\\right)$ \n$\\Rightarrow$ $1 \\cdot\\left(\\frac{1}{1+0+2}\\right)$\n$\\Rightarrow$ $\\frac{1}{3}$"
+            },
+            {
+              "questionID": 19225,
+              "question": "$\\mathop {lim}\\limits_{x \\to 0} \\;\\;\\left[ {\\cos x} \\right]$",
+              "question_raw": "<p><span class=\"math-tex\">{tex}\\mathop {lim}\\limits_{x \\to 0} \\;\\;\\left[ {\\cos x} \\right]{/tex}</span></p>",
+              "options": [
+                {
+                  "label": "A",
+                  "id": 32101,
+                  "text": "is equal to – 1",
+                  "is_correct": false
+                },
+                {
+                  "label": "B",
+                  "id": 32102,
+                  "text": "does not exist",
+                  "is_correct": false
+                },
+                {
+                  "label": "C",
+                  "id": 32100,
+                  "text": "is equal to 1",
+                  "is_correct": false
+                },
+                {
+                  "label": "D",
+                  "id": 32099,
+                  "text": "is equal to 0",
+                  "is_correct": true
+                }
+              ],
+              "correct_option_ids": [
+                32099
+              ],
+              "correct_option_labels": [
+                "D"
+              ],
+              "correct_option_texts": [
+                "is equal to 0"
+              ],
+              "explanation": "L.H.L. = $\\underset{x \\rightarrow 0}{lim}[\\cos (x-h)]$ = 0\nR.H.L = $\\underset{x \\rightarrow 0}{lim}[\\cos (x+h)]$ = 0"
+            },
+            {
+              "questionID": 19226,
+              "question": "$\\lim\\limits_{x \\to 0}\\frac{\\sin x-x}{x^3}$ is equal to",
+              "question_raw": "<p><span class=\"math-tex\">{tex}\\lim\\limits_{x \\to 0}\\frac{\\sin x-x}{x^3}{/tex}</span> is equal to</p>",
+              "options": [
+                {
+                  "label": "A",
+                  "id": 32104,
+                  "text": "$\\frac 16$",
+                  "is_correct": false
+                },
+                {
+                  "label": "B",
+                  "id": 32106,
+                  "text": "0",
+                  "is_correct": false
+                },
+                {
+                  "label": "C",
+                  "id": 32105,
+                  "text": "$ -\\frac 1 3$",
+                  "is_correct": false
+                },
+                {
+                  "label": "D",
+                  "id": 32103,
+                  "text": "$-\\frac 16$",
+                  "is_correct": true
+                }
+              ],
+              "correct_option_ids": [
+                32103
+              ],
+              "correct_option_labels": [
+                "D"
+              ],
+              "correct_option_texts": [
+                "$-\\frac 16$"
+              ],
+              "explanation": "Since the limit is in the form of $\\frac{0}{0}$. By applying L'hospital first time we get, $\\frac{\\cos x-1}{3 x^2}$ \nAgain using L'Hospital; $\\frac{-\\sin x}{6 x}$ \nAgain using L'Hospital we get $\\frac {-1}{6}$"
+            },
+            {
+              "questionID": 19227,
+              "question": "$\\lim\\limits_{x \\to 0} \\left(\\frac{\\sin x-x}{x}\\right) \\cos \\left(\\frac{1}{x}\\right)$ is equal to",
+              "question_raw": "<p><span class=\"math-tex\">{tex}\\lim\\limits_{x \\to 0} \\left(\\frac{\\sin x-x}{x}\\right) \\cos \\left(\\frac{1}{x}\\right){/tex}</span> is equal to</p>",
+              "options": [
+                {
+                  "label": "A",
+                  "id": 32108,
+                  "text": "1",
+                  "is_correct": false
+                },
+                {
+                  "label": "B",
+                  "id": 32107,
+                  "text": "0",
+                  "is_correct": true
+                },
+                {
+                  "label": "C",
+                  "id": 32109,
+                  "text": "$\\frac 12$",
+                  "is_correct": false
+                },
+                {
+                  "label": "D",
+                  "id": 32110,
+                  "text": "-1",
+                  "is_correct": false
+                }
+              ],
+              "correct_option_ids": [
+                32107
+              ],
+              "correct_option_labels": [
+                "B"
+              ],
+              "correct_option_texts": [
+                "0"
+              ],
+              "explanation": "$\\lim\\limits_{x \\to 0} \\;[(\\frac{\\sin x}{x})-(\\frac{x}{x})](\\cos \\frac1x)$ \n$\\Rightarrow$ (0) finite number = 0"
+            },
+            {
+              "questionID": 19228,
+              "question": "$\\lim\\limits_{x \\to 0} \\left(\\frac{\\sin x-x}{x^4}\\right) \\sin x$ equal to",
+              "question_raw": "<p><span class=\"math-tex\">{tex}\\lim\\limits_{x \\to 0} \\left(\\frac{\\sin x-x}{x^4}\\right) \\sin x{/tex}</span> equal to</p>",
+              "options": [
+                {
+                  "label": "A",
+                  "id": 32114,
+                  "text": "$\\frac1 3$",
+                  "is_correct": false
+                },
+                {
+                  "label": "B",
+                  "id": 32111,
+                  "text": "$ - \\frac 1 6$",
+                  "is_correct": true
+                },
+                {
+                  "label": "C",
+                  "id": 32113,
+                  "text": "$\\frac 16$",
+                  "is_correct": false
+                },
+                {
+                  "label": "D",
+                  "id": 32112,
+                  "text": "$ - \\frac 13$",
+                  "is_correct": false
+                }
+              ],
+              "correct_option_ids": [
+                32111
+              ],
+              "correct_option_labels": [
+                "B"
+              ],
+              "correct_option_texts": [
+                "$ - \\frac 1 6$"
+              ],
+              "explanation": "$\\lim \\limits_{x \\rightarrow 0}\\left(\\frac{\\sin x-x}{x^3}\\right) \\cdot\\left(\\frac{\\sin x}{x}\\right)=\\lim \\limits_{x \\rightarrow 0}\\left(\\frac{\\sin x-x}{x^3}\\right)$ \nNow using L'Hospital we have, $\\frac{\\cos x-1}{3 x^2}$\nAgain using L'Hospital, $\\frac {-\\sin x}{6x}$\nAgain using L'hospital; $\\frac {-1}{6}$"
+            },
+            {
+              "questionID": 19229,
+              "question": "Let f(x) = $\\frac{2-(256-7 x)^{1 / 8}}{(5 x+32)^{1 / 5}-2}, x \\neq 0$, then for f to be continuous at x = 0, f(0) must be equal to",
+              "question_raw": "<p>Let f(x) =&nbsp;<span class=\"math-tex\">{tex}\\frac{2-(256-7 x)^{1 / 8}}{(5 x+32)^{1 / 5}-2}, x \\neq 0{/tex}</span>, then for f to be continuous at x = 0, f(0) must be equal to</p>",
+              "options": [
+                {
+                  "label": "A",
+                  "id": 32115,
+                  "text": "$\\frac {7} {64}$",
+                  "is_correct": true
+                },
+                {
+                  "label": "B",
+                  "id": 32118,
+                  "text": "-1",
+                  "is_correct": false
+                },
+                {
+                  "label": "C",
+                  "id": 32117,
+                  "text": "$ - \\frac {7} {64}$",
+                  "is_correct": false
+                },
+                {
+                  "label": "D",
+                  "id": 32116,
+                  "text": "1",
+                  "is_correct": false
+                }
+              ],
+              "correct_option_ids": [
+                32115
+              ],
+              "correct_option_labels": [
+                "A"
+              ],
+              "correct_option_texts": [
+                "$\\frac {7} {64}$"
+              ],
+              "explanation": "f(x) = $\\frac{2-(256-7 x)^{1 / 8}}{(5 x+32)^{1 / 5}-2}$ = f(x) = $\\lim\\limits_{x \\to 0 } \\frac{(256)^{\\frac{1}{8}}-(256-7 x)^{\\frac 1 8}}{(5 x+32)^{1 / 5}-(32)^{\\frac{1}{5}}}$ \nUsing L' Hospital\n$\\Rightarrow$ $\\lim\\limits_{x \\to 0 }\\frac{-\\left(\\frac{1}{8}\\right)(256-7 x)^{-7 / 8}(-7)}{\\left(\\frac{1}{5}\\right)(5 x+32)^{(-4) / 5}(5)}$\n$\\Rightarrow$ $\\frac{7}{64}$"
+            },
+            {
+              "questionID": 19230,
+              "question": "If $\\begin{array}{c} \\frac{\\sin [x]}{[x]},[x] \\neq 0 \\\\ 0 \\quad,[x]=0 \\end{array}$, where [.] denotes the greatest integer function, then $\\lim \\limits _{x \\rightarrow 0} f(x)$ is equal to",
+              "question_raw": "<p>If&nbsp;<span class=\"math-tex\">{tex}\\begin{array}{c} \\frac{\\sin [x]}{[x]},[x] \\neq 0 \\\\ 0 \\quad,[x]=0 \\end{array}{/tex}</span>, where [.] denotes the greatest integer function, then&nbsp;<span class=\"math-tex\">{tex}\\lim \\limits _{x \\rightarrow 0} f(x){/tex}</span>&nbsp;is equal to</p>",
+              "options": [
+                {
+                  "label": "A",
+                  "id": 32119,
+                  "text": "does not exist",
+                  "is_correct": true
+                },
+                {
+                  "label": "B",
+                  "id": 32120,
+                  "text": "is equal to 0",
+                  "is_correct": false
+                },
+                {
+                  "label": "C",
+                  "id": 32121,
+                  "text": "is equal to -1",
+                  "is_correct": false
+                },
+                {
+                  "label": "D",
+                  "id": 32122,
+                  "text": "is equal to 1",
+                  "is_correct": false
+                }
+              ],
+              "correct_option_ids": [
+                32119
+              ],
+              "correct_option_labels": [
+                "A"
+              ],
+              "correct_option_texts": [
+                "does not exist"
+              ],
+              "explanation": "$\\mathop {Lt}\\limits_{x \\to 0^+}\\frac{sin\\;[x]}{[x]}$ = 1\n$\\Rightarrow \\mathop {Lt}\\limits_{x \\to 0^-}\\frac{sin\\;[x]}{[x]}$ = sin 1\n$\\Rightarrow$ L.H.L.$\\neq$ R.H.L.\nhence limit does not exist."
+            },
+            {
+              "questionID": 19231,
+              "question": "$\\mathop {lim}\\limits_{x \\to \\infty } x\\left( {{a^{1/x}} - 1} \\right)$, where a > 0, is equal to",
+              "question_raw": "<p><span class=\"math-tex\">{tex}\\mathop {lim}\\limits_{x \\to \\infty } x\\left( {{a^{1/x}} - 1} \\right){/tex}</span>, where a &gt; 0, is equal to</p>",
+              "options": [
+                {
+                  "label": "A",
+                  "id": 32123,
+                  "text": "log_e a",
+                  "is_correct": true
+                },
+                {
+                  "label": "B",
+                  "id": 32126,
+                  "text": "e",
+                  "is_correct": false
+                },
+                {
+                  "label": "C",
+                  "id": 32124,
+                  "text": "log_a e",
+                  "is_correct": false
+                },
+                {
+                  "label": "D",
+                  "id": 32125,
+                  "text": "1",
+                  "is_correct": false
+                }
+              ],
+              "correct_option_ids": [
+                32123
+              ],
+              "correct_option_labels": [
+                "A"
+              ],
+              "correct_option_texts": [
+                "log_e a"
+              ],
+              "explanation": "Let x = $\\frac{l}{t}$ \n$\\Rightarrow$ $\\underset{t \\rightarrow 0}{lim} \\frac{a^{t}-1}{t}$ = log_e a"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "testPaperID": 663,
+      "testPaperName": "Limits and Derivatives Test 02",
+      "is_paid": true,
+      "category_full_name": "CBSE > Class 11 > Mathematics > Limits and Derivatives",
+      "noOfQuestions": 15,
+      "has_answers": true,
+      "sections": [
+        {
+          "sectionName": "General",
+          "sectionID": null,
+          "questions": [
+            {
+              "questionID": 19232,
+              "question": "$\\lim\\limits_{x \\to \\infty } \\frac{\\sum \\limits_{r=1}^n r}{n^2}$ is equal to",
+              "question_raw": "<p><span class=\"math-tex\">{tex}\\lim\\limits_{x \\to \\infty } \\frac{\\sum \\limits_{r=1}^n r}{n^2}{/tex}</span> is equal to</p>",
+              "options": [
+                {
+                  "label": "A",
+                  "id": 32129,
+                  "text": "$\\frac 14$",
+                  "is_correct": false
+                },
+                {
+                  "label": "B",
+                  "id": 32127,
+                  "text": "$\\frac 1 2$",
+                  "is_correct": true
+                },
+                {
+                  "label": "C",
+                  "id": 32128,
+                  "text": "$\\frac 1 3$",
+                  "is_correct": false
+                },
+                {
+                  "label": "D",
+                  "id": 32130,
+                  "text": "1",
+                  "is_correct": false
+                }
+              ],
+              "correct_option_ids": [
+                32127
+              ],
+              "correct_option_labels": [
+                "B"
+              ],
+              "correct_option_texts": [
+                "$\\frac 1 2$"
+              ],
+              "explanation": "$\\lim _\\limits{n \\rightarrow \\infty} \\frac{\\frac{n(n+1)}{2}}{n^{2}}$ = $\\lim \\limits_{n \\rightarrow \\infty}\\frac{(n+1)}{2 n}$ \nSubstitute n = $\\frac{l}{t}$\n$\\Rightarrow$ $\\lim \\limits_{t \\rightarrow 0}\\frac{(1+t)}{2}=\\frac{1}{2}$"
+            },
+            {
+              "questionID": 19233,
+              "question": "$\\lim\\limits_{n \\to \\infty } \\frac{\\sum \\limits_{r=1}^n r^2}{n^3}$ is equal to",
+              "question_raw": "<p><span class=\"math-tex\">{tex}\\lim\\limits_{n \\to \\infty } \\frac{\\sum \\limits_{r=1}^n r^2}{n^3}{/tex}</span> is equal to</p>",
+              "options": [
+                {
+                  "label": "A",
+                  "id": 32134,
+                  "text": "0",
+                  "is_correct": false
+                },
+                {
+                  "label": "B",
+                  "id": 32131,
+                  "text": "$\\frac 1 3$",
+                  "is_correct": true
+                },
+                {
+                  "label": "C",
+                  "id": 32132,
+                  "text": "$\\frac 12$",
+                  "is_correct": false
+                },
+                {
+                  "label": "D",
+                  "id": 32133,
+                  "text": "$\\frac 1 4$",
+                  "is_correct": false
+                }
+              ],
+              "correct_option_ids": [
+                32131
+              ],
+              "correct_option_labels": [
+                "B"
+              ],
+              "correct_option_texts": [
+                "$\\frac 1 3$"
+              ],
+              "explanation": "$\\lim \\limits_{n \\rightarrow \\infty} \\frac{\\frac{n(n+1)(2 n+1)}{6}}{n^{3}}$ = $\\lim \\limits_{n \\rightarrow \\infty}\\frac{\\left(2 n^{2}+3 n+1\\right)}{6 n^{2}}$\nSubstitute n = $\\frac{l}{t}$\n$\\Rightarrow$ $\\lim \\limits_{t \\rightarrow 0}\\frac{\\left(2+3 t+t^{2}\\right)}{6}=\\frac{1}{3}$"
+            },
+            {
+              "questionID": 19234,
+              "question": "$\\lim\\limits_{x \\to 0} \\frac 1 x$",
+              "question_raw": "<p><span class=\"math-tex\">{tex}\\lim\\limits_{x \\to 0} \\frac 1 x{/tex}</span></p>",
+              "options": [
+                {
+                  "label": "A",
+                  "id": 32137,
+                  "text": "tends to $-\\infty $",
+                  "is_correct": false
+                },
+                {
+                  "label": "B",
+                  "id": 32136,
+                  "text": "tends to $\\infty $",
+                  "is_correct": false
+                },
+                {
+                  "label": "C",
+                  "id": 32135,
+                  "text": "does not exist",
+                  "is_correct": true
+                },
+                {
+                  "label": "D",
+                  "id": 32138,
+                  "text": "is equal to 0",
+                  "is_correct": false
+                }
+              ],
+              "correct_option_ids": [
+                32135
+              ],
+              "correct_option_labels": [
+                "C"
+              ],
+              "correct_option_texts": [
+                "does not exist"
+              ],
+              "explanation": "When x $\\rightarrow$ 0^-; f(x) $\\rightarrow$ $-\\infty$\nWhen x $\\rightarrow$ 0^+; f(x) $\\rightarrow$ $\\infty$\nL.H.L $\\ne$ R.H.L.\nHence limit does not exist."
+            },
+            {
+              "questionID": 19235,
+              "question": "$\\mathop {lim}\\limits_{x \\to 0} \\;\\;x\\left[ x \\right]$ is equal to",
+              "question_raw": "<p><span class=\"math-tex\">{tex}\\mathop {lim}\\limits_{x \\to 0} \\;\\;x\\left[ x \\right]{/tex}</span> is equal to</p>",
+              "options": [
+                {
+                  "label": "A",
+                  "id": 32139,
+                  "text": "0",
+                  "is_correct": true
+                },
+                {
+                  "label": "B",
+                  "id": 32142,
+                  "text": "$\\frac12$",
+                  "is_correct": false
+                },
+                {
+                  "label": "C",
+                  "id": 32141,
+                  "text": "1 or -1",
+                  "is_correct": false
+                },
+                {
+                  "label": "D",
+                  "id": 32140,
+                  "text": "2",
+                  "is_correct": false
+                }
+              ],
+              "correct_option_ids": [
+                32139
+              ],
+              "correct_option_labels": [
+                "A"
+              ],
+              "correct_option_texts": [
+                "0"
+              ],
+              "explanation": "$\\underset{x \\rightarrow 0^{-}}{lim}(x-h)[x-h]$ = $\\underset{x \\rightarrow 0}{lim}(x-h)(x-h-1)$ \n$\\Rightarrow$ (-h)(-h - 1) = 0\n$\\Rightarrow$ $\\underset{x \\rightarrow 0^{+}}{lim}(x+h)[x+h]$ = $\\underset{x \\rightarrow 0}{lim}(x+h)(x)$ \n$\\Rightarrow$ (h)(0) = 0"
+            },
+            {
+              "questionID": 19236,
+              "question": "$\\lim\\limits_{x \\to 0} \\frac{(1+x)^n-1}{x}$ is equal to",
+              "question_raw": "<p><span class=\"math-tex\">{tex}\\lim\\limits_{x \\to 0} \\frac{(1+x)^n-1}{x}{/tex}</span> is equal to</p>",
+              "options": [
+                {
+                  "label": "A",
+                  "id": 32143,
+                  "text": "n",
+                  "is_correct": true
+                },
+                {
+                  "label": "B",
+                  "id": 32145,
+                  "text": "-n",
+                  "is_correct": false
+                },
+                {
+                  "label": "C",
+                  "id": 32144,
+                  "text": "1",
+                  "is_correct": false
+                },
+                {
+                  "label": "D",
+                  "id": 32146,
+                  "text": "0",
+                  "is_correct": false
+                }
+              ],
+              "correct_option_ids": [
+                32143
+              ],
+              "correct_option_labels": [
+                "A"
+              ],
+              "correct_option_texts": [
+                "n"
+              ],
+              "explanation": "$\\lim \\limits_{x \\to 0} \\frac{(1+x)^n-1^n}{(1+x)-(1)}=\\mathop {lim}\\limits_{x \\to 0}n(1+x)^{n-1}=n$"
+            },
+            {
+              "questionID": 19237,
+              "question": "$\\lim \\limits_{n \\rightarrow \\infty}\\left\\{\\frac{1}{1-n^{2}}+\\frac{2}{1-n^{2}}+\\ldots+\\frac{n}{1-n^{2}}\\right\\}$ is equal to:",
+              "question_raw": "<p><span class=\"math-tex\">{tex}\\lim \\limits_{n \\rightarrow \\infty}\\left\\{\\frac{1}{1-n^{2}}+\\frac{2}{1-n^{2}}+\\ldots+\\frac{n}{1-n^{2}}\\right\\}{/tex}</span>&nbsp;is equal to:</p>",
+              "options": [
+                {
+                  "label": "A",
+                  "id": 32147,
+                  "text": "$ - \\frac{1}{2}$",
+                  "is_correct": true
+                },
+                {
+                  "label": "B",
+                  "id": 32149,
+                  "text": "$\\frac{1}{2}$",
+                  "is_correct": false
+                },
+                {
+                  "label": "C",
+                  "id": 32148,
+                  "text": "0",
+                  "is_correct": false
+                },
+                {
+                  "label": "D",
+                  "id": 32150,
+                  "text": "1",
+                  "is_correct": false
+                }
+              ],
+              "correct_option_ids": [
+                32147
+              ],
+              "correct_option_labels": [
+                "A"
+              ],
+              "correct_option_texts": [
+                "$ - \\frac{1}{2}$"
+              ],
+              "explanation": "$\\lim \\limits_{n \\rightarrow \\infty}\\left[\\frac{1}{1-n^{2}}+\\frac{2}{1-n^{2}}+ \\ldots+\\frac{n}{1-n^{2}}\\right]$\n= $\\lim \\limits_{n \\rightarrow \\infty}\\left(\\frac{1}{1-n^{2}}\\right)$ [1 + 2 + 3 ... n]\n= $\\lim \\limits_{n \\rightarrow \\infty}\\left(\\frac{1}{1-n^{2}}\\right)\\left[\\frac{n(n+1)}{2}\\right]$\n= $\\lim \\limits_{n \\rightarrow \\infty} \\frac{1}{2}\\left[\\frac{n(n+1)}{(1-n)(1+n)}\\right]$\n= $\\lim \\limits_{n \\rightarrow \\infty} \\frac{1}{2} \\frac{n}{1-n}$\n= $\\lim \\limits_{n \\rightarrow \\infty} \\frac{1}{2} \\frac{1}{\\frac{1}{n}-1}$\n= $\\frac{1}{2}$(-1)\n= $\\frac{-1}{2}$"
+            },
+            {
+              "questionID": 19238,
+              "question": "$\\lim \\limits_{h \\rightarrow 0} \\frac{\\sin ^2(x+h)-\\sin ^2 x}{h}$ is equal to",
+              "question_raw": "<p><span class=\"math-tex\">{tex}\\lim \\limits_{h \\rightarrow 0} \\frac{\\sin ^2(x+h)-\\sin ^2 x}{h}{/tex}</span> is equal to</p>",
+              "options": [
+                {
+                  "label": "A",
+                  "id": 32154,
+                  "text": "2 sin x",
+                  "is_correct": false
+                },
+                {
+                  "label": "B",
+                  "id": 32151,
+                  "text": "sin 2x",
+                  "is_correct": true
+                },
+                {
+                  "label": "C",
+                  "id": 32153,
+                  "text": "cos^2 x",
+                  "is_correct": false
+                },
+                {
+                  "label": "D",
+                  "id": 32152,
+                  "text": "sin x cos x",
+                  "is_correct": false
+                }
+              ],
+              "correct_option_ids": [
+                32151
+              ],
+              "correct_option_labels": [
+                "B"
+              ],
+              "correct_option_texts": [
+                "sin 2x"
+              ],
+              "explanation": "$\\lim \\limits_{h \\rightarrow 0} \\frac{[\\sin (x+h)-\\sin x][\\sin (x+h)+\\sin x]}{h}$ \n$\\Rightarrow$ $\\lim \\limits_{h \\rightarrow 0} \\frac{2 \\sin \\left(\\frac{2 x+h}{2}\\right) \\cos \\left(\\frac{h}{2}\\right) 2 \\cos \\left(\\frac{2 x+h}{2}\\right) \\sin \\left(\\frac{h}{2}\\right)}{h}$ \n= sin 2x"
+            },
+            {
+              "questionID": 19239,
+              "question": "If a is a real number, then $\\lim \\limits_{x \\rightarrow a} \\frac{|x-a|}{x-a}$",
+              "question_raw": "<p>If a is a real number, then <span class=\"math-tex\">{tex}\\lim \\limits_{x \\rightarrow a} \\frac{|x-a|}{x-a}{/tex}</span></p>",
+              "options": [
+                {
+                  "label": "A",
+                  "id": 32155,
+                  "text": "does not exist",
+                  "is_correct": true
+                },
+                {
+                  "label": "B",
+                  "id": 32158,
+                  "text": "is equal to 1",
+                  "is_correct": false
+                },
+                {
+                  "label": "C",
+                  "id": 32156,
+                  "text": "is equal to -1",
+                  "is_correct": false
+                },
+                {
+                  "label": "D",
+                  "id": 32157,
+                  "text": "is equal to 0",
+                  "is_correct": false
+                }
+              ],
+              "correct_option_ids": [
+                32155
+              ],
+              "correct_option_labels": [
+                "A"
+              ],
+              "correct_option_texts": [
+                "does not exist"
+              ],
+              "explanation": "R.H.L = $\\lim \\limits_{x \\rightarrow a^+}\\frac{x-a}{x-a}$ = 1\nL.H.L = $\\lim \\limits_{x \\rightarrow a^-}\\frac{a-x}{x-a}$ = -1\nL.H.L $\\ne$ R.H.L. \nHence limit does not exists."
+            },
+            {
+              "questionID": 19240,
+              "question": "If k be an integer, then $\\mathop {lim}\\limits_{x \\to {k^ + }}\\;(x - \\left[ x \\right])$ is equal to",
+              "question_raw": "<p>If k be an integer, then <span class=\"math-tex\">{tex}\\mathop {lim}\\limits_{x \\to {k^ + }}\\;(x - \\left[ x \\right]){/tex}</span> is equal to</p>",
+              "options": [
+                {
+                  "label": "A",
+                  "id": 32159,
+                  "text": "0",
+                  "is_correct": true
+                },
+                {
+                  "label": "B",
+                  "id": 32160,
+                  "text": "1",
+                  "is_correct": false
+                },
+                {
+                  "label": "C",
+                  "id": 32161,
+                  "text": "-1",
+                  "is_correct": false
+                },
+                {
+                  "label": "D",
+                  "id": 32162,
+                  "text": "k",
+                  "is_correct": false
+                }
+              ],
+              "correct_option_ids": [
+                32159
+              ],
+              "correct_option_labels": [
+                "A"
+              ],
+              "correct_option_texts": [
+                "0"
+              ],
+              "explanation": "$\\underset{x \\rightarrow k^{+}}{lim}(x-[x])$ \n$\\Rightarrow$ $\\underset{h \\rightarrow o}{lim}(k+h-[k+h])$ \n$\\Rightarrow$ $\\underset{h \\rightarrow o}{lim}(k+h-k)$ \n= 0"
+            },
+            {
+              "questionID": 19241,
+              "question": "$\\lim\\limits_{x \\to {a^ - } }\\frac{|x-a|}{x-a}$ is equal to",
+              "question_raw": "<p><span class=\"math-tex\">{tex}\\lim\\limits_{x \\to {a^ - } }\\frac{|x-a|}{x-a}{/tex}</span> is equal to</p>",
+              "options": [
+                {
+                  "label": "A",
+                  "id": 32163,
+                  "text": "- 1",
+                  "is_correct": true
+                },
+                {
+                  "label": "B",
+                  "id": 32165,
+                  "text": "1",
+                  "is_correct": false
+                },
+                {
+                  "label": "C",
+                  "id": 32164,
+                  "text": "0",
+                  "is_correct": false
+                },
+                {
+                  "label": "D",
+                  "id": 32166,
+                  "text": "a",
+                  "is_correct": false
+                }
+              ],
+              "correct_option_ids": [
+                32163
+              ],
+              "correct_option_labels": [
+                "A"
+              ],
+              "correct_option_texts": [
+                "- 1"
+              ],
+              "explanation": "$\\lim\\limits_{x \\to {a^ - } }\\frac{|x-a|}{x-a}$\n$\\Rightarrow$ $\\lim \\limits_{h \\rightarrow 0}\\frac{|(a-h)-a|}{(a-h)-a}$\n$\\Rightarrow$ $\\lim \\limits_{h \\rightarrow 0} \\frac{h}{-h}$ = -1"
+            },
+            {
+              "questionID": 19242,
+              "question": "If k be an integer, then $\\mathop {lim}\\limits_{x \\to {k^ - }^{}} \\;\\;(x - \\left[ x \\right])$ is equal to",
+              "question_raw": "<p>If k be an integer, then <span class=\"math-tex\">{tex}\\mathop {lim}\\limits_{x \\to {k^ - }^{}} \\;\\;(x - \\left[ x \\right]){/tex}</span> is equal to</p>",
+              "options": [
+                {
+                  "label": "A",
+                  "id": 32167,
+                  "text": "1",
+                  "is_correct": true
+                },
+                {
+                  "label": "B",
+                  "id": 32170,
+                  "text": "k",
+                  "is_correct": false
+                },
+                {
+                  "label": "C",
+                  "id": 32169,
+                  "text": "-1",
+                  "is_correct": false
+                },
+                {
+                  "label": "D",
+                  "id": 32168,
+                  "text": "0",
+                  "is_correct": false
+                }
+              ],
+              "correct_option_ids": [
+                32167
+              ],
+              "correct_option_labels": [
+                "A"
+              ],
+              "correct_option_texts": [
+                "1"
+              ],
+              "explanation": "$\\underset{x \\rightarrow k^{-}}{lim}(x-[x])$ \n$\\Rightarrow$ $\\underset{h \\rightarrow 0}{lim}(k-h-[k-h])$ \n$\\Rightarrow$ $\\underset{h \\rightarrow 0}{\\operatorname{lim}}(k-h-k+1)$ \n= 1"
+            },
+            {
+              "questionID": 19243,
+              "question": "$\\lim\\limits_{x \\to 0}\\left(\\frac{\\tan x-x}{x}\\right) \\sin \\left(\\frac{1}{x}\\right)$ is equal to",
+              "question_raw": "<p><span class=\"math-tex\">{tex}\\lim\\limits_{x \\to 0}\\left(\\frac{\\tan x-x}{x}\\right) \\sin \\left(\\frac{1}{x}\\right){/tex}</span> is equal to</p>",
+              "options": [
+                {
+                  "label": "A",
+                  "id": 32172,
+                  "text": "1",
+                  "is_correct": false
+                },
+                {
+                  "label": "B",
+                  "id": 32173,
+                  "text": "a real number other than 0 and 1",
+                  "is_correct": false
+                },
+                {
+                  "label": "C",
+                  "id": 32171,
+                  "text": "0",
+                  "is_correct": true
+                },
+                {
+                  "label": "D",
+                  "id": 32174,
+                  "text": "-1",
+                  "is_correct": false
+                }
+              ],
+              "correct_option_ids": [
+                32171
+              ],
+              "correct_option_labels": [
+                "C"
+              ],
+              "correct_option_texts": [
+                "0"
+              ],
+              "explanation": "$\\lim\\limits_{x \\to 0}\\left(\\frac{\\tan x-x}{x}\\right) \\sin \\left(\\frac{1}{x}\\right)$ \n$\\Rightarrow$ (0) Finite number = 0"
+            },
+            {
+              "questionID": 19244,
+              "question": "$\\lim\\limits_{x \\to 3}\\frac{\\sqrt{x^2+10}-\\sqrt{19}}{x-3}$ is equal to",
+              "question_raw": "<p><span class=\"math-tex\">{tex}\\lim\\limits_{x \\to 3}\\frac{\\sqrt{x^2+10}-\\sqrt{19}}{x-3}{/tex}</span> is equal to</p>",
+              "options": [
+                {
+                  "label": "A",
+                  "id": 32178,
+                  "text": "1",
+                  "is_correct": false
+                },
+                {
+                  "label": "B",
+                  "id": 32176,
+                  "text": "0",
+                  "is_correct": false
+                },
+                {
+                  "label": "C",
+                  "id": 32175,
+                  "text": "$\\frac{3}{\\sqrt{19}}$",
+                  "is_correct": true
+                },
+                {
+                  "label": "D",
+                  "id": 32177,
+                  "text": "$\\frac {6} {\\sqrt {19} }$",
+                  "is_correct": false
+                }
+              ],
+              "correct_option_ids": [
+                32175
+              ],
+              "correct_option_labels": [
+                "C"
+              ],
+              "correct_option_texts": [
+                "$\\frac{3}{\\sqrt{19}}$"
+              ],
+              "explanation": "Using L'Hospital,\n$\\lim \\limits_{x \\rightarrow 3} \\frac{\\frac{2 x}{\\sqrt[2]{x^{2}+10}}}{1}$ \nSubstituting x = 3 in $\\frac{\\frac{2 x}{2 \\sqrt{x^{2}+10}}}{1}$ \nWe get $\\frac{3}{\\sqrt{19}}$"
+            },
+            {
+              "questionID": 19245,
+              "question": "Maximum value of x^3 - 3x + 2 in [0, 2] is",
+              "question_raw": "<p>Maximum value of x<sup>3</sup> - 3x + 2 in [0, 2] is</p>",
+              "options": [
+                {
+                  "label": "A",
+                  "id": 32182,
+                  "text": "32",
+                  "is_correct": false
+                },
+                {
+                  "label": "B",
+                  "id": 32179,
+                  "text": "4",
+                  "is_correct": true
+                },
+                {
+                  "label": "C",
+                  "id": 32181,
+                  "text": "1",
+                  "is_correct": false
+                },
+                {
+                  "label": "D",
+                  "id": 32180,
+                  "text": "2",
+                  "is_correct": false
+                }
+              ],
+              "correct_option_ids": [
+                32179
+              ],
+              "correct_option_labels": [
+                "B"
+              ],
+              "correct_option_texts": [
+                "4"
+              ],
+              "explanation": "Polynomial functions are continuous and derivable into their entire domain f'(x) > 0. for |x| > 0.\nSo it will be an increasing function in [0, 2]\n$\\Rightarrow$ f(0) = 2 and f(2) = 4\nSo, f(2) will be maximum."
+            },
+            {
+              "questionID": 19246,
+              "question": "$\\lim\\limits_{x \\to 0 + } \\frac{\\sqrt{x}}{\\sqrt{16+\\sqrt{x}}-4}$ is equal to",
+              "question_raw": "<p><span class=\"math-tex\">{tex}\\lim\\limits_{x \\to 0 + } \\frac{\\sqrt{x}}{\\sqrt{16+\\sqrt{x}}-4}{/tex}</span>&nbsp;is equal to&nbsp;</p>",
+              "options": [
+                {
+                  "label": "A",
+                  "id": 32186,
+                  "text": "2",
+                  "is_correct": false
+                },
+                {
+                  "label": "B",
+                  "id": 32184,
+                  "text": "0",
+                  "is_correct": false
+                },
+                {
+                  "label": "C",
+                  "id": 32185,
+                  "text": "does not exist",
+                  "is_correct": false
+                },
+                {
+                  "label": "D",
+                  "id": 32183,
+                  "text": "8",
+                  "is_correct": true
+                }
+              ],
+              "correct_option_ids": [
+                32183
+              ],
+              "correct_option_labels": [
+                "D"
+              ],
+              "correct_option_texts": [
+                "8"
+              ],
+              "explanation": "$\\lim \\limits_{x \\rightarrow 0^{+}}\\frac{1}{\\frac{\\sqrt{16+\\sqrt{z}}-\\sqrt{16}}{(16+\\sqrt{z})-(16)}}$ \n$\\Rightarrow$ $\\lim \\limits_{x \\rightarrow 0^{+}}{lim} 2(\\sqrt{16+\\sqrt{x}})$ \n= 8"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "testPaperID": 664,
+      "testPaperName": "Limits and Derivatives Test 03",
+      "is_paid": true,
+      "category_full_name": "CBSE > Class 11 > Mathematics > Limits and Derivatives",
+      "noOfQuestions": 15,
+      "has_answers": true,
+      "sections": [
+        {
+          "sectionName": "General",
+          "sectionID": null,
+          "questions": [
+            {
+              "questionID": 19247,
+              "question": "$\\lim \\limits_{x \\rightarrow \\frac{\\pi}{4}} \\frac{\\sec x-\\sqrt{2}}{x-\\frac{\\pi}{4}}$ is equal to",
+              "question_raw": "<p><span class=\"math-tex\">{tex}\\lim \\limits_{x \\rightarrow \\frac{\\pi}{4}} \\frac{\\sec x-\\sqrt{2}}{x-\\frac{\\pi}{4}}{/tex}</span> is equal to</p>",
+              "options": [
+                {
+                  "label": "A",
+                  "id": 32188,
+                  "text": "$\\sqrt 3$",
+                  "is_correct": false
+                },
+                {
+                  "label": "B",
+                  "id": 32189,
+                  "text": "0",
+                  "is_correct": false
+                },
+                {
+                  "label": "C",
+                  "id": 32190,
+                  "text": "-1",
+                  "is_correct": false
+                },
+                {
+                  "label": "D",
+                  "id": 32187,
+                  "text": "$\\sqrt 2 $",
+                  "is_correct": true
+                }
+              ],
+              "correct_option_ids": [
+                32187
+              ],
+              "correct_option_labels": [
+                "D"
+              ],
+              "correct_option_texts": [
+                "$\\sqrt 2 $"
+              ],
+              "explanation": "Using L' Hospital rule\n$\\lim \\limits_{x \\rightarrow \\frac{\\pi}{4}} \\frac{\\sec x-\\sqrt{2}}{x-\\frac{\\pi}{4}}$\n$\\Rightarrow$ $\\sqrt{2}$"
+            },
+            {
+              "questionID": 19248,
+              "question": "What is the value of $\\lim _\\limits{x \\rightarrow 0} \\frac{x \\tan x}{\\cot x}$ ?",
+              "question_raw": "<p>What is the value of <span class=\"math-tex\">{tex}\\lim _\\limits{x \\rightarrow 0} \\frac{x \\tan x}{\\cot x}{/tex}</span> ?<br />\n&nbsp;</p>",
+              "options": [
+                {
+                  "label": "A",
+                  "id": 32193,
+                  "text": "$\\frac{1}{2}$",
+                  "is_correct": false
+                },
+                {
+                  "label": "B",
+                  "id": 32191,
+                  "text": "0",
+                  "is_correct": true
+                },
+                {
+                  "label": "C",
+                  "id": 32194,
+                  "text": "2",
+                  "is_correct": false
+                },
+                {
+                  "label": "D",
+                  "id": 32192,
+                  "text": "1",
+                  "is_correct": false
+                }
+              ],
+              "correct_option_ids": [
+                32191
+              ],
+              "correct_option_labels": [
+                "B"
+              ],
+              "correct_option_texts": [
+                "0"
+              ],
+              "explanation": "$\\lim _{x \\rightarrow 0} \\frac{x \\tan x}{\\cot x}=\\lim _{x \\rightarrow 0} \\frac{x \\frac{\\sin x}{\\cos x}}{\\frac{\\cos x}{\\sin x}}$\n$ =\\lim _{x \\rightarrow 0} {x} $\n$ =0 $"
+            },
+            {
+              "questionID": 19249,
+              "question": "$\\mathop {lim}\\limits_{x \\to \\infty }\\;\\left( {\\sqrt {{x^2} + x + 1} - x} \\right)$ is equal to",
+              "question_raw": "<p><span class=\"math-tex\">{tex}\\mathop {lim}\\limits_{x \\to \\infty }\\;\\left( {\\sqrt {{x^2} + x + 1} - x} \\right){/tex}</span> is equal to</p>",
+              "options": [
+                {
+                  "label": "A",
+                  "id": 32197,
+                  "text": "2",
+                  "is_correct": false
+                },
+                {
+                  "label": "B",
+                  "id": 32196,
+                  "text": "0",
+                  "is_correct": false
+                },
+                {
+                  "label": "C",
+                  "id": 32195,
+                  "text": "$\\frac{1}{2}$",
+                  "is_correct": true
+                },
+                {
+                  "label": "D",
+                  "id": 32198,
+                  "text": "-1",
+                  "is_correct": false
+                }
+              ],
+              "correct_option_ids": [
+                32195
+              ],
+              "correct_option_labels": [
+                "C"
+              ],
+              "correct_option_texts": [
+                "$\\frac{1}{2}$"
+              ],
+              "explanation": "Substitute x = $\\frac{1}{t}$ \n$\\Rightarrow$ $\\lim _\\limits{t \\rightarrow 0} \\frac{\\sqrt{t^{2}+t+1}-1}{t}$ \nUsing L' Hospital\n$\\lim _\\limits{t \\rightarrow 0} \\frac{\\frac{2 t+1}{2 \\sqrt{t^{2}+t+1}}}{1}$ \n= $\\frac{1}{2}$"
+            },
+            {
+              "questionID": 19250,
+              "question": "$\\mathop {lim}\\limits_{x \\to \\infty } \\;\\;\\left( {\\sqrt {{x^2} + 1} - x} \\right)$ is equal to",
+              "question_raw": "<p><span class=\"math-tex\">{tex}\\mathop {lim}\\limits_{x \\to \\infty } \\;\\;\\left( {\\sqrt {{x^2} + 1} - x} \\right){/tex}</span> is equal to</p>",
+              "options": [
+                {
+                  "label": "A",
+                  "id": 32201,
+                  "text": "2",
+                  "is_correct": false
+                },
+                {
+                  "label": "B",
+                  "id": 32200,
+                  "text": "$\\frac{1}{2}$",
+                  "is_correct": false
+                },
+                {
+                  "label": "C",
+                  "id": 32199,
+                  "text": "0",
+                  "is_correct": true
+                },
+                {
+                  "label": "D",
+                  "id": 32202,
+                  "text": "-1",
+                  "is_correct": false
+                }
+              ],
+              "correct_option_ids": [
+                32199
+              ],
+              "correct_option_labels": [
+                "C"
+              ],
+              "correct_option_texts": [
+                "0"
+              ],
+              "explanation": "Put x = $\\frac1t$ \nThen, $\\mathop {lim}\\limits_{t \\to 0 }\\;\\frac{\\left( {\\sqrt {1+{t^2}} - 1} \\right)}{t}$ \nApplying L'Hospital \n$\\mathop {lim}\\limits_{t \\to 0 }\\frac{\\frac{2t}{2\\sqrt{1+t^2}}}{1}$ = 0"
+            },
+            {
+              "questionID": 19251,
+              "question": "$\\lim \\limits_{x \\rightarrow \\frac{\\pi}{4}} \\frac{\\tan x-1}{x-\\frac{\\pi}{4}}$ is equal to",
+              "question_raw": "<p><span class=\"math-tex\">{tex}\\lim \\limits_{x \\rightarrow \\frac{\\pi}{4}} \\frac{\\tan x-1}{x-\\frac{\\pi}{4}}{/tex}</span> is equal to</p>",
+              "options": [
+                {
+                  "label": "A",
+                  "id": 32206,
+                  "text": "0",
+                  "is_correct": false
+                },
+                {
+                  "label": "B",
+                  "id": 32205,
+                  "text": "1",
+                  "is_correct": false
+                },
+                {
+                  "label": "C",
+                  "id": 32204,
+                  "text": "$\\frac 12$",
+                  "is_correct": false
+                },
+                {
+                  "label": "D",
+                  "id": 32203,
+                  "text": "2",
+                  "is_correct": true
+                }
+              ],
+              "correct_option_ids": [
+                32203
+              ],
+              "correct_option_labels": [
+                "D"
+              ],
+              "correct_option_texts": [
+                "2"
+              ],
+              "explanation": "Let $x-\\frac{\\pi}{4}$ = t\n$\\Rightarrow \\lim \\limits_{t \\rightarrow 0} \\frac{\\tan \\left(\\frac{\\pi}{4}+t\\right)-1}{t}$ \n$\\Rightarrow \\lim \\limits_{t \\rightarrow 0} \\frac{2 \\tan t}{(1-\\tan t)(t)}$ \n= 2"
+            },
+            {
+              "questionID": 19252,
+              "question": "$\\lim \\limits_{h \\to 0} \\frac{\\sin \\sqrt{x+h-\\sin \\sqrt{x}}}{h}$ is equal to",
+              "question_raw": "<p><span class=\"math-tex\">{tex}\\lim \\limits_{h \\to 0} \\frac{\\sin \\sqrt{x+h-\\sin \\sqrt{x}}}{h}{/tex}</span> is equal to</p>",
+              "options": [
+                {
+                  "label": "A",
+                  "id": 32209,
+                  "text": "$\\frac {cos \\sqrt x } {3\\sqrt x }$",
+                  "is_correct": false
+                },
+                {
+                  "label": "B",
+                  "id": 32207,
+                  "text": "$\\frac{\\cos \\sqrt{x}}{2 \\sqrt{x}}$",
+                  "is_correct": true
+                },
+                {
+                  "label": "C",
+                  "id": 32208,
+                  "text": "$\\frac {1} {2\\sin \\sqrt x }$",
+                  "is_correct": false
+                },
+                {
+                  "label": "D",
+                  "id": 32210,
+                  "text": "$\\sin \\sqrt x $",
+                  "is_correct": false
+                }
+              ],
+              "correct_option_ids": [
+                32207
+              ],
+              "correct_option_labels": [
+                "B"
+              ],
+              "correct_option_texts": [
+                "$\\frac{\\cos \\sqrt{x}}{2 \\sqrt{x}}$"
+              ],
+              "explanation": "$\\lim \\limits_{h \\rightarrow 0} \\frac{2 \\cos \\left(\\frac{\\sqrt{x+h}+\\sqrt{x}}{2}\\right) \\sin \\left(\\frac{\\sqrt{x+h}-\\sqrt{x}}{2}\\right)}{h}$\nusing L'Hospital\n$\\Rightarrow \\frac{\\cos \\sqrt{x}}{2 \\sqrt{x}}$"
+            },
+            {
+              "questionID": 19253,
+              "question": "$\\mathop {lim}\\limits_{x \\to 1} \\;\\left( {\\cos \\left[ x \\right]} \\right)$ is equal to",
+              "question_raw": "<p><span class=\"math-tex\">{tex}\\mathop {lim}\\limits_{x \\to 1} \\;\\left( {\\cos \\left[ x \\right]} \\right){/tex}</span>&nbsp;is equal to&nbsp;</p>",
+              "options": [
+                {
+                  "label": "A",
+                  "id": 32213,
+                  "text": "cos 1",
+                  "is_correct": false
+                },
+                {
+                  "label": "B",
+                  "id": 32211,
+                  "text": "does not exist",
+                  "is_correct": true
+                },
+                {
+                  "label": "C",
+                  "id": 32214,
+                  "text": "0",
+                  "is_correct": false
+                },
+                {
+                  "label": "D",
+                  "id": 32212,
+                  "text": "1",
+                  "is_correct": false
+                }
+              ],
+              "correct_option_ids": [
+                32211
+              ],
+              "correct_option_labels": [
+                "B"
+              ],
+              "correct_option_texts": [
+                "does not exist"
+              ],
+              "explanation": "R.H.L. = $\\underset{x \\rightarrow 1^{+}}{lim}(\\cos [x])$ = cos 1 = 1\nL.H.L = $\\underset{x \\rightarrow 1^{-}}{lim}(\\cos [x])$ = cos 0 = 0\nSince L.H.L $\\ne$ R.H.L therefore limit does not exist."
+            },
+            {
+              "questionID": 19254,
+              "question": "$\\lim \\limits_{x \\rightarrow 0} \\frac{\\tan x}{\\log (1+x)}$ is equal to",
+              "question_raw": "<p><span class=\"math-tex\">{tex}\\lim \\limits_{x \\rightarrow 0} \\frac{\\tan x}{\\log (1+x)}{/tex}</span> is equal to</p>",
+              "options": [
+                {
+                  "label": "A",
+                  "id": 32217,
+                  "text": "does not exist",
+                  "is_correct": false
+                },
+                {
+                  "label": "B",
+                  "id": 32218,
+                  "text": "log 2",
+                  "is_correct": false
+                },
+                {
+                  "label": "C",
+                  "id": 32215,
+                  "text": "1",
+                  "is_correct": true
+                },
+                {
+                  "label": "D",
+                  "id": 32216,
+                  "text": "0",
+                  "is_correct": false
+                }
+              ],
+              "correct_option_ids": [
+                32215
+              ],
+              "correct_option_labels": [
+                "C"
+              ],
+              "correct_option_texts": [
+                "1"
+              ],
+              "explanation": "$\\lim \\limits_{x \\rightarrow 0} \\frac{\\tan x}{\\log (1+x)} \\cdot \\frac{x}{x}$\n$\\Rightarrow \\lim \\limits_{x \\rightarrow 0} \\frac{\\tan x}{x} \\cdot \\frac{1}{\\frac{\\log (1+x)}{x}}$ \n$\\Rightarrow$ 1$\\cdot$1 = 1"
+            },
+            {
+              "questionID": 19255,
+              "question": "If f(x) = $\\int \\frac{x+\\sin x}{x+\\cos x} d x$, then $\\lim\\limits_{x \\to \\infty } f'(x) $ =",
+              "question_raw": "<p>If f(x) =&nbsp;<span class=\"math-tex\">{tex}\\int \\frac{x+\\sin x}{x+\\cos x} d x{/tex}</span>,&nbsp;then <span class=\"math-tex\">{tex}\\lim\\limits_{x \\to \\infty } f'(x) {/tex}</span>&nbsp;=</p>",
+              "options": [
+                {
+                  "label": "A",
+                  "id": 32221,
+                  "text": "$\\infty $",
+                  "is_correct": false
+                },
+                {
+                  "label": "B",
+                  "id": 32222,
+                  "text": "2",
+                  "is_correct": false
+                },
+                {
+                  "label": "C",
+                  "id": 32219,
+                  "text": "1",
+                  "is_correct": true
+                },
+                {
+                  "label": "D",
+                  "id": 32220,
+                  "text": "0",
+                  "is_correct": false
+                }
+              ],
+              "correct_option_ids": [
+                32219
+              ],
+              "correct_option_labels": [
+                "C"
+              ],
+              "correct_option_texts": [
+                "1"
+              ],
+              "explanation": "Substitute x with $\\frac{1}{t}$ \n$\\Rightarrow$ $\\lim \\limits_{t \\rightarrow 0} \\frac{1+t \\sin \\frac{1}{t}}{1+t \\cos \\frac{1}{t}}$ \n= 1"
+            },
+            {
+              "questionID": 19256,
+              "question": "$\\lim \\limits_{x \\rightarrow 0}\\left(\\frac{1+\\tan x}{1-\\tan x}\\right)^{\\frac{1}{x}}$ is equal to",
+              "question_raw": "<p><span class=\"math-tex\">{tex}\\lim \\limits_{x \\rightarrow 0}\\left(\\frac{1+\\tan x}{1-\\tan x}\\right)^{\\frac{1}{x}}{/tex}</span> is equal to</p>",
+              "options": [
+                {
+                  "label": "A",
+                  "id": 32224,
+                  "text": "1",
+                  "is_correct": false
+                },
+                {
+                  "label": "B",
+                  "id": 32225,
+                  "text": "0",
+                  "is_correct": false
+                },
+                {
+                  "label": "C",
+                  "id": 32223,
+                  "text": "e^2",
+                  "is_correct": true
+                },
+                {
+                  "label": "D",
+                  "id": 32226,
+                  "text": "2",
+                  "is_correct": false
+                }
+              ],
+              "correct_option_ids": [
+                32223
+              ],
+              "correct_option_labels": [
+                "C"
+              ],
+              "correct_option_texts": [
+                "e^2"
+              ],
+              "explanation": "The function is the form of $1^{\\infty}$\n$\\Rightarrow$ $\\Rightarrow \\lim \\limits_{x \\rightarrow 0} e^{\\left(\\frac{1+\\tan x}{1-\\tan x}-1\\right) \\cdot \\frac{1}{x}}$ \n= e^2"
+            },
+            {
+              "questionID": 19257,
+              "question": "$\\lim \\limits_{x \\rightarrow 0} \\frac{\\sin x^n}{(\\sin x)^m}$, n > m > 0 is equal to",
+              "question_raw": "<p><span class=\"math-tex\">{tex}\\lim \\limits_{x \\rightarrow 0} \\frac{\\sin x^n}{(\\sin x)^m}{/tex}</span>,&nbsp;n &gt; m &gt; 0 is equal to</p>",
+              "options": [
+                {
+                  "label": "A",
+                  "id": 32227,
+                  "text": "0",
+                  "is_correct": true
+                },
+                {
+                  "label": "B",
+                  "id": 32229,
+                  "text": "$\\frac n m$",
+                  "is_correct": false
+                },
+                {
+                  "label": "C",
+                  "id": 32228,
+                  "text": "1",
+                  "is_correct": false
+                },
+                {
+                  "label": "D",
+                  "id": 32230,
+                  "text": "$\\frac m n$",
+                  "is_correct": false
+                }
+              ],
+              "correct_option_ids": [
+                32227
+              ],
+              "correct_option_labels": [
+                "A"
+              ],
+              "correct_option_texts": [
+                "0"
+              ],
+              "explanation": "$\\lim \\limits_{x \\rightarrow 0} \\frac{\\sin x^n}{(\\sin x)^m} \\cdot \\frac{x^{m+n}}{x^{m+n}}$\n$\\Rightarrow \\lim \\limits_{x \\rightarrow 0} \\frac{\\sin x^n}{x^n} \\cdot \\frac{x^m}{(\\sin x)^m} \\cdot \\frac{x^n}{x^m}$ \n$\\Rightarrow$ $1.1^{m} . x^{n-m}$\n$\\Rightarrow$ 1(0) = 0"
+            },
+            {
+              "questionID": 19258,
+              "question": "$\\lim \\limits_{x \\rightarrow 4} \\frac{3-\\sqrt{5+x}}{1-\\sqrt{5-x}}$ =",
+              "question_raw": "<p><span class=\"math-tex\">{tex}\\lim \\limits_{x \\rightarrow 4} \\frac{3-\\sqrt{5+x}}{1-\\sqrt{5-x}}{/tex}</span>&nbsp;=</p>",
+              "options": [
+                {
+                  "label": "A",
+                  "id": 32234,
+                  "text": "does not exist",
+                  "is_correct": false
+                },
+                {
+                  "label": "B",
+                  "id": 32233,
+                  "text": "0",
+                  "is_correct": false
+                },
+                {
+                  "label": "C",
+                  "id": 32231,
+                  "text": "$ - \\frac{1}{3}$",
+                  "is_correct": true
+                },
+                {
+                  "label": "D",
+                  "id": 32232,
+                  "text": "$\\frac 1 3$",
+                  "is_correct": false
+                }
+              ],
+              "correct_option_ids": [
+                32231
+              ],
+              "correct_option_labels": [
+                "C"
+              ],
+              "correct_option_texts": [
+                "$ - \\frac{1}{3}$"
+              ],
+              "explanation": "Equation is in the form of $\\frac{0}{0}$\nUsing L'Hospital rule we get $ \\frac{-\\frac{1}{2 \\sqrt{5+x}}}{\\frac{1}{2 \\sqrt{5-x}}}$\nSubstituting x = 4 we get $\\frac{-1}{3}$"
+            },
+            {
+              "questionID": 19259,
+              "question": "If G(x) = $\\sqrt {25 - {x^2}} $ then $\\lim \\limits_{x \\rightarrow 1} \\frac{G(x)-G(1)}{x-1}$ has the value",
+              "question_raw": "<p>If G(x) = <span class=\"math-tex\">{tex}\\sqrt {25 - {x^2}} {/tex}</span> then <span class=\"math-tex\">{tex}\\lim \\limits_{x \\rightarrow 1} \\frac{G(x)-G(1)}{x-1}{/tex}</span> has the value</p>",
+              "options": [
+                {
+                  "label": "A",
+                  "id": 32238,
+                  "text": "$\\frac {1} {24}$",
+                  "is_correct": false
+                },
+                {
+                  "label": "B",
+                  "id": 32235,
+                  "text": "$\\frac {-1}{\\sqrt {24} }$",
+                  "is_correct": true
+                },
+                {
+                  "label": "C",
+                  "id": 32237,
+                  "text": "$ - \\sqrt {24} $",
+                  "is_correct": false
+                },
+                {
+                  "label": "D",
+                  "id": 32236,
+                  "text": "$\\frac 1 5$",
+                  "is_correct": false
+                }
+              ],
+              "correct_option_ids": [
+                32235
+              ],
+              "correct_option_labels": [
+                "B"
+              ],
+              "correct_option_texts": [
+                "$\\frac {-1}{\\sqrt {24} }$"
+              ],
+              "explanation": "The equation is in the form of $\\frac{0}{0}$ \nUsing L' Hospital rule we have $\\frac{\\frac{1}{2 \\sqrt{25-x^{2}}} \\cdot(-2 x)}{1}$ \nSubstituting x = 1 we get $\\frac{-1}{\\sqrt{24}}$"
+            },
+            {
+              "questionID": 19260,
+              "question": "If $y = \\sqrt {\\log x + \\sqrt {\\log x + \\sqrt {\\log x + ...to\\;\\infty } } } $ then $\\frac {dy} {dx}$ is equal to",
+              "question_raw": "<p>If <span class=\"math-tex\">{tex}y = \\sqrt {\\log x + \\sqrt {\\log x + \\sqrt {\\log x + ...to\\;\\infty } } } {/tex}</span> then <span class=\"math-tex\">{tex}\\frac {dy} {dx}{/tex}</span> is equal to</p>",
+              "options": [
+                {
+                  "label": "A",
+                  "id": 32239,
+                  "text": "$\\frac{1}{x(2 y-1)}$",
+                  "is_correct": true
+                },
+                {
+                  "label": "B",
+                  "id": 32242,
+                  "text": "$\\frac{y}{2 x-1}$",
+                  "is_correct": false
+                },
+                {
+                  "label": "C",
+                  "id": 32241,
+                  "text": "$\\frac{x}{2 y-1}$",
+                  "is_correct": false
+                },
+                {
+                  "label": "D",
+                  "id": 32240,
+                  "text": "$\\frac{\\log x}{(2 y-1)}$",
+                  "is_correct": false
+                }
+              ],
+              "correct_option_ids": [
+                32239
+              ],
+              "correct_option_labels": [
+                "A"
+              ],
+              "correct_option_texts": [
+                "$\\frac{1}{x(2 y-1)}$"
+              ],
+              "explanation": "y = $\\sqrt{\\log x+y}$\ny^2 = log x + y\n2yy' = $\\frac{1}{x}+y^{\\prime}$\ny' = $\\frac{1}{(x)(2 y-1)}$"
+            },
+            {
+              "questionID": 19261,
+              "question": "If f be a function such that f(9) = 9 and f'(9) = 3, then $\\lim\\limits_{x \\to 9} \\frac{\\sqrt{f(x)}-3}{\\sqrt{x}-3}$ is equal to",
+              "question_raw": "<p>If f be a function such that f(9) = 9 and f&#39;(9) = 3, then <span class=\"math-tex\">{tex}\\lim\\limits_{x \\to 9} \\frac{\\sqrt{f(x)}-3}{\\sqrt{x}-3}{/tex}</span> is equal to</p>",
+              "options": [
+                {
+                  "label": "A",
+                  "id": 32246,
+                  "text": "0",
+                  "is_correct": false
+                },
+                {
+                  "label": "B",
+                  "id": 32245,
+                  "text": "1",
+                  "is_correct": false
+                },
+                {
+                  "label": "C",
+                  "id": 32243,
+                  "text": "3",
+                  "is_correct": true
+                },
+                {
+                  "label": "D",
+                  "id": 32244,
+                  "text": "9",
+                  "is_correct": false
+                }
+              ],
+              "correct_option_ids": [
+                32243
+              ],
+              "correct_option_labels": [
+                "C"
+              ],
+              "correct_option_texts": [
+                "3"
+              ],
+              "explanation": "Using L'Hospital\n$\\Rightarrow \\lim \\limits_{x \\rightarrow 9} \\frac{\\frac{f^{\\prime}(x)}{\\sqrt{f(x)}}}{\\frac{1}{2^{\\sqrt{x}}}}$\n$\\Rightarrow \\lim \\limits_{x \\rightarrow 9} \\frac{\\sqrt{x} \\cdot f^{\\prime}(x)}{\\sqrt{f(x)}}$\nSubstituting the given values; we get 3"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "testPaperID": 665,
+      "testPaperName": "Limits and Derivatives Test 04",
+      "is_paid": true,
+      "category_full_name": "CBSE > Class 11 > Mathematics > Limits and Derivatives",
+      "noOfQuestions": 15,
+      "has_answers": true,
+      "sections": [
+        {
+          "sectionName": "General",
+          "sectionID": null,
+          "questions": [
+            {
+              "questionID": 19262,
+              "question": "$\\lim \\limits_{h \\rightarrow 0} \\frac{\\sqrt[3]{8+h}-2}{h}$ is equal to",
+              "question_raw": "<p><span class=\"math-tex\">{tex}\\lim \\limits_{h \\rightarrow 0} \\frac{\\sqrt[3]{8+h}-2}{h}{/tex}</span> is equal to</p>",
+              "options": [
+                {
+                  "label": "A",
+                  "id": 32247,
+                  "text": "$\\frac 1 {12}$",
+                  "is_correct": true
+                },
+                {
+                  "label": "B",
+                  "id": 32250,
+                  "text": "2",
+                  "is_correct": false
+                },
+                {
+                  "label": "C",
+                  "id": 32249,
+                  "text": "$\\frac {1 }{24}$",
+                  "is_correct": false
+                },
+                {
+                  "label": "D",
+                  "id": 32248,
+                  "text": "$\\frac 13$",
+                  "is_correct": false
+                }
+              ],
+              "correct_option_ids": [
+                32247
+              ],
+              "correct_option_labels": [
+                "A"
+              ],
+              "correct_option_texts": [
+                "$\\frac 1 {12}$"
+              ],
+              "explanation": "Using L' Hospital Rule;\n$\\Rightarrow \\lim \\limits_{h \\rightarrow 0} \\frac{\\left(\\frac{1}{3}\\right)(8+h)^{\\frac{-2}{3}}}{1}$ \n$\\Rightarrow$ $\\frac{1}{12}$"
+            },
+            {
+              "questionID": 19263,
+              "question": "If f (x) = $\\sqrt {1 - {x^2}} $, x $\\in$ (0, 1), then f'(x), is equal to",
+              "question_raw": "<p>If f (x) = <span class=\"math-tex\">{tex}\\sqrt {1 - {x^2}} {/tex}</span>, x&nbsp;<span class=\"math-tex\">{tex}\\in{/tex}</span>&nbsp;(0, 1), then f&#39;(x),&nbsp;is equal to</p>",
+              "options": [
+                {
+                  "label": "A",
+                  "id": 32252,
+                  "text": "$\\frac{1}{\\sqrt{1-x^2}}$",
+                  "is_correct": false
+                },
+                {
+                  "label": "B",
+                  "id": 32254,
+                  "text": "$\\sqrt {{x^2} - 1} $",
+                  "is_correct": false
+                },
+                {
+                  "label": "C",
+                  "id": 32251,
+                  "text": "$\\frac{-x}{\\sqrt{1-x^2}}$",
+                  "is_correct": true
+                },
+                {
+                  "label": "D",
+                  "id": 32253,
+                  "text": "$\\sqrt {1 - {x^2}} $",
+                  "is_correct": false
+                }
+              ],
+              "correct_option_ids": [
+                32251
+              ],
+              "correct_option_labels": [
+                "C"
+              ],
+              "correct_option_texts": [
+                "$\\frac{-x}{\\sqrt{1-x^2}}$"
+              ],
+              "explanation": "f(x) = $\\sqrt {1 - {x^2}} $\nf'(x) = $\\frac{1}{2 \\sqrt{1-x^2}}-2x$ = $\\frac{-x}{\\sqrt{1-x^2}}$"
+            },
+            {
+              "questionID": 19264,
+              "question": "If y = sin^-1 x and z = ${\\cos ^{ - 1}}\\sqrt {1 - {x^2}}$, then $\\frac {dy} {dz}$ =",
+              "question_raw": "<p>If y = sin<sup>-1</sup> x and z = <span class=\"math-tex\">{tex}{\\cos ^{ - 1}}\\sqrt {1 - {x^2}}{/tex}</span>, then <span class=\"math-tex\">{tex}\\frac {dy} {dz}{/tex}</span> =</p>",
+              "options": [
+                {
+                  "label": "A",
+                  "id": 32257,
+                  "text": "0",
+                  "is_correct": false
+                },
+                {
+                  "label": "B",
+                  "id": 32255,
+                  "text": "1",
+                  "is_correct": true
+                },
+                {
+                  "label": "C",
+                  "id": 32256,
+                  "text": "-1",
+                  "is_correct": false
+                },
+                {
+                  "label": "D",
+                  "id": 32258,
+                  "text": "$\\tan ^{-1} \\frac{x}{\\sqrt{1-x^2}}$",
+                  "is_correct": false
+                }
+              ],
+              "correct_option_ids": [
+                32255
+              ],
+              "correct_option_labels": [
+                "B"
+              ],
+              "correct_option_texts": [
+                "1"
+              ],
+              "explanation": "We have;\nsin y = x and cos z = $\\sqrt{1-x^{2}}$ $\\Rightarrow$ cos z = cos y\n$\\Rightarrow$ z = y\n$\\Rightarrow$ $\\frac{dy}{dz}$ = 1"
+            },
+            {
+              "questionID": 19265,
+              "question": "$\\frac{d}{d x}\\left\\{\\tan ^{-1}\\left(\\frac{3 x-x^3}{1-3 x^2}\\right)\\right\\}$ is equal to",
+              "question_raw": "<p><span class=\"math-tex\">{tex}\\frac{d}{d x}\\left\\{\\tan ^{-1}\\left(\\frac{3 x-x^3}{1-3 x^2}\\right)\\right\\}{/tex}</span> is equal to</p>",
+              "options": [
+                {
+                  "label": "A",
+                  "id": 32259,
+                  "text": "$\\frac{3}{1+x^2}$",
+                  "is_correct": true
+                },
+                {
+                  "label": "B",
+                  "id": 32261,
+                  "text": "sec^23x",
+                  "is_correct": false
+                },
+                {
+                  "label": "C",
+                  "id": 32262,
+                  "text": "$\\frac {1}{1 + x^2}$",
+                  "is_correct": false
+                },
+                {
+                  "label": "D",
+                  "id": 32260,
+                  "text": "$\\frac {3}{1 + 9x^2}$",
+                  "is_correct": false
+                }
+              ],
+              "correct_option_ids": [
+                32259
+              ],
+              "correct_option_labels": [
+                "A"
+              ],
+              "correct_option_texts": [
+                "$\\frac{3}{1+x^2}$"
+              ],
+              "explanation": "Substitute x = tan $\\theta$; $\\frac{dx}{d\\theta}$ = sec^2 $\\theta$ \n$\\Rightarrow$ y = 3$\\theta$ \n$\\Rightarrow$ $\\frac{dy}{dx}$ = 3 cos^2 $\\theta$ = $\\frac{3}{1+x^{2}}$"
+            },
+            {
+              "questionID": 19266,
+              "question": "The function, f(x) = (x - a)^2 $\\cos \\frac {1} {x - a}$ for x $\\ne$ 0 and f(a) = 0, is",
+              "question_raw": "<p>The function, f(x) = (x - a)<sup>2</sup>&nbsp;<span class=\"math-tex\">{tex}\\cos \\frac {1} {x - a}{/tex}</span>&nbsp;for x&nbsp;<span class=\"math-tex\">{tex}\\ne{/tex}</span>&nbsp;0&nbsp;and f(a) = 0, is</p>",
+              "options": [
+                {
+                  "label": "A",
+                  "id": 32265,
+                  "text": "not continuous at x = a",
+                  "is_correct": false
+                },
+                {
+                  "label": "B",
+                  "id": 32264,
+                  "text": "continuous but not derivable at x = 0",
+                  "is_correct": false
+                },
+                {
+                  "label": "C",
+                  "id": 32266,
+                  "text": "neither continuous nor derivable at x = a",
+                  "is_correct": false
+                },
+                {
+                  "label": "D",
+                  "id": 32263,
+                  "text": "derivable at x = a",
+                  "is_correct": true
+                }
+              ],
+              "correct_option_ids": [
+                32263
+              ],
+              "correct_option_labels": [
+                "D"
+              ],
+              "correct_option_texts": [
+                "derivable at x = a"
+              ],
+              "explanation": "Substitute x - a = t; then the function will become\n$\\Rightarrow \\lim \\limits_{t \\rightarrow 0} t^2 \\cos \\frac{1}{t}$ \n$\\Rightarrow$ 0\nFinite number = 0\nf(a) = 0"
+            },
+            {
+              "questionID": 19267,
+              "question": "$\\frac{d}{d x}\\left(\\cos ^{-1}\\left(\\frac{x^{-1}-x}{x^{-1}+x}\\right)\\right)$ is equal to",
+              "question_raw": "<p><span class=\"math-tex\">{tex}\\frac{d}{d x}\\left(\\cos ^{-1}\\left(\\frac{x^{-1}-x}{x^{-1}+x}\\right)\\right){/tex}</span> is equal to</p>",
+              "options": [
+                {
+                  "label": "A",
+                  "id": 32267,
+                  "text": "$\\frac {2} {1 + x^2}$, x > 0",
+                  "is_correct": true
+                },
+                {
+                  "label": "B",
+                  "id": 32268,
+                  "text": "$\\frac { - 2} {\\sqrt {1 + x^2}}$",
+                  "is_correct": false
+                },
+                {
+                  "label": "C",
+                  "id": 32270,
+                  "text": "1 - x^2",
+                  "is_correct": false
+                },
+                {
+                  "label": "D",
+                  "id": 32269,
+                  "text": "$\\frac {4} {1 + {x^2}}$, x > 0",
+                  "is_correct": false
+                }
+              ],
+              "correct_option_ids": [
+                32267
+              ],
+              "correct_option_labels": [
+                "A"
+              ],
+              "correct_option_texts": [
+                "$\\frac {2} {1 + x^2}$, x > 0"
+              ],
+              "explanation": "Substitute x = tan $\\theta$; $\\frac{d x}{d \\theta}=\\sec ^{2} \\theta$ \n$\\Rightarrow$ y = 2$\\theta$ \n$\\Rightarrow$ $\\frac{d y}{d x}=2 \\cos ^{2} \\theta$ \n$\\Rightarrow$ $\\frac{2}{1+x^{2}}$, x > 0"
+            },
+            {
+              "questionID": 19268,
+              "question": "$\\frac{d}{d x}\\left(\\sin ^{-1}\\left(\\frac{2}{x^{-1}+x}\\right)\\right)$ is equal to",
+              "question_raw": "<p><span class=\"math-tex\">{tex}\\frac{d}{d x}\\left(\\sin ^{-1}\\left(\\frac{2}{x^{-1}+x}\\right)\\right){/tex}</span> is equal to</p>",
+              "options": [
+                {
+                  "label": "A",
+                  "id": 32271,
+                  "text": "$\\frac {2} {1 + {x^2}}$, 0 |x| < 1",
+                  "is_correct": true
+                },
+                {
+                  "label": "B",
+                  "id": 32273,
+                  "text": "$\\frac {1} {\\sqrt {x + x^2}} $",
+                  "is_correct": false
+                },
+                {
+                  "label": "C",
+                  "id": 32274,
+                  "text": "$\\sqrt{1-x^2}$",
+                  "is_correct": false
+                },
+                {
+                  "label": "D",
+                  "id": 32272,
+                  "text": "$\\frac {2} {\\sqrt {1 + x^2}}$, |x| < 1",
+                  "is_correct": false
+                }
+              ],
+              "correct_option_ids": [
+                32271
+              ],
+              "correct_option_labels": [
+                "A"
+              ],
+              "correct_option_texts": [
+                "$\\frac {2} {1 + {x^2}}$, 0 |x| < 1"
+              ],
+              "explanation": "Substitute x = tan $\\theta$; $\\frac{d x}{d \\theta}=\\sec ^{2} \\theta$ \n$\\Rightarrow$ y = 2$\\theta$ \n$\\Rightarrow$ $\\frac{d y}{d x}=2 \\cos ^{2} \\theta$ \n$\\Rightarrow$ $\\frac{2}{1+x^{2}}$; 0 < |x| < 1"
+            },
+            {
+              "questionID": 19269,
+              "question": "$\\frac{d}{d x}\\left(\\tan ^{-1}\\left(\\frac{x}{\\sqrt{1-x^2}}\\right)\\right)$ is equal to",
+              "question_raw": "<p><span class=\"math-tex\">{tex}\\frac{d}{d x}\\left(\\tan ^{-1}\\left(\\frac{x}{\\sqrt{1-x^2}}\\right)\\right){/tex}</span> is equal to</p>",
+              "options": [
+                {
+                  "label": "A",
+                  "id": 32276,
+                  "text": "$\\frac {1} {1 + x^2}$",
+                  "is_correct": false
+                },
+                {
+                  "label": "B",
+                  "id": 32275,
+                  "text": "$\\frac {1} {\\sqrt {1 - x^2}} $",
+                  "is_correct": true
+                },
+                {
+                  "label": "C",
+                  "id": 32277,
+                  "text": "$\\frac { - 1} {\\sqrt 1 - {x^2}} $",
+                  "is_correct": false
+                },
+                {
+                  "label": "D",
+                  "id": 32278,
+                  "text": "1 + x^2",
+                  "is_correct": false
+                }
+              ],
+              "correct_option_ids": [
+                32275
+              ],
+              "correct_option_labels": [
+                "B"
+              ],
+              "correct_option_texts": [
+                "$\\frac {1} {\\sqrt {1 - x^2}} $"
+              ],
+              "explanation": "Substitute x = sin $\\theta$; $\\frac{d x}{d \\theta}$ = cos $\\theta$ \n$\\Rightarrow$ y = $\\theta$\n$\\Rightarrow$ $\\frac{d y}{d x}$ = sec $\\theta$\n$\\Rightarrow$ $\\frac {1} {\\sqrt {1 - x^2}} $"
+            },
+            {
+              "questionID": 19270,
+              "question": "$\\frac{d}{d x}\\left(\\tan ^{-1}\\left(\\frac{2}{x^{-1}-x}\\right)\\right)$ is equal to",
+              "question_raw": "<p><span class=\"math-tex\">{tex}\\frac{d}{d x}\\left(\\tan ^{-1}\\left(\\frac{2}{x^{-1}-x}\\right)\\right){/tex}</span> is equal to</p>",
+              "options": [
+                {
+                  "label": "A",
+                  "id": 32281,
+                  "text": "$\\frac {1} {1 + x^2},x \\ne 0, \\pm 1$",
+                  "is_correct": false
+                },
+                {
+                  "label": "B",
+                  "id": 32280,
+                  "text": "$\\frac { - 2} {\\sqrt {1 - x^2}} $",
+                  "is_correct": false
+                },
+                {
+                  "label": "C",
+                  "id": 32279,
+                  "text": "$\\frac{2}{1+x^2},x \\ne 0, \\pm 1$",
+                  "is_correct": true
+                },
+                {
+                  "label": "D",
+                  "id": 32282,
+                  "text": "$\\sqrt{1-x^2}$",
+                  "is_correct": false
+                }
+              ],
+              "correct_option_ids": [
+                32279
+              ],
+              "correct_option_labels": [
+                "C"
+              ],
+              "correct_option_texts": [
+                "$\\frac{2}{1+x^2},x \\ne 0, \\pm 1$"
+              ],
+              "explanation": "Substitute x = tan $\\theta$; $\\frac{d x}{d \\theta}=\\sec ^{2} \\theta$ \n$\\Rightarrow$ y = 2$\\theta$ \n$\\Rightarrow$ $\\frac{d y}{d x}=2 \\cos ^{2} \\theta$ \n$\\Rightarrow$ $\\frac{2}{1+x^{2}}$"
+            },
+            {
+              "questionID": 19271,
+              "question": "If $\\sin x = \\frac {t} {\\sqrt {1 + t^2}}$, then $\\frac {dx} {dt}$ is equal to",
+              "question_raw": "<p>If <span class=\"math-tex\">{tex}\\sin x = \\frac {t} {\\sqrt {1 + t^2}}{/tex}</span>, then&nbsp;<span class=\"math-tex\">{tex}\\frac {dx}  {dt}{/tex}</span> is equal to</p>",
+              "options": [
+                {
+                  "label": "A",
+                  "id": 32283,
+                  "text": "$\\frac {1} {1 + t^2}$",
+                  "is_correct": true
+                },
+                {
+                  "label": "B",
+                  "id": 32284,
+                  "text": "$\\frac {1}{\\left( 1 + t^2 \\right)^{3/2}}$",
+                  "is_correct": false
+                },
+                {
+                  "label": "C",
+                  "id": 32285,
+                  "text": "$\\frac {1} {\\sqrt {1 - t^2}} $",
+                  "is_correct": false
+                },
+                {
+                  "label": "D",
+                  "id": 32286,
+                  "text": "$\\cos x+ t^2$",
+                  "is_correct": false
+                }
+              ],
+              "correct_option_ids": [
+                32283
+              ],
+              "correct_option_labels": [
+                "A"
+              ],
+              "correct_option_texts": [
+                "$\\frac {1} {1 + t^2}$"
+              ],
+              "explanation": "We have,\nx = $\\sin ^{-1} \\frac{t}{\\sqrt{1+t^2}}$\nlet t = tan $\\theta$\n$\\Rightarrow$ x = $\\theta \\Rightarrow \\frac{d x}{d \\theta}=1$\nAlso, $\\frac{d t}{d \\theta}=\\sec ^2 \\theta$\nNow, $\\frac{d x}{d t}=\\frac{1}{\\sqrt{1+t^2}}$"
+            },
+            {
+              "questionID": 19272,
+              "question": "$\\frac{d}{d x}\\left(\\sin ^{-1} x\\right)=\\frac{1}{\\sqrt{1-x^2}}$ holds true for",
+              "question_raw": "<p><span class=\"math-tex\">{tex}\\frac{d}{d x}\\left(\\sin ^{-1} x\\right)=\\frac{1}{\\sqrt{1-x^2}}{/tex}</span> holds true for</p>",
+              "options": [
+                {
+                  "label": "A",
+                  "id": 32290,
+                  "text": "all real x",
+                  "is_correct": false
+                },
+                {
+                  "label": "B",
+                  "id": 32287,
+                  "text": "all x $\\in $ ( - 1, 1)",
+                  "is_correct": true
+                },
+                {
+                  "label": "C",
+                  "id": 32288,
+                  "text": "all real x for which |x| > 1",
+                  "is_correct": false
+                },
+                {
+                  "label": "D",
+                  "id": 32289,
+                  "text": "all x [-1, 1]",
+                  "is_correct": false
+                }
+              ],
+              "correct_option_ids": [
+                32287
+              ],
+              "correct_option_labels": [
+                "B"
+              ],
+              "correct_option_texts": [
+                "all x $\\in $ ( - 1, 1)"
+              ],
+              "explanation": "Domain of sin^-1 x = x $\\in$ [-1, 1] ......(i)\nDomain of $\\frac{1}{\\sqrt{\\left(1-x^{2}\\right)}}$ = x $\\in$ (-1, 1) ....(ii)\nIntersection of (i) and (ii) will give (-1, 1)"
+            },
+            {
+              "questionID": 19273,
+              "question": "Derivative of tan $\\sqrt {{x^2} + 1}$ w.r.t $\\sqrt{x^{2}+1}$ is",
+              "question_raw": "<p>Derivative of tan <span class=\"math-tex\">{tex}\\sqrt {{x^2} + 1}{/tex}</span>&nbsp;w.r.t&nbsp;<span class=\"math-tex\">{tex}\\sqrt{x^{2}+1}{/tex}</span> is</p>",
+              "options": [
+                {
+                  "label": "A",
+                  "id": 32291,
+                  "text": "${\\sec ^2}\\sqrt {{x^2} + 1} $",
+                  "is_correct": true
+                },
+                {
+                  "label": "B",
+                  "id": 32294,
+                  "text": "$\\frac{2 x}{\\sqrt{1+x^2}}$",
+                  "is_correct": false
+                },
+                {
+                  "label": "C",
+                  "id": 32292,
+                  "text": "sec^2 x",
+                  "is_correct": false
+                },
+                {
+                  "label": "D",
+                  "id": 32293,
+                  "text": "$\\sec ^2\\left(\\frac{x}{\\sqrt{x^2+1}}\\right)$",
+                  "is_correct": false
+                }
+              ],
+              "correct_option_ids": [
+                32291
+              ],
+              "correct_option_labels": [
+                "A"
+              ],
+              "correct_option_texts": [
+                "${\\sec ^2}\\sqrt {{x^2} + 1} $"
+              ],
+              "explanation": "Let $\\sqrt{x^{2}+1}$ = t\nNow we have to find $\\frac{d(\\tan t)}{d t}$ \n$\\Rightarrow$ sec^2 t = $\\sec ^{2} \\sqrt{x^{2}+1}$"
+            },
+            {
+              "questionID": 19274,
+              "question": "If y = $\\frac {1 - x} {1 + x}$ then y_6 =",
+              "question_raw": "<p>If y =&nbsp;<span class=\"math-tex\">{tex}\\frac {1 - x} {1 + x}{/tex}</span>&nbsp;then y<sub>6</sub> =</p>",
+              "options": [
+                {
+                  "label": "A",
+                  "id": 32298,
+                  "text": "$\\frac{(-2).(7!)}{(1 + x)^6}$",
+                  "is_correct": false
+                },
+                {
+                  "label": "B",
+                  "id": 32297,
+                  "text": "$\\frac{6!}{{{{(1 + x)}^7}}}$",
+                  "is_correct": false
+                },
+                {
+                  "label": "C",
+                  "id": 32296,
+                  "text": "$\\frac{(-2).(6!)}{(1 + x)^7}$",
+                  "is_correct": false
+                },
+                {
+                  "label": "D",
+                  "id": 32295,
+                  "text": "$\\frac{(2).(6!)}{(1 + x)^7}$",
+                  "is_correct": true
+                }
+              ],
+              "correct_option_ids": [
+                32295
+              ],
+              "correct_option_labels": [
+                "D"
+              ],
+              "correct_option_texts": [
+                "$\\frac{(2).(6!)}{(1 + x)^7}$"
+              ],
+              "explanation": "y_1 = $\\frac{-2}{(1+x)^2}$ \ny_2 = $\\frac{(-2)(-2)}{(1+x)^3}$ \ny_3 = $\\frac{(-2)(-2)(-3)}{(1+x)^4}$ \ny_4 = $\\frac{(-2)(-2)(-3)(-4)}{(1+x)^5}$ \ny_5 = $\\frac{(-2)(-2)(-3)(-4)(-5)}{(1+x)^6}$ \ny_6 = $\\frac{(-2)(-2)(-3)(-4)(-5)(-6)}{(1+x)^7}$\n= $\\frac{(2).(6!)}{(1 + x)^7}$"
+            },
+            {
+              "questionID": 19275,
+              "question": "If y = log $(x + \\sqrt {1 + {x^2})} $ then $\\frac {d^2y} {dx^2}$ =",
+              "question_raw": "<p>If y = log <span class=\"math-tex\">{tex}(x + \\sqrt {1 + {x^2})} {/tex}</span> then <span class=\"math-tex\">{tex}\\frac {d^2y} {dx^2}{/tex}</span>&nbsp;=&nbsp;</p>",
+              "options": [
+                {
+                  "label": "A",
+                  "id": 32299,
+                  "text": "$\\frac { - x} {(x^2 + 1)^{3/2}}$",
+                  "is_correct": true
+                },
+                {
+                  "label": "B",
+                  "id": 32301,
+                  "text": "$\\frac {x} {(x^2 + 1)^{3/2}}$",
+                  "is_correct": false
+                },
+                {
+                  "label": "C",
+                  "id": 32300,
+                  "text": "$\\frac{-2 x}{\\left(x^2+1\\right)^{3 / 2}}$",
+                  "is_correct": false
+                },
+                {
+                  "label": "D",
+                  "id": 32302,
+                  "text": "$\\frac {1} {\\sqrt {x^2 + 1}}$",
+                  "is_correct": false
+                }
+              ],
+              "correct_option_ids": [
+                32299
+              ],
+              "correct_option_labels": [
+                "A"
+              ],
+              "correct_option_texts": [
+                "$\\frac { - x} {(x^2 + 1)^{3/2}}$"
+              ],
+              "explanation": "Substitute x = tan $\\theta$ \nThen y = log (sin $\\theta$ + 1) - log (cos $\\theta$)\ny'($\\theta$) = $\\left(\\frac{\\cos \\theta}{1+\\sin \\theta}\\right)-\\left(\\frac{-\\sin \\theta}{\\cos \\theta}\\right)$ \ny'($\\theta$) = sec $\\theta$ \ny'(x) = $\\frac{1}{\\sqrt{\\left(1+x^{2}\\right)}}$ \ny''(x) = $\\frac{-x}{\\left(x^{2}+1\\right)^{3 / 2}}$"
+            },
+            {
+              "questionID": 19276,
+              "question": "If y = log x, then y_n =",
+              "question_raw": "<p>If y = log x, then y<sub>n</sub> =&nbsp;</p>",
+              "options": [
+                {
+                  "label": "A",
+                  "id": 32303,
+                  "text": "$\\frac{(-1)^{n-1}(n-1) !}{x^n}$",
+                  "is_correct": true
+                },
+                {
+                  "label": "B",
+                  "id": 32304,
+                  "text": "$\\frac{(-1)^n(n-1) !}{x^n}$",
+                  "is_correct": false
+                },
+                {
+                  "label": "C",
+                  "id": 32305,
+                  "text": "$\\frac{(-1)^n \\cdot n !}{x^{n+1}}$",
+                  "is_correct": false
+                },
+                {
+                  "label": "D",
+                  "id": 32306,
+                  "text": "$\\frac{(-1)^n \\cdot n !}{x^n}$",
+                  "is_correct": false
+                }
+              ],
+              "correct_option_ids": [
+                32303
+              ],
+              "correct_option_labels": [
+                "A"
+              ],
+              "correct_option_texts": [
+                "$\\frac{(-1)^{n-1}(n-1) !}{x^n}$"
+              ],
+              "explanation": "y = log x \ny' = $\\frac{1}{x}$ \ny'' = $-\\frac{1}{x^{2}}$ \ny''' = $\\frac{1.2}{x^{3}}$ \ny'''' = $-\\frac{1.2 .3}{x^{4}}$ .......\ny^'n = $\\frac{(-1)^{n-1}(n-1) !}{x^{n}}$"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "testPaperID": 666,
+      "testPaperName": "Limits and Derivatives Test 05",
+      "is_paid": true,
+      "category_full_name": "CBSE > Class 11 > Mathematics > Limits and Derivatives",
+      "noOfQuestions": 15,
+      "has_answers": true,
+      "sections": [
+        {
+          "sectionName": "General",
+          "sectionID": null,
+          "questions": [
+            {
+              "questionID": 19277,
+              "question": "The derivative of $\\sec ^{-1}\\left(\\frac{1}{2 x^2-1}\\right)$ with respect to $\\sqrt {1 - {x^2}} $ at x = $\\frac{1}{2}$ is",
+              "question_raw": "<p>The derivative of <span class=\"math-tex\">{tex}\\sec ^{-1}\\left(\\frac{1}{2 x^2-1}\\right){/tex}</span> with respect to <span class=\"math-tex\">{tex}\\sqrt {1 - {x^2}} {/tex}</span>&nbsp;at x =&nbsp;<span class=\"math-tex\">{tex}\\frac{1}{2}{/tex}</span>&nbsp;is</p>",
+              "options": [
+                {
+                  "label": "A",
+                  "id": 32309,
+                  "text": "-2",
+                  "is_correct": false
+                },
+                {
+                  "label": "B",
+                  "id": 32307,
+                  "text": "4",
+                  "is_correct": true
+                },
+                {
+                  "label": "C",
+                  "id": 32308,
+                  "text": "2",
+                  "is_correct": false
+                },
+                {
+                  "label": "D",
+                  "id": 32310,
+                  "text": "1",
+                  "is_correct": false
+                }
+              ],
+              "correct_option_ids": [
+                32307
+              ],
+              "correct_option_labels": [
+                "B"
+              ],
+              "correct_option_texts": [
+                "4"
+              ],
+              "explanation": "Substitute x = cos $\\theta$ \n$\\Rightarrow$ $\\frac{d(2 \\theta)}{d(\\sin \\theta)}=\\frac{\\frac{d(2 \\theta)}{d t}}{\\frac{d(\\sin \\theta)}{d t}}$ \n$\\Rightarrow$ 2 sec $\\theta$ \n$\\Rightarrow$ 2(2) = 4"
+            },
+            {
+              "questionID": 19278,
+              "question": "$\\frac{d}{d x}\\left(\\frac{x}{2} \\sqrt{x^2+a^2}+\\frac{a^2}{2} \\log \\left(x+\\sqrt{x^2+a^2}\\right)\\right)$ is equal to",
+              "question_raw": "<p><span class=\"math-tex\">{tex}\\frac{d}{d x}\\left(\\frac{x}{2} \\sqrt{x^2+a^2}+\\frac{a^2}{2} \\log \\left(x+\\sqrt{x^2+a^2}\\right)\\right){/tex}</span> is equal to</p>",
+              "options": [
+                {
+                  "label": "A",
+                  "id": 32311,
+                  "text": "$\\sqrt {{x^2} + {a^2}} $",
+                  "is_correct": true
+                },
+                {
+                  "label": "B",
+                  "id": 32313,
+                  "text": "$\\frac{1}{x+\\sqrt{x^2+a^2}}$",
+                  "is_correct": false
+                },
+                {
+                  "label": "C",
+                  "id": 32312,
+                  "text": "$\\frac {1} {\\sqrt {x^2 + a^2}} $",
+                  "is_correct": false
+                },
+                {
+                  "label": "D",
+                  "id": 32314,
+                  "text": "$\\sqrt{x^2-a^2}$",
+                  "is_correct": false
+                }
+              ],
+              "correct_option_ids": [
+                32311
+              ],
+              "correct_option_labels": [
+                "A"
+              ],
+              "correct_option_texts": [
+                "$\\sqrt {{x^2} + {a^2}} $"
+              ],
+              "explanation": "y' = $\\left(\\frac{x}{2}\\right) \\cdot\\left(\\frac{2 x}{2 \\sqrt{x^{2}+a^{2}}}\\right)$ + $(\\sqrt{x^{2}+a^{2}}) \\cdot\\left(\\frac{1}{2}\\right)+\\left(\\frac{a^{2}}{2}\\right)\\left[\\frac{1+\\left(\\frac{2 x}{2 \\sqrt{x^{2}+a^{2}}}\\right)}{x+\\sqrt{x^{2}+a^{2}}}\\right]$\n$\\Rightarrow$ $\\sqrt{x^{2}+a^{2}}$"
+            },
+            {
+              "questionID": 19279,
+              "question": "$\\frac{d}{d x}\\left(x \\sqrt{a^2-x^2}+a^2 \\sin ^{-1}\\left(\\frac{x}{a}\\right)\\right)$ is equal to",
+              "question_raw": "<p><span class=\"math-tex\">{tex}\\frac{d}{d x}\\left(x \\sqrt{a^2-x^2}+a^2 \\sin ^{-1}\\left(\\frac{x}{a}\\right)\\right){/tex}</span> is equal to</p>",
+              "options": [
+                {
+                  "label": "A",
+                  "id": 32317,
+                  "text": "$\\frac {1} {\\log x}$",
+                  "is_correct": false
+                },
+                {
+                  "label": "B",
+                  "id": 32316,
+                  "text": "$\\sqrt {{a^2} - {x^2}} $",
+                  "is_correct": false
+                },
+                {
+                  "label": "C",
+                  "id": 32318,
+                  "text": "1 + x^2",
+                  "is_correct": false
+                },
+                {
+                  "label": "D",
+                  "id": 32315,
+                  "text": "$2\\sqrt {{a^2} - {x^2}} $",
+                  "is_correct": true
+                }
+              ],
+              "correct_option_ids": [
+                32315
+              ],
+              "correct_option_labels": [
+                "D"
+              ],
+              "correct_option_texts": [
+                "$2\\sqrt {{a^2} - {x^2}} $"
+              ],
+              "explanation": "y' = $(x) \\cdot\\left(\\frac{-2 x}{2 \\sqrt{a^{2}-x^{2}}}\\right)+(\\sqrt{a^{2}-x^{2}})$ + $\\left(a^{2}\\right) \\frac{1}{\\sqrt{1-\\left(\\frac{x}{a}\\right)^{2}}} \\cdot\\left(\\frac{1}{a}\\right)$ \n$\\Rightarrow$ $2 \\sqrt{a^{2}-x^{2}}$"
+            },
+            {
+              "questionID": 19280,
+              "question": "$\\frac{d}{d x}\\left(\\sin ^{-1}\\left(\\sqrt{1-x^2}\\right)\\right)$is equal to",
+              "question_raw": "<p><span class=\"math-tex\">{tex}\\frac{d}{d x}\\left(\\sin ^{-1}\\left(\\sqrt{1-x^2}\\right)\\right){/tex}</span>is equal to</p>",
+              "options": [
+                {
+                  "label": "A",
+                  "id": 32320,
+                  "text": "$-\\frac{x}{\\sqrt{1-x^2}}$ for 0 < |x| < 1",
+                  "is_correct": false
+                },
+                {
+                  "label": "B",
+                  "id": 32321,
+                  "text": "$-\\frac{1}{\\sqrt{1-x^2}}$ for |x| < 1",
+                  "is_correct": false
+                },
+                {
+                  "label": "C",
+                  "id": 32319,
+                  "text": "$-\\frac{x}{|x| \\sqrt{1-x^2}}$ for 0 < |x| < 1",
+                  "is_correct": true
+                },
+                {
+                  "label": "D",
+                  "id": 32322,
+                  "text": "1 + x^2",
+                  "is_correct": false
+                }
+              ],
+              "correct_option_ids": [
+                32319
+              ],
+              "correct_option_labels": [
+                "C"
+              ],
+              "correct_option_texts": [
+                "$-\\frac{x}{|x| \\sqrt{1-x^2}}$ for 0 < |x| < 1"
+              ],
+              "explanation": "Substitute x = cos $\\theta$ \n$\\Rightarrow$ $\\frac{d x}{d \\theta}$ = -sin $\\theta$ \n$\\Rightarrow$ $\\frac{d y}{d \\theta}$ = 1\n$\\Rightarrow$ $\\frac{d y}{d x}=-\\frac{x}{|x| \\sqrt{1-x^{2}}}$; for 0 < |x| < 1"
+            },
+            {
+              "questionID": 19281,
+              "question": "$\\frac{d}{d x}\\left(\\cos ^{-1}\\left(\\sqrt{\\left.1-x^2\\right)}\\right)\\right.$ is equal to",
+              "question_raw": "<p><span class=\"math-tex\">{tex}\\frac{d}{d x}\\left(\\cos ^{-1}\\left(\\sqrt{\\left.1-x^2\\right)}\\right)\\right.{/tex}</span> is equal to</p>",
+              "options": [
+                {
+                  "label": "A",
+                  "id": 32323,
+                  "text": "$\\frac{x}{|x| \\sqrt{1-x^2}}$ for 0 <|x| < 1",
+                  "is_correct": true
+                },
+                {
+                  "label": "B",
+                  "id": 32324,
+                  "text": "$\\frac{1}{\\sqrt{1-x^2}}$ for 0 < |x| < 1",
+                  "is_correct": false
+                },
+                {
+                  "label": "C",
+                  "id": 32325,
+                  "text": "$\\frac{1}{\\sqrt{1+x^2}}$ for |x| < 1",
+                  "is_correct": false
+                },
+                {
+                  "label": "D",
+                  "id": 32326,
+                  "text": "$\\frac{2}{\\sqrt{4-(2 x)^2}}$ for |x| < 1",
+                  "is_correct": false
+                }
+              ],
+              "correct_option_ids": [
+                32323
+              ],
+              "correct_option_labels": [
+                "A"
+              ],
+              "correct_option_texts": [
+                "$\\frac{x}{|x| \\sqrt{1-x^2}}$ for 0 <|x| < 1"
+              ],
+              "explanation": "Substitute x = sin $\\theta$; $\\frac{d x}{d \\theta}$ = cos $\\theta$ \n$\\Rightarrow$ y = $\\theta$ \n$\\Rightarrow$ $\\frac{\\frac{d y}{d \\theta}}{\\frac{d x}{d \\theta}}=\\sec \\theta$ \n$\\Rightarrow$ $\\frac{x}{|x| \\sqrt{1-x^{2}}}$ for 0 < |x| < 1"
+            },
+            {
+              "questionID": 19282,
+              "question": "$\\frac{d}{d x}\\left(\\sec ^{-1} x\\right)$ is equal to",
+              "question_raw": "<p><span class=\"math-tex\">{tex}\\frac{d}{d x}\\left(\\sec ^{-1} x\\right){/tex}</span> is equal to</p>",
+              "options": [
+                {
+                  "label": "A",
+                  "id": 32329,
+                  "text": "$\\frac{1}{3 x \\sqrt{x^2-x}}$ for |x| > 1",
+                  "is_correct": false
+                },
+                {
+                  "label": "B",
+                  "id": 32327,
+                  "text": "$\\frac{1}{|x| \\sqrt{x^2-1}}$ for |x| > 1",
+                  "is_correct": true
+                },
+                {
+                  "label": "C",
+                  "id": 32328,
+                  "text": "$\\frac{-1}{x \\sqrt{x^2-1}}$ for |x| > 1",
+                  "is_correct": false
+                },
+                {
+                  "label": "D",
+                  "id": 32330,
+                  "text": "$\\frac{1}{1+x^2}$",
+                  "is_correct": false
+                }
+              ],
+              "correct_option_ids": [
+                32327
+              ],
+              "correct_option_labels": [
+                "B"
+              ],
+              "correct_option_texts": [
+                "$\\frac{1}{|x| \\sqrt{x^2-1}}$ for |x| > 1"
+              ],
+              "explanation": "y = sec^-1 x = sec y = x\n$\\Rightarrow$ y' = cot y cos y\n$\\Rightarrow$ $\\frac{1}{|x| \\sqrt{x^{2}-1}}$ for |x| > 1"
+            },
+            {
+              "questionID": 19283,
+              "question": "$\\frac{d}{d x}\\left(\\cos e c^{-1} x\\right)$ is equal to",
+              "question_raw": "<p><span class=\"math-tex\">{tex}\\frac{d}{d x}\\left(\\cos e c^{-1} x\\right){/tex}</span> is equal to</p>",
+              "options": [
+                {
+                  "label": "A",
+                  "id": 32333,
+                  "text": "$\\frac{-1}{2 x \\sqrt{x^2-1}}$ for |x| > 1",
+                  "is_correct": false
+                },
+                {
+                  "label": "B",
+                  "id": 32334,
+                  "text": "$\\frac{1}{x \\sqrt{x^3-2 x}}$ for |x| > 1",
+                  "is_correct": false
+                },
+                {
+                  "label": "C",
+                  "id": 32332,
+                  "text": "$\\frac{1}{x \\sqrt{x^2-1}}$ for |x| > 1",
+                  "is_correct": false
+                },
+                {
+                  "label": "D",
+                  "id": 32331,
+                  "text": "$\\frac{-1}{|x| \\sqrt{x^2-1}}$ for |x| > 1",
+                  "is_correct": true
+                }
+              ],
+              "correct_option_ids": [
+                32331
+              ],
+              "correct_option_labels": [
+                "D"
+              ],
+              "correct_option_texts": [
+                "$\\frac{-1}{|x| \\sqrt{x^2-1}}$ for |x| > 1"
+              ],
+              "explanation": "y = cosec^-1 x = cosec y = x\n$\\Rightarrow$ y' = sin y tan y \n$\\Rightarrow$ $\\frac{-1}{|x| \\sqrt{x^{2}-1}}$ for |x| > 1"
+            },
+            {
+              "questionID": 19284,
+              "question": "What is the value of $\\frac{d}{d x}\\left(\\frac{\\sec x}{\\operatorname{cosec} x \\tan x}\\right)$ ?",
+              "question_raw": "<p>What is the value of <span class=\"math-tex\">{tex}\\frac{d}{d x}\\left(\\frac{\\sec x}{\\operatorname{cosec} x \\tan x}\\right){/tex}</span> ?<br />\n&nbsp;</p>",
+              "options": [
+                {
+                  "label": "A",
+                  "id": 32338,
+                  "text": "sinx",
+                  "is_correct": false
+                },
+                {
+                  "label": "B",
+                  "id": 32335,
+                  "text": "0",
+                  "is_correct": true
+                },
+                {
+                  "label": "C",
+                  "id": 32336,
+                  "text": "1",
+                  "is_correct": false
+                },
+                {
+                  "label": "D",
+                  "id": 32337,
+                  "text": "cosx",
+                  "is_correct": false
+                }
+              ],
+              "correct_option_ids": [
+                32335
+              ],
+              "correct_option_labels": [
+                "B"
+              ],
+              "correct_option_texts": [
+                "0"
+              ],
+              "explanation": "$\\frac{d}{d x}\\left(\\frac{\\sec x}{\\operatorname{cosec} x \\tan x}\\right)=\\frac{d}{d x}\\left(\\frac{\\frac{1}{\\cos x}}{\\frac{1}{\\sin x} \\cdot \\frac{\\sin x}{\\cos x}}\\right)$\n$ =\\frac{d}{d x} $(1)\n$ =0 $"
+            },
+            {
+              "questionID": 19285,
+              "question": "$\\frac{d^2}{d x^2}\\left(\\cos ^{-1}(1-x)\\right)$ is equal to",
+              "question_raw": "<p><span class=\"math-tex\">{tex}\\frac{d^2}{d x^2}\\left(\\cos ^{-1}(1-x)\\right){/tex}</span> is equal to</p>",
+              "options": [
+                {
+                  "label": "A",
+                  "id": 32339,
+                  "text": "$\\frac{x-1}{\\left(2 x-x^2\\right)^{3 / 2}}$",
+                  "is_correct": true
+                },
+                {
+                  "label": "B",
+                  "id": 32342,
+                  "text": "$\\frac{1}{1-x^2}$",
+                  "is_correct": false
+                },
+                {
+                  "label": "C",
+                  "id": 32341,
+                  "text": "$\\frac{1}{2\\left(2 x-x^2\\right)^{3 / 2}}$",
+                  "is_correct": false
+                },
+                {
+                  "label": "D",
+                  "id": 32340,
+                  "text": "$\\frac{1-x}{\\left(2 x-x^2\\right)^{3 / 2}}$",
+                  "is_correct": false
+                }
+              ],
+              "correct_option_ids": [
+                32339
+              ],
+              "correct_option_labels": [
+                "A"
+              ],
+              "correct_option_texts": [
+                "$\\frac{x-1}{\\left(2 x-x^2\\right)^{3 / 2}}$"
+              ],
+              "explanation": "y = cos^-1 (1 - x)\n$\\Rightarrow$ cos y = 1 - x\n$\\Rightarrow$ (-sin y)y' = -1\n$\\Rightarrow$ y'' = -(y')^2 (cot y) = $\\frac{(-\\cos y)}{(\\sin y)^{3}}$ \n$\\Rightarrow$ $\\frac{x-1}{\\left(2 x-x^{2}\\right)^{\\frac{3}{2}}}$"
+            },
+            {
+              "questionID": 19286,
+              "question": "If y = $\\sqrt{x+\\sqrt{x+\\sqrt{x+\\ldots+t o \\infty} \\infty}}$ then $\\frac {dy} {dx}$ =",
+              "question_raw": "<p>If y = <span class=\"math-tex\">{tex}\\sqrt{x+\\sqrt{x+\\sqrt{x+\\ldots+t o \\infty} \\infty}}{/tex}</span> then <span class=\"math-tex\">{tex}\\frac {dy} {dx}{/tex}</span>&nbsp;=</p>",
+              "options": [
+                {
+                  "label": "A",
+                  "id": 32345,
+                  "text": "$\\frac {x} {y + 1}$",
+                  "is_correct": false
+                },
+                {
+                  "label": "B",
+                  "id": 32343,
+                  "text": "$\\frac {1} {2y - 1}$",
+                  "is_correct": true
+                },
+                {
+                  "label": "C",
+                  "id": 32346,
+                  "text": "$\\frac {1} {2y + 1}$",
+                  "is_correct": false
+                },
+                {
+                  "label": "D",
+                  "id": 32344,
+                  "text": "$\\sqrt{\\frac{x}{y+1}}$",
+                  "is_correct": false
+                }
+              ],
+              "correct_option_ids": [
+                32343
+              ],
+              "correct_option_labels": [
+                "B"
+              ],
+              "correct_option_texts": [
+                "$\\frac {1} {2y - 1}$"
+              ],
+              "explanation": "y = $\\sqrt{( x+y)}$ \ny^2 = x + y \n2yy' = 1 + y'"
+            },
+            {
+              "questionID": 19287,
+              "question": "$\\left\\{ \\begin{gathered} x\\;\\;\\;\\;\\;\\;,\\;\\;0 \\leq x < 1 \\\\ 3 - x\\;,\\;\\;\\;1 \\leq x \\leq 2 \\\\ \\end{gathered} \\right.$, then at x = 1, f (x) is",
+              "question_raw": "<p><span class=\"math-tex\">{tex}\\left\\{ \\begin{gathered} x\\;\\;\\;\\;\\;\\;,\\;\\;0 \\leq x &lt; 1 \\\\ 3 - x\\;,\\;\\;\\;1 \\leq x \\leq 2 \\\\ \\end{gathered} \\right.{/tex}</span>, then at x = 1, f (x) is</p>",
+              "options": [
+                {
+                  "label": "A",
+                  "id": 32348,
+                  "text": "Limit exists at x = 1",
+                  "is_correct": false
+                },
+                {
+                  "label": "B",
+                  "id": 32349,
+                  "text": "Left continuous at x = 1",
+                  "is_correct": false
+                },
+                {
+                  "label": "C",
+                  "id": 32350,
+                  "text": "continuous at x = 1",
+                  "is_correct": false
+                },
+                {
+                  "label": "D",
+                  "id": 32347,
+                  "text": "Right continuous at x = 1",
+                  "is_correct": true
+                }
+              ],
+              "correct_option_ids": [
+                32347
+              ],
+              "correct_option_labels": [
+                "D"
+              ],
+              "correct_option_texts": [
+                "Right continuous at x = 1"
+              ],
+              "explanation": "Right continuous at x = 1"
+            },
+            {
+              "questionID": 19288,
+              "question": "f(x) = $ \\left\\{ \\begin{gathered} {x^3},\\;\\;\\left| x \\right| \\leq 1 \\\\ x\\;\\;,\\;\\;\\left| x \\right| > 1 \\\\ \\end{gathered} \\right.$ then f(x) is",
+              "question_raw": "<p>f(x) =&nbsp;<span class=\"math-tex\">{tex} \\left\\{ \\begin{gathered} {x^3},\\;\\;\\left| x \\right| \\leq 1 \\\\ x\\;\\;,\\;\\;\\left| x \\right| &gt; 1 \\\\ \\end{gathered} \\right.{/tex}</span>&nbsp;then f(x) is</p>\r\n",
+              "options": [
+                {
+                  "label": "A",
+                  "id": 32351,
+                  "text": "not derivable at – 1 and 1",
+                  "is_correct": true
+                },
+                {
+                  "label": "B",
+                  "id": 32352,
+                  "text": "not continuous at -1 and 1",
+                  "is_correct": false
+                },
+                {
+                  "label": "C",
+                  "id": 32353,
+                  "text": "derivable at all x $ \\in$ R",
+                  "is_correct": false
+                },
+                {
+                  "label": "D",
+                  "id": 32354,
+                  "text": "not continuous at x = 0",
+                  "is_correct": false
+                }
+              ],
+              "correct_option_ids": [
+                32351
+              ],
+              "correct_option_labels": [
+                "A"
+              ],
+              "correct_option_texts": [
+                "not derivable at – 1 and 1"
+              ],
+              "explanation": "f(x) = $ \\begin{cases} x & \\quad x<-1\\\\ x^3 & \\quad -1 \\leq x\\leq 1 \\\\ x & \\quad x>1\\\\ \\end{cases} $ \nThe function is continuous at x = -1 and 1 as at x = 1 $\\mathop {lim}\\limits_{x \\to -1}f(x)$ and $\\mathop {lim}\\limits_{x \\to 1}f(x)$ equals to (-1) and f(1) respectively."
+            },
+            {
+              "questionID": 19289,
+              "question": "If x = f(t) and y = g (t), then $\\frac {d^2y} {dx^2}$ is qual to",
+              "question_raw": "<p>If x = f(t) and y = g (t), then <span class=\"math-tex\">{tex}\\frac {d^2y} {dx^2}{/tex}</span> is qual to</p>",
+              "options": [
+                {
+                  "label": "A",
+                  "id": 32356,
+                  "text": "$\\frac{g^{\\prime \\prime}(t)}{f^{\\prime \\prime}(t)}$",
+                  "is_correct": false
+                },
+                {
+                  "label": "B",
+                  "id": 32355,
+                  "text": "$\\frac{g^{\\prime \\prime}(t) f^{\\prime}(t)-g^{\\prime}(t) f^{\\prime \\prime}(t)}{\\left(f^{\\prime}(t)\\right)^3}$",
+                  "is_correct": true
+                },
+                {
+                  "label": "C",
+                  "id": 32358,
+                  "text": "$\\frac{f^{\\prime}(t) \\cdot g^{\\prime \\prime}(t)}{g^{\\prime}(t) \\cdot f^{\\prime \\prime}(t)}$",
+                  "is_correct": false
+                },
+                {
+                  "label": "D",
+                  "id": 32357,
+                  "text": "$\\frac{g^{\\prime \\prime}(t) f^{\\prime}(t)-g^{\\prime}(t) f^{\\prime \\prime}(t)}{\\left(f^{\\prime}(t)\\right)^2}$",
+                  "is_correct": false
+                }
+              ],
+              "correct_option_ids": [
+                32355
+              ],
+              "correct_option_labels": [
+                "B"
+              ],
+              "correct_option_texts": [
+                "$\\frac{g^{\\prime \\prime}(t) f^{\\prime}(t)-g^{\\prime}(t) f^{\\prime \\prime}(t)}{\\left(f^{\\prime}(t)\\right)^3}$"
+              ],
+              "explanation": "1 = $f^{\\prime}(t) \\frac{d t}{d x}$ and $\\frac{d y}{d x}=g^{\\prime}(t) \\frac{d t}{d x}$ \n$\\frac{d y}{d x}=\\left(\\frac{g^{\\prime}(t)}{f^{\\prime}(t)}\\right)$ \n$\\Rightarrow$ $\\frac{d^{2} y}{d x^{2}}=\\frac{g^{\\prime \\prime}(t) f^{\\prime}(t)-g^{\\prime}(t) f^{\\prime \\prime}(t)}{\\left(f^{\\prime}(t)\\right)^{2}} \\cdot \\frac{d t}{d x}$ \n$\\frac{d^{2} y}{d x^{2}}=\\frac{g^{\\prime \\prime}(t) f^{\\prime}(t)-g^{\\prime}(t) f^{\\prime \\prime}(t)}{\\left(f^{\\prime}(t)\\right)^{3}}$"
+            },
+            {
+              "questionID": 19290,
+              "question": "f(x) = |[x] x| in -1 $ \\le $ x $ \\le $ 2 is",
+              "question_raw": "<p>f(x) = |[x] x| in&nbsp;-1&nbsp;<span class=\"math-tex\">{tex} \\le {/tex}</span> x <span class=\"math-tex\">{tex} \\le {/tex}</span> 2 is</p>\r\n",
+              "options": [
+                {
+                  "label": "A",
+                  "id": 32362,
+                  "text": "continuous at x = 2",
+                  "is_correct": false
+                },
+                {
+                  "label": "B",
+                  "id": 32359,
+                  "text": "continuous at x = 0",
+                  "is_correct": true
+                },
+                {
+                  "label": "C",
+                  "id": 32360,
+                  "text": "discontinuous at x = 0",
+                  "is_correct": false
+                },
+                {
+                  "label": "D",
+                  "id": 32361,
+                  "text": "differentiable at x = 0",
+                  "is_correct": false
+                }
+              ],
+              "correct_option_ids": [
+                32359
+              ],
+              "correct_option_labels": [
+                "B"
+              ],
+              "correct_option_texts": [
+                "continuous at x = 0"
+              ],
+              "explanation": "f(x) = $ \\begin{cases} -x & \\quad -1\\leq x<0\\\\ 0 & \\quad 0 \\leq x< 1 \\\\ x & \\quad 1\\leq x\\leq2\\\\ \\end{cases} $ \nFunction is continuous at x = 0 but discontinuous at x = 1"
+            },
+            {
+              "questionID": 19291,
+              "question": "$\\frac{d}{d x}\\left(\\tan ^{-1}\\left(\\frac{x-a}{1+x a}\\right)\\right)$, x, a > 0, is",
+              "question_raw": "<p><span class=\"math-tex\">{tex}\\frac{d}{d x}\\left(\\tan ^{-1}\\left(\\frac{x-a}{1+x a}\\right)\\right){/tex}</span>, x, a &gt; 0, is</p>",
+              "options": [
+                {
+                  "label": "A",
+                  "id": 32366,
+                  "text": "${\\tan ^1}\\sqrt x - {\\tan ^{ - 1}}\\sqrt a $",
+                  "is_correct": false
+                },
+                {
+                  "label": "B",
+                  "id": 32364,
+                  "text": "$\\frac {1} {1 + x}$",
+                  "is_correct": false
+                },
+                {
+                  "label": "C",
+                  "id": 32363,
+                  "text": "$\\frac {1} {2\\sqrt x (1 + x^2)}$",
+                  "is_correct": true
+                },
+                {
+                  "label": "D",
+                  "id": 32365,
+                  "text": "$\\frac{1}{1+x}-\\frac{1}{1+a}$",
+                  "is_correct": false
+                }
+              ],
+              "correct_option_ids": [
+                32363
+              ],
+              "correct_option_labels": [
+                "C"
+              ],
+              "correct_option_texts": [
+                "$\\frac {1} {2\\sqrt x (1 + x^2)}$"
+              ],
+              "explanation": "$\\frac{d}{d x}\\left(\\tan ^{-1}\\left(\\frac{x-a}{1+x a}\\right)\\right)$ = $\\frac{d}{d x}\\left(\\tan ^{-1} \\sqrt{x}\\right)$ - $\\frac{d}{d x}\\left(\\tan ^{-1} \\sqrt{a}\\right)$ \n$\\Rightarrow$ $\\left(\\frac{1}{1+x^{2}}\\right)\\left(\\frac{1}{2 \\sqrt{x}}\\right)+0$"
+            }
+          ]
+        }
+      ]
+    }
+  ]
+}

@@ -1,23 +1,20 @@
 // OnlineTestsScreen.js
 // Online Tests: pick a subject (Physics / Chemistry / Maths / Biology),
-// then a chapter (from the offline banks) -> opens the test.
+// then a chapter, then a test -> opens the test.
 // Pastel mint & peach theme.
 //
-// Props:
-//   onBack()                              -> close
-//   onStartTest({ subject, chapterId, chapterName, questions })
+// DB-backed: subjects are fixed; chapters, tests and questions are fetched from
+// the backend (online_tests). The UI/flow is unchanged from the previous
+// local-data version — only the data source moved to the database.
 //
-// NOTE: imports all four banks. All four bank files + their data folders must
-// exist in src/data. If you haven't added a subject yet, comment out its import
-// and its entry in SUBJECTS below.
+// Props:
+//   onBack()
+//   onStartTest({ subject, chapterId, chapterName, testId, questions })
 
-import React, { useState } from 'react';
-import { View, Text, ScrollView, Pressable, StyleSheet, StatusBar, SafeAreaView } from 'react-native';
+import React, { useState, useEffect } from 'react';
+import { View, Text, ScrollView, Pressable, StyleSheet, StatusBar, SafeAreaView, ActivityIndicator } from 'react-native';
 
-import { chapterList as physicsChapters, getQuestions as getPhysics } from '../data/questionBank';
-import { chapterList as chemChapters,    getQuestions as getChem }    from '../data/chemistryBank';
-import { chapterList as mathsChapters,   getQuestions as getMaths }   from '../data/mathsBank';
-import { chapterList as bioChapters,     getQuestions as getBio }     from '../data/biologyBank';
+import { listOnlineChapters, listOnlineTests, getOnlineTestQuestions } from '../api/onlineTestsApi';
 
 // ---- pastel mint & peach palette ----
 const C = {
@@ -36,27 +33,78 @@ const C = {
   headerMint: '#CDEFE2',
 };
 
+// Subjects are fixed; `dbSubject` is the value the API expects (Maths -> Mathematics).
 const SUBJECTS = [
-  { key: 'physics',   name: 'Physics',   emoji: '\u269B\uFE0F', tile: C.mintSoft,  chapters: physicsChapters, getQuestions: getPhysics },
-  { key: 'chemistry', name: 'Chemistry', emoji: '\u{1F9EA}',    tile: C.peachSoft, chapters: chemChapters,    getQuestions: getChem },
-  { key: 'maths',     name: 'Maths',     emoji: '\u{1F4D0}',    tile: C.sandSoft,  chapters: mathsChapters,   getQuestions: getMaths },
-  { key: 'biology',   name: 'Biology',   emoji: '\u{1F9EC}',    tile: C.lilacSoft, chapters: bioChapters,     getQuestions: getBio },
+  { key: 'physics',   name: 'Physics',   dbSubject: 'Physics',     emoji: '⚛️', tile: C.mintSoft },
+  { key: 'chemistry', name: 'Chemistry', dbSubject: 'Chemistry',   emoji: '\u{1F9EA}',    tile: C.peachSoft },
+  { key: 'maths',     name: 'Maths',     dbSubject: 'Mathematics', emoji: '\u{1F4D0}',    tile: C.sandSoft },
+  { key: 'biology',   name: 'Biology',   dbSubject: 'Biology',     emoji: '\u{1F9EC}',    tile: C.lilacSoft },
 ];
 
 export default function OnlineTestsScreen({ onBack, onStartTest = () => {} }) {
   const [subject, setSubject] = useState(null);
-  const [chapter, setChapter] = useState(null); // chosen chapter -> show its 5 tests
+  const [chapter, setChapter] = useState(null); // chosen chapter -> show its tests
 
-  const TESTS_PER_CHAPTER = 5;
+  // chapters per subject: { [dbSubject]: { loading, error, chapters:[{chapterId,chapterName,testCount,questionCount}] } }
+  const [chaptersData, setChaptersData] = useState({});
+  // tests for the current chapter: { loading, error, tests:[{id,name,questionCount}] }
+  const [testsData, setTestsData] = useState({ loading: false, error: '', tests: [] });
+  // loading a test's questions before handing off to the test screen
+  const [starting, setStarting] = useState(false);
+
+  // Load all four subjects' chapter lists once so the subject cards show counts.
+  useEffect(() => {
+    let alive = true;
+    SUBJECTS.forEach((subj) => {
+      setChaptersData((p) => ({ ...p, [subj.dbSubject]: { loading: true, error: '', chapters: [] } }));
+      listOnlineChapters(subj.dbSubject)
+        .then((res) => { if (alive) setChaptersData((p) => ({ ...p, [subj.dbSubject]: { loading: false, error: '', chapters: res.chapters || [] } })); })
+        .catch((e) => { if (alive) setChaptersData((p) => ({ ...p, [subj.dbSubject]: { loading: false, error: e?.response?.data?.error || e?.message || 'Could not load', chapters: [] } })); });
+    });
+    return () => { alive = false; };
+  }, []);
+
+  const loadTests = (chapterId) => {
+    setTestsData({ loading: true, error: '', tests: [] });
+    listOnlineTests(chapterId)
+      .then((res) => setTestsData({ loading: false, error: '', tests: res.tests || [] }))
+      .catch((e) => setTestsData({ loading: false, error: e?.response?.data?.error || e?.message || 'Could not load tests', tests: [] }));
+  };
+
+  const openChapter = (ch) => { setChapter(ch); loadTests(ch.chapterId); };
+
+  const startTest = (t) => {
+    if (starting) return;
+    setStarting(true);
+    getOnlineTestQuestions(t.id)
+      .then((res) => {
+        onStartTest({
+          subject: subject.name,
+          chapterId: chapter.chapterId,
+          chapterName: t.name,
+          testId: t.id,
+          questions: res.questions || [],
+        });
+      })
+      .catch(() => {})
+      .finally(() => setStarting(false));
+  };
 
   const Header = ({ title, subtitle }) => (
     <View style={s.header}>
       <Pressable onPress={chapter ? () => setChapter(null) : (subject ? () => setSubject(null) : onBack)} style={s.backRow} hitSlop={8}>
-        <Text style={s.backArrow}>{'\u2190'}</Text>
+        <Text style={s.backArrow}>{'←'}</Text>
         <Text style={s.backText}>Back</Text>
       </Pressable>
       <Text style={s.title}>{title}</Text>
       <Text style={s.subtitle}>{subtitle}</Text>
+    </View>
+  );
+
+  const Loading = ({ label }) => (
+    <View style={{ paddingVertical: 30, alignItems: 'center', gap: 10 }}>
+      <ActivityIndicator color={C.mint} />
+      {label ? <Text style={s.subjectSub}>{label}</Text> : null}
     </View>
   );
 
@@ -67,58 +115,64 @@ export default function OnlineTestsScreen({ onBack, onStartTest = () => {} }) {
         <StatusBar barStyle="dark-content" backgroundColor={C.headerMint} />
         <Header title="Online Tests" subtitle="Pick a subject, then a chapter" />
         <ScrollView contentContainerStyle={s.body} showsVerticalScrollIndicator={false}>
-          {SUBJECTS.map((subj, si) => (
-            <Pressable key={`${subj.key}-${si}`} style={s.subjectCard} onPress={() => setSubject(subj)}>
-              <View style={[s.subjectIcon, { backgroundColor: subj.tile }]}>
-                <Text style={s.subjectEmoji}>{subj.emoji}</Text>
-              </View>
-              <View style={{ flex: 1 }}>
-                <Text style={s.subjectName}>{subj.name}</Text>
-                <Text style={s.subjectSub}>{subj.chapters.length} chapters</Text>
-              </View>
-              <Text style={s.chevron}>{'\u203A'}</Text>
-            </Pressable>
-          ))}
+          {SUBJECTS.map((subj, si) => {
+            const sd = chaptersData[subj.dbSubject];
+            const sub = sd && sd.loading ? 'Loading…' : `${(sd && sd.chapters.length) || 0} chapters`;
+            return (
+              <Pressable key={`${subj.key}-${si}`} style={s.subjectCard} onPress={() => setSubject(subj)}>
+                <View style={[s.subjectIcon, { backgroundColor: subj.tile }]}>
+                  <Text style={s.subjectEmoji}>{subj.emoji}</Text>
+                </View>
+                <View style={{ flex: 1 }}>
+                  <Text style={s.subjectName}>{subj.name}</Text>
+                  <Text style={s.subjectSub}>{sub}</Text>
+                </View>
+                <Text style={s.chevron}>{'›'}</Text>
+              </Pressable>
+            );
+          })}
           <View style={{ height: 24 }} />
         </ScrollView>
       </SafeAreaView>
     );
   }
 
-  // ---- 5 tests for the chosen chapter ----
+  // ---- tests for the chosen chapter ----
   if (chapter) {
-    // split the chapter's questions into 5 roughly-equal tests
-    const all = subject.getQuestions(chapter.id) || [];
-    const per = Math.ceil(all.length / TESTS_PER_CHAPTER) || 0;
-    const tests = Array.from({ length: TESTS_PER_CHAPTER }, (_, t) => {
-      const slice = all.slice(t * per, (t + 1) * per);
-      return { no: t + 1, questions: slice };
-    });
-    const shortName = chapter.name.length > 26 ? chapter.name.slice(0, 24) + '\u2026' : chapter.name;
     return (
       <SafeAreaView style={s.safe}>
         <StatusBar barStyle="dark-content" backgroundColor={C.headerMint} />
-        <Header title={chapter.name} subtitle="Select an online test to explore" />
+        <Header title={chapter.chapterName} subtitle="Select an online test to explore" />
         <ScrollView contentContainerStyle={s.body} showsVerticalScrollIndicator={false}>
-          {tests.map((t) => (
-            <Pressable
-              key={t.no}
-              style={s.testRow}
-              onPress={() => onStartTest({
-                subject: subject.name,
-                chapterId: chapter.id,
-                chapterName: `${chapter.name} Test-${String(t.no).padStart(2, '0')}`,
-                questions: t.questions,
-              })}
-            >
-              <View style={s.testIcon}><Text style={s.testIconTxt}>{'\u{1F4DD}'}</Text></View>
-              <View style={{ flex: 1 }}>
-                <Text style={s.testName}>{shortName} Test-{String(t.no).padStart(2, '0')}</Text>
-                <Text style={s.testSub}>{t.questions.length} questions</Text>
-              </View>
-              <Text style={s.chevron}>{'\u203A'}</Text>
-            </Pressable>
-          ))}
+          {testsData.loading ? (
+            <Loading />
+          ) : testsData.error ? (
+            <View style={{ alignItems: 'center', paddingVertical: 24, gap: 10 }}>
+              <Text style={s.subjectSub}>{testsData.error}</Text>
+              <Pressable style={[s.subjectCard, { justifyContent: 'center' }]} onPress={() => loadTests(chapter.chapterId)}>
+                <Text style={s.subjectName}>Retry</Text>
+              </Pressable>
+            </View>
+          ) : testsData.tests.length === 0 ? (
+            <Text style={[s.subjectSub, { textAlign: 'center', paddingVertical: 24 }]}>No tests yet.</Text>
+          ) : (
+            testsData.tests.map((t) => (
+              <Pressable
+                key={t.id}
+                style={s.testRow}
+                disabled={starting}
+                onPress={() => startTest(t)}
+              >
+                <View style={s.testIcon}><Text style={s.testIconTxt}>{'\u{1F4DD}'}</Text></View>
+                <View style={{ flex: 1 }}>
+                  <Text style={s.testName}>{t.name}</Text>
+                  <Text style={s.testSub}>{t.questionCount} questions</Text>
+                </View>
+                <Text style={s.chevron}>{'›'}</Text>
+              </Pressable>
+            ))
+          )}
+          {starting && <Loading label="Loading test…" />}
           <View style={{ height: 24 }} />
         </ScrollView>
       </SafeAreaView>
@@ -126,29 +180,37 @@ export default function OnlineTestsScreen({ onBack, onStartTest = () => {} }) {
   }
 
   // ---- chapter list for the chosen subject ----
+  const sd = chaptersData[subject.dbSubject];
+  const chapters = (sd && sd.chapters) || [];
   return (
     <SafeAreaView style={s.safe}>
       <StatusBar barStyle="dark-content" backgroundColor={C.headerMint} />
-      <Header title={subject.name} subtitle={`${subject.chapters.length} chapters \u00B7 tap one to start`} />
+      <Header title={subject.name} subtitle={`${chapters.length} chapters · tap one to start`} />
       <ScrollView contentContainerStyle={s.body} showsVerticalScrollIndicator={false}>
-        {subject.chapters.map((ch, i) => (
-          <Pressable
-            key={`${ch.id}-${i}`}
-            style={s.chapterRow}
-            onPress={() => setChapter({
-              id: ch.id,
-              name: ch.name || ch.chapter_name || ch.chapterName || ch.title || `Chapter ${i + 1}`,
-              count: ch.count,
-            })}
-          >
-            <View style={s.chapterNum}><Text style={s.chapterNumTxt}>{i + 1}</Text></View>
-            <View style={{ flex: 1 }}>
-              <Text style={s.chapterName}>{ch.name || ch.chapter_name || ch.chapterName || ch.title || `Chapter ${i + 1}`}</Text>
-              <Text style={s.chapterSub}>{ch.count} questions</Text>
-            </View>
-            <Text style={s.chevron}>{'\u203A'}</Text>
-          </Pressable>
-        ))}
+        {sd && sd.loading ? (
+          <Loading />
+        ) : sd && sd.error ? (
+          <View style={{ alignItems: 'center', paddingVertical: 24, gap: 10 }}>
+            <Text style={s.subjectSub}>{sd.error}</Text>
+          </View>
+        ) : chapters.length === 0 ? (
+          <Text style={[s.subjectSub, { textAlign: 'center', paddingVertical: 24 }]}>No chapters yet.</Text>
+        ) : (
+          chapters.map((ch, i) => (
+            <Pressable
+              key={`${ch.chapterId}-${i}`}
+              style={s.chapterRow}
+              onPress={() => openChapter(ch)}
+            >
+              <View style={s.chapterNum}><Text style={s.chapterNumTxt}>{i + 1}</Text></View>
+              <View style={{ flex: 1 }}>
+                <Text style={s.chapterName}>{ch.chapterName}</Text>
+                <Text style={s.chapterSub}>{ch.questionCount} questions</Text>
+              </View>
+              <Text style={s.chevron}>{'›'}</Text>
+            </Pressable>
+          ))
+        )}
         <View style={{ height: 24 }} />
       </ScrollView>
     </SafeAreaView>

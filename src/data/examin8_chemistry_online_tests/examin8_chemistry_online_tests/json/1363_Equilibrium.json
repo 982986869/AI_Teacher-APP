@@ -1,0 +1,3162 @@
+{
+  "id": 1363,
+  "name": "Equilibrium",
+  "full_name": "CBSE > Class 11 > Chemistry > Equilibrium",
+  "tests": [
+    {
+      "testPaperID": 961,
+      "testPaperName": "Equilibrium CBSE Online Test 01",
+      "is_paid": false,
+      "category_full_name": "CBSE > Class 11 > Chemistry > Equilibrium",
+      "noOfQuestions": 15,
+      "has_answers": true,
+      "sections": [
+        {
+          "sectionName": "General",
+          "sectionID": null,
+          "questions": [
+            {
+              "questionID": 22160,
+              "question": "When the rate of evaporation is equal to the rate of condensation, it is called _______.",
+              "question_raw": "<p>When the rate of evaporation is equal to the rate of condensation, it is called _______.</p>",
+              "options": [
+                {
+                  "label": "A",
+                  "id": 43840,
+                  "text": "stable reaction",
+                  "is_correct": false
+                },
+                {
+                  "label": "B",
+                  "id": 43838,
+                  "text": "equilibrium",
+                  "is_correct": true
+                },
+                {
+                  "label": "C",
+                  "id": 43839,
+                  "text": "balanced reaction",
+                  "is_correct": false
+                },
+                {
+                  "label": "D",
+                  "id": 43841,
+                  "text": "reaction at rest",
+                  "is_correct": false
+                }
+              ],
+              "correct_option_ids": [
+                43838
+              ],
+              "correct_option_labels": [
+                "B"
+              ],
+              "correct_option_texts": [
+                "equilibrium"
+              ],
+              "explanation": "At equilibrium, the rate of evaporation is equal to the rate of condensation.\nIt may be represented by H_2O (l) ⇌ H_2O (vap)\nThe double half arrows indicate that the processes in both the directions are going on simultaneously. The mixture of reactants and products in the equilibrium state is called an equilibrium mixture."
+            },
+            {
+              "questionID": 22161,
+              "question": "In the dynamic equilibrium stage, one of the following events takes place?\nChoose the right one:",
+              "question_raw": "<p>In the dynamic equilibrium stage, one of the following events takes place?<br />\r\nChoose the right one:</p>",
+              "options": [
+                {
+                  "label": "A",
+                  "id": 43845,
+                  "text": "Rates of the forward reaction is faster.",
+                  "is_correct": false
+                },
+                {
+                  "label": "B",
+                  "id": 43843,
+                  "text": "The concentrations of the reactants are decreased.",
+                  "is_correct": false
+                },
+                {
+                  "label": "C",
+                  "id": 43844,
+                  "text": "The concentrations of the products are increased.",
+                  "is_correct": false
+                },
+                {
+                  "label": "D",
+                  "id": 43842,
+                  "text": "No change in the concentrations of either of the reactants or products.",
+                  "is_correct": true
+                }
+              ],
+              "correct_option_ids": [
+                43842
+              ],
+              "correct_option_labels": [
+                "D"
+              ],
+              "correct_option_texts": [
+                "No change in the concentrations of either of the reactants or products."
+              ],
+              "explanation": "There is no change in the conc of reactant and product. At dynamic equilibrium, reactants are converted to products, and products are converted to reactants at an equal and constant rate. Reactions do not necessarily—and most often do not—end up with equal concentrations. Equilibrium is the state of equal, opposite rates, not equal concentrations."
+            },
+            {
+              "questionID": 22162,
+              "question": "The rates of transfer of molecules from ice into water and of reverse transfer from water into the ice are equal at atmospheric pressure and 273 K. Both the processes occur simultaneously and at the same rate so that the amount of ice and water remains constant. This process is called _______.",
+              "question_raw": "<p>The rates of transfer of molecules from ice into water and of reverse transfer from water into the ice are equal at atmospheric pressure and 273 K. Both the processes occur simultaneously and at the same rate so that the amount of ice and water remains constant. This process is called _______.</p>",
+              "options": [
+                {
+                  "label": "A",
+                  "id": 43849,
+                  "text": "Liquid-Gas Equilibrium",
+                  "is_correct": false
+                },
+                {
+                  "label": "B",
+                  "id": 43848,
+                  "text": "Liquid-Vapour Equilibrium",
+                  "is_correct": false
+                },
+                {
+                  "label": "C",
+                  "id": 43846,
+                  "text": "dynamic equilibrium",
+                  "is_correct": true
+                },
+                {
+                  "label": "D",
+                  "id": 43847,
+                  "text": "ionic equilibrium",
+                  "is_correct": false
+                }
+              ],
+              "correct_option_ids": [
+                43846
+              ],
+              "correct_option_labels": [
+                "C"
+              ],
+              "correct_option_texts": [
+                "dynamic equilibrium"
+              ],
+              "explanation": "Ice and water kept in a perfectly insulated thermos flask at 273K and the atmospheric pressure are in an equilibrium state and the system shows interesting characteristic features. The mass of ice and water do not change with time and the temperature remains constant. However, the equilibrium is not static. The intense activity can be noticed at the boundary between ice and water. Molecules from the liquid water collide against ice and adhere to it and some molecules of ice escape into the liquid phase. There is no change of mass of ice and water, as the rates of transfer of molecules from ice into water and of reverse transfer from water into the ice are equal at atmosphere pressure and 273K."
+            },
+            {
+              "questionID": 22163,
+              "question": "H_2O(l) $ \\rightleftharpoons $ H_2O (vap). This equation best illustrates the ________.",
+              "question_raw": "<p>H<sub>2</sub>O(l) <span class=\"math-tex\">{tex} \\rightleftharpoons {/tex}</span> H<sub>2</sub>O (vap). This equation best illustrates the ________.</p>",
+              "options": [
+                {
+                  "label": "A",
+                  "id": 43853,
+                  "text": "Solid-gas Equilibrium",
+                  "is_correct": false
+                },
+                {
+                  "label": "B",
+                  "id": 43851,
+                  "text": "Ionic equilibrium",
+                  "is_correct": false
+                },
+                {
+                  "label": "C",
+                  "id": 43850,
+                  "text": "Liquid-Vapour Equilibrium",
+                  "is_correct": true
+                },
+                {
+                  "label": "D",
+                  "id": 43852,
+                  "text": "Liquid-solid Equilibrium",
+                  "is_correct": false
+                }
+              ],
+              "correct_option_ids": [
+                43850
+              ],
+              "correct_option_labels": [
+                "C"
+              ],
+              "correct_option_texts": [
+                "Liquid-Vapour Equilibrium"
+              ],
+              "explanation": "The number of water molecules from the gaseous state into the liquid state also increases till the equilibrium is attained i.e., rate of evaporation = rate of condensation.\nAt equilibrium, the pressure exerted by the water molecules at a given temperature remains constant and is called the equilibrium."
+            },
+            {
+              "questionID": 22164,
+              "question": "During the process of transformation from liquid to vapour, the pressure exerted by the water molecules at a given temperature remains constant. This is called ________.",
+              "question_raw": "<p>During the process of transformation from liquid to vapour, the pressure exerted by the water molecules at a given temperature remains constant. This is called ________.</p>",
+              "options": [
+                {
+                  "label": "A",
+                  "id": 43855,
+                  "text": "melting point of water",
+                  "is_correct": false
+                },
+                {
+                  "label": "B",
+                  "id": 43857,
+                  "text": "freezing point of water",
+                  "is_correct": false
+                },
+                {
+                  "label": "C",
+                  "id": 43856,
+                  "text": "boiling point of water",
+                  "is_correct": false
+                },
+                {
+                  "label": "D",
+                  "id": 43854,
+                  "text": "vapour pressure of water",
+                  "is_correct": true
+                }
+              ],
+              "correct_option_ids": [
+                43854
+              ],
+              "correct_option_labels": [
+                "D"
+              ],
+              "correct_option_texts": [
+                "vapour pressure of water"
+              ],
+              "explanation": "The number of water molecules from the gaseous state into the liquid state also increases till the equilibrium is attained.\ni.e.rate of evaporation = rate of condensation\nH_2O(l) $ \\rightleftharpoons $ H_2O (vap)\nAt equilibrium, the pressure exerted by the water molecules at a given temperature remains constant and is called the equilibrium vapour pressure of water increases with temperature."
+            },
+            {
+              "questionID": 22165,
+              "question": "If we place solid iodine in a closed vessel after some time the vessel gets filled up with violet vapour. When equilibrium is attained, the intensity of colour will be:",
+              "question_raw": "<p>If we place solid iodine in a closed vessel after some time the vessel gets filled up with violet vapour. When equilibrium is attained, the intensity of colour will be:</p>",
+              "options": [
+                {
+                  "label": "A",
+                  "id": 43860,
+                  "text": "decreases",
+                  "is_correct": false
+                },
+                {
+                  "label": "B",
+                  "id": 43859,
+                  "text": "increases",
+                  "is_correct": false
+                },
+                {
+                  "label": "C",
+                  "id": 43858,
+                  "text": "constant",
+                  "is_correct": true
+                },
+                {
+                  "label": "D",
+                  "id": 43861,
+                  "text": "no colour at all",
+                  "is_correct": false
+                }
+              ],
+              "correct_option_ids": [
+                43858
+              ],
+              "correct_option_labels": [
+                "C"
+              ],
+              "correct_option_texts": [
+                "constant"
+              ],
+              "explanation": "We place solid iodine in a closed vessel, after some time the vessel gets filled up with violet vapour and the intensity of colour increases with time. After a certain time, the intensity of colour becomes constant and at this stage, equilibrium is attained. Hence solid iodine sublimes to give iodine vapour and the iodine vapour condenses to give solid iodine. The equilibrium can be represented as I_2 (solid) $ \\rightleftharpoons $ I_2 (vapour)."
+            },
+            {
+              "questionID": 22166,
+              "question": "The boiling point of water at atmospheric pressure is ________.",
+              "question_raw": "<p>The boiling point of water at atmospheric pressure is ________.</p>",
+              "options": [
+                {
+                  "label": "A",
+                  "id": 43863,
+                  "text": "110° C",
+                  "is_correct": false
+                },
+                {
+                  "label": "B",
+                  "id": 43862,
+                  "text": "100° C",
+                  "is_correct": true
+                },
+                {
+                  "label": "C",
+                  "id": 43865,
+                  "text": "95° C",
+                  "is_correct": false
+                },
+                {
+                  "label": "D",
+                  "id": 43864,
+                  "text": "90° C",
+                  "is_correct": false
+                }
+              ],
+              "correct_option_ids": [
+                43862
+              ],
+              "correct_option_labels": [
+                "B"
+              ],
+              "correct_option_texts": [
+                "100° C"
+              ],
+              "explanation": "Water and water vapour are in equilibrium position at atmospheric pressure (1.013 bar) and at 100°C in a closed vessel. The boiling point of water is 100°C at 1.013 bar pressure. For any pure liquid at one atmospheric pressure (1.013 bar), the temperature at which the liquid and vapours are at equilibrium is called the normal boiling point of the liquid. The boiling point of the liquid depends on the atmospheric pressure."
+            },
+            {
+              "questionID": 22167,
+              "question": "_______ states that \"the mass of a gas dissolved in a given mass of a solvent at any temperature is proportional to the pressure of the gas above the solvent.\"",
+              "question_raw": "<p>_______ states that &quot;the mass of a gas dissolved in a given mass of a solvent at any temperature is proportional to the pressure of the gas above the solvent.&quot;</p>",
+              "options": [
+                {
+                  "label": "A",
+                  "id": 43869,
+                  "text": "Arrhenius",
+                  "is_correct": false
+                },
+                {
+                  "label": "B",
+                  "id": 43867,
+                  "text": "Haber's process",
+                  "is_correct": false
+                },
+                {
+                  "label": "C",
+                  "id": 43868,
+                  "text": "Le Chatelier",
+                  "is_correct": false
+                },
+                {
+                  "label": "D",
+                  "id": 43866,
+                  "text": "Henry’s law",
+                  "is_correct": true
+                }
+              ],
+              "correct_option_ids": [
+                43866
+              ],
+              "correct_option_labels": [
+                "D"
+              ],
+              "correct_option_texts": [
+                "Henry’s law"
+              ],
+              "explanation": "This equilibrium is governed by Henry’s law, which states that the mass of a gas dissolved in a given mass of a solvent at any temperature is proportional to the pressure of the gas above the solvent. This amount decreases with an increase in temperature."
+            },
+            {
+              "questionID": 22168,
+              "question": "When the soda bottle is opened, some of the dissolved carbon dioxide gas escapes because of:",
+              "question_raw": "<p>When the soda bottle is opened, some of the dissolved carbon dioxide gas escapes because of:</p>",
+              "options": [
+                {
+                  "label": "A",
+                  "id": 43870,
+                  "text": "difference in solubility of carbon dioxide at different pressures.",
+                  "is_correct": true
+                },
+                {
+                  "label": "B",
+                  "id": 43873,
+                  "text": "some of the undissolved carbon dioxide gas in the soda bottle.",
+                  "is_correct": false
+                },
+                {
+                  "label": "C",
+                  "id": 43871,
+                  "text": "difference in solubility of carbon dioxide at different temperatures.",
+                  "is_correct": false
+                },
+                {
+                  "label": "D",
+                  "id": 43872,
+                  "text": "to reach a new equilibrium condition required for the higher pressure.",
+                  "is_correct": false
+                }
+              ],
+              "correct_option_ids": [
+                43870
+              ],
+              "correct_option_labels": [
+                "A"
+              ],
+              "correct_option_texts": [
+                "difference in solubility of carbon dioxide at different pressures."
+              ],
+              "explanation": "Soda water, like other carbonated beverages, contains carbon dioxide that has dissolved under pressure. When the pressure is released by opening the soda container, the liquid cannot hold as much carbon dioxide, so the excess bubbles out of the solution. If the soda is left open, additional carbon dioxide will slowly escape into the air. Under warm conditions, the carbon dioxide leaves the solution faster."
+            },
+            {
+              "questionID": 22169,
+              "question": "The dynamic nature of chemical equilibrium can be demonstrated in the synthesis of ammonia by Haber's process. Choose the appropriate option given below:",
+              "question_raw": "<p>The dynamic nature of chemical equilibrium can be demonstrated in the synthesis of ammonia by Haber&#39;s process. Choose the appropriate option given below:</p>",
+              "options": [
+                {
+                  "label": "A",
+                  "id": 43876,
+                  "text": "by using hydrogen isotope",
+                  "is_correct": false
+                },
+                {
+                  "label": "B",
+                  "id": 43874,
+                  "text": "by using deuterium isotope",
+                  "is_correct": true
+                },
+                {
+                  "label": "C",
+                  "id": 43877,
+                  "text": "by maintaining high temperature and low pressure",
+                  "is_correct": false
+                },
+                {
+                  "label": "D",
+                  "id": 43875,
+                  "text": "by using sulphur isotope",
+                  "is_correct": false
+                }
+              ],
+              "correct_option_ids": [
+                43874
+              ],
+              "correct_option_labels": [
+                "B"
+              ],
+              "correct_option_texts": [
+                "by using deuterium isotope"
+              ],
+              "explanation": "The use of isotope (deuterium) in the formation of ammonia clearly indicates that chemical reactions reach a state of dynamic equilibrium in which the rates of forward and reverse reactions are equal and there is no net change in composition."
+            },
+            {
+              "questionID": 22170,
+              "question": "At a given temperature, equilibrium is possible only in a system which is a:",
+              "question_raw": "<p>At a given temperature, equilibrium is possible only in a system which is a:</p>",
+              "options": [
+                {
+                  "label": "A",
+                  "id": 43880,
+                  "text": "partially closed system",
+                  "is_correct": false
+                },
+                {
+                  "label": "B",
+                  "id": 43879,
+                  "text": "open system",
+                  "is_correct": false
+                },
+                {
+                  "label": "C",
+                  "id": 43881,
+                  "text": "partially open system",
+                  "is_correct": false
+                },
+                {
+                  "label": "D",
+                  "id": 43878,
+                  "text": "closed system",
+                  "is_correct": true
+                }
+              ],
+              "correct_option_ids": [
+                43878
+              ],
+              "correct_option_labels": [
+                "D"
+              ],
+              "correct_option_texts": [
+                "closed system"
+              ],
+              "explanation": "Equilibrium is possible only in a closed system at a given temperature for physical processes. When equilibrium is attained for a physical process, it is characterized by the constant value of one of its parameters at a given temperature."
+            },
+            {
+              "questionID": 22171,
+              "question": "For liquid $ \\rightleftharpoons $ vapour equilibrium, at a given temperature, the constant is ________.",
+              "question_raw": "<p>For liquid <span class=\"math-tex\">{tex} \\rightleftharpoons {/tex}</span> vapour equilibrium, at a given temperature, the constant is ________.</p>",
+              "options": [
+                {
+                  "label": "A",
+                  "id": 43882,
+                  "text": "vapour pressure",
+                  "is_correct": true
+                },
+                {
+                  "label": "B",
+                  "id": 43884,
+                  "text": "mass of a gas",
+                  "is_correct": false
+                },
+                {
+                  "label": "C",
+                  "id": 43885,
+                  "text": "mass of a solvent",
+                  "is_correct": false
+                },
+                {
+                  "label": "D",
+                  "id": 43883,
+                  "text": "solubility",
+                  "is_correct": false
+                }
+              ],
+              "correct_option_ids": [
+                43882
+              ],
+              "correct_option_labels": [
+                "A"
+              ],
+              "correct_option_texts": [
+                "vapour pressure"
+              ],
+              "explanation": "The vapour pressure is constant at a given temperature for liquid $ \\rightleftharpoons $ vapour equilibrium. The equilibrium vapour pressure of a compound at a given temperature is an intrinsic property of the compound, meaning it does not depend on variables like volume, the quantity of the compound, etc."
+            },
+            {
+              "questionID": 22172,
+              "question": "Which of the following statements is incorrect?\n In equilibrium mixture of ice and water kept in perfectly insulated flask mass of ice and water does not change with time.\n The intensity of red colour increases when oxalic acid is added to a solution containing iron (III) nitrate and potassium thiocyanate.\n On addition of a catalyst, the equilibrium constant value is not affected.\n Equilibrium constant for a reaction with negative ΔH value decreases as the temperature increases",
+              "question_raw": "<p>Which of the following statements is incorrect?</p>\r\n\r\n<ol start=\"1\" style=\"list-style-type: upper-alpha;\">\r\n\t<li>In equilibrium mixture of ice and water kept in perfectly insulated flask mass of ice and water does not change with time.</li>\r\n\t<li>The intensity of red colour increases when oxalic acid is added to a solution containing iron (III) nitrate and potassium thiocyanate.</li>\r\n\t<li>On addition of a catalyst, the equilibrium constant value is not affected.</li>\r\n\t<li>Equilibrium constant for a reaction with negative &Delta;H value decreases as the temperature increases</li>\r\n</ol>",
+              "options": [
+                {
+                  "label": "A",
+                  "id": 43888,
+                  "text": "C",
+                  "is_correct": false
+                },
+                {
+                  "label": "B",
+                  "id": 43889,
+                  "text": "D",
+                  "is_correct": false
+                },
+                {
+                  "label": "C",
+                  "id": 43886,
+                  "text": "B",
+                  "is_correct": true
+                },
+                {
+                  "label": "D",
+                  "id": 43887,
+                  "text": "A",
+                  "is_correct": false
+                }
+              ],
+              "correct_option_ids": [
+                43886
+              ],
+              "correct_option_labels": [
+                "C"
+              ],
+              "correct_option_texts": [
+                "B"
+              ],
+              "explanation": "The intensity of red colour increases when oxalic acid is added to a solution containing iron (III) nitrate and potassium thiocyanate."
+            },
+            {
+              "questionID": 22173,
+              "question": "For the dissolution of solids in liquids, at a given temperature, the constant is ________.",
+              "question_raw": "<p>For the dissolution of solids in liquids, at a given temperature, the constant is ________.</p>",
+              "options": [
+                {
+                  "label": "A",
+                  "id": 43892,
+                  "text": "mass of the solvent",
+                  "is_correct": false
+                },
+                {
+                  "label": "B",
+                  "id": 43893,
+                  "text": "mass of the solute",
+                  "is_correct": false
+                },
+                {
+                  "label": "C",
+                  "id": 43891,
+                  "text": "pressure",
+                  "is_correct": false
+                },
+                {
+                  "label": "D",
+                  "id": 43890,
+                  "text": "solubility",
+                  "is_correct": true
+                }
+              ],
+              "correct_option_ids": [
+                43890
+              ],
+              "correct_option_labels": [
+                "D"
+              ],
+              "correct_option_texts": [
+                "solubility"
+              ],
+              "explanation": "It is because at a particular temperature only a certain amount of solute can be dissolved. But it may be increased after increasing the temperature, so the solubility is constant at a given temperature."
+            },
+            {
+              "questionID": 22174,
+              "question": "For dissolution of gases in liquids, the concentration of a gas in a liquid is:",
+              "question_raw": "<p>For dissolution of gases in liquids, the concentration of a gas in a liquid is:</p>",
+              "options": [
+                {
+                  "label": "A",
+                  "id": 43897,
+                  "text": "lower to the pressure of the gas as compared to the liquid",
+                  "is_correct": false
+                },
+                {
+                  "label": "B",
+                  "id": 43895,
+                  "text": "proportional to the vapour pressure of the gas",
+                  "is_correct": false
+                },
+                {
+                  "label": "C",
+                  "id": 43896,
+                  "text": "equal to the pressure of the gas in relation to the liquid",
+                  "is_correct": false
+                },
+                {
+                  "label": "D",
+                  "id": 43894,
+                  "text": "proportional to the pressure of the gas over the liquid",
+                  "is_correct": true
+                }
+              ],
+              "correct_option_ids": [
+                43894
+              ],
+              "correct_option_labels": [
+                "D"
+              ],
+              "correct_option_texts": [
+                "proportional to the pressure of the gas over the liquid"
+              ],
+              "explanation": "For the dissolution of gases in liquids, Henry's Law is applicable i.e. the mass of the gas dissolved in a given solvent at any temperature is proportional to the pressure of the gas above the solvent."
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "testPaperID": 962,
+      "testPaperName": "Equilibrium CBSE Online Test 02",
+      "is_paid": true,
+      "category_full_name": "CBSE > Class 11 > Chemistry > Equilibrium",
+      "noOfQuestions": 15,
+      "has_answers": true,
+      "sections": [
+        {
+          "sectionName": "General",
+          "sectionID": null,
+          "questions": [
+            {
+              "questionID": 22175,
+              "question": "The concentrations in an equilibrium mixture are related by the following equilibrium equation, ${{\\text{K}}_{\\text{c}}} = $ $\\frac{{\\left[ C \\right]\\left[ D \\right]}}{{\\left[ A \\right]\\left[ B \\right]}}$ Where Kc is called as ________.",
+              "question_raw": "<p>The concentrations in an equilibrium mixture are related by the following equilibrium equation, <span class=\"math-tex\">{tex}{{\\text{K}}_{\\text{c}}} = {/tex}</span> <span class=\"math-tex\">{tex}\\frac{{\\left[ C \\right]\\left[ D \\right]}}{{\\left[ A \\right]\\left[ B \\right]}}{/tex}</span> Where Kc is called as ________.</p>",
+              "options": [
+                {
+                  "label": "A",
+                  "id": 43899,
+                  "text": "active mass constant",
+                  "is_correct": false
+                },
+                {
+                  "label": "B",
+                  "id": 43900,
+                  "text": "reaction quotient",
+                  "is_correct": false
+                },
+                {
+                  "label": "C",
+                  "id": 43901,
+                  "text": "molecular constant",
+                  "is_correct": false
+                },
+                {
+                  "label": "D",
+                  "id": 43898,
+                  "text": "equilibrium constant",
+                  "is_correct": true
+                }
+              ],
+              "correct_option_ids": [
+                43898
+              ],
+              "correct_option_labels": [
+                "D"
+              ],
+              "correct_option_texts": [
+                "equilibrium constant"
+              ],
+              "explanation": "Let us consider a general reversible reaction:\nA + B $ \\rightleftharpoons $ C + D\nwhere A and B are the reactants, C and D are the products in the balanced chemical equation.\nOn the basis of experimental studies of many reversible reactions, opposed in 1864 that the concentrations in an equilibrium mixture are related by the following equilibrium equation, K_c = [C] [D] /[A] [B]\nWhere K_c is the equilibrium constant and the expression on the right side is called the equilibrium constant expression."
+            },
+            {
+              "questionID": 22176,
+              "question": "Equilibrium constant for the reaction, 4NH_3(g) + 5O_2(g) $\\longrightarrow$ 4NO(g) + 6H_2O (g) is written as:",
+              "question_raw": "<p>Equilibrium constant for the reaction, 4NH<sub>3</sub>(g) + 5O<sub>2</sub>(g) <span class=\"math-tex\">{tex}\\longrightarrow{/tex}</span> 4NO(g) + 6H<sub>2</sub>O&nbsp;(g) is written as:</p>",
+              "options": [
+                {
+                  "label": "A",
+                  "id": 43904,
+                  "text": "${\\text{1}}/{\\left[ {{\\text{N}}{{\\text{H}}_{\\text{3}}}} \\right]^{\\text{4}}}{\\left[ {{{\\text{O}}_{\\text{2}}}} \\right]^{\\text{5}}}$",
+                  "is_correct": false
+                },
+                {
+                  "label": "B",
+                  "id": 43903,
+                  "text": "${{\\text{K}}_{\\text{c}}} = {\\text{N}}{{\\text{H}}_{\\text{3}}}\\left] {^{\\text{4}}} \\right[{{\\text{O}}_{\\text{2}}}\\left] {^{\\text{5}}/{\\text{ }}} \\right[{\\left[ {{\\text{NO}}} \\right]^{\\text{4}}}{\\left[ {{{\\text{H}}_{\\text{2}}}{\\text{O}}} \\right]^{\\text{6}}}$",
+                  "is_correct": false
+                },
+                {
+                  "label": "C",
+                  "id": 43905,
+                  "text": "${\\left[ {{\\text{N}}{{\\text{H}}_{\\text{3}}}} \\right]^{\\text{4}}}{\\left[ {{{\\text{O}}_{\\text{2}}}} \\right]^{\\text{5}}}/{\\text{ 2}}$",
+                  "is_correct": false
+                },
+                {
+                  "label": "D",
+                  "id": 43902,
+                  "text": "${{\\text{K}}_{\\text{c}}} = {\\text{ }}{\\left[ {{\\text{NO}}} \\right]^{\\text{4}}}{\\left[ {{{\\text{H}}_{\\text{2}}}{\\text{O}}} \\right]^{\\text{6}}}/{\\text{ }}{\\left[ {{\\text{N}}{{\\text{H}}_{\\text{3}}}} \\right]^{\\text{4}}}{\\left[ {{{\\text{O}}_{\\text{2}}}} \\right]^{\\text{5}}}$",
+                  "is_correct": true
+                }
+              ],
+              "correct_option_ids": [
+                43902
+              ],
+              "correct_option_labels": [
+                "D"
+              ],
+              "correct_option_texts": [
+                "${{\\text{K}}_{\\text{c}}} = {\\text{ }}{\\left[ {{\\text{NO}}} \\right]^{\\text{4}}}{\\left[ {{{\\text{H}}_{\\text{2}}}{\\text{O}}} \\right]^{\\text{6}}}/{\\text{ }}{\\left[ {{\\text{N}}{{\\text{H}}_{\\text{3}}}} \\right]^{\\text{4}}}{\\left[ {{{\\text{O}}_{\\text{2}}}} \\right]^{\\text{5}}}$"
+              ],
+              "explanation": "K_c is equilibrium constant $ = \\frac{{{{\\left[ {products} \\right]}^{stoichiimetry}}}}{{{{[reactant]}^{stoichiimetry}}}}$ \n${{\\text{K}}_{\\text{c}}} = {\\text{ }}{\\left[ {{\\text{NO}}} \\right]^{\\text{4}}}{\\left[ {{{\\text{H}}_{\\text{2}}}{\\text{O}}} \\right]^{\\text{6}}}/{\\text{ }}{\\left[ {{\\text{N}}{{\\text{H}}_{\\text{3}}}} \\right]^{\\text{4}}}{\\left[ {{{\\text{O}}_{\\text{2}}}} \\right]^{\\text{5}}}$"
+            },
+            {
+              "questionID": 22177,
+              "question": "For reactions involving gases, however, it is usually more convenient to express the equilibrium constant in terms of",
+              "question_raw": "<p>For reactions involving gases, however, it is usually more convenient to express the equilibrium constant in terms of</p>",
+              "options": [
+                {
+                  "label": "A",
+                  "id": 43909,
+                  "text": "temperature",
+                  "is_correct": false
+                },
+                {
+                  "label": "B",
+                  "id": 43906,
+                  "text": "partial pressure",
+                  "is_correct": true
+                },
+                {
+                  "label": "C",
+                  "id": 43908,
+                  "text": "molar concentration of the products",
+                  "is_correct": false
+                },
+                {
+                  "label": "D",
+                  "id": 43907,
+                  "text": "molar concentration of the reactants",
+                  "is_correct": false
+                }
+              ],
+              "correct_option_ids": [
+                43906
+              ],
+              "correct_option_labels": [
+                "B"
+              ],
+              "correct_option_texts": [
+                "partial pressure"
+              ],
+              "explanation": "K_p = $\\frac{\\left(\\mathbf{P}_{\\text { products }}\\right)^{\\text { sttoichimery }}}{\\left(\\mathbf{P}_{\\text { reactant }}\\right)^{\\text { stoichimetry }}}$"
+            },
+            {
+              "questionID": 22178,
+              "question": "For reactions in equilibrium involving gases, like N_2(g) + 3H_2 $ \\rightleftharpoons $ 2NH_3(g), choose one of the following options.",
+              "question_raw": "<p>For reactions in equilibrium involving gases, like N<sub>2</sub>(g) + 3H<sub>2</sub> <span class=\"math-tex\">{tex} \\rightleftharpoons {/tex}</span> 2NH<sub>3</sub>(g), choose one of the following options.</p>",
+              "options": [
+                {
+                  "label": "A",
+                  "id": 43910,
+                  "text": "K_p = K_c (RT)^-2",
+                  "is_correct": true
+                },
+                {
+                  "label": "B",
+                  "id": 43913,
+                  "text": "K_c=K_p(RT)^3",
+                  "is_correct": false
+                },
+                {
+                  "label": "C",
+                  "id": 43912,
+                  "text": "K_p =K_c (RT)^3",
+                  "is_correct": false
+                },
+                {
+                  "label": "D",
+                  "id": 43911,
+                  "text": "K_c = K_p",
+                  "is_correct": false
+                }
+              ],
+              "correct_option_ids": [
+                43910
+              ],
+              "correct_option_labels": [
+                "A"
+              ],
+              "correct_option_texts": [
+                "K_p = K_c (RT)^-2"
+              ],
+              "explanation": "In reaction, N_2 (g) + 3H_2 (g) $ \\rightleftharpoons $ 2NH_3 (g)\nHere, $\\Delta$n_g = 2- (1+3) = 2 - 4 = -2\nTherefore, K_p = K_c (RT)^-2"
+            },
+            {
+              "questionID": 22179,
+              "question": "If the K_c is neither too small nor too large, one of the following will happen:",
+              "question_raw": "<p>If the K<sub>c</sub> is neither too small nor too large, one of the following will happen:</p>",
+              "options": [
+                {
+                  "label": "A",
+                  "id": 43915,
+                  "text": "reaction hardly proceeds",
+                  "is_correct": false
+                },
+                {
+                  "label": "B",
+                  "id": 43914,
+                  "text": "both reactants and products are at equilibrium",
+                  "is_correct": true
+                },
+                {
+                  "label": "C",
+                  "id": 43916,
+                  "text": "reaction proceeds to completion",
+                  "is_correct": false
+                },
+                {
+                  "label": "D",
+                  "id": 43917,
+                  "text": "reaction proceeds very slowly.",
+                  "is_correct": false
+                }
+              ],
+              "correct_option_ids": [
+                43914
+              ],
+              "correct_option_labels": [
+                "B"
+              ],
+              "correct_option_texts": [
+                "both reactants and products are at equilibrium"
+              ],
+              "explanation": "A High value of K is a high concentration of products. If Kc > 10^3, products predominate over reactants.\n If Kc < 10^–3, reactants predominate over products, i.e., if Kc is very small, the reaction proceeds rarely.\n If Kc is in the range of 10^– 3 to 10^3, appreciable concentrations of both reactants and products are present."
+            },
+            {
+              "questionID": 22180,
+              "question": "Find K_c for the following reaction, if CO_2 pressure is in atmospheres:\nCaCO_3(s) $\\rightarrow$ CaO(s) + CO_2(g), K_p = 2.1 $\\times$ 10^-^4 (at 1000K).",
+              "question_raw": "<p>Find K<sub><span style=\"font-size: 10.8333px;\">c</span></sub>&nbsp;for the following reaction, if CO<sub>2</sub>&nbsp;pressure is in atmospheres:<br />\r\nCaCO<sub>3</sub>(s) <span class=\"math-tex\">{tex}\\rightarrow{/tex}</span>&nbsp;CaO(s) + CO<sub>2</sub>(g), K<sub>p</sub> = 2.1 <span class=\"math-tex\">{tex}\\times{/tex}</span>&nbsp;10<sup>-</sup><sup>4</sup>&nbsp;(at 1000K).</p>",
+              "options": [
+                {
+                  "label": "A",
+                  "id": 43921,
+                  "text": "4.1 $\\times$ 10^-6",
+                  "is_correct": false
+                },
+                {
+                  "label": "B",
+                  "id": 43919,
+                  "text": "2.4 $\\times$ 10^-6",
+                  "is_correct": false
+                },
+                {
+                  "label": "C",
+                  "id": 43920,
+                  "text": "1.1 $\\times$ 10^-6",
+                  "is_correct": false
+                },
+                {
+                  "label": "D",
+                  "id": 43918,
+                  "text": "2.6 $\\times$ 10^-6",
+                  "is_correct": true
+                }
+              ],
+              "correct_option_ids": [
+                43918
+              ],
+              "correct_option_labels": [
+                "D"
+              ],
+              "correct_option_texts": [
+                "2.6 $\\times$ 10^-6"
+              ],
+              "explanation": "Kp = Kc (RT)^∆n\nHere change in no. of moles i.e. ∆n = 1 because it is taken only for gaseous products and reactants by differing reactant from product.\n$2.1 \\times {10^{ - 4}} = {K_c}{(0.0821 \\times 1000)^1}$\n${K_c} = \\frac{{2.1 \\times {{10}^{ - 4}}}}{{82.1}} = 2.57 \\times {10^{ - 6}} = 2.6 \\times {10^{ - 6}}$"
+            },
+            {
+              "questionID": 22181,
+              "question": "A particular ratio of product to reactant helps in predicting the direction in which a given reaction will proceed at any stage is called ________.",
+              "question_raw": "<p>A particular ratio of product to reactant helps in predicting the direction in which a given reaction will proceed at any stage is called ________.</p>",
+              "options": [
+                {
+                  "label": "A",
+                  "id": 43925,
+                  "text": "molecular constant",
+                  "is_correct": false
+                },
+                {
+                  "label": "B",
+                  "id": 43924,
+                  "text": "active mass constant",
+                  "is_correct": false
+                },
+                {
+                  "label": "C",
+                  "id": 43922,
+                  "text": "reaction quotient",
+                  "is_correct": true
+                },
+                {
+                  "label": "D",
+                  "id": 43923,
+                  "text": "equilibrium constant",
+                  "is_correct": false
+                }
+              ],
+              "correct_option_ids": [
+                43922
+              ],
+              "correct_option_labels": [
+                "C"
+              ],
+              "correct_option_texts": [
+                "reaction quotient"
+              ],
+              "explanation": "The reaction quotient Q. For a general reaction: aA + bB ⇌ cC + dD\nQc = [C]^c [D]^d / [A]^a [B]^b \nThen, If Q_c > Kc,\nthe reaction will proceed in the direction of reactants (reverse reaction).\nIf Q_c < K_c, the reaction will proceed in the direction of the products (forward reaction).\nIf Q_c = K_c, the reaction mixture is already at equilibrium."
+            },
+            {
+              "questionID": 22182,
+              "question": "The value of K_c for a reaction is directly related to the thermodynamics of the reaction and in particular with:",
+              "question_raw": "<p>The value of K<sub>c</sub> for a reaction is directly related to the thermodynamics of the reaction and in particular with:</p>",
+              "options": [
+                {
+                  "label": "A",
+                  "id": 43927,
+                  "text": "$\\Delta {{\\text{n}}_{{\\text{gas}}}}$",
+                  "is_correct": false
+                },
+                {
+                  "label": "B",
+                  "id": 43928,
+                  "text": "Q_C",
+                  "is_correct": false
+                },
+                {
+                  "label": "C",
+                  "id": 43926,
+                  "text": "$\\Delta$G",
+                  "is_correct": true
+                },
+                {
+                  "label": "D",
+                  "id": 43929,
+                  "text": "Q_P",
+                  "is_correct": false
+                }
+              ],
+              "correct_option_ids": [
+                43926
+              ],
+              "correct_option_labels": [
+                "C"
+              ],
+              "correct_option_texts": [
+                "$\\Delta$G"
+              ],
+              "explanation": "A mathematical expression of this thermodynamic view of equilibrium can be described by the following equation: $\\Delta$G = $\\Delta$G^0 + RT ln Q\nwhere G^0 is standard Gibbs energy.\nAt equilibrium, when $\\Delta$G = 0 and Q = K_c,\n$\\Delta$G = $\\Delta$G^0 + RT ln K = 0\n$\\Delta$G^0 = – RT lnK (7.22)\nlnK = – $\\Delta$G^0 / RT\nTaking antilog of both sides, we get,\nK = e^– $\\Delta$G0 / RT"
+            },
+            {
+              "questionID": 22183,
+              "question": "In order to decide what course the reaction adopts and make a qualitative prediction about the effect of a change in conditions on equilibrium we use:",
+              "question_raw": "<p>In order to decide what course the reaction adopts and make a qualitative prediction about the effect of a change in conditions on equilibrium we use:</p>",
+              "options": [
+                {
+                  "label": "A",
+                  "id": 43931,
+                  "text": "Arrhenius theory,",
+                  "is_correct": false
+                },
+                {
+                  "label": "B",
+                  "id": 43932,
+                  "text": "Bronsted-Lowry theory,",
+                  "is_correct": false
+                },
+                {
+                  "label": "C",
+                  "id": 43933,
+                  "text": "Lewis theory",
+                  "is_correct": false
+                },
+                {
+                  "label": "D",
+                  "id": 43930,
+                  "text": "Le Chatelier's theory",
+                  "is_correct": true
+                }
+              ],
+              "correct_option_ids": [
+                43930
+              ],
+              "correct_option_labels": [
+                "D"
+              ],
+              "correct_option_texts": [
+                "Le Chatelier's theory"
+              ],
+              "explanation": "Le Chatelier’s principle- It states that a change in any of the factors that determine the equilibrium conditions of a system will cause the system to change in such a manner so as to reduce or to counteract the effect of the change."
+            },
+            {
+              "questionID": 22184,
+              "question": "A catalyst increases the rate of the chemical reaction for the conversion of reactants to products by:",
+              "question_raw": "<p>A catalyst increases the rate of the chemical reaction for the conversion of reactants to products by:</p>",
+              "options": [
+                {
+                  "label": "A",
+                  "id": 43937,
+                  "text": "lowering the temperature",
+                  "is_correct": false
+                },
+                {
+                  "label": "B",
+                  "id": 43936,
+                  "text": "lowering the equilibrium composition of a reaction mixture",
+                  "is_correct": false
+                },
+                {
+                  "label": "C",
+                  "id": 43935,
+                  "text": "increasing the activation energy for the forward reaction",
+                  "is_correct": false
+                },
+                {
+                  "label": "D",
+                  "id": 43934,
+                  "text": "making available a new low energy pathway",
+                  "is_correct": true
+                }
+              ],
+              "correct_option_ids": [
+                43934
+              ],
+              "correct_option_labels": [
+                "D"
+              ],
+              "correct_option_texts": [
+                "making available a new low energy pathway"
+              ],
+              "explanation": "A catalyst increases the rate of the chemical reaction by making available a new low energy pathway for the conversion of reactants to products. It increases the rate of forward and reverse reactions that pass through the same transition state and does not affect equilibrium. Catalyst lowers the activation energy for the forward and reverse reactions by exactly the same amount. Catalyst does not affect the equilibrium composition of a reaction mixture. It does not appear in the balanced chemical equation or in the equilibrium constant expression."
+            },
+            {
+              "questionID": 22185,
+              "question": "A bare proton, H^+ is very reactive and cannot exist freely in aqueous solutions. Thus, it bonds to the oxygen atom of a solvent water molecule to give:",
+              "question_raw": "<p>A bare proton, H<sup>+</sup> is very reactive and cannot exist freely in aqueous solutions. Thus, it bonds to the oxygen atom of a solvent water molecule to give:</p>",
+              "options": [
+                {
+                  "label": "A",
+                  "id": 43939,
+                  "text": "${H_3}O_2^ + $",
+                  "is_correct": false
+                },
+                {
+                  "label": "B",
+                  "id": 43940,
+                  "text": "${H_3}O_3^ + $",
+                  "is_correct": false
+                },
+                {
+                  "label": "C",
+                  "id": 43941,
+                  "text": "${H_3}O_4^ + $",
+                  "is_correct": false
+                },
+                {
+                  "label": "D",
+                  "id": 43938,
+                  "text": "H_3O^+",
+                  "is_correct": true
+                }
+              ],
+              "correct_option_ids": [
+                43938
+              ],
+              "correct_option_labels": [
+                "D"
+              ],
+              "correct_option_texts": [
+                "H_3O^+"
+              ],
+              "explanation": "Hydrogen ion by itself is a bare proton with a very small size (~10–15 m radius) and intense electric field, binds itself with the water molecule at one of the two available lone pairs on it giving H_3O^+. This species has been detected in many compounds (e.g., H_3O^+Cl ^– ) in the solid-state.\nIn aqueous solution, the hydronium ion is further hydrated to give species like ${H_5}O_2^ + $."
+            },
+            {
+              "questionID": 22186,
+              "question": "Hydronium ion concentration in molarity is more conveniently expressed on a logarithmic scale known as the _______.",
+              "question_raw": "<p>Hydronium ion concentration in molarity is more conveniently expressed on a logarithmic scale known as the _______.</p>",
+              "options": [
+                {
+                  "label": "A",
+                  "id": 43944,
+                  "text": "basic scale",
+                  "is_correct": false
+                },
+                {
+                  "label": "B",
+                  "id": 43945,
+                  "text": "litmus scale",
+                  "is_correct": false
+                },
+                {
+                  "label": "C",
+                  "id": 43942,
+                  "text": "pH scale",
+                  "is_correct": true
+                },
+                {
+                  "label": "D",
+                  "id": 43943,
+                  "text": "acidic scale",
+                  "is_correct": false
+                }
+              ],
+              "correct_option_ids": [
+                43942
+              ],
+              "correct_option_labels": [
+                "C"
+              ],
+              "correct_option_texts": [
+                "pH scale"
+              ],
+              "explanation": "Hydronium ion concentration in molarity is more conveniently expressed on a logarithmic scale known as the pH scale. The pH of a solution is defined as the negative logarithm to base 10 of the activity (H^+) of hydrogen ion. In dilute solutions (< 0.01 M), the activity of hydrogen ion (H^+) is equal in magnitude to molarity represented by [H^+].\nFrom the definition of pH= – log H^+= – log [H^+] / mol L^–1.\nThus, an acidic solution of HCl (10^-2 M) will have a pH = 2.\nSimilarly, a basic solution of NaOH having [OH^​​​​​-] =10^-4 M and [H_3O^+] = 10^-10 M will have a pH = 10.\nAt 25 °C, pure water has a concentration of hydrogen ions, [H^+] = 10^-7M. Hence, the pH of pure water is given as: pH = –log(10^–7) = 7."
+            },
+            {
+              "questionID": 22187,
+              "question": "The solutions which resist change in pH on dilution or with the addition of small amounts of acid or alkali is called ________.",
+              "question_raw": "<p>The solutions which resist change in pH on dilution or with the addition of small amounts of acid or alkali is called ________.</p>",
+              "options": [
+                {
+                  "label": "A",
+                  "id": 43948,
+                  "text": "Bronsted-Lowry acids and bases",
+                  "is_correct": false
+                },
+                {
+                  "label": "B",
+                  "id": 43947,
+                  "text": "Conjugate pair of acid-base",
+                  "is_correct": false
+                },
+                {
+                  "label": "C",
+                  "id": 43946,
+                  "text": "Buffer solutions",
+                  "is_correct": true
+                },
+                {
+                  "label": "D",
+                  "id": 43949,
+                  "text": "Electrolytic solutions",
+                  "is_correct": false
+                }
+              ],
+              "correct_option_ids": [
+                43946
+              ],
+              "correct_option_labels": [
+                "C"
+              ],
+              "correct_option_texts": [
+                "Buffer solutions"
+              ],
+              "explanation": "The solutions which resist change in pH on dilution or with the addition of small amounts of acid or alkali are called Buffer Solutions. Buffer solutions of known pH can be prepared from the knowledge of pKa of the acid or pK b of base and by controlling the ratio of the salt and acid or salt and base. A mixture of acetic acid and sodium acetate acts as a buffer solution around pH 4.75 and a mixture of ammonium chloride and ammonium hydroxide acts as a buffer around pH 9.25."
+            },
+            {
+              "questionID": 22188,
+              "question": "We know that the relationship between K_c and K_p is K_p = K_c (RT)^$\\Delta$n. What would be the value of $\\Delta$n for the reaction NH_4CI(s) $ \\rightleftharpoons $ NH_3(g) + HCl (g)?",
+              "question_raw": "<p>We know that the relationship between K<sub>c</sub> and K<sub>p</sub> is K<sub>p</sub> = K<sub>c</sub> (RT)<sup><span class=\"math-tex\">{tex}\\Delta{/tex}</span>n</sup>. What would be the value of <span class=\"math-tex\">{tex}\\Delta{/tex}</span>n for the reaction NH<sub>4</sub>CI(s) <span class=\"math-tex\">{tex} \\rightleftharpoons {/tex}</span>&nbsp;NH<sub>3</sub>(g) + HCl&nbsp;(g)?</p>",
+              "options": [
+                {
+                  "label": "A",
+                  "id": 43950,
+                  "text": "2.0",
+                  "is_correct": true
+                },
+                {
+                  "label": "B",
+                  "id": 43951,
+                  "text": "0.5",
+                  "is_correct": false
+                },
+                {
+                  "label": "C",
+                  "id": 43953,
+                  "text": "1",
+                  "is_correct": false
+                },
+                {
+                  "label": "D",
+                  "id": 43952,
+                  "text": "1.5",
+                  "is_correct": false
+                }
+              ],
+              "correct_option_ids": [
+                43950
+              ],
+              "correct_option_labels": [
+                "A"
+              ],
+              "correct_option_texts": [
+                "2.0"
+              ],
+              "explanation": "$\\Delta n_{gas}$ = 2 = $n_{gas}(\\text {Product})$ - $n_{g a s}(r e a c t a n t)$"
+            },
+            {
+              "questionID": 22189,
+              "question": "For the reaction ${{\\text{H}}_{\\text{2}}}\\left( {\\text{g}} \\right){\\text{ }} + {\\text{ }}{{\\text{I}}_{\\text{2}}}\\left( {\\text{g}} \\right)$ $ \\rightleftharpoons $ 2HI (g), the standard free energy is $\\Delta {G^ - } > 0$ The equilibrium constant (K ) would be __________.",
+              "question_raw": "<p>For the reaction <span class=\"math-tex\">{tex}{{\\text{H}}_{\\text{2}}}\\left( {\\text{g}} \\right){\\text{ }} + {\\text{ }}{{\\text{I}}_{\\text{2}}}\\left( {\\text{g}} \\right){/tex}</span> <span class=\"math-tex\">{tex} \\rightleftharpoons {/tex}</span> 2HI (g), the standard free energy is <span class=\"math-tex\">{tex}\\Delta {G^ - } &gt; 0{/tex}</span> The equilibrium constant (K ) would be __________.</p>",
+              "options": [
+                {
+                  "label": "A",
+                  "id": 43954,
+                  "text": "K < 1",
+                  "is_correct": true
+                },
+                {
+                  "label": "B",
+                  "id": 43956,
+                  "text": "K = 1",
+                  "is_correct": false
+                },
+                {
+                  "label": "C",
+                  "id": 43957,
+                  "text": "K = 0",
+                  "is_correct": false
+                },
+                {
+                  "label": "D",
+                  "id": 43955,
+                  "text": "K > 1",
+                  "is_correct": false
+                }
+              ],
+              "correct_option_ids": [
+                43954
+              ],
+              "correct_option_labels": [
+                "A"
+              ],
+              "correct_option_texts": [
+                "K < 1"
+              ],
+              "explanation": "$ΔG0=-RTlnK$\n• If $∆G0 > 0,$ then $–∆G0 /RT$ is negative, and $e–∆G0 /RT < 1,$ that is , $K < 1,$ which implies a non-spontaneous reaction or a reaction which proceeds in the forward direction to such a small degree that only a very minute quantity of product is formed."
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "testPaperID": 963,
+      "testPaperName": "Equilibrium CBSE Online Test 03",
+      "is_paid": true,
+      "category_full_name": "CBSE > Class 11 > Chemistry > Equilibrium",
+      "noOfQuestions": 15,
+      "has_answers": true,
+      "sections": [
+        {
+          "sectionName": "General",
+          "sectionID": null,
+          "questions": [
+            {
+              "questionID": 22190,
+              "question": "Which of the following is not a general characteristic of equilibria involving physical processes?",
+              "question_raw": "<p>Which of the following is not a general characteristic of equilibria involving physical processes?</p>",
+              "options": [
+                {
+                  "label": "A",
+                  "id": 43961,
+                  "text": "The opposing processes occur at the same rate and there is dynamic but stable condition",
+                  "is_correct": false
+                },
+                {
+                  "label": "B",
+                  "id": 43958,
+                  "text": "All the physical processes stop at equilibrium.",
+                  "is_correct": true
+                },
+                {
+                  "label": "C",
+                  "id": 43959,
+                  "text": "All measurable properties of the system remain constant.",
+                  "is_correct": false
+                },
+                {
+                  "label": "D",
+                  "id": 43960,
+                  "text": "Equilibrium is possible only in a closed system at a given temperature.",
+                  "is_correct": false
+                }
+              ],
+              "correct_option_ids": [
+                43958
+              ],
+              "correct_option_labels": [
+                "B"
+              ],
+              "correct_option_texts": [
+                "All the physical processes stop at equilibrium."
+              ],
+              "explanation": "This is a wrong statement that all the physical processes stop at equilibrium, the processes never stops at equilibrium i.e. the rate of formation of products and rate of formation of reactants become equal."
+            },
+            {
+              "questionID": 22191,
+              "question": "PCl_5, PCl_3 and Cl_2 are at equilibrium at 500 K in a closed container and their concentrations are 0.8 $\\times$ 10^-3 mol L^-1, 1.2 $\\times$ 10^-3 mol L^-1 and 1.2 $\\times$ 10^-3 mol L^-1 respectively. The value of K_c for the reaction PCl_5(g) $\\rightleftharpoons$ PCl_3(g) + Cl_2(g) will be:",
+              "question_raw": "<p>PCl<sub>5</sub>, PCl<sub>3</sub> and Cl<sub>2</sub> are at equilibrium at 500 K in a closed container and their concentrations are 0.8 <span class=\"math-tex\">{tex}\\times{/tex}</span> 10<sup>-3</sup> mol L<sup>-1</sup>, 1.2 <span class=\"math-tex\">{tex}\\times{/tex}</span> 10<sup>-3</sup> mol L<sup>-1</sup> and 1.2 <span class=\"math-tex\">{tex}\\times{/tex}</span> 10<sup>-3</sup> mol L<sup>-1</sup> respectively. The value of K<sub>c</sub> for the reaction PCl<sub>5</sub>(g) <span class=\"math-tex\">{tex}\\rightleftharpoons{/tex}</span> PCl<sub>3</sub>(g) + Cl<sub>2</sub>(g) will be:</p>",
+              "options": [
+                {
+                  "label": "A",
+                  "id": 43965,
+                  "text": "$0.{\\text{55 }} \\times {\\text{ 1}}{0^{\\text{4}}}$",
+                  "is_correct": false
+                },
+                {
+                  "label": "B",
+                  "id": 43963,
+                  "text": "${\\text{1}}.{\\text{8 }} \\times {\\text{ 1}}{0^{\\text{3}}}$",
+                  "is_correct": false
+                },
+                {
+                  "label": "C",
+                  "id": 43964,
+                  "text": "${\\text{1}}.{\\text{8 }} \\times {\\text{ 1}}{0^{ - {\\text{3}}}}$",
+                  "is_correct": true
+                },
+                {
+                  "label": "D",
+                  "id": 43962,
+                  "text": "${\\text{1}}.{\\text{6}} \\times {\\text{ 1}}{0^{\\text{3}}}$",
+                  "is_correct": false
+                }
+              ],
+              "correct_option_ids": [
+                43964
+              ],
+              "correct_option_labels": [
+                "C"
+              ],
+              "correct_option_texts": [
+                "${\\text{1}}.{\\text{8 }} \\times {\\text{ 1}}{0^{ - {\\text{3}}}}$"
+              ],
+              "explanation": "Kc = $\\frac{{\\left[ {PC{l_3}} \\right]\\left[ {C{l_2}} \\right]}}{{\\left[ {PC{l_5}} \\right]}}$ = 1.2 x 10^-3 x 1.2 x 10^-3 / 0.8 x 10^-3 = 1.8 x 10^-3 L mol^-1"
+            },
+            {
+              "questionID": 22192,
+              "question": "Which of the following statements is correct?\n In equilibrium mixture of ice and water kept in perfectly insulated flask mass of ice and water does not change with time.\n The intensity of red colour increases when oxalic acid is added to a solution containing iron (III). nitrate and potassium thiocyanate.\n On addition of catalyst the equilibrium constant value is not affected.\n Equilibrium constant for a reaction with negative $\\Delta $H value decreases as the temperature increases",
+              "question_raw": "<p>Which of the following statements is correct?</p>\n\n<ol start=\"1\" style=\"list-style-type:lower-roman\">\n\t<li>In equilibrium mixture of ice and water kept in perfectly insulated flask mass of ice and water does not change with time.</li>\n\t<li>The intensity of red colour increases when oxalic acid is added to a solution containing iron (III). nitrate and potassium thiocyanate.</li>\n\t<li>On addition of catalyst the equilibrium constant value is not affected.</li>\n\t<li>Equilibrium constant for a reaction with negative <span class=\"math-tex\">{tex}\\Delta {/tex}</span>H value decreases as the temperature increases</li>\n</ol>",
+              "options": [
+                {
+                  "label": "A",
+                  "id": 43969,
+                  "text": "Option (iv)",
+                  "is_correct": false
+                },
+                {
+                  "label": "B",
+                  "id": 43966,
+                  "text": "Option (i)",
+                  "is_correct": true
+                },
+                {
+                  "label": "C",
+                  "id": 43967,
+                  "text": "Option (ii)",
+                  "is_correct": false
+                },
+                {
+                  "label": "D",
+                  "id": 43968,
+                  "text": "Option (iii)",
+                  "is_correct": false
+                }
+              ],
+              "correct_option_ids": [
+                43966
+              ],
+              "correct_option_labels": [
+                "B"
+              ],
+              "correct_option_texts": [
+                "Option (i)"
+              ],
+              "explanation": "Ice and water kept in a perfectly insulated thermos flask (no exchange of heat between its contents and the surroundings) at 273K and the atmospheric pressure are in equilibrium state and the system shows interesting characteristic features. We observe that the mass of ice and water do not change with time and the temperature remains constant."
+            },
+            {
+              "questionID": 22193,
+              "question": "When hydrochloric acid is added to cobalt nitrate solution at room temperature, the following reaction takes place and the reaction mixture becomes blue. On cooling the mixture it becomes pink. On the basis of this information mark the correct answer.\n$\\mathop {{{\\left[ {{\\text{Co }}\\left( {{{\\text{H}}_{\\text{2}}}{\\text{O}}} \\right){\\text{6}}} \\right]}^{{\\text{3}} + }}\\left( {{\\text{aq}}} \\right){\\text{ }} + {\\text{ 4C}}{{\\text{l}}^ - }(aq)}\\limits_{pink}$ $ \\rightleftharpoons \\mathop {{{\\left[ {{\\text{CoC}}{{\\text{l}}_{\\text{4}}}} \\right]}^{{\\text{2}} - }}\\left( {{\\text{aq}}} \\right){\\text{ }} + {\\text{ 6}}{{\\text{H}}_{\\text{2}}}{\\text{O}}(l)}\\limits_{Blue} $",
+              "question_raw": "<p>When hydrochloric acid is added to cobalt nitrate solution at room temperature, the following reaction takes place and the reaction mixture becomes blue. On cooling the mixture it becomes pink. On the basis of this information mark the correct answer.<br />\r\n<span class=\"math-tex\">{tex}\\mathop {{{\\left[ {{\\text{Co }}\\left( {{{\\text{H}}_{\\text{2}}}{\\text{O}}} \\right){\\text{6}}} \\right]}^{{\\text{3}} + }}\\left( {{\\text{aq}}} \\right){\\text{ }} + {\\text{ 4C}}{{\\text{l}}^ - }(aq)}\\limits_{pink}{/tex}</span>&nbsp;<span class=\"math-tex\">{tex} \\rightleftharpoons \\mathop {{{\\left[ {{\\text{CoC}}{{\\text{l}}_{\\text{4}}}} \\right]}^{{\\text{2}} - }}\\left( {{\\text{aq}}} \\right){\\text{ }} + {\\text{ 6}}{{\\text{H}}_{\\text{2}}}{\\text{O}}(l)}\\limits_{Blue} {/tex}</span></p>",
+              "options": [
+                {
+                  "label": "A",
+                  "id": 43972,
+                  "text": "$\\Delta {\\text{H}} = $ 0 for the reaction",
+                  "is_correct": false
+                },
+                {
+                  "label": "B",
+                  "id": 43970,
+                  "text": "$\\Delta {\\text{H}}$ > 0 for the reaction",
+                  "is_correct": true
+                },
+                {
+                  "label": "C",
+                  "id": 43971,
+                  "text": "$\\Delta {\\text{H}} < $ 0 for the reaction",
+                  "is_correct": false
+                },
+                {
+                  "label": "D",
+                  "id": 43973,
+                  "text": "The sign of $\\Delta $H cannot be predicted on the basis of this information.",
+                  "is_correct": false
+                }
+              ],
+              "correct_option_ids": [
+                43970
+              ],
+              "correct_option_labels": [
+                "B"
+              ],
+              "correct_option_texts": [
+                "$\\Delta {\\text{H}}$ > 0 for the reaction"
+              ],
+              "explanation": "For an endothermic reaction - If temperature is decreased reaction will shift to backward direction\n$\\mathop {{{[Co{{({H_2}O)}_6}]}^{3 + }}(aq)}\\limits_{pink} + \\mathop {4C{l^ - }(aq)}\\limits_{colourless} \\rightleftharpoons$ $ \\mathop {{{\\left[ {{\\text{CoC}}{{\\text{l}}_{\\text{4}}}} \\right]}^{{\\text{2}} - }}\\left( {{\\text{aq}}} \\right){\\text{ }} + {\\text{ 6}}{{\\text{H}}_{\\text{2}}}{\\text{O}}(l)}\\limits_{Blue} $\nAt room temperature, the equilibrium mixture is blue due to [CoCl 4 ]^2–. When cooled in a freezing mixture, the colour of the mixture turns pink due to [Co(H2O)6 ]^3+."
+            },
+            {
+              "questionID": 22194,
+              "question": "The pH of neutral water at ${\\text{25}}^\\circ {\\text{C}}$ is 7.0. As the temperature increases, ionisation of water increases, however, the concentration of ${{\\text{H}}^ + }$ ions and $O{H^ - }$ ions are equal. What will be the pH of pure water at ${\\text{6}}0^\\circ {\\text{C}}?$",
+              "question_raw": "<p>The pH of neutral water at <span class=\"math-tex\">{tex}{\\text{25}}^\\circ {\\text{C}}{/tex}</span> is 7.0. As the temperature increases, ionisation of water increases, however, the concentration of <span class=\"math-tex\">{tex}{{\\text{H}}^ + }{/tex}</span> ions and <span class=\"math-tex\">{tex}O{H^ - }{/tex}</span> ions are equal. What will be the pH of pure water at <span class=\"math-tex\">{tex}{\\text{6}}0^\\circ {\\text{C}}?{/tex}</span></p>",
+              "options": [
+                {
+                  "label": "A",
+                  "id": 43975,
+                  "text": "Greater than 7.0",
+                  "is_correct": false
+                },
+                {
+                  "label": "B",
+                  "id": 43974,
+                  "text": "Equal to 7.0",
+                  "is_correct": false
+                },
+                {
+                  "label": "C",
+                  "id": 43976,
+                  "text": "Less than 7.0",
+                  "is_correct": true
+                },
+                {
+                  "label": "D",
+                  "id": 43977,
+                  "text": "Equal to zero",
+                  "is_correct": false
+                }
+              ],
+              "correct_option_ids": [
+                43976
+              ],
+              "correct_option_labels": [
+                "C"
+              ],
+              "correct_option_texts": [
+                "Less than 7.0"
+              ],
+              "explanation": "pH of water will be less 7 only. Water will be acidic even at 60°C"
+            },
+            {
+              "questionID": 22195,
+              "question": "The ionisation constant of an acid, K_a, is the measure of strength of an acid. The K_a values of acetic acid, hypochlorous acid and formic acid are 1.74 $\\times$ 10^-5, 3.0 $\\times$ 10^-8 and 1.8 $\\times$ 10^-4 respectively. Which of the following orders of pH of 0.1 mol dm^-3 solutions of these acids is correct?",
+              "question_raw": "<p>The ionisation constant of an acid, K<sub>a</sub>, is the measure of strength of an acid. The K<sub>a</sub> values of acetic acid, hypochlorous acid and formic acid are 1.74 <span class=\"math-tex\">{tex}\\times{/tex}</span>&nbsp;10<sup>-5</sup>, 3.0 <span class=\"math-tex\">{tex}\\times{/tex}</span> 10<sup>-8</sup> and 1.8 <span class=\"math-tex\">{tex}\\times{/tex}</span> 10<sup>-4</sup> respectively. Which of the following orders of pH of 0.1 mol dm<sup>-3</sup> solutions of these acids is correct?</p>",
+              "options": [
+                {
+                  "label": "A",
+                  "id": 43979,
+                  "text": "hypochlorous acid > acetic acid > formic acid",
+                  "is_correct": false
+                },
+                {
+                  "label": "B",
+                  "id": 43981,
+                  "text": "acetic acid > hypochlorous acid > formic acid",
+                  "is_correct": false
+                },
+                {
+                  "label": "C",
+                  "id": 43980,
+                  "text": "formic acid > hypochlorous acid > acetic acid",
+                  "is_correct": false
+                },
+                {
+                  "label": "D",
+                  "id": 43978,
+                  "text": "formic acid > acetic acid > hypochlorous acid",
+                  "is_correct": true
+                }
+              ],
+              "correct_option_ids": [
+                43978
+              ],
+              "correct_option_labels": [
+                "D"
+              ],
+              "correct_option_texts": [
+                "formic acid > acetic acid > hypochlorous acid"
+              ],
+              "explanation": "Here, K_a for Formic Acid (HCOOH) = 1.8 $\\times$ 10^–4 , Acetic Acid (CH_3COOH) = 1.74 $\\times$ 10^–5 and Hypochlorous Acid (HCIO) = 3.0 $\\times$ 10^–8\nAt a given temperature T, K_a is a measure of the strength of the acid HX i.e., larger the value of K_a , the stronger is the acid. K_a is a dimensionless quantity with the understanding that the standard state concentration of all species is 1M.\nK_a = [H^+][X^-] / [HX]\n${[{H_3}{O^ + }]\\; = \\;\\sqrt {{K_a}.C} }$\n${pH = \\; - \\log \\;[{H_3}{O^ + }]}$\nlarger the value of K_a larger will be H_3O^+,hence lower will be pH"
+            },
+            {
+              "questionID": 22196,
+              "question": "K_a_1, K_a2 and K_a3 are the respective ionisation constants for the following reactions:\nH_2S $ \\rightleftharpoons $ H^+ + HS^-\nHS^- $ \\rightleftharpoons $ H^+ + S^2-\nH_2S $ \\rightleftharpoons $ 2H^+ + S^2-\nThe correct relationship between K_a1, K_a2 and K_a3 is:",
+              "question_raw": "<p>K<sub>a</sub><sub>1</sub>, K<sub>a2</sub>&nbsp;and K<sub>a3</sub>&nbsp;are the respective ionisation constants for the following reactions:<br />\r\nH<sub>2</sub>S&nbsp;<span class=\"math-tex\">{tex} \\rightleftharpoons {/tex}</span>&nbsp;H<sup>+</sup>&nbsp;+ HS<sup>-</sup><br />\r\nHS<sup>-</sup>&nbsp;<span class=\"math-tex\">{tex} \\rightleftharpoons {/tex}</span>&nbsp;H<sup>+</sup>&nbsp;+ S<sup>2-</sup><br />\r\nH<sub>2</sub>S&nbsp;<span class=\"math-tex\">{tex} \\rightleftharpoons {/tex}</span>&nbsp;2H<sup>+</sup>&nbsp;+ S<sup>2-</sup><br />\r\nThe correct relationship between K<sub>a1</sub>, K<sub>a2</sub>&nbsp;and K<sub>a3</sub> is:</p>",
+              "options": [
+                {
+                  "label": "A",
+                  "id": 43985,
+                  "text": "${{\\text{K}}_{{\\text{a3}}}} = {{\\text{K}}_{{\\text{a1}}}}/{{\\text{K}}_{{\\text{a2}}}}$",
+                  "is_correct": false
+                },
+                {
+                  "label": "B",
+                  "id": 43983,
+                  "text": "${{\\text{K}}_{{\\text{a3}}}} = {{\\text{K}}_{{\\text{a1}}}} + {{\\text{K}}_{{\\text{a2}}}}$",
+                  "is_correct": false
+                },
+                {
+                  "label": "C",
+                  "id": 43982,
+                  "text": "$\\;K_{a_3}=K_{a_1}\\times\\;K_{a_2}$",
+                  "is_correct": true
+                },
+                {
+                  "label": "D",
+                  "id": 43984,
+                  "text": "${{\\text{K}}_{{\\text{a3}}}} = {{\\text{K}}_{{\\text{a1}}}}-{{\\text{K}}_{{\\text{a2}}}}$",
+                  "is_correct": false
+                }
+              ],
+              "correct_option_ids": [
+                43982
+              ],
+              "correct_option_labels": [
+                "C"
+              ],
+              "correct_option_texts": [
+                "$\\;K_{a_3}=K_{a_1}\\times\\;K_{a_2}$"
+              ],
+              "explanation": "The ionization reactions for example for a dibasic acid H_2X are represented by the equations:\nH_2X(aq) ⇌ H^+ (aq) + HX^– (aq)\nHX^– (aq) ⇌ H^+ (aq) + X^2– (aq)\nthe corresponding equilibrium constants are given below:$K_{a_1}=\\frac{\\lbrack H^+\\rbrack\\lbrack HX^–\\rbrack}{\\lbrack H_2X\\rbrack}$and $K_{a_2}=\\frac{\\lbrack H^+\\rbrack\\lbrack X^{2–}\\rbrack}{\\lbrack HX^-\\rbrack}$\nHere, Ka_1 and Ka_2 are called the first and second ionization constants respectively of the acid H_2 X.\nFor ${\\;{H_2}S\\; \\rightleftharpoons \\;2{H^ + }\\; + \\;{S^{2 - }}}$\n${{K_{{a_3}}} = \\frac{{{{[{H^ + }]}^2}[{X^2}]}}{{[{H_2}X]}}}$\nIt is clear that, $K_{a_1}\\times K_{a_2}=\\frac{\\lbrack H^+\\rbrack\\lbrack HX^–\\rbrack}{\\lbrack H_2X\\rbrack}\\times\\frac{\\lbrack H^+\\rbrack\\lbrack X^{2–}\\rbrack}{\\lbrack HX^-\\rbrack}=\\frac{\\lbrack H^+\\rbrack^2\\lbrack X^{2–}\\rbrack}{\\lbrack H_2X\\rbrack}\\;=K_{a_3}$\nTherefore, $\\;K_{a_3}=K_{a_1}\\times\\;K_{a_2}$"
+            },
+            {
+              "questionID": 22197,
+              "question": "The acidity of BF_3 can be explained on the basis of which of the following concepts?",
+              "question_raw": "<p>The acidity of BF<sub>3</sub> can be explained on the basis of which of the following concepts?</p>",
+              "options": [
+                {
+                  "label": "A",
+                  "id": 43989,
+                  "text": "Bronsted Lowry as well as Lewis concept",
+                  "is_correct": false
+                },
+                {
+                  "label": "B",
+                  "id": 43986,
+                  "text": "Arrhenius concept",
+                  "is_correct": false
+                },
+                {
+                  "label": "C",
+                  "id": 43988,
+                  "text": "Lewis concept",
+                  "is_correct": true
+                },
+                {
+                  "label": "D",
+                  "id": 43987,
+                  "text": "Bronsted Lowry concept",
+                  "is_correct": false
+                }
+              ],
+              "correct_option_ids": [
+                43988
+              ],
+              "correct_option_labels": [
+                "C"
+              ],
+              "correct_option_texts": [
+                "Lewis concept"
+              ],
+              "explanation": "As BF_3​ is an electron-deficient species that is why it is a Lewis acid. (All Lewis acid can accept a pair of electrons)."
+            },
+            {
+              "questionID": 22198,
+              "question": "Which of the following will produce a buffer solution when mixed in equal volumes?",
+              "question_raw": "<p>Which of the following will produce a buffer solution when mixed in equal volumes?</p>",
+              "options": [
+                {
+                  "label": "A",
+                  "id": 43992,
+                  "text": "0.1 mol dm^-3 NH_4OH and 0.05 mol dm^-3 HCl",
+                  "is_correct": true
+                },
+                {
+                  "label": "B",
+                  "id": 43993,
+                  "text": "0.1 mol dm^-3 CH_4COONa and 0.1 mol dm^-3 NaOH",
+                  "is_correct": false
+                },
+                {
+                  "label": "C",
+                  "id": 43990,
+                  "text": "0.1 mol dm^-3 NH_4OH and 0.1 mol dm^-3 HCl",
+                  "is_correct": false
+                },
+                {
+                  "label": "D",
+                  "id": 43991,
+                  "text": "0.05 mol dm^-3 NH_4OH and 0.1 mol dm^-3 HCl",
+                  "is_correct": false
+                }
+              ],
+              "correct_option_ids": [
+                43992
+              ],
+              "correct_option_labels": [
+                "A"
+              ],
+              "correct_option_texts": [
+                "0.1 mol dm^-3 NH_4OH and 0.05 mol dm^-3 HCl"
+              ],
+              "explanation": "$\\begin{array}{l}\\;\\;\\;\\;\\;\\;\\;\\;\\;\\;\\;\\;\\;\\;\\;\\;\\;NH_4OH+\\;HCl\\rightarrow NH_4Cl\\;+\\;H_2O\\\\at,\\;t=0\\;\\;\\;\\;\\;\\;\\;\\;\\;0.1\\;\\;\\;\\;\\;\\;\\;\\;\\;\\;\\;\\;\\;\\;\\;\\;\\;\\;\\;\\;\\;\\;0.05\\\\at,\\;t=t\\;\\;\\;\\;\\;\\;\\;\\;\\;\\;0.05\\;\\;\\;\\;\\;\\;\\;0\\;\\;\\;\\;\\;\\;\\;\\;\\;\\;0.05\\\\\\end{array}$\nAt the end of the reaction we will get the mixture of weak base (NH_4OH) and salt of weak base and strong acid (NH_4Cl)."
+            },
+            {
+              "questionID": 22199,
+              "question": "In which of the following solvents is silver chloride most soluble?",
+              "question_raw": "<p>In which of the following solvents is silver chloride most soluble?</p>",
+              "options": [
+                {
+                  "label": "A",
+                  "id": 43996,
+                  "text": "H_2O",
+                  "is_correct": false
+                },
+                {
+                  "label": "B",
+                  "id": 43995,
+                  "text": "0.1 mol dm^-3 HCl solution",
+                  "is_correct": false
+                },
+                {
+                  "label": "C",
+                  "id": 43997,
+                  "text": "0.1 mol dm^-3 AgNO_3",
+                  "is_correct": false
+                },
+                {
+                  "label": "D",
+                  "id": 43994,
+                  "text": "Aqueous ammonia solution",
+                  "is_correct": true
+                }
+              ],
+              "correct_option_ids": [
+                43994
+              ],
+              "correct_option_labels": [
+                "D"
+              ],
+              "correct_option_texts": [
+                "Aqueous ammonia solution"
+              ],
+              "explanation": "AgCl is soluble in ammonia due to the formation of complex [Ag(NH_3)_2]^+Cl^-"
+            },
+            {
+              "questionID": 22200,
+              "question": "What will be the value of pH of 00.1 mol dm^-3 CH_3COOH (K_a = 1.74 $\\times$ 10^-5)?",
+              "question_raw": "<p>What will be the value of pH of 00.1 mol dm<sup>-3</sup>&nbsp;CH<sub>3</sub>COOH (K<sub>a</sub>&nbsp;= 1.74&nbsp;<span class=\"math-tex\">{tex}\\times{/tex}</span>&nbsp;10<sup>-5</sup>)?</p>",
+              "options": [
+                {
+                  "label": "A",
+                  "id": 44001,
+                  "text": "3.0",
+                  "is_correct": false
+                },
+                {
+                  "label": "B",
+                  "id": 43999,
+                  "text": "3.6",
+                  "is_correct": false
+                },
+                {
+                  "label": "C",
+                  "id": 44000,
+                  "text": "3.9",
+                  "is_correct": false
+                },
+                {
+                  "label": "D",
+                  "id": 43998,
+                  "text": "3.4",
+                  "is_correct": true
+                }
+              ],
+              "correct_option_ids": [
+                43998
+              ],
+              "correct_option_labels": [
+                "D"
+              ],
+              "correct_option_texts": [
+                "3.4"
+              ],
+              "explanation": "Acetic acid is a weak acid with K_a = 1.74 $\\times$ 10^-5 and in this case cweak acid >>> K_0,\nthat is the equation to use is: [H^+] = (Ka.Cweakacid)^1/2 = (1.7 $\\times$ 10^-5 $\\times$ 0.01)^1/2 = 4.3 $\\times$ 10^-4\npH = -log [H^+] = - log (4.3 $\\times$ 10^-4) = - [log 4.3 + (-4)log 10] = -[0.633^-4] = 3.367"
+            },
+            {
+              "questionID": 22201,
+              "question": "K_a for CH_3COOH is $1.8 \\times {10^{ - 5}}$ and K_b for NH_4OH is $1.8 \\times {10^{ - 5}}$. The pH of ammonium acetate will be",
+              "question_raw": "<p>K<sub>a</sub> for CH<sub>3</sub>COOH is&nbsp;<span class=\"math-tex\">{tex}1.8 \\times {10^{ - 5}}{/tex}</span>&nbsp;and K<sub>b</sub> for NH<sub>4</sub>OH is&nbsp;<span class=\"math-tex\">{tex}1.8 \\times {10^{ - 5}}{/tex}</span>. The pH of ammonium acetate will be</p>",
+              "options": [
+                {
+                  "label": "A",
+                  "id": 44005,
+                  "text": "Between 6 and 7",
+                  "is_correct": false
+                },
+                {
+                  "label": "B",
+                  "id": 44003,
+                  "text": "4.75",
+                  "is_correct": false
+                },
+                {
+                  "label": "C",
+                  "id": 44004,
+                  "text": "7.0",
+                  "is_correct": true
+                },
+                {
+                  "label": "D",
+                  "id": 44002,
+                  "text": "7.005",
+                  "is_correct": false
+                }
+              ],
+              "correct_option_ids": [
+                44004
+              ],
+              "correct_option_labels": [
+                "C"
+              ],
+              "correct_option_texts": [
+                "7.0"
+              ],
+              "explanation": "Ammonium acetate is a salt of weak acid and weak base.\npH = 1/2[pK_w + pK_a - pKb].\n$ = 1/2[14 - \\log (1.8 \\times {10^{ - 5}}) + \\log (1.8 \\times {10^{ - 5}}) = 7.0$"
+            },
+            {
+              "questionID": 22202,
+              "question": "Which of the following options will be correct for the stage of half completion of the reaction A $ \\rightleftharpoons $ B.",
+              "question_raw": "<p>Which of the following options will be correct for the stage of half completion of the reaction A <span class=\"math-tex\">{tex} \\rightleftharpoons {/tex}</span> B.</p>",
+              "options": [
+                {
+                  "label": "A",
+                  "id": 44007,
+                  "text": "$\\Delta {{\\text{G}}^0} > {\\text{ }}0$",
+                  "is_correct": false
+                },
+                {
+                  "label": "B",
+                  "id": 44006,
+                  "text": "$\\Delta {{\\text{G}}^0} = {\\text{ }}0$",
+                  "is_correct": true
+                },
+                {
+                  "label": "C",
+                  "id": 44008,
+                  "text": "$\\Delta {{\\text{G}}^0} < {\\text{ }}0$",
+                  "is_correct": false
+                },
+                {
+                  "label": "D",
+                  "id": 44009,
+                  "text": "$\\Delta {G^0} = - RT{\\ln _2}$",
+                  "is_correct": false
+                }
+              ],
+              "correct_option_ids": [
+                44006
+              ],
+              "correct_option_labels": [
+                "B"
+              ],
+              "correct_option_texts": [
+                "$\\Delta {{\\text{G}}^0} = {\\text{ }}0$"
+              ],
+              "explanation": "we know that $\\Delta {G^0} = - RT\\ln K$\nfor the stage of half completion of the reaction A $ \\rightleftharpoons $ B.\nTherefore K = 1\n[A] = [B]\n$\\Delta {G^0} = - RT\\ln 1$\n$\\Delta {G^0} = 0$"
+            },
+            {
+              "questionID": 22203,
+              "question": "On increasing the pressure, in which direction will the gas phase reaction proceed to re-establish equilibrium is predicted by applying the Le Chatelier’s principle. Consider the reaction. ${N_2}(g) + 3{H_2}(g) \\rightleftharpoons 2N{H_3}$ (g) Which of the following is correct, if the total pressure at which the equilibrium is established, is increased without changing the temperature?",
+              "question_raw": "<p>On increasing the pressure, in which direction will the gas phase reaction proceed to re-establish equilibrium is predicted by applying the Le Chatelier&rsquo;s principle. Consider the reaction. <span class=\"math-tex\">{tex}{N_2}(g) + 3{H_2}(g) \\rightleftharpoons 2N{H_3}{/tex}</span> (g) Which of the following is correct, if the total pressure at which the equilibrium is established, is increased without changing the temperature?</p>",
+              "options": [
+                {
+                  "label": "A",
+                  "id": 44013,
+                  "text": "K will increase initially and decrease when pressure is very high",
+                  "is_correct": false
+                },
+                {
+                  "label": "B",
+                  "id": 44011,
+                  "text": "K will decrease",
+                  "is_correct": false
+                },
+                {
+                  "label": "C",
+                  "id": 44010,
+                  "text": "K will remain same",
+                  "is_correct": true
+                },
+                {
+                  "label": "D",
+                  "id": 44012,
+                  "text": "K will increase",
+                  "is_correct": false
+                }
+              ],
+              "correct_option_ids": [
+                44010
+              ],
+              "correct_option_labels": [
+                "C"
+              ],
+              "correct_option_texts": [
+                "K will remain same"
+              ],
+              "explanation": "In the reaction $Na(g) + 3{H_2}(g) \\rightleftharpoons 2N{H_3}(g)$\nAccording to the the Le Chatelier’s principle, at constant temperture, the equilibrium constant will change but K will remain same."
+            },
+            {
+              "questionID": 22204,
+              "question": "What will be the correct order of vapour pressure of water, acetone and ether At ${\\text{3}}0^\\circ {\\text{C}}$. Given that among these compounds, water has maximum boiling point and ether has minimum boiling point?",
+              "question_raw": "<p>What will be the correct order of vapour pressure of water, acetone and ether At <span class=\"math-tex\">{tex}{\\text{3}}0^\\circ {\\text{C}}{/tex}</span>. Given that among these compounds, water has maximum boiling point and ether has minimum boiling point?</p>",
+              "options": [
+                {
+                  "label": "A",
+                  "id": 44017,
+                  "text": "Acetone < ether < water",
+                  "is_correct": false
+                },
+                {
+                  "label": "B",
+                  "id": 44016,
+                  "text": "Ether < acetone < water",
+                  "is_correct": false
+                },
+                {
+                  "label": "C",
+                  "id": 44014,
+                  "text": "Water < ether < acetone",
+                  "is_correct": false
+                },
+                {
+                  "label": "D",
+                  "id": 44015,
+                  "text": "Water < acetone < ether",
+                  "is_correct": true
+                }
+              ],
+              "correct_option_ids": [
+                44015
+              ],
+              "correct_option_labels": [
+                "D"
+              ],
+              "correct_option_texts": [
+                "Water < acetone < ether"
+              ],
+              "explanation": "Greater the boiling point, less is the vapour pressure. Hence, the correct order of vapour pressure will be water < acetone < ether."
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "testPaperID": 964,
+      "testPaperName": "Equilibrium CBSE Online Test 04",
+      "is_paid": true,
+      "category_full_name": "CBSE > Class 11 > Chemistry > Equilibrium",
+      "noOfQuestions": 15,
+      "has_answers": true,
+      "sections": [
+        {
+          "sectionName": "General",
+          "sectionID": null,
+          "questions": [
+            {
+              "questionID": 22205,
+              "question": "At 500 K, equilibrium constant, ${{\\text{K}}_{\\text{c}}}$, for the following reaction is 5.2. $\\frac{1}{2}{{\\text{H}}_{\\text{2}}}\\left( {\\text{g}} \\right) + \\frac{1}{2}{\\text{ }}{{\\text{I}}_{\\text{2}}}\\left( {\\text{g}} \\right) \\rightleftharpoons $ HI (g) What would be the equilibrium constant Kc for the reaction $2HI(g) \\rightleftharpoons {H_2}(g) + {I_2}(g)$",
+              "question_raw": "<p>At 500 K, equilibrium constant, <span class=\"math-tex\">{tex}{{\\text{K}}_{\\text{c}}}{/tex}</span>, for the following reaction is 5.2. <span class=\"math-tex\">{tex}\\frac{1}{2}{{\\text{H}}_{\\text{2}}}\\left( {\\text{g}} \\right) + \\frac{1}{2}{\\text{ }}{{\\text{I}}_{\\text{2}}}\\left( {\\text{g}} \\right) \\rightleftharpoons {/tex}</span> HI (g) What would be the equilibrium constant Kc for the reaction <span class=\"math-tex\">{tex}2HI(g) \\rightleftharpoons {H_2}(g) + {I_2}(g){/tex}</span></p>",
+              "options": [
+                {
+                  "label": "A",
+                  "id": 44019,
+                  "text": "0.4",
+                  "is_correct": false
+                },
+                {
+                  "label": "B",
+                  "id": 44018,
+                  "text": "0.04",
+                  "is_correct": true
+                },
+                {
+                  "label": "C",
+                  "id": 44021,
+                  "text": "2.5",
+                  "is_correct": false
+                },
+                {
+                  "label": "D",
+                  "id": 44020,
+                  "text": "25",
+                  "is_correct": false
+                }
+              ],
+              "correct_option_ids": [
+                44018
+              ],
+              "correct_option_labels": [
+                "B"
+              ],
+              "correct_option_texts": [
+                "0.04"
+              ],
+              "explanation": "The second equation can be obtained by reversing the 1st reaction. \n${K_1} = [HI]/{[{H_2}]^{1/2}} \\times {[12]^{1/2}}$\nsqurare the equation\n${K_1} = {[HI]^2}/[{H_2}] \\times [{I_2}]$ ......... (1)\n${K_2} = [{H_2}] \\times [{I_2}[/[HI]$ ......... (2)\nFrom eq (1) and (2)\n${({K_1})_2} = 1/{K_2}$\n(5.2)^2 = 1/K_2\nK_2 = 1/27.04 = 0.0369"
+            },
+            {
+              "questionID": 22206,
+              "question": "In which of the following reactions, the equilibrium remains unaffected on addition of small amount of argon at constant volume?",
+              "question_raw": "<p>In which of the following reactions, the equilibrium remains unaffected on addition of small amount of argon at constant volume?</p>",
+              "options": [
+                {
+                  "label": "A",
+                  "id": 44024,
+                  "text": "${N_2}(g) + 3{H_2}(g) \\rightleftharpoons 2N{H_3}(g)$",
+                  "is_correct": false
+                },
+                {
+                  "label": "B",
+                  "id": 44022,
+                  "text": "H_2 (g) + I_2 (g) $ \\rightleftharpoons $ 2HI (g)",
+                  "is_correct": true
+                },
+                {
+                  "label": "C",
+                  "id": 44023,
+                  "text": "${\\text{PC}}{{\\text{l}}_{\\text{5}}}\\left( {\\text{g}} \\right)$ $ \\rightleftharpoons $ PCl_3 (g) + Cl_2 (g)",
+                  "is_correct": false
+                },
+                {
+                  "label": "D",
+                  "id": 44025,
+                  "text": "The equilibrium will remain unaffected in all the three cases.",
+                  "is_correct": false
+                }
+              ],
+              "correct_option_ids": [
+                44022
+              ],
+              "correct_option_labels": [
+                "B"
+              ],
+              "correct_option_texts": [
+                "H_2 (g) + I_2 (g) $ \\rightleftharpoons $ 2HI (g)"
+              ],
+              "explanation": "For addition of inert gas at constant pressure, the reaction having same number of moles in reactant and product side will not go any change in the position of equilibrium.\nH_2 (g) + I_2 (g) $ \\rightleftharpoons $ 2HI (g)\nThe equilibrium constant will be affected on addition of inert gas in all the three cases."
+            },
+            {
+              "questionID": 22207,
+              "question": "For the reaction N_2O_4(g) $ \\rightleftharpoons $ 2NO2(g), the value of K is 50 at 400 K and 1700 at 500 K. Which of the following option is incorrect?",
+              "question_raw": "<p>For the reaction N<sub>2</sub>O<sub>4</sub>(g) <span class=\"math-tex\">{tex} \\rightleftharpoons {/tex}</span>&nbsp;2NO2(g), the value of K is 50 at 400 K and 1700 at 500 K. Which of the following option is incorrect?</p>",
+              "options": [
+                {
+                  "label": "A",
+                  "id": 44028,
+                  "text": "If NO_2 (g) and N_2O_4 (g) are mixed at 400 K at partial pressures 20 bar and 2 bar respectively, more N_2O_4 (g) will be formed.",
+                  "is_correct": false
+                },
+                {
+                  "label": "B",
+                  "id": 44029,
+                  "text": "The entropy of the system increases.",
+                  "is_correct": false
+                },
+                {
+                  "label": "C",
+                  "id": 44027,
+                  "text": "The reaction is endothermic.",
+                  "is_correct": false
+                },
+                {
+                  "label": "D",
+                  "id": 44026,
+                  "text": "The reaction is exothermic.",
+                  "is_correct": true
+                }
+              ],
+              "correct_option_ids": [
+                44026
+              ],
+              "correct_option_labels": [
+                "D"
+              ],
+              "correct_option_texts": [
+                "The reaction is exothermic."
+              ],
+              "explanation": "As the value of K increases with an increase in temperature and K = K_f / K_b._ This means that K_f increases, i.e. forward reaction is favoured. Hence, the reaction is endothermic."
+            },
+            {
+              "questionID": 22208,
+              "question": "At a particular temperature and atmospheric pressure, the solid and liquid phases of a pure substance can exist in equilibrium. Which of the following term defines this temperature?",
+              "question_raw": "<p>At a particular temperature and atmospheric pressure, the solid and liquid phases of a pure substance can exist in equilibrium. Which of the following term defines this temperature?</p>",
+              "options": [
+                {
+                  "label": "A",
+                  "id": 44033,
+                  "text": "Phase change temperature",
+                  "is_correct": false
+                },
+                {
+                  "label": "B",
+                  "id": 44030,
+                  "text": "Normal melting point and Freezing point",
+                  "is_correct": true
+                },
+                {
+                  "label": "C",
+                  "id": 44032,
+                  "text": "Boiling point",
+                  "is_correct": false
+                },
+                {
+                  "label": "D",
+                  "id": 44031,
+                  "text": "Equilibrium temperature",
+                  "is_correct": false
+                }
+              ],
+              "correct_option_ids": [
+                44030
+              ],
+              "correct_option_labels": [
+                "B"
+              ],
+              "correct_option_texts": [
+                "Normal melting point and Freezing point"
+              ],
+              "explanation": "These are normal melting point and freezing point since they are measured at atmospheric pressure."
+            },
+            {
+              "questionID": 22209,
+              "question": "The ionisation of hydrochloric in water is given below:\n${\\text{HCl }}\\left( {{\\text{aq}}} \\right){\\text{ }} + {\\text{ }}{{\\text{H}}_{\\text{2}}}{\\text{O }}\\left( {\\text{l}} \\right)$ $ \\rightleftharpoons $ $\\begin{array}{l}H_3O^+\\:+\\;Cl^-\\\\\\end{array}$\nLabel two conjugate acid-base pairs respectively in the ionization.",
+              "question_raw": "<p>The ionisation of hydrochloric in water is given below:<br />\n<span class=\"math-tex\">{tex}{\\text{HCl }}\\left( {{\\text{aq}}} \\right){\\text{ }} + {\\text{ }}{{\\text{H}}_{\\text{2}}}{\\text{O }}\\left( {\\text{l}} \\right){/tex}</span> <span class=\"math-tex\">{tex} \\rightleftharpoons {/tex}</span> <span class=\"math-tex\">{tex}\\begin{array}{l}H_3O^+\\:+\\;Cl^-\\\\\\end{array}{/tex}</span><br />\nLabel two conjugate acid-base pairs respectively in the ionization.</p>",
+              "options": [
+                {
+                  "label": "A",
+                  "id": 44037,
+                  "text": "HCl, H_3O^+and H_3O^+ ,Cl^-",
+                  "is_correct": false
+                },
+                {
+                  "label": "B",
+                  "id": 44036,
+                  "text": "H_2O, Cl^- and H_3O^+ ,HCl",
+                  "is_correct": false
+                },
+                {
+                  "label": "C",
+                  "id": 44034,
+                  "text": "HCl, Cl^- and^ H_2O, H_3O^+ .",
+                  "is_correct": true
+                },
+                {
+                  "label": "D",
+                  "id": 44035,
+                  "text": "H_3O,Cl^- and HCl, H_2O.",
+                  "is_correct": false
+                }
+              ],
+              "correct_option_ids": [
+                44034
+              ],
+              "correct_option_labels": [
+                "C"
+              ],
+              "correct_option_texts": [
+                "HCl, Cl^- and^ H_2O, H_3O^+ ."
+              ],
+              "explanation": "A species formed by receiving a proton from a base is known as conjugate acid and Conjugate base is a species formed by the removal of proton from an acid.\nIn this case, Cl^​​​​​- is formed by donating a proton to water molecule hence it is a conjugate base while protonated water (H_3O^+)becomes conjugate acid."
+            },
+            {
+              "questionID": 22210,
+              "question": "For the reaction H_2(g) + I_2(g) $ \\Leftrightarrow $ 2HI (g), the standard free energy is $\\Delta$G^⊖ > 0. The equilibrium constant (K ) would be __________.",
+              "question_raw": "<p>For the reaction H<sub>2</sub>(g) + I<sub>2</sub>(g) <span class=\"math-tex\">{tex} \\Leftrightarrow {/tex}</span> 2HI (g), the standard free energy is <span class=\"math-tex\">{tex}\\Delta{/tex}</span>G<sup>⊖</sup>&nbsp;&gt; 0. The equilibrium constant (K ) would be __________.</p>",
+              "options": [
+                {
+                  "label": "A",
+                  "id": 44039,
+                  "text": "K = 0",
+                  "is_correct": false
+                },
+                {
+                  "label": "B",
+                  "id": 44041,
+                  "text": "K = 1",
+                  "is_correct": false
+                },
+                {
+                  "label": "C",
+                  "id": 44038,
+                  "text": "K < 1",
+                  "is_correct": true
+                },
+                {
+                  "label": "D",
+                  "id": 44040,
+                  "text": "K > 1",
+                  "is_correct": false
+                }
+              ],
+              "correct_option_ids": [
+                44038
+              ],
+              "correct_option_labels": [
+                "C"
+              ],
+              "correct_option_texts": [
+                "K < 1"
+              ],
+              "explanation": "The given reaction is:\n$H_{2}(g)+I_{2}(g) \\rightleftharpoons 2 H I(g); \\triangle G^{0}=0$\nBy, thermodynamical view of equilibrium, $\\Delta G^{0}=-R T \\ln K>0$\nfree energy\n$ \\Rightarrow$ −RTlnK>0\nNow, R>0&T>0\n$ \\Rightarrow$ −lnK>0\n$ \\Rightarrow$ K<1"
+            },
+            {
+              "questionID": 22211,
+              "question": "BF_3 does not have a proton but still acts as an acid and reacts with NH_3. Choose the correct option.",
+              "question_raw": "<p>BF<sub>3&nbsp;</sub>does not have a proton but still acts as an acid and reacts with NH<sub>3</sub>. Choose the correct option.</p>",
+              "options": [
+                {
+                  "label": "A",
+                  "id": 44043,
+                  "text": "BF_3 is a Lewis base and coordinate bond is formed.",
+                  "is_correct": false
+                },
+                {
+                  "label": "B",
+                  "id": 44042,
+                  "text": "BF_3 acts as Lewis acid and coordinate bond is formed.",
+                  "is_correct": true
+                },
+                {
+                  "label": "C",
+                  "id": 44044,
+                  "text": "BF_3 is a Brönsted acid and coordinate bond is formed.",
+                  "is_correct": false
+                },
+                {
+                  "label": "D",
+                  "id": 44045,
+                  "text": "BF_3 is a Brönsted base and coordinate bond is formed.",
+                  "is_correct": false
+                }
+              ],
+              "correct_option_ids": [
+                44042
+              ],
+              "correct_option_labels": [
+                "B"
+              ],
+              "correct_option_texts": [
+                "BF_3 acts as Lewis acid and coordinate bond is formed."
+              ],
+              "explanation": "BF_3 is an electron-deficient compound. Hence, it acts as Lewis acid.\nNH_3 has a lone pair of electrons. Hence, it acts as a Lewis base.\nA coordinate bond is formed between the two, as the nitrogen atom of ammonia acts as an electron donor, while B of BF_3 acts as an electron acceptor.\nH_3N: $\\rightarrow$ BF_3"
+            },
+            {
+              "questionID": 22212,
+              "question": "0.3g of Ca(OH)_2 is dissolved in water to give 500 mL of solution. The pH of the solution is ________.",
+              "question_raw": "<p>0.3g of Ca(OH)<sub>2</sub>&nbsp;is dissolved in water to give 500 mL of solution. The pH of the solution is ________.</p>",
+              "options": [
+                {
+                  "label": "A",
+                  "id": 44046,
+                  "text": "12.33",
+                  "is_correct": true
+                },
+                {
+                  "label": "B",
+                  "id": 44049,
+                  "text": "14.027",
+                  "is_correct": false
+                },
+                {
+                  "label": "C",
+                  "id": 44047,
+                  "text": "10.099",
+                  "is_correct": false
+                },
+                {
+                  "label": "D",
+                  "id": 44048,
+                  "text": "11.053",
+                  "is_correct": false
+                }
+              ],
+              "correct_option_ids": [
+                44046
+              ],
+              "correct_option_labels": [
+                "A"
+              ],
+              "correct_option_texts": [
+                "12.33"
+              ],
+              "explanation": "Molarity=$\\;\\frac{mass\\;of\\;Ca(OH)_2\\times1000}{Molar\\;mass\\;\\times Volume}=\\frac{0.3\\times1000}{56\\times500}=$ 0.0107M\nThe chemical reaction involved are, CaO + H_2O = Ca(OH)_2\nHere, Ca(OH)_2 = Ca^2+ + 2OH^-\nConcentration of OH^- = 2[OH^-] = 2 $\\times$ 0.0107 = 0.0214M\nNow,\nK_w = [H_3O^+][OH^-] ${ \\Rightarrow [{H_3}{O^ + }] = \\frac{{{K_w}}}{{[O{H^ - }]}} = \\frac{{{{10}^{ - 14}}}}{{0.0214}}}$ = 46.27 $\\times$ 10^-14\nTherefore, pH = -log[H_3O^+] = - log [46.27 $\\times$ 10^-14] = 12.33"
+            },
+            {
+              "questionID": 22213,
+              "question": "Calculate the hydrogen ion concentration in the human blood whose pH is 7.38.",
+              "question_raw": "<p>Calculate the hydrogen ion concentration in the human blood whose pH is 7.38.</p>",
+              "options": [
+                {
+                  "label": "A",
+                  "id": 44050,
+                  "text": "4.17 $\\times$ 10^-8 M",
+                  "is_correct": true
+                },
+                {
+                  "label": "B",
+                  "id": 44051,
+                  "text": "6.33 $\\times$ 10^18 M",
+                  "is_correct": false
+                },
+                {
+                  "label": "C",
+                  "id": 44053,
+                  "text": "5.16 $\\times$ 10^-8 M",
+                  "is_correct": false
+                },
+                {
+                  "label": "D",
+                  "id": 44052,
+                  "text": "3.19 $\\times$ 10^-8 M",
+                  "is_correct": false
+                }
+              ],
+              "correct_option_ids": [
+                44050
+              ],
+              "correct_option_labels": [
+                "A"
+              ],
+              "correct_option_texts": [
+                "4.17 $\\times$ 10^-8 M"
+              ],
+              "explanation": "pH = -log[H^+]\n7.38 = -log[H^+]\n$\\log\\lbrack H^+\\rbrack\\;=-7.38=\\overset-8.62$\nTaking antilog on both sides, we get [H^+] = 4.17 $\\times$ 10^-8 M"
+            },
+            {
+              "questionID": 22214,
+              "question": "The ionization constant of acetic acid is $1.74 \\times {10^{ - 5}}$. Calculate the degree of dissociation of acetic acid in its 0.05 M solution. Calculate the concentration of acetate ion in the solution and its pH.",
+              "question_raw": "<p>The ionization constant of acetic acid is&nbsp;<span class=\"math-tex\">{tex}1.74 \\times {10^{ - 5}}{/tex}</span>. Calculate the degree of dissociation of acetic acid in its 0.05 M solution. Calculate the concentration of acetate ion in the solution and its pH.</p>",
+              "options": [
+                {
+                  "label": "A",
+                  "id": 44055,
+                  "text": "0.00193M and pH 3.03",
+                  "is_correct": false
+                },
+                {
+                  "label": "B",
+                  "id": 44056,
+                  "text": "0.00203M and pH 3.03",
+                  "is_correct": false
+                },
+                {
+                  "label": "C",
+                  "id": 44054,
+                  "text": "0.00093M and pH 3.03",
+                  "is_correct": true
+                },
+                {
+                  "label": "D",
+                  "id": 44057,
+                  "text": "0.00013M and pH 3.03",
+                  "is_correct": false
+                }
+              ],
+              "correct_option_ids": [
+                44054
+              ],
+              "correct_option_labels": [
+                "C"
+              ],
+              "correct_option_texts": [
+                "0.00093M and pH 3.03"
+              ],
+              "explanation": "$\\alpha=\\sqrt{\\frac{K_a}C}$\nHere, C=0.05M,\n $K_a=1.74\\times10^{-5}$\n$\\alpha = {\\left\\{ {\\frac{{1.74 \\times {{10}^{ - 5}}}}{{0.05}}} \\right\\}^{1/2}}$ $\\alpha = {\\{ 1.74 \\times {10^{ - 5}}/0.05\\} ^{1/2}}$\n$\\alpha = [34.8 \\times {10^{ - 5}}]$\n$\\alpha = (3.48)1/2 \\times {10^{ - 4}}$\n$\\alpha = 1.86 \\times {10^{ - 2}}$\nCH_3COOH = CH_3COO^- + H^+\nConcentration of $C{H_3}CO{O^ - } = C\\alpha $\n$ = 0.05 \\times 1.86 \\times {10^{ - 2}} = 0.093 \\times {10^{ - 2}} = 0.00093M$\nSince [CH_3COO^-] = [H^+]\n[H^+] = 0.00093 = $0.093 \\times {10^{ - 2}}$\n$pH = - \\log [{H^ + }] = - \\log [0.093 \\times {10^{ - 2}}]$\npH = -[log(0.093) + (-2)log10]\n$pH = 3.03$"
+            },
+            {
+              "questionID": 22215,
+              "question": "It has been found that the pH of a 0.01M solution of an organic acid is 4.15. Calculate the ionization constant of the acid, the concentration of the anion, and its pK_a.",
+              "question_raw": "<p>It has been found that the pH of a 0.01M solution of an organic acid is 4.15. Calculate the ionization constant of the acid,&nbsp; the concentration of the anion, and its pK<sub>a</sub>.</p>",
+              "options": [
+                {
+                  "label": "A",
+                  "id": 44061,
+                  "text": "K_a = 5.01 $\\times$ 10^-7, [A^-] = 7.08 $\\times$ 10^-5 and pK_a = 5.3007",
+                  "is_correct": false
+                },
+                {
+                  "label": "B",
+                  "id": 44060,
+                  "text": "K_a = 5.01 $\\times$ 10^-7, [A^-] = 7.99 $\\times$ 10^-5 and pK_a = 7.5009",
+                  "is_correct": false
+                },
+                {
+                  "label": "C",
+                  "id": 44059,
+                  "text": "K_a = 5.01 $\\times$ 10^-7, [A^-] = 7.39 $\\times$ 10^-5 and pK_a = 6.3001",
+                  "is_correct": false
+                },
+                {
+                  "label": "D",
+                  "id": 44058,
+                  "text": "K_a = 5.01 $\\times$ 10^-7, [A^-] = 7.08 $\\times$ 10^-5 and pK_a = 6.3001",
+                  "is_correct": true
+                }
+              ],
+              "correct_option_ids": [
+                44058
+              ],
+              "correct_option_labels": [
+                "D"
+              ],
+              "correct_option_texts": [
+                "K_a = 5.01 $\\times$ 10^-7, [A^-] = 7.08 $\\times$ 10^-5 and pK_a = 6.3001"
+              ],
+              "explanation": "pH = -log[H^+]\n4.15 = -log[H^+]\n[H^+] = 7.08 $\\times$ 10^-5 = [A^-]\nK_a = [H^+][A^-][HA]\nK_a = 5.01 $\\times$ 10^-7\npK_a = - log [5.01 $\\times$ 10^-7] = 6.3001"
+            },
+            {
+              "questionID": 22216,
+              "question": "If in the reaction ${{\\text{N}}_{\\text{2}}}{{\\text{O}}_{\\text{4}}}$ $ \\rightleftharpoons $ ${\\text{2N}}{{\\text{O}}_{\\text{2}}},{\\text{ x}}$ is that part of ${{\\text{N}}_{\\text{2}}}{{\\text{O}}_{\\text{4}}}$which dissociates, then the number of molecules at equilibrium will be",
+              "question_raw": "<p>If in the reaction <span class=\"math-tex\">{tex}{{\\text{N}}_{\\text{2}}}{{\\text{O}}_{\\text{4}}}{/tex}</span>&nbsp;<span class=\"math-tex\">{tex} \\rightleftharpoons {/tex}</span>&nbsp;<span class=\"math-tex\">{tex}{\\text{2N}}{{\\text{O}}_{\\text{2}}},{\\text{ x}}{/tex}</span> is that part of <span class=\"math-tex\">{tex}{{\\text{N}}_{\\text{2}}}{{\\text{O}}_{\\text{4}}}{/tex}</span>which dissociates, then the number of molecules at equilibrium will be</p>",
+              "options": [
+                {
+                  "label": "A",
+                  "id": 44062,
+                  "text": "1 + x",
+                  "is_correct": true
+                },
+                {
+                  "label": "B",
+                  "id": 44064,
+                  "text": "1",
+                  "is_correct": false
+                },
+                {
+                  "label": "C",
+                  "id": 44065,
+                  "text": "${\\left( {{\\text{1 }} + {\\text{ xy}}} \\right)^{\\text{2}}}$",
+                  "is_correct": false
+                },
+                {
+                  "label": "D",
+                  "id": 44063,
+                  "text": "3",
+                  "is_correct": false
+                }
+              ],
+              "correct_option_ids": [
+                44062
+              ],
+              "correct_option_labels": [
+                "A"
+              ],
+              "correct_option_texts": [
+                "1 + x"
+              ],
+              "explanation": "N_2O_4 $\\rightleftharpoons$ 2NO_2 \n t = 0\r\n 1\r\n 0\r\n t = t\r\n 1 - x\r\n 2x\r\ntotal moles at eqm(t = t) = 1 - x + 2x = 1+ x"
+            },
+            {
+              "questionID": 22217,
+              "question": "The K_sp for Cr(OH)_3 is 1.6 $\\times$ 10^-30. The molar solubility of this compound in water is:",
+              "question_raw": "<p>The K<sub>sp</sub> for Cr(OH)<sub>3</sub>&nbsp;is&nbsp;1.6 <span class=\"math-tex\">{tex}\\times{/tex}</span> 10<sup>-30</sup>. The molar solubility of this compound in water is:</p>",
+              "options": [
+                {
+                  "label": "A",
+                  "id": 44069,
+                  "text": "${\\text{1}}.{\\text{6 }} \\times {\\text{ 1}}{0^{-{\\text{3}}0}}/{\\text{27}}$",
+                  "is_correct": false
+                },
+                {
+                  "label": "B",
+                  "id": 44067,
+                  "text": "$\\sqrt[2]{{1.6 \\times {{10}^{ - 30}}}}$",
+                  "is_correct": false
+                },
+                {
+                  "label": "C",
+                  "id": 44066,
+                  "text": "$\\sqrt[4]{{1.6 \\times {{10}^{ - 30}}/27}}$",
+                  "is_correct": true
+                },
+                {
+                  "label": "D",
+                  "id": 44068,
+                  "text": "$\\sqrt[4]{{1.6 \\times {{10}^{ - 30}}}}$",
+                  "is_correct": false
+                }
+              ],
+              "correct_option_ids": [
+                44066
+              ],
+              "correct_option_labels": [
+                "C"
+              ],
+              "correct_option_texts": [
+                "$\\sqrt[4]{{1.6 \\times {{10}^{ - 30}}/27}}$"
+              ],
+              "explanation": "$\\begin{array}{l}Cr(OH)_3=Cr^{3+}+3\\;OH^-\\\\\\;\\;\\;\\;\\;\\;\\;\\;\\;\\;\\;\\;\\;\\;\\;\\;\\;\\;\\;\\;\\;s\\;\\;\\;\\;\\;\\;\\;\\;\\;\\;\\;3s\\end{array}$\nK_sp = (s)(3s)^3 = 27s^4\n^Now, 1.6 $\\times$ 10^-30 = 27s^4\n${ \\Rightarrow {s^4} = \\frac{{1.6 \\times {{10}^{ - 30}}}}{{27}}}$\n${ \\Rightarrow s = \\sqrt[4]{{\\frac{{1.6 \\times {{10}^{ - 30}}}}{{27}}}}}$"
+            },
+            {
+              "questionID": 22218,
+              "question": "The pH of a saturated solution of Ba(OH)_2 is 12. The value of the solubility product (K_sp) of Ba(OH)_2 is:",
+              "question_raw": "<p>The pH of a saturated solution of Ba(OH)<sub>2</sub> is 12. The value of the solubility product (K<sub>sp</sub>) of Ba(OH)<sub>2</sub> is:</p>",
+              "options": [
+                {
+                  "label": "A",
+                  "id": 44073,
+                  "text": "4.0 $\\times$ 10^-6",
+                  "is_correct": false
+                },
+                {
+                  "label": "B",
+                  "id": 44071,
+                  "text": "5.0 $\\times$ 10 ^- 6",
+                  "is_correct": false
+                },
+                {
+                  "label": "C",
+                  "id": 44072,
+                  "text": "3.3 $\\times$ 10^- 7",
+                  "is_correct": false
+                },
+                {
+                  "label": "D",
+                  "id": 44070,
+                  "text": "5 $\\times$ 10^-7",
+                  "is_correct": true
+                }
+              ],
+              "correct_option_ids": [
+                44070
+              ],
+              "correct_option_labels": [
+                "D"
+              ],
+              "correct_option_texts": [
+                "5 $\\times$ 10^-7"
+              ],
+              "explanation": "pH + pOH = 14\npOH = 14 - 12 = 2\npOH = -log[OH^-]\nOH^- = 10 - pOH = 10^ - 2 .......... (1)\nAt equilibrium, Ba(OH)_2 = Ba^+2 + 2OH^-\nlet [OH^-] = x , therefore, From above equation; 2[OH^-] = 2x = 10 ^- 2 (from equation 1)\nTherefore $x = \\frac{{{{10}^{ - 2}}}}{2} = 0.5 \\times {10^{ - 2}}$\nK_sp = [Ba^+2] [OH^-]^2 = [0.5 $\\times$ 10^- 2[10^-2]^2 = 0.5 $\\times$ 10^- 6 = 5 $\\times$ 10^-7"
+            },
+            {
+              "questionID": 22219,
+              "question": "The solubility of ${\\text{C}}{{\\text{a}}_{\\text{3}}}{\\left( {{\\text{P}}{{\\text{O}}_{\\text{4}}}} \\right)_{\\text{2}}}$ in water is y moles/litre. Its solubility product is:",
+              "question_raw": "<p>The solubility of <span class=\"math-tex\">{tex}{\\text{C}}{{\\text{a}}_{\\text{3}}}{\\left( {{\\text{P}}{{\\text{O}}_{\\text{4}}}} \\right)_{\\text{2}}}{/tex}</span> in water is y moles/litre. Its solubility product is:</p>",
+              "options": [
+                {
+                  "label": "A",
+                  "id": 44077,
+                  "text": "6y^4",
+                  "is_correct": false
+                },
+                {
+                  "label": "B",
+                  "id": 44075,
+                  "text": "36y^4",
+                  "is_correct": false
+                },
+                {
+                  "label": "C",
+                  "id": 44076,
+                  "text": "64y^5",
+                  "is_correct": false
+                },
+                {
+                  "label": "D",
+                  "id": 44074,
+                  "text": "108y^5",
+                  "is_correct": true
+                }
+              ],
+              "correct_option_ids": [
+                44074
+              ],
+              "correct_option_labels": [
+                "D"
+              ],
+              "correct_option_texts": [
+                "108y^5"
+              ],
+              "explanation": "$\\mathop {C{a_3}}\\limits_y {\\left( {P{O_4}} \\right)_2} = \\mathop {3C{a^{2 + }}}\\limits_{3y} + \\mathop {2PO_4^{3 - }}\\limits_{2y} $ \nSolubility product = $K_{sp}=\\;\\lbrack Ca^{{}_{2+}}\\rbrack^3\\lbrack PO_4^{3-}\\rbrack^2\\;=(3y)^3\\;(2y)^2\\;=108y^5$"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "testPaperID": 965,
+      "testPaperName": "Equilibrium CBSE Online Test 05",
+      "is_paid": true,
+      "category_full_name": "CBSE > Class 11 > Chemistry > Equilibrium",
+      "noOfQuestions": 15,
+      "has_answers": true,
+      "sections": [
+        {
+          "sectionName": "General",
+          "sectionID": null,
+          "questions": [
+            {
+              "questionID": 22220,
+              "question": "Consider the following gaseous equilibria with equilibrium constants k_1 and k_2 respectively.\n${\\text{S}}{{\\text{O}}_{{\\text{2}}({\\text{g}})}} + \\frac{1}{2}{{\\text{O}}_{{\\text{2}}({\\text{g}})}}$ $\\rightleftharpoons $ ${\\text{S}}{{\\text{O}}_{{\\text{3}}({\\text{g}})}}$\n${\\text{2S}}{{\\text{O}}_{{\\text{3}}({\\text{g}})}}$$\\rightleftharpoons $${\\text{2S}}{{\\text{O}}_{{\\text{2}}({\\text{g}})}} + {\\text{ }}{{\\text{O}}_{{\\text{2}}({\\text{g}})}}$\nThe equilibrium constants are related as ______.",
+              "question_raw": "<p>Consider the following gaseous equilibria with equilibrium constants k<sub>1</sub> and k<sub>2</sub> respectively.<br />\r\n<span class=\"math-tex\">{tex}{\\text{S}}{{\\text{O}}_{{\\text{2}}({\\text{g}})}} + \\frac{1}{2}{{\\text{O}}_{{\\text{2}}({\\text{g}})}}{/tex}</span> <span class=\"math-tex\">{tex}\\rightleftharpoons {/tex}</span>&nbsp;<span class=\"math-tex\">{tex}{\\text{S}}{{\\text{O}}_{{\\text{3}}({\\text{g}})}}{/tex}</span><br />\r\n<span class=\"math-tex\">{tex}{\\text{2S}}{{\\text{O}}_{{\\text{3}}({\\text{g}})}}{/tex}</span><span class=\"math-tex\">{tex}\\rightleftharpoons {/tex}</span><span class=\"math-tex\">{tex}{\\text{2S}}{{\\text{O}}_{{\\text{2}}({\\text{g}})}} + {\\text{ }}{{\\text{O}}_{{\\text{2}}({\\text{g}})}}{/tex}</span><br />\r\nThe equilibrium constants are related as ______.</p>",
+              "options": [
+                {
+                  "label": "A",
+                  "id": 44081,
+                  "text": "${K_2} = \\frac{2}{{\\mathop K\\nolimits_1^2 }}$",
+                  "is_correct": false
+                },
+                {
+                  "label": "B",
+                  "id": 44078,
+                  "text": "$\\mathop K\\nolimits_1^2 = \\frac{1}{{{K_2}}} $",
+                  "is_correct": true
+                },
+                {
+                  "label": "C",
+                  "id": 44079,
+                  "text": "$2{K_1} = \\mathop K\\nolimits_2^2 $",
+                  "is_correct": false
+                },
+                {
+                  "label": "D",
+                  "id": 44080,
+                  "text": "$\\mathop K\\nolimits_2^2 = \\frac{1}{{{K_1}}}$",
+                  "is_correct": false
+                }
+              ],
+              "correct_option_ids": [
+                44078
+              ],
+              "correct_option_labels": [
+                "B"
+              ],
+              "correct_option_texts": [
+                "$\\mathop K\\nolimits_1^2 = \\frac{1}{{{K_2}}} $"
+              ],
+              "explanation": "Here, $K_1=\\frac{\\left[SO_3\\;(g)\\right]}{\\left[O_2(g)\\right]^{1/2}\\left[SO_2(g)\\right]}$ ......(1)\n$K_2=\\frac{\\left[SO_2\\;(g)\\right]^2\\left[O_2(g)\\right]}{\\left[SO_3(g)\\right]^2}$ ......... (2)\nSquare the equation (1) and equal the eq (1) and (2), we get: K_2 = 1/(K_1)^2"
+            },
+            {
+              "questionID": 22221,
+              "question": "0.023 g of sodium metal is reacted with 100 cm^3 of water. The pH of the resulting solution is ______.",
+              "question_raw": "<p>0.023 g of sodium metal is reacted with 100 cm<sup>3</sup> of water. The pH of the resulting solution is ______.</p>",
+              "options": [
+                {
+                  "label": "A",
+                  "id": 44084,
+                  "text": "9",
+                  "is_correct": false
+                },
+                {
+                  "label": "B",
+                  "id": 44082,
+                  "text": "12",
+                  "is_correct": true
+                },
+                {
+                  "label": "C",
+                  "id": 44085,
+                  "text": "10",
+                  "is_correct": false
+                },
+                {
+                  "label": "D",
+                  "id": 44083,
+                  "text": "8",
+                  "is_correct": false
+                }
+              ],
+              "correct_option_ids": [
+                44082
+              ],
+              "correct_option_labels": [
+                "B"
+              ],
+              "correct_option_texts": [
+                "12"
+              ],
+              "explanation": "Moles of NaOH formed = 0.023/23 =0.001\nConcentration of NaOH = $\\frac{\\left(0.001\\right)\\times\\left(1000\\right)}{\\left(100\\right)}=0.01$M\npOH=-log[OH-] = - log [ 0.01] = -log [10-2 ] = - (-2) log 10 = 2\nWe know that, pH + pOH =14\npH =14-2 = 12"
+            },
+            {
+              "questionID": 22222,
+              "question": "pH value of which one of the following is NOT equal to one?",
+              "question_raw": "<p>pH value of which one of the following is NOT equal to one?</p>",
+              "options": [
+                {
+                  "label": "A",
+                  "id": 44087,
+                  "text": "0.1 M HNO_3",
+                  "is_correct": false
+                },
+                {
+                  "label": "B",
+                  "id": 44089,
+                  "text": "50 cm^30.4M HCl + 50 cm^30.2 M NaOH",
+                  "is_correct": false
+                },
+                {
+                  "label": "C",
+                  "id": 44086,
+                  "text": "0.1 M CH_3COOH",
+                  "is_correct": true
+                },
+                {
+                  "label": "D",
+                  "id": 44088,
+                  "text": "0.05 MH_2SO_4",
+                  "is_correct": false
+                }
+              ],
+              "correct_option_ids": [
+                44086
+              ],
+              "correct_option_labels": [
+                "C"
+              ],
+              "correct_option_texts": [
+                "0.1 M CH_3COOH"
+              ],
+              "explanation": "$CH_3COOH\\;+H_2O\\rightleftharpoons\\;CH_3COO^-+H_3O^+$\nSince the dissociation constant of acetic acid is so small, we can assume that the concentration of acetic acid is still approximately 0.1 M even after dissociating.\nAlso [CH_3COO^-] = [H_3O^+]\nTherefore,\n$K_a=\\frac{\\left[CH_3COO^-\\right]\\left[H_3O^+\\right]}{\\left[CH_3COOH\\right]}$\n$\\begin{array}{l}K_a=\\frac{\\left[CH_3COO^-\\right]\\left[H_3O^+\\right]}{\\left[CH_3COOH\\right]}=\\frac{\\left[H_3O^+\\right]^2}{\\left[CH_3COOH\\right]}\\\\\\Rightarrow1.7\\times10^{-5}\\;=\\frac{\\left[H_3O^+\\right]^2}{0.1}\\\\\\Rightarrow\\left[H_3O^+\\right]=\\sqrt{1.7\\times10^{-6}}\\\\\\Rightarrow\\left[H_3O^+\\right]=1.32\\times10^{-3}\\\\now,\\;pH=\\;-\\log\\left[H_3O^+\\right]=\\;-\\log1.32\\times10^{-3}\\;=2.88\\end{array}$"
+            },
+            {
+              "questionID": 22223,
+              "question": "H_2S is passed into one dm^3 of a solution containing 0.1 mole of Zn^2+ and 0.01 mole of Cu^2+ till the sulphide ion concentration reaches 8.1$\\times$10^-19 moles. Which one of the following statements is true? [K_sp of ZnS and CuS are 3 $\\times$ 10^-22 and 8 $\\times$ 10^-36 respectively]",
+              "question_raw": "<p>H<sub>2</sub>S is passed into one dm<sup>3</sup> of a solution containing 0.1 mole of Zn<sup>2+&nbsp;</sup>and 0.01 mole of Cu<sup>2+</sup> till the sulphide ion concentration reaches&nbsp;8.1<span class=\"math-tex\">{tex}\\times{/tex}</span>10<sup>-19</sup>&nbsp;moles. Which one of the following statements is true? [K<sub>sp</sub> of ZnS and CuS are&nbsp;3&nbsp;<span class=\"math-tex\">{tex}\\times{/tex}</span>&nbsp;10<sup>-22</sup>&nbsp;and&nbsp;8 <span class=\"math-tex\">{tex}\\times{/tex}</span>&nbsp;10<sup>-36</sup>&nbsp;respectively]</p>",
+              "options": [
+                {
+                  "label": "A",
+                  "id": 44090,
+                  "text": "Both CuS and ZnS precipitate",
+                  "is_correct": true
+                },
+                {
+                  "label": "B",
+                  "id": 44092,
+                  "text": "Only CuS precipitates",
+                  "is_correct": false
+                },
+                {
+                  "label": "C",
+                  "id": 44093,
+                  "text": "No precipitation occurs",
+                  "is_correct": false
+                },
+                {
+                  "label": "D",
+                  "id": 44091,
+                  "text": "Only ZnS precipitates",
+                  "is_correct": false
+                }
+              ],
+              "correct_option_ids": [
+                44090
+              ],
+              "correct_option_labels": [
+                "A"
+              ],
+              "correct_option_texts": [
+                "Both CuS and ZnS precipitate"
+              ],
+              "explanation": "Precipitation occurs only when the ionic product exceeds the value of the solubility product.\n1 dm^3 of the solution containing 0.1 mole of Zn^2+, 0.01 mole of Cu^2+, and 8.1 $\\times$ 10^-39 mole of S^2-.\nLet us calculate the ionic product in each case.\nIonic product of ZnS = [Zn^2+] [S^2-]\n0.1 $ \\times$ 8.1 $ \\times$ 10^-19 = 8.1 $ \\times$ 10^-20\nK_sp of ZnS = 3 $ \\times$ 10^-22\nHere, Ionic Product > K_sp\nIonic Product of CuS = [Cu^2+] [S^2-]\n= 0.01 $ \\times$ 8.1 $ \\times$ 10 ^- 19 = 8.1 $ \\times$ 10^-21\nBut it has K_w = 8 $ \\times$ 10^-36\nSince, Ionic product > K_sp\nAs both ZnS and CuS have less K_sp value than their ionic product so ZnS and CuS both get precipitated."
+            },
+            {
+              "questionID": 22224,
+              "question": "A vessel at 1000 K contains CO_2 with a pressure of 0.5 atm. Some of the CO_2 is converted into CO on the addition of graphite. If the total pressure at equilibrium is 0.8 atm, the value of K is ________.",
+              "question_raw": "<p>A vessel at 1000 K contains CO<sub>2</sub> with a pressure of 0.5 atm. Some of the CO<sub>2</sub> is converted into CO on the addition of graphite. If the total pressure at equilibrium is 0.8 atm, the value of K is ________.</p>",
+              "options": [
+                {
+                  "label": "A",
+                  "id": 44097,
+                  "text": "0.3 atm",
+                  "is_correct": false
+                },
+                {
+                  "label": "B",
+                  "id": 44095,
+                  "text": "0.18 atm",
+                  "is_correct": false
+                },
+                {
+                  "label": "C",
+                  "id": 44094,
+                  "text": "1.8 atm",
+                  "is_correct": true
+                },
+                {
+                  "label": "D",
+                  "id": 44096,
+                  "text": "3 atm",
+                  "is_correct": false
+                }
+              ],
+              "correct_option_ids": [
+                44094
+              ],
+              "correct_option_labels": [
+                "C"
+              ],
+              "correct_option_texts": [
+                "1.8 atm"
+              ],
+              "explanation": "CO_2 + C $\\rightarrow$ 2CO\nt = 0, 0.5, 0\nt = t, 0.5-x, 2x\nP_total = 0.5 - x + 2x = 0.8\ni.e. x = 0.3 atm\ni.e. $K = \\frac{{{{\\left( {{P_{co}}} \\right)}^2}}}{{{P_{co2}}}} = \\frac{{0.6 \\times 0.6}}{{0.2}} = 1.8atm$"
+            },
+            {
+              "questionID": 22225,
+              "question": "What is the best description of the change that occurs when Na_2O(s) is dissolved in water?",
+              "question_raw": "<p>What is the best description of the change that occurs when Na<sub>2</sub>O(s) is dissolved in water?</p>",
+              "options": [
+                {
+                  "label": "A",
+                  "id": 44101,
+                  "text": "Oxidation number of oxygen increases.",
+                  "is_correct": false
+                },
+                {
+                  "label": "B",
+                  "id": 44100,
+                  "text": "Oxide ion accepts sharing in a pair of electrons.",
+                  "is_correct": false
+                },
+                {
+                  "label": "C",
+                  "id": 44099,
+                  "text": "Oxidation number of sodium decreases.",
+                  "is_correct": false
+                },
+                {
+                  "label": "D",
+                  "id": 44098,
+                  "text": "Oxide ion donates a pair of electrons.",
+                  "is_correct": true
+                }
+              ],
+              "correct_option_ids": [
+                44098
+              ],
+              "correct_option_labels": [
+                "D"
+              ],
+              "correct_option_texts": [
+                "Oxide ion donates a pair of electrons."
+              ],
+              "explanation": "In water Na_2O dissociates as -\nNa_2O + H_2O → 2Na^+ + O_2^-\nThe oxide ion formed can form hydrogen bonds with water and is stabilized. Thus it is easy for Na_2O and all other oxides to dissolve in water as it brings about further stability in the system."
+            },
+            {
+              "questionID": 22226,
+              "question": "Conjugate acid of a weak base is always stronger. What will be the decreasing order of basic strength of the following conjugate bases? OH^-, RO^-, CH_3COO^-, Cl^-",
+              "question_raw": "<p>Conjugate acid of a weak base is always stronger. What will be the decreasing order of basic strength of the following conjugate bases? OH<sup>-</sup>, RO<sup>-</sup>, CH<sub>3</sub>COO<sup>-</sup>, Cl<sup>-</sup></p>",
+              "options": [
+                {
+                  "label": "A",
+                  "id": 44103,
+                  "text": "RO^- > OH^- > Cl^- > CH_3COO^-",
+                  "is_correct": false
+                },
+                {
+                  "label": "B",
+                  "id": 44104,
+                  "text": "OH^- > R > CH_3CO >",
+                  "is_correct": false
+                },
+                {
+                  "label": "C",
+                  "id": 44102,
+                  "text": "${\\text{R}}{{\\text{O}}^ - }$ > ${\\text{O}}{{\\text{H}}^ - }$ > ${\\text{C}}{{\\text{H}}_{\\text{3}}}{\\text{CO}}{{\\text{O}}^ - }$ > ${\\text{C}}{{\\text{l}}^ - }$",
+                  "is_correct": true
+                },
+                {
+                  "label": "D",
+                  "id": 44105,
+                  "text": "${\\text{C}}{{\\text{H}}_{\\text{3}}}{\\text{CO}}{{\\text{O}}^ - }$> ${\\text{C}}{{\\text{l}}^ - }$ > ${\\text{R}}{{\\text{O}}^ - }$ > ${\\text{O}}{{\\text{H}}^ - }$",
+                  "is_correct": false
+                }
+              ],
+              "correct_option_ids": [
+                44102
+              ],
+              "correct_option_labels": [
+                "C"
+              ],
+              "correct_option_texts": [
+                "${\\text{R}}{{\\text{O}}^ - }$ > ${\\text{O}}{{\\text{H}}^ - }$ > ${\\text{C}}{{\\text{H}}_{\\text{3}}}{\\text{CO}}{{\\text{O}}^ - }$ > ${\\text{C}}{{\\text{l}}^ - }$"
+              ],
+              "explanation": "conjugate acids of given bases are H_2O, ROH, CH_3COO^-, Cl^-\ntheir acidic strength in the order\nCl^- > CH_3COO^- > H_2O > ROH\nbasic strength in the order ${\\text{R}}{{\\text{O}}^ - }$ > ${\\text{O}}{{\\text{H}}^ - }$ > ${\\text{C}}{{\\text{H}}_{\\text{3}}}{\\text{CO}}{{\\text{O}}^ - }$ > ${\\text{C}}{{\\text{l}}^ - }$"
+            },
+            {
+              "questionID": 22227,
+              "question": "Arrange the following in increasing order of pH KNO_3 (aq),CH_3COONa (aq), NH_4Cl(aq),C_6H_5COONH_4(aq).",
+              "question_raw": "<p>Arrange the following in increasing order of pH&nbsp;KNO<sub>3&nbsp;</sub>(aq),CH<sub>3</sub>COONa (aq), NH<sub>4</sub>Cl(aq),C<sub>6</sub>H<sub>5</sub>COONH<sub>4</sub>(aq).</p>",
+              "options": [
+                {
+                  "label": "A",
+                  "id": 44106,
+                  "text": "NH_4Cl < C_6H_5COONH_4 < KNO_3 < CH_3COONa",
+                  "is_correct": true
+                },
+                {
+                  "label": "B",
+                  "id": 44108,
+                  "text": "KNO_3 < CH_3COONa < NH_4Cl < C_6H_5COONH_4",
+                  "is_correct": false
+                },
+                {
+                  "label": "C",
+                  "id": 44107,
+                  "text": "C_6H_5COONH_4 < KNO_3 < CH_3COONa < NH_4Cl",
+                  "is_correct": false
+                },
+                {
+                  "label": "D",
+                  "id": 44109,
+                  "text": "NH_4Cl < KNO_3 < CH_3COONa < C_6H_5COONH_4",
+                  "is_correct": false
+                }
+              ],
+              "correct_option_ids": [
+                44106
+              ],
+              "correct_option_labels": [
+                "A"
+              ],
+              "correct_option_texts": [
+                "NH_4Cl < C_6H_5COONH_4 < KNO_3 < CH_3COONa"
+              ],
+              "explanation": "KNO_3: Salt of strong acid-strong base, solution is neutral, ph = 7\nCH_3COONa salt of weak acid - strong base, solution is basic, ph > 7\nNH_4Cl: Salt of strong acid-weak base , solution is acidic pH < 7\nC_6H_5COONH_4 both weak put NH_4OH is slightly stronger than C_6H_5COOH, pH close to 7 but slightly > 7\nHence in order of pH is NH_4Cl < C_6H_5COONH_4 < KNO_3 < CH_3COONa"
+            },
+            {
+              "questionID": 22228,
+              "question": "pH of a solution of a strong acid is 5.0. What will be the pH of the solution obtained after diluting the given solution a 100 times?",
+              "question_raw": "<p>pH of a solution of a strong acid is 5.0. What will be the pH of the solution obtained after diluting the given solution a 100 times?</p>",
+              "options": [
+                {
+                  "label": "A",
+                  "id": 44111,
+                  "text": "5.6999",
+                  "is_correct": false
+                },
+                {
+                  "label": "B",
+                  "id": 44113,
+                  "text": "7.6907",
+                  "is_correct": false
+                },
+                {
+                  "label": "C",
+                  "id": 44112,
+                  "text": "6.0090",
+                  "is_correct": false
+                },
+                {
+                  "label": "D",
+                  "id": 44110,
+                  "text": "6.699",
+                  "is_correct": true
+                }
+              ],
+              "correct_option_ids": [
+                44110
+              ],
+              "correct_option_labels": [
+                "D"
+              ],
+              "correct_option_texts": [
+                "6.699"
+              ],
+              "explanation": "pH=5 means the solution is acidic. On dilution, it will remain acidic. However, acidic character decreases so much that it is almost neutral (pH=5 means [H^+] = 10^-5M). After dilution, [H^+] = $\\frac{10^{-5}}{100}=10^{-7}M$ ; [H^+] from H_2O cannot be neglected.\nHence total [H^+] = 10^-7 + 10^-7 = 2 $\\times$ 10^-7 M\n$\\Rightarrow$ pH=-log(2 $\\times$ 10^-7 ) = 7-0.3010=6.699"
+            },
+            {
+              "questionID": 22229,
+              "question": "Following data is given for the reaction: ${\\text{CaC}}{{\\text{O}}_{\\text{3}}}\\left( {\\text{s}} \\right){\\text{ }} \\to {\\text{ CaO }}\\left( {\\text{s}} \\right){\\text{ }} + {\\text{ C}}{{\\text{O}}_{\\text{2}}}\\left( {\\text{g}} \\right)$\n${\\Delta _f}HV|CaO(s)] = - - 635.1\\;kJ1mo{l^{ - 1}}$\n${\\Delta _f}HV[C{O_2}(g)] = - - 393.5\\;kJ\\;mo{l^{ - 1}}$\n${\\Delta _f}HV[CaC{O_3}(s)] = - - 1206.9\\;kJmo{l^{ - 1}}$\nPredict the effect of temperature on the equilibrium constant of the above\nReaction (Hint: Apply Le-Chatelier’s principle)",
+              "question_raw": "<p>Following data is given for the reaction: <span class=\"math-tex\">{tex}{\\text{CaC}}{{\\text{O}}_{\\text{3}}}\\left( {\\text{s}} \\right){\\text{ }} \\to {\\text{ CaO }}\\left( {\\text{s}} \\right){\\text{ }} + {\\text{ C}}{{\\text{O}}_{\\text{2}}}\\left( {\\text{g}} \\right){/tex}</span><br />\r\n<span class=\"math-tex\">{tex}{\\Delta _f}HV|CaO(s)] = - - 635.1\\;kJ1mo{l^{ - 1}}{/tex}</span><br />\r\n<span class=\"math-tex\">{tex}{\\Delta _f}HV[C{O_2}(g)] = - - 393.5\\;kJ\\;mo{l^{ - 1}}{/tex}</span><br />\r\n<span class=\"math-tex\">{tex}{\\Delta _f}HV[CaC{O_3}(s)] = - - 1206.9\\;kJmo{l^{ - 1}}{/tex}</span><br />\r\nPredict the effect of temperature on the equilibrium constant of the above<br />\r\nReaction (Hint: Apply Le-Chatelier&rsquo;s principle)</p>",
+              "options": [
+                {
+                  "label": "A",
+                  "id": 44116,
+                  "text": "increase in temperature reaction will attain equilibrium",
+                  "is_correct": false
+                },
+                {
+                  "label": "B",
+                  "id": 44117,
+                  "text": "increase in temperature reaction will stop.",
+                  "is_correct": false
+                },
+                {
+                  "label": "C",
+                  "id": 44114,
+                  "text": "increase in temperature reaction will proceed in forward direction",
+                  "is_correct": true
+                },
+                {
+                  "label": "D",
+                  "id": 44115,
+                  "text": "increase in temperature reaction will proceed in reverse direction",
+                  "is_correct": false
+                }
+              ],
+              "correct_option_ids": [
+                44114
+              ],
+              "correct_option_labels": [
+                "C"
+              ],
+              "correct_option_texts": [
+                "increase in temperature reaction will proceed in forward direction"
+              ],
+              "explanation": "${\\Delta _{rxn}}H = (\\Delta {H_{product}} - \\Delta {H_{reac\\tan t}})$\n= -393.5 - 635.1 + 1206.9 = +ve\nThis is endothermic reaction, which is favoured at high temperature."
+            },
+            {
+              "questionID": 22230,
+              "question": "Does the number of moles of reaction products increase, decrease or remain same when each of the following equilibria is subjected to a decrease in pressure by increasing the volume? ${\\text{PC}}{{\\text{l}}_{\\text{5}}}\\left( {\\text{g}} \\right)$ $ \\rightleftharpoons $ ${\\text{PC}}{{\\text{l}}_{\\text{3}}}\\left( {\\text{g}} \\right){\\text{ }} + {\\text{ C}}{{\\text{l}}_{\\text{2}}}\\left( {\\text{g}} \\right)$",
+              "question_raw": "<p>Does the number of moles of reaction products increase, decrease or remain same when each of the following equilibria is subjected to a decrease in pressure by increasing the volume? <span class=\"math-tex\">{tex}{\\text{PC}}{{\\text{l}}_{\\text{5}}}\\left( {\\text{g}} \\right){/tex}</span> <span class=\"math-tex\">{tex} \\rightleftharpoons {/tex}</span> <span class=\"math-tex\">{tex}{\\text{PC}}{{\\text{l}}_{\\text{3}}}\\left( {\\text{g}} \\right){\\text{ }} + {\\text{ C}}{{\\text{l}}_{\\text{2}}}\\left( {\\text{g}} \\right){/tex}</span></p>",
+              "options": [
+                {
+                  "label": "A",
+                  "id": 44121,
+                  "text": "decrease largely",
+                  "is_correct": false
+                },
+                {
+                  "label": "B",
+                  "id": 44120,
+                  "text": "remain the same",
+                  "is_correct": false
+                },
+                {
+                  "label": "C",
+                  "id": 44119,
+                  "text": "decrease",
+                  "is_correct": false
+                },
+                {
+                  "label": "D",
+                  "id": 44118,
+                  "text": "increase",
+                  "is_correct": true
+                }
+              ],
+              "correct_option_ids": [
+                44118
+              ],
+              "correct_option_labels": [
+                "D"
+              ],
+              "correct_option_texts": [
+                "increase"
+              ],
+              "explanation": "Pressure will increase in the forwarded reaction and the number of moles of the products increase.\n Pressure will increase in the backward reaction and the number of moles of the products decrease.\n The change in pressure will have no effect on the equilibrium constant and there will be no change in the no. of moles."
+            },
+            {
+              "questionID": 22231,
+              "question": "One of the reaction that takes place in producing steel from iron ore is the reduction of iron (II) oxide by carbon monoxide to give iron metal and CO_2. FeO(s) + CO (g) $\\rightarrow$ Fe (s) + CO_2 (g) K_p = 0.265 at 1050 K. What are the equilibrium partial pressures of CO and CO_2 at 1050 K if the initial partial pressures are: P_co = 1.4 atm and $P_{CO_2}$ = 0.80 atm?",
+              "question_raw": "<p>One of the reaction that takes place in producing steel from iron ore is the reduction of iron&nbsp;(II) oxide by carbon monoxide to give iron metal and CO<sub>2</sub>. FeO(s) + CO (g) <span class=\"math-tex\">{tex}\\rightarrow{/tex}</span>&nbsp;Fe (s) + CO<sub>2&nbsp;</sub>(g) K<sub>p&nbsp;</sub>= 0.265 at 1050 K.&nbsp;What are the equilibrium partial pressures of CO and CO<sub>2</sub> at 1050 K if the initial partial pressures are: P<sub>co</sub>&nbsp;= 1.4 atm and <span class=\"math-tex\">{tex}P_{CO_2}{/tex}</span> = 0.80 atm?</p>",
+              "options": [
+                {
+                  "label": "A",
+                  "id": 44124,
+                  "text": "$P_{CO_2}$ and P_CO = 0.416 atm and 1.135 atm",
+                  "is_correct": false
+                },
+                {
+                  "label": "B",
+                  "id": 44125,
+                  "text": "$P_{CO_2}$ and P_CO = 0.461atm and 0.739 atm",
+                  "is_correct": false
+                },
+                {
+                  "label": "C",
+                  "id": 44122,
+                  "text": "$P_{CO_2}$ and P_CO = 0.461atm and 1.739 atm",
+                  "is_correct": true
+                },
+                {
+                  "label": "D",
+                  "id": 44123,
+                  "text": "$P_{CO_2}$ and P_CO = 1.557atm and 2.739 atm",
+                  "is_correct": false
+                }
+              ],
+              "correct_option_ids": [
+                44122
+              ],
+              "correct_option_labels": [
+                "C"
+              ],
+              "correct_option_texts": [
+                "$P_{CO_2}$ and P_CO = 0.461atm and 1.739 atm"
+              ],
+              "explanation": "For the given reaction; $\\mathop {FeO + CO(g)}\\limits_{1.4atm} = \\mathop {Fe(s) + C{O_2}(g)}\\limits_{0.80atm} $\n$Q_p=\\frac{P_{CO_2}}{P_{CO}}=\\frac{0.80}{1.4}=\\;0.571$\nIt is given that K_p = 0.265\nSince Q_P > K_p\nThe reaction will proceed in the backward reaction.\nTherefore, we can say that the pressure of CO will increase while the pressure of CO_2 will decrease.\nNow, let the increase in pressure of CO = decrease in pressure of CO_2 be P.\nThen we can write\n${{K_p} = \\frac{{{P_{C{O_2}}}}}{{{P_{CO}}}} = \\frac{{0.80 - P}}{{1.4 + P}}}$\n${ \\Rightarrow 0.265 = \\frac{{0.80 - P}}{{1.4 + P}}}$\n$\\Rightarrow$ 0.265 (1.4 + P) = 0.80 - P\n$\\Rightarrow$ 0.371 + 0.265P = 0.80 - P\n$\\Rightarrow$ 1.265P = 0.429 $\\Rightarrow$ p = 0.339atm\nTherefore, equilibrium partial pressure of CO_2 = 0.80 - 0.339= 0.461 atm\nAlso, equilibrium partial pressure of CO = 1.4 + 0.339 = 1.739 atm"
+            },
+            {
+              "questionID": 22232,
+              "question": "The ionization constant of HF is 3.2 $\\times$ 10^-4. Calculate the degree of dissociation of HF in its 0.02 M solution. The concentrations of all species present i.e. H_3O^+,F^- and HF in the solution, and its pH respectively are.",
+              "question_raw": "<p>The ionization constant of HF is&nbsp;3.2 <span class=\"math-tex\">{tex}\\times{/tex}</span>&nbsp;10<sup>-4</sup>. Calculate the degree of dissociation of HF in its 0.02 M solution. The concentrations of all species present i.e.&nbsp;H<sub>3</sub>O<sup>+</sup>,F<sup>-&nbsp;</sup>and HF in the solution, and its pH respectively are.</p>",
+              "options": [
+                {
+                  "label": "A",
+                  "id": 44127,
+                  "text": "3.6 $\\times$ 10^-3M, 3.6 $\\times$ 10^-3 M, 18.6 $\\times$ 10^-3,2.62",
+                  "is_correct": false
+                },
+                {
+                  "label": "B",
+                  "id": 44128,
+                  "text": "1.4 $\\times$ 10^-3M 16.6 $\\times$ 10^-3 M , 2.62.",
+                  "is_correct": false
+                },
+                {
+                  "label": "C",
+                  "id": 44126,
+                  "text": "2.5 $\\times$ 10^-3 M, 2.5 $\\times$ 10^-3 M,17.6 $\\times$10^-3,2.62",
+                  "is_correct": true
+                },
+                {
+                  "label": "D",
+                  "id": 44129,
+                  "text": "5.9 $\\times$ 10^-3 M,19.6 $\\times$ 10^-3 M 2.62.",
+                  "is_correct": false
+                }
+              ],
+              "correct_option_ids": [
+                44126
+              ],
+              "correct_option_labels": [
+                "C"
+              ],
+              "correct_option_texts": [
+                "2.5 $\\times$ 10^-3 M, 2.5 $\\times$ 10^-3 M,17.6 $\\times$10^-3,2.62"
+              ],
+              "explanation": "HF $\\rightleftharpoons$ H^+ + F^-\nInitial Concentration 1 0 0\nEquilibrium concentration C(1 - $\\alpha$) C $\\alpha$ C $\\alpha$\nNow, ${{K_a}\\; = \\frac{{\\left[ {{H^ + }} \\right]\\left[ {{F^ - }} \\right]}}{{\\left[ {HF} \\right]}} = \\frac{{\\left[ {\\;C\\alpha } \\right]\\left[ {\\;C\\alpha } \\right]}}{{\\left[ {C(1 - \\alpha )\\;} \\right]}} = \\frac{{\\;C{\\alpha ^2}}}{{(1 - \\alpha )\\;}} \\approx C{\\alpha ^2}}$ (Since $\\alpha$ is less (1 - $\\alpha$ ) can be written as 1\n${ \\Rightarrow \\alpha = \\sqrt {\\frac{{{K_a}\\;}}{C}} = \\sqrt {\\frac{{3.2 \\times {{10}^{ - 4}}}}{{0.02}}} = 12.65 \\times {{10}^{ - 2}}}$\n[H_3O^+] = C$\\alpha$ =0.02 $\\times$ 0.1265 = 2.53 $\\times$ 10^-3\n[F^-] = C$\\alpha$ = 0.02 $\\times$ 0.1265 = 2.53 $\\times$10^-3\n[HF]= C(1-$\\alpha$) = 0.02 $\\times$ (1-0.1265) = 17.6 $\\times$ 10^-3\nNow,\npH= - log [H_3O^+] = - log (2.53 $\\times$ 10^-3) = 3 - 0.4031 = 2.5969"
+            },
+            {
+              "questionID": 22233,
+              "question": "Amines behave as:",
+              "question_raw": "<p>Amines behave as:</p>",
+              "options": [
+                {
+                  "label": "A",
+                  "id": 44131,
+                  "text": "Lewis acids",
+                  "is_correct": false
+                },
+                {
+                  "label": "B",
+                  "id": 44130,
+                  "text": "Lewis base",
+                  "is_correct": true
+                },
+                {
+                  "label": "C",
+                  "id": 44132,
+                  "text": "aprotic acid",
+                  "is_correct": false
+                },
+                {
+                  "label": "D",
+                  "id": 44133,
+                  "text": "neutral compound",
+                  "is_correct": false
+                }
+              ],
+              "correct_option_ids": [
+                44130
+              ],
+              "correct_option_labels": [
+                "B"
+              ],
+              "correct_option_texts": [
+                "Lewis base"
+              ],
+              "explanation": "Amines behave as lewis base because they have a lonepair of electrons."
+            },
+            {
+              "questionID": 22234,
+              "question": "Assuming complete dissociation, calculate the pH of 0.002 M KOH solution.",
+              "question_raw": "<p>Assuming complete dissociation, calculate the pH of 0.002 M KOH solution.</p>",
+              "options": [
+                {
+                  "label": "A",
+                  "id": 44137,
+                  "text": "2.01",
+                  "is_correct": false
+                },
+                {
+                  "label": "B",
+                  "id": 44136,
+                  "text": "10.93",
+                  "is_correct": false
+                },
+                {
+                  "label": "C",
+                  "id": 44134,
+                  "text": "11.31",
+                  "is_correct": true
+                },
+                {
+                  "label": "D",
+                  "id": 44135,
+                  "text": "10.11 only",
+                  "is_correct": false
+                }
+              ],
+              "correct_option_ids": [
+                44134
+              ],
+              "correct_option_labels": [
+                "C"
+              ],
+              "correct_option_texts": [
+                "11.31"
+              ],
+              "explanation": "KOH $\\to$ K^+ + OH^- (As KOH undergoes complete ionization)\n$\\Rightarrow$ [OH^-] = [KOH] = 0.02\nNow, K_w = [H^+] [OH^-]${ \\Rightarrow \\left[ {{H^ + }} \\right] = \\frac{{\\;{K_w}\\;}}{{\\left[ {O{H^ - }} \\right]}} = \\frac{{{{10}^{ - 14}}}}{{0.02}} = \\;5 \\times {{10}^{ - 12}}}$\n$\\Rightarrow$ pH of KOH = - log [5 $\\times$ 10^-12] = 12 - log 5 = 12 - 0.699 $\\approx$ 11.31"
+            }
+          ]
+        }
+      ]
+    }
+  ]
+}

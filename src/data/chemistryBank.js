@@ -3,25 +3,32 @@
 //   { id, text, difficulty, options: [{ key, label, optionId }], correctAnswer }
 // Same approach as questionBank.js. Answers (correctAnswer) are null until fetched.
 
-import c1357 from './chemistry_questions/1357_Some_Basic_Concepts_of_Chemistry.json';
-import c1358 from './chemistry_questions/1358_Structure_of_Atom.json';
-import c1359 from './chemistry_questions/1359_Classification_of_Elements_and_Periodicity_in_Properties.json';
-import c1360 from './chemistry_questions/1360_Chemical_Bonding_and_Molecular_Structure.json';
-import c1361 from './chemistry_questions/1361_States_of_Matter_Gases_and_Liquids_FA_ONLY.json';
-import c1362 from './chemistry_questions/1362_Chemical_Thermodynamics.json';
-import c1363 from './chemistry_questions/1363_Equilibrium.json';
-import c1364 from './chemistry_questions/1364_Redox_Reactions.json';
-import c1366 from './chemistry_questions/1366_The_s_Block_Elements_FA_ONLY.json';
-import c1367 from './chemistry_questions/1367_Some_p_Block_Elements_FA_ONLY.json';
-import c1368 from './chemistry_questions/1368_Organic_Chemistry_Some_Basic_Principles_and_Techniques.json';
-import c1369 from './chemistry_questions/1369_Hydrocarbons.json';
-// Fetched answers, keyed by question id: { id: { correctAnswer, correctOptionId, explanation } }
-import answerKey from './chemistry_questions/answer_key_chemistry.json';
-
-const rawChapters = [
-  c1357, c1358, c1359, c1360, c1361, c1362,
-  c1363, c1364, c1366, c1367, c1368, c1369,
+// Chapter metadata — lightweight. Each chapter's JSON is loaded LAZILY (only when
+// that chapter is actually opened) via a static require() string, so the app does
+// not parse the whole multi-MB question bank into memory at startup.
+const META = [
+  { id: 1357, name: "Some Basic Concepts of Chemistry", count: 735, load: () => require("./chemistry_questions/1357_Some_Basic_Concepts_of_Chemistry.json") },
+  { id: 1358, name: "Structure of Atom", count: 809, load: () => require("./chemistry_questions/1358_Structure_of_Atom.json") },
+  { id: 1359, name: "Classification of Elements and Periodicity in Properties", count: 899, load: () => require("./chemistry_questions/1359_Classification_of_Elements_and_Periodicity_in_Properties.json") },
+  { id: 1360, name: "Chemical Bonding and Molecular Structure", count: 1690, load: () => require("./chemistry_questions/1360_Chemical_Bonding_and_Molecular_Structure.json") },
+  { id: 1361, name: "States of Matter - Gases and Liquids (FA ONLY)", count: 690, load: () => require("./chemistry_questions/1361_States_of_Matter_Gases_and_Liquids_FA_ONLY.json") },
+  { id: 1362, name: "Chemical Thermodynamics", count: 664, load: () => require("./chemistry_questions/1362_Chemical_Thermodynamics.json") },
+  { id: 1363, name: "Equilibrium", count: 1200, load: () => require("./chemistry_questions/1363_Equilibrium.json") },
+  { id: 1364, name: "Redox Reactions", count: 564, load: () => require("./chemistry_questions/1364_Redox_Reactions.json") },
+  { id: 1366, name: "The s-Block Elements (FA ONLY)", count: 565, load: () => require("./chemistry_questions/1366_The_s_Block_Elements_FA_ONLY.json") },
+  { id: 1367, name: "Some p-Block Elements (FA ONLY)", count: 570, load: () => require("./chemistry_questions/1367_Some_p_Block_Elements_FA_ONLY.json") },
+  { id: 1368, name: "Organic Chemistry Some Basic Principles and Techniques", count: 1255, load: () => require("./chemistry_questions/1368_Organic_Chemistry_Some_Basic_Principles_and_Techniques.json") },
+  { id: 1369, name: "Hydrocarbons", count: 1805, load: () => require("./chemistry_questions/1369_Hydrocarbons.json") },
 ];
+
+// Fetched answers, keyed by question id. Loaded lazily + cached on first use.
+let _answerKey = null;
+function getAnswerKey() {
+  if (_answerKey) return _answerKey;
+  try { _answerKey = require('./chemistry_questions/answer_key_chemistry.json'); }
+  catch (e) { _answerKey = {}; }
+  return _answerKey;
+}
 
 const LETTERS = 'ABCDEFGHIJ'.split('');
 
@@ -80,7 +87,7 @@ function normalizeQuestion(q) {
     optionId: o.id ?? null,
   }));
   // Answers come from the fetched answer key (chapter files have null answers).
-  const ak = answerKey[q.id] || {};
+  const ak = getAnswerKey()[q.id] || {};
   const correctOptionId = q.correct_option_id ?? ak.correctOptionId ?? null;
   let correctAnswer = null;
   if (correctOptionId != null) {
@@ -98,15 +105,27 @@ function normalizeQuestion(q) {
   };
 }
 
-export const chapters = rawChapters.map((c) => ({
-  chapter_id: c.chapter_id,
-  chapter_name: c.chapter_name,
-  count: c.count ?? (c.questions ? c.questions.length : 0),
-  questions: (c.questions || []).map(normalizeQuestion),
-}));
+// Cheap, synchronous list for the chapter pickers (no JSON parsed).
+export const chapterList = META.map((m) => ({ id: m.id, name: m.name, count: m.count }));
+
+// Lazily build + cache a chapter's normalized questions on first access.
+const _chapterCache = {};
+function buildChapter(meta) {
+  if (_chapterCache[meta.id]) return _chapterCache[meta.id];
+  const raw = meta.load() || {};
+  const ch = {
+    chapter_id: meta.id,
+    chapter_name: meta.name,
+    count: meta.count ?? (raw.questions ? raw.questions.length : 0),
+    questions: (raw.questions || []).map(normalizeQuestion),
+  };
+  _chapterCache[meta.id] = ch;
+  return ch;
+}
 
 export function getChapter(chapterId) {
-  return chapters.find((c) => c.chapter_id === Number(chapterId)) || null;
+  const meta = META.find((m) => m.id === Number(chapterId));
+  return meta ? buildChapter(meta) : null;
 }
 
 export function getQuestions(chapterId) {
@@ -114,12 +133,11 @@ export function getQuestions(chapterId) {
   return ch ? ch.questions : [];
 }
 
-export const allQuestions = chapters.flatMap((c) =>
-  c.questions.map((q) => ({ ...q, chapterId: c.chapter_id, chapterName: c.chapter_name }))
-);
-
-export const chapterList = chapters.map((c) => ({
-  id: c.chapter_id,
-  name: c.chapter_name,
-  count: c.count,
-}));
+// All questions across every chapter — lazy (parses all chapters on call). Nothing
+// imports this at startup; kept for compatibility.
+export function getAllQuestions() {
+  return META.flatMap((m) => {
+    const ch = buildChapter(m);
+    return ch.questions.map((q) => ({ ...q, chapterId: ch.chapter_id, chapterName: ch.chapter_name }));
+  });
+}

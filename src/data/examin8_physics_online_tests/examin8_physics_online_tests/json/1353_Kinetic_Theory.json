@@ -1,0 +1,3162 @@
+{
+  "id": 1353,
+  "name": "Kinetic Theory",
+  "full_name": "CBSE > Class 11 > Physics > Kinetic Theory",
+  "tests": [
+    {
+      "testPaperID": 587,
+      "testPaperName": "Kinetic Theory Test 01",
+      "is_paid": false,
+      "category_full_name": "CBSE > Class 11 > Physics > Kinetic Theory",
+      "noOfQuestions": 15,
+      "has_answers": true,
+      "sections": [
+        {
+          "sectionName": "General",
+          "sectionID": null,
+          "questions": [
+            {
+              "questionID": 18096,
+              "question": "Kinetic theory explains the behavior",
+              "question_raw": "<p>Kinetic theory explains the behavior</p>",
+              "options": [
+                {
+                  "label": "A",
+                  "id": 27587,
+                  "text": "of solids and liquids based on the idea that they gas consist of rapidly vibrating atoms or molecules",
+                  "is_correct": false
+                },
+                {
+                  "label": "B",
+                  "id": 27586,
+                  "text": "of solids based on the idea that the solid consists of rapidly vibrating atoms or molecules",
+                  "is_correct": false
+                },
+                {
+                  "label": "C",
+                  "id": 27584,
+                  "text": "of gases based on the idea that the gas consists of rapidly moving atoms or molecules",
+                  "is_correct": true
+                },
+                {
+                  "label": "D",
+                  "id": 27585,
+                  "text": "of liquids based on the idea that the liquids consist of rapidly moving atoms or molecules",
+                  "is_correct": false
+                }
+              ],
+              "correct_option_ids": [
+                27584
+              ],
+              "correct_option_labels": [
+                "C"
+              ],
+              "correct_option_texts": [
+                "of gases based on the idea that the gas consists of rapidly moving atoms or molecules"
+              ],
+              "explanation": "The theory for ideal gases makes the following assumptions\n1. Gases consist of particles in constant, random motion. They continue in a straight line until they collide with something—usually each other or the walls of their container.\n2. Particles are point masses with no volume. The particles are so small compared to the space between them, that we do not consider their size in ideal gases.\n3. No molecular forces are at work. This means that there is no attraction or repulsion between the particles.\n4. Gas pressure is due to the molecules colliding with the walls of the container. All of these collisions are perfectly elastic, meaning that there is no change in energy of either the particles or the wall upon collision. No energy is lost or gained from collisions.\n5. The time it takes to collide is negligible compared with the time between collisions.\n6. The kinetic energy of a gas is a measure of its Kelvin temperature. Individual gas molecules have different speeds, but the temperature and kinetic energy of the gas refer to the average of these speeds.\n7. The average kinetic energy of a gas particle is directly proportional to the temperature. An increase in temperature increases the speed in which the gas molecules move.\n8. All gases at a given temperature have the same average kinetic energy.\n9. Lighter gas molecules move faster than heavier molecules."
+            },
+            {
+              "questionID": 18097,
+              "question": "Kinetic theory:",
+              "question_raw": "<p>Kinetic theory:</p>",
+              "options": [
+                {
+                  "label": "A",
+                  "id": 27589,
+                  "text": "correctly explains the specific heat capacities of many liquids",
+                  "is_correct": false
+                },
+                {
+                  "label": "B",
+                  "id": 27588,
+                  "text": "correctly explains the specific heat capacities of many gases",
+                  "is_correct": true
+                },
+                {
+                  "label": "C",
+                  "id": 27590,
+                  "text": "correctly explains specific heat capacities of many solids",
+                  "is_correct": false
+                },
+                {
+                  "label": "D",
+                  "id": 27591,
+                  "text": "correctly explains specific heat capacities of super cooled liquids",
+                  "is_correct": false
+                }
+              ],
+              "correct_option_ids": [
+                27588
+              ],
+              "correct_option_labels": [
+                "B"
+              ],
+              "correct_option_texts": [
+                "correctly explains the specific heat capacities of many gases"
+              ],
+              "explanation": "The kinetic theory describes a gas as a large number of submicroscopic particles (atoms or molecules), all of which are in constant rapid motion that has randomness arising from their many collisions with each other and with the walls of the container. It will apply only to gases."
+            },
+            {
+              "questionID": 18098,
+              "question": "Kinetic theory relates measurable properties.",
+              "question_raw": "<p>Kinetic theory relates measurable properties.</p>",
+              "options": [
+                {
+                  "label": "A",
+                  "id": 27595,
+                  "text": "of super cooled liquids such as viscosity, creep and diffusion with molecular parameters, yielding estimates of molecular sizes and masses",
+                  "is_correct": false
+                },
+                {
+                  "label": "B",
+                  "id": 27592,
+                  "text": "of gases such as viscosity, conduction and diffusion with molecular parameters, yielding estimates of molecular sizes and masses",
+                  "is_correct": true
+                },
+                {
+                  "label": "C",
+                  "id": 27594,
+                  "text": "of solids such as expansion, conduction and elongation with molecular parameters, yielding estimates of molecular sizes and masses",
+                  "is_correct": false
+                },
+                {
+                  "label": "D",
+                  "id": 27593,
+                  "text": "of liquids such as viscosity, conduction and diffusion with molecular parameters, yielding estimates of molecular sizes and masses",
+                  "is_correct": false
+                }
+              ],
+              "correct_option_ids": [
+                27592
+              ],
+              "correct_option_labels": [
+                "B"
+              ],
+              "correct_option_texts": [
+                "of gases such as viscosity, conduction and diffusion with molecular parameters, yielding estimates of molecular sizes and masses"
+              ],
+              "explanation": "Kinetic theory explains the behaviour of gases based on the idea that the gas consists of rapidly moving atoms or molecules. It also relates measurable properties of gases such as viscosity, conduction and diffusion with molecular parameters, yielding estimates of molecular sizes and masses."
+            },
+            {
+              "questionID": 18099,
+              "question": "According to Atomic Hypothesis:",
+              "question_raw": "<p>According to Atomic Hypothesis:</p>",
+              "options": [
+                {
+                  "label": "A",
+                  "id": 27598,
+                  "text": "All things are made of atoms - little particles that move around in circles",
+                  "is_correct": false
+                },
+                {
+                  "label": "B",
+                  "id": 27597,
+                  "text": "All things are made of atoms - little particles that stay put at fixed points",
+                  "is_correct": false
+                },
+                {
+                  "label": "C",
+                  "id": 27596,
+                  "text": "All things are made of atoms - little particles that move around in perpetual motion",
+                  "is_correct": true
+                },
+                {
+                  "label": "D",
+                  "id": 27599,
+                  "text": "All things are made of atoms - little particles that keep oscillating",
+                  "is_correct": false
+                }
+              ],
+              "correct_option_ids": [
+                27596
+              ],
+              "correct_option_labels": [
+                "C"
+              ],
+              "correct_option_texts": [
+                "All things are made of atoms - little particles that move around in perpetual motion"
+              ],
+              "explanation": "The atomic hypothesis that all things are made of atoms-little particles that move around in perpetual motion, attracting each other when they are a little distance apart, but repelling upon being squeezed into one another."
+            },
+            {
+              "questionID": 18100,
+              "question": "According to Avogadro’s law:",
+              "question_raw": "<p>According to Avogadro&rsquo;s law:</p>",
+              "options": [
+                {
+                  "label": "A",
+                  "id": 27603,
+                  "text": "Equal volumes of all gases at equal temperature and pressure have different numbers of molecules.",
+                  "is_correct": false
+                },
+                {
+                  "label": "B",
+                  "id": 27601,
+                  "text": "Equal volumes of all gases at equal temperatures have the same number of molecules.",
+                  "is_correct": false
+                },
+                {
+                  "label": "C",
+                  "id": 27602,
+                  "text": "Equal volumes of all gases at equal pressure have the same number of molecules.",
+                  "is_correct": false
+                },
+                {
+                  "label": "D",
+                  "id": 27600,
+                  "text": "Equal volumes of all gases at equal temperature and pressure have the same number of molecules.",
+                  "is_correct": true
+                }
+              ],
+              "correct_option_ids": [
+                27600
+              ],
+              "correct_option_labels": [
+                "D"
+              ],
+              "correct_option_texts": [
+                "Equal volumes of all gases at equal temperature and pressure have the same number of molecules."
+              ],
+              "explanation": "Avogadro's law states that \"equal volumes of all gases, at the same temperature and pressure, have the same number of molecules\"\nFor a given mass of an ideal gas, the volume and amount (moles) of the gas are directly proportional if the temperature and pressure are constant.\nV $ \\propto $ n\n${V \\over n} = k$"
+            },
+            {
+              "questionID": 18101,
+              "question": "In which case are the atoms relatively rigidly fixed?",
+              "question_raw": "<p>In which case are the atoms relatively rigidly fixed?</p>",
+              "options": [
+                {
+                  "label": "A",
+                  "id": 27606,
+                  "text": "liquids and gases",
+                  "is_correct": false
+                },
+                {
+                  "label": "B",
+                  "id": 27607,
+                  "text": "gases",
+                  "is_correct": false
+                },
+                {
+                  "label": "C",
+                  "id": 27605,
+                  "text": "liquids",
+                  "is_correct": false
+                },
+                {
+                  "label": "D",
+                  "id": 27604,
+                  "text": "solids",
+                  "is_correct": true
+                }
+              ],
+              "correct_option_ids": [
+                27604
+              ],
+              "correct_option_labels": [
+                "D"
+              ],
+              "correct_option_texts": [
+                "solids"
+              ],
+              "explanation": "Atoms in a gas are well separated with no regular arrangement. Atoms vibrate and move freely at high speeds\nAtoms in a liquid are close together with no regular arrangement. Atoms vibrate, move about, and slide past each other.\nAtoms in a solid are tightly packed, usually in a regular pattern. Atoms vibrate (jiggle) but generally do not move from place to place."
+            },
+            {
+              "questionID": 18102,
+              "question": "The order of interatomic distance in liquids is about:",
+              "question_raw": "<p>The order of interatomic distance in liquids is about:</p>",
+              "options": [
+                {
+                  "label": "A",
+                  "id": 27608,
+                  "text": "$2\\mathop A\\limits^o $",
+                  "is_correct": true
+                },
+                {
+                  "label": "B",
+                  "id": 27609,
+                  "text": "$20\\mathop A\\limits^o $",
+                  "is_correct": false
+                },
+                {
+                  "label": "C",
+                  "id": 27611,
+                  "text": "$1000\\mathop A\\limits^o $",
+                  "is_correct": false
+                },
+                {
+                  "label": "D",
+                  "id": 27610,
+                  "text": "$100\\mathop A\\limits^o $",
+                  "is_correct": false
+                }
+              ],
+              "correct_option_ids": [
+                27608
+              ],
+              "correct_option_labels": [
+                "A"
+              ],
+              "correct_option_texts": [
+                "$2\\mathop A\\limits^o $"
+              ],
+              "explanation": "Using the assumption of little spheres (for interatomic space) the spacing between the molecules is about 2 $\\times$ 10^-10 m i.e.$2\\mathop A\\limits^o $"
+            },
+            {
+              "questionID": 18103,
+              "question": "The average distance a molecule can travel without colliding is called the:",
+              "question_raw": "<p>The average distance a molecule can travel without colliding is called the:</p>",
+              "options": [
+                {
+                  "label": "A",
+                  "id": 27614,
+                  "text": "mean free distance",
+                  "is_correct": false
+                },
+                {
+                  "label": "B",
+                  "id": 27612,
+                  "text": "mean free path",
+                  "is_correct": true
+                },
+                {
+                  "label": "C",
+                  "id": 27613,
+                  "text": "mean free length",
+                  "is_correct": false
+                },
+                {
+                  "label": "D",
+                  "id": 27615,
+                  "text": "mean free motion",
+                  "is_correct": false
+                }
+              ],
+              "correct_option_ids": [
+                27612
+              ],
+              "correct_option_labels": [
+                "B"
+              ],
+              "correct_option_texts": [
+                "mean free path"
+              ],
+              "explanation": "The mean free path is the average distance travelled by a moving particle (such as an atom, a molecule, a photon) between successive impacts (collisions), which modify its direction or energy or other particle properties."
+            },
+            {
+              "questionID": 18104,
+              "question": "In dynamic equilibrium, molecules collide and change their speeds during the collision:",
+              "question_raw": "<p>In dynamic equilibrium, molecules collide and change their speeds during the collision:</p>",
+              "options": [
+                {
+                  "label": "A",
+                  "id": 27619,
+                  "text": "but the r.m.s properties vary",
+                  "is_correct": false
+                },
+                {
+                  "label": "B",
+                  "id": 27618,
+                  "text": "but the peak properties vary",
+                  "is_correct": false
+                },
+                {
+                  "label": "C",
+                  "id": 27616,
+                  "text": "but the average properties are constant",
+                  "is_correct": true
+                },
+                {
+                  "label": "D",
+                  "id": 27617,
+                  "text": "but the average properties vary",
+                  "is_correct": false
+                }
+              ],
+              "correct_option_ids": [
+                27616
+              ],
+              "correct_option_labels": [
+                "C"
+              ],
+              "correct_option_texts": [
+                "but the average properties are constant"
+              ],
+              "explanation": "All collisions between molecules among themselves or between molecules and the walls are elastic. So that total kinetic energy and total momentum are conserved. Also, the average properties of gas remain constant."
+            },
+            {
+              "questionID": 18105,
+              "question": "A cubic vessel (with faces horizontal + vertical) contains an ideal gas at NTP. The vessel is being carried by a rocket which is moving at a speed of 500ms^-1 in vertical direction. The pressure of the gas inside the vessel as observed by us on the ground",
+              "question_raw": "<p>A cubic vessel (with faces horizontal + vertical) contains an ideal gas at NTP. The vessel is being carried by a rocket which is moving at a speed of 500ms<sup>-1</sup> in vertical direction. The pressure of the gas inside the vessel as observed by us on the ground</p>",
+              "options": [
+                {
+                  "label": "A",
+                  "id": 27620,
+                  "text": "remains the same because the motion of the vessel as a whole does not affect the relative motion of the gas molecules and the walls.",
+                  "is_correct": true
+                },
+                {
+                  "label": "B",
+                  "id": 27623,
+                  "text": "will be different on the top wall and bottom wall of the vessel.",
+                  "is_correct": false
+                },
+                {
+                  "label": "C",
+                  "id": 27622,
+                  "text": "will increase by a factor equal to $\\frac{\\left(V_{\\mathrm{rms}}^2+(500)^2\\right)}{v^{22}}$ where v_rms was the original mean square velocity of the gas.",
+                  "is_correct": false
+                },
+                {
+                  "label": "D",
+                  "id": 27621,
+                  "text": "remain the same because 500 ms^-1 is very much smaller than v_rms of the gas.",
+                  "is_correct": false
+                }
+              ],
+              "correct_option_ids": [
+                27620
+              ],
+              "correct_option_labels": [
+                "A"
+              ],
+              "correct_option_texts": [
+                "remains the same because the motion of the vessel as a whole does not affect the relative motion of the gas molecules and the walls."
+              ],
+              "explanation": "According to the ideal gas law,\nP = $\\frac{nRT}{V}$, here the temperature of the vessel remains unchanged hence, the pressure remains the same from that point of view.\nNow, let us discuss the phenomenon inside the vessel. The gas molecules keep on colliding among themselves as well as with the walls of containing vessel. These collisions are perfectly elastic.\nThe number of collisions per unit volume in a gas remains constant. So, the pressure of the gas inside the vessel remains the same because the motion of the vessel as a whole does not affect the relative motion of the gas molecules with respect to the walls."
+            },
+            {
+              "questionID": 18106,
+              "question": "Consider a mixture of non-interacting ideal gases: ${\\mu _{\\rm{1}}}$ moles of gas 1, ${\\mu _{\\rm{2}}}$ moles of gas 2, etc. in a vessel of volume V at temperature T and pressure P. It is then found that the equation of state of the mixture is :",
+              "question_raw": "<p>Consider a mixture of non-interacting ideal gases: <span class=\"math-tex\">{tex}{\\mu _{\\rm{1}}}{/tex}</span> moles of gas 1, <span class=\"math-tex\">{tex}{\\mu _{\\rm{2}}}{/tex}</span> moles of gas 2, etc. in a vessel of volume V at temperature T and pressure P. It is then found that the equation of state of the mixture is :</p>",
+              "options": [
+                {
+                  "label": "A",
+                  "id": 27624,
+                  "text": "PV = ($\\mu _{\\rm{1}}$ + ${\\mu _{\\rm{2}}}$ +…) RT",
+                  "is_correct": true
+                },
+                {
+                  "label": "B",
+                  "id": 27627,
+                  "text": "PV = ($\\mu _{\\rm{1}}$ + ${\\mu _{\\rm{2}}}$ +…) R",
+                  "is_correct": false
+                },
+                {
+                  "label": "C",
+                  "id": 27626,
+                  "text": "V = ($\\mu_ {\\rm{1}}$ + ${\\mu _{\\rm{2}}}$ +…) RT",
+                  "is_correct": false
+                },
+                {
+                  "label": "D",
+                  "id": 27625,
+                  "text": "P = ($\\mu_{\\rm{1}}$ + ${\\mu _{\\rm{2}}}$+…) RT",
+                  "is_correct": false
+                }
+              ],
+              "correct_option_ids": [
+                27624
+              ],
+              "correct_option_labels": [
+                "A"
+              ],
+              "correct_option_texts": [
+                "PV = ($\\mu _{\\rm{1}}$ + ${\\mu _{\\rm{2}}}$ +…) RT"
+              ],
+              "explanation": "Total pressure = Sum of partial pressure \n= P_1 + P_2 +.........\nP = $ {{{\\mu _1}RT} \\over V} + {{{\\mu _2}RT} \\over V} $ +........ \nPV = ($\\mu_ {\\rm{1}}$ + ${\\mu _{\\rm{2}}}$ +…) RT"
+            },
+            {
+              "questionID": 18107,
+              "question": "According to Dalton’s law of partial pressures:",
+              "question_raw": "<p>According to Dalton&rsquo;s law of partial pressures:</p>",
+              "options": [
+                {
+                  "label": "A",
+                  "id": 27631,
+                  "text": "the total pressure of a mixture of real gases is the sum of factored individual pressures",
+                  "is_correct": false
+                },
+                {
+                  "label": "B",
+                  "id": 27629,
+                  "text": "the total pressure of a mixture of ideal gases is the difference of partial pressures",
+                  "is_correct": false
+                },
+                {
+                  "label": "C",
+                  "id": 27630,
+                  "text": "the total pressure of a mixture of ideal gases is the sum of pressures",
+                  "is_correct": false
+                },
+                {
+                  "label": "D",
+                  "id": 27628,
+                  "text": "the total pressure of a mixture of ideal gases is the sum of partial pressures",
+                  "is_correct": true
+                }
+              ],
+              "correct_option_ids": [
+                27628
+              ],
+              "correct_option_labels": [
+                "D"
+              ],
+              "correct_option_texts": [
+                "the total pressure of a mixture of ideal gases is the sum of partial pressures"
+              ],
+              "explanation": "According to Dalton's law of partial pressures, at constant volume and temperature, the total pressure exerted by a mixture of gases is equal to the sum of the partial pressures of the component gases\nP = P_1 + P_2 + .......\nP = $\\frac{\\mu_{1} R T}{V}$ + $\\frac{\\mu_{2} R T}{V}$ + ........\nPV = $(\\mu_{1}+\\mu_{2}+.....)$ RT\nPV = $\\mu $RT"
+            },
+            {
+              "questionID": 18108,
+              "question": "Considering a gas in a parallelopiped, in a small time interval $\\Delta {\\rm{t}}$, a molecule with x-component of velocity v_x will hit the wall?",
+              "question_raw": "<p>Considering a gas in a parallelopiped, in a small time interval <span class=\"math-tex\">{tex}\\Delta {\\rm{t}}{/tex}</span>, a molecule with x-component of velocity v<sub>x</sub> will hit the wall?</p>",
+              "options": [
+                {
+                  "label": "A",
+                  "id": 27633,
+                  "text": "If it is outside or beyond the distance v_x $\\Delta {\\rm{t}}$ from the wall",
+                  "is_correct": false
+                },
+                {
+                  "label": "B",
+                  "id": 27635,
+                  "text": "If it is outside or beyond the distance 2v_x $\\Delta {\\rm{t}}$ from the wall",
+                  "is_correct": false
+                },
+                {
+                  "label": "C",
+                  "id": 27632,
+                  "text": "If it is within the distance v_x $\\Delta {\\rm{t}}$ from the wall",
+                  "is_correct": true
+                },
+                {
+                  "label": "D",
+                  "id": 27634,
+                  "text": "If it is within the distance 2v_x $\\Delta {\\rm{t}}$ from the wall",
+                  "is_correct": false
+                }
+              ],
+              "correct_option_ids": [
+                27632
+              ],
+              "correct_option_labels": [
+                "C"
+              ],
+              "correct_option_texts": [
+                "If it is within the distance v_x $\\Delta {\\rm{t}}$ from the wall"
+              ],
+              "explanation": "Collision by molecule to the wall of container assumed to be perfectly elastic.\nBy the principle of conservation of momentum, the momentum imparted to the wall in the collision = 2mv_x\nSo the magnitude of the force on the wall from each collision is\n$F = {{2m{v_x}} \\over {\\Delta t}}$ \ndistance travelled in time $\\Delta t$ \n$x = {v_x}\\Delta t$"
+            },
+            {
+              "questionID": 18109,
+              "question": "If there are n number of molecules per unit volume and m is the mass of each, v_x is the x-component of velocity, pressure can be written as:",
+              "question_raw": "<p>If there are n number of molecules per unit volume and m is the mass of each, v<sub>x</sub> is the x-component of velocity, pressure can be written as:</p>",
+              "options": [
+                {
+                  "label": "A",
+                  "id": 27638,
+                  "text": "P = $\r\n m\\overline {v_x^2} $",
+                  "is_correct": false
+                },
+                {
+                  "label": "B",
+                  "id": 27637,
+                  "text": "P = $ 2nm\\overline {v_x^2} $",
+                  "is_correct": false
+                },
+                {
+                  "label": "C",
+                  "id": 27639,
+                  "text": "P = $ n\\overline {v_x^2} $",
+                  "is_correct": false
+                },
+                {
+                  "label": "D",
+                  "id": 27636,
+                  "text": "P = $ nm\\overline {v_x^2} $",
+                  "is_correct": true
+                }
+              ],
+              "correct_option_ids": [
+                27636
+              ],
+              "correct_option_labels": [
+                "D"
+              ],
+              "correct_option_texts": [
+                "P = $ nm\\overline {v_x^2} $"
+              ],
+              "explanation": "Pressure is due to collision of molecule with the wall of container.\nCollision by molecule to the wall of container assumed to be perfectly elastic.\nBy the principle of conservation of momentum, the momentum imparted to the wall in the collision = 2mv_x \nthe number of molecules hitting the wall in time $\\Delta t$ = $nA{v_x}\\Delta t$ \nn = no. of molecule per unit volume\nA = Area of container\nBut, on the average, half of these are moving towards the wall and the other half away from the wall. Thus, the number of molecules with velocity (v_x , v_y, v_z) hitting the wall in time ∆t is ½A v_x∆t n, where n is the number of molecules per unit volume. The total momentum transferred to the wall by these molecules in time ∆t is: Q = (2mv_x ) (½ n A v_x ∆t )\nThe total momentum transferred to the wall by these molecules in $\\Delta t$ time = $m{v_x}\\left( {nA{v_x}\\Delta t} \\right)$ \nPressure P = $F\\over A$ = rate of momentum transfer per unit area\nP = $ {{m{v_x}\\left( {nA{v_x}\\Delta t} \\right)/\\Delta t} \\over A} $ = $nm{v^2}_x$ \nall molecules in a gas do not have the same velocity; there is a distribution in velocities. The above equation therefore, stands for pressure due to the group of molecules with speed v_x in the x-direction and n stands for the number density of that group of molecules. The total pressure due to all groups \nP = $ nm\\overline {v_x^2} $"
+            },
+            {
+              "questionID": 18110,
+              "question": "The average kinetic energy of a molecule:",
+              "question_raw": "<p>The average kinetic energy of a molecule:</p>",
+              "options": [
+                {
+                  "label": "A",
+                  "id": 27643,
+                  "text": "is inversely proportional to the molecular mass of the gas",
+                  "is_correct": false
+                },
+                {
+                  "label": "B",
+                  "id": 27641,
+                  "text": "is inversely proportional to the absolute temperature of the gas",
+                  "is_correct": false
+                },
+                {
+                  "label": "C",
+                  "id": 27640,
+                  "text": "is proportional to the absolute temperature of the gas",
+                  "is_correct": true
+                },
+                {
+                  "label": "D",
+                  "id": 27642,
+                  "text": "is not dependent on the absolute temperature of the gas",
+                  "is_correct": false
+                }
+              ],
+              "correct_option_ids": [
+                27640
+              ],
+              "correct_option_labels": [
+                "C"
+              ],
+              "correct_option_texts": [
+                "is proportional to the absolute temperature of the gas"
+              ],
+              "explanation": "$E = {3 \\over 2}kT$ \nE $\\propto$ T"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "testPaperID": 588,
+      "testPaperName": "Kinetic Theory Test 02",
+      "is_paid": true,
+      "category_full_name": "CBSE > Class 11 > Physics > Kinetic Theory",
+      "noOfQuestions": 15,
+      "has_answers": true,
+      "sections": [
+        {
+          "sectionName": "General",
+          "sectionID": null,
+          "questions": [
+            {
+              "questionID": 18111,
+              "question": "According to the law of equipartition of energy, the total energy is equally distributed in all possible energy modes, with each mode having average energy equal to:",
+              "question_raw": "<p>According to the law of equipartition of energy,&nbsp;the total energy is equally distributed in all possible energy modes, with each mode having average energy equal to:</p>",
+              "options": [
+                {
+                  "label": "A",
+                  "id": 27647,
+                  "text": "$\\frac{3}{4}$ k_B T",
+                  "is_correct": false
+                },
+                {
+                  "label": "B",
+                  "id": 27645,
+                  "text": "k_BT",
+                  "is_correct": false
+                },
+                {
+                  "label": "C",
+                  "id": 27646,
+                  "text": "$\\frac{1}{4}$ k_B T",
+                  "is_correct": false
+                },
+                {
+                  "label": "D",
+                  "id": 27644,
+                  "text": "$\\frac{1}{2}$k_BT",
+                  "is_correct": true
+                }
+              ],
+              "correct_option_ids": [
+                27644
+              ],
+              "correct_option_labels": [
+                "D"
+              ],
+              "correct_option_texts": [
+                "$\\frac{1}{2}$k_BT"
+              ],
+              "explanation": "The law of equipartition of energy states that for any dynamical system in thermal equilibrium, the total energy is equally divided among the degrees of freedom. The energy associated with a molecule for one degree of freedom is $\\frac{1}{2}{\\text{ }}{{\\text{k}}_{\\text{B}}}{\\text{T}}$"
+            },
+            {
+              "questionID": 18112,
+              "question": "The number of degrees of freedom a diatomic molecule is:",
+              "question_raw": "<p>The number of degrees of freedom a diatomic molecule is:</p>",
+              "options": [
+                {
+                  "label": "A",
+                  "id": 27648,
+                  "text": "5",
+                  "is_correct": true
+                },
+                {
+                  "label": "B",
+                  "id": 27651,
+                  "text": "3",
+                  "is_correct": false
+                },
+                {
+                  "label": "C",
+                  "id": 27649,
+                  "text": "6",
+                  "is_correct": false
+                },
+                {
+                  "label": "D",
+                  "id": 27650,
+                  "text": "4",
+                  "is_correct": false
+                }
+              ],
+              "correct_option_ids": [
+                27648
+              ],
+              "correct_option_labels": [
+                "A"
+              ],
+              "correct_option_texts": [
+                "5"
+              ],
+              "explanation": "Degrees of freedom of a system refers to the possible independent motions a system can have.\nthe total degrees of freedom describing the motion of a diatomic molecule is 5.\n3 for translation and 2 for rotation"
+            },
+            {
+              "questionID": 18113,
+              "question": "The number of degrees of freedom a monoatomic molecule have:",
+              "question_raw": "<p>The number of degrees of freedom a monoatomic molecule have:</p>",
+              "options": [
+                {
+                  "label": "A",
+                  "id": 27654,
+                  "text": "1",
+                  "is_correct": false
+                },
+                {
+                  "label": "B",
+                  "id": 27652,
+                  "text": "3",
+                  "is_correct": true
+                },
+                {
+                  "label": "C",
+                  "id": 27655,
+                  "text": "4",
+                  "is_correct": false
+                },
+                {
+                  "label": "D",
+                  "id": 27653,
+                  "text": "2",
+                  "is_correct": false
+                }
+              ],
+              "correct_option_ids": [
+                27652
+              ],
+              "correct_option_labels": [
+                "B"
+              ],
+              "correct_option_texts": [
+                "3"
+              ],
+              "explanation": "Degrees of freedom of a system refers to the possible independent motions a system can have.\nMonoatomic gas molecule can have 3 independent motion and hence have 3 degrees of freedom (all are translational)."
+            },
+            {
+              "questionID": 18114,
+              "question": "The molar specific heat at constant volume, C_v for monatomic gases is:",
+              "question_raw": "<p>The molar specific heat at constant volume, C<sub>v</sub> for monatomic gases is:</p>",
+              "options": [
+                {
+                  "label": "A",
+                  "id": 27656,
+                  "text": "$\\frac{3}{2}$R",
+                  "is_correct": true
+                },
+                {
+                  "label": "B",
+                  "id": 27659,
+                  "text": "R",
+                  "is_correct": false
+                },
+                {
+                  "label": "C",
+                  "id": 27658,
+                  "text": "$\\frac{7}{2}$R",
+                  "is_correct": false
+                },
+                {
+                  "label": "D",
+                  "id": 27657,
+                  "text": "$\\frac{5}{2}$R",
+                  "is_correct": false
+                }
+              ],
+              "correct_option_ids": [
+                27656
+              ],
+              "correct_option_labels": [
+                "A"
+              ],
+              "correct_option_texts": [
+                "$\\frac{3}{2}$R"
+              ],
+              "explanation": "C_V = $\\frac{1}{2}Rf$ \nfor monatomic gases f = 3\nC_V = $\\frac{3}{2}R$"
+            },
+            {
+              "questionID": 18115,
+              "question": "The molar specific heat at constant volume, C_v for diatomic gases is:",
+              "question_raw": "<p>The molar specific heat at constant volume, C<sub>v</sub> for diatomic gases is:</p>",
+              "options": [
+                {
+                  "label": "A",
+                  "id": 27661,
+                  "text": "$\\frac{3}{2}$R",
+                  "is_correct": false
+                },
+                {
+                  "label": "B",
+                  "id": 27660,
+                  "text": "$\\frac{5}{2}$R",
+                  "is_correct": true
+                },
+                {
+                  "label": "C",
+                  "id": 27662,
+                  "text": "$\\frac{7}{2}$R",
+                  "is_correct": false
+                },
+                {
+                  "label": "D",
+                  "id": 27663,
+                  "text": "R",
+                  "is_correct": false
+                }
+              ],
+              "correct_option_ids": [
+                27660
+              ],
+              "correct_option_labels": [
+                "B"
+              ],
+              "correct_option_texts": [
+                "$\\frac{5}{2}$R"
+              ],
+              "explanation": "C_V =$ \\frac{1}{2}$ Rf \nfor diatomic gases f = 5\nC_V = $\\frac{5}{2}R$"
+            },
+            {
+              "questionID": 17816,
+              "question": "For a rope of yield strength S_y loaded in tension with weight Mg the minimum area A of the rope should be:",
+              "question_raw": "<p>For a rope of yield strength S<sub>y</sub> loaded in tension with weight Mg the minimum area A of the rope should be:</p>",
+              "options": [
+                {
+                  "label": "A",
+                  "id": 26464,
+                  "text": "$\\mathrm{A} \\geq \\frac{M g}{\\mathrm{~S}_{\\mathrm{y}}}$",
+                  "is_correct": true
+                },
+                {
+                  "label": "B",
+                  "id": 26465,
+                  "text": "A $ \\geq $ $\\frac{M g}{2 S_y}$",
+                  "is_correct": false
+                },
+                {
+                  "label": "C",
+                  "id": 26466,
+                  "text": "A $ \\geq $ $\\frac{M g}{3 S_y}$",
+                  "is_correct": false
+                },
+                {
+                  "label": "D",
+                  "id": 26467,
+                  "text": "A $ \\geq $ MgS_y",
+                  "is_correct": false
+                }
+              ],
+              "correct_option_ids": [
+                26464
+              ],
+              "correct_option_labels": [
+                "A"
+              ],
+              "correct_option_texts": [
+                "$\\mathrm{A} \\geq \\frac{M g}{\\mathrm{~S}_{\\mathrm{y}}}$"
+              ],
+              "explanation": "We know that Yield strength times the Area gives the weight of the body.\nAs Yield strength = $\\frac{\\text { weight of body }}{\\text { area }}$\nFor safety purposes\nYield strength $ \\geq $ $\\frac{\\text { weight of body }}{\\text { area }}$\n${{\\rm{S}}_{\\rm{y}}}$ $ \\geq $ $\\frac{Mg}{A}$\nA $ \\geq $ $\\frac{Mg}{{\\rm{S}}_{\\rm{y}}}$"
+            },
+            {
+              "questionID": 18117,
+              "question": "Mean free path is the:",
+              "question_raw": "<p>Mean free path is the:</p>",
+              "options": [
+                {
+                  "label": "A",
+                  "id": 27670,
+                  "text": "minimum distance between collisions",
+                  "is_correct": false
+                },
+                {
+                  "label": "B",
+                  "id": 27671,
+                  "text": "(maximum distance + minimum distance )/ 2 between collisions",
+                  "is_correct": false
+                },
+                {
+                  "label": "C",
+                  "id": 27668,
+                  "text": "average distance between collisions",
+                  "is_correct": true
+                },
+                {
+                  "label": "D",
+                  "id": 27669,
+                  "text": "maximum distance between collisions",
+                  "is_correct": false
+                }
+              ],
+              "correct_option_ids": [
+                27668
+              ],
+              "correct_option_labels": [
+                "C"
+              ],
+              "correct_option_texts": [
+                "average distance between collisions"
+              ],
+              "explanation": "the mean free path is the average distance traveled by a moving particle (such as an atom, a molecule, a photon) between successive impacts (collisions), which modify its direction or energy or other particle properties."
+            },
+            {
+              "questionID": 18118,
+              "question": "An approximate equation for calculating the mean free path is:",
+              "question_raw": "<p>An approximate equation for calculating the mean free path is:</p>",
+              "options": [
+                {
+                  "label": "A",
+                  "id": 27673,
+                  "text": "$\\lambda=\\frac{1}{n d^2}$",
+                  "is_correct": false
+                },
+                {
+                  "label": "B",
+                  "id": 27675,
+                  "text": "$\\lambda=\\frac{1}{n \\pi d^3}$",
+                  "is_correct": false
+                },
+                {
+                  "label": "C",
+                  "id": 27672,
+                  "text": "$\\lambda = \\frac{1}{{n\\pi {d^2}}}$",
+                  "is_correct": true
+                },
+                {
+                  "label": "D",
+                  "id": 27674,
+                  "text": "$\\lambda=\\frac{1}{\\pi d^2}$",
+                  "is_correct": false
+                }
+              ],
+              "correct_option_ids": [
+                27672
+              ],
+              "correct_option_labels": [
+                "C"
+              ],
+              "correct_option_texts": [
+                "$\\lambda = \\frac{1}{{n\\pi {d^2}}}$"
+              ],
+              "explanation": "If the molecules have diameter d, then the effective cross-section for a collision can be A = $ \\pi {d^2}$ \nl = distance travelled\nn = no. of molecule per unit volume\nV = volume of interaction\nThe mean free path could be taken as the length of the path divided by the number of collisions.\nmean free path\n$\\lambda=\\frac{l}{V \\times n}=\\frac{l}{(A l) \\times n}=\\frac{\\bar{v} t}{\\left(\\pi d^2 \\times \\bar{v} t\\right) \\times n}$\n$\\lambda=\\frac{1}{\\pi d^2 n}$"
+            },
+            {
+              "questionID": 18119,
+              "question": "Estimate the fraction of molecular volume to the actual volume occupied by oxygen gas at STP. Take the diameter of an oxygen molecule to be 3 $\\mathop A\\limits^0 $.",
+              "question_raw": "<p>Estimate the fraction of molecular volume to the actual volume occupied by oxygen gas at STP. Take the diameter of an oxygen molecule to be 3 <span class=\"math-tex\">{tex}\\mathop A\\limits^0 {/tex}</span>.</p>",
+              "options": [
+                {
+                  "label": "A",
+                  "id": 27676,
+                  "text": "3.8 $ \\times $ 10^−4",
+                  "is_correct": true
+                },
+                {
+                  "label": "B",
+                  "id": 27677,
+                  "text": "5 $ \\times $ 10^−4",
+                  "is_correct": false
+                },
+                {
+                  "label": "C",
+                  "id": 27679,
+                  "text": "3.5 $ \\times $ 10^−4",
+                  "is_correct": false
+                },
+                {
+                  "label": "D",
+                  "id": 27678,
+                  "text": "4.5 $ \\times $ 10^−4",
+                  "is_correct": false
+                }
+              ],
+              "correct_option_ids": [
+                27676
+              ],
+              "correct_option_labels": [
+                "A"
+              ],
+              "correct_option_texts": [
+                "3.8 $ \\times $ 10^−4"
+              ],
+              "explanation": "Radius = $1.5 \\mathop A\\limits^o $ \nmolecular volume of oxygen \n$V = {N_A} \\times {4 \\over 3}\\pi {r^3} $ = 6.023 $\\times$ 10^23 $\\times$ $4\\over 3$ $\\times$ 3.14 $\\times$(1.5 $\\times$10^−8)^3 = 8.51cm^3\nActual volume of oxygen at STP = 22400cm^3\nratio of molecular volume to the actual volume is given by = ${{8.51} \\over {22400}} = 3.8 \\times {10^{ - 4}}$"
+            },
+            {
+              "questionID": 18120,
+              "question": "Molar volume is the volume occupied by 1 mol of any (ideal) gas at standard temperature and pressure (STP : 1 atmospheric pressure, 0 ^oC). The value of Molar volume is:",
+              "question_raw": "<p>Molar volume is the volume occupied by 1 mol of any (ideal) gas at standard temperature and pressure (STP : 1 atmospheric pressure, 0 <sup>o</sup>C). The value of Molar volume is:</p>",
+              "options": [
+                {
+                  "label": "A",
+                  "id": 27680,
+                  "text": "22.4 litres",
+                  "is_correct": true
+                },
+                {
+                  "label": "B",
+                  "id": 27682,
+                  "text": "20.4 litres",
+                  "is_correct": false
+                },
+                {
+                  "label": "C",
+                  "id": 27681,
+                  "text": "23.7 liters",
+                  "is_correct": false
+                },
+                {
+                  "label": "D",
+                  "id": 27683,
+                  "text": "24.4 litres",
+                  "is_correct": false
+                }
+              ],
+              "correct_option_ids": [
+                27680
+              ],
+              "correct_option_labels": [
+                "A"
+              ],
+              "correct_option_texts": [
+                "22.4 litres"
+              ],
+              "explanation": "PV = nRT\n$V $ = $ {{nRT} \\over P} = {{1 \\times 8.31 \\times 273} \\over {1.01 \\times {{10}^5}}} $ = 0.02224m^3 = 22.4lit"
+            },
+            {
+              "questionID": 18121,
+              "question": "The figure shows a plot of $\\frac{PV}{T}$versus P for 1.00 $ \\times $ 10^−3 kg of oxygen gas at two different temperatures. The dotted plot corresponds to",
+              "question_raw": "<p>The figure shows a plot of&nbsp;<span class=\"math-tex\">{tex}\\frac{PV}{T}{/tex}</span>versus P for 1.00&nbsp;<span class=\"math-tex\">{tex} \\times {/tex}</span>&nbsp;10<sup>&minus;3</sup> kg of oxygen gas at two different temperatures. The dotted plot corresponds to<br />\n<img src=\"https://media-mycbseguide.s3.amazonaws.com/images/testpaper/1.02.11.13.28.Ques.jpg\" style=\"width: 150px; height: 98px;\" /></p>",
+              "options": [
+                {
+                  "label": "A",
+                  "id": 27684,
+                  "text": "‘ideal’ gas behavior",
+                  "is_correct": true
+                },
+                {
+                  "label": "B",
+                  "id": 27685,
+                  "text": "‘real’ gas behavior",
+                  "is_correct": false
+                },
+                {
+                  "label": "C",
+                  "id": 27687,
+                  "text": "‘super heated’ gas behavior",
+                  "is_correct": false
+                },
+                {
+                  "label": "D",
+                  "id": 27686,
+                  "text": "‘super cooled’ gas behavior",
+                  "is_correct": false
+                }
+              ],
+              "correct_option_ids": [
+                27684
+              ],
+              "correct_option_labels": [
+                "A"
+              ],
+              "correct_option_texts": [
+                "‘ideal’ gas behavior"
+              ],
+              "explanation": "For 1 mole of ideal gas, according to ideal gas equation​​​​\nPV = RT\n$\\frac{PV}{T}$ = RT = const.\nHence the graph must be with zero slopes. So that dotted line show ‘ideal’ gas behaviour and the curved line shows deviation from ‘ideal’ gas behaviour."
+            },
+            {
+              "questionID": 18122,
+              "question": "The figure shows a plot of $\\frac{PV}{T}$ versus P for 1.00$ \\times $ 10^−3 kg of oxygen gas at two different temperatures. Comparing T_1 and T_2.",
+              "question_raw": "<p>The figure shows a plot of&nbsp;<span class=\"math-tex\">{tex}\\frac{PV}{T}{/tex}</span>&nbsp;versus P for 1.00<span class=\"math-tex\">{tex} \\times {/tex}</span>&nbsp;10<sup>&minus;3</sup> kg of oxygen gas at two different temperatures. Comparing T<sub>1</sub> and T<sub>2</sub>.<br />\n<img src=\"https://media-mycbseguide.s3.amazonaws.com/images/testpaper/1.02.11.13.29.Ques.jpg\" style=\"width: 150px; height: 95px;\" /></p>",
+              "options": [
+                {
+                  "label": "A",
+                  "id": 27688,
+                  "text": "T_1 > T_2",
+                  "is_correct": true
+                },
+                {
+                  "label": "B",
+                  "id": 27689,
+                  "text": "T_1 = T_2",
+                  "is_correct": false
+                },
+                {
+                  "label": "C",
+                  "id": 27690,
+                  "text": "T_1 < T_2",
+                  "is_correct": false
+                },
+                {
+                  "label": "D",
+                  "id": 27691,
+                  "text": "T_1 $\\ge$ T_2",
+                  "is_correct": false
+                }
+              ],
+              "correct_option_ids": [
+                27688
+              ],
+              "correct_option_labels": [
+                "A"
+              ],
+              "correct_option_texts": [
+                "T_1 > T_2"
+              ],
+              "explanation": "For 1 mole of an ideal gas, according to the ideal gas equation\n​​​​​PV = RT\n$\\frac{PV}{T}$ = R = constant\nHence the graph must be with zero slopes. So that dotted line show ‘ideal’ gas behaviour and the curved line show deviation from ‘ideal’ gas behaviour.\nA real gas behaves as an ideal gas at high temperature. Temperature T_1 is close to the dotted line. \nso that T_1 > T_2"
+            },
+            {
+              "questionID": 18123,
+              "question": "The figure shows a plot of $\\frac{PV}{T}$ versus P for 1.00$ \\times $ 10^−3 kg of oxygen gas at two different temperatures. What is the value of$\\frac{PV}{T}$ where the curves meet on the y-axis?",
+              "question_raw": "<p>The figure shows a plot of&nbsp;<span class=\"math-tex\">{tex}\\frac{PV}{T}{/tex}</span>&nbsp;versus P for 1.00<span class=\"math-tex\">{tex} \\times {/tex}</span>&nbsp;10<sup>&minus;3</sup> kg of oxygen gas at two different temperatures. What is the value of<span class=\"math-tex\">{tex}\\frac{PV}{T}{/tex}</span> where the curves meet on the y-axis?<br />\n<img src=\"https://media-mycbseguide.s3.amazonaws.com/images/testpaper/1.02.11.13.29.Ques.jpg\" style=\"width: 150px; height: 95px;\" /></p>",
+              "options": [
+                {
+                  "label": "A",
+                  "id": 27692,
+                  "text": "0.26 J K^−1",
+                  "is_correct": true
+                },
+                {
+                  "label": "B",
+                  "id": 27693,
+                  "text": "0.22 JK^-1 ​​​​​",
+                  "is_correct": false
+                },
+                {
+                  "label": "C",
+                  "id": 27694,
+                  "text": "0.24 JK^-1​​​​​​",
+                  "is_correct": false
+                },
+                {
+                  "label": "D",
+                  "id": 27695,
+                  "text": "0.28 JK^-1 ​​​​​​",
+                  "is_correct": false
+                }
+              ],
+              "correct_option_ids": [
+                27692
+              ],
+              "correct_option_labels": [
+                "A"
+              ],
+              "correct_option_texts": [
+                "0.26 J K^−1"
+              ],
+              "explanation": "PV = nRT\n$\\frac{PV}{T}$ = nR = $\\frac{1}{32}$ $\\times$ 8.314 = 0.26 JK^-1\nHence the value of $\\frac{PV}{T}$ where the curves meet on the y-axis is 0.26 J K^−1"
+            },
+            {
+              "questionID": 18124,
+              "question": "An oxygen cylinder of volume 30 liters has an initial gauge pressure of 15 atm and a temperature of 27 ^oC. After some oxygen is withdrawn from the cylinder, the gauge pressure drops to 11 atm and its temperature drops to 17 ^oC. Estimate the mass of oxygen taken out of the cylinder (R = 8.31 J mol^-1 K^-1, the molecular mass of O_2 = 32 u).",
+              "question_raw": "<p>An oxygen cylinder of volume 30 liters has an initial gauge pressure of 15 atm and a temperature of 27 <sup>o</sup>C. After some oxygen is withdrawn from the cylinder, the gauge pressure drops to 11 atm and its temperature drops to 17 <sup>o</sup>C. Estimate the mass of oxygen taken out of the cylinder (R = 8.31 J mol<sup>-1</sup> K<sup>-1</sup>, the molecular mass of O<sub>2</sub> = 32 u).</p>",
+              "options": [
+                {
+                  "label": "A",
+                  "id": 27699,
+                  "text": "0.16 kg",
+                  "is_correct": false
+                },
+                {
+                  "label": "B",
+                  "id": 27696,
+                  "text": "0.13 kg",
+                  "is_correct": true
+                },
+                {
+                  "label": "C",
+                  "id": 27697,
+                  "text": "0.12 kg",
+                  "is_correct": false
+                },
+                {
+                  "label": "D",
+                  "id": 27698,
+                  "text": "0.10 kg",
+                  "is_correct": false
+                }
+              ],
+              "correct_option_ids": [
+                27696
+              ],
+              "correct_option_labels": [
+                "B"
+              ],
+              "correct_option_texts": [
+                "0.13 kg"
+              ],
+              "explanation": "V_1 = 30lit = 30 $\\times$ 10^−3m^3\nP_1 = 15atm = 15 $\\times$ 1.01 $\\times$ 10^5 = 15.15 $\\times$ 10^5Pa\nT_1 = 27^oC = 300K\nP_1V_1 = n_1RT_1\n$n_{1}=\\frac{P_{1} V_{1}}{R T_{1}}=\\frac{15.15 \\times 10^{5} \\times 30 \\times 10^{-3}}{8.31 \\times 300}$ = 18.276\n$n_{1}=\\frac{m_{1}}{M}$\nm_1 = n_1M = 18.276 $\\times$ 32 = 584.84gm\nWhen some oxygen is withdrawn from the cylinder \nV_2 = 30lit = 30 $\\times$ 10^−3m^3\nP_1 = 11atm = 11 $\\times$ 1.01 $\\times$ 10^5 = 11.11 $\\times$ 10^5Pa\nT_1 = 17^oC = 300K\nP_2V_2 = n_2RT_2\n$n_{2}=\\frac{P_{2} V_{2}}{R T_{2}}=\\frac{11.11 \\times 10^{5} \\times 30 \\times 10^{-3}}{8.31 \\times 290}$ = 13.86\n${n_2} = {{{m_2}} \\over M}$ = \nm_2 = n_2M = 13.86 $\\times$ 32 = 453.1gm\nthe mass of oxygen taken out of the cylinder = m_1 − m_2 = 584.84 − 453.1 = 131.74gm = 0.13Kg."
+            },
+            {
+              "questionID": 18125,
+              "question": "An air bubble of volume 1.0 cm^3 rises from the bottom of a lake 40 m deep at a temperature of 12 ^oC. To what volume does it grow when it reaches the surface, which is at a temperature of 35 ^oC?",
+              "question_raw": "<p>An air bubble of volume 1.0 cm<sup>3</sup>&nbsp;rises from the bottom of a lake 40 m deep at a temperature of 12 <sup>o</sup>C. To what volume does it grow when it reaches the surface, which is at a temperature of 35 <sup>o</sup>C?</p>",
+              "options": [
+                {
+                  "label": "A",
+                  "id": 27700,
+                  "text": "5.3 $ \\times $ 10^−6 m^3",
+                  "is_correct": true
+                },
+                {
+                  "label": "B",
+                  "id": 27703,
+                  "text": "5.5 $ \\times $ 10^−6 m^3",
+                  "is_correct": false
+                },
+                {
+                  "label": "C",
+                  "id": 27701,
+                  "text": "5.1 $ \\times $ 10^−6 m^3",
+                  "is_correct": false
+                },
+                {
+                  "label": "D",
+                  "id": 27702,
+                  "text": "4.9 $ \\times $ 10^−6 m^3",
+                  "is_correct": false
+                }
+              ],
+              "correct_option_ids": [
+                27700
+              ],
+              "correct_option_labels": [
+                "A"
+              ],
+              "correct_option_texts": [
+                "5.3 $ \\times $ 10^−6 m^3"
+              ],
+              "explanation": "P_1 = P_2 +h$\\rho$g\nV_1 = 1.0cm^3\nh = 40m\nT_1 = 35^oC = 308K , density of water is = 10^3 kg m^-3\nPressure at surface P_2 = 1atm = 1.013$\\times$ 10^5Pa\nPressure at depth of 40 meter = P_1 = 1atm + h$\\rho$g = (1.013 $\\times$ 10^5) + 40 $\\times$ 10^3 $\\times$ 9.8 = 493300Pa\n${{{P_1}{V_1}} \\over {{T_1}}} = {{{P_2}{V_2}} \\over {{T_2}}} $\n${V_2} = {{{P_1}{V_1}{T_2}} \\over {{P_2}{T_1}}} $ = $ {{493300 \\times 1.0 \\times {{10}^{ - 6}} \\times 308} \\over {1.013 \\times {{10}^5} \\times 285}} $ = 5.3 $\\times$ 10^−6m^3."
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "testPaperID": 589,
+      "testPaperName": "Kinetic Theory Test 03",
+      "is_paid": true,
+      "category_full_name": "CBSE > Class 11 > Physics > Kinetic Theory",
+      "noOfQuestions": 15,
+      "has_answers": true,
+      "sections": [
+        {
+          "sectionName": "General",
+          "sectionID": null,
+          "questions": [
+            {
+              "questionID": 18126,
+              "question": "Estimate the total number of air molecules (inclusive of oxygen, nitrogen, water vapor and other constituents) in a room of capacity 25.0 m^3 at a temperature of 27 ^oC and 1 atm pressure.",
+              "question_raw": "<p>Estimate the total number of air molecules (inclusive of oxygen, nitrogen, water vapor and other constituents) in a room of capacity 25.0 m<sup>3</sup> at a temperature of 27 <sup>o</sup>C and 1 atm pressure.</p>",
+              "options": [
+                {
+                  "label": "A",
+                  "id": 27706,
+                  "text": "6.50 $ \\times $ 10^26",
+                  "is_correct": false
+                },
+                {
+                  "label": "B",
+                  "id": 27704,
+                  "text": "6.10 $ \\times $ 10^26",
+                  "is_correct": true
+                },
+                {
+                  "label": "C",
+                  "id": 27705,
+                  "text": "6.30 $ \\times $ 10^26",
+                  "is_correct": false
+                },
+                {
+                  "label": "D",
+                  "id": 27707,
+                  "text": "6.60 $ \\times $ 10^26",
+                  "is_correct": false
+                }
+              ],
+              "correct_option_ids": [
+                27704
+              ],
+              "correct_option_labels": [
+                "B"
+              ],
+              "correct_option_texts": [
+                "6.10 $ \\times $ 10^26"
+              ],
+              "explanation": "PV = NkT\nN = $\\frac{P V}{k T}$ = $\\frac{1.01 \\times 10^{5} \\times 25}{1.38 \\times 10^{-23} \\times 300}$ = 6.1 $\\times$ 10^26"
+            },
+            {
+              "questionID": 18127,
+              "question": "Estimate the average thermal energy of a helium atom at room temperature (27 ^oC)",
+              "question_raw": "<p>Estimate the average thermal energy of a helium atom at room temperature (27 <sup>o</sup>C)</p>",
+              "options": [
+                {
+                  "label": "A",
+                  "id": 27709,
+                  "text": "6.0 $ \\times $ 10^−21 J",
+                  "is_correct": false
+                },
+                {
+                  "label": "B",
+                  "id": 27708,
+                  "text": "6.2 $ \\times $ 10^−21 J",
+                  "is_correct": true
+                },
+                {
+                  "label": "C",
+                  "id": 27711,
+                  "text": "6.4 $ \\times $ 10^−21 J",
+                  "is_correct": false
+                },
+                {
+                  "label": "D",
+                  "id": 27710,
+                  "text": "5.7 $ \\times $ 10^−21 J",
+                  "is_correct": false
+                }
+              ],
+              "correct_option_ids": [
+                27708
+              ],
+              "correct_option_labels": [
+                "B"
+              ],
+              "correct_option_texts": [
+                "6.2 $ \\times $ 10^−21 J"
+              ],
+              "explanation": "E = $ {3 \\over 2}kT $ = $3\\over 2$ $\\times$ 1.38 $\\times$10^−23 $\\times$ 300 = 6.2 $\\times$ 10^−21J\nk = Boltzmann constant"
+            },
+            {
+              "questionID": 18128,
+              "question": "Estimate the average thermal energy of a helium atom at the temperature on the surface of the Sun (6000 K)",
+              "question_raw": "<p>Estimate the average thermal energy of a helium atom at the temperature on the surface of the Sun (6000 K)</p>",
+              "options": [
+                {
+                  "label": "A",
+                  "id": 27715,
+                  "text": "1.35 $ \\times $ 10^−19 J",
+                  "is_correct": false
+                },
+                {
+                  "label": "B",
+                  "id": 27713,
+                  "text": "1.28 $ \\times $ 10^−19 J",
+                  "is_correct": false
+                },
+                {
+                  "label": "C",
+                  "id": 27712,
+                  "text": "1.24 $ \\times $ 10^−19 J",
+                  "is_correct": true
+                },
+                {
+                  "label": "D",
+                  "id": 27714,
+                  "text": "1.20 $ \\times $ 10^−19 J",
+                  "is_correct": false
+                }
+              ],
+              "correct_option_ids": [
+                27712
+              ],
+              "correct_option_labels": [
+                "C"
+              ],
+              "correct_option_texts": [
+                "1.24 $ \\times $ 10^−19 J"
+              ],
+              "explanation": "E = $ {3 \\over 2}kT $ = 32 $\\times$ 1.38 $\\times$ 10^−23 $\\times$ 6000 = 1.24 $\\times$ 10^−19J\nk = boltzman constant"
+            },
+            {
+              "questionID": 18129,
+              "question": "Estimate the average thermal energy of a helium atom the temperature of 10 million Kelvin (the typical core temperature in the case of a star).",
+              "question_raw": "<p>Estimate the average thermal energy of a helium atom the temperature of 10 million Kelvin (the typical core temperature in the case of a star).</p>",
+              "options": [
+                {
+                  "label": "A",
+                  "id": 27716,
+                  "text": "2.1 $ \\times $ 10^−16 J",
+                  "is_correct": true
+                },
+                {
+                  "label": "B",
+                  "id": 27719,
+                  "text": "2.3 $ \\times $ 10^−16 J",
+                  "is_correct": false
+                },
+                {
+                  "label": "C",
+                  "id": 27717,
+                  "text": "2.0 $ \\times $ 10^−16 J",
+                  "is_correct": false
+                },
+                {
+                  "label": "D",
+                  "id": 27718,
+                  "text": "1.9 $ \\times $ 10^−16 J",
+                  "is_correct": false
+                }
+              ],
+              "correct_option_ids": [
+                27716
+              ],
+              "correct_option_labels": [
+                "A"
+              ],
+              "correct_option_texts": [
+                "2.1 $ \\times $ 10^−16 J"
+              ],
+              "explanation": "E = $3\\over2$kT = $3\\over2$ $\\times$ 1.38 $\\times$ 10^−23 $\\times$ 10 $\\times$ 10^6 = 2.07 $\\times$ 10^−16J \nk = Boltzmann constant"
+            },
+            {
+              "questionID": 18130,
+              "question": "Three vessels of equal capacity have gases at the same temperature and pressure. The first vessel contains neon (monatomic), the second contains chlorine (diatomic), and the third contains uranium hexafluoride (polyatomic). The number of molecules:",
+              "question_raw": "<p>Three vessels of equal capacity have gases at the same temperature and pressure. The first vessel contains neon (monatomic), the second contains chlorine (diatomic), and the third contains uranium hexafluoride (polyatomic). The number of molecules:</p>",
+              "options": [
+                {
+                  "label": "A",
+                  "id": 27722,
+                  "text": "is the greatest in the vessel with neon",
+                  "is_correct": false
+                },
+                {
+                  "label": "B",
+                  "id": 27723,
+                  "text": "is the greatest in the vessel with chlorine",
+                  "is_correct": false
+                },
+                {
+                  "label": "C",
+                  "id": 27720,
+                  "text": "is the same in all three vessels",
+                  "is_correct": true
+                },
+                {
+                  "label": "D",
+                  "id": 27721,
+                  "text": "is the greatest in the vessel with uranium hexafluoride",
+                  "is_correct": false
+                }
+              ],
+              "correct_option_ids": [
+                27720
+              ],
+              "correct_option_labels": [
+                "C"
+              ],
+              "correct_option_texts": [
+                "is the same in all three vessels"
+              ],
+              "explanation": "Avogadro's law states that \"equal volumes of all gases, at the same temperature and pressure, have the same number of molecules\"."
+            },
+            {
+              "questionID": 18131,
+              "question": "Three vessels of equal capacity have gases at the same temperature and pressure. The first vessel contains neon (monatomic), the second contains chlorine (diatomic), and the third contains uranium hexafluoride (polyatomic). In which case is v_rms the largest?",
+              "question_raw": "<p>Three vessels of equal capacity have gases at the same temperature and pressure. The first vessel contains neon (monatomic), the second contains chlorine (diatomic), and the third contains uranium hexafluoride (polyatomic). In which case is v<sub>rms</sub> the largest?</p>",
+              "options": [
+                {
+                  "label": "A",
+                  "id": 27727,
+                  "text": "v_rms is the same in all vessels.",
+                  "is_correct": false
+                },
+                {
+                  "label": "B",
+                  "id": 27726,
+                  "text": "v_rms is largest for chlorine.",
+                  "is_correct": false
+                },
+                {
+                  "label": "C",
+                  "id": 27725,
+                  "text": "v_rms is largest for uranium hexafluoride.",
+                  "is_correct": false
+                },
+                {
+                  "label": "D",
+                  "id": 27724,
+                  "text": "v_rms is the largest for neon.",
+                  "is_correct": true
+                }
+              ],
+              "correct_option_ids": [
+                27724
+              ],
+              "correct_option_labels": [
+                "D"
+              ],
+              "correct_option_texts": [
+                "v_rms is the largest for neon."
+              ],
+              "explanation": "${v_{rms}} = \\sqrt {{{3RT} \\over M}}$\n${v_{rms}} \\propto {1 \\over {\\sqrt M }}$ \nNeon has smaller molecular wt in comparison to chlorine and uranium hexafluoride. So that v_rms s largest for neon."
+            },
+            {
+              "questionID": 18132,
+              "question": "At what temperature is the root mean square speed of an atom in an argon gas cylinder equal to the rms speed of a helium gas atom at – 20 ^oC? (Atomic mass of Ar = 39.9 u, of He = 4.0 u).",
+              "question_raw": "<p>At what temperature is the root mean square speed of an atom in an argon gas cylinder equal to the rms speed of a helium gas atom at &ndash; 20 <sup>o</sup>C? (Atomic mass of Ar = 39.9 u, of He = 4.0 u).</p>",
+              "options": [
+                {
+                  "label": "A",
+                  "id": 27731,
+                  "text": "2.77 $ \\times $ 10^3 K",
+                  "is_correct": false
+                },
+                {
+                  "label": "B",
+                  "id": 27729,
+                  "text": "2.63 $ \\times $ 10^3 K",
+                  "is_correct": false
+                },
+                {
+                  "label": "C",
+                  "id": 27728,
+                  "text": "2.52 $ \\times $ 10^3 K",
+                  "is_correct": true
+                },
+                {
+                  "label": "D",
+                  "id": 27730,
+                  "text": "2.26 $ \\times $ 10^3 K",
+                  "is_correct": false
+                }
+              ],
+              "correct_option_ids": [
+                27728
+              ],
+              "correct_option_labels": [
+                "C"
+              ],
+              "correct_option_texts": [
+                "2.52 $ \\times $ 10^3 K"
+              ],
+              "explanation": "v_Ar = v_He\n$\\sqrt{\\frac{3 R T}{39.9}}=\\sqrt{\\frac{3 R \\times 253}{4}}$\nT = $ {{39.9 \\times 253} \\over 4} $ = 2.52 $\\times$ 10^3K"
+            },
+            {
+              "questionID": 18133,
+              "question": "Estimate the mean free path and collision frequency of a nitrogen molecule in a cylinder containing nitrogen at 2.0 atm and temperature 17^oC. Take the radius of a nitrogen molecule to be roughly 1.0 $\\mathop A\\limits^0 $.",
+              "question_raw": "<p>Estimate the mean free path and collision frequency of a nitrogen molecule in a cylinder containing nitrogen at 2.0 atm and temperature 17<sup>o</sup>C. Take the radius of a nitrogen molecule to be roughly 1.0 <span class=\"math-tex\">{tex}\\mathop A\\limits^0 {/tex}</span>.</p>",
+              "options": [
+                {
+                  "label": "A",
+                  "id": 27734,
+                  "text": "2.0 $ \\times $ 10^-7 m., 5.9 $ \\times $ 10^2 s^-1.",
+                  "is_correct": false
+                },
+                {
+                  "label": "B",
+                  "id": 27733,
+                  "text": "1.5 $ \\times $ 10^-7 m., 5.6 $ \\times $ 10^9 s^-1.",
+                  "is_correct": false
+                },
+                {
+                  "label": "C",
+                  "id": 27732,
+                  "text": "1.1 $ \\times $ 10^-7 m., 4.6 $ \\times $ 10^9 s^-1.",
+                  "is_correct": true
+                },
+                {
+                  "label": "D",
+                  "id": 27735,
+                  "text": "2.5 $ \\times $ 10^-7 m., 6.1 $ \\times $ 10^2 s^-1.",
+                  "is_correct": false
+                }
+              ],
+              "correct_option_ids": [
+                27732
+              ],
+              "correct_option_labels": [
+                "C"
+              ],
+              "correct_option_texts": [
+                "1.1 $ \\times $ 10^-7 m., 4.6 $ \\times $ 10^9 s^-1."
+              ],
+              "explanation": "$\\lambda = {1 \\over {\\sqrt 2 \\pi {d^2}{n_V}}}$ \nn_V = no.of molecule per unit volume ($N\\over V$)\nPV = NkT\n${n_V} = {N \\over V} = {P \\over {kT}}$\n$\\lambda = {{kT} \\over {\\sqrt 2 \\pi {d^2}P}} $ = $ {{1.38 \\times {{10}^{ - 23}} \\times 290} \\over {1.41 \\times 3.14 \\times {{\\left( {2 \\times {{10}^{ - 10}}} \\right)}^2} \\times \\left( {2 \\times 1.01 \\times {{10}^5}} \\right)}}$\n$\\lambda = 1.11 \\times {10^{ - 7}}m$ \ncollision frequency${{{v_{rms}}} \\over \\lambda }$ \n${v_{rms}} = \\sqrt {{{3RT} \\over M}} = \\sqrt {{{3 \\times 8.31 \\times 290} \\over {28 \\times {{10}^{ - 3}}}}} $ = 508.26m/sec \ncollision frequency $ = {{508.26} \\over {1.11 \\times {{10}^{ - 7}}}} $ = 4.58 $\\times$ 10^9s^−1"
+            },
+            {
+              "questionID": 17834,
+              "question": "In constructing a large mobile, an artist hangs an aluminum sphere of mass 6.0 kg from a vertical steel wire 0.50 m long and 2.5 $ \\times $ 10^−3 cm^2 in a cross-sectional area. On the bottom of the sphere, he attaches a similar steel wire, from which he hangs a brass cube of mass 10.0 kg. Compute the tensile strain?",
+              "question_raw": "<p>In constructing a large mobile, an artist hangs an aluminum sphere of mass 6.0 kg from a vertical steel wire 0.50 m long and 2.5 <span class=\"math-tex\">{tex} \\times {/tex}</span>&nbsp;10<sup>&minus;3</sup> cm<sup>2&nbsp;</sup>in a cross-sectional area. On the bottom of the sphere, he attaches a similar steel wire, from which he hangs a brass cube of mass 10.0 kg. Compute the tensile strain?</p>",
+              "options": [
+                {
+                  "label": "A",
+                  "id": 26537,
+                  "text": "3.2 $ \\times $ 10^−3 upper, 2.3 $ \\times $ 10^−3 lower",
+                  "is_correct": false
+                },
+                {
+                  "label": "B",
+                  "id": 26538,
+                  "text": "3.3 $ \\times $ 10^−3 upper, 2.4 $ \\times $ 10^−3 lower",
+                  "is_correct": false
+                },
+                {
+                  "label": "C",
+                  "id": 26539,
+                  "text": "3.4 $ \\times $ 10^−3 upper, 2.5 $ \\times $ 10^−3 lower",
+                  "is_correct": false
+                },
+                {
+                  "label": "D",
+                  "id": 26536,
+                  "text": "3.1 $ \\times $ 10^−3 upper, 2.0 $ \\times $ 10^−3 lower",
+                  "is_correct": true
+                }
+              ],
+              "correct_option_ids": [
+                26536
+              ],
+              "correct_option_labels": [
+                "D"
+              ],
+              "correct_option_texts": [
+                "3.1 $ \\times $ 10^−3 upper, 2.0 $ \\times $ 10^−3 lower"
+              ],
+              "explanation": "Given mass of aluminium sphere m_sph = 6.0 KG\nlength of steel wire L_steel = 0.50 m area of steel wire A_steel = 2.5 $\\times$ 10^-3 cm^2\nmass of cube m_cube = 10 KG\nnet restoring force in lower wire i.e. tension T_2 will be equal to weight\nof cube i.e. T_2 = m_cube = 10g\nnet restoring force in upper wire i.e. tension T_1\nT_1 = m_sph + T_2 = 6g + 10g = 16g\nstandard value for young modulus of steel y = 2 $\\times$ 10^11 N/m^2\ny = $\\frac{\\text { tensile stress }}{\\text { tensile strain }}$ for lower wire\n$\\operatorname{strain}_{l w}=\\frac{\\text {tensile stress}}{y}=\\frac{10 \\times 9.8}{2.5 \\times 10^{-3} \\times 10^{-4} \\times 2.0 \\times 10^{11}}$\n$\\text {strain}_{l w} = 1.96 \\times 10^{-3} \\approx 2.0 \\times 10^{-3} $ $\\rightarrow$(1)\nnow for upper wire\n$\\operatorname{strain}_{u p} = \\frac{\\text {tensile stress}}{y} = \\frac{16 \\times 9.8}{2.5 \\times 10^{-3} \\times 10^{-4} \\times 2.0 \\times 10^{11}}$\nstrain_up = 3.14 $\\times$ 10^−3 $\\Rightarrow$ (2)"
+            },
+            {
+              "questionID": 18135,
+              "question": "A tank used for filling helium balloons has a volume of 0.300 m^3 and contains 2.00 mol of helium gas at 20.0 ^oC. Assuming that the helium behaves like an ideal gas, What is the average kinetic energy per molecule?",
+              "question_raw": "<p>A tank used for filling helium balloons has a volume of 0.300 m<sup>3</sup> and contains 2.00 mol of helium gas at 20.0&nbsp;<sup>o</sup>C. Assuming that the helium behaves like an ideal gas, What is the average kinetic energy per molecule?</p>",
+              "options": [
+                {
+                  "label": "A",
+                  "id": 27742,
+                  "text": "6.28 $ \\times $ 10^-21 J",
+                  "is_correct": false
+                },
+                {
+                  "label": "B",
+                  "id": 27741,
+                  "text": "5.53 $ \\times $ 10^-21 J",
+                  "is_correct": false
+                },
+                {
+                  "label": "C",
+                  "id": 27743,
+                  "text": "6.95 $ \\times $ 10^-21 J",
+                  "is_correct": false
+                },
+                {
+                  "label": "D",
+                  "id": 27740,
+                  "text": "6.07 $ \\times $ 10^-21 J",
+                  "is_correct": true
+                }
+              ],
+              "correct_option_ids": [
+                27740
+              ],
+              "correct_option_labels": [
+                "D"
+              ],
+              "correct_option_texts": [
+                "6.07 $ \\times $ 10^-21 J"
+              ],
+              "explanation": "E = $3\\over 2$kT = $3\\over 2$ $\\times$ 1.38 $\\times$ 10^−23 $\\times$ 293 = 6.07 $\\times$ 10^−21J"
+            },
+            {
+              "questionID": 18136,
+              "question": "Air at 20.0 ^oC in the cylinder of a diesel engine is compressed from an initial pressure of 1.00 atm and a volume of 800.0 cm^3 to a volume of 60.0 cm^3. Assume that air behaves as an ideal gas with $\\gamma $ = 1.4 and that the compression is adiabatic. Find the final pressure of the air.",
+              "question_raw": "<p>Air at 20.0 <sup>o</sup>C&nbsp;in the cylinder of a diesel engine is compressed from an initial pressure of 1.00 atm and a volume of 800.0 cm<sup>3</sup> to a volume of 60.0 cm<sup>3</sup>. Assume that air behaves as an ideal gas with <span class=\"math-tex\">{tex}\\gamma {/tex}</span>&nbsp;= 1.4 and that the compression is adiabatic. Find the final pressure of the air.</p>",
+              "options": [
+                {
+                  "label": "A",
+                  "id": 27745,
+                  "text": "38.6 atm",
+                  "is_correct": false
+                },
+                {
+                  "label": "B",
+                  "id": 27746,
+                  "text": "39.6 atm",
+                  "is_correct": false
+                },
+                {
+                  "label": "C",
+                  "id": 27747,
+                  "text": "36.6 atm",
+                  "is_correct": false
+                },
+                {
+                  "label": "D",
+                  "id": 27744,
+                  "text": "37.6 atm",
+                  "is_correct": true
+                }
+              ],
+              "correct_option_ids": [
+                27744
+              ],
+              "correct_option_labels": [
+                "D"
+              ],
+              "correct_option_texts": [
+                "37.6 atm"
+              ],
+              "explanation": "$P_{1} V_{1}^{\\gamma}=P_{2} V_{2}^{\\gamma}$\nP_2 = $P_{1}\\left(\\frac{V_{1}}{V_{2}}\\right)^{\\gamma}=1 \\times\\left(\\frac{800}{60}\\right)^{1.4}$ = 37.6atm"
+            },
+            {
+              "questionID": 18137,
+              "question": "Air at 20.0$^\\circ {\\rm{C}}$ in the cylinder of a diesel engine is compressed from an initial pressure of 1.00 atm and a volume of 800.0 cm^3 to a volume of 60.0 cm^3. Assume that air behaves as an ideal gas with $\\gamma = 1.4$ and that the compression is adiabatic. Find the final temperature of the air.",
+              "question_raw": "<p>Air at 20.0<span class=\"math-tex\">{tex}^\\circ {\\rm{C}}{/tex}</span> in the cylinder of a diesel engine is compressed from an initial pressure of 1.00 atm and a volume of 800.0 cm<sup>3</sup> to a volume of 60.0 cm<sup>3</sup>. Assume that air behaves as an ideal gas with <span class=\"math-tex\">{tex}\\gamma = 1.4{/tex}</span> and that the compression is adiabatic. Find the final temperature of the air.</p>",
+              "options": [
+                {
+                  "label": "A",
+                  "id": 27748,
+                  "text": "826 K",
+                  "is_correct": true
+                },
+                {
+                  "label": "B",
+                  "id": 27750,
+                  "text": "898 K",
+                  "is_correct": false
+                },
+                {
+                  "label": "C",
+                  "id": 27751,
+                  "text": "679 K",
+                  "is_correct": false
+                },
+                {
+                  "label": "D",
+                  "id": 27749,
+                  "text": "765 K",
+                  "is_correct": false
+                }
+              ],
+              "correct_option_ids": [
+                27748
+              ],
+              "correct_option_labels": [
+                "A"
+              ],
+              "correct_option_texts": [
+                "826 K"
+              ],
+              "explanation": "T_1 is = 20 ^0C = 20 +273 = 293 K\n$T_{1} V_{1}^{\\gamma-1}=T_{2} V_{2}^{\\gamma-1}$\nT_2 = $T_{1}\\left(\\frac{V_{1}}{V_{2}}\\right)^{\\gamma-1}=293 \\times\\left(\\frac{800}{60}\\right)^{1.4-1}$ = 826 K"
+            },
+            {
+              "questionID": 18138,
+              "question": "Nine particles have speeds of 5.00, 8.00, 12.0, 12.0, 12.0, 14.0, 14.0, 17.0, and 20.0 m/s. find the particles’ average speed.",
+              "question_raw": "<p>Nine particles have speeds of 5.00, 8.00, 12.0, 12.0, 12.0, 14.0, 14.0, 17.0, and 20.0 m/s. find the particles&rsquo; average speed.</p>",
+              "options": [
+                {
+                  "label": "A",
+                  "id": 27755,
+                  "text": "8.7 m/s",
+                  "is_correct": false
+                },
+                {
+                  "label": "B",
+                  "id": 27752,
+                  "text": "12.7 m/s",
+                  "is_correct": true
+                },
+                {
+                  "label": "C",
+                  "id": 27754,
+                  "text": "16.7 m/s",
+                  "is_correct": false
+                },
+                {
+                  "label": "D",
+                  "id": 27753,
+                  "text": "10.7 m/s",
+                  "is_correct": false
+                }
+              ],
+              "correct_option_ids": [
+                27752
+              ],
+              "correct_option_labels": [
+                "B"
+              ],
+              "correct_option_texts": [
+                "12.7 m/s"
+              ],
+              "explanation": "v_av = $ {{\\sum v } \\over n} $$= {{5.0 + 8.0 + 12.0 + 12.0 + 12.0 + 14.0 + 14.0 + 17.0 + 20.0} \\over 9} $\nv_av = 12.7m/sec"
+            },
+            {
+              "questionID": 18139,
+              "question": "Nine particles have speeds of 5.00, 8.00, 12.0, 12.0, 12.0, 14.0, 14.0, 17.0, and 20.0 m/s. What is the rms speed?",
+              "question_raw": "<p>Nine particles have speeds of 5.00, 8.00, 12.0, 12.0, 12.0, 14.0, 14.0, 17.0, and 20.0 m/s. What is the rms speed?</p>",
+              "options": [
+                {
+                  "label": "A",
+                  "id": 27758,
+                  "text": "12.3 m/s",
+                  "is_correct": false
+                },
+                {
+                  "label": "B",
+                  "id": 27756,
+                  "text": "13.3 m/s",
+                  "is_correct": true
+                },
+                {
+                  "label": "C",
+                  "id": 27759,
+                  "text": "14.7 m/s",
+                  "is_correct": false
+                },
+                {
+                  "label": "D",
+                  "id": 27757,
+                  "text": "9.35 m/s",
+                  "is_correct": false
+                }
+              ],
+              "correct_option_ids": [
+                27756
+              ],
+              "correct_option_labels": [
+                "B"
+              ],
+              "correct_option_texts": [
+                "13.3 m/s"
+              ],
+              "explanation": "${v_{rms}} = \\sqrt {{{{v_1}^2 + {v_2}^2 + {v_3}^2 + .......{v_n}^2} \\over n}}$\n${v_{rms}} $ = $ \\sqrt {{{25 + 64 + 144 + 144 + 144 + 196 + 196 + 289 + 400} \\over 9}} $ = $ \\sqrt {{{1602} \\over 9}}$\nv_rms = 13.3 m/sec"
+            },
+            {
+              "questionID": 18140,
+              "question": "Approximate the air around you as a collection of nitrogen molecules, each of which has a diameter of 2.00 $ \\times $ 10^-10 m. How far does a typical molecule move before it collides with another molecule?",
+              "question_raw": "<p>Approximate the air around you as a collection of nitrogen molecules, each of which has a diameter of 2.00 <span class=\"math-tex\">{tex} \\times {/tex}</span> 10<sup>-10</sup> m. How far does a typical molecule move before it collides with another molecule?</p>",
+              "options": [
+                {
+                  "label": "A",
+                  "id": 27760,
+                  "text": "2.25 $ \\times $ 10^-7 m",
+                  "is_correct": true
+                },
+                {
+                  "label": "B",
+                  "id": 27761,
+                  "text": "2.25 $ \\times $ 10^-60 m",
+                  "is_correct": false
+                },
+                {
+                  "label": "C",
+                  "id": 27762,
+                  "text": "3.16 $ \\times $ 10^-70 m",
+                  "is_correct": false
+                },
+                {
+                  "label": "D",
+                  "id": 27763,
+                  "text": "2.52 $ \\times $ 10^-70 m",
+                  "is_correct": false
+                }
+              ],
+              "correct_option_ids": [
+                27760
+              ],
+              "correct_option_labels": [
+                "A"
+              ],
+              "correct_option_texts": [
+                "2.25 $ \\times $ 10^-7 m"
+              ],
+              "explanation": "no. of molecule per unit volume \nn_V = ${N \\over V} = {P \\over {kT}} = {{1.01 \\times {{10}^5}} \\over {1.38 \\times {{10}^{ - 23}} \\times 293}} $ = 2.5 $\\times $ 10^25\nmean free path \n$\\lambda = {1 \\over {\\sqrt 2 \\pi {d^2}{n_V}}} = {1 \\over {1.41 \\times 3.14 \\times {{\\left( {2 \\times {{10}^{ - 10}}} \\right)}^2} \\times 2.5 \\times {{10}^{25}}}} $ = 2.25 $\\times $ 10^−7m"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "testPaperID": 590,
+      "testPaperName": "Kinetic Theory Test 04",
+      "is_paid": true,
+      "category_full_name": "CBSE > Class 11 > Physics > Kinetic Theory",
+      "noOfQuestions": 15,
+      "has_answers": true,
+      "sections": [
+        {
+          "sectionName": "General",
+          "sectionID": null,
+          "questions": [
+            {
+              "questionID": 18141,
+              "question": "Approximate the air around you as a collection of nitrogen molecules, each of which has a diameter of 2.00 $ \\times $ 10^−10 m. On average, how frequently does one molecule collide with another at 298K?",
+              "question_raw": "<p>Approximate the air around you as a collection of nitrogen molecules, each of which has a diameter of 2.00 <span class=\"math-tex\">{tex} \\times {/tex}</span>&nbsp;10<sup>&minus;10</sup> m. On average, how frequently does one molecule collide with another at 298K?</p>",
+              "options": [
+                {
+                  "label": "A",
+                  "id": 27767,
+                  "text": "1.98 $ \\times $ 10^9 /s",
+                  "is_correct": false
+                },
+                {
+                  "label": "B",
+                  "id": 27766,
+                  "text": "3.53 $ \\times $ 10^9 /s",
+                  "is_correct": false
+                },
+                {
+                  "label": "C",
+                  "id": 27765,
+                  "text": "1.32 $ \\times $ 10^9 /s",
+                  "is_correct": false
+                },
+                {
+                  "label": "D",
+                  "id": 27764,
+                  "text": "2.28 $ \\times $ 10^9 / s",
+                  "is_correct": true
+                }
+              ],
+              "correct_option_ids": [
+                27764
+              ],
+              "correct_option_labels": [
+                "D"
+              ],
+              "correct_option_texts": [
+                "2.28 $ \\times $ 10^9 / s"
+              ],
+              "explanation": "collision frequency $ = {1 \\over \\tau }$ = $ {{{v_{rms}}} \\over \\lambda }$ \nno. of molecule per unit volume \nn_V = $ {N \\over V} = {P \\over {kT}} = {{1.013 \\times {{10}^5}} \\over {1.38 \\times {{10}^{ - 23}} \\times 293}} $ = 2.5 $\\times$ 10^25\nmean free path \n$\\lambda $ = $ {1 \\over {\\sqrt 2 \\pi {d^2}{n_V}}} = {1 \\over {1.41 \\times 3.14 \\times {{\\left( {2 \\times {{10}^{ - 10}}} \\right)}^2} \\times 2.5 \\times {{10}^{25}}}} $ = 2.25 $\\times$ 10^−7m\n${v_{rms}} = \\sqrt {{{3RT} \\over M}} = \\sqrt {{{3 \\times 8.31 \\times 298} \\over {28 \\times {{10}^{ - 3}}}}} $= 515m/sec\n hence, collision frequency is given by $ = {1 \\over \\tau } = {{{v_{rms}}} \\over \\lambda } = {{515} \\over {2.25 \\times {{10}^{ - 7}}}} $ = 2.28 $\\times$ 10^9/sec"
+            },
+            {
+              "questionID": 18142,
+              "question": "In a 30.0-s interval, 500 hailstones strike a glass window with an area of 0.600 m^2 at an angle of 45.0^o to the window surface. Each hailstone has a mass of 5.00 g and a speed of 8.00 m/s. If the collisions are elastic, what are the average force and pressure on the window?",
+              "question_raw": "<p>In a 30.0-s interval, 500 hailstones strike a glass window with an area of 0.600 m<sup>2</sup> at an angle of 45.0<sup>o</sup> to the window surface. Each hailstone has a mass of 5.00 g and a speed of 8.00 m/s. If the collisions are elastic, what are the average force and pressure on the window?</p>",
+              "options": [
+                {
+                  "label": "A",
+                  "id": 27770,
+                  "text": "0.978 N",
+                  "is_correct": false
+                },
+                {
+                  "label": "B",
+                  "id": 27768,
+                  "text": "0.943 N",
+                  "is_correct": true
+                },
+                {
+                  "label": "C",
+                  "id": 27771,
+                  "text": "1.043 N",
+                  "is_correct": false
+                },
+                {
+                  "label": "D",
+                  "id": 27769,
+                  "text": "0.913 N",
+                  "is_correct": false
+                }
+              ],
+              "correct_option_ids": [
+                27768
+              ],
+              "correct_option_labels": [
+                "B"
+              ],
+              "correct_option_texts": [
+                "0.943 N"
+              ],
+              "explanation": "$F = 500 \\times {{\\Delta p} \\over {\\Delta t}} $\n$= 500 \\times {{2mv\\cos 45^\\circ } \\over {\\Delta t}} $\n$= {{500 \\times 2 \\times 5 \\times {{10}^{ - 3}} \\times 8 \\times 1} \\over {30 \\times 1.41}} $\nF = 0.943N"
+            },
+            {
+              "questionID": 18143,
+              "question": "In a 30.0-s interval, 500 hailstones strike a glass window with an area of 0.600 m^2 at an angle of 45.0^o to the window surface. Each hailstone has a mass of 5.00 g and a speed of 8.00 m/s. If the collisions are elastic, what is the pressure on the window?",
+              "question_raw": "<p>In a 30.0-s interval, 500 hailstones strike a glass window with an area of 0.600 m<sup>2</sup> at an angle of 45.0<sup>o</sup> to the window surface. Each hailstone has a mass of 5.00 g and a speed of 8.00 m/s. If the collisions are elastic, what is the pressure on the window?</p>",
+              "options": [
+                {
+                  "label": "A",
+                  "id": 27775,
+                  "text": "1.97 Pa",
+                  "is_correct": false
+                },
+                {
+                  "label": "B",
+                  "id": 27772,
+                  "text": "1.57 Pa",
+                  "is_correct": true
+                },
+                {
+                  "label": "C",
+                  "id": 27774,
+                  "text": "1.32 Pa",
+                  "is_correct": false
+                },
+                {
+                  "label": "D",
+                  "id": 27773,
+                  "text": "1.13 Pa",
+                  "is_correct": false
+                }
+              ],
+              "correct_option_ids": [
+                27772
+              ],
+              "correct_option_labels": [
+                "B"
+              ],
+              "correct_option_texts": [
+                "1.57 Pa"
+              ],
+              "explanation": "$ P = {F \\over A}$\n$F = 500 \\times {{\\Delta p} \\over {\\Delta t}} $\n$= 500 \\times {{2mv\\cos 45^\\circ } \\over {\\Delta t}} $\n$= {{500 \\times 2 \\times 5 \\times {{10}^{ - 3}} \\times 8 \\times 1} \\over {30 \\times 1.41}}$\nA = 0.6 m^2\nP = $ {{500 \\times 2 \\times 5 \\times {{10}^{ - 3}} \\times 8 \\times 1} \\over {30 \\times 1.41 \\times 0.6}} $ = 1.57Pa"
+            },
+            {
+              "questionID": 17844,
+              "question": "A 14.5 kg mass, fastened to the end of a steel wire of unstretched length 1.0 m, is whirled in a vertical circle with an angular velocity of 2 rev/s at the bottom of the circle. The cross-sectional area of the wire is 0.065 cm^2. Calculate the elongation of the wire when the mass is at the lowest point of its path.",
+              "question_raw": "<p>A 14.5 kg mass, fastened to the end of a steel wire of unstretched length 1.0 m, is whirled in a vertical circle with an angular velocity of 2 rev/s at the bottom of the circle. The cross-sectional area of the wire is 0.065 cm<sup>2</sup>. Calculate the elongation of the wire when the mass is at the lowest point of its path.</p>\r\n",
+              "options": [
+                {
+                  "label": "A",
+                  "id": 26579,
+                  "text": "0.8 mm",
+                  "is_correct": false
+                },
+                {
+                  "label": "B",
+                  "id": 26577,
+                  "text": "1.4 mm",
+                  "is_correct": false
+                },
+                {
+                  "label": "C",
+                  "id": 26578,
+                  "text": "1.1 mm",
+                  "is_correct": false
+                },
+                {
+                  "label": "D",
+                  "id": 26576,
+                  "text": "1.9 mm",
+                  "is_correct": true
+                }
+              ],
+              "correct_option_ids": [
+                26576
+              ],
+              "correct_option_labels": [
+                "D"
+              ],
+              "correct_option_texts": [
+                "1.9 mm"
+              ],
+              "explanation": "given mass m = 14.5 kg\nlength of steel wire L = 1.0m\nangular velocity $\\omega$ = 2rev/s $\\Rightarrow$ 2 $\\times$ 2$\\pi$rad/s = 4$\\pi$rad/s cross sectional area of steel wire = 0.065cm^2 = 0.065 $\\times$10^−4m^2\nlet us consider $\\Delta$L be the elongation in steel wire when mass is at lowest point during its motion in vertical circle and T be the tension in wire apply in g_net force = centripetal force\nT − mg = m$\\omega$^2r\nT = (14.5 $\\times$ 9.8) + 14.5 $\\times$ (4$\\pi$)^2 $\\times$ 1\nT = 2429.5N now young modulus of steel wire y = 2.0 $\\times$ 10^11pa\nalso $\\mathrm{y}=\\frac{\\mathrm{stress}}{\\operatorname{strain}}=\\frac{\\mathrm{T} \\times \\mathrm{L}}{\\mathrm{A} \\times \\Delta \\mathrm{L}}$\n$\\Delta \\mathrm{L}=\\frac{\\mathrm{T} \\times \\mathrm{L}}{\\mathrm{A} \\times \\mathrm{y}}=\\frac{2429.5 \\times 1.0}{0.065 \\times 10^{-4} \\times 2.0 \\times 10^{11}}$\n$\\Delta$L = 1.9 $\\times$ 10^−3m = 1.9mm"
+            },
+            {
+              "questionID": 18145,
+              "question": "A spherical balloon with a volume of 4 .0 x 10^3 cm^3 contains helium at an (inside) pressure of 1.20 $ \\times $ 10^5 Pa. How many moles of helium are in the balloon if each helium atom has an average kinetic energy of 3.60 $ \\times $ 10^-22 J?",
+              "question_raw": "<p>A spherical balloon with a volume of 4 .0 x 10<sup>3</sup>&nbsp;cm<sup>3</sup> contains helium at an (inside) pressure of 1.20 <span class=\"math-tex\">{tex} \\times {/tex}</span>&nbsp;10<sup>5</sup> Pa. How many moles of helium are in the balloon if each helium atom has an average kinetic energy of 3.60 <span class=\"math-tex\">{tex} \\times {/tex}</span> 10<sup>-22</sup> J?</p>",
+              "options": [
+                {
+                  "label": "A",
+                  "id": 27781,
+                  "text": "3.12 mol",
+                  "is_correct": false
+                },
+                {
+                  "label": "B",
+                  "id": 27782,
+                  "text": "3.42 mol",
+                  "is_correct": false
+                },
+                {
+                  "label": "C",
+                  "id": 27780,
+                  "text": "3.32 mol",
+                  "is_correct": true
+                },
+                {
+                  "label": "D",
+                  "id": 27783,
+                  "text": "3.82 mol",
+                  "is_correct": false
+                }
+              ],
+              "correct_option_ids": [
+                27780
+              ],
+              "correct_option_labels": [
+                "C"
+              ],
+              "correct_option_texts": [
+                "3.32 mol"
+              ],
+              "explanation": "We know that ,$P = {2 \\over 3}{N \\over V}\\left( {\\bar K} \\right)$\n$N = {3 \\over 2}{{PV} \\over {\\left( {\\bar K} \\right)}} = {3 \\over 2} \\times {{\\left( {1.20 \\times {{10}^5}} \\right)\\left( {4.00 \\times {{10}^{ - 3}}} \\right)} \\over {3.60 \\times {{10}^{ - 22}}}} $ = 2 $\\times$ 10^24\nn = $ {N \\over {{N_A}}} = {{2 \\times {{10}^{24}}} \\over {6.023 \\times {{10}^{23}}}} $ = 3.32mole"
+            },
+            {
+              "questionID": 18146,
+              "question": "How many atoms of helium gas fill a balloon of diameter 30.0 cm at 20.0^oC and 1.00 atm?",
+              "question_raw": "<p>How many atoms of helium gas fill a balloon of diameter 30.0 cm at 20.0<sup>o</sup>C and 1.00 atm?</p>",
+              "options": [
+                {
+                  "label": "A",
+                  "id": 27786,
+                  "text": "3.33 $ \\times $ 10^23 atoms",
+                  "is_correct": false
+                },
+                {
+                  "label": "B",
+                  "id": 27785,
+                  "text": "3.13 $ \\times $ 10^23 atoms",
+                  "is_correct": false
+                },
+                {
+                  "label": "C",
+                  "id": 27784,
+                  "text": "3.53 $ \\times $ 10^23 atoms",
+                  "is_correct": true
+                },
+                {
+                  "label": "D",
+                  "id": 27787,
+                  "text": "3.73 $ \\times $ 10^23 atoms",
+                  "is_correct": false
+                }
+              ],
+              "correct_option_ids": [
+                27784
+              ],
+              "correct_option_labels": [
+                "C"
+              ],
+              "correct_option_texts": [
+                "3.53 $ \\times $ 10^23 atoms"
+              ],
+              "explanation": "PV = NkT\nN = $\\frac{P V}{k T}$ = $\\frac{1.01 \\times 10^{5} \\times\\left(\\frac{4}{3} \\times 3.14 \\times(0.15)^{3}\\right)}{1.38 \\times 10^{-23} \\times 293}$ = 3.53 $\\times$ 10^23"
+            },
+            {
+              "questionID": 18147,
+              "question": "What is the average kinetic energy of the helium atoms in a balloon of diameter 30.0 cm at 20.0^oC and 1.00 atm?",
+              "question_raw": "<p>What is&nbsp;the average kinetic energy of the helium atoms in a balloon of diameter 30.0 cm at 20.0<sup>o</sup>C and 1.00 atm?</p>",
+              "options": [
+                {
+                  "label": "A",
+                  "id": 27790,
+                  "text": "6.57 $ \\times $ 10^−21 J",
+                  "is_correct": false
+                },
+                {
+                  "label": "B",
+                  "id": 27789,
+                  "text": "5.79 $ \\times $ 10^−21 J",
+                  "is_correct": false
+                },
+                {
+                  "label": "C",
+                  "id": 27788,
+                  "text": "6.07 $ \\times $ 10^−21 J",
+                  "is_correct": true
+                },
+                {
+                  "label": "D",
+                  "id": 27791,
+                  "text": "7.13 $ \\times $ 10^−21 J",
+                  "is_correct": false
+                }
+              ],
+              "correct_option_ids": [
+                27788
+              ],
+              "correct_option_labels": [
+                "C"
+              ],
+              "correct_option_texts": [
+                "6.07 $ \\times $ 10^−21 J"
+              ],
+              "explanation": "$\\bar K = {3 \\over 2}kT = {3 \\over 2} \\times 1.38 \\times {10^{ - 23}} \\times 293 $ = 6.07 $\\times$ 10^−21J"
+            },
+            {
+              "questionID": 18148,
+              "question": "What is the root-mean-square speed of helium atoms in a balloon of diameter 30.0 cm at 20.0^oC and 1.00 atm?",
+              "question_raw": "<p>What is the root-mean-square speed of helium atoms in a balloon of diameter 30.0 cm at 20.0<sup>o</sup>C and 1.00 atm?</p>",
+              "options": [
+                {
+                  "label": "A",
+                  "id": 27794,
+                  "text": "1.49 km/s",
+                  "is_correct": false
+                },
+                {
+                  "label": "B",
+                  "id": 27793,
+                  "text": "1.15 km/s",
+                  "is_correct": false
+                },
+                {
+                  "label": "C",
+                  "id": 27795,
+                  "text": "1.57 km/s",
+                  "is_correct": false
+                },
+                {
+                  "label": "D",
+                  "id": 27792,
+                  "text": "1.35 km/s",
+                  "is_correct": true
+                }
+              ],
+              "correct_option_ids": [
+                27792
+              ],
+              "correct_option_labels": [
+                "D"
+              ],
+              "correct_option_texts": [
+                "1.35 km/s"
+              ],
+              "explanation": "v_rms = $ \\sqrt {{{3RT} \\over M}} = \\sqrt {{{3 \\times 8.31 \\times 293} \\over {4 \\times {{10}^{ - 3}}}}} $ = 1351m/sec = 1.35Km/sec"
+            },
+            {
+              "questionID": 18149,
+              "question": "A cylinder contains a mixture of helium and argon gas in equilibrium at 150^oC. What is the average kinetic energy for each type of gas molecule?",
+              "question_raw": "<p>A cylinder contains a mixture of helium and argon gas in equilibrium at 150<sup>o</sup>C. What is the average kinetic energy for each type of gas molecule?</p>",
+              "options": [
+                {
+                  "label": "A",
+                  "id": 27798,
+                  "text": "3.76 $\\times$ 10^−21 J helium and 5.76 $\\times$10^−21 J argon",
+                  "is_correct": false
+                },
+                {
+                  "label": "B",
+                  "id": 27796,
+                  "text": "8.76 $\\times$ 10^−21 J both",
+                  "is_correct": true
+                },
+                {
+                  "label": "C",
+                  "id": 27799,
+                  "text": "2.76 $\\times$ 10^−21 J helium and 6.76 $\\times$ 10^−21 J argon",
+                  "is_correct": false
+                },
+                {
+                  "label": "D",
+                  "id": 27797,
+                  "text": "4.76 $\\times$ 10^−21 J helium and 5.76 $\\times$ 10^−21 J argon",
+                  "is_correct": false
+                }
+              ],
+              "correct_option_ids": [
+                27796
+              ],
+              "correct_option_labels": [
+                "B"
+              ],
+              "correct_option_texts": [
+                "8.76 $\\times$ 10^−21 J both"
+              ],
+              "explanation": "Average KE depends only on temperature\n$\\bar K $ = $3\\over 2$k_BT = $3\\over 2$ $\\times$ 1.38 $\\times$ 10^−23 $\\times$ 423 = 8.76 $\\times$ 10^−21J"
+            },
+            {
+              "questionID": 17850,
+              "question": "Anvils made of single crystals of diamond, with the shape as shown in Figure, are used to investigate the behaviour of materials under very high pressures. Flat faces at the narrow end of the anvil have a diameter of 0.50 mm, and the wide ends are subjected to a compression force of 50,000 N. What is the pressure at the tip of the anvil?",
+              "question_raw": "<p>Anvils made of single crystals of diamond, with the shape as shown in Figure, are used to investigate the behaviour of materials under very high pressures. Flat faces at the narrow end of the anvil have a diameter of 0.50 mm, and the wide ends are subjected to a compression force of 50,000 N. What is the pressure at the tip of the anvil?<br />\n<img src=\"https://media-mycbseguide.s3.amazonaws.com/images/testpaper/1.02.11.09.55.Ques.JPG\" style=\"width: 100px; height: 107px;\" /></p>",
+              "options": [
+                {
+                  "label": "A",
+                  "id": 26601,
+                  "text": "2.1 $ \\times $ 10^11 Pa",
+                  "is_correct": false
+                },
+                {
+                  "label": "B",
+                  "id": 26603,
+                  "text": "3.2 $ \\times $ 10^11 Pa",
+                  "is_correct": false
+                },
+                {
+                  "label": "C",
+                  "id": 26600,
+                  "text": "2.5 $ \\times $ 10^11 Pa",
+                  "is_correct": true
+                },
+                {
+                  "label": "D",
+                  "id": 26602,
+                  "text": "2.9 $ \\times $ 10^11 Pa",
+                  "is_correct": false
+                }
+              ],
+              "correct_option_ids": [
+                26600
+              ],
+              "correct_option_labels": [
+                "C"
+              ],
+              "correct_option_texts": [
+                "2.5 $ \\times $ 10^11 Pa"
+              ],
+              "explanation": "Given compression force F = 50000 N\nRadius will be r = $\\frac{diameter}{2}$ = $\\frac{0.50}{2}$ = 0.25 mm = 0.25 $\\times$ 10^-3 m\nArea at which compression is applied A = $\\pi$r^2 = 3.14 $\\times$ (0.25 $\\times$ 10^-3)^2 = 0.2 $\\times$ 10^-6 m^2 \nPressure at the tip P = $\\frac{Force}{area}$ = $\\frac{50000}{0.2 \\times 10^{-6}}$\nP = 2.5 $\\times$ 10^11 pa"
+            },
+            {
+              "questionID": 18151,
+              "question": "Calculate the change in internal energy of 3.00 mol of helium gas when its temperature is increased by 2.00 K.",
+              "question_raw": "<p>Calculate the change in internal energy of 3.00 mol of helium gas when its temperature is increased by 2.00 K.</p>",
+              "options": [
+                {
+                  "label": "A",
+                  "id": 27807,
+                  "text": "95.0 J",
+                  "is_correct": false
+                },
+                {
+                  "label": "B",
+                  "id": 27806,
+                  "text": "85.0 J",
+                  "is_correct": false
+                },
+                {
+                  "label": "C",
+                  "id": 27805,
+                  "text": "65.0 J",
+                  "is_correct": false
+                },
+                {
+                  "label": "D",
+                  "id": 27804,
+                  "text": "75.0 J",
+                  "is_correct": true
+                }
+              ],
+              "correct_option_ids": [
+                27804
+              ],
+              "correct_option_labels": [
+                "D"
+              ],
+              "correct_option_texts": [
+                "75.0 J"
+              ],
+              "explanation": "Helium is a monoatomic gas.(C_V = 1.5R)\nchange in internal energy \n$\\Delta U $ = $ n{C_V}\\Delta T $ \n= 3 $\\times$ 1.5 $\\times$ 8.31 $\\times$ 2 = 75J"
+            },
+            {
+              "questionID": 18152,
+              "question": "One mole of hydrogen gas is heated at constant pressure from 300 K to 420 K. Calculate the energy transferred by heat to the gas",
+              "question_raw": "<p>One mole of hydrogen gas is heated at constant pressure from 300 K to 420 K. Calculate the energy transferred by heat to the gas</p>",
+              "options": [
+                {
+                  "label": "A",
+                  "id": 27811,
+                  "text": "3.86 kJ",
+                  "is_correct": false
+                },
+                {
+                  "label": "B",
+                  "id": 27809,
+                  "text": "3.26 kJ",
+                  "is_correct": false
+                },
+                {
+                  "label": "C",
+                  "id": 27808,
+                  "text": "3.49 kJ",
+                  "is_correct": true
+                },
+                {
+                  "label": "D",
+                  "id": 27810,
+                  "text": "3.66 kJ",
+                  "is_correct": false
+                }
+              ],
+              "correct_option_ids": [
+                27808
+              ],
+              "correct_option_labels": [
+                "C"
+              ],
+              "correct_option_texts": [
+                "3.49 kJ"
+              ],
+              "explanation": "Hydrogen is a diatomic gas. (C_P = 3.5R)\nenergy transferred by heat to the gas\nQ = $ n{C_P}\\Delta T $ = 1 $\\times$ 3.5 $\\times$ 8.31 $\\times$ 120 = 3490J = 3.49KJ"
+            },
+            {
+              "questionID": 18153,
+              "question": "One mole of hydrogen gas is heated at constant pressure from 300 K to 420 K. Calculate the increase in its internal energy.",
+              "question_raw": "<p>One mole of hydrogen gas is heated at constant pressure from 300 K to 420 K. Calculate the increase in its internal energy.</p>",
+              "options": [
+                {
+                  "label": "A",
+                  "id": 27814,
+                  "text": "2.65 kJ",
+                  "is_correct": false
+                },
+                {
+                  "label": "B",
+                  "id": 27815,
+                  "text": "2.85 kJ",
+                  "is_correct": false
+                },
+                {
+                  "label": "C",
+                  "id": 27813,
+                  "text": "2.15 kJ",
+                  "is_correct": false
+                },
+                {
+                  "label": "D",
+                  "id": 27812,
+                  "text": "2.49 kJ",
+                  "is_correct": true
+                }
+              ],
+              "correct_option_ids": [
+                27812
+              ],
+              "correct_option_labels": [
+                "D"
+              ],
+              "correct_option_texts": [
+                "2.49 kJ"
+              ],
+              "explanation": "Hydrogen is a diatomic gas. (C_V = 2.5R)\nChange in internal energy \n$\\Delta U = n{C_V}\\Delta T $ = 1 $\\times$ 2.5 $\\times$ 8.31 $\\times$ 120 = 2493J = 2.49KJ"
+            },
+            {
+              "questionID": 18154,
+              "question": "One mole of hydrogen gas is heated at constant pressure from 300 K to 420 K. Calculate the work done by the gas.",
+              "question_raw": "<p>One mole of hydrogen gas is heated at constant pressure from 300 K to 420 K. Calculate the work done by the gas.</p>",
+              "options": [
+                {
+                  "label": "A",
+                  "id": 27816,
+                  "text": "0.98kJ",
+                  "is_correct": true
+                },
+                {
+                  "label": "B",
+                  "id": 27819,
+                  "text": "1.27 kJ",
+                  "is_correct": false
+                },
+                {
+                  "label": "C",
+                  "id": 27817,
+                  "text": "1.11 kJ",
+                  "is_correct": false
+                },
+                {
+                  "label": "D",
+                  "id": 27818,
+                  "text": "0.93 kJ",
+                  "is_correct": false
+                }
+              ],
+              "correct_option_ids": [
+                27816
+              ],
+              "correct_option_labels": [
+                "A"
+              ],
+              "correct_option_texts": [
+                "0.98kJ"
+              ],
+              "explanation": "An isobaric process \nW = nR(T_F − T_I) = 1 $\\times$ 8.31 $\\times$ (420 − 300) = 0.98kJ"
+            },
+            {
+              "questionID": 18155,
+              "question": "A house has well-insulated walls. It contains a volume of 100 m^3 of air at 300 K. Calculate the energy required to increase the temperature of this diatomic ideal gas by 1.00 ^oC. $\\left(C_P=\\frac{7}{2} R\\right)$",
+              "question_raw": "<p>A house has well-insulated walls. It contains a volume of 100 m<sup>3</sup> of air at 300 K. Calculate the energy required to increase the temperature of this diatomic ideal gas&nbsp;&nbsp;by 1.00 <sup>o</sup>C. <span class=\"math-tex\">{tex}\\left(C_P=\\frac{7}{2} R\\right){/tex}</span></p>",
+              "options": [
+                {
+                  "label": "A",
+                  "id": 27822,
+                  "text": "131 kJ",
+                  "is_correct": false
+                },
+                {
+                  "label": "B",
+                  "id": 27820,
+                  "text": "118 kJ",
+                  "is_correct": true
+                },
+                {
+                  "label": "C",
+                  "id": 27821,
+                  "text": "101 kJ",
+                  "is_correct": false
+                },
+                {
+                  "label": "D",
+                  "id": 27823,
+                  "text": "139 kJ",
+                  "is_correct": false
+                }
+              ],
+              "correct_option_ids": [
+                27820
+              ],
+              "correct_option_labels": [
+                "B"
+              ],
+              "correct_option_texts": [
+                "118 kJ"
+              ],
+              "explanation": "Q = $ n{C_P}\\Delta T $ = $\\frac 7 2 Rn\\Delta T $ = $\\frac{7}{2}\\left(\\frac{P V}{T}\\right) \\Delta T$ (because, PV=nRT thus n = $\\frac {PV}{ RT}$)\nQ = $\\frac{7}{2} \\times\\left(\\frac{1.01 \\times 10^5 \\times 100}{300}\\right) \\times 1$ = 118KJ"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "testPaperID": 591,
+      "testPaperName": "Kinetic Theory Test 05",
+      "is_paid": true,
+      "category_full_name": "CBSE > Class 11 > Physics > Kinetic Theory",
+      "noOfQuestions": 15,
+      "has_answers": true,
+      "sections": [
+        {
+          "sectionName": "General",
+          "sectionID": null,
+          "questions": [
+            {
+              "questionID": 18156,
+              "question": "A house has well-insulated walls. It contains a volume of 100 ${{\\rm{m}}^{\\rm{3}}}$ of air at 300 K. If the energy required to lift an object of mass m through a height of 2.00 m equals the energy required to increase the temperature of this air by 1.00^oC., what is the value of m? $\\left(C_P=\\frac{7}{2} R\\right)$",
+              "question_raw": "<p>A house has well-insulated walls. It contains a volume of 100 <span class=\"math-tex\">{tex}{{\\rm{m}}^{\\rm{3}}}{/tex}</span> of air at 300 K. If the energy required to lift an object of mass m through a height of 2.00 m equals the energy required to increase the temperature of this air by 1.00<sup>o</sup>C., what is the value of m?&nbsp;<span class=\"math-tex\">{tex}\\left(C_P=\\frac{7}{2} R\\right){/tex}</span></p>",
+              "options": [
+                {
+                  "label": "A",
+                  "id": 27824,
+                  "text": "6.03 $ \\times $ 10^3 kg",
+                  "is_correct": true
+                },
+                {
+                  "label": "B",
+                  "id": 27827,
+                  "text": "6.67 $ \\times $ 10^3 kg",
+                  "is_correct": false
+                },
+                {
+                  "label": "C",
+                  "id": 27825,
+                  "text": "5.87 $ \\times $ 10^3 kg",
+                  "is_correct": false
+                },
+                {
+                  "label": "D",
+                  "id": 27826,
+                  "text": "6.18 $ \\times $ 10^3 kg",
+                  "is_correct": false
+                }
+              ],
+              "correct_option_ids": [
+                27824
+              ],
+              "correct_option_labels": [
+                "A"
+              ],
+              "correct_option_texts": [
+                "6.03 $ \\times $ 10^3 kg"
+              ],
+              "explanation": "Q = $n C_{P} \\Delta T=\\frac{7}{2} R n \\Delta T=\\frac{7}{2}\\left(\\frac{P V}{T}\\right) \\Delta T$\nQ = $\\frac{7}{2} \\times\\left(\\frac{1.01 \\times 10^{5} \\times 100}{300}\\right) \\times 1$ = 118 K J\nU = mgy\nm = $\\frac{U}{g y}=\\frac{118 \\times 10^{3}}{9.8 \\times 2}$ = 6.03 $\\times$ 10^3Kg"
+            },
+            {
+              "questionID": 18157,
+              "question": "One mole of an ideal monatomic gas is at an initial temperature of 300 K. The gas undergoes an isovolumetric process, acquiring 500 J of energy by heat. It then undergoes an isobaric process, losing this same amount of energy by heat. Determine the new temperature of the gas:",
+              "question_raw": "<p>One mole of an ideal monatomic gas is at an initial temperature of 300 K. The gas undergoes an isovolumetric process, acquiring 500 J of energy by heat. It then undergoes an isobaric process, losing this same amount of energy by heat. Determine the new temperature of the gas:</p>",
+              "options": [
+                {
+                  "label": "A",
+                  "id": 27830,
+                  "text": "333 K",
+                  "is_correct": false
+                },
+                {
+                  "label": "B",
+                  "id": 27828,
+                  "text": "316 K",
+                  "is_correct": true
+                },
+                {
+                  "label": "C",
+                  "id": 27829,
+                  "text": "301 K",
+                  "is_correct": false
+                },
+                {
+                  "label": "D",
+                  "id": 27831,
+                  "text": "343 K",
+                  "is_correct": false
+                }
+              ],
+              "correct_option_ids": [
+                27828
+              ],
+              "correct_option_labels": [
+                "B"
+              ],
+              "correct_option_texts": [
+                "316 K"
+              ],
+              "explanation": "For monoatomic gas C_V = 1.5R, C_P = 2.5R\nAt const volume, \nQ = 500 J\nQ = nC_V$\\Delta$T\n500 = 1 $\\times$ 1.5 $\\times$ 8.31(T_1 - 300)\nT_1 = 340K\nAt const pressure Q = 500 J\nQ = nC_P$\\Delta$T\n500 = 1 $\\times$ 1.5 $\\times$ 8.31(340 - T_2)\nT_2 = 316K"
+            },
+            {
+              "questionID": 18158,
+              "question": "One mole of an ideal monatomic gas is at an initial temperature of 300 K. The gas undergoes an isovolumetric process, acquiring 500 J of energy by heat. It then undergoes an isobaric process, losing this same amount of energy by heat. Determine the work done on the gas.",
+              "question_raw": "<p>One mole of an ideal monatomic gas is at an initial temperature of 300 K. The gas undergoes an isovolumetric process, acquiring 500 J of energy by heat. It then undergoes an isobaric process, losing this same amount of energy by heat. Determine the work done on the gas.</p>",
+              "options": [
+                {
+                  "label": "A",
+                  "id": 27833,
+                  "text": "123 J",
+                  "is_correct": false
+                },
+                {
+                  "label": "B",
+                  "id": 27835,
+                  "text": "333 J",
+                  "is_correct": false
+                },
+                {
+                  "label": "C",
+                  "id": 27832,
+                  "text": "200 J",
+                  "is_correct": true
+                },
+                {
+                  "label": "D",
+                  "id": 27834,
+                  "text": "231 J",
+                  "is_correct": false
+                }
+              ],
+              "correct_option_ids": [
+                27832
+              ],
+              "correct_option_labels": [
+                "C"
+              ],
+              "correct_option_texts": [
+                "200 J"
+              ],
+              "explanation": "At constant volume, \nQ = 500 J\nQ = $n{C_P}\\Delta T$\n500 = 1 $\\times$ 2.5 $\\times$ 8.31$\\Delta T$\n$\\Delta T$ = 24.06\nwork done on gas is W = nR$\\Delta T$ = 1 $\\times$ 8.31 $\\times$ 24.06 = 200 J"
+            },
+            {
+              "questionID": 18159,
+              "question": "1 mole of a monoatomic gas is mixed with 3 moles of a diatomic gas. What is the molecular specific heat of the mixture at constant volume?",
+              "question_raw": "<p>1 mole of a monoatomic gas is mixed with 3 moles of a diatomic gas. What is the molecular specific heat of the mixture at constant volume?</p>",
+              "options": [
+                {
+                  "label": "A",
+                  "id": 27839,
+                  "text": "22.6 J/mol K",
+                  "is_correct": false
+                },
+                {
+                  "label": "B",
+                  "id": 27836,
+                  "text": "18.7 J / mol K",
+                  "is_correct": true
+                },
+                {
+                  "label": "C",
+                  "id": 27837,
+                  "text": "15.2 J/mol K",
+                  "is_correct": false
+                },
+                {
+                  "label": "D",
+                  "id": 27838,
+                  "text": "12.5 J/mol K",
+                  "is_correct": false
+                }
+              ],
+              "correct_option_ids": [
+                27836
+              ],
+              "correct_option_labels": [
+                "B"
+              ],
+              "correct_option_texts": [
+                "18.7 J / mol K"
+              ],
+              "explanation": "for monoatomic gas \n${C_{V_1}} = {3 \\over 2}R$\n for diatomic gas\n${C_{V_2}} = {5 \\over 2}R $ \nfrom conservation of energy we get,\nC_V = $ {{{n_1}{C_{{V_1}}} + {n_2}{C_{{V_2}}}} \\over {{n_1} + {n_2}}} = {{\\left( {1 \\times 1.5R} \\right) + \\left( {3 \\times 2.5R} \\right)} \\over {1 + 3}} = {9 \\over 4}R$\n${C_V} = {9 \\over 4} \\times 8.31 $ = 18.7J/mol K"
+            },
+            {
+              "questionID": 18160,
+              "question": "Two moles of an ideal gas ($\\gamma = 1.4$) expands slowly and adiabatically from a pressure of 5.00 atm and a volume of 12.0 L to a final volume of 30.0 L. What is the final pressure of the gas?",
+              "question_raw": "<p>Two moles of an ideal gas (<span class=\"math-tex\">{tex}\\gamma = 1.4{/tex}</span>) expands slowly and adiabatically from a pressure of 5.00 atm and a volume of 12.0 L to a final volume of 30.0 L. What is the final pressure of the gas?</p>",
+              "options": [
+                {
+                  "label": "A",
+                  "id": 27842,
+                  "text": "1.09 atm",
+                  "is_correct": false
+                },
+                {
+                  "label": "B",
+                  "id": 27841,
+                  "text": "1.19 atm",
+                  "is_correct": false
+                },
+                {
+                  "label": "C",
+                  "id": 27840,
+                  "text": "1.39 atm",
+                  "is_correct": true
+                },
+                {
+                  "label": "D",
+                  "id": 27843,
+                  "text": "1.59 atm",
+                  "is_correct": false
+                }
+              ],
+              "correct_option_ids": [
+                27840
+              ],
+              "correct_option_labels": [
+                "C"
+              ],
+              "correct_option_texts": [
+                "1.39 atm"
+              ],
+              "explanation": "$P_{1} V_{1}^{\\gamma}=P_{2} V_{2}^{\\gamma}$\nP_2 = $P_{1}\\left(\\frac{V_{1}}{V_{2}}\\right)^{\\gamma}=5 \\times\\left(\\frac{12}{30}\\right)^{1.4}$ = 5 $\\times$ (0.4)^1.4 = 1.39 atm"
+            },
+            {
+              "questionID": 18161,
+              "question": "Two moles of an ideal gas ($\\gamma $ = 1.4) expands slowly and adiabatically from the pressure of 5.00 atm and a volume of 12.0 L to a final volume of 30.0 L. What are the initial and final temperatures?",
+              "question_raw": "<p>Two moles of an ideal gas (<span class=\"math-tex\">{tex}\\gamma {/tex}</span>&nbsp;= 1.4) expands slowly and adiabatically from the pressure of 5.00 atm and a volume of 12.0 L to a final volume of 30.0 L. What are the initial and final temperatures?</p>",
+              "options": [
+                {
+                  "label": "A",
+                  "id": 27847,
+                  "text": "346 K, 243 K",
+                  "is_correct": false
+                },
+                {
+                  "label": "B",
+                  "id": 27846,
+                  "text": "406 K, 273 K",
+                  "is_correct": false
+                },
+                {
+                  "label": "C",
+                  "id": 27845,
+                  "text": "386 K, 263 K",
+                  "is_correct": false
+                },
+                {
+                  "label": "D",
+                  "id": 27844,
+                  "text": "366 K, 253 K",
+                  "is_correct": true
+                }
+              ],
+              "correct_option_ids": [
+                27844
+              ],
+              "correct_option_labels": [
+                "D"
+              ],
+              "correct_option_texts": [
+                "366 K, 253 K"
+              ],
+              "explanation": "${T_i} = {{{P_i}{V_i}} \\over {nR}} = {{\\left( {5 \\times 1.01 \\times {{10}^5}} \\right) \\times \\left( {12 \\times {{10}^{ - 3}}} \\right)} \\over {2 \\times 8.31}} $ = 366K\n${P_i}{V_i}^\\gamma = {P_f}{V_f}^\\gamma $\n${P_f} = {P_i}{\\left( {{{{V_i}} \\over {{V_f}}}} \\right)^\\gamma } = 5 \\times {\\left( {{{12} \\over {30}}} \\right)^{1.4}} $ = 5 $\\times$ (0.4)^1.4 = 1.39atm\n${T_f} = {{{P_f}{V_f}} \\over {nR}} = {{\\left( {1.39 \\times 1.01 \\times {{10}^5}} \\right) \\times \\left( {30 \\times {{10}^{ - 3}}} \\right)} \\over {2 \\times 8.31}} $ = 253K"
+            },
+            {
+              "questionID": 18162,
+              "question": "Two moles of an ideal gas ($\\gamma = 1.4$) expands slowly and adiabatically from the pressure of 5.00 atm and a volume of 12.0 L to a final volume of 30.0 L. Find Q, W, and $\\Delta {{\\rm{E}}_{{\\rm{int}}}}$.",
+              "question_raw": "<p>Two moles of an ideal gas (<span class=\"math-tex\">{tex}\\gamma = 1.4{/tex}</span>) expands slowly and adiabatically from the pressure of 5.00 atm and a volume of 12.0 L to a final volume of 30.0 L. Find Q, W, and <span class=\"math-tex\">{tex}\\Delta {{\\rm{E}}_{{\\rm{int}}}}{/tex}</span>.</p>",
+              "options": [
+                {
+                  "label": "A",
+                  "id": 27851,
+                  "text": "100 J, 4.88 kJ, -4.88 kJ",
+                  "is_correct": false
+                },
+                {
+                  "label": "B",
+                  "id": 27850,
+                  "text": "10 J, 4.44 kJ, -4.44 kJ",
+                  "is_correct": false
+                },
+                {
+                  "label": "C",
+                  "id": 27849,
+                  "text": "1 J, 4.22 kJ, -4.22 kJ",
+                  "is_correct": false
+                },
+                {
+                  "label": "D",
+                  "id": 27848,
+                  "text": "0, 4.66 kJ, -4.66 kJ",
+                  "is_correct": true
+                }
+              ],
+              "correct_option_ids": [
+                27848
+              ],
+              "correct_option_labels": [
+                "D"
+              ],
+              "correct_option_texts": [
+                "0, 4.66 kJ, -4.66 kJ"
+              ],
+              "explanation": "Process is adiabatic. so that Q = 0\n${T_i} = {{{P_i}{V_i}} \\over {nR}} = {{\\left( {5 \\times 1.01 \\times {{10}^5}} \\right) \\times \\left( {12 \\times {{10}^{ - 3}}} \\right)} \\over {2 \\times 8.31}} $ = 366K\n$P_{1} V_{1}^{\\gamma}=P_{2} V_{2}^{\\gamma}$\n$P_{2}=P_{1}\\left(\\frac{V_{1}}{V_{2}}\\right)^{\\gamma}=5 \\times\\left(\\frac{12}{30}\\right)^{1.4}$ = 5 $\\times$ (0.4)^1.4 = 1.39atm\n${T_f} = {{{P_f}{V_f}} \\over {nR}} = {{\\left( {1.39 \\times 1.01 \\times {{10}^5}} \\right) \\times \\left( {30 \\times {{10}^{ - 3}}} \\right)} \\over {2 \\times 8.31}} $ = 253K\nFor the adiabatic process ; q=0 J\n$\\Delta U = n{C_V}\\Delta T $ \n$\\Delta U$= 2 $\\times$ 2.5R(253 − 366) = 2 $\\times$ 2.5 $\\times$ 8.31 $\\times$ 13 = −4.66KJ\nFrom first law of thermodynamics ; Q = $\\Delta$U + W\n0 = −4.66 + W\nW = 4.66KJ"
+            },
+            {
+              "questionID": 18163,
+              "question": "The air in a thundercloud expands as it rises. If its initial temperature was 300 K, and if no energy is lost by thermal conduction on expansion, what is its temperature when the initial volume has doubled?${\\gamma _{air}} $ = 1.41",
+              "question_raw": "<p>The air in a thundercloud expands as it rises. If its initial temperature was 300 K, and if no energy is lost by thermal conduction on expansion, what is its temperature when the initial volume has doubled?<span class=\"math-tex\">{tex}{\\gamma _{air}} {/tex}</span>&nbsp;= 1.41</p>",
+              "options": [
+                {
+                  "label": "A",
+                  "id": 27853,
+                  "text": "237 K",
+                  "is_correct": false
+                },
+                {
+                  "label": "B",
+                  "id": 27855,
+                  "text": "257 K",
+                  "is_correct": false
+                },
+                {
+                  "label": "C",
+                  "id": 27852,
+                  "text": "227 K",
+                  "is_correct": true
+                },
+                {
+                  "label": "D",
+                  "id": 27854,
+                  "text": "247 K",
+                  "is_correct": false
+                }
+              ],
+              "correct_option_ids": [
+                27852
+              ],
+              "correct_option_labels": [
+                "C"
+              ],
+              "correct_option_texts": [
+                "227 K"
+              ],
+              "explanation": "${{{T_1}} \\over {{T_2}}} = {\\left( {{{{V_2}} \\over {{V_1}}}} \\right)^{\\gamma - 1}}$\n${{300} \\over {{T_2}}} = {\\left( 2 \\right)^{^{1.41 - 1}}}$\nT_2 = 227K"
+            },
+            {
+              "questionID": 18164,
+              "question": "Four liters of a diatomic ideal gas ($\\gamma = 1.4$) confined to a cylinder is subject to a closed cycle. Initially, the gas is at 1.00 atm and at 300 K. First, its pressure is tripled under constant volume. Then, it expands adiabatically to its original pressure. Finally, the gas is compressed isobarically to its original volume. Determine the volume of the gas at the end of the adiabatic expansion.",
+              "question_raw": "<p>Four liters of a diatomic ideal gas (<span class=\"math-tex\">{tex}\\gamma = 1.4{/tex}</span>) confined to a cylinder is subject to a closed cycle. Initially, the gas is at 1.00 atm and at 300 K. First, its pressure is tripled under constant volume. Then, it expands adiabatically to its original pressure. Finally, the gas is compressed isobarically to its original volume. Determine the volume of the gas at the end of the adiabatic expansion.</p>",
+              "options": [
+                {
+                  "label": "A",
+                  "id": 27856,
+                  "text": "8.79 litres",
+                  "is_correct": true
+                },
+                {
+                  "label": "B",
+                  "id": 27857,
+                  "text": "8.23 litres",
+                  "is_correct": false
+                },
+                {
+                  "label": "C",
+                  "id": 27858,
+                  "text": "8.55 litres",
+                  "is_correct": false
+                },
+                {
+                  "label": "D",
+                  "id": 27859,
+                  "text": "8.97 litres",
+                  "is_correct": false
+                }
+              ],
+              "correct_option_ids": [
+                27856
+              ],
+              "correct_option_labels": [
+                "A"
+              ],
+              "correct_option_texts": [
+                "8.79 litres"
+              ],
+              "explanation": "$P_{1} V_{1}^{\\gamma}=P_{2} V_{2}^{\\gamma}$\n$V_{2}^{\\gamma}=\\frac{P_{1}}{P_{2}} V_{1}^{\\gamma}$\n$V_{2}=\\left(\\frac{P_{1}}{P_{2}}\\right)^{1 \\over \\gamma} V_{1}=\\left(\\frac{3}{1}\\right)^{1 \\over 1.4} \\times 4$ = 8.79 lit"
+            },
+            {
+              "questionID": 18165,
+              "question": "Four liters of a diatomic ideal gas ($\\gamma = 1.4$) confined to a cylinder is subject to a closed cycle. Initially, the gas is at 1.00 atm and at 300 K. First, its pressure is tripled under constant volume. Then, it expands adiabatically to its original pressure. Finally, the gas is compressed isobarically to its original volume. Find the temperature of the gas at the start of the adiabatic expansion.",
+              "question_raw": "<p>Four liters of a diatomic ideal gas (<span class=\"math-tex\">{tex}\\gamma = 1.4{/tex}</span>) confined to a cylinder is subject to a closed cycle. Initially, the gas is at 1.00 atm and at 300 K. First, its pressure is tripled under constant volume. Then, it expands adiabatically to its original pressure. Finally, the gas is compressed isobarically to its original volume. Find the temperature of the gas at the start of the adiabatic expansion.</p>",
+              "options": [
+                {
+                  "label": "A",
+                  "id": 27863,
+                  "text": "984 K",
+                  "is_correct": false
+                },
+                {
+                  "label": "B",
+                  "id": 27860,
+                  "text": "900 K",
+                  "is_correct": true
+                },
+                {
+                  "label": "C",
+                  "id": 27862,
+                  "text": "789 K",
+                  "is_correct": false
+                },
+                {
+                  "label": "D",
+                  "id": 27861,
+                  "text": "865 K",
+                  "is_correct": false
+                }
+              ],
+              "correct_option_ids": [
+                27860
+              ],
+              "correct_option_labels": [
+                "B"
+              ],
+              "correct_option_texts": [
+                "900 K"
+              ],
+              "explanation": "${{{P_1}} \\over {{P_2}}} = {{{T_1}} \\over {{T_2}}}$\n$\\frac{1}{3}=\\frac{300}{T_{2}}$\nT_2 = 900K"
+            },
+            {
+              "questionID": 18166,
+              "question": "Four liters of a diatomic ideal gas ($\\gamma = 1.4$) confined to a cylinder is subject to a closed cycle. Initially, the gas is at 1.00 atm and at 300 K. First, its pressure is tripled under constant volume. Then, it expands adiabatically to its original pressure. Finally, the gas is compressed isobarically to its original volume. Find the temperature at the end of the cycle.",
+              "question_raw": "<p>Four liters of a diatomic ideal gas (<span class=\"math-tex\">{tex}\\gamma = 1.4{/tex}</span>) confined to a cylinder is subject to a closed cycle. Initially, the gas is at 1.00 atm and at 300 K. First, its pressure is tripled under constant volume. Then, it expands adiabatically to its original pressure. Finally, the gas is compressed isobarically to its original volume. Find the temperature at the end of the cycle.</p>",
+              "options": [
+                {
+                  "label": "A",
+                  "id": 27865,
+                  "text": "276 K",
+                  "is_correct": false
+                },
+                {
+                  "label": "B",
+                  "id": 27866,
+                  "text": "285 K",
+                  "is_correct": false
+                },
+                {
+                  "label": "C",
+                  "id": 27867,
+                  "text": "332 K",
+                  "is_correct": false
+                },
+                {
+                  "label": "D",
+                  "id": 27864,
+                  "text": "300 K",
+                  "is_correct": true
+                }
+              ],
+              "correct_option_ids": [
+                27864
+              ],
+              "correct_option_labels": [
+                "D"
+              ],
+              "correct_option_texts": [
+                "300 K"
+              ],
+              "explanation": "After Isochoric process\n${{{P_1}} \\over {{P_2}}} = {{{T_1}} \\over {{T_2}}}$\n${1 \\over 3} = {{300} \\over {{T_2}}}$\nT_2 = 900K\nafter one whole cycle: T_1 = 300K"
+            },
+            {
+              "questionID": 18167,
+              "question": "Four liters of a diatomic ideal gas ($\\gamma $ = 1.4) confined to a cylinder is subject to a closed cycle. Initially, the gas is at 1.00 atm and at 300 K. First, its pressure is tripled under constant volume. Then, it expands adiabatically to its original pressure. Finally, the gas is compressed isobarically to its original volume. What was the network done for this cycle?",
+              "question_raw": "<p>Four liters of a diatomic ideal gas (<span class=\"math-tex\">{tex}\\gamma {/tex}</span>&nbsp;= 1.4) confined to a cylinder is subject to a closed cycle. Initially, the gas is at 1.00 atm and at 300 K. First, its pressure is tripled under constant volume. Then, it expands adiabatically to its original pressure. Finally, the gas is compressed isobarically to its original volume. What was the network done for this cycle?</p>",
+              "options": [
+                {
+                  "label": "A",
+                  "id": 27871,
+                  "text": "376 J",
+                  "is_correct": false
+                },
+                {
+                  "label": "B",
+                  "id": 27870,
+                  "text": "316 J",
+                  "is_correct": false
+                },
+                {
+                  "label": "C",
+                  "id": 27868,
+                  "text": "327 J",
+                  "is_correct": true
+                },
+                {
+                  "label": "D",
+                  "id": 27869,
+                  "text": "356 J",
+                  "is_correct": false
+                }
+              ],
+              "correct_option_ids": [
+                27868
+              ],
+              "correct_option_labels": [
+                "C"
+              ],
+              "correct_option_texts": [
+                "327 J"
+              ],
+              "explanation": "Work done in the isochoric process W_1 = 0\nWork done in the adiabatic process\n${W_2} = {1 \\over {\\gamma - 1}}\\left( {{P_2}{V_2} - {P_3}{V_3}} \\right)$ \n$P_{2} V_{2}^{\\gamma}=P_{3} V_{3}^{\\gamma}$\n$V_{3}^{\\gamma}=\\frac{P_{2}}{P_{3}} V_{2}^{\\gamma}$\nV_3 = $\\left(\\frac{P_{2}}{P_{3}}\\right)^{1 \\over \\gamma} V_{2}=\\left(\\frac{3}{1}\\right)^{1 \\over 1.4} \\times 4$ = 8.79 litres\n${W_2} = {1 \\over {\\gamma - 1}}\\left( {{P_2}{V_2} - {P_3}{V_3}} \\right) = {1 \\over {1.4 - 1}} $ $\\times$ (12 − 8.79) $\\times$ 1.01 $\\times$ 10^5 $\\times$ 10^−3 = 810J\nWork done in the isochoric process \nW_3 = P$\\Delta$V = 1 $\\times$ 1.01 $\\times$ 10^5 $\\times$ (4 − 8.79) $\\times$10^−3 = −483J\nNet work done for cycle\nW = W_1 + W_2 + W_3 = 0 + 810 − 483 = 327J"
+            },
+            {
+              "questionID": 18168,
+              "question": "Consider 2.00 mol of an ideal diatomic gas. Find the total heat capacity at constant volume and at constant pressure, if the molecules rotate but do not vibrate",
+              "question_raw": "<p>Consider 2.00 mol of an ideal diatomic gas. Find the total heat capacity at constant volume and at constant pressure, if the molecules rotate but do not vibrate</p>",
+              "options": [
+                {
+                  "label": "A",
+                  "id": 27875,
+                  "text": "9.45 cal/K, 13.2 cal/K",
+                  "is_correct": false
+                },
+                {
+                  "label": "B",
+                  "id": 27872,
+                  "text": "9.95 cal/K, 13.9 cal/K",
+                  "is_correct": true
+                },
+                {
+                  "label": "C",
+                  "id": 27874,
+                  "text": "9.65 cal/K, 13.5 cal/K",
+                  "is_correct": false
+                },
+                {
+                  "label": "D",
+                  "id": 27873,
+                  "text": "9.85 cal/K, 13.7 cal/K",
+                  "is_correct": false
+                }
+              ],
+              "correct_option_ids": [
+                27872
+              ],
+              "correct_option_labels": [
+                "B"
+              ],
+              "correct_option_texts": [
+                "9.95 cal/K, 13.9 cal/K"
+              ],
+              "explanation": "for diatomic gas C_V = 2.5 R, C_P = 3.5 R\nHeat capacity = mc = nC\nat const. volume Heat capacity = nC_V = 2 $\\times$ 2.5 $\\times$ 1.986 = 9.95cal/K\nat const. pressure Heat capacity = nC_P = 2 $\\times$ 3.5 $\\times$ 1.986 = 13.9cal/K"
+            },
+            {
+              "questionID": 21691,
+              "question": "According to Atomic Hypothesis: little particles of atom",
+              "question_raw": "<p>According to Atomic Hypothesis:&nbsp;little particles of atom</p>",
+              "options": [
+                {
+                  "label": "A",
+                  "id": 41963,
+                  "text": "repel each other when they are at small distance apart, but repel upon being squeezed into one another",
+                  "is_correct": false
+                },
+                {
+                  "label": "B",
+                  "id": 41964,
+                  "text": "repel each other when they are at small distance apart, but attract upon being squeezed into one another",
+                  "is_correct": false
+                },
+                {
+                  "label": "C",
+                  "id": 41965,
+                  "text": "repel each other when they are at large distance apart, but attract upon being separated from one another",
+                  "is_correct": false
+                },
+                {
+                  "label": "D",
+                  "id": 41962,
+                  "text": "attract each other when they are at small distance apart, but repel upon being squeezed into one another",
+                  "is_correct": true
+                }
+              ],
+              "correct_option_ids": [
+                41962
+              ],
+              "correct_option_labels": [
+                "D"
+              ],
+              "correct_option_texts": [
+                "attract each other when they are at small distance apart, but repel upon being squeezed into one another"
+              ],
+              "explanation": "At room temperature (=300K) the noble gases are all in the gas phase, they are banging around and colliding into one another like little pool balls. At this temperature, when the atoms collide they appear to elastically bounce off of one another, but this bounce is actually a result of atomic repulsion. The atoms are traveling so fast and they approach each other so quickly that their momentum 'squeezes' them together until the atomic repulsion pushes them back apart."
+            },
+            {
+              "questionID": 21692,
+              "question": "The perfect gas equation can be written as:",
+              "question_raw": "<p>The perfect gas equation can be written as:</p>",
+              "options": [
+                {
+                  "label": "A",
+                  "id": 41967,
+                  "text": "PV = k_B T",
+                  "is_correct": false
+                },
+                {
+                  "label": "B",
+                  "id": 41968,
+                  "text": "PV = k_B N",
+                  "is_correct": false
+                },
+                {
+                  "label": "C",
+                  "id": 41969,
+                  "text": "P = k_B NT",
+                  "is_correct": false
+                },
+                {
+                  "label": "D",
+                  "id": 41966,
+                  "text": "PV = k_B NT",
+                  "is_correct": true
+                }
+              ],
+              "correct_option_ids": [
+                41966
+              ],
+              "correct_option_labels": [
+                "D"
+              ],
+              "correct_option_texts": [
+                "PV = k_B NT"
+              ],
+              "explanation": "PV = nRT\nPV = nk_BN_AT\nR = k_BN_A, N = nN_A\nPV = Nk_BT\nn = no. of mole\n${{\\rm{k}}_{\\rm{B}}}$= Boltzmann const\nN = no. of molecule\nN_A = Avogadro no."
+            }
+          ]
+        }
+      ]
+    }
+  ]
+}

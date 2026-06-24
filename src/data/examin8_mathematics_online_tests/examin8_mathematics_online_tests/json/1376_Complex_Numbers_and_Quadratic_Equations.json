@@ -1,0 +1,3121 @@
+{
+  "id": 1376,
+  "name": "Complex Numbers and Quadratic Equations",
+  "full_name": "CBSE > Class 11 > Mathematics > Complex Numbers and Quadratic Equations",
+  "tests": [
+    {
+      "testPaperID": 622,
+      "testPaperName": "Quadratic Equations Test 01",
+      "is_paid": false,
+      "category_full_name": "CBSE > Class 11 > Mathematics > Complex Numbers and Quadratic Equations",
+      "noOfQuestions": 15,
+      "has_answers": true,
+      "sections": [
+        {
+          "sectionName": "General",
+          "sectionID": null,
+          "questions": [
+            {
+              "questionID": 18617,
+              "question": "The complex numbers z = x + iy which satisfy the equation $\\left|\\frac{z-3 i}{z+3 i}\\right|=1$ lie on",
+              "question_raw": "<p>The complex numbers z = x + iy which satisfy the equation <span class=\"math-tex\">{tex}\\left|\\frac{z-3 i}{z+3 i}\\right|=1{/tex}</span> lie on</p>",
+              "options": [
+                {
+                  "label": "A",
+                  "id": 29671,
+                  "text": "on x axis.",
+                  "is_correct": false
+                },
+                {
+                  "label": "B",
+                  "id": 29669,
+                  "text": "the straight line y = 3",
+                  "is_correct": false
+                },
+                {
+                  "label": "C",
+                  "id": 29668,
+                  "text": "the x-axis",
+                  "is_correct": true
+                },
+                {
+                  "label": "D",
+                  "id": 29670,
+                  "text": "a circle passing through the origin",
+                  "is_correct": false
+                }
+              ],
+              "correct_option_ids": [
+                29668
+              ],
+              "correct_option_labels": [
+                "C"
+              ],
+              "correct_option_texts": [
+                "the x-axis"
+              ],
+              "explanation": "Given$\\left|\\frac{z-3 i}{z+3 i}\\right|=1$\nPutting z = x + iy , we get\n$\\left|\\frac{x+i y-3 i}{x+i y+3 i}\\right|=1$\n$\\Rightarrow\\left| {{{x+iy - 3i} }} \\right| =\\left| {{{x+iy + 3i} }} \\right|$\n$\\Rightarrow\\left| {{{x+i(y - 3)} }} \\right| =\\left| {{{x+i(y + 3)} }} \\right|$\n$\\Rightarrow \\sqrt { { x }^{ 2 }+{ \\left( { y-3 } \\right) }^{ 2 } } =\\sqrt { { x }^{ 2 }+{ \\left( { y+3 } \\right) }^{ 2 } } $ $\\left[ \\because \\left| x+iy \\right| =\\sqrt { { x }^{ 2 }+{ y }^{ 2 } } \\right]$\nSquaring on both sides, we get\n${ x }^{ 2 }+{ \\left( { y-3 } \\right) }^{ 2 }={ x }^{ 2 }+{ \\left( { y+3 } \\right) }^{ 2 }$\n$ \\Rightarrow { x }^{ 2 }+{ y }^{ 2 }-6y+9={ x }^{ 2 }+{ y }^{ 2 }+6y+9$\n$ \\Rightarrow 12y=0$\n$ \\Rightarrow y=0$\nWhich means the X-axis."
+            },
+            {
+              "questionID": 18618,
+              "question": "The inequality |z - 4| < |z - 2| represents the region given by",
+              "question_raw": "<p>The inequality |z - 4| &lt; |z - 2| represents the region given by</p>",
+              "options": [
+                {
+                  "label": "A",
+                  "id": 29673,
+                  "text": "Re(z) $<$ 0",
+                  "is_correct": false
+                },
+                {
+                  "label": "B",
+                  "id": 29675,
+                  "text": "y > 4",
+                  "is_correct": false
+                },
+                {
+                  "label": "C",
+                  "id": 29674,
+                  "text": "Re(z) > 0",
+                  "is_correct": false
+                },
+                {
+                  "label": "D",
+                  "id": 29672,
+                  "text": "x > 3",
+                  "is_correct": true
+                }
+              ],
+              "correct_option_ids": [
+                29672
+              ],
+              "correct_option_labels": [
+                "D"
+              ],
+              "correct_option_texts": [
+                "x > 3"
+              ],
+              "explanation": "Given |z - 4| < |z - 2|\nPutting z = x + iy, we get\n|x + iy - 4| < |x + iy - 2|\n$\\Rightarrow$ |(x - 4) + iy| < |(x - 2) + iy| \n$\\Rightarrow$ $\\sqrt{(x-4)^{2}+y^{2}}$ < $\\sqrt{(x-2)^{2}+y^{2}}$ [$\\because$ |x + iy| = $\\sqrt{x^{2}+y^{2}}$]\nSquaring on both sides we get\n(x - 4)^2 + y^2 < (x - 2)^2 + y^2 \n$\\Rightarrow$ x^2 + 16 - 8x + y^2 < x^2 + 4 - 4x + y^2 \n$\\Rightarrow$ 16 - 4 < 8x - 4x\n$\\Rightarrow$ 12 < 4x\n$\\Rightarrow$ x > 3"
+            },
+            {
+              "questionID": 18619,
+              "question": "If Z = $\\frac{\\sqrt{3}}{2}+\\frac{i}{2}$, Z^3 then equals",
+              "question_raw": "<p>If Z&nbsp;= <span class=\"math-tex\">{tex}\\frac{\\sqrt{3}}{2}+\\frac{i}{2}{/tex}</span>, Z<sup>3</sup> then equals</p>",
+              "options": [
+                {
+                  "label": "A",
+                  "id": 29679,
+                  "text": "-i",
+                  "is_correct": false
+                },
+                {
+                  "label": "B",
+                  "id": 29678,
+                  "text": "-1",
+                  "is_correct": false
+                },
+                {
+                  "label": "C",
+                  "id": 29677,
+                  "text": "1",
+                  "is_correct": false
+                },
+                {
+                  "label": "D",
+                  "id": 29676,
+                  "text": "i",
+                  "is_correct": true
+                }
+              ],
+              "correct_option_ids": [
+                29676
+              ],
+              "correct_option_labels": [
+                "D"
+              ],
+              "correct_option_texts": [
+                "i"
+              ],
+              "explanation": "Given Z = $\\frac{\\sqrt{3}}{2}+\\frac{i}{2}$ \nZ^3 = $\\left(\\frac{\\sqrt{3}}{2}+\\frac{i}{2}\\right)^{3}$ [$\\because$ (a + b)^3 = a^3 + b^3 + 3ab(a + b)]\n$\\Rightarrow$ Z^3 = $\\frac{\\sqrt{3}}{2}^{3}+\\frac{i^{3}}{2}^{3}+3 \\cdot \\frac{\\sqrt{3}}{2} \\cdot \\frac{i}{2}\\left(\\frac{\\sqrt{3}}{2}+\\frac{i}{2}\\right)$ \n$\\Rightarrow$ Z^3 = $\\frac{3 \\sqrt{3}}{8}+\\frac{i^{3}}{8}+\\frac{3 \\sqrt{3} i}{8}(\\sqrt{3}+i)$ \n$\\Rightarrow$ Z^3 = $\\frac{3 \\sqrt{3}-i+9 i-3 \\sqrt{3}}{8}$ [$\\because$ i^2 = -1]\n$\\Rightarrow$ Z^3 = $\\frac{8 i}{8}$ = i"
+            },
+            {
+              "questionID": 18620,
+              "question": "$2\\sqrt { - 9} \\sqrt { - 16}$, is equals to",
+              "question_raw": "<p><span class=\"math-tex\">{tex}2\\sqrt { - 9} \\sqrt { - 16}{/tex}</span>, is equals to</p>",
+              "options": [
+                {
+                  "label": "A",
+                  "id": 29683,
+                  "text": "-48",
+                  "is_correct": false
+                },
+                {
+                  "label": "B",
+                  "id": 29680,
+                  "text": "-24",
+                  "is_correct": true
+                },
+                {
+                  "label": "C",
+                  "id": 29681,
+                  "text": "24",
+                  "is_correct": false
+                },
+                {
+                  "label": "D",
+                  "id": 29682,
+                  "text": "48",
+                  "is_correct": false
+                }
+              ],
+              "correct_option_ids": [
+                29680
+              ],
+              "correct_option_labels": [
+                "B"
+              ],
+              "correct_option_texts": [
+                "-24"
+              ],
+              "explanation": "$2\\sqrt { - 9} \\sqrt { - 16} $ \n= $2\\sqrt { 9.(-1)} \\sqrt {( -1). 16} $ \n= $2\\sqrt { 9} \\sqrt { 16}\\sqrt { -1} \\sqrt { -1}$ \n= $2\\sqrt { 9} \\sqrt { 16}.i.i$ [ $\\because$ i^2 = -1]\n= 2.3.4.(-1)\n= -24"
+            },
+            {
+              "questionID": 18621,
+              "question": "If ${\\left( {\\sqrt 3 + i} \\right)^{10}} = a + ib;a,b \\in R,$ then a and b are respectively :",
+              "question_raw": "<p>If <span class=\"math-tex\">{tex}{\\left( {\\sqrt 3 + i} \\right)^{10}} = a + ib;a,b \\in R,{/tex}</span> then a and b are respectively :</p>",
+              "options": [
+                {
+                  "label": "A",
+                  "id": 29686,
+                  "text": "64 and - 64$\\sqrt 3 $",
+                  "is_correct": false
+                },
+                {
+                  "label": "B",
+                  "id": 29684,
+                  "text": "512 and - 512$\\sqrt 3 $",
+                  "is_correct": true
+                },
+                {
+                  "label": "C",
+                  "id": 29685,
+                  "text": "128 and 128$\\sqrt 3 $",
+                  "is_correct": false
+                },
+                {
+                  "label": "D",
+                  "id": 29687,
+                  "text": "$1024 \\ and \\ 1024\\sqrt 3$",
+                  "is_correct": false
+                }
+              ],
+              "correct_option_ids": [
+                29684
+              ],
+              "correct_option_labels": [
+                "B"
+              ],
+              "correct_option_texts": [
+                "512 and - 512$\\sqrt 3 $"
+              ],
+              "explanation": "First we will find the polar representation of the complex number $\\sqrt { 3 } +i$\nLet $\\sqrt{3}+i=r(\\cos \\theta+i \\sin \\theta) \\Rightarrow r \\cos \\theta=\\sqrt{3} a n d \\quad r \\sin \\theta=1$\n$\\therefore r^{2}\\left(\\cos ^{2} \\theta+\\sin ^{2} \\theta\\right)=3+1=4 \\Rightarrow r^{2}=4 \\Rightarrow r=2$\nNow $cos\\theta =\\frac { \\sqrt { 3 } }{ 2 } ,\\quad sin\\theta =\\frac { 1 }{ 2 } $ , both are positive .\nSo Amplitude $=\\theta =\\frac { \\Pi }{ 6 } $\nHence $\\sqrt { 3 } +i=2\\left( cos\\frac { \\Pi }{ 6 } +isin\\frac { \\Pi }{ 6 } \\right) =2{ e }^{ \\frac { i\\Pi }{ 6 } }$\nNow,\n$(\\sqrt{3}+i)^{10}=\\left(2 e^{\\frac{i \\pi}{6}}\\right)^{10}=2^{10} e^{\\frac{i 5 \\pi}{3}}=2^{10}\\left(\\cos \\left(\\frac{5 \\Pi}{3}\\right)+i \\sin \\left(\\frac{5 \\Pi}{3}\\right)\\right)$\n$=2^{10}\\left(\\cos \\left(2 \\Pi-\\frac{\\Pi}{3}\\right)+i \\sin \\left(2 \\Pi-\\frac{\\Pi}{3}\\right)\\right)=2^{10}\\left(\\cos \\left(\\frac{-\\pi}{3}\\right)+i \\sin \\left(\\frac{-\\pi}{3}\\right)\\right)$\n$=2^{10}\\left(\\cos \\left(\\frac{\\Pi}{3}\\right)-i \\sin \\left(\\frac{\\Pi}{3}\\right)\\right)=2^{10}\\left(\\frac{1}{2}-i \\frac{\\sqrt{3}}{2}\\right)=2^{10}\\left(\\frac{1-\\sqrt{3} i}{2}\\right)=2^{9}(1-\\sqrt{3} i)$\nHence ${\\left( {\\sqrt 3 + i} \\right)^{10}} = a + ib$ $\\Rightarrow { 2 }^{ 9 }\\left( 1-\\sqrt { 3 } i \\right) =a+ib$\n$\\Rightarrow a={ 2 }^{ 9 }=512\\quad and\\quad b={ -2 }^{ 9 }\\sqrt { 3 } =-512\\sqrt { 3 } \\\\ $"
+            },
+            {
+              "questionID": 18622,
+              "question": "Let $x,y \\in R,$then x + iy is a non real complex number if",
+              "question_raw": "<p>Let <span class=\"math-tex\">{tex}x,y \\in R,{/tex}</span>then x + iy is a non real complex number if</p>",
+              "options": [
+                {
+                  "label": "A",
+                  "id": 29690,
+                  "text": "y = 0",
+                  "is_correct": false
+                },
+                {
+                  "label": "B",
+                  "id": 29689,
+                  "text": "x = 0",
+                  "is_correct": false
+                },
+                {
+                  "label": "C",
+                  "id": 29691,
+                  "text": "x $ \\ne $ 0",
+                  "is_correct": false
+                },
+                {
+                  "label": "D",
+                  "id": 29688,
+                  "text": "y $ \\ne $ 0",
+                  "is_correct": true
+                }
+              ],
+              "correct_option_ids": [
+                29688
+              ],
+              "correct_option_labels": [
+                "D"
+              ],
+              "correct_option_texts": [
+                "y $ \\ne $ 0"
+              ],
+              "explanation": "If a complex number has to be a non real complex number then its imaginary part should not be zero $\\Rightarrow iy\\neq 0\\Rightarrow y\\neq 0$"
+            },
+            {
+              "questionID": 18623,
+              "question": "Let x, y $ \\in$ R, then x + iy is a purely imaginary number if",
+              "question_raw": "<p>Let x, y&nbsp;<span class=\"math-tex\">{tex} \\in{/tex}</span>&nbsp;R, then x + iy is a purely imaginary number if</p>",
+              "options": [
+                {
+                  "label": "A",
+                  "id": 29692,
+                  "text": "x = 0, y $ \\ne $ 0",
+                  "is_correct": true
+                },
+                {
+                  "label": "B",
+                  "id": 29693,
+                  "text": "x $ \\ne $ 0, y = 0",
+                  "is_correct": false
+                },
+                {
+                  "label": "C",
+                  "id": 29694,
+                  "text": "x $ \\ne $ 0, y $ \\ne $ 0",
+                  "is_correct": false
+                },
+                {
+                  "label": "D",
+                  "id": 29695,
+                  "text": "x = 0, y = 0",
+                  "is_correct": false
+                }
+              ],
+              "correct_option_ids": [
+                29692
+              ],
+              "correct_option_labels": [
+                "A"
+              ],
+              "correct_option_texts": [
+                "x = 0, y $ \\ne $ 0"
+              ],
+              "explanation": "A purely imaginary number is a complex number which has only an imaginary part (iy) \nBut if y = 0 the complex number iy will become 0 which is real.\nHence the condition for a number to be purely imaginary is x = 0 and $ y\\neq 0$"
+            },
+            {
+              "questionID": 18624,
+              "question": "Multiplicative inverse of the non zero complex number x + iy (x, y $\\in$ R)",
+              "question_raw": "<p>Multiplicative inverse of the non zero complex number x + iy (x, y&nbsp;<span class=\"math-tex\">{tex}\\in{/tex}</span>&nbsp;R)</p>",
+              "options": [
+                {
+                  "label": "A",
+                  "id": 29697,
+                  "text": "$-\\frac{x}{x^2+y^2}+\\frac{y}{x^2+y^2} i$",
+                  "is_correct": false
+                },
+                {
+                  "label": "B",
+                  "id": 29696,
+                  "text": "$\\frac{x}{x^2+y^2}-\\frac{y}{x^2+y^2} i$",
+                  "is_correct": true
+                },
+                {
+                  "label": "C",
+                  "id": 29698,
+                  "text": "$\\frac{x}{x+y}-\\frac{y}{x+y} i$",
+                  "is_correct": false
+                },
+                {
+                  "label": "D",
+                  "id": 29699,
+                  "text": "$-\\frac{x}{x+y}+\\frac{y}{x+y} i$",
+                  "is_correct": false
+                }
+              ],
+              "correct_option_ids": [
+                29696
+              ],
+              "correct_option_labels": [
+                "B"
+              ],
+              "correct_option_texts": [
+                "$\\frac{x}{x^2+y^2}-\\frac{y}{x^2+y^2} i$"
+              ],
+              "explanation": "Multiplicative inverse of the complex number x + iy = $\\frac{1}{x+i y}=\\frac{1}{x+i y} \\cdot \\frac{x-i y}{x-i y}=\\frac{x-i y}{x^2+y^2}$ [$\\because$ i^2 = -1]"
+            },
+            {
+              "questionID": 18625,
+              "question": "If z_1 and z_2 are non-real complex numbers such that z_1 and z_2 and z_1z_2 are real numbers, then",
+              "question_raw": "<p>If z<sub>1</sub> and z<sub>2</sub>&nbsp;are non-real complex numbers such that z<sub>1</sub> and z<sub>2</sub> and z<sub>1</sub>z<sub>2</sub>&nbsp;are real numbers, then</p>",
+              "options": [
+                {
+                  "label": "A",
+                  "id": 29702,
+                  "text": "${z_1} = \\overline {{z_1}} $ and ${z_2} = \\overline {{z_2}} $",
+                  "is_correct": false
+                },
+                {
+                  "label": "B",
+                  "id": 29701,
+                  "text": "${z_1} = - \\overline {{z_2}} $",
+                  "is_correct": false
+                },
+                {
+                  "label": "C",
+                  "id": 29703,
+                  "text": "${z_2} = \\overline {{z_2}} $",
+                  "is_correct": false
+                },
+                {
+                  "label": "D",
+                  "id": 29700,
+                  "text": "${z_1} = \\overline {{z_2}} $",
+                  "is_correct": true
+                }
+              ],
+              "correct_option_ids": [
+                29700
+              ],
+              "correct_option_labels": [
+                "D"
+              ],
+              "correct_option_texts": [
+                "${z_1} = \\overline {{z_2}} $"
+              ],
+              "explanation": "Let z_1 = x_1 + iy_1 and z_2 = x_2 + iy_2 \nGiven z_1 and z_2 are non-real complex numbers, so we have ${ y }_{ 1 }\\neq 0,{ y }_{ 2 }\\neq 0$ \nz_1 + z_2 = (x + iy_1) + (x_2 + iy_2) = (x_1 + x_2) + i(y_1 + y_2) \nz_1 + z_2 is a real number \n$\\Rightarrow$ y_1 + y_2 = 0 $\\Rightarrow$ y_1 = -y_2 .....(i)\nNow z_1z_2 = (x_1 + iy_1) $\\cdot$ (x_2 + iy_2) = (x_1x_2 - y_1y_2) + i(x_1y_1 + x_1y_2)\nz_1z_2 is a real number $\\Rightarrow$ x_2y_1 + x_1y_2 = 0 $\\Rightarrow$ x_2y_1 = -x_1y_2 ....(ii)\nNow from (i) and (ii) we get $\\Rightarrow$ x_2y_1 = x_1y_1 $\\Rightarrow$ x_2 = x_1 \nHence we get z_1 = x_2 - iy_2 and z_2 = x_2 + iy_2 \nSo ${z_1} = \\overline {{z_2}} $"
+            },
+            {
+              "questionID": 18626,
+              "question": "The inequality |z - 6| < |z - 2| represents the region given by",
+              "question_raw": "<p>The inequality |z - 6| &lt; |z - 2| represents the region given by</p>",
+              "options": [
+                {
+                  "label": "A",
+                  "id": 29706,
+                  "text": "Re(z) > 2",
+                  "is_correct": false
+                },
+                {
+                  "label": "B",
+                  "id": 29705,
+                  "text": "Re(z) < 2",
+                  "is_correct": false
+                },
+                {
+                  "label": "C",
+                  "id": 29707,
+                  "text": "Re(z) < 4",
+                  "is_correct": false
+                },
+                {
+                  "label": "D",
+                  "id": 29704,
+                  "text": "Re(z) > 4",
+                  "is_correct": true
+                }
+              ],
+              "correct_option_ids": [
+                29704
+              ],
+              "correct_option_labels": [
+                "D"
+              ],
+              "correct_option_texts": [
+                "Re(z) > 4"
+              ],
+              "explanation": "Given |z - 6| < |z - 2|\nPutting z = x + iy, we get\n|x + iy - 6| <|x + iy - 2|\n$\\Rightarrow$ |(x - 6) + iy| < |(x - 2) + iy|\n$\\Rightarrow$ $\\sqrt{(x-6)^{2}+y^{2}}$ < $\\sqrt{(x-2)^{2}+y^{2}}$ [$\\because$ |x + iy| = $\\sqrt{x^{2}+y^{2}}$]\nSquaring on both sides we get\n(x - 6)^2 + y^2 < (x - 2)^2 + y^2 \n$\\Rightarrow$ x^2 + 36 - 12x + y^2 < x^2 + 4 - 4x + y^2 \n$\\Rightarrow$ 36 - 4 < 12x - 4x\n$\\Rightarrow$ 32 < 8x\n$\\Rightarrow$ x > 4"
+            },
+            {
+              "questionID": 18627,
+              "question": "z + $\\overline {z} \\ne 0$ if and only if",
+              "question_raw": "<p>z + <span class=\"math-tex\">{tex}\\overline {z} \\ne 0{/tex}</span> if and only if</p>",
+              "options": [
+                {
+                  "label": "A",
+                  "id": 29708,
+                  "text": "Re(z) $ \\ne $ 0",
+                  "is_correct": true
+                },
+                {
+                  "label": "B",
+                  "id": 29709,
+                  "text": "Im (z) $ \\ne $ 0",
+                  "is_correct": false
+                },
+                {
+                  "label": "C",
+                  "id": 29711,
+                  "text": "${\\text{| z | }} \\ne {\\text{ }}0$",
+                  "is_correct": false
+                },
+                {
+                  "label": "D",
+                  "id": 29710,
+                  "text": "z $ \\ne $ 0",
+                  "is_correct": false
+                }
+              ],
+              "correct_option_ids": [
+                29708
+              ],
+              "correct_option_labels": [
+                "A"
+              ],
+              "correct_option_texts": [
+                "Re(z) $ \\ne $ 0"
+              ],
+              "explanation": "Let Z = x + iy then we have $\\bar { Z } $ = x - iy\nSo Z + $\\bar { Z }$ = 2x\nNow z + $\\overline {z} \\ne 0$ \n$\\Rightarrow$ 2x $\\ne$ 0 \n$\\Rightarrow$ x $\\ne$ 0\n$\\Rightarrow$ Re(z) $\\ne$ 0"
+            },
+            {
+              "questionID": 18628,
+              "question": "Distance of the representative of the number 1 + i from the origin (in Argand’s diagram) is",
+              "question_raw": "<p>Distance of the representative of the number 1 + i&nbsp;from the origin (in Argand&rsquo;s diagram) is</p>",
+              "options": [
+                {
+                  "label": "A",
+                  "id": 29712,
+                  "text": "$\\sqrt 2 $",
+                  "is_correct": true
+                },
+                {
+                  "label": "B",
+                  "id": 29714,
+                  "text": "2",
+                  "is_correct": false
+                },
+                {
+                  "label": "C",
+                  "id": 29715,
+                  "text": "3",
+                  "is_correct": false
+                },
+                {
+                  "label": "D",
+                  "id": 29713,
+                  "text": "1",
+                  "is_correct": false
+                }
+              ],
+              "correct_option_ids": [
+                29712
+              ],
+              "correct_option_labels": [
+                "A"
+              ],
+              "correct_option_texts": [
+                "$\\sqrt 2 $"
+              ],
+              "explanation": "Let P(x, y) represent the complex number Z = x + iy in the complex plane(Argand plane) and let O(0, 0) be the origin\nThen we have OP =$\\sqrt { { x }^{ 2 }+{ y }^{ 2 } } $ \nHere Z = 1 + i so that P(x, y) = P(1, 1)\nHence OP =$\\sqrt { 1+1 } =\\sqrt { 2}$"
+            },
+            {
+              "questionID": 18629,
+              "question": "If $\\omega $ is a cube root of unity, then $\\left( {1 + \\omega } \\right)\\left( {1 + {\\omega ^2}} \\right)\\left( {1 + {\\omega ^4}} \\right)\\left( {1 + {\\omega ^8}} \\right)...$ upto 2n factors is",
+              "question_raw": "<p>If <span class=\"math-tex\">{tex}\\omega {/tex}</span> is a cube root of unity, then <span class=\"math-tex\">{tex}\\left( {1 + \\omega } \\right)\\left( {1 + {\\omega ^2}} \\right)\\left( {1 + {\\omega ^4}} \\right)\\left( {1 + {\\omega ^8}} \\right)...{/tex}</span> upto 2n factors is</p>",
+              "options": [
+                {
+                  "label": "A",
+                  "id": 29718,
+                  "text": "0",
+                  "is_correct": false
+                },
+                {
+                  "label": "B",
+                  "id": 29716,
+                  "text": "1",
+                  "is_correct": true
+                },
+                {
+                  "label": "C",
+                  "id": 29719,
+                  "text": "2",
+                  "is_correct": false
+                },
+                {
+                  "label": "D",
+                  "id": 29717,
+                  "text": "-1",
+                  "is_correct": false
+                }
+              ],
+              "correct_option_ids": [
+                29716
+              ],
+              "correct_option_labels": [
+                "B"
+              ],
+              "correct_option_texts": [
+                "1"
+              ],
+              "explanation": "$\\left( {1 + \\omega } \\right)\\left( {1 + {\\omega ^2}} \\right)\\left( {1 + {\\omega ^4}} \\right)\\left( {1 + {\\omega ^8}} \\right)$ .... upto 2n factors\n= $\\left( {1 + \\omega } \\right)\\left( {1 + {\\omega ^2}} \\right)\\left( {1 + {\\omega ^3.\\omega}} \\right)\\left( {1 + {\\omega ^3.\\omega ^3.\\omega^2}} \\right)...$ upto 2n factors\n= $\\left( {1 + \\omega } \\right)\\left( {1 + {\\omega ^2}} \\right)\\left( {1 +{\\omega}} \\right)\\left( {1 + {\\omega^2}} \\right)....$ upto 2n factors [ since ${ \\omega }^{ 3 }=1$ ]\n=$\\left(- {\\omega ^2 } \\right)\\left( {- {\\omega }} \\right)\\left(- {\\omega ^2 } \\right)\\left( {- {\\omega }} \\right)...$ upto 2n factors $\\left[ \\because 1+\\omega +{ \\omega }^{ 2 }=0 \\right] $ \n= $\\left(- {\\omega ^2 } \\right)\\left( {- {\\omega }} \\right)\\left(- {\\omega ^2 } \\right)\\left( {- {\\omega }} \\right)...$upto 2n factors \n= $\\left[\\left(-\\omega^{2}\\right)(-\\omega)\\right]\\left[\\left(-\\omega^{2}\\right)(-\\omega)\\right]$ ... n factors\n= $\\omega^{3} \\cdot \\omega^{3} \\cdot \\omega^{3} \\dots$ n factors [Since ${ \\omega }^{ 3 }$ = 1]\n= 1.1.1 .... n factos\n= 1^n = 1"
+            },
+            {
+              "questionID": 18630,
+              "question": "If |z - 2| = |z - 6| then locus of z is given by :",
+              "question_raw": "<p>If |z - 2| = |z - 6|&nbsp;then locus of z is given by :</p>",
+              "options": [
+                {
+                  "label": "A",
+                  "id": 29721,
+                  "text": "a straight line parallel to x axis",
+                  "is_correct": false
+                },
+                {
+                  "label": "B",
+                  "id": 29722,
+                  "text": "a circle",
+                  "is_correct": false
+                },
+                {
+                  "label": "C",
+                  "id": 29720,
+                  "text": "a straight line parallel to y axis",
+                  "is_correct": true
+                },
+                {
+                  "label": "D",
+                  "id": 29723,
+                  "text": "a square",
+                  "is_correct": false
+                }
+              ],
+              "correct_option_ids": [
+                29720
+              ],
+              "correct_option_labels": [
+                "C"
+              ],
+              "correct_option_texts": [
+                "a straight line parallel to y axis"
+              ],
+              "explanation": "|z - 2| = |z - 6|\n$\\Rightarrow$ |x - 2 + iy| = |x - 6 + iy|\n$\\Rightarrow$ $\\sqrt{(x-2)^{2}+y^{2}}$ = $\\sqrt{(x-6)^{2}+y^{2}}$ \n$\\Rightarrow$ x^2 + 4 - 4x + y^2 = x^2 + 36 - 12x + y^2\n$\\Rightarrow$ 8x = 32\n$\\Rightarrow$ x = 4\nWe have any line of the form x = a constant is a line parallel to Y-axis."
+            },
+            {
+              "questionID": 18631,
+              "question": "If k, l, m, n are four consecutive integers, then i^k + i^l + i^m + i^n is equal to :",
+              "question_raw": "<p>If k, l, m, n are four consecutive integers, then&nbsp;i<sup>k</sup> + i<sup>l</sup> + i<sup>m</sup> + i<sup>n</sup>&nbsp;is equal to :</p>",
+              "options": [
+                {
+                  "label": "A",
+                  "id": 29726,
+                  "text": "2",
+                  "is_correct": false
+                },
+                {
+                  "label": "B",
+                  "id": 29724,
+                  "text": "0",
+                  "is_correct": true
+                },
+                {
+                  "label": "C",
+                  "id": 29725,
+                  "text": "1",
+                  "is_correct": false
+                },
+                {
+                  "label": "D",
+                  "id": 29727,
+                  "text": "4",
+                  "is_correct": false
+                }
+              ],
+              "correct_option_ids": [
+                29724
+              ],
+              "correct_option_labels": [
+                "B"
+              ],
+              "correct_option_texts": [
+                "0"
+              ],
+              "explanation": "Given k, l, m, n are four consecutive integers,\nSo we have l = k + 1, m = k + 2, n = k + 3\ni^k + i^l + i^m + i^n\n= i^k + i^k+1 + i^k+2 + i^k+3\n= i^k (1 + i + i^2 + i^3) \n= i^k(1 + i - 1 - i)\n= i^k.0 = 0 [$\\because$ i^2 = -1 and i^3 = -i]"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "testPaperID": 623,
+      "testPaperName": "Quadratic Equations Test 02",
+      "is_paid": true,
+      "category_full_name": "CBSE > Class 11 > Mathematics > Complex Numbers and Quadratic Equations",
+      "noOfQuestions": 15,
+      "has_answers": true,
+      "sections": [
+        {
+          "sectionName": "General",
+          "sectionID": null,
+          "questions": [
+            {
+              "questionID": 18632,
+              "question": "i^2 + i^4 + i^6 + ..... up to 2k + 1 terms, for all k belongs to natural numbers N.",
+              "question_raw": "<p>i<sup>2</sup> + i<sup>4</sup> + i<sup>6</sup> + ..... up to 2k + 1 terms, for all k belongs to natural numbers N.</p>",
+              "options": [
+                {
+                  "label": "A",
+                  "id": 29728,
+                  "text": "-1",
+                  "is_correct": true
+                },
+                {
+                  "label": "B",
+                  "id": 29729,
+                  "text": "1",
+                  "is_correct": false
+                },
+                {
+                  "label": "C",
+                  "id": 29731,
+                  "text": "2",
+                  "is_correct": false
+                },
+                {
+                  "label": "D",
+                  "id": 29730,
+                  "text": "0",
+                  "is_correct": false
+                }
+              ],
+              "correct_option_ids": [
+                29728
+              ],
+              "correct_option_labels": [
+                "A"
+              ],
+              "correct_option_texts": [
+                "-1"
+              ],
+              "explanation": "i^2 + i^4 + i^6 + ..... upto 2k + 1 terms\ni^2 + (i^2)^2 + (i^2)^4 ..... upto 2k + 1 terms\n= (i^2)^1 + (i^2)^2 + (i^2)^3 ..... + (i^2)^2k + (i^2)^2k + 1 \n= (i^2)^1 + [(i^2)^2 + (i^2)^3] + [((i^2)^4 + (i^2)^5] + ..... + [(i^2)^2k + (i^2)^2k + 1] [$\\because$ i^2 = -1]\n= (-1) + [1 + (-1)] + [1 + (-1)] + .....+ [1 + (-1)]\n= -1"
+            },
+            {
+              "questionID": 18633,
+              "question": "1 + i + i^2 + i^3 + .... up to 4n terms is equal to",
+              "question_raw": "<p>1 + i + i<sup>2</sup> + i<sup>3</sup> + .... up to 4n terms is equal to</p>",
+              "options": [
+                {
+                  "label": "A",
+                  "id": 29732,
+                  "text": "0",
+                  "is_correct": true
+                },
+                {
+                  "label": "B",
+                  "id": 29735,
+                  "text": "2",
+                  "is_correct": false
+                },
+                {
+                  "label": "C",
+                  "id": 29733,
+                  "text": "1",
+                  "is_correct": false
+                },
+                {
+                  "label": "D",
+                  "id": 29734,
+                  "text": "-1",
+                  "is_correct": false
+                }
+              ],
+              "correct_option_ids": [
+                29732
+              ],
+              "correct_option_labels": [
+                "A"
+              ],
+              "correct_option_texts": [
+                "0"
+              ],
+              "explanation": "1 + i + i^2 + i^3 + i^4 + i^5 + ..... up to 4n terms\n= $1 + i + {i^2} + {i^2} .i+ {i^2} .{i^2}+ {i^2} .{i^2}.i+...$ up to 4n terms\n= $1 + i + {(-1)} + {(-1.i)} + {(-1).(-1)} + {(-1).(-1).i} +...$ up to 4n terms\n= $1 + i + {(-1)} + {(-i)} + {(1)} + {(i)} +.......$ up to 4n terms\n= $[1 + i + {(-1)} + {(-i)} ]+ [ {(1)} + {(i)} + {(-1)} + {(-i)}]...$ up to 4n terms [combining four terms to get a single term]\n= 0 + 0 + 0 ... up to n terms\n= 0.n = 0"
+            },
+            {
+              "questionID": 18634,
+              "question": "$1 + {i^2} + {i^4} + {i^6} + {i^8} + .......$ up to 1001 terms is equal to",
+              "question_raw": "<p><span class=\"math-tex\">{tex}1 + {i^2} + {i^4} + {i^6} + {i^8} + .......{/tex}</span> up to 1001 terms is equal to</p>",
+              "options": [
+                {
+                  "label": "A",
+                  "id": 29737,
+                  "text": "0",
+                  "is_correct": false
+                },
+                {
+                  "label": "B",
+                  "id": 29738,
+                  "text": "-1",
+                  "is_correct": false
+                },
+                {
+                  "label": "C",
+                  "id": 29739,
+                  "text": "2",
+                  "is_correct": false
+                },
+                {
+                  "label": "D",
+                  "id": 29736,
+                  "text": "1",
+                  "is_correct": true
+                }
+              ],
+              "correct_option_ids": [
+                29736
+              ],
+              "correct_option_labels": [
+                "D"
+              ],
+              "correct_option_texts": [
+                "1"
+              ],
+              "explanation": "$1+i^{2}+i^{4}+i^{6}+i^{8}+\\ldots \\ldots \\ldots . \\text { upto } 1001 \\text { terms }$\n$=\\left(i^{2}\\right)^{0}+\\left(i^{2}\\right)^{1}+\\left(i^{2}\\right)^{2}+\\left(i^{2}\\right)^{3}+\\ldots \\ldots . \\text { upto } 1001 \\quad \\text { terms }$\n$=\\left(i^{2}\\right)^{0}+\\left(i^{2}\\right)^{1}+\\left(i^{2}\\right)^{2}+\\left(i^{2}\\right)^{3}+\\ldots \\ldots \\ldots+\\left(i^{2}\\right)^{1000}$\n$=\\left[\\left(i^{2}\\right)^{0}+\\left(i^{2}\\right)^{1}\\right]+\\left[\\left(i^{2}\\right)^{2}+\\left(i^{2}\\right)^{3}\\right]+\\ldots \\ldots \\ldots \\ldots+\\left[\\left(i^{2}\\right)^{998}+\\left(i^{2}\\right)^{999}\\right]+\\left[\\left(i^{2}\\right)^{1000}\\right]$\n$=[1-1]+[1-1]+\\ldots \\ldots \\ldots+[1-1]+1$\n=1"
+            },
+            {
+              "questionID": 18635,
+              "question": "If $\\omega $ is a non-real cube root of unity and ${\\left( {1 + \\omega } \\right)^9} = a + b\\omega ;a,b \\in R,$ then a and b are respectively the numbers :",
+              "question_raw": "<p>If&nbsp;<span class=\"math-tex\">{tex}\\omega {/tex}</span> is a non-real cube root of unity and <span class=\"math-tex\">{tex}{\\left( {1 + \\omega } \\right)^9} = a + b\\omega ;a,b \\in R,{/tex}</span> then a and b are respectively the numbers :</p>",
+              "options": [
+                {
+                  "label": "A",
+                  "id": 29742,
+                  "text": "1, 0",
+                  "is_correct": false
+                },
+                {
+                  "label": "B",
+                  "id": 29743,
+                  "text": "0, -1",
+                  "is_correct": false
+                },
+                {
+                  "label": "C",
+                  "id": 29740,
+                  "text": "-1, 0",
+                  "is_correct": true
+                },
+                {
+                  "label": "D",
+                  "id": 29741,
+                  "text": "0, 1",
+                  "is_correct": false
+                }
+              ],
+              "correct_option_ids": [
+                29740
+              ],
+              "correct_option_labels": [
+                "C"
+              ],
+              "correct_option_texts": [
+                "-1, 0"
+              ],
+              "explanation": "We have $(1+\\omega)^{9}$ = $\\left(-\\omega^{2}\\right)^{9}$ = $(-1)^{9}\\left(\\omega^{2}\\right)^{9}$ = $-\\omega^{18}$ = $-\\left(\\omega^{3}\\right)^{6}$ = (-1)^6 = -1 [$\\because$ $\\omega^{3}=1,1+\\omega+\\omega^{2}$ = 0]\nGiven ${\\left( {1 + \\omega } \\right)^9} = a + b\\omega $ \n$\\Rightarrow$ -1 = a + b$\\omega$ \n$\\Rightarrow$ -1 + 0.$\\omega$ = a + b$\\omega$\n$\\Rightarrow$ a = -1, b = 0"
+            },
+            {
+              "questionID": 18636,
+              "question": "If |z| = 1, then $\\frac{z-1}{z+1}, z \\neq-1$ is",
+              "question_raw": "<p>If |z| = 1, then <span class=\"math-tex\">{tex}\\frac{z-1}{z+1}, z \\neq-1{/tex}</span>&nbsp;is</p>",
+              "options": [
+                {
+                  "label": "A",
+                  "id": 29745,
+                  "text": "non-real",
+                  "is_correct": false
+                },
+                {
+                  "label": "B",
+                  "id": 29747,
+                  "text": "Complex number",
+                  "is_correct": false
+                },
+                {
+                  "label": "C",
+                  "id": 29744,
+                  "text": "purely imaginary or zero",
+                  "is_correct": true
+                },
+                {
+                  "label": "D",
+                  "id": 29746,
+                  "text": "purely real",
+                  "is_correct": false
+                }
+              ],
+              "correct_option_ids": [
+                29744
+              ],
+              "correct_option_labels": [
+                "C"
+              ],
+              "correct_option_texts": [
+                "purely imaginary or zero"
+              ],
+              "explanation": "Let Z = x + iy\nGiven |z| = 1 $\\Rightarrow \\sqrt { { x }^{ 2 }+{ y }^{ 2 } } =1$ $\\Rightarrow$ x^2 + y^2 = 1\nNow, $\\frac{Z-1}{Z+1}=\\frac{x+i y-1}{x+i y+1}=\\frac{x-1+i y}{x+1+i y}$ \n= $\\frac{x-1+i y}{x+1+i y} \\cdot \\frac{x+1-i y}{x+1-i y}$ = $\\frac{\\left(x^{2}-1\\right)+y^{2}+i[y(x+1)-y(x-1)]}{(x+1)^{2}+(y)^{2}}$ \n= $\\frac{x^{2}+y^{2}-1+2 i y}{(x+1)^{2}+(y)^{2}}$ = $\\frac{1-1+2 i y}{(x+1)^{2}+(y)^{2}}$ [$\\because$ x^2 + y^2 = 1] \n$\\therefore$ $\\frac{Z-1}{Z+1}$ = 0 + $\\frac{2 y}{(x+1)^{2}+(y)^{2}} i$\nWhich is purely imaginary number.\nAlso when y = 0, the number will become zero"
+            },
+            {
+              "questionID": 18637,
+              "question": "The equation |4z - 1| = 4|z - 5| represents :",
+              "question_raw": "<p>The equation |4z - 1| = 4|z - 5| represents :</p>",
+              "options": [
+                {
+                  "label": "A",
+                  "id": 29750,
+                  "text": "a parabola",
+                  "is_correct": false
+                },
+                {
+                  "label": "B",
+                  "id": 29749,
+                  "text": "a circle",
+                  "is_correct": false
+                },
+                {
+                  "label": "C",
+                  "id": 29748,
+                  "text": "a straight line",
+                  "is_correct": true
+                },
+                {
+                  "label": "D",
+                  "id": 29751,
+                  "text": "an ellipse",
+                  "is_correct": false
+                }
+              ],
+              "correct_option_ids": [
+                29748
+              ],
+              "correct_option_labels": [
+                "C"
+              ],
+              "correct_option_texts": [
+                "a straight line"
+              ],
+              "explanation": "Given |4z - 1| = 4|z - 5|\nLet Z = x + iy \n$\\Rightarrow$ |4(x + iy) - 1| = 4|x + iy - 5|\n$\\Rightarrow$ |(4x - 1) + 4iy| = 4(x - 5) + iy|\n$\\Rightarrow$ $\\sqrt{(4 x-1)^{2}+(4 y)^{2}}$ = $4 \\sqrt{(x-5)^{2}+(y)^{2}}$ \nSquaring on both sides we get\n(4x - 1)^2 + (4y)^2 = 16[(x - 5)^2 + (y)^2]\n$\\Rightarrow$ 16x^2 + 1 - 8x + 16y^2 = 16[x^2 + 25 - 10x + y^2]\n$\\Rightarrow$ 16x^2 + 1 - 8x + 16y^2 - 16x^2 - 400 + 160x - 16y^2 = 0\n$\\Rightarrow$ 152x - 399 = 0\n$\\Rightarrow$ x = $\\frac{399}{152}$\nWe have x = a constant is a straight line parallel to Y-axis."
+            },
+            {
+              "questionID": 18638,
+              "question": "If ${\\left( { - 1 + \\sqrt 3 i} \\right)^n} + {\\left( { - 1 - \\sqrt 3 i} \\right)^n} = {2^n}\\alpha $ then $\\alpha $ is equal to :",
+              "question_raw": "<p>If <span class=\"math-tex\">{tex}{\\left( { - 1 + \\sqrt 3 i} \\right)^n} + {\\left( { - 1 - \\sqrt 3 i} \\right)^n} = {2^n}\\alpha {/tex}</span> then <span class=\"math-tex\">{tex}\\alpha {/tex}</span> is equal to :</p>",
+              "options": [
+                {
+                  "label": "A",
+                  "id": 29752,
+                  "text": "$ { \\left( \\omega \\right) }^{ n }+{ \\left( { \\omega }^{ 2 } \\right) }^{ n } $",
+                  "is_correct": true
+                },
+                {
+                  "label": "B",
+                  "id": 29754,
+                  "text": "-1",
+                  "is_correct": false
+                },
+                {
+                  "label": "C",
+                  "id": 29755,
+                  "text": "1",
+                  "is_correct": false
+                },
+                {
+                  "label": "D",
+                  "id": 29753,
+                  "text": "2",
+                  "is_correct": false
+                }
+              ],
+              "correct_option_ids": [
+                29752
+              ],
+              "correct_option_labels": [
+                "A"
+              ],
+              "correct_option_texts": [
+                "$ { \\left( \\omega \\right) }^{ n }+{ \\left( { \\omega }^{ 2 } \\right) }^{ n } $"
+              ],
+              "explanation": "We have $-1+i \\sqrt{3}=2 \\omega$ and $-1-i \\sqrt{3}=2 \\omega^{2}$ \nNow \n$(-1+\\sqrt{3} i)^{n}+(-1-\\sqrt{3} i)^{n}$ = $(2 \\omega)^{n}+\\left(2 \\omega^{2}\\right)^{n}$ = $2^{n}\\left[(\\omega)^{n}+\\left(\\omega^{2}\\right)^{n}\\right]$"
+            },
+            {
+              "questionID": 18639,
+              "question": "If ( x + iy ) ( 3 – 4i ) = (5 + 12i ) , then $\\sqrt {{x^2} + {y^2}} = $",
+              "question_raw": "<p>If ( x + iy ) ( 3 &ndash; 4i ) = (5 + 12i ) , then <span class=\"math-tex\">{tex}\\sqrt {{x^2} + {y^2}} = {/tex}</span></p>\r\n",
+              "options": [
+                {
+                  "label": "A",
+                  "id": 29759,
+                  "text": "16",
+                  "is_correct": false
+                },
+                {
+                  "label": "B",
+                  "id": 29756,
+                  "text": "13/5",
+                  "is_correct": true
+                },
+                {
+                  "label": "C",
+                  "id": 29757,
+                  "text": "5/13",
+                  "is_correct": false
+                },
+                {
+                  "label": "D",
+                  "id": 29758,
+                  "text": "65",
+                  "is_correct": false
+                }
+              ],
+              "correct_option_ids": [
+                29756
+              ],
+              "correct_option_labels": [
+                "B"
+              ],
+              "correct_option_texts": [
+                "13/5"
+              ],
+              "explanation": "Given ( x + iy ) ( 3 – 4i ) = (5 + 12i )\n$\\Rightarrow x+i y=\\frac{5+12 i}{3-4 i}=\\frac{(5+12 i)(3+4 i)}{(3-4 i)(3+4 i)}$\n$\\frac{(15-48)+i(20+36)}{9+16}=\\frac{-33+56 i}{25}$\n$\\Rightarrow x=\\frac{-33}{25}, y=\\frac{56}{25}$\n$\\therefore \\sqrt{x^{2}+y^{2}}=\\sqrt{\\left(\\frac{-33}{25}\\right)^{2}+\\left(\\frac{56}{25}\\right)^{2}}$\n$=\\sqrt{\\frac{1089+3136}{625}}=\\sqrt{\\frac{4225}{625}}=\\frac{65}{25}=\\frac{13}{5}$"
+            },
+            {
+              "questionID": 18640,
+              "question": "The locus of the equation $\\left|\\frac{3 z-1}{z-1}\\right|$ = 1 is",
+              "question_raw": "<p>The locus of the equation <span class=\"math-tex\">{tex}\\left|\\frac{3 z-1}{z-1}\\right|{/tex}</span>&nbsp;= 1 is</p>",
+              "options": [
+                {
+                  "label": "A",
+                  "id": 29760,
+                  "text": "a circle",
+                  "is_correct": true
+                },
+                {
+                  "label": "B",
+                  "id": 29762,
+                  "text": "an ellipse",
+                  "is_correct": false
+                },
+                {
+                  "label": "C",
+                  "id": 29761,
+                  "text": "a straight line",
+                  "is_correct": false
+                },
+                {
+                  "label": "D",
+                  "id": 29763,
+                  "text": "a hyperbola",
+                  "is_correct": false
+                }
+              ],
+              "correct_option_ids": [
+                29760
+              ],
+              "correct_option_labels": [
+                "A"
+              ],
+              "correct_option_texts": [
+                "a circle"
+              ],
+              "explanation": "Let Z = x + iy\nNow $\\left|\\frac{3 z-1}{z-1}\\right|$ = 1\n$\\Rightarrow$ |3z - 1| = |z - 1|\n$\\Rightarrow$ |(3 (x + iy) - 1| = |(x + iy) - 1|\n$\\Rightarrow$ |(3x - 1) + 3iy| = |(x - y) + iy| \n$\\Rightarrow$ $\\sqrt{(3 x-1)^{2}+(3 y)^{2}}$ = $\\sqrt{(x-1)^{2}+(y)^{2}}$ \n$\\Rightarrow$ (3x - 1)^2 + (3y)^2 = (x - 1)^2 + (y)^2 \n$\\Rightarrow$ 9x^2 + 1 - 6x + 9y^2 = x^2 + 1 - 2x + y^2 \n$\\Rightarrow$ 8x^2 + 8y^2 - 4x = 0\n$\\Rightarrow$ x^2 + y^2 - $\\frac{1}{2}$x = 0\nWe have this is a circle with centre ($\\frac{1}{4}$, 0) and radius = $\\frac{1}{4}$."
+            },
+            {
+              "questionID": 18641,
+              "question": "$\\sqrt { - 8} \\sqrt { - 18} \\sqrt { - 4} $ is",
+              "question_raw": "<p><span class=\"math-tex\">{tex}\\sqrt { - 8} \\sqrt { - 18} \\sqrt { - 4} {/tex}</span> is</p>",
+              "options": [
+                {
+                  "label": "A",
+                  "id": 29766,
+                  "text": "24",
+                  "is_correct": false
+                },
+                {
+                  "label": "B",
+                  "id": 29764,
+                  "text": "-24i",
+                  "is_correct": true
+                },
+                {
+                  "label": "C",
+                  "id": 29765,
+                  "text": "24i",
+                  "is_correct": false
+                },
+                {
+                  "label": "D",
+                  "id": 29767,
+                  "text": "-24",
+                  "is_correct": false
+                }
+              ],
+              "correct_option_ids": [
+                29764
+              ],
+              "correct_option_labels": [
+                "B"
+              ],
+              "correct_option_texts": [
+                "-24i"
+              ],
+              "explanation": "$\\sqrt{-8} \\sqrt{-18} \\sqrt{-4}$ \n= $\\sqrt{8} \\cdot \\sqrt{-1} \\cdot \\sqrt{18} \\cdot \\sqrt{-1} \\cdot \\sqrt{4} \\cdot \\sqrt{-1}$ = $2 \\sqrt{2} . i .3 \\sqrt{2} . i .2 . i$ = 24i^3 = -24i [$\\because$ i^2 = -1]"
+            },
+            {
+              "questionID": 18642,
+              "question": "If $\\alpha = \\frac z {\\overline z}$, then ${\\text{|}}\\alpha {\\text{|}}$ is equal to:",
+              "question_raw": "<p>If <span class=\"math-tex\">{tex}\\alpha = \\frac z {\\overline z}{/tex}</span>, then <span class=\"math-tex\">{tex}{\\text{|}}\\alpha {\\text{|}}{/tex}</span> is equal to:</p>",
+              "options": [
+                {
+                  "label": "A",
+                  "id": 29768,
+                  "text": "1",
+                  "is_correct": true
+                },
+                {
+                  "label": "B",
+                  "id": 29771,
+                  "text": "2",
+                  "is_correct": false
+                },
+                {
+                  "label": "C",
+                  "id": 29769,
+                  "text": "-1",
+                  "is_correct": false
+                },
+                {
+                  "label": "D",
+                  "id": 29770,
+                  "text": "0",
+                  "is_correct": false
+                }
+              ],
+              "correct_option_ids": [
+                29768
+              ],
+              "correct_option_labels": [
+                "A"
+              ],
+              "correct_option_texts": [
+                "1"
+              ],
+              "explanation": "Given $\\alpha = {\\frac z {z }}$ \nThen $|\\alpha|$ = $\\left|\\frac{z}{\\bar{z}}\\right|=\\frac{|z|}{|\\bar{z}|}$ = 1 [$\\because$ $\\left|\\frac{z_{1}}{z_{2}}\\right|=\\frac{\\left|z_{1}\\right|}{\\left|z_{2}\\right|}$, $|z|=|\\bar{z}|$]"
+            },
+            {
+              "questionID": 18643,
+              "question": "If z = x + iy ; x, y $\\in $ R then :",
+              "question_raw": "<p>If z = x + iy ; x, y <span class=\"math-tex\">{tex}\\in {/tex}</span> R then :</p>",
+              "options": [
+                {
+                  "label": "A",
+                  "id": 29774,
+                  "text": "$z\\bar z < {\\left| z \\right|^2}$",
+                  "is_correct": false
+                },
+                {
+                  "label": "B",
+                  "id": 29775,
+                  "text": "$z\\bar z \\ne {\\left| z \\right|^2}$",
+                  "is_correct": false
+                },
+                {
+                  "label": "C",
+                  "id": 29772,
+                  "text": "$z\\bar z = {\\left| z \\right|^2}$",
+                  "is_correct": true
+                },
+                {
+                  "label": "D",
+                  "id": 29773,
+                  "text": "$z\\bar z > {\\left| z \\right|^2}$",
+                  "is_correct": false
+                }
+              ],
+              "correct_option_ids": [
+                29772
+              ],
+              "correct_option_labels": [
+                "C"
+              ],
+              "correct_option_texts": [
+                "$z\\bar z = {\\left| z \\right|^2}$"
+              ],
+              "explanation": "If z = x + iy then $\\bar { Z }$ = x - iy\nNow $z \\bar{z}$ = (x + iy) $\\cdot$ (x - iy) = x^2 + y^2 = |z|^2 [$\\because$ |z| = $\\sqrt{x^{2}+y^{2}}$]"
+            },
+            {
+              "questionID": 18644,
+              "question": "The smallest positive integer n for which $\\left(\\frac{1+i}{1-i}\\right)^n=$ 1 is :",
+              "question_raw": "<p>The smallest positive integer n for which <span class=\"math-tex\">{tex}\\left(\\frac{1+i}{1-i}\\right)^n={/tex}</span>&nbsp;1 is :</p>",
+              "options": [
+                {
+                  "label": "A",
+                  "id": 29776,
+                  "text": "4",
+                  "is_correct": true
+                },
+                {
+                  "label": "B",
+                  "id": 29778,
+                  "text": "8",
+                  "is_correct": false
+                },
+                {
+                  "label": "C",
+                  "id": 29779,
+                  "text": "6",
+                  "is_correct": false
+                },
+                {
+                  "label": "D",
+                  "id": 29777,
+                  "text": "2",
+                  "is_correct": false
+                }
+              ],
+              "correct_option_ids": [
+                29776
+              ],
+              "correct_option_labels": [
+                "A"
+              ],
+              "correct_option_texts": [
+                "4"
+              ],
+              "explanation": "We have $\\frac { 1+i }{ 1-i } =\\frac { 1+i }{ 1-i } \\times \\frac { 1+i }{ 1+i } =\\frac { { \\left( 1+i \\right) }^{ 2 } }{ 1+1 } $$=\\frac { 1+2i-1 }{ 2 } =\\frac { 2i }{ 2 } =i$\nTherefore $\\left(\\frac{1+i}{1-i}\\right)^n=i^n$\nBy inspection we have the smallest positive integer such that ${{i} ^n}=1$ is n=4."
+            },
+            {
+              "questionID": 18645,
+              "question": "If $\\left(\\frac{\\sqrt{3}}{2}+\\frac{i}{2}\\right)^5+\\left(\\frac{\\sqrt{3}}{2}-\\frac{i}{2}\\right)^5$, then",
+              "question_raw": "<p>If <span class=\"math-tex\">{tex}\\left(\\frac{\\sqrt{3}}{2}+\\frac{i}{2}\\right)^5+\\left(\\frac{\\sqrt{3}}{2}-\\frac{i}{2}\\right)^5{/tex}</span>, then</p>",
+              "options": [
+                {
+                  "label": "A",
+                  "id": 29783,
+                  "text": "Im (z) > 0",
+                  "is_correct": false
+                },
+                {
+                  "label": "B",
+                  "id": 29780,
+                  "text": "Im (z) = 0",
+                  "is_correct": true
+                },
+                {
+                  "label": "C",
+                  "id": 29782,
+                  "text": "Im (z) $<$ 0",
+                  "is_correct": false
+                },
+                {
+                  "label": "D",
+                  "id": 29781,
+                  "text": "Re (z) $> $0",
+                  "is_correct": false
+                }
+              ],
+              "correct_option_ids": [
+                29780
+              ],
+              "correct_option_labels": [
+                "B"
+              ],
+              "correct_option_texts": [
+                "Im (z) = 0"
+              ],
+              "explanation": "$\\frac{\\sqrt{3}+i}{2}=r(\\cos \\theta+i \\sin \\theta) \\Rightarrow r \\cos \\theta=\\frac{\\sqrt{3}}{2}$, $ r \\sin \\theta=\\frac{1}{2}$\n$\\therefore r^2\\left(\\cos ^2 \\theta+\\sin ^2 \\theta\\right)=\\frac{3+1}{4}=1 $ $\\Rightarrow r^2=1 \\Rightarrow r=1$\n$\\cos \\theta=\\frac{\\sqrt{3}}{2}, \\quad \\sin \\theta=\\frac{1}{2}$\n$\\therefore$ Amplitude = $\\theta=\\frac{\\pi}{6}$\n$\\frac { \\sqrt { 3 } +i }{ 2 } =1\\left( cos\\frac { \\pi }{ 6 } +isin\\frac { \\pi }{ 6 } \\right) ={ e }^{ \\frac { i\\pi }{ 6 } }$ ...(i)\nSince $\\frac { \\sqrt { 3 } -i }{ 2 } $ lies in the fourth quadrant, the amplitude $=-\\theta =-\\frac { \\pi }{ 6 } $\n$\\frac { \\sqrt { 3 } -i }{ 2 } =1\\left( cos\\frac { -\\pi }{ 6 } +isin\\frac { -\\pi }{ 6 } \\right) ={ e }^{ \\frac { -i\\pi }{ 6 } }$ ...(i)\n$z=\\left(\\frac{\\sqrt{3}+i}{2}\\right)^5+\\left(\\frac{\\sqrt{3}-i}{2}\\right)^5$\n$\\Rightarrow z=\\left(e^{\\frac{ { i\\pi }}{6}}\\right)^5+\\left(e^{\\frac{-i \\mathrm{\\pi}}{6}}\\right)^5=e^{\\frac{i 5 \\mathrm{\\pi}}{6}}+e^{-\\frac{i 5 \\mathrm{\\pi}}{6}}$ = $=\\cos \\left(\\frac{5 \\pi}{6}\\right)+i \\sin \\left(\\frac{5 \\pi}{6}\\right)+\\cos \\left(\\frac{-5 \\pi}{6}\\right)$$+i \\sin \\left(\\frac{-5 \\pi}{6}\\right)=2 \\cos \\left(\\frac{5 \\pi}{6}\\right)$\nWhich is purely real [imaginary part of z = 0]"
+            },
+            {
+              "questionID": 18646,
+              "question": "If the cube roots of unity are 1, $\\omega ,{\\omega ^2},$ then roots of the equation (x - 1)^3 + 8 = 0 are :",
+              "question_raw": "<p>If the cube roots of unity are 1, <span class=\"math-tex\">{tex}\\omega ,{\\omega ^2},{/tex}</span>&nbsp;then roots of the equation&nbsp;(x - 1)<sup>3</sup> + 8 = 0 are :&nbsp;</p>",
+              "options": [
+                {
+                  "label": "A",
+                  "id": 29787,
+                  "text": "1, 1, 1",
+                  "is_correct": false
+                },
+                {
+                  "label": "B",
+                  "id": 29785,
+                  "text": "$ - 1, - 1 + 2\\omega ,1 + 2{\\omega ^2}$",
+                  "is_correct": false
+                },
+                {
+                  "label": "C",
+                  "id": 29786,
+                  "text": "-1, -1, -1",
+                  "is_correct": false
+                },
+                {
+                  "label": "D",
+                  "id": 29784,
+                  "text": "$ - 1,1 - 2\\omega ,1 - 2{\\omega ^2}$",
+                  "is_correct": true
+                }
+              ],
+              "correct_option_ids": [
+                29784
+              ],
+              "correct_option_labels": [
+                "D"
+              ],
+              "correct_option_texts": [
+                "$ - 1,1 - 2\\omega ,1 - 2{\\omega ^2}$"
+              ],
+              "explanation": "(x - 1)^3 + 8 = 0\n$\\Rightarrow$ (x - 1)^3 = -8\n$\\Rightarrow$ (x - 1)^3 = (-2)^3\n$\\Rightarrow$ $\\left(\\frac{x-1}{-2}\\right)^{3}$ = 1\nLet $\\frac { x-1 }{ -2 } $ = m (say)\nSo we get m^3 = 1 $\\Rightarrow m=1, \\omega ,{\\omega ^2}$ [cube roots of unity]\nNow m = 1 $\\Rightarrow$ $\\frac{x-1}{-2}$ = 1 $\\Rightarrow$ x - 1 = -2 $\\Rightarrow$ x = -1\nm = $\\omega$ $\\Rightarrow$ $\\frac{x-1}{-2}=\\omega$ $\\Rightarrow$ x - 1 = -2$\\omega$ $\\Rightarrow$ x = 1 - 2$\\omega$ \nAlso m = $\\omega^2$ $\\Rightarrow$ $\\frac{x-1}{-2}=\\omega^{2}$ $\\Rightarrow$ x -1 = $-2 \\omega^{2}$ $\\Rightarrow$ x = 1 - $2 \\omega^{2}$ \nHence the roots of the given equation are $ - 1,1 - 2\\omega ,1 - 2{\\omega ^2}$"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "testPaperID": 624,
+      "testPaperName": "Quadratic Equations Test 03",
+      "is_paid": true,
+      "category_full_name": "CBSE > Class 11 > Mathematics > Complex Numbers and Quadratic Equations",
+      "noOfQuestions": 15,
+      "has_answers": true,
+      "sections": [
+        {
+          "sectionName": "General",
+          "sectionID": null,
+          "questions": [
+            {
+              "questionID": 18647,
+              "question": "The value of arg (x) when x < 0 is:",
+              "question_raw": "<p>The value of arg (x) when x &lt; 0 is:</p>",
+              "options": [
+                {
+                  "label": "A",
+                  "id": 29789,
+                  "text": "$\\pi /{\\rm{2}}$",
+                  "is_correct": false
+                },
+                {
+                  "label": "B",
+                  "id": 29788,
+                  "text": "$\\pi $",
+                  "is_correct": true
+                },
+                {
+                  "label": "C",
+                  "id": 29791,
+                  "text": "-$\\pi $",
+                  "is_correct": false
+                },
+                {
+                  "label": "D",
+                  "id": 29790,
+                  "text": "0",
+                  "is_correct": false
+                }
+              ],
+              "correct_option_ids": [
+                29788
+              ],
+              "correct_option_labels": [
+                "B"
+              ],
+              "correct_option_texts": [
+                "$\\pi $"
+              ],
+              "explanation": "Given x $\\in $ R and x $<$ 0, therefore the number is $-x+0i$ and this will be a point inthe second quadrant as x is negative \nWe have arg($-x+0i$)=$\\theta =$ $\\tan ^{ -1 }{ \\left| \\frac { y }{ x } \\right| } =\\tan ^{ -1 }{ \\left| \\frac { 0 }{ -1 } \\right| } =\\tan ^{ -1 }{ 0 } =0$\nWe have in the second quadrant the principal value of argument= $\\Pi -\\theta =\\Pi -0 =\\Pi$\nHence Arg. ( x ) , x $\\in $ R and x $<$ 0 is $\\pi $"
+            },
+            {
+              "questionID": 18648,
+              "question": "The number of solutions of the equation Im (z^2) = 0, |z| = 2 is",
+              "question_raw": "<p>The number of solutions of the equation&nbsp;Im (z<sup>2</sup>) = 0, |z| = 2&nbsp;is</p>",
+              "options": [
+                {
+                  "label": "A",
+                  "id": 29793,
+                  "text": "3",
+                  "is_correct": false
+                },
+                {
+                  "label": "B",
+                  "id": 29795,
+                  "text": "2",
+                  "is_correct": false
+                },
+                {
+                  "label": "C",
+                  "id": 29792,
+                  "text": "4",
+                  "is_correct": true
+                },
+                {
+                  "label": "D",
+                  "id": 29794,
+                  "text": "1",
+                  "is_correct": false
+                }
+              ],
+              "correct_option_ids": [
+                29792
+              ],
+              "correct_option_labels": [
+                "C"
+              ],
+              "correct_option_texts": [
+                "4"
+              ],
+              "explanation": "Let z = x + iy, then we have $\\bar { z }$ = x - iy \nx^2 = (x + iy)^2 = x^2 - y^2 + 2xyi \n$\\therefore$ im(z^2) = 0 $\\Rightarrow$ 2xy = 0 .....(i)\n|z| = 2 $\\Rightarrow$ $\\sqrt{x^{2}+y^{2}}$ = 2 $\\Rightarrow$ x^2 + y^2 = 4 .....(ii)\n(x^2 - y^2)^2 = (x^2 + y^2)^2 - 4x^2y^2 \n$\\Rightarrow$ (x^2 - y^2)^2 = 16\n$\\Rightarrow$ x^2 - y^2 = $\\pm$ 4 .....(iii)\nWhen x^2 - y^2 = 4 from (ii) and (iii) we get 2x^2 = 8 $\\Rightarrow$ x^2 = 4 $\\Rightarrow$ x = $\\pm$ 2\nNow from (i) we get y = 0\nHence z = $\\pm 2$ \nNow when x^2 - y^2 = -4 from (ii) and (iii) we get 2y^2 = 8 $\\Rightarrow$ y^2 = 4 $\\Rightarrow$ y = $\\pm$ 2\nNow from (i) we get x = 0\nHence z = $\\pm 2i$ \nTherefore the solutions of the equation Im (z^2) = 0, |z| = 2 are z = $\\pm 2i$ and z = $\\pm 2$ and so number of solutions = 4."
+            },
+            {
+              "questionID": 18649,
+              "question": "Amp. (z - 2 - 3i) = $\\frac{\\pi}{4}$ then locus of z is",
+              "question_raw": "<p>Amp. (z - 2 - 3i) =&nbsp;<span class=\"math-tex\">{tex}\\frac{\\pi}{4}{/tex}</span> then locus of z is</p>",
+              "options": [
+                {
+                  "label": "A",
+                  "id": 29797,
+                  "text": "x - y = 2",
+                  "is_correct": false
+                },
+                {
+                  "label": "B",
+                  "id": 29799,
+                  "text": "x + y = 2",
+                  "is_correct": false
+                },
+                {
+                  "label": "C",
+                  "id": 29796,
+                  "text": "x – y + 1 = 0",
+                  "is_correct": true
+                },
+                {
+                  "label": "D",
+                  "id": 29798,
+                  "text": "x + y = 0",
+                  "is_correct": false
+                }
+              ],
+              "correct_option_ids": [
+                29796
+              ],
+              "correct_option_labels": [
+                "C"
+              ],
+              "correct_option_texts": [
+                "x – y + 1 = 0"
+              ],
+              "explanation": "Let z = x + iy\nThen z - 2 - 3i = (x + iy) - 2 - 3i = (x - 2) + i(y - 3)\nLet $\\theta $ be the amplitude of z.\nThen Amp (z - 2 - 3i) = $\\frac{\\pi}{4}$ \n$\\Rightarrow$ tan^-1$\\left(\\frac{y-3}{x-2}\\right)$ = $\\frac{\\Pi}{4}$ \n$\\Rightarrow$ $\\frac{y-3}{x-2}=\\tan \\frac{\\Pi}{4}$ = 1\n$\\Rightarrow$ y - 3 = x - 2\n$\\Rightarrow$ x - y + 1 = 0"
+            },
+            {
+              "questionID": 18650,
+              "question": "If z_1 and z_2 are non-real complex numbers such that |z_1| = |z_2| and Amp. z_1 + Amp. z_2 = $\\pi$, then z_1 =",
+              "question_raw": "<p>If z<sub>1</sub> and z<sub>2</sub> are non-real complex numbers such that |z<sub>1</sub>| = |z<sub>2</sub>|&nbsp;and &nbsp;Amp. z<sub>1</sub> + Amp. z<sub>2</sub> =&nbsp;<span class=\"math-tex\">{tex}\\pi{/tex}</span>, then&nbsp;z<sub>1</sub> =</p>",
+              "options": [
+                {
+                  "label": "A",
+                  "id": 29801,
+                  "text": "$\\overline {{z_2}} $",
+                  "is_correct": false
+                },
+                {
+                  "label": "B",
+                  "id": 29802,
+                  "text": "z_2",
+                  "is_correct": false
+                },
+                {
+                  "label": "C",
+                  "id": 29800,
+                  "text": "$ - \\overline {{z_2}} $",
+                  "is_correct": true
+                },
+                {
+                  "label": "D",
+                  "id": 29803,
+                  "text": "-z_2",
+                  "is_correct": false
+                }
+              ],
+              "correct_option_ids": [
+                29800
+              ],
+              "correct_option_labels": [
+                "C"
+              ],
+              "correct_option_texts": [
+                "$ - \\overline {{z_2}} $"
+              ],
+              "explanation": "Let z_1 = $r_{1}\\left(\\cos \\theta_{1}+i \\sin \\theta_{1}\\right)$ and z_2 = $r_{2}\\left(\\cos \\theta_{2}+i \\sin \\theta_{2}\\right)$, where r_1 = |z_1|, r_2 = |z_2| and $\\theta_{1}, \\theta_{2}$ are the amplitudef of the complex numbers.\nGiven |z_1| = |z_2| and$Amp.{z_{1}} + Amp.{z_2} = \\pi $ $\\Rightarrow$ r_1 = r_2 and $ { \\theta }_{ 1 }+{ \\theta }_{ 2 }=\\pi $ \nNow z_1 = ${ r }_{ 1 }\\left( cos{ \\theta }_{ 1 }+isin{ \\theta }_{ 1 } \\right)$ \n$\\Rightarrow$ z_1 = $r_{2}\\left[\\cos \\left(\\pi-\\theta_{2}\\right)+i \\sin \\left(\\pi-\\theta_{2}\\right)\\right]$ \n$\\Rightarrow$ z_1 = $r_{2}\\left(-\\cos \\theta_{2}+i \\sin \\theta_{2}\\right)$ = $-\\left[r_{2}\\left(\\cos \\theta_{2}-i \\sin \\theta_{2}\\right)\\right]$ = $-\\overline{z_{2}}$"
+            },
+            {
+              "questionID": 18651,
+              "question": "The complex numbers sinx + i cos2x and cosx – i sin2x are conjugate to each other, for",
+              "question_raw": "<p>The complex numbers sinx + i cos2x and cosx &ndash; i sin2x are conjugate to each other, for</p>",
+              "options": [
+                {
+                  "label": "A",
+                  "id": 29804,
+                  "text": "no value of x",
+                  "is_correct": true
+                },
+                {
+                  "label": "B",
+                  "id": 29807,
+                  "text": "$x=\\left(n+\\frac{1}{2}\\right) \\frac{\\pi}{2}$",
+                  "is_correct": false
+                },
+                {
+                  "label": "C",
+                  "id": 29806,
+                  "text": "x = ${\\rm{n}}\\pi $",
+                  "is_correct": false
+                },
+                {
+                  "label": "D",
+                  "id": 29805,
+                  "text": "x = 0",
+                  "is_correct": false
+                }
+              ],
+              "correct_option_ids": [
+                29804
+              ],
+              "correct_option_labels": [
+                "A"
+              ],
+              "correct_option_texts": [
+                "no value of x"
+              ],
+              "explanation": "Let\nz_1 = sinx + icos2x and z_2 = cosx–isin2x\n$\\Rightarrow$$\\overline z$_1 = sinx − icos2x, $\\overline z$_2 = cosx + isin2x\nGiven that z_1 = $\\overline z$_2 and z_2 = $\\overline z$_1\n$\\Rightarrow$ sinx + icos2x = cosx + isin2x and cosx − isin2x = sinx − icos2x\n$\\Rightarrow$ sinx = cosx......(i) and cos2x = sin2x........(ii)\nNow cos2x = sin2x $\\Rightarrow$ 2cos2x − 1 = 2sinx cosx\n$\\Rightarrow$ 2sin^2x − 2sin^2x = 1using(i)\n$\\Rightarrow$ 0 = 1\nWhich is not possible.\nHence we can say there is no solution for the system of equations"
+            },
+            {
+              "questionID": 18652,
+              "question": "The value of ${\\left( { - 1 + \\sqrt { - 3} } \\right)^2} + {\\left( { - 1 - \\sqrt { - 3} } \\right)^2}$is",
+              "question_raw": "<p>The value of <span class=\"math-tex\">{tex}{\\left( { - 1 + \\sqrt { - 3} } \\right)^2} + {\\left( { - 1 - \\sqrt { - 3} } \\right)^2}{/tex}</span>is</p>\r\n",
+              "options": [
+                {
+                  "label": "A",
+                  "id": 29808,
+                  "text": "-4",
+                  "is_correct": true
+                },
+                {
+                  "label": "B",
+                  "id": 29809,
+                  "text": "4",
+                  "is_correct": false
+                },
+                {
+                  "label": "C",
+                  "id": 29811,
+                  "text": "8",
+                  "is_correct": false
+                },
+                {
+                  "label": "D",
+                  "id": 29810,
+                  "text": "-2",
+                  "is_correct": false
+                }
+              ],
+              "correct_option_ids": [
+                29808
+              ],
+              "correct_option_labels": [
+                "A"
+              ],
+              "correct_option_texts": [
+                "-4"
+              ],
+              "explanation": "We have $\\sqrt { -3 } =\\sqrt { -1.3 } =\\sqrt { -1 } \\sqrt { 3 } = \\sqrt { 3 }i$\n$\\therefore-1+\\sqrt{-3}=-1+i \\sqrt{3}=2 \\omega \\quad \\text { and } \\quad-1-\\sqrt{-3}=-1-i \\sqrt{3}=2 \\omega^{2}$\n$\\left[\\because \\omega=\\frac{-1+i \\sqrt{3}}{2} \\quad \\text { and } \\quad \\omega^{2}=\\frac{-1-i \\sqrt{3}}{2}\\right]$\n$(-1+\\sqrt{-3})^{2}+(-1-\\sqrt{-3})^{2}$ $=(2 \\omega)^{2}+\\left(2 \\omega^{2}\\right)^{2}=4 \\omega^{2}+4 \\omega^{4}=4\\left(\\omega^{2}+\\omega^{3} \\cdot \\omega\\right)$\n=$4\\left(\\omega^{2}+\\omega\\right)=4 \\times-1=-4$ $\\left[\\because \\omega^{3}=1,1+\\omega+\\omega^{2}=0\\right]$"
+            },
+            {
+              "questionID": 18653,
+              "question": "If $\\alpha $ is a complex number such that ${\\alpha ^2} + \\alpha + 1 = 0$ then ${\\alpha ^{31}}$ is",
+              "question_raw": "<p>If <span class=\"math-tex\">{tex}\\alpha {/tex}</span> is a complex&nbsp;number such that <span class=\"math-tex\">{tex}{\\alpha ^2} + \\alpha + 1 = 0{/tex}</span> then <span class=\"math-tex\">{tex}{\\alpha ^{31}}{/tex}</span> is</p>",
+              "options": [
+                {
+                  "label": "A",
+                  "id": 29814,
+                  "text": "0",
+                  "is_correct": false
+                },
+                {
+                  "label": "B",
+                  "id": 29815,
+                  "text": "1",
+                  "is_correct": false
+                },
+                {
+                  "label": "C",
+                  "id": 29812,
+                  "text": "$\\alpha $",
+                  "is_correct": true
+                },
+                {
+                  "label": "D",
+                  "id": 29813,
+                  "text": "${\\alpha ^2}$",
+                  "is_correct": false
+                }
+              ],
+              "correct_option_ids": [
+                29812
+              ],
+              "correct_option_labels": [
+                "C"
+              ],
+              "correct_option_texts": [
+                "$\\alpha $"
+              ],
+              "explanation": "${\\alpha ^2} + \\alpha + 1 = 0$ $\\Rightarrow \\alpha =\\frac { -1\\pm \\sqrt { 1-4 } }{ 2 } =\\frac { -1\\pm i\\sqrt { 3 } }{ 2 } =\\omega ,{ \\omega }^{ 2 }$ \nWhen $\\alpha=\\omega \\Rightarrow \\alpha^{31}=\\omega^{31}$ = $\\left(\\omega^{3}\\right)^{10} \\cdot \\omega=1 \\cdot \\omega=\\omega=\\alpha$ \nAlso when $\\alpha=\\omega^{2} \\Rightarrow \\alpha^{31}=\\left(\\omega^{2}\\right)^{31}$ = $\\omega^{62}=\\left(\\omega^{3}\\right)^{20} \\cdot \\omega^{2}=1 . \\omega^{2}=\\omega^{2}=\\alpha$ \nHence ${\\alpha ^{31}}$ = $\\alpha $"
+            },
+            {
+              "questionID": 18654,
+              "question": "The value of $\\left(\\frac{1+\\omega}{\\omega^2}\\right)^3$ is",
+              "question_raw": "<p>The value of <span class=\"math-tex\">{tex}\\left(\\frac{1+\\omega}{\\omega^2}\\right)^3{/tex}</span> is</p>",
+              "options": [
+                {
+                  "label": "A",
+                  "id": 29819,
+                  "text": "2",
+                  "is_correct": false
+                },
+                {
+                  "label": "B",
+                  "id": 29817,
+                  "text": "1",
+                  "is_correct": false
+                },
+                {
+                  "label": "C",
+                  "id": 29818,
+                  "text": "0",
+                  "is_correct": false
+                },
+                {
+                  "label": "D",
+                  "id": 29816,
+                  "text": "-1",
+                  "is_correct": true
+                }
+              ],
+              "correct_option_ids": [
+                29816
+              ],
+              "correct_option_labels": [
+                "D"
+              ],
+              "correct_option_texts": [
+                "-1"
+              ],
+              "explanation": "$\\left(\\frac{1+\\omega}{\\omega^{2}}\\right)^{3}$ = $\\left(\\frac{-\\omega^{2}}{\\omega^{2}}\\right)^{3}$ = (-1)^3 = -1 [$\\because$ $1+\\omega+\\omega^{2}$ = 0]"
+            },
+            {
+              "questionID": 18655,
+              "question": "If n is any integer, then i^n is",
+              "question_raw": "<p>If n is any integer, then i<sup>n</sup> is</p>",
+              "options": [
+                {
+                  "label": "A",
+                  "id": 29823,
+                  "text": "-i",
+                  "is_correct": false
+                },
+                {
+                  "label": "B",
+                  "id": 29821,
+                  "text": "1, -1",
+                  "is_correct": false
+                },
+                {
+                  "label": "C",
+                  "id": 29820,
+                  "text": "1, -1, i, -i",
+                  "is_correct": true
+                },
+                {
+                  "label": "D",
+                  "id": 29822,
+                  "text": "i",
+                  "is_correct": false
+                }
+              ],
+              "correct_option_ids": [
+                29820
+              ],
+              "correct_option_labels": [
+                "C"
+              ],
+              "correct_option_texts": [
+                "1, -1, i, -i"
+              ],
+              "explanation": "i^0 = 1, i^1 = i, i^2 = -1, i^3 = i^2.i = -i\nNow we can see for n = 0, 4, 8....... the value of i^n = 1\nFor n = 1, 5, 9....... the value of i^n = i\nFor n = 2, 6, 10....... the value of i^n = -1 \nFor n = 3, 7, 11....... the value of i^n = -i\nSimilarly for all negative integers also n takes any one value among 1, -1, i, -i"
+            },
+            {
+              "questionID": 18656,
+              "question": "The points z = x + iy which satisfy the equation |z| = 1 lie on",
+              "question_raw": "<p>The points z = x + iy which satisfy the equation |z| = 1 lie on</p>",
+              "options": [
+                {
+                  "label": "A",
+                  "id": 29825,
+                  "text": "the line x = 1",
+                  "is_correct": false
+                },
+                {
+                  "label": "B",
+                  "id": 29826,
+                  "text": "the line y = 1",
+                  "is_correct": false
+                },
+                {
+                  "label": "C",
+                  "id": 29824,
+                  "text": "the circle whose centre is origin and radius = 1",
+                  "is_correct": true
+                },
+                {
+                  "label": "D",
+                  "id": 29827,
+                  "text": "the line x + y = 1",
+                  "is_correct": false
+                }
+              ],
+              "correct_option_ids": [
+                29824
+              ],
+              "correct_option_labels": [
+                "C"
+              ],
+              "correct_option_texts": [
+                "the circle whose centre is origin and radius = 1"
+              ],
+              "explanation": "z = x + iy\nNow |z| = 1 $\\Rightarrow$ |x + iy| = 1\n$\\Rightarrow$ $\\sqrt{x^{2}+y^{2}}$ = 1 $\\Rightarrow$ x^2 + y^2 = 1\nWhich is the equation of a circle whose centre is origin and radius = 1"
+            },
+            {
+              "questionID": 18657,
+              "question": "The equation z^2 = $ \\bar z$ has",
+              "question_raw": "<p>The equation z<sup>2</sup> =&nbsp;<span class=\"math-tex\">{tex} \\bar z{/tex}</span>&nbsp;has</p>",
+              "options": [
+                {
+                  "label": "A",
+                  "id": 29829,
+                  "text": "two solutions",
+                  "is_correct": true
+                },
+                {
+                  "label": "B",
+                  "id": 29830,
+                  "text": "a unique solution",
+                  "is_correct": false
+                },
+                {
+                  "label": "C",
+                  "id": 29828,
+                  "text": "four solutions",
+                  "is_correct": false
+                },
+                {
+                  "label": "D",
+                  "id": 29831,
+                  "text": "no solution",
+                  "is_correct": false
+                }
+              ],
+              "correct_option_ids": [
+                29829
+              ],
+              "correct_option_labels": [
+                "A"
+              ],
+              "correct_option_texts": [
+                "two solutions"
+              ],
+              "explanation": "Let z = x + iy\nz^2 = $\\bar z$ $\\Rightarrow$ (x + iy)^2 = x - iy \n$\\Rightarrow$ x^2 - y^2 + 2xyi = x - iy\n$\\Rightarrow$ x^2 - y^2 = x .....(i) and 2xy = -y .....(ii)\nFrom (ii) we get x = $\\frac { -1 }{ 2 } $ \nNow from (i) we have y^2 = $\\frac { 1 }{ 4 } +\\frac { 1 }{ 2 } =\\frac { 3 }{ 4 } \\Rightarrow \\pm \\frac { \\sqrt { 3 } }{ 2 } $ \nHence z = $\\frac { -1 }{ 2 } \\pm i\\frac { \\sqrt { 3 } }{ 2 } $"
+            },
+            {
+              "questionID": 18658,
+              "question": "The points of the complex plane given by the condition arg. (z) = (2n + 1) $\\pi $, n $\\in $ I lie on",
+              "question_raw": "<p>The points of the complex plane given by the condition arg. (z) = (2n + 1) <span class=\"math-tex\">{tex}\\pi {/tex}</span>, n <span class=\"math-tex\">{tex}\\in {/tex}</span> I lie on</p>",
+              "options": [
+                {
+                  "label": "A",
+                  "id": 29832,
+                  "text": "the negative real semi axis z = x, x < 0",
+                  "is_correct": true
+                },
+                {
+                  "label": "B",
+                  "id": 29833,
+                  "text": "the positive real semi axis z = x, x > 0",
+                  "is_correct": false
+                },
+                {
+                  "label": "C",
+                  "id": 29835,
+                  "text": "the imaginary semi axis z = iy, y > 0",
+                  "is_correct": false
+                },
+                {
+                  "label": "D",
+                  "id": 29834,
+                  "text": "the imaginary semi axis z = iy, y < 0",
+                  "is_correct": false
+                }
+              ],
+              "correct_option_ids": [
+                29832
+              ],
+              "correct_option_labels": [
+                "A"
+              ],
+              "correct_option_texts": [
+                "the negative real semi axis z = x, x < 0"
+              ],
+              "explanation": "Let z = x + iy then value of $\\theta$ which satisfies the equation $tan\\theta =\\frac { y }{ x } $ is called an argument or amplitude.\nThen Arg (z)= $\\tan ^{ -1 }{ \\left( \\frac { y }{ x } \\right) } $ \nNow arg. (z) = (2n + 1) $\\pi $ $\\Rightarrow\\tan ^{ -1 }{ \\left( \\frac { y }{ x } \\right) } = ( 2n + 1 ) \\pi$ \n$\\Rightarrow$ tan (2n + 1)$\\pi $ = $\\frac{y}{x}$ \n$\\Rightarrow$ $\\frac{\\sin (2 n+1) \\pi}{\\cos (2 n+1) \\pi}$ = $\\frac{y}{x}$ \n$\\Rightarrow$ $\\frac{0}{(-1)^{2 n+1}}$ = $\\frac{y}{x}$ \n$\\Rightarrow$ $\\frac{0}{-1}$ = $\\frac{y}{x}$ \n$\\Rightarrow$ -y = 0\nHence the points lie on the negative real semi-axis z = x, x < 0"
+            },
+            {
+              "questionID": 18659,
+              "question": "If z = x + yi ; x ,y $\\in $ R, then locus of the equation $\\bar bz + b\\overline {z} = c$, where c $\\in $ R and b $\\in $ C, b $ \\ne $ 0 are fixed, is",
+              "question_raw": "<p>If z = x + yi ; x ,y <span class=\"math-tex\">{tex}\\in {/tex}</span> R, then locus of the equation&nbsp;<span class=\"math-tex\">{tex}\\bar bz + b\\overline {z} = c{/tex}</span>, where c <span class=\"math-tex\">{tex}\\in {/tex}</span> R and b <span class=\"math-tex\">{tex}\\in {/tex}</span> C, b <span class=\"math-tex\">{tex} \\ne {/tex}</span> 0 are fixed, is</p>",
+              "options": [
+                {
+                  "label": "A",
+                  "id": 29836,
+                  "text": "a straight line",
+                  "is_correct": true
+                },
+                {
+                  "label": "B",
+                  "id": 29837,
+                  "text": "a circle",
+                  "is_correct": false
+                },
+                {
+                  "label": "C",
+                  "id": 29838,
+                  "text": "a parabola",
+                  "is_correct": false
+                },
+                {
+                  "label": "D",
+                  "id": 29839,
+                  "text": "a hyperbola",
+                  "is_correct": false
+                }
+              ],
+              "correct_option_ids": [
+                29836
+              ],
+              "correct_option_labels": [
+                "A"
+              ],
+              "correct_option_texts": [
+                "a straight line"
+              ],
+              "explanation": "Let z_1 = $\\bar{b} z$ then $\\overline{z_{1}}=b \\bar{z}$ \nNow $\\bar{b} z+b \\bar{z}$ = c $\\Rightarrow$ $z_{1}+\\overline{z_{1}}$ = c\n$\\Rightarrow$ 2Rez_1 = c $\\Rightarrow$ Rez_1 = $\\frac{c}{2}$ \nWhich is a straight line."
+            },
+            {
+              "questionID": 18660,
+              "question": "The complex number z which satisfies the condition $\\left|\\frac{i+z}{i-z}\\right|=1$, lies on",
+              "question_raw": "<p>The complex number z which satisfies the condition&nbsp;<span class=\"math-tex\">{tex}\\left|\\frac{i+z}{i-z}\\right|=1{/tex}</span>,&nbsp;lies on</p>",
+              "options": [
+                {
+                  "label": "A",
+                  "id": 29842,
+                  "text": "the line x + y =1",
+                  "is_correct": false
+                },
+                {
+                  "label": "B",
+                  "id": 29843,
+                  "text": "circle x^2 + y^2 = 1",
+                  "is_correct": false
+                },
+                {
+                  "label": "C",
+                  "id": 29840,
+                  "text": "the x - axis",
+                  "is_correct": true
+                },
+                {
+                  "label": "D",
+                  "id": 29841,
+                  "text": "the y - axis",
+                  "is_correct": false
+                }
+              ],
+              "correct_option_ids": [
+                29840
+              ],
+              "correct_option_labels": [
+                "C"
+              ],
+              "correct_option_texts": [
+                "the x - axis"
+              ],
+              "explanation": "$\\left|\\frac{i+z}{i-z}\\right|=1$\n$\\Rightarrow|i+z|=|i-z|$\n$\\Rightarrow|i+x+i y|=|i-(x+i y)|$\n$\\Rightarrow \\sqrt{(1+y)^2+x^2}=\\sqrt{-(x)^2+(1-y)^2}$\n$\\Rightarrow(1+y)^2+x^2=-(x)^2+(1-y)^2$\n$\\Rightarrow y^2+2 y+1+x^2=x^2+y^2-2 y+1$\n$\\Rightarrow$ 4y = 0\n$\\Rightarrow$ y = 0\nwhich is the X-axis."
+            },
+            {
+              "questionID": 18661,
+              "question": "(1 + i)^2n + (1 - i)^2n, n $ \\in$ N, is",
+              "question_raw": "<p>&nbsp;(1 + i)<sup>2n</sup> + (1 - i)<sup>2n</sup>, n&nbsp;<span class=\"math-tex\">{tex} \\in{/tex}</span>&nbsp;N, is</p>",
+              "options": [
+                {
+                  "label": "A",
+                  "id": 29845,
+                  "text": "a purely imaginary number",
+                  "is_correct": false
+                },
+                {
+                  "label": "B",
+                  "id": 29847,
+                  "text": "a real complex number",
+                  "is_correct": false
+                },
+                {
+                  "label": "C",
+                  "id": 29844,
+                  "text": "a purely real number",
+                  "is_correct": true
+                },
+                {
+                  "label": "D",
+                  "id": 29846,
+                  "text": "a non-real complex number",
+                  "is_correct": false
+                }
+              ],
+              "correct_option_ids": [
+                29844
+              ],
+              "correct_option_labels": [
+                "C"
+              ],
+              "correct_option_texts": [
+                "a purely real number"
+              ],
+              "explanation": "(1 + i)^2n + (1 - i)^2n = [(1 + i)^2]^n + [(1 - i)^2]^n = [1 + 2i - 1]^n + [1 - 2i - 1]^n = (2i)^n + (-2i)^n = 2^n[(i)n + (-i)n]\nWhen n is an odd natural number say n = 2k + 1, (-i)^n = -(i)^2k+1 so that (i)^n + (-i)^n = (i)^2k+1 - (i)^2k+1 = 0\nWhen n is an even natural number say n = 2k, (-i)^n = (-i)^2k = (i)^2k so that, (i)^n + (-i)^n = (i)^2k + (i)^2k = 2(i^2)^k = 2(-1)^k, k $\\in$ N\nHence (1 + i)^2n + (1 - i)^2n is always a purely real number."
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "testPaperID": 625,
+      "testPaperName": "Quadratic Equations Test 04",
+      "is_paid": true,
+      "category_full_name": "CBSE > Class 11 > Mathematics > Complex Numbers and Quadratic Equations",
+      "noOfQuestions": 15,
+      "has_answers": true,
+      "sections": [
+        {
+          "sectionName": "General",
+          "sectionID": null,
+          "questions": [
+            {
+              "questionID": 18662,
+              "question": "$A m p \\cdot\\left(\\sin \\frac{6 \\pi}{5}+i\\left(1+\\cos \\frac{6 \\pi}{5}\\right)\\right)$ is equal to",
+              "question_raw": "<p><span class=\"math-tex\">{tex}A m p \\cdot\\left(\\sin \\frac{6 \\pi}{5}+i\\left(1+\\cos \\frac{6 \\pi}{5}\\right)\\right){/tex}</span>&nbsp;is equal to</p>",
+              "options": [
+                {
+                  "label": "A",
+                  "id": 29848,
+                  "text": "$\\frac {6\\pi } {10}$",
+                  "is_correct": true
+                },
+                {
+                  "label": "B",
+                  "id": 29850,
+                  "text": "$\\frac {6\\pi } {5}$",
+                  "is_correct": false
+                },
+                {
+                  "label": "C",
+                  "id": 29851,
+                  "text": "$\\frac {7\\pi } {10}$",
+                  "is_correct": false
+                },
+                {
+                  "label": "D",
+                  "id": 29849,
+                  "text": "$\\frac {5\\pi }{ 6}$",
+                  "is_correct": false
+                }
+              ],
+              "correct_option_ids": [
+                29848
+              ],
+              "correct_option_labels": [
+                "A"
+              ],
+              "correct_option_texts": [
+                "$\\frac {6\\pi } {10}$"
+              ],
+              "explanation": "We have for a complex number x + iy the argument or amplitude is a value of $\\theta $ satisfying $tan\\theta =\\frac { y }{ x } $\nz = x + it = $\\sin \\frac{6 \\pi}{5}+i\\left(1+\\cos \\frac{6 \\pi}{5}\\right)$\n$\\therefore \\tan \\theta=\\frac{y}{x}$ $\\Rightarrow \\tan \\theta=\\frac{1+\\cos \\frac{6 \\mathrm{\\pi}}{5}}{\\sin \\frac{6 \\mathrm{\\pi}}{5}}=\\frac{2 \\cos ^2 \\frac{6 \\mathrm{\\pi}}{10}}{2 \\sin \\frac{6 \\mathrm{\\pi}}{10} \\cos \\frac{6 \\mathrm{\\pi}}{10}}=\\tan \\frac{6 \\mathrm{\\pi}}{10}$ $\\left[\\because 1+\\cos \\theta=2 \\cos ^2 \\frac{\\theta}{2}, \\sin \\theta=2 \\sin \\frac{\\theta}{2} \\cos \\frac{\\theta}{2}\\right]$\n$\\Rightarrow \\theta=\\frac{6 \\pi}{10}$"
+            },
+            {
+              "questionID": 18663,
+              "question": "If z = $\\frac{\\sqrt{3}+i}{2}$, then z^69 is equal to",
+              "question_raw": "<p>If z =&nbsp;<span class=\"math-tex\">{tex}\\frac{\\sqrt{3}+i}{2}{/tex}</span>, then z<sup>69</sup> is equal to</p>",
+              "options": [
+                {
+                  "label": "A",
+                  "id": 29854,
+                  "text": "1",
+                  "is_correct": false
+                },
+                {
+                  "label": "B",
+                  "id": 29855,
+                  "text": "-1",
+                  "is_correct": false
+                },
+                {
+                  "label": "C",
+                  "id": 29853,
+                  "text": "i",
+                  "is_correct": false
+                },
+                {
+                  "label": "D",
+                  "id": 29852,
+                  "text": "-i",
+                  "is_correct": true
+                }
+              ],
+              "correct_option_ids": [
+                29852
+              ],
+              "correct_option_labels": [
+                "D"
+              ],
+              "correct_option_texts": [
+                "-i"
+              ],
+              "explanation": "Given z = $\\frac{\\sqrt{3}+i}{2}$ \niz = $i\\left[\\frac{\\sqrt{3}+i}{2}\\right]$ = $\\frac{-1+i \\sqrt{3}}{2}=\\omega$ \n$\\Rightarrow$ z = $\\frac{\\omega}{i}$ \nThen z^69 = $\\left[\\frac{\\omega}{i}\\right]^{69}$ = $\\frac{\\left(\\omega^{3}\\right)^{23}}{\\left(i^{2}\\right)^{34} \\cdot i}$ = $\\frac{1}{(-1)^{34} . i}=\\frac{1}{i}$ = -i [$\\because$ $\\omega^3$ = 1, i^2 = -1]"
+            },
+            {
+              "questionID": 18664,
+              "question": "If $\\omega $ is a cube root of unity, then the linear factors of x^3 + y^3 in complex numbers are",
+              "question_raw": "<p>If <span class=\"math-tex\">{tex}\\omega {/tex}</span> is a cube root of unity, then the linear factors of x<sup>3</sup> + y<sup>3</sup> in complex numbers are</p>",
+              "options": [
+                {
+                  "label": "A",
+                  "id": 29857,
+                  "text": "(x + y)(x + y$\\omega$)(x - y$\\omega^2$)",
+                  "is_correct": false
+                },
+                {
+                  "label": "B",
+                  "id": 29859,
+                  "text": "(x - y) (x + y$\\omega$) (x + y$\\omega^2$)",
+                  "is_correct": false
+                },
+                {
+                  "label": "C",
+                  "id": 29856,
+                  "text": "(x + y)(x + y$\\omega$)(x + y$\\omega^2$)",
+                  "is_correct": true
+                },
+                {
+                  "label": "D",
+                  "id": 29858,
+                  "text": "(x + y)(x - y$\\omega$)(x - y$\\omega^2$)",
+                  "is_correct": false
+                }
+              ],
+              "correct_option_ids": [
+                29856
+              ],
+              "correct_option_labels": [
+                "C"
+              ],
+              "correct_option_texts": [
+                "(x + y)(x + y$\\omega$)(x + y$\\omega^2$)"
+              ],
+              "explanation": "We have x^3 + y^3 = (x + y)(x^2 - xy + y^2)\nNow consider x^2 - yx + y^2 = 0 which is a quadratic equation in x with a = 1, b = -y and c = y^2\nHence the roots are \nx = $\\frac{-(-y) \\pm \\sqrt{(-y)^{2}-4 \\cdot 1 \\cdot y^{2}}}{2 \\cdot 1}$ = $\\frac{y \\pm \\sqrt{-3 y^{2}}}{2}$ = $\\frac{y \\pm i y \\sqrt{3}}{2}$ = $\\frac{y(1 \\pm i \\sqrt{3})}{2}$ \n$\\Rightarrow$ x = y$\\omega$ or y$\\omega^2$ \nHence, x^3 + y^3 = (x + y)(x^2 - xy + y^2) = (x + y)(x + y$\\omega$)(x + y$\\omega^2$)"
+            },
+            {
+              "questionID": 18665,
+              "question": "$\\left( {z + 1} \\right)\\left( {\\overline z + 1} \\right)$ can be expressed as",
+              "question_raw": "<p><span class=\"math-tex\">{tex}\\left( {z + 1} \\right)\\left( {\\overline z + 1} \\right){/tex}</span> can be expressed as</p>",
+              "options": [
+                {
+                  "label": "A",
+                  "id": 29860,
+                  "text": "|z + 1|^2",
+                  "is_correct": true
+                },
+                {
+                  "label": "B",
+                  "id": 29861,
+                  "text": "|z|^2 + 1",
+                  "is_correct": false
+                },
+                {
+                  "label": "C",
+                  "id": 29862,
+                  "text": "|z|^2 + 2",
+                  "is_correct": false
+                },
+                {
+                  "label": "D",
+                  "id": 29863,
+                  "text": "|z + 2|^2",
+                  "is_correct": false
+                }
+              ],
+              "correct_option_ids": [
+                29860
+              ],
+              "correct_option_labels": [
+                "A"
+              ],
+              "correct_option_texts": [
+                "|z + 1|^2"
+              ],
+              "explanation": "We have $z\\bar { z } ={ \\left| z \\right| ^{ 2 } }$ \nNow $\\left( { z+1 } \\right) \\left( { \\overline { z } +1 } \\right) =\\left( { z+1 } \\right) \\left( \\overline { z+1 } \\right) $ = |z + 1|^2"
+            },
+            {
+              "questionID": 18666,
+              "question": "If $\\alpha {\\rm{ }},{\\rm{ }}\\beta $ are non-real cube roots of unity then $\\alpha \\beta $ + ${\\alpha ^5} + {\\beta ^5}$ equals",
+              "question_raw": "<p>If <span class=\"math-tex\">{tex}\\alpha {\\rm{ }},{\\rm{ }}\\beta {/tex}</span> are non-real cube roots of unity then <span class=\"math-tex\">{tex}\\alpha \\beta {/tex}</span> + <span class=\"math-tex\">{tex}{\\alpha ^5} + {\\beta ^5}{/tex}</span> equals</p>",
+              "options": [
+                {
+                  "label": "A",
+                  "id": 29867,
+                  "text": "-1",
+                  "is_correct": false
+                },
+                {
+                  "label": "B",
+                  "id": 29864,
+                  "text": "0",
+                  "is_correct": true
+                },
+                {
+                  "label": "C",
+                  "id": 29865,
+                  "text": "3",
+                  "is_correct": false
+                },
+                {
+                  "label": "D",
+                  "id": 29866,
+                  "text": "1",
+                  "is_correct": false
+                }
+              ],
+              "correct_option_ids": [
+                29864
+              ],
+              "correct_option_labels": [
+                "B"
+              ],
+              "correct_option_texts": [
+                "0"
+              ],
+              "explanation": "If $\\alpha {\\rm{ }},{\\rm{ }}\\beta $ are non-real cube roots of unity then we have either $\\alpha=\\omega, \\beta=\\omega^{2}$ or $\\alpha=\\omega^{2}, \\beta=\\omega$ \n$\\alpha=\\omega, \\beta=\\omega^{2}$ $\\Rightarrow$ $\\alpha^{5}+\\beta^{5}+\\alpha \\cdot \\beta$ = $\\omega^{5}+\\left(\\omega^{2}\\right)^{5}+\\omega \\cdot \\omega^{2}$ = $\\omega^{3} \\cdot \\omega^{2}+\\left(\\omega^{3}\\right)^{3} \\cdot \\omega^{1}+\\omega^{3}$ = $1 . \\omega^{2}+1 . \\omega+1$ = 0\n$\\alpha=\\omega^{2}, \\beta=\\omega$ $\\Rightarrow$ $\\alpha^{5}+\\beta^{5}+\\alpha . \\beta$ = $\\left(\\omega^{2}\\right)^{5}+\\omega^{5}+\\omega . \\omega^{2}$ = $\\left(\\omega^{3}\\right)^{3} \\cdot \\omega^{1}+\\omega^{3} \\cdot \\omega^{2}+\\omega^{3}$ = $1 . \\omega+1 . \\omega^{2}+1$ = 0 [$\\because$ $\\omega^{3}=1,1+\\omega+\\omega^{2}=0$ ]"
+            },
+            {
+              "questionID": 18667,
+              "question": "The complex numbers z = x + iy; x , y $\\in $ R which satisfy the equation $\\left|\\frac{z-3 i}{z+3}\\right|=1$ lies on",
+              "question_raw": "<p>The complex numbers z = x + iy; x , y <span class=\"math-tex\">{tex}\\in {/tex}</span> R which satisfy the equation <span class=\"math-tex\">{tex}\\left|\\frac{z-3 i}{z+3}\\right|=1{/tex}</span> lies on</p>",
+              "options": [
+                {
+                  "label": "A",
+                  "id": 29871,
+                  "text": "the line parallel to y axis",
+                  "is_correct": false
+                },
+                {
+                  "label": "B",
+                  "id": 29870,
+                  "text": "the y axis",
+                  "is_correct": false
+                },
+                {
+                  "label": "C",
+                  "id": 29868,
+                  "text": "the line x + y = 0",
+                  "is_correct": true
+                },
+                {
+                  "label": "D",
+                  "id": 29869,
+                  "text": "the x axis",
+                  "is_correct": false
+                }
+              ],
+              "correct_option_ids": [
+                29868
+              ],
+              "correct_option_labels": [
+                "C"
+              ],
+              "correct_option_texts": [
+                "the line x + y = 0"
+              ],
+              "explanation": "Let z=x+iy\nNow $\\left|\\frac{z-3 i}{z+3}\\right|=1$\n$\\Rightarrow|z-3 i|=|z+3|$\n$\\Rightarrow|(x+i y)-3 i|=|x+i y+3|$\n$\\Rightarrow|x+i(y-3)|=|(x+3)+i y|$\n$\\Rightarrow \\sqrt{(y-3)^{2}+x^{2}}=\\sqrt{(x+3)^{2}+(y)^{2}}$\n$\\Rightarrow(y-3)^{2}+x^{2}=(x+3)^{2}+(y)^{2}$\n$\\Rightarrow y^{2}-6 y+9+x^{2}=x^{2}+6 x+9+y^{2}$\n$\\Rightarrow 6 x+6 y=0$\n$\\Rightarrow x+y=0$"
+            },
+            {
+              "questionID": 18668,
+              "question": "If z_1 = 2+3i and z_2 = 5+2i, then find z_1-z_2.",
+              "question_raw": "<p>If z<sub>1</sub>&nbsp;= 2+3i and z<sub>2</sub>&nbsp;= 5+2i, then find z<sub>1</sub>-z<sub>2</sub>.</p>",
+              "options": [
+                {
+                  "label": "A",
+                  "id": 29873,
+                  "text": "3-i",
+                  "is_correct": false
+                },
+                {
+                  "label": "B",
+                  "id": 29874,
+                  "text": "7+5i",
+                  "is_correct": false
+                },
+                {
+                  "label": "C",
+                  "id": 29875,
+                  "text": "7-5i",
+                  "is_correct": false
+                },
+                {
+                  "label": "D",
+                  "id": 29872,
+                  "text": "-3+1i",
+                  "is_correct": true
+                }
+              ],
+              "correct_option_ids": [
+                29872
+              ],
+              "correct_option_labels": [
+                "D"
+              ],
+              "correct_option_texts": [
+                "-3+1i"
+              ],
+              "explanation": "In subtracting one complex number from other, difference of corresponding parts of two complex numbers is calculated. So,\nz_1-z_2 will be:\n= (2-5) + (3-2) i\n= -3+1i."
+            },
+            {
+              "questionID": 18669,
+              "question": "If z = $\\bar z$, then",
+              "question_raw": "<p>If z = <span class=\"math-tex\">{tex}\\bar z{/tex}</span>, then</p>",
+              "options": [
+                {
+                  "label": "A",
+                  "id": 29877,
+                  "text": "z is purely imaginary",
+                  "is_correct": false
+                },
+                {
+                  "label": "B",
+                  "id": 29876,
+                  "text": "z is purely real",
+                  "is_correct": true
+                },
+                {
+                  "label": "C",
+                  "id": 29878,
+                  "text": "z is a complex number",
+                  "is_correct": false
+                },
+                {
+                  "label": "D",
+                  "id": 29879,
+                  "text": "z is a whole number",
+                  "is_correct": false
+                }
+              ],
+              "correct_option_ids": [
+                29876
+              ],
+              "correct_option_labels": [
+                "B"
+              ],
+              "correct_option_texts": [
+                "z is purely real"
+              ],
+              "explanation": "Let z = x + iy\nNow z = $\\bar{z} \\Rightarrow$ x + iy = x - iy $\\Rightarrow$ 2iy = 0 $\\Rightarrow$ y = 0\nWhich means z is purely real."
+            },
+            {
+              "questionID": 18670,
+              "question": "The complex number $\\frac{(1+i)^n}{(1-i)^{n-2}}$ is equal to",
+              "question_raw": "<p>The complex number <span class=\"math-tex\">{tex}\\frac{(1+i)^n}{(1-i)^{n-2}}{/tex}</span> is equal to</p>",
+              "options": [
+                {
+                  "label": "A",
+                  "id": 29883,
+                  "text": "$2{i^{n - 2}}$",
+                  "is_correct": false
+                },
+                {
+                  "label": "B",
+                  "id": 29880,
+                  "text": "$2{i^{n - 1}}$",
+                  "is_correct": true
+                },
+                {
+                  "label": "C",
+                  "id": 29881,
+                  "text": "$4{i^{n - 2}}$",
+                  "is_correct": false
+                },
+                {
+                  "label": "D",
+                  "id": 29882,
+                  "text": "$2{i^{n - 4}}$",
+                  "is_correct": false
+                }
+              ],
+              "correct_option_ids": [
+                29880
+              ],
+              "correct_option_labels": [
+                "B"
+              ],
+              "correct_option_texts": [
+                "$2{i^{n - 1}}$"
+              ],
+              "explanation": "$\\frac { { \\left( { 1+i } \\right) }^{ n } }{ { \\left( { 1-i } \\right) }^{ n-2 } } =\\frac { { \\left( { 1+i } \\right) }^{ n } }{ { \\left( { 1-i } \\right) }^{ n }.{ \\left( { 1-i } \\right) }^{ -2 } } =\\frac { { \\left( { 1+i } \\right) }^{ n }.{ \\left( { 1-i } \\right) }^{ 2 } }{ { \\left( { 1-i } \\right) }^{ n } } $ $={ \\left( \\frac { 1+i }{ 1-i } \\right) }^{ n }.{ \\left( { 1-i } \\right) }^{ 2 }$\nNow $\\frac { 1+i }{ 1-i } =\\frac { 1+i }{ 1-i } .\\frac { 1+i }{ 1+i } =\\frac { { \\left( { 1+i } \\right) }^{ 2 } }{ 1+1 } =\\frac { 1-1+2i }{ 1+1 } =\\frac { 2i }{ 2 } =i$\n$\\therefore \\frac { { \\left( { 1+i } \\right) }^{ n } }{ { \\left( { 1-i } \\right) }^{ n-2 } } $ $={ i }^{ n }.{ \\left( { 1-i } \\right) }^{ 2 }={ i }^{ n }.\\left( 1-1-2i \\right) =-2i.{ i }^{ n }=-2{ i }^{ n+1 }$ $=-2.{ i }^{ 2 }.{ { i }^{ n-1 } }=-2.-1.{ { i }^{ n-1 } }=2.{ { i }^{ n-1 } }$"
+            },
+            {
+              "questionID": 18671,
+              "question": "The least value of n for which ${ \\left( \\frac { 1+i }{ 1-i } \\right) }^{ n }$ is a positive integer is",
+              "question_raw": "<p>The least value of n for which <span class=\"math-tex\">{tex}{ \\left( \\frac { 1+i }{ 1-i } \\right) }^{ n }{/tex}</span> is a positive integer is</p>",
+              "options": [
+                {
+                  "label": "A",
+                  "id": 29884,
+                  "text": "8",
+                  "is_correct": false
+                },
+                {
+                  "label": "B",
+                  "id": 29887,
+                  "text": "1",
+                  "is_correct": false
+                },
+                {
+                  "label": "C",
+                  "id": 29886,
+                  "text": "2",
+                  "is_correct": false
+                },
+                {
+                  "label": "D",
+                  "id": 29885,
+                  "text": "4",
+                  "is_correct": true
+                }
+              ],
+              "correct_option_ids": [
+                29885
+              ],
+              "correct_option_labels": [
+                "D"
+              ],
+              "correct_option_texts": [
+                "4"
+              ],
+              "explanation": "$\\frac{1+i}{1-i}$ = $\\frac{1+i}{1-i} \\cdot \\frac{1+i}{1+i}$ = $\\frac{(1+i)^{2}}{1+1}=\\frac{1-1+2 i}{1+1}=\\frac{2 i}{2}$ = i\n$\\therefore$ $\\left(\\frac{1+i}{1-i}\\right)^{n}$ = i^n \nWe have i^4 = 1 which is positive.\nHence the least value of n is 4."
+            },
+            {
+              "questionID": 18672,
+              "question": "If (x + iy)(p + iq) = (x^2 + y^2)i, then",
+              "question_raw": "<p>If&nbsp;(x + iy)(p + iq) = (x<sup>2</sup> + y<sup>2</sup>)i, then</p>",
+              "options": [
+                {
+                  "label": "A",
+                  "id": 29889,
+                  "text": "p = x, q = y",
+                  "is_correct": false
+                },
+                {
+                  "label": "B",
+                  "id": 29890,
+                  "text": "p = ix, q = 0",
+                  "is_correct": false
+                },
+                {
+                  "label": "C",
+                  "id": 29888,
+                  "text": "p = y, q = x",
+                  "is_correct": true
+                },
+                {
+                  "label": "D",
+                  "id": 29891,
+                  "text": "p = 0, q = ix",
+                  "is_correct": false
+                }
+              ],
+              "correct_option_ids": [
+                29888
+              ],
+              "correct_option_labels": [
+                "C"
+              ],
+              "correct_option_texts": [
+                "p = y, q = x"
+              ],
+              "explanation": "(x + iy)(p + iq) = (x^2 + y^2)i \n$\\Rightarrow$ (xp - yq) + i(xq + yp) = (x^2 + y^2)i \n$\\Rightarrow$ xp - yp = 0 and xq = + yp = x^2 + y^2 \n$\\Rightarrow$ p = $\\frac{y q}{x}$ ....(i) and xq + yp = x^2 + y^2 ...(ii)\nSubstituting (i) in (ii), we get \nxq + $y\\left(\\frac{y q}{x}\\right)$ = x^2 + y^2 $\\Rightarrow$ x^2q + y^2q = x(x^2 + y^2)\n$\\Rightarrow$ q(x^2 + y^2) = x(x^2 + y^2) $\\Rightarrow$ q = x\nNow from (i), we get p = y"
+            },
+            {
+              "questionID": 18673,
+              "question": "If z = x + yi and w = $\\frac{1-i z}{z-i}$, then |w| = 1 implies that, in the complex plane",
+              "question_raw": "<p>If z = x + yi and w = <span class=\"math-tex\">{tex}\\frac{1-i z}{z-i}{/tex}</span>,&nbsp;then |w| = 1 implies that, in the complex plane</p>",
+              "options": [
+                {
+                  "label": "A",
+                  "id": 29894,
+                  "text": "z lies on the imaginary axis",
+                  "is_correct": false
+                },
+                {
+                  "label": "B",
+                  "id": 29893,
+                  "text": "z lies on the unit circle",
+                  "is_correct": false
+                },
+                {
+                  "label": "C",
+                  "id": 29895,
+                  "text": "z lies on the unit square",
+                  "is_correct": false
+                },
+                {
+                  "label": "D",
+                  "id": 29892,
+                  "text": "z lies on the real axis",
+                  "is_correct": true
+                }
+              ],
+              "correct_option_ids": [
+                29892
+              ],
+              "correct_option_labels": [
+                "D"
+              ],
+              "correct_option_texts": [
+                "z lies on the real axis"
+              ],
+              "explanation": "$\\left| { { w } } \\right| =1\\Rightarrow \\left| \\frac { 1-iz }{ z-i } \\right| =1$\n$\\Rightarrow \\left| { { 1-iz } } \\right| =\\left| { { z-i } } \\right|$\n$\\Rightarrow \\left| { { 1-i\\left( x+iy \\right) } } \\right| =\\left| { \\left( x+iy \\right) -i } \\right|$\n$\\Rightarrow \\left| { { \\left( 1+y \\right) -ix } } \\right| =\\left| { { x+i\\left( y-1 \\right) } } \\right|$\n$\\Rightarrow \\sqrt { { \\left( 1+y \\right) }^{ 2 }+{ \\left( x \\right) }^{ 2 } } =\\sqrt { { \\left( y-1 \\right) }^{ 2 }+{ \\left( x \\right) }^{ 2 } }$\n$\\Rightarrow { \\left( 1+y \\right) }^{ 2 }+{ \\left( x \\right) }^{ 2 }={ \\left( y-1 \\right) }^{ 2 }+{ \\left( x \\right) }^{ 2 }$\n$ \\Rightarrow 1+{ y }^{ 2 }+2y+{ x }^{ 2 }=1+{ y }^{ 2 }-2y+{ x }^{ 2 }$\n$\\Rightarrow y=0$\nWhich is the real axis."
+            },
+            {
+              "questionID": 18674,
+              "question": "If p^2 + p + 1 = 0, then, the value of p^3n is equal to",
+              "question_raw": "<p>If p<sup>2</sup>&nbsp;+&nbsp;p + 1 = 0, then, the value of&nbsp;p<sup>3n</sup> is&nbsp;equal to</p>",
+              "options": [
+                {
+                  "label": "A",
+                  "id": 29897,
+                  "text": "1",
+                  "is_correct": false
+                },
+                {
+                  "label": "B",
+                  "id": 29899,
+                  "text": "-1",
+                  "is_correct": false
+                },
+                {
+                  "label": "C",
+                  "id": 29898,
+                  "text": "0",
+                  "is_correct": false
+                },
+                {
+                  "label": "D",
+                  "id": 29896,
+                  "text": "1 or -1",
+                  "is_correct": true
+                }
+              ],
+              "correct_option_ids": [
+                29896
+              ],
+              "correct_option_labels": [
+                "D"
+              ],
+              "correct_option_texts": [
+                "1 or -1"
+              ],
+              "explanation": "p^2 + p + 1 = 0 $\\Rightarrow$ p = $\\frac{-(1) \\pm \\sqrt{1^{2}-4 \\cdot 1 \\cdot 1}}{2}$ = $\\frac{-1 \\pm \\sqrt{-3}}{2}=\\frac{-1 \\pm \\sqrt{3} i}{2}=\\omega, \\omega^{2}$ \nNow p = $\\omega$ $\\Rightarrow$ p^3n = $(\\omega^3)^n$ = 1^n = 1 or -1, depending n is even or odd\nAlso p = $\\omega^2$ $\\Rightarrow$ p^3n = $(\\omega^2)^{3n}$ = $(\\omega^3)^{2n}$ = 1^2n = 1\nHence p = 1, -1"
+            },
+            {
+              "questionID": 18675,
+              "question": "The solution of the equation |z| = z + 1 + 2i is",
+              "question_raw": "<p>The solution of the equation&nbsp;|z| = z + 1 + 2i is</p>",
+              "options": [
+                {
+                  "label": "A",
+                  "id": 29900,
+                  "text": "$\\frac{3}{2}$ - 2i",
+                  "is_correct": true
+                },
+                {
+                  "label": "B",
+                  "id": 29901,
+                  "text": "$\\frac{3}{2}$ + 2i",
+                  "is_correct": false
+                },
+                {
+                  "label": "C",
+                  "id": 29903,
+                  "text": "3 + 2i",
+                  "is_correct": false
+                },
+                {
+                  "label": "D",
+                  "id": 29902,
+                  "text": "3 – 2i",
+                  "is_correct": false
+                }
+              ],
+              "correct_option_ids": [
+                29900
+              ],
+              "correct_option_labels": [
+                "A"
+              ],
+              "correct_option_texts": [
+                "$\\frac{3}{2}$ - 2i"
+              ],
+              "explanation": "Let z = x + iy\nNow \n|z| = z + 1 + 2i\n$\\Rightarrow$ $\\sqrt{x^{2}+y^{2}}$ $\\Rightarrow$ x + 1 + i(y + 2)\n$\\Rightarrow$ $\\sqrt{x^{2}+y^{2}}$ = x + 1 and y + 2 = 0\n$\\Rightarrow$ y = -2 and x^2 + 4 = (x + 1)^2 \n$\\Rightarrow$ y = -2 and x = $\\frac{3}{2}$ \nHence z = $\\frac{3}{2}$ - 2i"
+            },
+            {
+              "questionID": 18676,
+              "question": "a + ib $ \\leq $ c + id is meaningful only when",
+              "question_raw": "<p>a + ib&nbsp;<span class=\"math-tex\">{tex} \\leq {/tex}</span>&nbsp;c + id is meaningful only when</p>",
+              "options": [
+                {
+                  "label": "A",
+                  "id": 29904,
+                  "text": "b^2 + d^2 = 0",
+                  "is_correct": true
+                },
+                {
+                  "label": "B",
+                  "id": 29905,
+                  "text": "b^2 + c^2 = 0",
+                  "is_correct": false
+                },
+                {
+                  "label": "C",
+                  "id": 29906,
+                  "text": "a^2 + d^2 = 0",
+                  "is_correct": false
+                },
+                {
+                  "label": "D",
+                  "id": 29907,
+                  "text": "a^2 + b^2 = 0",
+                  "is_correct": false
+                }
+              ],
+              "correct_option_ids": [
+                29904
+              ],
+              "correct_option_labels": [
+                "A"
+              ],
+              "correct_option_texts": [
+                "b^2 + d^2 = 0"
+              ],
+              "explanation": "We have in the complex numbers system it is meaningless to say one is smaller or bigger than the other since the order relation does not exist in complex numbers.\nSo a + ib $ \\leq$ c + id will be meaningful only when these numbers are real which means their imaginary parts are zero.\n$\\Rightarrow$ b = 0 and d = 0 $\\Rightarrow$ b^2 + d^2 = 0"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "testPaperID": 626,
+      "testPaperName": "Quadratic Equations Test 05",
+      "is_paid": true,
+      "category_full_name": "CBSE > Class 11 > Mathematics > Complex Numbers and Quadratic Equations",
+      "noOfQuestions": 14,
+      "has_answers": true,
+      "sections": [
+        {
+          "sectionName": "General",
+          "sectionID": null,
+          "questions": [
+            {
+              "questionID": 18678,
+              "question": "Square roots of i are",
+              "question_raw": "<p>Square roots of i are</p>",
+              "options": [
+                {
+                  "label": "A",
+                  "id": 29913,
+                  "text": "$\\pm \\frac{1}{\\sqrt{2}}(1-i)$",
+                  "is_correct": false
+                },
+                {
+                  "label": "B",
+                  "id": 29915,
+                  "text": "-1",
+                  "is_correct": false
+                },
+                {
+                  "label": "C",
+                  "id": 29912,
+                  "text": "$\\pm \\frac{1}{\\sqrt{2}}(1+i)$",
+                  "is_correct": true
+                },
+                {
+                  "label": "D",
+                  "id": 29914,
+                  "text": "$ \\pm 1$",
+                  "is_correct": false
+                }
+              ],
+              "correct_option_ids": [
+                29912
+              ],
+              "correct_option_labels": [
+                "C"
+              ],
+              "correct_option_texts": [
+                "$\\pm \\frac{1}{\\sqrt{2}}(1+i)$"
+              ],
+              "explanation": "Let $\\sqrt { i }$ = x + iy\nSquaring both sides, we get\ni = (x + iy)^2 = x^2 - y^2 + 2xyi \nSubtracting (i) from (iii), we get\n2y^2 = 1 $\\Rightarrow$ y^2 = $\\frac{1}{2}$ $\\Rightarrow$ y = $\\pm \\frac{1}{\\sqrt{2}}$ \nComparing real and imaginary parts, we get x^2 - y^2 = 0 ....(i) and 2xy = 1\nWe have (x^2 - y^2)^2 = (x^2 + y^2)^2 - 4x^2y^2 \n$\\Rightarrow$ 0 = (x^2 + y^2)^2 - (2xy)^2 = (x^2 + y^2)^2 - 1\n$\\Rightarrow$ (x^2 + y^2)^2 = 1\n$\\Rightarrow$ x^2 + y^2 = 1 .....(iii)\nAdding (i) and (iii) we get \n2x^2 = 1 $\\Rightarrow$ x^2 = $\\frac{1}{2}$ $\\Rightarrow$ x = $\\pm \\frac{1}{\\sqrt{2}}$ \nHence $\\sqrt { i }$ = x + iy = $\\pm \\frac{1}{\\sqrt{2}}(1+i)$"
+            },
+            {
+              "questionID": 18679,
+              "question": "The value of $\\frac{1}{1+\\omega}+\\frac{1}{1+\\omega^2}$ =",
+              "question_raw": "<p>The value of <span class=\"math-tex\">{tex}\\frac{1}{1+\\omega}+\\frac{1}{1+\\omega^2}{/tex}</span>&nbsp;=</p>",
+              "options": [
+                {
+                  "label": "A",
+                  "id": 29918,
+                  "text": "-1",
+                  "is_correct": false
+                },
+                {
+                  "label": "B",
+                  "id": 29919,
+                  "text": "2",
+                  "is_correct": false
+                },
+                {
+                  "label": "C",
+                  "id": 29917,
+                  "text": "0",
+                  "is_correct": false
+                },
+                {
+                  "label": "D",
+                  "id": 29916,
+                  "text": "1",
+                  "is_correct": true
+                }
+              ],
+              "correct_option_ids": [
+                29916
+              ],
+              "correct_option_labels": [
+                "D"
+              ],
+              "correct_option_texts": [
+                "1"
+              ],
+              "explanation": "$1,\\omega ,{ \\omega }^{ 2 }$ are the three cube roots of unity and we have $1+\\omega +{ \\omega }^{ 2 }=0 , { \\omega }^{ 3 }=1$\n${1 \\over {1 + \\omega }} + {1 \\over {1 + {\\omega ^2}}} = $$ {1 \\over { - {\\omega ^2}}}+{1 \\over {-\\omega }} = $ $-1\\left(\\frac{1}{\\omega^{2}}+\\frac{1}{\\omega}\\right)=-1\\left(\\frac{\\omega+\\omega^{2}}{\\omega^{2} \\cdot \\omega}\\right)$ = $-1\\left(\\frac{-1}{\\omega^{3}}\\right)=\\frac{1}{\\omega^{3}}=1$ [$\\because$ $\\omega+\\omega^{2}=-1, \\omega^{3}=1$]"
+            },
+            {
+              "questionID": 18680,
+              "question": "The values of x and y $\\in $ R for which the numbers -3 + x^2yi, x^2 + y + 4i are conjugates of each other are",
+              "question_raw": "<p>The values of x and y <span class=\"math-tex\">{tex}\\in {/tex}</span> R for which the numbers&nbsp;-3 + x<sup>2</sup>yi, x<sup>2</sup> + y +&nbsp;4i&nbsp;are conjugates of each other are</p>",
+              "options": [
+                {
+                  "label": "A",
+                  "id": 29922,
+                  "text": "-1, -4",
+                  "is_correct": false
+                },
+                {
+                  "label": "B",
+                  "id": 29923,
+                  "text": "-1, 4",
+                  "is_correct": false
+                },
+                {
+                  "label": "C",
+                  "id": 29921,
+                  "text": "1, -4",
+                  "is_correct": false
+                },
+                {
+                  "label": "D",
+                  "id": 29920,
+                  "text": "$ \\pm 1, - 4$",
+                  "is_correct": true
+                }
+              ],
+              "correct_option_ids": [
+                29920
+              ],
+              "correct_option_labels": [
+                "D"
+              ],
+              "correct_option_texts": [
+                "$ \\pm 1, - 4$"
+              ],
+              "explanation": "Let z_1 = -3 + x^2yi and z_2 = x^2 + y + 4i $\\Rightarrow$ $\\bar z_{1}$ = -3 - x^2yi, $\\bar z_{2}$ = x^2 + y - 4i\nGiven the numbers are conjugates of each other $\\overline{z_{1}}=z_{2}$ and $\\overline{z_{2}}=z_{1}$ \n$\\Rightarrow$ -3 - x^2yi = x^2 + y + 4i and x^2 + y - 4i = -3 + x^2yi\n$\\Rightarrow$ x^2 + y = -3 and x^2y = -4\n$\\Rightarrow$ $\\frac{-4}{y}$ + y = -3\n$\\Rightarrow$ y^2 + 3y - 4 = 0 $\\Rightarrow$ (y + 4)(y - 1) = 0\n$\\Rightarrow$ y = 1, -4\nWhen y = 1 we get x^2 = 4 $\\Rightarrow$ x = $\\pm \\sqrt{-4}=\\pm 2 i$, which is not possible since given x is a real number.\nWhen y = $-4$ we get $x^{ 2 }=1\\Rightarrow x=\\pm \\sqrt { 1 } =\\pm 1 $ \nHence the possible values of x and y are $\\pm 1,-4$"
+            },
+            {
+              "questionID": 18681,
+              "question": "If $x = {\\omega ^2} - \\omega - 3,\\omega $ being a non real cube root of unity, then the value of x^4 + 6x^3 + 10x^2 - 12x - 19 is",
+              "question_raw": "<p>If <span class=\"math-tex\">{tex}x = {\\omega ^2} - \\omega - 3,\\omega {/tex}</span> being a non real cube root of unity, then the value of x<sup>4</sup> + 6x<sup>3</sup> + 10x<sup>2</sup> - 12x - 19&nbsp;is</p>",
+              "options": [
+                {
+                  "label": "A",
+                  "id": 29925,
+                  "text": "12",
+                  "is_correct": false
+                },
+                {
+                  "label": "B",
+                  "id": 29926,
+                  "text": "19",
+                  "is_correct": false
+                },
+                {
+                  "label": "C",
+                  "id": 29924,
+                  "text": "5",
+                  "is_correct": true
+                },
+                {
+                  "label": "D",
+                  "id": 29927,
+                  "text": "17",
+                  "is_correct": false
+                }
+              ],
+              "correct_option_ids": [
+                29924
+              ],
+              "correct_option_labels": [
+                "C"
+              ],
+              "correct_option_texts": [
+                "5"
+              ],
+              "explanation": "x = $\\omega^{2}-\\omega-3$ \n$\\Rightarrow$ x + 3 $=\\omega^{2}-\\omega$ \n$\\Rightarrow$ x^2 + 6x + 9 = $\\omega^{4}-2 \\omega^{3}+\\omega^{2}$ = $\\omega-2+\\omega^{2}$ = -3\n$\\Rightarrow$ x^2 + 6x + 12 = 0\nNow x^4 + 6x^3 + 10x^2 - 12x - 19 = (x^2 - 2)(x^2 + 6x + 12) + 5 = (x^2 - 2) $\\times$ 0 + 5 = 5"
+            },
+            {
+              "questionID": 18682,
+              "question": "Square roots of - 48 – 14i are",
+              "question_raw": "<p>Square roots of - 48 &ndash; 14i are</p>",
+              "options": [
+                {
+                  "label": "A",
+                  "id": 29930,
+                  "text": "(1 - 7i)",
+                  "is_correct": false
+                },
+                {
+                  "label": "B",
+                  "id": 29931,
+                  "text": "(1 + 7i)",
+                  "is_correct": false
+                },
+                {
+                  "label": "C",
+                  "id": 29928,
+                  "text": "$ \\pm (1 - 7i$)",
+                  "is_correct": true
+                },
+                {
+                  "label": "D",
+                  "id": 29929,
+                  "text": "$ \\pm (1 + 7i$)",
+                  "is_correct": false
+                }
+              ],
+              "correct_option_ids": [
+                29928
+              ],
+              "correct_option_labels": [
+                "C"
+              ],
+              "correct_option_texts": [
+                "$ \\pm (1 - 7i$)"
+              ],
+              "explanation": "We have $\\sqrt{z}=\\sqrt{x+i y}$ = $\\pm[\\sqrt{\\frac{|z|+x}{2}}-i \\sqrt{\\frac{|z|-x}{2}}]$, for y < 0\nNow consider z = -48 - 14i\nHere Re z = -48, Im z < 0 and |z| = $\\sqrt{(-48)^{2}+(-14)^{2}}$ = $\\sqrt{2304+196}$ = $\\sqrt{2500}$ = 50 \n$\\therefore$ $\\sqrt{-48-14 i}$ = $\\pm[\\sqrt{\\frac{50+(-48)}{2}}-i \\sqrt{\\frac{50-(-48)}{2}}]$ \n= $\\pm[\\sqrt{\\frac{50-48}{2}}-i \\sqrt{\\frac{50+48}{2}}]$ = $\\pm[1-i \\sqrt{49}]$ = $\\pm$ [1 - 7i]"
+            },
+            {
+              "questionID": 18683,
+              "question": "The region of Argand’s plane represented by the inequality |1 - z| $\\leq $ |1 + z| is",
+              "question_raw": "<p>The region of Argand&rsquo;s plane represented by the inequality |1 - z|&nbsp;<span class=\"math-tex\">{tex}\\leq {/tex}</span>&nbsp;|1 + z| is</p>",
+              "options": [
+                {
+                  "label": "A",
+                  "id": 29932,
+                  "text": "Re (z) $≥$ 0",
+                  "is_correct": true
+                },
+                {
+                  "label": "B",
+                  "id": 29934,
+                  "text": "Im (z) > 0",
+                  "is_correct": false
+                },
+                {
+                  "label": "C",
+                  "id": 29933,
+                  "text": "Re (z) $≤ $0",
+                  "is_correct": false
+                },
+                {
+                  "label": "D",
+                  "id": 29935,
+                  "text": "Im (z) < 0",
+                  "is_correct": false
+                }
+              ],
+              "correct_option_ids": [
+                29932
+              ],
+              "correct_option_labels": [
+                "A"
+              ],
+              "correct_option_texts": [
+                "Re (z) $≥$ 0"
+              ],
+              "explanation": "Let Z = x + iy\nGiven |1 - z| $ \\leq$ |1 + z| \n$\\Rightarrow$ |1 - (x + iy)| $ \\leq$ |1 + x + iy|\n$\\Rightarrow$ |(1 - x) - iy| $ \\leq$ |(1 + x) + iy|\n$\\Rightarrow$ $\\sqrt{(1-x)^{2}+y^{2}}$ $ \\leq$ $\\sqrt{(1+x)^{2}+(y)^{2}}$ \nSquaring on both sides we get \n(1 - x)^2 + y^2 $ \\leq$ (1 + x)^2 + (y)^2 \n$\\Rightarrow$ 1 + x^2 - 2x + y^2 $ \\leq$ 1 + x^2 + 2x + y^2\n$\\Rightarrow$ -2x $ \\leq$ 2x \n$\\Rightarrow$ 4x $ \\geq$ 0\n$\\Rightarrow$ x $ \\geq$ 0\nHence we get x = Re (z) $≥$ 0"
+            },
+            {
+              "questionID": 18684,
+              "question": "If z is purely real and Re ( z) > 0, then Amp. (z) is",
+              "question_raw": "<p>If z is purely real and Re ( z) &gt; 0, then Amp. (z) is</p>",
+              "options": [
+                {
+                  "label": "A",
+                  "id": 29937,
+                  "text": "$\\pi $",
+                  "is_correct": false
+                },
+                {
+                  "label": "B",
+                  "id": 29938,
+                  "text": "- $\\pi $",
+                  "is_correct": false
+                },
+                {
+                  "label": "C",
+                  "id": 29936,
+                  "text": "0",
+                  "is_correct": true
+                },
+                {
+                  "label": "D",
+                  "id": 29939,
+                  "text": "1",
+                  "is_correct": false
+                }
+              ],
+              "correct_option_ids": [
+                29936
+              ],
+              "correct_option_labels": [
+                "C"
+              ],
+              "correct_option_texts": [
+                "0"
+              ],
+              "explanation": "To find the amplitude of a complex number Z = x + iy first find a value of $\\theta $ which satisfy the equation $\\theta =\\tan ^{ -1 }{ \\left| \\frac { y }{ x } \\right| } ,0\\le \\theta \\le \\frac { \\Pi }{ 2 } $ \nNow depending on the complex number lies in the first, second, third or fourth quadrants the amplitudes will be $\\theta ,\\left( \\Pi -\\theta \\right) ,-\\left( \\Pi -\\theta \\right) ,-\\left( \\theta \\right) $ respectively.\nGiven z is purely real and Re (z) > 0\n$\\therefore$ Z = x + 0i, x > 0\nNow $\\tan ^{ -1 }{ \\left| \\frac { y }{ x } \\right| } =\\tan ^{ -1 }{ \\left| \\frac { 0 }{ 1 } \\right| } $ = tan^-1 0 = 0\nAlso Z = x + 0i, x > 0 lies in the first quadrant \nHence Amp(Z) = 0"
+            },
+            {
+              "questionID": 18685,
+              "question": "If z is purely real and Re(z) < 0, then Arg.(z) is",
+              "question_raw": "<p>If z is purely real and Re(z) &lt; 0, then Arg.(z) is</p>",
+              "options": [
+                {
+                  "label": "A",
+                  "id": 29940,
+                  "text": "$\\pi $",
+                  "is_correct": true
+                },
+                {
+                  "label": "B",
+                  "id": 29941,
+                  "text": "0",
+                  "is_correct": false
+                },
+                {
+                  "label": "C",
+                  "id": 29943,
+                  "text": "1",
+                  "is_correct": false
+                },
+                {
+                  "label": "D",
+                  "id": 29942,
+                  "text": "-$\\pi $",
+                  "is_correct": false
+                }
+              ],
+              "correct_option_ids": [
+                29940
+              ],
+              "correct_option_labels": [
+                "A"
+              ],
+              "correct_option_texts": [
+                "$\\pi $"
+              ],
+              "explanation": "To find the amplitude of a complex number Z = x + iy first find a value of $\\theta $ which satisfy the equation $\\theta =\\tan ^{ -1 }{ \\left| \\frac { y }{ x } \\right| } ,0\\le \\theta \\le \\frac { \\Pi }{ 2 } $ \nNow depending on the complex number lies in the first, second, third or fourth quadrants the amplitudes will be $\\theta ,\\left( \\Pi -\\theta \\right) ,-\\left( \\Pi -\\theta \\right) ,-\\left( \\theta \\right) $ respectively.\nGiven z is purely real and Re (z) $<$ 0\n$\\therefore$ Z = -x + 0i, x > 0\nNow $\\tan ^{ -1 }{ \\left| \\frac { y }{ x } \\right| } =\\tan ^{ -1 }{ \\left| \\frac { 0 }{ -1 } \\right| }$ = tan^-1 0 = 0\nAlso Z = -x + 0i, x > 0 lies in the second quadrant.\nHence Amp(Z) = $\\Pi -\\theta =\\Pi -0=\\Pi $"
+            },
+            {
+              "questionID": 18686,
+              "question": "Find argument of the complex number (0 + 0i)",
+              "question_raw": "<p>Find argument of the complex number&nbsp;&nbsp;(0 + 0i)</p>",
+              "options": [
+                {
+                  "label": "A",
+                  "id": 29945,
+                  "text": "0",
+                  "is_correct": false
+                },
+                {
+                  "label": "B",
+                  "id": 29946,
+                  "text": "$\\pi $",
+                  "is_correct": false
+                },
+                {
+                  "label": "C",
+                  "id": 29944,
+                  "text": "none of these",
+                  "is_correct": true
+                },
+                {
+                  "label": "D",
+                  "id": 29947,
+                  "text": "-$\\pi $",
+                  "is_correct": false
+                }
+              ],
+              "correct_option_ids": [
+                29944
+              ],
+              "correct_option_labels": [
+                "C"
+              ],
+              "correct_option_texts": [
+                "none of these"
+              ],
+              "explanation": "Let Z = 0 + 0i = $r\\left( cos\\theta +isin\\theta \\right) $ \nThen comparing the real and imaginary parts, we get \nr cos $\\theta$ = 0 and r sin $\\theta$ = 0\n$\\therefore$ r^2 (cos^2 $\\theta$ + sin^2 $\\theta$) = 0\n$\\Rightarrow$ r^2 = 0 $\\Rightarrow$ r = 0\n$\\Rightarrow$ cos $\\theta$ = 0 and sin $\\theta$ = 0 \nWhich is not possible for any value of $\\theta$."
+            },
+            {
+              "questionID": 18687,
+              "question": "Find the Amplitude of i",
+              "question_raw": "<p>&nbsp;Find the Amplitude of&nbsp;i</p>",
+              "options": [
+                {
+                  "label": "A",
+                  "id": 29948,
+                  "text": "$\\frac \\pi 2$",
+                  "is_correct": true
+                },
+                {
+                  "label": "B",
+                  "id": 29950,
+                  "text": "0",
+                  "is_correct": false
+                },
+                {
+                  "label": "C",
+                  "id": 29949,
+                  "text": "-$\\frac \\pi 2$",
+                  "is_correct": false
+                },
+                {
+                  "label": "D",
+                  "id": 29951,
+                  "text": "$\\frac \\pi 4$",
+                  "is_correct": false
+                }
+              ],
+              "correct_option_ids": [
+                29948
+              ],
+              "correct_option_labels": [
+                "A"
+              ],
+              "correct_option_texts": [
+                "$\\frac \\pi 2$"
+              ],
+              "explanation": "Let Z = i = $r\\left( cos\\theta +isin\\theta \\right) $ \nThen comparing the real and imaginary parts, we get\nr cos $\\theta$ = 0 and r sin $\\theta$ = 1\n$\\therefore$ r^2(cos^2 $\\theta$ + sin^2 $\\theta$) = 1\n$\\Rightarrow$ r^2 = 1 $\\Rightarrow$ r = 1\n$\\therefore$ cos $\\theta$ = 0 and sin $\\theta$ = 1 $\\left[ cos\\left( \\frac { \\Pi }{ 2 } \\right) = 0, sin\\left( \\frac { \\Pi }{ 2 } \\right) =1 \\right] $ [Format of amplitude is $\\left( \\Pi -\\theta \\right) $in the second quadrant]\nSince $\\theta$ lies in the second quadrant, we have the principal value of the argument (Amplitude) = $\\left( \\Pi -\\theta \\right) =\\left( \\Pi -\\frac { \\Pi }{ 2 } \\right) =\\frac { \\Pi }{ 2 }$"
+            },
+            {
+              "questionID": 18688,
+              "question": "1/z is _________________ for complex number z.",
+              "question_raw": "<p>1/z is _________________ for complex number z.</p>",
+              "options": [
+                {
+                  "label": "A",
+                  "id": 29954,
+                  "text": "additive identity element",
+                  "is_correct": false
+                },
+                {
+                  "label": "B",
+                  "id": 29952,
+                  "text": "multiplicative inverse",
+                  "is_correct": true
+                },
+                {
+                  "label": "C",
+                  "id": 29953,
+                  "text": "additive inverse",
+                  "is_correct": false
+                },
+                {
+                  "label": "D",
+                  "id": 29955,
+                  "text": "multiplicative identity element",
+                  "is_correct": false
+                }
+              ],
+              "correct_option_ids": [
+                29952
+              ],
+              "correct_option_labels": [
+                "B"
+              ],
+              "correct_option_texts": [
+                "multiplicative inverse"
+              ],
+              "explanation": "multiplicative inverse\nOn multiplying reciprocal of complex number (1/z) to complex number z, we get multiplying inverse one i.e. z*1=z."
+            },
+            {
+              "questionID": 18689,
+              "question": "Find the Amplitude of -1 - i",
+              "question_raw": "<p>&nbsp;Find the Amplitude of&nbsp;-1 - i</p>",
+              "options": [
+                {
+                  "label": "A",
+                  "id": 29958,
+                  "text": "$\\frac{\\pi}{4}$",
+                  "is_correct": false
+                },
+                {
+                  "label": "B",
+                  "id": 29956,
+                  "text": "$\\frac{-3\\pi}{4}$",
+                  "is_correct": true
+                },
+                {
+                  "label": "C",
+                  "id": 29959,
+                  "text": "$\\frac{\\pi}{2}$",
+                  "is_correct": false
+                },
+                {
+                  "label": "D",
+                  "id": 29957,
+                  "text": "$\\frac{3\\pi}{4}$",
+                  "is_correct": false
+                }
+              ],
+              "correct_option_ids": [
+                29956
+              ],
+              "correct_option_labels": [
+                "B"
+              ],
+              "correct_option_texts": [
+                "$\\frac{-3\\pi}{4}$"
+              ],
+              "explanation": "Let Z = -1 - i = $r\\left( cos\\theta +isin\\theta \\right) $ \nThen comparing the real and imaginary parts, we get\nr cos $\\theta$ = -1 and r sin $\\theta$ = -1\n$\\therefore$ r^2(cos^2 $\\theta$ + sin^2 $\\theta$) = 2\n$\\Rightarrow$ r^2 = 2 $\\Rightarrow$ r = $\\sqrt{2}$ \n$\\therefore$ $\\sqrt{2} \\cos \\theta$ = -1 and $\\sqrt{2} \\sin \\theta$ = -1\n$\\Rightarrow$ $\\cos \\theta=\\frac{-1}{\\sqrt{2}}$ and $\\sin \\theta=\\frac{-1}{\\sqrt{2}}$ [$\\operatorname{cos}\\left(\\frac{\\pi}{4}\\right)=\\sin \\left(\\frac{\\pi}{4}\\right)=\\frac{1}{\\sqrt{2}}$]\nSince both sin $\\theta$ and cos $\\theta$ are negative and we have sin $\\theta$ and cos $\\theta$ are negative in the third quardrant, the principal value of the argument (Amplitude) = $-\\left( \\pi -\\frac { \\pi }{ 4 } \\right) =-\\frac { 3\\pi }{ 4 } $"
+            },
+            {
+              "questionID": 18690,
+              "question": "If z is any complex number, then $\\frac{z-\\bar{z}}{2 i}$ is",
+              "question_raw": "<p>If z is any complex number, then <span class=\"math-tex\">{tex}\\frac{z-\\bar{z}}{2 i}{/tex}</span> is</p>",
+              "options": [
+                {
+                  "label": "A",
+                  "id": 29962,
+                  "text": "either 0 or purely imaginary",
+                  "is_correct": false
+                },
+                {
+                  "label": "B",
+                  "id": 29963,
+                  "text": "either 0 or purely real",
+                  "is_correct": false
+                },
+                {
+                  "label": "C",
+                  "id": 29961,
+                  "text": "purely imaginary",
+                  "is_correct": false
+                },
+                {
+                  "label": "D",
+                  "id": 29960,
+                  "text": "purely real",
+                  "is_correct": true
+                }
+              ],
+              "correct_option_ids": [
+                29960
+              ],
+              "correct_option_labels": [
+                "D"
+              ],
+              "correct_option_texts": [
+                "purely real"
+              ],
+              "explanation": "Let z = x + iy\nThen $\\bar {z }$ = x - iy\n$\\therefore$ z - $\\bar { z}$ = (x + iy) - (x - iy) = 2iy\nNow $\\frac{z-\\bar{z}}{2 i}$ = y\nHence $\\frac{z-\\bar{z}}{2 i}$ is purely real."
+            },
+            {
+              "questionID": 18691,
+              "question": "Which of the following is correct ?",
+              "question_raw": "<p>Which of the following is correct ?</p>",
+              "options": [
+                {
+                  "label": "A",
+                  "id": 29964,
+                  "text": "none of these",
+                  "is_correct": true
+                },
+                {
+                  "label": "B",
+                  "id": 29965,
+                  "text": "${\\text{2 }} + {\\text{ 3i }} < {\\text{ 3 }} + {\\text{ 4i}}$",
+                  "is_correct": false
+                },
+                {
+                  "label": "C",
+                  "id": 29966,
+                  "text": "${\\text{3 }} - {\\text{4i }} < {\\text{ 2 }}-{\\text{ 3i}}$",
+                  "is_correct": false
+                },
+                {
+                  "label": "D",
+                  "id": 29967,
+                  "text": "${\\text{1 }} + {\\text{i }} < {\\text{ 1}} - {\\text{ i}}$",
+                  "is_correct": false
+                }
+              ],
+              "correct_option_ids": [
+                29964
+              ],
+              "correct_option_labels": [
+                "A"
+              ],
+              "correct_option_texts": [
+                "none of these"
+              ],
+              "explanation": "There is no linear ordering in the set of complex numbers.Hence it is not possible to say one complex number is smaller or bigger than the other"
+            }
+          ]
+        }
+      ]
+    }
+  ]
+}

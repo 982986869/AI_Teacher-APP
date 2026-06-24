@@ -1,0 +1,3162 @@
+{
+  "id": 1361,
+  "name": "States of Matter - Gases and Liquids (FA ONLY)",
+  "full_name": "CBSE > Class 11 > Chemistry > States of Matter - Gases and Liquids (FA ONLY)",
+  "tests": [
+    {
+      "testPaperID": 951,
+      "testPaperName": "States of Matter CBSE Online Test 01",
+      "is_paid": false,
+      "category_full_name": "CBSE > Class 11 > Chemistry > States of Matter - Gases and Liquids (FA ONLY)",
+      "noOfQuestions": 15,
+      "has_answers": true,
+      "sections": [
+        {
+          "sectionName": "General",
+          "sectionID": null,
+          "questions": [
+            {
+              "questionID": 22010,
+              "question": "Which are three important states of matter?",
+              "question_raw": "<p>Which are three important states of matter?</p>",
+              "options": [
+                {
+                  "label": "A",
+                  "id": 43238,
+                  "text": "Solid, Liquid, and Gas",
+                  "is_correct": true
+                },
+                {
+                  "label": "B",
+                  "id": 43239,
+                  "text": "Atoms, Molecules, and Ions",
+                  "is_correct": false
+                },
+                {
+                  "label": "C",
+                  "id": 43241,
+                  "text": "Solid, Glasses, and Gases",
+                  "is_correct": false
+                },
+                {
+                  "label": "D",
+                  "id": 43240,
+                  "text": "Solid, Liquid, and Plasma",
+                  "is_correct": false
+                }
+              ],
+              "correct_option_ids": [
+                43238
+              ],
+              "correct_option_labels": [
+                "A"
+              ],
+              "correct_option_texts": [
+                "Solid, Liquid, and Gas"
+              ],
+              "explanation": "Three phases of matter are:\n Solid - firm and stable in shape; not liquid or fluid, strongest intermolecular forces.\n Liquid - A liquid is a nearly incompressible fluid that conforms to the shape of its container but retains a (nearly) constant volume independent of pressure. Intermediate molecular forces. \n Gas -Takes the volume of the container, weakest intermolecular forces."
+            },
+            {
+              "questionID": 22011,
+              "question": "Physical behavior of the states differs greatly even though chemical behavior of the three states is identical because chemical properties depends upon?",
+              "question_raw": "<p>Physical behavior of the states differs greatly even though chemical behavior of the three states is identical because chemical properties depends upon?</p>",
+              "options": [
+                {
+                  "label": "A",
+                  "id": 43244,
+                  "text": "intermolecular non bonding forces whereas physical properties depend on intermolecular bonding forces.",
+                  "is_correct": false
+                },
+                {
+                  "label": "B",
+                  "id": 43243,
+                  "text": "non bonding forces whereas physical properties depend on intermolecular bonding forces.",
+                  "is_correct": false
+                },
+                {
+                  "label": "C",
+                  "id": 43242,
+                  "text": "intramolecular bonding forces whereas physical properties depend on intermolecular Non-bonding forces.",
+                  "is_correct": true
+                },
+                {
+                  "label": "D",
+                  "id": 43245,
+                  "text": "covalent bonding forces whereas physical properties depend on energy supplied.",
+                  "is_correct": false
+                }
+              ],
+              "correct_option_ids": [
+                43242
+              ],
+              "correct_option_labels": [
+                "C"
+              ],
+              "correct_option_texts": [
+                "intramolecular bonding forces whereas physical properties depend on intermolecular Non-bonding forces."
+              ],
+              "explanation": "The question is based on the understanding of how the forces operate in a molecule. It is known that chemical properties depend on intramolecular bonding forces (holding the atoms in a molecule together), whereas physical properties depend on intermolecular non-bonding force (such as different kinds of polar interactions holding the molecules together)."
+            },
+            {
+              "questionID": 22012,
+              "question": "The Dipole-dipole forces act between molecules that have:",
+              "question_raw": "<p>The Dipole-dipole forces act between molecules that have:</p>",
+              "options": [
+                {
+                  "label": "A",
+                  "id": 43247,
+                  "text": "a permanent magnetic dipole moment.",
+                  "is_correct": false
+                },
+                {
+                  "label": "B",
+                  "id": 43248,
+                  "text": "an induced electrical dipole moment.",
+                  "is_correct": false
+                },
+                {
+                  "label": "C",
+                  "id": 43246,
+                  "text": "a permanent electrical dipole moment.",
+                  "is_correct": true
+                },
+                {
+                  "label": "D",
+                  "id": 43249,
+                  "text": "an electron cloud that causes temporary dipoles.",
+                  "is_correct": false
+                }
+              ],
+              "correct_option_ids": [
+                43246
+              ],
+              "correct_option_labels": [
+                "C"
+              ],
+              "correct_option_texts": [
+                "a permanent electrical dipole moment."
+              ],
+              "explanation": "The dipole-dipole forces act between molecules that have a permanent electrical dipole moment, the partial charge of one molecule get attracted to the opposite charge of another molecule."
+            },
+            {
+              "questionID": 22013,
+              "question": "Which of the following statements about Hydrogen bond incorrect?",
+              "question_raw": "<p>Which of the following statements about Hydrogen bond incorrect?</p>",
+              "options": [
+                {
+                  "label": "A",
+                  "id": 43253,
+                  "text": "In hydrogen bonding, the H atom becomes partially positive and is attracted to the more negative N atom.",
+                  "is_correct": false
+                },
+                {
+                  "label": "B",
+                  "id": 43250,
+                  "text": "In hydrogen bonding, the H atom becomes partially negative and is attracted to the more positive N atom.",
+                  "is_correct": true
+                },
+                {
+                  "label": "C",
+                  "id": 43252,
+                  "text": "In hydrogen bonding, the H atom becomes partially positive and is attracted to the more negative O atom.",
+                  "is_correct": false
+                },
+                {
+                  "label": "D",
+                  "id": 43251,
+                  "text": "In hydrogen bonding, the H atom becomes partially positive and is attracted to the more negative F atom.",
+                  "is_correct": false
+                }
+              ],
+              "correct_option_ids": [
+                43250
+              ],
+              "correct_option_labels": [
+                "B"
+              ],
+              "correct_option_texts": [
+                "In hydrogen bonding, the H atom becomes partially negative and is attracted to the more positive N atom."
+              ],
+              "explanation": "Hydrogen atom covalently bonded to highly electronegative atom such as N, O experience the electrostatic field of another highly electronegative atom due to which a partial positive charge is developed on H atom."
+            },
+            {
+              "questionID": 22014,
+              "question": "The intermolecular force primarily responsible for the condensed states of nonpolar substances is the:",
+              "question_raw": "<p>The intermolecular force primarily responsible for the condensed states of nonpolar substances is the:</p>",
+              "options": [
+                {
+                  "label": "A",
+                  "id": 43257,
+                  "text": "dipole-dipole attraction.",
+                  "is_correct": false
+                },
+                {
+                  "label": "B",
+                  "id": 43256,
+                  "text": "hydrogen bond.",
+                  "is_correct": false
+                },
+                {
+                  "label": "C",
+                  "id": 43254,
+                  "text": "dispersion force (or London force)",
+                  "is_correct": true
+                },
+                {
+                  "label": "D",
+                  "id": 43255,
+                  "text": "ion-dipole forces.",
+                  "is_correct": false
+                }
+              ],
+              "correct_option_ids": [
+                43254
+              ],
+              "correct_option_labels": [
+                "C"
+              ],
+              "correct_option_texts": [
+                "dispersion force (or London force)"
+              ],
+              "explanation": "The intermolecular force primarily responsible for the condensed states of nonpolar substances is the dispersion force (or London force)."
+            },
+            {
+              "questionID": 22015,
+              "question": "The average kinetic energy and thermal energy are proportional to:",
+              "question_raw": "<p>The average kinetic energy and thermal energy are proportional to:</p>",
+              "options": [
+                {
+                  "label": "A",
+                  "id": 43261,
+                  "text": "Pressure",
+                  "is_correct": false
+                },
+                {
+                  "label": "B",
+                  "id": 43259,
+                  "text": "Specific heat",
+                  "is_correct": false
+                },
+                {
+                  "label": "C",
+                  "id": 43258,
+                  "text": "Absolute temperature",
+                  "is_correct": true
+                },
+                {
+                  "label": "D",
+                  "id": 43260,
+                  "text": "Volume",
+                  "is_correct": false
+                }
+              ],
+              "correct_option_ids": [
+                43258
+              ],
+              "correct_option_labels": [
+                "C"
+              ],
+              "correct_option_texts": [
+                "Absolute temperature"
+              ],
+              "explanation": "The average KE and Thermal energy are proportional to absolute temperature.\nThe kinetic energy is the amount of motion in the atoms and molecules of a substance. The molecules of the gas gain energy as the temperature increases as there is more motion of the molecules. As the temperature decreases the motion lessens until at absolute zero all motion (kinetic energy) stops."
+            },
+            {
+              "questionID": 22016,
+              "question": "Three states of matter are the result of?",
+              "question_raw": "<p>Three states of matter are the result of?</p>",
+              "options": [
+                {
+                  "label": "A",
+                  "id": 43263,
+                  "text": "The balance between intermolecular forces and the intramolecular binding energy of the molecules.",
+                  "is_correct": false
+                },
+                {
+                  "label": "B",
+                  "id": 43264,
+                  "text": "The balance between Van Der Waals forces and the London forces.",
+                  "is_correct": false
+                },
+                {
+                  "label": "C",
+                  "id": 43262,
+                  "text": "The balance between intermolecular forces and the thermal energy of the molecules.",
+                  "is_correct": true
+                },
+                {
+                  "label": "D",
+                  "id": 43265,
+                  "text": "The balance between Hydrogen bonding forces and the London forces.",
+                  "is_correct": false
+                }
+              ],
+              "correct_option_ids": [
+                43262
+              ],
+              "correct_option_labels": [
+                "C"
+              ],
+              "correct_option_texts": [
+                "The balance between intermolecular forces and the thermal energy of the molecules."
+              ],
+              "explanation": "Three states of matter are the result of a balance between intermolecular forces and the thermal energy of the molecules. These two factors differentiate them from each other. For understanding, the strongest intermolecular forces are in solid than in liquid and weakest in gases."
+            },
+            {
+              "questionID": 22017,
+              "question": "Gases have a much lower density than the solids and liquids because:",
+              "question_raw": "<p>Gases have a much lower density than the solids and liquids because:</p>",
+              "options": [
+                {
+                  "label": "A",
+                  "id": 43269,
+                  "text": "Gases do not have intermolecular forces that attract each molecule to another.",
+                  "is_correct": false
+                },
+                {
+                  "label": "B",
+                  "id": 43268,
+                  "text": "Gases contain lower specific enthalpy than solids.",
+                  "is_correct": false
+                },
+                {
+                  "label": "C",
+                  "id": 43266,
+                  "text": "Thermal energy overcomes on the attractive intermolecular forces.",
+                  "is_correct": true
+                },
+                {
+                  "label": "D",
+                  "id": 43267,
+                  "text": "Distance between the molecules is small compared to solids.",
+                  "is_correct": false
+                }
+              ],
+              "correct_option_ids": [
+                43266
+              ],
+              "correct_option_labels": [
+                "C"
+              ],
+              "correct_option_texts": [
+                "Thermal energy overcomes on the attractive intermolecular forces."
+              ],
+              "explanation": "In gases, molecules are far apart from each other, thermal energy which is a measure of freeness of motion is thus very high resulting in a very large volume for the same mass (compared to solid and liquid). Hence there density is the lowest."
+            },
+            {
+              "questionID": 22018,
+              "question": "At constant temperature, the pressure of a fixed amount (i.e., number of moles n) of gas is:",
+              "question_raw": "<p>At constant temperature, the pressure of a fixed amount (i.e., number of moles n) of gas is:</p>",
+              "options": [
+                {
+                  "label": "A",
+                  "id": 43270,
+                  "text": "Varies inversely with its volume.",
+                  "is_correct": true
+                },
+                {
+                  "label": "B",
+                  "id": 43272,
+                  "text": "Varies as square of its volume.",
+                  "is_correct": false
+                },
+                {
+                  "label": "C",
+                  "id": 43273,
+                  "text": "Is constant irrespective of volume.",
+                  "is_correct": false
+                },
+                {
+                  "label": "D",
+                  "id": 43271,
+                  "text": "Varies directly with its volume.",
+                  "is_correct": false
+                }
+              ],
+              "correct_option_ids": [
+                43270
+              ],
+              "correct_option_labels": [
+                "A"
+              ],
+              "correct_option_texts": [
+                "Varies inversely with its volume."
+              ],
+              "explanation": "From ideal gas equation PV = nRT,\nkeeping n and T fixed,\nP $\\alpha$ $\\frac{1}{V}$. (Boyles Law)\nHere, T = Temperature\nP = Pressure\n$\\alpha$ = sign of Proportionality\nV = Volume\nn = number of moles of gas\nR = Universal gas constant"
+            },
+            {
+              "questionID": 22019,
+              "question": "Charles’ law states that pressure remaining constant, the volume of a fixed mass of a gas is?",
+              "question_raw": "<p>Charles&rsquo; law states that pressure remaining constant, the volume of a fixed mass of a gas is?</p>",
+              "options": [
+                {
+                  "label": "A",
+                  "id": 43277,
+                  "text": "Constant irrespective of its absolute temperature.",
+                  "is_correct": false
+                },
+                {
+                  "label": "B",
+                  "id": 43276,
+                  "text": "Directly proportional to square of absolute temperature.",
+                  "is_correct": false
+                },
+                {
+                  "label": "C",
+                  "id": 43274,
+                  "text": "Directly proportional to its absolute temperature.",
+                  "is_correct": true
+                },
+                {
+                  "label": "D",
+                  "id": 43275,
+                  "text": "Inversely proportional to its absolute temperature.",
+                  "is_correct": false
+                }
+              ],
+              "correct_option_ids": [
+                43274
+              ],
+              "correct_option_labels": [
+                "C"
+              ],
+              "correct_option_texts": [
+                "Directly proportional to its absolute temperature."
+              ],
+              "explanation": "According to Charles law, At constant pressure, the volume of a given mass of a gas increases or decreases by $\\frac{1}{273}$ of its volume at 0^oC for each one-degree rise or fall in temperature. Therefore at constant pressure, volume of given mass of gas is directly proportional to absolute temperature.\nMathematically; \n$V\\,=kT$ (at contant P)"
+            },
+            {
+              "questionID": 22020,
+              "question": "Gay Lussac’s law states that at constant volume, the pressure of a fixed amount of gas:",
+              "question_raw": "<p>Gay Lussac&rsquo;s law states that at constant volume, the pressure of a fixed amount of gas:</p>",
+              "options": [
+                {
+                  "label": "A",
+                  "id": 43280,
+                  "text": "Directly proportional to the square of absolute temperature.",
+                  "is_correct": false
+                },
+                {
+                  "label": "B",
+                  "id": 43281,
+                  "text": "Constant irrespective of its absolute temperature.",
+                  "is_correct": false
+                },
+                {
+                  "label": "C",
+                  "id": 43278,
+                  "text": "Varies directly with the temperature.",
+                  "is_correct": true
+                },
+                {
+                  "label": "D",
+                  "id": 43279,
+                  "text": "Varies inversely with the temperature.",
+                  "is_correct": false
+                }
+              ],
+              "correct_option_ids": [
+                43278
+              ],
+              "correct_option_labels": [
+                "C"
+              ],
+              "correct_option_texts": [
+                "Varies directly with the temperature."
+              ],
+              "explanation": "The question is based on the statement of Gay Lussac’s law- “At constant temperature, the pressure of a given mass of a gas is directly proportional to its absolute temperature.”\nMathematically; \n$P\\alpha T$ (at constant temperature)\nor $\\frac{P}{T}$ = constant"
+            },
+            {
+              "questionID": 22021,
+              "question": "According to __________ equal volumes of all gases at the same temperature and pressure contain an equal number of molecules.",
+              "question_raw": "<p>According to __________ equal volumes of all gases at the same temperature and pressure contain an equal number of molecules.</p>",
+              "options": [
+                {
+                  "label": "A",
+                  "id": 43284,
+                  "text": "Graham's Law",
+                  "is_correct": false
+                },
+                {
+                  "label": "B",
+                  "id": 43283,
+                  "text": "Dalton's Law",
+                  "is_correct": false
+                },
+                {
+                  "label": "C",
+                  "id": 43282,
+                  "text": "Avogadro's Law",
+                  "is_correct": true
+                },
+                {
+                  "label": "D",
+                  "id": 43285,
+                  "text": "Charle's Law.",
+                  "is_correct": false
+                }
+              ],
+              "correct_option_ids": [
+                43282
+              ],
+              "correct_option_labels": [
+                "C"
+              ],
+              "correct_option_texts": [
+                "Avogadro's Law"
+              ],
+              "explanation": "This question is based on the statement of Avogadro's law that states 'equal volumes of all gases under the same conditions of temperature and pressure contain an equal number of molecules'.\nV $\\propto$ n (at constant T and P)"
+            },
+            {
+              "questionID": 22022,
+              "question": "Which of the following is the correct ideal gas law?",
+              "question_raw": "<p>Which of the following is the correct ideal gas law?</p>",
+              "options": [
+                {
+                  "label": "A",
+                  "id": 43287,
+                  "text": "pV = nT",
+                  "is_correct": false
+                },
+                {
+                  "label": "B",
+                  "id": 43289,
+                  "text": "pV = 2nR",
+                  "is_correct": false
+                },
+                {
+                  "label": "C",
+                  "id": 43286,
+                  "text": "pV = nRT",
+                  "is_correct": true
+                },
+                {
+                  "label": "D",
+                  "id": 43288,
+                  "text": "pV = 2RT",
+                  "is_correct": false
+                }
+              ],
+              "correct_option_ids": [
+                43286
+              ],
+              "correct_option_labels": [
+                "C"
+              ],
+              "correct_option_texts": [
+                "pV = nRT"
+              ],
+              "explanation": "PV = nRT is the correct Ideal Gas equation.\nHere, P: Pressure\nV: Volume\nn: Number of Moles\nR: Universal Gas Constant\nT: Temperature"
+            },
+            {
+              "questionID": 22023,
+              "question": "CO_2 can be easily liquified and even solidified because",
+              "question_raw": "<p>CO<sub>2</sub>&nbsp;can be easily liquified and even solidified because</p>\r\n",
+              "options": [
+                {
+                  "label": "A",
+                  "id": 43290,
+                  "text": "It has comparatively more force of attraction than other gases",
+                  "is_correct": true
+                },
+                {
+                  "label": "B",
+                  "id": 43293,
+                  "text": "It is present in atmosphere",
+                  "is_correct": false
+                },
+                {
+                  "label": "C",
+                  "id": 43291,
+                  "text": "It has weak forces of attraction",
+                  "is_correct": false
+                },
+                {
+                  "label": "D",
+                  "id": 43292,
+                  "text": "It has more intermolecular space",
+                  "is_correct": false
+                }
+              ],
+              "correct_option_ids": [
+                43290
+              ],
+              "correct_option_labels": [
+                "A"
+              ],
+              "correct_option_texts": [
+                "It has comparatively more force of attraction than other gases"
+              ],
+              "explanation": "It has comparatively more force of attraction than other gases"
+            },
+            {
+              "questionID": 22024,
+              "question": "Dalton’s Law of Partial Pressures states that the total pressure exerted by the mixture of non-reactive gases is equal to the:",
+              "question_raw": "<p>Dalton&rsquo;s Law of Partial Pressures states that the total pressure exerted by the mixture of non-reactive gases is equal to the:</p>",
+              "options": [
+                {
+                  "label": "A",
+                  "id": 43295,
+                  "text": "the difference in the partial pressures of individual gases.",
+                  "is_correct": false
+                },
+                {
+                  "label": "B",
+                  "id": 43294,
+                  "text": "sum of the partial pressures of individual gases.",
+                  "is_correct": true
+                },
+                {
+                  "label": "C",
+                  "id": 43297,
+                  "text": "maximum of the partial pressures of individual gases.",
+                  "is_correct": false
+                },
+                {
+                  "label": "D",
+                  "id": 43296,
+                  "text": "average of the partial pressures of individual gases.",
+                  "is_correct": false
+                }
+              ],
+              "correct_option_ids": [
+                43294
+              ],
+              "correct_option_labels": [
+                "B"
+              ],
+              "correct_option_texts": [
+                "sum of the partial pressures of individual gases."
+              ],
+              "explanation": "The Dalton Law of Partial pressures for Gases states that total pressure exerted by a mixture of non-reacting gases is equal to the sum of the partial pressure of individual gases."
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "testPaperID": 952,
+      "testPaperName": "States of Matter CBSE Online Test 02",
+      "is_paid": true,
+      "category_full_name": "CBSE > Class 11 > Chemistry > States of Matter - Gases and Liquids (FA ONLY)",
+      "noOfQuestions": 15,
+      "has_answers": true,
+      "sections": [
+        {
+          "sectionName": "General",
+          "sectionID": null,
+          "questions": [
+            {
+              "questionID": 22025,
+              "question": "In the kinetic molecular theory attraction between molecules of the gas is:",
+              "question_raw": "<p>In the kinetic molecular theory attraction between molecules of the gas is:</p>",
+              "options": [
+                {
+                  "label": "A",
+                  "id": 43300,
+                  "text": "greater zero",
+                  "is_correct": false
+                },
+                {
+                  "label": "B",
+                  "id": 43298,
+                  "text": "zero",
+                  "is_correct": true
+                },
+                {
+                  "label": "C",
+                  "id": 43301,
+                  "text": "depends on the speed of the molecule",
+                  "is_correct": false
+                },
+                {
+                  "label": "D",
+                  "id": 43299,
+                  "text": "less than zero",
+                  "is_correct": false
+                }
+              ],
+              "correct_option_ids": [
+                43298
+              ],
+              "correct_option_labels": [
+                "B"
+              ],
+              "correct_option_texts": [
+                "zero"
+              ],
+              "explanation": "The Kinetic Theory of Gases assumes that no intermolecular forces exert between the gas molecules."
+            },
+            {
+              "questionID": 22026,
+              "question": "Real gases show deviations from ideal gas law because",
+              "question_raw": "<p>Real gases show deviations from ideal gas law because</p>",
+              "options": [
+                {
+                  "label": "A",
+                  "id": 43302,
+                  "text": "molecules interact with each other.",
+                  "is_correct": true
+                },
+                {
+                  "label": "B",
+                  "id": 43305,
+                  "text": "molecules repel each other.",
+                  "is_correct": false
+                },
+                {
+                  "label": "C",
+                  "id": 43304,
+                  "text": "size of molecules cannot be measured.",
+                  "is_correct": false
+                },
+                {
+                  "label": "D",
+                  "id": 43303,
+                  "text": "of experimental errors.",
+                  "is_correct": false
+                }
+              ],
+              "correct_option_ids": [
+                43302
+              ],
+              "correct_option_labels": [
+                "A"
+              ],
+              "correct_option_texts": [
+                "molecules interact with each other."
+              ],
+              "explanation": "Real gases have intermolecular forces of interaction due to which there is a difference in the actual pressure values when compared to the ideal gases, the pressure is found to be less than the pressure of ideal gases under similar conditions, similar deviation occurs when the size of molecules is taken into account due to which volume correction is required."
+            },
+            {
+              "questionID": 22027,
+              "question": "Which is the correct form of van der Waals equation?",
+              "question_raw": "<p>Which is the correct form of van der Waals equation?</p>",
+              "options": [
+                {
+                  "label": "A",
+                  "id": 43306,
+                  "text": "$\\left( {p + \\frac{{a{n^2}}}{{{V^2}}}} \\right)\\left( {V - nb} \\right) = nRT$",
+                  "is_correct": true
+                },
+                {
+                  "label": "B",
+                  "id": 43309,
+                  "text": "$\\left( {p - \\frac{{a{n^2}}}{{{V^2}}}} \\right)\\left( {V + nb} \\right) = nRT$",
+                  "is_correct": false
+                },
+                {
+                  "label": "C",
+                  "id": 43307,
+                  "text": "$\\left( {p + \\frac{{a{n^2}}}{{{V^2}}}} \\right)\\left( {V + nb} \\right) = nRT$",
+                  "is_correct": false
+                },
+                {
+                  "label": "D",
+                  "id": 43308,
+                  "text": "$\\left( {p - \\frac{{a{n^2}}}{{{V^2}}}} \\right)\\left( {V - nb} \\right) = nRT$",
+                  "is_correct": false
+                }
+              ],
+              "correct_option_ids": [
+                43306
+              ],
+              "correct_option_labels": [
+                "A"
+              ],
+              "correct_option_texts": [
+                "$\\left( {p + \\frac{{a{n^2}}}{{{V^2}}}} \\right)\\left( {V - nb} \\right) = nRT$"
+              ],
+              "explanation": "$\\left( {p + \\frac{{a{n^2}}}{{{V^2}}}} \\right)\\left( {V - nb} \\right) = nRT$ is van der Waals gas equation of real gases for 'n' moles of gas."
+            },
+            {
+              "questionID": 22028,
+              "question": "The deviation from ideal behavior can be measured in terms of compressibility factor Z, which is",
+              "question_raw": "<p>The deviation from ideal behavior can be measured in terms of compressibility factor Z, which is</p>",
+              "options": [
+                {
+                  "label": "A",
+                  "id": 43310,
+                  "text": "Z = $ \\frac{{pV}}{{nRT}}$",
+                  "is_correct": true
+                },
+                {
+                  "label": "B",
+                  "id": 43311,
+                  "text": "Z = $ \\frac{V}{{nRT}}$",
+                  "is_correct": false
+                },
+                {
+                  "label": "C",
+                  "id": 43312,
+                  "text": "Z = $ \\frac{{pV}}{{RT}}$",
+                  "is_correct": false
+                },
+                {
+                  "label": "D",
+                  "id": 43313,
+                  "text": "Z = $ \\frac{{pV}}{{nR}}$",
+                  "is_correct": false
+                }
+              ],
+              "correct_option_ids": [
+                43310
+              ],
+              "correct_option_labels": [
+                "A"
+              ],
+              "correct_option_texts": [
+                "Z = $ \\frac{{pV}}{{nRT}}$"
+              ],
+              "explanation": "Z = $ \\frac{{pV}}{{nRT}}$ is a correction factor which describes the deviation of real gas from ideal gas behaviour. It is defined as the ratio of the molar volume of a gas to the molar volume of an ideal gas at the same temperature and pressure."
+            },
+            {
+              "questionID": 22029,
+              "question": "The behaviour of the gas becomes more ideal when:",
+              "question_raw": "<p>The behaviour of the gas becomes more ideal when:</p>",
+              "options": [
+                {
+                  "label": "A",
+                  "id": 43315,
+                  "text": "Pressure is very high",
+                  "is_correct": false
+                },
+                {
+                  "label": "B",
+                  "id": 43317,
+                  "text": "Number of moles is very low",
+                  "is_correct": false
+                },
+                {
+                  "label": "C",
+                  "id": 43314,
+                  "text": "Pressure is very low",
+                  "is_correct": true
+                },
+                {
+                  "label": "D",
+                  "id": 43316,
+                  "text": "Temperature is very low",
+                  "is_correct": false
+                }
+              ],
+              "correct_option_ids": [
+                43314
+              ],
+              "correct_option_labels": [
+                "C"
+              ],
+              "correct_option_texts": [
+                "Pressure is very low"
+              ],
+              "explanation": "This question is based on understanding the concept of molecular interactions between a molecule of real gases which is least at low P and High T conditions. Thus under these conditions real gases behave as ideal."
+            },
+            {
+              "questionID": 22030,
+              "question": "Critical temperature (T_C) of carbon dioxide is the highest temperature at which liquid carbon dioxide is observed. Above this temperature it is ________.",
+              "question_raw": "<p>Critical temperature (T<sub>C</sub>) of carbon dioxide is the highest temperature at which liquid carbon dioxide is observed. Above this temperature it is ________.</p>",
+              "options": [
+                {
+                  "label": "A",
+                  "id": 43321,
+                  "text": "Mixture of solid and liquid",
+                  "is_correct": false
+                },
+                {
+                  "label": "B",
+                  "id": 43318,
+                  "text": "Gas",
+                  "is_correct": true
+                },
+                {
+                  "label": "C",
+                  "id": 43320,
+                  "text": "Solid",
+                  "is_correct": false
+                },
+                {
+                  "label": "D",
+                  "id": 43319,
+                  "text": "Liquid",
+                  "is_correct": false
+                }
+              ],
+              "correct_option_ids": [
+                43318
+              ],
+              "correct_option_labels": [
+                "B"
+              ],
+              "correct_option_texts": [
+                "Gas"
+              ],
+              "explanation": "T_c is the highest temperature where gas can exist in a liquid state. Above this, no liquid state exists. It is impossible to compress the gas into liquid above the critical temperature, no matter whatever amount of pressure is applied."
+            },
+            {
+              "questionID": 22031,
+              "question": "Above the Critical temperature (T_C) of carbon dioxide, what happens?",
+              "question_raw": "<p>Above the Critical temperature (T<sub>C</sub>) of carbon dioxide, what happens?</p>",
+              "options": [
+                {
+                  "label": "A",
+                  "id": 43325,
+                  "text": "Increase of pressure makes.",
+                  "is_correct": false
+                },
+                {
+                  "label": "B",
+                  "id": 43322,
+                  "text": "Liquefaction of the gas is not possible.",
+                  "is_correct": true
+                },
+                {
+                  "label": "C",
+                  "id": 43323,
+                  "text": "Liquefaction of the gas is possible.",
+                  "is_correct": false
+                },
+                {
+                  "label": "D",
+                  "id": 43324,
+                  "text": "Solidification of the gas is possible.",
+                  "is_correct": false
+                }
+              ],
+              "correct_option_ids": [
+                43322
+              ],
+              "correct_option_labels": [
+                "B"
+              ],
+              "correct_option_texts": [
+                "Liquefaction of the gas is not possible."
+              ],
+              "explanation": "T_c is the highest temperature where gas can exist in a liquid state. Above this, no liquid state exists hence it is not possible to liquefy the gas no matter what pressure is applied."
+            },
+            {
+              "questionID": 22032,
+              "question": "The three states of matter of H_2O are in equilibrium:",
+              "question_raw": "<p>The three states of matter of H<sub>2</sub>O are in equilibrium:</p>",
+              "options": [
+                {
+                  "label": "A",
+                  "id": 43329,
+                  "text": "Steam point",
+                  "is_correct": false
+                },
+                {
+                  "label": "B",
+                  "id": 43327,
+                  "text": "Critical point",
+                  "is_correct": false
+                },
+                {
+                  "label": "C",
+                  "id": 43328,
+                  "text": "Ice point",
+                  "is_correct": false
+                },
+                {
+                  "label": "D",
+                  "id": 43326,
+                  "text": "The triple point",
+                  "is_correct": true
+                }
+              ],
+              "correct_option_ids": [
+                43326
+              ],
+              "correct_option_labels": [
+                "D"
+              ],
+              "correct_option_texts": [
+                "The triple point"
+              ],
+              "explanation": "The triple point of a substance is the temperature and pressure at which three phases (i.e. gas, liquid and solid) of that substance coexist at thermal equilibrium.\nThe triple point of pure water is at 0.01°C (273.16K, 32.01°F) and 4.58 mm (611.2Pa) of mercury, where all the three (i.e., solid, liquid and gas) states coexist in equilibrium."
+            },
+            {
+              "questionID": 22033,
+              "question": "Surface tension decreases as the temperature is raised because increase in temperature",
+              "question_raw": "<p>Surface tension decreases as the temperature is raised because increase in temperature</p>",
+              "options": [
+                {
+                  "label": "A",
+                  "id": 43333,
+                  "text": "decreases the kinetic energy of the molecules and the effectiveness of intermolecular attraction is not changed.",
+                  "is_correct": false
+                },
+                {
+                  "label": "B",
+                  "id": 43331,
+                  "text": "decreases the kinetic energy of the molecules and the effectiveness of intermolecular attraction decreases.",
+                  "is_correct": false
+                },
+                {
+                  "label": "C",
+                  "id": 43332,
+                  "text": "increases the kinetic energy of the molecules and the effectiveness of intermolecular attraction increases.",
+                  "is_correct": false
+                },
+                {
+                  "label": "D",
+                  "id": 43330,
+                  "text": "increases the kinetic energy of the molecules and the effectiveness of intermolecular attraction decreases.",
+                  "is_correct": true
+                }
+              ],
+              "correct_option_ids": [
+                43330
+              ],
+              "correct_option_labels": [
+                "D"
+              ],
+              "correct_option_texts": [
+                "increases the kinetic energy of the molecules and the effectiveness of intermolecular attraction decreases."
+              ],
+              "explanation": "Surface tension is inversely proportional to the temperature. So surface tension decreases with rising temperature. With the rise in temperature liquids expands, the interparticle distance increases, and the kinetic energy of molecules and hence disorder decreases, so intermolecular forces decrease results in a decrease in surface tension."
+            },
+            {
+              "questionID": 22034,
+              "question": "Viscous force is directly proportional to",
+              "question_raw": "<p>Viscous force is directly proportional to&nbsp;</p>",
+              "options": [
+                {
+                  "label": "A",
+                  "id": 43336,
+                  "text": "velocity gradient and inversely proportional to area.",
+                  "is_correct": false
+                },
+                {
+                  "label": "B",
+                  "id": 43334,
+                  "text": "area and velocity gradient.",
+                  "is_correct": true
+                },
+                {
+                  "label": "C",
+                  "id": 43335,
+                  "text": "area and inversely proportional to velocity gradient.",
+                  "is_correct": false
+                },
+                {
+                  "label": "D",
+                  "id": 43337,
+                  "text": "velocity gradient squared and inversely proportional to area.",
+                  "is_correct": false
+                }
+              ],
+              "correct_option_ids": [
+                43334
+              ],
+              "correct_option_labels": [
+                "B"
+              ],
+              "correct_option_texts": [
+                "area and velocity gradient."
+              ],
+              "explanation": "Viscous force is directly proportional to area and velocity gradient.\nWe have,\n${F_\\upsilon } = \\eta A(dV/dH)$\nwhere A = Area\nWe have, dV/dH = velocity gradient\n$\\eta = Coefficient\\;of\\;viscocity$"
+            },
+            {
+              "questionID": 22035,
+              "question": "Water has high surface tension and high capillarity because of _______.",
+              "question_raw": "<p>Water has high surface tension and high capillarity because of _______.</p>",
+              "options": [
+                {
+                  "label": "A",
+                  "id": 43339,
+                  "text": "ionic bonds",
+                  "is_correct": false
+                },
+                {
+                  "label": "B",
+                  "id": 43338,
+                  "text": "hydrogen bonds",
+                  "is_correct": true
+                },
+                {
+                  "label": "C",
+                  "id": 43340,
+                  "text": "covalent bonds",
+                  "is_correct": false
+                },
+                {
+                  "label": "D",
+                  "id": 43341,
+                  "text": "dispersion forces",
+                  "is_correct": false
+                }
+              ],
+              "correct_option_ids": [
+                43338
+              ],
+              "correct_option_labels": [
+                "B"
+              ],
+              "correct_option_texts": [
+                "hydrogen bonds"
+              ],
+              "explanation": "In water molecules, due to high electronegativity difference between H and O atoms and lone pairs of electrons on oxygen atom, a greater number of hydrogen bonds formed."
+            },
+            {
+              "questionID": 22036,
+              "question": "What will be the minimum pressure required to compress 500 dm^3 of air at 1 bar to 200 dm^3 at 30°C?",
+              "question_raw": "<p>What will be the minimum pressure required to compress 500 dm<sup>3</sup>&nbsp;of air at 1 bar to 200 dm<sup>3</sup>&nbsp;at 30&deg;C?</p>",
+              "options": [
+                {
+                  "label": "A",
+                  "id": 43342,
+                  "text": "2.5 bar",
+                  "is_correct": true
+                },
+                {
+                  "label": "B",
+                  "id": 43344,
+                  "text": "3.5 bar",
+                  "is_correct": false
+                },
+                {
+                  "label": "C",
+                  "id": 43345,
+                  "text": "2.0 bar",
+                  "is_correct": false
+                },
+                {
+                  "label": "D",
+                  "id": 43343,
+                  "text": "1.5 bar",
+                  "is_correct": false
+                }
+              ],
+              "correct_option_ids": [
+                43342
+              ],
+              "correct_option_labels": [
+                "A"
+              ],
+              "correct_option_texts": [
+                "2.5 bar"
+              ],
+              "explanation": "Using the ideal gas equation, PV = nRT,\nSince T is constant, we have\nP_1V_1 = P_2V_2 i.e.\n500 dm^3 $\\times$ 1 bar = 200 dm^3 $\\times$ P_2\nWhich gives P_2 = 2.5 bar"
+            },
+            {
+              "questionID": 22037,
+              "question": "A vessel of 120 mL capacity contains a certain amount of gas at 35°C and 1.2 bar pressure. The gas is transferred to another vessel of volume 180 mL at 35°C. What would be its pressure?",
+              "question_raw": "<p>A vessel of 120 mL capacity contains a certain amount of gas at 35&deg;C and 1.2 bar pressure. The gas is transferred to another vessel of volume 180 mL at&nbsp;35&deg;C. What would be its pressure?</p>",
+              "options": [
+                {
+                  "label": "A",
+                  "id": 43349,
+                  "text": "2.8 bar",
+                  "is_correct": false
+                },
+                {
+                  "label": "B",
+                  "id": 43347,
+                  "text": "0.4 bar",
+                  "is_correct": false
+                },
+                {
+                  "label": "C",
+                  "id": 43346,
+                  "text": "0.8 bar",
+                  "is_correct": true
+                },
+                {
+                  "label": "D",
+                  "id": 43348,
+                  "text": "1.8 bar",
+                  "is_correct": false
+                }
+              ],
+              "correct_option_ids": [
+                43346
+              ],
+              "correct_option_labels": [
+                "C"
+              ],
+              "correct_option_texts": [
+                "0.8 bar"
+              ],
+              "explanation": "Case I PV = nRT; n = $ \\frac{{PV}}{{RT}}$\nHere P = 1.2bar; V = 120ml and T = 308K.\nHere n = $ \\;\\frac{{1.2 \\times 120}}{{R \\times (308)}} = \\frac{{0.46}}{R}$\nCaseII PV = nRT; P = $\\frac{{nRT}}{V}$\nhere V = 180ml T = 308K and P = $ \\frac{{0.46\\; \\times \\;R\\; \\times \\;308}}{{R \\times \\;180\\;}}$ = 0.8bar"
+            },
+            {
+              "questionID": 22038,
+              "question": "At 0°C, the density of a certain oxide of a gas at 2 bar is the same as that of dinitrogen at 5 bar. What is the molecular mass of the oxide?",
+              "question_raw": "<p>At&nbsp;0&deg;C, the density of a certain oxide of a gas at 2 bar is the same as that of dinitrogen at 5 bar. What is the molecular mass of the oxide?</p>",
+              "options": [
+                {
+                  "label": "A",
+                  "id": 43350,
+                  "text": "70 g/mol",
+                  "is_correct": true
+                },
+                {
+                  "label": "B",
+                  "id": 43353,
+                  "text": "90 g/mol",
+                  "is_correct": false
+                },
+                {
+                  "label": "C",
+                  "id": 43351,
+                  "text": "170 g/mol",
+                  "is_correct": false
+                },
+                {
+                  "label": "D",
+                  "id": 43352,
+                  "text": "270 g/mol",
+                  "is_correct": false
+                }
+              ],
+              "correct_option_ids": [
+                43350
+              ],
+              "correct_option_labels": [
+                "A"
+              ],
+              "correct_option_texts": [
+                "70 g/mol"
+              ],
+              "explanation": "Using relation; PV = ($\\frac{m}{M}$)RT\nwe have\nP_1M_1 = P_2M_2\nP1 = $ \\frac{{{P_2}{M_2}}}{{{M_1}}} = \\frac{{5 \\times 28}}{2}$ = 70 g/mol"
+            },
+            {
+              "questionID": 22039,
+              "question": "Pressure of 1 g of an ideal gas A at 27°C is found to be 2 bar. When 2 g of another ideal gas B is introduced in the same flask at same temperature the pressure becomes 3 bar. Relationship between their molecular masses is:",
+              "question_raw": "<p>Pressure of 1 g of an ideal gas A at 27&deg;C is found to be 2 bar. When 2 g of another ideal gas B is introduced in the same flask at same temperature the pressure becomes 3 bar. Relationship between their molecular masses is:</p>",
+              "options": [
+                {
+                  "label": "A",
+                  "id": 43357,
+                  "text": "M_B = 10M_A",
+                  "is_correct": false
+                },
+                {
+                  "label": "B",
+                  "id": 43356,
+                  "text": "M_B = 5M_A",
+                  "is_correct": false
+                },
+                {
+                  "label": "C",
+                  "id": 43355,
+                  "text": "M_B = 2M_A",
+                  "is_correct": false
+                },
+                {
+                  "label": "D",
+                  "id": 43354,
+                  "text": "M_B = 4M_A",
+                  "is_correct": true
+                }
+              ],
+              "correct_option_ids": [
+                43354
+              ],
+              "correct_option_labels": [
+                "D"
+              ],
+              "correct_option_texts": [
+                "M_B = 4M_A"
+              ],
+              "explanation": "using realtion, PV = ($\\frac{m}{M}$)RT\nP of 1g an ideal gas at 27 °C = 2 bar\nP of 2g another ideal gas in same flask = 3 bar\npressure due to B P_total - P_A= 3 - 2 = 1bar. Now using relation,\n$P = \\frac{{mRT}}{{MV}}$\n2 = $ \\frac{{1RT}}{{{M_A}V}}$ .... (1)\n1 = $ \\frac{{2RT}}{{{M_B}V}}$ .... (2)\nnow, (1)/(2), we get\n$\\frac{2}{1} = \\frac{{{M_B}}}{{2{M_A}}}$\nM_B = 4M_A"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "testPaperID": 953,
+      "testPaperName": "States of Matter CBSE Online Test 03",
+      "is_paid": true,
+      "category_full_name": "CBSE > Class 11 > Chemistry > States of Matter - Gases and Liquids (FA ONLY)",
+      "noOfQuestions": 15,
+      "has_answers": true,
+      "sections": [
+        {
+          "sectionName": "General",
+          "sectionID": null,
+          "questions": [
+            {
+              "questionID": 22040,
+              "question": "The drain cleaner, Drainex contains small bits of aluminum which react with caustic soda to produce dihydrogen. What volume of dihydrogen at 20°C and one bar will be released when 0.15g of aluminum reacts?",
+              "question_raw": "<p>The drain cleaner, Drainex contains small bits of aluminum which react with caustic soda to produce dihydrogen. What volume of dihydrogen at 20&deg;C and one bar will be released when 0.15g of aluminum reacts?</p>",
+              "options": [
+                {
+                  "label": "A",
+                  "id": 43361,
+                  "text": "108.2 mL",
+                  "is_correct": false
+                },
+                {
+                  "label": "B",
+                  "id": 43359,
+                  "text": "252.5 mL",
+                  "is_correct": false
+                },
+                {
+                  "label": "C",
+                  "id": 43358,
+                  "text": "202.5 mL",
+                  "is_correct": true
+                },
+                {
+                  "label": "D",
+                  "id": 43360,
+                  "text": "302.5 mL",
+                  "is_correct": false
+                }
+              ],
+              "correct_option_ids": [
+                43358
+              ],
+              "correct_option_labels": [
+                "C"
+              ],
+              "correct_option_texts": [
+                "202.5 mL"
+              ],
+              "explanation": "$\\begin{array}{*{20}{c}} {2Al + 2NaOH + 2{H_2}O}&{ \\to 2NaAl{O_2} + 3{H_2}} \\\\ \\begin{gathered} 2 \\times 27 \\hfill \\\\ 0.15g \\hfill \\\\ \\end{gathered} &\\begin{gathered} 3mol \\hfill \\\\ ? \\hfill \\\\ \\end{gathered} \\end{array}$\nMoles of $Al = \\frac{{0.15}}{{27}} = $ 0.0055 moles\n2 mole of Al produces 3 moles of H_2\nso 0.0055 moles of AL will produce ${\\frac{3}{2}\\;}$$\\times$ 0.0055 = 0.00825 moles of H_2\nNow PV = nRT where n = 0.00825, P = 1 bar and T = 293K.\n$V_{H_2}\\;=\\frac{0.00825\\;\\times0.0821\\;\\times\\;293\\;}{1\\times0.987}=$ 0.2025dm^3 = 202.5mL"
+            },
+            {
+              "questionID": 22041,
+              "question": "What will be the pressure exerted by a mixture of 3.2 g of methane and 4.4 g of carbon dioxide contained in a 9 dm^3 flask at 27°C?",
+              "question_raw": "<p>What will be the pressure exerted by a mixture of 3.2 g of methane and 4.4 g of carbon dioxide contained in a 9 dm<sup>3</sup> flask at 27&deg;C?</p>",
+              "options": [
+                {
+                  "label": "A",
+                  "id": 43365,
+                  "text": "7.452 $\\times$ 10^4 Pa",
+                  "is_correct": false
+                },
+                {
+                  "label": "B",
+                  "id": 43363,
+                  "text": "9.313 $\\times$ 10^4 Pa",
+                  "is_correct": false
+                },
+                {
+                  "label": "C",
+                  "id": 43364,
+                  "text": "6.224 $\\times$ 10^4 Pa",
+                  "is_correct": false
+                },
+                {
+                  "label": "D",
+                  "id": 43362,
+                  "text": "8.314 $\\times$ 10^4 Pa",
+                  "is_correct": true
+                }
+              ],
+              "correct_option_ids": [
+                43362
+              ],
+              "correct_option_labels": [
+                "D"
+              ],
+              "correct_option_texts": [
+                "8.314 $\\times$ 10^4 Pa"
+              ],
+              "explanation": "Acc. to Daltons Law\nP = P_1 + P_2\nand by applying PV = nRT\nP_1 $\\times$ 9 = 0.2 $\\times$ RT and P_2 $\\times$ 9 = 0.1 $\\times$ RT where T = 300K\nnow using P = P_1 + P_2\nP = P1 + P2 = $\\frac{{(0.2 + 0.1)}}{9} \\times RT = \\frac{{(0.2 + 0.1)}}{9} \\times \\frac{{0.0821 \\times 300}}{1} $= 0.82 atm \nP = 0.82 atm = 0.82 $\\times$ 101325 = 83086.5 pa = 8.3 $\\times$ 10^4 Pa"
+            },
+            {
+              "questionID": 22042,
+              "question": "What will be the pressure of the gaseous mixture when 0.5 L of ${{\\text{H}}_{\\text{2}}}$ at 0.8 bar and 2.0 L of dioxygen at 0.7 bar are introduced in a 1L vessel at ${\\text{27}}^\\circ {\\text{C}}$ ?",
+              "question_raw": "<p>What will be the pressure of the gaseous mixture when 0.5 L of <span class=\"math-tex\">{tex}{{\\text{H}}_{\\text{2}}}{/tex}</span> at 0.8 bar and 2.0 L of dioxygen at 0.7 bar are introduced in a 1L vessel at&nbsp;<span class=\"math-tex\">{tex}{\\text{27}}^\\circ {\\text{C}}{/tex}</span> ?</p>",
+              "options": [
+                {
+                  "label": "A",
+                  "id": 43369,
+                  "text": "3.7 bar",
+                  "is_correct": false
+                },
+                {
+                  "label": "B",
+                  "id": 43367,
+                  "text": "0.8 bar",
+                  "is_correct": false
+                },
+                {
+                  "label": "C",
+                  "id": 43368,
+                  "text": "2.6 bar",
+                  "is_correct": false
+                },
+                {
+                  "label": "D",
+                  "id": 43366,
+                  "text": "1.8 bar",
+                  "is_correct": true
+                }
+              ],
+              "correct_option_ids": [
+                43366
+              ],
+              "correct_option_labels": [
+                "D"
+              ],
+              "correct_option_texts": [
+                "1.8 bar"
+              ],
+              "explanation": "Here, ${P_{{H_2}}} \\times 1 = 0.8 \\times 0.5$ =0.40 bar\n${P_{{O_2}}} \\times 1 = 0.7 \\times 2$ =1.4 bar\nAnd by applying $P=\\;P_{H_{2\\;}}+P_{O_2}$= 0.40 +1.40 =1.80 bar"
+            },
+            {
+              "questionID": 22043,
+              "question": "The density of a gas is found to be 5.46 g/dm^3 at 27°C at 2 bar pressure. What will be its density at STP?",
+              "question_raw": "<p>The density of a gas is found to be 5.46 g/dm<sup>3</sup> at 27&deg;C at 2 bar pressure. What will be its density at STP?</p>",
+              "options": [
+                {
+                  "label": "A",
+                  "id": 43372,
+                  "text": "5g/dm^3",
+                  "is_correct": false
+                },
+                {
+                  "label": "B",
+                  "id": 43371,
+                  "text": "2g/dm^3",
+                  "is_correct": false
+                },
+                {
+                  "label": "C",
+                  "id": 43373,
+                  "text": "4g/dm^3",
+                  "is_correct": false
+                },
+                {
+                  "label": "D",
+                  "id": 43370,
+                  "text": "3g/dm^3",
+                  "is_correct": true
+                }
+              ],
+              "correct_option_ids": [
+                43370
+              ],
+              "correct_option_labels": [
+                "D"
+              ],
+              "correct_option_texts": [
+                "3g/dm^3"
+              ],
+              "explanation": "For the same gas at different temperature and presuure; ratio of densities is given by relation $\\frac{\\rho_1}{\\rho_2}=\\frac{P_1T_2}{P_2T_1}$\n${\\rho _1} = ?,{\\rho _2} = 5.46,$ We have, P_1 = 1 bar, P_2 = 2bar, T_2 = 300K, T_1 = 273K\nPutting values,$\\rho_1=\\frac{P_1\\;T_2\\;\\rho_2}{P_2\\;T_1}=\\;\\frac{1\\times300\\times5.46}{2\\times273}=$ 3g/dm^3\n$\\rho_1$ = 3g/dm^3"
+            },
+            {
+              "questionID": 22044,
+              "question": "34.05 mL of phosphorus vapour weighs 0.0625 g at 546°C and 0.1 bar pressure. What is the molar mass of phosphorus? (in one decimal value)",
+              "question_raw": "<p>34.05 mL of phosphorus vapour weighs 0.0625 g at 546&deg;C and 0.1 bar pressure. What is the molar mass of phosphorus? (in one decimal value)</p>",
+              "options": [
+                {
+                  "label": "A",
+                  "id": 43375,
+                  "text": "1325.9 g/mol",
+                  "is_correct": false
+                },
+                {
+                  "label": "B",
+                  "id": 43377,
+                  "text": "1097.6 g/mol",
+                  "is_correct": false
+                },
+                {
+                  "label": "C",
+                  "id": 43374,
+                  "text": "124.75 g/mol",
+                  "is_correct": true
+                },
+                {
+                  "label": "D",
+                  "id": 43376,
+                  "text": "1120.3 g/mol",
+                  "is_correct": false
+                }
+              ],
+              "correct_option_ids": [
+                43374
+              ],
+              "correct_option_labels": [
+                "C"
+              ],
+              "correct_option_texts": [
+                "124.75 g/mol"
+              ],
+              "explanation": "PV = $ \\frac{{mRT}}{M}$\nM = $ \\frac{{mRT}}{{PV}}$\nM = $\\frac{{0.0625g \\times 0.083bar\\;d{m^3}{K^{ - 1}}mo{l^{ - 1}} \\times 819K}}{{0.1bar \\times 34.05 \\times {{10}^{ - 3}}d{m^3}}}$\nThe molar mass of phosphorus = 124.75g/mol"
+            },
+            {
+              "questionID": 22045,
+              "question": "A student forgot to add the reaction mixture to the round-bottomed flask at 27°C, but instead, he/she placed the flask on the flame. After a lapse of time, he realized his mistake and using a pyrometer he found the temperature of the flask was 477 °C. What fraction of air would have been expelled out?",
+              "question_raw": "<p>A student forgot to add the reaction mixture to the round-bottomed flask at 27&deg;C, but instead, he/she placed the flask on the flame. After a lapse of time, he realized his mistake and using a pyrometer he found the temperature of the flask was 477 &deg;C. What fraction of air would have been expelled out?</p>",
+              "options": [
+                {
+                  "label": "A",
+                  "id": 43380,
+                  "text": "0.67",
+                  "is_correct": false
+                },
+                {
+                  "label": "B",
+                  "id": 43381,
+                  "text": "0.5",
+                  "is_correct": false
+                },
+                {
+                  "label": "C",
+                  "id": 43379,
+                  "text": "0.42",
+                  "is_correct": false
+                },
+                {
+                  "label": "D",
+                  "id": 43378,
+                  "text": "0.6",
+                  "is_correct": true
+                }
+              ],
+              "correct_option_ids": [
+                43378
+              ],
+              "correct_option_labels": [
+                "D"
+              ],
+              "correct_option_texts": [
+                "0.6"
+              ],
+              "explanation": "Using ideal gas equation PV = nRT, at constant pressure and volume(here volume of the container remains constant as it is open to atmosphere)\nn_1T_1 = n_2T_2\n$\\frac{{{n_2}}}{{{n_1}}} = \\frac{{300}}{{750}} = 0.4$\nThis is the fraction of air remaining in a flask, so a fraction of air expelled out = 1 - 0.4 = 0.6"
+            },
+            {
+              "questionID": 22046,
+              "question": "Calculate the temperature of 4.0 mol of a gas occupying 5 dm^3 at 3.32 bar. (R = 0.083 bar dm^3K^-1mol^-1).",
+              "question_raw": "<p>Calculate the temperature of 4.0 mol of a gas occupying 5 dm<sup>3</sup>&nbsp;at 3.32 bar. (R = 0.083 bar dm<sup>3</sup>K<sup>-1</sup>mol<sup>-1</sup>).</p>",
+              "options": [
+                {
+                  "label": "A",
+                  "id": 43385,
+                  "text": "150 K",
+                  "is_correct": false
+                },
+                {
+                  "label": "B",
+                  "id": 43384,
+                  "text": "310 K",
+                  "is_correct": false
+                },
+                {
+                  "label": "C",
+                  "id": 43382,
+                  "text": "50 K",
+                  "is_correct": true
+                },
+                {
+                  "label": "D",
+                  "id": 43383,
+                  "text": "70 K",
+                  "is_correct": false
+                }
+              ],
+              "correct_option_ids": [
+                43382
+              ],
+              "correct_option_labels": [
+                "C"
+              ],
+              "correct_option_texts": [
+                "50 K"
+              ],
+              "explanation": "We have PV = nRT\nor ${T = \\;\\frac{{PV}}{{nR}} = \\;\\frac{{\\;3.22bar\\; \\times 5d{m^3}}}{{4mol\\; \\times 0.083bar\\;d{m^3}{K^{ - 1}}\\;mo{l^{ - 1}}}}}$ = 50K"
+            },
+            {
+              "questionID": 22047,
+              "question": "Calculate the total number of electrons present in 1.4 g of dinitrogen gas.",
+              "question_raw": "<p>Calculate the total number of electrons present in 1.4 g of dinitrogen gas.</p>\r\n",
+              "options": [
+                {
+                  "label": "A",
+                  "id": 43389,
+                  "text": "5.0832 $\\times$ 10^23 electrons",
+                  "is_correct": false
+                },
+                {
+                  "label": "B",
+                  "id": 43388,
+                  "text": "4.6329 $\\times$ 10^23 electrons",
+                  "is_correct": false
+                },
+                {
+                  "label": "C",
+                  "id": 43387,
+                  "text": "4.4521 $\\times$ 10^23 electrons",
+                  "is_correct": false
+                },
+                {
+                  "label": "D",
+                  "id": 43386,
+                  "text": "4.2154 $\\times$ 10^23 electrons",
+                  "is_correct": true
+                }
+              ],
+              "correct_option_ids": [
+                43386
+              ],
+              "correct_option_labels": [
+                "D"
+              ],
+              "correct_option_texts": [
+                "4.2154 $\\times$ 10^23 electrons"
+              ],
+              "explanation": "moles of ${{N_2} = \\frac{{1.4}}{{28}}\\; = \\;}$ 0.05 mol\nAnd 1 mole of N_2 = 3.011 $\\times$ 10^22 molecules of N_2\nAnd 1 molecule of N_2 has 14 electrons\ntotal number of electrons in 1.4 g of N_2 = 3.011 $\\times$ 10^22 $\\times$ 14 = 4.2154 $\\times$ 10^23"
+            },
+            {
+              "questionID": 22048,
+              "question": "Bose-Einstein Condensate have",
+              "question_raw": "<p>Bose-Einstein Condensate have</p>\r\n",
+              "options": [
+                {
+                  "label": "A",
+                  "id": 43391,
+                  "text": "Low kinetic energy",
+                  "is_correct": false
+                },
+                {
+                  "label": "B",
+                  "id": 43393,
+                  "text": "Highest kinetic energy.",
+                  "is_correct": false
+                },
+                {
+                  "label": "C",
+                  "id": 43390,
+                  "text": "Very low kinetic energy",
+                  "is_correct": true
+                },
+                {
+                  "label": "D",
+                  "id": 43392,
+                  "text": "High kinetic energy",
+                  "is_correct": false
+                }
+              ],
+              "correct_option_ids": [
+                43390
+              ],
+              "correct_option_labels": [
+                "C"
+              ],
+              "correct_option_texts": [
+                "Very low kinetic energy"
+              ],
+              "explanation": "Very low kinetic energy"
+            },
+            {
+              "questionID": 22049,
+              "question": "The colour of vapours formed on sublimation of iodine solid is",
+              "question_raw": "<p>The colour of vapours formed on sublimation of iodine solid is</p>\r\n",
+              "options": [
+                {
+                  "label": "A",
+                  "id": 43396,
+                  "text": "Yellow",
+                  "is_correct": false
+                },
+                {
+                  "label": "B",
+                  "id": 43394,
+                  "text": "Purple (violet)",
+                  "is_correct": true
+                },
+                {
+                  "label": "C",
+                  "id": 43397,
+                  "text": "Orange",
+                  "is_correct": false
+                },
+                {
+                  "label": "D",
+                  "id": 43395,
+                  "text": "Colourless",
+                  "is_correct": false
+                }
+              ],
+              "correct_option_ids": [
+                43394
+              ],
+              "correct_option_labels": [
+                "B"
+              ],
+              "correct_option_texts": [
+                "Purple (violet)"
+              ],
+              "explanation": "Purple (violet)"
+            },
+            {
+              "questionID": 22050,
+              "question": "The payload is defined as the difference between the mass of displaced air and the mass of the balloon. Calculate the payload when a balloon of radius 10 m, mass 100 kg is filled with helium at 1.66 bar at 27°C. (Density of air = 1.2 kg m^-3 and R = 0.083 bar dm^3K^-1mol^-1)",
+              "question_raw": "<p>The payload is defined as the difference between the mass of displaced air and the mass of the balloon. Calculate the payload when a balloon of radius 10 m, mass 100 kg is filled with helium at 1.66 bar at&nbsp;27&deg;C. (Density of air = 1.2 kg m<sup>-3 </sup>and R = 0.083 bar dm<sup>3</sup>K<sup>-1</sup>mol<sup>-1</sup>)</p>",
+              "options": [
+                {
+                  "label": "A",
+                  "id": 43398,
+                  "text": "3807.6 kg",
+                  "is_correct": true
+                },
+                {
+                  "label": "B",
+                  "id": 43399,
+                  "text": "3568.2 kg",
+                  "is_correct": false
+                },
+                {
+                  "label": "C",
+                  "id": 43400,
+                  "text": "3345.2 kg",
+                  "is_correct": false
+                },
+                {
+                  "label": "D",
+                  "id": 43401,
+                  "text": "3905.3 kg",
+                  "is_correct": false
+                }
+              ],
+              "correct_option_ids": [
+                43398
+              ],
+              "correct_option_labels": [
+                "A"
+              ],
+              "correct_option_texts": [
+                "3807.6 kg"
+              ],
+              "explanation": "Volume of balloon, V = $ \\frac{4}{3} \\times (3.14) \\times {r^3} $ = 4187 m^3\nMass of displaced air, m = V $\\times $ $\\rho$ = 4187 $\\times$ 1.2 = 5024.4kg\nTemperature, T = 300 K\nMass of He filled in balloon, m_He = $ \\frac{{PVM}}{{RT}}\\; = \\;\\frac{{1.66 \\times 4187\\; \\times 4 \\times {{10}^{ - 3}}}}{{0.083 \\times 300}} $ = 1116.4 kg\nTotal Mass of filled balloon, m' = 100 + 1116.4 = 1216.4 kg\nPayload = mass of displaced air - mass of balloon = 5024.04 - 1216.44 = 3807.6 kg"
+            },
+            {
+              "questionID": 22051,
+              "question": "Calculate the volume occupied by 8.8 g of CO_2 at 31.1°C and 1 bar pressure. R = 0.083 bar dm^3K^-1mol^-1.",
+              "question_raw": "<p>Calculate the volume occupied by 8.8 g of CO<sub>2 </sub>at 31.1&deg;C and 1 bar pressure. R = 0.083 bar dm<sup>3</sup>K<sup>-1</sup>mol<sup>-1</sup>.</p>",
+              "options": [
+                {
+                  "label": "A",
+                  "id": 43404,
+                  "text": "6.35 L",
+                  "is_correct": false
+                },
+                {
+                  "label": "B",
+                  "id": 43405,
+                  "text": "3.03 L",
+                  "is_correct": false
+                },
+                {
+                  "label": "C",
+                  "id": 43403,
+                  "text": "4.25 L",
+                  "is_correct": false
+                },
+                {
+                  "label": "D",
+                  "id": 43402,
+                  "text": "5.05 L",
+                  "is_correct": true
+                }
+              ],
+              "correct_option_ids": [
+                43402
+              ],
+              "correct_option_labels": [
+                "D"
+              ],
+              "correct_option_texts": [
+                "5.05 L"
+              ],
+              "explanation": "${V\\; = \\frac{{wRT}}{{MP}}}$\n${V = \\;\\frac{{8.8\\; \\times 0.083\\; \\times 304.1}}{{44 \\times 1}} = 5.05L}$"
+            },
+            {
+              "questionID": 22052,
+              "question": "2.9 g of a gas at 95°C occupied the same volume as 0.184 g of dihydrogen at 17°C, at the same pressure. What is the molar mass of the gas?",
+              "question_raw": "<p>2.9 g of a gas at 95&deg;C occupied the same volume as 0.184 g of dihydrogen at 17&deg;C, at the same pressure. What is the molar mass of the gas?</p>",
+              "options": [
+                {
+                  "label": "A",
+                  "id": 43407,
+                  "text": "43 g mol^-1",
+                  "is_correct": false
+                },
+                {
+                  "label": "B",
+                  "id": 43408,
+                  "text": "46 g mol^-1",
+                  "is_correct": false
+                },
+                {
+                  "label": "C",
+                  "id": 43406,
+                  "text": "40 g mol^-1",
+                  "is_correct": true
+                },
+                {
+                  "label": "D",
+                  "id": 43409,
+                  "text": "50 g mol^-1",
+                  "is_correct": false
+                }
+              ],
+              "correct_option_ids": [
+                43406
+              ],
+              "correct_option_labels": [
+                "C"
+              ],
+              "correct_option_texts": [
+                "40 g mol^-1"
+              ],
+              "explanation": "We know that, ${PV = \\frac{{mRT}}{M}}$\nFor unknown gas, P_1V_1 = ${\\frac{{{m_1}R{T_1}}}{{{M_1}}}}$\nFor H_2 gas, P_2V_2${ = \\frac{{{m_2}R{T_2}}}{{{M_2}}}}$\nHere, P_1V_1 = P_2V_2\nHence, ${\\frac{{{m_1}R{T_1}}}{{{M_1}}} = \\frac{{{m_2}R{T_2}}}{{{M_2}}}\\;}$\n${ \\Rightarrow \\frac{{2.9\\;g \\times R \\times 368K}}{{{M_1}}} = \\frac{{0.184g\\; \\times R \\times 290K}}{{2\\;g/mol}}}$\n$\\Rightarrow$ Molar mass of unknown gas, M_1 = 40 g/mol"
+            },
+            {
+              "questionID": 22053,
+              "question": "A mixture of dihydrogen and dioxygen at one bar pressure contains 20% by weight of dihydrogen. Calculate the partial pressure of dihydrogen.",
+              "question_raw": "<p>A mixture of dihydrogen and dioxygen at one bar pressure contains 20% by weight of dihydrogen. Calculate the partial pressure of dihydrogen.</p>",
+              "options": [
+                {
+                  "label": "A",
+                  "id": 43413,
+                  "text": "1.12 bar",
+                  "is_correct": false
+                },
+                {
+                  "label": "B",
+                  "id": 43411,
+                  "text": "0.65 bar",
+                  "is_correct": false
+                },
+                {
+                  "label": "C",
+                  "id": 43412,
+                  "text": "0.97 bar",
+                  "is_correct": false
+                },
+                {
+                  "label": "D",
+                  "id": 43410,
+                  "text": "0.8 bar",
+                  "is_correct": true
+                }
+              ],
+              "correct_option_ids": [
+                43410
+              ],
+              "correct_option_labels": [
+                "D"
+              ],
+              "correct_option_texts": [
+                "0.8 bar"
+              ],
+              "explanation": "A mixture of H_2_ and O_2 contains 20% by weight of H_2 means H_2 = 20g and O_2 = 80g\nmoles of hydrogen, $n_{H_2}\\;=\\frac{20}2$ = 10 mol\nmoles of oxygen, $n_{O_2} = \\frac{80}{32}$ = 2.5 mol\nmole fraction of hydrogen,$\\begin{array}{l}{x_H}_{{}_2\\;}=\\frac{n_{H_2}\\;}{n_{H_2}+n_{O_2}}=\\frac{10}{10+2.5}=\\;0.8\\\\\\end{array}$\npartial pressure of H_2, $P_{H_2}=P_{Total}\\times x_{H_2}=1bar\\times0.8=0.8\\;bar$"
+            },
+            {
+              "questionID": 22054,
+              "question": "The vapor pressure of different substances at the same temperature increases if:",
+              "question_raw": "<p>The vapor pressure of different substances at the same temperature increases if:</p>",
+              "options": [
+                {
+                  "label": "A",
+                  "id": 43415,
+                  "text": "the intermolecular forces of the substance are strong.",
+                  "is_correct": false
+                },
+                {
+                  "label": "B",
+                  "id": 43414,
+                  "text": "the intermolecular forces of the substance are weak.",
+                  "is_correct": true
+                },
+                {
+                  "label": "C",
+                  "id": 43417,
+                  "text": "the molecules of the substance are ionic bonded.",
+                  "is_correct": false
+                },
+                {
+                  "label": "D",
+                  "id": 43416,
+                  "text": "the molecules of the substance are covalent bonded.",
+                  "is_correct": false
+                }
+              ],
+              "correct_option_ids": [
+                43414
+              ],
+              "correct_option_labels": [
+                "B"
+              ],
+              "correct_option_texts": [
+                "the intermolecular forces of the substance are weak."
+              ],
+              "explanation": "Vapour pressure of a substance is inversely proportional to the intermolecular forces between molecules."
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "testPaperID": 954,
+      "testPaperName": "States of Matter CBSE Online Test 04",
+      "is_paid": true,
+      "category_full_name": "CBSE > Class 11 > Chemistry > States of Matter - Gases and Liquids (FA ONLY)",
+      "noOfQuestions": 15,
+      "has_answers": true,
+      "sections": [
+        {
+          "sectionName": "General",
+          "sectionID": null,
+          "questions": [
+            {
+              "questionID": 22055,
+              "question": "A person living in Shimla observed that cooking food without using pressure cooker takes more time. The reason for this observation is that at high altitude:",
+              "question_raw": "A person living in Shimla observed that cooking food without using pressure cooker takes more time. The reason for this observation is that at high altitude:",
+              "options": [
+                {
+                  "label": "A",
+                  "id": 43420,
+                  "text": "temperature decreases",
+                  "is_correct": false
+                },
+                {
+                  "label": "B",
+                  "id": 43421,
+                  "text": "temperature increases",
+                  "is_correct": false
+                },
+                {
+                  "label": "C",
+                  "id": 43419,
+                  "text": "pressure increases",
+                  "is_correct": false
+                },
+                {
+                  "label": "D",
+                  "id": 43418,
+                  "text": "pressure decreases",
+                  "is_correct": true
+                }
+              ],
+              "correct_option_ids": [
+                43418
+              ],
+              "correct_option_labels": [
+                "D"
+              ],
+              "correct_option_texts": [
+                "pressure decreases"
+              ],
+              "explanation": "As we move to higher altitude, the atmospheric pressure decreases. Therefore, boiling point of water also decreases, hence , cooking of food takes longer time without using pressure cooker."
+            },
+            {
+              "questionID": 22056,
+              "question": "Which of the following property of water can be used to explain the spherical shape of rain droplets?",
+              "question_raw": "Which of the following property of water can be used to explain the spherical shape of rain droplets?",
+              "options": [
+                {
+                  "label": "A",
+                  "id": 43425,
+                  "text": "pressure",
+                  "is_correct": false
+                },
+                {
+                  "label": "B",
+                  "id": 43423,
+                  "text": "viscosity",
+                  "is_correct": false
+                },
+                {
+                  "label": "C",
+                  "id": 43422,
+                  "text": "surface tension",
+                  "is_correct": true
+                },
+                {
+                  "label": "D",
+                  "id": 43424,
+                  "text": "critical phenomena",
+                  "is_correct": false
+                }
+              ],
+              "correct_option_ids": [
+                43422
+              ],
+              "correct_option_labels": [
+                "C"
+              ],
+              "correct_option_texts": [
+                "surface tension"
+              ],
+              "explanation": "Due to surface Tension, the water droplet tends to acquire minimum surface area, hence water droplet attains spherical shape."
+            },
+            {
+              "questionID": 22057,
+              "question": "A plot of volume (V) versus temperature (T) for a gas at constant pressure is a straight line passing through the origin. The plots at different values of pressure are shown in Figure. Which of the following order of pressure is correct for this gas?",
+              "question_raw": "<p>A plot of volume (V) versus temperature (T) for a gas at constant pressure is a straight line passing through the origin. The plots at different values of pressure are shown in Figure. Which of the following order of pressure is correct for this gas?<br />\r\n<img src=\"https://media-mycbseguide.s3.amazonaws.com/images/testpaper/1.04.11.05.48.Ques.jpg\" style=\"width: 200px; height: 194px;\" /></p>",
+              "options": [
+                {
+                  "label": "A",
+                  "id": 43427,
+                  "text": "p_1 > p_2 > p_3 > p_4",
+                  "is_correct": false
+                },
+                {
+                  "label": "B",
+                  "id": 43428,
+                  "text": "p_1 = p_2 = p_3 = p_4",
+                  "is_correct": false
+                },
+                {
+                  "label": "C",
+                  "id": 43426,
+                  "text": "P_1 < P_2 < P_3 < P_4",
+                  "is_correct": true
+                },
+                {
+                  "label": "D",
+                  "id": 43429,
+                  "text": "p1 < p_2 = p_3 < p_4",
+                  "is_correct": false
+                }
+              ],
+              "correct_option_ids": [
+                43426
+              ],
+              "correct_option_labels": [
+                "C"
+              ],
+              "correct_option_texts": [
+                "P_1 < P_2 < P_3 < P_4"
+              ],
+              "explanation": "Keeping Temperature constant we know V α 1/P . So as P increases V decreases."
+            },
+            {
+              "questionID": 22058,
+              "question": "The interaction energy of London force is inversely proportional to sixth power of the distance between two interacting particles but their magnitude depends upon",
+              "question_raw": "The interaction energy of London force is inversely proportional to sixth power of the distance between two interacting particles but their magnitude depends upon",
+              "options": [
+                {
+                  "label": "A",
+                  "id": 43431,
+                  "text": "charge of interacting particles",
+                  "is_correct": false
+                },
+                {
+                  "label": "B",
+                  "id": 43432,
+                  "text": "mass of interacting particles",
+                  "is_correct": false
+                },
+                {
+                  "label": "C",
+                  "id": 43430,
+                  "text": "polarisability of interacting particles",
+                  "is_correct": true
+                },
+                {
+                  "label": "D",
+                  "id": 43433,
+                  "text": "strength of permanent dipoles in the particles",
+                  "is_correct": false
+                }
+              ],
+              "correct_option_ids": [
+                43430
+              ],
+              "correct_option_labels": [
+                "C"
+              ],
+              "correct_option_texts": [
+                "polarisability of interacting particles"
+              ],
+              "explanation": "London dispersion forces operate only over very short distance. The energy of interaction varies as 1/(distance between two interacting particles)^6.^ Large or more complex are the molecules, greater is the magnitude of London forces. This is obviously due to the fact that the large electron clouds are easily distorted or polarised. Hence, greater the polarisability of the interacting particles, greater is the magnitude of the interaction energy."
+            },
+            {
+              "questionID": 22059,
+              "question": "Dipole-dipole forces act between the molecules possessing permanent dipole. Ends of dipoles possess ‘partial charges’. The partial charge is",
+              "question_raw": "Dipole-dipole forces act between the molecules possessing permanent dipole. Ends of dipoles possess ‘partial charges’. The partial charge is",
+              "options": [
+                {
+                  "label": "A",
+                  "id": 43434,
+                  "text": "less than unit electronic charge",
+                  "is_correct": true
+                },
+                {
+                  "label": "B",
+                  "id": 43437,
+                  "text": "double the unit electronic charge",
+                  "is_correct": false
+                },
+                {
+                  "label": "C",
+                  "id": 43436,
+                  "text": "equal to unit electronic charge",
+                  "is_correct": false
+                },
+                {
+                  "label": "D",
+                  "id": 43435,
+                  "text": "more than unit electronic charge",
+                  "is_correct": false
+                }
+              ],
+              "correct_option_ids": [
+                43434
+              ],
+              "correct_option_labels": [
+                "A"
+              ],
+              "correct_option_texts": [
+                "less than unit electronic charge"
+              ],
+              "explanation": "Partial charge is a small charge developed by displacement of electrons. It is less than unit electronic charge and is represented as δ^+ or δ^–"
+            },
+            {
+              "questionID": 22060,
+              "question": "The pressure of a 1:4 mixture of dihydrogen and dioxygen enclosed in a vessel is one atmosphere. What would be the partial pressure of dioxygen?",
+              "question_raw": "<p>The pressure of a 1:4 mixture of dihydrogen and dioxygen enclosed in a vessel is one atmosphere. What would be the partial pressure of dioxygen?</p>",
+              "options": [
+                {
+                  "label": "A",
+                  "id": 43438,
+                  "text": "$8\\times10^4\\;Nm^{-2}$",
+                  "is_correct": true
+                },
+                {
+                  "label": "B",
+                  "id": 43441,
+                  "text": "0.25 atm",
+                  "is_correct": false
+                },
+                {
+                  "label": "C",
+                  "id": 43440,
+                  "text": "$0.008\\;Nm^{-2}$",
+                  "is_correct": false
+                },
+                {
+                  "label": "D",
+                  "id": 43439,
+                  "text": "$0.{\\text{8 }} \\times {\\text{ 1}}{0^{\\text{5}}}$atm",
+                  "is_correct": false
+                }
+              ],
+              "correct_option_ids": [
+                43438
+              ],
+              "correct_option_labels": [
+                "A"
+              ],
+              "correct_option_texts": [
+                "$8\\times10^4\\;Nm^{-2}$"
+              ],
+              "explanation": "moles of H_2 and O_2 are 1 and 4.\nmoles of ${O_2} = \\frac{4}{5}$\nPartial pressure of O_2 = mole fraction $ \\times $ total pressure $ = \\frac{4}{5} \\times 1 = 0.8atm$\n$ = 0.8 \\times {10^5}N{m^{ - 2}} = 8 \\times {10^4}N{m^{ - 2}}$"
+            },
+            {
+              "questionID": 22061,
+              "question": "As the temperature increases, average kinetic energy of molecules increases. What would be the effect of increase of temperature on pressure provided the volume is constant?",
+              "question_raw": "As the temperature increases, average kinetic energy of molecules increases. What would be the effect of increase of temperature on pressure provided the volume is constant?",
+              "options": [
+                {
+                  "label": "A",
+                  "id": 43443,
+                  "text": "decreases",
+                  "is_correct": false
+                },
+                {
+                  "label": "B",
+                  "id": 43442,
+                  "text": "increases",
+                  "is_correct": true
+                },
+                {
+                  "label": "C",
+                  "id": 43444,
+                  "text": "remains same",
+                  "is_correct": false
+                },
+                {
+                  "label": "D",
+                  "id": 43445,
+                  "text": "becomes half",
+                  "is_correct": false
+                }
+              ],
+              "correct_option_ids": [
+                43442
+              ],
+              "correct_option_labels": [
+                "B"
+              ],
+              "correct_option_texts": [
+                "increases"
+              ],
+              "explanation": "P α T at constant volume.This is according to Gay Lussac’s law-“ At constant volume, the pressure of a given mass of a gas is directly proportional to its absolute temperature.”"
+            },
+            {
+              "questionID": 22062,
+              "question": "Gases possess characteristic critical temperature which depends upon the magnitude of intermolecular forces between the particles. Following are the critical temperatures of some gases. From the data what would be the order of liquefaction of these gases? Start writing the order from the gas liquefying first.\n Gases\r\n H_2\r\n He\r\n O_2\r\n N_2\r\n Critical temperature in Kelvin\r\n 33.2\r\n 5.3\r\n 154.3\r\n 126",
+              "question_raw": "<p>Gases possess characteristic critical temperature which depends upon the magnitude of intermolecular forces between the particles. Following are the critical temperatures of some gases. From the data what would be the order of liquefaction of these gases? Start writing the order from the gas liquefying first.</p>\r\n\r\n<table border=\"1\" cellpadding=\"3\" cellspacing=\"0\" style=\"width:100%;\">\r\n\t<thead>\r\n\t\t<tr>\r\n\t\t\t<th scope=\"col\">Gases</th>\r\n\t\t\t<th scope=\"col\">H<sub>2</sub></th>\r\n\t\t\t<th scope=\"col\">He</th>\r\n\t\t\t<th scope=\"col\">O<sub>2</sub></th>\r\n\t\t\t<th scope=\"col\">N<sub>2</sub></th>\r\n\t\t</tr>\r\n\t</thead>\r\n\t<tbody>\r\n\t\t<tr>\r\n\t\t\t<td style=\"text-align: center;\"><strong>Critical temperature in Kelvin</strong></td>\r\n\t\t\t<td style=\"text-align: center;\"><strong>33.2</strong></td>\r\n\t\t\t<td style=\"text-align: center;\"><strong>5.3</strong></td>\r\n\t\t\t<td style=\"text-align: center;\"><strong>154.3</strong></td>\r\n\t\t\t<td style=\"text-align: center;\"><strong>126</strong></td>\r\n\t\t</tr>\r\n\t</tbody>\r\n</table>\r\n",
+              "options": [
+                {
+                  "label": "A",
+                  "id": 43446,
+                  "text": "${{\\text{O}}_{\\text{2}}},{\\text{ }}{{\\text{N}}_{\\text{2}}},{\\text{ }}{{\\text{H}}_{\\text{2}}},{\\text{ He}}$",
+                  "is_correct": true
+                },
+                {
+                  "label": "B",
+                  "id": 43448,
+                  "text": "${\\text{He}},{\\text{ }}{{\\text{O}}_{\\text{2}}},{\\text{ }}{{\\text{H}}_{\\text{2}}},{\\text{ }}{{\\text{N}}_{\\text{2}}}$",
+                  "is_correct": false
+                },
+                {
+                  "label": "C",
+                  "id": 43449,
+                  "text": "${{\\text{N}}_{\\text{2}}},{\\text{ }}{{\\text{O}}_{\\text{2}}},{\\text{ He}},{\\text{ }}{{\\text{H}}_{\\text{2}}}$",
+                  "is_correct": false
+                },
+                {
+                  "label": "D",
+                  "id": 43447,
+                  "text": "${{\\text{H}}_{\\text{2}}},{\\text{ He}},{\\text{ }}{{\\text{O}}_{\\text{2}}},{\\text{ }}{{\\text{N}}_{\\text{2}}}$",
+                  "is_correct": false
+                }
+              ],
+              "correct_option_ids": [
+                43446
+              ],
+              "correct_option_labels": [
+                "A"
+              ],
+              "correct_option_texts": [
+                "${{\\text{O}}_{\\text{2}}},{\\text{ }}{{\\text{N}}_{\\text{2}}},{\\text{ }}{{\\text{H}}_{\\text{2}}},{\\text{ He}}$"
+              ],
+              "explanation": "T_c = $\\frac{8a}{27}$Rb. As T_c increases ‘a’ increases means force of attraction between molecules also increase hence liquification increases.\nIn orther words, more the critical temperature more will be the ease of liquification."
+            },
+            {
+              "questionID": 22063,
+              "question": "The domestic power supply in India is:",
+              "question_raw": "<p>The domestic power supply in India is:</p>",
+              "options": [
+                {
+                  "label": "A",
+                  "id": 43451,
+                  "text": "24V DC",
+                  "is_correct": false
+                },
+                {
+                  "label": "B",
+                  "id": 43452,
+                  "text": "110V, 60 Hz",
+                  "is_correct": false
+                },
+                {
+                  "label": "C",
+                  "id": 43453,
+                  "text": "416V , 60Hz",
+                  "is_correct": false
+                },
+                {
+                  "label": "D",
+                  "id": 43450,
+                  "text": "220V, 50Hz",
+                  "is_correct": true
+                }
+              ],
+              "correct_option_ids": [
+                43450
+              ],
+              "correct_option_labels": [
+                "D"
+              ],
+              "correct_option_texts": [
+                "220V, 50Hz"
+              ],
+              "explanation": "The domestic power supply in India is 220V voltage and 50Hz frequency."
+            },
+            {
+              "questionID": 22064,
+              "question": "What is SI unit of viscosity coefficient$\\left( \\eta \\right)$?",
+              "question_raw": "<p>What is SI unit of viscosity coefficient<span class=\"math-tex\">{tex}\\left( \\eta \\right){/tex}</span>?</p>",
+              "options": [
+                {
+                  "label": "A",
+                  "id": 43456,
+                  "text": "km^-2s",
+                  "is_correct": false
+                },
+                {
+                  "label": "B",
+                  "id": 43454,
+                  "text": "Nsm^-2",
+                  "is_correct": true
+                },
+                {
+                  "label": "C",
+                  "id": 43457,
+                  "text": "Nm^-2",
+                  "is_correct": false
+                },
+                {
+                  "label": "D",
+                  "id": 43455,
+                  "text": "Pascal",
+                  "is_correct": false
+                }
+              ],
+              "correct_option_ids": [
+                43454
+              ],
+              "correct_option_labels": [
+                "B"
+              ],
+              "correct_option_texts": [
+                "Nsm^-2"
+              ],
+              "explanation": "Units of coefficient of viscosity, $\\eta=\\frac{Fd}{AV}\\;=\\;\\frac{Nm}{m^2ms^{-1}}=\\;Nsm^{-2}$"
+            },
+            {
+              "questionID": 22065,
+              "question": "Atmospheric pressures recorded in different cities are as follows: Consider the above data and mark the place at which liquid will boil first.\n Cities\r\n Shimla\r\n Bangalore\r\n Delhi\r\n Mumbai\r\n p in N/M^2\r\n 1.01 $\\times$ 10^5\r\n 1.2 $\\times$ 10^5\r\n 1.02 $\\times$ 10^5\r\n 1.21 $\\times$ 10^5",
+              "question_raw": "<p>Atmospheric pressures recorded in different cities are as follows: Consider the above data and mark the place at which liquid will boil first.</p>\r\n\r\n<table border=\"1\" cellpadding=\"3\" cellspacing=\"0\" style=\"width:100%;\">\r\n\t<tbody>\r\n\t\t<tr>\r\n\t\t\t<td style=\"text-align: center;\">Cities</td>\r\n\t\t\t<td style=\"text-align: center;\">Shimla</td>\r\n\t\t\t<td style=\"text-align: center;\">Bangalore</td>\r\n\t\t\t<td style=\"text-align: center;\">Delhi</td>\r\n\t\t\t<td style=\"text-align: center;\">Mumbai</td>\r\n\t\t</tr>\r\n\t\t<tr>\r\n\t\t\t<td style=\"text-align: center;\">p in N/M<sup>2</sup></td>\r\n\t\t\t<td style=\"text-align: center;\">1.01&nbsp;<span class=\"math-tex\">{tex}\\times{/tex}</span>&nbsp;10<sup>5</sup></td>\r\n\t\t\t<td style=\"text-align: center;\">1.2&nbsp;<span class=\"math-tex\">{tex}\\times{/tex}</span>&nbsp;10<sup>5</sup></td>\r\n\t\t\t<td style=\"text-align: center;\">1.02&nbsp;<span class=\"math-tex\">{tex}\\times{/tex}</span>&nbsp;10<sup>5</sup></td>\r\n\t\t\t<td style=\"text-align: center;\">1.21&nbsp;<span class=\"math-tex\">{tex}\\times{/tex}</span>&nbsp;10<sup>5</sup></td>\r\n\t\t</tr>\r\n\t</tbody>\r\n</table>",
+              "options": [
+                {
+                  "label": "A",
+                  "id": 43459,
+                  "text": "Bangalore",
+                  "is_correct": false
+                },
+                {
+                  "label": "B",
+                  "id": 43460,
+                  "text": "Delhi",
+                  "is_correct": false
+                },
+                {
+                  "label": "C",
+                  "id": 43461,
+                  "text": "Mumbai",
+                  "is_correct": false
+                },
+                {
+                  "label": "D",
+                  "id": 43458,
+                  "text": "Shimla",
+                  "is_correct": true
+                }
+              ],
+              "correct_option_ids": [
+                43458
+              ],
+              "correct_option_labels": [
+                "D"
+              ],
+              "correct_option_texts": [
+                "Shimla"
+              ],
+              "explanation": "Boiling point of the given liquid decreases with decrease in the atmospheric pressure."
+            },
+            {
+              "questionID": 22066,
+              "question": "Which curve in Figure represents the curve of ideal gas?",
+              "question_raw": "<p>Which curve in Figure represents the curve of ideal gas?<br />\r\n<img src=\"https://media-mycbseguide.s3.amazonaws.com/images/testpaper/1.04.11.05.57.Ques.jpg\" style=\"width: 160px; height: 142px;\" /></p>",
+              "options": [
+                {
+                  "label": "A",
+                  "id": 43465,
+                  "text": "A and B only",
+                  "is_correct": false
+                },
+                {
+                  "label": "B",
+                  "id": 43464,
+                  "text": "E and F only",
+                  "is_correct": false
+                },
+                {
+                  "label": "C",
+                  "id": 43463,
+                  "text": "C and D only",
+                  "is_correct": false
+                },
+                {
+                  "label": "D",
+                  "id": 43462,
+                  "text": "B only",
+                  "is_correct": true
+                }
+              ],
+              "correct_option_ids": [
+                43462
+              ],
+              "correct_option_labels": [
+                "D"
+              ],
+              "correct_option_texts": [
+                "B only"
+              ],
+              "explanation": "for ideal gas PV = constant whenever temperature is constant, hence PV vs P graph should be a straight line parallel to x axis."
+            },
+            {
+              "questionID": 22067,
+              "question": "Increase in kinetic energy can overcome intermolecular forces of attraction. How will the viscosity of liquid be affected by the increase in temperature?",
+              "question_raw": "Increase in kinetic energy can overcome intermolecular forces of attraction. How will the viscosity of liquid be affected by the increase in temperature?",
+              "options": [
+                {
+                  "label": "A",
+                  "id": 43467,
+                  "text": "Increase",
+                  "is_correct": false
+                },
+                {
+                  "label": "B",
+                  "id": 43466,
+                  "text": "Decrease",
+                  "is_correct": true
+                },
+                {
+                  "label": "C",
+                  "id": 43469,
+                  "text": "No regular pattern will be followed",
+                  "is_correct": false
+                },
+                {
+                  "label": "D",
+                  "id": 43468,
+                  "text": "No effect",
+                  "is_correct": false
+                }
+              ],
+              "correct_option_ids": [
+                43466
+              ],
+              "correct_option_labels": [
+                "B"
+              ],
+              "correct_option_texts": [
+                "Decrease"
+              ],
+              "explanation": "viscosity is inversely proportional to the temperature. As the temperature increase, viscosity decreases."
+            },
+            {
+              "questionID": 22068,
+              "question": "How does the surface tension of a liquid vary with increase in temperature?",
+              "question_raw": "How does the surface tension of a liquid vary with increase in temperature?",
+              "options": [
+                {
+                  "label": "A",
+                  "id": 43472,
+                  "text": "Increases",
+                  "is_correct": false
+                },
+                {
+                  "label": "B",
+                  "id": 43473,
+                  "text": "No regular pattern is followed",
+                  "is_correct": false
+                },
+                {
+                  "label": "C",
+                  "id": 43471,
+                  "text": "Remains same",
+                  "is_correct": false
+                },
+                {
+                  "label": "D",
+                  "id": 43470,
+                  "text": "Decreases",
+                  "is_correct": true
+                }
+              ],
+              "correct_option_ids": [
+                43470
+              ],
+              "correct_option_labels": [
+                "D"
+              ],
+              "correct_option_texts": [
+                "Decreases"
+              ],
+              "explanation": "As temperature increases surface tension decreases beacuse the cohesive forces decreases with increase of molecular thermal activity."
+            },
+            {
+              "questionID": 22069,
+              "question": "With regard to the gaseous state of matter which of the following statements is correct?",
+              "question_raw": "<p>With regard to the gaseous state of matter which of the following statements is correct?</p>",
+              "options": [
+                {
+                  "label": "A",
+                  "id": 43477,
+                  "text": "Fixed position of molecules and complete order of molecules.",
+                  "is_correct": false
+                },
+                {
+                  "label": "B",
+                  "id": 43475,
+                  "text": "Complete order of molecules and the fixed position of molecules.",
+                  "is_correct": false
+                },
+                {
+                  "label": "C",
+                  "id": 43476,
+                  "text": "Random motion of molecules and the fixed position of molecules.",
+                  "is_correct": false
+                },
+                {
+                  "label": "D",
+                  "id": 43474,
+                  "text": "Complete disorder of molecules and Random motion of molecules.",
+                  "is_correct": true
+                }
+              ],
+              "correct_option_ids": [
+                43474
+              ],
+              "correct_option_labels": [
+                "D"
+              ],
+              "correct_option_texts": [
+                "Complete disorder of molecules and Random motion of molecules."
+              ],
+              "explanation": "The extent of disorder or randomness among three sates of the matter is gases > liquid > solids."
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "testPaperID": 955,
+      "testPaperName": "States of Matter CBSE Online Test 05",
+      "is_paid": true,
+      "category_full_name": "CBSE > Class 11 > Chemistry > States of Matter - Gases and Liquids (FA ONLY)",
+      "noOfQuestions": 15,
+      "has_answers": true,
+      "sections": [
+        {
+          "sectionName": "General",
+          "sectionID": null,
+          "questions": [
+            {
+              "questionID": 22070,
+              "question": "Which of the following figures does not represent 1 mole of dioxygen gas at STP?",
+              "question_raw": "<p>Which of the following figures <strong>does not </strong>represent 1 mole of dioxygen gas at STP?</p>",
+              "options": [
+                {
+                  "label": "A",
+                  "id": 43479,
+                  "text": "22.7 liters of gas",
+                  "is_correct": false
+                },
+                {
+                  "label": "B",
+                  "id": 43481,
+                  "text": "32 grams of gas",
+                  "is_correct": false
+                },
+                {
+                  "label": "C",
+                  "id": 43480,
+                  "text": "6.022 $\\times$ 10^23 dioxygen molecules",
+                  "is_correct": false
+                },
+                {
+                  "label": "D",
+                  "id": 43478,
+                  "text": "16 grams of gas",
+                  "is_correct": true
+                }
+              ],
+              "correct_option_ids": [
+                43478
+              ],
+              "correct_option_labels": [
+                "D"
+              ],
+              "correct_option_texts": [
+                "16 grams of gas"
+              ],
+              "explanation": "1 mole of O_2 at STP has mass 32g and volume 22.7L. It contains 6.022 $\\times$ 10^23 molecules of dioxygen."
+            },
+            {
+              "questionID": 22071,
+              "question": "Under which of the following two conditions, a gas deviates most from the ideal behaviour?",
+              "question_raw": "<p>Under which of the following two conditions, a gas deviates most from the ideal behaviour?</p>",
+              "options": [
+                {
+                  "label": "A",
+                  "id": 43484,
+                  "text": "Low temperature only.",
+                  "is_correct": false
+                },
+                {
+                  "label": "B",
+                  "id": 43483,
+                  "text": "Low pressure only.",
+                  "is_correct": false
+                },
+                {
+                  "label": "C",
+                  "id": 43485,
+                  "text": "High temperature and low pressure.",
+                  "is_correct": false
+                },
+                {
+                  "label": "D",
+                  "id": 43482,
+                  "text": "High pressure and low temperature.",
+                  "is_correct": true
+                }
+              ],
+              "correct_option_ids": [
+                43482
+              ],
+              "correct_option_labels": [
+                "D"
+              ],
+              "correct_option_texts": [
+                "High pressure and low temperature."
+              ],
+              "explanation": "A gas which obeys the ideal gas equation, pV = nRT under all conditions of temperature and pressure is called an ‘ideal gas’.\nHowever, there is no gas that obeys the ideal gas equation under all conditions of temperature and pressure. Hence, the concept of an ideal gas is only theoretical or hypothetical. The gases are found to obey the gas laws fairly well when the pressure is low or the temperature is high.\nSuch gases are, therefore, known as ‘real gases’. All gases are real gases. Hence, at high pressure and low temperature, a real gas deviates most from ideal behaviour."
+            },
+            {
+              "questionID": 22072,
+              "question": "Which of the following changes decrease the vapour pressure of water kept in a sealed vessel?",
+              "question_raw": "<p>Which of the following changes decrease the vapour pressure of water kept in a sealed vessel?</p>",
+              "options": [
+                {
+                  "label": "A",
+                  "id": 43487,
+                  "text": "Decreasing the quantity of water.",
+                  "is_correct": false
+                },
+                {
+                  "label": "B",
+                  "id": 43486,
+                  "text": "Adding salt to water.",
+                  "is_correct": true
+                },
+                {
+                  "label": "C",
+                  "id": 43489,
+                  "text": "Increasing the temperature of water.",
+                  "is_correct": false
+                },
+                {
+                  "label": "D",
+                  "id": 43488,
+                  "text": "Decreasing the volume of the vessel to one-half.",
+                  "is_correct": false
+                }
+              ],
+              "correct_option_ids": [
+                43486
+              ],
+              "correct_option_labels": [
+                "B"
+              ],
+              "correct_option_texts": [
+                "Adding salt to water."
+              ],
+              "explanation": "Adding a non-volatile solute like salt decreases the vapour pressure of water. This is because some of the solute(salt) particles occupy the position of solvent molecules (water) on the liquid surface. So escaping the tendency of molecules (water) is reduced and hence vapour pressure decreases."
+            },
+            {
+              "questionID": 22073,
+              "question": "Heat of vaporization is always larger than the Heat of fusion because it takes:",
+              "question_raw": "<p>Heat of vaporization is always larger than the Heat of fusion because it takes:</p>",
+              "options": [
+                {
+                  "label": "A",
+                  "id": 43493,
+                  "text": "no energy to separate particles completely than just to free them from their oscillating positions in the solid.",
+                  "is_correct": false
+                },
+                {
+                  "label": "B",
+                  "id": 43491,
+                  "text": "less energy to separate particles completely than just to free them from their fixed positions in the solid.",
+                  "is_correct": false
+                },
+                {
+                  "label": "C",
+                  "id": 43492,
+                  "text": "more energy to separate particles completely than just to free them from their random positions in the solid.",
+                  "is_correct": false
+                },
+                {
+                  "label": "D",
+                  "id": 43490,
+                  "text": "more energy to separate particles completely than just to free them from their fixed positions in the solid.",
+                  "is_correct": true
+                }
+              ],
+              "correct_option_ids": [
+                43490
+              ],
+              "correct_option_labels": [
+                "D"
+              ],
+              "correct_option_texts": [
+                "more energy to separate particles completely than just to free them from their fixed positions in the solid."
+              ],
+              "explanation": "While melting (fusion) of a substance the molecules get separated to some extent but when the same substance is vaporised the molecules get separated to a greater extent which requires more energy, i.e. more heat."
+            },
+            {
+              "questionID": 22074,
+              "question": "The fraction of molecules with enough energy to escape the liquid",
+              "question_raw": "<p>The fraction of molecules with enough energy to escape the liquid</p>",
+              "options": [
+                {
+                  "label": "A",
+                  "id": 43494,
+                  "text": "is greater at the higher temperature.",
+                  "is_correct": true
+                },
+                {
+                  "label": "B",
+                  "id": 43495,
+                  "text": "is lesser at the higher temperature",
+                  "is_correct": false
+                },
+                {
+                  "label": "C",
+                  "id": 43496,
+                  "text": "is greater at the lower temperature.",
+                  "is_correct": false
+                },
+                {
+                  "label": "D",
+                  "id": 43497,
+                  "text": "is independent of temperature.",
+                  "is_correct": false
+                }
+              ],
+              "correct_option_ids": [
+                43494
+              ],
+              "correct_option_labels": [
+                "A"
+              ],
+              "correct_option_texts": [
+                "is greater at the higher temperature."
+              ],
+              "explanation": "The fraction of molecules ($\\frac{\\triangle N}N$)with enough energy to escape the liquid is greater at the higher temperature."
+            },
+            {
+              "questionID": 22075,
+              "question": "The ease with which the electron cloud of a particle can be distorted is called _______.",
+              "question_raw": "<p>The ease with which the electron cloud of a particle can be distorted is called _______.</p>",
+              "options": [
+                {
+                  "label": "A",
+                  "id": 43500,
+                  "text": "negativity",
+                  "is_correct": false
+                },
+                {
+                  "label": "B",
+                  "id": 43498,
+                  "text": "polarizability",
+                  "is_correct": true
+                },
+                {
+                  "label": "C",
+                  "id": 43501,
+                  "text": "cloud strength",
+                  "is_correct": false
+                },
+                {
+                  "label": "D",
+                  "id": 43499,
+                  "text": "polarity",
+                  "is_correct": false
+                }
+              ],
+              "correct_option_ids": [
+                43498
+              ],
+              "correct_option_labels": [
+                "B"
+              ],
+              "correct_option_texts": [
+                "polarizability"
+              ],
+              "explanation": "The polarizability in isotropic media is defined as the ratio of the induced dipole moment of an atom to the electric field that produces this dipole moment."
+            },
+            {
+              "questionID": 22076,
+              "question": "Molecules in the interior of liquid experience intermolecular",
+              "question_raw": "<p>Molecules in the interior of liquid experience intermolecular</p>",
+              "options": [
+                {
+                  "label": "A",
+                  "id": 43503,
+                  "text": "repulsion in all directions",
+                  "is_correct": false
+                },
+                {
+                  "label": "B",
+                  "id": 43502,
+                  "text": "attractions in all directions",
+                  "is_correct": true
+                },
+                {
+                  "label": "C",
+                  "id": 43505,
+                  "text": "repulsion away from surface only",
+                  "is_correct": false
+                },
+                {
+                  "label": "D",
+                  "id": 43504,
+                  "text": "attractions towards surface only",
+                  "is_correct": false
+                }
+              ],
+              "correct_option_ids": [
+                43502
+              ],
+              "correct_option_labels": [
+                "B"
+              ],
+              "correct_option_texts": [
+                "attractions in all directions"
+              ],
+              "explanation": "The net force on the molecules presents inside in bulk is zero. For example, the molecule 'p' will experience zero."
+            },
+            {
+              "questionID": 22077,
+              "question": "Surface tension results because",
+              "question_raw": "<p>Surface tension results because</p>",
+              "options": [
+                {
+                  "label": "A",
+                  "id": 43506,
+                  "text": "a liquid tends to minimize the number of molecules at the surface.",
+                  "is_correct": true
+                },
+                {
+                  "label": "B",
+                  "id": 43508,
+                  "text": "a liquid tends to increase the number of molecules at the surface.",
+                  "is_correct": false
+                },
+                {
+                  "label": "C",
+                  "id": 43507,
+                  "text": "a liquid tends to maximize the number of molecules at the surface.",
+                  "is_correct": false
+                },
+                {
+                  "label": "D",
+                  "id": 43509,
+                  "text": "surface molecules have different properties.",
+                  "is_correct": false
+                }
+              ],
+              "correct_option_ids": [
+                43506
+              ],
+              "correct_option_labels": [
+                "A"
+              ],
+              "correct_option_texts": [
+                "a liquid tends to minimize the number of molecules at the surface."
+              ],
+              "explanation": "Surface tension results because a liquid tends to minimize the number of molecules at the surface (i.e to minimize the surface area)."
+            },
+            {
+              "questionID": 22078,
+              "question": "Capillarity results from a competition between the intermolecular forces within the",
+              "question_raw": "<p>Capillarity results from a competition between the intermolecular forces within the</p>",
+              "options": [
+                {
+                  "label": "A",
+                  "id": 43513,
+                  "text": "intermolecular forces within tube walls and liquid (adhesive forces) only.",
+                  "is_correct": false
+                },
+                {
+                  "label": "B",
+                  "id": 43511,
+                  "text": "liquid and intramolecular forces between walls and liquid.",
+                  "is_correct": false
+                },
+                {
+                  "label": "C",
+                  "id": 43512,
+                  "text": "liquid and intramolecular forces between liquid (cohesive forces).",
+                  "is_correct": false
+                },
+                {
+                  "label": "D",
+                  "id": 43510,
+                  "text": "liquid (cohesive forces) and those between the liquid and the tube walls (adhesive forces).",
+                  "is_correct": true
+                }
+              ],
+              "correct_option_ids": [
+                43510
+              ],
+              "correct_option_labels": [
+                "D"
+              ],
+              "correct_option_texts": [
+                "liquid (cohesive forces) and those between the liquid and the tube walls (adhesive forces)."
+              ],
+              "explanation": "Capillarity action results because of intermolecular forces within the liquid (cohesive forces) and those between the liquid and the tube walls (adhesive forces). Generally, capillary action occurs when the adhesion to the walls is stronger than the cohesive forces between the liquid molecules."
+            },
+            {
+              "questionID": 22079,
+              "question": "The van der Waals equation adjusts the measured pressure",
+              "question_raw": "<p>The van der Waals&nbsp;equation adjusts the measured pressure</p>",
+              "options": [
+                {
+                  "label": "A",
+                  "id": 43517,
+                  "text": "up by adding a factor that accounts for intramolecular attractions.",
+                  "is_correct": false
+                },
+                {
+                  "label": "B",
+                  "id": 43516,
+                  "text": "up by subtracting a factor that accounts for intermolecular attractions.",
+                  "is_correct": false
+                },
+                {
+                  "label": "C",
+                  "id": 43515,
+                  "text": "down by adding a factor that accounts for intermolecular attractions.",
+                  "is_correct": false
+                },
+                {
+                  "label": "D",
+                  "id": 43514,
+                  "text": "up by adding a factor that accounts for intermolecular attractions.",
+                  "is_correct": true
+                }
+              ],
+              "correct_option_ids": [
+                43514
+              ],
+              "correct_option_labels": [
+                "D"
+              ],
+              "correct_option_texts": [
+                "up by adding a factor that accounts for intermolecular attractions."
+              ],
+              "explanation": "$\\frac{an^2}{V^2}$ is added. The value of constant 'a' gives the magnitude of attractive forces between molecules of the gas."
+            },
+            {
+              "questionID": 22080,
+              "question": "In van der Waals, an equation of state of the gas law, the constant b is a measure of:",
+              "question_raw": "<p>In van der Waals, an equation of state of the gas law, the constant&nbsp;b&nbsp;is a measure of:</p>",
+              "options": [
+                {
+                  "label": "A",
+                  "id": 43520,
+                  "text": "intermolecular repulsions",
+                  "is_correct": false
+                },
+                {
+                  "label": "B",
+                  "id": 43521,
+                  "text": "intermolecular repulsion per unit volume",
+                  "is_correct": false
+                },
+                {
+                  "label": "C",
+                  "id": 43518,
+                  "text": "volume occupied by molecule",
+                  "is_correct": true
+                },
+                {
+                  "label": "D",
+                  "id": 43519,
+                  "text": "intermolecular attraction",
+                  "is_correct": false
+                }
+              ],
+              "correct_option_ids": [
+                43518
+              ],
+              "correct_option_labels": [
+                "C"
+              ],
+              "correct_option_texts": [
+                "volume occupied by molecule"
+              ],
+              "explanation": "In van der Waals equation of state of the gas law, the constant b is a measure of the volume occupied by the molecules.\nIt gives the effective size of the gas molecules. The greater value of b indicates a larger size of the molecules and smaller compressible volume."
+            },
+            {
+              "questionID": 22081,
+              "question": "Acetylene (C_2H_2), an important fuel in welding, is produced in the laboratory when calcium carbide (CaC_2) reacts with water:${\\text{Ca}}{{\\text{C}}_{\\text{2}}}\\left( {\\text{s}} \\right){\\text{ }} + {\\text{ 2}}{{\\text{H}}_{\\text{2}}}0\\left( {\\text{l}} \\right){\\text{ }} \\to {\\text{ }}{{\\text{C}}_{\\text{2}}}{{\\text{H}}_{\\text{2}}}\\left( {\\text{g}} \\right){\\text{ }} + {\\text{ Ca}}{\\left( {{\\text{OH}}} \\right)_{\\text{2}}}\\left( {{\\text{aq}}} \\right)$ For a sample of acetylene collected over water, total gas pressure (adjusted to barometric pressure) is 738 torr and the volume is 543 mL. At the temperature of the gas (23°C), the vapour pressure of water is 21 torr. How many grams of acetylene are collected?",
+              "question_raw": "<p>Acetylene (C<sub>2</sub>H<sub>2</sub>), an important fuel in welding, is produced in the laboratory when calcium carbide (CaC<sub>2</sub>) reacts with water:<span class=\"math-tex\">{tex}{\\text{Ca}}{{\\text{C}}_{\\text{2}}}\\left( {\\text{s}} \\right){\\text{ }} + {\\text{ 2}}{{\\text{H}}_{\\text{2}}}0\\left( {\\text{l}} \\right){\\text{ }} \\to {\\text{ }}{{\\text{C}}_{\\text{2}}}{{\\text{H}}_{\\text{2}}}\\left( {\\text{g}} \\right){\\text{ }} + {\\text{ Ca}}{\\left( {{\\text{OH}}} \\right)_{\\text{2}}}\\left( {{\\text{aq}}} \\right){/tex}</span> For a sample of acetylene collected over water, total gas pressure (adjusted to barometric pressure) is 738 torr and the volume is 543 mL. At the temperature of the gas&nbsp;(23&deg;C), the vapour pressure of water is 21&nbsp;torr. How many grams of acetylene are collected?</p>",
+              "options": [
+                {
+                  "label": "A",
+                  "id": 43523,
+                  "text": "0.832g C_2H_2",
+                  "is_correct": false
+                },
+                {
+                  "label": "B",
+                  "id": 43522,
+                  "text": "0.540g C_2H_2",
+                  "is_correct": true
+                },
+                {
+                  "label": "C",
+                  "id": 43524,
+                  "text": "1.236g C_2H_2",
+                  "is_correct": false
+                },
+                {
+                  "label": "D",
+                  "id": 43525,
+                  "text": "0.763g C_2H_2",
+                  "is_correct": false
+                }
+              ],
+              "correct_option_ids": [
+                43522
+              ],
+              "correct_option_labels": [
+                "B"
+              ],
+              "correct_option_texts": [
+                "0.540g C_2H_2"
+              ],
+              "explanation": "The total pressure is the sum of the partial pressure due to C_2H_2(g) and H_2O(g):\nP_total = 748mm of Hg = pH_2O + pC_2H_2 = (21 mm of Hg) + PC_2H_2;PC_2H_2 = (738 - 21) = 717mm of Hg\nAs 760 mm of Hg corresponds to 1 atm,\n$P{c_2}{H_2} = \\frac{{717}}{{760}}atm $ = 0.943atm.\nUsing the ideal gas law, pV = nRT,\nThe number of moles of C_2H_2 formed is: $n = \\frac{{pV}}{{RT}} = \\frac{{(0.943atm) \\times (0.543L)}}{{(0.08206\\;Latm\\;{K^{ - 1}}mo{l^{ - 1}})\\left\\{ {(23 + 273)K} \\right\\}}} $ = 0.0207mol\nThe molar mass of C_2H_2 is {2 $\\times$ 12(C)} + {2 $\\times$ 1(H)} = 26g mol^-1\nThis amount, therefore, corresponds to a mass of acetylene collected\nmass = number of moles $ \\times $ molar mass = 0.0207mol $\\times$ 26g mol^-1 = 0.540g"
+            },
+            {
+              "questionID": 22082,
+              "question": "A scale model of a blimp rises when it is filled with helium to a volume of 55.0 dm^3. When 1.10 mol of He is added to the blimp, the volume is 26.2 dm^3. How many more grams of He must be added to make it rise? Assume constant T and P.",
+              "question_raw": "<p>A scale model of a blimp rises when it is filled with helium to a volume of 55.0 dm<sup>3</sup>. When 1.10 mol of He is added to the blimp, the volume is 26.2 dm<sup>3</sup>. How many more grams of He must be added to make it rise? Assume constant T and P.</p>",
+              "options": [
+                {
+                  "label": "A",
+                  "id": 43528,
+                  "text": "4.26 g He",
+                  "is_correct": false
+                },
+                {
+                  "label": "B",
+                  "id": 43529,
+                  "text": "3.98 g He",
+                  "is_correct": false
+                },
+                {
+                  "label": "C",
+                  "id": 43527,
+                  "text": "5.21 g He",
+                  "is_correct": false
+                },
+                {
+                  "label": "D",
+                  "id": 43526,
+                  "text": "4.84 g He",
+                  "is_correct": true
+                }
+              ],
+              "correct_option_ids": [
+                43526
+              ],
+              "correct_option_labels": [
+                "D"
+              ],
+              "correct_option_texts": [
+                "4.84 g He"
+              ],
+              "explanation": "By, Avogadro's Law; $\\frac{{{V_1}}}{{{V_2}}} = \\frac{{{n_1}}}{{{n_2}}}$\n$\\frac{{55}}{{26.2}} = \\frac{{{n_1}}}{{1.10}}$\nSo, ${n_1} = \\frac{{55 \\times 1.10}}{{26.2}}$ = 2.309mol\nn_1 = 2.309 mol.\nSo, $\\Delta n$ = 2.309 - 1.10 = 1.209 mol of He\nTherefore mass of He that should be added = (2.309 - 1.10)mol $\\times$ 4.003 g/mol = 4.84g."
+            },
+            {
+              "questionID": 22083,
+              "question": "Hot H_2 can reduce copper(II) oxide, forming pure metal and H_2O. What volume of H_2 at 765°C torr and 225 is needed to reduce 35.5 g of copper(II) oxide?",
+              "question_raw": "<p>Hot H<sub>2&nbsp;</sub>can reduce copper(II) oxide, forming pure metal and H<sub>2</sub>O. What volume of H<sub>2&nbsp;</sub>at 765&deg;C torr and 225 is needed to reduce 35.5 g of copper(II) oxide?</p>",
+              "options": [
+                {
+                  "label": "A",
+                  "id": 43530,
+                  "text": "18.1 L",
+                  "is_correct": true
+                },
+                {
+                  "label": "B",
+                  "id": 43533,
+                  "text": "15.7 L",
+                  "is_correct": false
+                },
+                {
+                  "label": "C",
+                  "id": 43531,
+                  "text": "22.3 L",
+                  "is_correct": false
+                },
+                {
+                  "label": "D",
+                  "id": 43532,
+                  "text": "13.1 L",
+                  "is_correct": false
+                }
+              ],
+              "correct_option_ids": [
+                43530
+              ],
+              "correct_option_labels": [
+                "A"
+              ],
+              "correct_option_texts": [
+                "18.1 L"
+              ],
+              "explanation": "CuO + H_2 $\\to$ Cu + H_2O\n1 mol of H_2 is required to reduce 1 mol of CuO. Mole of CuO = $\\frac{35.5}{79.5}$ = 0.45 mol. So, moles of H_2 = 0.45mol.\nPV = nRT\nHere P = 765torr, n = 0.45mol, T = 498K\nso V = 18.1L"
+            },
+            {
+              "questionID": 22084,
+              "question": "What mass of potassium chloride forms when 5.25 L of chlorine gas at 0.950 atm and 293 K reacts with 17.0 g of potassium?",
+              "question_raw": "<p>What mass of potassium chloride forms when 5.25 L of chlorine gas at 0.950 atm and 293 K reacts with 17.0 g of potassium?</p>",
+              "options": [
+                {
+                  "label": "A",
+                  "id": 43535,
+                  "text": "23.3 g KCl",
+                  "is_correct": false
+                },
+                {
+                  "label": "B",
+                  "id": 43537,
+                  "text": "41.5 g KCl",
+                  "is_correct": false
+                },
+                {
+                  "label": "C",
+                  "id": 43534,
+                  "text": "30.9 g KCl",
+                  "is_correct": true
+                },
+                {
+                  "label": "D",
+                  "id": 43536,
+                  "text": "35.7 g KCl",
+                  "is_correct": false
+                }
+              ],
+              "correct_option_ids": [
+                43534
+              ],
+              "correct_option_labels": [
+                "C"
+              ],
+              "correct_option_texts": [
+                "30.9 g KCl"
+              ],
+              "explanation": "K + 0.5Cl_2 $\\to$ KCl \n1 mol of K reacts with 0.5 mol of Cl_2 gas. Using relation; PV = nRT where P = 0.95 atm, V = 5.25 L and T = 293K\nwe have, n = 0.20733 mol\nSo, moles of Cl_2 = 0.20733 mol\nmole of K = 0.43 mol\nCl_2 is limiting reagent. 0.5 mole of Cl_2 give 1 mole of KCl.\nSo, 0.20733 mole will give 0.414 mole of KCl = 30.9 g"
+            }
+          ]
+        }
+      ]
+    }
+  ]
+}

@@ -1,0 +1,3121 @@
+{
+  "id": 1372,
+  "name": "Sets",
+  "full_name": "CBSE > Class 11 > Mathematics > Sets",
+  "tests": [
+    {
+      "testPaperID": 602,
+      "testPaperName": "Sets Test 01",
+      "is_paid": false,
+      "category_full_name": "CBSE > Class 11 > Mathematics > Sets",
+      "noOfQuestions": 15,
+      "has_answers": true,
+      "sections": [
+        {
+          "sectionName": "General",
+          "sectionID": null,
+          "questions": [
+            {
+              "questionID": 18319,
+              "question": "If A and B are two sets, then $A \\cap (A \\cup B)'$ is equal to",
+              "question_raw": "<p>If A and B are two sets, then&nbsp;<span class=\"math-tex\">{tex}A \\cap (A \\cup B)'{/tex}</span> is equal to</p>",
+              "options": [
+                {
+                  "label": "A",
+                  "id": 28476,
+                  "text": "$\\phi$",
+                  "is_correct": true
+                },
+                {
+                  "label": "B",
+                  "id": 28477,
+                  "text": "A",
+                  "is_correct": false
+                },
+                {
+                  "label": "C",
+                  "id": 28479,
+                  "text": "1",
+                  "is_correct": false
+                },
+                {
+                  "label": "D",
+                  "id": 28478,
+                  "text": "B",
+                  "is_correct": false
+                }
+              ],
+              "correct_option_ids": [
+                28476
+              ],
+              "correct_option_labels": [
+                "A"
+              ],
+              "correct_option_texts": [
+                "$\\phi$"
+              ],
+              "explanation": "$A \\cap (A \\cup B)' = \\phi $ \nSince $(A \\cup B)'$ Set represent the element which are not belongs to it, so there is no common element with the set A. So the answer is null set."
+            },
+            {
+              "questionID": 18320,
+              "question": "Let A and B be two sets such that $n(A)=35,n(B)=42\\quad and\\quad n(A\\cap B)=17$, find $n(A-B)$",
+              "question_raw": "<p>Let A and B be two sets such that&nbsp;<span class=\"math-tex\">{tex}n(A)=35,n(B)=42\\quad and\\quad n(A\\cap B)=17{/tex}</span>, find&nbsp;<span class=\"math-tex\">{tex}n(A-B){/tex}</span></p>\r\n",
+              "options": [
+                {
+                  "label": "A",
+                  "id": 28481,
+                  "text": "17",
+                  "is_correct": false
+                },
+                {
+                  "label": "B",
+                  "id": 28483,
+                  "text": "25",
+                  "is_correct": false
+                },
+                {
+                  "label": "C",
+                  "id": 28482,
+                  "text": "19",
+                  "is_correct": false
+                },
+                {
+                  "label": "D",
+                  "id": 28480,
+                  "text": "18",
+                  "is_correct": true
+                }
+              ],
+              "correct_option_ids": [
+                28480
+              ],
+              "correct_option_labels": [
+                "D"
+              ],
+              "correct_option_texts": [
+                "18"
+              ],
+              "explanation": "$​​​​Given\\quad that\\quad n(A\\cap B)=17\\\\ We\\quad have\\quad A-B=A-(A\\cap B)\\\\ Therefore\\quad n(A-B)=n(A)-n(A\\cap B)=35-17=18$"
+            },
+            {
+              "questionID": 18321,
+              "question": "If A is any set, then",
+              "question_raw": "<p>If A is any set, then</p>\r\n",
+              "options": [
+                {
+                  "label": "A",
+                  "id": 28486,
+                  "text": "A $\\cup$ A' = $\\phi$",
+                  "is_correct": false
+                },
+                {
+                  "label": "B",
+                  "id": 28484,
+                  "text": "A $ \\cup$ A' = U",
+                  "is_correct": true
+                },
+                {
+                  "label": "C",
+                  "id": 28487,
+                  "text": "A $\\cap$ A' = A",
+                  "is_correct": false
+                },
+                {
+                  "label": "D",
+                  "id": 28485,
+                  "text": "A $\\cap$ A' = U",
+                  "is_correct": false
+                }
+              ],
+              "correct_option_ids": [
+                28484
+              ],
+              "correct_option_labels": [
+                "B"
+              ],
+              "correct_option_texts": [
+                "A $ \\cup$ A' = U"
+              ],
+              "explanation": "A $\\cup$ A' = {x $\\in$ U : x $\\in$ A} $\\cup$ {x $\\in$ U : x $\\in$ A} = U"
+            },
+            {
+              "questionID": 18322,
+              "question": "If A and B be any two sets, then (A $\\cup$ B)' is equal to",
+              "question_raw": "<p>If A and B be any two sets, then&nbsp;(A&nbsp;<span class=\"math-tex\">{tex}\\cup{/tex}</span>&nbsp;B)&#39;&nbsp;is equal to</p>\r\n",
+              "options": [
+                {
+                  "label": "A",
+                  "id": 28490,
+                  "text": "A $\\cap$ B",
+                  "is_correct": false
+                },
+                {
+                  "label": "B",
+                  "id": 28489,
+                  "text": "A' $\\cup$ B'",
+                  "is_correct": false
+                },
+                {
+                  "label": "C",
+                  "id": 28488,
+                  "text": "A' $ \\cap$ B'",
+                  "is_correct": true
+                },
+                {
+                  "label": "D",
+                  "id": 28491,
+                  "text": "A $\\cup$ B",
+                  "is_correct": false
+                }
+              ],
+              "correct_option_ids": [
+                28488
+              ],
+              "correct_option_labels": [
+                "C"
+              ],
+              "correct_option_texts": [
+                "A' $ \\cap$ B'"
+              ],
+              "explanation": "x $\\in$ (A $\\cup$ B)'\n$\\Rightarrow$ x $\\notin$ (A $\\cup$ B)\n$\\Rightarrow$ x $\\notin$ A or x $\\notin$ B\n$\\Rightarrow$ x $\\in$ A' and x $\\in$ B'\n$\\Rightarrow$ x $\\in$ A' $\\cap$ B'\n$\\Rightarrow$ (A $\\cup$ B)' $\\subseteq$ A' $\\cap$ B'\nSimilarly, we can show (A' $\\cap$ B') $\\subseteq$ (A $\\cup$ B)'\nSo (A $\\cup$ B)' = (A' $\\cap$ B')"
+            },
+            {
+              "questionID": 18323,
+              "question": "If A and B be any two sets, then (A $\\cap$ B)' is equal to",
+              "question_raw": "<p>If A and B be any two sets, then (A <span class=\"math-tex\">{tex}\\cap{/tex}</span>&nbsp;B)&#39;&nbsp;is equal to</p>",
+              "options": [
+                {
+                  "label": "A",
+                  "id": 28493,
+                  "text": "A' $\\cap$ B'",
+                  "is_correct": false
+                },
+                {
+                  "label": "B",
+                  "id": 28495,
+                  "text": "A $\\cap$ B^'",
+                  "is_correct": false
+                },
+                {
+                  "label": "C",
+                  "id": 28494,
+                  "text": "A $\\cap$ B",
+                  "is_correct": false
+                },
+                {
+                  "label": "D",
+                  "id": 28492,
+                  "text": "A' $\\cup$ B'",
+                  "is_correct": true
+                }
+              ],
+              "correct_option_ids": [
+                28492
+              ],
+              "correct_option_labels": [
+                "D"
+              ],
+              "correct_option_texts": [
+                "A' $\\cup$ B'"
+              ],
+              "explanation": "x $\\in$ A' $\\cup$ B'\n$\\Rightarrow$ x $\\in$ A' or x $\\in$ B'\n$\\Rightarrow$ x $\\in$ A or x $\\notin$ B\n$\\Rightarrow$ x $\\in$ A $\\cap$ B\n$\\Rightarrow$ x $\\notin$ (A $\\cap$ B)\nHence (A $\\cap$ B)' = A' $\\cup$ B'"
+            },
+            {
+              "questionID": 18324,
+              "question": "Let A = {1, 2, 3, 4}, B = {2, 3, 4, 5, 6}, then (A $\\cap$ B) is equal to :",
+              "question_raw": "<p>Let A = {1, 2, 3, 4}, B = {2, 3, 4, 5, 6}, then (A&nbsp;<span class=\"math-tex\">{tex}\\cap{/tex}</span>&nbsp;B)&nbsp;is equal to :</p>",
+              "options": [
+                {
+                  "label": "A",
+                  "id": 28498,
+                  "text": "{5, 6}",
+                  "is_correct": false
+                },
+                {
+                  "label": "B",
+                  "id": 28497,
+                  "text": "{1, 2, 3}",
+                  "is_correct": false
+                },
+                {
+                  "label": "C",
+                  "id": 28496,
+                  "text": "{2, 3, 4}",
+                  "is_correct": true
+                },
+                {
+                  "label": "D",
+                  "id": 28499,
+                  "text": "{1}",
+                  "is_correct": false
+                }
+              ],
+              "correct_option_ids": [
+                28496
+              ],
+              "correct_option_labels": [
+                "C"
+              ],
+              "correct_option_texts": [
+                "{2, 3, 4}"
+              ],
+              "explanation": "Here A = {1, 2, 3, 4} and B = {2, 3, 4, 5, 6}\nA $\\cap$ B = {1, 2, 3, 4} $\\cap$ {2, 3, 4, 5, 6} = {2, 3, 4}"
+            },
+            {
+              "questionID": 18325,
+              "question": "Let U = {1, 2, 3, 4, 5, 6, 7, 8, 9, 10}, A = {1, 2, 5}, B = {6, 7}. Then A $\\cap$ B' is",
+              "question_raw": "<p>Let U = {1, 2, 3, 4, 5, 6, 7, 8, 9, 10}, A = {1, 2, 5}, B = {6, 7}. Then A&nbsp;<span class=\"math-tex\">{tex}\\cap{/tex}</span>&nbsp;B&#39;&nbsp;is</p>",
+              "options": [
+                {
+                  "label": "A",
+                  "id": 28503,
+                  "text": "B’",
+                  "is_correct": false
+                },
+                {
+                  "label": "B",
+                  "id": 28502,
+                  "text": "A’",
+                  "is_correct": false
+                },
+                {
+                  "label": "C",
+                  "id": 28501,
+                  "text": "B",
+                  "is_correct": false
+                },
+                {
+                  "label": "D",
+                  "id": 28500,
+                  "text": "A",
+                  "is_correct": true
+                }
+              ],
+              "correct_option_ids": [
+                28500
+              ],
+              "correct_option_labels": [
+                "D"
+              ],
+              "correct_option_texts": [
+                "A"
+              ],
+              "explanation": "Given U = {1, 2, 3, 4, 5, 6, 7, 8, 9, 10}, A = {1, 2, 5}, B = {6, 7}\nB' = {1, 2, 3, 4, 5, 8, 9, 10}\nA $\\cap$ B' = {1, 2, 5} = A"
+            },
+            {
+              "questionID": 18326,
+              "question": "Let A = {a, b, c}, B = {b, c, d}, C = {a, b, d, e}, then A $\\cap$ (B $\\cup$ C) is",
+              "question_raw": "<p>Let A = {a, b, c}, B = {b, c, d}, C = {a, b, d, e}, then A&nbsp;<span class=\"math-tex\">{tex}\\cap{/tex}</span>&nbsp;(B&nbsp;<span class=\"math-tex\">{tex}\\cup{/tex}</span>&nbsp;C)&nbsp;is</p>",
+              "options": [
+                {
+                  "label": "A",
+                  "id": 28506,
+                  "text": "{a, b, d, e}",
+                  "is_correct": false
+                },
+                {
+                  "label": "B",
+                  "id": 28505,
+                  "text": "{b, c, d}",
+                  "is_correct": false
+                },
+                {
+                  "label": "C",
+                  "id": 28504,
+                  "text": "{a, b, c}",
+                  "is_correct": true
+                },
+                {
+                  "label": "D",
+                  "id": 28507,
+                  "text": "{e}",
+                  "is_correct": false
+                }
+              ],
+              "correct_option_ids": [
+                28504
+              ],
+              "correct_option_labels": [
+                "C"
+              ],
+              "correct_option_texts": [
+                "{a, b, c}"
+              ],
+              "explanation": "Here A = {a, b, c}, B = {b, c, d} and C = {a, b, d, e}\nB $\\cup$ C = {a, b, c, d, e}\nA $\\cap$ (B $\\cup$ C) = {a, b, c}"
+            },
+            {
+              "questionID": 18327,
+              "question": "If A and B are two sets , then $A\\mathop \\cup \\nolimits B = A\\mathop \\cap \\nolimits B$ iff",
+              "question_raw": "<p>If A and B are two sets , then <span class=\"math-tex\">{tex}A\\mathop \\cup \\nolimits B = A\\mathop \\cap \\nolimits B{/tex}</span> iff</p>",
+              "options": [
+                {
+                  "label": "A",
+                  "id": 28509,
+                  "text": "A $ \\subseteq $ B",
+                  "is_correct": false
+                },
+                {
+                  "label": "B",
+                  "id": 28510,
+                  "text": "B $ \\subseteq $ A",
+                  "is_correct": false
+                },
+                {
+                  "label": "C",
+                  "id": 28511,
+                  "text": "A $\\ne$ B",
+                  "is_correct": false
+                },
+                {
+                  "label": "D",
+                  "id": 28508,
+                  "text": "A = B",
+                  "is_correct": true
+                }
+              ],
+              "correct_option_ids": [
+                28508
+              ],
+              "correct_option_labels": [
+                "D"
+              ],
+              "correct_option_texts": [
+                "A = B"
+              ],
+              "explanation": "Let A=B,Then,\nConversely, let , now we have to prove that A=B.\nLet \nSo, ...(2)\nLet \nSo, ...(3)\nThus, ...(4)\nFrom(1) and (4),we get"
+            },
+            {
+              "questionID": 18328,
+              "question": "Let A and B be two sets in the universal set. Then A - B is equal to",
+              "question_raw": "<p>Let A and B be two sets in the universal set. Then A - B is equal to</p>",
+              "options": [
+                {
+                  "label": "A",
+                  "id": 28513,
+                  "text": "A’ $\\mathop \\cap \\nolimits $ B",
+                  "is_correct": false
+                },
+                {
+                  "label": "B",
+                  "id": 28512,
+                  "text": "A $\\mathop \\cap \\nolimits $ B^'",
+                  "is_correct": true
+                },
+                {
+                  "label": "C",
+                  "id": 28515,
+                  "text": "A - (A $\\cap$ B)",
+                  "is_correct": false
+                },
+                {
+                  "label": "D",
+                  "id": 28514,
+                  "text": "A $\\mathop \\cap \\nolimits $ B",
+                  "is_correct": false
+                }
+              ],
+              "correct_option_ids": [
+                28512
+              ],
+              "correct_option_labels": [
+                "B"
+              ],
+              "correct_option_texts": [
+                "A $\\mathop \\cap \\nolimits $ B^'"
+              ],
+              "explanation": "A $\\mathop \\cap \\nolimits $ B^'"
+            },
+            {
+              "questionID": 18329,
+              "question": "Two sets A and B are said to be disjoint if",
+              "question_raw": "<p>Two sets A and B are said to be&nbsp;disjoint if</p>\r\n",
+              "options": [
+                {
+                  "label": "A",
+                  "id": 28519,
+                  "text": "A – B = A",
+                  "is_correct": false
+                },
+                {
+                  "label": "B",
+                  "id": 28518,
+                  "text": "A $\\mathop \\cap \\nolimits $ B $ \\ne $$\\phi $",
+                  "is_correct": false
+                },
+                {
+                  "label": "C",
+                  "id": 28517,
+                  "text": "A $\\mathop \\cup \\nolimits $ B = $\\phi $",
+                  "is_correct": false
+                },
+                {
+                  "label": "D",
+                  "id": 28516,
+                  "text": "A $\\cap$ B = $\\phi$",
+                  "is_correct": true
+                }
+              ],
+              "correct_option_ids": [
+                28516
+              ],
+              "correct_option_labels": [
+                "D"
+              ],
+              "correct_option_texts": [
+                "A $\\cap$ B = $\\phi$"
+              ],
+              "explanation": "Two sets are called disjoint if and only if these two set have no common element i.e $A \\cap B = \\phi$"
+            },
+            {
+              "questionID": 18330,
+              "question": "Which of the following is a null set?\n {x : x^2 + 1 = 0, x $\\in$ R}\n {x : x > 0 or x < 0}\n {x : x^2 = 4 or x = 3}\n {0}",
+              "question_raw": "<p>Which of the following is a null set?</p>\n\n<ol start=\"1\" style=\"list-style-type:upper-alpha\">\n\t<li>{x :&nbsp;x<sup>2</sup> + 1 = 0, x&nbsp;<span class=\"math-tex\">{tex}\\in{/tex}</span>&nbsp;R}</li>\n\t<li>{x : x &gt; 0 or x &lt; 0}</li>\n\t<li>{x : x<sup>2</sup> = 4 or x = 3}</li>\n\t<li>{0}</li>\n</ol>",
+              "options": [
+                {
+                  "label": "A",
+                  "id": 28523,
+                  "text": "D",
+                  "is_correct": false
+                },
+                {
+                  "label": "B",
+                  "id": 28520,
+                  "text": "A",
+                  "is_correct": true
+                },
+                {
+                  "label": "C",
+                  "id": 28521,
+                  "text": "B",
+                  "is_correct": false
+                },
+                {
+                  "label": "D",
+                  "id": 28522,
+                  "text": "C",
+                  "is_correct": false
+                }
+              ],
+              "correct_option_ids": [
+                28520
+              ],
+              "correct_option_labels": [
+                "B"
+              ],
+              "correct_option_texts": [
+                "A"
+              ],
+              "explanation": "x^2 + 1 = 0\n$\\Rightarrow$ x^2 = -1\n$\\Rightarrow$ x^2 = $\\sqrt{-1}$ \n$\\Rightarrow$ x = i $\\in$ C\n[i = imaginary root of unity which is a complex no.]\nSince the solution of x does not belong to real no hence the set is null set."
+            },
+            {
+              "questionID": 18331,
+              "question": "If A $ \\subseteq $ B, then A $\\cap$ B is equal to",
+              "question_raw": "<p>If A <span class=\"math-tex\">{tex} \\subseteq {/tex}</span>&nbsp;B, then&nbsp;A&nbsp;<span class=\"math-tex\">{tex}\\cap{/tex}</span>&nbsp;B is equal to</p>\r\n",
+              "options": [
+                {
+                  "label": "A",
+                  "id": 28527,
+                  "text": "B’",
+                  "is_correct": false
+                },
+                {
+                  "label": "B",
+                  "id": 28525,
+                  "text": "B",
+                  "is_correct": false
+                },
+                {
+                  "label": "C",
+                  "id": 28526,
+                  "text": "A’",
+                  "is_correct": false
+                },
+                {
+                  "label": "D",
+                  "id": 28524,
+                  "text": "A",
+                  "is_correct": true
+                }
+              ],
+              "correct_option_ids": [
+                28524
+              ],
+              "correct_option_labels": [
+                "D"
+              ],
+              "correct_option_texts": [
+                "A"
+              ],
+              "explanation": "A $ \\subseteq $ B means set A is contained in the set B. So common region is the set A."
+            },
+            {
+              "questionID": 18332,
+              "question": "If A $ \\subseteq $ B, then A $\\cup$ B is equal to",
+              "question_raw": "<p>If A <span class=\"math-tex\">{tex} \\subseteq {/tex}</span>&nbsp;B, then&nbsp;A&nbsp;<span class=\"math-tex\">{tex}\\cup{/tex}</span>&nbsp;B is equal to</p>\r\n",
+              "options": [
+                {
+                  "label": "A",
+                  "id": 28531,
+                  "text": "B’",
+                  "is_correct": false
+                },
+                {
+                  "label": "B",
+                  "id": 28530,
+                  "text": "A’",
+                  "is_correct": false
+                },
+                {
+                  "label": "C",
+                  "id": 28528,
+                  "text": "B",
+                  "is_correct": true
+                },
+                {
+                  "label": "D",
+                  "id": 28529,
+                  "text": "A",
+                  "is_correct": false
+                }
+              ],
+              "correct_option_ids": [
+                28528
+              ],
+              "correct_option_labels": [
+                "C"
+              ],
+              "correct_option_texts": [
+                "B"
+              ],
+              "explanation": "A $ \\subseteq $ B refers to A set is contained in the set B. So set B is bigger. So union the sets will be B."
+            },
+            {
+              "questionID": 18333,
+              "question": "If A and B are two sets, then A $\\cup$ (A $\\cap$ B) is equal to",
+              "question_raw": "<p>If A and B are two sets, then&nbsp;A&nbsp;<span class=\"math-tex\">{tex}\\cup{/tex}</span>&nbsp;(A&nbsp;<span class=\"math-tex\">{tex}\\cap{/tex}</span>&nbsp;B) is equal to</p>",
+              "options": [
+                {
+                  "label": "A",
+                  "id": 28534,
+                  "text": "A'",
+                  "is_correct": false
+                },
+                {
+                  "label": "B",
+                  "id": 28533,
+                  "text": "B",
+                  "is_correct": false
+                },
+                {
+                  "label": "C",
+                  "id": 28532,
+                  "text": "A",
+                  "is_correct": true
+                },
+                {
+                  "label": "D",
+                  "id": 28535,
+                  "text": "B'",
+                  "is_correct": false
+                }
+              ],
+              "correct_option_ids": [
+                28532
+              ],
+              "correct_option_labels": [
+                "C"
+              ],
+              "correct_option_texts": [
+                "A"
+              ],
+              "explanation": "Let A = {1, 2, 3, 4} and B = {1, 2, 3, 4, 5, 6}\nHere A $\\cap$ B = {1, 2, 3, 4}\nNow A $\\cup$ (A $\\cap$ B) = {1, 2, 3, 4} = A"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "testPaperID": 603,
+      "testPaperName": "Sets Test 02",
+      "is_paid": true,
+      "category_full_name": "CBSE > Class 11 > Mathematics > Sets",
+      "noOfQuestions": 15,
+      "has_answers": true,
+      "sections": [
+        {
+          "sectionName": "General",
+          "sectionID": null,
+          "questions": [
+            {
+              "questionID": 18334,
+              "question": "If A and B are two sets, then A $\\cap$ (A $\\cup$ B) is equal to",
+              "question_raw": "<p>If A and B are two sets, then A&nbsp;<span class=\"math-tex\">{tex}\\cap{/tex}</span>&nbsp;(A&nbsp;<span class=\"math-tex\">{tex}\\cup{/tex}</span>&nbsp;B)&nbsp;is equal to&nbsp;</p>",
+              "options": [
+                {
+                  "label": "A",
+                  "id": 28536,
+                  "text": "A",
+                  "is_correct": true
+                },
+                {
+                  "label": "B",
+                  "id": 28538,
+                  "text": "A'",
+                  "is_correct": false
+                },
+                {
+                  "label": "C",
+                  "id": 28539,
+                  "text": "B'",
+                  "is_correct": false
+                },
+                {
+                  "label": "D",
+                  "id": 28537,
+                  "text": "B",
+                  "is_correct": false
+                }
+              ],
+              "correct_option_ids": [
+                28536
+              ],
+              "correct_option_labels": [
+                "A"
+              ],
+              "correct_option_texts": [
+                "A"
+              ],
+              "explanation": "Let A = {1, 2, 3, 4} and B = {1, 2, 3, 4, 5, 6}\nHere A $\\cup$ B = {1, 2, 3, 4, 5, 6}\nNow A $\\cap$ (A $\\cup$ B) = {1, 2, 3, 4} = A"
+            },
+            {
+              "questionID": 18335,
+              "question": "If A = {2, 3, 4, 8, 10}, B = {3, 4, 5, 10, 12} and C = {4, 5, 6, 12, 14}, then (A $\\cup$ B) $\\cap$ (A $\\cup$ C) is equal to",
+              "question_raw": "<p>If A = {2, 3, 4, 8, 10}, B = {3, 4, 5, 10, 12} and C = {4, 5, 6, 12, 14}, then (A&nbsp;<span class=\"math-tex\">{tex}\\cup{/tex}</span>&nbsp;B)&nbsp;<span class=\"math-tex\">{tex}\\cap{/tex}</span>&nbsp;(A&nbsp;<span class=\"math-tex\">{tex}\\cup{/tex}</span>&nbsp;C)&nbsp;is equal to</p>\r\n",
+              "options": [
+                {
+                  "label": "A",
+                  "id": 28540,
+                  "text": "{2, 3, 4, 5, 8, 10, 12}",
+                  "is_correct": true
+                },
+                {
+                  "label": "B",
+                  "id": 28541,
+                  "text": "{2, 4, 5, 10, 12}",
+                  "is_correct": false
+                },
+                {
+                  "label": "C",
+                  "id": 28543,
+                  "text": "{3, 8, 10, 12}",
+                  "is_correct": false
+                },
+                {
+                  "label": "D",
+                  "id": 28542,
+                  "text": "{4, 5, 8, 10, 12}",
+                  "is_correct": false
+                }
+              ],
+              "correct_option_ids": [
+                28540
+              ],
+              "correct_option_labels": [
+                "A"
+              ],
+              "correct_option_texts": [
+                "{2, 3, 4, 5, 8, 10, 12}"
+              ],
+              "explanation": "Given A = {2, 3, 4, 8, 10}, B = {3, 4, 5, 10, 12} and C = {4, 5, 6, 12, 14}\nHere A $\\cup$ B = {2, 3, 4, 5, 8, 10, 12} and A $\\cup$ C = {2, 3, 4, 5, 6, 8, 10, 12, 14}\nNow (A $\\cup$ B) $\\cap$ (A $\\cup$ C) = {2, 3, 4, 5, 8, 10, 12}"
+            },
+            {
+              "questionID": 18336,
+              "question": "If A = {2, 3, 4, 8, 10}, B = {3, 4, 5, 10, 12} and C = {4, 5, 6, 12, 14}, then ( A $\\cap$ B) $\\cup$ (A $\\cap$ C)",
+              "question_raw": "<p>If A = {2, 3, 4, 8, 10}, B = {3, 4, 5, 10, 12} and C = {4, 5, 6, 12, 14}, then ( A&nbsp;<span class=\"math-tex\">{tex}\\cap{/tex}</span>&nbsp;B)&nbsp;<span class=\"math-tex\">{tex}\\cup{/tex}</span>&nbsp;(A&nbsp;<span class=\"math-tex\">{tex}\\cap{/tex}</span>&nbsp;C)</p>",
+              "options": [
+                {
+                  "label": "A",
+                  "id": 28546,
+                  "text": "{4, 5, 6}",
+                  "is_correct": false
+                },
+                {
+                  "label": "B",
+                  "id": 28545,
+                  "text": "{2, 8, 10}",
+                  "is_correct": false
+                },
+                {
+                  "label": "C",
+                  "id": 28547,
+                  "text": "{3, 4, 5}",
+                  "is_correct": false
+                },
+                {
+                  "label": "D",
+                  "id": 28544,
+                  "text": "{3, 4, 10}",
+                  "is_correct": true
+                }
+              ],
+              "correct_option_ids": [
+                28544
+              ],
+              "correct_option_labels": [
+                "D"
+              ],
+              "correct_option_texts": [
+                "{3, 4, 10}"
+              ],
+              "explanation": "Given A = {2, 3, 4, 8, 10}, B = {3, 4, 5, 10, 12} and C = {4, 5, 6, 12, 14}\nHere A $\\cap$ B = {3, 4, 10} and A $\\cap$ C = {4}\nNow (A $\\cap$ B) $\\cup$ (A $\\cap$ C) = {3, 4, 10}"
+            },
+            {
+              "questionID": 18337,
+              "question": "If A and B are disjoint Set , then n (A $\\cup$ B) is equal to",
+              "question_raw": "<p>If A and B are disjoint Set , then n (A&nbsp;<span class=\"math-tex\">{tex}\\cup{/tex}</span>&nbsp;B) is equal to</p>",
+              "options": [
+                {
+                  "label": "A",
+                  "id": 28549,
+                  "text": "n (A) + n(B) - n(A $\\cap$ B)",
+                  "is_correct": false
+                },
+                {
+                  "label": "B",
+                  "id": 28551,
+                  "text": "n (A) n (B)",
+                  "is_correct": false
+                },
+                {
+                  "label": "C",
+                  "id": 28550,
+                  "text": "n (A) + n(B) + n(A $\\cap$ B)",
+                  "is_correct": false
+                },
+                {
+                  "label": "D",
+                  "id": 28548,
+                  "text": "n (A) + n (B)",
+                  "is_correct": true
+                }
+              ],
+              "correct_option_ids": [
+                28548
+              ],
+              "correct_option_labels": [
+                "D"
+              ],
+              "correct_option_texts": [
+                "n (A) + n (B)"
+              ],
+              "explanation": "Two sets are disjoint if they do not have a common element in them, i.e., $A \\cap B=\\varnothing$\n$\\therefore$ n(A $\\cup$ B) = n(A) + n(B)"
+            },
+            {
+              "questionID": 18338,
+              "question": "If A and B are not disjoint set, then n (A $\\cup$ B) is equal to",
+              "question_raw": "<p>If A and B are not disjoint set, then n (A&nbsp;<span class=\"math-tex\">{tex}\\cup{/tex}</span>&nbsp;B) is equal to</p>",
+              "options": [
+                {
+                  "label": "A",
+                  "id": 28554,
+                  "text": "n(A)",
+                  "is_correct": false
+                },
+                {
+                  "label": "B",
+                  "id": 28553,
+                  "text": "n(A) + n (B) + n(A $\\cap $ B)",
+                  "is_correct": false
+                },
+                {
+                  "label": "C",
+                  "id": 28552,
+                  "text": "n(A) + n(B) - n (A $\\cap $ B)",
+                  "is_correct": true
+                },
+                {
+                  "label": "D",
+                  "id": 28555,
+                  "text": "n(B)",
+                  "is_correct": false
+                }
+              ],
+              "correct_option_ids": [
+                28552
+              ],
+              "correct_option_labels": [
+                "C"
+              ],
+              "correct_option_texts": [
+                "n(A) + n(B) - n (A $\\cap $ B)"
+              ],
+              "explanation": "Here A $\\cap$ B = $\\phi$, A and B are not disjoint\nThen, n (A $\\cup$ B) = n(A) + n(B) - n (A $\\cap $ B)"
+            },
+            {
+              "questionID": 18339,
+              "question": "The Collection of intelligent students in a class is",
+              "question_raw": "<p>The Collection of intelligent students in a class is</p>",
+              "options": [
+                {
+                  "label": "A",
+                  "id": 28559,
+                  "text": "a finite set",
+                  "is_correct": false
+                },
+                {
+                  "label": "B",
+                  "id": 28557,
+                  "text": "a null set",
+                  "is_correct": false
+                },
+                {
+                  "label": "C",
+                  "id": 28556,
+                  "text": "not a Set",
+                  "is_correct": true
+                },
+                {
+                  "label": "D",
+                  "id": 28558,
+                  "text": "a singleton set",
+                  "is_correct": false
+                }
+              ],
+              "correct_option_ids": [
+                28556
+              ],
+              "correct_option_labels": [
+                "C"
+              ],
+              "correct_option_texts": [
+                "not a Set"
+              ],
+              "explanation": "Intelligency can not be measured by numbers i.e the collection is not well defined that's why it can not be called as a Set."
+            },
+            {
+              "questionID": 18340,
+              "question": "If A = {1, 2, 3}, and B = {1, 3, 5, 7}, then A $\\cup$ B =",
+              "question_raw": "<p>If A = {1, 2, 3}, and B = {1, 3, 5, 7}, then A&nbsp;<span class=\"math-tex\">{tex}\\cup{/tex}</span>&nbsp;B&nbsp;=</p>",
+              "options": [
+                {
+                  "label": "A",
+                  "id": 28561,
+                  "text": "{1, 3, 5, 7}",
+                  "is_correct": false
+                },
+                {
+                  "label": "B",
+                  "id": 28560,
+                  "text": "{1, 2, 3, 5, 7}",
+                  "is_correct": true
+                },
+                {
+                  "label": "C",
+                  "id": 28563,
+                  "text": "{1, 3, 7}",
+                  "is_correct": false
+                },
+                {
+                  "label": "D",
+                  "id": 28562,
+                  "text": "{1, 2, 3, 7}",
+                  "is_correct": false
+                }
+              ],
+              "correct_option_ids": [
+                28560
+              ],
+              "correct_option_labels": [
+                "B"
+              ],
+              "correct_option_texts": [
+                "{1, 2, 3, 5, 7}"
+              ],
+              "explanation": "Given A = {1, 2, 3} and B = {1, 3, 5, 7}\n(A $\\cup$ B) = {1, 2, 3, 5, 7}"
+            },
+            {
+              "questionID": 18341,
+              "question": "If A = {1, 2, 3, 4 }, B = {4, 5, 6, 7}, A $\\cap$ B =",
+              "question_raw": "<p>If A = {1, 2, 3, 4 }, B = {4, 5, 6, 7}, A&nbsp;<span class=\"math-tex\">{tex}\\cap{/tex}</span> B =&nbsp;</p>",
+              "options": [
+                {
+                  "label": "A",
+                  "id": 28565,
+                  "text": "{1, 2}",
+                  "is_correct": false
+                },
+                {
+                  "label": "B",
+                  "id": 28564,
+                  "text": "{4}",
+                  "is_correct": true
+                },
+                {
+                  "label": "C",
+                  "id": 28566,
+                  "text": "{1, 2, 3, 4}",
+                  "is_correct": false
+                },
+                {
+                  "label": "D",
+                  "id": 28567,
+                  "text": "{6, 7}",
+                  "is_correct": false
+                }
+              ],
+              "correct_option_ids": [
+                28564
+              ],
+              "correct_option_labels": [
+                "B"
+              ],
+              "correct_option_texts": [
+                "{4}"
+              ],
+              "explanation": "Given A = {1, 2, 3, 4} and B = {4, 5, 6, 7}\n(a $\\cap$ B) = {4}"
+            },
+            {
+              "questionID": 18342,
+              "question": "Let A = {1, 2, 3, 4} then total number of subsets of A are given by",
+              "question_raw": "<p>Let A = {1, 2, 3, 4}&nbsp;then total number of subsets of A are given by</p>",
+              "options": [
+                {
+                  "label": "A",
+                  "id": 28569,
+                  "text": "8",
+                  "is_correct": false
+                },
+                {
+                  "label": "B",
+                  "id": 28570,
+                  "text": "4",
+                  "is_correct": false
+                },
+                {
+                  "label": "C",
+                  "id": 28571,
+                  "text": "12",
+                  "is_correct": false
+                },
+                {
+                  "label": "D",
+                  "id": 28568,
+                  "text": "16",
+                  "is_correct": true
+                }
+              ],
+              "correct_option_ids": [
+                28568
+              ],
+              "correct_option_labels": [
+                "D"
+              ],
+              "correct_option_texts": [
+                "16"
+              ],
+              "explanation": "Total no. of subsets = 2^n = 2^4 = 16\nHere n is the Cardinal no of the given set."
+            },
+            {
+              "questionID": 18343,
+              "question": "If A = {1, 2, 3, 4} and B = {4, 5, 6, 7} then A - B =",
+              "question_raw": "<p>If A = {1, 2, 3, 4} and&nbsp;&nbsp;B = {4, 5, 6, 7}&nbsp;then A - B&nbsp;=</p>\r\n",
+              "options": [
+                {
+                  "label": "A",
+                  "id": 28573,
+                  "text": "{5, 6, 7}",
+                  "is_correct": false
+                },
+                {
+                  "label": "B",
+                  "id": 28572,
+                  "text": "{1, 2, 3}",
+                  "is_correct": true
+                },
+                {
+                  "label": "C",
+                  "id": 28575,
+                  "text": "{1, 2, 3, 4}",
+                  "is_correct": false
+                },
+                {
+                  "label": "D",
+                  "id": 28574,
+                  "text": "{4}",
+                  "is_correct": false
+                }
+              ],
+              "correct_option_ids": [
+                28572
+              ],
+              "correct_option_labels": [
+                "B"
+              ],
+              "correct_option_texts": [
+                "{1, 2, 3}"
+              ],
+              "explanation": "Given A = {1, 2, 3, 4} and B = {4, 5, 6, 7}\nA - B set will contain those elements which are present in A but not in B.\nwe can see A $\\cap$ B = {4}\nNow A - B = A - (A $\\cap$ B)\nSo A - B = {1, 2, 3, 4} - {4} = {1, 2, 3}"
+            },
+            {
+              "questionID": 18344,
+              "question": "If n(A) = 3 and n(B) = 6 and A $ \\subseteq $ B, then n(A $\\cup$ B) = ?",
+              "question_raw": "<p>If n(A) = 3 and n(B) = 6 and A&nbsp;<span class=\"math-tex\">{tex} \\subseteq {/tex}</span> B, then&nbsp;n(A&nbsp;<span class=\"math-tex\">{tex}\\cup{/tex}</span>&nbsp;B) = ?</p>",
+              "options": [
+                {
+                  "label": "A",
+                  "id": 28578,
+                  "text": "9",
+                  "is_correct": false
+                },
+                {
+                  "label": "B",
+                  "id": 28576,
+                  "text": "6",
+                  "is_correct": true
+                },
+                {
+                  "label": "C",
+                  "id": 28579,
+                  "text": "12",
+                  "is_correct": false
+                },
+                {
+                  "label": "D",
+                  "id": 28577,
+                  "text": "3",
+                  "is_correct": false
+                }
+              ],
+              "correct_option_ids": [
+                28576
+              ],
+              "correct_option_labels": [
+                "B"
+              ],
+              "correct_option_texts": [
+                "6"
+              ],
+              "explanation": "A $\\subseteq$ B\n$\\Rightarrow$ n(A $\\cup$ B) = n(B) = 6"
+            },
+            {
+              "questionID": 18345,
+              "question": "If n (A) = 3 and n(B) = 6 and A $ \\subseteq $ B, then n(A $\\cap$ B) is equal to",
+              "question_raw": "<p>If n (A) = 3 and n(B) = 6 and A&nbsp;<span class=\"math-tex\">{tex} \\subseteq {/tex}</span> B, then n(A&nbsp;<span class=\"math-tex\">{tex}\\cap{/tex}</span>&nbsp;B)&nbsp;is equal to</p>",
+              "options": [
+                {
+                  "label": "A",
+                  "id": 28581,
+                  "text": "6",
+                  "is_correct": false
+                },
+                {
+                  "label": "B",
+                  "id": 28580,
+                  "text": "3",
+                  "is_correct": true
+                },
+                {
+                  "label": "C",
+                  "id": 28582,
+                  "text": "9",
+                  "is_correct": false
+                },
+                {
+                  "label": "D",
+                  "id": 28583,
+                  "text": "0",
+                  "is_correct": false
+                }
+              ],
+              "correct_option_ids": [
+                28580
+              ],
+              "correct_option_labels": [
+                "B"
+              ],
+              "correct_option_texts": [
+                "3"
+              ],
+              "explanation": "A $\\subseteq$ B\n$\\Rightarrow$ n(A $\\cap$ B) = n(A) = 3"
+            },
+            {
+              "questionID": 18346,
+              "question": "Let A and B be subsets of a set X. Then which of the following is correct",
+              "question_raw": "<p>Let A and B be subsets of a set X.&nbsp;Then which of the following is correct</p>",
+              "options": [
+                {
+                  "label": "A",
+                  "id": 28585,
+                  "text": "A – B = A $\\mathop \\cap \\nolimits $ B",
+                  "is_correct": false
+                },
+                {
+                  "label": "B",
+                  "id": 28587,
+                  "text": "A – B = A’ $\\mathop \\cap \\nolimits $ B’",
+                  "is_correct": false
+                },
+                {
+                  "label": "C",
+                  "id": 28584,
+                  "text": "A – B = A $\\mathop \\cap \\nolimits $ B’",
+                  "is_correct": true
+                },
+                {
+                  "label": "D",
+                  "id": 28586,
+                  "text": "A – B = A $\\mathop \\cup \\nolimits $ B’",
+                  "is_correct": false
+                }
+              ],
+              "correct_option_ids": [
+                28584
+              ],
+              "correct_option_labels": [
+                "C"
+              ],
+              "correct_option_texts": [
+                "A – B = A $\\mathop \\cap \\nolimits $ B’"
+              ],
+              "explanation": "For any set A - B = A $\\cap$ B'"
+            },
+            {
+              "questionID": 18347,
+              "question": "If A , B and C are any three sets , then A – ( B $\\mathop \\cup \\nolimits $ C ) is equal to",
+              "question_raw": "<p>If A , B and C are any three sets , then A &ndash; ( B <span class=\"math-tex\">{tex}\\mathop \\cup \\nolimits {/tex}</span> C ) is equal to</p>\r\n",
+              "options": [
+                {
+                  "label": "A",
+                  "id": 28591,
+                  "text": "( A – B )$\\mathop \\cap \\nolimits $C",
+                  "is_correct": false
+                },
+                {
+                  "label": "B",
+                  "id": 28590,
+                  "text": "( A – B )$\\mathop \\cap \\nolimits $ C",
+                  "is_correct": false
+                },
+                {
+                  "label": "C",
+                  "id": 28589,
+                  "text": "( A – B ) $\\mathop \\cup \\nolimits $( A – C )",
+                  "is_correct": false
+                },
+                {
+                  "label": "D",
+                  "id": 28588,
+                  "text": "( A – B ) $\\mathop \\cap \\nolimits $ ( A – C )",
+                  "is_correct": true
+                }
+              ],
+              "correct_option_ids": [
+                28588
+              ],
+              "correct_option_labels": [
+                "D"
+              ],
+              "correct_option_texts": [
+                "( A – B ) $\\mathop \\cap \\nolimits $ ( A – C )"
+              ],
+              "explanation": "$\\eqalign{ & Let\\;x \\in A - (B \\cup C) \\cr & \\Rightarrow x \\in A\\;and\\;x \\notin (B \\cup C) \\cr & \\Rightarrow x \\in A\\;and(x \\notin B\\;and\\;x \\notin C) \\cr & \\Rightarrow (x \\in A\\;and\\;x \\notin B)and(x \\in A\\;and\\;x \\notin C) \\cr & \\Rightarrow x \\in (A - B) \\cap (A - C) \\cr & A - (B \\cup C) = (A - B) \\cap (A - C) \\cr} $"
+            },
+            {
+              "questionID": 18348,
+              "question": "If A, B and C are any three sets, then A – (B $\\mathop \\cap \\nolimits $ C) is equal to",
+              "question_raw": "<p>If A, B and C are any three sets, then A &ndash; (B&nbsp;<span class=\"math-tex\">{tex}\\mathop \\cap \\nolimits {/tex}</span>&nbsp;C) is equal to</p>\r\n",
+              "options": [
+                {
+                  "label": "A",
+                  "id": 28594,
+                  "text": "(A – B) $\\mathop \\cap \\nolimits $ C",
+                  "is_correct": false
+                },
+                {
+                  "label": "B",
+                  "id": 28592,
+                  "text": "(A – B) $\\mathop \\cup \\nolimits $ (A - C)",
+                  "is_correct": true
+                },
+                {
+                  "label": "C",
+                  "id": 28593,
+                  "text": "(A – B) $\\mathop \\cap \\nolimits $ (A – C)",
+                  "is_correct": false
+                },
+                {
+                  "label": "D",
+                  "id": 28595,
+                  "text": "(A – C) $\\mathop \\cap \\nolimits $ (B - C)",
+                  "is_correct": false
+                }
+              ],
+              "correct_option_ids": [
+                28592
+              ],
+              "correct_option_labels": [
+                "B"
+              ],
+              "correct_option_texts": [
+                "(A – B) $\\mathop \\cup \\nolimits $ (A - C)"
+              ],
+              "explanation": "A - (B $\\cap$ C) = (A - B) $\\cup$ (A - C)\nProof:\nUse following properties:\nX - Y = X $\\cap$ Y'\n(X $\\cap$ Y)' = X' $\\cup$ Y' \nA - (B $\\cap$ C) = A $\\cap$ (B $\\cap$ C)'\n= A $\\cap$ (B' $\\cup$ C') = (A $\\cap$ B') $\\cup$ (A $\\cap$ C') = (A - B) $\\cup$ (A - C)"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "testPaperID": 604,
+      "testPaperName": "Sets Test 03",
+      "is_paid": true,
+      "category_full_name": "CBSE > Class 11 > Mathematics > Sets",
+      "noOfQuestions": 15,
+      "has_answers": true,
+      "sections": [
+        {
+          "sectionName": "General",
+          "sectionID": null,
+          "questions": [
+            {
+              "questionID": 18349,
+              "question": "If A, B and C are any three sets, then A $\\mathop \\cap \\nolimits $ (B $\\mathop \\cup \\nolimits $ C) is equal to",
+              "question_raw": "<p>If A, B and C are any three sets, then A <span class=\"math-tex\">{tex}\\mathop \\cap \\nolimits {/tex}</span> (B <span class=\"math-tex\">{tex}\\mathop \\cup \\nolimits {/tex}</span>&nbsp;C) is equal to</p>\r\n",
+              "options": [
+                {
+                  "label": "A",
+                  "id": 28596,
+                  "text": "(A $\\mathop \\cap \\nolimits $ B) $\\mathop \\cup \\nolimits $ (A $\\mathop \\cap \\nolimits $ C)",
+                  "is_correct": true
+                },
+                {
+                  "label": "B",
+                  "id": 28599,
+                  "text": "(A – B) $\\mathop \\cap \\nolimits $ (A – C)",
+                  "is_correct": false
+                },
+                {
+                  "label": "C",
+                  "id": 28597,
+                  "text": "(A $\\mathop \\cup \\nolimits $ B) $\\mathop \\cap \\nolimits $ (A $\\mathop \\cap \\nolimits $ C)",
+                  "is_correct": false
+                },
+                {
+                  "label": "D",
+                  "id": 28598,
+                  "text": "(A $\\mathop \\cup \\nolimits $ B) $\\mathop \\cup \\nolimits $ (A $\\mathop \\cup \\nolimits $ C)",
+                  "is_correct": false
+                }
+              ],
+              "correct_option_ids": [
+                28596
+              ],
+              "correct_option_labels": [
+                "A"
+              ],
+              "correct_option_texts": [
+                "(A $\\mathop \\cap \\nolimits $ B) $\\mathop \\cup \\nolimits $ (A $\\mathop \\cap \\nolimits $ C)"
+              ],
+              "explanation": "Let x $\\in$ A $\\cup$ (B $\\cap$ C)\nx $\\in$ A or x $\\in$ (B and C)\nx $\\in$ A or {x $\\in$ B and x $\\in$ C}\n{x $\\in$ (A or B) and x $\\in$ (A or C)\nx $\\in$ (A or B) $\\cap$ x $\\in$ (A or C)\nx $\\in$ (A $\\cup$ B) $\\cap$ x $\\in$ (A $\\cap$ C)\nx $\\in$ (A $\\cup$ B) $\\cap$ (A $\\cup$ C)\nTherefore, A $\\cup$ (B $\\cap$ C) $\\subset$ (A $\\cup$ B) $\\cap$ (A $\\cup$ C) .....(i)\nSimilarly,\n(A $\\cup$ B) $\\cap$ (A $\\cup$ C) $\\subset$ A $\\cup$ (B $\\cap$ C) .....(ii)\nSo\nA $\\cup$ (B $\\cup$ C) = (A $\\cup$ B) $\\cap$ (A $\\cup$ C)"
+            },
+            {
+              "questionID": 18350,
+              "question": "If aN = {ax : x $ \\in $ N}, then the set 3N $\\mathop \\cap \\nolimits $ 7N is",
+              "question_raw": "<p>&nbsp;If aN = {ax : x <span class=\"math-tex\">{tex} \\in {/tex}</span> N}, then the set 3N <span class=\"math-tex\">{tex}\\mathop \\cap \\nolimits {/tex}</span> 7N is</p>",
+              "options": [
+                {
+                  "label": "A",
+                  "id": 28601,
+                  "text": "10N",
+                  "is_correct": false
+                },
+                {
+                  "label": "B",
+                  "id": 28603,
+                  "text": "7N",
+                  "is_correct": false
+                },
+                {
+                  "label": "C",
+                  "id": 28602,
+                  "text": "4N",
+                  "is_correct": false
+                },
+                {
+                  "label": "D",
+                  "id": 28600,
+                  "text": "21N",
+                  "is_correct": true
+                }
+              ],
+              "correct_option_ids": [
+                28600
+              ],
+              "correct_option_labels": [
+                "D"
+              ],
+              "correct_option_texts": [
+                "21N"
+              ],
+              "explanation": "Here 3N = {3, 6, 9,...} and 7N = {7, 14, 21,...}\nHence 3N $\\cap$ 7N = {21, 42, ...} = {21x : x $\\in$ N} = 21N"
+            },
+            {
+              "questionID": 18351,
+              "question": "The smallest set A such that A $\\mathop \\cup \\nolimits $ {1, 2} = {1, 2, 3, 5, 9} is",
+              "question_raw": "<p>The smallest set A such that A <span class=\"math-tex\">{tex}\\mathop \\cup \\nolimits {/tex}</span> {1, 2} = {1, 2, 3, 5, 9} is</p>",
+              "options": [
+                {
+                  "label": "A",
+                  "id": 28605,
+                  "text": "{2, 3, 5}",
+                  "is_correct": false
+                },
+                {
+                  "label": "B",
+                  "id": 28604,
+                  "text": "{3, 5, 9}",
+                  "is_correct": true
+                },
+                {
+                  "label": "C",
+                  "id": 28607,
+                  "text": "{4, 5, 6}",
+                  "is_correct": false
+                },
+                {
+                  "label": "D",
+                  "id": 28606,
+                  "text": "{1, 2, 5, 9}",
+                  "is_correct": false
+                }
+              ],
+              "correct_option_ids": [
+                28604
+              ],
+              "correct_option_labels": [
+                "B"
+              ],
+              "correct_option_texts": [
+                "{3, 5, 9}"
+              ],
+              "explanation": "The union of two sets A and B is the set of elements in A, or B, or both.\nSo smallest set A = {3, 5, 9}"
+            },
+            {
+              "questionID": 18352,
+              "question": "If A and B are sets , then A $\\mathop \\cap \\nolimits $ ( B – A ) is",
+              "question_raw": "<p>If A and B are sets , then A <span class=\"math-tex\">{tex}\\mathop \\cap \\nolimits {/tex}</span> ( B &ndash; A ) is</p>\r\n",
+              "options": [
+                {
+                  "label": "A",
+                  "id": 28611,
+                  "text": "A'",
+                  "is_correct": false
+                },
+                {
+                  "label": "B",
+                  "id": 28608,
+                  "text": "$\\phi $",
+                  "is_correct": true
+                },
+                {
+                  "label": "C",
+                  "id": 28609,
+                  "text": "A",
+                  "is_correct": false
+                },
+                {
+                  "label": "D",
+                  "id": 28610,
+                  "text": "B",
+                  "is_correct": false
+                }
+              ],
+              "correct_option_ids": [
+                28608
+              ],
+              "correct_option_labels": [
+                "B"
+              ],
+              "correct_option_texts": [
+                "$\\phi $"
+              ],
+              "explanation": ""
+            },
+            {
+              "questionID": 18353,
+              "question": "If A = {0, 1, 5, 4, 7}. Then the total number subsets of A are",
+              "question_raw": "<p>If A = {0, 1, 5, 4, 7}. Then the total number subsets of A are</p>",
+              "options": [
+                {
+                  "label": "A",
+                  "id": 28613,
+                  "text": "64",
+                  "is_correct": false
+                },
+                {
+                  "label": "B",
+                  "id": 28612,
+                  "text": "32",
+                  "is_correct": true
+                },
+                {
+                  "label": "C",
+                  "id": 28615,
+                  "text": "20",
+                  "is_correct": false
+                },
+                {
+                  "label": "D",
+                  "id": 28614,
+                  "text": "40",
+                  "is_correct": false
+                }
+              ],
+              "correct_option_ids": [
+                28612
+              ],
+              "correct_option_labels": [
+                "B"
+              ],
+              "correct_option_texts": [
+                "32"
+              ],
+              "explanation": "In any set having 'n' elements the total no of subsets = 2^n\nSo total subset = 2^5 = 32"
+            },
+            {
+              "questionID": 18354,
+              "question": "If A and B be two sets such that n(A) = 70 , n(B) = 60 , and n(A $\\mathop \\cup \\nolimits $ B) = 110 . Then n (A $\\mathop \\cap \\nolimits $ B) is equal to",
+              "question_raw": "<p>If A and B be two sets such that n(A) = 70 , n(B) = 60 , and n(A <span class=\"math-tex\">{tex}\\mathop \\cup \\nolimits {/tex}</span> B) = 110 . Then n (A <span class=\"math-tex\">{tex}\\mathop \\cap \\nolimits {/tex}</span> B) is equal to</p>",
+              "options": [
+                {
+                  "label": "A",
+                  "id": 28619,
+                  "text": "120",
+                  "is_correct": false
+                },
+                {
+                  "label": "B",
+                  "id": 28618,
+                  "text": "100",
+                  "is_correct": false
+                },
+                {
+                  "label": "C",
+                  "id": 28617,
+                  "text": "240",
+                  "is_correct": false
+                },
+                {
+                  "label": "D",
+                  "id": 28616,
+                  "text": "20",
+                  "is_correct": true
+                }
+              ],
+              "correct_option_ids": [
+                28616
+              ],
+              "correct_option_labels": [
+                "D"
+              ],
+              "correct_option_texts": [
+                "20"
+              ],
+              "explanation": "n(A $\\cap$ B) = n(A) + n(B) - n(A $\\cup$ B)\n= 70 + 60 - 100\n= 20"
+            },
+            {
+              "questionID": 18355,
+              "question": "Which set is the subset of all given sets?",
+              "question_raw": "<p>Which set is the subset of all given sets?</p>",
+              "options": [
+                {
+                  "label": "A",
+                  "id": 28620,
+                  "text": "{ }",
+                  "is_correct": true
+                },
+                {
+                  "label": "B",
+                  "id": 28623,
+                  "text": "{0}",
+                  "is_correct": false
+                },
+                {
+                  "label": "C",
+                  "id": 28622,
+                  "text": "{1}",
+                  "is_correct": false
+                },
+                {
+                  "label": "D",
+                  "id": 28621,
+                  "text": "{1, 2, 3, 4}",
+                  "is_correct": false
+                }
+              ],
+              "correct_option_ids": [
+                28620
+              ],
+              "correct_option_labels": [
+                "A"
+              ],
+              "correct_option_texts": [
+                "{ }"
+              ],
+              "explanation": "{ } denoted as null set and Null set is subset of all sets."
+            },
+            {
+              "questionID": 18356,
+              "question": "If Q = {x : x = $\\frac{1}{y}$, where y $ \\in $ N}, then",
+              "question_raw": "<p>If Q = {x : x = <span class=\"math-tex\">{tex}\\frac{1}{y}{/tex}</span>, where y <span class=\"math-tex\">{tex} \\in {/tex}</span> N}, then</p>",
+              "options": [
+                {
+                  "label": "A",
+                  "id": 28625,
+                  "text": "0 $ \\in $ Q",
+                  "is_correct": false
+                },
+                {
+                  "label": "B",
+                  "id": 28624,
+                  "text": "1 $ \\in $ Q",
+                  "is_correct": true
+                },
+                {
+                  "label": "C",
+                  "id": 28626,
+                  "text": "2 $ \\in $ Q",
+                  "is_correct": false
+                },
+                {
+                  "label": "D",
+                  "id": 28627,
+                  "text": "$\\frac{1}{2}$ $ \\notin $ Q",
+                  "is_correct": false
+                }
+              ],
+              "correct_option_ids": [
+                28624
+              ],
+              "correct_option_labels": [
+                "B"
+              ],
+              "correct_option_texts": [
+                "1 $ \\in $ Q"
+              ],
+              "explanation": "N is set of natural number, so\nx = $\\frac{1}{y}$\nWhen y = 1 then x = 1\nSo, 1 $ \\in $Q"
+            },
+            {
+              "questionID": 18357,
+              "question": "If A = {x : x $\\ne$ x} represents",
+              "question_raw": "<p>If A = {x : x&nbsp;<span class=\"math-tex\">{tex}\\ne{/tex}</span>&nbsp;x} represents</p>",
+              "options": [
+                {
+                  "label": "A",
+                  "id": 28629,
+                  "text": "{0}",
+                  "is_correct": false
+                },
+                {
+                  "label": "B",
+                  "id": 28630,
+                  "text": "{1}",
+                  "is_correct": false
+                },
+                {
+                  "label": "C",
+                  "id": 28628,
+                  "text": "{ }",
+                  "is_correct": true
+                },
+                {
+                  "label": "D",
+                  "id": 28631,
+                  "text": "{x}",
+                  "is_correct": false
+                }
+              ],
+              "correct_option_ids": [
+                28628
+              ],
+              "correct_option_labels": [
+                "C"
+              ],
+              "correct_option_texts": [
+                "{ }"
+              ],
+              "explanation": "Here value of x is not possible so A is a null set."
+            },
+            {
+              "questionID": 18358,
+              "question": "P(A) = P(B) $ \\Rightarrow $",
+              "question_raw": "<p>P(A) = P(B) <span class=\"math-tex\">{tex} \\Rightarrow {/tex}</span></p>",
+              "options": [
+                {
+                  "label": "A",
+                  "id": 28633,
+                  "text": "$B\\subseteq A$",
+                  "is_correct": false
+                },
+                {
+                  "label": "B",
+                  "id": 28635,
+                  "text": "B $\\subset$ A",
+                  "is_correct": false
+                },
+                {
+                  "label": "C",
+                  "id": 28634,
+                  "text": "B $ \\supseteq $ A",
+                  "is_correct": false
+                },
+                {
+                  "label": "D",
+                  "id": 28632,
+                  "text": "A = B",
+                  "is_correct": true
+                }
+              ],
+              "correct_option_ids": [
+                28632
+              ],
+              "correct_option_labels": [
+                "D"
+              ],
+              "correct_option_texts": [
+                "A = B"
+              ],
+              "explanation": "To prove A = B it is enough to prove B $\\subseteq$ A and A $\\subseteq$ B\nSo let P(A) = P(B)\nAlso let x $\\in$ A\nNow we have A $\\in$ P(A)\n$\\Rightarrow$ A $\\in$ P(B), since P(A) = P(B)\n$\\therefore$ x $\\in$ E for some E $\\in$ P(B)\nNow E $\\subset$ B\n$\\Rightarrow$ x $\\in$ B\nHence we proved A $\\subseteq$ B\nSimilarly by taking x $\\in$ B and showing x $\\in$ A we get B $\\subseteq$ A\nHence A = B"
+            },
+            {
+              "questionID": 18359,
+              "question": "Which of the following is a set?\n A collection of vowels in English alphabets is a set.\n The collection of most talented writers of India is a set.\n The collection of most difficult topics in Mathematics is a set.\n The collection of good cricket players of India is a set.",
+              "question_raw": "<p>Which of the following is a set?</p>\r\n\r\n<ol start=\"1\" style=\"list-style-type: upper-alpha;\">\r\n\t<li>A collection of vowels in English alphabets is a set.</li>\r\n\t<li>The collection of most talented writers of India is a set.</li>\r\n\t<li>The collection of most difficult topics in Mathematics is a set.</li>\r\n\t<li>The collection of good cricket players of India is a set.</li>\r\n</ol>",
+              "options": [
+                {
+                  "label": "A",
+                  "id": 28638,
+                  "text": "C",
+                  "is_correct": false
+                },
+                {
+                  "label": "B",
+                  "id": 28637,
+                  "text": "B",
+                  "is_correct": false
+                },
+                {
+                  "label": "C",
+                  "id": 28639,
+                  "text": "D",
+                  "is_correct": false
+                },
+                {
+                  "label": "D",
+                  "id": 28636,
+                  "text": "A",
+                  "is_correct": true
+                }
+              ],
+              "correct_option_ids": [
+                28636
+              ],
+              "correct_option_labels": [
+                "D"
+              ],
+              "correct_option_texts": [
+                "A"
+              ],
+              "explanation": "The set is {a, e, i, o, u}"
+            },
+            {
+              "questionID": 18360,
+              "question": "If A $\\subset$ B, then",
+              "question_raw": "<p>&nbsp;If&nbsp;A&nbsp;<span class=\"math-tex\">{tex}\\subset{/tex}</span>&nbsp;B, then</p>",
+              "options": [
+                {
+                  "label": "A",
+                  "id": 28641,
+                  "text": "${ A }^{ c }\\subset { B }^{ c }$",
+                  "is_correct": false
+                },
+                {
+                  "label": "B",
+                  "id": 28643,
+                  "text": "${ B }^{ c }⊄{ A }^{ c }$",
+                  "is_correct": false
+                },
+                {
+                  "label": "C",
+                  "id": 28640,
+                  "text": "${ B }^{ c }\\subset { A }^{ c }$",
+                  "is_correct": true
+                },
+                {
+                  "label": "D",
+                  "id": 28642,
+                  "text": "${ A }^{ c }={ B }^{ c }$",
+                  "is_correct": false
+                }
+              ],
+              "correct_option_ids": [
+                28640
+              ],
+              "correct_option_labels": [
+                "C"
+              ],
+              "correct_option_texts": [
+                "${ B }^{ c }\\subset { A }^{ c }$"
+              ],
+              "explanation": "Let A $\\subset$ B\nTo prove B^c $\\subset$ A^c, it is enough to show that x $\\in$ B^c $\\Rightarrow$ x $\\in$ A^c \nLet x $\\in$ B^c\n$\\Rightarrow$ x $\\notin$ B\n$\\Rightarrow$ x $\\notin$ A since A $\\subset$ B\n$\\Rightarrow$ x $\\in$ A^c\nHence B^c $\\subset$ A^c"
+            },
+            {
+              "questionID": 18361,
+              "question": "Let A = {a, b, c}, B = {a, b}, C = {a, b, d}, D = {c, d} and E = {d}. Then which of the following statement is not correct?",
+              "question_raw": "<p>Let A = {a, b, c}, B = {a, b}, C = {a, b, d}, D = {c, d} and E = {d}. Then which of the following statement is not correct?</p>",
+              "options": [
+                {
+                  "label": "A",
+                  "id": 28647,
+                  "text": "D $\\supseteq$ E",
+                  "is_correct": false
+                },
+                {
+                  "label": "B",
+                  "id": 28644,
+                  "text": "C - D = E",
+                  "is_correct": true
+                },
+                {
+                  "label": "C",
+                  "id": 28645,
+                  "text": "B $\\cup$ E = C",
+                  "is_correct": false
+                },
+                {
+                  "label": "D",
+                  "id": 28646,
+                  "text": "C - B = E",
+                  "is_correct": false
+                }
+              ],
+              "correct_option_ids": [
+                28644
+              ],
+              "correct_option_labels": [
+                "B"
+              ],
+              "correct_option_texts": [
+                "C - D = E"
+              ],
+              "explanation": "C - D = {a, b, c} - {c, d} = {a, b}\nBut E = {d}\nHence C - D $\\ne$ E"
+            },
+            {
+              "questionID": 18362,
+              "question": "A - B is equal to",
+              "question_raw": "<p>A - B is equal to</p>\r\n",
+              "options": [
+                {
+                  "label": "A",
+                  "id": 28649,
+                  "text": "A^c $\\cap$ B^c",
+                  "is_correct": false
+                },
+                {
+                  "label": "B",
+                  "id": 28648,
+                  "text": "B^c - A^c",
+                  "is_correct": true
+                },
+                {
+                  "label": "C",
+                  "id": 28651,
+                  "text": "A $\\cap$ B",
+                  "is_correct": false
+                },
+                {
+                  "label": "D",
+                  "id": 28650,
+                  "text": "B - A",
+                  "is_correct": false
+                }
+              ],
+              "correct_option_ids": [
+                28648
+              ],
+              "correct_option_labels": [
+                "B"
+              ],
+              "correct_option_texts": [
+                "B^c - A^c"
+              ],
+              "explanation": "Let x $\\in$ A - B $\\Rightarrow$ x $\\in$ A and x $\\notin$ B\n$\\Rightarrow$ x $\\notin$ A^c and x $\\in$ B^c \n$\\Rightarrow$ x $\\in$ B^c and x $\\notin$ A^c\n$\\Rightarrow$ x $\\in$ B^c - A^c\n$\\Rightarrow$ A - B $\\subset$ B^c - A^c .....(i)\nNow let some y $\\in$ B^c - A^c\n$\\Rightarrow$ x $\\in$ B^c and x $\\in$ A^c\n$\\Rightarrow$ x $\\notin$ B and x $\\in$ A\n$\\Rightarrow$ x $\\in$ A and x $\\notin$ B\n$\\Rightarrow$ x $\\in$ A - B\n$\\Rightarrow$ B^c - A^c $\\subset$ A - B ......(ii)\nFrom (i) and (ii), we get A - B = B^c - A^c"
+            },
+            {
+              "questionID": 18363,
+              "question": "If a set A has n elements then the total number of subsets of A is",
+              "question_raw": "<p>If a set A has n elements then the total number of subsets of A is</p>",
+              "options": [
+                {
+                  "label": "A",
+                  "id": 28652,
+                  "text": "2^n",
+                  "is_correct": true
+                },
+                {
+                  "label": "B",
+                  "id": 28654,
+                  "text": "2n",
+                  "is_correct": false
+                },
+                {
+                  "label": "C",
+                  "id": 28655,
+                  "text": "n^2",
+                  "is_correct": false
+                },
+                {
+                  "label": "D",
+                  "id": 28653,
+                  "text": "n",
+                  "is_correct": false
+                }
+              ],
+              "correct_option_ids": [
+                28652
+              ],
+              "correct_option_labels": [
+                "A"
+              ],
+              "correct_option_texts": [
+                "2^n"
+              ],
+              "explanation": "The total no of subsets = 2^n"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "testPaperID": 605,
+      "testPaperName": "Sets Test 04",
+      "is_paid": true,
+      "category_full_name": "CBSE > Class 11 > Mathematics > Sets",
+      "noOfQuestions": 15,
+      "has_answers": true,
+      "sections": [
+        {
+          "sectionName": "General",
+          "sectionID": null,
+          "questions": [
+            {
+              "questionID": 18364,
+              "question": "If A, B, C be any three sets such that $A\\cup B=A\\cup C$ and $A\\mathop \\cap \\nolimits B = A\\mathop \\cap \\nolimits C$, then",
+              "question_raw": "<p>If A, B, C be any three sets such that&nbsp;<span class=\"math-tex\">{tex}A\\cup B=A\\cup C{/tex}</span>&nbsp;and <span class=\"math-tex\">{tex}A\\mathop \\cap \\nolimits B = A\\mathop \\cap \\nolimits C{/tex}</span>, then</p>",
+              "options": [
+                {
+                  "label": "A",
+                  "id": 28657,
+                  "text": "A = B",
+                  "is_correct": false
+                },
+                {
+                  "label": "B",
+                  "id": 28656,
+                  "text": "B = C",
+                  "is_correct": true
+                },
+                {
+                  "label": "C",
+                  "id": 28659,
+                  "text": "A = B = C",
+                  "is_correct": false
+                },
+                {
+                  "label": "D",
+                  "id": 28658,
+                  "text": "A = C",
+                  "is_correct": false
+                }
+              ],
+              "correct_option_ids": [
+                28656
+              ],
+              "correct_option_labels": [
+                "B"
+              ],
+              "correct_option_texts": [
+                "B = C"
+              ],
+              "explanation": "A $\\cup$ B = A $\\cup$ C\n$\\Rightarrow$ (A $\\cup$ B) $\\cap$ C = (A $\\cup$ C) $\\cap$ C\n$\\Rightarrow$ (A $\\cap$ C) $\\cup$ (B $\\cap$ C) = C .....(i)\nNow again A $\\cup$ B = A $\\cup$ C\n$\\Rightarrow$ (A $\\cup$ B) $\\cap$ B = (A $\\cup$ C) $\\cap$ B\n$\\Rightarrow$ B = (A $\\cap$ B) $\\cup$ (C $\\cap$ B) \n$\\Rightarrow$ B = (A $\\cap$ C) $\\cup$ (C $\\cap$ B), Since (A $\\cap$ B) = (A $\\cap$ C)\n$\\Rightarrow$ (A $\\cap$ C) $\\cup$ (B $\\cap$ C) = B .....(ii)\nNow from (i) and (ii) we get B = C"
+            },
+            {
+              "questionID": 18365,
+              "question": "Given the sets A = {1, 2, 3}, B = {3, 4}, C = {4, 5, 6}, then A $\\mathop \\cup \\nolimits $(B $\\mathop \\cap \\nolimits $ C) is",
+              "question_raw": "<p>Given the sets A = {1, 2, 3}, B = {3, 4}, C = {4, 5, 6}, then A <span class=\"math-tex\">{tex}\\mathop \\cup \\nolimits {/tex}</span>(B <span class=\"math-tex\">{tex}\\mathop \\cap \\nolimits {/tex}</span> C) is</p>",
+              "options": [
+                {
+                  "label": "A",
+                  "id": 28662,
+                  "text": "{3}",
+                  "is_correct": false
+                },
+                {
+                  "label": "B",
+                  "id": 28660,
+                  "text": "{1, 2, 3, 4}",
+                  "is_correct": true
+                },
+                {
+                  "label": "C",
+                  "id": 28663,
+                  "text": "{1, 2, 3}",
+                  "is_correct": false
+                },
+                {
+                  "label": "D",
+                  "id": 28661,
+                  "text": "{1, 2, 3, 4, 5, 6}",
+                  "is_correct": false
+                }
+              ],
+              "correct_option_ids": [
+                28660
+              ],
+              "correct_option_labels": [
+                "B"
+              ],
+              "correct_option_texts": [
+                "{1, 2, 3, 4}"
+              ],
+              "explanation": "Given A = {1, 2, 3}, B = {3, 4} and C = {4, 5, 6}\nB $\\cap$ C = {4} \nA $\\cup$ (B $\\cap$ C) = {1, 2, 3, 4}"
+            },
+            {
+              "questionID": 18366,
+              "question": "Sets A and B have 3 and 6 elements respectively. What can be the minimum number of elements in ${A \\cup B}$.",
+              "question_raw": "<p>Sets A and B have 3 and 6 elements respectively. What can be the minimum number of elements in <span class=\"math-tex\">{tex}{A \\cup B}{/tex}</span>.</p>",
+              "options": [
+                {
+                  "label": "A",
+                  "id": 28667,
+                  "text": "18",
+                  "is_correct": false
+                },
+                {
+                  "label": "B",
+                  "id": 28666,
+                  "text": "9",
+                  "is_correct": false
+                },
+                {
+                  "label": "C",
+                  "id": 28664,
+                  "text": "6",
+                  "is_correct": true
+                },
+                {
+                  "label": "D",
+                  "id": 28665,
+                  "text": "3",
+                  "is_correct": false
+                }
+              ],
+              "correct_option_ids": [
+                28664
+              ],
+              "correct_option_labels": [
+                "C"
+              ],
+              "correct_option_texts": [
+                "6"
+              ],
+              "explanation": "n(A) = 3\nn(B) = 6\nn(AUB) = n(A) + n(B) - n(A$\\begin{array}{l}\\cap\\\\\\end{array}$B)\nfor minimum number of elements in ${A \\cup B}$ \nn(A$\\begin{array}{l}\\cap\\\\\\end{array}$B) = 3\nSo n(A $\\cup$ B) = 6"
+            },
+            {
+              "questionID": 18367,
+              "question": "Two finite sets have m and n elements. The total number of subsets of the first set is 56 more than the total number of subsets of the second set. The values of m and n are",
+              "question_raw": "<p>Two finite sets have m and n elements. The total number of subsets of the first set is 56&nbsp;more than the total number of subsets of the second set. The values of m and n are</p>",
+              "options": [
+                {
+                  "label": "A",
+                  "id": 28668,
+                  "text": "6, 3",
+                  "is_correct": true
+                },
+                {
+                  "label": "B",
+                  "id": 28669,
+                  "text": "6, 4",
+                  "is_correct": false
+                },
+                {
+                  "label": "C",
+                  "id": 28671,
+                  "text": "7, 4",
+                  "is_correct": false
+                },
+                {
+                  "label": "D",
+                  "id": 28670,
+                  "text": "3, 3",
+                  "is_correct": false
+                }
+              ],
+              "correct_option_ids": [
+                28668
+              ],
+              "correct_option_labels": [
+                "A"
+              ],
+              "correct_option_texts": [
+                "6, 3"
+              ],
+              "explanation": "Let A and B be two sets having m and n elements respectively. Then,\nNumber of subsets of A = 2^m, Number of subsets of B = 2^n\nIt is given that 2^m - 2^n = 56\nSo, 2^n(2^m-n - 1) = 2^3(2^3 - 1)\nn = 3 and m - n = 3 $ \\Rightarrow $ n = 3 and m = 6."
+            },
+            {
+              "questionID": 18368,
+              "question": "The number of proper subsets of the set {1, 2, 3} is :",
+              "question_raw": "<p>The number of proper subsets of the set {1, 2, 3} is :</p>",
+              "options": [
+                {
+                  "label": "A",
+                  "id": 28674,
+                  "text": "6",
+                  "is_correct": false
+                },
+                {
+                  "label": "B",
+                  "id": 28675,
+                  "text": "5",
+                  "is_correct": false
+                },
+                {
+                  "label": "C",
+                  "id": 28673,
+                  "text": "8",
+                  "is_correct": false
+                },
+                {
+                  "label": "D",
+                  "id": 28672,
+                  "text": "7",
+                  "is_correct": true
+                }
+              ],
+              "correct_option_ids": [
+                28672
+              ],
+              "correct_option_labels": [
+                "D"
+              ],
+              "correct_option_texts": [
+                "7"
+              ],
+              "explanation": "The no. of proper subsets = 2^n - 1 = 2^3 - 1 = 7\nHere n = no of elements of given set = 3."
+            },
+            {
+              "questionID": 18369,
+              "question": "If A, B and C are non – empty sets, then (A - B) $\\mathop \\cup \\nolimits $ (B - A) equals:",
+              "question_raw": "<p>If A, B and C are non &ndash; empty sets, then (A -&nbsp;B) <span class=\"math-tex\">{tex}\\mathop \\cup \\nolimits {/tex}</span>&nbsp;(B -&nbsp;A) equals:</p>\r\n",
+              "options": [
+                {
+                  "label": "A",
+                  "id": 28678,
+                  "text": "(A $\\mathop \\cup \\nolimits $ B) - B",
+                  "is_correct": false
+                },
+                {
+                  "label": "B",
+                  "id": 28679,
+                  "text": "(A $\\cap$ B) - B",
+                  "is_correct": false
+                },
+                {
+                  "label": "C",
+                  "id": 28676,
+                  "text": "(A $\\mathop \\cup \\nolimits $ B) – (A $\\mathop \\cap \\nolimits $ B)",
+                  "is_correct": true
+                },
+                {
+                  "label": "D",
+                  "id": 28677,
+                  "text": "(A $\\mathop \\cap \\nolimits $ B) $\\mathop \\cup \\nolimits $ (A $\\mathop \\cup \\nolimits $ B)",
+                  "is_correct": false
+                }
+              ],
+              "correct_option_ids": [
+                28676
+              ],
+              "correct_option_labels": [
+                "C"
+              ],
+              "correct_option_texts": [
+                "(A $\\mathop \\cup \\nolimits $ B) – (A $\\mathop \\cap \\nolimits $ B)"
+              ],
+              "explanation": "We have (A $\\cup$ B) = (A - B) $\\cup$ (A $\\cap$ B)\nHence (A $\\cup$ B) - (A $\\cap$ B) = (A - B) $\\cup$ (B - A)"
+            },
+            {
+              "questionID": 18370,
+              "question": "In a class of 100 students, 55 students have passed in Mathematics and 67 students have passed in Physics. Then the number of students who have passed in Physics only is",
+              "question_raw": "<p>In a class of 100 students, 55 students have passed in Mathematics and 67 students have passed in Physics. Then the number of students who have passed in Physics only is</p>",
+              "options": [
+                {
+                  "label": "A",
+                  "id": 28683,
+                  "text": "47",
+                  "is_correct": false
+                },
+                {
+                  "label": "B",
+                  "id": 28681,
+                  "text": "33",
+                  "is_correct": false
+                },
+                {
+                  "label": "C",
+                  "id": 28680,
+                  "text": "45",
+                  "is_correct": true
+                },
+                {
+                  "label": "D",
+                  "id": 28682,
+                  "text": "25",
+                  "is_correct": false
+                }
+              ],
+              "correct_option_ids": [
+                28680
+              ],
+              "correct_option_labels": [
+                "C"
+              ],
+              "correct_option_texts": [
+                "45"
+              ],
+              "explanation": "Let U denote the set of students of the class and let M and P denote the sets of students who passed in mathematics and physics respectively. Then\nn(U) = 100, n(M) = 55 and n(P) = 67\nSince all the students have passed in any of these subjects, we have \nn(U) = 100 $\\Rightarrow$ n(M $\\cup$ P) = 100\nNow we have, n(M $\\cup$ P) = n(M) + n(P) - n(M $\\cap$ P)\n$\\Rightarrow$ 100 = 55 + 67 - n(M $\\cap$ P)\n$\\Rightarrow$ n(M $\\cap$ P) = 122 - 100 = 22\nWhich means the number of students who passed in both the subjects = 22\nHence the number of students who passed only in physics = n(P) - n(M $\\cap$ P) = 67 - 22 = 45"
+            },
+            {
+              "questionID": 18371,
+              "question": "Out of 800 boys in a school, 224 played cricket, 240 played hockey and 336 played basketball. Of the total, 64 played both basketball and hockey, 80 played cricket and basketball and 40 played cricket and hockey, 24 played all the three games. The number of boys who did not play any game is:",
+              "question_raw": "<p>Out of 800 boys in a school, 224 played cricket, 240 played hockey and 336 played basketball. Of the total, 64 played both basketball and hockey,&nbsp;80 played cricket and basketball and 40 played cricket and hockey,&nbsp;24 played all the three games. The number of boys who did not play any game is:</p>",
+              "options": [
+                {
+                  "label": "A",
+                  "id": 28684,
+                  "text": "160",
+                  "is_correct": true
+                },
+                {
+                  "label": "B",
+                  "id": 28686,
+                  "text": "240",
+                  "is_correct": false
+                },
+                {
+                  "label": "C",
+                  "id": 28687,
+                  "text": "150",
+                  "is_correct": false
+                },
+                {
+                  "label": "D",
+                  "id": 28685,
+                  "text": "128",
+                  "is_correct": false
+                }
+              ],
+              "correct_option_ids": [
+                28684
+              ],
+              "correct_option_labels": [
+                "A"
+              ],
+              "correct_option_texts": [
+                "160"
+              ],
+              "explanation": "Let U denote the set of boys in a school and let C, H and B denote the sets of boys who played Cricked, Hockey and Basketball respectively.\nThen we have n(U) = 800, n(C) = 224, n(H) = 240 and n(B) = 336\nAlso $n(C \\cap H)=40 \\quad, n(B \\cap H)=64,$ $n(C \\cap B)=80$ and $n(C \\cap B \\cap H)=24$\nNow we have $n(C \\cup H \\cup B)=n(C)+n(H)+n(B)$$-n(C \\cap H)-n(B \\cap H)-n(C \\cap B)+n(C \\cap B \\cap H)$\n$\\Rightarrow n(C \\cup H \\cup B)=$ 224 + 240 + 336 - 40 - 64 - 80 + 24\n$\\Rightarrow n(C \\cup H \\cup B)=640$\nWhich means the number of boys who play any one game = 640\nHence the number of boys who Did not play any game $=n(U)-n(C \\cup H \\cup B)=800-640=160$"
+            },
+            {
+              "questionID": 18372,
+              "question": "A survey shows that 75% of the Indians like apples, whereas 68% like oranges. What percentage of Indians like both apples and oranges.",
+              "question_raw": "<p>A survey shows that 75% of the Indians like apples, whereas 68% like oranges. What percentage of Indians like both apples and oranges.</p>",
+              "options": [
+                {
+                  "label": "A",
+                  "id": 28690,
+                  "text": "53%",
+                  "is_correct": false
+                },
+                {
+                  "label": "B",
+                  "id": 28688,
+                  "text": "43%",
+                  "is_correct": true
+                },
+                {
+                  "label": "C",
+                  "id": 28689,
+                  "text": "34%",
+                  "is_correct": false
+                },
+                {
+                  "label": "D",
+                  "id": 28691,
+                  "text": "35%",
+                  "is_correct": false
+                }
+              ],
+              "correct_option_ids": [
+                28688
+              ],
+              "correct_option_labels": [
+                "B"
+              ],
+              "correct_option_texts": [
+                "43%"
+              ],
+              "explanation": "Let U denote the set of Indians and let A and B denote the sets of Indians who like apples and oranges respectively. Then\nn(U) = 100, n(A) = 75 and n(B) = 68\nWe have n(U) = 100 $\\Rightarrow$ n(A $\\cup$ B) = 100\nSo n(A $\\cup$ B) = n(A) + n(B) - n(A $\\cap$ B)\n$\\Rightarrow$ 100 = 75 + 68 - n(M $\\cap$ P)\n$\\Rightarrow$ n(M $\\cap$ P) = 143 - 100 = 43\nWhich means 43 percentage of Indians like apples and oranges."
+            },
+            {
+              "questionID": 18373,
+              "question": "The number of non-empty subsets of the set {1, 2, 3, 4} is:",
+              "question_raw": "<p>The number of non-empty subsets of the set {1, 2, 3, 4} is:</p>",
+              "options": [
+                {
+                  "label": "A",
+                  "id": 28694,
+                  "text": "16",
+                  "is_correct": false
+                },
+                {
+                  "label": "B",
+                  "id": 28692,
+                  "text": "15",
+                  "is_correct": true
+                },
+                {
+                  "label": "C",
+                  "id": 28693,
+                  "text": "14",
+                  "is_correct": false
+                },
+                {
+                  "label": "D",
+                  "id": 28695,
+                  "text": "17",
+                  "is_correct": false
+                }
+              ],
+              "correct_option_ids": [
+                28692
+              ],
+              "correct_option_labels": [
+                "B"
+              ],
+              "correct_option_texts": [
+                "15"
+              ],
+              "explanation": "Total no. of subset including empty set = 2^n \nSo total subset = 2^4 = 16\nThe no. of non empty set = 16 - 1 = 15"
+            },
+            {
+              "questionID": 18374,
+              "question": "Which of the following is (A – B) $\\mathop \\cup \\nolimits $ (A – C)?",
+              "question_raw": "<p>Which of the following is (A &ndash; B) <span class=\"math-tex\">{tex}\\mathop \\cup \\nolimits {/tex}</span> (A &ndash; C)?</p>\r\n",
+              "options": [
+                {
+                  "label": "A",
+                  "id": 28696,
+                  "text": "A – (B $\\mathop \\cap \\nolimits $C)",
+                  "is_correct": true
+                },
+                {
+                  "label": "B",
+                  "id": 28698,
+                  "text": "(A - B ) $\\mathop \\cup \\nolimits $C",
+                  "is_correct": false
+                },
+                {
+                  "label": "C",
+                  "id": 28697,
+                  "text": "( A $\\mathop \\cup \\nolimits $ B ) $\\mathop \\cup \\nolimits $( A $\\mathop \\cap \\nolimits $ B )",
+                  "is_correct": false
+                },
+                {
+                  "label": "D",
+                  "id": 28699,
+                  "text": "A $\\mathop \\cap \\nolimits $ ( B –C)",
+                  "is_correct": false
+                }
+              ],
+              "correct_option_ids": [
+                28696
+              ],
+              "correct_option_labels": [
+                "A"
+              ],
+              "correct_option_texts": [
+                "A – (B $\\mathop \\cap \\nolimits $C)"
+              ],
+              "explanation": "Let $x\\in A-(B\\cap C)\\Rightarrow x\\in A\\quad $and x $\\notin$ B $\\cap$ C\n$\\Rightarrow x{ \\in A }$ and ($x\\notin B$ or $x\\notin { A }$)\n$\\Rightarrow$ (x $\\in$ A and x $\\notin$ B) or (x $\\in$ A and x $\\notin$ C)\n$\\Rightarrow$ x $\\in$ A − B or x $\\in$ A − C\n$\\Rightarrow$ x$\\in$ (A − B) $\\cup$ (A−C)\n$\\Rightarrow$ A − (B $\\cap$ C) $\\subset$ (A − B) $\\cup$ (A-C) ......(i)\nNow let y ∈ (A−B) ∪ (A−C)\n$\\Rightarrow$ y $\\in$ A−B or y $\\in$ A − C\n$\\Rightarrow$ (y $\\in$ A and y ∉ B) or (y $\\in$ A and y$\\notin$ C)\n$\\Rightarrow$ y $\\in$ A and (y$\\notin$ B or y$\\notin$ A)\n$\\Rightarrow$ y $\\in$ A and y $\\notin$ B $\\cap$ C\n$\\Rightarrow$ y ∈ A − (B $\\cap$ C) \n$\\Rightarrow$ (A − B) $\\cup$ (A − C) $\\subset$ A − (B $\\cap$ C)......(ii)\nFrom (i) and (ii) we get A − (B $\\cap$ C) = (A−B) $\\cup$ (A − C)"
+            },
+            {
+              "questionID": 18375,
+              "question": "If A and B are two given sets , then A $\\cap$ (A $\\cap$ B)^c is equal to",
+              "question_raw": "<p>If A and B are two given sets , then A&nbsp;<span class=\"math-tex\">{tex}\\cap{/tex}</span>&nbsp;(A&nbsp;<span class=\"math-tex\">{tex}\\cap{/tex}</span>&nbsp;B)<sup>c</sup>&nbsp;is equal to</p>",
+              "options": [
+                {
+                  "label": "A",
+                  "id": 28703,
+                  "text": "$\\phi $",
+                  "is_correct": false
+                },
+                {
+                  "label": "B",
+                  "id": 28702,
+                  "text": "B",
+                  "is_correct": false
+                },
+                {
+                  "label": "C",
+                  "id": 28701,
+                  "text": "A",
+                  "is_correct": false
+                },
+                {
+                  "label": "D",
+                  "id": 28700,
+                  "text": "A $\\cap$ B^c",
+                  "is_correct": true
+                }
+              ],
+              "correct_option_ids": [
+                28700
+              ],
+              "correct_option_labels": [
+                "D"
+              ],
+              "correct_option_texts": [
+                "A $\\cap$ B^c"
+              ],
+              "explanation": "A $\\cap$ B^c\nA and B are two sets.\nA $\\cap$ B is the common region in both the sets.\n(A $\\cap$ B^c) is all the region in the universal set except A $\\cap$ B\nNow, A $\\cap$ (A $\\cap$ B)^c = A $\\cap$ B^c"
+            },
+            {
+              "questionID": 18376,
+              "question": "Given n ($\\mathop \\cup \\nolimits $) = 20 , n ( A ) = 12 , n ( B ) = 9 , n ( A $\\mathop \\cap \\nolimits $ B ) = 4 , where U is the universal set , A and B are subsets of U , then $n(A \\cup B)'$",
+              "question_raw": "<p>Given n (<span class=\"math-tex\">{tex}\\mathop \\cup \\nolimits {/tex}</span>) = 20 , n ( A ) = 12 , n ( B ) = 9 , n ( A <span class=\"math-tex\">{tex}\\mathop \\cap \\nolimits {/tex}</span> B ) = 4 , where U is the universal set , A and B are subsets of U , then <span class=\"math-tex\">{tex}n(A \\cup B)'{/tex}</span></p>\r\n",
+              "options": [
+                {
+                  "label": "A",
+                  "id": 28704,
+                  "text": "3",
+                  "is_correct": true
+                },
+                {
+                  "label": "B",
+                  "id": 28705,
+                  "text": "9",
+                  "is_correct": false
+                },
+                {
+                  "label": "C",
+                  "id": 28706,
+                  "text": "17",
+                  "is_correct": false
+                },
+                {
+                  "label": "D",
+                  "id": 28707,
+                  "text": "11",
+                  "is_correct": false
+                }
+              ],
+              "correct_option_ids": [
+                28704
+              ],
+              "correct_option_labels": [
+                "A"
+              ],
+              "correct_option_texts": [
+                "3"
+              ],
+              "explanation": "Given"
+            },
+            {
+              "questionID": 18377,
+              "question": "Sets A and B have 3 and 6 elements respectively. What can be the maximum number of elements in A $\\mathop \\cup \\nolimits $ B.",
+              "question_raw": "<p>Sets A and B have 3 and 6 elements respectively. What can be the maximum number of elements in A <span class=\"math-tex\">{tex}\\mathop \\cup \\nolimits {/tex}</span> B.</p>",
+              "options": [
+                {
+                  "label": "A",
+                  "id": 28710,
+                  "text": "3",
+                  "is_correct": false
+                },
+                {
+                  "label": "B",
+                  "id": 28708,
+                  "text": "9",
+                  "is_correct": true
+                },
+                {
+                  "label": "C",
+                  "id": 28711,
+                  "text": "18",
+                  "is_correct": false
+                },
+                {
+                  "label": "D",
+                  "id": 28709,
+                  "text": "6",
+                  "is_correct": false
+                }
+              ],
+              "correct_option_ids": [
+                28708
+              ],
+              "correct_option_labels": [
+                "B"
+              ],
+              "correct_option_texts": [
+                "9"
+              ],
+              "explanation": "n(A $\\mathop \\cup \\nolimits $ B) = n(A) + n(B) - n(A $\\cap$ B)\nIf n(A $\\cap$ B) = 0 then n(A $\\mathop \\cup \\nolimits $ B) is max.\nSo max number of element in A $\\mathop \\cup \\nolimits $ B = 9"
+            },
+            {
+              "questionID": 18378,
+              "question": "A survey shows that 63% of Americans like cheese whereas 76% like apples. If x% of the Americans like both cheese and apples, then the value of x is",
+              "question_raw": "<p>A survey shows that 63% of Americans&nbsp;like cheese whereas 76% like apples. If x% of the Americans like both cheese and apples, then the value of x is</p>",
+              "options": [
+                {
+                  "label": "A",
+                  "id": 28715,
+                  "text": "32",
+                  "is_correct": false
+                },
+                {
+                  "label": "B",
+                  "id": 28712,
+                  "text": "39",
+                  "is_correct": true
+                },
+                {
+                  "label": "C",
+                  "id": 28713,
+                  "text": "49",
+                  "is_correct": false
+                },
+                {
+                  "label": "D",
+                  "id": 28714,
+                  "text": "63",
+                  "is_correct": false
+                }
+              ],
+              "correct_option_ids": [
+                28712
+              ],
+              "correct_option_labels": [
+                "B"
+              ],
+              "correct_option_texts": [
+                "39"
+              ],
+              "explanation": "Let U denote the set of Americans and Lete A and B denote the sets of Americans who like cheese and apples respectively. Then\n$n(U)=100$, n(A) = 62 and n(B) = 76\nWe have n(U) = 100 $\\Rightarrow n(A \\cup B)=100$\nSo $n(A \\cup B)=n(A)+n(B)-n(A \\cap B)$\n$\\Rightarrow 100=63+76-n(A \\cap B)$\n$\\Rightarrow n(A \\cap B)=139-100=39$\nWhich means 39 percent of Americans like Cheese and apples."
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "testPaperID": 606,
+      "testPaperName": "Sets Test 05",
+      "is_paid": true,
+      "category_full_name": "CBSE > Class 11 > Mathematics > Sets",
+      "noOfQuestions": 14,
+      "has_answers": true,
+      "sections": [
+        {
+          "sectionName": "General",
+          "sectionID": null,
+          "questions": [
+            {
+              "questionID": 18379,
+              "question": "In a town of 10,000 families it was found that 40% families buys newspaper A, 20% buy newspaper B, and 10% families buy newspaper C, 5% families buy A and B, 3% buy B and C and 4% buy A and C. If 2% buy all the three newspapers, then number of families which buy A only is",
+              "question_raw": "<p>In a town of 10,000 families it was found that 40% families buys newspaper A, 20% buy newspaper B, and 10% families buy newspaper C, 5% families buy A and B, 3% buy B and C and 4% buy A and C. If 2% buy all the three newspapers, then number of families which buy A only is</p>",
+              "options": [
+                {
+                  "label": "A",
+                  "id": 28717,
+                  "text": "3100",
+                  "is_correct": false
+                },
+                {
+                  "label": "B",
+                  "id": 28718,
+                  "text": "2900",
+                  "is_correct": false
+                },
+                {
+                  "label": "C",
+                  "id": 28716,
+                  "text": "3300",
+                  "is_correct": true
+                },
+                {
+                  "label": "D",
+                  "id": 28719,
+                  "text": "3400",
+                  "is_correct": false
+                }
+              ],
+              "correct_option_ids": [
+                28716
+              ],
+              "correct_option_labels": [
+                "C"
+              ],
+              "correct_option_texts": [
+                "3300"
+              ],
+              "explanation": "Let U denote the set of families who buy news paper and let X, Y and Z denote the sets of families who buy newspaper A, B and C respectively\nThen we have n(U) = 10000, n(X) = 40% of 10000 = 4000, n(Y) = 20% of 10000 = 2000 and n(Z) = 10% of 10000 = 1000\nAlso n(X $\\cap$ Y) = 5% of 10000 = 500, n(Y $\\cap$ Z) = 3% of 10000 = 300\nn(X $\\cap$ Z) = 4% of 10000 = 400 and (X $\\cap$ Y $\\cap$ Z) = 2% of 10000 = 200\nHence the number of families who buy only newspaper A = n[X - (Y $\\cup$ Z)]\n= n(X) - n[X $\\cap$(Y $\\cup$ Z)]\n= n(X) - n[X $\\cap$(Y $\\cup$ Z)]\n= n(X) - [n(X $\\cap$ Y) + n(X $\\cap$ Z) - n((X $\\cap$ Y) $\\cap$(X $\\cap$ Z))]\n= n(X) - [n(X $\\cap$ Y) + n(X $\\cap$ Z) - n(X $\\cap$ Y $\\cap$ Z)]\n= 4000 - [500 + 400 - 200]\n= 4000 - 700 = 3300"
+            },
+            {
+              "questionID": 18380,
+              "question": "In a town of 10.000 families it was found that 40 %families buy newspaper A, 20% families buy newspaper B and 10% families buy newspaper C, 5% families buy A and B,3% buy B and C and 4% buy A and C.If 2% buy all the three newspapers, then the number of families which buy none of A, B, C is",
+              "question_raw": "<p>In a town of 10.000 families&nbsp; it was found that 40 %families buy newspaper A, 20% families buy newspaper B and 10% families buy newspaper C, 5% families buy A and B,3% buy B and C and 4% buy A and C.If 2% buy all the three newspapers, then the number of families which buy none of A, B, C is</p>",
+              "options": [
+                {
+                  "label": "A",
+                  "id": 28720,
+                  "text": "4000",
+                  "is_correct": true
+                },
+                {
+                  "label": "B",
+                  "id": 28721,
+                  "text": "3300",
+                  "is_correct": false
+                },
+                {
+                  "label": "C",
+                  "id": 28723,
+                  "text": "5000",
+                  "is_correct": false
+                },
+                {
+                  "label": "D",
+                  "id": 28722,
+                  "text": "4200",
+                  "is_correct": false
+                }
+              ],
+              "correct_option_ids": [
+                28720
+              ],
+              "correct_option_labels": [
+                "A"
+              ],
+              "correct_option_texts": [
+                "4000"
+              ],
+              "explanation": "4000"
+            },
+            {
+              "questionID": 18381,
+              "question": "In a battle 70% of combatants lost one eye, 80% an ear, 75% an arm, 85% a leg, x% lose all the four limbs. The minimum value of x is:",
+              "question_raw": "<p>In a battle 70% of combatants lost one eye, 80% an ear, 75% an arm, 85%&nbsp; a leg, x% lose all the four limbs. The minimum value of x is:</p>",
+              "options": [
+                {
+                  "label": "A",
+                  "id": 28726,
+                  "text": "15",
+                  "is_correct": false
+                },
+                {
+                  "label": "B",
+                  "id": 28724,
+                  "text": "10",
+                  "is_correct": true
+                },
+                {
+                  "label": "C",
+                  "id": 28725,
+                  "text": "12",
+                  "is_correct": false
+                },
+                {
+                  "label": "D",
+                  "id": 28727,
+                  "text": "11",
+                  "is_correct": false
+                }
+              ],
+              "correct_option_ids": [
+                28724
+              ],
+              "correct_option_labels": [
+                "B"
+              ],
+              "correct_option_texts": [
+                "10"
+              ],
+              "explanation": "Given that percentage of combatants who lost one eye = 70%, an ear = 80% and an arm = 75% and a leg = 85%\nHence we get the percentage of combatants who lost one eye and one ear = (70% + 80%) - 100% = 50%\nPercentage of combatants who lost one eye, one ear and one arm = (50% + 75%) - 100% = 25%\nSimilarly, the percentage of combatants who lost one eye, one ear, one arm, and one leg = (25% + 85%) - 100% = 10%\nHence we get the percentage of the combatants who lost all 4 limbs = 10%\nHence if x% represents the percentage of combatants who lost all 4 limbs we get the minimum value of x = 10"
+            },
+            {
+              "questionID": 18382,
+              "question": "f(A) = {$\\phi$, {$\\phi$}}, then the power set of A is",
+              "question_raw": "<p>f(A) = {<span class=\"math-tex\">{tex}\\phi{/tex}</span>, {<span class=\"math-tex\">{tex}\\phi{/tex}</span>}}, then the power set of A is</p>",
+              "options": [
+                {
+                  "label": "A",
+                  "id": 28728,
+                  "text": "{$\\phi $, {$\\phi $}, {{$\\phi $}}, A}",
+                  "is_correct": true
+                },
+                {
+                  "label": "B",
+                  "id": 28730,
+                  "text": "{$\\phi$, A}",
+                  "is_correct": false
+                },
+                {
+                  "label": "C",
+                  "id": 28729,
+                  "text": "{$\\phi$ , {$\\phi$}, A}",
+                  "is_correct": false
+                },
+                {
+                  "label": "D",
+                  "id": 28731,
+                  "text": "A",
+                  "is_correct": false
+                }
+              ],
+              "correct_option_ids": [
+                28728
+              ],
+              "correct_option_labels": [
+                "A"
+              ],
+              "correct_option_texts": [
+                "{$\\phi $, {$\\phi $}, {{$\\phi $}}, A}"
+              ],
+              "explanation": "Subsets of A are ${\\phi ,\\,\\left\\{ \\phi \\right\\},\\{ \\{ \\phi \\} \\} },\\{ \\phi,\\{ \\phi \\} \\} $ \n ${\\therefore {\\text{P}}({\\text{A}})\\; = \\left\\{ {\\phi ,\\{ \\phi \\} ,\\{ \\{ \\phi \\} \\} ,{\\text{A}}} \\right\\}}$"
+            },
+            {
+              "questionID": 18384,
+              "question": "Let A and B be two non- empty subsets of a set X such that A is not a subset of B, then",
+              "question_raw": "<p>Let A and B be two non- empty subsets of a set X such that A is not a subset of B, then</p>",
+              "options": [
+                {
+                  "label": "A",
+                  "id": 28737,
+                  "text": "A and B are always disjoint",
+                  "is_correct": false
+                },
+                {
+                  "label": "B",
+                  "id": 28739,
+                  "text": "A is always a subset of B",
+                  "is_correct": false
+                },
+                {
+                  "label": "C",
+                  "id": 28736,
+                  "text": "A and the complement of B are always non-disjoint",
+                  "is_correct": true
+                },
+                {
+                  "label": "D",
+                  "id": 28738,
+                  "text": "B is always a subset of A",
+                  "is_correct": false
+                }
+              ],
+              "correct_option_ids": [
+                28736
+              ],
+              "correct_option_labels": [
+                "C"
+              ],
+              "correct_option_texts": [
+                "A and the complement of B are always non-disjoint"
+              ],
+              "explanation": "Let x $\\in$ A, then x $\\notin$ B as A is not a subset of B\n$\\therefore$ x $\\in$ A and x $\\notin$ B\n$\\Rightarrow$ x $\\in$ A and x $\\in$ B'\n$\\Rightarrow$ x $\\in$ A $\\cap$ B'\n$\\Rightarrow$ A and B' are non - disjoint."
+            },
+            {
+              "questionID": 18385,
+              "question": "If A class has 175 students. The following data shows the number of students offering one or more subjects. Mathematics 100; Physics 70; Chemistry 40; Mathematics and Physics 30; Mathematics and Chemistry 28; Physics and Chemistry 23; Mathematics, Physics and Chemistry 18. How many students have offered Mathematics alone?",
+              "question_raw": "<p>If A class has 175 students. The following data shows the number of students offering one or more subjects. Mathematics 100; Physics 70; Chemistry 40; Mathematics and Physics 30; Mathematics and Chemistry 28; Physics and Chemistry 23; Mathematics, Physics and Chemistry 18. How many students have offered Mathematics alone?</p>",
+              "options": [
+                {
+                  "label": "A",
+                  "id": 28743,
+                  "text": "22.",
+                  "is_correct": false
+                },
+                {
+                  "label": "B",
+                  "id": 28742,
+                  "text": "48",
+                  "is_correct": false
+                },
+                {
+                  "label": "C",
+                  "id": 28740,
+                  "text": "60",
+                  "is_correct": true
+                },
+                {
+                  "label": "D",
+                  "id": 28741,
+                  "text": "35",
+                  "is_correct": false
+                }
+              ],
+              "correct_option_ids": [
+                28740
+              ],
+              "correct_option_labels": [
+                "C"
+              ],
+              "correct_option_texts": [
+                "60"
+              ],
+              "explanation": "M -mathematics\nP - physics\nC - chemistry\nVenn Diagram\nBy Venn Diagram we can see that the students who offered mathematics alone are 60."
+            },
+            {
+              "questionID": 18386,
+              "question": "If A = {(x, y) : x^2 + y^2 = 25} and B = {(x, y) : x^2 + 9y^2 = 144} then A $\\mathop \\cap \\nolimits $ B contains",
+              "question_raw": "<p>If A = {(x, y) : x<sup>2</sup> + y<sup>2</sup> = 25} and B = {(x, y) : x<sup>2</sup> + 9y<sup>2</sup> = 144} then A&nbsp;<span class=\"math-tex\">{tex}\\mathop \\cap \\nolimits {/tex}</span> B contains</p>",
+              "options": [
+                {
+                  "label": "A",
+                  "id": 28746,
+                  "text": "three points",
+                  "is_correct": false
+                },
+                {
+                  "label": "B",
+                  "id": 28747,
+                  "text": "two points",
+                  "is_correct": false
+                },
+                {
+                  "label": "C",
+                  "id": 28745,
+                  "text": "one point",
+                  "is_correct": false
+                },
+                {
+                  "label": "D",
+                  "id": 28744,
+                  "text": "four points",
+                  "is_correct": true
+                }
+              ],
+              "correct_option_ids": [
+                28744
+              ],
+              "correct_option_labels": [
+                "D"
+              ],
+              "correct_option_texts": [
+                "four points"
+              ],
+              "explanation": "From A, x^2 + y^2 = 25 and from B, x^2 + 9y^2 = 144\n$\\therefore$ From B, (x^2 + y^2) + 8y^2 = 144\n$ \\Rightarrow$ 25 + 8y^2 = 144\n$ \\Rightarrow$ 8y^2 = 119 \n$\\Rightarrow$y = $\\pm \\sqrt{\\frac{119}{8}}$ \n$\\therefore$ x^2 + y^2 = 25 $\\Rightarrow$ x^2 = 25 - y^2 = 25 - $\\frac{119}{8}$ = $\\frac{81}{8}$ \n$\\Rightarrow$ x = $\\pm \\sqrt{\\frac{81}{8}}$ \nSince we solved equations simultaneously, therefore ${{\\text{A}} \\cap \\;{\\text{B}}}$ has four points A has 2 elements & B has 2 elements."
+            },
+            {
+              "questionID": 18387,
+              "question": "In a city 20% of the population travels by car, 50% travels by bus and 10% travels by both car and bus. Then persons travelling by car or bus is",
+              "question_raw": "<p>In a city 20% of the population travels by car, 50%&nbsp; travels by bus and 10% travels by both car and bus. Then persons travelling by car or bus is</p>",
+              "options": [
+                {
+                  "label": "A",
+                  "id": 28751,
+                  "text": "20%",
+                  "is_correct": false
+                },
+                {
+                  "label": "B",
+                  "id": 28749,
+                  "text": "80%",
+                  "is_correct": false
+                },
+                {
+                  "label": "C",
+                  "id": 28750,
+                  "text": "30%",
+                  "is_correct": false
+                },
+                {
+                  "label": "D",
+                  "id": 28748,
+                  "text": "60%",
+                  "is_correct": true
+                }
+              ],
+              "correct_option_ids": [
+                28748
+              ],
+              "correct_option_labels": [
+                "D"
+              ],
+              "correct_option_texts": [
+                "60%"
+              ],
+              "explanation": "Suppose C and B represents the population travel by car and Bus respectively.\nn(C $\\cup$ B) = n(C) + n(B) - n(B $\\cap$ C)\n= 0.20 + 0.50 - 0.10\n= 0.6 or 60"
+            },
+            {
+              "questionID": 18388,
+              "question": "Let A and B be two sets such that n(A) = 0.16, n(B) = 0.14, n(A $\\mathop \\cup \\nolimits $ B) = 0.25, then n(A $\\mathop \\cap \\nolimits $ B) is equal to",
+              "question_raw": "<p>Let A and B be two sets such that n(A) = 0.16, n(B) = 0.14, n(A <span class=\"math-tex\">{tex}\\mathop \\cup \\nolimits {/tex}</span> B) = 0.25, then n(A <span class=\"math-tex\">{tex}\\mathop \\cap \\nolimits {/tex}</span> B) is equal to</p>",
+              "options": [
+                {
+                  "label": "A",
+                  "id": 28754,
+                  "text": "0.3",
+                  "is_correct": false
+                },
+                {
+                  "label": "B",
+                  "id": 28753,
+                  "text": "0.5",
+                  "is_correct": false
+                },
+                {
+                  "label": "C",
+                  "id": 28755,
+                  "text": "0.03",
+                  "is_correct": false
+                },
+                {
+                  "label": "D",
+                  "id": 28752,
+                  "text": "0.05",
+                  "is_correct": true
+                }
+              ],
+              "correct_option_ids": [
+                28752
+              ],
+              "correct_option_labels": [
+                "D"
+              ],
+              "correct_option_texts": [
+                "0.05"
+              ],
+              "explanation": "Given n(A) = 0.16, n(B) = 0.14, n(A $\\cup$ B) = 0.25\nn(A $\\cap$ B) = n(A) + n(B) - n(A $\\cup$ B) = 0.16 + 0.14 - 0.25 = 0.05"
+            },
+            {
+              "questionID": 18389,
+              "question": "if A = {x : x is a multiple of 3} and B = {x : x is a multiple of 5}, then A - B is",
+              "question_raw": "<p>if A = {x : x is a multiple of 3} and B = {x : x is a multiple of 5}, then A -&nbsp;B is</p>\r\n",
+              "options": [
+                {
+                  "label": "A",
+                  "id": 28759,
+                  "text": "$\\overline{A \\cap B}$",
+                  "is_correct": false
+                },
+                {
+                  "label": "B",
+                  "id": 28756,
+                  "text": "$A \\cap \\bar{B}$",
+                  "is_correct": true
+                },
+                {
+                  "label": "C",
+                  "id": 28758,
+                  "text": "$\\bar{A} \\cap \\bar{B}$",
+                  "is_correct": false
+                },
+                {
+                  "label": "D",
+                  "id": 28757,
+                  "text": "A $\\mathop \\cap \\nolimits $ B",
+                  "is_correct": false
+                }
+              ],
+              "correct_option_ids": [
+                28756
+              ],
+              "correct_option_labels": [
+                "B"
+              ],
+              "correct_option_texts": [
+                "$A \\cap \\bar{B}$"
+              ],
+              "explanation": "A = {x : x is a multiple of 3}\nA = {3, 6, 9, 12, 15, 18, 21, 24, 27, 30, 33, 36, 39, 42, 45, 48,...}\nB = {x : x is a multiple of 5}\nB = {5, 10, 15, 20, 25, 30, 35, 40, 45, 50,...}\nNow we have:\nA - B = {3, 6, 9, 12, 18, 21, 24, 27, 33, 36, 39, 42, 48, ...}\n= A - ( A $\\mathop \\cap \\nolimits $ B)\n=$A \\cap \\bar{B}$"
+            },
+            {
+              "questionID": 18390,
+              "question": "The set of all prime numbers is",
+              "question_raw": "<p>The set of all prime numbers is</p>",
+              "options": [
+                {
+                  "label": "A",
+                  "id": 28760,
+                  "text": "an infinite set",
+                  "is_correct": true
+                },
+                {
+                  "label": "B",
+                  "id": 28761,
+                  "text": "a finite set",
+                  "is_correct": false
+                },
+                {
+                  "label": "C",
+                  "id": 28763,
+                  "text": "a multi set",
+                  "is_correct": false
+                },
+                {
+                  "label": "D",
+                  "id": 28762,
+                  "text": "a singleton set",
+                  "is_correct": false
+                }
+              ],
+              "correct_option_ids": [
+                28760
+              ],
+              "correct_option_labels": [
+                "A"
+              ],
+              "correct_option_texts": [
+                "an infinite set"
+              ],
+              "explanation": "Set A = {2, 3, 5, 7,...} so it is infinite."
+            },
+            {
+              "questionID": 18391,
+              "question": "The set A = {x : x is a positive prime number less than 10} in the tabular form is",
+              "question_raw": "<p>The set A = {x : x is a positive prime number less than 10} in the tabular form is</p>",
+              "options": [
+                {
+                  "label": "A",
+                  "id": 28766,
+                  "text": "{1, 2, 3, 5, 7}",
+                  "is_correct": false
+                },
+                {
+                  "label": "B",
+                  "id": 28767,
+                  "text": "{3, 5, 7}",
+                  "is_correct": false
+                },
+                {
+                  "label": "C",
+                  "id": 28765,
+                  "text": "{1, 3, 5, 7, 9}",
+                  "is_correct": false
+                },
+                {
+                  "label": "D",
+                  "id": 28764,
+                  "text": "{2, 3, 5, 7}",
+                  "is_correct": true
+                }
+              ],
+              "correct_option_ids": [
+                28764
+              ],
+              "correct_option_labels": [
+                "D"
+              ],
+              "correct_option_texts": [
+                "{2, 3, 5, 7}"
+              ],
+              "explanation": "Prime no. less then 10 is 2, 3, 5, 7 so\nSet A = {2, 3, 5, 7}"
+            },
+            {
+              "questionID": 21693,
+              "question": "Which of the following is a null set?",
+              "question_raw": "<p>Which of the following is a null set?</p>",
+              "options": [
+                {
+                  "label": "A",
+                  "id": 41971,
+                  "text": "B = {x : x + 3 = 3}",
+                  "is_correct": false
+                },
+                {
+                  "label": "B",
+                  "id": 41970,
+                  "text": "A = {x : x > 1 and x < 3}",
+                  "is_correct": false
+                },
+                {
+                  "label": "C",
+                  "id": 41972,
+                  "text": "C = $\\phi $",
+                  "is_correct": true
+                },
+                {
+                  "label": "D",
+                  "id": 41973,
+                  "text": "D = {0}",
+                  "is_correct": false
+                }
+              ],
+              "correct_option_ids": [
+                41972
+              ],
+              "correct_option_labels": [
+                "C"
+              ],
+              "correct_option_texts": [
+                "C = $\\phi $"
+              ],
+              "explanation": "$\\phi $ is denoted as null set."
+            },
+            {
+              "questionID": 21694,
+              "question": "The set of intelligent students in a class is",
+              "question_raw": "<p>The set of intelligent students in a class is</p>",
+              "options": [
+                {
+                  "label": "A",
+                  "id": 41975,
+                  "text": "a null set",
+                  "is_correct": false
+                },
+                {
+                  "label": "B",
+                  "id": 41974,
+                  "text": "not a well defined collection",
+                  "is_correct": true
+                },
+                {
+                  "label": "C",
+                  "id": 41977,
+                  "text": "a singleton set",
+                  "is_correct": false
+                },
+                {
+                  "label": "D",
+                  "id": 41976,
+                  "text": "a finite set",
+                  "is_correct": false
+                }
+              ],
+              "correct_option_ids": [
+                41974
+              ],
+              "correct_option_labels": [
+                "B"
+              ],
+              "correct_option_texts": [
+                "not a well defined collection"
+              ],
+              "explanation": "The set of all intelligent students of a class, it is not possible to do so. No two persons will have the common list. Thus the collection of intelligent students in the class is not a set."
+            }
+          ]
+        }
+      ]
+    }
+  ]
+}

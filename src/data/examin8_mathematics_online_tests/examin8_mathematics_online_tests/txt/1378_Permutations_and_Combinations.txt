@@ -1,0 +1,934 @@
+CHAPTER: Permutations and Combinations  (id 1378)
+CBSE > Class 11 > Mathematics > Permutations and Combinations
+Online tests: 5
+
+========================================================================
+Permutations & Combinations Test 01  (id 632) [FREE]
+CBSE > Class 11 > Mathematics > Permutations and Combinations
+Questions: 15 | Answers: YES
+========================================================================
+
+Q1. The number of different ways in which a man can invite one or more of his 6 friends to dinner is?
+    (A) 30
+    (B) 15
+    (C) 63   <-- CORRECT
+    (D) 120
+    Answer: C
+    Explanation: He can invite anyone friend in ^6C_1 ways = 6 ways:
+He can invite any two friends in ^6C_2 ways = 15 ways
+He can invite any three friends in ^6C_3 ways = 20 ways
+He can invite any 4 friends in ^6C_4ways = 15 ways
+He can invite any 5 friends in ^6C_5 ways = 6 ways
+He can invite all the 6 friends in ^6C_6 ways = 1 way.
+Since any one of these could happen total possibilities are, 6 + 15 + 20 + 15 + 6 + 1 = 63.
+
+Q2. A lady gives a dinner party for six guests. The number of ways in which they may be selected from among ten friends if two of the friends will not attend the party together is
+    (A) 132
+    (B) 164
+    (C) 140   <-- CORRECT
+    (D) 112
+    Answer: C
+    Explanation: Let the friends be A, B, C, D, E, F, G, H, I, J and assume A and B will not attend together.
+Case 1: Both of them will not attend the party: Now we have to select the 6 guests from the remaining 8 members. 
+Then no of ways is ^8C_6 = 28 ways.
+Case 2: Either of them is selected for the party: Now we have to select the 5 guests from the remaining 8 members and one from A and B.
+Then the no of ways = ^2C_1 $\times$ ^8C_5 = 112 ways.
+Therefore total number of ways is 28 + 112 = 140 ways.
+
+Q3. In how many ways can a mixed doubles tennis game be arranged from a group of 10 players consisting of 6 men and 4 women
+    (A) 90
+    (B) 48
+    (C) 120
+    (D) 180   <-- CORRECT
+    Answer: D
+    Explanation: A team of 4 players are to be selected.
+2 out of 6 men can be done in ^6C_2 ways. 2 out of 4 women can be done in ^4C_2 ways. 
+So the number of ways to select 4 players is ^6C_2 $\times$ ^4C_2 = 90.
+Now we can arrange these people to form mixed doubles.
+If M_1,_ M_2,_ W_1,_ W_2, are the 4 members selected then one team can be chosen as (M_1, W_1) or (M_1, W_2) in 2 different ways.
+Therefore the required number of arrangements = 90 $\times$ 2 = 180.
+
+Q4. The number of significant numbers which can be formed by using any number of the digits 0, 1, 2, 3, 4 but using each not more than once in each number is
+    (A) 356
+    (B) 96
+    (C) 410
+    (D) 260   <-- CORRECT
+    Answer: D
+    Explanation: Case 1: for 5 digit numbers Ten Tens thousands place can be occupied in 4 ways since 0 cannot be suitable. For ones place remaining 4 numbers (since repetition is not allowed) can be occupied in 4 ways and the tens place in 3 ways and hundreds place in 2 ways and the thousands place in 1 way. Hence the total number of ways is 4 $\times$ 1 $\times$ 4 $\times$ 2 $\times$ 3 = 96.
+ t th
+ th
+ h
+ t
+ o
+ 4
+ 1
+ 2
+ 3
+ 4
+Case 2: for 4 digit numbers thousands place can be occupied in 4 ways since 0 cannot be suitable. For ones place remaining 4 numbers (since repetition is not allowed) can be occupied in 4 ways and the tens place in 3 ways and hundreds place in 2 ways. Hence the total number of ways is 4 $\times$ 4 $\times$ 2 $\times$ 3 = 96.
+ th
+ h
+ t
+ o
+ 4
+ 2
+ 3
+ 4
+Case 3: for 3digit numbers hundreds place can be occupied in 4 ways since 0 cannot be suitable. For ones place remaining 4 numbers (since repetition is not allowed) can be occupied in 4 ways and the tens place in 3 ways Hence the total number of ways is 4 $\times$ 4 $\times$ 3= 48
+Case 4: for 2 digit numbers tens place can be occupied in 4 ways since 0 cannot be suitable. For ones place remaining 4 numbers (since repetition is not allowed) can be occupied. Hence the total number of ways is 4 $\times$ 4 = 16.
+Case 5: For single digit in 4 ways.
+Hence 96 + 96 + 48 + 16 + 4 = 260
+
+Q5. Numbers greater than 1000 but not greater than 5000 are to be formed with the digits 0, 1, 2, 3, 5, allowing repetitions, the number of possible numbers is
+    (A) 375
+    (B) 370
+    (C) 374   <-- CORRECT
+    (D) 365
+    Answer: C
+    Explanation: th
+ h
+ t
+ o
+ 3
+ 5
+ 5
+ 5
+One's place can be occupied by any of the 5 numbers, tens place by any of the 5 numbers and hundreds place in 5 ways since repetition is allowed. But thousands place can be occupied by 2, 3, 1, only since the required number should be greater than 1000 and less than 5000. Hence total number of arrangement = 3 $\times$ 5 $\times$ 5 $\times$ 5 = 375.
+ = 375 - 1 = 374 (1000 number is not included)
+
+Q6. The number of all three-digit even numbers such that if 5 is one of the digits then next digit is 7 is
+    (A) 360
+    (B) 375
+    (C) 370
+    (D) 365   <-- CORRECT
+    Answer: D
+    Explanation: You have two different kinds of such three-digit even numbers. First is 5 at the hundred's place and the second 5 is not at the hundred's place.
+ In the first case, no. is of the form 57x, where x is the unit's digit, which can be 0, 2, 4, 6, 8 which is just 5 possibilities. Hence, the no. of possibilities, in this case, is 1 $\times$ 1 $\times$ 5 = 5
+ In the second case, the hundred's digit can be 1, 2, 3, 4, 6, 7, 8 or 9 which is 8 ways and the ten's digit can be any of the 9 numbers and unit digit can be any of the 5 even numbers. Therefore the no. of ways will be 8 $\times$ 9 $\times$ 5 = 360
+So total we have 360 + 5 = 365 possibilities.
+
+Q7. A coin is tossed n times, the number of all the possible outcomes is
+    (A) C(n, 2)
+    (B) P(n, 2)
+    (C) 2n
+    (D) 2^n   <-- CORRECT
+    Answer: D
+    Explanation: There can either be a heads or tails, therefore for every toss, the possible outcomes are 2. hence for n number of toss the possibilities are 2^n.
+
+Q8. The figures 4, 5, 6, 7, 8 are written in every possible order. The number of numbers greater than 56000 is
+    (A) 76
+    (B) 98
+    (C) 72
+    (D) 90   <-- CORRECT
+    Answer: D
+    Explanation: Total possibilities of 5 digit numbers which can be formed using the given digits are 5! = 120 ways.
+But since the number should be greater than 56000 we cannot have the numbers starting with 4 or 54
+The combinations in which the number 4 comes at the start is 4! = 24 ways.
+The combinations in which the number 54 comes at the start is 2! = 6
+Hence the numbers greater than 56,000 = 120 - ( 24 + 6) = 120 - 30 = 90 ways.
+
+Q9. If ${}^n{P_5} = 60{}^{n - 1}{P_3},$ then n is
+    (A) 10   <-- CORRECT
+    (B) 6
+    (C) 12
+    (D) 8
+    Answer: A
+    Explanation: $^{n} P_{5}=60 .^{n-1} P_{3}$
+$\Rightarrow \frac{n !}{(n-5) !}=60 \cdot \frac{(n-1) !}{(n-4) !}$
+$\Rightarrow n(n-1)(n-2)(n-3)(n-4)=60(n-1)(n-2)(n-3)$
+$\Rightarrow n(n-4)=60$
+$\Rightarrow n^{2}-4 n-60=0$
+$\Rightarrow(n-10)(n+6)=0$
+$\Rightarrow n=10,-6$
+Since n cannot be negative we have n=10
+
+Q10. The number of ways in which the 6 faces of a cube can be painted with 6 different colours is
+    (A) 30   <-- CORRECT
+    (B) $6!$
+    (C) 12
+    (D) 6
+    Answer: A
+    Explanation: We have a cube has 6 faces and we have to colour it with 6 different colours .
+Then the no of ways of colouring =$6!$=720, but in this we will be getting many overcountings.
+ We have there are 24 ways in which we can orient a cube $\frac { 720 }{ 24 } =30$
+ Hence the number of distinct ways of colouring a cube with 6 different colours is $\frac { 720 }{ 24 } =30$ $\frac { 6! }{ 24 } =30$$\frac { 6! }{ 24 } =30$$\frac { 6! }{ 24 } =30$$\frac { 720 }{ 24 } =30$ $\frac { 6! }{ 24 } $$\frac { 6! }{ 24 } =30$
+
+Q11. The number of distinguishable ways in which the 4 faces of a regular tetrahedron can be painted with 4 different colours is
+    (A) 12
+    (B) 2   <-- CORRECT
+    (C) 24
+    (D) 4
+    Answer: B
+    Explanation: We have a regular tetrahedron has 4 faces and we have to colour it with 4 different colours in 4! = 24 ways.
+But in this we will be getting many overcounting.
+We have there are 12 ways in which we can orient a regular tetrahedron.
+Hence the number of distinct ways of colouring a regular tetrahedron with 4 different colours is $\frac { 24 }{ 12 }$ = 2.
+
+Q12. The number of ways in which n ties can be selected from a rack displaying 3n different ties is
+    (A) $\frac{(3 n) !}{n !(2 n) !}$   <-- CORRECT
+    (B) 3 $\times$ n!
+    (C) (2n)!
+    (D) (3n)!
+    Answer: A
+    Explanation: The number of selections of r objects from the given n objects is denoted by $^{ n }{ C_r}$ and we have $^{ n }{ C_ r} =\frac { n! }{ r!\left( n-r \right) ! }$ 
+Now n ties can be selected from a rack displaying 3n different ties in $^{ 3n }{ C_{ n} }=\frac { 3n! }{ n!\left( 3n-n \right) ! } =\frac { 3n! }{ n!\left( 2n \right) ! } $ different ways.
+
+Q13. Find Rank of word WIFE among the words that can be formed with its letters and arranged as in dictionary is
+    (A) 24   <-- CORRECT
+    (B) 8
+    (C) 18
+    (D) 4
+    Answer: A
+    Explanation: Arrange all the alphabets in alphabetical order (E, F, I, W)
+ 4 alphabets can form 4! words = 24 words.
+
+Q14. The number of even numbers that can be formed by using all the digits 1, 2, 3, 4, and 5 (without repetitions) is
+    (A) 1250
+    (B) 192
+    (C) 48   <-- CORRECT
+    (D) 162
+    Answer: C
+    Explanation: t th
+ th
+ h
+ t
+ o
+ 1
+ 2
+ 3
+ 4
+ 2
+Since we need an even number , ones place can be occupied by only two numbers 2 and 4 in two ways.
+Since repetition is not allowed tens place is occupied by remaining 4 numbers in 4 ways and the hundred's place by 3 ways and thousands place in 2 ways.
+Hence total number of even numbers can be formed in 1x2x3x4x2 = 48.
+
+Q15. The number of all numbers that can be formed by using some or all of the digits 1, 3, 5, 7, 9 (without repetitions) is
+    (A) 120
+    (B) 220
+    (C) 325   <-- CORRECT
+    (D) 32
+    Answer: C
+    Explanation: Number of ways of forming 5 digit numbers = 5 $\times$ 4 $\times$ 3 $\times$ 2 $\times$ 1 = 120
+Number of ways of forming 4 digit numbers = 5 $\times$ 4 $\times$ 3 $\times$ 2 = 120
+Number of ways of forming 3 digit numbers = 5 $\times$ 4 $\times$ 3 = 60
+Number of ways of forming 2 digit numbers = 5 $\times$ 4 = 20
+Number of ways of forming 1 digit numbers = 5
+Hence the total number of ways = 120+ 120 + 60 + 20 + 5 = 325
+
+========================================================================
+Permutations & Combinations Test 02  (id 633) [PAID]
+CBSE > Class 11 > Mathematics > Permutations and Combinations
+Questions: 15 | Answers: YES
+========================================================================
+
+Q1. In a multiple choice question, there are 4 alternatives, of which one or more are correct. The number of ways in which a candidate can attempt this question is
+    (A) 2^5
+    (B) 16
+    (C) 4
+    (D) 15   <-- CORRECT
+    Answer: D
+    Explanation: Since given there are four alternatives in which one or more are correct, we have to consider the following four cases
+The candidate choose 1 correct answer, 2 correct answers, 3 correct answers or 4 correct answers.
+1 correct answer can be chosen in ^4C_1 ways = 4 ways
+2 correct answer can be chosen in ^4C_2 ways = 6 ways
+3 correct answers can be chosen in ^4C_3ways = 4 ways
+4 correct answers can be chosen in^4C_4 ways = 1 way
+Hence the total number of ways = 4 + 6 + 4 + 1 = 15ways
+
+Q2. In how many ways can the letters of the word MATHEMATICS be permuted so that consonants always occur together?
+    (A) 15120
+    (B) 602400
+    (C) 604800
+    (D) 75600   <-- CORRECT
+    Answer: D
+    Explanation: In the word 'MATHAEMATICS' there are 7 consonants which are M-2, H-1, C-1, S-1, T-2. Since they have to occur together we treat them as a single unit.
+Now this single unit together with the remaining 4 vowels which are A-2, E-1,and I-1 will account for 5 letters.
+Now in these 5 letters, we have A is repeating twice these can be arranged in $\frac { 5! }{ 2! } $ different ways.
+Corresponding to each of these arrangements the consonants can be arranged in $\frac { 7! }{ 2!.2! } $ different ways.
+Hence the number of ways it can be arranged is $7! 5!\over 2! 2! 2!$ = 75600
+
+Q3. The number of triangles that can be formed with 6 points on a circle is
+    (A) 12
+    (B) 20   <-- CORRECT
+    (C) 15
+    (D) 6
+    Answer: B
+    Explanation: To form a triangle 3 non-collinear points are needed.
+The number of ways of selecting 3 points out of 6 can be done in ^6C_3 =$\frac { 6! }{ 3!.3! } =\frac { 1.2.3.4.5.6. }{ 1.2.3.1.2.3 } $ = 20 ways. $\left[ \because ^{ n }{ C_{ r } }=\frac { n! }{ r!\left( n-r \right) ! } \right] $
+
+Q4. Number of ways in which 10 different things can be divided into two groups containing 6 and 4 things respectively is
+    (A) P(10, 6)
+    (B) C(10, 4)   <-- CORRECT
+    (C) P(10, 4)
+    (D) P(10, 2)
+    Answer: B
+    Explanation: If there are 10 things and we have to make them into two groups containing 6 things and 4 things respectively, you have to select 6 to form first group, then automatically another group would have formed of 4 remaining things.
+Now 6 things can be selected from 10 things in ^10C_6 different ways
+Also we have ^10C_6 = ^10C_4 $\left[ \because ^{ n }{ C_{ r} }=^{ n }{ C_{ n-r} } \right] $
+
+Q5. The number of selections of n different things taken r at a time which exclude m particular things is
+    (A) C(n-m, r)   <-- CORRECT
+    (B) nC(n-m,r-1)
+    (C) C(n-m, r-1)
+    (D) nC(n-m, r)
+    Answer: A
+    Explanation: No: of combinations of n different things taken r at at a time is given by ^nC_r
+No: of combinations of n different things taken r at a time and excluding m particular things is ^n^ - mC_r = C(n-m, r)
+
+Q6. The number of arrangements of n different things taken r at a time which include a particular thing is
+    (A) n P(n-1, r)
+    (B) P(n-1, r-1)
+    (C) P(n+1, r+1)
+    (D) r P(n-1, r-1)   <-- CORRECT
+    Answer: D
+    Explanation: The number of arrangements of n different things taken r at a time which include a particular thing is r ^n-1P_r-1 = rP(n-1, r-1)
+
+Q7. The number of arrangements of n different things taken r at a time which exclude a particular thing is
+    (A) P(n-1, r+1)
+    (B) P(n.r)
+    (C) P(n-1, r-1)
+    (D) P(n-1, r)   <-- CORRECT
+    Answer: D
+    Explanation: The number of arrangements of n different things taken r at a time which exclude a particular thing is ^n-1P_r = P(n-1, r)
+
+Q8. 5 persons board a lift on the ground floor of an 8 storey building. In how many ways can they leave the lift?
+    (A) 7^5   <-- CORRECT
+    (B) ^7P_5
+    (C) ^5P_7
+    (D) 5^7
+    Answer: A
+    Explanation: Since they are boarding from the ground floor and we are considering the number of ways they leave the lift, we can consider there are 7 floors as we exclude the ground floor)
+As each of the 5 persons can leave the lift in 7 ways, the required number of ways = 7^5
+
+Q9. If ^12C_4 +^ 12C_5 = ^nC_5, then n is equal to
+    (A) 12
+    (B) 13   <-- CORRECT
+    (C) 11
+    (D) 10
+    Answer: B
+    Explanation: We have nC_r - 1 + ^nC_r = ^n+1C_r 
+Hence ^12C_4 +^ 12C_5 = ^13C_5 ...(i)
+But given ^12C_4 +^ 12C_5 = ^nC_5 ....(ii)
+Comparing (i) and (ii) we get n = 13
+
+Q10. The number of ways in which a necklace can be formed by using 5 identical red beads and 6 identical white beads is:
+    (A) $\frac{10 !}{2(6 ! 5 !)}$   <-- CORRECT
+    (B) $\frac{10 !}{(6 ! 5 !)}$
+    (C) $\frac{10 !}{(7 ! 4 !)}$
+    (D) $\frac{11 !}{2(6 ! 5 !)}$
+    Answer: A
+    Explanation: Total number of beads = 11
+We have 6 beads are alike and next 5 beads are also alike, also since it is a necklace it can be observed from both the sides.
+Therefore required number of ways =$\frac{(11-1) !}{2 ! \cdot 5 ! \cdot 6 !}=\frac{10 !}{2 ! .5 ! \cdot 6 !}$
+
+Q11. A fair dice is rolled n times. The number of all the possible outcomes is
+    (A) 6+n
+    (B) 6n
+    (C) n^6
+    (D) 6^n   <-- CORRECT
+    Answer: D
+    Explanation: Each time there are 6 possibilities, therefore for n times there are 6^n possibilities.
+
+Q12. The sum of all the numbers which can be formed by using the digits 1, 3, 5, 7, 9 all at a time and which have no digit repeated is
+    (A) 6666600   <-- CORRECT
+    (B) 266664
+    (C) 33333000
+    (D) 600
+    Answer: A
+    Explanation: First we will fix anyone digit in a fixed position. Then we have the remaining 4 digits can be arranged in 4! different ways.
+Which means each of the five digits can appear in each of the five places in 4! times.
+Hence the sum of the digits in each position is 4!(1 + 3 + 5 + 7 + 9) 
+Now to find the sum of these numbers formed we have to consider the place values for these digits
+So the sum of all the numbers which can be formed by using the digits 1, 3, 5, 7, 9 = 25 $\times$ 4! $\times$ (1 + 10 + 100 + 1000 + 10000) = 25 $\times$ 4! $\times$ 11111 = 6666600
+
+Q13. 4 boys and 4 girls are to be seated in a row. The number of ways in which this can be done, if the boys and girls sit alternately, is
+    (A) P(8, 8)
+    (B) 5! $\times$ 5!
+    (C) 4! $\times$ 4!
+    (D) 2 $\times$ 4! $\times$ 4!   <-- CORRECT
+    Answer: D
+    Explanation: There are 4 boys and 4 girls and the row can start either with a boy or girl, therefore the number of ways are 4! $\times$ 4! $\times$ 2
+
+Q14. The letters of the word ‘SOCIETY’ are arranged in such a manner that the vowels and consonants occur alternately, the number of different words so obtained is
+    (A) ${\text{9}}!$
+    (B) ${\text{4}}!{\text{ }} \times {\text{ }}3!$   <-- CORRECT
+    (C) $2{\text{ }} \times {\text{ }}4!{\text{ }} \times {\text{ }}3!$
+    (D) ${\text{7}}!$
+    Answer: B
+    Explanation: there are four consonants and 3 vowels, therefore 3! * 4!
+
+Q15. There are 10 true-false questions. The number of ways in which they can be answered is
+    (A) 20
+    (B) 10!
+    (C) 10
+    (D) 2^10   <-- CORRECT
+    Answer: D
+    Explanation: You can either choose true or false, therefore for 10 questions you will have 2^10 possibilities.
+
+========================================================================
+Permutations & Combinations Test 03  (id 634) [PAID]
+CBSE > Class 11 > Mathematics > Permutations and Combinations
+Questions: 15 | Answers: YES
+========================================================================
+
+Q1. The number of ways in which 6 + and 4 – signs can be arranged in a line such that no two – signs occur together is
+    (A) 5040
+    (B) 210
+    (C) 120
+    (D) 35   <-- CORRECT
+    Answer: D
+    Explanation: Since all the plus signs are identical, we have the number of ways in which 6 plus signs can be arranged = 1.
+Now we will have 7 empty slots between these 6 identical + signs 
+Hence the number of possible places of - sign = 7
+Therefore the number of ways in which the 4 minus sign can take any of the possible 7 places = $^{ 7 }{ C_{ 4 } }=\frac { 7! }{ 4!\left( 7-4 \right) ! } =\frac { 5.6.7 }{ 1.2.3 } =35$
+
+Q2. On a railway track, there are 20 stations. The number of tickets required in order that it may be possible to book a passenger from every station to every other is
+    (A) 300
+    (B) 190
+    (C) 400
+    (D) 380   <-- CORRECT
+    Answer: D
+    Explanation: Given that there are 20 stations in the network.
+Hence from each station, 19 different tickets are possible.
+Therefore from 20 stations the number of different tickets possible = 19 $\times$ 20 = 380
+
+Q3. A class is composed 2 brothers and 6 other boys. In how many ways can all the boys be seated at the round table so that the 2 brothers are not seated besides each other?
+    (A) 720
+    (B) 4320
+    (C) 3600   <-- CORRECT
+    (D) 1440
+    Answer: C
+    Explanation: First we will fix one person from the 6 boys then 5 others can be arranged in 5! ways = 120 ways 
+Now there are 6 places left in which 2 brothers can sit, so they can choose any 2 places from the 6 places in ^6C_2 ways = 15 ways
+Also, 2 brothers can arrange themselves in 2! ways
+So the ways in which the two brothers can be seated = 15 $\times$ 2 = 30
+Hence total ways in which all can be seated = 120 $\times$ 30 = 3600
+
+Q4. The number of all selections which a student can make for answering one or more questions out of 8 given questions in a paper, when each question has an alternative, is:
+    (A) 255
+    (B) 6561
+    (C) 6560   <-- CORRECT
+    (D) 256
+    Answer: C
+    Explanation: Since a student can solve every question in three ways- either he can attempt the first alternative or the second alternative or he does not attempt that question 
+Hence the total ways in which a student can attempt one or more of 8 questions = 3^8 
+Therefore to find the number of all selections which a student can make for answering one or more questions out of 8 given questions = 3^8 - 1 = 6560_ [we will have to exclude only the case of not answering all the 8 questions]
+
+Q5. The number of ways in which 8 different flowers can be strung to form a garland so that 4 particular flowers are never separated is
+    (A) 288   <-- CORRECT
+    (B) 5!4!
+    (C) 5!6!
+    (D) 576
+    Answer: A
+    Explanation: 4 flowers which are always together can be considered as one SET.
+Therefore we have to arrange one SET (4 flowers) and 4 other flowers into a garland. 
+Which means 5 things to be arranged in a garland. 
+(5 - 1)! 
+And the SET of flowers can arrange themselves within each other in 4! ways. 
+Therefore 
+(5 - 1)! $\times$ (4!) 
+But, Garland, looked from the front or behind does not matter. Therefore the clockwise and anti-clockwise observation does not make a difference. 
+Therefore 
+$\frac{(5 - 1)! \times (4!)}{2}$
+= 288.
+
+Q6. Different calendars for the month of February are made so as to serve for all the coming years. The number of such calendars is
+    (A) 2
+    (B) 7
+    (C) 14   <-- CORRECT
+    (D) 8
+    Answer: C
+    Explanation: The month of February has either 28 days (non-Leap Year) or 29 days(Leap Year).
+Thus there are 2 possibility for the number of days in February.
+Also, the first day of the month of February can be any of the 7 days in a week.
+So total number of February calendars = 2 $\times$ 7 =14
+
+Q7. The number of all odd divisors of 3600 is
+    (A) 27
+    (B) 9   <-- CORRECT
+    (C) 18
+    (D) 45
+    Answer: B
+    Explanation: We have 3600 = 2^4 3^2 5^2 
+To get the odd factors we will get rid of 2's
+We will make the selection from only 3's and 5's 
+Number of ways 3 can be selected from a lot of two 3's = 3 ways (one 3, two 3's or three 3's)
+Number of ways 5 can be selected from a lot of two 5's = 3 ways (one 5, two 5's or three 5's)
+Therefore the number of odd factors is 3600 = 3 $\times$ 3 = 9
+
+Q8. The number of all even divisors of 1600 is
+    (A) 18   <-- CORRECT
+    (B) 3
+    (C) 15
+    (D) 21
+    Answer: A
+    Explanation: We have 1600 = ${ 2 }^{ 6 }{ .5 }^{ 2 }$ 
+To form factors we have to do selections from a lot of 2's and 5's and multiply them together.
+To form even factor we should choose at least one 2's from the lot, which will ensure that whatever be the remaining selection, their multiplication will always result in an even factor.
+The number of ways to select atleast one ‘2’ from a lot of six identical ‘2’s will be 6 (i.e. select 1 or select 2 or select 3 or select 4 or select 5 or select 6)
+And, we’ll select any number of ‘5 from a lot of two identical ‘5’s in 3 ways(select 0, select 1, select 2)
+Therefore the total number of selection of even factors = 6 $\times$ 3 = 18
+
+Q9. A convex polygon of n sides has n diagonals. Then value of n is
+    (A) 6
+    (B) 7
+    (C) 8
+    (D) 5   <-- CORRECT
+    Answer: D
+    Explanation: If you join every distinct pair of vertices you will get $^{ n }{ C_{ 2\quad } }$ lines.
+These $^{ n }{ C_{ 2\quad } }$ lines account for the n sides of the polygon as well as for the diagonals.
+So the number of diagonals is given by $^{n} C_{2}-n=\frac{n(n-1)}{2}-n=\frac{n(n-3)}{2}$
+But given number of sides = number of diagonals =n
+$\Rightarrow n=\frac{n(n-3)}{2}$
+$\Rightarrow 2 n=n(n-3)$
+$\Rightarrow n-3=2$
+$\Rightarrow n=5$
+
+Q10. The number of all possible positive integral solutions of the equation xyz = 30 is
+    (A) 27   <-- CORRECT
+    (B) 25
+    (C) 24
+    (D) 26
+    Answer: A
+    Explanation: Given xyz = 30
+We have the possible values of x, y, z are the following triads 
+1, 1, 30 
+1, 2, 15 
+1, 3, 10 
+1, 5, 6 
+2, 3, 5 
+First one can have $\frac{3!}{2!}$ = 3 ways and the remaining four triads can have 3! combinations 
+Hence total combinations = 3 + 4 $\times$ 3! = 27
+
+Q11. Number of all 4 digit numbers with distinct digits is
+    (A) 504
+    (B) 720
+    (C) 9999
+    (D) 4536   <-- CORRECT
+    Answer: D
+    Explanation: To form a four-digit number with distinct digits we can use any four digits from the digits 0, 1, 2, 3, 4, 5, 6, 7, 8, 9 without repetition.
+Since 0 cannot come as the first digit of a four-digit number( then it will be a three-digit number) the first place can be filled by any of the 9 digits other than 0.
+Now we have 9 more digits left and since repetition is not allowed the second place can be filled by any of these 9 digits.
+Similarly the third and fourth can be filled by any of the 8 and 7 digits respectively.
+Hence we get the four places can be filled together by 9 $\times$ 9 $\times$ 8 $\times$ 7 = 4536 different ways.
+
+Q12. The number of ways, in which a student can choose 5 courses out of 8 courses, when 2 courses are compulsory, is
+    (A) 120
+    (B) 40
+    (C) 6^3
+    (D) 20   <-- CORRECT
+    Answer: D
+    Explanation: Total number of courses available = 8
+Number of courses which are not compulsory = 8 - 2 = 6
+Since two courses are compulsory a student can choose them in ^2C_2 different ways.
+The remaining 3 courses can be chosen from the 6 non-compulsory courses in ^6C_3 
+Therefore total number of ways = $^{ 2 }{ C_{ 2 } }$.$^{ 6 }{ C_{ 3 } }$ = $1.\frac {1.2.3. 4.5.6. }{ 1.2.3.1.2.3 } $ = 20
+
+Q13. The number of ways, in which a student can select one or more questions out of 12 each having an alternative, is
+    (A) 3^12 - 1   <-- CORRECT
+    (B) 3^12 + 1
+    (C) 3^12
+    (D) 2^12
+    Answer: A
+    Explanation: Since a student can solve each question in 3 different ways - either he can attempt the first alternative or the second alternative or he can leave it unanswered.
+Hence the number of ways in which a student can attempt one or more of the 12 given questions = 3^12 
+Now we can consider a case that the student leaves all the 12 given questions unanswered.
+The number of ways, in which a student can select one or more questions out of 12 each having an alternative = 3^12 - 1
+
+Q14. 20 students can compete for a race. The number of ways in which they can win the first three places is (given that no two students finish in the same place).
+    (A) 8000
+    (B) 6000
+    (C) 1140
+    (D) 6840   <-- CORRECT
+    Answer: D
+    Explanation: For first place we have 20 students, for second we have 19 and for the third we have 18
+^20P_3 = 20 $\times$ 19 $\times$ 18
+
+Q15. The number of ways of dividing 52 cards equally into 4 sets is
+    (A) $\frac{52 !}{(13 !)^4}$
+    (B) $\frac {52!} {4!}$
+    (C) $\frac{52 !}{4(13 !)^4}$
+    (D) $\frac{52 !}{4 !(13 !)^4}$   <-- CORRECT
+    Answer: D
+    Explanation: If 4n things are to form 4 equal groups then the numbers of ways are $\frac { 4n! }{ { (n!) }^{ 4 } .4 ! } $
+Hence number of ways to divide 52 cards to form 4 groups of 13 cards each = $\frac { \left( 52 \right) ! }{ 4!{ \left( 13! \right) }^{ 4 } } $
+
+========================================================================
+Permutations & Combinations Test 04  (id 635) [PAID]
+CBSE > Class 11 > Mathematics > Permutations and Combinations
+Questions: 15 | Answers: YES
+========================================================================
+
+Q1. The number of three digit numbers having atleast one digit as 5 is
+    (A) 246
+    (B) 648
+    (C) 225
+    (D) 252   <-- CORRECT
+    Answer: D
+    Explanation: First we will find the number of three-digit numbers (i.e, numbers from 100 to 999) which can be formed using the digits 0, 1, 2, 3, 4, 5, 6, 7, 8 and 9 with repetition allowed.
+Now we have the first place can be filled by any of the 9 digits other than 0 and since repetition is allowed the second and third can be filled by any of the ten digits.
+Hence the total number of three-digit numbers will be = 9 $\times$ 10 $\times$ 10 = 900
+Now we will consider the case that the number does not have the digit 5.
+Now the first place can be filled by any of the 8 digits other than 0 and 5 and since repetition is allowed the second and third can be filled by any of the 9 digits other than 5.
+Hence the total number of ways we can form a three digit number with out 5 will be = 8 $\times$ 9 $\times$ 9 = 648 
+Therefore the number of three-digit numbers with at least one 5 = 900 - 648 = 252
+
+Q2. 5 boys and 5 girls are to be seated around a table such that boys and girls sit alternately. The number of ways of seating them is
+    (A) 5! $\times$ 2!
+    (B) 4! $\times$ 4!
+    (C) 5! $\times$ 5!
+    (D) 5! $\times$ 4!   <-- CORRECT
+    Answer: D
+    Explanation: If there are n objects to be arranged in circular order the no. of permutations possible = (n - 1)!
+First, we will make the 5 girls around the table and this can be done in (5 - 1)! = 4! = 24, different ways.
+Now we have 5 places available between these girls and the 5 boys can be seated in these 5 available places in 5! = 120, different ways.
+Hence the 5 boys and 5 girls can be arranged in 4! 5! = 23$\cdot$ 120 = 2880 ways.
+
+Q3. The total number of numbers from 1000 to 9999 (both inclusive) that do not have 4 different digits
+    (A) 9000
+    (B) 4464   <-- CORRECT
+    (C) 6000
+    (D) 4536
+    Answer: B
+    Explanation: First, we will find the number of four-digit numbers that can be formed using the digits 0, 1, 2, 3, 4, 5, 6, 7, 8, 9 with repetition.
+The first place can be filled by any of the 9 digits other than 0, and the second, third and the fourth places each can be filled by any of the ten digits.
+Hence, the total number of ways of forming a four-digit number = 9 $\times$ 10 $\times$ 10 $\times$ 10 = 9000
+Now we will find the number of four-digit numbers in which n all the digits are distinct 
+The first place can be filled by any of the 9 digits other than 0, and the second place can be filled by any of the remaining 9 digits since repetition is not possible.
+Similarly, third and the fourth places each can be filled by 8 and 7 digits respectively
+Hence the total number of ways of forming a four-digit number with distinct digits b = 9 $\times$ 9 $\times$ 8 $\times$ 7 
+The total number of numbers from 1000 to 9999 (both inclusive) that do not have 4 different digits = 9000 - 4536 = 4464
+
+Q4. If P(n, r) = C(n, r) then
+    (A) n = r
+    (B) r = 1 or n
+    (C) r = 0 or 2
+    (D) r = 0 or 1   <-- CORRECT
+    Answer: D
+    Explanation: Given P(n, r) = C(n, r)
+$\Rightarrow$ $\frac{n !}{(n-r) !}=\frac{n !}{r !(n-r) !}$ 
+$\Rightarrow$ 1 = $\frac{1}{r !}$ 
+$\Rightarrow$ r! = 1
+$\Rightarrow$ r = 0 or r = 1 [$\because$ 0! = 1, 1! = 1]
+
+Q5. Find r if $^{ 10 }{ P_{ r } }=2.{ ^{ 9 }{ P_{ r } } }$
+    (A) 6
+    (B) 4
+    (C) 3
+    (D) 5   <-- CORRECT
+    Answer: D
+    Explanation: Given $^{10} P_{r}=2 .^{9} P_{r}$ 
+$\Rightarrow$ $\frac{10 !}{(10-r) !}=2 \cdot \frac{(9) !}{(9-r) !}$ 
+$\Rightarrow$ $\frac{10 \times 9 !}{(10-r) \times(9-r) !}=2 \cdot \frac{(9) !}{(9-r) !}$ 
+$\Rightarrow$ $\frac{10}{(10-r)}$ = 2
+$\Rightarrow$ 10 = 20 - 2r
+$\Rightarrow$ 2r = 10 
+$\Rightarrow$ r = 5
+
+Q6. If ^n-1P_3 : ^nP_4 = 1 : 9, find n
+    (A) 7
+    (B) 4
+    (C) 9   <-- CORRECT
+    (D) 8
+    Answer: C
+    Explanation: ${ ^{ n-1 }{ P_{ 3\quad } } }:\quad { ^{ n }{ P_{ 4\quad } } }=1:9\\ \Rightarrow \frac { \left( n-1 \right) ! }{ \left( n-1-3 \right) ! } :\frac { n! }{ \left( n-4 \right) ! } =1:9\\ \Rightarrow \frac { \left( n-1 \right) ! }{ \left( n-4 \right) ! } \times \frac { \left( n-4 \right) ! }{ n! } =\frac { 1 }{ 9 } \\ \Rightarrow \frac { \left( n-1 \right) ! }{ n! } =\frac { 1 }{ 9 } \\ \Rightarrow \frac { \left( n-1 \right) ! }{ n\left( n-1 \right) ! } =\frac { 1 }{ 9 } \\ \Rightarrow \frac { 1 }{ n } =\frac { 1 }{ 9 } \\ \Rightarrow n=9$
+
+Q7. The number of arrangements that can be formed by all the letters of the word LAUGHTER is
+    (A) 40320   <-- CORRECT
+    (B) 20160
+    (C) 5040
+    (D) 32768
+    Answer: A
+    Explanation: The word LAUGHTER consists of 8 letters which are all distinct.
+Hence the required number of arrangements = $^{ 8 }{ P_{ 8 } }=8!$ = 40320
+
+Q8. A convex polygon of n sides has twice as many diagonals as the number of sides. The value of n is
+    (A) 8
+    (B) 6
+    (C) 7   <-- CORRECT
+    (D) 5
+    Answer: C
+    Explanation: Consider a convex polygon which has n sides.
+We have an inside polygon has n vertices. If you join every distinct pair of vertices you will get lines.
+These lines account for the n sides of the polygon as well as for the diagonals
+Then we have the number of diagonals = $^{ n }{ C_{ 2 } }–n=\frac { n(n-1) }{ 2 } –n=\frac { n(n-3) }{ 2 } $ 
+But given number of diagonals = 2.number of sides
+$\Rightarrow$ 2n = $\frac{n(n-3)}{2}$ 
+$\Rightarrow$ 4n = n(n - 3)
+$\Rightarrow$ n - 3 = 4
+$\Rightarrow$ n = 7
+
+Q9. The number of all even (positive) divisors of 36000 is
+    (A) 60   <-- CORRECT
+    (B) 12
+    (C) 36
+    (D) 72
+    Answer: A
+    Explanation: We have 36000 = ${ 2 }^{ 5 }{ 3 }^{ 2 }{ 5 }^{ 3 }$ 
+To find the even factors we should choose atleast one 2's from the slot, which will ensure that whatever the remaining selection the multiplication of those will always result in an even number.
+The number of ways to select atleast one 2's from a lot of 5 identical 2's will be 5 ways(select 1, select 2, select 3, select 4, select 5)
+And we can select any number of 5's from a lot of three identical 5's in 4 ways(select 0, select 1, select 2) and similarly we can select any number of 3's from a lot of two identical 3's in 3 ways
+Therefore, the total number of selection of even factors = 5 $\times$ 4 $\times$ 3 = 60 different ways
+
+Q10. The number of four digit numbers having atleast one digit as 7 is
+    (A) 9000
+    (B) 5976
+    (C) 1254
+    (D) 3168   <-- CORRECT
+    Answer: D
+    Explanation: First we will find the number of four-digit numbers (i.e, numbers from 1000 to 9999) which can be formed using the digits 0, 1, 2, 3, 4, 5, 6, 7, 8 and 9 with repetition allowed.
+Now we have the first place can be filled by any of the 9 digits other than 0 and since repetition is allowed second, third and fourth can be filled by any of the ten digits.
+Hence the total number of four-digit numbers = 9 $\times$ 10 $\times$ 10 $\times$ 10 = 9000 
+Now we will consider the case that the number does not have the digit '7'
+Now the first place can be filled by any of the 8 digits other than 0 and 7 since repetition is allowed second, third and fourth can be filled by any of the 9 digits other than 7.
+Hence the total number of ways we can form a four-digit number without 7 = 8 $\times$ 9 $\times$ 9 $\times$ 9 = 5832 
+Hence total number of ways in which we can form a four digit number having atleast one digit as 7 = 9000 - 5832 = 3168
+
+Q11. The number of all 4 digit numbers which are all different that can be formed by using the digits 0, 2, 3, 5, 8, 9, is
+    (A) 360
+    (B) 660
+    (C) 300
+    (D) 1080   <-- CORRECT
+    Answer: D
+    Explanation: Since we have to form a four-digit number using the digits 0, 2, 3, 5, 8, 9, we can fill the first place by any of the five digits given other than zero.
+Now since the digits can be repeated the second, third and fourth places can be filled by any of the six given digits.
+Hence the four places can be filled together in 5 $\times$ 6 $\times$ 6 $\times$ 6 = 1080 different ways
+Therefore the number of four-digit numbers which can be formed using the given digits = 1080
+
+Q12. 0! is always taken as
+    (A) 2
+    (B) 1   <-- CORRECT
+    (C) 0
+    (D) $\infty $
+    Answer: B
+    Explanation: We have ^nP_r = $\frac{n !}{(n-r) !}$ .....(i)
+Number of ways you can arrange n thing in n available spaces = n! 
+$\Rightarrow$ ^nP_n = n! ....(ii)
+But from (i) we get ^nP_n = $\frac{n !}{(n-n) !}=\frac{n !}{0 !}$ .....(iii)
+Now from (ii) and (iii) we get $\frac{n !}{0 !}$ = n! $\Rightarrow$ 0! = 1
+
+Q13. If $\frac{1}{9 !}+\frac{1}{8 !}=\frac{x}{10 !}$, then x is equal to
+    (A) 90
+    (B) 120
+    (C) 100   <-- CORRECT
+    (D) 170
+    Answer: C
+    Explanation: Given $\frac{1}{9 !}+\frac{1}{8 !}=\frac{x}{10 !}$ 
+$\Rightarrow$ $\frac{1}{8 !}\left(\frac{1}{9}+1\right)$ = $\frac{x}{10.9 .8 !}$ 
+$\Rightarrow$ $\frac{10}{9}=\frac{x}{90}$ 
+$\Rightarrow$ x = $\frac{900}{9}$ = 100
+
+Q14. The number of ways in which 4 red, 3 yellow and 2 green discs be arranged if the discs of the same colour and indistinguishable
+    (A) 1512
+    (B) 1260   <-- CORRECT
+    (C) 2260
+    (D) 999
+    Answer: B
+    Explanation: Total number of discs = 9
+Out of which red-4, yellow -3 and green -2 are of the same kind.
+Hence required number of permutations =$\frac { 9! }{ 4!.3!.2! } =\frac { 5\times 6\times 7\times 8\times 9 }{ 1\times 2\times 3\times 1\times 2 }$ = 1260
+
+Q15. The number of ways in which 5 + and 5 – signs can be arranged in a line such that no two – signs occur together is
+    (A) C(5, 5)
+    (B) C(6, 5)   <-- CORRECT
+    (C) P(5, 5)
+    (D) P(6, 5)
+    Answer: B
+    Explanation: Since all the plus signs are identical, we have number of ways in which 5 plus signs can be arranged = 1.
+Now we will have 6 empty slots between these 5 identical + signs
+Hence the number of possible places of - sign = 6
+Therefore the number of ways in which the 5 minus sign can take any of the possible 6 places = C(6, 5)
+
+========================================================================
+Permutations & Combinations Test 05  (id 636) [PAID]
+CBSE > Class 11 > Mathematics > Permutations and Combinations
+Questions: 15 | Answers: YES
+========================================================================
+
+Q1. The number of diagonals that can be drawn by joining the vertices of a heptagon is :
+    (A) 12
+    (B) 21
+    (C) 7
+    (D) 14   <-- CORRECT
+    Answer: D
+    Explanation: We have heptagon is a seven-sided polygon which has 7 vertices.
+A diagonal is obtained by joining two points.
+Thus the number of diagonals obtained by joining any two points out of 7 is given by 
+^7C_2 - 7 = $\frac{7 !}{2 !(7-2) !}-7$ = $\frac{1 \times 2 \times 3 \times 4 \times 5 \times 6 \times 7}{1 \times 2 \times 1 \times 2 \times 3 \times 4 \times 5}-7$ = $\frac{6 \times 7}{1 \times 2}-7$ = 21 - 7 = 14
+
+Q2. The number of diagonals that can be drawn by joining the vertices of an octagon is :
+    (A) 48
+    (B) 20   <-- CORRECT
+    (C) 12
+    (D) 28
+    Answer: B
+    Explanation: We have octagon is an eight sided polygon which has 8 vertices.
+A diagonal is obtained by joining two points.
+Thus the number of diagonals obtained by joining any two points out of 8 is given by
+${ 8 }{ C_{ 2} }-8$ = $\frac { 8! }{ 2!\left( 8-2 \right) ! } -8=\frac { 1\times 2\times 3\times 4\times 5\times 6\times 7 \times8}{ 1\times 2\times 1\times 2\times 3\times 4\times 5\times6 } -8$ = $\frac{7 \times 8}{1 \times 2}-8$ = 28 - 8 = 20
+
+Q3. Number of divisors of n = 38808 (except 1 and n) is
+    (A) 70   <-- CORRECT
+    (B) 72
+    (C) 74
+    (D) 68
+    Answer: A
+    Explanation: We have 38808 = ${ 2 }^{ 3 }{ 3 }^{ 2 }{ 7 }^{ 2 }{ 11 }^{ 1 }$ 
+To form factors we have to do selections from a lot of 2's, 3's, 7's and 11's and multiply them together.
+Number of ways of selecting any number of 2's from a lot of 3 identical 2's = 4(select 0, select 1, select 2, select 3)
+Number of ways of selecting any number of 3's from a lot of 2 identical 3's = 3(select 0, select 1, select 2)
+Number of ways of selecting any number of 7's from a lot of 2 identical 7's = 3(select 0, select 1, select 2)
+Number of ways of selecting any number of 11's from a lot of 1 identical 11's = 2(select 0, select 1)
+Hence we get the total number of ways of selecting factors = 4 $\times$ 3 $\times$ 3 $\times$ 2 = 72
+Hence the number of factors other than 1 and n = 72 - 2 = 70
+
+Q4. The number of 7 digit numbers which can be formed using the digits 1, 2, 3, 2, 3, 3, 4 is
+    (A) 504
+    (B) 420   <-- CORRECT
+    (C) 252
+    (D) 840
+    Answer: B
+    Explanation: There are 7 digits 1, 2, 3, 2, 3, 3, 4, in which the number 2 is repeating twice and the number 3 is repeating thrice.
+Hence the number of 7 digit numbers which can be formed = $\frac { 7! }{ 2!3! } =\frac { 1\times 2\times 3\times 4\times 5\times 6\times 7 }{ 1\times 2\times 1\times 2\times 3 } $ = 420
+
+Q5. The number of 5-digit telephone numbers having atleast one of their digits repeated is
+    (A) 10,000
+    (B) 90,000
+    (C) 69,760   <-- CORRECT
+    (D) 30,240
+    Answer: C
+    Explanation: As we have the ten digits from 0 to 9 which can be used
+Number of five digit telephone numbers in which the digits can be repeated = 10^5 = 100000
+Number of five digit telephone numbers in which the digits cannot be repeated = ^10P_5 = $\frac { 10! }{ \left( 10-5 \right) ! }$ = 6 $\times$ 7 $\times$ 8 $\times$ 9 $\times$ 10 = 30240
+Therefore the number of five digit telephone numbers in which at least one digit is repeated = 100000 - 30240 = 69760
+
+Q6. The total number of 4 digit odd numbers that can be formed using 0, 1, 2, 3, 5, and 7 are
+    (A) 375
+    (B) 520
+    (C) 720   <-- CORRECT
+    (D) 400
+    Answer: C
+    Explanation: We have to find the total number of four-digit odd numbers formed using the digits 0, 1, 2, 3, 5, 7.
+Since it is an odd number the last place (unit's place) can be filled by any of the odd numbers 1, 3, 5, 7 in 4 different ways.
+Since repetition is allowed the second and third places can be filled by any of the six given digits.
+Since it has to be a four digit number the first place can be filled by any of the five given digits other than zero in 5 ways.
+Hence all the four places can be filled in 4 $\times$ 6 $\times$ 6 $\times$ 5 = 720 ways.
+
+Q7. The remainder obtained when 1! + 2! + 3! + ....+ 200! is divided by 14 is
+    (A) 3
+    (B) 4
+    (C) 5   <-- CORRECT
+    (D) 6
+    Answer: C
+    Explanation: Consider 1! + 2! + 3! + 4! + 5! + .... + 200!
+We know that 7! = 7 $\times$ 6 $\times$ 5 $\times$ 4 $\times$ 3 $\times$ 2 $\times$ 1, which is divisible by 14
+Now as 8! = 8 $\times$ 7! it is also divisible by 14
+Hence 9!, 10!, 11! ....14! are divisible by 14.
+Thus we can conclude that the remainder obtained when we divide (1! + 2! + 3! + .. + 200!) by 14 will be same as the remainder obtained when we divide (1! + 2! + 3! + 4! + 5! + 6!) by 14.
+Consider, 1! + 2! + 3! + 4! + 5! + 6! = 1 + 2 + 6 + 24 + 120 + 720 = 873 
+Now we have when 873 is divided by 14, the remainder is 5.
+Thus, the remainder obtained when 1! + 2! + 3! + ..... + 200! is divided by 14 is 5.
+
+Q8. In how many ways can 5 different beads be arranged to form a necklace?
+    (A) 120
+    (B) 6
+    (C) 12   <-- CORRECT
+    (D) 60
+    Answer: C
+    Explanation: To make necklace, beads can be arranged in (n - 1)! ways, also the clockwise and anticlockwise is same so we divide by 2!
+
+Q9. A polygon has 44 diagonals. The number of its sides is
+    (A) 8
+    (B) 11   <-- CORRECT
+    (C) 12
+    (D) 10
+    Answer: B
+    Explanation: We have an n sided polygon has n vertices. If you join every distinct pair of vertices you will get lines.
+These lines account for the n sides of the polygon as well as for the diagonals.
+So the number of diagonals is given by $^{ n }{ C_{ 2 } }–n=\frac { n(n-1) }{ 2 } –n=\frac { n(n-3) }{ 2 } $ 
+But number of diagonals = 44
+$\Rightarrow$ 44 = $\frac{n(n-3)}{2}$ 
+$\Rightarrow$ 88 = n(n - 3)
+$\Rightarrow$ n^2 - 3n - 88 = 0
+$\Rightarrow$ (n - 11)(n + 8) = 0
+$\Rightarrow$ n = 11, -8
+Since n cannot be negative, we get n = 11
+
+Q10. The number of parallelograms that can be formed from a set of four parallel lines intersecting another set of three parallel lines is
+    (A) 12
+    (B) 6
+    (C) 24
+    (D) 18   <-- CORRECT
+    Answer: D
+    Explanation: Let us assume the 4 parallel lines given are horizontal.
+Then we have the three parallel lines are vertical , since given they are intersecting with the set of 4 parallel lines
+To make a parallelogram we need 2 horizontal and 2 vertical parallel lines
+So reqired number of parallelogram $=^{ 4 }{ C_{ 2\quad }.^{ 3 }{ C_{ 2\quad }=6.3=18\quad } }$
+
+Q11. The greatest possible number of points of intersection of 8 straight lines and 4 circles is
+    (A) 64
+    (B) 104   <-- CORRECT
+    (C) 32
+    (D) 128
+    Answer: B
+    Explanation: Every two straight lines can make one point of intersection.
+Number of points of intersection = $^{ 8 }{ C_{ 2}.1}$ = 28
+Every two circles can make two points of intersection.
+Number of points of intersection =$^{ 4 }{ C_{ 2 }.2}$ = 12
+Each circle can make two intersection points with each straight line
+Number of points of intersection =$^{ 4 }{ C_{ 1}.^{ 8 }{ C_{ 1 }.2}}$ = 64
+Therefore, required number of points of intersection
+= 28 + 12 + 64 = 104
+
+Q12. The number of ways in which 4 persons can be seated at a round table so that all shall not have same neighbours in any two arrangements is:
+    (A) 3   <-- CORRECT
+    (B) 6
+    (C) 21
+    (D) 24
+    Answer: A
+    Explanation: The number of ways of seating 4 persons at a round table = (4 - 1)! = 3!
+But in clockwise and anticlockwise arrangements the same persons are neighbours and hence these two arrangements will be same.
+Therefore the required number of arrangements = $\frac { 3! }{ 2 } =\frac { 6 }{ 2 }$ = 3
+
+Q13. The number of all 4 digited numbers that can be formed by using the digits 1, 2, 3, 4 and 5 which are divisible by 4 is
+    (A) 120
+    (B) 95
+    (C) 125   <-- CORRECT
+    (D) 12
+    Answer: C
+    Explanation: The number divisible by 4 must have last two-digit divided by four
+So number formed can be any of the following four types
+**12
+**24
+**32
+**44
+**52
+Since repetition is allowed in **12, the first place can be filled in 5 ways, the second place also can be filled in 5 ways
+Hence, number of numbers ending with 12 = 5 $\times$ 5 = 25 
+Similarly, numbers ending with 24, 32, 44, 52 each will be = 5 $\times$ 5 = 25 
+Hence the number of all 4 digited numbers that can be formed by using the digits 1, 2, 3, 4 and 5 which are divisible by 4 = 25 $\times$ 5 = 125 [ since there are 5 such cases]
+
+Q14. How many even numbers can be formed by using all the digits 2, 3, 4, 5, 6?
+    (A) 36
+    (B) 24
+    (C) 120
+    (D) 72   <-- CORRECT
+    Answer: D
+    Explanation: To form an even number the last number can only be an even digit, therefore the number of impossibility for the last digit of number = 3
+Now the ten's place can be filled by any of the remaining 4 digits, and hence the no. of ways for ten's place = 4
+Then there remain three digits, so no. of ways of filling hundred's place = 3
+Similarly no. of ways of filling thousand's place = 2 and of ten thousand = 1
+Therefore, the total possibilities are = 3 $\times$ 4 $\times$ 3 $\times$ 2 $\times$ 1 = 72
+
+Q15. In an examination, a candidate is required to pass at least four different subjects out of 6. Then the number of ways in which he can fail is
+    (A) 24
+    (B) 42   <-- CORRECT
+    (C) 12
+    (D) 16
+    Answer: B
+    Explanation: Given that to pass in the exam one has to pass atleast 4 subjects. So he can fail in any of these cases.
+He can fail all 6 subjects = ^6C_6 = 1
+He can fail in 5 subjects = ^6C_5 = 6
+He can fail in 4 subjects = ^6C_4 = 15
+He can fail in 3 subjects = ^6C_3 = 20
+Total ways to fail = 42 ways

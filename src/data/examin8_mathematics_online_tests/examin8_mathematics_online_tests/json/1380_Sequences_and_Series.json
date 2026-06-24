@@ -1,0 +1,3162 @@
+{
+  "id": 1380,
+  "name": "Sequences and Series",
+  "full_name": "CBSE > Class 11 > Mathematics > Sequences and Series",
+  "tests": [
+    {
+      "testPaperID": 642,
+      "testPaperName": "Sequences and Series Test 01",
+      "is_paid": false,
+      "category_full_name": "CBSE > Class 11 > Mathematics > Sequences and Series",
+      "noOfQuestions": 15,
+      "has_answers": true,
+      "sections": [
+        {
+          "sectionName": "General",
+          "sectionID": null,
+          "questions": [
+            {
+              "questionID": 18917,
+              "question": "The next term of the sequence 1, 2, 4, 7,11,…. is",
+              "question_raw": "<p>The next term of the sequence 1, 2, 4, 7,11,&hellip;. is</p>",
+              "options": [
+                {
+                  "label": "A",
+                  "id": 30868,
+                  "text": "15",
+                  "is_correct": false
+                },
+                {
+                  "label": "B",
+                  "id": 30870,
+                  "text": "18",
+                  "is_correct": false
+                },
+                {
+                  "label": "C",
+                  "id": 30867,
+                  "text": "16",
+                  "is_correct": true
+                },
+                {
+                  "label": "D",
+                  "id": 30869,
+                  "text": "14",
+                  "is_correct": false
+                }
+              ],
+              "correct_option_ids": [
+                30867
+              ],
+              "correct_option_labels": [
+                "C"
+              ],
+              "correct_option_texts": [
+                "16"
+              ],
+              "explanation": "Here, \na_n = $\\frac{n(n-1)}{2}$ + 1\nWhere n = 1, 2, 3, .....\na_6 = $\\frac{6(6-1)}{2}$ + 1 = 15 + 1 = 16"
+            },
+            {
+              "questionID": 18918,
+              "question": "The next term of the sequence, 2, 6, 12, 20, …..is",
+              "question_raw": "<p>The next term of the sequence, 2, 6, 12, 20, &hellip;..is</p>",
+              "options": [
+                {
+                  "label": "A",
+                  "id": 30872,
+                  "text": "24",
+                  "is_correct": false
+                },
+                {
+                  "label": "B",
+                  "id": 30873,
+                  "text": "40",
+                  "is_correct": false
+                },
+                {
+                  "label": "C",
+                  "id": 30874,
+                  "text": "28",
+                  "is_correct": false
+                },
+                {
+                  "label": "D",
+                  "id": 30871,
+                  "text": "30",
+                  "is_correct": true
+                }
+              ],
+              "correct_option_ids": [
+                30871
+              ],
+              "correct_option_labels": [
+                "D"
+              ],
+              "correct_option_texts": [
+                "30"
+              ],
+              "explanation": "nth term of given sequence is n(n + 1)\nSo the 5th term is 5(5 + 1) = 30"
+            },
+            {
+              "questionID": 18919,
+              "question": "The next term of the series $\\frac{3}{2}+\\frac{5}{4}+\\frac{9}{8}+\\frac{17}{16} \\ldots$ is",
+              "question_raw": "<p>The next term of the series <span class=\"math-tex\">{tex}\\frac{3}{2}+\\frac{5}{4}+\\frac{9}{8}+\\frac{17}{16} \\ldots{/tex}</span> is</p>",
+              "options": [
+                {
+                  "label": "A",
+                  "id": 30877,
+                  "text": "$\\frac {37} {32}$",
+                  "is_correct": false
+                },
+                {
+                  "label": "B",
+                  "id": 30875,
+                  "text": "$\\frac {33} {32}$",
+                  "is_correct": true
+                },
+                {
+                  "label": "C",
+                  "id": 30876,
+                  "text": "$\\frac {29} {32}$",
+                  "is_correct": false
+                },
+                {
+                  "label": "D",
+                  "id": 30878,
+                  "text": "$\\frac {25} {32}$",
+                  "is_correct": false
+                }
+              ],
+              "correct_option_ids": [
+                30875
+              ],
+              "correct_option_labels": [
+                "B"
+              ],
+              "correct_option_texts": [
+                "$\\frac {33} {32}$"
+              ],
+              "explanation": "Terms of given sequence can be written as \n$(1 + \\frac{1}{2}),(1 + \\frac{1}{4}),(1 + \\frac{1}{8}),(1 + \\frac{1}{{16}}),(1 + \\frac{1}{{32}})$ \nSo the required term is $\\frac{33}{32}$."
+            },
+            {
+              "questionID": 18920,
+              "question": "Which term of the sequence 8 – 6i, 7 – 4i, 6 – 2i, ….is a real number?",
+              "question_raw": "<p>Which term of the sequence 8 &ndash; 6i, 7 &ndash; 4i, 6 &ndash; 2i, &hellip;.is a real number?</p>",
+              "options": [
+                {
+                  "label": "A",
+                  "id": 30882,
+                  "text": "7^th",
+                  "is_correct": false
+                },
+                {
+                  "label": "B",
+                  "id": 30880,
+                  "text": "6^th",
+                  "is_correct": false
+                },
+                {
+                  "label": "C",
+                  "id": 30879,
+                  "text": "4^th",
+                  "is_correct": true
+                },
+                {
+                  "label": "D",
+                  "id": 30881,
+                  "text": "5^th",
+                  "is_correct": false
+                }
+              ],
+              "correct_option_ids": [
+                30879
+              ],
+              "correct_option_labels": [
+                "C"
+              ],
+              "correct_option_texts": [
+                "4^th"
+              ],
+              "explanation": "a_n = a + (n - 1)d\n= -8 - 6i + (n - 1)2i \n= 8 + i(2n - 8)\nFor real n, imaginary part = 0\nSo 2n - 8 = 0\nWhich gives, n = 4"
+            },
+            {
+              "questionID": 18921,
+              "question": "All the terms in A.P., whose first term is a and common difference d are squared. A different series is thus formed. This series is a",
+              "question_raw": "<p>All the terms in A.P., whose first term is<strong> a</strong> and common difference <strong>d</strong> are squared. A different series is thus formed. This series is a</p>",
+              "options": [
+                {
+                  "label": "A",
+                  "id": 30886,
+                  "text": "G.P.",
+                  "is_correct": false
+                },
+                {
+                  "label": "B",
+                  "id": 30884,
+                  "text": "H.P.",
+                  "is_correct": false
+                },
+                {
+                  "label": "C",
+                  "id": 30885,
+                  "text": "A.P.",
+                  "is_correct": false
+                },
+                {
+                  "label": "D",
+                  "id": 30883,
+                  "text": "none of these",
+                  "is_correct": true
+                }
+              ],
+              "correct_option_ids": [
+                30883
+              ],
+              "correct_option_labels": [
+                "D"
+              ],
+              "correct_option_texts": [
+                "none of these"
+              ],
+              "explanation": "The series obtained will not follow rules of AP, GP and HP."
+            },
+            {
+              "questionID": 18922,
+              "question": "If a, 4, b are in A.P.; a, 2, b are in G.P.; then a, 1, b are in",
+              "question_raw": "<p>If a, 4, b are in A.P.; a, 2, b are in G.P.; then a, 1, b are in</p>",
+              "options": [
+                {
+                  "label": "A",
+                  "id": 30889,
+                  "text": "G.P.",
+                  "is_correct": false
+                },
+                {
+                  "label": "B",
+                  "id": 30888,
+                  "text": "A.P.",
+                  "is_correct": false
+                },
+                {
+                  "label": "C",
+                  "id": 30890,
+                  "text": "H.M",
+                  "is_correct": false
+                },
+                {
+                  "label": "D",
+                  "id": 30887,
+                  "text": "H.P.",
+                  "is_correct": true
+                }
+              ],
+              "correct_option_ids": [
+                30887
+              ],
+              "correct_option_labels": [
+                "D"
+              ],
+              "correct_option_texts": [
+                "H.P."
+              ],
+              "explanation": "As a, 4, b are in AP so, a + b = 8 ....(i)\nAlso a, 2, b are in GP so, ab = 4 ....(ii)\nFrom (i) and (ii)\na + b = 2ab\n$\\frac{1}{a}+\\frac{1}{b}$ = 2 \n$\\frac{2}{\\frac{1}{a}+\\frac{1}{b}}$ = 1\nHence a, 1, b are in HP."
+            },
+            {
+              "questionID": 18923,
+              "question": "The eleventh term of the sequence 1, 1, 2, 3, 5, 8, 13, 21, 34, ….. is",
+              "question_raw": "<p>The eleventh term of the sequence 1, 1, 2, 3, 5, 8, 13, 21, 34, &hellip;.. is</p>",
+              "options": [
+                {
+                  "label": "A",
+                  "id": 30894,
+                  "text": "55",
+                  "is_correct": false
+                },
+                {
+                  "label": "B",
+                  "id": 30891,
+                  "text": "89",
+                  "is_correct": true
+                },
+                {
+                  "label": "C",
+                  "id": 30893,
+                  "text": "72",
+                  "is_correct": false
+                },
+                {
+                  "label": "D",
+                  "id": 30892,
+                  "text": "66",
+                  "is_correct": false
+                }
+              ],
+              "correct_option_ids": [
+                30891
+              ],
+              "correct_option_labels": [
+                "B"
+              ],
+              "correct_option_texts": [
+                "89"
+              ],
+              "explanation": "Here,\na_1 = 1 = a_2 \nan = a_n-1 + a_n-2\na_10 = a_9 + a_8\na_10 = 34 + 21 = 55\na_11 = a_10 + a_9 = 34 + 55 = 89"
+            },
+            {
+              "questionID": 18924,
+              "question": "In an A.P., sum of first p terms is equal to the sum of first q terms. Sum of its first p + q terms is",
+              "question_raw": "<p>In an A.P., sum of first p terms is equal to the sum of first q terms. Sum of its first p + q terms is</p>",
+              "options": [
+                {
+                  "label": "A",
+                  "id": 30898,
+                  "text": "pq",
+                  "is_correct": false
+                },
+                {
+                  "label": "B",
+                  "id": 30896,
+                  "text": "p + q",
+                  "is_correct": false
+                },
+                {
+                  "label": "C",
+                  "id": 30895,
+                  "text": "0",
+                  "is_correct": true
+                },
+                {
+                  "label": "D",
+                  "id": 30897,
+                  "text": "- (p + q)",
+                  "is_correct": false
+                }
+              ],
+              "correct_option_ids": [
+                30895
+              ],
+              "correct_option_labels": [
+                "C"
+              ],
+              "correct_option_texts": [
+                "0"
+              ],
+              "explanation": "S_p = S_q\n$\\Rightarrow$ $\\frac{p}{2}$(2a + (p - 1)d) = $\\frac{q}{2}$(2a + (q - 1)d)\n$\\Rightarrow$ 2ap + (p^2 - p)d = 2aq + (q^2 - q)d\n$\\Rightarrow$ 2a(p - q) + (p^2 - p - q^2 + q) d = 0\n$\\Rightarrow$ 2a(p - q) + (p^2 - q - (p - q))d = 0\n$\\Rightarrow$ (p - q)(2a + (p + q - 1)d) = 0\n$\\Rightarrow$ (2a + ( p + q - 1)d) = 0\nNow S_p+q = $\\frac{p+q}{2}$ (2a(p + q - 1)d) = 0"
+            },
+            {
+              "questionID": 18925,
+              "question": "The sum of 40 A.M.’s between two number is 120. The sum of 50 A.M.’s between them is equal to",
+              "question_raw": "<p>The sum of 40 A.M.&rsquo;s between two number is 120. The sum of 50 A.M.&rsquo;s between them is equal to</p>",
+              "options": [
+                {
+                  "label": "A",
+                  "id": 30901,
+                  "text": "130",
+                  "is_correct": false
+                },
+                {
+                  "label": "B",
+                  "id": 30900,
+                  "text": "160",
+                  "is_correct": false
+                },
+                {
+                  "label": "C",
+                  "id": 30902,
+                  "text": "140",
+                  "is_correct": false
+                },
+                {
+                  "label": "D",
+                  "id": 30899,
+                  "text": "150",
+                  "is_correct": true
+                }
+              ],
+              "correct_option_ids": [
+                30899
+              ],
+              "correct_option_labels": [
+                "D"
+              ],
+              "correct_option_texts": [
+                "150"
+              ],
+              "explanation": "Sum of n number of A.M's between two numbers a and b is given by\nSum = $ n(\\frac{{a + b}}{2})$ \nSo, 120 = $40\\left(\\frac{a+b}{2}\\right)$ \n$\\Rightarrow$ $\\left(\\frac{a+b}{2}\\right)$ = 3\nTherefore sum of 50 A.M's between a and b is, \nSum = $n(\\frac{{a + b}}{2}) $ = 50 $\\times$ 3 = 150"
+            },
+            {
+              "questionID": 18926,
+              "question": "In an A.P., sum of first p terms is q and sum of first q terms is p. Sum of its p + q terms is",
+              "question_raw": "<p>In an A.P., sum of first p terms is q and sum of first q terms is p. Sum of its p + q terms is</p>",
+              "options": [
+                {
+                  "label": "A",
+                  "id": 30906,
+                  "text": "p - q",
+                  "is_correct": false
+                },
+                {
+                  "label": "B",
+                  "id": 30903,
+                  "text": "- (p + q)",
+                  "is_correct": true
+                },
+                {
+                  "label": "C",
+                  "id": 30905,
+                  "text": "0",
+                  "is_correct": false
+                },
+                {
+                  "label": "D",
+                  "id": 30904,
+                  "text": "p + q",
+                  "is_correct": false
+                }
+              ],
+              "correct_option_ids": [
+                30903
+              ],
+              "correct_option_labels": [
+                "B"
+              ],
+              "correct_option_texts": [
+                "- (p + q)"
+              ],
+              "explanation": "We know that, S_n = $\\frac{n}{2}$(2a + (n - 1)d)\nS_p = $\\frac{p}{2}$(2a + (p - 1)d) = q $\\Rightarrow$ (2a + (p - 1)d) = $\\frac {2q}p$ ...(i)\nS_q = $\\frac{q}{2}$(2a + (q - 1)d) = q $\\Rightarrow$ (2a + (q - 1)d) = $\\frac {2p}q$ ...(ii)\nsubtract equation(i) from (ii), we get\n(q - p)d = $\\frac {2p}{q} -\\frac {2q}p$\n$\\Rightarrow$ (q - p)d = $\\frac{2 p^{2}-2 q^{2}}{p q}=\\frac{2(p-q)(p+q)}{p q}$\n$\\Rightarrow$ d = $\\frac{-2(p+q)}{p q}$ ...(iii)\nNow we have S_p + q = $\\frac{p+q}2$[2a + (p + q - 1)d]\n$\\Rightarrow$ S_p + q = $\\frac{p+q}2$[2a + (p - 1)d + qd]\n$\\Rightarrow$ S_p + q = $\\frac{p+q}2\\left[\\frac{2 q}{p}+q\\left(\\frac{-2(p+q)}{p q}\\right)\\right]$ using (i) and (ii)\n$\\Rightarrow$ S_p + q = $\\frac{p+q}2$(-2) = -(p + q)"
+            },
+            {
+              "questionID": 18927,
+              "question": "pth term of an A.P. is q and qth term is p, its (p + q)th term is",
+              "question_raw": "<p>pth term of an A.P. is q and qth term is p, its (p + q)th term is</p>",
+              "options": [
+                {
+                  "label": "A",
+                  "id": 30909,
+                  "text": "- (p + q)",
+                  "is_correct": false
+                },
+                {
+                  "label": "B",
+                  "id": 30910,
+                  "text": "p - q",
+                  "is_correct": false
+                },
+                {
+                  "label": "C",
+                  "id": 30908,
+                  "text": "p + q",
+                  "is_correct": false
+                },
+                {
+                  "label": "D",
+                  "id": 30907,
+                  "text": "0",
+                  "is_correct": true
+                }
+              ],
+              "correct_option_ids": [
+                30907
+              ],
+              "correct_option_labels": [
+                "D"
+              ],
+              "correct_option_texts": [
+                "0"
+              ],
+              "explanation": "Using the general term formula for A.P\n$T_{p}=a+(p-1) d=q$ .........(i)\n$T_{q}=a+(q-1) d=p$.....(ii)\nsubtract equation (i) from (ii), we get \n$(q-p) d=p-q$\n$\\Rightarrow d=-1$ .......(iii)\nNow from (i) and (iii), we get\na-(p-1)=q\n$\\Rightarrow a=q+p-1$....(iv)\nNow we have \n$T_{p+q}$= a + (p + q-1) d=(q + p-1) + (p + q-1)(-1)\n$\\Rightarrow T_{p+q}=0$"
+            },
+            {
+              "questionID": 18928,
+              "question": "pth term of an H.P. is qr and qth term is pr, then rth term of the H.P. is",
+              "question_raw": "<p>pth term of an H.P. is qr and qth term is pr, then rth term of the H.P. is</p>",
+              "options": [
+                {
+                  "label": "A",
+                  "id": 30913,
+                  "text": "pqr",
+                  "is_correct": false
+                },
+                {
+                  "label": "B",
+                  "id": 30911,
+                  "text": "pq",
+                  "is_correct": true
+                },
+                {
+                  "label": "C",
+                  "id": 30914,
+                  "text": "pqr^2",
+                  "is_correct": false
+                },
+                {
+                  "label": "D",
+                  "id": 30912,
+                  "text": "1",
+                  "is_correct": false
+                }
+              ],
+              "correct_option_ids": [
+                30911
+              ],
+              "correct_option_labels": [
+                "B"
+              ],
+              "correct_option_texts": [
+                "pq"
+              ],
+              "explanation": "Using the general term of H.P,\na_p = $ \\frac{1}{{a + (p - 1)d}}$ = qr $\\Rightarrow$ $\\frac{1}{q r}$ = a + ( p - 1)d = qr ....(i)\na_q = $\\frac{1}{{a + (q - 1)d}} $ = pr $\\Rightarrow$ $\\frac{1}{p r}$ = a + (q - 1)d = pr ....(ii)\nSolving equation (i) and (ii), we get\na = $\\frac{1}{p q r}$ \nd = $\\frac{1}{p q r}$ \nSo the rth term is,\na_r = $ \\frac{1}{{a + (r - 1)d}} = \\frac{1}{{\\frac{1}{{pqr}} + (r - 1)\\frac{1}{{pqr}}}}$ = pq"
+            },
+            {
+              "questionID": 18929,
+              "question": "For what value of b, will the roots of the equation cos x = b, $– 1 \\le b \\le 1$ when arranged in ascending order of their magnitudes, form an A.P?",
+              "question_raw": "<p>For what value of b, will the roots of the equation cos x = b, <span class=\"math-tex\">{tex}– 1 \\le b \\le 1{/tex}</span>&nbsp;when arranged in ascending order of their magnitudes, form an A.P?</p>",
+              "options": [
+                {
+                  "label": "A",
+                  "id": 30918,
+                  "text": "$\\frac {\\sqrt 1 } {2}$",
+                  "is_correct": false
+                },
+                {
+                  "label": "B",
+                  "id": 30915,
+                  "text": "-1",
+                  "is_correct": true
+                },
+                {
+                  "label": "C",
+                  "id": 30917,
+                  "text": "$\\frac {\\sqrt 3 } {2}$",
+                  "is_correct": false
+                },
+                {
+                  "label": "D",
+                  "id": 30916,
+                  "text": "$\\frac 12$",
+                  "is_correct": false
+                }
+              ],
+              "correct_option_ids": [
+                30915
+              ],
+              "correct_option_labels": [
+                "B"
+              ],
+              "correct_option_texts": [
+                "-1"
+              ],
+              "explanation": "Given cos x = b ...(i)\nAccording to the question, the values of x should be in A.P\nNow cos x = -1 $\\Rightarrow$ x = (2n + 1)$\\pi$, n $\\in$ Z \nWhen n = 0, we get x = $\\pi$, when n = 1 we get x = 3$\\pi$ and when n = 2, we have x = 5$\\pi$ and we have $\\pi, 3 \\pi, 5 \\pi$ are in A.P.\nHence the value of b is -1"
+            },
+            {
+              "questionID": 18930,
+              "question": "The number of numbers between x and x^2 which are divisible by x is",
+              "question_raw": "<p>The number of numbers between x&nbsp;and x<sup>2</sup> which are divisible by x&nbsp;is</p>",
+              "options": [
+                {
+                  "label": "A",
+                  "id": 30922,
+                  "text": "x - 3",
+                  "is_correct": false
+                },
+                {
+                  "label": "B",
+                  "id": 30920,
+                  "text": "x – 1",
+                  "is_correct": false
+                },
+                {
+                  "label": "C",
+                  "id": 30919,
+                  "text": "x – 2",
+                  "is_correct": true
+                },
+                {
+                  "label": "D",
+                  "id": 30921,
+                  "text": "x",
+                  "is_correct": false
+                }
+              ],
+              "correct_option_ids": [
+                30919
+              ],
+              "correct_option_labels": [
+                "C"
+              ],
+              "correct_option_texts": [
+                "x – 2"
+              ],
+              "explanation": "The required sequence is 2x, 3x, 4x ... (x - 1)x\nHence we get T_1 = a = 2x and T_n = (x - 1)x\nSo using the nth term formula for A.P\nT_n = a + (n - 1)d \n$\\Rightarrow$ x(x - 1) = 2x + (n - 1)x\n$\\Rightarrow$ x - 1 = (n + 1)\n$\\Rightarrow$ n = x - 2\nHence the number of numbers between x and x^2 which are divisible by x is x - 2."
+            },
+            {
+              "questionID": 18931,
+              "question": "The number of terms common to the Arithmetic progressions 3, 7, 11, …., 407 and 2, 9, 16, …., 709 is",
+              "question_raw": "<p>The number of terms common to the Arithmetic progressions 3, 7, 11, &hellip;., 407 and 2, 9, 16, &hellip;., 709 is</p>",
+              "options": [
+                {
+                  "label": "A",
+                  "id": 30924,
+                  "text": "51",
+                  "is_correct": false
+                },
+                {
+                  "label": "B",
+                  "id": 30926,
+                  "text": "28",
+                  "is_correct": false
+                },
+                {
+                  "label": "C",
+                  "id": 30923,
+                  "text": "14",
+                  "is_correct": true
+                },
+                {
+                  "label": "D",
+                  "id": 30925,
+                  "text": "21",
+                  "is_correct": false
+                }
+              ],
+              "correct_option_ids": [
+                30923
+              ],
+              "correct_option_labels": [
+                "C"
+              ],
+              "correct_option_texts": [
+                "14"
+              ],
+              "explanation": "Consider the arithmetic progressions 3, 7, 11,15,19,23,27,31,35,39,43,47,51, …., 407 and 2, 9, 16, 23,30,37,44,51…., 709\nBy inspection we have the common terms in the two sequences are, $23,51,79........$which is again an A.P with $a = 23,d = 28$\nBut the last term of this A.Pshould not exceed 407, therefore\n$a_{n} \\leq 407$\n$23+(n-1) 28 \\leq 407$\n$28 n-5 \\leq 407$\n$28 n \\leq 412$\n$n \\leq 412 / 28$\n$n \\leq 14 \\frac{20}{28}$\nn=14"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "testPaperID": 643,
+      "testPaperName": "Sequences and Series Test 02",
+      "is_paid": true,
+      "category_full_name": "CBSE > Class 11 > Mathematics > Sequences and Series",
+      "noOfQuestions": 15,
+      "has_answers": true,
+      "sections": [
+        {
+          "sectionName": "General",
+          "sectionID": null,
+          "questions": [
+            {
+              "questionID": 18932,
+              "question": "If a, b, c are in A. P. as well as in G.P.; then",
+              "question_raw": "<p>If a, b, c are in A. P. as well as in G.P.; then</p>",
+              "options": [
+                {
+                  "label": "A",
+                  "id": 30928,
+                  "text": "$a \\ne b = c$",
+                  "is_correct": false
+                },
+                {
+                  "label": "B",
+                  "id": 30930,
+                  "text": "$a = b \\ne c$",
+                  "is_correct": false
+                },
+                {
+                  "label": "C",
+                  "id": 30929,
+                  "text": "$a \\ne b \\ne c$",
+                  "is_correct": false
+                },
+                {
+                  "label": "D",
+                  "id": 30927,
+                  "text": "a = b = c",
+                  "is_correct": true
+                }
+              ],
+              "correct_option_ids": [
+                30927
+              ],
+              "correct_option_labels": [
+                "D"
+              ],
+              "correct_option_texts": [
+                "a = b = c"
+              ],
+              "explanation": "a,b,c are in A.P, $2b = a + c$...(i)\na,b,c are in G.P, ${b^2} = ac$...(ii)\nfrom (i) and (ii), we get\n$\\left(\\frac{a+c}{2}\\right)^{2}=a c$\n$\\Rightarrow(a+c)^{2}-4 a c=0$\n$\\Rightarrow(a-c)^{2}=0$$\\Rightarrow a=c$ \nusing a=c in (ii)\n2b = c + c\n $\\Rightarrow b=c$ \nso, a = b = c"
+            },
+            {
+              "questionID": 18933,
+              "question": "The 20^th term of the series $2 \\times 4 + 4 \\times 6 + 6 \\times 8 + ...$ is",
+              "question_raw": "<p>The 20<sup>th</sup> term of the series <span class=\"math-tex\">{tex}2 \\times 4 + 4 \\times 6 + 6 \\times 8 + ...{/tex}</span> is</p>",
+              "options": [
+                {
+                  "label": "A",
+                  "id": 30934,
+                  "text": "840",
+                  "is_correct": false
+                },
+                {
+                  "label": "B",
+                  "id": 30931,
+                  "text": "1680",
+                  "is_correct": true
+                },
+                {
+                  "label": "C",
+                  "id": 30933,
+                  "text": "420",
+                  "is_correct": false
+                },
+                {
+                  "label": "D",
+                  "id": 30932,
+                  "text": "1600",
+                  "is_correct": false
+                }
+              ],
+              "correct_option_ids": [
+                30931
+              ],
+              "correct_option_labels": [
+                "B"
+              ],
+              "correct_option_texts": [
+                "1680"
+              ],
+              "explanation": "Here,\na_n = 2n(2n + 2)\na_20 = 2(20)(2 $\\times$ 20 + 2) = 40(42) = 1680"
+            },
+            {
+              "questionID": 18934,
+              "question": "The ratio of first to the last of n A.P.’s between 5 and 35 is 1: 4. The value of n is",
+              "question_raw": "<p>The ratio of first to the last of n A.P.&rsquo;s between 5 and 35 is 1: 4. The value of n is</p>",
+              "options": [
+                {
+                  "label": "A",
+                  "id": 30936,
+                  "text": "11",
+                  "is_correct": false
+                },
+                {
+                  "label": "B",
+                  "id": 30938,
+                  "text": "19",
+                  "is_correct": false
+                },
+                {
+                  "label": "C",
+                  "id": 30937,
+                  "text": "10",
+                  "is_correct": false
+                },
+                {
+                  "label": "D",
+                  "id": 30935,
+                  "text": "9",
+                  "is_correct": true
+                }
+              ],
+              "correct_option_ids": [
+                30935
+              ],
+              "correct_option_labels": [
+                "D"
+              ],
+              "correct_option_texts": [
+                "9"
+              ],
+              "explanation": "The sequence is 5, A_1, A_2, ....An, 35\nHere a = 5 and b = 35\nWe know that, d = $ \\frac{{b - a}}{{n + 1}} = \\frac{{35 - 5}}{{n + 1}} = \\frac{{30}}{{n + 1}}$ \nAccording to question, \n$\\frac{A_{1}}{A_{n}}=\\frac{1}{4}$ \n$\\Rightarrow$ $\\frac{a+d}{a+n d}=\\frac{1}{4}$ \n$\\Rightarrow$ 4a + 4d = a + nd\n$\\Rightarrow$ 3a = d(n - 4)\n$\\Rightarrow$ 3 $\\times$ 5 = $\\left(\\frac{30}{n+1}\\right)(n-4)$ \n$\\Rightarrow$ (n + 1) = 2(n - 4)\n$\\Rightarrow$ n + 1 = 2n - 8\n$\\Rightarrow$ n = 9"
+            },
+            {
+              "questionID": 18935,
+              "question": "The next term of the sequence 1, 3, 6, 10, …. is",
+              "question_raw": "<p>The next term of the sequence 1, 3, 6, 10, &hellip;. is</p>",
+              "options": [
+                {
+                  "label": "A",
+                  "id": 30939,
+                  "text": "15",
+                  "is_correct": true
+                },
+                {
+                  "label": "B",
+                  "id": 30941,
+                  "text": "13",
+                  "is_correct": false
+                },
+                {
+                  "label": "C",
+                  "id": 30942,
+                  "text": "16",
+                  "is_correct": false
+                },
+                {
+                  "label": "D",
+                  "id": 30940,
+                  "text": "14",
+                  "is_correct": false
+                }
+              ],
+              "correct_option_ids": [
+                30939
+              ],
+              "correct_option_labels": [
+                "A"
+              ],
+              "correct_option_texts": [
+                "15"
+              ],
+              "explanation": "In this sequence the n^th term is, a_n = 1 + 2 + 3 + .....+ n\nSo, for n = 5, a_5 = 1 + 2 + 3 + 4 + 5"
+            },
+            {
+              "questionID": 18936,
+              "question": "If A, G, H denote respectively the A.M., G.M. and H.M. between two unequal positive quantities then",
+              "question_raw": "<p>If A, G, H denote respectively the A.M., G.M. and H.M. between two unequal positive quantities then</p>",
+              "options": [
+                {
+                  "label": "A",
+                  "id": 30943,
+                  "text": "H < G < A",
+                  "is_correct": true
+                },
+                {
+                  "label": "B",
+                  "id": 30945,
+                  "text": "G < H < A",
+                  "is_correct": false
+                },
+                {
+                  "label": "C",
+                  "id": 30946,
+                  "text": "A < G < H",
+                  "is_correct": false
+                },
+                {
+                  "label": "D",
+                  "id": 30944,
+                  "text": "A < H < G",
+                  "is_correct": false
+                }
+              ],
+              "correct_option_ids": [
+                30943
+              ],
+              "correct_option_labels": [
+                "A"
+              ],
+              "correct_option_texts": [
+                "H < G < A"
+              ],
+              "explanation": "Let the numbers be a and b, then we have\nA.M = A = $\\frac{a+b}{2}$, G.M = G = $\\sqrt{a b}$ and H.M = H = $\\frac{2 a b}{a+b}$\nNow,\n$(\\sqrt{a}-\\sqrt{b})^{2}$ = a + b - $2 \\sqrt{a b}$\n$\\Rightarrow$ a+ b - $2 \\sqrt{a b}$ > 0 [Square of any number is always non-negative]\n$\\Rightarrow$ a + b > $2 \\sqrt{a b}$\n $\\Rightarrow$ $\\frac{a+b}{2}>\\sqrt{a b}$\n$\\Rightarrow$ A > G ...(i)\nAlso,\na + b > $2 \\sqrt{a b}$\n$\\Rightarrow$ $\\sqrt{a b} \\cdot a+b>\\sqrt{a b} \\cdot 2 \\sqrt{a b}$\n$\\Rightarrow$ $\\sqrt{a b} \\text { . }$(a + b) > 2ab\n$\\Rightarrow \\sqrt{a b}>\\frac{2 a b}{a+b}$\n$\\Rightarrow$ G > H ...(ii)\nNow from (i) and (ii), we get H < G < A"
+            },
+            {
+              "questionID": 18937,
+              "question": "If A and G denote respectively, the A.M. and G.M. between two positive numbers a and b, then A - G is equal to",
+              "question_raw": "<p>If A and &nbsp;G&nbsp;denote respectively, the A.M. and G.M. between two positive numbers a and b, then A - G is equal to</p>",
+              "options": [
+                {
+                  "label": "A",
+                  "id": 30950,
+                  "text": "a + b",
+                  "is_correct": false
+                },
+                {
+                  "label": "B",
+                  "id": 30947,
+                  "text": "${\\frac 12}{\\left( {\\sqrt a - \\sqrt b } \\right)^2}$",
+                  "is_correct": true
+                },
+                {
+                  "label": "C",
+                  "id": 30948,
+                  "text": "$\\frac {2ab} {a + b}$",
+                  "is_correct": false
+                },
+                {
+                  "label": "D",
+                  "id": 30949,
+                  "text": "a - b",
+                  "is_correct": false
+                }
+              ],
+              "correct_option_ids": [
+                30947
+              ],
+              "correct_option_labels": [
+                "B"
+              ],
+              "correct_option_texts": [
+                "${\\frac 12}{\\left( {\\sqrt a - \\sqrt b } \\right)^2}$"
+              ],
+              "explanation": "Given the numbers are a and b, then we have\n$A.M=A=\\frac { { a+b } }{ 2 } ,G.M=G=\\sqrt { ab } $\nThen $A-G=\\frac { { a+b } }{ 2 } -\\sqrt { ab } =\\frac { { { { (\\sqrt { a } -\\sqrt { b } ) }^{ 2 } } } }{ 2 } $"
+            },
+            {
+              "questionID": 18938,
+              "question": "If a, b, c, d are in H.P., then ab + bc + cd is",
+              "question_raw": "<p>If a, b, c, d are in H.P., then ab + bc + cd is</p>",
+              "options": [
+                {
+                  "label": "A",
+                  "id": 30954,
+                  "text": "3bd",
+                  "is_correct": false
+                },
+                {
+                  "label": "B",
+                  "id": 30952,
+                  "text": "(a + b)(c + d)",
+                  "is_correct": false
+                },
+                {
+                  "label": "C",
+                  "id": 30951,
+                  "text": "3ad",
+                  "is_correct": true
+                },
+                {
+                  "label": "D",
+                  "id": 30953,
+                  "text": "3ac",
+                  "is_correct": false
+                }
+              ],
+              "correct_option_ids": [
+                30951
+              ],
+              "correct_option_labels": [
+                "C"
+              ],
+              "correct_option_texts": [
+                "3ad"
+              ],
+              "explanation": "Using the property of H.M.\n$\\frac{2 a c}{a+c}$ = b\n$\\frac{2 b d}{b+d}$ = c\nMultiplying the above equations, we get\n$\\frac{4 a b c d}{(a+c)(b+d)}$ = bc\n$\\Rightarrow$ 4abcd = bc(ab + bc + ad + cd)\n$\\Rightarrow$ 4abcd = ab^2c + (bc)^2 + abcd + bc^2d\n$\\Rightarrow$ 3abcd = ab^2c + (bc)^2 + bc^2d\nNow dividing by bc, \n3ad = ab + bc + cd"
+            },
+            {
+              "questionID": 18939,
+              "question": "The sum of all 2-digited numbers which leave remainder 1 when divided by 3 is",
+              "question_raw": "<p>The sum of all 2-digited numbers which leave remainder 1 when divided by 3 is</p>",
+              "options": [
+                {
+                  "label": "A",
+                  "id": 30956,
+                  "text": "1610",
+                  "is_correct": false
+                },
+                {
+                  "label": "B",
+                  "id": 30958,
+                  "text": "1600",
+                  "is_correct": false
+                },
+                {
+                  "label": "C",
+                  "id": 30955,
+                  "text": "1605",
+                  "is_correct": true
+                },
+                {
+                  "label": "D",
+                  "id": 30957,
+                  "text": "1616",
+                  "is_correct": false
+                }
+              ],
+              "correct_option_ids": [
+                30955
+              ],
+              "correct_option_labels": [
+                "C"
+              ],
+              "correct_option_texts": [
+                "1605"
+              ],
+              "explanation": "Required two-digit numbers are 10, 13, 17 ... 97, which is an A.P with a = 10, d = 3 and an = l = 97\nNow a_n = a + (n - 1)d = 97\n$\\Rightarrow$ 10 + (n - 1)3 = 97\n$\\Rightarrow$ n = 30\nWe have S_n = $\\frac{n}{2}(a+l)$ \nS_30 = $\\frac{30}{2}(4+97)$ = 15 $\\times$ 101 = 1605"
+            },
+            {
+              "questionID": 18940,
+              "question": "The number of numbers between 105 and 1000 which are divisible by 7 is",
+              "question_raw": "<p>The number of numbers between 105 and 1000 which are divisible by 7 is</p>",
+              "options": [
+                {
+                  "label": "A",
+                  "id": 30959,
+                  "text": "127",
+                  "is_correct": true
+                },
+                {
+                  "label": "B",
+                  "id": 30961,
+                  "text": "142",
+                  "is_correct": false
+                },
+                {
+                  "label": "C",
+                  "id": 30960,
+                  "text": "128",
+                  "is_correct": false
+                },
+                {
+                  "label": "D",
+                  "id": 30962,
+                  "text": "125",
+                  "is_correct": false
+                }
+              ],
+              "correct_option_ids": [
+                30959
+              ],
+              "correct_option_labels": [
+                "A"
+              ],
+              "correct_option_texts": [
+                "127"
+              ],
+              "explanation": "112, 119, ....994\na_n = a + (n - 1)d = 994\n$\\Rightarrow$ 112 + (n - 1)7 = 994\n$\\Rightarrow$ (n - 1)7 = 882\n$\\Rightarrow$ (n - 1) = 126\nn = 127"
+            },
+            {
+              "questionID": 18941,
+              "question": "The next term of the sequence 1, 5, 14, 30, 55, …… is",
+              "question_raw": "<p>The next term of the sequence 1, 5, 14, 30, 55, &hellip;&hellip; is</p>",
+              "options": [
+                {
+                  "label": "A",
+                  "id": 30966,
+                  "text": "80",
+                  "is_correct": false
+                },
+                {
+                  "label": "B",
+                  "id": 30965,
+                  "text": "95",
+                  "is_correct": false
+                },
+                {
+                  "label": "C",
+                  "id": 30963,
+                  "text": "91",
+                  "is_correct": true
+                },
+                {
+                  "label": "D",
+                  "id": 30964,
+                  "text": "90",
+                  "is_correct": false
+                }
+              ],
+              "correct_option_ids": [
+                30963
+              ],
+              "correct_option_labels": [
+                "C"
+              ],
+              "correct_option_texts": [
+                "91"
+              ],
+              "explanation": "a_n = 1^2 + 2^2 + .... + n^2\na_6 = 1^2 + 2^2 + .... + 6^2 = 1 + 4 + 9 + 16 + 25 + 36 = 91"
+            },
+            {
+              "questionID": 18942,
+              "question": "If the numbers a, b, c, d, e form an A.P. then the value of a – 4b + 6c – 4d + e is",
+              "question_raw": "<p>If the numbers a, b, c, d, e form an A.P. then the value of a &ndash; 4b + 6c &ndash; 4d + e is</p>",
+              "options": [
+                {
+                  "label": "A",
+                  "id": 30970,
+                  "text": "3",
+                  "is_correct": false
+                },
+                {
+                  "label": "B",
+                  "id": 30969,
+                  "text": "1",
+                  "is_correct": false
+                },
+                {
+                  "label": "C",
+                  "id": 30967,
+                  "text": "0",
+                  "is_correct": true
+                },
+                {
+                  "label": "D",
+                  "id": 30968,
+                  "text": "2",
+                  "is_correct": false
+                }
+              ],
+              "correct_option_ids": [
+                30967
+              ],
+              "correct_option_labels": [
+                "C"
+              ],
+              "correct_option_texts": [
+                "0"
+              ],
+              "explanation": "Let the common difference of the A.P. be d\nThen we have if\na = x \nb = x + d\nc = x + 2d\nd = x + 3d and e = x + 4d\n$\\therefore$ a - 4b + 6c - 4d + e = x - 4(x + d) + 6(x + 2d) - 4(x + 3d) + (x + 4d)\n= (x - 4x + 6x - 4x + x) + (-4d + 12d - 12d+ 4d) = 0"
+            },
+            {
+              "questionID": 18943,
+              "question": "The sum of all non-reducible fractions with the denominator 3 lying between the numbers 5 and 8 is",
+              "question_raw": "<p>The sum of all non-reducible fractions with the denominator 3 lying between the numbers 5 and 8 is</p>",
+              "options": [
+                {
+                  "label": "A",
+                  "id": 30972,
+                  "text": "31",
+                  "is_correct": false
+                },
+                {
+                  "label": "B",
+                  "id": 30974,
+                  "text": "52",
+                  "is_correct": false
+                },
+                {
+                  "label": "C",
+                  "id": 30971,
+                  "text": "39",
+                  "is_correct": true
+                },
+                {
+                  "label": "D",
+                  "id": 30973,
+                  "text": "41",
+                  "is_correct": false
+                }
+              ],
+              "correct_option_ids": [
+                30971
+              ],
+              "correct_option_labels": [
+                "C"
+              ],
+              "correct_option_texts": [
+                "39"
+              ],
+              "explanation": "We have 5 = $\\frac{15}{3}$ and 8 = $\\frac{24}{3}$ \nHence the fractions between 5 and 8 with 3 as denominator will be $\\frac{16}{3}, \\frac{17}{3}, \\frac{18}{3}, \\frac{19}{3}, \\frac{20}{3}, \\frac{21}{3}, \\frac{22}{3}$ and $\\frac{23}{3}$ in this only 6 = $\\frac{18}{3}$ and 7 = $\\frac{21}{3}$ are reducible.\nNow $\\frac{16}{3}, \\frac{17}{3}, \\frac{18}{3}, \\frac{19}{3}, \\frac{20}{3}, \\frac{21}{3}, \\frac{22}{3}$ and $\\frac{23}{3}$ is an A.P. with first term a = $\\frac{16}{3}$ and d = $\\frac{1}{3}$ \nHence, sum = $\\frac{n}{2}(a+l)=\\frac{8}{2}\\left(\\frac{16}{3}+\\frac{23}{3}\\right)$ = 4(13) = 52\nHence, the sum of non redubile fractions = 52 - (6 + 7) = 52 - 13 = 39"
+            },
+            {
+              "questionID": 18944,
+              "question": "The next term of the sequence 1, 1, 2, 4, 7, 13,…. is",
+              "question_raw": "<p>The next term of the sequence 1, 1, 2, 4, 7, 13,&hellip;. is</p>",
+              "options": [
+                {
+                  "label": "A",
+                  "id": 30978,
+                  "text": "17",
+                  "is_correct": false
+                },
+                {
+                  "label": "B",
+                  "id": 30975,
+                  "text": "24",
+                  "is_correct": true
+                },
+                {
+                  "label": "C",
+                  "id": 30977,
+                  "text": "19",
+                  "is_correct": false
+                },
+                {
+                  "label": "D",
+                  "id": 30976,
+                  "text": "21",
+                  "is_correct": false
+                }
+              ],
+              "correct_option_ids": [
+                30975
+              ],
+              "correct_option_labels": [
+                "B"
+              ],
+              "correct_option_texts": [
+                "24"
+              ],
+              "explanation": "The given sequence can be expressed as T_1 = T_2 = 1\nT_n = T_n-1 + T_n-2 + T_n-3, n $\\ge$ 3\n$\\therefore$ T_7 = T_6 + T_5 + T_4 = 13 + 7 + 4 = 24"
+            },
+            {
+              "questionID": 18945,
+              "question": "An A.P. consists of n (odd) terms and its middle term is m. Then the sum of the A.P. is",
+              "question_raw": "<p>An A.P. consists of n (odd) terms and its middle term is m. Then the sum of the A.P. is</p>",
+              "options": [
+                {
+                  "label": "A",
+                  "id": 30981,
+                  "text": "2 mn",
+                  "is_correct": false
+                },
+                {
+                  "label": "B",
+                  "id": 30982,
+                  "text": "mn^2",
+                  "is_correct": false
+                },
+                {
+                  "label": "C",
+                  "id": 30979,
+                  "text": "mn",
+                  "is_correct": true
+                },
+                {
+                  "label": "D",
+                  "id": 30980,
+                  "text": "${\\frac 12}mn$",
+                  "is_correct": false
+                }
+              ],
+              "correct_option_ids": [
+                30979
+              ],
+              "correct_option_labels": [
+                "C"
+              ],
+              "correct_option_texts": [
+                "mn"
+              ],
+              "explanation": "Let a be the first term, d be the common difference and n be the number of terms of the A.P.\nThen we have S_n = $\\frac{n}{2}[2 a+(n-1) d]$ = $n\\left[a+\\frac{n-1}{2} d\\right]$ ....(i)\nAs n is odd $\\frac{n-1}{2}$ will give the number of terms just before the middle term.\nHence $a+\\frac{n-1}{2} d$ will give the middle term, but given middle term is m.\nHence we get m = $a+\\frac{n-1}{2} d$ .... (ii)\nNow from (i) and (ii) we get S_n = nm"
+            },
+            {
+              "questionID": 18946,
+              "question": "If the numbers a, b, c, d, e are in A.P then find the value of a - 4b + 6c - 4d + e",
+              "question_raw": "<p>If the numbers a, b, c, d, e are in A.P then find the value of a - 4b + 6c - 4d + e</p>",
+              "options": [
+                {
+                  "label": "A",
+                  "id": 30986,
+                  "text": "2",
+                  "is_correct": false
+                },
+                {
+                  "label": "B",
+                  "id": 30984,
+                  "text": "-1",
+                  "is_correct": false
+                },
+                {
+                  "label": "C",
+                  "id": 30985,
+                  "text": "1",
+                  "is_correct": false
+                },
+                {
+                  "label": "D",
+                  "id": 30983,
+                  "text": "0",
+                  "is_correct": true
+                }
+              ],
+              "correct_option_ids": [
+                30983
+              ],
+              "correct_option_labels": [
+                "D"
+              ],
+              "correct_option_texts": [
+                "0"
+              ],
+              "explanation": "Given a, b, c, d, e are in A.P\nLet D be the common difference of the A.P\nThen we have b = a + D\nc = b + D = a + 2D\nd = c + D = a + 3D\ne = d + D = a + 4D\nHence a - 4b + 6c - 4d + e = a - 4(a + D) + 6(a + 2D) - 4(a + 3D) + a + 4D = 0"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "testPaperID": 644,
+      "testPaperName": "Sequences and Series Test 03",
+      "is_paid": true,
+      "category_full_name": "CBSE > Class 11 > Mathematics > Sequences and Series",
+      "noOfQuestions": 15,
+      "has_answers": true,
+      "sections": [
+        {
+          "sectionName": "General",
+          "sectionID": null,
+          "questions": [
+            {
+              "questionID": 18947,
+              "question": "If the numbers a, b, c are in A.P., b, c, d are in G.P. and c, d , e are in H.P., then a, c, e are in",
+              "question_raw": "<p>If the numbers a, b, c are in A.P., b, c, d are in G.P. and c, d , e are in H.P., then a, c, e are in</p>",
+              "options": [
+                {
+                  "label": "A",
+                  "id": 30990,
+                  "text": "H.M",
+                  "is_correct": false
+                },
+                {
+                  "label": "B",
+                  "id": 30989,
+                  "text": "H.P.",
+                  "is_correct": false
+                },
+                {
+                  "label": "C",
+                  "id": 30988,
+                  "text": "A.P.",
+                  "is_correct": false
+                },
+                {
+                  "label": "D",
+                  "id": 30987,
+                  "text": "G.P.",
+                  "is_correct": true
+                }
+              ],
+              "correct_option_ids": [
+                30987
+              ],
+              "correct_option_labels": [
+                "D"
+              ],
+              "correct_option_texts": [
+                "G.P."
+              ],
+              "explanation": "If the numbers a, b, c are in A.P., we have b = $\\frac{a+c}{2}$ ....(i)\nSince b, c, d are in G.P. we get c^2 = bd ....(ii)\nNow c, d, e are in H.P implies d = $\\frac{2 c e}{c+e}$ .....(iii)\nSubstituting (i) and (iii) in equation (ii), we get c^2 = $\\frac{a+c}{2} \\cdot \\frac{2 c e}{c+e}$ \n$\\Rightarrow$ c = $\\frac{a e+c e}{c+e}$ \n$\\Rightarrow$ c^2 + ce = ae + ce \n$\\Rightarrow$ c^2 = ae\n$\\Rightarrow$ a, c, e are in G.P."
+            },
+            {
+              "questionID": 18948,
+              "question": "If x, y, z are in A.P., then (x + 2y – z) (x + z – y) (z + 2y – x) is equal to",
+              "question_raw": "<p>If x,&nbsp;y, z are in A.P., then (x + 2y &ndash; z) (x + z &ndash; y) (z + 2y &ndash; x) is equal to</p>",
+              "options": [
+                {
+                  "label": "A",
+                  "id": 30994,
+                  "text": "3xyz",
+                  "is_correct": false
+                },
+                {
+                  "label": "B",
+                  "id": 30993,
+                  "text": "xyz",
+                  "is_correct": false
+                },
+                {
+                  "label": "C",
+                  "id": 30992,
+                  "text": "2xyz",
+                  "is_correct": false
+                },
+                {
+                  "label": "D",
+                  "id": 30991,
+                  "text": "4xyz",
+                  "is_correct": true
+                }
+              ],
+              "correct_option_ids": [
+                30991
+              ],
+              "correct_option_labels": [
+                "D"
+              ],
+              "correct_option_texts": [
+                "4xyz"
+              ],
+              "explanation": "If the numbers x, y, z are in A.P., we have y = $\\frac{x+z}{2}$ ....(i)\n(x + 2y - z) (x+ z - y) (z + 2y - x)\n= (x + x + z - x) (x + z - $\\frac{x+z}{2}$) (z + x + z - x) [using (i)]\n= $(2 x)\\left(\\frac{x+z}{2}\\right)(2 z)$ \n= 4xyz [using (i)]"
+            },
+            {
+              "questionID": 18949,
+              "question": "If a, b , c are in A.P. and also $\\frac{1}{a}, \\frac{1}{b}, \\frac{1}{c}$ are in A. P., then",
+              "question_raw": "<p>If a, b , c are in A.P. and also <span class=\"math-tex\">{tex}\\frac{1}{a}, \\frac{1}{b}, \\frac{1}{c}{/tex}</span> are in A. P., then</p>",
+              "options": [
+                {
+                  "label": "A",
+                  "id": 30996,
+                  "text": "$a \\ne b = c$",
+                  "is_correct": false
+                },
+                {
+                  "label": "B",
+                  "id": 30995,
+                  "text": "a = b = c",
+                  "is_correct": true
+                },
+                {
+                  "label": "C",
+                  "id": 30997,
+                  "text": "$a = b \\ne c$",
+                  "is_correct": false
+                },
+                {
+                  "label": "D",
+                  "id": 30998,
+                  "text": "$a \\ne b \\ne c$",
+                  "is_correct": false
+                }
+              ],
+              "correct_option_ids": [
+                30995
+              ],
+              "correct_option_labels": [
+                "B"
+              ],
+              "correct_option_texts": [
+                "a = b = c"
+              ],
+              "explanation": "If a, b, c are in A.P we have b - a = c - b ...(i)\nIf $\\frac{1}{a}, \\frac{1}{b}, \\frac{1}{c}$ are in A.P we have $\\frac{1}{b}-\\frac{1}{a}=\\frac{1}{c}-\\frac{1}{b}$\n$\\Rightarrow \\frac{a-b}{a b}=\\frac{b-c}{b c}$\n$\\Rightarrow \\frac{1}{q b}=\\frac{1}{b c}$ [using (i)]\n$\\Rightarrow \\frac{1}{a}=\\frac{1}{c}$\n$\\Rightarrow a=c$ ...(ii)\nNow from (i) and (ii), we get b - a = a - b\n$\\Rightarrow 2 b=2 a$\n$\\Rightarrow b=a$ ...(iii)\nNow from (i) and (ii), we get a = b = c"
+            },
+            {
+              "questionID": 18950,
+              "question": "The sum of terms equidistant from the beginning and end in A.P. is equal to",
+              "question_raw": "<p>The sum of terms equidistant from the beginning and end in A.P. is equal to</p>",
+              "options": [
+                {
+                  "label": "A",
+                  "id": 31000,
+                  "text": "first term",
+                  "is_correct": false
+                },
+                {
+                  "label": "B",
+                  "id": 31002,
+                  "text": "0",
+                  "is_correct": false
+                },
+                {
+                  "label": "C",
+                  "id": 30999,
+                  "text": "sum of the first and the last terms",
+                  "is_correct": true
+                },
+                {
+                  "label": "D",
+                  "id": 31001,
+                  "text": "last term",
+                  "is_correct": false
+                }
+              ],
+              "correct_option_ids": [
+                30999
+              ],
+              "correct_option_labels": [
+                "C"
+              ],
+              "correct_option_texts": [
+                "sum of the first and the last terms"
+              ],
+              "explanation": "Let the first term of the A.P be a , last term be l and the common difference be d \nNow the A.P will be of the form $a, a+d, a+2 d, \\ldots \\ldots \\ldots ., l-2 d$ ,l-d,l\nSum of two term equidistant from the beggining and end (say r + 1 t term) = a + r d + b-r d=a + b = sum of the first term and last ter"
+            },
+            {
+              "questionID": 18951,
+              "question": "Sum of first 5 terms of an A.P. is one fourth of the sum of next five terms. If the first term = 2, then the common difference of the A.P. is",
+              "question_raw": "<p>Sum of first 5 terms of an A.P. is one fourth of the sum of next five terms. If the first term = 2, then the common difference of the A.P. is</p>",
+              "options": [
+                {
+                  "label": "A",
+                  "id": 31006,
+                  "text": "-3",
+                  "is_correct": false
+                },
+                {
+                  "label": "B",
+                  "id": 31004,
+                  "text": "6",
+                  "is_correct": false
+                },
+                {
+                  "label": "C",
+                  "id": 31005,
+                  "text": "3",
+                  "is_correct": false
+                },
+                {
+                  "label": "D",
+                  "id": 31003,
+                  "text": "- 6",
+                  "is_correct": true
+                }
+              ],
+              "correct_option_ids": [
+                31003
+              ],
+              "correct_option_labels": [
+                "D"
+              ],
+              "correct_option_texts": [
+                "- 6"
+              ],
+              "explanation": "Given a = 2\nLet d be the common difference of the A.P.\nGiven S_5 = $\\frac{1}{4}\\left[S_{10}-S_{5}\\right]$ ....(i)\nWe have $\\frac{n}{2}[2 a+(n-1) d]$ \n$\\therefore$ S_5 = $\\frac{5}{2}[4+4 d]$ = 20 + 45d ....(iii)\nSo S_10 - S_5 = 10 + 35d ....(ii)\nFrom (i) and (ii) we get 10 + 10d = $\\frac{1}{4}[10+35 d]$ \n$\\Rightarrow$ 40 + 40d - 10 - 35d = 0\n$\\Rightarrow$ 5d = -30\n$\\Rightarrow$ d = -6"
+            },
+            {
+              "questionID": 18952,
+              "question": "The first, second and last terms of an A.P. are a, b and 2 a. The number of terms in the A.P. is",
+              "question_raw": "<p>The first, second and last terms of an A.P. are a, b and 2 a. The number of terms in the A.P. is</p>",
+              "options": [
+                {
+                  "label": "A",
+                  "id": 31009,
+                  "text": "$\\frac {a}{b - a}$",
+                  "is_correct": false
+                },
+                {
+                  "label": "B",
+                  "id": 31007,
+                  "text": "$\\frac {b}{b - a}$",
+                  "is_correct": true
+                },
+                {
+                  "label": "C",
+                  "id": 31008,
+                  "text": "$\\frac {b} {b + a}$",
+                  "is_correct": false
+                },
+                {
+                  "label": "D",
+                  "id": 31010,
+                  "text": "$\\frac {a}{b + a}$",
+                  "is_correct": false
+                }
+              ],
+              "correct_option_ids": [
+                31007
+              ],
+              "correct_option_labels": [
+                "B"
+              ],
+              "correct_option_texts": [
+                "$\\frac {b}{b - a}$"
+              ],
+              "explanation": "Given $a_{1}=a, a_{2}=b$ and $a_{n}=2 a$ \nHence d=b-a\nNow $a_{n}=a+(n-1) d $ $\\Rightarrow$ 2a = a + (n - 1)(b - a)\n$\\Rightarrow a=(n-1)(b-a)$\n$\\Rightarrow \\frac{a}{b-a}+1=n$\n$\\Rightarrow n=\\frac{b}{b-a}$"
+            },
+            {
+              "questionID": 18953,
+              "question": "The sum of all the two-digit numbers is",
+              "question_raw": "<p>The sum of all the two-digit numbers is</p>",
+              "options": [
+                {
+                  "label": "A",
+                  "id": 31013,
+                  "text": "4605",
+                  "is_correct": false
+                },
+                {
+                  "label": "B",
+                  "id": 31014,
+                  "text": "4315",
+                  "is_correct": false
+                },
+                {
+                  "label": "C",
+                  "id": 31012,
+                  "text": "4895",
+                  "is_correct": false
+                },
+                {
+                  "label": "D",
+                  "id": 31011,
+                  "text": "4905",
+                  "is_correct": true
+                }
+              ],
+              "correct_option_ids": [
+                31011
+              ],
+              "correct_option_labels": [
+                "D"
+              ],
+              "correct_option_texts": [
+                "4905"
+              ],
+              "explanation": "The two digit numbers forms on A.P with a = 10, a_n = 99 and d = 1\nNow a_n = a + (n - 1)d $\\Rightarrow$ 99 = 10 + (n - 1) $\\Rightarrow$ n = 99 - 9 = 90\nWe have S_n = $\\frac {n}{2}$[2a + (n - 1)d]\n$\\Rightarrow$ S_90 = $\\frac {n}{2}$[20 + (90 - 1)1]\n$\\Rightarrow$ S_90 = $\\frac {90}{2}$ $\\times$ 109 = 4905"
+            },
+            {
+              "questionID": 18954,
+              "question": "Sum of all 2 digit odd numbers is",
+              "question_raw": "<p>Sum of all 2 digit odd numbers is</p>",
+              "options": [
+                {
+                  "label": "A",
+                  "id": 31016,
+                  "text": "2530",
+                  "is_correct": false
+                },
+                {
+                  "label": "B",
+                  "id": 31017,
+                  "text": "4905",
+                  "is_correct": false
+                },
+                {
+                  "label": "C",
+                  "id": 31015,
+                  "text": "2475",
+                  "is_correct": true
+                },
+                {
+                  "label": "D",
+                  "id": 31018,
+                  "text": "5049",
+                  "is_correct": false
+                }
+              ],
+              "correct_option_ids": [
+                31015
+              ],
+              "correct_option_labels": [
+                "C"
+              ],
+              "correct_option_texts": [
+                "2475"
+              ],
+              "explanation": "The two digit odd numbers forms an A.P with a = 11, an = 99 and d = 2\nNow an = a + (n - 1)d $\\Rightarrow$ 99 = 11 + (n - 1)2 $\\Rightarrow$ n = $\\frac {90}{2}$ = 45\nWe have S_n = $\\frac {n}{2}$[2a + (n - 1)d]\n$\\Rightarrow$ S_45 = $\\frac {45}{2}$[22 + (45 - 1)$\\cdot$2]\n$\\Rightarrow$ S_45 = $\\frac {45}{2}$$​​\\cdot$110 = 45.55 = 2475"
+            },
+            {
+              "questionID": 18955,
+              "question": "The number of terms common to the two A.P.s 2, 5, 8, 1 … , 98 and 3, 8, 13, 18, 23, … , 198",
+              "question_raw": "<p>The number of terms common to the two A.P.s 2,&nbsp;5,&nbsp;8,&nbsp;1&nbsp;&hellip; ,&nbsp;98 and 3,&nbsp;8,&nbsp;13,&nbsp;18,&nbsp;23,&nbsp;&hellip; ,&nbsp;198</p>",
+              "options": [
+                {
+                  "label": "A",
+                  "id": 31021,
+                  "text": "13",
+                  "is_correct": false
+                },
+                {
+                  "label": "B",
+                  "id": 31022,
+                  "text": "10",
+                  "is_correct": false
+                },
+                {
+                  "label": "C",
+                  "id": 31019,
+                  "text": "7",
+                  "is_correct": true
+                },
+                {
+                  "label": "D",
+                  "id": 31020,
+                  "text": "4",
+                  "is_correct": false
+                }
+              ],
+              "correct_option_ids": [
+                31019
+              ],
+              "correct_option_labels": [
+                "C"
+              ],
+              "correct_option_texts": [
+                "7"
+              ],
+              "explanation": "Consider the progressions 2, 5, 8, 11, 14, 17, 20, 23 ...., 98 and 3, 8, 13, 18, 23, ...., 198\nfor the first A.P. d = 3 and for the second A.P d = 5\nNow the first term common to both the progessions = 8\nAlso L.C.M (3, 5) = 15\nHence the terms common to both the progressions is an A.P. with a = 8 and d = 15 which is 8, 23, 38, ... 98 \nNow a_n = a + (n - 1)d $\\Rightarrow$ 98 = 8 + (n - 1)15\n$\\Rightarrow$ 90 = 15(n - 1)\n$\\Rightarrow$ n - 1 = $\\frac{90}{15}$ \n$\\Rightarrow$ n = $\\frac{90}{15}$ + 1 = 7"
+            },
+            {
+              "questionID": 18956,
+              "question": "The values of x for which the solutions of the equation cos $\\theta = x,\\theta \\ge 0$ form an A.P. are",
+              "question_raw": "<p>The values of x for which the solutions of the equation cos <span class=\"math-tex\">{tex}\\theta = x,\\theta \\ge 0{/tex}</span> form an A.P. are</p>",
+              "options": [
+                {
+                  "label": "A",
+                  "id": 31026,
+                  "text": "0 and -1",
+                  "is_correct": false
+                },
+                {
+                  "label": "B",
+                  "id": 31024,
+                  "text": "- 1 and 1",
+                  "is_correct": false
+                },
+                {
+                  "label": "C",
+                  "id": 31025,
+                  "text": "0 and 1",
+                  "is_correct": false
+                },
+                {
+                  "label": "D",
+                  "id": 31023,
+                  "text": "1, 0 and -1",
+                  "is_correct": true
+                }
+              ],
+              "correct_option_ids": [
+                31023
+              ],
+              "correct_option_labels": [
+                "D"
+              ],
+              "correct_option_texts": [
+                "1, 0 and -1"
+              ],
+              "explanation": "We have cos $\\theta$ is a periodic function whose value oscillates between -1 and 1.\nAlso cos $\\theta$ = 1 when $\\theta$ = 0, cos $\\theta$ = 0 when $\\theta$ = 90^o and cos $\\theta$ = -1 when $\\theta$ = 180^o \nBut we have 1, 0, -1 is an A.P.\nHence the values of x are 1, 0, -1"
+            },
+            {
+              "questionID": 18957,
+              "question": "If $a\\; \\in \\;\\;R,$ then the roots of the equation tan x = a are in G.P for what values of a",
+              "question_raw": "<p>If <span class=\"math-tex\">{tex}a\\; \\in \\;\\;R,{/tex}</span> then the roots of the equation tan x = a are in G.P &nbsp;for what values of a</p>",
+              "options": [
+                {
+                  "label": "A",
+                  "id": 31027,
+                  "text": "$\\frac { 1 }{ \\sqrt { 3 } } ,1,\\sqrt { 3 } $",
+                  "is_correct": true
+                },
+                {
+                  "label": "B",
+                  "id": 31030,
+                  "text": "G.P",
+                  "is_correct": false
+                },
+                {
+                  "label": "C",
+                  "id": 31029,
+                  "text": "H.P.",
+                  "is_correct": false
+                },
+                {
+                  "label": "D",
+                  "id": 31028,
+                  "text": "1,0,-1",
+                  "is_correct": false
+                }
+              ],
+              "correct_option_ids": [
+                31027
+              ],
+              "correct_option_labels": [
+                "A"
+              ],
+              "correct_option_texts": [
+                "$\\frac { 1 }{ \\sqrt { 3 } } ,1,\\sqrt { 3 } $"
+              ],
+              "explanation": "We have $\\tan 30^{\\circ}=\\frac{1}{\\sqrt{3}}, \\tan 45^{\\circ}=1$ and $\\tan 60^{\\circ}=\\sqrt{3}$\nAlso we have $\\frac{1}{\\sqrt{3}}, 1, \\sqrt{3}$ are in G.P"
+            },
+            {
+              "questionID": 18958,
+              "question": "The values of a for which the roots of the equation sin $\\theta $ = a in A.P. are",
+              "question_raw": "<p>The values of a&nbsp;for which the roots of the equation sin <span class=\"math-tex\">{tex}\\theta {/tex}</span>&nbsp;= a in A.P. are</p>",
+              "options": [
+                {
+                  "label": "A",
+                  "id": 31032,
+                  "text": "- 1 and 1",
+                  "is_correct": false
+                },
+                {
+                  "label": "B",
+                  "id": 31031,
+                  "text": "0, 1 and -1",
+                  "is_correct": true
+                },
+                {
+                  "label": "C",
+                  "id": 31033,
+                  "text": "0 and 1",
+                  "is_correct": false
+                },
+                {
+                  "label": "D",
+                  "id": 31034,
+                  "text": "0 and -1",
+                  "is_correct": false
+                }
+              ],
+              "correct_option_ids": [
+                31031
+              ],
+              "correct_option_labels": [
+                "B"
+              ],
+              "correct_option_texts": [
+                "0, 1 and -1"
+              ],
+              "explanation": "We have sin $\\theta$ is a periodic function whose value oscillates between -1 and 1.\nAlso sin $\\theta$ = 0 when $\\theta$ = 0^o, sin $\\theta$ = 1 when $\\theta$ = 90^o, and sin $\\theta$ = -1 when $\\theta$ = 270^o \nBut we have -1, 0, 1 is an A.P\nHence the values of x are -1, 0, 1"
+            },
+            {
+              "questionID": 18959,
+              "question": "The sum of first four terms of an A. P. is 56 and sum of last four terms is 112. If the first term is 11, then the number of terms is",
+              "question_raw": "<p>The sum of first four terms of an A. P. is 56 and sum of last four terms is 112. If the first term is 11, then the number of terms is</p>",
+              "options": [
+                {
+                  "label": "A",
+                  "id": 31035,
+                  "text": "11",
+                  "is_correct": true
+                },
+                {
+                  "label": "B",
+                  "id": 31036,
+                  "text": "12",
+                  "is_correct": false
+                },
+                {
+                  "label": "C",
+                  "id": 31038,
+                  "text": "15",
+                  "is_correct": false
+                },
+                {
+                  "label": "D",
+                  "id": 31037,
+                  "text": "10",
+                  "is_correct": false
+                }
+              ],
+              "correct_option_ids": [
+                31035
+              ],
+              "correct_option_labels": [
+                "A"
+              ],
+              "correct_option_texts": [
+                "11"
+              ],
+              "explanation": "Given a = 11 and S_4 = 56\nLet d be the common difference of the A.P\nWe have S_n = $\\frac{n}{2}[2 a+(n-1) d]$ \n$\\Rightarrow$ 56 = $\\frac{4}{2}[22+3 d]$ \n$\\Rightarrow$ 56 - 44 = 6d\n$\\Rightarrow$ d = $\\frac{12}{6}$ = 2\nLast four terms of the A.P. can be taken as a_n, a_n-1, a_n-2, a_n-3 \nNow an = a + (n - 1)d \n$\\Rightarrow$ a_n = 11 + (n - 2)2, a_n-1 = 11 + (n - 2)2, a_n-2 = 11 + (n - 3)2, a_n-3 = 11 + (n - 4)2\nHence sum of the last four terms = a_n + a_n-1 + a_n-2 + a_n-3 = 112\n$\\Rightarrow$ 11 + (n - 1)2 + 11 + (n - 2)2 + 11 + (n - 3)2 + 11 + (n - 4)2 \n$\\Rightarrow$ 44 + 2[n - 1 + n - 2 + n - 3 + n - 4] = 112\n$\\Rightarrow$ 2[4n - 10] = 68\n$\\Rightarrow$ n = $\\frac{88}{8}$ = 11"
+            },
+            {
+              "questionID": 18960,
+              "question": "The ratio of the ${{\\rm{7}}^{{\\rm{th}}}}$ to the (n - 1)th mean between 1 and 31, when n arithmetic means are inserted between them, is 5 : 9. The value of n is",
+              "question_raw": "<p>The ratio of the <span class=\"math-tex\">{tex}{{\\rm{7}}^{{\\rm{th}}}}{/tex}</span> to the (n - 1)th mean between 1 and 31, when n arithmetic means are inserted between them, is 5 : 9. The value of n is</p>",
+              "options": [
+                {
+                  "label": "A",
+                  "id": 31041,
+                  "text": "12",
+                  "is_correct": false
+                },
+                {
+                  "label": "B",
+                  "id": 31039,
+                  "text": "14",
+                  "is_correct": true
+                },
+                {
+                  "label": "C",
+                  "id": 31042,
+                  "text": "15",
+                  "is_correct": false
+                },
+                {
+                  "label": "D",
+                  "id": 31040,
+                  "text": "13",
+                  "is_correct": false
+                }
+              ],
+              "correct_option_ids": [
+                31039
+              ],
+              "correct_option_labels": [
+                "B"
+              ],
+              "correct_option_texts": [
+                "14"
+              ],
+              "explanation": "Let A_1, A_2, A_3, A_4 ..., A_n be the n arithmetic means inserted between 1 and 31.\nThe we have 1, A_1, A_2, A_3, A_4 ..., A_n, 31 is an A.P with a = 1, T_n = 31 and number of terms = n + 2\nNow, T_n = 31 $\\Rightarrow$ 1 + [(n + 2) - 1]d = 31\n$\\Rightarrow$ d = $\\frac{30}{n+1}$\nHence we get T_7 = a + 7d = 1 + 7$\\left[\\frac{30}{n+1}\\right]$ ...(i)\nAnd T_n - 1 = a(n - 1) + d = 1 + (n - 1)$\\left[\\frac{30}{n+1}\\right]$ ...(ii)\nGiven $\\frac{T_{7}}{T_{n-1}}=\\frac{5}{9}$\n$\\Rightarrow \\frac{1+7\\left[\\frac{30}{n+1}\\right]}{1+(n-1)\\left[\\frac{30}{n+1}\\right]}=\\frac{5}{9}$\n$\\Rightarrow \\frac{\\frac{n+1+210}{n+1}}{\\frac{31 n-29}{n+1}}=\\frac{5}{9}$\n$\\Rightarrow$ 9n + 1899 = 155n - 145\n$\\Rightarrow$ 2044 = 146 n\n$\\Rightarrow$ n = $\\frac{2044}{146}$ = 14"
+            },
+            {
+              "questionID": 18961,
+              "question": "The sum of first n terms of the series 1 – 1 + 1 – 1 + … is",
+              "question_raw": "<p>The sum of first n terms of the series 1 &ndash; 1 + 1 &ndash; 1 + &hellip; is</p>",
+              "options": [
+                {
+                  "label": "A",
+                  "id": 31045,
+                  "text": "(-1)^n",
+                  "is_correct": false
+                },
+                {
+                  "label": "B",
+                  "id": 31043,
+                  "text": "1 if n is odd and 0 when n is even",
+                  "is_correct": true
+                },
+                {
+                  "label": "C",
+                  "id": 31044,
+                  "text": "- 1",
+                  "is_correct": false
+                },
+                {
+                  "label": "D",
+                  "id": 31046,
+                  "text": "$ \\pm 1$",
+                  "is_correct": false
+                }
+              ],
+              "correct_option_ids": [
+                31043
+              ],
+              "correct_option_labels": [
+                "B"
+              ],
+              "correct_option_texts": [
+                "1 if n is odd and 0 when n is even"
+              ],
+              "explanation": "1 - 1 + 1 - 1 + ..... + .... upto n terms\n= [1 - 1] + [1 - 1] + [1 - 1] + .....+ [1 - 1] = 0 when n is even\n= [1 - 1] + [1 - 1] + [1 - 1] + .... + [1 - 1] + 1 = 1 when n is odd"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "testPaperID": 645,
+      "testPaperName": "Sequences and Series Test 04",
+      "is_paid": true,
+      "category_full_name": "CBSE > Class 11 > Mathematics > Sequences and Series",
+      "noOfQuestions": 15,
+      "has_answers": true,
+      "sections": [
+        {
+          "sectionName": "General",
+          "sectionID": null,
+          "questions": [
+            {
+              "questionID": 18962,
+              "question": "If a, b, c, d, e are in G. P., then $\\frac e c$ equals",
+              "question_raw": "<p>If a, b, c, d, e are in G. P., then <span class=\"math-tex\">{tex}\\frac e c{/tex}</span> equals</p>",
+              "options": [
+                {
+                  "label": "A",
+                  "id": 31048,
+                  "text": "$\\frac b a$",
+                  "is_correct": false
+                },
+                {
+                  "label": "B",
+                  "id": 31049,
+                  "text": "$\\frac c b$",
+                  "is_correct": false
+                },
+                {
+                  "label": "C",
+                  "id": 31047,
+                  "text": "$\\frac db$",
+                  "is_correct": true
+                },
+                {
+                  "label": "D",
+                  "id": 31050,
+                  "text": "$\\frac d c$",
+                  "is_correct": false
+                }
+              ],
+              "correct_option_ids": [
+                31047
+              ],
+              "correct_option_labels": [
+                "C"
+              ],
+              "correct_option_texts": [
+                "$\\frac db$"
+              ],
+              "explanation": "If a, b, c, d, e are in G.P\nwe have $\\frac{b}{a}=\\frac{c}{b}=\\frac{d}{c}=\\frac{e}{d}$\n$\\therefore \\frac{c}{b}=\\frac{e}{d} \\Rightarrow \\frac{e}{c}=\\frac{d}{b}$"
+            },
+            {
+              "questionID": 18963,
+              "question": "The product of first n odd terms of a G.P. whose middle term is m is",
+              "question_raw": "<p>The product of first n odd terms of a G.P. whose middle term is m is</p>",
+              "options": [
+                {
+                  "label": "A",
+                  "id": 31051,
+                  "text": "${m^n}$",
+                  "is_correct": true
+                },
+                {
+                  "label": "B",
+                  "id": 31053,
+                  "text": "mn",
+                  "is_correct": false
+                },
+                {
+                  "label": "C",
+                  "id": 31054,
+                  "text": "m+n",
+                  "is_correct": false
+                },
+                {
+                  "label": "D",
+                  "id": 31052,
+                  "text": "${n^m}$",
+                  "is_correct": false
+                }
+              ],
+              "correct_option_ids": [
+                31051
+              ],
+              "correct_option_labels": [
+                "A"
+              ],
+              "correct_option_texts": [
+                "${m^n}$"
+              ],
+              "explanation": "Let the terms in a GP be a,ar,$a, a r, a r^{2}, a r^{3}, \\dots \\dots \\dots$\nProduct of odd number of terms ( let number of terms be 'n' , n is odd ) \n$=a \\cdot a r \\cdot a r^{2} \\cdot a r^{3} \\dots a r^{n-1}$\n$=a^{n} \\cdot\\left(1 \\cdot r \\cdot r^{2} \\cdot r^{3} \\dots r^{n-1}\\right)$\n$=a^{n}, r^{1+2+3+\\dots + n-1}$\n$=a^{n} \\cdot r^{\\frac{(n-1) n}{2}}$ [The sum of first n natural numbers = $\\frac{n(n+1)}{2}$]\nWe have the middle term $=m=a r^{\\frac{(n-1)}{2}}$ ......(i)\n$\\therefore$ Product of odd number of terms = $a^{n} \\cdot r^{\\frac{n(n-1)}{2}}=\\left(a r^{\\frac{(n-1)}{2}}\\right)^{n}$= $m^{n}$ [using (i)]"
+            },
+            {
+              "questionID": 18964,
+              "question": "The fourth term of a G. P. is 2, then product of first 7 terms is",
+              "question_raw": "<p>The fourth term of a G. P. is 2, then product of first 7 terms is</p>",
+              "options": [
+                {
+                  "label": "A",
+                  "id": 31058,
+                  "text": "30",
+                  "is_correct": false
+                },
+                {
+                  "label": "B",
+                  "id": 31055,
+                  "text": "128",
+                  "is_correct": true
+                },
+                {
+                  "label": "C",
+                  "id": 31057,
+                  "text": "32",
+                  "is_correct": false
+                },
+                {
+                  "label": "D",
+                  "id": 31056,
+                  "text": "64",
+                  "is_correct": false
+                }
+              ],
+              "correct_option_ids": [
+                31055
+              ],
+              "correct_option_labels": [
+                "B"
+              ],
+              "correct_option_texts": [
+                "128"
+              ],
+              "explanation": "Let a be the first term and r be the common ratio of the G.P\nGiven T_4 = 2 $\\Rightarrow$ ar^3 = 2\nThen product of the first 7 terms = $a \\cdot a r \\cdot a r^{2} \\cdot a r^{3} \\cdot a r^{4} \\cdot a r^{5} \\cdot a r^{6}$ = a^7r^21 = (ar^3)^7 = 2^7 = 128"
+            },
+            {
+              "questionID": 18965,
+              "question": "If three positive numbers a, b, c are in G. P. then log a, log b, log c are in",
+              "question_raw": "<p>If three positive numbers a, b, c are in G. P. then log a, log b, log c are in</p>",
+              "options": [
+                {
+                  "label": "A",
+                  "id": 31062,
+                  "text": "A.G.P.",
+                  "is_correct": false
+                },
+                {
+                  "label": "B",
+                  "id": 31059,
+                  "text": "A.P.",
+                  "is_correct": true
+                },
+                {
+                  "label": "C",
+                  "id": 31061,
+                  "text": "H.P.",
+                  "is_correct": false
+                },
+                {
+                  "label": "D",
+                  "id": 31060,
+                  "text": "G.P.",
+                  "is_correct": false
+                }
+              ],
+              "correct_option_ids": [
+                31059
+              ],
+              "correct_option_labels": [
+                "B"
+              ],
+              "correct_option_texts": [
+                "A.P."
+              ],
+              "explanation": "If a, b, c are in G.P. we have $\\frac{b}{a}=\\frac{c}{b}$ \nSo log$\\left(\\frac{b}{a}\\right)$ = log$\\left(\\frac{c}{b}\\right)$ \n$\\Rightarrow$ log b - log a = log c - log b [$\\because$ $\\log \\left(\\frac{a}{b}\\right)$ = log a - log b]\n$\\Rightarrow$ 2log b = log c + log a \n$\\Rightarrow$ log a, log b, log c are in A.P."
+            },
+            {
+              "questionID": 18966,
+              "question": "The nth term of the sequence 5 + 55 + 555 + …. is",
+              "question_raw": "<p>The nth term of the sequence 5 + 55 + 555 + &hellip;. is</p>",
+              "options": [
+                {
+                  "label": "A",
+                  "id": 31065,
+                  "text": "$5 \\times {10^{n - 1}}$",
+                  "is_correct": false
+                },
+                {
+                  "label": "B",
+                  "id": 31066,
+                  "text": "$3 \\times {12^{n - 1}}$",
+                  "is_correct": false
+                },
+                {
+                  "label": "C",
+                  "id": 31063,
+                  "text": "${\\frac 59}({10^n} - 1)$",
+                  "is_correct": true
+                },
+                {
+                  "label": "D",
+                  "id": 31064,
+                  "text": "$5 \\times {11^{n - 1}}$",
+                  "is_correct": false
+                }
+              ],
+              "correct_option_ids": [
+                31063
+              ],
+              "correct_option_labels": [
+                "C"
+              ],
+              "correct_option_texts": [
+                "${\\frac 59}({10^n} - 1)$"
+              ],
+              "explanation": "5+55+555+.........\n$=\\frac{5}{9}\\{9+99+999+\\ldots \\ldots \\ldots \\ldots .\\}$\n$=\\frac59\\left\\{[10-1\\right]+\\left[10^2-1\\right]+\\left[10^3-1\\right]$+........+ [10^n-1] +........}\nHence by inspection we get nth term is $\\\\\\frac59\\left[10^n-1\\right]$"
+            },
+            {
+              "questionID": 18967,
+              "question": "The sum of first three terms of a G.P. is to the sum of next three terms is 125 : 27. The common ratio of the G.P. is",
+              "question_raw": "<p>The sum of first three terms of a G.P. is to the sum of next three terms is 125 : 27. The common ratio of the G.P. is</p>",
+              "options": [
+                {
+                  "label": "A",
+                  "id": 31070,
+                  "text": "$\\frac 14$",
+                  "is_correct": false
+                },
+                {
+                  "label": "B",
+                  "id": 31068,
+                  "text": "$\\frac 12$",
+                  "is_correct": false
+                },
+                {
+                  "label": "C",
+                  "id": 31067,
+                  "text": "$\\frac 3 5$",
+                  "is_correct": true
+                },
+                {
+                  "label": "D",
+                  "id": 31069,
+                  "text": "$\\frac 53$",
+                  "is_correct": false
+                }
+              ],
+              "correct_option_ids": [
+                31067
+              ],
+              "correct_option_labels": [
+                "C"
+              ],
+              "correct_option_texts": [
+                "$\\frac 3 5$"
+              ],
+              "explanation": "Given $\\frac{T_{1}+T_{2}+T_{3}}{T_{4}+T_{5}+T_{6}}=\\frac{125}{27}$ \n$\\Rightarrow$ $\\frac{T_{1}+T_{2}+T_{3}}{T_{1}+T_{2}+T_{3}+T_{4}+T_{5}+T_{6}}=\\frac{125}{152}$ [If $\\frac{a}{b}=\\frac{c}{d}$ then $\\frac{a}{a+b}=\\frac{c}{c+d}$]\n$\\Rightarrow$ $\\frac{S_{3}}{S_{6}}=\\frac{125}{152}$ \nWe have for a G.P., Sn = $\\frac{a\\left(r^{n}-1\\right)}{r-1}$, r > 1\n$\\therefore$ $\\frac{\\frac{a\\left(r^{3}-1\\right)}{r-1}}{\\frac{a\\left(r^{6}-1\\right)}{r-1}}$ = $\\frac{125}{152}$, r - 1 $\\ne$ 0\n$\\Rightarrow$ $\\frac{r^{3}-1}{r^{6}-1}=\\frac{125}{152}$ \n$\\Rightarrow$ 125r^6 - 152r^3 - 27 = 0\n$\\Rightarrow$ 125r^6 - 125r^3 - 27r^3 - 27 = 0\n$\\Rightarrow$ 125r^3(r^3 - 1) - 27(r^3 - 1) = 0\n$\\Rightarrow$ (r^3 - 1)(125r^3 - 27) = 0\n$\\Rightarrow$ r^3 = 1 or $\\frac{27}{125}$ \n$\\Rightarrow$ r = 1, $\\frac{3}{5}$ \nSince r - 1 $\\ne$ 0, r cannot be 1\n$\\Rightarrow$ r = $\\frac{3}{5}$"
+            },
+            {
+              "questionID": 18968,
+              "question": "Sum of an infinitely many terms of a G.P. is 3 times the sum of even terms. The common ratio of the G.P. is",
+              "question_raw": "<p>Sum of an infinitely many terms of a G.P. is 3 times the sum of even terms. The common ratio of the G.P. is</p>",
+              "options": [
+                {
+                  "label": "A",
+                  "id": 31073,
+                  "text": "$\\frac 32$",
+                  "is_correct": false
+                },
+                {
+                  "label": "B",
+                  "id": 31072,
+                  "text": "2",
+                  "is_correct": false
+                },
+                {
+                  "label": "C",
+                  "id": 31071,
+                  "text": "$\\frac 12$",
+                  "is_correct": true
+                },
+                {
+                  "label": "D",
+                  "id": 31074,
+                  "text": "$\\frac 14$",
+                  "is_correct": false
+                }
+              ],
+              "correct_option_ids": [
+                31071
+              ],
+              "correct_option_labels": [
+                "C"
+              ],
+              "correct_option_texts": [
+                "$\\frac 12$"
+              ],
+              "explanation": "Consider the infinite G . P $a, a r, a r^{2}, a r^{3}, \\dots \\dots \\dots \\dots, \\dots$ with first term a and common ratio r\nThen the even terms $a r, a r^{3}, a r^{5}, \\ldots \\ldots \\ldots \\ldots \\ldots \\ldots \\ldots \\ldots .$ is again an infinite G.P with first term ar and common ratio $r^{2}$\nW e have $S_{\\infty}=\\frac{a}{1-r}$ \nGiven $S_{\\infty}=3$ . Sum of even terms\n$\\Rightarrow a+a r+a r^{2}+a r^{3}+$..........$=3 .\\left[a r+a r^{3}+a r^{5}+\\right.$............]\n$\\Rightarrow \\frac{a}{1-r}=3 \\cdot \\frac{a r}{1-r^{2}}$\n$\\Rightarrow \\frac{1}{1-r}=3 \\cdot \\frac{r}{(1-r)(1+r)}$\n$\\Rightarrow 1(1+r)=3 . r$\n$\\Rightarrow 2 r=1$$\\Rightarrow r=\\frac{1}{2}$"
+            },
+            {
+              "questionID": 18969,
+              "question": "If $\\frac{a^n+b^n}{a^{n-1}+b^{n-1}}$ be the arithmetic mean between two distinct positive reals a and b then the value of n is",
+              "question_raw": "<p>If <span class=\"math-tex\">{tex}\\frac{a^n+b^n}{a^{n-1}+b^{n-1}}{/tex}</span> be the arithmetic mean between two distinct positive reals a and b then the value of n is</p>",
+              "options": [
+                {
+                  "label": "A",
+                  "id": 31078,
+                  "text": "$\\frac 1 2$",
+                  "is_correct": false
+                },
+                {
+                  "label": "B",
+                  "id": 31077,
+                  "text": "-$\\frac 1 2$",
+                  "is_correct": false
+                },
+                {
+                  "label": "C",
+                  "id": 31075,
+                  "text": "1",
+                  "is_correct": true
+                },
+                {
+                  "label": "D",
+                  "id": 31076,
+                  "text": "0",
+                  "is_correct": false
+                }
+              ],
+              "correct_option_ids": [
+                31075
+              ],
+              "correct_option_labels": [
+                "C"
+              ],
+              "correct_option_texts": [
+                "1"
+              ],
+              "explanation": "We have A.M of a and b is $\\frac{a+b}{2}$ \nGiven $\\frac{a^{n}+b^{n}}{a^{n-1}+b^{n-1}}=\\frac{a+b}{2}$ \n$\\Rightarrow$ 2(a^n + b^n) = (a + b)(a^n-1 + b^n-1)\n$\\Rightarrow$ 2a^n + 2b^n = a^n + ab^n-1 + ba^n-1 + b^n\n$\\Rightarrow$ a^n + b^n = ab^n-1 + ba^n-1\n$\\Rightarrow$ a^n - ba^n-1 = ab^n-1 - b^n\n$\\Rightarrow$ a^n-1(a - b) = b^n-1(a - b)\n$\\Rightarrow$ $\\frac{a^{n-1}}{b^{n-1}}$ = 1 = $\\left(\\frac{a}{b}\\right)^{0}$ \n$\\Rightarrow$ n - 1 = 0\n$\\Rightarrow$ n = 1"
+            },
+            {
+              "questionID": 18970,
+              "question": "If $\\frac{a+b x}{a-b x}=\\frac{b+c x}{b-c x}=\\frac{c+d x}{c-d x}, x \\neq 0$ then a, b, c, d are in",
+              "question_raw": "<p>If&nbsp;<span class=\"math-tex\">{tex}\\frac{a+b x}{a-b x}=\\frac{b+c x}{b-c x}=\\frac{c+d x}{c-d x}, x \\neq 0{/tex}</span>&nbsp;then a, b, c, d are in</p>",
+              "options": [
+                {
+                  "label": "A",
+                  "id": 31080,
+                  "text": "H.P.",
+                  "is_correct": false
+                },
+                {
+                  "label": "B",
+                  "id": 31079,
+                  "text": "G.P.",
+                  "is_correct": true
+                },
+                {
+                  "label": "C",
+                  "id": 31081,
+                  "text": "A.P.",
+                  "is_correct": false
+                },
+                {
+                  "label": "D",
+                  "id": 31082,
+                  "text": "H.M",
+                  "is_correct": false
+                }
+              ],
+              "correct_option_ids": [
+                31079
+              ],
+              "correct_option_labels": [
+                "B"
+              ],
+              "correct_option_texts": [
+                "G.P."
+              ],
+              "explanation": "Let $\\frac{a+b x}{a-b x}=\\frac{b+c x}{b-c x}=\\frac{c+d x}{c-d x}$ = k(say)\nNow consider $\\frac{a+b x}{a-b x}$ = k\nApplying componendo and dividendo, we get\n$\\frac{a+b x+a-b x}{a+b x-a+b x}=\\frac{k-1}{k+1}$ \n$\\Rightarrow$ $\\frac{a}{b x}=\\frac{k-1}{k+1}$ .....(i)\nNow applying componendo and dividendo, on $\\frac{b+c x}{b-c x}$ = k we get\n$\\frac{b+c x+b-c x}{b+c x-b+c x}=\\frac{k-1}{k+1}$ \n$\\Rightarrow$ $\\frac{b}{c x}=\\frac{k-1}{k+1}$ ...(ii)\nAgain applying componendo and dividendo, on $\\frac{c+d x}{c-d x}$ = k we get\n$\\frac{c+d x+c-d x}{c+d x-c+d x}=\\frac{k-1}{k+1}$ \n$\\Rightarrow$ $\\frac{c}{d x}=\\frac{k-1}{k+1}$ ....(iii)\nFrom equations (i), (ii) and (iii) we get $\\frac{a}{b x}=\\frac{b}{c x}=\\frac{c}{d x}$ \n$\\Rightarrow$ $\\frac{a}{b}=\\frac{b}{c}=\\frac{c}{d}$ \n$\\Rightarrow$ a, b, c and d are in G.P."
+            },
+            {
+              "questionID": 18971,
+              "question": "The A.M. between two positive numbers a and b is twice the G.M. between them. The ratio of the numbers is",
+              "question_raw": "<p>The A.M. between two positive numbers a and b is twice the G.M. between them. The ratio of the numbers is</p>",
+              "options": [
+                {
+                  "label": "A",
+                  "id": 31086,
+                  "text": "$(2 - 3):\\left( {\\sqrt 2 + 3} \\right)$",
+                  "is_correct": false
+                },
+                {
+                  "label": "B",
+                  "id": 31085,
+                  "text": "$(\\sqrt 3 + 1):\\left( {\\sqrt 3 - 1} \\right)$",
+                  "is_correct": false
+                },
+                {
+                  "label": "C",
+                  "id": 31083,
+                  "text": "$(2 + \\sqrt 3 ):\\left( {2 - \\sqrt 3 } \\right)$",
+                  "is_correct": true
+                },
+                {
+                  "label": "D",
+                  "id": 31084,
+                  "text": "$(2 + 3):\\left( {\\sqrt 2 - 3} \\right)$",
+                  "is_correct": false
+                }
+              ],
+              "correct_option_ids": [
+                31083
+              ],
+              "correct_option_labels": [
+                "C"
+              ],
+              "correct_option_texts": [
+                "$(2 + \\sqrt 3 ):\\left( {2 - \\sqrt 3 } \\right)$"
+              ],
+              "explanation": "Given a and b are two positive numbers \nAlso given A.M=2.G.M\n$\\frac{a+b}{2}=2 \\sqrt{a b}$\n$\\Rightarrow \\frac{a+b}{2 \\sqrt{a b}}=\\frac{2}{1}$\nApplying componendo dividendo\n$\\frac{a+b+2 \\sqrt{a b}}{a+b-2 \\sqrt{a b}}=\\frac{2+1}{2-1}$\n$\\Rightarrow \\frac{(\\sqrt{a}+\\sqrt{b})^{2}}{(\\sqrt{a}-\\sqrt{b})^{2}}=\\frac{3}{1}$\n$\\Rightarrow \\frac{\\sqrt{a}+\\sqrt{b}}{\\sqrt{a}-\\sqrt{b}}=\\frac{\\sqrt{3}}{1}$\nApplying componendo dividendo again we get\n$\\Rightarrow \\frac{2 \\sqrt{a}}{2 \\sqrt{b}}=\\frac{\\sqrt{3}+1}{\\sqrt{3}-1}$\n$\\Rightarrow \\frac{a}{b}=\\frac{(\\sqrt{3}+1)^{2}}{(\\sqrt{3}-1)^{2}}=\\frac{4+2 \\sqrt{3}}{4+2 \\sqrt{3}}=\\frac{2(2+\\sqrt{3})}{2(2-\\sqrt{3})}=\\frac{2+\\sqrt{3}}{2-\\sqrt{3}}$"
+            },
+            {
+              "questionID": 18972,
+              "question": "If A, G, H denote respectively the A.M., G.M. and H.M. between two unequal positive numbers, then",
+              "question_raw": "<p>If A, G, H denote respectively the A.M., G.M. and H.M. between two unequal positive numbers, then</p>",
+              "options": [
+                {
+                  "label": "A",
+                  "id": 31090,
+                  "text": "A = GH",
+                  "is_correct": false
+                },
+                {
+                  "label": "B",
+                  "id": 31089,
+                  "text": "A^2 = GH",
+                  "is_correct": false
+                },
+                {
+                  "label": "C",
+                  "id": 31087,
+                  "text": "G^2 = HA",
+                  "is_correct": true
+                },
+                {
+                  "label": "D",
+                  "id": 31088,
+                  "text": "A = G^2H",
+                  "is_correct": false
+                }
+              ],
+              "correct_option_ids": [
+                31087
+              ],
+              "correct_option_labels": [
+                "C"
+              ],
+              "correct_option_texts": [
+                "G^2 = HA"
+              ],
+              "explanation": "Given the number are a and b, then we have\nA.M = A = $\\frac{a+b}{2}$, G.M. = G = $\\sqrt{a b}$ and H.M = H = $\\frac{2ab}{a + b}$ \nNow AH = $\\left(\\frac{a+b}{2}\\right)\\left(\\frac{2 a b}{a+b}\\right)$ = ab = $(\\sqrt{a b})^{2}$ = G^2"
+            },
+            {
+              "questionID": 18973,
+              "question": "The arithmetic, harmonic and geometric means between two +ve numbers are $\\frac {144} {15},15$ and 12 but not necessarily in this order, then the H.M. G.M. and A.M. respectively are",
+              "question_raw": "<p>The arithmetic, harmonic and geometric means between two +ve numbers are <span class=\"math-tex\">{tex}\\frac {144}  {15},15{/tex}</span> and 12 but not necessarily in this order, then the H.M. G.M. and A.M. respectively are</p>",
+              "options": [
+                {
+                  "label": "A",
+                  "id": 31093,
+                  "text": "$15,12,\\frac {144} {15}$",
+                  "is_correct": false
+                },
+                {
+                  "label": "B",
+                  "id": 31094,
+                  "text": "$12,,\\frac {144} {15},15$",
+                  "is_correct": false
+                },
+                {
+                  "label": "C",
+                  "id": 31092,
+                  "text": "$12,15,\\frac {144} {15}$",
+                  "is_correct": false
+                },
+                {
+                  "label": "D",
+                  "id": 31091,
+                  "text": "$\\frac {144} {15},12,15$",
+                  "is_correct": true
+                }
+              ],
+              "correct_option_ids": [
+                31091
+              ],
+              "correct_option_labels": [
+                "D"
+              ],
+              "correct_option_texts": [
+                "$\\frac {144} {15},12,15$"
+              ],
+              "explanation": "We have H.M < G.M < A.M\nAlso given their values are $\\frac{144}{15}$ = 9, 6, 12, 15\nHence we can say H.M = 9.6, G.M = 12, A.M = 15"
+            },
+            {
+              "questionID": 18974,
+              "question": "The sum of first eight terms of a G.P. is 82 times the sum of first four terms. The common ratio of the G.P. is",
+              "question_raw": "<p>The sum of first eight terms of a G.P. is 82 times the sum of first four terms. The common ratio of the G.P. is</p>",
+              "options": [
+                {
+                  "label": "A",
+                  "id": 31095,
+                  "text": "5",
+                  "is_correct": false
+                },
+                {
+                  "label": "B",
+                  "id": 31098,
+                  "text": "2",
+                  "is_correct": false
+                },
+                {
+                  "label": "C",
+                  "id": 31097,
+                  "text": "3",
+                  "is_correct": true
+                },
+                {
+                  "label": "D",
+                  "id": 31096,
+                  "text": "4",
+                  "is_correct": false
+                }
+              ],
+              "correct_option_ids": [
+                31097
+              ],
+              "correct_option_labels": [
+                "C"
+              ],
+              "correct_option_texts": [
+                "3"
+              ],
+              "explanation": "Let d be the common ratio of the G.P.\nGiven S_8 = 82 S_4 \n$\\Rightarrow$ $\\frac{S_{8}}{S_{4}}$ = 82\nWe have S_n = $\\frac{a\\left(r^{n}-1\\right)}{r-1}$ \n$\\Rightarrow$ $\\frac{\\frac{a\\left(r^{8}-1\\right)}{r-1}}{\\frac{a\\left(r^{4}-1\\right)}{(-1)}}=82, r-1 \\neq 0$ \n$\\Rightarrow$ $\\frac{r^{8}-1}{r^{4}-1}$ = 82\n$\\Rightarrow$ r^8 - 1 - 82r^4 + 82 = 0\n$\\Rightarrow$ (r^4)^2 - 82r^4 + 81 = 0\n$\\Rightarrow$ (r^4)^2 - 82r^4 - 1r^4 + 81 = 0\n$\\Rightarrow$ r^4(r^4 - 1) - 81(r^4 - 1) = 0\n$\\Rightarrow$ (r^4 - 81)(r^4 - 1) = 0\n$\\Rightarrow$ r^4 = 81 or r^4 = 1\nSince r - 1 $\\ne$ 0, r cannot be 1\n$\\Rightarrow$ r = $\\sqrt[4]{81}$ = 3"
+            },
+            {
+              "questionID": 18975,
+              "question": "The sum of first 10 terms of a G.P. is equal to 244 times the sum of its first five terms. Then the common ratio is",
+              "question_raw": "<p>The sum of first 10 terms of a G.P. is equal to 244 times the sum of its first five terms. Then the common ratio is</p>",
+              "options": [
+                {
+                  "label": "A",
+                  "id": 31100,
+                  "text": "7",
+                  "is_correct": false
+                },
+                {
+                  "label": "B",
+                  "id": 31101,
+                  "text": "4",
+                  "is_correct": false
+                },
+                {
+                  "label": "C",
+                  "id": 31102,
+                  "text": "5",
+                  "is_correct": false
+                },
+                {
+                  "label": "D",
+                  "id": 31099,
+                  "text": "3",
+                  "is_correct": true
+                }
+              ],
+              "correct_option_ids": [
+                31099
+              ],
+              "correct_option_labels": [
+                "D"
+              ],
+              "correct_option_texts": [
+                "3"
+              ],
+              "explanation": "Let r be the common ratio of the G.P.\nGiven S_10 = 244 S_5 \n$\\Rightarrow$ $\\frac{S_{10}}{S_{5}}$ = 244\nWe have S_n = $\\frac{a\\left(r^{n}-1\\right)}{r-1}$ \n$\\Rightarrow$ $\\frac{\\frac{a\\left(r^{10}-1\\right)}{r-1}}{\\frac{a\\left(r^{5}-1\\right)}{r-1}}=244, r-1 \\neq 0$ \n$\\Rightarrow$ $\\frac{r^{10}-1}{r^{5}-1}$ = 244\n$\\Rightarrow$ r^10 - 1 - 244r^5 + 244 = 0\n$\\Rightarrow$ (r^5)^2 - 244r^5 + 243 = 0\n$\\Rightarrow$ (r5)^2 - 243r^5 - 1r^5 + 243 = 0\n$\\Rightarrow$ r^5(r^5 - 1) - 243(r^5 - 1) = 0\n$\\Rightarrow$ r^5 = 243 or r^5 = 1\nSince r - 1 $\\ne$ 0, r cannot be 1\n$\\Rightarrow$ r = $\\sqrt[5]{243}$ = 3"
+            },
+            {
+              "questionID": 18976,
+              "question": "The product of terms equidistant from the beginning and end in a G.P. (finite) is equal to",
+              "question_raw": "<p>The product of terms equidistant from the beginning and end in a G.P. (finite) is equal to</p>",
+              "options": [
+                {
+                  "label": "A",
+                  "id": 31104,
+                  "text": "first term",
+                  "is_correct": false
+                },
+                {
+                  "label": "B",
+                  "id": 31103,
+                  "text": "product of the first and last terms",
+                  "is_correct": true
+                },
+                {
+                  "label": "C",
+                  "id": 31105,
+                  "text": "last term",
+                  "is_correct": false
+                },
+                {
+                  "label": "D",
+                  "id": 31106,
+                  "text": "Sum of the first and last terms",
+                  "is_correct": false
+                }
+              ],
+              "correct_option_ids": [
+                31103
+              ],
+              "correct_option_labels": [
+                "B"
+              ],
+              "correct_option_texts": [
+                "product of the first and last terms"
+              ],
+              "explanation": "Let the G.P be a, ar, ar^2, ar^3, ....., ar^n-3, ar^n-2, ar^n-1 with first term a and common ratio r and let the last term l = T_n = ar_n-1 \nNow we have T_1T_n = a.ar^n-1 = a^2r^n-1 \nT_2.T_n-1 = ar.ar^n-2 = a^2r^n-1\nT_3.T_n-2 = ar^2.ar^n-3 = a^2r^n-1 ........\nT_m.T_n-(m-1) = ar^m-1. ar^n-m = a^2r^n-1 \nHence we have the product of terms equidistant from the beginning and end = first term. last term"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "testPaperID": 646,
+      "testPaperName": "Sequences and Series Test 05",
+      "is_paid": true,
+      "category_full_name": "CBSE > Class 11 > Mathematics > Sequences and Series",
+      "noOfQuestions": 15,
+      "has_answers": true,
+      "sections": [
+        {
+          "sectionName": "General",
+          "sectionID": null,
+          "questions": [
+            {
+              "questionID": 18977,
+              "question": "If x, 2 x + 2, 3 x + 3, … are in G.P., then the fourth term of this sequence is",
+              "question_raw": "<p>If x, 2 x + 2, 3 x + 3, &hellip; are in G.P., then the fourth term of this sequence is</p>\r\n",
+              "options": [
+                {
+                  "label": "A",
+                  "id": 31110,
+                  "text": "27",
+                  "is_correct": false
+                },
+                {
+                  "label": "B",
+                  "id": 31109,
+                  "text": "13.75",
+                  "is_correct": false
+                },
+                {
+                  "label": "C",
+                  "id": 31108,
+                  "text": "- 27",
+                  "is_correct": false
+                },
+                {
+                  "label": "D",
+                  "id": 31107,
+                  "text": "- 13.5",
+                  "is_correct": true
+                }
+              ],
+              "correct_option_ids": [
+                31107
+              ],
+              "correct_option_labels": [
+                "D"
+              ],
+              "correct_option_texts": [
+                "- 13.5"
+              ],
+              "explanation": "If x, 2x + 2, 3x + 3, .... are in G.P., then we get $\\frac{2 x+2}{x}=\\frac{3 x+3}{2 x+2}$ \n$\\Rightarrow$ (2x + 2)^2 = x(3x + 3)\n$\\Rightarrow$ 4x^2 + 8x + 4 = 3x^2 + 3x\n$\\Rightarrow$ x^2 + 5x + 4 = 0\n$\\Rightarrow$ (x + 4)(x+ 1) = 0\n$\\Rightarrow$ x = -4, -1\nWhen x = -4 the sequence is -4, -6, -9.... and then r = $\\frac{-6}{-4}=\\frac{-9}{-6}=\\frac{3}{2}$ \nwhen x = -1 the sequence is -1, 0, 0, 0 .... and then r = $\\frac{0}{-1}$ = 0 (this sequence can be discarded as r = 0)\nHence the fourth term is $-9 \\cdot \\frac{3}{2}=\\frac{-27}{2}$ = -13.5 when r = $\\frac{3}{2}$"
+            },
+            {
+              "questionID": 18978,
+              "question": "If a, b, c are three positive real numbers then (a + b) (b + c) (c + a) is not less than",
+              "question_raw": "<p>If a, b, c are three positive real numbers then (a + b) (b + c) (c + a) is not less than</p>",
+              "options": [
+                {
+                  "label": "A",
+                  "id": 31112,
+                  "text": "2(a + b + c)",
+                  "is_correct": false
+                },
+                {
+                  "label": "B",
+                  "id": 31114,
+                  "text": "(a + b + c)",
+                  "is_correct": false
+                },
+                {
+                  "label": "C",
+                  "id": 31113,
+                  "text": "6abc",
+                  "is_correct": false
+                },
+                {
+                  "label": "D",
+                  "id": 31111,
+                  "text": "8abc",
+                  "is_correct": true
+                }
+              ],
+              "correct_option_ids": [
+                31111
+              ],
+              "correct_option_labels": [
+                "D"
+              ],
+              "correct_option_texts": [
+                "8abc"
+              ],
+              "explanation": "Given the numbers are a and b, then we have\nA.M = A = $\\frac{a+b}{2}$, G.M. = G = $\\sqrt{a b}$ and A.M > G.M\nNow we have $\\frac{a+b}{2}>\\sqrt{a b}$ ...(i)\n$\\frac{b+c}{2}>\\sqrt{b c}$ ....(ii)\n$\\frac{c+a}{2}>\\sqrt{c a}$ ....(iii)\nMultiply (i), (ii) and (iii), we get\n$\\frac{a+b}{2} \\cdot \\frac{b+c}{2} \\cdot \\frac{c+a}{2}>\\sqrt{a b} \\cdot \\sqrt{b c} \\cdot \\sqrt{c a}$ \n$\\Rightarrow$ (a + b)(b + c)(c + a) > 8abc"
+            },
+            {
+              "questionID": 18979,
+              "question": "In an infinite G.P., each term is equal to the sum of all the terms which follow it. The common ratio of this G.P. is",
+              "question_raw": "<p>In an infinite G.P., each term is equal to the sum of all the terms which follow it. The common ratio of this G.P. is</p>",
+              "options": [
+                {
+                  "label": "A",
+                  "id": 31115,
+                  "text": "$\\frac 12$",
+                  "is_correct": true
+                },
+                {
+                  "label": "B",
+                  "id": 31116,
+                  "text": "$\\frac 13$",
+                  "is_correct": false
+                },
+                {
+                  "label": "C",
+                  "id": 31117,
+                  "text": "$\\frac 14$",
+                  "is_correct": false
+                },
+                {
+                  "label": "D",
+                  "id": 31118,
+                  "text": "$\\frac 23$",
+                  "is_correct": false
+                }
+              ],
+              "correct_option_ids": [
+                31115
+              ],
+              "correct_option_labels": [
+                "A"
+              ],
+              "correct_option_texts": [
+                "$\\frac 12$"
+              ],
+              "explanation": "Let the infinite G.P be $a, a r, a r^{2}, a r^{3}$ ....... with first term a and common ratio r\nAccording to the question $a=a r+a r^{2}+a r^{3}+$....... to $\\infty$\n$\\Rightarrow a=\\frac{\\bar{a} r}{1-r}$\n$\\Rightarrow 1-r=r$\n$\\Rightarrow r=\\frac{1}{2}$"
+            },
+            {
+              "questionID": 18980,
+              "question": "Sum of an infinite G.P. is $\\frac 54$ times the sum of all the odd terms. The common ratio of the G.P. is",
+              "question_raw": "<p>Sum of an infinite G.P. is <span class=\"math-tex\">{tex}\\frac 54{/tex}</span> times the sum of all the odd terms. The common ratio of the G.P. is</p>",
+              "options": [
+                {
+                  "label": "A",
+                  "id": 31120,
+                  "text": "4",
+                  "is_correct": false
+                },
+                {
+                  "label": "B",
+                  "id": 31121,
+                  "text": "$\\frac 1 3$",
+                  "is_correct": false
+                },
+                {
+                  "label": "C",
+                  "id": 31119,
+                  "text": "$\\frac 1 4$",
+                  "is_correct": true
+                },
+                {
+                  "label": "D",
+                  "id": 31122,
+                  "text": "$\\frac 2 3$",
+                  "is_correct": false
+                }
+              ],
+              "correct_option_ids": [
+                31119
+              ],
+              "correct_option_labels": [
+                "C"
+              ],
+              "correct_option_texts": [
+                "$\\frac 1 4$"
+              ],
+              "explanation": "Consider the infinite G.P a, ar, ar^2, ar^3,.... is a G.P with first term a and common ratio r\nThen the odd terms a, ar^2, ar^4,.... is again a G.P with first term a and common ratio r^2 \nWe have $S_{\\infty}=\\frac{a}{1-r}$ \nGiven $S_{\\infty}=\\frac{5}{4}$. Sum of odd terms\n$\\Rightarrow$ a + ar + ar^2 + ar^3 + .... = $\\frac{5}{4}$[a + ar^2 + ar^4 + ...]\n$\\Rightarrow$ $\\frac{a}{1-r}=\\frac{5}{4} \\cdot \\frac{a}{1-r^{2}}$ \n$\\Rightarrow$ $\\frac{1}{1-r}=\\frac{5}{4} \\cdot \\frac{a}{(1-r)(1+r)}$ \n$\\Rightarrow$ 4(1 + r) = 5\n$\\Rightarrow$ 4r = 1\n$\\Rightarrow$ r = $\\frac{1}{4}$"
+            },
+            {
+              "questionID": 18981,
+              "question": "If a, b, c are in G.P., then",
+              "question_raw": "<p>If a, b, c are in G.P., then</p>",
+              "options": [
+                {
+                  "label": "A",
+                  "id": 31125,
+                  "text": "a^2(b + c) = c^2(a + b)",
+                  "is_correct": false
+                },
+                {
+                  "label": "B",
+                  "id": 31126,
+                  "text": "a^2(b^2 + c^2) = c^2(a^2 + b^2)",
+                  "is_correct": false
+                },
+                {
+                  "label": "C",
+                  "id": 31124,
+                  "text": "a(b^2 + a^2) = c(b^2 + c^2)",
+                  "is_correct": false
+                },
+                {
+                  "label": "D",
+                  "id": 31123,
+                  "text": "a(b^2 + c^2) = c(a^2 + b^2)",
+                  "is_correct": true
+                }
+              ],
+              "correct_option_ids": [
+                31123
+              ],
+              "correct_option_labels": [
+                "D"
+              ],
+              "correct_option_texts": [
+                "a(b^2 + c^2) = c(a^2 + b^2)"
+              ],
+              "explanation": "Since a, b, c are in G.P. we get b^2 = ac ....(i)\nConsider a(b^2 + c^2)\nNow a(b^2 + c^2) = a(ac + c^2) = a^2c + ac^2 = c(a^2 + ac) = c(a^2 + b^2) [using (i)]"
+            },
+            {
+              "questionID": 18982,
+              "question": "Two positive numbers are in the ratio$\\left( {2 + \\sqrt 3 } \\right):\\left( {2 - \\sqrt 3 } \\right)$. The ratio of their A.M. to G.M. is :",
+              "question_raw": "<p>Two positive numbers are in the ratio<span class=\"math-tex\">{tex}\\left( {2 + \\sqrt 3 } \\right):\\left( {2 - \\sqrt 3 } \\right){/tex}</span>. The ratio of their A.M. to G.M. is :</p>",
+              "options": [
+                {
+                  "label": "A",
+                  "id": 31130,
+                  "text": "$\\sqrt 3 :2$",
+                  "is_correct": false
+                },
+                {
+                  "label": "B",
+                  "id": 31127,
+                  "text": "2 : 1",
+                  "is_correct": true
+                },
+                {
+                  "label": "C",
+                  "id": 31128,
+                  "text": "$\\sqrt 3 :1$",
+                  "is_correct": false
+                },
+                {
+                  "label": "D",
+                  "id": 31129,
+                  "text": "1 : 2",
+                  "is_correct": false
+                }
+              ],
+              "correct_option_ids": [
+                31127
+              ],
+              "correct_option_labels": [
+                "B"
+              ],
+              "correct_option_texts": [
+                "2 : 1"
+              ],
+              "explanation": "Let the two positive numbers be x and y\nNow given $\\frac{x}{y}=\\frac{2+\\sqrt{3}}{2-\\sqrt{3}}$ \nSo let x = $(2+\\sqrt{3}) k$ and y = $(2-\\sqrt{3}) k$ \n$\\therefore$ $\\begin{array}{lllll} A . M \\ of\\ \\text {and} \\ y \\\\ \\hline G . M \\ o f \\ x \\ \\text {and} \\ y \\end{array}$ = $\\frac{\\frac{x+y}{2}}{\\sqrt{x y}}=\\frac{x+y}{2 \\sqrt{x y}}=\\frac{(2+\\sqrt{3}) k+(2-\\sqrt{3}) k}{2 \\sqrt{(2+\\sqrt{3}) k \\cdot(2-\\sqrt{3}) k}}$ \n= $\\frac{4 k}{2 \\sqrt{(4-3) k^{2}}}=\\frac{4 k}{2 k}=\\frac{2}{1}$ [$\\because$ (a + b) (a - b) = a^2 - b^2]"
+            },
+            {
+              "questionID": 18983,
+              "question": "All the terms of a G.P. are squared. The new sequence thus formed is",
+              "question_raw": "<p>All the terms of a G.P. are squared. The new sequence&nbsp;thus formed is</p>",
+              "options": [
+                {
+                  "label": "A",
+                  "id": 31131,
+                  "text": "G.P.",
+                  "is_correct": true
+                },
+                {
+                  "label": "B",
+                  "id": 31134,
+                  "text": "H.M",
+                  "is_correct": false
+                },
+                {
+                  "label": "C",
+                  "id": 31133,
+                  "text": "H.P.",
+                  "is_correct": false
+                },
+                {
+                  "label": "D",
+                  "id": 31132,
+                  "text": "A.P.",
+                  "is_correct": false
+                }
+              ],
+              "correct_option_ids": [
+                31131
+              ],
+              "correct_option_labels": [
+                "A"
+              ],
+              "correct_option_texts": [
+                "G.P."
+              ],
+              "explanation": "We have a, ar, ar^2, ar^3, ....., ar^n-1 is a G.P with first term a and common ratio r\nNow if we square each term of this we get the sequence a^2, a^2r^2, a^2r^4, a^2r^6...., a^2r^n-1, which is again a G.P with first term a^2 and common ratio r^2"
+            },
+            {
+              "questionID": 18984,
+              "question": "The least value of n for which 1 + 3 + 3^2 + 3^3 + .... + 3^n-1 > 1000 is",
+              "question_raw": "<p>The least value of n for which 1 +&nbsp;3 + 3<sup>2</sup> + 3<sup>3</sup> + .... + 3<sup>n-1</sup> &gt; 1000 is</p>",
+              "options": [
+                {
+                  "label": "A",
+                  "id": 31137,
+                  "text": "6",
+                  "is_correct": false
+                },
+                {
+                  "label": "B",
+                  "id": 31135,
+                  "text": "7",
+                  "is_correct": true
+                },
+                {
+                  "label": "C",
+                  "id": 31136,
+                  "text": "8",
+                  "is_correct": false
+                },
+                {
+                  "label": "D",
+                  "id": 31138,
+                  "text": "5",
+                  "is_correct": false
+                }
+              ],
+              "correct_option_ids": [
+                31135
+              ],
+              "correct_option_labels": [
+                "B"
+              ],
+              "correct_option_texts": [
+                "7"
+              ],
+              "explanation": "We have 1, 3, 3^2, 3^3, ...., 3^n-1 is a G.P with first term 1 and common ratio r = 3\nNow 1 + 3 + 3^2 + 3^3 + .... + 3^n-1 = S_n = $\\frac{a\\left(r^{n}-1\\right)}{r-1}=\\frac{1\\left(3^{n}-1\\right)}{3-1}$ \nHence 1 + 3 + 3^2 + 3^3 + ... + 3^n-1 > 100 $\\Rightarrow$ $\\frac{3^{n}-1}{2}$ > 1000\n$\\Rightarrow$ 3^n > 2001\nBut we have 3^6 = 729 and 3^7 = 2187\nTherefore least value of n = 7"
+            },
+            {
+              "questionID": 18985,
+              "question": "The cotangents of $\\frac{\\pi}{3}, \\frac{\\pi}{4}$ and $\\frac{\\pi}{6}$ are in",
+              "question_raw": "<p style=\"text-align:justify\">The cotangents of <span class=\"math-tex\">{tex}\\frac{\\pi}{3}, \\frac{\\pi}{4}{/tex}</span>&nbsp;and&nbsp;<span class=\"math-tex\">{tex}\\frac{\\pi}{6}{/tex}</span> are in</p>",
+              "options": [
+                {
+                  "label": "A",
+                  "id": 31140,
+                  "text": "A.P.",
+                  "is_correct": false
+                },
+                {
+                  "label": "B",
+                  "id": 31142,
+                  "text": "H.M",
+                  "is_correct": false
+                },
+                {
+                  "label": "C",
+                  "id": 31139,
+                  "text": "G.P.",
+                  "is_correct": true
+                },
+                {
+                  "label": "D",
+                  "id": 31141,
+                  "text": "H.P.",
+                  "is_correct": false
+                }
+              ],
+              "correct_option_ids": [
+                31139
+              ],
+              "correct_option_labels": [
+                "C"
+              ],
+              "correct_option_texts": [
+                "G.P."
+              ],
+              "explanation": "We have $\\cot \\frac{\\pi}{6}=\\frac{1}{\\sqrt{3}}$, $\\cot \\frac{\\pi}{4}=1$ and $\\cot \\frac{\\pi}{3}=\\sqrt{3}$ \nClearly $\\frac{1}{\\sqrt{3}}, 1, \\sqrt{3}$ are terms of a G.P. with first term $\\frac{1}{\\sqrt{3}}$ and common ratio r = $\\sqrt{3}$"
+            },
+            {
+              "questionID": 18986,
+              "question": "If one A.M. A and two geometric means B and C be inserted between two numbers, then ${B^3} + {C^3}$ is equal to",
+              "question_raw": "<p>If one A.M. A and two geometric means B and C be inserted between two numbers, then <span class=\"math-tex\">{tex}{B^3} + {C^3}{/tex}</span> is equal to</p>",
+              "options": [
+                {
+                  "label": "A",
+                  "id": 31146,
+                  "text": "3 ABC",
+                  "is_correct": false
+                },
+                {
+                  "label": "B",
+                  "id": 31144,
+                  "text": "$\\frac {2\\;BC} {A}$",
+                  "is_correct": false
+                },
+                {
+                  "label": "C",
+                  "id": 31143,
+                  "text": "2 ABC",
+                  "is_correct": true
+                },
+                {
+                  "label": "D",
+                  "id": 31145,
+                  "text": "ABC",
+                  "is_correct": false
+                }
+              ],
+              "correct_option_ids": [
+                31143
+              ],
+              "correct_option_labels": [
+                "C"
+              ],
+              "correct_option_texts": [
+                "2 ABC"
+              ],
+              "explanation": "Let the 2 numbers be x and y.\nSince A is the A.M between the numbers x and y, we get A = $\\frac{x+y}{2}$ ...(i)\nSince B and C are the geometric means between x and y, we get x = x, B = xr and C = xr^2, y = xr^3 where r is the common ratio of the G.\nNow $\\frac{B^{3}+C^{3}}{B C}=\\frac{B^{2}}{C}+\\frac{C^{2}}{B}$ = $\\frac{(x r)^{2}}{x r^{2}}+\\frac{\\left(x r^{2}\\right)^{2}}{x r}$ = x + xr^3 = x + y = 2A from equation (i)\nHence we get B^3 + C^3 = 2ABC"
+            },
+            {
+              "questionID": 18987,
+              "question": "In a G.P. the ratio of the sum of first three terms to the sum of first six terms is 125 : 152. The common ratio of the G.P. is",
+              "question_raw": "<p>In a G.P. the ratio of the sum of first three terms to the sum of first six terms is 125 : 152. The common ratio of the G.P. is</p>",
+              "options": [
+                {
+                  "label": "A",
+                  "id": 31149,
+                  "text": "3.5",
+                  "is_correct": false
+                },
+                {
+                  "label": "B",
+                  "id": 31147,
+                  "text": "$\\frac {3}{5}$",
+                  "is_correct": true
+                },
+                {
+                  "label": "C",
+                  "id": 31150,
+                  "text": "5.3",
+                  "is_correct": false
+                },
+                {
+                  "label": "D",
+                  "id": 31148,
+                  "text": "$\\frac 53$",
+                  "is_correct": false
+                }
+              ],
+              "correct_option_ids": [
+                31147
+              ],
+              "correct_option_labels": [
+                "B"
+              ],
+              "correct_option_texts": [
+                "$\\frac {3}{5}$"
+              ],
+              "explanation": "Given $\\frac{S_{3}}{S_{6}}=\\frac{125}{152}$ \n$\\Rightarrow$ $\\frac{\\frac{a\\left(r^{3}-1\\right)}{r-1}}{\\frac{a\\left(r^{6}-1\\right)}{r-1}}=\\frac{125}{152}, r-1 \\neq 0$ \n$\\Rightarrow$ $\\frac{r^{3}-1}{r^{6}-1}=\\frac{125}{152}$ \n$\\Rightarrow$ 152r^3 - 15^2 = 125r^6 - 125\n$\\Rightarrow$ 125r^6 - 152r^3 + 27 = 0\n$\\Rightarrow$ 125r^6 - 125r^3 - 27r^3 + 27 = 0\n$\\Rightarrow$ 125r^3(r^3 - 1) - 27(r^3 - 1) = 0\n$\\Rightarrow$ (125r^3 - 27)(r^3 - 1) = 0\n$\\Rightarrow$ r^3 = $\\frac{27}{125}$ or r^3 = 1\nSince r - 1 $\\ne$ 0, r cannot be 1\n$\\Rightarrow$ r = $\\frac{3}{5}$"
+            },
+            {
+              "questionID": 18988,
+              "question": "In a G.P. (m + n)^th and (m – n)^th terms are respectively p and q. Its m^th term is",
+              "question_raw": "<p>In a G.P. (m + n)<sup>th</sup> and (m &ndash; n)<sup>th</sup> terms are respectively p and q. Its m<sup>th</sup> term is</p>",
+              "options": [
+                {
+                  "label": "A",
+                  "id": 31153,
+                  "text": "pq",
+                  "is_correct": false
+                },
+                {
+                  "label": "B",
+                  "id": 31152,
+                  "text": "$\\frac {p + q} {2}$",
+                  "is_correct": false
+                },
+                {
+                  "label": "C",
+                  "id": 31154,
+                  "text": "p-q",
+                  "is_correct": false
+                },
+                {
+                  "label": "D",
+                  "id": 31151,
+                  "text": "$\\sqrt {p\\;q} $",
+                  "is_correct": true
+                }
+              ],
+              "correct_option_ids": [
+                31151
+              ],
+              "correct_option_labels": [
+                "D"
+              ],
+              "correct_option_texts": [
+                "$\\sqrt {p\\;q} $"
+              ],
+              "explanation": "Let a be the first term and r be the common ratio of the G.P\nThen since T_n = a^n-1, we get\nT_m+n = p $\\Rightarrow$ ar^m+n-1 = p ....(i)\nT_m-n = q $\\Rightarrow$ ar^m-n-1 = q ...(ii)\nNow dividing equation (i) by (ii)\n$\\frac { ar^{ m+n-1 } }{ ar^{ m-n-1 } } =\\frac { p }{ q } \\Rightarrow$ r^(m + n - 1) - (m - n - 1) = $\\frac pq$\n$\\Rightarrow$ $r2n = \\frac { p }{ q }$\nTaking square root on both sides we get r^n = $\\sqrt { \\frac { p }{ q } }$ ....(iii)\nSubstituting equation (iii) in (i), we get \n$a.\\sqrt { \\frac { p }{ q } } .r^{ m-1 }$ = p\n$\\Rightarrow a.r^{ m-1 }=p.\\sqrt { \\frac { q }{ p } } =\\sqrt { pq } $"
+            },
+            {
+              "questionID": 18989,
+              "question": "If a, b, c are in A. P., a, mb, c are in G.P., then a, m^2b, c are in",
+              "question_raw": "<p>If a, b, c are in A. P., a, mb, c are in G.P., then a, m<sup>2</sup>b, c are in</p>",
+              "options": [
+                {
+                  "label": "A",
+                  "id": 31156,
+                  "text": "G.P.",
+                  "is_correct": false
+                },
+                {
+                  "label": "B",
+                  "id": 31155,
+                  "text": "H.P.",
+                  "is_correct": true
+                },
+                {
+                  "label": "C",
+                  "id": 31158,
+                  "text": "H.M",
+                  "is_correct": false
+                },
+                {
+                  "label": "D",
+                  "id": 31157,
+                  "text": "A.P.",
+                  "is_correct": false
+                }
+              ],
+              "correct_option_ids": [
+                31155
+              ],
+              "correct_option_labels": [
+                "B"
+              ],
+              "correct_option_texts": [
+                "H.P."
+              ],
+              "explanation": "If the numbers a, b, c are in A.P. we have b = $\\frac{a+c}{2}$ ....(i)\nSince a, mb, c are in G.P. we get (mb)^2 = ac ....(ii)\nNow m^2b = $\\frac{2(m b)^{2}}{2 b}=\\frac{2 a c}{a+c}$ \n$\\Rightarrow$ a, m^2b, c are in H.P."
+            },
+            {
+              "questionID": 18990,
+              "question": "The next term of the sequence $\\frac{1}{4}, \\frac{1}{36}, \\frac{1}{144}$,",
+              "question_raw": "<p>The next term of the sequence <span class=\"math-tex\">{tex}\\frac{1}{4}, \\frac{1}{36}, \\frac{1}{144}{/tex}</span>,</p>",
+              "options": [
+                {
+                  "label": "A",
+                  "id": 31160,
+                  "text": "$\\frac {1} {576}$",
+                  "is_correct": false
+                },
+                {
+                  "label": "B",
+                  "id": 31161,
+                  "text": "$\\frac {1} {1296}$",
+                  "is_correct": false
+                },
+                {
+                  "label": "C",
+                  "id": 31162,
+                  "text": "$\\frac {1} {169}$",
+                  "is_correct": false
+                },
+                {
+                  "label": "D",
+                  "id": 31159,
+                  "text": "$\\frac {1} {400}$",
+                  "is_correct": true
+                }
+              ],
+              "correct_option_ids": [
+                31159
+              ],
+              "correct_option_labels": [
+                "D"
+              ],
+              "correct_option_texts": [
+                "$\\frac {1} {400}$"
+              ],
+              "explanation": "By inspection we get a_n = $\\frac{1}{n^{2} \\cdot(n+1)^{2}}$, as\na_1 = $\\frac{1}{1^{2} \\cdot(1+1)^{2}}= \\frac{1}{ 4}$ \na_2 = $\\frac{1}{2^{2} \\cdot(2+1)^{2}}= \\frac{1}{ 36}$ \nand a_3 = $\\frac{1}{3^{2} \\cdot(3+1)^{2}}=\\frac{1}{144}$ \n$\\therefore$ a_4 = $\\frac{1}{4^{2} \\cdot(4+1)^{2}}= \\frac{1}{400}$"
+            },
+            {
+              "questionID": 18991,
+              "question": "If the sum of first n natural numbers is one-fifth of the sum of their squares, then n equals",
+              "question_raw": "<p>If the sum of first n natural numbers is one-fifth of the sum of their squares, then n equals</p>",
+              "options": [
+                {
+                  "label": "A",
+                  "id": 31163,
+                  "text": "7",
+                  "is_correct": true
+                },
+                {
+                  "label": "B",
+                  "id": 31164,
+                  "text": "6",
+                  "is_correct": false
+                },
+                {
+                  "label": "C",
+                  "id": 31165,
+                  "text": "5",
+                  "is_correct": false
+                },
+                {
+                  "label": "D",
+                  "id": 31166,
+                  "text": "8",
+                  "is_correct": false
+                }
+              ],
+              "correct_option_ids": [
+                31163
+              ],
+              "correct_option_labels": [
+                "A"
+              ],
+              "correct_option_texts": [
+                "7"
+              ],
+              "explanation": "According to question,\nThe sum of n natural no. = $\\frac{1}{5}$ times of sum of their squares\nSo, \n$\\frac{n(n+1)}{2}=\\frac{1}{5} \\frac{n(n+1)(2 n+1)}{6}$ \n$\\Rightarrow$ 15 = 2n+ 1\n$\\Rightarrow$ n = 7"
+            }
+          ]
+        }
+      ]
+    }
+  ]
+}

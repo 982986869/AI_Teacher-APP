@@ -1,0 +1,825 @@
+CHAPTER: Limits and Derivatives  (id 1384)
+CBSE > Class 11 > Mathematics > Limits and Derivatives
+Online tests: 5
+
+========================================================================
+Limits and Derivatives Test 01  (id 662) [FREE]
+CBSE > Class 11 > Mathematics > Limits and Derivatives
+Questions: 15 | Answers: YES
+========================================================================
+
+Q1. $\mathop {Lt}\limits_{x \to 0} \frac{\log (1+a x)-\log (1+b x)}{x}$ is equal to
+    (A) a – b   <-- CORRECT
+    (B) log a + log b
+    (C) log a – log b
+    (D) a + b
+    Answer: A
+    Explanation: $\mathop {Lt}\limits_{x \to 0} \frac{\log (1+a x)}{x}-\mathop {Lt}\limits_{x \to 0} \frac{log (1 + bx)}{x}$ 
+$\Rightarrow$ $\mathop {Lt}\limits_{x \to 0}\frac{\log (1+a x)}{x} \cdot \frac{a}{a}-\mathop {Lt}\limits_{x \to 0} \frac{\log (1+b x)}{x} \cdot \frac{b}{b}$ 
+$\Rightarrow$ a - b
+
+Q2. If $f(x)=\left|4 x-x^2-3\right|$ when $x €[0,4]$, then, which of the following is correct?
+    (A) $x=2$ is the global maximum
+    (B) $x=0$ is the global maximum
+    (C) $x=1$ is the global maximum
+    (D) $x=3$ is the global maximum   <-- CORRECT
+    Answer: D
+    Explanation: Clearly, $x=1,3$ are the points of global minimum (as the values being equal).
+And, $x=0,4$ are the points of global maximum (as the values being equal).
+And, $x=2$, is the point of local maximum (as the values being equal).
+Thus, $x=3$ is the global maximum.
+
+Q3. Let f(x) = x sin$\frac 1 x$, x $ \ne $ 0, then the value of the function at x = 0, so that f is continuous at x = 0, is
+    (A) $% MathType!Translator!2!1!LaTeX.tdl!LaTeX 2.09 and later! % MathType!MTEF!2!1!+- % feaagGart1ev2aaatCvAUfeBSjuyZL2yd9gzLbvyNv2CaerbuLwBLn % hiov2DGi1BTfMBaeXatLxBI9gBaerbd9wDYLwzYbItLDharqqtubsr % 4rNCHbGeaGqiVu0Je9sqqrpepC0xbbL8F4rqqrFfpeea0xe9Lq-Jc9 % vqaqpepm0xbba9pwe9Q8fs0-yqaqpepae9pg0FirpepeKkFr0xfr-x % fr-xb9adbaqaaeGaciGaaiaabeqaamaabaabaaqcfayaaiabgkziUk % abg6HiLcaa!39D7! \[ \to \infty \]% MathType!End!2!1! $$\sqrt{2}$
+    (B) 1
+    (C) -1
+    (D) 0   <-- CORRECT
+    Answer: D
+    Explanation: Here, if we directly put x = 0, f(0) = 0 $\times$ sin ($\frac{1}{0}$) = 0.
+At L.H.L, put x = 0 - h$% MathType!Translator!2!1!LaTeX.tdl!LaTeX 2.09 and later! % MathType!MTEF!2!1!+- % feaagGart1ev2aaatCvAUfeBSjuyZL2yd9gzLbvyNv2CaerbuLwBLn % hiov2DGi1BTfMBaeXatLxBI9gBaerbd9wDYLwzYbItLDharqqtubsr % 4rNCHbGeaGqiVu0Je9sqqrpepC0xbbL8F4rqqrFfpeea0xe9Lq-Jc9 % vqaqpepm0xbba9pwe9Q8fs0-yqaqpepae9pg0FirpepeKkFr0xfr-x % fr-xb9adbaqaaeGaciGaaiaabeqaamaabaabaaqcfayaamaaxababa % GaciiBaiaacMgacaGGTbaabaGaamiAaiabgkziUkaaicdaaeqaaaaa % !3D0B! \[\mathop {\lim }\limits_{h \to 0} \]% MathType!End!2!1! $, $\mathop {lim}\limits_{x \to 0} x.\sin \frac1x$ f(0 - h) = 0.
+At R.H.L, put x = 0 + h ,$\mathop {lim}\limits_{x \to 0} x.\sin \frac1x$$% MathType!Translator!2!1!LaTeX.tdl!LaTeX 2.09 and later! % MathType!MTEF!2!1!+- % feaagGart1ev2aaatCvAUfeBSjuyZL2yd9gzLbvyNv2CaerbuLwBLn % hiov2DGi1BTfMBaeXatLxBI9gBaerbd9wDYLwzYbItLDharqqtubsr % 4rNCHbGeaGqiVu0Je9sqqrpepC0xbbL8F4rqqrFfpeea0xe9Lq-Jc9 % vqaqpepm0xbba9pwe9Q8fs0-yqaqpepae9pg0FirpepeKkFr0xfr-x % fr-xb9adbaqaaeGaciGaaiaabeqaamaabaabaaqcfayaamaaxababa % GaciiBaiaacMgacaGGTbaabaGaamiAaiabgkziUkaaicdaaeqaaaaa % !3D0B! \[\mathop {\lim }\limits_{h \to 0} \]% MathType!End!2!1! $, f(0 + h) = 0.
+Hence, L.H.L = f(0) = R.H.L.
+f(x) is continuous at x = 0.
+
+Q4. $\lim \limits_{x \to 0}\frac{\tan x-\sin x}{x^3}$ is equal to
+    (A) 0
+    (B) $\frac 1 2$   <-- CORRECT
+    (C) 1
+    (D) 4
+    Answer: B
+    Explanation: The function can be written as 
+$\lim \limits_{x \rightarrow 0} \frac{\sin x(1-\cos x)}{\left(x^{3}\right)(\cos x)}$ 
+$\Rightarrow$ $\lim _\limits {x \rightarrow 0} \left(\frac{\sin x}{x}\right) \cdot\left(\frac{1-\cos x}{x^2}\right) \cdot\left(\frac{1}{\cos x}\right)$ 
+$\Rightarrow$ $1 \cdot \frac{1}{2} \cdot 1$ 
+$\Rightarrow$ $\frac{1}{2}$
+
+Q5. $\lim \limits_{x \to 0} \frac{x \log (1+x)}{1-\cos x}$ is equal to
+    (A) $\frac 12$
+    (B) 1
+    (C) 0
+    (D) 2   <-- CORRECT
+    Answer: D
+    Explanation: $\lim \limits_{x \rightarrow 0} \frac{x \log (1+x)}{1-\cos x} \cdot \frac{x}{x}$
+$\Rightarrow$ $\lim \limits_{x \rightarrow 0}\left(\frac{\log (1+x)}{x}\right) \cdot\left(\frac{x^{2}}{1-\cos x}\right)$
+$\Rightarrow$ $1 \cdot \frac{1}{\frac{1}{2}}$
+$\Rightarrow$ 2
+
+Q6. $\lim \limits_{x \rightarrow 0} \frac{e^{p x}-e^{q x}}{x}$ is equal to
+    (A) log (p - q)
+    (B) p - q   <-- CORRECT
+    (C) p^q
+    (D) log p - log q
+    Answer: B
+    Explanation: $\lim \limits_{x \rightarrow 0} \frac{e^{p x}+1-1-e^{q x}}{x}$ 
+$\Rightarrow$ $\lim\limits_{x \to 0} \frac {{e}^{px}-1}{x}-\lim\limits_{x \to 0}\frac {{e}^{qx}-1}{x}$ 
+$\Rightarrow$ $\lim \limits_{x \rightarrow 0} \left(\frac{e^{p x}-1}{x}\right)\left(\frac{p}{p}\right)-\lim \limits_{x \rightarrow 0}\left(\frac{e^{q x}-1}{x}\right)\left(\frac{q}{q}\right)$ 
+$\Rightarrow$ p - q
+
+Q7. $\lim \limits_{x \rightarrow 0} \frac{(1-x)^n-1}{x}$ is
+    (A) (n - 1) $\!$
+    (B) -n   <-- CORRECT
+    (C) $n^2$
+    (D) n $\!$
+    Answer: B
+    Explanation: The given limit is in the form f $\frac 00$ using L'hospital Rude
+Putting x = 0 in $\frac{n(1-x)^{n-1}}{1}\cdot (-1)$
+
+Q8. $\lim\limits_{x \to 0} \frac{\tan x-x}{x^2 \tan x}$ is equal to
+    (A) 0
+    (B) $\frac 1 3$   <-- CORRECT
+    (C) $\frac 1 2$
+    (D) 1
+    Answer: B
+    Explanation: The following limit is in the form of $\frac{0}{0}$ 
+Using L'Hospital rule;
+$\Rightarrow$ $\lim \limits_{x \rightarrow 0} \frac{\tan ^{2} x}{\left(x^{2}\right)+\left(x^{2} \tan ^{2} x\right)+(\tan x)(2 x)}$ = $\lim \limits_{x \rightarrow 0} \left(\frac{(\tan x)^{2}}{x^{2}}\right) \cdot\left(\frac{1}{1+\tan ^{2} x+\left(\frac{2 \tan x}{x}\right)}\right)$ 
+$\Rightarrow$ $1 \cdot\left(\frac{1}{1+0+2}\right)$
+$\Rightarrow$ $\frac{1}{3}$
+
+Q9. $\mathop {lim}\limits_{x \to 0} \;\;\left[ {\cos x} \right]$
+    (A) is equal to – 1
+    (B) does not exist
+    (C) is equal to 1
+    (D) is equal to 0   <-- CORRECT
+    Answer: D
+    Explanation: L.H.L. = $\underset{x \rightarrow 0}{lim}[\cos (x-h)]$ = 0
+R.H.L = $\underset{x \rightarrow 0}{lim}[\cos (x+h)]$ = 0
+
+Q10. $\lim\limits_{x \to 0}\frac{\sin x-x}{x^3}$ is equal to
+    (A) $\frac 16$
+    (B) 0
+    (C) $ -\frac 1 3$
+    (D) $-\frac 16$   <-- CORRECT
+    Answer: D
+    Explanation: Since the limit is in the form of $\frac{0}{0}$. By applying L'hospital first time we get, $\frac{\cos x-1}{3 x^2}$ 
+Again using L'Hospital; $\frac{-\sin x}{6 x}$ 
+Again using L'Hospital we get $\frac {-1}{6}$
+
+Q11. $\lim\limits_{x \to 0} \left(\frac{\sin x-x}{x}\right) \cos \left(\frac{1}{x}\right)$ is equal to
+    (A) 1
+    (B) 0   <-- CORRECT
+    (C) $\frac 12$
+    (D) -1
+    Answer: B
+    Explanation: $\lim\limits_{x \to 0} \;[(\frac{\sin x}{x})-(\frac{x}{x})](\cos \frac1x)$ 
+$\Rightarrow$ (0) finite number = 0
+
+Q12. $\lim\limits_{x \to 0} \left(\frac{\sin x-x}{x^4}\right) \sin x$ equal to
+    (A) $\frac1 3$
+    (B) $ - \frac 1 6$   <-- CORRECT
+    (C) $\frac 16$
+    (D) $ - \frac 13$
+    Answer: B
+    Explanation: $\lim \limits_{x \rightarrow 0}\left(\frac{\sin x-x}{x^3}\right) \cdot\left(\frac{\sin x}{x}\right)=\lim \limits_{x \rightarrow 0}\left(\frac{\sin x-x}{x^3}\right)$ 
+Now using L'Hospital we have, $\frac{\cos x-1}{3 x^2}$
+Again using L'Hospital, $\frac {-\sin x}{6x}$
+Again using L'hospital; $\frac {-1}{6}$
+
+Q13. Let f(x) = $\frac{2-(256-7 x)^{1 / 8}}{(5 x+32)^{1 / 5}-2}, x \neq 0$, then for f to be continuous at x = 0, f(0) must be equal to
+    (A) $\frac {7} {64}$   <-- CORRECT
+    (B) -1
+    (C) $ - \frac {7} {64}$
+    (D) 1
+    Answer: A
+    Explanation: f(x) = $\frac{2-(256-7 x)^{1 / 8}}{(5 x+32)^{1 / 5}-2}$ = f(x) = $\lim\limits_{x \to 0 } \frac{(256)^{\frac{1}{8}}-(256-7 x)^{\frac 1 8}}{(5 x+32)^{1 / 5}-(32)^{\frac{1}{5}}}$ 
+Using L' Hospital
+$\Rightarrow$ $\lim\limits_{x \to 0 }\frac{-\left(\frac{1}{8}\right)(256-7 x)^{-7 / 8}(-7)}{\left(\frac{1}{5}\right)(5 x+32)^{(-4) / 5}(5)}$
+$\Rightarrow$ $\frac{7}{64}$
+
+Q14. If $\begin{array}{c} \frac{\sin [x]}{[x]},[x] \neq 0 \\ 0 \quad,[x]=0 \end{array}$, where [.] denotes the greatest integer function, then $\lim \limits _{x \rightarrow 0} f(x)$ is equal to
+    (A) does not exist   <-- CORRECT
+    (B) is equal to 0
+    (C) is equal to -1
+    (D) is equal to 1
+    Answer: A
+    Explanation: $\mathop {Lt}\limits_{x \to 0^+}\frac{sin\;[x]}{[x]}$ = 1
+$\Rightarrow \mathop {Lt}\limits_{x \to 0^-}\frac{sin\;[x]}{[x]}$ = sin 1
+$\Rightarrow$ L.H.L.$\neq$ R.H.L.
+hence limit does not exist.
+
+Q15. $\mathop {lim}\limits_{x \to \infty } x\left( {{a^{1/x}} - 1} \right)$, where a > 0, is equal to
+    (A) log_e a   <-- CORRECT
+    (B) e
+    (C) log_a e
+    (D) 1
+    Answer: A
+    Explanation: Let x = $\frac{l}{t}$ 
+$\Rightarrow$ $\underset{t \rightarrow 0}{lim} \frac{a^{t}-1}{t}$ = log_e a
+
+========================================================================
+Limits and Derivatives Test 02  (id 663) [PAID]
+CBSE > Class 11 > Mathematics > Limits and Derivatives
+Questions: 15 | Answers: YES
+========================================================================
+
+Q1. $\lim\limits_{x \to \infty } \frac{\sum \limits_{r=1}^n r}{n^2}$ is equal to
+    (A) $\frac 14$
+    (B) $\frac 1 2$   <-- CORRECT
+    (C) $\frac 1 3$
+    (D) 1
+    Answer: B
+    Explanation: $\lim _\limits{n \rightarrow \infty} \frac{\frac{n(n+1)}{2}}{n^{2}}$ = $\lim \limits_{n \rightarrow \infty}\frac{(n+1)}{2 n}$ 
+Substitute n = $\frac{l}{t}$
+$\Rightarrow$ $\lim \limits_{t \rightarrow 0}\frac{(1+t)}{2}=\frac{1}{2}$
+
+Q2. $\lim\limits_{n \to \infty } \frac{\sum \limits_{r=1}^n r^2}{n^3}$ is equal to
+    (A) 0
+    (B) $\frac 1 3$   <-- CORRECT
+    (C) $\frac 12$
+    (D) $\frac 1 4$
+    Answer: B
+    Explanation: $\lim \limits_{n \rightarrow \infty} \frac{\frac{n(n+1)(2 n+1)}{6}}{n^{3}}$ = $\lim \limits_{n \rightarrow \infty}\frac{\left(2 n^{2}+3 n+1\right)}{6 n^{2}}$
+Substitute n = $\frac{l}{t}$
+$\Rightarrow$ $\lim \limits_{t \rightarrow 0}\frac{\left(2+3 t+t^{2}\right)}{6}=\frac{1}{3}$
+
+Q3. $\lim\limits_{x \to 0} \frac 1 x$
+    (A) tends to $-\infty $
+    (B) tends to $\infty $
+    (C) does not exist   <-- CORRECT
+    (D) is equal to 0
+    Answer: C
+    Explanation: When x $\rightarrow$ 0^-; f(x) $\rightarrow$ $-\infty$
+When x $\rightarrow$ 0^+; f(x) $\rightarrow$ $\infty$
+L.H.L $\ne$ R.H.L.
+Hence limit does not exist.
+
+Q4. $\mathop {lim}\limits_{x \to 0} \;\;x\left[ x \right]$ is equal to
+    (A) 0   <-- CORRECT
+    (B) $\frac12$
+    (C) 1 or -1
+    (D) 2
+    Answer: A
+    Explanation: $\underset{x \rightarrow 0^{-}}{lim}(x-h)[x-h]$ = $\underset{x \rightarrow 0}{lim}(x-h)(x-h-1)$ 
+$\Rightarrow$ (-h)(-h - 1) = 0
+$\Rightarrow$ $\underset{x \rightarrow 0^{+}}{lim}(x+h)[x+h]$ = $\underset{x \rightarrow 0}{lim}(x+h)(x)$ 
+$\Rightarrow$ (h)(0) = 0
+
+Q5. $\lim\limits_{x \to 0} \frac{(1+x)^n-1}{x}$ is equal to
+    (A) n   <-- CORRECT
+    (B) -n
+    (C) 1
+    (D) 0
+    Answer: A
+    Explanation: $\lim \limits_{x \to 0} \frac{(1+x)^n-1^n}{(1+x)-(1)}=\mathop {lim}\limits_{x \to 0}n(1+x)^{n-1}=n$
+
+Q6. $\lim \limits_{n \rightarrow \infty}\left\{\frac{1}{1-n^{2}}+\frac{2}{1-n^{2}}+\ldots+\frac{n}{1-n^{2}}\right\}$ is equal to:
+    (A) $ - \frac{1}{2}$   <-- CORRECT
+    (B) $\frac{1}{2}$
+    (C) 0
+    (D) 1
+    Answer: A
+    Explanation: $\lim \limits_{n \rightarrow \infty}\left[\frac{1}{1-n^{2}}+\frac{2}{1-n^{2}}+ \ldots+\frac{n}{1-n^{2}}\right]$
+= $\lim \limits_{n \rightarrow \infty}\left(\frac{1}{1-n^{2}}\right)$ [1 + 2 + 3 ... n]
+= $\lim \limits_{n \rightarrow \infty}\left(\frac{1}{1-n^{2}}\right)\left[\frac{n(n+1)}{2}\right]$
+= $\lim \limits_{n \rightarrow \infty} \frac{1}{2}\left[\frac{n(n+1)}{(1-n)(1+n)}\right]$
+= $\lim \limits_{n \rightarrow \infty} \frac{1}{2} \frac{n}{1-n}$
+= $\lim \limits_{n \rightarrow \infty} \frac{1}{2} \frac{1}{\frac{1}{n}-1}$
+= $\frac{1}{2}$(-1)
+= $\frac{-1}{2}$
+
+Q7. $\lim \limits_{h \rightarrow 0} \frac{\sin ^2(x+h)-\sin ^2 x}{h}$ is equal to
+    (A) 2 sin x
+    (B) sin 2x   <-- CORRECT
+    (C) cos^2 x
+    (D) sin x cos x
+    Answer: B
+    Explanation: $\lim \limits_{h \rightarrow 0} \frac{[\sin (x+h)-\sin x][\sin (x+h)+\sin x]}{h}$ 
+$\Rightarrow$ $\lim \limits_{h \rightarrow 0} \frac{2 \sin \left(\frac{2 x+h}{2}\right) \cos \left(\frac{h}{2}\right) 2 \cos \left(\frac{2 x+h}{2}\right) \sin \left(\frac{h}{2}\right)}{h}$ 
+= sin 2x
+
+Q8. If a is a real number, then $\lim \limits_{x \rightarrow a} \frac{|x-a|}{x-a}$
+    (A) does not exist   <-- CORRECT
+    (B) is equal to 1
+    (C) is equal to -1
+    (D) is equal to 0
+    Answer: A
+    Explanation: R.H.L = $\lim \limits_{x \rightarrow a^+}\frac{x-a}{x-a}$ = 1
+L.H.L = $\lim \limits_{x \rightarrow a^-}\frac{a-x}{x-a}$ = -1
+L.H.L $\ne$ R.H.L. 
+Hence limit does not exists.
+
+Q9. If k be an integer, then $\mathop {lim}\limits_{x \to {k^ + }}\;(x - \left[ x \right])$ is equal to
+    (A) 0   <-- CORRECT
+    (B) 1
+    (C) -1
+    (D) k
+    Answer: A
+    Explanation: $\underset{x \rightarrow k^{+}}{lim}(x-[x])$ 
+$\Rightarrow$ $\underset{h \rightarrow o}{lim}(k+h-[k+h])$ 
+$\Rightarrow$ $\underset{h \rightarrow o}{lim}(k+h-k)$ 
+= 0
+
+Q10. $\lim\limits_{x \to {a^ - } }\frac{|x-a|}{x-a}$ is equal to
+    (A) - 1   <-- CORRECT
+    (B) 1
+    (C) 0
+    (D) a
+    Answer: A
+    Explanation: $\lim\limits_{x \to {a^ - } }\frac{|x-a|}{x-a}$
+$\Rightarrow$ $\lim \limits_{h \rightarrow 0}\frac{|(a-h)-a|}{(a-h)-a}$
+$\Rightarrow$ $\lim \limits_{h \rightarrow 0} \frac{h}{-h}$ = -1
+
+Q11. If k be an integer, then $\mathop {lim}\limits_{x \to {k^ - }^{}} \;\;(x - \left[ x \right])$ is equal to
+    (A) 1   <-- CORRECT
+    (B) k
+    (C) -1
+    (D) 0
+    Answer: A
+    Explanation: $\underset{x \rightarrow k^{-}}{lim}(x-[x])$ 
+$\Rightarrow$ $\underset{h \rightarrow 0}{lim}(k-h-[k-h])$ 
+$\Rightarrow$ $\underset{h \rightarrow 0}{\operatorname{lim}}(k-h-k+1)$ 
+= 1
+
+Q12. $\lim\limits_{x \to 0}\left(\frac{\tan x-x}{x}\right) \sin \left(\frac{1}{x}\right)$ is equal to
+    (A) 1
+    (B) a real number other than 0 and 1
+    (C) 0   <-- CORRECT
+    (D) -1
+    Answer: C
+    Explanation: $\lim\limits_{x \to 0}\left(\frac{\tan x-x}{x}\right) \sin \left(\frac{1}{x}\right)$ 
+$\Rightarrow$ (0) Finite number = 0
+
+Q13. $\lim\limits_{x \to 3}\frac{\sqrt{x^2+10}-\sqrt{19}}{x-3}$ is equal to
+    (A) 1
+    (B) 0
+    (C) $\frac{3}{\sqrt{19}}$   <-- CORRECT
+    (D) $\frac {6} {\sqrt {19} }$
+    Answer: C
+    Explanation: Using L'Hospital,
+$\lim \limits_{x \rightarrow 3} \frac{\frac{2 x}{\sqrt[2]{x^{2}+10}}}{1}$ 
+Substituting x = 3 in $\frac{\frac{2 x}{2 \sqrt{x^{2}+10}}}{1}$ 
+We get $\frac{3}{\sqrt{19}}$
+
+Q14. Maximum value of x^3 - 3x + 2 in [0, 2] is
+    (A) 32
+    (B) 4   <-- CORRECT
+    (C) 1
+    (D) 2
+    Answer: B
+    Explanation: Polynomial functions are continuous and derivable into their entire domain f'(x) > 0. for |x| > 0.
+So it will be an increasing function in [0, 2]
+$\Rightarrow$ f(0) = 2 and f(2) = 4
+So, f(2) will be maximum.
+
+Q15. $\lim\limits_{x \to 0 + } \frac{\sqrt{x}}{\sqrt{16+\sqrt{x}}-4}$ is equal to
+    (A) 2
+    (B) 0
+    (C) does not exist
+    (D) 8   <-- CORRECT
+    Answer: D
+    Explanation: $\lim \limits_{x \rightarrow 0^{+}}\frac{1}{\frac{\sqrt{16+\sqrt{z}}-\sqrt{16}}{(16+\sqrt{z})-(16)}}$ 
+$\Rightarrow$ $\lim \limits_{x \rightarrow 0^{+}}{lim} 2(\sqrt{16+\sqrt{x}})$ 
+= 8
+
+========================================================================
+Limits and Derivatives Test 03  (id 664) [PAID]
+CBSE > Class 11 > Mathematics > Limits and Derivatives
+Questions: 15 | Answers: YES
+========================================================================
+
+Q1. $\lim \limits_{x \rightarrow \frac{\pi}{4}} \frac{\sec x-\sqrt{2}}{x-\frac{\pi}{4}}$ is equal to
+    (A) $\sqrt 3$
+    (B) 0
+    (C) -1
+    (D) $\sqrt 2 $   <-- CORRECT
+    Answer: D
+    Explanation: Using L' Hospital rule
+$\lim \limits_{x \rightarrow \frac{\pi}{4}} \frac{\sec x-\sqrt{2}}{x-\frac{\pi}{4}}$
+$\Rightarrow$ $\sqrt{2}$
+
+Q2. What is the value of $\lim _\limits{x \rightarrow 0} \frac{x \tan x}{\cot x}$ ?
+    (A) $\frac{1}{2}$
+    (B) 0   <-- CORRECT
+    (C) 2
+    (D) 1
+    Answer: B
+    Explanation: $\lim _{x \rightarrow 0} \frac{x \tan x}{\cot x}=\lim _{x \rightarrow 0} \frac{x \frac{\sin x}{\cos x}}{\frac{\cos x}{\sin x}}$
+$ =\lim _{x \rightarrow 0} {x} $
+$ =0 $
+
+Q3. $\mathop {lim}\limits_{x \to \infty }\;\left( {\sqrt {{x^2} + x + 1} - x} \right)$ is equal to
+    (A) 2
+    (B) 0
+    (C) $\frac{1}{2}$   <-- CORRECT
+    (D) -1
+    Answer: C
+    Explanation: Substitute x = $\frac{1}{t}$ 
+$\Rightarrow$ $\lim _\limits{t \rightarrow 0} \frac{\sqrt{t^{2}+t+1}-1}{t}$ 
+Using L' Hospital
+$\lim _\limits{t \rightarrow 0} \frac{\frac{2 t+1}{2 \sqrt{t^{2}+t+1}}}{1}$ 
+= $\frac{1}{2}$
+
+Q4. $\mathop {lim}\limits_{x \to \infty } \;\;\left( {\sqrt {{x^2} + 1} - x} \right)$ is equal to
+    (A) 2
+    (B) $\frac{1}{2}$
+    (C) 0   <-- CORRECT
+    (D) -1
+    Answer: C
+    Explanation: Put x = $\frac1t$ 
+Then, $\mathop {lim}\limits_{t \to 0 }\;\frac{\left( {\sqrt {1+{t^2}} - 1} \right)}{t}$ 
+Applying L'Hospital 
+$\mathop {lim}\limits_{t \to 0 }\frac{\frac{2t}{2\sqrt{1+t^2}}}{1}$ = 0
+
+Q5. $\lim \limits_{x \rightarrow \frac{\pi}{4}} \frac{\tan x-1}{x-\frac{\pi}{4}}$ is equal to
+    (A) 0
+    (B) 1
+    (C) $\frac 12$
+    (D) 2   <-- CORRECT
+    Answer: D
+    Explanation: Let $x-\frac{\pi}{4}$ = t
+$\Rightarrow \lim \limits_{t \rightarrow 0} \frac{\tan \left(\frac{\pi}{4}+t\right)-1}{t}$ 
+$\Rightarrow \lim \limits_{t \rightarrow 0} \frac{2 \tan t}{(1-\tan t)(t)}$ 
+= 2
+
+Q6. $\lim \limits_{h \to 0} \frac{\sin \sqrt{x+h-\sin \sqrt{x}}}{h}$ is equal to
+    (A) $\frac {cos \sqrt x } {3\sqrt x }$
+    (B) $\frac{\cos \sqrt{x}}{2 \sqrt{x}}$   <-- CORRECT
+    (C) $\frac {1} {2\sin \sqrt x }$
+    (D) $\sin \sqrt x $
+    Answer: B
+    Explanation: $\lim \limits_{h \rightarrow 0} \frac{2 \cos \left(\frac{\sqrt{x+h}+\sqrt{x}}{2}\right) \sin \left(\frac{\sqrt{x+h}-\sqrt{x}}{2}\right)}{h}$
+using L'Hospital
+$\Rightarrow \frac{\cos \sqrt{x}}{2 \sqrt{x}}$
+
+Q7. $\mathop {lim}\limits_{x \to 1} \;\left( {\cos \left[ x \right]} \right)$ is equal to
+    (A) cos 1
+    (B) does not exist   <-- CORRECT
+    (C) 0
+    (D) 1
+    Answer: B
+    Explanation: R.H.L. = $\underset{x \rightarrow 1^{+}}{lim}(\cos [x])$ = cos 1 = 1
+L.H.L = $\underset{x \rightarrow 1^{-}}{lim}(\cos [x])$ = cos 0 = 0
+Since L.H.L $\ne$ R.H.L therefore limit does not exist.
+
+Q8. $\lim \limits_{x \rightarrow 0} \frac{\tan x}{\log (1+x)}$ is equal to
+    (A) does not exist
+    (B) log 2
+    (C) 1   <-- CORRECT
+    (D) 0
+    Answer: C
+    Explanation: $\lim \limits_{x \rightarrow 0} \frac{\tan x}{\log (1+x)} \cdot \frac{x}{x}$
+$\Rightarrow \lim \limits_{x \rightarrow 0} \frac{\tan x}{x} \cdot \frac{1}{\frac{\log (1+x)}{x}}$ 
+$\Rightarrow$ 1$\cdot$1 = 1
+
+Q9. If f(x) = $\int \frac{x+\sin x}{x+\cos x} d x$, then $\lim\limits_{x \to \infty } f'(x) $ =
+    (A) $\infty $
+    (B) 2
+    (C) 1   <-- CORRECT
+    (D) 0
+    Answer: C
+    Explanation: Substitute x with $\frac{1}{t}$ 
+$\Rightarrow$ $\lim \limits_{t \rightarrow 0} \frac{1+t \sin \frac{1}{t}}{1+t \cos \frac{1}{t}}$ 
+= 1
+
+Q10. $\lim \limits_{x \rightarrow 0}\left(\frac{1+\tan x}{1-\tan x}\right)^{\frac{1}{x}}$ is equal to
+    (A) 1
+    (B) 0
+    (C) e^2   <-- CORRECT
+    (D) 2
+    Answer: C
+    Explanation: The function is the form of $1^{\infty}$
+$\Rightarrow$ $\Rightarrow \lim \limits_{x \rightarrow 0} e^{\left(\frac{1+\tan x}{1-\tan x}-1\right) \cdot \frac{1}{x}}$ 
+= e^2
+
+Q11. $\lim \limits_{x \rightarrow 0} \frac{\sin x^n}{(\sin x)^m}$, n > m > 0 is equal to
+    (A) 0   <-- CORRECT
+    (B) $\frac n m$
+    (C) 1
+    (D) $\frac m n$
+    Answer: A
+    Explanation: $\lim \limits_{x \rightarrow 0} \frac{\sin x^n}{(\sin x)^m} \cdot \frac{x^{m+n}}{x^{m+n}}$
+$\Rightarrow \lim \limits_{x \rightarrow 0} \frac{\sin x^n}{x^n} \cdot \frac{x^m}{(\sin x)^m} \cdot \frac{x^n}{x^m}$ 
+$\Rightarrow$ $1.1^{m} . x^{n-m}$
+$\Rightarrow$ 1(0) = 0
+
+Q12. $\lim \limits_{x \rightarrow 4} \frac{3-\sqrt{5+x}}{1-\sqrt{5-x}}$ =
+    (A) does not exist
+    (B) 0
+    (C) $ - \frac{1}{3}$   <-- CORRECT
+    (D) $\frac 1 3$
+    Answer: C
+    Explanation: Equation is in the form of $\frac{0}{0}$
+Using L'Hospital rule we get $ \frac{-\frac{1}{2 \sqrt{5+x}}}{\frac{1}{2 \sqrt{5-x}}}$
+Substituting x = 4 we get $\frac{-1}{3}$
+
+Q13. If G(x) = $\sqrt {25 - {x^2}} $ then $\lim \limits_{x \rightarrow 1} \frac{G(x)-G(1)}{x-1}$ has the value
+    (A) $\frac {1} {24}$
+    (B) $\frac {-1}{\sqrt {24} }$   <-- CORRECT
+    (C) $ - \sqrt {24} $
+    (D) $\frac 1 5$
+    Answer: B
+    Explanation: The equation is in the form of $\frac{0}{0}$ 
+Using L' Hospital rule we have $\frac{\frac{1}{2 \sqrt{25-x^{2}}} \cdot(-2 x)}{1}$ 
+Substituting x = 1 we get $\frac{-1}{\sqrt{24}}$
+
+Q14. If $y = \sqrt {\log x + \sqrt {\log x + \sqrt {\log x + ...to\;\infty } } } $ then $\frac {dy} {dx}$ is equal to
+    (A) $\frac{1}{x(2 y-1)}$   <-- CORRECT
+    (B) $\frac{y}{2 x-1}$
+    (C) $\frac{x}{2 y-1}$
+    (D) $\frac{\log x}{(2 y-1)}$
+    Answer: A
+    Explanation: y = $\sqrt{\log x+y}$
+y^2 = log x + y
+2yy' = $\frac{1}{x}+y^{\prime}$
+y' = $\frac{1}{(x)(2 y-1)}$
+
+Q15. If f be a function such that f(9) = 9 and f'(9) = 3, then $\lim\limits_{x \to 9} \frac{\sqrt{f(x)}-3}{\sqrt{x}-3}$ is equal to
+    (A) 0
+    (B) 1
+    (C) 3   <-- CORRECT
+    (D) 9
+    Answer: C
+    Explanation: Using L'Hospital
+$\Rightarrow \lim \limits_{x \rightarrow 9} \frac{\frac{f^{\prime}(x)}{\sqrt{f(x)}}}{\frac{1}{2^{\sqrt{x}}}}$
+$\Rightarrow \lim \limits_{x \rightarrow 9} \frac{\sqrt{x} \cdot f^{\prime}(x)}{\sqrt{f(x)}}$
+Substituting the given values; we get 3
+
+========================================================================
+Limits and Derivatives Test 04  (id 665) [PAID]
+CBSE > Class 11 > Mathematics > Limits and Derivatives
+Questions: 15 | Answers: YES
+========================================================================
+
+Q1. $\lim \limits_{h \rightarrow 0} \frac{\sqrt[3]{8+h}-2}{h}$ is equal to
+    (A) $\frac 1 {12}$   <-- CORRECT
+    (B) 2
+    (C) $\frac {1 }{24}$
+    (D) $\frac 13$
+    Answer: A
+    Explanation: Using L' Hospital Rule;
+$\Rightarrow \lim \limits_{h \rightarrow 0} \frac{\left(\frac{1}{3}\right)(8+h)^{\frac{-2}{3}}}{1}$ 
+$\Rightarrow$ $\frac{1}{12}$
+
+Q2. If f (x) = $\sqrt {1 - {x^2}} $, x $\in$ (0, 1), then f'(x), is equal to
+    (A) $\frac{1}{\sqrt{1-x^2}}$
+    (B) $\sqrt {{x^2} - 1} $
+    (C) $\frac{-x}{\sqrt{1-x^2}}$   <-- CORRECT
+    (D) $\sqrt {1 - {x^2}} $
+    Answer: C
+    Explanation: f(x) = $\sqrt {1 - {x^2}} $
+f'(x) = $\frac{1}{2 \sqrt{1-x^2}}-2x$ = $\frac{-x}{\sqrt{1-x^2}}$
+
+Q3. If y = sin^-1 x and z = ${\cos ^{ - 1}}\sqrt {1 - {x^2}}$, then $\frac {dy} {dz}$ =
+    (A) 0
+    (B) 1   <-- CORRECT
+    (C) -1
+    (D) $\tan ^{-1} \frac{x}{\sqrt{1-x^2}}$
+    Answer: B
+    Explanation: We have;
+sin y = x and cos z = $\sqrt{1-x^{2}}$ $\Rightarrow$ cos z = cos y
+$\Rightarrow$ z = y
+$\Rightarrow$ $\frac{dy}{dz}$ = 1
+
+Q4. $\frac{d}{d x}\left\{\tan ^{-1}\left(\frac{3 x-x^3}{1-3 x^2}\right)\right\}$ is equal to
+    (A) $\frac{3}{1+x^2}$   <-- CORRECT
+    (B) sec^23x
+    (C) $\frac {1}{1 + x^2}$
+    (D) $\frac {3}{1 + 9x^2}$
+    Answer: A
+    Explanation: Substitute x = tan $\theta$; $\frac{dx}{d\theta}$ = sec^2 $\theta$ 
+$\Rightarrow$ y = 3$\theta$ 
+$\Rightarrow$ $\frac{dy}{dx}$ = 3 cos^2 $\theta$ = $\frac{3}{1+x^{2}}$
+
+Q5. The function, f(x) = (x - a)^2 $\cos \frac {1} {x - a}$ for x $\ne$ 0 and f(a) = 0, is
+    (A) not continuous at x = a
+    (B) continuous but not derivable at x = 0
+    (C) neither continuous nor derivable at x = a
+    (D) derivable at x = a   <-- CORRECT
+    Answer: D
+    Explanation: Substitute x - a = t; then the function will become
+$\Rightarrow \lim \limits_{t \rightarrow 0} t^2 \cos \frac{1}{t}$ 
+$\Rightarrow$ 0
+Finite number = 0
+f(a) = 0
+
+Q6. $\frac{d}{d x}\left(\cos ^{-1}\left(\frac{x^{-1}-x}{x^{-1}+x}\right)\right)$ is equal to
+    (A) $\frac {2} {1 + x^2}$, x > 0   <-- CORRECT
+    (B) $\frac { - 2} {\sqrt {1 + x^2}}$
+    (C) 1 - x^2
+    (D) $\frac {4} {1 + {x^2}}$, x > 0
+    Answer: A
+    Explanation: Substitute x = tan $\theta$; $\frac{d x}{d \theta}=\sec ^{2} \theta$ 
+$\Rightarrow$ y = 2$\theta$ 
+$\Rightarrow$ $\frac{d y}{d x}=2 \cos ^{2} \theta$ 
+$\Rightarrow$ $\frac{2}{1+x^{2}}$, x > 0
+
+Q7. $\frac{d}{d x}\left(\sin ^{-1}\left(\frac{2}{x^{-1}+x}\right)\right)$ is equal to
+    (A) $\frac {2} {1 + {x^2}}$, 0 |x| < 1   <-- CORRECT
+    (B) $\frac {1} {\sqrt {x + x^2}} $
+    (C) $\sqrt{1-x^2}$
+    (D) $\frac {2} {\sqrt {1 + x^2}}$, |x| < 1
+    Answer: A
+    Explanation: Substitute x = tan $\theta$; $\frac{d x}{d \theta}=\sec ^{2} \theta$ 
+$\Rightarrow$ y = 2$\theta$ 
+$\Rightarrow$ $\frac{d y}{d x}=2 \cos ^{2} \theta$ 
+$\Rightarrow$ $\frac{2}{1+x^{2}}$; 0 < |x| < 1
+
+Q8. $\frac{d}{d x}\left(\tan ^{-1}\left(\frac{x}{\sqrt{1-x^2}}\right)\right)$ is equal to
+    (A) $\frac {1} {1 + x^2}$
+    (B) $\frac {1} {\sqrt {1 - x^2}} $   <-- CORRECT
+    (C) $\frac { - 1} {\sqrt 1 - {x^2}} $
+    (D) 1 + x^2
+    Answer: B
+    Explanation: Substitute x = sin $\theta$; $\frac{d x}{d \theta}$ = cos $\theta$ 
+$\Rightarrow$ y = $\theta$
+$\Rightarrow$ $\frac{d y}{d x}$ = sec $\theta$
+$\Rightarrow$ $\frac {1} {\sqrt {1 - x^2}} $
+
+Q9. $\frac{d}{d x}\left(\tan ^{-1}\left(\frac{2}{x^{-1}-x}\right)\right)$ is equal to
+    (A) $\frac {1} {1 + x^2},x \ne 0, \pm 1$
+    (B) $\frac { - 2} {\sqrt {1 - x^2}} $
+    (C) $\frac{2}{1+x^2},x \ne 0, \pm 1$   <-- CORRECT
+    (D) $\sqrt{1-x^2}$
+    Answer: C
+    Explanation: Substitute x = tan $\theta$; $\frac{d x}{d \theta}=\sec ^{2} \theta$ 
+$\Rightarrow$ y = 2$\theta$ 
+$\Rightarrow$ $\frac{d y}{d x}=2 \cos ^{2} \theta$ 
+$\Rightarrow$ $\frac{2}{1+x^{2}}$
+
+Q10. If $\sin x = \frac {t} {\sqrt {1 + t^2}}$, then $\frac {dx} {dt}$ is equal to
+    (A) $\frac {1} {1 + t^2}$   <-- CORRECT
+    (B) $\frac {1}{\left( 1 + t^2 \right)^{3/2}}$
+    (C) $\frac {1} {\sqrt {1 - t^2}} $
+    (D) $\cos x+ t^2$
+    Answer: A
+    Explanation: We have,
+x = $\sin ^{-1} \frac{t}{\sqrt{1+t^2}}$
+let t = tan $\theta$
+$\Rightarrow$ x = $\theta \Rightarrow \frac{d x}{d \theta}=1$
+Also, $\frac{d t}{d \theta}=\sec ^2 \theta$
+Now, $\frac{d x}{d t}=\frac{1}{\sqrt{1+t^2}}$
+
+Q11. $\frac{d}{d x}\left(\sin ^{-1} x\right)=\frac{1}{\sqrt{1-x^2}}$ holds true for
+    (A) all real x
+    (B) all x $\in $ ( - 1, 1)   <-- CORRECT
+    (C) all real x for which |x| > 1
+    (D) all x [-1, 1]
+    Answer: B
+    Explanation: Domain of sin^-1 x = x $\in$ [-1, 1] ......(i)
+Domain of $\frac{1}{\sqrt{\left(1-x^{2}\right)}}$ = x $\in$ (-1, 1) ....(ii)
+Intersection of (i) and (ii) will give (-1, 1)
+
+Q12. Derivative of tan $\sqrt {{x^2} + 1}$ w.r.t $\sqrt{x^{2}+1}$ is
+    (A) ${\sec ^2}\sqrt {{x^2} + 1} $   <-- CORRECT
+    (B) $\frac{2 x}{\sqrt{1+x^2}}$
+    (C) sec^2 x
+    (D) $\sec ^2\left(\frac{x}{\sqrt{x^2+1}}\right)$
+    Answer: A
+    Explanation: Let $\sqrt{x^{2}+1}$ = t
+Now we have to find $\frac{d(\tan t)}{d t}$ 
+$\Rightarrow$ sec^2 t = $\sec ^{2} \sqrt{x^{2}+1}$
+
+Q13. If y = $\frac {1 - x} {1 + x}$ then y_6 =
+    (A) $\frac{(-2).(7!)}{(1 + x)^6}$
+    (B) $\frac{6!}{{{{(1 + x)}^7}}}$
+    (C) $\frac{(-2).(6!)}{(1 + x)^7}$
+    (D) $\frac{(2).(6!)}{(1 + x)^7}$   <-- CORRECT
+    Answer: D
+    Explanation: y_1 = $\frac{-2}{(1+x)^2}$ 
+y_2 = $\frac{(-2)(-2)}{(1+x)^3}$ 
+y_3 = $\frac{(-2)(-2)(-3)}{(1+x)^4}$ 
+y_4 = $\frac{(-2)(-2)(-3)(-4)}{(1+x)^5}$ 
+y_5 = $\frac{(-2)(-2)(-3)(-4)(-5)}{(1+x)^6}$ 
+y_6 = $\frac{(-2)(-2)(-3)(-4)(-5)(-6)}{(1+x)^7}$
+= $\frac{(2).(6!)}{(1 + x)^7}$
+
+Q14. If y = log $(x + \sqrt {1 + {x^2})} $ then $\frac {d^2y} {dx^2}$ =
+    (A) $\frac { - x} {(x^2 + 1)^{3/2}}$   <-- CORRECT
+    (B) $\frac {x} {(x^2 + 1)^{3/2}}$
+    (C) $\frac{-2 x}{\left(x^2+1\right)^{3 / 2}}$
+    (D) $\frac {1} {\sqrt {x^2 + 1}}$
+    Answer: A
+    Explanation: Substitute x = tan $\theta$ 
+Then y = log (sin $\theta$ + 1) - log (cos $\theta$)
+y'($\theta$) = $\left(\frac{\cos \theta}{1+\sin \theta}\right)-\left(\frac{-\sin \theta}{\cos \theta}\right)$ 
+y'($\theta$) = sec $\theta$ 
+y'(x) = $\frac{1}{\sqrt{\left(1+x^{2}\right)}}$ 
+y''(x) = $\frac{-x}{\left(x^{2}+1\right)^{3 / 2}}$
+
+Q15. If y = log x, then y_n =
+    (A) $\frac{(-1)^{n-1}(n-1) !}{x^n}$   <-- CORRECT
+    (B) $\frac{(-1)^n(n-1) !}{x^n}$
+    (C) $\frac{(-1)^n \cdot n !}{x^{n+1}}$
+    (D) $\frac{(-1)^n \cdot n !}{x^n}$
+    Answer: A
+    Explanation: y = log x 
+y' = $\frac{1}{x}$ 
+y'' = $-\frac{1}{x^{2}}$ 
+y''' = $\frac{1.2}{x^{3}}$ 
+y'''' = $-\frac{1.2 .3}{x^{4}}$ .......
+y^'n = $\frac{(-1)^{n-1}(n-1) !}{x^{n}}$
+
+========================================================================
+Limits and Derivatives Test 05  (id 666) [PAID]
+CBSE > Class 11 > Mathematics > Limits and Derivatives
+Questions: 15 | Answers: YES
+========================================================================
+
+Q1. The derivative of $\sec ^{-1}\left(\frac{1}{2 x^2-1}\right)$ with respect to $\sqrt {1 - {x^2}} $ at x = $\frac{1}{2}$ is
+    (A) -2
+    (B) 4   <-- CORRECT
+    (C) 2
+    (D) 1
+    Answer: B
+    Explanation: Substitute x = cos $\theta$ 
+$\Rightarrow$ $\frac{d(2 \theta)}{d(\sin \theta)}=\frac{\frac{d(2 \theta)}{d t}}{\frac{d(\sin \theta)}{d t}}$ 
+$\Rightarrow$ 2 sec $\theta$ 
+$\Rightarrow$ 2(2) = 4
+
+Q2. $\frac{d}{d x}\left(\frac{x}{2} \sqrt{x^2+a^2}+\frac{a^2}{2} \log \left(x+\sqrt{x^2+a^2}\right)\right)$ is equal to
+    (A) $\sqrt {{x^2} + {a^2}} $   <-- CORRECT
+    (B) $\frac{1}{x+\sqrt{x^2+a^2}}$
+    (C) $\frac {1} {\sqrt {x^2 + a^2}} $
+    (D) $\sqrt{x^2-a^2}$
+    Answer: A
+    Explanation: y' = $\left(\frac{x}{2}\right) \cdot\left(\frac{2 x}{2 \sqrt{x^{2}+a^{2}}}\right)$ + $(\sqrt{x^{2}+a^{2}}) \cdot\left(\frac{1}{2}\right)+\left(\frac{a^{2}}{2}\right)\left[\frac{1+\left(\frac{2 x}{2 \sqrt{x^{2}+a^{2}}}\right)}{x+\sqrt{x^{2}+a^{2}}}\right]$
+$\Rightarrow$ $\sqrt{x^{2}+a^{2}}$
+
+Q3. $\frac{d}{d x}\left(x \sqrt{a^2-x^2}+a^2 \sin ^{-1}\left(\frac{x}{a}\right)\right)$ is equal to
+    (A) $\frac {1} {\log x}$
+    (B) $\sqrt {{a^2} - {x^2}} $
+    (C) 1 + x^2
+    (D) $2\sqrt {{a^2} - {x^2}} $   <-- CORRECT
+    Answer: D
+    Explanation: y' = $(x) \cdot\left(\frac{-2 x}{2 \sqrt{a^{2}-x^{2}}}\right)+(\sqrt{a^{2}-x^{2}})$ + $\left(a^{2}\right) \frac{1}{\sqrt{1-\left(\frac{x}{a}\right)^{2}}} \cdot\left(\frac{1}{a}\right)$ 
+$\Rightarrow$ $2 \sqrt{a^{2}-x^{2}}$
+
+Q4. $\frac{d}{d x}\left(\sin ^{-1}\left(\sqrt{1-x^2}\right)\right)$is equal to
+    (A) $-\frac{x}{\sqrt{1-x^2}}$ for 0 < |x| < 1
+    (B) $-\frac{1}{\sqrt{1-x^2}}$ for |x| < 1
+    (C) $-\frac{x}{|x| \sqrt{1-x^2}}$ for 0 < |x| < 1   <-- CORRECT
+    (D) 1 + x^2
+    Answer: C
+    Explanation: Substitute x = cos $\theta$ 
+$\Rightarrow$ $\frac{d x}{d \theta}$ = -sin $\theta$ 
+$\Rightarrow$ $\frac{d y}{d \theta}$ = 1
+$\Rightarrow$ $\frac{d y}{d x}=-\frac{x}{|x| \sqrt{1-x^{2}}}$; for 0 < |x| < 1
+
+Q5. $\frac{d}{d x}\left(\cos ^{-1}\left(\sqrt{\left.1-x^2\right)}\right)\right.$ is equal to
+    (A) $\frac{x}{|x| \sqrt{1-x^2}}$ for 0 <|x| < 1   <-- CORRECT
+    (B) $\frac{1}{\sqrt{1-x^2}}$ for 0 < |x| < 1
+    (C) $\frac{1}{\sqrt{1+x^2}}$ for |x| < 1
+    (D) $\frac{2}{\sqrt{4-(2 x)^2}}$ for |x| < 1
+    Answer: A
+    Explanation: Substitute x = sin $\theta$; $\frac{d x}{d \theta}$ = cos $\theta$ 
+$\Rightarrow$ y = $\theta$ 
+$\Rightarrow$ $\frac{\frac{d y}{d \theta}}{\frac{d x}{d \theta}}=\sec \theta$ 
+$\Rightarrow$ $\frac{x}{|x| \sqrt{1-x^{2}}}$ for 0 < |x| < 1
+
+Q6. $\frac{d}{d x}\left(\sec ^{-1} x\right)$ is equal to
+    (A) $\frac{1}{3 x \sqrt{x^2-x}}$ for |x| > 1
+    (B) $\frac{1}{|x| \sqrt{x^2-1}}$ for |x| > 1   <-- CORRECT
+    (C) $\frac{-1}{x \sqrt{x^2-1}}$ for |x| > 1
+    (D) $\frac{1}{1+x^2}$
+    Answer: B
+    Explanation: y = sec^-1 x = sec y = x
+$\Rightarrow$ y' = cot y cos y
+$\Rightarrow$ $\frac{1}{|x| \sqrt{x^{2}-1}}$ for |x| > 1
+
+Q7. $\frac{d}{d x}\left(\cos e c^{-1} x\right)$ is equal to
+    (A) $\frac{-1}{2 x \sqrt{x^2-1}}$ for |x| > 1
+    (B) $\frac{1}{x \sqrt{x^3-2 x}}$ for |x| > 1
+    (C) $\frac{1}{x \sqrt{x^2-1}}$ for |x| > 1
+    (D) $\frac{-1}{|x| \sqrt{x^2-1}}$ for |x| > 1   <-- CORRECT
+    Answer: D
+    Explanation: y = cosec^-1 x = cosec y = x
+$\Rightarrow$ y' = sin y tan y 
+$\Rightarrow$ $\frac{-1}{|x| \sqrt{x^{2}-1}}$ for |x| > 1
+
+Q8. What is the value of $\frac{d}{d x}\left(\frac{\sec x}{\operatorname{cosec} x \tan x}\right)$ ?
+    (A) sinx
+    (B) 0   <-- CORRECT
+    (C) 1
+    (D) cosx
+    Answer: B
+    Explanation: $\frac{d}{d x}\left(\frac{\sec x}{\operatorname{cosec} x \tan x}\right)=\frac{d}{d x}\left(\frac{\frac{1}{\cos x}}{\frac{1}{\sin x} \cdot \frac{\sin x}{\cos x}}\right)$
+$ =\frac{d}{d x} $(1)
+$ =0 $
+
+Q9. $\frac{d^2}{d x^2}\left(\cos ^{-1}(1-x)\right)$ is equal to
+    (A) $\frac{x-1}{\left(2 x-x^2\right)^{3 / 2}}$   <-- CORRECT
+    (B) $\frac{1}{1-x^2}$
+    (C) $\frac{1}{2\left(2 x-x^2\right)^{3 / 2}}$
+    (D) $\frac{1-x}{\left(2 x-x^2\right)^{3 / 2}}$
+    Answer: A
+    Explanation: y = cos^-1 (1 - x)
+$\Rightarrow$ cos y = 1 - x
+$\Rightarrow$ (-sin y)y' = -1
+$\Rightarrow$ y'' = -(y')^2 (cot y) = $\frac{(-\cos y)}{(\sin y)^{3}}$ 
+$\Rightarrow$ $\frac{x-1}{\left(2 x-x^{2}\right)^{\frac{3}{2}}}$
+
+Q10. If y = $\sqrt{x+\sqrt{x+\sqrt{x+\ldots+t o \infty} \infty}}$ then $\frac {dy} {dx}$ =
+    (A) $\frac {x} {y + 1}$
+    (B) $\frac {1} {2y - 1}$   <-- CORRECT
+    (C) $\frac {1} {2y + 1}$
+    (D) $\sqrt{\frac{x}{y+1}}$
+    Answer: B
+    Explanation: y = $\sqrt{( x+y)}$ 
+y^2 = x + y 
+2yy' = 1 + y'
+
+Q11. $\left\{ \begin{gathered} x\;\;\;\;\;\;,\;\;0 \leq x < 1 \\ 3 - x\;,\;\;\;1 \leq x \leq 2 \\ \end{gathered} \right.$, then at x = 1, f (x) is
+    (A) Limit exists at x = 1
+    (B) Left continuous at x = 1
+    (C) continuous at x = 1
+    (D) Right continuous at x = 1   <-- CORRECT
+    Answer: D
+    Explanation: Right continuous at x = 1
+
+Q12. f(x) = $ \left\{ \begin{gathered} {x^3},\;\;\left| x \right| \leq 1 \\ x\;\;,\;\;\left| x \right| > 1 \\ \end{gathered} \right.$ then f(x) is
+    (A) not derivable at – 1 and 1   <-- CORRECT
+    (B) not continuous at -1 and 1
+    (C) derivable at all x $ \in$ R
+    (D) not continuous at x = 0
+    Answer: A
+    Explanation: f(x) = $ \begin{cases} x & \quad x<-1\\ x^3 & \quad -1 \leq x\leq 1 \\ x & \quad x>1\\ \end{cases} $ 
+The function is continuous at x = -1 and 1 as at x = 1 $\mathop {lim}\limits_{x \to -1}f(x)$ and $\mathop {lim}\limits_{x \to 1}f(x)$ equals to (-1) and f(1) respectively.
+
+Q13. If x = f(t) and y = g (t), then $\frac {d^2y} {dx^2}$ is qual to
+    (A) $\frac{g^{\prime \prime}(t)}{f^{\prime \prime}(t)}$
+    (B) $\frac{g^{\prime \prime}(t) f^{\prime}(t)-g^{\prime}(t) f^{\prime \prime}(t)}{\left(f^{\prime}(t)\right)^3}$   <-- CORRECT
+    (C) $\frac{f^{\prime}(t) \cdot g^{\prime \prime}(t)}{g^{\prime}(t) \cdot f^{\prime \prime}(t)}$
+    (D) $\frac{g^{\prime \prime}(t) f^{\prime}(t)-g^{\prime}(t) f^{\prime \prime}(t)}{\left(f^{\prime}(t)\right)^2}$
+    Answer: B
+    Explanation: 1 = $f^{\prime}(t) \frac{d t}{d x}$ and $\frac{d y}{d x}=g^{\prime}(t) \frac{d t}{d x}$ 
+$\frac{d y}{d x}=\left(\frac{g^{\prime}(t)}{f^{\prime}(t)}\right)$ 
+$\Rightarrow$ $\frac{d^{2} y}{d x^{2}}=\frac{g^{\prime \prime}(t) f^{\prime}(t)-g^{\prime}(t) f^{\prime \prime}(t)}{\left(f^{\prime}(t)\right)^{2}} \cdot \frac{d t}{d x}$ 
+$\frac{d^{2} y}{d x^{2}}=\frac{g^{\prime \prime}(t) f^{\prime}(t)-g^{\prime}(t) f^{\prime \prime}(t)}{\left(f^{\prime}(t)\right)^{3}}$
+
+Q14. f(x) = |[x] x| in -1 $ \le $ x $ \le $ 2 is
+    (A) continuous at x = 2
+    (B) continuous at x = 0   <-- CORRECT
+    (C) discontinuous at x = 0
+    (D) differentiable at x = 0
+    Answer: B
+    Explanation: f(x) = $ \begin{cases} -x & \quad -1\leq x<0\\ 0 & \quad 0 \leq x< 1 \\ x & \quad 1\leq x\leq2\\ \end{cases} $ 
+Function is continuous at x = 0 but discontinuous at x = 1
+
+Q15. $\frac{d}{d x}\left(\tan ^{-1}\left(\frac{x-a}{1+x a}\right)\right)$, x, a > 0, is
+    (A) ${\tan ^1}\sqrt x - {\tan ^{ - 1}}\sqrt a $
+    (B) $\frac {1} {1 + x}$
+    (C) $\frac {1} {2\sqrt x (1 + x^2)}$   <-- CORRECT
+    (D) $\frac{1}{1+x}-\frac{1}{1+a}$
+    Answer: C
+    Explanation: $\frac{d}{d x}\left(\tan ^{-1}\left(\frac{x-a}{1+x a}\right)\right)$ = $\frac{d}{d x}\left(\tan ^{-1} \sqrt{x}\right)$ - $\frac{d}{d x}\left(\tan ^{-1} \sqrt{a}\right)$ 
+$\Rightarrow$ $\left(\frac{1}{1+x^{2}}\right)\left(\frac{1}{2 \sqrt{x}}\right)+0$

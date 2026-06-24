@@ -3,27 +3,34 @@
 // screens expect: { id, text, difficulty, options: [{ key, label, optionId }] }.
 // It also converts the HTML + LaTeX in the scraped data into readable text.
 
-import c1342 from './physics_questions/1342_Units_and_Measurements.json';
-import c1343 from './physics_questions/1343_Motion_in_A_Straight_Line.json';
-import c1344 from './physics_questions/1344_Motion_in_A_Plane.json';
-import c1345 from './physics_questions/1345_Laws_of_Motion.json';
-import c1346 from './physics_questions/1346_Work_Energy_and_Power.json';
-import c1347 from './physics_questions/1347_System_of_Particles_and_Rotational_Motion.json';
-import c1348 from './physics_questions/1348_Gravitation.json';
-import c1349 from './physics_questions/1349_Mechanical_Properties_of_Solids.json';
-import c1350 from './physics_questions/1350_Mechanical_Properties_of_Fluids.json';
-import c1351 from './physics_questions/1351_Thermal_Properties_of_Matter.json';
-import c1352 from './physics_questions/1352_Thermodynamics.json';
-import c1353 from './physics_questions/1353_Kinetic_Theory.json';
-import c1354 from './physics_questions/1354_Oscillations.json';
-import c4529 from './physics_questions/4529_Waves.json';
-// Fetched answers, keyed by question id: { id: { correctAnswer, correctOptionId, explanation } }
-import answerKey from './physics_questions/answer_key.json';
-
-const rawChapters = [
-  c1342, c1343, c1344, c1345, c1346, c1347, c1348,
-  c1349, c1350, c1351, c1352, c1353, c1354, c4529,
+// Chapter metadata — lightweight. Each chapter's JSON is loaded LAZILY (only when
+// that chapter is actually opened) via a static require() string, so the app does
+// not parse the whole multi-MB question bank into memory at startup.
+const META = [
+  { id: 1342, name: "Units and Measurements", count: 564, load: () => require("./physics_questions/1342_Units_and_Measurements.json") },
+  { id: 1343, name: "Motion in A Straight Line", count: 380, load: () => require("./physics_questions/1343_Motion_in_A_Straight_Line.json") },
+  { id: 1344, name: "Motion in A Plane", count: 703, load: () => require("./physics_questions/1344_Motion_in_A_Plane.json") },
+  { id: 1345, name: "Laws of Motion", count: 606, load: () => require("./physics_questions/1345_Laws_of_Motion.json") },
+  { id: 1346, name: "Work Energy and Power", count: 514, load: () => require("./physics_questions/1346_Work_Energy_and_Power.json") },
+  { id: 1347, name: "System of Particles and Rotational Motion", count: 667, load: () => require("./physics_questions/1347_System_of_Particles_and_Rotational_Motion.json") },
+  { id: 1348, name: "Gravitation", count: 808, load: () => require("./physics_questions/1348_Gravitation.json") },
+  { id: 1349, name: "Mechanical Properties of Solids", count: 232, load: () => require("./physics_questions/1349_Mechanical_Properties_of_Solids.json") },
+  { id: 1350, name: "Mechanical Properties of Fluids", count: 624, load: () => require("./physics_questions/1350_Mechanical_Properties_of_Fluids.json") },
+  { id: 1351, name: "Thermal Properties of Matter", count: 720, load: () => require("./physics_questions/1351_Thermal_Properties_of_Matter.json") },
+  { id: 1352, name: "Thermodynamics", count: 599, load: () => require("./physics_questions/1352_Thermodynamics.json") },
+  { id: 1353, name: "Kinetic Theory", count: 426, load: () => require("./physics_questions/1353_Kinetic_Theory.json") },
+  { id: 1354, name: "Oscillations", count: 644, load: () => require("./physics_questions/1354_Oscillations.json") },
+  { id: 4529, name: "Waves", count: 527, load: () => require("./physics_questions/4529_Waves.json") },
 ];
+
+// Fetched answers, keyed by question id. Loaded lazily + cached on first use.
+let _answerKey = null;
+function getAnswerKey() {
+  if (_answerKey) return _answerKey;
+  try { _answerKey = require('./physics_questions/answer_key.json'); }
+  catch (e) { _answerKey = {}; }
+  return _answerKey;
+}
 
 const LETTERS = 'ABCDEFGHIJ'.split('');
 
@@ -109,7 +116,7 @@ function normalizeQuestion(q) {
     optionId: o.id ?? null,
   }));
   // Answers come from the fetched answer key (chapter files have null answers).
-  const ak = answerKey[q.id] || {};
+  const ak = getAnswerKey()[q.id] || {};
   const correctOptionId = q.correct_option_id ?? ak.correctOptionId ?? null;
   let correctAnswer = null;
   if (correctOptionId != null) {
@@ -127,15 +134,27 @@ function normalizeQuestion(q) {
   };
 }
 
-export const chapters = rawChapters.map((c) => ({
-  chapter_id: c.chapter_id,
-  chapter_name: c.chapter_name,
-  count: c.count ?? (c.questions ? c.questions.length : 0),
-  questions: (c.questions || []).map(normalizeQuestion),
-}));
+// Cheap, synchronous list for the chapter pickers (no JSON parsed).
+export const chapterList = META.map((m) => ({ id: m.id, name: m.name, count: m.count }));
+
+// Lazily build + cache a chapter's normalized questions on first access.
+const _chapterCache = {};
+function buildChapter(meta) {
+  if (_chapterCache[meta.id]) return _chapterCache[meta.id];
+  const raw = meta.load() || {};
+  const ch = {
+    chapter_id: meta.id,
+    chapter_name: meta.name,
+    count: meta.count ?? (raw.questions ? raw.questions.length : 0),
+    questions: (raw.questions || []).map(normalizeQuestion),
+  };
+  _chapterCache[meta.id] = ch;
+  return ch;
+}
 
 export function getChapter(chapterId) {
-  return chapters.find((c) => c.chapter_id === Number(chapterId)) || null;
+  const meta = META.find((m) => m.id === Number(chapterId));
+  return meta ? buildChapter(meta) : null;
 }
 
 export function getQuestions(chapterId) {
@@ -143,12 +162,11 @@ export function getQuestions(chapterId) {
   return ch ? ch.questions : [];
 }
 
-export const allQuestions = chapters.flatMap((c) =>
-  c.questions.map((q) => ({ ...q, chapterId: c.chapter_id, chapterName: c.chapter_name }))
-);
-
-export const chapterList = chapters.map((c) => ({
-  id: c.chapter_id,
-  name: c.chapter_name,
-  count: c.count,
-}));
+// All questions across every chapter — lazy (parses all chapters on call). Nothing
+// imports this at startup; kept for compatibility.
+export function getAllQuestions() {
+  return META.flatMap((m) => {
+    const ch = buildChapter(m);
+    return ch.questions.map((q) => ({ ...q, chapterId: ch.chapter_id, chapterName: ch.chapter_name }));
+  });
+}

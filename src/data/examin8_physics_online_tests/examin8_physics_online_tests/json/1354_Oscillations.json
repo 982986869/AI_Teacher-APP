@@ -1,0 +1,3162 @@
+{
+  "id": 1354,
+  "name": "Oscillations",
+  "full_name": "CBSE > Class 11 > Physics > Oscillations",
+  "tests": [
+    {
+      "testPaperID": 592,
+      "testPaperName": "Oscillations Test 01",
+      "is_paid": false,
+      "category_full_name": "CBSE > Class 11 > Physics > Oscillations",
+      "noOfQuestions": 15,
+      "has_answers": true,
+      "sections": [
+        {
+          "sectionName": "General",
+          "sectionID": null,
+          "questions": [
+            {
+              "questionID": 18169,
+              "question": "The pendulum of a wall clock executes",
+              "question_raw": "<p>The pendulum of a wall clock executes</p>",
+              "options": [
+                {
+                  "label": "A",
+                  "id": 27876,
+                  "text": "an oscillatory motion",
+                  "is_correct": true
+                },
+                {
+                  "label": "B",
+                  "id": 27878,
+                  "text": "a translatory motion",
+                  "is_correct": false
+                },
+                {
+                  "label": "C",
+                  "id": 27879,
+                  "text": "a circular motion",
+                  "is_correct": false
+                },
+                {
+                  "label": "D",
+                  "id": 27877,
+                  "text": "a rotary motion",
+                  "is_correct": false
+                }
+              ],
+              "correct_option_ids": [
+                27876
+              ],
+              "correct_option_labels": [
+                "A"
+              ],
+              "correct_option_texts": [
+                "an oscillatory motion"
+              ],
+              "explanation": "It executes simple harmonic motion because in this motion restoring force is directly proportional to the displacement towards the mean position at any time."
+            },
+            {
+              "questionID": 18170,
+              "question": "Oscillatory motion is best described by",
+              "question_raw": "<p>Oscillatory motion is best described by&nbsp;</p>",
+              "options": [
+                {
+                  "label": "A",
+                  "id": 27881,
+                  "text": "a rotational motion about an axis",
+                  "is_correct": false
+                },
+                {
+                  "label": "B",
+                  "id": 27883,
+                  "text": "combination of translational motion and rotational motion",
+                  "is_correct": false
+                },
+                {
+                  "label": "C",
+                  "id": 27882,
+                  "text": "a zig zag motion about a straight line",
+                  "is_correct": false
+                },
+                {
+                  "label": "D",
+                  "id": 27880,
+                  "text": "periodic to and fro motion",
+                  "is_correct": true
+                }
+              ],
+              "correct_option_ids": [
+                27880
+              ],
+              "correct_option_labels": [
+                "D"
+              ],
+              "correct_option_texts": [
+                "periodic to and fro motion"
+              ],
+              "explanation": "In oscillatory motion object moves to and fro about mean position periodically or after a particular interval of time. All oscillatory motions are periodic in nature."
+            },
+            {
+              "questionID": 18171,
+              "question": "Periodic motion is described as the motion that",
+              "question_raw": "<p>Periodic motion is described as the motion that</p>",
+              "options": [
+                {
+                  "label": "A",
+                  "id": 27884,
+                  "text": "repeats itself at irregular intervals of time.",
+                  "is_correct": false
+                },
+                {
+                  "label": "B",
+                  "id": 27885,
+                  "text": "repeats itself at regular intervals of time.",
+                  "is_correct": true
+                },
+                {
+                  "label": "C",
+                  "id": 27886,
+                  "text": "does not repeat itself at regular intervals of time.",
+                  "is_correct": false
+                },
+                {
+                  "label": "D",
+                  "id": 27887,
+                  "text": "changes at random intervals of time.",
+                  "is_correct": false
+                }
+              ],
+              "correct_option_ids": [
+                27885
+              ],
+              "correct_option_labels": [
+                "B"
+              ],
+              "correct_option_texts": [
+                "repeats itself at regular intervals of time."
+              ],
+              "explanation": "A motion of a body that repeats itself at regular intervals of time on the same path like rotation of earth around sun in 365.25 days is known as periodic motion."
+            },
+            {
+              "questionID": 18172,
+              "question": "Period of a periodic motion is the ________ interval of time after which the motion is __________.",
+              "question_raw": "<p>Period of a periodic motion is&nbsp;the ________&nbsp;interval of time after which the motion is __________.</p>",
+              "options": [
+                {
+                  "label": "A",
+                  "id": 27888,
+                  "text": "smallest, repeated",
+                  "is_correct": true
+                },
+                {
+                  "label": "B",
+                  "id": 27890,
+                  "text": "average, repeated",
+                  "is_correct": false
+                },
+                {
+                  "label": "C",
+                  "id": 27889,
+                  "text": "largest, repeated",
+                  "is_correct": false
+                },
+                {
+                  "label": "D",
+                  "id": 27891,
+                  "text": "mean, not repeated",
+                  "is_correct": false
+                }
+              ],
+              "correct_option_ids": [
+                27888
+              ],
+              "correct_option_labels": [
+                "A"
+              ],
+              "correct_option_texts": [
+                "smallest, repeated"
+              ],
+              "explanation": "The time period of oscillatory motion is the smallest interval of time for one complete oscillation. As when we apply the force on the bob, bob moves from mean position to extreme position then from extreme position to mean position and then again from mean to the extreme in opposite direction and at last come to mean position. The time taken by bob in this whole process is called period of oscillation."
+            },
+            {
+              "questionID": 18173,
+              "question": "Frequency of the periodic motion is",
+              "question_raw": "<p>Frequency of the periodic motion is</p>",
+              "options": [
+                {
+                  "label": "A",
+                  "id": 27893,
+                  "text": "time taken to complete one oscillation",
+                  "is_correct": false
+                },
+                {
+                  "label": "B",
+                  "id": 27892,
+                  "text": "the reciprocal of the period of oscillation",
+                  "is_correct": true
+                },
+                {
+                  "label": "C",
+                  "id": 27895,
+                  "text": "twice the period of oscillation",
+                  "is_correct": false
+                },
+                {
+                  "label": "D",
+                  "id": 27894,
+                  "text": "the reciprocal of the wave velocity",
+                  "is_correct": false
+                }
+              ],
+              "correct_option_ids": [
+                27892
+              ],
+              "correct_option_labels": [
+                "B"
+              ],
+              "correct_option_texts": [
+                "the reciprocal of the period of oscillation"
+              ],
+              "explanation": "Frequency is defined as number of oscillation completed by an oscillating body in unit time i.e. in one second during oscillatory motion.\n $\\nu=\\frac1T$"
+            },
+            {
+              "questionID": 18174,
+              "question": "For any periodic motion with a period T and displacement f(t), then",
+              "question_raw": "<p>For any periodic motion with a period T and displacement f(t), then</p>",
+              "options": [
+                {
+                  "label": "A",
+                  "id": 27896,
+                  "text": "f(t) = f(t + T - 1)",
+                  "is_correct": false
+                },
+                {
+                  "label": "B",
+                  "id": 27899,
+                  "text": "f (t) = f (2t + T)",
+                  "is_correct": false
+                },
+                {
+                  "label": "C",
+                  "id": 27897,
+                  "text": "f(t) = f(t + T)",
+                  "is_correct": true
+                },
+                {
+                  "label": "D",
+                  "id": 27898,
+                  "text": "f (t) = f (t + 2T + 1)",
+                  "is_correct": false
+                }
+              ],
+              "correct_option_ids": [
+                27897
+              ],
+              "correct_option_labels": [
+                "C"
+              ],
+              "correct_option_texts": [
+                "f(t) = f(t + T)"
+              ],
+              "explanation": "The periodic function is that function which repeats itself in equal interval of time or periods.\nThe function have same value for every \nf(t) = f(t + T) = f(t + nT)\ne.g. Trigonimetric function sin(x) is periodic with periodicity of $2\\mathrm\\pi$"
+            },
+            {
+              "questionID": 18175,
+              "question": "Any periodic function can be expressed as a superposition of:",
+              "question_raw": "<p>Any periodic function can be expressed as a superposition of:</p>",
+              "options": [
+                {
+                  "label": "A",
+                  "id": 27901,
+                  "text": "polynomial functions of different time periods with suitable coefficients.",
+                  "is_correct": false
+                },
+                {
+                  "label": "B",
+                  "id": 27900,
+                  "text": "sine and cosine functions of fixed time periods with suitable coefficients.",
+                  "is_correct": true
+                },
+                {
+                  "label": "C",
+                  "id": 27903,
+                  "text": "sine and cosine functions of increasing integral time period with suitable coefficients.",
+                  "is_correct": false
+                },
+                {
+                  "label": "D",
+                  "id": 27902,
+                  "text": "any trigonometric functions of real time periods with suitable coefficients.",
+                  "is_correct": false
+                }
+              ],
+              "correct_option_ids": [
+                27900
+              ],
+              "correct_option_labels": [
+                "B"
+              ],
+              "correct_option_texts": [
+                "sine and cosine functions of fixed time periods with suitable coefficients."
+              ],
+              "explanation": "Because sine and cosine functions both are periodic in nature and according to Fourier theorem a\" Fourier series\" is a way to represent a function as the sum of simple sine waves. More formally, it decomposes any periodic function or periodic signal into the sum of a (possibly infinite) set of simple oscillating functions, namely sines and cosines, or in simple terms any periodic function can be expressed as sum or superposition of sine and cosine functions with fixed time periods."
+            },
+            {
+              "questionID": 18176,
+              "question": "Simple harmonic motion is a motion represented by",
+              "question_raw": "<p>Simple harmonic motion is a motion represented by</p>",
+              "options": [
+                {
+                  "label": "A",
+                  "id": 27906,
+                  "text": "x (t) = A ($\\omega {\\rm{t}}$ + $\\varphi $)",
+                  "is_correct": false
+                },
+                {
+                  "label": "B",
+                  "id": 27904,
+                  "text": "x (t) = A cos ($\\omega {\\rm{t}}$ + $\\varphi $)",
+                  "is_correct": true
+                },
+                {
+                  "label": "C",
+                  "id": 27905,
+                  "text": "x (t) = A exp ($\\omega {\\rm{t}}$ + $\\varphi $)",
+                  "is_correct": false
+                },
+                {
+                  "label": "D",
+                  "id": 27907,
+                  "text": "x (t) = A log ($\\omega {\\rm{t}}$ + $\\varphi $)",
+                  "is_correct": false
+                }
+              ],
+              "correct_option_ids": [
+                27904
+              ],
+              "correct_option_labels": [
+                "B"
+              ],
+              "correct_option_texts": [
+                "x (t) = A cos ($\\omega {\\rm{t}}$ + $\\varphi $)"
+              ],
+              "explanation": "Equation of simple harmonic motion is given by\n$x(t) = A\\cos (\\omega t + \\phi )$\nWhere x(t) is the displacement of the body at any instant of time, A is the amplitude of the body and\n$ (\\omega t + \\phi )$ is the phase angle at the instant of time."
+            },
+            {
+              "questionID": 18177,
+              "question": "Simple harmonic motion is the projection of ___ of the circle in which the latter motion takes place.",
+              "question_raw": "<p>Simple harmonic motion is the projection of ___&nbsp;of the circle in which the latter motion takes place.</p>",
+              "options": [
+                {
+                  "label": "A",
+                  "id": 27908,
+                  "text": "Uniform circular motion on a diameter",
+                  "is_correct": true
+                },
+                {
+                  "label": "B",
+                  "id": 27910,
+                  "text": "Uniform circular motion on a chord",
+                  "is_correct": false
+                },
+                {
+                  "label": "C",
+                  "id": 27909,
+                  "text": "Non uniform circular motion on a diameter",
+                  "is_correct": false
+                },
+                {
+                  "label": "D",
+                  "id": 27911,
+                  "text": "Non uniform circular motion on a chord",
+                  "is_correct": false
+                }
+              ],
+              "correct_option_ids": [
+                27908
+              ],
+              "correct_option_labels": [
+                "A"
+              ],
+              "correct_option_texts": [
+                "Uniform circular motion on a diameter"
+              ],
+              "explanation": "Simple harmonic motion is the projection of uniform circular motion. In the above diagram P is the position of particle at at any instant of time. This motion follows the condition of SHM. Simple harmonic motion is a type of periodic motion or oscillation motion where the restoring force is directly proportional to the displacement and acts in the direction opposite to that of displacement,"
+            },
+            {
+              "questionID": 18178,
+              "question": "For a particle executing simple harmonic motion represented by x(t) = A cos ($\\omega {\\rm{t}}$ + $\\phi$), the the velocity v(t) is given by",
+              "question_raw": "<p>For a particle executing simple harmonic motion represented by x(t) = A cos (<span class=\"math-tex\">{tex}\\omega {\\rm{t}}{/tex}</span> + <span class=\"math-tex\">{tex}\\phi{/tex}</span>), the&nbsp;the velocity v(t) is given by</p>",
+              "options": [
+                {
+                  "label": "A",
+                  "id": 27913,
+                  "text": "v (t) = - $\\omega {\\rm{A}}$ cos ($\\omega {\\rm{t}}$ + $\\phi $)",
+                  "is_correct": false
+                },
+                {
+                  "label": "B",
+                  "id": 27912,
+                  "text": "v(t) = - $\\omega {\\rm{A}}$ sin ($\\omega {\\rm{t}}$ + $\\phi$)",
+                  "is_correct": true
+                },
+                {
+                  "label": "C",
+                  "id": 27914,
+                  "text": "v(t) = - sint$A t$ ($\\omega {\\rm{t}}$ + $\\phi $)",
+                  "is_correct": false
+                },
+                {
+                  "label": "D",
+                  "id": 27915,
+                  "text": "v (t) = - $\\omega {\\rm{A}}$$\\varphi $ sin ($\\omega {\\rm{t}}$ + $\\phi $ )",
+                  "is_correct": false
+                }
+              ],
+              "correct_option_ids": [
+                27912
+              ],
+              "correct_option_labels": [
+                "B"
+              ],
+              "correct_option_texts": [
+                "v(t) = - $\\omega {\\rm{A}}$ sin ($\\omega {\\rm{t}}$ + $\\phi$)"
+              ],
+              "explanation": "Displacement, x(t) = A cos($\\omega$t + $\\phi$)\nVelocity, v(t) = $\\frac{dv}{dt}$ = $\\frac{d[A \\cos (​​\\omega t+\\phi)]}{d t}$\n= $A \\frac{d \\cos (\\omega t+\\phi)}{d t}$ , (because A is constant)\n= A(-$\\omega$ sin ($\\omega$t + $\\phi$)) , $\\left[\\frac{d(\\cos a x)}{d t}=-a \\sin (a x)\\right]$\n= -$\\omega$A sin ($\\omega$t + $\\phi$)"
+            },
+            {
+              "questionID": 18179,
+              "question": "For a particle executing simple harmonic motion represented by x (t)= A cos ($\\omega {\\rm{t}}$ + $\\varphi $) , the the acceleration a(t) is given by",
+              "question_raw": "<p>For a particle executing simple harmonic motion represented by x (t)= A cos (<span class=\"math-tex\">{tex}\\omega {\\rm{t}}{/tex}</span> + <span class=\"math-tex\">{tex}\\varphi {/tex}</span>) , the&nbsp;the acceleration a(t) is given by</p>",
+              "options": [
+                {
+                  "label": "A",
+                  "id": 27917,
+                  "text": "a(t) = - 2 ${\\omega ^{\\rm{2}}}$x(t)",
+                  "is_correct": false
+                },
+                {
+                  "label": "B",
+                  "id": 27916,
+                  "text": "a(t) = - ${\\omega ^{\\rm{2}}}$x(t)",
+                  "is_correct": true
+                },
+                {
+                  "label": "C",
+                  "id": 27919,
+                  "text": "a(t) = ${\\omega ^{\\rm{2}}}$x(t)",
+                  "is_correct": false
+                },
+                {
+                  "label": "D",
+                  "id": 27918,
+                  "text": "a(t) = - $\\omega^2 v(t)$",
+                  "is_correct": false
+                }
+              ],
+              "correct_option_ids": [
+                27916
+              ],
+              "correct_option_labels": [
+                "B"
+              ],
+              "correct_option_texts": [
+                "a(t) = - ${\\omega ^{\\rm{2}}}$x(t)"
+              ],
+              "explanation": "Displacement of particle is given by\nx (t) = A cos ($\\omega {\\rm{t}}$ + $\\varphi $)\nThen velocity,\n$\\begin{array}{l} v(t)= \\frac{{dx}}{{dt}}\\\\ v(t) = A\\frac{{d\\cos (\\omega t + \\varphi )}}{{dt}}\\\\ v(t)= - A\\;\\omega \\sin (\\omega t + \\varphi ) \\end{array}$\nNow,acceleration,\n$a(t)=\\frac{{dv}}{{dt}}$\n$\\begin{array}{l} a(t) =-\\omega A \\frac{{ \\ d\\sin (\\omega t + \\varphi )}}{{dt}} \\\\a(t)=-\\omega^2A\\,cos(\\omega t+\\varphi)\\;\\;, \\;\\;\\;\\;\\;(\\because\\,x(t)=A\\,cos(\\omega t+\\varphi)) \\\\ \\therefore a(t) = - {\\omega ^2}x(t) \\end{array}$"
+            },
+            {
+              "questionID": 18180,
+              "question": "For a particle of mass m executing simple harmonic motion represented by x (t) = A cos ($\\omega {\\rm{t }} + {\\rm{ }}\\varphi $) and a restoring force F = -kx, then the natural frequency is given by:",
+              "question_raw": "<p>For a particle of mass m executing simple harmonic motion represented by x (t) = A cos (<span class=\"math-tex\">{tex}\\omega {\\rm{t }} + {\\rm{ }}\\varphi {/tex}</span>) and a restoring force F = -kx, then the natural frequency is given by:</p>",
+              "options": [
+                {
+                  "label": "A",
+                  "id": 27920,
+                  "text": "$\\omega=\\sqrt{\\frac{k}{m}}$",
+                  "is_correct": true
+                },
+                {
+                  "label": "B",
+                  "id": 27921,
+                  "text": "$\\omega=\\sqrt{\\frac{2 k}{m}}$",
+                  "is_correct": false
+                },
+                {
+                  "label": "C",
+                  "id": 27922,
+                  "text": "$\\omega=-\\sqrt{\\frac{k}{m}}$",
+                  "is_correct": false
+                },
+                {
+                  "label": "D",
+                  "id": 27923,
+                  "text": "$\\omega=-\\sqrt {{k}} $",
+                  "is_correct": false
+                }
+              ],
+              "correct_option_ids": [
+                27920
+              ],
+              "correct_option_labels": [
+                "A"
+              ],
+              "correct_option_texts": [
+                "$\\omega=\\sqrt{\\frac{k}{m}}$"
+              ],
+              "explanation": "According to Newton's second law of motion\nF = ma\n= $-m \\omega^{2} x$ .....(i) (Because a = $−\\omega^2x$, maximum acceleration of a particle executing S.H.M.)\nF = -kx .....(ii) (Given)\nComparing (i) and (ii), we have\nm$\\omega^2$x = −kx\nm$\\omega^2$ = k\n$\\omega^2$ = $\\frac{k}{m}$\n$\\omega$ = $\\sqrt{\\frac{k}{m}}$\nwhere k is the force constant and $\\omega $ is the natural frequency."
+            },
+            {
+              "questionID": 18181,
+              "question": "The spring restoring force F = –kx is a conservative force, with associated potential energy.",
+              "question_raw": "<p>The spring restoring&nbsp;force F = &ndash;kx is a conservative force, with associated potential energy.</p>",
+              "options": [
+                {
+                  "label": "A",
+                  "id": 27924,
+                  "text": "U(x) = $\\;\\frac12kx^2$",
+                  "is_correct": true
+                },
+                {
+                  "label": "B",
+                  "id": 27925,
+                  "text": "U(x) = $\\frac32kx^2$",
+                  "is_correct": false
+                },
+                {
+                  "label": "C",
+                  "id": 27927,
+                  "text": "U(x) = kx^2",
+                  "is_correct": false
+                },
+                {
+                  "label": "D",
+                  "id": 27926,
+                  "text": "U(x) = $-\\frac12kx^2$",
+                  "is_correct": false
+                }
+              ],
+              "correct_option_ids": [
+                27924
+              ],
+              "correct_option_labels": [
+                "A"
+              ],
+              "correct_option_texts": [
+                "U(x) = $\\;\\frac12kx^2$"
+              ],
+              "explanation": "Potential energy is \nU(x) = $-\\int {{F.dx}}$\nNow, F = −kx\nThen, $U(x)=-\\int F \\cdot d x=-\\int-k x \\cdot d x$\n$=k \\int x d x$\n$=k\\left[\\frac{x^{2}}{2}\\right]$\n$=\\frac{1}{2} k x^{2}$\nSo, the potential energy is \nU(x) = $\\;\\frac12kx^2$"
+            },
+            {
+              "questionID": 18182,
+              "question": "The total mechanical energy of a harmonic oscillator:",
+              "question_raw": "<p>The total mechanical energy of a harmonic oscillator:</p>",
+              "options": [
+                {
+                  "label": "A",
+                  "id": 27931,
+                  "text": "Decreases linearly with time",
+                  "is_correct": false
+                },
+                {
+                  "label": "B",
+                  "id": 27929,
+                  "text": "Increases linearly with time",
+                  "is_correct": false
+                },
+                {
+                  "label": "C",
+                  "id": 27928,
+                  "text": "Is independent of time",
+                  "is_correct": true
+                },
+                {
+                  "label": "D",
+                  "id": 27930,
+                  "text": "Increases quadratically with time",
+                  "is_correct": false
+                }
+              ],
+              "correct_option_ids": [
+                27928
+              ],
+              "correct_option_labels": [
+                "C"
+              ],
+              "correct_option_texts": [
+                "Is independent of time"
+              ],
+              "explanation": "The total mechanical energy is the sum of kinetic energy(KE) and potential energy(PE), is constant.\nE = KE + PE = $\\frac{1}{2}$mv^2 + $\\frac{1}{2}$kx^2 = Constant\nHere the figure depicts the energy of a linear harmonic oscillator vs displacement, the horizontal axis represents the displacement x.\n|From the graph, it is clear that total energy is constant with displacement and displacement is a function of time. So, total energy (mechanical energy) is independent of time."
+            },
+            {
+              "questionID": 18183,
+              "question": "The time period T of a spring system of mass m and spring constant k is given by:",
+              "question_raw": "<p>The time period T of a spring system of mass m and spring constant k is given by:</p>",
+              "options": [
+                {
+                  "label": "A",
+                  "id": 27932,
+                  "text": "​​ $T=2 \\pi \\sqrt{\\frac{m}{k}}$",
+                  "is_correct": true
+                },
+                {
+                  "label": "B",
+                  "id": 27935,
+                  "text": "$T=\\pi \\sqrt{\\frac{k}{m}}$",
+                  "is_correct": false
+                },
+                {
+                  "label": "C",
+                  "id": 27934,
+                  "text": "$T=\\sqrt{\\frac{m}{k}}$",
+                  "is_correct": false
+                },
+                {
+                  "label": "D",
+                  "id": 27933,
+                  "text": "​​​ $T=2 \\pi \\sqrt{\\frac{k}{m}}$",
+                  "is_correct": false
+                }
+              ],
+              "correct_option_ids": [
+                27932
+              ],
+              "correct_option_labels": [
+                "A"
+              ],
+              "correct_option_texts": [
+                "​​ $T=2 \\pi \\sqrt{\\frac{m}{k}}$"
+              ],
+              "explanation": "If the restoring force of a vibrating or oscillatory system is proportional to the displacement\nof the body from its equilibrium position and is directed opposite to the direction of displacement,\nthe motion of the system is simple harmonic and it is given by\nx(t) = A$cos \\omega t$\nwhere A, the maximum value of the displacement, is called the amplitude of the motion. If\nT is the time for one complete oscillation, then\nx(t + T) = x(t)\n$Acos\\omega(t+T)=Acos\\omega t$\n$\\omega T=2\\pi$\nor $T=\\frac{2 \\pi}{\\omega}$\n As the angular frequency $\\omega $ is given by $T=\\frac{2 \\pi}{\\omega}$ and T = ${2\\pi\\over \\omega }$ \nThen,time period of oscillation of mass m is given by\n$T=2 \\pi \\sqrt{\\frac{m}{k}}$"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "testPaperID": 593,
+      "testPaperName": "Oscillations Test 02",
+      "is_paid": true,
+      "category_full_name": "CBSE > Class 11 > Physics > Oscillations",
+      "noOfQuestions": 15,
+      "has_answers": true,
+      "sections": [
+        {
+          "sectionName": "General",
+          "sectionID": null,
+          "questions": [
+            {
+              "questionID": 18184,
+              "question": "The time period of a simple pendulum is given by ( l is the length of pendulum and g the acceleration due to gravity).",
+              "question_raw": "<p>The time period of a simple pendulum is given by ( l&nbsp;is the length of pendulum and g the acceleration due to gravity).</p>",
+              "options": [
+                {
+                  "label": "A",
+                  "id": 27939,
+                  "text": "$T=2 \\pi \\sqrt{\\frac{l^2}{g}}$",
+                  "is_correct": false
+                },
+                {
+                  "label": "B",
+                  "id": 27937,
+                  "text": "$T=2 \\pi \\sqrt{\\frac{l}{g}}$",
+                  "is_correct": true
+                },
+                {
+                  "label": "C",
+                  "id": 27938,
+                  "text": "$T=2 \\pi \\sqrt{\\frac{l}{g^2}}$",
+                  "is_correct": false
+                },
+                {
+                  "label": "D",
+                  "id": 27936,
+                  "text": "​ $T=2 \\pi \\sqrt{\\frac{g}{l}}$",
+                  "is_correct": false
+                }
+              ],
+              "correct_option_ids": [
+                27937
+              ],
+              "correct_option_labels": [
+                "B"
+              ],
+              "correct_option_texts": [
+                "$T=2 \\pi \\sqrt{\\frac{l}{g}}$"
+              ],
+              "explanation": "The figure shows the motion of a simple pendulum\nThe restoring force is $F=-mg\\,sin \\,\\theta $ as the angle $\\theta $ is small so $sin \\, \\theta\\,\\simeq \\theta$ \nwe have $F=-mg\\, \\,\\theta $ from S H M and also F = -kx \n$\\therefore mg\\theta $ = kx\n$\\frac{m}{k}=\\frac{g \\theta}{x}$\nas $l = \\frac{\\theta }{x}$\n$\\frac{m}{k}=\\frac{g}{l}$\nAs $\\omega=\\sqrt{\\frac{k}{m}}$\nSo $T=\\frac{2 \\pi}{\\omega}=2 \\pi \\sqrt{\\frac{m}{k}}$\n$=2 \\pi \\sqrt{\\frac{l}{g}}$"
+            },
+            {
+              "questionID": 18185,
+              "question": "The time period of a physical pendulum of mass m and moment of inertia I is given by (l is the length of pendulum and g the acceleration due to gravity):",
+              "question_raw": "<p>The time period of a physical pendulum of mass m and moment of inertia I is given by (l is the length of pendulum and g the acceleration due to gravity):</p>",
+              "options": [
+                {
+                  "label": "A",
+                  "id": 27941,
+                  "text": "​ $T=\\pi \\sqrt{\\frac{I}{m g l}}$",
+                  "is_correct": false
+                },
+                {
+                  "label": "B",
+                  "id": 27943,
+                  "text": "​​ $T=4 \\pi \\sqrt{\\frac{I}{m g l}}$",
+                  "is_correct": false
+                },
+                {
+                  "label": "C",
+                  "id": 27940,
+                  "text": "$T=2 \\pi \\sqrt{\\frac{I}{m g l}}$",
+                  "is_correct": true
+                },
+                {
+                  "label": "D",
+                  "id": 27942,
+                  "text": "$T=2 \\pi \\sqrt{\\frac{l}{m g I}}$",
+                  "is_correct": false
+                }
+              ],
+              "correct_option_ids": [
+                27940
+              ],
+              "correct_option_labels": [
+                "C"
+              ],
+              "correct_option_texts": [
+                "$T=2 \\pi \\sqrt{\\frac{I}{m g l}}$"
+              ],
+              "explanation": "Torque;$\\tau=I \\alpha $, a= angular acceleration\n$\\tau = -mgl sin\\theta$\n$\\therefore \\alpha \\simeq \\frac{m g l \\theta}{I}$ \n$\\alpha=-\\omega^2 \\theta$\n$\\omega=\\sqrt{\\frac{m g l}{I}}$\nSo, Time period T is :\n$\\mathrm{T}=2 \\pi \\sqrt{\\frac{I}{m g l}}$"
+            },
+            {
+              "questionID": 18186,
+              "question": "In a simple pendulum the restoring force is due to:",
+              "question_raw": "<p>In a simple pendulum the restoring force is due to:</p>",
+              "options": [
+                {
+                  "label": "A",
+                  "id": 27944,
+                  "text": "the tangential component of the gravitational force.",
+                  "is_correct": true
+                },
+                {
+                  "label": "B",
+                  "id": 27947,
+                  "text": "the radial component of the tension in the string.",
+                  "is_correct": false
+                },
+                {
+                  "label": "C",
+                  "id": 27945,
+                  "text": "the radial component of the gravitational force.",
+                  "is_correct": false
+                },
+                {
+                  "label": "D",
+                  "id": 27946,
+                  "text": "the tangential component of the tension in the string.",
+                  "is_correct": false
+                }
+              ],
+              "correct_option_ids": [
+                27944
+              ],
+              "correct_option_labels": [
+                "A"
+              ],
+              "correct_option_texts": [
+                "the tangential component of the gravitational force."
+              ],
+              "explanation": "The tangential component of the gravitational field is F = −mgsin$\\theta$\nthat acts to the direction towards the mean position making it the restoring force for the oscillation."
+            },
+            {
+              "questionID": 18187,
+              "question": "The total mechanical energy of a damped system is:",
+              "question_raw": "<p>The total mechanical energy of a damped system is:</p>",
+              "options": [
+                {
+                  "label": "A",
+                  "id": 27951,
+                  "text": "Remains the same",
+                  "is_correct": false
+                },
+                {
+                  "label": "B",
+                  "id": 27948,
+                  "text": "Continuously increases",
+                  "is_correct": false
+                },
+                {
+                  "label": "C",
+                  "id": 27949,
+                  "text": "Continuously absorbed",
+                  "is_correct": false
+                },
+                {
+                  "label": "D",
+                  "id": 27950,
+                  "text": "Continuously dissipated",
+                  "is_correct": true
+                }
+              ],
+              "correct_option_ids": [
+                27950
+              ],
+              "correct_option_labels": [
+                "D"
+              ],
+              "correct_option_texts": [
+                "Continuously dissipated"
+              ],
+              "explanation": "The energy is dissipated as it decreases in the exponential form, making the amplitude to zero ultimately.\nevery pendulum in nonideal condition behaves like damped system, where damping force which is proportional to velocity is offered it by air resistance the fig shows the damped motion \nwhere the amplitude of the successive oscillation is damped by an exponential function of time."
+            },
+            {
+              "questionID": 18188,
+              "question": "Damping is due to:",
+              "question_raw": "<p>Damping is due to:</p>",
+              "options": [
+                {
+                  "label": "A",
+                  "id": 27954,
+                  "text": "Reactive forces like tension",
+                  "is_correct": false
+                },
+                {
+                  "label": "B",
+                  "id": 27955,
+                  "text": "Resistive forces like air drag, friction etc.",
+                  "is_correct": true
+                },
+                {
+                  "label": "C",
+                  "id": 27953,
+                  "text": "Conservative forces like gravity",
+                  "is_correct": false
+                },
+                {
+                  "label": "D",
+                  "id": 27952,
+                  "text": "Restoring force",
+                  "is_correct": false
+                }
+              ],
+              "correct_option_ids": [
+                27955
+              ],
+              "correct_option_labels": [
+                "B"
+              ],
+              "correct_option_texts": [
+                "Resistive forces like air drag, friction etc."
+              ],
+              "explanation": "Damping is proportional to the velocity of the mass through the medium, so it can be said that air drag, friction offers to damp."
+            },
+            {
+              "questionID": 18189,
+              "question": "In simple harmonic motion the damping force is:",
+              "question_raw": "<p>In simple harmonic motion the&nbsp;damping force is:</p>",
+              "options": [
+                {
+                  "label": "A",
+                  "id": 27956,
+                  "text": "Directly proportional to velocity",
+                  "is_correct": true
+                },
+                {
+                  "label": "B",
+                  "id": 27957,
+                  "text": "Directly proportional to acceleration",
+                  "is_correct": false
+                },
+                {
+                  "label": "C",
+                  "id": 27959,
+                  "text": "Inversely proportional to acceleration",
+                  "is_correct": false
+                },
+                {
+                  "label": "D",
+                  "id": 27958,
+                  "text": "Inversely proportional to velocity",
+                  "is_correct": false
+                }
+              ],
+              "correct_option_ids": [
+                27956
+              ],
+              "correct_option_labels": [
+                "A"
+              ],
+              "correct_option_texts": [
+                "Directly proportional to velocity"
+              ],
+              "explanation": "In real oscillators, friction, or damping, slows the motion of the system. Due to frictional force, the velocity decreases in proportion to the acting frictional force. \n$F= -c \\,{dx\\over dt}$ \nwhere c is the damping constant."
+            },
+            {
+              "questionID": 18190,
+              "question": "The damped system differential equation is:",
+              "question_raw": "<p>The damped system differential equation is:</p>",
+              "options": [
+                {
+                  "label": "A",
+                  "id": 27962,
+                  "text": "$m \\frac{d^2 x}{d^2 t}$ + b + kx = 0",
+                  "is_correct": false
+                },
+                {
+                  "label": "B",
+                  "id": 27963,
+                  "text": "$m \\frac{d^2 x}{d^2 t}$ + kx = 0",
+                  "is_correct": false
+                },
+                {
+                  "label": "C",
+                  "id": 27961,
+                  "text": "$m \\frac{d^2 x}{d^2 t}+b \\frac{d x}{d t}=0$",
+                  "is_correct": false
+                },
+                {
+                  "label": "D",
+                  "id": 27960,
+                  "text": "$m \\frac{d^2 x}{d^2 t}+b \\frac{d x}{d t}$ + kx = 0",
+                  "is_correct": true
+                }
+              ],
+              "correct_option_ids": [
+                27960
+              ],
+              "correct_option_labels": [
+                "D"
+              ],
+              "correct_option_texts": [
+                "$m \\frac{d^2 x}{d^2 t}+b \\frac{d x}{d t}$ + kx = 0"
+              ],
+              "explanation": "The forces on the system is restoring force F = -kx and the damping force is F = $-b v=-b \\frac{d x}{d t}$ where 'k' is the force constant and 'b' is the damping constant\nThe net force is F= m*a which is equal to the sum of restoring force F = −kx and the damping force is $F=-b v=-b \\frac{d x}{d t}$ \n$m \\frac{d^2 x}{d t^2}=-k x-b \\frac{d x}{d t}$\n$\\therefore m \\frac{d^2 x}{d t^2}+k x+b \\frac{d x}{d t}$ = 0"
+            },
+            {
+              "questionID": 18191,
+              "question": "The damped natural frequency of a Damped system is:",
+              "question_raw": "<p>The damped natural frequency of a Damped system is:</p>",
+              "options": [
+                {
+                  "label": "A",
+                  "id": 27964,
+                  "text": "lower than the natural frequency",
+                  "is_correct": true
+                },
+                {
+                  "label": "B",
+                  "id": 27965,
+                  "text": "higher than natural frequency",
+                  "is_correct": false
+                },
+                {
+                  "label": "C",
+                  "id": 27967,
+                  "text": "Different as natural frequency",
+                  "is_correct": false
+                },
+                {
+                  "label": "D",
+                  "id": 27966,
+                  "text": "same as natural frequency",
+                  "is_correct": false
+                }
+              ],
+              "correct_option_ids": [
+                27964
+              ],
+              "correct_option_labels": [
+                "A"
+              ],
+              "correct_option_texts": [
+                "lower than the natural frequency"
+              ],
+              "explanation": "The damped natural frequency f_d is related to the natural frequency f_n by a relation \n$f_d =f_n \\sqrt {1-\\zeta^2} $ \nwhere damping ratio $ \\zeta $ = 1 \nso f_d is less than the natural frequency"
+            },
+            {
+              "questionID": 18192,
+              "question": "In forced oscillations apart from acceleration forces, damping and spring forces there is:",
+              "question_raw": "<p>In forced oscillations apart from acceleration forces, damping and spring forces there is:</p>",
+              "options": [
+                {
+                  "label": "A",
+                  "id": 27971,
+                  "text": "Centripetal attractive force",
+                  "is_correct": false
+                },
+                {
+                  "label": "B",
+                  "id": 27970,
+                  "text": "Restoring force",
+                  "is_correct": false
+                },
+                {
+                  "label": "C",
+                  "id": 27969,
+                  "text": "The gravitational force acting in the line of action",
+                  "is_correct": false
+                },
+                {
+                  "label": "D",
+                  "id": 27968,
+                  "text": "An external exciting force that changes the energy",
+                  "is_correct": true
+                }
+              ],
+              "correct_option_ids": [
+                27968
+              ],
+              "correct_option_labels": [
+                "D"
+              ],
+              "correct_option_texts": [
+                "An external exciting force that changes the energy"
+              ],
+              "explanation": "The free damping oscillations contain the forces as acceleration forces, damping, and spring forces, But in the case of forced oscillations, there is an external force that acts to maintain the vibrations that usually get dumped due to presence of the damping forces like friction, air drag, etc. The presence of the force promotes Total Mechanical Energy relations."
+            },
+            {
+              "questionID": 18193,
+              "question": "At resonance conditions when the frequency of the forced vibration matches the natural frequency of the system, amplitude ________ the natural frequency of the oscillator.",
+              "question_raw": "<p>At resonance conditions when the frequency of the forced vibration matches the natural frequency of the system, amplitude&nbsp;________&nbsp;the natural frequency of the oscillator.</p>",
+              "options": [
+                {
+                  "label": "A",
+                  "id": 27972,
+                  "text": "increases when the driving force is close to",
+                  "is_correct": true
+                },
+                {
+                  "label": "B",
+                  "id": 27973,
+                  "text": "decreases when the driving force is close to",
+                  "is_correct": false
+                },
+                {
+                  "label": "C",
+                  "id": 27975,
+                  "text": "oscillates when the driving force is close to",
+                  "is_correct": false
+                },
+                {
+                  "label": "D",
+                  "id": 27974,
+                  "text": "increases when the driving force is far from",
+                  "is_correct": false
+                }
+              ],
+              "correct_option_ids": [
+                27972
+              ],
+              "correct_option_labels": [
+                "A"
+              ],
+              "correct_option_texts": [
+                "increases when the driving force is close to"
+              ],
+              "explanation": "When the mass and spring have no external force acting on them they transfer energy back and forth at a rate equal to the natural frequency. In other words, to efficiently pump energy into both mass and spring requires that the energy source feed the energy in at a rate equal to the natural frequency. Applying a force to the mass and spring is similar to pushing a child on a swing, a push is needed at the correct moment to make the swing get higher and higher. As in the case of the swing, the force applied need not be high to get large motions, but must just add energy to the system.\nThe damper, instead of storing energy, dissipates energy. Since the damping force is proportional to the velocity, the more the motion, the more the damper dissipates the energy. Therefore, there is a point when the energy dissipated by the damper equals the energy added by the force. At this point, the system has reached its maximum amplitude and will continue to vibrate at this level as long as the force applied stays the same. If no damping exists, there is nothing to dissipate the energy, and, theoretically, the motion will continue to grow into infinity."
+            },
+            {
+              "questionID": 18194,
+              "question": "What is constant in simple harmonic motion?",
+              "question_raw": "<p>What is constant in simple harmonic motion?</p>",
+              "options": [
+                {
+                  "label": "A",
+                  "id": 27976,
+                  "text": "Time period",
+                  "is_correct": true
+                },
+                {
+                  "label": "B",
+                  "id": 27979,
+                  "text": "Potential energy",
+                  "is_correct": false
+                },
+                {
+                  "label": "C",
+                  "id": 27978,
+                  "text": "Kinetic motion",
+                  "is_correct": false
+                },
+                {
+                  "label": "D",
+                  "id": 27977,
+                  "text": "Restoring force",
+                  "is_correct": false
+                }
+              ],
+              "correct_option_ids": [
+                27976
+              ],
+              "correct_option_labels": [
+                "A"
+              ],
+              "correct_option_texts": [
+                "Time period"
+              ],
+              "explanation": "The time period of the SHM is given by T = $2\\pi\\sqrt{m\\over k}$ where 'm' be the mass of the body (constant), 'k' restoring force constant as T depends on 'm' and 'k' and they are constant for the system, so the corresponding Time period of the motion is Constant."
+            },
+            {
+              "questionID": 18195,
+              "question": "A particle of mass 10 g is executing simple harmonic motion with an amplitude of 0.5 m and a periodic time of $\\frac \\pi 5 $ seconds. The maximum value of the force acting on the particle is:",
+              "question_raw": "<p>A particle of mass 10 g is executing simple harmonic motion with an amplitude of 0.5 m and a periodic time of <span class=\"math-tex\">{tex}\\frac \\pi 5 {/tex}</span>&nbsp;seconds. The maximum value of the force acting on the particle is:</p>",
+              "options": [
+                {
+                  "label": "A",
+                  "id": 27981,
+                  "text": "5 N",
+                  "is_correct": false
+                },
+                {
+                  "label": "B",
+                  "id": 27983,
+                  "text": "- 5N",
+                  "is_correct": false
+                },
+                {
+                  "label": "C",
+                  "id": 27980,
+                  "text": "0.5 N",
+                  "is_correct": false
+                },
+                {
+                  "label": "D",
+                  "id": 27982,
+                  "text": "-0.5 N",
+                  "is_correct": true
+                }
+              ],
+              "correct_option_ids": [
+                27982
+              ],
+              "correct_option_labels": [
+                "D"
+              ],
+              "correct_option_texts": [
+                "-0.5 N"
+              ],
+              "explanation": "Given, T = $\\frac \\pi5 $s\namplitude, x = 0.5 m\nmass , m = 10g = 0.01kg ,as we know that:\n$T= 2\\pi \\sqrt {\\frac m k}$\n${\\pi\\over 5}= 2\\pi\\sqrt{\\frac {0.01}{ k}}$\nor k = 1 N/m\nThe maximum force is obtained at the maximum displacement i.e. amplitude \nF = −kx \nhence, F = −1(0.5) = −0.5N\nThe negative value of force shows the attractive nature."
+            },
+            {
+              "questionID": 18196,
+              "question": "A body of mass 5 g is executing simple harmonic motion about a point O with an amplitude of 10 cm. Its maximum velocity is 100 cm/s. Its velocity will be 50 cm/s at a distance (in cm) from O.",
+              "question_raw": "<p>A body of mass 5 g is executing simple harmonic motion about a point O with an amplitude of 10 cm. Its maximum velocity is 100 cm/s. Its velocity will be 50 cm/s at a distance (in cm) from O.</p>",
+              "options": [
+                {
+                  "label": "A",
+                  "id": 27984,
+                  "text": "10$\\sqrt 2 $",
+                  "is_correct": false
+                },
+                {
+                  "label": "B",
+                  "id": 27985,
+                  "text": "10$\\sqrt 3 $",
+                  "is_correct": false
+                },
+                {
+                  "label": "C",
+                  "id": 27986,
+                  "text": "5$\\sqrt 2 $",
+                  "is_correct": false
+                },
+                {
+                  "label": "D",
+                  "id": 27987,
+                  "text": "5$\\sqrt3$",
+                  "is_correct": true
+                }
+              ],
+              "correct_option_ids": [
+                27987
+              ],
+              "correct_option_labels": [
+                "D"
+              ],
+              "correct_option_texts": [
+                "5$\\sqrt3$"
+              ],
+              "explanation": "$ v=\\omega \\sqrt{A^2-x^2} $\n$ 50=10 \\sqrt{10^2-x^2} $\n$ 5=\\sqrt{100-x^2} $\n$ 25=100-x^2 $\n$ x^2=75 $\n$ x=\\sqrt{75}=\\sqrt{25 \\times 3}=5 \\sqrt{3} $"
+            },
+            {
+              "questionID": 18197,
+              "question": "The maximum velocity and maximum acceleration of a body moving in a simple harmonic oscillation are 2 m/s and 4 m/s^2. The angular velocity is:",
+              "question_raw": "<p>The maximum velocity and maximum acceleration of a body moving in a simple harmonic oscillation are 2 m/s and 4 m/s<sup>2</sup>. The angular velocity is:</p>",
+              "options": [
+                {
+                  "label": "A",
+                  "id": 27988,
+                  "text": "2 rad/sec",
+                  "is_correct": true
+                },
+                {
+                  "label": "B",
+                  "id": 27990,
+                  "text": "4 rad/sec",
+                  "is_correct": false
+                },
+                {
+                  "label": "C",
+                  "id": 27989,
+                  "text": "1 rad/sec",
+                  "is_correct": false
+                },
+                {
+                  "label": "D",
+                  "id": 27991,
+                  "text": "5 rad/sec",
+                  "is_correct": false
+                }
+              ],
+              "correct_option_ids": [
+                27988
+              ],
+              "correct_option_labels": [
+                "A"
+              ],
+              "correct_option_texts": [
+                "2 rad/sec"
+              ],
+              "explanation": "Given that :-v_max = a$\\omega$ = 2m/s\na_max = a$\\omega^2$_^ =_^ 4m/s^2\nOn dividing the two, we get $\\omega$= 2 radians/sec"
+            },
+            {
+              "questionID": 18198,
+              "question": "A particle is executing simple harmonic motion with an amplitude of 0.02 meter and frequency 50 hertz. The maximum acceleration of the particle is:",
+              "question_raw": "<p>A particle is executing simple harmonic motion with an amplitude of 0.02 meter and frequency 50 hertz. The maximum acceleration of the particle is:</p>",
+              "options": [
+                {
+                  "label": "A",
+                  "id": 27993,
+                  "text": "100 m/s^2",
+                  "is_correct": false
+                },
+                {
+                  "label": "B",
+                  "id": 27994,
+                  "text": "100 $\\pi $ m/s^2",
+                  "is_correct": false
+                },
+                {
+                  "label": "C",
+                  "id": 27992,
+                  "text": "200$\\pi^2$ m/s^2",
+                  "is_correct": true
+                },
+                {
+                  "label": "D",
+                  "id": 27995,
+                  "text": "200 $\\pi $ m/s^2",
+                  "is_correct": false
+                }
+              ],
+              "correct_option_ids": [
+                27992
+              ],
+              "correct_option_labels": [
+                "C"
+              ],
+              "correct_option_texts": [
+                "200$\\pi^2$ m/s^2"
+              ],
+              "explanation": "Given frequency f = 50 Hz \nThus w = 2$\\pi$f = 100$\\pi$\nAcceleration\na = w^2x at max displacement x = A\na = (100$\\pi$)^2 $\\times$ 0.02\na = 200$\\pi ^2$m/s^2"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "testPaperID": 594,
+      "testPaperName": "Oscillations Test 03",
+      "is_paid": true,
+      "category_full_name": "CBSE > Class 11 > Physics > Oscillations",
+      "noOfQuestions": 15,
+      "has_answers": true,
+      "sections": [
+        {
+          "sectionName": "General",
+          "sectionID": null,
+          "questions": [
+            {
+              "questionID": 18199,
+              "question": "The angular velocities of three bodies in simple harmonic motion are ${{\\rm{\\omega }}_1}$, ${{\\rm{\\omega }}_2}$, ${{\\rm{\\omega }}_3}$ with the respective amplitudes as ${A_1}$ ${A_2}$ ${A_3}$ . If all the three bodies have the same mass and velocity, then",
+              "question_raw": "<p>The angular velocities of three bodies in simple harmonic motion are&nbsp;<span class=\"math-tex\">{tex}{{\\rm{\\omega }}_1}{/tex}</span>, <span class=\"math-tex\">{tex}{{\\rm{\\omega }}_2}{/tex}</span>, <span class=\"math-tex\">{tex}{{\\rm{\\omega }}_3}{/tex}</span> with the respective amplitudes as <span class=\"math-tex\">{tex}{A_1}{/tex}</span> <span class=\"math-tex\">{tex}{A_2}{/tex}</span> <span class=\"math-tex\">{tex}{A_3}{/tex}</span>&nbsp;. If all the three bodies have the same mass and velocity, then</p>",
+              "options": [
+                {
+                  "label": "A",
+                  "id": 27999,
+                  "text": "${{\\rm{A}}_{\\rm{1}}}{\\omega ^{\\rm{2}}}_{\\rm{1}}$ = ${{\\rm{A}}^{\\rm{2}}}_{\\rm{2}}{\\omega ^{\\rm{2}}}_{{\\rm{2}} = }{{\\rm{A}}^{\\rm{2}}}_{\\rm{3}}{\\omega ^{\\rm{2}}}_{\\rm{3}}$",
+                  "is_correct": false
+                },
+                {
+                  "label": "B",
+                  "id": 27998,
+                  "text": "${{\\rm{A}}^{\\rm{2}}}_{\\rm{1}}{\\omega _{\\rm{1}}}$ = ${{\\rm{A}}^{\\rm{2}}}_{\\rm{2}}{\\omega _{{\\rm{2}} = }}{{\\rm{A}}^{\\rm{2}}}_{\\rm{3}}{\\omega _{\\rm{3}}}$",
+                  "is_correct": false
+                },
+                {
+                  "label": "C",
+                  "id": 27997,
+                  "text": "${{\\rm{A}}_{\\rm{1}}}{\\omega _{\\rm{1}}}$ = ${{\\rm{A}}_{\\rm{2}}}{\\omega _{{\\rm{2}} }=}{{\\rm{A}}_{\\rm{3}}}{\\omega _{\\rm{3}}}$",
+                  "is_correct": true
+                },
+                {
+                  "label": "D",
+                  "id": 27996,
+                  "text": "${{\\rm{A}}^{\\rm{2}}}_{\\rm{1}}{\\omega ^{\\rm{2}}}_{\\rm{1}}$ = ${{\\rm{A}}^{\\rm{2}}}_{\\rm{2}}{\\omega ^{\\rm{2}}}_{{\\rm{2}} {=} }{{\\rm{A}}^{\\rm{2}}}_{\\rm{3}}{\\omega ^{\\rm{2}}}_{\\rm{3}}$",
+                  "is_correct": false
+                }
+              ],
+              "correct_option_ids": [
+                27997
+              ],
+              "correct_option_labels": [
+                "C"
+              ],
+              "correct_option_texts": [
+                "${{\\rm{A}}_{\\rm{1}}}{\\omega _{\\rm{1}}}$ = ${{\\rm{A}}_{\\rm{2}}}{\\omega _{{\\rm{2}} }=}{{\\rm{A}}_{\\rm{3}}}{\\omega _{\\rm{3}}}$"
+              ],
+              "explanation": "The velocity of a body performing SHM is given by: v = ω$\\sqrt {A^2-x^2}$\nMaximum velocity is achieved when x=0.\nAll three bodies are at maximum velocity. Therefore, we can say that x=0 for all these bodies. \nMaximum velocity, Vmax​ = Aω\nVelocities are same so that A_1ω_1 = A_2​ω_2 ​= A_3​ω_3"
+            },
+            {
+              "questionID": 18200,
+              "question": "The kinetic energy of a body executing S.H.M. is $\\frac 1 3$ of the potential energy. Then, the displacement of the body is x percent of the amplitude, where x is:",
+              "question_raw": "<p>The kinetic energy of a body executing S.H.M. is <span class=\"math-tex\">{tex}\\frac 1 3{/tex}</span> of the potential energy. Then, the displacement of the body is x percent of the amplitude, where x is:</p>",
+              "options": [
+                {
+                  "label": "A",
+                  "id": 28002,
+                  "text": "86.5%",
+                  "is_correct": true
+                },
+                {
+                  "label": "B",
+                  "id": 28003,
+                  "text": "50%",
+                  "is_correct": false
+                },
+                {
+                  "label": "C",
+                  "id": 28000,
+                  "text": "33.5%",
+                  "is_correct": false
+                },
+                {
+                  "label": "D",
+                  "id": 28001,
+                  "text": "67%",
+                  "is_correct": false
+                }
+              ],
+              "correct_option_ids": [
+                28002
+              ],
+              "correct_option_labels": [
+                "A"
+              ],
+              "correct_option_texts": [
+                "86.5%"
+              ],
+              "explanation": "Given kinetic energy = $\\frac 1 3$ potential energy\n$\\frac{1}{2} m(A \\times \\omega \\times \\cos \\omega t)^{2}$ = $\\frac{1}{3} \\times \\frac{1}{2} \\times m \\times(A \\times \\omega \\times \\sin \\omega t)^{2}$\n$\\tan (\\omega t)=\\sqrt{3}$\n$\\omega t=\\frac{\\pi}{3}$\nx = Asin($\\omega$t)\nx = $A \\sin \\left(\\frac{\\pi}{3}\\right)$\nx = $\\frac{\\sqrt{3}}{2} A$\nfor the percentage\n$\\frac{\\frac{\\sqrt{3}}{2} A}{{A}} \\times 100$\n= 86.5%"
+            },
+            {
+              "questionID": 18201,
+              "question": "The total energy of a particle, executing simple harmonic motion is:",
+              "question_raw": "<p>The total energy of a particle, executing simple harmonic motion is:</p>",
+              "options": [
+                {
+                  "label": "A",
+                  "id": 28004,
+                  "text": "independent of x",
+                  "is_correct": true
+                },
+                {
+                  "label": "B",
+                  "id": 28007,
+                  "text": "$\\propto { x^2}$",
+                  "is_correct": false
+                },
+                {
+                  "label": "C",
+                  "id": 28006,
+                  "text": "$\\propto \\frac{x}{2}$",
+                  "is_correct": false
+                },
+                {
+                  "label": "D",
+                  "id": 28005,
+                  "text": "$\\propto {x}$",
+                  "is_correct": false
+                }
+              ],
+              "correct_option_ids": [
+                28004
+              ],
+              "correct_option_labels": [
+                "A"
+              ],
+              "correct_option_texts": [
+                "independent of x"
+              ],
+              "explanation": "x= A cos( $\\omega t+\\phi$)\nE = KE + PE\n$PE=\\frac{1}{2}kA^2cos^2(\\omega t+\\phi)$ and KE= $\\frac{1}{2}kA^2sin^2(\\omega t+\\phi)$\n$E=\\frac{1}{2}kA^2$ $(sin^2(\\omega t+\\phi)+cos^2(\\omega t+\\phi))$ = $\\frac{1}{2}$kA^2 Therefore, total energy is independent of x. \nThus the total energy of the oscillator remains constant as displacement is regained after every half cycle.\nno energy is dissipated then all the potential energy becomes kinetic and vice versa.\nThe figure below shows the variation of kinetic energy and potential energy of harmonic oscillator with time where phase φ is set to zero for simplicity"
+            },
+            {
+              "questionID": 18202,
+              "question": "A spring with spring constant k, when stretched through 1 cm, has a potential energy U. If it is stretched by 4 cm, the potential energy will become:",
+              "question_raw": "<p>A spring with spring constant k, when stretched through 1 cm, has a potential energy U. If it is stretched by 4 cm, the potential energy will become:</p>",
+              "options": [
+                {
+                  "label": "A",
+                  "id": 28008,
+                  "text": "32U",
+                  "is_correct": false
+                },
+                {
+                  "label": "B",
+                  "id": 28009,
+                  "text": "8U",
+                  "is_correct": false
+                },
+                {
+                  "label": "C",
+                  "id": 28011,
+                  "text": "4U",
+                  "is_correct": false
+                },
+                {
+                  "label": "D",
+                  "id": 28010,
+                  "text": "16U",
+                  "is_correct": true
+                }
+              ],
+              "correct_option_ids": [
+                28010
+              ],
+              "correct_option_labels": [
+                "D"
+              ],
+              "correct_option_texts": [
+                "16U"
+              ],
+              "explanation": "The potential energy of a spring is given by\n$U=\\frac12kx^2$\nso U $\\propto$ x^2\nthus for x = 4x\nU become 16 U"
+            },
+            {
+              "questionID": 18203,
+              "question": "For a particle executing S.H.M having amplitude A, the speed of the particle is one-half of its maximum speed when its displacement from the mean position is:",
+              "question_raw": "<p>For a particle executing S.H.M having amplitude A, the speed of the particle is one-half of its maximum speed when its displacement from the mean position is:</p>",
+              "options": [
+                {
+                  "label": "A",
+                  "id": 28014,
+                  "text": "x = $\\frac{\\sqrt3}2A$",
+                  "is_correct": true
+                },
+                {
+                  "label": "B",
+                  "id": 28013,
+                  "text": "x = $\\frac A2$",
+                  "is_correct": false
+                },
+                {
+                  "label": "C",
+                  "id": 28012,
+                  "text": "x = 2A",
+                  "is_correct": false
+                },
+                {
+                  "label": "D",
+                  "id": 28015,
+                  "text": "x = $\\sqrt3A$",
+                  "is_correct": false
+                }
+              ],
+              "correct_option_ids": [
+                28014
+              ],
+              "correct_option_labels": [
+                "A"
+              ],
+              "correct_option_texts": [
+                "x = $\\frac{\\sqrt3}2A$"
+              ],
+              "explanation": "Given velocity is one half of its max. velocity thus using relation\n$v=\\omega \\sqrt{A^{2}-x^{2}}$\nas v_max = $\\omega$A\nPut v = $\\frac{\\omega A}{2}$\n$\\frac{\\omega A}{2}=\\omega \\sqrt{A^{2}-x^{2}}$\n$\\frac{\\omega^{2} A^{2}}{4}=\\omega^{2} A^{2}-\\omega^{2} x^{2}$\non solving x = $\\frac{\\sqrt{3}}{2}A$"
+            },
+            {
+              "questionID": 18204,
+              "question": "The time period of a spring oscillating simple harmonically is:",
+              "question_raw": "<p>The time&nbsp;period of a spring oscillating simple harmonically is:</p>",
+              "options": [
+                {
+                  "label": "A",
+                  "id": 28018,
+                  "text": "$\\mathrm{T}=2 \\pi \\sqrt{\\left\\{\\frac{K}{m}\\right\\}}$",
+                  "is_correct": false
+                },
+                {
+                  "label": "B",
+                  "id": 28017,
+                  "text": "$\\mathrm{T}=2 \\pi \\sqrt{\\left\\{\\frac{m}{K}\\right\\}}$",
+                  "is_correct": true
+                },
+                {
+                  "label": "C",
+                  "id": 28019,
+                  "text": "$\\mathrm{T}=2 \\pi \\sqrt{\\left\\{\\frac{m}{2 K}\\right\\}}$",
+                  "is_correct": false
+                },
+                {
+                  "label": "D",
+                  "id": 28016,
+                  "text": "$T=2 \\pi \\sqrt{\\left\\{\\frac{2 m}{K}\\right\\}}$",
+                  "is_correct": false
+                }
+              ],
+              "correct_option_ids": [
+                28017
+              ],
+              "correct_option_labels": [
+                "B"
+              ],
+              "correct_option_texts": [
+                "$\\mathrm{T}=2 \\pi \\sqrt{\\left\\{\\frac{m}{K}\\right\\}}$"
+              ],
+              "explanation": "The time period is given by\n$T=\\frac{2 \\pi}{\\omega}$\n where $\\omega=\\sqrt{\\frac{k}{m}}$\nthus $\\mathrm{T}=2 \\pi \\sqrt{\\left\\{\\frac{m}{K}\\right\\}}$"
+            },
+            {
+              "questionID": 18205,
+              "question": "A spring has a certain mass suspended from it and its period for vertical oscillations is T_1. The spring is now cut into two equal halves and the same mass is suspended from one of the halves. The period of vertical oscillations is now T_2. The ratio of $\\frac {T_1}{T_2}$ is:",
+              "question_raw": "<p>A spring has a certain mass suspended from it and its period for vertical oscillations is T<sub>1</sub>. The spring is now cut into two equal halves and the same mass is suspended from one of the halves. The period of vertical oscillations is now T<sub>2</sub>. The ratio of <span class=\"math-tex\">{tex}\\frac {T_1}{T_2}{/tex}</span> is:</p>",
+              "options": [
+                {
+                  "label": "A",
+                  "id": 28023,
+                  "text": "2$\\sqrt 2 $",
+                  "is_correct": false
+                },
+                {
+                  "label": "B",
+                  "id": 28020,
+                  "text": "1",
+                  "is_correct": true
+                },
+                {
+                  "label": "C",
+                  "id": 28022,
+                  "text": "$\\sqrt 2 $",
+                  "is_correct": false
+                },
+                {
+                  "label": "D",
+                  "id": 28021,
+                  "text": "$\\frac 1 2$",
+                  "is_correct": false
+                }
+              ],
+              "correct_option_ids": [
+                28020
+              ],
+              "correct_option_labels": [
+                "B"
+              ],
+              "correct_option_texts": [
+                "1"
+              ],
+              "explanation": "As the spring constant $k={\\frac F x}$ i.e. restoring force per unit displacement remains the same thus time period in both cases will be same. Thus their ratio will be equal to 1."
+            },
+            {
+              "questionID": 18206,
+              "question": "A simple spring has length l and forces constant K. It is cut into two springs of lengths l_1 and l_2 such that l_1 = n.l_2 (where n is an integer), the force constant of the spring of length l_2 is",
+              "question_raw": "<p>A simple spring has length l and forces constant K. It is cut into two springs of lengths l<sub>1</sub> and l<sub>2</sub> such that l<sub>1</sub> = n.l<sub>2</sub> (where n is an integer), the force constant of the spring of length l<sub>2</sub> is</p>",
+              "options": [
+                {
+                  "label": "A",
+                  "id": 28027,
+                  "text": "$\\frac{K}{(n+1)}$",
+                  "is_correct": false
+                },
+                {
+                  "label": "B",
+                  "id": 28026,
+                  "text": "$\\frac{K}{n(1+n)}$",
+                  "is_correct": false
+                },
+                {
+                  "label": "C",
+                  "id": 28024,
+                  "text": "$\\frac{2 K}{(n+1)}$",
+                  "is_correct": false
+                },
+                {
+                  "label": "D",
+                  "id": 28025,
+                  "text": "K (1 + n)",
+                  "is_correct": true
+                }
+              ],
+              "correct_option_ids": [
+                28025
+              ],
+              "correct_option_labels": [
+                "D"
+              ],
+              "correct_option_texts": [
+                "K (1 + n)"
+              ],
+              "explanation": "As spring constant is inversely proportional to the length of spring L i.e. \n$k \\propto \\frac{1}{L} $ $\\rightarrow$ (1)\ngiven L_1 = nL_2 \nL_1 + L_2 = L $\\Rightarrow$ nL_2 + L_2 = L\n$L_{2}=\\frac{L}{n+1}$\nthus using equation (1)\n$\\frac{K}{K_{2}}=\\frac{\\frac{L}{n+1}}{L}$\nK_2 = (n + 1)K"
+            },
+            {
+              "questionID": 18207,
+              "question": "In the arrangement shown in the figure, if the block of mass m is displaced, the frequency is given by:",
+              "question_raw": "<p>In the arrangement shown in the figure, if the block of mass m is displaced, the frequency is given by:<br />\r\n<img src=\"https://media-mycbseguide.s3.amazonaws.com/images/testpaper/1.02.11.14.39.Ques.jpg\" style=\"width: 150px; height: 49px;\" /></p>",
+              "options": [
+                {
+                  "label": "A",
+                  "id": 28030,
+                  "text": "f = $\\frac{1}{2 \\pi} \\sqrt{\\frac{\\left(k_1-k_2\\right)}{m}}$",
+                  "is_correct": false
+                },
+                {
+                  "label": "B",
+                  "id": 28031,
+                  "text": "f = $\\frac1{2\\pi}\\sqrt{\\frac{k_1+k_2}m}$",
+                  "is_correct": true
+                },
+                {
+                  "label": "C",
+                  "id": 28029,
+                  "text": "f = $\\frac1{2\\pi}$ ​​​$\\sqrt {\\left[ {({k_1} - {k_2})m} \\right]} $",
+                  "is_correct": false
+                },
+                {
+                  "label": "D",
+                  "id": 28028,
+                  "text": "f = $\\frac1{2\\pi}$$\\sqrt {\\left[ {({k_1} - {k_2})m} \\right]} $",
+                  "is_correct": false
+                }
+              ],
+              "correct_option_ids": [
+                28031
+              ],
+              "correct_option_labels": [
+                "B"
+              ],
+              "correct_option_texts": [
+                "f = $\\frac1{2\\pi}\\sqrt{\\frac{k_1+k_2}m}$"
+              ],
+              "explanation": "When the block is displaced slightly the restoring force acting on it in the same direction will be \nk_1x and k_2x\nthus its equation of motion will be \nm$\\frac{d^2x}{dt^2}$ = k_1x + k_2x $\\rightarrow$ (1)\nthus compare with the standard equation\n$\\frac{d^2x}{dt^2}$ = $\\omega^2$x $\\rightarrow$ (2) where $\\omega$ = $\\sqrt{\\frac{k}{m}}$\non compare (1) and (2)\n$\\omega$ = $\\sqrt{\\frac{k_1 + k_2}{m}}$\nf = $\\frac{\\omega}{2\\pi}$ = $\\frac{1}{2\\pi}$$\\sqrt{\\frac{k_1 + k_2}{m}}$"
+            },
+            {
+              "questionID": 18208,
+              "question": "Two pendulums of length I meter and 16 meters start vibrating one behind the other from the same stand. At some instant, the two are in the mean position in the same phase. The time period of the shorter pendulum is T. The minimum time after which the two threads of the pendulums will be one behind the other is:",
+              "question_raw": "<p>Two pendulums of length I meter and 16 meters start vibrating one behind the other from the same stand. At some instant, the two are in the mean position in the same phase. The time period of the shorter pendulum is T. The minimum time after which the two threads of the pendulums will be one behind the other is:</p>",
+              "options": [
+                {
+                  "label": "A",
+                  "id": 28032,
+                  "text": "$\\frac{2T}{5}$",
+                  "is_correct": false
+                },
+                {
+                  "label": "B",
+                  "id": 28033,
+                  "text": "$\\frac{T}{4}$",
+                  "is_correct": false
+                },
+                {
+                  "label": "C",
+                  "id": 28035,
+                  "text": "$\\frac{4T}{3}$",
+                  "is_correct": true
+                },
+                {
+                  "label": "D",
+                  "id": 28034,
+                  "text": "$\\frac{T}{3}$",
+                  "is_correct": false
+                }
+              ],
+              "correct_option_ids": [
+                28035
+              ],
+              "correct_option_labels": [
+                "C"
+              ],
+              "correct_option_texts": [
+                "$\\frac{4T}{3}$"
+              ],
+              "explanation": "Given the length of 1st pendulum L_1 = 1 cm and that of 2nd pendulum L_2 = 16 cm as the time period is given by\nT = $2 \\pi \\sqrt{\\frac{L}{g}}$\nthe time period of 1st pendulum T\nthe time period of 2nd pendulum will be\nT_2 = 4T\nWhen two pendulums become again one behind the other the phase difference between them again becomes 2$\\pi$.\n$\\left(\\omega_{1} t-\\omega_{2} t\\right)=2 \\pi$\n$\\left(\\frac{2\\pi}T-\\frac{2\\pi}{4T}\\right)t=2\\pi$\n$\\left(\\frac{2\\pi}{T_1}\\;-\\frac{2\\pi}{T_2}\\right)t=2\\pi$\n$t=\\frac{4 T}{3}$"
+            },
+            {
+              "questionID": 18209,
+              "question": "For all practical purposes, the motion of a simple pendulum is SHM:",
+              "question_raw": "<p>For all practical purposes, the motion of a simple pendulum is SHM:</p>",
+              "options": [
+                {
+                  "label": "A",
+                  "id": 28037,
+                  "text": "Only if the maximum angle which the string makes with the vertical is less than I.",
+                  "is_correct": false
+                },
+                {
+                  "label": "B",
+                  "id": 28038,
+                  "text": "Only if the length of its string is at least one metre.",
+                  "is_correct": false
+                },
+                {
+                  "label": "C",
+                  "id": 28039,
+                  "text": "Only if the maximum angle which its string makes with the vertical is less than 342.",
+                  "is_correct": false
+                },
+                {
+                  "label": "D",
+                  "id": 28036,
+                  "text": "None of these",
+                  "is_correct": true
+                }
+              ],
+              "correct_option_ids": [
+                28036
+              ],
+              "correct_option_labels": [
+                "D"
+              ],
+              "correct_option_texts": [
+                "None of these"
+              ],
+              "explanation": "The motion of a simple pendulum is Simple Harmonic Motion(SHM) if a restoring force is proportional to the displacement, a relationship often known as Hooke's Law when applied to springs."
+            },
+            {
+              "questionID": 18210,
+              "question": "A rubber ball with water, having a small hole in its bottom is used as the bob of a simple pendulum. The time period of such a pendulum:",
+              "question_raw": "<p>A rubber ball with water, having a small hole in its bottom is used as the bob of a simple pendulum. The time period of such a pendulum:</p>",
+              "options": [
+                {
+                  "label": "A",
+                  "id": 28041,
+                  "text": "First increases and then decreases finally having the same value as at the beginning",
+                  "is_correct": true
+                },
+                {
+                  "label": "B",
+                  "id": 28043,
+                  "text": "Increases with time",
+                  "is_correct": false
+                },
+                {
+                  "label": "C",
+                  "id": 28040,
+                  "text": "Is constant",
+                  "is_correct": false
+                },
+                {
+                  "label": "D",
+                  "id": 28042,
+                  "text": "Decreases with time",
+                  "is_correct": false
+                }
+              ],
+              "correct_option_ids": [
+                28041
+              ],
+              "correct_option_labels": [
+                "A"
+              ],
+              "correct_option_texts": [
+                "First increases and then decreases finally having the same value as at the beginning"
+              ],
+              "explanation": "First increases and then decreases finally having the same value as at the beginning"
+            },
+            {
+              "questionID": 18211,
+              "question": "A mass M is suspended from a spring of negligible mass. The spring is pulled a little and then released so that the mass executes simple harmonic oscillations with a time period T.",
+              "question_raw": "<p>A mass M is suspended from a spring of negligible mass. The spring is pulled a little and then released so that the mass executes simple harmonic oscillations with a time period T.</p>",
+              "options": [
+                {
+                  "label": "A",
+                  "id": 28045,
+                  "text": "T = $\\begin{array}{l}4\\pi\\sqrt{\\frac mk}\\\\\\end{array}$",
+                  "is_correct": false
+                },
+                {
+                  "label": "B",
+                  "id": 28046,
+                  "text": "T = $8\\pi\\sqrt[{}]{\\frac mk}$",
+                  "is_correct": false
+                },
+                {
+                  "label": "C",
+                  "id": 28044,
+                  "text": "T = $\\begin{array}{l}2\\pi\\sqrt{\\frac mk}\\\\\\end{array}$",
+                  "is_correct": true
+                },
+                {
+                  "label": "D",
+                  "id": 28047,
+                  "text": "T = $10\\pi\\sqrt[{}]{\\frac mk}$",
+                  "is_correct": false
+                }
+              ],
+              "correct_option_ids": [
+                28044
+              ],
+              "correct_option_labels": [
+                "C"
+              ],
+              "correct_option_texts": [
+                "T = $\\begin{array}{l}2\\pi\\sqrt{\\frac mk}\\\\\\end{array}$"
+              ],
+              "explanation": "The time period is defined as\n$T=\\frac{2 \\pi}{\\omega}$\nand $\\omega = \\sqrt{\\frac{k}{m}}$\nthus $T=2 \\pi \\sqrt{\\frac{m}{k}}$"
+            },
+            {
+              "questionID": 18212,
+              "question": "The bob of a simple pendulum has a mass of 20 g. The period of oscillations of the pendulum is 0.75 s. When the mass of bob is increased to 40 g, without any other change, the time period now becomes:",
+              "question_raw": "<p>The bob of a simple pendulum has a mass of 20 g. The period of oscillations of the pendulum is 0.75 s. When the mass of bob is increased to 40 g, without any other change, the time period now becomes:</p>",
+              "options": [
+                {
+                  "label": "A",
+                  "id": 28051,
+                  "text": "1.5 s",
+                  "is_correct": false
+                },
+                {
+                  "label": "B",
+                  "id": 28050,
+                  "text": "0.75 $\\sqrt 2 $",
+                  "is_correct": false
+                },
+                {
+                  "label": "C",
+                  "id": 28049,
+                  "text": "0.75 s",
+                  "is_correct": true
+                },
+                {
+                  "label": "D",
+                  "id": 28048,
+                  "text": "$\\frac{0.75}{\\sqrt{2}}$",
+                  "is_correct": false
+                }
+              ],
+              "correct_option_ids": [
+                28049
+              ],
+              "correct_option_labels": [
+                "C"
+              ],
+              "correct_option_texts": [
+                "0.75 s"
+              ],
+              "explanation": "The time period of motion of the pendulum is independent of its mass.\n$\\mathrm{T}=2 \\pi \\sqrt{\\frac{L}{g}}$"
+            },
+            {
+              "questionID": 18213,
+              "question": "A pendulum suspended from a ceiling of a train has a period T when the train is at rest. When the train is accelerating with a uniform acceleration α, the period of oscillation will:",
+              "question_raw": "<p>A pendulum suspended from a ceiling of a train has a period T when the train is at rest. When the train is accelerating with a uniform acceleration &alpha;, the period of oscillation will:</p>",
+              "options": [
+                {
+                  "label": "A",
+                  "id": 28052,
+                  "text": "Remain unaffected",
+                  "is_correct": false
+                },
+                {
+                  "label": "B",
+                  "id": 28054,
+                  "text": "Increase",
+                  "is_correct": false
+                },
+                {
+                  "label": "C",
+                  "id": 28053,
+                  "text": "Become infinite",
+                  "is_correct": false
+                },
+                {
+                  "label": "D",
+                  "id": 28055,
+                  "text": "Decrease",
+                  "is_correct": true
+                }
+              ],
+              "correct_option_ids": [
+                28055
+              ],
+              "correct_option_labels": [
+                "D"
+              ],
+              "correct_option_texts": [
+                "Decrease"
+              ],
+              "explanation": "Due to the acceleration of train the effective acceleration become \ng_eff = $\\sqrt{a^2+g^2}$\nthus time period become\nT = $2 \\pi \\sqrt{\\frac{L}{g_{e f f}}}$\nT = $2 \\pi \\sqrt{\\frac{L}{\\sqrt{a^{2}+g^{2}}}}$\nthus the time period will decrease as compared to the rest state of the train."
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "testPaperID": 595,
+      "testPaperName": "Oscillations Test 04",
+      "is_paid": true,
+      "category_full_name": "CBSE > Class 11 > Physics > Oscillations",
+      "noOfQuestions": 15,
+      "has_answers": true,
+      "sections": [
+        {
+          "sectionName": "General",
+          "sectionID": null,
+          "questions": [
+            {
+              "questionID": 18214,
+              "question": "If the length of a simple pendulum is increased by 1percent, then the new time-period:",
+              "question_raw": "<p>If the length of a simple pendulum is increased by 1percent, then the new time-period:</p>",
+              "options": [
+                {
+                  "label": "A",
+                  "id": 28058,
+                  "text": "Increases by 2.0 percent",
+                  "is_correct": false
+                },
+                {
+                  "label": "B",
+                  "id": 28057,
+                  "text": "Increases by 0.5 percent",
+                  "is_correct": true
+                },
+                {
+                  "label": "C",
+                  "id": 28056,
+                  "text": "Increases by 1 percent",
+                  "is_correct": false
+                },
+                {
+                  "label": "D",
+                  "id": 28059,
+                  "text": "Decreases by 0.5 percent",
+                  "is_correct": false
+                }
+              ],
+              "correct_option_ids": [
+                28057
+              ],
+              "correct_option_labels": [
+                "B"
+              ],
+              "correct_option_texts": [
+                "Increases by 0.5 percent"
+              ],
+              "explanation": "The time period of a simple pendulum is given by\nT = $2 \\pi \\sqrt{\\frac{L}{g}}$\nnew length L_1 = $L+\\frac{L}{100}$\n$L_{1}=\\frac{101}{100} L$\n$T_{1}=2 \\pi \\sqrt{\\frac{L_{1}}{g}}$\n$T_{1}=2 \\pi \\sqrt{\\frac{\\frac{101}{100} L}{L}}$\nT_1 = 1.004988 T\nchange = $\\frac{T_{1}-T}{T} \\times 100$\nchange = $\\frac{1.004988-1}{1} \\times 100$\nchange = 0.4988%\nThus it increases by 0.5%"
+            },
+            {
+              "questionID": 18215,
+              "question": "Two pendulums have time periods T and $5T\\over4$. They are in phase at their mean positions at some instant of time. What will be their phase difference when the bigger pendulum completes one oscillation?",
+              "question_raw": "<p>Two pendulums have time periods T and <span class=\"math-tex\">{tex}5T\\over4{/tex}</span>. They are in phase at their mean positions at some instant of time. What will be their phase difference when the bigger pendulum completes one oscillation?</p>",
+              "options": [
+                {
+                  "label": "A",
+                  "id": 28063,
+                  "text": "30^o",
+                  "is_correct": false
+                },
+                {
+                  "label": "B",
+                  "id": 28060,
+                  "text": "90^o",
+                  "is_correct": true
+                },
+                {
+                  "label": "C",
+                  "id": 28061,
+                  "text": "45^o",
+                  "is_correct": false
+                },
+                {
+                  "label": "D",
+                  "id": 28062,
+                  "text": "60^o",
+                  "is_correct": false
+                }
+              ],
+              "correct_option_ids": [
+                28060
+              ],
+              "correct_option_labels": [
+                "B"
+              ],
+              "correct_option_texts": [
+                "90^o"
+              ],
+              "explanation": "Assuming bigger pendulum as the pendulum of bigger time period i.e.having time period $5T\\over4$ \nAs the two pendulums start at the same time in simple harmonic motion from the mean position, their initial phase angles are zero\nThe bigger pendulum completes its one oscillation in time $t={5T\\over 4}$ and comes back to the mean position. During this time the point on reference circle associated with SHM rotates by an angle 2$\\pi$\nIf ω represents the angular velocity of the reference point associated with SHM of the first pendulum of time period T, then the phase of this pendulum after $5T\\over 4$ s will be\n${\\omega5T \\over 4}=\\omega T +{\\omega T\\over 4} $ \n${5T\\over 4} = T+{T \\over 4}$\nThis means that when the second pendulum completes 1 oscillation the first one completes 1+1/4\nThe first pendulum completes extra 1/4​ oscillation.\nHence the phase difference = $\\pi\\over 2$ = 90^o"
+            },
+            {
+              "questionID": 18216,
+              "question": "A particle is executing S.H.M of amplitude A with a time period T sec. The time taken by it to move from a positive extreme position to half the amplitude is:",
+              "question_raw": "<p>A particle is executing S.H.M of amplitude A with a time period T sec. The time taken by it to move from a positive extreme position to half the amplitude is:</p>",
+              "options": [
+                {
+                  "label": "A",
+                  "id": 28067,
+                  "text": "$\\frac{6 T}{12}$ sec",
+                  "is_correct": false
+                },
+                {
+                  "label": "B",
+                  "id": 28064,
+                  "text": "$\\frac{T}{6}$ sec",
+                  "is_correct": true
+                },
+                {
+                  "label": "C",
+                  "id": 28065,
+                  "text": "$\\frac{T}{12}$ sec",
+                  "is_correct": false
+                },
+                {
+                  "label": "D",
+                  "id": 28066,
+                  "text": "$\\frac{3 T}{12}$ sec",
+                  "is_correct": false
+                }
+              ],
+              "correct_option_ids": [
+                28064
+              ],
+              "correct_option_labels": [
+                "B"
+              ],
+              "correct_option_texts": [
+                "$\\frac{T}{6}$ sec"
+              ],
+              "explanation": "In this case, equation of motion will be given by\nx = A cos($\\omega$t)\ntime taken for x = 0 to x = $\\frac{A}{2}$\nusing $\\omega$ = $\\frac{2\\pi}{T}$\n$\\frac{A}{2}=A \\cos \\left(\\frac{2 \\pi}{T} \\times T_1\\right)$\n$\\frac{1}{2}=\\cos \\left(\\frac{2 \\pi T_{1}}{T}\\right)$\n$\\frac{\\pi}{3}=\\frac{2 \\pi T_{1}}{T}$\nT_1 = $\\frac{T}{6}$"
+            },
+            {
+              "questionID": 18217,
+              "question": "Time period of a simple pendulum will be doubled, if we",
+              "question_raw": "<p>Time period of a simple pendulum will be doubled, if we</p>",
+              "options": [
+                {
+                  "label": "A",
+                  "id": 28071,
+                  "text": "decrease the length 4 times",
+                  "is_correct": false
+                },
+                {
+                  "label": "B",
+                  "id": 28070,
+                  "text": "decrease the length 2 times",
+                  "is_correct": false
+                },
+                {
+                  "label": "C",
+                  "id": 28069,
+                  "text": "increase the length 2 times",
+                  "is_correct": false
+                },
+                {
+                  "label": "D",
+                  "id": 28068,
+                  "text": "increase the length 4 times",
+                  "is_correct": true
+                }
+              ],
+              "correct_option_ids": [
+                28068
+              ],
+              "correct_option_labels": [
+                "D"
+              ],
+              "correct_option_texts": [
+                "increase the length 4 times"
+              ],
+              "explanation": "When the time period is doubled length has to become 4 times as it is coming in square root.\nT = $2\\pi\\sqrt{\\frac Lg}$"
+            },
+            {
+              "questionID": 18218,
+              "question": "A mass M is suspended by two springs which are connected in series. If the spring constants are K_1 and K_2 then the time period of the vertical vibrations is:",
+              "question_raw": "<p>A mass M is suspended by two springs which are connected in series. If the spring constants are K<sub>1</sub> and K<sub>2</sub> then the time period of the vertical vibrations is:</p>",
+              "options": [
+                {
+                  "label": "A",
+                  "id": 28075,
+                  "text": "T = $2 \\pi \\sqrt{\\frac{M\\left(k_1 k_2\\right)}{\\left(k_1+k_2\\right)}}$",
+                  "is_correct": false
+                },
+                {
+                  "label": "B",
+                  "id": 28072,
+                  "text": "T = $2\\pi \\sqrt{\\frac{M\\left(k_1+k_2\\right)}{\\left(k_1 k_2\\right)}}$",
+                  "is_correct": true
+                },
+                {
+                  "label": "C",
+                  "id": 28074,
+                  "text": "T = $2 \\pi \\sqrt{\\left\\{\\frac{M}{\\left(k_1+k_2\\right)}\\right\\}}$",
+                  "is_correct": false
+                },
+                {
+                  "label": "D",
+                  "id": 28073,
+                  "text": "T = $2 \\pi \\sqrt{\\left\\{\\frac{M}{\\left(k_1-k_2\\right)}\\right\\}}$",
+                  "is_correct": false
+                }
+              ],
+              "correct_option_ids": [
+                28072
+              ],
+              "correct_option_labels": [
+                "B"
+              ],
+              "correct_option_texts": [
+                "T = $2\\pi \\sqrt{\\frac{M\\left(k_1+k_2\\right)}{\\left(k_1 k_2\\right)}}$"
+              ],
+              "explanation": "Effective spring constant when two springs are connected in series is given by\n$\\frac{1}{k_{e q}}=\\frac{1}{k_{1}}+\\frac{1}{k_{2}}$\n$k_{e q}=\\frac{k_{1} k_{2}}{k_{1}+k_{2}}$\ntime period T = 2$\\pi$$\\sqrt{\\frac{m}{k_{e q}}}$\nT = $ 2 \\pi \\sqrt{\\frac{m\\left(k_{1}+k_{2}\\right)}{k_{1} k_{2}}}$"
+            },
+            {
+              "questionID": 18219,
+              "question": "Whose motion is an ideal case of SHM?",
+              "question_raw": "<p>Whose motion is an ideal case of SHM?</p>",
+              "options": [
+                {
+                  "label": "A",
+                  "id": 28079,
+                  "text": "A simple pendulum with very Large angle of swing",
+                  "is_correct": false
+                },
+                {
+                  "label": "B",
+                  "id": 28076,
+                  "text": "An electric dipole placed stably in a uniform electric field and then given a very small angular displacement",
+                  "is_correct": true
+                },
+                {
+                  "label": "C",
+                  "id": 28077,
+                  "text": "A simple pendulum with very small angle of swing",
+                  "is_correct": false
+                },
+                {
+                  "label": "D",
+                  "id": 28078,
+                  "text": "Shadow of a point mass having uniform circular motion, on the vertical diameter",
+                  "is_correct": false
+                }
+              ],
+              "correct_option_ids": [
+                28076
+              ],
+              "correct_option_labels": [
+                "B"
+              ],
+              "correct_option_texts": [
+                "An electric dipole placed stably in a uniform electric field and then given a very small angular displacement"
+              ],
+              "explanation": "When an electric dipole will pe placed in an electric field and given a small angular displacement it will oscillate about its mid point due to different line of forces that give rise to torque."
+            },
+            {
+              "questionID": 18220,
+              "question": "A particle executes SHM of time period T, the time period with which the total energy changes is:",
+              "question_raw": "<p>A particle executes SHM of time period T, the time period with which the total energy changes is:</p>",
+              "options": [
+                {
+                  "label": "A",
+                  "id": 28083,
+                  "text": "T/2",
+                  "is_correct": false
+                },
+                {
+                  "label": "B",
+                  "id": 28081,
+                  "text": "2T",
+                  "is_correct": false
+                },
+                {
+                  "label": "C",
+                  "id": 28080,
+                  "text": "Independent",
+                  "is_correct": true
+                },
+                {
+                  "label": "D",
+                  "id": 28082,
+                  "text": "T",
+                  "is_correct": false
+                }
+              ],
+              "correct_option_ids": [
+                28080
+              ],
+              "correct_option_labels": [
+                "C"
+              ],
+              "correct_option_texts": [
+                "Independent"
+              ],
+              "explanation": "Total mechanical energy E does not depend on time period T. It is given by\nE = $\\frac12m\\omega^2A^2$"
+            },
+            {
+              "questionID": 18221,
+              "question": "The length of a second’s pendulum decreases by 0.1 percent, then the clock:",
+              "question_raw": "<p>The length of a second&rsquo;s pendulum decreases by 0.1 percent, then the clock:</p>",
+              "options": [
+                {
+                  "label": "A",
+                  "id": 28085,
+                  "text": "Loses 30 seconds per day",
+                  "is_correct": false
+                },
+                {
+                  "label": "B",
+                  "id": 28086,
+                  "text": "Loses 37.8 seconds per day",
+                  "is_correct": false
+                },
+                {
+                  "label": "C",
+                  "id": 28084,
+                  "text": "Gains 43.2 seconds per day",
+                  "is_correct": true
+                },
+                {
+                  "label": "D",
+                  "id": 28087,
+                  "text": "Loses 13.5 seconds per day",
+                  "is_correct": false
+                }
+              ],
+              "correct_option_ids": [
+                28084
+              ],
+              "correct_option_labels": [
+                "C"
+              ],
+              "correct_option_texts": [
+                "Gains 43.2 seconds per day"
+              ],
+              "explanation": "Initial time period T= 2 s\nnewlengthL′ = L - $L\\over 1000$\n$L^{\\prime}=\\frac{999}{1000} L$\nnew time period T′ = $2 \\pi \\sqrt{\\frac{L^{\\prime}}{g}}$\n$T^{\\prime}=2 \\pi \\sqrt{\\frac{\\frac{999 L}{1000}}{g}}$\nT′ = 0.9995T\nIn one day there are 86400 seconds\nAfter reducing length new time will be\n0.9995 $\\times$ 86400 = 86356.8\nThus change is $\\Delta$T = 86400 - 86356.8= 43.2s\nThus clock gains 43.2 s per day"
+            },
+            {
+              "questionID": 18222,
+              "question": "A ball of mass 50 gm is suspended by a spring with a force constant K = 49 N/m. The ball is raised to the position at which the spring is not tensioned and is released without a push. The ball will fall through a maximum distance of:",
+              "question_raw": "<p>A ball of mass 50 gm is suspended by a spring with a force constant K = 49 N/m. The ball is raised to the position at which the spring is not tensioned and is released without a push. The ball will fall through a maximum distance of:</p>",
+              "options": [
+                {
+                  "label": "A",
+                  "id": 28088,
+                  "text": "0.141 m",
+                  "is_correct": true
+                },
+                {
+                  "label": "B",
+                  "id": 28091,
+                  "text": "0.032 m",
+                  "is_correct": false
+                },
+                {
+                  "label": "C",
+                  "id": 28090,
+                  "text": "0.042 m",
+                  "is_correct": false
+                },
+                {
+                  "label": "D",
+                  "id": 28089,
+                  "text": "0.029 m",
+                  "is_correct": false
+                }
+              ],
+              "correct_option_ids": [
+                28088
+              ],
+              "correct_option_labels": [
+                "A"
+              ],
+              "correct_option_texts": [
+                "0.141 m"
+              ],
+              "explanation": "At maximum stretching \nmgx = 0+ $\\frac12$kx^2\nx = $\\frac{2mg}k=\\frac{2\\times50\\times9.8}{49\\times1000}$\nx = $\\frac2{100}$\nx = 0.02m"
+            },
+            {
+              "questionID": 18223,
+              "question": "A cylinder floats vertically in a tank full of water. The period of oscillation of the cylinder when depressed and released is dependent on:",
+              "question_raw": "<p>A cylinder floats vertically in a tank full of water. The period of oscillation of the cylinder when depressed and released is dependent on:</p>",
+              "options": [
+                {
+                  "label": "A",
+                  "id": 28095,
+                  "text": "Density of the liquid",
+                  "is_correct": false
+                },
+                {
+                  "label": "B",
+                  "id": 28092,
+                  "text": "The area of cross-section of the cylinder",
+                  "is_correct": false
+                },
+                {
+                  "label": "C",
+                  "id": 28093,
+                  "text": "The mass of the cylinder",
+                  "is_correct": false
+                },
+                {
+                  "label": "D",
+                  "id": 28094,
+                  "text": "Length of cylinder immersed in the liquid at equilibrium",
+                  "is_correct": true
+                }
+              ],
+              "correct_option_ids": [
+                28094
+              ],
+              "correct_option_labels": [
+                "D"
+              ],
+              "correct_option_texts": [
+                "Length of cylinder immersed in the liquid at equilibrium"
+              ],
+              "explanation": "Consider a cylinder of length L and density $\\rho$ floating in a liquid of density $\\sigma$ . Let the cylinder have a cross-sectional area A and let a length h be below the surface when the cylinder is at rest. (See Figure 1)\nAccording to the law of floatation, weight of the body = weight of liquid displaced \n AL$\\rho g$ = Ahag\n $l$ =$ha\\over\\rho$\nThe cylinder is now pushed downwards a little (x) and allowed to bob up and down, the forces causing the oscillation being gravity and the varying up-thrust on the cylinder.\nExtra up-thrust = extra weight of liquid displaced $ = A\\sigma gx$\nTherefore restoring force $ = A\\sigma gx$ = ma\nAcceleration (a) = $ - \\frac{{A\\sigma gx}}{m} = - \\frac{{A\\sigma gx}}{{A\\rho L}} = - \\left[ {\\frac{{\\sigma g}}{{\\rho L}}} \\right]x$\nThe acceleration is therefore directly proportional to the displacement (x) and so the cylinder, therefore, moves with simple harmonic motion.\nThe value of ω^2 for this system is σg/ρL so the period T is:\n$T = \\frac{{2\\pi }}{\\omega } = 2\\pi \\sqrt {\\frac{h}{g}} $= $2\\pi\\sqrt {\\rho L\\over\\sigma g}$\nthus $T\\propto \\sqrt h $"
+            },
+            {
+              "questionID": 18224,
+              "question": "A particle is oscillating according to the equation X = 7 cos 0.5 $\\pi $t, where t is in seconds. The point moves from the position of equilibrium to maximum displacement in time",
+              "question_raw": "<p>A particle is oscillating according to the equation X = 7 cos 0.5 <span class=\"math-tex\">{tex}\\pi {/tex}</span>t, where t is in seconds. The point moves from the position of equilibrium to maximum displacement in time</p>",
+              "options": [
+                {
+                  "label": "A",
+                  "id": 28097,
+                  "text": "4.0 seconds",
+                  "is_correct": false
+                },
+                {
+                  "label": "B",
+                  "id": 28098,
+                  "text": "1.0 seconds",
+                  "is_correct": true
+                },
+                {
+                  "label": "C",
+                  "id": 28099,
+                  "text": "0.5 seconds",
+                  "is_correct": false
+                },
+                {
+                  "label": "D",
+                  "id": 28096,
+                  "text": "2.0 seconds",
+                  "is_correct": false
+                }
+              ],
+              "correct_option_ids": [
+                28098
+              ],
+              "correct_option_labels": [
+                "B"
+              ],
+              "correct_option_texts": [
+                "1.0 seconds"
+              ],
+              "explanation": "Given x = 7 cos (0.5$\\pi$t)\nComparing it with standard equation x = A cos($\\omega$t)\n$\\omega$ = 0.5$\\pi$ \nThus, $ T=\\frac{2\\pi}\\omega=\\frac{2\\pi}{0.5\\pi}$ = 4 sec\nthus the time taken for movement from the position of equilibrium to maximum displacement is, t = 4/4 = 1.0 sec"
+            },
+            {
+              "questionID": 18225,
+              "question": "A weightless spring that has a force constant k oscillates with frequency n when a mass m is suspended from it. The spring is cut into two equal halves and a mass 2m is suspended from it. The frequency of oscillation will now become:",
+              "question_raw": "<p>A weightless spring that has a force constant k oscillates with frequency n when a mass m is suspended from it. The spring is cut into two equal halves and a mass 2m is suspended from it. The frequency of oscillation will now become:</p>",
+              "options": [
+                {
+                  "label": "A",
+                  "id": 28102,
+                  "text": "$\\frac{n}{\\sqrt{2}}$",
+                  "is_correct": false
+                },
+                {
+                  "label": "B",
+                  "id": 28100,
+                  "text": "n",
+                  "is_correct": true
+                },
+                {
+                  "label": "C",
+                  "id": 28103,
+                  "text": "$\\frac{2}{\\sqrt{2}}$",
+                  "is_correct": false
+                },
+                {
+                  "label": "D",
+                  "id": 28101,
+                  "text": "2n",
+                  "is_correct": false
+                }
+              ],
+              "correct_option_ids": [
+                28100
+              ],
+              "correct_option_labels": [
+                "B"
+              ],
+              "correct_option_texts": [
+                "n"
+              ],
+              "explanation": "Frequency of oscillation is given by\n$n=\\frac{1}{2 \\pi} \\sqrt{\\frac{k}{m}}$\nthe spring constant is inversely proportional to the length\n$k \\propto \\frac{1}{L}$ \nThus if the length is halved spring constant will be doubled. Also, mass is also doubled\nn' = $\\frac{1}{2 \\pi} \\sqrt{\\frac{2 k}{2 m}}$\n$n'=\\frac1{2\\pi}\\sqrt{\\frac km}$\nn' = n"
+            },
+            {
+              "questionID": 18226,
+              "question": "The displacement of a particle executing S.H.M is given by y = 0.25 sin 200 t cm. The maximum speed of the particle is:",
+              "question_raw": "<p>The displacement of a particle executing S.H.M is given by y = 0.25 sin 200 t cm. The maximum speed of the particle is:</p>",
+              "options": [
+                {
+                  "label": "A",
+                  "id": 28106,
+                  "text": "50 cm/sec",
+                  "is_correct": true
+                },
+                {
+                  "label": "B",
+                  "id": 28105,
+                  "text": "200 cm/sec",
+                  "is_correct": false
+                },
+                {
+                  "label": "C",
+                  "id": 28107,
+                  "text": "0.25 cm/sec",
+                  "is_correct": false
+                },
+                {
+                  "label": "D",
+                  "id": 28104,
+                  "text": "100 cm/sec",
+                  "is_correct": false
+                }
+              ],
+              "correct_option_ids": [
+                28106
+              ],
+              "correct_option_labels": [
+                "A"
+              ],
+              "correct_option_texts": [
+                "50 cm/sec"
+              ],
+              "explanation": "Given y = 0.25 sin(200t) \ncompare this equation with the standard equation\ny = Asin($\\omega$t)\namplitude A = 0.25cm\n$\\omega$ = 200\nv_max = $\\omega$A\nv_max = 200 $\\times$ 0.25\nv_max = 50cm/s"
+            },
+            {
+              "questionID": 18227,
+              "question": "Which of the following equations does not represent simple harmonic motion:",
+              "question_raw": "<p>Which of the following equations does not represent simple harmonic motion:</p>",
+              "options": [
+                {
+                  "label": "A",
+                  "id": 28109,
+                  "text": "Y = A sin $\\omega $t + Bcos $\\omega $t",
+                  "is_correct": false
+                },
+                {
+                  "label": "B",
+                  "id": 28111,
+                  "text": "Y = A sin $\\omega $ t ​​​​​​",
+                  "is_correct": false
+                },
+                {
+                  "label": "C",
+                  "id": 28110,
+                  "text": "Y = A sin $\\omega $ t cos $\\omega $ t",
+                  "is_correct": false
+                },
+                {
+                  "label": "D",
+                  "id": 28108,
+                  "text": "Y= A sin^2 $\\omega $ t",
+                  "is_correct": true
+                }
+              ],
+              "correct_option_ids": [
+                28108
+              ],
+              "correct_option_labels": [
+                "D"
+              ],
+              "correct_option_texts": [
+                "Y= A sin^2 $\\omega $ t"
+              ],
+              "explanation": "Because this is not a periodic function."
+            },
+            {
+              "questionID": 18228,
+              "question": "The vertical extension in a light spring by a weight of 1 kg suspended from the wire is 9.8 cm. The period of oscillation is:",
+              "question_raw": "<p>The vertical extension in a light spring by a weight of 1 kg suspended from the wire is 9.8 cm. The period of oscillation is:</p>",
+              "options": [
+                {
+                  "label": "A",
+                  "id": 28113,
+                  "text": "$\\frac{2\\pi}7$ sec​​​​​​",
+                  "is_correct": false
+                },
+                {
+                  "label": "B",
+                  "id": 28112,
+                  "text": "$\\frac{2\\pi}{10}$ sec​​​​",
+                  "is_correct": true
+                },
+                {
+                  "label": "C",
+                  "id": 28114,
+                  "text": "$\\frac{2\\pi}8$sec",
+                  "is_correct": false
+                },
+                {
+                  "label": "D",
+                  "id": 28115,
+                  "text": "$\\frac{2\\pi}9$ sec​",
+                  "is_correct": false
+                }
+              ],
+              "correct_option_ids": [
+                28112
+              ],
+              "correct_option_labels": [
+                "B"
+              ],
+              "correct_option_texts": [
+                "$\\frac{2\\pi}{10}$ sec​​​​"
+              ],
+              "explanation": "At equilibrium \nmg = kx\n$k=\\frac{1\\times9.8\\times100}{9.8}$\nk = 100N/m^2\n$T=2\\pi\\sqrt{\\frac mk}$\n$T=2 \\pi \\sqrt{\\frac{1}{100}}$\n$T=\\frac{2\\pi}{10}\\;$second"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "testPaperID": 596,
+      "testPaperName": "Oscillations Test 05",
+      "is_paid": true,
+      "category_full_name": "CBSE > Class 11 > Physics > Oscillations",
+      "noOfQuestions": 15,
+      "has_answers": true,
+      "sections": [
+        {
+          "sectionName": "General",
+          "sectionID": null,
+          "questions": [
+            {
+              "questionID": 18229,
+              "question": "The maximum displacement of a particle executing S.H.M is 1 cm and the maximum acceleration is (1.57)^2 cm/sec, then the time period is:",
+              "question_raw": "<p>The maximum displacement of a particle executing S.H.M is 1 cm and the maximum acceleration is (1.57)<sup>2</sup> cm/sec, then the time period is:</p>",
+              "options": [
+                {
+                  "label": "A",
+                  "id": 28116,
+                  "text": "4.00 sec",
+                  "is_correct": true
+                },
+                {
+                  "label": "B",
+                  "id": 28119,
+                  "text": "1.57$^{\\rm{2}}$ sec",
+                  "is_correct": false
+                },
+                {
+                  "label": "C",
+                  "id": 28118,
+                  "text": "1.57 sec",
+                  "is_correct": false
+                },
+                {
+                  "label": "D",
+                  "id": 28117,
+                  "text": "0.25 sec",
+                  "is_correct": false
+                }
+              ],
+              "correct_option_ids": [
+                28116
+              ],
+              "correct_option_labels": [
+                "A"
+              ],
+              "correct_option_texts": [
+                "4.00 sec"
+              ],
+              "explanation": "Maximum acceleration\n$a_{\\max }={\\omega}^{2} A$\n(1.57)^2 = $\\omega^2 $ $\\times$ 1\n$\\omega$ = 1.57\nT = $\\frac{2\\pi}\\omega=\\frac{2\\times3.14}{1.57}$\nT = 4second"
+            },
+            {
+              "questionID": 18230,
+              "question": "A body is executing S.H.M When its displacement from the mean position is 4 cm and 5 cm, the corresponding velocities of the body are 10 cm per sec and 8 cm per sec. Then the time period of the body is:",
+              "question_raw": "<p>A body is executing S.H.M When its displacement from the mean position is 4 cm and 5 cm, the corresponding velocities of the body are 10 cm per sec and 8 cm per sec. Then the time period of the body is:</p>",
+              "options": [
+                {
+                  "label": "A",
+                  "id": 28122,
+                  "text": "4$\\pi $ ​​​sec",
+                  "is_correct": false
+                },
+                {
+                  "label": "B",
+                  "id": 28120,
+                  "text": "$\\pi $ sec",
+                  "is_correct": true
+                },
+                {
+                  "label": "C",
+                  "id": 28123,
+                  "text": "$\\frac{3 \\pi}{2}$ sec",
+                  "is_correct": false
+                },
+                {
+                  "label": "D",
+                  "id": 28121,
+                  "text": "2 $\\pi $ sec",
+                  "is_correct": false
+                }
+              ],
+              "correct_option_ids": [
+                28120
+              ],
+              "correct_option_labels": [
+                "B"
+              ],
+              "correct_option_texts": [
+                "$\\pi $ sec"
+              ],
+              "explanation": "Given\nx_1 = 4cm\nx_2 = 5cm\nv_1 = 10cm/s\nv_2 = 8cm/s\nUsing relation\n$v=\\omega\\sqrt{A^2-x^2}$\n$10=\\omega\\sqrt{A^2-(4)^2}$\n8 = $\\omega\\sqrt{A^2\\;-\\;\\left(5\\right)^2}$ \nSquare and subtract these equations\n36 = 9$\\omega^2$\n$\\omega$ = 2\ntime period T = $\\frac{2 \\pi}{\\omega}=\\frac{2 \\pi}{2}$\nT = $\\pi$seconds"
+            },
+            {
+              "questionID": 18231,
+              "question": "The ratio of maximum acceleration to the maximum velocity of a particle performing S.H.M is equal to:",
+              "question_raw": "<p>The ratio of maximum acceleration to the maximum velocity of a particle performing S.H.M is equal to:</p>",
+              "options": [
+                {
+                  "label": "A",
+                  "id": 28126,
+                  "text": "Square of amplitude",
+                  "is_correct": false
+                },
+                {
+                  "label": "B",
+                  "id": 28125,
+                  "text": "Amplitude",
+                  "is_correct": false
+                },
+                {
+                  "label": "C",
+                  "id": 28124,
+                  "text": "Angular velocity",
+                  "is_correct": true
+                },
+                {
+                  "label": "D",
+                  "id": 28127,
+                  "text": "Square of angular velocity",
+                  "is_correct": false
+                }
+              ],
+              "correct_option_ids": [
+                28124
+              ],
+              "correct_option_labels": [
+                "C"
+              ],
+              "correct_option_texts": [
+                "Angular velocity"
+              ],
+              "explanation": "a_max = $\\omega^2$A\nv_max = $\\omega$A\nthus\n$\\frac{a_{\\max }}{v_{\\max }}=\\frac{\\omega^{2} A}{\\omega A}$\n$\\Rightarrow$ $\\omega$"
+            },
+            {
+              "questionID": 18232,
+              "question": "A particle is executing S.H.M with an amplitude of 4 cm and a time period 12 sec. The time taken by the particle in going from its mean position to a position of displacement equal to 2 cm is T_1. The time taken from this displaced position of 2 cm to reach the extreme position is T_2. Therefore, $\\frac {T_1}{T_2}$will be",
+              "question_raw": "<p>A particle is executing S.H.M with an amplitude of 4 cm and a time period 12 sec. The time taken by the particle in going from its mean position to a position of displacement equal to 2 cm is T<sub>1</sub>. The time taken from this displaced position of 2 cm to reach the extreme position is T<sub>2</sub>. Therefore, <span class=\"math-tex\">{tex}\\frac {T_1}{T_2}{/tex}</span>will be</p>",
+              "options": [
+                {
+                  "label": "A",
+                  "id": 28131,
+                  "text": "1",
+                  "is_correct": false
+                },
+                {
+                  "label": "B",
+                  "id": 28129,
+                  "text": "$\\frac 1 3$",
+                  "is_correct": false
+                },
+                {
+                  "label": "C",
+                  "id": 28130,
+                  "text": "2",
+                  "is_correct": false
+                },
+                {
+                  "label": "D",
+                  "id": 28128,
+                  "text": "0.5",
+                  "is_correct": true
+                }
+              ],
+              "correct_option_ids": [
+                28128
+              ],
+              "correct_option_labels": [
+                "D"
+              ],
+              "correct_option_texts": [
+                "0.5"
+              ],
+              "explanation": "In s.h.m position of a body is given by\nx = A sin ($\\omega$t + $\\Delta$) where $\\Delta$ is the phase difference\ngiven T = 12s and A = 4cm\n$\\omega=\\frac{2 \\pi}{T}=\\frac{2 \\pi}{12}=\\frac{\\pi}{6}$\nat mean position $\\Delta$ = 0\nthus for interval x = 0 to t = 2\n2 = $4 \\sin \\left(\\frac{\\pi}{6} T_{1}\\right)$\n$\\frac{1}{2}=\\sin \\left(\\frac{\\pi}{6} T_{1}\\right)$\n$\\frac{\\pi}{6}=\\frac{\\pi T_{1}}{6}$\nT_1 = 1 seconds\nFor interval x = 2 to x = 4 phase difference\n$\\phi=\\frac{\\pi}{6}$\n4 = $4 \\sin \\left(\\omega T_{2}+\\phi\\right)$\n$1=\\sin \\left(\\frac{\\pi}{6} T_{2}+\\frac{\\pi}{6}\\right)$\n$\\frac{\\pi}{2}=\\frac{\\pi}{6} T_{2}+\\frac{\\pi}{6}$\nT_2 = 2 seconds\n$\\frac{T_1}{T_2}=\\frac12$ = 0.5"
+            },
+            {
+              "questionID": 18233,
+              "question": "If the period of oscillation of mass M suspended from a spring is one second, then the period of mass 4 M will be:",
+              "question_raw": "<p>If the period of oscillation of mass M suspended from a spring is one second, then the period of mass 4 M will be:</p>",
+              "options": [
+                {
+                  "label": "A",
+                  "id": 28133,
+                  "text": "4s",
+                  "is_correct": false
+                },
+                {
+                  "label": "B",
+                  "id": 28132,
+                  "text": "2s",
+                  "is_correct": true
+                },
+                {
+                  "label": "C",
+                  "id": 28134,
+                  "text": "$\\frac12$s",
+                  "is_correct": false
+                },
+                {
+                  "label": "D",
+                  "id": 28135,
+                  "text": "$\\frac14$s",
+                  "is_correct": false
+                }
+              ],
+              "correct_option_ids": [
+                28132
+              ],
+              "correct_option_labels": [
+                "B"
+              ],
+              "correct_option_texts": [
+                "2s"
+              ],
+              "explanation": "The relation for the time period is\n$T=2\\pi\\sqrt{\\frac mk}$\nfor constant k \n$T \\propto \\sqrt{m}$\n$\\frac{T_{1}}{T_{2}}=\\frac{\\sqrt{m_{1}}}{\\sqrt{m_{2}}}$\ngiven m_2 = 4m and T_1 = 1s\n$\\frac{1}{T_{2}}=\\frac{\\sqrt{m}}{\\sqrt{4 m}}$\nT_2 = 2second"
+            },
+            {
+              "questionID": 18234,
+              "question": "The length of the second’s pendulum on the surface of the earth is 1m. The length of the second’s pendulum on the surface of the moon, where g is $\\frac 1 6$th the value on earth is:",
+              "question_raw": "<p>The length of the second&rsquo;s pendulum on the surface of the earth is 1m. The length of the second&rsquo;s pendulum on the surface of the moon, where g is <span class=\"math-tex\">{tex}\\frac 1 6{/tex}</span>th the value on earth is:</p>",
+              "options": [
+                {
+                  "label": "A",
+                  "id": 28137,
+                  "text": "6m",
+                  "is_correct": false
+                },
+                {
+                  "label": "B",
+                  "id": 28139,
+                  "text": "36m",
+                  "is_correct": false
+                },
+                {
+                  "label": "C",
+                  "id": 28138,
+                  "text": "$\\frac {1} {36}$m",
+                  "is_correct": false
+                },
+                {
+                  "label": "D",
+                  "id": 28136,
+                  "text": "$\\frac 1 6$m",
+                  "is_correct": true
+                }
+              ],
+              "correct_option_ids": [
+                28136
+              ],
+              "correct_option_labels": [
+                "D"
+              ],
+              "correct_option_texts": [
+                "$\\frac 1 6$m"
+              ],
+              "explanation": "The time period of a second pendulum is 1 s. The relation for the time period is\n$T=2\\pi\\sqrt{\\frac Lg}$\nif T remains constant \nL $\\propto$ g\n$\\frac{L_{\\text {earth }}}{L_{\\text {moon }}}=\\frac{g_{\\text {earth }}}{g_{\\text {moon }}}$\ngiven L_earth = 1 m\n$\\frac{1}{L_{\\text {moon }}}=\\frac{g}{\\frac{g}{6}}$\nL_moon = $\\frac{1}{6} $m"
+            },
+            {
+              "questionID": 18235,
+              "question": "If the maximum velocity and acceleration of a particle executing S.H.M are equal in magnitude, the time period will be:",
+              "question_raw": "<p>If the maximum velocity and acceleration of a particle executing S.H.M are equal in magnitude, the time period will be:</p>",
+              "options": [
+                {
+                  "label": "A",
+                  "id": 28141,
+                  "text": "12.56 s",
+                  "is_correct": false
+                },
+                {
+                  "label": "B",
+                  "id": 28143,
+                  "text": "3.14 s",
+                  "is_correct": false
+                },
+                {
+                  "label": "C",
+                  "id": 28140,
+                  "text": "6.28 s",
+                  "is_correct": true
+                },
+                {
+                  "label": "D",
+                  "id": 28142,
+                  "text": "1.57 s",
+                  "is_correct": false
+                }
+              ],
+              "correct_option_ids": [
+                28140
+              ],
+              "correct_option_labels": [
+                "C"
+              ],
+              "correct_option_texts": [
+                "6.28 s"
+              ],
+              "explanation": "v_max = $\\omega$A\na_max = $\\omega^2$A\ngiven they are equal\n$\\omega^2$A = $\\omega$A\n$\\Rightarrow$$\\omega$ = 1\ntime period\nT = $2\\pi \\over \\omega$\nT = 2 $\\times$ 3.14\nT = 6.28s"
+            },
+            {
+              "questionID": 18236,
+              "question": "A particle executes S.H.M along a straight line with amplitude ‘A’. The potential energy is maximum when the displacement is:",
+              "question_raw": "<p>A particle executes S.H.M along a straight line with amplitude &lsquo;A&rsquo;. The potential energy is maximum when the displacement is:</p>",
+              "options": [
+                {
+                  "label": "A",
+                  "id": 28145,
+                  "text": "Zero",
+                  "is_correct": false
+                },
+                {
+                  "label": "B",
+                  "id": 28147,
+                  "text": "$ \\pm $ A$\\sqrt 2 $",
+                  "is_correct": false
+                },
+                {
+                  "label": "C",
+                  "id": 28144,
+                  "text": "$ \\pm $ A",
+                  "is_correct": true
+                },
+                {
+                  "label": "D",
+                  "id": 28146,
+                  "text": "$ \\pm {A\\over2}$",
+                  "is_correct": false
+                }
+              ],
+              "correct_option_ids": [
+                28144
+              ],
+              "correct_option_labels": [
+                "C"
+              ],
+              "correct_option_texts": [
+                "$ \\pm $ A"
+              ],
+              "explanation": "Potential energy in s.h.m. is given by\n$U=\\;\\frac12kx^2$\nMaximum possible values of x is equal to amplitude $\\pm$A. I.e. maximum displacement on both sides. Thus maximum P.E. is when x = $\\pm$A."
+            },
+            {
+              "questionID": 18237,
+              "question": "The potential energy of a particle with displacement x is V(x). The motion is simple harmonic when (k is a positive constant):",
+              "question_raw": "<p>The potential energy of a particle with displacement x is V(x). The motion is simple harmonic when (k is a positive constant):</p>",
+              "options": [
+                {
+                  "label": "A",
+                  "id": 28149,
+                  "text": "V = kx^2",
+                  "is_correct": false
+                },
+                {
+                  "label": "B",
+                  "id": 28150,
+                  "text": "V = k",
+                  "is_correct": false
+                },
+                {
+                  "label": "C",
+                  "id": 28151,
+                  "text": "V = kx",
+                  "is_correct": false
+                },
+                {
+                  "label": "D",
+                  "id": 28148,
+                  "text": "V = k$\\frac{x^2}{2}$",
+                  "is_correct": true
+                }
+              ],
+              "correct_option_ids": [
+                28148
+              ],
+              "correct_option_labels": [
+                "D"
+              ],
+              "correct_option_texts": [
+                "V = k$\\frac{x^2}{2}$"
+              ],
+              "explanation": "In s.h.m. equation of motion is F = -kx thus work done by force F during a displacement from x to x + dx is \ndW = F $\\times$ dx\nTotal work done in a displacement from x = 0 to x is\n$W=\\int_\\limits0^x\\;\\left(-kx\\right)dx$\nW = $-\\frac12kx^2$\nthus change in P.E.\nU(0) − U(x) = W\nlet U(0) = 0\nthen U(x) = $\\frac{1}{2}$kx^2\nP.E = W = $\\frac{1}{2}$kx^2\n​​​​​P.E. will be maximum when x = $\\pm$A i.e. amplitude of motion.\nAnd will be zero at x = 0 i.e. at the mean position. Thus motion will be s.h.m."
+            },
+            {
+              "questionID": 18238,
+              "question": "If x, F, and V denote the displacement, force acting, and the potential energy of a particle then F = ?",
+              "question_raw": "<p>If x, F, and V denote the displacement, force acting, and the potential energy of a particle then F = ?</p>",
+              "options": [
+                {
+                  "label": "A",
+                  "id": 28155,
+                  "text": "$\\frac{1 d v}{x d x}$",
+                  "is_correct": false
+                },
+                {
+                  "label": "B",
+                  "id": 28152,
+                  "text": "$\\frac{-d V}{d x}$",
+                  "is_correct": true
+                },
+                {
+                  "label": "C",
+                  "id": 28154,
+                  "text": "+ $\\frac{d V}{d x}$",
+                  "is_correct": false
+                },
+                {
+                  "label": "D",
+                  "id": 28153,
+                  "text": "Vx",
+                  "is_correct": false
+                }
+              ],
+              "correct_option_ids": [
+                28152
+              ],
+              "correct_option_labels": [
+                "B"
+              ],
+              "correct_option_texts": [
+                "$\\frac{-d V}{d x}$"
+              ],
+              "explanation": "Potential energy V is given by\n$V=\\frac{1}{2} k x^2$\nand force f = -kx\nthus f = $-\\frac{d V}{d x}$\nf = $-\\frac{d}{d x}\\left(\\frac{1}{2} k x^2\\right)$\nf = -kx\nHence proof."
+            },
+            {
+              "questionID": 18239,
+              "question": "What is the ratio between the height H of a mountain and the depth h of a mine if a pendulum swings with the same period at the top of the mountain and at the bottom of the mine?",
+              "question_raw": "<p>What is the ratio between the height H of a mountain and the depth h of a mine if a pendulum swings with the same period at the top of the mountain and at the bottom of the mine?</p>",
+              "options": [
+                {
+                  "label": "A",
+                  "id": 28157,
+                  "text": "$\\frac12$",
+                  "is_correct": true
+                },
+                {
+                  "label": "B",
+                  "id": 28159,
+                  "text": "4",
+                  "is_correct": false
+                },
+                {
+                  "label": "C",
+                  "id": 28156,
+                  "text": "6.0",
+                  "is_correct": false
+                },
+                {
+                  "label": "D",
+                  "id": 28158,
+                  "text": "1",
+                  "is_correct": false
+                }
+              ],
+              "correct_option_ids": [
+                28157
+              ],
+              "correct_option_labels": [
+                "A"
+              ],
+              "correct_option_texts": [
+                "$\\frac12$"
+              ],
+              "explanation": "Gravity above the earth surface is given by \ng = $g_0(1-\\frac{2H}R)$ \nAnd below the earth surface is given by\ng = $g_0(1-\\frac hR)$ \nWhere h and d are height and depth below the earth's surface. As given time period at both location is same \nT_1 = T_2\n$2 \\pi \\sqrt{\\frac{L}{g_{u p}}}=2 \\pi \\sqrt{\\frac{L}{g_{d a c m}}}$\n$\\Rightarrow$ g_up = g_down\n$g_{0}\\left(1-\\frac{2 H}{R}\\right)=g_{0}\\left(1-\\frac{h}{R}\\right)$\n$\\Rightarrow$ 2H = h\n$\\frac{H}{h}=\\frac{1}{2}$"
+            },
+            {
+              "questionID": 18240,
+              "question": "The time period of a simple pendulum of length L at a place where the acceleration due to gravity is g is T. What is the period of a simple pendulum of the same length at a place where the acceleration due to gravity is 1.02 g.",
+              "question_raw": "<p>The time period of a simple pendulum of length L&nbsp;at a place where the acceleration due to gravity is g is T. What is the period of a simple pendulum of the same length at a place where the acceleration due to gravity is 1.02 g.</p>",
+              "options": [
+                {
+                  "label": "A",
+                  "id": 28160,
+                  "text": "0.99T",
+                  "is_correct": true
+                },
+                {
+                  "label": "B",
+                  "id": 28161,
+                  "text": "1.02T",
+                  "is_correct": false
+                },
+                {
+                  "label": "C",
+                  "id": 28162,
+                  "text": "T",
+                  "is_correct": false
+                },
+                {
+                  "label": "D",
+                  "id": 28163,
+                  "text": "1.01T",
+                  "is_correct": false
+                }
+              ],
+              "correct_option_ids": [
+                28160
+              ],
+              "correct_option_labels": [
+                "A"
+              ],
+              "correct_option_texts": [
+                "0.99T"
+              ],
+              "explanation": "The relation for time period of a pendulum is \n$T=2\\pi\\sqrt{\\frac Lg}$\nthus T $\\propto$ $\\frac{1}{\\sqrt{g}}$\nso $\\frac{T_{1}}{T_{2}}=\\frac{\\sqrt{g_{2}}}{\\sqrt{g_{1}}} \\Rightarrow \\frac{T}{T_{2}}=\\frac{\\sqrt{1.02 g}}{\\sqrt{g}}$\n$T_{2}=\\frac{T}{\\sqrt{1.02}}$\nT_2 = 0.99T"
+            },
+            {
+              "questionID": 18241,
+              "question": "A particle executes S.H.M with a period of 6 seconds and amplitude 3 cm. Its maximum speed in cm/sec is:",
+              "question_raw": "<p>A particle executes S.H.M with a period of 6 seconds and amplitude 3 cm. Its maximum speed in cm/sec is:</p>",
+              "options": [
+                {
+                  "label": "A",
+                  "id": 28167,
+                  "text": "$3\\pi $",
+                  "is_correct": false
+                },
+                {
+                  "label": "B",
+                  "id": 28164,
+                  "text": "$\\pi $",
+                  "is_correct": true
+                },
+                {
+                  "label": "C",
+                  "id": 28166,
+                  "text": "$2\\pi $",
+                  "is_correct": false
+                },
+                {
+                  "label": "D",
+                  "id": 28165,
+                  "text": "$\\pi \\over2$",
+                  "is_correct": false
+                }
+              ],
+              "correct_option_ids": [
+                28164
+              ],
+              "correct_option_labels": [
+                "B"
+              ],
+              "correct_option_texts": [
+                "$\\pi $"
+              ],
+              "explanation": "Given time period T = 6s and amplitude A = 3 cm/s\nUsing relation\nangular frequency \n$\\omega=\\frac{2 \\pi}{T}$\n$\\omega=\\frac{2 \\pi}{6}$\nv_max = $\\omega\\times A$\nv_max = $\\frac{2 \\pi}{6} \\times 3$\nv_max = $\\pi$ cm/s"
+            },
+            {
+              "questionID": 18242,
+              "question": "Which one of the following equations does not represent S.H.M?",
+              "question_raw": "<p>Which one of the following equations does not represent S.H.M?</p>",
+              "options": [
+                {
+                  "label": "A",
+                  "id": 28169,
+                  "text": "Y= A sin $\\omega $ t + B cos $\\omega $ t",
+                  "is_correct": false
+                },
+                {
+                  "label": "B",
+                  "id": 28170,
+                  "text": "Y = A sin $\\omega $ t",
+                  "is_correct": false
+                },
+                {
+                  "label": "C",
+                  "id": 28168,
+                  "text": "Y= A sec $\\omega $ t + B cosec $\\omega $ t",
+                  "is_correct": true
+                },
+                {
+                  "label": "D",
+                  "id": 28171,
+                  "text": "Y = A cos $\\omega $ t + B",
+                  "is_correct": false
+                }
+              ],
+              "correct_option_ids": [
+                28168
+              ],
+              "correct_option_labels": [
+                "C"
+              ],
+              "correct_option_texts": [
+                "Y= A sec $\\omega $ t + B cosec $\\omega $ t"
+              ],
+              "explanation": "simple harmonic motion is a type of periodic motion or oscillation motion where the restoring force is directly proportional to the displacement and acts in the direction opposite to that of displacement. We can only state SHM in terms of sine and cosine functions of the fixed time period."
+            },
+            {
+              "questionID": 18243,
+              "question": "A 0.5 kg weight attached to a light spring elongates it by 0.981 mm. The natural frequency of the system should be approximately ________. (the mass hangs from spring vertically).",
+              "question_raw": "<p>A 0.5 kg weight attached to a light spring elongates it by 0.981 mm. The natural frequency of the system should be approximately ________. (the mass hangs from spring vertically).</p>",
+              "options": [
+                {
+                  "label": "A",
+                  "id": 28173,
+                  "text": "8 Hz",
+                  "is_correct": false
+                },
+                {
+                  "label": "B",
+                  "id": 28175,
+                  "text": "36 Hz",
+                  "is_correct": false
+                },
+                {
+                  "label": "C",
+                  "id": 28172,
+                  "text": "16 Hz",
+                  "is_correct": true
+                },
+                {
+                  "label": "D",
+                  "id": 28174,
+                  "text": "5 Hz",
+                  "is_correct": false
+                }
+              ],
+              "correct_option_ids": [
+                28172
+              ],
+              "correct_option_labels": [
+                "C"
+              ],
+              "correct_option_texts": [
+                "16 Hz"
+              ],
+              "explanation": "When mass elongates the spring the restoring force must be equal to wt. Of block at equilibrium \nkx = mg\n$k=\\frac{0.5 \\times 9.81}{0.981 \\times 10^{-3}}$\nk = 5 $\\times$ 10^3N/m\nfrequency\n$f=\\frac{1}{2 \\pi} \\times \\sqrt{\\frac{k}{m}}$\n$f=\\frac{1}{2\\times3.14} \\times \\sqrt{\\frac{5 \\times 10^{3}}{0.5}}$\nf = 15.92 Hz $\\cong$ 16 Hz"
+            }
+          ]
+        }
+      ]
+    }
+  ]
+}

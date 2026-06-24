@@ -1,0 +1,858 @@
+CHAPTER: Waves  (id 4529)
+CBSE > Class 11 > Physics > Waves
+Online tests: 5
+
+========================================================================
+Waves Test 01  (id 597) [FREE]
+CBSE > Class 11 > Physics > Waves
+Questions: 15 | Answers: YES
+========================================================================
+
+Q1. Two waves of wavelength 1m & 1.01 m produce 10 beats in 3 sec. The velocity of sound in a gas is about:
+    (A) 1120 m/sec
+    (B) 33 m/s
+    (C) 337 m/sec   <-- CORRECT
+    (D) 300 m/s
+    Answer: C
+    Explanation: The beat frequency is given by
+f_beat = f_1 - f_2
+also
+$f_1=\frac v{\lambda_1}$ and $f_2=\frac v{\lambda_2}$
+given$\;f_{beat}=\frac{10}3$
+$\frac{10}3=\frac v1-\frac v{1.01}$
+on solving
+v = 337 m/s
+
+Q2. A string of 0.3 m length is found to resonate in 3 segments (nodes at both ends) when the driving frequency is 20 Hz. The speed of the wave in the string is:
+    (A) 3 m/s
+    (B) 5 m/s
+    (C) 4 m/s   <-- CORRECT
+    (D) 9 m/s
+    Answer: C
+    Explanation: Using relation
+f_n = $\frac{nv}{2L}$
+20 = $\frac{3\times v}{2\times0.3}$
+v = 4 m/s
+
+Q3. The air column in a pipe that is closed at one end will be in resonance with a vibrating tuning fork at a frequency 250 Hz. The length(L) of the air column will be (take the velocity of sound in air 333m/s).
+    (A) 45 cm.
+    (B) 62.5 cm.
+    (C) 33.3 cm.   <-- CORRECT
+    (D) 12.5 cm.
+    Answer: C
+    Explanation: Using relation for the frequency of standing waves in a closed organ pipe
+f = (2n + 1)$\frac v{4L}$
+for fundamental n = 0
+250 = $
+\frac{333}{4\times L}$
+on solving
+L = 33.3 cm
+
+Q4. A tuning fork when sounded along with a standard source of frequency 300 Hz produces 5 beat/s. The tuning fork, when loaded by some wax, is again found to give 5 beats/s with the standard source. The frequency of the fork originally was?
+    (A) 305 Hz   <-- CORRECT
+    (B) 295 Hz
+    (C) 290 Hz
+    (D) 310 Hz
+    Answer: A
+    Explanation: Here beat frequency is v_beat = 5 beat/second
+Beat frequency $v_{beat}$ = f_1 - f_2 here given that f_2 is 300 hz thus 
+f_1 = 300 + 5
+f_1 = 305 hz
+
+Q5. A stretched string resonates with tuning fork frequency 512 Hz when the length of the string is 0.5 m. The length of the string required to vibrate resonantly with a tuning fork of frequency 256 Hz would be:
+    (A) 1 m   <-- CORRECT
+    (B) 2 m
+    (C) 0.25 m
+    (D) 0.5 m
+    Answer: A
+    Explanation: Using $\nu$ = $\frac1{2L}\sqrt{\frac T\mu}$ here , T = tension in string and $\mu$ = is mass per unit length of wire 
+If T and $\mu$ are kept constant thus $\nu$ is inversely proportional to L. Thus if $\nu$ is halved then L will be doubled.
+So for $\nu$= 256 Hz, L becomes 1m.
+
+Q6. The velocity of sound in air is 300 m/s. Then the distance between two successive nodes of a stationary wave of frequency 1000 Hz is:
+    (A) 20 cm
+    (B) 30 cm
+    (C) 15 cm   <-- CORRECT
+    (D) 10 cm
+    Answer: C
+    Explanation: here,
+v = 300 m/s ,f=1000Hz
+We, know that,
+$ λ={v\over f }$
+$\begin{array}{l}\lambda=\frac{300}{1000}\\\end{array}$ = 0.3m
+distance between two successive nodes is given by,
+distance = $\lambda\over2$ = $0.3 \over 2$ = 0.15m = 15cm
+
+Q7. If a star emitting orange light moves away from the earth, it's color will:
+    (A) remain the same
+    (B) appear yellow
+    (C) appear red   <-- CORRECT
+    (D) turns gradually blue
+    Answer: C
+    Explanation: Due to the Doppler effect for a source moving away from a stationary observer
+$f_1=\frac v{v+u}\times f$ 
+Frequency will decrease thus wavelength will increase thus signal will shift towards red light.
+
+Q8. If the velocity of sound in air is 350 m/s then the fundamental frequency of an open pipe of length 50 cm is:
+    (A) 500 Hz
+    (B) 175 Hz
+    (C) 700 Hz
+    (D) 350 Hz   <-- CORRECT
+    Answer: D
+    Explanation: Using relation for the frequency of a standing wave in an open organ pipe
+$f=\frac{n v}{2 L}$
+for fundamental frequency n = 1. also convert length into meter
+$f=\frac{350 \times 100}{2 \times 50}$
+f = 350Hz
+
+Q9. An observer is watching two vehicles of the same velocity ( 4 m/s). The former is approaching the observer while the latter is receding. If the frequency of the siren of the vehicle is 240 Hz and the velocity of sound in air is 320 m/s, then the beats produced is:
+    (A) 6   <-- CORRECT
+    (B) 12
+    (C) zero
+    (D) 3
+    Answer: A
+    Explanation: Using the formula of doppler's shift for stationary observer and source moving away from the observer
+$f_1=\frac v{v+u}\times f$
+f_1 = $\frac{320}{320+4} \times 240$
+f_1 = 237.03. 
+Now for a source moving towards the observer
+$f_2=\frac v{v-u}\times f$
+$f_2=\frac{320}{320-4}\times240$
+f_2 = 243.03
+Beat frequency 
+f_beat = f_2 − f_1
+f_beat = 243.03 - 237.03
+f_beat = 6
+
+Q10. Which waves are used in sonography?
+    (A) Infra-red waves
+    (B) Sound waves
+    (C) Microwaves
+    (D) Ultrasonic waves   <-- CORRECT
+    Answer: D
+    Explanation: ​​​​​Ultrasound imaging, also called ultrasound scanning or sonography involves the use of a small transducer (probe) and ultrasound gel placed directly on the skin. High-frequency sound waves are transmitted from the probe through the gel into the body. These high-frequency sound waves are ultrasonic waves.
+
+Q11. The speed of sound in air is 333 m/s. The fundamental frequency of the open pipe is 333 Hz. The second overtone of the open organ pipe can be produced with a pipe of length:
+    (A) 1.0 m
+    (B) 0.5 m
+    (C) 2.0 m
+    (D) 1.5 m   <-- CORRECT
+    Answer: D
+    Explanation: using $f_n=\;\frac{nv}{2L}$
+$L=\frac{3\times333}{2\times333}$
+L = 1.5m
+for 2nd overtone n = 3
+
+Q12. If an open organ pipe is sounded with a tuning fork having frequency 256 Hz resonance occurs at 35 cm and 105 cm, the velocity of sound is:
+    (A) 524.6 m/s
+    (B) 358.4 m/s   <-- CORRECT
+    (C) 720 m/s
+    (D) 512.8 m/s
+    Answer: B
+    Explanation: At resonance the velocity 
+v = 2(L_2 − L_1)f
+v = $2 \times \frac{(105-35)}{100} \times 256$
+v = 358.4m/s
+
+Q13. Stationary waves of frequency 300 Hz are formed in a medium in which the velocity of sound is 1200 metre/second. The distance between a node and the neighboring antinodes is:
+    (A) 1 m.   <-- CORRECT
+    (B) 5 m.
+    (C) 3 m.
+    (D) 4 m.
+    Answer: A
+    Explanation: Given that velocity v=1200 m/s 
+Frequency f=300hz thus using
+$f=\frac1{2L}\sqrt{\frac F\mu}$ as velocity v is given by v = $\sqrt{\frac F\mu}$ ; here F is tension in string and $\mu$ is mass per unit length of wire thus substituting the value
+$L=\frac{1}{2} \times\sqrt \frac{1200}{300}$
+L = 1m
+
+Q14. A certain string fixed at both ends will resonate to several frequencies, the lowest of which is 200 Hz. What are the next three higher frequencies to which it resonates?
+    (A) 100, 200, 300 Hz
+    (B) 200, 250, 300 Hz
+    (C) 400, 600, 800 Hz   <-- CORRECT
+    (D) 50, 150, 300 Hz
+    Answer: C
+    Explanation: $f_{n}=\frac{n v}{2 L}$ 
+given f_1 = 200Hz
+f_2 = 2f_1 = 400Hz
+f_3 = 3f_1 = 600Hz
+f_4 = 4f_1 = 800Hz
+
+Q15. A wire of sonometer is 1m in length and has a fundamental frequency of 330Hz. The velocity of transverse waves along the wire is:
+    (A) 115 m/s
+    (B) 660 m/s   <-- CORRECT
+    (C) 300 m/s
+    (D) 990 m/s
+    Answer: B
+    Explanation: As sonometer wire is always fixed at both ends
+Using relation
+f = $\frac1{2L}\frac{\sqrt F}{\sqrt u}$
+since the velocity of a wave on a string is given by
+v = $\frac{\sqrt{F}}{\sqrt{u}}$
+Let equation become 
+f = $\frac{1}{2 L} \times v$
+330 = $\frac{1}{2 \times 1} \times v$
+v = 330 $\times$ 2
+v = 660m/s
+
+========================================================================
+Waves Test 02  (id 598) [PAID]
+CBSE > Class 11 > Physics > Waves
+Questions: 15 | Answers: YES
+========================================================================
+
+Q1. The frequency of the vibrating string is 200 Hz. If the tension is doubled, the frequency will be approximately ________.
+    (A) 320.6 Hz
+    (B) 240.4 Hz
+    (C) 400.8 Hz
+    (D) 282.8 Hz   <-- CORRECT
+    Answer: D
+    Explanation: According to the law of tension the frequency 
+$f\propto \sqrt T$ 
+$\frac{f_1}{f_2}=\frac{\sqrt{T_1}}{\sqrt{T_2}}$
+$f_2=200\;\times\sqrt2$
+f_2 = 282.8Hz
+
+Q2. In open-end organ pipe:
+    (A) only odd harmonics are produced.
+    (B) no harmonics can be produced.
+    (C) both odd and even harmonics are produced.   <-- CORRECT
+    (D) only even harmonics are produced.
+    Answer: C
+    Explanation: $f_{n}=\frac{n v}{2 L}$
+where f_n is the frequency of n^th harmonic
+For 1st harmonic n = 2 
+For second harmonic n = 3 
+And so on.
+
+Q3. A man is watching two trains one leaving and other approaching with equal velocities of 4 m/s. If they sound their whistles each of natural frequency 240 Hz, the number of beats heard per sec by the man will be (velocity of sound in air 320 m/s):
+    (A) 8
+    (B) 12
+    (C) 6   <-- CORRECT
+    (D) 4
+    Answer: C
+    Explanation: For source moving towards observer and v = velocity of sound, u is the velocity of sound and f is the frequency of the whistle
+The observer is at rest
+$f_1=\frac v{v-u}\times f$
+$f_1=\frac{320}{320-4}\times240$
+f_1 = 243.03Hz
+For source moving away from the observer
+$f_{2}=\frac{v}{v+u} \times f$
+$f_{2}=\frac{320}{320+4} \times 240$
+f_2 = 237.03 Hz
+No. Of beats 
+n = f_1 - f_2
+n = 243.03 - 237.03
+n = 6
+
+Q4. The speed of sound in air is 350 m/s. An engine blows a whistle of the frequency of 1200 Hz, it is approaching the observer with velocity 50 m/s. The apparent frequency as heard by the observer is
+    (A) 1400 Hz   <-- CORRECT
+    (B) 1600 Hz
+    (C) 300 Hz
+    (D) 1050 Hz
+    Answer: A
+    Explanation: Using relation for doppler's shift when the observer is at rest and source moving towards the observer
+$f_1=\frac v{v-u}\times f$ ,here v is the velocity of sound and u is the velocity of the source. 
+f_1 = $\frac{350}{350-50}\times1200$
+f_1 = 1400Hz
+
+Q5. A motorcyclist moving at 30 km/hr blows a whistle of 476 Hz towards a cliff. If the velocity of sound is 1220 km/hr, the apparent frequency of the echo heard by him is:
+    (A) 476 Hz
+    (B) 425 Hz
+    (C) 250Hz
+    (D) 488 Hz   <-- CORRECT
+    Answer: D
+    Explanation: Using relation for doppler's shift when observer stationary and source moving towards the observer
+$f_{1}=\frac{v}{v-u} \times f$
+$f_{1}=\frac{1220}{1220-30} \times 476$
+f_1 = 488hz
+apparent frequency is, f^' = $1250\times 488\over 1220$= 500 hz
+
+Q6. Which one is not produced by sound waves in air?
+    (A) Reflection
+    (B) Refraction
+    (C) Diffraction
+    (D) Polarization   <-- CORRECT
+    Answer: D
+    Explanation: Sound waves are longitudinal, meaning that they oscillate parallel to the direction of their motion. Since there is no component of a sound wave's oscillation that is perpendicular to its motion, sound waves cannot be polarized.
+
+Q7. The wavelength of the wave is the distance between two particles of the medium having a phase difference of:
+    (A) $\pi $
+    (B) zero
+    (C) 2$\pi $   <-- CORRECT
+    (D) 3$\pi $
+    Answer: C
+    Explanation: The wavelength is defined as the distance between two adjacent troughs or crests. The points on two adjacent troughs or crests are in phase 2$\pi$.
+
+Q8. Longitudinal waves cannot be propagated through_______.
+    (A) a liquid
+    (B) a gas
+    (C) vacuum   <-- CORRECT
+    (D) a solid
+    Answer: C
+    Explanation: Longitudinal waves are mechanical waves which need the medium to propagate. They travel due to the pressure difference created by waves in the medium. In a vacuum, they cannot create pressure difference. Thus they cannot travel in a vacuum.
+
+Q9. When a wave is reflected from a rigid surface, it undergoes a phase change given by_______.
+    (A) 0
+    (B) $\pi $   <-- CORRECT
+    (C) $3\pi $
+    (D) $2\pi $
+    Answer: B
+    Explanation: When a wave travels from rarer medium to denser medium and undergoes reflection at the interface. Its phase changes by $\pi$.
+
+Q10. Two persons cannot hear each other on the surface of the moon because the moon has:
+    (A) Dust suspended all around
+    (B) No atmosphere   <-- CORRECT
+    (C) Rocks which absorb sound
+    (D) Craters
+    Answer: B
+    Explanation: Sound waves are mechanical waves. They need a medium to travel. As there is no atmosphere on the Moon, sound waves cannot travel. Thus one cannot hear another person.
+
+Q11. The wavelength of ultrasonic waves in air is of the order of:
+    (A) 0.1 cm
+    (B) 0.0001 cm
+    (C) 0.00000001 cm
+    (D) 1 cm   <-- CORRECT
+    Answer: D
+    Explanation: The frequency of ultrasonic waves is above 20000Hz and the speed of waves in air is 330 m/s.
+$\lambda=\frac{v}{f} $
+$\lambda=\frac{330}{20000}$
+$\lambda$ = 1 cm
+
+Q12. A string when stretched with a weight of 9 kg. weight produces a note of the frequency of 256 Hz. The weight required to produce an octave of the note is:
+    (A) 18 kg wt.
+    (B) $\frac{9}{4}$ kg wt.
+    (C) 4 kg wt.
+    (D) 36 kg wt.   <-- CORRECT
+    Answer: D
+    Explanation: Here octave means double of frequency thus According to the law of tension
+$f\propto\sqrt T$
+$\frac{f_{1}}{f_{2}}=\frac{\sqrt{T_{1}}}{\sqrt{T_{2}}}$
+$\frac{256}{2 \times 256}=\frac{\sqrt{9 \times 9.8}}{\sqrt{m_{2} \times 9.8}}$
+m_2 = 36kg
+Or the tension will be T = 36 kg wt.
+
+Q13. When sound travels from air to water the quantity that remains unchanged is:
+    (A) frequency   <-- CORRECT
+    (B) speed
+    (C) intensity
+    (D) wavelength
+    Answer: A
+    Explanation: When a wave travels from one medium to another only the velocity and wavelength changes in such a way that its frequency remains constant.
+
+Q14. Beats can only be heard when the difference in frequencies is less than:
+    (A) 30 Hz
+    (B) 10 Hz   <-- CORRECT
+    (C) 20 Hz
+    (D) 40 Hz
+    Answer: B
+    Explanation: For beats to be audible the frequency |f_1-f_2| should not be very large. an average human ear cannot distinguish the variation in intensity if the variation is more than 10 times per second.
+Hence, the difference of the component frequency should be less than 10 Hz for the beats to be heard.
+
+Q15. Stationary waves of frequency 200Hz are formed in the air. If the velocity of the wave is 360m/s the shortest distance between antinodes will be:
+    (A) 1.8 m.
+    (B) 0.9 m.   <-- CORRECT
+    (C) 3.6 m.
+    (D) 2.7 m.
+    Answer: B
+    Explanation: $\lambda=\frac cf=\frac{360}{200}$
+$\lambda$ = 1.8m
+distance between two antinodes is = $\lambda\over 2$= $1.8\over 2$= 0.9
+
+========================================================================
+Waves Test 03  (id 599) [PAID]
+CBSE > Class 11 > Physics > Waves
+Questions: 15 | Answers: YES
+========================================================================
+
+Q1. A fork gives 5 beats with a 40 cm length of sonometer wire. If the length of the wire is shortened by 1 cm, the number of beats is still the same. The frequency of the fork is:
+    (A) 395 Hz   <-- CORRECT
+    (B) 600 Hz
+    (C) 400 Hz
+    (D) 385 Hz
+    Answer: A
+    Explanation: According to the law of length
+$f \propto \frac{1}{L}$
+Let the frequency of fork is f if 5 beats produced initially
+f_1 = f + 5
+later also 5 beats produced 
+f_2 = f - 5
+thus 
+f_1L_2_ = f_2L_1
+(f + 5)39 = (f - 5)40
+on solving f = 395Hz
+
+Q2. A tuning fork produces 4 beats/sec. with 50 cm and 40 cm of a stretched wire, of a sonometer. The frequency of fork is:
+    (A) 50 Hz
+    (B) 90 Hz
+    (C) 36 Hz   <-- CORRECT
+    (D) 110 Hz
+    Answer: C
+    Explanation: the beat frequency is given by
+f_beat = f_1 − f_2
+4 = f_1 − f_2 $\rightarrow$ (1)
+also frequency
+f $\propto$ $1 \over L$
+$\frac{f_{1}}{f_{2}}=\frac{L_{2}}{L_{1}}$
+$\frac{f_{1}}{f_{2}}=\frac{40}{50}$ $\rightarrow$ (2)
+on solving equation 1 and 2 
+f_1 = 16 Hz
+f_2 = -20 Hz
+|f_1 - f_2| = 36 Hz
+
+Q3. Two waves represented by Y_1 = a_1 sin $\omega$t and Y_2 = a_2 (sin $\omega$t +$\Delta$) and $\Delta = \frac \pi 2$ are superimposed at a point at a particular instant. The amplitude of the resultant wave is:
+    (A) a_1 − a_2
+    (B) $\sqrt {a_1^2 + a_2^2} $   <-- CORRECT
+    (C) a_1 + a_2
+    (D) $\sqrt {a_1^2 - a_2^2} $
+    Answer: B
+    Explanation: Resultant amplitude is given by 
+$A^{2}=a^{2}_{1}+a^{2}_{2}+2 a_{1} a_{2} \cos \Delta$
+where $\Delta $ is phase difference between two waves.
+here $\Delta=\frac{\pi}{2}$
+thus A^2 =$\;\;{a^2}_1+{a^2}_2$
+A = $\sqrt {a_1^2 +a_2^2}$
+
+Q4. The fundamental frequency of an open pipe is N keeping the pipe vertical. It is submerged in water so that half of its length is filled with water. The fundamental frequency of the air column is:
+    (A) N   <-- CORRECT
+    (B) $\frac{3N}{4}$
+    (C) $\frac{N}{2}$
+    (D) 2N
+    Answer: A
+    Explanation: f_n = $\frac{nv}{2L}$ Thus frequency does not depend on the medium.
+
+Q5. A tuning fork of frequency 500 Hz is sounded on a resonance tube. The first & second resonances are obtained at 17 cm and 34 cm. The velocity of sound in m/s is:
+    (A) 850
+    (B) 520
+    (C) 350.0
+    (D) 170   <-- CORRECT
+    Answer: D
+    Explanation: $f=\frac{nv}{2L}$
+$500=\frac{1\times v\times100}{2\times17}$
+v = 170m/s
+For n = 2 and L = 34 cm 
+V will also come out 170 m/s
+
+Q6. A whistling engine is approaching a stationary observer with a velocity 110 m/s. The velocity of sound is 330 m/s. The ratio of frequencies as heard by an observer at the time of approaching and passing of engine is:
+    (A) 4:1
+    (B) 2:1   <-- CORRECT
+    (C) 4:3
+    (D) 2:5
+    Answer: B
+    Explanation: After passage, v is the velocity of sound and u is the velocity of whistling engine and f is the frequency 
+$f_1=\frac v{v+u}\times f$
+$\frac{f_1}f=\frac{330}{440}$
+before passing while approaching
+$f_2=\frac v{v-u}\times f$
+$\frac{f_2}f=\frac{330}{220}$
+the ratio
+$\frac{f_{2}}{f_{1}}$ = 2:1
+
+Q7. When a wave undergoes reflection at rarer medium then it undergoes a phase difference of:
+    (A) $\pi \over2$
+    (B) $\pi $
+    (C) No change in phase   <-- CORRECT
+    (D) $\pi \over4$
+    Answer: C
+    Explanation: When a wave travels from a denser medium to rarer medium, the phase change of wave is zero. But from rarer medium to denser medium it is $\pi$.
+
+Q8. The frequency of the third harmonic of a closed organ pipe is equal to which of the overtones?
+    (A) First
+    (B) Second   <-- CORRECT
+    (C) Third
+    (D) Fourth
+    Answer: B
+    Explanation: Frequencies that are an integral multiple of the fundamental frequency are called harmonics or overtones.
+$\begin{array}{l}f_n=\frac{nv}{2L}\\\end{array}$ 
+n = 1, is called the fundamental frequency 
+n = 2, 1st overtone or 2nd harmonic
+n = 3, 2nd overtone or 3rd harmonic
+
+Q9. A stretched string fixed at both ends has n nodes then the length of the string in terms of wavelength is:
+    (A) (n - 1) $\frac{\lambda}{2}$
+    (B) (2n - 1) $\frac{\lambda}{2}$
+    (C) (n + 1) $\frac{\lambda}{2}$
+    (D) n $\frac{\lambda}{2}$   <-- CORRECT
+    Answer: D
+    Explanation: To satisfy boundary conditions 
+kL = n$\pi$
+$\frac{2\pi L}\lambda$ = $n\pi$ 
+L = $\frac{n \lambda}{2}$ 
+Where n can be 1, 2, 3, ....
+
+Q10. An echo repeats two syllables. If the velocity of sound is 330 m/s, then the distance of reflecting surface is:
+    (A) 66 m   <-- CORRECT
+    (B) 99 m
+    (C) 16.5 m
+    (D) 33 m
+    Answer: A
+    Explanation: Two syllables means sound takes 0.4 s for producing the echo
+So the distance of reflecting surface from the sound source is 
+= $\frac{speed\;\times\;time}2$ ​​​​​​ = $\frac{330\;\times\;0.4}2$ = 66 m
+
+Q11. A boat at anchor is rocked by waves whose crests are 100 cm apart and whose velocity is 25 cm/sec. These waves reach the boat once every:
+    (A) 0.25 sec
+    (B) 15 sec
+    (C) 25 sec
+    (D) 4 sec   <-- CORRECT
+    Answer: D
+    Explanation: Here, velocity = 25 cm/s & wavelength = 100 cm
+As velocity = frequency $\times$ wavelength
+25 = frequency X 100 $\Rightarrow$ frequency = 0.25
+Hence time period = 1/frequency = 4 s
+
+Q12. A certain broadcasting station broadcasts at a frequency of 12 Mega Hz. The wavelength of waves emitted is:
+    (A) 25 m   <-- CORRECT
+    (B) 2.5 m
+    (C) 36 m
+    (D) 3.6 m
+    Answer: A
+    Explanation: Here, frequency = 12 MHz = 12000000 Hz
+Speed of wave = 300000000 m/s
+Wavelength = speed/frequency = $300000000 \over12000000$ = 25 m
+
+Q13. A sound wave has a frequency of 500 Hz and a velocity of 350 m/s. What is the distance between the two particles having a phase difference of 60^o.
+    (A) 120 cm
+    (B) 70 cm
+    (C) 0.7 cm
+    (D) 11.6 cm   <-- CORRECT
+    Answer: D
+    Explanation: Here Frequency = 500 Hz
+Velocity = 350 m/s
+Phase difference = 600
+As wavelength = velocity /frequency = 350/500 = 0.7 m
+Now, path difference = $(\frac{\lambda}{2\pi})$ phase difference
+Path difference =$(\frac{0.7}{2\pi})$$(\frac{\pi}{3})$=0.116 m = 11.6 cm
+
+Q14. There are three sources of the sound of equal intensities with frequencies 400, 401, and 402 Hz. The number of beats per seconds is:
+    (A) 2
+    (B) 0
+    (C) 3
+    (D) 1   <-- CORRECT
+    Answer: D
+    Explanation: Beat frequency formula for calculating the beat between two overlapping sound waves is f_b = f_1 - f_2 (f_1 & f_2 are two incident sound waves).
+_f1 = 402 - 401 = 1 Hz
+_f2 = 402 - 400 = 2 Hz
+F_b = 2 - 1 = 1 Hz
+
+Q15. The velocity of sound in gas in which two waves of wavelength 1.0 m and 0.01 m produces 4 beats/sec. is:
+    (A) 360 m/s
+    (B) 440 m/s
+    (C) 404 m/s   <-- CORRECT
+    (D) 1010 m/s
+    Answer: C
+    Explanation: Let’s start with what we are given, assign some names.
+$\lambda_0 $ = 1.00m 
+$\lambda_1 $ = 1.01m = $\lambda_0 $ + 0.01m
+We will use f_0 and f_1 for the frequencies corresponding to the two wavelength. Since the two frequencies superimposed produce a variation of 4 beats in 1 second we also have:
+f_0 - f_1 = 4
+f_1 = f_0 - 4
+in general, we have v = λf and in particular:
+$\lambda_0 $f_0 = $\lambda_1 $f_1. Substituting gives:
+$\lambda_0 $f_0 = ($\lambda_0 $ + 0.01)(f_0 - 4) Simplifying gives:
+0 = - 4$\lambda_0 $ + 0.01f_0 - 0.04
+we have:
+0 = 0.01f_0 - 4.04,so
+f_0 = 4.04/0.01 = 404 . Since $\lambda_0 $ = 1.00m we have: v = $\lambda_0 $f_0
+v = 404 m/s
+
+========================================================================
+Waves Test 04  (id 600) [PAID]
+CBSE > Class 11 > Physics > Waves
+Questions: 15 | Answers: YES
+========================================================================
+
+Q1. A fork of unknown frequency, when sounded with another fork of frequency 256 Hz, produces 4 beats/sec. The first fork is loaded with wax. It again produces 4 beats/sec. When sounded together with the fork of 256 Hz frequency, then the frequency of the first tuning fork is:
+    (A) 260 Hz   <-- CORRECT
+    (B) 258 Hz
+    (C) 252 or 260 Hz
+    (D) 252 Hz
+    Answer: A
+    Explanation: An unknown tuning fork i is producing 4 beats/sec with the fork of frequency 256Hz. This means that their frequencies differ by 4. The unknown fork might have frequency either 252 Hz or 260 Hz.
+On the application of wax, the number of beats remains to 4 per second which means they differ only by 4 and it is only possible when the unknown fork has a greater frequency.
+Hence the unknown tuning fork has a frequency of 260Hz.
+
+Q2. Two tuning forks of frequency 250 Hz and 256Hz produce beats. If a maximum is produced just now, after how much time the minimum is produced at the same place:
+    (A) $\frac{1}{{12}}s$
+    (B) $\frac{1}{ 6}s$
+    (C) $\frac{1}{{24}}$s
+    (D) 0.25 s   <-- CORRECT
+    Answer: D
+    Explanation: The time interval between two consecutive maxima and minima is 
+$\triangle t=\frac1{n_1-n_2}$ 
+For consecutive maxima and minima, the time interval will be $\frac{1}{4}$ s or 0.25s
+Thus time interval between maxima and minima at the same place will be $\frac{1}{4}$ s or 0.25s
+
+Q3. 56 tuning forks are arranged in a series that each fork gives 4 beats/sec, with the previous one. The frequency of the last fork is 3 times that of first. Then the frequency of the first fork is:
+    (A) 110 Hz   <-- CORRECT
+    (B) 60 Hz
+    (C) 56 Hz
+    (D) 52 Hz
+    Answer: A
+    Explanation: Frequency of beats is given by
+fbeat = |f_1 − f_2|
+given fbeat = 4
+thus 4 = f_1 − f_2
+4 = f_2 − f_3
+and so on
+4 = f_55 − f_56
+we get 55such equations on adding all equations we get
+220 = f_1 − f_56
+given f_56 = 3f_1
+on substituting we get
+f_1 = 110Hz
+
+Q4. Speed of Sound is given by $V = \sqrt {\frac {B}{\rho }} $ where:
+    (A) B is compressibility and $\rho $ the specific volume of the medium
+    (B) B is bulk modulus and $\rho $ the density of the medium   <-- CORRECT
+    (C) B is compressibility and $\rho $ the density of the medium
+    (D) B is bulk modulus and $\rho $ the specific volume of the medium.
+    Answer: B
+    Explanation: The speed of sound increases with the stiffness (the resistance of an elastic body to deformation by an applied force) or Bulk modulus of the material and decreases with an increase in density.
+
+Q5. When two or more waves traverse the same medium, the displacement of any element of the medium is the vector sum of the displacements due to each wave. This is known as:
+    (A) The principle of superposition of waves   <-- CORRECT
+    (B) The Huygens principle for waves
+    (C) The principle of reciprocity of waves
+    (D) The principle of conservation of waves
+    Answer: A
+    Explanation: The principle of superposition may be applied to waves ​​​whenever two (or more) waves travelling through the same medium at the same time. The waves pass through each other without being disturbed. The net displacement of the medium at any point in space or time is simply the sum of the individual wave displacements.
+As Displacement of the resultant wave is given by
+y = y_1 + y_2 (for same direction)
+y = y_1 - y_2 (for opposite direction)
+
+Q6. Two sinusoidal waves on the same string exhibit interference, adding or cancelling according to the principle of superposition. If the two are travelling in the same direction and have the same amplitude a and frequency but differ in phase by a phase constant $\varphi $, the result is a single wave with the same frequency $\omega $, If $\varphi $ = 0 or an integral multiple of 2 $\pi $, The waves are exactly:
+    (A) in-phase and the interference is constructive.   <-- CORRECT
+    (B) out of phase and the interference is destructive.
+    (C) in phase and the interference is destructive.
+    (D) out of phase and the interference is constructive.
+    Answer: A
+    Explanation: As two waves are in the same phase (vibration is in the same direction) so their amplitudes are added together & hence interference will be constructive. The condition that arises from the superposition principle for constructive interference is $\begin{array}{l}\phi=2n\pi\\\end{array}$
+
+Q7. A travelling wave, at a rigid boundary or a closed-end _______.
+    (A) is reflected with the same phase
+    (B) is reflected with a phase difference of 30^o
+    (C) is reflected with a phase difference of 70^o
+    (D) is reflected with a phase reversal   <-- CORRECT
+    Answer: D
+    Explanation: In reflection of this kind, there must be a node at the support as the string is fixed there. The reflected and incident pulses must have opposite signs, so as to cancel each other at that point. Thus in case of a travelling wave, the reflection at a rigid boundary will take place with a phase reversal or with a phase difference of 180^o.
+
+Q8. Standing waves are characterized by fixed locations of zero displacement called nodes and fixed locations of maximum displacements called antinodes. The separation between two consecutive nodes or antinodes is:
+    (A) $\lambda $
+    (B) $\frac{\lambda}{2}$   <-- CORRECT
+    (C) $\frac{\lambda}{4}$
+    (D) $\frac{3\lambda}{2}$
+    Answer: B
+    Explanation: At locations x = 0,$\frac{\lambda}{2}$, $\lambda $, $\frac{3\lambda}{2}$, ... called the nodes the amplitude is always zero, whereas at locations x = $\frac{\lambda}{4}, \frac{3 \lambda}{4}, \frac{5 \lambda}{4}$ ... called the anti-nodes, the amplitude is maximum. The distance between two consecutive nodes or anti-nodes is $\frac{\lambda}{2}$.
+
+Q9. A pipe of length l with one end closed and another end open (such as air columns) vibrates in the fundamental mode at:
+    (A) $\frac{2v}l$
+    (B) $\frac v{2l}$
+    (C) $\frac v{4l}$   <-- CORRECT
+    (D) $\frac{2v}{3l}$
+    Answer: C
+    Explanation: In the first mode of vibration in the closed organ pipe, an antinode is formed at the open end and a node is formed at the close end. If ‘L’ be the length of pipe and λ be the wavelength of wave emitted in this mode of vibration.
+Then,
+$l = \frac{{{\lambda _0}}}{4}$
+$\lambda = 4l$ 
+if ‘v’ be the velocity of sound and to be the frequency of the wave in this mode of vibration.
+${f_0} = \frac{v}{{{\lambda _0}}} = \frac{v}{{4l}}$ 
+This is the fundamental frequency of 1^st harmonics.
+
+Q10. A string of length L fixed at both ends or an air column closed at one end and open at the other end, vibrates with frequencies called its normal modes. Each of these frequencies is:
+    (A) a sub-harmonic frequency of the system
+    (B) a forced frequency of the system
+    (C) a resonant frequency of the system   <-- CORRECT
+    (D) an excitation frequency of the system
+    Answer: C
+    Explanation: A resonant frequency is a natural frequency of vibration determined by the physical parameters of the vibrating object. It is easy to get an object to vibrate at its resonant frequencies, hard to get it to vibrate at other frequencies. A string of length L fixed at both ends or an air column closed at one end and open at the other end, vibrates with frequencies called its normal modes. Each of these frequencies is called the resonant frequency of the system.
+
+Q11. Beats arise when two waves having slightly different frequencies, ${\nu _{\rm{1}}}$ and ${\nu _{\rm{2}}}$ and comparable amplitudes, are superimposed. The beat frequency is:
+    (A) ${\nu _{{\rm{beat}}}}$ = ${\nu _{\rm{1}}}\sim{\rm{ 2}}{\nu _{\rm{2}}}$
+    (B) ${\nu _{{\rm{beat}}}}$ = ${\rm{2}}{\nu _{\rm{1}}}\sim{\rm{ }}{\nu _{\rm{2}}}$
+    (C) ${\nu _{{\rm{beat}}}}$ = ${\nu _{\rm{1}}}$ - ${\nu _{\rm{2}}}$   <-- CORRECT
+    (D) ${\nu _{{\rm{beat}}}}$ = ${\nu _{\rm{1}}} + {\rm{ }}{\nu _{\rm{2}}}$
+    Answer: C
+    Explanation: The beat frequency is always equal to the difference in frequency of the two notes that interfere to produce the beats. So if two sound waves with frequencies of 256 Hz and 254 Hz are played simultaneously, a beat frequency of 2 Hz will be detected.
+
+Q12. The human ear is most sensitive to sound in the frequency range of:
+    (A) 20 to 20000 Hz   <-- CORRECT
+    (B) 10000 to 20000 Hz
+    (C) 200 to 400 Hz
+    (D) 1000 to 2000 Hz
+    Answer: A
+    Explanation: Humans are most sensitive to (i.e. able to discern at lowest intensity) frequencies between 2,000 and 5,000 Hz. The human ear can respond to minute pressure variations in the air if they are in the audible frequency range, roughly 20 Hz - 20 kHz. This incredible sensitivity is enhanced by an effective amplification of the sound signal by the outer and middle ear structures.
+
+Q13. in transverse waves, the constituents of the medium:
+    (A) oscillate at 40$^\circ $ to the direction of wave propagation
+    (B) oscillate at 30^o to the direction of wave propagation
+    (C) oscillate parallel to the direction of wave propagation
+    (D) oscillate perpendicular to the direction of wave propagation   <-- CORRECT
+    Answer: D
+    Explanation: In transverse wave motion, medium particles oscillate or vibrate in a direction perpendicular to the direction of wave propagation to form crest & trough in the wave motion.
+
+Q14. in longitudinal waves, the constituents of the medium:
+    (A) oscillate along the direction of wave propagation   <-- CORRECT
+    (B) oscillate at 40$^\circ $ to the direction of wave propagation
+    (C) oscillate perpendicular to the direction of wave propagation
+    (D) oscillate at 30$^\circ $ to the direction of wave propagation
+    Answer: A
+    Explanation: In longitudinal wave motion, medium particles oscillate or vibrate in the same direction of wave propagation to produce compression & rarefaction in wave propagation.
+
+Q15. Travelling or progressive wave:
+    (A) does not move from one point of the medium to any other
+    (B) does not move from one point of the medium to all others
+    (C) travels from one point of the medium to another   <-- CORRECT
+    (D) does not move from one point of the medium to another
+    Answer: C
+    Explanation: As progressive wave means a wave propagating in some onward direction in the medium.
+
+========================================================================
+Waves Test 05  (id 601) [PAID]
+CBSE > Class 11 > Physics > Waves
+Questions: 15 | Answers: YES
+========================================================================
+
+Q1. The waves on the surface of the water are of two kinds:
+    (A) capillary waves and gravity waves   <-- CORRECT
+    (B) seismic waves and cosmic waves
+    (C) sound waves and gravity waves
+    (D) capillary waves and sound waves
+    Answer: A
+    Explanation: As capillary & gravity waves are elastic waves or mechanical waves which require a medium for their propagation.
+Hence they are using the elastic behaviour of water.
+Hence, the waves on the surface of the water are of two kinds: capillary waves and gravity waves
+
+Q2. In the same medium transverse and longitudinal waves:
+    (A) travel with different speeds   <-- CORRECT
+    (B) travel changing transverse wave to longitudinal wave
+    (C) travel changing longitudinal wave to transverse wave
+    (D) travel with same speeds
+    Answer: A
+    Explanation: As the speed of transverse & longitudinal waves depends on the different modulus of elasticity (Young's modulus, Bulk modulus, Modulus of Rigidity) of the medium.
+So in the same medium, transverse and longitudinal waves travel at different speeds.
+
+Q3. If y(x, t) = a sin (kx + $\omega $t + $\varphi $) represents a wave function:
+    (A) travelling in the +ve x-direction
+    (B) the equation does not tell the direction
+    (C) travelling in the -ve x-direction   <-- CORRECT
+    (D) direction of travel is sometimes –ve x and +x at other times
+    Answer: C
+    Explanation: On comparing above equation with
+y(x, t) = a sin (-kx + $\omega $t + $\varphi $), we get
+Distance traveled by wave is along - x axis
+Hence y(x, t) = a sin (kx + $\omega $t + $\varphi $) represents a wave function
+travelling in the -ve x direction
+
+Q4. If y(x, t) = a sin (kx + $\omega $t + $\varphi $ ) represents a wave function then ‘a’ is:
+    (A) the period
+    (B) the amplitude   <-- CORRECT
+    (C) the frequency
+    (D) the phase
+    Answer: B
+    Explanation: In the equation
+y(x, t) = a sin (kx + $\omega $t + $\varphi $ )
+the term before the trigonometric function is called amplitude
+Hence a (term before trigonometric function) is the amplitude.
+
+Q5. If y(x, t) = a sin (kx + $\omega $t + $\varphi $ ) represents a wave function then ‘k’ is:
+    (A) the angular wave number   <-- CORRECT
+    (B) the frequency
+    (C) the period
+    (D) the phase
+    Answer: A
+    Explanation: In the equation 
+y(x, t) = a sin (kx + $\omega $t + $\varphi $ )
+the term with distance travelled 'x' is called angular wavenumber or propagation constant
+Hence k is the angular wavenumber.
+
+Q6. If y(x, t) = a sin (kx + $\omega $t + $\varphi $ ) represents a wave function then ‘$\omega $’ is:
+    (A) The wavenumber
+    (B) The phase
+    (C) The period
+    (D) The angular frequency   <-- CORRECT
+    Answer: D
+    Explanation: In the equation 
+y(x, t) = a sin (kx + $\omega $t + $\varphi $ )
+the term with time 't' is called angular velocity or angular frequency
+Hence, $\omega $ is the angular frequency.
+
+Q7. If y(x, t) = a sin (kx + $\omega $t + $\varphi $ ) represents a wave function then ‘$\varphi $’ is:
+    (A) the period
+    (B) the frequency
+    (C) the initial phase angle   <-- CORRECT
+    (D) the wavenumber
+    Answer: C
+    Explanation: In the equation
+y(x, t) = a sin (kx + $\omega $t + $\varphi $ )
+The term $\varphi $ represents the initial phase or epoch
+Hence the term $\varphi $ is the initial phase angle.
+
+Q8. The speed of propagation of a sinusoidal wave is given by v = $ \nu \lambda $ where:
+    (A) v is the reciprocal of the period and $\lambda $ is the wave number
+    (B) v is the angular frequency and $\lambda $ is the wavelength
+    (C) v is the reciprocal of the period and $\lambda $ is the dispersion
+    (D) $\nu $ is the reciprocal of the time period and $\lambda $ is the wavelength   <-- CORRECT
+    Answer: D
+    Explanation: $\nu$ is here frequency
+we know that
+Using Speed = distance /time
+For one cycle, distance is given by = $\lambda $ ,and time is given by = T
+Hence v= $\lambda \over T$
+$v = \nu \lambda $
+
+Q9. The speed of transverse waves on a stretched string is $V = \sqrt {\frac {T} {\mu }} $ where:
+    (A) T is the tension in the string and $\mu $ the mass per unit length   <-- CORRECT
+    (B) T is the gravitational force and $\mu $ the mass per unit length
+    (C) T is the initial energy and $\mu $ the mass per unit length
+    (D) T is the tension in the string and $\mu $ the mass of the string
+    Answer: A
+    Explanation: The speed of a wave along a stretched string depends only on the tension and the linear mass density of the wire. Speed of transverse wave on stretched string is v= $\sqrt {\frac {T}{\mu}}$ where T is the tension of the string and $\mu$ is the mass per unit length of the string.
+
+Q10. In wave propagation:
+    (A) there is a flow of matter and there is no movement of disturbance.
+    (B) there is no flow of matter and there is no movement of disturbance.
+    (C) there is a flow of matter but there is the movement of disturbance.
+    (D) there is no flow of matter but there is the movement of disturbance.   <-- CORRECT
+    Answer: D
+    Explanation: Because in wave propagation particles only moves in periodic motion, particles get collide with their neighbouring particles then transfer energy to them and come back to their normal stage. Now next particle which gains energy gets into an excited state and starts moving periodically and gets collide to the next adjacent particle and so on. Thus in wave propagation particles only transfer their kinetic energy and momentum. Hence particles do not move therefore there is no flow of matter but there is the movement of disturbance.
+
+Q11. When we make a mobile telephone call to a friend:
+    (A) the friend's mobile receives gravity waves containing your audio.
+    (B) the friend's mobile receives acoustic waves containing your audio.
+    (C) the friend's mobile receives electromagnetic waves containing your audio.   <-- CORRECT
+    (D) the friend's mobile generates possible electrical signals.
+    Answer: C
+    Explanation: Because mobile communication is a space communication and in space communication basically electromagnetic waves are used (as carrier waves as in case of radio communication) because of the modulation ( frequency, amplitude) operations that can be performed on EM waves. Thus when our friend receives the call, he also receives EM waves which are the carrier of our audio signals.
+
+Q12. Electromagnetic waves are different from sound waves in that:
+    (A) they need medium and are transverse.
+    (B) they need no medium and are transverse.   <-- CORRECT
+    (C) they need no medium and are longitudinal.
+    (D) they need medium and are longitudinal.
+    Answer: B
+    Explanation: Electromagnetic waves are transverse waves. The EM waves are the waves that are created due to oscillating electric and magnetic fields perpendicular mutually and also to the direction of motion and EM waves(Electromagnetic waves) can travel in a vacuum, thus doesn't require any medium also.
+
+Q13. Matter waves are useful in:
+    (A) explaining the quantum mechanical phenomenon   <-- CORRECT
+    (B) explaining astronomical phenomenon
+    (C) explaining tidal wave phenomenon
+    (D) explaining gravitational phenomenon
+    Answer: A
+    Explanation: Matter waves are also termed as De Broglie waves because they were initially introduced by him. All matters behave like a wave (during motion) and in their propagation, there is the action of forces due to collision between the particles, some time torque also exists, hence all the matters waves were considered to be a helpful part for understanding quantum.
+
+Q14. The quantity similar to extension or compression of the spring in sound wave propagation (air) is:
+    (A) the change in air composition
+    (B) the change in air density   <-- CORRECT
+    (C) the change in air particles
+    (D) the change in air humidity
+    Answer: B
+    Explanation: As in airwave propagates in the form of compression (increase in density of air) and rarefaction (decrease in density of air).
+
+Q15. Two sinusoidal waves on the same string exhibit interference, adding or cancelling according to the principle of superposition. If the two are travelling in the same direction and have the same amplitude a and frequency but differ in phase by a phase constant $\varphi $, the result is a single wave with the same frequency $\omega $, If $\varphi $ = 0 or an integral multiple of 2 $\pi $, The waves are exactly:
+    (A) out of phase and the interference is constructive.
+    (B) out of phase and the interference is destructive.
+    (C) in phase and the interference is destructive.
+    (D) in-phase and the interference is constructive.   <-- CORRECT
+    Answer: D
+    Explanation: As two waves are in the same phase (vibration is in the same direction) so their amplitudes are added together & hence interference will be constructive. The condition that arises from the superposition principle for constructive interference is $\begin{array}{l}\phi=2n\pi\\\end{array}$

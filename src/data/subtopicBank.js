@@ -10,26 +10,25 @@
 // or the app will fail to resolve them.
 
 // ---------------- CHEMISTRY (12 chapters) ----------------
-import chem1357 from './chemistry_questions/1357_Some_Basic_Concepts_of_Chemistry.by_topic.json';
-import chem1358 from './chemistry_questions/1358_Structure_of_Atom.by_topic.json';
-import chem1359 from './chemistry_questions/1359_Classification_of_Elements_and_Periodicity_in_Properties.by_topic.json';
-import chem1360 from './chemistry_questions/1360_Chemical_Bonding_and_Molecular_Structure.by_topic.json';
-import chem1361 from './chemistry_questions/1361_States_of_Matter_Gases_and_Liquids_FA_ONLY.by_topic.json';
-import chem1362 from './chemistry_questions/1362_Chemical_Thermodynamics.by_topic.json';
-import chem1363 from './chemistry_questions/1363_Equilibrium.by_topic.json';
-import chem1364 from './chemistry_questions/1364_Redox_Reactions.by_topic.json';
-import chem1366 from './chemistry_questions/1366_The_s_Block_Elements_FA_ONLY.by_topic.json';
-import chem1367 from './chemistry_questions/1367_Some_p_Block_Elements_FA_ONLY.by_topic.json';
-import chem1368 from './chemistry_questions/1368_Organic_Chemistry_Some_Basic_Principles_and_Techniques.by_topic.json';
-import chem1369 from './chemistry_questions/1369_Hydrocarbons.by_topic.json';
-
-// ---------------- MATHS (15 chapters) ----------------
-// DISABLED: the maths export has no sub-topic grouping and the live paginate
-// endpoint returns wrong content for maths topic ids, so per-sub-topic maths
-// by_topic.json files can't be produced. Re-enable once real grouped data exists.
-
+// Lazy loaders — each chapter's by_topic JSON is parsed only on first use (when a
+// sub-topic test is opened), NOT at app startup, so this file no longer loads
+// ~9 MB of JSON into memory on launch.
+// MATHS is DISABLED (no real sub-topic grouping data available yet).
 const SUBJECTS = [
-  { subject: 'Chemistry', chapters: [chem1357, chem1358, chem1359, chem1360, chem1361, chem1362, chem1363, chem1364, chem1366, chem1367, chem1368, chem1369] },
+  { subject: 'Chemistry', chapters: [
+    () => require('./chemistry_questions/1357_Some_Basic_Concepts_of_Chemistry.by_topic.json'),
+    () => require('./chemistry_questions/1358_Structure_of_Atom.by_topic.json'),
+    () => require('./chemistry_questions/1359_Classification_of_Elements_and_Periodicity_in_Properties.by_topic.json'),
+    () => require('./chemistry_questions/1360_Chemical_Bonding_and_Molecular_Structure.by_topic.json'),
+    () => require('./chemistry_questions/1361_States_of_Matter_Gases_and_Liquids_FA_ONLY.by_topic.json'),
+    () => require('./chemistry_questions/1362_Chemical_Thermodynamics.by_topic.json'),
+    () => require('./chemistry_questions/1363_Equilibrium.by_topic.json'),
+    () => require('./chemistry_questions/1364_Redox_Reactions.by_topic.json'),
+    () => require('./chemistry_questions/1366_The_s_Block_Elements_FA_ONLY.by_topic.json'),
+    () => require('./chemistry_questions/1367_Some_p_Block_Elements_FA_ONLY.by_topic.json'),
+    () => require('./chemistry_questions/1368_Organic_Chemistry_Some_Basic_Principles_and_Techniques.by_topic.json'),
+    () => require('./chemistry_questions/1369_Hydrocarbons.by_topic.json'),
+  ] },
 ];
 
 const LETTERS = 'ABCDEFGHIJ'.split('');
@@ -84,23 +83,32 @@ function normQ(q) {
   };
 }
 
-// Build a flat list of chapters, each tagged with its subject.
-export const chapters = SUBJECTS.flatMap(({ subject, chapters: list }) =>
-  list.map((c) => ({
-    subject,
-    chapter_id: c.chapter_id,
-    chapter_name: c.chapter_name,
-    topics: (c.topics || []).map((t) => ({
-      topicId: t.topicId,
-      topicName: t.topicName,
-      count: (t.questions || []).length,
-      questions: (t.questions || []).map(normQ),
-    })),
-  }))
-);
+// Lazily build + cache the normalized chapter/topic tree on first use (parses the
+// by_topic JSON only when a sub-topic test is actually opened).
+let _chapters = null;
+function getChapters() {
+  if (_chapters) return _chapters;
+  _chapters = SUBJECTS.flatMap(({ subject, chapters: list }) =>
+    list.map((load) => {
+      const c = load() || {};
+      return {
+        subject,
+        chapter_id: c.chapter_id,
+        chapter_name: c.chapter_name,
+        topics: (c.topics || []).map((t) => ({
+          topicId: t.topicId,
+          topicName: t.topicName,
+          count: (t.questions || []).length,
+          questions: (t.questions || []).map(normQ),
+        })),
+      };
+    })
+  );
+  return _chapters;
+}
 
 export function getChapter(chapterId) {
-  return chapters.find((c) => c.chapter_id === Number(chapterId)) || null;
+  return getChapters().find((c) => c.chapter_id === Number(chapterId)) || null;
 }
 
 export function getSubtopics(chapterId) {
@@ -120,7 +128,7 @@ export function getSubtopicQuestions(chapterId, topicId) {
 // Returns [] when that sub-topic has no data (caller falls back to chapter MCQs).
 const LET = 'ABCDEFGHIJ';
 export function getSubtopicTest(chapterName, subtopicName) {
-  const ch = chapters.find((c) => c.chapter_name === chapterName);
+  const ch = getChapters().find((c) => c.chapter_name === chapterName);
   if (!ch) return [];
   const t = ch.topics.find((x) => x.topicName === subtopicName);
   if (!t) return [];
@@ -139,11 +147,13 @@ export function getChapterQuestions(chapterId) {
   return ch ? ch.topics.flatMap((t) => t.questions) : [];
 }
 
-// --- subject-level helpers ---
-export const subjects = [...new Set(chapters.map((c) => c.subject))];
+// --- subject-level helpers (lazy; were eager consts, now functions) ---
+export function getSubjects() {
+  return [...new Set(getChapters().map((c) => c.subject))];
+}
 
 export function getChaptersBySubject(subject) {
-  return chapters
+  return getChapters()
     .filter((c) => c.subject === subject)
     .map((c) => ({
       id: c.chapter_id,
@@ -153,10 +163,12 @@ export function getChaptersBySubject(subject) {
     }));
 }
 
-export const chapterList = chapters.map((c) => ({
-  id: c.chapter_id,
-  name: c.chapter_name,
-  subject: c.subject,
-  topicCount: c.topics.length,
-  questionCount: c.topics.reduce((n, t) => n + t.count, 0),
-}));
+export function getChapterList() {
+  return getChapters().map((c) => ({
+    id: c.chapter_id,
+    name: c.chapter_name,
+    subject: c.subject,
+    topicCount: c.topics.length,
+    questionCount: c.topics.reduce((n, t) => n + t.count, 0),
+  }));
+}

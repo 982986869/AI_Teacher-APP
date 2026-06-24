@@ -1,0 +1,3162 @@
+{
+  "id": 1374,
+  "name": "Trigonometric Functions",
+  "full_name": "CBSE > Class 11 > Mathematics > Trigonometric Functions",
+  "tests": [
+    {
+      "testPaperID": 612,
+      "testPaperName": "Trigonometric Functions Test 01",
+      "is_paid": false,
+      "category_full_name": "CBSE > Class 11 > Mathematics > Trigonometric Functions",
+      "noOfQuestions": 15,
+      "has_answers": true,
+      "sections": [
+        {
+          "sectionName": "General",
+          "sectionID": null,
+          "questions": [
+            {
+              "questionID": 18467,
+              "question": "In a triangle ABC, tan $\\frac{A}{2}=\\frac{5}{6}, \\tan \\frac{B}{2}=\\frac{20}{37}$ then tan $\\frac C 2$ is equal to",
+              "question_raw": "<p>In a triangle ABC, tan <span class=\"math-tex\">{tex}\\frac{A}{2}=\\frac{5}{6}, \\tan \\frac{B}{2}=\\frac{20}{37}{/tex}</span> then tan <span class=\"math-tex\">{tex}\\frac C 2{/tex}</span> is equal to</p>",
+              "options": [
+                {
+                  "label": "A",
+                  "id": 29070,
+                  "text": "$\\frac {100} {222}$",
+                  "is_correct": false
+                },
+                {
+                  "label": "B",
+                  "id": 29068,
+                  "text": "$\\frac 2 5$",
+                  "is_correct": true
+                },
+                {
+                  "label": "C",
+                  "id": 29071,
+                  "text": "$\\frac {34} {37}$",
+                  "is_correct": false
+                },
+                {
+                  "label": "D",
+                  "id": 29069,
+                  "text": "$\\frac 5 2$",
+                  "is_correct": false
+                }
+              ],
+              "correct_option_ids": [
+                29068
+              ],
+              "correct_option_labels": [
+                "B"
+              ],
+              "correct_option_texts": [
+                "$\\frac 2 5$"
+              ],
+              "explanation": "Given tan $\\frac{A}{2}$ = $\\frac{5}{6}$ $\\Rightarrow$ cot $\\frac{A}{2}$ = $\\frac{6}{5}$, tan $\\frac{B}{2}$ = $\\frac{20}{37}$ $\\Rightarrow$ cot $\\frac{B}{2}$ = $\\frac{37}{20}$ \nGiven A, B and C are angles of a triangle \nThen, A + B + C = 180\n$\\Rightarrow$ $\\frac{A+B+C}{2}$ = $\\frac{180}{2}$ \n$\\Rightarrow$ $\\frac{A+B}{2}+\\frac{C}{2}$ = 90\n$\\Rightarrow$ $\\frac{C}{2}$ = $90-\\frac{A+B}{2}$ \nTaking tan on both sides, we get\n$\\Rightarrow$ $\\tan \\frac{C}{2}$ = $\\tan \\left(90-\\frac{A+B}{2}\\right)$ \n$\\Rightarrow$ $\\tan \\frac{C}{2}$ = $\\cot \\left(\\frac{A+B}{2}\\right)$ = $\\cot \\left(\\frac{A}{2}+\\frac{B}{2}\\right)$ = $\\frac{\\cot \\frac{A}{2} \\cdot \\cot \\frac{B}{2}-1}{\\cot \\frac{A}{2}+\\cot \\frac{B}{2}}$ = $\\frac{\\frac{6}{5} \\cdot \\frac{37}{20}-1}{\\frac{6}{5}+\\frac{37}{20}}$ = $\\frac{\\frac{222}{100}-1}{\\frac{305}{100}}$ = $\\frac{\\frac{122}{100}}{\\frac{305}{100}}$ = $\\frac{122}{305}$ = $\\frac{2}{5}$"
+            },
+            {
+              "questionID": 18468,
+              "question": "In a triangle ABC, if A = ${75^o}$ and B = ${45^o}$ then b + 2 c is equal to",
+              "question_raw": "<p>In a triangle ABC, if A = <span class=\"math-tex\">{tex}{75^o}{/tex}</span> and B = <span class=\"math-tex\">{tex}{45^o}{/tex}</span> then b + 2 c is equal to</p>",
+              "options": [
+                {
+                  "label": "A",
+                  "id": 29072,
+                  "text": "2a",
+                  "is_correct": true
+                },
+                {
+                  "label": "B",
+                  "id": 29075,
+                  "text": "$\\frac{1}{2}(a+b+c)$",
+                  "is_correct": false
+                },
+                {
+                  "label": "C",
+                  "id": 29074,
+                  "text": "a",
+                  "is_correct": false
+                },
+                {
+                  "label": "D",
+                  "id": 29073,
+                  "text": "a + b + c",
+                  "is_correct": false
+                }
+              ],
+              "correct_option_ids": [
+                29072
+              ],
+              "correct_option_labels": [
+                "A"
+              ],
+              "correct_option_texts": [
+                "2a"
+              ],
+              "explanation": "Given $A=75^{\\circ} \\text { and } B=45^{\\circ}$\nthen $A+B+C=180^{\\circ}$\n$\\Rightarrow 75+45+C=180$\n$\\Rightarrow$C=180-120=60\nFrom sin e formula\n$\\frac{a}{\\sin A}=\\frac{b}{\\sin B}=\\frac{c}{\\sin C}=k(\\operatorname{lc} t)$\n$\\Rightarrow \\frac{a}{\\sin 75}=\\frac{b}{\\sin 45}=\\frac{c}{\\sin 60}=k$\nHere\n$\\frac{a}{\\frac{\\sqrt{3}+1}{2 \\sqrt{2}}}=k, \\frac{b}{\\frac{1}{\\sqrt{2}}}=k, \\frac{c}{\\frac{\\sqrt{3}}{2}}=k$ Now,\n$\\Rightarrow a=\\left(\\frac{\\sqrt{3}+1}{2 \\sqrt{2}}\\right) k, b=\\frac{k}{\\sqrt{2}}, c=\\frac{\\sqrt{3} k}{2}$\n$b+2 c=\\frac{k}{\\sqrt{2}}+2 \\cdot \\frac{\\sqrt{3} k}{2}=\\frac{2 k+2 \\sqrt{3} k}{2 \\sqrt{2}}$$=2\\left(\\frac{\\sqrt{3}+1}{2 \\sqrt{2}}\\right) k=2 a$"
+            },
+            {
+              "questionID": 18469,
+              "question": "The angles of a triangle are as 1 : 2 : 7, then ratio of greatest side to least side is",
+              "question_raw": "<p>The angles of a triangle are as 1 : 2 : 7, then ratio of greatest side to least side is</p>",
+              "options": [
+                {
+                  "label": "A",
+                  "id": 29079,
+                  "text": "$(\\sqrt 2 + 3):(2 - \\sqrt 3 )$",
+                  "is_correct": false
+                },
+                {
+                  "label": "B",
+                  "id": 29078,
+                  "text": "$(\\sqrt 2 + 1):(\\sqrt 2 - 1)$",
+                  "is_correct": false
+                },
+                {
+                  "label": "C",
+                  "id": 29076,
+                  "text": "$(\\sqrt 5 + 1):(\\sqrt 5 - 1)$",
+                  "is_correct": true
+                },
+                {
+                  "label": "D",
+                  "id": 29077,
+                  "text": "$(\\sqrt 3 + 1):(\\sqrt 3 - 1)$",
+                  "is_correct": false
+                }
+              ],
+              "correct_option_ids": [
+                29076
+              ],
+              "correct_option_labels": [
+                "C"
+              ],
+              "correct_option_texts": [
+                "$(\\sqrt 5 + 1):(\\sqrt 5 - 1)$"
+              ],
+              "explanation": "Let angles x, 2x and 7x.\nThen, x + 2x + 7x = 180^o \n$\\Rightarrow$ 10x = 180\n$\\Rightarrow$ x = $\\frac{180}{10}$ = 18^o \nFrom sin formula\n$\\frac{a}{\\sin A}=\\frac{b}{\\sin B}=\\frac{c}{\\sin C}$ = k(let)\n$\\Rightarrow$ $\\frac{a}{\\sin 18}=\\frac{b}{\\sin 36}=\\frac{c}{\\sin 126}$ = k\nHere a = k sin 18, b = k sin 36, c = k sin 126 \n$\\Rightarrow$ a = $\\frac{\\sqrt{5}-1}{4} \\cdot k$, b = $\\frac{\\sqrt{10-2 \\sqrt{5}}}{4} \\cdot k$, c = $\\frac{\\sqrt{5}+1}{4} \\cdot k$ \na : b = $\\sqrt{5}+1: \\sqrt{5}-1$"
+            },
+            {
+              "questionID": 18470,
+              "question": "If the sides of a triangle are 13, 7, 8 the greatest angle of the triangle is",
+              "question_raw": "<p>If the sides of a triangle are 13, 7, 8 the greatest angle of the triangle is</p>",
+              "options": [
+                {
+                  "label": "A",
+                  "id": 29080,
+                  "text": "$\\frac {2\\pi }{3}$",
+                  "is_correct": true
+                },
+                {
+                  "label": "B",
+                  "id": 29082,
+                  "text": "$\\frac {\\pi}{ 2}$",
+                  "is_correct": false
+                },
+                {
+                  "label": "C",
+                  "id": 29081,
+                  "text": "$\\frac {3\\pi }{2}$",
+                  "is_correct": false
+                },
+                {
+                  "label": "D",
+                  "id": 29083,
+                  "text": "$\\frac {\\pi}{3}$",
+                  "is_correct": false
+                }
+              ],
+              "correct_option_ids": [
+                29080
+              ],
+              "correct_option_labels": [
+                "A"
+              ],
+              "correct_option_texts": [
+                "$\\frac {2\\pi }{3}$"
+              ],
+              "explanation": "Let the sides of the triangle be a = 13, b = 7 and c = 8.\nSince a is the longest side the greatest angle is A.\nUsing Cosine rule, we have\ncos A = $\\frac{b^{2}+c^{2}-a^{2}}{2 b c}$ = $\\frac{49+64-169}{112}$ = $\\frac{-1}{2}$\nBut we have $\\cos \\left(\\frac{2 \\pi}{3}\\right)$ = $\\cos \\left(\\pi-\\frac{\\pi}{3}\\right)$ = $-\\cos \\left(\\frac{\\pi}{3}\\right)$ = $\\frac{-1}{2}$\n$\\therefore$ A = $\\frac{2 \\pi}{3}$"
+            },
+            {
+              "questionID": 18471,
+              "question": "There exists a triangle ABC satisfying the conditions",
+              "question_raw": "<p>There exists a triangle ABC satisfying the conditions</p>",
+              "options": [
+                {
+                  "label": "A",
+                  "id": 29087,
+                  "text": "b sin A < a, A > $\\frac { \\pi }{ 2 } $",
+                  "is_correct": false
+                },
+                {
+                  "label": "B",
+                  "id": 29084,
+                  "text": "b sin A = a, A < $\\frac { \\pi }{ 2 } $",
+                  "is_correct": true
+                },
+                {
+                  "label": "C",
+                  "id": 29085,
+                  "text": "b sin A = a, a > b",
+                  "is_correct": false
+                },
+                {
+                  "label": "D",
+                  "id": 29086,
+                  "text": "b sin A < a, a = b, $A = \\frac \\pi 2$",
+                  "is_correct": false
+                }
+              ],
+              "correct_option_ids": [
+                29084
+              ],
+              "correct_option_labels": [
+                "B"
+              ],
+              "correct_option_texts": [
+                "b sin A = a, A < $\\frac { \\pi }{ 2 } $"
+              ],
+              "explanation": "Using rule we have $\\frac{a}{\\sin A}=\\frac{b}{\\sin B}$ = k\nWhen k = 1 we have \nb sin A = a sin B\nWhen B = $\\frac{\\pi}{2}$, we get b sin A = a\nBut we have in a triangle the sum of the three angles is 180 degrees, so if B = 90 degrees then A < $\\frac { \\pi }{ 2 } $."
+            },
+            {
+              "questionID": 18472,
+              "question": "In a $\\Delta ABC,$ (b +c) cos A + (c + a) cos B + (a + b) cos C is equal to",
+              "question_raw": "<p>In a <span class=\"math-tex\">{tex}\\Delta ABC,{/tex}</span> (b +c) cos A + (c + a) cos B + (a + b) cos C is equal to</p>",
+              "options": [
+                {
+                  "label": "A",
+                  "id": 29090,
+                  "text": "R r",
+                  "is_correct": false
+                },
+                {
+                  "label": "B",
+                  "id": 29089,
+                  "text": "0",
+                  "is_correct": false
+                },
+                {
+                  "label": "C",
+                  "id": 29088,
+                  "text": "a + b + c",
+                  "is_correct": true
+                },
+                {
+                  "label": "D",
+                  "id": 29091,
+                  "text": "a - b - c",
+                  "is_correct": false
+                }
+              ],
+              "correct_option_ids": [
+                29088
+              ],
+              "correct_option_labels": [
+                "C"
+              ],
+              "correct_option_texts": [
+                "a + b + c"
+              ],
+              "explanation": "$(b+c)cosA+(c+a)cosB+(a+b)cosC\\\\ =b.cosA+c.cosA+c.cosB+a.cosB+a.cosC+b.cosC\\\\ =\\left( b.cosC+c.cosB \\right) +\\left( a.cosC+c.cosA \\right) +\\left( b.cosA+a.cosB \\right) \\\\ =a+b+c\\quad \\quad \\quad \\quad \\left[ using\\quad projection\\quad rule \\right] $"
+            },
+            {
+              "questionID": 18473,
+              "question": "If the angles of a triangle ABC are in A.P., then",
+              "question_raw": "<p>If the angles of a triangle ABC are in A.P., then</p>",
+              "options": [
+                {
+                  "label": "A",
+                  "id": 29093,
+                  "text": "c^2 = a^2 + b^2 + ab",
+                  "is_correct": false
+                },
+                {
+                  "label": "B",
+                  "id": 29092,
+                  "text": "a^2 + c^2 - ac = b^2",
+                  "is_correct": true
+                },
+                {
+                  "label": "C",
+                  "id": 29095,
+                  "text": "c^2 = a^2 + b^2 - ab",
+                  "is_correct": false
+                },
+                {
+                  "label": "D",
+                  "id": 29094,
+                  "text": "c^2 = a^2 + b^2",
+                  "is_correct": false
+                }
+              ],
+              "correct_option_ids": [
+                29092
+              ],
+              "correct_option_labels": [
+                "B"
+              ],
+              "correct_option_texts": [
+                "a^2 + c^2 - ac = b^2"
+              ],
+              "explanation": "Given angles of a triangle ABC are in A.P$\\Rightarrow \\frac { A+C }{ 2 } $ = B $\\Rightarrow$ A + C = 2B .....(i)\nBut we have in a triangle A + B + C = 180^o $\\Rightarrow$ 3B = 180^o $\\Rightarrow$ B = 60^o [using(i)]\nUsing Cosine Rule we have\nb^2 = a^2 + c^2 - 2ac cos B\n$\\Rightarrow$ b^2 = a^2 + c^2 - 2ac cos 60^o \n$\\Rightarrow$ b^2 = a^2 + c^2 - ac [$\\because$ cos 60^o = $\\frac{1}{2}$]"
+            },
+            {
+              "questionID": 18474,
+              "question": "The perimeter of a triangle ABC is 6 times the arithmetic mean of the sines of its angles. If the side b is 2, then the angle B is",
+              "question_raw": "<p>The perimeter of a triangle ABC is 6 times the arithmetic mean of the sines of its angles. If the side b is 2, then the angle B is</p>",
+              "options": [
+                {
+                  "label": "A",
+                  "id": 29097,
+                  "text": "60^o",
+                  "is_correct": false
+                },
+                {
+                  "label": "B",
+                  "id": 29099,
+                  "text": "120^o",
+                  "is_correct": false
+                },
+                {
+                  "label": "C",
+                  "id": 29096,
+                  "text": "90^o",
+                  "is_correct": true
+                },
+                {
+                  "label": "D",
+                  "id": 29098,
+                  "text": "30^o",
+                  "is_correct": false
+                }
+              ],
+              "correct_option_ids": [
+                29096
+              ],
+              "correct_option_labels": [
+                "C"
+              ],
+              "correct_option_texts": [
+                "90^o"
+              ],
+              "explanation": "Given a + b + c = $\\frac{6(\\sin A+\\sin B+\\sin C)}{3}$,\n$\\Rightarrow$ a + b + c = 2(sin A + sin B + sin C)\nNow using sine rule a = k sin A, b = k sin B, c = k sin C\n$\\Rightarrow$ k (sin A + sin B + sin C) = 2 (sin A + sin B + sin C)\n$\\Rightarrow$ k = 2\nNow when b = 2 we get\nsin B = $\\frac{b}{k}=\\frac{2}{2}$ = 1\n$\\Rightarrow$ B = 90^o"
+            },
+            {
+              "questionID": 18475,
+              "question": "In a triangle ABC, $\\tan \\frac{A+B}{2} \\cot \\frac{A-B}{2}$ is equal to",
+              "question_raw": "<p>In a triangle ABC, <span class=\"math-tex\">{tex}\\tan \\frac{A+B}{2} \\cot \\frac{A-B}{2}{/tex}</span> is equal to</p>",
+              "options": [
+                {
+                  "label": "A",
+                  "id": 29100,
+                  "text": "$\\frac {a + b} {a - b}$",
+                  "is_correct": true
+                },
+                {
+                  "label": "B",
+                  "id": 29101,
+                  "text": "$\\frac {a - b} {c}$",
+                  "is_correct": false
+                },
+                {
+                  "label": "C",
+                  "id": 29102,
+                  "text": "$\\frac {a - b} {a + b}$",
+                  "is_correct": false
+                },
+                {
+                  "label": "D",
+                  "id": 29103,
+                  "text": "$\\frac {a + b} {c}$",
+                  "is_correct": false
+                }
+              ],
+              "correct_option_ids": [
+                29100
+              ],
+              "correct_option_labels": [
+                "A"
+              ],
+              "correct_option_texts": [
+                "$\\frac {a + b} {a - b}$"
+              ],
+              "explanation": "We have ${ tan\\left( \\frac { A-B }{ 2 } \\right) }=\\frac { a-b }{ a+b } .cot\\frac { C }{ 2 } $\nBut in a triangle ABC, we have A + B + C = ${ 180 }^{ \\circ }\\Rightarrow \\frac { C }{ 2 } ={ 90 }^{ \\circ }-\\left( \\frac { A+B }{ 2 } \\right) $\n$\\therefore \\tan \\left(\\frac{A-B}{2}\\right)=\\frac{a-b}{a+b} \\cdot \\cot \\left[90^{\\circ}-\\left(\\frac{A+B}{2}\\right)\\right]$\n$\\Rightarrow \\tan \\left(\\frac{\\dot{A}-B}{2}\\right)=\\frac{a-b}{a+b} \\cdot \\tan \\left(\\frac{A+B}{2}\\right)$\n$\\Rightarrow \\tan \\left(\\frac{A+B}{2}\\right) \\cdot \\cot \\left(\\frac{A-B}{2}\\right)=\\frac{a+b}{a-b}$"
+            },
+            {
+              "questionID": 18476,
+              "question": "The area of a triangle is 80 cm^2 and its perimeter is 8 cm. The radius of its inscribed circle is",
+              "question_raw": "<p>The area of a triangle is 80 cm<sup>2</sup>&nbsp;and its perimeter is 8 cm. The radius of its inscribed circle is</p>",
+              "options": [
+                {
+                  "label": "A",
+                  "id": 29106,
+                  "text": "5 cm",
+                  "is_correct": false
+                },
+                {
+                  "label": "B",
+                  "id": 29105,
+                  "text": "10 cm",
+                  "is_correct": false
+                },
+                {
+                  "label": "C",
+                  "id": 29104,
+                  "text": "20 cm",
+                  "is_correct": true
+                },
+                {
+                  "label": "D",
+                  "id": 29107,
+                  "text": "30 cm",
+                  "is_correct": false
+                }
+              ],
+              "correct_option_ids": [
+                29104
+              ],
+              "correct_option_labels": [
+                "C"
+              ],
+              "correct_option_texts": [
+                "20 cm"
+              ],
+              "explanation": "We have if a,b,c are the sides of the triangle and r is the radius of the circle inscribed, then \nr = $\\frac{\\Delta}{s}$, where 2s = a + b + c and $\\Delta$ denotes the area of the triangle.\nGiven $\\Delta$ = 80 and a + b + c = 8\n$\\therefore$ r = $\\frac{\\Delta}{s}=\\frac{80}{4}$ = 20 cm"
+            },
+            {
+              "questionID": 18477,
+              "question": "If the angles of a triangle be in the ratio 1 : 4 : 5, then the ratio of the greatest side to the smallest side is",
+              "question_raw": "<p>If the angles of a triangle be in the ratio 1 : 4 : 5, then the ratio of the greatest side to the smallest side is</p>",
+              "options": [
+                {
+                  "label": "A",
+                  "id": 29110,
+                  "text": "$4:\\left( {\\sqrt 5 - 1} \\right)$",
+                  "is_correct": true
+                },
+                {
+                  "label": "B",
+                  "id": 29108,
+                  "text": "$(\\sqrt 5 - 1):1$",
+                  "is_correct": false
+                },
+                {
+                  "label": "C",
+                  "id": 29109,
+                  "text": "5 : 1",
+                  "is_correct": false
+                },
+                {
+                  "label": "D",
+                  "id": 29111,
+                  "text": "$1:(\\sqrt 5 - 1)$",
+                  "is_correct": false
+                }
+              ],
+              "correct_option_ids": [
+                29110
+              ],
+              "correct_option_labels": [
+                "A"
+              ],
+              "correct_option_texts": [
+                "$4:\\left( {\\sqrt 5 - 1} \\right)$"
+              ],
+              "explanation": "Let angles x, 4x and 5x, then x + 4x + 5x = 180^o $\\Rightarrow$ 10x = 180 $\\Rightarrow$ x = $\\frac{180}{10}$ = 18^o \nUsing sine formula we have $\\frac{a}{\\sin A}=\\frac{b}{\\sin B}=\\frac{c}{\\sin C}$ = k(say)\nHere a = k sin 18, b = k sin 72, c = k sin 90\n$\\Rightarrow$ a = $\\frac{\\sqrt{5}-1}{4} \\cdot k$, b = $\\frac{\\sqrt{10+2 \\sqrt{5}}}{4} \\cdot k$, c = 1(k)\nc: a = $1: \\frac{\\sqrt{5}-1}{4}$ $\\Rightarrow$ c: a = 4 : $\\sqrt{5}-1$"
+            },
+            {
+              "questionID": 18478,
+              "question": "If a = 4, b = 3 and A =${60^ \\circ }$, then c is a root of the equation",
+              "question_raw": "<p>If a = 4, b = 3 and A =<span class=\"math-tex\">{tex}{60^ \\circ }{/tex}</span>, then c is a root of the equation</p>",
+              "options": [
+                {
+                  "label": "A",
+                  "id": 29112,
+                  "text": "${x^2} - 3x - 7 = 0$",
+                  "is_correct": true
+                },
+                {
+                  "label": "B",
+                  "id": 29114,
+                  "text": "${x^2} - 2x + 7 = 0$",
+                  "is_correct": false
+                },
+                {
+                  "label": "C",
+                  "id": 29113,
+                  "text": "${x^2} - 3x + 8 = 0$",
+                  "is_correct": false
+                },
+                {
+                  "label": "D",
+                  "id": 29115,
+                  "text": "${x^2} - 5x + 7 = 0$",
+                  "is_correct": false
+                }
+              ],
+              "correct_option_ids": [
+                29112
+              ],
+              "correct_option_labels": [
+                "A"
+              ],
+              "correct_option_texts": [
+                "${x^2} - 3x - 7 = 0$"
+              ],
+              "explanation": "$cosA=\\frac { { b }^{ 2 }+{ c }^{ 2 }-a^{ 2 } }{ 2bc } \\\\ \\Rightarrow cos{ 60 }^{ \\circ }=\\frac { 1 }{ 2 } =\\frac { 9+{ c }^{ 2 }-16 }{ 6c } \\\\ \\Rightarrow { c }^{ 2 }-7=3c\\\\ \\Rightarrow { c }^{ 2 }-3c-7=0\\\\ $\nHence c is the root of the equation ${x^2} - 3x - 7 = 0$"
+            },
+            {
+              "questionID": 18479,
+              "question": "If b^2 + c^2 = 3a^2, then cot B + cot C - cot A =",
+              "question_raw": "<p>If b<sup>2</sup> + c<sup>2</sup> = 3a<sup>2</sup>,&nbsp;then cot B + cot C - cot A =</p>",
+              "options": [
+                {
+                  "label": "A",
+                  "id": 29117,
+                  "text": "$\\frac {ab} {4\\Delta }$",
+                  "is_correct": false
+                },
+                {
+                  "label": "B",
+                  "id": 29118,
+                  "text": "1",
+                  "is_correct": false
+                },
+                {
+                  "label": "C",
+                  "id": 29116,
+                  "text": "0",
+                  "is_correct": true
+                },
+                {
+                  "label": "D",
+                  "id": 29119,
+                  "text": "$\\frac {ac} {4\\Delta }$",
+                  "is_correct": false
+                }
+              ],
+              "correct_option_ids": [
+                29116
+              ],
+              "correct_option_labels": [
+                "C"
+              ],
+              "correct_option_texts": [
+                "0"
+              ],
+              "explanation": "We have cos A = $\\frac{b^{2}+c^{2}-a^{2}}{2 b c}$, cos B = $\\frac{c^{2}+a^{2}-b^{2}}{2 c a}$, cos C = $\\frac{a^{2}+b^{2}-c^{2}}{2 a b}$ \nAlso sin A = $\\frac{2 \\Delta}{b c}$, sin B = $\\frac{2 \\Delta}{c a}$, sin C = $\\frac{2 \\Delta}{a b}$, where $\\Delta$ = $\\sqrt{s(s-a)(s-b)(s-c)}$ \nHence we get cos B + cos C - cot A = $\\frac{c^{2}+a^{2}-b^{2}}{4 \\Delta}+\\frac{a^{2}+b^{2}-c^{2}}{4 \\Delta}-\\frac{b^{2}+c^{2}-a^{2}}{4 \\Delta}$ = $\\frac{3 a^{2}-\\left(b^{2}+c^{2}\\right)}{4 \\Delta}=\\frac{0}{4 \\Delta}$ = 0 [$\\because$ 3a^2 = b^2+ c^2]"
+            },
+            {
+              "questionID": 18480,
+              "question": "$bc{\\cos ^2}{\\frac A 2} + ca{\\cos ^2}{\\frac B 2} + ab{\\cos ^2}{\\frac C 2}$ is equal to",
+              "question_raw": "<p>&nbsp;<span class=\"math-tex\">{tex}bc{\\cos ^2}{\\frac A 2} + ca{\\cos ^2}{\\frac B 2} + ab{\\cos ^2}{\\frac C 2}{/tex}</span>&nbsp;is equal to</p>",
+              "options": [
+                {
+                  "label": "A",
+                  "id": 29122,
+                  "text": "${(s - c)^2}$",
+                  "is_correct": false
+                },
+                {
+                  "label": "B",
+                  "id": 29123,
+                  "text": "${(s - a)^2}$",
+                  "is_correct": false
+                },
+                {
+                  "label": "C",
+                  "id": 29120,
+                  "text": "${s^2}$",
+                  "is_correct": true
+                },
+                {
+                  "label": "D",
+                  "id": 29121,
+                  "text": "${(s - b)^2}$",
+                  "is_correct": false
+                }
+              ],
+              "correct_option_ids": [
+                29120
+              ],
+              "correct_option_labels": [
+                "C"
+              ],
+              "correct_option_texts": [
+                "${s^2}$"
+              ],
+              "explanation": "$b \\cos ^{2}\\left(\\frac{A}{2}\\right)+{cacos}^{2}\\left(\\frac{B}{2}\\right)+a b \\cos ^{2}\\left(\\frac{C}{2}\\right)$\n$=b c\\left(\\frac{1+\\cos A}{2}\\right)+c a\\left(\\frac{1+\\cos B}{2}\\right)+a b\\left(\\frac{1+\\cos C}{2}\\right)$\n$=b c\\left(\\frac{1+\\left(\\frac{b^{2}+c^{2}-a^{2}}{2 b c}\\right)}{2}\\right)+c a\\left(\\frac{1+\\left(\\frac{c^{2}+a^{2}-b^{2}}{2 c a}\\right)}{2}\\right)+a b\\left(\\frac{1+\\left(\\frac{a^{2}+b^{2}-c^{2}}{2 a b}\\right)}{2}\\right)$\n$=b c\\left(\\frac{2 b c+b^{2}+c^{2}-a^{2}}{4 b c}\\right)+c a\\left(\\frac{2 c a+c^{2}+a^{2}-b^{2}}{4 c a}\\right)+a b\\left(\\frac{2 a b+a^{2}+b^{2}-c^{2}}{4 a b}\\right)$\n$=\\frac{2 b c+b^{2}+c^{2}-a^{2}+2 c a+c^{2}+a^{2}-b^{2}+2 a b+a^{2}+b^{2}-c^{2}}{4}$\n$=\\frac{a^{2}+b^{2}+c^{2}+2 b c+2 c a+2 a b}{4}$\n$=\\left(\\frac{a+b+c}{2}\\right)^{2} \\quad[\\because \\quad 2 s=a+b+c]$\n$=s^{2}$"
+            },
+            {
+              "questionID": 18481,
+              "question": "If the sides of a triangle be 2x + 1, x^2 - 1 and x^2 + x + 1, then the greatest angle is",
+              "question_raw": "<p>If the sides of a triangle be 2x + 1, x<sup>2</sup> - 1 and x<sup>2</sup> + x + 1, then the greatest angle is</p>",
+              "options": [
+                {
+                  "label": "A",
+                  "id": 29127,
+                  "text": "90^o",
+                  "is_correct": false
+                },
+                {
+                  "label": "B",
+                  "id": 29126,
+                  "text": "135^o",
+                  "is_correct": false
+                },
+                {
+                  "label": "C",
+                  "id": 29125,
+                  "text": "150^o",
+                  "is_correct": false
+                },
+                {
+                  "label": "D",
+                  "id": 29124,
+                  "text": "120^o",
+                  "is_correct": true
+                }
+              ],
+              "correct_option_ids": [
+                29124
+              ],
+              "correct_option_labels": [
+                "D"
+              ],
+              "correct_option_texts": [
+                "120^o"
+              ],
+              "explanation": "Let the sides of the triangle be a = 2x + 1, b = x^2 - 1 and c = x^2 + x + 1\nWe have cos C = $\\frac{a^{2}+b^{2}-c^{2}}{2 a b}$ = $\\frac{(2 x+1)^{2}+\\left(x^{2}-1\\right)^{2}-\\left(x^{2}+x+1\\right)^{2}}{2(2 x+1)\\left(x^{2}-1\\right)}$ \n= $\\frac{4 x^{2}+4 x+1+x^{4}-2 x^{2}+1-\\left(x^{4}+x^{2}+1+2 x^{3}+2 x^{2}+2 x\\right)}{2\\left(2 x^{3}-2 x+x^{2}-1\\right)}$ \n= $\\frac{-2 x^{3}+2 x-x^{2}+1}{2\\left(2 x^{3}-2 x+x^{2}-1\\right)}$ = $\\frac{-1}{2}$ \nNow cos C = $\\frac{-1}{2}$ \nBut we have $\\cos \\left(\\frac{2 \\pi}{3}\\right)$ = $\\cos \\left(\\pi-\\frac{\\pi}{3}\\right)$ = $-\\cos \\left(\\frac{\\pi}{3}\\right)$ = $\\frac{-1}{2}$ \n$\\therefore$ C = $\\frac{2 \\pi}{3}$ = 120^o"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "testPaperID": 613,
+      "testPaperName": "Trigonometric Functions Test 02",
+      "is_paid": true,
+      "category_full_name": "CBSE > Class 11 > Mathematics > Trigonometric Functions",
+      "noOfQuestions": 15,
+      "has_answers": true,
+      "sections": [
+        {
+          "sectionName": "General",
+          "sectionID": null,
+          "questions": [
+            {
+              "questionID": 18482,
+              "question": "If in a triangle ABC, $a{\\cos ^2}\\left( {{\\frac C2}} \\right) + c{\\cos ^2}\\left( {{\\frac A2}} \\right) = {\\frac {3b} {2}}$ then its sides a, b, c are in",
+              "question_raw": "<p>If in a triangle ABC, <span class=\"math-tex\">{tex}a{\\cos ^2}\\left( {{\\frac C2}} \\right) + c{\\cos ^2}\\left( {{\\frac A2}} \\right) = {\\frac {3b} {2}}{/tex}</span> then its sides a, b, c are in</p>",
+              "options": [
+                {
+                  "label": "A",
+                  "id": 29128,
+                  "text": "A. P.",
+                  "is_correct": true
+                },
+                {
+                  "label": "B",
+                  "id": 29129,
+                  "text": "G.P.",
+                  "is_correct": false
+                },
+                {
+                  "label": "C",
+                  "id": 29130,
+                  "text": "H.P.",
+                  "is_correct": false
+                },
+                {
+                  "label": "D",
+                  "id": 29131,
+                  "text": "H.M",
+                  "is_correct": false
+                }
+              ],
+              "correct_option_ids": [
+                29128
+              ],
+              "correct_option_labels": [
+                "A"
+              ],
+              "correct_option_texts": [
+                "A. P."
+              ],
+              "explanation": "$a \\cos ^{2}\\left(\\frac{C}{2}\\right)+c \\cos ^{2}\\left(\\frac{A}{2}\\right)$ = $\\frac{3 b}{2}$ \n$\\Rightarrow$ $a\\left(\\frac{1+\\cos C}{2}\\right)+c\\left(\\frac{1+\\cos A}{2}\\right)$ = $\\frac{3b}{2}$ \n$\\Rightarrow$ $\\frac{1}{2}$ (b + a + c) = $\\frac{3b}{2}$ [$\\because$ a cos C + c cos A = b using projection rule]\n$\\Rightarrow$ a + c = 2b\nWhich means they are in A.P."
+            },
+            {
+              "questionID": 18483,
+              "question": "In a $\\Delta ABC$, if a sin A = b sin B then the triangle is",
+              "question_raw": "<p>In a <span class=\"math-tex\">{tex}\\Delta ABC{/tex}</span>, if a sin A = b sin B then the triangle is</p>",
+              "options": [
+                {
+                  "label": "A",
+                  "id": 29135,
+                  "text": "right angled",
+                  "is_correct": false
+                },
+                {
+                  "label": "B",
+                  "id": 29132,
+                  "text": "isosceles",
+                  "is_correct": true
+                },
+                {
+                  "label": "C",
+                  "id": 29133,
+                  "text": "equilateral",
+                  "is_correct": false
+                },
+                {
+                  "label": "D",
+                  "id": 29134,
+                  "text": "right angled isosceles",
+                  "is_correct": false
+                }
+              ],
+              "correct_option_ids": [
+                29132
+              ],
+              "correct_option_labels": [
+                "B"
+              ],
+              "correct_option_texts": [
+                "isosceles"
+              ],
+              "explanation": "Given a sin A = b sin B .....(i)\nBut using sine rule we have $\\frac{a}{\\sin A}=\\frac{b}{\\sin B}=\\frac{c}{\\sin C}$ = k\n$\\therefore$ sin A = $\\frac{a}{k}$ and sin B = $\\frac{b}{k}$ \nNow from (i) we get $\\frac{1}{k} $(a^2 - b^2) = 0 $\\Rightarrow$ (a + b) (a - b) = 0 $\\Rightarrow$ a = b\nHence the triangle is isosceles."
+            },
+            {
+              "questionID": 18484,
+              "question": "If in a $\\Delta ABC$ , a cos A = b cos B, then the triangle is",
+              "question_raw": "<p>If in a <span class=\"math-tex\">{tex}\\Delta ABC{/tex}</span> , a cos A = b cos B, then the triangle is</p>",
+              "options": [
+                {
+                  "label": "A",
+                  "id": 29136,
+                  "text": "either isosceles or right angled",
+                  "is_correct": true
+                },
+                {
+                  "label": "B",
+                  "id": 29137,
+                  "text": "right angled",
+                  "is_correct": false
+                },
+                {
+                  "label": "C",
+                  "id": 29139,
+                  "text": "equilateral",
+                  "is_correct": false
+                },
+                {
+                  "label": "D",
+                  "id": 29138,
+                  "text": "isosceles",
+                  "is_correct": false
+                }
+              ],
+              "correct_option_ids": [
+                29136
+              ],
+              "correct_option_labels": [
+                "A"
+              ],
+              "correct_option_texts": [
+                "either isosceles or right angled"
+              ],
+              "explanation": "a.cos A=b.cos B\n$\\Rightarrow a \\cdot\\left(\\frac{b^{2}+c^{2}-a^{2}}{2 b c}\\right)=b \\cdot\\left(\\frac{c^{2}+a^{2}-b^{2}}{2 c a}\\right)$\n$\\Rightarrow \\frac{a^{2}\\left(b^{2}+c^{2}-a^{2}\\right)-b^{2}\\left(c^{2}+a^{2}-b^{2}\\right)}{2 a b c}=0$\n$\\Rightarrow a^{2} c^{2}-b^{2} c^{2}=a^{4}-b^{4}$\n$\\Rightarrow c^{2}\\left(a^{2}-b^{2}\\right)=\\left(a^{2}-b^{2}\\right)\\left(a^{2}+b^{2}\\right)$\n$\\Rightarrow a^{2}-b^{2}=0 \\quad \\text { or } \\quad a^{2}+b^{2}=c^{2}$$\\Rightarrow a=b \\quad \\text { or } \\quad a^{2}+b^{2}=c^{2}$\nHence the triangle is either isosceles or right angle"
+            },
+            {
+              "questionID": 18485,
+              "question": "In a $\\Delta ABC$, $\\frac{\\cos ^2\\left(\\frac{A}{2}\\right)}{a}+\\frac{\\cos ^2\\left(\\frac{B}{2}\\right)}{b}+\\frac{\\cos ^2\\left(\\frac{C}{2}\\right)}{c}$ is equal to",
+              "question_raw": "<p>In a&nbsp;<span class=\"math-tex\">{tex}\\Delta ABC{/tex}</span>, <span class=\"math-tex\">{tex}\\frac{\\cos ^2\\left(\\frac{A}{2}\\right)}{a}+\\frac{\\cos ^2\\left(\\frac{B}{2}\\right)}{b}+\\frac{\\cos ^2\\left(\\frac{C}{2}\\right)}{c}{/tex}</span>&nbsp;is equal to</p>",
+              "options": [
+                {
+                  "label": "A",
+                  "id": 29141,
+                  "text": "$\\frac {2s} {abc}$",
+                  "is_correct": false
+                },
+                {
+                  "label": "B",
+                  "id": 29143,
+                  "text": "$\\frac {3s} {abc}$",
+                  "is_correct": false
+                },
+                {
+                  "label": "C",
+                  "id": 29142,
+                  "text": "$\\frac {s} {abc}$",
+                  "is_correct": false
+                },
+                {
+                  "label": "D",
+                  "id": 29140,
+                  "text": "${\\frac {s^2} {abc}}$",
+                  "is_correct": true
+                }
+              ],
+              "correct_option_ids": [
+                29140
+              ],
+              "correct_option_labels": [
+                "D"
+              ],
+              "correct_option_texts": [
+                "${\\frac {s^2} {abc}}$"
+              ],
+              "explanation": "$\\frac{\\cos ^{2}\\left(\\frac{A}{2}\\right)}{a}+\\frac{\\cos ^{2}\\left(\\frac{B}{2}\\right)}{b}+\\frac{\\cos ^{2}\\left(\\frac{c}{2}\\right)}{c}$ = $\\frac{\\frac{1+\\cos A}{2}}{a}+\\frac{\\frac{1+\\cos B}{2}}{b}+\\frac{\\frac{1+\\cos C}{2}}{c}$ \n= $\\frac { \\frac { 1+\\left( \\frac { { b }^{ 2 }+{ c }^{ 2 }-a^{ 2 } }{ 2bc } \\right) }{ 2 } }{ a } +\\frac { \\frac { 1+\\left( \\frac { { c }^{ 2 }+a^{ 2 }-{ b }^{ 2 } }{ 2ca } \\right) }{ 2 } }{ b } +\\frac { \\frac { 1+\\left( \\frac { { a^{ 2 }+b }^{ 2 }-{ c }^{ 2 } }{ 2ab } \\right) }{ 2 } }{ c }$ \n= $\\frac{2 b c+b^{2}+c^{2}-a^{2}+2 c a+c^{2}+a^{2}-b^{2}+2 a b+a^{2}+b^{2}-c^{2}}{4 a b c}$ \n= $\\frac{a^{2}+b^{2}+c^{2}+2 b c+2 c a+2 a b}{4 a b c}$ \n= $\\frac{\\left(\\frac{a+b+c}{2}\\right)^{2}}{a b c}$ [$\\because$ 2s = a + b + c]\n= $\\frac{s^{2}}{a b c}$"
+            },
+            {
+              "questionID": 18486,
+              "question": "In a triangle ABC, a = 2b and $\\angle A = 3\\angle B,$ then angle A is",
+              "question_raw": "<p>In a triangle ABC, a = 2b and <span class=\"math-tex\">{tex}\\angle A = 3\\angle B,{/tex}</span> then angle A is</p>",
+              "options": [
+                {
+                  "label": "A",
+                  "id": 29146,
+                  "text": "30^o",
+                  "is_correct": false
+                },
+                {
+                  "label": "B",
+                  "id": 29145,
+                  "text": "60^o",
+                  "is_correct": false
+                },
+                {
+                  "label": "C",
+                  "id": 29147,
+                  "text": "45^o",
+                  "is_correct": false
+                },
+                {
+                  "label": "D",
+                  "id": 29144,
+                  "text": "90^o",
+                  "is_correct": true
+                }
+              ],
+              "correct_option_ids": [
+                29144
+              ],
+              "correct_option_labels": [
+                "D"
+              ],
+              "correct_option_texts": [
+                "90^o"
+              ],
+              "explanation": "Using Sine rule we have $\\frac{a}{\\sin A}=\\frac{b}{\\sin B}=\\frac{c}{\\sin C}$ = k\nBut given a = 2b and $\\angle A=3 \\angle B$ \n$\\therefore$ $\\frac{a}{\\sin A}=\\frac{b}{\\sin B}$ $\\Rightarrow$ $\\frac{2 b}{\\sin 3 B}=\\frac{b}{\\sin B}$ \n$\\Rightarrow$ sin 3B = 2 sin B\n$\\Rightarrow$ 3 sin B - 4 sin^3 B = 2 sin B\n$\\Rightarrow$ sin B (1 - 4 sin^2 B) = 0\n$\\Rightarrow$ sin^2 B = $\\frac{1}{4}$ [$\\because$ sin B $\\ne$ 0]\n$\\Rightarrow$ sin B = $\\frac{\\pm 1}{2}$ \nNow sin B = $\\frac{1}{2}$ $\\Rightarrow$ B = 30^o and sin B = $\\frac{-1}{2}$ $\\Rightarrow$ B = 210^o, which is not possible.\n$\\Rightarrow$ B = 30^o\nHence $\\angle A=3 \\angle B$ = 90^o"
+            },
+            {
+              "questionID": 18487,
+              "question": "In a triangle ABC, AD is the median A to BC, then its length is equal to",
+              "question_raw": "<p>In a triangle ABC, AD is the median A to BC, then its length is equal to</p>",
+              "options": [
+                {
+                  "label": "A",
+                  "id": 29148,
+                  "text": "${\\frac 12}\\sqrt {2({b^2} + {c^2}) - {a^2}} $",
+                  "is_correct": true
+                },
+                {
+                  "label": "B",
+                  "id": 29149,
+                  "text": "$\\sqrt {{b^2} + {c^2} - \\frac {a^2} {2}} $",
+                  "is_correct": false
+                },
+                {
+                  "label": "C",
+                  "id": 29150,
+                  "text": "$\\sqrt {{b^2} + {c^2} + \\frac {a^2} {2}} $",
+                  "is_correct": false
+                },
+                {
+                  "label": "D",
+                  "id": 29151,
+                  "text": "$\\frac {b + c} {2}$",
+                  "is_correct": false
+                }
+              ],
+              "correct_option_ids": [
+                29148
+              ],
+              "correct_option_labels": [
+                "A"
+              ],
+              "correct_option_texts": [
+                "${\\frac 12}\\sqrt {2({b^2} + {c^2}) - {a^2}} $"
+              ],
+              "explanation": "Using the given information let the length of the median be d units, and let BD = DB = m units. Using Apollonius theorem we have the following results.\nFrom triangle ADC, if the angle ADC is $\\theta$, then b^2 = m^2 + d^2 - 2mdcos $\\theta$. The angle ADB is the supplement of angle ADC and it will be - cos $\\theta$. Hence from triangle ADB we have b^2 = m^2 + d^2+ 2mdcos $\\theta$ . When we add both the results we have b^2 + c^2 = 2 d^2 + 2 m^2 = 2 d^2 + 2 $(\\frac{a}{2})^2$ = 2 d^2 + ( $\\frac{a^2}{2} $).\nOn simplifying we get the result."
+            },
+            {
+              "questionID": 18488,
+              "question": "If cos A + cos B = $4{\\sin ^2}{\\frac C 2}$, then the sides of the triangle ABC are in",
+              "question_raw": "<p>If cos A + cos B =&nbsp;<span class=\"math-tex\">{tex}4{\\sin ^2}{\\frac C 2}{/tex}</span>, then the sides of the triangle ABC are in</p>",
+              "options": [
+                {
+                  "label": "A",
+                  "id": 29153,
+                  "text": "G.P.",
+                  "is_correct": false
+                },
+                {
+                  "label": "B",
+                  "id": 29155,
+                  "text": "H.M",
+                  "is_correct": false
+                },
+                {
+                  "label": "C",
+                  "id": 29152,
+                  "text": "A.P.",
+                  "is_correct": true
+                },
+                {
+                  "label": "D",
+                  "id": 29154,
+                  "text": "H.P.",
+                  "is_correct": false
+                }
+              ],
+              "correct_option_ids": [
+                29152
+              ],
+              "correct_option_labels": [
+                "C"
+              ],
+              "correct_option_texts": [
+                "A.P."
+              ],
+              "explanation": "cos A + cos B = $4 \\sin ^{2} \\frac{C}{2}$ \n$\\Rightarrow$ $2 \\cos \\left(\\frac{A+B}{2}\\right) \\cdot \\cos \\left(\\frac{A-B}{2}\\right)$ = $4 \\sin ^{2} \\frac{C}{2}$ [$\\because$ $\\cos \\left(\\frac{A+B}{2}\\right)$ = $\\sin \\left(\\frac{C}{2}\\right)$] \n$\\Rightarrow$ $\\cos \\left(\\frac{A-B}{2}\\right)$ = $2 \\sin \\frac{C}{2}$ = $\\frac{2 \\sin \\frac{C}{2} \\cos \\frac{C}{2}}{\\cos \\frac{C}{2}}$ \n$\\Rightarrow$ $\\cos \\frac{C}{2} \\cdot \\cos \\left(\\frac{A-B}{2}\\right)$ = sin C [$\\because$$\\sin \\left(\\frac{A+B}{2}\\right)$ = $\\cos \\left(\\frac{C}{2}\\right)$\n$\\Rightarrow$ $\\frac{\\sin A+\\sin B}{2}$ = sin C [$\\because$ 2sin A cos B = sin (A + b) + sin (A - B)]\n$\\Rightarrow$ sin A, sin B, sin C are in A.P.\n$\\Rightarrow$ a, b, c are in A.P. using Sine rule"
+            },
+            {
+              "questionID": 18489,
+              "question": "ABC is an equilateral triangle of each side a ($>$ 0). The inradius of the triangle is",
+              "question_raw": "<p>ABC is an equilateral triangle of each side a (<span class=\"math-tex\">{tex}&gt;{/tex}</span> 0). The inradius of the triangle is</p>",
+              "options": [
+                {
+                  "label": "A",
+                  "id": 29157,
+                  "text": "$\\frac a3$",
+                  "is_correct": false
+                },
+                {
+                  "label": "B",
+                  "id": 29158,
+                  "text": "$\\frac{\\sqrt{3} a}{3}$",
+                  "is_correct": false
+                },
+                {
+                  "label": "C",
+                  "id": 29156,
+                  "text": "$\\frac{a}{2 \\sqrt{3}}$",
+                  "is_correct": true
+                },
+                {
+                  "label": "D",
+                  "id": 29159,
+                  "text": "$\\frac a2$",
+                  "is_correct": false
+                }
+              ],
+              "correct_option_ids": [
+                29156
+              ],
+              "correct_option_labels": [
+                "C"
+              ],
+              "correct_option_texts": [
+                "$\\frac{a}{2 \\sqrt{3}}$"
+              ],
+              "explanation": "If r is the inradius of the circle then we have, r = $\\frac{\\Delta}{s}$ \nGiven ABC is an equilateral triangle, so $\\triangle$ = $\\sqrt{s(s-a)(s-b)(s-c)}$ $\\Rightarrow$ $\\triangle$ = $\\sqrt{s(s-a)(s-a)(s-a)}$ \n$\\therefore$ r = $\\frac{\\Delta}{s}=\\frac{s-a}{s} \\sqrt{s(s-a)}$ \nAlso, s = $\\frac{3 a}{2}$ [$\\because$ 2s = a + b + c]\n$\\Rightarrow$ r = $\\frac{\\frac{3 a}{2}-a}{\\frac{3 a}{2}} \\sqrt{\\frac{3 a}{2}\\left(\\frac{3 a}{2}-a\\right)}$ \n$\\Rightarrow$ r = $\\frac{a}{2} \\cdot \\frac{2}{3 a} \\sqrt{\\frac{3 a^{2}}{4}}=\\frac{a}{2 \\sqrt{3}}$"
+            },
+            {
+              "questionID": 18490,
+              "question": "In any $\\Delta ABC,$ the expression (a + b + c) (a + b – c) (b + c – a) (c + a – b) is equal to",
+              "question_raw": "<p>In any <span class=\"math-tex\">{tex}\\Delta ABC,{/tex}</span> the expression (a + b + c) (a + b &ndash; c) (b + c &ndash; a) (c + a &ndash; b) is equal to</p>",
+              "options": [
+                {
+                  "label": "A",
+                  "id": 29163,
+                  "text": "$16\\Delta $",
+                  "is_correct": false
+                },
+                {
+                  "label": "B",
+                  "id": 29161,
+                  "text": "$4{\\Delta ^2}$",
+                  "is_correct": true
+                },
+                {
+                  "label": "C",
+                  "id": 29160,
+                  "text": "$3{\\Delta ^2}$",
+                  "is_correct": false
+                },
+                {
+                  "label": "D",
+                  "id": 29162,
+                  "text": "$4\\Delta $",
+                  "is_correct": false
+                }
+              ],
+              "correct_option_ids": [
+                29161
+              ],
+              "correct_option_labels": [
+                "B"
+              ],
+              "correct_option_texts": [
+                "$4{\\Delta ^2}$"
+              ],
+              "explanation": "In a triangle A B C, we have 2s=a+b+c\n$\\therefore a+b-c=2(s-c), b+c-a=2(s-a), c+a-b=2(s-b)$\nHence $(a+b+c)(a+b-c)(b+c-a)(c+a-b)$ \n= $2 s .2(s-c) \\cdot 2(s-a) \\cdot 2(s-b)$\n= $16 s(s-a)(s-b)(s-c)$\nBut we have $\\Delta=\\sqrt{s(s-a)(s-b)(s-c)}$\n$\\therefore(a+b+c)(a+b-c)(b+c-a)(c+a-b)=4 \\Delta^{2}$"
+            },
+            {
+              "questionID": 18491,
+              "question": "In any $\\Delta ABC$, if C = 90^o, then tan $\\frac B2$ is equal to",
+              "question_raw": "<p>In any <span class=\"math-tex\">{tex}\\Delta ABC{/tex}</span>, if C = 90<sup>o</sup>, then tan <span class=\"math-tex\">{tex}\\frac B2{/tex}</span> is equal to</p>",
+              "options": [
+                {
+                  "label": "A",
+                  "id": 29167,
+                  "text": "$\\sqrt{\\frac{c+a}{c-a}}$",
+                  "is_correct": false
+                },
+                {
+                  "label": "B",
+                  "id": 29165,
+                  "text": "$\\sqrt{\\frac{a-c}{a+c}}$",
+                  "is_correct": false
+                },
+                {
+                  "label": "C",
+                  "id": 29164,
+                  "text": "$\\sqrt{\\frac{c-a}{c+a}}$",
+                  "is_correct": true
+                },
+                {
+                  "label": "D",
+                  "id": 29166,
+                  "text": "$\\sqrt{\\frac{c-a}{c-a}}$",
+                  "is_correct": false
+                }
+              ],
+              "correct_option_ids": [
+                29164
+              ],
+              "correct_option_labels": [
+                "C"
+              ],
+              "correct_option_texts": [
+                "$\\sqrt{\\frac{c-a}{c+a}}$"
+              ],
+              "explanation": "In any triangle ABC, A + C = 90^o, since C = 90^o $\\Rightarrow$ B = 90^o - A \nWe know that $tan(\\frac{(C-A)}{2})= \\frac{(c-a)}{(c +a)} cot⁡(\\frac{B}{2}) $ $\\Rightarrow$ $tan (\\frac{(90 - A)}{2})$ = $\\frac{(c-a)}{(c +a)} (\\frac{1}{tan⁡(\\frac{B}{2})}) $ \n$\\Rightarrow$ $tan (\\frac{B}{2}) tan (\\frac{B}{2})$ = $\\frac{(c-a)}{(c+a)}$ \n$\\Rightarrow$ $tan^2 (\\frac{B}{2}) $ = $\\frac{(c-a)}{(c+a)}$ \nHence the result follows."
+            },
+            {
+              "questionID": 18492,
+              "question": "Angles of triangle are in A.P. If the number of degrees in the smallest to the number of radians in the largest is as $60:\\pi $, then the smallest angle is",
+              "question_raw": "<p>Angles of triangle are in A.P. If the number of degrees in the smallest to the number of radians in the largest is as <span class=\"math-tex\">{tex}60:\\pi {/tex}</span>, then the smallest angle is</p>",
+              "options": [
+                {
+                  "label": "A",
+                  "id": 29168,
+                  "text": "${30^ \\circ }$",
+                  "is_correct": true
+                },
+                {
+                  "label": "B",
+                  "id": 29171,
+                  "text": "none of these.",
+                  "is_correct": false
+                },
+                {
+                  "label": "C",
+                  "id": 29169,
+                  "text": "${40^ \\circ }$",
+                  "is_correct": false
+                },
+                {
+                  "label": "D",
+                  "id": 29170,
+                  "text": "${20^ \\circ }$",
+                  "is_correct": false
+                }
+              ],
+              "correct_option_ids": [
+                29168
+              ],
+              "correct_option_labels": [
+                "A"
+              ],
+              "correct_option_texts": [
+                "${30^ \\circ }$"
+              ],
+              "explanation": "Let the measures of the angles of the triangle be a-d, a, a+d degrees respectively\nThen we have $a-d+a+a+d=180^{\\circ}$\n$\\Rightarrow 3 a=180^{\\circ}$\n$\\Rightarrow a=\\frac{180^{\\circ}}{3}=60^{\\circ}$\nBut it is clear that $a-d=60^{\\circ}-d$ is the least and $a+d= 60^{\\circ}+d$ is the greatest angle.\nGiven greatest angle = $\\pi$ $\\text {radian}=180^{\\circ}$\n$\\frac{\\text {least angle}}{\\text {greatest angle}}=\\frac{60^{\\circ}}{\\pi \\text {radian}}$\n$\\Rightarrow \\frac{60^{\\circ}-d}{60^{\\circ}+d}=\\frac{60^{\\circ}}{180^{\\circ}}=\\frac{1}{3}$\n$\\Rightarrow 180^{\\circ}-3 d=60^{\\circ}+d$\n$\\Rightarrow 4 d=120^{\\circ}$\n$\\Rightarrow d=30^{\\circ}$"
+            },
+            {
+              "questionID": 18493,
+              "question": "If x, y, z are perpendiculars drawn from the vertices of a triangle having sides a, b and c, then $\\frac{b x}{c}+\\frac{c y}{a}+\\frac{a z}{b}$ =",
+              "question_raw": "<p>If x, y, z are perpendiculars drawn from the vertices of a triangle having sides a, b and c, then <span class=\"math-tex\">{tex}\\frac{b x}{c}+\\frac{c y}{a}+\\frac{a z}{b}{/tex}</span>&nbsp;=</p>",
+              "options": [
+                {
+                  "label": "A",
+                  "id": 29172,
+                  "text": "$\\frac{a^2+b^2+c^2}{2 R}$",
+                  "is_correct": true
+                },
+                {
+                  "label": "B",
+                  "id": 29175,
+                  "text": "$\\frac{2\\left(a^2+b^2+c^2\\right)}{R}$",
+                  "is_correct": false
+                },
+                {
+                  "label": "C",
+                  "id": 29173,
+                  "text": "$\\frac{a^2+b^2+c^2}{R}$",
+                  "is_correct": false
+                },
+                {
+                  "label": "D",
+                  "id": 29174,
+                  "text": "$\\frac{a^2+b^2+c^2}{4 R}$",
+                  "is_correct": false
+                }
+              ],
+              "correct_option_ids": [
+                29172
+              ],
+              "correct_option_labels": [
+                "A"
+              ],
+              "correct_option_texts": [
+                "$\\frac{a^2+b^2+c^2}{2 R}$"
+              ],
+              "explanation": "In triangle ABC given that the length of the altitude from A to BC is x units. let AD be the altitude. from triangle ADC sin C = x/b and from triangle ABD sin B = x/c Hence we get two values of x as x = c sin B and x = b sin C . similarly we have y = a sin C and z = bsin A. so when we substitute in the given equation we get b sin B $\\neq$ c sinC $\\neq$ a sin A.\nThe sine formula gives that $\\frac{a}{sin⁡A} = \\frac{b}{sin⁡B} = \\frac{c}{sin⁡C} =2R$ where R is the circumcenter of the triangle.By replacing Sin A = $\\frac{a}{2R}$, sin B = $\\frac{b}{2R}$, sin C =$\\frac{c}{2R}$.\nIf we use these in b sin B $\\neq$ c sinC $\\neq$ a sin A. we get the required result."
+            },
+            {
+              "questionID": 18494,
+              "question": "The greatest value of sin x cos x is",
+              "question_raw": "<p>The greatest&nbsp;value of sin x cos x is</p>",
+              "options": [
+                {
+                  "label": "A",
+                  "id": 29178,
+                  "text": "$\\frac {1}{\\sqrt 2 }$",
+                  "is_correct": false
+                },
+                {
+                  "label": "B",
+                  "id": 29179,
+                  "text": "$\\frac {\\sqrt 3 } {2}$",
+                  "is_correct": false
+                },
+                {
+                  "label": "C",
+                  "id": 29177,
+                  "text": "1",
+                  "is_correct": false
+                },
+                {
+                  "label": "D",
+                  "id": 29176,
+                  "text": "$\\frac 1 2$",
+                  "is_correct": true
+                }
+              ],
+              "correct_option_ids": [
+                29176
+              ],
+              "correct_option_labels": [
+                "D"
+              ],
+              "correct_option_texts": [
+                "$\\frac 1 2$"
+              ],
+              "explanation": "sin x cos x = $\\frac{1}{2} \\cdot$2sin x cos x = $\\frac{1}{2} \\cdot$ sin 2x\nBut the maximum value of sin 2x is 1.\nSo the maximum value of sin x cos x = $\\frac{1}{2}$"
+            },
+            {
+              "questionID": 18495,
+              "question": "If $tan\\theta + \\sec \\theta = \\sqrt 3 ,0 < \\theta< \\;\\pi ,$ then $\\theta $ is equal to",
+              "question_raw": "<p>If&nbsp;<span class=\"math-tex\">{tex}tan\\theta + \\sec \\theta = \\sqrt 3 ,0 &lt; \\theta&lt; \\;\\pi ,{/tex}</span> then <span class=\"math-tex\">{tex}\\theta {/tex}</span> is equal to</p>",
+              "options": [
+                {
+                  "label": "A",
+                  "id": 29182,
+                  "text": "$\\frac {2\\pi } {3}$",
+                  "is_correct": false
+                },
+                {
+                  "label": "B",
+                  "id": 29183,
+                  "text": "$\\frac {5\\pi }{6}$",
+                  "is_correct": false
+                },
+                {
+                  "label": "C",
+                  "id": 29181,
+                  "text": "$\\frac \\pi 3$",
+                  "is_correct": false
+                },
+                {
+                  "label": "D",
+                  "id": 29180,
+                  "text": "$\\frac \\pi 6$",
+                  "is_correct": true
+                }
+              ],
+              "correct_option_ids": [
+                29180
+              ],
+              "correct_option_labels": [
+                "D"
+              ],
+              "correct_option_texts": [
+                "$\\frac \\pi 6$"
+              ],
+              "explanation": "$tan\\theta +\\sec \\theta =\\sqrt { 3 } $\n$\\Rightarrow { sec }^{ 2 }x={ \\left[ \\sqrt { 3 } -tan\\theta \\right] }^{ 2 }$\n$\\Rightarrow \\left( 1+{ tan }^{ 2 }x \\right) =3+{ tan }^{ 2 }x-2\\sqrt { 3 } tanx$\n$\\Rightarrow 2\\sqrt { 3 } tanx=2$\n$tanx=\\frac { 1 }{ \\sqrt { 3 } } $\n$\\Rightarrow tan x=tan\\left( \\frac { \\pi }{ 6 } \\right)$\n$\\Rightarrow x=n\\pi +\\left( \\frac { \\pi }{ 6 } \\right) ,n \\in Z$\n$\\Rightarrow x=\\frac { \\pi }{ 6 } ,0<\\theta < \\pi $"
+            },
+            {
+              "questionID": 18496,
+              "question": "If sin $({120^o} - \\alpha ) = \\sin ({120^o} - \\beta )$ and 0 $ < \\alpha ,\\beta {\\rm{ }} < {\\rm{ }}\\pi $ , then all values of $ \\alpha$ and $\\beta$ are given by",
+              "question_raw": "<p>If sin <span class=\"math-tex\">{tex}({120^o} - \\alpha ) = \\sin ({120^o} - \\beta ){/tex}</span> and 0 <span class=\"math-tex\">{tex} &lt; \\alpha ,\\beta {\\rm{ }} &lt; {\\rm{ }}\\pi {/tex}</span> , then all values of <span class=\"math-tex\">{tex} \\alpha{/tex}</span>&nbsp;and&nbsp;<span class=\"math-tex\">{tex}\\beta{/tex}</span> are given by</p>\r\n",
+              "options": [
+                {
+                  "label": "A",
+                  "id": 29185,
+                  "text": "$\\alpha = \\beta \\;$",
+                  "is_correct": false
+                },
+                {
+                  "label": "B",
+                  "id": 29186,
+                  "text": "$\\alpha + \\beta \\; = 0$",
+                  "is_correct": false
+                },
+                {
+                  "label": "C",
+                  "id": 29187,
+                  "text": "$\\alpha+\\beta=\\frac{\\pi}{3}$",
+                  "is_correct": false
+                },
+                {
+                  "label": "D",
+                  "id": 29184,
+                  "text": "$\\alpha = \\beta $ or $\\alpha+\\beta=\\frac{\\pi}{3}$",
+                  "is_correct": true
+                }
+              ],
+              "correct_option_ids": [
+                29184
+              ],
+              "correct_option_labels": [
+                "D"
+              ],
+              "correct_option_texts": [
+                "$\\alpha = \\beta $ or $\\alpha+\\beta=\\frac{\\pi}{3}$"
+              ],
+              "explanation": "Sin A = sin B will be sin A - sin B = 0 using the formula we get,\n2 cos $\\frac{A+B}{2}$ sin $\\frac{A-B}{2}$ = 0\nReplacing A by 120 - $α$ and B by 120 - $β$ we get \n$cos(\\frac{(120- \\alpha+120- \\beta)}{2})$ = 0\n$cos⁡[\\frac{(240- \\alpha - \\beta)}{2}] $ = 0 \n$\\Rightarrow$ 120 - $\\alpha$ - $\\beta$ = $\\pi$ \n$\\Rightarrow$ $\\alpha + \\beta =60= \\frac{\\pi}{3}$ the other result.\nReplacing A by 120 - $α$ and B by 120 - $β$ we get sin A- B = 0 which gives $α=β$"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "testPaperID": 614,
+      "testPaperName": "Trigonometric Functions Test 03",
+      "is_paid": true,
+      "category_full_name": "CBSE > Class 11 > Mathematics > Trigonometric Functions",
+      "noOfQuestions": 15,
+      "has_answers": true,
+      "sections": [
+        {
+          "sectionName": "General",
+          "sectionID": null,
+          "questions": [
+            {
+              "questionID": 18497,
+              "question": "The equation (cos p – 1) ${x^2}$ + (cos p) x + sin p = 0, where x is a variable, has real roots. Then the interval of p may be any one of the following:38100",
+              "question_raw": "<p>The equation (cos p &ndash; 1) <span class=\"math-tex\">{tex}{x^2}{/tex}</span> + (cos p)&nbsp;x + sin p = 0, where x is a variable, has real roots. Then the interval of p may be any one of the following:38100</p>",
+              "options": [
+                {
+                  "label": "A",
+                  "id": 29190,
+                  "text": "$\\left(-\\frac{\\pi}{2}, \\frac{\\pi}{2}\\right)$",
+                  "is_correct": false
+                },
+                {
+                  "label": "B",
+                  "id": 29191,
+                  "text": "$\\left( {1,\\pi } \\right)$",
+                  "is_correct": false
+                },
+                {
+                  "label": "C",
+                  "id": 29189,
+                  "text": "$\\left( { - \\pi ,0} \\right)$",
+                  "is_correct": false
+                },
+                {
+                  "label": "D",
+                  "id": 29188,
+                  "text": "$\\left( {0,\\pi } \\right)$",
+                  "is_correct": true
+                }
+              ],
+              "correct_option_ids": [
+                29188
+              ],
+              "correct_option_labels": [
+                "D"
+              ],
+              "correct_option_texts": [
+                "$\\left( {0,\\pi } \\right)$"
+              ],
+              "explanation": "$(cosp–1){ x }^{ 2 }+(cosp)x+sinp=0\\\\ We\\quad have\\quad the\\quad roots\\quad are\\quad real\\quad when\\quad the\\quad discriminant\\ge 0\\\\ \\Longrightarrow { cos }^{ 2 }p-4(cosp–1).sinp\\ge 0\\\\ \\Longrightarrow { cos }^{ 2 }p-4cospsinp+4sinp\\ge 0\\\\ \\Longrightarrow { (cosp–2sinp) }^{ 2 }-4{ sin }^{ 2 }p+4sinp\\ge 0\\\\ \\Longrightarrow { (cosp–2sinp) }^{ 2 }+4sinp\\left( 1-sinp \\right) \\ge 0...........(i)$\nWe have for all values of p \nHence from equation (i) we get $sin \\:p$ has to be non-negative for all the values of p\nBut we have $sin \\: p \\ge0$ only when $ p\\in \\left( 0,\\pi \\right) $"
+            },
+            {
+              "questionID": 18498,
+              "question": "In a triangle ABC, a = 13, b = 14, c = 15; then the radius of the incircle r of triangle ABC =",
+              "question_raw": "<p>In a triangle ABC, a = 13, b = 14, c = 15; then the radius of the incircle&nbsp;r of triangle ABC =&nbsp;</p>",
+              "options": [
+                {
+                  "label": "A",
+                  "id": 29194,
+                  "text": "2",
+                  "is_correct": false
+                },
+                {
+                  "label": "B",
+                  "id": 29193,
+                  "text": "8",
+                  "is_correct": false
+                },
+                {
+                  "label": "C",
+                  "id": 29195,
+                  "text": "6",
+                  "is_correct": false
+                },
+                {
+                  "label": "D",
+                  "id": 29192,
+                  "text": "4",
+                  "is_correct": true
+                }
+              ],
+              "correct_option_ids": [
+                29192
+              ],
+              "correct_option_labels": [
+                "D"
+              ],
+              "correct_option_texts": [
+                "4"
+              ],
+              "explanation": "If r is the inradius of the circle then we have, r = $\\frac{\\Delta}{s}$ \nGiven a = 13, b = 14 and c = 15 and so s = $\\frac{a+b+c}{2}$ = $\\frac{ 42}{2}$ = 21\n$\\therefore$ $\\Delta$ = $\\sqrt{s(s-a)(s-b)(s-c)}$ = $\\sqrt{21(21-13)(21-14)(21-15)}$ = 84\nr = $\\frac{\\Delta}{s}$ = $\\frac{84}{21}$ = 4"
+            },
+            {
+              "questionID": 18499,
+              "question": "If sin $\\theta + {\\rm{ cosec }}\\theta $ = 2, then ${\\sin ^2}\\theta + \\cos e{c^2}\\theta $ is equal to",
+              "question_raw": "<p>If sin <span class=\"math-tex\">{tex}\\theta + {\\rm{ cosec }}\\theta {/tex}</span> = 2, then <span class=\"math-tex\">{tex}{\\sin ^2}\\theta + \\cos e{c^2}\\theta {/tex}</span>&nbsp;is equal to</p>",
+              "options": [
+                {
+                  "label": "A",
+                  "id": 29197,
+                  "text": "4",
+                  "is_correct": false
+                },
+                {
+                  "label": "B",
+                  "id": 29196,
+                  "text": "2",
+                  "is_correct": true
+                },
+                {
+                  "label": "C",
+                  "id": 29199,
+                  "text": "3",
+                  "is_correct": false
+                },
+                {
+                  "label": "D",
+                  "id": 29198,
+                  "text": "1",
+                  "is_correct": false
+                }
+              ],
+              "correct_option_ids": [
+                29196
+              ],
+              "correct_option_labels": [
+                "B"
+              ],
+              "correct_option_texts": [
+                "2"
+              ],
+              "explanation": "Given $\\sin \\theta+cosec \\theta=2$ \nSquaring on both sides, we get \n$\\sin ^{2} \\theta+\\csc ^{2} \\theta+2 \\sin \\theta \\csc \\theta=4$ [$\\because$ $\\sin \\theta cosec \\theta=1$]\n$\\Rightarrow$ $\\sin ^{2} \\theta+cosec ^{2} \\theta$ = 4 - 2 = 2"
+            },
+            {
+              "questionID": 18500,
+              "question": "The value of tan ${75^ \\circ }$ - cot ${75^ \\circ }$ is equal to",
+              "question_raw": "<p>The value of tan <span class=\"math-tex\">{tex}{75^ \\circ }{/tex}</span> - cot <span class=\"math-tex\">{tex}{75^ \\circ }{/tex}</span> is equal to</p>",
+              "options": [
+                {
+                  "label": "A",
+                  "id": 29200,
+                  "text": "$2\\sqrt 3 $",
+                  "is_correct": true
+                },
+                {
+                  "label": "B",
+                  "id": 29203,
+                  "text": "$1 + 2\\sqrt 3 $",
+                  "is_correct": false
+                },
+                {
+                  "label": "C",
+                  "id": 29202,
+                  "text": "$2 - \\sqrt 3 $",
+                  "is_correct": false
+                },
+                {
+                  "label": "D",
+                  "id": 29201,
+                  "text": "$2 + \\sqrt 3 $",
+                  "is_correct": false
+                }
+              ],
+              "correct_option_ids": [
+                29200
+              ],
+              "correct_option_labels": [
+                "A"
+              ],
+              "correct_option_texts": [
+                "$2\\sqrt 3 $"
+              ],
+              "explanation": "tan 75° = tan(45° + 30°\n$= \\frac{{1 + \\frac{1}{{\\sqrt 3 }}}}{{1 - \\frac{1}{{\\sqrt 3 }}}} = \\frac{{\\sqrt 3 + 1}}{{\\sqrt 3 - 1}}\\therefore cot{75^\\circ } = \\frac{{\\sqrt 3 - 1}}{{\\sqrt 3 + 1}}$\nNow $tan{75^\\circ } - cot{75^\\circ } = \\frac{{\\sqrt 3 + 1}}{{\\sqrt 3 - 1}} - \\frac{{\\sqrt 3 - 1}}{{\\sqrt 3 + 1}}$\n$ = \\frac{{{{\\left( {\\sqrt 3 + 1} \\right)}^2} - {{\\left( {\\sqrt 3 - 1} \\right)}^2}}}{{\\left( {\\sqrt 3 + 1} \\right)\\left( {\\sqrt 3 - 1} \\right)}}$\n$\\Rightarrow tan{75^\\circ } - cot{75^\\circ } = \\frac{{4\\sqrt 3 }}{2} = 2\\sqrt 3 $"
+            },
+            {
+              "questionID": 18501,
+              "question": "In a triangle ABC, cosec A (sin B cos C + cos B sin C) equals",
+              "question_raw": "<p>In a triangle ABC, cosec A (sin B cos C + cos B sin C) equals</p>",
+              "options": [
+                {
+                  "label": "A",
+                  "id": 29207,
+                  "text": "2",
+                  "is_correct": false
+                },
+                {
+                  "label": "B",
+                  "id": 29206,
+                  "text": "-1",
+                  "is_correct": false
+                },
+                {
+                  "label": "C",
+                  "id": 29204,
+                  "text": "1",
+                  "is_correct": true
+                },
+                {
+                  "label": "D",
+                  "id": 29205,
+                  "text": "$\\frac ac$",
+                  "is_correct": false
+                }
+              ],
+              "correct_option_ids": [
+                29204
+              ],
+              "correct_option_labels": [
+                "C"
+              ],
+              "correct_option_texts": [
+                "1"
+              ],
+              "explanation": "cosec A (sin B cos C + cos B sin C)\n= cosec A$\\cdot$sin (B + C) [$\\because$ A + B + C = $\\pi$]\n= $\\frac{\\sin (B+C)}{\\sin A}=\\frac{\\sin (\\pi-A)}{\\sin A}=\\frac{\\sin A}{\\sin A}$ = 1"
+            },
+            {
+              "questionID": 18502,
+              "question": "If the angles of at triangle are in the ratio 1 : 2 : 3, then the sides are in the ratio",
+              "question_raw": "<p>If the angles of at triangle are in the ratio 1 : 2 : 3, then the sides are in the ratio</p>",
+              "options": [
+                {
+                  "label": "A",
+                  "id": 29210,
+                  "text": "$\\sqrt 3 :\\sqrt 2 :1$",
+                  "is_correct": false
+                },
+                {
+                  "label": "B",
+                  "id": 29209,
+                  "text": "$\\sqrt 3 :1:2$",
+                  "is_correct": false
+                },
+                {
+                  "label": "C",
+                  "id": 29208,
+                  "text": "$1:\\sqrt 3 :2$",
+                  "is_correct": true
+                },
+                {
+                  "label": "D",
+                  "id": 29211,
+                  "text": "$1:\\sqrt 3 :\\sqrt {2} $",
+                  "is_correct": false
+                }
+              ],
+              "correct_option_ids": [
+                29208
+              ],
+              "correct_option_labels": [
+                "C"
+              ],
+              "correct_option_texts": [
+                "$1:\\sqrt 3 :2$"
+              ],
+              "explanation": "$Let\\; angles\\; x,2x\\; and\\; 3x\\quad then,x+2x+3x={ 180^{ o } }\\Rightarrow 6x=180\\Rightarrow x{ { =\\frac { 180 }{ 6 } } }={ 30^{ o\\\\ } }\\\\ Using\\; sine\\quad rule\\quad we\\quad have\\frac { a }{ sinA } =\\frac { b }{ sinB } =\\frac { c }{ sinC } =k(say)\\\\ Herea=k\\sin 30,b=k\\sin 60,c=k\\sin 90\\\\ \\Rightarrow a=\\frac { { { k } } }{ 2 } ,b={ { \\frac { \\sqrt { 3 } }{ 2 } } }.k,c={ 1 }.k\\\\ a{ { :b{ { : } }c } }=\\frac { { { k } } }{ 2 } { { :\\frac { k\\sqrt { 3 } }{ 2 } { { : } } } }{ 1 }.k\\\\ \\Rightarrow a{ { :b{ { : } }c } }=1{ { :\\sqrt { 3 } { { : } }2 } }$"
+            },
+            {
+              "questionID": 18503,
+              "question": "In a triangle ABC right angled at C, tan A and tan B satisfy the equation",
+              "question_raw": "<p>In a triangle ABC right angled at C, tan A and tan B satisfy the equation</p>",
+              "options": [
+                {
+                  "label": "A",
+                  "id": 29215,
+                  "text": "$a{x^2} - bx + a = 0$",
+                  "is_correct": false
+                },
+                {
+                  "label": "B",
+                  "id": 29212,
+                  "text": "$ab{x^2} - {c^2}x + ab = 0$",
+                  "is_correct": true
+                },
+                {
+                  "label": "C",
+                  "id": 29213,
+                  "text": "$ab{x^2} - ({a^2} + {b^2})x - ab = 0$",
+                  "is_correct": false
+                },
+                {
+                  "label": "D",
+                  "id": 29214,
+                  "text": "${c^2}{x^2} - abx + {c^2} = 0$",
+                  "is_correct": false
+                }
+              ],
+              "correct_option_ids": [
+                29212
+              ],
+              "correct_option_labels": [
+                "B"
+              ],
+              "correct_option_texts": [
+                "$ab{x^2} - {c^2}x + ab = 0$"
+              ],
+              "explanation": "Using the given triangle we have tan A = a/b and tan B = b/a Also we have tan A . tan B = 1 and tan A + tan B = a/b + b /a = ( a^2 + b^2 )/ab = c^2 / ab . Hence x = tan A and x = tan B are two roots of the given quadratic equation."
+            },
+            {
+              "questionID": 18504,
+              "question": "Let the angles A, B, C of $\\Delta ABC$ be in A.P. and let b: c:: $\\sqrt 3 :\\sqrt 2 ,$ then the angle A is",
+              "question_raw": "<p>Let the angles A, B, C of <span class=\"math-tex\">{tex}\\Delta ABC{/tex}</span> be in A.P. and let b: c:: <span class=\"math-tex\">{tex}\\sqrt 3 :\\sqrt 2 ,{/tex}</span> then the angle A is</p>\r\n",
+              "options": [
+                {
+                  "label": "A",
+                  "id": 29219,
+                  "text": "90",
+                  "is_correct": false
+                },
+                {
+                  "label": "B",
+                  "id": 29217,
+                  "text": "45^o",
+                  "is_correct": false
+                },
+                {
+                  "label": "C",
+                  "id": 29218,
+                  "text": "60^o",
+                  "is_correct": false
+                },
+                {
+                  "label": "D",
+                  "id": 29216,
+                  "text": "75^o",
+                  "is_correct": true
+                }
+              ],
+              "correct_option_ids": [
+                29216
+              ],
+              "correct_option_labels": [
+                "D"
+              ],
+              "correct_option_texts": [
+                "75^o"
+              ],
+              "explanation": "Since A, B, C are in A.P. we get $\\frac{A+C}{2}$ = B $\\Rightarrow$ A + C = 2B .....(i)\nBut in triangle ABc, we have A + B + C = $\\pi$ $\\Rightarrow$ 3B = $\\pi$ $\\Rightarrow$ B = $\\frac{\\pi}{3}$ \nFrom (i) A + C = $2 \\frac{\\pi}{3}$ $\\Rightarrow$ C = $\\frac{2 \\pi}{3}-A$ \nUsing sine rule we have $\\frac{a}{\\sin A}=\\frac{b}{\\sin B}=\\frac{c}{\\sin C}$ = k (say)\nNow $\\frac{b}{\\sin B}=\\frac{c}{\\sin C}$ $\\Rightarrow$ $\\frac{b}{\\sin \\frac{\\pi}{3}}=\\frac{c}{\\sin \\left(\\frac{2 \\pi}{3}-A\\right)}$ \n$\\Rightarrow$ $\\sin \\left(\\frac{2 \\pi}{3}-A\\right)$ = $\\frac{c}{b} \\cdot \\sin \\frac{\\pi}{3}=\\frac{\\sqrt{2}}{\\sqrt{3}} \\cdot \\frac{\\sqrt{3}}{2}=\\frac{1}{\\sqrt{2}}$ [$\\because$ b : c = $\\sqrt{3}: \\sqrt{2}$ ]\n$\\Rightarrow$ $\\sin \\left(\\frac{2 \\pi}{3}-A\\right)$ = $\\sin \\left(\\frac{\\pi}{4}\\right)$ \n$\\Rightarrow$ $\\frac{2 \\pi}{3}-A$ = $\\frac{\\pi}{4}$ \n$\\Rightarrow$ A = $\\frac{5 \\pi}{12}$ = 75^o"
+            },
+            {
+              "questionID": 18505,
+              "question": "cot $\\theta $ = sin 2 $\\theta (\\theta $ $ \\ne $n $\\pi $, n integer) if $\\theta $ equals",
+              "question_raw": "<p>cot <span class=\"math-tex\">{tex}\\theta {/tex}</span> = sin 2 <span class=\"math-tex\">{tex}\\theta (\\theta {/tex}</span> <span class=\"math-tex\">{tex} \\ne {/tex}</span>n <span class=\"math-tex\">{tex}\\pi {/tex}</span>, n integer) if <span class=\"math-tex\">{tex}\\theta {/tex}</span> equals</p>",
+              "options": [
+                {
+                  "label": "A",
+                  "id": 29221,
+                  "text": "45^o and 60^o",
+                  "is_correct": false
+                },
+                {
+                  "label": "B",
+                  "id": 29223,
+                  "text": "90^o only",
+                  "is_correct": false
+                },
+                {
+                  "label": "C",
+                  "id": 29222,
+                  "text": "45^o only",
+                  "is_correct": false
+                },
+                {
+                  "label": "D",
+                  "id": 29220,
+                  "text": "45^o and 90^o",
+                  "is_correct": true
+                }
+              ],
+              "correct_option_ids": [
+                29220
+              ],
+              "correct_option_labels": [
+                "D"
+              ],
+              "correct_option_texts": [
+                "45^o and 90^o"
+              ],
+              "explanation": "sin 2$\\theta$ = cot $\\theta$ \n$\\Rightarrow$ 2 sin $\\theta$ cos $\\theta$ = $\\frac{\\sin \\theta}{\\cos \\theta}$ \n$\\Rightarrow$ $\\cos \\theta\\left(2 \\sin \\theta-\\frac{1}{\\sin \\theta}\\right)$ = 0\n$\\Rightarrow$ -cos $\\theta$ (1 - 2 sin^2 $\\theta$) = 0\n$\\Rightarrow$ -cos $\\theta$ $\\cdot$ cos 2$\\theta$ = 0\n$\\Rightarrow$ cos $\\theta$ = cos $\\frac{\\pi}{2}$ or cos 2$\\theta$ = cos $\\frac{\\pi}{2}$ \n$\\Rightarrow$ $\\theta$ = $\\frac{\\pi}{2}, \\frac{\\pi}{4}$ [$\\because$ $\\theta \\neq n \\pi$, n $\\in$ Z]"
+            },
+            {
+              "questionID": 18506,
+              "question": "If A = ${\\sin ^2}\\theta + {\\cos ^4}\\theta $ then for all real values of $\\theta $",
+              "question_raw": "<p>If A = <span class=\"math-tex\">{tex}{\\sin ^2}\\theta + {\\cos ^4}\\theta {/tex}</span> then for all real values of <span class=\"math-tex\">{tex}\\theta {/tex}</span></p>",
+              "options": [
+                {
+                  "label": "A",
+                  "id": 29224,
+                  "text": "${\\frac 3 4} \\le A \\le 1$",
+                  "is_correct": true
+                },
+                {
+                  "label": "B",
+                  "id": 29227,
+                  "text": "$\\frac{3}{4} \\leq A \\leq \\frac{13}{16}$",
+                  "is_correct": false
+                },
+                {
+                  "label": "C",
+                  "id": 29225,
+                  "text": "$1 \\le A \\le 2$",
+                  "is_correct": false
+                },
+                {
+                  "label": "D",
+                  "id": 29226,
+                  "text": "$\\frac {13} {16} \\le A \\le 1$",
+                  "is_correct": false
+                }
+              ],
+              "correct_option_ids": [
+                29224
+              ],
+              "correct_option_labels": [
+                "A"
+              ],
+              "correct_option_texts": [
+                "${\\frac 3 4} \\le A \\le 1$"
+              ],
+              "explanation": "Given, A = $\\sin ^{2} \\theta+\\cos ^{4} \\theta$ \n$\\Rightarrow$ A = $\\sin ^{2} \\theta+\\left(1-\\sin ^{2} \\theta\\right)^{2}$ \n$\\Rightarrow$ A = $\\sin ^{4} \\theta-\\sin ^{2} \\theta+1$ \nLet $\\sin ^{2} \\theta$ = x, then\nWe get A = $x^{2}-x+\\frac{1}{4}+\\frac{3}{4}$ \n$\\Rightarrow$ A = $\\left(x-\\frac{1}{2}\\right)^{2}+\\frac{3}{4}$ \nBut we have $\\sin ^{2} \\theta$ = x ranges in the interval [0, 1]\nHence we get $\\frac{3}{4} \\leq A \\leq 1$"
+            },
+            {
+              "questionID": 18507,
+              "question": "The general solution of tan 3x = 1 is (n $ \\in $ I)",
+              "question_raw": "<p>The general solution of tan 3x = 1 is (n <span class=\"math-tex\">{tex} \\in {/tex}</span> I)</p>",
+              "options": [
+                {
+                  "label": "A",
+                  "id": 29231,
+                  "text": "$n\\pi \\pm {\\frac \\pi 4}$",
+                  "is_correct": false
+                },
+                {
+                  "label": "B",
+                  "id": 29230,
+                  "text": "${\\rm{n}}\\pi $",
+                  "is_correct": false
+                },
+                {
+                  "label": "C",
+                  "id": 29228,
+                  "text": "$\\frac{n \\pi}{3}+\\frac{\\pi}{12}$",
+                  "is_correct": true
+                },
+                {
+                  "label": "D",
+                  "id": 29229,
+                  "text": "$n\\pi + {\\frac \\pi 4}$",
+                  "is_correct": false
+                }
+              ],
+              "correct_option_ids": [
+                29228
+              ],
+              "correct_option_labels": [
+                "C"
+              ],
+              "correct_option_texts": [
+                "$\\frac{n \\pi}{3}+\\frac{\\pi}{12}$"
+              ],
+              "explanation": "tan 3x = 1\n$\\Rightarrow$ tan (3x) = tan ($\\frac{\\pi}{4}$)\n$\\Rightarrow$ 3x = $n \\pi+\\frac{\\pi}{4}, n \\in Z$ \n$\\Rightarrow$ x = $\\frac{n \\pi}{3}+\\frac{\\pi}{12}, n \\in Z$"
+            },
+            {
+              "questionID": 18508,
+              "question": "The value of $\\sin \\frac{\\pi}{14} \\sin \\frac{3 \\pi}{14} \\sin \\frac{5 \\pi}{14} \\sin$$ \\frac{7 \\pi}{14} \\sin \\frac{9 \\pi}{14} \\sin \\frac{11 \\pi}{14} \\sin \\frac{12}{1}$ is",
+              "question_raw": "<p>The value of &nbsp;<span class=\"math-tex\">{tex}\\sin \\frac{\\pi}{14} \\sin \\frac{3 \\pi}{14} \\sin \\frac{5 \\pi}{14} \\sin{/tex}</span><span class=\"math-tex\">{tex} \\frac{7 \\pi}{14} \\sin \\frac{9 \\pi}{14} \\sin \\frac{11 \\pi}{14} \\sin \\frac{12}{1}{/tex}</span> is</p>",
+              "options": [
+                {
+                  "label": "A",
+                  "id": 29233,
+                  "text": "$\\frac {1}{16}$",
+                  "is_correct": false
+                },
+                {
+                  "label": "B",
+                  "id": 29235,
+                  "text": "$\\frac {1}{32}$",
+                  "is_correct": false
+                },
+                {
+                  "label": "C",
+                  "id": 29234,
+                  "text": "$\\frac {1}{128}$",
+                  "is_correct": false
+                },
+                {
+                  "label": "D",
+                  "id": 29232,
+                  "text": "$\\frac {1}{64}$",
+                  "is_correct": true
+                }
+              ],
+              "correct_option_ids": [
+                29232
+              ],
+              "correct_option_labels": [
+                "D"
+              ],
+              "correct_option_texts": [
+                "$\\frac {1}{64}$"
+              ],
+              "explanation": "First, convert the odd multiples of $\\frac{\\pi}{14}$ to even multiples using the formulas $\\sin \\theta=\\cos \\left(\\frac{\\pi}{2}-\\theta\\right)$ and $\\cos \\theta=\\sin \\left(\\frac{\\pi}{2}+\\theta\\right)$ \nSo, we get $\\sin \\frac{\\pi}{14}=\\cos \\frac{6 \\pi}{14}$, $\\sin \\frac{3 \\pi}{14}=\\cos \\frac{4 \\pi}{14}$, $\\sin \\frac{5 \\pi}{14}=\\cos \\frac{2 \\pi}{14}$, $\\sin \\frac{7 \\pi}{14}$ = 1\n$\\sin \\frac{9 \\pi}{14}=\\sin \\left(\\frac{\\pi}{2}+\\frac{2 \\pi}{14}\\right)$ = $\\cos \\frac{2 \\pi}{14}$, $\\sin \\frac{11 \\pi}{14}=\\sin \\left(\\frac{\\pi}{2}+\\frac{4 \\pi}{14}\\right)$ = $\\cos \\frac{4 \\pi}{14}, \\sin \\frac{13 \\pi}{14}$ = $\\sin \\left(\\frac{\\pi}{2}+\\frac{6 \\pi}{14}\\right)=\\cos \\frac{6 \\pi}{14}$ \nNow $\\sin \\frac{\\pi}{14} \\sin \\frac{3 \\pi}{14} \\sin \\frac{5 \\pi}{14} \\sin \\frac{7 \\pi}{14} \\sin \\frac{9 \\pi}{14} \\sin \\frac{11 \\pi}{14} \\sin \\frac{13 \\pi}{14}$ \n= $\\cos ^{2} \\frac{6 \\pi}{14} \\cdot \\cos ^{2} \\frac{4 \\pi}{14} \\cdot \\cos ^{2} \\frac{2 \\pi}{14}$ \n= $\\frac{\\left(\\sin ^{2} \\frac{2 \\pi}{14} \\cdot \\cos ^{2} \\frac{2 \\pi}{14}\\right) \\cdot \\cos ^{2} \\frac{4 \\pi}{14} \\cdot \\cos ^{2} \\frac{6 \\pi}{14}}{\\sin ^{2} \\frac{2 \\pi}{14}}$ [$\\because$ sin 2x = 2 sinx cos x]\n= $\\frac{\\frac{1}{4} \\sin ^{2} \\frac{4 \\pi}{14} \\cdot \\cos ^{2} \\frac{4 \\pi}{14} \\cdot \\cos ^{2} \\frac{6 \\pi}{14}}{\\sin ^{2} \\frac{2 \\pi}{14}}$ \n= $\\frac{\\frac{1}{4} \\cdot \\frac{1}{4} \\cdot \\sin ^{2} \\frac{8 x}{14} \\cdot \\cos ^{2} \\frac{6 \\pi}{14}}{\\sin ^{2} \\frac{2 \\pi}{14}}$ [$\\because$ sin 2x = 2 sin x cos x]\n= $\\frac{\\frac{1}{16} \\cdot\\left(\\sin \\frac{8 \\pi}{14} \\cdot \\cos \\frac{6 \\pi}{14}\\right)^{2}}{\\sin ^{2} \\frac{2 \\pi}{14}}$ \n= $\\frac{\\frac{1}{16} \\cdot\\left(\\frac{1}{2}\\right)^{2} \\cdot\\left(\\sin \\frac{14 \\pi}{14}+\\sin \\frac{2 \\pi}{14}\\right)^{2}}{\\sin ^{2} \\frac{2 \\pi}{14}}$ [$\\because$ 2 sin A cos B = sin (A + B) + sin (A - B)]\n= $\\frac{\\frac{1}{64} \\cdot\\left(0+\\sin \\frac{2 \\pi}{14}\\right)^{2}}{\\sin ^{2} \\frac{2 \\pi}{14}}$ [$\\because$ sin $\\pi$ = 0]\n= $\\frac{1}{64}$"
+            },
+            {
+              "questionID": 18509,
+              "question": "If the radius of the circumcircle of an isosceles triangle PQR is equal to PQ ( = PR), then the angle P is",
+              "question_raw": "<p>If the radius of the circumcircle of an isosceles triangle PQR is equal to PQ ( = PR), then the angle P is</p>",
+              "options": [
+                {
+                  "label": "A",
+                  "id": 29236,
+                  "text": "$\\frac {2\\pi } {3}$",
+                  "is_correct": true
+                },
+                {
+                  "label": "B",
+                  "id": 29239,
+                  "text": "$\\frac \\pi 6$",
+                  "is_correct": false
+                },
+                {
+                  "label": "C",
+                  "id": 29237,
+                  "text": "$\\frac {\\pi}{3}$",
+                  "is_correct": false
+                },
+                {
+                  "label": "D",
+                  "id": 29238,
+                  "text": "$\\frac \\pi 2$",
+                  "is_correct": false
+                }
+              ],
+              "correct_option_ids": [
+                29236
+              ],
+              "correct_option_labels": [
+                "A"
+              ],
+              "correct_option_texts": [
+                "$\\frac {2\\pi } {3}$"
+              ],
+              "explanation": "We have if R is the radius of the circumcircle of triangle PQR then we have\n$R=\\frac{P Q}{2 \\sin R}=\\frac{Q R}{2 \\sin P}=\\frac{P R}{2 \\sin Q}$ ...(i)\nBut given radius of the circumcircle R = PQ = PR ...(ii)\nFrom (i) and (ii), we get $\\frac{1}{2 \\sin R}=1 $ and $\\frac{1}{2 \\sin Q}=1$\n$\\Rightarrow \\sin R=\\sin Q=\\frac{1}{2}$\n$\\Rightarrow \\angle R=\\angle Q=30^{\\circ}$\nBut in a triangle $\\angle P+\\angle Q+\\angle R=180^{\\circ}$\nSo, $\\angle P=180^{\\circ}-30^{\\circ}-30^{\\circ}=120^{\\circ}=\\frac{2 \\pi}{3}$"
+            },
+            {
+              "questionID": 18510,
+              "question": "The maximum value of sin $\\left(x+\\frac{\\pi}{6}\\right)+\\cos \\left(x+\\frac{\\pi}{6}\\right)$ in the interval $\\left(0, \\frac{\\pi}{2}\\right)$ is attained at",
+              "question_raw": "<p>The maximum value of sin <span class=\"math-tex\">{tex}\\left(x+\\frac{\\pi}{6}\\right)+\\cos \\left(x+\\frac{\\pi}{6}\\right){/tex}</span> in the interval <span class=\"math-tex\">{tex}\\left(0, \\frac{\\pi}{2}\\right){/tex}</span> is attained at</p>",
+              "options": [
+                {
+                  "label": "A",
+                  "id": 29240,
+                  "text": "$\\frac {\\pi}{12}$",
+                  "is_correct": true
+                },
+                {
+                  "label": "B",
+                  "id": 29242,
+                  "text": "$\\frac \\pi 3$",
+                  "is_correct": false
+                },
+                {
+                  "label": "C",
+                  "id": 29243,
+                  "text": "$\\frac \\pi 2$",
+                  "is_correct": false
+                },
+                {
+                  "label": "D",
+                  "id": 29241,
+                  "text": "$\\frac \\pi 6$",
+                  "is_correct": false
+                }
+              ],
+              "correct_option_ids": [
+                29240
+              ],
+              "correct_option_labels": [
+                "A"
+              ],
+              "correct_option_texts": [
+                "$\\frac {\\pi}{12}$"
+              ],
+              "explanation": "$\\sin \\left(x+\\frac{\\pi}{6}\\right)+\\cos \\left(x+\\frac{\\pi}{6}\\right)$\n$\\sin x \\cdot \\cos \\frac{\\pi}{6}+\\cos x \\cdot \\sin \\frac{\\pi}{6}$$+\\cos x \\cdot \\cos \\frac{\\pi}{6}-\\sin x \\cdot \\sin \\frac{\\pi}{6}$\n$=\\sin x \\cdot \\frac{\\sqrt{3}}{2}+\\cos x \\cdot \\frac{1}{2}+\\cos x \\cdot \\frac{\\sqrt{3}}{2}-\\sin x \\cdot \\frac{1}{2}$\n$=\\left(\\frac{\\sqrt{3}-1}{2}\\right) \\sin x+\\left(\\frac{\\sqrt{3}+1}{2}\\right) \\cos x$\n$=\\sqrt{2}\\left[\\sin 15^{\\circ} \\sin x+\\cos 15^{\\circ} \\cos x\\right]$\n$=\\sqrt{2}\\left[\\cos \\left(x-15^{\\circ}\\right)\\right]$\nBut we have the maximum value of cos x is 1, when x = 0\nHence $\\cos \\left(x-15^{\\circ}\\right)$ takes its maximum value when $x-15^{\\circ}=0 \\Longrightarrow$ $x=15^{\\circ} \\Longrightarrow x=\\frac{\\pi}{12}$"
+            },
+            {
+              "questionID": 18511,
+              "question": "The solution of tan 2 $\\theta $ tan $\\theta $ = 1 is",
+              "question_raw": "<p>The solution of tan 2 <span class=\"math-tex\">{tex}\\theta {/tex}</span> tan <span class=\"math-tex\">{tex}\\theta {/tex}</span> = 1 is</p>",
+              "options": [
+                {
+                  "label": "A",
+                  "id": 29246,
+                  "text": "$(4n + 1){\\frac \\pi 6}$",
+                  "is_correct": false
+                },
+                {
+                  "label": "B",
+                  "id": 29247,
+                  "text": "$(2n \\pm 1){\\frac \\pi 6}$",
+                  "is_correct": false
+                },
+                {
+                  "label": "C",
+                  "id": 29245,
+                  "text": "$(2n + 1){\\frac \\pi 3}$",
+                  "is_correct": false
+                },
+                {
+                  "label": "D",
+                  "id": 29244,
+                  "text": "$(2n+1){ \\frac { \\pi }{ 6 } }$",
+                  "is_correct": true
+                }
+              ],
+              "correct_option_ids": [
+                29244
+              ],
+              "correct_option_labels": [
+                "D"
+              ],
+              "correct_option_texts": [
+                "$(2n+1){ \\frac { \\pi }{ 6 } }$"
+              ],
+              "explanation": "$\\tan 2 \\theta \\cdot \\tan \\theta$ = 1\n$\\Rightarrow$ $\\tan 2 \\theta=\\cot \\theta$ \n$\\Rightarrow$ $\\tan 2 \\theta$ = $\\tan \\left(\\frac{\\pi}{2}-\\theta\\right)$ \n$\\Rightarrow$ $ 2 \\theta$ = $n \\pi+\\left(\\frac{\\pi}{2}-\\theta\\right)$ \n$\\Rightarrow$ $ 3 \\theta$ = $n \\pi+\\frac{\\pi}{2}$ \n$\\Rightarrow$ $ \\theta$ = $\\frac{n \\pi}{3}+\\frac{\\pi}{6}$ \n$\\Rightarrow$ $ \\theta$ = $(2 n+1) \\frac{\\pi}{6}, n \\in Z$"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "testPaperID": 615,
+      "testPaperName": "Trigonometric Functions Test 04",
+      "is_paid": true,
+      "category_full_name": "CBSE > Class 11 > Mathematics > Trigonometric Functions",
+      "noOfQuestions": 15,
+      "has_answers": true,
+      "sections": [
+        {
+          "sectionName": "General",
+          "sectionID": null,
+          "questions": [
+            {
+              "questionID": 18512,
+              "question": "sin $\\left( {180 + \\phi } \\right)$ sin$\\left( {180 - \\phi } \\right)$ $cose{c^2}\\phi $",
+              "question_raw": "<p>sin <span class=\"math-tex\">{tex}\\left( {180 + \\phi } \\right){/tex}</span> sin<span class=\"math-tex\">{tex}\\left( {180 - \\phi } \\right){/tex}</span> <span class=\"math-tex\">{tex}cose{c^2}\\phi {/tex}</span></p>",
+              "options": [
+                {
+                  "label": "A",
+                  "id": 29248,
+                  "text": "- 1",
+                  "is_correct": true
+                },
+                {
+                  "label": "B",
+                  "id": 29249,
+                  "text": "1",
+                  "is_correct": false
+                },
+                {
+                  "label": "C",
+                  "id": 29251,
+                  "text": "2",
+                  "is_correct": false
+                },
+                {
+                  "label": "D",
+                  "id": 29250,
+                  "text": "0",
+                  "is_correct": false
+                }
+              ],
+              "correct_option_ids": [
+                29248
+              ],
+              "correct_option_labels": [
+                "A"
+              ],
+              "correct_option_texts": [
+                "- 1"
+              ],
+              "explanation": "$\\sin (180+\\phi)(180-\\phi) \\operatorname{cosec}^{2} \\phi$ = $-\\sin \\phi \\cdot \\sin \\phi \\operatorname{cosec}^{2} \\phi$ = $-\\sin ^{2} \\phi \\operatorname{cosec}^{2} \\phi$ = -1"
+            },
+            {
+              "questionID": 18513,
+              "question": "The general solution of the equation sin x + cos x = 2 is",
+              "question_raw": "<p>The general solution of the equation sin x + cos x = 2 is</p>",
+              "options": [
+                {
+                  "label": "A",
+                  "id": 29254,
+                  "text": "$3\\;n\\;\\pi + \\frac \\pi 2$ or 2n$\\pi$, n $\\in$ I",
+                  "is_correct": false
+                },
+                {
+                  "label": "B",
+                  "id": 29255,
+                  "text": "$\\;n\\;\\pi ,n \\in I$",
+                  "is_correct": false
+                },
+                {
+                  "label": "C",
+                  "id": 29253,
+                  "text": "$2\\;n\\;\\pi + {\\frac \\pi 2}$ or 2n$\\pi$, n $\\in$ I",
+                  "is_correct": false
+                },
+                {
+                  "label": "D",
+                  "id": 29252,
+                  "text": "no solution",
+                  "is_correct": true
+                }
+              ],
+              "correct_option_ids": [
+                29252
+              ],
+              "correct_option_labels": [
+                "D"
+              ],
+              "correct_option_texts": [
+                "no solution"
+              ],
+              "explanation": "Given $sinx+cosx=2$ ...(i)\nThis is of the form acos x + bsin x = c\nNow divide the equation (i) throughout by $\\sqrt { { a }^{ 2 }+{ b }^{ 2 } } =\\sqrt { 1+1 } =\\sqrt { 2 } $, we get\n$\\frac { 1 }{ \\sqrt { 2 } } cosx+\\frac { 1 }{ \\sqrt { 2 } } sinx=\\frac { 2 }{ \\sqrt { 2 } }$\n$\\Rightarrow cos\\left( \\frac { \\pi }{ 4 } \\right) cosx+sinxsin\\left( \\frac { \\pi }{ 4 } \\right) =\\sqrt { 2 }$\n$\\Rightarrow cos\\left[ \\frac { \\pi }{ 4 } -x \\right] =\\sqrt { 2 } > 1$\nSo no solution possible"
+            },
+            {
+              "questionID": 18514,
+              "question": "Which of the following is not possible?\n $\\cos \\theta=\\frac{1+t^2}{1-t^2}, t \\neq 0$\n $\\sin \\theta = \\frac 57$\n $\\tan \\theta = 100$\n $\\sec \\theta = \\frac 52$",
+              "question_raw": "<p>Which of the following is not possible?</p>\r\n\r\n<ol start=\"1\" style=\"list-style-type: upper-alpha;\">\r\n\t<li><span class=\"math-tex\">{tex}\\cos \\theta=\\frac{1+t^2}{1-t^2}, t \\neq 0{/tex}</span></li>\r\n\t<li><span class=\"math-tex\">{tex}\\sin \\theta = \\frac 57{/tex}</span></li>\r\n\t<li><span class=\"math-tex\">{tex}\\tan \\theta = 100{/tex}</span></li>\r\n\t<li><span class=\"math-tex\">{tex}\\sec \\theta = \\frac 52{/tex}</span></li>\r\n</ol>",
+              "options": [
+                {
+                  "label": "A",
+                  "id": 29259,
+                  "text": "D",
+                  "is_correct": false
+                },
+                {
+                  "label": "B",
+                  "id": 29257,
+                  "text": "B",
+                  "is_correct": false
+                },
+                {
+                  "label": "C",
+                  "id": 29258,
+                  "text": "C",
+                  "is_correct": false
+                },
+                {
+                  "label": "D",
+                  "id": 29256,
+                  "text": "A",
+                  "is_correct": true
+                }
+              ],
+              "correct_option_ids": [
+                29256
+              ],
+              "correct_option_labels": [
+                "D"
+              ],
+              "correct_option_texts": [
+                "A"
+              ],
+              "explanation": "The value of $\\cos \\theta$ lies between - 1 and 1.\nBut when t = 2 the value of $\\cos \\theta=\\frac{1+t^2}{1-t^2}, t \\neq 0$ is $\\frac { 5 }{ -3 } $ which is more than 1, so it is not possible."
+            },
+            {
+              "questionID": 18515,
+              "question": "If (1 + tan $\\theta $) (1 + tan $\\phi $) = 2, then $\\theta $ + $\\phi $ =",
+              "question_raw": "<p>If (1 + tan <span class=\"math-tex\">{tex}\\theta {/tex}</span>) (1 + tan <span class=\"math-tex\">{tex}\\phi {/tex}</span>) = 2, then <span class=\"math-tex\">{tex}\\theta {/tex}</span> + <span class=\"math-tex\">{tex}\\phi {/tex}</span> =</p>",
+              "options": [
+                {
+                  "label": "A",
+                  "id": 29261,
+                  "text": "30^o",
+                  "is_correct": false
+                },
+                {
+                  "label": "B",
+                  "id": 29263,
+                  "text": "75^o",
+                  "is_correct": false
+                },
+                {
+                  "label": "C",
+                  "id": 29260,
+                  "text": "45^o",
+                  "is_correct": true
+                },
+                {
+                  "label": "D",
+                  "id": 29262,
+                  "text": "60^o",
+                  "is_correct": false
+                }
+              ],
+              "correct_option_ids": [
+                29260
+              ],
+              "correct_option_labels": [
+                "C"
+              ],
+              "correct_option_texts": [
+                "45^o"
+              ],
+              "explanation": "$(1+\\tan \\theta)(1+\\tan \\phi)$ = 2 $\\Rightarrow$ $1+\\tan \\theta+\\tan \\phi+\\tan \\theta \\tan \\phi$ = 2\n$\\Rightarrow$ $\\tan \\theta+\\tan \\phi+\\tan \\theta \\tan \\phi$ = 1\n$\\Rightarrow$ $\\tan \\theta+\\tan \\phi$ = $1-\\tan \\theta \\tan \\phi$ \n$\\Rightarrow$ $\\frac{\\tan \\theta+\\tan \\phi}{1-\\tan \\theta \\tan \\phi}$ = 1\n$\\Rightarrow$ $\\tan (\\theta+\\phi)$ = 1\n$\\Rightarrow$ $\\theta+\\phi$ = 45^o [tan 45^o = 1]"
+            },
+            {
+              "questionID": 18516,
+              "question": "The set of values of x for which $\\frac{\\tan 3 x-\\tan 2 x}{1+\\tan 3 x \\tan 2 x}$ = 1 is",
+              "question_raw": "<p>The set of values of x for which <span class=\"math-tex\">{tex}\\frac{\\tan 3 x-\\tan 2 x}{1+\\tan 3 x \\tan 2 x}{/tex}</span>&nbsp;= 1 is</p>",
+              "options": [
+                {
+                  "label": "A",
+                  "id": 29266,
+                  "text": "$\\left\\{n \\pi+\\frac{\\pi}{4}: n \\epsilon Z\\right\\}$",
+                  "is_correct": true
+                },
+                {
+                  "label": "B",
+                  "id": 29267,
+                  "text": "$\\left\\{2 n \\pi+\\frac{\\pi}{4}: n=1,2,3 \\ldots\\right\\}$",
+                  "is_correct": false
+                },
+                {
+                  "label": "C",
+                  "id": 29265,
+                  "text": "$\\left\\{\\frac{\\pi}{4}\\right\\}$",
+                  "is_correct": false
+                },
+                {
+                  "label": "D",
+                  "id": 29264,
+                  "text": "$\\phi $",
+                  "is_correct": false
+                }
+              ],
+              "correct_option_ids": [
+                29266
+              ],
+              "correct_option_labels": [
+                "A"
+              ],
+              "correct_option_texts": [
+                "$\\left\\{n \\pi+\\frac{\\pi}{4}: n \\epsilon Z\\right\\}$"
+              ],
+              "explanation": "$\\frac{\\tan 3 x-\\tan 2 x}{1+\\tan 3 x \\tan 2 x}$ = 1 $\\Rightarrow$ tan x = 1\n$\\Rightarrow$ tan (x) = tan ($\\frac{\\pi}{4}$) [$\\because$ tan (A - B) = $\\frac{\\tan A-\\tan B}{1+\\tan A \\tan B}$]\n$\\Rightarrow$ x = $n \\pi+\\frac{\\pi}{4}, n \\in Z$"
+            },
+            {
+              "questionID": 18517,
+              "question": "The general value of $\\theta $ satisfying the equation $2{\\sin ^2}\\theta - 3\\sin \\theta - 2 = 0$ is",
+              "question_raw": "<p>The general value of <span class=\"math-tex\">{tex}\\theta {/tex}</span> satisfying the equation <span class=\"math-tex\">{tex}2{\\sin ^2}\\theta - 3\\sin \\theta - 2 = 0{/tex}</span> is</p>",
+              "options": [
+                {
+                  "label": "A",
+                  "id": 29269,
+                  "text": "$n\\pi + {( - 1)^n}{\\frac \\pi 2}$",
+                  "is_correct": false
+                },
+                {
+                  "label": "B",
+                  "id": 29270,
+                  "text": "$n\\pi + {( - 1)^n}{\\frac {5\\pi } {6}}$",
+                  "is_correct": false
+                },
+                {
+                  "label": "C",
+                  "id": 29271,
+                  "text": "$n\\pi + {( - 1)^n}{\\frac \\pi 6}$",
+                  "is_correct": false
+                },
+                {
+                  "label": "D",
+                  "id": 29268,
+                  "text": "$n \\pi+(-1)^{n+1} \\frac{\\pi}{6}$",
+                  "is_correct": true
+                }
+              ],
+              "correct_option_ids": [
+                29268
+              ],
+              "correct_option_labels": [
+                "D"
+              ],
+              "correct_option_texts": [
+                "$n \\pi+(-1)^{n+1} \\frac{\\pi}{6}$"
+              ],
+              "explanation": "$2 \\sin ^2 \\theta-3 \\sin \\theta-2=0$\n$ \\Rightarrow \\left( 2\\sin \\theta +1 \\right) \\left( \\sin \\theta -2 \\right) =0$\n$ \\Rightarrow \\sin \\theta =\\frac { -1 }{ 2 } $ or $\\sin \\theta =2$\n$\\Rightarrow \\sin \\theta=\\sin \\left(-\\frac{\\pi}{6}\\right)$ [$\\because$ sin $\\theta$ = 2 > 1 so no solution]\n$\\Rightarrow \\theta =n\\pi +{ \\left( -1 \\right) }^{ n }\\left( -\\frac { \\pi }{ 6 } \\right) ,n\\epsilon Z$\n$\\Rightarrow \\theta =n\\pi +{ \\left( -1 \\right) }^{ n+1 }\\left( \\frac { \\pi }{ 6 } \\right) ,n\\epsilon Z$"
+            },
+            {
+              "questionID": 18518,
+              "question": "Number of solutions of the equation tan x + sec x = 2 cos x. lying in the interval $\\left[ {0,2\\pi } \\right]$ is",
+              "question_raw": "<p>Number of solutions of the equation tan x + sec x = 2 cos x. lying in the interval <span class=\"math-tex\">{tex}\\left[ {0,2\\pi } \\right]{/tex}</span> is</p>",
+              "options": [
+                {
+                  "label": "A",
+                  "id": 29275,
+                  "text": "2",
+                  "is_correct": true
+                },
+                {
+                  "label": "B",
+                  "id": 29272,
+                  "text": "3",
+                  "is_correct": false
+                },
+                {
+                  "label": "C",
+                  "id": 29274,
+                  "text": "0",
+                  "is_correct": false
+                },
+                {
+                  "label": "D",
+                  "id": 29273,
+                  "text": "1",
+                  "is_correct": false
+                }
+              ],
+              "correct_option_ids": [
+                29275
+              ],
+              "correct_option_labels": [
+                "A"
+              ],
+              "correct_option_texts": [
+                "2"
+              ],
+              "explanation": "$ \\tan x+\\sec x=2 \\cos x $\n$ \\frac{\\sin x+1}{\\cos x}=2 \\cos x $\n$ 1+\\sin x-2 \\cos ^2 x=0 $\n$ 1+\\sin x-2+2 \\sin ^2 x=0 $\n$ 2 \\sin ^2 x+\\sin x-1=0 $\nSince the equation is a quadratic equation in $\\sin x$. So, there will be two solutions."
+            },
+            {
+              "questionID": 18519,
+              "question": "In a triangle ABC, if a, b, c are in A. P., then tan $\\frac A2,\\tan \\frac B2, \\tan \\frac C2$ are in",
+              "question_raw": "<p>In a triangle ABC, if a, b, c are in A. P., then tan <span class=\"math-tex\">{tex}\\frac A2,\\tan \\frac B2, \\tan \\frac C2{/tex}</span> are in</p>",
+              "options": [
+                {
+                  "label": "A",
+                  "id": 29278,
+                  "text": "A.P.",
+                  "is_correct": false
+                },
+                {
+                  "label": "B",
+                  "id": 29279,
+                  "text": "H.M.",
+                  "is_correct": false
+                },
+                {
+                  "label": "C",
+                  "id": 29277,
+                  "text": "G.P.",
+                  "is_correct": false
+                },
+                {
+                  "label": "D",
+                  "id": 29276,
+                  "text": "H.P.",
+                  "is_correct": true
+                }
+              ],
+              "correct_option_ids": [
+                29276
+              ],
+              "correct_option_labels": [
+                "D"
+              ],
+              "correct_option_texts": [
+                "H.P."
+              ],
+              "explanation": "If a, b, c are in A.P then we have $s-a, s-b, s-c$ are also in A . P\nWe have $\\tan \\frac{A}{2}=\\sqrt{\\frac{(s-b)(s-c)}{s(s-a)}}, \\tan \\frac{B}{2}=\\sqrt{\\frac{(s-a)(s-c)}{s(s-b)}}, \\tan \\frac{C}{2}=\\sqrt{\\frac{(s-a)(s-b)}{s(s-c)}}$\nMultipling and dividing$\\tan \\frac{A}{2} \\quad b y(s-a), \\tan \\frac{B}{2} \\quad b y \\quad(s-b) \\text { and } \\quad \\tan \\frac{C}{2}$ by $(s-b) a n d \\quad \\tan \\frac{C}{2} \\quad b y(s-c)$, we get\n$\\tan \\frac{A}{2}=\\sqrt{\\frac{(s-b)(s-c)}{s(s-a)}}=\\frac{\\sqrt{\\frac{(s-a)(s-b)(s-c)}{s}}}{s-a}=\\frac{K}{s-a}$\nSimilarly we can get $\\tan \\frac{B}{2}=\\frac{K}{s-b}$ and $\\tan \\frac{C}{2}=\\frac{K}{s-c}$, where K=$\\sqrt{\\frac{(s-a)(s-b)(s-c)}{s}}$\nWe have ifa, b, c are in A.P then $\\frac{1}{a}, \\frac{1}{b}, \\frac{1}{c}$ are in H.P\n$\\therefore \\quad s-a, s-b, s-c$ are in $A \\cdot P \\cdot \\Rightarrow \\frac{K}{s-a}, \\frac{K}{s-b}, \\frac{K}{s-c}$ are in H.P\n$\\Rightarrow$ $\\tan \\frac{A}{2}, \\tan \\frac{B}{2}, \\tan \\frac{C}{2}$ are in H.P"
+            },
+            {
+              "questionID": 18520,
+              "question": "In a $\\Delta ABC,$ $\\frac{\\cos A}{a}=\\frac{\\cos B}{b}=\\frac{\\cos C}{c}$ and the side a = 2, then area of the triangle is",
+              "question_raw": "<p>In a <span class=\"math-tex\">{tex}\\Delta ABC,{/tex}</span> <span class=\"math-tex\">{tex}\\frac{\\cos A}{a}=\\frac{\\cos B}{b}=\\frac{\\cos C}{c}{/tex}</span> and the side a = 2, then area of the triangle is</p>",
+              "options": [
+                {
+                  "label": "A",
+                  "id": 29282,
+                  "text": "$\\frac {\\sqrt 3 }{2}$",
+                  "is_correct": false
+                },
+                {
+                  "label": "B",
+                  "id": 29283,
+                  "text": "1",
+                  "is_correct": false
+                },
+                {
+                  "label": "C",
+                  "id": 29280,
+                  "text": "$\\sqrt 3 $",
+                  "is_correct": true
+                },
+                {
+                  "label": "D",
+                  "id": 29281,
+                  "text": "2",
+                  "is_correct": false
+                }
+              ],
+              "correct_option_ids": [
+                29280
+              ],
+              "correct_option_labels": [
+                "C"
+              ],
+              "correct_option_texts": [
+                "$\\sqrt 3 $"
+              ],
+              "explanation": "Given $\\frac{\\cos A}{a}=\\frac{\\cos B}{b}=\\frac{\\cos C}{c}$.....(i)\nUsing Sine rule we have $\\frac{a}{\\sin A}=\\frac{b}{\\sin B}=\\frac{c}{\\sin C}=k$....(ii)\nFrom(i) and (ii) we get $\\frac{\\cos A}{\\sin A}=\\frac{\\cos B}{\\sin B}=\\frac{\\cos C}{\\sin C}$\n$\\Rightarrow $ cot A = cot B = cot C\nIn a triangle this is possible only when $A=B=C=60^{\\circ}$ \nHence the triangle is equilateral\nSo a = b = c = 2\n$\\therefore \\text { Area }=\\frac{1}{2} a b . \\sin C=\\frac{1}{2} 2.2 . \\sin 60^{\\circ}=\\sqrt{3}$"
+            },
+            {
+              "questionID": 18521,
+              "question": "In a triangle ABC , a = 4, b = 3 and A = ${60^ \\circ }$ ; then c is a root of the equation",
+              "question_raw": "<p>In a triangle ABC , a = 4, b = 3 and A = <span class=\"math-tex\">{tex}{60^ \\circ }{/tex}</span> ; then c is a root of the equation</p>",
+              "options": [
+                {
+                  "label": "A",
+                  "id": 29286,
+                  "text": "${c^2} - 3c + 7 = 0$",
+                  "is_correct": false
+                },
+                {
+                  "label": "B",
+                  "id": 29287,
+                  "text": "${c^2} - 3c - 8 = 0$",
+                  "is_correct": false
+                },
+                {
+                  "label": "C",
+                  "id": 29284,
+                  "text": "${c^2} - 3c - 7 = 0$",
+                  "is_correct": true
+                },
+                {
+                  "label": "D",
+                  "id": 29285,
+                  "text": "${c^2} + 3c + 7 = 0$",
+                  "is_correct": false
+                }
+              ],
+              "correct_option_ids": [
+                29284
+              ],
+              "correct_option_labels": [
+                "C"
+              ],
+              "correct_option_texts": [
+                "${c^2} - 3c - 7 = 0$"
+              ],
+              "explanation": "$Using\\quad Cosine\\quad Rule\\quad we\\quad have\\quad cosA=\\frac { { b }^{ 2 }+{ c }^{ 2 }-a^{ 2 } }{ 2bc } \\\\ \\Rightarrow cos{ 60 }^{ \\circ }=\\frac { 1 }{ 2 } =\\frac { 9+{ c }^{ 2 }-16 }{ 6c } \\\\ \\Rightarrow { c }^{ 2 }-7=3c\\\\ \\Rightarrow { c }^{ 2 }-3c-7=0\\\\ \\Rightarrow c\\quad is\\quad the\\quad root\\quad of\\quad the\\quad equation\\quad { x }^{ 2 }-3x-7=0$"
+            },
+            {
+              "questionID": 18522,
+              "question": "Which of the following is not correct?",
+              "question_raw": "<p>Which of the following&nbsp;is not correct?</p>",
+              "options": [
+                {
+                  "label": "A",
+                  "id": 29291,
+                  "text": "tan $\\theta $ = 20",
+                  "is_correct": false
+                },
+                {
+                  "label": "B",
+                  "id": 29290,
+                  "text": "$\\sin \\theta = - {\\frac 1 5}$",
+                  "is_correct": false
+                },
+                {
+                  "label": "C",
+                  "id": 29288,
+                  "text": "$\\sec \\theta = \\frac 1 2$",
+                  "is_correct": true
+                },
+                {
+                  "label": "D",
+                  "id": 29289,
+                  "text": "$\\cos \\theta = 1$",
+                  "is_correct": false
+                }
+              ],
+              "correct_option_ids": [
+                29288
+              ],
+              "correct_option_labels": [
+                "C"
+              ],
+              "correct_option_texts": [
+                "$\\sec \\theta = \\frac 1 2$"
+              ],
+              "explanation": "$\\sec \\theta =\\frac { 1 }{ 2 } \\Rightarrow cos\\theta =2$ \nwhich is not possible since $cos\\theta$ is a periodic function whose value oscillates between -1 and 1"
+            },
+            {
+              "questionID": 18523,
+              "question": "If x = $y \\cos \\frac{2 \\pi}{3}=z \\cos \\frac{4 \\pi}{3}$, then xy + yz + zx =",
+              "question_raw": "<p>If&nbsp;x =&nbsp;<span class=\"math-tex\">{tex}y \\cos \\frac{2 \\pi}{3}=z \\cos \\frac{4 \\pi}{3}{/tex}</span>, then xy + yz + zx =</p>",
+              "options": [
+                {
+                  "label": "A",
+                  "id": 29294,
+                  "text": "1",
+                  "is_correct": false
+                },
+                {
+                  "label": "B",
+                  "id": 29295,
+                  "text": "2",
+                  "is_correct": false
+                },
+                {
+                  "label": "C",
+                  "id": 29292,
+                  "text": "0",
+                  "is_correct": true
+                },
+                {
+                  "label": "D",
+                  "id": 29293,
+                  "text": "-1",
+                  "is_correct": false
+                }
+              ],
+              "correct_option_ids": [
+                29292
+              ],
+              "correct_option_labels": [
+                "C"
+              ],
+              "correct_option_texts": [
+                "0"
+              ],
+              "explanation": "x = $y \\cos \\frac{2 \\pi}{3}$ = $z \\cos \\frac{4 \\pi}{3}$ \n$\\Rightarrow$ x = $y \\cos \\left(\\pi-\\frac{\\pi}{3}\\right)$ = $z \\cos \\left(\\pi+\\frac{\\pi}{3}\\right)$ \n$\\Rightarrow$ x = $-y \\cos \\left(\\frac{\\pi}{3}\\right)$ = $-z \\cos \\left(\\frac{\\pi}{3}\\right)$ \n$\\Rightarrow$ x = $-y \\times \\frac{1}{2}$ = $-z \\times \\frac{1}{2}$ \n$\\Rightarrow$ x = $\\frac{-y}{2}=\\frac{-z}{2}$ = k (say)\n$\\Rightarrow$ x = k, y = -2k, z = -2k\n$\\therefore$ xy + yz + zx = -2k^2 + 4k^2 - 2k^2 = 0"
+            },
+            {
+              "questionID": 18524,
+              "question": "The values of $\\theta $ (0 < $\\theta $ < 360^o) satisfying cosec $\\theta $ + 2 = 0 are",
+              "question_raw": "<p>The values of <span class=\"math-tex\">{tex}\\theta {/tex}</span> (0 &lt; <span class=\"math-tex\">{tex}\\theta {/tex}</span> &lt; 360<sup>o</sup>) satisfying cosec&nbsp;<span class=\"math-tex\">{tex}\\theta {/tex}</span>&nbsp;+ 2 = 0 are</p>",
+              "options": [
+                {
+                  "label": "A",
+                  "id": 29297,
+                  "text": "240^o, 300^o",
+                  "is_correct": false
+                },
+                {
+                  "label": "B",
+                  "id": 29296,
+                  "text": "210^o, 330^o",
+                  "is_correct": true
+                },
+                {
+                  "label": "C",
+                  "id": 29298,
+                  "text": "210^o, 240^o",
+                  "is_correct": false
+                },
+                {
+                  "label": "D",
+                  "id": 29299,
+                  "text": "210^o, 300^o",
+                  "is_correct": false
+                }
+              ],
+              "correct_option_ids": [
+                29296
+              ],
+              "correct_option_labels": [
+                "B"
+              ],
+              "correct_option_texts": [
+                "210^o, 330^o"
+              ],
+              "explanation": "cosec $\\theta$ + 2 = 0 $\\Rightarrow$ cosec $\\theta$ = -2\n$\\Rightarrow$ sin $\\theta$ = $\\frac{-1}{2}$ \n$\\Rightarrow$ sin $\\theta$ = $\\sin \\left(-\\frac{\\pi}{6}\\right)$ \n$\\Rightarrow$ $\\theta$ = $n \\pi+(-1)^{n}\\left(-\\frac{\\pi}{6}\\right), n \\epsilon Z$ \nHence the values of $\\theta$ betwwen 0 and 360 are 210^o, 330^o [when n = 1, n = 2]"
+            },
+            {
+              "questionID": 18625,
+              "question": "If z_1 and z_2 are non-real complex numbers such that z_1 and z_2 and z_1z_2 are real numbers, then",
+              "question_raw": "<p>If z<sub>1</sub> and z<sub>2</sub>&nbsp;are non-real complex numbers such that z<sub>1</sub> and z<sub>2</sub> and z<sub>1</sub>z<sub>2</sub>&nbsp;are real numbers, then</p>",
+              "options": [
+                {
+                  "label": "A",
+                  "id": 29701,
+                  "text": "${z_1} = - \\overline {{z_2}} $",
+                  "is_correct": false
+                },
+                {
+                  "label": "B",
+                  "id": 29700,
+                  "text": "${z_1} = \\overline {{z_2}} $",
+                  "is_correct": true
+                },
+                {
+                  "label": "C",
+                  "id": 29702,
+                  "text": "${z_1} = \\overline {{z_1}} $ and ${z_2} = \\overline {{z_2}} $",
+                  "is_correct": false
+                },
+                {
+                  "label": "D",
+                  "id": 29703,
+                  "text": "${z_2} = \\overline {{z_2}} $",
+                  "is_correct": false
+                }
+              ],
+              "correct_option_ids": [
+                29700
+              ],
+              "correct_option_labels": [
+                "B"
+              ],
+              "correct_option_texts": [
+                "${z_1} = \\overline {{z_2}} $"
+              ],
+              "explanation": "Let z_1 = x_1 + iy_1 and z_2 = x_2 + iy_2 \nGiven z_1 and z_2 are non-real complex numbers, so we have ${ y }_{ 1 }\\neq 0,{ y }_{ 2 }\\neq 0$ \nz_1 + z_2 = (x + iy_1) + (x_2 + iy_2) = (x_1 + x_2) + i(y_1 + y_2) \nz_1 + z_2 is a real number \n$\\Rightarrow$ y_1 + y_2 = 0 $\\Rightarrow$ y_1 = -y_2 .....(i)\nNow z_1z_2 = (x_1 + iy_1) $\\cdot$ (x_2 + iy_2) = (x_1x_2 - y_1y_2) + i(x_1y_1 + x_1y_2)\nz_1z_2 is a real number $\\Rightarrow$ x_2y_1 + x_1y_2 = 0 $\\Rightarrow$ x_2y_1 = -x_1y_2 ....(ii)\nNow from (i) and (ii) we get $\\Rightarrow$ x_2y_1 = x_1y_1 $\\Rightarrow$ x_2 = x_1 \nHence we get z_1 = x_2 - iy_2 and z_2 = x_2 + iy_2 \nSo ${z_1} = \\overline {{z_2}} $"
+            },
+            {
+              "questionID": 18526,
+              "question": "If $sin\\alpha = {\\rm{ sin}}\\beta $ and ${\\rm{cos}}\\alpha = {\\rm{ cos}}\\beta $ , then",
+              "question_raw": "<p>If&nbsp;<span class=\"math-tex\">{tex}sin\\alpha = {\\rm{ sin}}\\beta {/tex}</span> and <span class=\"math-tex\">{tex}{\\rm{cos}}\\alpha = {\\rm{ cos}}\\beta {/tex}</span> , then</p>",
+              "options": [
+                {
+                  "label": "A",
+                  "id": 29306,
+                  "text": "$\\sin {{(\\alpha + \\beta }) } = 0$",
+                  "is_correct": false
+                },
+                {
+                  "label": "B",
+                  "id": 29305,
+                  "text": "$\\cos {{(\\alpha + \\beta) } } = 0$",
+                  "is_correct": false
+                },
+                {
+                  "label": "C",
+                  "id": 29307,
+                  "text": "$\\cos {{(\\alpha - \\beta) }} = 0$",
+                  "is_correct": false
+                },
+                {
+                  "label": "D",
+                  "id": 29304,
+                  "text": "$\\sin {{(\\alpha - \\beta )}} = 0$",
+                  "is_correct": true
+                }
+              ],
+              "correct_option_ids": [
+                29304
+              ],
+              "correct_option_labels": [
+                "D"
+              ],
+              "correct_option_texts": [
+                "$\\sin {{(\\alpha - \\beta )}} = 0$"
+              ],
+              "explanation": "Given $\\sin \\alpha=\\sin \\beta$ and $\\cos \\alpha=\\cos \\beta$ \nNow $\\sin \\alpha \\cdot \\cos \\beta$ = $\\cos \\alpha \\cdot \\sin \\beta$ \n$\\Rightarrow$ $\\sin \\alpha \\cdot \\cos \\beta-\\cos \\alpha \\cdot \\sin \\beta$ = 0\n$\\Rightarrow$ $\\sin (\\alpha-\\beta)$ = 0"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "testPaperID": 616,
+      "testPaperName": "Trigonometric Functions Test 05",
+      "is_paid": true,
+      "category_full_name": "CBSE > Class 11 > Mathematics > Trigonometric Functions",
+      "noOfQuestions": 15,
+      "has_answers": true,
+      "sections": [
+        {
+          "sectionName": "General",
+          "sectionID": null,
+          "questions": [
+            {
+              "questionID": 18527,
+              "question": "If $sin\\alpha + {\\rm{ sin}}\\beta $ = 0 = ${\\rm{cos}}\\alpha + {\\rm{ cos}}\\beta $, then ${\\rm{cos 2}}\\alpha + {\\rm{ cos 2}}\\beta $ =",
+              "question_raw": "<p>If &nbsp;<span class=\"math-tex\">{tex}sin\\alpha + {\\rm{ sin}}\\beta {/tex}</span> = 0 = <span class=\"math-tex\">{tex}{\\rm{cos}}\\alpha + {\\rm{ cos}}\\beta {/tex}</span>, then <span class=\"math-tex\">{tex}{\\rm{cos 2}}\\alpha + {\\rm{ cos 2}}\\beta {/tex}</span> =</p>",
+              "options": [
+                {
+                  "label": "A",
+                  "id": 29310,
+                  "text": "2 ${\\rm{sin }}(\\alpha + \\beta )$",
+                  "is_correct": false
+                },
+                {
+                  "label": "B",
+                  "id": 29309,
+                  "text": "- 2 ${\\rm{sin }}(\\alpha + \\beta )$",
+                  "is_correct": false
+                },
+                {
+                  "label": "C",
+                  "id": 29308,
+                  "text": "- 2 ${\\rm{cos }}(\\alpha + \\beta )$",
+                  "is_correct": true
+                },
+                {
+                  "label": "D",
+                  "id": 29311,
+                  "text": "2 ${\\rm{cos }}(\\alpha + \\beta )$",
+                  "is_correct": false
+                }
+              ],
+              "correct_option_ids": [
+                29308
+              ],
+              "correct_option_labels": [
+                "C"
+              ],
+              "correct_option_texts": [
+                "- 2 ${\\rm{cos }}(\\alpha + \\beta )$"
+              ],
+              "explanation": "$\\cos 2 \\alpha+\\cos 2 \\beta$ \n= $2 \\cos \\left(\\frac{2 \\alpha+2 \\beta}{2}\\right) \\cos \\left(\\frac{2 \\alpha-2 \\beta}{2}\\right)$ \n= $2 \\cos (\\alpha+\\beta) \\cos (\\alpha-\\beta)$ ....(i)\nBut $\\sin \\alpha+\\sin \\beta$ = 0 and $\\cos \\alpha+\\cos \\beta$ = 0\n$\\Rightarrow$ $\\sin \\alpha= -\\sin \\beta$ and $\\cos \\alpha=-\\cos \\beta$ .....(ii)\n$\\therefore$ $\\cos (\\alpha-\\beta)$ = $\\cos \\alpha \\cdot \\cos \\beta+\\sin \\alpha \\cdot \\sin \\beta$ = $-\\cos ^{2} \\beta-\\sin ^{2} \\beta$ = $-\\left(\\cos ^{2} \\beta+\\sin ^{2} \\beta\\right)$ = -1 [using (ii)]\n$\\Rightarrow$ $\\cos (\\alpha-\\beta)$ = -1 ....(iii)\nNow from (i) and (iii) we have $\\cos 2 \\alpha+\\cos 2 \\beta$ = $-2 \\cos (\\alpha+\\beta)$"
+            },
+            {
+              "questionID": 18528,
+              "question": "If $\\cot \\frac{A}{2}=\\frac{b+c}{a}$ then $\\Delta ABC$ is",
+              "question_raw": "<p>If&nbsp;<span class=\"math-tex\">{tex}\\cot \\frac{A}{2}=\\frac{b+c}{a}{/tex}</span> then <span class=\"math-tex\">{tex}\\Delta ABC{/tex}</span> is</p>",
+              "options": [
+                {
+                  "label": "A",
+                  "id": 29312,
+                  "text": "right angled",
+                  "is_correct": true
+                },
+                {
+                  "label": "B",
+                  "id": 29314,
+                  "text": "isosceles",
+                  "is_correct": false
+                },
+                {
+                  "label": "C",
+                  "id": 29313,
+                  "text": "equilateral",
+                  "is_correct": false
+                },
+                {
+                  "label": "D",
+                  "id": 29315,
+                  "text": "Scalene",
+                  "is_correct": false
+                }
+              ],
+              "correct_option_ids": [
+                29312
+              ],
+              "correct_option_labels": [
+                "A"
+              ],
+              "correct_option_texts": [
+                "right angled"
+              ],
+              "explanation": "Given $\\cot \\frac{A}{2}=\\frac{b+c}{a}$ \nNow using sine rule a = k sin A, b = k sin B, c = k sin C\n$\\Rightarrow$ $\\cot \\frac{A}{2}$ = $\\frac{k \\sin B+k \\sin C}{k \\sin A}$ \n$\\Rightarrow$ $\\cot \\frac{A}{2}$ = $\\frac{2 \\sin \\left(\\frac{B+C}{2}\\right) \\cdot \\cos \\left(\\frac{B-C}{2}\\right)}{2 \\sin \\frac{A}{2} \\cdot \\cos \\frac{A}{2}}$ \n$\\Rightarrow$ $\\cot \\frac{A}{2}$ = $\\frac{2 \\sin \\left(\\frac{\\pi}{2}-\\frac{A}{2}\\right) \\cdot \\cos \\left(\\frac{B-C}{2}\\right)}{2 \\sin \\frac{A}{2} \\cdot \\cos \\frac{A}{2}}$ [$\\because$ A + B + C = $\\pi$ in a triangle]\n$\\Rightarrow$ $\\frac{\\cos \\frac{A}{2}}{\\sin \\frac{A}{2}}$ = $\\frac{\\cos \\left(\\frac{B-C}{2}\\right)}{\\sin \\frac{A}{2}}$\n$\\Rightarrow$ $\\cos \\frac{A}{2}$ - $\\cos \\left(\\frac{B-C}{2}\\right)$ = 0\n$\\Rightarrow$ A + B - C = 0 or A - B + C = 180^o \nSolving we get C = 90^o or B = 90^o \nHence we get $\\Delta ABC$ is a right angled triangle."
+            },
+            {
+              "questionID": 18529,
+              "question": "In a $\\Delta ABC$ , tan $\\frac A2 = \\frac 56$ and $\\frac C2 = 25,$ then",
+              "question_raw": "<p>In a <span class=\"math-tex\">{tex}\\Delta ABC{/tex}</span> , tan <span class=\"math-tex\">{tex}\\frac A2 = \\frac 56{/tex}</span> and <span class=\"math-tex\">{tex}\\frac C2 = 25,{/tex}</span> then</p>",
+              "options": [
+                {
+                  "label": "A",
+                  "id": 29319,
+                  "text": "a, b, c are in H.M",
+                  "is_correct": false
+                },
+                {
+                  "label": "B",
+                  "id": 29316,
+                  "text": "a, b, c are in A.P.",
+                  "is_correct": true
+                },
+                {
+                  "label": "C",
+                  "id": 29318,
+                  "text": "a, b, c are in G.P.",
+                  "is_correct": false
+                },
+                {
+                  "label": "D",
+                  "id": 29317,
+                  "text": "a, b, c are in H.P",
+                  "is_correct": false
+                }
+              ],
+              "correct_option_ids": [
+                29316
+              ],
+              "correct_option_labels": [
+                "B"
+              ],
+              "correct_option_texts": [
+                "a, b, c are in A.P."
+              ],
+              "explanation": "Given $\\tan \\frac{A}{2}=\\frac{5}{6}$ and $\\tan \\frac{C}{2}=\\frac{2}{5}$\nBut we have $\\tan \\frac{A}{2} \\cdot \\tan \\frac{C}{2}=\\sqrt{\\frac{(s-b)(s-c)}{s(s-a)}} \\cdot \\sqrt{\\frac{(s-a)(s-b)}{s(s-c)}}$\n$\\therefore \\frac{5}{6} \\cdot \\frac{2}{5}=\\frac{(s-b)}{s}$\n$ \\Rightarrow s=3\\left( s-b \\right) $\n$ \\Rightarrow 2\\left( \\frac { a+b+c }{ 2 } \\right) =3b$ $\\left[\\because 2s=a+b+c\\quad \\right] $\n$ \\Rightarrow $ a + c = 2b\n$ \\Rightarrow $ a, b, c are in A.P"
+            },
+            {
+              "questionID": 18530,
+              "question": "In a triangle ABC, the line joining the circumcentre and the incentre is parallel to BC, then cos B + cos C =",
+              "question_raw": "<p>In a triangle ABC, the line joining the circumcentre and the incentre is parallel to BC, then cos B + cos C =</p>",
+              "options": [
+                {
+                  "label": "A",
+                  "id": 29321,
+                  "text": "$\\frac 32$",
+                  "is_correct": false
+                },
+                {
+                  "label": "B",
+                  "id": 29322,
+                  "text": "$\\frac 34$",
+                  "is_correct": false
+                },
+                {
+                  "label": "C",
+                  "id": 29320,
+                  "text": "1",
+                  "is_correct": true
+                },
+                {
+                  "label": "D",
+                  "id": 29323,
+                  "text": "$\\frac 12$",
+                  "is_correct": false
+                }
+              ],
+              "correct_option_ids": [
+                29320
+              ],
+              "correct_option_labels": [
+                "C"
+              ],
+              "correct_option_texts": [
+                "1"
+              ],
+              "explanation": "Using the given condition we have r = R cos A which gives r/R = cos A.hence Cos A + Cos B + cos C -1 = cos A which gives cos B + cos C = 1."
+            },
+            {
+              "questionID": 18531,
+              "question": "The value of tan 1° tan 2° tan 3° ... tan 89° is",
+              "question_raw": "<p>The value of tan 1&deg; tan 2&deg; tan 3&deg; ... tan 89&deg; is</p>",
+              "options": [
+                {
+                  "label": "A",
+                  "id": 29326,
+                  "text": "0",
+                  "is_correct": false
+                },
+                {
+                  "label": "B",
+                  "id": 29327,
+                  "text": "$\\infty $",
+                  "is_correct": false
+                },
+                {
+                  "label": "C",
+                  "id": 29324,
+                  "text": "1",
+                  "is_correct": true
+                },
+                {
+                  "label": "D",
+                  "id": 29325,
+                  "text": "not defined",
+                  "is_correct": false
+                }
+              ],
+              "correct_option_ids": [
+                29324
+              ],
+              "correct_option_labels": [
+                "C"
+              ],
+              "correct_option_texts": [
+                "1"
+              ],
+              "explanation": "Since tan 1 .tan 89 = 1...... only tan 45 in the middle which has the value 1. hence the product is 1."
+            },
+            {
+              "questionID": 18532,
+              "question": "If sin 2 $\\theta $ = cos 3 $\\theta $, then $\\theta $ is equal to $\\left( {0 \\le \\theta \\le {{90}^ \\circ }} \\right)$",
+              "question_raw": "<p>If sin 2 <span class=\"math-tex\">{tex}\\theta {/tex}</span> = cos 3 <span class=\"math-tex\">{tex}\\theta {/tex}</span>, then <span class=\"math-tex\">{tex}\\theta {/tex}</span> is equal to <span class=\"math-tex\">{tex}\\left( {0 \\le \\theta \\le {{90}^ \\circ }} \\right){/tex}</span></p>",
+              "options": [
+                {
+                  "label": "A",
+                  "id": 29330,
+                  "text": "18^o",
+                  "is_correct": false
+                },
+                {
+                  "label": "B",
+                  "id": 29331,
+                  "text": "36^o",
+                  "is_correct": false
+                },
+                {
+                  "label": "C",
+                  "id": 29328,
+                  "text": "18 or 90^o",
+                  "is_correct": true
+                },
+                {
+                  "label": "D",
+                  "id": 29329,
+                  "text": "45^o",
+                  "is_correct": false
+                }
+              ],
+              "correct_option_ids": [
+                29328
+              ],
+              "correct_option_labels": [
+                "C"
+              ],
+              "correct_option_texts": [
+                "18 or 90^o"
+              ],
+              "explanation": "When the value of $θ$ is replace by 18 both LHS and RHS are equal since 38 and 54 are complimentary angles."
+            },
+            {
+              "questionID": 18533,
+              "question": "When the length of the shadow of a pole is equal to the height of the pole, then the elevation of source of light is",
+              "question_raw": "<p>When the length of the shadow of a pole is equal to the height of the pole, then the elevation of source of light is</p>",
+              "options": [
+                {
+                  "label": "A",
+                  "id": 29332,
+                  "text": "${45^o}$",
+                  "is_correct": true
+                },
+                {
+                  "label": "B",
+                  "id": 29335,
+                  "text": "${75^o}$",
+                  "is_correct": false
+                },
+                {
+                  "label": "C",
+                  "id": 29334,
+                  "text": "${60^o}$",
+                  "is_correct": false
+                },
+                {
+                  "label": "D",
+                  "id": 29333,
+                  "text": "${30^o}$",
+                  "is_correct": false
+                }
+              ],
+              "correct_option_ids": [
+                29332
+              ],
+              "correct_option_labels": [
+                "A"
+              ],
+              "correct_option_texts": [
+                "${45^o}$"
+              ],
+              "explanation": "Consider a triangle ABC right angled at B. \nLet AB represent the pole then we have BC is it's shadow where angle C = $\\theta$ is the elevation of the sun.\nThen $tan \\theta = \\frac {AB} {BC} = 1,$ since the length of the shadow of pole = height of the pole\n$ \\Rightarrow tan\\theta =tan{ 45 }^{ \\circ }\\\\ \\Rightarrow \\theta ={ 45 }^{ \\circ }$"
+            },
+            {
+              "questionID": 18534,
+              "question": "In a $\\Delta ABC,B = \\frac \\pi 3$ and C $ = \\frac \\pi 4$. Let D divide BC internally in the ratio 1 : 3, then $\\frac{\\sin (\\angle B A D)}{\\sin (\\angle C A D)}=$",
+              "question_raw": "<p>In a <span class=\"math-tex\">{tex}\\Delta ABC,B = \\frac \\pi 3{/tex}</span> and C&nbsp;<span class=\"math-tex\">{tex} = \\frac \\pi 4{/tex}</span>. Let D divide BC internally in the ratio 1 : 3, then <span class=\"math-tex\">{tex}\\frac{\\sin (\\angle B A D)}{\\sin (\\angle C A D)}={/tex}</span></p>",
+              "options": [
+                {
+                  "label": "A",
+                  "id": 29337,
+                  "text": "$\\frac 13$",
+                  "is_correct": false
+                },
+                {
+                  "label": "B",
+                  "id": 29339,
+                  "text": "$\\sqrt \\frac 23$",
+                  "is_correct": false
+                },
+                {
+                  "label": "C",
+                  "id": 29338,
+                  "text": "$\\frac {1}{\\sqrt 3 }$",
+                  "is_correct": false
+                },
+                {
+                  "label": "D",
+                  "id": 29336,
+                  "text": "$\\frac{1}{\\sqrt{6}}$",
+                  "is_correct": true
+                }
+              ],
+              "correct_option_ids": [
+                29336
+              ],
+              "correct_option_labels": [
+                "D"
+              ],
+              "correct_option_texts": [
+                "$\\frac{1}{\\sqrt{6}}$"
+              ],
+              "explanation": "In $\\triangle$ABC given $\\angle$ B = $\\frac { \\pi }{ 3 } $, $\\angle $C = $\\frac { \\pi }{ 4 }$\nSince D divide BC in the ratio 1 : 3 we can take BD = x and DC = 3x\nLet AD = y\nIn $\\triangle $CAD, using Sine Rule we get,\n$\\frac { AD }{ sin\\angle C } = \\frac { DC }{ sin\\angle CAD } $\n$\\Rightarrow \\frac { y }{ sin\\frac { \\pi }{ 4 } } = \\frac { 3x }{ sin\\angle CAD }$\n$\\Rightarrow \\frac { y }{ \\frac { 1 }{ \\sqrt { 2 } } } = \\frac { 3x }{ sin\\angle CAD }$\n$\\Rightarrow sin\\angle CAD=\\frac { 3x }{ \\sqrt { 2 } y } $ ...(i)\nIn $\\triangle$ADB, using Sine Rule we get,\n$\\frac { AD }{ sin\\angle B } = \\frac { BD }{ sin\\angle BAD } $\n$\\Rightarrow \\frac { y }{ sin\\frac { \\pi }{ 3 } } = \\frac { x }{ sin\\angle BAD }$\n$\\Rightarrow \\frac { y }{ \\frac { \\sqrt { 3 } }{ 2 } } = \\frac { x }{ sin\\angle BAD }$\n$ \\Rightarrow sin\\angle BAD=\\frac { \\sqrt { 3 } x }{ 2y } $ ...(ii)\nFrom (i) and (ii), we get\n$\\frac { sin\\angle BAD }{ sin\\angle CAD } =\\frac { 3x }{ \\sqrt { 2 } y } .\\frac { 2y }{ \\sqrt { 3 } x } =\\frac { 1 }{ \\sqrt { 6 } } $"
+            },
+            {
+              "questionID": 18535,
+              "question": "The maximum value of ${\\rm{sin}}\\alpha + {\\rm{ sin}}\\beta + {\\rm{ sin}}\\gamma $ , where $\\alpha ,{\\rm{ }}\\beta ,{\\rm{ }}\\gamma $ are positive real numbers satisfying $\\alpha {\\rm{ }} + \\beta {\\rm{ }} + \\gamma {\\rm{ }} = {\\rm{ }}\\pi $ is",
+              "question_raw": "<p>The maximum value of <span class=\"math-tex\">{tex}{\\rm{sin}}\\alpha + {\\rm{ sin}}\\beta + {\\rm{ sin}}\\gamma {/tex}</span> , where <span class=\"math-tex\">{tex}\\alpha ,{\\rm{ }}\\beta ,{\\rm{ }}\\gamma {/tex}</span> are positive real numbers satisfying <span class=\"math-tex\">{tex}\\alpha {\\rm{ }} + \\beta {\\rm{ }} + \\gamma {\\rm{ }} = {\\rm{ }}\\pi {/tex}</span> is</p>",
+              "options": [
+                {
+                  "label": "A",
+                  "id": 29341,
+                  "text": "zero",
+                  "is_correct": false
+                },
+                {
+                  "label": "B",
+                  "id": 29342,
+                  "text": "negative",
+                  "is_correct": false
+                },
+                {
+                  "label": "C",
+                  "id": 29343,
+                  "text": "(- 3)",
+                  "is_correct": false
+                },
+                {
+                  "label": "D",
+                  "id": 29340,
+                  "text": "positive",
+                  "is_correct": true
+                }
+              ],
+              "correct_option_ids": [
+                29340
+              ],
+              "correct_option_labels": [
+                "D"
+              ],
+              "correct_option_texts": [
+                "positive"
+              ],
+              "explanation": "Since the sine ratio is positive in both first and second quadrants and the angles sum up to 180 and the ratios are related to the triangle, the value is always positive."
+            },
+            {
+              "questionID": 18536,
+              "question": "If the sides a, b, c of a triangle ABC are in A.P., then",
+              "question_raw": "<p>If the sides a, b, c of a triangle ABC are in A.P., then</p>",
+              "options": [
+                {
+                  "label": "A",
+                  "id": 29345,
+                  "text": "$2 \\sin \\frac{A}{2} \\sin \\frac{B}{2}=\\sin \\frac{C}{2}$",
+                  "is_correct": false
+                },
+                {
+                  "label": "B",
+                  "id": 29344,
+                  "text": "$2 \\sin \\frac{A}{2} \\sin \\frac{C}{2}=\\sin \\frac{B}{2}$",
+                  "is_correct": true
+                },
+                {
+                  "label": "C",
+                  "id": 29346,
+                  "text": "$\\sin \\frac{A}{2} \\sin \\frac{B}{2}=2 \\sin \\frac{C}{2}$",
+                  "is_correct": false
+                },
+                {
+                  "label": "D",
+                  "id": 29347,
+                  "text": "$\\sin \\frac{B}{2} \\sin \\frac{C}{2}=\\sin \\frac{A}{2}$",
+                  "is_correct": false
+                }
+              ],
+              "correct_option_ids": [
+                29344
+              ],
+              "correct_option_labels": [
+                "B"
+              ],
+              "correct_option_texts": [
+                "$2 \\sin \\frac{A}{2} \\sin \\frac{C}{2}=\\sin \\frac{B}{2}$"
+              ],
+              "explanation": "Since a, b, c are in AP, b = $\\frac{(a+c)}{2}$ which gives a + c = 2b. adding b on both sides we get a + b + c - 2b = b. Hence 2s - 2b = b (since a + b + c = 2s) \nOn simplification we have $\\frac{2(s-b)}{b}$ = 1. Rewriting this equation. Using the semi sum formulae we have\n$2 √(((s-b ))/b ) √(((s-b ))/b ) √(((s-c ) (s-a))/ac )$$= √(((s-c ) (s-a))/ac )$ \n$2√(((s-b) (s-c))/bc ) √(((s-a) (s-b))/ab ) $ $= √(((s-c) (s-a))/ca )$ which is the given answer."
+            },
+            {
+              "questionID": 18537,
+              "question": "If the sides of a triangle ABC are given as 4, 5, 7 respectively then cot $\\frac B2 \\cot \\frac C2$ equals",
+              "question_raw": "<p>If the sides of a triangle ABC are given as 4, 5, 7 respectively then cot <span class=\"math-tex\">{tex}\\frac B2 \\cot \\frac C2{/tex}</span> equals</p>",
+              "options": [
+                {
+                  "label": "A",
+                  "id": 29351,
+                  "text": "$\\frac {16} {9}$",
+                  "is_correct": false
+                },
+                {
+                  "label": "B",
+                  "id": 29348,
+                  "text": "2",
+                  "is_correct": true
+                },
+                {
+                  "label": "C",
+                  "id": 29350,
+                  "text": "3",
+                  "is_correct": false
+                },
+                {
+                  "label": "D",
+                  "id": 29349,
+                  "text": "1",
+                  "is_correct": false
+                }
+              ],
+              "correct_option_ids": [
+                29348
+              ],
+              "correct_option_labels": [
+                "B"
+              ],
+              "correct_option_texts": [
+                "2"
+              ],
+              "explanation": "Since the sides of a triangle ABC are 4, 5, 7 respectively we can take a = 4x, b = 5x, c = 7x.\nThen, 2s = a + b + c = 16x $\\Rightarrow$ s = 8x\nNow $\\tan \\frac{B}{2} \\cdot \\tan \\frac{C}{2}$ = $\\sqrt{\\frac{(s-a)(s-c)}{s(s-b)}} \\cdot \\sqrt{\\frac{(s-a)(s-b)}{s(s-c)}}$ = $\\frac{(s-a)}{s}$\n$\\Rightarrow$ $\\tan \\frac{B}{2} \\cdot \\tan \\frac{C}{2}$ = $\\frac{(s-a)}{s}=\\frac{4 x}{8 x}=\\frac{1}{2}$\n$\\Rightarrow$ $\\cot \\frac{B}{2} \\cdot \\cot \\frac{C}{2}$ = 2"
+            },
+            {
+              "questionID": 18538,
+              "question": "If sin x - cos x =$\\sqrt 2 $, then x = ( n is any integer)",
+              "question_raw": "<p>If sin x - cos x =<span class=\"math-tex\">{tex}\\sqrt 2 {/tex}</span>, then x = ( n is any integer)</p>",
+              "options": [
+                {
+                  "label": "A",
+                  "id": 29355,
+                  "text": "2n$\\pi $",
+                  "is_correct": false
+                },
+                {
+                  "label": "B",
+                  "id": 29353,
+                  "text": "$2n\\pi -\\frac {\\pi } { 4}$",
+                  "is_correct": false
+                },
+                {
+                  "label": "C",
+                  "id": 29352,
+                  "text": "$2n\\pi \\pm \\pi-\\frac {\\pi } {4}$",
+                  "is_correct": true
+                },
+                {
+                  "label": "D",
+                  "id": 29354,
+                  "text": "(2n + 1)$\\pi $",
+                  "is_correct": false
+                }
+              ],
+              "correct_option_ids": [
+                29352
+              ],
+              "correct_option_labels": [
+                "C"
+              ],
+              "correct_option_texts": [
+                "$2n\\pi \\pm \\pi-\\frac {\\pi } {4}$"
+              ],
+              "explanation": "$\\sin x-\\cos x=\\sqrt{2}$\nDividing throughout by $\\sqrt{2}$, we get\n$\\frac{1}{\\sqrt{2}} \\sin x-\\frac{1}{\\sqrt{2}} \\cos x=1$\n$\\Rightarrow \\sin \\frac{\\pi}{4} \\sin x-\\cos \\frac{\\pi}{4} \\cos x=1$\n$\\Rightarrow \\cos \\left(x+\\frac{\\pi}{4}\\right)=-1$\n$\\Rightarrow \\cos \\left(x+\\frac{\\pi}{4}\\right)=\\cos \\pi$\n$\\Rightarrow x+\\frac{\\pi}{4}=2 n \\pi \\pm \\pi$\n$\\Rightarrow x=2 n \\pi \\pm \\pi-\\frac{\\pi}{4}, n \\in Z$"
+            },
+            {
+              "questionID": 18539,
+              "question": "The general value of $\\theta $ satisfying sin$\\theta$ = -$\\frac 12$ and tan $\\theta $ = $\\frac {1} {\\sqrt 3 }$ is",
+              "question_raw": "<p>The general value of <span class=\"math-tex\">{tex}\\theta {/tex}</span> satisfying sin<span class=\"math-tex\">{tex}\\theta{/tex}</span> = -<span class=\"math-tex\">{tex}\\frac 12{/tex}</span> and tan <span class=\"math-tex\">{tex}\\theta {/tex}</span> = <span class=\"math-tex\">{tex}\\frac {1} {\\sqrt 3 }{/tex}</span> is</p>",
+              "options": [
+                {
+                  "label": "A",
+                  "id": 29358,
+                  "text": "$n \\pi+\\frac{\\pi}{6}, n \\in I$",
+                  "is_correct": false
+                },
+                {
+                  "label": "B",
+                  "id": 29359,
+                  "text": "$2 n \\pi+\\frac{11 \\pi}{6}, n \\in I$",
+                  "is_correct": false
+                },
+                {
+                  "label": "C",
+                  "id": 29357,
+                  "text": "$n \\pi+(-1)^n \\frac{7 \\pi}{6}, n \\in I$",
+                  "is_correct": false
+                },
+                {
+                  "label": "D",
+                  "id": 29356,
+                  "text": "$2n\\pi + \\frac {7\\pi }{6}$, $n \\in I$",
+                  "is_correct": true
+                }
+              ],
+              "correct_option_ids": [
+                29356
+              ],
+              "correct_option_labels": [
+                "D"
+              ],
+              "correct_option_texts": [
+                "$2n\\pi + \\frac {7\\pi }{6}$, $n \\in I$"
+              ],
+              "explanation": "$\\sin \\theta=\\frac{-1}{2}$\n$\\Rightarrow \\sin \\theta=\\sin \\left(-\\frac{\\pi}{6}\\right)$\n$\\Rightarrow \\theta=n \\pi+(-1)^{n}\\left(-\\frac{\\pi}{6}\\right), n \\in Z$\n$\\Rightarrow \\theta=\\frac{7 \\pi}{6}, \\frac{11 \\pi}{6}$\n$\\tan \\theta=\\frac{1}{\\sqrt{3}}$\n$\\Rightarrow \\tan \\theta=\\tan \\left(\\frac{\\pi}{6}\\right)$\n$\\Rightarrow \\theta=n \\pi+\\left(\\frac{\\pi}{6}\\right), n \\in Z$\n$\\Rightarrow \\theta=\\frac{\\pi}{6}, \\frac{7 \\pi}{6}$\nSo principal value for both $\\sin \\theta$ and $\\tan \\theta$ is $\\frac{7 \\pi}{6}$\nHence the general solution is $2 n \\pi+\\frac{7 \\pi}{6}, n \\in I$"
+            },
+            {
+              "questionID": 18540,
+              "question": "The equation sin $x - \\frac \\pi 2 + 1$ = 0 has no root in the interval",
+              "question_raw": "<p>The equation sin <span class=\"math-tex\">{tex}x - \\frac \\pi 2 + 1{/tex}</span> = 0 has no root in the interval</p>",
+              "options": [
+                {
+                  "label": "A",
+                  "id": 29361,
+                  "text": "$\\left(\\frac{\\pi}{2}, \\pi\\right)$",
+                  "is_correct": false
+                },
+                {
+                  "label": "B",
+                  "id": 29362,
+                  "text": "$\\left(\\frac{\\pi}{2}, \\frac{3 \\pi}{2}\\right)$",
+                  "is_correct": false
+                },
+                {
+                  "label": "C",
+                  "id": 29363,
+                  "text": "$\\left(0, \\frac{\\pi}{2}\\right)$",
+                  "is_correct": false
+                },
+                {
+                  "label": "D",
+                  "id": 29360,
+                  "text": "none of these",
+                  "is_correct": true
+                }
+              ],
+              "correct_option_ids": [
+                29360
+              ],
+              "correct_option_labels": [
+                "D"
+              ],
+              "correct_option_texts": [
+                "none of these"
+              ],
+              "explanation": "Since sin x lies between -1 to 1 hence the given equation will lie between $\\frac{(-\\pi)}{2}$ to 2 - $\\frac{\\pi}{2}$."
+            },
+            {
+              "questionID": 18541,
+              "question": "The number of values of x satisfying the condition sin x + sin 5 x = sin 3x in the interval [0, $\\pi $] is",
+              "question_raw": "<p>The number of values of x satisfying the condition sin x + sin 5 x = sin 3x in the interval [0, <span class=\"math-tex\">{tex}\\pi {/tex}</span>] is</p>",
+              "options": [
+                {
+                  "label": "A",
+                  "id": 29366,
+                  "text": "10",
+                  "is_correct": false
+                },
+                {
+                  "label": "B",
+                  "id": 29367,
+                  "text": "0",
+                  "is_correct": false
+                },
+                {
+                  "label": "C",
+                  "id": 29364,
+                  "text": "6",
+                  "is_correct": true
+                },
+                {
+                  "label": "D",
+                  "id": 29365,
+                  "text": "2",
+                  "is_correct": false
+                }
+              ],
+              "correct_option_ids": [
+                29364
+              ],
+              "correct_option_labels": [
+                "C"
+              ],
+              "correct_option_texts": [
+                "6"
+              ],
+              "explanation": "sin x = sin 5x = sin 3x [$\\because$ sin C + sin D = $2 \\sin \\left(\\frac{C+D}{2}\\right) \\cos \\left(\\frac{C-D}{2}\\right)$]\n$\\Rightarrow$ 2 sin 3x cos (-2x) - sin 3x = 0\n$\\Rightarrow$ sin 3x [2 cos 2x - 1] = 0\n$\\Rightarrow$ sin 3x = 0 or, cos 2x = $\\frac{1}{2}$ \n$\\Rightarrow$ sin 3x = sin 0 or cos 2x = cos $\\frac{\\pi}{3}$ \n$\\Rightarrow$ 3x = $n \\pi+(-1)^{n} .0$ $\\Rightarrow$ x = $\\frac{n \\pi}{3}$ or 2x = $2 n \\pi \\pm \\frac{\\pi}{3}$ $\\Rightarrow$ x = $n \\pi \\pm \\frac{\\pi}{6}, n \\in Z$ \n$\\Rightarrow$ x = $0, \\frac{\\pi}{3}, \\frac{2 \\pi}{3}, \\pi$ or x = $\\frac{\\pi}{6}, \\frac{5 \\pi}{6}$ \n$\\Rightarrow$ 6 solutions in the interval [0, $\\pi$]."
+            }
+          ]
+        }
+      ]
+    }
+  ]
+}

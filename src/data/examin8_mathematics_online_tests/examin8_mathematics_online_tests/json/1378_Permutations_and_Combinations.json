@@ -1,0 +1,3162 @@
+{
+  "id": 1378,
+  "name": "Permutations and Combinations",
+  "full_name": "CBSE > Class 11 > Mathematics > Permutations and Combinations",
+  "tests": [
+    {
+      "testPaperID": 632,
+      "testPaperName": "Permutations & Combinations Test 01",
+      "is_paid": false,
+      "category_full_name": "CBSE > Class 11 > Mathematics > Permutations and Combinations",
+      "noOfQuestions": 15,
+      "has_answers": true,
+      "sections": [
+        {
+          "sectionName": "General",
+          "sectionID": null,
+          "questions": [
+            {
+              "questionID": 18767,
+              "question": "The number of different ways in which a man can invite one or more of his 6 friends to dinner is?",
+              "question_raw": "<p>The number of different ways in which a man can invite one or more of his 6 friends to dinner is?</p>",
+              "options": [
+                {
+                  "label": "A",
+                  "id": 30270,
+                  "text": "30",
+                  "is_correct": false
+                },
+                {
+                  "label": "B",
+                  "id": 30269,
+                  "text": "15",
+                  "is_correct": false
+                },
+                {
+                  "label": "C",
+                  "id": 30268,
+                  "text": "63",
+                  "is_correct": true
+                },
+                {
+                  "label": "D",
+                  "id": 30271,
+                  "text": "120",
+                  "is_correct": false
+                }
+              ],
+              "correct_option_ids": [
+                30268
+              ],
+              "correct_option_labels": [
+                "C"
+              ],
+              "correct_option_texts": [
+                "63"
+              ],
+              "explanation": "He can invite anyone friend in ^6C_1 ways = 6 ways:\nHe can invite any two friends in ^6C_2 ways = 15 ways\nHe can invite any three friends in ^6C_3 ways = 20 ways\nHe can invite any 4 friends in ^6C_4ways = 15 ways\nHe can invite any 5 friends in ^6C_5 ways = 6 ways\nHe can invite all the 6 friends in ^6C_6 ways = 1 way.\nSince any one of these could happen total possibilities are, 6 + 15 + 20 + 15 + 6 + 1 = 63."
+            },
+            {
+              "questionID": 18768,
+              "question": "A lady gives a dinner party for six guests. The number of ways in which they may be selected from among ten friends if two of the friends will not attend the party together is",
+              "question_raw": "<p>A lady gives a dinner party for six guests. The number of ways in which they may be selected from among ten friends if two of the friends will not attend the party together is&nbsp;</p>",
+              "options": [
+                {
+                  "label": "A",
+                  "id": 30275,
+                  "text": "132",
+                  "is_correct": false
+                },
+                {
+                  "label": "B",
+                  "id": 30274,
+                  "text": "164",
+                  "is_correct": false
+                },
+                {
+                  "label": "C",
+                  "id": 30272,
+                  "text": "140",
+                  "is_correct": true
+                },
+                {
+                  "label": "D",
+                  "id": 30273,
+                  "text": "112",
+                  "is_correct": false
+                }
+              ],
+              "correct_option_ids": [
+                30272
+              ],
+              "correct_option_labels": [
+                "C"
+              ],
+              "correct_option_texts": [
+                "140"
+              ],
+              "explanation": "Let the friends be A, B, C, D, E, F, G, H, I, J and assume A and B will not attend together.\nCase 1: Both of them will not attend the party: Now we have to select the 6 guests from the remaining 8 members. \nThen no of ways is ^8C_6 = 28 ways.\nCase 2: Either of them is selected for the party: Now we have to select the 5 guests from the remaining 8 members and one from A and B.\nThen the no of ways = ^2C_1 $\\times$ ^8C_5 = 112 ways.\nTherefore total number of ways is 28 + 112 = 140 ways."
+            },
+            {
+              "questionID": 18769,
+              "question": "In how many ways can a mixed doubles tennis game be arranged from a group of 10 players consisting of 6 men and 4 women",
+              "question_raw": "<p>In how many ways can a mixed doubles tennis game be arranged from a group of 10 players consisting of 6 men and 4 women</p>",
+              "options": [
+                {
+                  "label": "A",
+                  "id": 30277,
+                  "text": "90",
+                  "is_correct": false
+                },
+                {
+                  "label": "B",
+                  "id": 30278,
+                  "text": "48",
+                  "is_correct": false
+                },
+                {
+                  "label": "C",
+                  "id": 30279,
+                  "text": "120",
+                  "is_correct": false
+                },
+                {
+                  "label": "D",
+                  "id": 30276,
+                  "text": "180",
+                  "is_correct": true
+                }
+              ],
+              "correct_option_ids": [
+                30276
+              ],
+              "correct_option_labels": [
+                "D"
+              ],
+              "correct_option_texts": [
+                "180"
+              ],
+              "explanation": "A team of 4 players are to be selected.\n2 out of 6 men can be done in ^6C_2 ways. 2 out of 4 women can be done in ^4C_2 ways. \nSo the number of ways to select 4 players is ^6C_2 $\\times$ ^4C_2 = 90.\nNow we can arrange these people to form mixed doubles.\nIf M_1,_ M_2,_ W_1,_ W_2, are the 4 members selected then one team can be chosen as (M_1, W_1) or (M_1, W_2) in 2 different ways.\nTherefore the required number of arrangements = 90 $\\times$ 2 = 180."
+            },
+            {
+              "questionID": 18770,
+              "question": "The number of significant numbers which can be formed by using any number of the digits 0, 1, 2, 3, 4 but using each not more than once in each number is",
+              "question_raw": "<p>The number of significant numbers which can be formed by using any number of the digits 0, 1, 2, 3, 4 but using each not more than once in each number is</p>\r\n",
+              "options": [
+                {
+                  "label": "A",
+                  "id": 30281,
+                  "text": "356",
+                  "is_correct": false
+                },
+                {
+                  "label": "B",
+                  "id": 30283,
+                  "text": "96",
+                  "is_correct": false
+                },
+                {
+                  "label": "C",
+                  "id": 30282,
+                  "text": "410",
+                  "is_correct": false
+                },
+                {
+                  "label": "D",
+                  "id": 30280,
+                  "text": "260",
+                  "is_correct": true
+                }
+              ],
+              "correct_option_ids": [
+                30280
+              ],
+              "correct_option_labels": [
+                "D"
+              ],
+              "correct_option_texts": [
+                "260"
+              ],
+              "explanation": "Case 1: for 5 digit numbers Ten Tens thousands place can be occupied in 4 ways since 0 cannot be suitable. For ones place remaining 4 numbers (since repetition is not allowed) can be occupied in 4 ways and the tens place in 3 ways and hundreds place in 2 ways and the thousands place in 1 way. Hence the total number of ways is 4 $\\times$ 1 $\\times$ 4 $\\times$ 2 $\\times$ 3 = 96.\n t th\r\n th\r\n h\r\n t\r\n o\r\n 4\r\n 1\r\n 2\r\n 3\r\n 4\r\nCase 2: for 4 digit numbers thousands place can be occupied in 4 ways since 0 cannot be suitable. For ones place remaining 4 numbers (since repetition is not allowed) can be occupied in 4 ways and the tens place in 3 ways and hundreds place in 2 ways. Hence the total number of ways is 4 $\\times$ 4 $\\times$ 2 $\\times$ 3 = 96.\n th\r\n h\r\n t\r\n o\r\n 4\r\n 2\r\n 3\r\n 4\r\nCase 3: for 3digit numbers hundreds place can be occupied in 4 ways since 0 cannot be suitable. For ones place remaining 4 numbers (since repetition is not allowed) can be occupied in 4 ways and the tens place in 3 ways Hence the total number of ways is 4 $\\times$ 4 $\\times$ 3= 48\nCase 4: for 2 digit numbers tens place can be occupied in 4 ways since 0 cannot be suitable. For ones place remaining 4 numbers (since repetition is not allowed) can be occupied. Hence the total number of ways is 4 $\\times$ 4 = 16.\nCase 5: For single digit in 4 ways.\nHence 96 + 96 + 48 + 16 + 4 = 260"
+            },
+            {
+              "questionID": 18771,
+              "question": "Numbers greater than 1000 but not greater than 5000 are to be formed with the digits 0, 1, 2, 3, 5, allowing repetitions, the number of possible numbers is",
+              "question_raw": "<p>Numbers greater than 1000 but not greater than 5000 are to be formed with the digits 0, 1, 2, 3, 5, allowing repetitions, the number of possible numbers is</p>\r\n",
+              "options": [
+                {
+                  "label": "A",
+                  "id": 30287,
+                  "text": "375",
+                  "is_correct": false
+                },
+                {
+                  "label": "B",
+                  "id": 30285,
+                  "text": "370",
+                  "is_correct": false
+                },
+                {
+                  "label": "C",
+                  "id": 30284,
+                  "text": "374",
+                  "is_correct": true
+                },
+                {
+                  "label": "D",
+                  "id": 30286,
+                  "text": "365",
+                  "is_correct": false
+                }
+              ],
+              "correct_option_ids": [
+                30284
+              ],
+              "correct_option_labels": [
+                "C"
+              ],
+              "correct_option_texts": [
+                "374"
+              ],
+              "explanation": "th\r\n h\r\n t\r\n o\r\n 3\r\n 5\r\n 5\r\n 5\r\nOne's place can be occupied by any of the 5 numbers, tens place by any of the 5 numbers and hundreds place in 5 ways since repetition is allowed. But thousands place can be occupied by 2, 3, 1, only since the required number should be greater than 1000 and less than 5000. Hence total number of arrangement = 3 $\\times$ 5 $\\times$ 5 $\\times$ 5 = 375.\n = 375 - 1 = 374 (1000 number is not included)"
+            },
+            {
+              "questionID": 18772,
+              "question": "The number of all three-digit even numbers such that if 5 is one of the digits then next digit is 7 is",
+              "question_raw": "<p>The number of all three-digit even numbers such that if 5 is one of the digits then next digit is 7 is</p>",
+              "options": [
+                {
+                  "label": "A",
+                  "id": 30289,
+                  "text": "360",
+                  "is_correct": false
+                },
+                {
+                  "label": "B",
+                  "id": 30291,
+                  "text": "375",
+                  "is_correct": false
+                },
+                {
+                  "label": "C",
+                  "id": 30290,
+                  "text": "370",
+                  "is_correct": false
+                },
+                {
+                  "label": "D",
+                  "id": 30288,
+                  "text": "365",
+                  "is_correct": true
+                }
+              ],
+              "correct_option_ids": [
+                30288
+              ],
+              "correct_option_labels": [
+                "D"
+              ],
+              "correct_option_texts": [
+                "365"
+              ],
+              "explanation": "You have two different kinds of such three-digit even numbers. First is 5 at the hundred's place and the second 5 is not at the hundred's place.\n In the first case, no. is of the form 57x, where x is the unit's digit, which can be 0, 2, 4, 6, 8 which is just 5 possibilities. Hence, the no. of possibilities, in this case, is 1 $\\times$ 1 $\\times$ 5 = 5\n In the second case, the hundred's digit can be 1, 2, 3, 4, 6, 7, 8 or 9 which is 8 ways and the ten's digit can be any of the 9 numbers and unit digit can be any of the 5 even numbers. Therefore the no. of ways will be 8 $\\times$ 9 $\\times$ 5 = 360\nSo total we have 360 + 5 = 365 possibilities."
+            },
+            {
+              "questionID": 18773,
+              "question": "A coin is tossed n times, the number of all the possible outcomes is",
+              "question_raw": "<p>A coin is tossed n times, the number of all the possible outcomes is</p>",
+              "options": [
+                {
+                  "label": "A",
+                  "id": 30294,
+                  "text": "C(n, 2)",
+                  "is_correct": false
+                },
+                {
+                  "label": "B",
+                  "id": 30295,
+                  "text": "P(n, 2)",
+                  "is_correct": false
+                },
+                {
+                  "label": "C",
+                  "id": 30293,
+                  "text": "2n",
+                  "is_correct": false
+                },
+                {
+                  "label": "D",
+                  "id": 30292,
+                  "text": "2^n",
+                  "is_correct": true
+                }
+              ],
+              "correct_option_ids": [
+                30292
+              ],
+              "correct_option_labels": [
+                "D"
+              ],
+              "correct_option_texts": [
+                "2^n"
+              ],
+              "explanation": "There can either be a heads or tails, therefore for every toss, the possible outcomes are 2. hence for n number of toss the possibilities are 2^n."
+            },
+            {
+              "questionID": 18774,
+              "question": "The figures 4, 5, 6, 7, 8 are written in every possible order. The number of numbers greater than 56000 is",
+              "question_raw": "<p>The figures 4, 5, 6, 7, 8 are written in every possible order. The number of numbers greater than 56000 is</p>",
+              "options": [
+                {
+                  "label": "A",
+                  "id": 30299,
+                  "text": "76",
+                  "is_correct": false
+                },
+                {
+                  "label": "B",
+                  "id": 30297,
+                  "text": "98",
+                  "is_correct": false
+                },
+                {
+                  "label": "C",
+                  "id": 30298,
+                  "text": "72",
+                  "is_correct": false
+                },
+                {
+                  "label": "D",
+                  "id": 30296,
+                  "text": "90",
+                  "is_correct": true
+                }
+              ],
+              "correct_option_ids": [
+                30296
+              ],
+              "correct_option_labels": [
+                "D"
+              ],
+              "correct_option_texts": [
+                "90"
+              ],
+              "explanation": "Total possibilities of 5 digit numbers which can be formed using the given digits are 5! = 120 ways.\nBut since the number should be greater than 56000 we cannot have the numbers starting with 4 or 54\nThe combinations in which the number 4 comes at the start is 4! = 24 ways.\nThe combinations in which the number 54 comes at the start is 2! = 6\nHence the numbers greater than 56,000 = 120 - ( 24 + 6) = 120 - 30 = 90 ways."
+            },
+            {
+              "questionID": 18775,
+              "question": "If ${}^n{P_5} = 60{}^{n - 1}{P_3},$ then n is",
+              "question_raw": "<p>If <span class=\"math-tex\">{tex}{}^n{P_5} = 60{}^{n - 1}{P_3},{/tex}</span> then n is</p>",
+              "options": [
+                {
+                  "label": "A",
+                  "id": 30300,
+                  "text": "10",
+                  "is_correct": true
+                },
+                {
+                  "label": "B",
+                  "id": 30301,
+                  "text": "6",
+                  "is_correct": false
+                },
+                {
+                  "label": "C",
+                  "id": 30302,
+                  "text": "12",
+                  "is_correct": false
+                },
+                {
+                  "label": "D",
+                  "id": 30303,
+                  "text": "8",
+                  "is_correct": false
+                }
+              ],
+              "correct_option_ids": [
+                30300
+              ],
+              "correct_option_labels": [
+                "A"
+              ],
+              "correct_option_texts": [
+                "10"
+              ],
+              "explanation": "$^{n} P_{5}=60 .^{n-1} P_{3}$\n$\\Rightarrow \\frac{n !}{(n-5) !}=60 \\cdot \\frac{(n-1) !}{(n-4) !}$\n$\\Rightarrow n(n-1)(n-2)(n-3)(n-4)=60(n-1)(n-2)(n-3)$\n$\\Rightarrow n(n-4)=60$\n$\\Rightarrow n^{2}-4 n-60=0$\n$\\Rightarrow(n-10)(n+6)=0$\n$\\Rightarrow n=10,-6$\nSince n cannot be negative we have n=10"
+            },
+            {
+              "questionID": 18776,
+              "question": "The number of ways in which the 6 faces of a cube can be painted with 6 different colours is",
+              "question_raw": "<p>The number of ways in which the 6 faces of a cube can be painted with 6 different colours is</p>",
+              "options": [
+                {
+                  "label": "A",
+                  "id": 30304,
+                  "text": "30",
+                  "is_correct": true
+                },
+                {
+                  "label": "B",
+                  "id": 30306,
+                  "text": "$6!$",
+                  "is_correct": false
+                },
+                {
+                  "label": "C",
+                  "id": 30307,
+                  "text": "12",
+                  "is_correct": false
+                },
+                {
+                  "label": "D",
+                  "id": 30305,
+                  "text": "6",
+                  "is_correct": false
+                }
+              ],
+              "correct_option_ids": [
+                30304
+              ],
+              "correct_option_labels": [
+                "A"
+              ],
+              "correct_option_texts": [
+                "30"
+              ],
+              "explanation": "We have a cube has 6 faces and we have to colour it with 6 different colours .\nThen the no of ways of colouring =$6!$=720, but in this we will be getting many overcountings.\n We have there are 24 ways in which we can orient a cube $\\frac { 720 }{ 24 } =30$\n Hence the number of distinct ways of colouring a cube with 6 different colours is $\\frac { 720 }{ 24 } =30$ $\\frac { 6! }{ 24 } =30$$\\frac { 6! }{ 24 } =30$$\\frac { 6! }{ 24 } =30$$\\frac { 720 }{ 24 } =30$ $\\frac { 6! }{ 24 } $$\\frac { 6! }{ 24 } =30$"
+            },
+            {
+              "questionID": 18777,
+              "question": "The number of distinguishable ways in which the 4 faces of a regular tetrahedron can be painted with 4 different colours is",
+              "question_raw": "<p>The number of distinguishable ways in which the 4 faces of a regular tetrahedron can be painted with 4 different colours is</p>",
+              "options": [
+                {
+                  "label": "A",
+                  "id": 30311,
+                  "text": "12",
+                  "is_correct": false
+                },
+                {
+                  "label": "B",
+                  "id": 30308,
+                  "text": "2",
+                  "is_correct": true
+                },
+                {
+                  "label": "C",
+                  "id": 30310,
+                  "text": "24",
+                  "is_correct": false
+                },
+                {
+                  "label": "D",
+                  "id": 30309,
+                  "text": "4",
+                  "is_correct": false
+                }
+              ],
+              "correct_option_ids": [
+                30308
+              ],
+              "correct_option_labels": [
+                "B"
+              ],
+              "correct_option_texts": [
+                "2"
+              ],
+              "explanation": "We have a regular tetrahedron has 4 faces and we have to colour it with 4 different colours in 4! = 24 ways.\nBut in this we will be getting many overcounting.\nWe have there are 12 ways in which we can orient a regular tetrahedron.\nHence the number of distinct ways of colouring a regular tetrahedron with 4 different colours is $\\frac { 24 }{ 12 }$ = 2."
+            },
+            {
+              "questionID": 18778,
+              "question": "The number of ways in which n ties can be selected from a rack displaying 3n different ties is",
+              "question_raw": "<p>The number of ways in which n ties can be selected from a rack displaying 3n different ties is</p>",
+              "options": [
+                {
+                  "label": "A",
+                  "id": 30312,
+                  "text": "$\\frac{(3 n) !}{n !(2 n) !}$",
+                  "is_correct": true
+                },
+                {
+                  "label": "B",
+                  "id": 30314,
+                  "text": "3 $\\times$ n!",
+                  "is_correct": false
+                },
+                {
+                  "label": "C",
+                  "id": 30315,
+                  "text": "(2n)!",
+                  "is_correct": false
+                },
+                {
+                  "label": "D",
+                  "id": 30313,
+                  "text": "(3n)!",
+                  "is_correct": false
+                }
+              ],
+              "correct_option_ids": [
+                30312
+              ],
+              "correct_option_labels": [
+                "A"
+              ],
+              "correct_option_texts": [
+                "$\\frac{(3 n) !}{n !(2 n) !}$"
+              ],
+              "explanation": "The number of selections of r objects from the given n objects is denoted by $^{ n }{ C_r}$ and we have $^{ n }{ C_ r} =\\frac { n! }{ r!\\left( n-r \\right) ! }$ \nNow n ties can be selected from a rack displaying 3n different ties in $^{ 3n }{ C_{ n} }=\\frac { 3n! }{ n!\\left( 3n-n \\right) ! } =\\frac { 3n! }{ n!\\left( 2n \\right) ! } $ different ways."
+            },
+            {
+              "questionID": 18779,
+              "question": "Find Rank of word WIFE among the words that can be formed with its letters and arranged as in dictionary is",
+              "question_raw": "<p>Find Rank of word <strong>WIFE</strong>&nbsp;among the words that can be formed with its letters and arranged as in dictionary is</p>",
+              "options": [
+                {
+                  "label": "A",
+                  "id": 30316,
+                  "text": "24",
+                  "is_correct": true
+                },
+                {
+                  "label": "B",
+                  "id": 30318,
+                  "text": "8",
+                  "is_correct": false
+                },
+                {
+                  "label": "C",
+                  "id": 30319,
+                  "text": "18",
+                  "is_correct": false
+                },
+                {
+                  "label": "D",
+                  "id": 30317,
+                  "text": "4",
+                  "is_correct": false
+                }
+              ],
+              "correct_option_ids": [
+                30316
+              ],
+              "correct_option_labels": [
+                "A"
+              ],
+              "correct_option_texts": [
+                "24"
+              ],
+              "explanation": "Arrange all the alphabets in alphabetical order (E, F, I, W)\n 4 alphabets can form 4! words = 24 words."
+            },
+            {
+              "questionID": 18780,
+              "question": "The number of even numbers that can be formed by using all the digits 1, 2, 3, 4, and 5 (without repetitions) is",
+              "question_raw": "<p>The number of even numbers that can be formed by using all the digits 1, 2, 3, 4, and 5 (without repetitions) is</p>",
+              "options": [
+                {
+                  "label": "A",
+                  "id": 30321,
+                  "text": "1250",
+                  "is_correct": false
+                },
+                {
+                  "label": "B",
+                  "id": 30323,
+                  "text": "192",
+                  "is_correct": false
+                },
+                {
+                  "label": "C",
+                  "id": 30320,
+                  "text": "48",
+                  "is_correct": true
+                },
+                {
+                  "label": "D",
+                  "id": 30322,
+                  "text": "162",
+                  "is_correct": false
+                }
+              ],
+              "correct_option_ids": [
+                30320
+              ],
+              "correct_option_labels": [
+                "C"
+              ],
+              "correct_option_texts": [
+                "48"
+              ],
+              "explanation": "t th\r\n th\r\n h\r\n t\r\n o\r\n 1\r\n 2\r\n 3\r\n 4\r\n 2\r\nSince we need an even number , ones place can be occupied by only two numbers 2 and 4 in two ways.\nSince repetition is not allowed tens place is occupied by remaining 4 numbers in 4 ways and the hundred's place by 3 ways and thousands place in 2 ways.\nHence total number of even numbers can be formed in 1x2x3x4x2 = 48."
+            },
+            {
+              "questionID": 18781,
+              "question": "The number of all numbers that can be formed by using some or all of the digits 1, 3, 5, 7, 9 (without repetitions) is",
+              "question_raw": "<p>The number of all numbers that can be formed by using some or all of the digits 1, 3, 5, 7, 9 (without repetitions) is</p>",
+              "options": [
+                {
+                  "label": "A",
+                  "id": 30325,
+                  "text": "120",
+                  "is_correct": false
+                },
+                {
+                  "label": "B",
+                  "id": 30327,
+                  "text": "220",
+                  "is_correct": false
+                },
+                {
+                  "label": "C",
+                  "id": 30324,
+                  "text": "325",
+                  "is_correct": true
+                },
+                {
+                  "label": "D",
+                  "id": 30326,
+                  "text": "32",
+                  "is_correct": false
+                }
+              ],
+              "correct_option_ids": [
+                30324
+              ],
+              "correct_option_labels": [
+                "C"
+              ],
+              "correct_option_texts": [
+                "325"
+              ],
+              "explanation": "Number of ways of forming 5 digit numbers = 5 $\\times$ 4 $\\times$ 3 $\\times$ 2 $\\times$ 1 = 120\nNumber of ways of forming 4 digit numbers = 5 $\\times$ 4 $\\times$ 3 $\\times$ 2 = 120\nNumber of ways of forming 3 digit numbers = 5 $\\times$ 4 $\\times$ 3 = 60\nNumber of ways of forming 2 digit numbers = 5 $\\times$ 4 = 20\nNumber of ways of forming 1 digit numbers = 5\nHence the total number of ways = 120+ 120 + 60 + 20 + 5 = 325"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "testPaperID": 633,
+      "testPaperName": "Permutations & Combinations Test 02",
+      "is_paid": true,
+      "category_full_name": "CBSE > Class 11 > Mathematics > Permutations and Combinations",
+      "noOfQuestions": 15,
+      "has_answers": true,
+      "sections": [
+        {
+          "sectionName": "General",
+          "sectionID": null,
+          "questions": [
+            {
+              "questionID": 18782,
+              "question": "In a multiple choice question, there are 4 alternatives, of which one or more are correct. The number of ways in which a candidate can attempt this question is",
+              "question_raw": "<p>In a multiple choice question, there are 4 alternatives, of which one or more are correct. The number of ways in which a candidate can attempt this question is</p>",
+              "options": [
+                {
+                  "label": "A",
+                  "id": 30331,
+                  "text": "2^5",
+                  "is_correct": false
+                },
+                {
+                  "label": "B",
+                  "id": 30330,
+                  "text": "16",
+                  "is_correct": false
+                },
+                {
+                  "label": "C",
+                  "id": 30329,
+                  "text": "4",
+                  "is_correct": false
+                },
+                {
+                  "label": "D",
+                  "id": 30328,
+                  "text": "15",
+                  "is_correct": true
+                }
+              ],
+              "correct_option_ids": [
+                30328
+              ],
+              "correct_option_labels": [
+                "D"
+              ],
+              "correct_option_texts": [
+                "15"
+              ],
+              "explanation": "Since given there are four alternatives in which one or more are correct, we have to consider the following four cases\nThe candidate choose 1 correct answer, 2 correct answers, 3 correct answers or 4 correct answers.\n1 correct answer can be chosen in ^4C_1 ways = 4 ways\n2 correct answer can be chosen in ^4C_2 ways = 6 ways\n3 correct answers can be chosen in ^4C_3ways = 4 ways\n4 correct answers can be chosen in^4C_4 ways = 1 way\nHence the total number of ways = 4 + 6 + 4 + 1 = 15ways"
+            },
+            {
+              "questionID": 18783,
+              "question": "In how many ways can the letters of the word MATHEMATICS be permuted so that consonants always occur together?",
+              "question_raw": "<p>In how many ways can the letters of the word MATHEMATICS be permuted so that consonants always occur together?</p>",
+              "options": [
+                {
+                  "label": "A",
+                  "id": 30333,
+                  "text": "15120",
+                  "is_correct": false
+                },
+                {
+                  "label": "B",
+                  "id": 30335,
+                  "text": "602400",
+                  "is_correct": false
+                },
+                {
+                  "label": "C",
+                  "id": 30334,
+                  "text": "604800",
+                  "is_correct": false
+                },
+                {
+                  "label": "D",
+                  "id": 30332,
+                  "text": "75600",
+                  "is_correct": true
+                }
+              ],
+              "correct_option_ids": [
+                30332
+              ],
+              "correct_option_labels": [
+                "D"
+              ],
+              "correct_option_texts": [
+                "75600"
+              ],
+              "explanation": "In the word 'MATHAEMATICS' there are 7 consonants which are M-2, H-1, C-1, S-1, T-2. Since they have to occur together we treat them as a single unit.\nNow this single unit together with the remaining 4 vowels which are A-2, E-1,and I-1 will account for 5 letters.\nNow in these 5 letters, we have A is repeating twice these can be arranged in $\\frac { 5! }{ 2! } $ different ways.\nCorresponding to each of these arrangements the consonants can be arranged in $\\frac { 7! }{ 2!.2! } $ different ways.\nHence the number of ways it can be arranged is $7! 5!\\over 2! 2! 2!$ = 75600"
+            },
+            {
+              "questionID": 18784,
+              "question": "The number of triangles that can be formed with 6 points on a circle is",
+              "question_raw": "<p>The number of triangles that can be formed with 6 points on a circle is</p>",
+              "options": [
+                {
+                  "label": "A",
+                  "id": 30339,
+                  "text": "12",
+                  "is_correct": false
+                },
+                {
+                  "label": "B",
+                  "id": 30336,
+                  "text": "20",
+                  "is_correct": true
+                },
+                {
+                  "label": "C",
+                  "id": 30337,
+                  "text": "15",
+                  "is_correct": false
+                },
+                {
+                  "label": "D",
+                  "id": 30338,
+                  "text": "6",
+                  "is_correct": false
+                }
+              ],
+              "correct_option_ids": [
+                30336
+              ],
+              "correct_option_labels": [
+                "B"
+              ],
+              "correct_option_texts": [
+                "20"
+              ],
+              "explanation": "To form a triangle 3 non-collinear points are needed.\nThe number of ways of selecting 3 points out of 6 can be done in ^6C_3 =$\\frac { 6! }{ 3!.3! } =\\frac { 1.2.3.4.5.6. }{ 1.2.3.1.2.3 } $ = 20 ways. $\\left[ \\because ^{ n }{ C_{ r } }=\\frac { n! }{ r!\\left( n-r \\right) ! } \\right] $"
+            },
+            {
+              "questionID": 18785,
+              "question": "Number of ways in which 10 different things can be divided into two groups containing 6 and 4 things respectively is",
+              "question_raw": "<p>Number of ways in which 10 different things can be divided into two groups containing 6 and 4 things respectively is</p>",
+              "options": [
+                {
+                  "label": "A",
+                  "id": 30341,
+                  "text": "P(10, 6)",
+                  "is_correct": false
+                },
+                {
+                  "label": "B",
+                  "id": 30340,
+                  "text": "C(10, 4)",
+                  "is_correct": true
+                },
+                {
+                  "label": "C",
+                  "id": 30343,
+                  "text": "P(10, 4)",
+                  "is_correct": false
+                },
+                {
+                  "label": "D",
+                  "id": 30342,
+                  "text": "P(10, 2)",
+                  "is_correct": false
+                }
+              ],
+              "correct_option_ids": [
+                30340
+              ],
+              "correct_option_labels": [
+                "B"
+              ],
+              "correct_option_texts": [
+                "C(10, 4)"
+              ],
+              "explanation": "If there are 10 things and we have to make them into two groups containing 6 things and 4 things respectively, you have to select 6 to form first group, then automatically another group would have formed of 4 remaining things.\nNow 6 things can be selected from 10 things in ^10C_6 different ways\nAlso we have ^10C_6 = ^10C_4 $\\left[ \\because ^{ n }{ C_{ r} }=^{ n }{ C_{ n-r} } \\right] $"
+            },
+            {
+              "questionID": 18786,
+              "question": "The number of selections of n different things taken r at a time which exclude m particular things is",
+              "question_raw": "<p>The number of selections of n different things taken r at a time which exclude m&nbsp;particular things is</p>",
+              "options": [
+                {
+                  "label": "A",
+                  "id": 30344,
+                  "text": "C(n-m, r)",
+                  "is_correct": true
+                },
+                {
+                  "label": "B",
+                  "id": 30346,
+                  "text": "nC(n-m,r-1)",
+                  "is_correct": false
+                },
+                {
+                  "label": "C",
+                  "id": 30345,
+                  "text": "C(n-m, r-1)",
+                  "is_correct": false
+                },
+                {
+                  "label": "D",
+                  "id": 30347,
+                  "text": "nC(n-m, r)",
+                  "is_correct": false
+                }
+              ],
+              "correct_option_ids": [
+                30344
+              ],
+              "correct_option_labels": [
+                "A"
+              ],
+              "correct_option_texts": [
+                "C(n-m, r)"
+              ],
+              "explanation": "No: of combinations of n different things taken r at at a time is given by ^nC_r\nNo: of combinations of n different things taken r at a time and excluding m particular things is ^n^ - mC_r = C(n-m, r)"
+            },
+            {
+              "questionID": 18787,
+              "question": "The number of arrangements of n different things taken r at a time which include a particular thing is",
+              "question_raw": "<p>The number of arrangements of n different things taken r at a time which include a particular thing is</p>",
+              "options": [
+                {
+                  "label": "A",
+                  "id": 30349,
+                  "text": "n P(n-1, r)",
+                  "is_correct": false
+                },
+                {
+                  "label": "B",
+                  "id": 30350,
+                  "text": "P(n-1, r-1)",
+                  "is_correct": false
+                },
+                {
+                  "label": "C",
+                  "id": 30351,
+                  "text": "P(n+1, r+1)",
+                  "is_correct": false
+                },
+                {
+                  "label": "D",
+                  "id": 30348,
+                  "text": "r P(n-1, r-1)",
+                  "is_correct": true
+                }
+              ],
+              "correct_option_ids": [
+                30348
+              ],
+              "correct_option_labels": [
+                "D"
+              ],
+              "correct_option_texts": [
+                "r P(n-1, r-1)"
+              ],
+              "explanation": "The number of arrangements of n different things taken r at a time which include a particular thing is r ^n-1P_r-1 = rP(n-1, r-1)"
+            },
+            {
+              "questionID": 18788,
+              "question": "The number of arrangements of n different things taken r at a time which exclude a particular thing is",
+              "question_raw": "<p>The number of arrangements of n different things taken r at a time which exclude a particular thing is</p>",
+              "options": [
+                {
+                  "label": "A",
+                  "id": 30355,
+                  "text": "P(n-1, r+1)",
+                  "is_correct": false
+                },
+                {
+                  "label": "B",
+                  "id": 30354,
+                  "text": "P(n.r)",
+                  "is_correct": false
+                },
+                {
+                  "label": "C",
+                  "id": 30353,
+                  "text": "P(n-1, r-1)",
+                  "is_correct": false
+                },
+                {
+                  "label": "D",
+                  "id": 30352,
+                  "text": "P(n-1, r)",
+                  "is_correct": true
+                }
+              ],
+              "correct_option_ids": [
+                30352
+              ],
+              "correct_option_labels": [
+                "D"
+              ],
+              "correct_option_texts": [
+                "P(n-1, r)"
+              ],
+              "explanation": "The number of arrangements of n different things taken r at a time which exclude a particular thing is ^n-1P_r = P(n-1, r)"
+            },
+            {
+              "questionID": 18789,
+              "question": "5 persons board a lift on the ground floor of an 8 storey building. In how many ways can they leave the lift?",
+              "question_raw": "<p>5 persons board a lift on the ground floor of an 8 storey building. In how many ways can they leave the lift?</p>",
+              "options": [
+                {
+                  "label": "A",
+                  "id": 30356,
+                  "text": "7^5",
+                  "is_correct": true
+                },
+                {
+                  "label": "B",
+                  "id": 30358,
+                  "text": "^7P_5",
+                  "is_correct": false
+                },
+                {
+                  "label": "C",
+                  "id": 30359,
+                  "text": "^5P_7",
+                  "is_correct": false
+                },
+                {
+                  "label": "D",
+                  "id": 30357,
+                  "text": "5^7",
+                  "is_correct": false
+                }
+              ],
+              "correct_option_ids": [
+                30356
+              ],
+              "correct_option_labels": [
+                "A"
+              ],
+              "correct_option_texts": [
+                "7^5"
+              ],
+              "explanation": "Since they are boarding from the ground floor and we are considering the number of ways they leave the lift, we can consider there are 7 floors as we exclude the ground floor)\nAs each of the 5 persons can leave the lift in 7 ways, the required number of ways = 7^5"
+            },
+            {
+              "questionID": 18790,
+              "question": "If ^12C_4 +^ 12C_5 = ^nC_5, then n is equal to",
+              "question_raw": "<p>If <sup>12</sup>C<sub>4</sub>&nbsp;+<sup>&nbsp;12</sup>C<sub>5&nbsp;</sub>=&nbsp;<sup>n</sup>C<sub>5</sub>, then n is equal to</p>",
+              "options": [
+                {
+                  "label": "A",
+                  "id": 30362,
+                  "text": "12",
+                  "is_correct": false
+                },
+                {
+                  "label": "B",
+                  "id": 30360,
+                  "text": "13",
+                  "is_correct": true
+                },
+                {
+                  "label": "C",
+                  "id": 30361,
+                  "text": "11",
+                  "is_correct": false
+                },
+                {
+                  "label": "D",
+                  "id": 30363,
+                  "text": "10",
+                  "is_correct": false
+                }
+              ],
+              "correct_option_ids": [
+                30360
+              ],
+              "correct_option_labels": [
+                "B"
+              ],
+              "correct_option_texts": [
+                "13"
+              ],
+              "explanation": "We have nC_r - 1 + ^nC_r = ^n+1C_r \nHence ^12C_4 +^ 12C_5 = ^13C_5 ...(i)\nBut given ^12C_4 +^ 12C_5 = ^nC_5 ....(ii)\nComparing (i) and (ii) we get n = 13"
+            },
+            {
+              "questionID": 18791,
+              "question": "The number of ways in which a necklace can be formed by using 5 identical red beads and 6 identical white beads is:",
+              "question_raw": "<p>The number of ways in which a necklace can be formed by using 5 identical red beads and 6 identical white beads is:</p>",
+              "options": [
+                {
+                  "label": "A",
+                  "id": 30364,
+                  "text": "$\\frac{10 !}{2(6 ! 5 !)}$",
+                  "is_correct": true
+                },
+                {
+                  "label": "B",
+                  "id": 30366,
+                  "text": "$\\frac{10 !}{(6 ! 5 !)}$",
+                  "is_correct": false
+                },
+                {
+                  "label": "C",
+                  "id": 30367,
+                  "text": "$\\frac{10 !}{(7 ! 4 !)}$",
+                  "is_correct": false
+                },
+                {
+                  "label": "D",
+                  "id": 30365,
+                  "text": "$\\frac{11 !}{2(6 ! 5 !)}$",
+                  "is_correct": false
+                }
+              ],
+              "correct_option_ids": [
+                30364
+              ],
+              "correct_option_labels": [
+                "A"
+              ],
+              "correct_option_texts": [
+                "$\\frac{10 !}{2(6 ! 5 !)}$"
+              ],
+              "explanation": "Total number of beads = 11\nWe have 6 beads are alike and next 5 beads are also alike, also since it is a necklace it can be observed from both the sides.\nTherefore required number of ways =$\\frac{(11-1) !}{2 ! \\cdot 5 ! \\cdot 6 !}=\\frac{10 !}{2 ! .5 ! \\cdot 6 !}$"
+            },
+            {
+              "questionID": 18792,
+              "question": "A fair dice is rolled n times. The number of all the possible outcomes is",
+              "question_raw": "<p>A fair dice is rolled n times. The number of all the possible outcomes is</p>",
+              "options": [
+                {
+                  "label": "A",
+                  "id": 30371,
+                  "text": "6+n",
+                  "is_correct": false
+                },
+                {
+                  "label": "B",
+                  "id": 30369,
+                  "text": "6n",
+                  "is_correct": false
+                },
+                {
+                  "label": "C",
+                  "id": 30370,
+                  "text": "n^6",
+                  "is_correct": false
+                },
+                {
+                  "label": "D",
+                  "id": 30368,
+                  "text": "6^n",
+                  "is_correct": true
+                }
+              ],
+              "correct_option_ids": [
+                30368
+              ],
+              "correct_option_labels": [
+                "D"
+              ],
+              "correct_option_texts": [
+                "6^n"
+              ],
+              "explanation": "Each time there are 6 possibilities, therefore for n times there are 6^n possibilities."
+            },
+            {
+              "questionID": 18793,
+              "question": "The sum of all the numbers which can be formed by using the digits 1, 3, 5, 7, 9 all at a time and which have no digit repeated is",
+              "question_raw": "<p>The sum of all the numbers which can be formed by using the digits 1, 3, 5, 7, 9 all at a time and which have no digit repeated is</p>",
+              "options": [
+                {
+                  "label": "A",
+                  "id": 30372,
+                  "text": "6666600",
+                  "is_correct": true
+                },
+                {
+                  "label": "B",
+                  "id": 30373,
+                  "text": "266664",
+                  "is_correct": false
+                },
+                {
+                  "label": "C",
+                  "id": 30375,
+                  "text": "33333000",
+                  "is_correct": false
+                },
+                {
+                  "label": "D",
+                  "id": 30374,
+                  "text": "600",
+                  "is_correct": false
+                }
+              ],
+              "correct_option_ids": [
+                30372
+              ],
+              "correct_option_labels": [
+                "A"
+              ],
+              "correct_option_texts": [
+                "6666600"
+              ],
+              "explanation": "First we will fix anyone digit in a fixed position. Then we have the remaining 4 digits can be arranged in 4! different ways.\nWhich means each of the five digits can appear in each of the five places in 4! times.\nHence the sum of the digits in each position is 4!(1 + 3 + 5 + 7 + 9) \nNow to find the sum of these numbers formed we have to consider the place values for these digits\nSo the sum of all the numbers which can be formed by using the digits 1, 3, 5, 7, 9 = 25 $\\times$ 4! $\\times$ (1 + 10 + 100 + 1000 + 10000) = 25 $\\times$ 4! $\\times$ 11111 = 6666600"
+            },
+            {
+              "questionID": 18794,
+              "question": "4 boys and 4 girls are to be seated in a row. The number of ways in which this can be done, if the boys and girls sit alternately, is",
+              "question_raw": "<p>4 boys and 4 girls are to be seated in a row. The number of ways in which this can be done, if the boys and girls sit alternately, is</p>",
+              "options": [
+                {
+                  "label": "A",
+                  "id": 30377,
+                  "text": "P(8, 8)",
+                  "is_correct": false
+                },
+                {
+                  "label": "B",
+                  "id": 30379,
+                  "text": "5! $\\times$ 5!",
+                  "is_correct": false
+                },
+                {
+                  "label": "C",
+                  "id": 30378,
+                  "text": "4! $\\times$ 4!",
+                  "is_correct": false
+                },
+                {
+                  "label": "D",
+                  "id": 30376,
+                  "text": "2 $\\times$ 4! $\\times$ 4!",
+                  "is_correct": true
+                }
+              ],
+              "correct_option_ids": [
+                30376
+              ],
+              "correct_option_labels": [
+                "D"
+              ],
+              "correct_option_texts": [
+                "2 $\\times$ 4! $\\times$ 4!"
+              ],
+              "explanation": "There are 4 boys and 4 girls and the row can start either with a boy or girl, therefore the number of ways are 4! $\\times$ 4! $\\times$ 2"
+            },
+            {
+              "questionID": 18795,
+              "question": "The letters of the word ‘SOCIETY’ are arranged in such a manner that the vowels and consonants occur alternately, the number of different words so obtained is",
+              "question_raw": "<p>The letters of the word &lsquo;SOCIETY&rsquo; are arranged in such a manner that the vowels and consonants occur alternately, the number of different words so obtained is</p>",
+              "options": [
+                {
+                  "label": "A",
+                  "id": 30383,
+                  "text": "${\\text{9}}!$",
+                  "is_correct": false
+                },
+                {
+                  "label": "B",
+                  "id": 30380,
+                  "text": "${\\text{4}}!{\\text{ }} \\times {\\text{ }}3!$",
+                  "is_correct": true
+                },
+                {
+                  "label": "C",
+                  "id": 30382,
+                  "text": "$2{\\text{ }} \\times {\\text{ }}4!{\\text{ }} \\times {\\text{ }}3!$",
+                  "is_correct": false
+                },
+                {
+                  "label": "D",
+                  "id": 30381,
+                  "text": "${\\text{7}}!$",
+                  "is_correct": false
+                }
+              ],
+              "correct_option_ids": [
+                30380
+              ],
+              "correct_option_labels": [
+                "B"
+              ],
+              "correct_option_texts": [
+                "${\\text{4}}!{\\text{ }} \\times {\\text{ }}3!$"
+              ],
+              "explanation": "there are four consonants and 3 vowels, therefore 3! * 4!"
+            },
+            {
+              "questionID": 18796,
+              "question": "There are 10 true-false questions. The number of ways in which they can be answered is",
+              "question_raw": "<p>There are 10 true-false questions. The number of ways in which they can be answered is</p>",
+              "options": [
+                {
+                  "label": "A",
+                  "id": 30387,
+                  "text": "20",
+                  "is_correct": false
+                },
+                {
+                  "label": "B",
+                  "id": 30386,
+                  "text": "10!",
+                  "is_correct": false
+                },
+                {
+                  "label": "C",
+                  "id": 30385,
+                  "text": "10",
+                  "is_correct": false
+                },
+                {
+                  "label": "D",
+                  "id": 30384,
+                  "text": "2^10",
+                  "is_correct": true
+                }
+              ],
+              "correct_option_ids": [
+                30384
+              ],
+              "correct_option_labels": [
+                "D"
+              ],
+              "correct_option_texts": [
+                "2^10"
+              ],
+              "explanation": "You can either choose true or false, therefore for 10 questions you will have 2^10 possibilities."
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "testPaperID": 634,
+      "testPaperName": "Permutations & Combinations Test 03",
+      "is_paid": true,
+      "category_full_name": "CBSE > Class 11 > Mathematics > Permutations and Combinations",
+      "noOfQuestions": 15,
+      "has_answers": true,
+      "sections": [
+        {
+          "sectionName": "General",
+          "sectionID": null,
+          "questions": [
+            {
+              "questionID": 18797,
+              "question": "The number of ways in which 6 + and 4 – signs can be arranged in a line such that no two – signs occur together is",
+              "question_raw": "<p>The number of ways in which 6 <strong>+</strong>&nbsp;and 4 <strong>&ndash;</strong>&nbsp;signs can be arranged in a line such that no two <strong>&ndash;</strong>&nbsp;signs occur together is</p>",
+              "options": [
+                {
+                  "label": "A",
+                  "id": 30390,
+                  "text": "5040",
+                  "is_correct": false
+                },
+                {
+                  "label": "B",
+                  "id": 30389,
+                  "text": "210",
+                  "is_correct": false
+                },
+                {
+                  "label": "C",
+                  "id": 30391,
+                  "text": "120",
+                  "is_correct": false
+                },
+                {
+                  "label": "D",
+                  "id": 30388,
+                  "text": "35",
+                  "is_correct": true
+                }
+              ],
+              "correct_option_ids": [
+                30388
+              ],
+              "correct_option_labels": [
+                "D"
+              ],
+              "correct_option_texts": [
+                "35"
+              ],
+              "explanation": "Since all the plus signs are identical, we have the number of ways in which 6 plus signs can be arranged = 1.\nNow we will have 7 empty slots between these 6 identical + signs \nHence the number of possible places of - sign = 7\nTherefore the number of ways in which the 4 minus sign can take any of the possible 7 places = $^{ 7 }{ C_{ 4 } }=\\frac { 7! }{ 4!\\left( 7-4 \\right) ! } =\\frac { 5.6.7 }{ 1.2.3 } =35$"
+            },
+            {
+              "questionID": 18798,
+              "question": "On a railway track, there are 20 stations. The number of tickets required in order that it may be possible to book a passenger from every station to every other is",
+              "question_raw": "<p>On a railway track, there are 20 stations. The number of tickets required in order that it may be possible to book a passenger from every station to every other is</p>",
+              "options": [
+                {
+                  "label": "A",
+                  "id": 30395,
+                  "text": "300",
+                  "is_correct": false
+                },
+                {
+                  "label": "B",
+                  "id": 30393,
+                  "text": "190",
+                  "is_correct": false
+                },
+                {
+                  "label": "C",
+                  "id": 30394,
+                  "text": "400",
+                  "is_correct": false
+                },
+                {
+                  "label": "D",
+                  "id": 30392,
+                  "text": "380",
+                  "is_correct": true
+                }
+              ],
+              "correct_option_ids": [
+                30392
+              ],
+              "correct_option_labels": [
+                "D"
+              ],
+              "correct_option_texts": [
+                "380"
+              ],
+              "explanation": "Given that there are 20 stations in the network.\nHence from each station, 19 different tickets are possible.\nTherefore from 20 stations the number of different tickets possible = 19 $\\times$ 20 = 380"
+            },
+            {
+              "questionID": 18799,
+              "question": "A class is composed 2 brothers and 6 other boys. In how many ways can all the boys be seated at the round table so that the 2 brothers are not seated besides each other?",
+              "question_raw": "<p>A class is composed 2 brothers and 6 other boys. In how many ways can all the boys be seated at the round table so that the 2 brothers are not seated besides each other?</p>",
+              "options": [
+                {
+                  "label": "A",
+                  "id": 30397,
+                  "text": "720",
+                  "is_correct": false
+                },
+                {
+                  "label": "B",
+                  "id": 30399,
+                  "text": "4320",
+                  "is_correct": false
+                },
+                {
+                  "label": "C",
+                  "id": 30396,
+                  "text": "3600",
+                  "is_correct": true
+                },
+                {
+                  "label": "D",
+                  "id": 30398,
+                  "text": "1440",
+                  "is_correct": false
+                }
+              ],
+              "correct_option_ids": [
+                30396
+              ],
+              "correct_option_labels": [
+                "C"
+              ],
+              "correct_option_texts": [
+                "3600"
+              ],
+              "explanation": "First we will fix one person from the 6 boys then 5 others can be arranged in 5! ways = 120 ways \nNow there are 6 places left in which 2 brothers can sit, so they can choose any 2 places from the 6 places in ^6C_2 ways = 15 ways\nAlso, 2 brothers can arrange themselves in 2! ways\nSo the ways in which the two brothers can be seated = 15 $\\times$ 2 = 30\nHence total ways in which all can be seated = 120 $\\times$ 30 = 3600"
+            },
+            {
+              "questionID": 18800,
+              "question": "The number of all selections which a student can make for answering one or more questions out of 8 given questions in a paper, when each question has an alternative, is:",
+              "question_raw": "<p>The number of all selections which a student can make for answering one or more questions out of 8 given questions in a paper, when each question has an alternative, is:</p>",
+              "options": [
+                {
+                  "label": "A",
+                  "id": 30402,
+                  "text": "255",
+                  "is_correct": false
+                },
+                {
+                  "label": "B",
+                  "id": 30403,
+                  "text": "6561",
+                  "is_correct": false
+                },
+                {
+                  "label": "C",
+                  "id": 30400,
+                  "text": "6560",
+                  "is_correct": true
+                },
+                {
+                  "label": "D",
+                  "id": 30401,
+                  "text": "256",
+                  "is_correct": false
+                }
+              ],
+              "correct_option_ids": [
+                30400
+              ],
+              "correct_option_labels": [
+                "C"
+              ],
+              "correct_option_texts": [
+                "6560"
+              ],
+              "explanation": "Since a student can solve every question in three ways- either he can attempt the first alternative or the second alternative or he does not attempt that question \nHence the total ways in which a student can attempt one or more of 8 questions = 3^8 \nTherefore to find the number of all selections which a student can make for answering one or more questions out of 8 given questions = 3^8 - 1 = 6560_ [we will have to exclude only the case of not answering all the 8 questions]"
+            },
+            {
+              "questionID": 18801,
+              "question": "The number of ways in which 8 different flowers can be strung to form a garland so that 4 particular flowers are never separated is",
+              "question_raw": "<p>The number of ways in which 8 different flowers can be strung to form a garland so that 4 particular flowers are never separated is</p>",
+              "options": [
+                {
+                  "label": "A",
+                  "id": 30404,
+                  "text": "288",
+                  "is_correct": true
+                },
+                {
+                  "label": "B",
+                  "id": 30406,
+                  "text": "5!4!",
+                  "is_correct": false
+                },
+                {
+                  "label": "C",
+                  "id": 30407,
+                  "text": "5!6!",
+                  "is_correct": false
+                },
+                {
+                  "label": "D",
+                  "id": 30405,
+                  "text": "576",
+                  "is_correct": false
+                }
+              ],
+              "correct_option_ids": [
+                30404
+              ],
+              "correct_option_labels": [
+                "A"
+              ],
+              "correct_option_texts": [
+                "288"
+              ],
+              "explanation": "4 flowers which are always together can be considered as one SET.\nTherefore we have to arrange one SET (4 flowers) and 4 other flowers into a garland. \nWhich means 5 things to be arranged in a garland. \n(5 - 1)! \nAnd the SET of flowers can arrange themselves within each other in 4! ways. \nTherefore \n(5 - 1)! $\\times$ (4!) \nBut, Garland, looked from the front or behind does not matter. Therefore the clockwise and anti-clockwise observation does not make a difference. \nTherefore \n$\\frac{(5 - 1)! \\times (4!)}{2}$\n= 288."
+            },
+            {
+              "questionID": 18802,
+              "question": "Different calendars for the month of February are made so as to serve for all the coming years. The number of such calendars is",
+              "question_raw": "<p>Different calendars for the month of February are made so as to serve for all the coming years. The number of such calendars is</p>",
+              "options": [
+                {
+                  "label": "A",
+                  "id": 30410,
+                  "text": "2",
+                  "is_correct": false
+                },
+                {
+                  "label": "B",
+                  "id": 30409,
+                  "text": "7",
+                  "is_correct": false
+                },
+                {
+                  "label": "C",
+                  "id": 30408,
+                  "text": "14",
+                  "is_correct": true
+                },
+                {
+                  "label": "D",
+                  "id": 30411,
+                  "text": "8",
+                  "is_correct": false
+                }
+              ],
+              "correct_option_ids": [
+                30408
+              ],
+              "correct_option_labels": [
+                "C"
+              ],
+              "correct_option_texts": [
+                "14"
+              ],
+              "explanation": "The month of February has either 28 days (non-Leap Year) or 29 days(Leap Year).\nThus there are 2 possibility for the number of days in February.\nAlso, the first day of the month of February can be any of the 7 days in a week.\nSo total number of February calendars = 2 $\\times$ 7 =14"
+            },
+            {
+              "questionID": 18803,
+              "question": "The number of all odd divisors of 3600 is",
+              "question_raw": "<p>The number of all odd divisors of 3600 is</p>",
+              "options": [
+                {
+                  "label": "A",
+                  "id": 30415,
+                  "text": "27",
+                  "is_correct": false
+                },
+                {
+                  "label": "B",
+                  "id": 30412,
+                  "text": "9",
+                  "is_correct": true
+                },
+                {
+                  "label": "C",
+                  "id": 30414,
+                  "text": "18",
+                  "is_correct": false
+                },
+                {
+                  "label": "D",
+                  "id": 30413,
+                  "text": "45",
+                  "is_correct": false
+                }
+              ],
+              "correct_option_ids": [
+                30412
+              ],
+              "correct_option_labels": [
+                "B"
+              ],
+              "correct_option_texts": [
+                "9"
+              ],
+              "explanation": "We have 3600 = 2^4 3^2 5^2 \nTo get the odd factors we will get rid of 2's\nWe will make the selection from only 3's and 5's \nNumber of ways 3 can be selected from a lot of two 3's = 3 ways (one 3, two 3's or three 3's)\nNumber of ways 5 can be selected from a lot of two 5's = 3 ways (one 5, two 5's or three 5's)\nTherefore the number of odd factors is 3600 = 3 $\\times$ 3 = 9"
+            },
+            {
+              "questionID": 18804,
+              "question": "The number of all even divisors of 1600 is",
+              "question_raw": "<p>The number of all even divisors of 1600 is</p>",
+              "options": [
+                {
+                  "label": "A",
+                  "id": 30416,
+                  "text": "18",
+                  "is_correct": true
+                },
+                {
+                  "label": "B",
+                  "id": 30418,
+                  "text": "3",
+                  "is_correct": false
+                },
+                {
+                  "label": "C",
+                  "id": 30419,
+                  "text": "15",
+                  "is_correct": false
+                },
+                {
+                  "label": "D",
+                  "id": 30417,
+                  "text": "21",
+                  "is_correct": false
+                }
+              ],
+              "correct_option_ids": [
+                30416
+              ],
+              "correct_option_labels": [
+                "A"
+              ],
+              "correct_option_texts": [
+                "18"
+              ],
+              "explanation": "We have 1600 = ${ 2 }^{ 6 }{ .5 }^{ 2 }$ \nTo form factors we have to do selections from a lot of 2's and 5's and multiply them together.\nTo form even factor we should choose at least one 2's from the lot, which will ensure that whatever be the remaining selection, their multiplication will always result in an even factor.\nThe number of ways to select atleast one ‘2’ from a lot of six identical ‘2’s will be 6 (i.e. select 1 or select 2 or select 3 or select 4 or select 5 or select 6)\nAnd, we’ll select any number of ‘5 from a lot of two identical ‘5’s in 3 ways(select 0, select 1, select 2)\nTherefore the total number of selection of even factors = 6 $\\times$ 3 = 18"
+            },
+            {
+              "questionID": 18805,
+              "question": "A convex polygon of n sides has n diagonals. Then value of n is",
+              "question_raw": "<p>A convex polygon of n sides has n diagonals. Then value of n is</p>\r\n",
+              "options": [
+                {
+                  "label": "A",
+                  "id": 30421,
+                  "text": "6",
+                  "is_correct": false
+                },
+                {
+                  "label": "B",
+                  "id": 30422,
+                  "text": "7",
+                  "is_correct": false
+                },
+                {
+                  "label": "C",
+                  "id": 30423,
+                  "text": "8",
+                  "is_correct": false
+                },
+                {
+                  "label": "D",
+                  "id": 30420,
+                  "text": "5",
+                  "is_correct": true
+                }
+              ],
+              "correct_option_ids": [
+                30420
+              ],
+              "correct_option_labels": [
+                "D"
+              ],
+              "correct_option_texts": [
+                "5"
+              ],
+              "explanation": "If you join every distinct pair of vertices you will get $^{ n }{ C_{ 2\\quad } }$ lines.\nThese $^{ n }{ C_{ 2\\quad } }$ lines account for the n sides of the polygon as well as for the diagonals.\nSo the number of diagonals is given by $^{n} C_{2}-n=\\frac{n(n-1)}{2}-n=\\frac{n(n-3)}{2}$\nBut given number of sides = number of diagonals =n\n$\\Rightarrow n=\\frac{n(n-3)}{2}$\n$\\Rightarrow 2 n=n(n-3)$\n$\\Rightarrow n-3=2$\n$\\Rightarrow n=5$"
+            },
+            {
+              "questionID": 18806,
+              "question": "The number of all possible positive integral solutions of the equation xyz = 30 is",
+              "question_raw": "<p>The number of all possible positive integral solutions of the equation xyz = 30 is</p>",
+              "options": [
+                {
+                  "label": "A",
+                  "id": 30424,
+                  "text": "27",
+                  "is_correct": true
+                },
+                {
+                  "label": "B",
+                  "id": 30425,
+                  "text": "25",
+                  "is_correct": false
+                },
+                {
+                  "label": "C",
+                  "id": 30427,
+                  "text": "24",
+                  "is_correct": false
+                },
+                {
+                  "label": "D",
+                  "id": 30426,
+                  "text": "26",
+                  "is_correct": false
+                }
+              ],
+              "correct_option_ids": [
+                30424
+              ],
+              "correct_option_labels": [
+                "A"
+              ],
+              "correct_option_texts": [
+                "27"
+              ],
+              "explanation": "Given xyz = 30\nWe have the possible values of x, y, z are the following triads \n1, 1, 30 \n1, 2, 15 \n1, 3, 10 \n1, 5, 6 \n2, 3, 5 \nFirst one can have $\\frac{3!}{2!}$ = 3 ways and the remaining four triads can have 3! combinations \nHence total combinations = 3 + 4 $\\times$ 3! = 27"
+            },
+            {
+              "questionID": 18807,
+              "question": "Number of all 4 digit numbers with distinct digits is",
+              "question_raw": "<p>Number of all 4 digit numbers with distinct digits is</p>",
+              "options": [
+                {
+                  "label": "A",
+                  "id": 30429,
+                  "text": "504",
+                  "is_correct": false
+                },
+                {
+                  "label": "B",
+                  "id": 30431,
+                  "text": "720",
+                  "is_correct": false
+                },
+                {
+                  "label": "C",
+                  "id": 30430,
+                  "text": "9999",
+                  "is_correct": false
+                },
+                {
+                  "label": "D",
+                  "id": 30428,
+                  "text": "4536",
+                  "is_correct": true
+                }
+              ],
+              "correct_option_ids": [
+                30428
+              ],
+              "correct_option_labels": [
+                "D"
+              ],
+              "correct_option_texts": [
+                "4536"
+              ],
+              "explanation": "To form a four-digit number with distinct digits we can use any four digits from the digits 0, 1, 2, 3, 4, 5, 6, 7, 8, 9 without repetition.\nSince 0 cannot come as the first digit of a four-digit number( then it will be a three-digit number) the first place can be filled by any of the 9 digits other than 0.\nNow we have 9 more digits left and since repetition is not allowed the second place can be filled by any of these 9 digits.\nSimilarly the third and fourth can be filled by any of the 8 and 7 digits respectively.\nHence we get the four places can be filled together by 9 $\\times$ 9 $\\times$ 8 $\\times$ 7 = 4536 different ways."
+            },
+            {
+              "questionID": 18808,
+              "question": "The number of ways, in which a student can choose 5 courses out of 8 courses, when 2 courses are compulsory, is",
+              "question_raw": "<p>The number of ways, in which a student can choose 5 courses out of 8 courses, when 2 courses are compulsory, is</p>",
+              "options": [
+                {
+                  "label": "A",
+                  "id": 30433,
+                  "text": "120",
+                  "is_correct": false
+                },
+                {
+                  "label": "B",
+                  "id": 30435,
+                  "text": "40",
+                  "is_correct": false
+                },
+                {
+                  "label": "C",
+                  "id": 30434,
+                  "text": "6^3",
+                  "is_correct": false
+                },
+                {
+                  "label": "D",
+                  "id": 30432,
+                  "text": "20",
+                  "is_correct": true
+                }
+              ],
+              "correct_option_ids": [
+                30432
+              ],
+              "correct_option_labels": [
+                "D"
+              ],
+              "correct_option_texts": [
+                "20"
+              ],
+              "explanation": "Total number of courses available = 8\nNumber of courses which are not compulsory = 8 - 2 = 6\nSince two courses are compulsory a student can choose them in ^2C_2 different ways.\nThe remaining 3 courses can be chosen from the 6 non-compulsory courses in ^6C_3 \nTherefore total number of ways = $^{ 2 }{ C_{ 2 } }$.$^{ 6 }{ C_{ 3 } }$ = $1.\\frac {1.2.3. 4.5.6. }{ 1.2.3.1.2.3 } $ = 20"
+            },
+            {
+              "questionID": 18809,
+              "question": "The number of ways, in which a student can select one or more questions out of 12 each having an alternative, is",
+              "question_raw": "<p>The number of ways, in which a student can select one or more questions out of 12 each having an alternative, is</p>",
+              "options": [
+                {
+                  "label": "A",
+                  "id": 30436,
+                  "text": "3^12 - 1",
+                  "is_correct": true
+                },
+                {
+                  "label": "B",
+                  "id": 30439,
+                  "text": "3^12 + 1",
+                  "is_correct": false
+                },
+                {
+                  "label": "C",
+                  "id": 30437,
+                  "text": "3^12",
+                  "is_correct": false
+                },
+                {
+                  "label": "D",
+                  "id": 30438,
+                  "text": "2^12",
+                  "is_correct": false
+                }
+              ],
+              "correct_option_ids": [
+                30436
+              ],
+              "correct_option_labels": [
+                "A"
+              ],
+              "correct_option_texts": [
+                "3^12 - 1"
+              ],
+              "explanation": "Since a student can solve each question in 3 different ways - either he can attempt the first alternative or the second alternative or he can leave it unanswered.\nHence the number of ways in which a student can attempt one or more of the 12 given questions = 3^12 \nNow we can consider a case that the student leaves all the 12 given questions unanswered.\nThe number of ways, in which a student can select one or more questions out of 12 each having an alternative = 3^12 - 1"
+            },
+            {
+              "questionID": 18810,
+              "question": "20 students can compete for a race. The number of ways in which they can win the first three places is (given that no two students finish in the same place).",
+              "question_raw": "<p>20 students can compete for a race. The number of ways in which they can win the first three places is (given that no two students finish in the same place).</p>",
+              "options": [
+                {
+                  "label": "A",
+                  "id": 30442,
+                  "text": "8000",
+                  "is_correct": false
+                },
+                {
+                  "label": "B",
+                  "id": 30443,
+                  "text": "6000",
+                  "is_correct": false
+                },
+                {
+                  "label": "C",
+                  "id": 30441,
+                  "text": "1140",
+                  "is_correct": false
+                },
+                {
+                  "label": "D",
+                  "id": 30440,
+                  "text": "6840",
+                  "is_correct": true
+                }
+              ],
+              "correct_option_ids": [
+                30440
+              ],
+              "correct_option_labels": [
+                "D"
+              ],
+              "correct_option_texts": [
+                "6840"
+              ],
+              "explanation": "For first place we have 20 students, for second we have 19 and for the third we have 18\n^20P_3 = 20 $\\times$ 19 $\\times$ 18"
+            },
+            {
+              "questionID": 18811,
+              "question": "The number of ways of dividing 52 cards equally into 4 sets is",
+              "question_raw": "<p>The number of ways of dividing 52 cards equally into 4 sets is</p>",
+              "options": [
+                {
+                  "label": "A",
+                  "id": 30445,
+                  "text": "$\\frac{52 !}{(13 !)^4}$",
+                  "is_correct": false
+                },
+                {
+                  "label": "B",
+                  "id": 30447,
+                  "text": "$\\frac {52!} {4!}$",
+                  "is_correct": false
+                },
+                {
+                  "label": "C",
+                  "id": 30446,
+                  "text": "$\\frac{52 !}{4(13 !)^4}$",
+                  "is_correct": false
+                },
+                {
+                  "label": "D",
+                  "id": 30444,
+                  "text": "$\\frac{52 !}{4 !(13 !)^4}$",
+                  "is_correct": true
+                }
+              ],
+              "correct_option_ids": [
+                30444
+              ],
+              "correct_option_labels": [
+                "D"
+              ],
+              "correct_option_texts": [
+                "$\\frac{52 !}{4 !(13 !)^4}$"
+              ],
+              "explanation": "If 4n things are to form 4 equal groups then the numbers of ways are $\\frac { 4n! }{ { (n!) }^{ 4 } .4 ! } $\nHence number of ways to divide 52 cards to form 4 groups of 13 cards each = $\\frac { \\left( 52 \\right) ! }{ 4!{ \\left( 13! \\right) }^{ 4 } } $"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "testPaperID": 635,
+      "testPaperName": "Permutations & Combinations Test 04",
+      "is_paid": true,
+      "category_full_name": "CBSE > Class 11 > Mathematics > Permutations and Combinations",
+      "noOfQuestions": 15,
+      "has_answers": true,
+      "sections": [
+        {
+          "sectionName": "General",
+          "sectionID": null,
+          "questions": [
+            {
+              "questionID": 18812,
+              "question": "The number of three digit numbers having atleast one digit as 5 is",
+              "question_raw": "<p>The number of three digit numbers having atleast one digit as 5 is</p>",
+              "options": [
+                {
+                  "label": "A",
+                  "id": 30451,
+                  "text": "246",
+                  "is_correct": false
+                },
+                {
+                  "label": "B",
+                  "id": 30450,
+                  "text": "648",
+                  "is_correct": false
+                },
+                {
+                  "label": "C",
+                  "id": 30449,
+                  "text": "225",
+                  "is_correct": false
+                },
+                {
+                  "label": "D",
+                  "id": 30448,
+                  "text": "252",
+                  "is_correct": true
+                }
+              ],
+              "correct_option_ids": [
+                30448
+              ],
+              "correct_option_labels": [
+                "D"
+              ],
+              "correct_option_texts": [
+                "252"
+              ],
+              "explanation": "First we will find the number of three-digit numbers (i.e, numbers from 100 to 999) which can be formed using the digits 0, 1, 2, 3, 4, 5, 6, 7, 8 and 9 with repetition allowed.\nNow we have the first place can be filled by any of the 9 digits other than 0 and since repetition is allowed the second and third can be filled by any of the ten digits.\nHence the total number of three-digit numbers will be = 9 $\\times$ 10 $\\times$ 10 = 900\nNow we will consider the case that the number does not have the digit 5.\nNow the first place can be filled by any of the 8 digits other than 0 and 5 and since repetition is allowed the second and third can be filled by any of the 9 digits other than 5.\nHence the total number of ways we can form a three digit number with out 5 will be = 8 $\\times$ 9 $\\times$ 9 = 648 \nTherefore the number of three-digit numbers with at least one 5 = 900 - 648 = 252"
+            },
+            {
+              "questionID": 18813,
+              "question": "5 boys and 5 girls are to be seated around a table such that boys and girls sit alternately. The number of ways of seating them is",
+              "question_raw": "<p>5 boys and 5 girls are to be seated around a table such that boys and girls sit alternately. The number of ways of seating them is</p>",
+              "options": [
+                {
+                  "label": "A",
+                  "id": 30455,
+                  "text": "5! $\\times$ 2!",
+                  "is_correct": false
+                },
+                {
+                  "label": "B",
+                  "id": 30454,
+                  "text": "4! $\\times$ 4!",
+                  "is_correct": false
+                },
+                {
+                  "label": "C",
+                  "id": 30453,
+                  "text": "5! $\\times$ 5!",
+                  "is_correct": false
+                },
+                {
+                  "label": "D",
+                  "id": 30452,
+                  "text": "5! $\\times$ 4!",
+                  "is_correct": true
+                }
+              ],
+              "correct_option_ids": [
+                30452
+              ],
+              "correct_option_labels": [
+                "D"
+              ],
+              "correct_option_texts": [
+                "5! $\\times$ 4!"
+              ],
+              "explanation": "If there are n objects to be arranged in circular order the no. of permutations possible = (n - 1)!\nFirst, we will make the 5 girls around the table and this can be done in (5 - 1)! = 4! = 24, different ways.\nNow we have 5 places available between these girls and the 5 boys can be seated in these 5 available places in 5! = 120, different ways.\nHence the 5 boys and 5 girls can be arranged in 4! 5! = 23$\\cdot$ 120 = 2880 ways."
+            },
+            {
+              "questionID": 18814,
+              "question": "The total number of numbers from 1000 to 9999 (both inclusive) that do not have 4 different digits",
+              "question_raw": "<p>The total number of numbers from 1000 to 9999 (both inclusive) that do not have 4 different digits</p>",
+              "options": [
+                {
+                  "label": "A",
+                  "id": 30457,
+                  "text": "9000",
+                  "is_correct": false
+                },
+                {
+                  "label": "B",
+                  "id": 30456,
+                  "text": "4464",
+                  "is_correct": true
+                },
+                {
+                  "label": "C",
+                  "id": 30459,
+                  "text": "6000",
+                  "is_correct": false
+                },
+                {
+                  "label": "D",
+                  "id": 30458,
+                  "text": "4536",
+                  "is_correct": false
+                }
+              ],
+              "correct_option_ids": [
+                30456
+              ],
+              "correct_option_labels": [
+                "B"
+              ],
+              "correct_option_texts": [
+                "4464"
+              ],
+              "explanation": "First, we will find the number of four-digit numbers that can be formed using the digits 0, 1, 2, 3, 4, 5, 6, 7, 8, 9 with repetition.\nThe first place can be filled by any of the 9 digits other than 0, and the second, third and the fourth places each can be filled by any of the ten digits.\nHence, the total number of ways of forming a four-digit number = 9 $\\times$ 10 $\\times$ 10 $\\times$ 10 = 9000\nNow we will find the number of four-digit numbers in which n all the digits are distinct \nThe first place can be filled by any of the 9 digits other than 0, and the second place can be filled by any of the remaining 9 digits since repetition is not possible.\nSimilarly, third and the fourth places each can be filled by 8 and 7 digits respectively\nHence the total number of ways of forming a four-digit number with distinct digits b = 9 $\\times$ 9 $\\times$ 8 $\\times$ 7 \nThe total number of numbers from 1000 to 9999 (both inclusive) that do not have 4 different digits = 9000 - 4536 = 4464"
+            },
+            {
+              "questionID": 18815,
+              "question": "If P(n, r) = C(n, r) then",
+              "question_raw": "<p>If P(n, r) = C(n, r) then</p>",
+              "options": [
+                {
+                  "label": "A",
+                  "id": 30461,
+                  "text": "n = r",
+                  "is_correct": false
+                },
+                {
+                  "label": "B",
+                  "id": 30462,
+                  "text": "r = 1 or n",
+                  "is_correct": false
+                },
+                {
+                  "label": "C",
+                  "id": 30463,
+                  "text": "r = 0 or 2",
+                  "is_correct": false
+                },
+                {
+                  "label": "D",
+                  "id": 30460,
+                  "text": "r = 0 or 1",
+                  "is_correct": true
+                }
+              ],
+              "correct_option_ids": [
+                30460
+              ],
+              "correct_option_labels": [
+                "D"
+              ],
+              "correct_option_texts": [
+                "r = 0 or 1"
+              ],
+              "explanation": "Given P(n, r) = C(n, r)\n$\\Rightarrow$ $\\frac{n !}{(n-r) !}=\\frac{n !}{r !(n-r) !}$ \n$\\Rightarrow$ 1 = $\\frac{1}{r !}$ \n$\\Rightarrow$ r! = 1\n$\\Rightarrow$ r = 0 or r = 1 [$\\because$ 0! = 1, 1! = 1]"
+            },
+            {
+              "questionID": 18816,
+              "question": "Find r if $^{ 10 }{ P_{ r } }=2.{ ^{ 9 }{ P_{ r } } }$",
+              "question_raw": "<p>Find r if &nbsp;<span class=\"math-tex\">{tex}^{ 10 }{ P_{ r } }=2.{ ^{ 9 }{ P_{ r } } }{/tex}</span></p>",
+              "options": [
+                {
+                  "label": "A",
+                  "id": 30465,
+                  "text": "6",
+                  "is_correct": false
+                },
+                {
+                  "label": "B",
+                  "id": 30466,
+                  "text": "4",
+                  "is_correct": false
+                },
+                {
+                  "label": "C",
+                  "id": 30467,
+                  "text": "3",
+                  "is_correct": false
+                },
+                {
+                  "label": "D",
+                  "id": 30464,
+                  "text": "5",
+                  "is_correct": true
+                }
+              ],
+              "correct_option_ids": [
+                30464
+              ],
+              "correct_option_labels": [
+                "D"
+              ],
+              "correct_option_texts": [
+                "5"
+              ],
+              "explanation": "Given $^{10} P_{r}=2 .^{9} P_{r}$ \n$\\Rightarrow$ $\\frac{10 !}{(10-r) !}=2 \\cdot \\frac{(9) !}{(9-r) !}$ \n$\\Rightarrow$ $\\frac{10 \\times 9 !}{(10-r) \\times(9-r) !}=2 \\cdot \\frac{(9) !}{(9-r) !}$ \n$\\Rightarrow$ $\\frac{10}{(10-r)}$ = 2\n$\\Rightarrow$ 10 = 20 - 2r\n$\\Rightarrow$ 2r = 10 \n$\\Rightarrow$ r = 5"
+            },
+            {
+              "questionID": 18817,
+              "question": "If ^n-1P_3 : ^nP_4 = 1 : 9, find n",
+              "question_raw": "<p>&nbsp;</p>\r\n\r\n<p>If <em><sup>n-1</sup></em>P<sub>3</sub> : <em><sup>n</sup></em>P<sub>4</sub> = 1 : 9, find <em>n</em></p>\r\n",
+              "options": [
+                {
+                  "label": "A",
+                  "id": 30471,
+                  "text": "7",
+                  "is_correct": false
+                },
+                {
+                  "label": "B",
+                  "id": 30469,
+                  "text": "4",
+                  "is_correct": false
+                },
+                {
+                  "label": "C",
+                  "id": 30468,
+                  "text": "9",
+                  "is_correct": true
+                },
+                {
+                  "label": "D",
+                  "id": 30470,
+                  "text": "8",
+                  "is_correct": false
+                }
+              ],
+              "correct_option_ids": [
+                30468
+              ],
+              "correct_option_labels": [
+                "C"
+              ],
+              "correct_option_texts": [
+                "9"
+              ],
+              "explanation": "${ ^{ n-1 }{ P_{ 3\\quad } } }:\\quad { ^{ n }{ P_{ 4\\quad } } }=1:9\\\\ \\Rightarrow \\frac { \\left( n-1 \\right) ! }{ \\left( n-1-3 \\right) ! } :\\frac { n! }{ \\left( n-4 \\right) ! } =1:9\\\\ \\Rightarrow \\frac { \\left( n-1 \\right) ! }{ \\left( n-4 \\right) ! } \\times \\frac { \\left( n-4 \\right) ! }{ n! } =\\frac { 1 }{ 9 } \\\\ \\Rightarrow \\frac { \\left( n-1 \\right) ! }{ n! } =\\frac { 1 }{ 9 } \\\\ \\Rightarrow \\frac { \\left( n-1 \\right) ! }{ n\\left( n-1 \\right) ! } =\\frac { 1 }{ 9 } \\\\ \\Rightarrow \\frac { 1 }{ n } =\\frac { 1 }{ 9 } \\\\ \\Rightarrow n=9$"
+            },
+            {
+              "questionID": 18818,
+              "question": "The number of arrangements that can be formed by all the letters of the word LAUGHTER is",
+              "question_raw": "<p>The number of arrangements that can be formed by all the letters of the word LAUGHTER is</p>",
+              "options": [
+                {
+                  "label": "A",
+                  "id": 30472,
+                  "text": "40320",
+                  "is_correct": true
+                },
+                {
+                  "label": "B",
+                  "id": 30473,
+                  "text": "20160",
+                  "is_correct": false
+                },
+                {
+                  "label": "C",
+                  "id": 30475,
+                  "text": "5040",
+                  "is_correct": false
+                },
+                {
+                  "label": "D",
+                  "id": 30474,
+                  "text": "32768",
+                  "is_correct": false
+                }
+              ],
+              "correct_option_ids": [
+                30472
+              ],
+              "correct_option_labels": [
+                "A"
+              ],
+              "correct_option_texts": [
+                "40320"
+              ],
+              "explanation": "The word LAUGHTER consists of 8 letters which are all distinct.\nHence the required number of arrangements = $^{ 8 }{ P_{ 8 } }=8!$ = 40320"
+            },
+            {
+              "questionID": 18819,
+              "question": "A convex polygon of n sides has twice as many diagonals as the number of sides. The value of n is",
+              "question_raw": "<p>A convex polygon of n sides has twice as many diagonals as the number of sides. The value of n is</p>",
+              "options": [
+                {
+                  "label": "A",
+                  "id": 30479,
+                  "text": "8",
+                  "is_correct": false
+                },
+                {
+                  "label": "B",
+                  "id": 30477,
+                  "text": "6",
+                  "is_correct": false
+                },
+                {
+                  "label": "C",
+                  "id": 30476,
+                  "text": "7",
+                  "is_correct": true
+                },
+                {
+                  "label": "D",
+                  "id": 30478,
+                  "text": "5",
+                  "is_correct": false
+                }
+              ],
+              "correct_option_ids": [
+                30476
+              ],
+              "correct_option_labels": [
+                "C"
+              ],
+              "correct_option_texts": [
+                "7"
+              ],
+              "explanation": "Consider a convex polygon which has n sides.\nWe have an inside polygon has n vertices. If you join every distinct pair of vertices you will get lines.\nThese lines account for the n sides of the polygon as well as for the diagonals\nThen we have the number of diagonals = $^{ n }{ C_{ 2 } }–n=\\frac { n(n-1) }{ 2 } –n=\\frac { n(n-3) }{ 2 } $ \nBut given number of diagonals = 2.number of sides\n$\\Rightarrow$ 2n = $\\frac{n(n-3)}{2}$ \n$\\Rightarrow$ 4n = n(n - 3)\n$\\Rightarrow$ n - 3 = 4\n$\\Rightarrow$ n = 7"
+            },
+            {
+              "questionID": 18820,
+              "question": "The number of all even (positive) divisors of 36000 is",
+              "question_raw": "<p>The number of all even&nbsp;(positive) divisors of 36000 is</p>",
+              "options": [
+                {
+                  "label": "A",
+                  "id": 30480,
+                  "text": "60",
+                  "is_correct": true
+                },
+                {
+                  "label": "B",
+                  "id": 30481,
+                  "text": "12",
+                  "is_correct": false
+                },
+                {
+                  "label": "C",
+                  "id": 30483,
+                  "text": "36",
+                  "is_correct": false
+                },
+                {
+                  "label": "D",
+                  "id": 30482,
+                  "text": "72",
+                  "is_correct": false
+                }
+              ],
+              "correct_option_ids": [
+                30480
+              ],
+              "correct_option_labels": [
+                "A"
+              ],
+              "correct_option_texts": [
+                "60"
+              ],
+              "explanation": "We have 36000 = ${ 2 }^{ 5 }{ 3 }^{ 2 }{ 5 }^{ 3 }$ \nTo find the even factors we should choose atleast one 2's from the slot, which will ensure that whatever the remaining selection the multiplication of those will always result in an even number.\nThe number of ways to select atleast one 2's from a lot of 5 identical 2's will be 5 ways(select 1, select 2, select 3, select 4, select 5)\nAnd we can select any number of 5's from a lot of three identical 5's in 4 ways(select 0, select 1, select 2) and similarly we can select any number of 3's from a lot of two identical 3's in 3 ways\nTherefore, the total number of selection of even factors = 5 $\\times$ 4 $\\times$ 3 = 60 different ways"
+            },
+            {
+              "questionID": 18821,
+              "question": "The number of four digit numbers having atleast one digit as 7 is",
+              "question_raw": "<p>The number of four&nbsp;digit numbers having atleast one digit as 7 is</p>",
+              "options": [
+                {
+                  "label": "A",
+                  "id": 30486,
+                  "text": "9000",
+                  "is_correct": false
+                },
+                {
+                  "label": "B",
+                  "id": 30485,
+                  "text": "5976",
+                  "is_correct": false
+                },
+                {
+                  "label": "C",
+                  "id": 30487,
+                  "text": "1254",
+                  "is_correct": false
+                },
+                {
+                  "label": "D",
+                  "id": 30484,
+                  "text": "3168",
+                  "is_correct": true
+                }
+              ],
+              "correct_option_ids": [
+                30484
+              ],
+              "correct_option_labels": [
+                "D"
+              ],
+              "correct_option_texts": [
+                "3168"
+              ],
+              "explanation": "First we will find the number of four-digit numbers (i.e, numbers from 1000 to 9999) which can be formed using the digits 0, 1, 2, 3, 4, 5, 6, 7, 8 and 9 with repetition allowed.\nNow we have the first place can be filled by any of the 9 digits other than 0 and since repetition is allowed second, third and fourth can be filled by any of the ten digits.\nHence the total number of four-digit numbers = 9 $\\times$ 10 $\\times$ 10 $\\times$ 10 = 9000 \nNow we will consider the case that the number does not have the digit '7'\nNow the first place can be filled by any of the 8 digits other than 0 and 7 since repetition is allowed second, third and fourth can be filled by any of the 9 digits other than 7.\nHence the total number of ways we can form a four-digit number without 7 = 8 $\\times$ 9 $\\times$ 9 $\\times$ 9 = 5832 \nHence total number of ways in which we can form a four digit number having atleast one digit as 7 = 9000 - 5832 = 3168"
+            },
+            {
+              "questionID": 18822,
+              "question": "The number of all 4 digit numbers which are all different that can be formed by using the digits 0, 2, 3, 5, 8, 9, is",
+              "question_raw": "<p>The number of all 4 digit&nbsp;numbers which are all&nbsp;different&nbsp;that can be formed by using the digits 0, 2, 3, 5, 8, 9, is</p>",
+              "options": [
+                {
+                  "label": "A",
+                  "id": 30489,
+                  "text": "360",
+                  "is_correct": false
+                },
+                {
+                  "label": "B",
+                  "id": 30491,
+                  "text": "660",
+                  "is_correct": false
+                },
+                {
+                  "label": "C",
+                  "id": 30490,
+                  "text": "300",
+                  "is_correct": false
+                },
+                {
+                  "label": "D",
+                  "id": 30488,
+                  "text": "1080",
+                  "is_correct": true
+                }
+              ],
+              "correct_option_ids": [
+                30488
+              ],
+              "correct_option_labels": [
+                "D"
+              ],
+              "correct_option_texts": [
+                "1080"
+              ],
+              "explanation": "Since we have to form a four-digit number using the digits 0, 2, 3, 5, 8, 9, we can fill the first place by any of the five digits given other than zero.\nNow since the digits can be repeated the second, third and fourth places can be filled by any of the six given digits.\nHence the four places can be filled together in 5 $\\times$ 6 $\\times$ 6 $\\times$ 6 = 1080 different ways\nTherefore the number of four-digit numbers which can be formed using the given digits = 1080"
+            },
+            {
+              "questionID": 18823,
+              "question": "0! is always taken as",
+              "question_raw": "<p>0! is always taken as</p>",
+              "options": [
+                {
+                  "label": "A",
+                  "id": 30495,
+                  "text": "2",
+                  "is_correct": false
+                },
+                {
+                  "label": "B",
+                  "id": 30492,
+                  "text": "1",
+                  "is_correct": true
+                },
+                {
+                  "label": "C",
+                  "id": 30493,
+                  "text": "0",
+                  "is_correct": false
+                },
+                {
+                  "label": "D",
+                  "id": 30494,
+                  "text": "$\\infty $",
+                  "is_correct": false
+                }
+              ],
+              "correct_option_ids": [
+                30492
+              ],
+              "correct_option_labels": [
+                "B"
+              ],
+              "correct_option_texts": [
+                "1"
+              ],
+              "explanation": "We have ^nP_r = $\\frac{n !}{(n-r) !}$ .....(i)\nNumber of ways you can arrange n thing in n available spaces = n! \n$\\Rightarrow$ ^nP_n = n! ....(ii)\nBut from (i) we get ^nP_n = $\\frac{n !}{(n-n) !}=\\frac{n !}{0 !}$ .....(iii)\nNow from (ii) and (iii) we get $\\frac{n !}{0 !}$ = n! $\\Rightarrow$ 0! = 1"
+            },
+            {
+              "questionID": 18824,
+              "question": "If $\\frac{1}{9 !}+\\frac{1}{8 !}=\\frac{x}{10 !}$, then x is equal to",
+              "question_raw": "<p>If&nbsp;<span class=\"math-tex\">{tex}\\frac{1}{9 !}+\\frac{1}{8 !}=\\frac{x}{10 !}{/tex}</span>, then x is equal to</p>",
+              "options": [
+                {
+                  "label": "A",
+                  "id": 30497,
+                  "text": "90",
+                  "is_correct": false
+                },
+                {
+                  "label": "B",
+                  "id": 30499,
+                  "text": "120",
+                  "is_correct": false
+                },
+                {
+                  "label": "C",
+                  "id": 30496,
+                  "text": "100",
+                  "is_correct": true
+                },
+                {
+                  "label": "D",
+                  "id": 30498,
+                  "text": "170",
+                  "is_correct": false
+                }
+              ],
+              "correct_option_ids": [
+                30496
+              ],
+              "correct_option_labels": [
+                "C"
+              ],
+              "correct_option_texts": [
+                "100"
+              ],
+              "explanation": "Given $\\frac{1}{9 !}+\\frac{1}{8 !}=\\frac{x}{10 !}$ \n$\\Rightarrow$ $\\frac{1}{8 !}\\left(\\frac{1}{9}+1\\right)$ = $\\frac{x}{10.9 .8 !}$ \n$\\Rightarrow$ $\\frac{10}{9}=\\frac{x}{90}$ \n$\\Rightarrow$ x = $\\frac{900}{9}$ = 100"
+            },
+            {
+              "questionID": 18825,
+              "question": "The number of ways in which 4 red, 3 yellow and 2 green discs be arranged if the discs of the same colour and indistinguishable",
+              "question_raw": "<p>The number of ways in which 4 red, 3 yellow and 2 green discs&nbsp;be arranged if the discs of the same colour and indistinguishable</p>",
+              "options": [
+                {
+                  "label": "A",
+                  "id": 30501,
+                  "text": "1512",
+                  "is_correct": false
+                },
+                {
+                  "label": "B",
+                  "id": 30500,
+                  "text": "1260",
+                  "is_correct": true
+                },
+                {
+                  "label": "C",
+                  "id": 30502,
+                  "text": "2260",
+                  "is_correct": false
+                },
+                {
+                  "label": "D",
+                  "id": 30503,
+                  "text": "999",
+                  "is_correct": false
+                }
+              ],
+              "correct_option_ids": [
+                30500
+              ],
+              "correct_option_labels": [
+                "B"
+              ],
+              "correct_option_texts": [
+                "1260"
+              ],
+              "explanation": "Total number of discs = 9\nOut of which red-4, yellow -3 and green -2 are of the same kind.\nHence required number of permutations =$\\frac { 9! }{ 4!.3!.2! } =\\frac { 5\\times 6\\times 7\\times 8\\times 9 }{ 1\\times 2\\times 3\\times 1\\times 2 }$ = 1260"
+            },
+            {
+              "questionID": 18826,
+              "question": "The number of ways in which 5 + and 5 – signs can be arranged in a line such that no two – signs occur together is",
+              "question_raw": "<p>The number of ways in which 5 <strong>+</strong>&nbsp;and 5&nbsp;<strong>&ndash;</strong>&nbsp;signs can be arranged in a line such that no two&nbsp;&ndash;&nbsp;signs occur together is</p>",
+              "options": [
+                {
+                  "label": "A",
+                  "id": 30507,
+                  "text": "C(5, 5)",
+                  "is_correct": false
+                },
+                {
+                  "label": "B",
+                  "id": 30504,
+                  "text": "C(6, 5)",
+                  "is_correct": true
+                },
+                {
+                  "label": "C",
+                  "id": 30506,
+                  "text": "P(5, 5)",
+                  "is_correct": false
+                },
+                {
+                  "label": "D",
+                  "id": 30505,
+                  "text": "P(6, 5)",
+                  "is_correct": false
+                }
+              ],
+              "correct_option_ids": [
+                30504
+              ],
+              "correct_option_labels": [
+                "B"
+              ],
+              "correct_option_texts": [
+                "C(6, 5)"
+              ],
+              "explanation": "Since all the plus signs are identical, we have number of ways in which 5 plus signs can be arranged = 1.\nNow we will have 6 empty slots between these 5 identical + signs\nHence the number of possible places of - sign = 6\nTherefore the number of ways in which the 5 minus sign can take any of the possible 6 places = C(6, 5)"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "testPaperID": 636,
+      "testPaperName": "Permutations & Combinations Test 05",
+      "is_paid": true,
+      "category_full_name": "CBSE > Class 11 > Mathematics > Permutations and Combinations",
+      "noOfQuestions": 15,
+      "has_answers": true,
+      "sections": [
+        {
+          "sectionName": "General",
+          "sectionID": null,
+          "questions": [
+            {
+              "questionID": 18827,
+              "question": "The number of diagonals that can be drawn by joining the vertices of a heptagon is :",
+              "question_raw": "<p>The number of diagonals that can be drawn by joining the vertices of a heptagon is :</p>",
+              "options": [
+                {
+                  "label": "A",
+                  "id": 30511,
+                  "text": "12",
+                  "is_correct": false
+                },
+                {
+                  "label": "B",
+                  "id": 30509,
+                  "text": "21",
+                  "is_correct": false
+                },
+                {
+                  "label": "C",
+                  "id": 30510,
+                  "text": "7",
+                  "is_correct": false
+                },
+                {
+                  "label": "D",
+                  "id": 30508,
+                  "text": "14",
+                  "is_correct": true
+                }
+              ],
+              "correct_option_ids": [
+                30508
+              ],
+              "correct_option_labels": [
+                "D"
+              ],
+              "correct_option_texts": [
+                "14"
+              ],
+              "explanation": "We have heptagon is a seven-sided polygon which has 7 vertices.\nA diagonal is obtained by joining two points.\nThus the number of diagonals obtained by joining any two points out of 7 is given by \n^7C_2 - 7 = $\\frac{7 !}{2 !(7-2) !}-7$ = $\\frac{1 \\times 2 \\times 3 \\times 4 \\times 5 \\times 6 \\times 7}{1 \\times 2 \\times 1 \\times 2 \\times 3 \\times 4 \\times 5}-7$ = $\\frac{6 \\times 7}{1 \\times 2}-7$ = 21 - 7 = 14"
+            },
+            {
+              "questionID": 18828,
+              "question": "The number of diagonals that can be drawn by joining the vertices of an octagon is :",
+              "question_raw": "<p>The number of diagonals that can be drawn by joining the vertices of an octagon is :</p>",
+              "options": [
+                {
+                  "label": "A",
+                  "id": 30513,
+                  "text": "48",
+                  "is_correct": false
+                },
+                {
+                  "label": "B",
+                  "id": 30512,
+                  "text": "20",
+                  "is_correct": true
+                },
+                {
+                  "label": "C",
+                  "id": 30515,
+                  "text": "12",
+                  "is_correct": false
+                },
+                {
+                  "label": "D",
+                  "id": 30514,
+                  "text": "28",
+                  "is_correct": false
+                }
+              ],
+              "correct_option_ids": [
+                30512
+              ],
+              "correct_option_labels": [
+                "B"
+              ],
+              "correct_option_texts": [
+                "20"
+              ],
+              "explanation": "We have octagon is an eight sided polygon which has 8 vertices.\nA diagonal is obtained by joining two points.\nThus the number of diagonals obtained by joining any two points out of 8 is given by\n${ 8 }{ C_{ 2} }-8$ = $\\frac { 8! }{ 2!\\left( 8-2 \\right) ! } -8=\\frac { 1\\times 2\\times 3\\times 4\\times 5\\times 6\\times 7 \\times8}{ 1\\times 2\\times 1\\times 2\\times 3\\times 4\\times 5\\times6 } -8$ = $\\frac{7 \\times 8}{1 \\times 2}-8$ = 28 - 8 = 20"
+            },
+            {
+              "questionID": 18829,
+              "question": "Number of divisors of n = 38808 (except 1 and n) is",
+              "question_raw": "<p>Number of divisors of n = 38808 (except 1 and n) is</p>",
+              "options": [
+                {
+                  "label": "A",
+                  "id": 30516,
+                  "text": "70",
+                  "is_correct": true
+                },
+                {
+                  "label": "B",
+                  "id": 30518,
+                  "text": "72",
+                  "is_correct": false
+                },
+                {
+                  "label": "C",
+                  "id": 30519,
+                  "text": "74",
+                  "is_correct": false
+                },
+                {
+                  "label": "D",
+                  "id": 30517,
+                  "text": "68",
+                  "is_correct": false
+                }
+              ],
+              "correct_option_ids": [
+                30516
+              ],
+              "correct_option_labels": [
+                "A"
+              ],
+              "correct_option_texts": [
+                "70"
+              ],
+              "explanation": "We have 38808 = ${ 2 }^{ 3 }{ 3 }^{ 2 }{ 7 }^{ 2 }{ 11 }^{ 1 }$ \nTo form factors we have to do selections from a lot of 2's, 3's, 7's and 11's and multiply them together.\nNumber of ways of selecting any number of 2's from a lot of 3 identical 2's = 4(select 0, select 1, select 2, select 3)\nNumber of ways of selecting any number of 3's from a lot of 2 identical 3's = 3(select 0, select 1, select 2)\nNumber of ways of selecting any number of 7's from a lot of 2 identical 7's = 3(select 0, select 1, select 2)\nNumber of ways of selecting any number of 11's from a lot of 1 identical 11's = 2(select 0, select 1)\nHence we get the total number of ways of selecting factors = 4 $\\times$ 3 $\\times$ 3 $\\times$ 2 = 72\nHence the number of factors other than 1 and n = 72 - 2 = 70"
+            },
+            {
+              "questionID": 18830,
+              "question": "The number of 7 digit numbers which can be formed using the digits 1, 2, 3, 2, 3, 3, 4 is",
+              "question_raw": "<p>The number of 7 digit numbers which can be formed using the digits 1, 2, 3, 2, 3, 3, 4 is</p>",
+              "options": [
+                {
+                  "label": "A",
+                  "id": 30523,
+                  "text": "504",
+                  "is_correct": false
+                },
+                {
+                  "label": "B",
+                  "id": 30520,
+                  "text": "420",
+                  "is_correct": true
+                },
+                {
+                  "label": "C",
+                  "id": 30522,
+                  "text": "252",
+                  "is_correct": false
+                },
+                {
+                  "label": "D",
+                  "id": 30521,
+                  "text": "840",
+                  "is_correct": false
+                }
+              ],
+              "correct_option_ids": [
+                30520
+              ],
+              "correct_option_labels": [
+                "B"
+              ],
+              "correct_option_texts": [
+                "420"
+              ],
+              "explanation": "There are 7 digits 1, 2, 3, 2, 3, 3, 4, in which the number 2 is repeating twice and the number 3 is repeating thrice.\nHence the number of 7 digit numbers which can be formed = $\\frac { 7! }{ 2!3! } =\\frac { 1\\times 2\\times 3\\times 4\\times 5\\times 6\\times 7 }{ 1\\times 2\\times 1\\times 2\\times 3 } $ = 420"
+            },
+            {
+              "questionID": 18831,
+              "question": "The number of 5-digit telephone numbers having atleast one of their digits repeated is",
+              "question_raw": "<p>The number of 5-digit telephone numbers having atleast one of their digits repeated is</p>",
+              "options": [
+                {
+                  "label": "A",
+                  "id": 30527,
+                  "text": "10,000",
+                  "is_correct": false
+                },
+                {
+                  "label": "B",
+                  "id": 30525,
+                  "text": "90,000",
+                  "is_correct": false
+                },
+                {
+                  "label": "C",
+                  "id": 30524,
+                  "text": "69,760",
+                  "is_correct": true
+                },
+                {
+                  "label": "D",
+                  "id": 30526,
+                  "text": "30,240",
+                  "is_correct": false
+                }
+              ],
+              "correct_option_ids": [
+                30524
+              ],
+              "correct_option_labels": [
+                "C"
+              ],
+              "correct_option_texts": [
+                "69,760"
+              ],
+              "explanation": "As we have the ten digits from 0 to 9 which can be used\nNumber of five digit telephone numbers in which the digits can be repeated = 10^5 = 100000\nNumber of five digit telephone numbers in which the digits cannot be repeated = ^10P_5 = $\\frac { 10! }{ \\left( 10-5 \\right) ! }$ = 6 $\\times$ 7 $\\times$ 8 $\\times$ 9 $\\times$ 10 = 30240\nTherefore the number of five digit telephone numbers in which at least one digit is repeated = 100000 - 30240 = 69760"
+            },
+            {
+              "questionID": 18832,
+              "question": "The total number of 4 digit odd numbers that can be formed using 0, 1, 2, 3, 5, and 7 are",
+              "question_raw": "<p>The total number of 4 digit odd numbers that can be formed using 0, 1, 2, 3, 5, and 7 are</p>",
+              "options": [
+                {
+                  "label": "A",
+                  "id": 30530,
+                  "text": "375",
+                  "is_correct": false
+                },
+                {
+                  "label": "B",
+                  "id": 30531,
+                  "text": "520",
+                  "is_correct": false
+                },
+                {
+                  "label": "C",
+                  "id": 30528,
+                  "text": "720",
+                  "is_correct": true
+                },
+                {
+                  "label": "D",
+                  "id": 30529,
+                  "text": "400",
+                  "is_correct": false
+                }
+              ],
+              "correct_option_ids": [
+                30528
+              ],
+              "correct_option_labels": [
+                "C"
+              ],
+              "correct_option_texts": [
+                "720"
+              ],
+              "explanation": "We have to find the total number of four-digit odd numbers formed using the digits 0, 1, 2, 3, 5, 7.\nSince it is an odd number the last place (unit's place) can be filled by any of the odd numbers 1, 3, 5, 7 in 4 different ways.\nSince repetition is allowed the second and third places can be filled by any of the six given digits.\nSince it has to be a four digit number the first place can be filled by any of the five given digits other than zero in 5 ways.\nHence all the four places can be filled in 4 $\\times$ 6 $\\times$ 6 $\\times$ 5 = 720 ways."
+            },
+            {
+              "questionID": 18833,
+              "question": "The remainder obtained when 1! + 2! + 3! + ....+ 200! is divided by 14 is",
+              "question_raw": "<p>The remainder obtained when&nbsp;1! + 2! + 3! + ....+ 200!&nbsp;is&nbsp;divided by 14 is</p>",
+              "options": [
+                {
+                  "label": "A",
+                  "id": 30534,
+                  "text": "3",
+                  "is_correct": false
+                },
+                {
+                  "label": "B",
+                  "id": 30533,
+                  "text": "4",
+                  "is_correct": false
+                },
+                {
+                  "label": "C",
+                  "id": 30532,
+                  "text": "5",
+                  "is_correct": true
+                },
+                {
+                  "label": "D",
+                  "id": 30535,
+                  "text": "6",
+                  "is_correct": false
+                }
+              ],
+              "correct_option_ids": [
+                30532
+              ],
+              "correct_option_labels": [
+                "C"
+              ],
+              "correct_option_texts": [
+                "5"
+              ],
+              "explanation": "Consider 1! + 2! + 3! + 4! + 5! + .... + 200!\nWe know that 7! = 7 $\\times$ 6 $\\times$ 5 $\\times$ 4 $\\times$ 3 $\\times$ 2 $\\times$ 1, which is divisible by 14\nNow as 8! = 8 $\\times$ 7! it is also divisible by 14\nHence 9!, 10!, 11! ....14! are divisible by 14.\nThus we can conclude that the remainder obtained when we divide (1! + 2! + 3! + .. + 200!) by 14 will be same as the remainder obtained when we divide (1! + 2! + 3! + 4! + 5! + 6!) by 14.\nConsider, 1! + 2! + 3! + 4! + 5! + 6! = 1 + 2 + 6 + 24 + 120 + 720 = 873 \nNow we have when 873 is divided by 14, the remainder is 5.\nThus, the remainder obtained when 1! + 2! + 3! + ..... + 200! is divided by 14 is 5."
+            },
+            {
+              "questionID": 18834,
+              "question": "In how many ways can 5 different beads be arranged to form a necklace?",
+              "question_raw": "<p>In how many ways can 5 different beads be arranged to form a necklace?</p>",
+              "options": [
+                {
+                  "label": "A",
+                  "id": 30537,
+                  "text": "120",
+                  "is_correct": false
+                },
+                {
+                  "label": "B",
+                  "id": 30539,
+                  "text": "6",
+                  "is_correct": false
+                },
+                {
+                  "label": "C",
+                  "id": 30536,
+                  "text": "12",
+                  "is_correct": true
+                },
+                {
+                  "label": "D",
+                  "id": 30538,
+                  "text": "60",
+                  "is_correct": false
+                }
+              ],
+              "correct_option_ids": [
+                30536
+              ],
+              "correct_option_labels": [
+                "C"
+              ],
+              "correct_option_texts": [
+                "12"
+              ],
+              "explanation": "To make necklace, beads can be arranged in (n - 1)! ways, also the clockwise and anticlockwise is same so we divide by 2!"
+            },
+            {
+              "questionID": 18835,
+              "question": "A polygon has 44 diagonals. The number of its sides is",
+              "question_raw": "<p>A polygon has 44 diagonals. The number of its sides is</p>",
+              "options": [
+                {
+                  "label": "A",
+                  "id": 30543,
+                  "text": "8",
+                  "is_correct": false
+                },
+                {
+                  "label": "B",
+                  "id": 30540,
+                  "text": "11",
+                  "is_correct": true
+                },
+                {
+                  "label": "C",
+                  "id": 30542,
+                  "text": "12",
+                  "is_correct": false
+                },
+                {
+                  "label": "D",
+                  "id": 30541,
+                  "text": "10",
+                  "is_correct": false
+                }
+              ],
+              "correct_option_ids": [
+                30540
+              ],
+              "correct_option_labels": [
+                "B"
+              ],
+              "correct_option_texts": [
+                "11"
+              ],
+              "explanation": "We have an n sided polygon has n vertices. If you join every distinct pair of vertices you will get lines.\nThese lines account for the n sides of the polygon as well as for the diagonals.\nSo the number of diagonals is given by $^{ n }{ C_{ 2 } }–n=\\frac { n(n-1) }{ 2 } –n=\\frac { n(n-3) }{ 2 } $ \nBut number of diagonals = 44\n$\\Rightarrow$ 44 = $\\frac{n(n-3)}{2}$ \n$\\Rightarrow$ 88 = n(n - 3)\n$\\Rightarrow$ n^2 - 3n - 88 = 0\n$\\Rightarrow$ (n - 11)(n + 8) = 0\n$\\Rightarrow$ n = 11, -8\nSince n cannot be negative, we get n = 11"
+            },
+            {
+              "questionID": 18836,
+              "question": "The number of parallelograms that can be formed from a set of four parallel lines intersecting another set of three parallel lines is",
+              "question_raw": "<p>The number of parallelograms that can be formed from a set of four&nbsp;parallel lines intersecting another set of three parallel lines is</p>",
+              "options": [
+                {
+                  "label": "A",
+                  "id": 30546,
+                  "text": "12",
+                  "is_correct": false
+                },
+                {
+                  "label": "B",
+                  "id": 30545,
+                  "text": "6",
+                  "is_correct": false
+                },
+                {
+                  "label": "C",
+                  "id": 30547,
+                  "text": "24",
+                  "is_correct": false
+                },
+                {
+                  "label": "D",
+                  "id": 30544,
+                  "text": "18",
+                  "is_correct": true
+                }
+              ],
+              "correct_option_ids": [
+                30544
+              ],
+              "correct_option_labels": [
+                "D"
+              ],
+              "correct_option_texts": [
+                "18"
+              ],
+              "explanation": "Let us assume the 4 parallel lines given are horizontal.\nThen we have the three parallel lines are vertical , since given they are intersecting with the set of 4 parallel lines\nTo make a parallelogram we need 2 horizontal and 2 vertical parallel lines\nSo reqired number of parallelogram $=^{ 4 }{ C_{ 2\\quad }.^{ 3 }{ C_{ 2\\quad }=6.3=18\\quad } }$"
+            },
+            {
+              "questionID": 18837,
+              "question": "The greatest possible number of points of intersection of 8 straight lines and 4 circles is",
+              "question_raw": "<p>The greatest possible number of points of intersection of 8 straight lines and 4 circles is</p>",
+              "options": [
+                {
+                  "label": "A",
+                  "id": 30550,
+                  "text": "64",
+                  "is_correct": false
+                },
+                {
+                  "label": "B",
+                  "id": 30548,
+                  "text": "104",
+                  "is_correct": true
+                },
+                {
+                  "label": "C",
+                  "id": 30551,
+                  "text": "32",
+                  "is_correct": false
+                },
+                {
+                  "label": "D",
+                  "id": 30549,
+                  "text": "128",
+                  "is_correct": false
+                }
+              ],
+              "correct_option_ids": [
+                30548
+              ],
+              "correct_option_labels": [
+                "B"
+              ],
+              "correct_option_texts": [
+                "104"
+              ],
+              "explanation": "Every two straight lines can make one point of intersection.\nNumber of points of intersection = $^{ 8 }{ C_{ 2}.1}$ = 28\nEvery two circles can make two points of intersection.\nNumber of points of intersection =$^{ 4 }{ C_{ 2 }.2}$ = 12\nEach circle can make two intersection points with each straight line\nNumber of points of intersection =$^{ 4 }{ C_{ 1}.^{ 8 }{ C_{ 1 }.2}}$ = 64\nTherefore, required number of points of intersection\n= 28 + 12 + 64 = 104"
+            },
+            {
+              "questionID": 18838,
+              "question": "The number of ways in which 4 persons can be seated at a round table so that all shall not have same neighbours in any two arrangements is:",
+              "question_raw": "<p>The number of ways in which 4 persons can be seated at a round table so that all shall not have same neighbours in any two arrangements is:</p>",
+              "options": [
+                {
+                  "label": "A",
+                  "id": 30552,
+                  "text": "3",
+                  "is_correct": true
+                },
+                {
+                  "label": "B",
+                  "id": 30554,
+                  "text": "6",
+                  "is_correct": false
+                },
+                {
+                  "label": "C",
+                  "id": 30555,
+                  "text": "21",
+                  "is_correct": false
+                },
+                {
+                  "label": "D",
+                  "id": 30553,
+                  "text": "24",
+                  "is_correct": false
+                }
+              ],
+              "correct_option_ids": [
+                30552
+              ],
+              "correct_option_labels": [
+                "A"
+              ],
+              "correct_option_texts": [
+                "3"
+              ],
+              "explanation": "The number of ways of seating 4 persons at a round table = (4 - 1)! = 3!\nBut in clockwise and anticlockwise arrangements the same persons are neighbours and hence these two arrangements will be same.\nTherefore the required number of arrangements = $\\frac { 3! }{ 2 } =\\frac { 6 }{ 2 }$ = 3"
+            },
+            {
+              "questionID": 18839,
+              "question": "The number of all 4 digited numbers that can be formed by using the digits 1, 2, 3, 4 and 5 which are divisible by 4 is",
+              "question_raw": "<p>The number of all 4 digited numbers that can be formed by using the digits 1, 2, 3, 4 and 5 which are divisible by 4 is</p>",
+              "options": [
+                {
+                  "label": "A",
+                  "id": 30557,
+                  "text": "120",
+                  "is_correct": false
+                },
+                {
+                  "label": "B",
+                  "id": 30558,
+                  "text": "95",
+                  "is_correct": false
+                },
+                {
+                  "label": "C",
+                  "id": 30556,
+                  "text": "125",
+                  "is_correct": true
+                },
+                {
+                  "label": "D",
+                  "id": 30559,
+                  "text": "12",
+                  "is_correct": false
+                }
+              ],
+              "correct_option_ids": [
+                30556
+              ],
+              "correct_option_labels": [
+                "C"
+              ],
+              "correct_option_texts": [
+                "125"
+              ],
+              "explanation": "The number divisible by 4 must have last two-digit divided by four\nSo number formed can be any of the following four types\n**12\n**24\n**32\n**44\n**52\nSince repetition is allowed in **12, the first place can be filled in 5 ways, the second place also can be filled in 5 ways\nHence, number of numbers ending with 12 = 5 $\\times$ 5 = 25 \nSimilarly, numbers ending with 24, 32, 44, 52 each will be = 5 $\\times$ 5 = 25 \nHence the number of all 4 digited numbers that can be formed by using the digits 1, 2, 3, 4 and 5 which are divisible by 4 = 25 $\\times$ 5 = 125 [ since there are 5 such cases]"
+            },
+            {
+              "questionID": 18840,
+              "question": "How many even numbers can be formed by using all the digits 2, 3, 4, 5, 6?",
+              "question_raw": "<p>How many even numbers can be formed by using all the digits 2, 3, 4, 5, 6?</p>",
+              "options": [
+                {
+                  "label": "A",
+                  "id": 30563,
+                  "text": "36",
+                  "is_correct": false
+                },
+                {
+                  "label": "B",
+                  "id": 30562,
+                  "text": "24",
+                  "is_correct": false
+                },
+                {
+                  "label": "C",
+                  "id": 30561,
+                  "text": "120",
+                  "is_correct": false
+                },
+                {
+                  "label": "D",
+                  "id": 30560,
+                  "text": "72",
+                  "is_correct": true
+                }
+              ],
+              "correct_option_ids": [
+                30560
+              ],
+              "correct_option_labels": [
+                "D"
+              ],
+              "correct_option_texts": [
+                "72"
+              ],
+              "explanation": "To form an even number the last number can only be an even digit, therefore the number of impossibility for the last digit of number = 3\nNow the ten's place can be filled by any of the remaining 4 digits, and hence the no. of ways for ten's place = 4\nThen there remain three digits, so no. of ways of filling hundred's place = 3\nSimilarly no. of ways of filling thousand's place = 2 and of ten thousand = 1\nTherefore, the total possibilities are = 3 $\\times$ 4 $\\times$ 3 $\\times$ 2 $\\times$ 1 = 72"
+            },
+            {
+              "questionID": 18841,
+              "question": "In an examination, a candidate is required to pass at least four different subjects out of 6. Then the number of ways in which he can fail is",
+              "question_raw": "<p>In an examination, a candidate is required to pass at least four different subjects out of 6. Then the number of ways in which he can fail is</p>",
+              "options": [
+                {
+                  "label": "A",
+                  "id": 30565,
+                  "text": "24",
+                  "is_correct": false
+                },
+                {
+                  "label": "B",
+                  "id": 30564,
+                  "text": "42",
+                  "is_correct": true
+                },
+                {
+                  "label": "C",
+                  "id": 30567,
+                  "text": "12",
+                  "is_correct": false
+                },
+                {
+                  "label": "D",
+                  "id": 30566,
+                  "text": "16",
+                  "is_correct": false
+                }
+              ],
+              "correct_option_ids": [
+                30564
+              ],
+              "correct_option_labels": [
+                "B"
+              ],
+              "correct_option_texts": [
+                "42"
+              ],
+              "explanation": "Given that to pass in the exam one has to pass atleast 4 subjects. So he can fail in any of these cases.\nHe can fail all 6 subjects = ^6C_6 = 1\nHe can fail in 5 subjects = ^6C_5 = 6\nHe can fail in 4 subjects = ^6C_4 = 15\nHe can fail in 3 subjects = ^6C_3 = 20\nTotal ways to fail = 42 ways"
+            }
+          ]
+        }
+      ]
+    }
+  ]
+}

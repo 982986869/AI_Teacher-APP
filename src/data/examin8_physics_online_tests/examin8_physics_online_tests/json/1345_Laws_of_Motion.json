@@ -1,0 +1,3162 @@
+{
+  "id": 1345,
+  "name": "Laws of Motion",
+  "full_name": "CBSE > Class 11 > Physics > Laws of Motion",
+  "tests": [
+    {
+      "testPaperID": 547,
+      "testPaperName": "Laws of Motion Test 01",
+      "is_paid": false,
+      "category_full_name": "CBSE > Class 11 > Physics > Laws of Motion",
+      "noOfQuestions": 15,
+      "has_answers": true,
+      "sections": [
+        {
+          "sectionName": "General",
+          "sectionID": null,
+          "questions": [
+            {
+              "questionID": 17497,
+              "question": "Force is required:",
+              "question_raw": "<p>Force is required:</p>",
+              "options": [
+                {
+                  "label": "A",
+                  "id": 25191,
+                  "text": "only to keep an object moving",
+                  "is_correct": false
+                },
+                {
+                  "label": "B",
+                  "id": 25188,
+                  "text": "to start a stationary object and to stop a moving object",
+                  "is_correct": true
+                },
+                {
+                  "label": "C",
+                  "id": 25189,
+                  "text": "only to start a stationary object moving",
+                  "is_correct": false
+                },
+                {
+                  "label": "D",
+                  "id": 25190,
+                  "text": "only to stop a moving object",
+                  "is_correct": false
+                }
+              ],
+              "correct_option_ids": [
+                25188
+              ],
+              "correct_option_labels": [
+                "B"
+              ],
+              "correct_option_texts": [
+                "to start a stationary object and to stop a moving object"
+              ],
+              "explanation": "Force is required to start a stationary object and to stop a moving object due to inertia."
+            },
+            {
+              "questionID": 17498,
+              "question": "According to the first law of motion:",
+              "question_raw": "<p>According to the first law of motion:</p>",
+              "options": [
+                {
+                  "label": "A",
+                  "id": 25195,
+                  "text": "body acted on by no net force moves with increasing velocity and negative acceleration",
+                  "is_correct": false
+                },
+                {
+                  "label": "B",
+                  "id": 25193,
+                  "text": "body acted on by net force moves with constant velocity (which may be zero)",
+                  "is_correct": false
+                },
+                {
+                  "label": "C",
+                  "id": 25194,
+                  "text": "body acted on by zero net force moves with non zero acceleration",
+                  "is_correct": false
+                },
+                {
+                  "label": "D",
+                  "id": 25192,
+                  "text": "body acted on by no net force moves with constant velocity (which may be zero) and zero acceleration",
+                  "is_correct": true
+                }
+              ],
+              "correct_option_ids": [
+                25192
+              ],
+              "correct_option_labels": [
+                "D"
+              ],
+              "correct_option_texts": [
+                "body acted on by no net force moves with constant velocity (which may be zero) and zero acceleration"
+              ],
+              "explanation": "If net force act on a body then the acceleration of the body will also be zero. Hence velocity will not be changed i.e. it continues in its existing state of rest or uniform motion in a straight line."
+            },
+            {
+              "questionID": 17499,
+              "question": "Inertia refers to:",
+              "question_raw": "<p>Inertia refers to:</p>",
+              "options": [
+                {
+                  "label": "A",
+                  "id": 25197,
+                  "text": "ease of motion",
+                  "is_correct": false
+                },
+                {
+                  "label": "B",
+                  "id": 25198,
+                  "text": "dullness",
+                  "is_correct": false
+                },
+                {
+                  "label": "C",
+                  "id": 25196,
+                  "text": "resistance to change",
+                  "is_correct": true
+                },
+                {
+                  "label": "D",
+                  "id": 25199,
+                  "text": "slow motion",
+                  "is_correct": false
+                }
+              ],
+              "correct_option_ids": [
+                25196
+              ],
+              "correct_option_labels": [
+                "C"
+              ],
+              "correct_option_texts": [
+                "resistance to change"
+              ],
+              "explanation": "Inertia is the resistance of any physical object to any change in its state of motion; this includes changes to its speed, direction, or state of rest. It is the tendency of objects to keep moving in a straight line at a constant velocity. Inertia is a property of matter by which it continues in its existing state of rest or uniform motion in a straight line unless that state is changed by an external force."
+            },
+            {
+              "questionID": 17500,
+              "question": "The momentum of a body is:",
+              "question_raw": "<p>The momentum of a body is:</p>",
+              "options": [
+                {
+                  "label": "A",
+                  "id": 25203,
+                  "text": "a vector equal in magnitude to the product of mass and average speed and direction being that of velocity",
+                  "is_correct": false
+                },
+                {
+                  "label": "B",
+                  "id": 25202,
+                  "text": "a scalar equal in magnitude to the product of mass and velocity",
+                  "is_correct": false
+                },
+                {
+                  "label": "C",
+                  "id": 25201,
+                  "text": "a vector equal in magnitude to the product of mass and acceleration and direction being that of velocity",
+                  "is_correct": false
+                },
+                {
+                  "label": "D",
+                  "id": 25200,
+                  "text": "a vector equal in magnitude to the product of mass and instantaneous velocity and direction being that of instantaneous velocity",
+                  "is_correct": true
+                }
+              ],
+              "correct_option_ids": [
+                25200
+              ],
+              "correct_option_labels": [
+                "D"
+              ],
+              "correct_option_texts": [
+                "a vector equal in magnitude to the product of mass and instantaneous velocity and direction being that of instantaneous velocity"
+              ],
+              "explanation": "$\\vec p=m\\vec v$"
+            },
+            {
+              "questionID": 17501,
+              "question": "According to Newton's second law of motion:",
+              "question_raw": "<p>According to Newton&#39;s second law of motion:</p>",
+              "options": [
+                {
+                  "label": "A",
+                  "id": 25207,
+                  "text": "The momentum of a body is directly proportional to the applied force and takes place in the direction opposite to the force",
+                  "is_correct": false
+                },
+                {
+                  "label": "B",
+                  "id": 25205,
+                  "text": "The integration of the momentum of a body is directly proportional to the applied force and takes place in the direction in which the force acts",
+                  "is_correct": false
+                },
+                {
+                  "label": "C",
+                  "id": 25204,
+                  "text": "The rate of change of momentum of a body is directly proportional to the applied force and takes place in the direction in which the force acts",
+                  "is_correct": true
+                },
+                {
+                  "label": "D",
+                  "id": 25206,
+                  "text": "The momentum of a body is directly proportional to the applied force and takes place in the direction in which the force acts",
+                  "is_correct": false
+                }
+              ],
+              "correct_option_ids": [
+                25204
+              ],
+              "correct_option_labels": [
+                "C"
+              ],
+              "correct_option_texts": [
+                "The rate of change of momentum of a body is directly proportional to the applied force and takes place in the direction in which the force acts"
+              ],
+              "explanation": "If the mass does not change then the acceleration of a particle is dependent on the forces acting upon the particle and the particle's mass. For a given particle, if the net force is increased, the acceleration is increased. For a given net force, the more mass a particle has, the less acceleration it has.\n${\\displaystyle \\mathbf {F} =m\\mathbf {a} =m{\\frac {\\mathrm {d} \\mathbf {v} }{\\mathrm {d} t}}={\\frac {\\mathrm {d} (m\\mathbf {v} )}{\\mathrm {d} t}}={\\frac {\\mathrm {d} \\mathbf {p} }{\\mathrm {d} t}}}.$\nhence the rate of change of momentum of a body is directly proportional to the applied force."
+            },
+            {
+              "questionID": 17502,
+              "question": "What is a force:",
+              "question_raw": "<p>What is a force:</p>",
+              "options": [
+                {
+                  "label": "A",
+                  "id": 25210,
+                  "text": "quantitative measure of the momentum between two bodies",
+                  "is_correct": false
+                },
+                {
+                  "label": "B",
+                  "id": 25208,
+                  "text": "quantitative measure of the interaction between two bodies",
+                  "is_correct": true
+                },
+                {
+                  "label": "C",
+                  "id": 25211,
+                  "text": "qualitative measure of the momentum of two bodies",
+                  "is_correct": false
+                },
+                {
+                  "label": "D",
+                  "id": 25209,
+                  "text": "qualitative measure of the interaction between two bodies",
+                  "is_correct": false
+                }
+              ],
+              "correct_option_ids": [
+                25208
+              ],
+              "correct_option_labels": [
+                "B"
+              ],
+              "correct_option_texts": [
+                "quantitative measure of the interaction between two bodies"
+              ],
+              "explanation": "Newton's second law of motion gives the quantitative definition of force. The acceleration of an object as produced by a net force is directly proportional to the magnitude of the net force, in the same direction as the net force, and inversely proportional to the mass of the object."
+            },
+            {
+              "questionID": 17503,
+              "question": "The second law in terms of momentum p and mass m is:",
+              "question_raw": "<p>The second law in terms of momentum p and mass m is:</p>",
+              "options": [
+                {
+                  "label": "A",
+                  "id": 25215,
+                  "text": "$\\vec{F}=k p \\frac{\\vec{d p}}{d t}$",
+                  "is_correct": false
+                },
+                {
+                  "label": "B",
+                  "id": 25214,
+                  "text": "F = kpp",
+                  "is_correct": false
+                },
+                {
+                  "label": "C",
+                  "id": 25212,
+                  "text": "$\\vec{F}=k\\frac{d\\vec{p}}{dt}$",
+                  "is_correct": true
+                },
+                {
+                  "label": "D",
+                  "id": 25213,
+                  "text": "F = kp",
+                  "is_correct": false
+                }
+              ],
+              "correct_option_ids": [
+                25212
+              ],
+              "correct_option_labels": [
+                "C"
+              ],
+              "correct_option_texts": [
+                "$\\vec{F}=k\\frac{d\\vec{p}}{dt}$"
+              ],
+              "explanation": "The applied force is directly proportional to the rate of change of momentum."
+            },
+            {
+              "questionID": 17504,
+              "question": "The second law of motion in terms of acceleration $\\vec{a}$ and mass m of a body is:",
+              "question_raw": "<p>The second law of motion &nbsp;in terms of acceleration <span class=\"math-tex\">{tex}\\vec{a}{/tex}</span> and mass m of a body is:</p>",
+              "options": [
+                {
+                  "label": "A",
+                  "id": 25216,
+                  "text": "$\\vec{F}=m\\vec{a}$",
+                  "is_correct": true
+                },
+                {
+                  "label": "B",
+                  "id": 25218,
+                  "text": "$\\vec{F}=m\\vec{a}\\vec{a}$",
+                  "is_correct": false
+                },
+                {
+                  "label": "C",
+                  "id": 25217,
+                  "text": "$\\vec{F}=m^2\\vec{a}$",
+                  "is_correct": false
+                },
+                {
+                  "label": "D",
+                  "id": 25219,
+                  "text": "$\\vec{F}=k\\;m^{-1}\\vec{a}$",
+                  "is_correct": false
+                }
+              ],
+              "correct_option_ids": [
+                25216
+              ],
+              "correct_option_labels": [
+                "A"
+              ],
+              "correct_option_texts": [
+                "$\\vec{F}=m\\vec{a}$"
+              ],
+              "explanation": "The second law states that the rate of change of momentum of a body is directly proportional to the force applied, and this change in momentum takes place in the direction of the applied force.\n$\\vec F = {{d\\vec p} \\over {dt}} = {{d\\left( {m\\vec v} \\right)} \\over {dt}}$\n$\\vec F = m{{d\\vec v} \\over {dt}} + \\vec v{{dm} \\over {dt}} $ \nif mass is constant, then\n${{dm} \\over {dt}} = 0$\n$ \\vec F = m{{d\\vec v} \\over {dt}}$\n$ \\vec F = m\\vec a $"
+            },
+            {
+              "questionID": 17505,
+              "question": "When several forces act on a body:",
+              "question_raw": "<p>When several forces act on a body:</p>",
+              "options": [
+                {
+                  "label": "A",
+                  "id": 25221,
+                  "text": "the effect on its motion is the same as when a single force, an algebraic sum only in the horizontal direction, acts on the body.",
+                  "is_correct": false
+                },
+                {
+                  "label": "B",
+                  "id": 25220,
+                  "text": "the effect on its motion is the same as when a single force, equal to the vector sum (resultant) of the forces, acts on the body.",
+                  "is_correct": true
+                },
+                {
+                  "label": "C",
+                  "id": 25222,
+                  "text": "the effect on its motion is the same as when a single force acts on the body.",
+                  "is_correct": false
+                },
+                {
+                  "label": "D",
+                  "id": 25223,
+                  "text": "the effect on its motion will be equal to a single force equal to the algebraic sum of the forces.",
+                  "is_correct": false
+                }
+              ],
+              "correct_option_ids": [
+                25220
+              ],
+              "correct_option_labels": [
+                "B"
+              ],
+              "correct_option_texts": [
+                "the effect on its motion is the same as when a single force, equal to the vector sum (resultant) of the forces, acts on the body."
+              ],
+              "explanation": "Force is a vector quantity. When several forces act on a body the effect on its motion is the same as when a single force, equal to the vector sum (resultant) of the forces, acts on the body\n${{\\vec F}_{net}} = {{\\vec F}_1} + {{\\vec F}_2} + {{\\vec F}_3}.........$\n${{\\vec F}_{net}} = m{{\\vec a}_1} + m{{\\vec a}_2} + m{{\\vec a}_3} + .........$ \n${{\\vec F}_{net}} = m{{\\vec a}_{net}} $"
+            },
+            {
+              "questionID": 17506,
+              "question": "If a body is in equilibrium:",
+              "question_raw": "<p>If a body is in equilibrium:</p>",
+              "options": [
+                {
+                  "label": "A",
+                  "id": 25224,
+                  "text": "$\\sum\\vec{F}=0$",
+                  "is_correct": true
+                },
+                {
+                  "label": "B",
+                  "id": 25226,
+                  "text": "$\\mathop \\sum \\nolimits F$ > 0",
+                  "is_correct": false
+                },
+                {
+                  "label": "C",
+                  "id": 25225,
+                  "text": "$\\mathop \\sum \\nolimits F$ < 0",
+                  "is_correct": false
+                },
+                {
+                  "label": "D",
+                  "id": 25227,
+                  "text": "$\\mathop \\sum \\nolimits F$ depends on time",
+                  "is_correct": false
+                }
+              ],
+              "correct_option_ids": [
+                25224
+              ],
+              "correct_option_labels": [
+                "A"
+              ],
+              "correct_option_texts": [
+                "$\\sum\\vec{F}=0$"
+              ],
+              "explanation": "The vector sum of all the forces acting on a body is zero."
+            },
+            {
+              "questionID": 17507,
+              "question": "The second law of motion is a vector law. It is equivalent to:",
+              "question_raw": "<p>The second law of motion is a vector law. It is equivalent to:</p>",
+              "options": [
+                {
+                  "label": "A",
+                  "id": 25228,
+                  "text": "Three equations, one for each component of the vectors",
+                  "is_correct": true
+                },
+                {
+                  "label": "B",
+                  "id": 25229,
+                  "text": "One equation, one for each component of the vectors",
+                  "is_correct": false
+                },
+                {
+                  "label": "C",
+                  "id": 25230,
+                  "text": "Two equations, one for each component of the vectors",
+                  "is_correct": false
+                },
+                {
+                  "label": "D",
+                  "id": 25231,
+                  "text": "Four equations, one for each component of the vectors and one for time",
+                  "is_correct": false
+                }
+              ],
+              "correct_option_ids": [
+                25228
+              ],
+              "correct_option_labels": [
+                "A"
+              ],
+              "correct_option_texts": [
+                "Three equations, one for each component of the vectors"
+              ],
+              "explanation": "F_x = ma_x, F_y = ma_y, F_z = ma_z"
+            },
+            {
+              "questionID": 17508,
+              "question": "If Newton's second law is applied to a rigid body:",
+              "question_raw": "<p>If Newton&#39;s second law is applied to a rigid body:</p>",
+              "options": [
+                {
+                  "label": "A",
+                  "id": 25234,
+                  "text": "the acceleration is the average of all particles in the body",
+                  "is_correct": false
+                },
+                {
+                  "label": "B",
+                  "id": 25233,
+                  "text": "the acceleration is that of any particle in the body",
+                  "is_correct": false
+                },
+                {
+                  "label": "C",
+                  "id": 25232,
+                  "text": "the acceleration is that of the centre of mass",
+                  "is_correct": true
+                },
+                {
+                  "label": "D",
+                  "id": 25235,
+                  "text": "the acceleration is the higher of all particles in the body",
+                  "is_correct": false
+                }
+              ],
+              "correct_option_ids": [
+                25232
+              ],
+              "correct_option_labels": [
+                "C"
+              ],
+              "correct_option_texts": [
+                "the acceleration is that of the centre of mass"
+              ],
+              "explanation": "A rigid body is characterized by the fact that the distances between any two particles that make up the body are constant in time. This means that instead of talking about the motion of each particle, we can talk about the motion of any one point in the body and of the body as a whole with reference to this one particle. The most convenient choice for this one point is the Centre of Mass\n${{\\vec a}_{cm}} = {{{m_1}{{\\vec a}_1} + {m_2}{{\\vec a}_2} + .....} \\over M}$\n$M{{\\vec a}_{cm}} = \\sum {m\\vec a}$ \n$\\vec F = \\sum {m\\vec a}$ , here F refers to the total external force"
+            },
+            {
+              "questionID": 17509,
+              "question": "Force F at a point in space (location of the particle) at a certain instant of time t is:",
+              "question_raw": "<p>Force F at a point in space (location of the particle) at a certain instant of time t is:</p>",
+              "options": [
+                {
+                  "label": "A",
+                  "id": 25239,
+                  "text": "related to acceleration a at previous point at that instant.",
+                  "is_correct": false
+                },
+                {
+                  "label": "B",
+                  "id": 25237,
+                  "text": "related to acceleration a at that point at previous instant.",
+                  "is_correct": false
+                },
+                {
+                  "label": "C",
+                  "id": 25238,
+                  "text": "related to acceleration a at that point at next instant.",
+                  "is_correct": false
+                },
+                {
+                  "label": "D",
+                  "id": 25236,
+                  "text": "related to acceleration a at that point and the same instant.",
+                  "is_correct": true
+                }
+              ],
+              "correct_option_ids": [
+                25236
+              ],
+              "correct_option_labels": [
+                "D"
+              ],
+              "correct_option_texts": [
+                "related to acceleration a at that point and the same instant."
+              ],
+              "explanation": "According to Newton's second law of motion, the acceleration of a point mass as produced by a net force is directly proportional to the magnitude of the net force at that point in the same direction as the net force at that instant\nF = ma"
+            },
+            {
+              "questionID": 17510,
+              "question": "The force acting on a freely falling body in terms of mass m and acceleration due to gravity g is:",
+              "question_raw": "<p>The force acting on a freely falling body in terms of mass m and acceleration due to gravity g is:</p>",
+              "options": [
+                {
+                  "label": "A",
+                  "id": 25242,
+                  "text": "F = mg^2",
+                  "is_correct": false
+                },
+                {
+                  "label": "B",
+                  "id": 25240,
+                  "text": "F = mg",
+                  "is_correct": true
+                },
+                {
+                  "label": "C",
+                  "id": 25241,
+                  "text": "F = m^2g",
+                  "is_correct": false
+                },
+                {
+                  "label": "D",
+                  "id": 25243,
+                  "text": "F = m^−2g",
+                  "is_correct": false
+                }
+              ],
+              "correct_option_ids": [
+                25240
+              ],
+              "correct_option_labels": [
+                "B"
+              ],
+              "correct_option_texts": [
+                "F = mg"
+              ],
+              "explanation": "according to newton's second law of motion \nF = ma\nhere acceleration is due to gravity and is equal to g.\nSo that for a freely falling body\nF = mg"
+            },
+            {
+              "questionID": 17511,
+              "question": "Impulse is:",
+              "question_raw": "<p>Impulse is:</p>",
+              "options": [
+                {
+                  "label": "A",
+                  "id": 25246,
+                  "text": "the difference of force over a short period",
+                  "is_correct": false
+                },
+                {
+                  "label": "B",
+                  "id": 25244,
+                  "text": "the integral of force over a short period",
+                  "is_correct": true
+                },
+                {
+                  "label": "C",
+                  "id": 25245,
+                  "text": "the derivative of force over a short period",
+                  "is_correct": false
+                },
+                {
+                  "label": "D",
+                  "id": 25247,
+                  "text": "the average of force over a short period",
+                  "is_correct": false
+                }
+              ],
+              "correct_option_ids": [
+                25244
+              ],
+              "correct_option_labels": [
+                "B"
+              ],
+              "correct_option_texts": [
+                "the integral of force over a short period"
+              ],
+              "explanation": "A resultant force causes acceleration and a change in the velocity of the body for as long as it acts. The change in momentum is equal to the product of the average force and duration. Conversely, a small force applied for a long time produces the same change in momentum, the same impulse, as a larger force applied for a short time interval.\nImpulse J is\nJ = F_average(t_2−t_1)\nThe impulse is the integral of the resultant force (F) with respect to time\n$J = \\int\\limits_{{t_1}}^{{t_2}} {F.dt} $"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "testPaperID": 548,
+      "testPaperName": "Laws of Motion Test 02",
+      "is_paid": true,
+      "category_full_name": "CBSE > Class 11 > Physics > Laws of Motion",
+      "noOfQuestions": 15,
+      "has_answers": true,
+      "sections": [
+        {
+          "sectionName": "General",
+          "sectionID": null,
+          "questions": [
+            {
+              "questionID": 17512,
+              "question": "Impulse is a",
+              "question_raw": "<p>Impulse is a</p>",
+              "options": [
+                {
+                  "label": "A",
+                  "id": 25250,
+                  "text": "scalar and equals the change of mass",
+                  "is_correct": false
+                },
+                {
+                  "label": "B",
+                  "id": 25248,
+                  "text": "vector and equals the change of momentum",
+                  "is_correct": true
+                },
+                {
+                  "label": "C",
+                  "id": 25249,
+                  "text": "vector and equals the change of mass",
+                  "is_correct": false
+                },
+                {
+                  "label": "D",
+                  "id": 25251,
+                  "text": "vector and equals the inertia of momentum",
+                  "is_correct": false
+                }
+              ],
+              "correct_option_ids": [
+                25248
+              ],
+              "correct_option_labels": [
+                "B"
+              ],
+              "correct_option_texts": [
+                "vector and equals the change of momentum"
+              ],
+              "explanation": "Since force is a vector quantity, the impulse is also a vector in the same direction.\nImpulse J produced from time t_1 to t_2 is defined to be\n${\\ {J} =\\int _{t_{1}}^{t_{2}}\\ {F} \\,\\mathrm {d} t}$ \nwhere F is the resultant force applied from t_1 to t_2\nforce is related to momentum p by\nF = $dp\\over dt$\ntherefore, \n$\\mathbf{J}=\\int_{t_{1}}^{t_{2}} \\frac{\\mathrm{d} \\mathbf{p}}{\\mathrm{d} t} \\mathrm{d} t$\n$=\\int_{p_{1}}^{p_{2}} \\mathrm{d} \\mathbf{p}$\n$=\\mathbf{p}_{2}-\\mathbf{p}_{1}=\\Delta \\mathbf{p}$ \nwhere $\\Delta p$ is the change in linear momentum from time t_1 to t_2."
+            },
+            {
+              "questionID": 17513,
+              "question": "Newton’s third law states that:",
+              "question_raw": "<p>Newton&rsquo;s third law states that:</p>",
+              "options": [
+                {
+                  "label": "A",
+                  "id": 25254,
+                  "text": "they exert forces on each other that at some instants are equal in magnitude and opposite in direction",
+                  "is_correct": false
+                },
+                {
+                  "label": "B",
+                  "id": 25255,
+                  "text": "they exert forces on each other that at some instants are equal in magnitude and same in direction",
+                  "is_correct": false
+                },
+                {
+                  "label": "C",
+                  "id": 25252,
+                  "text": "they exert forces on each other that at each instant are equal in magnitude and opposite in direction",
+                  "is_correct": true
+                },
+                {
+                  "label": "D",
+                  "id": 25253,
+                  "text": "they exert forces on each other that at each instant are equal in magnitude and same in the direction",
+                  "is_correct": false
+                }
+              ],
+              "correct_option_ids": [
+                25252
+              ],
+              "correct_option_labels": [
+                "C"
+              ],
+              "correct_option_texts": [
+                "they exert forces on each other that at each instant are equal in magnitude and opposite in direction"
+              ],
+              "explanation": "When one body exerts a force on a second body, the second body simultaneously exerts a force equal in magnitude and opposite in direction on the first body. According to Newton's law for every action, there is always opposit and equal reaction or the mutual actions of two bodies upon each other are always equal and opposite in direction."
+            },
+            {
+              "questionID": 17514,
+              "question": "According to Newton's third law of motion, the action and reaction forces are:",
+              "question_raw": "<p>According to Newton&#39;s third law of motion, the action and reaction forces&nbsp;are:</p>",
+              "options": [
+                {
+                  "label": "A",
+                  "id": 25257,
+                  "text": "not equal in magnitude and opposite in direction",
+                  "is_correct": false
+                },
+                {
+                  "label": "B",
+                  "id": 25259,
+                  "text": "not equal in magnitude and same in direction",
+                  "is_correct": false
+                },
+                {
+                  "label": "C",
+                  "id": 25256,
+                  "text": "equal in magnitude and opposite in direction",
+                  "is_correct": true
+                },
+                {
+                  "label": "D",
+                  "id": 25258,
+                  "text": "equal in magnitude and same in direction",
+                  "is_correct": false
+                }
+              ],
+              "correct_option_ids": [
+                25256
+              ],
+              "correct_option_labels": [
+                "C"
+              ],
+              "correct_option_texts": [
+                "equal in magnitude and opposite in direction"
+              ],
+              "explanation": "When one body exerts a force on a second body, the second body simultaneously exerts a force equal in magnitude and opposite in direction on the first body. To every action, there is always opposed an equal reaction or the mutual actions of two bodies upon each other are always equal and opposite in direction."
+            },
+            {
+              "questionID": 17515,
+              "question": "According to the law of conservation of momentum:",
+              "question_raw": "<p>According to the law of conservation of momentum:</p>",
+              "options": [
+                {
+                  "label": "A",
+                  "id": 25263,
+                  "text": "the momentum of an interacting system of particles and fields is conserved",
+                  "is_correct": false
+                },
+                {
+                  "label": "B",
+                  "id": 25261,
+                  "text": "the momentum of an isolated system of interacting particles is conserved",
+                  "is_correct": false
+                },
+                {
+                  "label": "C",
+                  "id": 25262,
+                  "text": "the total momentum of an interacting system of particles and fields is conserved",
+                  "is_correct": false
+                },
+                {
+                  "label": "D",
+                  "id": 25260,
+                  "text": "the total momentum of an isolated system of interacting particles is conserved",
+                  "is_correct": true
+                }
+              ],
+              "correct_option_ids": [
+                25260
+              ],
+              "correct_option_labels": [
+                "D"
+              ],
+              "correct_option_texts": [
+                "the total momentum of an isolated system of interacting particles is conserved"
+              ],
+              "explanation": "when no external forces act on a system of several interacting particles, then the total momentum is conserved."
+            },
+            {
+              "questionID": 17516,
+              "question": "When bodies are in contact with each other then:",
+              "question_raw": "<p>When bodies are in contact with each other then:</p>",
+              "options": [
+                {
+                  "label": "A",
+                  "id": 25267,
+                  "text": "contact forces are not equal and in the same direction",
+                  "is_correct": false
+                },
+                {
+                  "label": "B",
+                  "id": 25264,
+                  "text": "contact forces are equal and opposite in direction",
+                  "is_correct": true
+                },
+                {
+                  "label": "C",
+                  "id": 25266,
+                  "text": "contact forces are equal and in the same direction",
+                  "is_correct": false
+                },
+                {
+                  "label": "D",
+                  "id": 25265,
+                  "text": "contact forces are not equal and opposite in direction",
+                  "is_correct": false
+                }
+              ],
+              "correct_option_ids": [
+                25264
+              ],
+              "correct_option_labels": [
+                "B"
+              ],
+              "correct_option_texts": [
+                "contact forces are equal and opposite in direction"
+              ],
+              "explanation": "according to newton's third law of motion for every action, there is always equal and opposite reaction or the mutual actions of two bodies upon each other. Whenever two objects interact with each other, then the pair of forces acting on them are equal in magnitude and opposite in direction. Contact forces are mutual forces (action and reaction)."
+            },
+            {
+              "questionID": 17517,
+              "question": "Friction is:",
+              "question_raw": "<p>Friction is:</p>",
+              "options": [
+                {
+                  "label": "A",
+                  "id": 25269,
+                  "text": "perpendicular to contact surface and opposes motion",
+                  "is_correct": false
+                },
+                {
+                  "label": "B",
+                  "id": 25268,
+                  "text": "parallel to contact surface and opposes the relative motion",
+                  "is_correct": true
+                },
+                {
+                  "label": "C",
+                  "id": 25271,
+                  "text": "perpendicular to contact surface and aids motion",
+                  "is_correct": false
+                },
+                {
+                  "label": "D",
+                  "id": 25270,
+                  "text": "parallel to contact surface and aids motion",
+                  "is_correct": false
+                }
+              ],
+              "correct_option_ids": [
+                25268
+              ],
+              "correct_option_labels": [
+                "B"
+              ],
+              "correct_option_texts": [
+                "parallel to contact surface and opposes the relative motion"
+              ],
+              "explanation": "Whenever a body of mass 'm' moves or tends to move over the surface of another body, then the opposite force acts parallel to the surface contact which opposes the relative motion."
+            },
+            {
+              "questionID": 17518,
+              "question": "Static friction force:",
+              "question_raw": "<p>Static friction force:</p>",
+              "options": [
+                {
+                  "label": "A",
+                  "id": 25274,
+                  "text": "decreases before moving and increases later",
+                  "is_correct": false
+                },
+                {
+                  "label": "B",
+                  "id": 25275,
+                  "text": "is a strong interaction force",
+                  "is_correct": false
+                },
+                {
+                  "label": "C",
+                  "id": 25273,
+                  "text": "remains constant",
+                  "is_correct": false
+                },
+                {
+                  "label": "D",
+                  "id": 25272,
+                  "text": "increases until the body start to move",
+                  "is_correct": true
+                }
+              ],
+              "correct_option_ids": [
+                25272
+              ],
+              "correct_option_labels": [
+                "D"
+              ],
+              "correct_option_texts": [
+                "increases until the body start to move"
+              ],
+              "explanation": "It is the maximum friction, where a body just starts to move over the surface. \nfor example. A large block of mass m is placed on a horizontal table. Apply a small force. the block does not move due to the friction force which balances the applied force. Now Gradually increase the applied force until it starts moving. This maximum applied force acting in the opposite direction is called Static Friction."
+            },
+            {
+              "questionID": 17519,
+              "question": "Rolling friction is:",
+              "question_raw": "<p>Rolling friction is:</p>",
+              "options": [
+                {
+                  "label": "A",
+                  "id": 25278,
+                  "text": "greater than static friction",
+                  "is_correct": false
+                },
+                {
+                  "label": "B",
+                  "id": 25279,
+                  "text": "greater than or equal to static friction",
+                  "is_correct": false
+                },
+                {
+                  "label": "C",
+                  "id": 25277,
+                  "text": "equal to static friction",
+                  "is_correct": false
+                },
+                {
+                  "label": "D",
+                  "id": 25276,
+                  "text": "less than static friction",
+                  "is_correct": true
+                }
+              ],
+              "correct_option_ids": [
+                25276
+              ],
+              "correct_option_labels": [
+                "D"
+              ],
+              "correct_option_texts": [
+                "less than static friction"
+              ],
+              "explanation": "As the area of contact is less in the case of rolling than in the case of sliding. In the rolling, the surfaces of contact do not rub each other. The velocity of the point of contact with respect to the surface remains zero all the time although the Centre of the mass of the wheel moves forward. Hence rolling friction is negligible in comparison to static friction."
+            },
+            {
+              "questionID": 17520,
+              "question": "The magnitude of the centripetal force is given by:",
+              "question_raw": "<p>The magnitude of the centripetal force is given by:</p>",
+              "options": [
+                {
+                  "label": "A",
+                  "id": 25282,
+                  "text": "$F = m\\frac{{v^2}}{{2R}}$",
+                  "is_correct": false
+                },
+                {
+                  "label": "B",
+                  "id": 25281,
+                  "text": "$F = 2m\\frac{{v^2}}{R}$",
+                  "is_correct": false
+                },
+                {
+                  "label": "C",
+                  "id": 25280,
+                  "text": "$F = m\\frac{{v^2}} {R}$",
+                  "is_correct": true
+                },
+                {
+                  "label": "D",
+                  "id": 25283,
+                  "text": "$F = m\\frac{8{v^2}}{R}$",
+                  "is_correct": false
+                }
+              ],
+              "correct_option_ids": [
+                25280
+              ],
+              "correct_option_labels": [
+                "C"
+              ],
+              "correct_option_texts": [
+                "$F = m\\frac{{v^2}} {R}$"
+              ],
+              "explanation": "Centripetal force is a force that acts on a body moving in a circular path and is directed towards the Centre around which the body is moving. Any motion in a curved path represents accelerated motion and requires a force directed toward the center of curvature of the path. This force is called the centripetal force which means \"center seeking\" force.\nThe force has the magnitude $F = m\\frac{{v^2}} {R}$."
+            },
+            {
+              "questionID": 17521,
+              "question": "The centripetal force required for the circular motion of a car such as taking a sharp turn is provided by:",
+              "question_raw": "<p>The centripetal force required for the circular motion of a car such as taking a sharp turn is provided by:</p>",
+              "options": [
+                {
+                  "label": "A",
+                  "id": 25284,
+                  "text": "friction",
+                  "is_correct": true
+                },
+                {
+                  "label": "B",
+                  "id": 25287,
+                  "text": "contact force",
+                  "is_correct": false
+                },
+                {
+                  "label": "C",
+                  "id": 25285,
+                  "text": "rolling friction",
+                  "is_correct": false
+                },
+                {
+                  "label": "D",
+                  "id": 25286,
+                  "text": "gravitational force",
+                  "is_correct": false
+                }
+              ],
+              "correct_option_ids": [
+                25284
+              ],
+              "correct_option_labels": [
+                "A"
+              ],
+              "correct_option_texts": [
+                "friction"
+              ],
+              "explanation": "It is the force of friction that acts between tyres and road."
+            },
+            {
+              "questionID": 17522,
+              "question": "In which of the following cases is the net force non zero?",
+              "question_raw": "<p>In which of the following cases is the net force non zero?</p>",
+              "options": [
+                {
+                  "label": "A",
+                  "id": 25291,
+                  "text": "a kite skillfully held stationary in the sky",
+                  "is_correct": false
+                },
+                {
+                  "label": "B",
+                  "id": 25288,
+                  "text": "a coin falling under gravity",
+                  "is_correct": true
+                },
+                {
+                  "label": "C",
+                  "id": 25290,
+                  "text": "a cork of mass 10 g floating on water",
+                  "is_correct": false
+                },
+                {
+                  "label": "D",
+                  "id": 25289,
+                  "text": "a drop of rain falling down with a constant speed",
+                  "is_correct": false
+                }
+              ],
+              "correct_option_ids": [
+                25288
+              ],
+              "correct_option_labels": [
+                "B"
+              ],
+              "correct_option_texts": [
+                "a coin falling under gravity"
+              ],
+              "explanation": "The force acting on a coin is due to the gravitational force which causes an acceleration in a downward direction."
+            },
+            {
+              "questionID": 17523,
+              "question": "In which of the following cases is the net force zero:",
+              "question_raw": "<p>In which of the following cases is the net force zero:</p>",
+              "options": [
+                {
+                  "label": "A",
+                  "id": 25295,
+                  "text": "a rocket just before liftoff",
+                  "is_correct": false
+                },
+                {
+                  "label": "B",
+                  "id": 25294,
+                  "text": "a feather falling under gravity",
+                  "is_correct": false
+                },
+                {
+                  "label": "C",
+                  "id": 25293,
+                  "text": "a coin falling under gravity",
+                  "is_correct": false
+                },
+                {
+                  "label": "D",
+                  "id": 25292,
+                  "text": "a high-speed electron in space far from all material objects, and free of electric and magnetic fields",
+                  "is_correct": true
+                }
+              ],
+              "correct_option_ids": [
+                25292
+              ],
+              "correct_option_labels": [
+                "D"
+              ],
+              "correct_option_texts": [
+                "a high-speed electron in space far from all material objects, and free of electric and magnetic fields"
+              ],
+              "explanation": "As no external fields like electric, magnetic and gravitational field acting on electron the net force is zero"
+            },
+            {
+              "questionID": 17524,
+              "question": "A pebble of mass 0.05 kg is thrown vertically upwards. Give the direction and magnitude of the net force on the pebble, during its upward motion, Ignore air resistance",
+              "question_raw": "<p>A pebble of mass 0.05 kg is thrown vertically upwards. Give the direction and magnitude of the net force on the pebble, during its upward motion, Ignore air resistance</p>",
+              "options": [
+                {
+                  "label": "A",
+                  "id": 25297,
+                  "text": "0",
+                  "is_correct": false
+                },
+                {
+                  "label": "B",
+                  "id": 25296,
+                  "text": "0.5 N vertically down",
+                  "is_correct": true
+                },
+                {
+                  "label": "C",
+                  "id": 25298,
+                  "text": "0.5 N vertically up",
+                  "is_correct": false
+                },
+                {
+                  "label": "D",
+                  "id": 25299,
+                  "text": "0.05 N vertically down",
+                  "is_correct": false
+                }
+              ],
+              "correct_option_ids": [
+                25296
+              ],
+              "correct_option_labels": [
+                "B"
+              ],
+              "correct_option_texts": [
+                "0.5 N vertically down"
+              ],
+              "explanation": "F = mg\n= 0.05 $\\times$ 10 = 0.5 N"
+            },
+            {
+              "questionID": 17525,
+              "question": "A pebble of mass 0.05 kg is thrown vertically upwards. Give the direction and magnitude of the net force on the pebble, during its downward motion, Ignore air resistance.",
+              "question_raw": "<p>A pebble of mass 0.05 kg is thrown vertically upwards. Give the direction and magnitude of the net force on the pebble, during its downward motion, Ignore air resistance.</p>",
+              "options": [
+                {
+                  "label": "A",
+                  "id": 25303,
+                  "text": "0.05 N vertically down",
+                  "is_correct": false
+                },
+                {
+                  "label": "B",
+                  "id": 25302,
+                  "text": "0.5 N vertically up",
+                  "is_correct": false
+                },
+                {
+                  "label": "C",
+                  "id": 25300,
+                  "text": "0.5 N vertically down",
+                  "is_correct": true
+                },
+                {
+                  "label": "D",
+                  "id": 25301,
+                  "text": "0",
+                  "is_correct": false
+                }
+              ],
+              "correct_option_ids": [
+                25300
+              ],
+              "correct_option_labels": [
+                "C"
+              ],
+              "correct_option_texts": [
+                "0.5 N vertically down"
+              ],
+              "explanation": "F = mg = 0.05 $\\times$ 10 = 0.5 N downwards"
+            },
+            {
+              "questionID": 17526,
+              "question": "A pebble of mass 0.05 kg is thrown vertically upwards. Give the direction and magnitude of the net force on the pebble, if the pebble was thrown at an angle of 45° with the horizontal direction, Ignore air resistance.",
+              "question_raw": "<p>A pebble of mass 0.05 kg is thrown vertically upwards. Give the direction and magnitude of the net force on the pebble, if the pebble was thrown at an angle of 45&deg; with the horizontal direction, Ignore air resistance.</p>",
+              "options": [
+                {
+                  "label": "A",
+                  "id": 25304,
+                  "text": "0.5 N vertically down",
+                  "is_correct": true
+                },
+                {
+                  "label": "B",
+                  "id": 25306,
+                  "text": "0.5 N vertically up",
+                  "is_correct": false
+                },
+                {
+                  "label": "C",
+                  "id": 25305,
+                  "text": "0",
+                  "is_correct": false
+                },
+                {
+                  "label": "D",
+                  "id": 25307,
+                  "text": "0.05 N vertically down",
+                  "is_correct": false
+                }
+              ],
+              "correct_option_ids": [
+                25304
+              ],
+              "correct_option_labels": [
+                "A"
+              ],
+              "correct_option_texts": [
+                "0.5 N vertically down"
+              ],
+              "explanation": "F = mg = 0.05 $\\times$ 10 = 0.5 N. The horizontal component of the velocity remain constant."
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "testPaperID": 549,
+      "testPaperName": "Laws of Motion Test 03",
+      "is_paid": true,
+      "category_full_name": "CBSE > Class 11 > Physics > Laws of Motion",
+      "noOfQuestions": 15,
+      "has_answers": true,
+      "sections": [
+        {
+          "sectionName": "General",
+          "sectionID": null,
+          "questions": [
+            {
+              "questionID": 17527,
+              "question": "Neglecting air resistance, in which of the following cases the net force acting on a stone of mass 0.1 kg is not acting downward?",
+              "question_raw": "<p>Neglecting air resistance, in which of the following cases the net force acting on a stone of mass 0.1 kg is not acting downward?</p>",
+              "options": [
+                {
+                  "label": "A",
+                  "id": 25309,
+                  "text": "just after it is dropped from the window of a train accelerating with 1 m ${{\\rm{s}}^{ - {\\rm{2}}}}$",
+                  "is_correct": false
+                },
+                {
+                  "label": "B",
+                  "id": 25310,
+                  "text": "just after it is dropped from the window of a train running at a constant velocity of 36 km/h",
+                  "is_correct": false
+                },
+                {
+                  "label": "C",
+                  "id": 25308,
+                  "text": "lying on the floor of a train which is accelerating with 1 m ${{\\rm{s}}^{ - {\\rm{2}}}}$ , the stone being at rest relative to the train",
+                  "is_correct": true
+                },
+                {
+                  "label": "D",
+                  "id": 25311,
+                  "text": "just after it is dropped from the window of a stationary train",
+                  "is_correct": false
+                }
+              ],
+              "correct_option_ids": [
+                25308
+              ],
+              "correct_option_labels": [
+                "C"
+              ],
+              "correct_option_texts": [
+                "lying on the floor of a train which is accelerating with 1 m ${{\\rm{s}}^{ - {\\rm{2}}}}$ , the stone being at rest relative to the train"
+              ],
+              "explanation": "Weight of the stone is balanced by the reaction of the floor. The only acceleration is provided by the horizontal motion of the train\na = 1ms^-2\nforce in horizontal direction \nF = ma = 0.1 $\\times$ 1 = 0.1N"
+            },
+            {
+              "questionID": 17528,
+              "question": "Give the magnitude and direction of the net force acting on a stone of mass 0.1 kg lying on the floor of a train which is accelerating with 1 ms^−2, the stone being at rest relative to the train. Neglect air resistance.",
+              "question_raw": "<p>Give the magnitude and direction of the net force acting on a stone of mass 0.1 kg lying on the floor of a train which is accelerating with 1 ms<sup>&minus;2</sup>, the stone being at rest relative to the train. Neglect air resistance.</p>",
+              "options": [
+                {
+                  "label": "A",
+                  "id": 25315,
+                  "text": "0.2 opposite to the direction of motion",
+                  "is_correct": false
+                },
+                {
+                  "label": "B",
+                  "id": 25313,
+                  "text": "0.1 N opposite to the direction of motion",
+                  "is_correct": false
+                },
+                {
+                  "label": "C",
+                  "id": 25312,
+                  "text": "0.1 N along the direction of motion",
+                  "is_correct": true
+                },
+                {
+                  "label": "D",
+                  "id": 25314,
+                  "text": "1.0 N in the direction of motion",
+                  "is_correct": false
+                }
+              ],
+              "correct_option_ids": [
+                25312
+              ],
+              "correct_option_labels": [
+                "C"
+              ],
+              "correct_option_texts": [
+                "0.1 N along the direction of motion"
+              ],
+              "explanation": "The weight of the stone is balanced by the reaction of the floor. The only acceleration is provided by the horizontal motion of the train.\na = 1ms^-2\nforce in the horizontal direction \nF = ma = 0.1 $\\times\r\n$ 1 = 0.1N"
+            },
+            {
+              "questionID": 17529,
+              "question": "One end of a string of length l is connected to a particle of mass m and the other to a small peg on a smooth horizontal table. If the particle moves in a circle with speed v the net force on the particle (directed towards the centre) is",
+              "question_raw": "<p>One end of a string of length l is connected to a particle of mass m and the other to a small peg on a smooth horizontal table. If the particle moves in a circle with speed v the net force on the particle (directed towards the centre) is</p>",
+              "options": [
+                {
+                  "label": "A",
+                  "id": 25319,
+                  "text": "0",
+                  "is_correct": false
+                },
+                {
+                  "label": "B",
+                  "id": 25316,
+                  "text": "T",
+                  "is_correct": true
+                },
+                {
+                  "label": "C",
+                  "id": 25318,
+                  "text": "$\\mathrm{T}+\\frac{\\mathrm{mv^{2 }}}{1}$",
+                  "is_correct": false
+                },
+                {
+                  "label": "D",
+                  "id": 25317,
+                  "text": "$\\mathrm{T}-\\frac{\\mathrm{mv}^2}{\\mathrm{l}}$",
+                  "is_correct": false
+                }
+              ],
+              "correct_option_ids": [
+                25316
+              ],
+              "correct_option_labels": [
+                "B"
+              ],
+              "correct_option_texts": [
+                "T"
+              ],
+              "explanation": "According to Newton's third law of motion, the net force on a rotating particle is equal to Tension in the String. As the action (ie force towards the centre) and reaction (tension in the string) are equal in magnitude and opposite in direction."
+            },
+            {
+              "questionID": 17530,
+              "question": "A constant retarding force of 50 N is applied to a body of mass 20 kg moving initially with a speed of 15 ms^−1. How long does the body take to stop?",
+              "question_raw": "<p>A constant retarding force of 50 N is applied to a body of mass 20 kg moving initially with a speed of 15 ms<sup>&minus;1</sup>. How long does the body take to stop?</p>",
+              "options": [
+                {
+                  "label": "A",
+                  "id": 25321,
+                  "text": "4.0 s",
+                  "is_correct": false
+                },
+                {
+                  "label": "B",
+                  "id": 25322,
+                  "text": "5.0 s",
+                  "is_correct": false
+                },
+                {
+                  "label": "C",
+                  "id": 25320,
+                  "text": "6.0 s",
+                  "is_correct": true
+                },
+                {
+                  "label": "D",
+                  "id": 25323,
+                  "text": "7.0 s",
+                  "is_correct": false
+                }
+              ],
+              "correct_option_ids": [
+                25320
+              ],
+              "correct_option_labels": [
+                "C"
+              ],
+              "correct_option_texts": [
+                "6.0 s"
+              ],
+              "explanation": "$F=m \\frac{d v}{d t}$\n$d t=m \\frac{d v}{F}=20 \\times \\frac{15}{50}$ = 6 s"
+            },
+            {
+              "questionID": 17531,
+              "question": "A constant force acting on a body of mass 3.0 kg changes its speed from 2.0 ms^−1 to 3.5 ms^−1 in 25 s. The direction of the motion of the body remains unchanged. What is the magnitude and direction of the force?",
+              "question_raw": "<p>A constant force acting on a body of mass 3.0 kg changes its speed from 2.0 ms<sup>&minus;1</sup> to 3.5 ms<sup>&minus;1</sup> in 25 s. The direction of the motion of the body remains unchanged. What is the magnitude and direction of the force?</p>",
+              "options": [
+                {
+                  "label": "A",
+                  "id": 25326,
+                  "text": "0.08 ms^−2, 0.14 N in the direction of motion",
+                  "is_correct": false
+                },
+                {
+                  "label": "B",
+                  "id": 25324,
+                  "text": "0.18 N along the direction of motion",
+                  "is_correct": true
+                },
+                {
+                  "label": "C",
+                  "id": 25327,
+                  "text": "0.09 ms^−2, 0.12 N in the direction of motion",
+                  "is_correct": false
+                },
+                {
+                  "label": "D",
+                  "id": 25325,
+                  "text": "0.07 ms^−2, 0.16 N in the direction of motion",
+                  "is_correct": false
+                }
+              ],
+              "correct_option_ids": [
+                25324
+              ],
+              "correct_option_labels": [
+                "B"
+              ],
+              "correct_option_texts": [
+                "0.18 N along the direction of motion"
+              ],
+              "explanation": "F = $m\\frac{dv}{dt}=3(\\frac{3.5-2}{25})$ = 0.18 N"
+            },
+            {
+              "questionID": 17532,
+              "question": "A body of mass 5 kg is acted upon by two perpendicular forces 8 N and 6 N. Give the magnitude and direction of the net force acting on the body.",
+              "question_raw": "<p>A body of mass 5 kg is acted upon by two perpendicular forces 8 N and 6 N. Give the magnitude and direction of the net force&nbsp;acting on the body.</p>",
+              "options": [
+                {
+                  "label": "A",
+                  "id": 25330,
+                  "text": "14 N at an angle of 37^o to the 8 N force",
+                  "is_correct": false
+                },
+                {
+                  "label": "B",
+                  "id": 25329,
+                  "text": "12 N at an angle of 38^o to the 8 N force",
+                  "is_correct": false
+                },
+                {
+                  "label": "C",
+                  "id": 25328,
+                  "text": "10 N at an angle of 36^o52^o towards the 8 N force",
+                  "is_correct": true
+                },
+                {
+                  "label": "D",
+                  "id": 25331,
+                  "text": "16 N at an angle of 46^o to the 8 N force",
+                  "is_correct": false
+                }
+              ],
+              "correct_option_ids": [
+                25328
+              ],
+              "correct_option_labels": [
+                "C"
+              ],
+              "correct_option_texts": [
+                "10 N at an angle of 36^o52^o towards the 8 N force"
+              ],
+              "explanation": "Let F_1 = 8N & F_2 = 6 N. \nthen the resultant force is $F=\\sqrt{F_1^2+F_2^2}$ \n$\\sqrt{8^2+6^2}$\n= 10N\nThe direction is determined as $tan\\theta=\\frac{F_2}{F_1}$ \n= $6\\over8$ \ntherefore $\\theta$ = 36^o52^'"
+            },
+            {
+              "questionID": 17533,
+              "question": "The driver of a three-wheeler moving with a speed of 36 km/h sees a child standing in the middle of the road and brings his vehicle to rest in 4.0 s just in time to save the child. The mass of the three-wheeler is 400 kg and the mass of the driver is 65 kg. Find out the deceleration produced and the retarding force on the vehicle.",
+              "question_raw": "<p>The driver of a three-wheeler moving with a speed of 36 km/h sees a child standing in the middle of the road and brings his vehicle to rest in 4.0 s just in time to save the child. The mass of the three-wheeler is 400 kg and the mass of the driver is 65 kg. Find out the deceleration produced and the retarding force on the&nbsp;vehicle.</p>",
+              "options": [
+                {
+                  "label": "A",
+                  "id": 25335,
+                  "text": "– 2.2 ms^−2, 900 N",
+                  "is_correct": false
+                },
+                {
+                  "label": "B",
+                  "id": 25332,
+                  "text": "- 2.5 ms^−2, 1162.5 N",
+                  "is_correct": true
+                },
+                {
+                  "label": "C",
+                  "id": 25334,
+                  "text": "– 2.3 ms^−2, 1000 N",
+                  "is_correct": false
+                },
+                {
+                  "label": "D",
+                  "id": 25333,
+                  "text": "- 2.4 ms^−2, 1100 N",
+                  "is_correct": false
+                }
+              ],
+              "correct_option_ids": [
+                25332
+              ],
+              "correct_option_labels": [
+                "B"
+              ],
+              "correct_option_texts": [
+                "- 2.5 ms^−2, 1162.5 N"
+              ],
+              "explanation": "V= final velocity = 0\nV_0 = initial velocity = 36 km/h = 10 m/s\n$a= \\frac{v-v_0}{t} = \\frac{0-10}{4} = -2.5 \\frac{m}{s^2} $\nF = ma = -465 $\\times$ 2.5 = -1162.5N (negative sign indicates the retarding force)"
+            },
+            {
+              "questionID": 17534,
+              "question": "A rocket with a lift-off mass of 20,000 kg is blasted upwards with an initial acceleration of 5.0 m s^-2. Calculate the initial thrust (force) of the blast.",
+              "question_raw": "<p>A rocket with a lift-off mass of 20,000 kg is blasted upwards with an initial acceleration of 5.0 m s<sup>-2</sup>. Calculate the initial thrust (force) of the blast.</p>",
+              "options": [
+                {
+                  "label": "A",
+                  "id": 25337,
+                  "text": "350000 N",
+                  "is_correct": false
+                },
+                {
+                  "label": "B",
+                  "id": 25339,
+                  "text": "378000 N",
+                  "is_correct": false
+                },
+                {
+                  "label": "C",
+                  "id": 25338,
+                  "text": "365000 N",
+                  "is_correct": false
+                },
+                {
+                  "label": "D",
+                  "id": 25336,
+                  "text": "300000 N",
+                  "is_correct": true
+                }
+              ],
+              "correct_option_ids": [
+                25336
+              ],
+              "correct_option_labels": [
+                "D"
+              ],
+              "correct_option_texts": [
+                "300000 N"
+              ],
+              "explanation": "Initial thrust = upthrust required to impart acceleration + thrust to overcome gravity\n= ma + mg = m(a + g) = 20000(5 + 10) = 300000N"
+            },
+            {
+              "questionID": 17535,
+              "question": "A body of mass 0.40 kg moving initially with a constant speed of 10 m /s to the north is subject to a constant force of 8.0 N directed towards the south for 30 s. Take the instant the force is applied to be t = 0, the position of the body at that time to be x = 0, and predict its position at t = -5 s.",
+              "question_raw": "<p>A body of mass 0.40 kg moving initially with a constant speed of 10 m /s to the north is subject to a constant force of 8.0 N directed towards the south for 30 s. Take the instant the force is applied to be t = 0, the position of the body at that time to be x = 0, and predict its position at t = -5 s.</p>",
+              "options": [
+                {
+                  "label": "A",
+                  "id": 25342,
+                  "text": "-60 m",
+                  "is_correct": false
+                },
+                {
+                  "label": "B",
+                  "id": 25340,
+                  "text": "-50 m",
+                  "is_correct": true
+                },
+                {
+                  "label": "C",
+                  "id": 25343,
+                  "text": "50 m",
+                  "is_correct": false
+                },
+                {
+                  "label": "D",
+                  "id": 25341,
+                  "text": "-55 m",
+                  "is_correct": false
+                }
+              ],
+              "correct_option_ids": [
+                25340
+              ],
+              "correct_option_labels": [
+                "B"
+              ],
+              "correct_option_texts": [
+                "-50 m"
+              ],
+              "explanation": "Let $u=10\\, ms^{-1}$, F = −8N, T = 30s and m = 0.4kg\n$a=\\frac{F}{m}$\n$=\\frac{-8}{0.4}$\n= −20m/s^2\nAt t = -5 s, there is no force acting on the particle,\nso,\nx = ut = 10 $\\times$ (-5) = −50m"
+            },
+            {
+              "questionID": 17536,
+              "question": "A body of mass 0.40 kg moving initially with a constant speed of 10 ms^−1 to the north is subject to a constant force of 8.0 N directed towards the south for 30 s. Take the instant the force is applied to be t = 0, the position of the body at that time to be x = 0, and predict its position at t = 25 s.",
+              "question_raw": "<p>A body of mass 0.40 kg moving initially with a constant speed of 10 ms<sup>&minus;1</sup> to the north is subject to a constant force of 8.0 N directed towards the south for 30 s. Take the instant the force is applied to be t = 0, the position of the body at that time to be x = 0, and predict its position at t = 25 s.</p>",
+              "options": [
+                {
+                  "label": "A",
+                  "id": 25344,
+                  "text": "-6 km",
+                  "is_correct": true
+                },
+                {
+                  "label": "B",
+                  "id": 25345,
+                  "text": "-7 km",
+                  "is_correct": false
+                },
+                {
+                  "label": "C",
+                  "id": 25347,
+                  "text": "-8.0 km",
+                  "is_correct": false
+                },
+                {
+                  "label": "D",
+                  "id": 25346,
+                  "text": "-7.5 km",
+                  "is_correct": false
+                }
+              ],
+              "correct_option_ids": [
+                25344
+              ],
+              "correct_option_labels": [
+                "A"
+              ],
+              "correct_option_texts": [
+                "-6 km"
+              ],
+              "explanation": "At t = 25s, the position of the particle will be\n$x=u t+\\frac{1}{2} a t^{2}$\n$=10 \\times 25-\\frac{1}{2} \\times 20 \\times(25)^{2}$\n= 250 - 6250\n= -6 km"
+            },
+            {
+              "questionID": 17537,
+              "question": "A body of mass 0.40 kg moving initially with a constant speed of 10 ms^−1 to the north is subject to a constant force of 8.0 N directed towards the south for 30 s. Take the instant the force is applied to be t = 0, the position of the body at that time to be x = 0, and predict its position at t = -100 s",
+              "question_raw": "<p>A body of mass 0.40 kg moving initially with a constant speed of 10 ms<sup>&minus;1</sup> to the north is subject to a constant force of 8.0 N directed towards the south for 30 s. Take the instant the force is applied to be t = 0, the position of the body at that time to be x = 0, and predict its position at t = -100 s</p>",
+              "options": [
+                {
+                  "label": "A",
+                  "id": 25350,
+                  "text": "-60 km",
+                  "is_correct": false
+                },
+                {
+                  "label": "B",
+                  "id": 25351,
+                  "text": "-67 km",
+                  "is_correct": false
+                },
+                {
+                  "label": "C",
+                  "id": 25348,
+                  "text": "-50 km",
+                  "is_correct": true
+                },
+                {
+                  "label": "D",
+                  "id": 25349,
+                  "text": "-55 km",
+                  "is_correct": false
+                }
+              ],
+              "correct_option_ids": [
+                25348
+              ],
+              "correct_option_labels": [
+                "C"
+              ],
+              "correct_option_texts": [
+                "-50 km"
+              ],
+              "explanation": "a = $ {F \\over m} = {8 \\over {0.4}} $ = 20ms^−2 towards the south\nposition at t = 30 sec\ns = ut + $\\frac{1}{2} a t^{2}$\n$s_{1}=(10 \\times 30)-\\frac{1}{2} \\times 20 \\times 30 \\times 30 $ = -8700 m\nvelocity at t = 30 sec\nv = u + at\nv = 10 - (20 $\\times$ 30) = −590m/sec\nfor motion between 30 sec to 100 sec (for 70 sec)\ns_2 = (−590 $\\times $ 70) + 0 = −41300m\ntotal distance \ns = s_1 + s_2 = -(8700 + 41300) = -50000m = -50Km"
+            },
+            {
+              "questionID": 17538,
+              "question": "A truck starts from rest and accelerates uniformly at 2.0 ms^-2. At t = 10 s, a stone is dropped by a person standing on the top of the truck (6 m high from the ground). What is the magnitude of the velocity (in ms^-1) of the stone at t = 11s? (Neglect air resistance.)",
+              "question_raw": "<p>A truck starts from rest and accelerates uniformly at 2.0 ms<sup>-2</sup>. At t = 10 s, a stone is dropped by a person standing on the top of the truck (6 m high from the ground). What is the magnitude of the velocity (in ms<sup>-1</sup>) of the stone at t = 11s? (Neglect air resistance.)</p>",
+              "options": [
+                {
+                  "label": "A",
+                  "id": 25354,
+                  "text": "19.6 m/s",
+                  "is_correct": false
+                },
+                {
+                  "label": "B",
+                  "id": 25353,
+                  "text": "21.0 m/s",
+                  "is_correct": false
+                },
+                {
+                  "label": "C",
+                  "id": 25355,
+                  "text": "18.5 m/s",
+                  "is_correct": false
+                },
+                {
+                  "label": "D",
+                  "id": 25352,
+                  "text": "22.4 m/s",
+                  "is_correct": true
+                }
+              ],
+              "correct_option_ids": [
+                25352
+              ],
+              "correct_option_labels": [
+                "D"
+              ],
+              "correct_option_texts": [
+                "22.4 m/s"
+              ],
+              "explanation": "During first 10 s , the horizontal component of the velocity is v_x = u + at = 0 + 2 $\\times$ 10 = 20 m/s\n at t= 11s ,the horizontal component of velocity , in the absence of air resistance remains constant hence,\nFrom 10 to 11 s, the vertical component of the velocity is v_y = u + gt = 0 + 10 $\\times$ 1 = 10m/s\nRelative velocity is,\n$v=\\sqrt{v_{x}^{2}+v_{y}^{2}}$\n$=\\sqrt{20^{2}+10^{2}}$\n$=\\sqrt{500} $\n= 22.4 m/s"
+            },
+            {
+              "questionID": 17539,
+              "question": "A truck starts from rest and accelerates uniformly at 2.0 ms^-2. At t = 10 s, a stone is dropped by a person standing on the top of the truck (6 m high from the ground). What is the magnitude of acceleration (in ms^-2) of the stone at t = 11s? (Neglect air resistance.)",
+              "question_raw": "<p>A truck starts from rest and accelerates uniformly at 2.0 ms<sup>-2</sup>. At t = 10 s, a stone is dropped by a person standing on the top of the truck (6 m high from the ground). What is the magnitude of acceleration (in ms<sup>-2</sup>) of the stone at t = 11s? (Neglect air resistance.)</p>",
+              "options": [
+                {
+                  "label": "A",
+                  "id": 25356,
+                  "text": "10 ms^-2",
+                  "is_correct": true
+                },
+                {
+                  "label": "B",
+                  "id": 25359,
+                  "text": "14 ms^-2",
+                  "is_correct": false
+                },
+                {
+                  "label": "C",
+                  "id": 25357,
+                  "text": "8 ms^-2",
+                  "is_correct": false
+                },
+                {
+                  "label": "D",
+                  "id": 25358,
+                  "text": "12 ms^-2",
+                  "is_correct": false
+                }
+              ],
+              "correct_option_ids": [
+                25356
+              ],
+              "correct_option_labels": [
+                "A"
+              ],
+              "correct_option_texts": [
+                "10 ms^-2"
+              ],
+              "explanation": "When the stone is dropped from the truck, the horizontal force acting on it become zero after the stone is released. Stone continues to move under the influence of gravity only. So that acceleration of the stone is equal to the gravitational acceleration g.\na = g = 10ms^-2 acting vertically downward."
+            },
+            {
+              "questionID": 17540,
+              "question": "A bob of mass 0.1 kg hung from the ceiling of a room by a string 2 m long is set into oscillation. The speed of the bob at its mean position is 1 m s^−1. What is the trajectory of the bob if the string is cut when the bob is at one of its extreme positions.",
+              "question_raw": "<p>A bob of mass 0.1 kg hung from the ceiling of a room by a string 2 m long is set into oscillation. The speed of the bob at its mean position is 1 m s<sup>&minus;1</sup>. What is the trajectory of the bob if the string is cut when the bob is at one of its extreme positions.</p>",
+              "options": [
+                {
+                  "label": "A",
+                  "id": 25362,
+                  "text": "bob will go downwards at an angle",
+                  "is_correct": false
+                },
+                {
+                  "label": "B",
+                  "id": 25363,
+                  "text": "bob will go down in a parabolic path",
+                  "is_correct": false
+                },
+                {
+                  "label": "C",
+                  "id": 25361,
+                  "text": "bob will go upwards",
+                  "is_correct": false
+                },
+                {
+                  "label": "D",
+                  "id": 25360,
+                  "text": "bob will fall vertically downwards",
+                  "is_correct": true
+                }
+              ],
+              "correct_option_ids": [
+                25360
+              ],
+              "correct_option_labels": [
+                "D"
+              ],
+              "correct_option_texts": [
+                "bob will fall vertically downwards"
+              ],
+              "explanation": "At the extreme position of the oscillation, the speed of the bob is zero. So the bob is momentarily at rest. If the string is cut, the bob will fall vertically downwards."
+            },
+            {
+              "questionID": 17541,
+              "question": "A bob of mass 0.1 kg hung from the ceiling of a room by a string 2 m long is set into oscillation. The speed of the bob at its mean position is 1 m s^−1. What is the trajectory of the bob if the string is cut when the bob is at its mean position?",
+              "question_raw": "<p>A bob of mass 0.1 kg hung from the ceiling of a room by a string 2 m long is set into oscillation. The speed of the bob at its mean position is 1 m s<sup>&minus;1</sup>. What is the trajectory of the bob if the string is cut when the bob is at its mean position?</p>",
+              "options": [
+                {
+                  "label": "A",
+                  "id": 25366,
+                  "text": "bob will fall vertically downwards",
+                  "is_correct": false
+                },
+                {
+                  "label": "B",
+                  "id": 25364,
+                  "text": "bob will go down in a parabolic path",
+                  "is_correct": true
+                },
+                {
+                  "label": "C",
+                  "id": 25367,
+                  "text": "bob will fall vertically upwards",
+                  "is_correct": false
+                },
+                {
+                  "label": "D",
+                  "id": 25365,
+                  "text": "bob will go upwards",
+                  "is_correct": false
+                }
+              ],
+              "correct_option_ids": [
+                25364
+              ],
+              "correct_option_labels": [
+                "B"
+              ],
+              "correct_option_texts": [
+                "bob will go down in a parabolic path"
+              ],
+              "explanation": "At the mean position, the bob has a horizontal velocity. So when the string is cut, it will fall along a parabolic path under the effect of gravity."
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "testPaperID": 550,
+      "testPaperName": "Laws of Motion Test 04",
+      "is_paid": true,
+      "category_full_name": "CBSE > Class 11 > Physics > Laws of Motion",
+      "noOfQuestions": 15,
+      "has_answers": true,
+      "sections": [
+        {
+          "sectionName": "General",
+          "sectionID": null,
+          "questions": [
+            {
+              "questionID": 17542,
+              "question": "A man of mass 70 kg stands on a weighing scale in a lift which is moving upwards with a uniform speed of 10 ms^−1, what would be the reading on the scale?",
+              "question_raw": "<p>A man of mass 70 kg stands on a weighing scale in a lift which is moving upwards with a uniform speed of 10 ms<sup>&minus;1</sup>, what would be the reading on the scale?</p>",
+              "options": [
+                {
+                  "label": "A",
+                  "id": 25368,
+                  "text": "700 N",
+                  "is_correct": true
+                },
+                {
+                  "label": "B",
+                  "id": 25371,
+                  "text": "1050 N",
+                  "is_correct": false
+                },
+                {
+                  "label": "C",
+                  "id": 25370,
+                  "text": "350 N",
+                  "is_correct": false
+                },
+                {
+                  "label": "D",
+                  "id": 25369,
+                  "text": "750 N",
+                  "is_correct": false
+                }
+              ],
+              "correct_option_ids": [
+                25368
+              ],
+              "correct_option_labels": [
+                "A"
+              ],
+              "correct_option_texts": [
+                "700 N"
+              ],
+              "explanation": "Given that mass of the man, m is = 70 kg\nAcceleration, a = 0 \nUsing Newton’s second law of motion, \nwe can write the equation of motion as:\nR – mg = ma\nWhere ma is the net force acting on the man. \nAs the lift is moving at a uniform speed, so the acceleration a = 0\n$\\therefore$ R = mg = 70 $\\times$ 10 = 700 N"
+            },
+            {
+              "questionID": 17543,
+              "question": "A man of mass 70 kg stands on a weighing scale in a lift which is moving downwards with a uniform acceleration of 5 ms^−2. What would be the reading on the scale?",
+              "question_raw": "<p>A man of mass 70 kg stands on a weighing scale in a lift which is moving downwards with a uniform acceleration of 5 ms<sup>&minus;2</sup>. What would be the reading on the scale?</p>",
+              "options": [
+                {
+                  "label": "A",
+                  "id": 25372,
+                  "text": "350 N",
+                  "is_correct": true
+                },
+                {
+                  "label": "B",
+                  "id": 25374,
+                  "text": "450 N",
+                  "is_correct": false
+                },
+                {
+                  "label": "C",
+                  "id": 25373,
+                  "text": "380 N",
+                  "is_correct": false
+                },
+                {
+                  "label": "D",
+                  "id": 25375,
+                  "text": "530 N",
+                  "is_correct": false
+                }
+              ],
+              "correct_option_ids": [
+                25372
+              ],
+              "correct_option_labels": [
+                "A"
+              ],
+              "correct_option_texts": [
+                "350 N"
+              ],
+              "explanation": "When the lift moves downward with acceleration = 5 ms^-2 the net force acting downward. hence,\nmg - R = ma\nR = mg - ma \nR = m(g - a)\nR = 70(10 - 5)\nR = 350 N\nR = 350 N"
+            },
+            {
+              "questionID": 17544,
+              "question": "A man of mass 70 kg stands on a weighing scale in a lift which is moving upwards with a uniform acceleration of 5 ms^−2. What would be the reading on the scale?",
+              "question_raw": "<p>A man of mass 70 kg stands on a weighing scale in a lift which is moving upwards with a uniform acceleration of 5&nbsp;ms<sup>&minus;2</sup>. What would be the reading on the scale?</p>",
+              "options": [
+                {
+                  "label": "A",
+                  "id": 25379,
+                  "text": "150 kg",
+                  "is_correct": false
+                },
+                {
+                  "label": "B",
+                  "id": 25376,
+                  "text": "105 kg",
+                  "is_correct": true
+                },
+                {
+                  "label": "C",
+                  "id": 25378,
+                  "text": "120 kg",
+                  "is_correct": false
+                },
+                {
+                  "label": "D",
+                  "id": 25377,
+                  "text": "130 kg",
+                  "is_correct": false
+                }
+              ],
+              "correct_option_ids": [
+                25376
+              ],
+              "correct_option_labels": [
+                "B"
+              ],
+              "correct_option_texts": [
+                "105 kg"
+              ],
+              "explanation": "When the lift moves upward with acceleration = 5 ms^-2 the net force acting upward\nR - mg = ma\nR = mg + ma\nR = m(g + a)\nR = 70(10 + 5)\nR = 1050N\n(We experience weight due to reaction)\ntherefore Apparent weight = $ {1050\\over g} = {1050\\over 10 } $ = 105 kg"
+            },
+            {
+              "questionID": 17545,
+              "question": "A man of mass 70 kg stands on a weighing scale in a lift which is freely falling under gravity. What would be the reading on the scale?",
+              "question_raw": "<p>A man of mass 70 kg stands on a weighing scale in a lift which is freely falling under gravity. What would be the reading on the scale?</p>",
+              "options": [
+                {
+                  "label": "A",
+                  "id": 25381,
+                  "text": "115 kg",
+                  "is_correct": false
+                },
+                {
+                  "label": "B",
+                  "id": 25380,
+                  "text": "0 kg",
+                  "is_correct": true
+                },
+                {
+                  "label": "C",
+                  "id": 25383,
+                  "text": "125 kg",
+                  "is_correct": false
+                },
+                {
+                  "label": "D",
+                  "id": 25382,
+                  "text": "95 kg",
+                  "is_correct": false
+                }
+              ],
+              "correct_option_ids": [
+                25380
+              ],
+              "correct_option_labels": [
+                "B"
+              ],
+              "correct_option_texts": [
+                "0 kg"
+              ],
+              "explanation": "When the lift fall freely under gravity, a = g\nTherefore Apparent weight, (We experience weight due to reaction)\nR = m(g - a) = m(g - g) = 0\nThis is the condition for weightlessness."
+            },
+            {
+              "questionID": 17546,
+              "question": "A man of mass 70 kg stands on a weighing scale in a lift which is moving upwards with a uniform speed of 10 ms^-1. What would be the reading if the lift mechanism failed and it hurtled down freely under gravity?",
+              "question_raw": "<p>A man of mass 70 kg stands on a weighing scale in a lift which is moving upwards with a uniform speed of 10 ms<sup>-1</sup>. What would be the reading if the lift mechanism failed and it hurtled down freely under gravity?</p>",
+              "options": [
+                {
+                  "label": "A",
+                  "id": 25386,
+                  "text": "105 kg",
+                  "is_correct": false
+                },
+                {
+                  "label": "B",
+                  "id": 25387,
+                  "text": "35 kg",
+                  "is_correct": false
+                },
+                {
+                  "label": "C",
+                  "id": 25385,
+                  "text": "70 kg",
+                  "is_correct": false
+                },
+                {
+                  "label": "D",
+                  "id": 25384,
+                  "text": "0 kg",
+                  "is_correct": true
+                }
+              ],
+              "correct_option_ids": [
+                25384
+              ],
+              "correct_option_labels": [
+                "D"
+              ],
+              "correct_option_texts": [
+                "0 kg"
+              ],
+              "explanation": "When the lift falls freely under gravity, a = g\nTherefore Apparent weight, \nR = m(g − a) = m(g − g) = 0\nThis is the condition of weightlessness."
+            },
+            {
+              "questionID": 17547,
+              "question": "The figure shows the position-time graph of a particle of mass 4 kg. What is the force on the particle for t < 0, t > 4 s, 0 < t < 4 s?",
+              "question_raw": "<p>The figure shows the position-time graph of a particle of mass 4 kg. What is the force on the particle for&nbsp;t&nbsp;&lt;&nbsp;0,&nbsp;t&nbsp;&gt;&nbsp;4 s,&nbsp;0&nbsp;&lt;&nbsp;t&nbsp;&lt;&nbsp;4 s?<br />\r\n<img src=\"https://media-mycbseguide.s3.amazonaws.com/images/testpaper/1.02.11.05.51.Ques.JPG\" style=\"width: 200px; height: 82px;\" /></p>",
+              "options": [
+                {
+                  "label": "A",
+                  "id": 25391,
+                  "text": "0, 2, 1",
+                  "is_correct": false
+                },
+                {
+                  "label": "B",
+                  "id": 25390,
+                  "text": "0, 2, 0",
+                  "is_correct": false
+                },
+                {
+                  "label": "C",
+                  "id": 25389,
+                  "text": "0, 1, 2",
+                  "is_correct": false
+                },
+                {
+                  "label": "D",
+                  "id": 25388,
+                  "text": "0, 0, 0",
+                  "is_correct": true
+                }
+              ],
+              "correct_option_ids": [
+                25388
+              ],
+              "correct_option_labels": [
+                "D"
+              ],
+              "correct_option_texts": [
+                "0, 0, 0"
+              ],
+              "explanation": "When t < 0. As this part is horizontal, thus it can be concluded that distance covered by the particle is zero and hence the force acting on the particle is zero.\nWhen 0 < t < 4 s. As OA has a constant slope, hence in this interval, the particle moves with constant velocity (acceleration = 0). Hence the force acting on the particle is equal to zero.\nWhen t > 4s. This portion shows that the particle always remains at a distance of 3 m from the origin i.e., the particle is at rest. Hence the force acting on the particle is zero."
+            },
+            {
+              "questionID": 17548,
+              "question": "The figure shows the position-time graph of a particle of mass 4 kg. What is the impulse at t = 0 and t = 4 s? (Consider one-dimensional motion only)",
+              "question_raw": "<p>The figure shows the position-time graph of a particle of mass 4 kg. What is the impulse at t = 0 and t = 4 s? (Consider one-dimensional motion only)<br />\n<img src=\"https://media-mycbseguide.s3.amazonaws.com/images/testpaper/1.02.11.05.52.Ques.JPG\" style=\"width: 150px; height: 58px;\" /></p>",
+              "options": [
+                {
+                  "label": "A",
+                  "id": 25394,
+                  "text": "5 kg m ${{\\rm{s}}^{ - {\\rm{1}}}}$ at t = 0 and -3 kg m ${{\\rm{s}}^{ - {\\rm{1}}}}$ at t = 4 s",
+                  "is_correct": false
+                },
+                {
+                  "label": "B",
+                  "id": 25393,
+                  "text": "4 kg m ${{\\rm{s}}^{ - {\\rm{1}}}}$ at t = 0 and -4 kg m ${{\\rm{s}}^{ - {\\rm{1}}}}$ at t = 4 s",
+                  "is_correct": false
+                },
+                {
+                  "label": "C",
+                  "id": 25392,
+                  "text": "3 kg ms^−1 at t = 0 and -3 kg ms^−1 at t = 4 s",
+                  "is_correct": true
+                },
+                {
+                  "label": "D",
+                  "id": 25395,
+                  "text": "2 kg m ${{\\rm{s}}^{ - {\\rm{1}}}}$ at t = 0 and -2 kg m ${{\\rm{s}}^{ - {\\rm{1}}}}$ at t = 4 s",
+                  "is_correct": false
+                }
+              ],
+              "correct_option_ids": [
+                25392
+              ],
+              "correct_option_labels": [
+                "C"
+              ],
+              "correct_option_texts": [
+                "3 kg ms^−1 at t = 0 and -3 kg ms^−1 at t = 4 s"
+              ],
+              "explanation": "Initial velocity $u=0$, between t = 0s and t = 4s, the particle has a constant velocity,\ntherefore slope of OA is $v=\\frac{3}{4}\\,\\,m/s$ \nAt t = 0,Impulse = Change in momentum = $m(v-u) = 4(\\frac{3}{4}-0)=3\\,\\,kg\\,\\,m/s$ \nAt t = 4s, initial velocity is $\\frac{3}{4}$ m/s,\nSo, the Impulse = m(v - u) = $4(0-\\frac{3}{4})$ = −3kgm/s"
+            },
+            {
+              "questionID": 17549,
+              "question": "Two bodies of masses 10 kg and 20 kg respectively kept on a smooth, horizontal surface are tied to the ends of a light string. a horizontal force F = 600 N is applied to the 20 kg mass so as to pull it. What is the tension in the string?",
+              "question_raw": "<p>Two bodies of masses 10 kg and 20 kg respectively kept on a smooth, horizontal surface are tied to the ends of a light string. a horizontal force F = 600 N is applied to the 20 kg mass so as to pull it. What is the tension in the string?</p>",
+              "options": [
+                {
+                  "label": "A",
+                  "id": 25399,
+                  "text": "300 N",
+                  "is_correct": false
+                },
+                {
+                  "label": "B",
+                  "id": 25398,
+                  "text": "250 N",
+                  "is_correct": false
+                },
+                {
+                  "label": "C",
+                  "id": 25396,
+                  "text": "200 N",
+                  "is_correct": true
+                },
+                {
+                  "label": "D",
+                  "id": 25397,
+                  "text": "150 N",
+                  "is_correct": false
+                }
+              ],
+              "correct_option_ids": [
+                25396
+              ],
+              "correct_option_labels": [
+                "C"
+              ],
+              "correct_option_texts": [
+                "200 N"
+              ],
+              "explanation": "Let,\nT = tension in the string, a = acceleration in the direction of force F. \n Given that , m_1 = 10 kg and m_2 = 20 kg\nTherefore, common acceleration is $a=\\frac{F}{m_1+m_2}=\\frac{600}{10+20}$ = 20ms^−2 \nNow the tension T in the string is T given by = m_1a = 10 $\\times$ 20 = 200N"
+            },
+            {
+              "questionID": 17550,
+              "question": "Two bodies of masses 10 kg and 20 kg respectively kept on a smooth, horizontal surface are tied to the ends of a light string, a horizontal force F = 600 N is applied to the 10 kg mass so as to pull it. What is the tension in the string?",
+              "question_raw": "<p>Two bodies of masses 10 kg and 20 kg respectively kept on a smooth, horizontal surface are tied to the ends of a light string,&nbsp;a horizontal force F = 600 N is applied to the 10 kg mass so as to pull it. What is the tension in the string?</p>",
+              "options": [
+                {
+                  "label": "A",
+                  "id": 25401,
+                  "text": "450 N",
+                  "is_correct": false
+                },
+                {
+                  "label": "B",
+                  "id": 25402,
+                  "text": "300 N",
+                  "is_correct": false
+                },
+                {
+                  "label": "C",
+                  "id": 25400,
+                  "text": "400 N",
+                  "is_correct": true
+                },
+                {
+                  "label": "D",
+                  "id": 25403,
+                  "text": "370 N",
+                  "is_correct": false
+                }
+              ],
+              "correct_option_ids": [
+                25400
+              ],
+              "correct_option_labels": [
+                "C"
+              ],
+              "correct_option_texts": [
+                "400 N"
+              ],
+              "explanation": "Let, T= tension on the string\na = acceleration, Given that , m_1 = mass of light body is = 10 kg and m_2 = mass of heavy body is = 20 kg\n$a=\\frac{F}{m_1+m_2}=\\frac{600}{30}$ = 20ms^-2\nNow the tension in the string will be,\nT = m_2a = 20 $\\times$ 20 = 400N"
+            },
+            {
+              "questionID": 17551,
+              "question": "A nucleus is at rest in the laboratory frame of reference. If it disintegrates into two smaller nuclei ______ .",
+              "question_raw": "<p>A nucleus is at rest in the laboratory frame of reference. If it disintegrates into two smaller nuclei ______ .</p>",
+              "options": [
+                {
+                  "label": "A",
+                  "id": 25404,
+                  "text": "the products must move in opposite directions",
+                  "is_correct": true
+                },
+                {
+                  "label": "B",
+                  "id": 25406,
+                  "text": "the products must move at an angle in same direction",
+                  "is_correct": false
+                },
+                {
+                  "label": "C",
+                  "id": 25405,
+                  "text": "the products must move in same direction",
+                  "is_correct": false
+                },
+                {
+                  "label": "D",
+                  "id": 25407,
+                  "text": "the products must move at an angle in opposite directions",
+                  "is_correct": false
+                }
+              ],
+              "correct_option_ids": [
+                25404
+              ],
+              "correct_option_labels": [
+                "A"
+              ],
+              "correct_option_texts": [
+                "the products must move in opposite directions"
+              ],
+              "explanation": "Let, M = mass of nucleus at rest. m_1 and m_2 are masses of two smaller nuclei. v_1_ and v_2 are the velocities of respective masses\nNow, According to the law of conservation of momentum,\nInitial momentum before disintegration = final momentum after disintegration\nm_1v_1 + m_2v_2 = 0\n$v_2=-\\frac{m_2}{m_1}\\cdot{v_1}$\nAs masses, m_1 and m_2 cannot be negative, v_1, and v_2 having opposite signs and so the two smaller nuclei move in opposite directions."
+            },
+            {
+              "questionID": 17552,
+              "question": "Two billiard balls each of mass 0.05 kg moving in opposite directions with speed 6 ms^-1 collide and rebound at the same speed. What is the impulse imparted to each ball due to the other?",
+              "question_raw": "<p>Two billiard balls each of mass 0.05 kg moving in opposite directions with speed 6 ms<sup>-1</sup> collide and rebound at the same speed. What is the impulse imparted to each ball due to the other?</p>",
+              "options": [
+                {
+                  "label": "A",
+                  "id": 25409,
+                  "text": "0.5 kg ms^-1",
+                  "is_correct": false
+                },
+                {
+                  "label": "B",
+                  "id": 25411,
+                  "text": "0.3 kg ms^-1",
+                  "is_correct": false
+                },
+                {
+                  "label": "C",
+                  "id": 25408,
+                  "text": "0.6 kg ms^−1",
+                  "is_correct": true
+                },
+                {
+                  "label": "D",
+                  "id": 25410,
+                  "text": "0.4 kg ms^-1",
+                  "is_correct": false
+                }
+              ],
+              "correct_option_ids": [
+                25408
+              ],
+              "correct_option_labels": [
+                "C"
+              ],
+              "correct_option_texts": [
+                "0.6 kg ms^−1"
+              ],
+              "explanation": "Impulse imparted to one ball by the other = change in momentum\n= momentum after collision - momentum before collision\n= {0.05 $\\times$ 6} - {0.05 $\\times$ (-6)} \n= 0.6 kg ms^-1"
+            },
+            {
+              "questionID": 17553,
+              "question": "A shell of mass 0.020 kg is fired by a gun of mass 100 kg. If the muzzle speed of the shell is 80 ms^-1, what is the recoil speed of the gun?",
+              "question_raw": "<p>A shell of mass 0.020 kg is fired by a gun of mass 100 kg. If the muzzle speed of the shell is 80 ms<sup>-1</sup>, what is the recoil speed of the gun?</p>",
+              "options": [
+                {
+                  "label": "A",
+                  "id": 25415,
+                  "text": "1.9 cm/s",
+                  "is_correct": false
+                },
+                {
+                  "label": "B",
+                  "id": 25413,
+                  "text": "1.7 cm/s",
+                  "is_correct": false
+                },
+                {
+                  "label": "C",
+                  "id": 25414,
+                  "text": "1.8 cm/s",
+                  "is_correct": false
+                },
+                {
+                  "label": "D",
+                  "id": 25412,
+                  "text": "1.6 cm/s",
+                  "is_correct": true
+                }
+              ],
+              "correct_option_ids": [
+                25412
+              ],
+              "correct_option_labels": [
+                "D"
+              ],
+              "correct_option_texts": [
+                "1.6 cm/s"
+              ],
+              "explanation": "Mass of shell, m = 0.02kg \nMass of gun, M = 100kg\nSpeed of shell, v = 80ms^−1\nLet V be the recoil speed of the gun. According to the law of conservation of momentum,\nInitial momentum = Final momentum\n0 = mv + MV\nV = $-\\frac{mv}{M}=-\\frac{0.02\\times80}{100}$\n recoil speed of the gun is ,V = −0.016ms^−1 = −1.6cms^−1\nA negative sign indicates that the gun moves backward as the bullet moves forward."
+            },
+            {
+              "questionID": 17554,
+              "question": "A batsman deflects a ball by an angle of 45^o without changing its initial speed which is equal to 54 km/h. What is the impulse imparted to the ball? (Mass of the ball is 0.15 kg.)",
+              "question_raw": "<p>A batsman deflects a ball by an angle of 45<sup>o</sup> without changing its initial speed which is equal to 54 km/h. What is the impulse imparted to the ball? (Mass of the ball is 0.15 kg.)</p>",
+              "options": [
+                {
+                  "label": "A",
+                  "id": 25416,
+                  "text": "4.2 kg ms^−1",
+                  "is_correct": true
+                },
+                {
+                  "label": "B",
+                  "id": 25418,
+                  "text": "4.6 kg ms^−1",
+                  "is_correct": false
+                },
+                {
+                  "label": "C",
+                  "id": 25419,
+                  "text": "4.8 kg ms^−1",
+                  "is_correct": false
+                },
+                {
+                  "label": "D",
+                  "id": 25417,
+                  "text": "4.4 kg ms^−1",
+                  "is_correct": false
+                }
+              ],
+              "correct_option_ids": [
+                25416
+              ],
+              "correct_option_labels": [
+                "A"
+              ],
+              "correct_option_texts": [
+                "4.2 kg ms^−1"
+              ],
+              "explanation": "Let $\\vec {v_1}$ and $\\vec {v_2}$ be the velocities of the ball before and after deflection, which is equal to 54 km h^−1 = 15ms^−1 as the speed of the ball does not change after a deflection.\n$v=\\sqrt{v_{1}^{2}+v_{2}^{2}+2 v_{1} v_{2} \\cos 45^{\\circ}}$\n$=\\sqrt{15^{2}+15^{2}+2 \\times 15 \\times 15 \\times({1 \\over \\sqrt{2}}}$\n= 27.72 ms^-1\nImpulse imparted to the ball = Mass $\\times$ change in velocity of the ball\n0.15 $\\times$ 27.72 = 4.2kgms^−1"
+            },
+            {
+              "questionID": 17555,
+              "question": "A stone of mass 0.25 kg tied to the end of a string is whirled round in a circle of radius 1.5 m with a speed of 40 rev./min in a horizontal plane. What is the tension in the string?",
+              "question_raw": "<p>A stone of mass 0.25 kg tied to the end of a string is whirled round in a circle of radius 1.5 m with a speed of 40 rev./min in a horizontal plane. What is the tension in the string?</p>",
+              "options": [
+                {
+                  "label": "A",
+                  "id": 25423,
+                  "text": "6.9 N",
+                  "is_correct": false
+                },
+                {
+                  "label": "B",
+                  "id": 25420,
+                  "text": "6.6 N",
+                  "is_correct": true
+                },
+                {
+                  "label": "C",
+                  "id": 25421,
+                  "text": "6.3 N",
+                  "is_correct": false
+                },
+                {
+                  "label": "D",
+                  "id": 25422,
+                  "text": "6.1 N",
+                  "is_correct": false
+                }
+              ],
+              "correct_option_ids": [
+                25420
+              ],
+              "correct_option_labels": [
+                "B"
+              ],
+              "correct_option_texts": [
+                "6.6 N"
+              ],
+              "explanation": "Let, m = 0.25 kg, r = 1.5m and f = 40 rv/min = 40 rev /60 s = 2/3 rps\n$\\omega=2\\pi f =2\\pi \\times\\frac{2}{3}=\\frac{4\\pi}{3} \\,rad\\, s^{-1}$ \nTension in the string = Centripetal force\nso, $T=mr\\omega^2=0.25\\times1.5\\times(\\frac{4\\pi}{3})^2$\n6.6 N"
+            },
+            {
+              "questionID": 17556,
+              "question": "A stone of mass 0.25 kg tied to the end of a string is whirled round in a circle of radius 1.5 m with a speed of 40 rev./min in a horizontal plane. What is the maximum speed with which the stone can be whirled around if the string can withstand a maximum tension of 200 N?",
+              "question_raw": "<p>A stone of mass 0.25 kg tied to the end of a string is whirled round in a circle of radius 1.5 m with a speed of 40 rev./min in a horizontal plane. What is the maximum speed with which the stone can be whirled around if the string can withstand a maximum tension of 200 N?</p>",
+              "options": [
+                {
+                  "label": "A",
+                  "id": 25426,
+                  "text": "37 ms^−1",
+                  "is_correct": false
+                },
+                {
+                  "label": "B",
+                  "id": 25424,
+                  "text": "35 ms^−1",
+                  "is_correct": true
+                },
+                {
+                  "label": "C",
+                  "id": 25425,
+                  "text": "33 ms^−1",
+                  "is_correct": false
+                },
+                {
+                  "label": "D",
+                  "id": 25427,
+                  "text": "38 ms^−1",
+                  "is_correct": false
+                }
+              ],
+              "correct_option_ids": [
+                25424
+              ],
+              "correct_option_labels": [
+                "B"
+              ],
+              "correct_option_texts": [
+                "35 ms^−1"
+              ],
+              "explanation": "Given that T_max = 200 N\n$\\frac{m v^{2}}{r}=T_{\\max }$\n$v_{\\max }=\\sqrt{\\frac{T_{\\max } \\times r}{m}}$\n$=\\sqrt{\\frac{200 \\times 1.5}{0.25}}$\n= 34.6 m s^-1\n= 35 m s^-1"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "testPaperID": 551,
+      "testPaperName": "Laws of Motion Test 05",
+      "is_paid": true,
+      "category_full_name": "CBSE > Class 11 > Physics > Laws of Motion",
+      "noOfQuestions": 15,
+      "has_answers": true,
+      "sections": [
+        {
+          "sectionName": "General",
+          "sectionID": null,
+          "questions": [
+            {
+              "questionID": 17557,
+              "question": "A stone of mass 0.25 kg tied to the end of a string is whirled round in a circle of radius 1.5 m with a speed of 40 rev./min in a horizontal plane. The speed is then increased beyond the maximum permissible value, and the string breaks suddenly, which of the following correctly describes the trajectory of the stone after the string breaks.",
+              "question_raw": "<p>A stone of mass 0.25 kg tied to the end of a string is whirled round in a circle of radius 1.5 m with a speed of 40 rev./min in a horizontal plane. The speed is then increased beyond the maximum permissible value, and the string breaks suddenly, which of the following correctly describes the trajectory of the stone after the string breaks.</p>",
+              "options": [
+                {
+                  "label": "A",
+                  "id": 25430,
+                  "text": "the stone moves radially inwards",
+                  "is_correct": false
+                },
+                {
+                  "label": "B",
+                  "id": 25431,
+                  "text": "the stone flies off at an angle with the tangent whose magnitude depends on the speed of the particle",
+                  "is_correct": false
+                },
+                {
+                  "label": "C",
+                  "id": 25428,
+                  "text": "the stone flies off tangentially from the instant the string breaks",
+                  "is_correct": true
+                },
+                {
+                  "label": "D",
+                  "id": 25429,
+                  "text": "the stone moves radially outwards",
+                  "is_correct": false
+                }
+              ],
+              "correct_option_ids": [
+                25428
+              ],
+              "correct_option_labels": [
+                "C"
+              ],
+              "correct_option_texts": [
+                "the stone flies off tangentially from the instant the string breaks"
+              ],
+              "explanation": "it is because the velocity at any point is directed along the tangent at that point."
+            },
+            {
+              "questionID": 17558,
+              "question": "The figure shows a man standing stationary with respect to a horizontal conveyor belt that is accelerating with 1 ms^−2. What is the net force on the man? Mass of the man = 65 kg",
+              "question_raw": "<p>The figure shows a man standing stationary with respect to a horizontal conveyor belt that is accelerating with 1 ms<sup>&minus;2</sup>. What is the net force on the man? Mass of &nbsp;the man = 65 kg<br />\n<img src=\"https://media-mycbseguide.s3.amazonaws.com/images/testpaper/1.02.11.05.62.Ques.JPG\" style=\"width: 150px; height: 69px;\" /></p>",
+              "options": [
+                {
+                  "label": "A",
+                  "id": 25435,
+                  "text": "70 N",
+                  "is_correct": false
+                },
+                {
+                  "label": "B",
+                  "id": 25433,
+                  "text": "55 N",
+                  "is_correct": false
+                },
+                {
+                  "label": "C",
+                  "id": 25434,
+                  "text": "60 N",
+                  "is_correct": false
+                },
+                {
+                  "label": "D",
+                  "id": 25432,
+                  "text": "65 N",
+                  "is_correct": true
+                }
+              ],
+              "correct_option_ids": [
+                25432
+              ],
+              "correct_option_labels": [
+                "D"
+              ],
+              "correct_option_texts": [
+                "65 N"
+              ],
+              "explanation": "Net force on the man = ma = 65 $\\times$ 1 = 65 N"
+            },
+            {
+              "questionID": 17559,
+              "question": "The figure shows a man standing stationary with respect to a horizontal conveyor belt that is accelerating with 1 ms^−2. If the coefficient of static friction between the man’s shoes and the belt is 0.2, up to what acceleration of the belt can the man continue to be stationary relative to the belt? (g = 10 ms^-2)",
+              "question_raw": "<p>The figure shows a man standing stationary with respect to a horizontal conveyor belt that is accelerating with 1 ms<sup>&minus;2</sup>. If the coefficient of static friction between the man&rsquo;s shoes and the belt is 0.2, up to what acceleration of the belt can the man continue to be stationary relative to the belt?&nbsp;(g = 10 ms<sup>-2</sup>)<br />\r\n<img src=\"https://media-mycbseguide.s3.amazonaws.com/images/testpaper/1.02.11.05.63.Ques.JPG\" style=\"width: 150px; height: 71px;\" /></p>",
+              "options": [
+                {
+                  "label": "A",
+                  "id": 25436,
+                  "text": "2 ms^−2",
+                  "is_correct": true
+                },
+                {
+                  "label": "B",
+                  "id": 25438,
+                  "text": "2.8 ms^−2",
+                  "is_correct": false
+                },
+                {
+                  "label": "C",
+                  "id": 25437,
+                  "text": "2.5 ms^−2",
+                  "is_correct": false
+                },
+                {
+                  "label": "D",
+                  "id": 25439,
+                  "text": "3.1 ms^−2",
+                  "is_correct": false
+                }
+              ],
+              "correct_option_ids": [
+                25436
+              ],
+              "correct_option_labels": [
+                "A"
+              ],
+              "correct_option_texts": [
+                "2 ms^−2"
+              ],
+              "explanation": "For the maximum acceleration of the belt (for which man continue to be stationary relative to the belt) force by the belt is balanced by maximum static friction\nF = f\nma = $\\mu$R, here $\\mu$ is coefficient of static friction\nma = $\\mu$mg\nhere R = mg\na = $\\mu$g = 0.2 $\\times$ 10 = 2ms^−2"
+            },
+            {
+              "questionID": 17560,
+              "question": "A stone of mass m tied to the end of a string revolves in a vertical circle of radius R. if T_1 and v_1 denote the tension and speed at the lowest point. T_2 and v_2 denote corresponding values at the highest point. The net forces at the lowest and highest points of the circle directed vertically downwards at the Lowest Point and Highest Point are",
+              "question_raw": "<p>A stone of mass m tied to the end of a string revolves in a vertical circle of radius R. if T<sub>1</sub> and v<sub>1</sub> denote the tension and speed at the lowest point. T<sub>2&nbsp;</sub>and v<sub>2</sub> denote corresponding values at the highest point. The net forces at the lowest and highest points of the circle directed vertically downwards at the Lowest Point and Highest Point are</p>",
+              "options": [
+                {
+                  "label": "A",
+                  "id": 25440,
+                  "text": "T_1 − mg, mg + T_2",
+                  "is_correct": true
+                },
+                {
+                  "label": "B",
+                  "id": 25441,
+                  "text": "mg + T_1, mg - T_2",
+                  "is_correct": false
+                },
+                {
+                  "label": "C",
+                  "id": 25442,
+                  "text": "mg - T_1 -( $m\\frac{v_1^2} {R}$), mg + T_2 +( $m\\frac{v_1^2} {R}$)",
+                  "is_correct": false
+                },
+                {
+                  "label": "D",
+                  "id": 25443,
+                  "text": "mg + T_1 - ($m\\frac{{v_1^2}}{R}$), mg - T_2 + ($m\\frac{{v_1^2}}{R}$)",
+                  "is_correct": false
+                }
+              ],
+              "correct_option_ids": [
+                25440
+              ],
+              "correct_option_labels": [
+                "A"
+              ],
+              "correct_option_texts": [
+                "T_1 − mg, mg + T_2"
+              ],
+              "explanation": "At the lowest point \n${F_{net}} = {T_1} - mg = \\frac{{m{v_1}^2} }{ R}$ \nat the highest point \n${F_{net}} = {T_2} + mg = \\frac{{m{v_2}^2}}{ R}$"
+            },
+            {
+              "questionID": 17561,
+              "question": "A helicopter of mass 1000 kg rises with a vertical acceleration of 15 ms^-2. The crew and the passengers weigh 300 kg. Give the magnitude and direction of the force on the floor by the crew and passengers. (g = 10ms^-2)",
+              "question_raw": "<p>A helicopter of mass 1000 kg rises with a vertical acceleration of 15 ms<sup>-2</sup>. The crew and the passengers weigh 300 kg. Give the magnitude and direction of the force on the floor by the crew and passengers. (g = 10ms<sup>-2</sup>)</p>",
+              "options": [
+                {
+                  "label": "A",
+                  "id": 25444,
+                  "text": "7500 N vertically downwards",
+                  "is_correct": true
+                },
+                {
+                  "label": "B",
+                  "id": 25447,
+                  "text": "1500 N vertically downwards",
+                  "is_correct": false
+                },
+                {
+                  "label": "C",
+                  "id": 25446,
+                  "text": "4500 N upward",
+                  "is_correct": false
+                },
+                {
+                  "label": "D",
+                  "id": 25445,
+                  "text": "3000 N upward",
+                  "is_correct": false
+                }
+              ],
+              "correct_option_ids": [
+                25444
+              ],
+              "correct_option_labels": [
+                "A"
+              ],
+              "correct_option_texts": [
+                "7500 N vertically downwards"
+              ],
+              "explanation": "m = 300Kg\na = 15ms^−2\nReaction on the floor by the system\nR = m(g + a)\n= 300(10 + 15)\n= 7500 N\nThe helicopter is accelerating vertically upward, therefore reaction force will also be directed upward. Hence according to newton's third law of motion force on the floor by the crew and passengers is 7500N and directed downward."
+            },
+            {
+              "questionID": 17562,
+              "question": "A helicopter of mass 1000 kg rises with a vertical acceleration of 15 ms^-2. The crew and the passengers weigh 300 kg. Give the magnitude and direction of the action of the rotor of the helicopter on the surrounding air.",
+              "question_raw": "<p>A helicopter of mass 1000 kg rises with a vertical acceleration of 15 ms<sup>-2</sup>. The crew and the passengers weigh 300 kg. Give the magnitude and direction of the action of the rotor of the helicopter on the surrounding air.</p>",
+              "options": [
+                {
+                  "label": "A",
+                  "id": 25449,
+                  "text": "3.50 $ \\times $ 10^4 N downwards",
+                  "is_correct": false
+                },
+                {
+                  "label": "B",
+                  "id": 25448,
+                  "text": "3.25 $ \\times $ 10^4 N downwards",
+                  "is_correct": true
+                },
+                {
+                  "label": "C",
+                  "id": 25450,
+                  "text": "3.70 $ \\times $ 10^4 N upwards",
+                  "is_correct": false
+                },
+                {
+                  "label": "D",
+                  "id": 25451,
+                  "text": "3.95 $ \\times $ 10^4 N upwards",
+                  "is_correct": false
+                }
+              ],
+              "correct_option_ids": [
+                25448
+              ],
+              "correct_option_labels": [
+                "B"
+              ],
+              "correct_option_texts": [
+                "3.25 $ \\times $ 10^4 N downwards"
+              ],
+              "explanation": "The reaction of the rotor on the surrounding air will be due to the mass of the helicopter as well as the passengers.\nLet, the mass of helicopter, M = 1000 kg\nMass of crew and passengers, m = 300 kg\nacceleration in upward direction a = 15 m s^-2\nAction of the rotor of the helicopter on the surrounding air is\n= (M + m)(g + a)\n= (1000 + 300)(10 + 15)\n= 32500N downward direction\nThus, the reaction force of the rotor on the surrounding air will be 32500 N"
+            },
+            {
+              "questionID": 17563,
+              "question": "A helicopter of mass 1000 kg rises with a vertical acceleration of 15 ms^-2. The crew and the passengers weigh 300 kg. Give the magnitude and direction of the force on the helicopter due to the surrounding air.",
+              "question_raw": "<p>A helicopter of mass 1000 kg rises with a vertical acceleration of 15 ms<sup>-2</sup>. The crew and the passengers weigh 300 kg. Give the magnitude and direction of the force on the helicopter due to the surrounding air.</p>",
+              "options": [
+                {
+                  "label": "A",
+                  "id": 25453,
+                  "text": "3.50 $ \\times $ 10^4 N downwards",
+                  "is_correct": false
+                },
+                {
+                  "label": "B",
+                  "id": 25452,
+                  "text": "3.25 $ \\times $ 10^4 N upwards",
+                  "is_correct": true
+                },
+                {
+                  "label": "C",
+                  "id": 25454,
+                  "text": "3.70 $ \\times $ 10^4 N upwards",
+                  "is_correct": false
+                },
+                {
+                  "label": "D",
+                  "id": 25455,
+                  "text": "3.95 $ \\times $ 10^4 N upwards",
+                  "is_correct": false
+                }
+              ],
+              "correct_option_ids": [
+                25452
+              ],
+              "correct_option_labels": [
+                "B"
+              ],
+              "correct_option_texts": [
+                "3.25 $ \\times $ 10^4 N upwards"
+              ],
+              "explanation": "Force on the helicopter due to the surrounding air is equal and opposite to the action of the rotor of the helicopter on the surrounding air.\nR′−m_tg = m_ta\n= m_t(g + a)\n= 1300 $\\times$ (10 + 15) = 32500N\nTherefore Force on the surrounding air is = 32500 N in an upward direction."
+            },
+            {
+              "questionID": 17564,
+              "question": "A stream of water flowing horizontally with a speed of 15 ms^−1 gushes out of a tube of cross-sectional area 10^−2 m^2 and hits a vertical wall nearby. What is the force exerted on the wall by the impact of water, assuming it does not rebound?",
+              "question_raw": "<p>A stream of water flowing horizontally with a speed of 15 ms<sup>&minus;1</sup> gushes out of a tube of cross-sectional area 10<sup>&minus;2</sup> m<sup>2</sup>&nbsp;and hits a vertical wall nearby. What is the force exerted on the wall by the impact of water, assuming it does not rebound?</p>",
+              "options": [
+                {
+                  "label": "A",
+                  "id": 25459,
+                  "text": "2.75 $ \\times $ 10^3 N",
+                  "is_correct": false
+                },
+                {
+                  "label": "B",
+                  "id": 25458,
+                  "text": "2.55 $ \\times $ 10^3 N",
+                  "is_correct": false
+                },
+                {
+                  "label": "C",
+                  "id": 25457,
+                  "text": "2.45 $ \\times $ 10^3 N",
+                  "is_correct": false
+                },
+                {
+                  "label": "D",
+                  "id": 25456,
+                  "text": "2.25 $ \\times $ 10^3 N",
+                  "is_correct": true
+                }
+              ],
+              "correct_option_ids": [
+                25456
+              ],
+              "correct_option_labels": [
+                "D"
+              ],
+              "correct_option_texts": [
+                "2.25 $ \\times $ 10^3 N"
+              ],
+              "explanation": "Here, u = 15ms^−1, v = 0, t = 1 s, A = 10^−2m^−2\nm = mass of water gushed out per second\n$=\\frac{\\text {Volumexdensity}}{\\text {Time}}$\n$=\\frac{\\text {Area} \\times \\text {distance} \\times \\text {density}}{\\text {Time}}$\n=Area $\\times$ velocity $\\times$ density\n= Au$\\rho$\n= 10^−2 $\\times$ 15 $\\times$ 1000 = 150kg\nForce exerted by the wall on water,\nF = ma = $m\\frac{v-u}{t}=150\\times \\frac{0-15}{1}$ = -2250 N\nSo the force exerted on the wall by the impact of water,\nF_1 = -F = 2250 N"
+            },
+            {
+              "questionID": 17565,
+              "question": "An aircraft executes a horizontal loop at a speed of 720 km/h with its wings banked at 15^o. What is the radius of the loop?",
+              "question_raw": "<p>An aircraft executes a horizontal loop at a speed of 720 km/h with its wings banked at 15<sup>o</sup>. What is the radius of the loop?</p>",
+              "options": [
+                {
+                  "label": "A",
+                  "id": 25462,
+                  "text": "11 km",
+                  "is_correct": false
+                },
+                {
+                  "label": "B",
+                  "id": 25460,
+                  "text": "15.24 km",
+                  "is_correct": true
+                },
+                {
+                  "label": "C",
+                  "id": 25461,
+                  "text": "14 km",
+                  "is_correct": false
+                },
+                {
+                  "label": "D",
+                  "id": 25463,
+                  "text": "17.24 km",
+                  "is_correct": false
+                }
+              ],
+              "correct_option_ids": [
+                25460
+              ],
+              "correct_option_labels": [
+                "B"
+              ],
+              "correct_option_texts": [
+                "15.24 km"
+              ],
+              "explanation": "Here, we have \n$\\theta$ = 15^o, g = 9.8ms^−2, v = 720kmh^−1 = 200ms^−1\nNow we have, $\\tan \\theta=\\frac{v^{2}}{r g}$\n $\\therefore$$\\,\\,r=\\frac{200\\times 200}{9.8\\times tan15^o}$ \nradius of loop is ,r = 15.24km"
+            },
+            {
+              "questionID": 17566,
+              "question": "A train runs along an unbanked circular track of radius 30 m at a speed of 54 km/h. The mass of the train is 106 kg. What is the angle of banking required to prevent wearing out of the rail? (g =10m/s^2)",
+              "question_raw": "<p>A train runs along an unbanked circular track of radius 30 m at a speed of 54 km/h. The mass of the train is 106 kg. What is the angle of banking required to prevent wearing out of the rail? (g =10m/s<sup>2</sup>)</p>",
+              "options": [
+                {
+                  "label": "A",
+                  "id": 25464,
+                  "text": "37^o",
+                  "is_correct": true
+                },
+                {
+                  "label": "B",
+                  "id": 25467,
+                  "text": "27^o",
+                  "is_correct": false
+                },
+                {
+                  "label": "C",
+                  "id": 25466,
+                  "text": "42^o",
+                  "is_correct": false
+                },
+                {
+                  "label": "D",
+                  "id": 25465,
+                  "text": "32^o",
+                  "is_correct": false
+                }
+              ],
+              "correct_option_ids": [
+                25464
+              ],
+              "correct_option_labels": [
+                "A"
+              ],
+              "correct_option_texts": [
+                "37^o"
+              ],
+              "explanation": "Here, we have:\nr = 30m and v = 54 km/h = 15 m/s\nLet angle of banking = $\\theta$\nFor safe turn $\\tan \\theta = {{{v^2}} \\over {rg}}{\\mkern 1mu} {\\mkern 1mu} $\n$\\tan \\theta = {{{v^2}} \\over {rg}} $ = $ {{{{(15)}^2}} \\over {30 \\times 10}} = {{15 \\times 15} \\over {30 \\times 10}} = {3 \\over 4} $\nHence, angle of banking is:-\n$\\theta $ = $ {\\tan ^{ - 1}}\\left( {{3 \\over 4}} \\right) $ = 37^o"
+            },
+            {
+              "questionID": 17567,
+              "question": "You may have seen in a circus a motorcyclist driving in vertical loops inside a death well’ (a hollow spherical chamber with holes, so the spectators can watch from outside). What is the minimum speed required at the uppermost position to perform a vertical loop if the radius of the chamber is 25 m?",
+              "question_raw": "<p>You may have seen in a circus a motorcyclist driving in vertical loops inside a death well&rsquo; (a hollow spherical chamber with holes, so the spectators can watch from outside). What is the minimum speed required at the uppermost position to perform a vertical loop if the radius of the chamber is 25 m?</p>",
+              "options": [
+                {
+                  "label": "A",
+                  "id": 25469,
+                  "text": "14.5 m/s",
+                  "is_correct": false
+                },
+                {
+                  "label": "B",
+                  "id": 25471,
+                  "text": "18 m/s",
+                  "is_correct": false
+                },
+                {
+                  "label": "C",
+                  "id": 25468,
+                  "text": "15.65 m/s",
+                  "is_correct": true
+                },
+                {
+                  "label": "D",
+                  "id": 25470,
+                  "text": "26 m/s",
+                  "is_correct": false
+                }
+              ],
+              "correct_option_ids": [
+                25468
+              ],
+              "correct_option_labels": [
+                "C"
+              ],
+              "correct_option_texts": [
+                "15.65 m/s"
+              ],
+              "explanation": "As the centripetal force is equal to weight (mg) and normal reaction (R), we have\n$\\frac{mv^2}{r}$ = R + mg\nAt a minimum speed, R= 0, Therefore, we have\n$\\frac{mv^2}{r}$ = mg\nv = $\\sqrt{rg}=\\sqrt{25\\times 9.8}$ = 15.65ms^−1"
+            },
+            {
+              "questionID": 17568,
+              "question": "A monkey of mass 40 kg climbs on a rope which can stand a maximum tension of 600 N. What is the tension in the rope if the monkey climbs up with an acceleration of 6 ms^−2?",
+              "question_raw": "<p>A monkey of mass 40 kg climbs on a rope which can stand a maximum tension of 600 N. What is the tension in the rope if the monkey climbs up with an acceleration of 6 ms<sup>&minus;2</sup>?</p>",
+              "options": [
+                {
+                  "label": "A",
+                  "id": 25473,
+                  "text": "600 N",
+                  "is_correct": false
+                },
+                {
+                  "label": "B",
+                  "id": 25472,
+                  "text": "640 N",
+                  "is_correct": true
+                },
+                {
+                  "label": "C",
+                  "id": 25475,
+                  "text": "740 N",
+                  "is_correct": false
+                },
+                {
+                  "label": "D",
+                  "id": 25474,
+                  "text": "760 N",
+                  "is_correct": false
+                }
+              ],
+              "correct_option_ids": [
+                25472
+              ],
+              "correct_option_labels": [
+                "B"
+              ],
+              "correct_option_texts": [
+                "640 N"
+              ],
+              "explanation": "When the monkey climbs up with an acceleration of 6 ms^-2, we have\nT − mg = ma\nT = mg + ma\nT = m(g + a) = 40(10 + 6) = 640N"
+            },
+            {
+              "questionID": 17569,
+              "question": "A monkey of mass 40 kg climbs on a rope which can stand a maximum tension of 600 N. What is the tension in the rope if the monkey climbs down with an acceleration of 4 ms^-2?",
+              "question_raw": "<p>A monkey of mass 40 kg climbs on a rope which can stand a maximum tension of 600 N. What is the tension in the rope if the monkey climbs down with an acceleration of 4 ms<sup>-2</sup>?</p>",
+              "options": [
+                {
+                  "label": "A",
+                  "id": 25479,
+                  "text": "300 N",
+                  "is_correct": false
+                },
+                {
+                  "label": "B",
+                  "id": 25477,
+                  "text": "200 N",
+                  "is_correct": false
+                },
+                {
+                  "label": "C",
+                  "id": 25478,
+                  "text": "280 N",
+                  "is_correct": false
+                },
+                {
+                  "label": "D",
+                  "id": 25476,
+                  "text": "240 N",
+                  "is_correct": true
+                }
+              ],
+              "correct_option_ids": [
+                25476
+              ],
+              "correct_option_labels": [
+                "D"
+              ],
+              "correct_option_texts": [
+                "240 N"
+              ],
+              "explanation": "When the monkey climbs down with an acceleration of 4 ms^-2, we have\nmg − T = ma\ntension in rope is given by , T = m(g − a) = 40(10 − 4) = 240N"
+            },
+            {
+              "questionID": 17570,
+              "question": "A monkey of mass 40 kg climbs on a rope which can stand a maximum tension of 600 N. What is the tension in the rope if the monkey climbs up with a uniform speed of 5 ms^-1?",
+              "question_raw": "<p>A monkey of mass 40 kg climbs on a rope which can stand a maximum tension of 600 N. What is the tension in the rope if the monkey climbs up with a uniform speed of 5 ms<sup>-1</sup>?</p>",
+              "options": [
+                {
+                  "label": "A",
+                  "id": 25480,
+                  "text": "400 N",
+                  "is_correct": true
+                },
+                {
+                  "label": "B",
+                  "id": 25481,
+                  "text": "206 N",
+                  "is_correct": false
+                },
+                {
+                  "label": "C",
+                  "id": 25483,
+                  "text": "275 N",
+                  "is_correct": false
+                },
+                {
+                  "label": "D",
+                  "id": 25482,
+                  "text": "315 N",
+                  "is_correct": false
+                }
+              ],
+              "correct_option_ids": [
+                25480
+              ],
+              "correct_option_labels": [
+                "A"
+              ],
+              "correct_option_texts": [
+                "400 N"
+              ],
+              "explanation": "When monkey climbs with the uniform speed, the acceleration is zero and we have:\nT = mg = 40 $\\times$ 10 = 400N"
+            },
+            {
+              "questionID": 17571,
+              "question": "A monkey of mass 40 kg climbs on a rope which can stand a maximum tension of 600 N. What is the tension in the rope if the monkey falls down the rope nearly freely under gravity?",
+              "question_raw": "<p>A monkey of mass 40 kg climbs on a rope which can stand a maximum tension of 600 N. What is the tension in the rope if the monkey falls down the rope nearly freely under gravity?</p>",
+              "options": [
+                {
+                  "label": "A",
+                  "id": 25484,
+                  "text": "0 N",
+                  "is_correct": true
+                },
+                {
+                  "label": "B",
+                  "id": 25485,
+                  "text": "400 N",
+                  "is_correct": false
+                },
+                {
+                  "label": "C",
+                  "id": 25486,
+                  "text": "600 N",
+                  "is_correct": false
+                },
+                {
+                  "label": "D",
+                  "id": 25487,
+                  "text": "200 N",
+                  "is_correct": false
+                }
+              ],
+              "correct_option_ids": [
+                25484
+              ],
+              "correct_option_labels": [
+                "A"
+              ],
+              "correct_option_texts": [
+                "0 N"
+              ],
+              "explanation": "When the monkey fall down down the rope nearly free under the gravity, then a = g and we have\nT = m(g − a) = m(g − g) = 0N"
+            }
+          ]
+        }
+      ]
+    }
+  ]
+}

@@ -1,0 +1,3162 @@
+{
+  "id": 1348,
+  "name": "Gravitation",
+  "full_name": "CBSE > Class 11 > Physics > Gravitation",
+  "tests": [
+    {
+      "testPaperID": 562,
+      "testPaperName": "Gravitation Test 01",
+      "is_paid": false,
+      "category_full_name": "CBSE > Class 11 > Physics > Gravitation",
+      "noOfQuestions": 15,
+      "has_answers": true,
+      "sections": [
+        {
+          "sectionName": "General",
+          "sectionID": null,
+          "questions": [
+            {
+              "questionID": 17721,
+              "question": "All planets move in elliptical orbits with the Sun situated at one of the foci of the ellipse. This law was given by",
+              "question_raw": "<p>All planets move in elliptical orbits with the Sun situated at one of the foci of the ellipse. This law was given by</p>\r\n",
+              "options": [
+                {
+                  "label": "A",
+                  "id": 26087,
+                  "text": "Maxwell",
+                  "is_correct": false
+                },
+                {
+                  "label": "B",
+                  "id": 26084,
+                  "text": "Newton",
+                  "is_correct": false
+                },
+                {
+                  "label": "C",
+                  "id": 26086,
+                  "text": "Einstein",
+                  "is_correct": false
+                },
+                {
+                  "label": "D",
+                  "id": 26085,
+                  "text": "Kepler",
+                  "is_correct": true
+                }
+              ],
+              "correct_option_ids": [
+                26085
+              ],
+              "correct_option_labels": [
+                "D"
+              ],
+              "correct_option_texts": [
+                "Kepler"
+              ],
+              "explanation": "In the 17th century, Johannes Kepler discovered that the orbits along which the planets travel around the Sun are ellipses with the Sun at one focus, and described this in his first law of planetary motion."
+            },
+            {
+              "questionID": 17722,
+              "question": "According to Kepler’s Law of areas:",
+              "question_raw": "<p>According to Kepler&rsquo;s Law of areas:</p>\r\n",
+              "options": [
+                {
+                  "label": "A",
+                  "id": 26090,
+                  "text": "Only the line that joins earth to the sun sweeps equal areas in equal intervals of time",
+                  "is_correct": false
+                },
+                {
+                  "label": "B",
+                  "id": 26089,
+                  "text": "The line that joins any planet to the sun sweeps equal areas in equal intervals of time",
+                  "is_correct": true
+                },
+                {
+                  "label": "C",
+                  "id": 26091,
+                  "text": "Only the line that joins mars to the earth sweeps equal areas in equal intervals of time",
+                  "is_correct": false
+                },
+                {
+                  "label": "D",
+                  "id": 26088,
+                  "text": "The line that joins any planet to the earth sweeps equal areas in equal intervals of time",
+                  "is_correct": false
+                }
+              ],
+              "correct_option_ids": [
+                26089
+              ],
+              "correct_option_labels": [
+                "B"
+              ],
+              "correct_option_texts": [
+                "The line that joins any planet to the sun sweeps equal areas in equal intervals of time"
+              ],
+              "explanation": "Kepler law of areas describes the speed of a planet travelling in an elliptical orbit around the sun. A planet’s orbital speed changes, depending on how far it is from the Sun. The closer a planet is to the Sun, the stronger the Sun’s gravitational pull on it, and the faster the planet moves. The farther it is from the Sun, the weaker the Sun’s gravitational pull, and the slower it moves in its orbit. So, the statement of Kepler's law of area is \"The line joining the sun to the planet sweeps out equal areas in equal interval of time\". i.e. areal velocity is constant."
+            },
+            {
+              "questionID": 17723,
+              "question": "According to Kepler’s Law of periods, the ________ of the time period of revolution of a planet is proportional to the cube of the _________ of the ellipse traced out by the planet.",
+              "question_raw": "<p>According to Kepler&rsquo;s Law of periods, the&nbsp;________&nbsp;of the time period of revolution of a planet is proportional to the cube of the _________ of the ellipse traced out by the planet.</p>\r\n",
+              "options": [
+                {
+                  "label": "A",
+                  "id": 26094,
+                  "text": "cube, semi-major axis",
+                  "is_correct": false
+                },
+                {
+                  "label": "B",
+                  "id": 26092,
+                  "text": "square, semi-minor axis",
+                  "is_correct": false
+                },
+                {
+                  "label": "C",
+                  "id": 26095,
+                  "text": "square, semi-major axis",
+                  "is_correct": true
+                },
+                {
+                  "label": "D",
+                  "id": 26093,
+                  "text": "cube, semi-minor axis",
+                  "is_correct": false
+                }
+              ],
+              "correct_option_ids": [
+                26095
+              ],
+              "correct_option_labels": [
+                "C"
+              ],
+              "correct_option_texts": [
+                "square, semi-major axis"
+              ],
+              "explanation": "Kepler's 3^rd Law: T^2 = a^3. Kepler's 3rd law is a mathematical formula. It means that if you know the period of a planet's orbit (T = how long it takes the planet to go around the Sun), then you can determine that planet's distance from the Sun (a is the length of the semimajor axis of the planet's orbit)"
+            },
+            {
+              "questionID": 17724,
+              "question": "The area $\\Delta $A swept out by a planet of mass m in time interval $\\Delta $t is related to the angular momentum by:",
+              "question_raw": "<p>The area <span class=\"math-tex\">{tex}\\Delta {/tex}</span>A swept out by a planet of mass m in time interval <span class=\"math-tex\">{tex}\\Delta {/tex}</span>t is related to the angular momentum by:</p>",
+              "options": [
+                {
+                  "label": "A",
+                  "id": 26098,
+                  "text": "$\\Delta {{A}}/\\Delta {\\rm{t}}$ = $L / (2 m)$",
+                  "is_correct": true
+                },
+                {
+                  "label": "B",
+                  "id": 26099,
+                  "text": "$\\Delta {\\bf{A}}/\\Delta {\\rm{t}}$ = $GL / (2 m)$",
+                  "is_correct": false
+                },
+                {
+                  "label": "C",
+                  "id": 26097,
+                  "text": "$\\Delta {{A}}/\\Delta {\\rm{t}}$ = $2L / m$",
+                  "is_correct": false
+                },
+                {
+                  "label": "D",
+                  "id": 26096,
+                  "text": "$\\Delta {{A}}/\\Delta {\\rm{t}}$ =$ gL / (2 m)$",
+                  "is_correct": false
+                }
+              ],
+              "correct_option_ids": [
+                26098
+              ],
+              "correct_option_labels": [
+                "A"
+              ],
+              "correct_option_texts": [
+                "$\\Delta {{A}}/\\Delta {\\rm{t}}$ = $L / (2 m)$"
+              ],
+              "explanation": "The law of areas can be understood as the consequence of conservation of angular momentum which is valid for any central force such that the force on the planet is along the vector joining the sun and the planet. Let the sun be at the origin and let the position and momentum of the planet be denoted by r and p respectively. Then the area swept out by the planet of mass m in the time interval Δt is given by ΔA = $\\frac{1}{2}$ (r $\\times$ vΔt).\nHence $\\frac{\\Delta{A}}{\\Delta{t}}$ = $\\frac{1}{2}$(r $\\times$ p)/m = $\\frac{L}{2m}$\nwhere v is the velocity, L is the angular momentum equal to (r $\\times$ p)."
+            },
+            {
+              "questionID": 17725,
+              "question": "Newton’s law of universal gravitation states that the gravitational force of attraction between any two particles of masses m_1 and m_2 separated by a distance r has the magnitude equal to:",
+              "question_raw": "<p>Newton&rsquo;s law of universal gravitation states that the gravitational force of attraction between any two particles of masses m<sub>1</sub> and m<sub>2</sub> separated by a distance r has the magnitude equal to:</p>",
+              "options": [
+                {
+                  "label": "A",
+                  "id": 26100,
+                  "text": "$\\left| {\\overrightarrow {\\rm{F}} } \\right| =\\mathrm{G} \\frac{\\mathrm{m}_1}{\\mathrm{r}^2}$",
+                  "is_correct": false
+                },
+                {
+                  "label": "B",
+                  "id": 26102,
+                  "text": "$\\left| {\\overrightarrow {\\rm{F}} } \\right| =\\mathrm{G} \\frac{\\mathrm{m}_2}{\\mathrm{r}^2}$",
+                  "is_correct": false
+                },
+                {
+                  "label": "C",
+                  "id": 26101,
+                  "text": "$\\left| {\\overrightarrow {\\rm{F}} } \\right| =\\mathrm{G} \\frac{\\mathrm{m}_1 \\mathrm{~m}_2}{\\mathrm{r}^2}$",
+                  "is_correct": true
+                },
+                {
+                  "label": "D",
+                  "id": 26103,
+                  "text": "$\\left| {\\overrightarrow {\\rm{F}} } \\right| = \\frac{\\mathrm{m}_1 \\mathrm{~m}_2}{\\mathrm{r}^2}$",
+                  "is_correct": false
+                }
+              ],
+              "correct_option_ids": [
+                26101
+              ],
+              "correct_option_labels": [
+                "C"
+              ],
+              "correct_option_texts": [
+                "$\\left| {\\overrightarrow {\\rm{F}} } \\right| =\\mathrm{G} \\frac{\\mathrm{m}_1 \\mathrm{~m}_2}{\\mathrm{r}^2}$"
+              ],
+              "explanation": "According to Newton's law of universal gravitation, the force of attraction between two objects is directly proportional to the product of two masses and inversely proportional to the square of the distance between them."
+            },
+            {
+              "questionID": 17726,
+              "question": "The direction of the universal gravitational force between particles of masses ${{\\rm{m}}_{\\rm{1}}}$ and ${{\\rm{m}}_{\\rm{2}}}$ is:",
+              "question_raw": "<p>The direction of the universal gravitational force between particles of masses <span class=\"math-tex\">{tex}{{\\rm{m}}_{\\rm{1}}}{/tex}</span> and <span class=\"math-tex\">{tex}{{\\rm{m}}_{\\rm{2}}}{/tex}</span>&nbsp;is:</p>",
+              "options": [
+                {
+                  "label": "A",
+                  "id": 26104,
+                  "text": "towards ${{\\text{m}}_{\\text{2}}}$ on ${{\\text{m}}_{\\text{1}}}$ and towards ${{\\rm{m}}_{\\rm{1}}}$ on ${{\\rm{m}}_{\\rm{2}}}$",
+                  "is_correct": true
+                },
+                {
+                  "label": "B",
+                  "id": 26105,
+                  "text": "towards ${{\\rm{m}}_{\\rm{2}}}$",
+                  "is_correct": false
+                },
+                {
+                  "label": "C",
+                  "id": 26107,
+                  "text": "towards the center of the earth",
+                  "is_correct": false
+                },
+                {
+                  "label": "D",
+                  "id": 26106,
+                  "text": "towards ${{\\rm{m}}_{\\rm{1}}}$",
+                  "is_correct": false
+                }
+              ],
+              "correct_option_ids": [
+                26104
+              ],
+              "correct_option_labels": [
+                "A"
+              ],
+              "correct_option_texts": [
+                "towards ${{\\text{m}}_{\\text{2}}}$ on ${{\\text{m}}_{\\text{1}}}$ and towards ${{\\rm{m}}_{\\rm{1}}}$ on ${{\\rm{m}}_{\\rm{2}}}$"
+              ],
+              "explanation": "Since the gravitational force is attractive in nature, one Force will be on m_1 which will be directed towards m_ 2. i.e., ${\\overrightarrow F _{12}} = G{{{m_1}{m_2}} \\over {{r_{21}}^2}}$ and other force will be on m_2 which will be directed towards m_ 1 i.e., ${\\overrightarrow F _{21}} = -G{{{m_1}{m_2}} \\over {{r_{12}}^2}}$\nClearly, It can be seen that ${\\overrightarrow F _{12}} = - {\\overrightarrow F _{21}}$."
+            },
+            {
+              "questionID": 17727,
+              "question": "A central force is always directed:",
+              "question_raw": "<p>A central force is always directed:</p>",
+              "options": [
+                {
+                  "label": "A",
+                  "id": 26111,
+                  "text": "at a varying angle to the position vector of the point of application of the force with respect to the fixed point",
+                  "is_correct": false
+                },
+                {
+                  "label": "B",
+                  "id": 26108,
+                  "text": "along the position vector of the point of application of the force with respect to the fixed point",
+                  "is_correct": true
+                },
+                {
+                  "label": "C",
+                  "id": 26110,
+                  "text": "at a fixed angle to the position vector of the point of application of the force with respect to the fixed point",
+                  "is_correct": false
+                },
+                {
+                  "label": "D",
+                  "id": 26109,
+                  "text": "perpendicular to the position vector of the point of application of the force with respect to the fixed point",
+                  "is_correct": false
+                }
+              ],
+              "correct_option_ids": [
+                26108
+              ],
+              "correct_option_labels": [
+                "B"
+              ],
+              "correct_option_texts": [
+                "along the position vector of the point of application of the force with respect to the fixed point"
+              ],
+              "explanation": "The motion of a particle under a central force F always remains in the plane defined by its initial position and velocity. This may be seen by symmetry. Since the position r, velocity v, and force F all lie in the same plane, there is never an acceleration perpendicular to that plane, because that would break the symmetry between \"above\" the plane and \"below\" the plane.\nTo demonstrate this mathematically, it suffices to show that the angular momentum of the particle is constant. This angular momentum L is defined by the equation\nL = r $\\times$ p = r $\\times$ mv\nas angular momentum is conserved, the torque vanishes as F is zero or along r\n$dL\\over dt$= $r \\times F$ = 0\ncentral forces always satisfy this condition. A central force is always directed towards the center."
+            },
+            {
+              "questionID": 17728,
+              "question": "The gravitational force on point mass m_1 due to point mass m_2, m_3 & m_4 is the____________________of gravitational forces exerted by m2m2, m3m3 and m4.",
+              "question_raw": "<p>The gravitational force on point mass m<sub>1</sub>&nbsp;due to point mass m<sub>2,</sub> m<sub>3</sub>&nbsp;&amp; m<sub>4</sub> is the____________________of gravitational forces exerted by&nbsp;m2m2,&nbsp;m3m3&nbsp;and&nbsp;m4.</p>",
+              "options": [
+                {
+                  "label": "A",
+                  "id": 26114,
+                  "text": "vector sum",
+                  "is_correct": true
+                },
+                {
+                  "label": "B",
+                  "id": 26112,
+                  "text": "difference",
+                  "is_correct": false
+                },
+                {
+                  "label": "C",
+                  "id": 26115,
+                  "text": "product",
+                  "is_correct": false
+                },
+                {
+                  "label": "D",
+                  "id": 26113,
+                  "text": "scalar sum",
+                  "is_correct": false
+                }
+              ],
+              "correct_option_ids": [
+                26114
+              ],
+              "correct_option_labels": [
+                "A"
+              ],
+              "correct_option_texts": [
+                "vector sum"
+              ],
+              "explanation": "According to properties of gravitational force, the force between the particles is independent of the presence or absence of other particles; so the principle of superposition is valid i.e. force on a particle due to a number of particles is the resultant of forces due to individual particles i.e., $\\overrightarrow {{F_1}} + \\overrightarrow {{F_2}} + \\overrightarrow {{F_3}} + .........$"
+            },
+            {
+              "questionID": 17729,
+              "question": "To find the resultant gravitational force acting on the particle m due to a number of masses we need to use the principle of",
+              "question_raw": "<p>To find the resultant gravitational force acting on the particle m due to a number of masses we need to use the principle of&nbsp;</p>",
+              "options": [
+                {
+                  "label": "A",
+                  "id": 26119,
+                  "text": "maximal action",
+                  "is_correct": false
+                },
+                {
+                  "label": "B",
+                  "id": 26116,
+                  "text": "superposition",
+                  "is_correct": true
+                },
+                {
+                  "label": "C",
+                  "id": 26118,
+                  "text": "no action",
+                  "is_correct": false
+                },
+                {
+                  "label": "D",
+                  "id": 26117,
+                  "text": "least action",
+                  "is_correct": false
+                }
+              ],
+              "correct_option_ids": [
+                26116
+              ],
+              "correct_option_labels": [
+                "B"
+              ],
+              "correct_option_texts": [
+                "superposition"
+              ],
+              "explanation": "According to properties of gravitational force, gravitational force between the particles is independent of the presence or absence of other particles; so the principle of superposition is valid i.e. force on a particle due to number of particles is the resultant of forces due to individual particles i.e.$\\overrightarrow {{F_1}} + \\overrightarrow {{F_2}} + \\overrightarrow {{F_3}} + .........$"
+            },
+            {
+              "questionID": 17730,
+              "question": "The force of attraction between a hollow spherical shell of uniform density and a point mass situated outside is just as if the entire mass of the shell is",
+              "question_raw": "<p>The force of attraction between a hollow spherical shell of uniform density and a point mass situated outside is just as if the entire mass of the shell is</p>",
+              "options": [
+                {
+                  "label": "A",
+                  "id": 26123,
+                  "text": "equally concentrated at four points on a square of the shell.",
+                  "is_correct": false
+                },
+                {
+                  "label": "B",
+                  "id": 26120,
+                  "text": "concentrated at the centre of the shell.",
+                  "is_correct": true
+                },
+                {
+                  "label": "C",
+                  "id": 26121,
+                  "text": "equally concentrated at opposite ends of the diameter of the sphere.",
+                  "is_correct": false
+                },
+                {
+                  "label": "D",
+                  "id": 26122,
+                  "text": "equally concentrated at three points on a triangle of the shell.",
+                  "is_correct": false
+                }
+              ],
+              "correct_option_ids": [
+                26120
+              ],
+              "correct_option_labels": [
+                "B"
+              ],
+              "correct_option_texts": [
+                "concentrated at the centre of the shell."
+              ],
+              "explanation": "According to Shell's theorem, If a particle of mass m is located outside a spherical shell of mass M at, for instance, point P, the shell attracts the particle as though the mass of the shell were concentrated at its centre. Thus, as far as the gravitational force acting on a particle outside the shell is concerned, a spherical shell acts no differently from the solid spherical distributions of mass."
+            },
+            {
+              "questionID": 17731,
+              "question": "The force of attraction due to a hollow spherical shell of uniform density, on a point mass situated inside it, is",
+              "question_raw": "<p>The force of attraction due to a hollow spherical shell of uniform density, on a point mass situated inside it, is</p>",
+              "options": [
+                {
+                  "label": "A",
+                  "id": 26124,
+                  "text": "negative",
+                  "is_correct": false
+                },
+                {
+                  "label": "B",
+                  "id": 26127,
+                  "text": "one",
+                  "is_correct": false
+                },
+                {
+                  "label": "C",
+                  "id": 26125,
+                  "text": "positive",
+                  "is_correct": false
+                },
+                {
+                  "label": "D",
+                  "id": 26126,
+                  "text": "zero",
+                  "is_correct": true
+                }
+              ],
+              "correct_option_ids": [
+                26126
+              ],
+              "correct_option_labels": [
+                "D"
+              ],
+              "correct_option_texts": [
+                "zero"
+              ],
+              "explanation": "The gravitational force acting by a spherically symmetric shell upon a point mass inside it, is the vector sum of gravitational forces acted by each part of the shell, and this vector sum is equal to zero. That is, a mass m within a spherically symmetric shell of mass M will feel no net force"
+            },
+            {
+              "questionID": 17732,
+              "question": "In Cavendish’s experiment:",
+              "question_raw": "<p>In Cavendish&rsquo;s experiment:</p>",
+              "options": [
+                {
+                  "label": "A",
+                  "id": 26131,
+                  "text": "net torque on bar AB having two small lead spheres due to gravitational forces is positive",
+                  "is_correct": false
+                },
+                {
+                  "label": "B",
+                  "id": 26128,
+                  "text": "torque on bar AB having two small lead spheres due to gravitational forces is balanced by the restoring torque of the wire",
+                  "is_correct": true
+                },
+                {
+                  "label": "C",
+                  "id": 26130,
+                  "text": "the net force on bar AB having two small lead spheres due to gravitational forces is negative",
+                  "is_correct": false
+                },
+                {
+                  "label": "D",
+                  "id": 26129,
+                  "text": "the net force on bar AB having two small lead spheres due to gravitational forces is positive",
+                  "is_correct": false
+                }
+              ],
+              "correct_option_ids": [
+                26128
+              ],
+              "correct_option_labels": [
+                "B"
+              ],
+              "correct_option_texts": [
+                "torque on bar AB having two small lead spheres due to gravitational forces is balanced by the restoring torque of the wire"
+              ],
+              "explanation": "Cavendish's apparatus for experimentally determining the value of G involved a light, rigid rod about 2-feet long. Two small lead spheres were attached to the ends of the rod and the rod was suspended by a thin wire. When the rod becomes twisted, the torsion of the wire begins to exert a torsional force that is proportional to the angle of rotation of the rod. The more twist of the wire, the more the system pushes backward to restore itself towards the original position."
+            },
+            {
+              "questionID": 17733,
+              "question": "The value of the gravitational constant G is",
+              "question_raw": "<p>The value of the gravitational constant G is</p>",
+              "options": [
+                {
+                  "label": "A",
+                  "id": 26133,
+                  "text": "G = 6.67$ \\times $${\\rm{1}}{0^{ - {\\rm{11}}}}$N m$^{\\rm{2}}$/kg$^{\\rm{2}}$",
+                  "is_correct": true
+                },
+                {
+                  "label": "B",
+                  "id": 26135,
+                  "text": "G = 6.67$ \\times $${\\rm{1}}{0^{ - {\\rm{11}}}}$ N m/kg$^{\\rm{2}}$",
+                  "is_correct": false
+                },
+                {
+                  "label": "C",
+                  "id": 26132,
+                  "text": "G = 6.67$ \\times $${\\rm{1}}{0^{ - {\\rm{11}}}}$ m$^{\\rm{2}}$/kg$^{\\rm{2}}$",
+                  "is_correct": false
+                },
+                {
+                  "label": "D",
+                  "id": 26134,
+                  "text": "G = 6.67$ \\times $${\\rm{1}}{0^{ - {\\rm{11}}}}$ N m$^{\\rm{2}}$/kg",
+                  "is_correct": false
+                }
+              ],
+              "correct_option_ids": [
+                26133
+              ],
+              "correct_option_labels": [
+                "A"
+              ],
+              "correct_option_texts": [
+                "G = 6.67$ \\times $${\\rm{1}}{0^{ - {\\rm{11}}}}$N m$^{\\rm{2}}$/kg$^{\\rm{2}}$"
+              ],
+              "explanation": "The value of G was experimentally determined by Lord Henry Cavendish using a torsion balance. Cavendish brought two large lead spheres near the smaller spheres attached to the rod. Since all masses attract, the large spheres exerted a gravitational force upon the smaller spheres and twisted the rod a measurable amount. Once the torsional force balanced the gravitational force, the rod and spheres came to rest and Cavendish was able to determine the gravitational force of attraction between the masses. Cavendish expressed his result in terms of the density of the Earth.\n$G = g{{R_{earth}^2} \\over {{M_{earth}}}} = {{3g} \\over {4\\pi {R_{earth}}{\\rho _{earth}}}}$\nAfter converting to SI units, Cavendish's value for the Earth's density, 5.448 g cm^−3, gives\nG = 6.74×10^−11 m^3 kg^–1 s^−2\nToday, the currently accepted value is 6.67259 x 10^-11 N m^2/kg^2."
+            },
+            {
+              "questionID": 17734,
+              "question": "The acceleration due to gravity at a height h in terms of mass of earth M_E, radius of the earth R_E and gravitational constant G is",
+              "question_raw": "<p>The acceleration due to gravity at a height h in terms of mass of earth M<sub>E</sub>, radius of the earth R<sub>E</sub> and <strong>gravitational </strong>constant G is</p>",
+              "options": [
+                {
+                  "label": "A",
+                  "id": 26138,
+                  "text": "$g(h)=\\frac{G M_E}{\\left(R_E+2 h\\right)^2}$",
+                  "is_correct": false
+                },
+                {
+                  "label": "B",
+                  "id": 26137,
+                  "text": "$g(h)=\\frac{M_E}{\\left(R_E+h\\right)^2}$",
+                  "is_correct": false
+                },
+                {
+                  "label": "C",
+                  "id": 26136,
+                  "text": "$g(h)=\\frac{G M_E}{\\left(R_E+h\\right)^2}$",
+                  "is_correct": true
+                },
+                {
+                  "label": "D",
+                  "id": 26139,
+                  "text": "$g(h)=\\frac{G m M_E}{\\left(R_E+h\\right)^2}$",
+                  "is_correct": false
+                }
+              ],
+              "correct_option_ids": [
+                26136
+              ],
+              "correct_option_labels": [
+                "C"
+              ],
+              "correct_option_texts": [
+                "$g(h)=\\frac{G M_E}{\\left(R_E+h\\right)^2}$"
+              ],
+              "explanation": "We know by Newton's law of gravitation, the force on the body of mass m, situated at height h to the surface of the earth of mass M_E is given by:\n$F=G \\frac{M_e m}{(r+h)^2}$ ...(i)\nWe also know F = mass $\\times$ acceleration(here acceleration is the acceleration due to gravity)\n$\\Rightarrow$ F = mg ...(ii)\nEquating (i) & (ii), we get\n$g=G \\frac{M_e}{(r+h)^2}$"
+            },
+            {
+              "questionID": 17735,
+              "question": "The acceleration due to gravity at a depth d in terms of g(acceleration due to gravity) at radius of the earth R_E is",
+              "question_raw": "<p>The acceleration due to gravity at a depth d in terms of g(acceleration due to gravity) at radius of the earth R<sub>E</sub> is</p>",
+              "options": [
+                {
+                  "label": "A",
+                  "id": 26143,
+                  "text": "$g(d) = g(1 + \\frac{d}{2R_E})$",
+                  "is_correct": false
+                },
+                {
+                  "label": "B",
+                  "id": 26140,
+                  "text": "$g(d) = g(1 + \\frac{d}{R_E})$",
+                  "is_correct": false
+                },
+                {
+                  "label": "C",
+                  "id": 26142,
+                  "text": "$g(d) = g(1 - \\frac{2d}{R_E})$",
+                  "is_correct": false
+                },
+                {
+                  "label": "D",
+                  "id": 26141,
+                  "text": "$g(d) = g(1 - \\frac{d}{ R_E})$",
+                  "is_correct": true
+                }
+              ],
+              "correct_option_ids": [
+                26141
+              ],
+              "correct_option_labels": [
+                "D"
+              ],
+              "correct_option_texts": [
+                "$g(d) = g(1 - \\frac{d}{ R_E})$"
+              ],
+              "explanation": "Acceleration due to gravity at the surface of the earth of radius R_E\n$g = G\\frac{M}{{{R_E^2}}} = \\frac{4}{3}\\pi \\rho GR_E$ ...(1)\nAcceleration due to gravity at depth d from the surface of the earth \n$g(d) = \\frac{4}{ 3}\\pi \\rho G(R - d)$ ...(2)\nFrom (1) & (2), we get\n$g(d) = g(1 - \\frac{d}{R_E})$"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "testPaperID": 563,
+      "testPaperName": "Gravitation Test 02",
+      "is_paid": true,
+      "category_full_name": "CBSE > Class 11 > Physics > Gravitation",
+      "noOfQuestions": 15,
+      "has_answers": true,
+      "sections": [
+        {
+          "sectionName": "General",
+          "sectionID": null,
+          "questions": [
+            {
+              "questionID": 17736,
+              "question": "The formula for gravitational potential energy associated with two particles of masses m_1 and m_2 separated by distance r is given by",
+              "question_raw": "<p>The formula for gravitational potential energy associated with two particles of masses m<sub>1&nbsp;</sub>and m<sub>2</sub> separated by distance&nbsp;r is given by</p>",
+              "options": [
+                {
+                  "label": "A",
+                  "id": 26147,
+                  "text": "${\\rm{v}} = - \\frac{G{m_1}{m_2}}{r}$",
+                  "is_correct": true
+                },
+                {
+                  "label": "B",
+                  "id": 26146,
+                  "text": "${\\rm{v}} = - \\frac{G{m_1}}{r}$",
+                  "is_correct": false
+                },
+                {
+                  "label": "C",
+                  "id": 26144,
+                  "text": "$\\mathrm{v}=-\\frac{G m_1 m_2}{2 r}$",
+                  "is_correct": false
+                },
+                {
+                  "label": "D",
+                  "id": 26145,
+                  "text": "$\\mathrm{v}=-\\frac{G m_2}{r}$",
+                  "is_correct": false
+                }
+              ],
+              "correct_option_ids": [
+                26147
+              ],
+              "correct_option_labels": [
+                "A"
+              ],
+              "correct_option_texts": [
+                "${\\rm{v}} = - \\frac{G{m_1}{m_2}}{r}$"
+              ],
+              "explanation": "Change in gravitational potential energy of a system is defined as the -ve of the work done by the gravitational force as the configuration of the system is changed.\n${U_f}\\; - {\\rm{ }}{U_i}\\; = {\\rm{ }}{W_{gr}}=V(Potential Energy)$ \nChange in gravitational potential energy of two point masses m_1 and m_2 as their separation is changed from r_1 to r_2 is given by\n$U\\left(r_2\\right)-U\\left(r_1\\right)=G m_1 m_2\\left[\\frac{1}{r_1}-\\frac{1}{r_2}\\right]$ \nIf, at infinite separation, gravitational potential energy is assumed to be zero, then the gravitational potential energy of the above two point mass system at separation r,\n$U(r) = - G\\frac{{m_1}{m_2}} {r}$ \n$\\therefore V = - G\\frac{{m_1}{m_2}} { r}$"
+            },
+            {
+              "questionID": 17737,
+              "question": "The minimum velocity with which a body should be projected from the surface of the earth so as it goes out of the gravitational field of earth and never return to earth is known as",
+              "question_raw": "<p>The minimum velocity with which a body should be projected from the surface of the earth so as it goes out of the gravitational field of earth and never return to earth is known as</p>",
+              "options": [
+                {
+                  "label": "A",
+                  "id": 26151,
+                  "text": "Higher speed",
+                  "is_correct": false
+                },
+                {
+                  "label": "B",
+                  "id": 26148,
+                  "text": "escape velocity",
+                  "is_correct": true
+                },
+                {
+                  "label": "C",
+                  "id": 26150,
+                  "text": "average speed",
+                  "is_correct": false
+                },
+                {
+                  "label": "D",
+                  "id": 26149,
+                  "text": "escape acceleration",
+                  "is_correct": false
+                }
+              ],
+              "correct_option_ids": [
+                26148
+              ],
+              "correct_option_labels": [
+                "B"
+              ],
+              "correct_option_texts": [
+                "escape velocity"
+              ],
+              "explanation": "Escape velocity is the minimum velocity with which a body should be projected from the surface of earth so as it goes out of gravitational field of earth and never return to earth.\n${V_{escape}} = \\sqrt {{{2GM} \\over R}} $\nV_escape=11184 m/sec approximate to 11.2 km/sec"
+            },
+            {
+              "questionID": 17738,
+              "question": "For the earth the escape speed in terms of g, the acceleration due to gravity and R_E, the radius of the earth is",
+              "question_raw": "<p>For the earth the escape speed in terms of g, the acceleration due to gravity and R<sub>E</sub>, the radius of the earth is</p>",
+              "options": [
+                {
+                  "label": "A",
+                  "id": 26155,
+                  "text": "$\\sqrt {5g{R_E}} $",
+                  "is_correct": false
+                },
+                {
+                  "label": "B",
+                  "id": 26153,
+                  "text": "$\\sqrt {g{R_E}} $",
+                  "is_correct": false
+                },
+                {
+                  "label": "C",
+                  "id": 26152,
+                  "text": "$\\sqrt {2g} $",
+                  "is_correct": false
+                },
+                {
+                  "label": "D",
+                  "id": 26154,
+                  "text": "$\\sqrt {2g{R_E}} $",
+                  "is_correct": true
+                }
+              ],
+              "correct_option_ids": [
+                26154
+              ],
+              "correct_option_labels": [
+                "D"
+              ],
+              "correct_option_texts": [
+                "$\\sqrt {2g{R_E}} $"
+              ],
+              "explanation": "The work done to displace a body from the surface of earth (r = R_e) to infinity ( $r = \\infty $ ) is\n$W = G{{Mm} \\over {R_e{\\rm{ }}}}$\nIf v_e is the required escape velocity then kinetic energy which should be given to the body is ${1 \\over 2}{\\rm{ }}m{v_e}^2$\n$\\therefore {1 \\over 2}{\\rm{ }}m{v_e}^2 = G{{Mm} \\over R_e}$\n$ \\Rightarrow {v_e} = \\sqrt {2g{R_e}} $"
+            },
+            {
+              "questionID": 17739,
+              "question": "For earth satellites, the centripetal force is provided by",
+              "question_raw": "<p>For earth satellites, the centripetal force is provided by</p>",
+              "options": [
+                {
+                  "label": "A",
+                  "id": 26159,
+                  "text": "strong interactions",
+                  "is_correct": false
+                },
+                {
+                  "label": "B",
+                  "id": 26157,
+                  "text": "gravitational force",
+                  "is_correct": true
+                },
+                {
+                  "label": "C",
+                  "id": 26158,
+                  "text": "forces exerted by firing rockets on satellite",
+                  "is_correct": false
+                },
+                {
+                  "label": "D",
+                  "id": 26156,
+                  "text": "electrical forces",
+                  "is_correct": false
+                }
+              ],
+              "correct_option_ids": [
+                26157
+              ],
+              "correct_option_labels": [
+                "B"
+              ],
+              "correct_option_texts": [
+                "gravitational force"
+              ],
+              "explanation": "Gravity supplies the necessary centripetal force to hold a satellite in orbit about the earth. Setting the gravity force from the universal law of gravity equal to the required centripetal force yields the equation of motion of satellites in the circular orbit.\ni.e., ${F_{gravity}} = {F_{centripetal}}$\n$ \\Rightarrow {v_{orbital}} = \\sqrt {{{GM} \\over r}} $"
+            },
+            {
+              "questionID": 17740,
+              "question": "Time period of an earth satellite very close to the surface of earth is given by",
+              "question_raw": "<p>Time period of an earth satellite very close to the surface of earth is given by</p>",
+              "options": [
+                {
+                  "label": "A",
+                  "id": 26160,
+                  "text": "$T_0=2 \\pi \\sqrt{\\frac{R_E}{g}}$",
+                  "is_correct": true
+                },
+                {
+                  "label": "B",
+                  "id": 26161,
+                  "text": "$T_0=\\pi \\sqrt{\\frac{R_E}{g}}$",
+                  "is_correct": false
+                },
+                {
+                  "label": "C",
+                  "id": 26163,
+                  "text": "$T_0=\\pi \\sqrt{\\frac{R_E}{2 g}}$",
+                  "is_correct": false
+                },
+                {
+                  "label": "D",
+                  "id": 26162,
+                  "text": "$T_0=\\pi \\sqrt{\\frac{2 R_E}{g}}$",
+                  "is_correct": false
+                }
+              ],
+              "correct_option_ids": [
+                26160
+              ],
+              "correct_option_labels": [
+                "A"
+              ],
+              "correct_option_texts": [
+                "$T_0=2 \\pi \\sqrt{\\frac{R_E}{g}}$"
+              ],
+              "explanation": "It is the time taken by satellite to go once around the earth\n$\\therefore \\mathrm{T}=\\frac{\\text { Circumference of the orbit }}{\\text { orbitalvelocity }}$\n$ \\Rightarrow T = \\frac{{2\\pi r}}{\\nu } = 2\\pi \\sqrt {\\frac{r}{{GM}}} $ ${\\text{[As }}\\nu {\\text{ = }}\\sqrt {\\frac{{GM}}{r}{\\text{ }}} ]$ \nSince Satellite is very close to the surface of earth, so here, we can take r = R (Radius of earth)\n$ \\Rightarrow T = 2\\pi \\sqrt {\\frac{{{R^3}}}{{GM}}} $\n$ \\Rightarrow T = 2\\pi \\sqrt {\\frac{{{R^3}}}{{g{R^2}}}}$ $[GM = g{R^2}]$\n$ \\Rightarrow T = 2\\pi \\sqrt {\\frac{{{R}}}{{g}}}$"
+            },
+            {
+              "questionID": 17741,
+              "question": "The total energy of a circularly orbiting satellite is",
+              "question_raw": "<p>The total energy of a circularly orbiting satellite is</p>",
+              "options": [
+                {
+                  "label": "A",
+                  "id": 26166,
+                  "text": "zero",
+                  "is_correct": false
+                },
+                {
+                  "label": "B",
+                  "id": 26164,
+                  "text": "negative",
+                  "is_correct": true
+                },
+                {
+                  "label": "C",
+                  "id": 26167,
+                  "text": "positive large",
+                  "is_correct": false
+                },
+                {
+                  "label": "D",
+                  "id": 26165,
+                  "text": "positive small",
+                  "is_correct": false
+                }
+              ],
+              "correct_option_ids": [
+                26164
+              ],
+              "correct_option_labels": [
+                "B"
+              ],
+              "correct_option_texts": [
+                "negative"
+              ],
+              "explanation": "When a satellite revolves around a planet in its orbit, it possesses both potential energy (due to its position against the gravitational pull of earth) and kinetic energy (due to orbital motion).\n$ \\begin{gathered} {\\text{Total Energy = Potential Energy(U) + Kinetic Energy(K)}} \\hfill \\\\ {\\text{ = }}\\frac{{ - GMm}}{r} + \\frac{{GMm}}{{2r}} \\hfill \\\\ {\\text{ = }}\\frac{{ - GMm}}{{2r}} \\hfill \\\\ \\end{gathered} $\nHence we can say that total energy of circularly orbiting satellite is negative."
+            },
+            {
+              "questionID": 17742,
+              "question": "For a circularly orbiting satellite the potential energy:",
+              "question_raw": "<p>For a circularly orbiting satellite the potential energy:</p>",
+              "options": [
+                {
+                  "label": "A",
+                  "id": 26169,
+                  "text": "is negative, and has a magnitude thrice that of the positive kinetic energy.",
+                  "is_correct": false
+                },
+                {
+                  "label": "B",
+                  "id": 26171,
+                  "text": "is positive, and having a magnitude twice that of the positive kinetic energy.",
+                  "is_correct": false
+                },
+                {
+                  "label": "C",
+                  "id": 26170,
+                  "text": "is negative, and has a magnitude twice that of the positive kinetic energy.",
+                  "is_correct": true
+                },
+                {
+                  "label": "D",
+                  "id": 26168,
+                  "text": "is negative, and having a magnitude twice that of the negative kinetic energy.",
+                  "is_correct": false
+                }
+              ],
+              "correct_option_ids": [
+                26170
+              ],
+              "correct_option_labels": [
+                "C"
+              ],
+              "correct_option_texts": [
+                "is negative, and has a magnitude twice that of the positive kinetic energy."
+              ],
+              "explanation": "In the case of circularly orbiting satellite,\nPotential Energy = ${\\text{ }}\\frac{{ - GMm}}{r} = \\frac{{ - {L^2}}}{{m{r^2}}}$\nKinetic Energy = $\\frac{G M m}{2 r}=\\frac{L^{2}}{2 m r^{2}}$ \nComparing both, we can say that the potential energy is negative and has a magnitude twice that of the positive kinetic energy."
+            },
+            {
+              "questionID": 17743,
+              "question": "For Geostationary Satellites:",
+              "question_raw": "<p>For Geostationary Satellites:</p>",
+              "options": [
+                {
+                  "label": "A",
+                  "id": 26173,
+                  "text": "a circular orbit is in the equatorial plane of the earth and period of rotation is 24 hrs",
+                  "is_correct": true
+                },
+                {
+                  "label": "B",
+                  "id": 26174,
+                  "text": "circular orbit is in the equatorial plane of the earth and period of rotation is 34 hrs",
+                  "is_correct": false
+                },
+                {
+                  "label": "C",
+                  "id": 26172,
+                  "text": "a circular orbit is in the longitudinal plane of the earth and period of rotation is 20 hrs",
+                  "is_correct": false
+                },
+                {
+                  "label": "D",
+                  "id": 26175,
+                  "text": "circular orbit is in the equatorial plane of the earth and period of rotation is 14 hrs",
+                  "is_correct": false
+                }
+              ],
+              "correct_option_ids": [
+                26173
+              ],
+              "correct_option_labels": [
+                "A"
+              ],
+              "correct_option_texts": [
+                "a circular orbit is in the equatorial plane of the earth and period of rotation is 24 hrs"
+              ],
+              "explanation": "If there is a satellite in the equatorial plane rotating in the direction of earth’s rotation from west to east, then for an observer, on the earth, the angular velocity of the satellite will be $({\\omega _s} - {\\omega _E})$ \nThe time interval between the two consecutive appearances overhead will be,\n$T = \\frac{{2\\pi }}{{{\\omega _s} - {\\omega _E}}} = \\frac{{{T_s}{T_E}}}{{{T_E} - {T_s}}}$ \nIf ${\\omega _s} = {\\omega _E}$, T = $\\infty$, i.e. satellite will appear stationary relative to earth. Such satellites are called geostationary satellites and will have a period of rotation as the period of rotation of earth i.e 24 Hrs."
+            },
+            {
+              "questionID": 17744,
+              "question": "Geostationary Satellites:",
+              "question_raw": "<p>Geostationary Satellites:</p>",
+              "options": [
+                {
+                  "label": "A",
+                  "id": 26179,
+                  "text": "are not useful for communication applications",
+                  "is_correct": false
+                },
+                {
+                  "label": "B",
+                  "id": 26178,
+                  "text": "needless powerful rockets to put them into larger distance orbits",
+                  "is_correct": false
+                },
+                {
+                  "label": "C",
+                  "id": 26177,
+                  "text": "need more powerful rockets to put them into smaller distance orbits",
+                  "is_correct": false
+                },
+                {
+                  "label": "D",
+                  "id": 26176,
+                  "text": "need more powerful rockets to put them into larger distance orbits",
+                  "is_correct": true
+                }
+              ],
+              "correct_option_ids": [
+                26176
+              ],
+              "correct_option_labels": [
+                "D"
+              ],
+              "correct_option_texts": [
+                "need more powerful rockets to put them into larger distance orbits"
+              ],
+              "explanation": "The orbital velocity of the satellite depends on its altitude above Earth. The nearer Earth, the faster the required orbital velocity. At an altitude of 200 kilometers, the required orbital velocity is just over 27,400 kph. To maintain an orbit that is 35,786 km above Earth, the satellite must orbit at a speed of about 11,300 kmph. That orbital speed and distance permit the satellite to make one revolution in 24 hours. To achieve his speed, Judging from the mass of fuel needed, it stands to reason that you'd use a more powerful launch vehicle with a bi-propellant upper stage to get the satellite to GEO."
+            },
+            {
+              "questionID": 17745,
+              "question": "Polar satellites:",
+              "question_raw": "<p>Polar satellites:</p>",
+              "options": [
+                {
+                  "label": "A",
+                  "id": 26181,
+                  "text": "are low altitude satellites, and go around the poles of the earth in a north-south direction",
+                  "is_correct": true
+                },
+                {
+                  "label": "B",
+                  "id": 26182,
+                  "text": "are high altitude satellites, and go around the equator of the earth in a north-east direction",
+                  "is_correct": false
+                },
+                {
+                  "label": "C",
+                  "id": 26180,
+                  "text": "are low altitude satellites, and go around the equator of the earth in a north-east direction",
+                  "is_correct": false
+                },
+                {
+                  "label": "D",
+                  "id": 26183,
+                  "text": "are high altitude satellites, and go around the equator of the earth in a west-east direction",
+                  "is_correct": false
+                }
+              ],
+              "correct_option_ids": [
+                26181
+              ],
+              "correct_option_labels": [
+                "A"
+              ],
+              "correct_option_texts": [
+                "are low altitude satellites, and go around the poles of the earth in a north-south direction"
+              ],
+              "explanation": "A polar-orbiting satellite closely parallels the earth's meridian lines. It passes over the north and south poles each revolution. As the earth rotates to the east beneath the satellite, each pass monitors an area to the west of the previous pass at intervals of roughly 90 to 100 minutes. These strips can be pieced together to produce a picture of a larger area. They are used in monitoring the weather, observing the Earth’s surface, military uses including spying."
+            },
+            {
+              "questionID": 17746,
+              "question": "Which of the following statements correct?",
+              "question_raw": "<p>Which of the following statements correct?</p>\r\n",
+              "options": [
+                {
+                  "label": "A",
+                  "id": 26186,
+                  "text": "Acceleration due to gravity is independent of mass of the earth.",
+                  "is_correct": false
+                },
+                {
+                  "label": "B",
+                  "id": 26184,
+                  "text": "The formula -G Mm$(\\frac {1}{r_2}- \\frac {1}{r_1})$ is less accurate than the formula mg(r_2 - r_1) for the difference of potential energy.",
+                  "is_correct": false
+                },
+                {
+                  "label": "C",
+                  "id": 26187,
+                  "text": "Acceleration due to gravity decreases with increasing altitude.",
+                  "is_correct": true
+                },
+                {
+                  "label": "D",
+                  "id": 26185,
+                  "text": "Acceleration due to gravity increases with increasing depth .",
+                  "is_correct": false
+                }
+              ],
+              "correct_option_ids": [
+                26187
+              ],
+              "correct_option_labels": [
+                "C"
+              ],
+              "correct_option_texts": [
+                "Acceleration due to gravity decreases with increasing altitude."
+              ],
+              "explanation": "The acceleration due to gravity due to a body at point P on the surface of earth is\ng = $ G{M \\over {{R^2}}}$ ...(i)\nLet the body is placed to point Q at a height h abovr the surface of earth, then acceleration due to gravity:\ng_h = $ G{M \\over {{{(R + h)}^2}}}$ ...(ii)\nDividing (i) & (ii), we get\n${{{g_h}} \\over g} = {{{R^2}} \\over {{{(R + h)}^2}}}$\nBy simplifying and expanding through binomial theorem, we get\ng_h = $ g(1 - {{2h} \\over R})$\nFrom above expression we can clearly say that with increase in altitiude h, the value of acceleration due to gravity decreases."
+            },
+            {
+              "questionID": 17747,
+              "question": "Suppose there existed a planet that went around the sun twice as fast as the earth. What would be its orbital size as compared to that of the earth?",
+              "question_raw": "<p>Suppose there existed a planet that went around the sun twice as fast as the earth. What would be its orbital size as compared to that of the earth?</p>",
+              "options": [
+                {
+                  "label": "A",
+                  "id": 26189,
+                  "text": "Smaller by a factor of 0.5",
+                  "is_correct": false
+                },
+                {
+                  "label": "B",
+                  "id": 26191,
+                  "text": "Larger by a factor of 1.11",
+                  "is_correct": false
+                },
+                {
+                  "label": "C",
+                  "id": 26190,
+                  "text": "Larger by a factor of 1.23",
+                  "is_correct": false
+                },
+                {
+                  "label": "D",
+                  "id": 26188,
+                  "text": "Smaller by a factor of 0.63",
+                  "is_correct": true
+                }
+              ],
+              "correct_option_ids": [
+                26188
+              ],
+              "correct_option_labels": [
+                "D"
+              ],
+              "correct_option_texts": [
+                "Smaller by a factor of 0.63"
+              ],
+              "explanation": "The time period of revolution of the earth around sun T_e = 1 Year\nThe time period of revolution of the planet around the sun, T_p = 0.5 Year\nOrbital size of earth, r_e = 1 A.U\nOrbital size of the planet,r_p =?\nApplying Kepler's third law we get: \n${{{r_p}^3} \\over {{r_e}^3}} = {{{T_p}^2} \\over {{T_e}^2}}$ $ \\Rightarrow {{{r_p}^3} \\over {{r_e}^3}} = {\\left( {{{{1 \\over 2}} \\over 1}} \\right)^2} = {1 \\over 4}$ \n$ \\Rightarrow {{{r_p}} \\over {{r_e}}} = {\\left( {{1 \\over 4}} \\right)^{1 \\over3}}$\n$\\Rightarrow {r_p} = {\\left( {{1 \\over 4}} \\right)^{1\\over 3}}{r_e}$\nAs r_e= 1 A.U (Given)\n$ \\Rightarrow {r_p} = {\\left( {{1 \\over 4}} \\right)^{1\\over 3}}$\n$\\Rightarrow$ r_p = 0.63 A.U."
+            },
+            {
+              "questionID": 17748,
+              "question": "A typical adult human has a mass of about 70 kg. What force does a full moon exert on such a human when it is directly overhead with its centre 378,000 km away?",
+              "question_raw": "<p>A typical adult human has a mass of about 70 kg. What force does a full moon exert on such a human when it is directly overhead with its centre 378,000 km away?</p>",
+              "options": [
+                {
+                  "label": "A",
+                  "id": 26193,
+                  "text": "2.4 $ \\times $ 10^-3 N",
+                  "is_correct": true
+                },
+                {
+                  "label": "B",
+                  "id": 26195,
+                  "text": "3.1 $ \\times $ 10^-6 N",
+                  "is_correct": false
+                },
+                {
+                  "label": "C",
+                  "id": 26192,
+                  "text": "2.0 $ \\times $ 10^-6 N",
+                  "is_correct": false
+                },
+                {
+                  "label": "D",
+                  "id": 26194,
+                  "text": "1.4 $ \\times $ 10^−6 N",
+                  "is_correct": false
+                }
+              ],
+              "correct_option_ids": [
+                26193
+              ],
+              "correct_option_labels": [
+                "A"
+              ],
+              "correct_option_texts": [
+                "2.4 $ \\times $ 10^-3 N"
+              ],
+              "explanation": "The force exerted by the full moon on the human\n$F = G\\frac{{Mm}}{{{r^2}}}$ \nHere G is the gravitational constant, m is the mass of the human, M is the mass of the moon. r is the separation distance between moon and human.\nSubstitute Value Of G = 6.67 $\\times$ 10^−11N.m^2/Kg^2, m = 70 kg, M = 7.35 $\\times$ 10^22, r = 3.78 $\\times$ 10^8\n$\\Rightarrow $ F = $\\frac{\\left(6.67 \\times 10^{-11} N . m^{2} / K g^{2}\\right) \\times(70 K g) \\times\\left(7.35 \\times 10^{22} K g\\right)}{\\left(3.78 \\times 10^{8} m\\right)^{2}}$\n$\\Rightarrow $$F=\\frac{3.43 \\times 10^{3} \\times 10^{-11} \\times 10^{22}}{14.29 \\times 10^{16}} N$\n$\\Rightarrow$ F = 2.4 $\\times$ 10^−3N"
+            },
+            {
+              "questionID": 17749,
+              "question": "A particle of mass 3m is located 1.00 m from a particle of mass m. Where should you put a third mass M so that the net gravitational force on M due to the two masses is exactly zero?",
+              "question_raw": "<p>A particle of mass 3m is located 1.00 m from a particle of mass m. Where should you put a third mass M so that the net gravitational force on M due to the two masses is exactly zero?</p>",
+              "options": [
+                {
+                  "label": "A",
+                  "id": 26198,
+                  "text": "0.534 m from the mass m",
+                  "is_correct": false
+                },
+                {
+                  "label": "B",
+                  "id": 26199,
+                  "text": "0.234 m from the mass 3m",
+                  "is_correct": false
+                },
+                {
+                  "label": "C",
+                  "id": 26196,
+                  "text": "0.63 m from the mass 3m",
+                  "is_correct": true
+                },
+                {
+                  "label": "D",
+                  "id": 26197,
+                  "text": "0.69 m from the mass m",
+                  "is_correct": false
+                }
+              ],
+              "correct_option_ids": [
+                26196
+              ],
+              "correct_option_labels": [
+                "C"
+              ],
+              "correct_option_texts": [
+                "0.63 m from the mass 3m"
+              ],
+              "explanation": "Let x be the distance of the third particle from the mass 3m. then (1 - x) is the distance will be the distance from mass m.\nIf we require that net force on another mass M be zero, then we must have the following:\n$\\frac{{GM(3m)}}{{{x^2}}} = \\frac{{GM(m)}}{{{{\\left( {1 - x} \\right)}^2}}}$\n$\\Rightarrow \\frac{3}{{{x^2}}} = \\frac{1}{{{{\\left( {1 - x} \\right)}^2}}}$\n$\\Rightarrow {x^2} = 3 \\times {\\left( {1 - x} \\right)^2}$\n$\\Rightarrow x = \\sqrt {3 \\times {{\\left( {1 - x} \\right)}^2}} = \\sqrt 3 (1 - x) $\n$\\Rightarrow x = \\frac{{\\sqrt 3 }}{{1 + \\sqrt 3 }} = 0.63$\n$\\therefore$ The particle is 0.63 m away from 3m."
+            },
+            {
+              "questionID": 17750,
+              "question": "At what distance above the surface of the earth is the acceleration due to the earth’s gravity 0.980 m/s^2 if the acceleration due to gravity at the surface has magnitude 9.8 m/s^2.",
+              "question_raw": "<p>At what distance above the surface of the earth is the acceleration due to the earth&rsquo;s gravity 0.980 m/s<sup>2</sup> if the acceleration due to gravity at the surface has magnitude 9.8 m/s<sup>2</sup>.</p>",
+              "options": [
+                {
+                  "label": "A",
+                  "id": 26202,
+                  "text": "1.18 $ \\times $ 10^7 m",
+                  "is_correct": false
+                },
+                {
+                  "label": "B",
+                  "id": 26200,
+                  "text": "1.37 $ \\times $ 10^7 m",
+                  "is_correct": true
+                },
+                {
+                  "label": "C",
+                  "id": 26201,
+                  "text": "0.98 $ \\times $ 10^7 m",
+                  "is_correct": false
+                },
+                {
+                  "label": "D",
+                  "id": 26203,
+                  "text": "1.48 $ \\times $ 10^7 m",
+                  "is_correct": false
+                }
+              ],
+              "correct_option_ids": [
+                26200
+              ],
+              "correct_option_labels": [
+                "B"
+              ],
+              "correct_option_texts": [
+                "1.37 $ \\times $ 10^7 m"
+              ],
+              "explanation": "We know:\n$g^{\\prime}=g\\left(\\frac{R^{2}}{(R+h)^{2}}\\right)$\nor \ng' = $g\\left(\\frac{R^{2}}{r^{2}}\\right)$\nwhere R = Radius of earth = 6371 km = 6371$\\times$ 10^3 m\nr = R + h\ng = Acceleration due to gravity on the surface of earth\ng′ = Acceleration due to gravity at height h\nPutting above values in the relation, we get:\n$r^{2}=\\frac{9.8 \\times\\left(6371 \\times 10^{3}\\right)^{2}}{0.98}$\n$\\Rightarrow r=\\sqrt{10} \\times 6371 \\times 10^{3}$\n$\\Rightarrow$ r = 20146.87 $\\times$ 10^3\nWe know r = R + h\n$\\Rightarrow$ h = r - R\n$\\Rightarrow h=20132.36 \\times 10^{3}-6371 \\times 10^{3}$\n$\\Rightarrow$ h = 10^3(20132.36 - 6371)\n$\\Rightarrow$ h = 13761.36 $\\times$ 10^3 = 1.37 $\\times$ 10^7m"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "testPaperID": 564,
+      "testPaperName": "Gravitation Test 03",
+      "is_paid": true,
+      "category_full_name": "CBSE > Class 11 > Physics > Gravitation",
+      "noOfQuestions": 15,
+      "has_answers": true,
+      "sections": [
+        {
+          "sectionName": "General",
+          "sectionID": null,
+          "questions": [
+            {
+              "questionID": 17751,
+              "question": "Titania, the largest moon of the planet Uranus, has $\\frac 1 8$ the radius of the earth and $\\frac {1} {1700}$ the mass of the earth. What is the acceleration due to gravity at the surface of Titania? Data: G = 6.67$ \\times $ 10^-11 N m$^{\\rm{2}}$/kg$^{\\rm{2}}$, R_E = 6.38 $ \\times $ ${\\rm{1}}{0^{\\rm{6}}}$m, m_E = 5.97 $ \\times $ 10^24 kg.",
+              "question_raw": "<p>Titania, the largest moon of the planet Uranus, has <span class=\"math-tex\">{tex}\\frac 1  8{/tex}</span> the radius of the earth and <span class=\"math-tex\">{tex}\\frac {1} {1700}{/tex}</span> the mass of the earth. What is the acceleration due to gravity at the surface of Titania? Data: G = 6.67<span class=\"math-tex\">{tex} \\times {/tex}</span>&nbsp;10<sup>-11</sup> N m<span class=\"math-tex\">{tex}^{\\rm{2}}{/tex}</span>/kg<span class=\"math-tex\">{tex}^{\\rm{2}}{/tex}</span>, R<sub>E</sub> = 6.38 <span class=\"math-tex\">{tex} \\times {/tex}</span> <span class=\"math-tex\">{tex}{\\rm{1}}{0^{\\rm{6}}}{/tex}</span>m, m<sub>E</sub> = 5.97 <span class=\"math-tex\">{tex} \\times {/tex}</span>&nbsp;10<sup>24</sup> kg.</p>",
+              "options": [
+                {
+                  "label": "A",
+                  "id": 26207,
+                  "text": "0.43 m/s$^{\\rm{2}}$ Hz",
+                  "is_correct": false
+                },
+                {
+                  "label": "B",
+                  "id": 26204,
+                  "text": "0.28 m/s^2",
+                  "is_correct": false
+                },
+                {
+                  "label": "C",
+                  "id": 26205,
+                  "text": "0.18 m/s^2",
+                  "is_correct": false
+                },
+                {
+                  "label": "D",
+                  "id": 26206,
+                  "text": "0.37 m/s^2",
+                  "is_correct": true
+                }
+              ],
+              "correct_option_ids": [
+                26206
+              ],
+              "correct_option_labels": [
+                "D"
+              ],
+              "correct_option_texts": [
+                "0.37 m/s^2"
+              ],
+              "explanation": "$g_{t}=G \\frac{M_{t}}{R_{t}^{2}}, g_{E}=G \\frac{M_{E}}{R_{E}^{2}}=9.8 \\mathrm{m} / \\mathrm{s}^{2}$\n$\\Rightarrow g_{t}=G \\frac{\\left(\\frac{M_{E}}{1700}\\right)}{\\left(\\frac{R_{E}}{8}\\right)^{2}} $\n$=\\frac{64}{1700} G \\frac{M_{E}}{R_{E}^{2}}=\\frac{64}{1700} \\times g_{E}$\n= 0.37m/s^2"
+            },
+            {
+              "questionID": 17752,
+              "question": "Titania, the largest moon of the planet Uranus, has $\\frac 1 8$ the radius of the earth and $\\frac {1} {1700}$ the mass of the earth. What is the average density of Titania? Data: G = 6.67$ \\times $ 10^-11 Nm$^{\\rm{2}}$/kg$^{\\rm{2}}$, R_E = 6.38 $ \\times $ 10^6 m, ${{\\rm{M}}_{\\rm{E}}}$ = 5.97 $ \\times $ 10^24kg.",
+              "question_raw": "<p>Titania, the largest moon of the planet Uranus, has <span class=\"math-tex\">{tex}\\frac 1  8{/tex}</span> the radius of the earth and <span class=\"math-tex\">{tex}\\frac {1} {1700}{/tex}</span> the mass of the earth. What is the average density of Titania? Data: G = 6.67<span class=\"math-tex\">{tex} \\times {/tex}</span>&nbsp;10<sup>-11</sup> Nm<span class=\"math-tex\">{tex}^{\\rm{2}}{/tex}</span>/kg<span class=\"math-tex\">{tex}^{\\rm{2}}{/tex}</span>, R<sub>E</sub>&nbsp;= 6.38 <span class=\"math-tex\">{tex} \\times {/tex}</span>&nbsp;10<sup>6</sup> m, <span class=\"math-tex\">{tex}{{\\rm{M}}_{\\rm{E}}}{/tex}</span> = 5.97 <span class=\"math-tex\">{tex} \\times {/tex}</span>&nbsp;10<sup>24</sup>kg.</p>",
+              "options": [
+                {
+                  "label": "A",
+                  "id": 26210,
+                  "text": "1900 kg/m^3",
+                  "is_correct": false
+                },
+                {
+                  "label": "B",
+                  "id": 26211,
+                  "text": "2300 kg/m^3",
+                  "is_correct": false
+                },
+                {
+                  "label": "C",
+                  "id": 26209,
+                  "text": "1700 kg/m$^{\\rm{3}}$",
+                  "is_correct": true
+                },
+                {
+                  "label": "D",
+                  "id": 26208,
+                  "text": "2700 kg/m^3",
+                  "is_correct": false
+                }
+              ],
+              "correct_option_ids": [
+                26209
+              ],
+              "correct_option_labels": [
+                "C"
+              ],
+              "correct_option_texts": [
+                "1700 kg/m$^{\\rm{3}}$"
+              ],
+              "explanation": "The density of Titania = $\\frac{{{\\text{Mass Of Titania}}}}{{{\\text{Volume Of Titania}}}} = \\frac{{\\frac{{{{\\text{M}}_E}}}{{1700}}}}{{\\frac{4}{3}\\pi {{\\left( {\\frac{{{R_E}}}{8}} \\right)}^3}}}$\nHere, mass of earth (M_E = 5.97 $\\times$ 10^24kg) and radius of earth(R_E = 6.38 $\\times$ 10^6m) \n$= \\frac{{\\frac{{{\\text{5}}{\\text{.97}} \\times {\\text{1}}{{\\text{0}}^{24}}}}{{1700}}kg}}{{\\frac{4}{3}\\pi {{\\left( {\\frac{{6.38 \\times {{10}^6}}}{8}m} \\right)}^3}}} $\n${\\text{ = }}\\frac{{{\\text{3}}{\\text{.5}} \\times {\\text{1}}{{\\text{0}}^{21}}kg}}{{\\frac{4}{3} \\times 3.14 \\times {{\\left( {0.79 \\times {{10}^6}m} \\right)}^3}}}$\n$= \\frac{{{\\text{3}}{\\text{.5}} \\times {\\text{1}}{{\\text{0}}^{21}}kg}}{{2.064 \\times {{10}^{18}}{m^3}}}$\n= 1.7 $\\times$ 10^3kg/m^3 = 1700 kg/m^3"
+            },
+            {
+              "questionID": 17753,
+              "question": "A rocket is fired from the earth towards the sun. At what distance from the earth’s centre is the gravitational force on the rocket zero? Mass of the sun = 2 $ \\times $ 10^30 kg, mass of the earth = 6 $ \\times $ 10^24 kg. Neglect the effect of other planets etc. (orbital radius = 1.5 $ \\times $ 10^11 m).",
+              "question_raw": "<p>A rocket is fired from the earth towards the sun. At what distance from the earth&rsquo;s centre is the gravitational force on the rocket zero? Mass of the sun = 2 <span class=\"math-tex\">{tex} \\times {/tex}</span> 10<sup>30</sup> kg, mass of the earth = 6&nbsp;<span class=\"math-tex\">{tex} \\times {/tex}</span> 10<sup>24</sup> kg. Neglect the effect of other planets etc. (orbital radius = 1.5 <span class=\"math-tex\">{tex} \\times {/tex}</span> 10<sup>11</sup> m).</p>",
+              "options": [
+                {
+                  "label": "A",
+                  "id": 26215,
+                  "text": "3.2 $ \\times $ 10^8 m",
+                  "is_correct": false
+                },
+                {
+                  "label": "B",
+                  "id": 26213,
+                  "text": "2.2 $ \\times $ 10^8 m",
+                  "is_correct": false
+                },
+                {
+                  "label": "C",
+                  "id": 26212,
+                  "text": "2.6 $ \\times $ 10^8 m",
+                  "is_correct": true
+                },
+                {
+                  "label": "D",
+                  "id": 26214,
+                  "text": "2.8 $ \\times $ 10^8 m",
+                  "is_correct": false
+                }
+              ],
+              "correct_option_ids": [
+                26212
+              ],
+              "correct_option_labels": [
+                "C"
+              ],
+              "correct_option_texts": [
+                "2.6 $ \\times $ 10^8 m"
+              ],
+              "explanation": "Mass of the Sun,M_s = 2 $\\times$ 10^30 kg\nMass of the Earth, M_e = 6 $\\times$ 10^24 kg\nOrbital radius, r = 1.5 $\\times$ 10^11 m\nMass Of rocket = m\nLet x be the distance from the centre of the earth where the gravitational forces acting on satellite P under the influence of Sun & the Earth as:\n$G \\frac{M_{s} m}{(r-x)^{2}}=G \\frac{M_{e} m}{x^{2}}$\n$[{(r-x) \\over x}]^{2}=\\frac{M_{s}}{M_{e}}$\n$\\frac{(r-x)}{x}=\\left[\\frac{2 \\times 10^{30}}{6 \\times 10^{24}}\\right]^{\\frac{1}{2}}$ = 577.35\n$\\Rightarrow$ 1.5 $\\times$ 10^11 − x = 577.35x\n$\\Rightarrow$ 577.35x = 1.5 $\\times$ 10^11\n$\\Rightarrow x=\\frac{1.5 \\times 10^{11}}{578.35}$ = 2.6 $\\times$ 10^8m"
+            },
+            {
+              "questionID": 17754,
+              "question": "How will you ‘weigh the sun’, that is estimate its mass? The mean orbital radius of the earth around the sun is 1.5 $ \\times $ 10^8 km.",
+              "question_raw": "<p>How will you &lsquo;weigh the sun&rsquo;, that is estimate its mass? The mean orbital radius of the earth around the sun is 1.5 <span class=\"math-tex\">{tex} \\times {/tex}</span>&nbsp;10<sup>8</sup> km.</p>",
+              "options": [
+                {
+                  "label": "A",
+                  "id": 26216,
+                  "text": "2 $ \\times $ 10^30 kg",
+                  "is_correct": true
+                },
+                {
+                  "label": "B",
+                  "id": 26217,
+                  "text": "2.2 $ \\times $ 10^30 kg",
+                  "is_correct": false
+                },
+                {
+                  "label": "C",
+                  "id": 26218,
+                  "text": "1.8 $ \\times $ 10^30 kg",
+                  "is_correct": false
+                },
+                {
+                  "label": "D",
+                  "id": 26219,
+                  "text": "2.4 $ \\times $ 10^30 kg",
+                  "is_correct": false
+                }
+              ],
+              "correct_option_ids": [
+                26216
+              ],
+              "correct_option_labels": [
+                "A"
+              ],
+              "correct_option_texts": [
+                "2 $ \\times $ 10^30 kg"
+              ],
+              "explanation": "R = Radius Of Orbit Of Earth = 1.5 $\\times$ 10^8 km = 1.5 $\\times$ 10^11m\nT = Time Period Of Earth Around The Sun = 365 Days \n= 365 $\\times$ 24 $\\times$ 60 $\\times$ 60 sec\nG = 6.67 $\\times$ 10^11 Nm^2kg^-2 From the relation,\n$\\frac{R}{T^{2}}=\\frac{G M_{s}}{4 \\pi^{2} R^{2}}$ where M_s = Mass of sun = ?\n$\\Rightarrow \\mathrm{M}_{s}=\\frac{4 \\pi^{2} \\mathrm{R}^{3}}{\\mathrm{T}^{2} G}$\n$\\Rightarrow \\mathrm{M}_{s}=\\frac{4 \\times 9.87 \\times\\left(1.5 \\times 10^{11}\\right)^{3}}{(365 \\times 24 \\times 60 \\times 60)^{2} \\times 6.67 \\times 10^{-11}} $ kg\n$\\Rightarrow$ M_s = 2.0 $\\times$ 10^30 kg\n$\\therefore\r\n$ Mass of sun = 2.0 $\\times$ 10^30 kg"
+            },
+            {
+              "questionID": 17755,
+              "question": "A Saturn year is 29.5 times the earth year. How far is the Saturn from the sun if the earth is 1.50 $ \\times $ 10^8 km away from the sun?",
+              "question_raw": "<p>A Saturn year is 29.5 times the earth year. How far is the Saturn from the sun if the earth is 1.50 <span class=\"math-tex\">{tex} \\times {/tex}</span>&nbsp;10<sup>8</sup> km away from the sun?</p>",
+              "options": [
+                {
+                  "label": "A",
+                  "id": 26220,
+                  "text": "1.43 $ \\times $ 10^12 m",
+                  "is_correct": true
+                },
+                {
+                  "label": "B",
+                  "id": 26221,
+                  "text": "1.13 $ \\times $ 10^12 m",
+                  "is_correct": false
+                },
+                {
+                  "label": "C",
+                  "id": 26223,
+                  "text": "1.53 $ \\times $ 10^12 m",
+                  "is_correct": false
+                },
+                {
+                  "label": "D",
+                  "id": 26222,
+                  "text": "1.23 $ \\times $ 10^12 m",
+                  "is_correct": false
+                }
+              ],
+              "correct_option_ids": [
+                26220
+              ],
+              "correct_option_labels": [
+                "A"
+              ],
+              "correct_option_texts": [
+                "1.43 $ \\times $ 10^12 m"
+              ],
+              "explanation": "The distance of the earth from the sun, re = 1.5 $\\times$ 10^8 km = 1.5 $\\times$ 10^11m\nThe time period of the earth = T_e\nThe time period of the Saturn = T_s = 29.5 T_e\nThe distance of Saturn from the sun = r_s\nFrom Kepler's third law of planetary motion, we have\n$\\mathrm{T}=\\left(\\frac{4 \\pi r^{3}}{G M}\\right)^{\\frac{1}{2}}$\nFor Saturn & Sun, we can write\n$\\frac{r_{s}^{3}}{r_{e}^{3}}=\\frac{T_{s}^{2}}{T_{e}^{2}}$\nr_s = $r_{e}\\left(\\frac{\\mathrm{T}_{s}}{\\mathrm{T}_{e}}\\right)^{\\frac{2}{3}}$\n$r_{s}=1.5 \\times 10^{11}\\left(\\frac{29.5 \\mathrm{T}_{e}}{\\mathrm{T}_{e}}\\right)^{\\frac{2}{3}}$\n= 1.5 $\\times$ 10^11$(29.5)^{2\\over3}$^_ = 14.32 $\\times$ 10^11m\nHence, the distance between Saturn and the sun is 1.43 $\\times$ 10^12m"
+            },
+            {
+              "questionID": 17756,
+              "question": "A body weighs 63 N on the surface of the earth. What is the gravitational force on it due to the earth at a height equal to half the radius of the earth?",
+              "question_raw": "<p>A body weighs 63 N on the surface of the earth. What is the gravitational force on it due to the earth at a height equal to half the radius of the earth?</p>",
+              "options": [
+                {
+                  "label": "A",
+                  "id": 26227,
+                  "text": "180 N",
+                  "is_correct": false
+                },
+                {
+                  "label": "B",
+                  "id": 26225,
+                  "text": "128 N",
+                  "is_correct": false
+                },
+                {
+                  "label": "C",
+                  "id": 26224,
+                  "text": "28 N",
+                  "is_correct": true
+                },
+                {
+                  "label": "D",
+                  "id": 26226,
+                  "text": "18 N",
+                  "is_correct": false
+                }
+              ],
+              "correct_option_ids": [
+                26224
+              ],
+              "correct_option_labels": [
+                "C"
+              ],
+              "correct_option_texts": [
+                "28 N"
+              ],
+              "explanation": "${g_h} = g{\\left( {1 + \\frac{h}{R}} \\right)^{ - 2}}$\nGiven, h = $\\frac{R}{2}$\n$ \\therefore {g_h} = g{\\left( {1 + \\frac{{\\frac{{\\text{R}}}{2}}}{R}} \\right)^{ - 2}}$\n$\\Rightarrow \\frac{{{g_h}}}{g} = \\frac{1}{{{{\\left( {1 + \\frac{1}{2}} \\right)}^2}}} = \\frac{1}{{{{\\left( {\\frac{3}{2}} \\right)}^2}}} = {\\left( {\\frac{2}{3}} \\right)^2} = \\frac{4}{9}$\nLet m = mass of the body\nIf W and W_h be its weight at earth's surface and at a height h above the earth's surface, then\nW = mg\n${\\text{and }}{{\\text{W}}_h} = m{g_h} = m \\times \\frac{4}{9}g = \\frac{4}{9}mg$\n$ \\Rightarrow {{\\text{W}}_h} = m{g_h} = \\frac{4}{9} \\times 63 $ = 28N"
+            },
+            {
+              "questionID": 17757,
+              "question": "A body weighed 250 N on the surface. Assuming the earth to be a sphere of uniform mass density, how much would it weigh halfway down to the centre of earth?",
+              "question_raw": "<p>A body weighed 250 N on the surface. Assuming the earth to be a sphere of uniform mass density, how much would it weigh halfway down to the centre of earth?</p>",
+              "options": [
+                {
+                  "label": "A",
+                  "id": 26231,
+                  "text": "195 N",
+                  "is_correct": false
+                },
+                {
+                  "label": "B",
+                  "id": 26229,
+                  "text": "240 N",
+                  "is_correct": false
+                },
+                {
+                  "label": "C",
+                  "id": 26230,
+                  "text": "210 N",
+                  "is_correct": false
+                },
+                {
+                  "label": "D",
+                  "id": 26228,
+                  "text": "125 N",
+                  "is_correct": true
+                }
+              ],
+              "correct_option_ids": [
+                26228
+              ],
+              "correct_option_labels": [
+                "D"
+              ],
+              "correct_option_texts": [
+                "125 N"
+              ],
+              "explanation": "Weight of a body of mass m at the surface of earth's surface, W = mg = 250 N.\nBody of mass m is located at depth,\nd = $\\frac{1}{2}$Re\nwhere Re = Radius of earth\nAcceleration due to gravity at depth g(d)is given by the relation:\ng(d) = $\\left(1-\\frac{d}{R_{e}}\\right) g$\n$=\\left(1-\\frac{R_{e}}{2 \\times R_{e}}\\right) g=\\frac{1}{2} g$\nWeight of the body at depth d,\nW' = mg(d)\n$=\\mathrm{m} \\times \\frac{1}{2} g=\\frac{1}{2} m g=\\frac{1}{2} W$\n$=\\frac{1}{2} \\times 250$ = 125N"
+            },
+            {
+              "questionID": 17758,
+              "question": "A rocket is fired vertically with a speed of 5 km sec^-1 ^ ^ from the earth’s surface. How far from the earth does the rocket go before returning to the earth? Mass of the earth = 6.0 $ \\times $ 10^24 kg; mean radius of the earth = 6.4 $ \\times $ 10^6 m; G = 6.67 $ \\times $ 10^-11 N m^2 kg^-2.",
+              "question_raw": "<p>A rocket is fired vertically with a speed of 5 km sec<sup>-1</sup>&nbsp;<sup> </sup><sup>&nbsp;</sup>from the earth&rsquo;s surface. How far from the earth does the rocket go before returning to the earth? Mass of the earth = 6.0 <span class=\"math-tex\">{tex} \\times {/tex}</span> 10<sup>24&nbsp;</sup>kg; mean radius of the earth = 6.4 <span class=\"math-tex\">{tex} \\times {/tex}</span> 10<sup>6&nbsp;</sup> m; G = 6.67 <span class=\"math-tex\">{tex} \\times {/tex}</span> 10<sup>-11</sup> N m<sup>2</sup> kg<sup>-2</sup>.</p>",
+              "options": [
+                {
+                  "label": "A",
+                  "id": 26232,
+                  "text": "8.0 $ \\times $ 10^6 m from the earth’s center",
+                  "is_correct": true
+                },
+                {
+                  "label": "B",
+                  "id": 26233,
+                  "text": "7.5 $ \\times $ ${\\rm{1}}{0^{\\rm{6}}}$ m from the earth’s center",
+                  "is_correct": false
+                },
+                {
+                  "label": "C",
+                  "id": 26234,
+                  "text": "8.5 $ \\times $ 10^6 m from the earth’s centre",
+                  "is_correct": false
+                },
+                {
+                  "label": "D",
+                  "id": 26235,
+                  "text": "9.0 $ \\times $ 10^6 m from the earth’s centre",
+                  "is_correct": false
+                }
+              ],
+              "correct_option_ids": [
+                26232
+              ],
+              "correct_option_labels": [
+                "A"
+              ],
+              "correct_option_texts": [
+                "8.0 $ \\times $ 10^6 m from the earth’s center"
+              ],
+              "explanation": "Work done in bringing a mass m against a mass M at a distance 'x' through a distance dx \n= Gravitational force $\\times$ Distance = $\\frac{\\mathrm{GMm}}{x^{2}} d x$\nWork done in bringing it from $\\infty$ to r = GMm$\\left[\\frac{1}{\\infty}-\\frac{1}{R}\\right]$\n$=-\\mathrm{GMm}\\left[\\frac{1}{R}-\\frac{1}{\\infty}\\right]$\nTherefore Gravitational Potential Energy, $W =\\frac{-\\mathrm{GMm}}{R}$\nInitial Total Energy = Kinetic Energy + Potential Energy\n$=\\frac{1}{2} \\mathrm{mv}^{2}-\\frac{\\mathrm{GMm}}{R}$\nFinal Total Energy = 0 - $\\frac{\\mathrm{GMm}}{(R+h)}$\nApplying law of conservation of energy:\n$\\frac{1}{2} \\mathrm{mv}^{2}-\\frac{\\mathrm{GMm}}{R}=0-\\frac{\\mathrm{GMm}}{(R+h)}$\n$\\frac{\\mathrm{GMm}}{(R+h)}=\\frac{\\mathrm{GMm}}{R}-\\frac{1}{2} \\mathrm{mv}^{2}$\n$\\frac{G M}{(R+h)}=\\frac{1}{R}\\left(G M-\\frac{1}{2} R v^{2}\\right)$\n$\\frac{(R+h)}{R}=\\frac{G M}{\\left(G M-\\frac{1}{2} R v^{2}\\right)}$\n$(R+h)=\\frac{G M R}{\\left(G M-\\frac{1}{2} R v^{2}\\right)}$\nh = $\\frac{G M R}{\\left(G M-\\frac{1}{2} \\mathrm{Rv}^{2}\\right)}-R$\n$h=\\frac{\\frac{1}{2} R^{2} v^{2}}{\\left(G M-\\frac{1}{2} R v^{2}\\right)}$\n$h=\\frac{\\left[\\frac{1}{2} \\times\\left(6.4 \\times 10^{6}\\right)^{2} \\times\\left(5 \\times 10^{3}\\right)^{2}\\right]}{\\left[\\left(6.67 \\times 10^{-11} \\times 6 \\times 10^{24}\\right)-\\left(\\frac{1}{2} \\times 6.4 \\times 10^{6} \\times\\left(5 \\times 10^{3}\\right)^{2}\\right]\\right.} $m\n$=\\frac{\\left(512 \\times 10^{18}\\right)}{40 \\times 10^{13}-80 \\times 10^{12}}$\n=1.6 × 10^6m\nHeight achieved by the rocket with respect to the centre of the Earth = Re + h\n= 6.4 $\\times$ 10^6 + 1.6 $\\times$ 10^6 = 8 $\\times$ 10^6 m."
+            },
+            {
+              "questionID": 17759,
+              "question": "The escape speed of a projectile on the earth’s surface is 11.2 km sec^-1. A body is projected out with thrice this speed. What is the speed of the body far away from the earth? Ignore the presence of the sun and other planets.",
+              "question_raw": "<p>The escape speed of a projectile on the earth&rsquo;s surface is 11.2 km sec<sup>-1</sup>. A body is projected out with thrice this speed. What is the speed of the body far away from the earth? Ignore the presence of the sun and other planets.</p>",
+              "options": [
+                {
+                  "label": "A",
+                  "id": 26236,
+                  "text": "31.6 km/sec",
+                  "is_correct": true
+                },
+                {
+                  "label": "B",
+                  "id": 26237,
+                  "text": "28.7 km/s",
+                  "is_correct": false
+                },
+                {
+                  "label": "C",
+                  "id": 26238,
+                  "text": "29.7 km/s",
+                  "is_correct": false
+                },
+                {
+                  "label": "D",
+                  "id": 26239,
+                  "text": "32.7 km/s",
+                  "is_correct": false
+                }
+              ],
+              "correct_option_ids": [
+                26236
+              ],
+              "correct_option_labels": [
+                "A"
+              ],
+              "correct_option_texts": [
+                "31.6 km/sec"
+              ],
+              "explanation": "The escape velocity of a projectile from the Earth, V_esc = 11.2 km/s\nProjection velocity of the projectile, V_p = 3V_esc\nMass of the projectile = m\nThe velocity of the projectile far away from the Earth = V_f\nThe total energy of the projectile on the earth$= \\frac{1}{2}m{v_p}^2 - \\frac{1}{2}m{v_{esc}}^2$ \nThe gravitational potential energy of the projectile far away from the Earth is zero.\nThe total energy of the projectile far away from the Earth = $\\frac{1}{2}m{v_f}^2$ \nFrom the law of conservation of energy, we have\n$= \\frac{1}{2}m{v_p}^2 - \\frac{1}{2}m{v_{esc}}^2 = \\frac{1}{2}m{v_f}^2$ \n${v_f} = \\sqrt {{v_p}^2 - {v_{esc}}^2}$ \n$ = \\sqrt {{{\\left( {3{v_{esc}}} \\right)}^2} - {{\\left( {{v_{esc}}} \\right)}^2}}$ \n$= \\sqrt {{{\\left( {3{v_{esc}}} \\right)}^2} - {{\\left( {{v_{esc}}} \\right)}^2}}$\n$=\\sqrt 8 {v_{esc}}$\n$=\\sqrt 8 \\times 11.2 $ = 31.68 km/sec"
+            },
+            {
+              "questionID": 17760,
+              "question": "A satellite orbits the earth at a height of 400 km above the surface. How much energy must be expended to rocket the satellite out of the earth’s gravitational influence? Mass of the satellite = 200 kg; mass of the earth = 6.0 $ \\times $ 10^24 kg; radius of the earth = 6.4 $ \\times $ 10^6 m; G = 6.67 $ \\times $ 10^-11 N m^2 kg^-2.",
+              "question_raw": "<p>A satellite orbits the earth at a height of 400 km above the surface. How much energy must be expended to rocket the satellite out of the earth&rsquo;s gravitational influence? Mass of the satellite = 200 kg; mass of the earth = 6.0 <span class=\"math-tex\">{tex} \\times {/tex}</span> 10<sup>24</sup> kg; radius of the earth = 6.4 <span class=\"math-tex\">{tex} \\times {/tex}</span> 10<sup>6</sup> m; G = 6.67 <span class=\"math-tex\">{tex} \\times {/tex}</span> 10<sup>-11</sup> N m<sup>2</sup> kg<sup>-2</sup>.</p>",
+              "options": [
+                {
+                  "label": "A",
+                  "id": 26243,
+                  "text": "6.5 $ \\times $ 10^9 J",
+                  "is_correct": false
+                },
+                {
+                  "label": "B",
+                  "id": 26241,
+                  "text": "6.0 $ \\times $ 10^9 J",
+                  "is_correct": false
+                },
+                {
+                  "label": "C",
+                  "id": 26242,
+                  "text": "6.2 $ \\times $ 10^9 J",
+                  "is_correct": false
+                },
+                {
+                  "label": "D",
+                  "id": 26240,
+                  "text": "5.9 $ \\times $ 10^9 J",
+                  "is_correct": true
+                }
+              ],
+              "correct_option_ids": [
+                26240
+              ],
+              "correct_option_labels": [
+                "D"
+              ],
+              "correct_option_texts": [
+                "5.9 $ \\times $ 10^9 J"
+              ],
+              "explanation": "Mass of the Earth, M = 6.0 $\\times$ 10^24kg\nMass of the satellite, m = 200 kg\nRadius of the Earth, Re = 6.4 $\\times$ 10^6m Universal gravitational constant, G = 6.67 $\\times$ 10^-11N m^2 kg^−2\nHeight of the satellite, h = 400 km = 4 $\\times$ 10^5m = 0.4 $\\times$ 106m\nTotal energy of the satellite at height = $1\\over2$mv^2 + $\\left(\\frac{-G M_{e} m}{R_{e}+h}\\right)$\nOrbital velocity of the satellite, $v=\\sqrt{\\frac{G M_{e}}{R_{e}+h}}$\nTotal energy at height, $h=\\frac{1}{2} m\\left(\\frac{G M_{e}}{R_{e}+h}\\right)-\\frac{G M_{e} m}{R_{e}+h}=-\\frac{1}{2}\\left(\\frac{-G M_{e} m}{R_{e}+h}\\right)$\nThe negative sign indicates that the satellite is bound to the Earth. \nThis is called the bound energy of the satellite. The energy required to send the satellite out of its orbit = ... (Bound energy)\n$=\\frac{1}{2} \\frac{G M_{e} m}{\\left(R_{e}+h\\right)}$\n$=\\frac{1}{2} \\times \\frac{6.67 \\times 10^{-11} \\times 6.0 \\times 10^{24} \\times 200}{\\left(6.4 \\times 10^{6}+0.4 \\times 10^{6}\\right)}$\n$=\\frac{1}{2} \\times \\frac{6.67 \\times 6 \\times 2 \\times 10^{15}}{6.8 \\times 10^{6}}$ = 5.9 $\\times$ 10^9J"
+            },
+            {
+              "questionID": 17761,
+              "question": "For a satellite to be in a circular orbit 780 km above the surface of the earth, what orbital speed must it be given?",
+              "question_raw": "<p>For a satellite to be in a circular orbit 780 km above the surface of the earth, what orbital speed must it be given?</p>",
+              "options": [
+                {
+                  "label": "A",
+                  "id": 26245,
+                  "text": "7360 m/s",
+                  "is_correct": false
+                },
+                {
+                  "label": "B",
+                  "id": 26244,
+                  "text": "7460 m/s",
+                  "is_correct": true
+                },
+                {
+                  "label": "C",
+                  "id": 26246,
+                  "text": "7260 m/s",
+                  "is_correct": false
+                },
+                {
+                  "label": "D",
+                  "id": 26247,
+                  "text": "7160 m/s",
+                  "is_correct": false
+                }
+              ],
+              "correct_option_ids": [
+                26244
+              ],
+              "correct_option_labels": [
+                "B"
+              ],
+              "correct_option_texts": [
+                "7460 m/s"
+              ],
+              "explanation": "Mass of the Earth, M_e = $6.0 \\times {10^{24}}$kg\nThe radius of the Earth, Re = $6.4 \\times {10^6}$m\nUniversal gravitational constant, G = $6.67 \\times {10^{ - 11}}\\;N{\\text{ }}{m^2}{\\text{ }}k{g^{ - 2}}$\nHeight of the satellite, h = 780 km = 780 $\\times$ 10^3m = 0.78 $\\times$ 10^6m\nOrbital velocity of the satellite, v = $\\sqrt {\\frac{{G{M_e}}}{{{R_e} + h}}}$\n$= \\sqrt {\\frac{{6.67 \\times {{10}^{ - 11}} \\times 6.0 \\times {{10}^{24}}}}{{6.4 \\times {{10}^6} + 0.78 \\times {{10}^6}}}}$\n$= \\sqrt {\\frac{{40 \\times {{10}^{13}}}}{{7.18 \\times {{10}^6}}}}$\n$= \\sqrt {5.57 \\times {{10}^7}} $\n$= {10^3} \\times \\sqrt {5.57 \\times 10}$\n$= 7.46 \\times {10^3}$\n= 7460 m/sec"
+            },
+            {
+              "questionID": 17762,
+              "question": "For a satellite to be in a circular orbit 780 km above the surface of the earth, what is the period of the orbit (in hours)?",
+              "question_raw": "<p>For a satellite to be in a circular orbit 780 km above the surface of the earth, what is the period of the orbit (in hours)?</p>",
+              "options": [
+                {
+                  "label": "A",
+                  "id": 26251,
+                  "text": "1.98 hr",
+                  "is_correct": false
+                },
+                {
+                  "label": "B",
+                  "id": 26248,
+                  "text": "1.65 hr",
+                  "is_correct": true
+                },
+                {
+                  "label": "C",
+                  "id": 26250,
+                  "text": "1.88 hr",
+                  "is_correct": false
+                },
+                {
+                  "label": "D",
+                  "id": 26249,
+                  "text": "1.78 hr",
+                  "is_correct": false
+                }
+              ],
+              "correct_option_ids": [
+                26248
+              ],
+              "correct_option_labels": [
+                "B"
+              ],
+              "correct_option_texts": [
+                "1.65 hr"
+              ],
+              "explanation": "Mass of the Earth, M_e = 6.0 $\\times$ 10^24 kg\nThe radius of the Earth, Re =$ \\;6.4 \\times {10^6}m$\nUniversal gravitational constant, G = 6.67 $\\times$ 10^-11Nm^2 kg^-2\nHeight of the satellite, h = 780 km = 780 $\\times$ 10^3m = 0.78 $\\times$ 10^6 m\nTime Period of the satellite, T = $2\\pi \\sqrt {\\frac{{{{({R_e} + h)}^3}}}{{G{M_e}}}}$\n$= 2 \\times \\frac{{22}}{7} \\times \\sqrt {\\frac{{{{\\left( {6.4 \\times {{10}^6} + 0.78 \\times {{10}^6}} \\right)}^3}}}{{6.67 \\times {{10}^{ - 11}} \\times 6.0 \\times {{10}^{24}}}}}$\n$= 2 \\times \\frac{{22}}{7} \\times \\sqrt {\\frac{{{{\\left( {7.18 \\times {{10}^6}} \\right)}^3}}}{{40 \\times {{10}^{13}}}}}$\n$= 2 \\times \\frac{{22}}{7} \\times \\sqrt {9 \\times {{10}^5}}$\n$= 2 \\times \\frac{{22}}{7} \\times 948$\n= 2 $\\times$ 22 $\\times$ 135.42\n= 5958.85 sec = 1.65 hr"
+            },
+            {
+              "questionID": 17763,
+              "question": "Two satellites are in circular orbits around a planet that has radius 9.00 $ \\times $ ${\\rm{1}}{0^{\\rm{6}}}$ m. One satellite has mass 68.0 kg, orbital radius 5.00 $ \\times $ ${\\rm{1}}{0^{\\rm{7}}}$ m, and orbital speed 4800 m/s. The second satellite has a mass 84.0 kg and an orbital radius of 3.00 $ \\times $ ${\\rm{1}}{0^{\\rm{7}}}$ m. What is the orbital speed of this second satellite?",
+              "question_raw": "<p>Two satellites are in circular orbits around a planet that has radius 9.00 <span class=\"math-tex\">{tex} \\times {/tex}</span> <span class=\"math-tex\">{tex}{\\rm{1}}{0^{\\rm{6}}}{/tex}</span> m. One satellite has mass 68.0 kg, orbital radius 5.00 <span class=\"math-tex\">{tex} \\times {/tex}</span> <span class=\"math-tex\">{tex}{\\rm{1}}{0^{\\rm{7}}}{/tex}</span> m, and orbital speed 4800 m/s. The second satellite has a mass 84.0 kg and an orbital radius of 3.00 <span class=\"math-tex\">{tex} \\times {/tex}</span> <span class=\"math-tex\">{tex}{\\rm{1}}{0^{\\rm{7}}}{/tex}</span> m. What is the orbital speed of this second satellite?</p>\r\n",
+              "options": [
+                {
+                  "label": "A",
+                  "id": 26255,
+                  "text": "6122 m/s",
+                  "is_correct": false
+                },
+                {
+                  "label": "B",
+                  "id": 26253,
+                  "text": "6152 m/s",
+                  "is_correct": false
+                },
+                {
+                  "label": "C",
+                  "id": 26254,
+                  "text": "6132 m/s",
+                  "is_correct": false
+                },
+                {
+                  "label": "D",
+                  "id": 26252,
+                  "text": "6192 m/s",
+                  "is_correct": true
+                }
+              ],
+              "correct_option_ids": [
+                26252
+              ],
+              "correct_option_labels": [
+                "D"
+              ],
+              "correct_option_texts": [
+                "6192 m/s"
+              ],
+              "explanation": "We know $T=\\frac{2 \\pi R}{v}$\n$\\Rightarrow \\frac{\\left(\\frac{2 \\pi R_{1}}{v_{1}}\\right)^{2}}{R_{1}^{3}}=\\frac{\\left(\\frac{2 \\pi R_{2}}{v_{2}}\\right)^{2}}{R_{2}^{3}}$\n$\\Rightarrow \\frac{4 \\pi^{2}}{v_{1}^{2} R_{1}}=\\frac{4 \\pi^{2}}{v_{2}^{2} R_{2}}$\n$\\Rightarrow v_{1}^{2} R_{1}=v_{2}^{2} R_{2}$\n$\\Rightarrow \\frac{v_{1}^{2} R_1}{R_{2}}=v_{2}^{2}$\n$\\Rightarrow \\sqrt{\\frac{v_{1}^{2} R_1}{R_{2}}}=v_{2}$\nHere v_1 = 4800 m/sec; R_1 = 5 $\\times$ 10^7m, R_2 = 3 $\\times$ 10^7m, v^2 = ?\n$\\Rightarrow \\sqrt{\\frac{(4800)^{2} \\times 5 \\times 10^{7}}{3 \\times 10^{7}}}=v_{2}$\n$\\Rightarrow$ 4800 $\\times$ 1.29 = 6192 m/sec."
+            },
+            {
+              "questionID": 17764,
+              "question": "Deimos, a moon of Mars, is about 12 km in diameter with mass 2.0 $ \\times $ 10^15 kg. Suppose you are stranded alone on Deimos and want to play a one-person game of baseball. You would be the pitcher, and you would be the batter! With what speed would you have to throw a baseball so that it would go into a circular orbit just above the surface and return to you so you could hit it?",
+              "question_raw": "<p>Deimos, a moon of Mars, is about 12 km in diameter with mass 2.0 <span class=\"math-tex\">{tex} \\times {/tex}</span>&nbsp;10<sup>15</sup> kg. Suppose you are stranded alone on Deimos and want to play a one-person game of baseball. You would be the pitcher, and you would be the batter! With what speed would you have to throw a baseball so that it would go into a circular orbit just above the surface and return to you so you could hit it?</p>",
+              "options": [
+                {
+                  "label": "A",
+                  "id": 26259,
+                  "text": "5.1 m/s",
+                  "is_correct": false
+                },
+                {
+                  "label": "B",
+                  "id": 26258,
+                  "text": "4.9 m/s",
+                  "is_correct": false
+                },
+                {
+                  "label": "C",
+                  "id": 26256,
+                  "text": "4.7 m/s",
+                  "is_correct": true
+                },
+                {
+                  "label": "D",
+                  "id": 26257,
+                  "text": "4.3 m/s",
+                  "is_correct": false
+                }
+              ],
+              "correct_option_ids": [
+                26256
+              ],
+              "correct_option_labels": [
+                "C"
+              ],
+              "correct_option_texts": [
+                "4.7 m/s"
+              ],
+              "explanation": "$v=\\sqrt{\\frac{G M}{r}}$\nHere, G = 6.67 $\\times$ 10^−11N m^2 kg^−2\nM = 2 $\\times$ 10^15 kg\n$r=\\frac{12000}{2}$ = 6000\n$\\Rightarrow v=\\sqrt{\\frac{6.67 \\times 10^{-11} \\times 2 \\times 10^{15}}{6000}}$\n$\\Rightarrow$ v = 4.7 m/sec"
+            },
+            {
+              "questionID": 17765,
+              "question": "Deimos, a moon of Mars, is about 12 km in diameter with mass 2.0 $ \\times $ 10^15 kg. Suppose you are stranded alone on Deimos and want to play a one-person game of baseball. You would be the pitcher, and you would be the batter! You have to throw a baseball so that it would go into a circular orbit just above the surface and return to you so you could hit it. How long (in hours) after throwing the ball should you be ready to hit it?",
+              "question_raw": "<p>Deimos, a moon of Mars, is about 12 km in diameter with mass 2.0 <span class=\"math-tex\">{tex} \\times {/tex}</span>&nbsp;10<sup>15</sup> kg. Suppose you are stranded alone on Deimos and want to play a one-person game of baseball. You would be the pitcher, and you would be the batter! You have to throw a baseball so that it would go into a circular orbit just above the surface and return to you so you could hit it. How long (in hours) after throwing the ball should you be ready to hit it?</p>",
+              "options": [
+                {
+                  "label": "A",
+                  "id": 26262,
+                  "text": "2.11 hr",
+                  "is_correct": false
+                },
+                {
+                  "label": "B",
+                  "id": 26261,
+                  "text": "2.03 hr",
+                  "is_correct": false
+                },
+                {
+                  "label": "C",
+                  "id": 26263,
+                  "text": "2.35 hr",
+                  "is_correct": false
+                },
+                {
+                  "label": "D",
+                  "id": 26260,
+                  "text": "2.20 hr",
+                  "is_correct": true
+                }
+              ],
+              "correct_option_ids": [
+                26260
+              ],
+              "correct_option_labels": [
+                "D"
+              ],
+              "correct_option_texts": [
+                "2.20 hr"
+              ],
+              "explanation": "$T=2 \\pi \\sqrt{\\frac{r^{3}}{G M}}$\nHere,G = 6.67 $\\times$ 10^-11Nm^2kg^−2\nM = 2 $\\times$ 10^15 kg\n$r=\\frac{12000}{2}$ = 6000m\n$\\Rightarrow T=2 \\times \\frac{22}{7} \\times \\sqrt{\\frac{(6000)^{3}}{6.67 \\times 10^{-11} \\times 2 \\times 10^{15}}}$\n$\\Rightarrow T=2 \\times \\frac{22}{7} \\times \\sqrt{\\frac{216 \\times 10^{9}}{6.67 \\times 10^{-11} \\times 2 \\times 10^{15}}}$\n$\\Rightarrow T=2 \\times \\frac{22}{7} \\times \\sqrt{\\frac{216 \\times 10^{9}}{13.34 \\times 10^{4}}}$\n$\\Rightarrow T=2 \\times \\frac{22}{7} \\times \\sqrt{\\frac{216 \\times 10^{9}}{13.34 \\times 10^{4}}}$\n$\\Rightarrow T=2 \\times \\frac{22}{7} \\times \\sqrt{16.2 \\times 10^{5}}$\n$\\Rightarrow T=2 \\times \\frac{22}{7} \\times \\sqrt{1.6 \\times 10^{6}}$\n$\\Rightarrow$ T = 2 $\\times$ $\\frac{{22}}{7}$ $\\times$ 1.26 $\\times$10^3\n$\\Rightarrow$ T = 7920 sec \n$\\Rightarrow$ T = 2.2 hr"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "testPaperID": 565,
+      "testPaperName": "Gravitation Test 04",
+      "is_paid": true,
+      "category_full_name": "CBSE > Class 11 > Physics > Gravitation",
+      "noOfQuestions": 15,
+      "has_answers": true,
+      "sections": [
+        {
+          "sectionName": "General",
+          "sectionID": null,
+          "questions": [
+            {
+              "questionID": 17766,
+              "question": "Two stars each of one solar mass (= 2 $ \\times $ 10^30 kg) are approaching each other for a head-on collision. When they are a distance 10^9 km, their speeds are negligible. What is the speed with which they collide? The radius of each star is 10^4 km. assume the stars to remain undistorted until they collide. (Use the known value of G).",
+              "question_raw": "<p>Two stars each of one solar mass (= 2 <span class=\"math-tex\">{tex} \\times {/tex}</span> 10<sup>30</sup> kg) are approaching each other for a head-on collision. When they are a distance&nbsp;10<sup>9</sup> km, their speeds are negligible. What is the speed with which they collide? The radius of each star is 10<sup>4</sup> km. assume the stars to remain undistorted until they collide. (Use the known value of G).</p>",
+              "options": [
+                {
+                  "label": "A",
+                  "id": 26265,
+                  "text": "2.8 $ \\times $ 10^6 m/s",
+                  "is_correct": false
+                },
+                {
+                  "label": "B",
+                  "id": 26267,
+                  "text": "2.2 $ \\times $ 10^6 m/s",
+                  "is_correct": false
+                },
+                {
+                  "label": "C",
+                  "id": 26264,
+                  "text": "2.6 $ \\times $ 10^6 m/s",
+                  "is_correct": true
+                },
+                {
+                  "label": "D",
+                  "id": 26266,
+                  "text": "1.6 $ \\times $ 10^6 m/s",
+                  "is_correct": false
+                }
+              ],
+              "correct_option_ids": [
+                26264
+              ],
+              "correct_option_labels": [
+                "C"
+              ],
+              "correct_option_texts": [
+                "2.6 $ \\times $ 10^6 m/s"
+              ],
+              "explanation": "Let $\\vec v_1$ and $\\vec v_2$ be the velocities of two stars when they collide. \nAccording to the law of conservation of momentum,\n$M{{\\vec v}_1} + M{{\\vec v}_2} = 0$\n$\\Rightarrow {{\\vec v}_1} = - {{\\vec v}_2}$\n$\\Rightarrow {v_1} = {v_2} = v$\nAccording to law of conservation of energy,\n${\\text{2}}\\left[ {\\frac{1}{2}M{v^2}} \\right] = G{M^2}\\left[ {\\frac{1}{{{r_2}}} - \\frac{1}{{{r_1}}}} \\right]$\nWe Have\nMass of the star,M = 2 $\\times$ 10^30 kg\nDistance between the stars, r_1 = 10^9 km = 10^12 m\nRadius of star, r = 10^4km = 10^7m\nThe distance between two stars when they collide is,\nr_2 = 2r = 2 $\\times$ 10^7m\n$\\therefore$ The speed with which the stars collide is given by,\n$v = \\sqrt {GM\\left[ {\\frac{1}{{{r_2}}} - \\frac{1}{{{r_1}}}} \\right]}$\n$v = \\sqrt {6.67 \\times {{10}^{ - 11}} \\times 2 \\times {{10}^{30}} \\times \\left[ {\\frac{1}{{2 \\times {{10}^7}}} - \\frac{1}{{{{10}^{12}}}}} \\right]}$\nv = 2.6 $\\times$ 10^6m/sec"
+            },
+            {
+              "questionID": 17767,
+              "question": "Two heavy spheres each of mass 100 kg and radius 0.10 m are placed 1.0 m apart on a horizontal table. What is the gravitational force and potential at the midpoint of the line joining the centers of the spheres? Is an object placed at that point in equilibrium? If so, is the equilibrium stable or unstable?",
+              "question_raw": "<p>Two heavy spheres each of mass 100 kg and radius 0.10 m are placed 1.0 m apart on a horizontal table. What is the gravitational force and potential at the midpoint of the line joining the centers of the spheres? Is an object placed at that point in equilibrium? If so, is the equilibrium stable or unstable?</p>",
+              "options": [
+                {
+                  "label": "A",
+                  "id": 26269,
+                  "text": "0, 2.7 $ \\times $ ${\\rm{1}}{0^{ - {\\rm{8}}}}$ J/kg, stable",
+                  "is_correct": false
+                },
+                {
+                  "label": "B",
+                  "id": 26270,
+                  "text": "0, 1.9 $ \\times $ 10^−8 J/kg, unstable",
+                  "is_correct": false
+                },
+                {
+                  "label": "C",
+                  "id": 26271,
+                  "text": "0, 1.9 $ \\times $ 10^−8 J/kg stable",
+                  "is_correct": false
+                },
+                {
+                  "label": "D",
+                  "id": 26268,
+                  "text": "0, 2.7 $ \\times $ 10^-8 J/kg, unstable",
+                  "is_correct": true
+                }
+              ],
+              "correct_option_ids": [
+                26268
+              ],
+              "correct_option_labels": [
+                "D"
+              ],
+              "correct_option_texts": [
+                "0, 2.7 $ \\times $ 10^-8 J/kg, unstable"
+              ],
+              "explanation": "Here, G = 6.67 $\\times$ 10^−11N m^2 kg^−2\nM = 100 kg\nR = 0.1 m\nDistance between the two spheres d = 1.0 m\nSuppose that the distance of either sphere from the midpoint of the line joining their centre is r. Then\nr = $d\\over2$ = 0.5 m\nThe gravitational field at the midpoint due to two spheres will be equal and opposite.\nHence, the resultant gravitational field at the midpoint = 0\nThe gravitational potential at the midpoint.\n$=\\left(\\frac{-G M}{r}\\right) \\times 2$\n$=-\\frac{6.67 \\times 10^{-11} \\times 100 \\times 2}{0.5}$ \n= −2.7 $\\times$ 10^−8 Jkg^-1\nAs the effective force on the body placed at the midpoint is zero, so the body is in equilibrium, if the body is displaced a little towards either mass body from its equilibrium position, it will not return to its initial position of equilibrium. Hence, the body is in unstable equilibrium."
+            },
+            {
+              "questionID": 17768,
+              "question": "A geostationary satellite orbits the earth at a height of nearly 36,000 km from the surface of the earth. What is the potential due to the earth’s gravity at the site of this satellite? (Take the potential energy at infinity to be zero).Mass of the earth = 6.0$ \\times $ ${\\rm{1}}{0^{{\\rm{24}}}}$kg, radius = 6400 km.",
+              "question_raw": "<p>A geostationary satellite orbits the earth at a height of nearly 36,000 km from the surface of the earth. What is the potential due to the earth&rsquo;s gravity at the site of this satellite? (Take the potential energy at infinity to be zero).Mass of the earth = 6.0<span class=\"math-tex\">{tex} \\times {/tex}</span> <span class=\"math-tex\">{tex}{\\rm{1}}{0^{{\\rm{24}}}}{/tex}</span>kg, radius = 6400 km.</p>\r\n",
+              "options": [
+                {
+                  "label": "A",
+                  "id": 26275,
+                  "text": "-9.9 $ \\times $ 10^6 J/kg",
+                  "is_correct": false
+                },
+                {
+                  "label": "B",
+                  "id": 26273,
+                  "text": "-8.4 $ \\times $ 10^6 J/kg",
+                  "is_correct": false
+                },
+                {
+                  "label": "C",
+                  "id": 26274,
+                  "text": "-8.7 $ \\times $ 10^6 J/kg",
+                  "is_correct": false
+                },
+                {
+                  "label": "D",
+                  "id": 26272,
+                  "text": "-9.4 $ \\times $ 10^6 J/kg",
+                  "is_correct": true
+                }
+              ],
+              "correct_option_ids": [
+                26272
+              ],
+              "correct_option_labels": [
+                "D"
+              ],
+              "correct_option_texts": [
+                "-9.4 $ \\times $ 10^6 J/kg"
+              ],
+              "explanation": "Mass of the earth, M = 6.0 $\\times$ 10^24kg.\nRadius of the earth, R = 6400 km = 6.4 $\\times$ 10^6m.\nHeight of a geostationary satellite from the surface of the earth,\nh = 36000 km = 3.6 × 10^7 m\nGravitational potential energy due to earth's gravity at height h,\n${\\text{ = }} - \\frac{{GM}}{{(R + h)}}$\n$= - \\frac{{6.67 \\times {\\text{1}}{{\\text{0}}^{ - 11}} \\times 6 \\times {{10}^{24}}}}{{3.6 \\times {{10}^7} + 0.64 \\times {{10}^7}}}$\n$= - \\frac{{6.67 \\times 6 \\times {{10}^6}}}{{4.24}} = - 9.4 \\times {10^6}{\\text{ J/kg}}$"
+            },
+            {
+              "questionID": 17769,
+              "question": "A spaceship is stationed on Mars. How much energy must be expended on the spaceship to launch it out of the solar system? Mass of the space ship = 1000 kg; the mass of the sun = 2 $ \\times $ 10^30 kg; mass of mars = 6.4 $ \\times $ 10^23 kg; radius of mars = 3395 km; radius of the orbit of mars = 2.28 $ \\times $ 10^8 km; G = 6.67 $ \\times $ 10^11 N m^2 kg^-2.",
+              "question_raw": "<p>A spaceship is stationed on Mars. How much energy must be expended on the spaceship to launch it out of the solar system? Mass of the space ship = 1000 kg; the mass of the sun = 2 <span class=\"math-tex\">{tex} \\times {/tex}</span> 10<sup>30</sup> kg; mass of mars = 6.4 <span class=\"math-tex\">{tex} \\times {/tex}</span> 10<sup>23</sup> kg; radius of mars = 3395 km; radius of the orbit of mars = 2.28 <span class=\"math-tex\">{tex} \\times {/tex}</span>&nbsp;10<sup>8</sup> km; G = 6.67 <span class=\"math-tex\">{tex} \\times {/tex}</span> 10<sup>11</sup> N m<sup>2</sup> kg<sup>-2</sup>.</p>",
+              "options": [
+                {
+                  "label": "A",
+                  "id": 26279,
+                  "text": "5.66 $ \\times $ 10^11 J",
+                  "is_correct": false
+                },
+                {
+                  "label": "B",
+                  "id": 26276,
+                  "text": "5.96 $ \\times $ 10^11 J",
+                  "is_correct": true
+                },
+                {
+                  "label": "C",
+                  "id": 26277,
+                  "text": "5.86 $ \\times $ 10^11 J",
+                  "is_correct": false
+                },
+                {
+                  "label": "D",
+                  "id": 26278,
+                  "text": "5.5 $ \\times $ 10^11 J",
+                  "is_correct": false
+                }
+              ],
+              "correct_option_ids": [
+                26276
+              ],
+              "correct_option_labels": [
+                "B"
+              ],
+              "correct_option_texts": [
+                "5.96 $ \\times $ 10^11 J"
+              ],
+              "explanation": "Mass of the spaceship is given by, m_s = 1000 kg\nMass of the Sun is given by, M = 2 $\\times$ 10^30kg\nMass of Mars is given by, M_m = 6.4 $\\times$ 10^23kg\nOrbital radius of Mars, r = 3395 km = 3.395 $\\times$ 10^6m\nUniversal gravitational constant, G = 6.67 $\\times$ 10^-11 Nm^2kg^-2\nPotential energy of the spaceship due to gravitational attraction of the Sun = - $\\frac{GM{m_s}}{R}$\nPotential energy of the spaceship due to gravitational attraction of the Mars = - $\\frac{{G{M_m}{m_s}}}{r}$\nSince the spaceship is stationed on Mars, its velocity and hence, its kinetic energy will be zero.\nTotal energy of the spaceship = $- \\frac{{GM{m_s}}}{R}{\\text{ - }}\\frac{{G{M_m}{m_s}}}{r}$\n$= - G{m_s}\\left[ {\\frac{M}{R} + \\left( {\\frac{{{M_m}}}{r}} \\right)} \\right]$\nThe negative sign indicates that the system is in bound state.\nEnergy required for launching the spaceship out of the solar system\n= - Total energy of the spaceship = $G{m_s}\\left[ {\\frac{M}{R} + \\left( {\\frac{{{M_m}}}{r}} \\right)} \\right] $$= 6.67 \\times {10^{ - 11}} \\times {10^3} \\times \\left( {\\frac{{2 \\times {{10}^{30}}}}{{2.28 \\times {{10}^{11}}}} + \\frac{{6.4 \\times {{10}^{23}}}}{{3.395 \\times {{10}^6}}}} \\right) $\n= 6.67 $\\times$ 10^-8 (87.72 $\\times$ 10^17 + 1.88 $\\times$ 10^17) \n= 6.67 $\\times$ 10^-8 $\\times$ 89.50 $\\times$ 10^17\n= 596.96 $\\times$ 10^9\n= 5.96 $\\times$ 10^11 J"
+            },
+            {
+              "questionID": 17770,
+              "question": "A rocket is fired ‘vertically’ from the surface of mars with a speed of 2 km s^−1. If 20 percent of its initial energy is lost due to Martian atmospheric resistance, how far will the rocket go from the surface of Mars before returning to it? Mass of mars = 6.4 $ \\times $ 10^23 kg; radius of mars = 3395 km; G = 6.67 $ \\times $ 10^−11 N m^2 kg^-2.",
+              "question_raw": "<p>A rocket is fired &lsquo;vertically&rsquo; from the surface of mars with a speed of 2 km s<sup>&minus;1</sup>. If 20 percent of its initial energy is lost due to Martian atmospheric resistance, how far will the rocket go from the surface of Mars before returning to it? Mass of mars = 6.4 <span class=\"math-tex\">{tex} \\times {/tex}</span>&nbsp;10<sup>23</sup> kg; radius of mars = 3395 km; G = 6.67 <span class=\"math-tex\">{tex} \\times {/tex}</span>&nbsp;10<sup>&minus;11</sup> N m<sup>2</sup> kg<sup>-2</sup>.</p>",
+              "options": [
+                {
+                  "label": "A",
+                  "id": 26280,
+                  "text": "495 km",
+                  "is_correct": true
+                },
+                {
+                  "label": "B",
+                  "id": 26281,
+                  "text": "435 km",
+                  "is_correct": false
+                },
+                {
+                  "label": "C",
+                  "id": 26282,
+                  "text": "465 km",
+                  "is_correct": false
+                },
+                {
+                  "label": "D",
+                  "id": 26283,
+                  "text": "525 km",
+                  "is_correct": false
+                }
+              ],
+              "correct_option_ids": [
+                26280
+              ],
+              "correct_option_labels": [
+                "A"
+              ],
+              "correct_option_texts": [
+                "495 km"
+              ],
+              "explanation": "Initial velocity of the rocket, v = 2 km/s = 2 $\\times$ 10^3 m/s\nMass of Mars, M = 6.4 $\\times$ 10^23 kg\nRadius of Mars, R = 3395 km = 3.395 $\\times$ 10^6 m\nUniversal gravitational constant, G = 6.67 $\\times$ 10^−11 N m^2 kg^−2\nMass of the rocket = m , Initial kinetic energy of the rocket = $1\\over2$mv^2\nInitial potential energy of the rocket = $-GMm\\over r$\nTotal initial energy = $1\\over 2$mv^2 - $GMm\\over r$\nIf 20% of initial kinetic energy is lost due to Martian atmospheric resistance, then only 80 % of its kinetic energy helps in reaching a height.\nTotal initial energy available = $\\frac{80}{100} \\times \\frac{1}{2} m v^{2}-\\frac{G M m}{R}=0.4 m v^{2}-\\frac{G M m}{R}$\nThe maximum height reached by rocket = h\nAt this height, the velocity and hence, the kinetic energy of the rocket will become zero. The total energy of the rocket at height h = $-G M m \\over {R + h }$\nApplying the law of conservation of energy for the rocket, we can write: \n$0.4 m v^{2}-\\frac{G M m}{R}=\\frac{-G M m}{(R+h)}$\n$0.4 m v^{2}=\\frac{G M m}{R}-\\frac{G M m}{(R+h)}$\n$0.4 v^2=\\operatorname{GM}\\left(\\frac{1}{R}-\\frac{1}{(R+h)}\\right)$\n$\\Rightarrow \\frac{R+h}{h}=\\frac{G M}{0.4 v^{2} R}$\n$\\frac{R}{h}+1=\\frac{G M}{0.4 v^{2} R}$\n$\\frac{R}{h}=\\frac{G M}{0.4 v^{2} R}-1$\n$h=\\frac{R}{\\frac{G M}{0.4 v^{2} R}-1}$\n$h=\\frac{0.4 v^{2} R^{2}}{G M-0.4 v^{2} R}$\n$=\\frac{0.4 \\times (2 \\times 10^3)^2\\times \\left(3.395 \\times 10^{6}\\right)^{2} }{6.67 \\times 10^{-11} \\times 6.4 \\times 10^{23}-0.4 \\times (2\\times 10^3)^2 \\times \\left(3.395 \\times 10^{6}\\right) }$\n$=\\frac{18.442 \\times 10^{18}}{42.688 \\times 10^{12}-5.432 \\times 10^{12}}=\\frac{18.442}{37.256} \\times 10^{6}$\n= 495 $\\times$ 10^3m = 495 km"
+            },
+            {
+              "questionID": 17771,
+              "question": "The star Cancri is 57 light-years from the earth and has a mass of 0.85 times that of our sun. A planet has been detected in a circular orbit around Cancri with an orbital radius equal to 0.11 times the radius of the earth’s orbit around the sun. What is the orbital speed? The mean orbital radius of the earth around the sun is 1.5 $ \\times $ 10^8 km.",
+              "question_raw": "<p>The star Cancri is 57 light-years from the earth and has a mass of 0.85 times that of our sun. A planet has been detected in a circular orbit around Cancri with an orbital radius equal to 0.11 times the radius of the earth&rsquo;s orbit around the sun. What is the orbital speed? The mean orbital radius of the earth around the sun is 1.5 <span class=\"math-tex\">{tex} \\times {/tex}</span>&nbsp;10<sup>8</sup> km.</p>",
+              "options": [
+                {
+                  "label": "A",
+                  "id": 26284,
+                  "text": "82700 m/s",
+                  "is_correct": true
+                },
+                {
+                  "label": "B",
+                  "id": 26286,
+                  "text": "87700 m/s",
+                  "is_correct": false
+                },
+                {
+                  "label": "C",
+                  "id": 26285,
+                  "text": "85700 m/s",
+                  "is_correct": false
+                },
+                {
+                  "label": "D",
+                  "id": 26287,
+                  "text": "92700 m/s",
+                  "is_correct": false
+                }
+              ],
+              "correct_option_ids": [
+                26284
+              ],
+              "correct_option_labels": [
+                "A"
+              ],
+              "correct_option_texts": [
+                "82700 m/s"
+              ],
+              "explanation": "$v=\\sqrt{\\frac{G M}{r}}$\nG = 6.67 $\\times$ 10^−11Nm^2kg^−2\nMass of sun = Ms = 1.99 $\\times$ 10^30kg\nMass of planet which revolve around star Cancri,\nM = 0.85 $\\times$ 1.99 $\\times$ 10^30 kg\nr = 0.11 $\\times$ 1.5 $\\times$ 10^8km = 0.11 $\\times$ 1.5 $\\times$ 10^11m\n$\\Rightarrow v=\\sqrt{\\frac{6.67 \\times 10^{-11} \\times 0.85 \\times 1.99 \\times 10^{30}}{0.11 \\times 1.5 \\times 10^{11}}}$\n$\\Rightarrow$ v = 8.269 $\\times$ 10^4 m/sec = 82700 m/sec"
+            },
+            {
+              "questionID": 17772,
+              "question": "The star Cancri is 57 light-years from the earth and has a mass of 0.85 times that of our sun. A planet has been detected in a circular orbit around Cancri with an orbital radius equal to 0.11 times the radius of the earth’s orbit around the sun. What is the orbital period of the planet of Cancri? The mean orbital radius of the earth around the sun is 1.5 $ \\times $ 10^8 km.",
+              "question_raw": "<p>The star Cancri is 57 light-years from the earth and has a mass of 0.85 times that of our sun. A planet has been detected in a circular orbit around Cancri with an orbital radius equal to 0.11 times the radius of the earth&rsquo;s orbit around the sun. What is the orbital period of the planet of Cancri? The mean orbital radius of the earth around the sun is 1.5 <span class=\"math-tex\">{tex} \\times {/tex}</span>&nbsp;10<sup>8</sup> km.</p>",
+              "options": [
+                {
+                  "label": "A",
+                  "id": 26289,
+                  "text": "10.1 days",
+                  "is_correct": false
+                },
+                {
+                  "label": "B",
+                  "id": 26288,
+                  "text": "14.5 days",
+                  "is_correct": true
+                },
+                {
+                  "label": "C",
+                  "id": 26290,
+                  "text": "12.3 days",
+                  "is_correct": false
+                },
+                {
+                  "label": "D",
+                  "id": 26291,
+                  "text": "15.5 days",
+                  "is_correct": false
+                }
+              ],
+              "correct_option_ids": [
+                26288
+              ],
+              "correct_option_labels": [
+                "B"
+              ],
+              "correct_option_texts": [
+                "14.5 days"
+              ],
+              "explanation": "$v=\\sqrt{\\frac{G M}{r}}$\nG = 6.67 $\\times$ 10^−11Nm^2kg^−2\nMass of sun = M_s = 1.99 $\\times$ 10^30kg\nMass of planet which revolve around star Cancri,\nM = 0.85 $\\times$ 1.99 $\\times$10^30kg ,r = 0.11 $\\times$ 1.5 $\\times$10^8km = 0.11 $\\times$ 1.5 $\\times$10^11mṁ\n$\\Rightarrow v=\\sqrt{\\frac{6.67 \\times 10^{-11} \\times 0.85 \\times 1.99 \\times 10^{30}}{0.11 \\times 1.5 \\times 10^{11}}}$\n⇒v = 8.269 $\\times$ 10^4 m/sec = 82700 m/sec\nwe know, T =\n$\\Rightarrow T=\\frac{2 \\times \\frac{22}{7} \\times 0.11 \\times 1.5 \\times 10^{11}}{82700}$\n$\\Rightarrow T=\\frac{1.0371 \\times 10^{11}}{82700}$\n$\\Rightarrow$ T = 12540 $\\times $ 10^2sec = 1254000 sec\n$\\Rightarrow$T = $1254000 \\over 3600$hr = 348.33 hr\n$\\Rightarrow$T = $348.33\\over24$days = 14.51 days"
+            },
+            {
+              "questionID": 17773,
+              "question": "On October 15, 2001, a planet was discovered orbiting around the star HD 68988. Its orbital distance was measured to be 10.5 million kilometers from the center of the star, and its orbital period was estimated at 6.3 days. What is the mass of HD 68988?",
+              "question_raw": "<p>On October 15, 2001, a planet was discovered orbiting around the star HD 68988. Its orbital distance was measured to be 10.5 million kilometers from the center of the star, and its orbital period was estimated at 6.3 days. What is the mass of HD 68988?</p>",
+              "options": [
+                {
+                  "label": "A",
+                  "id": 26295,
+                  "text": "2.4 $ \\times $ 10^30 kg",
+                  "is_correct": false
+                },
+                {
+                  "label": "B",
+                  "id": 26294,
+                  "text": "2.2 $ \\times $ 10^30 kg",
+                  "is_correct": false
+                },
+                {
+                  "label": "C",
+                  "id": 26293,
+                  "text": "2.1 $ \\times $ 10^30 kg",
+                  "is_correct": false
+                },
+                {
+                  "label": "D",
+                  "id": 26292,
+                  "text": "2.3 $ \\times $ 10^30 kg",
+                  "is_correct": true
+                }
+              ],
+              "correct_option_ids": [
+                26292
+              ],
+              "correct_option_labels": [
+                "D"
+              ],
+              "correct_option_texts": [
+                "2.3 $ \\times $ 10^30 kg"
+              ],
+              "explanation": "Following is the equation for the period T:\n$T=\\frac{2 \\pi r^{3 / 2}}{\\sqrt{G m}}$ or $T^{2}=\\frac{4 \\pi^{2} r^{3}}{G m}$\nSolving this equation for the mass m, we get mass of the star HD68988 as follows:\n$m=\\frac{4 \\pi^{2} r^{3}}{T^{2} G}=\\frac{4 \\pi^{2}\\left(10.5 \\times 10^{9} m\\right)^{3}}{\\left(5.443 \\times 10^{5} s\\right)^{2}\\left(6.673 \\times 10^{-11} N . m^{2} / k g^{2}\\right)}$ = 2.3 $\\times$ 10^30kg"
+            },
+            {
+              "questionID": 17774,
+              "question": "A uniform, solid, 1000.0-kg sphere has a radius of 5.00 m. Find the gravitational force this sphere exerts on a 2.00-kg point mass placed at a distance of 5.01 m from the center of the sphere?",
+              "question_raw": "<p>A uniform, solid, 1000.0-kg sphere has a radius of 5.00 m. Find the gravitational force this sphere exerts on a 2.00-kg point mass placed at a distance of 5.01 m from the center of the sphere?</p>",
+              "options": [
+                {
+                  "label": "A",
+                  "id": 26296,
+                  "text": "5.31 $ \\times $ 10^−9 N",
+                  "is_correct": true
+                },
+                {
+                  "label": "B",
+                  "id": 26297,
+                  "text": "5.41 $ \\times $ ${\\rm{1}}{0^{ - {\\rm{9}}}}$ N",
+                  "is_correct": false
+                },
+                {
+                  "label": "C",
+                  "id": 26298,
+                  "text": "5.52 $ \\times $ ${\\rm{1}}{0^{ - {\\rm{9}}}}$ N",
+                  "is_correct": false
+                },
+                {
+                  "label": "D",
+                  "id": 26299,
+                  "text": "5.63 $ \\times $ ${\\rm{1}}{0^{ - {\\rm{9}}}}$ N",
+                  "is_correct": false
+                }
+              ],
+              "correct_option_ids": [
+                26296
+              ],
+              "correct_option_labels": [
+                "A"
+              ],
+              "correct_option_texts": [
+                "5.31 $ \\times $ 10^−9 N"
+              ],
+              "explanation": "We know the gravitational force\n$F=\\frac{G M m}{r^{2}}$\nHere G = 6.67 $\\times$ 10^−11Nm^2kg^−2\nM = 1000 kg\nm = 2.0 kg\nr = 5.01 m\n$\\Rightarrow F=\\frac{6.67 \\times 10^{-11} \\times 1000 \\times 2}{(5.01)^{2}}$\n$\\Rightarrow F=\\frac{13.34 \\times 10^{8}}{25.10}$\n$\\Rightarrow$ F = $\\frac{13.34 \\times 10^{8}}{25.10}$\n$\\Rightarrow$ F = 0.531 $\\times$ 10^−8 = 5.31 $\\times$ 10^−9N"
+            },
+            {
+              "questionID": 17775,
+              "question": "A uniform, solid, 1000.0-kg sphere has a radius of 5.00 m. Find the gravitational force this sphere exerts on a 2.00-kg point mass placed at a distance of 2.50 m from the center of the sphere?",
+              "question_raw": "<p>A uniform, solid, 1000.0-kg sphere has a radius of 5.00 m. Find the gravitational force this sphere exerts on a 2.00-kg point mass placed at a distance of 2.50 m from the center of the sphere?</p>",
+              "options": [
+                {
+                  "label": "A",
+                  "id": 26300,
+                  "text": "2.67 $ \\times $ 10^−9 N",
+                  "is_correct": true
+                },
+                {
+                  "label": "B",
+                  "id": 26302,
+                  "text": "2.27 $ \\times $ 10^−9 N",
+                  "is_correct": false
+                },
+                {
+                  "label": "C",
+                  "id": 26301,
+                  "text": "2.47 $ \\times $ 10^−9 N",
+                  "is_correct": false
+                },
+                {
+                  "label": "D",
+                  "id": 26303,
+                  "text": "2.07 $ \\times $ 10^−9 N",
+                  "is_correct": false
+                }
+              ],
+              "correct_option_ids": [
+                26300
+              ],
+              "correct_option_labels": [
+                "A"
+              ],
+              "correct_option_texts": [
+                "2.67 $ \\times $ 10^−9 N"
+              ],
+              "explanation": "In this case, at r = 2.50 m, only a fraction of mass M is located,\nso first, we calculate a mass for the position r = 2.50 \nsince density is uniform, So\n$\\sigma = \\sigma$'\n$\\frac{M}{\\frac{4}{3} \\pi R^{3}}=\\frac{M^{\\prime}}{\\frac{4}{3} \\pi r^{3}}$\nHere R = 5 m, r = 2.50 m\n$\\Rightarrow \\frac{1000}{(5)^{3}}=\\frac{M^{\\prime}}{(2.50)^{3}}$\n$\\Rightarrow M^{\\prime}=\\frac{1000 \\times 2.5 \\times 2.5 \\times 2.5}{125}$\n$\\Rightarrow$ M′ = 125 kg\nWe know the gravitational force\nF = $GM′m\\over r^2$\nHere G = 6.67 $\\times$ 10^−11Nm^2kg^−2\nM′ = 125 kg m = 2.0 kg\nr = 2.5 m\n$\\Rightarrow F=\\frac{6.67 \\times 10^{-11} \\times 125 \\times 2}{(2.5)^{2}}$\n$\\Rightarrow F=\\frac{1667.5 \\times 10^{-11} \\times 10^{2}}{625}$\n$\\Rightarrow$ F = 2.668 $\\times$ 10^−9 = 2.67 $\\times$ 10^−9N"
+            },
+            {
+              "questionID": 17776,
+              "question": "The acceleration due to gravity at the North Pole of Neptune is approximately 10.7 m/s^2. Neptune has a mass 1.0 $ \\times $ ${\\rm{1}}{0^{{\\rm{26}}}}$ kg and radius 2.5 $ \\times $ ${\\rm{1}}{0^{\\rm{4}}}$ km and rotates once around its axis in about 16 h. What is the gravitational force on a 5.0-kg object at the north pole of Neptune?",
+              "question_raw": "<p>The acceleration due to gravity at the North Pole of Neptune is approximately 10.7 m/s<sup>2</sup>. Neptune has a mass 1.0 <span class=\"math-tex\">{tex} \\times {/tex}</span> <span class=\"math-tex\">{tex}{\\rm{1}}{0^{{\\rm{26}}}}{/tex}</span> kg and radius 2.5 <span class=\"math-tex\">{tex} \\times {/tex}</span> <span class=\"math-tex\">{tex}{\\rm{1}}{0^{\\rm{4}}}{/tex}</span> km and rotates once around its axis in about 16 h. What is the gravitational force on a 5.0-kg object at the north pole of Neptune?</p>",
+              "options": [
+                {
+                  "label": "A",
+                  "id": 26306,
+                  "text": "55.8 N",
+                  "is_correct": false
+                },
+                {
+                  "label": "B",
+                  "id": 26307,
+                  "text": "56 N",
+                  "is_correct": false
+                },
+                {
+                  "label": "C",
+                  "id": 26305,
+                  "text": "54.5 N",
+                  "is_correct": false
+                },
+                {
+                  "label": "D",
+                  "id": 26304,
+                  "text": "53.5 N",
+                  "is_correct": true
+                }
+              ],
+              "correct_option_ids": [
+                26304
+              ],
+              "correct_option_labels": [
+                "D"
+              ],
+              "correct_option_texts": [
+                "53.5 N"
+              ],
+              "explanation": "Gravitational Force\nF = mg\n$\\Rightarrow$ F = 5 $\\times$ 10.7 = 53.5 N"
+            },
+            {
+              "questionID": 17777,
+              "question": "The acceleration due to gravity at the North Pole of Neptune is approximately 10.7 m/s^2. Neptune has a mass 1.0 $ \\times $ 10^26 kg and radius 2.5 $ \\times $ 10^4 km and rotates once around its axis in about 16 h. What is the apparent weight of a 5.0-kg object at Neptune’s equator?",
+              "question_raw": "<p>The acceleration due to gravity at the North Pole of Neptune is approximately 10.7&nbsp;m/s<sup>2</sup>. Neptune has a mass 1.0 <span class=\"math-tex\">{tex} \\times {/tex}</span>&nbsp;10<sup>26</sup> kg and radius 2.5 <span class=\"math-tex\">{tex} \\times {/tex}</span> 10<sup>4</sup> km and rotates once around its axis in about 16 h. What is the apparent weight of a 5.0-kg object at Neptune&rsquo;s equator?</p>",
+              "options": [
+                {
+                  "label": "A",
+                  "id": 26310,
+                  "text": "50 N",
+                  "is_correct": false
+                },
+                {
+                  "label": "B",
+                  "id": 26308,
+                  "text": "52 N",
+                  "is_correct": true
+                },
+                {
+                  "label": "C",
+                  "id": 26311,
+                  "text": "49 N",
+                  "is_correct": false
+                },
+                {
+                  "label": "D",
+                  "id": 26309,
+                  "text": "51 N",
+                  "is_correct": false
+                }
+              ],
+              "correct_option_ids": [
+                26308
+              ],
+              "correct_option_labels": [
+                "B"
+              ],
+              "correct_option_texts": [
+                "52 N"
+              ],
+              "explanation": "Apparent weight at equator = m(g - a)\ng = 10.7m/sec^2\na = centripetal accel. at equator = R$\\omega^2$\n216 hr = 57600s\n$\\omega=\\frac{2 \\pi}{T}=\\frac{2 \\pi}{57600 s}=1.1 \\times 10^{-4} \\mathrm{rad} / \\mathrm{sec}$\na = R$\\omega^2$ = 25 $\\times$ 10^6m $\\times$ (1.1 $\\times$ 10^−4)^2 \n= 0.297 $\\approx$ 0.30m/sec^2\nApp. weight = m(g - a) = 5(10.7 - 0.3) = 52 N"
+            },
+            {
+              "questionID": 17778,
+              "question": "Neutron stars, such as the one at the center of the Crab Nebula, have about the same mass as our sun but have a much smaller diameter. If you weigh 675 N on the earth, what would you weigh at the surface of a neutron star that has the same mass as our sun and a diameter of 20 km?",
+              "question_raw": "<p>Neutron stars, such as the one at the center of the Crab Nebula, have about the same mass as our sun but have a much smaller diameter. If you weigh 675 N on the earth, what would you weigh at the surface of a neutron star that has the same mass as our sun and a diameter of 20 km?</p>",
+              "options": [
+                {
+                  "label": "A",
+                  "id": 26315,
+                  "text": "9.36 $ \\times $ 10^13 N",
+                  "is_correct": false
+                },
+                {
+                  "label": "B",
+                  "id": 26312,
+                  "text": "9.16 $ \\times $ 10^13 N",
+                  "is_correct": true
+                },
+                {
+                  "label": "C",
+                  "id": 26313,
+                  "text": "9.06 $ \\times $ 10^13 N",
+                  "is_correct": false
+                },
+                {
+                  "label": "D",
+                  "id": 26314,
+                  "text": "9.26 $ \\times $ 10^13 N",
+                  "is_correct": false
+                }
+              ],
+              "correct_option_ids": [
+                26312
+              ],
+              "correct_option_labels": [
+                "B"
+              ],
+              "correct_option_texts": [
+                "9.16 $ \\times $ 10^13 N"
+              ],
+              "explanation": "W = 675 N \nRadius of Neutron star = $20\\over 2$ = 10 km = 10000 m\nWe need to find g on the Neutron star, so:\ng_neutron = $GM\\over r^2$\nM = 1.99 $\\times$ 10^30kg\nr = 10000 m\n$\\Rightarrow g_{\\text {neutron }}=\\frac{6.67 \\times 10^{-11} \\times 1.99 \\times 10^{30}}{(10000)^{2}}$\n$\\Rightarrow$ g_neutron = 667 $\\times$ 199 $\\times$ 10^7 \n$\\Rightarrow$ g_neutron = 132733 $\\times$ 10^7\nWeight on earth = 675 N\n$\\Rightarrow$ mg_earth = 675 N (Given)\n$\\Rightarrow$ m = 675/ 9.8 = 68.87 kg \nWeight on saturn = m $\\times$ g_neutron = 68.87 $\\times$ 132733 $\\times$ 10^7 = 9.16 $\\times$ 10^13 N"
+            },
+            {
+              "questionID": 17779,
+              "question": "Moon has a mass of 7.36 $ \\times $ ${\\rm{1}}{0^{{\\rm{22}}}}$ kg and a radius of 1.74 $ \\times $ 10^6 m. Calculate the acceleration due to gravity on the moon.",
+              "question_raw": "<p>Moon has a mass of 7.36 <span class=\"math-tex\">{tex} \\times {/tex}</span> <span class=\"math-tex\">{tex}{\\rm{1}}{0^{{\\rm{22}}}}{/tex}</span> kg and a radius of 1.74 <span class=\"math-tex\">{tex} \\times {/tex}</span>&nbsp;10<sup>6</sup> m. Calculate the acceleration due to gravity on the moon.</p>",
+              "options": [
+                {
+                  "label": "A",
+                  "id": 26319,
+                  "text": "1.82 m/s^2",
+                  "is_correct": false
+                },
+                {
+                  "label": "B",
+                  "id": 26318,
+                  "text": "1.22 m/s^2",
+                  "is_correct": false
+                },
+                {
+                  "label": "C",
+                  "id": 26317,
+                  "text": "1.42 m/s^2",
+                  "is_correct": false
+                },
+                {
+                  "label": "D",
+                  "id": 26316,
+                  "text": "1.62 m/s^2",
+                  "is_correct": true
+                }
+              ],
+              "correct_option_ids": [
+                26316
+              ],
+              "correct_option_labels": [
+                "D"
+              ],
+              "correct_option_texts": [
+                "1.62 m/s^2"
+              ],
+              "explanation": "We know\ng = $GM\\over r^2$\nG = 6.67 $\\times$ 10^−11 Nm^2kg^−2\nM = 7.36 $\\times$ 1022kgr = 1.74 $\\times$ 10^6 m\n$\\Rightarrow$ $\\mathrm{g}=\\frac{6.67 \\times 10^{-11} \\times 7.36 \\times 10^{22}}{\\left(1.74 \\times 10^{6}\\right)^{2}}$\n$\\Rightarrow$ g = $\\frac{6.67 \\times 7.36 \\times 10^{11}}{1.74 \\times 1.74 \\times 10^{12}}$\n$\\Rightarrow$ g = 1.62 m/sec^2."
+            },
+            {
+              "questionID": 17780,
+              "question": "The space shuttle releases a 470-kg communications satellite while in an orbit that is 280 km above the surface of the Earth. A rocket engine on the satellite boosts it into a geosynchronous orbit, which is an orbit in which the satellite stays directly over a single location on the Earth. How much energy did the engine have to provide?",
+              "question_raw": "<p>The space shuttle releases a 470-kg communications satellite while in an orbit that is 280 km above the surface of the Earth. A rocket engine on the satellite boosts it into a geosynchronous orbit, which is an orbit in which the satellite stays directly over a single location on the Earth. How much energy did the engine have to provide?</p>",
+              "options": [
+                {
+                  "label": "A",
+                  "id": 26322,
+                  "text": "1.29 $ \\times $ 10^10 J",
+                  "is_correct": false
+                },
+                {
+                  "label": "B",
+                  "id": 26323,
+                  "text": "1.39 $ \\times $ 10^10 J",
+                  "is_correct": false
+                },
+                {
+                  "label": "C",
+                  "id": 26321,
+                  "text": "1.09 $ \\times $ 10^10 J",
+                  "is_correct": false
+                },
+                {
+                  "label": "D",
+                  "id": 26320,
+                  "text": "1.19 $ \\times $ 10^10 J",
+                  "is_correct": true
+                }
+              ],
+              "correct_option_ids": [
+                26320
+              ],
+              "correct_option_labels": [
+                "D"
+              ],
+              "correct_option_texts": [
+                "1.19 $ \\times $ 10^10 J"
+              ],
+              "explanation": "Period of the rocket in geosynchronous orbit is the same as that of the earth:\nThat is T = 1day = 24hours = 24 $\\times$ 60 $\\times$ 60 sec = 8.64 $\\times$ 10^4 s\nFrom Kepler's 3^rd law\n T^2 = K_Er^3_GS\nWhere K_E = $\\frac{{4{\\pi ^2}}}{{G{M_E}}}$ = 9.89 $\\times$ 10^-14s^2/m^3\nTherefore the geosynchronous radius is\n ${r_{GS}} = \\root 3 \\of {\\frac{{{T^2}}}{{{K_E}}}} = \\root 3 \\of {\\frac{{{{\\left( {8.64 \\times {{10}^4}} \\right)}^2}}}{{9.89 \\times {{10}^{ - 14}}}}} $ = 4.23 $\\times$ 10^7m\nBecause the initial position before the boost is 280 km = 2.8 $\\times$ 10^5 m\nand the radius of the Earth is 6,370 km = 6.37 $\\times$ 10^6 m\nTherefore r_i = R_E + 2.80 $\\times$ 10^5 m = 6.65 $\\times$ 10^6 m\nThe total energy needed to boost the satellite at the geosynchronous radius is the difference of total energy before and after the boost \n$E = - \\frac{{G{M_E}{m_s}}}{2}\\left( {\\frac{1}{{{r_{GS}}}} - \\frac{1}{{{r_i}}}} \\right)$\n$= - \\frac{{6.67 \\times {{10}^{ - 11}} \\times 5.98 \\times {{10}^{24}} \\times 470}}{2}$$\\left( {\\frac{1}{{4.23 \\times {{10}^7}}} - \\frac{1}{{6.65 \\times {{10}^6}}}} \\right) $= 1.19 $\\times$ 10^10J"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "testPaperID": 566,
+      "testPaperName": "Gravitation Test 05",
+      "is_paid": true,
+      "category_full_name": "CBSE > Class 11 > Physics > Gravitation",
+      "noOfQuestions": 15,
+      "has_answers": true,
+      "sections": [
+        {
+          "sectionName": "General",
+          "sectionID": null,
+          "questions": [
+            {
+              "questionID": 17781,
+              "question": "Calculate the escape speed from the Earth for a 5000-kg spacecraft. mass of the earth = 6.0 $ \\times $ 10^24 kg; radius of the earth = 6.4 $ \\times $ 10^6 m; G = 6.67 $ \\times $ 10^−11 N m^2 kg$^{-{\\rm{2}}}$.",
+              "question_raw": "<p>Calculate the escape speed from the Earth for a 5000-kg spacecraft. mass of the earth = 6.0 <span class=\"math-tex\">{tex} \\times {/tex}</span>&nbsp;10<sup>24</sup> kg; radius of the earth = 6.4 <span class=\"math-tex\">{tex} \\times {/tex}</span>&nbsp;10<sup>6</sup> m; G = 6.67 <span class=\"math-tex\">{tex} \\times {/tex}</span>&nbsp;10<sup>&minus;11</sup> N m<sup>2</sup> kg<span class=\"math-tex\">{tex}^{-{\\rm{2}}}{/tex}</span>.</p>",
+              "options": [
+                {
+                  "label": "A",
+                  "id": 26325,
+                  "text": "1.32 $ \\times $ 10^4 m/s",
+                  "is_correct": false
+                },
+                {
+                  "label": "B",
+                  "id": 26324,
+                  "text": "1.12 $ \\times $ 10^4 m/s",
+                  "is_correct": true
+                },
+                {
+                  "label": "C",
+                  "id": 26326,
+                  "text": "1.52 $ \\times $ 10^4 m/s",
+                  "is_correct": false
+                },
+                {
+                  "label": "D",
+                  "id": 26327,
+                  "text": "1.72 $ \\times $ 10^4 m/s",
+                  "is_correct": false
+                }
+              ],
+              "correct_option_ids": [
+                26324
+              ],
+              "correct_option_labels": [
+                "B"
+              ],
+              "correct_option_texts": [
+                "1.12 $ \\times $ 10^4 m/s"
+              ],
+              "explanation": "We know, V_esc = $\\sqrt{\\frac{2 G M}{R}}$\nHere G = 6.67 $\\times$ 10^-11Nm^2kg^-2\nM = 6 $\\times$ 10^24 kg\nR = 6.4 $\\times$ 10^6 m\n$\\Rightarrow V_{e s c}=\\sqrt{\\frac{2 G M}{R}}$\n$=\\sqrt{\\frac{2 \\times 6.67 \\times 10^{-11} \\times 6 \\times 10^{24}}{6.4 \\times 10^{6}}}$\n$=\\sqrt{\\frac{12 \\times 6.67 \\times 10^{7}}{6.4}}$\n= 1.12 $\\times$ 10^4 m/sec"
+            },
+            {
+              "questionID": 17782,
+              "question": "Determine the kinetic energy a 5000-kg spacecraft must have in order to escape the Earth’s gravitational field. Mass of the earth = 6.0 $ \\times $ 10^24 kg; radius of the earth = 6.4 $ \\times $ 10^6 m; G = 6.67 $ \\times $ 10^-11 N m^2 kg^-2.",
+              "question_raw": "<p>Determine the kinetic energy a 5000-kg spacecraft must have in order to escape the Earth&rsquo;s gravitational field. Mass of the earth = 6.0 <span class=\"math-tex\">{tex} \\times {/tex}</span>&nbsp;10<sup>24</sup> kg; radius of the earth = 6.4 <span class=\"math-tex\">{tex} \\times {/tex}</span> 10<sup>6</sup> m; G = 6.67 <span class=\"math-tex\">{tex} \\times {/tex}</span> 10<sup>-11</sup> N m<sup>2</sup> kg<sup>-2</sup>.</p>",
+              "options": [
+                {
+                  "label": "A",
+                  "id": 26329,
+                  "text": "3.04 $ \\times $ 10^11J",
+                  "is_correct": false
+                },
+                {
+                  "label": "B",
+                  "id": 26330,
+                  "text": "3.34 $ \\times $ 10^11J",
+                  "is_correct": false
+                },
+                {
+                  "label": "C",
+                  "id": 26331,
+                  "text": "3.53 $ \\times $ 10^11J",
+                  "is_correct": false
+                },
+                {
+                  "label": "D",
+                  "id": 26328,
+                  "text": "3.14 $ \\times $ 10^11J",
+                  "is_correct": true
+                }
+              ],
+              "correct_option_ids": [
+                26328
+              ],
+              "correct_option_labels": [
+                "D"
+              ],
+              "correct_option_texts": [
+                "3.14 $ \\times $ 10^11J"
+              ],
+              "explanation": "Kinetic energy required for spacecraft to escape the earth′s gravitational field\n$=\\frac{1}{2} m_{s} v_{e s c}^{2}$\nWe know, $V_{e s c}=\\sqrt{\\frac{2 G M}{R}}$\nHere G = 6.67 $\\times$ 10^-11Nm^2kg^-2\nM = 6 $\\times$ 10^24 kg\nR = 6.4 $\\times$ 10^6 m\n$\\Rightarrow V_{e s c}=\\sqrt{\\frac{2 G M}{R}}$\n$=\\sqrt{\\frac{2 \\times 6.67 \\times 10^{-11} \\times 6 \\times 10^{24}}{6.4 \\times 10^{6}}}$\n$=\\sqrt{\\frac{12 \\times 6.67 \\times 10^{7}}{6.4}}$\n= 1.12 $\\times$ 10^4 m/sec. Kinetic energy required for spacecraft to escape the earth′s gravitational field = ${1\\over 2}m_sv^2_{esc}$\nHere m_s = mass of spacecraft = 5000 kg\n$\\therefore$ K.E = (1/2) $\\times$ 5000 $\\times$ (1.12 $\\times$ 10^4 )^2J\n$\\Rightarrow$ K.E = 2500 $\\times$( 1.12 $\\times$ 10^4 )^2J\n$\\Rightarrow$ K.E = 3.14 $\\times$ 10^11 J"
+            },
+            {
+              "questionID": 17783,
+              "question": "The asteroid Toro has a radius of about 5.0 km. Assuming that the density of Toro is the same as that of the earth (5.5 g/cm3) find its total mass and find the acceleration due to gravity at its surface. Mass of the earth = 6.0 $ \\times $ 10^24 kg; radius of the earth = 6.4 $ \\times $ 10^6 m; G = 6.67 $ \\times $ 10^−11 N m^2 kg^-2.",
+              "question_raw": "<p>The asteroid Toro has a radius of about 5.0 km. Assuming that the density of Toro is the same as that of the earth (5.5 g/cm3) find its total mass and find the acceleration due to gravity at its surface. Mass of the earth = 6.0 <span class=\"math-tex\">{tex} \\times {/tex}</span> 10<sup>24</sup> kg; radius of the earth = 6.4 <span class=\"math-tex\">{tex} \\times {/tex}</span> 10<sup>6</sup> m; G = 6.67 <span class=\"math-tex\">{tex} \\times {/tex}</span>&nbsp;10<sup>&minus;11</sup> N m<sup>2</sup> kg<sup>-2</sup>.</p>",
+              "options": [
+                {
+                  "label": "A",
+                  "id": 26334,
+                  "text": "2.7 $ \\times $ 10^15 kg, 0.0077 m/s^2",
+                  "is_correct": false
+                },
+                {
+                  "label": "B",
+                  "id": 26332,
+                  "text": "2.9 $ \\times $ 10^15 kg, 0.0077 m/s^2",
+                  "is_correct": true
+                },
+                {
+                  "label": "C",
+                  "id": 26333,
+                  "text": "2.5 $ \\times $ 10^15 kg, 0.0077 m/s^2",
+                  "is_correct": false
+                },
+                {
+                  "label": "D",
+                  "id": 26335,
+                  "text": "3.1 $ \\times $ 10^15 kg, 0.0077 m/s^2",
+                  "is_correct": false
+                }
+              ],
+              "correct_option_ids": [
+                26332
+              ],
+              "correct_option_labels": [
+                "B"
+              ],
+              "correct_option_texts": [
+                "2.9 $ \\times $ 10^15 kg, 0.0077 m/s^2"
+              ],
+              "explanation": "We can calculate the mass of Toro by mass density relationship:\n Mass = Volume $\\times$ Density\n $\\Rightarrow M_{t o r o}=\\frac{4}{3} \\pi R_{t o r o}^{3} \\times \\rho_{t o r o}$\n Here R_toro = 5.0 km = 5000 m\n ρtoro = 5.5 g/cm^3 = 55 $\\times$ 10^2kg/m3\n $\\Rightarrow M_{t o r o}=\\frac{4}{3} \\pi(5000)^{3} \\times 55 \\times 10^{2}$\n $\\Rightarrow M_{\\text {toro}}=\\frac{4}{3} \\times \\frac{22}{7} \\times 125 \\times 10^{9} \\times 55 \\times 10^{2}$\n $\\Rightarrow$ M_toro = 2.9 $\\times$ 10^15 kg\n we can find the acceleration due to gravity at the surface of Toro by the following relation:\n $$$g=\\frac{G M_{\\text {toro}}}{R_{\\text {toro}}^{2}}$\n $\\Rightarrow g=\\frac{6.67 \\times 10^{-11} \\times 2.9 \\times 10^{15}}{(5000)^{2}}$\n $\\Rightarrow g=\\frac{19.34 \\times 10^{4}}{25 \\times 10^{6}}$\n $\\Rightarrow$ g = 0.77 $\\times$ 10^−2 = 0.0077 m/sec^2."
+            },
+            {
+              "questionID": 17784,
+              "question": "The asteroid Toro has a radius of about 5.0 km. assuming that the density of Toro is the same as that of the earth (5.5 g/cm^3) Suppose an object is to be placed in a circular orbit around Toro, with a radius just slightly larger than the asteroid’s radius. What is the speed of the object?. Mass of the earth = 6.0 $ \\times $ 10^24 kg; radius of the earth = 6.4 $ \\times $ 10^6 m; G = 6.67 $ \\times $ 10^-11 Nm^2 kg^-2.",
+              "question_raw": "<p>The asteroid Toro has a radius of about 5.0 km. assuming that the density of Toro is the same as that of the earth (5.5 g/cm<sup>3</sup>) Suppose an object is to be placed in a circular orbit around Toro, with a radius just slightly larger than the asteroid&rsquo;s radius. What is the speed of the object?. Mass of the earth = 6.0 <span class=\"math-tex\">{tex} \\times {/tex}</span>&nbsp;10<sup>24</sup> kg; radius of the earth = 6.4 <span class=\"math-tex\">{tex} \\times {/tex}</span> 10<sup>6</sup> m; G = 6.67 <span class=\"math-tex\">{tex} \\times {/tex}</span> 10<sup>-11</sup> Nm<sup>2</sup> kg<sup>-2</sup>.</p>",
+              "options": [
+                {
+                  "label": "A",
+                  "id": 26339,
+                  "text": "6.8 m/s",
+                  "is_correct": false
+                },
+                {
+                  "label": "B",
+                  "id": 26337,
+                  "text": "6.4 m/s",
+                  "is_correct": false
+                },
+                {
+                  "label": "C",
+                  "id": 26336,
+                  "text": "6.2 m/s",
+                  "is_correct": true
+                },
+                {
+                  "label": "D",
+                  "id": 26338,
+                  "text": "6.6 m/s",
+                  "is_correct": false
+                }
+              ],
+              "correct_option_ids": [
+                26336
+              ],
+              "correct_option_labels": [
+                "C"
+              ],
+              "correct_option_texts": [
+                "6.2 m/s"
+              ],
+              "explanation": "We know Orbital velocity:\nV_orbital = $=\\sqrt{\\frac{G M_{t o r o}}{r}}$ .....(1)\nWe can calculate the mass of Toro by mass density relationship:\nMass = Volume $\\times$ Density\n$\\Rightarrow$ $M_{\\text {toro}}=\\frac{4}{3} \\pi R_{\\text {toro}}^{3} \\times \\rho_{\\text {toro}}$\nHere R_toro = 5.0 km = 5000 m \n$\\rho_{\\text {toro}}=5.5 \\mathrm{g} / \\mathrm{cm}^{3}=55 \\times 10^{2} \\mathrm{kg} / \\mathrm{m}^{3}$\n$\\Rightarrow $ M_toro = (4/3)$\\pi$(5000)^3 $\\times$ 55 $\\times$ 10^2\n$\\Rightarrow $ M_toro = (4/3) $\\times$ (22/7) $\\times$ 125 $\\times$ 10^9 $\\times$ 55 $\\times$ 10^2 $\\Rightarrow $ M_toro = 2.9 $\\times$ 10^15kg\nPutting Value Of M_toro,G = 6.67 $\\times$ 10^-11and r $\\approx$ R_toro = 5000 in Eqn (1)\n$V_{o r b i t a l}=\\sqrt{\\frac{6.67 \\times 10^{-11} \\times 2.9 \\times 10^{15}}{5000}}$\n$\\Rightarrow V_{\\text {orbital}}=\\sqrt{\\frac{19.34 \\times 10^{4}}{5 \\times 10^{3}}}$\n$\\Rightarrow V_{\\text {orbital}}=\\sqrt{3.886 \\times 10}$\n$\\Rightarrow V_{\\text {orbital}}=\\sqrt{38.86}$ = 6.2m/sec"
+            },
+            {
+              "questionID": 17785,
+              "question": "The effective value of acceleration due to gravity is $\\frac{g}{4}$ at the depth(in respect of R = radius of earth):",
+              "question_raw": "<p>The effective value of acceleration due to gravity is&nbsp;<span class=\"math-tex\">{tex}\\frac{g}{4}{/tex}</span>&nbsp;at the depth(in respect of R = radius of earth):</p>",
+              "options": [
+                {
+                  "label": "A",
+                  "id": 26340,
+                  "text": "$\\frac{{3R}}{4}$",
+                  "is_correct": true
+                },
+                {
+                  "label": "B",
+                  "id": 26343,
+                  "text": "$\\frac{R}{4}$",
+                  "is_correct": false
+                },
+                {
+                  "label": "C",
+                  "id": 26342,
+                  "text": "$\\frac{R}{2}$",
+                  "is_correct": false
+                },
+                {
+                  "label": "D",
+                  "id": 26341,
+                  "text": "R",
+                  "is_correct": false
+                }
+              ],
+              "correct_option_ids": [
+                26340
+              ],
+              "correct_option_labels": [
+                "A"
+              ],
+              "correct_option_texts": [
+                "$\\frac{{3R}}{4}$"
+              ],
+              "explanation": "we know :\ng′ = $g\\left( {1 - \\frac{d}{R}} \\right)$\n$ \\Rightarrow \\frac{g}{4} = g\\left( {1 - \\frac{d}{R}} \\right)$\n$\\Rightarrow d = \\frac{{3R}}{4}$"
+            },
+            {
+              "questionID": 17786,
+              "question": "Consider a spacecraft in an elliptical orbit around the earth. At the low point, or perigee, of its orbit, it is 400 km above the earth’s surface; at the high point, or apogee, it is 4000 km above the earth’s surface. What is the period of the spacecraft’s orbit?",
+              "question_raw": "<p>Consider a spacecraft in an elliptical orbit around the earth. At the low point, or perigee, of its orbit, it is 400 km above the earth&rsquo;s surface; at the high point, or apogee, it is 4000 km above the earth&rsquo;s surface. What is the period of the spacecraft&rsquo;s orbit?</p>",
+              "options": [
+                {
+                  "label": "A",
+                  "id": 26344,
+                  "text": "7910 s",
+                  "is_correct": true
+                },
+                {
+                  "label": "B",
+                  "id": 26345,
+                  "text": "6910 s",
+                  "is_correct": false
+                },
+                {
+                  "label": "C",
+                  "id": 26347,
+                  "text": "7510 s",
+                  "is_correct": false
+                },
+                {
+                  "label": "D",
+                  "id": 26346,
+                  "text": "7310 s",
+                  "is_correct": false
+                }
+              ],
+              "correct_option_ids": [
+                26344
+              ],
+              "correct_option_labels": [
+                "A"
+              ],
+              "correct_option_texts": [
+                "7910 s"
+              ],
+              "explanation": "At Apogee(High Point):\nR_P = R_E + h_P = 6.38 $\\times$ 10^6m + 400 $\\times$ 10^3m = 6.38 $\\times$ 10^6m + 0.40 $\\times$ 10^6m\nAt Perigee(Low Point):\nR_a = R_E + h_a = 6.38 $\\times$ 10^6m + 4000 $\\times$ 10^3m \n= 6.38 $\\times$ 10^6m + 4 $\\times$ 10^6m = 10.38 $\\times$ 10^6 m\n$\\mathrm{a}=\\frac{R_{p}+R_{a}}{2}=8.58 \\times 10^{6} \\mathrm{m}$\n$\\mathrm{T}=\\frac{2 \\pi \\mathrm{a}^{\\frac{3}{2}}}{\\sqrt{\\mathrm{GM}}_{E}}$; M_E= 5.97 $\\times$ 10^24Kg;G = 6.67 $\\times$ 10^−11Nm^2kg^-2\n$\\Rightarrow T=\\frac{2 \\times \\frac{22}{7} \\times\\left(8.58 \\times 10^{6}\\right)^{\\frac{3}{2}}}{\\sqrt{6.67 \\times 10^{-11} \\times 5.97 \\times 10^{24}}}$\n$\\Rightarrow$ T = 7.91 $\\times$ 10^3sec = 7910 sec"
+            },
+            {
+              "questionID": 17787,
+              "question": "Consider a spacecraft in an elliptical orbit around the earth. At the low point, or perigee, of its orbit, it is 400 km above the earth’s surface; at the high point, or apogee, it is 4000 km above the earth’s surface. Using conservation of angular momentum, find the ratio of the spacecraft’s speed at perigee to its speed at apogee.",
+              "question_raw": "<p>Consider a spacecraft in an elliptical orbit around the earth. At the low point, or perigee, of its orbit, it is 400 km above the earth&rsquo;s surface; at the high point, or apogee, it is 4000 km above the earth&rsquo;s surface. Using conservation of angular momentum, find the ratio of the spacecraft&rsquo;s speed at perigee to its speed at apogee.</p>",
+              "options": [
+                {
+                  "label": "A",
+                  "id": 26349,
+                  "text": "1.22",
+                  "is_correct": false
+                },
+                {
+                  "label": "B",
+                  "id": 26350,
+                  "text": "1.32",
+                  "is_correct": false
+                },
+                {
+                  "label": "C",
+                  "id": 26351,
+                  "text": "1.64",
+                  "is_correct": false
+                },
+                {
+                  "label": "D",
+                  "id": 26348,
+                  "text": "1.53",
+                  "is_correct": true
+                }
+              ],
+              "correct_option_ids": [
+                26348
+              ],
+              "correct_option_labels": [
+                "D"
+              ],
+              "correct_option_texts": [
+                "1.53"
+              ],
+              "explanation": "At Apogee(High Point):\nR_a = R_E + h_a = 6.38 $\\times$ 10^6m + 4000 $\\times$ 10^3m\n= 6.38 $\\times$ 10^6m + 4 $\\times$ 10^6m \n= 10.38 $\\times$ 10^6m\nAt Perigee(Low Point):\nR_p = R_E + h_p\n= 6.38 $\\times$ 10^6m + 400 $\\times$ 10^3m\n= 6.38 $\\times$ 10^6m + 0.4 $\\times$ 10^6m \n= 6.78 $\\times$ 10^6 m\na = $\\frac{R_{p}+R_{a}}{2}$ = 8.58 $\\times$ 10^6m\nAngular momentum, L is conserved because no torque acts on on the system i.e.\nL = mv_aR_a = mv_pR_p\nThus, $\\frac{v_{p}}{v_{a}}=\\frac{R_{a}}{R_{p}}=\\frac{10.38 \\times 10^{6}}{6.78 \\times 10^{6}}$ = 1.531"
+            },
+            {
+              "questionID": 17788,
+              "question": "Consider a spacecraft in an elliptical orbit around the earth. At the low point, or perigee, of its orbit, it is 400 km above the earth’s surface; at the high point, or apogee, it is 4000 km above the earth’s surface. Using conservation of energy, find the speed at perigee and the speed at apogee.",
+              "question_raw": "<p>Consider a spacecraft in an elliptical orbit around the earth. At the low point, or perigee, of its orbit, it is 400 km above the earth&rsquo;s surface; at the high point, or apogee, it is 4000 km above the earth&rsquo;s surface. Using conservation of energy, find the speed at perigee and the speed at apogee.</p>",
+              "options": [
+                {
+                  "label": "A",
+                  "id": 26354,
+                  "text": "3510 m/s (apogee), 7430 m/s (perigee)",
+                  "is_correct": false
+                },
+                {
+                  "label": "B",
+                  "id": 26353,
+                  "text": "5510 m/s (perigee), 8430 m/s (apogee)",
+                  "is_correct": false
+                },
+                {
+                  "label": "C",
+                  "id": 26352,
+                  "text": "5510 m/s (apogee), 8430 m/s (perigee)",
+                  "is_correct": true
+                },
+                {
+                  "label": "D",
+                  "id": 26355,
+                  "text": "4510 m/s (apogee), 8430 m/s (perigee)",
+                  "is_correct": false
+                }
+              ],
+              "correct_option_ids": [
+                26352
+              ],
+              "correct_option_labels": [
+                "C"
+              ],
+              "correct_option_texts": [
+                "5510 m/s (apogee), 8430 m/s (perigee)"
+              ],
+              "explanation": "At Apogee(High Point):\nR_P = R_E + h_P = 6.38 $\\times$ 10^6m + 400 $\\times$ 10^3m \n= 6.38 $\\times$ 10^6m + 0.40 $\\times$ 10^6m\nAt Perigee(Low Point):\nR_a = R_E + h_a = 6.38 $\\times$ 10^6m + 4000 $\\times$ 10^3m\n= 6.38 $\\times$ 10^6m + 4 $\\times$ 10^6m \n= 10.38 $\\times$ 10^6 m\n$a=\\frac{R_{p}+R_{a}}{2}$ = 8.58 $\\times$ 10^6m\nAngular momentum, L is conserved because no torque acts on the system\ni.e L = mv_aR_a= mv_pR_p\nThus $\\frac{v_{p}}{v_{a}}=\\frac{R_{a}}{R_{p}}$ = 1.513\nEnergy is conserved because non - conservative work is zero.\nThus K_a + U_a = K_p + U_p \n$\\Rightarrow$ K_p - K_a = U_a - U_p\n$\\Rightarrow \\frac{1}{2} m v_{p}^{2}-\\frac{1}{2} m v_{a}^{2}=\\frac{-G M m}{R_{a}}-\\left(\\frac{-G M m}{R_{p}}\\right)$\n$\\Rightarrow v_{p}^{2}-v_{a}^{2}=2 G M\\left(\\frac{1}{R_{P}}-\\frac{1}{R_{a}}\\right)$\nBut, As we know $\\frac{v_{p}}{v_{a}}$ $\\Rightarrow$ v_p = 1.531 $\\times$ v_a - (1)\nThus, $\\left[(1.531)^{2}-1\\right] v_{a}^{2}=2 G M\\left(\\frac{1}{R_{p}}-\\frac{1}{R_{a}}\\right)$\nSolving for V_a , we get \nv_a = 5.51 $\\times$ 10^3m/sec = 5510 m/sec \nPut value of v_a in eqn(1),\nwe get v_p = 8.43 $\\times$ 10^3m/sec = 8430 m/sec"
+            },
+            {
+              "questionID": 17789,
+              "question": "Consider a spacecraft in an elliptical orbit around the earth. At the low point, or perigee, of its orbit, it is 400 km above the earth’s surface; at the high point, or apogee, it is 4000 km above the earth’s surface. Using conservation of energy, find the speed at perigee and the speed at apogee. It is necessary to have the spacecraft escape from the earth completely.",
+              "question_raw": "<p>Consider a spacecraft in an elliptical orbit around the earth. At the low point, or perigee, of its orbit, it is 400 km above the earth&rsquo;s surface; at the high point, or apogee, it is 4000 km above the earth&rsquo;s surface. Using conservation of energy, find the speed at perigee and the speed at apogee.&nbsp;It is necessary to have the spacecraft escape from the earth completely.</p>",
+              "options": [
+                {
+                  "label": "A",
+                  "id": 26359,
+                  "text": "7840 m/sec(perigee),5760 m/sec(apogee)",
+                  "is_correct": false
+                },
+                {
+                  "label": "B",
+                  "id": 26356,
+                  "text": "10840 m/sec(perigee),8760 m/sec(apogee)",
+                  "is_correct": true
+                },
+                {
+                  "label": "C",
+                  "id": 26357,
+                  "text": "9840 m/sec(perigee),9760 m/sec(apogee)",
+                  "is_correct": false
+                },
+                {
+                  "label": "D",
+                  "id": 26358,
+                  "text": "8840 m/sec(perigee),6760 m/sec(apogee)",
+                  "is_correct": false
+                }
+              ],
+              "correct_option_ids": [
+                26356
+              ],
+              "correct_option_labels": [
+                "B"
+              ],
+              "correct_option_texts": [
+                "10840 m/sec(perigee),8760 m/sec(apogee)"
+              ],
+              "explanation": "To escape Earth, we need total energy of zero.\n(E_final = 0 because U $\\longrightarrow$ 0 as R $\\longrightarrow$ $\\infty$ and K $\\longrightarrow$ 0 as v = 0 at R $\\longrightarrow$ $\\infty$)\nSo,\nK_p + U_p = 0\nLooking for the new velocity at perigee;\n$\\frac{1}{2} m v^{2}_{p, e s c a p c}=\\frac{G M m}{R_{p}}$\n$v_{p, \\text { escape }}=\\sqrt{\\frac{2G M}{R_{p}}}=\\sqrt{\\frac{2\\times 6.67 \\times 10^{-11} \\times 5.97 \\times 10^{24}}{6.78 \\times 10^{6}}}$\n= 1.084 $\\times$ 10^4m/sec = 10840 m/sec\nThe similar calculation at apogee gives\n$v_{a, \\text {escape}}=\\sqrt{\\frac{2G M}{R_{a}}}=\\sqrt{\\frac{2\\times6.67 \\times 10^{-11} \\times 5.97 \\times 10^{24}}{10.38 \\times 10^{6}}}$\n= 8.76 $\\times$ 10^3m/sec = 8760 m/sec"
+            },
+            {
+              "questionID": 17790,
+              "question": "Consider a spacecraft in an elliptical orbit around the earth. At the low point, or perigee, of its orbit, it is 400 km above the earth’s surface; at the high point, or apogee, it is 4000 km above the earth’s surface. It is necessary to have the spacecraft escape from the earth completely. If the spacecraft’s rockets are fired at perigee, by how much would the speed have to be increased to achieve this? If the spacecraft’s rockets are fired at apogee, by how much would the speed have to be increased to achieve this?",
+              "question_raw": "<p>Consider a spacecraft in an elliptical orbit around the earth. At the low point, or perigee, of its orbit, it is 400 km above the earth&rsquo;s surface; at the high point, or apogee, it is 4000 km above the earth&rsquo;s surface. It is necessary to have the spacecraft escape from the earth completely. If the spacecraft&rsquo;s rockets are fired at perigee, by how much would the speed have to be increased to achieve this? If the spacecraft&rsquo;s rockets are fired at apogee, by how much would the speed have to be increased to achieve this?</p>",
+              "options": [
+                {
+                  "label": "A",
+                  "id": 26361,
+                  "text": "3410 m/sec(perigee), 6761 m/sec(apogee)",
+                  "is_correct": false
+                },
+                {
+                  "label": "B",
+                  "id": 26363,
+                  "text": "5410 m/sec(perigee), 8761 m/sec(apogee)",
+                  "is_correct": false
+                },
+                {
+                  "label": "C",
+                  "id": 26360,
+                  "text": "2410 m/sec(perigee),8761 m/sec(apogee)",
+                  "is_correct": true
+                },
+                {
+                  "label": "D",
+                  "id": 26362,
+                  "text": "4410 m/sec(perigee), 7761 m/sec(apogee)",
+                  "is_correct": false
+                }
+              ],
+              "correct_option_ids": [
+                26360
+              ],
+              "correct_option_labels": [
+                "C"
+              ],
+              "correct_option_texts": [
+                "2410 m/sec(perigee),8761 m/sec(apogee)"
+              ],
+              "explanation": "To escape Earth, we need total energy of zero. (E_final = 0 because U $\\rightarrow$ 0 as R $\\rightarrow$ $\\infty$ and K $\\rightarrow$ 0 as v = 0 at R $\\rightarrow$ $\\infty$)\nSo,\nK_p + U_p = 0\nLooking for new velocity at perigee\n$\\frac{1}{2} m v_{p, e s c a p e}^{2}=\\frac{G M m}{R_{p}}$\n$v_{p, \\text { escape }}=\\sqrt{\\frac{2G M}{R_{p}}}=\\sqrt{\\frac{2\\times6.67 \\times 10^{-11} \\times 5.97 \\times 10^{24}}{6.78 \\times 10^{6}}}$\n= 1.084 × 104m/sec = 10840 m/sec Similar calculation at apogee gives\n$v_{a, \\text {escape}}=\\sqrt{\\frac{2G M}{R_{a}}}=\\sqrt{\\frac{2\\times 6.67 \\times 10^{-11} \\times 5.97 \\times 10^{24}}{10.38 \\times 10^{6}}}$ = 8.76 $\\times$ 10^3m/sec = 8760 m/sec\nIf the rocket are fired at perigee,\nIncrease of speed = v_p,escape - v_p = 2.41 $\\times$ 10^3m/sec = 2410 m/sec \nIf the rocket are fired at apogee,\nIncrease of speed = v_a,escape - v_p = 8.761 $\\times$ 10^3 m/sec = 8761 m/sec"
+            },
+            {
+              "questionID": 17791,
+              "question": "A body of mass m is taken from the earth surface to the height h equal to the radius of the earth, the increase in potential energy will be:",
+              "question_raw": "<p>A body of mass m is taken from the earth surface to the height h equal to the radius of the earth, the increase in potential energy will be:</p>",
+              "options": [
+                {
+                  "label": "A",
+                  "id": 26366,
+                  "text": "2mgR",
+                  "is_correct": false
+                },
+                {
+                  "label": "B",
+                  "id": 26365,
+                  "text": "mgR",
+                  "is_correct": false
+                },
+                {
+                  "label": "C",
+                  "id": 26367,
+                  "text": "$\\frac{1}{4}$mgR",
+                  "is_correct": false
+                },
+                {
+                  "label": "D",
+                  "id": 26364,
+                  "text": "$\\frac{1}{2}$mgR",
+                  "is_correct": true
+                }
+              ],
+              "correct_option_ids": [
+                26364
+              ],
+              "correct_option_labels": [
+                "D"
+              ],
+              "correct_option_texts": [
+                "$\\frac{1}{2}$mgR"
+              ],
+              "explanation": "P.E of the body on surface of the earth is givem n by = $\\frac {-GMm}{R}$\nP.E of body at a height h from the surface of earth is give by= $\\frac {-GMm}{(R+h)}$\nDifference in P.E is given by = $\\frac {-GMm}{(R+h)}-\\frac {-GMm}{R}$\n= GMm$(\\frac {1}{R}-\\frac {1}{(R+h)})$\n= $mgR^2 \\frac {h}{(R(R+h))}$\nBecause, g = $\\frac {GM}{R^2}$\nWhen h = R\nChange in P.E = $\\frac {1}{2}$"
+            },
+            {
+              "questionID": 17792,
+              "question": "If the radius of earth reduces by 4% and density remains the same then escape velocity will be:",
+              "question_raw": "<p>If the radius of earth reduces by 4% and density remains the same then escape velocity will be:</p>",
+              "options": [
+                {
+                  "label": "A",
+                  "id": 26369,
+                  "text": "Reduce by 2%",
+                  "is_correct": false
+                },
+                {
+                  "label": "B",
+                  "id": 26370,
+                  "text": "Increase by 2%",
+                  "is_correct": false
+                },
+                {
+                  "label": "C",
+                  "id": 26371,
+                  "text": "Increase by 4%",
+                  "is_correct": false
+                },
+                {
+                  "label": "D",
+                  "id": 26368,
+                  "text": "Reduce by 4%",
+                  "is_correct": true
+                }
+              ],
+              "correct_option_ids": [
+                26368
+              ],
+              "correct_option_labels": [
+                "D"
+              ],
+              "correct_option_texts": [
+                "Reduce by 4%"
+              ],
+              "explanation": "Escape velocity v_e $\\propto$R$\\sqrt \\rho$ and if density remains constant $\\Rightarrow$ $ {v_e}{\\text{ }}\\propto$R\nSo if the radius reduces by 4% then escape velocity also reduces by 4%"
+            },
+            {
+              "questionID": 17793,
+              "question": "An object in the shape of a thin ring has radius 'a' and mass M. A uniform sphere with mass m and radius R is placed with its center at a distance x to the right of the center of the ring, along a line through the center of the ring, and perpendicular to its plane. What is the gravitational force that the sphere exerts on the ring-shaped object?",
+              "question_raw": "<p>An object in the shape of a thin ring has radius &#39;a&#39; and mass M. A uniform sphere with mass m and radius R is placed with its center at a distance x to the right of the center of the ring, along a line through the center of the ring, and perpendicular to its plane. What is the gravitational force that the sphere exerts on the ring-shaped object?</p>",
+              "options": [
+                {
+                  "label": "A",
+                  "id": 26374,
+                  "text": "$\\frac{\\operatorname{Gmx}}{\\left(\\mathrm{a}^2+\\mathrm{x}^2\\right)^{\\frac{3}{2}}}$",
+                  "is_correct": false
+                },
+                {
+                  "label": "B",
+                  "id": 26373,
+                  "text": "$\\frac{\\text { GMm }}{\\left(\\mathrm{a}^2+\\mathrm{x}^2\\right)^{\\frac{3}{2}}}$",
+                  "is_correct": false
+                },
+                {
+                  "label": "C",
+                  "id": 26372,
+                  "text": "$\\frac{\\text { GMmx }}{\\left(\\mathrm{a}^2+\\mathrm{x}^2\\right)^{\\frac{3}{2}}}$",
+                  "is_correct": true
+                },
+                {
+                  "label": "D",
+                  "id": 26375,
+                  "text": "$\\frac{\\text { GMmx }}{\\left(\\mathrm{a}^2+2 \\mathrm{x}^2\\right)^{\\frac{3}{2}}}$",
+                  "is_correct": false
+                }
+              ],
+              "correct_option_ids": [
+                26372
+              ],
+              "correct_option_labels": [
+                "C"
+              ],
+              "correct_option_texts": [
+                "$\\frac{\\text { GMmx }}{\\left(\\mathrm{a}^2+\\mathrm{x}^2\\right)^{\\frac{3}{2}}}$"
+              ],
+              "explanation": "Consider a mass segment dM = $\\left(\\frac{M}{2 \\pi a}\\right) d l=\\left(\\frac{M}{2 \\pi a}\\right) a d \\phi$ on the ring. Whereas $\\phi$is the integrated angle. The potential energy between this segment and the mass m is given by\ndU = $-G \\frac{m d M}{\\sqrt{a^{2}+x^{2}}}=-G \\frac{m \\frac{M}{2 \\pi} d \\phi}{\\sqrt{a^{2}+x^{2}}}$\nSo that\n$U=\\int d U=-\\int_{0}^{2 \\pi} G \\frac{m \\frac{M}{2 \\pi} d \\phi}{\\sqrt{a^{2}+x^{2}}}$\n$=-G \\frac{m M}{\\sqrt{a^{2}+x^{2}}}$\n$F=-\\frac{d U}{d x}=-\\frac{d}{d x}\\left[-G \\frac{m M}{\\sqrt{a^{2}+x^{2}}}\\right]=\\frac{G M m x}{\\left(a^{2}+x^{2}\\right)^{\\frac{3}{2}}}$"
+            },
+            {
+              "questionID": 17894,
+              "question": "If a film of width L is stretched in the longitudinal direction a distance d by force F, surface tension is given by:",
+              "question_raw": "<p>If a film of width L is stretched in the longitudinal direction a distance d by force F, surface tension is given by:</p>",
+              "options": [
+                {
+                  "label": "A",
+                  "id": 26776,
+                  "text": "S = $\\frac{F}{2L}$",
+                  "is_correct": true
+                },
+                {
+                  "label": "B",
+                  "id": 26779,
+                  "text": "S = $\\frac{F}{4L}$",
+                  "is_correct": false
+                },
+                {
+                  "label": "C",
+                  "id": 26777,
+                  "text": "S = $\\frac{F}{L}$",
+                  "is_correct": false
+                },
+                {
+                  "label": "D",
+                  "id": 26778,
+                  "text": "S = $\\frac{F}{3L}$",
+                  "is_correct": false
+                }
+              ],
+              "correct_option_ids": [
+                26776
+              ],
+              "correct_option_labels": [
+                "A"
+              ],
+              "correct_option_texts": [
+                "S = $\\frac{F}{2L}$"
+              ],
+              "explanation": "Let L be the width of the film. Since the film has two surfaces, the total length along which the surface force acts on the slider is 2L. The surface tension S in the film is defined as the ratio of the surface force F to the length d (perpendicular to the force) along which the force acts\n$S=\\frac{F}{d}$\nHence, in the case, d = 2L\n$S=\\frac{F}{2L}$"
+            },
+            {
+              "questionID": 17795,
+              "question": "Derive an expression for the work required to move an Earth satellite of mass m from a circular orbit of radius 2 ${{\\rm{R}}_{\\rm{E}}}$ to one of radius 3 ${{\\rm{R}}_{\\rm{E}}}$.",
+              "question_raw": "<p>Derive an expression for the work required to move an Earth satellite of mass m from a circular orbit of radius 2 <span class=\"math-tex\">{tex}{{\\rm{R}}_{\\rm{E}}}{/tex}</span>&nbsp;to one of radius 3 <span class=\"math-tex\">{tex}{{\\rm{R}}_{\\rm{E}}}{/tex}</span>.</p>",
+              "options": [
+                {
+                  "label": "A",
+                  "id": 26381,
+                  "text": "$\\frac{G M_E}{12 R_E}$",
+                  "is_correct": false
+                },
+                {
+                  "label": "B",
+                  "id": 26383,
+                  "text": "$\\frac{G M_E m}{24 R_E}$",
+                  "is_correct": false
+                },
+                {
+                  "label": "C",
+                  "id": 26382,
+                  "text": "$\\frac{G m}{24 R_E}$",
+                  "is_correct": false
+                },
+                {
+                  "label": "D",
+                  "id": 26380,
+                  "text": "$\\frac{G M_E m}{12 R E}$",
+                  "is_correct": true
+                }
+              ],
+              "correct_option_ids": [
+                26380
+              ],
+              "correct_option_labels": [
+                "D"
+              ],
+              "correct_option_texts": [
+                "$\\frac{G M_E m}{12 R E}$"
+              ],
+              "explanation": "The energy of a satellite in low orbit:\n$E_{L}=\\frac{-G M m}{2 r}=\\frac{-G M_{E} m}{2\\left(2 R_{E}\\right)}=\\frac{-G M_{E} m}{4 R_{E}} $\nThe energy of a satellite in high orbit:\n$$$E_{H}=\\frac{-G M m}{2 r}=\\frac{-G M_{E} m}{2\\left(3 R_{E}\\right)}=\\frac{-G M_{E} m}{6 R_{E}}$\nEnergy required to move a satellite from the orbit of radius 2R_E to orbit of radius 3R_E:\n$=\\Delta E$ = E_H − E_L = $\\frac{-G M_{E} m}{6 R_{E}}-\\left(\\frac{-G M_{E} m}{4 R_{E}}\\right) \\Rightarrow \\Delta E=\\frac{G M_{E} m}{12 R_{E}}$"
+            }
+          ]
+        }
+      ]
+    }
+  ]
+}

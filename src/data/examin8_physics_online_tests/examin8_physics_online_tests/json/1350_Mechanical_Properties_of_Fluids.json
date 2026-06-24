@@ -1,0 +1,3162 @@
+{
+  "id": 1350,
+  "name": "Mechanical Properties of Fluids",
+  "full_name": "CBSE > Class 11 > Physics > Mechanical Properties of Fluids",
+  "tests": [
+    {
+      "testPaperID": 572,
+      "testPaperName": "Mechanical Properties of Fluids Test 01",
+      "is_paid": false,
+      "category_full_name": "CBSE > Class 11 > Physics > Mechanical Properties of Fluids",
+      "noOfQuestions": 15,
+      "has_answers": true,
+      "sections": [
+        {
+          "sectionName": "General",
+          "sectionID": null,
+          "questions": [
+            {
+              "questionID": 17871,
+              "question": "The basic property of a fluid that makes it different from solids is that:",
+              "question_raw": "<p>The basic property of a fluid that makes it different from solids is that:</p>",
+              "options": [
+                {
+                  "label": "A",
+                  "id": 26685,
+                  "text": "It can be compressed",
+                  "is_correct": false
+                },
+                {
+                  "label": "B",
+                  "id": 26687,
+                  "text": "It does not expand on heating",
+                  "is_correct": false
+                },
+                {
+                  "label": "C",
+                  "id": 26684,
+                  "text": "It can flow",
+                  "is_correct": true
+                },
+                {
+                  "label": "D",
+                  "id": 26686,
+                  "text": "It has a large density",
+                  "is_correct": false
+                }
+              ],
+              "correct_option_ids": [
+                26684
+              ],
+              "correct_option_labels": [
+                "C"
+              ],
+              "correct_option_texts": [
+                "It can flow"
+              ],
+              "explanation": "Fluids can flow due to unbalanced forces between the atoms of fluids."
+            },
+            {
+              "questionID": 17872,
+              "question": "Density is defined as:",
+              "question_raw": "<p>Density is defined as:</p>",
+              "options": [
+                {
+                  "label": "A",
+                  "id": 26691,
+                  "text": "the volume of 10 kg of the material",
+                  "is_correct": false
+                },
+                {
+                  "label": "B",
+                  "id": 26690,
+                  "text": "the volume of 1 kg of the material",
+                  "is_correct": false
+                },
+                {
+                  "label": "C",
+                  "id": 26689,
+                  "text": "volume per unit mass",
+                  "is_correct": false
+                },
+                {
+                  "label": "D",
+                  "id": 26688,
+                  "text": "mass per unit volume",
+                  "is_correct": true
+                }
+              ],
+              "correct_option_ids": [
+                26688
+              ],
+              "correct_option_labels": [
+                "D"
+              ],
+              "correct_option_texts": [
+                "mass per unit volume"
+              ],
+              "explanation": "Density is defined as the compactness of a substance.\nMathematically,\nDensity(D) = $Mass (M) \\over Volume (V)$"
+            },
+            {
+              "questionID": 17873,
+              "question": "The specific gravity of a material is:",
+              "question_raw": "<p>The specific gravity of a material is:</p>",
+              "options": [
+                {
+                  "label": "A",
+                  "id": 26695,
+                  "text": "the ratio of its mass to the mass of water",
+                  "is_correct": false
+                },
+                {
+                  "label": "B",
+                  "id": 26694,
+                  "text": "the ratio of its volume to the density of water",
+                  "is_correct": false
+                },
+                {
+                  "label": "C",
+                  "id": 26692,
+                  "text": "the ratio of its density to the density of water",
+                  "is_correct": true
+                },
+                {
+                  "label": "D",
+                  "id": 26693,
+                  "text": "the ratio of its mass to the density of water",
+                  "is_correct": false
+                }
+              ],
+              "correct_option_ids": [
+                26692
+              ],
+              "correct_option_labels": [
+                "C"
+              ],
+              "correct_option_texts": [
+                "the ratio of its density to the density of water"
+              ],
+              "explanation": "The specific gravity of an object is the ratio between the density of an object to a reference liquid. Usually, this reference liquid is water, which has a density of 1 g/mL or 1 g/cm^3.\nWater has a specific gravity equal to 1. Materials with a specific gravity less than 1 are less dense than water, and will float on the pure liquid; substances with a specific gravity more than 1 are denser than water and will sink."
+            },
+            {
+              "questionID": 17874,
+              "question": "Pressure p at any point in a fluid at rest is:",
+              "question_raw": "<p>Pressure p at any point in a fluid at rest is:</p>",
+              "options": [
+                {
+                  "label": "A",
+                  "id": 26697,
+                  "text": "the force parallel to the area at that point per unit area",
+                  "is_correct": false
+                },
+                {
+                  "label": "B",
+                  "id": 26698,
+                  "text": "the normal force at that point per unit volume",
+                  "is_correct": false
+                },
+                {
+                  "label": "C",
+                  "id": 26696,
+                  "text": "the normal force at that point per unit area",
+                  "is_correct": true
+                },
+                {
+                  "label": "D",
+                  "id": 26699,
+                  "text": "the normal force at that point per unit mass",
+                  "is_correct": false
+                }
+              ],
+              "correct_option_ids": [
+                26696
+              ],
+              "correct_option_labels": [
+                "C"
+              ],
+              "correct_option_texts": [
+                "the normal force at that point per unit area"
+              ],
+              "explanation": "It is important to note that it is valid only for a fluid at rest. In the case of a moving fluid, pressures in different directions could be different depending upon fluid accelerations in different directions."
+            },
+            {
+              "questionID": 17875,
+              "question": "According to Pascal’s Law:",
+              "question_raw": "<p>According to Pascal&rsquo;s Law:</p>\r\n",
+              "options": [
+                {
+                  "label": "A",
+                  "id": 26701,
+                  "text": "pressure in a fluid increases with temperature",
+                  "is_correct": false
+                },
+                {
+                  "label": "B",
+                  "id": 26702,
+                  "text": "pressure in a fluid decreases with temperature",
+                  "is_correct": false
+                },
+                {
+                  "label": "C",
+                  "id": 26700,
+                  "text": "pressure in a fluid at rest is the same at all points if they are at the same height",
+                  "is_correct": true
+                },
+                {
+                  "label": "D",
+                  "id": 26703,
+                  "text": "pressure in a fluid at rest is the same at all points if they are at different heights",
+                  "is_correct": false
+                }
+              ],
+              "correct_option_ids": [
+                26700
+              ],
+              "correct_option_labels": [
+                "C"
+              ],
+              "correct_option_texts": [
+                "pressure in a fluid at rest is the same at all points if they are at the same height"
+              ],
+              "explanation": "According to Pascal's Law,\nP-P_0 = hdg\nfrom above\nChange in pressure is directly proportional to a depth from the free surface.\nAt the same horizontal line, all points are at the same depth and have the same value of acceleration due to gravity and density of water as well."
+            },
+            {
+              "questionID": 17876,
+              "question": "The pressure at a depth of h in a fluid of density $\\rho $ at a place where the acceleration due to gravity is g and the pressure at h = 0 is ${{\\rm{p}}_0}$ is given by:",
+              "question_raw": "<p>The pressure at a depth of h in a fluid of density <span class=\"math-tex\">{tex}\\rho {/tex}</span> at a place where the acceleration due to gravity is g and the pressure at h = 0 is <span class=\"math-tex\">{tex}{{\\rm{p}}_0}{/tex}</span> is given by:</p>",
+              "options": [
+                {
+                  "label": "A",
+                  "id": 26707,
+                  "text": "p = ${{\\rm{p}}_0}$+ $3\\rho $ gh",
+                  "is_correct": false
+                },
+                {
+                  "label": "B",
+                  "id": 26706,
+                  "text": "p = ${{\\rm{p}}_0}$ + $2\\rho $ gh",
+                  "is_correct": false
+                },
+                {
+                  "label": "C",
+                  "id": 26704,
+                  "text": "p = ${{\\rm{p}}_0}$ + $\\rho $ gh",
+                  "is_correct": true
+                },
+                {
+                  "label": "D",
+                  "id": 26705,
+                  "text": "p = $\\rho $ gh",
+                  "is_correct": false
+                }
+              ],
+              "correct_option_ids": [
+                26704
+              ],
+              "correct_option_labels": [
+                "C"
+              ],
+              "correct_option_texts": [
+                "p = ${{\\rm{p}}_0}$ + $\\rho $ gh"
+              ],
+              "explanation": "According to Pascal's Law,\nChange in Pressure (P - P_0) = h$\\rho $g\nif h = 0 then P - P_0 = 0\nand P = P_0"
+            },
+            {
+              "questionID": 17877,
+              "question": "The units of pressure in SI system is:",
+              "question_raw": "<p>The units of pressure in SI system is:</p>",
+              "options": [
+                {
+                  "label": "A",
+                  "id": 26709,
+                  "text": "Newton",
+                  "is_correct": false
+                },
+                {
+                  "label": "B",
+                  "id": 26708,
+                  "text": "Pascal",
+                  "is_correct": true
+                },
+                {
+                  "label": "C",
+                  "id": 26711,
+                  "text": "Watt",
+                  "is_correct": false
+                },
+                {
+                  "label": "D",
+                  "id": 26710,
+                  "text": "Joule",
+                  "is_correct": false
+                }
+              ],
+              "correct_option_ids": [
+                26708
+              ],
+              "correct_option_labels": [
+                "B"
+              ],
+              "correct_option_texts": [
+                "Pascal"
+              ],
+              "explanation": "Pressure is defined as force per unit area. The SI unit for pressure is the pascal (Pa), equal to one newton per square meter (N/m^2, or kg m^-1 s^−2). This name for the unit was added in 1971; before that, pressure in SI was expressed simply in newtons per square meter."
+            },
+            {
+              "questionID": 17878,
+              "question": "Gauge pressure at a point is:",
+              "question_raw": "<p>Gauge pressure at a point is:</p>",
+              "options": [
+                {
+                  "label": "A",
+                  "id": 26712,
+                  "text": "the pressure at that point - atmospheric pressure",
+                  "is_correct": true
+                },
+                {
+                  "label": "B",
+                  "id": 26713,
+                  "text": "the pressure at that point + atmospheric pressure",
+                  "is_correct": false
+                },
+                {
+                  "label": "C",
+                  "id": 26715,
+                  "text": "$\\frac{\\text { (pressure at that point }+ \\text { atmospheric pressure) }}{2}$",
+                  "is_correct": false
+                },
+                {
+                  "label": "D",
+                  "id": 26714,
+                  "text": "$\\frac{\\text { (pressure at that point-atmospheric pressure) }}{2}$",
+                  "is_correct": false
+                }
+              ],
+              "correct_option_ids": [
+                26712
+              ],
+              "correct_option_labels": [
+                "A"
+              ],
+              "correct_option_texts": [
+                "the pressure at that point - atmospheric pressure"
+              ],
+              "explanation": "Gauge pressure is zero-referenced against ambient air pressure, so it is equal to absolute pressure minus atmospheric pressure. Negative signs are usually omitted. \nThe difference between absolute pressure and atmospheric pressure is what we call gauge pressure (P_gauge). It can be calculated if we know the absolute and atmospheric pressures using this formula: \nP_gauge = P_abs − P_atm"
+            },
+            {
+              "questionID": 17879,
+              "question": "According to Pascal’s law for transmission of fluid pressure, external pressure applied on any part of a fluid contained in a vessel is ________ in all directions.",
+              "question_raw": "<p>According to Pascal&rsquo;s law for transmission of fluid pressure, external pressure applied on any part of a fluid contained in a vessel is ________&nbsp; in all directions.</p>",
+              "options": [
+                {
+                  "label": "A",
+                  "id": 26719,
+                  "text": "not transmitted",
+                  "is_correct": false
+                },
+                {
+                  "label": "B",
+                  "id": 26716,
+                  "text": "transmitted undiminished and equally",
+                  "is_correct": true
+                },
+                {
+                  "label": "C",
+                  "id": 26718,
+                  "text": "transmitted and decreased",
+                  "is_correct": false
+                },
+                {
+                  "label": "D",
+                  "id": 26717,
+                  "text": "transmitted and increased",
+                  "is_correct": false
+                }
+              ],
+              "correct_option_ids": [
+                26716
+              ],
+              "correct_option_labels": [
+                "B"
+              ],
+              "correct_option_texts": [
+                "transmitted undiminished and equally"
+              ],
+              "explanation": "Pascal's principle is defined as a change in pressure at any point in an enclosed fluid at rest is transmitted undiminished to all points in the fluid.\nThis principle is stated mathematically as\n$\\Delta P = \\rho g(\\Delta h)$ \n$\\Delta P$ is the hydrostatic pressure (given in pascals in the SI system), or the difference in pressure at two points within a fluid column, due to the weight of the fluid."
+            },
+            {
+              "questionID": 17880,
+              "question": "In a hydraulic lift, the force applied on the smaller cylinder of area A_1 is F_1. If the area of the larger cylinder is A_2 the maximum weight that can be lifted is:",
+              "question_raw": "<p>In a hydraulic lift, the force applied on the smaller cylinder of area A<sub>1</sub> is F<sub>1</sub>. If the area of the larger cylinder is A<sub>2&nbsp;</sub>the maximum weight that can be lifted is:</p>",
+              "options": [
+                {
+                  "label": "A",
+                  "id": 26723,
+                  "text": "F_1A_2",
+                  "is_correct": false
+                },
+                {
+                  "label": "B",
+                  "id": 26722,
+                  "text": "${F_1}$",
+                  "is_correct": false
+                },
+                {
+                  "label": "C",
+                  "id": 26720,
+                  "text": "$\\frac{A_2}{A_1} F_1$",
+                  "is_correct": true
+                },
+                {
+                  "label": "D",
+                  "id": 26721,
+                  "text": "$\\frac{A_1}{A_2} F_1$",
+                  "is_correct": false
+                }
+              ],
+              "correct_option_ids": [
+                26720
+              ],
+              "correct_option_labels": [
+                "C"
+              ],
+              "correct_option_texts": [
+                "$\\frac{A_2}{A_1} F_1$"
+              ],
+              "explanation": "According to Pascal's Law,\nPressure applied to any point inside the liquid is transmitted equally in all direction so,\nPressure applied to the smaller cylinder is equal to the pressure on the other cylinder, which is given by\n$\\frac{F_1}{A_1}=\\frac{F_2}{A_2}$ \nSo,\nMaximum force on the other side is,\nF_2 = $\\frac{A_2}{A_1} \\times F_1$"
+            },
+            {
+              "questionID": 17881,
+              "question": "The streamline in a flow is a curve:",
+              "question_raw": "<p>The streamline in a flow is&nbsp;a curve:</p>",
+              "options": [
+                {
+                  "label": "A",
+                  "id": 26725,
+                  "text": "whose perpendicular at any point is in the direction of the fluid velocity at that point.",
+                  "is_correct": false
+                },
+                {
+                  "label": "B",
+                  "id": 26724,
+                  "text": "whose tangent at any point is in the direction of the fluid velocity at that point.",
+                  "is_correct": true
+                },
+                {
+                  "label": "C",
+                  "id": 26726,
+                  "text": "which shows all points of equal pressure.",
+                  "is_correct": false
+                },
+                {
+                  "label": "D",
+                  "id": 26727,
+                  "text": "which shows all points of equal velocity.",
+                  "is_correct": false
+                }
+              ],
+              "correct_option_ids": [
+                26724
+              ],
+              "correct_option_labels": [
+                "B"
+              ],
+              "correct_option_texts": [
+                "whose tangent at any point is in the direction of the fluid velocity at that point."
+              ],
+              "explanation": "A streamline is one that drawn is tangential to the velocity vector at every point in the flow at a given instant and forms a powerful tool in understanding flows. This definition leads to the equation for streamlines.${du\\over u}={dv\\over v}={dw\\over w}$ \nwhere u, v, and w are the velocity components in x, y, and z directions respectively as sketched."
+            },
+            {
+              "questionID": 17882,
+              "question": "Flow is said to be steady if:",
+              "question_raw": "<p>Flow is said to be steady if:</p>",
+              "options": [
+                {
+                  "label": "A",
+                  "id": 26730,
+                  "text": "the flow rate decreases 10$\\% $ every second",
+                  "is_correct": false
+                },
+                {
+                  "label": "B",
+                  "id": 26728,
+                  "text": "the flow rate does not change with time",
+                  "is_correct": true
+                },
+                {
+                  "label": "C",
+                  "id": 26731,
+                  "text": "the flow rate decreases 20% every second",
+                  "is_correct": false
+                },
+                {
+                  "label": "D",
+                  "id": 26729,
+                  "text": "the flow rate increases with time",
+                  "is_correct": false
+                }
+              ],
+              "correct_option_ids": [
+                26728
+              ],
+              "correct_option_labels": [
+                "B"
+              ],
+              "correct_option_texts": [
+                "the flow rate does not change with time"
+              ],
+              "explanation": "The flow velocity u of a fluid is a vector field u = u(x, t)\nwhich gives the velocity of an element of fluid at a position x and time t.\nThe flow of a fluid is said to be steady if u do not vary with time. That is if ${\\delta u \\over \\delta t}$ = 0."
+            },
+            {
+              "questionID": 17883,
+              "question": "If a pipe carrying incompressible liquid has an area A_1 and velocity V_1 at one point A_2 nd V_2 at another point, the equation of continuity gives the relation:",
+              "question_raw": "<p>If a pipe carrying incompressible liquid has an area A<sub>1</sub> and velocity V<sub>1</sub> at one point A<sub>2</sub> nd V<sub>2</sub> at another point, the equation of continuity gives the relation:</p>",
+              "options": [
+                {
+                  "label": "A",
+                  "id": 26732,
+                  "text": "A_1V_1 = A_2V_2",
+                  "is_correct": true
+                },
+                {
+                  "label": "B",
+                  "id": 26733,
+                  "text": "A_1 = A_2V_2",
+                  "is_correct": false
+                },
+                {
+                  "label": "C",
+                  "id": 26735,
+                  "text": "A_1V_1 = 2A_2V_2",
+                  "is_correct": false
+                },
+                {
+                  "label": "D",
+                  "id": 26734,
+                  "text": "A_1V_1 = A_1V_2",
+                  "is_correct": false
+                }
+              ],
+              "correct_option_ids": [
+                26732
+              ],
+              "correct_option_labels": [
+                "A"
+              ],
+              "correct_option_texts": [
+                "A_1V_1 = A_2V_2"
+              ],
+              "explanation": "we apply the principle of mass conservation. Since there is no flow through the sidewalls of the duct, what mass comes in overA_1 goes out of A_2, Over a short time interval $\\Delta t$ \nVolume flow in over A_1 = A_1V_1$\\Delta$t\nVolume flow out over A_2 = A_2V_2$\\Delta$t\nTherefore\nmass in over A = $\\rho$A_1V_1$\\Delta$t\nmass out over A = $\\rho$A_2V_2$\\Delta$t\nSo:$\\rho$ A_1V_1 = $\\rho$A_2V_2$\\Delta$t\nAs volume is the same so this equation can be written as|\nA_1V_1 = A_2V_2\nThis equation is called the continuity equation for steady one-dimensional flow."
+            },
+            {
+              "questionID": 17884,
+              "question": "in laminar flow:",
+              "question_raw": "<p>in laminar flow:</p>",
+              "options": [
+                {
+                  "label": "A",
+                  "id": 26736,
+                  "text": "adjacent layers of fluid slide smoothly past each other and the flow is steady",
+                  "is_correct": true
+                },
+                {
+                  "label": "B",
+                  "id": 26737,
+                  "text": "adjacent layers of fluid move in circle crossing each other and the flow is steady",
+                  "is_correct": false
+                },
+                {
+                  "label": "C",
+                  "id": 26739,
+                  "text": "adjacent layers of fluid do not slide smoothly past each other and the flow is unsteady",
+                  "is_correct": false
+                },
+                {
+                  "label": "D",
+                  "id": 26738,
+                  "text": "adjacent layers of fluid slide smoothly past each other and the flow is unsteady",
+                  "is_correct": false
+                }
+              ],
+              "correct_option_ids": [
+                26736
+              ],
+              "correct_option_labels": [
+                "A"
+              ],
+              "correct_option_texts": [
+                "adjacent layers of fluid slide smoothly past each other and the flow is steady"
+              ],
+              "explanation": "laminar flow (or streamline flow) occurs when a fluid flows in parallel layers, with no disruption between the layers. At low velocities, the fluid tends to flow without lateral mixing, and adjacent layers slide past one another like playing cards."
+            },
+            {
+              "questionID": 17885,
+              "question": "At large flow velocities, the flow of fluid becomes:",
+              "question_raw": "<p>At large flow velocities, the flow of fluid becomes:</p>",
+              "options": [
+                {
+                  "label": "A",
+                  "id": 26740,
+                  "text": "turbulent",
+                  "is_correct": true
+                },
+                {
+                  "label": "B",
+                  "id": 26741,
+                  "text": "laminar",
+                  "is_correct": false
+                },
+                {
+                  "label": "C",
+                  "id": 26743,
+                  "text": "compressible",
+                  "is_correct": false
+                },
+                {
+                  "label": "D",
+                  "id": 26742,
+                  "text": "viscous",
+                  "is_correct": false
+                }
+              ],
+              "correct_option_ids": [
+                26740
+              ],
+              "correct_option_labels": [
+                "A"
+              ],
+              "correct_option_texts": [
+                "turbulent"
+              ],
+              "explanation": "When any liquid is flowing more than the velocity of its critical velocity then flow becomes turbulent."
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "testPaperID": 573,
+      "testPaperName": "Mechanical Properties of Fluids Test 02",
+      "is_paid": true,
+      "category_full_name": "CBSE > Class 11 > Physics > Mechanical Properties of Fluids",
+      "noOfQuestions": 15,
+      "has_answers": true,
+      "sections": [
+        {
+          "sectionName": "General",
+          "sectionID": null,
+          "questions": [
+            {
+              "questionID": 17886,
+              "question": "According to Bernoulli’s equation for a varying cross-section pipe carrying incompressible liquid, pressure p, density $\\rho $ velocity v and height h at a place where the acceleration due to gravity is g.",
+              "question_raw": "<p>According to Bernoulli&rsquo;s equation for a varying cross-section pipe carrying incompressible liquid, pressure p, density <span class=\"math-tex\">{tex}\\rho {/tex}</span> velocity v and height h at a place where the acceleration due to gravity is g.</p>",
+              "options": [
+                {
+                  "label": "A",
+                  "id": 26747,
+                  "text": "P + $ \\rho {v^2} + \\rho gh $ = constant",
+                  "is_correct": false
+                },
+                {
+                  "label": "B",
+                  "id": 26746,
+                  "text": "P + $\\frac{1}{2}\\rho {v^2} + 2\\rho gh$ = constant",
+                  "is_correct": false
+                },
+                {
+                  "label": "C",
+                  "id": 26744,
+                  "text": "P + $ \\frac{1}{2}\\rho {v^2} + \\rho gh $ = constant",
+                  "is_correct": true
+                },
+                {
+                  "label": "D",
+                  "id": 26745,
+                  "text": "$P + \\frac{1}{3}\\rho {v^2} + \\rho gh $ = constant",
+                  "is_correct": false
+                }
+              ],
+              "correct_option_ids": [
+                26744
+              ],
+              "correct_option_labels": [
+                "C"
+              ],
+              "correct_option_texts": [
+                "P + $ \\frac{1}{2}\\rho {v^2} + \\rho gh $ = constant"
+              ],
+              "explanation": "According to the conservation of energy,\nThe total energy of any system is always conserved.\nAnd Bernoulli's Theorem says that at any point in the pipe in which the liquid is flowing the sum of all the energies (Pressure Energy, Kinetic Energy, Potential Energy) is always constant."
+            },
+            {
+              "questionID": 17887,
+              "question": "If a ball is spinning in an airflow it develops pressure difference between the lower and upper faces due to differences in the:",
+              "question_raw": "<p>If a ball is spinning in an airflow it develops pressure difference between the lower and upper faces due to differences in the:</p>",
+              "options": [
+                {
+                  "label": "A",
+                  "id": 26751,
+                  "text": "the viscosity of air giving rise to lift",
+                  "is_correct": false
+                },
+                {
+                  "label": "B",
+                  "id": 26750,
+                  "text": "the density of air giving rise to lift",
+                  "is_correct": false
+                },
+                {
+                  "label": "C",
+                  "id": 26748,
+                  "text": "velocities of air giving rise to lift",
+                  "is_correct": true
+                },
+                {
+                  "label": "D",
+                  "id": 26749,
+                  "text": "height of air giving rise to lift",
+                  "is_correct": false
+                }
+              ],
+              "correct_option_ids": [
+                26748
+              ],
+              "correct_option_labels": [
+                "C"
+              ],
+              "correct_option_texts": [
+                "velocities of air giving rise to lift"
+              ],
+              "explanation": "The Magnus effect is an observable phenomenon that is commonly associated with a spinning object that drags air faster around one side, creating a difference in pressure that moves it in the direction of the lower-pressure side.\nThe Magnus effect often occurs when a spinning sphere (or cylinder) curves away from its principal flight path.\nThis phenomenon is important in the study of the physics of many ball sports. It is also an important factor in the study of the effects of spinning on guided missiles—and has some engineering uses, for instance in the design of rotor ships and Flettner aeroplanes."
+            },
+            {
+              "questionID": 17888,
+              "question": "The lift on an aircraft wing arises because of:",
+              "question_raw": "<p>The lift on an aircraft wing arises because of:</p>",
+              "options": [
+                {
+                  "label": "A",
+                  "id": 26753,
+                  "text": "velocity increase and pressure increase on the lower side of the wing",
+                  "is_correct": false
+                },
+                {
+                  "label": "B",
+                  "id": 26752,
+                  "text": "velocity decrease and pressure increase on the lower side of the wing",
+                  "is_correct": true
+                },
+                {
+                  "label": "C",
+                  "id": 26755,
+                  "text": "velocity increase and pressure decrease on the lower side of the wing",
+                  "is_correct": false
+                },
+                {
+                  "label": "D",
+                  "id": 26754,
+                  "text": "velocity decrease and pressure decrease on the lower side of the wing",
+                  "is_correct": false
+                }
+              ],
+              "correct_option_ids": [
+                26752
+              ],
+              "correct_option_labels": [
+                "B"
+              ],
+              "correct_option_texts": [
+                "velocity decrease and pressure increase on the lower side of the wing"
+              ],
+              "explanation": "This is the application of Bernoulli's Theorem.\nIf air speeds up the pressure are lowered. Thus, a wing generates lift because the air goes faster over the top creating a region of low pressure, and thus lift."
+            },
+            {
+              "questionID": 17889,
+              "question": "The coefficient of viscosity for a fluid is defined as the ratio of:",
+              "question_raw": "<p>The coefficient of viscosity for a fluid is defined as the ratio of:</p>",
+              "options": [
+                {
+                  "label": "A",
+                  "id": 26758,
+                  "text": "compressive stress to the strain rate",
+                  "is_correct": false
+                },
+                {
+                  "label": "B",
+                  "id": 26757,
+                  "text": "tensile stress to the strain rate",
+                  "is_correct": false
+                },
+                {
+                  "label": "C",
+                  "id": 26759,
+                  "text": "shearing stress to the flow rate",
+                  "is_correct": false
+                },
+                {
+                  "label": "D",
+                  "id": 26756,
+                  "text": "shearing stress to the strain rate",
+                  "is_correct": true
+                }
+              ],
+              "correct_option_ids": [
+                26756
+              ],
+              "correct_option_labels": [
+                "D"
+              ],
+              "correct_option_texts": [
+                "shearing stress to the strain rate"
+              ],
+              "explanation": "The degree to which a fluid resists flows under an applied force expressed as the ratio of the shearing stress to the velocity gradient. The coefficient of viscosity of liquids decreases as temperature increases because the bonds between molecules are weakened."
+            },
+            {
+              "questionID": 17890,
+              "question": "According to Stokes’ law if $\\eta $ is the coefficient of viscosity, 'R' the radius of the sphere and it is moving with a velocity v the viscous drag force F is given by:",
+              "question_raw": "<p>According to Stokes&rsquo; law if <span class=\"math-tex\">{tex}\\eta {/tex}</span> is the coefficient of viscosity, &#39;R&#39;&nbsp;the radius of the sphere and it is moving with a velocity v the viscous drag force F is given by:</p>",
+              "options": [
+                {
+                  "label": "A",
+                  "id": 26763,
+                  "text": "F_d = $6\\pi \\eta R $",
+                  "is_correct": false
+                },
+                {
+                  "label": "B",
+                  "id": 26760,
+                  "text": "F_d = $ 6\\pi \\eta R v$",
+                  "is_correct": true
+                },
+                {
+                  "label": "C",
+                  "id": 26762,
+                  "text": "F_d = $ 6\\pi R v$",
+                  "is_correct": false
+                },
+                {
+                  "label": "D",
+                  "id": 26761,
+                  "text": "F_d = $ 2\\pi \\eta R v$",
+                  "is_correct": false
+                }
+              ],
+              "correct_option_ids": [
+                26760
+              ],
+              "correct_option_labels": [
+                "B"
+              ],
+              "correct_option_texts": [
+                "F_d = $ 6\\pi \\eta R v$"
+              ],
+              "explanation": "The force of viscosity on a small sphere moving through a viscous fluid is given by:\nF_d = $ 6\\pi \\eta R v$\nWhere:\n F_d is the frictional force - known as Stokes' drag – acting on the interface between the fluid and the particle\n η is the dynamic viscosity \n R is the radius of the spherical object\n v is the flow velocity relative to the object.\nIn SI units, F_d is given in Newtons, η in Pa·s, R in meters, and v in m/s."
+            },
+            {
+              "questionID": 17891,
+              "question": "If $\\rho $ is the density of the fluid flowing with a speed v, D stands for the dimension of the pipe, and $\\eta $ is the viscosity of the fluid Reynolds number R_e is given by:",
+              "question_raw": "<p>If <span class=\"math-tex\">{tex}\\rho {/tex}</span> is the density of the fluid flowing with a speed v, D&nbsp;stands for the dimension of the pipe, and <span class=\"math-tex\">{tex}\\eta {/tex}</span> is the viscosity of the fluid Reynolds number R<sub>e</sub> is given by:</p>",
+              "options": [
+                {
+                  "label": "A",
+                  "id": 26765,
+                  "text": "R_e = $\\rho vD\\eta$",
+                  "is_correct": false
+                },
+                {
+                  "label": "B",
+                  "id": 26766,
+                  "text": "R_e = $\\rho v \\over\\eta$",
+                  "is_correct": false
+                },
+                {
+                  "label": "C",
+                  "id": 26764,
+                  "text": "R_e = $\\rho vD\\over\\eta$",
+                  "is_correct": true
+                },
+                {
+                  "label": "D",
+                  "id": 26767,
+                  "text": "$R_e= $ $ \\rho D\\over\\eta$",
+                  "is_correct": false
+                }
+              ],
+              "correct_option_ids": [
+                26764
+              ],
+              "correct_option_labels": [
+                "C"
+              ],
+              "correct_option_texts": [
+                "R_e = $\\rho vD\\over\\eta$"
+              ],
+              "explanation": "It is a dimensionless number comprised of the physical characteristics of the flow. An increasing Reynolds number indicates increasing turbulence of flow.\nIt is defined as: $R_e =$$ \\rho vD\\over\\eta$ \nwhere;\nv is the flow velocity\nD is a characteristic linear dimension\nρ fluid density(kg/m^3)\n$\\eta$ is dynamic viscosity (Pa.s)\nν kinematic viscosity (m^2/s), v = $\\eta\\over\\rho$"
+            },
+            {
+              "questionID": 17892,
+              "question": "The molecules on the surface, are:",
+              "question_raw": "<p>The molecules on the surface, are:</p>",
+              "options": [
+                {
+                  "label": "A",
+                  "id": 26769,
+                  "text": "The balanced attractions cause the surface to resist being stretched",
+                  "is_correct": false
+                },
+                {
+                  "label": "B",
+                  "id": 26771,
+                  "text": "The unbalanced attractions cause the surface to stretch less",
+                  "is_correct": false
+                },
+                {
+                  "label": "C",
+                  "id": 26770,
+                  "text": "The unbalanced attractions cause the surface to stretch more",
+                  "is_correct": false
+                },
+                {
+                  "label": "D",
+                  "id": 26768,
+                  "text": "The unbalanced attractions cause the surface to resist being stretched",
+                  "is_correct": true
+                }
+              ],
+              "correct_option_ids": [
+                26768
+              ],
+              "correct_option_labels": [
+                "D"
+              ],
+              "correct_option_texts": [
+                "The unbalanced attractions cause the surface to resist being stretched"
+              ],
+              "explanation": "The surface tension of liquid results from an imbalance of intermolecular attractive forces, the cohesive forces between molecules: A molecule in the bulk liquid experiences cohesive forces with other molecules in all directions. A molecule at the surface of a liquid experiences only net inward cohesive forces. The unbalanced attraction of molecules at the surface of a liquid tends to pull the molecules back into the bulk liquid leaving the minimum number of molecules on the surface. It required energy to increase the surface area of a liquid because a larger surface area contains more molecules in the unbalanced situation and this may result as the surface being stretched."
+            },
+            {
+              "questionID": 17893,
+              "question": "Water drops are spherical because of:",
+              "question_raw": "<p>Water drops are spherical because of:</p>",
+              "options": [
+                {
+                  "label": "A",
+                  "id": 26772,
+                  "text": "surface tension",
+                  "is_correct": true
+                },
+                {
+                  "label": "B",
+                  "id": 26773,
+                  "text": "viscosity",
+                  "is_correct": false
+                },
+                {
+                  "label": "C",
+                  "id": 26774,
+                  "text": "elasticity",
+                  "is_correct": false
+                },
+                {
+                  "label": "D",
+                  "id": 26775,
+                  "text": "low shear strain",
+                  "is_correct": false
+                }
+              ],
+              "correct_option_ids": [
+                26772
+              ],
+              "correct_option_labels": [
+                "A"
+              ],
+              "correct_option_texts": [
+                "surface tension"
+              ],
+              "explanation": "In fluids, there are primarily 2 forces cohesive force and adhesive force. Cohesive force is the one that acts between the same molecules and adhesive force is the one that acts between different molecules. \nThe cohesive force gives rise to a phenomenon called surface tension. In this phenomenon a fluid surface tends to pull itself inwards, causing a reduction of the exposed surface.\nFor a water droplet that is left alone, cohesive forces undoubtedly dominate, leading to surface tension. Surface tension makes all the molecules of water to stick with each other closely, this results in its spherical shape."
+            },
+            {
+              "questionID": 17894,
+              "question": "If a film of width L is stretched in the longitudinal direction a distance d by force F, surface tension is given by:",
+              "question_raw": "<p>If a film of width L is stretched in the longitudinal direction a distance d by force F, surface tension is given by:</p>",
+              "options": [
+                {
+                  "label": "A",
+                  "id": 26777,
+                  "text": "S = $\\frac{F}{L}$",
+                  "is_correct": false
+                },
+                {
+                  "label": "B",
+                  "id": 26776,
+                  "text": "S = $\\frac{F}{2L}$",
+                  "is_correct": true
+                },
+                {
+                  "label": "C",
+                  "id": 26778,
+                  "text": "S = $\\frac{F}{3L}$",
+                  "is_correct": false
+                },
+                {
+                  "label": "D",
+                  "id": 26779,
+                  "text": "S = $\\frac{F}{4L}$",
+                  "is_correct": false
+                }
+              ],
+              "correct_option_ids": [
+                26776
+              ],
+              "correct_option_labels": [
+                "B"
+              ],
+              "correct_option_texts": [
+                "S = $\\frac{F}{2L}$"
+              ],
+              "explanation": "Let L be the width of the film. Since the film has two surfaces, the total length along which the surface force acts on the slider is 2L. The surface tension S in the film is defined as the ratio of the surface force F to the length d (perpendicular to the force) along which the force acts\n$S=\\frac{F}{d}$\nHence, in the case, d = 2L\n$S=\\frac{F}{2L}$"
+            },
+            {
+              "questionID": 17895,
+              "question": "Capillary Rise of water is explained by:",
+              "question_raw": "<p>Capillary Rise of water is explained by:</p>",
+              "options": [
+                {
+                  "label": "A",
+                  "id": 26783,
+                  "text": "low shear strain",
+                  "is_correct": false
+                },
+                {
+                  "label": "B",
+                  "id": 26782,
+                  "text": "elasticity",
+                  "is_correct": false
+                },
+                {
+                  "label": "C",
+                  "id": 26780,
+                  "text": "surface tension",
+                  "is_correct": true
+                },
+                {
+                  "label": "D",
+                  "id": 26781,
+                  "text": "viscosity",
+                  "is_correct": false
+                }
+              ],
+              "correct_option_ids": [
+                26780
+              ],
+              "correct_option_labels": [
+                "C"
+              ],
+              "correct_option_texts": [
+                "surface tension"
+              ],
+              "explanation": "Capillary action(sometimes capillarity or wicking) is the ability of a liquid to flow in narrow spaces without the assistance of, or even in opposition to, external forces like gravity. The effect can be seen in the drawing up of liquids between the hairs of a paint-brush, in porous materials such as paper and plaster, in some non-porous materials such as sand and liquefied carbon fiber, or in a cell. It occurs because of intermolecular forces between the liquid and surrounding solid surfaces. If the diameter of the tube is sufficiently small, then the combination of surface tension (which is caused by cohesion within the liquid) and adhesive forces between the liquid and container wall act to propel the liquid."
+            },
+            {
+              "questionID": 17896,
+              "question": "An iron needle floats on the surface of the water. This phenomenon is attributed to:",
+              "question_raw": "<p>An iron needle floats on the surface of the water. This phenomenon is attributed to:</p>",
+              "options": [
+                {
+                  "label": "A",
+                  "id": 26786,
+                  "text": "Viscosity",
+                  "is_correct": false
+                },
+                {
+                  "label": "B",
+                  "id": 26787,
+                  "text": "Up thrust of liquid",
+                  "is_correct": false
+                },
+                {
+                  "label": "C",
+                  "id": 26784,
+                  "text": "Surface tension",
+                  "is_correct": true
+                },
+                {
+                  "label": "D",
+                  "id": 26785,
+                  "text": "Gravitational forces",
+                  "is_correct": false
+                }
+              ],
+              "correct_option_ids": [
+                26784
+              ],
+              "correct_option_labels": [
+                "C"
+              ],
+              "correct_option_texts": [
+                "Surface tension"
+              ],
+              "explanation": "The answer lies in the surface tension of the water, As the cohesive forces between the molecules are responsible for the surface tension. When the molecules on the glass or container do not have a surface to stick to, they cohere more strongly to the molecules they are associated with. Since the molecules on top have no neighbours on the top to cohere to, they associate with their other neighbours more strongly. This creates a strong bond between the top layer of molecules. The molecules inward face no net force because they all cancel out each other. However, the surface molecules face a net inward force because there is no force for them on the surface to cancel it. This causes the molecules on the surface to 'contract' and resists being broken or stretched.\nWhen a small body like a needle is placed onto the water carefully, the surface tension will not break due to the small mass of the object. \nAs long as the surface tension is undisturbed, the needle will continue to float. Agitating the water will cause the surface tension to break and hence the needle will then sink\n."
+            },
+            {
+              "questionID": 17897,
+              "question": "The excess pressure across the surface of a soap bubble of radius R(with $\\sigma$ as the surface tension of soap solution) is:",
+              "question_raw": "<p>The excess pressure across the surface of a soap bubble of radius R(with <span class=\"math-tex\">{tex}\\sigma{/tex}</span>&nbsp;as the surface tension of soap solution) is:</p>",
+              "options": [
+                {
+                  "label": "A",
+                  "id": 26790,
+                  "text": "$\\frac{2\\sigma}R$",
+                  "is_correct": false
+                },
+                {
+                  "label": "B",
+                  "id": 26789,
+                  "text": "$\\frac\\sigma R$",
+                  "is_correct": false
+                },
+                {
+                  "label": "C",
+                  "id": 26788,
+                  "text": "$\\frac{4\\sigma}R$",
+                  "is_correct": true
+                },
+                {
+                  "label": "D",
+                  "id": 26791,
+                  "text": "$\\frac{8\\sigma}R$",
+                  "is_correct": false
+                }
+              ],
+              "correct_option_ids": [
+                26788
+              ],
+              "correct_option_labels": [
+                "C"
+              ],
+              "correct_option_texts": [
+                "$\\frac{4\\sigma}R$"
+              ],
+              "explanation": "Let the pressure of the air outside the bubble be P1, that within the soap solution be p' and that of the air inside the bubble be P_2. Looking at the outer surface the solution is on the concave side of the surface hence \nP′ - P_1 = $\\frac{2\\sigma}R$ \nWhere R is the radius of the bubble. As the thickness of the bubble is small on a macroscopic scale, the difference in the radii of the two surfaces will be negligible. \nSimilarly looking at the inner surface the air is on the concave side of the surface hence​\n​​​​​​P_2 − P′ = $\\frac{2\\sigma}R$ \nAdding two equations \nP_2 − P_1 = $\\frac{4\\sigma}R$"
+            },
+            {
+              "questionID": 17898,
+              "question": "Two soap bubbles are blown simultaneously. In the first soap bubble, the excess pressure is 4 times of second soap bubble. The ratio of radii of first to second soap bubble is:",
+              "question_raw": "<p>Two soap bubbles are blown simultaneously. In the first soap bubble, the excess pressure is 4 times of second soap bubble. The ratio of radii of first to second soap bubble is:</p>",
+              "options": [
+                {
+                  "label": "A",
+                  "id": 26793,
+                  "text": "2:1",
+                  "is_correct": false
+                },
+                {
+                  "label": "B",
+                  "id": 26794,
+                  "text": "1:2",
+                  "is_correct": false
+                },
+                {
+                  "label": "C",
+                  "id": 26792,
+                  "text": "1:4",
+                  "is_correct": true
+                },
+                {
+                  "label": "D",
+                  "id": 26795,
+                  "text": "4:1",
+                  "is_correct": false
+                }
+              ],
+              "correct_option_ids": [
+                26792
+              ],
+              "correct_option_labels": [
+                "C"
+              ],
+              "correct_option_texts": [
+                "1:4"
+              ],
+              "explanation": "Using relation for excess pressure in the soap bubble\n$P_2-P_1=\\frac{4\\sigma}R$ \n$\\triangle P=\\frac{4\\sigma}R$\nthus\n$\\triangle P \\propto \\frac{1}{R}$\ngiven $$\n$\\triangle P_{1}=4 \\triangle P_{2}$\n$\\frac{\\triangle P_{1}}{\\triangle P_{2}}=\\frac{R_{2}}{R_{1}} \\Rightarrow \\frac{4 \\triangle P_{2}}{\\triangle P_{2}}=\\frac{R_{2}}{R_{1}}$\n$\\frac{R_{1}}{R_{2}}$ = 1:4"
+            },
+            {
+              "questionID": 17909,
+              "question": "A drop of oil is placed on the surface of the water. Which of the following statements is correct?",
+              "question_raw": "<p>A drop of oil is placed on the surface of the water. Which of the following statements is correct?</p>",
+              "options": [
+                {
+                  "label": "A",
+                  "id": 26837,
+                  "text": "It will remain on it as a sphere",
+                  "is_correct": false
+                },
+                {
+                  "label": "B",
+                  "id": 26838,
+                  "text": "It will partly change to spherical droplets and partly as a thin film",
+                  "is_correct": false
+                },
+                {
+                  "label": "C",
+                  "id": 26836,
+                  "text": "It will spread as a thin layer",
+                  "is_correct": true
+                },
+                {
+                  "label": "D",
+                  "id": 26839,
+                  "text": "It will float as a distorted drop on the water surface",
+                  "is_correct": false
+                }
+              ],
+              "correct_option_ids": [
+                26836
+              ],
+              "correct_option_labels": [
+                "C"
+              ],
+              "correct_option_texts": [
+                "It will spread as a thin layer"
+              ],
+              "explanation": "When any liquid is poured onto another liquid there are different phenomena that can take place depending on the properties of liquids, In case of crude oil and water:\nThe two liquids are non-miscible and the first is lighter than the second. The first liquid then spreads on the surface of the second liquid forming a thin layer. The thickness of this layer depends on the properties of the two liquids. This is the case for most hydrocarbons, including both refined products and crude oil of API gravity(API gravity is thus an inverse measure of a petroleum liquid's density relative to that of water (also known as specific gravity). greater than 10."
+            },
+            {
+              "questionID": 17900,
+              "question": "Two small drops of mercury, each of radius R coalesce to form a single large drop. The ratio of the total surface energies before and after the change is",
+              "question_raw": "<p>Two small drops of mercury, each of radius R coalesce to form a single large drop. The ratio of the total surface energies before and after the change is</p>",
+              "options": [
+                {
+                  "label": "A",
+                  "id": 26801,
+                  "text": "$2^{\\frac{1}{3}}: 1$",
+                  "is_correct": true
+                },
+                {
+                  "label": "B",
+                  "id": 26802,
+                  "text": "2 : 1",
+                  "is_correct": false
+                },
+                {
+                  "label": "C",
+                  "id": 26800,
+                  "text": "$1: 2^{\\frac{2}{3}}$",
+                  "is_correct": false
+                },
+                {
+                  "label": "D",
+                  "id": 26803,
+                  "text": "1 : 2",
+                  "is_correct": false
+                }
+              ],
+              "correct_option_ids": [
+                26801
+              ],
+              "correct_option_labels": [
+                "A"
+              ],
+              "correct_option_texts": [
+                "$2^{\\frac{1}{3}}: 1$"
+              ],
+              "explanation": "$2 \\times \\frac { 4 } { 3 } \\pi r ^ { 3 } = \\frac { 4 } { 3 } \\pi R ^ { 3 }$ \n$2 ^ \\frac{1}{3} r $ = R or $\\frac { r } { R } = \\frac { 1 } { 2 ^ \\frac{1}{3 } }$\n$\\frac{\\text { surface energy of } 2 \\text { small drops }}{\\text { surface energy of large drop }}$ $=\\frac{2 \\times 4 \\pi \\times r^2 \\times T}{4 \\pi \\times R^2 \\times T}$\n$\\frac{E_1}{E_2}=\\frac{2 r^2}{R^2}=\\frac{2}{2^{\\frac{2}{3}}}=2^{1 / 3}: 1$"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "testPaperID": 574,
+      "testPaperName": "Mechanical Properties of Fluids Test 03",
+      "is_paid": true,
+      "category_full_name": "CBSE > Class 11 > Physics > Mechanical Properties of Fluids",
+      "noOfQuestions": 15,
+      "has_answers": true,
+      "sections": [
+        {
+          "sectionName": "General",
+          "sectionID": null,
+          "questions": [
+            {
+              "questionID": 17901,
+              "question": "A wooden block is taken to the bottom of a deep, calm lake of water and then released. It rises up with a:",
+              "question_raw": "<p>A wooden block is taken to the bottom of a deep, calm lake of water and then released. It rises up with a:</p>",
+              "options": [
+                {
+                  "label": "A",
+                  "id": 26806,
+                  "text": "constant velocity",
+                  "is_correct": false
+                },
+                {
+                  "label": "B",
+                  "id": 26807,
+                  "text": "decreasing velocity",
+                  "is_correct": false
+                },
+                {
+                  "label": "C",
+                  "id": 26805,
+                  "text": "decreasing acceleration",
+                  "is_correct": false
+                },
+                {
+                  "label": "D",
+                  "id": 26804,
+                  "text": "constant acceleration",
+                  "is_correct": true
+                }
+              ],
+              "correct_option_ids": [
+                26804
+              ],
+              "correct_option_labels": [
+                "D"
+              ],
+              "correct_option_texts": [
+                "constant acceleration"
+              ],
+              "explanation": "The wooden block rises up with acceleration,\na = $Upthrust-weight \\ of \\ block\\over mass\\ of\\ block$ \nUpthrust and mass of block will be constant. So the acceleration will also be a constant throughout the motion."
+            },
+            {
+              "questionID": 17902,
+              "question": "A man in a lift is holding a can filled with water but having a hole in its bottom. When will the drainage of water be maximum?",
+              "question_raw": "<p>A man in a lift is holding a can filled with water but having a hole in its bottom. When will the drainage of water be maximum?</p>",
+              "options": [
+                {
+                  "label": "A",
+                  "id": 26810,
+                  "text": "when the lift is stationary",
+                  "is_correct": false
+                },
+                {
+                  "label": "B",
+                  "id": 26811,
+                  "text": "when the lift goes down with uniform velocity",
+                  "is_correct": false
+                },
+                {
+                  "label": "C",
+                  "id": 26809,
+                  "text": "when the lift is going down with acceleration",
+                  "is_correct": false
+                },
+                {
+                  "label": "D",
+                  "id": 26808,
+                  "text": "when the lift is going up with the acceleration",
+                  "is_correct": true
+                }
+              ],
+              "correct_option_ids": [
+                26808
+              ],
+              "correct_option_labels": [
+                "D"
+              ],
+              "correct_option_texts": [
+                "when the lift is going up with the acceleration"
+              ],
+              "explanation": "Force acting on the liquid contained in the cylinder in the vertical directions are\n $P_1\\triangle S$ upward due to the liquid below it\n $P_2\\triangle S$ downward due to the liquid above it\n Applying newton's second law\n ${P_1}\\Delta S - {P_2}\\Delta S - mg = m{a_0}$\n $({P_1} - {P_2})\\Delta S = m(g + {a_0}) $ = $ \\Delta Sz\\rho (g + {a_0})$\n ${P_1} - {P_2} = \\rho (g + {a_0})z$\n weight mg = $\\triangle$S z $\\rho$ g where $\\rho$ is the density of liquid\n Net force = mass $\\times$ acceleration\nThus pressure difference is greatest when lift moves upwards with acceleration a because for uniform motion $a_0$ will be zero and for lift moving downwards the term in the bracket would be (g - $a_0$). So due to the maximum pressure difference between top and bottom, drainage of water will be maximum in this case."
+            },
+            {
+              "questionID": 17903,
+              "question": "In old age, arteries carrying blood in the human body, become narrow resulting in an increase in blood pressure. This follows from:",
+              "question_raw": "<p>In old age, arteries carrying blood in the human body, become narrow resulting in an increase in blood pressure. This follows from:</p>",
+              "options": [
+                {
+                  "label": "A",
+                  "id": 26815,
+                  "text": "Archimedes principle",
+                  "is_correct": false
+                },
+                {
+                  "label": "B",
+                  "id": 26812,
+                  "text": "Pascal’s law",
+                  "is_correct": false
+                },
+                {
+                  "label": "C",
+                  "id": 26814,
+                  "text": "Bernoulli's principle",
+                  "is_correct": true
+                },
+                {
+                  "label": "D",
+                  "id": 26813,
+                  "text": "Stoke’s law",
+                  "is_correct": false
+                }
+              ],
+              "correct_option_ids": [
+                26814
+              ],
+              "correct_option_labels": [
+                "C"
+              ],
+              "correct_option_texts": [
+                "Bernoulli's principle"
+              ],
+              "explanation": "According to the Bernoulli principle for fluids: in ideal state pressure and density are inversely related or in other words, a slow-moving fluid exerts more pressure than a fast-moving fluid. Due to narrowness and other obstruction, the velocity of the flow of blood gets decreased in old age. This results in increased pressure inside the blood vessel."
+            },
+            {
+              "questionID": 17904,
+              "question": "Soap helps in better cleansing of clothes because:",
+              "question_raw": "<p>Soap helps in better cleansing of clothes because:</p>",
+              "options": [
+                {
+                  "label": "A",
+                  "id": 26819,
+                  "text": "chemicals of soap change",
+                  "is_correct": false
+                },
+                {
+                  "label": "B",
+                  "id": 26817,
+                  "text": "it increases the surface tension of the solution",
+                  "is_correct": false
+                },
+                {
+                  "label": "C",
+                  "id": 26816,
+                  "text": "it reduces the surface tension of the solution",
+                  "is_correct": true
+                },
+                {
+                  "label": "D",
+                  "id": 26818,
+                  "text": "it absorbs the dirt",
+                  "is_correct": false
+                }
+              ],
+              "correct_option_ids": [
+                26816
+              ],
+              "correct_option_labels": [
+                "C"
+              ],
+              "correct_option_texts": [
+                "it reduces the surface tension of the solution"
+              ],
+              "explanation": "Surfactants are substances that help lower the surface tension of water, so as to increase the wetting ability of water which helps in cleaning the clothes.\nSoaps (which are a type of detergent) contain surfactants in significant amounts, which help water spread uniformly over clothes."
+            },
+            {
+              "questionID": 17905,
+              "question": "If two soap bubbles of different radii are in communication with each other",
+              "question_raw": "<p>If two soap bubbles of different radii are in communication with each other</p>",
+              "options": [
+                {
+                  "label": "A",
+                  "id": 26823,
+                  "text": "Air flows from the larger bubble into the smaller one until the two bubbles are of equal size",
+                  "is_correct": false
+                },
+                {
+                  "label": "B",
+                  "id": 26822,
+                  "text": "The sizes of the bubbles remain unchanged",
+                  "is_correct": false
+                },
+                {
+                  "label": "C",
+                  "id": 26821,
+                  "text": "Air flows from the larger into the smaller bubble until the radius of the smaller one becomes half that of the larger one",
+                  "is_correct": false
+                },
+                {
+                  "label": "D",
+                  "id": 26820,
+                  "text": "Air flows from the smaller bubble into the larger one and large bubble grows at the expense of the smaller one",
+                  "is_correct": true
+                }
+              ],
+              "correct_option_ids": [
+                26820
+              ],
+              "correct_option_labels": [
+                "D"
+              ],
+              "correct_option_texts": [
+                "Air flows from the smaller bubble into the larger one and large bubble grows at the expense of the smaller one"
+              ],
+              "explanation": "Excess pressure in a soap bubble is given by $P _ { 2 } - P _ { 1 } = \\frac { 4 S } { R }$ $\\Delta P = \\frac { 4 S } { R }$ $\\Rightarrow \\triangle P \\propto \\frac { 1 } { R }$ \nThus pressure difference will be large in smaller bubble or we can say that pressure inside the smaller bubble will be greater than bigger bubble. As air always flow from a high pressure to low pressure end thus in this case air will flow from smaller bubble to larger bubble and larger bubble will grow at the expanse of smaller bubble."
+            },
+            {
+              "questionID": 17906,
+              "question": "More liquid rises in a thin tube because of:",
+              "question_raw": "<p>More liquid rises in a thin tube because of:</p>",
+              "options": [
+                {
+                  "label": "A",
+                  "id": 26825,
+                  "text": "Smaller value of S.T",
+                  "is_correct": false
+                },
+                {
+                  "label": "B",
+                  "id": 26826,
+                  "text": "A larger value of surface tension",
+                  "is_correct": false
+                },
+                {
+                  "label": "C",
+                  "id": 26827,
+                  "text": "A larger value of the radius",
+                  "is_correct": false
+                },
+                {
+                  "label": "D",
+                  "id": 26824,
+                  "text": "A smaller value of the radius",
+                  "is_correct": true
+                }
+              ],
+              "correct_option_ids": [
+                26824
+              ],
+              "correct_option_labels": [
+                "D"
+              ],
+              "correct_option_texts": [
+                "A smaller value of the radius"
+              ],
+              "explanation": "The rise of liquid in a thin tube is caused by forces of attraction between the molecules of water and the glass walls and among the molecules of liquid themselves. The narrower the bore of the capillary tube, the higher the water liquid."
+            },
+            {
+              "questionID": 17907,
+              "question": "The surface tension of the soap solution is 25 $\\times$ 10^-3 Nm^-1. The excess pressure inside a soap bubble of diameter 1 cm is:",
+              "question_raw": "<p>The surface tension of the soap solution is 25 <span class=\"math-tex\">{tex}\\times{/tex}</span>&nbsp;10<sup>-3</sup> Nm<sup>-1</sup>. The excess pressure inside a soap bubble of diameter 1 cm is:</p>",
+              "options": [
+                {
+                  "label": "A",
+                  "id": 26829,
+                  "text": "10 Pa",
+                  "is_correct": false
+                },
+                {
+                  "label": "B",
+                  "id": 26828,
+                  "text": "20 Pa",
+                  "is_correct": true
+                },
+                {
+                  "label": "C",
+                  "id": 26831,
+                  "text": "15 Pa",
+                  "is_correct": false
+                },
+                {
+                  "label": "D",
+                  "id": 26830,
+                  "text": "5 Pa",
+                  "is_correct": false
+                }
+              ],
+              "correct_option_ids": [
+                26828
+              ],
+              "correct_option_labels": [
+                "B"
+              ],
+              "correct_option_texts": [
+                "20 Pa"
+              ],
+              "explanation": "given surface tension S = 25 $\\times$ 10^−3N/m\ndiameter = 1cm\nthus radius r = $d\\over 2$ = 0.5cm excess pressure inside soap bubble\n$\\triangle P=\\frac{4 S}{r}=\\frac{4 \\times 25 \\times 10^{-3} \\times 100}{0.5}$.\n$\\Delta P$ = 20pa"
+            },
+            {
+              "questionID": 17908,
+              "question": "When a soap bubble is charged, it:",
+              "question_raw": "<p>When a soap bubble is charged, it:</p>",
+              "options": [
+                {
+                  "label": "A",
+                  "id": 26833,
+                  "text": "Decreases",
+                  "is_correct": false
+                },
+                {
+                  "label": "B",
+                  "id": 26834,
+                  "text": "Does not undergo any change in size",
+                  "is_correct": false
+                },
+                {
+                  "label": "C",
+                  "id": 26832,
+                  "text": "Expands",
+                  "is_correct": true
+                },
+                {
+                  "label": "D",
+                  "id": 26835,
+                  "text": "Disappears",
+                  "is_correct": false
+                }
+              ],
+              "correct_option_ids": [
+                26832
+              ],
+              "correct_option_labels": [
+                "C"
+              ],
+              "correct_option_texts": [
+                "Expands"
+              ],
+              "explanation": "A charge will be distributed uniformly on the surface of a bubble if the bubble is charged. The bubble will expand because the charged particles uniformly distributed on it cause them to repel each other due to the electrostatic force. This will happen to both positive and negatively charged bubbles because of the charge on it."
+            },
+            {
+              "questionID": 17909,
+              "question": "A drop of oil is placed on the surface of the water. Which of the following statements is correct?",
+              "question_raw": "<p>A drop of oil is placed on the surface of the water. Which of the following statements is correct?</p>",
+              "options": [
+                {
+                  "label": "A",
+                  "id": 26837,
+                  "text": "It will remain on it as a sphere",
+                  "is_correct": false
+                },
+                {
+                  "label": "B",
+                  "id": 26836,
+                  "text": "It will spread as a thin layer",
+                  "is_correct": true
+                },
+                {
+                  "label": "C",
+                  "id": 26839,
+                  "text": "It will float as a distorted drop on the water surface",
+                  "is_correct": false
+                },
+                {
+                  "label": "D",
+                  "id": 26838,
+                  "text": "It will partly change to spherical droplets and partly as a thin film",
+                  "is_correct": false
+                }
+              ],
+              "correct_option_ids": [
+                26836
+              ],
+              "correct_option_labels": [
+                "B"
+              ],
+              "correct_option_texts": [
+                "It will spread as a thin layer"
+              ],
+              "explanation": "When any liquid is poured onto another liquid there are different phenomena that can take place depending on the properties of liquids, In case of crude oil and water:\nThe two liquids are non-miscible and the first is lighter than the second. The first liquid then spreads on the surface of the second liquid forming a thin layer. The thickness of this layer depends on the properties of the two liquids. This is the case for most hydrocarbons, including both refined products and crude oil of API gravity(API gravity is thus an inverse measure of a petroleum liquid's density relative to that of water (also known as specific gravity). greater than 10."
+            },
+            {
+              "questionID": 17910,
+              "question": "Small droplets of liquid are usually more spherical in shape than larger drops of the same liquid because:",
+              "question_raw": "<p>Small droplets of liquid are usually more spherical in shape than larger drops of the same liquid because:</p>",
+              "options": [
+                {
+                  "label": "A",
+                  "id": 26841,
+                  "text": "the force of surface tension is equal and opposite to the force of gravity",
+                  "is_correct": false
+                },
+                {
+                  "label": "B",
+                  "id": 26840,
+                  "text": "the force of surface tension predominates the force of gravity",
+                  "is_correct": true
+                },
+                {
+                  "label": "C",
+                  "id": 26843,
+                  "text": "the force of gravity and force of surface tension act in the same direction and are equal",
+                  "is_correct": false
+                },
+                {
+                  "label": "D",
+                  "id": 26842,
+                  "text": "the force of gravity predominates the force of surface tension",
+                  "is_correct": false
+                }
+              ],
+              "correct_option_ids": [
+                26840
+              ],
+              "correct_option_labels": [
+                "B"
+              ],
+              "correct_option_texts": [
+                "the force of surface tension predominates the force of gravity"
+              ],
+              "explanation": "In small drops effect of gravity can be ignored because all the points can be considered at the same height. Thus to acquire minimum energy they will acquire spherical shape while in larger drops due to finite radius of drop all the points cannot be assumed at same height thus drop will try to acquire spherical shape but due to effect of gravity, its shape will be a little distorted from the pure spherical shape."
+            },
+            {
+              "questionID": 17911,
+              "question": "Water rises to a height of 16.3 cm in a capillary of height 18 cm above the water level. If the tube is suddenly cut at a height of 12 cm.",
+              "question_raw": "<p>Water rises to a height of 16.3 cm in a capillary of height 18 cm above the water level. If the tube is suddenly cut at a height of 12 cm.</p>",
+              "options": [
+                {
+                  "label": "A",
+                  "id": 26844,
+                  "text": "water will stay at a height of 12 cm in the capillary tube",
+                  "is_correct": true
+                },
+                {
+                  "label": "B",
+                  "id": 26845,
+                  "text": "the height of the water in the capillary will be 10.3 cm",
+                  "is_correct": false
+                },
+                {
+                  "label": "C",
+                  "id": 26847,
+                  "text": "water will come as a fountain from the capillary tube",
+                  "is_correct": false
+                },
+                {
+                  "label": "D",
+                  "id": 26846,
+                  "text": "water will flow down the sides of the capillary tube",
+                  "is_correct": false
+                }
+              ],
+              "correct_option_ids": [
+                26844
+              ],
+              "correct_option_labels": [
+                "A"
+              ],
+              "correct_option_texts": [
+                "water will stay at a height of 12 cm in the capillary tube"
+              ],
+              "explanation": "water will stay at a height of 12 cm in the capillary tube"
+            },
+            {
+              "questionID": 17912,
+              "question": "A spherical soap bubble has a radius ′r′. The surface tension of the soap film is T. The energy needed to double the diameter of the bubble at the same temperature is:",
+              "question_raw": "<p>A spherical soap bubble has a radius&nbsp;&prime;r&prime;. The&nbsp;surface tension of the soap film is&nbsp;T. The energy needed to double the diameter of&nbsp;the bubble at the same temperature is:</p>\r\n",
+              "options": [
+                {
+                  "label": "A",
+                  "id": 26849,
+                  "text": "$8\\pi {r^2}\\sigma$",
+                  "is_correct": false
+                },
+                {
+                  "label": "B",
+                  "id": 26851,
+                  "text": "$4\\pi {r^2}\\sigma$",
+                  "is_correct": false
+                },
+                {
+                  "label": "C",
+                  "id": 26850,
+                  "text": "$14\\pi {r^2}T$",
+                  "is_correct": false
+                },
+                {
+                  "label": "D",
+                  "id": 26848,
+                  "text": "$24\\pi\\;r^2\\sigma$",
+                  "is_correct": true
+                }
+              ],
+              "correct_option_ids": [
+                26848
+              ],
+              "correct_option_labels": [
+                "D"
+              ],
+              "correct_option_texts": [
+                "$24\\pi\\;r^2\\sigma$"
+              ],
+              "explanation": "$24\\pi\\;r^2\\sigma$"
+            },
+            {
+              "questionID": 17913,
+              "question": "A liquid drop of radius R is broken up into N small droplets. The work done is proportional to( take $N^\\frac13$ >> 1).",
+              "question_raw": "<p>A liquid drop of radius R is broken up into N small droplets. The work done is proportional to( take&nbsp;<span class=\"math-tex\">{tex}N^\\frac13{/tex}</span>&nbsp;&gt;&gt; 1).</p>",
+              "options": [
+                {
+                  "label": "A",
+                  "id": 26852,
+                  "text": "$N^\\frac13$",
+                  "is_correct": true
+                },
+                {
+                  "label": "B",
+                  "id": 26855,
+                  "text": "N",
+                  "is_correct": false
+                },
+                {
+                  "label": "C",
+                  "id": 26853,
+                  "text": "$N^{\\frac{-2}{3}}$",
+                  "is_correct": false
+                },
+                {
+                  "label": "D",
+                  "id": 26854,
+                  "text": "$N^{ - 0.{\\rm{5}}}$",
+                  "is_correct": false
+                }
+              ],
+              "correct_option_ids": [
+                26852
+              ],
+              "correct_option_labels": [
+                "A"
+              ],
+              "correct_option_texts": [
+                "$N^\\frac13$"
+              ],
+              "explanation": "When a droplet of radius R is broken into N small droplets total volume will remain constant. Let the radius of small droplets be r. Then\n$\\frac{4}{3} \\pi R^{3}=N \\frac{4}{3} \\pi r^{3}$\n$r=\\frac{R}{{N} ^\\frac{1}{3}}$\nwork done will be equal to the change in surface energy, thus\nW = $S_{f}-S_{i}=N 4 \\pi r^{2} T-4 \\pi R^{2} T$\nW = $N 4 \\pi\\left(\\frac{R}{N^{\\frac{1}{3}}}\\right)^{2} T-4 \\pi R^{2} T$\nW = $4 \\pi R^{2} T\\left(N^{\\frac{1}{3}}-1\\right)$\nif $N^\\frac{1}{3}$ is very large thus it becomes\nW = 4$\\pi$R^2T$N^\\frac{1}{3}$\nthus\n$W \\propto N^{\\frac{1}{3}}$"
+            },
+            {
+              "questionID": 17914,
+              "question": "An air bubble of radius r is formed inside a tank of water at depth h. The atmospheric pressure is equal to a water column of height H. the pressure inside the bubble is:",
+              "question_raw": "<p>An air bubble of radius r is formed inside a tank of water at depth h. The atmospheric pressure is equal to a water column of height H. the pressure inside the bubble is:</p>",
+              "options": [
+                {
+                  "label": "A",
+                  "id": 26858,
+                  "text": "$\\rho g\\left(h+H\\right)+\\frac{4T}r$",
+                  "is_correct": false
+                },
+                {
+                  "label": "B",
+                  "id": 26857,
+                  "text": "$\\rho g\\left(h+H\\right)+\\frac{8T}r$",
+                  "is_correct": false
+                },
+                {
+                  "label": "C",
+                  "id": 26856,
+                  "text": "$\\rho g\\left(h+H\\right)+\\frac{2T}r$",
+                  "is_correct": true
+                },
+                {
+                  "label": "D",
+                  "id": 26859,
+                  "text": "$\\rho g\\left(h+H\\right)+\\frac Tr$",
+                  "is_correct": false
+                }
+              ],
+              "correct_option_ids": [
+                26856
+              ],
+              "correct_option_labels": [
+                "C"
+              ],
+              "correct_option_texts": [
+                "$\\rho g\\left(h+H\\right)+\\frac{2T}r$"
+              ],
+              "explanation": "Excess pressure in an air bubble is given by\nP_2 − P_1 = $\\frac{2 T}{r}$ $\\longrightarrow$ surface tension r $\\longrightarrow$ the radius of the bubble if the bubble is at a depth h inside then\n$P_{1}=P_{a t m}+h \\rho g$\ngiven $P_{a t m}=H \\rho g$\n$P_{1}=\\rho g(H+h)$\nthus\n$P_{2}=\\rho g(h+H)+\\frac{2 T}{r}$"
+            },
+            {
+              "questionID": 17915,
+              "question": "It is easier to spray water to which soap is added, because:",
+              "question_raw": "<p>It is easier to spray water to which soap is added, because:</p>",
+              "options": [
+                {
+                  "label": "A",
+                  "id": 26861,
+                  "text": "Addition of soap to water increases the surface tension of water",
+                  "is_correct": false
+                },
+                {
+                  "label": "B",
+                  "id": 26863,
+                  "text": "Addition of soap to water increases its density",
+                  "is_correct": false
+                },
+                {
+                  "label": "C",
+                  "id": 26862,
+                  "text": "Addition of soap to water makes surface tension of water zero",
+                  "is_correct": false
+                },
+                {
+                  "label": "D",
+                  "id": 26860,
+                  "text": "Addition of soap to water decreases the surface tension of water",
+                  "is_correct": true
+                }
+              ],
+              "correct_option_ids": [
+                26860
+              ],
+              "correct_option_labels": [
+                "D"
+              ],
+              "correct_option_texts": [
+                "Addition of soap to water decreases the surface tension of water"
+              ],
+              "explanation": "The addition of soap decreases the surface tension of water, as we know the energy of spraying is directly proportional to the surface tension."
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "testPaperID": 575,
+      "testPaperName": "Mechanical Properties of Fluids Test 04",
+      "is_paid": true,
+      "category_full_name": "CBSE > Class 11 > Physics > Mechanical Properties of Fluids",
+      "noOfQuestions": 15,
+      "has_answers": true,
+      "sections": [
+        {
+          "sectionName": "General",
+          "sectionID": null,
+          "questions": [
+            {
+              "questionID": 17916,
+              "question": "A capillary tube remains dipped in a water container so that loss in weight of the capillary tube is:",
+              "question_raw": "<p>A capillary tube remains dipped in a water container so that loss in weight of the capillary tube is:</p>",
+              "options": [
+                {
+                  "label": "A",
+                  "id": 26864,
+                  "text": "less than the upward buoyant force",
+                  "is_correct": false
+                },
+                {
+                  "label": "B",
+                  "id": 26866,
+                  "text": "more than the upward buoyant force",
+                  "is_correct": false
+                },
+                {
+                  "label": "C",
+                  "id": 26865,
+                  "text": "equal to the upward buoyant force",
+                  "is_correct": true
+                },
+                {
+                  "label": "D",
+                  "id": 26867,
+                  "text": "half of the buoyant force",
+                  "is_correct": false
+                }
+              ],
+              "correct_option_ids": [
+                26865
+              ],
+              "correct_option_labels": [
+                "C"
+              ],
+              "correct_option_texts": [
+                "equal to the upward buoyant force"
+              ],
+              "explanation": "This is Archimedes principle when an object submerged in a liquid its weight is equal to the Buoyant force."
+            },
+            {
+              "questionID": 17917,
+              "question": "One thousand small water droplets of equal size combine to form a big drop. The ratio of the final surface energy to the total initial surface energy is:",
+              "question_raw": "<p>One thousand small water droplets of equal size combine to form a big drop. The ratio of the final surface energy to the total initial surface energy is:</p>",
+              "options": [
+                {
+                  "label": "A",
+                  "id": 26868,
+                  "text": "1:10",
+                  "is_correct": true
+                },
+                {
+                  "label": "B",
+                  "id": 26871,
+                  "text": "1:1000",
+                  "is_correct": false
+                },
+                {
+                  "label": "C",
+                  "id": 26870,
+                  "text": "1000:1",
+                  "is_correct": false
+                },
+                {
+                  "label": "D",
+                  "id": 26869,
+                  "text": "10:1",
+                  "is_correct": false
+                }
+              ],
+              "correct_option_ids": [
+                26868
+              ],
+              "correct_option_labels": [
+                "A"
+              ],
+              "correct_option_texts": [
+                "1:10"
+              ],
+              "explanation": "Let 1000 small droplets of radius r combine to form a bigger drop of radius R. As total volume remains constant \n$1000 \\times \\frac{4}{3} \\pi r^{3}=\\frac{4}{3} \\pi R^{3}$\n$\\Rightarrow$ R = 10r\ninitial surface energy\n$S_{i}$ = surface area $\\times$ surface tension\n$S_{i}=1000 \\times 4 \\pi r^{2} \\times T$\nfinal surface energy\n$S_{f}=4 \\pi R^{2} \\times T$\n$S_{f}=100 \\times 4 \\pi r^{2} \\times T$\ntaking ratio\n$\\frac{S_{f}}{S_{i}}=\\frac{100 \\times 4 \\pi r^{2} \\times T}{1000 \\times 4 \\pi r^{2} \\times T}$\n$\\Rightarrow$ 1:10"
+            },
+            {
+              "questionID": 17918,
+              "question": "The unit of surface tension in S.I units is given by:",
+              "question_raw": "<p>The unit of surface tension in S.I&nbsp;units is given by:</p>",
+              "options": [
+                {
+                  "label": "A",
+                  "id": 26875,
+                  "text": "dynes per cm^2",
+                  "is_correct": false
+                },
+                {
+                  "label": "B",
+                  "id": 26872,
+                  "text": "Newtons per meter",
+                  "is_correct": true
+                },
+                {
+                  "label": "C",
+                  "id": 26874,
+                  "text": "dynes per cm",
+                  "is_correct": false
+                },
+                {
+                  "label": "D",
+                  "id": 26873,
+                  "text": "Newtons per meter^2",
+                  "is_correct": false
+                }
+              ],
+              "correct_option_ids": [
+                26872
+              ],
+              "correct_option_labels": [
+                "B"
+              ],
+              "correct_option_texts": [
+                "Newtons per meter"
+              ],
+              "explanation": "surface tension is measured in force per unit length. The S.I unit is a newton per meter but the CGS unit dyne per centimeter is also used."
+            },
+            {
+              "questionID": 17919,
+              "question": "What will be the height of a liquid column in a capillary tube on the surface of the moon?",
+              "question_raw": "<p>What will be the height of a liquid column in a capillary tube on the surface of the moon?</p>",
+              "options": [
+                {
+                  "label": "A",
+                  "id": 26879,
+                  "text": "36 times that on earth's surface",
+                  "is_correct": false
+                },
+                {
+                  "label": "B",
+                  "id": 26876,
+                  "text": "Six times that on the earth's surface",
+                  "is_correct": true
+                },
+                {
+                  "label": "C",
+                  "id": 26878,
+                  "text": "It will remain unchanged",
+                  "is_correct": false
+                },
+                {
+                  "label": "D",
+                  "id": 26877,
+                  "text": "1/6th of what was on earth's surface",
+                  "is_correct": false
+                }
+              ],
+              "correct_option_ids": [
+                26876
+              ],
+              "correct_option_labels": [
+                "B"
+              ],
+              "correct_option_texts": [
+                "Six times that on the earth's surface"
+              ],
+              "explanation": "The height to which the liquid rises in a capillary tube is inversion all proportional to the acceleration due to gravity.\n$h=\\frac{2 S \\cos \\theta}{r \\rho g}$\nthus if all other parameters are fixed \n$h \\propto\\frac{1}{g}$\nOn the surface of the moon, acceleration due to gravity is $1\\over6$th as that on the surface of the earth. Therefore the water will rise to a height 6 times that on earth's surface."
+            },
+            {
+              "questionID": 17920,
+              "question": "Two match sticks are laid side by side on the surface of the water. When a drop of light oil on the end of a third match stick is touched to the surface film between the two floating sticks, the two match sticks",
+              "question_raw": "<p>Two match sticks are laid side by side on the surface of the water. When a drop of light oil on the end of a third match stick is touched to the surface film between the two floating sticks, the two match sticks</p>",
+              "options": [
+                {
+                  "label": "A",
+                  "id": 26881,
+                  "text": "will remain as they are",
+                  "is_correct": false
+                },
+                {
+                  "label": "B",
+                  "id": 26883,
+                  "text": "will be joined",
+                  "is_correct": false
+                },
+                {
+                  "label": "C",
+                  "id": 26880,
+                  "text": "will move apart rapidly",
+                  "is_correct": true
+                },
+                {
+                  "label": "D",
+                  "id": 26882,
+                  "text": "will come closer",
+                  "is_correct": false
+                }
+              ],
+              "correct_option_ids": [
+                26880
+              ],
+              "correct_option_labels": [
+                "C"
+              ],
+              "correct_option_texts": [
+                "will move apart rapidly"
+              ],
+              "explanation": "They will move apart rapidly because the surface tension of oil is lesser than that of water."
+            },
+            {
+              "questionID": 17921,
+              "question": "Soldering of two metals possible because of the property of:",
+              "question_raw": "<p>Soldering of two metals possible because of the property of:</p>",
+              "options": [
+                {
+                  "label": "A",
+                  "id": 26886,
+                  "text": "surface tension",
+                  "is_correct": false
+                },
+                {
+                  "label": "B",
+                  "id": 26884,
+                  "text": "cohesion",
+                  "is_correct": true
+                },
+                {
+                  "label": "C",
+                  "id": 26885,
+                  "text": "osmosis",
+                  "is_correct": false
+                },
+                {
+                  "label": "D",
+                  "id": 26887,
+                  "text": "viscosity",
+                  "is_correct": false
+                }
+              ],
+              "correct_option_ids": [
+                26884
+              ],
+              "correct_option_labels": [
+                "B"
+              ],
+              "correct_option_texts": [
+                "cohesion"
+              ],
+              "explanation": "Cohesion is the attractive force among the same kind of materials. Thus soldering of two metals is possible due to cohesion."
+            },
+            {
+              "questionID": 17922,
+              "question": "When the adhesive force in the case of liquid and glass is greater than the cohesive forces between the liquid molecules, the shape of the meniscus of liquid in a capillary tube is?",
+              "question_raw": "<p>When the adhesive force in the case of liquid and glass is greater than the cohesive forces between the liquid molecules, the shape of the meniscus of liquid in a capillary tube is?</p>",
+              "options": [
+                {
+                  "label": "A",
+                  "id": 26891,
+                  "text": "Circular",
+                  "is_correct": false
+                },
+                {
+                  "label": "B",
+                  "id": 26888,
+                  "text": "Concave",
+                  "is_correct": true
+                },
+                {
+                  "label": "C",
+                  "id": 26890,
+                  "text": "Convex",
+                  "is_correct": false
+                },
+                {
+                  "label": "D",
+                  "id": 26889,
+                  "text": "Plane",
+                  "is_correct": false
+                }
+              ],
+              "correct_option_ids": [
+                26888
+              ],
+              "correct_option_labels": [
+                "B"
+              ],
+              "correct_option_texts": [
+                "Concave"
+              ],
+              "explanation": "The formation of meniscus depends on cohesive and adhesive forces in a liquid. For water, adhesive forces are stronger than the cohesive forces, therefore, water in a container stick to the wall of the container and owing to the capillary action rises a little bit and form a concave meniscus.\nWhen liquid water is confined in a tube, its surface (meniscus) has a concave shape because water wets the surface and creeps up the side."
+            },
+            {
+              "questionID": 17923,
+              "question": "If the work done in blowing a bubble of volume V is W, then the work done in blowing a soap bubble of volume 2V will be",
+              "question_raw": "<p>If the work done in blowing a bubble of volume V is W, then the work done in blowing a soap bubble of volume 2V will be</p>",
+              "options": [
+                {
+                  "label": "A",
+                  "id": 26893,
+                  "text": "$\\sqrt 2 W$",
+                  "is_correct": false
+                },
+                {
+                  "label": "B",
+                  "id": 26895,
+                  "text": "2W",
+                  "is_correct": false
+                },
+                {
+                  "label": "C",
+                  "id": 26894,
+                  "text": "W",
+                  "is_correct": false
+                },
+                {
+                  "label": "D",
+                  "id": 26892,
+                  "text": "$\\sqrt[3]4W$",
+                  "is_correct": true
+                }
+              ],
+              "correct_option_ids": [
+                26892
+              ],
+              "correct_option_labels": [
+                "D"
+              ],
+              "correct_option_texts": [
+                "$\\sqrt[3]4W$"
+              ],
+              "explanation": "Work done to blow a bubble will be equal to its surface energy \nW = S = surface area $\\times$ surface tension S = A $\\times$ T\nGiven that work done to blow a bubble of volume V is W. \nW = S = surface area $\\times$ surface tension, S = A $\\times$ T for volume V\nS = 4$\\pi$r^2 $\\times$ T\nS $\\propto$ r^2 but radius r $\\propto$ Volume$(v)^{1\\over 3}$\nthus S $\\propto$ $(V)^{2\\over 3}$\n$\\Rightarrow$ $W \\propto V^{\\frac{2}{3}}$\n$\\Rightarrow$ thus if the volume is doubled \nthe W_2 becomes $(2)^{\\frac{2}{3}} \\Rightarrow(4)^{\\frac{1}{3}} W_{1}$\nthus $W_{2}=\\sqrt[3]{4} W_{1}$"
+            },
+            {
+              "questionID": 17924,
+              "question": "Two tubes of the same material but of different radii are dipped in a liquid. The height to which a liquid rises in one tube is 2.2cm and in the other is 6.6 cm. The ratio of their radii is:",
+              "question_raw": "<p>Two tubes of the same material but of different radii are dipped in a liquid. The height to which a liquid rises in one tube is 2.2cm and in the other is 6.6 cm. The ratio of their radii is:</p>",
+              "options": [
+                {
+                  "label": "A",
+                  "id": 26896,
+                  "text": "3:1",
+                  "is_correct": true
+                },
+                {
+                  "label": "B",
+                  "id": 26898,
+                  "text": "1:9",
+                  "is_correct": false
+                },
+                {
+                  "label": "C",
+                  "id": 26897,
+                  "text": "9:1",
+                  "is_correct": false
+                },
+                {
+                  "label": "D",
+                  "id": 26899,
+                  "text": "1:3",
+                  "is_correct": false
+                }
+              ],
+              "correct_option_ids": [
+                26896
+              ],
+              "correct_option_labels": [
+                "A"
+              ],
+              "correct_option_texts": [
+                "3:1"
+              ],
+              "explanation": "Using the relation for the height of the liquid in a capillary tube \n$h=\\frac{2 S \\cos \\theta}{r \\rho g}$\nthus if all other parameters are fixed\n$h \\propto \\frac{1}{r}$\n$\\Rightarrow \\frac{h_{1}}{h_{2}}=\\frac{r_{2}}{r_{1}}$ given h_1 = 2.2 and h_2 = 6.6\n$\\frac{2.2}{6.6}=\\frac{r_{2}}{r_{1}}$\n$\\frac{r_{1}}{r_{2}}$ = 3 : 1"
+            },
+            {
+              "questionID": 17925,
+              "question": "A raft of wood of density 600kg/m^3 and mass 120 kg floats in water. How much weight can be put on the raft to make it just sink?",
+              "question_raw": "<p>A raft of wood of density 600kg/m<sup>3</sup> and mass 120 kg floats in water. How much weight can be put on the raft to make it just sink?</p>",
+              "options": [
+                {
+                  "label": "A",
+                  "id": 26900,
+                  "text": "80kg",
+                  "is_correct": true
+                },
+                {
+                  "label": "B",
+                  "id": 26902,
+                  "text": "40kg",
+                  "is_correct": false
+                },
+                {
+                  "label": "C",
+                  "id": 26901,
+                  "text": "120 kg",
+                  "is_correct": false
+                },
+                {
+                  "label": "D",
+                  "id": 26903,
+                  "text": "200kg",
+                  "is_correct": false
+                }
+              ],
+              "correct_option_ids": [
+                26900
+              ],
+              "correct_option_labels": [
+                "A"
+              ],
+              "correct_option_texts": [
+                "80kg"
+              ],
+              "explanation": "Given mass of raft M = 120 k.g.\ndensity of raft = 600 k.g./m^3\nthus volume of raft V = \n$V = \\frac{{Mass}}{{density}} = \\frac{{120}}{{600}} = 0.2{m^3}$\nwhen raft just sinks inside after placing extra mass m. thus weight of\n(raft + extra mass m)\nwill be equal to the buoyant force. so\n(M + m)g = $V\\rho g$\n$120 + m = 0.2 \\times 1000$\nm = 80 kg."
+            },
+            {
+              "questionID": 17926,
+              "question": "If a block of iron of unknown mass ​​​of size 5 cm $ \\times $ 5 cm $ \\times $ 5 cm was completely submerged in water, what is the mass of the block. (density of water = 1 gm/cm^3)",
+              "question_raw": "<p>If a block of iron of unknown mass ​​​of size 5 cm <span class=\"math-tex\">{tex} \\times {/tex}</span> 5 cm <span class=\"math-tex\">{tex} \\times {/tex}</span> 5 cm was completely submerged in water, what is the mass of the block. (density of water = 1 gm/cm<sup>3</sup>)</p>",
+              "options": [
+                {
+                  "label": "A",
+                  "id": 26905,
+                  "text": "100 ​​​​​​gm",
+                  "is_correct": false
+                },
+                {
+                  "label": "B",
+                  "id": 26904,
+                  "text": "125 gm​​​​",
+                  "is_correct": true
+                },
+                {
+                  "label": "C",
+                  "id": 26907,
+                  "text": "90 ​​​​gm",
+                  "is_correct": false
+                },
+                {
+                  "label": "D",
+                  "id": 26906,
+                  "text": "80 ​​​gm",
+                  "is_correct": false
+                }
+              ],
+              "correct_option_ids": [
+                26904
+              ],
+              "correct_option_labels": [
+                "B"
+              ],
+              "correct_option_texts": [
+                "125 gm​​​​"
+              ],
+              "explanation": "When it is submerged completely its weight will be balanced by the buoyant force which is equal to the mass of water displaced. Thus let the mass of block be m than at equilibrium\nmg = Vρg\nm = 5 $\\times$ 5 $\\times$5 $\\times$ 1\nm = 125gm"
+            },
+            {
+              "questionID": 17927,
+              "question": "A boy is carrying a bucket of water in one hand with a 0.05 kg cork piece in it. After some time he takes out the cork piece and holds it on the other hand. The boy will carry:",
+              "question_raw": "<p>A boy is carrying a bucket of water in one hand with a 0.05 kg cork piece in it. After some time he takes out the cork piece and holds it on the other hand. The boy will carry:</p>",
+              "options": [
+                {
+                  "label": "A",
+                  "id": 26908,
+                  "text": "Same load as before",
+                  "is_correct": true
+                },
+                {
+                  "label": "B",
+                  "id": 26909,
+                  "text": "Either less or more load depending on the density of plastic",
+                  "is_correct": false
+                },
+                {
+                  "label": "C",
+                  "id": 26910,
+                  "text": "Less load than before",
+                  "is_correct": false
+                },
+                {
+                  "label": "D",
+                  "id": 26911,
+                  "text": "More load than before",
+                  "is_correct": false
+                }
+              ],
+              "correct_option_ids": [
+                26908
+              ],
+              "correct_option_labels": [
+                "A"
+              ],
+              "correct_option_texts": [
+                "Same load as before"
+              ],
+              "explanation": "as there is no change in total weight only the place of the cork piece has changed."
+            },
+            {
+              "questionID": 17928,
+              "question": "A beaker is partly filled with water, the beaker and the contents have a mass of 50 gm. A piece of wood having a volume of 5 cc. is floated in the beaker. The density of wood is 0.8 g/cc. the mass of the beaker and its contents is:",
+              "question_raw": "<p>A beaker is partly filled with water, the beaker and the contents have a mass of 50 gm. A piece of wood having a volume of 5 cc. is floated in the beaker. The density of wood is 0.8 g/cc. the mass of the beaker and its contents is:</p>",
+              "options": [
+                {
+                  "label": "A",
+                  "id": 26912,
+                  "text": "54 g",
+                  "is_correct": true
+                },
+                {
+                  "label": "B",
+                  "id": 26914,
+                  "text": "46 g",
+                  "is_correct": false
+                },
+                {
+                  "label": "C",
+                  "id": 26915,
+                  "text": "56.25 g",
+                  "is_correct": false
+                },
+                {
+                  "label": "D",
+                  "id": 26913,
+                  "text": "50 g",
+                  "is_correct": false
+                }
+              ],
+              "correct_option_ids": [
+                26912
+              ],
+              "correct_option_labels": [
+                "A"
+              ],
+              "correct_option_texts": [
+                "54 g"
+              ],
+              "explanation": "v = $m\\over d$\nm = v $\\times$ d . . . . .(mass = density $\\times$ volume)\ntotal mass = 50 + 0.8 $\\times$ 5 = 50 + 4 = 54 g"
+            },
+            {
+              "questionID": 17929,
+              "question": "A bird, resting on the floor of an airtight box, which is being carried by a boy, starts flying. The boy will feel that the box:",
+              "question_raw": "<p>A bird, resting on the floor of an airtight box, which is being carried by a boy, starts flying. The boy will feel that the box:</p>\r\n",
+              "options": [
+                {
+                  "label": "A",
+                  "id": 26918,
+                  "text": "Is now lighter",
+                  "is_correct": false
+                },
+                {
+                  "label": "B",
+                  "id": 26919,
+                  "text": "Is now heavier",
+                  "is_correct": false
+                },
+                {
+                  "label": "C",
+                  "id": 26917,
+                  "text": "Lighter in the beginning and heavier afterwards",
+                  "is_correct": false
+                },
+                {
+                  "label": "D",
+                  "id": 26916,
+                  "text": "Shows no change in weight",
+                  "is_correct": true
+                }
+              ],
+              "correct_option_ids": [
+                26916
+              ],
+              "correct_option_labels": [
+                "D"
+              ],
+              "correct_option_texts": [
+                "Shows no change in weight"
+              ],
+              "explanation": "If the cage is completely closed, it doesn't make a difference if the bird is hovering inside it or if it sits on the ground. When flying, the bird pushes air to the ground which will exert a downward force on the cage exactly equal to the weight of the bird. This is a direct consequence of the conservation of momentum and Newton's second & third law. Since no additional external force is acting on the cage-bird-system when the bird is flying as compared to when it's not, the acceleration on the cage can be no different. The effect due to the flying of the bird only concerns the internal forces and since action = reaction, hence there is no change in the weight of the box."
+            },
+            {
+              "questionID": 17930,
+              "question": "A cube of side 10 cm is floating in equilibrium in a tank of water. When a mass of 10 gm is placed on the cube, the depth of the cube inside the water increases by: (g = 10 ms^−2 density of water = 10^3 kg m^−3)",
+              "question_raw": "<p>A cube of side 10 cm is floating in equilibrium in a tank of water. When a mass of 10 gm is placed on the cube, the depth of the cube inside the water increases by: (g = 10&nbsp; ms<sup>&minus;2</sup> density of water =&nbsp;10<sup>3</sup> kg m<sup>&minus;3</sup>)</p>",
+              "options": [
+                {
+                  "label": "A",
+                  "id": 26920,
+                  "text": "1mm",
+                  "is_correct": true
+                },
+                {
+                  "label": "B",
+                  "id": 26922,
+                  "text": "1 cm",
+                  "is_correct": false
+                },
+                {
+                  "label": "C",
+                  "id": 26923,
+                  "text": "0.1 m",
+                  "is_correct": false
+                },
+                {
+                  "label": "D",
+                  "id": 26921,
+                  "text": "0.1 mm",
+                  "is_correct": false
+                }
+              ],
+              "correct_option_ids": [
+                26920
+              ],
+              "correct_option_labels": [
+                "A"
+              ],
+              "correct_option_texts": [
+                "1mm"
+              ],
+              "explanation": "Consider initially x c.m. height of cube is inside the water. For floatation, its weight will be balanced by a buoyant force which is equal to the weight of water displaced. Thus let the mass of cube is m. Given side of cube = 10 c.m. thus at equilibrium\nWeight of cube = buoyant force\nmg = V$\\rho$g\nwhere $\\rho$ is the density of water and volume of cube inside will be $\\left(\\frac{10}{100}\\right)^{2}$metre^3\nm = $x\\left(\\frac{10}{100}\\right)^{2} 1000$\nm = 10x $\\rightarrow$ (1)\nnow if a block of 10 g is placed on it then let the height of cube inside is (x + y)\nthus at equilibrium\n$\\left(m+\\frac{10}{1000}\\right) g=(x+y)\\left(\\frac{10}{100}\\right)^{2} 1000 g$\nusing(1)\n(10x + $\\frac{1}{{100}}$) = (x + y)10 $\\Rightarrow$ 1000x + 1 = 1000x + 1000y\ny = $1\\over 1000$metre = 1mm\nThus after placing 10gm mass height of cube in water will increase by 1mm."
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "testPaperID": 576,
+      "testPaperName": "Mechanical Properties of Fluids Test 05",
+      "is_paid": true,
+      "category_full_name": "CBSE > Class 11 > Physics > Mechanical Properties of Fluids",
+      "noOfQuestions": 15,
+      "has_answers": true,
+      "sections": [
+        {
+          "sectionName": "General",
+          "sectionID": null,
+          "questions": [
+            {
+              "questionID": 17931,
+              "question": "A wooden cube just floats inside the water when a 200gm mass is placed on it. When the mass is removed, the cube is 2 cm above the water level. The size of the cube is:",
+              "question_raw": "<p>A wooden cube just floats inside the water when a 200gm mass is placed on it. When the mass is removed, the cube is 2 cm above the water level. The size of the cube is:</p>",
+              "options": [
+                {
+                  "label": "A",
+                  "id": 26926,
+                  "text": "15 cm",
+                  "is_correct": false
+                },
+                {
+                  "label": "B",
+                  "id": 26927,
+                  "text": "20 cm",
+                  "is_correct": false
+                },
+                {
+                  "label": "C",
+                  "id": 26925,
+                  "text": "5 cm",
+                  "is_correct": false
+                },
+                {
+                  "label": "D",
+                  "id": 26924,
+                  "text": "10 cm",
+                  "is_correct": true
+                }
+              ],
+              "correct_option_ids": [
+                26924
+              ],
+              "correct_option_labels": [
+                "D"
+              ],
+              "correct_option_texts": [
+                "10 cm"
+              ],
+              "explanation": "Let the side of the cube be x, the density of water be $\\rho$, the mass of cube is m, acceleration due to gravity be g.\nWhen the weight is on the block,\nUsing Archimedes’ Principle,\nWeight of the block + Weight of the mass = Buoyant force (B_1)\nSince Bouyant force is equal to the volume of liquid displaced by the body thus \nB_1 = $\\rho g x^{3}$\nthus (m + 200) g = $\\rho$ gx^3\nm = $\\rho$x^3 - 200 $\\rightarrow$ (1)\nwhen mass is removed the wooden cube is 2 cm outside\nthus volume of cube inside = volume of water displaced = (x - 2) x^2\nagain balance the buoyant force B_2 = $\\rho$g(x - 2) x^2\n$\\rho$g(x - 2) x^2 = mg\n$\\Rightarrow$ $\\rho$(x - 2) x^2 = m\nsubstitute for m\n$\\rho$(x - 2) x^2 = $\\rho$x^3 - 200\n$\\Rightarrow$ 2 $\\rho$x^2 = 200\ntake $\\rho$ = 1 gram/cm^3\n$\\Rightarrow$ x = 10 cm"
+            },
+            {
+              "questionID": 17932,
+              "question": "Pressure applied to an enclosed fluid is:",
+              "question_raw": "<p>Pressure applied to an enclosed fluid is:</p>",
+              "options": [
+                {
+                  "label": "A",
+                  "id": 26929,
+                  "text": "increased in proportion to the mass of the fluid and then transmitted.",
+                  "is_correct": false
+                },
+                {
+                  "label": "B",
+                  "id": 26928,
+                  "text": "transmitted unchanged to every portion of the fluid and walls of the containing vessel.",
+                  "is_correct": true
+                },
+                {
+                  "label": "C",
+                  "id": 26930,
+                  "text": "diminished and transmitted to the wall of the container.",
+                  "is_correct": false
+                },
+                {
+                  "label": "D",
+                  "id": 26931,
+                  "text": "increased and applied to every part of the fluid.",
+                  "is_correct": false
+                }
+              ],
+              "correct_option_ids": [
+                26928
+              ],
+              "correct_option_labels": [
+                "B"
+              ],
+              "correct_option_texts": [
+                "transmitted unchanged to every portion of the fluid and walls of the containing vessel."
+              ],
+              "explanation": "According to Pascal's law (or the principle of transmission of fluid-pressure) is a principle in fluid mechanics that states that a pressure change occurring anywhere in a confined incompressible fluid is transmitted throughout the fluid such that the same change occurs everywhere."
+            },
+            {
+              "questionID": 17933,
+              "question": "A parrot is in a wire case, which is hanging from a spring balance. Initially, the parrot sits in the cage and in the second instance the parrot flies inside the cage, the reading of the balance will be:",
+              "question_raw": "<p>A parrot is in a wire case, which is hanging from a spring balance. Initially, the parrot sits in the cage and in the second instance the parrot flies inside the cage, the reading of the balance will be:</p>",
+              "options": [
+                {
+                  "label": "A",
+                  "id": 26935,
+                  "text": "Normal when the parrot flies in the cage",
+                  "is_correct": false
+                },
+                {
+                  "label": "B",
+                  "id": 26934,
+                  "text": "Remain unchanged",
+                  "is_correct": false
+                },
+                {
+                  "label": "C",
+                  "id": 26932,
+                  "text": "Lesser when the parrot flies in the cage",
+                  "is_correct": true
+                },
+                {
+                  "label": "D",
+                  "id": 26933,
+                  "text": "Greater when the parrot flies in the cage",
+                  "is_correct": false
+                }
+              ],
+              "correct_option_ids": [
+                26932
+              ],
+              "correct_option_labels": [
+                "C"
+              ],
+              "correct_option_texts": [
+                "Lesser when the parrot flies in the cage"
+              ],
+              "explanation": "For the bird to stay in the air, the wings must push down on the air under them. If the cage is airtight, the air exerts an equal force on the floor of the cage. The net force down on the scale will remain constant. If the cage is not airtight (i.e; the wire cage), the air will move down and horizontal. The force down will be less than the weight of the bird."
+            },
+            {
+              "questionID": 17934,
+              "question": "If there would be smaller gravitational effects, which of the following forces do you think would alter in some respect?",
+              "question_raw": "<p>If there would be smaller gravitational effects, which of the following forces do you think would alter in some respect?</p>",
+              "options": [
+                {
+                  "label": "A",
+                  "id": 26939,
+                  "text": "Electrostatic forces",
+                  "is_correct": false
+                },
+                {
+                  "label": "B",
+                  "id": 26938,
+                  "text": "Nuclear forces",
+                  "is_correct": false
+                },
+                {
+                  "label": "C",
+                  "id": 26937,
+                  "text": "Viscous forces",
+                  "is_correct": false
+                },
+                {
+                  "label": "D",
+                  "id": 26936,
+                  "text": "Buoyant forces",
+                  "is_correct": true
+                }
+              ],
+              "correct_option_ids": [
+                26936
+              ],
+              "correct_option_labels": [
+                "D"
+              ],
+              "correct_option_texts": [
+                "Buoyant forces"
+              ],
+              "explanation": "Buoyancy force on an object is equal to the weight of the fluid displaced by the object, or the density of the fluid multiplied by the submerged volume times the gravitational acceleration."
+            },
+            {
+              "questionID": 17935,
+              "question": "If you float on your back on the water, your weight is:",
+              "question_raw": "<p>If you float on your back on the water, your weight is:</p>",
+              "options": [
+                {
+                  "label": "A",
+                  "id": 26942,
+                  "text": "Half to your normal weight",
+                  "is_correct": false
+                },
+                {
+                  "label": "B",
+                  "id": 26941,
+                  "text": "Equal to your normal weight",
+                  "is_correct": false
+                },
+                {
+                  "label": "C",
+                  "id": 26943,
+                  "text": "Greater than the weight of water you displace",
+                  "is_correct": false
+                },
+                {
+                  "label": "D",
+                  "id": 26940,
+                  "text": "Zero",
+                  "is_correct": true
+                }
+              ],
+              "correct_option_ids": [
+                26940
+              ],
+              "correct_option_labels": [
+                "D"
+              ],
+              "correct_option_texts": [
+                "Zero"
+              ],
+              "explanation": "Due to the buoyant force of water, the buoyancy of water reduces your body weight by 90%. When you get into the pool, your body displaces a volume of water (the \"hole\" in the water that your body fits into). As long as your body displaces water weighs more than you do, you float. This is basically Archimedes' Law. You weigh less than the water you're in, because your lungs are full of air, like a balloon, and like a balloon, the air in your lungs lifts you to the surface naturally."
+            },
+            {
+              "questionID": 17936,
+              "question": "The height of the mercury column in a simple barometer is h. As the tube is inclined to the vertical at an angle $\\alpha$ the length of the mercury column along the length of the tube is l, then:",
+              "question_raw": "<p>The height of the mercury column in a simple barometer is h. As the tube is inclined to the vertical at an angle <span class=\"math-tex\">{tex}\\alpha{/tex}</span> the length of the mercury column along the length of the tube is l, then:</p>",
+              "options": [
+                {
+                  "label": "A",
+                  "id": 26946,
+                  "text": "l = h",
+                  "is_correct": false
+                },
+                {
+                  "label": "B",
+                  "id": 26947,
+                  "text": "l = h sin$\\alpha$",
+                  "is_correct": false
+                },
+                {
+                  "label": "C",
+                  "id": 26944,
+                  "text": "$1=\\frac{h}{\\cos \\alpha}$",
+                  "is_correct": false
+                },
+                {
+                  "label": "D",
+                  "id": 26945,
+                  "text": "l = h cos$\\alpha$",
+                  "is_correct": true
+                }
+              ],
+              "correct_option_ids": [
+                26945
+              ],
+              "correct_option_labels": [
+                "D"
+              ],
+              "correct_option_texts": [
+                "l = h cos$\\alpha$"
+              ],
+              "explanation": "This will form a right-angled triangle with base l and hypotenuse h and the angle between base and hypotenuse is \n$\\alpha$ thus cos$\\alpha$ = $\\frac{l}{h}$ \nl = h cos $\\alpha$"
+            },
+            {
+              "questionID": 17937,
+              "question": "A cylindrical vessel is filled with an equal mass of mercury and water. The overall height of the two layers is 43.8 cm. The relative density of mercury is 13.6. Then the pressure of the liquid on the bottom of the vessel is:",
+              "question_raw": "<p>A cylindrical vessel is filled with an equal mass of mercury and water. The overall height of the two layers is 43.8 cm. The relative density of mercury is 13.6. Then the pressure of the liquid on the bottom of the vessel is:</p>",
+              "options": [
+                {
+                  "label": "A",
+                  "id": 26948,
+                  "text": "P_atm + 6 cm of Hg",
+                  "is_correct": true
+                },
+                {
+                  "label": "B",
+                  "id": 26950,
+                  "text": "P_atm + 1.5 cm of Hg",
+                  "is_correct": false
+                },
+                {
+                  "label": "C",
+                  "id": 26951,
+                  "text": "P_atm + 16.6 cm of Hg",
+                  "is_correct": false
+                },
+                {
+                  "label": "D",
+                  "id": 26949,
+                  "text": "P_atm +​​​​​​ 3 cm of Hg",
+                  "is_correct": false
+                }
+              ],
+              "correct_option_ids": [
+                26948
+              ],
+              "correct_option_labels": [
+                "A"
+              ],
+              "correct_option_texts": [
+                "P_atm + 6 cm of Hg"
+              ],
+              "explanation": "Given total height H of vessel = 43.8 cm \nAs mass of mercury and water is equal\n$\\rho_{h g} V_{h g}=\\rho_{w} V_{w} $ given $ \\rho_{h g}$ = 13.6 $\\rho_{w} $)\n13.6 $\\times$ $\\pi r^{2} h_{h g}$ = $\\pi r^{2} h_{w}$\nh_w = 13.6 $h_{h g}$ $\\rightarrow$ (1)\ngiven h_w + h_hg = 43.8 $\\rightarrow$ (2)\nfrom(1) and (2)\nh_w = 40.8 cm and h_hg = 3 cm \nThus pressure at bottom will be\nP = P_atm + $\\rho_{h g} g h_{h g} + \\rho_{w} g h_{w} $\nP = $P_{a t m} + \\left(\\rho_{h g} g \\times 3\\right) + \\frac{\\rho_{h g}}{13.6} g \\times 40.8$ \nP = P_atm + 3cm of Hg + 3cm of Hg\nP = P_atm + 6 cm of Hg"
+            },
+            {
+              "questionID": 17938,
+              "question": "Two bodies are in equilibrium when suspended in water from the arms of a balance. The mass of one body is 36 gm and its density is 9 gm/cc. If the mass of the other is 48 gm, its density in gm/cm^3 is:",
+              "question_raw": "<p>Two bodies are in equilibrium when suspended in water from the arms of a balance. The mass of one body is 36 gm and its density is 9 gm/cc. If the mass of the other is 48 gm, its density in gm/cm<sup>3</sup>&nbsp;is:</p>",
+              "options": [
+                {
+                  "label": "A",
+                  "id": 26955,
+                  "text": "5",
+                  "is_correct": false
+                },
+                {
+                  "label": "B",
+                  "id": 26952,
+                  "text": "3.0",
+                  "is_correct": true
+                },
+                {
+                  "label": "C",
+                  "id": 26954,
+                  "text": "$\\frac{3}{2}$",
+                  "is_correct": false
+                },
+                {
+                  "label": "D",
+                  "id": 26953,
+                  "text": "$\\frac{4}{3}$",
+                  "is_correct": false
+                }
+              ],
+              "correct_option_ids": [
+                26952
+              ],
+              "correct_option_labels": [
+                "B"
+              ],
+              "correct_option_texts": [
+                "3.0"
+              ],
+              "explanation": "W_1 = W_2 \n$m_1 g -v_1\\rho_\\omega g = m_2g - v_2\\rho_\\omega g$\nby simplifying the equation, we get \n​​36−4 = 48−V_2\nV_2 = 48−32 = 16m^3\nthe density of body is given by \n$\\rho=\\frac{m_2}{V_2}$\n$ = \\frac{48}{16}$ = 3g/cm^3"
+            },
+            {
+              "questionID": 17939,
+              "question": "Three liquids of densities d, 2d, and 3 d are mixed in equal volumes. Then the density of the mixture is:",
+              "question_raw": "<p>Three liquids of densities d, 2d, and 3 d are mixed in equal volumes. Then the density of the mixture is:</p>",
+              "options": [
+                {
+                  "label": "A",
+                  "id": 26959,
+                  "text": "5d",
+                  "is_correct": false
+                },
+                {
+                  "label": "B",
+                  "id": 26956,
+                  "text": "2d",
+                  "is_correct": true
+                },
+                {
+                  "label": "C",
+                  "id": 26957,
+                  "text": "d",
+                  "is_correct": false
+                },
+                {
+                  "label": "D",
+                  "id": 26958,
+                  "text": "3d",
+                  "is_correct": false
+                }
+              ],
+              "correct_option_ids": [
+                26956
+              ],
+              "correct_option_labels": [
+                "B"
+              ],
+              "correct_option_texts": [
+                "2d"
+              ],
+              "explanation": "The density of the mixture is given by\n$\\rho_{\\operatorname{mix}}=\\frac{\\text {total mass}}{\\text {total volume}}=\\frac{m_{1}+m_{2}+m_{3}}{v_{1}+v_{2}+v_{3}}$\nasv_1 = v_2 = v_3\n$\\rho_{\\operatorname{mix}}=\\frac{\\rho_{1} v+\\rho_{2} v+\\rho_{3} v}{v+v+v}$\n$\\Rightarrow \\frac{d v+2 d v+3 d v}{3 v}$\n$\\rho_{m ix}$ = 2d"
+            },
+            {
+              "questionID": 17940,
+              "question": "Three liquids of densities d, 2d and 3d are mixed in equal proportion of weights. If density of water is d, then the specific gravity of the mixture is",
+              "question_raw": "<p>Three liquids of densities d, 2d and 3d are mixed in equal proportion of weights. If density of water is d, then the specific gravity of the mixture is</p>",
+              "options": [
+                {
+                  "label": "A",
+                  "id": 26962,
+                  "text": "$\\frac{13}{9}$",
+                  "is_correct": false
+                },
+                {
+                  "label": "B",
+                  "id": 26963,
+                  "text": "$\\frac{23}{18}$",
+                  "is_correct": false
+                },
+                {
+                  "label": "C",
+                  "id": 26961,
+                  "text": "$\\frac{11}{7}$",
+                  "is_correct": false
+                },
+                {
+                  "label": "D",
+                  "id": 26960,
+                  "text": "$\\frac{18}{11}$",
+                  "is_correct": true
+                }
+              ],
+              "correct_option_ids": [
+                26960
+              ],
+              "correct_option_labels": [
+                "D"
+              ],
+              "correct_option_texts": [
+                "$\\frac{18}{11}$"
+              ],
+              "explanation": "w_1 = w_2 = w_3\n$\\Rightarrow$ m_1 = m_2 = m_3 = m (say)\nThen, v_1 = $\\frac{m}{d}$, v_2 = $\\frac{m}{2d}$, v_3 = $\\frac{m}{3d}$\n$\\therefore$ d_max = $\\frac{mass}{volume}$= $\\frac{3m}{v_1+v_2+v_3}$ = $\\frac{18}{11}d$\nSo, specific gravity of mixture = $\\frac{d_{max}}{d_{water}}$ = $\\frac{18}{11}$"
+            },
+            {
+              "questionID": 17941,
+              "question": "What fraction of the volume of a solid piece of metal of sp gr 7.2 floats above the surface of a container of mercury of sp. gr. 13.6?",
+              "question_raw": "<p>What fraction of the volume of a solid piece of metal of sp gr 7.2 floats above the surface of a container of mercury of sp. gr. 13.6?</p>",
+              "options": [
+                {
+                  "label": "A",
+                  "id": 26965,
+                  "text": "0.53",
+                  "is_correct": false
+                },
+                {
+                  "label": "B",
+                  "id": 26967,
+                  "text": "0.78",
+                  "is_correct": false
+                },
+                {
+                  "label": "C",
+                  "id": 26964,
+                  "text": "0.47",
+                  "is_correct": true
+                },
+                {
+                  "label": "D",
+                  "id": 26966,
+                  "text": "0.75",
+                  "is_correct": false
+                }
+              ],
+              "correct_option_ids": [
+                26964
+              ],
+              "correct_option_labels": [
+                "C"
+              ],
+              "correct_option_texts": [
+                "0.47"
+              ],
+              "explanation": "V = Volume of metal\nV’ = Volume of mercury displaced \nWeight of body = Weight of mercury displaced \n= 7.2 $\\times$ 9810 $\\times$ V = 13.6 $\\times$9810 $\\times$V′\n$\\Rightarrow$ ${V'\\over V }= 0.53$ \nFraction of volume above mercury = 1 - 0.53 = 0.47"
+            },
+            {
+              "questionID": 17942,
+              "question": "Which one of the following statements is correct for fluid passing through the narrow part of the non-uniform pipe?",
+              "question_raw": "<p>Which one of the following statements is correct for fluid passing through the narrow part of the non-uniform pipe?</p>",
+              "options": [
+                {
+                  "label": "A",
+                  "id": 26968,
+                  "text": "its velocity increases but its pressure decreases",
+                  "is_correct": true
+                },
+                {
+                  "label": "B",
+                  "id": 26970,
+                  "text": "its velocity and pressure both decrease",
+                  "is_correct": false
+                },
+                {
+                  "label": "C",
+                  "id": 26969,
+                  "text": "its velocity decreases but its pressure increases",
+                  "is_correct": false
+                },
+                {
+                  "label": "D",
+                  "id": 26971,
+                  "text": "its velocity and pressure both increase",
+                  "is_correct": false
+                }
+              ],
+              "correct_option_ids": [
+                26968
+              ],
+              "correct_option_labels": [
+                "A"
+              ],
+              "correct_option_texts": [
+                "its velocity increases but its pressure decreases"
+              ],
+              "explanation": "Consider two points A and B in the pipe at the same horizontal level. At point A, let a_1 be the area of cross-section of the pipe, v_1 the velocity of fluid flow, and p_1 the fluid pressure. let a_2, v_2, p_2 be the corresponding quantities at point B. then from Bernoulli's theorem we have, \n$p_1 +{1\\over 2}\\rho v_1^2 = p_2 +{1\\over 2}\\rho v_2^2 $\n$\\Rightarrow (p_1-p_2) = {1\\over 2} \\rho (v_2^2-v_1^2) \\ $....(1)\nif a_2 < a_1, it follows from continuity equation a_1v_1= a_2v_2 that v_1 > v_2 from eq (1) it follows that p_2 < p_1, Hence at the narrow part of the pipe, the fluid velocity increase but its pressure decrease."
+            },
+            {
+              "questionID": 17943,
+              "question": "A cylindrical jar of cross-sectional area 0.01 m^2 is filled with water to a height of 50 cm. It carries a tight-fitting piston of negligible mass. What is the pressure at the bottom of the jar when the mass of 1 kg is placed on the piston? Take g = 10ms^−2.",
+              "question_raw": "<p>A cylindrical jar of cross-sectional area 0.01 m<sup>2</sup> is filled with water to a height of 50 cm. It carries a tight-fitting piston of negligible mass. What is the pressure at the bottom of the jar when the mass of 1 kg is placed on the piston? Take g = 10ms<sup>&minus;2</sup>.</p>",
+              "options": [
+                {
+                  "label": "A",
+                  "id": 26975,
+                  "text": "2000 Pa",
+                  "is_correct": false
+                },
+                {
+                  "label": "B",
+                  "id": 26972,
+                  "text": "6000 Pa",
+                  "is_correct": true
+                },
+                {
+                  "label": "C",
+                  "id": 26973,
+                  "text": "5000 Pa",
+                  "is_correct": false
+                },
+                {
+                  "label": "D",
+                  "id": 26974,
+                  "text": "4000 Pa",
+                  "is_correct": false
+                }
+              ],
+              "correct_option_ids": [
+                26972
+              ],
+              "correct_option_labels": [
+                "B"
+              ],
+              "correct_option_texts": [
+                "6000 Pa"
+              ],
+              "explanation": "The pressure at the bottom of the jar is due to the weight of a column of water of height h = 50 cm = 0.5 m and the weight of a load of m = 1 kg.\nThe total force acting on the base = $h\\rho g A+ mg $ \n= 0.5 $\\times $ 1000 $\\times $ 10 $\\times $ 0.01 + 1 $\\times $10 = 60N\n$\\therefore$ Pressure =$ {force \\over area} = {60\\over 0.01 } = 6000 \\ Nm^{-2} \\ $ or 6000 Pa"
+            },
+            {
+              "questionID": 17944,
+              "question": "Two vessels A and B of different shapes have the same base area and are filled with water up to the same height h. The force exerted by water on the base is ${{\\rm{F}}_{\\rm{A}}}$ for vessel A and ${{\\rm{F}}_{\\rm{B}}}$ for vessel B. The respective weights of the vessels are ${{\\rm{W}}_{\\rm{A}}}$ and ${{\\rm{W}}_{\\rm{B}}}$. Then",
+              "question_raw": "<p>Two vessels A and B of different shapes have the same base area and are filled with water up to the same height h. The force exerted by water on the base is <span class=\"math-tex\">{tex}{{\\rm{F}}_{\\rm{A}}}{/tex}</span> for vessel A and <span class=\"math-tex\">{tex}{{\\rm{F}}_{\\rm{B}}}{/tex}</span> for vessel B. The respective weights of the vessels are <span class=\"math-tex\">{tex}{{\\rm{W}}_{\\rm{A}}}{/tex}</span> and <span class=\"math-tex\">{tex}{{\\rm{W}}_{\\rm{B}}}{/tex}</span>. Then<br />\n<img alt=\"\" data-imgur-src=\"68ZkxsS.png\" src=\"https://media-mycbseguide.s3.amazonaws.com/images/imgur/68ZkxsS.png\" style=\"width: 150px; height: 82px;\" /></p>",
+              "options": [
+                {
+                  "label": "A",
+                  "id": 26979,
+                  "text": "F_A > F_B; W_A > W_B",
+                  "is_correct": false
+                },
+                {
+                  "label": "B",
+                  "id": 26978,
+                  "text": "F_A < F_B; W_A > WB",
+                  "is_correct": false
+                },
+                {
+                  "label": "C",
+                  "id": 26976,
+                  "text": "F_A = F_B; W_A > W_B",
+                  "is_correct": true
+                },
+                {
+                  "label": "D",
+                  "id": 26977,
+                  "text": "F_A = F_B; W_A = W_B",
+                  "is_correct": false
+                }
+              ],
+              "correct_option_ids": [
+                26976
+              ],
+              "correct_option_labels": [
+                "C"
+              ],
+              "correct_option_texts": [
+                "F_A = F_B; W_A > W_B"
+              ],
+              "explanation": "Since h is, the same for both vessels, pressure = $h\\rho g$ is the same. Now force = $pressure \\times base \\ area $. Since the base area is the same, the force exerted by water on the base is the same for both vessels. Thus $F_A= F_B$.\nThe liquid exerts pressure, and hence force, not only on the base but also on the sides of the vessel. This force is normal to the sides of the vessel. For vessel B, this force has no component in the downward direction. but for vessel A, this force ( which is normal to the sides) has a non-zero component vertically downwards. Hence vessel A gives higher reading than vessel B when they are weighed on a weighing scale. Thus $W_A > W_B$"
+            },
+            {
+              "questionID": 17945,
+              "question": "A tank with a square base of area 2.0 m^2 is divided into two compartments by a vertical partition in the middle. There is a small hinged door of face area 20 cm$^{\\rm{2}}$ at the bottom of the partition. Water is filled in one compartment and acid, of relative density 1.7, in the other, both to a height of 4m. If g = 10 ms^-2 the force necessary to keep the door closed is:",
+              "question_raw": "<p>A tank with a square base of area 2.0 m<sup>2</sup> is divided into two compartments by a vertical partition in the middle. There is a small hinged door of face area 20 cm<span class=\"math-tex\">{tex}^{\\rm{2}}{/tex}</span> at the bottom of the partition. Water is filled in one compartment and acid, of relative density 1.7,&nbsp;in the other, both to a height of 4m. If g = 10 ms<sup>-2</sup> the force necessary to keep the door closed is:</p>",
+              "options": [
+                {
+                  "label": "A",
+                  "id": 26982,
+                  "text": "40.52 N",
+                  "is_correct": false
+                },
+                {
+                  "label": "B",
+                  "id": 26980,
+                  "text": "54.88 N",
+                  "is_correct": true
+                },
+                {
+                  "label": "C",
+                  "id": 26981,
+                  "text": "20.92 N",
+                  "is_correct": false
+                },
+                {
+                  "label": "D",
+                  "id": 26983,
+                  "text": "80.88 N",
+                  "is_correct": false
+                }
+              ],
+              "correct_option_ids": [
+                26980
+              ],
+              "correct_option_labels": [
+                "B"
+              ],
+              "correct_option_texts": [
+                "54.88 N"
+              ],
+              "explanation": "Water compartment\nP = $ h\\rho g $\n= 4 $\\times$ 1.0 $\\times$ 10^3 $\\times$ 9.8\n= 39.2 $\\times$ 10^3Pa\nAcid Compartment,\nP' = $h\\rho'g$\n= 4 $\\times$ 1.7 $\\times$ 10^3 $\\times$ 9.8\n= 66.64 $\\times$ 10^3Pa\nNow,\nP′ − P = 66.64 $\\times$ 10^3 − 39.2 $\\times$ 10^3\nP′ − P = 27.44 $\\times$ 10^3 Pa\nA = 20 cm^2 = 20 $\\times$ 10^−4m^2\nForce using pressure,\nPressure = $ {Force \\over Area}$\nForce = pressure $\\times$ area F = 27.44 $\\times$ 10^3 $\\times$ 20 $\\times$ 10^−4\nF = 54.88 N"
+            }
+          ]
+        }
+      ]
+    }
+  ]
+}

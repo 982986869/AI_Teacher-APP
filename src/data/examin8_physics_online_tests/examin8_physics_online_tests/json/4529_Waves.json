@@ -1,0 +1,3162 @@
+{
+  "id": 4529,
+  "name": "Waves",
+  "full_name": "CBSE > Class 11 > Physics > Waves",
+  "tests": [
+    {
+      "testPaperID": 597,
+      "testPaperName": "Waves Test 01",
+      "is_paid": false,
+      "category_full_name": "CBSE > Class 11 > Physics > Waves",
+      "noOfQuestions": 15,
+      "has_answers": true,
+      "sections": [
+        {
+          "sectionName": "General",
+          "sectionID": null,
+          "questions": [
+            {
+              "questionID": 134355,
+              "question": "Two waves of wavelength 1m & 1.01 m produce 10 beats in 3 sec. The velocity of sound in a gas is about:",
+              "question_raw": "<p>Two waves of wavelength 1m &amp; 1.01 m produce 10 beats in 3 sec. The velocity of sound in a gas is about:</p>",
+              "options": [
+                {
+                  "label": "A",
+                  "id": 309411,
+                  "text": "1120 m/sec",
+                  "is_correct": false
+                },
+                {
+                  "label": "B",
+                  "id": 309413,
+                  "text": "33 m/s",
+                  "is_correct": false
+                },
+                {
+                  "label": "C",
+                  "id": 309410,
+                  "text": "337 m/sec",
+                  "is_correct": true
+                },
+                {
+                  "label": "D",
+                  "id": 309412,
+                  "text": "300 m/s",
+                  "is_correct": false
+                }
+              ],
+              "correct_option_ids": [
+                309410
+              ],
+              "correct_option_labels": [
+                "C"
+              ],
+              "correct_option_texts": [
+                "337 m/sec"
+              ],
+              "explanation": "The beat frequency is given by\nf_beat = f_1 - f_2\nalso\n$f_1=\\frac v{\\lambda_1}$ and $f_2=\\frac v{\\lambda_2}$\ngiven$\\;f_{beat}=\\frac{10}3$\n$\\frac{10}3=\\frac v1-\\frac v{1.01}$\non solving\nv = 337 m/s"
+            },
+            {
+              "questionID": 134357,
+              "question": "A string of 0.3 m length is found to resonate in 3 segments (nodes at both ends) when the driving frequency is 20 Hz. The speed of the wave in the string is:",
+              "question_raw": "<p>A string of 0.3 m length is found to resonate in 3 segments (nodes at both ends) when the driving frequency is 20 Hz. The speed of the wave in the string is:</p>",
+              "options": [
+                {
+                  "label": "A",
+                  "id": 309416,
+                  "text": "3 m/s",
+                  "is_correct": false
+                },
+                {
+                  "label": "B",
+                  "id": 309415,
+                  "text": "5 m/s",
+                  "is_correct": false
+                },
+                {
+                  "label": "C",
+                  "id": 309414,
+                  "text": "4 m/s",
+                  "is_correct": true
+                },
+                {
+                  "label": "D",
+                  "id": 309417,
+                  "text": "9 m/s",
+                  "is_correct": false
+                }
+              ],
+              "correct_option_ids": [
+                309414
+              ],
+              "correct_option_labels": [
+                "C"
+              ],
+              "correct_option_texts": [
+                "4 m/s"
+              ],
+              "explanation": "Using relation\nf_n = $\\frac{nv}{2L}$\n20 = $\\frac{3\\times v}{2\\times0.3}$\nv = 4 m/s"
+            },
+            {
+              "questionID": 134358,
+              "question": "The air column in a pipe that is closed at one end will be in resonance with a vibrating tuning fork at a frequency 250 Hz. The length(L) of the air column will be (take the velocity of sound in air 333m/s).",
+              "question_raw": "<p>The air column in a pipe that is closed at one end will be in resonance with a vibrating tuning fork at a frequency 250 Hz. The length(L) of the air column will be (take the velocity of sound in air 333m/s).</p>",
+              "options": [
+                {
+                  "label": "A",
+                  "id": 309420,
+                  "text": "45 cm.",
+                  "is_correct": false
+                },
+                {
+                  "label": "B",
+                  "id": 309419,
+                  "text": "62.5 cm.",
+                  "is_correct": false
+                },
+                {
+                  "label": "C",
+                  "id": 309418,
+                  "text": "33.3 cm.",
+                  "is_correct": true
+                },
+                {
+                  "label": "D",
+                  "id": 309421,
+                  "text": "12.5 cm.",
+                  "is_correct": false
+                }
+              ],
+              "correct_option_ids": [
+                309418
+              ],
+              "correct_option_labels": [
+                "C"
+              ],
+              "correct_option_texts": [
+                "33.3 cm."
+              ],
+              "explanation": "Using relation for the frequency of standing waves in a closed organ pipe\nf = (2n + 1)$\\frac v{4L}$\nfor fundamental n = 0\n250 = $\r\n\\frac{333}{4\\times L}$\non solving\nL = 33.3 cm"
+            },
+            {
+              "questionID": 134359,
+              "question": "A tuning fork when sounded along with a standard source of frequency 300 Hz produces 5 beat/s. The tuning fork, when loaded by some wax, is again found to give 5 beats/s with the standard source. The frequency of the fork originally was?",
+              "question_raw": "<p>A tuning fork when sounded along with a standard source of frequency 300 Hz produces 5 beat/s. The tuning fork, when loaded by some wax, is again found to give 5 beats/s with the standard source. The frequency of the fork originally was?</p>",
+              "options": [
+                {
+                  "label": "A",
+                  "id": 309422,
+                  "text": "305 Hz",
+                  "is_correct": true
+                },
+                {
+                  "label": "B",
+                  "id": 309424,
+                  "text": "295 Hz",
+                  "is_correct": false
+                },
+                {
+                  "label": "C",
+                  "id": 309425,
+                  "text": "290 Hz",
+                  "is_correct": false
+                },
+                {
+                  "label": "D",
+                  "id": 309423,
+                  "text": "310 Hz",
+                  "is_correct": false
+                }
+              ],
+              "correct_option_ids": [
+                309422
+              ],
+              "correct_option_labels": [
+                "A"
+              ],
+              "correct_option_texts": [
+                "305 Hz"
+              ],
+              "explanation": "Here beat frequency is v_beat = 5 beat/second\nBeat frequency $v_{beat}$ = f_1 - f_2 here given that f_2 is 300 hz thus \nf_1 = 300 + 5\nf_1 = 305 hz"
+            },
+            {
+              "questionID": 134360,
+              "question": "A stretched string resonates with tuning fork frequency 512 Hz when the length of the string is 0.5 m. The length of the string required to vibrate resonantly with a tuning fork of frequency 256 Hz would be:",
+              "question_raw": "<p>A stretched string resonates with tuning fork frequency 512 Hz when the length of the string is 0.5 m. The length of the string required to vibrate resonantly with a tuning fork of frequency 256 Hz would be:</p>",
+              "options": [
+                {
+                  "label": "A",
+                  "id": 309426,
+                  "text": "1 m",
+                  "is_correct": true
+                },
+                {
+                  "label": "B",
+                  "id": 309427,
+                  "text": "2 m",
+                  "is_correct": false
+                },
+                {
+                  "label": "C",
+                  "id": 309429,
+                  "text": "0.25 m",
+                  "is_correct": false
+                },
+                {
+                  "label": "D",
+                  "id": 309428,
+                  "text": "0.5 m",
+                  "is_correct": false
+                }
+              ],
+              "correct_option_ids": [
+                309426
+              ],
+              "correct_option_labels": [
+                "A"
+              ],
+              "correct_option_texts": [
+                "1 m"
+              ],
+              "explanation": "Using $\\nu$ = $\\frac1{2L}\\sqrt{\\frac T\\mu}$ here , T = tension in string and $\\mu$ = is mass per unit length of wire \nIf T and $\\mu$ are kept constant thus $\\nu$ is inversely proportional to L. Thus if $\\nu$ is halved then L will be doubled.\nSo for $\\nu$= 256 Hz, L becomes 1m."
+            },
+            {
+              "questionID": 134353,
+              "question": "The velocity of sound in air is 300 m/s. Then the distance between two successive nodes of a stationary wave of frequency 1000 Hz is:",
+              "question_raw": "<p>The velocity of sound in air is 300 m/s. Then the distance between two successive nodes of a stationary wave of frequency 1000 Hz is:</p>",
+              "options": [
+                {
+                  "label": "A",
+                  "id": 309404,
+                  "text": "20 cm",
+                  "is_correct": false
+                },
+                {
+                  "label": "B",
+                  "id": 309405,
+                  "text": "30 cm",
+                  "is_correct": false
+                },
+                {
+                  "label": "C",
+                  "id": 309402,
+                  "text": "15 cm",
+                  "is_correct": true
+                },
+                {
+                  "label": "D",
+                  "id": 309403,
+                  "text": "10 cm",
+                  "is_correct": false
+                }
+              ],
+              "correct_option_ids": [
+                309402
+              ],
+              "correct_option_labels": [
+                "C"
+              ],
+              "correct_option_texts": [
+                "15 cm"
+              ],
+              "explanation": "here,\nv = 300 m/s ,f=1000Hz\nWe, know that,\n$ λ={v\\over f }$\n$\\begin{array}{l}\\lambda=\\frac{300}{1000}\\\\\\end{array}$ = 0.3m\ndistance between two successive nodes is given by,\ndistance = $\\lambda\\over2$ = $0.3 \\over 2$ = 0.15m = 15cm"
+            },
+            {
+              "questionID": 134354,
+              "question": "If a star emitting orange light moves away from the earth, it's color will:",
+              "question_raw": "<p>If a star emitting orange light moves away from the earth, it&#39;s color will:</p>",
+              "options": [
+                {
+                  "label": "A",
+                  "id": 309408,
+                  "text": "remain the same",
+                  "is_correct": false
+                },
+                {
+                  "label": "B",
+                  "id": 309407,
+                  "text": "appear yellow",
+                  "is_correct": false
+                },
+                {
+                  "label": "C",
+                  "id": 309406,
+                  "text": "appear red",
+                  "is_correct": true
+                },
+                {
+                  "label": "D",
+                  "id": 309409,
+                  "text": "turns gradually blue",
+                  "is_correct": false
+                }
+              ],
+              "correct_option_ids": [
+                309406
+              ],
+              "correct_option_labels": [
+                "C"
+              ],
+              "correct_option_texts": [
+                "appear red"
+              ],
+              "explanation": "Due to the Doppler effect for a source moving away from a stationary observer\n$f_1=\\frac v{v+u}\\times f$ \nFrequency will decrease thus wavelength will increase thus signal will shift towards red light."
+            },
+            {
+              "questionID": 133953,
+              "question": "If the velocity of sound in air is 350 m/s then the fundamental frequency of an open pipe of length 50 cm is:",
+              "question_raw": "<p>If the velocity of sound in air is 350 m/s then the fundamental frequency of an open pipe of length 50 cm is:</p>",
+              "options": [
+                {
+                  "label": "A",
+                  "id": 308857,
+                  "text": "500 Hz",
+                  "is_correct": false
+                },
+                {
+                  "label": "B",
+                  "id": 308855,
+                  "text": "175 Hz",
+                  "is_correct": false
+                },
+                {
+                  "label": "C",
+                  "id": 308856,
+                  "text": "700 Hz",
+                  "is_correct": false
+                },
+                {
+                  "label": "D",
+                  "id": 308854,
+                  "text": "350 Hz",
+                  "is_correct": true
+                }
+              ],
+              "correct_option_ids": [
+                308854
+              ],
+              "correct_option_labels": [
+                "D"
+              ],
+              "correct_option_texts": [
+                "350 Hz"
+              ],
+              "explanation": "Using relation for the frequency of a standing wave in an open organ pipe\n$f=\\frac{n v}{2 L}$\nfor fundamental frequency n = 1. also convert length into meter\n$f=\\frac{350 \\times 100}{2 \\times 50}$\nf = 350Hz"
+            },
+            {
+              "questionID": 133954,
+              "question": "An observer is watching two vehicles of the same velocity ( 4 m/s). The former is approaching the observer while the latter is receding. If the frequency of the siren of the vehicle is 240 Hz and the velocity of sound in air is 320 m/s, then the beats produced is:",
+              "question_raw": "<p>An observer is watching two vehicles of the same velocity ( 4 m/s). The former is approaching the observer while the latter is receding. If the frequency of the siren of the vehicle is 240 Hz and the velocity of sound in air is 320 m/s, then the beats produced is:</p>",
+              "options": [
+                {
+                  "label": "A",
+                  "id": 308858,
+                  "text": "6",
+                  "is_correct": true
+                },
+                {
+                  "label": "B",
+                  "id": 308861,
+                  "text": "12",
+                  "is_correct": false
+                },
+                {
+                  "label": "C",
+                  "id": 308860,
+                  "text": "zero",
+                  "is_correct": false
+                },
+                {
+                  "label": "D",
+                  "id": 308859,
+                  "text": "3",
+                  "is_correct": false
+                }
+              ],
+              "correct_option_ids": [
+                308858
+              ],
+              "correct_option_labels": [
+                "A"
+              ],
+              "correct_option_texts": [
+                "6"
+              ],
+              "explanation": "Using the formula of doppler's shift for stationary observer and source moving away from the observer\n$f_1=\\frac v{v+u}\\times f$\nf_1 = $\\frac{320}{320+4} \\times 240$\nf_1 = 237.03. \nNow for a source moving towards the observer\n$f_2=\\frac v{v-u}\\times f$\n$f_2=\\frac{320}{320-4}\\times240$\nf_2 = 243.03\nBeat frequency \nf_beat = f_2 − f_1\nf_beat = 243.03 - 237.03\nf_beat = 6"
+            },
+            {
+              "questionID": 133955,
+              "question": "Which waves are used in sonography?",
+              "question_raw": "<p>Which waves are used in sonography?</p>",
+              "options": [
+                {
+                  "label": "A",
+                  "id": 308864,
+                  "text": "Infra-red waves",
+                  "is_correct": false
+                },
+                {
+                  "label": "B",
+                  "id": 308863,
+                  "text": "Sound waves",
+                  "is_correct": false
+                },
+                {
+                  "label": "C",
+                  "id": 308865,
+                  "text": "Microwaves",
+                  "is_correct": false
+                },
+                {
+                  "label": "D",
+                  "id": 308862,
+                  "text": "Ultrasonic waves",
+                  "is_correct": true
+                }
+              ],
+              "correct_option_ids": [
+                308862
+              ],
+              "correct_option_labels": [
+                "D"
+              ],
+              "correct_option_texts": [
+                "Ultrasonic waves"
+              ],
+              "explanation": "​​​​​Ultrasound imaging, also called ultrasound scanning or sonography involves the use of a small transducer (probe) and ultrasound gel placed directly on the skin. High-frequency sound waves are transmitted from the probe through the gel into the body. These high-frequency sound waves are ultrasonic waves."
+            },
+            {
+              "questionID": 133956,
+              "question": "The speed of sound in air is 333 m/s. The fundamental frequency of the open pipe is 333 Hz. The second overtone of the open organ pipe can be produced with a pipe of length:",
+              "question_raw": "<p>The speed of sound in air is 333 m/s. The fundamental frequency of the open pipe is 333 Hz. The second overtone of the open organ pipe can be produced with a pipe of length:</p>",
+              "options": [
+                {
+                  "label": "A",
+                  "id": 308868,
+                  "text": "1.0 m",
+                  "is_correct": false
+                },
+                {
+                  "label": "B",
+                  "id": 308869,
+                  "text": "0.5 m",
+                  "is_correct": false
+                },
+                {
+                  "label": "C",
+                  "id": 308867,
+                  "text": "2.0 m",
+                  "is_correct": false
+                },
+                {
+                  "label": "D",
+                  "id": 308866,
+                  "text": "1.5 m",
+                  "is_correct": true
+                }
+              ],
+              "correct_option_ids": [
+                308866
+              ],
+              "correct_option_labels": [
+                "D"
+              ],
+              "correct_option_texts": [
+                "1.5 m"
+              ],
+              "explanation": "using $f_n=\\;\\frac{nv}{2L}$\n$L=\\frac{3\\times333}{2\\times333}$\nL = 1.5m\nfor 2nd overtone n = 3"
+            },
+            {
+              "questionID": 133958,
+              "question": "If an open organ pipe is sounded with a tuning fork having frequency 256 Hz resonance occurs at 35 cm and 105 cm, the velocity of sound is:",
+              "question_raw": "<p>If an open organ pipe is sounded with a tuning fork having frequency 256 Hz resonance occurs at 35 cm and 105 cm, the velocity of sound is:</p>",
+              "options": [
+                {
+                  "label": "A",
+                  "id": 308872,
+                  "text": "524.6 m/s",
+                  "is_correct": false
+                },
+                {
+                  "label": "B",
+                  "id": 308870,
+                  "text": "358.4 m/s",
+                  "is_correct": true
+                },
+                {
+                  "label": "C",
+                  "id": 308873,
+                  "text": "720 m/s",
+                  "is_correct": false
+                },
+                {
+                  "label": "D",
+                  "id": 308871,
+                  "text": "512.8 m/s",
+                  "is_correct": false
+                }
+              ],
+              "correct_option_ids": [
+                308870
+              ],
+              "correct_option_labels": [
+                "B"
+              ],
+              "correct_option_texts": [
+                "358.4 m/s"
+              ],
+              "explanation": "At resonance the velocity \nv = 2(L_2 − L_1)f\nv = $2 \\times \\frac{(105-35)}{100} \\times 256$\nv = 358.4m/s"
+            },
+            {
+              "questionID": 133959,
+              "question": "Stationary waves of frequency 300 Hz are formed in a medium in which the velocity of sound is 1200 metre/second. The distance between a node and the neighboring antinodes is:",
+              "question_raw": "<p>Stationary waves of frequency 300 Hz are formed in a medium in which the velocity of sound is 1200 metre/second. The distance between a node and the neighboring antinodes is:</p>",
+              "options": [
+                {
+                  "label": "A",
+                  "id": 308874,
+                  "text": "1 m.",
+                  "is_correct": true
+                },
+                {
+                  "label": "B",
+                  "id": 308875,
+                  "text": "5 m.",
+                  "is_correct": false
+                },
+                {
+                  "label": "C",
+                  "id": 308876,
+                  "text": "3 m.",
+                  "is_correct": false
+                },
+                {
+                  "label": "D",
+                  "id": 308877,
+                  "text": "4 m.",
+                  "is_correct": false
+                }
+              ],
+              "correct_option_ids": [
+                308874
+              ],
+              "correct_option_labels": [
+                "A"
+              ],
+              "correct_option_texts": [
+                "1 m."
+              ],
+              "explanation": "Given that velocity v=1200 m/s \nFrequency f=300hz thus using\n$f=\\frac1{2L}\\sqrt{\\frac F\\mu}$ as velocity v is given by v = $\\sqrt{\\frac F\\mu}$ ; here F is tension in string and $\\mu$ is mass per unit length of wire thus substituting the value\n$L=\\frac{1}{2} \\times\\sqrt \\frac{1200}{300}$\nL = 1m"
+            },
+            {
+              "questionID": 133943,
+              "question": "A certain string fixed at both ends will resonate to several frequencies, the lowest of which is 200 Hz. What are the next three higher frequencies to which it resonates?",
+              "question_raw": "<p>A certain string fixed at both ends will resonate to several frequencies, the lowest of which is 200 Hz. What are the next three higher frequencies to which it resonates?</p>",
+              "options": [
+                {
+                  "label": "A",
+                  "id": 308823,
+                  "text": "100, 200, 300 Hz",
+                  "is_correct": false
+                },
+                {
+                  "label": "B",
+                  "id": 308825,
+                  "text": "200, 250, 300 Hz",
+                  "is_correct": false
+                },
+                {
+                  "label": "C",
+                  "id": 308822,
+                  "text": "400, 600, 800 Hz",
+                  "is_correct": true
+                },
+                {
+                  "label": "D",
+                  "id": 308824,
+                  "text": "50, 150, 300 Hz",
+                  "is_correct": false
+                }
+              ],
+              "correct_option_ids": [
+                308822
+              ],
+              "correct_option_labels": [
+                "C"
+              ],
+              "correct_option_texts": [
+                "400, 600, 800 Hz"
+              ],
+              "explanation": "$f_{n}=\\frac{n v}{2 L}$ \ngiven f_1 = 200Hz\nf_2 = 2f_1 = 400Hz\nf_3 = 3f_1 = 600Hz\nf_4 = 4f_1 = 800Hz"
+            },
+            {
+              "questionID": 133945,
+              "question": "A wire of sonometer is 1m in length and has a fundamental frequency of 330Hz. The velocity of transverse waves along the wire is:",
+              "question_raw": "<p>A wire of sonometer is 1m in length and has a fundamental frequency of 330Hz. The velocity of transverse waves along the wire is:</p>",
+              "options": [
+                {
+                  "label": "A",
+                  "id": 308828,
+                  "text": "115 m/s",
+                  "is_correct": false
+                },
+                {
+                  "label": "B",
+                  "id": 308826,
+                  "text": "660 m/s",
+                  "is_correct": true
+                },
+                {
+                  "label": "C",
+                  "id": 308827,
+                  "text": "300 m/s",
+                  "is_correct": false
+                },
+                {
+                  "label": "D",
+                  "id": 308829,
+                  "text": "990 m/s",
+                  "is_correct": false
+                }
+              ],
+              "correct_option_ids": [
+                308826
+              ],
+              "correct_option_labels": [
+                "B"
+              ],
+              "correct_option_texts": [
+                "660 m/s"
+              ],
+              "explanation": "As sonometer wire is always fixed at both ends\nUsing relation\nf = $\\frac1{2L}\\frac{\\sqrt F}{\\sqrt u}$\nsince the velocity of a wave on a string is given by\nv = $\\frac{\\sqrt{F}}{\\sqrt{u}}$\nLet equation become \nf = $\\frac{1}{2 L} \\times v$\n330 = $\\frac{1}{2 \\times 1} \\times v$\nv = 330 $\\times$ 2\nv = 660m/s"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "testPaperID": 598,
+      "testPaperName": "Waves Test 02",
+      "is_paid": true,
+      "category_full_name": "CBSE > Class 11 > Physics > Waves",
+      "noOfQuestions": 15,
+      "has_answers": true,
+      "sections": [
+        {
+          "sectionName": "General",
+          "sectionID": null,
+          "questions": [
+            {
+              "questionID": 133946,
+              "question": "The frequency of the vibrating string is 200 Hz. If the tension is doubled, the frequency will be approximately ________.",
+              "question_raw": "<p>The frequency of the vibrating string is 200 Hz. If the tension is doubled, the frequency will be approximately ________.</p>",
+              "options": [
+                {
+                  "label": "A",
+                  "id": 308832,
+                  "text": "320.6 Hz",
+                  "is_correct": false
+                },
+                {
+                  "label": "B",
+                  "id": 308833,
+                  "text": "240.4 Hz",
+                  "is_correct": false
+                },
+                {
+                  "label": "C",
+                  "id": 308831,
+                  "text": "400.8 Hz",
+                  "is_correct": false
+                },
+                {
+                  "label": "D",
+                  "id": 308830,
+                  "text": "282.8 Hz",
+                  "is_correct": true
+                }
+              ],
+              "correct_option_ids": [
+                308830
+              ],
+              "correct_option_labels": [
+                "D"
+              ],
+              "correct_option_texts": [
+                "282.8 Hz"
+              ],
+              "explanation": "According to the law of tension the frequency \n$f\\propto \\sqrt T$ \n$\\frac{f_1}{f_2}=\\frac{\\sqrt{T_1}}{\\sqrt{T_2}}$\n$f_2=200\\;\\times\\sqrt2$\nf_2 = 282.8Hz"
+            },
+            {
+              "questionID": 133947,
+              "question": "In open-end organ pipe:",
+              "question_raw": "<p>In open-end organ pipe:</p>",
+              "options": [
+                {
+                  "label": "A",
+                  "id": 308835,
+                  "text": "only odd harmonics are produced.",
+                  "is_correct": false
+                },
+                {
+                  "label": "B",
+                  "id": 308837,
+                  "text": "no harmonics can be produced.",
+                  "is_correct": false
+                },
+                {
+                  "label": "C",
+                  "id": 308834,
+                  "text": "both odd and even harmonics are produced.",
+                  "is_correct": true
+                },
+                {
+                  "label": "D",
+                  "id": 308836,
+                  "text": "only even harmonics are produced.",
+                  "is_correct": false
+                }
+              ],
+              "correct_option_ids": [
+                308834
+              ],
+              "correct_option_labels": [
+                "C"
+              ],
+              "correct_option_texts": [
+                "both odd and even harmonics are produced."
+              ],
+              "explanation": "$f_{n}=\\frac{n v}{2 L}$\nwhere f_n is the frequency of n^th harmonic\nFor 1st harmonic n = 2 \nFor second harmonic n = 3 \nAnd so on."
+            },
+            {
+              "questionID": 133948,
+              "question": "A man is watching two trains one leaving and other approaching with equal velocities of 4 m/s. If they sound their whistles each of natural frequency 240 Hz, the number of beats heard per sec by the man will be (velocity of sound in air 320 m/s):",
+              "question_raw": "<p>A man is watching two trains one leaving and other approaching with equal velocities of 4 m/s. If they sound their whistles each of natural frequency 240 Hz, the number of beats heard per sec by the man will be (velocity of sound in air 320 m/s):</p>",
+              "options": [
+                {
+                  "label": "A",
+                  "id": 308841,
+                  "text": "8",
+                  "is_correct": false
+                },
+                {
+                  "label": "B",
+                  "id": 308839,
+                  "text": "12",
+                  "is_correct": false
+                },
+                {
+                  "label": "C",
+                  "id": 308838,
+                  "text": "6",
+                  "is_correct": true
+                },
+                {
+                  "label": "D",
+                  "id": 308840,
+                  "text": "4",
+                  "is_correct": false
+                }
+              ],
+              "correct_option_ids": [
+                308838
+              ],
+              "correct_option_labels": [
+                "C"
+              ],
+              "correct_option_texts": [
+                "6"
+              ],
+              "explanation": "For source moving towards observer and v = velocity of sound, u is the velocity of sound and f is the frequency of the whistle\nThe observer is at rest\n$f_1=\\frac v{v-u}\\times f$\n$f_1=\\frac{320}{320-4}\\times240$\nf_1 = 243.03Hz\nFor source moving away from the observer\n$f_{2}=\\frac{v}{v+u} \\times f$\n$f_{2}=\\frac{320}{320+4} \\times 240$\nf_2 = 237.03 Hz\nNo. Of beats \nn = f_1 - f_2\nn = 243.03 - 237.03\nn = 6"
+            },
+            {
+              "questionID": 133949,
+              "question": "The speed of sound in air is 350 m/s. An engine blows a whistle of the frequency of 1200 Hz, it is approaching the observer with velocity 50 m/s. The apparent frequency as heard by the observer is",
+              "question_raw": "<p>The speed of sound in air is 350 m/s. An engine blows a whistle of the frequency of 1200 Hz, it is approaching the observer with velocity 50 m/s. The apparent frequency as heard by the observer is</p>",
+              "options": [
+                {
+                  "label": "A",
+                  "id": 308842,
+                  "text": "1400 Hz",
+                  "is_correct": true
+                },
+                {
+                  "label": "B",
+                  "id": 308843,
+                  "text": "1600 Hz",
+                  "is_correct": false
+                },
+                {
+                  "label": "C",
+                  "id": 308845,
+                  "text": "300 Hz",
+                  "is_correct": false
+                },
+                {
+                  "label": "D",
+                  "id": 308844,
+                  "text": "1050 Hz",
+                  "is_correct": false
+                }
+              ],
+              "correct_option_ids": [
+                308842
+              ],
+              "correct_option_labels": [
+                "A"
+              ],
+              "correct_option_texts": [
+                "1400 Hz"
+              ],
+              "explanation": "Using relation for doppler's shift when the observer is at rest and source moving towards the observer\n$f_1=\\frac v{v-u}\\times f$ ,here v is the velocity of sound and u is the velocity of the source. \nf_1 = $\\frac{350}{350-50}\\times1200$\nf_1 = 1400Hz"
+            },
+            {
+              "questionID": 133950,
+              "question": "A motorcyclist moving at 30 km/hr blows a whistle of 476 Hz towards a cliff. If the velocity of sound is 1220 km/hr, the apparent frequency of the echo heard by him is:",
+              "question_raw": "<p>A motorcyclist moving at 30 km/hr blows a whistle of 476 Hz towards a cliff. If the velocity of sound is 1220 km/hr, the apparent frequency of the echo heard by him is:</p>",
+              "options": [
+                {
+                  "label": "A",
+                  "id": 308849,
+                  "text": "476 Hz",
+                  "is_correct": false
+                },
+                {
+                  "label": "B",
+                  "id": 308848,
+                  "text": "425 Hz",
+                  "is_correct": false
+                },
+                {
+                  "label": "C",
+                  "id": 308847,
+                  "text": "250Hz",
+                  "is_correct": false
+                },
+                {
+                  "label": "D",
+                  "id": 308846,
+                  "text": "488 Hz",
+                  "is_correct": true
+                }
+              ],
+              "correct_option_ids": [
+                308846
+              ],
+              "correct_option_labels": [
+                "D"
+              ],
+              "correct_option_texts": [
+                "488 Hz"
+              ],
+              "explanation": "Using relation for doppler's shift when observer stationary and source moving towards the observer\n$f_{1}=\\frac{v}{v-u} \\times f$\n$f_{1}=\\frac{1220}{1220-30} \\times 476$\nf_1 = 488hz\napparent frequency is, f^' = $1250\\times 488\\over 1220$= 500 hz"
+            },
+            {
+              "questionID": 133951,
+              "question": "Which one is not produced by sound waves in air?",
+              "question_raw": "<p>Which one is not produced by sound waves in air?</p>",
+              "options": [
+                {
+                  "label": "A",
+                  "id": 308853,
+                  "text": "Reflection",
+                  "is_correct": false
+                },
+                {
+                  "label": "B",
+                  "id": 308852,
+                  "text": "Refraction",
+                  "is_correct": false
+                },
+                {
+                  "label": "C",
+                  "id": 308851,
+                  "text": "Diffraction",
+                  "is_correct": false
+                },
+                {
+                  "label": "D",
+                  "id": 308850,
+                  "text": "Polarization",
+                  "is_correct": true
+                }
+              ],
+              "correct_option_ids": [
+                308850
+              ],
+              "correct_option_labels": [
+                "D"
+              ],
+              "correct_option_texts": [
+                "Polarization"
+              ],
+              "explanation": "Sound waves are longitudinal, meaning that they oscillate parallel to the direction of their motion. Since there is no component of a sound wave's oscillation that is perpendicular to its motion, sound waves cannot be polarized."
+            },
+            {
+              "questionID": 133932,
+              "question": "The wavelength of the wave is the distance between two particles of the medium having a phase difference of:",
+              "question_raw": "<p>The wavelength of the wave is the distance between two particles of the medium having a phase difference of:</p>",
+              "options": [
+                {
+                  "label": "A",
+                  "id": 308783,
+                  "text": "$\\pi $",
+                  "is_correct": false
+                },
+                {
+                  "label": "B",
+                  "id": 308785,
+                  "text": "zero",
+                  "is_correct": false
+                },
+                {
+                  "label": "C",
+                  "id": 308782,
+                  "text": "2$\\pi $",
+                  "is_correct": true
+                },
+                {
+                  "label": "D",
+                  "id": 308784,
+                  "text": "3$\\pi $",
+                  "is_correct": false
+                }
+              ],
+              "correct_option_ids": [
+                308782
+              ],
+              "correct_option_labels": [
+                "C"
+              ],
+              "correct_option_texts": [
+                "2$\\pi $"
+              ],
+              "explanation": "The wavelength is defined as the distance between two adjacent troughs or crests. The points on two adjacent troughs or crests are in phase 2$\\pi$."
+            },
+            {
+              "questionID": 133933,
+              "question": "Longitudinal waves cannot be propagated through_______.",
+              "question_raw": "<p>Longitudinal waves cannot be propagated through_______.</p>",
+              "options": [
+                {
+                  "label": "A",
+                  "id": 308788,
+                  "text": "a liquid",
+                  "is_correct": false
+                },
+                {
+                  "label": "B",
+                  "id": 308789,
+                  "text": "a gas",
+                  "is_correct": false
+                },
+                {
+                  "label": "C",
+                  "id": 308786,
+                  "text": "vacuum",
+                  "is_correct": true
+                },
+                {
+                  "label": "D",
+                  "id": 308787,
+                  "text": "a solid",
+                  "is_correct": false
+                }
+              ],
+              "correct_option_ids": [
+                308786
+              ],
+              "correct_option_labels": [
+                "C"
+              ],
+              "correct_option_texts": [
+                "vacuum"
+              ],
+              "explanation": "Longitudinal waves are mechanical waves which need the medium to propagate. They travel due to the pressure difference created by waves in the medium. In a vacuum, they cannot create pressure difference. Thus they cannot travel in a vacuum."
+            },
+            {
+              "questionID": 133934,
+              "question": "When a wave is reflected from a rigid surface, it undergoes a phase change given by_______.",
+              "question_raw": "<p>When a wave is reflected from a rigid surface, it undergoes a phase change given by_______.</p>",
+              "options": [
+                {
+                  "label": "A",
+                  "id": 308793,
+                  "text": "0",
+                  "is_correct": false
+                },
+                {
+                  "label": "B",
+                  "id": 308790,
+                  "text": "$\\pi $",
+                  "is_correct": true
+                },
+                {
+                  "label": "C",
+                  "id": 308792,
+                  "text": "$3\\pi $",
+                  "is_correct": false
+                },
+                {
+                  "label": "D",
+                  "id": 308791,
+                  "text": "$2\\pi $",
+                  "is_correct": false
+                }
+              ],
+              "correct_option_ids": [
+                308790
+              ],
+              "correct_option_labels": [
+                "B"
+              ],
+              "correct_option_texts": [
+                "$\\pi $"
+              ],
+              "explanation": "When a wave travels from rarer medium to denser medium and undergoes reflection at the interface. Its phase changes by $\\pi$."
+            },
+            {
+              "questionID": 133935,
+              "question": "Two persons cannot hear each other on the surface of the moon because the moon has:",
+              "question_raw": "<p>Two persons cannot hear each other on the surface of the moon because the moon has:</p>",
+              "options": [
+                {
+                  "label": "A",
+                  "id": 308797,
+                  "text": "Dust suspended all around",
+                  "is_correct": false
+                },
+                {
+                  "label": "B",
+                  "id": 308794,
+                  "text": "No atmosphere",
+                  "is_correct": true
+                },
+                {
+                  "label": "C",
+                  "id": 308796,
+                  "text": "Rocks which absorb sound",
+                  "is_correct": false
+                },
+                {
+                  "label": "D",
+                  "id": 308795,
+                  "text": "Craters",
+                  "is_correct": false
+                }
+              ],
+              "correct_option_ids": [
+                308794
+              ],
+              "correct_option_labels": [
+                "B"
+              ],
+              "correct_option_texts": [
+                "No atmosphere"
+              ],
+              "explanation": "Sound waves are mechanical waves. They need a medium to travel. As there is no atmosphere on the Moon, sound waves cannot travel. Thus one cannot hear another person."
+            },
+            {
+              "questionID": 133937,
+              "question": "The wavelength of ultrasonic waves in air is of the order of:",
+              "question_raw": "<p>The wavelength of ultrasonic waves in air is of the order of:</p>",
+              "options": [
+                {
+                  "label": "A",
+                  "id": 308799,
+                  "text": "0.1 cm",
+                  "is_correct": false
+                },
+                {
+                  "label": "B",
+                  "id": 308800,
+                  "text": "0.0001 cm",
+                  "is_correct": false
+                },
+                {
+                  "label": "C",
+                  "id": 308801,
+                  "text": "0.00000001 cm",
+                  "is_correct": false
+                },
+                {
+                  "label": "D",
+                  "id": 308798,
+                  "text": "1 cm",
+                  "is_correct": true
+                }
+              ],
+              "correct_option_ids": [
+                308798
+              ],
+              "correct_option_labels": [
+                "D"
+              ],
+              "correct_option_texts": [
+                "1 cm"
+              ],
+              "explanation": "The frequency of ultrasonic waves is above 20000Hz and the speed of waves in air is 330 m/s.\n$\\lambda=\\frac{v}{f} $\n$\\lambda=\\frac{330}{20000}$\n$\\lambda$ = 1 cm"
+            },
+            {
+              "questionID": 133938,
+              "question": "A string when stretched with a weight of 9 kg. weight produces a note of the frequency of 256 Hz. The weight required to produce an octave of the note is:",
+              "question_raw": "<p>A string when stretched with a weight of 9 kg. weight produces a note of the frequency of 256 Hz. The weight required to produce an octave of the note is:</p>",
+              "options": [
+                {
+                  "label": "A",
+                  "id": 308804,
+                  "text": "18 kg wt.",
+                  "is_correct": false
+                },
+                {
+                  "label": "B",
+                  "id": 308803,
+                  "text": "$\\frac{9}{4}$ kg wt.",
+                  "is_correct": false
+                },
+                {
+                  "label": "C",
+                  "id": 308805,
+                  "text": "4 kg wt.",
+                  "is_correct": false
+                },
+                {
+                  "label": "D",
+                  "id": 308802,
+                  "text": "36 kg wt.",
+                  "is_correct": true
+                }
+              ],
+              "correct_option_ids": [
+                308802
+              ],
+              "correct_option_labels": [
+                "D"
+              ],
+              "correct_option_texts": [
+                "36 kg wt."
+              ],
+              "explanation": "Here octave means double of frequency thus According to the law of tension\n$f\\propto\\sqrt T$\n$\\frac{f_{1}}{f_{2}}=\\frac{\\sqrt{T_{1}}}{\\sqrt{T_{2}}}$\n$\\frac{256}{2 \\times 256}=\\frac{\\sqrt{9 \\times 9.8}}{\\sqrt{m_{2} \\times 9.8}}$\nm_2 = 36kg\nOr the tension will be T = 36 kg wt."
+            },
+            {
+              "questionID": 133939,
+              "question": "When sound travels from air to water the quantity that remains unchanged is:",
+              "question_raw": "<p>When sound travels from air to water the quantity that remains unchanged is:</p>",
+              "options": [
+                {
+                  "label": "A",
+                  "id": 308806,
+                  "text": "frequency",
+                  "is_correct": true
+                },
+                {
+                  "label": "B",
+                  "id": 308807,
+                  "text": "speed",
+                  "is_correct": false
+                },
+                {
+                  "label": "C",
+                  "id": 308808,
+                  "text": "intensity",
+                  "is_correct": false
+                },
+                {
+                  "label": "D",
+                  "id": 308809,
+                  "text": "wavelength",
+                  "is_correct": false
+                }
+              ],
+              "correct_option_ids": [
+                308806
+              ],
+              "correct_option_labels": [
+                "A"
+              ],
+              "correct_option_texts": [
+                "frequency"
+              ],
+              "explanation": "When a wave travels from one medium to another only the velocity and wavelength changes in such a way that its frequency remains constant."
+            },
+            {
+              "questionID": 133940,
+              "question": "Beats can only be heard when the difference in frequencies is less than:",
+              "question_raw": "<p>Beats can only be heard when the difference in frequencies is less than:</p>",
+              "options": [
+                {
+                  "label": "A",
+                  "id": 308812,
+                  "text": "30 Hz",
+                  "is_correct": false
+                },
+                {
+                  "label": "B",
+                  "id": 308810,
+                  "text": "10 Hz",
+                  "is_correct": true
+                },
+                {
+                  "label": "C",
+                  "id": 308811,
+                  "text": "20 Hz",
+                  "is_correct": false
+                },
+                {
+                  "label": "D",
+                  "id": 308813,
+                  "text": "40 Hz",
+                  "is_correct": false
+                }
+              ],
+              "correct_option_ids": [
+                308810
+              ],
+              "correct_option_labels": [
+                "B"
+              ],
+              "correct_option_texts": [
+                "10 Hz"
+              ],
+              "explanation": "For beats to be audible the frequency |f_1-f_2| should not be very large. an average human ear cannot distinguish the variation in intensity if the variation is more than 10 times per second.\nHence, the difference of the component frequency should be less than 10 Hz for the beats to be heard."
+            },
+            {
+              "questionID": 133941,
+              "question": "Stationary waves of frequency 200Hz are formed in the air. If the velocity of the wave is 360m/s the shortest distance between antinodes will be:",
+              "question_raw": "<p>Stationary waves of frequency 200Hz are formed in the air. If the velocity of the wave is 360m/s the shortest distance between antinodes will be:</p>",
+              "options": [
+                {
+                  "label": "A",
+                  "id": 308817,
+                  "text": "1.8 m.",
+                  "is_correct": false
+                },
+                {
+                  "label": "B",
+                  "id": 308814,
+                  "text": "0.9 m.",
+                  "is_correct": true
+                },
+                {
+                  "label": "C",
+                  "id": 308816,
+                  "text": "3.6 m.",
+                  "is_correct": false
+                },
+                {
+                  "label": "D",
+                  "id": 308815,
+                  "text": "2.7 m.",
+                  "is_correct": false
+                }
+              ],
+              "correct_option_ids": [
+                308814
+              ],
+              "correct_option_labels": [
+                "B"
+              ],
+              "correct_option_texts": [
+                "0.9 m."
+              ],
+              "explanation": "$\\lambda=\\frac cf=\\frac{360}{200}$\n$\\lambda$ = 1.8m\ndistance between two antinodes is = $\\lambda\\over 2$= $1.8\\over 2$= 0.9"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "testPaperID": 599,
+      "testPaperName": "Waves Test 03",
+      "is_paid": true,
+      "category_full_name": "CBSE > Class 11 > Physics > Waves",
+      "noOfQuestions": 15,
+      "has_answers": true,
+      "sections": [
+        {
+          "sectionName": "General",
+          "sectionID": null,
+          "questions": [
+            {
+              "questionID": 133942,
+              "question": "A fork gives 5 beats with a 40 cm length of sonometer wire. If the length of the wire is shortened by 1 cm, the number of beats is still the same. The frequency of the fork is:",
+              "question_raw": "<p>A fork gives 5 beats with a 40 cm length of sonometer wire. If the length of the wire is shortened by 1 cm, the number of beats is still the same. The frequency of the fork is:</p>",
+              "options": [
+                {
+                  "label": "A",
+                  "id": 308818,
+                  "text": "395 Hz",
+                  "is_correct": true
+                },
+                {
+                  "label": "B",
+                  "id": 308820,
+                  "text": "600 Hz",
+                  "is_correct": false
+                },
+                {
+                  "label": "C",
+                  "id": 308819,
+                  "text": "400 Hz",
+                  "is_correct": false
+                },
+                {
+                  "label": "D",
+                  "id": 308821,
+                  "text": "385 Hz",
+                  "is_correct": false
+                }
+              ],
+              "correct_option_ids": [
+                308818
+              ],
+              "correct_option_labels": [
+                "A"
+              ],
+              "correct_option_texts": [
+                "395 Hz"
+              ],
+              "explanation": "According to the law of length\n$f \\propto \\frac{1}{L}$\nLet the frequency of fork is f if 5 beats produced initially\nf_1 = f + 5\nlater also 5 beats produced \nf_2 = f - 5\nthus \nf_1L_2_ = f_2L_1\n(f + 5)39 = (f - 5)40\non solving f = 395Hz"
+            },
+            {
+              "questionID": 133922,
+              "question": "A tuning fork produces 4 beats/sec. with 50 cm and 40 cm of a stretched wire, of a sonometer. The frequency of fork is:",
+              "question_raw": "<p>A tuning fork produces 4 beats/sec. with 50 cm and 40 cm of a stretched wire, of a sonometer. The frequency of fork is:</p>",
+              "options": [
+                {
+                  "label": "A",
+                  "id": 308751,
+                  "text": "50 Hz",
+                  "is_correct": false
+                },
+                {
+                  "label": "B",
+                  "id": 308752,
+                  "text": "90 Hz",
+                  "is_correct": false
+                },
+                {
+                  "label": "C",
+                  "id": 308750,
+                  "text": "36 Hz",
+                  "is_correct": true
+                },
+                {
+                  "label": "D",
+                  "id": 308753,
+                  "text": "110 Hz",
+                  "is_correct": false
+                }
+              ],
+              "correct_option_ids": [
+                308750
+              ],
+              "correct_option_labels": [
+                "C"
+              ],
+              "correct_option_texts": [
+                "36 Hz"
+              ],
+              "explanation": "the beat frequency is given by\nf_beat = f_1 − f_2\n4 = f_1 − f_2 $\\rightarrow$ (1)\nalso frequency\nf $\\propto$ $1 \\over L$\n$\\frac{f_{1}}{f_{2}}=\\frac{L_{2}}{L_{1}}$\n$\\frac{f_{1}}{f_{2}}=\\frac{40}{50}$ $\\rightarrow$ (2)\non solving equation 1 and 2 \nf_1 = 16 Hz\nf_2 = -20 Hz\n|f_1 - f_2| = 36 Hz"
+            },
+            {
+              "questionID": 133923,
+              "question": "Two waves represented by Y_1 = a_1 sin $\\omega$t and Y_2 = a_2 (sin $\\omega$t +$\\Delta$) and $\\Delta = \\frac \\pi 2$ are superimposed at a point at a particular instant. The amplitude of the resultant wave is:",
+              "question_raw": "<p>Two waves represented by Y<sub>1</sub> = a<sub>1</sub> sin <span class=\"math-tex\">{tex}\\omega{/tex}</span>t and Y<sub>2</sub> = a<sub>2</sub>&nbsp;(sin&nbsp;<span class=\"math-tex\">{tex}\\omega{/tex}</span>t +<span class=\"math-tex\">{tex}\\Delta{/tex}</span>) and <span class=\"math-tex\">{tex}\\Delta = \\frac \\pi 2{/tex}</span>&nbsp;are superimposed at a point at a particular instant. The amplitude of the resultant wave is:</p>",
+              "options": [
+                {
+                  "label": "A",
+                  "id": 308757,
+                  "text": "a_1 − a_2",
+                  "is_correct": false
+                },
+                {
+                  "label": "B",
+                  "id": 308754,
+                  "text": "$\\sqrt {a_1^2 + a_2^2} $",
+                  "is_correct": true
+                },
+                {
+                  "label": "C",
+                  "id": 308756,
+                  "text": "a_1 + a_2",
+                  "is_correct": false
+                },
+                {
+                  "label": "D",
+                  "id": 308755,
+                  "text": "$\\sqrt {a_1^2 - a_2^2} $",
+                  "is_correct": false
+                }
+              ],
+              "correct_option_ids": [
+                308754
+              ],
+              "correct_option_labels": [
+                "B"
+              ],
+              "correct_option_texts": [
+                "$\\sqrt {a_1^2 + a_2^2} $"
+              ],
+              "explanation": "Resultant amplitude is given by \n$A^{2}=a^{2}_{1}+a^{2}_{2}+2 a_{1} a_{2} \\cos \\Delta$\nwhere $\\Delta $ is phase difference between two waves.\nhere $\\Delta=\\frac{\\pi}{2}$\nthus A^2 =$\\;\\;{a^2}_1+{a^2}_2$\nA = $\\sqrt {a_1^2 +a_2^2}$"
+            },
+            {
+              "questionID": 133924,
+              "question": "The fundamental frequency of an open pipe is N keeping the pipe vertical. It is submerged in water so that half of its length is filled with water. The fundamental frequency of the air column is:",
+              "question_raw": "<p>The fundamental frequency of an open pipe is N keeping the pipe vertical. It is submerged in water so that half of its length is filled with water. The fundamental frequency of the air column is:</p>",
+              "options": [
+                {
+                  "label": "A",
+                  "id": 308758,
+                  "text": "N",
+                  "is_correct": true
+                },
+                {
+                  "label": "B",
+                  "id": 308761,
+                  "text": "$\\frac{3N}{4}$",
+                  "is_correct": false
+                },
+                {
+                  "label": "C",
+                  "id": 308759,
+                  "text": "$\\frac{N}{2}$",
+                  "is_correct": false
+                },
+                {
+                  "label": "D",
+                  "id": 308760,
+                  "text": "2N",
+                  "is_correct": false
+                }
+              ],
+              "correct_option_ids": [
+                308758
+              ],
+              "correct_option_labels": [
+                "A"
+              ],
+              "correct_option_texts": [
+                "N"
+              ],
+              "explanation": "f_n = $\\frac{nv}{2L}$ Thus frequency does not depend on the medium."
+            },
+            {
+              "questionID": 133926,
+              "question": "A tuning fork of frequency 500 Hz is sounded on a resonance tube. The first & second resonances are obtained at 17 cm and 34 cm. The velocity of sound in m/s is:",
+              "question_raw": "<p>A tuning fork of frequency 500 Hz is sounded on a resonance tube. The first &amp; second resonances are obtained at 17 cm and 34 cm. The velocity of sound in m/s is:</p>",
+              "options": [
+                {
+                  "label": "A",
+                  "id": 308765,
+                  "text": "850",
+                  "is_correct": false
+                },
+                {
+                  "label": "B",
+                  "id": 308764,
+                  "text": "520",
+                  "is_correct": false
+                },
+                {
+                  "label": "C",
+                  "id": 308762,
+                  "text": "350.0",
+                  "is_correct": false
+                },
+                {
+                  "label": "D",
+                  "id": 308763,
+                  "text": "170",
+                  "is_correct": true
+                }
+              ],
+              "correct_option_ids": [
+                308763
+              ],
+              "correct_option_labels": [
+                "D"
+              ],
+              "correct_option_texts": [
+                "170"
+              ],
+              "explanation": "$f=\\frac{nv}{2L}$\n$500=\\frac{1\\times v\\times100}{2\\times17}$\nv = 170m/s\nFor n = 2 and L = 34 cm \nV will also come out 170 m/s"
+            },
+            {
+              "questionID": 133927,
+              "question": "A whistling engine is approaching a stationary observer with a velocity 110 m/s. The velocity of sound is 330 m/s. The ratio of frequencies as heard by an observer at the time of approaching and passing of engine is:",
+              "question_raw": "<p>A whistling engine is approaching a stationary observer with a velocity 110 m/s. The velocity of sound is 330 m/s. The ratio of frequencies as heard by an observer at the time of approaching and passing of engine is:</p>",
+              "options": [
+                {
+                  "label": "A",
+                  "id": 308769,
+                  "text": "4:1",
+                  "is_correct": false
+                },
+                {
+                  "label": "B",
+                  "id": 308766,
+                  "text": "2:1",
+                  "is_correct": true
+                },
+                {
+                  "label": "C",
+                  "id": 308767,
+                  "text": "4:3",
+                  "is_correct": false
+                },
+                {
+                  "label": "D",
+                  "id": 308768,
+                  "text": "2:5",
+                  "is_correct": false
+                }
+              ],
+              "correct_option_ids": [
+                308766
+              ],
+              "correct_option_labels": [
+                "B"
+              ],
+              "correct_option_texts": [
+                "2:1"
+              ],
+              "explanation": "After passage, v is the velocity of sound and u is the velocity of whistling engine and f is the frequency \n$f_1=\\frac v{v+u}\\times f$\n$\\frac{f_1}f=\\frac{330}{440}$\nbefore passing while approaching\n$f_2=\\frac v{v-u}\\times f$\n$\\frac{f_2}f=\\frac{330}{220}$\nthe ratio\n$\\frac{f_{2}}{f_{1}}$ = 2:1"
+            },
+            {
+              "questionID": 133928,
+              "question": "When a wave undergoes reflection at rarer medium then it undergoes a phase difference of:",
+              "question_raw": "<p>When a wave undergoes reflection at rarer medium then it undergoes a phase difference of:</p>",
+              "options": [
+                {
+                  "label": "A",
+                  "id": 308772,
+                  "text": "$\\pi \\over2$",
+                  "is_correct": false
+                },
+                {
+                  "label": "B",
+                  "id": 308771,
+                  "text": "$\\pi $",
+                  "is_correct": false
+                },
+                {
+                  "label": "C",
+                  "id": 308770,
+                  "text": "No change in phase",
+                  "is_correct": true
+                },
+                {
+                  "label": "D",
+                  "id": 308773,
+                  "text": "$\\pi \\over4$",
+                  "is_correct": false
+                }
+              ],
+              "correct_option_ids": [
+                308770
+              ],
+              "correct_option_labels": [
+                "C"
+              ],
+              "correct_option_texts": [
+                "No change in phase"
+              ],
+              "explanation": "When a wave travels from a denser medium to rarer medium, the phase change of wave is zero. But from rarer medium to denser medium it is $\\pi$."
+            },
+            {
+              "questionID": 133929,
+              "question": "The frequency of the third harmonic of a closed organ pipe is equal to which of the overtones?",
+              "question_raw": "<p>The frequency of the third harmonic of a closed organ pipe is equal to which of the overtones?</p>",
+              "options": [
+                {
+                  "label": "A",
+                  "id": 308774,
+                  "text": "First",
+                  "is_correct": false
+                },
+                {
+                  "label": "B",
+                  "id": 308775,
+                  "text": "Second",
+                  "is_correct": true
+                },
+                {
+                  "label": "C",
+                  "id": 308776,
+                  "text": "Third",
+                  "is_correct": false
+                },
+                {
+                  "label": "D",
+                  "id": 308777,
+                  "text": "Fourth",
+                  "is_correct": false
+                }
+              ],
+              "correct_option_ids": [
+                308775
+              ],
+              "correct_option_labels": [
+                "B"
+              ],
+              "correct_option_texts": [
+                "Second"
+              ],
+              "explanation": "Frequencies that are an integral multiple of the fundamental frequency are called harmonics or overtones.\n$\\begin{array}{l}f_n=\\frac{nv}{2L}\\\\\\end{array}$ \nn = 1, is called the fundamental frequency \nn = 2, 1st overtone or 2nd harmonic\nn = 3, 2nd overtone or 3rd harmonic"
+            },
+            {
+              "questionID": 133930,
+              "question": "A stretched string fixed at both ends has n nodes then the length of the string in terms of wavelength is:",
+              "question_raw": "<p>A stretched string fixed at both ends has n nodes then the length of the string in terms of wavelength is:</p>",
+              "options": [
+                {
+                  "label": "A",
+                  "id": 308778,
+                  "text": "(n - 1) $\\frac{\\lambda}{2}$",
+                  "is_correct": false
+                },
+                {
+                  "label": "B",
+                  "id": 308781,
+                  "text": "(2n - 1) $\\frac{\\lambda}{2}$",
+                  "is_correct": false
+                },
+                {
+                  "label": "C",
+                  "id": 308779,
+                  "text": "(n + 1) $\\frac{\\lambda}{2}$",
+                  "is_correct": false
+                },
+                {
+                  "label": "D",
+                  "id": 308780,
+                  "text": "n $\\frac{\\lambda}{2}$",
+                  "is_correct": true
+                }
+              ],
+              "correct_option_ids": [
+                308780
+              ],
+              "correct_option_labels": [
+                "D"
+              ],
+              "correct_option_texts": [
+                "n $\\frac{\\lambda}{2}$"
+              ],
+              "explanation": "To satisfy boundary conditions \nkL = n$\\pi$\n$\\frac{2\\pi L}\\lambda$ = $n\\pi$ \nL = $\\frac{n \\lambda}{2}$ \nWhere n can be 1, 2, 3, ...."
+            },
+            {
+              "questionID": 133912,
+              "question": "An echo repeats two syllables. If the velocity of sound is 330 m/s, then the distance of reflecting surface is:",
+              "question_raw": "<p>An echo repeats two syllables. If the velocity of sound is 330 m/s, then the distance of reflecting surface is:</p>",
+              "options": [
+                {
+                  "label": "A",
+                  "id": 308714,
+                  "text": "66 m",
+                  "is_correct": true
+                },
+                {
+                  "label": "B",
+                  "id": 308715,
+                  "text": "99 m",
+                  "is_correct": false
+                },
+                {
+                  "label": "C",
+                  "id": 308717,
+                  "text": "16.5 m",
+                  "is_correct": false
+                },
+                {
+                  "label": "D",
+                  "id": 308716,
+                  "text": "33 m",
+                  "is_correct": false
+                }
+              ],
+              "correct_option_ids": [
+                308714
+              ],
+              "correct_option_labels": [
+                "A"
+              ],
+              "correct_option_texts": [
+                "66 m"
+              ],
+              "explanation": "Two syllables means sound takes 0.4 s for producing the echo\nSo the distance of reflecting surface from the sound source is \n= $\\frac{speed\\;\\times\\;time}2$ ​​​​​​ = $\\frac{330\\;\\times\\;0.4}2$ = 66 m"
+            },
+            {
+              "questionID": 133913,
+              "question": "A boat at anchor is rocked by waves whose crests are 100 cm apart and whose velocity is 25 cm/sec. These waves reach the boat once every:",
+              "question_raw": "<p>A boat at anchor is rocked by waves whose crests are 100 cm apart and whose velocity is 25 cm/sec. These waves reach the boat once every:</p>",
+              "options": [
+                {
+                  "label": "A",
+                  "id": 308719,
+                  "text": "0.25 sec",
+                  "is_correct": false
+                },
+                {
+                  "label": "B",
+                  "id": 308721,
+                  "text": "15 sec",
+                  "is_correct": false
+                },
+                {
+                  "label": "C",
+                  "id": 308720,
+                  "text": "25 sec",
+                  "is_correct": false
+                },
+                {
+                  "label": "D",
+                  "id": 308718,
+                  "text": "4 sec",
+                  "is_correct": true
+                }
+              ],
+              "correct_option_ids": [
+                308718
+              ],
+              "correct_option_labels": [
+                "D"
+              ],
+              "correct_option_texts": [
+                "4 sec"
+              ],
+              "explanation": "Here, velocity = 25 cm/s & wavelength = 100 cm\nAs velocity = frequency $\\times$ wavelength\n25 = frequency X 100 $\\Rightarrow$ frequency = 0.25\nHence time period = 1/frequency = 4 s"
+            },
+            {
+              "questionID": 133914,
+              "question": "A certain broadcasting station broadcasts at a frequency of 12 Mega Hz. The wavelength of waves emitted is:",
+              "question_raw": "<p>A certain broadcasting station broadcasts at a frequency of 12 Mega Hz. The wavelength of waves emitted is:</p>",
+              "options": [
+                {
+                  "label": "A",
+                  "id": 308722,
+                  "text": "25 m",
+                  "is_correct": true
+                },
+                {
+                  "label": "B",
+                  "id": 308723,
+                  "text": "2.5 m",
+                  "is_correct": false
+                },
+                {
+                  "label": "C",
+                  "id": 308724,
+                  "text": "36 m",
+                  "is_correct": false
+                },
+                {
+                  "label": "D",
+                  "id": 308725,
+                  "text": "3.6 m",
+                  "is_correct": false
+                }
+              ],
+              "correct_option_ids": [
+                308722
+              ],
+              "correct_option_labels": [
+                "A"
+              ],
+              "correct_option_texts": [
+                "25 m"
+              ],
+              "explanation": "Here, frequency = 12 MHz = 12000000 Hz\nSpeed of wave = 300000000 m/s\nWavelength = speed/frequency = $300000000 \\over12000000$ = 25 m"
+            },
+            {
+              "questionID": 133915,
+              "question": "A sound wave has a frequency of 500 Hz and a velocity of 350 m/s. What is the distance between the two particles having a phase difference of 60^o.",
+              "question_raw": "<p>A sound wave has a frequency of 500 Hz and a velocity of 350 m/s. What is the distance between the two particles having a phase difference of 60<sup>o</sup>.</p>",
+              "options": [
+                {
+                  "label": "A",
+                  "id": 308729,
+                  "text": "120 cm",
+                  "is_correct": false
+                },
+                {
+                  "label": "B",
+                  "id": 308728,
+                  "text": "70 cm",
+                  "is_correct": false
+                },
+                {
+                  "label": "C",
+                  "id": 308727,
+                  "text": "0.7 cm",
+                  "is_correct": false
+                },
+                {
+                  "label": "D",
+                  "id": 308726,
+                  "text": "11.6 cm",
+                  "is_correct": true
+                }
+              ],
+              "correct_option_ids": [
+                308726
+              ],
+              "correct_option_labels": [
+                "D"
+              ],
+              "correct_option_texts": [
+                "11.6 cm"
+              ],
+              "explanation": "Here Frequency = 500 Hz\nVelocity = 350 m/s\nPhase difference = 600\nAs wavelength = velocity /frequency = 350/500 = 0.7 m\nNow, path difference = $(\\frac{\\lambda}{2\\pi})$ phase difference\nPath difference =$(\\frac{0.7}{2\\pi})$$(\\frac{\\pi}{3})$=0.116 m = 11.6 cm"
+            },
+            {
+              "questionID": 133917,
+              "question": "There are three sources of the sound of equal intensities with frequencies 400, 401, and 402 Hz. The number of beats per seconds is:",
+              "question_raw": "<p>There are three sources of the sound of equal intensities with frequencies 400, 401, and 402 Hz. The number of beats per seconds is:</p>",
+              "options": [
+                {
+                  "label": "A",
+                  "id": 308732,
+                  "text": "2",
+                  "is_correct": false
+                },
+                {
+                  "label": "B",
+                  "id": 308731,
+                  "text": "0",
+                  "is_correct": false
+                },
+                {
+                  "label": "C",
+                  "id": 308733,
+                  "text": "3",
+                  "is_correct": false
+                },
+                {
+                  "label": "D",
+                  "id": 308730,
+                  "text": "1",
+                  "is_correct": true
+                }
+              ],
+              "correct_option_ids": [
+                308730
+              ],
+              "correct_option_labels": [
+                "D"
+              ],
+              "correct_option_texts": [
+                "1"
+              ],
+              "explanation": "Beat frequency formula for calculating the beat between two overlapping sound waves is f_b = f_1 - f_2 (f_1 & f_2 are two incident sound waves).\n_f1 = 402 - 401 = 1 Hz\n_f2 = 402 - 400 = 2 Hz\nF_b = 2 - 1 = 1 Hz"
+            },
+            {
+              "questionID": 133918,
+              "question": "The velocity of sound in gas in which two waves of wavelength 1.0 m and 0.01 m produces 4 beats/sec. is:",
+              "question_raw": "<p>The velocity of sound in gas in which two waves of wavelength 1.0 m and 0.01 m produces 4 beats/sec. is:</p>",
+              "options": [
+                {
+                  "label": "A",
+                  "id": 308735,
+                  "text": "360 m/s",
+                  "is_correct": false
+                },
+                {
+                  "label": "B",
+                  "id": 308737,
+                  "text": "440 m/s",
+                  "is_correct": false
+                },
+                {
+                  "label": "C",
+                  "id": 308734,
+                  "text": "404 m/s",
+                  "is_correct": true
+                },
+                {
+                  "label": "D",
+                  "id": 308736,
+                  "text": "1010 m/s",
+                  "is_correct": false
+                }
+              ],
+              "correct_option_ids": [
+                308734
+              ],
+              "correct_option_labels": [
+                "C"
+              ],
+              "correct_option_texts": [
+                "404 m/s"
+              ],
+              "explanation": "Let’s start with what we are given, assign some names.\n$\\lambda_0 $ = 1.00m \n$\\lambda_1 $ = 1.01m = $\\lambda_0 $ + 0.01m\nWe will use f_0 and f_1 for the frequencies corresponding to the two wavelength. Since the two frequencies superimposed produce a variation of 4 beats in 1 second we also have:\nf_0 - f_1 = 4\nf_1 = f_0 - 4\nin general, we have v = λf and in particular:\n$\\lambda_0 $f_0 = $\\lambda_1 $f_1. Substituting gives:\n$\\lambda_0 $f_0 = ($\\lambda_0 $ + 0.01)(f_0 - 4) Simplifying gives:\n0 = - 4$\\lambda_0 $ + 0.01f_0 - 0.04\nwe have:\n0 = 0.01f_0 - 4.04,so\nf_0 = 4.04/0.01 = 404 . Since $\\lambda_0 $ = 1.00m we have: v = $\\lambda_0 $f_0\nv = 404 m/s"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "testPaperID": 600,
+      "testPaperName": "Waves Test 04",
+      "is_paid": true,
+      "category_full_name": "CBSE > Class 11 > Physics > Waves",
+      "noOfQuestions": 15,
+      "has_answers": true,
+      "sections": [
+        {
+          "sectionName": "General",
+          "sectionID": null,
+          "questions": [
+            {
+              "questionID": 133919,
+              "question": "A fork of unknown frequency, when sounded with another fork of frequency 256 Hz, produces 4 beats/sec. The first fork is loaded with wax. It again produces 4 beats/sec. When sounded together with the fork of 256 Hz frequency, then the frequency of the first tuning fork is:",
+              "question_raw": "<p>A fork of unknown frequency, when sounded with another fork of frequency 256 Hz, produces 4 beats/sec. The first fork is loaded with wax. It again produces 4 beats/sec. When sounded together with the fork of 256 Hz frequency, then the frequency of the first tuning fork is:</p>",
+              "options": [
+                {
+                  "label": "A",
+                  "id": 308738,
+                  "text": "260 Hz",
+                  "is_correct": true
+                },
+                {
+                  "label": "B",
+                  "id": 308741,
+                  "text": "258 Hz",
+                  "is_correct": false
+                },
+                {
+                  "label": "C",
+                  "id": 308740,
+                  "text": "252 or 260 Hz",
+                  "is_correct": false
+                },
+                {
+                  "label": "D",
+                  "id": 308739,
+                  "text": "252 Hz",
+                  "is_correct": false
+                }
+              ],
+              "correct_option_ids": [
+                308738
+              ],
+              "correct_option_labels": [
+                "A"
+              ],
+              "correct_option_texts": [
+                "260 Hz"
+              ],
+              "explanation": "An unknown tuning fork i is producing 4 beats/sec with the fork of frequency 256Hz. This means that their frequencies differ by 4. The unknown fork might have frequency either 252 Hz or 260 Hz.\nOn the application of wax, the number of beats remains to 4 per second which means they differ only by 4 and it is only possible when the unknown fork has a greater frequency.\nHence the unknown tuning fork has a frequency of 260Hz."
+            },
+            {
+              "questionID": 133920,
+              "question": "Two tuning forks of frequency 250 Hz and 256Hz produce beats. If a maximum is produced just now, after how much time the minimum is produced at the same place:",
+              "question_raw": "<p>Two tuning forks of frequency&nbsp;250 Hz and 256Hz&nbsp;produce beats. If a maximum is produced just now, after how much time the minimum is produced at the same place:</p>",
+              "options": [
+                {
+                  "label": "A",
+                  "id": 308745,
+                  "text": "$\\frac{1}{{12}}s$",
+                  "is_correct": false
+                },
+                {
+                  "label": "B",
+                  "id": 308744,
+                  "text": "$\\frac{1}{ 6}s$",
+                  "is_correct": false
+                },
+                {
+                  "label": "C",
+                  "id": 308743,
+                  "text": "$\\frac{1}{{24}}$s",
+                  "is_correct": false
+                },
+                {
+                  "label": "D",
+                  "id": 308742,
+                  "text": "0.25 s",
+                  "is_correct": true
+                }
+              ],
+              "correct_option_ids": [
+                308742
+              ],
+              "correct_option_labels": [
+                "D"
+              ],
+              "correct_option_texts": [
+                "0.25 s"
+              ],
+              "explanation": "The time interval between two consecutive maxima and minima is \n$\\triangle t=\\frac1{n_1-n_2}$ \nFor consecutive maxima and minima, the time interval will be $\\frac{1}{4}$ s or 0.25s\nThus time interval between maxima and minima at the same place will be $\\frac{1}{4}$ s or 0.25s"
+            },
+            {
+              "questionID": 133921,
+              "question": "56 tuning forks are arranged in a series that each fork gives 4 beats/sec, with the previous one. The frequency of the last fork is 3 times that of first. Then the frequency of the first fork is:",
+              "question_raw": "<p>56 tuning forks are arranged in a series that each fork gives 4 beats/sec, with the previous one. The frequency of the last fork is 3 times that of first. Then the frequency of the first fork is:</p>",
+              "options": [
+                {
+                  "label": "A",
+                  "id": 308746,
+                  "text": "110 Hz",
+                  "is_correct": true
+                },
+                {
+                  "label": "B",
+                  "id": 308749,
+                  "text": "60 Hz",
+                  "is_correct": false
+                },
+                {
+                  "label": "C",
+                  "id": 308748,
+                  "text": "56 Hz",
+                  "is_correct": false
+                },
+                {
+                  "label": "D",
+                  "id": 308747,
+                  "text": "52 Hz",
+                  "is_correct": false
+                }
+              ],
+              "correct_option_ids": [
+                308746
+              ],
+              "correct_option_labels": [
+                "A"
+              ],
+              "correct_option_texts": [
+                "110 Hz"
+              ],
+              "explanation": "Frequency of beats is given by\nfbeat = |f_1 − f_2|\ngiven fbeat = 4\nthus 4 = f_1 − f_2\n4 = f_2 − f_3\nand so on\n4 = f_55 − f_56\nwe get 55such equations on adding all equations we get\n220 = f_1 − f_56\ngiven f_56 = 3f_1\non substituting we get\nf_1 = 110Hz"
+            },
+            {
+              "questionID": 133903,
+              "question": "Speed of Sound is given by $V = \\sqrt {\\frac {B}{\\rho }} $ where:",
+              "question_raw": "<p>Speed of Sound is given by <span class=\"math-tex\">{tex}V = \\sqrt {\\frac {B}{\\rho }} {/tex}</span> where:</p>",
+              "options": [
+                {
+                  "label": "A",
+                  "id": 308681,
+                  "text": "B is compressibility and $\\rho $ the specific volume of the medium",
+                  "is_correct": false
+                },
+                {
+                  "label": "B",
+                  "id": 308678,
+                  "text": "B is bulk modulus and $\\rho $ the density of the medium",
+                  "is_correct": true
+                },
+                {
+                  "label": "C",
+                  "id": 308680,
+                  "text": "B is compressibility and $\\rho $ the density of the medium",
+                  "is_correct": false
+                },
+                {
+                  "label": "D",
+                  "id": 308679,
+                  "text": "B is bulk modulus and $\\rho $ the specific volume of the medium.",
+                  "is_correct": false
+                }
+              ],
+              "correct_option_ids": [
+                308678
+              ],
+              "correct_option_labels": [
+                "B"
+              ],
+              "correct_option_texts": [
+                "B is bulk modulus and $\\rho $ the density of the medium"
+              ],
+              "explanation": "The speed of sound increases with the stiffness (the resistance of an elastic body to deformation by an applied force) or Bulk modulus of the material and decreases with an increase in density."
+            },
+            {
+              "questionID": 133904,
+              "question": "When two or more waves traverse the same medium, the displacement of any element of the medium is the vector sum of the displacements due to each wave. This is known as:",
+              "question_raw": "<p>When two or more waves traverse the same medium, the displacement of any element of the medium is the vector sum of the displacements due to each wave. This is known as:</p>",
+              "options": [
+                {
+                  "label": "A",
+                  "id": 308682,
+                  "text": "The principle of superposition of waves",
+                  "is_correct": true
+                },
+                {
+                  "label": "B",
+                  "id": 308685,
+                  "text": "The Huygens principle for waves",
+                  "is_correct": false
+                },
+                {
+                  "label": "C",
+                  "id": 308683,
+                  "text": "The principle of reciprocity of waves",
+                  "is_correct": false
+                },
+                {
+                  "label": "D",
+                  "id": 308684,
+                  "text": "The principle of conservation of waves",
+                  "is_correct": false
+                }
+              ],
+              "correct_option_ids": [
+                308682
+              ],
+              "correct_option_labels": [
+                "A"
+              ],
+              "correct_option_texts": [
+                "The principle of superposition of waves"
+              ],
+              "explanation": "The principle of superposition may be applied to waves ​​​whenever two (or more) waves travelling through the same medium at the same time. The waves pass through each other without being disturbed. The net displacement of the medium at any point in space or time is simply the sum of the individual wave displacements.\nAs Displacement of the resultant wave is given by\ny = y_1 + y_2 (for same direction)\ny = y_1 - y_2 (for opposite direction)"
+            },
+            {
+              "questionID": 133905,
+              "question": "Two sinusoidal waves on the same string exhibit interference, adding or cancelling according to the principle of superposition. If the two are travelling in the same direction and have the same amplitude a and frequency but differ in phase by a phase constant $\\varphi $, the result is a single wave with the same frequency $\\omega $, If $\\varphi $ = 0 or an integral multiple of 2 $\\pi $, The waves are exactly:",
+              "question_raw": "<p>Two sinusoidal waves on the same string exhibit interference, adding or cancelling according to the principle of superposition. If the two are travelling in the same direction and have the same amplitude a and frequency but differ in phase by a phase constant <span class=\"math-tex\">{tex}\\varphi {/tex}</span>, the result is a single wave with the same frequency <span class=\"math-tex\">{tex}\\omega {/tex}</span>, If <span class=\"math-tex\">{tex}\\varphi {/tex}</span> = 0 or an integral multiple of 2 <span class=\"math-tex\">{tex}\\pi {/tex}</span>, The waves are exactly:</p>",
+              "options": [
+                {
+                  "label": "A",
+                  "id": 308686,
+                  "text": "in-phase and the interference is constructive.",
+                  "is_correct": true
+                },
+                {
+                  "label": "B",
+                  "id": 308689,
+                  "text": "out of phase and the interference is destructive.",
+                  "is_correct": false
+                },
+                {
+                  "label": "C",
+                  "id": 308687,
+                  "text": "in phase and the interference is destructive.",
+                  "is_correct": false
+                },
+                {
+                  "label": "D",
+                  "id": 308688,
+                  "text": "out of phase and the interference is constructive.",
+                  "is_correct": false
+                }
+              ],
+              "correct_option_ids": [
+                308686
+              ],
+              "correct_option_labels": [
+                "A"
+              ],
+              "correct_option_texts": [
+                "in-phase and the interference is constructive."
+              ],
+              "explanation": "As two waves are in the same phase (vibration is in the same direction) so their amplitudes are added together & hence interference will be constructive. The condition that arises from the superposition principle for constructive interference is $\\begin{array}{l}\\phi=2n\\pi\\\\\\end{array}$"
+            },
+            {
+              "questionID": 133906,
+              "question": "A travelling wave, at a rigid boundary or a closed-end _______.",
+              "question_raw": "<p>A travelling wave, at a rigid boundary or a closed-end _______.</p>",
+              "options": [
+                {
+                  "label": "A",
+                  "id": 308691,
+                  "text": "is reflected with the same phase",
+                  "is_correct": false
+                },
+                {
+                  "label": "B",
+                  "id": 308692,
+                  "text": "is reflected with a phase difference of 30^o",
+                  "is_correct": false
+                },
+                {
+                  "label": "C",
+                  "id": 308693,
+                  "text": "is reflected with a phase difference of 70^o",
+                  "is_correct": false
+                },
+                {
+                  "label": "D",
+                  "id": 308690,
+                  "text": "is reflected with a phase reversal",
+                  "is_correct": true
+                }
+              ],
+              "correct_option_ids": [
+                308690
+              ],
+              "correct_option_labels": [
+                "D"
+              ],
+              "correct_option_texts": [
+                "is reflected with a phase reversal"
+              ],
+              "explanation": "In reflection of this kind, there must be a node at the support as the string is fixed there. The reflected and incident pulses must have opposite signs, so as to cancel each other at that point. Thus in case of a travelling wave, the reflection at a rigid boundary will take place with a phase reversal or with a phase difference of 180^o."
+            },
+            {
+              "questionID": 133907,
+              "question": "Standing waves are characterized by fixed locations of zero displacement called nodes and fixed locations of maximum displacements called antinodes. The separation between two consecutive nodes or antinodes is:",
+              "question_raw": "<p>Standing waves are characterized by fixed locations of zero displacement called nodes and fixed locations of maximum displacements called antinodes. The separation between two consecutive nodes or antinodes is:</p>",
+              "options": [
+                {
+                  "label": "A",
+                  "id": 308696,
+                  "text": "$\\lambda $",
+                  "is_correct": false
+                },
+                {
+                  "label": "B",
+                  "id": 308694,
+                  "text": "$\\frac{\\lambda}{2}$",
+                  "is_correct": true
+                },
+                {
+                  "label": "C",
+                  "id": 308697,
+                  "text": "$\\frac{\\lambda}{4}$",
+                  "is_correct": false
+                },
+                {
+                  "label": "D",
+                  "id": 308695,
+                  "text": "$\\frac{3\\lambda}{2}$",
+                  "is_correct": false
+                }
+              ],
+              "correct_option_ids": [
+                308694
+              ],
+              "correct_option_labels": [
+                "B"
+              ],
+              "correct_option_texts": [
+                "$\\frac{\\lambda}{2}$"
+              ],
+              "explanation": "At locations x = 0,$\\frac{\\lambda}{2}$, $\\lambda $, $\\frac{3\\lambda}{2}$, ... called the nodes the amplitude is always zero, whereas at locations x = $\\frac{\\lambda}{4}, \\frac{3 \\lambda}{4}, \\frac{5 \\lambda}{4}$ ... called the anti-nodes, the amplitude is maximum. The distance between two consecutive nodes or anti-nodes is $\\frac{\\lambda}{2}$."
+            },
+            {
+              "questionID": 133908,
+              "question": "A pipe of length l with one end closed and another end open (such as air columns) vibrates in the fundamental mode at:",
+              "question_raw": "<p>A pipe of length l with one end closed and another end open (such as air columns) vibrates in the fundamental mode at:</p>",
+              "options": [
+                {
+                  "label": "A",
+                  "id": 308700,
+                  "text": "$\\frac{2v}l$",
+                  "is_correct": false
+                },
+                {
+                  "label": "B",
+                  "id": 308699,
+                  "text": "$\\frac v{2l}$",
+                  "is_correct": false
+                },
+                {
+                  "label": "C",
+                  "id": 308698,
+                  "text": "$\\frac v{4l}$",
+                  "is_correct": true
+                },
+                {
+                  "label": "D",
+                  "id": 308701,
+                  "text": "$\\frac{2v}{3l}$",
+                  "is_correct": false
+                }
+              ],
+              "correct_option_ids": [
+                308698
+              ],
+              "correct_option_labels": [
+                "C"
+              ],
+              "correct_option_texts": [
+                "$\\frac v{4l}$"
+              ],
+              "explanation": "In the first mode of vibration in the closed organ pipe, an antinode is formed at the open end and a node is formed at the close end. If ‘L’ be the length of pipe and λ be the wavelength of wave emitted in this mode of vibration.\nThen,\n$l = \\frac{{{\\lambda _0}}}{4}$\n$\\lambda = 4l$ \nif ‘v’ be the velocity of sound and to be the frequency of the wave in this mode of vibration.\n${f_0} = \\frac{v}{{{\\lambda _0}}} = \\frac{v}{{4l}}$ \nThis is the fundamental frequency of 1^st harmonics."
+            },
+            {
+              "questionID": 133909,
+              "question": "A string of length L fixed at both ends or an air column closed at one end and open at the other end, vibrates with frequencies called its normal modes. Each of these frequencies is:",
+              "question_raw": "<p>A string of length L fixed at both ends or an air column closed at one end and open at the other end, vibrates with frequencies called its normal modes. Each of these frequencies is:</p>",
+              "options": [
+                {
+                  "label": "A",
+                  "id": 308705,
+                  "text": "a sub-harmonic frequency of the system",
+                  "is_correct": false
+                },
+                {
+                  "label": "B",
+                  "id": 308703,
+                  "text": "a forced frequency of the system",
+                  "is_correct": false
+                },
+                {
+                  "label": "C",
+                  "id": 308702,
+                  "text": "a resonant frequency of the system",
+                  "is_correct": true
+                },
+                {
+                  "label": "D",
+                  "id": 308704,
+                  "text": "an excitation frequency of the system",
+                  "is_correct": false
+                }
+              ],
+              "correct_option_ids": [
+                308702
+              ],
+              "correct_option_labels": [
+                "C"
+              ],
+              "correct_option_texts": [
+                "a resonant frequency of the system"
+              ],
+              "explanation": "A resonant frequency is a natural frequency of vibration determined by the physical parameters of the vibrating object. It is easy to get an object to vibrate at its resonant frequencies, hard to get it to vibrate at other frequencies. A string of length L fixed at both ends or an air column closed at one end and open at the other end, vibrates with frequencies called its normal modes. Each of these frequencies is called the resonant frequency of the system."
+            },
+            {
+              "questionID": 133910,
+              "question": "Beats arise when two waves having slightly different frequencies, ${\\nu _{\\rm{1}}}$ and ${\\nu _{\\rm{2}}}$ and comparable amplitudes, are superimposed. The beat frequency is:",
+              "question_raw": "<p>Beats arise when two waves having slightly different frequencies, <span class=\"math-tex\">{tex}{\\nu _{\\rm{1}}}{/tex}</span> and <span class=\"math-tex\">{tex}{\\nu _{\\rm{2}}}{/tex}</span> and comparable amplitudes, are superimposed. The beat frequency is:</p>",
+              "options": [
+                {
+                  "label": "A",
+                  "id": 308708,
+                  "text": "${\\nu _{{\\rm{beat}}}}$ = ${\\nu _{\\rm{1}}}\\sim{\\rm{ 2}}{\\nu _{\\rm{2}}}$",
+                  "is_correct": false
+                },
+                {
+                  "label": "B",
+                  "id": 308709,
+                  "text": "${\\nu _{{\\rm{beat}}}}$ = ${\\rm{2}}{\\nu _{\\rm{1}}}\\sim{\\rm{ }}{\\nu _{\\rm{2}}}$",
+                  "is_correct": false
+                },
+                {
+                  "label": "C",
+                  "id": 308706,
+                  "text": "${\\nu _{{\\rm{beat}}}}$ = ${\\nu _{\\rm{1}}}$ - ${\\nu _{\\rm{2}}}$",
+                  "is_correct": true
+                },
+                {
+                  "label": "D",
+                  "id": 308707,
+                  "text": "${\\nu _{{\\rm{beat}}}}$ = ${\\nu _{\\rm{1}}} + {\\rm{ }}{\\nu _{\\rm{2}}}$",
+                  "is_correct": false
+                }
+              ],
+              "correct_option_ids": [
+                308706
+              ],
+              "correct_option_labels": [
+                "C"
+              ],
+              "correct_option_texts": [
+                "${\\nu _{{\\rm{beat}}}}$ = ${\\nu _{\\rm{1}}}$ - ${\\nu _{\\rm{2}}}$"
+              ],
+              "explanation": "The beat frequency is always equal to the difference in frequency of the two notes that interfere to produce the beats. So if two sound waves with frequencies of 256 Hz and 254 Hz are played simultaneously, a beat frequency of 2 Hz will be detected."
+            },
+            {
+              "questionID": 133911,
+              "question": "The human ear is most sensitive to sound in the frequency range of:",
+              "question_raw": "<p>The human ear is most sensitive to sound in the frequency range of:</p>",
+              "options": [
+                {
+                  "label": "A",
+                  "id": 308711,
+                  "text": "20 to 20000 Hz",
+                  "is_correct": true
+                },
+                {
+                  "label": "B",
+                  "id": 308713,
+                  "text": "10000 to 20000 Hz",
+                  "is_correct": false
+                },
+                {
+                  "label": "C",
+                  "id": 308712,
+                  "text": "200 to 400 Hz",
+                  "is_correct": false
+                },
+                {
+                  "label": "D",
+                  "id": 308710,
+                  "text": "1000 to 2000 Hz",
+                  "is_correct": false
+                }
+              ],
+              "correct_option_ids": [
+                308711
+              ],
+              "correct_option_labels": [
+                "A"
+              ],
+              "correct_option_texts": [
+                "20 to 20000 Hz"
+              ],
+              "explanation": "Humans are most sensitive to (i.e. able to discern at lowest intensity) frequencies between 2,000 and 5,000 Hz. The human ear can respond to minute pressure variations in the air if they are in the audible frequency range, roughly 20 Hz - 20 kHz. This incredible sensitivity is enhanced by an effective amplification of the sound signal by the outer and middle ear structures."
+            },
+            {
+              "questionID": 133891,
+              "question": "in transverse waves, the constituents of the medium:",
+              "question_raw": "<p>in transverse waves, the constituents of the medium:</p>",
+              "options": [
+                {
+                  "label": "A",
+                  "id": 308633,
+                  "text": "oscillate at 40$^\\circ $ to the direction of wave propagation",
+                  "is_correct": false
+                },
+                {
+                  "label": "B",
+                  "id": 308632,
+                  "text": "oscillate at 30^o to the direction of wave propagation",
+                  "is_correct": false
+                },
+                {
+                  "label": "C",
+                  "id": 308631,
+                  "text": "oscillate parallel to the direction of wave propagation",
+                  "is_correct": false
+                },
+                {
+                  "label": "D",
+                  "id": 308630,
+                  "text": "oscillate perpendicular to the direction of wave propagation",
+                  "is_correct": true
+                }
+              ],
+              "correct_option_ids": [
+                308630
+              ],
+              "correct_option_labels": [
+                "D"
+              ],
+              "correct_option_texts": [
+                "oscillate perpendicular to the direction of wave propagation"
+              ],
+              "explanation": "In transverse wave motion, medium particles oscillate or vibrate in a direction perpendicular to the direction of wave propagation to form crest & trough in the wave motion."
+            },
+            {
+              "questionID": 133892,
+              "question": "in longitudinal waves, the constituents of the medium:",
+              "question_raw": "<p>in longitudinal waves, the constituents of the medium:</p>",
+              "options": [
+                {
+                  "label": "A",
+                  "id": 308634,
+                  "text": "oscillate along the direction of wave propagation",
+                  "is_correct": true
+                },
+                {
+                  "label": "B",
+                  "id": 308637,
+                  "text": "oscillate at 40$^\\circ $ to the direction of wave propagation",
+                  "is_correct": false
+                },
+                {
+                  "label": "C",
+                  "id": 308635,
+                  "text": "oscillate perpendicular to the direction of wave propagation",
+                  "is_correct": false
+                },
+                {
+                  "label": "D",
+                  "id": 308636,
+                  "text": "oscillate at 30$^\\circ $ to the direction of wave propagation",
+                  "is_correct": false
+                }
+              ],
+              "correct_option_ids": [
+                308634
+              ],
+              "correct_option_labels": [
+                "A"
+              ],
+              "correct_option_texts": [
+                "oscillate along the direction of wave propagation"
+              ],
+              "explanation": "In longitudinal wave motion, medium particles oscillate or vibrate in the same direction of wave propagation to produce compression & rarefaction in wave propagation."
+            },
+            {
+              "questionID": 133893,
+              "question": "Travelling or progressive wave:",
+              "question_raw": "<p>Travelling or progressive wave:</p>",
+              "options": [
+                {
+                  "label": "A",
+                  "id": 308641,
+                  "text": "does not move from one point of the medium to any other",
+                  "is_correct": false
+                },
+                {
+                  "label": "B",
+                  "id": 308640,
+                  "text": "does not move from one point of the medium to all others",
+                  "is_correct": false
+                },
+                {
+                  "label": "C",
+                  "id": 308638,
+                  "text": "travels from one point of the medium to another",
+                  "is_correct": true
+                },
+                {
+                  "label": "D",
+                  "id": 308639,
+                  "text": "does not move from one point of the medium to another",
+                  "is_correct": false
+                }
+              ],
+              "correct_option_ids": [
+                308638
+              ],
+              "correct_option_labels": [
+                "C"
+              ],
+              "correct_option_texts": [
+                "travels from one point of the medium to another"
+              ],
+              "explanation": "As progressive wave means a wave propagating in some onward direction in the medium."
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "testPaperID": 601,
+      "testPaperName": "Waves Test 05",
+      "is_paid": true,
+      "category_full_name": "CBSE > Class 11 > Physics > Waves",
+      "noOfQuestions": 15,
+      "has_answers": true,
+      "sections": [
+        {
+          "sectionName": "General",
+          "sectionID": null,
+          "questions": [
+            {
+              "questionID": 133894,
+              "question": "The waves on the surface of the water are of two kinds:",
+              "question_raw": "<p>The waves on the surface of the water are of two kinds:</p>",
+              "options": [
+                {
+                  "label": "A",
+                  "id": 308642,
+                  "text": "capillary waves and gravity waves",
+                  "is_correct": true
+                },
+                {
+                  "label": "B",
+                  "id": 308645,
+                  "text": "seismic waves and cosmic waves",
+                  "is_correct": false
+                },
+                {
+                  "label": "C",
+                  "id": 308644,
+                  "text": "sound waves and gravity waves",
+                  "is_correct": false
+                },
+                {
+                  "label": "D",
+                  "id": 308643,
+                  "text": "capillary waves and sound waves",
+                  "is_correct": false
+                }
+              ],
+              "correct_option_ids": [
+                308642
+              ],
+              "correct_option_labels": [
+                "A"
+              ],
+              "correct_option_texts": [
+                "capillary waves and gravity waves"
+              ],
+              "explanation": "As capillary & gravity waves are elastic waves or mechanical waves which require a medium for their propagation.\nHence they are using the elastic behaviour of water.\nHence, the waves on the surface of the water are of two kinds: capillary waves and gravity waves"
+            },
+            {
+              "questionID": 133895,
+              "question": "In the same medium transverse and longitudinal waves:",
+              "question_raw": "<p>In the same medium transverse and longitudinal waves:</p>",
+              "options": [
+                {
+                  "label": "A",
+                  "id": 308646,
+                  "text": "travel with different speeds",
+                  "is_correct": true
+                },
+                {
+                  "label": "B",
+                  "id": 308648,
+                  "text": "travel changing transverse wave to longitudinal wave",
+                  "is_correct": false
+                },
+                {
+                  "label": "C",
+                  "id": 308649,
+                  "text": "travel changing longitudinal wave to transverse wave",
+                  "is_correct": false
+                },
+                {
+                  "label": "D",
+                  "id": 308647,
+                  "text": "travel with same speeds",
+                  "is_correct": false
+                }
+              ],
+              "correct_option_ids": [
+                308646
+              ],
+              "correct_option_labels": [
+                "A"
+              ],
+              "correct_option_texts": [
+                "travel with different speeds"
+              ],
+              "explanation": "As the speed of transverse & longitudinal waves depends on the different modulus of elasticity (Young's modulus, Bulk modulus, Modulus of Rigidity) of the medium.\nSo in the same medium, transverse and longitudinal waves travel at different speeds."
+            },
+            {
+              "questionID": 133896,
+              "question": "If y(x, t) = a sin (kx + $\\omega $t + $\\varphi $) represents a wave function:",
+              "question_raw": "<p>If y(x, t) = a sin (kx + <span class=\"math-tex\">{tex}\\omega {/tex}</span>t + <span class=\"math-tex\">{tex}\\varphi {/tex}</span>) represents a wave function:</p>",
+              "options": [
+                {
+                  "label": "A",
+                  "id": 308651,
+                  "text": "travelling in the +ve x-direction",
+                  "is_correct": false
+                },
+                {
+                  "label": "B",
+                  "id": 308653,
+                  "text": "the equation does not tell the direction",
+                  "is_correct": false
+                },
+                {
+                  "label": "C",
+                  "id": 308650,
+                  "text": "travelling in the -ve x-direction",
+                  "is_correct": true
+                },
+                {
+                  "label": "D",
+                  "id": 308652,
+                  "text": "direction of travel is sometimes –ve x and +x at other times",
+                  "is_correct": false
+                }
+              ],
+              "correct_option_ids": [
+                308650
+              ],
+              "correct_option_labels": [
+                "C"
+              ],
+              "correct_option_texts": [
+                "travelling in the -ve x-direction"
+              ],
+              "explanation": "On comparing above equation with\ny(x, t) = a sin (-kx + $\\omega $t + $\\varphi $), we get\nDistance traveled by wave is along - x axis\nHence y(x, t) = a sin (kx + $\\omega $t + $\\varphi $) represents a wave function\ntravelling in the -ve x direction"
+            },
+            {
+              "questionID": 133897,
+              "question": "If y(x, t) = a sin (kx + $\\omega $t + $\\varphi $ ) represents a wave function then ‘a’ is:",
+              "question_raw": "<p>If y(x, t) = a sin (kx + <span class=\"math-tex\">{tex}\\omega {/tex}</span>t + <span class=\"math-tex\">{tex}\\varphi {/tex}</span> ) represents a wave function then &lsquo;a&rsquo; is:</p>",
+              "options": [
+                {
+                  "label": "A",
+                  "id": 308656,
+                  "text": "the period",
+                  "is_correct": false
+                },
+                {
+                  "label": "B",
+                  "id": 308654,
+                  "text": "the amplitude",
+                  "is_correct": true
+                },
+                {
+                  "label": "C",
+                  "id": 308655,
+                  "text": "the frequency",
+                  "is_correct": false
+                },
+                {
+                  "label": "D",
+                  "id": 308657,
+                  "text": "the phase",
+                  "is_correct": false
+                }
+              ],
+              "correct_option_ids": [
+                308654
+              ],
+              "correct_option_labels": [
+                "B"
+              ],
+              "correct_option_texts": [
+                "the amplitude"
+              ],
+              "explanation": "In the equation\ny(x, t) = a sin (kx + $\\omega $t + $\\varphi $ )\nthe term before the trigonometric function is called amplitude\nHence a (term before trigonometric function) is the amplitude."
+            },
+            {
+              "questionID": 133898,
+              "question": "If y(x, t) = a sin (kx + $\\omega $t + $\\varphi $ ) represents a wave function then ‘k’ is:",
+              "question_raw": "<p>If y(x, t) = a sin (kx + <span class=\"math-tex\">{tex}\\omega {/tex}</span>t + <span class=\"math-tex\">{tex}\\varphi {/tex}</span> ) represents a wave function then &lsquo;k&rsquo; is:</p>",
+              "options": [
+                {
+                  "label": "A",
+                  "id": 308658,
+                  "text": "the angular wave number",
+                  "is_correct": true
+                },
+                {
+                  "label": "B",
+                  "id": 308659,
+                  "text": "the frequency",
+                  "is_correct": false
+                },
+                {
+                  "label": "C",
+                  "id": 308660,
+                  "text": "the period",
+                  "is_correct": false
+                },
+                {
+                  "label": "D",
+                  "id": 308661,
+                  "text": "the phase",
+                  "is_correct": false
+                }
+              ],
+              "correct_option_ids": [
+                308658
+              ],
+              "correct_option_labels": [
+                "A"
+              ],
+              "correct_option_texts": [
+                "the angular wave number"
+              ],
+              "explanation": "In the equation \ny(x, t) = a sin (kx + $\\omega $t + $\\varphi $ )\nthe term with distance travelled 'x' is called angular wavenumber or propagation constant\nHence k is the angular wavenumber."
+            },
+            {
+              "questionID": 133899,
+              "question": "If y(x, t) = a sin (kx + $\\omega $t + $\\varphi $ ) represents a wave function then ‘$\\omega $’ is:",
+              "question_raw": "<p>If y(x, t) = a sin (kx + <span class=\"math-tex\">{tex}\\omega {/tex}</span>t + <span class=\"math-tex\">{tex}\\varphi {/tex}</span> ) represents a wave function then &lsquo;<span class=\"math-tex\">{tex}\\omega {/tex}</span>&rsquo; is:</p>",
+              "options": [
+                {
+                  "label": "A",
+                  "id": 308663,
+                  "text": "The wavenumber",
+                  "is_correct": false
+                },
+                {
+                  "label": "B",
+                  "id": 308665,
+                  "text": "The phase",
+                  "is_correct": false
+                },
+                {
+                  "label": "C",
+                  "id": 308664,
+                  "text": "The period",
+                  "is_correct": false
+                },
+                {
+                  "label": "D",
+                  "id": 308662,
+                  "text": "The angular frequency",
+                  "is_correct": true
+                }
+              ],
+              "correct_option_ids": [
+                308662
+              ],
+              "correct_option_labels": [
+                "D"
+              ],
+              "correct_option_texts": [
+                "The angular frequency"
+              ],
+              "explanation": "In the equation \ny(x, t) = a sin (kx + $\\omega $t + $\\varphi $ )\nthe term with time 't' is called angular velocity or angular frequency\nHence, $\\omega $ is the angular frequency."
+            },
+            {
+              "questionID": 133900,
+              "question": "If y(x, t) = a sin (kx + $\\omega $t + $\\varphi $ ) represents a wave function then ‘$\\varphi $’ is:",
+              "question_raw": "<p>If y(x, t) = a sin (kx + <span class=\"math-tex\">{tex}\\omega {/tex}</span>t + <span class=\"math-tex\">{tex}\\varphi {/tex}</span> ) represents a wave function then &lsquo;<span class=\"math-tex\">{tex}\\varphi {/tex}</span>&rsquo; is:</p>",
+              "options": [
+                {
+                  "label": "A",
+                  "id": 308668,
+                  "text": "the period",
+                  "is_correct": false
+                },
+                {
+                  "label": "B",
+                  "id": 308669,
+                  "text": "the frequency",
+                  "is_correct": false
+                },
+                {
+                  "label": "C",
+                  "id": 308666,
+                  "text": "the initial phase angle",
+                  "is_correct": true
+                },
+                {
+                  "label": "D",
+                  "id": 308667,
+                  "text": "the wavenumber",
+                  "is_correct": false
+                }
+              ],
+              "correct_option_ids": [
+                308666
+              ],
+              "correct_option_labels": [
+                "C"
+              ],
+              "correct_option_texts": [
+                "the initial phase angle"
+              ],
+              "explanation": "In the equation\ny(x, t) = a sin (kx + $\\omega $t + $\\varphi $ )\nThe term $\\varphi $ represents the initial phase or epoch\nHence the term $\\varphi $ is the initial phase angle."
+            },
+            {
+              "questionID": 133901,
+              "question": "The speed of propagation of a sinusoidal wave is given by v = $ \\nu \\lambda $ where:",
+              "question_raw": "<p>The speed of propagation of a sinusoidal wave is given by v&nbsp;=&nbsp;<span class=\"math-tex\">{tex} \\nu \\lambda {/tex}</span> where:</p>",
+              "options": [
+                {
+                  "label": "A",
+                  "id": 308672,
+                  "text": "v is the reciprocal of the period and $\\lambda $ is the wave number",
+                  "is_correct": false
+                },
+                {
+                  "label": "B",
+                  "id": 308671,
+                  "text": "v is the angular frequency and $\\lambda $ is the wavelength",
+                  "is_correct": false
+                },
+                {
+                  "label": "C",
+                  "id": 308673,
+                  "text": "v is the reciprocal of the period and $\\lambda $ is the dispersion",
+                  "is_correct": false
+                },
+                {
+                  "label": "D",
+                  "id": 308670,
+                  "text": "$\\nu $ is the reciprocal of the time period and $\\lambda $ is the wavelength",
+                  "is_correct": true
+                }
+              ],
+              "correct_option_ids": [
+                308670
+              ],
+              "correct_option_labels": [
+                "D"
+              ],
+              "correct_option_texts": [
+                "$\\nu $ is the reciprocal of the time period and $\\lambda $ is the wavelength"
+              ],
+              "explanation": "$\\nu$ is here frequency\nwe know that\nUsing Speed = distance /time\nFor one cycle, distance is given by = $\\lambda $ ,and time is given by = T\nHence v= $\\lambda \\over T$\n$v = \\nu \\lambda $"
+            },
+            {
+              "questionID": 133902,
+              "question": "The speed of transverse waves on a stretched string is $V = \\sqrt {\\frac {T} {\\mu }} $ where:",
+              "question_raw": "<p>The speed of transverse waves on a stretched string is <span class=\"math-tex\">{tex}V = \\sqrt {\\frac {T} {\\mu }} {/tex}</span> where:</p>",
+              "options": [
+                {
+                  "label": "A",
+                  "id": 308674,
+                  "text": "T is the tension in the string and $\\mu $ the mass per unit length",
+                  "is_correct": true
+                },
+                {
+                  "label": "B",
+                  "id": 308677,
+                  "text": "T is the gravitational force and $\\mu $ the mass per unit length",
+                  "is_correct": false
+                },
+                {
+                  "label": "C",
+                  "id": 308676,
+                  "text": "T is the initial energy and $\\mu $ the mass per unit length",
+                  "is_correct": false
+                },
+                {
+                  "label": "D",
+                  "id": 308675,
+                  "text": "T is the tension in the string and $\\mu $ the mass of the string",
+                  "is_correct": false
+                }
+              ],
+              "correct_option_ids": [
+                308674
+              ],
+              "correct_option_labels": [
+                "A"
+              ],
+              "correct_option_texts": [
+                "T is the tension in the string and $\\mu $ the mass per unit length"
+              ],
+              "explanation": "The speed of a wave along a stretched string depends only on the tension and the linear mass density of the wire. Speed of transverse wave on stretched string is v= $\\sqrt {\\frac {T}{\\mu}}$ where T is the tension of the string and $\\mu$ is the mass per unit length of the string."
+            },
+            {
+              "questionID": 133886,
+              "question": "In wave propagation:",
+              "question_raw": "<p>In wave propagation:</p>",
+              "options": [
+                {
+                  "label": "A",
+                  "id": 308613,
+                  "text": "there is a flow of matter and there is no movement of disturbance.",
+                  "is_correct": false
+                },
+                {
+                  "label": "B",
+                  "id": 308612,
+                  "text": "there is no flow of matter and there is no movement of disturbance.",
+                  "is_correct": false
+                },
+                {
+                  "label": "C",
+                  "id": 308611,
+                  "text": "there is a flow of matter but there is the movement of disturbance.",
+                  "is_correct": false
+                },
+                {
+                  "label": "D",
+                  "id": 308610,
+                  "text": "there is no flow of matter but there is the movement of disturbance.",
+                  "is_correct": true
+                }
+              ],
+              "correct_option_ids": [
+                308610
+              ],
+              "correct_option_labels": [
+                "D"
+              ],
+              "correct_option_texts": [
+                "there is no flow of matter but there is the movement of disturbance."
+              ],
+              "explanation": "Because in wave propagation particles only moves in periodic motion, particles get collide with their neighbouring particles then transfer energy to them and come back to their normal stage. Now next particle which gains energy gets into an excited state and starts moving periodically and gets collide to the next adjacent particle and so on. Thus in wave propagation particles only transfer their kinetic energy and momentum. Hence particles do not move therefore there is no flow of matter but there is the movement of disturbance."
+            },
+            {
+              "questionID": 133887,
+              "question": "When we make a mobile telephone call to a friend:",
+              "question_raw": "<p>When we make a mobile telephone call to a friend:</p>",
+              "options": [
+                {
+                  "label": "A",
+                  "id": 308617,
+                  "text": "the friend's mobile receives gravity waves containing your audio.",
+                  "is_correct": false
+                },
+                {
+                  "label": "B",
+                  "id": 308615,
+                  "text": "the friend's mobile receives acoustic waves containing your audio.",
+                  "is_correct": false
+                },
+                {
+                  "label": "C",
+                  "id": 308614,
+                  "text": "the friend's mobile receives electromagnetic waves containing your audio.",
+                  "is_correct": true
+                },
+                {
+                  "label": "D",
+                  "id": 308616,
+                  "text": "the friend's mobile generates possible electrical signals.",
+                  "is_correct": false
+                }
+              ],
+              "correct_option_ids": [
+                308614
+              ],
+              "correct_option_labels": [
+                "C"
+              ],
+              "correct_option_texts": [
+                "the friend's mobile receives electromagnetic waves containing your audio."
+              ],
+              "explanation": "Because mobile communication is a space communication and in space communication basically electromagnetic waves are used (as carrier waves as in case of radio communication) because of the modulation ( frequency, amplitude) operations that can be performed on EM waves. Thus when our friend receives the call, he also receives EM waves which are the carrier of our audio signals."
+            },
+            {
+              "questionID": 133888,
+              "question": "Electromagnetic waves are different from sound waves in that:",
+              "question_raw": "<p>Electromagnetic waves are different from sound waves in that:</p>",
+              "options": [
+                {
+                  "label": "A",
+                  "id": 308620,
+                  "text": "they need medium and are transverse.",
+                  "is_correct": false
+                },
+                {
+                  "label": "B",
+                  "id": 308618,
+                  "text": "they need no medium and are transverse.",
+                  "is_correct": true
+                },
+                {
+                  "label": "C",
+                  "id": 308619,
+                  "text": "they need no medium and are longitudinal.",
+                  "is_correct": false
+                },
+                {
+                  "label": "D",
+                  "id": 308621,
+                  "text": "they need medium and are longitudinal.",
+                  "is_correct": false
+                }
+              ],
+              "correct_option_ids": [
+                308618
+              ],
+              "correct_option_labels": [
+                "B"
+              ],
+              "correct_option_texts": [
+                "they need no medium and are transverse."
+              ],
+              "explanation": "Electromagnetic waves are transverse waves. The EM waves are the waves that are created due to oscillating electric and magnetic fields perpendicular mutually and also to the direction of motion and EM waves(Electromagnetic waves) can travel in a vacuum, thus doesn't require any medium also."
+            },
+            {
+              "questionID": 133889,
+              "question": "Matter waves are useful in:",
+              "question_raw": "<p>Matter waves are useful in:</p>",
+              "options": [
+                {
+                  "label": "A",
+                  "id": 308622,
+                  "text": "explaining the quantum mechanical phenomenon",
+                  "is_correct": true
+                },
+                {
+                  "label": "B",
+                  "id": 308623,
+                  "text": "explaining astronomical phenomenon",
+                  "is_correct": false
+                },
+                {
+                  "label": "C",
+                  "id": 308625,
+                  "text": "explaining tidal wave phenomenon",
+                  "is_correct": false
+                },
+                {
+                  "label": "D",
+                  "id": 308624,
+                  "text": "explaining gravitational phenomenon",
+                  "is_correct": false
+                }
+              ],
+              "correct_option_ids": [
+                308622
+              ],
+              "correct_option_labels": [
+                "A"
+              ],
+              "correct_option_texts": [
+                "explaining the quantum mechanical phenomenon"
+              ],
+              "explanation": "Matter waves are also termed as De Broglie waves because they were initially introduced by him. All matters behave like a wave (during motion) and in their propagation, there is the action of forces due to collision between the particles, some time torque also exists, hence all the matters waves were considered to be a helpful part for understanding quantum."
+            },
+            {
+              "questionID": 133890,
+              "question": "The quantity similar to extension or compression of the spring in sound wave propagation (air) is:",
+              "question_raw": "<p>The quantity similar to extension or compression of the spring in sound wave propagation (air) is:</p>",
+              "options": [
+                {
+                  "label": "A",
+                  "id": 308629,
+                  "text": "the change in air composition",
+                  "is_correct": false
+                },
+                {
+                  "label": "B",
+                  "id": 308626,
+                  "text": "the change in air density",
+                  "is_correct": true
+                },
+                {
+                  "label": "C",
+                  "id": 308627,
+                  "text": "the change in air particles",
+                  "is_correct": false
+                },
+                {
+                  "label": "D",
+                  "id": 308628,
+                  "text": "the change in air humidity",
+                  "is_correct": false
+                }
+              ],
+              "correct_option_ids": [
+                308626
+              ],
+              "correct_option_labels": [
+                "B"
+              ],
+              "correct_option_texts": [
+                "the change in air density"
+              ],
+              "explanation": "As in airwave propagates in the form of compression (increase in density of air) and rarefaction (decrease in density of air)."
+            },
+            {
+              "questionID": 133905,
+              "question": "Two sinusoidal waves on the same string exhibit interference, adding or cancelling according to the principle of superposition. If the two are travelling in the same direction and have the same amplitude a and frequency but differ in phase by a phase constant $\\varphi $, the result is a single wave with the same frequency $\\omega $, If $\\varphi $ = 0 or an integral multiple of 2 $\\pi $, The waves are exactly:",
+              "question_raw": "<p>Two sinusoidal waves on the same string exhibit interference, adding or cancelling according to the principle of superposition. If the two are travelling in the same direction and have the same amplitude a and frequency but differ in phase by a phase constant <span class=\"math-tex\">{tex}\\varphi {/tex}</span>, the result is a single wave with the same frequency <span class=\"math-tex\">{tex}\\omega {/tex}</span>, If <span class=\"math-tex\">{tex}\\varphi {/tex}</span> = 0 or an integral multiple of 2 <span class=\"math-tex\">{tex}\\pi {/tex}</span>, The waves are exactly:</p>",
+              "options": [
+                {
+                  "label": "A",
+                  "id": 308688,
+                  "text": "out of phase and the interference is constructive.",
+                  "is_correct": false
+                },
+                {
+                  "label": "B",
+                  "id": 308689,
+                  "text": "out of phase and the interference is destructive.",
+                  "is_correct": false
+                },
+                {
+                  "label": "C",
+                  "id": 308687,
+                  "text": "in phase and the interference is destructive.",
+                  "is_correct": false
+                },
+                {
+                  "label": "D",
+                  "id": 308686,
+                  "text": "in-phase and the interference is constructive.",
+                  "is_correct": true
+                }
+              ],
+              "correct_option_ids": [
+                308686
+              ],
+              "correct_option_labels": [
+                "D"
+              ],
+              "correct_option_texts": [
+                "in-phase and the interference is constructive."
+              ],
+              "explanation": "As two waves are in the same phase (vibration is in the same direction) so their amplitudes are added together & hence interference will be constructive. The condition that arises from the superposition principle for constructive interference is $\\begin{array}{l}\\phi=2n\\pi\\\\\\end{array}$"
+            }
+          ]
+        }
+      ]
+    }
+  ]
+}

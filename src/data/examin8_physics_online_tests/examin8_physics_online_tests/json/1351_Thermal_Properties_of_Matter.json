@@ -1,0 +1,3162 @@
+{
+  "id": 1351,
+  "name": "Thermal Properties of Matter",
+  "full_name": "CBSE > Class 11 > Physics > Thermal Properties of Matter",
+  "tests": [
+    {
+      "testPaperID": 577,
+      "testPaperName": "Thermal Properties of Matter Test 01",
+      "is_paid": false,
+      "category_full_name": "CBSE > Class 11 > Physics > Thermal Properties of Matter",
+      "noOfQuestions": 15,
+      "has_answers": true,
+      "sections": [
+        {
+          "sectionName": "General",
+          "sectionID": null,
+          "questions": [
+            {
+              "questionID": 17946,
+              "question": "Heat is a form of_______.",
+              "question_raw": "<p>Heat is a form&nbsp;of_______.</p>",
+              "options": [
+                {
+                  "label": "A",
+                  "id": 26987,
+                  "text": "gas",
+                  "is_correct": false
+                },
+                {
+                  "label": "B",
+                  "id": 26985,
+                  "text": "liquid",
+                  "is_correct": false
+                },
+                {
+                  "label": "C",
+                  "id": 26986,
+                  "text": "solid",
+                  "is_correct": false
+                },
+                {
+                  "label": "D",
+                  "id": 26984,
+                  "text": "energy",
+                  "is_correct": true
+                }
+              ],
+              "correct_option_ids": [
+                26984
+              ],
+              "correct_option_labels": [
+                "D"
+              ],
+              "correct_option_texts": [
+                "energy"
+              ],
+              "explanation": "Heat is the amount of energy flowing from one body of matter to another spontaneously due to their temperature difference."
+            },
+            {
+              "questionID": 17947,
+              "question": "Heat flows from one body to another if:",
+              "question_raw": "<p>Heat flows from one body to another if:</p>",
+              "options": [
+                {
+                  "label": "A",
+                  "id": 26990,
+                  "text": "there is a difference of material",
+                  "is_correct": false
+                },
+                {
+                  "label": "B",
+                  "id": 26988,
+                  "text": "there is a difference in temperatures",
+                  "is_correct": true
+                },
+                {
+                  "label": "C",
+                  "id": 26991,
+                  "text": "there is a difference of density",
+                  "is_correct": false
+                },
+                {
+                  "label": "D",
+                  "id": 26989,
+                  "text": "there is no difference in temperature",
+                  "is_correct": false
+                }
+              ],
+              "correct_option_ids": [
+                26988
+              ],
+              "correct_option_labels": [
+                "B"
+              ],
+              "correct_option_texts": [
+                "there is a difference in temperatures"
+              ],
+              "explanation": "Heat is the amount of energy flowing from one body of matter to another spontaneously due to their temperature difference."
+            },
+            {
+              "questionID": 17948,
+              "question": "The ice and steam point have values 32^oF and 212^oF respectively, on the Fahrenheit scale. Corresponding values on the Centigrade scale are:",
+              "question_raw": "<p>The ice and steam point have values 32<sup>o</sup>F and 212<sup>o</sup>F respectively, on the Fahrenheit scale. Corresponding values on the Centigrade scale are:</p>",
+              "options": [
+                {
+                  "label": "A",
+                  "id": 26993,
+                  "text": "5^oC and 102^oC",
+                  "is_correct": false
+                },
+                {
+                  "label": "B",
+                  "id": 26994,
+                  "text": "-5^oC and 95^oC",
+                  "is_correct": false
+                },
+                {
+                  "label": "C",
+                  "id": 26992,
+                  "text": "0^oC and 100^oC",
+                  "is_correct": true
+                },
+                {
+                  "label": "D",
+                  "id": 26995,
+                  "text": "10^oC and 112^oC",
+                  "is_correct": false
+                }
+              ],
+              "correct_option_ids": [
+                26992
+              ],
+              "correct_option_labels": [
+                "C"
+              ],
+              "correct_option_texts": [
+                "0^oC and 100^oC"
+              ],
+              "explanation": "${C \\over 5} = {{F - 32} \\over 9}$\n for ice , at 32 ^0F ; C= 0^ 0C\nfor steam , at 212^ 0F ; C= 5 $\\times$ $212-32\\over 9$= 100 ^0C"
+            },
+            {
+              "questionID": 17949,
+              "question": "180 equal intervals between two reference points on the Fahrenheit scale correspond to:",
+              "question_raw": "<p>180 equal intervals between two reference points on the Fahrenheit scale correspond to:</p>",
+              "options": [
+                {
+                  "label": "A",
+                  "id": 26999,
+                  "text": "50 equal intervals on the Celsius scale",
+                  "is_correct": false
+                },
+                {
+                  "label": "B",
+                  "id": 26997,
+                  "text": "110 equal intervals on the Celsius scale",
+                  "is_correct": false
+                },
+                {
+                  "label": "C",
+                  "id": 26996,
+                  "text": "100 equal intervals on the Celsius scale",
+                  "is_correct": true
+                },
+                {
+                  "label": "D",
+                  "id": 26998,
+                  "text": "90 equal intervals on the Celsius scale",
+                  "is_correct": false
+                }
+              ],
+              "correct_option_ids": [
+                26996
+              ],
+              "correct_option_labels": [
+                "C"
+              ],
+              "correct_option_texts": [
+                "100 equal intervals on the Celsius scale"
+              ],
+              "explanation": "${{\\Delta {T_C}} \\over {100}} = {{\\Delta {T_F}} \\over {180}}$"
+            },
+            {
+              "questionID": 17950,
+              "question": "The correct equation for conversion between Fahrenheit temperature t_F and Celsius temperature t_C is:",
+              "question_raw": "<p>The correct equation for conversion&nbsp;between Fahrenheit temperature t<sub>F</sub> and Celsius temperature t<sub>C</sub> is:</p>",
+              "options": [
+                {
+                  "label": "A",
+                  "id": 27002,
+                  "text": "$\\frac{t_F-32}{160}=\\frac{t_C}{100}$",
+                  "is_correct": false
+                },
+                {
+                  "label": "B",
+                  "id": 27001,
+                  "text": "$\\frac{t_F+32}{180}=\\frac{t_C}{100}$",
+                  "is_correct": false
+                },
+                {
+                  "label": "C",
+                  "id": 27003,
+                  "text": "$\\frac{t_F-32}{180}=\\frac{t_C}{120}$",
+                  "is_correct": false
+                },
+                {
+                  "label": "D",
+                  "id": 27000,
+                  "text": "$\\frac{t_p-32}{180}=\\frac{t_C}{100}$",
+                  "is_correct": true
+                }
+              ],
+              "correct_option_ids": [
+                27000
+              ],
+              "correct_option_labels": [
+                "D"
+              ],
+              "correct_option_texts": [
+                "$\\frac{t_p-32}{180}=\\frac{t_C}{100}$"
+              ],
+              "explanation": "$\\frac{T_Z-T_L}{T_U-T_L}=\\frac{T_C-0}{100-0}=\\frac{T_F-32}{212-32}$ \nTU = B.P. of water\nTL = M.P. of ice"
+            },
+            {
+              "questionID": 17951,
+              "question": "If P is the pressure, $\\mu $ is the number of moles in the sample, T the temperature and V the volume of gas, the ideal-gas equation is:",
+              "question_raw": "<p>If P is the pressure, <span class=\"math-tex\">{tex}\\mu {/tex}</span> is the number of moles in the sample, T the temperature and V the volume of gas, the ideal-gas equation is:</p>",
+              "options": [
+                {
+                  "label": "A",
+                  "id": 27007,
+                  "text": "PV = $\\frac{\\mu R}{T}$",
+                  "is_correct": false
+                },
+                {
+                  "label": "B",
+                  "id": 27004,
+                  "text": "PV = $\\mu $RT",
+                  "is_correct": true
+                },
+                {
+                  "label": "C",
+                  "id": 27005,
+                  "text": "PV = RT",
+                  "is_correct": false
+                },
+                {
+                  "label": "D",
+                  "id": 27006,
+                  "text": "PV = $\\mu $T",
+                  "is_correct": false
+                }
+              ],
+              "correct_option_ids": [
+                27004
+              ],
+              "correct_option_labels": [
+                "B"
+              ],
+              "correct_option_texts": [
+                "PV = $\\mu $RT"
+              ],
+              "explanation": "$V \\propto \\frac{NT}{P}$\n$\\frac{PV}{NT} = k$\n$N = \\mu {N_A}$\n$\\frac{PV}{{\\mu T}} = {N_A}k = R$\nPV = $ \\mu RT$"
+            },
+            {
+              "questionID": 17952,
+              "question": "Plots of pressure as a function of temperature for gas thermometers containing different types and quantities of gas converge to the same point when extrapolated to zero pressure. The temperature value to which converge is.",
+              "question_raw": "<p>Plots of pressure as a function of temperature for gas thermometers containing different types and quantities of gas converge to the same point when extrapolated to zero pressure. The temperature value to which converge is.</p>",
+              "options": [
+                {
+                  "label": "A",
+                  "id": 27009,
+                  "text": "-212.00^oC",
+                  "is_correct": false
+                },
+                {
+                  "label": "B",
+                  "id": 27008,
+                  "text": "-273.15^oC",
+                  "is_correct": true
+                },
+                {
+                  "label": "C",
+                  "id": 27010,
+                  "text": "232.15^oC",
+                  "is_correct": false
+                },
+                {
+                  "label": "D",
+                  "id": 27011,
+                  "text": "32.15^oC",
+                  "is_correct": false
+                }
+              ],
+              "correct_option_ids": [
+                27008
+              ],
+              "correct_option_labels": [
+                "B"
+              ],
+              "correct_option_texts": [
+                "-273.15^oC"
+              ],
+              "explanation": "Absolute zero temp. = 0K"
+            },
+            {
+              "questionID": 17953,
+              "question": "Relation between Kelvin (T) and Celsius scales (t_C) is",
+              "question_raw": "<p>Relation between Kelvin (T) and Celsius scales (t<sub>C</sub>) is</p>",
+              "options": [
+                {
+                  "label": "A",
+                  "id": 27015,
+                  "text": "T = t_C + 32.15",
+                  "is_correct": false
+                },
+                {
+                  "label": "B",
+                  "id": 27012,
+                  "text": "T = t_C + 273.15",
+                  "is_correct": true
+                },
+                {
+                  "label": "C",
+                  "id": 27014,
+                  "text": "T = t_C + 180.15",
+                  "is_correct": false
+                },
+                {
+                  "label": "D",
+                  "id": 27013,
+                  "text": "T = t_C + 212.15",
+                  "is_correct": false
+                }
+              ],
+              "correct_option_ids": [
+                27012
+              ],
+              "correct_option_labels": [
+                "B"
+              ],
+              "correct_option_texts": [
+                "T = t_C + 273.15"
+              ],
+              "explanation": "${{{T_Z} - {T_L}} \\over {{T_U} - {T_L}}} = {{{T_C} - 0} \\over {100 - 0}} = {{{T_K} - 273.15} \\over {373.15 - 273.15}}$"
+            },
+            {
+              "questionID": 17954,
+              "question": "If the substance is in the form of a long rod, then for small change in temperature, $\\Delta {\\rm{T}}$, the fractional change in length, $\\frac {\\Delta l} {l}$, is",
+              "question_raw": "<p>If the substance is in the form of a long rod, then for small change in temperature, <span class=\"math-tex\">{tex}\\Delta {\\rm{T}}{/tex}</span>, the fractional change in length, <span class=\"math-tex\">{tex}\\frac {\\Delta l} {l}{/tex}</span>, is</p>",
+              "options": [
+                {
+                  "label": "A",
+                  "id": 27019,
+                  "text": "inversely proportional to log $\\Delta {\\rm{T}}$",
+                  "is_correct": false
+                },
+                {
+                  "label": "B",
+                  "id": 27018,
+                  "text": "directly proportional to log $\\Delta {\\rm{T}}$",
+                  "is_correct": false
+                },
+                {
+                  "label": "C",
+                  "id": 27017,
+                  "text": "inversely proportional to $\\Delta {\\rm{T}}$",
+                  "is_correct": false
+                },
+                {
+                  "label": "D",
+                  "id": 27016,
+                  "text": "directly proportional to $\\Delta {\\rm{T}}$",
+                  "is_correct": true
+                }
+              ],
+              "correct_option_ids": [
+                27016
+              ],
+              "correct_option_labels": [
+                "D"
+              ],
+              "correct_option_texts": [
+                "directly proportional to $\\Delta {\\rm{T}}$"
+              ],
+              "explanation": "$\\alpha=\\frac{\\Delta l}{l \\times \\Delta T}$\n$\\frac{\\Delta l}{l}=a \\Delta T$\nwhere $\\alpha$ is the temperature coefficient of linear expansion"
+            },
+            {
+              "questionID": 17955,
+              "question": "compared to glass copper expands:",
+              "question_raw": "<p>compared to glass copper expands:</p>",
+              "options": [
+                {
+                  "label": "A",
+                  "id": 27022,
+                  "text": "two times less",
+                  "is_correct": false
+                },
+                {
+                  "label": "B",
+                  "id": 27020,
+                  "text": "five times more",
+                  "is_correct": true
+                },
+                {
+                  "label": "C",
+                  "id": 27023,
+                  "text": "three times less",
+                  "is_correct": false
+                },
+                {
+                  "label": "D",
+                  "id": 27021,
+                  "text": "about the same",
+                  "is_correct": false
+                }
+              ],
+              "correct_option_ids": [
+                27020
+              ],
+              "correct_option_labels": [
+                "B"
+              ],
+              "correct_option_texts": [
+                "five times more"
+              ],
+              "explanation": "The coefficient of linear expansion is more for copper than that of glass."
+            },
+            {
+              "questionID": 17956,
+              "question": "If V is the initial volume, $\\Delta {\\rm{V}}$ the fractional change in volume of a substance for temperature change $\\Delta {\\rm{T}}$, the coefficient of volume expansion, ${\\gamma _{\\rm{V}}}$ is defined as:",
+              "question_raw": "<p>If V is the initial volume, <span class=\"math-tex\">{tex}\\Delta {\\rm{V}}{/tex}</span> the fractional change in volume of a substance for temperature change <span class=\"math-tex\">{tex}\\Delta {\\rm{T}}{/tex}</span>, the coefficient of volume expansion, <span class=\"math-tex\">{tex}{\\gamma _{\\rm{V}}}{/tex}</span> is defined as:</p>",
+              "options": [
+                {
+                  "label": "A",
+                  "id": 27024,
+                  "text": "$\\gamma_V=\\left(\\frac{\\Delta V}{V}\\right) \\frac{1}{\\Delta T}$",
+                  "is_correct": true
+                },
+                {
+                  "label": "B",
+                  "id": 27027,
+                  "text": "$\\gamma_V=\\left(\\frac{V}{2 V}\\right) \\frac{1}{T}$",
+                  "is_correct": false
+                },
+                {
+                  "label": "C",
+                  "id": 27026,
+                  "text": "$\\gamma_V=\\left(\\frac{2 V}{V}\\right) \\frac{1}{T}$",
+                  "is_correct": false
+                },
+                {
+                  "label": "D",
+                  "id": 27025,
+                  "text": "$\\gamma_V=\\left(\\frac{V}{V}\\right) \\frac{1}{2 T}$",
+                  "is_correct": false
+                }
+              ],
+              "correct_option_ids": [
+                27024
+              ],
+              "correct_option_labels": [
+                "A"
+              ],
+              "correct_option_texts": [
+                "$\\gamma_V=\\left(\\frac{\\Delta V}{V}\\right) \\frac{1}{\\Delta T}$"
+              ],
+              "explanation": "Increase in volume per unit original volume per Kelvin rise in temperature is called coefficient of volume expansion, $\\gamma_V=\\left(\\frac{\\Delta V}{V}\\right) \\frac{1}{\\Delta T}$"
+            },
+            {
+              "questionID": 17957,
+              "question": "Which of these materials has a low coefficient of volume expansion?",
+              "question_raw": "<p>Which of these materials has a low coefficient of volume expansion?</p>",
+              "options": [
+                {
+                  "label": "A",
+                  "id": 27029,
+                  "text": "water",
+                  "is_correct": false
+                },
+                {
+                  "label": "B",
+                  "id": 27028,
+                  "text": "pyrex glass",
+                  "is_correct": true
+                },
+                {
+                  "label": "C",
+                  "id": 27030,
+                  "text": "alcohol",
+                  "is_correct": false
+                },
+                {
+                  "label": "D",
+                  "id": 27031,
+                  "text": "paraffin",
+                  "is_correct": false
+                }
+              ],
+              "correct_option_ids": [
+                27028
+              ],
+              "correct_option_labels": [
+                "B"
+              ],
+              "correct_option_texts": [
+                "pyrex glass"
+              ],
+              "explanation": "Glass is a ceramic material made from silica. So that it has a lower coefficient of volume expansion in comparison to metal and liquid."
+            },
+            {
+              "questionID": 17958,
+              "question": "Which of these materials have high coefficients of volume expansion ${\\alpha _{\\rm{V}}}$?",
+              "question_raw": "<p>Which of these materials have high coefficients of volume expansion <span class=\"math-tex\">{tex}{\\alpha _{\\rm{V}}}{/tex}</span>?</p>",
+              "options": [
+                {
+                  "label": "A",
+                  "id": 27035,
+                  "text": "glass",
+                  "is_correct": false
+                },
+                {
+                  "label": "B",
+                  "id": 27034,
+                  "text": "invar",
+                  "is_correct": false
+                },
+                {
+                  "label": "C",
+                  "id": 27032,
+                  "text": "alcohol",
+                  "is_correct": true
+                },
+                {
+                  "label": "D",
+                  "id": 27033,
+                  "text": "pyrex glass",
+                  "is_correct": false
+                }
+              ],
+              "correct_option_ids": [
+                27032
+              ],
+              "correct_option_labels": [
+                "C"
+              ],
+              "correct_option_texts": [
+                "alcohol"
+              ],
+              "explanation": "Alcohol has a higher coefficient of volume expansion in comparison to glass and Invar."
+            },
+            {
+              "questionID": 17959,
+              "question": "expansion of water is called anomalous because:",
+              "question_raw": "<p>expansion of water is called anomalous because:</p>",
+              "options": [
+                {
+                  "label": "A",
+                  "id": 27036,
+                  "text": "it contracts on heating from 0^oC to 4^oC",
+                  "is_correct": true
+                },
+                {
+                  "label": "B",
+                  "id": 27037,
+                  "text": "it expands on heating from 0^oC to 4^oC",
+                  "is_correct": false
+                },
+                {
+                  "label": "C",
+                  "id": 27038,
+                  "text": "it contracts on cooling from 4^oC to 0^oC",
+                  "is_correct": false
+                },
+                {
+                  "label": "D",
+                  "id": 27039,
+                  "text": "it expands on cooling from 10^oC to 4^oC",
+                  "is_correct": false
+                }
+              ],
+              "correct_option_ids": [
+                27036
+              ],
+              "correct_option_labels": [
+                "A"
+              ],
+              "correct_option_texts": [
+                "it contracts on heating from 0^oC to 4^oC"
+              ],
+              "explanation": "Liquids expand on heating and contract on cooling at moderate temperatures. But water exhibits exceptional behaviour. When it is heated from 0^oC, it actually contracts rather than expanding, up to 4^oC. The volume of water is minimum at 4^oC. Beyond 4^oC, water starts expanding. This behavior of water between 0^oC and 4^oC is called the anomalous expansion of water."
+            },
+            {
+              "questionID": 17960,
+              "question": "Animal and plant life in lakes and ponds are not destroyed because:",
+              "question_raw": "<p>Animal and plant life in lakes and ponds are not destroyed because:</p>",
+              "options": [
+                {
+                  "label": "A",
+                  "id": 27042,
+                  "text": "water expands on heating at all temperatures",
+                  "is_correct": false
+                },
+                {
+                  "label": "B",
+                  "id": 27043,
+                  "text": "water contracts on cooling at all temperatures",
+                  "is_correct": false
+                },
+                {
+                  "label": "C",
+                  "id": 27040,
+                  "text": "freezing takes place at the top first and bottom layers are not frozen as temperature in bottom layers is more than zero",
+                  "is_correct": true
+                },
+                {
+                  "label": "D",
+                  "id": 27041,
+                  "text": "freezing takes place at the bottom first",
+                  "is_correct": false
+                }
+              ],
+              "correct_option_ids": [
+                27040
+              ],
+              "correct_option_labels": [
+                "C"
+              ],
+              "correct_option_texts": [
+                "freezing takes place at the top first and bottom layers are not frozen as temperature in bottom layers is more than zero"
+              ],
+              "explanation": "As and when water is cooled down to its freezing point the thickness T of the ice layer increases. The increase in thickness of ice decreases the rate of cooling of water and thus freezing process slows down."
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "testPaperID": 578,
+      "testPaperName": "Thermal Properties of Matter Test 02",
+      "is_paid": true,
+      "category_full_name": "CBSE > Class 11 > Physics > Thermal Properties of Matter",
+      "noOfQuestions": 15,
+      "has_answers": true,
+      "sections": [
+        {
+          "sectionName": "General",
+          "sectionID": null,
+          "questions": [
+            {
+              "questionID": 17961,
+              "question": "For an ideal gas the coefficient of volume expansion at constant pressure is:",
+              "question_raw": "<p>For an ideal gas the coefficient of volume expansion at constant pressure is:</p>",
+              "options": [
+                {
+                  "label": "A",
+                  "id": 27046,
+                  "text": "$\\frac{1}{2T}$; T is the temperature",
+                  "is_correct": false
+                },
+                {
+                  "label": "B",
+                  "id": 27047,
+                  "text": "$\\frac{1}{3T}$; T is the temperature",
+                  "is_correct": false
+                },
+                {
+                  "label": "C",
+                  "id": 27045,
+                  "text": "$\\frac{2}{T}$; T is the temperature",
+                  "is_correct": false
+                },
+                {
+                  "label": "D",
+                  "id": 27044,
+                  "text": "$\\frac{1}{T}$; T is the temperature",
+                  "is_correct": true
+                }
+              ],
+              "correct_option_ids": [
+                27044
+              ],
+              "correct_option_labels": [
+                "D"
+              ],
+              "correct_option_texts": [
+                "$\\frac{1}{T}$; T is the temperature"
+              ],
+              "explanation": "$\\gamma=\\frac{\\Delta V}{V \\Delta T}$\nPV = nRT\nV = $\\frac{n R T}{P}$\n$P \\Delta V=n R \\Delta T$\n$\\Delta V=\\frac{n R \\Delta T}{P}$\n$\\gamma=\\frac{\\frac{n R \\Delta T}{P}}{\\frac{n R T}{P}} \\times \\frac{1}{\\Delta T}$ = $\\frac{n R \\Delta T}{P} \\times \\frac{P}{n R T} \\times \\frac{1}{\\Delta T}=\\frac{1}{T}$"
+            },
+            {
+              "questionID": 17962,
+              "question": "The coefficient of volume expansion is n times coefficient of linear expansion where n equals:",
+              "question_raw": "<p>The coefficient of volume expansion is n times coefficient of linear expansion where n equals:</p>",
+              "options": [
+                {
+                  "label": "A",
+                  "id": 27048,
+                  "text": "3",
+                  "is_correct": true
+                },
+                {
+                  "label": "B",
+                  "id": 27049,
+                  "text": "4",
+                  "is_correct": false
+                },
+                {
+                  "label": "C",
+                  "id": 27051,
+                  "text": "5",
+                  "is_correct": false
+                },
+                {
+                  "label": "D",
+                  "id": 27050,
+                  "text": "2",
+                  "is_correct": false
+                }
+              ],
+              "correct_option_ids": [
+                27048
+              ],
+              "correct_option_labels": [
+                "A"
+              ],
+              "correct_option_texts": [
+                "3"
+              ],
+              "explanation": "$\\alpha = \\left( {{{\\Delta l} \\over l}} \\right){1 \\over {\\Delta T}}$ and $\\gamma = \\left( {{{\\Delta V} \\over V}} \\right){1 \\over {\\Delta T}}$ \nVolume V = L^3\nexpanded length = $L(1 + \\alpha \\Delta T)$ \nexpanded Volume = ${\\left[ {L(1 + \\alpha \\Delta T)} \\right]^3} = {L^3}(1 + {\\alpha ^2}\\Delta {T^2} + 2\\alpha \\Delta T)(1 + \\alpha \\Delta T)$ \nvery small term is neglected\nexpanded volume = $V(1 + 3\\alpha \\Delta T)$ \n$\\frac{\\Delta l}{l}=a \\Delta T$\n$\\gamma = \\left( {{{\\Delta V} \\over V}} \\right){1 \\over {\\Delta T}} = {{3\\alpha V\\Delta T} \\over V}{1 \\over {\\Delta T}}$ \n$ \\gamma = 3\\alpha$"
+            },
+            {
+              "questionID": 17963,
+              "question": "The coefficient of area expansion is n times of coefficient of linear expansion. where n equals",
+              "question_raw": "<p>The coefficient of area expansion is n times of coefficient of linear expansion. where n equals</p>",
+              "options": [
+                {
+                  "label": "A",
+                  "id": 27053,
+                  "text": "3",
+                  "is_correct": false
+                },
+                {
+                  "label": "B",
+                  "id": 27052,
+                  "text": "2",
+                  "is_correct": true
+                },
+                {
+                  "label": "C",
+                  "id": 27055,
+                  "text": "5",
+                  "is_correct": false
+                },
+                {
+                  "label": "D",
+                  "id": 27054,
+                  "text": "4",
+                  "is_correct": false
+                }
+              ],
+              "correct_option_ids": [
+                27052
+              ],
+              "correct_option_labels": [
+                "B"
+              ],
+              "correct_option_texts": [
+                "2"
+              ],
+              "explanation": "$\\alpha = \\left( {{{\\Delta l} \\over l}} \\right){1 \\over {\\Delta T}}$ and $\\beta = \\left( {{{\\Delta A} \\over A}} \\right){1 \\over {\\Delta T}}$ \narea A = L^2\nexpanded length = $L(1 + \\alpha \\Delta T)$ \nexpanded area = ${\\left[ {L(1 + \\alpha \\Delta T)} \\right]^2} $ = $ {L^2}(1 + {\\alpha ^2}\\Delta {T^2} + 2\\alpha \\Delta T)$ \n${\\alpha ^2}\\Delta {T^2}$ is very small\nexpanded area = $A(1 + 2\\alpha \\Delta T)$ \n$\\Delta A = 2\\alpha A\\Delta T$\n$\\beta=\\left(\\frac{\\Delta A}{A}\\right) \\frac{1}{\\Delta T}=\\frac{2 \\alpha A \\Delta T}{A} \\frac{1}{\\Delta T}$\n$\\beta=2 \\alpha$ \nSo that n = 2"
+            },
+            {
+              "questionID": 17964,
+              "question": "Thermal stress is stress-induced in solids:",
+              "question_raw": "<p>Thermal stress is stress-induced in solids:</p>",
+              "options": [
+                {
+                  "label": "A",
+                  "id": 27057,
+                  "text": "if thermal expansion is allowed by floating it’s ends",
+                  "is_correct": false
+                },
+                {
+                  "label": "B",
+                  "id": 27058,
+                  "text": "due to vibration of molecules",
+                  "is_correct": false
+                },
+                {
+                  "label": "C",
+                  "id": 27059,
+                  "text": "due to dropping in cold water",
+                  "is_correct": false
+                },
+                {
+                  "label": "D",
+                  "id": 27056,
+                  "text": "if thermal expansion is prevented by fixing its ends rigidly",
+                  "is_correct": true
+                }
+              ],
+              "correct_option_ids": [
+                27056
+              ],
+              "correct_option_labels": [
+                "D"
+              ],
+              "correct_option_texts": [
+                "if thermal expansion is prevented by fixing its ends rigidly"
+              ],
+              "explanation": "If temperature deformation is permitted to occur freely, no load or stress will be induced in the structure. In some cases where temperature deformation is not permitted, internal stress is created. The internal stress created is termed as thermal stress."
+            },
+            {
+              "questionID": 17965,
+              "question": "If m is the mass of a substance, $\\Delta {\\rm{Q}}$ the energy required to raise the temperature by $\\Delta {\\rm{T}}$ the specific heat is given by:",
+              "question_raw": "<p>If m is the mass of a substance, <span class=\"math-tex\">{tex}\\Delta {\\rm{Q}}{/tex}</span> the energy required to raise the temperature by <span class=\"math-tex\">{tex}\\Delta {\\rm{T}}{/tex}</span> the specific heat is given by:</p>",
+              "options": [
+                {
+                  "label": "A",
+                  "id": 27062,
+                  "text": "s = $\\Delta {\\rm{Q}}$.$\\Delta {\\rm{T}}$",
+                  "is_correct": false
+                },
+                {
+                  "label": "B",
+                  "id": 27060,
+                  "text": "$s=\\frac{1}{m} \\frac{Q}{\\Delta T}$",
+                  "is_correct": true
+                },
+                {
+                  "label": "C",
+                  "id": 27063,
+                  "text": "s = m$\\Delta {\\rm{Q}}$$\\cdot$$\\Delta {\\rm{T}}$",
+                  "is_correct": false
+                },
+                {
+                  "label": "D",
+                  "id": 27061,
+                  "text": "$\\mathrm{S}=\\frac{\\Delta \\mathrm{Q}}{\\Delta \\mathrm{T}}$",
+                  "is_correct": false
+                }
+              ],
+              "correct_option_ids": [
+                27060
+              ],
+              "correct_option_labels": [
+                "B"
+              ],
+              "correct_option_texts": [
+                "$s=\\frac{1}{m} \\frac{Q}{\\Delta T}$"
+              ],
+              "explanation": "The specific heat is the amount of heat per unit mass required to raise the temperature by one degree Celsius."
+            },
+            {
+              "questionID": 17966,
+              "question": "The latent heat of fusion is. (L_f)",
+              "question_raw": "<p>The latent heat of fusion is. (L<sub>f</sub>)</p>",
+              "options": [
+                {
+                  "label": "A",
+                  "id": 27065,
+                  "text": "the heat per unit mass required for changing a substance from liquid into solid, at the same temperature and pressure",
+                  "is_correct": false
+                },
+                {
+                  "label": "B",
+                  "id": 27067,
+                  "text": "the heat per unit mass required for changing a substance from solid into liquid, at high pressure and low temperature",
+                  "is_correct": false
+                },
+                {
+                  "label": "C",
+                  "id": 27066,
+                  "text": "the heat per unit mass required for changing a substance from solid into liquid, at high temperature and low pressure",
+                  "is_correct": false
+                },
+                {
+                  "label": "D",
+                  "id": 27064,
+                  "text": "the heat per unit mass required for changing a substance from solid into liquid, at the same temperature and pressure",
+                  "is_correct": true
+                }
+              ],
+              "correct_option_ids": [
+                27064
+              ],
+              "correct_option_labels": [
+                "D"
+              ],
+              "correct_option_texts": [
+                "the heat per unit mass required for changing a substance from solid into liquid, at the same temperature and pressure"
+              ],
+              "explanation": "The enthalpy of fusion of a substance, also known as (latent) heat of fusion, is the change in its enthalpy resulting from providing energy, typically heat, to a specific quantity of the substance to change its state from a solid to a liquid at constant pressure."
+            },
+            {
+              "questionID": 17967,
+              "question": "The latent heat of vaporization $\\left( {{{\\rm{L}}_{\\rm{v}}}} \\right)$ is:",
+              "question_raw": "<p>The latent heat of vaporization <span class=\"math-tex\">{tex}\\left( {{{\\rm{L}}_{\\rm{v}}}} \\right){/tex}</span> is:</p>",
+              "options": [
+                {
+                  "label": "A",
+                  "id": 27071,
+                  "text": "the heat per unit mass required to change a substance from liquid to the vapor state at high pressure and low temperature",
+                  "is_correct": false
+                },
+                {
+                  "label": "B",
+                  "id": 27068,
+                  "text": "the heat per unit mass required to change a substance from liquid to the vapor state without a change in the temperature and pressure.",
+                  "is_correct": true
+                },
+                {
+                  "label": "C",
+                  "id": 27069,
+                  "text": "the heat per unit mass required to change a substance from vapor to the liquid state without a change in the temperature and pressure.",
+                  "is_correct": false
+                },
+                {
+                  "label": "D",
+                  "id": 27070,
+                  "text": "the heat per unit mass required to change a substance from liquid to the vapor state, at high temperature and low pressure",
+                  "is_correct": false
+                }
+              ],
+              "correct_option_ids": [
+                27068
+              ],
+              "correct_option_labels": [
+                "B"
+              ],
+              "correct_option_texts": [
+                "the heat per unit mass required to change a substance from liquid to the vapor state without a change in the temperature and pressure."
+              ],
+              "explanation": "The latent heat of vaporization is actually the total amount of enthalpy (a kind of energy/heat) necessary to accomplish a phase change for a liquid or gas at the boiling/condensation point. Phase changes are generally considered at constant pressure, rather than constant volume."
+            },
+            {
+              "questionID": 17968,
+              "question": "In which mode of heat transfer no medium is required?",
+              "question_raw": "<p>In which mode of heat transfer no medium is required?</p>",
+              "options": [
+                {
+                  "label": "A",
+                  "id": 27075,
+                  "text": "none of the three",
+                  "is_correct": false
+                },
+                {
+                  "label": "B",
+                  "id": 27072,
+                  "text": "radiation",
+                  "is_correct": true
+                },
+                {
+                  "label": "C",
+                  "id": 27073,
+                  "text": "conduction",
+                  "is_correct": false
+                },
+                {
+                  "label": "D",
+                  "id": 27074,
+                  "text": "convection",
+                  "is_correct": false
+                }
+              ],
+              "correct_option_ids": [
+                27072
+              ],
+              "correct_option_labels": [
+                "B"
+              ],
+              "correct_option_texts": [
+                "radiation"
+              ],
+              "explanation": "Heat transfer through radiation takes place in the form of electromagnetic waves."
+            },
+            {
+              "questionID": 17969,
+              "question": "In which mode of heat transfer is there material movement?",
+              "question_raw": "<p>In which mode of heat transfer is there material movement?</p>",
+              "options": [
+                {
+                  "label": "A",
+                  "id": 27076,
+                  "text": "convection",
+                  "is_correct": true
+                },
+                {
+                  "label": "B",
+                  "id": 27078,
+                  "text": "radiation",
+                  "is_correct": false
+                },
+                {
+                  "label": "C",
+                  "id": 27077,
+                  "text": "conduction",
+                  "is_correct": false
+                },
+                {
+                  "label": "D",
+                  "id": 27079,
+                  "text": "emit",
+                  "is_correct": false
+                }
+              ],
+              "correct_option_ids": [
+                27076
+              ],
+              "correct_option_labels": [
+                "A"
+              ],
+              "correct_option_texts": [
+                "convection"
+              ],
+              "explanation": "Convection is the heat transfer due to the bulk movement of molecules within fluids."
+            },
+            {
+              "questionID": 17970,
+              "question": "If k is the thermal conductivity of the material of the bar of cross-section A whose ends are maintained at temperatures T_C and T_D, the rate of flow of heat H is:",
+              "question_raw": "<p>If k is the thermal conductivity of the material of the bar of cross-section A whose ends are maintained at temperatures T<sub>C</sub> and T<sub>D</sub>, the rate of flow of heat H is:</p>",
+              "options": [
+                {
+                  "label": "A",
+                  "id": 27082,
+                  "text": "$H=k A \\frac{T_C+T_D}{L}$",
+                  "is_correct": false
+                },
+                {
+                  "label": "B",
+                  "id": 27083,
+                  "text": "$H=k A \\frac{T_C+T_D}{2 L}$",
+                  "is_correct": false
+                },
+                {
+                  "label": "C",
+                  "id": 27081,
+                  "text": "$H=k A \\frac{T_C-T_D}{2 L}$",
+                  "is_correct": false
+                },
+                {
+                  "label": "D",
+                  "id": 27080,
+                  "text": "H = $k A \\frac{T_C-T_D}{L}$",
+                  "is_correct": true
+                }
+              ],
+              "correct_option_ids": [
+                27080
+              ],
+              "correct_option_labels": [
+                "D"
+              ],
+              "correct_option_texts": [
+                "H = $k A \\frac{T_C-T_D}{L}$"
+              ],
+              "explanation": "rate of flow of heat H depends on\nH $\\propto$ A\nH $\\propto$ $\\Delta$T\n$H \\propto \\frac{1}{L}$ \nhence $H \\propto \\frac{A\\Delta T}{L}$ \n$H = K\\frac{A\\Delta T}{L}$ \nK = thermal conductivity of the material"
+            },
+            {
+              "questionID": 17971,
+              "question": "If T_1 is the temperature of the surrounding medium and T_2 is the temperature of the body, then according to Newton’s Law of Cooling, rate of cooling of the body is:",
+              "question_raw": "<p>If T<sub>1&nbsp;</sub>is the temperature of the surrounding medium and T<sub>2</sub> is the temperature of the body, then according to Newton&rsquo;s Law of Cooling, rate of cooling of the body is:</p>",
+              "options": [
+                {
+                  "label": "A",
+                  "id": 27086,
+                  "text": "$\\frac{dQ}{dt} = - k({T_2} + {T_1})$",
+                  "is_correct": false
+                },
+                {
+                  "label": "B",
+                  "id": 27084,
+                  "text": "$\\frac{dQ} {dt} = - k({T_2} - {T_1})$",
+                  "is_correct": true
+                },
+                {
+                  "label": "C",
+                  "id": 27085,
+                  "text": "$\\frac{dQ} {dt} = k({T_2}^2 - {T_1}^2)$",
+                  "is_correct": false
+                },
+                {
+                  "label": "D",
+                  "id": 27087,
+                  "text": "$\\frac{dQ} {dt} = k({T_2}^2 + {T_1}^2)$",
+                  "is_correct": false
+                }
+              ],
+              "correct_option_ids": [
+                27084
+              ],
+              "correct_option_labels": [
+                "B"
+              ],
+              "correct_option_texts": [
+                "$\\frac{dQ} {dt} = - k({T_2} - {T_1})$"
+              ],
+              "explanation": "Newton's law of cooling states that the rate of heat loss of a body is directly proportional to the difference in the temperatures between the body and its surroundings."
+            },
+            {
+              "questionID": 17972,
+              "question": "The average kinetic energy of the molecules in a substance is most closely associated with:",
+              "question_raw": "<p>The average kinetic energy of the molecules in a substance is most closely associated with:</p>",
+              "options": [
+                {
+                  "label": "A",
+                  "id": 27091,
+                  "text": "Contraction",
+                  "is_correct": false
+                },
+                {
+                  "label": "B",
+                  "id": 27089,
+                  "text": "heat",
+                  "is_correct": false
+                },
+                {
+                  "label": "C",
+                  "id": 27088,
+                  "text": "temperature",
+                  "is_correct": true
+                },
+                {
+                  "label": "D",
+                  "id": 27090,
+                  "text": "expansion",
+                  "is_correct": false
+                }
+              ],
+              "correct_option_ids": [
+                27088
+              ],
+              "correct_option_labels": [
+                "C"
+              ],
+              "correct_option_texts": [
+                "temperature"
+              ],
+              "explanation": "$E = {3 \\over 2}kT$"
+            },
+            {
+              "questionID": 17973,
+              "question": "The Celsius temperature at absolute zero is equal to:",
+              "question_raw": "<p>The Celsius temperature at absolute zero is equal to:</p>",
+              "options": [
+                {
+                  "label": "A",
+                  "id": 27093,
+                  "text": "100^o C",
+                  "is_correct": false
+                },
+                {
+                  "label": "B",
+                  "id": 27094,
+                  "text": "-100^o C",
+                  "is_correct": false
+                },
+                {
+                  "label": "C",
+                  "id": 27095,
+                  "text": "273^o C",
+                  "is_correct": false
+                },
+                {
+                  "label": "D",
+                  "id": 27092,
+                  "text": "-273^o C",
+                  "is_correct": true
+                }
+              ],
+              "correct_option_ids": [
+                27092
+              ],
+              "correct_option_labels": [
+                "D"
+              ],
+              "correct_option_texts": [
+                "-273^o C"
+              ],
+              "explanation": "${{{T_C} - 0} \\over {100 - 0}} = {{{T_K} - 273.15} \\over {373.15 - 273.15}}$"
+            },
+            {
+              "questionID": 17974,
+              "question": "Which of the following is true of the Celsius and Kelvin temperature scales?",
+              "question_raw": "<p>Which of the following is true of the Celsius and Kelvin temperature scales?</p>",
+              "options": [
+                {
+                  "label": "A",
+                  "id": 27097,
+                  "text": "Both the Celsius and Kelvin temperature scales have negative values.",
+                  "is_correct": false
+                },
+                {
+                  "label": "B",
+                  "id": 27099,
+                  "text": "A Kelvin degree is smaller in size than a Celsius degree.",
+                  "is_correct": false
+                },
+                {
+                  "label": "C",
+                  "id": 27098,
+                  "text": "A Kelvin degree is larger in size than a Celsius degree.",
+                  "is_correct": false
+                },
+                {
+                  "label": "D",
+                  "id": 27096,
+                  "text": "A Kelvin degree and a Celsius degree are equivalent in size.",
+                  "is_correct": true
+                }
+              ],
+              "correct_option_ids": [
+                27096
+              ],
+              "correct_option_labels": [
+                "D"
+              ],
+              "correct_option_texts": [
+                "A Kelvin degree and a Celsius degree are equivalent in size."
+              ],
+              "explanation": "A change of one degree Kelvin or one degree Celsius means an equal change in temperature."
+            },
+            {
+              "questionID": 17975,
+              "question": "In general, when a solid is heated, it:",
+              "question_raw": "<p>In general, when a solid is heated, it:</p>",
+              "options": [
+                {
+                  "label": "A",
+                  "id": 27103,
+                  "text": "contracts inversely proportionally to the change in temperature",
+                  "is_correct": false
+                },
+                {
+                  "label": "B",
+                  "id": 27100,
+                  "text": "expands proportionally to the change in temperature",
+                  "is_correct": true
+                },
+                {
+                  "label": "C",
+                  "id": 27102,
+                  "text": "expands inversely proportionally to the change in temperature",
+                  "is_correct": false
+                },
+                {
+                  "label": "D",
+                  "id": 27101,
+                  "text": "contracts proportionally to the change in temperature",
+                  "is_correct": false
+                }
+              ],
+              "correct_option_ids": [
+                27100
+              ],
+              "correct_option_labels": [
+                "B"
+              ],
+              "correct_option_texts": [
+                "expands proportionally to the change in temperature"
+              ],
+              "explanation": "$\\Delta l=\\beta V \\Delta T $\n$\\Delta A=\\alpha V \\Delta T$\n$\\Delta V=\\gamma V \\Delta T$"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "testPaperID": 579,
+      "testPaperName": "Thermal Properties of Matter Test 03",
+      "is_paid": true,
+      "category_full_name": "CBSE > Class 11 > Physics > Thermal Properties of Matter",
+      "noOfQuestions": 15,
+      "has_answers": true,
+      "sections": [
+        {
+          "sectionName": "General",
+          "sectionID": null,
+          "questions": [
+            {
+              "questionID": 17976,
+              "question": "A brass spring has a spring constant k. When the spring is heated, the spring constant will:",
+              "question_raw": "<p>A brass spring has a spring constant k. When the spring is heated, the spring constant will:</p>",
+              "options": [
+                {
+                  "label": "A",
+                  "id": 27106,
+                  "text": "remain the same",
+                  "is_correct": false
+                },
+                {
+                  "label": "B",
+                  "id": 27105,
+                  "text": "increase",
+                  "is_correct": false
+                },
+                {
+                  "label": "C",
+                  "id": 27107,
+                  "text": "increase, then decrease",
+                  "is_correct": false
+                },
+                {
+                  "label": "D",
+                  "id": 27104,
+                  "text": "decrease",
+                  "is_correct": true
+                }
+              ],
+              "correct_option_ids": [
+                27104
+              ],
+              "correct_option_labels": [
+                "D"
+              ],
+              "correct_option_texts": [
+                "decrease"
+              ],
+              "explanation": "on heating spring will be expand\n$k \\propto {1 \\over l}$"
+            },
+            {
+              "questionID": 17977,
+              "question": "Which of the following statement(s) is/are true?\n Every substance contains heat.\n For heat to flow between two substances, they must be at different temperatures.\n The internal energy of a substance is equal to the kinetic energy of the molecules in the substance.",
+              "question_raw": "<p>Which of the following statement(s) is/are true?</p>\n\n<ol start=\"1\" style=\"list-style-type: upper-roman;\">\n\t<li>Every substance contains heat.</li>\n\t<li>For heat to flow between two substances, they must be at different temperatures.</li>\n\t<li>The internal energy of a substance is equal to the kinetic energy of the molecules in the substance.</li>\n</ol>",
+              "options": [
+                {
+                  "label": "A",
+                  "id": 27108,
+                  "text": "II only",
+                  "is_correct": true
+                },
+                {
+                  "label": "B",
+                  "id": 27110,
+                  "text": "II and III only",
+                  "is_correct": false
+                },
+                {
+                  "label": "C",
+                  "id": 27111,
+                  "text": "III only",
+                  "is_correct": false
+                },
+                {
+                  "label": "D",
+                  "id": 27109,
+                  "text": "I and II only",
+                  "is_correct": false
+                }
+              ],
+              "correct_option_ids": [
+                27108
+              ],
+              "correct_option_labels": [
+                "A"
+              ],
+              "correct_option_texts": [
+                "II only"
+              ],
+              "explanation": "Heat is the form of energy that is transferred from one body to another as the result of a difference in temperature."
+            },
+            {
+              "questionID": 17978,
+              "question": "A washer consists of a 3.00 cm diameter circle of sheet metal with a 1.00 cm diameter circular hole in the middle. If the metal washer is heated until the diameter of the washer is 3.03 cm, then the diameter of the hole will be:",
+              "question_raw": "<p>A washer consists of a 3.00 cm diameter circle of sheet metal with a 1.00 cm diameter circular hole in the middle. If the metal washer is heated until the diameter of the washer is 3.03 cm, then the diameter of the hole will be:</p>",
+              "options": [
+                {
+                  "label": "A",
+                  "id": 27115,
+                  "text": "0.98 cm",
+                  "is_correct": false
+                },
+                {
+                  "label": "B",
+                  "id": 27114,
+                  "text": "0.97 cm",
+                  "is_correct": false
+                },
+                {
+                  "label": "C",
+                  "id": 27113,
+                  "text": "1.00 cm",
+                  "is_correct": false
+                },
+                {
+                  "label": "D",
+                  "id": 27112,
+                  "text": "1.01 cm",
+                  "is_correct": true
+                }
+              ],
+              "correct_option_ids": [
+                27112
+              ],
+              "correct_option_labels": [
+                "D"
+              ],
+              "correct_option_texts": [
+                "1.01 cm"
+              ],
+              "explanation": "$\\alpha=\\frac{\\Delta l}{l \\Delta T}$\n$\\frac{0.03}{3 \\Delta T}=\\frac{\\Delta l}{1 \\Delta T}$\n$\\Delta l$ = 0.01 cm\ndiameter of hole = 1 + 0.01 = 1.01 cm"
+            },
+            {
+              "questionID": 17979,
+              "question": "Find the wrong statement about the specific heat of a material:",
+              "question_raw": "<p>Find the wrong statement about the specific heat of a material:</p>",
+              "options": [
+                {
+                  "label": "A",
+                  "id": 27117,
+                  "text": "Has units as J/kg-K.",
+                  "is_correct": false
+                },
+                {
+                  "label": "B",
+                  "id": 27116,
+                  "text": "Is extensive property",
+                  "is_correct": true
+                },
+                {
+                  "label": "C",
+                  "id": 27118,
+                  "text": "Constant for a material",
+                  "is_correct": false
+                },
+                {
+                  "label": "D",
+                  "id": 27119,
+                  "text": "Heat capacity per unit mass",
+                  "is_correct": false
+                }
+              ],
+              "correct_option_ids": [
+                27116
+              ],
+              "correct_option_labels": [
+                "B"
+              ],
+              "correct_option_texts": [
+                "Is extensive property"
+              ],
+              "explanation": "extensive properties (i.e. mass) are dependent upon the amount of a substance, while intensive properties (i.e. density) are independent of quantity."
+            },
+            {
+              "questionID": 17980,
+              "question": "Molar Specific Heat capacity has units of:",
+              "question_raw": "<p>Molar Specific Heat capacity has units of:</p>",
+              "options": [
+                {
+                  "label": "A",
+                  "id": 27122,
+                  "text": "J.ohm/sec. K^2",
+                  "is_correct": false
+                },
+                {
+                  "label": "B",
+                  "id": 27120,
+                  "text": "J/mol.K",
+                  "is_correct": true
+                },
+                {
+                  "label": "C",
+                  "id": 27121,
+                  "text": "J/kg.K",
+                  "is_correct": false
+                },
+                {
+                  "label": "D",
+                  "id": 27123,
+                  "text": "W/m.K",
+                  "is_correct": false
+                }
+              ],
+              "correct_option_ids": [
+                27120
+              ],
+              "correct_option_labels": [
+                "B"
+              ],
+              "correct_option_texts": [
+                "J/mol.K"
+              ],
+              "explanation": "Q = nC$\\Delta $T\nC = $Q\\over{n\\Delta T}$"
+            },
+            {
+              "questionID": 17981,
+              "question": "Thermal conductivity has units of:",
+              "question_raw": "<p>Thermal conductivity has units of:</p>",
+              "options": [
+                {
+                  "label": "A",
+                  "id": 27126,
+                  "text": "J m^-1 K^-1",
+                  "is_correct": false
+                },
+                {
+                  "label": "B",
+                  "id": 27127,
+                  "text": "J kg^-1 K^-1",
+                  "is_correct": false
+                },
+                {
+                  "label": "C",
+                  "id": 27124,
+                  "text": "Wm^-1 K^-1",
+                  "is_correct": true
+                },
+                {
+                  "label": "D",
+                  "id": 27125,
+                  "text": "J ohm sec^-2 K^-2",
+                  "is_correct": false
+                }
+              ],
+              "correct_option_ids": [
+                27124
+              ],
+              "correct_option_labels": [
+                "C"
+              ],
+              "correct_option_texts": [
+                "Wm^-1 K^-1"
+              ],
+              "explanation": "$H=\\frac{K A \\Delta \\theta}{l}$\n$K=\\frac{H l}{A \\Delta \\theta}$\nk- coefficient of thermal conductivity,\nH - heat flowing per unit time,\nl - length of solid material,\nA- area of cross section, $\\Delta \\theta$ - temperature difference"
+            },
+            {
+              "questionID": 17982,
+              "question": "The triple points of neon are 24.57 K. Express this temperature on the Celsius and Fahrenheit scales:",
+              "question_raw": "<p>The triple points of neon are 24.57 K. Express this temperature on the Celsius and Fahrenheit scales:</p>",
+              "options": [
+                {
+                  "label": "A",
+                  "id": 27129,
+                  "text": "–238.58^o C = – 315.44^o F",
+                  "is_correct": false
+                },
+                {
+                  "label": "B",
+                  "id": 27128,
+                  "text": "–248.58^o C = – 415.44^o F",
+                  "is_correct": true
+                },
+                {
+                  "label": "C",
+                  "id": 27130,
+                  "text": "–208.58^o C = – 355.44^o F",
+                  "is_correct": false
+                },
+                {
+                  "label": "D",
+                  "id": 27131,
+                  "text": "–218.58^o C = – 335.44^o F",
+                  "is_correct": false
+                }
+              ],
+              "correct_option_ids": [
+                27128
+              ],
+              "correct_option_labels": [
+                "B"
+              ],
+              "correct_option_texts": [
+                "–248.58^o C = – 415.44^o F"
+              ],
+              "explanation": "$\\frac{T_{C}-0}{100-0}=\\frac{T_{F}-32}{212-32}=\\frac{T_{K}-273.15}{373.15-273.15}$\n$\\frac{T_{C}}{100}=\\frac{T_{F}-32}{180}=\\frac{T_{K}-273.15}{100}$\nT_K = 24.57K\nafter solving \nT_C = –248.58^o C\nT_F = – 415.44^o F"
+            },
+            {
+              "questionID": 17983,
+              "question": "The triple points of carbon dioxide are 216.55 K. Express this temperature on the Celsius and Fahrenheit scales:",
+              "question_raw": "<p>The triple points of carbon dioxide are 216.55 K. Express this temperature on the Celsius and Fahrenheit scales:</p>",
+              "options": [
+                {
+                  "label": "A",
+                  "id": 27135,
+                  "text": "– 86.60 ^oC = – 150.88 ^oF",
+                  "is_correct": false
+                },
+                {
+                  "label": "B",
+                  "id": 27132,
+                  "text": "– 56.60 ^oC = – 69.88 ^oF",
+                  "is_correct": true
+                },
+                {
+                  "label": "C",
+                  "id": 27133,
+                  "text": "– 66.60 ^oC = – 99.88 ^oF",
+                  "is_correct": false
+                },
+                {
+                  "label": "D",
+                  "id": 27134,
+                  "text": "– 76.60 ^oC = – 120.88 ^oF",
+                  "is_correct": false
+                }
+              ],
+              "correct_option_ids": [
+                27132
+              ],
+              "correct_option_labels": [
+                "B"
+              ],
+              "correct_option_texts": [
+                "– 56.60 ^oC = – 69.88 ^oF"
+              ],
+              "explanation": "${{{T_C} - 0} \\over {100 - 0}} = {{{T_F} - 32} \\over {212 - 32}} = {{{T_K} - 273.15} \\over {373.15 - 273.15}}$\n$ {{{T_C}} \\over {100}} = {{{T_F} - 32} \\over {180}} = {{{T_K} - 273.15} \\over {100}}$\nT_K = 216.55K\nafter solving\nT_C = – 56.60 ^oC\nT_F = – 69.88 ^oF"
+            },
+            {
+              "questionID": 17984,
+              "question": "Two absolute scales A and B have triple points of water defined to be 200 A and 350 B. What is the relation between T_A and T_B?",
+              "question_raw": "<p>Two absolute scales A and B have triple points of water defined to be 200 A and 350 B. What is the relation between T<sub>A</sub> and T<sub>B</sub>?</p>",
+              "options": [
+                {
+                  "label": "A",
+                  "id": 27136,
+                  "text": "T_A = ($\\frac{4}{7}$) T_B",
+                  "is_correct": true
+                },
+                {
+                  "label": "B",
+                  "id": 27139,
+                  "text": "T_A = ($\\frac{5}{9}$) T_B",
+                  "is_correct": false
+                },
+                {
+                  "label": "C",
+                  "id": 27137,
+                  "text": "T_A = ($\\frac{3}{7}$) T_B",
+                  "is_correct": false
+                },
+                {
+                  "label": "D",
+                  "id": 27138,
+                  "text": "T_A = ($\\frac{2}{7}$) T_B",
+                  "is_correct": false
+                }
+              ],
+              "correct_option_ids": [
+                27136
+              ],
+              "correct_option_labels": [
+                "A"
+              ],
+              "correct_option_texts": [
+                "T_A = ($\\frac{4}{7}$) T_B"
+              ],
+              "explanation": "for any temperature scale \n$\\frac{X}{X_{T r}}$ = const.\n$\\frac{T_{A}}{200}=\\frac{T_{B}}{350}$\n$T_{A}=\\frac{4}{7} T_{B}$"
+            },
+            {
+              "questionID": 17985,
+              "question": "The electrical resistance in ohms of a certain thermometer varies with temperature according to the approximate law: R = R$_{\\rm{o}}$ [1 + $\\alpha $ (T – T$_{\\rm{o}}$ )] The resistance is 101.6 $\\Omega $ at the triple-point of water 273.16 K, and 165.5 $\\Omega $ at the normal melting point of lead (600.5 K). What is the temperature when the resistance is 123.4 $\\Omega $?",
+              "question_raw": "<p>The electrical resistance in ohms of a certain thermometer varies with temperature according to the approximate law: R = R<span class=\"math-tex\">{tex}_{\\rm{o}}{/tex}</span> [1 + <span class=\"math-tex\">{tex}\\alpha {/tex}</span> (T &ndash; T<span class=\"math-tex\">{tex}_{\\rm{o}}{/tex}</span> )] The resistance is 101.6 <span class=\"math-tex\">{tex}\\Omega {/tex}</span> at the triple-point of water 273.16 K, and 165.5 <span class=\"math-tex\">{tex}\\Omega {/tex}</span> at the normal melting point of lead (600.5 K). What is the temperature when the resistance is 123.4 <span class=\"math-tex\">{tex}\\Omega {/tex}</span>?</p>",
+              "options": [
+                {
+                  "label": "A",
+                  "id": 27140,
+                  "text": "384.8 K",
+                  "is_correct": true
+                },
+                {
+                  "label": "B",
+                  "id": 27143,
+                  "text": "404.8 K",
+                  "is_correct": false
+                },
+                {
+                  "label": "C",
+                  "id": 27142,
+                  "text": "344.8 K",
+                  "is_correct": false
+                },
+                {
+                  "label": "D",
+                  "id": 27141,
+                  "text": "364.8 K",
+                  "is_correct": false
+                }
+              ],
+              "correct_option_ids": [
+                27140
+              ],
+              "correct_option_labels": [
+                "A"
+              ],
+              "correct_option_texts": [
+                "384.8 K"
+              ],
+              "explanation": "It is given that:\nR = R_0 [1 + $\\alpha $ (T - T_0)] …(i)\nwhere,\nR_0 and T_0 are the initial resistance and temperature respectively\nR and T are the final resistance and temperature respectively \n$\\alpha $ is a constant\nAt the triple point of water, T_0 = 273.15 K\nResistance of lead, R_0 = 101.6 $\\Omega $\nAt normal melting point of lead, T = 600.5 K\nThe resistance of lead, R = 165.5 $\\Omega $\nSubstituting these values in equation (i), we get:\nR = R_o [1 + $\\alpha $ (T - T_o)]\n165.5 = 101.6 [ 1 + $\\alpha $(600.5 - 273.15) ] \n1.629 = 1 + $\\alpha $(327.35) \n∴ $\\alpha $ = $0.629 \\over 327.35$ = 1.92 $\\times$ 10^-3 K^-1\nFor resistance, R_1 = 123.4 $\\Omega $\nR_1 = R_0 [1 + $\\alpha$ (T - T_0)]\nwhere,\nT is the temperature when the resistance of lead is 123.4 $\\Omega $\n123.4 = 101.6 [ 1 + 1.92 $\\times$ 10^-3( T - 273.15) ]\nSolving for T, we get\nT = 384.8 K."
+            },
+            {
+              "questionID": 17986,
+              "question": "A steel tape 1m long is correctly calibrated for a temperature of 27.0^oC. The length of a steel rod measured by this tape is found to be 63.0 cm on a hot day when the temperature is 45.0 ^oC. What is the actual length of the steel rod on that day? Coefficient of linear expansion of steel = 1.20 $ \\times $ 10^−5 K^−1.",
+              "question_raw": "<p>A steel tape 1m long is correctly calibrated for a temperature of 27.0<sup>o</sup>C. The length of a steel rod measured by this tape is found to be 63.0 cm on a hot day when the temperature is 45.0 <sup>o</sup>C. What is the actual length of the steel rod on that day? Coefficient of linear expansion of steel = 1.20 <span class=\"math-tex\">{tex} \\times {/tex}</span>&nbsp;10<sup>&minus;5</sup> K<sup>&minus;1</sup>.</p>",
+              "options": [
+                {
+                  "label": "A",
+                  "id": 27146,
+                  "text": "63.0116 cm",
+                  "is_correct": false
+                },
+                {
+                  "label": "B",
+                  "id": 27144,
+                  "text": "63.0136 cm",
+                  "is_correct": true
+                },
+                {
+                  "label": "C",
+                  "id": 27147,
+                  "text": "63.0146 cm",
+                  "is_correct": false
+                },
+                {
+                  "label": "D",
+                  "id": 27145,
+                  "text": "63.0126 cm",
+                  "is_correct": false
+                }
+              ],
+              "correct_option_ids": [
+                27144
+              ],
+              "correct_option_labels": [
+                "B"
+              ],
+              "correct_option_texts": [
+                "63.0136 cm"
+              ],
+              "explanation": "$\\Delta l = \\alpha l\\Delta T $ = 1.20 $\\times$ 10^−5 $\\times$ 63 $\\times$ 18 = 0.0136cm\nfinal length = $l +\\Delta l$ = 63.0136cm"
+            },
+            {
+              "questionID": 17987,
+              "question": "A large steel wheel is to be fitted on to a shaft of the same material. At 27 $^\\circ $C, the outer diameter of the shaft is 8.70 cm and the diameter of the central hole in the wheel is 8.69 cm. The shaft is cooled using ‘dry ice’. At what temperature of the shaft does the wheel slip on the shaft? Assume the coefficient of linear expansion of the steel to be constant over the required temperature range: ${\\alpha _{{\\rm{steel}}}}$ = 1.20 $ \\times $ 10^−5 K^−1.",
+              "question_raw": "<p>A large steel wheel is to be fitted on to a shaft of the same material. At 27 <span class=\"math-tex\">{tex}^\\circ {/tex}</span>C, the outer diameter of the shaft is 8.70 cm and the diameter of the central hole in the wheel is 8.69 cm. The shaft is cooled using &lsquo;dry ice&rsquo;. At what temperature of the shaft does the wheel slip on the shaft? Assume the coefficient of linear expansion of the steel to be constant over the required temperature range: <span class=\"math-tex\">{tex}{\\alpha _{{\\rm{steel}}}}{/tex}</span> = 1.20 <span class=\"math-tex\">{tex} \\times {/tex}</span>&nbsp;10<sup>&minus;5</sup> K<sup>&minus;1</sup>.</p>",
+              "options": [
+                {
+                  "label": "A",
+                  "id": 27148,
+                  "text": "– 69 ^oC",
+                  "is_correct": true
+                },
+                {
+                  "label": "B",
+                  "id": 27150,
+                  "text": "– 79 ^oC",
+                  "is_correct": false
+                },
+                {
+                  "label": "C",
+                  "id": 27151,
+                  "text": "– 89 ^oC",
+                  "is_correct": false
+                },
+                {
+                  "label": "D",
+                  "id": 27149,
+                  "text": "– 59 ^oC",
+                  "is_correct": false
+                }
+              ],
+              "correct_option_ids": [
+                27148
+              ],
+              "correct_option_labels": [
+                "A"
+              ],
+              "correct_option_texts": [
+                "– 69 ^oC"
+              ],
+              "explanation": "$\\alpha=\\frac{\\Delta l}{l \\Delta T}$\n$\\Delta T=\\frac{\\Delta l}{l \\alpha}=\\frac{0.01}{8.70 \\times 1.2 \\times 10^{-5}}=96 C^{\\circ}$\nfinal temp. = 27 − 96 = −69^oC"
+            },
+            {
+              "questionID": 17988,
+              "question": "A hole is drilled in a copper sheet. The diameter of the hole is 4.24 cm at 27.0^oC. What is the change in the diameter of the hole when the sheet is heated to 227^oC? Coefficient of linear expansion of copper = 1.70 $ \\times $ 10^-5 K^–1.",
+              "question_raw": "<p>A hole is drilled in a copper sheet. The diameter of the hole is 4.24 cm at 27.0<sup>o</sup>C. What is the change in the diameter of the hole when the sheet is heated to 227<sup>o</sup>C? Coefficient of linear expansion of copper = 1.70 <span class=\"math-tex\">{tex} \\times {/tex}</span> 10<sup>-5</sup> K<sup>&ndash;1</sup>.</p>",
+              "options": [
+                {
+                  "label": "A",
+                  "id": 27154,
+                  "text": "1.24 $\\times$ 10^−2 cm.",
+                  "is_correct": false
+                },
+                {
+                  "label": "B",
+                  "id": 27153,
+                  "text": "1.34 $\\times$ 10^−2 cm.",
+                  "is_correct": false
+                },
+                {
+                  "label": "C",
+                  "id": 27152,
+                  "text": "1.44 $\\times$ 10^−2 cm.",
+                  "is_correct": true
+                },
+                {
+                  "label": "D",
+                  "id": 27155,
+                  "text": "1.54 $\\times$ 10^−2 cm.",
+                  "is_correct": false
+                }
+              ],
+              "correct_option_ids": [
+                27152
+              ],
+              "correct_option_labels": [
+                "C"
+              ],
+              "correct_option_texts": [
+                "1.44 $\\times$ 10^−2 cm."
+              ],
+              "explanation": "Change in diameter\n$\\Delta l = \\alpha l\\Delta T $\n= 1.70 $\\times$ 10^−5 $\\times$ 4.24 $\\times$ (227 − 27) = 1.44 $\\times$10^−2 cm"
+            },
+            {
+              "questionID": 17989,
+              "question": "A brass wire 1.8 m long at 27 ^oC is held taut with little tension between two rigid supports. If the wire is cooled to a temperature of –39 $^\\circ $C, what is the tension developed in the wire, if its diameter is 2.0 mm? Co-efficient of linear expansion of brass = 2.0 $ \\times $ 10^−5 K^−1; Young’s modulus of brass = 0.91 $ \\times $ 10^11 Pa.",
+              "question_raw": "<p>A brass wire 1.8 m long at 27 <sup>o</sup>C is held taut with little tension between two rigid supports. If the wire is cooled to a temperature of &ndash;39 <span class=\"math-tex\">{tex}^\\circ {/tex}</span>C, what is the tension developed in the wire, if its diameter is 2.0 mm? Co-efficient of linear expansion of brass = 2.0 <span class=\"math-tex\">{tex} \\times {/tex}</span>&nbsp;10<sup>&minus;5</sup> K<sup>&minus;1</sup>; Young&rsquo;s modulus of brass = 0.91 <span class=\"math-tex\">{tex} \\times {/tex}</span>&nbsp;10<sup>11 </sup>Pa.</p>",
+              "options": [
+                {
+                  "label": "A",
+                  "id": 27158,
+                  "text": "3.4 $\\times$ 10^2 N",
+                  "is_correct": false
+                },
+                {
+                  "label": "B",
+                  "id": 27159,
+                  "text": "3.2 $\\times$ 10^2 N",
+                  "is_correct": false
+                },
+                {
+                  "label": "C",
+                  "id": 27156,
+                  "text": "3.8 $\\times$ 10^2 N",
+                  "is_correct": true
+                },
+                {
+                  "label": "D",
+                  "id": 27157,
+                  "text": "3.6 $\\times$ 10^2 N",
+                  "is_correct": false
+                }
+              ],
+              "correct_option_ids": [
+                27156
+              ],
+              "correct_option_labels": [
+                "C"
+              ],
+              "correct_option_texts": [
+                "3.8 $\\times$ 10^2 N"
+              ],
+              "explanation": "Initial temperature, T_1 = 27^oC\nLength of the brass wire at T_1, l = 1.8 m\nFinal temperature, T_2 = –39^oC\nDiameter of the wire, d = 2.0 mm = 2 $\\times$ 10^–3 m\nTension developed in the wire = F\nCoefficient of linear expansion of brass, α = 2.0 $\\times$ 10^–5 K^–1\nYoung’s modulus of brass, Y = 0.91 $\\times$ 10^11 Pa\nYoung’s modulus is given by the relation:\nγ = $Stress \\over Strain$ = ${{F\\over A} \\over {\\Delta L\\over L}}$\n$\\Delta L = {{FL} \\over {YA}}$ ....\nWhere,\nF = Tension developed in the wire \nA = Area of a cross-section of the wire. \n$\\Delta L$ = Change in the length, given by the relation:\n$\\Delta L = \\alpha L({T_2} - {T_1})$ … (ii)\nEquating equations (i) and (ii), we get:\n$\\alpha L\\left(T_{2}-T_{1}\\right)=\\frac{F L}{Y A}$\n$\\alpha L\\left(T_{2}-T_{1}\\right)=\\frac{F L}{Y \\pi\\left(\\frac{d}{2}\\right)^{2}}$\n$F=\\alpha\\left(T_{2}-T_{1}\\right) Y \\pi\\left(\\frac{d}{2}\\right)^{2}$\nF = 2 $\\times$ 10^-5 $\\times$ (-39 - 27) $\\times$ 3.14 $\\times$ 0.91 $\\times$ 10^11 $\\times$ ($2 \\times 10^{-3} \\over 2$ )^2\n= -3.8 $\\times$ 10^2 N\n(The negative sign indicates that the tension is directed inward.)\nHence, the tension developed in the wire is 3.8 $\\times$10^2 N."
+            },
+            {
+              "questionID": 17990,
+              "question": "A brass rod of length 50 cm and diameter 3.0 mm is joined to a steel rod of the same length and diameter. What is the change in length of the combined rod at 250 $^\\circ $C, if the original lengths are at 40.0 $^\\circ $C? The ends of the rod are free to expand (Co-efficient of linear expansion of brass = 2.0 $ \\times $ 10^−5 K^−1, steel = 1.2 $ \\times $ 10^−5 K^−1).",
+              "question_raw": "<p>A brass rod of length 50 cm and diameter 3.0 mm is joined to a steel rod of the same length and diameter. What is the change in length of the combined rod at 250 <span class=\"math-tex\">{tex}^\\circ {/tex}</span>C, if the original lengths are at 40.0 <span class=\"math-tex\">{tex}^\\circ {/tex}</span>C? The ends of the rod are free to expand (Co-efficient of linear expansion of brass = 2.0 <span class=\"math-tex\">{tex} \\times {/tex}</span>&nbsp;10<sup>&minus;5</sup> K<sup>&minus;1</sup>, steel = 1.2 <span class=\"math-tex\">{tex} \\times {/tex}</span>&nbsp;10<sup>&minus;5</sup> K<sup>&minus;1</sup>).</p>",
+              "options": [
+                {
+                  "label": "A",
+                  "id": 27163,
+                  "text": "0.42 cm.",
+                  "is_correct": false
+                },
+                {
+                  "label": "B",
+                  "id": 27160,
+                  "text": "0.34 cm.",
+                  "is_correct": true
+                },
+                {
+                  "label": "C",
+                  "id": 27162,
+                  "text": "0.38 cm.",
+                  "is_correct": false
+                },
+                {
+                  "label": "D",
+                  "id": 27161,
+                  "text": "0.36 cm.",
+                  "is_correct": false
+                }
+              ],
+              "correct_option_ids": [
+                27160
+              ],
+              "correct_option_labels": [
+                "B"
+              ],
+              "correct_option_texts": [
+                "0.34 cm."
+              ],
+              "explanation": "For the expansion in the brass rod\n$\\frac{\\Delta l_{1}}{l_{1}}=\\alpha_{1} \\Delta T$\n$\\Delta l_{1}=l_{1} \\alpha_{1} \\Delta T=50 \\times 2.1 \\times 10^{-5} \\times 210$ = 0.2205 cm\nFor the expansion in the steel rod\n$\\frac{\\Delta l_{2}}{l_{2}}=\\alpha_{2} \\Delta T$\n$\\Delta l_{2}=l_{2} \\alpha_{2} \\Delta T=50 \\times 1.2 \\times 10^{-5} \\times 210=0.126 \\mathrm{cm}$ \nTotal change in the lengths of brass and steel\n$\\Delta l = \\Delta {l_1} + \\Delta {l_2} $ = 0.2205 + 0.126 = 0.346cm\nTotal change in the length of the combined rod = 0.346 cm"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "testPaperID": 580,
+      "testPaperName": "Thermal Properties of Matter Test 04",
+      "is_paid": true,
+      "category_full_name": "CBSE > Class 11 > Physics > Thermal Properties of Matter",
+      "noOfQuestions": 15,
+      "has_answers": true,
+      "sections": [
+        {
+          "sectionName": "General",
+          "sectionID": null,
+          "questions": [
+            {
+              "questionID": 17991,
+              "question": "The coefficient of volume expansion of glycerin is 49 $ \\times $ 10^−5 /^ 0C. What is the fractional change in its density for a 30 ^oC rise in temperature?",
+              "question_raw": "<p>The coefficient of volume expansion of glycerin is 49 <span class=\"math-tex\">{tex} \\times {/tex}</span>&nbsp;10<sup>&minus;5</sup>&nbsp;/<sup>&nbsp;0</sup>C. What is the fractional change in its density for a 30 <sup>o</sup>C rise in temperature?</p>",
+              "options": [
+                {
+                  "label": "A",
+                  "id": 27167,
+                  "text": "0.0157",
+                  "is_correct": false
+                },
+                {
+                  "label": "B",
+                  "id": 27164,
+                  "text": "0.0147",
+                  "is_correct": true
+                },
+                {
+                  "label": "C",
+                  "id": 27166,
+                  "text": "0.0107",
+                  "is_correct": false
+                },
+                {
+                  "label": "D",
+                  "id": 27165,
+                  "text": "0.0127",
+                  "is_correct": false
+                }
+              ],
+              "correct_option_ids": [
+                27164
+              ],
+              "correct_option_labels": [
+                "B"
+              ],
+              "correct_option_texts": [
+                "0.0147"
+              ],
+              "explanation": "Coefficient of volume expansion of glycerine,\nγ=49×10^-5/ ^0C\nRise in temperature, ΔT=30^ 0C\nAs, $\\gamma = {1\\over \\Delta T}$$({\\Delta V\\over V})$\n$({\\Delta V\\over V})$= $\\gamma\\times \\Delta T$\nor ΔV/V=(49×10^-5)×30=0.0147\nSince mass remains constant,\nFractional change in density = fractional change in volume = 0.0147"
+            },
+            {
+              "questionID": 17992,
+              "question": "A 10 kW drilling machine is used to drill a bore in a small aluminum block of mass 8.0 kg. How much is the rise in temperature of the block in 2.5 minutes, assuming 50 percent of power is used up in heating the machine itself or lost to the surroundings. Specific heat of aluminum = 0.91 J g^−1K^−1.",
+              "question_raw": "<p>A 10 kW drilling machine is used to drill a bore in a small aluminum block of mass 8.0 kg. How much is the rise in temperature of the block in 2.5 minutes, assuming 50 percent of power is used up in heating the machine itself or lost to the surroundings. Specific heat of aluminum = 0.91 J g<sup>&minus;1</sup>K<sup>&minus;1</sup>.</p>",
+              "options": [
+                {
+                  "label": "A",
+                  "id": 27168,
+                  "text": "103 ^oC",
+                  "is_correct": true
+                },
+                {
+                  "label": "B",
+                  "id": 27171,
+                  "text": "123 ^oC",
+                  "is_correct": false
+                },
+                {
+                  "label": "C",
+                  "id": 27170,
+                  "text": "113 ^oC",
+                  "is_correct": false
+                },
+                {
+                  "label": "D",
+                  "id": 27169,
+                  "text": "93 ^oC",
+                  "is_correct": false
+                }
+              ],
+              "correct_option_ids": [
+                27168
+              ],
+              "correct_option_labels": [
+                "A"
+              ],
+              "correct_option_texts": [
+                "103 ^oC"
+              ],
+              "explanation": "W = Pt = 10 $\\times$ 10^3 $\\times$ 2.5 $\\times$ 60 = 150 $\\times$ 10^4J\nEnergy used in heating = 50% = 75 $\\times$ 10^4J\nQ = ms$\\Delta$T\n$ \\Delta T = {Q \\over {ms}} $\n$\\Delta T = {{75 \\times {{10}^4}} \\over {8000 \\times 0.91}}$\n$\\Delta T $ = 103^oC"
+            },
+            {
+              "questionID": 17993,
+              "question": "A copper block of mass 2.5 kg is heated in a furnace to a temperature of 500 ^oC and then placed on a large ice block. What is the maximum amount of ice that can melt? (Specific heat of copper = 0.39 J g^−1K^−1; the heat of fusion of water = 335 J g^−1).",
+              "question_raw": "<p>A copper block of mass 2.5 kg is heated in a furnace to a temperature of 500 <sup>o</sup>C and then placed on a large ice block. What is the maximum amount of ice that can melt? (Specific heat of copper = 0.39 J g<sup>&minus;1</sup>K<sup>&minus;1</sup>; the heat of fusion of water = 335 J g<sup>&minus;1</sup>).</p>",
+              "options": [
+                {
+                  "label": "A",
+                  "id": 27172,
+                  "text": "1.5 kg",
+                  "is_correct": true
+                },
+                {
+                  "label": "B",
+                  "id": 27175,
+                  "text": "1.8 kg",
+                  "is_correct": false
+                },
+                {
+                  "label": "C",
+                  "id": 27173,
+                  "text": "1.6 kg",
+                  "is_correct": false
+                },
+                {
+                  "label": "D",
+                  "id": 27174,
+                  "text": "1.7 kg",
+                  "is_correct": false
+                }
+              ],
+              "correct_option_ids": [
+                27172
+              ],
+              "correct_option_labels": [
+                "A"
+              ],
+              "correct_option_texts": [
+                "1.5 kg"
+              ],
+              "explanation": "Heat given by Cu = Heat Intake by ice\nmC_us$\\Delta$T = m_iceL\n2500 $\\times$ 0.39 $\\times$ 500 = m_ice $\\times$ 335\nm_ice = 1.5Kg"
+            },
+            {
+              "questionID": 17994,
+              "question": "In an experiment on the specific heat of a metal, a 0.2 kg block of the metal at 150 ^oC is dropped in a copper calorimeter (of water equivalent 0.025 kg) containing 150 cm^3 of water at 27 ^oC. The final temperature is 40 ^oC, the specific heat of the metal will be",
+              "question_raw": "<p>In an experiment on the specific heat of a metal, a 0.2&nbsp;kg block of the metal at 150 <sup>o</sup>C is dropped in a copper calorimeter (of water equivalent 0.025 kg) containing 150 cm<sup>3</sup> of water at 27 <sup>o</sup>C. The final temperature is 40 <sup>o</sup>C,&nbsp;the specific heat of the metal will be</p>",
+              "options": [
+                {
+                  "label": "A",
+                  "id": 27176,
+                  "text": "0.43 J g^−1K^−1",
+                  "is_correct": true
+                },
+                {
+                  "label": "B",
+                  "id": 27177,
+                  "text": "0.40 J g^−1K^−1",
+                  "is_correct": false
+                },
+                {
+                  "label": "C",
+                  "id": 27178,
+                  "text": "0.46 J g^−1K^−1",
+                  "is_correct": false
+                },
+                {
+                  "label": "D",
+                  "id": 27179,
+                  "text": "0.37 J g^−1K^−1",
+                  "is_correct": false
+                }
+              ],
+              "correct_option_ids": [
+                27176
+              ],
+              "correct_option_labels": [
+                "A"
+              ],
+              "correct_option_texts": [
+                "0.43 J g^−1K^−1"
+              ],
+              "explanation": "Heat lost by the metal = Heat gained by the water and calorimeter system\n$m_{1} c_{1} \\Delta T_{1}=\\left(m_{1}+m_{2}\\right) c_{2} \\Delta T_{2}$\n200 $\\times$ c_1 $\\times$ 110 = (150 + 25) $\\times$ 4.186 $\\times$ 13\n$c_{1}=\\frac{175 \\times 4.186 \\times 13}{200 \\times 110}$\nc_1 = 0.43Jg^−1K^−1"
+            },
+            {
+              "questionID": 17995,
+              "question": "A child running a temperature of 101^oF is given an antipyrin (i.e. medicine that lowers fever) which causes an increase in the rate of evaporation of sweat from his body. If the fever is brought down to 98 ^oF in 20 min, what is the average rate of extra evaporation caused, by the drug? Assume the evaporation mechanism to be the only way by which heat is lost. The mass of the child is 30 kg. The specific heat of human body is approximately the same as that of water, and the latent heat of evaporation of water at that temperature is about 580 cal g^−1.",
+              "question_raw": "<p>A child running a temperature of 101<sup>o</sup>F is given an antipyrin (i.e. medicine that lowers fever) which causes an increase in the rate of evaporation of sweat from his body. If the fever is brought down to 98 <sup>o</sup>F in 20 min, what is the average rate of extra evaporation caused, by the drug? Assume the evaporation mechanism to be the only way by which heat is lost. The mass of the child is 30 kg. The specific heat of human body is approximately the same as that of water, and the latent heat of evaporation of water at that temperature is about 580 cal g<sup>&minus;1</sup>.</p>",
+              "options": [
+                {
+                  "label": "A",
+                  "id": 27180,
+                  "text": "4.3 g/min",
+                  "is_correct": true
+                },
+                {
+                  "label": "B",
+                  "id": 27183,
+                  "text": "5.2 g/min",
+                  "is_correct": false
+                },
+                {
+                  "label": "C",
+                  "id": 27182,
+                  "text": "4.9 g/min",
+                  "is_correct": false
+                },
+                {
+                  "label": "D",
+                  "id": 27181,
+                  "text": "4.6 g/min",
+                  "is_correct": false
+                }
+              ],
+              "correct_option_ids": [
+                27180
+              ],
+              "correct_option_labels": [
+                "A"
+              ],
+              "correct_option_texts": [
+                "4.3 g/min"
+              ],
+              "explanation": "$\\Delta T = 101 - 98 = 3^\\circ F = \\left( {3 \\times {5 \\over 9}} \\right)^\\circ C$ \nSpecific heat of the human body = Specific heat of water = 1000 cal/kg/ ^oC\nThe heat lost by the child is Q = $ mc\\Delta T = 30 \\times 1000 \\times \\left( {3 \\times {5 \\over 9}} \\right) $ = 50000cal\nLet m_1 be the mass of the water evaporated from the child’s body in 20 min. \nLoss of heat through water is\nQ = m_1L\n${m_1} = {Q \\over L} = {{50000} \\over {580}} $ = 86.2gm\nThe average rate of extra evaporation caused by the drug = $m_1 \\over t$\n= $86.2 \\over 20$\n= 4.3 g/min."
+            },
+            {
+              "questionID": 17996,
+              "question": "A ‘thermal’ icebox is a cheap and efficient method for storing small quantities of cooked food in summer in particular. A cubical icebox of side 30 cm has a thickness of 5.0 cm. If 4.0 kg of ice is put in the box, estimate the amount of ice remaining after 6 h. The outside temperature is 45 ^oC, and the coefficient of thermal conductivity of thermal is 0.01 J s^−1m^−1K^−1. [Heat of fusion of water = 335 $ \\times $ 10^3Jkg^−1]",
+              "question_raw": "<p>A &lsquo;thermal&rsquo; icebox is a cheap and efficient method for storing small quantities of cooked food in summer in particular. A cubical icebox of side 30 cm has a thickness of 5.0 cm. If 4.0 kg of ice is put in the box, estimate the amount of ice remaining after 6 h. The outside temperature is 45 <sup>o</sup>C, and the coefficient of thermal conductivity of thermal is 0.01 J s<sup>&minus;1</sup>m<sup>&minus;1</sup>K<sup>&minus;1</sup>. [Heat of fusion of water = 335 <span class=\"math-tex\">{tex} \\times {/tex}</span>&nbsp;10<sup>3</sup>Jkg<sup>&minus;1</sup>]</p>",
+              "options": [
+                {
+                  "label": "A",
+                  "id": 27185,
+                  "text": "3.6 kg",
+                  "is_correct": false
+                },
+                {
+                  "label": "B",
+                  "id": 27184,
+                  "text": "3.7 kg",
+                  "is_correct": true
+                },
+                {
+                  "label": "C",
+                  "id": 27186,
+                  "text": "3.5 kg",
+                  "is_correct": false
+                },
+                {
+                  "label": "D",
+                  "id": 27187,
+                  "text": "3.4 kg",
+                  "is_correct": false
+                }
+              ],
+              "correct_option_ids": [
+                27184
+              ],
+              "correct_option_labels": [
+                "B"
+              ],
+              "correct_option_texts": [
+                "3.7 kg"
+              ],
+              "explanation": "$Q = {{KA\\Delta T} \\over l}t$ \nA = Surface area of the box = 6s^2 = 6 $\\times$ (0.3)^2 = 0.54 m^3\nTime gap, t = 6 h = 6 $\\times$ 60 $\\times$ 60 s\n$Q = {{0.01 \\times 0.54 \\times 45 \\times 6 \\times 60 \\times 60} \\over {0.05}} $ = 104976J\nBut Q= m'L\n$\\therefore$ m' = $Q\\over L$\n= $104976\\over(335 \\times 10^3)$ = 0.313 kg\nMass of ice left = 4 – 0.3 = 3.7 kg\nHence, the amount of ice remaining after 6 h is 3.7 kg."
+            },
+            {
+              "questionID": 17997,
+              "question": "A brass boiler has a base area of 0.15 m^2 and thickness 1.0 cm. It boils water at a rate of 6.0 kg/min when placed on a gas stove. Estimate the temperature of the part of the flame in contact with the boiler. Thermal conductivity of brass = 109 J s^−1m^−1K^−1 ; Heat of vaporization of water = 2256 $ \\times $ 10^3Jkg^−1.",
+              "question_raw": "<p>A brass boiler has a base area of 0.15 m<sup>2 </sup>and thickness 1.0 cm. It boils water at a rate of 6.0 kg/min when placed on a gas stove. Estimate the temperature of the part of the flame in contact with the boiler. Thermal conductivity of brass = 109 J s<sup>&minus;1</sup>m<sup>&minus;1</sup>K<sup>&minus;1</sup> ; Heat of vaporization of water = 2256 <span class=\"math-tex\">{tex} \\times {/tex}</span>&nbsp;10<sup>3</sup>Jkg<sup>&minus;1</sup>.</p>",
+              "options": [
+                {
+                  "label": "A",
+                  "id": 27189,
+                  "text": "239 ^oC",
+                  "is_correct": false
+                },
+                {
+                  "label": "B",
+                  "id": 27190,
+                  "text": "237 ^oC",
+                  "is_correct": false
+                },
+                {
+                  "label": "C",
+                  "id": 27188,
+                  "text": "238 ^oC",
+                  "is_correct": true
+                },
+                {
+                  "label": "D",
+                  "id": 27191,
+                  "text": "240 ^oC",
+                  "is_correct": false
+                }
+              ],
+              "correct_option_ids": [
+                27188
+              ],
+              "correct_option_labels": [
+                "C"
+              ],
+              "correct_option_texts": [
+                "238 ^oC"
+              ],
+              "explanation": "The base area of the boiler, A = 0.15 m^2\nThickness of the boiler, l = 1.0 cm = 0.01 m\nBoiling rate of water, R = 6.0 kg/min\nMass, m = 6 kg\nTime, t = 1 min = 60 s\nThermal conductivity of brass, K = 109 J s ^–1 m^–1 K^–1\nHeat of vaporisation, L = 2256 × 10^3 J kg^–1\nThe amount of heat flowing into the water through the brass base of the boiler is\n$Q = {{KA({T_1} - {T_2})} \\over l}t$ ......(1)\nwhere,\nT_1 = Temperature of the flame in contact with the boiler\nT_2 = Boiling point of water = 100°C \nHeat required for boiling the water\nQ = mL....…(ii)\nEquating equations (i) and (ii), we get:\nmL = $KA(T_1 - T_2) t \\over l $\nT_1 - T_2 = $mLl \\over KAt$\n= $6 \\times 2256 \\times 10^3 \\times 0.01 \\over(109 \\times 0.15 \\times 60)$\n= 137.98 ^oC\nTherefore, the temperature of the part of the flame in contact with the boiler is 237.98^oC."
+            },
+            {
+              "questionID": 17998,
+              "question": "A body cools from 80 ^oC to 50 ^oC in 5 minutes. Calculate the time it takes to cool from 60 ^oC to 30 ^oC. The temperature of the surroundings is 20 ^oC.",
+              "question_raw": "<p>A body cools from 80 <sup>o</sup>C to 50 <sup>o</sup>C in 5 minutes. Calculate the time it takes to cool from 60 <sup>o</sup>C to 30 <sup>o</sup>C. The temperature of the surroundings is 20 <sup>o</sup>C.</p>",
+              "options": [
+                {
+                  "label": "A",
+                  "id": 27193,
+                  "text": "12 min",
+                  "is_correct": false
+                },
+                {
+                  "label": "B",
+                  "id": 27192,
+                  "text": "9 min",
+                  "is_correct": true
+                },
+                {
+                  "label": "C",
+                  "id": 27194,
+                  "text": "6 min",
+                  "is_correct": false
+                },
+                {
+                  "label": "D",
+                  "id": 27195,
+                  "text": "15 min",
+                  "is_correct": false
+                }
+              ],
+              "correct_option_ids": [
+                27192
+              ],
+              "correct_option_labels": [
+                "B"
+              ],
+              "correct_option_texts": [
+                "9 min"
+              ],
+              "explanation": "Initial temperature (T_i​) = 80 ^oC\nFinal temperature (T_f) = 50 ^oC\nTemperature of the surrounding (T_0) = 20 ^oC\nt = 5 min\nAccording to Newton's law of cooling,\nRate of cooling $\\frac {dt}{dT}$​ = $K({(T_i+T_F)\\over 2}-T_0)$\n$\\frac {(T_f - T_i)}{t} = \\frac {K[(80 + 50)]}{2-20}$\n$\\frac {80-50}{5}$​ = K[65 − 20]\n6 = K $\\times$ 45\nK = ${6\\over 45}={2\\over 15}$\nIn second condition,\ninitial temperature =T_i = 60 ^oC\nFinal temperature T_f​ = 30 ^oC\nTime taken for cooling is t\nAccording to Newton's law of cooling \n$\\frac {(60-30)}{t}$t ​ =${2\\over 15}[{(60+30)\\over 2}-20]$\n$\\frac {30}{t}=(\\frac {2}{15})(25)$\n$\\therefore$ t = 9 min"
+            },
+            {
+              "questionID": 17999,
+              "question": "On a day when the temperature reaches 50^oF, what is the temperature in degrees Celsius and in kelvins?",
+              "question_raw": "<p>On a day when the temperature reaches 50<sup>o</sup>F, what is the temperature in degrees Celsius and in kelvins?</p>",
+              "options": [
+                {
+                  "label": "A",
+                  "id": 27196,
+                  "text": "10^o C, 283 K",
+                  "is_correct": true
+                },
+                {
+                  "label": "B",
+                  "id": 27199,
+                  "text": "14^o C, 323 K",
+                  "is_correct": false
+                },
+                {
+                  "label": "C",
+                  "id": 27197,
+                  "text": "8^o C, 273 K",
+                  "is_correct": false
+                },
+                {
+                  "label": "D",
+                  "id": 27198,
+                  "text": "12^o C, 303 K",
+                  "is_correct": false
+                }
+              ],
+              "correct_option_ids": [
+                27196
+              ],
+              "correct_option_labels": [
+                "A"
+              ],
+              "correct_option_texts": [
+                "10^o C, 283 K"
+              ],
+              "explanation": "${{{T_C} - 0} \\over {100 - 0}} = {{{T_F} - 32} \\over {212 - 32}} = {{{T_K} - 273.15} \\over {373.15 - 273.15}}$\n${{{T_C}} \\over {100}} = {{{T_F} - 32} \\over {180}} = {{{T_K} - 273.15} \\over {100}}$\nT_F = 50^oF\nafter solving \nT_C = 10^oC\nT_K = 283K"
+            },
+            {
+              "questionID": 18000,
+              "question": "A steel railroad track has a length of 30.000 m when the temperature is 0.0^oC. What is its length when the temperature is 40.0$^\\circ $ C? $\\alpha$ = 11 $\\times$ 10^−6 (^oC)^-1.",
+              "question_raw": "<p>A steel railroad track has a length of 30.000 m when the temperature is 0.0<sup>o</sup>C. What is its length when the temperature is 40.0<span class=\"math-tex\">{tex}^\\circ {/tex}</span> C? <span class=\"math-tex\">{tex}\\alpha{/tex}</span>&nbsp;= 11 <span class=\"math-tex\">{tex}\\times{/tex}</span> 10<sup>&minus;6</sup> (<sup>o</sup>C)<sup>-1</sup>.</p>",
+              "options": [
+                {
+                  "label": "A",
+                  "id": 27202,
+                  "text": "30.008 m",
+                  "is_correct": false
+                },
+                {
+                  "label": "B",
+                  "id": 27200,
+                  "text": "30.013 m",
+                  "is_correct": true
+                },
+                {
+                  "label": "C",
+                  "id": 27203,
+                  "text": "30.016 m",
+                  "is_correct": false
+                },
+                {
+                  "label": "D",
+                  "id": 27201,
+                  "text": "30.010 m",
+                  "is_correct": false
+                }
+              ],
+              "correct_option_ids": [
+                27200
+              ],
+              "correct_option_labels": [
+                "B"
+              ],
+              "correct_option_texts": [
+                "30.013 m"
+              ],
+              "explanation": "$\\Delta l = \\alpha l\\Delta \\theta $ =11 $\\times$ 10^−6 $\\times$ 30 $\\times$ 40 = 0.013m\nTotal length after expansion = 30 + 0.013 = 30.013m"
+            },
+            {
+              "questionID": 18001,
+              "question": "A steel railroad track has a length of 30.000 m when the temperature is 0.0^oC. Suppose that the ends of the rail are rigidly clamped at 0.0^oC so that expansion is prevented. What is the thermal stress set up in the rail if its temperature is raised to 40.0^oC? $\\alpha $− steel = 11 $\\times$ 10^−6 (^oC)^-1 Y-steel = 20GPa?",
+              "question_raw": "<p>A steel railroad track has a length of 30.000 m when the temperature is 0.0<sup>o</sup>C. Suppose that the ends of the rail are rigidly clamped at 0.0<sup>o</sup>C so that expansion is prevented. What is the thermal stress set up in the rail if its temperature is raised to 40.0<sup>o</sup>C? <span class=\"math-tex\">{tex}\\alpha {/tex}</span>&minus; steel = 11 <span class=\"math-tex\">{tex}\\times{/tex}</span> 10<sup>&minus;6</sup> (<sup>o</sup>C)<sup>-1</sup> Y-steel = 20GPa?</p>",
+              "options": [
+                {
+                  "label": "A",
+                  "id": 27206,
+                  "text": "8.1 $ \\times $ 10^7N/m^2",
+                  "is_correct": false
+                },
+                {
+                  "label": "B",
+                  "id": 27204,
+                  "text": "8.8 $ \\times $ 10^6N/m^2",
+                  "is_correct": true
+                },
+                {
+                  "label": "C",
+                  "id": 27207,
+                  "text": "9.1 $ \\times $ 10^7N/m^2",
+                  "is_correct": false
+                },
+                {
+                  "label": "D",
+                  "id": 27205,
+                  "text": "8.4 $ \\times $ 10^6N/m^2",
+                  "is_correct": false
+                }
+              ],
+              "correct_option_ids": [
+                27204
+              ],
+              "correct_option_labels": [
+                "B"
+              ],
+              "correct_option_texts": [
+                "8.8 $ \\times $ 10^6N/m^2"
+              ],
+              "explanation": "Thermal Stress $ = Y\\alpha \\Delta \\theta $ = 20 $\\times$ 10^9 $\\times$ 11 $\\times$ 10^−6 $\\times$ 40 = 8.8 $\\times$ 10^6"
+            },
+            {
+              "questionID": 18002,
+              "question": "An ideal gas occupies a volume of 100 ${\\rm{c}}{{\\rm{m}}^{\\rm{3}}}$ at ${\\rm{2}}0^\\circ $ C and 100 Pa. Find the number of moles of gas in the container.",
+              "question_raw": "<p>An ideal gas occupies a volume of 100 <span class=\"math-tex\">{tex}{\\rm{c}}{{\\rm{m}}^{\\rm{3}}}{/tex}</span> at <span class=\"math-tex\">{tex}{\\rm{2}}0^\\circ {/tex}</span> C and 100 Pa. Find the number of moles of gas in the container.</p>",
+              "options": [
+                {
+                  "label": "A",
+                  "id": 27210,
+                  "text": "4.60 $ \\times $ 10^−6",
+                  "is_correct": false
+                },
+                {
+                  "label": "B",
+                  "id": 27208,
+                  "text": "4.10 $ \\times $ 10^−6 mol",
+                  "is_correct": true
+                },
+                {
+                  "label": "C",
+                  "id": 27209,
+                  "text": "4.30 $ \\times $ 10^−6",
+                  "is_correct": false
+                },
+                {
+                  "label": "D",
+                  "id": 27211,
+                  "text": "4.80 $ \\times $ 10^−6",
+                  "is_correct": false
+                }
+              ],
+              "correct_option_ids": [
+                27208
+              ],
+              "correct_option_labels": [
+                "B"
+              ],
+              "correct_option_texts": [
+                "4.10 $ \\times $ 10^−6 mol"
+              ],
+              "explanation": "number of moles according to gas equation\n$n = {{PV} \\over {RT}} = {{100 \\times 100 \\times {{10}^{ - 6}}} \\over {8.31 \\times 293}} = 4.10 \\times {10^{ - 6}}$"
+            },
+            {
+              "questionID": 18003,
+              "question": "A spray can contain a propellant gas at twice atmospheric pressure (202 kPa) and having a volume of 125 cm^3 is at 22^oC. It is then tossed into an open fire. When the temperature of the gas in the can reaches 195^oC, what is the pressure inside the can? Assume any change in the volume of the can is negligible.",
+              "question_raw": "<p>A spray can contain a propellant gas at twice atmospheric pressure (202 kPa) and having a volume of 125 cm<sup>3</sup> is at 22<sup>o</sup>C. It is then tossed into an open fire. When the temperature of the gas in the can reaches 195<sup>o</sup>C, what is the pressure inside the can? Assume any change in the volume of the can is negligible.</p>",
+              "options": [
+                {
+                  "label": "A",
+                  "id": 27213,
+                  "text": "300 kPa",
+                  "is_correct": false
+                },
+                {
+                  "label": "B",
+                  "id": 27212,
+                  "text": "320 kPa",
+                  "is_correct": true
+                },
+                {
+                  "label": "C",
+                  "id": 27215,
+                  "text": "260 kPa",
+                  "is_correct": false
+                },
+                {
+                  "label": "D",
+                  "id": 27214,
+                  "text": "290 kPa",
+                  "is_correct": false
+                }
+              ],
+              "correct_option_ids": [
+                27212
+              ],
+              "correct_option_labels": [
+                "B"
+              ],
+              "correct_option_texts": [
+                "320 kPa"
+              ],
+              "explanation": "$P \\propto T$\n$ {{{P_1}} \\over {{P_2}}} = {{{T_1}} \\over {{T_2}}}$\n${P_2} = {{468 \\times 202} \\over {295}} $ = 320KPa"
+            },
+            {
+              "questionID": 18004,
+              "question": "A student eats a dinner rated at 2000 Calories. He wishes to do an equivalent amount of work in the gymnasium by lifting a 50.0-kg barbell. How many times must he raise the barbell to expend this much energy? Assume that he raises the barbell 2.00 m each time he lifts it and that he regains no energy when he drops the barbell to the floor.",
+              "question_raw": "<p>A student eats a dinner rated at 2000 Calories. He wishes to do an equivalent amount of work in the gymnasium by lifting a 50.0-kg barbell. How many times must he raise the barbell to expend this much energy? Assume that he raises the barbell 2.00 m each time he lifts it and that he regains no energy when he drops the barbell to the floor.</p>",
+              "options": [
+                {
+                  "label": "A",
+                  "id": 27217,
+                  "text": "8.34 $ \\times $ 10^3",
+                  "is_correct": false
+                },
+                {
+                  "label": "B",
+                  "id": 27219,
+                  "text": "8.74 $ \\times $ 10^3",
+                  "is_correct": false
+                },
+                {
+                  "label": "C",
+                  "id": 27216,
+                  "text": "8.54 $ \\times $10^3 times",
+                  "is_correct": true
+                },
+                {
+                  "label": "D",
+                  "id": 27218,
+                  "text": "8.14 $ \\times $ 10^3",
+                  "is_correct": false
+                }
+              ],
+              "correct_option_ids": [
+                27216
+              ],
+              "correct_option_labels": [
+                "C"
+              ],
+              "correct_option_texts": [
+                "8.54 $ \\times $10^3 times"
+              ],
+              "explanation": "Total no. of times he lifts barbell = $Total \\ energy \\over energy \\ in \\ lifting \\ barbell \\ once$\n$= {Q \\over {mgh}}$\n$= {{2000 \\times 4.186 \\times {{10}^3}} \\over {50 \\times 9.8 \\times 2}} $ = 8.54 $\\times$ 10^3 times"
+            },
+            {
+              "questionID": 18005,
+              "question": "A 0.0500-kg ingot of metal is heated to 200.0^oC and then dropped into a beaker containing 0.400 kg of water initially at 20.0^oC. If the final equilibrium temperature of the mixed system is 22.4^oC, find the specific heat of the metal.",
+              "question_raw": "<p>A 0.0500-kg ingot of metal is heated to 200.0<sup>o</sup>C and then dropped into a beaker containing 0.400 kg of water initially at 20.0<sup>o</sup>C. If the final equilibrium temperature of the mixed system is 22.4<sup>o</sup>C, find the specific heat of the metal.</p>",
+              "options": [
+                {
+                  "label": "A",
+                  "id": 27220,
+                  "text": "4.53 J/kg. ^oC",
+                  "is_correct": true
+                },
+                {
+                  "label": "B",
+                  "id": 27221,
+                  "text": "4.63 J/kg. ^oC",
+                  "is_correct": false
+                },
+                {
+                  "label": "C",
+                  "id": 27223,
+                  "text": "4.83 J/kg^oC",
+                  "is_correct": false
+                },
+                {
+                  "label": "D",
+                  "id": 27222,
+                  "text": "4.73 J/kg. ^oC",
+                  "is_correct": false
+                }
+              ],
+              "correct_option_ids": [
+                27220
+              ],
+              "correct_option_labels": [
+                "A"
+              ],
+              "correct_option_texts": [
+                "4.53 J/kg. ^oC"
+              ],
+              "explanation": "Heat given = Heat intake\nm_1s_1$\\Delta$T_1 = m_2 s_2$\\Delta$T_2\nm_1 = 0.05Kg\ns_1 = ?\n$\\Delta$T_1 = 22.4 ^0C - 20 ^0C= 2.4^ 0C\n$\\Delta$T_2 = 200 ^0C-22.4 ^0C= 177.6 ^0C\n${s_1} = {{{m_2}{s_2}\\Delta {T_2}} \\over {{m_1}\\Delta {T_1}}}$ \n${s_1} = {{0.4 \\times 4186 \\times 2.4} \\over {0.05 \\times 177.6}} $ = 4.53J/Kg^oC"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "testPaperID": 581,
+      "testPaperName": "Thermal Properties of Matter Test 05",
+      "is_paid": true,
+      "category_full_name": "CBSE > Class 11 > Physics > Thermal Properties of Matter",
+      "noOfQuestions": 15,
+      "has_answers": true,
+      "sections": [
+        {
+          "sectionName": "General",
+          "sectionID": null,
+          "questions": [
+            {
+              "questionID": 18006,
+              "question": "A cowboy fires a silver bullet with a mass of 2.00 g and with a muzzle speed of 200 m/s into the pine wall of a saloon. Assume that all the internal energy generated by the impact remains with the bullet. What is the temperature change of the bullet? Specific heat of silver is 234J/Kg^oC?",
+              "question_raw": "<p>A cowboy fires a silver bullet with a mass of 2.00 g and with a muzzle speed of 200 m/s into the pine wall of a saloon. Assume that all the internal energy generated by the impact remains with the bullet. What is the temperature change of the bullet? Specific heat of silver is&nbsp;234J/Kg<sup>o</sup>C?</p>",
+              "options": [
+                {
+                  "label": "A",
+                  "id": 27226,
+                  "text": "81.5^oC",
+                  "is_correct": false
+                },
+                {
+                  "label": "B",
+                  "id": 27225,
+                  "text": "83.5^oC",
+                  "is_correct": false
+                },
+                {
+                  "label": "C",
+                  "id": 27227,
+                  "text": "78.5^oC",
+                  "is_correct": false
+                },
+                {
+                  "label": "D",
+                  "id": 27224,
+                  "text": "85.5^oC",
+                  "is_correct": true
+                }
+              ],
+              "correct_option_ids": [
+                27224
+              ],
+              "correct_option_labels": [
+                "D"
+              ],
+              "correct_option_texts": [
+                "85.5^oC"
+              ],
+              "explanation": "Q = K\n$mc\\Delta T = {1 \\over 2}m{v^2}$\n$ \\Delta T = {{{v^2}} \\over {2c}} = {{200 \\times 200} \\over {2 \\times 234}} = 85.5^\\circ C $"
+            },
+            {
+              "questionID": 18007,
+              "question": "What mass of steam initially at 130$^\\circ $C is needed to warm 200 g of water in a 100-g glass container from 20.0$^\\circ $C to 50.0^oC? Specific heat of container is 837J/Kg^oC \nSpecific heat of steam is 2110J/Kg^oC \nSpecific heat of water is 4186J/Kg^oC \nLatent heat of vapourisation is 2.26 $\\times$ 10^6J/Kg",
+              "question_raw": "<p>What mass of steam initially at 130<span class=\"math-tex\">{tex}^\\circ {/tex}</span>C is needed to warm 200 g of water in a 100-g glass container from 20.0<span class=\"math-tex\">{tex}^\\circ {/tex}</span>C to 50.0<sup>o</sup>C? Specific heat of container is&nbsp;837J/Kg<sup>o</sup>C&nbsp;&nbsp;<br />\r\nSpecific heat of steam is&nbsp;2110J/Kg<sup>o</sup>C&nbsp;<br />\r\nSpecific heat of water&nbsp;is&nbsp;4186J/Kg<sup>o</sup>C&nbsp;<br />\r\nLatent&nbsp;heat of vapourisation&nbsp;is&nbsp;2.26 <span class=\"math-tex\">{tex}\\times{/tex}</span> 10<sup>6</sup>J/Kg</p>",
+              "options": [
+                {
+                  "label": "A",
+                  "id": 27228,
+                  "text": "10.9 g",
+                  "is_correct": true
+                },
+                {
+                  "label": "B",
+                  "id": 27229,
+                  "text": "12.9 g",
+                  "is_correct": false
+                },
+                {
+                  "label": "C",
+                  "id": 27230,
+                  "text": "14.9 g",
+                  "is_correct": false
+                },
+                {
+                  "label": "D",
+                  "id": 27231,
+                  "text": "16.9 g",
+                  "is_correct": false
+                }
+              ],
+              "correct_option_ids": [
+                27228
+              ],
+              "correct_option_labels": [
+                "A"
+              ],
+              "correct_option_texts": [
+                "10.9 g"
+              ],
+              "explanation": "Heat given by steam = heat taken by water + heat taken by the container\n$m{s_s}\\Delta {T_1} + mL + m{s_w}\\Delta {T_2} = m{s_w}\\Delta {T_3} + m{s_c}\\Delta {T_3}$\n$\\left( {m \\times 2110 \\times 30} \\right) + \\left( {m \\times 2.26 \\times {{10}^6}} \\right) + \\left( {m \\times 4186 \\times 50} \\right) $$= \\left( {0.2 \\times 4186 \\times 30} \\right) + \\left( {0.1 \\times 837 \\times 30} \\right) $\nafter solving\nmass of steam m = 10.9gm"
+            },
+            {
+              "questionID": 18008,
+              "question": "Liquid helium has a very low boiling point, 4.2 K, and a very low latent heat of vaporization, 2.09 $\\times$ 10^4 J/kg. If energy is transferred to a container of boiling liquid helium from an immersed electric heater at a rate of 10.0 W, how long does it take to boil away 1.00 kg of the liquid?",
+              "question_raw": "<p>Liquid helium has a very low boiling point, 4.2 K, and a very low latent heat of vaporization, 2.09 <span class=\"math-tex\">{tex}\\times{/tex}</span> 10<sup>4</sup> J/kg. If energy is transferred to a container of boiling liquid helium from an immersed electric heater at a rate of 10.0 W, how long does it take to boil away 1.00 kg of the liquid?</p>",
+              "options": [
+                {
+                  "label": "A",
+                  "id": 27235,
+                  "text": "37 min",
+                  "is_correct": false
+                },
+                {
+                  "label": "B",
+                  "id": 27234,
+                  "text": "31 min",
+                  "is_correct": false
+                },
+                {
+                  "label": "C",
+                  "id": 27232,
+                  "text": "35 min",
+                  "is_correct": true
+                },
+                {
+                  "label": "D",
+                  "id": 27233,
+                  "text": "33 min",
+                  "is_correct": false
+                }
+              ],
+              "correct_option_ids": [
+                27232
+              ],
+              "correct_option_labels": [
+                "C"
+              ],
+              "correct_option_texts": [
+                "35 min"
+              ],
+              "explanation": "Q = mL= 1 $\\times$ 2.09 $\\times$ 10^4 = 2.09 $\\times$10^4J\n$\\Delta t = {Q \\over P} = {{2.09 \\times {{10}^4}} \\over {10}} $ = 2.09 $\\times$ 10^3 sec = 35 min"
+            },
+            {
+              "questionID": 18009,
+              "question": "The temperature of a silver bar rises by 10.0$^\\circ $C when it absorbs 1.23 kJ of energy by heat. The mass of the bar is 525 g. Determine the specific heat of silver?",
+              "question_raw": "<p>The temperature of a silver bar rises by 10.0<span class=\"math-tex\">{tex}^\\circ {/tex}</span>C when it absorbs 1.23 kJ of energy by heat. The mass of the bar is 525 g. Determine the specific heat of silver?</p>",
+              "options": [
+                {
+                  "label": "A",
+                  "id": 27239,
+                  "text": "0.214 kJ/kg. ^oC",
+                  "is_correct": false
+                },
+                {
+                  "label": "B",
+                  "id": 27236,
+                  "text": "0.234 kJ/kg. ^oC",
+                  "is_correct": true
+                },
+                {
+                  "label": "C",
+                  "id": 27237,
+                  "text": "0.244 kJ/kg. ^oC",
+                  "is_correct": false
+                },
+                {
+                  "label": "D",
+                  "id": 27238,
+                  "text": "0.254 kJ/kg. ^oC",
+                  "is_correct": false
+                }
+              ],
+              "correct_option_ids": [
+                27236
+              ],
+              "correct_option_labels": [
+                "B"
+              ],
+              "correct_option_texts": [
+                "0.234 kJ/kg. ^oC"
+              ],
+              "explanation": "$s = {Q \\over {m\\Delta T}} = {{1.23} \\over {0.525 \\times 10}} = 0.234KJ/Kg^\\circ C$"
+            },
+            {
+              "questionID": 18010,
+              "question": "A 1.50-kg iron horseshoe initially at 600^oC is dropped into a bucket containing 20.0 kg of water at 25.0^oC. What is the final temperature? (Neglect the heat capacity of the container and assume that a negligible amount of water boils away.) Specific heat of iron = 448J/Kg^oC.",
+              "question_raw": "<p>A 1.50-kg iron horseshoe initially at 600<sup>o</sup>C is dropped into a bucket containing 20.0 kg of water at 25.0<sup>o</sup>C. What is the final temperature? (Neglect the heat capacity of the container and assume that a negligible amount of water boils away.) Specific heat of iron =&nbsp;448J/Kg<sup>o</sup>C.</p>",
+              "options": [
+                {
+                  "label": "A",
+                  "id": 27241,
+                  "text": "28.6^oC",
+                  "is_correct": false
+                },
+                {
+                  "label": "B",
+                  "id": 27242,
+                  "text": "30.6^oC",
+                  "is_correct": false
+                },
+                {
+                  "label": "C",
+                  "id": 27243,
+                  "text": "18.6^oC",
+                  "is_correct": false
+                },
+                {
+                  "label": "D",
+                  "id": 27240,
+                  "text": "29.6^oC",
+                  "is_correct": true
+                }
+              ],
+              "correct_option_ids": [
+                27240
+              ],
+              "correct_option_labels": [
+                "D"
+              ],
+              "correct_option_texts": [
+                "29.6^oC"
+              ],
+              "explanation": "by the principle of calorimetry,\nThe heat has given by iron = Heat intake by water\n$m_{F e} s_{F e} \\Delta T_{1}=m_{w} s_{w} \\Delta T_{2}$\n1.5 $\\times$ 448(600 - T) = 20 $\\times$ 4186(T - 25)|\nafter solving\nfinal temperature T = 29.6^oC"
+            },
+            {
+              "questionID": 18011,
+              "question": "An aluminum calorimeter with a mass of 100 g contains 250 g of water. The calorimeter and water are in thermal equilibrium at 10.0$^\\circ $C. Two metallic blocks are placed into the water. One is a 50.0-g piece of copper at 80.0$^\\circ $C; the other block has a mass of 70.0 g and is originally at a temperature of 100$^\\circ $C. The entire system stabilizes at a final temperature of 20.0$^\\circ $C. Determine the specific heat of the unknown sample.\nSpecific heat of aluminium is 0.215cal/gm^oC \nSpecific heat of copper is 0.0924cal/gm^oC",
+              "question_raw": "<p>An aluminum calorimeter with a mass of 100 g contains 250 g of water. The calorimeter and water are in thermal equilibrium at 10.0<span class=\"math-tex\">{tex}^\\circ {/tex}</span>C. Two metallic blocks are placed into the water. One is a 50.0-g piece of copper at 80.0<span class=\"math-tex\">{tex}^\\circ {/tex}</span>C; the other block has a mass of 70.0 g and is originally at a temperature of 100<span class=\"math-tex\">{tex}^\\circ {/tex}</span>C. The entire system stabilizes at a final temperature of 20.0<span class=\"math-tex\">{tex}^\\circ {/tex}</span>C. Determine the specific heat of the unknown sample.<br />\r\nSpecific heat of aluminium is&nbsp;&nbsp;0.215cal/gm<sup>o</sup>C&nbsp;<br />\r\nSpecific heat of copper is&nbsp;0.0924cal/gm<sup>o</sup>C</p>",
+              "options": [
+                {
+                  "label": "A",
+                  "id": 27247,
+                  "text": "0.465 cal/g. ^oC",
+                  "is_correct": false
+                },
+                {
+                  "label": "B",
+                  "id": 27244,
+                  "text": "0.435 cal/g. ^oC",
+                  "is_correct": true
+                },
+                {
+                  "label": "C",
+                  "id": 27245,
+                  "text": "0.445 cal/g. ^oC",
+                  "is_correct": false
+                },
+                {
+                  "label": "D",
+                  "id": 27246,
+                  "text": "0.455 cal/g. ^oC",
+                  "is_correct": false
+                }
+              ],
+              "correct_option_ids": [
+                27244
+              ],
+              "correct_option_labels": [
+                "B"
+              ],
+              "correct_option_texts": [
+                "0.435 cal/g. ^oC"
+              ],
+              "explanation": "Heat given by Copper(1) + heat given by unknown metal(2) = heat gain by aluminum (3) + heat gain by water(4)\n${m_1}{s_1}\\Delta {T_1} + {m_2}{s_2}\\Delta {T_2} $ = ${m_3}{s_3}\\Delta {T_3} + {m_4}{s_4}\\Delta {T_4} $ \n(50 $\\times$ 0.0924 $\\times$ 60) + (70 $\\times$ s_2 $\\times$ 80) = (100 $\\times$ 0.215 $\\times$10) + (250 $\\times$ 1 $\\times$10)\nafter solving \nspecific heat of unknown metal s_2 = 0.435cal/gm^oC"
+            },
+            {
+              "questionID": 18012,
+              "question": "A 3.00-g copper penny at 25.0$^\\circ $C drops from a height of 50.0 m to the ground. (a) If 60.0% of the change in potential energy goes into increasing the internal energy, what is its final temperature?",
+              "question_raw": "<p>A 3.00-g copper penny at 25.0<span class=\"math-tex\">{tex}^\\circ {/tex}</span>C drops from a height of 50.0 m to the ground. (a) If 60.0% of the change in potential energy goes into increasing the internal energy, what is its final temperature?</p>",
+              "options": [
+                {
+                  "label": "A",
+                  "id": 27249,
+                  "text": "23.8^oC",
+                  "is_correct": false
+                },
+                {
+                  "label": "B",
+                  "id": 27248,
+                  "text": "25.8^oC",
+                  "is_correct": true
+                },
+                {
+                  "label": "C",
+                  "id": 27251,
+                  "text": "27.8^oC",
+                  "is_correct": false
+                },
+                {
+                  "label": "D",
+                  "id": 27250,
+                  "text": "21.8^oC",
+                  "is_correct": false
+                }
+              ],
+              "correct_option_ids": [
+                27248
+              ],
+              "correct_option_labels": [
+                "B"
+              ],
+              "correct_option_texts": [
+                "25.8^oC"
+              ],
+              "explanation": "mgh = 3 $\\times$ 10^−3$\\times$10 $\\times$ 50 = 1.5J\nHeat used in increasing temp \n$Q=1.5 \\times \\frac{60}{100}=0.9 J$\nQ = ms $\\Delta$T_0.9 = 3 $\\times$ 0.385 $\\times$ (T−298)\nT = 298.8K = 25.8^oC"
+            },
+            {
+              "questionID": 18013,
+              "question": "A water heater is operated by solar power. If the solar collector has an area of 6.00 m^2 and the power delivered by sunlight is 550 W/ m^2, how long does it take to increase the temperature of 1.00 m^3 of water from 20.0^oC to 60.0^oC?",
+              "question_raw": "<p>A water heater is operated by solar power. If the solar collector has an area of 6.00 m<sup>2</sup> and the power delivered by sunlight is 550 W/ m<sup>2</sup>, how long does it take to increase the temperature of 1.00 m<sup>3</sup> of water from 20.0<sup>o</sup>C to 60.0<sup>o</sup>C?</p>",
+              "options": [
+                {
+                  "label": "A",
+                  "id": 27254,
+                  "text": "54.7 ks",
+                  "is_correct": false
+                },
+                {
+                  "label": "B",
+                  "id": 27255,
+                  "text": "56.7 ks",
+                  "is_correct": false
+                },
+                {
+                  "label": "C",
+                  "id": 27253,
+                  "text": "52.7 ks",
+                  "is_correct": false
+                },
+                {
+                  "label": "D",
+                  "id": 27252,
+                  "text": "50.7 ks",
+                  "is_correct": true
+                }
+              ],
+              "correct_option_ids": [
+                27252
+              ],
+              "correct_option_labels": [
+                "D"
+              ],
+              "correct_option_texts": [
+                "50.7 ks"
+              ],
+              "explanation": "$Q = ms\\Delta T$\n$ P = {W \\over t} = {{ms\\Delta T} \\over t} $ \n$t = {{ms\\Delta T} \\over P} = {{1000 \\times 4186 \\times 40} \\over {550 \\times 6}} $ = 50700 sec = 50.7 ksec"
+            },
+            {
+              "questionID": 18014,
+              "question": "A 3.00-g lead bullet at 30.0^oC is fired at a speed of 240 m/s into a large block of ice at 0^oC, in which it becomes embedded. What quantity of ice melts? Latent heat of ice = 3.33 $\\times$ 10^-5 J/Kg, the specific heat of lead = 128J/Kg^oC?",
+              "question_raw": "<p>A 3.00-g lead bullet at 30.0<sup>o</sup>C is fired at a speed of 240 m/s into a large block of ice at 0<sup>o</sup>C, in which it becomes embedded. What quantity of ice melts? Latent heat of ice = 3.33 <span class=\"math-tex\">{tex}\\times{/tex}</span> 10<sup>-5</sup>&nbsp;J/Kg, the specific heat of lead =&nbsp;128J/Kg<sup>o</sup>C?</p>",
+              "options": [
+                {
+                  "label": "A",
+                  "id": 27258,
+                  "text": "2.54 g",
+                  "is_correct": false
+                },
+                {
+                  "label": "B",
+                  "id": 27256,
+                  "text": "2.94 g",
+                  "is_correct": true
+                },
+                {
+                  "label": "C",
+                  "id": 27259,
+                  "text": "3.04 g",
+                  "is_correct": false
+                },
+                {
+                  "label": "D",
+                  "id": 27257,
+                  "text": "2.74 g",
+                  "is_correct": false
+                }
+              ],
+              "correct_option_ids": [
+                27256
+              ],
+              "correct_option_labels": [
+                "B"
+              ],
+              "correct_option_texts": [
+                "2.94 g"
+              ],
+              "explanation": "${1 \\over 2}{m_{Pb}}{v^2} + {m_{Pb}}{s_{Pb}}(30 - 0) = {m_{ice}}{L_{ice}}$\n($1\\over 2$ $\\times$ 3 $\\times$ 10^−3 $\\times$ 240 $\\times$ 240)+(3 $\\times$ 10^−3 $\\times$ 128 $\\times$ 30) = m_ice $\\times$ 3.33 $\\times$ 10^5\nm_ice = 2.94gm"
+            },
+            {
+              "questionID": 18015,
+              "question": "A 1.00-kg block of copper at 20.0$^\\circ $C is dropped into a large vessel of liquid nitrogen at 77.3 K. How many kilograms of nitrogen boil away by the time the copper reaches 77.3 K? (The specific heat of copper is 0.092 0 cal/g. $^\\circ $C. The latent heat of vaporization of nitrogen is 48.0 cal/g.)",
+              "question_raw": "<p>A 1.00-kg block of copper at 20.0<span class=\"math-tex\">{tex}^\\circ {/tex}</span>C is dropped into a large vessel of liquid nitrogen at 77.3 K. How many kilograms of nitrogen boil away by the time the copper reaches 77.3 K? (The specific heat of copper is 0.092 0 cal/g. <span class=\"math-tex\">{tex}^\\circ {/tex}</span>C. The latent heat of vaporization of nitrogen is 48.0 cal/g.)</p>",
+              "options": [
+                {
+                  "label": "A",
+                  "id": 27261,
+                  "text": "0.434 kg",
+                  "is_correct": false
+                },
+                {
+                  "label": "B",
+                  "id": 27260,
+                  "text": "0.414 kg",
+                  "is_correct": true
+                },
+                {
+                  "label": "C",
+                  "id": 27263,
+                  "text": "0.384 kg",
+                  "is_correct": false
+                },
+                {
+                  "label": "D",
+                  "id": 27262,
+                  "text": "0.404 kg",
+                  "is_correct": false
+                }
+              ],
+              "correct_option_ids": [
+                27260
+              ],
+              "correct_option_labels": [
+                "B"
+              ],
+              "correct_option_texts": [
+                "0.414 kg"
+              ],
+              "explanation": "Heat is given by copper = Heat gain by nitrogen\nms$\\Delta$T = mN_2L\n1000 $\\times$ 0.092 $\\times$ 215.7 = mN_2 × 48\nmN_2 = 414gm = 0.414Kg"
+            },
+            {
+              "questionID": 18016,
+              "question": "In an insulated vessel, 250 g of ice at 0^oC is added to 600 g of water at 18.0^oC. What is the final temperature of the system?",
+              "question_raw": "<p>In an insulated vessel, 250 g of ice at 0<sup>o</sup>C is added to 600 g of water at 18.0<sup>o</sup>C. What is the final temperature of the system?</p>",
+              "options": [
+                {
+                  "label": "A",
+                  "id": 27265,
+                  "text": "2^oC",
+                  "is_correct": false
+                },
+                {
+                  "label": "B",
+                  "id": 27266,
+                  "text": "-2^oC",
+                  "is_correct": false
+                },
+                {
+                  "label": "C",
+                  "id": 27267,
+                  "text": "4^oC",
+                  "is_correct": false
+                },
+                {
+                  "label": "D",
+                  "id": 27264,
+                  "text": "0^oC",
+                  "is_correct": true
+                }
+              ],
+              "correct_option_ids": [
+                27264
+              ],
+              "correct_option_labels": [
+                "D"
+              ],
+              "correct_option_texts": [
+                "0^oC"
+              ],
+              "explanation": "maximum heat given by water is $Q = {m_{water}}s\\Delta T $ =600 $\\times$ 1 $\\times$ (18 − 0) = 10800cal\nHeat required to melt the complete ice = m_ice L = 250 $\\times$ 80 = 20000cal\nice remains unmelt is given by = ${{20000 - 10800} \\over {80}} = {{9200} \\over {80}} $ = 115gm\nHeat given by water is not sufficient to meet the complete ice. so that temp of the system is $0^\\circ C$ with some ice remains unmelt"
+            },
+            {
+              "questionID": 18017,
+              "question": "In an insulated vessel, 250 g of ice at 0$^\\circ $C is added to 600 g of water at 18.0$^\\circ $C. How much ice remains when the system reaches equilibrium?\ngiven that latent heat of fusion of ice = 79.5 cal/gm, the specific heat of water = 1cal/gm^oC.",
+              "question_raw": "<p>In an insulated vessel, 250 g of ice at 0<span class=\"math-tex\">{tex}^\\circ {/tex}</span>C is added to 600 g of water at 18.0<span class=\"math-tex\">{tex}^\\circ {/tex}</span>C. How much ice remains when the system reaches equilibrium?<br />\r\ngiven that latent heat of fusion of ice = 79.5&nbsp;cal/gm, the specific heat of water =&nbsp;1cal/gm<sup>o</sup>C.</p>",
+              "options": [
+                {
+                  "label": "A",
+                  "id": 27271,
+                  "text": "87 g",
+                  "is_correct": false
+                },
+                {
+                  "label": "B",
+                  "id": 27270,
+                  "text": "94 g",
+                  "is_correct": false
+                },
+                {
+                  "label": "C",
+                  "id": 27268,
+                  "text": "114 g",
+                  "is_correct": true
+                },
+                {
+                  "label": "D",
+                  "id": 27269,
+                  "text": "134 g",
+                  "is_correct": false
+                }
+              ],
+              "correct_option_ids": [
+                27268
+              ],
+              "correct_option_labels": [
+                "C"
+              ],
+              "correct_option_texts": [
+                "114 g"
+              ],
+              "explanation": "maximum heat given by water is\n${Q_1} = {m_w}{s_w}\\Delta T = 600 \\times 1 \\times (18 - 0) = 10800cal$\nThe heat required to melt the complete ice = Q_2 = m_ice L\nQ_2 = 250 $\\times$ 79.5 = 19875cal\nHeat given by water is not sufficient to melt complete ice. Hence the temperature of the mixture will be $0^\\circ C$ with some ice remains unmelt.\namount of ice melt = $m = {{{Q_1}} \\over L} = {{10800} \\over {79.5}} $ = 136gm\nL = latent heat of fusion of ice = 79.5 cal/gm\nAmount of ice which remains unmelt at equilibrium = 250 - 136 = 114 gm"
+            },
+            {
+              "questionID": 18018,
+              "question": "If 90.0 g of molten lead at 327.3^oC is poured into a 300-g casting form made of iron and initially at 20.0^oC, what is the final temperature of the system? (Assume that no energy loss to the environment occurs.) Latent heat of fusion of lead = 2.45 $\\times$ 10^4 J/kg, specific heat of lead = 128J/Kg^oC\nspecific heat of iron = 448J/Kg^oC.",
+              "question_raw": "<p>If 90.0 g of molten lead at 327.3<sup>o</sup>C is poured into a 300-g casting form made of iron and initially at 20.0<sup>o</sup>C, what is the final temperature of the system? (Assume that no energy loss to the environment occurs.) Latent heat of fusion of lead =&nbsp;2.45 &nbsp;<span class=\"math-tex\">{tex}\\times{/tex}</span>&nbsp;10<sup>4</sup> J/kg, specific heat of lead =&nbsp;128J/Kg<sup>o</sup>C<br />\nspecific heat of iron =&nbsp;448J/Kg<sup>o</sup>C.</p>",
+              "options": [
+                {
+                  "label": "A",
+                  "id": 27275,
+                  "text": "51.4^oC",
+                  "is_correct": false
+                },
+                {
+                  "label": "B",
+                  "id": 27273,
+                  "text": "55.4^oC",
+                  "is_correct": false
+                },
+                {
+                  "label": "C",
+                  "id": 27274,
+                  "text": "62.4^oC",
+                  "is_correct": false
+                },
+                {
+                  "label": "D",
+                  "id": 27272,
+                  "text": "59.4^oC",
+                  "is_correct": true
+                }
+              ],
+              "correct_option_ids": [
+                27272
+              ],
+              "correct_option_labels": [
+                "D"
+              ],
+              "correct_option_texts": [
+                "59.4^oC"
+              ],
+              "explanation": "The melting point of lead is given by 327.3^o C.\nAssume the final temperature of the system is T. Then the amount of energy released by the lead as it solidifies is given by \nΔQ = m_leadL_lead = 0.09 kg*(2.45*10^4 J/kg) = 2205 J,\nand the amount of energy released as it cools is given by :-\nΔQ = m_leadc_leadΔT = 0.09 kg*(128 J/(kg^oC))(327.3 ^oC - T) = (11.52 J/^oC)(327.3 ^oC - T).\nThis energy is absorbed by the iron. Thus,\n2205 J + (11.52 J/^oC) (327.3^oC - T) = m_ironc_ironΔT = 0.3 kg*(448 J/(kg^oC))(T - 20 ^oC).\n5975.5 J - (11.52 J/^oC)T = (134 J/^oC)T - 2688 J.\n8663.5 J = (145.52 J/^oC)T.\nT = 59.5^o C."
+            },
+            {
+              "questionID": 18019,
+              "question": "A surveyor uses a steel measuring tape that is exactly 50.000 m long at a temperature of 20$^\\circ $C. The markings on the tape are calibrated for this temperature.\n What is the length of the tape when the temperature is 35^oC?\n When it is 35^oC, the surveyor uses the tape to measure a distance. The value that she reads off the tape is 35.794 m. What is the actual distance? $\\alpha$ = 1.2 $\\times$ 10^-5oC",
+              "question_raw": "<p>A surveyor uses a steel measuring tape that is exactly 50.000 m long at a temperature of 20<span class=\"math-tex\">{tex}^\\circ {/tex}</span>C. The markings on the tape are calibrated for this temperature.</p>\r\n\r\n<ol start=\"1\" style=\"list-style-type: lower-roman;\">\r\n\t<li>What is the length of the tape when the temperature is 35<sup>o</sup>C?</li>\r\n\t<li>When it is 35<sup>o</sup>C, the surveyor uses the tape to measure a distance. The value that she reads off the tape is 35.794 m. What is the actual distance?&nbsp;<span class=\"math-tex\">{tex}\\alpha{/tex}</span> = 1.2 <span class=\"math-tex\">{tex}\\times{/tex}</span> 10<sup>-5o</sup>C</li>\r\n</ol>",
+              "options": [
+                {
+                  "label": "A",
+                  "id": 27279,
+                  "text": "50.010 m, 35.900 m",
+                  "is_correct": false
+                },
+                {
+                  "label": "B",
+                  "id": 27278,
+                  "text": "50.008 m, 35.600 m",
+                  "is_correct": false
+                },
+                {
+                  "label": "C",
+                  "id": 27277,
+                  "text": "50.007 m, 35.750 m",
+                  "is_correct": false
+                },
+                {
+                  "label": "D",
+                  "id": 27276,
+                  "text": "50.009 m, 35.800 m",
+                  "is_correct": true
+                }
+              ],
+              "correct_option_ids": [
+                27276
+              ],
+              "correct_option_labels": [
+                "D"
+              ],
+              "correct_option_texts": [
+                "50.009 m, 35.800 m"
+              ],
+              "explanation": "$\\alpha = {{\\Delta l} \\over l}{1 \\over {\\Delta T}}$\n$\\Delta l = l\\alpha \\Delta T$ = 50 $\\times$ 1.2 $\\times$ 10^-5 $\\times$ 15 = 0.009m\nfinal length = 50 + 0.009m = 50.009m\nif actual distance = x\nthen $\\Delta x = x\\alpha \\Delta T$\nx−35.794 = x $\\times$ 1.2 $\\times$ 10^−5 $\\times$ 15\nx = 35.800m"
+            },
+            {
+              "questionID": 18020,
+              "question": "A 200- ${\\rm{c}}{{\\rm{m}}^{\\rm{3}}}$ glass flask is filled to the brim with mercury at 20^oC. How much mercury overflows when the temperature of the system is raised to 100$^\\circ $ C.The coefficient of linear expansion of the glass is 0.40 $\\times$ 10^−5/^oC. Coefficient of volume expansion of mercury is 1.82 $\\times$ 10^-4/^oC.",
+              "question_raw": "<p>A 200- <span class=\"math-tex\">{tex}{\\rm{c}}{{\\rm{m}}^{\\rm{3}}}{/tex}</span> glass flask is filled to the brim with mercury at 20<sup>o</sup>C. How much mercury overflows when the temperature of the system is raised to 100<span class=\"math-tex\">{tex}^\\circ {/tex}</span> C.The coefficient of linear expansion of the glass is&nbsp;0.40 <span class=\"math-tex\">{tex}\\times{/tex}</span> 10<sup>&minus;5</sup>/<sup>o</sup>C. Coefficient of volume expansion of mercury is&nbsp;1.82 <span class=\"math-tex\">{tex}\\times{/tex}</span> 10<sup>-4</sup>/<sup>o</sup>C.</p>",
+              "options": [
+                {
+                  "label": "A",
+                  "id": 27280,
+                  "text": "2.7 cm^3",
+                  "is_correct": true
+                },
+                {
+                  "label": "B",
+                  "id": 27281,
+                  "text": "2.5 cm^3",
+                  "is_correct": false
+                },
+                {
+                  "label": "C",
+                  "id": 27283,
+                  "text": "2.3 cm^3",
+                  "is_correct": false
+                },
+                {
+                  "label": "D",
+                  "id": 27282,
+                  "text": "2.9 cm^3",
+                  "is_correct": false
+                }
+              ],
+              "correct_option_ids": [
+                27280
+              ],
+              "correct_option_labels": [
+                "A"
+              ],
+              "correct_option_texts": [
+                "2.7 cm^3"
+              ],
+              "explanation": "coefficient of linear expansion of the glass ${\\gamma _S} $ = 0.40 $\\times$ 10^−5/^oC\nCoefficient of volume expansion of mercury ${a_L} $ = 1.82 $\\times$ 10^-4/^oC\nThe number of mercury overflows\n$\\Delta V = ({\\gamma _L} - {\\gamma _S})V\\Delta \\theta$\n${\\gamma _S} $ = 3α = 3 $\\times$ 0.4 $\\times$ 10^−5 = 0.12 $\\times$ 10^−4\nΔV = (1.82−0.12) $\\times$ 10^−4 $\\times$ 200 $\\times$ 80 = 2.7cm^3\nmercury overflows = 2.7cm^3"
+            }
+          ]
+        }
+      ]
+    }
+  ]
+}

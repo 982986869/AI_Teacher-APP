@@ -1,0 +1,875 @@
+CHAPTER: Introduction to 3D Geometry  (id 1383)
+CBSE > Class 11 > Mathematics > Introduction to 3D Geometry
+Online tests: 5
+
+========================================================================
+3D Geometry Test 01  (id 657) [FREE]
+CBSE > Class 11 > Mathematics > Introduction to 3D Geometry
+Questions: 15 | Answers: YES
+========================================================================
+
+Q1. The distance of the point (3, 4, 5) from X-axis is
+    (A) 5
+    (B) $\sqrt {34} $
+    (C) 3
+    (D) $\sqrt {41} $   <-- CORRECT
+    Answer: D
+    Explanation: The distance of the point (3, 4, 5) from X-axis is: let L be the foot of the perpendicular from the point (3, 4, 5) to X-axis, then coordinate of L will be (3, 0, 0) because on X-axis y and z coordinate are zero then the distance of the point (3, 4, 5) from X-axis i.e. from L (3, 0, 0) is given by $\sqrt {{{(3 - 3)}^2} + {{(4 - 0)}^2} + {{(5 - 0)}^2}} $ = $\sqrt {41} $
+
+Q2. The direction cosines of X -axis are
+    (A) $<$ 0 , 1 , 1 $>$
+    (B) $<$ 0 , 1 , 0 $>$
+    (C) $<$ 0 , 0 , 1 $>$
+    (D) $<$ 1 , 0 , 0 $>$   <-- CORRECT
+    Answer: D
+    Explanation: As we know that if a lines makes angles a , b and c with X-axis , Y-axis and Z-axis respectively then direction cosines are given by < cos a , cos b ,cos c >
+In our case line is X-axis itself which we know makes angle of 0$^ \circ $ , 90$^ \circ $ , 90$^ \circ $ with X-axis , Y-axis and Z-axis respectively then direction cosine will be
+<cos 0$^ \circ $ , cos 90$^ \circ $, cos 90$^ \circ $>
+= < 1, 0, 0 >
+
+Q3. The medians of a triangle are concurrent at the point called
+    (A) orthocentre
+    (B) incentre
+    (C) centroid   <-- CORRECT
+    (D) circumcentre
+    Answer: C
+    Explanation: The centroid is the point of concurrency of the medians of the triangle. It is a point of the centre of gravity of the triangle.
+
+Q4. The direction cosines of any normal to the XY plane are
+    (A) $<$ 0 , 1 , 0 $>$
+    (B) $<$ 1 , 0 , 0 $>$
+    (C) $<$ 0 , 0 , 1 $>$   <-- CORRECT
+    (D) $<$ 1 , 1 , 0 $>$
+    Answer: C
+    Explanation: Concept used - Parellel lines have same direction cosines
+Explanation We know Z axis is perpendicular to XY plane and direction cosines of Z axis are <0,0,1>
+and as any normal to XY plane will be parallel to Z axis and parellel lines have same direction cosines so answer is <0,0,1>
+
+Q5. How many lines through the origin make equal angles with the coordinate axes ?
+    (A) 1
+    (B) 4
+    (C) 2
+    (D) 8   <-- CORRECT
+    Answer: D
+    Explanation: $since \ \alpha = \beta =\ \gamma$
+$cos^2\alpha +cos^2\beta+cos^2\gamma=1\\ hence \ 3 cos^2\alpha=1\\ hence \ cos \alpha=\frac{1}{\sqrt3}\\ \ cos \beta=\frac{1}{\sqrt3}\\\ cos \gamma=\frac{1}{\sqrt3} dcs \ of \ lines \ will \ be\ \\(\pm \frac{1}{\sqrt3},\pm \frac{1}{\sqrt3},\pm \frac{1}{\sqrt3}) $
+hence the lines will be 8
+
+Q6. the numbers 3, 4 , 5 can be
+    (A) direction numbers of a line in space   <-- CORRECT
+    (B) direction cosines of a line in space
+    (C) coordinates of a point in the plane x + y – z = 0
+    (D) coordinates of a point on the line y = 4 , z = 0
+    Answer: A
+    Explanation: the numbers 3, 4 , 5 can be direction ratio of any line these not satisfying any other option
+
+Q7. If the directions cosines of a line are k,k,k, then
+    (A) 0 $<$ k $<$ 1
+    (B) k $>$ 0
+    (C) k = 1
+    (D) $k = \frac{1}{{\sqrt {3} }}$ or $k = - \frac{1}{{\sqrt 3 }}$   <-- CORRECT
+    Answer: D
+    Explanation: We know that if l, m, n are direction cosines of a lines then l^2 +m^2 +n^2= 1
+so, k^2 + k^2 +k^2 = 1
+3 k^2 = 1
+k^2 = $\frac{1}{3}$
+taking squareroot on both sides , we have $k = \frac{1}{{\sqrt {3} }}$ or $k = - \frac{1}{{\sqrt 3 }}$
+
+Q8. The lines, which do not lie in the same plane, are called?
+    (A) intersecting
+    (B) coincident
+    (C) skew lines   <-- CORRECT
+    (D) parallel
+    Answer: C
+    Explanation: Lines which lie in the same plane can be parallel, coincident or intersecting.
+Skew lines are those lines which lie in different planes and never meet to each other.
+
+Q9. The radius of the sphere through the points (4, 3, 0), (0, 4, 3), (0, 5, 0) and (4, 0, 3) is
+    (A) 5   <-- CORRECT
+    (B) $\frac{5}{7}$
+    (C) 7
+    (D) $\frac{7}{5}$
+    Answer: A
+    Explanation: We know that general equation of sphere is x^2 + y^2 + z^2 + 2gx + 2fy + 2hz + c = 0
+Since sphere passing through the points (4, 3, 0), (0, 4, 3), (0, 5, 0) and (4, 0, 3) so putting these values one by one in given equation, we get
+16 + 9 + 8g + 6f + c = 0 $\Rightarrow$ 8g + 6f + c = -25 ......(i)
+16 + 9 + 8f + 6h + c = 0 $\Rightarrow$ 8f + 6h + c = -25 ......(ii)
+25 + 10f + c = 0 ......(iii)
+16 + 9 + 8g + 6h + c = 0 $\Rightarrow$ 8g + 6h + c = -25 ......(iv)
+By (ii) - (iv) we have f = g
+Using this in (i) we have 16f +c = -25 .....(v)
+Now solving (iii) and (v) we get f = 0 
+Using value of f we have g = 0, h = 0, c = -25
+Now radius =$\sqrt {{{( - g)}^2} + ( - f) + {{( - h)}^2} - c} $ = $\sqrt {25} $ = 5
+
+Q10. The points (4, 7, 8), (2, 3, 4), (-1, -2, 1) and (1, 2, 5) are the vertices of a
+    (A) rectangle
+    (B) parallelogram   <-- CORRECT
+    (C) square
+    (D) rhombus
+    Answer: B
+    Explanation: The vertices of a quadrilateral are A( 4, 7, 8), B(2, 3, 4) ,C (- 1, -2, 1) and D(1, 2, 5) 
+AB =$\sqrt {{{(4 - 2)}^2} + {{(7 - 3)}^2} + {{(8 - 4)}^2}} $ = $\sqrt{4+16+16}$ = $\sqrt{36}$ = 6 
+BC =$\sqrt {{{(2 + 1)}^2} + {{(3 + 2)}^2} + {{(4 - 1)}^2}}$ = $\sqrt{9+25+9}$ = $\sqrt{43}$ 
+CD =$\sqrt {{{(1 + 1)}^2} + {{(2 + 2)}^2} + {{(5 - 1)}^2}} $ = $\sqrt{4+16+16}$ = $\sqrt{36}$ = 6
+DA = $\sqrt {{{(4 - 1)}^2} + {{(7 - 2)}^2} + {{(8 - 5)}^2}} $ = $\sqrt{9+25+9}$ = $\sqrt{43}$ 
+Here opposite sides of quadrilateral ABCD are equal, so it may be parallelogram or rectangle
+Now , diagonal AC =$\sqrt {{{(4 + 1)}^2} + {{(7 +2)}^2} + {{(8 -1)}^2}} $ = $\sqrt{25+81+49}$ = $\sqrt{155}$ 
+BD = $\sqrt {{{(2 - 1)}^2} + {{(3 - 2)}^2} + {{(4 - 5)}^2}}$ = $\sqrt{1+1+1}$ = $\sqrt{3}$ 
+Here the length of diagonals AC and BD are different so ABCD is a parallelogram.
+
+Q11. The equation xy = 0 in three dimensional space represents
+    (A) a pair of straight lines
+    (B) a pair of planes at right angles   <-- CORRECT
+    (C) a plane
+    (D) a pair of parallel lines
+    Answer: B
+    Explanation: Since xy = 0 implies x = 0 or y = 0.i.e YZ plane or XZ plane. Hence it represents a pair of planes at right angles.
+
+Q12. The graph of the equation x^2 + y^2 = 0 in the three dimensional space is
+    (A) X - axis
+    (B) XY – plane
+    (C) Y - axis
+    (D) Z - axis   <-- CORRECT
+    Answer: D
+    Explanation: x^2 + y^2 = 0 $\Rightarrow $ x = 0 and y = 0 represents a point (0, 0) in space in 2D. In 3D the collection of all these points forms Z-axis.
+
+Q13. In three dimensional space, locus of the equation x^2 + z^2 = 0 is
+    (A) empty set
+    (B) a degenerate circle
+    (C) y - axis   <-- CORRECT
+    (D) a degenerate sphere
+    Answer: C
+    Explanation: x^2 + z^2 = 0 $\Rightarrow$ x = 0 and z = 0 it will represent a point in 2d and in 3d the collection of all these point will form Y axis.
+
+Q14. The distance of the point (x, y, z) from the XY–plane is
+    (A) y
+    (B) |z|   <-- CORRECT
+    (C) z
+    (D) x
+    Answer: B
+    Explanation: Let L be the foot of a perpendicular segment from point P (x, y, z) on the XY plane.
+Now since L is the foot of perpendicular on XY plane so z coordinate will be zero so the point L will be (x, y, 0)
+Then the distance between these two will be $\sqrt {{{(x - x)}^2} + {{(y - y)}^2} + {{(z - 0)}^2}} $ = $\sqrt {{z^2}} $ = |z|
+
+Q15. The angle between the lines x = 1, y = 2 and y = - 1, z = 0 is
+    (A) 0^o
+    (B) 90^o   <-- CORRECT
+    (C) 30^o
+    (D) 60^o
+    Answer: B
+    Explanation: x = 1, y = 2 represents XY plane and y = - 1, z = 0 represents YZ plane. Since XY perpendicular to YZ. Hence angle is 90 degrees.
+
+========================================================================
+3D Geometry Test 02  (id 658) [PAID]
+CBSE > Class 11 > Mathematics > Introduction to 3D Geometry
+Questions: 15 | Answers: YES
+========================================================================
+
+Q1. The lines having drs as a_1a_2 + b_1b_2 + c_1c_2 = 0 are
+    (A) perpendicular   <-- CORRECT
+    (B) coincident
+    (C) parallel
+    (D) skew
+    Answer: A
+    Explanation: cos $\theta$ = $\frac{a_{1} a_{2}+b_{1} b_{2}+c_{1} c_{2}}{\sqrt{a_{1}^{2}+b_{1}^{2}+c_{1}^{2}} \sqrt{a_{2}^{2}+b_{2}^{2}+c_{2}^{2}}}$ 
+but a_1a_2 + b_1b_2 + c_1c_2 = 0
+Hence cos $\theta$ = 0
+$\theta$ = 90^o
+Hence lines are perpendicular.
+
+Q2. The line x = 1, y = 2 is
+    (A) parallel to Y – axis
+    (B) parallel to X – axis
+    (C) lies in a plane parallel to XY – plane
+    (D) parallel to Z – axis   <-- CORRECT
+    Answer: D
+    Explanation: Since z coordinate is zero it is parallel to Z axis.
+
+Q3. The equation (x – 1)(x – 2) = 0 represents, in three dimensional space, a
+    (A) sphere
+    (B) pair of parallel planes   <-- CORRECT
+    (C) pair of straight lines
+    (D) an empty set
+    Answer: B
+    Explanation: The equation (x - 1) (x - 2) = 0 represents, in three dimensional space, a pair of parallel planes.
+(x - 1) (x - 2) = 0 $\Rightarrow$ (x - 1) = 0, (x - 2) = 0
+x = 1 and x = 2 
+According to the equation ax + by + cz = d and by the formula $\frac{{a_1}}{{a_2}} = \frac{{b_1}}{{b_2}} = \frac{{c_1}}{{c_2}}$ we have both the planes represent pair of parallel planes.
+
+Q4. A point (x, y, z) moves parallel to X- axis. Which of the three variables x, y, z remain fixed?
+    (A) x
+    (B) z and x
+    (C) y and z   <-- CORRECT
+    (D) x and y
+    Answer: C
+    Explanation: A point (x, y, z) moves parallel to X-axis then value of x will vary and remaining will be fixed.
+
+Q5. A point (x, y, z) moves parallel to XY - plane. Which of the three variables x, y, z remain fixed?
+    (A) x
+    (B) x and y
+    (C) y
+    (D) z   <-- CORRECT
+    Answer: D
+    Explanation: A point (x, y, z) moves parallel to XY - plane then x and y-coordinate will vary and z will fixed.
+
+Q6. The plane x = 0 divides the join of (- 2, 3, 4) and (1, -2, 3) in the ratio
+    (A) 1: 2
+    (B) 3 : 2
+    (C) 4 : 3
+    (D) 2 : 1   <-- CORRECT
+    Answer: D
+    Explanation: Given:
+Place: x = 0 and two points (−2, 3, 4) and (1, −2, 3)
+Let say a point (x, y, z) in x = 0 place
+So, x = $\frac{m+n(-2)}{m+n}=\frac{m-2 n}{m+n}$ 
+0 = $\frac{m-2 n}{m+n}$ $\Rightarrow$ m = 2n
+So, $\frac{m}{n}=\frac{2}{1} \Rightarrow$ 2 : 1
+
+Q7. The direction cosines of the line joining (1, - 1, 1) and (-1, 1, 1) are
+    (A) < 1, - 1, 1 >
+    (B) < 2, - 2, 0 >
+    (C) $<\frac{1}{\sqrt{2}},-\frac{1}{\sqrt{2}}, 0>$   <-- CORRECT
+    (D) < 1, -1, 0 >
+    Answer: C
+    Explanation: The direction ratio of the line joining (x_1, y_1, z_1) and (x_2, y_2, z_2) = < x_1 - x_2, y_1 - y_2, z_1 - z_2 >
+The direction ratio of the line joining (1, -1, 1) and (-1, 1, 1) = < 1 + 1, -1 - 1, 1 - 1 > = < 2, -2, 0 >
+The direction cosines of the line = <$\frac{{ 2}}{{\sqrt {{{( - 2)}^2} + {{(2)}^2} + {{(0)}^2}} }},\frac{-2}{{\sqrt {{{( -2)}^2} + {{(2)}^2} + {{(0)}^2}} }},\frac{0}{{\sqrt {{{( - 2)}^2} + {{(2)}^2} + {{(0)}^2}} }}$ > = $ < \frac{{ 2}}{{\sqrt 8 }},\frac{-2}{{\sqrt 8 }},\frac{0}{{\sqrt 8 }} > $ = $ < \frac{{ 2}}{{2\sqrt 2 }},\frac{-2}{{2\sqrt 2 }},\frac{0}{{2\sqrt 2 }} > $=$ < \frac{{ 1}}{{\sqrt 2 }},\frac{-1}{{\sqrt 2 }},0 > $
+
+Q8. The line $\frac{x-x_1}{0}=\frac{y-y_1}{1}=\frac{z-z_1}{2}$ is
+    (A) at right angles to plane YOZ
+    (B) is perpendicular to Y-axis
+    (C) is parallel to Y-axis
+    (D) at right angles to x –axis   <-- CORRECT
+    Answer: D
+    Explanation: Since the drs i.e. a = 0. Hence, the line is perpendicular to the x-axis.
+
+Q9. The line x = x_1, y = y_1 is
+    (A) parallel to z axis   <-- CORRECT
+    (B) parallel to y axis
+    (C) parallel to x axis
+    (D) perpendicular to y axis
+    Answer: A
+    Explanation: The line x = x_1, y = y_1 is parallel to Z-axis as here value of x and y is fixed. Here whatever be the value of z, x and y will be fixed So it represents a plane parallel to Z-axis.
+
+Q10. Skew lines are
+    (A) parallel lines
+    (B) intersecting lines
+    (C) none of these   <-- CORRECT
+    (D) coplanar lines
+    Answer: C
+    Explanation: Skew lines are those lines which lie in different planes and never meet.
+
+Q11. The locus of the equation xy + yz = 0 is
+    (A) a pair of straight lines
+    (B) a pair of curvy lines
+    (C) a pair of perpendicular planes   <-- CORRECT
+    (D) a pair of parallel planes
+    Answer: C
+    Explanation: xy represents the plane through origin and perpendicular to z-axis. Similarly yz represents the plane through origin and perpendicular to x-axis. Hence it represents pair of perpendicular lines.
+
+Q12. The number of spheres of a given radius r and touching the coordinate axes(3D) is
+    (A) 4
+    (B) 8   <-- CORRECT
+    (C) 10
+    (D) 6
+    Answer: B
+    Explanation: Each octant will have one sphere of radius r touching axes. So there are 8 such spheres.
+
+Q13. The equation $\vec r = \lambda \widehat {i}$ represents
+    (A) the Z axis
+    (B) the X axis   <-- CORRECT
+    (C) the Y axis
+    (D) the YOZ plane
+    Answer: B
+    Explanation: The equation $\vec r = \lambda \widehat {i}$ represents X- axis
+ $\vec r = \lambda \widehat {i}$ 
+$\vec r = \ x \widehat {i} +\ y \widehat {j}+\ z \widehat {k}$ = $\lambda \ \widehat {i} +\ 0 \widehat {j}+\ 0 \widehat {k}$ 
+x = $\lambda$, y = 0, z = 0 this is a general point on X-axis. So given equation represent X axis.
+
+Q14. The equation $\vec r = \lambda \widehat {i} + \mu \widehat {j} $ represents
+    (A) the plane z = 0   <-- CORRECT
+    (B) the Z axis
+    (C) the Y axis
+    (D) the X aixs
+    Answer: A
+    Explanation: The equation $\vec r = \lambda \widehat {i} + \mu \widehat {j} $ represents the plane z = 0 as the equation can be written as $\vec r = \lambda \widehat {i} + \mu \widehat {j} +\ 0 \widehat {k} $ 
+In this z-coordinate is zero. So, this represents XY plane i.e. the plane Z = 0
+
+Q15. The equation $\vec r = \lambda \widehat {k} $ represents
+    (A) the Y axis
+    (B) the X axis
+    (C) the Z axis   <-- CORRECT
+    (D) origin
+    Answer: C
+    Explanation: The equation $\vec r = \lambda \widehat {k} $ can be represented in the form $\vec r = \ 0 \widehat {i} +\ 0\widehat {j}+\lambda \widehat {k}$. Here x, y coordinate are 0 and z is any real number. It represents a general point on Z-axis 
+So, it represent Z-axis.
+
+========================================================================
+3D Geometry Test 03  (id 659) [PAID]
+CBSE > Class 11 > Mathematics > Introduction to 3D Geometry
+Questions: 15 | Answers: YES
+========================================================================
+
+Q1. The distance between the planes $\vec r.\hat n = {p_{1}}and$ $\vec r.( - \hat n) = {p_{2}}is$
+    (A) $\left| {{p_1} - {p_2}} \right|$
+    (B) ${p_2} - {p_1}$
+    (C) ${p_2}*{p_1}$
+    (D) ${p_1} + {p_2}$   <-- CORRECT
+    Answer: D
+    Explanation: P_1 is distance of first plane from origion in the direction of normal vector and P_2 is distance of second plane from origion opposite to normal vector. So distance between planes is $P_1-\left(-P_2\right)\;=\;P_1+P_2$
+
+Q2. The point equidistant from the points (0, 0, 0), (1, 0, 0), (0, 2, 0) and (0, 0, 3) is
+    (A) (1, 2, 3)
+    (B) ($\frac{1}{2}$, 1, $\frac{3}{2}$)   <-- CORRECT
+    (C) ($\frac{-1}{2}$, -1, $\frac{-3}{2}$)
+    (D) (-1, -2, 3)
+    Answer: B
+    Explanation: Let the point equidistant from the points (0, 0, 0), (1, 0, 0), (0, 2, 0) and (0, 0, 3) is (x, y, z)
+Then according to the given condition and distance formula between two points we have 
+$\sqrt{(x-0)^{2}+(y-0)^{2}+(z-0)^{2}}$ = $\sqrt{(x-1)^{2}+(y-0)^{2}+(z-0)^{2}}$ = $\sqrt{(x-0)^{2}+(y-2)^{2}+(z-0)^{2}}$ = $\sqrt{(x-0)^{2}+(y-0)^{2}+(z-3)^{2}}$ 
+$\sqrt {{x^2} + {y^2} + {z^2}} $ = $\sqrt{(x-1)^{2}+y^{2}+z^{2}}$ = $\sqrt{x^{2}+(y-2)^{2}+z^{2}}$ = $\sqrt{x^{2}+y^{2}+(z-3)^{2}}$ 
+Taking ist two expressions and solving them we get x^2 = (x - 1)^2 $\Rightarrow$ x^2 = x^2 - 2x + 1 $\Rightarrow$ -2x + 1 = 0 $\Rightarrow$ x = $\frac{1}{2}$ 
+Similarly by taking i^st and 3^rd we get y = 1 and by taking ist and 4th we get z = $\frac{3}{2}$ 
+So the required point is ($\frac{1}{2}$, 1, $\frac{3}{2}$)
+
+Q3. The plane x + y = 0 is
+    (A) passes through z – axis   <-- CORRECT
+    (B) parallel to z – axis
+    (C) intersecting to z – axis
+    (D) perpendicular to z – axis
+    Answer: A
+    Explanation: Co-ordinates of any point on z-axis are (0, 0, z)
+$\therefore$ The plane x + y = 0 will pass through z-axis if (0, 0, z) satisfies x + y = 0 ....(i)
+Now L.H.S of (i) = x + y
+For (0, 0, z), L.H.S of (i) = 0 + 0 = 0 = R.H.S of (i)
+Hence the result.
+
+Q4. The points ( 1 , 1 , 0 ) , ( 0 , 1 , 1 ) , ( 1 , 0 , 1 ) , and ( 2/3 , 2/3 , 2/3 ) are
+    (A) the vertices of a parallelogram
+    (B) coplanar   <-- CORRECT
+    (C) non coplanar
+    (D) the angle of a parallelogram
+    Answer: B
+    Explanation: $\vec{a}=1 \hat{i}+1 \hat{j}+0 \hat{k}), \vec{b}=(0 \hat{i}+1 \hat{j}+1 \hat{k}), \vec{c}=((\hat{i}+0 \hat{j}+1 \hat{k}), \vec{d}=(2 / 3 \hat{i}+2 / 3 \hat{j}+2 / 3 \hat{k})$
+$\overrightarrow{A B}=-\overrightarrow{1 i}+0 \hat{j}+1 \hat{k}, \overrightarrow{A C}=-0 \hat{i}+-1 \hat{j}+1 \hat{k}, \overrightarrow{A D}=-1 / 3 \hat{i}+-1 / 3 \hat{j}+2 / 3 \hat{k}$
+$\text { Consider }\left|\begin{array}{ccc}{-1} & {0} & {1} \\ {0} & {-1} & {1} \\ {-1 / 3} & {-1 / 3} & {2 / 3}\end{array}\right|=-1(-1 / 3)+1(-1 / 3)$
+=0 
+Hence points are coplanar
+
+Q5. The lines $\frac{x-1}{2}=\frac{y-2}{3}=\frac{z-3}{4}$ and $\frac{x-1}{3}=\frac{y-2}{4}=\frac{z-3}{5}$ are
+    (A) perpendicular
+    (B) parallel
+    (C) intersecting   <-- CORRECT
+    (D) skew
+    Answer: C
+    Explanation: Here (a_1, b_1, c_1) = (2, 3, 4)
+and, (a_2, b_2, c_2) = (3, 4, 5)
+Consider $\left| {\begin{array}{*{20}{c}} {x_2 - x_1}&{y_2 - y_1}&{z_2 - z_1} \\ {a_1}&{b_1}&{c_1} \\ {a_2}&{b_2}&{c_2} \end{array}} \right|$ 
+We get
+$\left| {\begin{array}{*{20}{c}} 0&0&0 \\ 2&3&4 \\ 3&4&5 \end{array}} \right|$ = 0
+Since the shortest distance is zero hence the lines are intersecting.
+
+Q6. The lines l_1 and l_2 intersect. The shortest distance between them is
+    (A) positive
+    (B) zero   <-- CORRECT
+    (C) negative
+    (D) infinity
+    Answer: B
+    Explanation: Since the lines intersect. Hence they have a common point in them. Hence the distance will be zero.
+
+Q7. Volume of a tetrahedron is kX area of one face X length of the perpendicular from the opposite vertex upon it, where k is
+    (A) it is $\frac{1}{4}$
+    (B) it is $\frac{1}{6}$   <-- CORRECT
+    (C) it is $\frac{1}{2}$
+    (D) it is $\frac{1}{3}$
+    Answer: B
+    Explanation: Volume of tetrahedron = $\frac{1}{6}[\bar a \bar b \bar c]$ where a, b, c are co-terminus edges of the tetrahedron. a $\times$ b is area of one face and c is the perpendicular from the opposite vertex.
+
+Q8. A, B, C and D are four points in spaces such that AB = BC = CD = DA. Then ABCD is a
+    (A) skew quadrilateral
+    (B) rectangle
+    (C) rhombus
+    (D) nothing can be said   <-- CORRECT
+    Answer: D
+    Explanation: It can be square or rhombus(all sides are equal). Angle property must be mentioned.
+
+Q9. The foot of the perpendicular from ($\alpha {\rm{ }},\beta {\rm{ }},{\rm{ }}\gamma $) on Y-axis is
+    (A) (0, 0, 0)
+    (B) (0, $\gamma$, 0)
+    (C) (0, $\alpha$, 0)
+    (D) (0, $\beta $, 0)   <-- CORRECT
+    Answer: D
+    Explanation: Let P($\alpha {\rm{ }},\beta {\rm{ }},{\rm{ }}\gamma $) be the point and Q (0,b,0) be any point on Y-axis.
+Direction of PQ = ($\alpha,\beta-b,\gamma)$ 
+Direction of y-axis (0, b, 0)
+Since PQ perpendicular to y-axis. Hence a_1a_2 + b_1b_2 + c_1c_2 = 0
+0 + b($\beta$ - b) + 0 = 0
+b($\beta$ - b) = 0
+$\beta$ = b
+Hence the foot of perpendicular will be $(0,\beta,0)$
+
+Q10. The equation $\vec r = \lambda \hat j$ represents
+    (A) the Z axis
+    (B) the Y axis   <-- CORRECT
+    (C) the plane y = 0
+    (D) the X axis
+    Answer: B
+    Explanation: The equation $\vec r = \lambda \hat j$ $\Rightarrow$$ \ x \hat i +\ y \hat j+\ z \hat k$ = $\lambda \hat j$ $\Rightarrow$ x = 0, y = $\lambda$, z = 0 which represent Y-axis.
+
+Q11. The equation $\vec r = \lambda \widehat {i} + \mu \widehat {k} $ represents
+    (A) the Y axis
+    (B) the X axis
+    (C) the Z axis
+    (D) the plane y = 0   <-- CORRECT
+    Answer: D
+    Explanation: The equation $\vec r = \lambda \widehat {i} + \mu \widehat {k} $ $\Rightarrow$$\ x \widehat {i} +\ y \widehat {i}+ \ z \widehat {k} $ =$ \lambda \widehat {i} +\ 0 \widehat {j} + \mu \widehat {k} $ $\Rightarrow$ x = $\lambda$, y = 0, z = $\mu$ which represent generally XY plane i.e the plane y = 0.
+
+Q12. The centre of the sphere, which passes through (a, 0, 0), (0, b, 0) (0, 0, c ) and (0, 0, 0) is where abc $ \ne $ 0
+    (A) ($\frac{a}{2}$, $\frac{b}{2}$, $\frac{c}{2}$)   <-- CORRECT
+    (B) (0, 0, $\frac{c}{2}$)
+    (C) ($\frac{a}{2}$, 0, 0)
+    (D) (0, $\frac{b}{2}$, 0)
+    Answer: A
+    Explanation: General equation of the sphere is x^2 + y^2 + z^2 + 2gx + 2fy + 2hz + d = 0......(i)
+Since (i) passes through the point (0, 0, 0) using this in (i) we get d = 0
+Similarly (i) passes through (a, 0, 0), (0, b, 0) (0, 0, c) using these values in (i)
+a^2 + 2ag = 0 $\Rightarrow$ a(a + 2g) = 0
+b^2 + 2bf = 0 $\Rightarrow$ b(b + 2f) = 0
+c^2 + 2ch = 0 $\Rightarrow$ c(c + 2h) = 0
+But as abc $\ne $ 0 So, a $\ne $ 0, b $\ne $ 0, c $\ne $ 0
+So from above equations we have a = - 2g, b = - 2f, c = -2h centre is (-f, -g, -h) = ($\frac{a}{2}$, $\frac{b}{2}$, $\frac{c}{2}$)
+
+Q13. The equations of y axis are
+    (A) x = 0, y = 0
+    (B) x = 0, z = 0   <-- CORRECT
+    (C) y = 0, z = 0
+    (D) x = 0, y = 0, z = 0
+    Answer: B
+    Explanation: Since on Y-axis x and z coordinate are 0.
+So, Equations of Y-axis are x = 0 and z = 0
+
+Q14. The equation $\vec r = \lambda \widehat {j} + \mu \widehat {k} $ represents
+    (A) the Y axis
+    (B) the plane x = 0   <-- CORRECT
+    (C) the Z axis
+    (D) the X axis
+    Answer: B
+    Explanation: The equation $\vec r = \lambda \widehat {j} + \mu \widehat {k} $ $\Rightarrow$$ \ x \widehat {i} +\ y\widehat {j}+ \ z \widehat {k} =\ 0 \widehat {i}+ \lambda \widehat {j} + \mu \widehat {k} $ $\Rightarrow$ x = 0, y = $\lambda$, z = $\mu$ which represent generally YZ plane i.e. X = 0 plane.
+
+Q15. Distance between two parallel planes 2x+y+2z=8 and 4x+2y+4z+5=0 is
+    (A) $\frac {9}{2}$
+    (B) $\frac {7}{2}$   <-- CORRECT
+    (C) $\frac{5}{2}$
+    (D) $\frac {3}{2}$
+    Answer: B
+    Explanation: Given planes are 
+2x+2y+2z-8=0
+and 2x+y+2z+$\frac{5}{2}$=0
+Distance between planes =$\frac {|c_1-c_2|}{\sqrt {a^2+b^2+c^2}}\\ $.
+$=|\frac {-8-\frac{5}{2}}{\sqrt {2^2+1^2+2^2}}|\\ =\frac{ \frac{21}{2}}{3}=\frac {7}{2}$
+
+========================================================================
+3D Geometry Test 04  (id 660) [PAID]
+CBSE > Class 11 > Mathematics > Introduction to 3D Geometry
+Questions: 15 | Answers: YES
+========================================================================
+
+Q1. There is one and only one sphere through
+    (A) 3 points not lie in the same line
+    (B) 4 points not in the same plane   <-- CORRECT
+    (C) 4 points not lie in the same straight line
+    (D) 4 points lie in the same straight line
+    Answer: B
+    Explanation: Yes, it is true because if we assume 2 spheres or more than that they will coincide.
+
+Q2. Three planes x + y = 0, y + z = 0 and x + z = 0
+    (A) meet in a line
+    (B) meet taken two at a time in parallel lines
+    (C) meet taken three at a time in parallel lines
+    (D) meet in a unique point   <-- CORRECT
+    Answer: D
+    Explanation: x + y = 0 .....(1)
+y + z = 0 .....(2)
+x + z = 0 ......(3)
+Subtracting 1 and 2 we get x - z = 0 .......(4)
+Adding 3 and 4 we get x = 0, y = 0 and z = 0
+
+Q3. The centre of the sphere through the points ( 0 , 3 , 4 ) , ( 0 , 5 , 0 ) , ( 4 , 0 , 3 ) and ( - 3 , 4 , 0 ) is
+    (A) ( 0 , 2 , 3 )
+    (B) ( 0 , 2 , -3 )
+    (C) (- 4 , 3 , 0 )
+    (D) ( 0 , 0 , 0 )   <-- CORRECT
+    Answer: D
+    Explanation: Let the equation of the required sphere be 
+$\mathrm{x}^{2}+\mathrm{y}^{2}+\mathrm{z}^{2}+2 \mathrm{ux}+2 \mathrm{vy}+2 \mathrm{wz}+\mathrm{d}=0$ ...........(1)
+since it passes through (0,3,4),(0,5,0),(4,0,3) and (-3,4,0) therefore
+$0^{2}+3^{2}+4^{2}+2 u(0)+2 v(3)+2 w(4)+d=0$
+$4^{2}+0^{2}+3^{2}+2 u(4)+2 v(0)+2 w(3)+d=0$
+$(-3)^{2}+4^{2}+0^{2}+2 u(-3)+2 v(4)+2 w(0)+d=0$
+$\Rightarrow 6 v+8 w+25+d=0 \ldots \ldots \ldots .(2)$
+$\Rightarrow 8 u+6 w+25+d=0 \ldots \ldots \ldots(3)$
+$\Rightarrow-6 u+8 v+25+d=0 \ldots \ldots \ldots .(4)$
+$\Rightarrow 10 \mathrm{v}+25+\mathrm{d}=0 \ldots \ldots \ldots \text { (5) }$
+Subtracting (5) from (2),(3),(4) respectively, we get 
+$\Rightarrow-4 \mathrm{v}+8 \mathrm{w}=0 \ldots \ldots .(6)$
+$\Rightarrow 8 u+6 w-10 v=0............(7)$
+$\Rightarrow-6 u-2 v=0 \ldots \ldots .(8)$
+Solving these, we get, u=v=w=0
+$\therefore$ Centre of sphere (-u,-v,-w)=(0,0,0)
+
+Q4. The points A ( 0 , 0 , 0 ) , B ( 1 , $\sqrt 3 $ , 0 ) , C ( 2 , 0 , 0 ) and D ( 1 , 0 , $\sqrt 3 $) are the vertices of
+    (A) rhombus
+    (B) square
+    (C) none of these   <-- CORRECT
+    (D) parallelogram
+    Answer: C
+    Explanation: Direction ratios of AB are $(1-0, \sqrt{3}-0,0-0) \text { i.e }(1, \sqrt{3}, 0)$
+Direction ratios of BC are$(1-0, \sqrt{3}-0,0-0) \text { i.e }(1,-\sqrt{3}, 0)$
+Direction ratios of CD are $(-1-0,0-0, \sqrt{3}-0) \text { i.e }(-1,0, \sqrt{3})$
+Direction ratios of CD are $(-1-0,0-0,-\sqrt{3}-0) \text { i.e }(-1,0, \sqrt{3})$
+If ABCD is a parallelogram, then
+$\mathrm{AB} \| \mathrm{CD} \text { and } \mathrm{AD} \| \mathrm{BC}$
+Now,$\frac{1}{-1} \neq \frac{\sqrt{3}}{0} \neq \frac{0}{\sqrt{3}}$ $\left[\because\frac{{\mathbf a}_1}{{\mathbf a}_2}\neq\frac{\mathbf b1}{{\mathbf b}_2}\neq\frac{{\mathbf c}_1}{{\mathbf c}_2}\right]$
+$\therefore$ AB is not parallel to CD
+Similarly $\frac{-1}{1} \neq \frac{0}{\sqrt{-3}} \neq \frac{-\sqrt{3}}{0}$
+$\Rightarrow$ AD and BC are not parallel 
+$\therefore$ ABCD is not a parallelogram and hence it is not a square or rhombus
+
+Q5. The points A (0, 2, 0), B ($\sqrt 3 $, 1, 0), and $\mathrm{C}\left(\frac{1}{\sqrt{3}}, 1, \frac{2 \sqrt{2}}{\sqrt{3}}\right)$ are the vertices of
+    (A) an equilateral triangle   <-- CORRECT
+    (B) an isosceles triangle
+    (C) Right angle triangle
+    (D) a scalene triangle
+    Answer: A
+    Explanation: To check which type of triangle these points form we need to check the distance between the two points
+AB=$\sqrt{(\sqrt 3)^2+1+0}$ = 2
+BC = $\sqrt{\left(\frac{1}{\sqrt{3}}-\sqrt{3}\right)^2+\left(\frac{2 \sqrt{2}}{\sqrt{3}}\right)^2}$ = 2,
+Similarly AC = 2 by distance formula between two points.
+Since all sides are same so the triangle is equilateral.
+
+Q6. The locus of a first degree equation in x, y, z is a
+    (A) sphere
+    (B) plane   <-- CORRECT
+    (C) Circle
+    (D) straight line
+    Answer: B
+    Explanation: First-degree equation in x, y, z can be written in the form Ax + By + Cz + d = 0. Which represents a plane Where A, B and C are the direction ratios of normal to the plane.
+
+Q7. Area of $\Delta ABC$ whose vertices A (-1, 2, 3), B(1, 1, 1) and C (2, - 1, 3) is
+    (A) 4.5   <-- CORRECT
+    (B) 9
+    (C) 6
+    (D) 0
+    Answer: A
+    Explanation: Formula is $\frac{1}{2}|\vec AB \times\vec AC| $ where $\vec AB$ has coordinates = P.V. of B - P.V of A = 2, -1, -2 and $\vec AC$ has coordinates = 3, -3, 0 
+Area of triangle ABC = $\frac{1}{2}\left|\begin{array}{ccc} i & j & k \\ 2 & -1 & 2 \\ 3 & -3 & 0 \end{array}\right|$ = $\frac{1}{2}|6 i+6 j+3 k|$
+= $\frac{1}{2} \times 9$ 
+= 4.5
+
+Q8. Perpendicular distance of the point (3, 4, 5) from the y-axis is,
+    (A) 5
+    (B) $\sqrt{41}$
+    (C) $\sqrt{34}$   <-- CORRECT
+    (D) 4
+    Answer: C
+    Explanation: Distance of $(\alpha, \beta, \gamma)$ from y-axis is given by d = $\sqrt{\alpha^{2}+\gamma^{2}}$ 
+$\therefore$$$ Distance (d) of (3, 4, 5) from y-axis is 
+d = $\sqrt{3^{2}+5^{2}}$ = $\sqrt{9+25}$ = $\sqrt{34}$
+
+Q9. G is the centroid of triangle ABC . If P.V. of the points G , A , B , C are respectively , $3\hat i + 7\hat j + \hat k,2\hat i + \hat j + \hat k,x\hat i + 3\hat j + \hat k,and4\hat i + y\hat j + \hat k,then\left( {x,y} \right) = $
+    (A) ( 3 , 3)
+    (B) ( 17 , 3 )
+    (C) ( 7 , 17 )
+    (D) ( 3 , 17 )   <-- CORRECT
+    Answer: D
+    Explanation: $\vec{g}=\frac{\vec{a}+ \vec{b}+ \vec{c}}{3}$ centroid formula
+$3(3 \hat{i}+7 \hat{j}+\hat{k})$=$2 \hat{i}+\hat{j}+\hat{k}+x \hat{i}+3 \hat{j}+\hat{k}+4 \hat{i}+y \hat{j}+\hat{k}$
+$9 \hat{i}+21 \hat{j}+3 \hat{k}$=$(6+x) \hat{i}+(4+y) \hat{j}+3 \hat{k}$
+9=6+x and 21=4+y
+x=3 and y=17
+
+Q10. If the four points (3, -2, -1), (2, 3, -4), (-1, 1, 2) and (4, 5, $\lambda $) are coplanar then $\lambda $ is equal to
+    (A) $\frac{-17}{146}$
+    (B) $\frac{-146}{17}$   <-- CORRECT
+    (C) 0
+    (D) $\frac{-13}{146}$
+    Answer: B
+    Explanation: Since A(3, -2, -1), B(2, 3, -4), C(-1, 1, 2) and D(4, 5, $\lambda $) are coplanar
+$\overrightarrow {AB} = - 1\hat i + 5\hat j - 3\hat k$ 
+$\overrightarrow {AC} = - 4\hat i + 3\hat j + 3\hat k$ 
+$\overrightarrow {AD} = 1\hat i + 7\hat j + (\lambda + 1)\hat k$ 
+Hence $[\overrightarrow {AB} \;\overrightarrow {AC} \;\overrightarrow {AD} ] = 0\left| {\begin{array}{*{20}{c}} { - 1}&5&{ - 3} \\ { - 4}&3&3 \\ 1&7&{\lambda + 1} \end{array}} \right| $ = 0
+-1(3$\lambda$ + 3 - 21) - 5(-4$\lambda$ - 4 - 4) - 3(-28 - 3) = 0
+$\lambda$ = $\frac{-146}{17}$
+
+Q11. The number of spheres of a given radius which touch the coordinate planes is
+    (A) 1
+    (B) 8   <-- CORRECT
+    (C) 2
+    (D) 4
+    Answer: B
+    Explanation: There are 8 quadrants in 3D, so for a given radius, there will be 8 possible spheres touching all the 3 coordinate planes.
+
+Q12. The plane XOZ divides the join of (1, -1, 5) and (2, 3, 4) in the ratio k : 1, then the value of k is
+    (A) -3
+    (B) $\frac{1}{3}$   <-- CORRECT
+    (C) 3
+    (D) $\frac{-1}{3}$
+    Answer: B
+    Explanation: Since XOZ plane is given y coordinate must be zero 
+$\frac{k \times 3 + 1 \times (-1)}{k + 1}$=0
+3k -1 = 0
+k = $\frac{1}{3}$
+
+Q13. A line AB in three-dimensional space makes angles 45° and 120° with the positive X-axis and the positive Y-axis, respectively. lf AB makes an acute angle $\theta$ with the positive X-axis, then $\theta$ is equal to
+    (A) 45°
+    (B) 75^o
+    (C) 60°   <-- CORRECT
+    (D) 90°
+    Answer: C
+    Explanation: We know that,
+cos^2 45^o + cos^2 120^o + cos^2 $\theta$ = 0
+$\Rightarrow$ $\frac{1}{2}+\frac{1}{4}+\cos ^{2} \theta$ = 1
+$\Rightarrow$ cos^2 $\theta$ = $\frac{1}{4}$ 
+$\Rightarrow$ cos $\theta$ = $\pm \frac{1}{2}$ 
+$\Rightarrow$ $\theta$ = 60^o or 120^o 
+Since $\theta$ is acute, therefore $\theta$ = 60^o
+
+Q14. The coordinates of the foot of the perpendicular from the point A (1, 1, 1), on the line joining the points B (1, 4, 6) and C (5, 4, 4) are
+    (A) (-4, 5, 3)
+    (B) (4, 5, 3)
+    (C) (-3, 0, 4)
+    (D) (3, 4, 5)   <-- CORRECT
+    Answer: D
+    Explanation: Equation of line BC
+$\frac{{x - 1}}{4} = \frac{{y - 4}}{0} = \frac{{z - 6}}{{ - 2}} = \lambda $ 
+Hence x = 4$\lambda$ + 1, y = 4 and z = -2$\lambda$ + 6
+Let M (x, y, z) be any point on line BC
+Since AM Perpendicular to BC
+Direction of AM = (4$\lambda$ + 1 - 1, 0, -2$\lambda$ + 6 - 1)4(4$\lambda$) + 0 - 2(-2$\lambda$ + 5) = 0
+$20\lambda $ = 10
+$\lambda = \frac{1}{2}$ 
+Hence M (x, y, z) = ($\frac{4 \times 1}{2+1}$ ,4, $\frac{-2 \times 1}{2+6}$)
+M = (3,4,5)
+
+Q15. The points (1, 2, 3), (-1, -1, -1) and (3, 5, 7) are the vertices of
+    (A) an equilateral triangle
+    (B) an isosceles triangle
+    (C) none of these   <-- CORRECT
+    (D) a right triangle
+    Answer: C
+    Explanation: Let A = (1, 2, 3), B = (-1, -1, -1) and C = (3, 5, 7)
+By distance formula between two points (x_1, y_1, z_1) and (x_2, y_2, z_2) = $\sqrt {{{(x_1 - x_2)}^2} + {{(y_1 - y_2)}^2} + {{(z_1 - z_2)}^2}} $ 
+We get AB = $\sqrt {29} $ , BC = $\sqrt {116} $ = 2$\sqrt {29} $ 
+AC =$\sqrt {29} $ 
+As we know the triangle is possible only if the sum of any two sides is greater than 3rd but in our case, this condition is not holding so the triangle is not possible, these are collinear points.
+
+========================================================================
+3D Geometry Test 05  (id 661) [PAID]
+CBSE > Class 11 > Mathematics > Introduction to 3D Geometry
+Questions: 15 | Answers: YES
+========================================================================
+
+Q1. A line making angles ${45^0}and{60^0}$ with the positive directions of the axis of x and y makes with the positive direction of Z axis , an angle of
+    (A) ${60^0}$
+    (B) ${45^0}$
+    (C) ${60^0}or120{^0}$   <-- CORRECT
+    (D) ${120^0}$
+    Answer: C
+    Explanation: cos^2$\alpha$+ cos^2$\beta$ + cos^2$\gamma$ =1
+$\alpha =45 , \beta =60$
+put the values in above equation 
+($ {1/ \sqrt{2}}$)^2 +( 1/2)^2+ cos^2$\gamma$ =1
+cos$\gamma = \pm 1/2$
+
+Q2. The coordinates of the point which divides the line segment joining the points ( 5 , 4, 2 ) and ( - 1 , - 2 , 4 ) in the ratio 2 : 3 externally is
+    (A) none of these
+    (B) ( 13/5 , 8/5 , 14/5 )
+    (C) ( 17/5 , 16/5 , - 2/5 )
+    (D) ( 17 , 16 , -2 )   <-- CORRECT
+    Answer: D
+    Explanation: ( 17 , 16 , -2 )
+
+Q3. The angle between a line with direction ratios 2 : 2 : 1 and a line joining (3, 1, 4) to (7, 2, 12)
+    (A) tan^-1 $( - \frac{3}{2})$
+    (B) cos^-1 $(\frac{3}{2})$
+    (C) tan^-1 $( - \frac{2}{ 3})$
+    (D) cos^-1 $\left(\frac{2}{3}\right)$   <-- CORRECT
+    Answer: D
+    Explanation: The angle between a line with direction ratios 2 : 2 : 1 and a line joining (3, 1, 4) to (7, 2, 12)
+Direction ratios of the line joining the points A(3, 1, 4), B(7, 2, 12) is <x2-x1 , y2-y1, z2-z1> = < 7-3 , 2-1 , 12-4> = <4 ,1 ,8>
+Now as the angle between two lines having direction ratios <a1,b1,c1> and <a2,b2,c2> is given by
+$\operatorname{Cos}^{-1} \frac{a 1 a 2+b 1 b 2+c 1 c 2}{\sqrt{a 1^2+b 1^2+c 1^2} \sqrt{a 2^2+b 2^2+c 2^2}}$
+Using the vuales we have
+$\cos ^{-1} \frac{2 \times 4+2 \times 1+1 \times 8}{\sqrt{2^2+2^2+1^2} \sqrt{4^2+1^2+8^2}}$
+$=\cos ^{-1} \frac{18}{27}=\cos ^{-1} \frac{2}{3}$
+
+Q4. Lines OA, OB are drawn from 0 with direction cosines proportional to <1, - 2, - 1> and <3, - 2, 3> respectively. The direction ratios of the normal to the plane AOB are
+    (A) <- 4, - 3, 2>
+    (B) <4, 3, 2>
+    (C) <-4, 3, 2>
+    (D) <4, 3, -2>   <-- CORRECT
+    Answer: D
+    Explanation: Let the direction ratios of normal to plane be a, b, c.
+The line in the plane with drs 1, -2, -1 and 3, -2, 3 must be perpendicular to normal 
+Then a_1a_2 + b_1b_2 + c_1c_2 = 0
+Thus a - 2b - c = 0
+3a - 2b + 3c = 0
+Solving by cross multiplication a = -8k, b = -6k, c = 4k
+Direction of normal will be 4, 3, -2.
+
+Q5. The projections of a vector on the three coordinate axes are 6, -3 and 2, respectively. The direction cosines of the vector are
+    (A) $-\frac {6}{7},-\frac{3}{7},\frac{2}{7}$
+    (B) $\frac{6}{7},-\frac{3}{7},\frac{2}{7}$   <-- CORRECT
+    (C) 6, -3, 2
+    (D) -6, 3, -2
+    Answer: B
+    Explanation: Projection of vector on coordinate axes are 
+x_2 - x_1, y_2 - y_1, z_2 - z_1
+$\Rightarrow$ x_2 - x_1 = 6, y_2 - y_1 = -3, z_2 - z_1 = 2
+Now, $\sqrt{\left(x_{2}-x_{1}\right)^{2}+\left(y_{2}-y_{1}\right)^{2}+\left(z_{2}-z_{1}\right)^{2}}$ = $\sqrt{36+9+4}$ = 7
+So, the direction cosines of the vector are $\frac{6}{7},-\frac{3}{7}, \frac{2}{7}$
+
+Q6. The points A (5, - 1, 1), B (7, - 4, 7), C(1, - 6, 10) and D (- 1, - 3, 4) are the vertices of
+    (A) Trapezium
+    (B) rectangle
+    (C) rhombus   <-- CORRECT
+    (D) square
+    Answer: C
+    Explanation: Distance between AB = 7, BC = 7, CD = 7 and DA = 7
+Whereas distance between AC and BD is not equal.
+
+Q7. If the projections of $\overrightarrow {PQ} $ on OX, OY, OZ are respectively 1, 2, 3 and 4, then the magnitude of $\overrightarrow {PQ} $ is
+    (A) 169
+    (B) 13   <-- CORRECT
+    (C) 144
+    (D) 19
+    Answer: B
+    Explanation: Let $\overrightarrow {PQ} = x\hat i + y\hat j + z\hat k$ 
+Since $OX = \hat iOY = \hat jOZ = \hat k$ 
+Projection of PQ on OX = $\frac{{\overrightarrow {PQ} .\overrightarrow {OX} }}{{|OX|}}$ 
+12 = $\frac{x}{1}$ 
+x = 12
+Similarly
+Projection of PQ on OY = $ \frac{{\overrightarrow {PQ} .\overrightarrow {OY} }}{{|OY|}}$ 
+3 = $\frac{y}{1}$ 
+y = 3
+Similarly
+Projection of PQ on OZ = $\frac{{\overrightarrow {PQ} .\overrightarrow {OZ} }}{{|OZ|}}$ 
+4 = $\frac{z}{1}$ 
+z = 4
+Hence $\overrightarrow {PQ} = 12\hat i + 3\hat j + 4\hat k$ 
+$\left| {PQ} \right| = \sqrt {{{12}^2} + {3^2} + {4^2}} = 13$
+
+Q8. The centre of sphere passing through four points (0, 0, 0), (0, 2, 0), (1, 0, 0) and (0, 0, 4) is
+    (A) ($\frac{1}{2}$, 1, -2)
+    (B) ($\frac{1}{2}$, 1, 2)   <-- CORRECT
+    (C) (1, $\frac{1}{2}$, 2)
+    (D) ($\frac{-1}{2}$, 1, 2)
+    Answer: B
+    Explanation: Equation of sphere is given by x^2 + y^2 + z^2 + 2ux + 2vy + 2wz + d = 0
+Since sphere passing through four points (0, 0, 0), (0, 2, 0), (1, 0, 0) and (0, 0, 4)
+Substituting in the given equation we get d =0
+4 + 4v = 0
+v = -1
+1 + 2u = 0
+u = $\frac{-1}{2}$
+16 + 8w = 0
+w = -2
+Centre of sphere (-u, -v, -w) = ($\frac{1}{2}$, 1, 2)
+
+Q9. The ratio in which the line joining (2, 4, 5) (3, 5, -4) is divided by the YZ – plane is
+    (A) 4 : - 3
+    (B) 2 : 3
+    (C) - 2 : 3   <-- CORRECT
+    (D) 3 : 2
+    Answer: C
+    Explanation: The ratio in which the line joining (2, 4, 5) (3, 5, - 4) is divided by the YZ – plane is the point in YZ plane will be P(0, y, z) let it divides the line joining points A(2, 4, 5) and B(3, 5, - 4) in the ratio k : 1 
+Then X coordinate of point P will be given by $3k+2 \over k+1$ which is equal to zero. 
+i.e. $3k+2 \over k+1$= 0 $\Rightarrow$ 3k + 2 = 0 $\Rightarrow$ k = $\frac{-2}{3}$ 
+So, YZ plane divides in -2 : 3
+
+Q10. The area of the triangle whose vertices are (1, 2, 3), (2, 5, -1), (-1, 1, 2) is ________ sq. units.
+    (A) 150
+    (B) 145
+    (C) $\frac{\sqrt{155}}{2}$   <-- CORRECT
+    (D) 165
+    Answer: C
+    Explanation: Let $\vec a = (1\hat i + 2\hat j + 3\hat k)$, $\vec{b}=(2 \hat{i}+5 \hat{j}-1 \hat{k})$, $\vec{c}=(-1 \hat{i}+1 \hat{j}+2 \hat{k})$ 
+Area of triangle = $\frac{1}{2}[\vec a*\vec b + \vec b*\vec c + \vec c*\vec a]$ 
+= $ \frac{1}{2}\left[ {\left| {\begin{array}{*{20}{c}} {\hat i}&{\hat j}&{\hat k} \\ 1&2&3 \\ 2&5&{ - 1} \end{array}} \right|} \right] + \left[ {\left| {\begin{array}{*{20}{c}} {\hat i}&{\hat j}&{\hat k} \\ 2&5&{ - 1} \\ { - 1}&1&2 \end{array}} \right|} \right] + \left[ {\left| {\begin{array}{*{20}{c}} {\hat i}&{\hat j}&{\hat k} \\ { - 1}&1&2 \\ 1&2&3 \end{array}} \right|} \right]$ 
+= $ \frac{1}{2}[ - 17\hat i + 7\hat j + 1\hat k + 11\hat i - 3\hat j + 7\hat k - 1\hat i + 5\hat j - 3\hat k]$ 
+= $ \frac{1}{2}[ - 7\hat i + 9\hat j + 5\hat k]$ 
+Area = $ \frac{1}{2}\sqrt {49 + 81 + 25} $ 
+Area = $\frac{\sqrt{155}}{2}$
+
+Q11. The direction ratios of a normal to the plane through ( 1 , 0 , 0 ) , ( 0 , 1 , 0 ) , which makes an angle of $\frac \pi 4$ with the plane x + y = 3
+    (A) $ < 1,1,\sqrt 2 >$   <-- CORRECT
+    (B) $ < 1,\sqrt 2 ,1 > $
+    (C) $< \sqrt 2 ,1,1 > $
+    (D) <1, 1, 2>
+    Answer: A
+    Explanation: Equation of plane through (1, 0, 0), (0, 1, 0) be ax + by + cx + d = 0
+Let $\overrightarrow n = (a,b,c)$ unit vector normal to the plane
+$\sqrt {{a^2} + {b^2} + {c^2}} = 1$
+Equation of plane gives a + d = 0 and b + d = 0
+solving we get a - b = 0 ....(1).
+plane makes angles $\frac \pi 4$ with x + y = 3
+$\cos {45^o} = \frac{{a(1) + b(1) + c(1)}}{{1*\sqrt 2 }}$
+a + b = 1 ...(2)
+solving (1) and (2) we get
+a = b = $\frac 12$
+Hence $\sqrt {{a^2} + {b^2} + {c^2}} = 1$
+$c = \frac {1}{\sqrt 2 }$
+drs of normal $(\frac 12, \frac 12, \frac {1}{\sqrt 2 })$
+drs of normal $(1,1,\sqrt 2 )$
+
+Q12. A tetrahedron has vertices at O (0, 0, 0), A (1, 2, 1), B (2, 1, 3) and C (-1, 1, 2), then the angle between the faces OAB and ABC will be
+    (A) 90^o
+    (B) cos^-1 $\left(\frac{19}{35}\right)$   <-- CORRECT
+    (C) 30^o
+    (D) cos^-1 $\left(\frac{17}{31}\right)$
+    Answer: B
+    Explanation: Let n_1 and n_2 be the normals to the plane OAB and ABC
+$\overrightarrow n_1=\overrightarrow {OA}\times\overrightarrow {OB}=\left |\begin {array}{ccc} \hat i & \hat j & \hat k\\1 & 2 & 1\\ 2 & 1 & 3\end {array}\right |$ 
+n_1 = (5, -1, -3)
+$\overrightarrow n_2=\overrightarrow {AB}\times\overrightarrow {AC}=\left |\begin {array}{ccc} \hat i & \hat j & \hat k\\1 & -2 & 2\\- 2 & -1 & 1\end {array}\right |$ 
+n_2 = (1, -5, -3)
+$cos\theta=\large\frac{\overrightarrow n_1.\overrightarrow n_2}{|\overrightarrow n_1||\overrightarrow n_2|} $ 
+= $\large\frac{5+5+9}{\sqrt {35}.\sqrt {35}}\\$ 
+= $\frac{19}{35}$ 
+$\theta =cos^{-1}(\frac{19}{35})$
+
+Q13. The equation of any plane parallel to y – axis
+    (A) x = d
+    (B) y = d
+    (C) ax + cz + d = 0, a^2 + c^2 $ \ne$ 0   <-- CORRECT
+    (D) ax + cz = 0, a^2 + c^2 $\ne$ 0
+    Answer: C
+    Explanation: Since the plane ax + by + cz + d = 0 is parallel to y axis hence b = 0.
+Hence ax + cz + d = 0.
+
+Q14. An angle between two diagonals of a cube is
+    (A) cos^-1 $\left(\frac{1}{\sqrt{2}}\right)$
+    (B) cos^-1 $\left(\frac{8}{5}\right)$
+    (C) cos^-1 $\left(\frac{9}{5}\right)$
+    (D) cos^-1 $\left(\frac{1}{3}\right)$   <-- CORRECT
+    Answer: D
+    Explanation: Let a be the length of the cube and one corner D(0,0,0) as the origin.the diagonals will have co-ordinates as follows:
+A(a,0,0) G(0,a,a) ie diagonal AG and diagonal DF where F(a,a,a)
+$cos\theta=\frac{a X -a+a Xa+a X a}{ \sqrt {-a^2+a^2+a^2}\sqrt {a^2+a^2+a^2}}$
+$cos \theta =\frac{-a^2+a^2+a^2}{\sqrt {3a^2}\sqrt {3a^2}}$
+cos^-1 = $\left(\frac{1}{3}\right)$
+
+Q15. The points P (0, 0, 0), Q (2, 0, 0), R (1, $\sqrt 3 $, 0) and S$\left(1, \frac{1}{\sqrt{3}}, \frac{2 \sqrt{2}}{\sqrt{3}}\right)$ lie
+    (A) in a plane at right angles to Z – axis
+    (B) in XOY plane
+    (C) in a line
+    (D) none of these   <-- CORRECT
+    Answer: D
+    Explanation: The equation of plane passing through (0, 0, 0) is a(x - 0) + b(y - 0) + c(z - 0) = 0
+ax + by + cz = 0. If it passes through Q (2, 0, 0), R (1, $\sqrt 3 $, 0) then we get
+2a = 0; a +$\sqrt 3$ b = 0 i.e. we get a = 0 and b = 0
+Now if we put co-ordinates of S it does not satisfy the equation.
+Hence points are not coplanar.

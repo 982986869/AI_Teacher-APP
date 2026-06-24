@@ -1,0 +1,686 @@
+CHAPTER: Principle of Mathematical Induction (Deleted)  (id 1375)
+CBSE > Class 11 > Mathematics > Principle of Mathematical Induction (Deleted)
+Online tests: 5
+
+========================================================================
+Mathematical Induction Test 01  (id 617) [FREE]
+CBSE > Class 11 > Mathematics > Principle of Mathematical Induction (Deleted)
+Questions: 15 | Answers: YES
+========================================================================
+
+Q1. Let $P\left( n \right)$ be a statement and let $P\left( n \right) \Rightarrow P\left( {n + 1} \right)$ for all natural numbers n, then what will the nature of $P\left( n \right)$ ?
+    (A) it satisfies only all n $>$ 1
+    (B) It is true for all n > m, m being a fixed positive integer
+    (C) true for all n
+    (D) Nature cannot be identified.   <-- CORRECT
+    Answer: D
+    Explanation: Since the statement is conditional statement ( if....then).
+
+Q2. Let P(n) b e a statement 2^n < n!, where n is a natural number, then P(n) is true for
+    (A) all n > 2
+    (B) all n > 3   <-- CORRECT
+    (C) all n < 3
+    (D) all n
+    Answer: B
+    Explanation: Since for example n = 4 will give LHS as 16 and RHS as 4! = 1 $\times$ 2 $\times$ 3 $\times$ 4 = 24
+
+Q3. If x > -1, then the statement (1 + x)^n > 1 + nx is true for
+    (A) all n > 1
+    (B) all n > 1 provided x $ \ne $ 0   <-- CORRECT
+    (C) all n $ \in $ N
+    (D) all n > 2
+    Answer: B
+    Explanation: For example, if x = 0 and n > 1, say n = 2 then the given inequality will become 1^2 > 1, which is not true. Hence both the conditions on x and n are needed.
+
+Q4. The smallest +ve integer n, for which n! < $\left(\frac{n+1}{2}\right)^n$ holds is
+    (A) 2   <-- CORRECT
+    (B) 1
+    (C) 4
+    (D) 3
+    Answer: A
+    Explanation: When n = 2, LHS: n! = 2! = 2 $\times$ 1 = 2
+RHS: $(\frac{3}{2})^2= \frac{9}{4}$ 
+But if n = 1, the inequation does not hold good.
+
+Q5. If P(n) = 2 + 4 + 6 +………………..+ 2n, n $ \in $ N, then P(k) = k(k + 1) + 2 $ \Rightarrow $ P (k + 1) = (k + 1) (k + 2) + 2 for all k $ \in $ N. So we can conclude that P(n) = n (n + 1) + 2 for
+    (A) all n $ \in $ N
+    (B) n > 1
+    (C) n > 2
+    (D) nothing can be said   <-- CORRECT
+    Answer: D
+    Explanation: Because the statement is incomplete without the conclusion.
+
+Q6. (x^n - y^n) is divisible by (x - y) for
+    (A) all n $ \in $ N   <-- CORRECT
+    (B) n > 1
+    (C) n > 2
+    (D) n > 3
+    Answer: A
+    Explanation: Replacing n by 1, 2, 3... we get the expression with the factor (x - y). Hence it is divisible by (x - y).
+
+Q7. The greatest positive integer, which divides n (n + 1) (n + 2) (n + 3) for all n $ \in $ N , is
+    (A) 2
+    (B) 120
+    (C) 24   <-- CORRECT
+    (D) 6
+    Answer: C
+    Explanation: If n = 1 then the statement becomes 1 $\times$ 2 $\times$ 3 $\times$ 4 = 24: the consecutive natural numbers when substituted will be multiples of 24.
+
+Q8. Let P(n) denote the statement n^2 + n is odd, It is seen that P(n) $ \Rightarrow$ P(n + 1), therefore P(n) is true for all
+    (A) n > 2
+    (B) n > 1
+    (C) none of these   <-- CORRECT
+    (D) n
+    Answer: C
+    Explanation: Since if n = 1 the answer is 2 which is even. Also p(1) = p(2) is also not true since p(2) is 6 which is even.
+
+Q9. The greatest positive integer, which divides (n + 1)(n + 2)(n + 3) ......(n + r) $\forall n \in W$, is
+    (A) r
+    (B) n + r
+    (C) r!   <-- CORRECT
+    (D) (r + 1)!
+    Answer: C
+    Explanation: If n = 0 the given expression becomes 1 $\times$ 2 $\times$ 3 $\times$ 4........r = r!. Also when n = 1 one more extra term will be there in the product 2 $\times$ 3 $\times$ 4........(r + 1) which is also divisible by r!.
+
+Q10. The statement P(n) : 1$\times$1! + 2$\times$2! + 3$\times$3! + .....+ n$\times$n! = (n + 1)! - 1 is
+    (A) true for all n > 2
+    (B) true for all n > 1
+    (C) not true for any n
+    (D) true for all n $ \in $ N   <-- CORRECT
+    Answer: D
+    Explanation: Replace n = 1, 2, 3 then LHS = RHS
+
+Q11. A student was asked to prove a statement P(n) by method of induction. He proved that P(3) is true and that P(n) $ \Rightarrow $ P(n + 1) for all natural numbers n. On the basis of this the criteria applied on n for P(n) to be true
+    (A) for no n
+    (B) for all n $≥$ 2
+    (C) for all n $ \in $ N
+    (D) for all n $≥$ 3   <-- CORRECT
+    Answer: D
+    Explanation: Since by the principle of mathematical induction if p(n) is true for n = 3 then that will be the minimum point to be considered for the process. Also that P(n) $\Rightarrow$ P(n + 1).
+
+Q12. 3^2n+2 - 8^n - 9 is divisible by 64 for all
+    (A) n $ \in $ N, n $>$ 3
+    (B) n $ \in $ N, n $>$ 2
+    (C) n $ \in $ N   <-- CORRECT
+    (D) n $ \in $ N, n $≥$2
+    Answer: C
+    Explanation: When n = 1 the value is 64. By induction process the consecutive replacement of n = 2, 3, 4.... will be multiples of 64.
+
+Q13. The inequality n! > 2^n-1 is true
+    (A) for no n $ \in $ N
+    (B) for all n$ $> 2, $n ∈N$   <-- CORRECT
+    (C) for all n > 1
+    (D) for all n $ \in $ N
+    Answer: B
+    Explanation: Since when n = 1, we get the inequality as 1 > 1, which is not true. Also for n = 2, we get 2 > 2, which is false. Hence the given statement is true for n > 2.
+
+Q14. The statement 3^n > 4n is true for all
+    (A) n > 1, n $ \in $ N
+    (B) n > 2, n $ \in $ N   <-- CORRECT
+    (C) n > 3, n $ \in $ N
+    (D) n $ \in $ N
+    Answer: B
+    Explanation: 3^n > 4n for all n > 1 can be proved by induction.
+
+Q15. n^2 + 3n is always divisible by which number, provided n is an integer?
+    (A) 4
+    (B) 2   <-- CORRECT
+    (C) 5
+    (D) 3
+    Answer: B
+    Explanation: P(n) = n^2 + 3n
+P(1) = 1 + 3
+P(1) = 4
+Let’s assume that P(k) is true and divisible by 4. Therefore, P(k) = k^2 + 3k can be written as 4c.
+We need to check if P(k + 1) is divisible by 4
+P(k+1) = (k + 1)^2 + 3(k + 1)
+P(k+1) = k^2 + 1 + 2k + 3k + 3
+P(k+1) = k^2 + 5k + 4
+P(k+1) = (k^2 + 3k) + 2k + 4
+P(k+1) = 4c + 2k + 4
+P(k+1) = 4c + 2(k + 2)
+Clearly the second part of the equation is not divisible by 4. However P(k) = 4c is divisible by 2 and
+P(k + 1) is also divisible by 2. Therefore, 2 divides P(n).
+
+========================================================================
+Mathematical Induction Test 02  (id 618) [PAID]
+CBSE > Class 11 > Mathematics > Principle of Mathematical Induction (Deleted)
+Questions: 15 | Answers: YES
+========================================================================
+
+Q1. The statement 2^n+2 < 3^n is true for all
+    (A) n > 3   <-- CORRECT
+    (B) n > 4
+    (C) n $ \in $ N
+    (D) n > 2
+    Answer: A
+    Explanation: When n = 1: 8 < 3, is not true. When n = 2: 16 < 9, is false. When n = 3: 32 < 27, is not valid. But when n = 4: 64 < 81, is true.
+
+Q2. The smallest positive integer for which the statement 3^n+1 < 4^n is true for
+    (A) 3
+    (B) 4   <-- CORRECT
+    (C) 2
+    (D) 1
+    Answer: B
+    Explanation: When n = 1; 9 < 4 not valid. When n = 2; 27 < 16 not true. When n = 3; 81 < 64 is in correct. when n = 4; 242 < 256, is true.
+
+Q3. For all n $ \in $ N, 49^n + 16n - 1 is divisible by
+    (A) 29
+    (B) 64   <-- CORRECT
+    (C) 3
+    (D) 19
+    Answer: B
+    Explanation: Replace n = 1, we have 64.
+
+Q4. 2^3n - 1 is divisible by
+    (A) 3
+    (B) 9
+    (C) 6
+    (D) 7   <-- CORRECT
+    Answer: D
+    Explanation: If n = 1 we get 7. For n = 2, we get 63 which is divisible by 7.
+
+Q5. 7^2n + 3^n-1$\cdot$ 2^3n - 3 is divisible by
+    (A) 16
+    (B) 24
+    (C) 25   <-- CORRECT
+    (D) 9
+    Answer: C
+    Explanation: when n = 1, we have 50, which is divisible by 25.
+
+Q6. If n $ \in $ N then n^3 + 2n is divisible by
+    (A) 3   <-- CORRECT
+    (B) 2
+    (C) 4
+    (D) 6
+    Answer: A
+    Explanation: When n = 1 the value is 3 and when n = 2 the value is 12. So the value of the expression when n = 1, 2, 3.... are multiples of 3. Hence it is divisible by 3.
+
+Q7. If n is a positive integer, then 2.7^n + 3.5^n - 5 is divisible by
+    (A) 17
+    (B) 64
+    (C) 676
+    (D) 24   <-- CORRECT
+    Answer: D
+    Explanation: When n = 1 the value is 24. When n = 2, the value is 168, which is the multiple of 24.
+
+Q8. If n is a +ve integer, then 4^n + 3n + 5 is divisible by
+    (A) 2
+    (B) 3   <-- CORRECT
+    (C) 6
+    (D) 4
+    Answer: B
+    Explanation: Since n = 1 gives the value as 12 and when n = 2 gives 27.... Hence the statement is divisible by 3.
+
+Q9. If n is a +ve integer, then 2.4^2n + 1 + 3^3n + 1 is divisible by
+    (A) 9
+    (B) 11   <-- CORRECT
+    (C) 2
+    (D) 7
+    Answer: B
+    Explanation: When n is replaced by 1,2,3... the value obtained is a multiple of 11.
+
+Q10. If n is a +ve integer, then 10^n + 3.4^n+2 + 5 is divisible by
+    (A) 4
+    (B) 3
+    (C) 9   <-- CORRECT
+    (D) 15
+    Answer: C
+    Explanation: When n is replaced by 1, 2, 3.. the value obtained is a multiple of 9.
+
+Q11. If n is a +ve integer, then 3^3n - 26n - 1 is divisible by
+    (A) 676   <-- CORRECT
+    (B) 627
+    (C) 239
+    (D) 547
+    Answer: A
+    Explanation: For n = 1 the value is 0. But when n = 2 the value is 676.
+
+Q12. If n is a +ve integer, then 2^3n - 7n - 1 is divisible by
+    (A) 36
+    (B) 49   <-- CORRECT
+    (C) 64
+    (D) 81
+    Answer: B
+    Explanation: When n = 2 the value is 49.
+
+Q13. If n is a +ve integer, then ${3.5^{2n + 1}} + {2^{3n + 1}}$ is divisible by
+    (A) 24
+    (B) 32
+    (C) 64
+    (D) 17   <-- CORRECT
+    Answer: D
+    Explanation: When n = 1 the value is 391 which is divisible by 17.
+
+Q14. If n is a +ve integer, then 7^2n - 4 is divisible by
+    (A) 2937
+    (B) 3297
+    (C) 2397   <-- CORRECT
+    (D) 2973
+    Answer: C
+    Explanation: When n = 2 the value is 2397.
+
+Q15. Let P(k) = 1 + 3 + 5 + …………….+ (2k - 1) = (3 + k^2). Then which of the following is true?
+    (A) P(k) $\Rightarrow $ P(k + 1)   <-- CORRECT
+    (B) P (1) is correct
+    (C) P(k) $ \Rightarrow $P(k + 3)
+    (D) P(k) $ \Rightarrow $P(k + 2)
+    Answer: A
+    Explanation: P(k) = 1 + 3 + ... + (2k - 1) = 3 + k^2 .....(i)
+When k = 1, LHS of p(k) $\ne$ R.H.S of P(k)
+So P(1) is not ture.
+Now P(k + 1); 1 + 3 + 5 + .... + (2k - 1) + (2k + 1)
+= 3 + (k + 1)^2 .....(ii)
+Let P(k) is true 
+$\therefore$ 1 + 3 + 5 + ..... + (2k - 1) = k^2 + 3
+$\Rightarrow$ 1 + 3 + 5 + .... + (2k - 1)
+= 3 + k^2 + 2k + 1 = (k + 1)^2 + 3
+$\Rightarrow$ P(k + 1) true 
+$\therefore$ P(k) $\Rightarrow$ P(k + 1)
+
+========================================================================
+Mathematical Induction Test 03  (id 619) [PAID]
+CBSE > Class 11 > Mathematics > Principle of Mathematical Induction (Deleted)
+Questions: 15 | Answers: YES
+========================================================================
+
+Q1. The inequality 2^n + 1 < n! is true for:
+    (A) all n > 1
+    (B) all n > 2
+    (C) all n > 3   <-- CORRECT
+    (D) all n
+    Answer: C
+    Explanation: When n = 1, we get 3 < 1, and when n = 2, we get 5 < 2. When n = 3, we get 9 < 6, which are invalid inequations. Only when n = 4 we get 17 < 24, which is valid.
+
+Q2. For each $n \in N$, a^2n-1 + b^2n-1 is divisible by:
+    (A) (a + b)^4
+    (B) a + b   <-- CORRECT
+    (C) (a + b)^3
+    (D) (a + b)^2
+    Answer: B
+    Explanation: When n = 1 we have a + b and the subsequent substitution of n as 2, 3,... will result in the expression whose factor is a + b.
+
+Q3. For each n $ \in $ N, n (n + 1) (2n + 1) is divisible by :
+    (A) 6   <-- CORRECT
+    (B) 8
+    (C) 15
+    (D) 2
+    Answer: A
+    Explanation: When n = 1 the value is 6. The subsequent substitution will give the value as a multiple of 6.
+
+Q4. For each n $ \in $ N, 3(5^2n + 1) + 2^3n + 1 is divisible by :
+    (A) 23
+    (B) 19
+    (C) 17   <-- CORRECT
+    (D) 21
+    Answer: C
+    Explanation: When n = 1 we have 391 which is divisible by 17.
+
+Q5. For each n $ \in $ N, 2^3n - 1 is divisible by :
+    (A) 8
+    (B) 7   <-- CORRECT
+    (C) 16
+    (D) 19
+    Answer: B
+    Explanation: When n = 1 the value is 7.
+
+Q6. For each n $ \in $ N, 3^2n - 1 is divisible by :
+    (A) 32
+    (B) 19
+    (C) 8   <-- CORRECT
+    (D) 16
+    Answer: C
+    Explanation: when n = 1 the value is 8 which is the multiple of 8.
+
+Q7. The statement P(n) : (n + 3)^2 > 2^n+3 is true for:
+    (A) no n $ \in $ N   <-- CORRECT
+    (B) all n
+    (C) all n $≥$ 3
+    (D) all n $≥$ 2
+    Answer: A
+    Explanation: When n = 1 we get 16 > 16, which is false. when n = 2 we get 25 > 32, which is false as well. As n = 3, 4, 5.... the inequality does not hold correct.
+
+Q8. The smallest positive integer n for which 2^n(1 $\times$ 2 $\times$ 3 $\times$ ... $\times$ n) < n^n holds is :
+    (A) 4
+    (B) 6   <-- CORRECT
+    (C) 3
+    (D) 5
+    Answer: B
+    Explanation: When n = 1, we get 2 < 1, which is not valid. When n takes values 2, 3, 4, 5 the inequality is invalid. But when n = 6 we have 46080 < 46656, which is valid.
+
+Q9. If ${10^n} + 3 \times {4^{n + 1}} + k$ is divisible by 9 for all n $ \in $ N , then the least positive integral value of k is :
+    (A) 3
+    (B) 7
+    (C) 1
+    (D) 5   <-- CORRECT
+    Answer: D
+    Explanation: When n = 1 we have 58. Given that the expression is divisible by 9 . Hence the least value of k will be 5,so that the value becomes 63 which is divisible by 9.
+
+Q10. The smallest positive integer n, for which (1 $\times$ 2 $\times$ 3 $\times$ ... $\times$ n) < $\left(\frac{n+1}{2}\right)^n$ holds:
+    (A) 4
+    (B) 3
+    (C) 5
+    (D) 2   <-- CORRECT
+    Answer: D
+    Explanation: When n = 1 we get 1 < 1, which is invalid. When n = 2 we get 2 < $\frac{9}{4}$, which is valid.
+
+Q11. Let P(n) : n^2 - n + 41 is a prime number. Then :
+    (A) P(1) is not true
+    (B) P(3) is not true
+    (C) P (41) is not true   <-- CORRECT
+    (D) P(5) is not true
+    Answer: C
+    Explanation: Since when n = 41 we have (41)^2, which is not a prime number.
+
+Q12. Let that P(n) $\Rightarrow$ P(n + 1) for all natural numbers n. Also, if P (m) is true, m $\in $ N, then we conclude that
+    (A) P ( n ) is true for all n
+    (B) P (n) is true for all n $ ≥$ m   <-- CORRECT
+    (C) P ( n ) is true for all n $<$ m
+    (D) P ( n ) is true for all n > m
+    Answer: B
+    Explanation: This criteria is from the basic principle of mathematical induction.
+
+Q13. Consider the statement P(n) : n^2 $ \ge$ 100. Here P(n) $\Rightarrow$ P(n + 1) for all natural numbers n. What does it mean
+    (A) P(n) is true for all n $≥$ 3
+    (B) none of these   <-- CORRECT
+    (C) p(n) is true for all n
+    (D) P (n) is true for all n $≥ $ 2
+    Answer: B
+    Explanation: Since the statement is not true for n = 1, we cannot predict the validity for all natural numbers n.
+
+Q14. The smallest positive integer ‘ n ‘ for which P ( n ) : ${2^n} < \left( {1 \times 2 \times 3 \times ............ \times n} \right)$ holds is :
+    (A) 2
+    (B) 1
+    (C) 3
+    (D) 4   <-- CORRECT
+    Answer: D
+    Explanation: Since the values of n as 1,2,3gives inavlid inequations but when n = 4 we have $16 <24$, which is valid.
+
+Q15. If x^n - 1 is divisible by x – k for all n belongs to natural numbers N, then the least positive integral value of k is:
+    (A) 2
+    (B) 1   <-- CORRECT
+    (C) 3
+    (D) 4
+    Answer: B
+    Explanation: If f(x) = x^n - 1 is divisible by x - k
+Then f(k) = 0
+Therefore, k^n = 1 and thus least positive integral value of k is 1.
+
+========================================================================
+Mathematical Induction Test 04  (id 620) [PAID]
+CBSE > Class 11 > Mathematics > Principle of Mathematical Induction (Deleted)
+Questions: 15 | Answers: YES
+========================================================================
+
+Q1. A student was asked to prove a statement P ( n ) by method of induction . He proved P ( k + 1 ) is true whenever P ( k ) Is true for all k ≥ 5 , $k \in N$ and P ( 5 ) is true . On the basis of this he could conclude that P ( n ) is true
+    (A) for all $n \in \mathbf{N}$
+    (B) for all n $<$ 5
+    (C) for all n $≥$ 5   <-- CORRECT
+    (D) for all n $>$ 5
+    Answer: C
+    Explanation: Yes because if it is true for n = k then it is true for all n ,which is the basic concept of mathematical induction.
+
+Q2. If a, b, c $\in$ N, a^n + b^n is divisible by c, when n is odd but not when n is even, then the value of c is :
+    (A) a + b   <-- CORRECT
+    (B) a - b
+    (C) a^3 + b^3
+    (D) a^3 - b^3
+    Answer: A
+    Explanation: Since a + b will be a factor of a^n + b^n.
+
+Q3. 1.2.3 + 2.3.4 + 3.4.5 + ………..up to n terms is equal to $\frac{1}{4}$n (n + 1) (n + 2) (n + 3) is true for
+    (A) for all real number n
+    (B) all natural numbers n   <-- CORRECT
+    (C) whole numbers n
+    (D) for all integers n
+    Answer: B
+    Explanation: By the method of mathematical induction the given statement is true for n = 1, 2, 3.....
+
+Q4. 1 + 2 + 3 + .................. n = $\frac{1}{2} ( n ( n +1))$, is true
+    (A) only for n < 2
+    (B) for all natural numbers n   <-- CORRECT
+    (C) for n = 2 only
+    (D) only for n > 2
+    Answer: B
+    Explanation: By the process of mathematical induction, the given statement is true for all natural numbers n.
+
+Q5. The sum of the terms in the n^th bracket of the series 1 + (2 + 3 + 4) + (5 + 6 + 7 + 8 + 9)…. is
+    (A) (n + 1)^3 + 8n^2
+    (B) (n + 1)^3 + 4n^2
+    (C) $\frac{(n+1)(n+2)}{6 n}$
+    (D) (n - 1)^3 + n^3   <-- CORRECT
+    Answer: D
+    Explanation: For n = 1, we have
+Sum of the terms in first bracket = 1 and, (n − 1)^3 + n^3 = (1 − 1)^3 + 1^3 = 1
+For n = 2, we have
+Sum of the terms in the second bracket = 2 + 3 + 4 = 9 and, (n − 1)^3 + n^3 = (2 − 1)^3 + 2^3 = 1 + 8 = 9
+For n = 3, we have
+Sum of the terms in the third bracket = (5 + 6 + 7 + 8 + 9) = 35 and, (3 − 1)^3 + 3^3 = 8 + 27 = 35
+
+Q6. For all $n \in N$, 2.4^2n + 1 + 3^3n + 1 is divisible by :
+    (A) 5
+    (B) 11   <-- CORRECT
+    (C) 7
+    (D) 209
+    Answer: B
+    Explanation: Now, for n = 1,
+2.4^2 + 1 + 3^3 + 1 = 2.4^3 + 3^4 
+= 2 $\times$ 64 + 81 = 128 + 81 = 209,
+for n = 2,
+2.4^5 + 3^7 
+= 8 $\times$ 256 + 2187 = 2048 + 2187 = 4235
+Note that the H.C.F. of 209 and 4235 is 11. So, 2.4^2n + 1 + 3^3n + 1 is divisible by 11.
+
+Q7. If P (n) : 49^n +16^n + $\lambda$ is divisible by 64 for n $\in$ N is true, then the least negative integral value of $\lambda$ is
+    (A) -1   <-- CORRECT
+    (B) -2
+    (C) -3
+    (D) -4
+    Answer: A
+    Explanation: When n = 1 we have the value of the expression as 65 . Given that the expression is divisible be 64. Hence the value is -1.
+
+Q8. $\frac{3}{4}+\frac{15}{16}+\frac{63}{64}+...$ to n terms is equal to
+    (A) $n+\frac{4^{-n}}{3}+\frac{1}{3}$
+    (B) $n-\frac{4^n}{3}-\frac{1}{3}$
+    (C) $n+\frac{4^{-n}}{3}-\frac{1}{3}$   <-- CORRECT
+    (D) $n+\frac{4^n}{3}-\frac{1}{3}$
+    Answer: C
+    Explanation: $\frac{3}{4}+\frac{15}{16}+\frac{63}{64}+\ldots .$ to n terms
+= $\left(1-\frac{1}{4}\right)+\left(1-\frac{1}{16}\right)+\left(1-\frac{1}{64}\right)$ + .... to n terms
+= n - $\frac{1}{4}\left(1+\frac{1}{4}\right.\left.+\frac{1}{4^{2}}+\ldots . . \text { to } \mathrm{n} \text { terms }\right) $ 
+= $n-\frac{1}{4} \cdot \frac{1-\left(\frac{1}{4}\right)^{n}}{1-\frac{1}{4}}$ 
+= $n-\frac{1}{3}\left(1-4^{-n}\right)$
+
+Q9. 10^2n - 1 + 1 $\forall n \in N$ is divisible by :
+    (A) 7
+    (B) 11   <-- CORRECT
+    (C) 3
+    (D) 2
+    Answer: B
+    Explanation: Put n = 1 we get 11, hence it is divisible by 11.
+
+Q10. For all odd positive integers n, the number $n({n^2} - 1)$ is divisible by :
+    (A) 16
+    (B) 24   <-- CORRECT
+    (C) 9
+    (D) 36
+    Answer: B
+    Explanation: When n = 1 we have 0 : When n = 2 we have 24. When n = 3 we have 120 .....where all these values are multiples of 24.
+
+Q11. $\frac{\frac{1}{2} \cdot \frac{2}{2}}{1^3}+\frac{\frac{2}{2} \cdot \frac{3}{2}}{1^3+2^3}+\frac{\frac{3}{2} \cdot \frac{4}{2}}{1^3+2^3+3^3}+\ldots$ upto n terms is equal to
+    (A) $\frac{n-1}{n-2}$
+    (B) $\frac{n}{n+1}$   <-- CORRECT
+    (C) $\frac {n}{n + 2}$
+    (D) $\frac{n+1}{n+2}$
+    Answer: B
+    Explanation: Replace n = 1 we have $\frac{ 1}{2}$. When n = 2 we have $\frac{1}{2} + \frac{1}{6} = \frac{2}{3}$, (by the principle of mathematical induction when n = 1 we need to take one term from LHS. and for n = 2 we need to take the sum of two terms from the LHS. ....)
+
+Q12. $\frac{1}{3.5}+\frac{1}{5.7}+\frac{1}{7.9}+\ldots$ up to n terms is equal to
+    (A) $\frac{n}{(2 n+3)}$
+    (B) $\frac{1}{(n+2)(n+4)}$
+    (C) $\frac{1}{(n+3)(n+6)}$
+    (D) $\frac{n}{3(2 n+3)}$   <-- CORRECT
+    Answer: D
+    Explanation: By the process of mathematical induction when n = 1 we have $\frac{1}{15} $.
+When n = 2 we have LHS : $\frac{1}{15} + \frac{1}{35} = \frac{2}{21}$, RHS :$\frac{2}{(3( 4+3))}= \frac{2}{21}$, which is true.
+
+Q13. The nth terms of the series 4 + 14 + 30 + 52 + 80 + 114 + ….. is =
+    (A) 5n - 1
+    (B) 2n^2 + 2n
+    (C) 3n^2 + n   <-- CORRECT
+    (D) 2n^2 + 2
+    Answer: C
+    Explanation: When n = 1 we get 4. When n = 2 we get 12 + 2 = 14...
+
+Q14. The product of three consecutive natural numbers is divisible by
+    (A) 3
+    (B) 11
+    (C) 8
+    (D) 6   <-- CORRECT
+    Answer: D
+    Explanation: By replacing n by 1 we get 6.
+
+Q15. For $n \in N$, 3^2n + 2 - 2^3n - 9 is divisible by
+    (A) 3
+    (B) 64   <-- CORRECT
+    (C) 81
+    (D) 9
+    Answer: B
+    Explanation: We have,
+3^2n + 2 − 2^3 $\cdot$ n − 9
+= (3^2)^n+1 − 8n − 9
+= (1 + 8)^n + 1 − 8(n + 1) − 1
+={1 + (n + 1)8+ ^n+1C_2 ​8^2 + ^n+1C_3 ​8^3 +..... + ^n+1C^n+1 ​8^n+1} − 8(n + 1) − 1
+= 64 {^n+1C_2 ​+ ^n+1C_3 ​$\cdot$ 8 +......}, which is divisible by 64.
+
+========================================================================
+Mathematical Induction Test 05  (id 621) [PAID]
+CBSE > Class 11 > Mathematics > Principle of Mathematical Induction (Deleted)
+Questions: 15 | Answers: YES
+========================================================================
+
+Q1. For all positive integers n, the number 4^n + 15n - 1 is divisible by :
+    (A) 36
+    (B) 9   <-- CORRECT
+    (C) 16
+    (D) 24
+    Answer: B
+    Explanation: Replace n = 1 we get 18 n = 2 we get 45.... By the principle of mathematical induction it is divisible by 9.
+
+Q2. For all $n \in N$, 7^2n - 48n - 1 is divisible by :
+    (A) 26
+    (B) 25
+    (C) 2304   <-- CORRECT
+    (D) 1234
+    Answer: C
+    Explanation: When n = 1 the value is 0. When n = 2 the value is 2304..... Hence by the principle of mathematical induction the expression is divisible by 2304.
+
+Q3. For all $n \in N$ 5^2n - 1 is divisible by :
+    (A) 25
+    (B) 11
+    (C) 24   <-- CORRECT
+    (D) 26
+    Answer: C
+    Explanation: Replace n = 1, 2, 3.. the answers are divisible by 24.
+
+Q4. For all $n \in N$, 3^2n + 7 is divisible by :
+    (A) 9
+    (B) 3
+    (C) 8   <-- CORRECT
+    (D) 11
+    Answer: C
+    Explanation: When n = 1 the value is 16 which is a multple of 8, n = 2 the value is 88 which is a multiple of 8..... By PMI the expression is divisible by 8 for all natural numbers.
+
+Q5. For all $n \in N$, 3n^5 + 5n^3 + 7n is divisible by :
+    (A) 15   <-- CORRECT
+    (B) 3
+    (C) 5
+    (D) 10
+    Answer: A
+    Explanation: For n = 1 the value is 15. For n = 2 the value is 150 which is a multiple of 15... By PMI the expression is divisible by 15.
+
+Q6. The nth terms of the series 3 + 7 + 13 + 21 +………. is =
+    (A) n + 2
+    (B) 4n + 1
+    (C) 4n - 1
+    (D) n^2 + n + 1   <-- CORRECT
+    Answer: D
+    Explanation: Put n = 1 we have 3. When n = 2, 4 + 2 + 1 = 7...
+
+Q7. The nth terms of the series 4 + 14 + 30 + 52 + 80 + 114 + ….. is =
+    (A) 5n - 1
+    (B) 2n^2 + 2n
+    (C) 3n^2 + n   <-- CORRECT
+    (D) 2n^2 + 2
+    Answer: C
+    Explanation: When n = 1 we get 4. When n = 2 we get 12 + 2 = 14...
+
+Q8. 3 + 13 + 29 + 51 + 79 +……….. to n terms is
+    (A) n^2 + 4n^3
+    (B) n^2 + 5n^3
+    (C) 2n^2 + 7n
+    (D) n^3 + 2n^2   <-- CORRECT
+    Answer: D
+    Explanation: When n = 1 we have 3 when n = 2 we have
+LHS : 3 + 13 = 16 
+RHS : 8 + 8 = 16 ..... By PMI this is the sum of the n terms of the series.
+
+Q9. The sum of n terms of the series 1^3 + 3^3 + 5^3 + ...... is
+    (A) n^2(n^2 + 1)
+    (B) n^2(n^2 - 1)
+    (C) n^2(2n^2 + 1)
+    (D) n^2(2n^2 - 1)   <-- CORRECT
+    Answer: D
+    Explanation: When n = 1 we get 1. When n = 2 we get 
+RHS : 4 $\times$ 7 = 28 
+LHS : 1 + 27 = 28...... By PMI this is true.
+
+Q10. If n is an odd positive integer, then a^n + b^n is divisible by:
+    (A) a + b   <-- CORRECT
+    (B) a^2 + b^2
+    (C) a^2 - b^2
+    (D) a - b
+    Answer: A
+    Explanation: Since when n = 1 we get a + b. Hence by the method of mathematical induction, it is true.
+
+Q11. If n is an even positive integer, a^n + b^n is divisible by :
+    (A) a - b
+    (B) a^2 + b^2
+    (C) none of these   <-- CORRECT
+    (D) a + b
+    Answer: C
+    Explanation: If n is even we get a^2 + b^2 which is not divisible by a + b. same case when n = 4.
+
+Q12. For all $n \in N, \frac{n^5}{5}+\frac{n^3}{3}+\frac{7n}{15 }$ is
+    (A) a negative fraction
+    (B) a natural number   <-- CORRECT
+    (C) a positive fraction
+    (D) an integer
+    Answer: B
+    Explanation: a natural number
+
+Q13. The sum of n terms of the series 1 + (1 + a) + (1 + a + a^2) + (1 + a + a^2 + a^3)....., is
+    (A) $-\frac{n}{1-a}+\frac{a\left(1-a^n\right)}{(1-a^2)}$
+    (B) $\frac{\mathrm{n}}{1-\mathrm{a}}+\frac{\mathrm{a}\left(1+\mathrm{a}^{\mathrm{n}}\right)}{(1-\mathrm{a})^2}$
+    (C) $-\frac{n}{1-a}+\frac{a\left(1-a^n\right)}{(1-a)^2}$
+    (D) $\frac{n}{1-a}-\frac{a\left(1-a^n\right)}{(1-a)^2}$   <-- CORRECT
+    Answer: D
+    Explanation: Replace n = 1 we get 1. Replace n = 2 we get LHS; a + 2 RHS : a + 2.
+
+Q14. If 3 + 5 + 9 + 17 + 33 +……. to n terms = 2^n+1 + n - 2, then n^th term of LHS is
+    (A) 3n - 1
+    (B) 2n + 1
+    (C) 2^n + 1   <-- CORRECT
+    (D) 2n - 1
+    Answer: C
+    Explanation: 3 = 2^1 + 1
+5 = 2^2 + 1 
+9 = 2^3 + 1........ the nth term is 2^n + 1
+
+Q15. $\frac{(n+2) !}{(n-1) !}$ is divisible by:
+    (A) 11
+    (B) 6   <-- CORRECT
+    (C) 26
+    (D) 24
+    Answer: B
+    Explanation: When n = 1 we have 3! = 6 and n = 2 we have 4! = 24 which is divisible by 6.

@@ -1,0 +1,3156 @@
+{
+  "id": 1357,
+  "name": "Some Basic Concepts of Chemistry",
+  "full_name": "CBSE > Class 11 > Chemistry > Some Basic Concepts of Chemistry",
+  "tests": [
+    {
+      "testPaperID": 3775,
+      "testPaperName": "Basic concepts of chemistry Test-01",
+      "is_paid": false,
+      "category_full_name": "CBSE > Class 11 > Chemistry > Some Basic Concepts of Chemistry",
+      "noOfQuestions": 15,
+      "has_answers": true,
+      "sections": [
+        {
+          "sectionName": "General",
+          "sectionID": null,
+          "questions": [
+            {
+              "questionID": 61909,
+              "question": "Chemistry does not play a major role in:",
+              "question_raw": "<p>Chemistry does not play a major role in:</p>",
+              "options": [
+                {
+                  "label": "A",
+                  "id": 202820,
+                  "text": "Explaining superconductivity",
+                  "is_correct": true
+                },
+                {
+                  "label": "B",
+                  "id": 202822,
+                  "text": "Large scale production of a variety of fertilizers.",
+                  "is_correct": false
+                },
+                {
+                  "label": "C",
+                  "id": 202821,
+                  "text": "Design and synthesis new materials having specific magnetic, electric and optical properties.",
+                  "is_correct": false
+                },
+                {
+                  "label": "D",
+                  "id": 202823,
+                  "text": "Explaining ozone depletion.",
+                  "is_correct": false
+                }
+              ],
+              "correct_option_ids": [
+                202820
+              ],
+              "correct_option_labels": [
+                "A"
+              ],
+              "correct_option_texts": [
+                "Explaining superconductivity"
+              ],
+              "explanation": "Chemistry does not deal with explaining superconductivity.\n*In superconducting materials the characteristics of superconductivity appear when the temperature is lowered below a critical temperature.\n*The onset of superconductivity is accompanied by abrupt changes in physical properties which are more related to phase transitions of the material.\nThese aspects of studies in properties of materials are better related to studies in the fields of Physics, even though principles involved in Chemistry & Physics go hand to hand."
+            },
+            {
+              "questionID": 61910,
+              "question": "Matter can be classified at the macroscopic or bulk level as:",
+              "question_raw": "<p>Matter can be classified at the macroscopic or bulk level as:</p>",
+              "options": [
+                {
+                  "label": "A",
+                  "id": 202827,
+                  "text": "Solids and liquids",
+                  "is_correct": false
+                },
+                {
+                  "label": "B",
+                  "id": 202825,
+                  "text": "Elements and molecules",
+                  "is_correct": false
+                },
+                {
+                  "label": "C",
+                  "id": 202824,
+                  "text": "mixtures or pure substances",
+                  "is_correct": true
+                },
+                {
+                  "label": "D",
+                  "id": 202826,
+                  "text": "Atoms and molecules",
+                  "is_correct": false
+                }
+              ],
+              "correct_option_ids": [
+                202824
+              ],
+              "correct_option_labels": [
+                "C"
+              ],
+              "correct_option_texts": [
+                "mixtures or pure substances"
+              ],
+              "explanation": "At the macroscopic level, the matter is classified as a mixture or pure substances. A mixture contains two or more components (in any ratio ) present in it, for example -- sugar solutions in water, tea, air, alloys like brass, bronze, etc. Pure substances (viz. copper, silver, gold, water, glucose, etc.) have a fixed composition. The constituents of pure substances can not be separated by simple physical methods."
+            },
+            {
+              "questionID": 61911,
+              "question": "In a homogeneous mixture, the components are:",
+              "question_raw": "<p>In a homogeneous mixture, the components are:</p>",
+              "options": [
+                {
+                  "label": "A",
+                  "id": 202831,
+                  "text": "do not mix with each other and its composition is not uniform throughout.",
+                  "is_correct": false
+                },
+                {
+                  "label": "B",
+                  "id": 202829,
+                  "text": "do not mix with each other and its composition is uniform throughout.",
+                  "is_correct": false
+                },
+                {
+                  "label": "C",
+                  "id": 202828,
+                  "text": "completely mixed with each other and its composition is uniform throughout.",
+                  "is_correct": true
+                },
+                {
+                  "label": "D",
+                  "id": 202830,
+                  "text": "completely mix with each other and its composition is not uniform throughout.",
+                  "is_correct": false
+                }
+              ],
+              "correct_option_ids": [
+                202828
+              ],
+              "correct_option_labels": [
+                "C"
+              ],
+              "correct_option_texts": [
+                "completely mixed with each other and its composition is uniform throughout."
+              ],
+              "explanation": "In a homogeneous mixture,\n the components are mixed together completely.\n has a uniform composition throughout."
+            },
+            {
+              "questionID": 61912,
+              "question": "Which of the following statements about pure substances is correct?",
+              "question_raw": "<p>Which of the following statements about pure substances is correct?</p>",
+              "options": [
+                {
+                  "label": "A",
+                  "id": 202832,
+                  "text": "Pure substances have fixed composition.",
+                  "is_correct": true
+                },
+                {
+                  "label": "B",
+                  "id": 202834,
+                  "text": "Pure substances are elements only.",
+                  "is_correct": false
+                },
+                {
+                  "label": "C",
+                  "id": 202835,
+                  "text": "Pure substances are compounds only",
+                  "is_correct": false
+                },
+                {
+                  "label": "D",
+                  "id": 202833,
+                  "text": "Pure substances do not have fixed composition.",
+                  "is_correct": false
+                }
+              ],
+              "correct_option_ids": [
+                202832
+              ],
+              "correct_option_labels": [
+                "A"
+              ],
+              "correct_option_texts": [
+                "Pure substances have fixed composition."
+              ],
+              "explanation": "Pure substances have a fixed composition. These may be both (i.e. either elements or compounds). The law of constant composition holds good for such substances."
+            },
+            {
+              "questionID": 61913,
+              "question": "Particles of compounds are:",
+              "question_raw": "<p>Particles of compounds are:</p>\r\n",
+              "options": [
+                {
+                  "label": "A",
+                  "id": 202839,
+                  "text": "heterogeneous mixtures",
+                  "is_correct": false
+                },
+                {
+                  "label": "B",
+                  "id": 202837,
+                  "text": "atoms",
+                  "is_correct": false
+                },
+                {
+                  "label": "C",
+                  "id": 202836,
+                  "text": "molecules of two or more atoms of different elements",
+                  "is_correct": true
+                },
+                {
+                  "label": "D",
+                  "id": 202838,
+                  "text": "homogeneous mixtures",
+                  "is_correct": false
+                }
+              ],
+              "correct_option_ids": [
+                202836
+              ],
+              "correct_option_labels": [
+                "C"
+              ],
+              "correct_option_texts": [
+                "molecules of two or more atoms of different elements"
+              ],
+              "explanation": "Compounds are made when, atoms of two or more different elements combine together in a fixed ratio to form molecules (viz. water, ammonia, carbon dioxide, glucose, etc. ). Thus the particles of the compound consist of molecules."
+            },
+            {
+              "questionID": 61914,
+              "question": "Fill up the blanks with a suitable word in the statement, \" Physical properties are those properties which are measured or observed ________ changing the identity or the composition of the substance .\"",
+              "question_raw": "<p>Fill up the &nbsp;blanks &nbsp;with a suitable word&nbsp;in the statement, &quot; Physical properties are those properties which are measured or observed ________&nbsp;changing the identity or the composition of the substance .&quot;</p>\r\n",
+              "options": [
+                {
+                  "label": "A",
+                  "id": 202843,
+                  "text": "after",
+                  "is_correct": false
+                },
+                {
+                  "label": "B",
+                  "id": 202840,
+                  "text": "without",
+                  "is_correct": true
+                },
+                {
+                  "label": "C",
+                  "id": 202842,
+                  "text": "by",
+                  "is_correct": false
+                },
+                {
+                  "label": "D",
+                  "id": 202841,
+                  "text": "with",
+                  "is_correct": false
+                }
+              ],
+              "correct_option_ids": [
+                202840
+              ],
+              "correct_option_labels": [
+                "B"
+              ],
+              "correct_option_texts": [
+                "without"
+              ],
+              "explanation": "A substance is identified by its composition, hence for measuring physical properties of a substance its identity must be retained, (or should not be changed) Hence, the given statement, \" Physical properties are those properties which are measured or observed without changing the identity or composition of the substance.\" is correct."
+            },
+            {
+              "questionID": 61915,
+              "question": "SI units for Base Physical Quantities of length, mass, and current are:",
+              "question_raw": "<p>SI units for Base Physical Quantities of length, mass, and current are:</p>",
+              "options": [
+                {
+                  "label": "A",
+                  "id": 202847,
+                  "text": "meter, kilogram, candela",
+                  "is_correct": false
+                },
+                {
+                  "label": "B",
+                  "id": 202846,
+                  "text": "decimetre, kilogram, ampere",
+                  "is_correct": false
+                },
+                {
+                  "label": "C",
+                  "id": 202845,
+                  "text": "meter, gram, ampere",
+                  "is_correct": false
+                },
+                {
+                  "label": "D",
+                  "id": 202844,
+                  "text": "meter, kilogram, ampere",
+                  "is_correct": true
+                }
+              ],
+              "correct_option_ids": [
+                202844
+              ],
+              "correct_option_labels": [
+                "D"
+              ],
+              "correct_option_texts": [
+                "meter, kilogram, ampere"
+              ],
+              "explanation": "The International System of Units ( abbreviated as SI ) is a modern form of the metric system and is the most widely used form of measurements.\nIt comprises of a coherent system of measurement built of seven base units.\nThe base units for length, mass, and current in this system of measurements are, \" meter, kilogram, ampere\" symbolized respectively as m, kg, A."
+            },
+            {
+              "questionID": 61916,
+              "question": "SI unit of density is:",
+              "question_raw": "<p>SI unit of density is:</p>",
+              "options": [
+                {
+                  "label": "A",
+                  "id": 202848,
+                  "text": "kg m^-3",
+                  "is_correct": true
+                },
+                {
+                  "label": "B",
+                  "id": 202849,
+                  "text": "kg m^-2",
+                  "is_correct": false
+                },
+                {
+                  "label": "C",
+                  "id": 202851,
+                  "text": "kg ^-1m^3",
+                  "is_correct": false
+                },
+                {
+                  "label": "D",
+                  "id": 202850,
+                  "text": "kg m^3",
+                  "is_correct": false
+                }
+              ],
+              "correct_option_ids": [
+                202848
+              ],
+              "correct_option_labels": [
+                "A"
+              ],
+              "correct_option_texts": [
+                "kg m^-3"
+              ],
+              "explanation": "Since density = mass / volume and SI unit of mass is kg and that of the volume is $m^3$.\n$\\therefore$ using these SI units the unit of density is derived through dimensional analysis:\ndensity = mass / volume\n= kg / m^3 \nor, = kg m^-3"
+            },
+            {
+              "questionID": 61917,
+              "question": "The Kelvin scale is related to celsius scale as:",
+              "question_raw": "<p>The Kelvin scale is related to celsius scale as:</p>",
+              "options": [
+                {
+                  "label": "A",
+                  "id": 202855,
+                  "text": "K = °C + 212",
+                  "is_correct": false
+                },
+                {
+                  "label": "B",
+                  "id": 202852,
+                  "text": "K = °C + 273.15",
+                  "is_correct": true
+                },
+                {
+                  "label": "C",
+                  "id": 202854,
+                  "text": "K = °C + 100",
+                  "is_correct": false
+                },
+                {
+                  "label": "D",
+                  "id": 202853,
+                  "text": "K = °C + 32",
+                  "is_correct": false
+                }
+              ],
+              "correct_option_ids": [
+                202852
+              ],
+              "correct_option_labels": [
+                "B"
+              ],
+              "correct_option_texts": [
+                "K = °C + 273.15"
+              ],
+              "explanation": "The relation between the Kelvin scale & Celcius scale of temperatures is -\nK = °C + 273.15\nSuch a relationship is based upon the experimental findings and subsequent conclusion of Charle's law.\nThe Kelvin scale is also termed as an \"absolute scale of temperature.\"\nIt is interesting to note that temperature below 0^oC ( ie. negative values ) is possible in the Celcius scale but in Kelvin scale, the negative temperature is not possible."
+            },
+            {
+              "questionID": 61918,
+              "question": "In scientific notation for numbers, any number can be represented in the form, N $\\times$ 10^n where,",
+              "question_raw": "<p>In scientific notation for&nbsp;numbers, any number can be represented in the form, N <span class=\"math-tex\">{tex}\\times{/tex}</span> 10<sup>n&nbsp;</sup>where,</p>",
+              "options": [
+                {
+                  "label": "A",
+                  "id": 202858,
+                  "text": "n is an exponent having positive or negative values and N can vary from 10 to 100.",
+                  "is_correct": false
+                },
+                {
+                  "label": "B",
+                  "id": 202857,
+                  "text": "n is an exponent having positive or negative values and N can vary from 0 to 1.",
+                  "is_correct": false
+                },
+                {
+                  "label": "C",
+                  "id": 202859,
+                  "text": "n is an exponent having positive values only and N can vary from 1 to 10.",
+                  "is_correct": false
+                },
+                {
+                  "label": "D",
+                  "id": 202856,
+                  "text": "n is an exponent having positive or negative values. N represents a number that can vary from 1 to 10, but not 10 itself.",
+                  "is_correct": true
+                }
+              ],
+              "correct_option_ids": [
+                202856
+              ],
+              "correct_option_labels": [
+                "D"
+              ],
+              "correct_option_texts": [
+                "n is an exponent having positive or negative values. N represents a number that can vary from 1 to 10, but not 10 itself."
+              ],
+              "explanation": "Scientific notation is conveniently used to represent extremely large or even very small numerical values. It is an exponential notation in which any number can be represented in the form, N $\\times$ 10^n, where n is an exponent having positive or negative values and N can vary between 1 and 10, but not 10 itself."
+            },
+            {
+              "questionID": 61919,
+              "question": "Precision and Accuracy refer to _______ of various measurements for the same quantity repeatedly and agreement of particular value to the _________ of the result, respectively.",
+              "question_raw": "<p>Precision and Accuracy refer to _______ of various measurements for the same quantity repeatedly and agreement of particular value to the _________ of the result, respectively.</p>",
+              "options": [
+                {
+                  "label": "A",
+                  "id": 202863,
+                  "text": "minimum , true value",
+                  "is_correct": false
+                },
+                {
+                  "label": "B",
+                  "id": 202860,
+                  "text": "closeness, the true value",
+                  "is_correct": true
+                },
+                {
+                  "label": "C",
+                  "id": 202862,
+                  "text": "closeness , other values",
+                  "is_correct": false
+                },
+                {
+                  "label": "D",
+                  "id": 202861,
+                  "text": "maximum , true value",
+                  "is_correct": false
+                }
+              ],
+              "correct_option_ids": [
+                202860
+              ],
+              "correct_option_labels": [
+                "B"
+              ],
+              "correct_option_texts": [
+                "closeness, the true value"
+              ],
+              "explanation": "Precision means the closeness of all the data values measured while accuracy means the closeness of a particular value with the real value.\nFor example,\nwhen the reported values are 2.01, and 1.99 gas the result and its true value is 2.00 g.\nThese values are both precise and accurate."
+            },
+            {
+              "questionID": 61920,
+              "question": "Significant figures are:",
+              "question_raw": "<p>Significant figures are:</p>",
+              "options": [
+                {
+                  "label": "A",
+                  "id": 202866,
+                  "text": "digits before the decimal point",
+                  "is_correct": false
+                },
+                {
+                  "label": "B",
+                  "id": 202864,
+                  "text": "meaningful digits which are known with certainty",
+                  "is_correct": true
+                },
+                {
+                  "label": "C",
+                  "id": 202865,
+                  "text": "digits after the decimal point",
+                  "is_correct": false
+                },
+                {
+                  "label": "D",
+                  "id": 202867,
+                  "text": "first three digits after the decimal point",
+                  "is_correct": false
+                }
+              ],
+              "correct_option_ids": [
+                202864
+              ],
+              "correct_option_labels": [
+                "B"
+              ],
+              "correct_option_texts": [
+                "meaningful digits which are known with certainty"
+              ],
+              "explanation": "Significant digits are certain digits that have significance or meaning to certain digits in a number. Such digits help scientists to use them with more precise information about measurement and other numeric data. These digits also help them in rounding off a very large or very small number"
+            },
+            {
+              "questionID": 61921,
+              "question": "According to Gay Lussac’s Law of Gaseous Volumes, \" when gases combine or are produced in a chemical reaction they do so in a ______ ratio by volumes provided all gases are at the same temperature and pressure.\"",
+              "question_raw": "<p>According to Gay Lussac&rsquo;s Law of Gaseous Volumes, &quot; when gases combine or are produced in a chemical reaction they do so in a ______&nbsp;ratio &nbsp;by volumes provided all gases are at the same temperature and pressure.&quot;</p>\r\n",
+              "options": [
+                {
+                  "label": "A",
+                  "id": 202870,
+                  "text": "equal",
+                  "is_correct": false
+                },
+                {
+                  "label": "B",
+                  "id": 202871,
+                  "text": "uncertain",
+                  "is_correct": false
+                },
+                {
+                  "label": "C",
+                  "id": 202869,
+                  "text": "inverse",
+                  "is_correct": false
+                },
+                {
+                  "label": "D",
+                  "id": 202868,
+                  "text": "simple",
+                  "is_correct": true
+                }
+              ],
+              "correct_option_ids": [
+                202868
+              ],
+              "correct_option_labels": [
+                "D"
+              ],
+              "correct_option_texts": [
+                "simple"
+              ],
+              "explanation": "Gay lussac’s law states that when gases combine or are produced in a chemical reaction they do so in a simple ratio by volume provided all gases are at the same temperature and pressure.\nMathematically, the law is expressed as,\n[V/n] = k\nwhere V represents the volume of the gas, n denotes the number of moles of the gas & k is the proportionality constant.\nThus, the volume ratio must be related to the relative number of molecules.\nThis relationship was crucial in establishing the formula of simple molecules at a time when a distinction between atoms and molecules was not clearly understood."
+            },
+            {
+              "questionID": 61922,
+              "question": "According to Avogadro Law, equal volumes of all gases at the same temperature and pressure should contain _______ number of molecules.",
+              "question_raw": "<p>According to Avogadro Law, equal volumes of all gases at the same temperature and pressure should contain _______ number of molecules.</p>\r\n",
+              "options": [
+                {
+                  "label": "A",
+                  "id": 202873,
+                  "text": "unequal",
+                  "is_correct": false
+                },
+                {
+                  "label": "B",
+                  "id": 202872,
+                  "text": "equal",
+                  "is_correct": true
+                },
+                {
+                  "label": "C",
+                  "id": 202874,
+                  "text": "similar",
+                  "is_correct": false
+                },
+                {
+                  "label": "D",
+                  "id": 202875,
+                  "text": "different",
+                  "is_correct": false
+                }
+              ],
+              "correct_option_ids": [
+                202872
+              ],
+              "correct_option_labels": [
+                "B"
+              ],
+              "correct_option_texts": [
+                "equal"
+              ],
+              "explanation": "Avogadro's law states that \" equal volumes of all gases at the same temperature and pressure contain an equal number of molecules.\""
+            },
+            {
+              "questionID": 61923,
+              "question": "Molecular mass of a compound is the ________ of atomic masses of elements present in a molecule.",
+              "question_raw": "<p>Molecular mass of a compound is the ________ of atomic masses of elements present in a molecule.</p>\r\n",
+              "options": [
+                {
+                  "label": "A",
+                  "id": 202877,
+                  "text": "average",
+                  "is_correct": false
+                },
+                {
+                  "label": "B",
+                  "id": 202878,
+                  "text": "maximum",
+                  "is_correct": false
+                },
+                {
+                  "label": "C",
+                  "id": 202876,
+                  "text": "sum",
+                  "is_correct": true
+                },
+                {
+                  "label": "D",
+                  "id": 202879,
+                  "text": "lowest",
+                  "is_correct": false
+                }
+              ],
+              "correct_option_ids": [
+                202876
+              ],
+              "correct_option_labels": [
+                "C"
+              ],
+              "correct_option_texts": [
+                "sum"
+              ],
+              "explanation": "Molecular mass is the sum of atomic masses of the elements present in a molecule.\nFor example ; Molecular mass of CO_2 = $\\Sigma$ atomic mass of one carbon atom & atomic mass of two oxygen atoms\n= [ 12 + 2(16) ]u\n= 44u."
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "testPaperID": 3776,
+      "testPaperName": "Basic concepts of chemistry Test-02",
+      "is_paid": true,
+      "category_full_name": "CBSE > Class 11 > Chemistry > Some Basic Concepts of Chemistry",
+      "noOfQuestions": 15,
+      "has_answers": true,
+      "sections": [
+        {
+          "sectionName": "General",
+          "sectionID": null,
+          "questions": [
+            {
+              "questionID": 61924,
+              "question": "One mole is the amount of a substance that contains as many particles or entities as there are atoms in:",
+              "question_raw": "<p>One mole is the amount of a substance that contains as many particles or entities as there are atoms in:</p>\r\n",
+              "options": [
+                {
+                  "label": "A",
+                  "id": 202882,
+                  "text": "exactly 12 g (or 0.012 kg) of the $^{14}C$ isotope",
+                  "is_correct": false
+                },
+                {
+                  "label": "B",
+                  "id": 202883,
+                  "text": "exactly 14g (or 0.014 kg) of the $\\ ^{14}C$ isotope",
+                  "is_correct": false
+                },
+                {
+                  "label": "C",
+                  "id": 202881,
+                  "text": "exactly 12 g (or 0.012 kg) of the $^{13}C$ isotope",
+                  "is_correct": false
+                },
+                {
+                  "label": "D",
+                  "id": 202880,
+                  "text": "exactly 12g (or 0.012 kg) of the $^{12}C$ isotope",
+                  "is_correct": true
+                }
+              ],
+              "correct_option_ids": [
+                202880
+              ],
+              "correct_option_labels": [
+                "D"
+              ],
+              "correct_option_texts": [
+                "exactly 12g (or 0.012 kg) of the $^{12}C$ isotope"
+              ],
+              "explanation": "One mole is the amount of a substance that contains as many particles or entities as there are atoms in exactly 12 g of the $^{12}C$ isotope.\nA mole of a substance always contains the same number of entities, no matter what the substance may be. In order to determine this number precisely, the mass of carbon -12 atom was determined by mass spectrometer and found to be equal to 1.992648 $\\times$ 10^-23g. Knowing that one mole of carbon weighs 12g. the number of atoms in it is equal to: 6.0221367 $\\times$ 10^23"
+            },
+            {
+              "questionID": 61925,
+              "question": "A given compound always contains exactly the same proportion of elements by weight. This law is stated by:",
+              "question_raw": "<p>A given compound always contains exactly the same proportion of elements by weight. This law is stated by:</p>\r\n",
+              "options": [
+                {
+                  "label": "A",
+                  "id": 202886,
+                  "text": "Dalton",
+                  "is_correct": false
+                },
+                {
+                  "label": "B",
+                  "id": 202887,
+                  "text": "Avagadro",
+                  "is_correct": false
+                },
+                {
+                  "label": "C",
+                  "id": 202884,
+                  "text": "Proust",
+                  "is_correct": true
+                },
+                {
+                  "label": "D",
+                  "id": 202885,
+                  "text": "Gay Lussac",
+                  "is_correct": false
+                }
+              ],
+              "correct_option_ids": [
+                202884
+              ],
+              "correct_option_labels": [
+                "C"
+              ],
+              "correct_option_texts": [
+                "Proust"
+              ],
+              "explanation": "The observation was first made by French chemist Joseph Proust, based on certain experiments conducted between 1798 and 1804. Proust made the above statement known as \" Proust's law\" or \"Law of definite composition\" or \" Law of constant composition\"."
+            },
+            {
+              "questionID": 61926,
+              "question": "Avogadro's constant is the number of entities (viz. atoms, molecules or ions) present in ________ mole of a substance.",
+              "question_raw": "<p>Avogadro&#39;s constant is the number of entities (viz. atoms, molecules or ions) present in ________&nbsp; mole of a substance.</p>",
+              "options": [
+                {
+                  "label": "A",
+                  "id": 202889,
+                  "text": "0.50",
+                  "is_correct": false
+                },
+                {
+                  "label": "B",
+                  "id": 202890,
+                  "text": "0.25",
+                  "is_correct": false
+                },
+                {
+                  "label": "C",
+                  "id": 202888,
+                  "text": "1.0",
+                  "is_correct": true
+                },
+                {
+                  "label": "D",
+                  "id": 202891,
+                  "text": "0.01",
+                  "is_correct": false
+                }
+              ],
+              "correct_option_ids": [
+                202888
+              ],
+              "correct_option_labels": [
+                "C"
+              ],
+              "correct_option_texts": [
+                "1.0"
+              ],
+              "explanation": "Avagadro's constant represents the number of entities (viz, atoms, molecules, or ions ) present in 1 mole of a substance.\nThe constant is denoted by N = 6.022 $\\times$ 10^23"
+            },
+            {
+              "questionID": 61927,
+              "question": "An empirical formula represents the simplest",
+              "question_raw": "<p>An empirical formula represents the simplest</p>\r\n",
+              "options": [
+                {
+                  "label": "A",
+                  "id": 202894,
+                  "text": "ratio of masses of various elements present in a compound",
+                  "is_correct": false
+                },
+                {
+                  "label": "B",
+                  "id": 202892,
+                  "text": "whole number ratio of various atoms present in a compound",
+                  "is_correct": true
+                },
+                {
+                  "label": "C",
+                  "id": 202895,
+                  "text": "average fractional ratio of various atoms present in a compound",
+                  "is_correct": false
+                },
+                {
+                  "label": "D",
+                  "id": 202893,
+                  "text": "whole number ratio of the elements present in a compound",
+                  "is_correct": false
+                }
+              ],
+              "correct_option_ids": [
+                202892
+              ],
+              "correct_option_labels": [
+                "B"
+              ],
+              "correct_option_texts": [
+                "whole number ratio of various atoms present in a compound"
+              ],
+              "explanation": "In chemistry, the empirical formula of a compound is the simplest positive integer ratio of atoms present in a compound.\nHowever, this differs from the chemical formula which expresses the number of atoms in each molecule of a compound.\nAn empirical formula makes no mention of the arrangement of atoms in a compound.\nIt is standard for many ionic compounds like CaCl_2 or for macromolecules such as silicates etc."
+            },
+            {
+              "questionID": 61928,
+              "question": "Molecular formula represents:",
+              "question_raw": "<p>Molecular formula represents:</p>",
+              "options": [
+                {
+                  "label": "A",
+                  "id": 202899,
+                  "text": "average fractionall ratio of various atoms present in a compound",
+                  "is_correct": false
+                },
+                {
+                  "label": "B",
+                  "id": 202897,
+                  "text": "whole number ratio of different types of atoms present in a molecule of a compound",
+                  "is_correct": false
+                },
+                {
+                  "label": "C",
+                  "id": 202896,
+                  "text": "the exact number of different types of atoms present in a molecule of a compound",
+                  "is_correct": true
+                },
+                {
+                  "label": "D",
+                  "id": 202898,
+                  "text": "ratio of masses of various atoms present in a compound",
+                  "is_correct": false
+                }
+              ],
+              "correct_option_ids": [
+                202896
+              ],
+              "correct_option_labels": [
+                "C"
+              ],
+              "correct_option_texts": [
+                "the exact number of different types of atoms present in a molecule of a compound"
+              ],
+              "explanation": "Molecular formula is the exact no. of atoms present in a molecule of a compound.\nMolecular formula of a compound is related with its empirical formula as,\nMollecular formula = (Empirical formula)_n\nwhere n represents a positive integer."
+            },
+            {
+              "questionID": 61929,
+              "question": "According to the law of conservation of mass, a balanced chemical equation:",
+              "question_raw": "<p>According to the law of conservation of mass, a balanced chemical equation:&nbsp;</p>\r\n",
+              "options": [
+                {
+                  "label": "A",
+                  "id": 202902,
+                  "text": "the same number of electrons of each element on both sides of the equation",
+                  "is_correct": false
+                },
+                {
+                  "label": "B",
+                  "id": 202901,
+                  "text": "the same ratio of atoms of each element on both sides of the equation",
+                  "is_correct": false
+                },
+                {
+                  "label": "C",
+                  "id": 202903,
+                  "text": "the same number of protons of each element on both sides of the equation",
+                  "is_correct": false
+                },
+                {
+                  "label": "D",
+                  "id": 202900,
+                  "text": "the same number of atoms of each element on both sides of the equation",
+                  "is_correct": true
+                }
+              ],
+              "correct_option_ids": [
+                202900
+              ],
+              "correct_option_labels": [
+                "D"
+              ],
+              "correct_option_texts": [
+                "the same number of atoms of each element on both sides of the equation"
+              ],
+              "explanation": "According to the law of conservation of mass,\nTotal mass of reactants = total mass of product\n$\\therefore$ The number. of atoms of each element in reactants = number of atoms of that element in products."
+            },
+            {
+              "questionID": 61930,
+              "question": "Molarity is defined as:",
+              "question_raw": "<p>Molarity is defined as:</p>\r\n",
+              "options": [
+                {
+                  "label": "A",
+                  "id": 202904,
+                  "text": "the number of moles of the solute in 1 litre of the solution",
+                  "is_correct": true
+                },
+                {
+                  "label": "B",
+                  "id": 202907,
+                  "text": "the number of moles of the solute in 1 m^3 of the solution",
+                  "is_correct": false
+                },
+                {
+                  "label": "C",
+                  "id": 202905,
+                  "text": "the number of grams of the solute in 1 litre of the solution",
+                  "is_correct": false
+                },
+                {
+                  "label": "D",
+                  "id": 202906,
+                  "text": "the number of moles of the solvent in 1 litre of the solution",
+                  "is_correct": false
+                }
+              ],
+              "correct_option_ids": [
+                202904
+              ],
+              "correct_option_labels": [
+                "A"
+              ],
+              "correct_option_texts": [
+                "the number of moles of the solute in 1 litre of the solution"
+              ],
+              "explanation": "Molarity is the most widely used method of expressing the strength or concentration of a solution.\nIt is denoted by ' M '.\nMolarity is defined as the number of moles of solute present per litre of solution.\nMathematically,\nMolarity (M) = Number of moles of solute / Volume of solution in Litres"
+            },
+            {
+              "questionID": 61931,
+              "question": "The calculation of masses or, (sometimes volumes also) of the reactants and the products involved in a chemical reaction is called:",
+              "question_raw": "<p>The calculation of masses or, (sometimes volumes also) of the reactants and the products involved in a chemical reaction is called:</p>\r\n",
+              "options": [
+                {
+                  "label": "A",
+                  "id": 202911,
+                  "text": "normality",
+                  "is_correct": false
+                },
+                {
+                  "label": "B",
+                  "id": 202908,
+                  "text": "stoichiometry",
+                  "is_correct": true
+                },
+                {
+                  "label": "C",
+                  "id": 202910,
+                  "text": "molality",
+                  "is_correct": false
+                },
+                {
+                  "label": "D",
+                  "id": 202909,
+                  "text": "molarity",
+                  "is_correct": false
+                }
+              ],
+              "correct_option_ids": [
+                202908
+              ],
+              "correct_option_labels": [
+                "B"
+              ],
+              "correct_option_texts": [
+                "stoichiometry"
+              ],
+              "explanation": "Stoichiometry is a method to express quantitative aspects of a chemical reaction.\nUsually, the masses of reactants as well as those of products in a chemical reaction are calculated using a corresponding balanced chemical equation.\nIt is convenient and hence desirable to calculate volumes of gaseous reactants and products."
+            },
+            {
+              "questionID": 61932,
+              "question": "Molecular mass of glucose (C_6H_12O_6) is",
+              "question_raw": "<p>Molecular mass of glucose&nbsp;(C<sub>6</sub>H<sub>12</sub>O<sub>6</sub>)&nbsp;is</p>\r\n",
+              "options": [
+                {
+                  "label": "A",
+                  "id": 202913,
+                  "text": "192.162 u",
+                  "is_correct": false
+                },
+                {
+                  "label": "B",
+                  "id": 202912,
+                  "text": "180.162 u",
+                  "is_correct": true
+                },
+                {
+                  "label": "C",
+                  "id": 202915,
+                  "text": "206.162 u",
+                  "is_correct": false
+                },
+                {
+                  "label": "D",
+                  "id": 202914,
+                  "text": "198.162 u",
+                  "is_correct": false
+                }
+              ],
+              "correct_option_ids": [
+                202912
+              ],
+              "correct_option_labels": [
+                "B"
+              ],
+              "correct_option_texts": [
+                "180.162 u"
+              ],
+              "explanation": "The molecular mass of Glucose is calculated using the relation:\nMolecular mass\n= $\\sum$ (6*atomic mass of C, 12* atomic mass of H, 6* atomic mass of O) u\n$\\therefore$ substituting the respective atomic masses we get,\nThe molecular mass of glucose ( C_6H_12O_6)\n= [6(12.0107) + 12(1.008) + 6(15.9994)]\n= 180.162 u."
+            },
+            {
+              "questionID": 61933,
+              "question": "Choose the most appropriate answer amongst the options given below for the statement - A solution of the desired concentration is prepared by diluting _______.",
+              "question_raw": "<p>Choose the most appropriate answer amongst the options given below for the statement - A solution of the desired concentration is prepared by diluting _______.</p>",
+              "options": [
+                {
+                  "label": "A",
+                  "id": 202917,
+                  "text": "solution of known higher concentration.",
+                  "is_correct": false
+                },
+                {
+                  "label": "B",
+                  "id": 202918,
+                  "text": "solution of known lower concentration.",
+                  "is_correct": false
+                },
+                {
+                  "label": "C",
+                  "id": 202916,
+                  "text": "stock solution",
+                  "is_correct": true
+                },
+                {
+                  "label": "D",
+                  "id": 202919,
+                  "text": "from a serially diluted solution.",
+                  "is_correct": false
+                }
+              ],
+              "correct_option_ids": [
+                202916
+              ],
+              "correct_option_labels": [
+                "C"
+              ],
+              "correct_option_texts": [
+                "stock solution"
+              ],
+              "explanation": "Stock solution can best be described as a concentrated solution of known accurate concentration that will be used for future laboratory use.\nSince large amounts of solutes are used for preparing stock solution a more accurate concentration of it can be achieved quite easily, and as such the chances are slim to get erroneous results of the related experiments.\nIn addition, stock solutions are generally more stable as compared to a working solution since they usually do not support bacterial growth.\nMultiple working solutions can be prepared by dilution of stock solution using easy calculation and process."
+            },
+            {
+              "questionID": 61934,
+              "question": "The number of moles of solute present in 1 kg of a solvent is called________.",
+              "question_raw": "<p>The number of moles of solute present in 1 kg of a solvent is called________.</p>",
+              "options": [
+                {
+                  "label": "A",
+                  "id": 202920,
+                  "text": "Molality (m)",
+                  "is_correct": true
+                },
+                {
+                  "label": "B",
+                  "id": 202923,
+                  "text": "ppm",
+                  "is_correct": false
+                },
+                {
+                  "label": "C",
+                  "id": 202922,
+                  "text": "Normality( N )",
+                  "is_correct": false
+                },
+                {
+                  "label": "D",
+                  "id": 202921,
+                  "text": "Molarity (M)",
+                  "is_correct": false
+                }
+              ],
+              "correct_option_ids": [
+                202920
+              ],
+              "correct_option_labels": [
+                "A"
+              ],
+              "correct_option_texts": [
+                "Molality (m)"
+              ],
+              "explanation": "Molality is defined as no. of moles of solute present per kg of solvent. It is denoted as \" m \". Mathematically,\nMolality (m) = [number of moles of the solute] / kg of solvent\nSince this mode of expressing the strength of a solution involves (weight/weight) relationship of solute and solvent, the molality of the solution is not affected by variation in temperatures of the solution."
+            },
+            {
+              "questionID": 61935,
+              "question": "Molality (m) of 3 M aqueous solution of NaCl is: (Given: Density of solution $=1.25 {~g} {~mL}^{-1}$, Molar mass in ${g} {mol}^{-1}$ : ${Na}-23, {Cl}-35.5$)",
+              "question_raw": "<p>Molality (m) of 3 M aqueous solution of NaCl is: (Given: Density of solution <span class=\"math-tex\">{tex}=1.25 {~g} {~mL}^{-1}{/tex}</span>, Molar mass in <span class=\"math-tex\">{tex}{g} {mol}^{-1}{/tex}</span> : <span class=\"math-tex\">{tex}{Na}-23, {Cl}-35.5{/tex}</span>)</p>",
+              "options": [
+                {
+                  "label": "A",
+                  "id": 202925,
+                  "text": "1.79 m",
+                  "is_correct": false
+                },
+                {
+                  "label": "B",
+                  "id": 202924,
+                  "text": "2.79 m",
+                  "is_correct": true
+                },
+                {
+                  "label": "C",
+                  "id": 202927,
+                  "text": "0.79 m",
+                  "is_correct": false
+                },
+                {
+                  "label": "D",
+                  "id": 202926,
+                  "text": "2.09 m",
+                  "is_correct": false
+                }
+              ],
+              "correct_option_ids": [
+                202924
+              ],
+              "correct_option_labels": [
+                "B"
+              ],
+              "correct_option_texts": [
+                "2.79 m"
+              ],
+              "explanation": "Since Molarity represents a number of moles of solute per litre of solution.\n$\\therefore$ moles of solute = 3 mols.\nAs, density of the solution is given\n= 1.25 g/ mL\n$\\therefore$ Mass of solution = 1250g\nMass of solvent = [1250 - 3 (58.5)] g\n= (1250 - 175.5) g\n= 1074 .5 g\n= 1.0745 Kg\nMolality\n= Number of moles of solute / Kg of solvent\n$\\therefore$ Molality = $(\\frac{3 mol}{1.0745 kg})$ = 2.79 m"
+            },
+            {
+              "questionID": 61936,
+              "question": "Amount of sodium hydroxide present in 500ml of 0.2M solutions is :",
+              "question_raw": "<p>Amount of sodium hydroxide present in&nbsp;500ml&nbsp;of&nbsp;0.2M&nbsp;solutions is :</p>",
+              "options": [
+                {
+                  "label": "A",
+                  "id": 202929,
+                  "text": "8gm",
+                  "is_correct": false
+                },
+                {
+                  "label": "B",
+                  "id": 202930,
+                  "text": "40gm",
+                  "is_correct": false
+                },
+                {
+                  "label": "C",
+                  "id": 202928,
+                  "text": "4gm",
+                  "is_correct": true
+                },
+                {
+                  "label": "D",
+                  "id": 202931,
+                  "text": "80gm",
+                  "is_correct": false
+                }
+              ],
+              "correct_option_ids": [
+                202928
+              ],
+              "correct_option_labels": [
+                "C"
+              ],
+              "correct_option_texts": [
+                "4gm"
+              ],
+              "explanation": "Molarity of a solution\n(M) = $\\frac{mass of solute}{molar mass of solute } \\times $$\\frac{1000}{volume of solution in mL } $ \n∴0.2​$=\\frac{w}{40 } \\times $$\\frac{1000}{500} $\nso, w = 4gm.\nAmount of sodium hydroxide present in 500ml of 0.2M solutions is 4 gm."
+            },
+            {
+              "questionID": 61937,
+              "question": "A solution is prepared by adding 2 g of a substance A to 18 g of water. Mass percent of the solute is _______.",
+              "question_raw": "<p>A solution is prepared by adding 2 g of a substance A to 18 g of water. Mass percent of the solute is _______.</p>",
+              "options": [
+                {
+                  "label": "A",
+                  "id": 202934,
+                  "text": "1 2.11%",
+                  "is_correct": false
+                },
+                {
+                  "label": "B",
+                  "id": 202935,
+                  "text": "20.5 %",
+                  "is_correct": false
+                },
+                {
+                  "label": "C",
+                  "id": 202932,
+                  "text": "10 %",
+                  "is_correct": true
+                },
+                {
+                  "label": "D",
+                  "id": 202933,
+                  "text": "11 %",
+                  "is_correct": false
+                }
+              ],
+              "correct_option_ids": [
+                202932
+              ],
+              "correct_option_labels": [
+                "C"
+              ],
+              "correct_option_texts": [
+                "10 %"
+              ],
+              "explanation": "Since , mass % =[{(mass of solute) $\\times$) / (mass of solution ) } $\\times$100]\n$\\therefore$ Substituting the given values we get,\nMass per cent\n= [ ( 2 g ) / { (2 g of A ) + 18 g of water } ]\n= [ ( 2 /20 ) x 100 ]\n= 10%"
+            },
+            {
+              "questionID": 61938,
+              "question": "Consider the equation, Fe + H_2SO_4 $\\rightarrow$ Fe_2(SO_4)_3 + H_2\nThis equation can be balanced by inserting the following in blank spaces.",
+              "question_raw": "<p>Consider the equation, Fe + H<sub>2</sub>SO<sub>4</sub>&nbsp;<span class=\"math-tex\">{tex}\\rightarrow{/tex}</span>&nbsp;Fe<sub>2</sub>(SO<sub>4</sub>)<sub>3</sub>&nbsp;+ H<sub>2</sub><br />\r\nThis equation can be balanced by inserting the following in blank spaces.</p>",
+              "options": [
+                {
+                  "label": "A",
+                  "id": 202936,
+                  "text": "2,3,1,3",
+                  "is_correct": true
+                },
+                {
+                  "label": "B",
+                  "id": 202938,
+                  "text": "2,3,3,2",
+                  "is_correct": false
+                },
+                {
+                  "label": "C",
+                  "id": 202937,
+                  "text": "2,1,3,3",
+                  "is_correct": false
+                },
+                {
+                  "label": "D",
+                  "id": 202939,
+                  "text": "2,2,3,3",
+                  "is_correct": false
+                }
+              ],
+              "correct_option_ids": [
+                202936
+              ],
+              "correct_option_labels": [
+                "A"
+              ],
+              "correct_option_texts": [
+                "2,3,1,3"
+              ],
+              "explanation": "A balanced equation represents the same number of atoms of each element on both sides (i.e. LHS & RHS) of the equation. The balanced equation is complied by introducing the coefficients as (2, 3, 1, 3) respectively. Thus the balanced equation for the given reaction is\n2Fe + 3H_2SO_4 $\\to$ Fe_2 (SO_4)_3 + 3H_2"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "testPaperID": 3777,
+      "testPaperName": "Basic concepts of chemistry Test-03",
+      "is_paid": true,
+      "category_full_name": "CBSE > Class 11 > Chemistry > Some Basic Concepts of Chemistry",
+      "noOfQuestions": 15,
+      "has_answers": true,
+      "sections": [
+        {
+          "sectionName": "General",
+          "sectionID": null,
+          "questions": [
+            {
+              "questionID": 61939,
+              "question": "Consider the chemical equation, ----- KOH + ----- H_3PO_4 $\\longrightarrow$ ----- K_3PO_4 + ----- H_2O.\nThe equation can be balanced by inserting the following in blank spaces.",
+              "question_raw": "<p>Consider the chemical &nbsp;equation, ----- KOH + ----- H<sub>3</sub>PO<sub>4</sub>&nbsp;<span class=\"math-tex\">{tex}\\longrightarrow{/tex}</span> ----- K<sub>3</sub>PO<sub>4</sub>&nbsp;+ ----- H<sub>2</sub>O.<br />\r\nThe&nbsp;equation can be balanced by inserting the following in blank spaces.</p>",
+              "options": [
+                {
+                  "label": "A",
+                  "id": 202941,
+                  "text": "3,2,1,2",
+                  "is_correct": false
+                },
+                {
+                  "label": "B",
+                  "id": 202942,
+                  "text": "3,1,2,3",
+                  "is_correct": false
+                },
+                {
+                  "label": "C",
+                  "id": 202940,
+                  "text": "3,1,1,3",
+                  "is_correct": true
+                },
+                {
+                  "label": "D",
+                  "id": 202943,
+                  "text": "6.1.2.3",
+                  "is_correct": false
+                }
+              ],
+              "correct_option_ids": [
+                202940
+              ],
+              "correct_option_labels": [
+                "C"
+              ],
+              "correct_option_texts": [
+                "3,1,1,3"
+              ],
+              "explanation": "The given equation gets balanced by inserting the coefficients (3,1,1,3) in blank spaces from LHS to RHS. Thus, the balanced equation for the given reaction is 3KOH + H_3PO_4 $\\longrightarrow$ K_3PO_4 + 3H_2O."
+            },
+            {
+              "questionID": 61940,
+              "question": "Consider the chemical reaction gven as,\n--CO (g) + -- $H_2$(g) → -- $C_8$H_18(l) + -- $H_2O$.\nThis equation can be balanced by inserting the following in blank spaces",
+              "question_raw": "<p>Consider the chemical reaction gven as,<br />\n--CO (g) + --&nbsp;<span class=\"math-tex\">{tex}H_2{/tex}</span>(g) &rarr; --&nbsp;<span class=\"math-tex\">{tex}C_8{/tex}</span>H<sub>18</sub>(l) + --&nbsp;<span class=\"math-tex\">{tex}H_2O{/tex}</span>.<br />\nThis equation can be balanced by inserting the following in blank spaces</p>",
+              "options": [
+                {
+                  "label": "A",
+                  "id": 202945,
+                  "text": "8,2,8,17",
+                  "is_correct": false
+                },
+                {
+                  "label": "B",
+                  "id": 202944,
+                  "text": "8,17,1,8",
+                  "is_correct": true
+                },
+                {
+                  "label": "C",
+                  "id": 202947,
+                  "text": "8,8,1,17",
+                  "is_correct": false
+                },
+                {
+                  "label": "D",
+                  "id": 202946,
+                  "text": "8,2,1,17",
+                  "is_correct": false
+                }
+              ],
+              "correct_option_ids": [
+                202944
+              ],
+              "correct_option_labels": [
+                "B"
+              ],
+              "correct_option_texts": [
+                "8,17,1,8"
+              ],
+              "explanation": "The balanced equation for the given equation is,\n8CO(g) + 17H_2(g) $\\longrightarrow$ C_8H_18(l) + 8H_2O"
+            },
+            {
+              "questionID": 61941,
+              "question": "Consider the unbalanced chemical equation ,\n-- Al + -- $O_2$ → -- $Al_2O_3$.\nThe equation for the above reaction can be balanced by inserting the following in blank spaces.",
+              "question_raw": "<p>Consider the unbalanced &nbsp;chemical equation ,<br />\n--&nbsp;Al + -- <span class=\"math-tex\">{tex}O_2{/tex}</span> &rarr; -- <span class=\"math-tex\">{tex}Al_2O_3{/tex}</span>.<br />\nThe&nbsp;equation for the above reaction&nbsp;can be balanced by inserting the following in blank spaces.</p>",
+              "options": [
+                {
+                  "label": "A",
+                  "id": 202950,
+                  "text": "2,3,3",
+                  "is_correct": false
+                },
+                {
+                  "label": "B",
+                  "id": 202949,
+                  "text": "2,3,1",
+                  "is_correct": false
+                },
+                {
+                  "label": "C",
+                  "id": 202948,
+                  "text": "4,3,2",
+                  "is_correct": true
+                },
+                {
+                  "label": "D",
+                  "id": 202951,
+                  "text": "4,2,3",
+                  "is_correct": false
+                }
+              ],
+              "correct_option_ids": [
+                202948
+              ],
+              "correct_option_labels": [
+                "C"
+              ],
+              "correct_option_texts": [
+                "4,3,2"
+              ],
+              "explanation": "The unbalanced chemical reaction is \nAl(s) + O_2​(g) $\\longrightarrow$ Al_2​O_3​(s)\nBalance Al atoms by adding 2 to Al on LHS\n2Al(s) + O_2​(g) $\\longrightarrow$ Al_2​O_3​(s)\nBalance O atoms by adding $\\frac 32$​ to O_2​ on LHS\n2Al(s) + ​$\\frac 32$O_2​(g)$\\longrightarrow$ Al_2​O_3​(s)\nMultiply the whole equation with 2.\n4Al(s) + 3O_2​(g)$\\longrightarrow$ 2Al_2​O_3​(s)"
+            },
+            {
+              "questionID": 61942,
+              "question": "^-- $Ba_3N_2$ +^- $H_2O$ → ^-- Ba $(OH)_2$ + ^-- $NH_3$ .\nThe above equation can be balanced by inserting the following in blank spaces from LHS to RHS respectively.",
+              "question_raw": "<p><sup>--</sup>&nbsp;<span class=\"math-tex\">{tex}Ba_3N_2{/tex}</span> +<sup>-</sup>&nbsp;<span class=\"math-tex\">{tex}H_2O{/tex}</span> &rarr; <sup>--</sup>&nbsp;Ba&nbsp;<span class=\"math-tex\">{tex}(OH)_2{/tex}</span> + <sup>--</sup>&nbsp;<span class=\"math-tex\">{tex}NH_3{/tex}</span> .</p>\r\n\r\n<p>The above equation can be balanced by inserting the following in blank spaces from LHS to RHS respectively.</p>",
+              "options": [
+                {
+                  "label": "A",
+                  "id": 202955,
+                  "text": "1,6,3,6",
+                  "is_correct": false
+                },
+                {
+                  "label": "B",
+                  "id": 202954,
+                  "text": "1,3,6,2",
+                  "is_correct": false
+                },
+                {
+                  "label": "C",
+                  "id": 202952,
+                  "text": "1,6,3,2",
+                  "is_correct": true
+                },
+                {
+                  "label": "D",
+                  "id": 202953,
+                  "text": "2,6,1,2",
+                  "is_correct": false
+                }
+              ],
+              "correct_option_ids": [
+                202952
+              ],
+              "correct_option_labels": [
+                "C"
+              ],
+              "correct_option_texts": [
+                "1,6,3,2"
+              ],
+              "explanation": "The given equation gets stoichiometrically balanced when the coefficients ( 1, 6, 3, 2 ) starting from LHS to RHS are inserted in given blank spaces.\nThus, the balanced equation for the reaction is,\nBa_3N_2 + 6H_2O $\\longrightarrow$ 3Ba(OH)_2 + 2NH_3"
+            },
+            {
+              "questionID": 61943,
+              "question": "The gram molar mass of CO_2 is:",
+              "question_raw": "<p>The gram molar mass of CO<sub>2</sub>&nbsp;is:</p>",
+              "options": [
+                {
+                  "label": "A",
+                  "id": 202958,
+                  "text": "78 g",
+                  "is_correct": false
+                },
+                {
+                  "label": "B",
+                  "id": 202956,
+                  "text": "44 g",
+                  "is_correct": true
+                },
+                {
+                  "label": "C",
+                  "id": 202959,
+                  "text": "46 g",
+                  "is_correct": false
+                },
+                {
+                  "label": "D",
+                  "id": 202957,
+                  "text": "88 g",
+                  "is_correct": false
+                }
+              ],
+              "correct_option_ids": [
+                202956
+              ],
+              "correct_option_labels": [
+                "B"
+              ],
+              "correct_option_texts": [
+                "44 g"
+              ],
+              "explanation": "Molar mass of CO_2 = $\\Sigma $ (atomic mass of C, 2*atomic mass of O)\n= [12+2(16)] u\nSince gram molar mass\n= Molar mass expressed in gms.\n$\\therefore$ gram molar mass of CO_2\n= 44 g"
+            },
+            {
+              "questionID": 61944,
+              "question": "The molar mass of Al_2O_3 is:",
+              "question_raw": "<p>The molar mass of Al<sub>2</sub>O<sub>3</sub>&nbsp;is:</p>",
+              "options": [
+                {
+                  "label": "A",
+                  "id": 202961,
+                  "text": "92 u",
+                  "is_correct": false
+                },
+                {
+                  "label": "B",
+                  "id": 202963,
+                  "text": "42 u",
+                  "is_correct": false
+                },
+                {
+                  "label": "C",
+                  "id": 202962,
+                  "text": "82 u",
+                  "is_correct": false
+                },
+                {
+                  "label": "D",
+                  "id": 202960,
+                  "text": "102 u",
+                  "is_correct": true
+                }
+              ],
+              "correct_option_ids": [
+                202960
+              ],
+              "correct_option_labels": [
+                "D"
+              ],
+              "correct_option_texts": [
+                "102 u"
+              ],
+              "explanation": "Molar mass\n= $\\Sigma$ [ 2 $\\times$ (atomic mass of Al) 3 $\\times$ (atomic mass of O)]u\n= [(2 $\\times$ 27) + (3 $\\times$ 16)]u\n= ( 54 + 48 ) u\n= 102 u."
+            },
+            {
+              "questionID": 61945,
+              "question": "The molar mass of C_6 H_10 O_5 is",
+              "question_raw": "<p>The molar mass of &nbsp; C<sub>6</sub>&nbsp;H<sub>10</sub>&nbsp;O<sub>5&nbsp;</sub> is</p>\r\n\r\n",
+              "options": [
+                {
+                  "label": "A",
+                  "id": 202966,
+                  "text": "182 u",
+                  "is_correct": false
+                },
+                {
+                  "label": "B",
+                  "id": 202965,
+                  "text": "172 u",
+                  "is_correct": false
+                },
+                {
+                  "label": "C",
+                  "id": 202967,
+                  "text": "282 u",
+                  "is_correct": false
+                },
+                {
+                  "label": "D",
+                  "id": 202964,
+                  "text": "162 u",
+                  "is_correct": true
+                }
+              ],
+              "correct_option_ids": [
+                202964
+              ],
+              "correct_option_labels": [
+                "D"
+              ],
+              "correct_option_texts": [
+                "162 u"
+              ],
+              "explanation": "Molar massof C_6 H_10 O_5\n= Sum of the atomic masses of six C atoms , ten H atoms & six O atoms\nthus , substituting the required atomic masses of\n C= 12 ,\nH = 1 , &\n O = 16 ,\n we get ,\nMolar mass of C_6 H_10 O_5 \n = [ 6(12)+10(1)+5(16) ] u\n= (72 + 10 + 80 ) u\n=162 u"
+            },
+            {
+              "questionID": 61946,
+              "question": "Atomicity of glucose is ________.",
+              "question_raw": "<p>Atomicity of glucose is ________.</p>",
+              "options": [
+                {
+                  "label": "A",
+                  "id": 202969,
+                  "text": "24",
+                  "is_correct": true
+                },
+                {
+                  "label": "B",
+                  "id": 202971,
+                  "text": "48",
+                  "is_correct": false
+                },
+                {
+                  "label": "C",
+                  "id": 202968,
+                  "text": "12",
+                  "is_correct": false
+                },
+                {
+                  "label": "D",
+                  "id": 202970,
+                  "text": "36",
+                  "is_correct": false
+                }
+              ],
+              "correct_option_ids": [
+                202969
+              ],
+              "correct_option_labels": [
+                "A"
+              ],
+              "correct_option_texts": [
+                "24"
+              ],
+              "explanation": "Atomicity is defined as the number of atoms contained in 1 molecule of the compound. As glucose contains 6 carbon atoms, 12 hydrogen atoms, and 6 oxygen atoms, thus the atomicity is 24."
+            },
+            {
+              "questionID": 61947,
+              "question": "The molar mass of AgBO_3 is",
+              "question_raw": "<p>The molar mass of&nbsp;AgBO<sub>3</sub> is</p>",
+              "options": [
+                {
+                  "label": "A",
+                  "id": 202975,
+                  "text": "159.9 u",
+                  "is_correct": false
+                },
+                {
+                  "label": "B",
+                  "id": 202972,
+                  "text": "165.9 u",
+                  "is_correct": true
+                },
+                {
+                  "label": "C",
+                  "id": 202974,
+                  "text": "179.9 g",
+                  "is_correct": false
+                },
+                {
+                  "label": "D",
+                  "id": 202973,
+                  "text": "189.9 amu",
+                  "is_correct": false
+                }
+              ],
+              "correct_option_ids": [
+                202972
+              ],
+              "correct_option_labels": [
+                "B"
+              ],
+              "correct_option_texts": [
+                "165.9 u"
+              ],
+              "explanation": "Molar mass of AgBO_3 = [atomic mass of Ag + atomic mass of B + 3 (atomic mass of O))] u\nSubstituting the atomic masses of Ag, B & O as 107.9, 10 & 16 respectively. we get -\nMolar mass of AgBO_3 = [107.9 + 10 + (3 $\\times $ 16)]u\n= 165.9 u"
+            },
+            {
+              "questionID": 61948,
+              "question": "How many atoms of Oxygen are there in 18g of water? (Hint: Avogadro’s Number = 6.02 $\\times$ 10^23 atoms/mol)",
+              "question_raw": "<p>How many atoms of Oxygen are there in 18g of water? (Hint: Avogadro&rsquo;s Number = 6.02 <span class=\"math-tex\">{tex}\\times{/tex}</span> 10<sup>23</sup>&nbsp;atoms/mol)</p>\r\n",
+              "options": [
+                {
+                  "label": "A",
+                  "id": 202976,
+                  "text": "6.02 $\\times$ 10^23",
+                  "is_correct": true
+                },
+                {
+                  "label": "B",
+                  "id": 202979,
+                  "text": "8.02 $\\times$ 10^23",
+                  "is_correct": false
+                },
+                {
+                  "label": "C",
+                  "id": 202977,
+                  "text": "10.02 $\\times$ 10^23",
+                  "is_correct": false
+                },
+                {
+                  "label": "D",
+                  "id": 202978,
+                  "text": "7.02 $\\times$ 10^23",
+                  "is_correct": false
+                }
+              ],
+              "correct_option_ids": [
+                202976
+              ],
+              "correct_option_labels": [
+                "A"
+              ],
+              "correct_option_texts": [
+                "6.02 $\\times$ 10^23"
+              ],
+              "explanation": "The problem is based upon the concepts of Avogadro's law. Accordingly, one mole (ie 18g) of water contains\n= 6.02 $\\times$ $10^{23}$ molecules of water\nAgain, since the number of oxygen atoms in one molecule of water (H_2O)\n= 1 atom \n$\\therefore$ the number of oxygen atoms in 6.02 $\\times$ 10^23 molecules of water\n= 6.02 $\\times$ 10^23 atoms"
+            },
+            {
+              "questionID": 61949,
+              "question": "Given that Avagadro’s Number = 6.02 $\\times$ 10^23 atoms/mol, the number of hydrogen atoms in 18g of water is.",
+              "question_raw": "<p>Given that Avagadro&rsquo;s Number = 6.02 <span class=\"math-tex\">{tex}\\times{/tex}</span> 10<sup>23</sup>&nbsp;atoms/mol, the number of hydrogen atoms in 18g of water is.</p>\r\n",
+              "options": [
+                {
+                  "label": "A",
+                  "id": 202981,
+                  "text": "1.204 $\\times$ 10^23",
+                  "is_correct": false
+                },
+                {
+                  "label": "B",
+                  "id": 202980,
+                  "text": "1. 204 $\\times$ 10^24",
+                  "is_correct": true
+                },
+                {
+                  "label": "C",
+                  "id": 202983,
+                  "text": "3. 204 $\\times$ 10^24",
+                  "is_correct": false
+                },
+                {
+                  "label": "D",
+                  "id": 202982,
+                  "text": "2. 204 $\\times$ 10^24",
+                  "is_correct": false
+                }
+              ],
+              "correct_option_ids": [
+                202980
+              ],
+              "correct_option_labels": [
+                "B"
+              ],
+              "correct_option_texts": [
+                "1. 204 $\\times$ 10^24"
+              ],
+              "explanation": "Since,18g H_2O\n= 1mol water containing 6.02 $\\times$ 10^23 molecules of water (H_2O) & the number of H atoms in 1 molecule of hydrogen (H_2) = 2\n$\\therefore$ the number of H atoms in 6.02 $\\times$ 10^23 molecules\n= (6.02 $\\times$ 10^23 $\\times$ 2)\n=1.204 $\\times$ 10^24."
+            },
+            {
+              "questionID": 61950,
+              "question": "There are _____m in 2000 mm?",
+              "question_raw": "<p>There are _____m &nbsp;in 2000 mm?</p>",
+              "options": [
+                {
+                  "label": "A",
+                  "id": 202984,
+                  "text": "2 m",
+                  "is_correct": true
+                },
+                {
+                  "label": "B",
+                  "id": 202987,
+                  "text": "0.002 m",
+                  "is_correct": false
+                },
+                {
+                  "label": "C",
+                  "id": 202986,
+                  "text": "0.02 m",
+                  "is_correct": false
+                },
+                {
+                  "label": "D",
+                  "id": 202985,
+                  "text": "20 m",
+                  "is_correct": false
+                }
+              ],
+              "correct_option_ids": [
+                202984
+              ],
+              "correct_option_labels": [
+                "A"
+              ],
+              "correct_option_texts": [
+                "2 m"
+              ],
+              "explanation": "Since 1 m = 1000 mm.\nor, 1 mm = $\\frac{1}{1000} m$ \n$\\therefore$2000 mm = [ $\\frac{1}{1000} \\times 2000 $ ] m = 2m"
+            },
+            {
+              "questionID": 61951,
+              "question": "There are ____ L in 0.05 ml?",
+              "question_raw": "<p>There are ____ L &nbsp;in 0.05 ml?</p>",
+              "options": [
+                {
+                  "label": "A",
+                  "id": 202991,
+                  "text": "5.0 liters",
+                  "is_correct": false
+                },
+                {
+                  "label": "B",
+                  "id": 202988,
+                  "text": "0.00005 L",
+                  "is_correct": true
+                },
+                {
+                  "label": "C",
+                  "id": 202989,
+                  "text": "0.0005 liters",
+                  "is_correct": false
+                },
+                {
+                  "label": "D",
+                  "id": 202990,
+                  "text": "0.50 L",
+                  "is_correct": false
+                }
+              ],
+              "correct_option_ids": [
+                202988
+              ],
+              "correct_option_labels": [
+                "B"
+              ],
+              "correct_option_texts": [
+                "0.00005 L"
+              ],
+              "explanation": "Since , 1L = 1000mL \nor , 1mL = $\\frac{1}{1000} L$ .\n$\\therefore$ 0.05mL = $\\frac{1}{1000} \\times 0.05 L$ = 0.00005 L ."
+            },
+            {
+              "questionID": 61952,
+              "question": "The molarity of NaOH in a solution prepared by dissolving its 4.0 g in enough water to form 250 mL of the solution is,",
+              "question_raw": "<p>The molarity of NaOH in a&nbsp;solution prepared by dissolving its 4.0 g in enough water to form 250 mL of the solution is,</p>",
+              "options": [
+                {
+                  "label": "A",
+                  "id": 202994,
+                  "text": "0.02 M",
+                  "is_correct": false
+                },
+                {
+                  "label": "B",
+                  "id": 202995,
+                  "text": "0.002 M",
+                  "is_correct": false
+                },
+                {
+                  "label": "C",
+                  "id": 202992,
+                  "text": "0.4 M",
+                  "is_correct": true
+                },
+                {
+                  "label": "D",
+                  "id": 202993,
+                  "text": "0.04M",
+                  "is_correct": false
+                }
+              ],
+              "correct_option_ids": [
+                202992
+              ],
+              "correct_option_labels": [
+                "C"
+              ],
+              "correct_option_texts": [
+                "0.4 M"
+              ],
+              "explanation": "Since Molarity = $[ \\frac { moles of solute * }{ volume of solution( mL ) } \\times 1000 ] M $\n$\\therefore$ substituting the given values, we get -\nMolarity (M) = $\\frac{ 0.10 }{ 250 } \\times 1000 M$ = 0.4M\n* moles of solute ie. NaOH = $\\frac{4}{40} $ mole\n= 0.1mol"
+            },
+            {
+              "questionID": 61953,
+              "question": "Choose the most appropriate option to complete the statement - \" Whenever there is a rearrangement of atoms which makes or breaks chemical bonds __________.\"",
+              "question_raw": "<p>Choose the most appropriate option to complete the statement - &quot; Whenever there is a rearrangement of atoms which makes or breaks chemical bonds __________.&quot;</p>\r\n",
+              "options": [
+                {
+                  "label": "A",
+                  "id": 202997,
+                  "text": "reactants disappear",
+                  "is_correct": false
+                },
+                {
+                  "label": "B",
+                  "id": 202998,
+                  "text": "products appear,",
+                  "is_correct": false
+                },
+                {
+                  "label": "C",
+                  "id": 202996,
+                  "text": "a chemical reaction takes place",
+                  "is_correct": true
+                },
+                {
+                  "label": "D",
+                  "id": 202999,
+                  "text": "catalysts are produced.",
+                  "is_correct": false
+                }
+              ],
+              "correct_option_ids": [
+                202996
+              ],
+              "correct_option_labels": [
+                "C"
+              ],
+              "correct_option_texts": [
+                "a chemical reaction takes place"
+              ],
+              "explanation": "The occurrence of a chemical reaction is always associated with the breaking and formation of bonds of the reactant and products along with rearrangement of their atoms, hence the statement at option 1 is most appropriate i.e. \" Whenever there is a rearrangement of atoms which makes or breaks chemical bonds a chemical reaction takes place.\""
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "testPaperID": 3778,
+      "testPaperName": "Basic concepts of chemistry Test-04",
+      "is_paid": true,
+      "category_full_name": "CBSE > Class 11 > Chemistry > Some Basic Concepts of Chemistry",
+      "noOfQuestions": 15,
+      "has_answers": true,
+      "sections": [
+        {
+          "sectionName": "General",
+          "sectionID": null,
+          "questions": [
+            {
+              "questionID": 61954,
+              "question": "We have to prepare a Litre solution of 0.2 M NaOH from the available 1M solution. What volume of 1M NaOH is required to be taken?",
+              "question_raw": "<p>We have to prepare a Litre solution of 0.2 M NaOH from the available 1M solution. What&nbsp;volume of 1M NaOH is required to be taken?</p>",
+              "options": [
+                {
+                  "label": "A",
+                  "id": 203003,
+                  "text": "0.2 mL",
+                  "is_correct": false
+                },
+                {
+                  "label": "B",
+                  "id": 203001,
+                  "text": "20 mL",
+                  "is_correct": false
+                },
+                {
+                  "label": "C",
+                  "id": 203000,
+                  "text": "200 mL",
+                  "is_correct": true
+                },
+                {
+                  "label": "D",
+                  "id": 203002,
+                  "text": "2 mL",
+                  "is_correct": false
+                }
+              ],
+              "correct_option_ids": [
+                203000
+              ],
+              "correct_option_labels": [
+                "C"
+              ],
+              "correct_option_texts": [
+                "200 mL"
+              ],
+              "explanation": "Since the total strength of a given solution = total strength of the prepared solution\n$\\therefore$ Apply the relation -\nM_1 $\\times$ V_1 = M_2 $\\times$ V_2\nwhere , M1= molarity of solution given= 1.0M ,\nV_1 = volume of solution given= ?\n& M_2= molarity of solution to be prepared = 0.20 M (given)\nV_2 = volume of solution to be prepared = 1000 mL (given)\nSubstiuting the given values we get ,\n1.00M $\\times$ V1 = 0.20 $\\times$1000\nV1= ( 0.20 $\\times$ 1000)/1.00\nV1 = 200 mL"
+            },
+            {
+              "questionID": 61955,
+              "question": "There are ____ cms in 0.101 mm?",
+              "question_raw": "<p>There are ____ cms&nbsp;in 0.101 mm?</p>",
+              "options": [
+                {
+                  "label": "A",
+                  "id": 203006,
+                  "text": "1.010 cm",
+                  "is_correct": false
+                },
+                {
+                  "label": "B",
+                  "id": 203007,
+                  "text": "10.10 cm",
+                  "is_correct": false
+                },
+                {
+                  "label": "C",
+                  "id": 203004,
+                  "text": "0.0101 cms.",
+                  "is_correct": true
+                },
+                {
+                  "label": "D",
+                  "id": 203005,
+                  "text": "0.101 cms.",
+                  "is_correct": false
+                }
+              ],
+              "correct_option_ids": [
+                203004
+              ],
+              "correct_option_labels": [
+                "C"
+              ],
+              "correct_option_texts": [
+                "0.0101 cms."
+              ],
+              "explanation": "Since, 10 mm.\n= 1 cm.\n$\\therefore$.0.101 mm\n= $\\frac{1 \\times 0.101 }{10}$ cms\n= 0.0101 cms."
+            },
+            {
+              "questionID": 61956,
+              "question": "20 m/s is the same as:",
+              "question_raw": "<p>20 m/s is the same as:</p>",
+              "options": [
+                {
+                  "label": "A",
+                  "id": 203009,
+                  "text": "2000 mm/s",
+                  "is_correct": false
+                },
+                {
+                  "label": "B",
+                  "id": 203008,
+                  "text": "20,000 mm/s",
+                  "is_correct": true
+                },
+                {
+                  "label": "C",
+                  "id": 203010,
+                  "text": "200 cm/s",
+                  "is_correct": false
+                },
+                {
+                  "label": "D",
+                  "id": 203011,
+                  "text": "0.002 mm/s",
+                  "is_correct": false
+                }
+              ],
+              "correct_option_ids": [
+                203008
+              ],
+              "correct_option_labels": [
+                "B"
+              ],
+              "correct_option_texts": [
+                "20,000 mm/s"
+              ],
+              "explanation": "20m/s = 20000 mm/s"
+            },
+            {
+              "questionID": 61957,
+              "question": "30 microliters is the same as:",
+              "question_raw": "<p>30 microliters is the same as:</p>",
+              "options": [
+                {
+                  "label": "A",
+                  "id": 203015,
+                  "text": "0.03 mL",
+                  "is_correct": true
+                },
+                {
+                  "label": "B",
+                  "id": 203014,
+                  "text": "0.003 mL",
+                  "is_correct": false
+                },
+                {
+                  "label": "C",
+                  "id": 203012,
+                  "text": "3000000 liters",
+                  "is_correct": false
+                },
+                {
+                  "label": "D",
+                  "id": 203013,
+                  "text": "0.0003 liters",
+                  "is_correct": false
+                }
+              ],
+              "correct_option_ids": [
+                203015
+              ],
+              "correct_option_labels": [
+                "A"
+              ],
+              "correct_option_texts": [
+                "0.03 mL"
+              ],
+              "explanation": "Since, 1 microliter \n = 1 $\\times$ 10^-6 liters, & 1ml\n= 1 $\\times$ 10^-3 \n$\\therefore$ 1 microliter\n= 0.001 mL\n$\\therefore $ 30 microliters\n= (0.001 $\\times$ 30) mL \n1 microliter = 0.03 milliliter"
+            },
+            {
+              "questionID": 61958,
+              "question": "20 grams is the same as:",
+              "question_raw": "<p>20 grams is the same as:</p>",
+              "options": [
+                {
+                  "label": "A",
+                  "id": 203019,
+                  "text": "200 mg",
+                  "is_correct": false
+                },
+                {
+                  "label": "B",
+                  "id": 203017,
+                  "text": "2000 mg",
+                  "is_correct": false
+                },
+                {
+                  "label": "C",
+                  "id": 203016,
+                  "text": "20000 mg",
+                  "is_correct": true
+                },
+                {
+                  "label": "D",
+                  "id": 203018,
+                  "text": "1500 mg",
+                  "is_correct": false
+                }
+              ],
+              "correct_option_ids": [
+                203016
+              ],
+              "correct_option_labels": [
+                "C"
+              ],
+              "correct_option_texts": [
+                "20000 mg"
+              ],
+              "explanation": "Since, 1 g\n= 1000 mg\n$\\therefore$ 20 g\n= (20 $\\times$ 1000 ) mg\n= 20,000 mg"
+            },
+            {
+              "questionID": 61959,
+              "question": "15 km is = ______ m.?",
+              "question_raw": "<p>15 km is &nbsp;= ______&nbsp;m.?</p>",
+              "options": [
+                {
+                  "label": "A",
+                  "id": 203022,
+                  "text": "150 m",
+                  "is_correct": false
+                },
+                {
+                  "label": "B",
+                  "id": 203021,
+                  "text": "1500 m",
+                  "is_correct": false
+                },
+                {
+                  "label": "C",
+                  "id": 203023,
+                  "text": "0.015 m",
+                  "is_correct": false
+                },
+                {
+                  "label": "D",
+                  "id": 203020,
+                  "text": "15000 m",
+                  "is_correct": true
+                }
+              ],
+              "correct_option_ids": [
+                203020
+              ],
+              "correct_option_labels": [
+                "D"
+              ],
+              "correct_option_texts": [
+                "15000 m"
+              ],
+              "explanation": "Since, 1km\n= 1000 m\n$\\therefore$ 15 km\n= (15 $\\times$ 1000) m \n=15000 m"
+            },
+            {
+              "questionID": 61960,
+              "question": "30.4 cm = ______ mm.:",
+              "question_raw": "<p>30.4 cm &nbsp;= ______&nbsp;mm.:</p>",
+              "options": [
+                {
+                  "label": "A",
+                  "id": 203025,
+                  "text": "3.04 mm",
+                  "is_correct": false
+                },
+                {
+                  "label": "B",
+                  "id": 203024,
+                  "text": "304 mm.",
+                  "is_correct": true
+                },
+                {
+                  "label": "C",
+                  "id": 203026,
+                  "text": "0.304 mm",
+                  "is_correct": false
+                },
+                {
+                  "label": "D",
+                  "id": 203027,
+                  "text": ".0.030 mm",
+                  "is_correct": false
+                }
+              ],
+              "correct_option_ids": [
+                203024
+              ],
+              "correct_option_labels": [
+                "B"
+              ],
+              "correct_option_texts": [
+                "304 mm."
+              ],
+              "explanation": "Since, 1cm =10 mm\n$\\therefore$ 30.4 cm \n=(30.4 $\\times$ 10) mm.\n= 304 mm."
+            },
+            {
+              "questionID": 61961,
+              "question": "There are ______ L in 12.0 ml?",
+              "question_raw": "<p>There are ______ L &nbsp;in 12.0 ml?</p>",
+              "options": [
+                {
+                  "label": "A",
+                  "id": 203029,
+                  "text": "0.12 L",
+                  "is_correct": false
+                },
+                {
+                  "label": "B",
+                  "id": 203028,
+                  "text": "0.012 L",
+                  "is_correct": true
+                },
+                {
+                  "label": "C",
+                  "id": 203030,
+                  "text": "0.10 L",
+                  "is_correct": false
+                },
+                {
+                  "label": "D",
+                  "id": 203031,
+                  "text": "0.0012 L",
+                  "is_correct": false
+                }
+              ],
+              "correct_option_ids": [
+                203028
+              ],
+              "correct_option_labels": [
+                "B"
+              ],
+              "correct_option_texts": [
+                "0.012 L"
+              ],
+              "explanation": "Since , 1L = 1000 ml\n$\\therefore$ 12 ml = $\\frac{12}{1000}$ L = 0.012 L"
+            },
+            {
+              "questionID": 61962,
+              "question": "The gram molar mass of ZnSO_4 is,",
+              "question_raw": "<p>The gram molar mass of ZnSO<sub>4</sub> is,</p>",
+              "options": [
+                {
+                  "label": "A",
+                  "id": 203034,
+                  "text": "136.44 g",
+                  "is_correct": false
+                },
+                {
+                  "label": "B",
+                  "id": 203035,
+                  "text": "106.44 g",
+                  "is_correct": false
+                },
+                {
+                  "label": "C",
+                  "id": 203033,
+                  "text": "156.40 g",
+                  "is_correct": false
+                },
+                {
+                  "label": "D",
+                  "id": 203032,
+                  "text": "161.44 g",
+                  "is_correct": true
+                }
+              ],
+              "correct_option_ids": [
+                203032
+              ],
+              "correct_option_labels": [
+                "D"
+              ],
+              "correct_option_texts": [
+                "161.44 g"
+              ],
+              "explanation": "Molar mass of ZnSO_4 = $\\Sigma $ ( Atomic masses of Zn, S, 4$\\times$ O atoms)\n= [ ( 65.30 ) + ( 32.065 ) + ( 15.994 * 4 ) ].\n= 161.4426 g / mol\n ~ = 161.44 g / mol"
+            },
+            {
+              "questionID": 61963,
+              "question": "The gm molar mass of H_2SO_4 is",
+              "question_raw": "<p>The gm molar mass of H<sub>2</sub>SO<sub>4</sub>&nbsp;is</p>",
+              "options": [
+                {
+                  "label": "A",
+                  "id": 203036,
+                  "text": "98 g",
+                  "is_correct": true
+                },
+                {
+                  "label": "B",
+                  "id": 203039,
+                  "text": "48 g",
+                  "is_correct": false
+                },
+                {
+                  "label": "C",
+                  "id": 203038,
+                  "text": "68 g",
+                  "is_correct": false
+                },
+                {
+                  "label": "D",
+                  "id": 203037,
+                  "text": "78 g",
+                  "is_correct": false
+                }
+              ],
+              "correct_option_ids": [
+                203036
+              ],
+              "correct_option_labels": [
+                "A"
+              ],
+              "correct_option_texts": [
+                "98 g"
+              ],
+              "explanation": "Gram molar mas of H_2SO_4 = [(2$\\times$ atomic mass of H) + ( atomic mass of S) + (4$\\times$ atomic mass of O)] g\n= [2(1) + 32 + 4 (16)] g\n= 98 g."
+            },
+            {
+              "questionID": 61964,
+              "question": "A person is suffering with fever with a high temperature of 104 °F. What will be his body temperature in °C?",
+              "question_raw": "<p>A person is suffering with fever with a high temperature of 104 &deg;F. What will be his body temperature in &deg;C?</p>\r\n",
+              "options": [
+                {
+                  "label": "A",
+                  "id": 203042,
+                  "text": "28 .10 °C",
+                  "is_correct": false
+                },
+                {
+                  "label": "B",
+                  "id": 203043,
+                  "text": "18.68 °C",
+                  "is_correct": false
+                },
+                {
+                  "label": "C",
+                  "id": 203041,
+                  "text": "32.38 °C",
+                  "is_correct": false
+                },
+                {
+                  "label": "D",
+                  "id": 203040,
+                  "text": "40 °C",
+                  "is_correct": true
+                }
+              ],
+              "correct_option_ids": [
+                203040
+              ],
+              "correct_option_labels": [
+                "D"
+              ],
+              "correct_option_texts": [
+                "40 °C"
+              ],
+              "explanation": "104°F − 32) × 5/9 = 40°C"
+            },
+            {
+              "questionID": 61965,
+              "question": "20 °F can also be written as",
+              "question_raw": "<p>20 &deg;F can also be written as</p>",
+              "options": [
+                {
+                  "label": "A",
+                  "id": 203047,
+                  "text": "206.5 K",
+                  "is_correct": false
+                },
+                {
+                  "label": "B",
+                  "id": 203044,
+                  "text": "266.48 K",
+                  "is_correct": true
+                },
+                {
+                  "label": "C",
+                  "id": 203046,
+                  "text": "169.5 K",
+                  "is_correct": false
+                },
+                {
+                  "label": "D",
+                  "id": 203045,
+                  "text": "300.00 K",
+                  "is_correct": false
+                }
+              ],
+              "correct_option_ids": [
+                203044
+              ],
+              "correct_option_labels": [
+                "B"
+              ],
+              "correct_option_texts": [
+                "266.48 K"
+              ],
+              "explanation": "Step 1:\nConvert the given temperature in ^oF into ^oC using expression,\nF = [(°C $\\times$ $\\frac {9}{5}$)+ 32} \n20 = [1.98 (^oC ) + 32]\nor, 1.98 (^oC ) = -12\n ^oC = $\\frac{ -12 }{ 1.98 }$ = -6.66 ^oC\nStep 2: Convert the temperature in ^oC into K using relation,\nK = ( 273.15 + ^oC )\n= [273.15 + (-6.66)]\n= 266.48\nThus, 20^oF = 266.48 K"
+            },
+            {
+              "questionID": 61966,
+              "question": "In centigrade scale, -40 °F becomes",
+              "question_raw": "<p>In centigrade scale, -40 &deg;F becomes</p>",
+              "options": [
+                {
+                  "label": "A",
+                  "id": 203048,
+                  "text": "-40 °C",
+                  "is_correct": true
+                },
+                {
+                  "label": "B",
+                  "id": 203051,
+                  "text": "-25 °C",
+                  "is_correct": false
+                },
+                {
+                  "label": "C",
+                  "id": 203049,
+                  "text": "24 °C",
+                  "is_correct": false
+                },
+                {
+                  "label": "D",
+                  "id": 203050,
+                  "text": "-20 °C",
+                  "is_correct": false
+                }
+              ],
+              "correct_option_ids": [
+                203048
+              ],
+              "correct_option_labels": [
+                "A"
+              ],
+              "correct_option_texts": [
+                "-40 °C"
+              ],
+              "explanation": "Calculations:-\nSince , °F\n= [ (°C $\\times$ 9/5 ) + 32 ] \nSubstituting the given value of temperature in ^o F ,we get\n-40^o F \n= (^oC$\\times$1.8)\n$\\therefore$ ^o C\n= - (72 / 1.8)\n= -40^o C"
+            },
+            {
+              "questionID": 61967,
+              "question": "-122 °C in Fahrenheit scale is",
+              "question_raw": "<p>-122 &deg;C in Fahrenheit scale is</p>",
+              "options": [
+                {
+                  "label": "A",
+                  "id": 203052,
+                  "text": "-187.6 °F",
+                  "is_correct": true
+                },
+                {
+                  "label": "B",
+                  "id": 203053,
+                  "text": "237.6 °F",
+                  "is_correct": false
+                },
+                {
+                  "label": "C",
+                  "id": 203055,
+                  "text": "-237.6 °F",
+                  "is_correct": false
+                },
+                {
+                  "label": "D",
+                  "id": 203054,
+                  "text": "187.6 °F",
+                  "is_correct": false
+                }
+              ],
+              "correct_option_ids": [
+                203052
+              ],
+              "correct_option_labels": [
+                "A"
+              ],
+              "correct_option_texts": [
+                "-187.6 °F"
+              ],
+              "explanation": "°F = [ (°C $\\times$ 9/5 ) + 32 ]\nSubstituting the given temperature in ^o C we get,\n$\\therefore$^ oF = [( -122°C $\\times$ 1.8 ) + 32]\n= ( -219.6 + 32 )\n-122°C = - 187.6 °F"
+            },
+            {
+              "questionID": 61968,
+              "question": "27 °C is equal to________K?",
+              "question_raw": "<p>27 &deg;C is equal to________K?</p>",
+              "options": [
+                {
+                  "label": "A",
+                  "id": 203058,
+                  "text": "246.15 K",
+                  "is_correct": false
+                },
+                {
+                  "label": "B",
+                  "id": 203056,
+                  "text": "300.15 K",
+                  "is_correct": true
+                },
+                {
+                  "label": "C",
+                  "id": 203057,
+                  "text": "289 K",
+                  "is_correct": false
+                }
+              ],
+              "correct_option_ids": [
+                203056
+              ],
+              "correct_option_labels": [
+                "B"
+              ],
+              "correct_option_texts": [
+                "300.15 K"
+              ],
+              "explanation": "Since, 0^o C = 273.15 K\n$\\therefore $ 27^o C = (273.15 + 27) K = 300.15 K"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "testPaperID": 3779,
+      "testPaperName": "Basic concepts of chemistry Test-05",
+      "is_paid": true,
+      "category_full_name": "CBSE > Class 11 > Chemistry > Some Basic Concepts of Chemistry",
+      "noOfQuestions": 15,
+      "has_answers": true,
+      "sections": [
+        {
+          "sectionName": "General",
+          "sectionID": null,
+          "questions": [
+            {
+              "questionID": 61969,
+              "question": "The mass of 1 molecule of O_2 is",
+              "question_raw": "<p>The mass of 1 molecule of O<sub>2</sub> is</p>",
+              "options": [
+                {
+                  "label": "A",
+                  "id": 203061,
+                  "text": "4.32 $\\times$ 10^-23g",
+                  "is_correct": false
+                },
+                {
+                  "label": "B",
+                  "id": 203059,
+                  "text": "5.32 $\\times$ 10^-23g",
+                  "is_correct": true
+                },
+                {
+                  "label": "C",
+                  "id": 203062,
+                  "text": "6.32 $\\times$ 10^-23g",
+                  "is_correct": false
+                },
+                {
+                  "label": "D",
+                  "id": 203060,
+                  "text": "7.32 $\\times$ 10^-23g",
+                  "is_correct": false
+                }
+              ],
+              "correct_option_ids": [
+                203059
+              ],
+              "correct_option_labels": [
+                "B"
+              ],
+              "correct_option_texts": [
+                "5.32 $\\times$ 10^-23g"
+              ],
+              "explanation": "Since, as per Avogadro's law,\n1 mole of oxygen contains 6.023×10^23 molecules.\nthe mass of 6.02 $\\times$ 10^23 molecules of O_2 = 32 g\n$\\therefore$ mass of 1 molecule of O_2 = $\\frac{ 32 }{ 6.022 \\times 10^{23}} g$ = 5.32 $\\times$ 10^-23 g"
+            },
+            {
+              "questionID": 61970,
+              "question": "The mass of 1 mole of O_2 is _________.",
+              "question_raw": "<p>The mass of 1 mole of O<sub>2 is _________.</sub></p>",
+              "options": [
+                {
+                  "label": "A",
+                  "id": 203065,
+                  "text": "8.0 g",
+                  "is_correct": false
+                },
+                {
+                  "label": "B",
+                  "id": 203063,
+                  "text": "32.0 g",
+                  "is_correct": true
+                },
+                {
+                  "label": "C",
+                  "id": 203066,
+                  "text": "6.02 g",
+                  "is_correct": false
+                },
+                {
+                  "label": "D",
+                  "id": 203064,
+                  "text": "16.0 g",
+                  "is_correct": false
+                }
+              ],
+              "correct_option_ids": [
+                203063
+              ],
+              "correct_option_labels": [
+                "B"
+              ],
+              "correct_option_texts": [
+                "32.0 g"
+              ],
+              "explanation": "Calculations:\nMass of 1mole of O_2\n= the mass of 6.022 $\\times$ 10^23 molecules of O_2 (as per Avogadro's law)\n= molar mass of O_2 in grams (i.e. gram molar mss)\n= 32.0 g"
+            },
+            {
+              "questionID": 61971,
+              "question": "For the reaction\n2C_4H_10 (g)| + 130_2 (g) $\\rightarrow$ 8CO_2 (g) + 10H_20(l) 300 g of C_4H_10 is burnt in 1000 g of O_2.\nThe yield of H_2O and the limiting reagent in the reaction are",
+              "question_raw": "<p>For the reaction<br />\r\n2C<sub>4</sub>H<sub>10</sub>&nbsp;(g)| + 130<sub>2</sub>&nbsp;(g) <span class=\"math-tex\">{tex}\\rightarrow{/tex}</span>&nbsp;8CO<sub>2</sub>&nbsp;(g) + 10H<sub>2</sub>0(l) 300 g&nbsp;of C<sub>4</sub>H<sub>10</sub>&nbsp;is burnt&nbsp;&nbsp;in 1000 g of O<sub>2</sub>.<br />\r\nThe yield &nbsp;of&nbsp;H<sub>2</sub>O&nbsp;and the limiting reagent in the reaction are</p>",
+              "options": [
+                {
+                  "label": "A",
+                  "id": 203070,
+                  "text": "480 g and C_4 H_10 (g)",
+                  "is_correct": false
+                },
+                {
+                  "label": "B",
+                  "id": 203067,
+                  "text": "432 g and O_2",
+                  "is_correct": true
+                },
+                {
+                  "label": "C",
+                  "id": 203069,
+                  "text": "455 g and C_4 H_10 (g)",
+                  "is_correct": false
+                },
+                {
+                  "label": "D",
+                  "id": 203068,
+                  "text": "442 g and O_2",
+                  "is_correct": false
+                }
+              ],
+              "correct_option_ids": [
+                203067
+              ],
+              "correct_option_labels": [
+                "B"
+              ],
+              "correct_option_texts": [
+                "432 g and O_2"
+              ],
+              "explanation": "Calculations \nMoles of C_4H_10 given\n= $\\frac{300}{58}$\n= 5.172 mol \nMoles of O_2\n= $\\frac{1000}{32}$ moles\n= 31.25 mol.\nAs per stoichiometry of the reaction,\nsince, 2 mol of C_4H_10 requires 13 mol of O_2 \nso 5.172 mol of C_4H_10 require mol of O_2\n= $\\frac{5.172X 13}{2} $ moles \n= 33.618 moles \nO_2 we have is only 31.25 mol which lesser amount (ie. 33.618 mol ) than what is required, and hence would be consumed first.\nThus, O_2 is is limiting reagent.\nAgain, 13 mol of O_2 gives 10 mol of H_2O \n$\\therefore$ 31.25 mol will give$\\frac{ 10 \\times 31.25 }{13} $ mol of H_2 O\n= 24.038 mol of water\n= (24.038 $\\times$ 18)g of water\n$\\approx$ 432 g of water."
+            },
+            {
+              "questionID": 61972,
+              "question": "How many molecules of H_2O are there in 18g of water? (Hint: Avagadro’s Number = 6.02 $\\times$ 10^23 atoms/mol)",
+              "question_raw": "<p>How many molecules of H<sub>2</sub>O are there in 18g of water? (Hint: Avagadro&rsquo;s Number = 6.02 <span class=\"math-tex\">{tex}\\times{/tex}</span> 10<sup>23</sup>&nbsp;atoms/mol)</p>\r\n",
+              "options": [
+                {
+                  "label": "A",
+                  "id": 203071,
+                  "text": "6.022 $\\times$ 10^23",
+                  "is_correct": true
+                },
+                {
+                  "label": "B",
+                  "id": 203072,
+                  "text": "6.022 $\\times$ 10^24",
+                  "is_correct": false
+                },
+                {
+                  "label": "C",
+                  "id": 203074,
+                  "text": "8.02 $\\times$ 10^23",
+                  "is_correct": false
+                },
+                {
+                  "label": "D",
+                  "id": 203073,
+                  "text": "7.02 $\\times$ 10^23",
+                  "is_correct": false
+                }
+              ],
+              "correct_option_ids": [
+                203071
+              ],
+              "correct_option_labels": [
+                "A"
+              ],
+              "correct_option_texts": [
+                "6.022 $\\times$ 10^23"
+              ],
+              "explanation": "Since, the number of molecules contained in one mole of a substance\n= Avogadro's number (N)\n= 6.022 $\\times$ 10^23 molecules, and, gram molar mass of water = 18 g \n$\\therefore$ 18g H_2O = 1mole water = 6.022 $\\times$ 10^23 molecules of water"
+            },
+            {
+              "questionID": 61973,
+              "question": "For the reaction Fe_2O_3 + 3CO $\\longrightarrow$ 2 Fe + 3 CO_2 the volume of carbon monoxide required to reduce one mole of ferric oxide is:",
+              "question_raw": "<p>For the reaction Fe<sub>2</sub>O<sub>3&nbsp;&nbsp;</sub>+ 3CO <span class=\"math-tex\">{tex}\\longrightarrow{/tex}</span> 2 Fe + 3 CO<sub>2&nbsp;</sub>the volume of carbon monoxide required to reduce one mole of ferric oxide is:</p>",
+              "options": [
+                {
+                  "label": "A",
+                  "id": 203075,
+                  "text": "67.2dm^3",
+                  "is_correct": true
+                },
+                {
+                  "label": "B",
+                  "id": 203077,
+                  "text": "97.2 dm^3",
+                  "is_correct": false
+                },
+                {
+                  "label": "C",
+                  "id": 203078,
+                  "text": "11.2 dm^3",
+                  "is_correct": false
+                },
+                {
+                  "label": "D",
+                  "id": 203076,
+                  "text": "44.8 dm^3",
+                  "is_correct": false
+                }
+              ],
+              "correct_option_ids": [
+                203075
+              ],
+              "correct_option_labels": [
+                "A"
+              ],
+              "correct_option_texts": [
+                "67.2dm^3"
+              ],
+              "explanation": "Based on the given equation it is clear that 1 mole of Fe_2O_3​ i.e ferric oxide is reduced by 3 carbon monoxide.\n1 mole of any compound occupies 22.4l of volume. \nSo, the volume of carbon monoxide required to reduce one mole of ferric oxide is = 3 $\\times$ 224.4dm^3 = 67.2dm^3."
+            },
+            {
+              "questionID": 61974,
+              "question": "For the reaction\nFe_2O_3 (s) + 3 CO (g) $\\rightarrow$ 2 Fe (g) + 3 CO_2,\n224 g of CO is available to react with 400 g Fe_2O_3, the yield of iron and CO_2, are ----------- and ------------respectively:",
+              "question_raw": "<p>For the reaction<br />\r\nFe<sub>2</sub>O<sub>3</sub>&nbsp;(s) + 3 CO (g)&nbsp;<span class=\"math-tex\">{tex}\\rightarrow{/tex}</span>&nbsp;2 Fe (g) + 3 CO<sub>2</sub>,<br />\r\n224 g of CO is available to react with 400 g Fe<sub>2</sub>O<sub>3</sub>, the yield of iron and CO<sub>2</sub>, are ----------- and ------------respectively:</p>",
+              "options": [
+                {
+                  "label": "A",
+                  "id": 203080,
+                  "text": "210 g , 279 g",
+                  "is_correct": false
+                },
+                {
+                  "label": "B",
+                  "id": 203082,
+                  "text": "210 g ,290 g",
+                  "is_correct": false
+                },
+                {
+                  "label": "C",
+                  "id": 203081,
+                  "text": "225 g , 279 g",
+                  "is_correct": false
+                },
+                {
+                  "label": "D",
+                  "id": 203079,
+                  "text": "279 g , 330 g",
+                  "is_correct": true
+                }
+              ],
+              "correct_option_ids": [
+                203079
+              ],
+              "correct_option_labels": [
+                "D"
+              ],
+              "correct_option_texts": [
+                "279 g , 330 g"
+              ],
+              "explanation": "Calculations :\n Convert the amounts given into number of moles , \n Moles of CO\n = ($\\frac{224}{28}$) \n =8 moles\n Moles of Fe_2O_3\n = ( $\\frac{400}{159.69}$ ) \n = 2.50 moles.\n Stoichiometric calculations ,\n 3 moles of CO is needed for 1 mole of $Fe_2O_3$\n $\\therefore$ 8 moles of CO will require\n = $\\frac{8X1}{3}$ = $\\frac{8 \\times 1}{3}$ mole\n = 2.66 mole of Fe_2O_3,\n Thus it is inferred that a lesser number of moles of Fe_2O_3 has been taken to react & hence Fe_2O_3 is limiting reagent.\n Again , 1 mole of Fe_2O_3 produces 2 mole of Fe\n $\\therefore$ 2.5 mole of Fe_2O_3 will produce\n = ( 2.5 $\\times$ 2 ) moles of Fe\n = 5 moles of Fe\n = ( molar mass of Fe $\\times$ 5 ) g\n = $( 55.845 \\times 5 ) g$\n = 279.23 g of Fe\n or $\\approx$ 279 g of Fe.\n Further , 1 mole of Fe_2O_3 produces 3 mole of CO_2\n $\\therefore$ 2.5 mole of Fe_2O_3 will produce\n = ( 3 $\\times$ 2.5 ) moles of CO_2]\n 7.5 mole of CO_2 \n $\\therefore$ mass of CO_2 \n = ( 7.5 $\\times$ molar mass of CO_2 ) g\n = $\\ ( 7.5 \\times 44 ) g$\n =330g.of CO_2"
+            },
+            {
+              "questionID": 61975,
+              "question": "For the reaction\n2N_2H_4(l) + N_2O_4(l) $\\rightarrow$ 3N_2 (g) + 4H_2O (l),\nWhich is the limiting reagent for this reaction?",
+              "question_raw": "<p>For the reaction<br />\n2N<sub>2</sub>H<sub>4</sub>(l) + N<sub>2</sub>O<sub>4</sub>(l)&nbsp;<span class=\"math-tex\">{tex}\\rightarrow{/tex}</span>&nbsp;3N<sub>2</sub>&nbsp;(g) + 4H<sub>2</sub>O (l),<br />\nWhich is the limiting reagent for this reaction?</p>",
+              "options": [
+                {
+                  "label": "A",
+                  "id": 203086,
+                  "text": "H_2O",
+                  "is_correct": false
+                },
+                {
+                  "label": "B",
+                  "id": 203083,
+                  "text": "N_2O_4",
+                  "is_correct": true
+                },
+                {
+                  "label": "C",
+                  "id": 203085,
+                  "text": "N_2",
+                  "is_correct": false
+                },
+                {
+                  "label": "D",
+                  "id": 203084,
+                  "text": "N_2H_4",
+                  "is_correct": false
+                }
+              ],
+              "correct_option_ids": [
+                203083
+              ],
+              "correct_option_labels": [
+                "B"
+              ],
+              "correct_option_texts": [
+                "N_2O_4"
+              ],
+              "explanation": "For the given reaction,\n2N_2H_4 (l) + N_2O_4 (l) $\\rightarrow$ 3N_2 (g) + 4H_2O (l)\nas per its stoichiometry, if only the right and exact amount of N_2O_4 is taken, the reaction may not go to completion. As such it would be consumed first & is, therefore, the limiting reagent."
+            },
+            {
+              "questionID": 61976,
+              "question": "For the reaction, 2 N_2H_4 (l) + N_2O_4 (l) $\\to $ 3N_2(g) + 4H_2O(l), if 160 g of N_2H_4 is mixed with 160 g N_2O_4, the yield of H_2O is:",
+              "question_raw": "<p>For the reaction, 2 N<sub>2</sub>H<sub>4</sub> (l) + N<sub>2</sub>O<sub>4 </sub>(l) <span class=\"math-tex\">{tex}\\to {/tex}</span> 3N<sub>2</sub>(g) + 4H<sub>2</sub>O(l), if 160 g of N<sub>2</sub>H<sub>4 </sub>is mixed with 160 g N<sub>2</sub>O<sub>4</sub>, the yield of H<sub>2</sub>O is:</p>",
+              "options": [
+                {
+                  "label": "A",
+                  "id": 203090,
+                  "text": "105.0 g",
+                  "is_correct": false
+                },
+                {
+                  "label": "B",
+                  "id": 203087,
+                  "text": "124.56 g",
+                  "is_correct": true
+                },
+                {
+                  "label": "C",
+                  "id": 203089,
+                  "text": "115.0 g",
+                  "is_correct": false
+                },
+                {
+                  "label": "D",
+                  "id": 203088,
+                  "text": "120.5 g",
+                  "is_correct": false
+                }
+              ],
+              "correct_option_ids": [
+                203087
+              ],
+              "correct_option_labels": [
+                "B"
+              ],
+              "correct_option_texts": [
+                "124.56 g"
+              ],
+              "explanation": "Calculations:\nMoles of N_2H_4\n=$\\frac{160}{32}$ \n= 5 moles \nMoles of N_2O_4\n= $\\frac{160}{92}$\n= 1.739 moles\nAs per stoichiometry of the given reaction,\n2 moles of N_2H_4 require 1 mole of N_2O_4,\n$\\therefore$ 5 mole of N_2H_4 will need 2.5 moles of N_2O_4\n. But we have only 1.73 mole of N_2O_4 so it would be consumed first.\nThus N_2O_4 is the limiting reagent for this reaction.\nAgain, since 1 mole of N_2O_4 yields water\n= 4 mole of water\n$ \\therefore$ 1.73 mole of N_2O_4 will yield water\n= 6.92 moles\n$\\equiv $ (6.92 $\\times$ 18) g\n= 124.56g of water"
+            },
+            {
+              "questionID": 61977,
+              "question": "How many atoms of hydrogen are in 67.2 L of H_2 at STP?",
+              "question_raw": "<p>How many atoms of hydrogen are in 67.2 L of H<sub>2</sub>&nbsp;at STP?</p>",
+              "options": [
+                {
+                  "label": "A",
+                  "id": 203094,
+                  "text": "5.612 $\\times$ 10^24",
+                  "is_correct": false
+                },
+                {
+                  "label": "B",
+                  "id": 203093,
+                  "text": "4.612 $\\times$ 10^24",
+                  "is_correct": false
+                },
+                {
+                  "label": "C",
+                  "id": 203091,
+                  "text": "1.8066 $\\times$ 10^24",
+                  "is_correct": true
+                },
+                {
+                  "label": "D",
+                  "id": 203092,
+                  "text": "2.612 $\\times$ 10^24",
+                  "is_correct": false
+                }
+              ],
+              "correct_option_ids": [
+                203091
+              ],
+              "correct_option_labels": [
+                "C"
+              ],
+              "correct_option_texts": [
+                "1.8066 $\\times$ 10^24"
+              ],
+              "explanation": "One mole of any gas at STP has a volume of 22.4 L.\nThe number of moles = $\\frac {67.2} {22.4}$ = 3 moles of H_2\nOne mole of any substance contains Avogadro's number of atoms = 6.022 $\\times$ 10^23 atoms.\nSo multiply the number of moles $\\times$ number of atoms/mole = 1.8066 $\\times$ 10^24 atoms of H_2."
+            },
+            {
+              "questionID": 61909,
+              "question": "Chemistry does not play a major role in:",
+              "question_raw": "<p>Chemistry does not play a major role in:</p>",
+              "options": [
+                {
+                  "label": "A",
+                  "id": 202822,
+                  "text": "Large scale production of a variety of fertilizers.",
+                  "is_correct": false
+                },
+                {
+                  "label": "B",
+                  "id": 202820,
+                  "text": "Explaining superconductivity",
+                  "is_correct": true
+                },
+                {
+                  "label": "C",
+                  "id": 202823,
+                  "text": "Explaining ozone depletion.",
+                  "is_correct": false
+                },
+                {
+                  "label": "D",
+                  "id": 202821,
+                  "text": "Design and synthesis new materials having specific magnetic, electric and optical properties.",
+                  "is_correct": false
+                }
+              ],
+              "correct_option_ids": [
+                202820
+              ],
+              "correct_option_labels": [
+                "B"
+              ],
+              "correct_option_texts": [
+                "Explaining superconductivity"
+              ],
+              "explanation": "Chemistry does not deal with explaining superconductivity.\n*In superconducting materials the characteristics of superconductivity appear when the temperature is lowered below a critical temperature.\n*The onset of superconductivity is accompanied by abrupt changes in physical properties which are more related to phase transitions of the material.\nThese aspects of studies in properties of materials are better related to studies in the fields of Physics, even though principles involved in Chemistry & Physics go hand to hand."
+            },
+            {
+              "questionID": 61916,
+              "question": "SI unit of density is:",
+              "question_raw": "<p>SI unit of density is:</p>",
+              "options": [
+                {
+                  "label": "A",
+                  "id": 202851,
+                  "text": "kg ^-1m^3",
+                  "is_correct": false
+                },
+                {
+                  "label": "B",
+                  "id": 202850,
+                  "text": "kg m^3",
+                  "is_correct": false
+                },
+                {
+                  "label": "C",
+                  "id": 202848,
+                  "text": "kg m^-3",
+                  "is_correct": true
+                },
+                {
+                  "label": "D",
+                  "id": 202849,
+                  "text": "kg m^-2",
+                  "is_correct": false
+                }
+              ],
+              "correct_option_ids": [
+                202848
+              ],
+              "correct_option_labels": [
+                "C"
+              ],
+              "correct_option_texts": [
+                "kg m^-3"
+              ],
+              "explanation": "Since density = mass / volume and SI unit of mass is kg and that of the volume is $m^3$.\n$\\therefore$ using these SI units the unit of density is derived through dimensional analysis:\ndensity = mass / volume\n= kg / m^3 \nor, = kg m^-3"
+            },
+            {
+              "questionID": 61928,
+              "question": "Molecular formula represents:",
+              "question_raw": "<p>Molecular formula represents:</p>",
+              "options": [
+                {
+                  "label": "A",
+                  "id": 202897,
+                  "text": "whole number ratio of different types of atoms present in a molecule of a compound",
+                  "is_correct": false
+                },
+                {
+                  "label": "B",
+                  "id": 202898,
+                  "text": "ratio of masses of various atoms present in a compound",
+                  "is_correct": false
+                },
+                {
+                  "label": "C",
+                  "id": 202899,
+                  "text": "average fractionall ratio of various atoms present in a compound",
+                  "is_correct": false
+                },
+                {
+                  "label": "D",
+                  "id": 202896,
+                  "text": "the exact number of different types of atoms present in a molecule of a compound",
+                  "is_correct": true
+                }
+              ],
+              "correct_option_ids": [
+                202896
+              ],
+              "correct_option_labels": [
+                "D"
+              ],
+              "correct_option_texts": [
+                "the exact number of different types of atoms present in a molecule of a compound"
+              ],
+              "explanation": "Molecular formula is the exact no. of atoms present in a molecule of a compound.\nMolecular formula of a compound is related with its empirical formula as,\nMollecular formula = (Empirical formula)_n\nwhere n represents a positive integer."
+            },
+            {
+              "questionID": 61951,
+              "question": "There are ____ L in 0.05 ml?",
+              "question_raw": "<p>There are ____ L &nbsp;in 0.05 ml?</p>",
+              "options": [
+                {
+                  "label": "A",
+                  "id": 202990,
+                  "text": "0.50 L",
+                  "is_correct": false
+                },
+                {
+                  "label": "B",
+                  "id": 202989,
+                  "text": "0.0005 liters",
+                  "is_correct": false
+                },
+                {
+                  "label": "C",
+                  "id": 202988,
+                  "text": "0.00005 L",
+                  "is_correct": true
+                },
+                {
+                  "label": "D",
+                  "id": 202991,
+                  "text": "5.0 liters",
+                  "is_correct": false
+                }
+              ],
+              "correct_option_ids": [
+                202988
+              ],
+              "correct_option_labels": [
+                "C"
+              ],
+              "correct_option_texts": [
+                "0.00005 L"
+              ],
+              "explanation": "Since , 1L = 1000mL \nor , 1mL = $\\frac{1}{1000} L$ .\n$\\therefore$ 0.05mL = $\\frac{1}{1000} \\times 0.05 L$ = 0.00005 L ."
+            },
+            {
+              "questionID": 61947,
+              "question": "The molar mass of AgBO_3 is",
+              "question_raw": "<p>The molar mass of&nbsp;AgBO<sub>3</sub> is</p>",
+              "options": [
+                {
+                  "label": "A",
+                  "id": 202974,
+                  "text": "179.9 g",
+                  "is_correct": false
+                },
+                {
+                  "label": "B",
+                  "id": 202972,
+                  "text": "165.9 u",
+                  "is_correct": true
+                },
+                {
+                  "label": "C",
+                  "id": 202973,
+                  "text": "189.9 amu",
+                  "is_correct": false
+                },
+                {
+                  "label": "D",
+                  "id": 202975,
+                  "text": "159.9 u",
+                  "is_correct": false
+                }
+              ],
+              "correct_option_ids": [
+                202972
+              ],
+              "correct_option_labels": [
+                "B"
+              ],
+              "correct_option_texts": [
+                "165.9 u"
+              ],
+              "explanation": "Molar mass of AgBO_3 = [atomic mass of Ag + atomic mass of B + 3 (atomic mass of O))] u\nSubstituting the atomic masses of Ag, B & O as 107.9, 10 & 16 respectively. we get -\nMolar mass of AgBO_3 = [107.9 + 10 + (3 $\\times $ 16)]u\n= 165.9 u"
+            },
+            {
+              "questionID": 61924,
+              "question": "One mole is the amount of a substance that contains as many particles or entities as there are atoms in:",
+              "question_raw": "<p>One mole is the amount of a substance that contains as many particles or entities as there are atoms in:</p>\r\n",
+              "options": [
+                {
+                  "label": "A",
+                  "id": 202880,
+                  "text": "exactly 12g (or 0.012 kg) of the $^{12}C$ isotope",
+                  "is_correct": true
+                },
+                {
+                  "label": "B",
+                  "id": 202883,
+                  "text": "exactly 14g (or 0.014 kg) of the $\\ ^{14}C$ isotope",
+                  "is_correct": false
+                },
+                {
+                  "label": "C",
+                  "id": 202881,
+                  "text": "exactly 12 g (or 0.012 kg) of the $^{13}C$ isotope",
+                  "is_correct": false
+                },
+                {
+                  "label": "D",
+                  "id": 202882,
+                  "text": "exactly 12 g (or 0.012 kg) of the $^{14}C$ isotope",
+                  "is_correct": false
+                }
+              ],
+              "correct_option_ids": [
+                202880
+              ],
+              "correct_option_labels": [
+                "A"
+              ],
+              "correct_option_texts": [
+                "exactly 12g (or 0.012 kg) of the $^{12}C$ isotope"
+              ],
+              "explanation": "One mole is the amount of a substance that contains as many particles or entities as there are atoms in exactly 12 g of the $^{12}C$ isotope.\nA mole of a substance always contains the same number of entities, no matter what the substance may be. In order to determine this number precisely, the mass of carbon -12 atom was determined by mass spectrometer and found to be equal to 1.992648 $\\times$ 10^-23g. Knowing that one mole of carbon weighs 12g. the number of atoms in it is equal to: 6.0221367 $\\times$ 10^23"
+            }
+          ]
+        }
+      ]
+    }
+  ]
+}

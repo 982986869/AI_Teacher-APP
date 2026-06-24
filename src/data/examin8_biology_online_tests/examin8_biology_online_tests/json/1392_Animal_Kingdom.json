@@ -1,0 +1,3162 @@
+{
+  "id": 1392,
+  "name": "Animal Kingdom",
+  "full_name": "CBSE > Class 11 > Biology > Animal Kingdom",
+  "tests": [
+    {
+      "testPaperID": 3353,
+      "testPaperName": "Animal Kingdom Test-01",
+      "is_paid": false,
+      "category_full_name": "CBSE > Class 11 > Biology > Animal Kingdom",
+      "noOfQuestions": 15,
+      "has_answers": true,
+      "sections": [
+        {
+          "sectionName": "General",
+          "sectionID": null,
+          "questions": [
+            {
+              "questionID": 55138,
+              "question": "Which phylum contains coelomic and triploblastic animals?",
+              "question_raw": "<p>Which phylum contains coelomic and triploblastic animals?</p>",
+              "options": [
+                {
+                  "label": "A",
+                  "id": 175745,
+                  "text": "Phylum Platyhelminthes",
+                  "is_correct": true
+                },
+                {
+                  "label": "B",
+                  "id": 175746,
+                  "text": "Phylum Porifera",
+                  "is_correct": false
+                },
+                {
+                  "label": "C",
+                  "id": 175748,
+                  "text": "Phylum Ctenophora",
+                  "is_correct": false
+                },
+                {
+                  "label": "D",
+                  "id": 175747,
+                  "text": "Phylum Coelenterata",
+                  "is_correct": false
+                }
+              ],
+              "correct_option_ids": [
+                175745
+              ],
+              "correct_option_labels": [
+                "A"
+              ],
+              "correct_option_texts": [
+                "Phylum Platyhelminthes"
+              ],
+              "explanation": "Those animals in which the developing embryo has a three germinal layer, mesoderm in between the ectoderm and endoderm, are called triploblastic animals, and the absence of an internal body cavity is called coelomic."
+            },
+            {
+              "questionID": 55139,
+              "question": "Choose the odd one out based on coelom: Annelids, Molluscs, Platyhelminthes, Arthropods.",
+              "question_raw": "<p>Choose the odd one out based on coelom: Annelids, Molluscs, Platyhelminthes, Arthropods.</p>",
+              "options": [
+                {
+                  "label": "A",
+                  "id": 175749,
+                  "text": "Platyhelminthes",
+                  "is_correct": true
+                },
+                {
+                  "label": "B",
+                  "id": 175751,
+                  "text": "Molluscs",
+                  "is_correct": false
+                },
+                {
+                  "label": "C",
+                  "id": 175752,
+                  "text": "Annelids",
+                  "is_correct": false
+                },
+                {
+                  "label": "D",
+                  "id": 175750,
+                  "text": "Arthopods",
+                  "is_correct": false
+                }
+              ],
+              "correct_option_ids": [
+                175749
+              ],
+              "correct_option_labels": [
+                "A"
+              ],
+              "correct_option_texts": [
+                "Platyhelminthes"
+              ],
+              "explanation": "Animals possessing coelom are called coelomates such as annelids, molluscs, arthropods, echinoderms, hemichordates and chordates. In Platyhelmites coelom is absent."
+            },
+            {
+              "questionID": 55140,
+              "question": "In Coelenterates, the cell shows:",
+              "question_raw": "<p>In Coelenterates, the cell shows:</p>",
+              "options": [
+                {
+                  "label": "A",
+                  "id": 175756,
+                  "text": "Organ system level of organisation",
+                  "is_correct": false
+                },
+                {
+                  "label": "B",
+                  "id": 175755,
+                  "text": "Organ level of organisation",
+                  "is_correct": false
+                },
+                {
+                  "label": "C",
+                  "id": 175753,
+                  "text": "Tissue level of organisation",
+                  "is_correct": true
+                },
+                {
+                  "label": "D",
+                  "id": 175754,
+                  "text": "Cellular level of organisation",
+                  "is_correct": false
+                }
+              ],
+              "correct_option_ids": [
+                175753
+              ],
+              "correct_option_labels": [
+                "C"
+              ],
+              "correct_option_texts": [
+                "Tissue level of organisation"
+              ],
+              "explanation": "In coelenterates, the arrangement of cells is more complex. Here, the cells performing the same function are arranged into tissues, hence is called tissue level of organization."
+            },
+            {
+              "questionID": 55141,
+              "question": "The cross-section of the body of an invertebrate is given below. Identify the animal which has this body plan:-",
+              "question_raw": "<p>The cross-section of the body of an invertebrate is given below. Identify the animal which has this body plan:-<br />\r\n<img src=\"https://media-mycbseguide.s3.amazonaws.com/images/quiz/11/biology/47313_0.jpg\" style=\"width: 110px; height: 112px;\" /></p>",
+              "options": [
+                {
+                  "label": "A",
+                  "id": 175760,
+                  "text": "Cockroach",
+                  "is_correct": false
+                },
+                {
+                  "label": "B",
+                  "id": 175758,
+                  "text": "Earthworm",
+                  "is_correct": false
+                },
+                {
+                  "label": "C",
+                  "id": 175757,
+                  "text": "Round worm",
+                  "is_correct": true
+                },
+                {
+                  "label": "D",
+                  "id": 175759,
+                  "text": "Planaria",
+                  "is_correct": false
+                }
+              ],
+              "correct_option_ids": [
+                175757
+              ],
+              "correct_option_labels": [
+                "C"
+              ],
+              "correct_option_texts": [
+                "Round worm"
+              ],
+              "explanation": "In some animals, the body cavity is not lined by mesoderm, instead, the mesoderm is present as scattered pouches in between the ectoderm and endoderm. Such a body cavity is called pseudocoelom and the animals possessing them are called pseudocoelomates, e.g.,aschelminthes such as round worm."
+            },
+            {
+              "questionID": 55142,
+              "question": "The largest phylum of kingdom animalia is ________.",
+              "question_raw": "<p>The largest phylum of kingdom animalia is ________.</p>",
+              "options": [
+                {
+                  "label": "A",
+                  "id": 175763,
+                  "text": "Nematode",
+                  "is_correct": false
+                },
+                {
+                  "label": "B",
+                  "id": 175761,
+                  "text": "Arthropoda",
+                  "is_correct": true
+                },
+                {
+                  "label": "C",
+                  "id": 175764,
+                  "text": "Chordate",
+                  "is_correct": false
+                },
+                {
+                  "label": "D",
+                  "id": 175762,
+                  "text": "Annelida",
+                  "is_correct": false
+                }
+              ],
+              "correct_option_ids": [
+                175761
+              ],
+              "correct_option_labels": [
+                "B"
+              ],
+              "correct_option_texts": [
+                "Arthropoda"
+              ],
+              "explanation": "Arthropoda is the largest phylum of kingdom Animalia. It includes all insects, arachnids, myriapods, and crustaceans. They are characterized by jointed limbs and cuticles."
+            },
+            {
+              "questionID": 55143,
+              "question": "Egg of reptiles and birds are:",
+              "question_raw": "<p>Egg of reptiles and birds are:</p>",
+              "options": [
+                {
+                  "label": "A",
+                  "id": 175766,
+                  "text": "Mesolecithal",
+                  "is_correct": false
+                },
+                {
+                  "label": "B",
+                  "id": 175768,
+                  "text": "Alecithal",
+                  "is_correct": false
+                },
+                {
+                  "label": "C",
+                  "id": 175765,
+                  "text": "Polylecithal",
+                  "is_correct": true
+                },
+                {
+                  "label": "D",
+                  "id": 175767,
+                  "text": "Isolecithal",
+                  "is_correct": false
+                }
+              ],
+              "correct_option_ids": [
+                175765
+              ],
+              "correct_option_labels": [
+                "C"
+              ],
+              "correct_option_texts": [
+                "Polylecithal"
+              ],
+              "explanation": "The eggs of reptiles and birds are polyecithal because they contain a large amount of yolk inside the egg."
+            },
+            {
+              "questionID": 55144,
+              "question": "Animals of class Mammalia have:",
+              "question_raw": "<p>Animals of class Mammalia have:</p>",
+              "options": [
+                {
+                  "label": "A",
+                  "id": 175771,
+                  "text": "Fourteen cervical vertebrae",
+                  "is_correct": false
+                },
+                {
+                  "label": "B",
+                  "id": 175770,
+                  "text": "Seven cranial nerve",
+                  "is_correct": false
+                },
+                {
+                  "label": "C",
+                  "id": 175769,
+                  "text": "Seven cervical vertebra",
+                  "is_correct": true
+                },
+                {
+                  "label": "D",
+                  "id": 175772,
+                  "text": "Three chambered heart",
+                  "is_correct": false
+                }
+              ],
+              "correct_option_ids": [
+                175769
+              ],
+              "correct_option_labels": [
+                "C"
+              ],
+              "correct_option_texts": [
+                "Seven cervical vertebra"
+              ],
+              "explanation": "The animals of class Mammalia have seven cervical vertebrae and a four-chambered heart. Mammalian is characterized by the presence of mammary glands to feed their young ones."
+            },
+            {
+              "questionID": 55145,
+              "question": "The alimentary canal is absent in:",
+              "question_raw": "<p>The alimentary canal is absent in:</p>",
+              "options": [
+                {
+                  "label": "A",
+                  "id": 175776,
+                  "text": "Ancylostoma",
+                  "is_correct": false
+                },
+                {
+                  "label": "B",
+                  "id": 175773,
+                  "text": "Taenia Solium",
+                  "is_correct": true
+                },
+                {
+                  "label": "C",
+                  "id": 175775,
+                  "text": "Fasciola hepatica",
+                  "is_correct": false
+                },
+                {
+                  "label": "D",
+                  "id": 175774,
+                  "text": "Ascaris suum",
+                  "is_correct": false
+                }
+              ],
+              "correct_option_ids": [
+                175773
+              ],
+              "correct_option_labels": [
+                "B"
+              ],
+              "correct_option_texts": [
+                "Taenia Solium"
+              ],
+              "explanation": "The alimentary canal is absent in Taenia Solium. Taenia Solium is an obligate parasite and obtains digested food from the small intestine of the human being as well as pigs. Pick the animals with true placenta."
+            },
+            {
+              "questionID": 55146,
+              "question": "Pick the animals with true placenta__________.",
+              "question_raw": "<p>Pick the animals with true placenta__________.</p>",
+              "options": [
+                {
+                  "label": "A",
+                  "id": 175778,
+                  "text": "Kangaroo",
+                  "is_correct": false
+                },
+                {
+                  "label": "B",
+                  "id": 175779,
+                  "text": "Platypus",
+                  "is_correct": false
+                },
+                {
+                  "label": "C",
+                  "id": 175780,
+                  "text": "Echidna",
+                  "is_correct": false
+                },
+                {
+                  "label": "D",
+                  "id": 175777,
+                  "text": "Mongoose",
+                  "is_correct": true
+                }
+              ],
+              "correct_option_ids": [
+                175777
+              ],
+              "correct_option_labels": [
+                "D"
+              ],
+              "correct_option_texts": [
+                "Mongoose"
+              ],
+              "explanation": "The true placenta is present in Mongoose. Placenta help in the transfer of nutrients and respiratory gases from the mother to the growing foetus."
+            },
+            {
+              "questionID": 55147,
+              "question": "The air bladder is present in_______.",
+              "question_raw": "<p>The air bladder is present in_______.</p>",
+              "options": [
+                {
+                  "label": "A",
+                  "id": 175783,
+                  "text": "Star fish",
+                  "is_correct": false
+                },
+                {
+                  "label": "B",
+                  "id": 175781,
+                  "text": "Actinopterygii",
+                  "is_correct": true
+                },
+                {
+                  "label": "C",
+                  "id": 175782,
+                  "text": "Flying fishes",
+                  "is_correct": false
+                },
+                {
+                  "label": "D",
+                  "id": 175784,
+                  "text": "Chondricthyes",
+                  "is_correct": false
+                }
+              ],
+              "correct_option_ids": [
+                175781
+              ],
+              "correct_option_labels": [
+                "B"
+              ],
+              "correct_option_texts": [
+                "Actinopterygii"
+              ],
+              "explanation": "The air bladder is present in Actinopterygii. It is also known as ray-finned fish due to the presence of fin rays."
+            },
+            {
+              "questionID": 55148,
+              "question": "Book lungs are respiratory organ of______.",
+              "question_raw": "<p>Book lungs are respiratory organ of______.</p>",
+              "options": [
+                {
+                  "label": "A",
+                  "id": 175786,
+                  "text": "Earthworm",
+                  "is_correct": false
+                },
+                {
+                  "label": "B",
+                  "id": 175785,
+                  "text": "Arachnida",
+                  "is_correct": true
+                },
+                {
+                  "label": "C",
+                  "id": 175787,
+                  "text": "Mullusca",
+                  "is_correct": false
+                },
+                {
+                  "label": "D",
+                  "id": 175788,
+                  "text": "Mammals",
+                  "is_correct": false
+                }
+              ],
+              "correct_option_ids": [
+                175785
+              ],
+              "correct_option_labels": [
+                "B"
+              ],
+              "correct_option_texts": [
+                "Arachnida"
+              ],
+              "explanation": "Book lung is a type of respiratory organ used for atmospheric gas exchange that is found in Arachnida such as scorpions and spiders."
+            },
+            {
+              "questionID": 55149,
+              "question": "Which of the following have notochord throughout life?",
+              "question_raw": "<p>Which of the following have notochord throughout life?</p>",
+              "options": [
+                {
+                  "label": "A",
+                  "id": 175791,
+                  "text": "Fish",
+                  "is_correct": false
+                },
+                {
+                  "label": "B",
+                  "id": 175790,
+                  "text": "Buds",
+                  "is_correct": false
+                },
+                {
+                  "label": "C",
+                  "id": 175789,
+                  "text": "Amphioxus",
+                  "is_correct": true
+                },
+                {
+                  "label": "D",
+                  "id": 175792,
+                  "text": "Snake",
+                  "is_correct": false
+                }
+              ],
+              "correct_option_ids": [
+                175789
+              ],
+              "correct_option_labels": [
+                "C"
+              ],
+              "correct_option_texts": [
+                "Amphioxus"
+              ],
+              "explanation": "Amphioxus or lancelets are fish-like marine chordates found in shallow temperate and tropical seas. They have notochord throughout their life."
+            },
+            {
+              "questionID": 55150,
+              "question": "The aquatic organisms that can actively swim at will against the water current are:",
+              "question_raw": "<p>The aquatic organisms that can actively swim at will against the water current are:</p>",
+              "options": [
+                {
+                  "label": "A",
+                  "id": 175794,
+                  "text": "Benthos",
+                  "is_correct": false
+                },
+                {
+                  "label": "B",
+                  "id": 175796,
+                  "text": "Neuston",
+                  "is_correct": false
+                },
+                {
+                  "label": "C",
+                  "id": 175793,
+                  "text": "Necton",
+                  "is_correct": true
+                },
+                {
+                  "label": "D",
+                  "id": 175795,
+                  "text": "Plankton",
+                  "is_correct": false
+                }
+              ],
+              "correct_option_ids": [
+                175793
+              ],
+              "correct_option_labels": [
+                "C"
+              ],
+              "correct_option_texts": [
+                "Necton"
+              ],
+              "explanation": "Necton is an aquatic organism that can actively swim at will against the water current. Benthos and planktons float with the water current and not against the water current."
+            },
+            {
+              "questionID": 55151,
+              "question": "Haemocoel is found in:",
+              "question_raw": "<p>Haemocoel is found in:</p>",
+              "options": [
+                {
+                  "label": "A",
+                  "id": 175799,
+                  "text": "Earthworm",
+                  "is_correct": false
+                },
+                {
+                  "label": "B",
+                  "id": 175798,
+                  "text": "Hydra",
+                  "is_correct": false
+                },
+                {
+                  "label": "C",
+                  "id": 175800,
+                  "text": "Snake",
+                  "is_correct": false
+                },
+                {
+                  "label": "D",
+                  "id": 175797,
+                  "text": "Pila",
+                  "is_correct": true
+                }
+              ],
+              "correct_option_ids": [
+                175797
+              ],
+              "correct_option_labels": [
+                "D"
+              ],
+              "correct_option_texts": [
+                "Pila"
+              ],
+              "explanation": "Haemocoel is the main body cavity of invertebrates such as insects. It is also found in Pila which do not contain the blood circulating system."
+            },
+            {
+              "questionID": 55152,
+              "question": "An egg-laying animal grouped under mammals is:",
+              "question_raw": "<p>An egg-laying animal grouped under mammals is:</p>",
+              "options": [
+                {
+                  "label": "A",
+                  "id": 175803,
+                  "text": "Fluke",
+                  "is_correct": false
+                },
+                {
+                  "label": "B",
+                  "id": 175804,
+                  "text": "Kangaroo",
+                  "is_correct": false
+                },
+                {
+                  "label": "C",
+                  "id": 175801,
+                  "text": "Duck-billed Platypus",
+                  "is_correct": true
+                },
+                {
+                  "label": "D",
+                  "id": 175802,
+                  "text": "Horn-bill",
+                  "is_correct": false
+                }
+              ],
+              "correct_option_ids": [
+                175801
+              ],
+              "correct_option_labels": [
+                "C"
+              ],
+              "correct_option_texts": [
+                "Duck-billed Platypus"
+              ],
+              "explanation": "Most of the animals belonging to class Mammalia are viviparous, produces young ones. But, Duck-billed platypus belongs to mammalian class but lay eggs."
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "testPaperID": 3354,
+      "testPaperName": "Animal Kingdom Test-02",
+      "is_paid": true,
+      "category_full_name": "CBSE > Class 11 > Biology > Animal Kingdom",
+      "noOfQuestions": 15,
+      "has_answers": true,
+      "sections": [
+        {
+          "sectionName": "General",
+          "sectionID": null,
+          "questions": [
+            {
+              "questionID": 55153,
+              "question": "When the coelomic fluid serves as a skeleton it is known as__________.",
+              "question_raw": "<p>When the coelomic fluid serves as a skeleton it is known as__________.</p>",
+              "options": [
+                {
+                  "label": "A",
+                  "id": 175808,
+                  "text": "Cartilaginous skeleton",
+                  "is_correct": false
+                },
+                {
+                  "label": "B",
+                  "id": 175805,
+                  "text": "Hydrostatic skeleton",
+                  "is_correct": true
+                },
+                {
+                  "label": "C",
+                  "id": 175807,
+                  "text": "Exoskeleton",
+                  "is_correct": false
+                },
+                {
+                  "label": "D",
+                  "id": 175806,
+                  "text": "Endoskeleton",
+                  "is_correct": false
+                }
+              ],
+              "correct_option_ids": [
+                175805
+              ],
+              "correct_option_labels": [
+                "B"
+              ],
+              "correct_option_texts": [
+                "Hydrostatic skeleton"
+              ],
+              "explanation": "Coelomic fluids serve as a skeleton in some insects called as a hydrostatic skeleton that helps in maintaining shape and size of the body of organisms in the absence of bone or cartilage."
+            },
+            {
+              "questionID": 55154,
+              "question": "Which one of the following group of animals is correctly matched with its characteristics without any exception?",
+              "question_raw": "<p>Which one of the following group of animals is correctly matched with its characteristics without any exception?</p>",
+              "options": [
+                {
+                  "label": "A",
+                  "id": 175812,
+                  "text": "Mammalia give birth to young ones",
+                  "is_correct": false
+                },
+                {
+                  "label": "B",
+                  "id": 175810,
+                  "text": "Reptilia possess a 3-chambered heart with incompletely divided ventricle",
+                  "is_correct": false
+                },
+                {
+                  "label": "C",
+                  "id": 175811,
+                  "text": "Chordates possess a mouth with an upper and lower jaw",
+                  "is_correct": false
+                },
+                {
+                  "label": "D",
+                  "id": 175809,
+                  "text": "Chondrichthyes possess a cartilaginous endoskeleton",
+                  "is_correct": true
+                }
+              ],
+              "correct_option_ids": [
+                175809
+              ],
+              "correct_option_labels": [
+                "D"
+              ],
+              "correct_option_texts": [
+                "Chondrichthyes possess a cartilaginous endoskeleton"
+              ],
+              "explanation": "All cartilaginous fish or Chondrichthyes possess a cartilaginous endoskeleton. But some reptiles have a four-chambered heart. Chordates may be jawless and some mammals lay eggs also."
+            },
+            {
+              "questionID": 55155,
+              "question": "Animals which possess cleidoic egg exhibit:",
+              "question_raw": "<p>Animals which possess cleidoic egg exhibit:</p>",
+              "options": [
+                {
+                  "label": "A",
+                  "id": 175813,
+                  "text": "Internal fertilisation and external development",
+                  "is_correct": true
+                },
+                {
+                  "label": "B",
+                  "id": 175814,
+                  "text": "External fertilisation and internal development",
+                  "is_correct": false
+                },
+                {
+                  "label": "C",
+                  "id": 175815,
+                  "text": "External fertilisation and external development",
+                  "is_correct": false
+                },
+                {
+                  "label": "D",
+                  "id": 175816,
+                  "text": "Internal fertilisation and internal development",
+                  "is_correct": false
+                }
+              ],
+              "correct_option_ids": [
+                175813
+              ],
+              "correct_option_labels": [
+                "A"
+              ],
+              "correct_option_texts": [
+                "Internal fertilisation and external development"
+              ],
+              "explanation": "The cleidoic egg is the type of egg that reptiles and birds lay. These eggs exhibit internal fertilization and external development."
+            },
+            {
+              "questionID": 55156,
+              "question": "Which of these is a freshwater sponge?",
+              "question_raw": "<p>Which of these is a freshwater sponge?</p>",
+              "options": [
+                {
+                  "label": "A",
+                  "id": 175818,
+                  "text": "Euplectella",
+                  "is_correct": false
+                },
+                {
+                  "label": "B",
+                  "id": 175819,
+                  "text": "Leucosolenia",
+                  "is_correct": false
+                },
+                {
+                  "label": "C",
+                  "id": 175820,
+                  "text": "Sycon",
+                  "is_correct": false
+                },
+                {
+                  "label": "D",
+                  "id": 175817,
+                  "text": "Spongilla",
+                  "is_correct": true
+                }
+              ],
+              "correct_option_ids": [
+                175817
+              ],
+              "correct_option_labels": [
+                "D"
+              ],
+              "correct_option_texts": [
+                "Spongilla"
+              ],
+              "explanation": "Spongilla is a genus of freshwater sponges in the family Spongillidae found in lakes and slow streams. Sponges of the genus Spongilla attach themselves to rocks and logs and filter the water for various small aquatic organisms such as protozoans, bacteria, and other free-floating pond life. Unlike marine sponges, freshwater sponges are exposed to far more adverse and variable environmental conditions, so they have developed gemmules as a means of dormancy."
+            },
+            {
+              "questionID": 55157,
+              "question": "Which one of the following is a living fossil?",
+              "question_raw": "<p>Which one of the following is a living fossil?</p>",
+              "options": [
+                {
+                  "label": "A",
+                  "id": 175822,
+                  "text": "Bombyx",
+                  "is_correct": false
+                },
+                {
+                  "label": "B",
+                  "id": 175824,
+                  "text": "Locusta",
+                  "is_correct": false
+                },
+                {
+                  "label": "C",
+                  "id": 175823,
+                  "text": "Laccifer",
+                  "is_correct": false
+                },
+                {
+                  "label": "D",
+                  "id": 175821,
+                  "text": "Limulus",
+                  "is_correct": true
+                }
+              ],
+              "correct_option_ids": [
+                175821
+              ],
+              "correct_option_labels": [
+                "D"
+              ],
+              "correct_option_texts": [
+                "Limulus"
+              ],
+              "explanation": "Limulus (the king crab or horse-shoe crab) continues to remain unchanged for the past 190 million years. It is, therefore, also called living fossil. Excretion occurs through four pairs of coxal glands. Respiration occurs through book gills."
+            },
+            {
+              "questionID": 55158,
+              "question": "Which of the following is the largest phylum of kingdom Animalia?",
+              "question_raw": "<p>Which of the following is the largest phylum of kingdom Animalia?</p>",
+              "options": [
+                {
+                  "label": "A",
+                  "id": 175827,
+                  "text": "Platyhelminthes",
+                  "is_correct": false
+                },
+                {
+                  "label": "B",
+                  "id": 175826,
+                  "text": "Annelida",
+                  "is_correct": false
+                },
+                {
+                  "label": "C",
+                  "id": 175825,
+                  "text": "Arthropoda",
+                  "is_correct": true
+                },
+                {
+                  "label": "D",
+                  "id": 175828,
+                  "text": "Echinodermata",
+                  "is_correct": false
+                }
+              ],
+              "correct_option_ids": [
+                175825
+              ],
+              "correct_option_labels": [
+                "C"
+              ],
+              "correct_option_texts": [
+                "Arthropoda"
+              ],
+              "explanation": "Arthropoda is the largest phylum of Animalia which includes insects."
+            },
+            {
+              "questionID": 55159,
+              "question": "Petromyzon is included under_______.",
+              "question_raw": "<p>Petromyzon is included under_______.</p>",
+              "options": [
+                {
+                  "label": "A",
+                  "id": 175829,
+                  "text": "Agnatha",
+                  "is_correct": true
+                },
+                {
+                  "label": "B",
+                  "id": 175832,
+                  "text": "Cephalochordata",
+                  "is_correct": false
+                },
+                {
+                  "label": "C",
+                  "id": 175831,
+                  "text": "Tetrapoda",
+                  "is_correct": false
+                },
+                {
+                  "label": "D",
+                  "id": 175830,
+                  "text": "Pisces",
+                  "is_correct": false
+                }
+              ],
+              "correct_option_ids": [
+                175829
+              ],
+              "correct_option_labels": [
+                "A"
+              ],
+              "correct_option_texts": [
+                "Agnatha"
+              ],
+              "explanation": "Petromyzon is a jawless vertebrate and hence included under Agnatha."
+            },
+            {
+              "questionID": 55160,
+              "question": "Which phylum has a water vascular system as a characteristic feature?",
+              "question_raw": "<p>Which phylum has a water vascular system as a characteristic feature?</p>",
+              "options": [
+                {
+                  "label": "A",
+                  "id": 175835,
+                  "text": "Phylum Ctenophora",
+                  "is_correct": false
+                },
+                {
+                  "label": "B",
+                  "id": 175834,
+                  "text": "Phylum Porifera",
+                  "is_correct": false
+                },
+                {
+                  "label": "C",
+                  "id": 175836,
+                  "text": "Phylum Coelenterata",
+                  "is_correct": false
+                },
+                {
+                  "label": "D",
+                  "id": 175833,
+                  "text": "Phylum Echinodermata",
+                  "is_correct": true
+                }
+              ],
+              "correct_option_ids": [
+                175833
+              ],
+              "correct_option_labels": [
+                "D"
+              ],
+              "correct_option_texts": [
+                "Phylum Echinodermata"
+              ],
+              "explanation": "The most distinctive feature of Echinodermata is the presence of the water vascular system."
+            },
+            {
+              "questionID": 55161,
+              "question": "What is common among Liver fluke, Planarians, and Tapeworms?",
+              "question_raw": "<p>What is common among Liver fluke, Planarians, and Tapeworms?</p>",
+              "options": [
+                {
+                  "label": "A",
+                  "id": 175839,
+                  "text": "All of them are segmented",
+                  "is_correct": false
+                },
+                {
+                  "label": "B",
+                  "id": 175840,
+                  "text": "All of them are found in gut",
+                  "is_correct": false
+                },
+                {
+                  "label": "C",
+                  "id": 175837,
+                  "text": "All of them have flattened bodies",
+                  "is_correct": true
+                },
+                {
+                  "label": "D",
+                  "id": 175838,
+                  "text": "All of them have a coelom",
+                  "is_correct": false
+                }
+              ],
+              "correct_option_ids": [
+                175837
+              ],
+              "correct_option_labels": [
+                "C"
+              ],
+              "correct_option_texts": [
+                "All of them have flattened bodies"
+              ],
+              "explanation": "All of them belong to Phylum Platyhelminthes and hence have dorsoventrally flattened bodies and so, are called flatworms."
+            },
+            {
+              "questionID": 55162,
+              "question": "Locomotory organ of Annelida is:",
+              "question_raw": "<p>Locomotory organ of Annelida is:</p>",
+              "options": [
+                {
+                  "label": "A",
+                  "id": 175844,
+                  "text": "Sucker",
+                  "is_correct": false
+                },
+                {
+                  "label": "B",
+                  "id": 175842,
+                  "text": "Pseudopodia",
+                  "is_correct": false
+                },
+                {
+                  "label": "C",
+                  "id": 175843,
+                  "text": "Feet",
+                  "is_correct": false
+                },
+                {
+                  "label": "D",
+                  "id": 175841,
+                  "text": "Parapodia",
+                  "is_correct": true
+                }
+              ],
+              "correct_option_ids": [
+                175841
+              ],
+              "correct_option_labels": [
+                "D"
+              ],
+              "correct_option_texts": [
+                "Parapodia"
+              ],
+              "explanation": "Locomotory organ of annelia is parapodia. Parapodium are in form of lateral fleshy protrusions on the body surface that help in movement and capturing food."
+            },
+            {
+              "questionID": 55163,
+              "question": "Which among the following is called Portuguese man-of-war?",
+              "question_raw": "<p>Which among the following is called Portuguese man-of-war?</p>",
+              "options": [
+                {
+                  "label": "A",
+                  "id": 175847,
+                  "text": "Adamsia",
+                  "is_correct": false
+                },
+                {
+                  "label": "B",
+                  "id": 175848,
+                  "text": "Gorgonia",
+                  "is_correct": false
+                },
+                {
+                  "label": "C",
+                  "id": 175845,
+                  "text": "Physalia",
+                  "is_correct": true
+                },
+                {
+                  "label": "D",
+                  "id": 175846,
+                  "text": "Meandrina",
+                  "is_correct": false
+                }
+              ],
+              "correct_option_ids": [
+                175845
+              ],
+              "correct_option_labels": [
+                "C"
+              ],
+              "correct_option_texts": [
+                "Physalia"
+              ],
+              "explanation": "The Portuguese man-of-war is a siphonophore, an animal that is made up of a colony of organisms working together. Physalia is called Portuguese man-of-war. It is also called a blue bottle or floating terror it is found floating on the water surface. \"The name comes from the uppermost polyp, a gas-filled bladder, or pneumatophore, which sits above the water and somewhat looks like an old warship at full sail. They are also, known as bluebottles for the purple-blue colour of their pneumatophores\" (A Portuguese man of war). The tentacles can extend to 165 feet, although, the average length is 30 feet (Portuguese Man-of-War Physalia physalis)."
+            },
+            {
+              "questionID": 55164,
+              "question": "Which phylum has bioluminescence as its well-marked feature?",
+              "question_raw": "<p>Which phylum has bioluminescence as its well-marked feature?</p>",
+              "options": [
+                {
+                  "label": "A",
+                  "id": 175850,
+                  "text": "Phylum Porifera",
+                  "is_correct": false
+                },
+                {
+                  "label": "B",
+                  "id": 175851,
+                  "text": "Phylum Coelenterata",
+                  "is_correct": false
+                },
+                {
+                  "label": "C",
+                  "id": 175849,
+                  "text": "Phylum Ctenophora",
+                  "is_correct": true
+                },
+                {
+                  "label": "D",
+                  "id": 175852,
+                  "text": "Phylum Echinodermata",
+                  "is_correct": false
+                }
+              ],
+              "correct_option_ids": [
+                175849
+              ],
+              "correct_option_labels": [
+                "C"
+              ],
+              "correct_option_texts": [
+                "Phylum Ctenophora"
+              ],
+              "explanation": "The property of a living organism to emit light is known as bioluminescence and is well-marked in ctenophores."
+            },
+            {
+              "questionID": 55165,
+              "question": "Choose the odd one out: Roundworm, Hookworm, Filaria worm, Earthworm.",
+              "question_raw": "<p>Choose the odd one out: Roundworm, Hookworm, Filaria worm, Earthworm.</p>",
+              "options": [
+                {
+                  "label": "A",
+                  "id": 175853,
+                  "text": "Earthworm",
+                  "is_correct": true
+                },
+                {
+                  "label": "B",
+                  "id": 175855,
+                  "text": "Round worm",
+                  "is_correct": false
+                },
+                {
+                  "label": "C",
+                  "id": 175854,
+                  "text": "Hook worm",
+                  "is_correct": false
+                },
+                {
+                  "label": "D",
+                  "id": 175856,
+                  "text": "Filaria worm",
+                  "is_correct": false
+                }
+              ],
+              "correct_option_ids": [
+                175853
+              ],
+              "correct_option_labels": [
+                "A"
+              ],
+              "correct_option_texts": [
+                "Earthworm"
+              ],
+              "explanation": "Earthworm belongs to phylum Annelida whereas all other worms belong to phylum Aschelminthes."
+            },
+            {
+              "questionID": 55166,
+              "question": "A marine cartilaginous fish that can produce electric current is:",
+              "question_raw": "<p>A marine cartilaginous fish that can produce electric current is:</p>",
+              "options": [
+                {
+                  "label": "A",
+                  "id": 175859,
+                  "text": "Trygon",
+                  "is_correct": false
+                },
+                {
+                  "label": "B",
+                  "id": 175857,
+                  "text": "Torpedo",
+                  "is_correct": true
+                },
+                {
+                  "label": "C",
+                  "id": 175860,
+                  "text": "Scoliodon",
+                  "is_correct": false
+                },
+                {
+                  "label": "D",
+                  "id": 175858,
+                  "text": "Pristis",
+                  "is_correct": false
+                }
+              ],
+              "correct_option_ids": [
+                175857
+              ],
+              "correct_option_labels": [
+                "B"
+              ],
+              "correct_option_texts": [
+                "Torpedo"
+              ],
+              "explanation": "Torpedo is a genus of rays, commonly known as electric rays, torpedo rays, or torpedoes. They are slow-moving bottom-dwellers capable of generating electricity as a defence and feeding mechanism."
+            },
+            {
+              "questionID": 55167,
+              "question": "Which phylum has balance organs?",
+              "question_raw": "<p>Which phylum has balance organs?</p>",
+              "options": [
+                {
+                  "label": "A",
+                  "id": 175862,
+                  "text": "Phylum Annelida",
+                  "is_correct": false
+                },
+                {
+                  "label": "B",
+                  "id": 175861,
+                  "text": "Phylum Arthropoda",
+                  "is_correct": true
+                },
+                {
+                  "label": "C",
+                  "id": 175863,
+                  "text": "Phylum Aschelminthes",
+                  "is_correct": false
+                },
+                {
+                  "label": "D",
+                  "id": 175864,
+                  "text": "Phylum Platyhelminthes",
+                  "is_correct": false
+                }
+              ],
+              "correct_option_ids": [
+                175861
+              ],
+              "correct_option_labels": [
+                "B"
+              ],
+              "correct_option_texts": [
+                "Phylum Arthropoda"
+              ],
+              "explanation": "Sensory organs like antennae, eyes (compound and simple), statocysts, or balance organs are present in phylum Arthropoda."
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "testPaperID": 3355,
+      "testPaperName": "Animal Kingdom Test-03",
+      "is_paid": true,
+      "category_full_name": "CBSE > Class 11 > Biology > Animal Kingdom",
+      "noOfQuestions": 15,
+      "has_answers": true,
+      "sections": [
+        {
+          "sectionName": "General",
+          "sectionID": null,
+          "questions": [
+            {
+              "questionID": 55168,
+              "question": "The limbless amphibian is:",
+              "question_raw": "<p>The limbless amphibian is:</p>",
+              "options": [
+                {
+                  "label": "A",
+                  "id": 175867,
+                  "text": "Rana",
+                  "is_correct": false
+                },
+                {
+                  "label": "B",
+                  "id": 175866,
+                  "text": "Hyla",
+                  "is_correct": false
+                },
+                {
+                  "label": "C",
+                  "id": 175865,
+                  "text": "Ichthyophis",
+                  "is_correct": true
+                },
+                {
+                  "label": "D",
+                  "id": 175868,
+                  "text": "Bufo",
+                  "is_correct": false
+                }
+              ],
+              "correct_option_ids": [
+                175865
+              ],
+              "correct_option_labels": [
+                "C"
+              ],
+              "correct_option_texts": [
+                "Ichthyophis"
+              ],
+              "explanation": "Ichthyophis is an amphibian which is limbless. Sometimes called as Asian caecilians. They are found in southeast Asia and the southern Philippines."
+            },
+            {
+              "questionID": 55169,
+              "question": "The air bladder is absent in:",
+              "question_raw": "<p>The air bladder is absent in:</p>",
+              "options": [
+                {
+                  "label": "A",
+                  "id": 175869,
+                  "text": "Trygon",
+                  "is_correct": true
+                },
+                {
+                  "label": "B",
+                  "id": 175870,
+                  "text": "Exocoetus",
+                  "is_correct": false
+                },
+                {
+                  "label": "C",
+                  "id": 175871,
+                  "text": "Labeo",
+                  "is_correct": false
+                },
+                {
+                  "label": "D",
+                  "id": 175872,
+                  "text": "Clarias",
+                  "is_correct": false
+                }
+              ],
+              "correct_option_ids": [
+                175869
+              ],
+              "correct_option_labels": [
+                "A"
+              ],
+              "correct_option_texts": [
+                "Trygon"
+              ],
+              "explanation": "The air bladder is absent in Chondrichthyes that help in floating in the water."
+            },
+            {
+              "questionID": 55170,
+              "question": "The phylum in which adults exhibit radial symmetry and larva exhibit bilateral symmetry is:",
+              "question_raw": "<p>The phylum in which adults exhibit radial symmetry and larva exhibit bilateral symmetry is:</p>",
+              "options": [
+                {
+                  "label": "A",
+                  "id": 175876,
+                  "text": "Phylum Arthropoda",
+                  "is_correct": false
+                },
+                {
+                  "label": "B",
+                  "id": 175873,
+                  "text": "Phylum Echinodermata",
+                  "is_correct": true
+                },
+                {
+                  "label": "C",
+                  "id": 175875,
+                  "text": "Phylum Aschelminthes",
+                  "is_correct": false
+                },
+                {
+                  "label": "D",
+                  "id": 175874,
+                  "text": "Phylum Annelida",
+                  "is_correct": false
+                }
+              ],
+              "correct_option_ids": [
+                175873
+              ],
+              "correct_option_labels": [
+                "B"
+              ],
+              "correct_option_texts": [
+                "Phylum Echinodermata"
+              ],
+              "explanation": "The animals of Phylum - Echinodermata have an endoskeleton of calcareous ossicles and, hence, the name Echinodermata. All are marine with the organ-system level of organization. The adult echinoderms are radially symmetrical but larvae are bilaterally symmetrical.\nThey are triploblastic and coelomate animals. The digestive system is complete with a mouth on the lower (ventral) side and anus on the upper (dorsal) side."
+            },
+            {
+              "questionID": 55171,
+              "question": "Which group of chordates possesses sucking and circular mouth without jaws?",
+              "question_raw": "<p>Which group of chordates possesses sucking and circular mouth without jaws?</p>",
+              "options": [
+                {
+                  "label": "A",
+                  "id": 175879,
+                  "text": "Class Osteichthyes",
+                  "is_correct": false
+                },
+                {
+                  "label": "B",
+                  "id": 175877,
+                  "text": "Class Cyclostomata",
+                  "is_correct": true
+                },
+                {
+                  "label": "C",
+                  "id": 175880,
+                  "text": "Both (b) and (c)",
+                  "is_correct": false
+                },
+                {
+                  "label": "D",
+                  "id": 175878,
+                  "text": "Class Chondrichthyes",
+                  "is_correct": false
+                }
+              ],
+              "correct_option_ids": [
+                175877
+              ],
+              "correct_option_labels": [
+                "B"
+              ],
+              "correct_option_texts": [
+                "Class Cyclostomata"
+              ],
+              "explanation": "The organism beloging to class Cyclostomes have a sucking and circular mouth without jaws.They are primitive vertebrates. The cyclostomes are marine or fresh-water vertebrates."
+            },
+            {
+              "questionID": 55172,
+              "question": "Which among the following is oviparous?",
+              "question_raw": "<p>Which among the following is oviparous?</p>",
+              "options": [
+                {
+                  "label": "A",
+                  "id": 175883,
+                  "text": "Common dolphin",
+                  "is_correct": false
+                },
+                {
+                  "label": "B",
+                  "id": 175881,
+                  "text": "Platypus",
+                  "is_correct": true
+                },
+                {
+                  "label": "C",
+                  "id": 175882,
+                  "text": "Flying fox (Bat)",
+                  "is_correct": false
+                },
+                {
+                  "label": "D",
+                  "id": 175884,
+                  "text": "Elephant",
+                  "is_correct": false
+                }
+              ],
+              "correct_option_ids": [
+                175881
+              ],
+              "correct_option_labels": [
+                "B"
+              ],
+              "correct_option_texts": [
+                "Platypus"
+              ],
+              "explanation": "Platypus is the oviparous that lays eggs."
+            },
+            {
+              "questionID": 55173,
+              "question": "Which phylum has comb plates for locomotion as their distinctive feature?",
+              "question_raw": "<p>Which phylum has comb plates for locomotion as their distinctive feature?</p>",
+              "options": [
+                {
+                  "label": "A",
+                  "id": 175886,
+                  "text": "Phylum Echinodermata",
+                  "is_correct": false
+                },
+                {
+                  "label": "B",
+                  "id": 175885,
+                  "text": "Phylum Ctenophora",
+                  "is_correct": true
+                },
+                {
+                  "label": "C",
+                  "id": 175888,
+                  "text": "Phylum Porifera",
+                  "is_correct": false
+                },
+                {
+                  "label": "D",
+                  "id": 175887,
+                  "text": "Phylum Coelenterata",
+                  "is_correct": false
+                }
+              ],
+              "correct_option_ids": [
+                175885
+              ],
+              "correct_option_labels": [
+                "B"
+              ],
+              "correct_option_texts": [
+                "Phylum Ctenophora"
+              ],
+              "explanation": "The body of phylum Ctenophora bears eight external rows of ciliated comb plates, which help in locomotion."
+            },
+            {
+              "questionID": 55174,
+              "question": "A fish that has an electric organ is:",
+              "question_raw": "<p>A fish that has an electric organ is:</p>",
+              "options": [
+                {
+                  "label": "A",
+                  "id": 175891,
+                  "text": "Common carp",
+                  "is_correct": false
+                },
+                {
+                  "label": "B",
+                  "id": 175890,
+                  "text": "Katla",
+                  "is_correct": false
+                },
+                {
+                  "label": "C",
+                  "id": 175892,
+                  "text": "Pomfret",
+                  "is_correct": false
+                },
+                {
+                  "label": "D",
+                  "id": 175889,
+                  "text": "Torpedo",
+                  "is_correct": true
+                }
+              ],
+              "correct_option_ids": [
+                175889
+              ],
+              "correct_option_labels": [
+                "D"
+              ],
+              "correct_option_texts": [
+                "Torpedo"
+              ],
+              "explanation": "Torpedo fish has electric organ. They are known for being capable of producing an electric discharge ranging from 8 to 220 volts depending on species."
+            },
+            {
+              "questionID": 55175,
+              "question": "In which of the organism, internal fertilization is seen?",
+              "question_raw": "<p>In which of the organism, internal fertilization is seen?</p>",
+              "options": [
+                {
+                  "label": "A",
+                  "id": 175896,
+                  "text": "Fish",
+                  "is_correct": false
+                },
+                {
+                  "label": "B",
+                  "id": 175894,
+                  "text": "Roundworm",
+                  "is_correct": false
+                },
+                {
+                  "label": "C",
+                  "id": 175893,
+                  "text": "Liver fluke",
+                  "is_correct": true
+                },
+                {
+                  "label": "D",
+                  "id": 175895,
+                  "text": "Earthworm",
+                  "is_correct": false
+                }
+              ],
+              "correct_option_ids": [
+                175893
+              ],
+              "correct_option_labels": [
+                "C"
+              ],
+              "correct_option_texts": [
+                "Liver fluke"
+              ],
+              "explanation": "Most of the animals are not able to fertilize their own egg by sperms but in liver fluke, self-fertilization takes place. Earthworm also possesses both male and female reproductive organs in the same individual but not able to fertilize its own egg."
+            },
+            {
+              "questionID": 55176,
+              "question": "The endoskeleton is fully ossified and the long bones are pneumatic in:",
+              "question_raw": "<p>The endoskeleton is fully ossified and the long bones are pneumatic in:</p>",
+              "options": [
+                {
+                  "label": "A",
+                  "id": 175900,
+                  "text": "Class Mammalia",
+                  "is_correct": false
+                },
+                {
+                  "label": "B",
+                  "id": 175899,
+                  "text": "Class Amphibia",
+                  "is_correct": false
+                },
+                {
+                  "label": "C",
+                  "id": 175897,
+                  "text": "Class Aves",
+                  "is_correct": true
+                },
+                {
+                  "label": "D",
+                  "id": 175898,
+                  "text": "Class Reptilia",
+                  "is_correct": false
+                }
+              ],
+              "correct_option_ids": [
+                175897
+              ],
+              "correct_option_labels": [
+                "C"
+              ],
+              "correct_option_texts": [
+                "Class Aves"
+              ],
+              "explanation": "The endoskeleton is fully ossified (bony) and the long bones are hollow with air cavities (pneumatic) in class aves."
+            },
+            {
+              "questionID": 55177,
+              "question": "The presence of milk-producing glands is a unique characteristic feature of the class:",
+              "question_raw": "<p>The presence of milk-producing glands is a unique characteristic feature of the class:</p>",
+              "options": [
+                {
+                  "label": "A",
+                  "id": 175903,
+                  "text": "Aves",
+                  "is_correct": false
+                },
+                {
+                  "label": "B",
+                  "id": 175902,
+                  "text": "Reptilia",
+                  "is_correct": false
+                },
+                {
+                  "label": "C",
+                  "id": 175901,
+                  "text": "Mammalia",
+                  "is_correct": true
+                },
+                {
+                  "label": "D",
+                  "id": 175904,
+                  "text": "Amphibia",
+                  "is_correct": false
+                }
+              ],
+              "correct_option_ids": [
+                175901
+              ],
+              "correct_option_labels": [
+                "C"
+              ],
+              "correct_option_texts": [
+                "Mammalia"
+              ],
+              "explanation": "Mammalia is found in a variety of habitats - polar ice caps, deserts, mountains, forests, grasslands, and dark caves. Some of them have adapted to fly or live in water. The most unique mammalian characteristic is the presence of milk-producing glands (mammary glands) by which the young ones are nourished. They have two pairs of limbs, adapted for walking, running, climbing, burrowing, swimming, or flying."
+            },
+            {
+              "questionID": 55178,
+              "question": "Which among the following is monoecious?",
+              "question_raw": "<p>Which among the following is monoecious?</p>",
+              "options": [
+                {
+                  "label": "A",
+                  "id": 175908,
+                  "text": "Only leeches",
+                  "is_correct": false
+                },
+                {
+                  "label": "B",
+                  "id": 175906,
+                  "text": "Only Earthworm",
+                  "is_correct": false
+                },
+                {
+                  "label": "C",
+                  "id": 175905,
+                  "text": "Earthworm and leeches",
+                  "is_correct": true
+                },
+                {
+                  "label": "D",
+                  "id": 175907,
+                  "text": "Only Nereis",
+                  "is_correct": false
+                }
+              ],
+              "correct_option_ids": [
+                175905
+              ],
+              "correct_option_labels": [
+                "C"
+              ],
+              "correct_option_texts": [
+                "Earthworm and leeches"
+              ],
+              "explanation": "Earthworms and leeches are monoecious, contain both male and female reproductive organs in the same individual."
+            },
+            {
+              "questionID": 55179,
+              "question": "Which phylum shows this type of germinal layers shown below?",
+              "question_raw": "<p>Which phylum shows this type of germinal layers shown below?<br />\r\n<img src=\"https://media-mycbseguide.s3.amazonaws.com/images/quiz/11/biology/47351_0.jpg\" style=\"width: 120px; height: 119px;\" /></p>",
+              "options": [
+                {
+                  "label": "A",
+                  "id": 175910,
+                  "text": "Phylum Annelia",
+                  "is_correct": false
+                },
+                {
+                  "label": "B",
+                  "id": 175912,
+                  "text": "Phylum Pltyhelminthes",
+                  "is_correct": false
+                },
+                {
+                  "label": "C",
+                  "id": 175911,
+                  "text": "Phylum Arthropoda",
+                  "is_correct": false
+                },
+                {
+                  "label": "D",
+                  "id": 175909,
+                  "text": "Phylum Coelenterata",
+                  "is_correct": true
+                }
+              ],
+              "correct_option_ids": [
+                175909
+              ],
+              "correct_option_labels": [
+                "D"
+              ],
+              "correct_option_texts": [
+                "Phylum Coelenterata"
+              ],
+              "explanation": "The germinal layer shows diploblastic. Phylum Coelenterata shows this type of germinal layers."
+            },
+            {
+              "questionID": 55180,
+              "question": "Which phyla does not possess a coelom?",
+              "question_raw": "<p>Which&nbsp;phyla does not possess a coelom?</p>",
+              "options": [
+                {
+                  "label": "A",
+                  "id": 175916,
+                  "text": "Echinodermata",
+                  "is_correct": false
+                },
+                {
+                  "label": "B",
+                  "id": 175914,
+                  "text": "Annelida",
+                  "is_correct": false
+                },
+                {
+                  "label": "C",
+                  "id": 175915,
+                  "text": "Mollusca",
+                  "is_correct": false
+                },
+                {
+                  "label": "D",
+                  "id": 175913,
+                  "text": "Platyhelminthes",
+                  "is_correct": true
+                }
+              ],
+              "correct_option_ids": [
+                175913
+              ],
+              "correct_option_labels": [
+                "D"
+              ],
+              "correct_option_texts": [
+                "Platyhelminthes"
+              ],
+              "explanation": "Phylum Platyhelminthes does not possess a coelom. The coelom is the body cavity in between organs. Animals with coelom are called coelomate and those without it are called acoelomate."
+            },
+            {
+              "questionID": 55181,
+              "question": "Bat and whales have ________ chambered heart.",
+              "question_raw": "<p>Bat and whales have ________ chambered heart.</p>",
+              "options": [
+                {
+                  "label": "A",
+                  "id": 175918,
+                  "text": "3",
+                  "is_correct": false
+                },
+                {
+                  "label": "B",
+                  "id": 175920,
+                  "text": "5",
+                  "is_correct": false
+                },
+                {
+                  "label": "C",
+                  "id": 175917,
+                  "text": "4",
+                  "is_correct": true
+                },
+                {
+                  "label": "D",
+                  "id": 175919,
+                  "text": "2",
+                  "is_correct": false
+                }
+              ],
+              "correct_option_ids": [
+                175917
+              ],
+              "correct_option_labels": [
+                "C"
+              ],
+              "correct_option_texts": [
+                "4"
+              ],
+              "explanation": "Bat and whales have a four-chambered heart. Upper two chambers are called the atrium and lower two chambers are called the ventricle. All mammals have a four-chambered heart."
+            },
+            {
+              "questionID": 55182,
+              "question": "Which one of the following does not belonging to Urochordata?",
+              "question_raw": "<p>Which one of the following does not belonging to Urochordata?</p>",
+              "options": [
+                {
+                  "label": "A",
+                  "id": 175924,
+                  "text": "Doliolum",
+                  "is_correct": false
+                },
+                {
+                  "label": "B",
+                  "id": 175923,
+                  "text": "Salpa",
+                  "is_correct": false
+                },
+                {
+                  "label": "C",
+                  "id": 175921,
+                  "text": "Lancelet",
+                  "is_correct": true
+                },
+                {
+                  "label": "D",
+                  "id": 175922,
+                  "text": "Ascidia",
+                  "is_correct": false
+                }
+              ],
+              "correct_option_ids": [
+                175921
+              ],
+              "correct_option_labels": [
+                "C"
+              ],
+              "correct_option_texts": [
+                "Lancelet"
+              ],
+              "explanation": "Lancelets are classified in the phylum Chordata, subphylum Cephalochordata. lancelet, the name for small, fishlike lower chordate also called amphioxus it shows many affinities with the vertebrates. There are about 30 lancelet species, most belonging to the genus Branchiostoma (formerly Amphioxus). Lancelets are usually about 1 in. (2.5 cm) long, with transparent bodies tapered at both ends. There is no distinct head and no paired fins."
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "testPaperID": 3356,
+      "testPaperName": "Animal Kingdom Test-04",
+      "is_paid": true,
+      "category_full_name": "CBSE > Class 11 > Biology > Animal Kingdom",
+      "noOfQuestions": 15,
+      "has_answers": true,
+      "sections": [
+        {
+          "sectionName": "General",
+          "sectionID": null,
+          "questions": [
+            {
+              "questionID": 55183,
+              "question": "What is the main excretory organ in insects?",
+              "question_raw": "<p>What is the main excretory organ in insects?</p>",
+              "options": [
+                {
+                  "label": "A",
+                  "id": 175926,
+                  "text": "Proboscis gland",
+                  "is_correct": false
+                },
+                {
+                  "label": "B",
+                  "id": 175928,
+                  "text": "Gills",
+                  "is_correct": false
+                },
+                {
+                  "label": "C",
+                  "id": 175925,
+                  "text": "Malphighian tubules",
+                  "is_correct": true
+                },
+                {
+                  "label": "D",
+                  "id": 175927,
+                  "text": "Excretory pore",
+                  "is_correct": false
+                }
+              ],
+              "correct_option_ids": [
+                175925
+              ],
+              "correct_option_labels": [
+                "C"
+              ],
+              "correct_option_texts": [
+                "Malphighian tubules"
+              ],
+              "explanation": "The insects belong to phylum Arthropoda and hence, the excretory organ is Malphighian tubules."
+            },
+            {
+              "questionID": 55184,
+              "question": "Which among the following is a gregarious pest?",
+              "question_raw": "<p>Which among the following is a gregarious pest?</p>",
+              "options": [
+                {
+                  "label": "A",
+                  "id": 175931,
+                  "text": "Apis",
+                  "is_correct": false
+                },
+                {
+                  "label": "B",
+                  "id": 175929,
+                  "text": "Locusta",
+                  "is_correct": true
+                },
+                {
+                  "label": "C",
+                  "id": 175932,
+                  "text": "Laccifer",
+                  "is_correct": false
+                },
+                {
+                  "label": "D",
+                  "id": 175930,
+                  "text": "Bombyx",
+                  "is_correct": false
+                }
+              ],
+              "correct_option_ids": [
+                175929
+              ],
+              "correct_option_labels": [
+                "B"
+              ],
+              "correct_option_texts": [
+                "Locusta"
+              ],
+              "explanation": "Locust (Locusta) is a gregarious pest belonging to phylum Arthropoda."
+            },
+            {
+              "questionID": 55185,
+              "question": "Identify the animal given below. Mention its phylum.",
+              "question_raw": "<p>Identify the animal given below. Mention its phylum.<br />\r\n<img src=\"https://media-mycbseguide.s3.amazonaws.com/images/quiz/11/biology/47357_0.jpg\" style=\"width: 149px; height: 118px;\" /></p>",
+              "options": [
+                {
+                  "label": "A",
+                  "id": 175934,
+                  "text": "Spongilla and phylum Porifera",
+                  "is_correct": false
+                },
+                {
+                  "label": "B",
+                  "id": 175935,
+                  "text": "Ascidia and phylum Chordata",
+                  "is_correct": false
+                },
+                {
+                  "label": "C",
+                  "id": 175936,
+                  "text": "Aurelia and phylum Coelenterata",
+                  "is_correct": false
+                },
+                {
+                  "label": "D",
+                  "id": 175933,
+                  "text": "Euspongia and phylum Porifera",
+                  "is_correct": true
+                }
+              ],
+              "correct_option_ids": [
+                175933
+              ],
+              "correct_option_labels": [
+                "D"
+              ],
+              "correct_option_texts": [
+                "Euspongia and phylum Porifera"
+              ],
+              "explanation": "The animal is identified as Euspongia which belong to phylum Porifera."
+            },
+            {
+              "questionID": 55186,
+              "question": "The excretory organ of Saccoglossus is:",
+              "question_raw": "<p>The excretory organ of Saccoglossus is:</p>",
+              "options": [
+                {
+                  "label": "A",
+                  "id": 175940,
+                  "text": "Excretory pore",
+                  "is_correct": false
+                },
+                {
+                  "label": "B",
+                  "id": 175938,
+                  "text": "Gills",
+                  "is_correct": false
+                },
+                {
+                  "label": "C",
+                  "id": 175937,
+                  "text": "Proboscis gland",
+                  "is_correct": true
+                },
+                {
+                  "label": "D",
+                  "id": 175939,
+                  "text": "Malphighian tubules",
+                  "is_correct": false
+                }
+              ],
+              "correct_option_ids": [
+                175937
+              ],
+              "correct_option_labels": [
+                "C"
+              ],
+              "correct_option_texts": [
+                "Proboscis gland"
+              ],
+              "explanation": "Saccoglossus belong to phylum Hemichordata and hence the excretory organ is proboscis gland."
+            },
+            {
+              "questionID": 55187,
+              "question": "A reptile has a four-chambered heart is:",
+              "question_raw": "<p>A reptile has a four-chambered heart is:</p>",
+              "options": [
+                {
+                  "label": "A",
+                  "id": 175942,
+                  "text": "Salamander",
+                  "is_correct": false
+                },
+                {
+                  "label": "B",
+                  "id": 175943,
+                  "text": "Snake",
+                  "is_correct": false
+                },
+                {
+                  "label": "C",
+                  "id": 175941,
+                  "text": "Crocodile",
+                  "is_correct": true
+                },
+                {
+                  "label": "D",
+                  "id": 175944,
+                  "text": "Alligator",
+                  "is_correct": false
+                }
+              ],
+              "correct_option_ids": [
+                175941
+              ],
+              "correct_option_labels": [
+                "C"
+              ],
+              "correct_option_texts": [
+                "Crocodile"
+              ],
+              "explanation": "Reptiles generally possess three-chamber heart, two upper chamber and single lower chamber. But in crocodile, the heart is four-chambered having two atrium and two ventricles."
+            },
+            {
+              "questionID": 55188,
+              "question": "In Molluscs, the rasping feeding organ is:",
+              "question_raw": "<p>In Molluscs, the rasping feeding organ is:</p>",
+              "options": [
+                {
+                  "label": "A",
+                  "id": 175948,
+                  "text": "Head",
+                  "is_correct": false
+                },
+                {
+                  "label": "B",
+                  "id": 175945,
+                  "text": "Radula",
+                  "is_correct": true
+                },
+                {
+                  "label": "C",
+                  "id": 175947,
+                  "text": "Mantle",
+                  "is_correct": false
+                },
+                {
+                  "label": "D",
+                  "id": 175946,
+                  "text": "Visceral hump",
+                  "is_correct": false
+                }
+              ],
+              "correct_option_ids": [
+                175945
+              ],
+              "correct_option_labels": [
+                "B"
+              ],
+              "correct_option_texts": [
+                "Radula"
+              ],
+              "explanation": "The mouth of molluscs contains a file-like rasping organ for feeding, called a radula."
+            },
+            {
+              "questionID": 55189,
+              "question": "Bony fishes have sac-like outgrowth, called air bladder arising from the dorsal wall of the oesophagus. It is used to:",
+              "question_raw": "<p>Bony fishes have sac-like outgrowth, called air bladder arising from the dorsal wall of the oesophagus. It is used to:</p>",
+              "options": [
+                {
+                  "label": "A",
+                  "id": 175952,
+                  "text": "All of these",
+                  "is_correct": false
+                },
+                {
+                  "label": "B",
+                  "id": 175950,
+                  "text": "Maintain buoyancy for swimming Swim constantly to avoid sinking",
+                  "is_correct": false
+                },
+                {
+                  "label": "C",
+                  "id": 175951,
+                  "text": "Changing direction for swimming",
+                  "is_correct": false
+                },
+                {
+                  "label": "D",
+                  "id": 175949,
+                  "text": "Maintain balance and to swim up and down Maintain buoyancy for swimming",
+                  "is_correct": true
+                }
+              ],
+              "correct_option_ids": [
+                175949
+              ],
+              "correct_option_labels": [
+                "D"
+              ],
+              "correct_option_texts": [
+                "Maintain balance and to swim up and down Maintain buoyancy for swimming"
+              ],
+              "explanation": "Air bladder is present in body fish that help them in maintaining balance and to swim up and down. Air bladder arises from the dorsal wall of the oesophagus."
+            },
+            {
+              "questionID": 55190,
+              "question": "Which is the second largest phylum?",
+              "question_raw": "<p>Which is the second largest phylum?</p>",
+              "options": [
+                {
+                  "label": "A",
+                  "id": 175955,
+                  "text": "Phylum Annelida",
+                  "is_correct": false
+                },
+                {
+                  "label": "B",
+                  "id": 175956,
+                  "text": "Phylum Echinodermata",
+                  "is_correct": false
+                },
+                {
+                  "label": "C",
+                  "id": 175953,
+                  "text": "Phylum Mollusca",
+                  "is_correct": true
+                },
+                {
+                  "label": "D",
+                  "id": 175954,
+                  "text": "Phylum Arthropoda",
+                  "is_correct": false
+                }
+              ],
+              "correct_option_ids": [
+                175953
+              ],
+              "correct_option_labels": [
+                "C"
+              ],
+              "correct_option_texts": [
+                "Phylum Mollusca"
+              ],
+              "explanation": "Phylum Mollusca is the second largest phylum after Arthropoda."
+            },
+            {
+              "questionID": 55191,
+              "question": "Which of the following is not a poisonous snake?",
+              "question_raw": "<p>Which of the following is not a poisonous snake?</p>",
+              "options": [
+                {
+                  "label": "A",
+                  "id": 175957,
+                  "text": "Testudo",
+                  "is_correct": true
+                },
+                {
+                  "label": "B",
+                  "id": 175959,
+                  "text": "Bangarus",
+                  "is_correct": false
+                },
+                {
+                  "label": "C",
+                  "id": 175958,
+                  "text": "Naja",
+                  "is_correct": false
+                },
+                {
+                  "label": "D",
+                  "id": 175960,
+                  "text": "Vipera",
+                  "is_correct": false
+                }
+              ],
+              "correct_option_ids": [
+                175957
+              ],
+              "correct_option_labels": [
+                "A"
+              ],
+              "correct_option_texts": [
+                "Testudo"
+              ],
+              "explanation": "Examples of poisonous snakes are Naja(Cobra), Bangarus(Krait), Vipera(Viper). Testudo is a non-poisonous snake. It is found in Europe."
+            },
+            {
+              "questionID": 55192,
+              "question": "Which of the following does not have an excretory system?",
+              "question_raw": "<p>Which of the following does not have an excretory system?</p>",
+              "options": [
+                {
+                  "label": "A",
+                  "id": 175964,
+                  "text": "Catla",
+                  "is_correct": false
+                },
+                {
+                  "label": "B",
+                  "id": 175961,
+                  "text": "Asterias",
+                  "is_correct": true
+                },
+                {
+                  "label": "C",
+                  "id": 175963,
+                  "text": "Carcharodon",
+                  "is_correct": false
+                },
+                {
+                  "label": "D",
+                  "id": 175962,
+                  "text": "Myxine",
+                  "is_correct": false
+                }
+              ],
+              "correct_option_ids": [
+                175961
+              ],
+              "correct_option_labels": [
+                "B"
+              ],
+              "correct_option_texts": [
+                "Asterias"
+              ],
+              "explanation": "Asterias does not have an excretory system. Asterias includes starfish or sea star. They are exclusively marine."
+            },
+            {
+              "questionID": 55193,
+              "question": "Identify the animal in the figure given below and the phylum to which the animal belongs to?",
+              "question_raw": "<p>Identify the animal in the figure given below and the phylum to which the animal belongs to?<br />\r\n<img src=\"https://media-mycbseguide.s3.amazonaws.com/images/quiz/11/biology/47365_0.jpg\" style=\"width: 117px; height: 190px;\" /></p>",
+              "options": [
+                {
+                  "label": "A",
+                  "id": 175968,
+                  "text": "Gorgonia and phylum Cnidaria",
+                  "is_correct": false
+                },
+                {
+                  "label": "B",
+                  "id": 175967,
+                  "text": "Pennatula and phylum Cnidaria",
+                  "is_correct": false
+                },
+                {
+                  "label": "C",
+                  "id": 175965,
+                  "text": "Octopus and phylum Mollusca",
+                  "is_correct": true
+                },
+                {
+                  "label": "D",
+                  "id": 175966,
+                  "text": "Ctenoplana and phylum Ctenophora",
+                  "is_correct": false
+                }
+              ],
+              "correct_option_ids": [
+                175965
+              ],
+              "correct_option_labels": [
+                "C"
+              ],
+              "correct_option_texts": [
+                "Octopus and phylum Mollusca"
+              ],
+              "explanation": "The animal is dentified as octopus which belongs to phylum Mollusca."
+            },
+            {
+              "questionID": 55194,
+              "question": "Choose the odd one out based on the levels of the organization: Annelids, Arthropods, Platyhelminthes, Molluscs.",
+              "question_raw": "<p>Choose the odd one out based on the levels of the organization: Annelids, Arthropods, Platyhelminthes, Molluscs.</p>",
+              "options": [
+                {
+                  "label": "A",
+                  "id": 175969,
+                  "text": "Platyhelminthes",
+                  "is_correct": true
+                },
+                {
+                  "label": "B",
+                  "id": 175971,
+                  "text": "Molluscs",
+                  "is_correct": false
+                },
+                {
+                  "label": "C",
+                  "id": 175972,
+                  "text": "Annelids",
+                  "is_correct": false
+                },
+                {
+                  "label": "D",
+                  "id": 175970,
+                  "text": "Arthropods",
+                  "is_correct": false
+                }
+              ],
+              "correct_option_ids": [
+                175969
+              ],
+              "correct_option_labels": [
+                "A"
+              ],
+              "correct_option_texts": [
+                "Platyhelminthes"
+              ],
+              "explanation": "The organ level is exhibited by members of Platyhelminthes and other higher phyla where tissues are grouped together to form organs, each specialized for a particular function. In animals like Annelids, Arthropods, Molluscs, organs have associated to form functional systems, each system concerned with a specific physiological function. This pattern is called an organ system level of organization."
+            },
+            {
+              "questionID": 55195,
+              "question": "Ancestors of mammals belongs to:",
+              "question_raw": "<p>Ancestors of mammals belongs to:</p>",
+              "options": [
+                {
+                  "label": "A",
+                  "id": 175974,
+                  "text": "Chelonia",
+                  "is_correct": false
+                },
+                {
+                  "label": "B",
+                  "id": 175973,
+                  "text": "Therapsida",
+                  "is_correct": true
+                },
+                {
+                  "label": "C",
+                  "id": 175976,
+                  "text": "Ornithischia",
+                  "is_correct": false
+                },
+                {
+                  "label": "D",
+                  "id": 175975,
+                  "text": "Silusoidea",
+                  "is_correct": false
+                }
+              ],
+              "correct_option_ids": [
+                175973
+              ],
+              "correct_option_labels": [
+                "B"
+              ],
+              "correct_option_texts": [
+                "Therapsida"
+              ],
+              "explanation": "The ancestor of mammals belongs to class Therapsida. Therapsida is a group of synapsids that includes mammals and their ancestors."
+            },
+            {
+              "questionID": 55196,
+              "question": "Bat is member of the order ________.",
+              "question_raw": "<p>Bat is member of the order ________.</p>",
+              "options": [
+                {
+                  "label": "A",
+                  "id": 175977,
+                  "text": "Chiroptera",
+                  "is_correct": true
+                },
+                {
+                  "label": "B",
+                  "id": 175979,
+                  "text": "Hymenoptera",
+                  "is_correct": false
+                },
+                {
+                  "label": "C",
+                  "id": 175978,
+                  "text": "Urodela",
+                  "is_correct": false
+                },
+                {
+                  "label": "D",
+                  "id": 175980,
+                  "text": "Lagomorpha",
+                  "is_correct": false
+                }
+              ],
+              "correct_option_ids": [
+                175977
+              ],
+              "correct_option_labels": [
+                "A"
+              ],
+              "correct_option_texts": [
+                "Chiroptera"
+              ],
+              "explanation": "Bat is a member of order Chiroptera of class Mammalia. Bats are only mammals to have achieved powered to flight in which forelimb is modified as wings."
+            },
+            {
+              "questionID": 55197,
+              "question": "Which one of the following has the highest number of species in nature?",
+              "question_raw": "<p>Which one of the following has the highest number of species in nature?</p>",
+              "options": [
+                {
+                  "label": "A",
+                  "id": 175982,
+                  "text": "Birds",
+                  "is_correct": false
+                },
+                {
+                  "label": "B",
+                  "id": 175981,
+                  "text": "Insects",
+                  "is_correct": true
+                },
+                {
+                  "label": "C",
+                  "id": 175983,
+                  "text": "Mammals",
+                  "is_correct": false
+                },
+                {
+                  "label": "D",
+                  "id": 175984,
+                  "text": "Fungi",
+                  "is_correct": false
+                }
+              ],
+              "correct_option_ids": [
+                175981
+              ],
+              "correct_option_labels": [
+                "B"
+              ],
+              "correct_option_texts": [
+                "Insects"
+              ],
+              "explanation": "Insects have the highest number of species in nature. Insect belongs to arthropods family of class Mammalia. They are characterized by jointed legs."
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "testPaperID": 3357,
+      "testPaperName": "Animal Kingdom Test-05",
+      "is_paid": true,
+      "category_full_name": "CBSE > Class 11 > Biology > Animal Kingdom",
+      "noOfQuestions": 15,
+      "has_answers": true,
+      "sections": [
+        {
+          "sectionName": "General",
+          "sectionID": null,
+          "questions": [
+            {
+              "questionID": 55198,
+              "question": "One animal that does not perform locomotion is______.",
+              "question_raw": "<p>One animal that does not perform locomotion is______.</p>",
+              "options": [
+                {
+                  "label": "A",
+                  "id": 175985,
+                  "text": "Sycon",
+                  "is_correct": true
+                },
+                {
+                  "label": "B",
+                  "id": 175988,
+                  "text": "Euglena",
+                  "is_correct": false
+                },
+                {
+                  "label": "C",
+                  "id": 175986,
+                  "text": "Sepia",
+                  "is_correct": false
+                },
+                {
+                  "label": "D",
+                  "id": 175987,
+                  "text": "Nereis",
+                  "is_correct": false
+                }
+              ],
+              "correct_option_ids": [
+                175985
+              ],
+              "correct_option_labels": [
+                "A"
+              ],
+              "correct_option_texts": [
+                "Sycon"
+              ],
+              "explanation": "Sycon does not perform locomotion, although it is an animal. Sycon remains attached to the substratum and does not move from one place to another."
+            },
+            {
+              "questionID": 55199,
+              "question": "The larvae of urochordates is called:",
+              "question_raw": "<p>The larvae of urochordates is called:</p>",
+              "options": [
+                {
+                  "label": "A",
+                  "id": 175991,
+                  "text": "Larvalone",
+                  "is_correct": false
+                },
+                {
+                  "label": "B",
+                  "id": 175990,
+                  "text": "Ammocoete",
+                  "is_correct": false
+                },
+                {
+                  "label": "C",
+                  "id": 175989,
+                  "text": "Tadpole",
+                  "is_correct": true
+                },
+                {
+                  "label": "D",
+                  "id": 175992,
+                  "text": "Sticky rays",
+                  "is_correct": false
+                }
+              ],
+              "correct_option_ids": [
+                175989
+              ],
+              "correct_option_labels": [
+                "C"
+              ],
+              "correct_option_texts": [
+                "Tadpole"
+              ],
+              "explanation": "The larvae of urochordates are called tadpole. Tadpole change into adults by the process of metamorphosis. The structure of tadpole is totally different from the adult ones."
+            },
+            {
+              "questionID": 55200,
+              "question": "Silk produced by Antheraeamylitta is called ________.",
+              "question_raw": "<p>Silk produced by Antheraeamylitta is called ________.</p>",
+              "options": [
+                {
+                  "label": "A",
+                  "id": 175994,
+                  "text": "Muga silk",
+                  "is_correct": false
+                },
+                {
+                  "label": "B",
+                  "id": 175996,
+                  "text": "Mysore silk",
+                  "is_correct": false
+                },
+                {
+                  "label": "C",
+                  "id": 175995,
+                  "text": "Eri silk",
+                  "is_correct": false
+                },
+                {
+                  "label": "D",
+                  "id": 175993,
+                  "text": "Tasar silk",
+                  "is_correct": true
+                }
+              ],
+              "correct_option_ids": [
+                175993
+              ],
+              "correct_option_labels": [
+                "D"
+              ],
+              "correct_option_texts": [
+                "Tasar silk"
+              ],
+              "explanation": "The silk produced by Antheraeamylitta is called Tasar silk. This silk is considered as the most durable and best quality silk."
+            },
+            {
+              "questionID": 55201,
+              "question": "Species going to extinct due to low reproductive rate is ________.",
+              "question_raw": "<p>Species going to extinct due to low reproductive rate is ________.</p>",
+              "options": [
+                {
+                  "label": "A",
+                  "id": 175999,
+                  "text": "Bald eagle",
+                  "is_correct": false
+                },
+                {
+                  "label": "B",
+                  "id": 175997,
+                  "text": "Giant panda",
+                  "is_correct": true
+                },
+                {
+                  "label": "C",
+                  "id": 176000,
+                  "text": "Island spieces",
+                  "is_correct": false
+                },
+                {
+                  "label": "D",
+                  "id": 175998,
+                  "text": "Lion",
+                  "is_correct": false
+                }
+              ],
+              "correct_option_ids": [
+                175997
+              ],
+              "correct_option_labels": [
+                "B"
+              ],
+              "correct_option_texts": [
+                "Giant panda"
+              ],
+              "explanation": "The giant panda is going to extinct due to low reproductive rate. They live in mountain ranges in central China. There reproductively rate is very less due to climatic conditions."
+            },
+            {
+              "questionID": 55202,
+              "question": "Which one is correct?\n Sea Lily is an echinoderm.\n Blue-green algae are a kind of fungus.\n Maidenhair tree is an angiosperm.\n Sea horse is related to dolphins.",
+              "question_raw": "<p>Which one is correct?</p>\n\n<ol start=\"1\" style=\"list-style-type: upper-alpha;\">\n\t<li>Sea Lily is an echinoderm.</li>\n\t<li>Blue-green algae are a kind of fungus.</li>\n\t<li>Maidenhair tree is an angiosperm.</li>\n\t<li>Sea horse is related to dolphins.</li>\n</ol>",
+              "options": [
+                {
+                  "label": "A",
+                  "id": 176004,
+                  "text": "(D)",
+                  "is_correct": false
+                },
+                {
+                  "label": "B",
+                  "id": 176003,
+                  "text": "(C)",
+                  "is_correct": false
+                },
+                {
+                  "label": "C",
+                  "id": 176002,
+                  "text": "(B)",
+                  "is_correct": false
+                },
+                {
+                  "label": "D",
+                  "id": 176001,
+                  "text": "(A)",
+                  "is_correct": true
+                }
+              ],
+              "correct_option_ids": [
+                176001
+              ],
+              "correct_option_labels": [
+                "D"
+              ],
+              "correct_option_texts": [
+                "(A)"
+              ],
+              "explanation": "Sea Lily is an echinoderm having spine all over the body. Blue-green algae is a class of bacteria. Maidenhair tree is pteridophytes and the sea horse is not related to the dolphin."
+            },
+            {
+              "questionID": 55203,
+              "question": "Lac is produced by lac insect as:",
+              "question_raw": "<p>Lac is produced by lac insect as:</p>",
+              "options": [
+                {
+                  "label": "A",
+                  "id": 176006,
+                  "text": "Excretion from the body",
+                  "is_correct": false
+                },
+                {
+                  "label": "B",
+                  "id": 176007,
+                  "text": "Faecal matter",
+                  "is_correct": false
+                },
+                {
+                  "label": "C",
+                  "id": 176008,
+                  "text": "Excess food oozing out of the body",
+                  "is_correct": false
+                },
+                {
+                  "label": "D",
+                  "id": 176005,
+                  "text": "Secretion from the body",
+                  "is_correct": true
+                }
+              ],
+              "correct_option_ids": [
+                176005
+              ],
+              "correct_option_labels": [
+                "D"
+              ],
+              "correct_option_texts": [
+                "Secretion from the body"
+              ],
+              "explanation": "Lac is obtained by lac insects as secretion from the body. This secretion is wounded around the cocoon of lac insects."
+            },
+            {
+              "questionID": 55204,
+              "question": "The life-span of honey bee drone is:",
+              "question_raw": "<p>The life-span of honey bee drone is:</p>",
+              "options": [
+                {
+                  "label": "A",
+                  "id": 176010,
+                  "text": "3-4 months",
+                  "is_correct": false
+                },
+                {
+                  "label": "B",
+                  "id": 176012,
+                  "text": "10-12 months",
+                  "is_correct": false
+                },
+                {
+                  "label": "C",
+                  "id": 176009,
+                  "text": "1-2 months",
+                  "is_correct": true
+                },
+                {
+                  "label": "D",
+                  "id": 176011,
+                  "text": "6-7 months",
+                  "is_correct": false
+                }
+              ],
+              "correct_option_ids": [
+                176009
+              ],
+              "correct_option_labels": [
+                "C"
+              ],
+              "correct_option_texts": [
+                "1-2 months"
+              ],
+              "explanation": "The life-span is the time period from birth to death of an organism. The life-span of honey bee drone is 1-2 months only. Queen has the longest life span in all three kinds of honey bees."
+            },
+            {
+              "questionID": 55205,
+              "question": "Largest mammal is ________.",
+              "question_raw": "<p>Largest mammal is ________.</p>",
+              "options": [
+                {
+                  "label": "A",
+                  "id": 176015,
+                  "text": "Dolphin",
+                  "is_correct": false
+                },
+                {
+                  "label": "B",
+                  "id": 176014,
+                  "text": "Elephant",
+                  "is_correct": false
+                },
+                {
+                  "label": "C",
+                  "id": 176013,
+                  "text": "Blue whale",
+                  "is_correct": true
+                },
+                {
+                  "label": "D",
+                  "id": 176016,
+                  "text": "Crocodile",
+                  "is_correct": false
+                }
+              ],
+              "correct_option_ids": [
+                176013
+              ],
+              "correct_option_labels": [
+                "C"
+              ],
+              "correct_option_texts": [
+                "Blue whale"
+              ],
+              "explanation": "The blue whale is the largest mammals about 30 meter in length and 180 tons in weight."
+            },
+            {
+              "questionID": 55206,
+              "question": "What is the main excretory waste in insects?",
+              "question_raw": "<p>What is the main excretory waste in insects?</p>",
+              "options": [
+                {
+                  "label": "A",
+                  "id": 176020,
+                  "text": "Formic acid",
+                  "is_correct": false
+                },
+                {
+                  "label": "B",
+                  "id": 176017,
+                  "text": "Uric acid",
+                  "is_correct": true
+                },
+                {
+                  "label": "C",
+                  "id": 176019,
+                  "text": "Ammonia",
+                  "is_correct": false
+                },
+                {
+                  "label": "D",
+                  "id": 176018,
+                  "text": "Urea",
+                  "is_correct": false
+                }
+              ],
+              "correct_option_ids": [
+                176017
+              ],
+              "correct_option_labels": [
+                "B"
+              ],
+              "correct_option_texts": [
+                "Uric acid"
+              ],
+              "explanation": "The main nitrogenous excretory wastes of insects are uric acid. Uric acid is released in concentrated form. Other animals release nitrogenous wastes in form of ammonia and urea."
+            },
+            {
+              "questionID": 55207,
+              "question": "Salamander belongs to the class:",
+              "question_raw": "<p>Salamander belongs to the class:</p>",
+              "options": [
+                {
+                  "label": "A",
+                  "id": 176022,
+                  "text": "Pisces",
+                  "is_correct": false
+                },
+                {
+                  "label": "B",
+                  "id": 176021,
+                  "text": "Amphibian",
+                  "is_correct": true
+                },
+                {
+                  "label": "C",
+                  "id": 176024,
+                  "text": "Aves",
+                  "is_correct": false
+                },
+                {
+                  "label": "D",
+                  "id": 176023,
+                  "text": "Reptiles",
+                  "is_correct": false
+                }
+              ],
+              "correct_option_ids": [
+                176021
+              ],
+              "correct_option_labels": [
+                "B"
+              ],
+              "correct_option_texts": [
+                "Amphibian"
+              ],
+              "explanation": "Salamanders are a group of amphibians typically characterized by a lizard-like appearance, with slender bodies, blunt snouts, short limbs projecting at right angles to the body, and the presence of a tail in both larvae and adults."
+            },
+            {
+              "questionID": 55208,
+              "question": "Which two teeth are modified into tusk in elephants?",
+              "question_raw": "<p>Which two teeth are modified into tusk in elephants?</p>",
+              "options": [
+                {
+                  "label": "A",
+                  "id": 176027,
+                  "text": "Two upper molar",
+                  "is_correct": false
+                },
+                {
+                  "label": "B",
+                  "id": 176025,
+                  "text": "Two upper incisors",
+                  "is_correct": true
+                },
+                {
+                  "label": "C",
+                  "id": 176026,
+                  "text": "Two lower incisors",
+                  "is_correct": false
+                },
+                {
+                  "label": "D",
+                  "id": 176028,
+                  "text": "Two lower molar",
+                  "is_correct": false
+                }
+              ],
+              "correct_option_ids": [
+                176025
+              ],
+              "correct_option_labels": [
+                "B"
+              ],
+              "correct_option_texts": [
+                "Two upper incisors"
+              ],
+              "explanation": "In elephants, two upper front teeth are modified into tusk of elephants. The continuous growth of tusk is enabled by formative tissues in the apical opening of the root of the teeth."
+            },
+            {
+              "questionID": 55209,
+              "question": "Which molluscs is without shell?",
+              "question_raw": "<p>Which molluscs is without shell?</p>",
+              "options": [
+                {
+                  "label": "A",
+                  "id": 176031,
+                  "text": "Snail",
+                  "is_correct": false
+                },
+                {
+                  "label": "B",
+                  "id": 176030,
+                  "text": "Star fish",
+                  "is_correct": false
+                },
+                {
+                  "label": "C",
+                  "id": 176029,
+                  "text": "Octopus",
+                  "is_correct": true
+                },
+                {
+                  "label": "D",
+                  "id": 176032,
+                  "text": "Chiton",
+                  "is_correct": false
+                }
+              ],
+              "correct_option_ids": [
+                176029
+              ],
+              "correct_option_labels": [
+                "C"
+              ],
+              "correct_option_texts": [
+                "Octopus"
+              ],
+              "explanation": "Octopus belongs to molluscs but does not contain the shell. All other molluscs possess hard calcareous cells around their body to act as a protective covering."
+            },
+            {
+              "questionID": 55210,
+              "question": "Crocodile and penguin are similar to whale and dogfish in which one of the following features?",
+              "question_raw": "<p>Crocodile and penguin are similar to whale and dogfish in which one of the following features?</p>",
+              "options": [
+                {
+                  "label": "A",
+                  "id": 176033,
+                  "text": "Have gill slit at some stage of life",
+                  "is_correct": true
+                },
+                {
+                  "label": "B",
+                  "id": 176035,
+                  "text": "Lay eggs and guard them till they hatch",
+                  "is_correct": false
+                },
+                {
+                  "label": "C",
+                  "id": 176034,
+                  "text": "Possess bony skeleton",
+                  "is_correct": false
+                },
+                {
+                  "label": "D",
+                  "id": 176036,
+                  "text": "Possess single solid CNS",
+                  "is_correct": false
+                }
+              ],
+              "correct_option_ids": [
+                176033
+              ],
+              "correct_option_labels": [
+                "A"
+              ],
+              "correct_option_texts": [
+                "Have gill slit at some stage of life"
+              ],
+              "explanation": "Crocodile and penguins are similar to whale and dogfish in having gill slits at some stage of their life cycle which is used as respiratory organs."
+            },
+            {
+              "questionID": 55211,
+              "question": "The cross-section of body of an invertebrate is given below. Identify the animal which has this body plan:",
+              "question_raw": "<p>The cross-section of body of an invertebrate is given below. Identify the animal which has this body plan:<br />\r\n<img src=\"https://media-mycbseguide.s3.amazonaws.com/images/quiz/11/biology/47383_0.jpg\" style=\"width: 160px; height: 70px;\" /></p>",
+              "options": [
+                {
+                  "label": "A",
+                  "id": 176037,
+                  "text": "Roundworm",
+                  "is_correct": true
+                },
+                {
+                  "label": "B",
+                  "id": 176038,
+                  "text": "Earthworm",
+                  "is_correct": false
+                },
+                {
+                  "label": "C",
+                  "id": 176039,
+                  "text": "Planaria",
+                  "is_correct": false
+                },
+                {
+                  "label": "D",
+                  "id": 176040,
+                  "text": "Cockroach",
+                  "is_correct": false
+                }
+              ],
+              "correct_option_ids": [
+                176037
+              ],
+              "correct_option_labels": [
+                "A"
+              ],
+              "correct_option_texts": [
+                "Roundworm"
+              ],
+              "explanation": "The given diagram is cross section of roundworm, an invertebrate that possesses coelom and centrally located alimentary canal."
+            },
+            {
+              "questionID": 55212,
+              "question": "Which of the following is most poisonous?",
+              "question_raw": "<p>Which of the following is most poisonous?</p>",
+              "options": [
+                {
+                  "label": "A",
+                  "id": 176041,
+                  "text": "Heloderma",
+                  "is_correct": true
+                },
+                {
+                  "label": "B",
+                  "id": 176042,
+                  "text": "Chameleon",
+                  "is_correct": false
+                },
+                {
+                  "label": "C",
+                  "id": 176043,
+                  "text": "Glass snake",
+                  "is_correct": false
+                },
+                {
+                  "label": "D",
+                  "id": 176044,
+                  "text": "Horn toad",
+                  "is_correct": false
+                }
+              ],
+              "correct_option_ids": [
+                176041
+              ],
+              "correct_option_labels": [
+                "A"
+              ],
+              "correct_option_texts": [
+                "Heloderma"
+              ],
+              "explanation": "Heloderma is the most poisonous, which is a verminous lizard native to the southwestern united states and Mexico."
+            }
+          ]
+        }
+      ]
+    }
+  ]
+}

@@ -1,0 +1,3162 @@
+{
+  "id": 1352,
+  "name": "Thermodynamics",
+  "full_name": "CBSE > Class 11 > Physics > Thermodynamics",
+  "tests": [
+    {
+      "testPaperID": 582,
+      "testPaperName": "Thermodynamics Test 01",
+      "is_paid": false,
+      "category_full_name": "CBSE > Class 11 > Physics > Thermodynamics",
+      "noOfQuestions": 15,
+      "has_answers": true,
+      "sections": [
+        {
+          "sectionName": "General",
+          "sectionID": null,
+          "questions": [
+            {
+              "questionID": 18021,
+              "question": "The picture of heat as a fluid was discarded in favor of the modern concept of heat as a form of energy because",
+              "question_raw": "<p>The picture of heat as a fluid was discarded in favor of the modern concept of heat as a form of energy because</p>",
+              "options": [
+                {
+                  "label": "A",
+                  "id": 27284,
+                  "text": "Count Rumford observed that boring of brass cannon generated a lot of heat",
+                  "is_correct": true
+                },
+                {
+                  "label": "B",
+                  "id": 27286,
+                  "text": "Count Rumford observed that boring of brass cannon generated a lot of smoke",
+                  "is_correct": false
+                },
+                {
+                  "label": "C",
+                  "id": 27287,
+                  "text": "Count Rumford observed that boring of brass cannon generated a lot of noise",
+                  "is_correct": false
+                },
+                {
+                  "label": "D",
+                  "id": 27285,
+                  "text": "Count Rumford observed that boring of brass cannon generated a lot of dust",
+                  "is_correct": false
+                }
+              ],
+              "correct_option_ids": [
+                27284
+              ],
+              "correct_option_labels": [
+                "A"
+              ],
+              "correct_option_texts": [
+                "Count Rumford observed that boring of brass cannon generated a lot of heat"
+              ],
+              "explanation": "If heat were actually a substance, as many scientists of the time believed, it was difficult to see how so much of it could be produced during the boring of a metal cannon. Rumford showed that the amount of heat was not related to the quantity of filings produced"
+            },
+            {
+              "questionID": 18022,
+              "question": "Thermodynamics is the branch of physics that deals with:",
+              "question_raw": "<p>Thermodynamics is the branch of physics that deals with:</p>",
+              "options": [
+                {
+                  "label": "A",
+                  "id": 27289,
+                  "text": "the concepts of kinetic energy and temperature and the inter-conversion of mechanical and other forms of energy",
+                  "is_correct": false
+                },
+                {
+                  "label": "B",
+                  "id": 27288,
+                  "text": "the concepts of heat and temperature and the inter-conversion of heat and other forms of energy",
+                  "is_correct": true
+                },
+                {
+                  "label": "C",
+                  "id": 27291,
+                  "text": "the concepts of heat and noise and the inter-conversion of noise and other forms of energy",
+                  "is_correct": false
+                },
+                {
+                  "label": "D",
+                  "id": 27290,
+                  "text": "the concepts of heat and dust and the inter-conversion of heat and other forms of matter",
+                  "is_correct": false
+                }
+              ],
+              "correct_option_ids": [
+                27288
+              ],
+              "correct_option_labels": [
+                "B"
+              ],
+              "correct_option_texts": [
+                "the concepts of heat and temperature and the inter-conversion of heat and other forms of energy"
+              ],
+              "explanation": "Thermodynamics is a branch of physics concerned with heat and temperature and their relation to energy and work. It deals with the relations between heat and other forms of energy (such as mechanical, electrical, or chemical energy), and, by extension, of the relationships between all forms of energy."
+            },
+            {
+              "questionID": 18023,
+              "question": "The thermodynamic state of a system is an equilibrium state:",
+              "question_raw": "<p>The thermodynamic state of a system is an equilibrium state:</p>",
+              "options": [
+                {
+                  "label": "A",
+                  "id": 27292,
+                  "text": "if the macroscopic variables that characterize the system do not change in time",
+                  "is_correct": true
+                },
+                {
+                  "label": "B",
+                  "id": 27295,
+                  "text": "if the macroscopic variables that characterize the system change randomly",
+                  "is_correct": false
+                },
+                {
+                  "label": "C",
+                  "id": 27293,
+                  "text": "if the macroscopic variables that characterize the system change linearly in time",
+                  "is_correct": false
+                },
+                {
+                  "label": "D",
+                  "id": 27294,
+                  "text": "if the macroscopic variables that characterize the system change decrease in time",
+                  "is_correct": false
+                }
+              ],
+              "correct_option_ids": [
+                27292
+              ],
+              "correct_option_labels": [
+                "A"
+              ],
+              "correct_option_texts": [
+                "if the macroscopic variables that characterize the system do not change in time"
+              ],
+              "explanation": "In thermodynamic equilibrium, there are no net macroscopic flows of matter or of energy, either within a system or between systems."
+            },
+            {
+              "questionID": 18024,
+              "question": "Adiabatic wall is:",
+              "question_raw": "<p>Adiabatic wall is:</p>",
+              "options": [
+                {
+                  "label": "A",
+                  "id": 27296,
+                  "text": "a thermally insulating wall that does not allow flow of heat from one body to another",
+                  "is_correct": true
+                },
+                {
+                  "label": "B",
+                  "id": 27299,
+                  "text": "a thermally conducting wall that does not allow flow of heat from one body to many",
+                  "is_correct": false
+                },
+                {
+                  "label": "C",
+                  "id": 27297,
+                  "text": "a thermally conducting wall that does not allow the flow of heat from one body to another",
+                  "is_correct": false
+                },
+                {
+                  "label": "D",
+                  "id": 27298,
+                  "text": "a thermally insulating wall that allows the flow of heat from one body to another",
+                  "is_correct": false
+                }
+              ],
+              "correct_option_ids": [
+                27296
+              ],
+              "correct_option_labels": [
+                "A"
+              ],
+              "correct_option_texts": [
+                "a thermally insulating wall that does not allow flow of heat from one body to another"
+              ],
+              "explanation": "In thermodynamics, an adiabatic wall between two thermodynamic systems does not allow heat or matter to pass across it. In theoretical investigations, it is sometimes assumed that one of the two systems is the surroundings of the other."
+            },
+            {
+              "questionID": 18025,
+              "question": "The diathermic wall is:",
+              "question_raw": "<p>The diathermic wall is:</p>",
+              "options": [
+                {
+                  "label": "A",
+                  "id": 27300,
+                  "text": "a thermally conducting wall that allows flow of heat from one body to another",
+                  "is_correct": true
+                },
+                {
+                  "label": "B",
+                  "id": 27302,
+                  "text": "a thermally conducting wall that does not allow flow of heat from one body to another",
+                  "is_correct": false
+                },
+                {
+                  "label": "C",
+                  "id": 27303,
+                  "text": "a thermally insulating wall that does not allow flow of heat from one body to another",
+                  "is_correct": false
+                },
+                {
+                  "label": "D",
+                  "id": 27301,
+                  "text": "a thermally insulating wall that allows flow of heat from one body to another",
+                  "is_correct": false
+                }
+              ],
+              "correct_option_ids": [
+                27300
+              ],
+              "correct_option_labels": [
+                "A"
+              ],
+              "correct_option_texts": [
+                "a thermally conducting wall that allows flow of heat from one body to another"
+              ],
+              "explanation": "A wall which prevents thermal interaction is known as adiabatic wall and a system enclosed within an adiabatic wall is called thermally isolated. If exchange of heat takes place between the system and surroundings through the boundary wall, the boundary is called diathermic wall."
+            },
+            {
+              "questionID": 18026,
+              "question": "Zeroth Law of Thermodynamics",
+              "question_raw": "<p>Zeroth Law of Thermodynamics</p>",
+              "options": [
+                {
+                  "label": "A",
+                  "id": 27307,
+                  "text": "states that two systems in thermal equilibrium with a third system simultaneously are never in thermal equilibrium with each other",
+                  "is_correct": false
+                },
+                {
+                  "label": "B",
+                  "id": 27306,
+                  "text": "states that two systems in thermal equilibrium with a third system separately cannot be in thermal equilibrium with each other",
+                  "is_correct": false
+                },
+                {
+                  "label": "C",
+                  "id": 27305,
+                  "text": "states that a system in thermal equilibrium with a third system separately is in thermal equilibrium with any other",
+                  "is_correct": false
+                },
+                {
+                  "label": "D",
+                  "id": 27304,
+                  "text": "states that two systems in thermal equilibrium with a third system separately are in thermal equilibrium with each other",
+                  "is_correct": true
+                }
+              ],
+              "correct_option_ids": [
+                27304
+              ],
+              "correct_option_labels": [
+                "D"
+              ],
+              "correct_option_texts": [
+                "states that two systems in thermal equilibrium with a third system separately are in thermal equilibrium with each other"
+              ],
+              "explanation": "The zeroth law of thermodynamics states that if twothermodynamic systems are each in thermal equilibrium with a third, then they are in thermal equilibrium with each other.\nMore simply:\nif $\\eqalign{ & {{\\rm{T}}_{\\rm{A}}}{\\rm{ = }}{{\\rm{T}}_{\\rm{B}}} \\cr & {{\\rm{T}}_{\\rm{A}}}{\\rm{ = }}{{\\rm{T}}_{\\rm{C}}} \\cr & {\\rm{Then}} \\cr & {{\\rm{T}}_{\\rm{B}}}{\\rm{ = }}{{\\rm{T}}_{\\rm{C}}} \\cr} $\nIt is called the zeroth (0^th) law of thermodynamics because it was discovered after the others, but people thought it was more important so they wanted to give it a number before the other laws."
+            },
+            {
+              "questionID": 18027,
+              "question": "Internal energy of a system:",
+              "question_raw": "<p>Internal energy of a system:</p>",
+              "options": [
+                {
+                  "label": "A",
+                  "id": 27309,
+                  "text": "is the difference of the kinetic energies and potential energies of the molecules of the system",
+                  "is_correct": false
+                },
+                {
+                  "label": "B",
+                  "id": 27310,
+                  "text": "is the change in the sum of the kinetic energies and potential energies of the molecules of the system",
+                  "is_correct": false
+                },
+                {
+                  "label": "C",
+                  "id": 27308,
+                  "text": "is the sum of the kinetic energies and potential energies of the molecules of the system",
+                  "is_correct": true
+                },
+                {
+                  "label": "D",
+                  "id": 27311,
+                  "text": "is the change in the difference of the kinetic energies and potential energies of the molecules of the system",
+                  "is_correct": false
+                }
+              ],
+              "correct_option_ids": [
+                27308
+              ],
+              "correct_option_labels": [
+                "C"
+              ],
+              "correct_option_texts": [
+                "is the sum of the kinetic energies and potential energies of the molecules of the system"
+              ],
+              "explanation": "In thermodynamics, the internal energy of a system is the energy contained within the system. It is the energy in a system arising from the relative positions and interactions of its parts."
+            },
+            {
+              "questionID": 18028,
+              "question": "Internal energy of a system is:",
+              "question_raw": "<p>Internal energy of a system is:</p>",
+              "options": [
+                {
+                  "label": "A",
+                  "id": 27312,
+                  "text": "a state variable",
+                  "is_correct": true
+                },
+                {
+                  "label": "B",
+                  "id": 27315,
+                  "text": "a complex variable",
+                  "is_correct": false
+                },
+                {
+                  "label": "C",
+                  "id": 27314,
+                  "text": "a discrete variable",
+                  "is_correct": false
+                },
+                {
+                  "label": "D",
+                  "id": 27313,
+                  "text": "a random variable",
+                  "is_correct": false
+                }
+              ],
+              "correct_option_ids": [
+                27312
+              ],
+              "correct_option_labels": [
+                "A"
+              ],
+              "correct_option_texts": [
+                "a state variable"
+              ],
+              "explanation": "A state function describes the equilibrium state of a system. For example, internal energy, enthalpy, and entropy are state quantities because they describe quantitatively an equilibrium state of a thermodynamic system, irrespective of how the system arrived in that state."
+            },
+            {
+              "questionID": 18029,
+              "question": "First Law of Thermodynamics is based on the law of:",
+              "question_raw": "<p>First Law of Thermodynamics is based on the&nbsp; law of:</p>",
+              "options": [
+                {
+                  "label": "A",
+                  "id": 27317,
+                  "text": "conservation of mass",
+                  "is_correct": false
+                },
+                {
+                  "label": "B",
+                  "id": 27316,
+                  "text": "conservation of energy",
+                  "is_correct": true
+                },
+                {
+                  "label": "C",
+                  "id": 27319,
+                  "text": "conservation of angular momentum",
+                  "is_correct": false
+                },
+                {
+                  "label": "D",
+                  "id": 27318,
+                  "text": "conservation of momentum",
+                  "is_correct": false
+                }
+              ],
+              "correct_option_ids": [
+                27316
+              ],
+              "correct_option_labels": [
+                "B"
+              ],
+              "correct_option_texts": [
+                "conservation of energy"
+              ],
+              "explanation": "The first law of thermodynamics is the application of the conservation of energy principle to heat and thermodynamic processes\n$\\Delta$Q = $\\Delta$U + $\\Delta$W"
+            },
+            {
+              "questionID": 18030,
+              "question": "If $\\Delta $Q is the energy supplied to the system $\\Delta $U the change in internal energy, and $\\Delta $W the work done on the environment, First Law of Thermodynamics states that:",
+              "question_raw": "<p>If <span class=\"math-tex\">{tex}\\Delta {/tex}</span>Q is the energy supplied to the system <span class=\"math-tex\">{tex}\\Delta {/tex}</span>U the change in internal energy, and <span class=\"math-tex\">{tex}\\Delta {/tex}</span>W the work done on the environment, First Law of Thermodynamics states that:</p>",
+              "options": [
+                {
+                  "label": "A",
+                  "id": 27322,
+                  "text": "$\\Delta $Q = $\\Delta $U - $\\Delta $W",
+                  "is_correct": false
+                },
+                {
+                  "label": "B",
+                  "id": 27320,
+                  "text": "$\\Delta $Q = $\\Delta $U + $\\Delta $W",
+                  "is_correct": true
+                },
+                {
+                  "label": "C",
+                  "id": 27321,
+                  "text": "$\\Delta $U + $\\Delta $W = 0",
+                  "is_correct": false
+                },
+                {
+                  "label": "D",
+                  "id": 27323,
+                  "text": "$\\Delta $Q = $\\Delta $U $ \\times $ $\\Delta $W",
+                  "is_correct": false
+                }
+              ],
+              "correct_option_ids": [
+                27320
+              ],
+              "correct_option_labels": [
+                "B"
+              ],
+              "correct_option_texts": [
+                "$\\Delta $Q = $\\Delta $U + $\\Delta $W"
+              ],
+              "explanation": "Heat given to a system is equal to the sum of an increase in its internal energy and the work done by the system against the surroundings."
+            },
+            {
+              "questionID": 18031,
+              "question": "For solids near room temperature the molar specific heat (R is the universal gas constant):",
+              "question_raw": "<p>For solids near room temperature the molar specific heat (R is the universal gas constant):</p>",
+              "options": [
+                {
+                  "label": "A",
+                  "id": 27324,
+                  "text": "3R",
+                  "is_correct": true
+                },
+                {
+                  "label": "B",
+                  "id": 27325,
+                  "text": "R",
+                  "is_correct": false
+                },
+                {
+                  "label": "C",
+                  "id": 27326,
+                  "text": "2R",
+                  "is_correct": false
+                },
+                {
+                  "label": "D",
+                  "id": 27327,
+                  "text": "5R",
+                  "is_correct": false
+                }
+              ],
+              "correct_option_ids": [
+                27324
+              ],
+              "correct_option_labels": [
+                "A"
+              ],
+              "correct_option_texts": [
+                "3R"
+              ],
+              "explanation": "The molar specific heats of solids also demonstrate a marked temperature dependence. Solids have molar specific heats that generally decrease in a nonlinear manner with decreasing temperature and approach zero as the temperature approaches absolute zero. At high temperatures (usually above 300 K), the molar specific heats approach the value of 3R ≈ 25 J/mol.K, a result known as the DuLong–Petit law."
+            },
+            {
+              "questionID": 18032,
+              "question": "If C_p and C_v are molar specific heat capacities of an ideal gas at constant pressure and volume respectively and R is the universal gas constant, the relation between the three is:",
+              "question_raw": "<p>If C<sub>p</sub> and C<sub>v</sub> are molar specific heat capacities of an ideal gas at constant pressure and volume respectively and R is the universal gas constant, the relation between the three is:</p>",
+              "options": [
+                {
+                  "label": "A",
+                  "id": 27329,
+                  "text": "C_p + C_v = R",
+                  "is_correct": false
+                },
+                {
+                  "label": "B",
+                  "id": 27331,
+                  "text": "C_p + C_v = 2R",
+                  "is_correct": false
+                },
+                {
+                  "label": "C",
+                  "id": 27328,
+                  "text": "C_p - C_v = R",
+                  "is_correct": true
+                },
+                {
+                  "label": "D",
+                  "id": 27330,
+                  "text": "C_p - C_v = 2R",
+                  "is_correct": false
+                }
+              ],
+              "correct_option_ids": [
+                27328
+              ],
+              "correct_option_labels": [
+                "C"
+              ],
+              "correct_option_texts": [
+                "C_p - C_v = R"
+              ],
+              "explanation": "This is Meyer's Equation\nAt constant volume as there is no work done on the gas(ΔV = 0) all the heat supplied goes for the increase of internal energy. Hence the temperature of the body increases with less supply of heat. Whereas at constant pressure heat supplied accounts for both internal energy and work done on the gas.\nif we increase temp. of 1 mole of gas by 1K or 1C then\nPΔV = nR$\\Delta$T\nn = 1mole\n$\\Delta$T = 1^oC\nP$\\Delta$V = R\nW = P$\\Delta$V\nC_P > C_V\nC_P−C_V = W\nC_P−C_V = R\nThis is also called Meyer's formula."
+            },
+            {
+              "questionID": 18033,
+              "question": "In Thermodynamics Extensive variables depend:",
+              "question_raw": "<p>In Thermodynamics Extensive variables depend:</p>",
+              "options": [
+                {
+                  "label": "A",
+                  "id": 27335,
+                  "text": "on the ‘entropy’ of the system",
+                  "is_correct": false
+                },
+                {
+                  "label": "B",
+                  "id": 27333,
+                  "text": "on the ‘pressure’ of the system",
+                  "is_correct": false
+                },
+                {
+                  "label": "C",
+                  "id": 27332,
+                  "text": "on the ‘size’ of the system",
+                  "is_correct": true
+                },
+                {
+                  "label": "D",
+                  "id": 27334,
+                  "text": "on the ‘temperature’ of the system",
+                  "is_correct": false
+                }
+              ],
+              "correct_option_ids": [
+                27332
+              ],
+              "correct_option_labels": [
+                "C"
+              ],
+              "correct_option_texts": [
+                "on the ‘size’ of the system"
+              ],
+              "explanation": "The variables which depend on the size or amount of the substance are called extensive variables.\nExample: Mass, volume etc."
+            },
+            {
+              "questionID": 18034,
+              "question": "In the case of the isobaric process, the volume of an ideal gas changes the work done by the gas is given by:",
+              "question_raw": "<p>In the case of the isobaric process, the&nbsp;volume of an ideal gas changes the work done by the gas is given by:</p>",
+              "options": [
+                {
+                  "label": "A",
+                  "id": 27338,
+                  "text": "P - $\\Delta $V",
+                  "is_correct": false
+                },
+                {
+                  "label": "B",
+                  "id": 27339,
+                  "text": "$\\frac{P}{\\Delta V}$",
+                  "is_correct": false
+                },
+                {
+                  "label": "C",
+                  "id": 27336,
+                  "text": "P $\\Delta $V",
+                  "is_correct": true
+                },
+                {
+                  "label": "D",
+                  "id": 27337,
+                  "text": "P + $\\Delta $V",
+                  "is_correct": false
+                }
+              ],
+              "correct_option_ids": [
+                27336
+              ],
+              "correct_option_labels": [
+                "C"
+              ],
+              "correct_option_texts": [
+                "P $\\Delta $V"
+              ],
+              "explanation": "dW = F.dy = PA.dy = P.dV\n$ W = \\int\\limits_{{V_1}}^{{V_2}} {P.dV} $ \nW = P(V_2 − V_1) = P$\\Delta$V"
+            },
+            {
+              "questionID": 18035,
+              "question": "In a quasi-static process,",
+              "question_raw": "<p>In a quasi-static process,</p>",
+              "options": [
+                {
+                  "label": "A",
+                  "id": 27341,
+                  "text": "the temperature of the surrounding reservoir and the external pressure differ substantially from the temperature and pressure of the system",
+                  "is_correct": false
+                },
+                {
+                  "label": "B",
+                  "id": 27342,
+                  "text": "the temperature of the surrounding reservoir and the external pressure equal the temperature and pressure of the system",
+                  "is_correct": false
+                },
+                {
+                  "label": "C",
+                  "id": 27343,
+                  "text": "the temperature of the surrounding reservoir differ only infinitesimally from the temperature of the system",
+                  "is_correct": false
+                },
+                {
+                  "label": "D",
+                  "id": 27340,
+                  "text": "the temperature of the surrounding reservoir and the external pressure differ only infinitesimally from the temperature and pressure of the system",
+                  "is_correct": true
+                }
+              ],
+              "correct_option_ids": [
+                27340
+              ],
+              "correct_option_labels": [
+                "D"
+              ],
+              "correct_option_texts": [
+                "the temperature of the surrounding reservoir and the external pressure differ only infinitesimally from the temperature and pressure of the system"
+              ],
+              "explanation": "A quasi-static process is a thermodynamic process that happens slowly enough for the system to remain in internal equilibrium."
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "testPaperID": 583,
+      "testPaperName": "Thermodynamics Test 02",
+      "is_paid": true,
+      "category_full_name": "CBSE > Class 11 > Physics > Thermodynamics",
+      "noOfQuestions": 15,
+      "has_answers": true,
+      "sections": [
+        {
+          "sectionName": "General",
+          "sectionID": null,
+          "questions": [
+            {
+              "questionID": 18036,
+              "question": "In which type of process is the volume constant:",
+              "question_raw": "<p>In which type of process is the volume constant:</p>",
+              "options": [
+                {
+                  "label": "A",
+                  "id": 27344,
+                  "text": "Isochoric process",
+                  "is_correct": true
+                },
+                {
+                  "label": "B",
+                  "id": 27345,
+                  "text": "Isothermal process",
+                  "is_correct": false
+                },
+                {
+                  "label": "C",
+                  "id": 27347,
+                  "text": "Isobaric process",
+                  "is_correct": false
+                },
+                {
+                  "label": "D",
+                  "id": 27346,
+                  "text": "Adiabatic process",
+                  "is_correct": false
+                }
+              ],
+              "correct_option_ids": [
+                27344
+              ],
+              "correct_option_labels": [
+                "A"
+              ],
+              "correct_option_texts": [
+                "Isochoric process"
+              ],
+              "explanation": "An isochoric process is a thermodynamic process during which the volume of the closed system undergoing such a process remains constant."
+            },
+            {
+              "questionID": 18037,
+              "question": "The heat engine takes",
+              "question_raw": "<p>The heat engine takes</p>",
+              "options": [
+                {
+                  "label": "A",
+                  "id": 27349,
+                  "text": "heat ${{\\rm{Q}}_{\\rm{1}}}$ from a cold reservoir at temperature ${{\\rm{T}}_{\\rm{1}}}$, releases heat ${{\\rm{Q}}_{\\rm{2}}}$ to a cold reservoir at temperature ${{\\rm{T}}_{\\rm{2}}}$ and delivers work W to the surroundings",
+                  "is_correct": false
+                },
+                {
+                  "label": "B",
+                  "id": 27348,
+                  "text": "heat ${{\\rm{Q}}_{\\rm{1}}}$ from a hot reservoir at temperature ${{\\rm{T}}_{\\rm{1}}}$ , releases heat ${{\\rm{Q}}_{\\rm{2}}}$ to a cold reservoir at temperature ${{\\rm{T}}_{\\rm{2}}}$ and delivers work W to the surroundings",
+                  "is_correct": true
+                },
+                {
+                  "label": "C",
+                  "id": 27350,
+                  "text": "heat ${{\\rm{Q}}_{\\rm{1}}}$ from a hot reservoir at temperature ${{\\rm{T}}_{\\rm{1}}}$, releases heat ${{\\rm{Q}}_{\\rm{2}}}$ to a hot reservoir at temperature ${{\\rm{T}}_{\\rm{2}}}$ and delivers work W to the surroundings",
+                  "is_correct": false
+                },
+                {
+                  "label": "D",
+                  "id": 27351,
+                  "text": "heat ${{\\rm{Q}}_{\\rm{1}}}$ from a cold reservoir at temperature ${{\\rm{T}}_{\\rm{1}}}$, releases heat ${{\\rm{Q}}_{\\rm{2}}}$ to a hot reservoir at temperature ${{\\rm{T}}_{\\rm{2}}}$ and delivers work W to the surroundings",
+                  "is_correct": false
+                }
+              ],
+              "correct_option_ids": [
+                27348
+              ],
+              "correct_option_labels": [
+                "B"
+              ],
+              "correct_option_texts": [
+                "heat ${{\\rm{Q}}_{\\rm{1}}}$ from a hot reservoir at temperature ${{\\rm{T}}_{\\rm{1}}}$ , releases heat ${{\\rm{Q}}_{\\rm{2}}}$ to a cold reservoir at temperature ${{\\rm{T}}_{\\rm{2}}}$ and delivers work W to the surroundings"
+              ],
+              "explanation": "a heat engine converts heat energy to mechanical work by using the temperature difference between a hot \"source\" and a cold \"sink\". Heat is transferred from the source, through the \"working body\" of the engine, to the \"sink\", and in this process some of the heat changes into work by using the qualities of the gas or liquid inside the engine."
+            },
+            {
+              "questionID": 18038,
+              "question": "The efficiency $(\\eta)$ of a heat engine is defined by (W is the output and ${{\\rm{Q}}_{\\rm{1}}}$ the heat input):",
+              "question_raw": "<p>The efficiency <span class=\"math-tex\">{tex}(\\eta){/tex}</span>&nbsp;of a heat engine is defined by (W is the output and <span class=\"math-tex\">{tex}{{\\rm{Q}}_{\\rm{1}}}{/tex}</span> the heat input):</p>",
+              "options": [
+                {
+                  "label": "A",
+                  "id": 27352,
+                  "text": "$\\eta $ = $\\frac{W}{{Q_1}}$",
+                  "is_correct": true
+                },
+                {
+                  "label": "B",
+                  "id": 27355,
+                  "text": "$\\eta $ = $\\frac{W}{2{Q_1}}$",
+                  "is_correct": false
+                },
+                {
+                  "label": "C",
+                  "id": 27354,
+                  "text": "$\\eta $ = $\\frac{2W} {{Q_1}}$",
+                  "is_correct": false
+                },
+                {
+                  "label": "D",
+                  "id": 27353,
+                  "text": "$\\eta $ = $\\frac{{Q_1}}{W}$",
+                  "is_correct": false
+                }
+              ],
+              "correct_option_ids": [
+                27352
+              ],
+              "correct_option_labels": [
+                "A"
+              ],
+              "correct_option_texts": [
+                "$\\eta $ = $\\frac{W}{{Q_1}}$"
+              ],
+              "explanation": "$\\eta=\\frac{\\text { WorkDone }}{\\text { HeatInput }}=\\frac{W}{Q_1}=\\frac{Q_1-Q_2}{Q_1}$"
+            },
+            {
+              "questionID": 18039,
+              "question": "A refrigerator's working substance",
+              "question_raw": "<p>A refrigerator&#39;s working substance</p>",
+              "options": [
+                {
+                  "label": "A",
+                  "id": 27358,
+                  "text": "extracts heat ${{\\rm{Q}}_{\\rm{2}}}$ from the hot reservoir at temperature ${{\\rm{T}}_{\\rm{2}}}$, some external work W is done by it and heat ${{\\rm{Q}}_{\\rm{1}}}$ is released to the cold reservoir at temperature ${{\\rm{T}}_{\\rm{1}}}$",
+                  "is_correct": false
+                },
+                {
+                  "label": "B",
+                  "id": 27359,
+                  "text": "extracts heat ${{\\rm{Q}}_{\\rm{2}}}$ from the cold reservoir at temperature ${{\\rm{T}}_{\\rm{2}}}$, some external work W is done on it and heat ${{\\rm{Q}}_{\\rm{1}}}$ is released to the hot reservoir at temperature ${{\\rm{T}}_{\\rm{2}}}$",
+                  "is_correct": false
+                },
+                {
+                  "label": "C",
+                  "id": 27356,
+                  "text": "extracts heat ${{\\rm{Q}}_{\\rm{2}}}$ from the cold reservoir at temperature ${{\\rm{T}}_{\\rm{2}}}$, some external work W is done on it and heat ${{\\rm{Q}}_{\\rm{1}}}$ is released to the hot reservoir at temperature ${{\\rm{T}}_{\\rm{1}}}$",
+                  "is_correct": true
+                },
+                {
+                  "label": "D",
+                  "id": 27357,
+                  "text": "extracts heat ${{\\rm{Q}}_{\\rm{2}}}$ from the hot reservoir at temperature ${{\\rm{T}}_{\\rm{2}}}$, some external work W is done on it and heat ${{\\rm{Q}}_{\\rm{1}}}$ is released to the hot reservoir at temperature ${{\\rm{T}}_{\\rm{1}}}$",
+                  "is_correct": false
+                }
+              ],
+              "correct_option_ids": [
+                27356
+              ],
+              "correct_option_labels": [
+                "C"
+              ],
+              "correct_option_texts": [
+                "extracts heat ${{\\rm{Q}}_{\\rm{2}}}$ from the cold reservoir at temperature ${{\\rm{T}}_{\\rm{2}}}$, some external work W is done on it and heat ${{\\rm{Q}}_{\\rm{1}}}$ is released to the hot reservoir at temperature ${{\\rm{T}}_{\\rm{1}}}$"
+              ],
+              "explanation": "According to the second law of thermodynamics heat cannot spontaneously flow from a colder location to a hotter area; work is required to achieve this."
+            },
+            {
+              "questionID": 18040,
+              "question": "The coefficient of performance K of a refrigerator is given by:",
+              "question_raw": "<p>The coefficient of performance K of a refrigerator is given by:</p>",
+              "options": [
+                {
+                  "label": "A",
+                  "id": 27361,
+                  "text": "K = $\\frac{W}{{Q_2}}$",
+                  "is_correct": false
+                },
+                {
+                  "label": "B",
+                  "id": 27362,
+                  "text": "K = $W + {Q_2}$",
+                  "is_correct": false
+                },
+                {
+                  "label": "C",
+                  "id": 27360,
+                  "text": "K = $\\frac{Q_2}{W}$",
+                  "is_correct": true
+                },
+                {
+                  "label": "D",
+                  "id": 27363,
+                  "text": "K = $W*{Q_2}$",
+                  "is_correct": false
+                }
+              ],
+              "correct_option_ids": [
+                27360
+              ],
+              "correct_option_labels": [
+                "C"
+              ],
+              "correct_option_texts": [
+                "K = $\\frac{Q_2}{W}$"
+              ],
+              "explanation": "The performance of refrigerator is expressed by means of cofficient of performance\ncofficient of performance = Heat extracted / work done = $\\frac{Q_2}{W}$"
+            },
+            {
+              "questionID": 18041,
+              "question": "Kelvin-Planck statement of Second Law of Thermodynamics states that",
+              "question_raw": "<p>Kelvin-Planck statement of Second Law of Thermodynamics states that</p>",
+              "options": [
+                {
+                  "label": "A",
+                  "id": 27367,
+                  "text": "Processes are not possible whose sole result is the absorption of heat from a reservoir and the partial conversion of the heat into work.",
+                  "is_correct": false
+                },
+                {
+                  "label": "B",
+                  "id": 27365,
+                  "text": "No process is possible whose sole result is the absorption of heat from a reservoir and the partial conversion of the heat into work.",
+                  "is_correct": false
+                },
+                {
+                  "label": "C",
+                  "id": 27366,
+                  "text": "Processes are possible whose sole result is the absorption of heat from a reservoir and the complete conversion of the heat into work.",
+                  "is_correct": false
+                },
+                {
+                  "label": "D",
+                  "id": 27364,
+                  "text": "No process is possible whose sole result is the absorption of heat from a reservoir and the complete conversion of the heat into work.",
+                  "is_correct": true
+                }
+              ],
+              "correct_option_ids": [
+                27364
+              ],
+              "correct_option_labels": [
+                "D"
+              ],
+              "correct_option_texts": [
+                "No process is possible whose sole result is the absorption of heat from a reservoir and the complete conversion of the heat into work."
+              ],
+              "explanation": "It is impossible to devise a cyclically operating device, the sole effect of which is to absorb energy in the form of heat from a single thermal reservoir and to deliver an equivalent amount of work. This implies that it is impossible to build a heat engine that has 100% thermal efficiency."
+            },
+            {
+              "questionID": 18042,
+              "question": "Clausius statement of Second Law of Thermodynamics states that:",
+              "question_raw": "<p>Clausius statement of Second Law of Thermodynamics states that:</p>",
+              "options": [
+                {
+                  "label": "A",
+                  "id": 27369,
+                  "text": "Many processes are possible whose sole result is the transfer of heat from a colder object to a hotter object",
+                  "is_correct": false
+                },
+                {
+                  "label": "B",
+                  "id": 27371,
+                  "text": "No process is possible whose sole result is the transfer of work from a hotter object to a hotter object",
+                  "is_correct": false
+                },
+                {
+                  "label": "C",
+                  "id": 27368,
+                  "text": "No process is possible whose sole result is the transfer of heat from a colder object to a hotter object",
+                  "is_correct": true
+                },
+                {
+                  "label": "D",
+                  "id": 27370,
+                  "text": "No process is possible whose sole result is the transfer of heat from a hotter object to a colder object",
+                  "is_correct": false
+                }
+              ],
+              "correct_option_ids": [
+                27368
+              ],
+              "correct_option_labels": [
+                "C"
+              ],
+              "correct_option_texts": [
+                "No process is possible whose sole result is the transfer of heat from a colder object to a hotter object"
+              ],
+              "explanation": "It is impossible for a self-acting machine unaided by any external agency to transfer heat from a cold to a hot reservoir. In other words, heat by itself cannot pass from a colder to a hotter body."
+            },
+            {
+              "questionID": 18043,
+              "question": "The spontaneous processes of nature are:",
+              "question_raw": "<p>The spontaneous processes of nature are:</p>",
+              "options": [
+                {
+                  "label": "A",
+                  "id": 27373,
+                  "text": "reversible",
+                  "is_correct": false
+                },
+                {
+                  "label": "B",
+                  "id": 27372,
+                  "text": "irreversible",
+                  "is_correct": true
+                },
+                {
+                  "label": "C",
+                  "id": 27374,
+                  "text": "static",
+                  "is_correct": false
+                },
+                {
+                  "label": "D",
+                  "id": 27375,
+                  "text": "dynamic",
+                  "is_correct": false
+                }
+              ],
+              "correct_option_ids": [
+                27372
+              ],
+              "correct_option_labels": [
+                "B"
+              ],
+              "correct_option_texts": [
+                "irreversible"
+              ],
+              "explanation": "Spontaneous processes are irreversible because they can be reversed only by taking a different path to get back to their original state. A reversible process can take the same path to return to its original state."
+            },
+            {
+              "questionID": 18044,
+              "question": "A thermodynamic process (state i $ \\to $ state f) is reversible",
+              "question_raw": "<p>A thermodynamic process (state i <span class=\"math-tex\">{tex} \\to {/tex}</span> state f) is reversible</p>",
+              "options": [
+                {
+                  "label": "A",
+                  "id": 27376,
+                  "text": "if the process can be turned back such that both the system and the surroundings return to their original states, with no other change anywhere else in the universe.",
+                  "is_correct": true
+                },
+                {
+                  "label": "B",
+                  "id": 27379,
+                  "text": "if the process can be turned back such that both the system and the surroundings return to different states, with lots of change in the universe.",
+                  "is_correct": false
+                },
+                {
+                  "label": "C",
+                  "id": 27377,
+                  "text": "if the process can be turned back such that both the system and the surroundings return to their different states, with no other change anywhere else in the universe.",
+                  "is_correct": false
+                },
+                {
+                  "label": "D",
+                  "id": 27378,
+                  "text": "if the process can be turned back such that both the system and the surroundings return to their original states, with lots of change in the universe.",
+                  "is_correct": false
+                }
+              ],
+              "correct_option_ids": [
+                27376
+              ],
+              "correct_option_labels": [
+                "A"
+              ],
+              "correct_option_texts": [
+                "if the process can be turned back such that both the system and the surroundings return to their original states, with no other change anywhere else in the universe."
+              ],
+              "explanation": "Irreversible process is one which can be reversed in such a way that all changes taking place in the direct process are exactly replaced in the inverse order and opposite sense and no changes are left behind."
+            },
+            {
+              "questionID": 18045,
+              "question": "The Carnot cycle consists of:",
+              "question_raw": "<p>The Carnot cycle consists of:</p>",
+              "options": [
+                {
+                  "label": "A",
+                  "id": 27383,
+                  "text": "Two isobaric processes connected by two adiabatic processes",
+                  "is_correct": false
+                },
+                {
+                  "label": "B",
+                  "id": 27380,
+                  "text": "Two isothermal processes connected by two adiabatic processes",
+                  "is_correct": true
+                },
+                {
+                  "label": "C",
+                  "id": 27381,
+                  "text": "Two isochoric processes connected by two adiabatic processes",
+                  "is_correct": false
+                },
+                {
+                  "label": "D",
+                  "id": 27382,
+                  "text": "Two isothermal processes connected by two isobaric processes",
+                  "is_correct": false
+                }
+              ],
+              "correct_option_ids": [
+                27380
+              ],
+              "correct_option_labels": [
+                "B"
+              ],
+              "correct_option_texts": [
+                "Two isothermal processes connected by two adiabatic processes"
+              ],
+              "explanation": "The Carnot cycle consists of the following four processes:\n A reversible isothermal gas expansion process\n A reversible adiabatic gas expansion process\n A reversible isothermal gas compression process\n A reversible adiabatic gas compression process"
+            },
+            {
+              "questionID": 18046,
+              "question": "An engine operating between two temperatures:",
+              "question_raw": "<p>An engine operating between two temperatures:</p>",
+              "options": [
+                {
+                  "label": "A",
+                  "id": 27387,
+                  "text": "can have a coefficient of performance greater than that of the Carnot engine",
+                  "is_correct": false
+                },
+                {
+                  "label": "B",
+                  "id": 27385,
+                  "text": "can have an efficiency greater than that of the Carnot engine",
+                  "is_correct": false
+                },
+                {
+                  "label": "C",
+                  "id": 27384,
+                  "text": "can not have an efficiency greater than that of the Carnot engine",
+                  "is_correct": true
+                },
+                {
+                  "label": "D",
+                  "id": 27386,
+                  "text": "efficiency does not depend on the temperature",
+                  "is_correct": false
+                }
+              ],
+              "correct_option_ids": [
+                27384
+              ],
+              "correct_option_labels": [
+                "C"
+              ],
+              "correct_option_texts": [
+                "can not have an efficiency greater than that of the Carnot engine"
+              ],
+              "explanation": "The efficiency of an engine is given by\n$\\eta = 1 - {{{T_L}} \\over {{T_H}}}$ \nT_L = is the temperature of the sink\nT_H = is the temperature of source\nmaximum efficiency of the engine depends only on temperature.\nso that any engine can not have an efficiency greater than that of the Carnot engine"
+            },
+            {
+              "questionID": 18047,
+              "question": "A geyser heats water flowing at the rate of 3.0 liters per minute from 27 ^oC to 77 ^oC. If the geyser operates on a gas burner, what is the rate of consumption of the fuel if its heat of combustion is 4.0 $ \\times $ 10^4 J/g?",
+              "question_raw": "<p>A geyser heats water flowing at the rate of 3.0 liters per minute from 27 <sup>o</sup>C to 77 <sup>o</sup>C. If the geyser operates on a gas burner, what is the rate of consumption of the fuel if its heat of combustion is 4.0 <span class=\"math-tex\">{tex} \\times {/tex}</span>&nbsp;10<sup>4</sup> J/g?</p>",
+              "options": [
+                {
+                  "label": "A",
+                  "id": 27391,
+                  "text": "12 g per min",
+                  "is_correct": false
+                },
+                {
+                  "label": "B",
+                  "id": 27390,
+                  "text": "18 g per min",
+                  "is_correct": false
+                },
+                {
+                  "label": "C",
+                  "id": 27388,
+                  "text": "16 g per min",
+                  "is_correct": true
+                },
+                {
+                  "label": "D",
+                  "id": 27389,
+                  "text": "14 g per min",
+                  "is_correct": false
+                }
+              ],
+              "correct_option_ids": [
+                27388
+              ],
+              "correct_option_labels": [
+                "C"
+              ],
+              "correct_option_texts": [
+                "16 g per min"
+              ],
+              "explanation": "Q = ms $\\Delta$T = 3000 $\\times$ 4.2 $\\times$ 50\nm = mass of water \ns = specific heat of the water\nthe heat of combustion is 4.0 $ \\times $ 10^4 J/g\nrate of consumption of the fuel = Q / Heat of combustion\n$ = {{3000 \\times 4.2 \\times 50} \\over {4 \\times {{10}^4}}} $ = 16gm/min"
+            },
+            {
+              "questionID": 18048,
+              "question": "What amount of heat must be supplied to 2.0 $ \\times $ ${\\rm{1}}{0^{-{\\rm{2}}}}$ kg of nitrogen (at room temperature) to raise its temperature by 45 ^oC at constant pressure? (Molecular mass of N_2 = 28; R = 8.3 J mol^−1 K^−1.)",
+              "question_raw": "<p>What amount of heat must be supplied to 2.0 <span class=\"math-tex\">{tex} \\times {/tex}</span> <span class=\"math-tex\">{tex}{\\rm{1}}{0^{-{\\rm{2}}}}{/tex}</span> kg of nitrogen (at room temperature) to raise its temperature by 45 <sup>o</sup>C at constant pressure? (Molecular mass of N<sub>2&nbsp;</sub>= 28; R = 8.3 J mol<sup>&minus;1</sup>&nbsp;K<sup>&minus;1</sup>.)</p>",
+              "options": [
+                {
+                  "label": "A",
+                  "id": 27395,
+                  "text": "974 J",
+                  "is_correct": false
+                },
+                {
+                  "label": "B",
+                  "id": 27394,
+                  "text": "954 J",
+                  "is_correct": false
+                },
+                {
+                  "label": "C",
+                  "id": 27393,
+                  "text": "904 J",
+                  "is_correct": false
+                },
+                {
+                  "label": "D",
+                  "id": 27392,
+                  "text": "934 J",
+                  "is_correct": true
+                }
+              ],
+              "correct_option_ids": [
+                27392
+              ],
+              "correct_option_labels": [
+                "D"
+              ],
+              "correct_option_texts": [
+                "934 J"
+              ],
+              "explanation": "$Q = n{C_v}\\Delta T = {{2 \\times {{10}^{ - 2}} \\times {{10}^{ 3}}} \\over {28}} \\times {7 \\over 2} \\times 8.3 \\times 45 $ = 934J\n$n=\\frac{\\text { wtingm }}{\\text { Molecularwt }}$\nC_v = $7 \\over 2$ R for Diatomic Gas"
+            },
+            {
+              "questionID": 18049,
+              "question": "A cylinder with a movable piston contains 3 moles of hydrogen at standard temperature and pressure. The walls of the cylinder are made of a heat insulator, and the piston is insulated by having a pile of sand on it. By what factor does the pressure of the gas increase if the gas is compressed to half its original volume?",
+              "question_raw": "<p>A cylinder with a movable piston contains 3 moles of hydrogen at standard temperature and pressure. The walls of the cylinder are made of a heat insulator, and the piston is insulated by having a pile of sand on it. By what factor does the pressure of the gas increase if the gas is compressed to half its original volume?</p>",
+              "options": [
+                {
+                  "label": "A",
+                  "id": 27397,
+                  "text": "2.84",
+                  "is_correct": false
+                },
+                {
+                  "label": "B",
+                  "id": 27399,
+                  "text": "2.44",
+                  "is_correct": false
+                },
+                {
+                  "label": "C",
+                  "id": 27396,
+                  "text": "2.64",
+                  "is_correct": true
+                },
+                {
+                  "label": "D",
+                  "id": 27398,
+                  "text": "3.04",
+                  "is_correct": false
+                }
+              ],
+              "correct_option_ids": [
+                27396
+              ],
+              "correct_option_labels": [
+                "C"
+              ],
+              "correct_option_texts": [
+                "2.64"
+              ],
+              "explanation": "$P V^{\\gamma}=\\text {Const}$\n$P V^{\\gamma}=P_{f}\\left(\\frac{V}{2}\\right)^{\\gamma}$\nFor H_2, $\\gamma$ = 1.4\nP_f = P_2^1.4 = 2.6"
+            },
+            {
+              "questionID": 18050,
+              "question": "In changing the state of a gas adiabatically from an equilibrium state A to another equilibrium state B, an amount of work equal to 22.3 J is done on the system. If the gas is taken from state A to B via a process in which the net heat absorbed by the system is 9.35 cal, how much is the net work done by the system in the latter case?",
+              "question_raw": "<p>In changing the state of a gas adiabatically from an equilibrium state A to another equilibrium state B, an amount of work equal to 22.3 J is done on the system. If the gas is taken from state A to B via a process in which the net heat absorbed by the system is 9.35 cal, how much is the net work done by the system in the latter case?</p>",
+              "options": [
+                {
+                  "label": "A",
+                  "id": 27403,
+                  "text": "17.9 J",
+                  "is_correct": false
+                },
+                {
+                  "label": "B",
+                  "id": 27402,
+                  "text": "17.6 J",
+                  "is_correct": false
+                },
+                {
+                  "label": "C",
+                  "id": 27400,
+                  "text": "16.8 J",
+                  "is_correct": true
+                },
+                {
+                  "label": "D",
+                  "id": 27401,
+                  "text": "17.2 J",
+                  "is_correct": false
+                }
+              ],
+              "correct_option_ids": [
+                27400
+              ],
+              "correct_option_labels": [
+                "C"
+              ],
+              "correct_option_texts": [
+                "16.8 J"
+              ],
+              "explanation": "$\\Delta Q = \\Delta U + W$ \nIn the adiabatic process $\\Delta Q = 0$\n$\\Delta U = - W$ \nGiven that W = -22.3J\n$\\Delta U $ = 22.3J\nin second process $\\Delta Q = 9.35 \\times 4.18 $ = 39.083J\n$\\Delta Q = \\Delta U + W$ \nΔQ = 9.35 $\\times$ 4.18 = 39.083J\n$\\Delta$Q = $\\Delta$U + W\n39.083 = 22.3+W\nW = 16.8J"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "testPaperID": 584,
+      "testPaperName": "Thermodynamics Test 03",
+      "is_paid": true,
+      "category_full_name": "CBSE > Class 11 > Physics > Thermodynamics",
+      "noOfQuestions": 15,
+      "has_answers": true,
+      "sections": [
+        {
+          "sectionName": "General",
+          "sectionID": null,
+          "questions": [
+            {
+              "questionID": 18051,
+              "question": "Two cylinders A and B of equal capacity are connected to each other via a stopcock. A contains a gas at standard temperature and pressure. B is completely evacuated. The entire system is thermally insulated. The stopcock is suddenly opened. What is the final pressure of the gas in A and B?",
+              "question_raw": "<p>Two cylinders A and B of equal capacity are connected to each other via a stopcock. A contains a gas at standard temperature and pressure. B is completely evacuated. The entire system is thermally insulated. The stopcock is suddenly opened. What is the final pressure of the gas in A and B?</p>",
+              "options": [
+                {
+                  "label": "A",
+                  "id": 27404,
+                  "text": "0.5 atm",
+                  "is_correct": true
+                },
+                {
+                  "label": "B",
+                  "id": 27407,
+                  "text": "0.6 atm",
+                  "is_correct": false
+                },
+                {
+                  "label": "C",
+                  "id": 27405,
+                  "text": "0.55 atm",
+                  "is_correct": false
+                },
+                {
+                  "label": "D",
+                  "id": 27406,
+                  "text": "0.45 atm",
+                  "is_correct": false
+                }
+              ],
+              "correct_option_ids": [
+                27404
+              ],
+              "correct_option_labels": [
+                "A"
+              ],
+              "correct_option_texts": [
+                "0.5 atm"
+              ],
+              "explanation": "PV = P_f.2V\nP_f = $V \\over 2V$\nP_f = 0.5P"
+            },
+            {
+              "questionID": 18052,
+              "question": "Two cylinders A and B of equal capacity are connected to each other via a stopcock. A contains gas at standard temperature and pressure. B is completely evacuated. The entire system is thermally insulated. The stopcock is suddenly opened. What is the change in internal energy of the gas?",
+              "question_raw": "<p>Two cylinders A and B of equal capacity are connected to each other via a stopcock. A contains gas at standard temperature and pressure. B is completely evacuated. The entire system is thermally insulated. The stopcock is suddenly opened. What is the change in internal energy of the gas?</p>",
+              "options": [
+                {
+                  "label": "A",
+                  "id": 27411,
+                  "text": "50 J",
+                  "is_correct": false
+                },
+                {
+                  "label": "B",
+                  "id": 27410,
+                  "text": "100 J",
+                  "is_correct": false
+                },
+                {
+                  "label": "C",
+                  "id": 27408,
+                  "text": "0.0 J",
+                  "is_correct": true
+                },
+                {
+                  "label": "D",
+                  "id": 27409,
+                  "text": "10 J",
+                  "is_correct": false
+                }
+              ],
+              "correct_option_ids": [
+                27408
+              ],
+              "correct_option_labels": [
+                "C"
+              ],
+              "correct_option_texts": [
+                "0.0 J"
+              ],
+              "explanation": "Internal energy depends on temperature and temperature remains constant because the system is thermally insulated( as no work is done on//by the gas). so that change in internal energy will be zero."
+            },
+            {
+              "questionID": 18053,
+              "question": "Two cylinders A and B of equal capacity are connected to each other via a stopcock. A contains gas at standard temperature and pressure. B is completely evacuated. The entire system is thermally insulated. The stopcock is suddenly opened. What is the change in the temperature of the gas?",
+              "question_raw": "<p>Two cylinders A and B of equal capacity are connected to each other via a stopcock. A contains gas at standard temperature and pressure. B is completely evacuated. The entire system is thermally insulated. The stopcock is suddenly opened. What is the change in the temperature of the gas?</p>",
+              "options": [
+                {
+                  "label": "A",
+                  "id": 27412,
+                  "text": "0^oC",
+                  "is_correct": true
+                },
+                {
+                  "label": "B",
+                  "id": 27414,
+                  "text": "15^o C",
+                  "is_correct": false
+                },
+                {
+                  "label": "C",
+                  "id": 27415,
+                  "text": "-10^o C",
+                  "is_correct": false
+                },
+                {
+                  "label": "D",
+                  "id": 27413,
+                  "text": "10^o C",
+                  "is_correct": false
+                }
+              ],
+              "correct_option_ids": [
+                27412
+              ],
+              "correct_option_labels": [
+                "A"
+              ],
+              "correct_option_texts": [
+                "0^oC"
+              ],
+              "explanation": "The temperature remains constant because the system is thermally insulated. Hence, the change in temperature will be zero."
+            },
+            {
+              "questionID": 18054,
+              "question": "Two cylinders A and B of equal capacity are connected to each other via a stopcock. A contains a gas at standard temperature and pressure. B is completely evacuated. The entire system is thermally insulated. The stopcock is suddenly opened. Do the intermediate states of the system (before settling to the final equilibrium state) lie on its P-V-T surface?",
+              "question_raw": "<p>Two cylinders A and B of equal capacity are connected to each other via a stopcock. A contains a gas at standard temperature and pressure. B is completely evacuated. The entire system is thermally insulated. The stopcock is suddenly opened. Do the intermediate states of the system (before settling to the final equilibrium state) lie on its P-V-T surface?</p>",
+              "options": [
+                {
+                  "label": "A",
+                  "id": 27416,
+                  "text": "No",
+                  "is_correct": true
+                },
+                {
+                  "label": "B",
+                  "id": 27417,
+                  "text": "yes",
+                  "is_correct": false
+                },
+                {
+                  "label": "C",
+                  "id": 27418,
+                  "text": "no for points on the left",
+                  "is_correct": false
+                },
+                {
+                  "label": "D",
+                  "id": 27419,
+                  "text": "yes for points on the left",
+                  "is_correct": false
+                }
+              ],
+              "correct_option_ids": [
+                27416
+              ],
+              "correct_option_labels": [
+                "A"
+              ],
+              "correct_option_texts": [
+                "No"
+              ],
+              "explanation": "Pressure and volume will be changed."
+            },
+            {
+              "questionID": 18055,
+              "question": "A steam engine delivers 5.4$ \\times $ 10^8 J of work per minute and services 3.6 $\\times$ 10^9J of heat per minute from its boiler. What is the efficiency of the engine? How much heat is wasted per minute?",
+              "question_raw": "<p>A steam engine delivers 5.4<span class=\"math-tex\">{tex} \\times {/tex}</span>&nbsp;10<sup>8 </sup>J of work per minute and services 3.6 <span class=\"math-tex\">{tex}\\times{/tex}</span>&nbsp;10<sup>9</sup>J&nbsp;of heat per minute from its boiler. What is the efficiency of the engine? How much heat is wasted per minute?</p>",
+              "options": [
+                {
+                  "label": "A",
+                  "id": 27421,
+                  "text": "14 percent, 3.0$ \\times $10^9 J",
+                  "is_correct": false
+                },
+                {
+                  "label": "B",
+                  "id": 27420,
+                  "text": "15 percent, 3.06$ \\times $10^9 J",
+                  "is_correct": true
+                },
+                {
+                  "label": "C",
+                  "id": 27422,
+                  "text": "13 percent, 2.9$ \\times $10^9 J",
+                  "is_correct": false
+                },
+                {
+                  "label": "D",
+                  "id": 27423,
+                  "text": "12 percent, 2.8$ \\times $10^9 J",
+                  "is_correct": false
+                }
+              ],
+              "correct_option_ids": [
+                27420
+              ],
+              "correct_option_labels": [
+                "B"
+              ],
+              "correct_option_texts": [
+                "15 percent, 3.06$ \\times $10^9 J"
+              ],
+              "explanation": "$\\eta=\\frac{\\text { WorkDone }}{\\text { HeatExtracted }}=\\frac{5.4 \\times 10^{8}}{3.6 \\times 10^{9}}$ = 0.15 = 15 %\nHeatwasted = Heat Extracted − Work Done\nHeat Wasted = 3.6 $\\times$ 10^9 − 5.4 $\\times$ 10^8 = 3.06 $\\times$ 10^9J"
+            },
+            {
+              "questionID": 18056,
+              "question": "An electric heater supplies heat to a system at a rate of 100W. If the system performs work at the rate of 75 joules per second, at what rate is the internal energy increasing?",
+              "question_raw": "<p>An electric heater supplies heat to a system at a rate of 100W. If the system performs work at the rate of 75 joules per second, at what rate is the internal energy increasing?</p>",
+              "options": [
+                {
+                  "label": "A",
+                  "id": 27426,
+                  "text": "35 W",
+                  "is_correct": false
+                },
+                {
+                  "label": "B",
+                  "id": 27427,
+                  "text": "15 W",
+                  "is_correct": false
+                },
+                {
+                  "label": "C",
+                  "id": 27424,
+                  "text": "25 W",
+                  "is_correct": true
+                },
+                {
+                  "label": "D",
+                  "id": 27425,
+                  "text": "20 W",
+                  "is_correct": false
+                }
+              ],
+              "correct_option_ids": [
+                27424
+              ],
+              "correct_option_labels": [
+                "C"
+              ],
+              "correct_option_texts": [
+                "25 W"
+              ],
+              "explanation": "$\\Delta$Q = $\\Delta$U + W\n$\\Delta U = \\Delta Q - W$\n=100 − 75 = 25Watt"
+            },
+            {
+              "questionID": 18057,
+              "question": "A thermodynamic system is taken from an original state to an intermediate state by the linear process shown in Figure. Its volume is then reduced to the original value from E to F by an isobaric process. Calculate the total work done by the gas from D to E to F",
+              "question_raw": "<p>A thermodynamic system is taken from an original state to an intermediate state by the linear process shown in Figure. Its volume is then reduced to the original value from E to F by an isobaric process. Calculate the total work done by the gas from D to E to F<br />\r\n<img src=\"https://media-mycbseguide.s3.amazonaws.com/images/testpaper/1.02.11.12.37.Ques.jpg\" style=\"width: 200px; height: 184px;\" /></p>\r\n",
+              "options": [
+                {
+                  "label": "A",
+                  "id": 27429,
+                  "text": "470 J",
+                  "is_correct": false
+                },
+                {
+                  "label": "B",
+                  "id": 27431,
+                  "text": "500 J",
+                  "is_correct": false
+                },
+                {
+                  "label": "C",
+                  "id": 27428,
+                  "text": "450 J",
+                  "is_correct": true
+                },
+                {
+                  "label": "D",
+                  "id": 27430,
+                  "text": "480 J",
+                  "is_correct": false
+                }
+              ],
+              "correct_option_ids": [
+                27428
+              ],
+              "correct_option_labels": [
+                "C"
+              ],
+              "correct_option_texts": [
+                "450 J"
+              ],
+              "explanation": "Work done by the gas is equal to the area under P-V curve. Total work done by the gas from D to E to F = Area of $\\triangle$DEF is given by:-\nArea of $\\triangle$DEF is given by =($\\frac {1}{2}$)DE $\\times$ EF\nWhere,\nDF = Change in pressure is\n=600N/m^2 - 300N/m^2\n= 300N/m^2\nFE = Change in volume is\n=5.0m^2 - 2.0m^2\n= 3.0m^2\nArea of $\\triangle$DEF is given by = ($\\frac {1}{2}$) $\\times$ 300 $\\times$ 3 = 450J\nTherefore, the total work done by the gas from D to E to F is 450J."
+            },
+            {
+              "questionID": 18058,
+              "question": "A 1.0-mol sample of an ideal gas is kept at 0.0$^\\circ $C during expansion from 3.0 L to 10.0 L. How much energy transfer by heat occurs with the surroundings in this process?",
+              "question_raw": "<p>A 1.0-mol sample of an ideal gas is kept at 0.0<span class=\"math-tex\">{tex}^\\circ {/tex}</span>C during expansion from 3.0 L to 10.0 L. How much energy transfer by heat occurs with the surroundings in this process?</p>",
+              "options": [
+                {
+                  "label": "A",
+                  "id": 27435,
+                  "text": "3.0 $ \\times $ 10^3 J",
+                  "is_correct": false
+                },
+                {
+                  "label": "B",
+                  "id": 27433,
+                  "text": "2.8 $ \\times $ 10^3 J",
+                  "is_correct": false
+                },
+                {
+                  "label": "C",
+                  "id": 27432,
+                  "text": "2.7 $ \\times $ 10^3 J",
+                  "is_correct": true
+                },
+                {
+                  "label": "D",
+                  "id": 27434,
+                  "text": "2.9 $ \\times $ 10^3 J",
+                  "is_correct": false
+                }
+              ],
+              "correct_option_ids": [
+                27432
+              ],
+              "correct_option_labels": [
+                "C"
+              ],
+              "correct_option_texts": [
+                "2.7 $ \\times $ 10^3 J"
+              ],
+              "explanation": "in the isothermal process $\\Delta U = 0$ \nhence $\\Delta Q = W$ \n$Q = nRT{\\log _e}{{{V_f}} \\over {{V_i}}}$ \n$Q = 1 \\times 8.31 \\times 273 \\times 2.303{\\log _{10}}{{10} \\over 3} $ = 2.7 $\\times$ 10^3J"
+            },
+            {
+              "questionID": 18059,
+              "question": "A refrigerator is to maintain eatables kept inside at 9^o C. If the room temperature is 36^o C, calculate the coefficient of performance?",
+              "question_raw": "<p>A refrigerator is to maintain eatables kept inside at 9<sup>o</sup> C. If the room temperature is 36<sup>o</sup> C, calculate the coefficient of performance?</p>",
+              "options": [
+                {
+                  "label": "A",
+                  "id": 27439,
+                  "text": "12.4",
+                  "is_correct": false
+                },
+                {
+                  "label": "B",
+                  "id": 27438,
+                  "text": "11.8",
+                  "is_correct": false
+                },
+                {
+                  "label": "C",
+                  "id": 27437,
+                  "text": "11.4",
+                  "is_correct": false
+                },
+                {
+                  "label": "D",
+                  "id": 27436,
+                  "text": "10.4",
+                  "is_correct": true
+                }
+              ],
+              "correct_option_ids": [
+                27436
+              ],
+              "correct_option_labels": [
+                "D"
+              ],
+              "correct_option_texts": [
+                "10.4"
+              ],
+              "explanation": "$K = {{{T_L}} \\over {{T_H} - {T_L}}} = {{282} \\over {309 - 282}}$ = 10.4"
+            },
+            {
+              "questionID": 18060,
+              "question": "A 1.0-mol sample of an ideal gas is kept at 0.0^oC during expansion from 3.0 L to 10.0 L. How much work is done by the gas during the expansion?",
+              "question_raw": "<p>A 1.0-mol sample of an ideal gas is kept at 0.0<sup>o</sup>C during expansion from 3.0 L to 10.0 L. How much work is done by the gas during the expansion?</p>",
+              "options": [
+                {
+                  "label": "A",
+                  "id": 27443,
+                  "text": "3.0 $ \\times $ 10^3 J",
+                  "is_correct": false
+                },
+                {
+                  "label": "B",
+                  "id": 27440,
+                  "text": "2.7 $ \\times $ 10^3 J",
+                  "is_correct": true
+                },
+                {
+                  "label": "C",
+                  "id": 27442,
+                  "text": "2.9 $ \\times $ 10^3 J",
+                  "is_correct": false
+                },
+                {
+                  "label": "D",
+                  "id": 27441,
+                  "text": "2.8 $ \\times $ 10^3 J",
+                  "is_correct": false
+                }
+              ],
+              "correct_option_ids": [
+                27440
+              ],
+              "correct_option_labels": [
+                "B"
+              ],
+              "correct_option_texts": [
+                "2.7 $ \\times $ 10^3 J"
+              ],
+              "explanation": "In the isothermal process\n$W = nRT{\\log _e}\\left( {{{{V_f}} \\over {{V_i}}}} \\right)$\n$W = 1 \\times 8.31 \\times 273 \\times 2.303{\\log _{10}}{{10} \\over 3} $ = 2.7 $\\times$ 10^3J"
+            },
+            {
+              "questionID": 18061,
+              "question": "A 1.0-mol sample of an ideal gas is kept at 0.0^oC during expansion from 3.0 L to 10.0 L. If the gas is returned to the original volume by means of an isobaric process, how much work is done by the gas?",
+              "question_raw": "<p>A 1.0-mol sample of an ideal gas is kept at 0.0<sup>o</sup>C during expansion from 3.0 L to 10.0 L. If the gas is returned to the original volume by means of an isobaric process, how much work is done by the gas?</p>",
+              "options": [
+                {
+                  "label": "A",
+                  "id": 27447,
+                  "text": "-1.3 $ \\times $ 10^3",
+                  "is_correct": false
+                },
+                {
+                  "label": "B",
+                  "id": 27446,
+                  "text": "-1.4 $ \\times $ 10^3",
+                  "is_correct": false
+                },
+                {
+                  "label": "C",
+                  "id": 27444,
+                  "text": "-1.6 $ \\times $ 10^3 J",
+                  "is_correct": true
+                },
+                {
+                  "label": "D",
+                  "id": 27445,
+                  "text": "-1.5 $ \\times $ 10^3",
+                  "is_correct": false
+                }
+              ],
+              "correct_option_ids": [
+                27444
+              ],
+              "correct_option_labels": [
+                "C"
+              ],
+              "correct_option_texts": [
+                "-1.6 $ \\times $ 10^3 J"
+              ],
+              "explanation": "W = nR(T_f − T_i)\nV $\\propto$ T\n$\\frac{10}{273}=\\frac{3}{T_{f}}$ \nT_f = 81.9K\nT_i = 273K\nW = 1 $\\times$ 8.31 $\\times$ (81.9 − 273) = −1.6 $\\times$ 10^3J"
+            },
+            {
+              "questionID": 18062,
+              "question": "A 1.0-kg bar of copper is heated at atmospheric pressure. If its temperature increases from 20^oC to 50^oC, what is the work done by the copper on the surrounding atmosphere? Given that for Cu $3\\alpha $= 5.1 $\\times$ 10^-5 /C, ${\\rho _{Cu}} $ = 8.92 $\\times$ 10^3Kg/m^3.",
+              "question_raw": "<p>A 1.0-kg bar of copper is heated at atmospheric pressure. If its temperature increases from 20<sup>o</sup>C to 50<sup>o</sup>C, what is the work done by the copper on the surrounding atmosphere? Given &nbsp;that for Cu&nbsp;<span class=\"math-tex\">{tex}3\\alpha {/tex}</span>= 5.1 &nbsp;<span class=\"math-tex\">{tex}\\times{/tex}</span>&nbsp;10<sup>-5 </sup>/C,&nbsp;<span class=\"math-tex\">{tex}{\\rho _{Cu}} {/tex}</span>&nbsp;= 8.92 <span class=\"math-tex\">{tex}\\times{/tex}</span> 10<sup>3</sup>Kg/m<sup>3</sup>.</p>",
+              "options": [
+                {
+                  "label": "A",
+                  "id": 27449,
+                  "text": "1.8 $ \\times $ 10^−2 J",
+                  "is_correct": false
+                },
+                {
+                  "label": "B",
+                  "id": 27450,
+                  "text": "1.9 $ \\times $ 10^−2 J",
+                  "is_correct": false
+                },
+                {
+                  "label": "C",
+                  "id": 27448,
+                  "text": "1.7 $ \\times $ 10^−2 J",
+                  "is_correct": true
+                },
+                {
+                  "label": "D",
+                  "id": 27451,
+                  "text": "1.6 $ \\times $ 10^−2 J",
+                  "is_correct": false
+                }
+              ],
+              "correct_option_ids": [
+                27448
+              ],
+              "correct_option_labels": [
+                "C"
+              ],
+              "correct_option_texts": [
+                "1.7 $ \\times $ 10^−2 J"
+              ],
+              "explanation": "$\\Delta V = 3\\alpha {V_i}\\Delta T = 5.1 \\times {10^{ - 5}} \\times 30 \\times {V_i} = 1.5 \\times {10^{ - 3}}{V_i}$\n$\\Delta V = 1.5 \\times {10^{ - 3}}{m \\over {{\\rho _{Cu}}}} $ $= 1.5 \\times {10^{ - 3}}{1 \\over {8.92 \\times {{10}^3}}} = 1.7 \\times {10^{ - 7}}$\nW = P$\\Delta$V = 1.01 $\\times$ 10^5 $\\times$ 1.7 $\\times$ 10^−7 = 1.7 $\\times$10^−2J"
+            },
+            {
+              "questionID": 18063,
+              "question": "A 3.00-g copper penny at 25.0^oC drops from a height of 50.0 m to the ground. (a) If 60.0 percent of the change in potential energy goes into increasing the internal energy, what is its final temperature? Specific heat of Cu = 0.385J/g ^0C.",
+              "question_raw": "<p>A 3.00-g copper penny at 25.0<sup>o</sup>C drops from a height of 50.0 m to the ground. (a) If 60.0 percent of the change in potential energy goes into increasing the internal energy, what is its final temperature? Specific heat of Cu&nbsp;= 0.385J/g&nbsp;<sup>0</sup>C.</p>",
+              "options": [
+                {
+                  "label": "A",
+                  "id": 27455,
+                  "text": "28.8^o C",
+                  "is_correct": false
+                },
+                {
+                  "label": "B",
+                  "id": 27453,
+                  "text": "26.8^o C",
+                  "is_correct": false
+                },
+                {
+                  "label": "C",
+                  "id": 27452,
+                  "text": "25.8^o C",
+                  "is_correct": true
+                },
+                {
+                  "label": "D",
+                  "id": 27454,
+                  "text": "27.8^o C",
+                  "is_correct": false
+                }
+              ],
+              "correct_option_ids": [
+                27452
+              ],
+              "correct_option_labels": [
+                "C"
+              ],
+              "correct_option_texts": [
+                "25.8^o C"
+              ],
+              "explanation": "mgh = 3 $\\times$ 10^−3 $\\times$ 10 $\\times$ 50 = 1.5J\nHeat used in increasing temp \n$Q=1.5 \\times \\frac{60}{100}$ =0.9 J\nQ = ms$\\Delta$T\n0.9 = 3 $\\times$ 0.385 $\\times$ (T − 298)\nT = 298.8K = 25.8^oC"
+            },
+            {
+              "questionID": 18064,
+              "question": "A water heater is operated by solar power. If the solar collector has an area of 6.00 m^2 and the power delivered by sunlight is 550 W/ m^2, how long does it take to increase the temperature of 1.00 m^3 of water from 20.0^oC to 60.0^oC?",
+              "question_raw": "<p>A water heater is operated by solar power. If the solar collector has an area of 6.00 m<sup>2</sup> and the power delivered by sunlight is 550 W/ m<sup>2</sup>, how long does it take to increase the temperature of 1.00 m<sup>3</sup> of water from 20.0<sup>o</sup>C to 60.0<sup>o</sup>C?</p>",
+              "options": [
+                {
+                  "label": "A",
+                  "id": 27457,
+                  "text": "51.7 ks",
+                  "is_correct": false
+                },
+                {
+                  "label": "B",
+                  "id": 27458,
+                  "text": "52.7 ks",
+                  "is_correct": false
+                },
+                {
+                  "label": "C",
+                  "id": 27459,
+                  "text": "48.7 ks",
+                  "is_correct": false
+                },
+                {
+                  "label": "D",
+                  "id": 27456,
+                  "text": "50.7 ks",
+                  "is_correct": true
+                }
+              ],
+              "correct_option_ids": [
+                27456
+              ],
+              "correct_option_labels": [
+                "D"
+              ],
+              "correct_option_texts": [
+                "50.7 ks"
+              ],
+              "explanation": "Q = $msΔT$\n$ P = {W \\over t} = {{ms\\Delta T} \\over t} $\nt = $ {{ms\\Delta T} \\over P} = {{1000 \\times 4186 \\times 40} \\over {550 \\times 6}} $ = 50700sec = 50.7Ksec"
+            },
+            {
+              "questionID": 18065,
+              "question": "A sample of an ideal gas is expanded to twice its original volume of 1.00 m^3 in a quasi-static process for which P = $ \\alpha {V^2}$with $\\alpha $= 5.00atm/m^6. How much work is done by the expanding gas?",
+              "question_raw": "<p>A sample of an ideal gas is expanded to twice its original volume of 1.00 m<sup>3</sup> in a quasi-static process for which P =&nbsp;<span class=\"math-tex\">{tex} \\alpha {V^2}{/tex}</span>with <span class=\"math-tex\">{tex}\\alpha {/tex}</span>= 5.00atm/m<sup>6</sup>. How much work is done by the expanding gas?</p>",
+              "options": [
+                {
+                  "label": "A",
+                  "id": 27460,
+                  "text": "1.18 MJ",
+                  "is_correct": true
+                },
+                {
+                  "label": "B",
+                  "id": 27463,
+                  "text": "1.28 MJ",
+                  "is_correct": false
+                },
+                {
+                  "label": "C",
+                  "id": 27462,
+                  "text": "0.98 MJ",
+                  "is_correct": false
+                },
+                {
+                  "label": "D",
+                  "id": 27461,
+                  "text": "1.08 MJ",
+                  "is_correct": false
+                }
+              ],
+              "correct_option_ids": [
+                27460
+              ],
+              "correct_option_labels": [
+                "A"
+              ],
+              "correct_option_texts": [
+                "1.18 MJ"
+              ],
+              "explanation": "P = $\\alpha$V^2\n$\\alpha$ = 5.00 $\\times$ 1.01 $\\times$ 10^5 Pa/m^6\nV_i = 1.00 m^3\nV_f = 2.00 m^3\nWork done by the gas W = $\\int_{1.00}^{2.00} P . d V=\\int_{1.00}^{2.00} \\alpha V^{2} \\cdot d V=\\left[\\frac{\\alpha V^{3}}{3}\\right]_{1.00}^{2.00}$ = ${\\alpha \\over 3} \\times (2^3-1^3)$ =1.18 MJ"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "testPaperID": 585,
+      "testPaperName": "Thermodynamics Test 04",
+      "is_paid": true,
+      "category_full_name": "CBSE > Class 11 > Physics > Thermodynamics",
+      "noOfQuestions": 15,
+      "has_answers": true,
+      "sections": [
+        {
+          "sectionName": "General",
+          "sectionID": null,
+          "questions": [
+            {
+              "questionID": 18066,
+              "question": "One mole of an ideal gas is heated slowly so that it goes from PV state (P_i, V_i) to (3P_i, 3V_i) in such a way that the pressure of the gas is directly proportional to the volume. How much work is done in the process?",
+              "question_raw": "<p>One mole of an ideal gas is heated slowly so that it goes from PV state (P<sub>i</sub>, V<sub>i</sub>) to (3P<sub>i</sub>, 3V<sub>i</sub>) in such a way that the pressure of the gas is directly proportional to the volume. How much work is done in the process?</p>",
+              "options": [
+                {
+                  "label": "A",
+                  "id": 27466,
+                  "text": "2 P_i V_i",
+                  "is_correct": false
+                },
+                {
+                  "label": "B",
+                  "id": 27464,
+                  "text": "4 P_i V_i",
+                  "is_correct": true
+                },
+                {
+                  "label": "C",
+                  "id": 27465,
+                  "text": "P_i V_i",
+                  "is_correct": false
+                },
+                {
+                  "label": "D",
+                  "id": 27467,
+                  "text": "3 P_i V_i",
+                  "is_correct": false
+                }
+              ],
+              "correct_option_ids": [
+                27464
+              ],
+              "correct_option_labels": [
+                "B"
+              ],
+              "correct_option_texts": [
+                "4 P_i V_i"
+              ],
+              "explanation": "$P=\\frac{P_{i}}{V_{i}} V$ \nW =$ \\int_{{V_i}}^{{V_f}} {P.dV} = \\frac{{{P_i}}}{{{V_i}}}\\int_{{V_i}}^{3{V_i}} {V.dV} = \\frac{{{P_i}}}{{{V_i}}}{\\left[ {\\frac{{{V^2}}}{2}} \\right]_{{V_i}}}^{3{V_i}} $ = 4P_i V_i"
+            },
+            {
+              "questionID": 18067,
+              "question": "One mole of an ideal gas is heated slowly so that it goes from PV state (${{\\rm{P}}_{\\rm{i}}}$ , ${{\\rm{V}}_{\\rm{i}}}$) to (3 ${{\\rm{P}}_{\\rm{i}}}$ , 3 ${{\\rm{V}}_{\\rm{i}}}$) in such a way that the pressure of the gas is directly proportional to the volume. How is the temperature of the gas-related to its volume during this process?",
+              "question_raw": "<p>One mole of an ideal gas is heated slowly so that it goes from PV state (<span class=\"math-tex\">{tex}{{\\rm{P}}_{\\rm{i}}}{/tex}</span> , <span class=\"math-tex\">{tex}{{\\rm{V}}_{\\rm{i}}}{/tex}</span>) to (3 <span class=\"math-tex\">{tex}{{\\rm{P}}_{\\rm{i}}}{/tex}</span> , 3 <span class=\"math-tex\">{tex}{{\\rm{V}}_{\\rm{i}}}{/tex}</span>) in such a way that the pressure of the gas is directly proportional to the volume. How is the temperature of the gas-related to its volume during this process?</p>",
+              "options": [
+                {
+                  "label": "A",
+                  "id": 27471,
+                  "text": "$T=\\left(\\frac{4 P_i}{n R V_i}\\right) V^2$",
+                  "is_correct": false
+                },
+                {
+                  "label": "B",
+                  "id": 27468,
+                  "text": "$T=\\left(\\frac{P_i}{n R V_i}\\right) V^2$",
+                  "is_correct": true
+                },
+                {
+                  "label": "C",
+                  "id": 27470,
+                  "text": "$T=\\left(\\frac{2 P_i}{n R V_i}\\right) V^2$",
+                  "is_correct": false
+                },
+                {
+                  "label": "D",
+                  "id": 27469,
+                  "text": "$T=\\left(\\frac{P_i}{n R V_i}\\right) V^3$",
+                  "is_correct": false
+                }
+              ],
+              "correct_option_ids": [
+                27468
+              ],
+              "correct_option_labels": [
+                "B"
+              ],
+              "correct_option_texts": [
+                "$T=\\left(\\frac{P_i}{n R V_i}\\right) V^2$"
+              ],
+              "explanation": "$k=\\frac{P_{i}}{V_{i}}$\n$P=\\left(\\frac{P_i}{V_i}\\right) V$\nPV = nRT\n$\\left(\\frac{P_{i}}{V_{i}}\\right) $V . V = nRT\n$T=\\left(\\frac{P_i}{n R V_i}\\right) V^2$"
+            },
+            {
+              "questionID": 18068,
+              "question": "An ideal gas is enclosed in a cylinder with a movable piston on top. The piston has a mass of 8000 g and an area of 5.00 cm^2 and is free to slide up and down, keeping the pressure of the gas constant. How much work is done as the temperature of 0.200 mol of the gas is raised from 20.0 ^oC to 300^oC?",
+              "question_raw": "<p>An ideal gas is enclosed in a cylinder with a movable piston on top. The piston has a mass of 8000 g and an area of 5.00 cm<sup>2</sup> and is free to slide up and down, keeping the pressure of the gas constant. How much work is done as the temperature of 0.200 mol of the gas is raised from 20.0&nbsp;<sup>o</sup>C to 300<sup>o</sup>C?</p>",
+              "options": [
+                {
+                  "label": "A",
+                  "id": 27475,
+                  "text": "486 J",
+                  "is_correct": false
+                },
+                {
+                  "label": "B",
+                  "id": 27473,
+                  "text": "456 J",
+                  "is_correct": false
+                },
+                {
+                  "label": "C",
+                  "id": 27474,
+                  "text": "476 J",
+                  "is_correct": false
+                },
+                {
+                  "label": "D",
+                  "id": 27472,
+                  "text": "466 J",
+                  "is_correct": true
+                }
+              ],
+              "correct_option_ids": [
+                27472
+              ],
+              "correct_option_labels": [
+                "D"
+              ],
+              "correct_option_texts": [
+                "466 J"
+              ],
+              "explanation": "in the isobaric process\nW = nR(T_f − Ti)\nW = 0.2 $\\times$ 8.31(300 − 20) = 466J"
+            },
+            {
+              "questionID": 18069,
+              "question": "A gas expands from I to F along three possible paths, as indicated in Figure. Calculate the work in joules done by the gas along the paths IAF, IF, and IBF",
+              "question_raw": "<p>A gas expands from I to F along three possible paths, as indicated in Figure. Calculate the work in joules done by the gas along the paths IAF, IF, and IBF<br />\r\n<img alt=\"\" data-imgur-src=\"A3Hil8h.png\" src=\"https://media-mycbseguide.s3.amazonaws.com/images/imgur/A3Hil8h.png\" style=\"width: 150px; height: 128px;\" /></p>",
+              "options": [
+                {
+                  "label": "A",
+                  "id": 27477,
+                  "text": "820 J, 516 J, 213 J",
+                  "is_correct": false
+                },
+                {
+                  "label": "B",
+                  "id": 27476,
+                  "text": "810 J, 506 J, 203 J",
+                  "is_correct": true
+                },
+                {
+                  "label": "C",
+                  "id": 27478,
+                  "text": "830 J, 526 J, 223 J",
+                  "is_correct": false
+                },
+                {
+                  "label": "D",
+                  "id": 27479,
+                  "text": "840 J, 536 J, 233 J",
+                  "is_correct": false
+                }
+              ],
+              "correct_option_ids": [
+                27476
+              ],
+              "correct_option_labels": [
+                "B"
+              ],
+              "correct_option_texts": [
+                "810 J, 506 J, 203 J"
+              ],
+              "explanation": "Work done by gas = area under P-V curve\n IAF\n Work done by the gas = Area under the graph IA = 4 $\\times$ 1.013 $\\times$ 10^5 $\\times$ 2 $\\times$ 10^-3 = 810 J\n IF\n Work done by the gas = area under the graph If = $\\frac {1}{2}$(1 + 4) $\\times$ 1.013 $\\times$10^5 $\\times$ 2 $\\times$10^-3 = 506J\n IBF\n Work done by the gas= area under the graph BF = 1 $\\times$ 1.013 $\\times$ 10^5 $\\times$ 2 $\\times$ 10^-3 = 203 J"
+            },
+            {
+              "questionID": 18070,
+              "question": "A thermodynamic system undergoes a process in which its internal energy decreases by 500 J. If, at the same time, 220 J of work is done on the system, what is the energy transferred to or from it by heat?",
+              "question_raw": "<p>A thermodynamic system undergoes a process in which its internal energy decreases by 500 J. If, at the same time, 220 J of work is done on the system, what is the energy transferred to or from it by heat?</p>",
+              "options": [
+                {
+                  "label": "A",
+                  "id": 27480,
+                  "text": "Q = -720 J",
+                  "is_correct": true
+                },
+                {
+                  "label": "B",
+                  "id": 27482,
+                  "text": "Q = -740 J",
+                  "is_correct": false
+                },
+                {
+                  "label": "C",
+                  "id": 27483,
+                  "text": "Q = -700 J",
+                  "is_correct": false
+                },
+                {
+                  "label": "D",
+                  "id": 27481,
+                  "text": "Q = -730 J",
+                  "is_correct": false
+                }
+              ],
+              "correct_option_ids": [
+                27480
+              ],
+              "correct_option_labels": [
+                "A"
+              ],
+              "correct_option_texts": [
+                "Q = -720 J"
+              ],
+              "explanation": "$\\Delta Q = \\Delta U + W$ = ( −500) + (−220) = −720J"
+            },
+            {
+              "questionID": 18071,
+              "question": "Consider the cyclic process depicted in Figure If Q is negative for the process BC, and if $\\Delta {{\\rm{E}}_{{\\rm{int}}}}$ is negative for the process CA, what are the signs of W and $\\Delta {{\\rm{E}}_{{\\rm{int}}}}$ that are associated with BC?",
+              "question_raw": "<p>Consider the cyclic process depicted in Figure If Q is negative for the process BC, and if <span class=\"math-tex\">{tex}\\Delta {{\\rm{E}}_{{\\rm{int}}}}{/tex}</span> is negative for the process CA, what are the signs of W&nbsp;and <span class=\"math-tex\">{tex}\\Delta {{\\rm{E}}_{{\\rm{int}}}}{/tex}</span> that are associated with BC?<br />\n<img src=\"https://media-mycbseguide.s3.amazonaws.com/images/testpaper/1.02.11.12.51.Ques.jpg\" style=\"width: 150px; height: 148px;\" /></p>",
+              "options": [
+                {
+                  "label": "A",
+                  "id": 27484,
+                  "text": "0, -",
+                  "is_correct": true
+                },
+                {
+                  "label": "B",
+                  "id": 27485,
+                  "text": "0, +",
+                  "is_correct": false
+                },
+                {
+                  "label": "C",
+                  "id": 27486,
+                  "text": "0, -2",
+                  "is_correct": false
+                },
+                {
+                  "label": "D",
+                  "id": 27487,
+                  "text": "+, -",
+                  "is_correct": false
+                }
+              ],
+              "correct_option_ids": [
+                27484
+              ],
+              "correct_option_labels": [
+                "A"
+              ],
+              "correct_option_texts": [
+                "0, -"
+              ],
+              "explanation": "W = area under P-V curve = 0\n$\\Delta$Q = $\\Delta$E_int + W\nW = 0, $\\Delta$Q = -ve\n$\\Delta$E_int = -ve"
+            },
+            {
+              "questionID": 18072,
+              "question": "Consider the cyclic process depicted in Figure if $\\Delta {{\\rm{E}}_{{\\rm{int}}}}$ is negative for the process CA, what are the signs of Q and W are associated with CA?",
+              "question_raw": "<p>Consider the cyclic process depicted in Figure if <span class=\"math-tex\">{tex}\\Delta {{\\rm{E}}_{{\\rm{int}}}}{/tex}</span> is negative for the process CA, what are the signs of Q and W are associated with CA?<br />\n<img src=\"https://media-mycbseguide.s3.amazonaws.com/images/testpaper/1.02.11.12.52.Ques.jpg\" style=\"width: 150px; height: 155px;\" /></p>",
+              "options": [
+                {
+                  "label": "A",
+                  "id": 27488,
+                  "text": "-, -",
+                  "is_correct": true
+                },
+                {
+                  "label": "B",
+                  "id": 27491,
+                  "text": "-, +",
+                  "is_correct": false
+                },
+                {
+                  "label": "C",
+                  "id": 27490,
+                  "text": "+, 0",
+                  "is_correct": false
+                },
+                {
+                  "label": "D",
+                  "id": 27489,
+                  "text": "-, 0",
+                  "is_correct": false
+                }
+              ],
+              "correct_option_ids": [
+                27488
+              ],
+              "correct_option_labels": [
+                "A"
+              ],
+              "correct_option_texts": [
+                "-, -"
+              ],
+              "explanation": "W = PΔV = −ve(inCompression $\\Delta$V = −ve) \nQ = $\\Delta$E_int + W\n$\\Delta$E_int = -ve\nW = -ve\nSo that $\\Delta$Q = -ve"
+            },
+            {
+              "questionID": 18073,
+              "question": "Consider the cyclic process depicted in Figure If Q is negative for the process BC, and if $\\Delta {{\\rm{E}}_{{\\rm{int}}}}$ is negative for the process CA, what are the signs of Q, W, and $\\Delta {{\\rm{E}}_{{\\rm{int}}}}$ that are associated with AB?",
+              "question_raw": "<p>Consider the cyclic process depicted in Figure If Q is negative for the process BC, and if <span class=\"math-tex\">{tex}\\Delta {{\\rm{E}}_{{\\rm{int}}}}{/tex}</span> is negative for the process CA, what are the signs of Q, W, and <span class=\"math-tex\">{tex}\\Delta {{\\rm{E}}_{{\\rm{int}}}}{/tex}</span> that are associated with AB?<br />\n<img alt=\"\" data-imgur-src=\"SM3WEST.png\" src=\"https://media-mycbseguide.s3.amazonaws.com/images/imgur/SM3WEST.png\" style=\"width: 150px; height: 153px;\" /></p>",
+              "options": [
+                {
+                  "label": "A",
+                  "id": 27495,
+                  "text": "-, +, -",
+                  "is_correct": false
+                },
+                {
+                  "label": "B",
+                  "id": 27494,
+                  "text": "+, 0, -",
+                  "is_correct": false
+                },
+                {
+                  "label": "C",
+                  "id": 27492,
+                  "text": "+, +, +",
+                  "is_correct": true
+                },
+                {
+                  "label": "D",
+                  "id": 27493,
+                  "text": "-, 0, +",
+                  "is_correct": false
+                }
+              ],
+              "correct_option_ids": [
+                27492
+              ],
+              "correct_option_labels": [
+                "C"
+              ],
+              "correct_option_texts": [
+                "+, +, +"
+              ],
+              "explanation": "W = +ve (Expansion)\nU_c - U_a = -ve\nU_b - U_c = -ve\nhence U_b - U_A = -ve\nU_a - U_b = + ve\n$\\Delta$Q = $\\Delta$U + W\n$\\Delta$U = + ve\nW = + ve\nHence $\\Delta$Q = + ve"
+            },
+            {
+              "questionID": 18074,
+              "question": "An ideal gas initially at 300 K undergoes an isobaric expansion at 2.50 kPa. If the volume increases from 1.00 m^3 to 3.00 m^3 and if 12.5 kJ of energy is transferred to the gas by heat, what is the change in its internal energy?",
+              "question_raw": "<p>An ideal gas initially at 300 K undergoes an isobaric expansion at 2.50 kPa. If the volume increases from 1.00 m<sup>3</sup> to 3.00 m<sup>3</sup> and if 12.5 kJ of energy is transferred to the gas by heat, what is the change in its internal energy?</p>",
+              "options": [
+                {
+                  "label": "A",
+                  "id": 27499,
+                  "text": "7.80 kJ",
+                  "is_correct": false
+                },
+                {
+                  "label": "B",
+                  "id": 27498,
+                  "text": "7.70 kJ",
+                  "is_correct": false
+                },
+                {
+                  "label": "C",
+                  "id": 27497,
+                  "text": "7.60 kJ",
+                  "is_correct": false
+                },
+                {
+                  "label": "D",
+                  "id": 27496,
+                  "text": "7.50 kJ",
+                  "is_correct": true
+                }
+              ],
+              "correct_option_ids": [
+                27496
+              ],
+              "correct_option_labels": [
+                "D"
+              ],
+              "correct_option_texts": [
+                "7.50 kJ"
+              ],
+              "explanation": "W = P$\\Delta$V = 2.5 $\\times$ 2 = 5KJ\n$\\Delta$Q = 12.5\n$\\Delta$Q = $\\Delta$U + W\n12.5 = $\\Delta$U + 5\n$\\Delta$U = 7.5KJ"
+            },
+            {
+              "questionID": 18075,
+              "question": "An ideal gas initially at 300 K undergoes an isobaric expansion at 2.50 kPa. If the volume increases from 1.00 m^3 to 3.00 m^3 and if 12.5 kJ of energy is transferred to the gas by heat, what is the change in its final temperature?",
+              "question_raw": "<p>An ideal gas initially at 300 K undergoes an isobaric expansion at 2.50 kPa. If the volume increases from 1.00 m<sup>3</sup> to 3.00 m<sup>3</sup> and if 12.5 kJ of energy is transferred to the gas by heat, what is the change in its final temperature?</p>",
+              "options": [
+                {
+                  "label": "A",
+                  "id": 27503,
+                  "text": "850 K",
+                  "is_correct": false
+                },
+                {
+                  "label": "B",
+                  "id": 27500,
+                  "text": "900 K",
+                  "is_correct": true
+                },
+                {
+                  "label": "C",
+                  "id": 27501,
+                  "text": "800 K",
+                  "is_correct": false
+                },
+                {
+                  "label": "D",
+                  "id": 27502,
+                  "text": "950 K",
+                  "is_correct": false
+                }
+              ],
+              "correct_option_ids": [
+                27500
+              ],
+              "correct_option_labels": [
+                "B"
+              ],
+              "correct_option_texts": [
+                "900 K"
+              ],
+              "explanation": "$\\frac{V_{1}}{T_{1}}=\\frac{V_{2}}{T_{2}}$\n$T_{2}=\\frac{V_{2}}{V_{1}} T_{1}=\\frac{3.00}{1.00} \\times 300$ = 900 K"
+            },
+            {
+              "questionID": 18076,
+              "question": "A 2.00-mol sample of helium gas initially at 300 K and 0.400 atm is compressed isothermally to 1.20 atm. Assuming the behavior of helium to be that of an ideal gas, find the final volume of the gas.",
+              "question_raw": "<p>A 2.00-mol sample of helium gas initially at 300 K and 0.400 atm is compressed isothermally to 1.20 atm. Assuming the behavior of helium to be that of an ideal gas, find the final volume of the gas.</p>",
+              "options": [
+                {
+                  "label": "A",
+                  "id": 27505,
+                  "text": "0.040 m^3",
+                  "is_correct": false
+                },
+                {
+                  "label": "B",
+                  "id": 27506,
+                  "text": "0.039 m^3",
+                  "is_correct": false
+                },
+                {
+                  "label": "C",
+                  "id": 27507,
+                  "text": "0.042 m^3",
+                  "is_correct": false
+                },
+                {
+                  "label": "D",
+                  "id": 27504,
+                  "text": "0.041 m^3",
+                  "is_correct": true
+                }
+              ],
+              "correct_option_ids": [
+                27504
+              ],
+              "correct_option_labels": [
+                "D"
+              ],
+              "correct_option_texts": [
+                "0.041 m^3"
+              ],
+              "explanation": "PV = nRT\nV = $\\frac{n R T}{P}=\\frac{2 \\times 8.31 \\times 300}{0.4 \\times 1.01 \\times 10^{5}}$\nP_1V_1 = P_2V_2\nV_2 = $\\frac{P_{1} V_{1}}{P_{2}}=\\frac{0.4 \\times 1.01 \\times 10^{5}}{1.2 \\times 1.01 \\times 10^{5}} \\times \\frac{2 \\times 8.31 \\times 300}{0.4 \\times 1.01 \\times 10^{5}}$ = 0.041m^3"
+            },
+            {
+              "questionID": 18077,
+              "question": "A 2.00-mol sample of helium gas initially at 300 K and 0.400 atm is compressed isothermally to 1.20 atm. Assuming the behaviour of helium to be that of an ideal gas, find the work done by the gas?",
+              "question_raw": "<p>A 2.00-mol sample of helium gas initially at 300 K and 0.400 atm is compressed isothermally to 1.20 atm. Assuming the behaviour of helium to be that of an ideal gas, find the work done by the gas?</p>",
+              "options": [
+                {
+                  "label": "A",
+                  "id": 27508,
+                  "text": "-5.48 kJ",
+                  "is_correct": true
+                },
+                {
+                  "label": "B",
+                  "id": 27510,
+                  "text": "-5.38 kJ",
+                  "is_correct": false
+                },
+                {
+                  "label": "C",
+                  "id": 27511,
+                  "text": "-5.58 kJ",
+                  "is_correct": false
+                },
+                {
+                  "label": "D",
+                  "id": 27509,
+                  "text": "-5.28 kJ",
+                  "is_correct": false
+                }
+              ],
+              "correct_option_ids": [
+                27508
+              ],
+              "correct_option_labels": [
+                "A"
+              ],
+              "correct_option_texts": [
+                "-5.48 kJ"
+              ],
+              "explanation": "$W = \\mu RT{\\log _e}{{{V_f}} \\over {{V_i}}} $ = $ \\mu RT{\\log _e}{{{P_i}} \\over {{P_f}}}$ \n$W = \\mu RT \\times 2.303{\\log _{10}}{{{P_i}} \\over {{P_f}}} $ = 2×8.31 $\\times$ 300 $\\times$ 2.303 $\\times$ $ {\\log _{10}}{1 \\over 3} $ = -5.48 kJ"
+            },
+            {
+              "questionID": 18078,
+              "question": "A 2.00-mol sample of helium gas initially at 300 K and 0.400 atm is compressed isothermally to 1.20 atm. Assuming the behavior of helium to be that of an ideal gas, find the energy transferred by heat:",
+              "question_raw": "<p>A 2.00-mol sample of helium gas initially at 300 K and 0.400 atm is compressed isothermally to 1.20 atm. Assuming the behavior of helium to be that of an ideal gas, find the energy transferred by heat:</p>",
+              "options": [
+                {
+                  "label": "A",
+                  "id": 27513,
+                  "text": "-5.28 kJ",
+                  "is_correct": false
+                },
+                {
+                  "label": "B",
+                  "id": 27512,
+                  "text": "-5.48 kJ",
+                  "is_correct": true
+                },
+                {
+                  "label": "C",
+                  "id": 27515,
+                  "text": "-5.58 kJ",
+                  "is_correct": false
+                },
+                {
+                  "label": "D",
+                  "id": 27514,
+                  "text": "-5.38 kJ",
+                  "is_correct": false
+                }
+              ],
+              "correct_option_ids": [
+                27512
+              ],
+              "correct_option_labels": [
+                "B"
+              ],
+              "correct_option_texts": [
+                "-5.48 kJ"
+              ],
+              "explanation": "$\\Delta Q = \\Delta U + W$ \nin the isothermal process\n${\\rm{ }}\\left( {\\Delta U = 0} \\right)$\n$ \\Delta Q = W = \\mu RT{\\log _e}{{{V_f}} \\over {{V_i}}} = \\mu RT{\\log _e}{{{P_i}} \\over {{P_f}}} $\n$Q = \\mu RT \\times 2.303{\\log _{10}}{{{P_i}} \\over {{P_f}}} = 2 \\times 8.31 \\times 300 \\times 2.303 \\times {\\log _{10}}{1 \\over 3} $ = - 5.48KJ"
+            },
+            {
+              "questionID": 18079,
+              "question": "An ideal gas is carried through a thermodynamic cycle consisting of two isobaric and two isothermal processes, as shown in Figure net work done in the entire cycle is given by the equation?",
+              "question_raw": "<p>An ideal gas is carried through a thermodynamic cycle consisting of two isobaric and two isothermal processes, as shown in Figure&nbsp;net work done in the entire cycle is given by the equation?<br />\r\n<img src=\"https://media-mycbseguide.s3.amazonaws.com/images/testpaper/1.02.11.12.59.Ques.jpg\" style=\"width: 150px; height: 105px;\" /></p>",
+              "options": [
+                {
+                  "label": "A",
+                  "id": 27516,
+                  "text": "W_net = P_1(V_2 - V_1) In $\\frac{P_2}{P_1}$",
+                  "is_correct": true
+                },
+                {
+                  "label": "B",
+                  "id": 27519,
+                  "text": "W_net = P_1(V_2 − V_1)",
+                  "is_correct": false
+                },
+                {
+                  "label": "C",
+                  "id": 27517,
+                  "text": "W_net = RP_1(V_2 - V_1) In $\\frac{P_2}{P_1}$",
+                  "is_correct": false
+                },
+                {
+                  "label": "D",
+                  "id": 27518,
+                  "text": "W_net = P_1(V_2 + V_1) In $\\frac{P_2}{P_1}$",
+                  "is_correct": false
+                }
+              ],
+              "correct_option_ids": [
+                27516
+              ],
+              "correct_option_labels": [
+                "A"
+              ],
+              "correct_option_texts": [
+                "W_net = P_1(V_2 - V_1) In $\\frac{P_2}{P_1}$"
+              ],
+              "explanation": "W = W_AB + W_BC + W_CD + W_DA\nW = $\\int_{A}^{B} P \\cdot d V+\\int_{B}^{C} P . d V+\\int_{C}^{D} P . d V+\\int_{D}^{A} P . d V$\nW = nRT_1$\\int_\\limits{A}^{B}\\left(\\frac{d V}{V}\\right)+P_{2} \\int_\\limits{B}^{C} d V+n R T_{2} \\int_\\limits{C}^{D}\\left(\\frac{d V}{V}\\right)+P_{1} \\int_{D} d V$\nW = nRT_1log_e($\\frac{V_B}{V_1}$) + P_2(V_C - V_B) + nRT_2log_e($\\frac{V_2}{V_C}$) + P_1(V_A - V_D)\nP_1V_A = P_2V_B\nP_2V_C = P_1V_D\n$\\frac{V_B}{V_1}$ = $\\frac{P_1}{P_2}$\n$\\frac{V_2}{V_c}$ = $\\frac{P_2}{P_1}$\nW = P_1(V_2 - V_1)log_e($\\frac{P_2}{P_1}$)"
+            },
+            {
+              "questionID": 18080,
+              "question": "Find the efficiency of a heat engine that absorbs 2000 J of energy from a hot reservoir and exhausts 1500 J to a cold reservoir?",
+              "question_raw": "<p>Find the efficiency of a heat engine that absorbs 2000 J of energy from a hot reservoir and exhausts 1500 J to a cold reservoir?</p>",
+              "options": [
+                {
+                  "label": "A",
+                  "id": 27520,
+                  "text": "25 percent",
+                  "is_correct": true
+                },
+                {
+                  "label": "B",
+                  "id": 27522,
+                  "text": "30 percent",
+                  "is_correct": false
+                },
+                {
+                  "label": "C",
+                  "id": 27523,
+                  "text": "20 percent",
+                  "is_correct": false
+                },
+                {
+                  "label": "D",
+                  "id": 27521,
+                  "text": "35 percent",
+                  "is_correct": false
+                }
+              ],
+              "correct_option_ids": [
+                27520
+              ],
+              "correct_option_labels": [
+                "A"
+              ],
+              "correct_option_texts": [
+                "25 percent"
+              ],
+              "explanation": "$\\eta = {{{Q_H} - {Q_L}} \\over {{Q_H}}} = {{500} \\over {2000}} $ = 0.25 = 25%"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "testPaperID": 586,
+      "testPaperName": "Thermodynamics Test 05",
+      "is_paid": true,
+      "category_full_name": "CBSE > Class 11 > Physics > Thermodynamics",
+      "noOfQuestions": 15,
+      "has_answers": true,
+      "sections": [
+        {
+          "sectionName": "General",
+          "sectionID": null,
+          "questions": [
+            {
+              "questionID": 18081,
+              "question": "A steam engine has a boiler that operates at 500 K. The energy from the burning fuel changes water to steam, and this steam then drives a piston. The cold reservoir’s temperature is that of the outside air, approximately 300 K. What is the maximum thermal efficiency of this steam engine?",
+              "question_raw": "<p>A steam engine has a boiler that operates at 500 K. The energy from the burning fuel changes water to steam, and this steam then drives a piston. The cold reservoir&rsquo;s temperature is that of the outside air, approximately 300 K. What is the maximum thermal efficiency of this steam engine?</p>",
+              "options": [
+                {
+                  "label": "A",
+                  "id": 27524,
+                  "text": "40 percent",
+                  "is_correct": true
+                },
+                {
+                  "label": "B",
+                  "id": 27527,
+                  "text": "25 percent",
+                  "is_correct": false
+                },
+                {
+                  "label": "C",
+                  "id": 27525,
+                  "text": "30 percent",
+                  "is_correct": false
+                },
+                {
+                  "label": "D",
+                  "id": 27526,
+                  "text": "45 percent",
+                  "is_correct": false
+                }
+              ],
+              "correct_option_ids": [
+                27524
+              ],
+              "correct_option_labels": [
+                "A"
+              ],
+              "correct_option_texts": [
+                "40 percent"
+              ],
+              "explanation": "$\\eta = {{{T_H} - {T_L}} \\over {{T_H}}} = {{200} \\over {500}} $ = 0.4 = 40%"
+            },
+            {
+              "questionID": 18082,
+              "question": "The highest theoretical efficiency of a certain engine is 30 percent. If this engine uses the atmosphere, which has a temperature of 300 K, as its cold reservoir, what is the temperature of its hot reservoir?",
+              "question_raw": "<p>The highest theoretical efficiency of a certain engine is 30 percent. If this engine uses the atmosphere, which has a temperature of 300 K, as its cold reservoir, what is the temperature of its hot reservoir?</p>",
+              "options": [
+                {
+                  "label": "A",
+                  "id": 27528,
+                  "text": "430 K",
+                  "is_correct": true
+                },
+                {
+                  "label": "B",
+                  "id": 27531,
+                  "text": "490 K",
+                  "is_correct": false
+                },
+                {
+                  "label": "C",
+                  "id": 27530,
+                  "text": "470 K",
+                  "is_correct": false
+                },
+                {
+                  "label": "D",
+                  "id": 27529,
+                  "text": "450 K",
+                  "is_correct": false
+                }
+              ],
+              "correct_option_ids": [
+                27528
+              ],
+              "correct_option_labels": [
+                "A"
+              ],
+              "correct_option_texts": [
+                "430 K"
+              ],
+              "explanation": "$\\eta=\\frac{T_{H}-T_{L}}{T_{H}}$\n0.3 = $\\frac{T_{H}-300}{T_{H}}$\nT_H = 430K"
+            },
+            {
+              "questionID": 18083,
+              "question": "One of the most efficient engines ever built (actual efficiency 42.0 percent) operates between 430^oC and 1 870^oC. What is its maximum theoretical efficiency?",
+              "question_raw": "<p>One of the most efficient engines ever built (actual efficiency 42.0 percent) operates between 430<sup>o</sup>C and 1 870<sup>o</sup>C. What is its maximum theoretical efficiency?</p>",
+              "options": [
+                {
+                  "label": "A",
+                  "id": 27535,
+                  "text": "87.3 percent",
+                  "is_correct": false
+                },
+                {
+                  "label": "B",
+                  "id": 27533,
+                  "text": "57.2 percent",
+                  "is_correct": false
+                },
+                {
+                  "label": "C",
+                  "id": 27532,
+                  "text": "67.2 percent",
+                  "is_correct": true
+                },
+                {
+                  "label": "D",
+                  "id": 27534,
+                  "text": "99.2 percent",
+                  "is_correct": false
+                }
+              ],
+              "correct_option_ids": [
+                27532
+              ],
+              "correct_option_labels": [
+                "C"
+              ],
+              "correct_option_texts": [
+                "67.2 percent"
+              ],
+              "explanation": "T_H = 1870 ^0C = 1870 +273 = 2143K and T_L = 430 ^0C = 430+273 = 703K\n$\\eta = {{{T_H} - {T_L}} \\over {{T_H}}} = {{1440} \\over {2143}} $ = 0.672 = 67.2%"
+            },
+            {
+              "questionID": 18084,
+              "question": "One of the most efficient engines ever built (actual efficiency 42.0 percent) operates between 430^oC and 1 870^oC. How much power does the engine deliver if it absorbs1.40 $ \\times $ 10^5 J of energy each second from the hot reservoir?",
+              "question_raw": "<p>One of the most efficient engines ever built (actual efficiency 42.0 percent) operates between 430<sup>o</sup>C and 1 870<sup>o</sup>C. How much power does the engine deliver if it absorbs1.40 <span class=\"math-tex\">{tex} \\times {/tex}</span>&nbsp;10<sup>5</sup> J of energy each second from the hot reservoir?</p>",
+              "options": [
+                {
+                  "label": "A",
+                  "id": 27538,
+                  "text": "62.8 kW",
+                  "is_correct": false
+                },
+                {
+                  "label": "B",
+                  "id": 27537,
+                  "text": "52.8 kW",
+                  "is_correct": false
+                },
+                {
+                  "label": "C",
+                  "id": 27536,
+                  "text": "58.8 kW",
+                  "is_correct": true
+                },
+                {
+                  "label": "D",
+                  "id": 27539,
+                  "text": "58.1 kW",
+                  "is_correct": false
+                }
+              ],
+              "correct_option_ids": [
+                27536
+              ],
+              "correct_option_labels": [
+                "C"
+              ],
+              "correct_option_texts": [
+                "58.8 kW"
+              ],
+              "explanation": "$\\eta = {{{\\rm{Work (Output)}}} \\over {{\\rm{Heat Extracted}}}}$\n0.42 = $ {W \\over {1.40 \\times {{10}^5}}}$\nW = 58.8KJ\nPower = Energy (or work) transfer per second = 58.8KW"
+            },
+            {
+              "questionID": 18085,
+              "question": "A Carnot engine has a power output of 150 kW. The engine operates between two reservoirs at 20.0^oC and 500^oC. How much energy does it absorb per hour?",
+              "question_raw": "<p>A Carnot engine has a power output of 150 kW. The engine operates between two reservoirs at 20.0<sup>o</sup>C and 500<sup>o</sup>C. How much energy does it absorb per hour?</p>",
+              "options": [
+                {
+                  "label": "A",
+                  "id": 27543,
+                  "text": "632 MJ",
+                  "is_correct": false
+                },
+                {
+                  "label": "B",
+                  "id": 27540,
+                  "text": "869 MJ",
+                  "is_correct": true
+                },
+                {
+                  "label": "C",
+                  "id": 27542,
+                  "text": "765 MJ",
+                  "is_correct": false
+                },
+                {
+                  "label": "D",
+                  "id": 27541,
+                  "text": "855 MJ",
+                  "is_correct": false
+                }
+              ],
+              "correct_option_ids": [
+                27540
+              ],
+              "correct_option_labels": [
+                "B"
+              ],
+              "correct_option_texts": [
+                "869 MJ"
+              ],
+              "explanation": "$\\eta = {{{T_H} - {T_L}} \\over {{T_H}}} $$= {{480} \\over {773}} $ = 0.62\n$\\eta$ = $ {{{\\rm{Work (Output)}}} \\over {{\\rm{Heat Extracted(input)}}}} $ \nPower = Energy output per second = 150KJ\nEfficiency = Energy Output / Energy Absorbed\nEnergy absorbed per second = Energy output / Efficiency = $ {{150 \\times {{10}^3}} \\over {0.62}}J$ \nEnergy absorbed per hour = $ = {{150 \\times {{10}^3}} \\over {0.62}} \\times 3600 $ = 869MJ"
+            },
+            {
+              "questionID": 18086,
+              "question": "A Carnot engine has a power output of 150 kW. The engine operates between two reservoirs at 20.0^oC and 500^oC. How much energy is lost per hour in its exhaust?",
+              "question_raw": "<p>A Carnot engine has a power output of 150 kW. The engine operates between two reservoirs at 20.0<sup>o</sup>C and 500<sup>o</sup>C. How much energy is lost per hour in its exhaust?</p>",
+              "options": [
+                {
+                  "label": "A",
+                  "id": 27545,
+                  "text": "320 MJ",
+                  "is_correct": false
+                },
+                {
+                  "label": "B",
+                  "id": 27547,
+                  "text": "351 MJ",
+                  "is_correct": false
+                },
+                {
+                  "label": "C",
+                  "id": 27544,
+                  "text": "330 MJ",
+                  "is_correct": true
+                },
+                {
+                  "label": "D",
+                  "id": 27546,
+                  "text": "220 MJ",
+                  "is_correct": false
+                }
+              ],
+              "correct_option_ids": [
+                27544
+              ],
+              "correct_option_labels": [
+                "C"
+              ],
+              "correct_option_texts": [
+                "330 MJ"
+              ],
+              "explanation": "$\\eta=\\frac{T_{H}-T_{L}}{T_{H}}=\\frac{480}{773}$ = 0.62\n$\\eta=\\frac{\\text { Work }(\\text { Output })}{\\text { HeatExtracted }(\\text { input })}$\nPower = Energy output per second = 150KJ\nEfficiency = Energy Output / Energy Absorbed\nEnergy absorbed per second = $Energy \\ output \\over Efficiency$ = $ {{150 \\times {{10}^3}} \\over {0.62}}J$ \nEnergy loss per hour = $ = {{150 \\times {{10}^3}} \\over {0.62}} $ −150 $\\times$ 10^3 = 91935J\nEnergy loss per hour = 91935 $\\times$ 3600 = 330MJ"
+            },
+            {
+              "questionID": 18087,
+              "question": "An ideal gas is taken through a Carnot cycle. The isothermal expansion occurs at 250^oC, and the isothermal compression takes place at 50.0^oC. Assuming that the gas absorbs 1200 J of energy from the hot reservoir during the isothermal expansion, find the energy expelled to the cold reservoir in each cycle.",
+              "question_raw": "<p>An ideal gas is taken through a Carnot cycle. The isothermal expansion occurs at 250<sup>o</sup>C, and the isothermal compression takes place at 50.0<sup>o</sup>C. Assuming that the gas absorbs 1200 J of energy from the hot reservoir during the isothermal expansion, find the energy expelled to the cold reservoir in each cycle.</p>",
+              "options": [
+                {
+                  "label": "A",
+                  "id": 27548,
+                  "text": "115 J",
+                  "is_correct": true
+                },
+                {
+                  "label": "B",
+                  "id": 27550,
+                  "text": "110 J",
+                  "is_correct": false
+                },
+                {
+                  "label": "C",
+                  "id": 27549,
+                  "text": "120 J",
+                  "is_correct": false
+                },
+                {
+                  "label": "D",
+                  "id": 27551,
+                  "text": "105J",
+                  "is_correct": false
+                }
+              ],
+              "correct_option_ids": [
+                27548
+              ],
+              "correct_option_labels": [
+                "A"
+              ],
+              "correct_option_texts": [
+                "115 J"
+              ],
+              "explanation": "$\\eta = {{{T_H} - {T_L}} \\over {{T_H}}} = {{473} \\over {523}}$\n$\\eta = {W \\over {{Q_H}}}$\n${{473} \\over {523}} = {W \\over {1200}}$\nW = 1085J\nW = Q_H − Q_L\nQ_L = Q_H − W = 1200 − 1085 = 115J"
+            },
+            {
+              "questionID": 18088,
+              "question": "An ideal gas is taken through a Carnot cycle. The isothermal expansion occurs at 250^oC, and the isothermal compression takes place at 50.0^oC. Assuming that the gas absorbs 1200 J of energy from the hot reservoir during the isothermal expansion, find the network done by the gas in each cycle:",
+              "question_raw": "<p>An ideal gas is taken through a Carnot cycle. The isothermal expansion occurs at 250<sup><font size=\"1\">o</font></sup>C, and the isothermal compression takes place at 50.0<sup><font size=\"1\">o</font></sup>C. Assuming that the gas absorbs 1200 J of energy from the hot reservoir during the isothermal expansion, find the network done by the gas in each cycle:</p>",
+              "options": [
+                {
+                  "label": "A",
+                  "id": 27553,
+                  "text": "1080.4 J",
+                  "is_correct": false
+                },
+                {
+                  "label": "B",
+                  "id": 27554,
+                  "text": "1000.78 J",
+                  "is_correct": false
+                },
+                {
+                  "label": "C",
+                  "id": 27555,
+                  "text": "1090.86 J",
+                  "is_correct": false
+                },
+                {
+                  "label": "D",
+                  "id": 27552,
+                  "text": "1085.22 J",
+                  "is_correct": true
+                }
+              ],
+              "correct_option_ids": [
+                27552
+              ],
+              "correct_option_labels": [
+                "D"
+              ],
+              "correct_option_texts": [
+                "1085.22 J"
+              ],
+              "explanation": "$\\eta = {{{T_H} - {T_L}} \\over {{T_H}}} = {{473} \\over {523}}$\n$\\eta = {W \\over {{Q_H}}}$\n${{473} \\over {523}} = {W \\over {1200}}$\nW = 1085.277J"
+            },
+            {
+              "questionID": 18089,
+              "question": "A power plant operates at 32.0 percent efficiency during the summer when the seawater for cooling is at 20.0^oC. The plant uses 350^oC steam to drive turbines. Assuming that the plant’s efficiency changes in the same proportion as the ideal efficiency, what would be the plant’s efficiency in the winter, when the seawater is at 10.0^oC?",
+              "question_raw": "<p>A power plant operates at 32.0 percent efficiency during the summer when the seawater for cooling is at 20.0<sup>o</sup>C. The plant uses 350<sup>o</sup>C steam to drive turbines. Assuming that the plant&rsquo;s efficiency changes in the same proportion as the ideal efficiency, what would be the plant&rsquo;s efficiency in the winter, when the seawater is at 10.0<sup>o</sup>C?</p>",
+              "options": [
+                {
+                  "label": "A",
+                  "id": 27558,
+                  "text": "31 percent",
+                  "is_correct": false
+                },
+                {
+                  "label": "B",
+                  "id": 27559,
+                  "text": "34 percent",
+                  "is_correct": false
+                },
+                {
+                  "label": "C",
+                  "id": 27557,
+                  "text": "32 percent",
+                  "is_correct": false
+                },
+                {
+                  "label": "D",
+                  "id": 27556,
+                  "text": "33 percent",
+                  "is_correct": true
+                }
+              ],
+              "correct_option_ids": [
+                27556
+              ],
+              "correct_option_labels": [
+                "D"
+              ],
+              "correct_option_texts": [
+                "33 percent"
+              ],
+              "explanation": "$\\eta = {{{T_H} - {T_L}} \\over {{T_H}}}$\n$\\eta \\propto \\Delta T$\n${{{\\eta _1}} \\over {{\\eta _2}}} = {{\\Delta {T_1}} \\over {\\Delta {T_2}}}$\n${{32} \\over \\eta } = {{330} \\over {340}}$\n$\\eta $ = 33%"
+            },
+            {
+              "questionID": 18090,
+              "question": "A power plant that would make use of the temperature gradient in the ocean has been proposed. The system is to operate between 5.00^oC (water temperature at a depth of about 1 km) and 20.0$^\\circ $C (surface water temperature). What is the maximum efficiency of such a system?",
+              "question_raw": "<p>A power plant that would make use of the temperature gradient in the ocean has been proposed. The system is to operate between 5.00<sup>o</sup>C (water temperature at a depth of about 1 km) and 20.0<span class=\"math-tex\">{tex}^\\circ {/tex}</span>C (surface water temperature). What is the maximum efficiency of such a system?</p>",
+              "options": [
+                {
+                  "label": "A",
+                  "id": 27560,
+                  "text": "5.12 percent",
+                  "is_correct": true
+                },
+                {
+                  "label": "B",
+                  "id": 27561,
+                  "text": "5.32 percent",
+                  "is_correct": false
+                },
+                {
+                  "label": "C",
+                  "id": 27562,
+                  "text": "5.02 percent",
+                  "is_correct": false
+                },
+                {
+                  "label": "D",
+                  "id": 27563,
+                  "text": "5.45 percent",
+                  "is_correct": false
+                }
+              ],
+              "correct_option_ids": [
+                27560
+              ],
+              "correct_option_labels": [
+                "A"
+              ],
+              "correct_option_texts": [
+                "5.12 percent"
+              ],
+              "explanation": "$\\eta = {{{T_H} - {T_L}} \\over {{T_H}}}$ \n$\\eta = {{293 - 278} \\over {293}} $ = 0.0512 = 5.12%"
+            },
+            {
+              "questionID": 18091,
+              "question": "A power plant that would make use of the temperature gradient in the ocean has been proposed. The system is to operate between 5.00^oC (water temperature at a depth of about 1 km) and 20.0$^\\circ $C (surface water temperature). If the power output of the plant is 75.0 MW, how much energy is absorbed per hour?",
+              "question_raw": "<p>A power plant that would make use of the temperature gradient in the ocean has been proposed. The system is to operate between 5.00<sup>o</sup>C (water temperature at a depth of about 1 km) and 20.0<span class=\"math-tex\">{tex}^\\circ {/tex}</span>C (surface water temperature). If the power output of the plant is 75.0 MW, how much energy is absorbed per hour?</p>",
+              "options": [
+                {
+                  "label": "A",
+                  "id": 27564,
+                  "text": "5.27 TJ/hr",
+                  "is_correct": true
+                },
+                {
+                  "label": "B",
+                  "id": 27567,
+                  "text": "5.57 TJ/hr",
+                  "is_correct": false
+                },
+                {
+                  "label": "C",
+                  "id": 27565,
+                  "text": "5.07 TJ/hr",
+                  "is_correct": false
+                },
+                {
+                  "label": "D",
+                  "id": 27566,
+                  "text": "5.37 TJ/hr",
+                  "is_correct": false
+                }
+              ],
+              "correct_option_ids": [
+                27564
+              ],
+              "correct_option_labels": [
+                "A"
+              ],
+              "correct_option_texts": [
+                "5.27 TJ/hr"
+              ],
+              "explanation": "$\\eta = {{{T_H} - {T_L}} \\over {{T_H}}} = {{293 - 278} \\over {293}} $ = 0.0512 = 5.12%\nEfficiency = $Energy \\ output \\over Energy \\ Absorbed$ \nEnergy output per second = Power output = 75 MW\nEnergy absorbed per second = $Energy \\ output \\ per \\ second \\over Efficiency$ \nEnergy absorbed per second $ = {{75 \\times {{10}^6}} \\over {0.0512}} = 1465 \\times {10^6}J$ \nEnergy absorbed per hour = 1465 $\\times$ 10^6 $\\times$ 3600 = 5.27 $\\times$10^12 J = 5.27TJ/hr"
+            },
+            {
+              "questionID": 18092,
+              "question": "A typical dorm room or bedroom contains about 2500 moles of air. Find the change in the internal energy of this much air when it is cooled from 35^oC to 26^oC at a constant pressure of 1.00 atm. Treat the air as an ideal gas with γ = 1.4.",
+              "question_raw": "<p>A typical dorm room or bedroom contains about 2500 moles of air. Find the change in the internal energy of this much air when it is cooled from 35<sup>o</sup>C&nbsp;to 26<sup>o</sup>C&nbsp;at a constant pressure of 1.00 atm. Treat the air as an ideal gas with &gamma; = 1.4.</p>",
+              "options": [
+                {
+                  "label": "A",
+                  "id": 27570,
+                  "text": "$ - 4.48 \\times {10^5}J$",
+                  "is_correct": false
+                },
+                {
+                  "label": "B",
+                  "id": 27571,
+                  "text": "$ - 4.78 \\times {10^5}J$",
+                  "is_correct": false
+                },
+                {
+                  "label": "C",
+                  "id": 27569,
+                  "text": "$ - 4.58 \\times {10^5}J$",
+                  "is_correct": false
+                },
+                {
+                  "label": "D",
+                  "id": 27568,
+                  "text": "−4.68 $\\times $ 10^5J",
+                  "is_correct": true
+                }
+              ],
+              "correct_option_ids": [
+                27568
+              ],
+              "correct_option_labels": [
+                "D"
+              ],
+              "correct_option_texts": [
+                "−4.68 $\\times $ 10^5J"
+              ],
+              "explanation": "${C_V} = {R \\over {\\gamma - 1}} = {{8.31} \\over {1.4 - 1}} = {{8.31} \\over {0.4}}$\n$\\Delta U = m\\times C_V\\times \\Delta T$\n$\\Delta U = 2500 \\times {{8.31} \\over {0.4}} \\times (299 - 308) $ = −4.68 $\\times$ 10^5J"
+            },
+            {
+              "questionID": 18093,
+              "question": "A Carnot engine takes 2000 J of heat from a reservoir at 500 K, does some work, and discards some heat to a reservoir at 350 K. How much work does it do?",
+              "question_raw": "<p>A Carnot engine takes 2000 J of heat from a reservoir at 500 K, does some work, and discards some heat to a reservoir at 350 K. How much work does it do?</p>",
+              "options": [
+                {
+                  "label": "A",
+                  "id": 27574,
+                  "text": "500 J",
+                  "is_correct": false
+                },
+                {
+                  "label": "B",
+                  "id": 27575,
+                  "text": "550 J",
+                  "is_correct": false
+                },
+                {
+                  "label": "C",
+                  "id": 27573,
+                  "text": "650 J",
+                  "is_correct": false
+                },
+                {
+                  "label": "D",
+                  "id": 27572,
+                  "text": "600 J",
+                  "is_correct": true
+                }
+              ],
+              "correct_option_ids": [
+                27572
+              ],
+              "correct_option_labels": [
+                "D"
+              ],
+              "correct_option_texts": [
+                "600 J"
+              ],
+              "explanation": "$\\eta = {{{T_H} - {T_L}} \\over {{T_H}}} = {{500 - 350} \\over {500}} = {{150} \\over {500}} $ = 0.3 = 30% \n$\\eta = {W \\over {{Q_H}}}$\n0.3 = $ {W \\over {2000}}$\nW = 600J"
+            },
+            {
+              "questionID": 18094,
+              "question": "A Carnot engine takes 2000 J of heat from a reservoir at 500 K, does some work, and discards some heat to a reservoir at 350 K. How much heat is discarded?",
+              "question_raw": "<p>A Carnot engine takes 2000 J of heat from a reservoir at 500 K, does some work, and discards some heat to a reservoir at 350 K. How much heat is discarded?</p>",
+              "options": [
+                {
+                  "label": "A",
+                  "id": 27579,
+                  "text": "-1100 J",
+                  "is_correct": false
+                },
+                {
+                  "label": "B",
+                  "id": 27578,
+                  "text": "-1200 J",
+                  "is_correct": false
+                },
+                {
+                  "label": "C",
+                  "id": 27577,
+                  "text": "-1300 J",
+                  "is_correct": false
+                },
+                {
+                  "label": "D",
+                  "id": 27576,
+                  "text": "-1400 J",
+                  "is_correct": true
+                }
+              ],
+              "correct_option_ids": [
+                27576
+              ],
+              "correct_option_labels": [
+                "D"
+              ],
+              "correct_option_texts": [
+                "-1400 J"
+              ],
+              "explanation": "$\\eta = {{{T_H} - {T_L}} \\over {{T_H}}} = {{500 - 350} \\over {500}} = {{150} \\over {500}} $ = 0.3 = 30%\nHeat Discarded = ${\\rm{2000}} \\times {{{\\rm{70}}} \\over {100}} $ = 1400 J"
+            },
+            {
+              "questionID": 18095,
+              "question": "A Carnot engine takes 2000 J of heat from a reservoir at 500 K, does some work, and discards some heat to a reservoir at 350 K. what is its efficiency?",
+              "question_raw": "<p>A Carnot engine takes 2000 J of heat from a reservoir at 500 K, does some work, and discards some heat to a reservoir at 350 K. what is its efficiency?</p>",
+              "options": [
+                {
+                  "label": "A",
+                  "id": 27580,
+                  "text": "30 percent",
+                  "is_correct": true
+                },
+                {
+                  "label": "B",
+                  "id": 27583,
+                  "text": "27 percent",
+                  "is_correct": false
+                },
+                {
+                  "label": "C",
+                  "id": 27582,
+                  "text": "28 percent",
+                  "is_correct": false
+                },
+                {
+                  "label": "D",
+                  "id": 27581,
+                  "text": "32 percent",
+                  "is_correct": false
+                }
+              ],
+              "correct_option_ids": [
+                27580
+              ],
+              "correct_option_labels": [
+                "A"
+              ],
+              "correct_option_texts": [
+                "30 percent"
+              ],
+              "explanation": "$\\eta = {{{T_H} - {T_L}} \\over {{T_H}}} = {{500 - 350} \\over {500}} = {{150} \\over {500}} $ = 0.3 = 30%"
+            }
+          ]
+        }
+      ]
+    }
+  ]
+}

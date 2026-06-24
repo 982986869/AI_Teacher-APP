@@ -1,0 +1,3162 @@
+{
+  "id": 1342,
+  "name": "Units and Measurements",
+  "full_name": "CBSE > Class 11 > Physics > Units and Measurements",
+  "tests": [
+    {
+      "testPaperID": 532,
+      "testPaperName": "Units and Measurements Test 01",
+      "is_paid": false,
+      "category_full_name": "CBSE > Class 11 > Physics > Units and Measurements",
+      "noOfQuestions": 15,
+      "has_answers": true,
+      "sections": [
+        {
+          "sectionName": "General",
+          "sectionID": null,
+          "questions": [
+            {
+              "questionID": 17280,
+              "question": "Physical quantities are",
+              "question_raw": "<p>Physical quantities are</p>",
+              "options": [
+                {
+                  "label": "A",
+                  "id": 24320,
+                  "text": "quantities such as length, mass and time.",
+                  "is_correct": true
+                },
+                {
+                  "label": "B",
+                  "id": 24322,
+                  "text": "quantities such as kilos, pounds and gallons.",
+                  "is_correct": false
+                },
+                {
+                  "label": "C",
+                  "id": 24321,
+                  "text": "quantities such as pounds, dollars and rupees.",
+                  "is_correct": false
+                },
+                {
+                  "label": "D",
+                  "id": 24323,
+                  "text": "quantities such as degrees, radians and steradians.",
+                  "is_correct": false
+                }
+              ],
+              "correct_option_ids": [
+                24320
+              ],
+              "correct_option_labels": [
+                "A"
+              ],
+              "correct_option_texts": [
+                "quantities such as length, mass and time."
+              ],
+              "explanation": "A physical quantity is a physical property of a phenomenon, body, or substance, that can be quantified by measurement. A physical quantity can be expressed as the combination of a magnitude expressed by a number – usually a real number – and a unit. All these given above can be expressed as explained so these are physical quantities."
+            },
+            {
+              "questionID": 17281,
+              "question": "Measurement of a physical quantity is essentially the",
+              "question_raw": "<p>Measurement of a physical quantity is essentially the</p>",
+              "options": [
+                {
+                  "label": "A",
+                  "id": 24325,
+                  "text": "process of observing the physical quantity",
+                  "is_correct": false
+                },
+                {
+                  "label": "B",
+                  "id": 24324,
+                  "text": "process of comparing with a standard using an instrument",
+                  "is_correct": true
+                },
+                {
+                  "label": "C",
+                  "id": 24327,
+                  "text": "process of taking readings on an instrument",
+                  "is_correct": false
+                },
+                {
+                  "label": "D",
+                  "id": 24326,
+                  "text": "process of subdividing the physical quantity",
+                  "is_correct": false
+                }
+              ],
+              "correct_option_ids": [
+                24324
+              ],
+              "correct_option_labels": [
+                "B"
+              ],
+              "correct_option_texts": [
+                "process of comparing with a standard using an instrument"
+              ],
+              "explanation": "The Measurement of a given quantity is essentially an act or result of comparison between a quantity whose magnitude (amount) is unknown, with a similar quantity whose magnitude (amount) is known, the latter quantity being called a Standard."
+            },
+            {
+              "questionID": 17282,
+              "question": "Fundamental or base quantities are arbitrary. In SI system these are ______, mass, time, electric current, thermodynamic temperature, amount of substance, and luminous intensity.",
+              "question_raw": "<p>Fundamental or base quantities are arbitrary. In SI system these are ______, mass, time, electric current, thermodynamic temperature, amount of substance, and luminous intensity.</p>",
+              "options": [
+                {
+                  "label": "A",
+                  "id": 24331,
+                  "text": "acceleration",
+                  "is_correct": false
+                },
+                {
+                  "label": "B",
+                  "id": 24329,
+                  "text": "force",
+                  "is_correct": false
+                },
+                {
+                  "label": "C",
+                  "id": 24328,
+                  "text": "length",
+                  "is_correct": true
+                },
+                {
+                  "label": "D",
+                  "id": 24330,
+                  "text": "velocity",
+                  "is_correct": false
+                }
+              ],
+              "correct_option_ids": [
+                24328
+              ],
+              "correct_option_labels": [
+                "C"
+              ],
+              "correct_option_texts": [
+                "length"
+              ],
+              "explanation": "A base quantity is chosen and arbitrarily defined, rather than being derived from a combination of other physical quantities. The 7 base quantities are:\n PHYSICAL QUANTITY\r\n BASE SI UNIT\r\n Mass (m)\r\n Kilogram (Kg)\r\n Length (ll)\r\n Metre (m)\r\n Time (t)\r\n Second (s)\r\n Current (II)\r\n Ampere (A)\r\n Temperature (T)\r\n Kelvin (K)\r\n Amount of sub. (n)\r\n Molar (mol)\r\n Luminous Intensity (L)\r\n Candela (cd"
+            },
+            {
+              "questionID": 17283,
+              "question": "Unit for a fundamental physical quantity is",
+              "question_raw": "<p>Unit for a fundamental physical quantity is</p>",
+              "options": [
+                {
+                  "label": "A",
+                  "id": 24333,
+                  "text": "defined as average various reference standards",
+                  "is_correct": false
+                },
+                {
+                  "label": "B",
+                  "id": 24335,
+                  "text": "the smallest measurable value of the physical quantity",
+                  "is_correct": false
+                },
+                {
+                  "label": "C",
+                  "id": 24334,
+                  "text": "defined as best of various reference standards",
+                  "is_correct": false
+                },
+                {
+                  "label": "D",
+                  "id": 24332,
+                  "text": "reference standard for the given physical quantity",
+                  "is_correct": true
+                }
+              ],
+              "correct_option_ids": [
+                24332
+              ],
+              "correct_option_labels": [
+                "D"
+              ],
+              "correct_option_texts": [
+                "reference standard for the given physical quantity"
+              ],
+              "explanation": "Unit is the reference used as the standard measurement of a physical quantity. The unit in which the fundamental quantities are measured are called fundamental unit and the units used to measure derived quantities are called derived units."
+            },
+            {
+              "questionID": 17284,
+              "question": "In SI system the fundamental units are",
+              "question_raw": "<p>In SI system the fundamental units are</p>",
+              "options": [
+                {
+                  "label": "A",
+                  "id": 24339,
+                  "text": "meter, kilogram, second, coulomb, Kelvin, mole, candela and horse power",
+                  "is_correct": false
+                },
+                {
+                  "label": "B",
+                  "id": 24336,
+                  "text": "meter, kilogram, second, ampere, Kelvin, mole and candela",
+                  "is_correct": true
+                },
+                {
+                  "label": "C",
+                  "id": 24337,
+                  "text": "meter, Newton, second, ampere, Kelvin, mole and candela",
+                  "is_correct": false
+                },
+                {
+                  "label": "D",
+                  "id": 24338,
+                  "text": "meter, kilogram, second, ampere, Kelvin, mole and watt",
+                  "is_correct": false
+                }
+              ],
+              "correct_option_ids": [
+                24336
+              ],
+              "correct_option_labels": [
+                "B"
+              ],
+              "correct_option_texts": [
+                "meter, kilogram, second, ampere, Kelvin, mole and candela"
+              ],
+              "explanation": "The SI base units and their physical quantities are the metre for measurement of length, the kilogram for mass, the second for time, the ampere for electric current, the kelvin for temperature, the candela for luminous intensity, and the mole for amount of substance."
+            },
+            {
+              "questionID": 17285,
+              "question": "_________ are units of physical quantity that can be expressed as a combination of fundamental physical quantities.",
+              "question_raw": "<p>_________ are units of physical quantity that can be expressed as a combination of fundamental physical quantities.</p>",
+              "options": [
+                {
+                  "label": "A",
+                  "id": 24341,
+                  "text": "Basic units",
+                  "is_correct": false
+                },
+                {
+                  "label": "B",
+                  "id": 24340,
+                  "text": "Derived units",
+                  "is_correct": true
+                },
+                {
+                  "label": "C",
+                  "id": 24343,
+                  "text": "Simple units",
+                  "is_correct": false
+                },
+                {
+                  "label": "D",
+                  "id": 24342,
+                  "text": "Complex units",
+                  "is_correct": false
+                }
+              ],
+              "correct_option_ids": [
+                24340
+              ],
+              "correct_option_labels": [
+                "B"
+              ],
+              "correct_option_texts": [
+                "Derived units"
+              ],
+              "explanation": "Derived units are units which may be expressed in terms of base units by means of mathematical symbols of multiplication and division."
+            },
+            {
+              "questionID": 17286,
+              "question": "Joule is the SI unit of",
+              "question_raw": "<p>Joule is the SI unit of</p>",
+              "options": [
+                {
+                  "label": "A",
+                  "id": 24347,
+                  "text": "acceleration",
+                  "is_correct": false
+                },
+                {
+                  "label": "B",
+                  "id": 24346,
+                  "text": "force",
+                  "is_correct": false
+                },
+                {
+                  "label": "C",
+                  "id": 24345,
+                  "text": "power",
+                  "is_correct": false
+                },
+                {
+                  "label": "D",
+                  "id": 24344,
+                  "text": "energy",
+                  "is_correct": true
+                }
+              ],
+              "correct_option_ids": [
+                24344
+              ],
+              "correct_option_labels": [
+                "D"
+              ],
+              "correct_option_texts": [
+                "energy"
+              ],
+              "explanation": "The joule (symbol J), is a derived unit of energy in the International System of Units. It is equal to the energy transferred to (or work done on) an object when a force of one newton acts on that object in the direction of its motion through a distance of one metre (1 newton metre or N⋅m)."
+            },
+            {
+              "questionID": 17287,
+              "question": "Newton is the SI unit of",
+              "question_raw": "<p>Newton is the SI unit of</p>",
+              "options": [
+                {
+                  "label": "A",
+                  "id": 24350,
+                  "text": "work",
+                  "is_correct": false
+                },
+                {
+                  "label": "B",
+                  "id": 24348,
+                  "text": "force",
+                  "is_correct": true
+                },
+                {
+                  "label": "C",
+                  "id": 24351,
+                  "text": "acceleration",
+                  "is_correct": false
+                },
+                {
+                  "label": "D",
+                  "id": 24349,
+                  "text": "power",
+                  "is_correct": false
+                }
+              ],
+              "correct_option_ids": [
+                24348
+              ],
+              "correct_option_labels": [
+                "B"
+              ],
+              "correct_option_texts": [
+                "force"
+              ],
+              "explanation": "The newton is the SI unit for force; it is equal to the amount of net force required to accelerate a mass of one kilogram at a rate of one meter per second squared."
+            },
+            {
+              "questionID": 17288,
+              "question": "The least count of any measuring equipment is",
+              "question_raw": "<p>The least count of any measuring equipment is</p>",
+              "options": [
+                {
+                  "label": "A",
+                  "id": 24352,
+                  "text": "the smallest quantity that can be measured using that instrument.",
+                  "is_correct": true
+                },
+                {
+                  "label": "B",
+                  "id": 24354,
+                  "text": "the smallest reading on the instrument.",
+                  "is_correct": false
+                },
+                {
+                  "label": "C",
+                  "id": 24355,
+                  "text": "the smallest effect in any instrument.",
+                  "is_correct": false
+                },
+                {
+                  "label": "D",
+                  "id": 24353,
+                  "text": "the smallest range in any instrument.",
+                  "is_correct": false
+                }
+              ],
+              "correct_option_ids": [
+                24352
+              ],
+              "correct_option_labels": [
+                "A"
+              ],
+              "correct_option_texts": [
+                "the smallest quantity that can be measured using that instrument."
+              ],
+              "explanation": "The smallest value that can be measured by the measuring instrument is called its least count. Measured values are good only up to this value. The least count error is the error associated with the resolution of the instrument."
+            },
+            {
+              "questionID": 17289,
+              "question": "Resolution is",
+              "question_raw": "<p>Resolution is</p>",
+              "options": [
+                {
+                  "label": "A",
+                  "id": 24357,
+                  "text": "a measure of the bias in the instrument",
+                  "is_correct": false
+                },
+                {
+                  "label": "B",
+                  "id": 24359,
+                  "text": "a measure of the functional errors",
+                  "is_correct": false
+                },
+                {
+                  "label": "C",
+                  "id": 24356,
+                  "text": "the smallest amount of input signal change that the instrument can detect reliably",
+                  "is_correct": true
+                },
+                {
+                  "label": "D",
+                  "id": 24358,
+                  "text": "a measure of the systematic errors",
+                  "is_correct": false
+                }
+              ],
+              "correct_option_ids": [
+                24356
+              ],
+              "correct_option_labels": [
+                "C"
+              ],
+              "correct_option_texts": [
+                "the smallest amount of input signal change that the instrument can detect reliably"
+              ],
+              "explanation": "Resolution is the smallest amount of input signal change that the instrument can detect reliably."
+            },
+            {
+              "questionID": 17290,
+              "question": "If $\\theta $ is the parallax angle of a planet at a distance 'D', when observed from two different positions on the Earth, separated by distance 'b', the expression for 'D' is",
+              "question_raw": "<p>If <span class=\"math-tex\">{tex}\\theta {/tex}</span> is the parallax angle of a planet at a distance &#39;D&#39;, when observed from two different positions on the Earth, separated by distance &#39;b&#39;, the expression for &#39;D&#39; is</p>",
+              "options": [
+                {
+                  "label": "A",
+                  "id": 24362,
+                  "text": "$\\frac{\\theta}{b}$",
+                  "is_correct": false
+                },
+                {
+                  "label": "B",
+                  "id": 24361,
+                  "text": "$\\frac{2b}{\\theta }$",
+                  "is_correct": false
+                },
+                {
+                  "label": "C",
+                  "id": 24360,
+                  "text": "$\\frac{b}{\\theta }$",
+                  "is_correct": true
+                },
+                {
+                  "label": "D",
+                  "id": 24363,
+                  "text": "$\\frac{\\theta}{2b}$",
+                  "is_correct": false
+                }
+              ],
+              "correct_option_ids": [
+                24360
+              ],
+              "correct_option_labels": [
+                "C"
+              ],
+              "correct_option_texts": [
+                "$\\frac{b}{\\theta }$"
+              ],
+              "explanation": "Parallax Method of Measurement: Astronomers use an effect called parallax to measure distances to nearby stars. Parallax is the apparent displacement of an object because of a change in the observer's point of view.\nTo measure the distance D of a far away planet S by the parallax method, We observe it from two different positions (observatories) A and B on the Earth, separated by distance AB = b at the same time as shown in the given figure.\nWe measure the angle between the two directions along which the planet is viewed at these two points. The $\\angle$ASB in the figure represented by symbol θ is called the parallax angle or parallactic angle.\nAs the planet is very far away, bD<<1 and therefore, θ is very small. Then we approximately take AB as an arc of length b of a circle with center at S and the distance D as the radius AS = BS so that AB = b = Dθ where θ is in radians.\nD = $\\frac{b}{\\theta} $"
+            },
+            {
+              "questionID": 17291,
+              "question": "Absolute error of the measurement is",
+              "question_raw": "<p>Absolute error of the measurement is</p>",
+              "options": [
+                {
+                  "label": "A",
+                  "id": 24365,
+                  "text": "the difference between two individual measurements and their mean.",
+                  "is_correct": false
+                },
+                {
+                  "label": "B",
+                  "id": 24364,
+                  "text": "the difference between the individual measurement and the true value of the quantity.",
+                  "is_correct": true
+                },
+                {
+                  "label": "C",
+                  "id": 24366,
+                  "text": "the difference between the individual measurement and the true value of the quantity squared.",
+                  "is_correct": false
+                },
+                {
+                  "label": "D",
+                  "id": 24367,
+                  "text": "the difference between the individual measurement and the true value of the quantity cubed.",
+                  "is_correct": false
+                }
+              ],
+              "correct_option_ids": [
+                24364
+              ],
+              "correct_option_labels": [
+                "B"
+              ],
+              "correct_option_texts": [
+                "the difference between the individual measurement and the true value of the quantity."
+              ],
+              "explanation": "Absolute error is defined as the magnitude of difference between the actual and the individual values of any quantity in question.\nSay we measure any given quantity for n number of times and a_1, a_2, a_3 ….. a_ _n are the individual values, then arithmetic mean is given by:\na_ _ m =( [a_ 1+a_2+a_ 3+ ….. + a_ n]/n)\nNow absolute error formula as per definition will be:"
+            },
+            {
+              "questionID": 17292,
+              "question": "The arithmetic mean of all the absolute errors $\\Delta {{\\rm{a}}_{{\\rm{mean}}}}$ is given by",
+              "question_raw": "<p>The arithmetic mean of all the absolute errors <span class=\"math-tex\">{tex}\\Delta {{\\rm{a}}_{{\\rm{mean}}}}{/tex}</span> is given by</p>",
+              "options": [
+                {
+                  "label": "A",
+                  "id": 24368,
+                  "text": "$\\Delta \\mathrm{a}_{\\text {mean }}=\\frac{\\left(\\left|\\Delta \\mathrm{a}_1\\right|+\\left|\\Delta \\mathrm{a}_2\\right|+\\left|\\Delta \\mathrm{a}_3\\right|+\\ldots+\\left|\\Delta \\mathrm{a}_{\\mathrm{n}}\\right|\\right)}{\\mathrm{n}}$",
+                  "is_correct": true
+                },
+                {
+                  "label": "B",
+                  "id": 24370,
+                  "text": "$2 \\Delta \\mathrm{a}_{\\text {mean }}=\\frac{\\left(\\left|\\Delta \\mathrm{a}_1\\right|+\\left|\\Delta \\mathrm{a}_2\\right|+\\left|\\Delta \\mathrm{a}_3\\right|+\\ldots+\\left|\\Delta \\mathrm{a}_{\\mathrm{n}}\\right|\\right)}{\\mathrm{n}}$",
+                  "is_correct": false
+                },
+                {
+                  "label": "C",
+                  "id": 24371,
+                  "text": "$\\Delta \\mathrm{a}_{\\text {mean }}=\\frac{2\\left(\\left|\\Delta \\mathrm{a}_1\\right|+\\left|\\Delta \\mathrm{a}_2\\right|+\\left|\\Delta \\mathrm{a}_3\\right|+\\ldots+\\left|\\Delta \\mathrm{a}_{\\mathrm{n}}\\right|\\right)}{\\mathrm{n}}$",
+                  "is_correct": false
+                },
+                {
+                  "label": "D",
+                  "id": 24369,
+                  "text": "$\\Delta {{\\rm{a}}_{{\\rm{mean}}}} = {\\rm{ }}\\left( {\\left| {\\Delta {{\\rm{a}}_{\\rm{1}}}} \\right| + \\left| {\\Delta {{\\rm{a}}_{\\rm{2}}}} \\right| + \\left| {\\Delta {{\\rm{a}}_{\\rm{3}}}} \\right| + ... + {\\rm{ }}|\\Delta {{\\rm{a}}_{\\rm{n}}}|} \\right)$",
+                  "is_correct": false
+                }
+              ],
+              "correct_option_ids": [
+                24368
+              ],
+              "correct_option_labels": [
+                "A"
+              ],
+              "correct_option_texts": [
+                "$\\Delta \\mathrm{a}_{\\text {mean }}=\\frac{\\left(\\left|\\Delta \\mathrm{a}_1\\right|+\\left|\\Delta \\mathrm{a}_2\\right|+\\left|\\Delta \\mathrm{a}_3\\right|+\\ldots+\\left|\\Delta \\mathrm{a}_{\\mathrm{n}}\\right|\\right)}{\\mathrm{n}}$"
+              ],
+              "explanation": "We know that mean is the average of all numbers. So mean of all the absolute errors $=\\frac{\\text { sum of all absolute errors }}{\\text { number of errors }}$"
+            },
+            {
+              "questionID": 17293,
+              "question": "The relative error is given by",
+              "question_raw": "<p>The relative error is given by</p>",
+              "options": [
+                {
+                  "label": "A",
+                  "id": 24375,
+                  "text": "Relative error = $\\frac{\\Delta a_{\\text {mean }}}{1.2 a_{\\text {mean }}}$",
+                  "is_correct": false
+                },
+                {
+                  "label": "B",
+                  "id": 24372,
+                  "text": "Relative error = $\\frac{\\Delta a_{\\text {mean }}}{a_{\\text {mean }}}$",
+                  "is_correct": true
+                },
+                {
+                  "label": "C",
+                  "id": 24373,
+                  "text": "Relative error = $\\frac{\\Delta a_{\\text {mean }}}{2 a_{\\text {mean }}}$",
+                  "is_correct": false
+                },
+                {
+                  "label": "D",
+                  "id": 24374,
+                  "text": "Relative error = $\\frac{2 \\Delta a_{\\text {mean }}}{a_{\\text {mean }}}$",
+                  "is_correct": false
+                }
+              ],
+              "correct_option_ids": [
+                24372
+              ],
+              "correct_option_labels": [
+                "B"
+              ],
+              "correct_option_texts": [
+                "Relative error = $\\frac{\\Delta a_{\\text {mean }}}{a_{\\text {mean }}}$"
+              ],
+              "explanation": "Relative Error or fractional error: It is defined as the ration of mean absolute error to the mean value of the measured quantity.\n$\\delta a=\\frac{\\text { mean absolute value }}{\\text { mean value }}$\nRelative error = $\\frac{\\Delta a_{\\text {mean }}}{a_{\\text {mean }}}$"
+            },
+            {
+              "questionID": 17294,
+              "question": "Percentage error δa is given by",
+              "question_raw": "<p>Percentage error &delta;a is given by</p>",
+              "options": [
+                {
+                  "label": "A",
+                  "id": 24378,
+                  "text": "$\\delta {\\rm{a }} = {\\rm{ }}\\left( {\\Delta {{\\rm{a}}_{{\\rm{mean}}}}/{{\\rm{a}}_{{\\rm{mean}}}}} \\right)$70$\\% $",
+                  "is_correct": false
+                },
+                {
+                  "label": "B",
+                  "id": 24377,
+                  "text": "$\\delta {\\rm{a }} = {\\rm{ }}\\left( {\\Delta {{\\rm{a}}_{{\\rm{mean}}}}/{{\\rm{a}}_{{\\rm{mean}}}}} \\right)$ 80$\\% $",
+                  "is_correct": false
+                },
+                {
+                  "label": "C",
+                  "id": 24376,
+                  "text": "$\\delta {\\rm{a }} = {\\rm{ }}\\left( {\\Delta {{\\rm{a}}_{{\\rm{mean}}}}/{{\\rm{a}}_{{\\rm{mean}}}}} \\right)$100$\\% $",
+                  "is_correct": true
+                },
+                {
+                  "label": "D",
+                  "id": 24379,
+                  "text": "$\\delta {\\rm{a }} = {\\rm{ }}\\left( {\\Delta {{\\rm{a}}_{{\\rm{mean}}}}/{{\\rm{a}}_{{\\rm{mean}}}}} \\right)$ 200$\\% $",
+                  "is_correct": false
+                }
+              ],
+              "correct_option_ids": [
+                24376
+              ],
+              "correct_option_labels": [
+                "C"
+              ],
+              "correct_option_texts": [
+                "$\\delta {\\rm{a }} = {\\rm{ }}\\left( {\\Delta {{\\rm{a}}_{{\\rm{mean}}}}/{{\\rm{a}}_{{\\rm{mean}}}}} \\right)$100$\\% $"
+              ],
+              "explanation": "Percentage Error: It is the relative error measured in percentage.\nSo Percentage Error $\\delta a ={ mean \\ absolute\\ value\\over mean\\ value} \\times 100$%\n$\\delta a ={ Δa_{mean}\\over a_{mean}}\\times 100$%"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "testPaperID": 533,
+      "testPaperName": "Units and Measurements Test 02",
+      "is_paid": true,
+      "category_full_name": "CBSE > Class 11 > Physics > Units and Measurements",
+      "noOfQuestions": 15,
+      "has_answers": true,
+      "sections": [
+        {
+          "sectionName": "General",
+          "sectionID": null,
+          "questions": [
+            {
+              "questionID": 17295,
+              "question": "When two quantities are added or subtracted, the absolute error in the final result is",
+              "question_raw": "<p>When two quantities are added or subtracted, the absolute error in the final result is</p>",
+              "options": [
+                {
+                  "label": "A",
+                  "id": 24382,
+                  "text": "absolute value of the sum of errors of individual quantities",
+                  "is_correct": false
+                },
+                {
+                  "label": "B",
+                  "id": 24383,
+                  "text": "absolute value of the difference of errors of individual quantities",
+                  "is_correct": false
+                },
+                {
+                  "label": "C",
+                  "id": 24381,
+                  "text": "absolute value of the sum of individual quantities",
+                  "is_correct": false
+                },
+                {
+                  "label": "D",
+                  "id": 24380,
+                  "text": "the sum of the absolute errors in the individual quantities",
+                  "is_correct": true
+                }
+              ],
+              "correct_option_ids": [
+                24380
+              ],
+              "correct_option_labels": [
+                "D"
+              ],
+              "correct_option_texts": [
+                "the sum of the absolute errors in the individual quantities"
+              ],
+              "explanation": "When two quantities are added or subtracted, the absolute error in the final result is the sum of the absolute errors in the individual quantities.\nFor e.g: error $∆x$ in the sum x = a + b is $∆x = \\pm (∆a+∆b)$\nMaximum value of error, $∆x$ = $(∆a+∆b)$"
+            },
+            {
+              "questionID": 17296,
+              "question": "When two quantities are multiplied or divided, the relative error in the result is",
+              "question_raw": "<p>When two quantities are multiplied or divided, the relative error in the result is</p>",
+              "options": [
+                {
+                  "label": "A",
+                  "id": 24385,
+                  "text": "the sum of the absolute errors in the multipliers",
+                  "is_correct": false
+                },
+                {
+                  "label": "B",
+                  "id": 24387,
+                  "text": "the difference of the absolute errors in the multipliers",
+                  "is_correct": false
+                },
+                {
+                  "label": "C",
+                  "id": 24386,
+                  "text": "the difference of the relative errors in the multipliers",
+                  "is_correct": false
+                },
+                {
+                  "label": "D",
+                  "id": 24384,
+                  "text": "the sum of the relative errors in the multipliers",
+                  "is_correct": true
+                }
+              ],
+              "correct_option_ids": [
+                24384
+              ],
+              "correct_option_labels": [
+                "D"
+              ],
+              "correct_option_texts": [
+                "the sum of the relative errors in the multipliers"
+              ],
+              "explanation": "When two quantities are multiplied or divided, the relative error in the result is the sum of the relative errors in the multipliers.\ne.g x = a x b\nMaximum possible error is: ${∆x\\over x} = \\pm ({{∆a\\over a} + {∆b\\over b}})$\nSimilarly, for error in quotient: x = $a\\over b$\nMaximum possible error is: ${∆x\\over x} = \\pm ({{∆a\\over a} + {∆b\\over b}}) $"
+            },
+            {
+              "questionID": 17297,
+              "question": "The relative error in a physical quantity raised to the power k is",
+              "question_raw": "<p>The relative error in a physical quantity raised to the power k is</p>",
+              "options": [
+                {
+                  "label": "A",
+                  "id": 24390,
+                  "text": "(k – 1) times the relative error in the individual quantity",
+                  "is_correct": false
+                },
+                {
+                  "label": "B",
+                  "id": 24389,
+                  "text": "k times the absolute error in the individual quantity",
+                  "is_correct": false
+                },
+                {
+                  "label": "C",
+                  "id": 24388,
+                  "text": "k times the relative error in the individual quantity.",
+                  "is_correct": true
+                },
+                {
+                  "label": "D",
+                  "id": 24391,
+                  "text": "(k – 1) times the absolute error in the individual quantity",
+                  "is_correct": false
+                }
+              ],
+              "correct_option_ids": [
+                24388
+              ],
+              "correct_option_labels": [
+                "C"
+              ],
+              "correct_option_texts": [
+                "k times the relative error in the individual quantity."
+              ],
+              "explanation": "The relative error in a physical quantity raised to a power k is the k times the relative error in the individual quantity.\nfor e.g. $x = {a^n\\over b^m}$\nMaximun relative error, ${∆x\\over x} = \\pm ({n{∆a\\over a}+m{∆b\\over b}})$"
+            },
+            {
+              "questionID": 17298,
+              "question": "The significant figures of a number are those digits that",
+              "question_raw": "<p>The significant figures of a number&nbsp;are those digits that&nbsp;</p>\r\n",
+              "options": [
+                {
+                  "label": "A",
+                  "id": 24392,
+                  "text": "carry meaning contributing to its measurement resolution.",
+                  "is_correct": true
+                },
+                {
+                  "label": "B",
+                  "id": 24395,
+                  "text": "are all non zero digits.",
+                  "is_correct": false
+                },
+                {
+                  "label": "C",
+                  "id": 24393,
+                  "text": "are at even positions after decimal.",
+                  "is_correct": false
+                },
+                {
+                  "label": "D",
+                  "id": 24394,
+                  "text": "are at odd positions after decimal.",
+                  "is_correct": false
+                }
+              ],
+              "correct_option_ids": [
+                24392
+              ],
+              "correct_option_labels": [
+                "A"
+              ],
+              "correct_option_texts": [
+                "carry meaning contributing to its measurement resolution."
+              ],
+              "explanation": "The significant figures of a number are digits that carry meaning contributing to its measurement resolution. This includes all digits except:\n All leading zeros;\n Trailing zeros when they are merely placeholders to indicate the scale of the number (exact rules are explained at identifying significant figures); and\n Spurious digits introduced, for example, by calculations carried out to greater precision than that of the original data, or measurements reported to a greater precision than the equipment supports."
+            },
+            {
+              "questionID": 17299,
+              "question": "The power (or exponent) to which the base quantities are raised to represent that quantity is called",
+              "question_raw": "<p>The power&nbsp;(or exponent) to which the base quantities are raised to represent that quantity is called</p>",
+              "options": [
+                {
+                  "label": "A",
+                  "id": 24396,
+                  "text": "dimension.",
+                  "is_correct": true
+                },
+                {
+                  "label": "B",
+                  "id": 24397,
+                  "text": "combination.",
+                  "is_correct": false
+                },
+                {
+                  "label": "C",
+                  "id": 24399,
+                  "text": "conversion.",
+                  "is_correct": false
+                },
+                {
+                  "label": "D",
+                  "id": 24398,
+                  "text": "measurement.",
+                  "is_correct": false
+                }
+              ],
+              "correct_option_ids": [
+                24396
+              ],
+              "correct_option_labels": [
+                "A"
+              ],
+              "correct_option_texts": [
+                "dimension."
+              ],
+              "explanation": "The dimension of the units of a derived physical quantity may be defined as the number of times the fundamental units of mass, length and time appear in the physical quantity."
+            },
+            {
+              "questionID": 17300,
+              "question": "According to the principle of homogeneity of dimensions, we can add or subtract",
+              "question_raw": "<p>According to the principle of homogeneity of dimensions, we can add or subtract&nbsp;</p>",
+              "options": [
+                {
+                  "label": "A",
+                  "id": 24400,
+                  "text": "similar physical quantities.",
+                  "is_correct": true
+                },
+                {
+                  "label": "B",
+                  "id": 24403,
+                  "text": "any physical quantities.",
+                  "is_correct": false
+                },
+                {
+                  "label": "C",
+                  "id": 24401,
+                  "text": "different physical quantities.",
+                  "is_correct": false
+                },
+                {
+                  "label": "D",
+                  "id": 24402,
+                  "text": "chemical physical quantities.",
+                  "is_correct": false
+                }
+              ],
+              "correct_option_ids": [
+                24400
+              ],
+              "correct_option_labels": [
+                "A"
+              ],
+              "correct_option_texts": [
+                "similar physical quantities."
+              ],
+              "explanation": "It would be more exact to say that \"Quantities with the same units can be added and subtracted with no problem.\" Quantities with the same dimensions can often be added and subtracted as long as the units are correctly converted."
+            },
+            {
+              "questionID": 17301,
+              "question": "In an equation, the dimensions of the LHS and RHS of the equation are the same. The equation is",
+              "question_raw": "<p>In an equation, the dimensions of the LHS&nbsp;and RHS&nbsp;of the equation are the same. The equation is</p>",
+              "options": [
+                {
+                  "label": "A",
+                  "id": 24405,
+                  "text": "dimensionally inconsistent.",
+                  "is_correct": false
+                },
+                {
+                  "label": "B",
+                  "id": 24404,
+                  "text": "dimensionally consistent.",
+                  "is_correct": true
+                },
+                {
+                  "label": "C",
+                  "id": 24407,
+                  "text": "none of these.",
+                  "is_correct": false
+                },
+                {
+                  "label": "D",
+                  "id": 24406,
+                  "text": "not possible.",
+                  "is_correct": false
+                }
+              ],
+              "correct_option_ids": [
+                24404
+              ],
+              "correct_option_labels": [
+                "B"
+              ],
+              "correct_option_texts": [
+                "dimensionally consistent."
+              ],
+              "explanation": "Principle of homogenity of dimensions states that “For an equation to be dimansionally correct, the dimensions of each term on LHS must be equal to the dimensions of each term on RHS.”"
+            },
+            {
+              "questionID": 17302,
+              "question": "The dimensional formula for Planck’s constant is",
+              "question_raw": "<p>&nbsp;The dimensional formula for Planck&rsquo;s constant is</p>",
+              "options": [
+                {
+                  "label": "A",
+                  "id": 24409,
+                  "text": "[MLT]",
+                  "is_correct": false
+                },
+                {
+                  "label": "B",
+                  "id": 24408,
+                  "text": "[ML^2T^-1]",
+                  "is_correct": true
+                },
+                {
+                  "label": "C",
+                  "id": 24410,
+                  "text": "[M^2L^2T^-1]",
+                  "is_correct": false
+                },
+                {
+                  "label": "D",
+                  "id": 24411,
+                  "text": "[ML^1T^-1]",
+                  "is_correct": false
+                }
+              ],
+              "correct_option_ids": [
+                24408
+              ],
+              "correct_option_labels": [
+                "B"
+              ],
+              "correct_option_texts": [
+                "[ML^2T^-1]"
+              ],
+              "explanation": "[ML^2T^-1] (Hint use E = hν)"
+            },
+            {
+              "questionID": 17303,
+              "question": "A dimensionally consistent equation",
+              "question_raw": "<p>A dimensionally consistent equation</p>",
+              "options": [
+                {
+                  "label": "A",
+                  "id": 24415,
+                  "text": "is always correct.",
+                  "is_correct": false
+                },
+                {
+                  "label": "B",
+                  "id": 24413,
+                  "text": "is necessarily correct.",
+                  "is_correct": false
+                },
+                {
+                  "label": "C",
+                  "id": 24414,
+                  "text": "is nearly correct.",
+                  "is_correct": false
+                },
+                {
+                  "label": "D",
+                  "id": 24412,
+                  "text": "is not necessarily correct.",
+                  "is_correct": true
+                }
+              ],
+              "correct_option_ids": [
+                24412
+              ],
+              "correct_option_labels": [
+                "D"
+              ],
+              "correct_option_texts": [
+                "is not necessarily correct."
+              ],
+              "explanation": "If an equation fails this consistency test, it is proved wrong, but if it passes, it is not proved right. Thus, a dimensionally correct equation need not be actually an exact (correct) equation, but a dimensionally wrong (incorrect) or inconsistent equation is definitely wrong."
+            },
+            {
+              "questionID": 17304,
+              "question": "Electric charge is expressed in SI units as",
+              "question_raw": "<p>Electric charge is expressed in SI units as</p>",
+              "options": [
+                {
+                  "label": "A",
+                  "id": 24418,
+                  "text": "Real unit",
+                  "is_correct": false
+                },
+                {
+                  "label": "B",
+                  "id": 24417,
+                  "text": "a base unit",
+                  "is_correct": false
+                },
+                {
+                  "label": "C",
+                  "id": 24416,
+                  "text": "derived unit",
+                  "is_correct": true
+                },
+                {
+                  "label": "D",
+                  "id": 24419,
+                  "text": "complex unit",
+                  "is_correct": false
+                }
+              ],
+              "correct_option_ids": [
+                24416
+              ],
+              "correct_option_labels": [
+                "C"
+              ],
+              "correct_option_texts": [
+                "derived unit"
+              ],
+              "explanation": "The SI derived unit of electric charge is the coulomb (C). The symbol Q often denotes charge."
+            },
+            {
+              "questionID": 17305,
+              "question": "The units of pressure are the same as the units of _______.",
+              "question_raw": "<p>The units of pressure are the same as the units of _______.</p>",
+              "options": [
+                {
+                  "label": "A",
+                  "id": 24422,
+                  "text": "elasticity",
+                  "is_correct": false
+                },
+                {
+                  "label": "B",
+                  "id": 24421,
+                  "text": "strain",
+                  "is_correct": false
+                },
+                {
+                  "label": "C",
+                  "id": 24423,
+                  "text": "plasticity",
+                  "is_correct": false
+                },
+                {
+                  "label": "D",
+                  "id": 24420,
+                  "text": "stress",
+                  "is_correct": true
+                }
+              ],
+              "correct_option_ids": [
+                24420
+              ],
+              "correct_option_labels": [
+                "D"
+              ],
+              "correct_option_texts": [
+                "stress"
+              ],
+              "explanation": "Pressure is not the same physical thing as stress, but they do use the same definition and thus produce the same units, so the same calculation can be used for both. They both measure force per unit area. The SI unit of both pressure and stress is Pascal."
+            },
+            {
+              "questionID": 17306,
+              "question": "The volume of a cube of side 2 cm is equal (in ${{\\rm{m}}^{\\rm{3}}}$) to",
+              "question_raw": "<p>The volume of a cube of side 2 cm is equal (in <span class=\"math-tex\">{tex}{{\\rm{m}}^{\\rm{3}}}{/tex}</span>) to</p>",
+              "options": [
+                {
+                  "label": "A",
+                  "id": 24425,
+                  "text": "0.008",
+                  "is_correct": false
+                },
+                {
+                  "label": "B",
+                  "id": 24427,
+                  "text": "0.0008",
+                  "is_correct": false
+                },
+                {
+                  "label": "C",
+                  "id": 24424,
+                  "text": "$8.0 \\times {10^{ - 6}}$",
+                  "is_correct": true
+                },
+                {
+                  "label": "D",
+                  "id": 24426,
+                  "text": "0.08",
+                  "is_correct": false
+                }
+              ],
+              "correct_option_ids": [
+                24424
+              ],
+              "correct_option_labels": [
+                "C"
+              ],
+              "correct_option_texts": [
+                "$8.0 \\times {10^{ - 6}}$"
+              ],
+              "explanation": "Side of cube (a) = 2 cm = $2\\times 10^{-2}m$\nVolume of cube (V) = $a^3 = (2\\times 10^{-2})^3$ = $8.0 \\times 10^{-6}m^3$"
+            },
+            {
+              "questionID": 17307,
+              "question": "The surface area of a solid cylinder of radius 2.0 cm and height 10.0 cm (in ${\\rm{m}}{{\\rm{m}}^{\\rm{2}}}$) is equal to",
+              "question_raw": "<p>The surface area of a solid cylinder of radius 2.0 cm and height 10.0 cm (in <span class=\"math-tex\">{tex}{\\rm{m}}{{\\rm{m}}^{\\rm{2}}}{/tex}</span>) is equal to</p>",
+              "options": [
+                {
+                  "label": "A",
+                  "id": 24430,
+                  "text": "15",
+                  "is_correct": false
+                },
+                {
+                  "label": "B",
+                  "id": 24431,
+                  "text": "150",
+                  "is_correct": false
+                },
+                {
+                  "label": "C",
+                  "id": 24428,
+                  "text": "$1.5 \\times {10^4}$",
+                  "is_correct": true
+                },
+                {
+                  "label": "D",
+                  "id": 24429,
+                  "text": "1500",
+                  "is_correct": false
+                }
+              ],
+              "correct_option_ids": [
+                24428
+              ],
+              "correct_option_labels": [
+                "C"
+              ],
+              "correct_option_texts": [
+                "$1.5 \\times {10^4}$"
+              ],
+              "explanation": "Radius of cylinder r = 2 cm = 20 mm\nHeight of cylinder h = 10 cm = 100 mm\nSurface area of cylinder = $2\\pi r(r+h)$\n= $2\\times 3.14 \\times 20 (20+100)$ \n= $2\\times 3.14 \\times 20 \\times 120 $\n= 15072 mm^​​​​​2 $\\approx 1.5\\times 10^4 mm^2$"
+            },
+            {
+              "questionID": 17308,
+              "question": "How many meters does a vehicle moving with a speed of 18 km ${{\\rm{h}}^{ - {\\rm{1}}}}$ covers in 1 s",
+              "question_raw": "<p>How many meters does a vehicle moving with a speed of 18 km <span class=\"math-tex\">{tex}{{\\rm{h}}^{ - {\\rm{1}}}}{/tex}</span> covers in 1 s</p>",
+              "options": [
+                {
+                  "label": "A",
+                  "id": 24435,
+                  "text": "4.5",
+                  "is_correct": false
+                },
+                {
+                  "label": "B",
+                  "id": 24432,
+                  "text": "5.0",
+                  "is_correct": true
+                },
+                {
+                  "label": "C",
+                  "id": 24434,
+                  "text": "6",
+                  "is_correct": false
+                },
+                {
+                  "label": "D",
+                  "id": 24433,
+                  "text": "4",
+                  "is_correct": false
+                }
+              ],
+              "correct_option_ids": [
+                24432
+              ],
+              "correct_option_labels": [
+                "B"
+              ],
+              "correct_option_texts": [
+                "5.0"
+              ],
+              "explanation": "Speed of vehicle = 18 km h^​​​​​​-1\nMean it cover 18 km in 1 hour {3600 seconds)\nDistance covered in 3600 sec = 18km = 18000 m\nDistance covered in 1 sec = ${18000\\over 3600 }= 5m$"
+            },
+            {
+              "questionID": 17309,
+              "question": "The relative density of lead is 11.3. Its density in g ${\\rm{c}}{{\\rm{m}}^{ - {\\rm{3}}}}$ is",
+              "question_raw": "<p>The relative density of lead is 11.3. Its density in g <span class=\"math-tex\">{tex}{\\rm{c}}{{\\rm{m}}^{ - {\\rm{3}}}}{/tex}</span> is</p>",
+              "options": [
+                {
+                  "label": "A",
+                  "id": 24438,
+                  "text": "113",
+                  "is_correct": false
+                },
+                {
+                  "label": "B",
+                  "id": 24436,
+                  "text": "11.3",
+                  "is_correct": true
+                },
+                {
+                  "label": "C",
+                  "id": 24437,
+                  "text": "1.13",
+                  "is_correct": false
+                },
+                {
+                  "label": "D",
+                  "id": 24439,
+                  "text": "1130",
+                  "is_correct": false
+                }
+              ],
+              "correct_option_ids": [
+                24436
+              ],
+              "correct_option_labels": [
+                "B"
+              ],
+              "correct_option_texts": [
+                "11.3"
+              ],
+              "explanation": "Relative density means how much times a substance is denser than water.\nNow relative density of lead = 11.3 means lead is 11.3 times denser than water.\nNow water has a density 1 g cm^–3 in cgs units\nThus lead will have a density = 11.3 x 1 g cm^–3 = 11.3 g cm^–3"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "testPaperID": 534,
+      "testPaperName": "Units and Measurements Test 03",
+      "is_paid": true,
+      "category_full_name": "CBSE > Class 11 > Physics > Units and Measurements",
+      "noOfQuestions": 15,
+      "has_answers": true,
+      "sections": [
+        {
+          "sectionName": "General",
+          "sectionID": null,
+          "questions": [
+            {
+              "questionID": 17310,
+              "question": "How many g ${\\rm{c}}{{\\rm{m}}^{\\rm{2}}}{{\\rm{s}}^{ - {\\rm{2}}}}$ does 1 kg ${{\\rm{m}}^{\\rm{2}}}{{\\rm{s}}^{ - {\\rm{2}}}}$ equal?",
+              "question_raw": "<p>How many g <span class=\"math-tex\">{tex}{\\rm{c}}{{\\rm{m}}^{\\rm{2}}}{{\\rm{s}}^{ - {\\rm{2}}}}{/tex}</span> does 1 kg <span class=\"math-tex\">{tex}{{\\rm{m}}^{\\rm{2}}}{{\\rm{s}}^{ - {\\rm{2}}}}{/tex}</span> equal?</p>",
+              "options": [
+                {
+                  "label": "A",
+                  "id": 24440,
+                  "text": "${\\rm{1}}{0^{\\rm{7}}}$",
+                  "is_correct": true
+                },
+                {
+                  "label": "B",
+                  "id": 24442,
+                  "text": "${\\rm{1}}{0^{\\rm{8}}}$",
+                  "is_correct": false
+                },
+                {
+                  "label": "C",
+                  "id": 24441,
+                  "text": "${\\rm{1}}{0^{\\rm{5}}}$",
+                  "is_correct": false
+                },
+                {
+                  "label": "D",
+                  "id": 24443,
+                  "text": "${\\rm{1}}{0^{\\rm{3}}}$",
+                  "is_correct": false
+                }
+              ],
+              "correct_option_ids": [
+                24440
+              ],
+              "correct_option_labels": [
+                "A"
+              ],
+              "correct_option_texts": [
+                "${\\rm{1}}{0^{\\rm{7}}}$"
+              ],
+              "explanation": "We know 1 kg = 10^3 g\n1 m^​​​​​​2 = 10^4 cm^2\n1 s^​​​​​​-2 = 1s^-2\nMultiply all these quantities we get\n$\\Rightarrow$ 1 kg m^​​​​​​2 s^​​​​​​-2 = $10^3\\times 10^4 gcm^2s^{-2}$\n$\\Rightarrow 1kgm^2s^{-2}= 10^7 gcm^2s^{-2}$"
+            },
+            {
+              "questionID": 17311,
+              "question": "Approximately how many light years is a meter?",
+              "question_raw": "<p>Approximately how many light years is a meter?</p>",
+              "options": [
+                {
+                  "label": "A",
+                  "id": 24445,
+                  "text": "${\\rm{1}}{0^{ - {\\rm{1}}0}}$",
+                  "is_correct": false
+                },
+                {
+                  "label": "B",
+                  "id": 24447,
+                  "text": "${\\rm{1}}{0^{ - {\\rm{1}}2}}$",
+                  "is_correct": false
+                },
+                {
+                  "label": "C",
+                  "id": 24444,
+                  "text": "${\\rm{1}}{0^{ - {\\rm{16}}}}$",
+                  "is_correct": true
+                },
+                {
+                  "label": "D",
+                  "id": 24446,
+                  "text": "${\\rm{1}}{0^{ - {\\rm{1}}1}}$",
+                  "is_correct": false
+                }
+              ],
+              "correct_option_ids": [
+                24444
+              ],
+              "correct_option_labels": [
+                "C"
+              ],
+              "correct_option_texts": [
+                "${\\rm{1}}{0^{ - {\\rm{16}}}}$"
+              ],
+              "explanation": "A light-year is a unit of distance. It is the distance that light can travel in one year. Light moves at a velocity of about 300,000 kilometers (km) each second. So in one year, it can travel about 10 trillion km. More precisely, one light-year is equal to $9.5\\times 10^{15}m$.\n$\\Rightarrow$ 1 Light Year = $9.5\\times 10^{15}m $\n$\\Rightarrow$ 1 m = ${1\\over 9.5\\times 10^{15} } Light\\ year $\n$\\Rightarrow 1 m \\approx 10^{-16}Light \\ year $"
+            },
+            {
+              "questionID": 17312,
+              "question": "Approximately how many km ${{\\rm{h}}^{ - {\\rm{2}}}}$ is 3 m ${{\\rm{s}}^{ - {\\rm{2}}}}$ ?",
+              "question_raw": "<p>Approximately how many km <span class=\"math-tex\">{tex}{{\\rm{h}}^{ - {\\rm{2}}}}{/tex}</span>&nbsp;is 3 m <span class=\"math-tex\">{tex}{{\\rm{s}}^{ - {\\rm{2}}}}{/tex}</span> ?</p>",
+              "options": [
+                {
+                  "label": "A",
+                  "id": 24451,
+                  "text": "3.5$ \\times $${\\rm{1}}{0^{\\rm{4}}}$",
+                  "is_correct": false
+                },
+                {
+                  "label": "B",
+                  "id": 24449,
+                  "text": "3.9$ \\times $ ${\\rm{1}}{0^{\\rm{3}}}$",
+                  "is_correct": false
+                },
+                {
+                  "label": "C",
+                  "id": 24448,
+                  "text": "3.9 $ \\times $${\\rm{1}}{0^{\\rm{4}}}$",
+                  "is_correct": true
+                },
+                {
+                  "label": "D",
+                  "id": 24450,
+                  "text": "3.6$ \\times $ ${\\rm{1}}{0^{\\rm{4}}}$",
+                  "is_correct": false
+                }
+              ],
+              "correct_option_ids": [
+                24448
+              ],
+              "correct_option_labels": [
+                "C"
+              ],
+              "correct_option_texts": [
+                "3.9 $ \\times $${\\rm{1}}{0^{\\rm{4}}}$"
+              ],
+              "explanation": "1 km h^​​​​​​-2 = ${1000m\\over 3600\\times 3600 \\;s^2} = {1\\over 360\\times 36}ms^{-2}$\n$\\Rightarrow$ $1ms^{-2} = 360\\times 36 km\\ h^{-2}$\n$\\Rightarrow$ $3ms^{-2} =3\\times 360\\times 36 km\\ h^{-2}$\n$\\Rightarrow$ $3ms^{-2}= 38880km\\ h^{-2} $\n$\\Rightarrow 3ms^{-2} \\approx 3.9\\times 10^4 km \\ h^{-2}$"
+            },
+            {
+              "questionID": 17313,
+              "question": "The value of G is = 6.67 × ${\\rm{1}}{0^{ - {\\rm{11}}}}$ N ${{\\rm{m}}^{\\rm{2}}}{\\left( {{\\rm{kg}}} \\right)^{ - {\\rm{2}}}}$. The value of G in ${\\left( {{\\rm{cm}}} \\right)^{\\rm{3}}}{{\\rm{s}}^{-{\\rm{2}}}}{{\\rm{g}}^{-{\\rm{1}}}}$ is",
+              "question_raw": "<p>The value of G is&nbsp;= 6.67 &times; <span class=\"math-tex\">{tex}{\\rm{1}}{0^{ - {\\rm{11}}}}{/tex}</span> N <span class=\"math-tex\">{tex}{{\\rm{m}}^{\\rm{2}}}{\\left( {{\\rm{kg}}} \\right)^{ - {\\rm{2}}}}{/tex}</span>. The value of G in <span class=\"math-tex\">{tex}{\\left( {{\\rm{cm}}} \\right)^{\\rm{3}}}{{\\rm{s}}^{-{\\rm{2}}}}{{\\rm{g}}^{-{\\rm{1}}}}{/tex}</span> is</p>",
+              "options": [
+                {
+                  "label": "A",
+                  "id": 24452,
+                  "text": "6.67 $ \\times $ ${\\rm{1}}{0^{ - {\\rm{8}}}}$",
+                  "is_correct": true
+                },
+                {
+                  "label": "B",
+                  "id": 24453,
+                  "text": "6.67 $ \\times $ ${\\rm{1}}{0^{ - {\\rm{12}}}}$",
+                  "is_correct": false
+                },
+                {
+                  "label": "C",
+                  "id": 24455,
+                  "text": "6.67 $ \\times $ ${\\rm{1}}{0^{ - {\\rm{10}}}}$",
+                  "is_correct": false
+                },
+                {
+                  "label": "D",
+                  "id": 24454,
+                  "text": "6.67 $ \\times $ ${\\rm{1}}{0^{ - {\\rm{9}}}}$",
+                  "is_correct": false
+                }
+              ],
+              "correct_option_ids": [
+                24452
+              ],
+              "correct_option_labels": [
+                "A"
+              ],
+              "correct_option_texts": [
+                "6.67 $ \\times $ ${\\rm{1}}{0^{ - {\\rm{8}}}}$"
+              ],
+              "explanation": "In MKS units G = $6.67\\times 10^{-11} Nm^2/kg^2$\n1 N = $kgm/s^2$ =$1000g\\times 100cm/s^2$= $10^5 gcm/s^2$\n$1m^2=10^4 cm^2$\n $1kg^2=10^6g^2 $\n$\\therefore$G = $6.67\\times 10^{-11}\\times 10^5\\times 10^4\\over 10^6$ = $6.67\\times 10^{-8}$"
+            },
+            {
+              "questionID": 17314,
+              "question": "A new unit of length is chosen such that the speed of light in vacuum is unity. What is the distance between the Sun and the Earth in terms of the new unit if light takes 8 min and 20 s to cover this distance?",
+              "question_raw": "<p>A new unit of length is chosen such that the speed of light in vacuum is unity. What is the distance between the Sun and the Earth in terms of the new unit if light takes 8 min and 20 s to cover this distance?</p>",
+              "options": [
+                {
+                  "label": "A",
+                  "id": 24456,
+                  "text": "500",
+                  "is_correct": true
+                },
+                {
+                  "label": "B",
+                  "id": 24459,
+                  "text": "600",
+                  "is_correct": false
+                },
+                {
+                  "label": "C",
+                  "id": 24458,
+                  "text": "550",
+                  "is_correct": false
+                },
+                {
+                  "label": "D",
+                  "id": 24457,
+                  "text": "450",
+                  "is_correct": false
+                }
+              ],
+              "correct_option_ids": [
+                24456
+              ],
+              "correct_option_labels": [
+                "A"
+              ],
+              "correct_option_texts": [
+                "500"
+              ],
+              "explanation": "Distance between the Sun and the Earth $=$ Speed of light $\\times$ Time taken by light to cover the distance\nIt is given that in the new unit system, speed of light = 1 unit.\nTime taken, t = 8 min 20 s = 500 s\nTheref​​​​​​ore, Distance between the Sun and the Earth = 1 x 500 = 500 new units of length"
+            },
+            {
+              "questionID": 17315,
+              "question": "Which of the following is the most precise device for measuring length?",
+              "question_raw": "<p>Which of the following is the most precise device for measuring length?</p>",
+              "options": [
+                {
+                  "label": "A",
+                  "id": 24462,
+                  "text": "A vernier callipers with 20 divisions on the sliding scale.",
+                  "is_correct": false
+                },
+                {
+                  "label": "B",
+                  "id": 24461,
+                  "text": "A screw gauge of pitch 1 mm and 100 divisions on the circular scale.",
+                  "is_correct": false
+                },
+                {
+                  "label": "C",
+                  "id": 24463,
+                  "text": "All instruments have same precision.",
+                  "is_correct": false
+                },
+                {
+                  "label": "D",
+                  "id": 24460,
+                  "text": "An optical instrument that can measure length to within a wavelength of light.",
+                  "is_correct": true
+                }
+              ],
+              "correct_option_ids": [
+                24460
+              ],
+              "correct_option_labels": [
+                "D"
+              ],
+              "correct_option_texts": [
+                "An optical instrument that can measure length to within a wavelength of light."
+              ],
+              "explanation": "An optical instrument that can measure length to within a wavelength of light."
+            },
+            {
+              "questionID": 17316,
+              "question": "A student measures the thickness of a human hair by looking at it through a microscope of magnification 100. He makes 20 observations and finds that the average width of the hair in the field of view of the microscope is 3.5 mm. What is the estimate on the thickness of hair ?",
+              "question_raw": "<p>A student measures the thickness of a human hair by looking at it through a microscope of magnification 100. He makes 20 observations and finds that the average width of the hair in the field of view of the microscope is 3.5 mm. What is the estimate on the thickness of hair ?</p>",
+              "options": [
+                {
+                  "label": "A",
+                  "id": 24464,
+                  "text": "0.035 mm",
+                  "is_correct": true
+                },
+                {
+                  "label": "B",
+                  "id": 24466,
+                  "text": "0.025 mm",
+                  "is_correct": false
+                },
+                {
+                  "label": "C",
+                  "id": 24467,
+                  "text": "0.040 mm",
+                  "is_correct": false
+                },
+                {
+                  "label": "D",
+                  "id": 24465,
+                  "text": "0.030 mm",
+                  "is_correct": false
+                }
+              ],
+              "correct_option_ids": [
+                24464
+              ],
+              "correct_option_labels": [
+                "A"
+              ],
+              "correct_option_texts": [
+                "0.035 mm"
+              ],
+              "explanation": "Magnification of microscope = 100\nObserved width of the hair = 3.5 mm\nEstimate on the thickness of hair is given by\nMagnification = $Observed \\ width \\over Real \\ width $\nReal width = $Observed\\ width \\over Magnification $= $3.5 \\over 100$ = 0.035 mm"
+            },
+            {
+              "questionID": 17317,
+              "question": "The photograph of a house occupies an area of 1.75 ${\\rm{c}}{{\\rm{m}}^{\\rm{2}}}$ on a 35 mm slide. The slide is projected on to a screen, and the area of the house on the screen is 1.55 ${{\\rm{m}}^{\\rm{2}}}$ . What is the linear magnification of the projector-screen arrangement?",
+              "question_raw": "<p>The photograph of a house occupies an area of 1.75 <span class=\"math-tex\">{tex}{\\rm{c}}{{\\rm{m}}^{\\rm{2}}}{/tex}</span> on a 35 mm slide. The slide is projected on to a screen, and the area of the house on the screen is 1.55 <span class=\"math-tex\">{tex}{{\\rm{m}}^{\\rm{2}}}{/tex}</span> . What is the linear magnification of the projector-screen arrangement?</p>",
+              "options": [
+                {
+                  "label": "A",
+                  "id": 24471,
+                  "text": "90.2",
+                  "is_correct": false
+                },
+                {
+                  "label": "B",
+                  "id": 24469,
+                  "text": "88.4",
+                  "is_correct": false
+                },
+                {
+                  "label": "C",
+                  "id": 24468,
+                  "text": "94.1",
+                  "is_correct": true
+                },
+                {
+                  "label": "D",
+                  "id": 24470,
+                  "text": "84.1",
+                  "is_correct": false
+                }
+              ],
+              "correct_option_ids": [
+                24468
+              ],
+              "correct_option_labels": [
+                "C"
+              ],
+              "correct_option_texts": [
+                "94.1"
+              ],
+              "explanation": "Area of the house on the slide = 1.75 cm^​​2\nArea of the image of the house formed on the screen = 1.55 m^​​​​​​2 = 1.55 × 10^4 cm^​​​​​2\nArial magnification, m_​​​​​​a = $Area \\ of \\ image\\over area \\ of \\ object $ = ${1.55\\times 10^4\\over 1.75}$= 8857\nLinear magnification, m_$l$ = $\\sqrt{a_m}= \\sqrt{8857}$ = 94.1"
+            },
+            {
+              "questionID": 17318,
+              "question": "The number of significant digits in 0.007 is",
+              "question_raw": "<p>The number of significant digits in 0.007 is</p>",
+              "options": [
+                {
+                  "label": "A",
+                  "id": 24474,
+                  "text": "2",
+                  "is_correct": false
+                },
+                {
+                  "label": "B",
+                  "id": 24475,
+                  "text": "4",
+                  "is_correct": false
+                },
+                {
+                  "label": "C",
+                  "id": 24473,
+                  "text": "3",
+                  "is_correct": false
+                },
+                {
+                  "label": "D",
+                  "id": 24472,
+                  "text": "1",
+                  "is_correct": true
+                }
+              ],
+              "correct_option_ids": [
+                24472
+              ],
+              "correct_option_labels": [
+                "D"
+              ],
+              "correct_option_texts": [
+                "1"
+              ],
+              "explanation": "There are three rules on determining how many significant figures are in a number: \n Non-zero digits are always significant.\n Any zeros between two significant digits are significant.\n A final zero or trailing zeros in the decimal portion ONLY are significant.\nSo keeping these rules in mind, there are 1 significant digit."
+            },
+            {
+              "questionID": 17319,
+              "question": "The number of significant digits in 2.64 × ${\\rm{1}}{0^{{\\rm{24}}}}$ is",
+              "question_raw": "<p>The number of significant digits in 2.64 &times; <span class=\"math-tex\">{tex}{\\rm{1}}{0^{{\\rm{24}}}}{/tex}</span> is</p>",
+              "options": [
+                {
+                  "label": "A",
+                  "id": 24479,
+                  "text": "4",
+                  "is_correct": false
+                },
+                {
+                  "label": "B",
+                  "id": 24476,
+                  "text": "3",
+                  "is_correct": true
+                },
+                {
+                  "label": "C",
+                  "id": 24478,
+                  "text": "1",
+                  "is_correct": false
+                },
+                {
+                  "label": "D",
+                  "id": 24477,
+                  "text": "2",
+                  "is_correct": false
+                }
+              ],
+              "correct_option_ids": [
+                24476
+              ],
+              "correct_option_labels": [
+                "B"
+              ],
+              "correct_option_texts": [
+                "3"
+              ],
+              "explanation": "There are three rules on determining how many significant figures are in a number: \n Non-zero digits are always significant.\n Any zeros between two significant digits are significant.\n A final zero or trailing zeros in the decimal portion ONLY are significant.\nSo keeping these rules in mind, there are 3 significant digits."
+            },
+            {
+              "questionID": 17320,
+              "question": "The number of significant digits in 0.2370 is",
+              "question_raw": "<p>The number of significant digits in 0.2370 is</p>",
+              "options": [
+                {
+                  "label": "A",
+                  "id": 24481,
+                  "text": "5",
+                  "is_correct": false
+                },
+                {
+                  "label": "B",
+                  "id": 24480,
+                  "text": "4",
+                  "is_correct": true
+                },
+                {
+                  "label": "C",
+                  "id": 24482,
+                  "text": "3",
+                  "is_correct": false
+                },
+                {
+                  "label": "D",
+                  "id": 24483,
+                  "text": "6",
+                  "is_correct": false
+                }
+              ],
+              "correct_option_ids": [
+                24480
+              ],
+              "correct_option_labels": [
+                "B"
+              ],
+              "correct_option_texts": [
+                "4"
+              ],
+              "explanation": "There are three rules on determining how many significant figures are in a number: \n Non-zero digits are always significant.\n Any zeros between two significant digits are significant.\n A final zero or trailing zeros in the decimal portion ONLY are significant.\nSo keeping these rules in mind, there are 4 significant digits."
+            },
+            {
+              "questionID": 17321,
+              "question": "The number of significant digits in 6.320 J is",
+              "question_raw": "<p>The number of significant digits in 6.320 J is</p>",
+              "options": [
+                {
+                  "label": "A",
+                  "id": 24485,
+                  "text": "5",
+                  "is_correct": false
+                },
+                {
+                  "label": "B",
+                  "id": 24486,
+                  "text": "3",
+                  "is_correct": false
+                },
+                {
+                  "label": "C",
+                  "id": 24484,
+                  "text": "4",
+                  "is_correct": true
+                },
+                {
+                  "label": "D",
+                  "id": 24487,
+                  "text": "6",
+                  "is_correct": false
+                }
+              ],
+              "correct_option_ids": [
+                24484
+              ],
+              "correct_option_labels": [
+                "C"
+              ],
+              "correct_option_texts": [
+                "4"
+              ],
+              "explanation": "There are three rules on determining how many significant figures are in a number: \n Non-zero digits are always significant.\n Any zeros between two significant digits are significant.\n A final zero or trailing zeros in the decimal portion ONLY are significant.\nSo keeping these rules in mind, there are 4 significant digits."
+            },
+            {
+              "questionID": 17322,
+              "question": "The number of significant digits in 6.032 N ${{\\rm{m}}^{ - {\\rm{2}}}}$ is",
+              "question_raw": "<p>The number of significant digits in 6.032 N&nbsp;<span class=\"math-tex\">{tex}{{\\rm{m}}^{ - {\\rm{2}}}}{/tex}</span> is</p>",
+              "options": [
+                {
+                  "label": "A",
+                  "id": 24491,
+                  "text": "6",
+                  "is_correct": false
+                },
+                {
+                  "label": "B",
+                  "id": 24488,
+                  "text": "4",
+                  "is_correct": true
+                },
+                {
+                  "label": "C",
+                  "id": 24490,
+                  "text": "3",
+                  "is_correct": false
+                },
+                {
+                  "label": "D",
+                  "id": 24489,
+                  "text": "5",
+                  "is_correct": false
+                }
+              ],
+              "correct_option_ids": [
+                24488
+              ],
+              "correct_option_labels": [
+                "B"
+              ],
+              "correct_option_texts": [
+                "4"
+              ],
+              "explanation": "There are three rules on determining how many significant figures are in a number: \n Non-zero digits are always significant.\n Any zeros between two significant digits are significant.\n A final zero or trailing zeros in the decimal portion ONLY are significant.\nSo keeping these rules in mind, there are 4 significant digits."
+            },
+            {
+              "questionID": 17323,
+              "question": "The number of significant digits in 0.0006032 ${{\\rm{m}}^{\\rm{2}}}$ is",
+              "question_raw": "<p>The number of significant digits in 0.0006032 <span class=\"math-tex\">{tex}{{\\rm{m}}^{\\rm{2}}}{/tex}</span> is</p>",
+              "options": [
+                {
+                  "label": "A",
+                  "id": 24493,
+                  "text": "5",
+                  "is_correct": false
+                },
+                {
+                  "label": "B",
+                  "id": 24494,
+                  "text": "3",
+                  "is_correct": false
+                },
+                {
+                  "label": "C",
+                  "id": 24495,
+                  "text": "6",
+                  "is_correct": false
+                },
+                {
+                  "label": "D",
+                  "id": 24492,
+                  "text": "4",
+                  "is_correct": true
+                }
+              ],
+              "correct_option_ids": [
+                24492
+              ],
+              "correct_option_labels": [
+                "D"
+              ],
+              "correct_option_texts": [
+                "4"
+              ],
+              "explanation": "There are three rules on determining how many significant figures are in a number: \n Non-zero digits are always significant.\n Any zeros between two significant digits are significant.\n A final zero or trailing zeros in the decimal portion ONLY are significant.\nSo keeping these rules in mind, there are 4 significant digits."
+            },
+            {
+              "questionID": 17324,
+              "question": "The mass of a box measured by a grocer's balance is 2.300 kg. Two gold pieces of masses 20.15 g and 20.17 g are added to the box. What is the total mass of the box and the difference in the masses of the pieces to correct significant figures?",
+              "question_raw": "<p>The mass of a box measured by a grocer&#39;s balance is 2.300 kg. Two gold pieces of masses 20.15 g and 20.17 g are added to the box. What is the total mass of the box and the difference in the masses of the pieces to correct significant figures?</p>",
+              "options": [
+                {
+                  "label": "A",
+                  "id": 24497,
+                  "text": "2.5 kg, 0.02 g",
+                  "is_correct": false
+                },
+                {
+                  "label": "B",
+                  "id": 24499,
+                  "text": "2.5 kg, 0.05 g",
+                  "is_correct": false
+                },
+                {
+                  "label": "C",
+                  "id": 24498,
+                  "text": "2.3 kg, 0.03 g",
+                  "is_correct": false
+                },
+                {
+                  "label": "D",
+                  "id": 24496,
+                  "text": "2.3 kg, 0.02 g",
+                  "is_correct": true
+                }
+              ],
+              "correct_option_ids": [
+                24496
+              ],
+              "correct_option_labels": [
+                "D"
+              ],
+              "correct_option_texts": [
+                "2.3 kg, 0.02 g"
+              ],
+              "explanation": "Total mass = 2.3 kg + 0.02015 kg + 0.02017 kg = 2.34032 kg = 2.3 kg\nDifference of mass of the gold pieces = 20.17 g - 20.15 g = 0.02 g"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "testPaperID": 535,
+      "testPaperName": "Units and Measurements Test 04",
+      "is_paid": true,
+      "category_full_name": "CBSE > Class 11 > Physics > Units and Measurements",
+      "noOfQuestions": 15,
+      "has_answers": true,
+      "sections": [
+        {
+          "sectionName": "General",
+          "sectionID": null,
+          "questions": [
+            {
+              "questionID": 17325,
+              "question": "The length, breadth and thickness of a rectangular sheet of metal are 4.234 m, 1.005 m, and 2.01 cm respectively. Give the area of the sheet to correct significant figures.",
+              "question_raw": "<p>The length, breadth and thickness of a rectangular sheet of metal are 4.234 m, 1.005 m, and 2.01 cm respectively. Give the area of the sheet to correct significant figures.</p>",
+              "options": [
+                {
+                  "label": "A",
+                  "id": 24502,
+                  "text": "8.8 ${{\\rm{m}}^{\\rm{2}}}$",
+                  "is_correct": false
+                },
+                {
+                  "label": "B",
+                  "id": 24503,
+                  "text": "8.7221 ${{\\rm{m}}^{\\rm{2}}}$",
+                  "is_correct": false
+                },
+                {
+                  "label": "C",
+                  "id": 24501,
+                  "text": "8.722 ${{\\rm{m}}^{\\rm{2}}}$",
+                  "is_correct": false
+                },
+                {
+                  "label": "D",
+                  "id": 24500,
+                  "text": "8.72 ${{\\rm{m}}^{\\rm{2}}}$",
+                  "is_correct": true
+                }
+              ],
+              "correct_option_ids": [
+                24500
+              ],
+              "correct_option_labels": [
+                "D"
+              ],
+              "correct_option_texts": [
+                "8.72 ${{\\rm{m}}^{\\rm{2}}}$"
+              ],
+              "explanation": "Length of sheet is given by, l = 4.234 m\nBreadth of sheet is given by, b = 1.005 m\nThickness of sheet is given by, t = 2.01 cm = 2.01 × 10^-2 m\nArea of the sheet = 2 (l × b + b × t + t × l) = 2 (4.234 × 1.005 + 1.005 × 0.0201 + 0.0201 × 4.234) = 2 (4.3604739) = 8.7209478 m^​​​​​​2 \nAs area can contain a maximum of three significant digits, therefore, on rounding off, we get area = 8.72 m^​​​​​​2"
+            },
+            {
+              "questionID": 17326,
+              "question": "The length, breadth and thickness of a rectangular sheet of metal are 4.234 m, 1.005 m, and 2.01 cm respectively. Give the volume of the sheet to correct significant figures.",
+              "question_raw": "<p>The length, breadth and thickness of a rectangular sheet of metal are 4.234 m, 1.005 m, and 2.01 cm respectively. Give the volume of the sheet to correct significant figures.</p>",
+              "options": [
+                {
+                  "label": "A",
+                  "id": 24507,
+                  "text": "0.1855 ${{\\rm{m}}^{\\rm{3}}}$",
+                  "is_correct": false
+                },
+                {
+                  "label": "B",
+                  "id": 24505,
+                  "text": "0.08552 ${{\\rm{m}}^{\\rm{3}}}$",
+                  "is_correct": false
+                },
+                {
+                  "label": "C",
+                  "id": 24506,
+                  "text": "0.0755 ${{\\rm{m}}^{\\rm{3}}}$",
+                  "is_correct": false
+                },
+                {
+                  "label": "D",
+                  "id": 24504,
+                  "text": "0.0855 ${{\\rm{m}}^{\\rm{3}}}$",
+                  "is_correct": true
+                }
+              ],
+              "correct_option_ids": [
+                24504
+              ],
+              "correct_option_labels": [
+                "D"
+              ],
+              "correct_option_texts": [
+                "0.0855 ${{\\rm{m}}^{\\rm{3}}}$"
+              ],
+              "explanation": "length of sheet, l = 4.234 m\nbreadth of sheet, b = 1.005 m\nthickness of sheet, t = 2.01 cm = 2.01 × 10^-2 m\nvolume = l × b × t\n$\\Rightarrow$ V = 4.234 × 1.005 × 0.0201 = 0.0855289 = 0.0855 m^​​​​​​3 (This number has only 3 significant figures i.e., 8, 5, and 5)"
+            },
+            {
+              "questionID": 17327,
+              "question": "A physical quantity P is related to four observables a, b, c and d as follows : $P = \\frac{a^3 b^2}{\\sqrt{c} d}$. The percentage errors of measurement in a, b, c and d are 1$\\% $, 3$\\% $, 4$\\% $ and 2$\\% $, respectively. What is the percentage error in the quantity P?",
+              "question_raw": "<p>A physical quantity P is related to four observables a, b, c and d as follows : <span class=\"math-tex\">{tex}P = \\frac{a^3 b^2}{\\sqrt{c} d}{/tex}</span>. The percentage errors of measurement in a, b, c and d are 1<span class=\"math-tex\">{tex}\\% {/tex}</span>, 3<span class=\"math-tex\">{tex}\\% {/tex}</span>, 4<span class=\"math-tex\">{tex}\\% {/tex}</span> and 2<span class=\"math-tex\">{tex}\\% {/tex}</span>, respectively. What is the percentage error in the quantity P?</p>",
+              "options": [
+                {
+                  "label": "A",
+                  "id": 24508,
+                  "text": "13$\\% $",
+                  "is_correct": true
+                },
+                {
+                  "label": "B",
+                  "id": 24510,
+                  "text": "12$\\% $",
+                  "is_correct": false
+                },
+                {
+                  "label": "C",
+                  "id": 24511,
+                  "text": "15$\\% $",
+                  "is_correct": false
+                },
+                {
+                  "label": "D",
+                  "id": 24509,
+                  "text": "11$\\% $",
+                  "is_correct": false
+                }
+              ],
+              "correct_option_ids": [
+                24508
+              ],
+              "correct_option_labels": [
+                "A"
+              ],
+              "correct_option_texts": [
+                "13$\\% $"
+              ],
+              "explanation": "Given that, P = $\\frac {a^3b^2}{ \\sqrt c \\ d}$\nMaximum fractional error in P is given by \n$\\frac{\\Delta P}{P}= \\pm\\left(3 \\frac{\\Delta a}{a}+2 \\frac{\\Delta b}{b}+\\frac{1}{2} \\frac{\\Delta c}{c}+\\frac{\\Delta d}{d}\\right)$\n$\\Rightarrow \\frac{\\Delta P}{P}= \\pm\\left(3 \\frac{1}{100}+2 \\frac{3}{100}+\\frac{1}{2} \\frac{4}{100}+\\frac{2}{100}\\right)$ $\\Rightarrow \\frac{\\Delta P}{P}= \\pm 0.13$\nPercentage error in P is given by= $\\frac{\\Delta P}{P} \\times 100=0.13 \\times 100$ = 13%"
+            },
+            {
+              "questionID": 17328,
+              "question": "A physical quantity P is related to four observables a, b, c and d as follows: $P=\\frac{a^3 b^2}{\\sqrt{c} d}$. The percentage errors of measurement in a, b, c and d are 1$\\% $, 3$\\% $, 4$\\% $ and 2$\\% $, respectively. If the value of P calculated using the above relation turns out to be 3.763, to what value should you round off the result?",
+              "question_raw": "<p>A physical quantity P is related to four observables a, b, c and d as follows: <span class=\"math-tex\">{tex}P=\\frac{a^3 b^2}{\\sqrt{c} d}{/tex}</span>. The percentage errors of measurement in a, b, c and d are 1<span class=\"math-tex\">{tex}\\% {/tex}</span>, 3<span class=\"math-tex\">{tex}\\% {/tex}</span>, 4<span class=\"math-tex\">{tex}\\% {/tex}</span> and 2<span class=\"math-tex\">{tex}\\% {/tex}</span>, respectively. If the value of P calculated using the above relation turns out to be 3.763, to what value should you round off the result?</p>",
+              "options": [
+                {
+                  "label": "A",
+                  "id": 24513,
+                  "text": "3.76",
+                  "is_correct": false
+                },
+                {
+                  "label": "B",
+                  "id": 24515,
+                  "text": "4.0",
+                  "is_correct": false
+                },
+                {
+                  "label": "C",
+                  "id": 24514,
+                  "text": "3.71",
+                  "is_correct": false
+                },
+                {
+                  "label": "D",
+                  "id": 24512,
+                  "text": "3.8",
+                  "is_correct": true
+                }
+              ],
+              "correct_option_ids": [
+                24512
+              ],
+              "correct_option_labels": [
+                "D"
+              ],
+              "correct_option_texts": [
+                "3.8"
+              ],
+              "explanation": "Value of P is given as 3.763.\nBy rounding off the given value to the first decimal place, we get\nP = 3.8"
+            },
+            {
+              "questionID": 17329,
+              "question": "A book with many printing errors contains four different formulas for the displacement y of a particle undergoing a certain periodic motion. Choose the correct formula",
+              "question_raw": "<p>A book with many printing errors contains four different formulas for the displacement y of a particle undergoing a certain periodic motion. Choose the correct formula</p>",
+              "options": [
+                {
+                  "label": "A",
+                  "id": 24519,
+                  "text": "y = (a/T) sin t/a",
+                  "is_correct": false
+                },
+                {
+                  "label": "B",
+                  "id": 24517,
+                  "text": "y = a sin 2$\\pi $t",
+                  "is_correct": false
+                },
+                {
+                  "label": "C",
+                  "id": 24518,
+                  "text": "y = a sin vt",
+                  "is_correct": false
+                },
+                {
+                  "label": "D",
+                  "id": 24516,
+                  "text": "y = a sin $\\frac{2\\pi t}{T}$",
+                  "is_correct": true
+                }
+              ],
+              "correct_option_ids": [
+                24516
+              ],
+              "correct_option_labels": [
+                "D"
+              ],
+              "correct_option_texts": [
+                "y = a sin $\\frac{2\\pi t}{T}$"
+              ],
+              "explanation": "Dimension of y is given by = M^​​​​​​0 L^​​​​​​1 T^0\nDimension of a is given by = M^0L^​​1T^​​​​​​0 \nDimension of $sin\\frac{2\\pi t}{T}$= $M^0L^0T^0$\nDimension of L.H.S = Dimension of R.H.S. Hence, the given formula is dimensionally correct."
+            },
+            {
+              "questionID": 17330,
+              "question": "The unit of length convenient on the atomic scale is known as an angstrom and is denoted by ${\\mathop A\\limits^0}:{\\rm{ 1 }}{\\mathop A\\limits^0}{\\rm{ }} = {\\rm{ 1}}{0^{ - {\\rm{1}}0}}$ m. The size of a hydrogen atom is about $0.{\\rm{5 }}{\\mathop A\\limits^0}$ . What is the total atomic volume in ${{\\rm{m}}^{\\rm{3}}}$ of a mole of hydrogen atoms ?",
+              "question_raw": "<p>The unit of length convenient on the atomic scale is known as an angstrom and is denoted by <span class=\"math-tex\">{tex}{\\mathop A\\limits^0}:{\\rm{ 1 }}{\\mathop A\\limits^0}{\\rm{ }} = {\\rm{ 1}}{0^{ - {\\rm{1}}0}}{/tex}</span> m. The size of a hydrogen atom is about <span class=\"math-tex\">{tex}0.{\\rm{5 }}{\\mathop A\\limits^0}{/tex}</span> . What is the total atomic volume in <span class=\"math-tex\">{tex}{{\\rm{m}}^{\\rm{3}}}{/tex}</span> of a mole of hydrogen atoms ?</p>",
+              "options": [
+                {
+                  "label": "A",
+                  "id": 24521,
+                  "text": "$ \\cong 3.2 \\times {10^{ - 6}}{m^3}$",
+                  "is_correct": false
+                },
+                {
+                  "label": "B",
+                  "id": 24520,
+                  "text": "$ \\cong 3 \\times {10^{ - 7}}{m^3}$",
+                  "is_correct": true
+                },
+                {
+                  "label": "C",
+                  "id": 24523,
+                  "text": "$ \\cong 3.3 \\times {10^{ - 7}}{m^3}$",
+                  "is_correct": false
+                },
+                {
+                  "label": "D",
+                  "id": 24522,
+                  "text": "$ \\cong 2.9 \\times {10^{ - 6}}{m^3}$",
+                  "is_correct": false
+                }
+              ],
+              "correct_option_ids": [
+                24520
+              ],
+              "correct_option_labels": [
+                "B"
+              ],
+              "correct_option_texts": [
+                "$ \\cong 3 \\times {10^{ - 7}}{m^3}$"
+              ],
+              "explanation": "Radius of hydrogen atom, r = 0.5 Å = 0.5 × 10^-10 m\nVolume of hydrogen atom is given by = (4/3) $\\pi$ r^3\n= (4/3) × (22/7) × (0.5 × 10^-10)^3\n= 0.524 × 10^-30 m^3\n1 mole of hydrogen contains 6.023 × 10^23 hydrogen atoms.\n∴ Volume of 1 mole of hydrogen atoms is given by = 6.023 × 10^23 × 0.524 × 10^–30\n= 3.16 × 10^–7 m^3\n$\\approx 3\\times 10^{-7} m^3$"
+            },
+            {
+              "questionID": 17331,
+              "question": "One mole of an ideal gas at standard temperature and pressure occupies 22.4 L (molar volume). What is the ratio of molar volume to the atomic volume of a mole of hydrogen? (Take the size of hydrogen molecule to be about 1 Å).",
+              "question_raw": "<p>One mole of an ideal gas at standard temperature and pressure occupies 22.4 L (molar volume). What is the ratio of molar volume to the atomic volume of a mole of hydrogen? (Take the size of hydrogen molecule to be about 1 &Aring;).</p>",
+              "options": [
+                {
+                  "label": "A",
+                  "id": 24524,
+                  "text": "$ \\cong {10^4}$",
+                  "is_correct": true
+                },
+                {
+                  "label": "B",
+                  "id": 24527,
+                  "text": "$ \\cong {10^2}$",
+                  "is_correct": false
+                },
+                {
+                  "label": "C",
+                  "id": 24525,
+                  "text": "$ \\cong {10^3}$",
+                  "is_correct": false
+                },
+                {
+                  "label": "D",
+                  "id": 24526,
+                  "text": "$ \\cong {10^5}$",
+                  "is_correct": false
+                }
+              ],
+              "correct_option_ids": [
+                24524
+              ],
+              "correct_option_labels": [
+                "A"
+              ],
+              "correct_option_texts": [
+                "$ \\cong {10^4}$"
+              ],
+              "explanation": "Radius of hydrogen atom, r = 0.5 = 0.5 × 10^–10 m\nVolume of hydrogen atom = ${4\\over 3} \\times {22\\over 7} \\times (0.5\\times 10^{-10})^3$\n= $0.524\\times 10^{-30}m^3$\nNow, 1 mole of hydrogen contains 6.023 × 10^23 hydrogen atoms.\nVolume of 1 mole of hydrogen atoms, V_a = 6.023 × 10^23 × 0.524 × 10^–30\n= 3.16 × 10^–7 m^3\nMolar volume of 1 mole of hydrogen atoms at STP,\nV_m = 22.4 L = 22.4 × 10^–3 m^3\n$\\Rightarrow$ ${V_m\\over V_a}= {22.4\\times 10^{-3}\\over 3.16\\times 10^{-7}}$= 7.08 $\\times 10^{4}$\n= $\\cong 10^{4}$"
+            },
+            {
+              "questionID": 17332,
+              "question": "Which of the following systems of units is not based on units of mass, length and time alone?",
+              "question_raw": "<p>Which of the following systems&nbsp;of units is not based on units of mass, length and time alone?</p>",
+              "options": [
+                {
+                  "label": "A",
+                  "id": 24531,
+                  "text": "CGS",
+                  "is_correct": false
+                },
+                {
+                  "label": "B",
+                  "id": 24530,
+                  "text": "FPS",
+                  "is_correct": false
+                },
+                {
+                  "label": "C",
+                  "id": 24528,
+                  "text": "SI",
+                  "is_correct": true
+                },
+                {
+                  "label": "D",
+                  "id": 24529,
+                  "text": "MKS",
+                  "is_correct": false
+                }
+              ],
+              "correct_option_ids": [
+                24528
+              ],
+              "correct_option_labels": [
+                "C"
+              ],
+              "correct_option_texts": [
+                "SI"
+              ],
+              "explanation": "SI"
+            },
+            {
+              "questionID": 17333,
+              "question": "The magnetic moment has the dimensions of",
+              "question_raw": "<p>The magnetic moment has the dimensions of</p>",
+              "options": [
+                {
+                  "label": "A",
+                  "id": 24532,
+                  "text": "[LA]",
+                  "is_correct": false
+                },
+                {
+                  "label": "B",
+                  "id": 24535,
+                  "text": "[L^2T^-1A]",
+                  "is_correct": false
+                },
+                {
+                  "label": "C",
+                  "id": 24534,
+                  "text": "[LT^-1A]",
+                  "is_correct": false
+                },
+                {
+                  "label": "D",
+                  "id": 24533,
+                  "text": "[L^2A]",
+                  "is_correct": true
+                }
+              ],
+              "correct_option_ids": [
+                24533
+              ],
+              "correct_option_labels": [
+                "D"
+              ],
+              "correct_option_texts": [
+                "[L^2A]"
+              ],
+              "explanation": "The SI unit of magnetic moment is Am^2. Therefore, its dimensions are [L^2 A]"
+            },
+            {
+              "questionID": 17334,
+              "question": "Surface tension has the same dimensions as that of:",
+              "question_raw": "<p>Surface tension has the same dimensions as that of:</p>",
+              "options": [
+                {
+                  "label": "A",
+                  "id": 24538,
+                  "text": "Momentum",
+                  "is_correct": false
+                },
+                {
+                  "label": "B",
+                  "id": 24536,
+                  "text": "Cofficient of viscosity",
+                  "is_correct": false
+                },
+                {
+                  "label": "C",
+                  "id": 24539,
+                  "text": "Spring constant",
+                  "is_correct": true
+                },
+                {
+                  "label": "D",
+                  "id": 24537,
+                  "text": "Impulse",
+                  "is_correct": false
+                }
+              ],
+              "correct_option_ids": [
+                24539
+              ],
+              "correct_option_labels": [
+                "C"
+              ],
+              "correct_option_texts": [
+                "Spring constant"
+              ],
+              "explanation": "Surface tension = $\\frac{Force}{Length}$\n= $\\frac{[MLT^{-2}]}{[L]}$ = [ML^0T^-2]\nSpring constant = $\\frac{Force}{Length}$\n= $\\frac{[MLT^{-2}]}{[L]}$ = [ML^0 T^-2]"
+            },
+            {
+              "questionID": 17335,
+              "question": "When the planet Jupiter is at a distance of 824.7 million kilometers from the Earth, its angular diameter is measured to be 35.72” of arc. Calculate the diameter of Jupiter.",
+              "question_raw": "<p>When the planet Jupiter is at a distance of 824.7 million kilometers from the Earth, its angular diameter is measured to be 35.72&rdquo; of arc. Calculate the diameter of Jupiter.</p>",
+              "options": [
+                {
+                  "label": "A",
+                  "id": 24540,
+                  "text": "$1.429 \\times {10^5}km$",
+                  "is_correct": true
+                },
+                {
+                  "label": "B",
+                  "id": 24541,
+                  "text": "$1.321 \\times {10^7}km$",
+                  "is_correct": false
+                },
+                {
+                  "label": "C",
+                  "id": 24542,
+                  "text": "$2.523 \\times {10^5}km$",
+                  "is_correct": false
+                },
+                {
+                  "label": "D",
+                  "id": 24543,
+                  "text": "$3.632 \\times {10^5}km$",
+                  "is_correct": false
+                }
+              ],
+              "correct_option_ids": [
+                24540
+              ],
+              "correct_option_labels": [
+                "A"
+              ],
+              "correct_option_texts": [
+                "$1.429 \\times {10^5}km$"
+              ],
+              "explanation": "Distance of Jupiter from the Earth, D = 824.7 × 10^6 km\nAngular diameter = 35.72“ = 35.72 × 4.874 × 10^-6 rad\nDiameter of Jupiter = d\nUsing the relation, θ = $d\\over D$\nd = θ$\\times$ D = 824.7 × 10^6 × 35.72 × 4.872 × 10^-6 $\\cong 1.429\\times 10^5 km$"
+            },
+            {
+              "questionID": 17336,
+              "question": "The dimensions of impulse are equal to that of",
+              "question_raw": "The dimensions of impulse are equal to that of",
+              "options": [
+                {
+                  "label": "A",
+                  "id": 24547,
+                  "text": "angular momentum",
+                  "is_correct": false
+                },
+                {
+                  "label": "B",
+                  "id": 24544,
+                  "text": "force",
+                  "is_correct": false
+                },
+                {
+                  "label": "C",
+                  "id": 24545,
+                  "text": "linear momentum",
+                  "is_correct": true
+                },
+                {
+                  "label": "D",
+                  "id": 24546,
+                  "text": "pressure",
+                  "is_correct": false
+                }
+              ],
+              "correct_option_ids": [
+                24545
+              ],
+              "correct_option_labels": [
+                "C"
+              ],
+              "correct_option_texts": [
+                "linear momentum"
+              ],
+              "explanation": "Same dimensions as linear momentum."
+            },
+            {
+              "questionID": 17337,
+              "question": "Horse power is unit of",
+              "question_raw": "<p>Horse power is unit of&nbsp;</p>",
+              "options": [
+                {
+                  "label": "A",
+                  "id": 24549,
+                  "text": "Time",
+                  "is_correct": false
+                },
+                {
+                  "label": "B",
+                  "id": 24548,
+                  "text": "Power",
+                  "is_correct": true
+                },
+                {
+                  "label": "C",
+                  "id": 24550,
+                  "text": "Distance",
+                  "is_correct": false
+                },
+                {
+                  "label": "D",
+                  "id": 24551,
+                  "text": "Current",
+                  "is_correct": false
+                }
+              ],
+              "correct_option_ids": [
+                24548
+              ],
+              "correct_option_labels": [
+                "B"
+              ],
+              "correct_option_texts": [
+                "Power"
+              ],
+              "explanation": "The horsepower (hp) is a unit in the foot-pound-second ( fps ) or English system. A power level of 1 hp is approximately equivalent to 746 watt."
+            },
+            {
+              "questionID": 17338,
+              "question": "Which of the following quantities measured from different inertial reference frames are same?",
+              "question_raw": "<p>Which of the following quantities measured from different inertial reference frames are same?</p>",
+              "options": [
+                {
+                  "label": "A",
+                  "id": 24554,
+                  "text": "Displacement",
+                  "is_correct": false
+                },
+                {
+                  "label": "B",
+                  "id": 24552,
+                  "text": "Force",
+                  "is_correct": false
+                },
+                {
+                  "label": "C",
+                  "id": 24555,
+                  "text": "Kinetic energy",
+                  "is_correct": true
+                },
+                {
+                  "label": "D",
+                  "id": 24553,
+                  "text": "Velocity",
+                  "is_correct": false
+                }
+              ],
+              "correct_option_ids": [
+                24555
+              ],
+              "correct_option_labels": [
+                "C"
+              ],
+              "correct_option_texts": [
+                "Kinetic energy"
+              ],
+              "explanation": "In an inertial frame, an object or body accelerates only when a physical force is applied and in the absence of a net force, a body at rest will remain at rest and a body in motion will continue to more uniformly. Kinetic energy measured from different inertial frame gives the same value, while the other three being vector quantities their values vary."
+            },
+            {
+              "questionID": 17339,
+              "question": "The significant digits in 0.000532 are",
+              "question_raw": "<p>The significant digits in 0.000532 are</p>",
+              "options": [
+                {
+                  "label": "A",
+                  "id": 24559,
+                  "text": "2, 3",
+                  "is_correct": false
+                },
+                {
+                  "label": "B",
+                  "id": 24556,
+                  "text": "5, 3, 2",
+                  "is_correct": true
+                },
+                {
+                  "label": "C",
+                  "id": 24557,
+                  "text": "0,5,3,2",
+                  "is_correct": false
+                },
+                {
+                  "label": "D",
+                  "id": 24558,
+                  "text": "5, 3",
+                  "is_correct": false
+                }
+              ],
+              "correct_option_ids": [
+                24556
+              ],
+              "correct_option_labels": [
+                "B"
+              ],
+              "correct_option_texts": [
+                "5, 3, 2"
+              ],
+              "explanation": "There are three rules on determining how many significant figures are in a number: \n Non-zero digits are always significant.\n Any zeros between two significant digits are significant.\n A final zero or trailing zeros in the decimal portion ONLY are significant.\nKeeping these rules in mind, we can say that only 5,3,2 are significant digits."
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "testPaperID": 536,
+      "testPaperName": "Units and Measurements Test 05",
+      "is_paid": true,
+      "category_full_name": "CBSE > Class 11 > Physics > Units and Measurements",
+      "noOfQuestions": 15,
+      "has_answers": true,
+      "sections": [
+        {
+          "sectionName": "General",
+          "sectionID": null,
+          "questions": [
+            {
+              "questionID": 17340,
+              "question": "The number of significant digits in 2,076 is",
+              "question_raw": "<p>The number of significant digits in 2,076 is</p>",
+              "options": [
+                {
+                  "label": "A",
+                  "id": 24561,
+                  "text": "2",
+                  "is_correct": false
+                },
+                {
+                  "label": "B",
+                  "id": 24560,
+                  "text": "4",
+                  "is_correct": true
+                },
+                {
+                  "label": "C",
+                  "id": 24563,
+                  "text": "5",
+                  "is_correct": false
+                },
+                {
+                  "label": "D",
+                  "id": 24562,
+                  "text": "3",
+                  "is_correct": false
+                }
+              ],
+              "correct_option_ids": [
+                24560
+              ],
+              "correct_option_labels": [
+                "B"
+              ],
+              "correct_option_texts": [
+                "4"
+              ],
+              "explanation": "There are three rules on determining how many significant figures are in a number: \n Non-zero digits are always significant.\n Any zeros between two significant digits are significant.\n A final zero or trailing zeros in the decimal portion ONLY are significant.\nKeeping these rules in mind, we can say that there are 4 significant digits."
+            },
+            {
+              "questionID": 17341,
+              "question": "The number of significant digits in 0.0004 is",
+              "question_raw": "<p>The number of significant digits in 0.0004 is</p>",
+              "options": [
+                {
+                  "label": "A",
+                  "id": 24565,
+                  "text": "2",
+                  "is_correct": false
+                },
+                {
+                  "label": "B",
+                  "id": 24566,
+                  "text": "3",
+                  "is_correct": false
+                },
+                {
+                  "label": "C",
+                  "id": 24567,
+                  "text": "4",
+                  "is_correct": false
+                },
+                {
+                  "label": "D",
+                  "id": 24564,
+                  "text": "1",
+                  "is_correct": true
+                }
+              ],
+              "correct_option_ids": [
+                24564
+              ],
+              "correct_option_labels": [
+                "D"
+              ],
+              "correct_option_texts": [
+                "1"
+              ],
+              "explanation": "There are three rules on determining how many significant figures are in a number: \n Non-zero digits are always significant.\n Any zeros between two significant digits are significant.\n A final zero or trailing zeros in the decimal portion ONLY are significant.\nKeeping these rules in mind, we can say that there is only 1 significant digit."
+            },
+            {
+              "questionID": 17342,
+              "question": "The number of significant digits in 48,923 is",
+              "question_raw": "<p>The number of significant digits in 48,923 is</p>",
+              "options": [
+                {
+                  "label": "A",
+                  "id": 24571,
+                  "text": "2",
+                  "is_correct": false
+                },
+                {
+                  "label": "B",
+                  "id": 24569,
+                  "text": "4",
+                  "is_correct": false
+                },
+                {
+                  "label": "C",
+                  "id": 24570,
+                  "text": "3",
+                  "is_correct": false
+                },
+                {
+                  "label": "D",
+                  "id": 24568,
+                  "text": "5",
+                  "is_correct": true
+                }
+              ],
+              "correct_option_ids": [
+                24568
+              ],
+              "correct_option_labels": [
+                "D"
+              ],
+              "correct_option_texts": [
+                "5"
+              ],
+              "explanation": "There are three rules on determining how many significant figures are in a number: \n Non-zero digits are always significant.\n Any zeros between two significant digits are significant.\n A final zero or trailing zeros in the decimal portion ONLY are significant.\nKeeping these rules in mind, we can say that there are 5 significant digits."
+            },
+            {
+              "questionID": 17343,
+              "question": "The number of significant digits in 3.967 is",
+              "question_raw": "<p>The number of significant digits in 3.967 is</p>",
+              "options": [
+                {
+                  "label": "A",
+                  "id": 24574,
+                  "text": "3",
+                  "is_correct": false
+                },
+                {
+                  "label": "B",
+                  "id": 24575,
+                  "text": "5",
+                  "is_correct": false
+                },
+                {
+                  "label": "C",
+                  "id": 24573,
+                  "text": "1",
+                  "is_correct": false
+                },
+                {
+                  "label": "D",
+                  "id": 24572,
+                  "text": "4",
+                  "is_correct": true
+                }
+              ],
+              "correct_option_ids": [
+                24572
+              ],
+              "correct_option_labels": [
+                "D"
+              ],
+              "correct_option_texts": [
+                "4"
+              ],
+              "explanation": "There are three rules on determining how many significant figures are in a number: \n Non-zero digits are always significant.\n Any zeros between two significant digits are significant.\n A final zero or trailing zeros in the decimal portion ONLY are significant.\nKeeping these rules in mind, we can say that there are 4 significant digits."
+            },
+            {
+              "questionID": 17344,
+              "question": "The number of significant digits in 900.06 is",
+              "question_raw": "<p>The number of significant digits in 900.06 is</p>",
+              "options": [
+                {
+                  "label": "A",
+                  "id": 24578,
+                  "text": "3",
+                  "is_correct": false
+                },
+                {
+                  "label": "B",
+                  "id": 24577,
+                  "text": "1",
+                  "is_correct": false
+                },
+                {
+                  "label": "C",
+                  "id": 24576,
+                  "text": "5",
+                  "is_correct": true
+                },
+                {
+                  "label": "D",
+                  "id": 24579,
+                  "text": "4",
+                  "is_correct": false
+                }
+              ],
+              "correct_option_ids": [
+                24576
+              ],
+              "correct_option_labels": [
+                "C"
+              ],
+              "correct_option_texts": [
+                "5"
+              ],
+              "explanation": "There are three rules on determining how many significant figures are in a number: \n Non-zero digits are always significant.\n Any zeros between two significant digits are significant.\n A final zero or trailing zeros in the decimal portion ONLY are significant.\nKeeping these rules in mind, we can say that there are 5 significant digits."
+            },
+            {
+              "questionID": 17345,
+              "question": "The number of significant digits in 8.1000 is",
+              "question_raw": "<p>The number of significant digits in 8.1000 is</p>",
+              "options": [
+                {
+                  "label": "A",
+                  "id": 24583,
+                  "text": "4",
+                  "is_correct": false
+                },
+                {
+                  "label": "B",
+                  "id": 24581,
+                  "text": "1",
+                  "is_correct": false
+                },
+                {
+                  "label": "C",
+                  "id": 24582,
+                  "text": "3",
+                  "is_correct": false
+                },
+                {
+                  "label": "D",
+                  "id": 24580,
+                  "text": "5",
+                  "is_correct": true
+                }
+              ],
+              "correct_option_ids": [
+                24580
+              ],
+              "correct_option_labels": [
+                "D"
+              ],
+              "correct_option_texts": [
+                "5"
+              ],
+              "explanation": "There are three rules on determining how many significant figures are in a number: \n Non-zero digits are always significant.\n Any zeros between two significant digits are significant.\n A final zero or trailing zeros in the decimal portion ONLY are significant.\nKeeping these rules in mind, we can say that there are 5 significant digits."
+            },
+            {
+              "questionID": 17346,
+              "question": "The number of significant digits in 501.040 is",
+              "question_raw": "<p>The number of significant digits in 501.040 is</p>",
+              "options": [
+                {
+                  "label": "A",
+                  "id": 24587,
+                  "text": "4",
+                  "is_correct": false
+                },
+                {
+                  "label": "B",
+                  "id": 24586,
+                  "text": "3",
+                  "is_correct": false
+                },
+                {
+                  "label": "C",
+                  "id": 24585,
+                  "text": "5",
+                  "is_correct": false
+                },
+                {
+                  "label": "D",
+                  "id": 24584,
+                  "text": "6",
+                  "is_correct": true
+                }
+              ],
+              "correct_option_ids": [
+                24584
+              ],
+              "correct_option_labels": [
+                "D"
+              ],
+              "correct_option_texts": [
+                "6"
+              ],
+              "explanation": "There are three rules on determining how many significant figures are in a number: \n Non-zero digits are always significant.\n Any zeros between two significant digits are significant.\n A final zero or trailing zeros in the decimal portion ONLY are significant.\nKeeping these rules in mind, we can say that there are 6 significant digits."
+            },
+            {
+              "questionID": 17347,
+              "question": "The number of significant digits in 3,000,000 is",
+              "question_raw": "<p>The number of significant digits in 3,000,000 is</p>",
+              "options": [
+                {
+                  "label": "A",
+                  "id": 24591,
+                  "text": "4",
+                  "is_correct": false
+                },
+                {
+                  "label": "B",
+                  "id": 24588,
+                  "text": "1",
+                  "is_correct": true
+                },
+                {
+                  "label": "C",
+                  "id": 24590,
+                  "text": "3",
+                  "is_correct": false
+                },
+                {
+                  "label": "D",
+                  "id": 24589,
+                  "text": "5",
+                  "is_correct": false
+                }
+              ],
+              "correct_option_ids": [
+                24588
+              ],
+              "correct_option_labels": [
+                "B"
+              ],
+              "correct_option_texts": [
+                "1"
+              ],
+              "explanation": "There are three rules on determining how many significant figures are in a number: \n Non-zero digits are always significant.\n Any zeros between two significant digits are significant.\n A final zero or trailing zeros in the decimal portion ONLY are significant.\nSo keeping these rules in mind, there is only one significant digit."
+            },
+            {
+              "questionID": 17348,
+              "question": "The number of significant digits in 10.0 is",
+              "question_raw": "<p>The number of significant digits in 10.0 is</p>",
+              "options": [
+                {
+                  "label": "A",
+                  "id": 24594,
+                  "text": "1",
+                  "is_correct": false
+                },
+                {
+                  "label": "B",
+                  "id": 24592,
+                  "text": "3",
+                  "is_correct": true
+                },
+                {
+                  "label": "C",
+                  "id": 24595,
+                  "text": "4",
+                  "is_correct": false
+                },
+                {
+                  "label": "D",
+                  "id": 24593,
+                  "text": "5",
+                  "is_correct": false
+                }
+              ],
+              "correct_option_ids": [
+                24592
+              ],
+              "correct_option_labels": [
+                "B"
+              ],
+              "correct_option_texts": [
+                "3"
+              ],
+              "explanation": "There are three rules on determining how many significant figures are in a number, these are given below :\n Non-zero digits are always significant.\n Any zeros between two significant digits are significant.\n A final zero or trailing zeros in the decimal portion ONLY are significant.\nSo keeping these rules in mind, we get 3 significant digits."
+            },
+            {
+              "questionID": 17349,
+              "question": "Population of a town is reported as 157,900. Which of the following statements is correct?",
+              "question_raw": "<p>Population of a town is reported as 157,900. Which of the following statements is correct?</p>",
+              "options": [
+                {
+                  "label": "A",
+                  "id": 24598,
+                  "text": "the population is 157900$ \\pm $25",
+                  "is_correct": false
+                },
+                {
+                  "label": "B",
+                  "id": 24597,
+                  "text": "the population is 157900$ \\pm $20",
+                  "is_correct": false
+                },
+                {
+                  "label": "C",
+                  "id": 24596,
+                  "text": "the population is 157900$ \\pm $50",
+                  "is_correct": true
+                },
+                {
+                  "label": "D",
+                  "id": 24599,
+                  "text": "the population is 157900$ \\pm $100",
+                  "is_correct": false
+                }
+              ],
+              "correct_option_ids": [
+                24596
+              ],
+              "correct_option_labels": [
+                "C"
+              ],
+              "correct_option_texts": [
+                "the population is 157900$ \\pm $50"
+              ],
+              "explanation": "157900 implies that the population is believed to be within the range of about 157850 to about 157950. In other words, the population is 157900±50. The “plus-or-minus 50” appended to this number means that we consider the absolute uncertainty of the population measurement to be 50 – (–50) = 100. We can also say that the relative uncertainty is 100/157900, which we can also express as 1 part in 1579, or 1/1579 = 0.000633, or about 0.06 percent."
+            },
+            {
+              "questionID": 17350,
+              "question": "Population of a town is reported as 158000. Which of the following statements is correct?",
+              "question_raw": "<p>Population of a town is reported as 158000. Which of the following statements is correct?</p>",
+              "options": [
+                {
+                  "label": "A",
+                  "id": 24602,
+                  "text": "the population is 158000$ \\pm $250",
+                  "is_correct": false
+                },
+                {
+                  "label": "B",
+                  "id": 24603,
+                  "text": "the population is 158000$ \\pm $300",
+                  "is_correct": false
+                },
+                {
+                  "label": "C",
+                  "id": 24601,
+                  "text": "the population is 158000$ \\pm $400",
+                  "is_correct": false
+                },
+                {
+                  "label": "D",
+                  "id": 24600,
+                  "text": "the population is 158000$ \\pm $500",
+                  "is_correct": true
+                }
+              ],
+              "correct_option_ids": [
+                24600
+              ],
+              "correct_option_labels": [
+                "D"
+              ],
+              "correct_option_texts": [
+                "the population is 158000$ \\pm $500"
+              ],
+              "explanation": "The value 158000 implies that the population is likely between about 157500 and 158500, or 158000±500. The absolute uncertainty of 1000 translates into a relative uncertainty of $1000\\over 158000$ or 1 part in 158, or about 0.6 percent."
+            },
+            {
+              "questionID": 17351,
+              "question": "The surface tension of a liquid is 70 dyne/cm. In MKS system its value is?",
+              "question_raw": "<p>The surface tension of a liquid is 70 dyne/cm. In MKS system its value is?</p>",
+              "options": [
+                {
+                  "label": "A",
+                  "id": 24606,
+                  "text": "7 ✕ 10^2 N/m",
+                  "is_correct": false
+                },
+                {
+                  "label": "B",
+                  "id": 24605,
+                  "text": "70 N/m",
+                  "is_correct": false
+                },
+                {
+                  "label": "C",
+                  "id": 24607,
+                  "text": "7 ✕ 10^3 N/m",
+                  "is_correct": false
+                },
+                {
+                  "label": "D",
+                  "id": 24604,
+                  "text": "7 ✕ 10^-2 N/m",
+                  "is_correct": true
+                }
+              ],
+              "correct_option_ids": [
+                24604
+              ],
+              "correct_option_labels": [
+                "D"
+              ],
+              "correct_option_texts": [
+                "7 ✕ 10^-2 N/m"
+              ],
+              "explanation": "$1 dyne = 10^{-5}\\;N$\n$1 cm =10^{-2}\\;m$ hence its value in MKS is given by :-\n$70 dyne/cm= 70 \\times \\large\\frac{10^{-5}}{10^{-2}}$ = 7 ✕ 10^-2 N/m"
+            },
+            {
+              "questionID": 17352,
+              "question": "The result of rounding off 34.216 to 3 digits is",
+              "question_raw": "<p>The result of rounding off 34.216 to 3 digits is</p>",
+              "options": [
+                {
+                  "label": "A",
+                  "id": 24611,
+                  "text": "342",
+                  "is_correct": false
+                },
+                {
+                  "label": "B",
+                  "id": 24609,
+                  "text": "34.22",
+                  "is_correct": false
+                },
+                {
+                  "label": "C",
+                  "id": 24608,
+                  "text": "34.2",
+                  "is_correct": true
+                },
+                {
+                  "label": "D",
+                  "id": 24610,
+                  "text": "3.42",
+                  "is_correct": false
+                }
+              ],
+              "correct_option_ids": [
+                24608
+              ],
+              "correct_option_labels": [
+                "C"
+              ],
+              "correct_option_texts": [
+                "34.2"
+              ],
+              "explanation": "The rules for rounding off are following. \n If the first non-significant digit is less than 5, then the least significant digit remains unchanged.\n If the first non-significant digit is greater than 5, the least significant digit is incremented by 1.\n If the first non-significant digit is 5, the least significant digit can either be incremented or left unchanged.\n All non-significant digits are removed.\nSo rounding off 34.216 upto 4 digits is 34.22 and upto 3 digits is 34.2"
+            },
+            {
+              "questionID": 21682,
+              "question": "Dimensional analysis can be used to",
+              "question_raw": "<p>Dimensional analysis can be used to</p>",
+              "options": [
+                {
+                  "label": "A",
+                  "id": 41926,
+                  "text": "deducing relations among the physical quantities.",
+                  "is_correct": true
+                },
+                {
+                  "label": "B",
+                  "id": 41928,
+                  "text": "check the order of an equation.",
+                  "is_correct": false
+                },
+                {
+                  "label": "C",
+                  "id": 41927,
+                  "text": "check the validity of an equation.",
+                  "is_correct": false
+                },
+                {
+                  "label": "D",
+                  "id": 41929,
+                  "text": "to check integration of the equation.",
+                  "is_correct": false
+                }
+              ],
+              "correct_option_ids": [
+                41926
+              ],
+              "correct_option_labels": [
+                "A"
+              ],
+              "correct_option_texts": [
+                "deducing relations among the physical quantities."
+              ],
+              "explanation": "Dimensional analysis is also used to deduce the relation between two or more physical quantities. If we know the degree of dependence of a physical quantity on another, that is the degree to which one quantity changes with the change in another, we can use the principle of consistency of two expressions to find the equation relating these two quantities."
+            },
+            {
+              "questionID": 21683,
+              "question": "An object has a length of 0.42 cm. Which of the following statements is correct?",
+              "question_raw": "<p>An object has a length of 0.42 cm. Which of the following statements is correct?</p>",
+              "options": [
+                {
+                  "label": "A",
+                  "id": 41932,
+                  "text": "the uncertainty in the length is 0.05",
+                  "is_correct": false
+                },
+                {
+                  "label": "B",
+                  "id": 41931,
+                  "text": "the uncertainty in the length is $ \\pm $0.01",
+                  "is_correct": false
+                },
+                {
+                  "label": "C",
+                  "id": 41933,
+                  "text": "the uncertainty in the length is about 4$\\% $",
+                  "is_correct": false
+                },
+                {
+                  "label": "D",
+                  "id": 41930,
+                  "text": "the uncertainty in the length is 0.01",
+                  "is_correct": true
+                }
+              ],
+              "correct_option_ids": [
+                41930
+              ],
+              "correct_option_labels": [
+                "D"
+              ],
+              "correct_option_texts": [
+                "the uncertainty in the length is 0.01"
+              ],
+              "explanation": "Suppose, you are simply told that an object has a measured length with no indication of its precision as in the question.\r\nIn this case, all you have to go on is the number of digits contained in the data. Thus the quantity “0.42 cm” is specified to 0.01.\r\nSo the uncertainty in the length is 0.01."
+            }
+          ]
+        }
+      ]
+    }
+  ]
+}

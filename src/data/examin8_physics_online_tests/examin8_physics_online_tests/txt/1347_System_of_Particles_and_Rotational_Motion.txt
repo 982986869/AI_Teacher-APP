@@ -1,0 +1,906 @@
+CHAPTER: System of Particles and Rotational Motion  (id 1347)
+CBSE > Class 11 > Physics > System of Particles and Rotational Motion
+Online tests: 5
+
+========================================================================
+Particles & Rotational Motion Test 01  (id 557) [FREE]
+CBSE > Class 11 > Physics > System of Particles and Rotational Motion
+Questions: 15 | Answers: YES
+========================================================================
+
+Q1. A rigid body is a body which:
+    (A) deforms on the application of force.
+    (B) becomes longer or shorter if force is applied.
+    (C) does not deform on the application of force.   <-- CORRECT
+    (D) does not maintain the same distance between any two points on it if force is applied.
+    Answer: C
+    Explanation: A rigid body is an idealization of a solid body in which deformation or change in shape is neglected on the application of deforming force.
+
+Q2. In the pure translational motion of a rigid body:
+    (A) at different instants of time, every particle of the body has the same velocity.
+    (B) at any instant of time different particles of the body have different velocities.
+    (C) at any instant of time velocity is dependent on the position vector of a point on the body.
+    (D) at any instant of time, every particle of the body has the same velocity.   <-- CORRECT
+    Answer: D
+    Explanation: In translational motion when the body moves along a straight line or more exactly when every point of the body travels on parallel lines, thus at any instant of time every particle of the body has the same velocity.
+
+Q3. In rotation of a rigid body about a fixed axis is that in which:
+    (A) every particle of the body moves in a circle, which lies in a plane perpendicular to the axis and has its centre on the axis.   <-- CORRECT
+    (B) every particle of the body moves in an ellipse, which lies in a plane perpendicular to the axis and has its focii on the axis.
+    (C) every particle of the body moves at the same speed.
+    (D) particles close to the axis have larger velocities.
+    Answer: A
+    Explanation: When a rigid body rotates about a fixed axis, all particles of the body except those which lies on the axis of rotation, move along circular paths in a plane perpendicular to the axis.
+
+Q4. In precession such as that of a top:
+    (A) the axis of rotation is fixed
+    (B) the axis of rotation moves   <-- CORRECT
+    (C) the axis of rotation oscillates vertically
+    (D) the axis of rotation oscillates horizontally
+    Answer: B
+    Explanation: Precession is a change in the orientation of the rotational axis of a rotating body, so the orientation of the axis of rotation of Top change.
+
+Q5. In general motion of a rigid body:
+    (A) particles on the body always move around an axis in circles
+    (B) both translation and rotation can be present   <-- CORRECT
+    (C) only rotation is present
+    (D) only translation is present
+    Answer: B
+    Explanation: In the general motion of the body can be seen as the combination of pure translation of the center of mass and pure rotation of the body about the center of mass like the motion of a wheel.
+
+Q6. Let r_i be the position vector of the i^th particle having mass m_i and R be the position vector of the centre of mass. The formula for R is:
+    (A) $\mathbf{R}=\frac{\sum^{m_1} \mathbf{r}_{\mathbf{i}}}{\sum^{m_3}}$
+    (B) $\mathbf{R}=\frac{\sum^{m_1} \mathbf{r}_{\mathbf{i}}}{\sum^{m_1}}$
+    (C) $R=\frac{\sum m_1 \cdot r_i}{\sum m_1}$   <-- CORRECT
+    (D) $\mathbf{R}=\frac{\sum^{m_1} \mathbf{r}_{\mathbf{i}}}{\sum^{m_2}}$
+    Answer: C
+    Explanation: Let us consider a system consisting of N – particles of masses m_1, m_2,….. m_N having position vectors ${\vec r_1},{\vec r_2}$,...... $ {\vec r_N} $ respectively.
+The total mass M of the system is given by 
+M = m­_1 +m_2 +…….+ m_N 
+We can generalize the definition of the position of centre of mass consisting of N particles, hence the position vector of centre of mass is given below:-
+$\vec{R}=\frac{m_1 \vec{r}_1+m_2 \vec{r}_2+\ldots \ldots \ldots+m_N \vec{r}_N}{m_1+m_2+\ldots \ldots+m_N}=\frac{\sum_\limits{i=1}^N m_i \vec{r}_i}{\sum_\limits{i=1}^N m_i}=\frac{\sum_\limits{i=1}^N m_i \vec{r}_i}{M}$
+
+Q7. the centre of mass of a system of particles moves
+    (A) as if all the mass of the system was concentrated at the axis of rotation and all the external forces were absent
+    (B) as if all the mass of the system was concentrated at the centre of mass and all the external forces were zero
+    (C) as if all the mass of the system was concentrated at the centre of mass and all the external forces were applied at that point   <-- CORRECT
+    (D) as if all the mass of the system was concentrated in a sphere around the centre of mass and all the external forces were zero
+    Answer: C
+    Explanation: The centre of mass of a system of particles moves as if all the mass of the system is concentrated at the centre and all the external forces were applied at that point. In order to ease the calculations involved in the dynamics of an extended body, we treat any extended body as the system of particles, and the motion of centre of mass of the system is calculated by taking the mass of the whole system to be concentrated at the centre of mass and the external forces acting on system are said to be acting on the centre of mass.
+
+Q8. The total momentum of a system of particles is equal to:
+    (A) the product of half the total mass of the system and the velocity of its centre of mass
+    (B) the product of the total mass of the system and the speed of its centre of mass
+    (C) the product of the total mass of the system and the velocity of its centre of mass   <-- CORRECT
+    (D) the product of the total mass of the system and the average velocity of its centre of mass
+    Answer: C
+    Explanation: Let us consider a system of n particles of masses m_1, m_2, ….m_N. If M is the total mass of the system.
+M = m_1 + m_2 +……..+ m_N
+If ${\vec R}$ is the position vector of the centre of mass and ${\vec r_1},{\vec r_2},{\vec r_3} . ..... {\vec r_n}$those of constituent particles then
+$\mathop R\limits^ \to = {{{m_1}{{\mathop r\limits^ \to }_1} + {m_2}{{\mathop r\limits^ \to }_2} + .... + {m_N}{{\mathop r\limits^ \to }_N}} \over {{m_1} + {m_2} + ..... + {m_N}}} $ = $ {{{m_1}{{\mathop r\limits^ \to }_1} + {m_2}{{\mathop r\limits^ \to }_2} + {m_N}{{\mathop r\limits^ \to }_N}} \over M}$ 
+Differentiating both sides w.r.t. time t, we get
+${{d\mathop R\limits^ \to } \over {dt}} $ = $ {1 \over M}\left[ {{m_1}{{d{{\mathop r\limits^ \to }_1}} \over {dt}} + {m_2}{{d{{\mathop r\limits^ \to }_2}} \over {dt}} + .......... + {m_N}{{d{{\mathop r\limits^ \to }_N}} \over {dt}}} \right]$ 
+Let the velocity of centre of mass is ${{d\mathop R\limits^ \to } \over {dt}} = \mathop {{V_{CM}}}\limits^ \to $
+${{d\mathop {{r_1}}\limits^ \to } \over {dt}} = {\mathop v\limits^ \to _1},{{d\mathop {{r_2}}\limits^ \to } \over {dt}} = {\mathop v\limits^ \to _{2,}}.....{{d\mathop {{r_n}}\limits^ \to } \over {dt}} = \mathop {{v_n}}\limits^ \to $ 
+$M\mathop {{V_{CM}}}\limits^ \to $ = $ {m_1}{\mathop v\limits^ \to _1} + {m_2}{\mathop v\limits^ \to _2} + .... + {m_N}{\mathop v\limits^ \to _N} = \sum\limits_{i = 1}^N {{m_i}\,\,\,{{\mathop v\limits^ \to }_i}} $ 
+Hence the total momentum of a system of particles is equal to the product of the total mass of the system and the velocity of its centre of mass.
+
+Q9. Considering binary (double) stars in our frame of reference, the trajectories of the stars are a combination of
+    (A) uniform motion in a straight line and
+ elliptical orbits of the stars
+    (B) uniform motion in a straight line and
+ circular orbits of the stars   <-- CORRECT
+    (C) uniform motion in a straight line and
+ straight line motion of the stars
+    (D) uniform motion in a circle and
+ circular orbits of the stars
+    Answer: B
+    Explanation: A double star or visual double is a pair of stars that appear close to each other in the sky as seen from Earth when viewed through an optical telescope.
+In absence of external force Centre of mass of double star moves like a free particle. In Centre of mass frame both stars moving in a circle about the Centre of mass which is at rest and both star are diametrically opposite to each other.
+Thus in our frame of reference, the trajectories of the stars are a combination of
+uniform motion in a straight line of the Centre of mass and 
+circular orbits of the stars about the Centre of mass. 
+Trajectories of two stars, S_1 (dotted line) and S_2 (solid line) forming a binary system with their centre of mass C in uniform motion.
+The same binary system, with the centre of mass C at rest.
+
+Q10. The vector product of two vectors a and b is a vector c such that the magnitude of c is given by:
+    (A) $\left| {\mathbf{a}} \right|\left| {\mathbf{b}} \right|$cot$\theta $
+    (B) $\left| {\mathbf{a}} \right|\left| {\mathbf{b}} \right|$cos$\theta $
+    (C) $\left| {\mathbf{a}} \right|\left| {\mathbf{b}} \right|$sin$\theta $   <-- CORRECT
+    (D) $\left| {\mathbf{a}} \right|\left| {\mathbf{b}} \right|$tan$\theta $
+    Answer: C
+    Explanation: As per the definition of vector product:-
+$\vec c = \vec a \times \vec b = \left| {\vec a} \right|\left| {\vec b} \right|\sin \theta \hat n$
+$\left| {\vec c} \right| = \left| {\vec a} \right|\left| {\vec b} \right|\sin \theta $
+
+Q11. The vector product of two vectors a and b is a vector c such that c is perpendicular to the plane containing a and b and the direction is given by:
+    (A) index finger rule
+    (B) left-handed screw rule
+    (C) right-handed screw rule   <-- CORRECT
+    (D) left hand rule
+    Answer: C
+    Explanation: If vectors A and B lie in the plane of this page, the vector C will be perpendicular to this plane. 
+The sense (upward or downward) of the direction of the vector product is given by the direction of the advance of the tip of a right-handed screw when rotated from A to B through angle $\theta$ between them, the screw being placed with its axis perpendicular to the plane containing the two vectors.
+
+Q12. If $\overrightarrow{\mathbf{a}}=a_x \hat{\mathbf{i}}+a_y \hat{\mathbf{j}}+a_z \hat{\mathbf{k}}$ and $\overrightarrow{\mathbf{b}}=b_x \hat{\mathbf{i}}+b_y \hat{\mathbf{j}}+b_z \hat{\mathbf{k}}$ then the cross product $\overrightarrow{\mathbf{a}} \times \overrightarrow{\mathbf{b}}$ is given by:
+    (A) $\left| {\begin{array}{*{20}{c}} {{\mathbf{\hat i}}}&{{\mathbf{\hat j}}}&{{\mathbf{\hat k}}} \\ {{{\text{a}}_{\text{x}}}}&{{a_x}}&{{a_z}} \\ {{b_x}}&{{b_x}}&{{b_z}} \end{array}} \right|$
+    (B) $\left| {\begin{array}{*{20}{c}} {{\mathbf{\hat i}}}&{{\mathbf{\hat j}}}&{{\mathbf{\hat k}}} \\ {{{\text{a}}_{\text{x}}}}&{{a_y}}&{{a_z}} \\ {{b_x}}&{{b_x}}&{{b_z}} \end{array}} \right|$
+    (C) $\left| {\begin{array}{*{20}{c}} {{\mathbf{\hat i}}}&{{\mathbf{\hat j}}}&{{\mathbf{\hat k}}} \\ {{{\text{a}}_{\text{x}}}}&{{a_y}}&{{a_z}} \\ {{b_x}}&{{b_y}}&{{b_x}} \end{array}} \right|$
+    (D) $\left| {\begin{array}{*{20}{c}} {{\mathbf{\hat i}}}&{{\mathbf{\hat j}}}&{{\mathbf{\hat k}}} \\ {{{\text{a}}_{\text{x}}}}&{{a_y}}&{{a_z}} \\ {{b_x}}&{{b_y}}&{{b_z}} \end{array}} \right|$   <-- CORRECT
+    Answer: D
+    Explanation: ${\bf{\vec a}} \times {\bf{\vec b}}$ = $ \left( {{a_y}{b_z} - {a_z}{b_y}} \right){\bf{\hat i}} $ - $\left( {{a_x}{b_z} - {a_z}{b_x}} \right){\bf{\hat j}}$ + $ \left( {{a_x}{b_y} - {a_y}{b_x}} \right){\bf{\hat k}}$ 
+As the cross product is the determinant of a 3x3 matrix.
+$\left| {\begin{array}{*{20}{c}} {{\mathbf{\hat i}}}&{{\mathbf{\hat j}}}&{{\mathbf{\hat k}}} \\ {{{\text{a}}_{\text{x}}}}&{{a_y}}&{{a_z}} \\ {{b_x}}&{{b_y}}&{{b_z}} \end{array}} \right|$
+
+Q13. If a body is rotating about z-axis with a speed $\omega $ and a point is at a distance of r in the x-y plane then the velocity of the point is:
+    (A) $2r\omega $
+    (B) $r\omega $   <-- CORRECT
+    (C) $r\omega /2$
+    (D) $3r\omega $
+    Answer: B
+    Explanation: the angular displacement of a particle about the z-axis
+$d\theta = {{ds} \over r}$ 
+differentiate with respect to time
+${{d\theta } \over {dt}} = {1 \over r}{{ds} \over {dt}}$
+${{d\theta } \over {dt}} = \omega$
+${{ds} \over {dt}} $ = v
+$\omega = {v \over r}$
+v = $ r\omega$
+
+Q14. The moment of inertia of a body about any axis is
+    (A) equal to the sum of the moment of inertia of the body about any axis passing through its centre of mass and the product of its mass and the square of the distance between the two parallel axes.
+    (B) equal to the sum of the moment of inertia of the body about a parallel axis passing through its centre of mass and the product of its mass and the square of the distance between the two parallel axes.   <-- CORRECT
+    (C) equal to the difference of the moment of inertia of the body about a parallel axis passing through its centre of mass and the product of its mass and the square of the distance between the two parallel axes.
+    (D) equal to the average of the moments of inertia of the body about a parallel axis passing through its centre of mass and the product of its mass and the square of the distance between the two parallel axes.
+    Answer: B
+    Explanation: according to parallel axis theorem the moment of inertia of a body about any axis is equal to the sum of the moment of inertia of the body about a parallel axis passing through its Centre of mass and the product of its mass and the square of the distance between the two parallel axes.
+$I = {I_{cm}} + M{a^2}$
+
+Q15. The angular acceleration vector is defined as:
+    (A) $\alpha=\frac{d \omega}{d t}$   <-- CORRECT
+    (B) $\alpha=\frac{d^3 \omega}{d t^3}$
+    (C) $\alpha=2 \frac{d \omega}{d t}$
+    (D) $\alpha=\frac{d^2 w}{d t^2}$
+    Answer: A
+    Explanation: As per the definition of angular acceleration that " it is the time rate of change of angular velocity" , therefore $\alpha=\frac{d \omega}{d t}$
+
+========================================================================
+Particles & Rotational Motion Test 02  (id 558) [PAID]
+CBSE > Class 11 > Physics > System of Particles and Rotational Motion
+Questions: 15 | Answers: YES
+========================================================================
+
+Q1. Torque $\tau $ is defined in terms of the position vector $r$ and the force acting F as:
+    (A) $\tau = r \times F.r$
+    (B) $\tau = F + r$
+    (C) $\tau = r.r \times F$
+    (D) $\tau = r \times F$   <-- CORRECT
+    Answer: D
+    Explanation: Torque = Force $\times$ Perpendicular distance of the line of action of the force from the axis of rotation. It is also called the moment of force.
+Torque is defined as the cross product of the vector by which the force's application point is offset relative to the fixed suspension point (distance vector) and the force vector, which tends to produce rotational motion.
+$\vec \tau = \vec r \times \vec F$
+
+Q2. The angular momentum L of the particle having a position vector $r$ and linear momentum $p$, with respect to the origin O is defined to be
+    (A) $\vec L = \vec r \times \vec p.\vec \omega $
+    (B) $L = \vec r \times \vec p \times \vec r$
+    (C) $\vec L = \vec r \times \vec r \times \vec p$
+    (D) $\vec L =\vec r \times\vec p$   <-- CORRECT
+    Answer: D
+    Explanation: Angular momentum is also referred to as a moment of linear momentum
+The angular momentum L of a particle of mass m with respect to a chosen origin is given by
+$\vec L = \vec r \times \vec p$ 
+The direction of angular momentum is according to the right-hand rule.
+
+Q3. Torque $\tau $ and angular momentum L are related by:
+    (A) $\tau=\frac{d L}{d t}$   <-- CORRECT
+    (B) $\tau=\frac{d^2 L}{d t^2}$
+    (C) $\tau=2 \frac{d L}{d t}$
+    (D) $\tau=\frac{d^3 L}{d t^3}$
+    Answer: A
+    Explanation: $\vec L = \vec r \times \vec p$ 
+on differentiation with respect to time 
+$\frac{d \vec{L}}{d t}=\frac{d}{d t}(\vec{r} \times \vec{p})$ 
+Applying the product rule for differentiation to the right-hand side,
+$\frac{d}{d t}(\vec{r} \times \vec{p})=\left(\frac{d \vec{r}}{d t} \times \vec{p}\right)+\left(\vec{r} \times \frac{d \vec{p}}{d t}\right)$
+$\frac{d \vec{r}}{d t}=\vec{v}, \vec{p}=m \vec{v}$
+$\left(\frac{d \vec{r}}{d t} \times \vec{p}\right)=\vec{v} \times m \vec{v}=0$
+$\frac{d \vec{p}}{d t}=\vec{F}$
+$\left(\vec{r} \times \frac{d \vec{p}}{d t}\right)=\vec{r} \times \vec{F}=\vec{\tau}$
+Hence $\vec{\tau}=\frac{d \vec{L}}{d t}$
+
+Q4. A rigid body is in mechanical equilibrium if:
+    (A) $\sum F \ne 0$ and $\sum \tau \ne 0$
+    (B) $\sum F = 0$ and $\sum \tau = 0$   <-- CORRECT
+    (C) $\sum F \ne 0$ and $\sum \tau = 0$
+    (D) $\sum F = 0$ and $\sum \tau \ne 0$
+    Answer: B
+    Explanation: For the mechanical equilibrium of a rigid body, it must be in translational as well as in rotational equilibrium. Linear acceleration and angular acceleration must be zero. Hence net force and net torque will be zero that is $\sum F = 0$ and $\sum \tau = 0$
+
+Q5. Centre of gravity can be defined:
+    (A) as that point where the total gravitational torque on the body is zero   <-- CORRECT
+    (B) as that point where the total gravitational torque on the body is greater than zero
+    (C) as the center of mass
+    (D) as that point where the total gravitational force on the body is zero
+    Answer: A
+    Explanation: The point at which the entire weight of a body may be thought of as centered so that if supported at this point the body would balance perfectly, so it can also be defined as that point where the total gravitational torque on the body is zero.
+
+Q6. Analogue of mass in rotational motion is:
+    (A) rotary mass
+    (B) angular acceleration
+    (C) torque
+    (D) moment of inertia   <-- CORRECT
+    Answer: D
+    Explanation: The moment of inertia is a physical quantity that tells how easily a body can be rotated about a given axis. It is a rotational analog of mass. It plays the same role in rotational motion as 'inertia' does in translational motion. A large moment of inertia also helps in keeping the rotation motion uniform.
+
+Q7. The radius of gyration of a body about an axis may be defined as the
+    (A) distance from the center of gravity to the axis of rotation
+    (B) distance from the center of gravity to the center of mass
+    (C) distance from the center of mass to the axis of rotation
+    (D) distance from the axis of a mass point whose mass is equal to the mass of the whole body and whose moment of inertia is equal to the moment of inertia of the body about the axis   <-- CORRECT
+    Answer: D
+    Explanation: It is the perpendicular distance from the axis of rotation to a point mass of mass m that gives an equivalent inertia to the original object (of mass, m)
+if radius of gyration is k then 
+$\eqalign{ & I = m{k^2} \cr & k = \sqrt {{I \over m}} \cr} $
+
+Q8. The moment of inertia of a planar body (lamina) about an axis perpendicular to its plane is.
+    (A) equal to the its moments of inertia about an axis perpendicular to the axis of rotation axis and lying in the plane of the body
+    (B) equal to the difference of its moments of inertia about two perpendicular axes concurrent with perpendicular axis and lying in the plane of the body
+    (C) equal to the average of its moments of inertia about three perpendicular axes concurrent with perpendicular axis and lying in the plane of the body
+    (D) equal to the sum of its moments of inertia about two perpendicular axes concurrent with perpendicular axis and lying in the plane of the body   <-- CORRECT
+    Answer: D
+    Explanation: According to perpendicular axis theorem "For a planar object, the moment of inertia about an axis perpendicular to the plane is the sum of the moments of inertia of two perpendicular axes through the same point in the plane of the object".
+${I_z} = {I_x} + {I_y}$
+
+Q9. The moment of inertia of a body about any axis is
+    (A) equal to the sum of the moment of inertia of the body about any axis passing through its centre of mass and the product of its mass and the square of the distance between the two parallel axes.
+    (B) equal to the average of the moments of inertia of the body about a parallel axis passing through its centre of mass and the product of its mass and the square of the distance between the two parallel axes.
+    (C) equal to the difference of the moment of inertia of the body about a parallel axis passing through its centre of mass and the product of its mass and the square of the distance between the two parallel axes.
+    (D) equal to the sum of the moment of inertia of the body about a parallel axis passing through its centre of mass and the product of its mass and the square of the distance between the two parallel axes.   <-- CORRECT
+    Answer: D
+    Explanation: according to parallel axis theorem the moment of inertia of a body about any axis is equal to the sum of the moment of inertia of the body about a parallel axis passing through its Centre of mass and the product of its mass and the square of the distance between the two parallel axes.
+$I = {I_{cm}} + M{a^2}$
+
+Q10. The angular acceleration of a rigid body ${\bf{\alpha }}$ rotating about a fixed axis is given by (I is the moment of inertia and ${\bf{\tau }}$ is the torque):
+    (A) ${\rm{I}}\alpha $ = ${\rm{2}}\tau $
+    (B) ${\rm{I}}\alpha $ = $\frac{\tau}{\rm{3}}$
+    (C) ${\rm{I}}\alpha $ = ${\bf{\tau }}$   <-- CORRECT
+    (D) ${\rm{I}}\alpha $ = $\frac{\tau}{\rm{2}}$
+    Answer: C
+    Explanation: $L = I\omega $ 
+differentiate with respect to time
+$\frac{d L}{d t}=I \frac{d \omega}{d t}$
+$\frac{d L}{d t}=\tau$ 
+$\frac{d \omega}{d t}=\alpha$
+$\tau $ = $ I\alpha$
+
+Q11. For rolling motion without slipping the kinetic energy of the body is:
+    (A) equal to the difference of kinetic energies of translation and rotation
+    (B) equal to the sum of kinetic energies of translation and rotation   <-- CORRECT
+    (C) equal to the kinetic energy of translation
+    (D) equal to the kinetic energy of rotation
+    Answer: B
+    Explanation: Rolling motion without slipping involves both translation motion and rotation motion. Hence kinetic energy of the body in rolling motion is the sum of both translation kinetic energy and rotational kinetic energy.
+K = K_trans + K_rot
+ K = $ {1 \over 2}I{\omega ^2} + {1 \over 2}m{v^2} $
+
+Q12. A solid sphere of mass M and radius R spins about an axis passing through its centre making 600 rpm. Its kinetic energy of rotation is:
+    (A) 80$\pi$MR
+    (B) $\frac{2}{5} {\pi^2}$MR
+    (C) 80$\pi$^2MR^2   <-- CORRECT
+    (D) $\frac{2}{5} \pi \mathrm{M}^2 \mathrm{R}^2$
+    Answer: C
+    Explanation: The kinetic energy of rotation
+K =$\frac{1}{2} I \omega^2$ 
+$n = \frac{600} {60} = 10$ revolution per second
+angular velocity $\omega = 2\pi n $ = 2$\pi$ $\times$ 10 = 20 rad/sec
+moment of inertia about an axis passing through centre of a solid sphere
+$I =\frac {2}{ 5}M{R^2}$ 
+The kinetic energy of rotation
+$K=\frac{1}{2} I \omega^2=\frac{1}{2} \times \frac{2}{5} M R^2 \times(20 \pi)^2$ = 80$\pi$^2MR^2
+
+Q13. A child swinging on a swing in a sitting position stands up. Then, the time period of the swing will:
+    (A) Decrease   <-- CORRECT
+    (B) Increase if the child is tall and decreases if the child is short
+    (C) Remains the same
+    (D) Increase
+    Answer: A
+    Explanation: As the child stand up then Centre of mass is shifted in upwards direction from the sitting position of the child, thus decreasing the effective length of the swing, so as the time period is proportional to the square root of length, thus time period decreases.
+time period 
+$T = 2\pi \sqrt {{l \over g}} $
+$T \propto \sqrt l $
+The time period of swing decreases as effective length decreases.
+
+Q14. Angular momentum is:
+    (A) A scalar
+    (B) A plain
+    (C) An axial-vector   <-- CORRECT
+    (D) A polar vector
+    Answer: C
+    Explanation: The axial vector represents the rotational effect and is always along the axis of rotation. The direction of angular momentum always along the axis of rotation in accordance with the right-hand screw rule. Hence angular momentum is an axial vector.
+$\vec L = \vec r \times \vec p$
+
+Q15. Angular momentum of a body is defined as the product of:
+    (A) Linear velocity and angular velocity
+    (B) Moment of inertia and angular velocity   <-- CORRECT
+    (C) Mass and angular velocity
+    (D) Centripetal force and radius
+    Answer: B
+    Explanation: $\vec L = \vec r \times \vec p$ 
+if r is the perpendicular to P (in case of circular motion)
+L = mvr
+L = $ m\left( {r\omega } \right)r = m{r^2}\omega$
+ L = $ I\omega$
+
+========================================================================
+Particles & Rotational Motion Test 03  (id 559) [PAID]
+CBSE > Class 11 > Physics > System of Particles and Rotational Motion
+Questions: 15 | Answers: YES
+========================================================================
+
+Q1. The radius of gyration of a circular loop of radius r and mass m rotating about its diameter as the axis is:
+    (A) $\frac{R}{2}$
+    (B) $\frac{\sqrt2}{R}$
+    (C) R
+    (D) $\frac{R}{\sqrt2}$   <-- CORRECT
+    Answer: D
+    Explanation: Moment of inertia of ring or circular loop about an axis passing through centre of mass and perpendicular to the plane is MR^2,
+Applying perpendicular axis theorem 
+I_z = I_x + I_y
+MR^2 = I + I
+I = $\frac {1}{2}M{R^2}$
+Here I = Moment of inertia about an axis passing through diameter
+A moment of inertia in terms of the radius of gyration (k) is Mk^2
+I = Mk^2
+$\frac{1}{2}$MR^2 = Mk^2
+k = $\frac{R}{\sqrt2}$
+
+Q2. In an orbital motion, the angular momentum vector is:
+    (A) perpendicular to the orbital plane   <-- CORRECT
+    (B) parallel to the linear momentum
+    (C) along the radius vector
+    (D) in the orbital plane
+    Answer: A
+    Explanation: $\vec L = \vec r \times \vec p = m\left( {\vec r \times \vec v} \right)$ 
+Hence the direction of angular momentum $\vec L$ is perpendicular to both $\vec r$ and $\vec v$ that is perpendicular to the orbital plane.
+
+Q3. The moment of inertia of a circular disc of mass M and radius R rotating about an axis passing through its edge and perpendicular to the plane of the disc is:
+    (A) MR^2
+    (B) 2MR^2
+    (C) $\frac{\mathrm{MR}^2}{2}$
+    (D) $\frac{3 \mathrm{MR}^2}{2}$   <-- CORRECT
+    Answer: D
+    Explanation: Moment of inertia of a disc about an axis passing through Centre of mass and perpendicular to the plane
+${I_{cm}} = \frac{1}{2}M{R^2}$}
+if I = Moment of inertia of a disc about an axis passing through its edge and perpendicular to the plane
+applying parallel axis theorem
+I = I_cm + MR^2
+I = $\frac{1}{2}$MR^2 + MR^2
+I = $\frac{3}{2}$MR^2
+
+Q4. A constant torque acting on a uniform circular wheel changes its angular momentum from A_0 to 4A_0 in 4 seconds. The magnitude of the torque is:
+    (A) $\frac{4{\rm{A}}_0}{3}$
+    (B) $\frac{3{\rm{A}}_0} {4}$   <-- CORRECT
+    (C) 12 A_0
+    (D) A_0
+    Answer: B
+    Explanation: $\tau=\frac{\Delta L}{\Delta t}=\frac{L_f-L_i}{\Delta t}$
+L_f = 4A_0
+L_i = A_0
+$\Delta t $ = 4 sec
+$\tau=\frac{4 A_0-A_0}{4}=\frac{3 A_0}{4}$
+
+Q5. The moment of inertia of a circular ring about an axis passing through its centre and normal to its plane is 200 gm cm^2. Then its moment of inertia about diameter is:
+    (A) 200 gm cm^2
+    (B) 100 gm cm^2   <-- CORRECT
+    (C) 400 gm cm^2
+    (D) 300 gm cm^2
+    Answer: B
+    Explanation: applying perpendicular axis theorem
+I_z = I_x + Iy
+I_z = 200
+200 = I + I
+2I = 200
+I = 100
+I = moment of inertia about an axis passing through diameter
+I = 100 gm cm^2
+
+Q6. A dancer on ice spins faster when she folds her hands. This is due to:
+    (A) constant angular momentum and an increase in kinetic energy   <-- CORRECT
+    (B) increase in energy and decrease in angular momentum
+    (C) increase in energy and an increase in angular momentum
+    (D) the decrease in friction at the skates
+    Answer: A
+    Explanation: L =$ I\omega $ 
+if L = const.
+then $I\omega $ = const.
+When a dancer is spinning, she has a certain angular momentum. When the dancer folds her arms, the distance of all the points of her body decreases with respect to axis of rotation so that her moment of inertia decreases. Thus, in order to conserve angular momentum, the speed of rotation has to increase and hence the dancer spins faster.
+$K = {{{L^2}} \over {2I}}$
+$
+ K \propto {1 \over I} $ 
+Hence if the moment of inertia decrease then kinetic energy will increase.
+
+Q7. A uniform rod of mass 2 kg is 1 meter long. Its radius of gyration about an axis through its one end and perpendicular to its length in SI units is:
+    (A) $\frac{2}{3}$
+    (B) $\frac{1}{\sqrt 3}$   <-- CORRECT
+    (C) $\frac{1}{2\sqrt 3}$
+    (D) $\frac{2}{ \sqrt 3}$
+    Answer: B
+    Explanation: Moment of inertia of the rod about an axis through its one end and perpendicular to its length
+$I = \frac{M{L^2}}{3}$ 
+M = 2 Kg
+L = 1 m
+Moment of inertia of rod in terms of the radius of gyration
+I = Mk^2
+$\frac{M{L^2}}{3} = M{k^2}$
+$k=\sqrt{\frac{L^2}{3}}=\frac{L}{\sqrt{3}}=\frac{1}{\sqrt{3}}$
+
+Q8. Two discs of the same mass and same thickness t are made from two different materials of densities d_1 and d_2 respectively. The ratio of the moments of inertia of the two about an axis passing through the centre and perpendicular to the plane of the lamina is:
+    (A) 1: d_1d_2
+    (B) d_1 : d_2
+    (C) d_2 : d_1   <-- CORRECT
+    (D) $\frac{\mathrm{d}_1}{\mathrm{~d}_2}$: 1
+    Answer: C
+    Explanation: if V = volume of disc (At), A = area of disc = $\pi$r^2, t = thickness of disc, M = mass of disc, d = density of material of disc
+$V = \frac{M}{d}$
+At = $\frac{M}{d}$
+$\pi r^{2} t=\frac{M}{d}$
+$r^{2}=\frac{M}{\pi d_{1} t}$
+r^2 $ \propto \frac{1}{d}$
+$\left(\frac{r_{1}}{r_{2}}\right)^{2}=\frac{d_{2}}{d_{1}}$
+$\frac{I_{1}}{I_{2}}=\frac{\frac{1}{2} M r_{1}^{2}}{\frac{1}{2} M r_{2}^{2}}=\left(\frac{r_{1}}{r_{2}}\right)^{2}=\frac{d_{2}}{d_{1}}$
+I_1:I_2 = d_2:d_1
+
+Q9. Four spheres each of mass M and radius R are placed with their centers on the four corners of a square of side 'b'. The moment of inertia of the system about any side of the square is:
+    (A) $\frac{8}{5}{\rm{M}}{{\rm{R}}^{\rm{2}}}$ + Mb^2
+    (B) $\frac{8}{5}{\rm{M}}{{\rm{R}}^{\rm{2}}}$ + 4Mb^2
+    (C) $\frac{4}{3}{\rm{M}}{{\rm{R}}^{\rm{2}}}$ + 2Mb^2
+    (D) $\frac{8}{5} $${\rm{M}}{{\rm{R}}^{\rm{2}}}$ + 2Mb^2   <-- CORRECT
+    Answer: D
+    Explanation: The moment of inertia of the system about any side of the square is
+I = I_1 + I_2 + I_3 + I_4
+I = $\frac {2}{5}M{R^2} + \frac{2}{5}M{R^2}$ + $\left(\frac{2}{5} M R^2+M b^2\right)$ + $\left(\frac{2}{5} M R^2+M b^2\right)$
+I = $\frac{8}{5}$MR^2 + 2Mb^2
+
+Q10. When a mass is rotating in a plane about a fixed point, its angular momentum is directed along:
+    (A) the axis of rotation   <-- CORRECT
+    (B) the radius
+    (C) a line at an angle of 45^o to the plane of rotation
+    (D) the tangent to the orbit
+    Answer: A
+    Explanation: $\vec L = \vec r \times \vec p = m\left( {\vec r \times \vec v} \right)$ 
+Hence the direction of the angular vector $\vec L$ is perpendicular to both $\vec r$ and $\vec v$ that is along the axis of rotation according to the right-hand screw rule.
+
+Q11. A mass is revolving in a circle, which is in the plane of the paper. The direction of angular acceleration if any, is:
+    (A) Towards the radius
+    (B) Tangential
+    (C) Upward from the plane of the paper
+    (D) At right angles to the plane of the paper   <-- CORRECT
+    Answer: D
+    Explanation: Angular acceleration is an axial vector. It is always directed along the axis of rotation according to the right-hand screw rule. Hence the direction of the angular acceleration vector is perpendicular to the plane in which the rotation takes place.
+
+Q12. Which of the following has the largest moment of inertia?
+    (A) Disc of mass M and radius R about an axis perpendicular to its plane
+    (B) Ring of mass M and radius R about an axis perpendicular to its plane   <-- CORRECT
+    (C) A solid sphere of mass M and radius R about an axis passing through its centre of mass
+    (D) Bar magnet of mass M and length R about an axis passing through its centre of mass
+    Answer: B
+    Explanation: I_Ring = MR^2
+I_disc = $1\over 2$MR^2
+I_sphere = $2\over 5$MR^2
+I_rod=$MR^2\over 12$
+Hence the ring has the largest moment of inertia.
+
+Q13. A spherical solid ball of 1 kg. mass and radius 3 cm is rotating about an axis passing through its centre with an angular velocity of 50 radians/s. The kinetic energy of rotation is
+    (A) 920 J
+    (B) 910 J
+    (C) $9\over20$ J   <-- CORRECT
+    (D) 45000 J
+    Answer: C
+    Explanation: M = 1Kg
+R = 3cm = 3 $\times$ 10^-2m
+$\omega$ = 50rad/s
+K = $\frac{1}{2} I \omega^{2}=\frac{1}{2} \times \frac{2}{5} M R^{2} \times \omega^{2}$
+K = $\frac12 \times\frac25$ $\times$1 $\times$(3 $\times$10^−2)^2 $\times$50 $\times$50 = $9 \over {20}$J
+
+Q14. A jet airplane travelling at the speed of 500 kmh^–1 ejects its products of combustion at the speed of 1500 km h^–1 relative to the jet plane. What is the speed of the combustion with respect to an observer on ground?
+    (A) -1000 km/h   <-- CORRECT
+    (B) -2550 km/h
+    (C) -1250 km/h
+    (D) -2000 km/h
+    Answer: A
+    Explanation: Speed of the jet airplane, v_jet = 500 km/h
+Relative speed of its products of combustion with respect to the plane, v_smoke = – 1500 km/h
+Speed of its products of combustion with respect to the ground = v′_smoke
+Relative speed of its products of combustion with respect to the airplane, v_smoke = v′_smoke – v_jet
+$\Rightarrow$ – 1500 = v′_smoke – 500
+$\Rightarrow$ v′_smoke = – 1000 km/h
+The negative sign indicates that the direction of its products of combustion is opposite to the direction of motion of the jet airplane.
+
+Q15. If a gymnast sitting on a rotating stool with his arms outstretched, suddenly lowers his hands:
+    (A) His moment of inertia decreases   <-- CORRECT
+    (B) The angular velocity decreases
+    (C) The angular velocity stays constant
+    (D) The angular momentum increases
+    Answer: A
+    Explanation: When gymnast lowers his hand the distance of the mass from rotational axis decrease. Hence his moment of inertia decreases and angular velocity increases to conserve angular momentum.
+
+========================================================================
+Particles & Rotational Motion Test 04  (id 560) [PAID]
+CBSE > Class 11 > Physics > System of Particles and Rotational Motion
+Questions: 15 | Answers: YES
+========================================================================
+
+Q1. A planet is revolving around the sun in an elliptical orbit. The maximum and the minimum distances of the planet from the sun are 3 $ \times $ ${\rm{1}}{0^{{\rm{12}}}}$ m and 2 $ \times $ ${\rm{1}}{0^{{\rm{10}}}}$ m respectively. The speed of the planet when it is nearest to sun is 2 $ \times $ ${\rm{1}}{0^{{\rm{7}}}}$ m/sec. What is the speed of the planet when it is farthest from the sun?
+    (A) 2.66 $ \times $ ${\rm{1}}{0^{{\rm{5}}}}$ m/sec
+    (B) 1.33 $ \times $ 10^5 m/sec   <-- CORRECT
+    (C) 1.5 $ \times $ ${\rm{1}}{0^{{\rm{7}}}}$ m/sec
+    (D) 3 $ \times $ ${\rm{1}}{0^{{\rm{5}}}}$ m/sec
+    Answer: B
+    Explanation: Perihelion is the nearest distance of planet from focus.
+aphelion is the farthest distance of planet from focus.
+v_p = 2 $\times$ 10^7m/s
+v_a = ?
+r_p = 2 $\times$ 10^10m
+r_a= 3 $\times$ 10^12m
+$\frac{v_{p}}{v_{a}}=\frac{r_{a}}{r_{p}}$
+$\frac{2 \times 10^{7}}{v_{a}}=\frac{3 \times 10^{12}}{2 \times 10^{10}}$
+v_a = 1.33 $\times$ 10^5m/s
+
+Q2. The angular velocity of the body changes from ${\omega _{\rm{1}}}$ to ${\omega _{\rm{2}}}$ without applying torque but by changing moment of inertia. The ratio of the initial radius of gyration to the final radius of gyration is:
+    (A) ${\omega _{\rm{2}}}$: ${\omega _{\rm{1}}}$
+    (B) ${\omega _{\rm{2}}}^{\rm{2}}$: ${\omega _{\rm{1}}}^2$
+    (C) ($\sqrt{\omega _{\rm{2}}}$) : ($\sqrt{\omega _{\rm{1}}}$)   <-- CORRECT
+    (D) (${1 \over\omega _{\rm{2}}}$): ($1 \over{\omega _{\rm{1}}}$)
+    Answer: C
+    Explanation: $I_{1} \omega_{1}$ = $I_{2} \omega_{2}$
+$\frac{I_{1}}{I_{2}}=\frac{\omega_{2}}{\omega_{1}}$
+$\frac{m k_{1}^{2}}{m k_{2}^{2}}=\frac{\omega_{2}}{\omega_{1}}$
+$\frac{k_{1}}{k_{2}}=\sqrt{\frac{\omega_{2}}{\omega_{1}}}$
+k_1:k_2 = $\sqrt{\omega _{\rm{2}}}$ : $\sqrt{\omega _{\rm{1}}}$
+
+Q3. Two bodies with moments of inertia I_1 and I_2 (I_1$ > $ I_2) have equal angular momenta. If K.E. of rotation is E_1 and E_2 then:
+    (A) E_1 < E_2   <-- CORRECT
+    (B) E_1 = E_2
+    (C) E_1 $\ge$ E_2
+    (D) E_1 > E_2
+    Answer: A
+    Explanation: K.E. of rotation 
+E = ${{{L^2}} \over {2I}}$
+E $\propto$ $ {1 \over I}$
+I_1 > I_2
+E_1 < E_2
+
+Q4. The moment of inertia of a thin uniform ring of mass 1 Kg about an axis passing through the centre and perpendicular to the plane of the ring is 0.25 Kg m^2. Then the diameter of the ring is:
+    (A) 1 m   <-- CORRECT
+    (B) 0.5 m
+    (C) 0.25 m
+    (D) 0.75 m
+    Answer: A
+    Explanation: I = MR^2
+I = 0.25Kgm^2
+M = 1Kg
+$R=\sqrt{\frac{I}{M}}=\sqrt{\frac{0.25}{1}}$ = 0.5 m
+Diameter d = 2R
+d = 2 $\times$ 0.5 = 1 m
+
+Q5. We have two spheres, one is a hollow shell and the other a solid. They have identical masses and moments of inertia about their respective diameters. The ratio of their radii is given by
+    (A) $\sqrt3$ : $\sqrt5$   <-- CORRECT
+    (B) 3: 5
+    (C) $\sqrt3$ : $\sqrt7$
+    (D) 5:7
+    Answer: A
+    Explanation: Moment of inertia of a hollow sphere about an axis passing through its diameter 
+${I_{1}} = {2 \over 3}M{R_1}^2$ 
+Moment of inertia of hollow shell about an axis passing through its diameter 
+${I_{2}} = {2 \over 5}M{R_2}^2$
+Given that 
+I_1 = I_2
+$\frac{2}{3} M R_{1}^{2}=\frac{2}{5} M R_{2}^{2}$
+$\frac{R_{1}}{R_{2}}=\sqrt{\frac{3}{5}}$
+R_1:R_2 = $\sqrt3$:$\sqrt5$
+
+Q6. A particle performs uniform circular motion with an angular momentum L. If the frequency of particle's motion is doubled and its K.E. is halved, the angular momentum becomes:
+    (A) 4L
+    (B) $L\over2$
+    (C) $L\over4$   <-- CORRECT
+    (D) 2L
+    Answer: C
+    Explanation: $K=\frac{1}{2} I \omega^{2}=\frac{1}{2} \times I \omega \times \omega$
+$K=\frac{1}{2} L \omega$
+$\frac{K_{1}}{K_{2}}=\frac{L_{1} \omega_{1}}{L_{2} \omega_{2}}$ 
+K_1 = K, K_2 = $K\over2$ 
+n_1 = n, ${\omega _1} = 2\pi n = \omega $ 
+n_2 = 2n, ${\omega _2} = 2\pi \times 2n = 2\omega $ 
+L_1 = L, L_2 = ?
+${{2K} \over K} = {{L\omega } \over {{L_2} \times 2\omega }}$
+$L_{2}=\frac{L}{4}$
+
+Q7. A flywheel at rest is to reach an angular velocity of 36 rad/sec, in 6 sec, with a constant angular acceleration. The total angle turned during this interval is:
+    (A) 72 rad
+    (B) 108 rad   <-- CORRECT
+    (C) 216 rad
+    (D) 144 rad
+    Answer: B
+    Explanation: $\omega = {\omega _o} + \alpha t$
+36 = 0 + 6$\alpha$ 
+$\alpha = {{36} \over 6} = 6rad/{s^2}$
+$\theta = {\omega _o}t + {1 \over 2}\alpha {t^2}$
+$\theta$ = 0 + ${1 \over 2}$ $\times$ 6 $\times$ 6 $\times$ 6 
+$\theta$ = 108rad
+
+Q8. The radius of gyration of a rod of mass 100 gm and length 100 cm about an axis passing through its edge and perpendicular to its length is given by:
+    (A) $\frac{50} {{3\sqrt 2 }}$
+    (B) $\frac{50}{ {2\sqrt 3 }}$
+    (C) $\frac{100} {{3\sqrt 3 }}$
+    (D) $\frac{100} {{\sqrt 3 }}$   <-- CORRECT
+    Answer: D
+    Explanation: Moment of inertia of the rod about an axis passing through its centre of gravity and perpendicular to its length
+$I = \frac{M{l^2}} {{3}}$ 
+Moment of inertia of rod in terms of the radius of gyration 
+I = Mk^2
+M = 100 gm
+l = 100 cm
+Mk^2 = $\frac{Ml^2}{3}$
+$k=\sqrt{\frac{l^{2}}{3}}=\sqrt{\frac{100 \times 100}{3}}$
+$k=\frac{100}{\sqrt{3}} \mathrm{cm}$
+
+Q9. The M.I. of a body about a given axis is 1.2 kg m^2. Initially, the body is at rest. In order to produce rotational kinetic energy of 1500 joule, the angular acceleration of 25 rad/sec^2 must be applied about that axis for the duration of
+    (A) 4 sec
+    (B) 8 sec
+    (C) 10 sec
+    (D) 2 sec   <-- CORRECT
+    Answer: D
+    Explanation: K = 1500 J
+I = 1.2 Kgm^2
+$\alpha $ = 25rad/s^2
+$\Delta$t = ?
+$K=\frac{1}{2} I \omega^{2}$
+$\omega=\sqrt{\frac{2 K}{I}}=\sqrt{\frac{2 \times 1500}{1.2}}$ = 50rad/s
+$\alpha = {{\Delta \omega } \over {\Delta t}} = {{\omega - {\omega _o}} \over {\Delta t}} = {{50 - 0} \over {\Delta t}}$
+25 = $ {{50 - 0} \over {\Delta t}}$ 
+$ \Delta t = {{50} \over {25}} $ = 2 sec
+
+Q10. A fan of the moment of inertia 0.3 kg m^2 is to run up to working speed of 0.5 revolutions per second. Indicate the correct value of the angular momentum of the fan:
+    (A) 3 kg $ \times $ m^2/sec
+    (B) 6 kg $ \times $ m^2/sec
+    (C) 0.3$\pi $kg $ \times $ m^2/sec   <-- CORRECT
+    (D) $\frac{\pi}{6}$ kg $ \times $ m^2/sec
+    Answer: C
+    Explanation: n = 0.5 revolution per second
+angular velocity $\omega = 2\pi n = 2\pi \times 0.5 $ = $\pi $ rad/s
+moment of inertia I = 0.3Kgm^2
+angular momentum L= I$\omega$ = 0.3 $\times$ $\pi$ = 0.3$\pi$Kgm^2/s
+
+Q11. Three thin uniform rods each of mass M and length L are placed along the three-axis of a Cartesian coordinate system with one end of each rod at the origin. The Moment of inertia of the system about the z-axis is:
+    (A) $\frac{\mathrm{ML}^2}{3}$
+    (B) ML^2
+    (C) $\frac{2 \mathrm{ML}^2}{3}$   <-- CORRECT
+    (D) $\frac{\mathrm{ML}^2}{6}$
+    Answer: C
+    Explanation: Moment of inertia about an axis passing through the edge
+$I =\frac{M{L^2}} {3}$ 
+Moment of inertia of the system about z-axis
+I = I_x + I_y + I_z
+$I=\frac{M L^{2}}{3}+\frac{M L^{2}}{3}+0$
+$I=\frac{2}{3} M L^{2}$
+
+Q12. Two circular rings have their masses in the ratio 1:2 and their diameters in the ratio 2: 1. The ratio of their moments of inertia about their axes is:
+    (A) 1: 4
+    (B) 1:2
+    (C) 4:1
+    (D) 2:1   <-- CORRECT
+    Answer: D
+    Explanation: $\frac{M_{1}}{M_{2}}=\frac{1}{2}$
+$\frac{R_{1}}{R_{2}}=\frac{2}{1}$
+$\frac{I_{1}}{I_{2}}=\frac{M_{1} R_{1}^{2}}{M_{2} R_{2}^{2}}$
+$\frac{I_{1}}{I_{2}}=\left(\frac{M_{1}}{M_{2}}\right)\left(\frac{R_{1}}{R_{2}}\right)^{2}$ = $\frac{1}{2} \times\left(\frac{2}{1}\right)^{2}$ = $\frac{1}{2} \times \frac{4}{1}=\frac{2}{1}$
+I_1:I_2 = 2:1
+
+Q13. Four masses are fixed on a massless rod as shown in the figure. The moment of inertia about the axis P is about
+    (A) 2 kg metre^2
+    (B) 1.04 kg metre^2   <-- CORRECT
+    (C) 0.5 kg metre^2
+    (D) 0.3 kg ${\rm{metr}}{{\rm{e}}^{\rm{2}}}$
+    Answer: B
+    Explanation: I = I_1 + I_2 + I_3 + I_4
+I = $m_{1} r_{1}^{2}+m_{2} r_{2}^{2}+m_{3} r_{3}^{2}+m_{4} r_{4}^{2}$
+I = (2 $\times$ 0.4 $\times$ 0.4)+(5 $\times$0.2 $\times$0.2)+(5 $\times$0.2 $\times$ 0.2)+(2 $\times$ 0.4 $\times$ 0.4)
+I = 0.32 + 0.20 + 0.20 + 0.32
+I = 1.04 K gm^2
+
+Q14. A wheel is rotating about an axis through its centre at 720 r.p.m. When acted upon by a constant torque opposing its motion for 8 seconds it stops rotating. The value of this torque in Nm is (given I = $\frac {24} {\pi }$ kg ${{\rm{m}}^{\rm{2}}}$)
+    (A) 48
+    (B) 96
+    (C) 120
+    (D) 72   <-- CORRECT
+    Answer: D
+    Explanation: $n = \frac {720} {60} = 12$ rev/s
+angular velocity $\omega = 2\pi n $ = $ 2\pi \times 12 = 24\pi $ rad/s
+moment of inertia 
+I =$\frac {24}{ \pi }$kg ${{\rm{m}}^{\rm{2}}}$
+torque
+$T = I\alpha $
+T = $ I\frac{{\Delta \omega }}{{\Delta t}} = \frac{{24}}{\pi } \times \left( {\frac{{24 \pi- 0}}{8}} \right)$ = $ \frac{{24}}{\pi } \times \frac{{24\pi }}{8}$ = 72.0Nm
+
+Q15. A flywheel rotating about a fixed axis has a kinetic energy of 360 joules when its angular speed is 30 radians per second. The moment of inertia of the flywheel about the axis of rotation is:
+    (A) 0.8 kg m^2   <-- CORRECT
+    (B) 0.75 kg m^2
+    (C) 0.6 kg m^2
+    (D) 0.15 kg m^2
+    Answer: A
+    Explanation: K = ${1\over 2}I \omega^2$
+K = 360J
+$\omega $ = 30rad/s
+I = $ {{2K} \over {{\omega ^2}}} = {{2 \times 360} \over {30 \times 30}} $0 = 0.8Kgm^2
+
+========================================================================
+Particles & Rotational Motion Test 05  (id 561) [PAID]
+CBSE > Class 11 > Physics > System of Particles and Rotational Motion
+Questions: 15 | Answers: YES
+========================================================================
+
+Q1. A body of mass 2.0 kg and radius of gyration 0.5 m is rotating about an axis. If its angular speed is 2.0 rad/s, the angular momentum of the body (in kg - m^2/s) is:
+    (A) 0.5
+    (B) 1.5
+    (C) 1.0   <-- CORRECT
+    (D) 2.0
+    Answer: C
+    Explanation: Moment of inertia
+I = mk^2
+m = 2 Kg
+k = 0.5 m
+I = 2 $\times$ 0.5 $\times$ 0.5 = 0.5Kgm^2
+angular momentum
+L = I$\omega$
+$\omega$ = 2rad/s
+L = 0.5 $\times$ 2 = 1.0Kgm^2/s
+
+Q2. The angular velocity of a body changes from 1 rev/sec to 25 rev/sec. without applying any external torque. The ratio of the radii of gyration in the two cases is:
+    (A) 5:1   <-- CORRECT
+    (B) 1: 5
+    (C) 1: 25
+    (D) 25:1
+    Answer: A
+    Explanation: I_1$\omega$_1 = I_2$\omega$_2
+$\frac{I_{1}}{I_{2}}=\frac{\omega_{2}}{\omega_{1}}$ 
+$\omega$_1 = 1rev/s
+$\omega$_2 = 25rev/s
+if the radius of gyration is k_1 and k_2 then 
+$\frac{M k_{1}^{2}}{M k_{2}^{2}}=\frac{\omega_{2}}{\omega_{1}}$
+$\frac{k_{1}}{k_{2}}=\sqrt{\frac{\omega_{2}}{\omega_{1}}}=\sqrt{\frac{25}{1}}=\frac{5}{1}$
+k_1:k_2 = 5:1
+
+Q3. The angular velocity of a body changes forms 1 rev/sec to 16 rev/sec. Without applying any external torque. The ratio of its radius of gyration in the two cases is:
+    (A) 1:16
+    (B) 1:4
+    (C) 4: 1   <-- CORRECT
+    (D) 16:1
+    Answer: C
+    Explanation: I_1$\omega$_1 = I_2$\omega$_2
+$\frac{I_{1}}{I_{2}}=\frac{\omega_{2}}{\omega_{1}}$ 
+$\omega$_1 = 1rev/s
+$\omega$_2 = 16rev/s
+if the radius of gyration is k_1 and k_2 then 
+$\frac{M k_{1}^{2}}{M k_{2}^{2}}=\frac{\omega_{2}}{\omega_{1}}$
+$\frac{k_{1}}{k_{2}}=\sqrt{\frac{\omega_{2}}{\omega_{1}}}=\sqrt{\frac{16}{1}}=\frac{4}{1}$
+k_1:k_2 = 4:1
+
+Q4. A body having a moment of inertia about its axis equal to 3 kg m^2 is rotating with an angular velocity equal to 3 rad/s. The kinetic energy of this rotating body is the same as that of a body of mass 27 kg moving with a speed of
+    (A) 2.0 m/s
+    (B) 1.5 m/s
+    (C) 1.0 m/s   <-- CORRECT
+    (D) 0.5 m/s
+    Answer: C
+    Explanation: $K_{r o t}=\frac{1}{2} I \omega^{2}$
+$K_{t r a n s}=\frac{1}{2} m v^{2}$
+given that
+K_rot = K_trans
+$\frac{1}{2} I \omega^{2}=\frac{1}{2} m v^{2}$
+I = 3Kgm^2
+$\omega$ = 3rad/s
+m = 27Kg
+v =?
+$I \omega^{2}$ = mv^2
+v =$ \sqrt {{{I{\omega ^2}} \over m}} = \sqrt {{{3 \times 3 \times 3} \over {27}}} $ = 1.0m/s
+
+Q5. The moment of inertia of a solid sphere about a diameter is 8000 gms ${\rm{c}}{{\rm{m}}^{\rm{2}}}$ (mass of sphere = 50 gm, radius = 20 cm). The moment of inertia about a tangent will be
+    (A) 2.8 $ \times $ 10^4 gm cm^2   <-- CORRECT
+    (B) 8400 gm cm^2
+    (C) 280 gm cm^2
+    (D) 2.8 10^3 gm
+    Answer: A
+    Explanation: I = $2\over 5$MR^2 = 8000 gm cm^2, using the parallel axis theorem the Moment of Inertia about a tangent to the sphere is = $2\over 5$ MR^2+ MR^2 = $7\over 5$ MR^2 = 2.8 $ \times $ 10^4 gm cm^2
+
+Q6. A particle moves with a constant velocity parallel to the x-axis. Its angular momentum with respect to the origin:
+    (A) goes on increasing
+    (B) is zero
+    (C) remains constant   <-- CORRECT
+    (D) goes on decreasing
+    Answer: C
+    Explanation: As angular momentum is $\vec L = \vec p \times \vec r $ = mvrsin$\theta$, Now rsinθ = perpendicular distance from x-axis which is constant, so angular momentum remains constant.
+
+Q7. If the radius of earth contracts to half of its present value, the mass remaining unchanged, the duration of the day will be:
+    (A) 6 Hrs   <-- CORRECT
+    (B) 12 Hrs
+    (C) 24 Hrs
+    (D) 48 Hrs
+    Answer: A
+    Explanation: As the Moment of inertia of earth considered as the sphere is I = $2\over 5$ MR^2, thus according to the law of conservation of angular momentum as the radius contracts to half, thus a new moment of inertia of earth will be $I\over 4$, thus the angular velocity will increase 4 times and making the length of the day to 6 hrs.
+
+Q8. A boy comes running and sits on a merry-go-round. What is conserved?
+    (A) Angular momentum   <-- CORRECT
+    (B) Linear momentum
+    (C) The kinetic energy of function
+    (D) The kinetic energy of rotation
+    Answer: A
+    Explanation: According to the law of conservation of angular momentum if no external torque is applied on a body in rotation than its angular momentum remains conserved.
+
+Q9. A ring of radius r and mass m rotates about its central axis. The kinetic energy is:
+    (A) $\frac{\mathrm{mr}^2 \omega^2}{2}$   <-- CORRECT
+    (B) $\frac{mr{\omega ^2}}{2}$
+    (C) mr ${\omega ^2}$
+    (D) mr^2 ${\omega ^2}$
+    Answer: A
+    Explanation: The kinetic energy of the body in rotational motion is $KE = \frac{1}{2}I{\omega ^2} = \frac{1}{ 2}m{r^2}{\omega ^2}$ as a moment of inertia of ring about its central axis is I = mr^2.
+
+Q10. A thin circular ring of mass M and radius R is rotating about its central axis with angular velocity. Four-point objects each of mass m are attached gently to the opposite ends of two perpendicular diameters, the angular velocity of the ring is given by:
+    (A) $\frac{M}{{M + 4m}} \cdot \omega $   <-- CORRECT
+    (B) $\frac{M}{{M + m}} \cdot \omega $
+    (C) $\frac{M-4 m}{M+4 m} \cdot \omega$
+    (D) $\frac{{M + 4m}} {M} \cdot \omega $
+    Answer: A
+    Explanation: Let $\omega$ be the angular velocity of the Ring of Mass M, thus the moment of inertia about a given axis is I_1 = $MR^2$ and the four-point objects are gently placed at perpendicular diameters at the opposite end, so, the distance of each object from the axis of rotation is R, so total moment of inertia of the ring and four objects is I_2 = $MR^2 + 4mR^2$. 
+According to the law of conservation of angular momentum I_1 $\omega$ = I_2$\omega$_2 , So on solving $\omega_2=\left(\frac{M R^2}{M R^2+4 m R^2}\right) \omega=\frac{M}{M+4 m} \cdot \omega$
+
+Q11. What is the moment of inertia of a thin rod of length L and mass M about an axis passing through one end and perpendicular to its length?
+    (A) $\frac{1}{12}$ ML^2
+    (B) $\frac{1}{2}$ML^2
+    (C) $\frac{1}{3}$ ML^2   <-- CORRECT
+    (D) ML^2
+    Answer: C
+    Explanation: Using theorem of the parallel axis, the axis is shifted by $\frac{L}{2}$ distance from the centre of Mass where the Moment of Inertia is $\frac{M L^2}{12}$, thus the moment of inertia of a thin rod about an axis passing through one end and perpendicular to its length is $\frac{M L^2}{12}+\frac{M L^2}{4}=\frac{1}{3} M L^2$
+
+Q12. The radius of gyration of a solid disc about one of its diameter is given by:
+    (A) $\frac{R}{2}$   <-- CORRECT
+    (B) 2R
+    (C) $\sqrt {2} $R
+    (D) $\frac{R}{{\sqrt 2 }}$
+    Answer: A
+    Explanation: Moment of inertia of an axis passing through its center and perpendicular to its plane:
+I = $\frac{1}{2}$ MR^2
+Using perpendicular axis theorem Ix +Iy = Iz, so 2I_d = $\frac{1}{2}$ MR^2
+Moment of inertia of along its diameter I_d = $\frac{1}{4}$MR^2
+And the radius of gyration MK^2 = $\frac{1}{4}$MR^2 
+K = $\frac{R}{2}$
+
+Q13. The moment of inertia of a solid sphere of density $\rho $ and radius R is given by:
+    (A) $\frac{176} {{105}}\rho {R^2}$
+    (B) $\frac{176}{{105}}\rho {R^5}$   <-- CORRECT
+    (C) $\frac{176}{{105}}\rho {R^3}$
+    (D) $\frac{105}{{176}}\rho {R^2}$
+    Answer: B
+    Explanation: $I=\frac{2}{5}\left(M R^{2}\right)$
+$=\frac{2}{5}\left[\left(\frac{4}{3} \pi R^{3}\right) \cdot \rho . R^{2}\right]$
+$=\frac{2}{5}\left[\left(\frac{4}{3} \frac{22}{7} R^{3}\right) \cdot \rho . R^{2}\right]$ 
+As Mass = Density $\times $ Volume of Sphere 
+$=\frac{176}{{105}}\rho {R^5}$
+
+Q14. A thin uniform rod of length 2l and mass M is acted upon a constant torque. The angular velocity changes from zero to $\omega $ in time t. The value of torque is:
+    (A) $\frac{M{l^2}\omega } {t}$
+    (B) $\frac{M{l^2}\omega }{{12t}}$
+    (C) $\frac{2M{l^2}\omega } {{3t}}$
+    (D) $\frac{M{l^2}\omega }{{3t}}$   <-- CORRECT
+    Answer: D
+    Explanation: As Torque($\tau $) is equal to the product of Moment of Inertia (I) and Angular acceleration $\left( \alpha \right)$
+$\tau=I \alpha$
+ $\tau=I \frac{\Delta \omega}{\Delta t}$
+$\tau=\left[\frac{M(2 l)^{2}}{12}\right]\left[\frac{\omega}{t}\right]$
+$\tau=\frac{M l^{2} \omega}{3 t}$
+
+Q15. A particle is orbiting in a vertical plane. Its linear momentum will be directed:
+    (A) Horizontally
+    (B) Vertically
+    (C) Tangential to the orbit   <-- CORRECT
+    (D) At 45$^\circ $ to the vertical
+    Answer: C
+    Explanation: As the direction of velocity at any point moving in a circular orbit is tangent at that point, thus momentum would be tangential to the orbit.

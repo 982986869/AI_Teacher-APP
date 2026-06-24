@@ -1,0 +1,3162 @@
+{
+  "id": 1344,
+  "name": "Motion in A Plane",
+  "full_name": "CBSE > Class 11 > Physics > Motion in A Plane",
+  "tests": [
+    {
+      "testPaperID": 542,
+      "testPaperName": "Motion in a Plane Test 01",
+      "is_paid": false,
+      "category_full_name": "CBSE > Class 11 > Physics > Motion in A Plane",
+      "noOfQuestions": 15,
+      "has_answers": true,
+      "sections": [
+        {
+          "sectionName": "General",
+          "sectionID": null,
+          "questions": [
+            {
+              "questionID": 17428,
+              "question": "The basic difference between a scalar and vector is one of",
+              "question_raw": "<p>The basic difference between a scalar and vector is one of</p>",
+              "options": [
+                {
+                  "label": "A",
+                  "id": 24912,
+                  "text": "direction",
+                  "is_correct": true
+                },
+                {
+                  "label": "B",
+                  "id": 24914,
+                  "text": "origin",
+                  "is_correct": false
+                },
+                {
+                  "label": "C",
+                  "id": 24913,
+                  "text": "magnitude",
+                  "is_correct": false
+                },
+                {
+                  "label": "D",
+                  "id": 24915,
+                  "text": "polar angle",
+                  "is_correct": false
+                }
+              ],
+              "correct_option_ids": [
+                24912
+              ],
+              "correct_option_labels": [
+                "A"
+              ],
+              "correct_option_texts": [
+                "direction"
+              ],
+              "explanation": "Scalar quantity gives you an idea about how much of an object there is, but vector quantity gives you an indication of how much of an object there is and that also in which direction. So, the main difference between these two quantities is associated with the direction, i.e. scalars do not have direction but vectors do."
+            },
+            {
+              "questionID": 17429,
+              "question": "The dimensions of Kinetic energy is same as that of",
+              "question_raw": "<p>The dimensions of Kinetic energy is same as that of</p>",
+              "options": [
+                {
+                  "label": "A",
+                  "id": 24918,
+                  "text": "Pressure",
+                  "is_correct": false
+                },
+                {
+                  "label": "B",
+                  "id": 24916,
+                  "text": "Work",
+                  "is_correct": true
+                },
+                {
+                  "label": "C",
+                  "id": 24919,
+                  "text": "Momentum",
+                  "is_correct": false
+                },
+                {
+                  "label": "D",
+                  "id": 24917,
+                  "text": "Force",
+                  "is_correct": false
+                }
+              ],
+              "correct_option_ids": [
+                24916
+              ],
+              "correct_option_labels": [
+                "B"
+              ],
+              "correct_option_texts": [
+                "Work"
+              ],
+              "explanation": "Work"
+            },
+            {
+              "questionID": 17430,
+              "question": "The magnitude of displacement of a particle is",
+              "question_raw": "<p>The magnitude of displacement of a particle is</p>",
+              "options": [
+                {
+                  "label": "A",
+                  "id": 24922,
+                  "text": "is less than the path length of the particle between two points.",
+                  "is_correct": false
+                },
+                {
+                  "label": "B",
+                  "id": 24920,
+                  "text": "is either less or equal to the path length of the particle between two points.",
+                  "is_correct": true
+                },
+                {
+                  "label": "C",
+                  "id": 24923,
+                  "text": "is more than the path length of the particle between two points.",
+                  "is_correct": false
+                },
+                {
+                  "label": "D",
+                  "id": 24921,
+                  "text": "is equal to the path length of the particle between two points.",
+                  "is_correct": false
+                }
+              ],
+              "correct_option_ids": [
+                24920
+              ],
+              "correct_option_labels": [
+                "B"
+              ],
+              "correct_option_texts": [
+                "is either less or equal to the path length of the particle between two points."
+              ],
+              "explanation": "The maximum possible value for displacement is the distance travelled, so it cannot be of a greater value than distance (path length). The magnitude of the displacement is always less than or equal to the distance traveled. If two displacements in the same direction are added, then the magnitude of their sum will be equal to the distance traveled."
+            },
+            {
+              "questionID": 17431,
+              "question": "Two vectors are equal if",
+              "question_raw": "<p>Two vectors are equal if</p>",
+              "options": [
+                {
+                  "label": "A",
+                  "id": 24926,
+                  "text": "the direction is the same for both.",
+                  "is_correct": false
+                },
+                {
+                  "label": "B",
+                  "id": 24925,
+                  "text": "the magnitude is the same for both.",
+                  "is_correct": false
+                },
+                {
+                  "label": "C",
+                  "id": 24927,
+                  "text": "the two vectors have opposite directions.",
+                  "is_correct": false
+                },
+                {
+                  "label": "D",
+                  "id": 24924,
+                  "text": "the magnitude and direction are the same for both.",
+                  "is_correct": true
+                }
+              ],
+              "correct_option_ids": [
+                24924
+              ],
+              "correct_option_labels": [
+                "D"
+              ],
+              "correct_option_texts": [
+                "the magnitude and direction are the same for both."
+              ],
+              "explanation": "Equal vectors are vectors that have the same magnitude and the same direction. Equal vectors may start at different positions."
+            },
+            {
+              "questionID": 17432,
+              "question": "Multiplying a vector $\\vec v$ by a positive real number $\\lambda$",
+              "question_raw": "<p>Multiplying a vector <span class=\"math-tex\">{tex}\\vec v{/tex}</span> by a positive real number <span class=\"math-tex\">{tex}\\lambda{/tex}</span></p>",
+              "options": [
+                {
+                  "label": "A",
+                  "id": 24931,
+                  "text": "gives a vector $\\overrightarrow {v'} $ = $\\lambda \\vec v$ in a direction opposite to $\\vec v$",
+                  "is_correct": false
+                },
+                {
+                  "label": "B",
+                  "id": 24930,
+                  "text": "gives a scalar that is $\\lambda $ times the polar angle of $\\vec v$",
+                  "is_correct": false
+                },
+                {
+                  "label": "C",
+                  "id": 24929,
+                  "text": "gives a scalar that is $\\lambda $ times the magnitude of $\\vec v$",
+                  "is_correct": false
+                },
+                {
+                  "label": "D",
+                  "id": 24928,
+                  "text": "gives a vector $\\overrightarrow {v'} $ = $\\lambda \\vec v$ in the same direction as $\\vec v$",
+                  "is_correct": true
+                }
+              ],
+              "correct_option_ids": [
+                24928
+              ],
+              "correct_option_labels": [
+                "D"
+              ],
+              "correct_option_texts": [
+                "gives a vector $\\overrightarrow {v'} $ = $\\lambda \\vec v$ in the same direction as $\\vec v$"
+              ],
+              "explanation": "When a vector is multiplied by a positive number (for example 2, 3,5, 60 unit etc.) or a scalar only its magnitude is changed but its direction remains the same as that of the original vector."
+            },
+            {
+              "questionID": 17433,
+              "question": "Multiplying a vector $\\vec v$ by a negative real number $\\lambda$",
+              "question_raw": "<p>Multiplying a vector <span class=\"math-tex\">{tex}\\vec v{/tex}</span> by a negative real number <span class=\"math-tex\">{tex}\\lambda{/tex}</span></p>",
+              "options": [
+                {
+                  "label": "A",
+                  "id": 24933,
+                  "text": "gives a scalar that is $\\lambda $ times the magnitude of $\\vec v$",
+                  "is_correct": false
+                },
+                {
+                  "label": "B",
+                  "id": 24934,
+                  "text": "gives a scalar that is $\\lambda $ times the polar angle of $\\vec v$",
+                  "is_correct": false
+                },
+                {
+                  "label": "C",
+                  "id": 24932,
+                  "text": "gives a vector $\\overrightarrow {v'} $ = $\\lambda \\vec v$ in the same direction as $\\vec v$",
+                  "is_correct": false
+                },
+                {
+                  "label": "D",
+                  "id": 24935,
+                  "text": "gives a vector $\\overrightarrow {v'} $ = $\\lambda \\vec v$ in a direction opposite to $\\vec v$",
+                  "is_correct": true
+                }
+              ],
+              "correct_option_ids": [
+                24935
+              ],
+              "correct_option_labels": [
+                "D"
+              ],
+              "correct_option_texts": [
+                "gives a vector $\\overrightarrow {v'} $ = $\\lambda \\vec v$ in a direction opposite to $\\vec v$"
+              ],
+              "explanation": "If a vector is multiplied by a negative number (for example -2, -3, -5, -60 unit etc.) or a scalar not only its magnitude is changed but its direction also reversed."
+            },
+            {
+              "questionID": 17434,
+              "question": "To find the sum of vectors $\\vec A$ and $\\vec B$, we place vector $\\vec B$ so that its",
+              "question_raw": "<p>To find the sum of vectors <span class=\"math-tex\">{tex}\\vec A{/tex}</span>&nbsp;and <span class=\"math-tex\">{tex}\\vec B{/tex}</span>, we place vector <span class=\"math-tex\">{tex}\\vec B{/tex}</span> so that its</p>",
+              "options": [
+                {
+                  "label": "A",
+                  "id": 24936,
+                  "text": "tail is at the head of the vector $\\vec A$",
+                  "is_correct": true
+                },
+                {
+                  "label": "B",
+                  "id": 24937,
+                  "text": "tail is at the tail of the vector $\\vec A$",
+                  "is_correct": false
+                },
+                {
+                  "label": "C",
+                  "id": 24939,
+                  "text": "direction is the same as that of vector $\\vec A$",
+                  "is_correct": false
+                },
+                {
+                  "label": "D",
+                  "id": 24938,
+                  "text": "head is at the head of the vector $\\vec A$",
+                  "is_correct": false
+                }
+              ],
+              "correct_option_ids": [
+                24936
+              ],
+              "correct_option_labels": [
+                "A"
+              ],
+              "correct_option_texts": [
+                "tail is at the head of the vector $\\vec A$"
+              ],
+              "explanation": "Triangle law of vector addition states that when two vectors are represented as two sides of the triangle with the order of magnitude and direction, then the third side of the triangle represents the magnitude and direction of the resultant vector. Thus resultant vector is R= a+ b\nTaken in same order mean tail of Vector B should be placed at the head of vector A as shown in image."
+            },
+            {
+              "questionID": 17435,
+              "question": "Vector addition is",
+              "question_raw": "<p>Vector addition is</p>",
+              "options": [
+                {
+                  "label": "A",
+                  "id": 24943,
+                  "text": "non-commutative",
+                  "is_correct": false
+                },
+                {
+                  "label": "B",
+                  "id": 24940,
+                  "text": "commutative",
+                  "is_correct": true
+                },
+                {
+                  "label": "C",
+                  "id": 24942,
+                  "text": "intransitive",
+                  "is_correct": false
+                },
+                {
+                  "label": "D",
+                  "id": 24941,
+                  "text": "asymmetric",
+                  "is_correct": false
+                }
+              ],
+              "correct_option_ids": [
+                24940
+              ],
+              "correct_option_labels": [
+                "B"
+              ],
+              "correct_option_texts": [
+                "commutative"
+              ],
+              "explanation": "Vector addition is commutative, just like addition of real numbers. If you start from a point say P, you end up at the same spot no matter which displacement (a or b) you take first. The head-to-tail rule yields vector c for both a + b and b + a."
+            },
+            {
+              "questionID": 17436,
+              "question": "The addition of vectors and the multiplication of a vector by a scalar together gives rise to",
+              "question_raw": "<p>The addition of vectors and the multiplication of a vector by a scalar together gives rise to</p>",
+              "options": [
+                {
+                  "label": "A",
+                  "id": 24946,
+                  "text": "intransitive law",
+                  "is_correct": false
+                },
+                {
+                  "label": "B",
+                  "id": 24944,
+                  "text": "distributive laws",
+                  "is_correct": true
+                },
+                {
+                  "label": "C",
+                  "id": 24945,
+                  "text": "asymmetric laws",
+                  "is_correct": false
+                },
+                {
+                  "label": "D",
+                  "id": 24947,
+                  "text": "commutative law",
+                  "is_correct": false
+                }
+              ],
+              "correct_option_ids": [
+                24944
+              ],
+              "correct_option_labels": [
+                "B"
+              ],
+              "correct_option_texts": [
+                "distributive laws"
+              ],
+              "explanation": "If a vector is multiplied by a scalar as in $p\\vec A$ , then the magnitude of the resulting vector is equal to the product of p and the magnitude of $\\vec A$, and its direction is the same as $\\vec A$ if p is positive and opposite to $\\vec A$ if p is negative.\nDistributive law for scalar multiplication:\n$p(\\vec A+\\vec B) = p\\vec A+p\\vec B$"
+            },
+            {
+              "questionID": 17437,
+              "question": "Null vector or a zero vector has a magnitude",
+              "question_raw": "<p>Null vector or a zero vector has a magnitude</p>",
+              "options": [
+                {
+                  "label": "A",
+                  "id": 24951,
+                  "text": "of complex nature",
+                  "is_correct": false
+                },
+                {
+                  "label": "B",
+                  "id": 24950,
+                  "text": "less than zero",
+                  "is_correct": false
+                },
+                {
+                  "label": "C",
+                  "id": 24949,
+                  "text": "greater than zero",
+                  "is_correct": false
+                },
+                {
+                  "label": "D",
+                  "id": 24948,
+                  "text": "equal to zero",
+                  "is_correct": true
+                }
+              ],
+              "correct_option_ids": [
+                24948
+              ],
+              "correct_option_labels": [
+                "D"
+              ],
+              "correct_option_texts": [
+                "equal to zero"
+              ],
+              "explanation": "A null vector is a vector having a magnitude equal to zero. It is represented by $\\vec 0$. A null vector has no direction or it may have any direction. Generally a null vector is either equal to resultant of two equal vectors acting in opposite directions or multiple vectors in different directions.\n$\\vec 0 = \\vec A+(-\\vec A)$"
+            },
+            {
+              "questionID": 17438,
+              "question": "We can define the difference of two vectors A and B as the sum of two vectors A and B' such that B' is equal to B multiplied by",
+              "question_raw": "<p>We can define the difference of two vectors A and B as the sum of two vectors&nbsp;A and B&#39; such that&nbsp;B&#39; is equal to B multiplied by</p>",
+              "options": [
+                {
+                  "label": "A",
+                  "id": 24954,
+                  "text": "1",
+                  "is_correct": false
+                },
+                {
+                  "label": "B",
+                  "id": 24952,
+                  "text": "-1",
+                  "is_correct": true
+                },
+                {
+                  "label": "C",
+                  "id": 24953,
+                  "text": "-2",
+                  "is_correct": false
+                },
+                {
+                  "label": "D",
+                  "id": 24955,
+                  "text": "0",
+                  "is_correct": false
+                }
+              ],
+              "correct_option_ids": [
+                24952
+              ],
+              "correct_option_labels": [
+                "B"
+              ],
+              "correct_option_texts": [
+                "-1"
+              ],
+              "explanation": "Vector subtraction is defined in the following way.\n The difference of two vectors, A - B , is a vector C that is, C = A - B\n The addition of two vector such that C = A + (-B). B has been taken in opposite direction.\nThus vector subtraction can be represented as a vector addition."
+            },
+            {
+              "questionID": 17439,
+              "question": "An arbitrary vector $\\vec v$ can be expressed as a sum of three mutually perpendicular unit vectors each multiplied by a",
+              "question_raw": "<p>An arbitrary vector <span class=\"math-tex\">{tex}\\vec v{/tex}</span> can be expressed as&nbsp;a sum of three mutually perpendicular unit vectors each multiplied by a</p>",
+              "options": [
+                {
+                  "label": "A",
+                  "id": 24956,
+                  "text": "some scalar constant",
+                  "is_correct": true
+                },
+                {
+                  "label": "B",
+                  "id": 24957,
+                  "text": "same scalar constant",
+                  "is_correct": false
+                },
+                {
+                  "label": "C",
+                  "id": 24959,
+                  "text": "scalar constant equal to -1",
+                  "is_correct": false
+                },
+                {
+                  "label": "D",
+                  "id": 24958,
+                  "text": "scalar constant equal to 1",
+                  "is_correct": false
+                }
+              ],
+              "correct_option_ids": [
+                24956
+              ],
+              "correct_option_labels": [
+                "A"
+              ],
+              "correct_option_texts": [
+                "some scalar constant"
+              ],
+              "explanation": "Any vector can be expressed as a sum of 3 perpendicular unit vectors, each multiplied by some number(the component of vector along that axis)\nIn the picture attached, the vector a has 3 different components along 3 perpendicular axes x.y.z and these components need not be equal all the times"
+            },
+            {
+              "questionID": 17440,
+              "question": "A unit vector is a vector having a magnitude of 1 and points in",
+              "question_raw": "<p>A unit vector is a vector&nbsp;having a magnitude of 1 and points in</p>",
+              "options": [
+                {
+                  "label": "A",
+                  "id": 24961,
+                  "text": "x-direction",
+                  "is_correct": false
+                },
+                {
+                  "label": "B",
+                  "id": 24963,
+                  "text": "z-direction",
+                  "is_correct": false
+                },
+                {
+                  "label": "C",
+                  "id": 24960,
+                  "text": "any chosen direction",
+                  "is_correct": true
+                },
+                {
+                  "label": "D",
+                  "id": 24962,
+                  "text": "y-direction",
+                  "is_correct": false
+                }
+              ],
+              "correct_option_ids": [
+                24960
+              ],
+              "correct_option_labels": [
+                "C"
+              ],
+              "correct_option_texts": [
+                "any chosen direction"
+              ],
+              "explanation": "A unit vector is a vector that has a magnitude of 1 unit. A unit vector is also known as a direction vector. It is represented using a lowercase letter with a cap (‘^’) symbol along with it. A vector can be represented in space using unit vectors. Any vector can become a unit vector by dividing it by the vector’s magnitude as follows:\n$\\text { Unit vector} =\\frac{\\text { vector }}{\\text { magnitude of the vector }}$\n$\\hat i$ = a unit vector directed along the positive x-axis\n$\\hat j$ = a unit vector directed along the positive y-axis\n$\\hat k$ = a unit vector directed along the positive z-axis"
+            },
+            {
+              "questionID": 17441,
+              "question": "An arbitrary vector $\\vec A$ in a plane can be expressed in terms of its x and y components by the equation",
+              "question_raw": "<p>An arbitrary vector <span class=\"math-tex\">{tex}\\vec A{/tex}</span> in a plane can be expressed in terms of its x and y components by the equation</p>",
+              "options": [
+                {
+                  "label": "A",
+                  "id": 24967,
+                  "text": "${\\rm{}}\\vec A = {A_x} - {A_y}$",
+                  "is_correct": false
+                },
+                {
+                  "label": "B",
+                  "id": 24966,
+                  "text": "${\\rm{}}\\vec A = {A_x} + {A_y}$",
+                  "is_correct": false
+                },
+                {
+                  "label": "C",
+                  "id": 24965,
+                  "text": "$\\vec A = {A_x}\\hat i - {A_y}\\hat j$",
+                  "is_correct": false
+                },
+                {
+                  "label": "D",
+                  "id": 24964,
+                  "text": "$\\vec A = {A_x}\\hat i + {A_y}\\hat j$",
+                  "is_correct": true
+                }
+              ],
+              "correct_option_ids": [
+                24964
+              ],
+              "correct_option_labels": [
+                "D"
+              ],
+              "correct_option_texts": [
+                "$\\vec A = {A_x}\\hat i + {A_y}\\hat j$"
+              ],
+              "explanation": "In a two-dimensional coordinate system, any vector can be broken into x -component and y -component.\nVector $\\vec A$ can be represented as \n$\\vec A = A_x\\hat i+ A_y\\hat j$\nWhere $A_x$ is component in direction of x-axis and $\\hat i$ is a unit vector in same direction of x-axis and $A_y$ is component in direction of y-axis and $\\hat j$ is a unit vector in same direction of y-axis."
+            },
+            {
+              "questionID": 17442,
+              "question": "If ${A_x},{A_y}\\ and\\ {A_z}$ are x, y and z components of a vector then its magnitude is",
+              "question_raw": "<p>If <span class=\"math-tex\">{tex}{A_x},{A_y}\\ and\\ {A_z}{/tex}</span> are x, y and z components of a vector then its magnitude is</p>",
+              "options": [
+                {
+                  "label": "A",
+                  "id": 24971,
+                  "text": "$\\sqrt {3A_x^2 + A_y^2 + A_z^2} $",
+                  "is_correct": false
+                },
+                {
+                  "label": "B",
+                  "id": 24968,
+                  "text": "$\\sqrt {A_x^2 + A_y^2 + A_z^2} $",
+                  "is_correct": true
+                },
+                {
+                  "label": "C",
+                  "id": 24969,
+                  "text": "$\\sqrt {A_x^2 + A_y^2 + A_z^3} $",
+                  "is_correct": false
+                },
+                {
+                  "label": "D",
+                  "id": 24970,
+                  "text": "$\\sqrt {A_x^2 + 2A_y^2 + A_z^2} $",
+                  "is_correct": false
+                }
+              ],
+              "correct_option_ids": [
+                24968
+              ],
+              "correct_option_labels": [
+                "B"
+              ],
+              "correct_option_texts": [
+                "$\\sqrt {A_x^2 + A_y^2 + A_z^2} $"
+              ],
+              "explanation": "Rectangular components of a Vector: The projections of vector a along the x, y, and z directions are A_x, A_y, and A_z, respectively.\nThe magnitude of vector = $\\sqrt {A_x^2 + A_y^2 + A_z^2} $"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "testPaperID": 546,
+      "testPaperName": "Motion in a Plane CBSE Online Test 05",
+      "is_paid": true,
+      "category_full_name": "CBSE > Class 11 > Physics > Motion in A Plane",
+      "noOfQuestions": 15,
+      "has_answers": true,
+      "sections": [
+        {
+          "sectionName": "General",
+          "sectionID": null,
+          "questions": [
+            {
+              "questionID": 17488,
+              "question": "The speed of a projectile when it is at its greatest height is $\\sqrt {\\frac 2 5}$ times its speed at half the maximum height. What is the angle of projection?",
+              "question_raw": "<p>The speed of a projectile when it is at its greatest height is <span class=\"math-tex\">{tex}\\sqrt {\\frac 2 5}{/tex}</span>&nbsp;times its speed at half the maximum height. What is the angle of projection?</p>",
+              "options": [
+                {
+                  "label": "A",
+                  "id": 25154,
+                  "text": "$15^°$",
+                  "is_correct": false
+                },
+                {
+                  "label": "B",
+                  "id": 25155,
+                  "text": "$90^°$",
+                  "is_correct": false
+                },
+                {
+                  "label": "C",
+                  "id": 25152,
+                  "text": "$45^°$",
+                  "is_correct": false
+                },
+                {
+                  "label": "D",
+                  "id": 25153,
+                  "text": "$60^°$",
+                  "is_correct": true
+                }
+              ],
+              "correct_option_ids": [
+                25153
+              ],
+              "correct_option_labels": [
+                "D"
+              ],
+              "correct_option_texts": [
+                "$60^°$"
+              ],
+              "explanation": "Suppose the particle is projected with velocity u at an angle theta with the horizontal. Horizontal component of its velocity at all height will be u cos$\\theta$.\nAt the greatest height, the vertical component of velocity is zero, so the resultant velocity is\n$v_{1}=u \\cos \\theta$\nAt half the greatest height during upward motion,\ny = $\\frac {h}{2}$, a_y = -g, u_y = $u \\sin \\theta$\nUsing $v_{y}^{2}-u_{y}^{2}=2 a_{y} y$\nWe get, $v_{y}^{2}-u^{2} \\sin ^{2} \\theta=2(-g) \\frac{h}{2}$\nor $v_{y}^{2}=u^{2} \\sin ^{2} \\theta-g \\times \\frac{u^{2} \\sin ^{2} \\theta}{2 g}=\\frac{u^{2} \\sin ^{2} \\theta}{2}$ $\\left[\\because h=\\frac{u^{2} \\sin ^{2} \\theta}{2 g}\\right]$\nor $v_{y}=\\frac{u \\sin \\theta}{\\sqrt{2}}$\nHence, resultant velocity at half of the greatest height is\n$v_{2}=\\left({\\sqrt{{v_{1}^{2}}+\\left(v_{y}^{2}\\right)}}\\right)$\n$=\\left(\\sqrt{u^{2} \\cos ^{2} \\theta+\\left(\\frac{u^{2} \\sin ^{2} \\theta}{2}\\right)}\\right)$\nGiven, $\\frac{v_{1}}{v_{2}}=\\left(\\sqrt{\\frac{2}{5}}\\right)$\n$\\therefore \\frac{v_{1}^{2}}{v_{2}^{2}}=\\frac{u^{2} \\cos ^{2} \\theta}{u^{2} \\cos ^{2} \\theta+\\left(\\frac{u^{2} \\sin ^{2} \\theta}{2}\\right)}=\\frac{2}{5}$\nor $\\frac{1}{1+\\frac{1}{2} \\tan ^{2} \\theta}=\\frac{2}{5}$\nor $2+\\tan ^{2} \\theta=5$ or $\\tan ^{2} \\theta=3$\nor $\\tan \\theta=(\\sqrt{3})$\n$\\therefore \\theta=60^{\\circ}$"
+            },
+            {
+              "questionID": 17489,
+              "question": "A swimmer wishes to cross a 500 m wide river flowing at 5 km/hr. His speed with respect to water is 3 km/hr. If he heads in the direction making an angle $\\theta $ with the flow, find the time he takes to cross the river?",
+              "question_raw": "<p>A swimmer wishes to cross a 500 m wide river flowing at 5 km/hr. His speed with respect to water is 3 km/hr. If he heads in the direction making an angle <span class=\"math-tex\">{tex}\\theta {/tex}</span>&nbsp;with the flow, find the time he takes to cross the river?</p>",
+              "options": [
+                {
+                  "label": "A",
+                  "id": 25156,
+                  "text": "$\\frac{10}{sin \\theta}$ minutes",
+                  "is_correct": true
+                },
+                {
+                  "label": "B",
+                  "id": 25157,
+                  "text": "$\\frac{10}{cos \\theta}$ minutes",
+                  "is_correct": false
+                },
+                {
+                  "label": "C",
+                  "id": 25159,
+                  "text": "$\\frac{10}{cos \\theta}$ seconds",
+                  "is_correct": false
+                },
+                {
+                  "label": "D",
+                  "id": 25158,
+                  "text": "$\\frac{10}{sin \\theta} $ seconds",
+                  "is_correct": false
+                }
+              ],
+              "correct_option_ids": [
+                25156
+              ],
+              "correct_option_labels": [
+                "A"
+              ],
+              "correct_option_texts": [
+                "$\\frac{10}{sin \\theta}$ minutes"
+              ],
+              "explanation": "The velocity of man w.r.t. water = 3 kmph. Thus the velocity of water is not necessary here because the velocity of man includes the contribution of the velocity of water because the given velocity of man is with respect to the flowing water which is the resultant velocity. The breadth of the river = 500 m = 0.5 km. Component of the velocity of man w.r.t. river along horizontal axis, v = 3sin($\\theta$)\nNow time is taken to cross the river, t = $\\frac{\\text { Distance }}{\\text { velocity along horizontal axis }}=\\frac{0.5}{3 \\sin \\theta}$ hrs \n$=\\frac{0.5 \\times 60}{3 \\sin \\theta}=\\frac{10}{\\sin \\theta}$ minutes"
+            },
+            {
+              "questionID": 17490,
+              "question": "A ball is dropped from a height. If it takes 0.2 s to cross the last 6.0 m before hitting the ground, find the height from which it was dropped. (Take g = 10m/s^2)",
+              "question_raw": "<p>A ball is dropped from a height. If it takes 0.2 s to cross the last 6.0 m before hitting the ground, find the height from which it was dropped. (Take g = 10m/s<sup>2</sup>)</p>",
+              "options": [
+                {
+                  "label": "A",
+                  "id": 25162,
+                  "text": "57.05 m",
+                  "is_correct": false
+                },
+                {
+                  "label": "B",
+                  "id": 25160,
+                  "text": "48.05 m",
+                  "is_correct": true
+                },
+                {
+                  "label": "C",
+                  "id": 25161,
+                  "text": "32.35 m",
+                  "is_correct": false
+                },
+                {
+                  "label": "D",
+                  "id": 25163,
+                  "text": "30.48 m",
+                  "is_correct": false
+                }
+              ],
+              "correct_option_ids": [
+                25160
+              ],
+              "correct_option_labels": [
+                "B"
+              ],
+              "correct_option_texts": [
+                "48.05 m"
+              ],
+              "explanation": "Let the initial velocity of the ball before the last 6m be = u\na = 10 m/s^2, s = 6.0m, t = 0.2 sec\n$\\Rightarrow$ $s = ut+{1\\over 2}at^2$\n$\\Rightarrow 6 = 0.2u+{1\\over 2}\\times 10\\times 0.04$\n$\\Rightarrow$ u = 29 m/s\nNow consider the journey from rest to this height.\nv = 29 m/s, u = 0 m/s,a = 10 m/s^2\nv^2 − u^2 = 2as\n$\\Rightarrow$ 841 − 0 = 2 $\\times $ 10 $\\times $ s\n$\\Rightarrow$ s = 42.05 m\nTherefore the total height = 42.05 + 6 = 48.05 m"
+            },
+            {
+              "questionID": 17491,
+              "question": "An elevator is descending with uniform acceleration. A person in the elevator drops a marble at the moment the elevator starts to measure the acceleration of the elevator. The marble is 2 m above the floor when it is dropped. It takes 1.2 s to reach the floor of the elevator. What is the acceleration of the floor? Take g = 10 ms^-2.",
+              "question_raw": "<p>An elevator is descending with uniform acceleration. A person in the elevator drops a marble at the moment the elevator starts to measure the acceleration of the elevator. The marble is 2 m above the floor when it is dropped. It takes 1.2 s to reach the floor of the elevator. What is the acceleration of the floor? Take g = 10 ms<sup>-2</sup>.</p>",
+              "options": [
+                {
+                  "label": "A",
+                  "id": 25165,
+                  "text": "6.08 ms^−2",
+                  "is_correct": false
+                },
+                {
+                  "label": "B",
+                  "id": 25164,
+                  "text": "7.2 ms^−2",
+                  "is_correct": true
+                },
+                {
+                  "label": "C",
+                  "id": 25167,
+                  "text": "6.58 ms^−2",
+                  "is_correct": false
+                },
+                {
+                  "label": "D",
+                  "id": 25166,
+                  "text": "8.18 ms^−2",
+                  "is_correct": false
+                }
+              ],
+              "correct_option_ids": [
+                25164
+              ],
+              "correct_option_labels": [
+                "B"
+              ],
+              "correct_option_texts": [
+                "7.2 ms^−2"
+              ],
+              "explanation": "Let the acceleration of the elevator be ‘a’ downwards. As the elevator is going downwards the marble has to travel a distance more than 2 m in order to strike the floor.\nInitial velocity, u = 0 for both the marble and the elevator. \nDistance travelled by elevator in 1.2 s = ${1\\over 2}a\\times (1.2)^2$ \nDistance travelled by marble in 1.2 s =${1\\over2}g\\times (1.2)^2$^$= {1\\over 2}\\times 10\\times(1.2)^2 $\nThis distance should be equal to height of marble + distance covered by elevator.\nSo, ${1\\over 2}\\times 10\\times(1.2)^2$ = $2+{1\\over 2}\\times a\\times(1.2)^2$ \nOn solving, we get, a = 7.2 ms^-2 downwards."
+            },
+            {
+              "questionID": 17492,
+              "question": "A body is projected with a velocity of 20ms^-1 at 50^° to the horizontal. Find Range of the projectile.",
+              "question_raw": "<p>A body is projected with a velocity of 20ms<sup>-1</sup> at 50<sup>&deg;</sup> to the horizontal. Find Range of the projectile.</p>",
+              "options": [
+                {
+                  "label": "A",
+                  "id": 25168,
+                  "text": "40.2 m",
+                  "is_correct": true
+                },
+                {
+                  "label": "B",
+                  "id": 25171,
+                  "text": "45.2 m",
+                  "is_correct": false
+                },
+                {
+                  "label": "C",
+                  "id": 25169,
+                  "text": "41.2 m",
+                  "is_correct": false
+                },
+                {
+                  "label": "D",
+                  "id": 25170,
+                  "text": "39.2 m",
+                  "is_correct": false
+                }
+              ],
+              "correct_option_ids": [
+                25168
+              ],
+              "correct_option_labels": [
+                "A"
+              ],
+              "correct_option_texts": [
+                "40.2 m"
+              ],
+              "explanation": "Initial Velocity v_o = 20 ms^-1 and $\\theta = 50^°$|\nHorizontal Range, R =$v_o^2sin2\\theta\\over g$ $={400\\sin\\ 100^°\\over 9.8}$ = 40.2 m"
+            },
+            {
+              "questionID": 17493,
+              "question": "A body is projected with a velocity of 20ms^-1 at 50^° to the horizontal. Find Maximum height reached.",
+              "question_raw": "<p>A body is projected with a velocity of 20ms<sup>-1 </sup>at 50<sup>&deg;</sup> to the horizontal. Find Maximum height reached.</p>",
+              "options": [
+                {
+                  "label": "A",
+                  "id": 25172,
+                  "text": "$\\approx 12 m$",
+                  "is_correct": true
+                },
+                {
+                  "label": "B",
+                  "id": 25174,
+                  "text": "$\\approx 22 m$",
+                  "is_correct": false
+                },
+                {
+                  "label": "C",
+                  "id": 25173,
+                  "text": "$\\approx 15 m$",
+                  "is_correct": false
+                },
+                {
+                  "label": "D",
+                  "id": 25175,
+                  "text": "$\\approx 20 m$",
+                  "is_correct": false
+                }
+              ],
+              "correct_option_ids": [
+                25172
+              ],
+              "correct_option_labels": [
+                "A"
+              ],
+              "correct_option_texts": [
+                "$\\approx 12 m$"
+              ],
+              "explanation": "Initial Velocity, v_o = 20 ms^-1 and $\\theta = 50^°$\nMaximum height reached, H = $v_o^2sin^2\\theta\\over 2g$ $= {400\\sin^250^°\\over 2\\times 9.8}$ = 11.97m $\\approx 12 m$"
+            },
+            {
+              "questionID": 17494,
+              "question": "A body is projected with a velocity of 20ms^-1 at 50^° to the horizontal. Find time of flight.",
+              "question_raw": "<p>A body is projected with a velocity of 20ms<sup>-1</sup> at 50<sup>&deg;</sup> to the horizontal. Find time of flight.</p>",
+              "options": [
+                {
+                  "label": "A",
+                  "id": 25179,
+                  "text": "3.5 s",
+                  "is_correct": false
+                },
+                {
+                  "label": "B",
+                  "id": 25176,
+                  "text": "3.1 s",
+                  "is_correct": true
+                },
+                {
+                  "label": "C",
+                  "id": 25177,
+                  "text": "5.1 s",
+                  "is_correct": false
+                },
+                {
+                  "label": "D",
+                  "id": 25178,
+                  "text": "4.2 s",
+                  "is_correct": false
+                }
+              ],
+              "correct_option_ids": [
+                25176
+              ],
+              "correct_option_labels": [
+                "B"
+              ],
+              "correct_option_texts": [
+                "3.1 s"
+              ],
+              "explanation": "Initial Velocity, v_o = 20 ms^-1 and $\\theta = 50^°$\nTime of flight = $2v_osin\\theta\\over g$ $= {2\\times 20\\times sin 50^°\\over 9.8}$ = 3.1 s"
+            },
+            {
+              "questionID": 17495,
+              "question": "A man stands on the roof of a 15.0-m-tall building and throws a rock with a speed of 30.0 m/s at an angle of 33.0^o above the horizontal. You can ignore air resistance. Calculate the maximum height above the roof that the rock reaches.",
+              "question_raw": "<p>A man stands on the roof of a 15.0-m-tall building and throws a rock with a speed of&nbsp;&nbsp;30.0 m/s at an angle of 33.0<sup>o</sup> above the horizontal. You can ignore air resistance. Calculate the maximum height above the roof that the rock reaches.</p>",
+              "options": [
+                {
+                  "label": "A",
+                  "id": 25180,
+                  "text": "13.6 m",
+                  "is_correct": true
+                },
+                {
+                  "label": "B",
+                  "id": 25181,
+                  "text": "12.6 m",
+                  "is_correct": false
+                },
+                {
+                  "label": "C",
+                  "id": 25183,
+                  "text": "14.2 m",
+                  "is_correct": false
+                },
+                {
+                  "label": "D",
+                  "id": 25182,
+                  "text": "11.7 m",
+                  "is_correct": false
+                }
+              ],
+              "correct_option_ids": [
+                25180
+              ],
+              "correct_option_labels": [
+                "A"
+              ],
+              "correct_option_texts": [
+                "13.6 m"
+              ],
+              "explanation": "Let downward be the y-direction. Hence,\nv_ox = v_o $\\times$ cos$\\theta$ = 30.0 $\\times$cos33.0^o\n= 25.2 m/s\nv_oy = v_o $\\times$ sin$\\theta$ = 30.0 $\\times$ sin33.0^o\n= 16.3 m/s\nAt the maximum height, the velocity in the y direction v_y is zero:\nhence , by Using \n(v_y)^2 = (v_oy)^2 + 2a_yh \n$\\Rightarrow$ 0 = (16.3)^2 + 2(−9.8)h\n$h= {-(16.3\\times 16.3)\\over -2\\times 9.8}$ = 13.6 m , thus height is 13.6 m"
+            },
+            {
+              "questionID": 17496,
+              "question": "A man stands on the roof of a 15.0 m tall building and throws a rock with a velocity of magnitude 30.0 m/s at an angle of 33.0° above the horizontal. You can ignore air resistance. Calculate the magnitude of the velocity of the rock just before it strikes the ground.",
+              "question_raw": "<p>A man stands on the roof of a 15.0 m tall building and throws a rock with a velocity of magnitude 30.0 m/s at an angle of 33.0&deg; above&nbsp;the horizontal. You can ignore air resistance. Calculate the magnitude of the velocity of the rock just before it strikes the ground.</p>",
+              "options": [
+                {
+                  "label": "A",
+                  "id": 25187,
+                  "text": "29.6 m/s",
+                  "is_correct": false
+                },
+                {
+                  "label": "B",
+                  "id": 25186,
+                  "text": "30.6 m/s",
+                  "is_correct": false
+                },
+                {
+                  "label": "C",
+                  "id": 25184,
+                  "text": "34.6 m/s",
+                  "is_correct": true
+                },
+                {
+                  "label": "D",
+                  "id": 25185,
+                  "text": "32.6 m/s",
+                  "is_correct": false
+                }
+              ],
+              "correct_option_ids": [
+                25184
+              ],
+              "correct_option_labels": [
+                "C"
+              ],
+              "correct_option_texts": [
+                "34.6 m/s"
+              ],
+              "explanation": "Let downward be the y-direction.\nv_ox = v_o $\\times$ cos$\\theta$ = 30.0 $\\times$ cos33.0^o\n= 25.2 m/s\nv_oy = v_o $\\times$ sin$\\theta$ = 30.0 $\\times$ sin33.0^o\n= 16.3 m/s\nThe velocity in the x direction is constant all the time,\nAt the ground, we have h = -15.0 m, \nWe know,\n(v_y)^2 = (v_oy)^2 + 2a_yh\n$\\Rightarrow$ $v_y=\\sqrt {( v_{oy})^2+2a_yh}$ \n$v_y=\\sqrt {( 16.3)^2+2(-9.8)(-15.0)} $\n$\\Rightarrow$ v_y = 23.7 m/s\nThe magnitude of the velocity of the rock just before it strikes the ground is\nv = $\\sqrt {(v_x)^2+(v_y)^2} $ \n$\\Rightarrow$ v = $\\sqrt{ (25.2)^2+(23.7)^2} $ = 34.6 m/s"
+            },
+            {
+              "questionID": 21684,
+              "question": "Vectors are added by",
+              "question_raw": "<p>Vectors are added by</p>",
+              "options": [
+                {
+                  "label": "A",
+                  "id": 41936,
+                  "text": "adding the angles of the vectors",
+                  "is_correct": false
+                },
+                {
+                  "label": "B",
+                  "id": 41937,
+                  "text": "translating the two vectors",
+                  "is_correct": false
+                },
+                {
+                  "label": "C",
+                  "id": 41934,
+                  "text": "parallelogram law of addition",
+                  "is_correct": true
+                },
+                {
+                  "label": "D",
+                  "id": 41935,
+                  "text": "adding the magnitudes of the vectors",
+                  "is_correct": false
+                }
+              ],
+              "correct_option_ids": [
+                41934
+              ],
+              "correct_option_labels": [
+                "C"
+              ],
+              "correct_option_texts": [
+                "parallelogram law of addition"
+              ],
+              "explanation": "Parallelogram law of vector addition: It states that I\\if two vectors are considered to be the adjacent sides of a parallelogram, then the resultant of two vectors is given by the vector which is a diagonal passing through the point of contact of two vectors."
+            },
+            {
+              "questionID": 21685,
+              "question": "Vectors can be added by:",
+              "question_raw": "<p>Vectors can be added by:</p>",
+              "options": [
+                {
+                  "label": "A",
+                  "id": 41939,
+                  "text": "Adding the magnitudes of the vectors",
+                  "is_correct": false
+                },
+                {
+                  "label": "B",
+                  "id": 41940,
+                  "text": "Adding the angles of the vectors",
+                  "is_correct": false
+                },
+                {
+                  "label": "C",
+                  "id": 41938,
+                  "text": "Vector addition",
+                  "is_correct": true
+                },
+                {
+                  "label": "D",
+                  "id": 41941,
+                  "text": "Translating the two vectors",
+                  "is_correct": false
+                }
+              ],
+              "correct_option_ids": [
+                41938
+              ],
+              "correct_option_labels": [
+                "C"
+              ],
+              "correct_option_texts": [
+                "Vector addition"
+              ],
+              "explanation": "Vector addition is the operation of adding two or more vectors together into a vector sum. The so-called parallelogram law gives the rule for vector addition of two or more vectors. For two vectors, the vector sum is obtained by placing them head to tail and drawing the vector from the free tail to the free head."
+            },
+            {
+              "questionID": 21686,
+              "question": "The vector addition is",
+              "question_raw": "<p>The vector addition is</p>",
+              "options": [
+                {
+                  "label": "A",
+                  "id": 41942,
+                  "text": "associative",
+                  "is_correct": true
+                },
+                {
+                  "label": "B",
+                  "id": 41944,
+                  "text": "intransitive",
+                  "is_correct": false
+                },
+                {
+                  "label": "C",
+                  "id": 41945,
+                  "text": "non-commutative",
+                  "is_correct": false
+                },
+                {
+                  "label": "D",
+                  "id": 41943,
+                  "text": "asymmetric",
+                  "is_correct": false
+                }
+              ],
+              "correct_option_ids": [
+                41942
+              ],
+              "correct_option_labels": [
+                "A"
+              ],
+              "correct_option_texts": [
+                "associative"
+              ],
+              "explanation": "Vector addition is the operation of adding two or more vectors together into a vector sum. Associative law of vector addition. The law states that the sum of vectors remains the same irrespective of their order or grouping in which they are arranged.\n$ \\vec A+(\\vec B+\\vec C) = (\\vec A+\\vec B)+\\vec C $\nThis is known as the associative law of vector addition."
+            },
+            {
+              "questionID": 21687,
+              "question": "Which of the following physical quantities a vector?",
+              "question_raw": "<p>Which of the following physical quantities a vector?</p>",
+              "options": [
+                {
+                  "label": "A",
+                  "id": 41948,
+                  "text": "Angular frequency",
+                  "is_correct": false
+                },
+                {
+                  "label": "B",
+                  "id": 41947,
+                  "text": "Number of moles",
+                  "is_correct": false
+                },
+                {
+                  "label": "C",
+                  "id": 41946,
+                  "text": "Acceleration",
+                  "is_correct": true
+                },
+                {
+                  "label": "D",
+                  "id": 41949,
+                  "text": "Density",
+                  "is_correct": false
+                }
+              ],
+              "correct_option_ids": [
+                41946
+              ],
+              "correct_option_labels": [
+                "C"
+              ],
+              "correct_option_texts": [
+                "Acceleration"
+              ],
+              "explanation": "Acceleration is a vector quantity because it has both magnitude and direction.\nWhen an object has positive acceleration, the acceleration occurs in the same direction as the movement of the object.\nWhen an object has a negative acceleration (it's slowing down), the acceleration occurs in the opposite direction as the movement of the object."
+            },
+            {
+              "questionID": 21688,
+              "question": "Which of the following physical quantities is a scalar?",
+              "question_raw": "<p>Which of the following physical quantities is a scalar?</p>",
+              "options": [
+                {
+                  "label": "A",
+                  "id": 41950,
+                  "text": "current",
+                  "is_correct": true
+                },
+                {
+                  "label": "B",
+                  "id": 41951,
+                  "text": "linear momentum",
+                  "is_correct": false
+                },
+                {
+                  "label": "C",
+                  "id": 41953,
+                  "text": "relative velocity",
+                  "is_correct": false
+                },
+                {
+                  "label": "D",
+                  "id": 41952,
+                  "text": "average velocity",
+                  "is_correct": false
+                }
+              ],
+              "correct_option_ids": [
+                41950
+              ],
+              "correct_option_labels": [
+                "A"
+              ],
+              "correct_option_texts": [
+                "current"
+              ],
+              "explanation": "Electric current is a scalar quantity. It represents the direction of flow of positive charge but it is treated as a scalar quantity because current follows the laws of scalar addition and not the laws of vector addition, because the angle between the wires carrying current does not affect the total current in the circuit."
+            },
+            {
+              "questionID": 21689,
+              "question": "Which of the following physical quantities is a vector?",
+              "question_raw": "<p>Which of the following physical quantities is a vector?</p>",
+              "options": [
+                {
+                  "label": "A",
+                  "id": 41957,
+                  "text": "temperature",
+                  "is_correct": false
+                },
+                {
+                  "label": "B",
+                  "id": 41954,
+                  "text": "impulse",
+                  "is_correct": true
+                },
+                {
+                  "label": "C",
+                  "id": 41956,
+                  "text": "gravitational potential",
+                  "is_correct": false
+                },
+                {
+                  "label": "D",
+                  "id": 41955,
+                  "text": "charge",
+                  "is_correct": false
+                }
+              ],
+              "correct_option_ids": [
+                41954
+              ],
+              "correct_option_labels": [
+                "B"
+              ],
+              "correct_option_texts": [
+                "impulse"
+              ],
+              "explanation": "Since force is a vector quantity, impulse is also a vector in the same direction. Impulse applied to an object produces an equivalent vector change in its linear momentum, also in the same direction. The SI unit of impulse is the newton second (Ns)"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "testPaperID": 543,
+      "testPaperName": "Motion in a Plane Test 02",
+      "is_paid": true,
+      "category_full_name": "CBSE > Class 11 > Physics > Motion in A Plane",
+      "noOfQuestions": 15,
+      "has_answers": true,
+      "sections": [
+        {
+          "sectionName": "General",
+          "sectionID": null,
+          "questions": [
+            {
+              "questionID": 17443,
+              "question": "If ${A_x},{A_y}\\ and\\ {B_x},{B_y}$ are components of vectors $\\vec A$ and $\\vec B$ along the x and y-axis then the sum of the vectors $\\vec A$ and $\\vec B$ has a component in the x-direction equal to",
+              "question_raw": "<p>If <span class=\"math-tex\">{tex}{A_x},{A_y}\\ and\\ {B_x},{B_y}{/tex}</span> are components of vectors <span class=\"math-tex\">{tex}\\vec A{/tex}</span> and <span class=\"math-tex\">{tex}\\vec B{/tex}</span> along the x and y-axis then the sum of the vectors <span class=\"math-tex\">{tex}\\vec A{/tex}</span> and <span class=\"math-tex\">{tex}\\vec B{/tex}</span> has a component in the x-direction equal to</p>",
+              "options": [
+                {
+                  "label": "A",
+                  "id": 24973,
+                  "text": "${A_x} - {B_x}$",
+                  "is_correct": false
+                },
+                {
+                  "label": "B",
+                  "id": 24975,
+                  "text": "$ - {A_x} - {B_x}$",
+                  "is_correct": false
+                },
+                {
+                  "label": "C",
+                  "id": 24972,
+                  "text": "${A_x} + {B_x}$",
+                  "is_correct": true
+                },
+                {
+                  "label": "D",
+                  "id": 24974,
+                  "text": "$ - {A_x} + {B_x}$",
+                  "is_correct": false
+                }
+              ],
+              "correct_option_ids": [
+                24972
+              ],
+              "correct_option_labels": [
+                "C"
+              ],
+              "correct_option_texts": [
+                "${A_x} + {B_x}$"
+              ],
+              "explanation": "The component method of addition can be summarized this way: \n Using trigonometry, find the x-component and the y-component for each vector.\n Add up both x-components, (one from each vector), to get the x-component of the total.\n Add up both y-components, (one from each vector), to get the y-component of the total.\n Add the x-component of the total to the y-component of the total, and then use the Pythagorean theorem and trigonometry to get the size and direction of the total.\nUsing these points in mind, the sum of the vectors A and B has a component in the x direction $= A_x+B_x$"
+            },
+            {
+              "questionID": 17444,
+              "question": "If $\\vec r$ = $x\\hat i + y\\hat j$ is the position vector of a particle then the instantaneous velocity is given by",
+              "question_raw": "<p>If <span class=\"math-tex\">{tex}\\vec r{/tex}</span> = <span class=\"math-tex\">{tex}x\\hat i + y\\hat j{/tex}</span> is the position vector of a particle then the instantaneous velocity is given by</p>",
+              "options": [
+                {
+                  "label": "A",
+                  "id": 24978,
+                  "text": "$v = \\frac{dr} {2dt}$",
+                  "is_correct": false
+                },
+                {
+                  "label": "B",
+                  "id": 24979,
+                  "text": "$v = \\frac{d(x+y)} {dt}$",
+                  "is_correct": false
+                },
+                {
+                  "label": "C",
+                  "id": 24977,
+                  "text": "$v = 2\\frac{dr}{dt}$",
+                  "is_correct": false
+                },
+                {
+                  "label": "D",
+                  "id": 24976,
+                  "text": "$v = \\frac{dr}{dt}$",
+                  "is_correct": true
+                }
+              ],
+              "correct_option_ids": [
+                24976
+              ],
+              "correct_option_labels": [
+                "D"
+              ],
+              "correct_option_texts": [
+                "$v = \\frac{dr}{dt}$"
+              ],
+              "explanation": "The exact measure of the velocity of a body at an instant or over a very-very short time interval ∆t is known as instantaneous velocity. Mathematically instantaneous velocity of an object is the limiting value of average velocity as ∆t tends towards 0.\nInstantaneous velocity = $\\displaystyle\\lim_{\\Delta t\\to 0}\\frac{\\Delta x}{\\Delta t} =\\frac{dx}{ dt}$\nSo for given position vector, $\\vec v$ = $\\frac{dr}{dt}$"
+            },
+            {
+              "questionID": 17445,
+              "question": "If $\\vec r$ = $x\\hat i + y\\hat j$ is the position vector of a particle then the instantaneous acceleration is given by",
+              "question_raw": "<p>If <span class=\"math-tex\">{tex}\\vec r{/tex}</span> = <span class=\"math-tex\">{tex}x\\hat i + y\\hat j{/tex}</span>&nbsp;is the position vector of a particle then the instantaneous acceleration is given by</p>",
+              "options": [
+                {
+                  "label": "A",
+                  "id": 24982,
+                  "text": "$a = \\frac{{d^3}r}{{d{t^3}}}$",
+                  "is_correct": false
+                },
+                {
+                  "label": "B",
+                  "id": 24981,
+                  "text": "$a = \\frac{dr}{dt}$",
+                  "is_correct": false
+                },
+                {
+                  "label": "C",
+                  "id": 24980,
+                  "text": "$a = \\frac{{d^2}r}{{d{t^2}}}$",
+                  "is_correct": true
+                },
+                {
+                  "label": "D",
+                  "id": 24983,
+                  "text": "$a = \\frac{{d^4}r}{{d{t^2}}}$",
+                  "is_correct": false
+                }
+              ],
+              "correct_option_ids": [
+                24980
+              ],
+              "correct_option_labels": [
+                "C"
+              ],
+              "correct_option_texts": [
+                "$a = \\frac{{d^2}r}{{d{t^2}}}$"
+              ],
+              "explanation": "The exact measure of the city of a body at an instant or over a very-very short time interval ∆t is known as instantaneous velocity. Mathematically instantaneous velocity of an object is the limiting value of average velocity as ∆t tends towards 0. Instantaneous velocity = $\\displaystyle\\lim_{\\Delta t\\to 0}\\frac{\\Delta x}{\\Delta t} =\\frac{dx}{ dt}$\nSo for given position vector, $\\vec v$ = $\\frac{dr}{dt}$\nInstantaneous acceleration, $\\vec a=$ $\\frac{dv}{dt}= \\frac{d^2r}{dt^2}$"
+            },
+            {
+              "questionID": 17446,
+              "question": "Which is a constant for a freely falling object?",
+              "question_raw": "<p>Which is a constant for a freely falling object?</p>",
+              "options": [
+                {
+                  "label": "A",
+                  "id": 24985,
+                  "text": "acceleration",
+                  "is_correct": true
+                },
+                {
+                  "label": "B",
+                  "id": 24986,
+                  "text": "speed",
+                  "is_correct": false
+                },
+                {
+                  "label": "C",
+                  "id": 24984,
+                  "text": "displacement",
+                  "is_correct": false
+                },
+                {
+                  "label": "D",
+                  "id": 24987,
+                  "text": "velocity",
+                  "is_correct": false
+                }
+              ],
+              "correct_option_ids": [
+                24985
+              ],
+              "correct_option_labels": [
+                "A"
+              ],
+              "correct_option_texts": [
+                "acceleration"
+              ],
+              "explanation": "An object that falls through a vacuum is subjected to only one external force, the gravitational force, expressed as the weight of the object. An object that is moving only because of the action of gravity is said to be free falling and its motion is described by Newton's second law of motion. With algebra we can solve for the acceleration of a free falling object. The acceleration is constant and equal to the gravitational acceleration g which is 9.8 meters per square second at sea level on the Earth. The weight, size, and shape of the object are not a factor in describing a free fall."
+            },
+            {
+              "questionID": 17447,
+              "question": "For the case of uniformly accelerated motion in two dimensions it is possible to treat it as",
+              "question_raw": "<p>For the case of uniformly accelerated motion in two dimensions it is possible to treat it as</p>",
+              "options": [
+                {
+                  "label": "A",
+                  "id": 24991,
+                  "text": "Two separate simultaneous one-dimensional motions with varying acceleration along one direction and a non constant acceleration along perpendicular direction",
+                  "is_correct": false
+                },
+                {
+                  "label": "B",
+                  "id": 24990,
+                  "text": "Two separate simultaneous one-dimensional motions with constant acceleration along one direction and a non constant acceleration along perpendicular direction.",
+                  "is_correct": false
+                },
+                {
+                  "label": "C",
+                  "id": 24988,
+                  "text": "Two separate simultaneous one-dimensional motions with constant acceleration along two perpendicular directions.",
+                  "is_correct": true
+                },
+                {
+                  "label": "D",
+                  "id": 24989,
+                  "text": "Two separate simultaneous one-dimensional motions with constant acceleration along a single direction.",
+                  "is_correct": false
+                }
+              ],
+              "correct_option_ids": [
+                24988
+              ],
+              "correct_option_labels": [
+                "C"
+              ],
+              "correct_option_texts": [
+                "Two separate simultaneous one-dimensional motions with constant acceleration along two perpendicular directions."
+              ],
+              "explanation": "Consider a particle moving on x-y plane along a curved pat at time t, as shown in figure given below. Its displacement from origin is measured by vector $ \\vec{r} $ its velocity is indicated by vector $​​\\vec {v}$ (tangent to the path of the particle) and acceleration $\\vec{a} $ as shown in the figure.\nA Particle Moving in a xy Plane The vectors $ \\vec{r}, \\vec{v} \\ and \\ \\vec{a}$ are interrelated and can be expressed in terms of their components, using unit vector notation as,\n$\\vec r= x\\hat i+ y\\hat j$ \n$v = {d\\vec r\\over dt}= {dx\\over dt}\\hat i + {dy\\over dt}\\hat j$ \n$= v_x\\hat i + v_y\\hat j$ \nAnd $\\vec a= {dv\\over dt}= {dv_x\\over dt}\\hat i+ {dv_y\\over dt}\\hat j$ \n$\\vec a = a_x\\hat i + a_y\\hat j$ \nFrom the above relations we can say that two-dimensional motion is nothing but superimpose of two one dimension motions.\nThis is for the reason that in any two-dimensional motion, all the parameters can be resolved in two mutually perpendicular directions."
+            },
+            {
+              "questionID": 17448,
+              "question": "If particles A and B are moving with velocities $\\vec v_A$ and $\\vec v_B$ (each with respect to some common frame of reference, say ground.). Then, velocity of particle A relative to that of B is:",
+              "question_raw": "<p>If particles A and B are moving with velocities <span class=\"math-tex\">{tex}\\vec v_A{/tex}</span> and <span class=\"math-tex\">{tex}\\vec v_B{/tex}</span> (each with respect to some common frame of reference, say ground.). Then, velocity of particle A relative to that of B is:</p>",
+              "options": [
+                {
+                  "label": "A",
+                  "id": 24993,
+                  "text": "$\\vec v_{BA}=$ $\\vec v_B ~+​​​\\vec v_A$",
+                  "is_correct": false
+                },
+                {
+                  "label": "B",
+                  "id": 24994,
+                  "text": "$\\vec v_{BA}=$ $-\\vec v_B ~_+​​​\\vec v_A$",
+                  "is_correct": false
+                },
+                {
+                  "label": "C",
+                  "id": 24995,
+                  "text": "$\\vec v_{BA}=$ $-\\vec v_B ~-​​​\\vec v_A$",
+                  "is_correct": false
+                },
+                {
+                  "label": "D",
+                  "id": 24992,
+                  "text": "$\\vec v_{AB}=$ $\\vec v_A ~-​​​\\vec v_B$",
+                  "is_correct": true
+                }
+              ],
+              "correct_option_ids": [
+                24992
+              ],
+              "correct_option_labels": [
+                "D"
+              ],
+              "correct_option_texts": [
+                "$\\vec v_{AB}=$ $\\vec v_A ~-​​​\\vec v_B$"
+              ],
+              "explanation": "The relative velocity of an object A with respect to another object B is the velocity that object A would appear to have to an observer situated on object B moving along with it. In simple words relative velocity of A with respect to B is the vector difference between the velocities of A and B. It is represented as \n$\\vec v_{AB}=$ $\\vec v_A ~-​​​\\vec v_B$"
+            },
+            {
+              "questionID": 17449,
+              "question": "The path of a projectile is",
+              "question_raw": "<p>The path of a projectile is&nbsp;</p>",
+              "options": [
+                {
+                  "label": "A",
+                  "id": 24999,
+                  "text": "ellipse",
+                  "is_correct": false
+                },
+                {
+                  "label": "B",
+                  "id": 24997,
+                  "text": "hyperbola",
+                  "is_correct": false
+                },
+                {
+                  "label": "C",
+                  "id": 24998,
+                  "text": "straight line",
+                  "is_correct": false
+                },
+                {
+                  "label": "D",
+                  "id": 24996,
+                  "text": "parabola",
+                  "is_correct": true
+                }
+              ],
+              "correct_option_ids": [
+                24996
+              ],
+              "correct_option_labels": [
+                "D"
+              ],
+              "correct_option_texts": [
+                "parabola"
+              ],
+              "explanation": "A particle with a vertical and horizontal velocity travelling in a gravitational field will trace out a parabola."
+            },
+            {
+              "questionID": 17450,
+              "question": "Centripetal acceleration of a particle moving in a circular path with constant velocity v is given by",
+              "question_raw": "<p>Centripetal acceleration of a particle moving in a circular path with constant velocity v is given by</p>",
+              "options": [
+                {
+                  "label": "A",
+                  "id": 25002,
+                  "text": "${{2}}{{{v}}^{{2}}}/{{R}}$, where R is the radius of the circle.",
+                  "is_correct": false
+                },
+                {
+                  "label": "B",
+                  "id": 25000,
+                  "text": "$\\frac{v^2}{R}$, where R is the radius of the circle.",
+                  "is_correct": true
+                },
+                {
+                  "label": "C",
+                  "id": 25001,
+                  "text": "$v^2\\times R$, where R is the radius of the circle.",
+                  "is_correct": false
+                },
+                {
+                  "label": "D",
+                  "id": 25003,
+                  "text": "${{2}}{{{v}}^{{2}}}{{R}}$, where R is the radius of the circle.",
+                  "is_correct": false
+                }
+              ],
+              "correct_option_ids": [
+                25000
+              ],
+              "correct_option_labels": [
+                "B"
+              ],
+              "correct_option_texts": [
+                "$\\frac{v^2}{R}$, where R is the radius of the circle."
+              ],
+              "explanation": "A body that moves in a circular motion (of radius R) at constant speed ($\\vec v$) is always being accelerated. The acceleration is at right angles to the direction of motion (towards the centre of the circle) and of magnitude $\\frac{v^2}{R}$"
+            },
+            {
+              "questionID": 17451,
+              "question": "The angle between $A = \\hat i + \\hat j$ and $B = \\hat i - \\hat j$ is",
+              "question_raw": "<p>The angle between&nbsp;<span class=\"math-tex\">{tex}A = \\hat i + \\hat j{/tex}</span>&nbsp;and&nbsp;<span class=\"math-tex\">{tex}B = \\hat i - \\hat j{/tex}</span> is&nbsp;</p>",
+              "options": [
+                {
+                  "label": "A",
+                  "id": 25005,
+                  "text": "45^o",
+                  "is_correct": false
+                },
+                {
+                  "label": "B",
+                  "id": 25004,
+                  "text": "90^o",
+                  "is_correct": true
+                },
+                {
+                  "label": "C",
+                  "id": 25007,
+                  "text": "180^o",
+                  "is_correct": false
+                },
+                {
+                  "label": "D",
+                  "id": 25006,
+                  "text": "^ - 45^o",
+                  "is_correct": false
+                }
+              ],
+              "correct_option_ids": [
+                25004
+              ],
+              "correct_option_labels": [
+                "B"
+              ],
+              "correct_option_texts": [
+                "90^o"
+              ],
+              "explanation": "$\\cos (\\theta)=\\frac{\\vec{A} \\cdot \\vec{B}}{|\\vec{A}||\\vec{B}|}=\\frac{(\\hat{i}+\\hat{j}) \\cdot(\\hat{i}-\\hat{j})}{|\\sqrt{1^{2}+1^{2}}||\\sqrt{1^{2}+(-1)^{2}}|}=\\frac{1-1}{2}=0$\n$\\theta=\\cos ^{-1}(0)=\\frac{\\pi}{2}~ or ~90^{0}$"
+            },
+            {
+              "questionID": 17452,
+              "question": "The component of a vector $\\vec r$ along X-axis will have maximum value if",
+              "question_raw": "<p>The component of a vector <span class=\"math-tex\">{tex}\\vec r{/tex}</span> along X-axis will have maximum value if</p>",
+              "options": [
+                {
+                  "label": "A",
+                  "id": 25011,
+                  "text": "$\\vec r$ is along negative Y-axis",
+                  "is_correct": false
+                },
+                {
+                  "label": "B",
+                  "id": 25008,
+                  "text": "$\\vec r$ is along positive X-axis",
+                  "is_correct": true
+                },
+                {
+                  "label": "C",
+                  "id": 25009,
+                  "text": "$\\vec r$ is along positive Y-axis",
+                  "is_correct": false
+                },
+                {
+                  "label": "D",
+                  "id": 25010,
+                  "text": "$\\vec r$ make an angle of 45^o with the X-axis",
+                  "is_correct": false
+                }
+              ],
+              "correct_option_ids": [
+                25008
+              ],
+              "correct_option_labels": [
+                "B"
+              ],
+              "correct_option_texts": [
+                "$\\vec r$ is along positive X-axis"
+              ],
+              "explanation": "Let $\\vec r$ makes an angle θ with the positive x-axis component of r along X-axis.\n$ r_{x}=|r| \\cos \\theta$\n$\\left(r_{x}\\right)_{\\text {maximum }}=|r|(\\cos \\theta)_{\\text {maximum }}$\n$r_{x}=|r| \\cos \\theta$\n$=|r| \\cos 0^{\\circ}=|r|\\left(\\therefore \\cos \\theta \\text { is maximum } \\mathrm{} \\mathrm{} \\text {of } \\theta=0^{\\circ}\\right)$\n$As~ \\theta=0^{\\circ}$\n$\\vec r$ is along positive x-axis"
+            },
+            {
+              "questionID": 17453,
+              "question": "Which of the following algebraic operations on vectors is not permissible?",
+              "question_raw": "<p>Which of the following algebraic operations on vectors is not permissible?</p>",
+              "options": [
+                {
+                  "label": "A",
+                  "id": 25013,
+                  "text": "Multiplying any vector by any scalar",
+                  "is_correct": false
+                },
+                {
+                  "label": "B",
+                  "id": 25012,
+                  "text": "Adding a scalar component of the vector to the same vector",
+                  "is_correct": true
+                },
+                {
+                  "label": "C",
+                  "id": 25015,
+                  "text": "Multiplying the sum of vectors A and B by a scalar",
+                  "is_correct": false
+                },
+                {
+                  "label": "D",
+                  "id": 25014,
+                  "text": "Adding any two vectors",
+                  "is_correct": false
+                }
+              ],
+              "correct_option_ids": [
+                25012
+              ],
+              "correct_option_labels": [
+                "B"
+              ],
+              "correct_option_texts": [
+                "Adding a scalar component of the vector to the same vector"
+              ],
+              "explanation": "Although vectors and scalars represent different types of physical quantities, it is sometimes necessary for them to interact. While adding a scalar to a vector is impossible because of their different dimensions in space, it is possible to multiply a vector by a scalar."
+            },
+            {
+              "questionID": 17454,
+              "question": "Which of the following statement is false?",
+              "question_raw": "<p>Which of the following statement is false?</p>",
+              "options": [
+                {
+                  "label": "A",
+                  "id": 25019,
+                  "text": "Three vectors not lying in a plane can never add up to give a null vector.",
+                  "is_correct": false
+                },
+                {
+                  "label": "B",
+                  "id": 25017,
+                  "text": "The average speed of a particle is either greater or equal to the magnitude of the average velocity of the particle over the same interval of time.",
+                  "is_correct": false
+                },
+                {
+                  "label": "C",
+                  "id": 25016,
+                  "text": "The total path length is always equal to the magnitude of the displacement vector of a particle.",
+                  "is_correct": true
+                },
+                {
+                  "label": "D",
+                  "id": 25018,
+                  "text": "The magnitude of a vector is always a scalar.",
+                  "is_correct": false
+                }
+              ],
+              "correct_option_ids": [
+                25016
+              ],
+              "correct_option_labels": [
+                "C"
+              ],
+              "correct_option_texts": [
+                "The total path length is always equal to the magnitude of the displacement vector of a particle."
+              ],
+              "explanation": "Displacement is a vector that is the shortest path length from the initial to the final position of the body. It is not always equal to path length. It can be zero and -ve also."
+            },
+            {
+              "questionID": 17455,
+              "question": "Given vectors a, b, c, d and a + b + c + d = 0,\n a, b, c and d must each be a null vector\n The magnitude of (a + c) equals the magnitude of ( b + d)\n The magnitude of a can never be greater than the sum of the magnitudes of b, c, and d\n b + c must lie in the plane of a and d if a and d are not collinear, and in the line of a and d, if they are collinear\nwhich of the following statements not correct?",
+              "question_raw": "<p>Given vectors a, b, c, d and a + b + c + d = 0,</p>\r\n\r\n<ol start=\"1\" style=\"list-style-type: lower-roman;\">\r\n\t<li>a, b, c and d must each be a null vector</li>\r\n\t<li>The magnitude of (a + c) equals the magnitude of ( b + d)</li>\r\n\t<li>The magnitude of a can never be greater than the sum of the magnitudes of b, c, and d</li>\r\n\t<li>b + c must lie in the plane of a and d if a and d are not collinear, and in the line of a and d, if they are collinear</li>\r\n</ol>\r\n\r\n<p>which of the following statements not correct?</p>",
+              "options": [
+                {
+                  "label": "A",
+                  "id": 25020,
+                  "text": "a, b, c and d must each be a null vector",
+                  "is_correct": true
+                },
+                {
+                  "label": "B",
+                  "id": 25021,
+                  "text": "The magnitude of (a + c) equals the magnitude of ( b + d)",
+                  "is_correct": false
+                },
+                {
+                  "label": "C",
+                  "id": 25022,
+                  "text": "The magnitude of a can never be greater than the sum of the magnitudes of b, c, and d",
+                  "is_correct": false
+                },
+                {
+                  "label": "D",
+                  "id": 25023,
+                  "text": "b + c must lie in the plane of a and d if a and d are not collinear, and in the line of a and d, if they are collinear",
+                  "is_correct": false
+                }
+              ],
+              "correct_option_ids": [
+                25020
+              ],
+              "correct_option_labels": [
+                "A"
+              ],
+              "correct_option_texts": [
+                "a, b, c and d must each be a null vector"
+              ],
+              "explanation": "(a) Incorrect, In order to make vectors a + b + c + d = 0, it is not necessary to have all the four given vectors to be null vectors. There are many other combinations which can give the sum zero.\n(b) Correct\nWe are given that ; a + b + c + d = 0\na + c = -(b + d)\nTaking modulus on both sides, we get:\n|a + c| = |-(b + d)| = |b + d|\nHence, the magnitude of (a + c) is the same as the magnitude of (b + d).\n(c) Correct\nWe are given that , a + b + c + d = 0\na = – (b + c + d)\nTaking modulus on both sides, we get:\n|a| = |b + c + d|; also\n|a| $\\leq$ |b| + |c| + |d| ...(i)\nEquation (i) shows that the magnitude of a is equal to or less than the sum of the magnitudes of b, c, and d.\nHence, the magnitude of vector a can never be greater than the sum of the magnitudes of b, c, and d.\n(d) Correct\nFrom the given equation a + b + c + d = 0\na + (b + c) + d = 0\nThe resultant sum of the three vectors a, (b + c), and d can be zero only if (b + c) lie in a plane containing a and d, assuming that these three vectors are represented by the three sides of a triangle.\nIf a and d are collinear, then it implies that the vector (b + c) is in the line of a and d. This implication holds only then the vector sum of all the vectors will be zero."
+            },
+            {
+              "questionID": 17456,
+              "question": "Three girls skating on a circular ice ground of radius 200 m start from a point P on the edge of the ground and reach a point Q diametrically opposite to P following different paths as shown in figure. What is the magnitude of the displacement vector for each? For which girl is this equal to the actual length of path skate?",
+              "question_raw": "<p>Three girls skating on a circular ice ground of radius 200 m start from a point P on the edge of the ground and reach a point Q diametrically opposite to P following different paths as shown in figure. What is the magnitude of the displacement vector for each? For which girl is this equal to the actual length of path skate?<br />\r\n<img alt=\"\" data-imgur-src=\"S1XUct7.png\" src=\"https://media-mycbseguide.s3.amazonaws.com/images/imgur/S1XUct7.png\" style=\"width: 100px; height: 113px;\" /></p>\r\n",
+              "options": [
+                {
+                  "label": "A",
+                  "id": 25025,
+                  "text": "200 m for each; B",
+                  "is_correct": false
+                },
+                {
+                  "label": "B",
+                  "id": 25026,
+                  "text": "200 m for each; A",
+                  "is_correct": false
+                },
+                {
+                  "label": "C",
+                  "id": 25027,
+                  "text": "300 m for each; C",
+                  "is_correct": false
+                },
+                {
+                  "label": "D",
+                  "id": 25024,
+                  "text": "400 m for each; B",
+                  "is_correct": true
+                }
+              ],
+              "correct_option_ids": [
+                25024
+              ],
+              "correct_option_labels": [
+                "D"
+              ],
+              "correct_option_texts": [
+                "400 m for each; B"
+              ],
+              "explanation": "PQ = diameter = displacement for each girl = 2r = 2 $\\times$ 200 = 400 m\n Since, displacement vector does not depend upon the actual path length and it is the shortest distance between initial and final position, so in the case of each girl the displacement is 400 m.\n This is equal to the actual length of the path skated by girl B."
+            },
+            {
+              "questionID": 17457,
+              "question": "A cyclist starts from the centre O of a circular park of radius 1 km, reaches the edge P of the park, then cycles along the circumference anticlockwise from P to Q, and returns to the centre along QO as shown in figure. If the round trip takes 10 min, what is the\n net displacement,\n average velocity, and\n average speed of the cyclist?",
+              "question_raw": "<p>A cyclist starts from the centre O of a circular park of radius 1 km, reaches the edge P of the park, then cycles along the circumference anticlockwise from P to Q, and returns to the centre along QO as shown in figure. If the round trip takes 10 min, what is the</p>\r\n\r\n<ol start=\"1\" style=\"list-style-type: lower-roman;\">\r\n\t<li>net displacement,</li>\r\n\t<li>average velocity, and</li>\r\n\t<li>average speed of the cyclist?</li>\r\n</ol>\r\n\r\n<p><img alt=\"\" data-imgur-src=\"rKZldZg.png\" src=\"https://media-mycbseguide.s3.amazonaws.com/images/imgur/rKZldZg.png\" style=\"width: 100px; height: 104px;\" /></p>\r\n",
+              "options": [
+                {
+                  "label": "A",
+                  "id": 25030,
+                  "text": "0, 0, 15.4 km/hr",
+                  "is_correct": false
+                },
+                {
+                  "label": "B",
+                  "id": 25031,
+                  "text": "0, 0, 27.4 km/hr",
+                  "is_correct": false
+                },
+                {
+                  "label": "C",
+                  "id": 25028,
+                  "text": "0, 0, 21.4 km/hr",
+                  "is_correct": true
+                },
+                {
+                  "label": "D",
+                  "id": 25029,
+                  "text": "0, 0, 11.4 km/hr",
+                  "is_correct": false
+                }
+              ],
+              "correct_option_ids": [
+                25028
+              ],
+              "correct_option_labels": [
+                "C"
+              ],
+              "correct_option_texts": [
+                "0, 0, 21.4 km/hr"
+              ],
+              "explanation": "Displacement is shortest distance b/w initial point and final point, as he returns back to origin after starting from origin, the displacement is zero. \n Average velocity = $Displacement\\over time\\ taken $ \n As displacement is zero, so average velocity is also eqaul to zero.\n Radius r = 1 km\n Distance covered = OP + PQ + QO\n $= r+{2\\pi r\\over 4}+r= 2r+{2\\pi r\\over 4}$ \n = $2\\times 1+{({2\\over 4}\\times {22\\over 7}\\times 1})$ \n = $25\\over 7$km\n Time taken = 10 minutes = $1\\over 6$hour \n Average speed $= {{25\\over 7}\\over {1\\over 6}}= {25\\times 6\\over7}$= 21.4 km/h"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "testPaperID": 544,
+      "testPaperName": "Motion in a Plane Test 03",
+      "is_paid": true,
+      "category_full_name": "CBSE > Class 11 > Physics > Motion in A Plane",
+      "noOfQuestions": 15,
+      "has_answers": true,
+      "sections": [
+        {
+          "sectionName": "General",
+          "sectionID": null,
+          "questions": [
+            {
+              "questionID": 17458,
+              "question": "A passenger arriving in a new town wishes to go from the station to a hotel located 10 km away on a straight road from the station. A dishonest cabman takes him along a circuitous path 23 km long and reaches the hotel in 28 min. What is\n the average speed of the taxi,\n the magnitude of average velocity?",
+              "question_raw": "<p>A passenger arriving in a new town wishes to go from the station to a hotel located 10 km away on a straight road from the station. A dishonest cabman takes him along a circuitous path 23 km long and reaches the hotel in 28 min. What is</p>\n\n<ol start=\"1\" style=\"list-style-type: lower-roman;\">\n\t<li>the average speed of the taxi,</li>\n\t<li>the magnitude of average velocity?</li>\n</ol>",
+              "options": [
+                {
+                  "label": "A",
+                  "id": 25033,
+                  "text": "48.3 km/hr, 22.4 km/hr",
+                  "is_correct": false
+                },
+                {
+                  "label": "B",
+                  "id": 25032,
+                  "text": "49.3 km/hr, 21.4 km/hr",
+                  "is_correct": true
+                },
+                {
+                  "label": "C",
+                  "id": 25035,
+                  "text": "46.3 km/hr, 24.4 km/hr",
+                  "is_correct": false
+                },
+                {
+                  "label": "D",
+                  "id": 25034,
+                  "text": "47.3 km/hr, 23.4 km/hr",
+                  "is_correct": false
+                }
+              ],
+              "correct_option_ids": [
+                25032
+              ],
+              "correct_option_labels": [
+                "B"
+              ],
+              "correct_option_texts": [
+                "49.3 km/hr, 21.4 km/hr"
+              ],
+              "explanation": "Total distance travelled = 23 km\n Total time taken = 28 min = $28\\over 60$ h\n $\\therefore$ The average speed of the taxi = $Total\\ distance \\ travelled \\over Total\\ time\\ taken$ \n = $ {{23 \\over 1}\\over {28\\over 60}} $ = 49.3 km/h\n Distance between the hotel and the station = 10 km = Displacement of the car\n $\\therefore$ Average velocity = ${{10 \\over 1}\\over {28\\over 60}} $ = 21.4 km/h"
+            },
+            {
+              "questionID": 17459,
+              "question": "Rain is falling vertically with a speed of 30 m${{\\rm{s}}^{ - {\\rm{1}}}}$. A woman rides a bicycle with a speed of 10 m${{\\rm{s}}^{ - {\\rm{1}}}}$ in the north to south direction. What is the direction in which she should hold her umbrella?",
+              "question_raw": "<p>Rain is falling vertically with a speed of 30 m<span class=\"math-tex\">{tex}{{\\rm{s}}^{ - {\\rm{1}}}}{/tex}</span>. A woman rides a bicycle with a speed of 10 m<span class=\"math-tex\">{tex}{{\\rm{s}}^{ - {\\rm{1}}}}{/tex}</span> in the north to south direction. What is the direction in which she should hold her umbrella?</p>",
+              "options": [
+                {
+                  "label": "A",
+                  "id": 25038,
+                  "text": "about ${\\rm{28}}^\\circ $ with the vertical, towards the south",
+                  "is_correct": false
+                },
+                {
+                  "label": "B",
+                  "id": 25037,
+                  "text": "about ${\\rm{18}}^\\circ $ with the vertical, towards the north",
+                  "is_correct": false
+                },
+                {
+                  "label": "C",
+                  "id": 25039,
+                  "text": "about ${\\rm{28}}^\\circ $ with the vertical, towards the north",
+                  "is_correct": false
+                },
+                {
+                  "label": "D",
+                  "id": 25036,
+                  "text": "about ${\\rm{18}}^\\circ $ with the vertical, towards the south",
+                  "is_correct": true
+                }
+              ],
+              "correct_option_ids": [
+                25036
+              ],
+              "correct_option_labels": [
+                "D"
+              ],
+              "correct_option_texts": [
+                "about ${\\rm{18}}^\\circ $ with the vertical, towards the south"
+              ],
+              "explanation": "The described situation is shown in the given figure.\nHere,\nv_c = Velocity of the cyclist\nv_r = Velocity of falling rain\nIn order to protect herself from the rain, the woman must hold her umbrella in the direction of the relative velocity (v) of the rain with respect to the woman.\nv = v_r + (-v_c) = 30 + (-10) = 20 m/s\ntan $\\theta $ = ${v_c \\over v_r}= {10\\over 30}$ \n$\\theta $ = tan^-1 $1 \\over 3$\n$\\theta $ $\\approx$ 18^0\nHence, the woman must hold the umbrella toward the south, at an angle of nearly 18° with the vertical."
+            },
+            {
+              "questionID": 17460,
+              "question": "A man can swim with a speed of 4.0 km/h in still water. How long does he take to cross a river 1.0 km wide if the river flows steadily at 3.0 km/h and he makes his strokes normal to the river current? How far down the river does he go when he reaches the other bank?",
+              "question_raw": "<p>A man can swim with a speed of 4.0 km/h in still water. How long does he take to cross a river 1.0 km wide if the river flows steadily at 3.0 km/h and he makes his strokes normal to the river current? How far down the river does he go when he reaches the other bank?</p>",
+              "options": [
+                {
+                  "label": "A",
+                  "id": 25040,
+                  "text": "15 min, 750 m",
+                  "is_correct": true
+                },
+                {
+                  "label": "B",
+                  "id": 25042,
+                  "text": "16 min, 650 m",
+                  "is_correct": false
+                },
+                {
+                  "label": "C",
+                  "id": 25043,
+                  "text": "19 min, 500 m",
+                  "is_correct": false
+                },
+                {
+                  "label": "D",
+                  "id": 25041,
+                  "text": "13 min, 700 m",
+                  "is_correct": false
+                }
+              ],
+              "correct_option_ids": [
+                25040
+              ],
+              "correct_option_labels": [
+                "A"
+              ],
+              "correct_option_texts": [
+                "15 min, 750 m"
+              ],
+              "explanation": "Speed of the man, v_m = 4 km/h\nWidth of the river = 1 km\nTime taken to cross the river = $Width \\ of \\ the \\ river \\over Speed \\ of\\ the\\ man$ $={ 1\\over 4} h = {1 × 60 \\over 4 }= 15 \\min$\nSpeed of the river, v_r = 3 km/h\nDistance covered due to the flow of river = v_r × t\n$= {3 × 1 \\over 4} = {3 \\over 4 }\\ km = {3 × 1000 \\over4}$ = 750 m"
+            },
+            {
+              "questionID": 17461,
+              "question": "In a harbor, wind is blowing at the speed of 72 km/h and the flag on the mast of a boat anchored in the harbor flutters along the N-E direction. If the boat starts moving at a speed of 51 km/h to the north, what is the direction of the flag on the mast of the boat?",
+              "question_raw": "<p>In a harbor, wind is blowing at the speed of 72 km/h and the flag on the mast of a boat anchored in the harbor flutters along the N-E direction. If the boat starts moving at a speed of 51 km/h to the north, what is the direction of the flag on the mast of the boat?</p>",
+              "options": [
+                {
+                  "label": "A",
+                  "id": 25044,
+                  "text": "Approximately east",
+                  "is_correct": true
+                },
+                {
+                  "label": "B",
+                  "id": 25046,
+                  "text": "Approximately north",
+                  "is_correct": false
+                },
+                {
+                  "label": "C",
+                  "id": 25047,
+                  "text": "Approximately south",
+                  "is_correct": false
+                },
+                {
+                  "label": "D",
+                  "id": 25045,
+                  "text": "Approximately north-east",
+                  "is_correct": false
+                }
+              ],
+              "correct_option_ids": [
+                25044
+              ],
+              "correct_option_labels": [
+                "A"
+              ],
+              "correct_option_texts": [
+                "Approximately east"
+              ],
+              "explanation": "The flag is fluttering in the north-east direction. It shows that the wind is blowing toward the north-east direction. When the ship begins sailing toward the north, the flag will move along the direction of the relative velocity (v_wb) of the wind with respect to the boat.\nThe angle between v_w and (–v_b) = 90° + 45°\ntan $\\beta$ = $51 ~Sin (90 + 45) \\over 72 + 51~ Cos (90 + 45)$ \nSubstituting and solving we get,\ntan $\\beta$ = ${51 \\over 50.80} = 1.0038$ \n$\\therefore$ $\\beta$ = tan^-1(1.0038) = 45.110\nAngle with respect to the east direction = 45.11° – 45° = 0.11° with respect to east direction.\nHence, the flag will flutter approximately due east."
+            },
+            {
+              "questionID": 17462,
+              "question": "The ceiling of a long hall is 25 m high. What is the maximum horizontal distance that a ball thrown with a speed of 40 m ${{\\rm{s}}^{ - {\\rm{1}}}}$ can go without hitting the ceiling of the hall?",
+              "question_raw": "<p>The ceiling of a long hall is 25 m high. What is the maximum horizontal distance that a ball thrown with a speed of 40 m <span class=\"math-tex\">{tex}{{\\rm{s}}^{ - {\\rm{1}}}}{/tex}</span>&nbsp;can go without hitting the ceiling of the hall?</p>",
+              "options": [
+                {
+                  "label": "A",
+                  "id": 25049,
+                  "text": "25 m",
+                  "is_correct": false
+                },
+                {
+                  "label": "B",
+                  "id": 25050,
+                  "text": "120 m",
+                  "is_correct": false
+                },
+                {
+                  "label": "C",
+                  "id": 25051,
+                  "text": "165 m",
+                  "is_correct": false
+                },
+                {
+                  "label": "D",
+                  "id": 25048,
+                  "text": "150.5 m",
+                  "is_correct": true
+                }
+              ],
+              "correct_option_ids": [
+                25048
+              ],
+              "correct_option_labels": [
+                "D"
+              ],
+              "correct_option_texts": [
+                "150.5 m"
+              ],
+              "explanation": "Maximum height, h = 25 m\nIn projectile motion, the maximum height reached by a body projected at an angle θ, is given by the relation:\nh = $u^2 Sin^2θ \\over 2g$\n$\\Rightarrow$ 25 = $ (40)^2 Sin^2θ \\over 2 × 9.8$\n= sin^2θ = 0.30625\nsin θ = 0.5534\n∴ θ = sin^–1(0.5534) = 33.60°\nHorizontal range, R = $u^2 Sin 2θ \\over g$\n= $(40)^2 × Sin (2 × 33.600) \\over 9.8$\n= $1600 × Sin (67.2) \\over 9.8$\n= $1600 × 0.922 \\over 9.8 $ = 150.5 m"
+            },
+            {
+              "questionID": 17463,
+              "question": "A cricketer can throw a ball to a maximum horizontal distance of 100 m. How much high above the ground can the cricketer throw the same ball?",
+              "question_raw": "<p>A cricketer can throw a ball to a maximum horizontal distance of 100 m. How much high above the ground can the cricketer throw the same ball?</p>",
+              "options": [
+                {
+                  "label": "A",
+                  "id": 25053,
+                  "text": "60 m",
+                  "is_correct": false
+                },
+                {
+                  "label": "B",
+                  "id": 25054,
+                  "text": "65 m",
+                  "is_correct": false
+                },
+                {
+                  "label": "C",
+                  "id": 25055,
+                  "text": "76 m",
+                  "is_correct": false
+                },
+                {
+                  "label": "D",
+                  "id": 25052,
+                  "text": "50 m",
+                  "is_correct": true
+                }
+              ],
+              "correct_option_ids": [
+                25052
+              ],
+              "correct_option_labels": [
+                "D"
+              ],
+              "correct_option_texts": [
+                "50 m"
+              ],
+              "explanation": "Maximum horizontal distance, R = 100 m\nThe cricketer will only be able to throw the ball to the maximum horizontal distance when the angle of projection is 45°, i.e., θ = 45°.\nThe horizontal range for a projection velocity v, is given by the relation:\nR = $u^2 Sin~ 2\\theta \\over g$\n100 = $u^2 Sin ~90° \\over g$\n$\\Rightarrow$ $u^2 \\over g $ = 100 ...….(i)\nThe ball will achieve the maximum height when it is thrown vertically upward. For such motion, the final velocity $\\vec v$ is zero at the maximum height H.\nAcceleration, a = – g\nUsing the third equation of motion, we get\nv^2 – u^2 = - 2gH\n$H ={ u^2 \\over 2g} = {100 \\over 2 } = 50 m$ [By using (i)]"
+            },
+            {
+              "questionID": 17464,
+              "question": "A stone tied to the end of a string 80 cm long is whirled in a horizontal circle with a constant speed. If the stone makes 14 revolutions in 25 s, what is the magnitude and direction of acceleration of the stone?",
+              "question_raw": "<p>A stone tied to the end of a string 80 cm long is whirled in a horizontal circle with a constant speed. If the stone makes 14 revolutions in 25 s, what is the magnitude and direction of acceleration of the stone?</p>",
+              "options": [
+                {
+                  "label": "A",
+                  "id": 25057,
+                  "text": "9.9 m ${{\\rm{s}}^{ - {\\rm{2}}}}$ , along the radius at every point away from the center",
+                  "is_correct": false
+                },
+                {
+                  "label": "B",
+                  "id": 25058,
+                  "text": "10.2 m ${{\\rm{s}}^{ - {\\rm{2}}}}$ , along the radius at every point towards the center",
+                  "is_correct": false
+                },
+                {
+                  "label": "C",
+                  "id": 25056,
+                  "text": "9.9 m ${{\\rm{s}}^{ - {\\rm{2}}}}$, along the radius at every point towards the center",
+                  "is_correct": true
+                },
+                {
+                  "label": "D",
+                  "id": 25059,
+                  "text": "11.9 m ${{\\rm{s}}^{ - {\\rm{2}}}}$ , along the radius at every point away from the center",
+                  "is_correct": false
+                }
+              ],
+              "correct_option_ids": [
+                25056
+              ],
+              "correct_option_labels": [
+                "C"
+              ],
+              "correct_option_texts": [
+                "9.9 m ${{\\rm{s}}^{ - {\\rm{2}}}}$, along the radius at every point towards the center"
+              ],
+              "explanation": "Length of the string, $l$ = 80 cm = 0.8 m\nNumber of revolutions = 14\nTime taken = 25 s\nFrequency, $\\nu ={ Number \\ of\\ revolutions \\over Time\\ taken} = {14 \\over 25} Hz$\nAngular frequency, $\\omega = 2\\pi\\nu$ = $2 ×{ 22\\over 7}× {14\\over25} = {88 \\over 25} \\ rad \\ s^{-1}$\nCentripetal acceleration, a_c = ω^2r = $ ({88\\over 25})^2 × 0.8$ = 9.9 ms^-2\nThe direction of centripetal acceleration is always directed along the string, towards the centre, at all points."
+            },
+            {
+              "questionID": 17465,
+              "question": "An aircraft executes a horizontal loop of radius 1.00 km with a steady speed of 900 km/h. Compare its centripetal acceleration with the acceleration due to gravity.",
+              "question_raw": "<p>An aircraft executes a horizontal loop of radius 1.00 km with a steady speed of 900 km/h. Compare its centripetal acceleration with the acceleration due to gravity.</p>",
+              "options": [
+                {
+                  "label": "A",
+                  "id": 25063,
+                  "text": "5 g",
+                  "is_correct": false
+                },
+                {
+                  "label": "B",
+                  "id": 25061,
+                  "text": "23 g",
+                  "is_correct": false
+                },
+                {
+                  "label": "C",
+                  "id": 25062,
+                  "text": "10 g",
+                  "is_correct": false
+                },
+                {
+                  "label": "D",
+                  "id": 25060,
+                  "text": "6.4 g",
+                  "is_correct": true
+                }
+              ],
+              "correct_option_ids": [
+                25060
+              ],
+              "correct_option_labels": [
+                "D"
+              ],
+              "correct_option_texts": [
+                "6.4 g"
+              ],
+              "explanation": "Radius of the loop, r = 1 km = 1000 m\nSpeed of the aircraft, v = 900 km/h\n= $900\\times {5\\over 18}= 250\\ m/s$\nCentripetal acceleration, $a_c={v^2\\over r}$ = ${(250)^2\\over 1000}={62500\\over 1000}=62.5\\ m/s^2$\nAcceleration due to gravity, g = 9.8 m/s​​​​​^​​​​​​2\n${a_c\\over g}={62.5\\over 9.8}$ = 6.4 g"
+            },
+            {
+              "questionID": 17466,
+              "question": "Which of the following statements not true?\n The net acceleration of a particle in a circular motion is always along the radius of the circle towards the centre\n The acceleration vector of a particle in uniform circular motion averaged over one cycle is a null vector\n The net acceleration of a particle in uniform circular motion is always along the radius of the circle towards the centre\n The velocity vector of a particle at a point is always along the tangent to the path of the particle at that point.",
+              "question_raw": "<p>Which of the following statements not true?</p>\n\n<ol start=\"1\" style=\"list-style-type: upper-alpha;\">\n\t<li>The net acceleration of a particle in a circular motion is always along the radius of the circle towards the centre</li>\n\t<li>The acceleration vector of a particle in uniform circular motion averaged over one cycle is a null vector</li>\n\t<li>The net acceleration of a particle in uniform circular motion is always along the radius of the circle towards the centre</li>\n\t<li>The velocity vector of a particle at a point is always along the tangent to the path of the particle at that point.</li>\n</ol>",
+              "options": [
+                {
+                  "label": "A",
+                  "id": 25065,
+                  "text": "(B)",
+                  "is_correct": false
+                },
+                {
+                  "label": "B",
+                  "id": 25067,
+                  "text": "(D)",
+                  "is_correct": false
+                },
+                {
+                  "label": "C",
+                  "id": 25064,
+                  "text": "(A)",
+                  "is_correct": true
+                },
+                {
+                  "label": "D",
+                  "id": 25066,
+                  "text": "(C)",
+                  "is_correct": false
+                }
+              ],
+              "correct_option_ids": [
+                25064
+              ],
+              "correct_option_labels": [
+                "C"
+              ],
+              "correct_option_texts": [
+                "(A)"
+              ],
+              "explanation": "The net acceleration of a particle in a circular motion is along the radius of the circle towards the centre Only in case of uniform circular motion."
+            },
+            {
+              "questionID": 17467,
+              "question": "The position of a particle is given by, $r = 3.0t\\hat i - 2.0{t^2}\\hat j + 4.0\\hat k$. What is the velocity and acceleration of the particle?",
+              "question_raw": "<p>The position of a particle is given by,&nbsp;<span class=\"math-tex\">{tex}r = 3.0t\\hat i - 2.0{t^2}\\hat j + 4.0\\hat k{/tex}</span>. What is the velocity and acceleration of the particle?</p>",
+              "options": [
+                {
+                  "label": "A",
+                  "id": 25071,
+                  "text": "$5.0\\hat i - 4.0t\\hat j$, $-3.0\\hat j$",
+                  "is_correct": false
+                },
+                {
+                  "label": "B",
+                  "id": 25069,
+                  "text": "$4.0\\hat i - 4.0t\\hat j$, $-3.0\\hat j$",
+                  "is_correct": false
+                },
+                {
+                  "label": "C",
+                  "id": 25068,
+                  "text": "$3.0\\hat i - 4.0t\\hat j$, $-4.0\\hat j$",
+                  "is_correct": true
+                },
+                {
+                  "label": "D",
+                  "id": 25070,
+                  "text": "$2.0\\hat i - 4.0t\\hat j$, $-2.0\\hat j$",
+                  "is_correct": false
+                }
+              ],
+              "correct_option_ids": [
+                25068
+              ],
+              "correct_option_labels": [
+                "C"
+              ],
+              "correct_option_texts": [
+                "$3.0\\hat i - 4.0t\\hat j$, $-4.0\\hat j$"
+              ],
+              "explanation": "Position vector, $\\vec r = 3.0t\\hat i-2.0t^2\\hat j+4.0\\hat k$\nWe know velocity is given by\n$\\vec v ={d\\vec r\\over dt}$\nSo, $\\vec v = 3.0\\hat i-4.0t\\hat j$\nAcceleration is given by \n$\\vec a={d\\vec v\\over dt}$\nSo, $\\vec a =-4.0\\hat j$"
+            },
+            {
+              "questionID": 17468,
+              "question": "The position of a particle is given by $\\vec r = 3.0t\\hat i + 2.0{t^2}\\hat j + 4.0\\hat k$. Find the magnitude and direction of the velocity of the particle at t = 2.0 s.",
+              "question_raw": "<p>The position of a particle is given by <span class=\"math-tex\">{tex}\\vec r = 3.0t\\hat i + 2.0{t^2}\\hat j + 4.0\\hat k{/tex}</span>. Find the magnitude and direction of the velocity of the particle at t = 2.0 s.</p>",
+              "options": [
+                {
+                  "label": "A",
+                  "id": 25073,
+                  "text": "7.54 m ${{\\rm{s}}^{ - {\\rm{1}}}}$, ${\\rm{72}}^\\circ $ with x-axis",
+                  "is_correct": false
+                },
+                {
+                  "label": "B",
+                  "id": 25074,
+                  "text": "6.54 m ${{\\rm{s}}^{ - {\\rm{1}}}}$, ${\\rm{74}}^\\circ $ with x-axis",
+                  "is_correct": false
+                },
+                {
+                  "label": "C",
+                  "id": 25075,
+                  "text": "8.84 m ${{\\rm{s}}^{ - {\\rm{1}}}}$, ${\\rm{75}}^\\circ $ with x-axis",
+                  "is_correct": false
+                },
+                {
+                  "label": "D",
+                  "id": 25072,
+                  "text": "8.54 m ${{\\rm{s}}^{ - {\\rm{1}}}}$, ${\\rm{7}}0^\\circ $ with x-axis",
+                  "is_correct": true
+                }
+              ],
+              "correct_option_ids": [
+                25072
+              ],
+              "correct_option_labels": [
+                "D"
+              ],
+              "correct_option_texts": [
+                "8.54 m ${{\\rm{s}}^{ - {\\rm{1}}}}$, ${\\rm{7}}0^\\circ $ with x-axis"
+              ],
+              "explanation": "Position vector is given by, $\\vec r= 3.0t\\hat i+2.0t^2\\hat j+4.0\\hat k$\nWe know velocity is given by:-\n$\\vec v ={dr\\over dt}$\nSo, $\\vec v = 3.0\\hat i+4t\\hat j$\nVelocity after 2 seconds is:\n$\\vec v= 3\\hat i+8\\hat j$\nMagnitude of velocity = $\\sqrt {(3)^2+(8)^2}$ = $\\sqrt {73}$= 8.54 ms^​​​​​-1\nDirection is given by\n$\\theta = tan^{-1}({8\\over 3})= 69.5\\approx 70° $ with x-axis"
+            },
+            {
+              "questionID": 17469,
+              "question": "A particle starts from the origin at t = 0 s with a velocity of 10.0 $\\hat j$ m/s and moves in the x-y plane with a constant acceleration of (8.0$\\hat i$ + 2.0$\\hat j$) m ${{\\rm{s}}^{ - {\\rm{2}}}}$. At what time is the x-coordinate of the particle 16 m? What is the y-coordinate of the particle at that time?",
+              "question_raw": "<p>A particle starts from the origin at t = 0 s with a velocity of 10.0 <span class=\"math-tex\">{tex}\\hat j{/tex}</span> m/s and moves in the x-y plane with a constant acceleration of (8.0<span class=\"math-tex\">{tex}\\hat i{/tex}</span> + 2.0<span class=\"math-tex\">{tex}\\hat j{/tex}</span>) m <span class=\"math-tex\">{tex}{{\\rm{s}}^{ - {\\rm{2}}}}{/tex}</span>. At what time is the x-coordinate of the particle 16 m? What is the y-coordinate of the particle at that time?</p>",
+              "options": [
+                {
+                  "label": "A",
+                  "id": 25078,
+                  "text": "1.5 s, 20 m",
+                  "is_correct": false
+                },
+                {
+                  "label": "B",
+                  "id": 25079,
+                  "text": "2.2 s, 22 m",
+                  "is_correct": false
+                },
+                {
+                  "label": "C",
+                  "id": 25077,
+                  "text": "1 s, 14 m",
+                  "is_correct": false
+                },
+                {
+                  "label": "D",
+                  "id": 25076,
+                  "text": "2 s, 24 m",
+                  "is_correct": true
+                }
+              ],
+              "correct_option_ids": [
+                25076
+              ],
+              "correct_option_labels": [
+                "D"
+              ],
+              "correct_option_texts": [
+                "2 s, 24 m"
+              ],
+              "explanation": "u = u_x$\\hat i$ + u_y$\\hat j$ = 10$\\hat j$, u_x = 0 and u_y = 10 m/s\na = a_x$\\hat i$ + a_y$\\hat j$ = 8i + 2j,\na_x = 8 and a_y = 2 m/s^2\nx = u_xt +$1\\over 2$a_xt^2 \n$\\Rightarrow$ 16 = $8 t^2\\over 2$\n$\\Rightarrow$ t = 2 sec \ny = u_yt + $a_yt^2\\over 2$ = 10 $\\times$ 2 + $2\\times 2^2\\over 2$ = 24 m"
+            },
+            {
+              "questionID": 17470,
+              "question": "An aircraft is flying at a height of 3400 m above the ground. If the angle subtended at a ground observation point by the aircraft positions 10.0 s apart is 30^o, what is the speed of the aircraft?",
+              "question_raw": "<p>An aircraft is flying at a height of 3400 m above the ground. If the angle subtended at a ground observation point by the aircraft positions 10.0 s apart is 30<sup>o</sup>, what&nbsp;is the speed of the aircraft?</p>",
+              "options": [
+                {
+                  "label": "A",
+                  "id": 25083,
+                  "text": "193 m/s",
+                  "is_correct": false
+                },
+                {
+                  "label": "B",
+                  "id": 25082,
+                  "text": "172 m/s",
+                  "is_correct": false
+                },
+                {
+                  "label": "C",
+                  "id": 25080,
+                  "text": "182 m/s",
+                  "is_correct": true
+                },
+                {
+                  "label": "D",
+                  "id": 25081,
+                  "text": "192 m/s",
+                  "is_correct": false
+                }
+              ],
+              "correct_option_ids": [
+                25080
+              ],
+              "correct_option_labels": [
+                "C"
+              ],
+              "correct_option_texts": [
+                "182 m/s"
+              ],
+              "explanation": "The positions of the observer and the aircraft are shown in the given figure.\nHeight of the aircraft from ground is given by, OR = 3400 m\nAngle subtended between the positions is given by, $\\angle$POQ = 30°\nTime = 10 s\nIn $\\triangle$PRO, we have\ntan 15^° = $PR \\over OR$\nPR = OR tan 15^° = $3400 \\times tan 15°$ \n$\\triangle$PRO is similar to $\\triangle$RQO.\n$\\therefore$ PR = RQ\nPQ = PR + RQ = 2PR = 2 $\\times$ 3400 tan 15^°\n= 6800 $\\times$ 0.268 = 1822.4 m\n$\\therefore$ Speed of the aircraft is given by = $1822.4\\over 10 $ \n= 182.24 m/s $\\approx$ 182 m/s"
+            },
+            {
+              "questionID": 17471,
+              "question": "A fighter plane flying horizontally at an altitude of 1.5 km with speed 720 km/h passes directly overhead an anti-aircraft gun. At what angle from the vertical should the gun be fired for the shell with muzzle speed 600 ms^−1 to hit the plane? At what minimum altitude should the pilot fly the plane to avoid being hit? (Take g = 10 ms^−2).",
+              "question_raw": "<p>A fighter plane flying horizontally at an altitude of 1.5 km with speed 720 km/h passes directly overhead an anti-aircraft gun. At what angle from the vertical should the gun be fired for the shell with muzzle speed 600 ms<sup>&minus;1</sup> to hit the plane? At what minimum altitude should the pilot fly the plane to avoid being hit? (Take g = 10 ms<sup>&minus;2</sup>).</p>",
+              "options": [
+                {
+                  "label": "A",
+                  "id": 25084,
+                  "text": "at an angle of 19.5^o with the vertical, 16 km",
+                  "is_correct": true
+                },
+                {
+                  "label": "B",
+                  "id": 25086,
+                  "text": "at an angle of 21.5^o with the vertical, 15 km",
+                  "is_correct": false
+                },
+                {
+                  "label": "C",
+                  "id": 25087,
+                  "text": "at an angle of 23.5^o with the vertical, 17 km",
+                  "is_correct": false
+                },
+                {
+                  "label": "D",
+                  "id": 25085,
+                  "text": "at an angle of 20.5^o with the vertical, 12 km",
+                  "is_correct": false
+                }
+              ],
+              "correct_option_ids": [
+                25084
+              ],
+              "correct_option_labels": [
+                "A"
+              ],
+              "correct_option_texts": [
+                "at an angle of 19.5^o with the vertical, 16 km"
+              ],
+              "explanation": "Height of the fighter plane = 1.5 km = 1500 m\nSpeed of the fighter plane, v = 720 km/h = 200 m/s\nLet $\\theta$ be the angle with the vertical so that the shell hits the plane. The situation is shown in the given figure.\nMuzzle velocity of the gun, u = 600 m/s\nTime taken by the shell to hit the plane = t\nHorizontal distance travelled by the shell = u_xt\nDistance travelled by the plane = vt\nThe shell hits the plane. Hence, these two distances must be equal.\nu_xt = vt\nu Sin $\\theta$ = v\nSin $\\theta$ = ${v \\over u} = {200 \\over 600} $ = 0.33\n$\\theta$ = Sin^-1(0.33) = 19.5^0\nIn order to avoid being hit by the shell, the pilot must fly the plane at an altitude (H) higher than the maximum height achieved by the shell.\n$\\therefore$ H = ${u^2sin^2 (90 – θ) \\over 2g} ={ (600)^2 cos^2 θ \\over 2g}$\n= $360000 \\times cos^2 (19.5)\\over 2 \\times 10$\n= 16006.482 m\n$\\approx$ 16 km"
+            },
+            {
+              "questionID": 17472,
+              "question": "A cyclist is riding with a speed of 27 km/h. As he approaches a circular turn on the road of radius 80 m, he applies brakes and reduces his speed at the constant rate of 0.50 m/s every second. What is the magnitude and direction of the net acceleration of the cyclist on the circular turn?",
+              "question_raw": "<p>A cyclist is riding with a speed of 27 km/h. As he approaches a circular turn on the road of radius 80 m, he applies brakes and reduces his speed at the constant rate of 0.50 m/s every second. What is the magnitude and direction of the net acceleration of the cyclist on the circular turn?</p>",
+              "options": [
+                {
+                  "label": "A",
+                  "id": 25090,
+                  "text": "0.84 ms^−2, 58.5^o with the direction of the velocity",
+                  "is_correct": false
+                },
+                {
+                  "label": "B",
+                  "id": 25088,
+                  "text": "0.86 ms^−2, 54.5^o with the direction of the velocity.",
+                  "is_correct": true
+                },
+                {
+                  "label": "C",
+                  "id": 25091,
+                  "text": "0.82 ms^−2, 59.5^o with the direction of the velocity",
+                  "is_correct": false
+                },
+                {
+                  "label": "D",
+                  "id": 25089,
+                  "text": "0.85 ms^−2, 56.5^o with the direction of the velocity.",
+                  "is_correct": false
+                }
+              ],
+              "correct_option_ids": [
+                25088
+              ],
+              "correct_option_labels": [
+                "B"
+              ],
+              "correct_option_texts": [
+                "0.86 ms^−2, 54.5^o with the direction of the velocity."
+              ],
+              "explanation": "Speed of the cyclist, v = 27 km/h = 7.5 m/s\nThe radius of the circular turn, r = 80 m\nCentripetal acceleration is given as:\na_c = ${v^2\\over r} ={ (7.5)^2 \\over 80 }=$ 0.7 ms^-2\nThe situation is shown in the given figure:\nSuppose the cyclist begins cycling from point P and moves toward point Q. At point Q, he applies the breaks and decelerates the speed of the bicycle by 0.5 m/s^2.\nThis acceleration is along the tangent at Q and opposite to the direction of the motion of the cyclist.\nSince the angle between a_c and a_T is 90^0, the resultant acceleration is given by:\na = $\\sqrt {(a_c)^2 + (a_T)^2} $ = $\\sqrt{ (0.7)^2 + (0.5)^2 }$\n= $\\sqrt {0.74}$ = 0.86 ms^-2\ntan $\\theta $ = $a_c \\over a_T$\nwhere $\\theta $ is the angle of the resultant with the direction of velocity.\ntan $\\theta $ = $0.7 \\over 0.5 $= 1.4\n$\\theta $ = tan^-1(1.4) = 54.46^o with the direction of velocity."
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "testPaperID": 545,
+      "testPaperName": "Motion in a Plane Test 04",
+      "is_paid": true,
+      "category_full_name": "CBSE > Class 11 > Physics > Motion in A Plane",
+      "noOfQuestions": 15,
+      "has_answers": true,
+      "sections": [
+        {
+          "sectionName": "General",
+          "sectionID": null,
+          "questions": [
+            {
+              "questionID": 17473,
+              "question": "A ball is thrown upwards with an initial velocity of 10 m ${{\\rm{s}}^{ - {\\rm{1}}}}$. Determine the maximum height reached above the thrower’s hand.",
+              "question_raw": "<p>A ball is thrown upwards with an initial velocity of 10 m <span class=\"math-tex\">{tex}{{\\rm{s}}^{ - {\\rm{1}}}}{/tex}</span>. Determine the maximum height reached above the thrower&rsquo;s hand.&nbsp;</p>",
+              "options": [
+                {
+                  "label": "A",
+                  "id": 25092,
+                  "text": "5.10 m",
+                  "is_correct": true
+                },
+                {
+                  "label": "B",
+                  "id": 25095,
+                  "text": "5.25 m",
+                  "is_correct": false
+                },
+                {
+                  "label": "C",
+                  "id": 25093,
+                  "text": "5.23 m",
+                  "is_correct": false
+                },
+                {
+                  "label": "D",
+                  "id": 25094,
+                  "text": "5.43 m",
+                  "is_correct": false
+                }
+              ],
+              "correct_option_ids": [
+                25092
+              ],
+              "correct_option_labels": [
+                "A"
+              ],
+              "correct_option_texts": [
+                "5.10 m"
+              ],
+              "explanation": "Initial velocity is given by ,u = 10m/s\nAs at the maximum height ball will stop, so final velocity is given by v = 0 m/s\nOnly acceleration working on it is the acceleration due to gravity g = -9.8m/s^​​​​​​2\nLet height = h\nWe know that, $v^2-u^2= 2as$\n$\\Rightarrow$ $(0)^2-(10)^2= 2\\times (-9.8)h$\n$\\Rightarrow$ $h = {-100\\over -19.6}$ = 5.10 m"
+            },
+            {
+              "questionID": 17474,
+              "question": "A cricketer hits a cricket ball from the ground so that it goes directly upwards. If the ball takes, 10 s to return to the ground, determine its maximum height.",
+              "question_raw": "<p>A cricketer hits a cricket ball from the ground so that it goes directly upwards. If the ball takes, 10 s to return to the ground, determine its maximum height.</p>",
+              "options": [
+                {
+                  "label": "A",
+                  "id": 25097,
+                  "text": "132.5 m",
+                  "is_correct": false
+                },
+                {
+                  "label": "B",
+                  "id": 25099,
+                  "text": "152.5 m",
+                  "is_correct": false
+                },
+                {
+                  "label": "C",
+                  "id": 25098,
+                  "text": "112.5 m",
+                  "is_correct": false
+                },
+                {
+                  "label": "D",
+                  "id": 25096,
+                  "text": "122.5 m",
+                  "is_correct": true
+                }
+              ],
+              "correct_option_ids": [
+                25096
+              ],
+              "correct_option_labels": [
+                "D"
+              ],
+              "correct_option_texts": [
+                "122.5 m"
+              ],
+              "explanation": "We know that at the maximum height, the velocity of the ball is 0 m/s.\nWe also know that the ball takes the same time to reach its maximum height as it takes to travel from its maximum height to the initial position, due to time symmetry. The time taken is half the total time.\nTherefore, we have the following information for the second (downward) part of the motion of the ball:\nt = 5 seconds (half of the total time)\n$v_{top} = 0 \\ m/s$\ng = 9.8 m/s^​​​​​​2 downward\ns = ?\nWe know that\ns = ut+${1\\over 2}gt^2$\nPut all the given value, we get\n$\\Rightarrow$ s = $0\\times 5+ {1\\over 2}\\times 9.8\\times 25$\n$\\Rightarrow$ s = 122.5 m"
+            },
+            {
+              "questionID": 17475,
+              "question": "As a ball rises, the vertical component of its velocity",
+              "question_raw": "<p>As a ball rises, the vertical component of its velocity</p>",
+              "options": [
+                {
+                  "label": "A",
+                  "id": 25102,
+                  "text": "Remains constant",
+                  "is_correct": false
+                },
+                {
+                  "label": "B",
+                  "id": 25101,
+                  "text": "Increase",
+                  "is_correct": false
+                },
+                {
+                  "label": "C",
+                  "id": 25100,
+                  "text": "Decrease",
+                  "is_correct": true
+                },
+                {
+                  "label": "D",
+                  "id": 25103,
+                  "text": "Can't be determined",
+                  "is_correct": false
+                }
+              ],
+              "correct_option_ids": [
+                25100
+              ],
+              "correct_option_labels": [
+                "C"
+              ],
+              "correct_option_texts": [
+                "Decrease"
+              ],
+              "explanation": "If a ball is thrown upward at an angle, the ball has a vertical and a horizontal component of velocity. The force of gravity is acting on it and its acceleration is in the downward direction. The vertical component of velocity is therefore changing. As the motion and acceleration is in opposite direction so vertical component of velocity decrease."
+            },
+            {
+              "questionID": 17476,
+              "question": "The reason why cyclists bank when taking a sharp turn is:",
+              "question_raw": "<p>The reason why cyclists bank when taking a sharp turn is:</p>",
+              "options": [
+                {
+                  "label": "A",
+                  "id": 25105,
+                  "text": "cyclists enjoy turning to one side and so bank.",
+                  "is_correct": false
+                },
+                {
+                  "label": "B",
+                  "id": 25104,
+                  "text": "to supply the sidewise (centripetal) acceleration required to make the direction change.",
+                  "is_correct": true
+                },
+                {
+                  "label": "C",
+                  "id": 25107,
+                  "text": "to decelerate at the turns as turns are dangerous.",
+                  "is_correct": false
+                },
+                {
+                  "label": "D",
+                  "id": 25106,
+                  "text": "to supply the acceleration required to move fast.",
+                  "is_correct": false
+                }
+              ],
+              "correct_option_ids": [
+                25104
+              ],
+              "correct_option_labels": [
+                "B"
+              ],
+              "correct_option_texts": [
+                "to supply the sidewise (centripetal) acceleration required to make the direction change."
+              ],
+              "explanation": "In order to make a safe turn, the cyclist has to bend a little from his vertical position. In this case, a component of the reaction provides the required centripetal force.\nIf $\\theta$ is an angle made by the cyclist with the vertical then​\n​​​​​​\nN cos$\\theta$ = mg ....(1)\nN sin$\\theta$ = ${mv^2\\over r} $.....(2)\nDividing (2) by (1), we get\n$\\tan\\theta = {v^2\\over rg}$ \n$\\Rightarrow$​​​​​ $\\theta = tan^{-1}( {v^2\\over rg})$\nIn actual practice, the value of $\\theta$ is slightly less because the force of friction also contributes towards the centripetal force."
+            },
+            {
+              "questionID": 17477,
+              "question": "A motorcycle stunt rider rides off the edge of a cliff. Just at the edge his velocity is horizontal, with magnitude 9.0 m/s. Find the magnitude of the motorcycle’s position vector after 0.50s it leaves the edge of the cliff.",
+              "question_raw": "<p>A motorcycle stunt rider rides off the edge of a cliff. Just at the edge his velocity is horizontal, with magnitude 9.0 m/s. Find the magnitude of the motorcycle&rsquo;s position vector after 0.50s it leaves the edge of the cliff.</p>",
+              "options": [
+                {
+                  "label": "A",
+                  "id": 25110,
+                  "text": "4.3 m",
+                  "is_correct": false
+                },
+                {
+                  "label": "B",
+                  "id": 25111,
+                  "text": "3.5 m",
+                  "is_correct": false
+                },
+                {
+                  "label": "C",
+                  "id": 25108,
+                  "text": "4.7 m",
+                  "is_correct": true
+                },
+                {
+                  "label": "D",
+                  "id": 25109,
+                  "text": "5.2 m",
+                  "is_correct": false
+                }
+              ],
+              "correct_option_ids": [
+                25108
+              ],
+              "correct_option_labels": [
+                "C"
+              ],
+              "correct_option_texts": [
+                "4.7 m"
+              ],
+              "explanation": "The motorcycle’s x- and y-coordinates at t=0.50 s are given by ;\nx = v_ox t = $9.0 \\times 0.50$ = 4.5 m\ny = $-{1\\over 2} gt^2$ = $- {1\\over 2}\\times 9.8\\times (0.50)^2$= -1.2m\nThe negative value of y shows that the motorcycle is below its starting point.\nThe motorcycle’s distance from the origin is given by , r = $\\sqrt {x^2+y^2}= \\sqrt {(4.5)^2+(-1.2)^2}$ = 4.7 m"
+            },
+            {
+              "questionID": 17478,
+              "question": "A motorcycle stunt rider rides off the edge of a cliff. Just at the edge, his velocity is horizontal, with a magnitude of 9.0 m/s. Find the magnitude of the motorcycle’s velocity vector, 0.50 s after it leaves the edge of the cliff.",
+              "question_raw": "<p>A motorcycle stunt rider rides off the edge of a cliff. Just at the edge, his velocity is horizontal, with a magnitude of 9.0 m/s. Find the magnitude of the motorcycle&rsquo;s velocity vector, 0.50 s after it leaves the edge of the cliff.</p>",
+              "options": [
+                {
+                  "label": "A",
+                  "id": 25112,
+                  "text": "10.2 m/s",
+                  "is_correct": true
+                },
+                {
+                  "label": "B",
+                  "id": 25114,
+                  "text": "9.65 m/s",
+                  "is_correct": false
+                },
+                {
+                  "label": "C",
+                  "id": 25115,
+                  "text": "8.98 m/s",
+                  "is_correct": false
+                },
+                {
+                  "label": "D",
+                  "id": 25113,
+                  "text": "11.3 m/s",
+                  "is_correct": false
+                }
+              ],
+              "correct_option_ids": [
+                25112
+              ],
+              "correct_option_labels": [
+                "A"
+              ],
+              "correct_option_texts": [
+                "10.2 m/s"
+              ],
+              "explanation": "the velocity components at t = 0.50 s are\nv_x = v_ox = 9.0m/s \nv_y = −gt = −9.8 $\\times$ 0.50 = −4.9m/s \nThe motorcycle has the same horizontal velocity v_x as when it left the cliff at t = 0, but in addition there is a downward (negative) vertical velocity v_y.\nThe velocity vector at t = 0.50 s is given by ,\n$\\vec v= v_x\\hat i+v_y\\hat j= 9.0\\hat i+(-4.9)\\hat j$ \nat t = 0.50 s the velocity has magnitude v is given by,\nv = $\\sqrt {(v_x)^2+(v_y)^2}=\\sqrt {(9.0)^2+(-4.9)^2}$ \nHence, velocity is v = 10.2 m/s"
+            },
+            {
+              "questionID": 17479,
+              "question": "A batter hits a baseball so that it leaves the bat at speed ${{\\rm{v}}_0}$= 37.0 m/s at an angle a = 53.1^o. Find the position of the ball and its velocity (magnitude and direction) at t = 2.00s.",
+              "question_raw": "<p>A batter hits a baseball so that it leaves the bat at speed <span class=\"math-tex\">{tex}{{\\rm{v}}_0}{/tex}</span>= 37.0 m/s at an angle a = 53.1<sup>o</sup>. Find the position of the ball and its velocity (magnitude and direction) at t = 2.00s.</p>",
+              "options": [
+                {
+                  "label": "A",
+                  "id": 25117,
+                  "text": "25.4 m/s at 23.2$^\\circ $ above the horizontal",
+                  "is_correct": false
+                },
+                {
+                  "label": "B",
+                  "id": 25118,
+                  "text": "26.4 m/s at 23.2$^\\circ $ above the horizontal",
+                  "is_correct": false
+                },
+                {
+                  "label": "C",
+                  "id": 25119,
+                  "text": "27.4 m/s at 21.2$^\\circ $ above the horizontal",
+                  "is_correct": false
+                },
+                {
+                  "label": "D",
+                  "id": 25116,
+                  "text": "24.4 m/s at 24.2$^\\circ $ above the horizontal",
+                  "is_correct": true
+                }
+              ],
+              "correct_option_ids": [
+                25116
+              ],
+              "correct_option_labels": [
+                "D"
+              ],
+              "correct_option_texts": [
+                "24.4 m/s at 24.2$^\\circ $ above the horizontal"
+              ],
+              "explanation": "We want to find x, y, v_x, and v_y at t = 2.00 s.\nThe initial velocity of the ball has components\nv_ox = v_ o cos $\\alpha_o$= $37.0 \\times cos 53.1°$ \n= 22.2 m/s \nv_oy = vo_ o sin $\\alpha_o$= $37.0\\times sin 53.1°$ \n= 29.6 m/s\nFrom above equations value of x and y at the = 2.0 s\nx = v_ox t = $22.2 \\times 2.0$ = 44.4 m\n$y=v_{oy} t-{1\\over 2} gt^2 $ ​​​​​​​\n$=29.6 \\times 2.0 -{1\\over 2} \\times 9.8\\times (2.0) ^2$ \n= 39.6 m​​​​​​​\n$v_x=v_{ox}=22.2 \\ m/s $ ​​​​​​​\n$v_y=v_{oy}-gt$ ​​​​​​​\n$= 29.6 -9.8\\times 2.0 =10.0 m/s$ \nThe y-component of velocity is positive at t=2.0 s, so the ball is still moving upward the magnitude and direction of the velocity are\nv = $\\sqrt {(v_x)^2+(v_y)^2} $ \n= $\\sqrt {(22.2)^2+(10)^2}=24.4 m/s$ ​​​​​​​\n$\\alpha = tan^{-1}({10.0 \\over22.2 }) $ \n= $tan^{-1}0.45=24.2°$ \nThe ball is moving at 24.4 m/s in a direction 24.2° above the horizontal"
+            },
+            {
+              "questionID": 17480,
+              "question": "A batter hits a baseball so that it leaves the bat at speed v_0 = 37.0 m/s at an angle a = 53.1^o. Find the time when the ball reaches the highest point of its flight, and its height h at this time?",
+              "question_raw": "<p>A batter hits a baseball so that it leaves the bat at speed v<sub>0</sub>&nbsp;= 37.0 m/s at an angle a = 53.1<sup>o</sup>. Find&nbsp;the time when the ball reaches the highest point of its flight, and its height h at this time?</p>",
+              "options": [
+                {
+                  "label": "A",
+                  "id": 25123,
+                  "text": "3.32 s, 41.7 m",
+                  "is_correct": false
+                },
+                {
+                  "label": "B",
+                  "id": 25121,
+                  "text": "3.12 s, 43.7 m",
+                  "is_correct": false
+                },
+                {
+                  "label": "C",
+                  "id": 25120,
+                  "text": "3.02 s, 44.7 m",
+                  "is_correct": true
+                },
+                {
+                  "label": "D",
+                  "id": 25122,
+                  "text": "3.22 s, 42.7 m",
+                  "is_correct": false
+                }
+              ],
+              "correct_option_ids": [
+                25120
+              ],
+              "correct_option_labels": [
+                "C"
+              ],
+              "correct_option_texts": [
+                "3.02 s, 44.7 m"
+              ],
+              "explanation": "The initial velocity of the ball has components\nv_ox = v_​​​​​​o cos $\\alpha_o$= 37.0 $\\times$ cos53.1^o\n= 22.2 m/s\nv_oy = v_​​​​​o sin $\\alpha_o$= 37.0 $\\times$ sin 53.1^o\n= 29.6 m/s\nAt the highest point, the vertical velocity v_y is zero. Call the time when this happens t_1; then\nv_y = v_oy - gt_1 = 0\n$\\Rightarrow$ t_1 = $v_{oy}\\over g$ = $29.6\\over 9.8$ = 3.02 s\nThe height at the highest point is the value of y at time t_​​​​​​1:\n$h=v_{oy} t_1-{1\\over2} g(t_1)^2 $\n$=29.6\\times 3.02 - {1\\over 2}\\times 9.8 \\times (3.02 )^2$\n= 44.7 m"
+            },
+            {
+              "questionID": 17481,
+              "question": "A batter hits a baseball so that it leaves the bat at a speed ${{\\rm{v}}_0}$ = 37.0 m/s at an angle a = 53.1^o. Find the horizontal range R-that is, the horizontal distance from the starting point to where the ball hits the ground?",
+              "question_raw": "<p>A batter hits a baseball so that it leaves the bat at a speed <span class=\"math-tex\">{tex}{{\\rm{v}}_0}{/tex}</span> = 37.0 m/s at an angle a = 53.1<sup>o</sup>. Find&nbsp;the horizontal range R-that is, the horizontal distance from the starting point to where the ball hits the ground?</p>",
+              "options": [
+                {
+                  "label": "A",
+                  "id": 25125,
+                  "text": "133 m",
+                  "is_correct": false
+                },
+                {
+                  "label": "B",
+                  "id": 25124,
+                  "text": "134 m",
+                  "is_correct": true
+                },
+                {
+                  "label": "C",
+                  "id": 25126,
+                  "text": "123 m",
+                  "is_correct": false
+                },
+                {
+                  "label": "D",
+                  "id": 25127,
+                  "text": "213 m",
+                  "is_correct": false
+                }
+              ],
+              "correct_option_ids": [
+                25124
+              ],
+              "correct_option_labels": [
+                "B"
+              ],
+              "correct_option_texts": [
+                "134 m"
+              ],
+              "explanation": "The initial velocity of the ball has components\nv_ox = v_o cos $\\alpha_o$= 37.0 $\\times$ cos53.1^o\n= 22.2 m/s \nv_oy = v_o sin $\\alpha_o$= 37.0 $\\times$ sin 53.1^o\n= 29.6 m/s\nWe’ll find the horizontal range in two steps. First, we find the time t_2 when y = 0 (the ball is at ground level):\n$y=0=v_{oy}t_2-{1\\over 2} g(t_2)^2 $\n$\\Rightarrow t_2(v_{oy}-{1\\over 2} gt_2)= 0$\nThis is a quadratic equation for t_2.\nIt has two roots:\nt_2 = 0 and t_2 = $2v_{oy}\\over g$ = ${2\\times 29.6\\over 9.80 }$ = 6.04 s\nThe ball is at y = 0 at both times. The ball leaves the ground at t_2 = 0, and it hits the ground at t_2 = 6.04 s.\nThe horizontal range R is the value of x when the ball returns to the ground at t_2 = 6.04 s:\nR = vox $\\times$ t_2 = 22.2 $\\times$ 6.04 = 134 m"
+            },
+            {
+              "questionID": 17482,
+              "question": "A sports car has a “lateral acceleration” of 0.96g = 9.4 ms^-2. This is the maximum centripetal acceleration the car can sustain without skidding out of a curved path. If the car is travelling at a constant 40 m/s on level ground, what is the radius R of the tightest unbanked curve it can negotiate?",
+              "question_raw": "<p>A sports car has a &ldquo;lateral acceleration&rdquo; of 0.96g = 9.4 ms<sup>-2</sup>. This is the maximum centripetal acceleration the car can sustain without skidding out of a curved path. If the car is travelling at a constant 40 m/s on level ground, what is the radius R of the tightest unbanked curve it can negotiate?</p>",
+              "options": [
+                {
+                  "label": "A",
+                  "id": 25131,
+                  "text": "minimum radius = 175 m",
+                  "is_correct": false
+                },
+                {
+                  "label": "B",
+                  "id": 25130,
+                  "text": "minimum radius = 180 m",
+                  "is_correct": false
+                },
+                {
+                  "label": "C",
+                  "id": 25129,
+                  "text": "minimum radius = 160 m",
+                  "is_correct": false
+                },
+                {
+                  "label": "D",
+                  "id": 25128,
+                  "text": "minimum radius = 170 m",
+                  "is_correct": true
+                }
+              ],
+              "correct_option_ids": [
+                25128
+              ],
+              "correct_option_labels": [
+                "D"
+              ],
+              "correct_option_texts": [
+                "minimum radius = 170 m"
+              ],
+              "explanation": "The car is in a uniform circular motion because it’s moving at a constant speed along a curve that is a segment of a circle. Hence we know\nR =$v^2\\over a_{rad}$ = $(40)^2\\over 9.4 $ = 170 m\nThis is the minimum turning radius because a_rad is the maximum centripetal acceleration."
+            },
+            {
+              "questionID": 17483,
+              "question": "Passengers on a carnival ride move at constant speed in a horizontal circle of radius 5.0 m, making a complete circle in 4.0 s. What is their acceleration?",
+              "question_raw": "<p>Passengers on a carnival ride move at constant speed in a horizontal circle of radius 5.0 m, making a complete circle in 4.0 s. What is their acceleration?</p>",
+              "options": [
+                {
+                  "label": "A",
+                  "id": 25132,
+                  "text": "12 m ${{\\rm{s}}^{ - {\\rm{2}}}}$",
+                  "is_correct": true
+                },
+                {
+                  "label": "B",
+                  "id": 25135,
+                  "text": "15 m ${{\\rm{s}}^{ - {\\rm{2}}}}$",
+                  "is_correct": false
+                },
+                {
+                  "label": "C",
+                  "id": 25133,
+                  "text": "14 m ${{\\rm{s}}^{ - {\\rm{2}}}}$",
+                  "is_correct": false
+                },
+                {
+                  "label": "D",
+                  "id": 25134,
+                  "text": "16 m ${{\\rm{s}}^{ - {\\rm{2}}}}$",
+                  "is_correct": false
+                }
+              ],
+              "correct_option_ids": [
+                25132
+              ],
+              "correct_option_labels": [
+                "A"
+              ],
+              "correct_option_texts": [
+                "12 m ${{\\rm{s}}^{ - {\\rm{2}}}}$"
+              ],
+              "explanation": "The speed is constant, so this is uniform circular motion. We are given the radius R = 5.0 m and the period T = 4.0 s, so we can calculate the acceleration directly using equation\n$a_{rad}={4(\\pi)^2 R\\over T^2}$ = $4\\times 22\\times 22\\times 5.0\\over 7\\times 7 \\times 4.0\\times 4.0$ = 12m/s^​​​​​​2"
+            },
+            {
+              "questionID": 17484,
+              "question": "A projectile is fired a velocity of 150 meters per second at an angle of 30 degrees with the horizontal. What is the magnitude of the vertical component of the velocity at the time the projectile is fired?",
+              "question_raw": "<p>A projectile is fired a velocity of 150 meters per second at an angle of 30 degrees with the horizontal. What is the magnitude of the vertical component of the velocity at the time the projectile is fired?</p>",
+              "options": [
+                {
+                  "label": "A",
+                  "id": 25139,
+                  "text": "75 m/s",
+                  "is_correct": true
+                },
+                {
+                  "label": "B",
+                  "id": 25138,
+                  "text": "225 m/s",
+                  "is_correct": false
+                },
+                {
+                  "label": "C",
+                  "id": 25136,
+                  "text": "150 m/s",
+                  "is_correct": false
+                },
+                {
+                  "label": "D",
+                  "id": 25137,
+                  "text": "130 m/s",
+                  "is_correct": false
+                }
+              ],
+              "correct_option_ids": [
+                25139
+              ],
+              "correct_option_labels": [
+                "A"
+              ],
+              "correct_option_texts": [
+                "75 m/s"
+              ],
+              "explanation": "Initial velocity, u = 150 m/s\nAngle $\\theta = 30^°$\nVertical component is given by \n$v_y=usin\\theta$ $= 150sin30^°= 150\\times {1\\over 2}$\n= 75 m/s"
+            },
+            {
+              "questionID": 17485,
+              "question": "An airplane’s compass indicates that it is headed due north, and its airspeed indicator shows that it is moving through the air at 240 km/h. If there is a 100-kmh^-1 wind from west to east, what is the velocity of the airplane relative to the earth?",
+              "question_raw": "<p>An airplane&rsquo;s compass indicates that it is headed due north, and its airspeed indicator shows that it is moving through the air at 240 km/h. If there is a 100-kmh<sup>-1</sup> wind from west to east, what is the velocity of the airplane relative to the earth?</p>",
+              "options": [
+                {
+                  "label": "A",
+                  "id": 25140,
+                  "text": "260 km/h 23^o E of N",
+                  "is_correct": true
+                },
+                {
+                  "label": "B",
+                  "id": 25143,
+                  "text": "255 km/h 26^o E of N",
+                  "is_correct": false
+                },
+                {
+                  "label": "C",
+                  "id": 25142,
+                  "text": "250 km/h 25^o E of N",
+                  "is_correct": false
+                },
+                {
+                  "label": "D",
+                  "id": 25141,
+                  "text": "270 km/h 24^o E of N",
+                  "is_correct": false
+                }
+              ],
+              "correct_option_ids": [
+                25140
+              ],
+              "correct_option_labels": [
+                "A"
+              ],
+              "correct_option_texts": [
+                "260 km/h 23^o E of N"
+              ],
+              "explanation": "This problem involves velocities in two dimensions (northward and eastward), so it is a relative velocity problem using vectors. We are given the magnitude and direction of the velocity of the plane (P) relative to the air (A). We are also given the magnitude and direction of the wind velocity, which is the velocity of the air A with respect to the earth (E): \n$\\vec v_{P/A}$= 240 km/h due north \n$\\vec v_{A/E}$=100 km/h due east\nThe magnitude and direction of the velocity $\\vec v_{P/E}$ of the plane relative to the earth ,is given by ;\n$\\vec v_{P/E}= \\vec v_{P/A}+ \\vec v_{A/E}$ \nThe image above shows that the three relative velocities constitute a right-triangle vector addition; the unknowns are the speed $v_{P/E }$and the angle $\\alpha $ , these values are calculated by:-\n$v_{P/E}=\\sqrt {(240)^2+(100)^2}$ = 260 km/h\n$\\alpha$ = $tan^{-1} ({100 \\over 240})$= 23^o E of N"
+            },
+            {
+              "questionID": 17486,
+              "question": "An airplane’s compass indicates that it is headed due north, and its airspeed indicator shows that it is moving through the air at 240 km/h. If there is a 100-km/h wind from west to east. In what direction should the pilot head to travel due north? What will be her velocity relative to the earth?",
+              "question_raw": "<p>An airplane&rsquo;s compass indicates that it is headed due north, and its airspeed indicator shows that it is moving through the air at 240 km/h. If there is a 100-km/h wind from west to east. In what direction should the pilot head to travel due north? What will be her velocity relative to the earth?</p>",
+              "options": [
+                {
+                  "label": "A",
+                  "id": 25144,
+                  "text": "23^o W of N, 260 km/h",
+                  "is_correct": true
+                },
+                {
+                  "label": "B",
+                  "id": 25145,
+                  "text": "28^o W of N, 260 km/h",
+                  "is_correct": false
+                },
+                {
+                  "label": "C",
+                  "id": 25146,
+                  "text": "29^o W of N, 200 km/h",
+                  "is_correct": false
+                },
+                {
+                  "label": "D",
+                  "id": 25147,
+                  "text": "35^o W of N, 198 km/h",
+                  "is_correct": false
+                }
+              ],
+              "correct_option_ids": [
+                25144
+              ],
+              "correct_option_labels": [
+                "A"
+              ],
+              "correct_option_texts": [
+                "23^o W of N, 260 km/h"
+              ],
+              "explanation": "This is a relative velocity problem with vectors. The image given is a scale drawing of the situation. Again the vectors form a right triangle is given by:-\n$\\vec v_{P/E}= \\vec v_{P/A}+ \\vec v_{A/E}$ \nAs shown in the image, The pilot points the nose of the airplane at an angle $\\beta $ into the wind to compensate for the crosswind. This angle, which tells us the direction of the vector $\\vec v_{P/A}$(the velocity of the airplane relative to the air), is one of our target variables. The other target variable is the speed of the airplane over the ground, which is the magnitude of the vector $\\vec v_{P/E}$ (the velocity of the airplane relative to the earth). The known and unknown quantities are:$\\vec v_{P/E} $ = is the magnitude unknown due to North\n$\\vec v_{P/A}$ = 240 km/h due to north \n$\\vec v_{A/E}$ = 100 km/h due to east\nWe’ll solve for the target variables by using image and trigonometry. thus,\n$v_{P/E}=\\sqrt {(240)^2+(100)^2}$ = 260km/h\n$\\beta =sin^{-1} ({100 \\over 240})$= 23^° \nThe pilot should point the airplane 23^o west of north, and his ground speed will be 260 km/h."
+            },
+            {
+              "questionID": 17487,
+              "question": "At a distance L = 400m from the traffic lights, the brakes are applied to a locomotive moving at a velocity v = 54km/hr. Determine the position of locomotive relative to the traffic lights 1 minute after the application of the brakes if its acceleration is -0.3m/s^​​​​​​2?",
+              "question_raw": "<p>At a distance L = 400m from the traffic lights, the brakes are applied to a locomotive moving at a velocity v = 54km/hr. Determine the position of locomotive relative to the traffic lights 1 minute after the application of the brakes if its acceleration is -0.3m/s<sup>​​​​​​2</sup>?</p>",
+              "options": [
+                {
+                  "label": "A",
+                  "id": 25148,
+                  "text": "40 m",
+                  "is_correct": true
+                },
+                {
+                  "label": "B",
+                  "id": 25150,
+                  "text": "30 m",
+                  "is_correct": false
+                },
+                {
+                  "label": "C",
+                  "id": 25149,
+                  "text": "50 m",
+                  "is_correct": false
+                },
+                {
+                  "label": "D",
+                  "id": 25151,
+                  "text": "15 m",
+                  "is_correct": false
+                }
+              ],
+              "correct_option_ids": [
+                25148
+              ],
+              "correct_option_labels": [
+                "A"
+              ],
+              "correct_option_texts": [
+                "40 m"
+              ],
+              "explanation": "Initial velocity u = 54 km/h = 15 m/s\nLet Final velocity v = 0\nAcceleration a = -0.3 m/s^​​​​​​2\nTime taken to stop = t\nUsing v = u + at\n $\\Rightarrow$ 0 = 15 + (-0.3)t\n$\\Rightarrow$ t = 50 sec\nIt means it has been stopped before 1 minute.\nSo distance covered in 1 minute is given by \ns= ut +1/2 at^2\n = 15 $\\times$ 60 + 1/2 $\\times$ (-0.3) $\\times$ (60)^2\n = 360 m\nPosition of locomotive relative to the traffic lights = 400 - 360 = 40 m"
+            }
+          ]
+        }
+      ]
+    }
+  ]
+}

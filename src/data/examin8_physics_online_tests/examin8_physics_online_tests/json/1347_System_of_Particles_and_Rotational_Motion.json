@@ -1,0 +1,3162 @@
+{
+  "id": 1347,
+  "name": "System of Particles and Rotational Motion",
+  "full_name": "CBSE > Class 11 > Physics > System of Particles and Rotational Motion",
+  "tests": [
+    {
+      "testPaperID": 557,
+      "testPaperName": "Particles & Rotational Motion Test 01",
+      "is_paid": false,
+      "category_full_name": "CBSE > Class 11 > Physics > System of Particles and Rotational Motion",
+      "noOfQuestions": 15,
+      "has_answers": true,
+      "sections": [
+        {
+          "sectionName": "General",
+          "sectionID": null,
+          "questions": [
+            {
+              "questionID": 17646,
+              "question": "A rigid body is a body which:",
+              "question_raw": "<p>A rigid body is a body which:</p>",
+              "options": [
+                {
+                  "label": "A",
+                  "id": 25785,
+                  "text": "deforms on the application of force.",
+                  "is_correct": false
+                },
+                {
+                  "label": "B",
+                  "id": 25786,
+                  "text": "becomes longer or shorter if force is applied.",
+                  "is_correct": false
+                },
+                {
+                  "label": "C",
+                  "id": 25784,
+                  "text": "does not deform on the application of force.",
+                  "is_correct": true
+                },
+                {
+                  "label": "D",
+                  "id": 25787,
+                  "text": "does not maintain the same distance between any two points on it if force is applied.",
+                  "is_correct": false
+                }
+              ],
+              "correct_option_ids": [
+                25784
+              ],
+              "correct_option_labels": [
+                "C"
+              ],
+              "correct_option_texts": [
+                "does not deform on the application of force."
+              ],
+              "explanation": "A rigid body is an idealization of a solid body in which deformation or change in shape is neglected on the application of deforming force."
+            },
+            {
+              "questionID": 17647,
+              "question": "In the pure translational motion of a rigid body:",
+              "question_raw": "<p>In the pure translational motion of a rigid body:</p>",
+              "options": [
+                {
+                  "label": "A",
+                  "id": 25790,
+                  "text": "at different instants of time, every particle of the body has the same velocity.",
+                  "is_correct": false
+                },
+                {
+                  "label": "B",
+                  "id": 25789,
+                  "text": "at any instant of time different particles of the body have different velocities.",
+                  "is_correct": false
+                },
+                {
+                  "label": "C",
+                  "id": 25791,
+                  "text": "at any instant of time velocity is dependent on the position vector of a point on the body.",
+                  "is_correct": false
+                },
+                {
+                  "label": "D",
+                  "id": 25788,
+                  "text": "at any instant of time, every particle of the body has the same velocity.",
+                  "is_correct": true
+                }
+              ],
+              "correct_option_ids": [
+                25788
+              ],
+              "correct_option_labels": [
+                "D"
+              ],
+              "correct_option_texts": [
+                "at any instant of time, every particle of the body has the same velocity."
+              ],
+              "explanation": "In translational motion when the body moves along a straight line or more exactly when every point of the body travels on parallel lines, thus at any instant of time every particle of the body has the same velocity."
+            },
+            {
+              "questionID": 17648,
+              "question": "In rotation of a rigid body about a fixed axis is that in which:",
+              "question_raw": "<p>In rotation of a rigid body about a fixed axis is that in which:</p>",
+              "options": [
+                {
+                  "label": "A",
+                  "id": 25792,
+                  "text": "every particle of the body moves in a circle, which lies in a plane perpendicular to the axis and has its centre on the axis.",
+                  "is_correct": true
+                },
+                {
+                  "label": "B",
+                  "id": 25793,
+                  "text": "every particle of the body moves in an ellipse, which lies in a plane perpendicular to the axis and has its focii on the axis.",
+                  "is_correct": false
+                },
+                {
+                  "label": "C",
+                  "id": 25794,
+                  "text": "every particle of the body moves at the same speed.",
+                  "is_correct": false
+                },
+                {
+                  "label": "D",
+                  "id": 25795,
+                  "text": "particles close to the axis have larger velocities.",
+                  "is_correct": false
+                }
+              ],
+              "correct_option_ids": [
+                25792
+              ],
+              "correct_option_labels": [
+                "A"
+              ],
+              "correct_option_texts": [
+                "every particle of the body moves in a circle, which lies in a plane perpendicular to the axis and has its centre on the axis."
+              ],
+              "explanation": "When a rigid body rotates about a fixed axis, all particles of the body except those which lies on the axis of rotation, move along circular paths in a plane perpendicular to the axis."
+            },
+            {
+              "questionID": 17649,
+              "question": "In precession such as that of a top:",
+              "question_raw": "<p>In precession such as that of a top:</p>",
+              "options": [
+                {
+                  "label": "A",
+                  "id": 25797,
+                  "text": "the axis of rotation is fixed",
+                  "is_correct": false
+                },
+                {
+                  "label": "B",
+                  "id": 25796,
+                  "text": "the axis of rotation moves",
+                  "is_correct": true
+                },
+                {
+                  "label": "C",
+                  "id": 25799,
+                  "text": "the axis of rotation oscillates vertically",
+                  "is_correct": false
+                },
+                {
+                  "label": "D",
+                  "id": 25798,
+                  "text": "the axis of rotation oscillates horizontally",
+                  "is_correct": false
+                }
+              ],
+              "correct_option_ids": [
+                25796
+              ],
+              "correct_option_labels": [
+                "B"
+              ],
+              "correct_option_texts": [
+                "the axis of rotation moves"
+              ],
+              "explanation": "Precession is a change in the orientation of the rotational axis of a rotating body, so the orientation of the axis of rotation of Top change."
+            },
+            {
+              "questionID": 17650,
+              "question": "In general motion of a rigid body:",
+              "question_raw": "<p>In general motion of a rigid body:</p>",
+              "options": [
+                {
+                  "label": "A",
+                  "id": 25803,
+                  "text": "particles on the body always move around an axis in circles",
+                  "is_correct": false
+                },
+                {
+                  "label": "B",
+                  "id": 25800,
+                  "text": "both translation and rotation can be present",
+                  "is_correct": true
+                },
+                {
+                  "label": "C",
+                  "id": 25802,
+                  "text": "only rotation is present",
+                  "is_correct": false
+                },
+                {
+                  "label": "D",
+                  "id": 25801,
+                  "text": "only translation is present",
+                  "is_correct": false
+                }
+              ],
+              "correct_option_ids": [
+                25800
+              ],
+              "correct_option_labels": [
+                "B"
+              ],
+              "correct_option_texts": [
+                "both translation and rotation can be present"
+              ],
+              "explanation": "In the general motion of the body can be seen as the combination of pure translation of the center of mass and pure rotation of the body about the center of mass like the motion of a wheel."
+            },
+            {
+              "questionID": 17651,
+              "question": "Let r_i be the position vector of the i^th particle having mass m_i and R be the position vector of the centre of mass. The formula for R is:",
+              "question_raw": "<p>Let r<sub>i</sub> be the position vector of the i<sup>th</sup> particle having mass m<sub>i</sub> and R be the position vector of the centre of mass. The formula for R is:</p>",
+              "options": [
+                {
+                  "label": "A",
+                  "id": 25806,
+                  "text": "$\\mathbf{R}=\\frac{\\sum^{m_1} \\mathbf{r}_{\\mathbf{i}}}{\\sum^{m_3}}$",
+                  "is_correct": false
+                },
+                {
+                  "label": "B",
+                  "id": 25807,
+                  "text": "$\\mathbf{R}=\\frac{\\sum^{m_1} \\mathbf{r}_{\\mathbf{i}}}{\\sum^{m_1}}$",
+                  "is_correct": false
+                },
+                {
+                  "label": "C",
+                  "id": 25804,
+                  "text": "$R=\\frac{\\sum m_1 \\cdot r_i}{\\sum m_1}$",
+                  "is_correct": true
+                },
+                {
+                  "label": "D",
+                  "id": 25805,
+                  "text": "$\\mathbf{R}=\\frac{\\sum^{m_1} \\mathbf{r}_{\\mathbf{i}}}{\\sum^{m_2}}$",
+                  "is_correct": false
+                }
+              ],
+              "correct_option_ids": [
+                25804
+              ],
+              "correct_option_labels": [
+                "C"
+              ],
+              "correct_option_texts": [
+                "$R=\\frac{\\sum m_1 \\cdot r_i}{\\sum m_1}$"
+              ],
+              "explanation": "Let us consider a system consisting of N – particles of masses m_1, m_2,….. m_N having position vectors ${\\vec r_1},{\\vec r_2}$,...... $ {\\vec r_N} $ respectively.\nThe total mass M of the system is given by \nM = m­_1 +m_2 +…….+ m_N \nWe can generalize the definition of the position of centre of mass consisting of N particles, hence the position vector of centre of mass is given below:-\n$\\vec{R}=\\frac{m_1 \\vec{r}_1+m_2 \\vec{r}_2+\\ldots \\ldots \\ldots+m_N \\vec{r}_N}{m_1+m_2+\\ldots \\ldots+m_N}=\\frac{\\sum_\\limits{i=1}^N m_i \\vec{r}_i}{\\sum_\\limits{i=1}^N m_i}=\\frac{\\sum_\\limits{i=1}^N m_i \\vec{r}_i}{M}$"
+            },
+            {
+              "questionID": 17652,
+              "question": "the centre of mass of a system of particles moves",
+              "question_raw": "<p>the centre of mass of a system of particles moves</p>",
+              "options": [
+                {
+                  "label": "A",
+                  "id": 25809,
+                  "text": "as if all the mass of the system was concentrated at the axis of rotation and all the external forces were absent",
+                  "is_correct": false
+                },
+                {
+                  "label": "B",
+                  "id": 25810,
+                  "text": "as if all the mass of the system was concentrated at the centre of mass and all the external forces were zero",
+                  "is_correct": false
+                },
+                {
+                  "label": "C",
+                  "id": 25808,
+                  "text": "as if all the mass of the system was concentrated at the centre of mass and all the external forces were applied at that point",
+                  "is_correct": true
+                },
+                {
+                  "label": "D",
+                  "id": 25811,
+                  "text": "as if all the mass of the system was concentrated in a sphere around the centre of mass and all the external forces were zero",
+                  "is_correct": false
+                }
+              ],
+              "correct_option_ids": [
+                25808
+              ],
+              "correct_option_labels": [
+                "C"
+              ],
+              "correct_option_texts": [
+                "as if all the mass of the system was concentrated at the centre of mass and all the external forces were applied at that point"
+              ],
+              "explanation": "The centre of mass of a system of particles moves as if all the mass of the system is concentrated at the centre and all the external forces were applied at that point. In order to ease the calculations involved in the dynamics of an extended body, we treat any extended body as the system of particles, and the motion of centre of mass of the system is calculated by taking the mass of the whole system to be concentrated at the centre of mass and the external forces acting on system are said to be acting on the centre of mass."
+            },
+            {
+              "questionID": 17653,
+              "question": "The total momentum of a system of particles is equal to:",
+              "question_raw": "<p>The total momentum of a system of particles is equal to:</p>",
+              "options": [
+                {
+                  "label": "A",
+                  "id": 25815,
+                  "text": "the product of half the total mass of the system and the velocity of its centre of mass",
+                  "is_correct": false
+                },
+                {
+                  "label": "B",
+                  "id": 25814,
+                  "text": "the product of the total mass of the system and the speed of its centre of mass",
+                  "is_correct": false
+                },
+                {
+                  "label": "C",
+                  "id": 25812,
+                  "text": "the product of the total mass of the system and the velocity of its centre of mass",
+                  "is_correct": true
+                },
+                {
+                  "label": "D",
+                  "id": 25813,
+                  "text": "the product of the total mass of the system and the average velocity of its centre of mass",
+                  "is_correct": false
+                }
+              ],
+              "correct_option_ids": [
+                25812
+              ],
+              "correct_option_labels": [
+                "C"
+              ],
+              "correct_option_texts": [
+                "the product of the total mass of the system and the velocity of its centre of mass"
+              ],
+              "explanation": "Let us consider a system of n particles of masses m_1, m_2, ….m_N. If M is the total mass of the system.\nM = m_1 + m_2 +……..+ m_N\nIf ${\\vec R}$ is the position vector of the centre of mass and ${\\vec r_1},{\\vec r_2},{\\vec r_3} . ..... {\\vec r_n}$those of constituent particles then\n$\\mathop R\\limits^ \\to = {{{m_1}{{\\mathop r\\limits^ \\to }_1} + {m_2}{{\\mathop r\\limits^ \\to }_2} + .... + {m_N}{{\\mathop r\\limits^ \\to }_N}} \\over {{m_1} + {m_2} + ..... + {m_N}}} $ = $ {{{m_1}{{\\mathop r\\limits^ \\to }_1} + {m_2}{{\\mathop r\\limits^ \\to }_2} + {m_N}{{\\mathop r\\limits^ \\to }_N}} \\over M}$ \nDifferentiating both sides w.r.t. time t, we get\n${{d\\mathop R\\limits^ \\to } \\over {dt}} $ = $ {1 \\over M}\\left[ {{m_1}{{d{{\\mathop r\\limits^ \\to }_1}} \\over {dt}} + {m_2}{{d{{\\mathop r\\limits^ \\to }_2}} \\over {dt}} + .......... + {m_N}{{d{{\\mathop r\\limits^ \\to }_N}} \\over {dt}}} \\right]$ \nLet the velocity of centre of mass is ${{d\\mathop R\\limits^ \\to } \\over {dt}} = \\mathop {{V_{CM}}}\\limits^ \\to $\n${{d\\mathop {{r_1}}\\limits^ \\to } \\over {dt}} = {\\mathop v\\limits^ \\to _1},{{d\\mathop {{r_2}}\\limits^ \\to } \\over {dt}} = {\\mathop v\\limits^ \\to _{2,}}.....{{d\\mathop {{r_n}}\\limits^ \\to } \\over {dt}} = \\mathop {{v_n}}\\limits^ \\to $ \n$M\\mathop {{V_{CM}}}\\limits^ \\to $ = $ {m_1}{\\mathop v\\limits^ \\to _1} + {m_2}{\\mathop v\\limits^ \\to _2} + .... + {m_N}{\\mathop v\\limits^ \\to _N} = \\sum\\limits_{i = 1}^N {{m_i}\\,\\,\\,{{\\mathop v\\limits^ \\to }_i}} $ \nHence the total momentum of a system of particles is equal to the product of the total mass of the system and the velocity of its centre of mass."
+            },
+            {
+              "questionID": 17654,
+              "question": "Considering binary (double) stars in our frame of reference, the trajectories of the stars are a combination of",
+              "question_raw": "<p>Considering binary (double) stars in our frame of reference, the trajectories of the stars are a combination of</p>",
+              "options": [
+                {
+                  "label": "A",
+                  "id": 25818,
+                  "text": "uniform motion in a straight line and\n elliptical orbits of the stars",
+                  "is_correct": false
+                },
+                {
+                  "label": "B",
+                  "id": 25816,
+                  "text": "uniform motion in a straight line and\n circular orbits of the stars",
+                  "is_correct": true
+                },
+                {
+                  "label": "C",
+                  "id": 25819,
+                  "text": "uniform motion in a straight line and\n straight line motion of the stars",
+                  "is_correct": false
+                },
+                {
+                  "label": "D",
+                  "id": 25817,
+                  "text": "uniform motion in a circle and\n circular orbits of the stars",
+                  "is_correct": false
+                }
+              ],
+              "correct_option_ids": [
+                25816
+              ],
+              "correct_option_labels": [
+                "B"
+              ],
+              "correct_option_texts": [
+                "uniform motion in a straight line and\n circular orbits of the stars"
+              ],
+              "explanation": "A double star or visual double is a pair of stars that appear close to each other in the sky as seen from Earth when viewed through an optical telescope.\nIn absence of external force Centre of mass of double star moves like a free particle. In Centre of mass frame both stars moving in a circle about the Centre of mass which is at rest and both star are diametrically opposite to each other.\nThus in our frame of reference, the trajectories of the stars are a combination of\nuniform motion in a straight line of the Centre of mass and \ncircular orbits of the stars about the Centre of mass. \nTrajectories of two stars, S_1 (dotted line) and S_2 (solid line) forming a binary system with their centre of mass C in uniform motion.\nThe same binary system, with the centre of mass C at rest."
+            },
+            {
+              "questionID": 17655,
+              "question": "The vector product of two vectors a and b is a vector c such that the magnitude of c is given by:",
+              "question_raw": "<p>The vector product of two vectors a and b is a vector c such that the magnitude of c is given by:</p>",
+              "options": [
+                {
+                  "label": "A",
+                  "id": 25822,
+                  "text": "$\\left| {\\mathbf{a}} \\right|\\left| {\\mathbf{b}} \\right|$cot$\\theta $",
+                  "is_correct": false
+                },
+                {
+                  "label": "B",
+                  "id": 25821,
+                  "text": "$\\left| {\\mathbf{a}} \\right|\\left| {\\mathbf{b}} \\right|$cos$\\theta $",
+                  "is_correct": false
+                },
+                {
+                  "label": "C",
+                  "id": 25820,
+                  "text": "$\\left| {\\mathbf{a}} \\right|\\left| {\\mathbf{b}} \\right|$sin$\\theta $",
+                  "is_correct": true
+                },
+                {
+                  "label": "D",
+                  "id": 25823,
+                  "text": "$\\left| {\\mathbf{a}} \\right|\\left| {\\mathbf{b}} \\right|$tan$\\theta $",
+                  "is_correct": false
+                }
+              ],
+              "correct_option_ids": [
+                25820
+              ],
+              "correct_option_labels": [
+                "C"
+              ],
+              "correct_option_texts": [
+                "$\\left| {\\mathbf{a}} \\right|\\left| {\\mathbf{b}} \\right|$sin$\\theta $"
+              ],
+              "explanation": "As per the definition of vector product:-\n$\\vec c = \\vec a \\times \\vec b = \\left| {\\vec a} \\right|\\left| {\\vec b} \\right|\\sin \\theta \\hat n$\n$\\left| {\\vec c} \\right| = \\left| {\\vec a} \\right|\\left| {\\vec b} \\right|\\sin \\theta $"
+            },
+            {
+              "questionID": 17656,
+              "question": "The vector product of two vectors a and b is a vector c such that c is perpendicular to the plane containing a and b and the direction is given by:",
+              "question_raw": "<p>The vector product of two vectors a and b is a vector c such that c is perpendicular to the plane containing a and b and the direction is given by:</p>",
+              "options": [
+                {
+                  "label": "A",
+                  "id": 25827,
+                  "text": "index finger rule",
+                  "is_correct": false
+                },
+                {
+                  "label": "B",
+                  "id": 25825,
+                  "text": "left-handed screw rule",
+                  "is_correct": false
+                },
+                {
+                  "label": "C",
+                  "id": 25824,
+                  "text": "right-handed screw rule",
+                  "is_correct": true
+                },
+                {
+                  "label": "D",
+                  "id": 25826,
+                  "text": "left hand rule",
+                  "is_correct": false
+                }
+              ],
+              "correct_option_ids": [
+                25824
+              ],
+              "correct_option_labels": [
+                "C"
+              ],
+              "correct_option_texts": [
+                "right-handed screw rule"
+              ],
+              "explanation": "If vectors A and B lie in the plane of this page, the vector C will be perpendicular to this plane. \nThe sense (upward or downward) of the direction of the vector product is given by the direction of the advance of the tip of a right-handed screw when rotated from A to B through angle $\\theta$ between them, the screw being placed with its axis perpendicular to the plane containing the two vectors."
+            },
+            {
+              "questionID": 17657,
+              "question": "If $\\overrightarrow{\\mathbf{a}}=a_x \\hat{\\mathbf{i}}+a_y \\hat{\\mathbf{j}}+a_z \\hat{\\mathbf{k}}$ and $\\overrightarrow{\\mathbf{b}}=b_x \\hat{\\mathbf{i}}+b_y \\hat{\\mathbf{j}}+b_z \\hat{\\mathbf{k}}$ then the cross product $\\overrightarrow{\\mathbf{a}} \\times \\overrightarrow{\\mathbf{b}}$ is given by:",
+              "question_raw": "<p>If <span class=\"math-tex\">{tex}\\overrightarrow{\\mathbf{a}}=a_x \\hat{\\mathbf{i}}+a_y \\hat{\\mathbf{j}}+a_z \\hat{\\mathbf{k}}{/tex}</span>&nbsp; and <span class=\"math-tex\">{tex}\\overrightarrow{\\mathbf{b}}=b_x \\hat{\\mathbf{i}}+b_y \\hat{\\mathbf{j}}+b_z \\hat{\\mathbf{k}}{/tex}</span>&nbsp;then the cross product <span class=\"math-tex\">{tex}\\overrightarrow{\\mathbf{a}} \\times \\overrightarrow{\\mathbf{b}}{/tex}</span> is given by:</p>",
+              "options": [
+                {
+                  "label": "A",
+                  "id": 25831,
+                  "text": "$\\left| {\\begin{array}{*{20}{c}} {{\\mathbf{\\hat i}}}&{{\\mathbf{\\hat j}}}&{{\\mathbf{\\hat k}}} \\\\ {{{\\text{a}}_{\\text{x}}}}&{{a_x}}&{{a_z}} \\\\ {{b_x}}&{{b_x}}&{{b_z}} \\end{array}} \\right|$",
+                  "is_correct": false
+                },
+                {
+                  "label": "B",
+                  "id": 25829,
+                  "text": "$\\left| {\\begin{array}{*{20}{c}} {{\\mathbf{\\hat i}}}&{{\\mathbf{\\hat j}}}&{{\\mathbf{\\hat k}}} \\\\ {{{\\text{a}}_{\\text{x}}}}&{{a_y}}&{{a_z}} \\\\ {{b_x}}&{{b_x}}&{{b_z}} \\end{array}} \\right|$",
+                  "is_correct": false
+                },
+                {
+                  "label": "C",
+                  "id": 25830,
+                  "text": "$\\left| {\\begin{array}{*{20}{c}} {{\\mathbf{\\hat i}}}&{{\\mathbf{\\hat j}}}&{{\\mathbf{\\hat k}}} \\\\ {{{\\text{a}}_{\\text{x}}}}&{{a_y}}&{{a_z}} \\\\ {{b_x}}&{{b_y}}&{{b_x}} \\end{array}} \\right|$",
+                  "is_correct": false
+                },
+                {
+                  "label": "D",
+                  "id": 25828,
+                  "text": "$\\left| {\\begin{array}{*{20}{c}} {{\\mathbf{\\hat i}}}&{{\\mathbf{\\hat j}}}&{{\\mathbf{\\hat k}}} \\\\ {{{\\text{a}}_{\\text{x}}}}&{{a_y}}&{{a_z}} \\\\ {{b_x}}&{{b_y}}&{{b_z}} \\end{array}} \\right|$",
+                  "is_correct": true
+                }
+              ],
+              "correct_option_ids": [
+                25828
+              ],
+              "correct_option_labels": [
+                "D"
+              ],
+              "correct_option_texts": [
+                "$\\left| {\\begin{array}{*{20}{c}} {{\\mathbf{\\hat i}}}&{{\\mathbf{\\hat j}}}&{{\\mathbf{\\hat k}}} \\\\ {{{\\text{a}}_{\\text{x}}}}&{{a_y}}&{{a_z}} \\\\ {{b_x}}&{{b_y}}&{{b_z}} \\end{array}} \\right|$"
+              ],
+              "explanation": "${\\bf{\\vec a}} \\times {\\bf{\\vec b}}$ = $ \\left( {{a_y}{b_z} - {a_z}{b_y}} \\right){\\bf{\\hat i}} $ - $\\left( {{a_x}{b_z} - {a_z}{b_x}} \\right){\\bf{\\hat j}}$ + $ \\left( {{a_x}{b_y} - {a_y}{b_x}} \\right){\\bf{\\hat k}}$ \nAs the cross product is the determinant of a 3x3 matrix.\n$\\left| {\\begin{array}{*{20}{c}} {{\\mathbf{\\hat i}}}&{{\\mathbf{\\hat j}}}&{{\\mathbf{\\hat k}}} \\\\ {{{\\text{a}}_{\\text{x}}}}&{{a_y}}&{{a_z}} \\\\ {{b_x}}&{{b_y}}&{{b_z}} \\end{array}} \\right|$"
+            },
+            {
+              "questionID": 17658,
+              "question": "If a body is rotating about z-axis with a speed $\\omega $ and a point is at a distance of r in the x-y plane then the velocity of the point is:",
+              "question_raw": "<p>If a body is rotating about z-axis with a speed <span class=\"math-tex\">{tex}\\omega {/tex}</span> and a point is at a distance of r in the x-y plane then the velocity of the point is:</p>",
+              "options": [
+                {
+                  "label": "A",
+                  "id": 25833,
+                  "text": "$2r\\omega $",
+                  "is_correct": false
+                },
+                {
+                  "label": "B",
+                  "id": 25832,
+                  "text": "$r\\omega $",
+                  "is_correct": true
+                },
+                {
+                  "label": "C",
+                  "id": 25834,
+                  "text": "$r\\omega /2$",
+                  "is_correct": false
+                },
+                {
+                  "label": "D",
+                  "id": 25835,
+                  "text": "$3r\\omega $",
+                  "is_correct": false
+                }
+              ],
+              "correct_option_ids": [
+                25832
+              ],
+              "correct_option_labels": [
+                "B"
+              ],
+              "correct_option_texts": [
+                "$r\\omega $"
+              ],
+              "explanation": "the angular displacement of a particle about the z-axis\n$d\\theta = {{ds} \\over r}$ \ndifferentiate with respect to time\n${{d\\theta } \\over {dt}} = {1 \\over r}{{ds} \\over {dt}}$\n${{d\\theta } \\over {dt}} = \\omega$\n${{ds} \\over {dt}} $ = v\n$\\omega = {v \\over r}$\nv = $ r\\omega$"
+            },
+            {
+              "questionID": 17669,
+              "question": "The moment of inertia of a body about any axis is",
+              "question_raw": "<p>The moment of inertia of a body about any axis is</p>",
+              "options": [
+                {
+                  "label": "A",
+                  "id": 25879,
+                  "text": "equal to the sum of the moment of inertia of the body about any axis passing through its centre of mass and the product of its mass and the square of the distance between the two parallel axes.",
+                  "is_correct": false
+                },
+                {
+                  "label": "B",
+                  "id": 25876,
+                  "text": "equal to the sum of the moment of inertia of the body about a parallel axis passing through its centre of mass and the product of its mass and the square of the distance between the two parallel axes.",
+                  "is_correct": true
+                },
+                {
+                  "label": "C",
+                  "id": 25877,
+                  "text": "equal to the difference of the moment of inertia of the body about a parallel axis passing through its centre of mass and the product of its mass and the square of the distance between the two parallel axes.",
+                  "is_correct": false
+                },
+                {
+                  "label": "D",
+                  "id": 25878,
+                  "text": "equal to the average of the moments of inertia of the body about a parallel axis passing through its centre of mass and the product of its mass and the square of the distance between the two parallel axes.",
+                  "is_correct": false
+                }
+              ],
+              "correct_option_ids": [
+                25876
+              ],
+              "correct_option_labels": [
+                "B"
+              ],
+              "correct_option_texts": [
+                "equal to the sum of the moment of inertia of the body about a parallel axis passing through its centre of mass and the product of its mass and the square of the distance between the two parallel axes."
+              ],
+              "explanation": "according to parallel axis theorem the moment of inertia of a body about any axis is equal to the sum of the moment of inertia of the body about a parallel axis passing through its Centre of mass and the product of its mass and the square of the distance between the two parallel axes.\n$I = {I_{cm}} + M{a^2}$"
+            },
+            {
+              "questionID": 17660,
+              "question": "The angular acceleration vector is defined as:",
+              "question_raw": "<p>The angular acceleration vector is defined as:</p>",
+              "options": [
+                {
+                  "label": "A",
+                  "id": 25840,
+                  "text": "$\\alpha=\\frac{d \\omega}{d t}$",
+                  "is_correct": true
+                },
+                {
+                  "label": "B",
+                  "id": 25843,
+                  "text": "$\\alpha=\\frac{d^3 \\omega}{d t^3}$",
+                  "is_correct": false
+                },
+                {
+                  "label": "C",
+                  "id": 25841,
+                  "text": "$\\alpha=2 \\frac{d \\omega}{d t}$",
+                  "is_correct": false
+                },
+                {
+                  "label": "D",
+                  "id": 25842,
+                  "text": "$\\alpha=\\frac{d^2 w}{d t^2}$",
+                  "is_correct": false
+                }
+              ],
+              "correct_option_ids": [
+                25840
+              ],
+              "correct_option_labels": [
+                "A"
+              ],
+              "correct_option_texts": [
+                "$\\alpha=\\frac{d \\omega}{d t}$"
+              ],
+              "explanation": "As per the definition of angular acceleration that \" it is the time rate of change of angular velocity\" , therefore $\\alpha=\\frac{d \\omega}{d t}$"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "testPaperID": 558,
+      "testPaperName": "Particles & Rotational Motion Test 02",
+      "is_paid": true,
+      "category_full_name": "CBSE > Class 11 > Physics > System of Particles and Rotational Motion",
+      "noOfQuestions": 15,
+      "has_answers": true,
+      "sections": [
+        {
+          "sectionName": "General",
+          "sectionID": null,
+          "questions": [
+            {
+              "questionID": 17661,
+              "question": "Torque $\\tau $ is defined in terms of the position vector $r$ and the force acting F as:",
+              "question_raw": "<p>Torque <span class=\"math-tex\">{tex}\\tau {/tex}</span> is defined in terms of the position vector <span class=\"math-tex\">{tex}r{/tex}</span> and the force acting F as:</p>",
+              "options": [
+                {
+                  "label": "A",
+                  "id": 25845,
+                  "text": "$\\tau = r \\times F.r$",
+                  "is_correct": false
+                },
+                {
+                  "label": "B",
+                  "id": 25847,
+                  "text": "$\\tau = F + r$",
+                  "is_correct": false
+                },
+                {
+                  "label": "C",
+                  "id": 25846,
+                  "text": "$\\tau = r.r \\times F$",
+                  "is_correct": false
+                },
+                {
+                  "label": "D",
+                  "id": 25844,
+                  "text": "$\\tau = r \\times F$",
+                  "is_correct": true
+                }
+              ],
+              "correct_option_ids": [
+                25844
+              ],
+              "correct_option_labels": [
+                "D"
+              ],
+              "correct_option_texts": [
+                "$\\tau = r \\times F$"
+              ],
+              "explanation": "Torque = Force $\\times$ Perpendicular distance of the line of action of the force from the axis of rotation. It is also called the moment of force.\nTorque is defined as the cross product of the vector by which the force's application point is offset relative to the fixed suspension point (distance vector) and the force vector, which tends to produce rotational motion.\n$\\vec \\tau = \\vec r \\times \\vec F$"
+            },
+            {
+              "questionID": 17662,
+              "question": "The angular momentum L of the particle having a position vector $r$ and linear momentum $p$, with respect to the origin O is defined to be",
+              "question_raw": "<p>The angular momentum L&nbsp;of the particle having a position vector <span class=\"math-tex\">{tex}r{/tex}</span> and linear momentum <span class=\"math-tex\">{tex}p{/tex}</span>, with respect to the origin O is defined to be</p>",
+              "options": [
+                {
+                  "label": "A",
+                  "id": 25851,
+                  "text": "$\\vec L = \\vec r \\times \\vec p.\\vec \\omega $",
+                  "is_correct": false
+                },
+                {
+                  "label": "B",
+                  "id": 25849,
+                  "text": "$L = \\vec r \\times \\vec p \\times \\vec r$",
+                  "is_correct": false
+                },
+                {
+                  "label": "C",
+                  "id": 25850,
+                  "text": "$\\vec L = \\vec r \\times \\vec r \\times \\vec p$",
+                  "is_correct": false
+                },
+                {
+                  "label": "D",
+                  "id": 25848,
+                  "text": "$\\vec L =\\vec r \\times\\vec p$",
+                  "is_correct": true
+                }
+              ],
+              "correct_option_ids": [
+                25848
+              ],
+              "correct_option_labels": [
+                "D"
+              ],
+              "correct_option_texts": [
+                "$\\vec L =\\vec r \\times\\vec p$"
+              ],
+              "explanation": "Angular momentum is also referred to as a moment of linear momentum\nThe angular momentum L of a particle of mass m with respect to a chosen origin is given by\n$\\vec L = \\vec r \\times \\vec p$ \nThe direction of angular momentum is according to the right-hand rule."
+            },
+            {
+              "questionID": 17663,
+              "question": "Torque $\\tau $ and angular momentum L are related by:",
+              "question_raw": "<p>Torque <span class=\"math-tex\">{tex}\\tau {/tex}</span> and angular momentum L are related by:</p>",
+              "options": [
+                {
+                  "label": "A",
+                  "id": 25852,
+                  "text": "$\\tau=\\frac{d L}{d t}$",
+                  "is_correct": true
+                },
+                {
+                  "label": "B",
+                  "id": 25854,
+                  "text": "$\\tau=\\frac{d^2 L}{d t^2}$",
+                  "is_correct": false
+                },
+                {
+                  "label": "C",
+                  "id": 25853,
+                  "text": "$\\tau=2 \\frac{d L}{d t}$",
+                  "is_correct": false
+                },
+                {
+                  "label": "D",
+                  "id": 25855,
+                  "text": "$\\tau=\\frac{d^3 L}{d t^3}$",
+                  "is_correct": false
+                }
+              ],
+              "correct_option_ids": [
+                25852
+              ],
+              "correct_option_labels": [
+                "A"
+              ],
+              "correct_option_texts": [
+                "$\\tau=\\frac{d L}{d t}$"
+              ],
+              "explanation": "$\\vec L = \\vec r \\times \\vec p$ \non differentiation with respect to time \n$\\frac{d \\vec{L}}{d t}=\\frac{d}{d t}(\\vec{r} \\times \\vec{p})$ \nApplying the product rule for differentiation to the right-hand side,\n$\\frac{d}{d t}(\\vec{r} \\times \\vec{p})=\\left(\\frac{d \\vec{r}}{d t} \\times \\vec{p}\\right)+\\left(\\vec{r} \\times \\frac{d \\vec{p}}{d t}\\right)$\n$\\frac{d \\vec{r}}{d t}=\\vec{v}, \\vec{p}=m \\vec{v}$\n$\\left(\\frac{d \\vec{r}}{d t} \\times \\vec{p}\\right)=\\vec{v} \\times m \\vec{v}=0$\n$\\frac{d \\vec{p}}{d t}=\\vec{F}$\n$\\left(\\vec{r} \\times \\frac{d \\vec{p}}{d t}\\right)=\\vec{r} \\times \\vec{F}=\\vec{\\tau}$\nHence $\\vec{\\tau}=\\frac{d \\vec{L}}{d t}$"
+            },
+            {
+              "questionID": 17664,
+              "question": "A rigid body is in mechanical equilibrium if:",
+              "question_raw": "<p>A rigid body is in mechanical equilibrium if:</p>",
+              "options": [
+                {
+                  "label": "A",
+                  "id": 25859,
+                  "text": "$\\sum F \\ne 0$ and $\\sum \\tau \\ne 0$",
+                  "is_correct": false
+                },
+                {
+                  "label": "B",
+                  "id": 25856,
+                  "text": "$\\sum F = 0$ and $\\sum \\tau = 0$",
+                  "is_correct": true
+                },
+                {
+                  "label": "C",
+                  "id": 25857,
+                  "text": "$\\sum F \\ne 0$ and $\\sum \\tau = 0$",
+                  "is_correct": false
+                },
+                {
+                  "label": "D",
+                  "id": 25858,
+                  "text": "$\\sum F = 0$ and $\\sum \\tau \\ne 0$",
+                  "is_correct": false
+                }
+              ],
+              "correct_option_ids": [
+                25856
+              ],
+              "correct_option_labels": [
+                "B"
+              ],
+              "correct_option_texts": [
+                "$\\sum F = 0$ and $\\sum \\tau = 0$"
+              ],
+              "explanation": "For the mechanical equilibrium of a rigid body, it must be in translational as well as in rotational equilibrium. Linear acceleration and angular acceleration must be zero. Hence net force and net torque will be zero that is $\\sum F = 0$ and $\\sum \\tau = 0$"
+            },
+            {
+              "questionID": 17665,
+              "question": "Centre of gravity can be defined:",
+              "question_raw": "<p>Centre of gravity can be defined:</p>",
+              "options": [
+                {
+                  "label": "A",
+                  "id": 25860,
+                  "text": "as that point where the total gravitational torque on the body is zero",
+                  "is_correct": true
+                },
+                {
+                  "label": "B",
+                  "id": 25863,
+                  "text": "as that point where the total gravitational torque on the body is greater than zero",
+                  "is_correct": false
+                },
+                {
+                  "label": "C",
+                  "id": 25861,
+                  "text": "as the center of mass",
+                  "is_correct": false
+                },
+                {
+                  "label": "D",
+                  "id": 25862,
+                  "text": "as that point where the total gravitational force on the body is zero",
+                  "is_correct": false
+                }
+              ],
+              "correct_option_ids": [
+                25860
+              ],
+              "correct_option_labels": [
+                "A"
+              ],
+              "correct_option_texts": [
+                "as that point where the total gravitational torque on the body is zero"
+              ],
+              "explanation": "The point at which the entire weight of a body may be thought of as centered so that if supported at this point the body would balance perfectly, so it can also be defined as that point where the total gravitational torque on the body is zero."
+            },
+            {
+              "questionID": 17666,
+              "question": "Analogue of mass in rotational motion is:",
+              "question_raw": "<p>Analogue of mass in rotational motion is:</p>",
+              "options": [
+                {
+                  "label": "A",
+                  "id": 25865,
+                  "text": "rotary mass",
+                  "is_correct": false
+                },
+                {
+                  "label": "B",
+                  "id": 25867,
+                  "text": "angular acceleration",
+                  "is_correct": false
+                },
+                {
+                  "label": "C",
+                  "id": 25866,
+                  "text": "torque",
+                  "is_correct": false
+                },
+                {
+                  "label": "D",
+                  "id": 25864,
+                  "text": "moment of inertia",
+                  "is_correct": true
+                }
+              ],
+              "correct_option_ids": [
+                25864
+              ],
+              "correct_option_labels": [
+                "D"
+              ],
+              "correct_option_texts": [
+                "moment of inertia"
+              ],
+              "explanation": "The moment of inertia is a physical quantity that tells how easily a body can be rotated about a given axis. It is a rotational analog of mass. It plays the same role in rotational motion as 'inertia' does in translational motion. A large moment of inertia also helps in keeping the rotation motion uniform."
+            },
+            {
+              "questionID": 17667,
+              "question": "The radius of gyration of a body about an axis may be defined as the",
+              "question_raw": "<p>The radius of gyration of a body about an axis may be defined as the</p>",
+              "options": [
+                {
+                  "label": "A",
+                  "id": 25869,
+                  "text": "distance from the center of gravity to the axis of rotation",
+                  "is_correct": false
+                },
+                {
+                  "label": "B",
+                  "id": 25871,
+                  "text": "distance from the center of gravity to the center of mass",
+                  "is_correct": false
+                },
+                {
+                  "label": "C",
+                  "id": 25870,
+                  "text": "distance from the center of mass to the axis of rotation",
+                  "is_correct": false
+                },
+                {
+                  "label": "D",
+                  "id": 25868,
+                  "text": "distance from the axis of a mass point whose mass is equal to the mass of the whole body and whose moment of inertia is equal to the moment of inertia of the body about the axis",
+                  "is_correct": true
+                }
+              ],
+              "correct_option_ids": [
+                25868
+              ],
+              "correct_option_labels": [
+                "D"
+              ],
+              "correct_option_texts": [
+                "distance from the axis of a mass point whose mass is equal to the mass of the whole body and whose moment of inertia is equal to the moment of inertia of the body about the axis"
+              ],
+              "explanation": "It is the perpendicular distance from the axis of rotation to a point mass of mass m that gives an equivalent inertia to the original object (of mass, m)\nif radius of gyration is k then \n$\\eqalign{ & I = m{k^2} \\cr & k = \\sqrt {{I \\over m}} \\cr} $"
+            },
+            {
+              "questionID": 17668,
+              "question": "The moment of inertia of a planar body (lamina) about an axis perpendicular to its plane is.",
+              "question_raw": "<p>The moment of inertia of a planar body (lamina) about an axis perpendicular to its plane is.</p>",
+              "options": [
+                {
+                  "label": "A",
+                  "id": 25873,
+                  "text": "equal to the its moments of inertia about an axis perpendicular to the axis of rotation axis and lying in the plane of the body",
+                  "is_correct": false
+                },
+                {
+                  "label": "B",
+                  "id": 25874,
+                  "text": "equal to the difference of its moments of inertia about two perpendicular axes concurrent with perpendicular axis and lying in the plane of the body",
+                  "is_correct": false
+                },
+                {
+                  "label": "C",
+                  "id": 25875,
+                  "text": "equal to the average of its moments of inertia about three perpendicular axes concurrent with perpendicular axis and lying in the plane of the body",
+                  "is_correct": false
+                },
+                {
+                  "label": "D",
+                  "id": 25872,
+                  "text": "equal to the sum of its moments of inertia about two perpendicular axes concurrent with perpendicular axis and lying in the plane of the body",
+                  "is_correct": true
+                }
+              ],
+              "correct_option_ids": [
+                25872
+              ],
+              "correct_option_labels": [
+                "D"
+              ],
+              "correct_option_texts": [
+                "equal to the sum of its moments of inertia about two perpendicular axes concurrent with perpendicular axis and lying in the plane of the body"
+              ],
+              "explanation": "According to perpendicular axis theorem \"For a planar object, the moment of inertia about an axis perpendicular to the plane is the sum of the moments of inertia of two perpendicular axes through the same point in the plane of the object\".\n${I_z} = {I_x} + {I_y}$"
+            },
+            {
+              "questionID": 17669,
+              "question": "The moment of inertia of a body about any axis is",
+              "question_raw": "<p>The moment of inertia of a body about any axis is</p>",
+              "options": [
+                {
+                  "label": "A",
+                  "id": 25879,
+                  "text": "equal to the sum of the moment of inertia of the body about any axis passing through its centre of mass and the product of its mass and the square of the distance between the two parallel axes.",
+                  "is_correct": false
+                },
+                {
+                  "label": "B",
+                  "id": 25878,
+                  "text": "equal to the average of the moments of inertia of the body about a parallel axis passing through its centre of mass and the product of its mass and the square of the distance between the two parallel axes.",
+                  "is_correct": false
+                },
+                {
+                  "label": "C",
+                  "id": 25877,
+                  "text": "equal to the difference of the moment of inertia of the body about a parallel axis passing through its centre of mass and the product of its mass and the square of the distance between the two parallel axes.",
+                  "is_correct": false
+                },
+                {
+                  "label": "D",
+                  "id": 25876,
+                  "text": "equal to the sum of the moment of inertia of the body about a parallel axis passing through its centre of mass and the product of its mass and the square of the distance between the two parallel axes.",
+                  "is_correct": true
+                }
+              ],
+              "correct_option_ids": [
+                25876
+              ],
+              "correct_option_labels": [
+                "D"
+              ],
+              "correct_option_texts": [
+                "equal to the sum of the moment of inertia of the body about a parallel axis passing through its centre of mass and the product of its mass and the square of the distance between the two parallel axes."
+              ],
+              "explanation": "according to parallel axis theorem the moment of inertia of a body about any axis is equal to the sum of the moment of inertia of the body about a parallel axis passing through its Centre of mass and the product of its mass and the square of the distance between the two parallel axes.\n$I = {I_{cm}} + M{a^2}$"
+            },
+            {
+              "questionID": 17670,
+              "question": "The angular acceleration of a rigid body ${\\bf{\\alpha }}$ rotating about a fixed axis is given by (I is the moment of inertia and ${\\bf{\\tau }}$ is the torque):",
+              "question_raw": "<p>The angular acceleration of a rigid body <span class=\"math-tex\">{tex}{\\bf{\\alpha }}{/tex}</span> rotating about a fixed axis is given by (I is the moment of inertia and <span class=\"math-tex\">{tex}{\\bf{\\tau }}{/tex}</span> is the torque):</p>",
+              "options": [
+                {
+                  "label": "A",
+                  "id": 25881,
+                  "text": "${\\rm{I}}\\alpha $ = ${\\rm{2}}\\tau $",
+                  "is_correct": false
+                },
+                {
+                  "label": "B",
+                  "id": 25883,
+                  "text": "${\\rm{I}}\\alpha $ = $\\frac{\\tau}{\\rm{3}}$",
+                  "is_correct": false
+                },
+                {
+                  "label": "C",
+                  "id": 25880,
+                  "text": "${\\rm{I}}\\alpha $ = ${\\bf{\\tau }}$",
+                  "is_correct": true
+                },
+                {
+                  "label": "D",
+                  "id": 25882,
+                  "text": "${\\rm{I}}\\alpha $ = $\\frac{\\tau}{\\rm{2}}$",
+                  "is_correct": false
+                }
+              ],
+              "correct_option_ids": [
+                25880
+              ],
+              "correct_option_labels": [
+                "C"
+              ],
+              "correct_option_texts": [
+                "${\\rm{I}}\\alpha $ = ${\\bf{\\tau }}$"
+              ],
+              "explanation": "$L = I\\omega $ \ndifferentiate with respect to time\n$\\frac{d L}{d t}=I \\frac{d \\omega}{d t}$\n$\\frac{d L}{d t}=\\tau$ \n$\\frac{d \\omega}{d t}=\\alpha$\n$\\tau $ = $ I\\alpha$"
+            },
+            {
+              "questionID": 17671,
+              "question": "For rolling motion without slipping the kinetic energy of the body is:",
+              "question_raw": "<p>For rolling motion without slipping the kinetic energy of the body is:</p>",
+              "options": [
+                {
+                  "label": "A",
+                  "id": 25885,
+                  "text": "equal to the difference of kinetic energies of translation and rotation",
+                  "is_correct": false
+                },
+                {
+                  "label": "B",
+                  "id": 25884,
+                  "text": "equal to the sum of kinetic energies of translation and rotation",
+                  "is_correct": true
+                },
+                {
+                  "label": "C",
+                  "id": 25886,
+                  "text": "equal to the kinetic energy of translation",
+                  "is_correct": false
+                },
+                {
+                  "label": "D",
+                  "id": 25887,
+                  "text": "equal to the kinetic energy of rotation",
+                  "is_correct": false
+                }
+              ],
+              "correct_option_ids": [
+                25884
+              ],
+              "correct_option_labels": [
+                "B"
+              ],
+              "correct_option_texts": [
+                "equal to the sum of kinetic energies of translation and rotation"
+              ],
+              "explanation": "Rolling motion without slipping involves both translation motion and rotation motion. Hence kinetic energy of the body in rolling motion is the sum of both translation kinetic energy and rotational kinetic energy.\nK = K_trans + K_rot\n K = $ {1 \\over 2}I{\\omega ^2} + {1 \\over 2}m{v^2} $"
+            },
+            {
+              "questionID": 17672,
+              "question": "A solid sphere of mass M and radius R spins about an axis passing through its centre making 600 rpm. Its kinetic energy of rotation is:",
+              "question_raw": "<p>A solid sphere of mass M and radius R spins about an axis passing through its centre making 600 rpm. Its kinetic energy of rotation is:</p>",
+              "options": [
+                {
+                  "label": "A",
+                  "id": 25891,
+                  "text": "80$\\pi$MR",
+                  "is_correct": false
+                },
+                {
+                  "label": "B",
+                  "id": 25889,
+                  "text": "$\\frac{2}{5} {\\pi^2}$MR",
+                  "is_correct": false
+                },
+                {
+                  "label": "C",
+                  "id": 25888,
+                  "text": "80$\\pi$^2MR^2",
+                  "is_correct": true
+                },
+                {
+                  "label": "D",
+                  "id": 25890,
+                  "text": "$\\frac{2}{5} \\pi \\mathrm{M}^2 \\mathrm{R}^2$",
+                  "is_correct": false
+                }
+              ],
+              "correct_option_ids": [
+                25888
+              ],
+              "correct_option_labels": [
+                "C"
+              ],
+              "correct_option_texts": [
+                "80$\\pi$^2MR^2"
+              ],
+              "explanation": "The kinetic energy of rotation\nK =$\\frac{1}{2} I \\omega^2$ \n$n = \\frac{600} {60} = 10$ revolution per second\nangular velocity $\\omega = 2\\pi n $ = 2$\\pi$ $\\times$ 10 = 20 rad/sec\nmoment of inertia about an axis passing through centre of a solid sphere\n$I =\\frac {2}{ 5}M{R^2}$ \nThe kinetic energy of rotation\n$K=\\frac{1}{2} I \\omega^2=\\frac{1}{2} \\times \\frac{2}{5} M R^2 \\times(20 \\pi)^2$ = 80$\\pi$^2MR^2"
+            },
+            {
+              "questionID": 17673,
+              "question": "A child swinging on a swing in a sitting position stands up. Then, the time period of the swing will:",
+              "question_raw": "<p>A child swinging on a swing in a sitting position stands up. Then, the time period of the swing will:</p>",
+              "options": [
+                {
+                  "label": "A",
+                  "id": 25892,
+                  "text": "Decrease",
+                  "is_correct": true
+                },
+                {
+                  "label": "B",
+                  "id": 25895,
+                  "text": "Increase if the child is tall and decreases if the child is short",
+                  "is_correct": false
+                },
+                {
+                  "label": "C",
+                  "id": 25894,
+                  "text": "Remains the same",
+                  "is_correct": false
+                },
+                {
+                  "label": "D",
+                  "id": 25893,
+                  "text": "Increase",
+                  "is_correct": false
+                }
+              ],
+              "correct_option_ids": [
+                25892
+              ],
+              "correct_option_labels": [
+                "A"
+              ],
+              "correct_option_texts": [
+                "Decrease"
+              ],
+              "explanation": "As the child stand up then Centre of mass is shifted in upwards direction from the sitting position of the child, thus decreasing the effective length of the swing, so as the time period is proportional to the square root of length, thus time period decreases.\ntime period \n$T = 2\\pi \\sqrt {{l \\over g}} $\n$T \\propto \\sqrt l $\nThe time period of swing decreases as effective length decreases."
+            },
+            {
+              "questionID": 17674,
+              "question": "Angular momentum is:",
+              "question_raw": "<p>Angular momentum is:</p>",
+              "options": [
+                {
+                  "label": "A",
+                  "id": 25897,
+                  "text": "A scalar",
+                  "is_correct": false
+                },
+                {
+                  "label": "B",
+                  "id": 25899,
+                  "text": "A plain",
+                  "is_correct": false
+                },
+                {
+                  "label": "C",
+                  "id": 25896,
+                  "text": "An axial-vector",
+                  "is_correct": true
+                },
+                {
+                  "label": "D",
+                  "id": 25898,
+                  "text": "A polar vector",
+                  "is_correct": false
+                }
+              ],
+              "correct_option_ids": [
+                25896
+              ],
+              "correct_option_labels": [
+                "C"
+              ],
+              "correct_option_texts": [
+                "An axial-vector"
+              ],
+              "explanation": "The axial vector represents the rotational effect and is always along the axis of rotation. The direction of angular momentum always along the axis of rotation in accordance with the right-hand screw rule. Hence angular momentum is an axial vector.\n$\\vec L = \\vec r \\times \\vec p$"
+            },
+            {
+              "questionID": 17675,
+              "question": "Angular momentum of a body is defined as the product of:",
+              "question_raw": "<p>Angular momentum of a body is defined as the product of:</p>",
+              "options": [
+                {
+                  "label": "A",
+                  "id": 25903,
+                  "text": "Linear velocity and angular velocity",
+                  "is_correct": false
+                },
+                {
+                  "label": "B",
+                  "id": 25900,
+                  "text": "Moment of inertia and angular velocity",
+                  "is_correct": true
+                },
+                {
+                  "label": "C",
+                  "id": 25901,
+                  "text": "Mass and angular velocity",
+                  "is_correct": false
+                },
+                {
+                  "label": "D",
+                  "id": 25902,
+                  "text": "Centripetal force and radius",
+                  "is_correct": false
+                }
+              ],
+              "correct_option_ids": [
+                25900
+              ],
+              "correct_option_labels": [
+                "B"
+              ],
+              "correct_option_texts": [
+                "Moment of inertia and angular velocity"
+              ],
+              "explanation": "$\\vec L = \\vec r \\times \\vec p$ \nif r is the perpendicular to P (in case of circular motion)\nL = mvr\nL = $ m\\left( {r\\omega } \\right)r = m{r^2}\\omega$\n L = $ I\\omega$"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "testPaperID": 559,
+      "testPaperName": "Particles & Rotational Motion Test 03",
+      "is_paid": true,
+      "category_full_name": "CBSE > Class 11 > Physics > System of Particles and Rotational Motion",
+      "noOfQuestions": 15,
+      "has_answers": true,
+      "sections": [
+        {
+          "sectionName": "General",
+          "sectionID": null,
+          "questions": [
+            {
+              "questionID": 17676,
+              "question": "The radius of gyration of a circular loop of radius r and mass m rotating about its diameter as the axis is:",
+              "question_raw": "<p>The radius of gyration of a circular loop of radius r and mass m rotating about its diameter as the axis is:</p>",
+              "options": [
+                {
+                  "label": "A",
+                  "id": 25906,
+                  "text": "$\\frac{R}{2}$",
+                  "is_correct": false
+                },
+                {
+                  "label": "B",
+                  "id": 25905,
+                  "text": "$\\frac{\\sqrt2}{R}$",
+                  "is_correct": false
+                },
+                {
+                  "label": "C",
+                  "id": 25907,
+                  "text": "R",
+                  "is_correct": false
+                },
+                {
+                  "label": "D",
+                  "id": 25904,
+                  "text": "$\\frac{R}{\\sqrt2}$",
+                  "is_correct": true
+                }
+              ],
+              "correct_option_ids": [
+                25904
+              ],
+              "correct_option_labels": [
+                "D"
+              ],
+              "correct_option_texts": [
+                "$\\frac{R}{\\sqrt2}$"
+              ],
+              "explanation": "Moment of inertia of ring or circular loop about an axis passing through centre of mass and perpendicular to the plane is MR^2,\nApplying perpendicular axis theorem \nI_z = I_x + I_y\nMR^2 = I + I\nI = $\\frac {1}{2}M{R^2}$\nHere I = Moment of inertia about an axis passing through diameter\nA moment of inertia in terms of the radius of gyration (k) is Mk^2\nI = Mk^2\n$\\frac{1}{2}$MR^2 = Mk^2\nk = $\\frac{R}{\\sqrt2}$"
+            },
+            {
+              "questionID": 17677,
+              "question": "In an orbital motion, the angular momentum vector is:",
+              "question_raw": "<p>In an orbital motion, the angular momentum vector is:</p>",
+              "options": [
+                {
+                  "label": "A",
+                  "id": 25908,
+                  "text": "perpendicular to the orbital plane",
+                  "is_correct": true
+                },
+                {
+                  "label": "B",
+                  "id": 25910,
+                  "text": "parallel to the linear momentum",
+                  "is_correct": false
+                },
+                {
+                  "label": "C",
+                  "id": 25911,
+                  "text": "along the radius vector",
+                  "is_correct": false
+                },
+                {
+                  "label": "D",
+                  "id": 25909,
+                  "text": "in the orbital plane",
+                  "is_correct": false
+                }
+              ],
+              "correct_option_ids": [
+                25908
+              ],
+              "correct_option_labels": [
+                "A"
+              ],
+              "correct_option_texts": [
+                "perpendicular to the orbital plane"
+              ],
+              "explanation": "$\\vec L = \\vec r \\times \\vec p = m\\left( {\\vec r \\times \\vec v} \\right)$ \nHence the direction of angular momentum $\\vec L$ is perpendicular to both $\\vec r$ and $\\vec v$ that is perpendicular to the orbital plane."
+            },
+            {
+              "questionID": 17678,
+              "question": "The moment of inertia of a circular disc of mass M and radius R rotating about an axis passing through its edge and perpendicular to the plane of the disc is:",
+              "question_raw": "<p>The moment of inertia of a circular disc of mass M and radius R rotating about an axis passing through its edge and perpendicular to the plane of the disc is:</p>",
+              "options": [
+                {
+                  "label": "A",
+                  "id": 25913,
+                  "text": "MR^2",
+                  "is_correct": false
+                },
+                {
+                  "label": "B",
+                  "id": 25914,
+                  "text": "2MR^2",
+                  "is_correct": false
+                },
+                {
+                  "label": "C",
+                  "id": 25915,
+                  "text": "$\\frac{\\mathrm{MR}^2}{2}$",
+                  "is_correct": false
+                },
+                {
+                  "label": "D",
+                  "id": 25912,
+                  "text": "$\\frac{3 \\mathrm{MR}^2}{2}$",
+                  "is_correct": true
+                }
+              ],
+              "correct_option_ids": [
+                25912
+              ],
+              "correct_option_labels": [
+                "D"
+              ],
+              "correct_option_texts": [
+                "$\\frac{3 \\mathrm{MR}^2}{2}$"
+              ],
+              "explanation": "Moment of inertia of a disc about an axis passing through Centre of mass and perpendicular to the plane\n${I_{cm}} = \\frac{1}{2}M{R^2}$}\nif I = Moment of inertia of a disc about an axis passing through its edge and perpendicular to the plane\napplying parallel axis theorem\nI = I_cm + MR^2\nI = $\\frac{1}{2}$MR^2 + MR^2\nI = $\\frac{3}{2}$MR^2"
+            },
+            {
+              "questionID": 17679,
+              "question": "A constant torque acting on a uniform circular wheel changes its angular momentum from A_0 to 4A_0 in 4 seconds. The magnitude of the torque is:",
+              "question_raw": "<p>A constant torque acting on a uniform circular wheel changes its angular momentum from A<sub>0</sub> to 4A<sub>0</sub> in 4 seconds. The magnitude of the torque is:</p>",
+              "options": [
+                {
+                  "label": "A",
+                  "id": 25918,
+                  "text": "$\\frac{4{\\rm{A}}_0}{3}$",
+                  "is_correct": false
+                },
+                {
+                  "label": "B",
+                  "id": 25916,
+                  "text": "$\\frac{3{\\rm{A}}_0} {4}$",
+                  "is_correct": true
+                },
+                {
+                  "label": "C",
+                  "id": 25919,
+                  "text": "12 A_0",
+                  "is_correct": false
+                },
+                {
+                  "label": "D",
+                  "id": 25917,
+                  "text": "A_0",
+                  "is_correct": false
+                }
+              ],
+              "correct_option_ids": [
+                25916
+              ],
+              "correct_option_labels": [
+                "B"
+              ],
+              "correct_option_texts": [
+                "$\\frac{3{\\rm{A}}_0} {4}$"
+              ],
+              "explanation": "$\\tau=\\frac{\\Delta L}{\\Delta t}=\\frac{L_f-L_i}{\\Delta t}$\nL_f = 4A_0\nL_i = A_0\n$\\Delta t $ = 4 sec\n$\\tau=\\frac{4 A_0-A_0}{4}=\\frac{3 A_0}{4}$"
+            },
+            {
+              "questionID": 17680,
+              "question": "The moment of inertia of a circular ring about an axis passing through its centre and normal to its plane is 200 gm cm^2. Then its moment of inertia about diameter is:",
+              "question_raw": "<p>The moment of inertia of a circular ring about an axis passing through its centre and normal to its plane is 200 gm cm<sup>2</sup>. Then its moment of inertia about diameter is:</p>\r\n",
+              "options": [
+                {
+                  "label": "A",
+                  "id": 25921,
+                  "text": "200 gm cm^2",
+                  "is_correct": false
+                },
+                {
+                  "label": "B",
+                  "id": 25920,
+                  "text": "100 gm cm^2",
+                  "is_correct": true
+                },
+                {
+                  "label": "C",
+                  "id": 25923,
+                  "text": "400 gm cm^2",
+                  "is_correct": false
+                },
+                {
+                  "label": "D",
+                  "id": 25922,
+                  "text": "300 gm cm^2",
+                  "is_correct": false
+                }
+              ],
+              "correct_option_ids": [
+                25920
+              ],
+              "correct_option_labels": [
+                "B"
+              ],
+              "correct_option_texts": [
+                "100 gm cm^2"
+              ],
+              "explanation": "applying perpendicular axis theorem\nI_z = I_x + Iy\nI_z = 200\n200 = I + I\n2I = 200\nI = 100\nI = moment of inertia about an axis passing through diameter\nI = 100 gm cm^2"
+            },
+            {
+              "questionID": 17681,
+              "question": "A dancer on ice spins faster when she folds her hands. This is due to:",
+              "question_raw": "<p>A dancer on ice spins faster when she folds her hands. This is due to:</p>",
+              "options": [
+                {
+                  "label": "A",
+                  "id": 25924,
+                  "text": "constant angular momentum and an increase in kinetic energy",
+                  "is_correct": true
+                },
+                {
+                  "label": "B",
+                  "id": 25927,
+                  "text": "increase in energy and decrease in angular momentum",
+                  "is_correct": false
+                },
+                {
+                  "label": "C",
+                  "id": 25925,
+                  "text": "increase in energy and an increase in angular momentum",
+                  "is_correct": false
+                },
+                {
+                  "label": "D",
+                  "id": 25926,
+                  "text": "the decrease in friction at the skates",
+                  "is_correct": false
+                }
+              ],
+              "correct_option_ids": [
+                25924
+              ],
+              "correct_option_labels": [
+                "A"
+              ],
+              "correct_option_texts": [
+                "constant angular momentum and an increase in kinetic energy"
+              ],
+              "explanation": "L =$ I\\omega $ \nif L = const.\nthen $I\\omega $ = const.\nWhen a dancer is spinning, she has a certain angular momentum. When the dancer folds her arms, the distance of all the points of her body decreases with respect to axis of rotation so that her moment of inertia decreases. Thus, in order to conserve angular momentum, the speed of rotation has to increase and hence the dancer spins faster.\n$K = {{{L^2}} \\over {2I}}$\n$\r\n K \\propto {1 \\over I} $ \nHence if the moment of inertia decrease then kinetic energy will increase."
+            },
+            {
+              "questionID": 17682,
+              "question": "A uniform rod of mass 2 kg is 1 meter long. Its radius of gyration about an axis through its one end and perpendicular to its length in SI units is:",
+              "question_raw": "<p>A uniform rod of mass 2 kg is 1 meter long. Its radius of gyration about an axis through its one end and perpendicular to its length in SI units is:</p>",
+              "options": [
+                {
+                  "label": "A",
+                  "id": 25930,
+                  "text": "$\\frac{2}{3}$",
+                  "is_correct": false
+                },
+                {
+                  "label": "B",
+                  "id": 25928,
+                  "text": "$\\frac{1}{\\sqrt 3}$",
+                  "is_correct": true
+                },
+                {
+                  "label": "C",
+                  "id": 25929,
+                  "text": "$\\frac{1}{2\\sqrt 3}$",
+                  "is_correct": false
+                },
+                {
+                  "label": "D",
+                  "id": 25931,
+                  "text": "$\\frac{2}{ \\sqrt 3}$",
+                  "is_correct": false
+                }
+              ],
+              "correct_option_ids": [
+                25928
+              ],
+              "correct_option_labels": [
+                "B"
+              ],
+              "correct_option_texts": [
+                "$\\frac{1}{\\sqrt 3}$"
+              ],
+              "explanation": "Moment of inertia of the rod about an axis through its one end and perpendicular to its length\n$I = \\frac{M{L^2}}{3}$ \nM = 2 Kg\nL = 1 m\nMoment of inertia of rod in terms of the radius of gyration\nI = Mk^2\n$\\frac{M{L^2}}{3} = M{k^2}$\n$k=\\sqrt{\\frac{L^2}{3}}=\\frac{L}{\\sqrt{3}}=\\frac{1}{\\sqrt{3}}$"
+            },
+            {
+              "questionID": 17683,
+              "question": "Two discs of the same mass and same thickness t are made from two different materials of densities d_1 and d_2 respectively. The ratio of the moments of inertia of the two about an axis passing through the centre and perpendicular to the plane of the lamina is:",
+              "question_raw": "<p>Two discs of the same mass and same thickness t are made from two different materials of densities d<sub>1&nbsp;</sub>and d<sub>2</sub> respectively. The ratio of the moments of inertia of the two about an axis passing through the centre and perpendicular to the plane of the lamina is:</p>\r\n",
+              "options": [
+                {
+                  "label": "A",
+                  "id": 25935,
+                  "text": "1: d_1d_2",
+                  "is_correct": false
+                },
+                {
+                  "label": "B",
+                  "id": 25933,
+                  "text": "d_1 : d_2",
+                  "is_correct": false
+                },
+                {
+                  "label": "C",
+                  "id": 25932,
+                  "text": "d_2 : d_1",
+                  "is_correct": true
+                },
+                {
+                  "label": "D",
+                  "id": 25934,
+                  "text": "$\\frac{\\mathrm{d}_1}{\\mathrm{~d}_2}$: 1",
+                  "is_correct": false
+                }
+              ],
+              "correct_option_ids": [
+                25932
+              ],
+              "correct_option_labels": [
+                "C"
+              ],
+              "correct_option_texts": [
+                "d_2 : d_1"
+              ],
+              "explanation": "if V = volume of disc (At), A = area of disc = $\\pi$r^2, t = thickness of disc, M = mass of disc, d = density of material of disc\n$V = \\frac{M}{d}$\nAt = $\\frac{M}{d}$\n$\\pi r^{2} t=\\frac{M}{d}$\n$r^{2}=\\frac{M}{\\pi d_{1} t}$\nr^2 $ \\propto \\frac{1}{d}$\n$\\left(\\frac{r_{1}}{r_{2}}\\right)^{2}=\\frac{d_{2}}{d_{1}}$\n$\\frac{I_{1}}{I_{2}}=\\frac{\\frac{1}{2} M r_{1}^{2}}{\\frac{1}{2} M r_{2}^{2}}=\\left(\\frac{r_{1}}{r_{2}}\\right)^{2}=\\frac{d_{2}}{d_{1}}$\nI_1:I_2 = d_2:d_1"
+            },
+            {
+              "questionID": 17684,
+              "question": "Four spheres each of mass M and radius R are placed with their centers on the four corners of a square of side 'b'. The moment of inertia of the system about any side of the square is:",
+              "question_raw": "<p>Four spheres each of mass M and radius R are placed with their centers on the four corners of a square of side &#39;b&#39;. The moment of inertia of the system about any side of the square is:</p>",
+              "options": [
+                {
+                  "label": "A",
+                  "id": 25937,
+                  "text": "$\\frac{8}{5}{\\rm{M}}{{\\rm{R}}^{\\rm{2}}}$ + Mb^2",
+                  "is_correct": false
+                },
+                {
+                  "label": "B",
+                  "id": 25938,
+                  "text": "$\\frac{8}{5}{\\rm{M}}{{\\rm{R}}^{\\rm{2}}}$ + 4Mb^2",
+                  "is_correct": false
+                },
+                {
+                  "label": "C",
+                  "id": 25939,
+                  "text": "$\\frac{4}{3}{\\rm{M}}{{\\rm{R}}^{\\rm{2}}}$ + 2Mb^2",
+                  "is_correct": false
+                },
+                {
+                  "label": "D",
+                  "id": 25936,
+                  "text": "$\\frac{8}{5} $${\\rm{M}}{{\\rm{R}}^{\\rm{2}}}$ + 2Mb^2",
+                  "is_correct": true
+                }
+              ],
+              "correct_option_ids": [
+                25936
+              ],
+              "correct_option_labels": [
+                "D"
+              ],
+              "correct_option_texts": [
+                "$\\frac{8}{5} $${\\rm{M}}{{\\rm{R}}^{\\rm{2}}}$ + 2Mb^2"
+              ],
+              "explanation": "The moment of inertia of the system about any side of the square is\nI = I_1 + I_2 + I_3 + I_4\nI = $\\frac {2}{5}M{R^2} + \\frac{2}{5}M{R^2}$ + $\\left(\\frac{2}{5} M R^2+M b^2\\right)$ + $\\left(\\frac{2}{5} M R^2+M b^2\\right)$\nI = $\\frac{8}{5}$MR^2 + 2Mb^2"
+            },
+            {
+              "questionID": 17685,
+              "question": "When a mass is rotating in a plane about a fixed point, its angular momentum is directed along:",
+              "question_raw": "<p>When a mass is rotating in a plane about a fixed point, its angular momentum is directed along:</p>",
+              "options": [
+                {
+                  "label": "A",
+                  "id": 25940,
+                  "text": "the axis of rotation",
+                  "is_correct": true
+                },
+                {
+                  "label": "B",
+                  "id": 25941,
+                  "text": "the radius",
+                  "is_correct": false
+                },
+                {
+                  "label": "C",
+                  "id": 25943,
+                  "text": "a line at an angle of 45^o to the plane of rotation",
+                  "is_correct": false
+                },
+                {
+                  "label": "D",
+                  "id": 25942,
+                  "text": "the tangent to the orbit",
+                  "is_correct": false
+                }
+              ],
+              "correct_option_ids": [
+                25940
+              ],
+              "correct_option_labels": [
+                "A"
+              ],
+              "correct_option_texts": [
+                "the axis of rotation"
+              ],
+              "explanation": "$\\vec L = \\vec r \\times \\vec p = m\\left( {\\vec r \\times \\vec v} \\right)$ \nHence the direction of the angular vector $\\vec L$ is perpendicular to both $\\vec r$ and $\\vec v$ that is along the axis of rotation according to the right-hand screw rule."
+            },
+            {
+              "questionID": 17686,
+              "question": "A mass is revolving in a circle, which is in the plane of the paper. The direction of angular acceleration if any, is:",
+              "question_raw": "<p>A mass is revolving in a circle, which is in the plane of the paper. The direction of angular acceleration if any, is:</p>",
+              "options": [
+                {
+                  "label": "A",
+                  "id": 25946,
+                  "text": "Towards the radius",
+                  "is_correct": false
+                },
+                {
+                  "label": "B",
+                  "id": 25945,
+                  "text": "Tangential",
+                  "is_correct": false
+                },
+                {
+                  "label": "C",
+                  "id": 25947,
+                  "text": "Upward from the plane of the paper",
+                  "is_correct": false
+                },
+                {
+                  "label": "D",
+                  "id": 25944,
+                  "text": "At right angles to the plane of the paper",
+                  "is_correct": true
+                }
+              ],
+              "correct_option_ids": [
+                25944
+              ],
+              "correct_option_labels": [
+                "D"
+              ],
+              "correct_option_texts": [
+                "At right angles to the plane of the paper"
+              ],
+              "explanation": "Angular acceleration is an axial vector. It is always directed along the axis of rotation according to the right-hand screw rule. Hence the direction of the angular acceleration vector is perpendicular to the plane in which the rotation takes place."
+            },
+            {
+              "questionID": 17687,
+              "question": "Which of the following has the largest moment of inertia?",
+              "question_raw": "<p>Which of the following has the largest moment of inertia?</p>\r\n",
+              "options": [
+                {
+                  "label": "A",
+                  "id": 25949,
+                  "text": "Disc of mass M and radius R about an axis perpendicular to its plane",
+                  "is_correct": false
+                },
+                {
+                  "label": "B",
+                  "id": 25948,
+                  "text": "Ring of mass M and radius R about an axis perpendicular to its plane",
+                  "is_correct": true
+                },
+                {
+                  "label": "C",
+                  "id": 25950,
+                  "text": "A solid sphere of mass M and radius R about an axis passing through its centre of mass",
+                  "is_correct": false
+                },
+                {
+                  "label": "D",
+                  "id": 25951,
+                  "text": "Bar magnet of mass M and length R about an axis passing through its centre of mass",
+                  "is_correct": false
+                }
+              ],
+              "correct_option_ids": [
+                25948
+              ],
+              "correct_option_labels": [
+                "B"
+              ],
+              "correct_option_texts": [
+                "Ring of mass M and radius R about an axis perpendicular to its plane"
+              ],
+              "explanation": "I_Ring = MR^2\nI_disc = $1\\over 2$MR^2\nI_sphere = $2\\over 5$MR^2\nI_rod=$MR^2\\over 12$\nHence the ring has the largest moment of inertia."
+            },
+            {
+              "questionID": 17688,
+              "question": "A spherical solid ball of 1 kg. mass and radius 3 cm is rotating about an axis passing through its centre with an angular velocity of 50 radians/s. The kinetic energy of rotation is",
+              "question_raw": "<p>A spherical solid ball of 1 kg. mass and radius 3 cm is rotating about an axis passing through its centre with an angular velocity of 50 radians/s. The kinetic energy of rotation is</p>",
+              "options": [
+                {
+                  "label": "A",
+                  "id": 25953,
+                  "text": "920 J",
+                  "is_correct": false
+                },
+                {
+                  "label": "B",
+                  "id": 25954,
+                  "text": "910 J",
+                  "is_correct": false
+                },
+                {
+                  "label": "C",
+                  "id": 25952,
+                  "text": "$9\\over20$ J",
+                  "is_correct": true
+                },
+                {
+                  "label": "D",
+                  "id": 25955,
+                  "text": "45000 J",
+                  "is_correct": false
+                }
+              ],
+              "correct_option_ids": [
+                25952
+              ],
+              "correct_option_labels": [
+                "C"
+              ],
+              "correct_option_texts": [
+                "$9\\over20$ J"
+              ],
+              "explanation": "M = 1Kg\nR = 3cm = 3 $\\times$ 10^-2m\n$\\omega$ = 50rad/s\nK = $\\frac{1}{2} I \\omega^{2}=\\frac{1}{2} \\times \\frac{2}{5} M R^{2} \\times \\omega^{2}$\nK = $\\frac12 \\times\\frac25$ $\\times$1 $\\times$(3 $\\times$10^−2)^2 $\\times$50 $\\times$50 = $9 \\over {20}$J"
+            },
+            {
+              "questionID": 17389,
+              "question": "A jet airplane travelling at the speed of 500 kmh^–1 ejects its products of combustion at the speed of 1500 km h^–1 relative to the jet plane. What is the speed of the combustion with respect to an observer on ground?",
+              "question_raw": "<p>A jet airplane travelling at the speed of 500 kmh<sup>&ndash;1 </sup>ejects its products of combustion at the speed of 1500 km h<sup>&ndash;1</sup> relative to the jet plane. What is the speed of the combustion with respect to an observer on ground?</p>",
+              "options": [
+                {
+                  "label": "A",
+                  "id": 24757,
+                  "text": "-1000 km/h",
+                  "is_correct": true
+                },
+                {
+                  "label": "B",
+                  "id": 24759,
+                  "text": "-2550 km/h",
+                  "is_correct": false
+                },
+                {
+                  "label": "C",
+                  "id": 24756,
+                  "text": "-1250 km/h",
+                  "is_correct": false
+                },
+                {
+                  "label": "D",
+                  "id": 24758,
+                  "text": "-2000 km/h",
+                  "is_correct": false
+                }
+              ],
+              "correct_option_ids": [
+                24757
+              ],
+              "correct_option_labels": [
+                "A"
+              ],
+              "correct_option_texts": [
+                "-1000 km/h"
+              ],
+              "explanation": "Speed of the jet airplane, v_jet = 500 km/h\nRelative speed of its products of combustion with respect to the plane, v_smoke = – 1500 km/h\nSpeed of its products of combustion with respect to the ground = v′_smoke\nRelative speed of its products of combustion with respect to the airplane, v_smoke = v′_smoke – v_jet\n$\\Rightarrow$ – 1500 = v′_smoke – 500\n$\\Rightarrow$ v′_smoke = – 1000 km/h\nThe negative sign indicates that the direction of its products of combustion is opposite to the direction of motion of the jet airplane."
+            },
+            {
+              "questionID": 17690,
+              "question": "If a gymnast sitting on a rotating stool with his arms outstretched, suddenly lowers his hands:",
+              "question_raw": "<p>If a gymnast sitting on a rotating stool with his arms outstretched, suddenly lowers his hands:</p>",
+              "options": [
+                {
+                  "label": "A",
+                  "id": 25960,
+                  "text": "His moment of inertia decreases",
+                  "is_correct": true
+                },
+                {
+                  "label": "B",
+                  "id": 25961,
+                  "text": "The angular velocity decreases",
+                  "is_correct": false
+                },
+                {
+                  "label": "C",
+                  "id": 25962,
+                  "text": "The angular velocity stays constant",
+                  "is_correct": false
+                },
+                {
+                  "label": "D",
+                  "id": 25963,
+                  "text": "The angular momentum increases",
+                  "is_correct": false
+                }
+              ],
+              "correct_option_ids": [
+                25960
+              ],
+              "correct_option_labels": [
+                "A"
+              ],
+              "correct_option_texts": [
+                "His moment of inertia decreases"
+              ],
+              "explanation": "When gymnast lowers his hand the distance of the mass from rotational axis decrease. Hence his moment of inertia decreases and angular velocity increases to conserve angular momentum."
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "testPaperID": 560,
+      "testPaperName": "Particles & Rotational Motion Test 04",
+      "is_paid": true,
+      "category_full_name": "CBSE > Class 11 > Physics > System of Particles and Rotational Motion",
+      "noOfQuestions": 15,
+      "has_answers": true,
+      "sections": [
+        {
+          "sectionName": "General",
+          "sectionID": null,
+          "questions": [
+            {
+              "questionID": 17691,
+              "question": "A planet is revolving around the sun in an elliptical orbit. The maximum and the minimum distances of the planet from the sun are 3 $ \\times $ ${\\rm{1}}{0^{{\\rm{12}}}}$ m and 2 $ \\times $ ${\\rm{1}}{0^{{\\rm{10}}}}$ m respectively. The speed of the planet when it is nearest to sun is 2 $ \\times $ ${\\rm{1}}{0^{{\\rm{7}}}}$ m/sec. What is the speed of the planet when it is farthest from the sun?",
+              "question_raw": "<p>A planet is revolving around the sun in an elliptical orbit. The maximum and the minimum distances of the planet from the sun are 3 <span class=\"math-tex\">{tex} \\times {/tex}</span> <span class=\"math-tex\">{tex}{\\rm{1}}{0^{{\\rm{12}}}}{/tex}</span> m and 2 <span class=\"math-tex\">{tex} \\times {/tex}</span> <span class=\"math-tex\">{tex}{\\rm{1}}{0^{{\\rm{10}}}}{/tex}</span> m respectively. The speed of the planet when it is nearest to sun is 2 <span class=\"math-tex\">{tex} \\times {/tex}</span> <span class=\"math-tex\">{tex}{\\rm{1}}{0^{{\\rm{7}}}}{/tex}</span> m/sec. What is the speed of the planet when it is farthest from the sun?</p>",
+              "options": [
+                {
+                  "label": "A",
+                  "id": 25967,
+                  "text": "2.66 $ \\times $ ${\\rm{1}}{0^{{\\rm{5}}}}$ m/sec",
+                  "is_correct": false
+                },
+                {
+                  "label": "B",
+                  "id": 25964,
+                  "text": "1.33 $ \\times $ 10^5 m/sec",
+                  "is_correct": true
+                },
+                {
+                  "label": "C",
+                  "id": 25966,
+                  "text": "1.5 $ \\times $ ${\\rm{1}}{0^{{\\rm{7}}}}$ m/sec",
+                  "is_correct": false
+                },
+                {
+                  "label": "D",
+                  "id": 25965,
+                  "text": "3 $ \\times $ ${\\rm{1}}{0^{{\\rm{5}}}}$ m/sec",
+                  "is_correct": false
+                }
+              ],
+              "correct_option_ids": [
+                25964
+              ],
+              "correct_option_labels": [
+                "B"
+              ],
+              "correct_option_texts": [
+                "1.33 $ \\times $ 10^5 m/sec"
+              ],
+              "explanation": "Perihelion is the nearest distance of planet from focus.\naphelion is the farthest distance of planet from focus.\nv_p = 2 $\\times$ 10^7m/s\nv_a = ?\nr_p = 2 $\\times$ 10^10m\nr_a= 3 $\\times$ 10^12m\n$\\frac{v_{p}}{v_{a}}=\\frac{r_{a}}{r_{p}}$\n$\\frac{2 \\times 10^{7}}{v_{a}}=\\frac{3 \\times 10^{12}}{2 \\times 10^{10}}$\nv_a = 1.33 $\\times$ 10^5m/s"
+            },
+            {
+              "questionID": 17692,
+              "question": "The angular velocity of the body changes from ${\\omega _{\\rm{1}}}$ to ${\\omega _{\\rm{2}}}$ without applying torque but by changing moment of inertia. The ratio of the initial radius of gyration to the final radius of gyration is:",
+              "question_raw": "<p>The angular velocity of the body changes from <span class=\"math-tex\">{tex}{\\omega _{\\rm{1}}}{/tex}</span> to <span class=\"math-tex\">{tex}{\\omega _{\\rm{2}}}{/tex}</span> without applying torque but by changing moment of inertia. The ratio of the initial radius of gyration to the final radius of gyration is:</p>\r\n",
+              "options": [
+                {
+                  "label": "A",
+                  "id": 25969,
+                  "text": "${\\omega _{\\rm{2}}}$: ${\\omega _{\\rm{1}}}$",
+                  "is_correct": false
+                },
+                {
+                  "label": "B",
+                  "id": 25970,
+                  "text": "${\\omega _{\\rm{2}}}^{\\rm{2}}$: ${\\omega _{\\rm{1}}}^2$",
+                  "is_correct": false
+                },
+                {
+                  "label": "C",
+                  "id": 25968,
+                  "text": "($\\sqrt{\\omega _{\\rm{2}}}$) : ($\\sqrt{\\omega _{\\rm{1}}}$)",
+                  "is_correct": true
+                },
+                {
+                  "label": "D",
+                  "id": 25971,
+                  "text": "(${1 \\over\\omega _{\\rm{2}}}$): ($1 \\over{\\omega _{\\rm{1}}}$)",
+                  "is_correct": false
+                }
+              ],
+              "correct_option_ids": [
+                25968
+              ],
+              "correct_option_labels": [
+                "C"
+              ],
+              "correct_option_texts": [
+                "($\\sqrt{\\omega _{\\rm{2}}}$) : ($\\sqrt{\\omega _{\\rm{1}}}$)"
+              ],
+              "explanation": "$I_{1} \\omega_{1}$ = $I_{2} \\omega_{2}$\n$\\frac{I_{1}}{I_{2}}=\\frac{\\omega_{2}}{\\omega_{1}}$\n$\\frac{m k_{1}^{2}}{m k_{2}^{2}}=\\frac{\\omega_{2}}{\\omega_{1}}$\n$\\frac{k_{1}}{k_{2}}=\\sqrt{\\frac{\\omega_{2}}{\\omega_{1}}}$\nk_1:k_2 = $\\sqrt{\\omega _{\\rm{2}}}$ : $\\sqrt{\\omega _{\\rm{1}}}$"
+            },
+            {
+              "questionID": 17693,
+              "question": "Two bodies with moments of inertia I_1 and I_2 (I_1$ > $ I_2) have equal angular momenta. If K.E. of rotation is E_1 and E_2 then:",
+              "question_raw": "<p>Two bodies with moments of inertia I<sub>1</sub> and I<sub>2</sub> (I<sub>1</sub><span class=\"math-tex\">{tex} &gt; {/tex}</span> I<sub>2</sub>) have equal angular momenta. If K.E. of rotation is E<sub>1</sub> and E<sub>2</sub> then:</p>",
+              "options": [
+                {
+                  "label": "A",
+                  "id": 25972,
+                  "text": "E_1 < E_2",
+                  "is_correct": true
+                },
+                {
+                  "label": "B",
+                  "id": 25974,
+                  "text": "E_1 = E_2",
+                  "is_correct": false
+                },
+                {
+                  "label": "C",
+                  "id": 25975,
+                  "text": "E_1 $\\ge$ E_2",
+                  "is_correct": false
+                },
+                {
+                  "label": "D",
+                  "id": 25973,
+                  "text": "E_1 > E_2",
+                  "is_correct": false
+                }
+              ],
+              "correct_option_ids": [
+                25972
+              ],
+              "correct_option_labels": [
+                "A"
+              ],
+              "correct_option_texts": [
+                "E_1 < E_2"
+              ],
+              "explanation": "K.E. of rotation \nE = ${{{L^2}} \\over {2I}}$\nE $\\propto$ $ {1 \\over I}$\nI_1 > I_2\nE_1 < E_2"
+            },
+            {
+              "questionID": 17694,
+              "question": "The moment of inertia of a thin uniform ring of mass 1 Kg about an axis passing through the centre and perpendicular to the plane of the ring is 0.25 Kg m^2. Then the diameter of the ring is:",
+              "question_raw": "<p>The moment of inertia of a thin uniform ring of mass 1 Kg about an axis passing through the centre and perpendicular to the plane of the ring is 0.25 Kg m<sup>2</sup>. Then the diameter of the ring is:</p>\r\n",
+              "options": [
+                {
+                  "label": "A",
+                  "id": 25976,
+                  "text": "1 m",
+                  "is_correct": true
+                },
+                {
+                  "label": "B",
+                  "id": 25978,
+                  "text": "0.5 m",
+                  "is_correct": false
+                },
+                {
+                  "label": "C",
+                  "id": 25979,
+                  "text": "0.25 m",
+                  "is_correct": false
+                },
+                {
+                  "label": "D",
+                  "id": 25977,
+                  "text": "0.75 m",
+                  "is_correct": false
+                }
+              ],
+              "correct_option_ids": [
+                25976
+              ],
+              "correct_option_labels": [
+                "A"
+              ],
+              "correct_option_texts": [
+                "1 m"
+              ],
+              "explanation": "I = MR^2\nI = 0.25Kgm^2\nM = 1Kg\n$R=\\sqrt{\\frac{I}{M}}=\\sqrt{\\frac{0.25}{1}}$ = 0.5 m\nDiameter d = 2R\nd = 2 $\\times$ 0.5 = 1 m"
+            },
+            {
+              "questionID": 17695,
+              "question": "We have two spheres, one is a hollow shell and the other a solid. They have identical masses and moments of inertia about their respective diameters. The ratio of their radii is given by",
+              "question_raw": "<p>We have two spheres, one is a hollow shell and the other a solid. They have identical masses and moments of inertia about their respective diameters. The ratio of their radii is given by</p>",
+              "options": [
+                {
+                  "label": "A",
+                  "id": 25980,
+                  "text": "$\\sqrt3$ : $\\sqrt5$",
+                  "is_correct": true
+                },
+                {
+                  "label": "B",
+                  "id": 25982,
+                  "text": "3: 5",
+                  "is_correct": false
+                },
+                {
+                  "label": "C",
+                  "id": 25981,
+                  "text": "$\\sqrt3$ : $\\sqrt7$",
+                  "is_correct": false
+                },
+                {
+                  "label": "D",
+                  "id": 25983,
+                  "text": "5:7",
+                  "is_correct": false
+                }
+              ],
+              "correct_option_ids": [
+                25980
+              ],
+              "correct_option_labels": [
+                "A"
+              ],
+              "correct_option_texts": [
+                "$\\sqrt3$ : $\\sqrt5$"
+              ],
+              "explanation": "Moment of inertia of a hollow sphere about an axis passing through its diameter \n${I_{1}} = {2 \\over 3}M{R_1}^2$ \nMoment of inertia of hollow shell about an axis passing through its diameter \n${I_{2}} = {2 \\over 5}M{R_2}^2$\nGiven that \nI_1 = I_2\n$\\frac{2}{3} M R_{1}^{2}=\\frac{2}{5} M R_{2}^{2}$\n$\\frac{R_{1}}{R_{2}}=\\sqrt{\\frac{3}{5}}$\nR_1:R_2 = $\\sqrt3$:$\\sqrt5$"
+            },
+            {
+              "questionID": 17696,
+              "question": "A particle performs uniform circular motion with an angular momentum L. If the frequency of particle's motion is doubled and its K.E. is halved, the angular momentum becomes:",
+              "question_raw": "<p>A particle performs uniform circular motion with an angular momentum L. If the frequency of particle&#39;s motion is doubled and its K.E. is halved, the angular momentum becomes:</p>",
+              "options": [
+                {
+                  "label": "A",
+                  "id": 25986,
+                  "text": "4L",
+                  "is_correct": false
+                },
+                {
+                  "label": "B",
+                  "id": 25985,
+                  "text": "$L\\over2$",
+                  "is_correct": false
+                },
+                {
+                  "label": "C",
+                  "id": 25984,
+                  "text": "$L\\over4$",
+                  "is_correct": true
+                },
+                {
+                  "label": "D",
+                  "id": 25987,
+                  "text": "2L",
+                  "is_correct": false
+                }
+              ],
+              "correct_option_ids": [
+                25984
+              ],
+              "correct_option_labels": [
+                "C"
+              ],
+              "correct_option_texts": [
+                "$L\\over4$"
+              ],
+              "explanation": "$K=\\frac{1}{2} I \\omega^{2}=\\frac{1}{2} \\times I \\omega \\times \\omega$\n$K=\\frac{1}{2} L \\omega$\n$\\frac{K_{1}}{K_{2}}=\\frac{L_{1} \\omega_{1}}{L_{2} \\omega_{2}}$ \nK_1 = K, K_2 = $K\\over2$ \nn_1 = n, ${\\omega _1} = 2\\pi n = \\omega $ \nn_2 = 2n, ${\\omega _2} = 2\\pi \\times 2n = 2\\omega $ \nL_1 = L, L_2 = ?\n${{2K} \\over K} = {{L\\omega } \\over {{L_2} \\times 2\\omega }}$\n$L_{2}=\\frac{L}{4}$"
+            },
+            {
+              "questionID": 17697,
+              "question": "A flywheel at rest is to reach an angular velocity of 36 rad/sec, in 6 sec, with a constant angular acceleration. The total angle turned during this interval is:",
+              "question_raw": "<p>A flywheel at rest is to reach an angular velocity of 36 rad/sec, in 6 sec, with a constant angular acceleration. The total angle turned during this interval is:</p>",
+              "options": [
+                {
+                  "label": "A",
+                  "id": 25991,
+                  "text": "72 rad",
+                  "is_correct": false
+                },
+                {
+                  "label": "B",
+                  "id": 25988,
+                  "text": "108 rad",
+                  "is_correct": true
+                },
+                {
+                  "label": "C",
+                  "id": 25989,
+                  "text": "216 rad",
+                  "is_correct": false
+                },
+                {
+                  "label": "D",
+                  "id": 25990,
+                  "text": "144 rad",
+                  "is_correct": false
+                }
+              ],
+              "correct_option_ids": [
+                25988
+              ],
+              "correct_option_labels": [
+                "B"
+              ],
+              "correct_option_texts": [
+                "108 rad"
+              ],
+              "explanation": "$\\omega = {\\omega _o} + \\alpha t$\n36 = 0 + 6$\\alpha$ \n$\\alpha = {{36} \\over 6} = 6rad/{s^2}$\n$\\theta = {\\omega _o}t + {1 \\over 2}\\alpha {t^2}$\n$\\theta$ = 0 + ${1 \\over 2}$ $\\times$ 6 $\\times$ 6 $\\times$ 6 \n$\\theta$ = 108rad"
+            },
+            {
+              "questionID": 17698,
+              "question": "The radius of gyration of a rod of mass 100 gm and length 100 cm about an axis passing through its edge and perpendicular to its length is given by:",
+              "question_raw": "<p>The radius of gyration of a rod of mass 100 gm and length 100 cm about an axis passing through its edge and perpendicular to its length is given by:</p>",
+              "options": [
+                {
+                  "label": "A",
+                  "id": 25993,
+                  "text": "$\\frac{50} {{3\\sqrt 2 }}$",
+                  "is_correct": false
+                },
+                {
+                  "label": "B",
+                  "id": 25995,
+                  "text": "$\\frac{50}{ {2\\sqrt 3 }}$",
+                  "is_correct": false
+                },
+                {
+                  "label": "C",
+                  "id": 25994,
+                  "text": "$\\frac{100} {{3\\sqrt 3 }}$",
+                  "is_correct": false
+                },
+                {
+                  "label": "D",
+                  "id": 25992,
+                  "text": "$\\frac{100} {{\\sqrt 3 }}$",
+                  "is_correct": true
+                }
+              ],
+              "correct_option_ids": [
+                25992
+              ],
+              "correct_option_labels": [
+                "D"
+              ],
+              "correct_option_texts": [
+                "$\\frac{100} {{\\sqrt 3 }}$"
+              ],
+              "explanation": "Moment of inertia of the rod about an axis passing through its centre of gravity and perpendicular to its length\n$I = \\frac{M{l^2}} {{3}}$ \nMoment of inertia of rod in terms of the radius of gyration \nI = Mk^2\nM = 100 gm\nl = 100 cm\nMk^2 = $\\frac{Ml^2}{3}$\n$k=\\sqrt{\\frac{l^{2}}{3}}=\\sqrt{\\frac{100 \\times 100}{3}}$\n$k=\\frac{100}{\\sqrt{3}} \\mathrm{cm}$"
+            },
+            {
+              "questionID": 17699,
+              "question": "The M.I. of a body about a given axis is 1.2 kg m^2. Initially, the body is at rest. In order to produce rotational kinetic energy of 1500 joule, the angular acceleration of 25 rad/sec^2 must be applied about that axis for the duration of",
+              "question_raw": "<p>The M.I. of a body about a given axis is 1.2 kg m<sup>2</sup>. Initially, the body is at rest. In order to produce rotational kinetic energy of 1500 joule, the angular acceleration of 25 rad/sec<sup>2</sup> must be applied about that axis for the duration of</p>",
+              "options": [
+                {
+                  "label": "A",
+                  "id": 25998,
+                  "text": "4 sec",
+                  "is_correct": false
+                },
+                {
+                  "label": "B",
+                  "id": 25997,
+                  "text": "8 sec",
+                  "is_correct": false
+                },
+                {
+                  "label": "C",
+                  "id": 25999,
+                  "text": "10 sec",
+                  "is_correct": false
+                },
+                {
+                  "label": "D",
+                  "id": 25996,
+                  "text": "2 sec",
+                  "is_correct": true
+                }
+              ],
+              "correct_option_ids": [
+                25996
+              ],
+              "correct_option_labels": [
+                "D"
+              ],
+              "correct_option_texts": [
+                "2 sec"
+              ],
+              "explanation": "K = 1500 J\nI = 1.2 Kgm^2\n$\\alpha $ = 25rad/s^2\n$\\Delta$t = ?\n$K=\\frac{1}{2} I \\omega^{2}$\n$\\omega=\\sqrt{\\frac{2 K}{I}}=\\sqrt{\\frac{2 \\times 1500}{1.2}}$ = 50rad/s\n$\\alpha = {{\\Delta \\omega } \\over {\\Delta t}} = {{\\omega - {\\omega _o}} \\over {\\Delta t}} = {{50 - 0} \\over {\\Delta t}}$\n25 = $ {{50 - 0} \\over {\\Delta t}}$ \n$ \\Delta t = {{50} \\over {25}} $ = 2 sec"
+            },
+            {
+              "questionID": 17700,
+              "question": "A fan of the moment of inertia 0.3 kg m^2 is to run up to working speed of 0.5 revolutions per second. Indicate the correct value of the angular momentum of the fan:",
+              "question_raw": "<p>A fan of the moment of inertia 0.3 kg m<sup>2</sup> is to run up to working speed of 0.5 revolutions per second. Indicate the correct value of the angular momentum of the fan:</p>",
+              "options": [
+                {
+                  "label": "A",
+                  "id": 26002,
+                  "text": "3 kg $ \\times $ m^2/sec",
+                  "is_correct": false
+                },
+                {
+                  "label": "B",
+                  "id": 26001,
+                  "text": "6 kg $ \\times $ m^2/sec",
+                  "is_correct": false
+                },
+                {
+                  "label": "C",
+                  "id": 26000,
+                  "text": "0.3$\\pi $kg $ \\times $ m^2/sec",
+                  "is_correct": true
+                },
+                {
+                  "label": "D",
+                  "id": 26003,
+                  "text": "$\\frac{\\pi}{6}$ kg $ \\times $ m^2/sec",
+                  "is_correct": false
+                }
+              ],
+              "correct_option_ids": [
+                26000
+              ],
+              "correct_option_labels": [
+                "C"
+              ],
+              "correct_option_texts": [
+                "0.3$\\pi $kg $ \\times $ m^2/sec"
+              ],
+              "explanation": "n = 0.5 revolution per second\nangular velocity $\\omega = 2\\pi n = 2\\pi \\times 0.5 $ = $\\pi $ rad/s\nmoment of inertia I = 0.3Kgm^2\nangular momentum L= I$\\omega$ = 0.3 $\\times$ $\\pi$ = 0.3$\\pi$Kgm^2/s"
+            },
+            {
+              "questionID": 17701,
+              "question": "Three thin uniform rods each of mass M and length L are placed along the three-axis of a Cartesian coordinate system with one end of each rod at the origin. The Moment of inertia of the system about the z-axis is:",
+              "question_raw": "<p>Three thin uniform rods each of mass M and length L are placed along the three-axis of a Cartesian coordinate system with one end of each rod at the origin. The Moment of inertia&nbsp;of the system about the z-axis is:</p>",
+              "options": [
+                {
+                  "label": "A",
+                  "id": 26005,
+                  "text": "$\\frac{\\mathrm{ML}^2}{3}$",
+                  "is_correct": false
+                },
+                {
+                  "label": "B",
+                  "id": 26007,
+                  "text": "ML^2",
+                  "is_correct": false
+                },
+                {
+                  "label": "C",
+                  "id": 26004,
+                  "text": "$\\frac{2 \\mathrm{ML}^2}{3}$",
+                  "is_correct": true
+                },
+                {
+                  "label": "D",
+                  "id": 26006,
+                  "text": "$\\frac{\\mathrm{ML}^2}{6}$",
+                  "is_correct": false
+                }
+              ],
+              "correct_option_ids": [
+                26004
+              ],
+              "correct_option_labels": [
+                "C"
+              ],
+              "correct_option_texts": [
+                "$\\frac{2 \\mathrm{ML}^2}{3}$"
+              ],
+              "explanation": "Moment of inertia about an axis passing through the edge\n$I =\\frac{M{L^2}} {3}$ \nMoment of inertia of the system about z-axis\nI = I_x + I_y + I_z\n$I=\\frac{M L^{2}}{3}+\\frac{M L^{2}}{3}+0$\n$I=\\frac{2}{3} M L^{2}$"
+            },
+            {
+              "questionID": 17702,
+              "question": "Two circular rings have their masses in the ratio 1:2 and their diameters in the ratio 2: 1. The ratio of their moments of inertia about their axes is:",
+              "question_raw": "<p>Two circular rings have their masses in the ratio 1:2 and their diameters in the ratio 2: 1. The ratio of their moments of inertia about their axes is:</p>",
+              "options": [
+                {
+                  "label": "A",
+                  "id": 26009,
+                  "text": "1: 4",
+                  "is_correct": false
+                },
+                {
+                  "label": "B",
+                  "id": 26011,
+                  "text": "1:2",
+                  "is_correct": false
+                },
+                {
+                  "label": "C",
+                  "id": 26010,
+                  "text": "4:1",
+                  "is_correct": false
+                },
+                {
+                  "label": "D",
+                  "id": 26008,
+                  "text": "2:1",
+                  "is_correct": true
+                }
+              ],
+              "correct_option_ids": [
+                26008
+              ],
+              "correct_option_labels": [
+                "D"
+              ],
+              "correct_option_texts": [
+                "2:1"
+              ],
+              "explanation": "$\\frac{M_{1}}{M_{2}}=\\frac{1}{2}$\n$\\frac{R_{1}}{R_{2}}=\\frac{2}{1}$\n$\\frac{I_{1}}{I_{2}}=\\frac{M_{1} R_{1}^{2}}{M_{2} R_{2}^{2}}$\n$\\frac{I_{1}}{I_{2}}=\\left(\\frac{M_{1}}{M_{2}}\\right)\\left(\\frac{R_{1}}{R_{2}}\\right)^{2}$ = $\\frac{1}{2} \\times\\left(\\frac{2}{1}\\right)^{2}$ = $\\frac{1}{2} \\times \\frac{4}{1}=\\frac{2}{1}$\nI_1:I_2 = 2:1"
+            },
+            {
+              "questionID": 17703,
+              "question": "Four masses are fixed on a massless rod as shown in the figure. The moment of inertia about the axis P is about",
+              "question_raw": "<p>Four masses are fixed on a massless rod as shown in the figure. The moment of inertia about the axis P is about<br />\r\n<img src=\"https://media-mycbseguide.s3.amazonaws.com/images/testpaper/1.02.11.07.58.Ques.JPG\" style=\"width: 250px; height: 65px;\" /></p>\r\n",
+              "options": [
+                {
+                  "label": "A",
+                  "id": 26013,
+                  "text": "2 kg metre^2",
+                  "is_correct": false
+                },
+                {
+                  "label": "B",
+                  "id": 26012,
+                  "text": "1.04 kg metre^2",
+                  "is_correct": true
+                },
+                {
+                  "label": "C",
+                  "id": 26014,
+                  "text": "0.5 kg metre^2",
+                  "is_correct": false
+                },
+                {
+                  "label": "D",
+                  "id": 26015,
+                  "text": "0.3 kg ${\\rm{metr}}{{\\rm{e}}^{\\rm{2}}}$",
+                  "is_correct": false
+                }
+              ],
+              "correct_option_ids": [
+                26012
+              ],
+              "correct_option_labels": [
+                "B"
+              ],
+              "correct_option_texts": [
+                "1.04 kg metre^2"
+              ],
+              "explanation": "I = I_1 + I_2 + I_3 + I_4\nI = $m_{1} r_{1}^{2}+m_{2} r_{2}^{2}+m_{3} r_{3}^{2}+m_{4} r_{4}^{2}$\nI = (2 $\\times$ 0.4 $\\times$ 0.4)+(5 $\\times$0.2 $\\times$0.2)+(5 $\\times$0.2 $\\times$ 0.2)+(2 $\\times$ 0.4 $\\times$ 0.4)\nI = 0.32 + 0.20 + 0.20 + 0.32\nI = 1.04 K gm^2"
+            },
+            {
+              "questionID": 17704,
+              "question": "A wheel is rotating about an axis through its centre at 720 r.p.m. When acted upon by a constant torque opposing its motion for 8 seconds it stops rotating. The value of this torque in Nm is (given I = $\\frac {24} {\\pi }$ kg ${{\\rm{m}}^{\\rm{2}}}$)",
+              "question_raw": "<p>A wheel is rotating about an axis through its centre at 720 r.p.m. When acted upon by a constant torque opposing its motion for 8 seconds it stops rotating. The value of this torque in Nm is (given I =&nbsp;<span class=\"math-tex\">{tex}\\frac {24} {\\pi }{/tex}</span> kg <span class=\"math-tex\">{tex}{{\\rm{m}}^{\\rm{2}}}{/tex}</span>)</p>",
+              "options": [
+                {
+                  "label": "A",
+                  "id": 26017,
+                  "text": "48",
+                  "is_correct": false
+                },
+                {
+                  "label": "B",
+                  "id": 26018,
+                  "text": "96",
+                  "is_correct": false
+                },
+                {
+                  "label": "C",
+                  "id": 26019,
+                  "text": "120",
+                  "is_correct": false
+                },
+                {
+                  "label": "D",
+                  "id": 26016,
+                  "text": "72",
+                  "is_correct": true
+                }
+              ],
+              "correct_option_ids": [
+                26016
+              ],
+              "correct_option_labels": [
+                "D"
+              ],
+              "correct_option_texts": [
+                "72"
+              ],
+              "explanation": "$n = \\frac {720} {60} = 12$ rev/s\nangular velocity $\\omega = 2\\pi n $ = $ 2\\pi \\times 12 = 24\\pi $ rad/s\nmoment of inertia \nI =$\\frac {24}{ \\pi }$kg ${{\\rm{m}}^{\\rm{2}}}$\ntorque\n$T = I\\alpha $\nT = $ I\\frac{{\\Delta \\omega }}{{\\Delta t}} = \\frac{{24}}{\\pi } \\times \\left( {\\frac{{24 \\pi- 0}}{8}} \\right)$ = $ \\frac{{24}}{\\pi } \\times \\frac{{24\\pi }}{8}$ = 72.0Nm"
+            },
+            {
+              "questionID": 17705,
+              "question": "A flywheel rotating about a fixed axis has a kinetic energy of 360 joules when its angular speed is 30 radians per second. The moment of inertia of the flywheel about the axis of rotation is:",
+              "question_raw": "<p>A flywheel rotating about a fixed axis has a kinetic energy of 360 joules when its angular speed is 30 radians per second. The moment of inertia of the flywheel about the axis of rotation is:</p>",
+              "options": [
+                {
+                  "label": "A",
+                  "id": 26020,
+                  "text": "0.8 kg m^2",
+                  "is_correct": true
+                },
+                {
+                  "label": "B",
+                  "id": 26023,
+                  "text": "0.75 kg m^2",
+                  "is_correct": false
+                },
+                {
+                  "label": "C",
+                  "id": 26021,
+                  "text": "0.6 kg m^2",
+                  "is_correct": false
+                },
+                {
+                  "label": "D",
+                  "id": 26022,
+                  "text": "0.15 kg m^2",
+                  "is_correct": false
+                }
+              ],
+              "correct_option_ids": [
+                26020
+              ],
+              "correct_option_labels": [
+                "A"
+              ],
+              "correct_option_texts": [
+                "0.8 kg m^2"
+              ],
+              "explanation": "K = ${1\\over 2}I \\omega^2$\nK = 360J\n$\\omega $ = 30rad/s\nI = $ {{2K} \\over {{\\omega ^2}}} = {{2 \\times 360} \\over {30 \\times 30}} $0 = 0.8Kgm^2"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "testPaperID": 561,
+      "testPaperName": "Particles & Rotational Motion Test 05",
+      "is_paid": true,
+      "category_full_name": "CBSE > Class 11 > Physics > System of Particles and Rotational Motion",
+      "noOfQuestions": 15,
+      "has_answers": true,
+      "sections": [
+        {
+          "sectionName": "General",
+          "sectionID": null,
+          "questions": [
+            {
+              "questionID": 17706,
+              "question": "A body of mass 2.0 kg and radius of gyration 0.5 m is rotating about an axis. If its angular speed is 2.0 rad/s, the angular momentum of the body (in kg - m^2/s) is:",
+              "question_raw": "<p>A body of mass 2.0 kg and radius of gyration 0.5 m is rotating about an axis. If its angular speed is 2.0 rad/s, the angular momentum of the body (in kg - m<sup>2</sup>/s) is:</p>",
+              "options": [
+                {
+                  "label": "A",
+                  "id": 26025,
+                  "text": "0.5",
+                  "is_correct": false
+                },
+                {
+                  "label": "B",
+                  "id": 26027,
+                  "text": "1.5",
+                  "is_correct": false
+                },
+                {
+                  "label": "C",
+                  "id": 26024,
+                  "text": "1.0",
+                  "is_correct": true
+                },
+                {
+                  "label": "D",
+                  "id": 26026,
+                  "text": "2.0",
+                  "is_correct": false
+                }
+              ],
+              "correct_option_ids": [
+                26024
+              ],
+              "correct_option_labels": [
+                "C"
+              ],
+              "correct_option_texts": [
+                "1.0"
+              ],
+              "explanation": "Moment of inertia\nI = mk^2\nm = 2 Kg\nk = 0.5 m\nI = 2 $\\times$ 0.5 $\\times$ 0.5 = 0.5Kgm^2\nangular momentum\nL = I$\\omega$\n$\\omega$ = 2rad/s\nL = 0.5 $\\times$ 2 = 1.0Kgm^2/s"
+            },
+            {
+              "questionID": 17707,
+              "question": "The angular velocity of a body changes from 1 rev/sec to 25 rev/sec. without applying any external torque. The ratio of the radii of gyration in the two cases is:",
+              "question_raw": "<p>The angular velocity of a body changes from 1 rev/sec&nbsp;to 25&nbsp;rev/sec. without applying any external torque. The ratio of the radii of gyration in the two cases is:</p>",
+              "options": [
+                {
+                  "label": "A",
+                  "id": 26028,
+                  "text": "5:1",
+                  "is_correct": true
+                },
+                {
+                  "label": "B",
+                  "id": 26029,
+                  "text": "1: 5",
+                  "is_correct": false
+                },
+                {
+                  "label": "C",
+                  "id": 26030,
+                  "text": "1: 25",
+                  "is_correct": false
+                },
+                {
+                  "label": "D",
+                  "id": 26031,
+                  "text": "25:1",
+                  "is_correct": false
+                }
+              ],
+              "correct_option_ids": [
+                26028
+              ],
+              "correct_option_labels": [
+                "A"
+              ],
+              "correct_option_texts": [
+                "5:1"
+              ],
+              "explanation": "I_1$\\omega$_1 = I_2$\\omega$_2\n$\\frac{I_{1}}{I_{2}}=\\frac{\\omega_{2}}{\\omega_{1}}$ \n$\\omega$_1 = 1rev/s\n$\\omega$_2 = 25rev/s\nif the radius of gyration is k_1 and k_2 then \n$\\frac{M k_{1}^{2}}{M k_{2}^{2}}=\\frac{\\omega_{2}}{\\omega_{1}}$\n$\\frac{k_{1}}{k_{2}}=\\sqrt{\\frac{\\omega_{2}}{\\omega_{1}}}=\\sqrt{\\frac{25}{1}}=\\frac{5}{1}$\nk_1:k_2 = 5:1"
+            },
+            {
+              "questionID": 17708,
+              "question": "The angular velocity of a body changes forms 1 rev/sec to 16 rev/sec. Without applying any external torque. The ratio of its radius of gyration in the two cases is:",
+              "question_raw": "<p>The angular velocity of a body changes forms 1&nbsp;rev/sec&nbsp;to 16 rev/sec. Without applying any external torque. The ratio of its radius of gyration in the two cases is:</p>",
+              "options": [
+                {
+                  "label": "A",
+                  "id": 26035,
+                  "text": "1:16",
+                  "is_correct": false
+                },
+                {
+                  "label": "B",
+                  "id": 26033,
+                  "text": "1:4",
+                  "is_correct": false
+                },
+                {
+                  "label": "C",
+                  "id": 26032,
+                  "text": "4: 1",
+                  "is_correct": true
+                },
+                {
+                  "label": "D",
+                  "id": 26034,
+                  "text": "16:1",
+                  "is_correct": false
+                }
+              ],
+              "correct_option_ids": [
+                26032
+              ],
+              "correct_option_labels": [
+                "C"
+              ],
+              "correct_option_texts": [
+                "4: 1"
+              ],
+              "explanation": "I_1$\\omega$_1 = I_2$\\omega$_2\n$\\frac{I_{1}}{I_{2}}=\\frac{\\omega_{2}}{\\omega_{1}}$ \n$\\omega$_1 = 1rev/s\n$\\omega$_2 = 16rev/s\nif the radius of gyration is k_1 and k_2 then \n$\\frac{M k_{1}^{2}}{M k_{2}^{2}}=\\frac{\\omega_{2}}{\\omega_{1}}$\n$\\frac{k_{1}}{k_{2}}=\\sqrt{\\frac{\\omega_{2}}{\\omega_{1}}}=\\sqrt{\\frac{16}{1}}=\\frac{4}{1}$\nk_1:k_2 = 4:1"
+            },
+            {
+              "questionID": 17709,
+              "question": "A body having a moment of inertia about its axis equal to 3 kg m^2 is rotating with an angular velocity equal to 3 rad/s. The kinetic energy of this rotating body is the same as that of a body of mass 27 kg moving with a speed of",
+              "question_raw": "<p>A body having a moment of inertia about its axis equal to 3 kg m<sup>2</sup> is rotating with an angular velocity equal to 3 rad/s. The kinetic energy of this rotating body is the same as that of a body of mass 27 kg moving with a speed of</p>\r\n",
+              "options": [
+                {
+                  "label": "A",
+                  "id": 26039,
+                  "text": "2.0 m/s",
+                  "is_correct": false
+                },
+                {
+                  "label": "B",
+                  "id": 26038,
+                  "text": "1.5 m/s",
+                  "is_correct": false
+                },
+                {
+                  "label": "C",
+                  "id": 26036,
+                  "text": "1.0 m/s",
+                  "is_correct": true
+                },
+                {
+                  "label": "D",
+                  "id": 26037,
+                  "text": "0.5 m/s",
+                  "is_correct": false
+                }
+              ],
+              "correct_option_ids": [
+                26036
+              ],
+              "correct_option_labels": [
+                "C"
+              ],
+              "correct_option_texts": [
+                "1.0 m/s"
+              ],
+              "explanation": "$K_{r o t}=\\frac{1}{2} I \\omega^{2}$\n$K_{t r a n s}=\\frac{1}{2} m v^{2}$\ngiven that\nK_rot = K_trans\n$\\frac{1}{2} I \\omega^{2}=\\frac{1}{2} m v^{2}$\nI = 3Kgm^2\n$\\omega$ = 3rad/s\nm = 27Kg\nv =?\n$I \\omega^{2}$ = mv^2\nv =$ \\sqrt {{{I{\\omega ^2}} \\over m}} = \\sqrt {{{3 \\times 3 \\times 3} \\over {27}}} $ = 1.0m/s"
+            },
+            {
+              "questionID": 17710,
+              "question": "The moment of inertia of a solid sphere about a diameter is 8000 gms ${\\rm{c}}{{\\rm{m}}^{\\rm{2}}}$ (mass of sphere = 50 gm, radius = 20 cm). The moment of inertia about a tangent will be",
+              "question_raw": "<p>The moment of inertia of a solid sphere about a diameter is 8000 gms <span class=\"math-tex\">{tex}{\\rm{c}}{{\\rm{m}}^{\\rm{2}}}{/tex}</span> (mass of sphere = 50 gm, radius = 20 cm). The moment of inertia about a tangent will be</p>\r\n",
+              "options": [
+                {
+                  "label": "A",
+                  "id": 26040,
+                  "text": "2.8 $ \\times $ 10^4 gm cm^2",
+                  "is_correct": true
+                },
+                {
+                  "label": "B",
+                  "id": 26043,
+                  "text": "8400 gm cm^2",
+                  "is_correct": false
+                },
+                {
+                  "label": "C",
+                  "id": 26041,
+                  "text": "280 gm cm^2",
+                  "is_correct": false
+                },
+                {
+                  "label": "D",
+                  "id": 26042,
+                  "text": "2.8 10^3 gm",
+                  "is_correct": false
+                }
+              ],
+              "correct_option_ids": [
+                26040
+              ],
+              "correct_option_labels": [
+                "A"
+              ],
+              "correct_option_texts": [
+                "2.8 $ \\times $ 10^4 gm cm^2"
+              ],
+              "explanation": "I = $2\\over 5$MR^2 = 8000 gm cm^2, using the parallel axis theorem the Moment of Inertia about a tangent to the sphere is = $2\\over 5$ MR^2+ MR^2 = $7\\over 5$ MR^2 = 2.8 $ \\times $ 10^4 gm cm^2"
+            },
+            {
+              "questionID": 17711,
+              "question": "A particle moves with a constant velocity parallel to the x-axis. Its angular momentum with respect to the origin:",
+              "question_raw": "<p>A particle moves with a constant velocity parallel to the x-axis. Its angular momentum with respect to the origin:</p>",
+              "options": [
+                {
+                  "label": "A",
+                  "id": 26046,
+                  "text": "goes on increasing",
+                  "is_correct": false
+                },
+                {
+                  "label": "B",
+                  "id": 26045,
+                  "text": "is zero",
+                  "is_correct": false
+                },
+                {
+                  "label": "C",
+                  "id": 26044,
+                  "text": "remains constant",
+                  "is_correct": true
+                },
+                {
+                  "label": "D",
+                  "id": 26047,
+                  "text": "goes on decreasing",
+                  "is_correct": false
+                }
+              ],
+              "correct_option_ids": [
+                26044
+              ],
+              "correct_option_labels": [
+                "C"
+              ],
+              "correct_option_texts": [
+                "remains constant"
+              ],
+              "explanation": "As angular momentum is $\\vec L = \\vec p \\times \\vec r $ = mvrsin$\\theta$, Now rsinθ = perpendicular distance from x-axis which is constant, so angular momentum remains constant."
+            },
+            {
+              "questionID": 17712,
+              "question": "If the radius of earth contracts to half of its present value, the mass remaining unchanged, the duration of the day will be:",
+              "question_raw": "<p>If the radius of earth contracts to half of its present value, the mass remaining unchanged, the duration of the day will be:</p>",
+              "options": [
+                {
+                  "label": "A",
+                  "id": 26048,
+                  "text": "6 Hrs",
+                  "is_correct": true
+                },
+                {
+                  "label": "B",
+                  "id": 26049,
+                  "text": "12 Hrs",
+                  "is_correct": false
+                },
+                {
+                  "label": "C",
+                  "id": 26050,
+                  "text": "24 Hrs",
+                  "is_correct": false
+                },
+                {
+                  "label": "D",
+                  "id": 26051,
+                  "text": "48 Hrs",
+                  "is_correct": false
+                }
+              ],
+              "correct_option_ids": [
+                26048
+              ],
+              "correct_option_labels": [
+                "A"
+              ],
+              "correct_option_texts": [
+                "6 Hrs"
+              ],
+              "explanation": "As the Moment of inertia of earth considered as the sphere is I = $2\\over 5$ MR^2, thus according to the law of conservation of angular momentum as the radius contracts to half, thus a new moment of inertia of earth will be $I\\over 4$, thus the angular velocity will increase 4 times and making the length of the day to 6 hrs."
+            },
+            {
+              "questionID": 17713,
+              "question": "A boy comes running and sits on a merry-go-round. What is conserved?",
+              "question_raw": "<p>A boy comes running and sits on a merry-go-round. What is conserved?</p>",
+              "options": [
+                {
+                  "label": "A",
+                  "id": 26052,
+                  "text": "Angular momentum",
+                  "is_correct": true
+                },
+                {
+                  "label": "B",
+                  "id": 26053,
+                  "text": "Linear momentum",
+                  "is_correct": false
+                },
+                {
+                  "label": "C",
+                  "id": 26055,
+                  "text": "The kinetic energy of function",
+                  "is_correct": false
+                },
+                {
+                  "label": "D",
+                  "id": 26054,
+                  "text": "The kinetic energy of rotation",
+                  "is_correct": false
+                }
+              ],
+              "correct_option_ids": [
+                26052
+              ],
+              "correct_option_labels": [
+                "A"
+              ],
+              "correct_option_texts": [
+                "Angular momentum"
+              ],
+              "explanation": "According to the law of conservation of angular momentum if no external torque is applied on a body in rotation than its angular momentum remains conserved."
+            },
+            {
+              "questionID": 17714,
+              "question": "A ring of radius r and mass m rotates about its central axis. The kinetic energy is:",
+              "question_raw": "<p>A ring of radius r and mass m rotates about its central axis. The kinetic energy is:</p>",
+              "options": [
+                {
+                  "label": "A",
+                  "id": 26056,
+                  "text": "$\\frac{\\mathrm{mr}^2 \\omega^2}{2}$",
+                  "is_correct": true
+                },
+                {
+                  "label": "B",
+                  "id": 26058,
+                  "text": "$\\frac{mr{\\omega ^2}}{2}$",
+                  "is_correct": false
+                },
+                {
+                  "label": "C",
+                  "id": 26057,
+                  "text": "mr ${\\omega ^2}$",
+                  "is_correct": false
+                },
+                {
+                  "label": "D",
+                  "id": 26059,
+                  "text": "mr^2 ${\\omega ^2}$",
+                  "is_correct": false
+                }
+              ],
+              "correct_option_ids": [
+                26056
+              ],
+              "correct_option_labels": [
+                "A"
+              ],
+              "correct_option_texts": [
+                "$\\frac{\\mathrm{mr}^2 \\omega^2}{2}$"
+              ],
+              "explanation": "The kinetic energy of the body in rotational motion is $KE = \\frac{1}{2}I{\\omega ^2} = \\frac{1}{ 2}m{r^2}{\\omega ^2}$ as a moment of inertia of ring about its central axis is I = mr^2."
+            },
+            {
+              "questionID": 17715,
+              "question": "A thin circular ring of mass M and radius R is rotating about its central axis with angular velocity. Four-point objects each of mass m are attached gently to the opposite ends of two perpendicular diameters, the angular velocity of the ring is given by:",
+              "question_raw": "<p>A thin circular ring of mass M and radius R is rotating about its central axis with angular velocity. Four-point objects each of mass m are attached gently to the opposite ends of two perpendicular diameters, the angular velocity of the ring is given by:</p>",
+              "options": [
+                {
+                  "label": "A",
+                  "id": 26060,
+                  "text": "$\\frac{M}{{M + 4m}} \\cdot \\omega $",
+                  "is_correct": true
+                },
+                {
+                  "label": "B",
+                  "id": 26061,
+                  "text": "$\\frac{M}{{M + m}} \\cdot \\omega $",
+                  "is_correct": false
+                },
+                {
+                  "label": "C",
+                  "id": 26063,
+                  "text": "$\\frac{M-4 m}{M+4 m} \\cdot \\omega$",
+                  "is_correct": false
+                },
+                {
+                  "label": "D",
+                  "id": 26062,
+                  "text": "$\\frac{{M + 4m}} {M} \\cdot \\omega $",
+                  "is_correct": false
+                }
+              ],
+              "correct_option_ids": [
+                26060
+              ],
+              "correct_option_labels": [
+                "A"
+              ],
+              "correct_option_texts": [
+                "$\\frac{M}{{M + 4m}} \\cdot \\omega $"
+              ],
+              "explanation": "Let $\\omega$ be the angular velocity of the Ring of Mass M, thus the moment of inertia about a given axis is I_1 = $MR^2$ and the four-point objects are gently placed at perpendicular diameters at the opposite end, so, the distance of each object from the axis of rotation is R, so total moment of inertia of the ring and four objects is I_2 = $MR^2 + 4mR^2$. \nAccording to the law of conservation of angular momentum I_1 $\\omega$ = I_2$\\omega$_2 , So on solving $\\omega_2=\\left(\\frac{M R^2}{M R^2+4 m R^2}\\right) \\omega=\\frac{M}{M+4 m} \\cdot \\omega$"
+            },
+            {
+              "questionID": 17716,
+              "question": "What is the moment of inertia of a thin rod of length L and mass M about an axis passing through one end and perpendicular to its length?",
+              "question_raw": "<p>What is the moment of inertia of a thin rod of length L and mass M about an axis passing through one end and perpendicular to its length?</p>",
+              "options": [
+                {
+                  "label": "A",
+                  "id": 26065,
+                  "text": "$\\frac{1}{12}$ ML^2",
+                  "is_correct": false
+                },
+                {
+                  "label": "B",
+                  "id": 26067,
+                  "text": "$\\frac{1}{2}$ML^2",
+                  "is_correct": false
+                },
+                {
+                  "label": "C",
+                  "id": 26064,
+                  "text": "$\\frac{1}{3}$ ML^2",
+                  "is_correct": true
+                },
+                {
+                  "label": "D",
+                  "id": 26066,
+                  "text": "ML^2",
+                  "is_correct": false
+                }
+              ],
+              "correct_option_ids": [
+                26064
+              ],
+              "correct_option_labels": [
+                "C"
+              ],
+              "correct_option_texts": [
+                "$\\frac{1}{3}$ ML^2"
+              ],
+              "explanation": "Using theorem of the parallel axis, the axis is shifted by $\\frac{L}{2}$ distance from the centre of Mass where the Moment of Inertia is $\\frac{M L^2}{12}$, thus the moment of inertia of a thin rod about an axis passing through one end and perpendicular to its length is $\\frac{M L^2}{12}+\\frac{M L^2}{4}=\\frac{1}{3} M L^2$"
+            },
+            {
+              "questionID": 17717,
+              "question": "The radius of gyration of a solid disc about one of its diameter is given by:",
+              "question_raw": "<p>The radius of gyration of a solid disc about one of its diameter is given by:</p>",
+              "options": [
+                {
+                  "label": "A",
+                  "id": 26068,
+                  "text": "$\\frac{R}{2}$",
+                  "is_correct": true
+                },
+                {
+                  "label": "B",
+                  "id": 26070,
+                  "text": "2R",
+                  "is_correct": false
+                },
+                {
+                  "label": "C",
+                  "id": 26069,
+                  "text": "$\\sqrt {2} $R",
+                  "is_correct": false
+                },
+                {
+                  "label": "D",
+                  "id": 26071,
+                  "text": "$\\frac{R}{{\\sqrt 2 }}$",
+                  "is_correct": false
+                }
+              ],
+              "correct_option_ids": [
+                26068
+              ],
+              "correct_option_labels": [
+                "A"
+              ],
+              "correct_option_texts": [
+                "$\\frac{R}{2}$"
+              ],
+              "explanation": "Moment of inertia of an axis passing through its center and perpendicular to its plane:\nI = $\\frac{1}{2}$ MR^2\nUsing perpendicular axis theorem Ix +Iy = Iz, so 2I_d = $\\frac{1}{2}$ MR^2\nMoment of inertia of along its diameter I_d = $\\frac{1}{4}$MR^2\nAnd the radius of gyration MK^2 = $\\frac{1}{4}$MR^2 \nK = $\\frac{R}{2}$"
+            },
+            {
+              "questionID": 17718,
+              "question": "The moment of inertia of a solid sphere of density $\\rho $ and radius R is given by:",
+              "question_raw": "<p>The moment of inertia of a solid sphere of density <span class=\"math-tex\">{tex}\\rho {/tex}</span> and radius R is given by:</p>",
+              "options": [
+                {
+                  "label": "A",
+                  "id": 26074,
+                  "text": "$\\frac{176} {{105}}\\rho {R^2}$",
+                  "is_correct": false
+                },
+                {
+                  "label": "B",
+                  "id": 26072,
+                  "text": "$\\frac{176}{{105}}\\rho {R^5}$",
+                  "is_correct": true
+                },
+                {
+                  "label": "C",
+                  "id": 26075,
+                  "text": "$\\frac{176}{{105}}\\rho {R^3}$",
+                  "is_correct": false
+                },
+                {
+                  "label": "D",
+                  "id": 26073,
+                  "text": "$\\frac{105}{{176}}\\rho {R^2}$",
+                  "is_correct": false
+                }
+              ],
+              "correct_option_ids": [
+                26072
+              ],
+              "correct_option_labels": [
+                "B"
+              ],
+              "correct_option_texts": [
+                "$\\frac{176}{{105}}\\rho {R^5}$"
+              ],
+              "explanation": "$I=\\frac{2}{5}\\left(M R^{2}\\right)$\n$=\\frac{2}{5}\\left[\\left(\\frac{4}{3} \\pi R^{3}\\right) \\cdot \\rho . R^{2}\\right]$\n$=\\frac{2}{5}\\left[\\left(\\frac{4}{3} \\frac{22}{7} R^{3}\\right) \\cdot \\rho . R^{2}\\right]$ \nAs Mass = Density $\\times $ Volume of Sphere \n$=\\frac{176}{{105}}\\rho {R^5}$"
+            },
+            {
+              "questionID": 17719,
+              "question": "A thin uniform rod of length 2l and mass M is acted upon a constant torque. The angular velocity changes from zero to $\\omega $ in time t. The value of torque is:",
+              "question_raw": "<p>A thin uniform rod of length 2l and mass M is acted upon a constant torque. The angular velocity changes from zero to <span class=\"math-tex\">{tex}\\omega {/tex}</span> in time t. The value of torque is:</p>",
+              "options": [
+                {
+                  "label": "A",
+                  "id": 26077,
+                  "text": "$\\frac{M{l^2}\\omega } {t}$",
+                  "is_correct": false
+                },
+                {
+                  "label": "B",
+                  "id": 26078,
+                  "text": "$\\frac{M{l^2}\\omega }{{12t}}$",
+                  "is_correct": false
+                },
+                {
+                  "label": "C",
+                  "id": 26079,
+                  "text": "$\\frac{2M{l^2}\\omega } {{3t}}$",
+                  "is_correct": false
+                },
+                {
+                  "label": "D",
+                  "id": 26076,
+                  "text": "$\\frac{M{l^2}\\omega }{{3t}}$",
+                  "is_correct": true
+                }
+              ],
+              "correct_option_ids": [
+                26076
+              ],
+              "correct_option_labels": [
+                "D"
+              ],
+              "correct_option_texts": [
+                "$\\frac{M{l^2}\\omega }{{3t}}$"
+              ],
+              "explanation": "As Torque($\\tau $) is equal to the product of Moment of Inertia (I) and Angular acceleration $\\left( \\alpha \\right)$\n$\\tau=I \\alpha$\n $\\tau=I \\frac{\\Delta \\omega}{\\Delta t}$\n$\\tau=\\left[\\frac{M(2 l)^{2}}{12}\\right]\\left[\\frac{\\omega}{t}\\right]$\n$\\tau=\\frac{M l^{2} \\omega}{3 t}$"
+            },
+            {
+              "questionID": 17720,
+              "question": "A particle is orbiting in a vertical plane. Its linear momentum will be directed:",
+              "question_raw": "<p>A particle is orbiting in a vertical plane. Its linear momentum will be directed:</p>",
+              "options": [
+                {
+                  "label": "A",
+                  "id": 26083,
+                  "text": "Horizontally",
+                  "is_correct": false
+                },
+                {
+                  "label": "B",
+                  "id": 26082,
+                  "text": "Vertically",
+                  "is_correct": false
+                },
+                {
+                  "label": "C",
+                  "id": 26080,
+                  "text": "Tangential to the orbit",
+                  "is_correct": true
+                },
+                {
+                  "label": "D",
+                  "id": 26081,
+                  "text": "At 45$^\\circ $ to the vertical",
+                  "is_correct": false
+                }
+              ],
+              "correct_option_ids": [
+                26080
+              ],
+              "correct_option_labels": [
+                "C"
+              ],
+              "correct_option_texts": [
+                "Tangential to the orbit"
+              ],
+              "explanation": "As the direction of velocity at any point moving in a circular orbit is tangent at that point, thus momentum would be tangential to the orbit."
+            }
+          ]
+        }
+      ]
+    }
+  ]
+}

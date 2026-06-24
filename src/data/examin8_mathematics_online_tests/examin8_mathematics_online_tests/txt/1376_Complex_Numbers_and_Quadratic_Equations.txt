@@ -1,0 +1,1011 @@
+CHAPTER: Complex Numbers and Quadratic Equations  (id 1376)
+CBSE > Class 11 > Mathematics > Complex Numbers and Quadratic Equations
+Online tests: 5
+
+========================================================================
+Quadratic Equations Test 01  (id 622) [FREE]
+CBSE > Class 11 > Mathematics > Complex Numbers and Quadratic Equations
+Questions: 15 | Answers: YES
+========================================================================
+
+Q1. The complex numbers z = x + iy which satisfy the equation $\left|\frac{z-3 i}{z+3 i}\right|=1$ lie on
+    (A) on x axis.
+    (B) the straight line y = 3
+    (C) the x-axis   <-- CORRECT
+    (D) a circle passing through the origin
+    Answer: C
+    Explanation: Given$\left|\frac{z-3 i}{z+3 i}\right|=1$
+Putting z = x + iy , we get
+$\left|\frac{x+i y-3 i}{x+i y+3 i}\right|=1$
+$\Rightarrow\left| {{{x+iy - 3i} }} \right| =\left| {{{x+iy + 3i} }} \right|$
+$\Rightarrow\left| {{{x+i(y - 3)} }} \right| =\left| {{{x+i(y + 3)} }} \right|$
+$\Rightarrow \sqrt { { x }^{ 2 }+{ \left( { y-3 } \right) }^{ 2 } } =\sqrt { { x }^{ 2 }+{ \left( { y+3 } \right) }^{ 2 } } $ $\left[ \because \left| x+iy \right| =\sqrt { { x }^{ 2 }+{ y }^{ 2 } } \right]$
+Squaring on both sides, we get
+${ x }^{ 2 }+{ \left( { y-3 } \right) }^{ 2 }={ x }^{ 2 }+{ \left( { y+3 } \right) }^{ 2 }$
+$ \Rightarrow { x }^{ 2 }+{ y }^{ 2 }-6y+9={ x }^{ 2 }+{ y }^{ 2 }+6y+9$
+$ \Rightarrow 12y=0$
+$ \Rightarrow y=0$
+Which means the X-axis.
+
+Q2. The inequality |z - 4| < |z - 2| represents the region given by
+    (A) Re(z) $<$ 0
+    (B) y > 4
+    (C) Re(z) > 0
+    (D) x > 3   <-- CORRECT
+    Answer: D
+    Explanation: Given |z - 4| < |z - 2|
+Putting z = x + iy, we get
+|x + iy - 4| < |x + iy - 2|
+$\Rightarrow$ |(x - 4) + iy| < |(x - 2) + iy| 
+$\Rightarrow$ $\sqrt{(x-4)^{2}+y^{2}}$ < $\sqrt{(x-2)^{2}+y^{2}}$ [$\because$ |x + iy| = $\sqrt{x^{2}+y^{2}}$]
+Squaring on both sides we get
+(x - 4)^2 + y^2 < (x - 2)^2 + y^2 
+$\Rightarrow$ x^2 + 16 - 8x + y^2 < x^2 + 4 - 4x + y^2 
+$\Rightarrow$ 16 - 4 < 8x - 4x
+$\Rightarrow$ 12 < 4x
+$\Rightarrow$ x > 3
+
+Q3. If Z = $\frac{\sqrt{3}}{2}+\frac{i}{2}$, Z^3 then equals
+    (A) -i
+    (B) -1
+    (C) 1
+    (D) i   <-- CORRECT
+    Answer: D
+    Explanation: Given Z = $\frac{\sqrt{3}}{2}+\frac{i}{2}$ 
+Z^3 = $\left(\frac{\sqrt{3}}{2}+\frac{i}{2}\right)^{3}$ [$\because$ (a + b)^3 = a^3 + b^3 + 3ab(a + b)]
+$\Rightarrow$ Z^3 = $\frac{\sqrt{3}}{2}^{3}+\frac{i^{3}}{2}^{3}+3 \cdot \frac{\sqrt{3}}{2} \cdot \frac{i}{2}\left(\frac{\sqrt{3}}{2}+\frac{i}{2}\right)$ 
+$\Rightarrow$ Z^3 = $\frac{3 \sqrt{3}}{8}+\frac{i^{3}}{8}+\frac{3 \sqrt{3} i}{8}(\sqrt{3}+i)$ 
+$\Rightarrow$ Z^3 = $\frac{3 \sqrt{3}-i+9 i-3 \sqrt{3}}{8}$ [$\because$ i^2 = -1]
+$\Rightarrow$ Z^3 = $\frac{8 i}{8}$ = i
+
+Q4. $2\sqrt { - 9} \sqrt { - 16}$, is equals to
+    (A) -48
+    (B) -24   <-- CORRECT
+    (C) 24
+    (D) 48
+    Answer: B
+    Explanation: $2\sqrt { - 9} \sqrt { - 16} $ 
+= $2\sqrt { 9.(-1)} \sqrt {( -1). 16} $ 
+= $2\sqrt { 9} \sqrt { 16}\sqrt { -1} \sqrt { -1}$ 
+= $2\sqrt { 9} \sqrt { 16}.i.i$ [ $\because$ i^2 = -1]
+= 2.3.4.(-1)
+= -24
+
+Q5. If ${\left( {\sqrt 3 + i} \right)^{10}} = a + ib;a,b \in R,$ then a and b are respectively :
+    (A) 64 and - 64$\sqrt 3 $
+    (B) 512 and - 512$\sqrt 3 $   <-- CORRECT
+    (C) 128 and 128$\sqrt 3 $
+    (D) $1024 \ and \ 1024\sqrt 3$
+    Answer: B
+    Explanation: First we will find the polar representation of the complex number $\sqrt { 3 } +i$
+Let $\sqrt{3}+i=r(\cos \theta+i \sin \theta) \Rightarrow r \cos \theta=\sqrt{3} a n d \quad r \sin \theta=1$
+$\therefore r^{2}\left(\cos ^{2} \theta+\sin ^{2} \theta\right)=3+1=4 \Rightarrow r^{2}=4 \Rightarrow r=2$
+Now $cos\theta =\frac { \sqrt { 3 } }{ 2 } ,\quad sin\theta =\frac { 1 }{ 2 } $ , both are positive .
+So Amplitude $=\theta =\frac { \Pi }{ 6 } $
+Hence $\sqrt { 3 } +i=2\left( cos\frac { \Pi }{ 6 } +isin\frac { \Pi }{ 6 } \right) =2{ e }^{ \frac { i\Pi }{ 6 } }$
+Now,
+$(\sqrt{3}+i)^{10}=\left(2 e^{\frac{i \pi}{6}}\right)^{10}=2^{10} e^{\frac{i 5 \pi}{3}}=2^{10}\left(\cos \left(\frac{5 \Pi}{3}\right)+i \sin \left(\frac{5 \Pi}{3}\right)\right)$
+$=2^{10}\left(\cos \left(2 \Pi-\frac{\Pi}{3}\right)+i \sin \left(2 \Pi-\frac{\Pi}{3}\right)\right)=2^{10}\left(\cos \left(\frac{-\pi}{3}\right)+i \sin \left(\frac{-\pi}{3}\right)\right)$
+$=2^{10}\left(\cos \left(\frac{\Pi}{3}\right)-i \sin \left(\frac{\Pi}{3}\right)\right)=2^{10}\left(\frac{1}{2}-i \frac{\sqrt{3}}{2}\right)=2^{10}\left(\frac{1-\sqrt{3} i}{2}\right)=2^{9}(1-\sqrt{3} i)$
+Hence ${\left( {\sqrt 3 + i} \right)^{10}} = a + ib$ $\Rightarrow { 2 }^{ 9 }\left( 1-\sqrt { 3 } i \right) =a+ib$
+$\Rightarrow a={ 2 }^{ 9 }=512\quad and\quad b={ -2 }^{ 9 }\sqrt { 3 } =-512\sqrt { 3 } \\ $
+
+Q6. Let $x,y \in R,$then x + iy is a non real complex number if
+    (A) y = 0
+    (B) x = 0
+    (C) x $ \ne $ 0
+    (D) y $ \ne $ 0   <-- CORRECT
+    Answer: D
+    Explanation: If a complex number has to be a non real complex number then its imaginary part should not be zero $\Rightarrow iy\neq 0\Rightarrow y\neq 0$
+
+Q7. Let x, y $ \in$ R, then x + iy is a purely imaginary number if
+    (A) x = 0, y $ \ne $ 0   <-- CORRECT
+    (B) x $ \ne $ 0, y = 0
+    (C) x $ \ne $ 0, y $ \ne $ 0
+    (D) x = 0, y = 0
+    Answer: A
+    Explanation: A purely imaginary number is a complex number which has only an imaginary part (iy) 
+But if y = 0 the complex number iy will become 0 which is real.
+Hence the condition for a number to be purely imaginary is x = 0 and $ y\neq 0$
+
+Q8. Multiplicative inverse of the non zero complex number x + iy (x, y $\in$ R)
+    (A) $-\frac{x}{x^2+y^2}+\frac{y}{x^2+y^2} i$
+    (B) $\frac{x}{x^2+y^2}-\frac{y}{x^2+y^2} i$   <-- CORRECT
+    (C) $\frac{x}{x+y}-\frac{y}{x+y} i$
+    (D) $-\frac{x}{x+y}+\frac{y}{x+y} i$
+    Answer: B
+    Explanation: Multiplicative inverse of the complex number x + iy = $\frac{1}{x+i y}=\frac{1}{x+i y} \cdot \frac{x-i y}{x-i y}=\frac{x-i y}{x^2+y^2}$ [$\because$ i^2 = -1]
+
+Q9. If z_1 and z_2 are non-real complex numbers such that z_1 and z_2 and z_1z_2 are real numbers, then
+    (A) ${z_1} = \overline {{z_1}} $ and ${z_2} = \overline {{z_2}} $
+    (B) ${z_1} = - \overline {{z_2}} $
+    (C) ${z_2} = \overline {{z_2}} $
+    (D) ${z_1} = \overline {{z_2}} $   <-- CORRECT
+    Answer: D
+    Explanation: Let z_1 = x_1 + iy_1 and z_2 = x_2 + iy_2 
+Given z_1 and z_2 are non-real complex numbers, so we have ${ y }_{ 1 }\neq 0,{ y }_{ 2 }\neq 0$ 
+z_1 + z_2 = (x + iy_1) + (x_2 + iy_2) = (x_1 + x_2) + i(y_1 + y_2) 
+z_1 + z_2 is a real number 
+$\Rightarrow$ y_1 + y_2 = 0 $\Rightarrow$ y_1 = -y_2 .....(i)
+Now z_1z_2 = (x_1 + iy_1) $\cdot$ (x_2 + iy_2) = (x_1x_2 - y_1y_2) + i(x_1y_1 + x_1y_2)
+z_1z_2 is a real number $\Rightarrow$ x_2y_1 + x_1y_2 = 0 $\Rightarrow$ x_2y_1 = -x_1y_2 ....(ii)
+Now from (i) and (ii) we get $\Rightarrow$ x_2y_1 = x_1y_1 $\Rightarrow$ x_2 = x_1 
+Hence we get z_1 = x_2 - iy_2 and z_2 = x_2 + iy_2 
+So ${z_1} = \overline {{z_2}} $
+
+Q10. The inequality |z - 6| < |z - 2| represents the region given by
+    (A) Re(z) > 2
+    (B) Re(z) < 2
+    (C) Re(z) < 4
+    (D) Re(z) > 4   <-- CORRECT
+    Answer: D
+    Explanation: Given |z - 6| < |z - 2|
+Putting z = x + iy, we get
+|x + iy - 6| <|x + iy - 2|
+$\Rightarrow$ |(x - 6) + iy| < |(x - 2) + iy|
+$\Rightarrow$ $\sqrt{(x-6)^{2}+y^{2}}$ < $\sqrt{(x-2)^{2}+y^{2}}$ [$\because$ |x + iy| = $\sqrt{x^{2}+y^{2}}$]
+Squaring on both sides we get
+(x - 6)^2 + y^2 < (x - 2)^2 + y^2 
+$\Rightarrow$ x^2 + 36 - 12x + y^2 < x^2 + 4 - 4x + y^2 
+$\Rightarrow$ 36 - 4 < 12x - 4x
+$\Rightarrow$ 32 < 8x
+$\Rightarrow$ x > 4
+
+Q11. z + $\overline {z} \ne 0$ if and only if
+    (A) Re(z) $ \ne $ 0   <-- CORRECT
+    (B) Im (z) $ \ne $ 0
+    (C) ${\text{| z | }} \ne {\text{ }}0$
+    (D) z $ \ne $ 0
+    Answer: A
+    Explanation: Let Z = x + iy then we have $\bar { Z } $ = x - iy
+So Z + $\bar { Z }$ = 2x
+Now z + $\overline {z} \ne 0$ 
+$\Rightarrow$ 2x $\ne$ 0 
+$\Rightarrow$ x $\ne$ 0
+$\Rightarrow$ Re(z) $\ne$ 0
+
+Q12. Distance of the representative of the number 1 + i from the origin (in Argand’s diagram) is
+    (A) $\sqrt 2 $   <-- CORRECT
+    (B) 2
+    (C) 3
+    (D) 1
+    Answer: A
+    Explanation: Let P(x, y) represent the complex number Z = x + iy in the complex plane(Argand plane) and let O(0, 0) be the origin
+Then we have OP =$\sqrt { { x }^{ 2 }+{ y }^{ 2 } } $ 
+Here Z = 1 + i so that P(x, y) = P(1, 1)
+Hence OP =$\sqrt { 1+1 } =\sqrt { 2}$
+
+Q13. If $\omega $ is a cube root of unity, then $\left( {1 + \omega } \right)\left( {1 + {\omega ^2}} \right)\left( {1 + {\omega ^4}} \right)\left( {1 + {\omega ^8}} \right)...$ upto 2n factors is
+    (A) 0
+    (B) 1   <-- CORRECT
+    (C) 2
+    (D) -1
+    Answer: B
+    Explanation: $\left( {1 + \omega } \right)\left( {1 + {\omega ^2}} \right)\left( {1 + {\omega ^4}} \right)\left( {1 + {\omega ^8}} \right)$ .... upto 2n factors
+= $\left( {1 + \omega } \right)\left( {1 + {\omega ^2}} \right)\left( {1 + {\omega ^3.\omega}} \right)\left( {1 + {\omega ^3.\omega ^3.\omega^2}} \right)...$ upto 2n factors
+= $\left( {1 + \omega } \right)\left( {1 + {\omega ^2}} \right)\left( {1 +{\omega}} \right)\left( {1 + {\omega^2}} \right)....$ upto 2n factors [ since ${ \omega }^{ 3 }=1$ ]
+=$\left(- {\omega ^2 } \right)\left( {- {\omega }} \right)\left(- {\omega ^2 } \right)\left( {- {\omega }} \right)...$ upto 2n factors $\left[ \because 1+\omega +{ \omega }^{ 2 }=0 \right] $ 
+= $\left(- {\omega ^2 } \right)\left( {- {\omega }} \right)\left(- {\omega ^2 } \right)\left( {- {\omega }} \right)...$upto 2n factors 
+= $\left[\left(-\omega^{2}\right)(-\omega)\right]\left[\left(-\omega^{2}\right)(-\omega)\right]$ ... n factors
+= $\omega^{3} \cdot \omega^{3} \cdot \omega^{3} \dots$ n factors [Since ${ \omega }^{ 3 }$ = 1]
+= 1.1.1 .... n factos
+= 1^n = 1
+
+Q14. If |z - 2| = |z - 6| then locus of z is given by :
+    (A) a straight line parallel to x axis
+    (B) a circle
+    (C) a straight line parallel to y axis   <-- CORRECT
+    (D) a square
+    Answer: C
+    Explanation: |z - 2| = |z - 6|
+$\Rightarrow$ |x - 2 + iy| = |x - 6 + iy|
+$\Rightarrow$ $\sqrt{(x-2)^{2}+y^{2}}$ = $\sqrt{(x-6)^{2}+y^{2}}$ 
+$\Rightarrow$ x^2 + 4 - 4x + y^2 = x^2 + 36 - 12x + y^2
+$\Rightarrow$ 8x = 32
+$\Rightarrow$ x = 4
+We have any line of the form x = a constant is a line parallel to Y-axis.
+
+Q15. If k, l, m, n are four consecutive integers, then i^k + i^l + i^m + i^n is equal to :
+    (A) 2
+    (B) 0   <-- CORRECT
+    (C) 1
+    (D) 4
+    Answer: B
+    Explanation: Given k, l, m, n are four consecutive integers,
+So we have l = k + 1, m = k + 2, n = k + 3
+i^k + i^l + i^m + i^n
+= i^k + i^k+1 + i^k+2 + i^k+3
+= i^k (1 + i + i^2 + i^3) 
+= i^k(1 + i - 1 - i)
+= i^k.0 = 0 [$\because$ i^2 = -1 and i^3 = -i]
+
+========================================================================
+Quadratic Equations Test 02  (id 623) [PAID]
+CBSE > Class 11 > Mathematics > Complex Numbers and Quadratic Equations
+Questions: 15 | Answers: YES
+========================================================================
+
+Q1. i^2 + i^4 + i^6 + ..... up to 2k + 1 terms, for all k belongs to natural numbers N.
+    (A) -1   <-- CORRECT
+    (B) 1
+    (C) 2
+    (D) 0
+    Answer: A
+    Explanation: i^2 + i^4 + i^6 + ..... upto 2k + 1 terms
+i^2 + (i^2)^2 + (i^2)^4 ..... upto 2k + 1 terms
+= (i^2)^1 + (i^2)^2 + (i^2)^3 ..... + (i^2)^2k + (i^2)^2k + 1 
+= (i^2)^1 + [(i^2)^2 + (i^2)^3] + [((i^2)^4 + (i^2)^5] + ..... + [(i^2)^2k + (i^2)^2k + 1] [$\because$ i^2 = -1]
+= (-1) + [1 + (-1)] + [1 + (-1)] + .....+ [1 + (-1)]
+= -1
+
+Q2. 1 + i + i^2 + i^3 + .... up to 4n terms is equal to
+    (A) 0   <-- CORRECT
+    (B) 2
+    (C) 1
+    (D) -1
+    Answer: A
+    Explanation: 1 + i + i^2 + i^3 + i^4 + i^5 + ..... up to 4n terms
+= $1 + i + {i^2} + {i^2} .i+ {i^2} .{i^2}+ {i^2} .{i^2}.i+...$ up to 4n terms
+= $1 + i + {(-1)} + {(-1.i)} + {(-1).(-1)} + {(-1).(-1).i} +...$ up to 4n terms
+= $1 + i + {(-1)} + {(-i)} + {(1)} + {(i)} +.......$ up to 4n terms
+= $[1 + i + {(-1)} + {(-i)} ]+ [ {(1)} + {(i)} + {(-1)} + {(-i)}]...$ up to 4n terms [combining four terms to get a single term]
+= 0 + 0 + 0 ... up to n terms
+= 0.n = 0
+
+Q3. $1 + {i^2} + {i^4} + {i^6} + {i^8} + .......$ up to 1001 terms is equal to
+    (A) 0
+    (B) -1
+    (C) 2
+    (D) 1   <-- CORRECT
+    Answer: D
+    Explanation: $1+i^{2}+i^{4}+i^{6}+i^{8}+\ldots \ldots \ldots . \text { upto } 1001 \text { terms }$
+$=\left(i^{2}\right)^{0}+\left(i^{2}\right)^{1}+\left(i^{2}\right)^{2}+\left(i^{2}\right)^{3}+\ldots \ldots . \text { upto } 1001 \quad \text { terms }$
+$=\left(i^{2}\right)^{0}+\left(i^{2}\right)^{1}+\left(i^{2}\right)^{2}+\left(i^{2}\right)^{3}+\ldots \ldots \ldots+\left(i^{2}\right)^{1000}$
+$=\left[\left(i^{2}\right)^{0}+\left(i^{2}\right)^{1}\right]+\left[\left(i^{2}\right)^{2}+\left(i^{2}\right)^{3}\right]+\ldots \ldots \ldots \ldots+\left[\left(i^{2}\right)^{998}+\left(i^{2}\right)^{999}\right]+\left[\left(i^{2}\right)^{1000}\right]$
+$=[1-1]+[1-1]+\ldots \ldots \ldots+[1-1]+1$
+=1
+
+Q4. If $\omega $ is a non-real cube root of unity and ${\left( {1 + \omega } \right)^9} = a + b\omega ;a,b \in R,$ then a and b are respectively the numbers :
+    (A) 1, 0
+    (B) 0, -1
+    (C) -1, 0   <-- CORRECT
+    (D) 0, 1
+    Answer: C
+    Explanation: We have $(1+\omega)^{9}$ = $\left(-\omega^{2}\right)^{9}$ = $(-1)^{9}\left(\omega^{2}\right)^{9}$ = $-\omega^{18}$ = $-\left(\omega^{3}\right)^{6}$ = (-1)^6 = -1 [$\because$ $\omega^{3}=1,1+\omega+\omega^{2}$ = 0]
+Given ${\left( {1 + \omega } \right)^9} = a + b\omega $ 
+$\Rightarrow$ -1 = a + b$\omega$ 
+$\Rightarrow$ -1 + 0.$\omega$ = a + b$\omega$
+$\Rightarrow$ a = -1, b = 0
+
+Q5. If |z| = 1, then $\frac{z-1}{z+1}, z \neq-1$ is
+    (A) non-real
+    (B) Complex number
+    (C) purely imaginary or zero   <-- CORRECT
+    (D) purely real
+    Answer: C
+    Explanation: Let Z = x + iy
+Given |z| = 1 $\Rightarrow \sqrt { { x }^{ 2 }+{ y }^{ 2 } } =1$ $\Rightarrow$ x^2 + y^2 = 1
+Now, $\frac{Z-1}{Z+1}=\frac{x+i y-1}{x+i y+1}=\frac{x-1+i y}{x+1+i y}$ 
+= $\frac{x-1+i y}{x+1+i y} \cdot \frac{x+1-i y}{x+1-i y}$ = $\frac{\left(x^{2}-1\right)+y^{2}+i[y(x+1)-y(x-1)]}{(x+1)^{2}+(y)^{2}}$ 
+= $\frac{x^{2}+y^{2}-1+2 i y}{(x+1)^{2}+(y)^{2}}$ = $\frac{1-1+2 i y}{(x+1)^{2}+(y)^{2}}$ [$\because$ x^2 + y^2 = 1] 
+$\therefore$ $\frac{Z-1}{Z+1}$ = 0 + $\frac{2 y}{(x+1)^{2}+(y)^{2}} i$
+Which is purely imaginary number.
+Also when y = 0, the number will become zero
+
+Q6. The equation |4z - 1| = 4|z - 5| represents :
+    (A) a parabola
+    (B) a circle
+    (C) a straight line   <-- CORRECT
+    (D) an ellipse
+    Answer: C
+    Explanation: Given |4z - 1| = 4|z - 5|
+Let Z = x + iy 
+$\Rightarrow$ |4(x + iy) - 1| = 4|x + iy - 5|
+$\Rightarrow$ |(4x - 1) + 4iy| = 4(x - 5) + iy|
+$\Rightarrow$ $\sqrt{(4 x-1)^{2}+(4 y)^{2}}$ = $4 \sqrt{(x-5)^{2}+(y)^{2}}$ 
+Squaring on both sides we get
+(4x - 1)^2 + (4y)^2 = 16[(x - 5)^2 + (y)^2]
+$\Rightarrow$ 16x^2 + 1 - 8x + 16y^2 = 16[x^2 + 25 - 10x + y^2]
+$\Rightarrow$ 16x^2 + 1 - 8x + 16y^2 - 16x^2 - 400 + 160x - 16y^2 = 0
+$\Rightarrow$ 152x - 399 = 0
+$\Rightarrow$ x = $\frac{399}{152}$
+We have x = a constant is a straight line parallel to Y-axis.
+
+Q7. If ${\left( { - 1 + \sqrt 3 i} \right)^n} + {\left( { - 1 - \sqrt 3 i} \right)^n} = {2^n}\alpha $ then $\alpha $ is equal to :
+    (A) $ { \left( \omega \right) }^{ n }+{ \left( { \omega }^{ 2 } \right) }^{ n } $   <-- CORRECT
+    (B) -1
+    (C) 1
+    (D) 2
+    Answer: A
+    Explanation: We have $-1+i \sqrt{3}=2 \omega$ and $-1-i \sqrt{3}=2 \omega^{2}$ 
+Now 
+$(-1+\sqrt{3} i)^{n}+(-1-\sqrt{3} i)^{n}$ = $(2 \omega)^{n}+\left(2 \omega^{2}\right)^{n}$ = $2^{n}\left[(\omega)^{n}+\left(\omega^{2}\right)^{n}\right]$
+
+Q8. If ( x + iy ) ( 3 – 4i ) = (5 + 12i ) , then $\sqrt {{x^2} + {y^2}} = $
+    (A) 16
+    (B) 13/5   <-- CORRECT
+    (C) 5/13
+    (D) 65
+    Answer: B
+    Explanation: Given ( x + iy ) ( 3 – 4i ) = (5 + 12i )
+$\Rightarrow x+i y=\frac{5+12 i}{3-4 i}=\frac{(5+12 i)(3+4 i)}{(3-4 i)(3+4 i)}$
+$\frac{(15-48)+i(20+36)}{9+16}=\frac{-33+56 i}{25}$
+$\Rightarrow x=\frac{-33}{25}, y=\frac{56}{25}$
+$\therefore \sqrt{x^{2}+y^{2}}=\sqrt{\left(\frac{-33}{25}\right)^{2}+\left(\frac{56}{25}\right)^{2}}$
+$=\sqrt{\frac{1089+3136}{625}}=\sqrt{\frac{4225}{625}}=\frac{65}{25}=\frac{13}{5}$
+
+Q9. The locus of the equation $\left|\frac{3 z-1}{z-1}\right|$ = 1 is
+    (A) a circle   <-- CORRECT
+    (B) an ellipse
+    (C) a straight line
+    (D) a hyperbola
+    Answer: A
+    Explanation: Let Z = x + iy
+Now $\left|\frac{3 z-1}{z-1}\right|$ = 1
+$\Rightarrow$ |3z - 1| = |z - 1|
+$\Rightarrow$ |(3 (x + iy) - 1| = |(x + iy) - 1|
+$\Rightarrow$ |(3x - 1) + 3iy| = |(x - y) + iy| 
+$\Rightarrow$ $\sqrt{(3 x-1)^{2}+(3 y)^{2}}$ = $\sqrt{(x-1)^{2}+(y)^{2}}$ 
+$\Rightarrow$ (3x - 1)^2 + (3y)^2 = (x - 1)^2 + (y)^2 
+$\Rightarrow$ 9x^2 + 1 - 6x + 9y^2 = x^2 + 1 - 2x + y^2 
+$\Rightarrow$ 8x^2 + 8y^2 - 4x = 0
+$\Rightarrow$ x^2 + y^2 - $\frac{1}{2}$x = 0
+We have this is a circle with centre ($\frac{1}{4}$, 0) and radius = $\frac{1}{4}$.
+
+Q10. $\sqrt { - 8} \sqrt { - 18} \sqrt { - 4} $ is
+    (A) 24
+    (B) -24i   <-- CORRECT
+    (C) 24i
+    (D) -24
+    Answer: B
+    Explanation: $\sqrt{-8} \sqrt{-18} \sqrt{-4}$ 
+= $\sqrt{8} \cdot \sqrt{-1} \cdot \sqrt{18} \cdot \sqrt{-1} \cdot \sqrt{4} \cdot \sqrt{-1}$ = $2 \sqrt{2} . i .3 \sqrt{2} . i .2 . i$ = 24i^3 = -24i [$\because$ i^2 = -1]
+
+Q11. If $\alpha = \frac z {\overline z}$, then ${\text{|}}\alpha {\text{|}}$ is equal to:
+    (A) 1   <-- CORRECT
+    (B) 2
+    (C) -1
+    (D) 0
+    Answer: A
+    Explanation: Given $\alpha = {\frac z {z }}$ 
+Then $|\alpha|$ = $\left|\frac{z}{\bar{z}}\right|=\frac{|z|}{|\bar{z}|}$ = 1 [$\because$ $\left|\frac{z_{1}}{z_{2}}\right|=\frac{\left|z_{1}\right|}{\left|z_{2}\right|}$, $|z|=|\bar{z}|$]
+
+Q12. If z = x + iy ; x, y $\in $ R then :
+    (A) $z\bar z < {\left| z \right|^2}$
+    (B) $z\bar z \ne {\left| z \right|^2}$
+    (C) $z\bar z = {\left| z \right|^2}$   <-- CORRECT
+    (D) $z\bar z > {\left| z \right|^2}$
+    Answer: C
+    Explanation: If z = x + iy then $\bar { Z }$ = x - iy
+Now $z \bar{z}$ = (x + iy) $\cdot$ (x - iy) = x^2 + y^2 = |z|^2 [$\because$ |z| = $\sqrt{x^{2}+y^{2}}$]
+
+Q13. The smallest positive integer n for which $\left(\frac{1+i}{1-i}\right)^n=$ 1 is :
+    (A) 4   <-- CORRECT
+    (B) 8
+    (C) 6
+    (D) 2
+    Answer: A
+    Explanation: We have $\frac { 1+i }{ 1-i } =\frac { 1+i }{ 1-i } \times \frac { 1+i }{ 1+i } =\frac { { \left( 1+i \right) }^{ 2 } }{ 1+1 } $$=\frac { 1+2i-1 }{ 2 } =\frac { 2i }{ 2 } =i$
+Therefore $\left(\frac{1+i}{1-i}\right)^n=i^n$
+By inspection we have the smallest positive integer such that ${{i} ^n}=1$ is n=4.
+
+Q14. If $\left(\frac{\sqrt{3}}{2}+\frac{i}{2}\right)^5+\left(\frac{\sqrt{3}}{2}-\frac{i}{2}\right)^5$, then
+    (A) Im (z) > 0
+    (B) Im (z) = 0   <-- CORRECT
+    (C) Im (z) $<$ 0
+    (D) Re (z) $> $0
+    Answer: B
+    Explanation: $\frac{\sqrt{3}+i}{2}=r(\cos \theta+i \sin \theta) \Rightarrow r \cos \theta=\frac{\sqrt{3}}{2}$, $ r \sin \theta=\frac{1}{2}$
+$\therefore r^2\left(\cos ^2 \theta+\sin ^2 \theta\right)=\frac{3+1}{4}=1 $ $\Rightarrow r^2=1 \Rightarrow r=1$
+$\cos \theta=\frac{\sqrt{3}}{2}, \quad \sin \theta=\frac{1}{2}$
+$\therefore$ Amplitude = $\theta=\frac{\pi}{6}$
+$\frac { \sqrt { 3 } +i }{ 2 } =1\left( cos\frac { \pi }{ 6 } +isin\frac { \pi }{ 6 } \right) ={ e }^{ \frac { i\pi }{ 6 } }$ ...(i)
+Since $\frac { \sqrt { 3 } -i }{ 2 } $ lies in the fourth quadrant, the amplitude $=-\theta =-\frac { \pi }{ 6 } $
+$\frac { \sqrt { 3 } -i }{ 2 } =1\left( cos\frac { -\pi }{ 6 } +isin\frac { -\pi }{ 6 } \right) ={ e }^{ \frac { -i\pi }{ 6 } }$ ...(i)
+$z=\left(\frac{\sqrt{3}+i}{2}\right)^5+\left(\frac{\sqrt{3}-i}{2}\right)^5$
+$\Rightarrow z=\left(e^{\frac{ { i\pi }}{6}}\right)^5+\left(e^{\frac{-i \mathrm{\pi}}{6}}\right)^5=e^{\frac{i 5 \mathrm{\pi}}{6}}+e^{-\frac{i 5 \mathrm{\pi}}{6}}$ = $=\cos \left(\frac{5 \pi}{6}\right)+i \sin \left(\frac{5 \pi}{6}\right)+\cos \left(\frac{-5 \pi}{6}\right)$$+i \sin \left(\frac{-5 \pi}{6}\right)=2 \cos \left(\frac{5 \pi}{6}\right)$
+Which is purely real [imaginary part of z = 0]
+
+Q15. If the cube roots of unity are 1, $\omega ,{\omega ^2},$ then roots of the equation (x - 1)^3 + 8 = 0 are :
+    (A) 1, 1, 1
+    (B) $ - 1, - 1 + 2\omega ,1 + 2{\omega ^2}$
+    (C) -1, -1, -1
+    (D) $ - 1,1 - 2\omega ,1 - 2{\omega ^2}$   <-- CORRECT
+    Answer: D
+    Explanation: (x - 1)^3 + 8 = 0
+$\Rightarrow$ (x - 1)^3 = -8
+$\Rightarrow$ (x - 1)^3 = (-2)^3
+$\Rightarrow$ $\left(\frac{x-1}{-2}\right)^{3}$ = 1
+Let $\frac { x-1 }{ -2 } $ = m (say)
+So we get m^3 = 1 $\Rightarrow m=1, \omega ,{\omega ^2}$ [cube roots of unity]
+Now m = 1 $\Rightarrow$ $\frac{x-1}{-2}$ = 1 $\Rightarrow$ x - 1 = -2 $\Rightarrow$ x = -1
+m = $\omega$ $\Rightarrow$ $\frac{x-1}{-2}=\omega$ $\Rightarrow$ x - 1 = -2$\omega$ $\Rightarrow$ x = 1 - 2$\omega$ 
+Also m = $\omega^2$ $\Rightarrow$ $\frac{x-1}{-2}=\omega^{2}$ $\Rightarrow$ x -1 = $-2 \omega^{2}$ $\Rightarrow$ x = 1 - $2 \omega^{2}$ 
+Hence the roots of the given equation are $ - 1,1 - 2\omega ,1 - 2{\omega ^2}$
+
+========================================================================
+Quadratic Equations Test 03  (id 624) [PAID]
+CBSE > Class 11 > Mathematics > Complex Numbers and Quadratic Equations
+Questions: 15 | Answers: YES
+========================================================================
+
+Q1. The value of arg (x) when x < 0 is:
+    (A) $\pi /{\rm{2}}$
+    (B) $\pi $   <-- CORRECT
+    (C) -$\pi $
+    (D) 0
+    Answer: B
+    Explanation: Given x $\in $ R and x $<$ 0, therefore the number is $-x+0i$ and this will be a point inthe second quadrant as x is negative 
+We have arg($-x+0i$)=$\theta =$ $\tan ^{ -1 }{ \left| \frac { y }{ x } \right| } =\tan ^{ -1 }{ \left| \frac { 0 }{ -1 } \right| } =\tan ^{ -1 }{ 0 } =0$
+We have in the second quadrant the principal value of argument= $\Pi -\theta =\Pi -0 =\Pi$
+Hence Arg. ( x ) , x $\in $ R and x $<$ 0 is $\pi $
+
+Q2. The number of solutions of the equation Im (z^2) = 0, |z| = 2 is
+    (A) 3
+    (B) 2
+    (C) 4   <-- CORRECT
+    (D) 1
+    Answer: C
+    Explanation: Let z = x + iy, then we have $\bar { z }$ = x - iy 
+x^2 = (x + iy)^2 = x^2 - y^2 + 2xyi 
+$\therefore$ im(z^2) = 0 $\Rightarrow$ 2xy = 0 .....(i)
+|z| = 2 $\Rightarrow$ $\sqrt{x^{2}+y^{2}}$ = 2 $\Rightarrow$ x^2 + y^2 = 4 .....(ii)
+(x^2 - y^2)^2 = (x^2 + y^2)^2 - 4x^2y^2 
+$\Rightarrow$ (x^2 - y^2)^2 = 16
+$\Rightarrow$ x^2 - y^2 = $\pm$ 4 .....(iii)
+When x^2 - y^2 = 4 from (ii) and (iii) we get 2x^2 = 8 $\Rightarrow$ x^2 = 4 $\Rightarrow$ x = $\pm$ 2
+Now from (i) we get y = 0
+Hence z = $\pm 2$ 
+Now when x^2 - y^2 = -4 from (ii) and (iii) we get 2y^2 = 8 $\Rightarrow$ y^2 = 4 $\Rightarrow$ y = $\pm$ 2
+Now from (i) we get x = 0
+Hence z = $\pm 2i$ 
+Therefore the solutions of the equation Im (z^2) = 0, |z| = 2 are z = $\pm 2i$ and z = $\pm 2$ and so number of solutions = 4.
+
+Q3. Amp. (z - 2 - 3i) = $\frac{\pi}{4}$ then locus of z is
+    (A) x - y = 2
+    (B) x + y = 2
+    (C) x – y + 1 = 0   <-- CORRECT
+    (D) x + y = 0
+    Answer: C
+    Explanation: Let z = x + iy
+Then z - 2 - 3i = (x + iy) - 2 - 3i = (x - 2) + i(y - 3)
+Let $\theta $ be the amplitude of z.
+Then Amp (z - 2 - 3i) = $\frac{\pi}{4}$ 
+$\Rightarrow$ tan^-1$\left(\frac{y-3}{x-2}\right)$ = $\frac{\Pi}{4}$ 
+$\Rightarrow$ $\frac{y-3}{x-2}=\tan \frac{\Pi}{4}$ = 1
+$\Rightarrow$ y - 3 = x - 2
+$\Rightarrow$ x - y + 1 = 0
+
+Q4. If z_1 and z_2 are non-real complex numbers such that |z_1| = |z_2| and Amp. z_1 + Amp. z_2 = $\pi$, then z_1 =
+    (A) $\overline {{z_2}} $
+    (B) z_2
+    (C) $ - \overline {{z_2}} $   <-- CORRECT
+    (D) -z_2
+    Answer: C
+    Explanation: Let z_1 = $r_{1}\left(\cos \theta_{1}+i \sin \theta_{1}\right)$ and z_2 = $r_{2}\left(\cos \theta_{2}+i \sin \theta_{2}\right)$, where r_1 = |z_1|, r_2 = |z_2| and $\theta_{1}, \theta_{2}$ are the amplitudef of the complex numbers.
+Given |z_1| = |z_2| and$Amp.{z_{1}} + Amp.{z_2} = \pi $ $\Rightarrow$ r_1 = r_2 and $ { \theta }_{ 1 }+{ \theta }_{ 2 }=\pi $ 
+Now z_1 = ${ r }_{ 1 }\left( cos{ \theta }_{ 1 }+isin{ \theta }_{ 1 } \right)$ 
+$\Rightarrow$ z_1 = $r_{2}\left[\cos \left(\pi-\theta_{2}\right)+i \sin \left(\pi-\theta_{2}\right)\right]$ 
+$\Rightarrow$ z_1 = $r_{2}\left(-\cos \theta_{2}+i \sin \theta_{2}\right)$ = $-\left[r_{2}\left(\cos \theta_{2}-i \sin \theta_{2}\right)\right]$ = $-\overline{z_{2}}$
+
+Q5. The complex numbers sinx + i cos2x and cosx – i sin2x are conjugate to each other, for
+    (A) no value of x   <-- CORRECT
+    (B) $x=\left(n+\frac{1}{2}\right) \frac{\pi}{2}$
+    (C) x = ${\rm{n}}\pi $
+    (D) x = 0
+    Answer: A
+    Explanation: Let
+z_1 = sinx + icos2x and z_2 = cosx–isin2x
+$\Rightarrow$$\overline z$_1 = sinx − icos2x, $\overline z$_2 = cosx + isin2x
+Given that z_1 = $\overline z$_2 and z_2 = $\overline z$_1
+$\Rightarrow$ sinx + icos2x = cosx + isin2x and cosx − isin2x = sinx − icos2x
+$\Rightarrow$ sinx = cosx......(i) and cos2x = sin2x........(ii)
+Now cos2x = sin2x $\Rightarrow$ 2cos2x − 1 = 2sinx cosx
+$\Rightarrow$ 2sin^2x − 2sin^2x = 1using(i)
+$\Rightarrow$ 0 = 1
+Which is not possible.
+Hence we can say there is no solution for the system of equations
+
+Q6. The value of ${\left( { - 1 + \sqrt { - 3} } \right)^2} + {\left( { - 1 - \sqrt { - 3} } \right)^2}$is
+    (A) -4   <-- CORRECT
+    (B) 4
+    (C) 8
+    (D) -2
+    Answer: A
+    Explanation: We have $\sqrt { -3 } =\sqrt { -1.3 } =\sqrt { -1 } \sqrt { 3 } = \sqrt { 3 }i$
+$\therefore-1+\sqrt{-3}=-1+i \sqrt{3}=2 \omega \quad \text { and } \quad-1-\sqrt{-3}=-1-i \sqrt{3}=2 \omega^{2}$
+$\left[\because \omega=\frac{-1+i \sqrt{3}}{2} \quad \text { and } \quad \omega^{2}=\frac{-1-i \sqrt{3}}{2}\right]$
+$(-1+\sqrt{-3})^{2}+(-1-\sqrt{-3})^{2}$ $=(2 \omega)^{2}+\left(2 \omega^{2}\right)^{2}=4 \omega^{2}+4 \omega^{4}=4\left(\omega^{2}+\omega^{3} \cdot \omega\right)$
+=$4\left(\omega^{2}+\omega\right)=4 \times-1=-4$ $\left[\because \omega^{3}=1,1+\omega+\omega^{2}=0\right]$
+
+Q7. If $\alpha $ is a complex number such that ${\alpha ^2} + \alpha + 1 = 0$ then ${\alpha ^{31}}$ is
+    (A) 0
+    (B) 1
+    (C) $\alpha $   <-- CORRECT
+    (D) ${\alpha ^2}$
+    Answer: C
+    Explanation: ${\alpha ^2} + \alpha + 1 = 0$ $\Rightarrow \alpha =\frac { -1\pm \sqrt { 1-4 } }{ 2 } =\frac { -1\pm i\sqrt { 3 } }{ 2 } =\omega ,{ \omega }^{ 2 }$ 
+When $\alpha=\omega \Rightarrow \alpha^{31}=\omega^{31}$ = $\left(\omega^{3}\right)^{10} \cdot \omega=1 \cdot \omega=\omega=\alpha$ 
+Also when $\alpha=\omega^{2} \Rightarrow \alpha^{31}=\left(\omega^{2}\right)^{31}$ = $\omega^{62}=\left(\omega^{3}\right)^{20} \cdot \omega^{2}=1 . \omega^{2}=\omega^{2}=\alpha$ 
+Hence ${\alpha ^{31}}$ = $\alpha $
+
+Q8. The value of $\left(\frac{1+\omega}{\omega^2}\right)^3$ is
+    (A) 2
+    (B) 1
+    (C) 0
+    (D) -1   <-- CORRECT
+    Answer: D
+    Explanation: $\left(\frac{1+\omega}{\omega^{2}}\right)^{3}$ = $\left(\frac{-\omega^{2}}{\omega^{2}}\right)^{3}$ = (-1)^3 = -1 [$\because$ $1+\omega+\omega^{2}$ = 0]
+
+Q9. If n is any integer, then i^n is
+    (A) -i
+    (B) 1, -1
+    (C) 1, -1, i, -i   <-- CORRECT
+    (D) i
+    Answer: C
+    Explanation: i^0 = 1, i^1 = i, i^2 = -1, i^3 = i^2.i = -i
+Now we can see for n = 0, 4, 8....... the value of i^n = 1
+For n = 1, 5, 9....... the value of i^n = i
+For n = 2, 6, 10....... the value of i^n = -1 
+For n = 3, 7, 11....... the value of i^n = -i
+Similarly for all negative integers also n takes any one value among 1, -1, i, -i
+
+Q10. The points z = x + iy which satisfy the equation |z| = 1 lie on
+    (A) the line x = 1
+    (B) the line y = 1
+    (C) the circle whose centre is origin and radius = 1   <-- CORRECT
+    (D) the line x + y = 1
+    Answer: C
+    Explanation: z = x + iy
+Now |z| = 1 $\Rightarrow$ |x + iy| = 1
+$\Rightarrow$ $\sqrt{x^{2}+y^{2}}$ = 1 $\Rightarrow$ x^2 + y^2 = 1
+Which is the equation of a circle whose centre is origin and radius = 1
+
+Q11. The equation z^2 = $ \bar z$ has
+    (A) two solutions   <-- CORRECT
+    (B) a unique solution
+    (C) four solutions
+    (D) no solution
+    Answer: A
+    Explanation: Let z = x + iy
+z^2 = $\bar z$ $\Rightarrow$ (x + iy)^2 = x - iy 
+$\Rightarrow$ x^2 - y^2 + 2xyi = x - iy
+$\Rightarrow$ x^2 - y^2 = x .....(i) and 2xy = -y .....(ii)
+From (ii) we get x = $\frac { -1 }{ 2 } $ 
+Now from (i) we have y^2 = $\frac { 1 }{ 4 } +\frac { 1 }{ 2 } =\frac { 3 }{ 4 } \Rightarrow \pm \frac { \sqrt { 3 } }{ 2 } $ 
+Hence z = $\frac { -1 }{ 2 } \pm i\frac { \sqrt { 3 } }{ 2 } $
+
+Q12. The points of the complex plane given by the condition arg. (z) = (2n + 1) $\pi $, n $\in $ I lie on
+    (A) the negative real semi axis z = x, x < 0   <-- CORRECT
+    (B) the positive real semi axis z = x, x > 0
+    (C) the imaginary semi axis z = iy, y > 0
+    (D) the imaginary semi axis z = iy, y < 0
+    Answer: A
+    Explanation: Let z = x + iy then value of $\theta$ which satisfies the equation $tan\theta =\frac { y }{ x } $ is called an argument or amplitude.
+Then Arg (z)= $\tan ^{ -1 }{ \left( \frac { y }{ x } \right) } $ 
+Now arg. (z) = (2n + 1) $\pi $ $\Rightarrow\tan ^{ -1 }{ \left( \frac { y }{ x } \right) } = ( 2n + 1 ) \pi$ 
+$\Rightarrow$ tan (2n + 1)$\pi $ = $\frac{y}{x}$ 
+$\Rightarrow$ $\frac{\sin (2 n+1) \pi}{\cos (2 n+1) \pi}$ = $\frac{y}{x}$ 
+$\Rightarrow$ $\frac{0}{(-1)^{2 n+1}}$ = $\frac{y}{x}$ 
+$\Rightarrow$ $\frac{0}{-1}$ = $\frac{y}{x}$ 
+$\Rightarrow$ -y = 0
+Hence the points lie on the negative real semi-axis z = x, x < 0
+
+Q13. If z = x + yi ; x ,y $\in $ R, then locus of the equation $\bar bz + b\overline {z} = c$, where c $\in $ R and b $\in $ C, b $ \ne $ 0 are fixed, is
+    (A) a straight line   <-- CORRECT
+    (B) a circle
+    (C) a parabola
+    (D) a hyperbola
+    Answer: A
+    Explanation: Let z_1 = $\bar{b} z$ then $\overline{z_{1}}=b \bar{z}$ 
+Now $\bar{b} z+b \bar{z}$ = c $\Rightarrow$ $z_{1}+\overline{z_{1}}$ = c
+$\Rightarrow$ 2Rez_1 = c $\Rightarrow$ Rez_1 = $\frac{c}{2}$ 
+Which is a straight line.
+
+Q14. The complex number z which satisfies the condition $\left|\frac{i+z}{i-z}\right|=1$, lies on
+    (A) the line x + y =1
+    (B) circle x^2 + y^2 = 1
+    (C) the x - axis   <-- CORRECT
+    (D) the y - axis
+    Answer: C
+    Explanation: $\left|\frac{i+z}{i-z}\right|=1$
+$\Rightarrow|i+z|=|i-z|$
+$\Rightarrow|i+x+i y|=|i-(x+i y)|$
+$\Rightarrow \sqrt{(1+y)^2+x^2}=\sqrt{-(x)^2+(1-y)^2}$
+$\Rightarrow(1+y)^2+x^2=-(x)^2+(1-y)^2$
+$\Rightarrow y^2+2 y+1+x^2=x^2+y^2-2 y+1$
+$\Rightarrow$ 4y = 0
+$\Rightarrow$ y = 0
+which is the X-axis.
+
+Q15. (1 + i)^2n + (1 - i)^2n, n $ \in$ N, is
+    (A) a purely imaginary number
+    (B) a real complex number
+    (C) a purely real number   <-- CORRECT
+    (D) a non-real complex number
+    Answer: C
+    Explanation: (1 + i)^2n + (1 - i)^2n = [(1 + i)^2]^n + [(1 - i)^2]^n = [1 + 2i - 1]^n + [1 - 2i - 1]^n = (2i)^n + (-2i)^n = 2^n[(i)n + (-i)n]
+When n is an odd natural number say n = 2k + 1, (-i)^n = -(i)^2k+1 so that (i)^n + (-i)^n = (i)^2k+1 - (i)^2k+1 = 0
+When n is an even natural number say n = 2k, (-i)^n = (-i)^2k = (i)^2k so that, (i)^n + (-i)^n = (i)^2k + (i)^2k = 2(i^2)^k = 2(-1)^k, k $\in$ N
+Hence (1 + i)^2n + (1 - i)^2n is always a purely real number.
+
+========================================================================
+Quadratic Equations Test 04  (id 625) [PAID]
+CBSE > Class 11 > Mathematics > Complex Numbers and Quadratic Equations
+Questions: 15 | Answers: YES
+========================================================================
+
+Q1. $A m p \cdot\left(\sin \frac{6 \pi}{5}+i\left(1+\cos \frac{6 \pi}{5}\right)\right)$ is equal to
+    (A) $\frac {6\pi } {10}$   <-- CORRECT
+    (B) $\frac {6\pi } {5}$
+    (C) $\frac {7\pi } {10}$
+    (D) $\frac {5\pi }{ 6}$
+    Answer: A
+    Explanation: We have for a complex number x + iy the argument or amplitude is a value of $\theta $ satisfying $tan\theta =\frac { y }{ x } $
+z = x + it = $\sin \frac{6 \pi}{5}+i\left(1+\cos \frac{6 \pi}{5}\right)$
+$\therefore \tan \theta=\frac{y}{x}$ $\Rightarrow \tan \theta=\frac{1+\cos \frac{6 \mathrm{\pi}}{5}}{\sin \frac{6 \mathrm{\pi}}{5}}=\frac{2 \cos ^2 \frac{6 \mathrm{\pi}}{10}}{2 \sin \frac{6 \mathrm{\pi}}{10} \cos \frac{6 \mathrm{\pi}}{10}}=\tan \frac{6 \mathrm{\pi}}{10}$ $\left[\because 1+\cos \theta=2 \cos ^2 \frac{\theta}{2}, \sin \theta=2 \sin \frac{\theta}{2} \cos \frac{\theta}{2}\right]$
+$\Rightarrow \theta=\frac{6 \pi}{10}$
+
+Q2. If z = $\frac{\sqrt{3}+i}{2}$, then z^69 is equal to
+    (A) 1
+    (B) -1
+    (C) i
+    (D) -i   <-- CORRECT
+    Answer: D
+    Explanation: Given z = $\frac{\sqrt{3}+i}{2}$ 
+iz = $i\left[\frac{\sqrt{3}+i}{2}\right]$ = $\frac{-1+i \sqrt{3}}{2}=\omega$ 
+$\Rightarrow$ z = $\frac{\omega}{i}$ 
+Then z^69 = $\left[\frac{\omega}{i}\right]^{69}$ = $\frac{\left(\omega^{3}\right)^{23}}{\left(i^{2}\right)^{34} \cdot i}$ = $\frac{1}{(-1)^{34} . i}=\frac{1}{i}$ = -i [$\because$ $\omega^3$ = 1, i^2 = -1]
+
+Q3. If $\omega $ is a cube root of unity, then the linear factors of x^3 + y^3 in complex numbers are
+    (A) (x + y)(x + y$\omega$)(x - y$\omega^2$)
+    (B) (x - y) (x + y$\omega$) (x + y$\omega^2$)
+    (C) (x + y)(x + y$\omega$)(x + y$\omega^2$)   <-- CORRECT
+    (D) (x + y)(x - y$\omega$)(x - y$\omega^2$)
+    Answer: C
+    Explanation: We have x^3 + y^3 = (x + y)(x^2 - xy + y^2)
+Now consider x^2 - yx + y^2 = 0 which is a quadratic equation in x with a = 1, b = -y and c = y^2
+Hence the roots are 
+x = $\frac{-(-y) \pm \sqrt{(-y)^{2}-4 \cdot 1 \cdot y^{2}}}{2 \cdot 1}$ = $\frac{y \pm \sqrt{-3 y^{2}}}{2}$ = $\frac{y \pm i y \sqrt{3}}{2}$ = $\frac{y(1 \pm i \sqrt{3})}{2}$ 
+$\Rightarrow$ x = y$\omega$ or y$\omega^2$ 
+Hence, x^3 + y^3 = (x + y)(x^2 - xy + y^2) = (x + y)(x + y$\omega$)(x + y$\omega^2$)
+
+Q4. $\left( {z + 1} \right)\left( {\overline z + 1} \right)$ can be expressed as
+    (A) |z + 1|^2   <-- CORRECT
+    (B) |z|^2 + 1
+    (C) |z|^2 + 2
+    (D) |z + 2|^2
+    Answer: A
+    Explanation: We have $z\bar { z } ={ \left| z \right| ^{ 2 } }$ 
+Now $\left( { z+1 } \right) \left( { \overline { z } +1 } \right) =\left( { z+1 } \right) \left( \overline { z+1 } \right) $ = |z + 1|^2
+
+Q5. If $\alpha {\rm{ }},{\rm{ }}\beta $ are non-real cube roots of unity then $\alpha \beta $ + ${\alpha ^5} + {\beta ^5}$ equals
+    (A) -1
+    (B) 0   <-- CORRECT
+    (C) 3
+    (D) 1
+    Answer: B
+    Explanation: If $\alpha {\rm{ }},{\rm{ }}\beta $ are non-real cube roots of unity then we have either $\alpha=\omega, \beta=\omega^{2}$ or $\alpha=\omega^{2}, \beta=\omega$ 
+$\alpha=\omega, \beta=\omega^{2}$ $\Rightarrow$ $\alpha^{5}+\beta^{5}+\alpha \cdot \beta$ = $\omega^{5}+\left(\omega^{2}\right)^{5}+\omega \cdot \omega^{2}$ = $\omega^{3} \cdot \omega^{2}+\left(\omega^{3}\right)^{3} \cdot \omega^{1}+\omega^{3}$ = $1 . \omega^{2}+1 . \omega+1$ = 0
+$\alpha=\omega^{2}, \beta=\omega$ $\Rightarrow$ $\alpha^{5}+\beta^{5}+\alpha . \beta$ = $\left(\omega^{2}\right)^{5}+\omega^{5}+\omega . \omega^{2}$ = $\left(\omega^{3}\right)^{3} \cdot \omega^{1}+\omega^{3} \cdot \omega^{2}+\omega^{3}$ = $1 . \omega+1 . \omega^{2}+1$ = 0 [$\because$ $\omega^{3}=1,1+\omega+\omega^{2}=0$ ]
+
+Q6. The complex numbers z = x + iy; x , y $\in $ R which satisfy the equation $\left|\frac{z-3 i}{z+3}\right|=1$ lies on
+    (A) the line parallel to y axis
+    (B) the y axis
+    (C) the line x + y = 0   <-- CORRECT
+    (D) the x axis
+    Answer: C
+    Explanation: Let z=x+iy
+Now $\left|\frac{z-3 i}{z+3}\right|=1$
+$\Rightarrow|z-3 i|=|z+3|$
+$\Rightarrow|(x+i y)-3 i|=|x+i y+3|$
+$\Rightarrow|x+i(y-3)|=|(x+3)+i y|$
+$\Rightarrow \sqrt{(y-3)^{2}+x^{2}}=\sqrt{(x+3)^{2}+(y)^{2}}$
+$\Rightarrow(y-3)^{2}+x^{2}=(x+3)^{2}+(y)^{2}$
+$\Rightarrow y^{2}-6 y+9+x^{2}=x^{2}+6 x+9+y^{2}$
+$\Rightarrow 6 x+6 y=0$
+$\Rightarrow x+y=0$
+
+Q7. If z_1 = 2+3i and z_2 = 5+2i, then find z_1-z_2.
+    (A) 3-i
+    (B) 7+5i
+    (C) 7-5i
+    (D) -3+1i   <-- CORRECT
+    Answer: D
+    Explanation: In subtracting one complex number from other, difference of corresponding parts of two complex numbers is calculated. So,
+z_1-z_2 will be:
+= (2-5) + (3-2) i
+= -3+1i.
+
+Q8. If z = $\bar z$, then
+    (A) z is purely imaginary
+    (B) z is purely real   <-- CORRECT
+    (C) z is a complex number
+    (D) z is a whole number
+    Answer: B
+    Explanation: Let z = x + iy
+Now z = $\bar{z} \Rightarrow$ x + iy = x - iy $\Rightarrow$ 2iy = 0 $\Rightarrow$ y = 0
+Which means z is purely real.
+
+Q9. The complex number $\frac{(1+i)^n}{(1-i)^{n-2}}$ is equal to
+    (A) $2{i^{n - 2}}$
+    (B) $2{i^{n - 1}}$   <-- CORRECT
+    (C) $4{i^{n - 2}}$
+    (D) $2{i^{n - 4}}$
+    Answer: B
+    Explanation: $\frac { { \left( { 1+i } \right) }^{ n } }{ { \left( { 1-i } \right) }^{ n-2 } } =\frac { { \left( { 1+i } \right) }^{ n } }{ { \left( { 1-i } \right) }^{ n }.{ \left( { 1-i } \right) }^{ -2 } } =\frac { { \left( { 1+i } \right) }^{ n }.{ \left( { 1-i } \right) }^{ 2 } }{ { \left( { 1-i } \right) }^{ n } } $ $={ \left( \frac { 1+i }{ 1-i } \right) }^{ n }.{ \left( { 1-i } \right) }^{ 2 }$
+Now $\frac { 1+i }{ 1-i } =\frac { 1+i }{ 1-i } .\frac { 1+i }{ 1+i } =\frac { { \left( { 1+i } \right) }^{ 2 } }{ 1+1 } =\frac { 1-1+2i }{ 1+1 } =\frac { 2i }{ 2 } =i$
+$\therefore \frac { { \left( { 1+i } \right) }^{ n } }{ { \left( { 1-i } \right) }^{ n-2 } } $ $={ i }^{ n }.{ \left( { 1-i } \right) }^{ 2 }={ i }^{ n }.\left( 1-1-2i \right) =-2i.{ i }^{ n }=-2{ i }^{ n+1 }$ $=-2.{ i }^{ 2 }.{ { i }^{ n-1 } }=-2.-1.{ { i }^{ n-1 } }=2.{ { i }^{ n-1 } }$
+
+Q10. The least value of n for which ${ \left( \frac { 1+i }{ 1-i } \right) }^{ n }$ is a positive integer is
+    (A) 8
+    (B) 1
+    (C) 2
+    (D) 4   <-- CORRECT
+    Answer: D
+    Explanation: $\frac{1+i}{1-i}$ = $\frac{1+i}{1-i} \cdot \frac{1+i}{1+i}$ = $\frac{(1+i)^{2}}{1+1}=\frac{1-1+2 i}{1+1}=\frac{2 i}{2}$ = i
+$\therefore$ $\left(\frac{1+i}{1-i}\right)^{n}$ = i^n 
+We have i^4 = 1 which is positive.
+Hence the least value of n is 4.
+
+Q11. If (x + iy)(p + iq) = (x^2 + y^2)i, then
+    (A) p = x, q = y
+    (B) p = ix, q = 0
+    (C) p = y, q = x   <-- CORRECT
+    (D) p = 0, q = ix
+    Answer: C
+    Explanation: (x + iy)(p + iq) = (x^2 + y^2)i 
+$\Rightarrow$ (xp - yq) + i(xq + yp) = (x^2 + y^2)i 
+$\Rightarrow$ xp - yp = 0 and xq = + yp = x^2 + y^2 
+$\Rightarrow$ p = $\frac{y q}{x}$ ....(i) and xq + yp = x^2 + y^2 ...(ii)
+Substituting (i) in (ii), we get 
+xq + $y\left(\frac{y q}{x}\right)$ = x^2 + y^2 $\Rightarrow$ x^2q + y^2q = x(x^2 + y^2)
+$\Rightarrow$ q(x^2 + y^2) = x(x^2 + y^2) $\Rightarrow$ q = x
+Now from (i), we get p = y
+
+Q12. If z = x + yi and w = $\frac{1-i z}{z-i}$, then |w| = 1 implies that, in the complex plane
+    (A) z lies on the imaginary axis
+    (B) z lies on the unit circle
+    (C) z lies on the unit square
+    (D) z lies on the real axis   <-- CORRECT
+    Answer: D
+    Explanation: $\left| { { w } } \right| =1\Rightarrow \left| \frac { 1-iz }{ z-i } \right| =1$
+$\Rightarrow \left| { { 1-iz } } \right| =\left| { { z-i } } \right|$
+$\Rightarrow \left| { { 1-i\left( x+iy \right) } } \right| =\left| { \left( x+iy \right) -i } \right|$
+$\Rightarrow \left| { { \left( 1+y \right) -ix } } \right| =\left| { { x+i\left( y-1 \right) } } \right|$
+$\Rightarrow \sqrt { { \left( 1+y \right) }^{ 2 }+{ \left( x \right) }^{ 2 } } =\sqrt { { \left( y-1 \right) }^{ 2 }+{ \left( x \right) }^{ 2 } }$
+$\Rightarrow { \left( 1+y \right) }^{ 2 }+{ \left( x \right) }^{ 2 }={ \left( y-1 \right) }^{ 2 }+{ \left( x \right) }^{ 2 }$
+$ \Rightarrow 1+{ y }^{ 2 }+2y+{ x }^{ 2 }=1+{ y }^{ 2 }-2y+{ x }^{ 2 }$
+$\Rightarrow y=0$
+Which is the real axis.
+
+Q13. If p^2 + p + 1 = 0, then, the value of p^3n is equal to
+    (A) 1
+    (B) -1
+    (C) 0
+    (D) 1 or -1   <-- CORRECT
+    Answer: D
+    Explanation: p^2 + p + 1 = 0 $\Rightarrow$ p = $\frac{-(1) \pm \sqrt{1^{2}-4 \cdot 1 \cdot 1}}{2}$ = $\frac{-1 \pm \sqrt{-3}}{2}=\frac{-1 \pm \sqrt{3} i}{2}=\omega, \omega^{2}$ 
+Now p = $\omega$ $\Rightarrow$ p^3n = $(\omega^3)^n$ = 1^n = 1 or -1, depending n is even or odd
+Also p = $\omega^2$ $\Rightarrow$ p^3n = $(\omega^2)^{3n}$ = $(\omega^3)^{2n}$ = 1^2n = 1
+Hence p = 1, -1
+
+Q14. The solution of the equation |z| = z + 1 + 2i is
+    (A) $\frac{3}{2}$ - 2i   <-- CORRECT
+    (B) $\frac{3}{2}$ + 2i
+    (C) 3 + 2i
+    (D) 3 – 2i
+    Answer: A
+    Explanation: Let z = x + iy
+Now 
+|z| = z + 1 + 2i
+$\Rightarrow$ $\sqrt{x^{2}+y^{2}}$ $\Rightarrow$ x + 1 + i(y + 2)
+$\Rightarrow$ $\sqrt{x^{2}+y^{2}}$ = x + 1 and y + 2 = 0
+$\Rightarrow$ y = -2 and x^2 + 4 = (x + 1)^2 
+$\Rightarrow$ y = -2 and x = $\frac{3}{2}$ 
+Hence z = $\frac{3}{2}$ - 2i
+
+Q15. a + ib $ \leq $ c + id is meaningful only when
+    (A) b^2 + d^2 = 0   <-- CORRECT
+    (B) b^2 + c^2 = 0
+    (C) a^2 + d^2 = 0
+    (D) a^2 + b^2 = 0
+    Answer: A
+    Explanation: We have in the complex numbers system it is meaningless to say one is smaller or bigger than the other since the order relation does not exist in complex numbers.
+So a + ib $ \leq$ c + id will be meaningful only when these numbers are real which means their imaginary parts are zero.
+$\Rightarrow$ b = 0 and d = 0 $\Rightarrow$ b^2 + d^2 = 0
+
+========================================================================
+Quadratic Equations Test 05  (id 626) [PAID]
+CBSE > Class 11 > Mathematics > Complex Numbers and Quadratic Equations
+Questions: 14 | Answers: YES
+========================================================================
+
+Q1. Square roots of i are
+    (A) $\pm \frac{1}{\sqrt{2}}(1-i)$
+    (B) -1
+    (C) $\pm \frac{1}{\sqrt{2}}(1+i)$   <-- CORRECT
+    (D) $ \pm 1$
+    Answer: C
+    Explanation: Let $\sqrt { i }$ = x + iy
+Squaring both sides, we get
+i = (x + iy)^2 = x^2 - y^2 + 2xyi 
+Subtracting (i) from (iii), we get
+2y^2 = 1 $\Rightarrow$ y^2 = $\frac{1}{2}$ $\Rightarrow$ y = $\pm \frac{1}{\sqrt{2}}$ 
+Comparing real and imaginary parts, we get x^2 - y^2 = 0 ....(i) and 2xy = 1
+We have (x^2 - y^2)^2 = (x^2 + y^2)^2 - 4x^2y^2 
+$\Rightarrow$ 0 = (x^2 + y^2)^2 - (2xy)^2 = (x^2 + y^2)^2 - 1
+$\Rightarrow$ (x^2 + y^2)^2 = 1
+$\Rightarrow$ x^2 + y^2 = 1 .....(iii)
+Adding (i) and (iii) we get 
+2x^2 = 1 $\Rightarrow$ x^2 = $\frac{1}{2}$ $\Rightarrow$ x = $\pm \frac{1}{\sqrt{2}}$ 
+Hence $\sqrt { i }$ = x + iy = $\pm \frac{1}{\sqrt{2}}(1+i)$
+
+Q2. The value of $\frac{1}{1+\omega}+\frac{1}{1+\omega^2}$ =
+    (A) -1
+    (B) 2
+    (C) 0
+    (D) 1   <-- CORRECT
+    Answer: D
+    Explanation: $1,\omega ,{ \omega }^{ 2 }$ are the three cube roots of unity and we have $1+\omega +{ \omega }^{ 2 }=0 , { \omega }^{ 3 }=1$
+${1 \over {1 + \omega }} + {1 \over {1 + {\omega ^2}}} = $$ {1 \over { - {\omega ^2}}}+{1 \over {-\omega }} = $ $-1\left(\frac{1}{\omega^{2}}+\frac{1}{\omega}\right)=-1\left(\frac{\omega+\omega^{2}}{\omega^{2} \cdot \omega}\right)$ = $-1\left(\frac{-1}{\omega^{3}}\right)=\frac{1}{\omega^{3}}=1$ [$\because$ $\omega+\omega^{2}=-1, \omega^{3}=1$]
+
+Q3. The values of x and y $\in $ R for which the numbers -3 + x^2yi, x^2 + y + 4i are conjugates of each other are
+    (A) -1, -4
+    (B) -1, 4
+    (C) 1, -4
+    (D) $ \pm 1, - 4$   <-- CORRECT
+    Answer: D
+    Explanation: Let z_1 = -3 + x^2yi and z_2 = x^2 + y + 4i $\Rightarrow$ $\bar z_{1}$ = -3 - x^2yi, $\bar z_{2}$ = x^2 + y - 4i
+Given the numbers are conjugates of each other $\overline{z_{1}}=z_{2}$ and $\overline{z_{2}}=z_{1}$ 
+$\Rightarrow$ -3 - x^2yi = x^2 + y + 4i and x^2 + y - 4i = -3 + x^2yi
+$\Rightarrow$ x^2 + y = -3 and x^2y = -4
+$\Rightarrow$ $\frac{-4}{y}$ + y = -3
+$\Rightarrow$ y^2 + 3y - 4 = 0 $\Rightarrow$ (y + 4)(y - 1) = 0
+$\Rightarrow$ y = 1, -4
+When y = 1 we get x^2 = 4 $\Rightarrow$ x = $\pm \sqrt{-4}=\pm 2 i$, which is not possible since given x is a real number.
+When y = $-4$ we get $x^{ 2 }=1\Rightarrow x=\pm \sqrt { 1 } =\pm 1 $ 
+Hence the possible values of x and y are $\pm 1,-4$
+
+Q4. If $x = {\omega ^2} - \omega - 3,\omega $ being a non real cube root of unity, then the value of x^4 + 6x^3 + 10x^2 - 12x - 19 is
+    (A) 12
+    (B) 19
+    (C) 5   <-- CORRECT
+    (D) 17
+    Answer: C
+    Explanation: x = $\omega^{2}-\omega-3$ 
+$\Rightarrow$ x + 3 $=\omega^{2}-\omega$ 
+$\Rightarrow$ x^2 + 6x + 9 = $\omega^{4}-2 \omega^{3}+\omega^{2}$ = $\omega-2+\omega^{2}$ = -3
+$\Rightarrow$ x^2 + 6x + 12 = 0
+Now x^4 + 6x^3 + 10x^2 - 12x - 19 = (x^2 - 2)(x^2 + 6x + 12) + 5 = (x^2 - 2) $\times$ 0 + 5 = 5
+
+Q5. Square roots of - 48 – 14i are
+    (A) (1 - 7i)
+    (B) (1 + 7i)
+    (C) $ \pm (1 - 7i$)   <-- CORRECT
+    (D) $ \pm (1 + 7i$)
+    Answer: C
+    Explanation: We have $\sqrt{z}=\sqrt{x+i y}$ = $\pm[\sqrt{\frac{|z|+x}{2}}-i \sqrt{\frac{|z|-x}{2}}]$, for y < 0
+Now consider z = -48 - 14i
+Here Re z = -48, Im z < 0 and |z| = $\sqrt{(-48)^{2}+(-14)^{2}}$ = $\sqrt{2304+196}$ = $\sqrt{2500}$ = 50 
+$\therefore$ $\sqrt{-48-14 i}$ = $\pm[\sqrt{\frac{50+(-48)}{2}}-i \sqrt{\frac{50-(-48)}{2}}]$ 
+= $\pm[\sqrt{\frac{50-48}{2}}-i \sqrt{\frac{50+48}{2}}]$ = $\pm[1-i \sqrt{49}]$ = $\pm$ [1 - 7i]
+
+Q6. The region of Argand’s plane represented by the inequality |1 - z| $\leq $ |1 + z| is
+    (A) Re (z) $≥$ 0   <-- CORRECT
+    (B) Im (z) > 0
+    (C) Re (z) $≤ $0
+    (D) Im (z) < 0
+    Answer: A
+    Explanation: Let Z = x + iy
+Given |1 - z| $ \leq$ |1 + z| 
+$\Rightarrow$ |1 - (x + iy)| $ \leq$ |1 + x + iy|
+$\Rightarrow$ |(1 - x) - iy| $ \leq$ |(1 + x) + iy|
+$\Rightarrow$ $\sqrt{(1-x)^{2}+y^{2}}$ $ \leq$ $\sqrt{(1+x)^{2}+(y)^{2}}$ 
+Squaring on both sides we get 
+(1 - x)^2 + y^2 $ \leq$ (1 + x)^2 + (y)^2 
+$\Rightarrow$ 1 + x^2 - 2x + y^2 $ \leq$ 1 + x^2 + 2x + y^2
+$\Rightarrow$ -2x $ \leq$ 2x 
+$\Rightarrow$ 4x $ \geq$ 0
+$\Rightarrow$ x $ \geq$ 0
+Hence we get x = Re (z) $≥$ 0
+
+Q7. If z is purely real and Re ( z) > 0, then Amp. (z) is
+    (A) $\pi $
+    (B) - $\pi $
+    (C) 0   <-- CORRECT
+    (D) 1
+    Answer: C
+    Explanation: To find the amplitude of a complex number Z = x + iy first find a value of $\theta $ which satisfy the equation $\theta =\tan ^{ -1 }{ \left| \frac { y }{ x } \right| } ,0\le \theta \le \frac { \Pi }{ 2 } $ 
+Now depending on the complex number lies in the first, second, third or fourth quadrants the amplitudes will be $\theta ,\left( \Pi -\theta \right) ,-\left( \Pi -\theta \right) ,-\left( \theta \right) $ respectively.
+Given z is purely real and Re (z) > 0
+$\therefore$ Z = x + 0i, x > 0
+Now $\tan ^{ -1 }{ \left| \frac { y }{ x } \right| } =\tan ^{ -1 }{ \left| \frac { 0 }{ 1 } \right| } $ = tan^-1 0 = 0
+Also Z = x + 0i, x > 0 lies in the first quadrant 
+Hence Amp(Z) = 0
+
+Q8. If z is purely real and Re(z) < 0, then Arg.(z) is
+    (A) $\pi $   <-- CORRECT
+    (B) 0
+    (C) 1
+    (D) -$\pi $
+    Answer: A
+    Explanation: To find the amplitude of a complex number Z = x + iy first find a value of $\theta $ which satisfy the equation $\theta =\tan ^{ -1 }{ \left| \frac { y }{ x } \right| } ,0\le \theta \le \frac { \Pi }{ 2 } $ 
+Now depending on the complex number lies in the first, second, third or fourth quadrants the amplitudes will be $\theta ,\left( \Pi -\theta \right) ,-\left( \Pi -\theta \right) ,-\left( \theta \right) $ respectively.
+Given z is purely real and Re (z) $<$ 0
+$\therefore$ Z = -x + 0i, x > 0
+Now $\tan ^{ -1 }{ \left| \frac { y }{ x } \right| } =\tan ^{ -1 }{ \left| \frac { 0 }{ -1 } \right| }$ = tan^-1 0 = 0
+Also Z = -x + 0i, x > 0 lies in the second quadrant.
+Hence Amp(Z) = $\Pi -\theta =\Pi -0=\Pi $
+
+Q9. Find argument of the complex number (0 + 0i)
+    (A) 0
+    (B) $\pi $
+    (C) none of these   <-- CORRECT
+    (D) -$\pi $
+    Answer: C
+    Explanation: Let Z = 0 + 0i = $r\left( cos\theta +isin\theta \right) $ 
+Then comparing the real and imaginary parts, we get 
+r cos $\theta$ = 0 and r sin $\theta$ = 0
+$\therefore$ r^2 (cos^2 $\theta$ + sin^2 $\theta$) = 0
+$\Rightarrow$ r^2 = 0 $\Rightarrow$ r = 0
+$\Rightarrow$ cos $\theta$ = 0 and sin $\theta$ = 0 
+Which is not possible for any value of $\theta$.
+
+Q10. Find the Amplitude of i
+    (A) $\frac \pi 2$   <-- CORRECT
+    (B) 0
+    (C) -$\frac \pi 2$
+    (D) $\frac \pi 4$
+    Answer: A
+    Explanation: Let Z = i = $r\left( cos\theta +isin\theta \right) $ 
+Then comparing the real and imaginary parts, we get
+r cos $\theta$ = 0 and r sin $\theta$ = 1
+$\therefore$ r^2(cos^2 $\theta$ + sin^2 $\theta$) = 1
+$\Rightarrow$ r^2 = 1 $\Rightarrow$ r = 1
+$\therefore$ cos $\theta$ = 0 and sin $\theta$ = 1 $\left[ cos\left( \frac { \Pi }{ 2 } \right) = 0, sin\left( \frac { \Pi }{ 2 } \right) =1 \right] $ [Format of amplitude is $\left( \Pi -\theta \right) $in the second quadrant]
+Since $\theta$ lies in the second quadrant, we have the principal value of the argument (Amplitude) = $\left( \Pi -\theta \right) =\left( \Pi -\frac { \Pi }{ 2 } \right) =\frac { \Pi }{ 2 }$
+
+Q11. 1/z is _________________ for complex number z.
+    (A) additive identity element
+    (B) multiplicative inverse   <-- CORRECT
+    (C) additive inverse
+    (D) multiplicative identity element
+    Answer: B
+    Explanation: multiplicative inverse
+On multiplying reciprocal of complex number (1/z) to complex number z, we get multiplying inverse one i.e. z*1=z.
+
+Q12. Find the Amplitude of -1 - i
+    (A) $\frac{\pi}{4}$
+    (B) $\frac{-3\pi}{4}$   <-- CORRECT
+    (C) $\frac{\pi}{2}$
+    (D) $\frac{3\pi}{4}$
+    Answer: B
+    Explanation: Let Z = -1 - i = $r\left( cos\theta +isin\theta \right) $ 
+Then comparing the real and imaginary parts, we get
+r cos $\theta$ = -1 and r sin $\theta$ = -1
+$\therefore$ r^2(cos^2 $\theta$ + sin^2 $\theta$) = 2
+$\Rightarrow$ r^2 = 2 $\Rightarrow$ r = $\sqrt{2}$ 
+$\therefore$ $\sqrt{2} \cos \theta$ = -1 and $\sqrt{2} \sin \theta$ = -1
+$\Rightarrow$ $\cos \theta=\frac{-1}{\sqrt{2}}$ and $\sin \theta=\frac{-1}{\sqrt{2}}$ [$\operatorname{cos}\left(\frac{\pi}{4}\right)=\sin \left(\frac{\pi}{4}\right)=\frac{1}{\sqrt{2}}$]
+Since both sin $\theta$ and cos $\theta$ are negative and we have sin $\theta$ and cos $\theta$ are negative in the third quardrant, the principal value of the argument (Amplitude) = $-\left( \pi -\frac { \pi }{ 4 } \right) =-\frac { 3\pi }{ 4 } $
+
+Q13. If z is any complex number, then $\frac{z-\bar{z}}{2 i}$ is
+    (A) either 0 or purely imaginary
+    (B) either 0 or purely real
+    (C) purely imaginary
+    (D) purely real   <-- CORRECT
+    Answer: D
+    Explanation: Let z = x + iy
+Then $\bar {z }$ = x - iy
+$\therefore$ z - $\bar { z}$ = (x + iy) - (x - iy) = 2iy
+Now $\frac{z-\bar{z}}{2 i}$ = y
+Hence $\frac{z-\bar{z}}{2 i}$ is purely real.
+
+Q14. Which of the following is correct ?
+    (A) none of these   <-- CORRECT
+    (B) ${\text{2 }} + {\text{ 3i }} < {\text{ 3 }} + {\text{ 4i}}$
+    (C) ${\text{3 }} - {\text{4i }} < {\text{ 2 }}-{\text{ 3i}}$
+    (D) ${\text{1 }} + {\text{i }} < {\text{ 1}} - {\text{ i}}$
+    Answer: A
+    Explanation: There is no linear ordering in the set of complex numbers.Hence it is not possible to say one complex number is smaller or bigger than the other

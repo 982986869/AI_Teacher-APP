@@ -1,0 +1,1050 @@
+CHAPTER: Binomial Theorem  (id 1379)
+CBSE > Class 11 > Mathematics > Binomial Theorem
+Online tests: 5
+
+========================================================================
+Binomial Theorem Test 01  (id 637) [FREE]
+CBSE > Class 11 > Mathematics > Binomial Theorem
+Questions: 15 | Answers: YES
+========================================================================
+
+Q1. What is the middle term of (4 + 2x)^6?
+    (A) 10240 x^3   <-- CORRECT
+    (B) 11240 x^2
+    (C) 10340 x^4
+    (D) 12240 x^4
+    Answer: A
+    Explanation: The middle term will be the 4^th term
+4^th term = ^6C_3 (4)^6 – 3(2x)^3
+= 20 (64) (8x^3)
+= 10240 x^3
+
+Q2. If n is a +ve integer, then the binomial coefficients equidistant from the beginning and the end in the expansion of (x + a)^n are
+    (A) multiplicative inverse of each other
+    (B) additive inverse of each other
+    (C) reciprocal to each other
+    (D) equal   <-- CORRECT
+    Answer: D
+    Explanation: (x + a)^n = $^{n} C_{0} x^{n}+^{n} C_{1} x^{n-1} a^{1}+^{n} C_{2}x^{n-2} a^{2}$ + ..... + $^{n} C_{n-1} x a^{n-1}+^{n} C_{n} a^{n}$ 
+Now $^{n} C_{0}=^{n} C_{n}, ^{n} C_{1}=^{n} C_{n-1},^{n} C_{2}=^{n} C_{n-2}$ ...... [ $\because^{n} C_{r}=^{n} C_{n-r}$]
+
+Q3. If the rth term in the expansion of $\left(\frac{x^3}{3}-\frac{2}{x^2}\right)^{10}$ contains x^20, then r =
+    (A) 2
+    (B) 5
+    (C) 3   <-- CORRECT
+    (D) 4
+    Answer: C
+    Explanation: We have the general term of (x + a)^n is T_r+1 = $^{n} C_{r}(x)^{n-r} a^{r}$ 
+Now consider $\left(\frac{x^{3}}{3}-\frac{2}{x^{2}}\right)^{10}$ 
+Here T_r+1 = $^{10} C_{r}\left(\frac{x^{3}}{3}\right)^{10-r}\left(-\frac{2}{x^{2}}\right)^{r}$ 
+Hence rth term = T_r = $^{10} C_{r-1}\left(\frac{x^{3}}{3}\right)^{11-r}\left(-\frac{2}{x^{2}}\right)^{r-1}$ 
+Comparing the indices of x in x^20 and in T_r, we get
+$\Rightarrow$ 33 - 3r - 2r + 2 = 20
+$\Rightarrow$ 5r = 15
+$\Rightarrow$ r = 3
+
+Q4. If the coefficients of ${x^{ - 7}}$ and ${x^{ - 8}}$ in the expansion of $\left(2+\frac{1}{3 x}\right)^n$ are equal then n =
+    (A) 56
+    (B) 45
+    (C) 15
+    (D) 55   <-- CORRECT
+    Answer: D
+    Explanation: We have the general term in the expansion of $ \left( { 2+{ \frac { 1 }{ 3x } } } \right) ^{ n }$ is given by
+$T_{ r+1 }=^{ n }{ C_{ r} }(2)^{ (n-r) }\left( \frac { 1 }{ 3x } \right) ^{ r }$
+Now x^-r = x^-7 $\Rightarrow$ r = 7
+and x^-r = x^-8 $\Rightarrow$ r = 8
+$\therefore T_{ 8 }=T_{ 7+1 }=^{ n }{ C_{ 7} }(2)^{ (n-7) }\left( \frac { 1 }{ 3x } \right) ^{ 7 }$
+$T_{ 9 }=T_{ 8+1 }=^{ n }{ C_{ 8} }(2)^{ (n-8) }\left( \frac { 1 }{ 3x } \right) ^{ 8 }$
+Given, $\frac { ^{ n }{ C_{ 7\quad } }{ 2 }^{ n-7 } }{ { 3 }^{ 7 } } =\frac { ^{ n }{ C_{ 8\quad } }{ 2 }^{ n-8 } }{ { 3 }^{ 8 } }$
+$\Rightarrow \frac { n! }{ \left( n-7 \right) !.7! } \frac { { 2 }^{ n-7 } }{ { 3 }^{ 7 } } =\frac { n! }{ \left( n-8 \right) !.8! } \frac { { 2 }^{ n-8 } }{ { 3 }^{ 8 } }$
+$ \Rightarrow \frac { { 2 }^{ n-7 } }{ n-7 } =\frac { { 2 }^{ n-8 } }{ { 8\times 3 } }$
+$ \Rightarrow \frac { { 2 }^{ n-7 } }{ { 2 }^{ n-8 } } =\frac { \left( n-7 \right) }{ 24 }$
+$\Rightarrow 24\times 2=n-7$
+$\Rightarrow n=55$
+
+Q5. The largest term in the expansion of (1 + x)^19 when x = $ \frac 1 2$ is
+    (A) 5^th
+    (B) 7^th   <-- CORRECT
+    (C) 8^th
+    (D) 6^th
+    Answer: B
+    Explanation: We have the general term in the expansion of (1 + x)^19 is given by 
+T_r+1 = $^{19} C_{r}(x)^{r}$ 
+Now $\frac{T_{r+1}}{T_{r}}=\frac{^{19} C_{r}}{_{19} C_{r-1}}(x)^{r}$ 
+= $\frac{19 !(x)^{r}}{(19-r) ! \cdot r !} \times \frac{(20-r) !(r-1) !}{19 ! \cdot(x)^{r-1}}$ 
+= $\frac{(20-r) x}{r}$ 
+= $\frac{(20-r)}{2 r}$ since given x = $\frac{1}{2}$ 
+Now $\frac{T_{r+1}}{T_{r}} \geq 1$ 
+$\Rightarrow$ $\frac{(20-r)}{2 r} \geq 1$ 
+$\Rightarrow$ 20 - r $\geq$ 2r
+$\Rightarrow$ $r \leq \frac{20}{3}$ 
+$\Rightarrow$ $r \leq 6 \frac{2}{3}$ 
+Hence the maximum value of r is 6 and hence the greatest term is T_r+1 = T_7
+
+Q6. If coefficients of three successive terms in the expansion of (x + 1)^n are in the ratio 1 : 3 : 5, then n is equal to
+    (A) 7   <-- CORRECT
+    (B) 9
+    (C) 8
+    (D) 6
+    Answer: A
+    Explanation: Let the coefficients of the three successive terms be ^nC_r, ^nC_r+1 and ^nC_r+2 
+Now given ^nC_r : ^nC_r+1 : ^nC_r+2 = 1 : 3 : 5
+$\Rightarrow$ $\frac{^{n} C_{r}}{^{n} C_{r+1}}=\frac{1}{3}$ and $\frac{^{n} C_{r+1}}{^{n} C_{r+2}}=\frac{3}{5}$ 
+$\Rightarrow$ $\frac{r+1}{n-r}=\frac{1}{3}$ and $\frac{r+2}{n-r-1}=\frac{3}{5}$ 
+$\Rightarrow$ n - r = 3r + 3 and 3n - 3r - 3 = 5r + 10
+$\Rightarrow$ n - 4r = 3 ....(i) and 3n - 8r = 13 ....(ii)
+Now solving equations (i) and (ii), we get
+4r = 4
+$\Rightarrow$ r = 1
+Now put r = 1 in eqn (i), we get n = 7
+
+Q7. The exponent of x occurring in the 7^th term of expansion of $\left(\frac{3 x}{2}-\frac{8}{7 x}\right)^9$ is
+    (A) 5
+    (B) -3   <-- CORRECT
+    (C) -5
+    (D) 3
+    Answer: B
+    Explanation: We have the general term of (x + a)^n is T_r+1 = $^{n} C_{r}(x)^{n-r} a^{r}$ 
+Now consider $\left(\frac{3 x}{2}-\frac{8}{7 x}\right)^{9}$ 
+Here n = 9 and r + 1 = 7 $\Rightarrow$ r = 6
+Also x = $\frac{3 x}{2}$ and a = $-\frac{8}{7 x}$ 
+$\therefore$ T_7 = T_6+1 = $^{9} C_{6} \left(\frac{3 x}{2}\right)^{3}\left(\frac{-8}{7 x}\right)^{6}$ 
+= $^{9} C_{6}\left(\frac{3}{2}\right)^{3}\left(\frac{-8}{7}\right)^{6} x^{-3}$ 
+Hence the exponent of x = -3
+
+Q8. The term independent of x in the expansion of $\left(x-\frac{3}{x^2}\right)^{18}$ is
+    (A) ${}^{18}{C_{12}}$
+    (B) ${}^{18}{C_6}\;{3^6}$   <-- CORRECT
+    (C) ${3^6}$
+    (D) ${}^{18}{C_6}$
+    Answer: B
+    Explanation: We have the general term of $(x+a)^{n} $ is $T_{r+1}=^{n} C_{r} (x)^{n-r} a^{r}$
+Now consider $\left(x-\frac{3}{x^{2}}\right)^{18}$
+Here $T_{r+1}=^{18} C_{r} (x)^{18-r}\left(-\frac{3}{x^{2}}\right)^{r}$
+The term independent of x means index of x is 0.
+Comparing the indices of x in $x^{0}$ and in $T_{r+1}$, we get 18 - r - 2r = 0 $\Rightarrow r=\frac{18}{3}=6$
+Therefore the required term is $T_{6+1}=^{18} C_{6}$
+$(x)^{18-6}\left(-\frac{3}{x^{2}}\right)^{6}=^{ 18 }{ C_{ 6 } }{ .3 }^{ 6 }$
+
+Q9. The number of dissimilar terms in the expansion of (a + b + c)^12 is
+    (A) 39
+    (B) 78
+    (C) 91   <-- CORRECT
+    (D) 13
+    Answer: C
+    Explanation: We have the number of dissimilar terms in the expansion of (x + y + z)^n is 
+(n + 1) + n + (n - 1) + .... + 3 + 2 + 1 = $\frac{(n+1)(n+2)}{2}$ 
+Hence the number of dissimilar terms in the expansion of (a + b + c)^12 = $\frac{(12+1)(12+2)}{2}$ = $\frac{13.14}{2}$ = 91
+
+Q10. The term containing x^3 in the expansion of (x - 2y)^7 is
+    (A) 3^rd
+    (B) 5^th   <-- CORRECT
+    (C) 4^th
+    (D) 6^th
+    Answer: B
+    Explanation: We have the general term of (x + a)^n is T_r+1 = $^{n} C_{r}(x)^{n-r} a^{r}$ 
+Now consider (x - 2y)^7 
+Here T_r+1 = $^{n} C_{r} (x)^{n-r} a^{r}$ 
+Comparing the indices of x in x^3 and T_r+1, we get
+7 - r = 3 $\Rightarrow$ r = 4
+Therefore, the required term is T_4+1 = T_5
+
+Q11. The coefficients of ${x^p}$ and ${x^q}$ ( p, q are + ve integers) in the binomial expansion of ${(1 + x)^{p\; + \;q}}$ are
+    (A) unequal
+    (B) equal   <-- CORRECT
+    (C) additive inverse of each other
+    (D) reciprocal to each other
+    Answer: B
+    Explanation: We have the general term of (x+a)^n is T_r+1 = ^nC_r (x)^n-r a^r
+Now consider $(1+x)^{p+q}$
+Here $T_{r+1}=^{p+q} C_{r} \quad(1)^{(p+q)-r}(x)^{r}$
+Comparing the indices of x in x^p and in $T_{r+1}$,we get p=r
+Therefore the coefficient of x^p is $T_{p+1}=^{p+q} C_{p}$
+Now again comparing the indices of x in x^q and in $T_{r+1}$ ,we get q=r
+Therefore the coefficient of x^q is $T_{p+1}=^{p+q} C_{p}$
+But we have $^{p+q} C_{p}=^{p+q} C_{q}$ $\left[\because^{n} C_{r}=^{n} C_{n-r}\right]$
+
+Q12. If 2nd, 3rd and 4th terms in the expansion of (x + a)^n are 240, 720 and 1080 respectively, then the value of n is
+    (A) 5   <-- CORRECT
+    (B) 15
+    (C) 20
+    (D) 10
+    Answer: A
+    Explanation: We have the general term of (x + a)^n is T_r+1 = $^{n} C_{r}(x)^{n-r} a^{r}$ 
+Now consider (x - 2y)^7 
+Here T_r+1 = $^{7} C_{r}(x)^{7-r}(-2 y)^{r}$ 
+Comparing the indices of x in x^3 and in T_r+1, we get 
+7 - r = 3 $\Rightarrow$ r = 4
+Therefore the required term is T_4+1 = T_5 = 18328
+We have the general term of (x + a)^n is T_r+1 = $^{n} C_{r}(x)^{n-r} a^{r}$ 
+According to the equation
+T_2 = $^{n} C_{1}(x)^{n-1} a^{1}$ = 240 $\Rightarrow$ n(x)^n - 1 a = 240 .....(i)
+T_3 = $^{n} C_{2}(x)^{n-2} a^{2}$ = 720 $\Rightarrow$ $\frac{n(n-1)}{2}(x)^{n-2} a^{2}$ = 720 ....(ii)
+T_4 = $^{n} C_{3}(x)^{n-3} a^{3}$ = 1080 $\Rightarrow$ $\frac{n(n-1)(n-2)}{6}(x)^{n-3} a^{3}$ = 1080 ....(iii)
+Multiply equations (i) and (iii), we get $\frac{n^{2}(n-1)(n-2)}{6}(x)^{2 n-4} a^{4}$ = 240 $\times$ 1080 ....(iv)
+Now squaring equation (ii), we get $\frac{n^{2}(n-1)^{2}}{4}(x)^{2 n-4} a^{4}$ = 720 $\times$ 720 ....(v)
+Now dividing equations (iv) by (v), we get $\frac{(n-2)}{(n-1)} \cdot \frac{4}{6}$ = $\frac{240 \times 1080}{720 \times 720}$ 
+$\Rightarrow$ $\frac{(n-2)}{(n-1)}=\frac{1}{2} \times \frac{6}{4}=\frac{3}{4}$ 
+$\Rightarrow$ 4n - 8 = 3n - 3
+$\Rightarrow$ n = 5
+
+Q13. If the first three terms in the expansion of (x + a)^n are 729, 7290 and 30375 respectively, then the value of n is
+    (A) 9
+    (B) 8
+    (C) 5
+    (D) 6   <-- CORRECT
+    Answer: D
+    Explanation: We have the general term of (x + a)^n is T_r+1 = $^{n} C_{r}(x)^{n-r} a^{r}$ 
+According to the question
+T_4 = $^{n} C_{0}(x)^{n} a^{0}$ = 729 $\Rightarrow$ (x)^n = 729 ....(i)
+T_2 = $^{n} C_{1} (x)^{n-1} a^{1}$ = 240 $\Rightarrow$ n(x)^n-1 a = 7290 ....(ii)
+T_3 = $^{n} C_{2}(x)^{n-2} a^{2}$ = 720 $\Rightarrow$ $\frac{n(n-1)}{2}(x)^{n-2} a^{2}$ = 30375 ....(iii)
+Multiply equations (i) and (iii), we get $\frac{n(n-1)}{2}(x)^{2 n-2} a^{2}$ = 729 $\times$ 30375 ...(iv)
+Now squaring equation (ii) we get n^2(x)^2n-2 a^2 = 7290 $\times$ 7290 ....(v)
+Now dividing equations (iv) by (v), we get $\frac{n(n-1)}{2 n^{2}}=\frac{729 \times 30375}{7290 \times 7290}$ 
+$\Rightarrow$ $\frac{(n-1)}{2 n}=\frac{5}{12}$ 
+$\Rightarrow$ 6n - 6 = 5n
+$\Rightarrow$ n = 6
+
+Q14. The coefficient of $\frac { 1 }{ { x }^{ 17 } } $ in the expansion of ${ \left( { { x }^{ 4 }-{ \frac { 1 }{ { { x^{ 3 } } } } } } \right) ^{ 15 } }$ is
+    (A) -455
+    (B) -1365   <-- CORRECT
+    (C) -3003
+    (D) 1365
+    Answer: B
+    Explanation: We quad have the general term of (x + a)^n is T_r+1 = $^{ n }{ C_{ r\quad } }\left( x \right) ^{ n-r }{ a }^{ r }\quad$
+Now consider $\left(x^{4}-\frac{1}{x^{3}}\right)^{15}$ 
+Here $T_{ r+1 }=^{ 15 }{ C_{ r\quad } }\left( { x }^{ 4 } \right) ^{ 15-r }{ \left( { -\frac { 1 }{ { { x^{ 3 } } } } } \right) }^{ r }\\ $
+Comparing the indices of x in x^-17 and in T_r+1, we get 60 - 4r - 3r = -17 $\Rightarrow$ 7r = 77 $\Rightarrow$ r = 11
+Therefore the required term is T_11+1 = T_12 = ${ }^{15} C_{11} \quad\left(x^{4}\right)^{4}\left(-\frac{1}{x^{3}}\right)^{11}$
+Hence the coefficient of $\frac { 1 }{ { x }^{ 17 } } =-^{ 15 }{ C_{ 11} }$ = -1365
+
+Q15. The two consecutive terms in the expansion of (3 + 2x)^74, which have equal coefficients, are
+    (A) 30th and 31st   <-- CORRECT
+    (B) 28th and 29th
+    (C) 11th and 12th
+    (D) 27th and 28th
+    Answer: A
+    Explanation: We have the general term of (x + a)^n is Tr+1 = $^{n}C_{r}(x)^{n-r} a^{r}$ 
+Now consider (3 + 2x)^74 
+Here T_r+1 = $^{74} C_{r}(3)^{74-r}(2 x)^{r}$ 
+Let the coefficient of T_r+1 = coefficient of T_r+2
+$\Rightarrow$ $^{74} C_{r}(3)^{74-r}(2 x)^{r}$ = $^{74} C_{r+1}(3)^{73-r}(2 x)^{r+1}$ 
+$\Rightarrow$ $\frac{74 ! \cdot(3)^{74-r} \cdot(2)^{r}}{(74-r) ! \cdot r !}=\frac{74 ! \cdot(3)^{73-r} \cdot(2)^{r+1}}{(73-r) ! \cdot(r+1) !}$ 
+$\Rightarrow$ $\frac{3}{(74-r)}=\frac{2}{(r+1)}$ 
+$\Rightarrow$ 3r + 3 = 148 - 2r
+$\Rightarrow$ 5r = 145
+$\Rightarrow$ r = 29
+
+========================================================================
+Binomial Theorem Test 02  (id 638) [PAID]
+CBSE > Class 11 > Mathematics > Binomial Theorem
+Questions: 15 | Answers: YES
+========================================================================
+
+Q1. What is the coefficient of x^2y^2 in (x + 1)^2 . (x + 1)^3?
+    (A) 1   <-- CORRECT
+    (B) 2
+    (C) 10
+    (D) 5
+    Answer: A
+    Explanation: 1
+We know that (a + b)^2 = a^2 + 2ab + b^2
+(a + b)^3 = a^3 + 3ab^2 + 3a^2b + b^2
+Using these formulae, we get
+P(x) = (x^2 + 2xy + y^2)(x^3 + 3xy^2 + 3x^2y + y^2)
+P(x) = 3xy^4 + 9x^2y^3 + 10x^3y^2 + 5x^4y + x^5 + y^4 + 2xy^3 + x^2y^2
+The coefficient of x^2y^2 in (x + 1)^2. (x + 1)^3 is 1.
+
+Q2. The term independent of x in the expansion of $\left(2 x-\frac{1}{2 x^2}\right)^{12}$ is
+    (A) ${}^{12}{C_3}{2^6}$
+    (B) ${}^{12}{C_6}$
+    (C) $^{12}{C_4}{2^4}$   <-- CORRECT
+    (D) ${ - ^{12}}{C_5}{2^2}$
+    Answer: C
+    Explanation: We have the general term of (x + a)^n is T_r+1 = $^{n} C_{r}(x)^{n-r} a^{r}$ 
+Now consider $\left(2 x-\frac{1}{2 x^{2}}\right)^{12}$ 
+Here T_r+1 = $^{12} C_{r}(2 x)^{12-r}\left(-\frac{1}{2 x^{2}}\right)^{\prime}$ 
+The term independent of x means index of x is 0.
+Comparing the indices of x in x^0 and in T_r+1, we get 12 - r - 2r = 0 $\Rightarrow$ r = $\frac{12}{3}$ = 4
+Therefore, the required term is T_4+1 = T_5 = $^{12}C_{4} (2 x)^{12-4}\left(-\frac{1}{2 x^{2}}\right)^{4}$ = ^12C_4 2^4
+
+Q3. The coefficient of y in the expansion of $\left(y^2+\frac{c}{y}\right)^5$ is
+    (A) 10c
+    (B) 20c^2
+    (C) 20c
+    (D) 10c^3   <-- CORRECT
+    Answer: D
+    Explanation: We have the general term of (x + a)^n is T_r+1 = $^{n} C_{r} (x)^{n-r} a^{r}$
+Now consider $\left(y^{2}+\frac{c}{y}\right)^{5}$ 
+Here T_r+1 = $^{5} C_{r}\left(y^{2}\right)^{5-r}\left(\frac{c}{y}\right)^{r}$ 
+Comparing the indices of y in y_1 and in T_r+1, we get 10 - 2r - r = 1 $\Rightarrow$ 3r = 9 $\Rightarrow$ r = 3
+Therefore the required term is T_3 + 1 = T_4 = $^{5} C_{3}\left(y^{2}\right)^{5-3}\left(\frac{c}{y}\right)^{3}$ = 10c^3y
+
+Q4. Find the 7^th term of ${ \left( { { x }^{ 3 }-{ \frac { 1 }{ { { x } } } } } \right) ^{ 9 } }$
+    (A) 126x^3
+    (B) 84x^2
+    (C) 84x^3   <-- CORRECT
+    (D) 126x^2
+    Answer: C
+    Explanation: We have the general term of (x + a)^n is T_r+1 = $^{n} C_{r}(x)^{n-r} a^{r}$ 
+Now consider $\left(x^{3}-\frac{1}{x}\right)^{9}$ 
+Here T_r+1 = $C_{r}\left(x^{3}\right)^{9-r}\left(-\frac{1}{x}\right)^{r}$ 
+Now T_6+1 = T_7 = $^{9} C_{6}\left(x^{3}\right)^{9-6}\left(-\frac{1}{x}\right)^{6}$ 
+= $^{9} C_{6}\left(x^{3}\right)^{3}\left(\frac{1}{x}\right)^{6}$ = 84x^3
+
+Q5. The number of terms in the expansion of [(x + 4y)^3 (x - 4y)^3]^2 is
+    (A) 8
+    (B) 7   <-- CORRECT
+    (C) 32
+    (D) 6
+    Answer: B
+    Explanation: [(x + 4y)^3(x - 4y)^3]^2 = [(x^2 - 16y^2)^3]^2 = (x^2 - 16y^2)^2 [$\because$ (a + b)(a - b) = a^2 - b^2, (a^m)^n = (a)^mn]
+We have the number of terms of (x + a)^n is n + 1.
+Hence the number of terms of (x^2 - 16y^2)^6 = 6 + 1 = 7
+
+Q6. $\sqrt 5 \left\{ {{{(\sqrt 5 + 1)}^{4}} - {{\left( {\sqrt 5 - 1} \right)}^{4}}} \right\}$is
+    (A) 240   <-- CORRECT
+    (B) 212
+    (C) 224
+    (D) 0
+    Answer: A
+    Explanation: $\sqrt{5}\left\{(\sqrt{5}+1)^{4}-(\sqrt{5}-1)^{4}\right\}$ 
+Let a = $\sqrt{5}$ and b = 1
+Then $(\sqrt{5}+1)^{4}-(\sqrt{5}-1)^{4}$ = (a + 4)^4 - (a - b)^4 
+= $\left[\begin{array}{llll} ^{4} C_{0} a^{4}+^{4} C_{1} a^{3} b+^{4} C_{2} a^{2} b^{2} \end{array}^{2}\right.$ + $\left.^{4} C_{3} \quad a^{1} b^{3}+^{4} C_{4} \quad b^{4}\right]$ - $\left[\begin{array}{llll} ^{4} C_{0} a^{4}-^{4} C_{1} a^{3} b+^{4} C_{2} a^{2} b^{2} \end{array}^{2}\right.$ - $\left.^{-4} C_{3} a^{1} b^{3}+^{4} C_{4} b^{4}\right]$ 
+= $2\left[^{4} C_{1}a^{3} b+^{4} C_{3} a^{1} b^{3}\right]$ 
+= 2[4a^3b + 4a^1b^3] = 8ab[a^2 + b^2]
+$\therefore$ $(\sqrt{5}+1)^{4}-(\sqrt{5}-1)^{4}$ = $8 \cdot \sqrt{5} \cdot 1\left[(\sqrt{5})^{2}+1^{2}\right]$ = $48 \sqrt{5}$ 
+Hence $\sqrt{5}\left\{(\sqrt{5}+1)^{4}-(\sqrt{5}-1)^{4}\right\}$ = $\sqrt{5} .48 \sqrt{5}$ = 240
+
+Q7. Coefficient of ${x^5}$ in the expansion of ${(1 + {x^2})^5}{(1 + x)^4}$ is
+    (A) 0
+    (B) 61
+    (C) 60   <-- CORRECT
+    (D) 59
+    Answer: C
+    Explanation: We have (1 + x^2)^5 = ^5C_0 + 5C_1(x^2) + 5C_2(x^2)^2 + 5C_3(x^2)^3 + 5C_4(x^2)^4 + 5C_5(x^2)^5....(i)
+Also (1 + x)^4 = ^4C_0 + ^4C_1x + ^4C_2(x)^2 + ^4C_3(x)^3 + ^4C_4(x)^4....(ii)
+Now (1 + x^2)^5.(1 + x)^4 = (1 + 5x^2 + 10x^4 + 10x^6 + 5x^8 + x^10)(1 + 4x + 6x^2 + 4x^3 + x^4)
+Therefore the coefficient of x^5 in the product (1 + x^2)^5.(1 + x)^4 = 5 $\times$ 4 + 10 $\times$ 4 = 60.
+
+Q8. If three successive terms in the expansion of (1 + x)^n a have their coefficients in the ratio 6 : 33 : 110, then n is equal to
+    (A) 13
+    (B) 11
+    (C) 10
+    (D) 12   <-- CORRECT
+    Answer: D
+    Explanation: We have (1 + x)^n = $^{n} C_{0}1^{n}+^{n} C_{1}(1)^{n-1}(x)$ + $^{n} C_{2}(1)^{n-2}(x)^{2}$ + .... + $^{n} C_{r}(1)^{n-r}(x)^{r}$ .... + $^{n} C_{n}(x)^{n}$ 
+Suppose the three consecutive terms be T_r-1, T_r and T_r+1, whose coefficients are in the ratio 6 : 33 : 110
+Now we have T_r+1 = $^{n} C_{r}(x)^{r}$, T_r = $^{n} C_{r-1}(x)^{r-1}$ and T_r-1 = $^{n} C_{r-2}(x)^{r-2}$ 
+Now $\frac{T_{r}}{T_{r-1}}=\frac{^n C_{r-1}}{n C_{r-2}}=\frac{33}{6}$ and $\frac{T_{r+1}}{T_{r}}=\frac{^{n} C_{r}}{^{n} C_{r-1}} \frac{(x)^{r}}{(x)^{r-1}}=\frac{110}{33}$ 
+$\Rightarrow$ $\frac{n !}{(n+1-r) !(r-1) !} \times \frac{(n+2-r) !(r-2) !}{n !}$ = $\frac{11}{2}$ and $\frac{n !}{(n-r) ! \cdot r !} \times \frac{(n+1-r) !(r-1) !}{n !}$ = $\frac{10}{3}$ 
+$\Rightarrow$ $\frac{(n+2-r)}{(r-1)}=\frac{11}{2}$ and $\frac{(n+1-r)}{r}=\frac{10}{3}$ 
+$\Rightarrow$ 2n - 2r + 4 = 11r - 11 and 3n - 3r + 3 = 10r
+$\Rightarrow$ 13r - 2n = 15 ....(i) and 13r - 3n = 3 ....(ii)
+Solving (i) and (ii), we get n = 12
+
+Q9. (1.003)^4 is nearly equal to
+    (A) 1.012   <-- CORRECT
+    (B) 1.014
+    (C) 1.045
+    (D) 0.988
+    Answer: A
+    Explanation: (1.003)^4 = (1 + 0.003)^4 
+We have (1 + x)^n = $1+^{n} C_{1}(x)+^{n} C_{2}(x)^{2}$ + .... + (x)^n 
+Hence (1 + 0.003)^4 = $1+^{4} C_{1} (0.003)+^{4} C_{2} (0.003)^{2}$ + $^{4} C_{3} (0.003)^{3}+(0.003)^{4}$ 
+= 1 + 4(0.003) + 6(0.003)^2 + (0.003)^4 
+= 1 + 0.012 + 0.000054 + ....
+= 1.012054
+$\approx$ 1.012
+
+Q10. 5th term from the end in the expansion of $\left(\frac{x^3}{2}-\frac{2}{x^2}\right)^{12}$ is
+    (A) $ - 7920{x^{ - 4}}$
+    (B) $ - 7920{x^4}$
+    (C) $7920{x^4}$
+    (D) $7920{x^{ - 4}}$   <-- CORRECT
+    Answer: D
+    Explanation: We have the general term of ${( x+a ) }^{ n }$ as $ T_{ r+1 }=^{ n }{ C_{ r\quad } }\left( x \right) ^{ n-r }{ a }^{ r }$
+Now consider, $\left(\frac{x^3}{2}-\frac{2}{x^2}\right)^{12}$
+Here, $ T_{ r+1 }=^{ 12 }{ C_{ r} }\left( \frac { x^{ 3 } }{ 2 } \right) ^{ 12-r }{ \left( { -\frac { 2 }{ x^{ 2 } } } \right) }^{ r }$
+We have 5th term from the end = (12 - 5 + 2)th term from the beginning
+So, Required term is: $ T_{ 9 }=T_{ 8+1 }= ^{ 12 }{ C_{ 8} }\left( \frac { x^{ 3 } }{ 2 } \right) ^{ 12-8 }{ \left( { -\frac { 2 }{ x^{ 2 } } } \right) }^{ 8 }$ = $495\times { 2 }^{ 8-4 }{ x }^{ 12-16 }=7920{ x }^{ -4 }$
+
+Q11. The coefficient of second, third and fourth terms in the binomial expansion of ${(1 + x)^n}$ ( ‘n’, a + ve integer) are in A.P.., if n is equal to
+    (A) 4
+    (B) 6
+    (C) 5
+    (D) 7   <-- CORRECT
+    Answer: D
+    Explanation: We have, $ { \left( 1+x \right) }^{ n }=1+^{ n }{ C_{ 1\quad } }\left( x \right) +^{ n }{ C_{ 2\quad } }{ \left( x \right) }^{ 2 }+..........+{ \left( x \right) }^{ n }\quad \quad$
+Given that coefficients of $ T_{ 2 },~T_{ 3 }$ and $ T_{ 4 }$ are in A.P
+$ \Rightarrow ^{ n }{ C_{ 1\quad } },^{ n }{ C_{ 2\quad } }$ and $\quad ^{ n }{ C_{ 3\quad } }$ are in A.P
+$ \Rightarrow ^{ n }{ C_{ 2\quad } }-^{ n }{ C_{ 1\quad } }=^{ n }{ C_{ 3\quad } }-^{ n }{ C_{ 2\quad } }\\ \Rightarrow \frac { n\left( n-1 \right) }{ 2 } -n=\frac { n\left( n-1 \right) \left( n-2 \right) }{ 6 } -\frac { n\left( n-1 \right) }{ 2 } \\ \Rightarrow \frac { n\left( n-1 \right) -2n }{ 2 } =\frac { n\left( n-1 \right) \left( n-2 \right) -3n\left( n-1 \right) }{ 6 } \\ \Rightarrow \frac { n\left( n-3 \right) }{ 2 } =\frac { n\left( n-1 \right) \left( n-5 \right) }{ 6 } \\ \Rightarrow 3n-9={ n }^{ 2 }-6n+5\\ \Rightarrow { n }^{ 2 }-9n+14=0\\ \Rightarrow \left( n-7 \right) \left( n-2 \right) =0\\ \Rightarrow n=2,7$
+But n = 2 is not possible as $\quad ^{ 2 }{ C_{ 3\quad } }$is not defined. Hence we get n= 7.
+
+Q12. The coefficient of x^3 in the binomial expansion of $\left(x-\frac{m}{x}\right)^{11}$ is
+    (A) 330m^4   <-- CORRECT
+    (B) 792m^6
+    (C) 792m^5
+    (D) 942m^7
+    Answer: A
+    Explanation: We have the general term of $(x+a)^n $ is $T_{r+1}={ }^n C_r (x)^{n-r} a^r$
+Now consider $\left(x-\frac{m}{x}\right)^{11}$
+Here $T_{r+1}={ }^{11} C_r \quad(x)^{11-r}\left(-\frac{m}{x}\right)^r$
+Comparing the indices of x in x^3 and in T_r+1, we get
+11 - r - r = 3 $\Rightarrow$ r = 4
+Therefore the required term is T_4+1 = $T_5={ }^{11} C_4 \quad(x)^{11-4}\left(-\frac{m}{x}\right)^4=330 m^4 x^3$
+
+Q13. The coefficient of x^12 in the expansion of ${ \left( { 3-{ \frac { x^{ 3 } }{ { { 6 } } } } } \right) ^{ 7 } }$ is
+    (A) $\frac {17}{14}$
+    (B) $\frac { 32 }{ 48 } $
+    (C) $\frac { 35 }{ 42 } $
+    (D) $\frac { 35 }{ 48 } $   <-- CORRECT
+    Answer: D
+    Explanation: We have the general term of (x + a)^n is T_r+1 = $^{n} C_{r}(x)^{n-r} a^{r}$ 
+Now consider $\left(3-\frac{x^{3}}{6}\right)^{7}$ 
+Here T_r+1 = $^{7} C_{r} \quad(3)^{7-r}\left(-\frac{x^{3}}{6}\right)^{r}$ 
+comparing the indices of x in x^12 and in T_r+1, we get
+3r = 12 $\Rightarrow$ r = 4
+Therefore the required term is T_4+1 = T_4 = $^{7} C_{4} (3)^{7-4}\left(-\frac{x^{3}}{6}\right)^{4}$ = $35 \times 3^{3} \times \frac{x^{12}}{6^{4}}=\frac{35}{48} x^{12}$
+
+Q14. If the coefficients of (2r +4)th term and (r -2)th term in the expansion of (1 + x)^18 be equal then, find the value of r
+    (A) 7
+    (B) 6   <-- CORRECT
+    (C) 5
+    (D) 8
+    Answer: B
+    Explanation: We have the general term of (x + a)^n is T_r+1 = $^{n} C_{r} (x)^{n-r} a^{r}$ 
+Now consider (1 + x)^18 
+Here T_r+1 = $^{18} C_{r}(1)^{18-r}(x)^{r}$ 
+T_2r+4 = T_(2r+ 3)+1 = $^{18} C_{2 r+3}(x)^{2 r+3}$ 
+T_r-2 = T_(r - 3)+1 = $^{18} C_{r-3} x^{r-3}$ 
+Given the coefficient of T_2r+4 = coefficient of T_r-2 
+$\Rightarrow$ $^{18} C_{2 r+3}=^{18} C_{r-3}$ [$\because$ $^{n} C_{p}=^{n} C_{q}$ then either p = q or p + q = n]
+$\Rightarrow$ 2r + 3 + r - 3 = 18
+$\Rightarrow$ 3r = 18
+$\Rightarrow$ r = 6
+
+Q15. If x = 99^50 + 100^50 and y = (101)^50 then
+    (A) x < y   <-- CORRECT
+    (B) x > y
+    (C) x = y
+    (D) $x\ge y$
+    Answer: A
+    Explanation: Given x = 99^50 + 100^50 and y = (101)^50 
+Now y = (101)^50 = (100 + 1)^50 = $^{50} C_{0} (100)^{50}+^{50} C_{1} (100)^{49}$ + $^{50} C_{2}(100)^{48}$ + .... + $^{50} C_{50}$ .....(i)
+Also (99)^50 = (100 - 1)^50 = $=^{50} C_{0} (100)^{50}-^{50} C_{1} (100)^{49}$ + $^{50} C_{2} (100)^{48}$ - .... + $^{50} C_{50}$ ....(ii)
+Now subtract equation (ii) from equation (i), we get
+(101)^50 - (99)^50 = $2\left[^{50} C_{1} \quad(100)^{49}+^{50} C_{3} \quad(100)^{47}+\ldots \right]$ 
+= $2\left[50(100)^{49}+\frac{50 \times 49 \times 48}{3 \times 2 \times 1}(100)^{47}+\ldots\right]$ 
+= $(100)^{50}+2\left(\frac{50 \times 49 \times 48}{3 \times 2 \times 1}(100)^{47}\right)$ 
+$\Rightarrow$ (101)^50 - (99)^50 > (100)^50
+$\Rightarrow$ (101)^50 > (100)^50 + (99)^50 
+$\Rightarrow$ y > x
+
+========================================================================
+Binomial Theorem Test 03  (id 639) [PAID]
+CBSE > Class 11 > Mathematics > Binomial Theorem
+Questions: 15 | Answers: YES
+========================================================================
+
+Q1. The greatest coefficient in the expansion of (1 + x)^12 is
+    (A) C(12, 4)
+    (B) C(12, 5)
+    (C) C(12, 6)   <-- CORRECT
+    (D) C(12, 7)
+    Answer: C
+    Explanation: We have the general term in the expansion of (1 + x)^12 is given by 
+T_r+1 = $^{12} C_{r} (x)^{r}$ 
+Let the term with greatest coefficient be the term T_r+1 
+Now $\begin{array}{ccc} \text {Coefficient} \ \text {of} \ T_{r+1} \\ \hline \text {Coefficient} \ \text {of} \ T_{r} \end{array}$ = $\frac{^{12} C_{r}}{^{12} C_{r-1}}$ 
+= $\frac{12 !}{(12-r) ! \cdot r !} \times \frac{(13-r) !(r-1) !}{12 !}$ 
+= $\frac{(13-r)}{r}$ 
+Now $\begin{array}{ccc} \text {Coefficient} \ \text {of} \ T_{r+1} \\ \hline \text {Coefficient} \ \text {of} \ T_{r} \end{array}$ $\ge$ 1
+$\Rightarrow$ $\frac{(13-r)}{r} \geq 1$ 
+$\Rightarrow$ 13 - r $\ge$ r
+$\Rightarrow$ r $\le$ $\frac{13}{2}$ 
+$\Rightarrow$ r $\le$ $6\frac{1}{2}$ 
+Hence the maximum value of r is 6 and hence the greatest term is the seventh term and T_7 = T_6+1 = $^{12} C_{6}(x)^{6}$ 
+Hence greatest coefficient = $^{12} C_{6}$
+
+Q2. In the expansion of ${(1 + x)^{60}},$ the sum of coefficients of odd powers of x is
+    (A) ${2^{61}}$
+    (B) ${2^{60}}$
+    (C) ${2^{59}}$   <-- CORRECT
+    (D) ${2^{58}}$
+    Answer: C
+    Explanation: We have$\quad \quad { \left( 1+x \right) }^{ n }=^{ n }{ C_{ 0\quad } }+^{ n }{ C_{ 1\quad } }\left( x \right) +^{ n }{ C_{ 2\quad } }{ \left( x \right) }^{ 2 }+..........+{ \left( x \right) }^{ n }\quad .....(i)\quad \\ $
+Also$\quad { \left( 1-x \right) }^{ n }=^{ n }{ C_{ 0\quad } }-^{ n }{ C_{ 1\quad } }\left( x \right) +^{ n }{ C_{ 2\quad } }{ \left( x \right) }^{ 2 }-..........+{ \left( -1 \right) }^{ n }{ \left( x \right) }^{ n }\quad ....(ii)\\ $
+Now $\left(1-x\right)^n=\left[{}^nC_{0}+^nC_{2}\left(x\right)^2+^nC_{4}\left(x\right)^4+.....\right]-\left[{}^nC_{1\quad}\left(x\right)+^nC_{3}\left(x\right)^3+^nC_{5}\left(x\right)^5+......\right]\\$
+Let x=1 and n=60
+From equation (i), we get
+$ { 2 }^{ 60 }=^{ 60 }{ C_{ 0\quad } }+^{ 60 }{ C_{ 1\quad } }+^{ 60 }{ C_{ 2\quad } }+..........+^{ 60 }{ C_{ 60\quad } }\\ $
+$\Rightarrow 2^{60}$=( sum of coefficients of even powers of x ) + ( sum of coefficients of odd powers of x) .....(iii) 
+From equation (ii), we get $0=\left[^{60} C_{0}+^{60} C_{2}+^{60} C_{4}+\ldots \ldots .\right]-[^{60} C_{1}+^{60} C_{3}+^{60} C_{5}+\ldots \ldots \ldots .]$
+$\Rightarrow 0$ =( sum\quad of coefficients of even powers of x ) + ( sum of coefficients of odd powers of x) .....(iii)
+Now subtract equation (iv) from equation (iii), we get
+$2^{60}-0=2$ (sum of coefficients of odd powers of x)
+$\Rightarrow$(sum of coefficients of odd powers of x $x=2^{59}$)
+
+Q3. Find the middle term in the expansion of ${ \left( { { \frac { x }{ 3 } }+9y } \right) ^{ 10 } }$
+    (A) 17010 x^5y^5
+    (B) 51030 x^5y^5
+    (C) 61236 x^5y^5   <-- CORRECT
+    (D) 6804 x^5y^5
+    Answer: C
+    Explanation: We have the general term of (x + a)n is T_r+1 = $^{n} C_{r} (x)^{n-r} a^{r}$ 
+Now consider $\left(\frac{x}{3}+9 y\right)^{10}$ 
+Here T_r+1 = $^{10} C_{r}\left(\frac{x}{3}\right)^{10-r}(9 y)^{r}$ 
+Since n = 10 is even, the middle term is $\left(\frac{n}{2}+1\right)$ = $\left(\frac{10}{2}+1\right)$ = 6^th term
+Now T_6 = T_5+1 = $^{10} C_{5}\left(\frac{x}{3}\right)^{10-5}(9 y)^{5}$ = $^{10} C_{5} \left(\frac{x}{3}\right)^{5}(9 y)^{5}=^{10} C_{5} \times 3^{5} x^{5} y^{5}$ = 61236 x^5y^5
+
+Q4. Find a if the coefficient of x^2 and x^3 in the expansion of ${ \left(3+ax \right) }^{ 9 }\quad $ are equal
+    (A) $\frac { 9 }{ 5 } $
+    (B) $\frac { 9 }{ 7 } $   <-- CORRECT
+    (C) $\frac { 8 }{ 7 } $
+    (D) $\frac { 8 }{ 5 } $
+    Answer: B
+    Explanation: ${ \left( 3+ax \right) }^{ 9 }=\quad ^{ 9 }{ C_{ 0\quad } }{ 3 }^{ 9 }+^{ 9 }{ C_{ 1\quad } }{ 3 }^{ 8 }(ax)+^{ 9 }{ C_{ 2\quad } }{ 3 }^{ 7 }{ (ax) }^{ 2 }+^{ 9 }{ C_{ 3\quad } }{ 3 }^{ 6 }{ (ax) }^{ 3 }+...........\\ Given\quad that\quad coefficients\quad of\quad { x }^{ 2 }=coefficients\quad of\quad { x }^{ 3 }\\ \Rightarrow ^{ 9 }{ C_{ 2\quad } }{ 3 }^{ 7 }{ a }^{ 2 }=^{ 9 }{ C_{ 3\quad } }{ 3 }^{ 6 }{ a }^{ 3 }\\ \Rightarrow \frac { 9! }{ 2!.7! } .3=\frac { 9! }{ 6!.3! } .a\\ \Rightarrow \frac { 3 }{ 7 } =\frac { a }{ 3 } \\ \Rightarrow a=\frac { 9 }{ 7 } $
+
+Q5. The middle term in the expansion of (1 + x)^2n is
+    (A) $^{ 2n }{ C_{ n} }\left( x \right) ^{ n }$   <-- CORRECT
+    (B) $^{ 2n }{ C_{ \quad } ^{n - 1}}.{x^{n - 1}}$
+    (C) $^{ 2n }{ C_{ \quad } ^{ n +1}}.{x^{n\; + \;1}}$
+    (D) $2{\;^n}{C_n}$
+    Answer: A
+    Explanation: (1 + x)^2n = $1+^{2 n} C_{1}(x)+^{2 n} C_{2}(x)^{2}$ + ....(x)^2n 
+Since 2n is even, its middle term = $\left(\frac{2 n}{2}+1\right)$ th term = T_n+1 
+We have the general term of (1 + x)^2n is T_r+1 = $^{2 n} C_{r}(x)^{r}$ 
+Hence T_n+1 = $^{2 n} C_{n}(x)^{n}$
+
+Q6. The coefficient of x^m in 1 + (1 + x) + (1 + x)^2 + .... (1 + x)^n is
+    (A) $^{ n+1 }{ C_{ m\quad } }$
+    (B) $^{ n }{ C_{ m+1\quad } }$
+    (C) $^{ n+1 }{ C_{ m+1\quad } }$   <-- CORRECT
+    (D) $^{ n }{ C_{ m\quad } }$
+    Answer: C
+    Explanation: 1, (1 + x), (1 + x)^2, ... (1 + x)^n is a G.P with a = 1 and r = 1 + x and number of terms = n + 1
+Hence, 1 + (1 + x) + (1 + x)^2 + ... (1 + x)^n = $\frac{1\left[(1+x)^{n+1}-1\right]}{(1+x)-1}=\frac{\left[(1+x)^{n+1}-1\right]}{x}$ 
+Hence coefficient of x^m in the expansion of 1 + (1 + x) + (1 + x)^2 + .... (1 + x)^n = coefficient of x^m+1 in the expansion of (1 + x)^n+ 1 - 1 = $^{n+1} C_{m+1}$
+
+Q7. The coefficient of x^n in the expansion of (1 + x)(1 - x)^n is
+    (A) (-1)^n (1 - n)   <-- CORRECT
+    (B) (-1)^n-1 (1 + n)
+    (C) (-1)^n-1 (n)
+    (D) (-1)^n (1 + n)
+    Answer: A
+    Explanation: (1 + x)(1 - x)^n = (1 + x) ($1-^{n} C_{1} x+^{n} C_{2} x^{2}-^{n} C_{3} x^{3}+^{n} C_{4} x^{4}$ + ..... + $(-1)^{n-1} \cdot^{n} C_{n-1} x^{n-1}+(-1)^{n} \cdot^{n} C_{n} x^{n}$ 
+Coefficient of x^n = $(-1)^{n} \cdot^{n} C_{n}+(-1)^{n-1} \cdot^{n} C_{n-1}$ = $(-1)^{n} \cdot 1+(-1)^{n-1} \cdot n$ = (-1)^n (1 - n)
+
+Q8. ${\left( {\sqrt 5 + 1} \right)^4} + {\left( {\sqrt 5 - 1} \right)^4}$ is
+    (A) a negative real number
+    (B) an irrational number
+    (C) a rational number   <-- CORRECT
+    (D) a negative integer
+    Answer: C
+    Explanation: We have (a + b)^n + (a - b)^n 
+= $\left[^{n} C_{0} a^{n}+^{n} C_{1} a^{n-1} b+^{n} C_{2} a^{n-2} b^{2}+^{n} C_{3} \quad a^{n-3} b^{3}\right.$ + ..... + $\left.^{n} C_{n} b^{n}\right]$ + $\left[^{n} C_{0} a^{n}-^{n} C_{1} a^{n-1} b+^{n} C_{2} a^{n-2} b^{2}-^{n} C_{3} a^{n-3} b^{3}\right.$ + ..... + $(-1)^{n} \cdot^{n} C_{n} \quad b^{n}$]
+= 2[$^{n} C_{0} \quad a^{n}+^{n} C_{2} \quad a^{n-2} b^{2}+$ ...]
+Let a = $\sqrt{5}$ and b = 1 and n = 4
+Now we get $(\sqrt{5}+1)^{4}+(\sqrt{5}-1)^{4}$ = $2\left[^{4} C_{0} (\sqrt{5})^{4}+^{4} C_{2} (\sqrt{5})^{2} 1^{2}+^{4} C_{4} (\sqrt{5})^{0} 1^{4}\right]$
+= 2[25 + 30 + 1] = 112
+
+Q9. If the coefficients of 2nd, 3rd and 4th terms in the expansion of (1 + x)^n are in A.P. then
+    (A) n^2 - 6n + 12 = 0
+    (B) n^2 - 9n + 14 = 0   <-- CORRECT
+    (C) n^2 - 5n + 14 = 0
+    (D) n^2 - 9n + 18 = 0
+    Answer: B
+    Explanation: Given that ^nC_1, ^nC_2 and ^nC_3 are in A.P.
+Hence we have $^{n} C_{1}+^{n} C_{3}=2 \cdot^{n} C_{2}$ 
+$\Rightarrow$ $n+\frac{n(n-1)(n-2)}{6}$ = $2 \cdot \frac{n(n-1)}{2}$ 
+$\Rightarrow$ $n\left[\frac{6+(n-1)(n-2)}{6}\right]$ = n(n - 1)
+$\Rightarrow$ 6 + (n - 1)(n - 2) = 6(n - 1)
+$\Rightarrow$ n^2 - 3n + 8 = 6n - 6
+$\Rightarrow$ n^2 - 9n + 14 = 0
+
+Q10. Coefficient of a^2b^5 in the expansion of (a + b)^3 (a - 2b)^4 is
+    (A) -24   <-- CORRECT
+    (B) 24
+    (C) 96
+    (D) 48
+    Answer: A
+    Explanation: We have (a + b)^3(a - 2b)^4 = $\left[\begin{array}{llll} ^{3} C_{0} a^{3}+^{3} C_{1} a^{2} b+^{3} C_{2} a^{1} b^{2}+^{3} C_{3} b^{3} \end{array}\right]$ [$^{4} C_{0} (a)^{4}+^{4} C_{1} (a)^{3}(-2 b)+^{4} C_{2} (a)^{2}(-2 b)^{2}$ + $^{4} C_{3} (a)^{1}(-2 b)^{3}+^{4} C_{4} (-2 b)^{4}$]
+= (a^3 + 3a^2b + 3a^1b^2 + b^3)(a^4 - 8a^3b + 24a^2b^2 - 32ab^3 + 16b^4)
+Hence we have the sum of the terms containing a^2b^5 are 3a^2b $\times$ 16b^4 - 32ab^3 $\times$ 3a^1b^2 + 24a^2b^2 $\times$ b^3 = a^2b^5 (48 - 96 + 24) = -24a^2b^5
+
+Q11. In the expansion of (1 + x)^11, the 5^th term is 24 times the 3^rd term. The value of x is
+    (A) $ \pm 5$
+    (B) $ \pm 2$   <-- CORRECT
+    (C) $ \pm 3$
+    (D) $ \pm 4$
+    Answer: B
+    Explanation: We have the general term of (1 + x)^n is T_r+1 = $^{n} C_{r} (x)^{r}$ 
+Consider (1 + x)^11 
+Hence general term T_r+1 = $^{11} C_{r}(x)^{r}$ 
+Given T_5 = 24 $\times$ T_3 
+$\Rightarrow$ $^{11} C_{4}(x)^{4}$ = $24 \times^{11} C_{2} (x)^{2}$ 
+$\Rightarrow$ $\frac{24 \times^{11} C_{2}}{^{11} C_{4}}$ = (x)^2 
+$\Rightarrow$ $\frac{24 \times 55}{330}$ = (x)^2 
+$\Rightarrow$ 4 = (x)^2 
+$\Rightarrow$ x = $\pm$2
+
+Q12. The sum of coefficients of 1^st, 2^nd, and 3^rd in the expansion of $\left( { { x^{ 2 } }+\frac { 1 }{ x } } \right) ^{ n }$ is 46, find n
+    (A) 9   <-- CORRECT
+    (B) 10
+    (C) 8
+    (D) 12
+    Answer: A
+    Explanation: Given $^{n} C_{0}+^{n} C_{1}+^{n} C_{2}$ = 46
+$\Rightarrow$ 1 + n + $\frac{n(n-1)}{2}$ = 46
+$\Rightarrow$ $\frac{n(n-1)+2 n+2}{2}$ = 46
+$\Rightarrow$ n^2 + n - 90 = 0
+$\Rightarrow$ (n - 9) (n + 10) = 0
+$\Rightarrow$ n = 9 since n cannot be negative.
+
+Q13. If the rth term in the expansion of $\left(\frac{x}{3}-\frac{2}{x^2}\right)^{10}$ contains x^4 then r is equal to
+    (A) 1
+    (B) 2
+    (C) 4
+    (D) 3   <-- CORRECT
+    Answer: D
+    Explanation: We have the general term of (x + a)^n is T_r+1 = $^{n} C_{r}(x)^{n-r} a^{r}$ 
+Now consider $\left(\frac{x}{3}-\frac{2}{x^{2}}\right)^{10}$ 
+Here T_r+1 = $^{10} C_{r} \left(\frac{x}{3}\right)^{10-r}\left(-\frac{2}{x^{2}}\right)^{r}$ 
+Hence r^th term = T_r = $^{10} C_{r-1}\left(\frac{x}{3}\right)^{11-r}\left(-\frac{2}{x^{2}}\right)^{r-1}$ 
+Comparing the indices of x in x_4 and in T_r, we get
+$\Rightarrow$ 11 - r - 2r + 2 = 4
+$\Rightarrow$ 3r = 9
+$\Rightarrow$ r = 3
+
+Q14. If 5th term in the expansion of ${ \left( { x^{ 2 }-{ \frac { 1 }{ { { x^{ 3 } } } } } } \right) ^{ n } }$ is independent of x, n is
+    (A) 10   <-- CORRECT
+    (B) 12
+    (C) 9
+    Answer: A
+    Explanation: We have the general term of (x + a)^n is T_r+1 = ${ ^n}{C_{r}}{\left( x \right)^{n - r}}{a^r}$ 
+Now consider ${\left( {{x^2} - \frac{1}{{{x^3}}}} \right)^n}$ 
+Here T_5 = T_4+1 = ${ ^n}{C_{4}}{\left( {{x^2}} \right)^{n - 4}}{\left( { - \frac{1}{{{x^3}}}} \right)^4}$ 
+The term independent of x means index of x is 0.
+Comparing the indices of x in x^o and in T_5, we get 
+2n - 8 - 12 = 0 
+$\Rightarrow$ n = $\frac{20}{2}$ = 10
+
+Q15. If in the binomial expansion of (a + b)^n, $n\ge 5$ the sum of 5^th and 6^th terms are 0, then $\frac { b }{ a } $ is
+    (A) $\frac { 6 }{ 4-n } $
+    (B) $\frac { 5 }{ 4-n } $   <-- CORRECT
+    (C) $\frac { 4 }{ 5-n } $
+    (D) $\frac { 6 }{ 5-n } $
+    Answer: B
+    Explanation: We have (a + b)^n = $^{n} C_{0}a^{n}+^{n} C_{1}a^{n-1} b+^{n} C_{2}a^{n-2} b^{2}+^{n} C_{3} a^{n-3} b^{3}$ + .... + $^{n} C_{n}b^{n}$ 
+Given T_5 + T_6 = 0
+$\Rightarrow$ $^{n} C_{4} a^{n-4} b^{4}+^{n} C_{5} a^{n-5} b^{5}$ = 0
+$\Rightarrow$ $\frac{a}{b}=-\frac{n !}{5 !(n-5) !} \times \frac{4 ! \cdot(n-4) !}{n !}$ 
+$\Rightarrow$ $\frac{a}{b}=-\frac{(n-4)}{5}$ 
+$\Rightarrow$ $\frac{b}{a}=\frac{5}{4-n}$
+
+========================================================================
+Binomial Theorem Test 04  (id 640) [PAID]
+CBSE > Class 11 > Mathematics > Binomial Theorem
+Questions: 15 | Answers: YES
+========================================================================
+
+Q1. The 1st three terms in the expansion of ${(2 + {\frac x3})^{4}}$ are
+    (A) $16+3 x-\frac{3}{16} x^2$
+    (B) $16+\frac { 34x }{ 3 } +\frac { 24x^{ 2 } }{ 9 } $
+    (C) $16+\frac { 32x }{ 3 } +\frac { 24x^{ 2 } }{ 9 } $   <-- CORRECT
+    (D) $16+12 x+\frac{3}{16} x^2$
+    Answer: C
+    Explanation: We have $(x+a)^{n}=^{n} C_{0} x^{n}+^{n} C_{1} x^{n-1} a+^{n} C_{2}$$x^{n-2} a^{2}+^{n} C_{3} \quad x^{n-3} a^{3}+$$....+C_{n} a^{n}$
+Now consider $\left(2+\frac{x}{3}\right)^{4}$
+Here $x=2, a=\frac{x}{3}, n=4$
+$\left(2+\frac{x}{3}\right)^{4}=^{4} C_{0} (2)^{4}+^{4} C_{1} (2)^{3}\left(\frac{x}{3}\right)$$+^{4} C_{2} \quad(2)^{2}\left(\frac{x}{3}\right)^{2}$$+^{4} C_{3} (2)^{1}\left(\frac{x}{3}\right)^{3}+...$
+$=16+\frac{32 x}{3}+\frac{24 x^{2}}{9}+\ldots $
+
+Q2. The coefficients of x^n in the expansion of ${\left( {1 + 2x + 3{x^2} + ..........} \right)^{{\frac {-n}{ 2}}}}$, where n is an even integer is
+    (A) 2
+    (B) n + 1
+    (C) n
+    (D) 1   <-- CORRECT
+    Answer: D
+    Explanation: $\left(1+2 x+3 x^{2}+\ldots \ldots \ldots\right)^{\frac{-n}{2}}$ 
+Consider S = 1 + 2x + 3x^2 + .....
+Multiplying S by x, we get Sx = x + 2x^2 + 3x^3 +....
+Now S(1 - x) = 1 + (x + x^2 + x^3 + ....)
+= $1+\frac{x}{1-x}$ [Sum to infinity of a G.P. with a = x and r = x]
+$\Rightarrow$ S = $\frac{1}{1-x}+\frac{x}{(1-x)^{2}}=\frac{1}{(1-x)^{2}}$
+Hence $\left(1+2 x+3 x^{2}+\ldots \ldots \ldots\right)^{\frac{-n}{2}}$ = $\left(\frac{1}{(1-x)^{2}}\right)^{\frac{-n}{2}}$ = (1 - x)^n = $1-^{n} C_{1}(x)+^{n} C_{2} (x)^{2}-^{n} C_{3} (x)^{3}$ + ..... + (-1)^n ^nC_n (x)^n
+Hence Coefficient of x^n is (-1)^n 
+Since n is even we get coefficient of x^n = 1
+
+Q3. Find the number of terms in the expansion of [(2x + y)^10 - (2x - y)^10]
+    (A) 6
+    (B) 11
+    (C) 10
+    (D) 5   <-- CORRECT
+    Answer: D
+    Explanation: We have (a + b)^n - (a - b)^n
+= [^nC_0 ^an + ^nC_1 a^n-1 b + ^nC_2 a^n-2 b^2 + ^nC_3 a^n-3 b^3 + ... + ^nC_n b^n] - [^nC_0 a^n - ^nC_1 a^n-1 b + ^nC_2 a^n-2 b^2 - ^nC_3 a^n-3 b^3 + ... + (-1)^n$\cdot$^nC_n b^n]
+= 2[^nC_1 a^n-1 b + ^nC_3 a^n-3 b^3 + ...]
+If n is even we have (a + b)^n - (a - b)^n has number of terms = $\frac{n}{2}$
+Here since n = 10
+we havenumber of terms = $\frac{n}{2}=\frac{10}{2}$ = 5
+
+Q4. The index of the power of x that occurs in the ${{\rm{7}}^{{\rm{th}}}}$ term from the end in the expansion of $\left(\frac{2 x}{3}-\frac{3}{2 x}\right)^9$ is
+    (A) -3   <-- CORRECT
+    (B) 3
+    (C) -5
+    (D) 5
+    Answer: A
+    Explanation: We have the general term of (x + a)^n is $ T_{r+1}=^{n} C_{r} (x)^{n-r} a^{r}$
+Now consider $\left(\frac{2 x}{3}-\frac{3}{2 x}\right)^{9}$
+Here $T_{r+1}=^{9} C_{r} \left(\frac{2 x}{3}\right)^{9-r}\left(-\frac{3}{2 x}\right)^{r}$
+We have 7 th term from the end=(12-7+2) t h term from the beginning 
+Required term is $T_{7}=T_{6+1}=^{9} C_{6} \left(\frac{2 x}{3}\right)^{9-6}\left(-\frac{3}{2 x}\right)^{6}$ = $^{9} C_{6} \times(2 x)^{3-6} 3^{6-3}=^{9} C_{6} \left(\frac{3}{2}\right)^{3} x^{-3}$
+
+Q5. The index of the power of x that occurs in the $ {{\rm{6}}^{{\rm{th}}}}$ term in the expansion of $\left(\frac{4 x}{5}-\frac{8}{5 x}\right)^9$ is
+    (A) 1
+    (B) 3
+    (C) 2
+    (D) -1   <-- CORRECT
+    Answer: D
+    Explanation: We have the general term of
+(x + a)^n is $ T_{ r+1 }=^{ n }{ C_{ r} }\left( x \right) ^{ n-r }{ a }^{ r }$
+Now consider ${ \left( { { \frac { 4x }{ 5 } }-\frac { 8 }{ 5x } } \right) ^{ 9 } }$
+Here $T_{ r+1 }=^{ 9 }{ C_{ r } }\left( \frac { 4x }{ 5 } \right) ^{ 9-r }{ \left( { -\frac { 8 }{ 5x } } \right) }^{ r }$
+Required term is $T_{ 6 }=T_{ 5+1 }=^{ 9 }{ C_{ 5} }\left( \frac { 4x }{ 5 } \right) ^{ 9-5 }{ \left( { -\frac { 8 }{ 5x } } \right) }^{ 5 }$ = $-^{ 9 }{ C_{ 5} }\times \left( \frac { 4 }{ 5 } \right) ^{ 4 }{ \times \left( \frac { 8 }{ 5 } \right) }^{ 5 }{ x }^{ 4-5 }$
+$ ={ -^{ 9 }{ C_{ 5} }\times \left( \frac { 4 }{ 5 } \right) ^{ 4 }{ \times \left( \frac { 8 }{ 5 } \right) }^{ 5 }\times }{ x }^{ -1 }$
+Hence the power of x = -1
+
+Q6. If in the expansion of (1 + x)^43, the coefficients of (2r + 1)th and (r + 2)th terms are equal, then r is equal to
+    (A) 1 or 14   <-- CORRECT
+    (B) 21 or 1
+    (C) 2 or 14
+    (D) 7 or 1
+    Answer: A
+    Explanation: We have the general term of (x + a)^n is T_r+1 = $^{n} C_{r}(x)^{n-r} a^{r}$ 
+Now consider (1 + x)^43 
+Here T_r+1 = $^{43} C_{r}(1)^{43-r}(x)^{r}$ 
+T_2r+1 = T_(2r)+1 = $^{43} C_{2 r}(x)^{2 r}$ 
+T_r+2 = T_(r+1)+1 = $^{43} C_{r+1} x^{r+1}$ 
+Given the coefficient of T_2r+1 = coefficient of T_r+2 
+$\Rightarrow$ $^{43} C_{2 r}=^{43} C_{r+1}$ [$\because$ $^{n} C_{p}=^{n} C_{q}$ then either p = q or p + q = n]
+$\Rightarrow$ 2r + r + 1 = 43 or 2r = r + 1
+$\Rightarrow$ 3r = 42 or r = 1
+$\Rightarrow$ r = 14 or r = 1
+
+Q7. The coefficient of x^7 in the expansion of (1 - x)^4(1 + x)^9 is
+    (A) 36   <-- CORRECT
+    (B) 84
+    (C) -84
+    (D) -36
+    Answer: A
+    Explanation: (1 - x)^4 (1 + x)^9 = $\left(\begin{array}{lllll} ^{4} C_{0} +^{4} C_{1} (-x)+^{4} C_{2} (-x)^{2}+^{4} C_{3} (-x)^{3}+^{4} C_{4} \left.(-x)^{4}\right) \end{array}\right.$ $\left(^{9} C_{0}+^{9} C_{1}(x)+^{9} C_{2}(x)^{2}+^{9} C_{3}(x)^{3}\right.$ + $^{9} C_{4}(x)^{4}+^{9} C_{5} (x)^{5}+^{9} C_{6} (x)^{6}$ + $-^{9} C_{7} \quad(x)^{7}+^{9} C_{8} \quad(x)^{8}+^{9} C_{9} \quad(x)^{\text {9 }})$ 
+= $\left(1-^{4} C_{1}x+^{4} C_{2} x^{2}\right.$ - $\left.^{4} C_{3}x^{3}+x^{4}\right)$ $(1+^{9} C_{1} x+^{9} C_{2} x^{2}+^{9} C_{3} x^{3}$ + $^{9} C_{4} x^{4}+^{9} C_{5} x^{5}+^{9} C_{6} x^{6}$ + $\left.^{9} C_{7} x^{7}+^{9} C_{8} x^{8}+x^{9}\right)$ 
+We have the sum of the terms containing x^7 are $^{9} C_{7} x^{7} \times 1-^{9} C_{6} x^{6} \times^{4} C_{1} \quad x$ + $^{9} C_{5} x^{5} \times^{4} C_{2} x^{2}-^{9} C_{4} x^{4} \times^{4} C_{3} x^{3}$ + $^{9} C_{3} \quad x^{3} \times x^{4}$ 
+= x^7($^{9} C_{7} -^{9} C_{6} \times^{4} C_{1} +^{9} C_{5} \times^{4} C_{2}-^{9} C_{4}\times^{4} C_{3} +^{9} C_{3}$ 
+= x^7(36 - 336 + 756 - 504 + 84) = 36x^7
+
+Q8. If the three successive terms in the expansion of (1 + x)^n have their coefficients as 28, 56, and 70, then n is equal to
+    (A) 8   <-- CORRECT
+    (B) 5
+    (C) 7
+    (D) 6
+    Answer: A
+    Explanation: We have (1 + x)^n = $^{n} C_{0} 1^{n}+^{n} C_{1}(1)^{n-1}(x)$ + $^{n} C_{2}(1)^{n-2}(x)^{2}$ + .... + $^{n} C_{r}(1)^{n-r}(x)^{r}$ .... + $^{n} C_{n}(x)^{n}$ 
+Suppose the three consecutive terms be T_r-1, T_r and T_r+1, whose coefficients are 28, 56 and 70 respectively
+Now we have Tr+1 = $^{n} C_{r}(x)^{r}$, Tr = $^{n} C_{r-1}(x)^{r-1}$ and Tr-1 = $^{n} C_{r-2}(x)^{r-2}$ 
+Now $\frac{T_{r}}{T_{r-1}}=\frac{^n C_{r-1}}{n C_{r-2}}=\frac{56}{28}$ and $\frac{T_{r+1}}{T_{r}}=\frac{^n C_{r}}{n C_{r-1}} \quad(x)^{r}=\frac{70}{56}$ 
+$\Rightarrow$ $\frac{n !}{(n+1-r) !(r-1) !} \times \frac{(n+2-r) !(r-2) !}{n !} $ = 2 and $\frac{n !}{(n-r) ! \cdot r !} \times \frac{(n+1-r) !(r-1) !}{n !}=\frac{5}{4}$ 
+$\Rightarrow$ $\frac{(n+2-r)}{(r-1)}$ = 2 and $\frac{(n+1-r)}{r}$ = $\frac{5}{4}$ 
+$\Rightarrow$ n - r + 2 = 2r - 2 and 4n - 4r + 4 = 5r
+$\Rightarrow$ 3r - n = 4 ....(i) and 9r - 4n = 4 ....(ii)
+Solving (i) and (ii), we get n = 8
+
+Q9. The index of the power of x that occurs in the 5th term in the expansion of $\left(2 x^2-\frac{1}{3 x^2}\right)^8$ is
+    (A) 2
+    (B) 4
+    (C) 0   <-- CORRECT
+    (D) 12
+    Answer: C
+    Explanation: We have the general term of (x + a)^n is T_r+1 = $^{n} C_{r}(x)^{n-r} a^{r}$ 
+Now consider $\left(2 x^{2}-\frac{1}{3 x^{2}}\right)^{8}$ 
+Here T_r+1 = $C_{r} \left(2 x^{2}\right)^{8-r}\left(-\frac{1}{3 x^{2}}\right)^{r}$ 
+Required term is T_5 = T_4+1 = $^{8} C_{4}\left(2 x^{2}\right)^{8-4}\left(-\frac{1}{3 x^{2}}\right)^{4}$ = $^{8} C_{4}\times(2)^{4} \times\left(\frac{1}{3}\right)^{4} x^{8-8}$ = $^{8} C_{4}\times\left(\frac{2}{3}\right)^{4} x^{0}$
+Hence the power of x = 0
+
+Q10. Find the number of terms in the expansion of $\left[ { \left( \sqrt { x } +\sqrt { y } \right) }^{ 11 }+{ \left( \sqrt { x } -\sqrt { y } \right) }^{ 11 } \right] $
+    (A) 4
+    (B) 5
+    (C) 12
+    (D) $6$   <-- CORRECT
+    Answer: D
+    Explanation: We have (a + b)^n + (a - b)^n 
+= $\left[^{n} C_{0}a^{n}+^{n} C_{1}a^{n-1} b+^{n} C_{2}a^{n-2} b^{2}\right.$ + $^{n} C_{3}a^{n-3} b^{3}$ + ..... + $\left.^{n} C_{n}b^{n}\right]$ + $\left[^{n} C_{0}a^{n}-^{n} C_{1} a^{n-1} b+^{n} C_{2} a^{n-2} b^{2}-^{n} C_{3} a^{n-3} b^{3}\right.$ + .... + $(-1)^{n} \cdot^{n} C_{n}b^{n}$]
+= 2[$^{n} C_{0}a^{n}+^{n} C_{2} a^{n-2} b^{2}$ + ....]
+If n is odd we have (a + b)^n + (a - b)^n has number of terms = $\frac{n+1}{2}$ 
+Here since n = 11 we have number of terms = $\frac{n+1}{2}=\frac{11+1}{2}$ = 6
+
+Q11. If a and b are coefficients of x^n and x^n+1 respectively in the expansion of (1 + x)^2n+1, then
+    (A) a = 2b
+    (B) a = b   <-- CORRECT
+    (C) b = 2a
+    (D) a + b = 1
+    Answer: B
+    Explanation: (1 + x)^2n+1 = $1+^{2 n+1} C_{1}(x)+^{2 n+1} C_{2} (x)^{2}$ + ... + (x)^2n+1 
+Given that coefficient of xn = a $\Rightarrow$ $^{2 n+1} C_{n}$ = a ....(i)
+And coefficient of x^n+1 = b $\Rightarrow$ $^{2 n+1} C_{n+1}$ = b ....(ii)
+Now $\frac{^{2 n+1} C_{n+1}}{^{2 n+1} C_{n}}=\frac{b}{a}$ 
+$\Rightarrow$ $\frac{(2 n+1) !}{(n+1) ! \cdot n !} \times \frac{(n+1) ! \cdot n !}{(2 n+1) !}$ = $\frac{b}{a}$ 
+$\Rightarrow$ 1 = $\frac{b}{a}$ 
+$\Rightarrow$ a = b
+
+Q12. The coefficient of x^5 in the expansion of (1 + x + x^2)^3 is
+    (A) 2
+    (B) 3   <-- CORRECT
+    (C) 5
+    (D) 4
+    Answer: B
+    Explanation: (1 + x + x^2)^3 = [1 + (x + x^2)]^3 = $^{3} C_{0}+^{3} C_{1} \left(x+x^{2}\right)$ + $^{3} C_{2}\left(x+x^{2}\right)^{2}+^{3} C_{3}\left(x+x^{2}\right)^{3}$ 
+= 1 + 3(x + x^2) + 3(x^2 + 2x^3 + x^4) + (x^3 + 3x^4 + 3x^5 + x^6)
+Hence coefficient of x^5 = 3
+
+Q13. In Pascal’s triangle, each row begins with 1 and ends in
+    (A) -1
+    (B) 1   <-- CORRECT
+    (C) 2
+    (D) 0
+    Answer: B
+    Explanation: The pascal's triangle is given by
+
+Q14. $\sum _{ r=0 }^{ n }{ { 4 }^{ r } } .^{ n }{ C_{ r} }$is equal to
+    (A) 5^n   <-- CORRECT
+    (B) 4^n
+    (C) 5^-n
+    (D) 6^n
+    Answer: A
+    Explanation: $\sum_{r=0}^{n} 4^{r} .^{n} C_{r}$ = $4^{0} \cdot^{n} C_{0}+4^{1} \cdot^{n} C_{1}+4^{2} \cdot^{n} C_{2}$ + ... + $4^{n} \cdot^{n} C_{n}$ 
+= $1+4 .^{n} C_{1}+4^{2} .^{n} C_{2}$ + .... + $4^{n} \cdot^{n} C_{n}$ 
+= (1 + 4)^n = 5^n
+
+Q15. Find the middle term in the expansion of ${ \left( { \frac { 2a }{ 3 } -{ \frac { 3 }{ { 2a } } } } \right) ^{ 6 } }$
+    (A) 20
+    (B) 18
+    (C) -18
+    (D) -20   <-- CORRECT
+    Answer: D
+    Explanation: Since n = 6 is even, its middle term is the 4th term.
+We have the general term of (x + a)^n is T_r+1 = $^{n} C_{r} (x)^{n-r} a^{r}$ 
+Now consider $\left(\frac{2 a}{3}-\frac{3}{2 a}\right)^{6}$ 
+Here Tr+1 = $^{6} C_{r}\left(\frac{2 a}{3}\right)^{6-r}\left(-\frac{3}{2 a}\right)^{r}$ 
+Required term is T_4 = T_3+1 = $^{6} C_{3} \quad\left(\frac{2 a}{3}\right)^{6-3}\left(-\frac{3}{2 a}\right)^{3}$ = -20 $\times$ (2a)^0 $\times$ (3)^0 = -20
+
+========================================================================
+Binomial Theorem Test 05  (id 641) [PAID]
+CBSE > Class 11 > Mathematics > Binomial Theorem
+Questions: 15 | Answers: YES
+========================================================================
+
+Q1. If the 17^th and 18^th terms in the expansion (2 + a)^50 are equal then a is equal to
+    (A) -2
+    (B) 1   <-- CORRECT
+    (C) -1
+    (D) 2
+    Answer: B
+    Explanation: We have the general term of (x + a)^n is T_r+1 = $^{n} C_{r}(x)^{n-r} a^{r}$ 
+Now consider (2 + a)^50 
+Here T_r+1 = $^{50} C_{r} \quad(2)^{50-r}(a)^{r}$ 
+Now T_17 = T_16+1 = $^{50} C_{16}(2)^{50-16}(a)^{16}$ and T_18 = T_17+1 = $^{50} C_{17}(2)^{50-17}(a)^{17}$ 
+$\Rightarrow$ $\frac{^{50} C_{17}}{^{50} C_{16}}=\frac{(2)^{34}(a)^{16}}{(2)^{33}(a)^{17}}$ 
+$\Rightarrow$ $\frac{(50) !}{(33) ! .17 !} \times \frac{(34) ! \cdot 16 !}{(50) !}=\frac{2}{a}$ 
+$\Rightarrow$ $\frac{34}{17}=\frac{2}{a}$ 
+$\Rightarrow$ a = 1
+
+Q2. Find the coefficient of x in the expansion of (1 - 3x + 7x^2)(1 - x)^16
+    (A) 18
+    (B) -19   <-- CORRECT
+    (C) 19
+    (D) -18
+    Answer: B
+    Explanation: (1 - 3x + 7x^2)(1 - x)^16 = (1 - 3x + 7x^2)($^{16} C_{0}-^{16} C_{1}(x)+^{16} C_{2} (x)^{2}-^{16} C_{3} (x)^{3}$ + $^{16} C_{4} \quad(x)^{4}-^{16} C_{5} \quad(x)^{5}$ + ..... + $(-1)^{n_{16}} C_{16}(x)^{16}$)
+= (1 - 3x + 7x^2)(1 - 16x + 120(x)^2 - .....)
+Therefore the coefficient of x in the product (1 - 3x + 7x^2)(1 - x)^16 = 1 $\times$ (-16) + 1 $\times$ (-3) = -19
+
+Q3. Find the 9^th term in the expansion of ${ \left( { { \frac { x }{ a } }-\frac { 3a }{ x^{ 2 } } } \right) ^{ 12 } }$
+    (A) $^{ 12 }{ C_{ 8} }\times { 3 }^{ 8 }\times \left( x \right) ^{ -4 }{ a }^{ 4 }$
+    (B) $^{ 12 }{ C_{ 8} }\times { 3 }^{ 8 }\times \left( x \right) ^{ -12 }{ a }^{ 8 }$
+    (C) $^{ 12 }{ C_{ 8} }\times { 3 }^{ 8 }\times \left( x \right) ^{ -12 }{ a }^{ 4 }$   <-- CORRECT
+    (D) $^{ 12 }{ C_{ 4} }\times { 3 }^{ 4 }\times \left( x \right) ^{ -12 }{ a }^{ 4 }$
+    Answer: C
+    Explanation: We have the general term of (x + a)^n is T_r+1 = $^{n} C_{r}(x)^{n-r} a^{r}$ 
+Now consider $\left(\frac{x}{a}-\frac{3 a}{x^{2}}\right)^{12}$ 
+Here T_r+1 = $C_{r}\left(\frac{x}{a}\right)^{12-r}\left(-\frac{3 a}{x^{2}}\right)^{r}$ 
+Hence 9th term = T_6+1 = $^{12} C_{8} \quad\left(\frac{x}{a}\right)^{12-8}\left(-\frac{3 a}{x^{2}}\right)^{8}$ = $^{12} C_{8} \times 3^{8} \times(x)^{-12} a^{4}$
+
+Q4. The coefficient of x^5 in the expansion of (1 - x)^7 (1 + 2x)^6 is
+    (A) 170
+    (B) 270
+    (C) 171   <-- CORRECT
+    (D) 168
+    Answer: C
+    Explanation: We have (1 - x)^7 = $^{7} C_{0}-^{7} C_{1} (x)+^{7} C_{2} (x)^{2}-^{7} C_{3} (x)^{3}$ + $^7 C_{4}(x)^{4}-^{7} C_{5} (x)^{5}+^{7} C_{6} (x)^{6}-^{7} C_{7} (x)^{7}$ 
+= 1 - 7x + 21x^2 - 35x^3 + 35x^4 - 21x^5 + 7x^6 - x^7 
+(1 + 2x)^6 = $^{6} C_{0}+^{6} C_{1} (2 x)+^{6} C_{2}(2 x)^{2}$ + $^{6} C_{3}(2 x)^{3}+^{6} C_{4} (2 x)^{4}$ + $^{6} C_{5} (2 x)^{5}+^{6} C_{6} (2 x)^{6}$ 
+= 1 + 12x + 60x^2 + 160x^3 + 240x^4 + 192x^5 + 64x^6 
+Now (1 - x)^7(1 + 2x)^6 = (1 - 7x + 21x^2 - 35x^3 + 35x^4 - 21x^5 + 7x^6 - x^7)(1 + 12x + 60x^2 + 160x^3 + 240x^4 + 192x^5 + 64x^6)
+Therefore the coefficient of x^5 in the product (1 - x)^7 (1 + 2x)^6 is 192 - 240 $\times$ 7 + 160 $\times$ 21 - 60 $\times$ 35 + 12 $\times$ 35 - 21 = 171
+
+Q5. The coefficient of ${x^{4}}$ in the expansion of ${(1 + x + {x^2} + {x^{3}})^{11}}$ is equal to
+    (A) 900
+    (B) 990   <-- CORRECT
+    (C) 912
+    (D) 911
+    Answer: B
+    Explanation: ${ (1+x+{ x^{ 2 } }+{ x^{ 3 } })^{ 11 } }={ \left[ \left( 1+x \right) +{ x }^{ 2 }\left( 1+x \right) \right] }^{ 11 }={ \left[ \left( 1+x \right) \left( 1+{ x }^{ 2 } \right) \right] }^{ 11 }={ \left( 1+x \right) }^{ 11 }{ \left( 1+{ x }^{ 2 } \right) }^{ 11 }\\ \Rightarrow { (1+x+{ x^{ 2 } }+{ x^{ 3 } })^{ 11 } }=\left( ^{ 11 }{ C_{ 0\quad } }+^{ 11 }{ C_{ 1\quad } }\left( x \right) +^{ 11 }{ C_{ 2\quad } }{ \left( x \right) }^{ 2 }+........ \right) \left( ^{ 11 }{ C_{ 0\quad } }+^{ 11 }{ C_{ 1\quad } }\left( { x }^{ 2 } \right) +^{ 11 }{ C_{ 2\quad } }{ x }^{ 4 }+........ \right) \\ =\left( 1+11x+55{ x }^{ 2 }+165{ x }^{ 3 }+330{ x }^{ 4 }+......... \right) \left( 1+11{ x }^{ 2 }+55{ x }^{ 4 }+165{ x }^{ 6 }+....... \right) \\ Hence\quad coefficient\quad of\quad { x }^{ 4 }=55+605+330=990\\ $
+
+Q6. ${(\sqrt 5 + 1)^{2n + 1}} - {(\sqrt 5 - 1)^{2n + 1}}$ is
+    (A) 0
+    (B) an even positive integer   <-- CORRECT
+    (C) an odd positive integer
+    (D) not an integer
+    Answer: B
+    Explanation: We have $(a+b)^{n}-(a-b)^{n}$
+$=\left[\begin{array}{ccccccccccc}{n} {C_{0}} & {a^{n}+^{n} C_{1}} & {a^{n-1} b+^{n}} & {C_{2}} & {a^{n-2} b^{2}+^{n} C_{3}} & {a^{n-3} b^{3}+\ldots \ldots \ldots +}^{n} C_{n} & {b^{n}}\end{array}\right]-$
+$-\left[ ^{ n }{ C_{ 0\quad } }{ a }^{ n }-^{ n }{ C_{ 1\quad } }{ a }^{ n-1 }b+^{ n }{ C_{ 2\quad } }{ a }^{ n-2 }{ b }^{ 2 }-^{ n }{ C_{ 3\quad } }{ a }^{ n-3 }{ b }^{ 3 }+....................+\left( -1 \right) ^{ n }.^{ n }{ C_{ n } }{b }^{ n } \right] $
+$ \\ =2\left[ ^{ n }{ C_{ 1\quad } }{ a }^{ n-1 }b+^{ n }{ C_{ 3\quad } }{ a }^{ n-3 }{ b }^{ 3 }+.............. \right]$
+$Let\quad a=\sqrt { 5 } \quad and\quad b=1\quad and\quad n=2n+1$
+Now we get $(\sqrt{5}+1)^{2 n+1}-(\sqrt{5}-1)^{2 n+1}$
+$=2\left[^{2 n+1} C_{1}(\sqrt{3})^{2 n}+^{2 n+1} C_{3}(\sqrt{3})^{2 n-2} 1^{3}+^{2 n+1} C_{5} (\sqrt{3})^{2 n-4} 1^{5}+\ldots \right.]$
+$=2\left[ ^{ 2n+1 }{ C_{ 1\quad } }{ \left( 3 \right) }^{ n }+^{ 2n+1 }{ C_{ 3\quad } }{ \left( 3 \right) }^{ n-1 }+^{ 2n+1 }{ C_{ 5\quad } }{ \left( 3 \right) }^{ n-2 }+.............. \right]$
+=2(a positive integer)
+Hence we have $(\sqrt{5}+1)^{2 n}-(\sqrt{5}-1)^{2 n+1}$ is an even positive integer
+
+Q7. ${(\sqrt 3 + 1)^{2n}} + {(\sqrt 3 - 1)^{2n}}$is
+    (A) an even positive integer   <-- CORRECT
+    (B) negative real number
+    (C) an odd positive integer
+    (D) irrational number
+    Answer: A
+    Explanation: We have $(a+b)^{n}+(a-b)^{n}$
+$=\left[{}^nC_0a^n+^nC_1\quad a^{n-1}b+^nC_2\quad a^{n-2}b^2+^nC_3\quad a^{n-3}b^3+\dots\dots\dots\dots+^nC_n\quad b^n\right]+$
+$\begin{bmatrix}{}^nC_0&a^n-^nC_1a^{n-1}b+^nC_2&a^{n-2}b^2-^nC_3&a^{n-3}b^3+\dots\dots+(-1)^n\cdot^nC_n\end{bmatrix}^n$
+$\\ =2\left[ ^{ n }{ C_{ 0\quad } }{ a }^{ n }+^{ n }{ C_{ 2\quad } }{ a }^{ n-2 }{ b }^{ 2 }+.............. \right] $
+Let $a=\sqrt{3}$ and b=1 and n=2n
+${ (\sqrt { 3 } +1)^{ 2n } }+{ (\sqrt { 3 } -1)^{ 2n } }=2\left[ ^{ 2n }{ C_{ 0 } }{ \left( \sqrt { 3 } \right) }^{ 2n }+^{ 2n }{ C_{ 2 } }{ \left( \sqrt { 3 } \right) }^{ 2n-2 }{ 1 }^{ 2 }+^{ 2n }{ C_{ 4 } }{ \left( \sqrt { 3 } \right) }^{ 2n-4 }{ 1 }^{ 4 }+......\right]$
+$ \\ =2\left[ ^{ 2n }{ C_{ 0\quad } }{ \left( 3 \right) }^{ n }+^{ 2n }{ C_{ 2\quad } }{ \left( 3 \right) }^{ n-1 }+^{ 2n }{ C_{ 4\quad } }{ \left( 3 \right) }^{ n-2 }+.............. \right] $
+=2(a positive integer)
+Hence we have $(\sqrt{3}+1)^{2 n}+(\sqrt{3}-1)^{2 n}$} is always an even positive integer
+
+Q8. ${(\sqrt 3 + 1)^{2n + 1}} + {(\sqrt 3 - 1)^{2n + 1}}$ is
+    (A) a rational number
+    (B) an even positive integer
+    (C) an odd positive integer
+    (D) an irrational number   <-- CORRECT
+    Answer: D
+    Explanation: We have (a + b)^n + (a - b)^n 
+= $\left[^{n} C_{0}a^{n}+^{n} C_{1} a^{n-1} b+^{n}\right.$ + $^{n} C_{2} a^{n-2} b^{2}+^{n} C_{3} a^{n-3} b^{3}$ + .... + $\left.^{n} C_{n}b^{n}\right]$ + $\left[^{n} C_{0}a^{n}-^{n} C_{1} a^{n-1} b+^{n} C_{2} a^{n-2} b^{2}\right.$ - $^{n} C_{3} a^{n-3} b^{3}$ + .... + $(-1)^{n} \cdot^{n} C_{n} \quad b^{n}$]
+= 2[$^{n} C_{0} a^{n}+^{n} C_{2} a^{n-2} b^{2}$ + ....]
+Let a = $\sqrt{3}$ and b = 1 and n = 2n + 1
+Now we get $(\sqrt{3}+1)^{2 n+1}+(\sqrt{3}-1)^{2 n+1}$ = 2[$^{2 n+1} C_{0}(\sqrt{3})^{2 n+1}+^{2 n+1} C_{2}(\sqrt{3})^{2 n-1} 1^{2}$ + $^{2 n+1} C_{4}(\sqrt{3})^{2 n-3} 1^{4}$ + ....]
+Since there are odd powers of $\sqrt{3}$ we have $(\sqrt{3}+1)^{2 n+1}+(\sqrt{3}-1)^{2 n+1}$ is always an irrational number.
+
+Q9. ${(\sqrt 3 + 1)^{2n}} - {(\sqrt 3 - 1)^{2n}}$ is
+    (A) an irrational number   <-- CORRECT
+    (B) a rational number
+    (C) an odd positive integer
+    (D) an even positive integer
+    Answer: A
+    Explanation: We have (a + b)^n - (a - b)^n 
+= $\left[^{n} C_{0}a^{n}+^{n} C_{1}a^{n-1} b+^{n} C_{2}a^{n-2} b^{2}\right.$ + ..... + $^{n} C_{n}b^{n}$] - [$^{n} C_{0}a^{n}-^{n} C_{1} a^{n-1} b+^{n} C_{2} a^{n-2} b^{2}$ - $^{n} C_{3} a^{n-3} b^{3}$ + .... + $(-1)^{n} \cdot^{n} C_{n} b^{n}$]
+= 2[$^{n} C_{1} a^{n-1} b+^{n} C_{3} a^{n-3} b^{3}$ + .....]
+Let a = $\sqrt{3}$ and b = 1 and n = 2n
+Now we get $(\sqrt{3}+1)^{2 n}+(\sqrt{3}-1)^{2 n}$ = $2\left[^{2 n} C_{1} (\sqrt{3})^{2 n-1} \cdot 1+^{2 n} C_{3} (\sqrt{3})^{2 n-3} 1^{3}\right.$ + $^{2 n} C_{5} (\sqrt{3})^{2 n-5} 1^{5}$ + ....]
+Since odd powers of $\sqrt{3}$ will make it an irrational number.
+Hence we have $(\sqrt{3}+1)^{2 n}+(\sqrt{3}-1)^{2 n}$ is always an irrational number and it will be positive.
+
+Q10. If n is a positive integer, then ${(\sqrt 3 + i)^n} + {(\sqrt 3 - i)^n}$ is
+    (A) a positive integer
+    (B) a negative integer
+    (C) a real number   <-- CORRECT
+    (D) a non real number
+    Answer: C
+    Explanation: We have (a + b)^n + (a - b)^n 
+= $\left[^{n} C_{0} a^{n}+^{n} C_{1} a^{n-1} b\right.$ + $^{n} C_{2} a^{n-2} b^{2}+^{n} C_{3} a^{n-3} b^{3}$ + ..... + $^{n} C_{n} b^{n}$] + $\left[^{n} C_{0} a^{n}-^{n} C_{1} a^{n-1} b+^{n} C_{2} a^{n-2} b^{2}\right.$ - $^{n} C_{3} a^{n-3} b^{3}$ + .....$\left.(-1)^{n} \cdot^{n} C_{n} \quad b^{n}\right]$
+= 2[$^{n} C_{0} a^{n}+^{n} C_{2} a^{n-2} b^{2}$ + ....]
+Let a = $\sqrt{3}$ and b = i
+Now we get $(\sqrt{3}+i)^{n}+(\sqrt{3}-i)^{n}$ = 2[$^{n} C_{0}(\sqrt{3})^{n}+^{n} C_{2}(\sqrt{3})^{n-2} i^{2}$ + $^{n} C_{4}(\sqrt{3})^{n-4} i^{4}$ + ....]
+Since i^2n = (-1)^n = $\pm 1$ 
+Hence we have $(\sqrt{3}+i)^{n}+(\sqrt{3}-i)^{n}$ is always a real number and it will be positive or negative depending on the value of n is even or odd.
+
+Q11. Find the coefficient of x^6y^3 in the expansion of ${ \left( { x+2y } \right) ^{ 9 } }$
+    (A) 672   <-- CORRECT
+    (B) 84
+    (C) 1008
+    (D) 336
+    Answer: A
+    Explanation: We have the general term of $(x+a)^{n} \quad \text { is } \quad T_{r+1}=^{n} C_{r} \quad(x)^{n-r} a^{r}$
+Now consider $(x+2 y)^{9}$
+Here $T_{r+1}=^{9} C_{r} \quad(x)^{9-r}(2 y)^{r}=^{9} C_{r} \quad(2)^{r}(x)^{9-r}(y)^{r}$
+Comparing the indices of x as well as y in $x^{6} y^{3}$ and in $T_{r+1}$ , we get 
+$(x)^{9-r}(y)^{r^{2}}=x^{6} y^{3}$
+$\Rightarrow r=3$
+$\therefore \quad T_{4}=T_{3+1}=^{9} C_{3} \quad(x)^{9-3}(2 y)^{3}$
+Hence coefficient of $x^{6} y^{3}=8 .^{9} C_{3}=672$
+
+Q12. If the 21st and 22nd terms in the expansion of (1 + x)^44 are equal, find x
+    (A) $\frac { 6 }{ 8 } $
+    (B) $\frac { 7 }{ 6 } $
+    (C) $\frac { 7 }{ 8 } $   <-- CORRECT
+    (D) $\frac { 5 }{ 8 } $
+    Answer: C
+    Explanation: We have the general term of (x + a)^n is T_r+1 = $^{n} C_{r} (x)^{n-r} a^{r}$ 
+Now consider (1 + x)^44 
+Here T_r+1 = $^{44} C_{r}(1)^{44-r}(x)^{r}$ 
+So T_21 = T_20+1 = $^{44} C_{20}(x)^{20}$ and T_22 = T_22+1 = $^{44} C_{21}(x)^{21}$ 
+Given T_21 = T_22 $\Rightarrow$ $^{44} C_{20} (x)^{20}=^{44} C_{21} (x)^{21}$ 
+$\Rightarrow$ x = $\frac{^{44} C_{20}}{^{44} C_{21}}=\frac{(44) !}{(20) ! ! 24 !} \frac{(21) ! \cdot 23 !}{(44) !}=\frac{21}{24}=\frac{7}{8}$
+
+Q13. The integral part of ${(\sqrt 2 + 1)^6}$ is
+    (A) 96
+    (B) 99   <-- CORRECT
+    (C) 100
+    (D) 98
+    Answer: B
+    Explanation: We have (1 + x)^n = $1+^{n} C_{1} (x)+^{n} C_{2} (x)^{2}$ + ....+ (x)^n 
+Hence $(\sqrt{2}+1)^{6}$ = 1 + $^{6} C_{1} (\sqrt{2})+^{6} C_{2} (\sqrt{2})^{2}+^{6} C_{3} (\sqrt{2})^{3}$ + $^{6} C_{4} (\sqrt{2})^{4}+^{6} C_{5} (\sqrt{2})^{5}+(\sqrt{2})^{6}$ 
+$\Rightarrow$ $(\sqrt{2}+1)^{6}$ = 1 + 6($\sqrt{2}$) + 15 $\times$ 2 + 20 $\times$ 2($\sqrt{2}$) + 15 $\times$ 4 + 6 $\times$ 4($\sqrt{2}$) + 8
+= 99 + 70$\sqrt{2}$ 
+Hence integral part of $(\sqrt{2}+1)^{6}$ = 99
+
+Q14. The greatest term in the expansion of ${(3 + 2x)^9}$,when x = 1, is
+    (A) ${{\rm{6}}^{{\rm{th}}}}$
+    (B) ${{\rm{4}}^{{\rm{th}}}}$
+    (C) ${{\rm{7}}^{{\rm{th}}}}$
+    (D) ${{\rm{5}}^{{\rm{th}}}}$   <-- CORRECT
+    Answer: D
+    Explanation: We have the general term in the expansion of $(3+2 x)^{9}$ is given by 
+$T_{r+1}=^{9} C_{r} \quad(3)^{9-r}(2 x)^{r}$
+Now $\frac{T_{r+1}}{T_{r}}=\frac{^{9} C_{r} \quad(3)^{9-r}(2 x)^{r}}{^{9} C_{r-1} \quad(3)^{10-r}(2 x)^{r-1}}$
+$=\frac{9 !(3)^{9-r}(2 x)^{r}}{(9-r) ! \cdot r !} \times \frac{(10-r) !(r-1) !}{9 !(3)^{10-r}(2 x)^{r-1}}$
+$=\frac{(10-r) \cdot 2 x}{3 r}$
+$=\frac{2(10-r)}{3 r}$ since given x=1
+Now $\frac{T_{r+1}}{T_{r}} \geq 1$
+$\Rightarrow \frac{(20-2 r)}{3 r} \geq 1$
+$\Rightarrow 20-2 r \geq 3 r$
+$\Rightarrow r \leq \frac{20}{5}$
+$\Rightarrow r \leq 4$
+Hence the maximum value of r is 4
+Now $T_{5}=T_{4+1}=^{9} C_{4} \quad(3)^{9-4}(2 x)^{4}=126 \times 243 \times 16(x)^{4}=489888$
+
+Q15. The number 111111…………..1 (91 times)
+    (A) is not an odd number
+    (B) is not a prime   <-- CORRECT
+    (C) has a factor as 6
+    (D) is an even number
+    Answer: B
+    Explanation: 111...111(91times) can be expressed as:-
+$\frac{1}{9}\left(10^{91}-1\right)$ $\Rightarrow$ $\frac{1}{9}\left(10^{7}-1\right) \times x$ 
+$\Rightarrow$ 1111111 $\times$ x
+Where x = (10^7)^12 + (10^7)^11 + ... + 1

@@ -1,0 +1,3162 @@
+{
+  "id": 1377,
+  "name": "Linear Inequalities",
+  "full_name": "CBSE > Class 11 > Mathematics > Linear Inequalities",
+  "tests": [
+    {
+      "testPaperID": 627,
+      "testPaperName": "Linear Inequalities Test 01",
+      "is_paid": false,
+      "category_full_name": "CBSE > Class 11 > Mathematics > Linear Inequalities",
+      "noOfQuestions": 15,
+      "has_answers": true,
+      "sections": [
+        {
+          "sectionName": "General",
+          "sectionID": null,
+          "questions": [
+            {
+              "questionID": 18692,
+              "question": "Identify the solution set for –( x – 3 ) < 5 – 2x",
+              "question_raw": "<p>Identify the solution set for &ndash;( x &ndash; 3 ) &lt; 5 &ndash; 2x</p>",
+              "options": [
+                {
+                  "label": "A",
+                  "id": 29968,
+                  "text": "$( - \\infty , 2)$",
+                  "is_correct": true
+                },
+                {
+                  "label": "B",
+                  "id": 29970,
+                  "text": "$( - \\infty , - 1)$",
+                  "is_correct": false
+                },
+                {
+                  "label": "C",
+                  "id": 29969,
+                  "text": "$( - \\infty , - 5)$",
+                  "is_correct": false
+                },
+                {
+                  "label": "D",
+                  "id": 29971,
+                  "text": "$( - \\infty , - 2)$",
+                  "is_correct": false
+                }
+              ],
+              "correct_option_ids": [
+                29968
+              ],
+              "correct_option_labels": [
+                "A"
+              ],
+              "correct_option_texts": [
+                "$( - \\infty , 2)$"
+              ],
+              "explanation": "$-(x-3)<5-2 x$\n$\\Rightarrow-x+3<5-2 x$\n$\\Rightarrow-x+3+x<5-2 x+x$\n$\\Rightarrow 3<5-x$\n$\\Rightarrow 3-5<5-x-5$\n$\\Rightarrow-2<-x$\n$\\Rightarrow x \\in(-\\infty, 2)$"
+            },
+            {
+              "questionID": 18693,
+              "question": "What is the solution set for $\\frac{2(x-1)}{5} \\leq \\frac{3(2+x)}{7}$?",
+              "question_raw": "<p>What is the solution set for <span class=\"math-tex\">{tex}\\frac{2(x-1)}{5} \\leq \\frac{3(2+x)}{7}{/tex}</span>?</p>",
+              "options": [
+                {
+                  "label": "A",
+                  "id": 29974,
+                  "text": "$( - 4,\\infty )$",
+                  "is_correct": false
+                },
+                {
+                  "label": "B",
+                  "id": 29972,
+                  "text": "$[ - 44,\\infty )$",
+                  "is_correct": true
+                },
+                {
+                  "label": "C",
+                  "id": 29975,
+                  "text": "$( - 12,\\infty )$",
+                  "is_correct": false
+                },
+                {
+                  "label": "D",
+                  "id": 29973,
+                  "text": "$( - 24,\\infty )$",
+                  "is_correct": false
+                }
+              ],
+              "correct_option_ids": [
+                29972
+              ],
+              "correct_option_labels": [
+                "B"
+              ],
+              "correct_option_texts": [
+                "$[ - 44,\\infty )$"
+              ],
+              "explanation": "Given $\\frac{2(x-1)}{5} \\leq \\frac{3(2+x)}{7}$ \nMultiplying both sides by LCM (5, 7) = 35, we get\n$35 \\cdot \\frac{2(x-1)}{5} \\leq 35 \\cdot \\frac{3(2+x)}{7}$ \n$\\Rightarrow$ 14(x - 1) $\\le$ 15(2 + x)\n$\\Rightarrow$ 14x - 14 $\\le$ 30 + 15x\n$\\Rightarrow$ 14x - 15x $\\le$ 30 + 14\n$\\Rightarrow$ -x $\\le$ 44\n$\\Rightarrow$ x $\\ge$ -44\nSolution set is $\\left[ -44,\\infty \\right) $"
+            },
+            {
+              "questionID": 18694,
+              "question": "Identify the solution set for $\\frac{(x-1)}{3}+4<\\frac{(x-5)}{5}-2$",
+              "question_raw": "<p>Identify the solution set for <span class=\"math-tex\">{tex}\\frac{(x-1)}{3}+4&lt;\\frac{(x-5)}{5}-2{/tex}</span></p>",
+              "options": [
+                {
+                  "label": "A",
+                  "id": 29976,
+                  "text": "$( - \\infty , - 50)$",
+                  "is_correct": true
+                },
+                {
+                  "label": "B",
+                  "id": 29978,
+                  "text": "($ - \\infty $,-10)",
+                  "is_correct": false
+                },
+                {
+                  "label": "C",
+                  "id": 29979,
+                  "text": "$( - \\infty , - 15)$",
+                  "is_correct": false
+                },
+                {
+                  "label": "D",
+                  "id": 29977,
+                  "text": "$( - \\infty , - 5)$",
+                  "is_correct": false
+                }
+              ],
+              "correct_option_ids": [
+                29976
+              ],
+              "correct_option_labels": [
+                "A"
+              ],
+              "correct_option_texts": [
+                "$( - \\infty , - 50)$"
+              ],
+              "explanation": "$\\frac{(x-1)}{3}+4<\\frac{(x-5)}{5}-2$ \n$\\Rightarrow$ $\\frac{x-1+12}{3}<\\frac{x-5-10}{5}$ \n$\\Rightarrow$ $\\frac{x+11}{3}<\\frac{x-15}{5}$\nMultiplying both sides by LCM (3, 5) = 15, we get\n$\\Rightarrow$ 5(x + 11) < 3(x - 15)\n$\\Rightarrow$ 5x + 55 < 3x - 45\n$\\Rightarrow$ 2x < -100\n$\\Rightarrow$ x < -50\nSo solution set is$( - \\infty , - 50)$"
+            },
+            {
+              "questionID": 18695,
+              "question": "What is the solution set for $\\frac{2 x-3}{3 x-7}>0$?",
+              "question_raw": "<p>What is the solution set for <span class=\"math-tex\">{tex}\\frac{2 x-3}{3 x-7}&gt;0{/tex}</span>?</p>",
+              "options": [
+                {
+                  "label": "A",
+                  "id": 29983,
+                  "text": "$\\left(-\\infty,-\\frac{1}{2}\\right) \\cup\\left(\\frac{7}{3}, \\infty\\right)$",
+                  "is_correct": false
+                },
+                {
+                  "label": "B",
+                  "id": 29981,
+                  "text": "$\\left(-\\infty,-\\frac{3}{2}\\right) \\cup\\left(\\frac{5}{3}, \\infty\\right)$",
+                  "is_correct": false
+                },
+                {
+                  "label": "C",
+                  "id": 29980,
+                  "text": "$\\left(-\\infty, \\frac{3}{2}\\right) \\cup\\left(\\frac{7}{3}, \\infty\\right)$",
+                  "is_correct": true
+                },
+                {
+                  "label": "D",
+                  "id": 29982,
+                  "text": "$\\left(-\\infty,-\\frac{3}{2}\\right) \\cup\\left(\\frac{7}{4}, \\infty\\right)$",
+                  "is_correct": false
+                }
+              ],
+              "correct_option_ids": [
+                29980
+              ],
+              "correct_option_labels": [
+                "C"
+              ],
+              "correct_option_texts": [
+                "$\\left(-\\infty, \\frac{3}{2}\\right) \\cup\\left(\\frac{7}{3}, \\infty\\right)$"
+              ],
+              "explanation": "$\\frac{2 x-3}{3 x-7}>0$\n$\\Rightarrow$ (2x - 3 > 0 and 3x - 7 > 0) or (2x - 3 < 0 and 3x - 7 < 0)\n$\\Rightarrow$ (x > $\\frac { 3 }{ 2 }$ and x > $\\frac { 7 }{ 3 }$) or (x < $\\frac { 3 }{ 2 }$ and x < $\\frac { 7 }{ 3 }$)\n$\\Rightarrow x>\\frac { 7 }{ 3 }$ or $x<\\frac { 3 }{ 2 }$\n$\\Rightarrow x\\in \\left( \\frac { 7 }{ 3 } ,\\infty \\right) $ or $x\\in \\left( -\\infty ,\\frac { 3 }{ 2 } \\right)$\nHence the solution set is $\\left(-\\infty, \\frac{3}{2}\\right) \\cup\\left(\\frac{7}{3}, \\infty\\right)$"
+            },
+            {
+              "questionID": 18696,
+              "question": "Identify the solution set for $\\frac{7 x-5}{8 x+3}>4$",
+              "question_raw": "<p>Identify the solution set for <span class=\"math-tex\">{tex}\\frac{7 x-5}{8 x+3}&gt;4{/tex}</span></p>",
+              "options": [
+                {
+                  "label": "A",
+                  "id": 29987,
+                  "text": "$\\left(-\\frac{25}{28},-\\frac{3}{8}\\right)$",
+                  "is_correct": false
+                },
+                {
+                  "label": "B",
+                  "id": 29985,
+                  "text": "$\\left(-\\frac{5}{7},-\\frac{3}{8}\\right)$",
+                  "is_correct": false
+                },
+                {
+                  "label": "C",
+                  "id": 29984,
+                  "text": "$\\left(-\\frac{17}{25},-\\frac{3}{8}\\right)$",
+                  "is_correct": true
+                },
+                {
+                  "label": "D",
+                  "id": 29986,
+                  "text": "$\\left(-\\frac{31}{28},-\\frac{3}{8}\\right)$",
+                  "is_correct": false
+                }
+              ],
+              "correct_option_ids": [
+                29984
+              ],
+              "correct_option_labels": [
+                "C"
+              ],
+              "correct_option_texts": [
+                "$\\left(-\\frac{17}{25},-\\frac{3}{8}\\right)$"
+              ],
+              "explanation": "$\\frac{7 x-5}{8 x+3}>4$\n$\\Rightarrow \\frac{7 x-5}{8 x+3}-4>0$\n$\\Rightarrow \\frac{7 x-5-4(8 x+3)}{8 x+3}>0$\n$\\Rightarrow \\frac{7 x-5-32 x-12}{8 x+3}>0$\n$\\Rightarrow \\frac{-(25 x+17)}{8 x+3}>0$\n$\\Rightarrow \\frac{(25 x+17)}{8 x+3}<0$\n$\\Rightarrow$ (25x + 17 > 0 and 8x + 3 < 0) or (25x + 17 < 0 and 8x + 3 > 0)\n[$\\because$ $\\frac{a}{b}<0$ $\\Rightarrow$ (a > 0 and b < 0) or (a < 0 and b > 0)]\n$\\Rightarrow\\left(x>\\frac{-17}{25} \\text { and } x<\\frac{-3}{8} \\right)$ or $\\left(x<\\frac{-17}{25} \\text { and } x>\\frac{-3}{8}\\right)$\n$\\Rightarrow \\frac{-17}{25}<x<\\frac{-3}{8}$ [Since x < $\\frac{-17}{25}$ and x > $\\frac{-3}{8}$ is not possible]"
+            },
+            {
+              "questionID": 18697,
+              "question": "What is the solution set for $0<\\frac{-x}{2}<3$",
+              "question_raw": "<p>What is the solution set for <span class=\"math-tex\">{tex}0&lt;\\frac{-x}{2}&lt;3{/tex}</span></p>",
+              "options": [
+                {
+                  "label": "A",
+                  "id": 29988,
+                  "text": "(-6, 0)",
+                  "is_correct": true
+                },
+                {
+                  "label": "B",
+                  "id": 29990,
+                  "text": "(5, 6)",
+                  "is_correct": false
+                },
+                {
+                  "label": "C",
+                  "id": 29991,
+                  "text": "(-5, 6)",
+                  "is_correct": false
+                },
+                {
+                  "label": "D",
+                  "id": 29989,
+                  "text": "(-6, 6)",
+                  "is_correct": false
+                }
+              ],
+              "correct_option_ids": [
+                29988
+              ],
+              "correct_option_labels": [
+                "A"
+              ],
+              "correct_option_texts": [
+                "(-6, 0)"
+              ],
+              "explanation": "$0<\\frac{-x}{2}<3$ \nMultiplying throughout by 2, we get\n0 < -x < 6\n$\\Rightarrow$ 0 > x > -6\nSo solution set is (-6, 0)"
+            },
+            {
+              "questionID": 18698,
+              "question": "Identify solution set for |4 - x| + 1 < 3?",
+              "question_raw": "<p>Identify solution set for |4 - x| + 1 &lt; 3?</p>",
+              "options": [
+                {
+                  "label": "A",
+                  "id": 29995,
+                  "text": "(3, 6)",
+                  "is_correct": false
+                },
+                {
+                  "label": "B",
+                  "id": 29993,
+                  "text": "(2, 4)",
+                  "is_correct": false
+                },
+                {
+                  "label": "C",
+                  "id": 29992,
+                  "text": "(2, 6)",
+                  "is_correct": true
+                },
+                {
+                  "label": "D",
+                  "id": 29994,
+                  "text": "(2, 3)",
+                  "is_correct": false
+                }
+              ],
+              "correct_option_ids": [
+                29992
+              ],
+              "correct_option_labels": [
+                "C"
+              ],
+              "correct_option_texts": [
+                "(2, 6)"
+              ],
+              "explanation": "|4 - x| + 1 < 3\n$\\Rightarrow$ |4 - x| < 2\n$\\Rightarrow$ -2 < 4 - x < 2\n$\\Rightarrow$ -2 - 4 < -x < 2 - 4\n$\\Rightarrow$ -6 < -x < -2\n$\\Rightarrow$ 6 > x > 2\n$\\Rightarrow$ x $\\in$ (2, 6)\nSo solution set is (2, 6)"
+            },
+            {
+              "questionID": 18699,
+              "question": "What is the solution set for $\\frac{|x-2|}{x-2}>0$?",
+              "question_raw": "<p>What is the solution set for <span class=\"math-tex\">{tex}\\frac{|x-2|}{x-2}&gt;0{/tex}</span>?</p>",
+              "options": [
+                {
+                  "label": "A",
+                  "id": 29996,
+                  "text": "(2, $\\infty $)",
+                  "is_correct": true
+                },
+                {
+                  "label": "B",
+                  "id": 29997,
+                  "text": "(-$\\infty $, -2)",
+                  "is_correct": false
+                },
+                {
+                  "label": "C",
+                  "id": 29998,
+                  "text": "(0, 2)",
+                  "is_correct": false
+                },
+                {
+                  "label": "D",
+                  "id": 29999,
+                  "text": "(-$\\infty $, 2)",
+                  "is_correct": false
+                }
+              ],
+              "correct_option_ids": [
+                29996
+              ],
+              "correct_option_labels": [
+                "A"
+              ],
+              "correct_option_texts": [
+                "(2, $\\infty $)"
+              ],
+              "explanation": "We have |x - 2| $\\ge$ 0 [ $\\because $ |x| or absolute value of x is always positive or zero but never negative]\nNow $\\frac{|x-2|}{x-2}>0$ $\\Rightarrow $ x - 2 > 0 [$\\because$ $\\frac{a}{b}$ > 0, a $\\ge$ 0 $\\Rightarrow$ b > 0] \n$\\Rightarrow $ x > 2 \n$\\Rightarrow x\\epsilon \\left( 2,\\infty \\right) $"
+            },
+            {
+              "questionID": 18700,
+              "question": "Identify the solution set for $\\frac{1}{|x|-3}<\\frac{1}{2}$?",
+              "question_raw": "<p>Identify the solution set for <span class=\"math-tex\">{tex}\\frac{1}{|x|-3}&lt;\\frac{1}{2}{/tex}</span>?</p>",
+              "options": [
+                {
+                  "label": "A",
+                  "id": 30002,
+                  "text": "$(5,\\infty )$",
+                  "is_correct": false
+                },
+                {
+                  "label": "B",
+                  "id": 30003,
+                  "text": "$(-5,\\infty )$",
+                  "is_correct": false
+                },
+                {
+                  "label": "C",
+                  "id": 30000,
+                  "text": "$( - \\infty , - 5)\\mathop \\cup \\nolimits \\left( { - 3,3} \\right)\\mathop \\cup \\nolimits (5,\\infty )$",
+                  "is_correct": true
+                },
+                {
+                  "label": "D",
+                  "id": 30001,
+                  "text": "($ - \\infty , - 5)\\mathop \\cup \\nolimits^ (5,\\infty )$",
+                  "is_correct": false
+                }
+              ],
+              "correct_option_ids": [
+                30000
+              ],
+              "correct_option_labels": [
+                "C"
+              ],
+              "correct_option_texts": [
+                "$( - \\infty , - 5)\\mathop \\cup \\nolimits \\left( { - 3,3} \\right)\\mathop \\cup \\nolimits (5,\\infty )$"
+              ],
+              "explanation": "$\\frac{1}{|x|-3}<\\frac{1}{2}$\n$\\Rightarrow \\frac{1}{|x|-3}-\\frac{1}{2}<0$\n$\\Rightarrow \\frac{2-|x|+3}{2(|x|-3)}<0$\n$\\Rightarrow \\frac{5-|x|}{(|x|-3)}<0$\n$\\Rightarrow$ (5 - |x| < 0 and |x| - 3 > 0) or (5 - |x| > 0 and |x| - 3 < 0)\n$\\Rightarrow$ (|x| > 5 and |x| > 3) or (|x| < 5 and |x| < 3)\n$\\Rightarrow$ |x| > 5 or |x| < 3 [$\\because$ |x| > a $\\Rightarrow$ x < -a or x > a and |x| < a $\\Rightarrow$ -a < x < a]\n$\\Rightarrow$ (x < -5 or x > 5) or -3 < x < 3\n$\\Rightarrow$ x $\\epsilon$ ($-\\infty$, -5) or x $\\epsilon$ (5, $\\infty$) or x $\\epsilon$ (-3, 3)\n$\\Rightarrow x \\epsilon(-\\infty,-5) \\cup(5, \\infty) \\cup(-3,3)$"
+            },
+            {
+              "questionID": 18701,
+              "question": "What is the solution set for $\\left|\\frac{2 x-1}{x-1}\\right|>2$ ?",
+              "question_raw": "<p>What is the solution set for <span class=\"math-tex\">{tex}\\left|\\frac{2 x-1}{x-1}\\right|&gt;2{/tex}</span> ?</p>",
+              "options": [
+                {
+                  "label": "A",
+                  "id": 30007,
+                  "text": "$\\left(-\\frac{1}{4}, 1\\right) \\cup(-1, \\infty)$",
+                  "is_correct": false
+                },
+                {
+                  "label": "B",
+                  "id": 30005,
+                  "text": "$\\left(-\\frac{3}{4}, 1\\right) \\cup(1, \\infty)$",
+                  "is_correct": false
+                },
+                {
+                  "label": "C",
+                  "id": 30004,
+                  "text": "$\\left(\\frac{3}{4}, 1\\right) \\cup(1, \\infty)$",
+                  "is_correct": true
+                },
+                {
+                  "label": "D",
+                  "id": 30006,
+                  "text": "$\\left(\\frac{1}{4}, 1\\right) \\cup(1, \\infty)$",
+                  "is_correct": false
+                }
+              ],
+              "correct_option_ids": [
+                30004
+              ],
+              "correct_option_labels": [
+                "C"
+              ],
+              "correct_option_texts": [
+                "$\\left(\\frac{3}{4}, 1\\right) \\cup(1, \\infty)$"
+              ],
+              "explanation": "$\\left|\\frac{2 x-1}{x-1}\\right|>2$\n$\\Rightarrow { { { \\frac { 2x-1 }{ x-1 } >2 } } }\\quad or\\quad \\frac { 2x-1 }{ x-1 } <-2\\quad \\quad \\quad \\quad \\quad \\left[ \\because \\left| x \\right| >a\\Rightarrow x<-a\\quad or\\quad x>a \\right] $\nFirst consider $ \\frac { 2x-1 }{ x-1 } >2$\n$ \\frac { 2x-1 }{ x-1 } -2>0$\n$\\Rightarrow \\frac{2 x-1-2(x-1)}{x-1}>0$\n$\\Rightarrow \\frac{2 x-1-2 x+2}{x-1}>0$\n$\\Rightarrow \\frac{1}{x-1}>0$\n$\\Rightarrow x-1>0$\n$\\Rightarrow x>1$\n$\\Rightarrow x \\epsilon(1, \\infty)$\nNow $ \\frac { 2x-1 }{ x-1 } <-2$\n$\\Rightarrow \\frac{2 x-1}{x-1}+2<0$\n$\\Rightarrow \\frac{2 x-1+2(x-1)}{x-1}<0$\n$\\Rightarrow \\frac{4 x-3}{x-1}<0$\n$\\Rightarrow(4 x-3>0 \\text { and } x-1<0) \\text { or }(4 x-3<0 \\text { and } x-1>0)$\n$\\left[\\because \\frac{a}{b}<0 \\Rightarrow(a>0 \\text { and } b<0) \\quad \\text { or } \\quad(a<0 \\text { and } \\quad b>0)\\right]$\n$\\Rightarrow\\left(x>\\frac{3}{4} \\quad \\text { and } \\quad x<1 \\quad\\right) \\quad \\text { or } \\quad\\left(x<\\frac{3}{4} \\quad \\text { and } \\quad x>1\\right)$\n$\\left[\\text { Since } \\quad x<\\frac{3}{4} \\quad \\text { and } \\quad x>1 \\text { is } \\quad \\text { not } \\quad \\text { possible }\\right]$\n$\\Rightarrow x \\in\\left(\\frac{3}{4}, 1\\right)$"
+            },
+            {
+              "questionID": 18702,
+              "question": "In the first three papers each of 100 marks , Rishi got 95 , 72 , 83 marks . If he wants an average of greater than or equal to 75 marks and less than 80 marks, find the range of marks he should score in the 4th paper .",
+              "question_raw": "<p>In the first three papers each of 100 marks , Rishi got 95 , 72 , 83 marks . If he wants an average of greater than or equal to 75 marks and less than 80 marks, find the range of marks he should score in the 4th paper .</p>\r\n",
+              "options": [
+                {
+                  "label": "A",
+                  "id": 30010,
+                  "text": "75 $ < {\\text{ }} \\times {\\text{ }} < $80",
+                  "is_correct": false
+                },
+                {
+                  "label": "B",
+                  "id": 30008,
+                  "text": "$ 50 \\le x \\lt 70$",
+                  "is_correct": true
+                },
+                {
+                  "label": "C",
+                  "id": 30009,
+                  "text": "25 $ < {\\text{ }} \\times {\\text{ }} < $75",
+                  "is_correct": false
+                },
+                {
+                  "label": "D",
+                  "id": 30011,
+                  "text": "73 $ < {\\text{ }} \\times {\\text{ }} < $100",
+                  "is_correct": false
+                }
+              ],
+              "correct_option_ids": [
+                30008
+              ],
+              "correct_option_labels": [
+                "B"
+              ],
+              "correct_option_texts": [
+                "$ 50 \\le x \\lt 70$"
+              ],
+              "explanation": "Let the marks scored by Rishi in the fourth paper be x.\nThen$75\\le \\frac { 95+72+83+x }{ 4 } <80$ \n$\\\\ \\Rightarrow 75\\le \\frac { 250+x }{ 4 } <80$\nMultipling the inequality throughout by 4 ,we get\n$300\\le 250+x<320$\n$\\\\ \\Rightarrow 300-250\\le 250+x-250<320-250$\n$\\\\ \\Rightarrow 50\\le x<70$"
+            },
+            {
+              "questionID": 18703,
+              "question": "A man wants to cut three lengths from a single piece of board of length 91 cm. The second length is to be 3 cm longer than the shortest and third length is to be twice as long as the shortest. What are the possible lengths for the shortest board if the third piece is to be at least 5 cm longer than the second?",
+              "question_raw": "<p>A man wants to cut three lengths from a single piece of board of length 91 cm. The second length is to be 3 cm longer than the shortest and third length is to be twice as long as the shortest. What are the possible lengths for the shortest board if the third piece is to be at least 5 cm longer than the second?</p>",
+              "options": [
+                {
+                  "label": "A",
+                  "id": 30012,
+                  "text": "8 $\\le$ x $\\le$ 22",
+                  "is_correct": true
+                },
+                {
+                  "label": "B",
+                  "id": 30015,
+                  "text": "3 $\\le$ x $\\le$ 91",
+                  "is_correct": false
+                },
+                {
+                  "label": "C",
+                  "id": 30013,
+                  "text": "3 $\\le$ x $\\le$ 5",
+                  "is_correct": false
+                },
+                {
+                  "label": "D",
+                  "id": 30014,
+                  "text": "5 $\\le$ x $\\le$ 91",
+                  "is_correct": false
+                }
+              ],
+              "correct_option_ids": [
+                30012
+              ],
+              "correct_option_labels": [
+                "A"
+              ],
+              "correct_option_texts": [
+                "8 $\\le$ x $\\le$ 22"
+              ],
+              "explanation": "Let the length of the shortest piece be x cm. Then we have the length of the second and third pieces are x + 3 and 2x centimeters respectively.\nAccording to the question,\nx + (x + 3) + 2x $\\le$ 91\n$\\Rightarrow$ 4x + 3 $\\le$ 91\n$\\Rightarrow$ 4x $\\le$ 88\n$\\Rightarrow$ x $\\le$ 22\nAlso 2x $\\ge$ (x + 3) + 5\n$\\Rightarrow$ 2x $\\ge$ x + 8\n$\\Rightarrow$ x $\\ge$ 8\n$\\Rightarrow$ 8 $\\le$ x $\\le$ 22\nHence the shortest piece may be atleast 8 cm long but it cannot be more than 22cm in length."
+            },
+            {
+              "questionID": 18704,
+              "question": "Find all pairs of consecutive odd natural numbers, both of which are larger than 10, such that their sum is less than 40.",
+              "question_raw": "<p>Find all pairs of consecutive odd natural numbers, both of which are larger than 10, such that their sum is less than 40.</p>",
+              "options": [
+                {
+                  "label": "A",
+                  "id": 30018,
+                  "text": "(11, 13), (13, 15), (15, 17), (17, 21)",
+                  "is_correct": false
+                },
+                {
+                  "label": "B",
+                  "id": 30017,
+                  "text": "(9, 11), (13, 15), (15, 17), (17, 19)",
+                  "is_correct": false
+                },
+                {
+                  "label": "C",
+                  "id": 30016,
+                  "text": "(11, 13), (13, 15), (15, 17), (17, 19)",
+                  "is_correct": true
+                },
+                {
+                  "label": "D",
+                  "id": 30019,
+                  "text": "(11, 13), (13, 15), (17, 19), (19, 21)",
+                  "is_correct": false
+                }
+              ],
+              "correct_option_ids": [
+                30016
+              ],
+              "correct_option_labels": [
+                "C"
+              ],
+              "correct_option_texts": [
+                "(11, 13), (13, 15), (15, 17), (17, 19)"
+              ],
+              "explanation": "Let the consecutive odd natural numbers be x and x + 2.\nAccording to the question, x > 10 and x + (x + 2) < 40 \nNow x + (x + 2) < 40 $\\Rightarrow$ 2x < 38 $\\Rightarrow$ x < 19\nHence the maximum value of x is 17 and minimum value is 11.\nSo the possible pairs of odd natural numbers are (11, 13), (13, 15), (15, 17), (17, 19)"
+            },
+            {
+              "questionID": 18705,
+              "question": "The marks scored by Rohit in two tests were 65 and 70. Find the minimum marks he should score in the third test to have an average of atleast 65 marks.",
+              "question_raw": "<p>The marks scored by Rohit in two tests were 65 and 70. Find the minimum marks he should score in the third test to have an average of atleast 65 marks.</p>\r\n",
+              "options": [
+                {
+                  "label": "A",
+                  "id": 30023,
+                  "text": "75",
+                  "is_correct": false
+                },
+                {
+                  "label": "B",
+                  "id": 30020,
+                  "text": "60",
+                  "is_correct": true
+                },
+                {
+                  "label": "C",
+                  "id": 30021,
+                  "text": "65",
+                  "is_correct": false
+                },
+                {
+                  "label": "D",
+                  "id": 30022,
+                  "text": "70",
+                  "is_correct": false
+                }
+              ],
+              "correct_option_ids": [
+                30020
+              ],
+              "correct_option_labels": [
+                "B"
+              ],
+              "correct_option_texts": [
+                "60"
+              ],
+              "explanation": "Then\n$\\frac{65+70+x}{3} \\geq 65$\n$\\Rightarrow 135+x \\geq 195$\n$\\Rightarrow x \\geq 60$\nHence Rohit should get a minimum of 60 marks to get an average of atleast 65 marks."
+            },
+            {
+              "questionID": 18706,
+              "question": "A solution is to be kept between 30^o C and 35^o C. What is the range of temperature in degree Fahrenheit. What is the range of temperature in degree Fahrenheit if conversion formula is given by C = $\\frac { 5 }{ 9 } \\left( F-32 \\right) $ where C and F represent the temperature in degree Celcius and degree Fahrenheit?",
+              "question_raw": "<p>A solution is to be kept between 30<sup>o</sup> C and 35<sup>o</sup>&nbsp;C. What is the range of temperature in degree Fahrenheit. What is the range of temperature in degree Fahrenheit if conversion formula is given by C =&nbsp;<span class=\"math-tex\">{tex}\\frac { 5 }{ 9 } \\left( F-32 \\right) {/tex}</span>&nbsp;where C and F represent the temperature in degree Celcius and degree Fahrenheit?</p>",
+              "options": [
+                {
+                  "label": "A",
+                  "id": 30027,
+                  "text": "Between 76^o F and 105^o F",
+                  "is_correct": false
+                },
+                {
+                  "label": "B",
+                  "id": 30024,
+                  "text": "Between 86^o F and 95^o F",
+                  "is_correct": true
+                },
+                {
+                  "label": "C",
+                  "id": 30026,
+                  "text": "Between 40^o F and 60^o F",
+                  "is_correct": false
+                },
+                {
+                  "label": "D",
+                  "id": 30025,
+                  "text": "Between 30^o F and 35^o F",
+                  "is_correct": false
+                }
+              ],
+              "correct_option_ids": [
+                30024
+              ],
+              "correct_option_labels": [
+                "B"
+              ],
+              "correct_option_texts": [
+                "Between 86^o F and 95^o F"
+              ],
+              "explanation": "According to the question 30 < C < 35\nSince C = $\\frac { 5 }{ 9 } \\left( F-32 \\right) $, we get \n30 < $\\frac{5}{9}(F-32)$ < 35\n$\\Rightarrow$ $30 . \\frac{9}{5}$ < (F - 32) < $35 . \\frac{9}{5}$ \n$\\Rightarrow$ 54 < (F - 32) < 63\n$\\Rightarrow$ 54 + 32 < (F - 32) + 32 < 63 + 32\n$\\Rightarrow$ 80 < F < 95\nHence the range of temperature in degree Fahrenheit is between 86^o F and 95^o F"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "testPaperID": 628,
+      "testPaperName": "Linear Inequalities Test 02",
+      "is_paid": true,
+      "category_full_name": "CBSE > Class 11 > Mathematics > Linear Inequalities",
+      "noOfQuestions": 15,
+      "has_answers": true,
+      "sections": [
+        {
+          "sectionName": "General",
+          "sectionID": null,
+          "questions": [
+            {
+              "questionID": 18707,
+              "question": "The longest side of a triangle is three times the shortest side and the third side is 2 cm shorter than the longest side if the perimeter of the triangles is at least 61 cm, find the minimum length of the shortest side.",
+              "question_raw": "<p>The longest side of a triangle is three times the shortest side and the third side is 2 cm shorter than the longest side if the perimeter of the triangles is at least 61 cm, find the minimum length of the shortest side.</p>",
+              "options": [
+                {
+                  "label": "A",
+                  "id": 30029,
+                  "text": "11 cm",
+                  "is_correct": false
+                },
+                {
+                  "label": "B",
+                  "id": 30030,
+                  "text": "16 cm",
+                  "is_correct": false
+                },
+                {
+                  "label": "C",
+                  "id": 30031,
+                  "text": "61 cm",
+                  "is_correct": false
+                },
+                {
+                  "label": "D",
+                  "id": 30028,
+                  "text": "9 cm",
+                  "is_correct": true
+                }
+              ],
+              "correct_option_ids": [
+                30028
+              ],
+              "correct_option_labels": [
+                "D"
+              ],
+              "correct_option_texts": [
+                "9 cm"
+              ],
+              "explanation": "Let the shortest side of a triangle be x cm. Then the length of the longest side is 3x cm and the length of the third side is (3x - 2) cm.\nGiven the perimeter of the triangles at least 61cm\n$\\Rightarrow$ x + 3x + (3x - 2) $\\ge$ 61\n$\\Rightarrow$ 7x - 2 $\\ge$ 61\n$\\Rightarrow$ 7x $\\ge$ 63\n$\\Rightarrow$ x $\\ge$ 9 \nHence the minimum length of the shortest side = 9 cm"
+            },
+            {
+              "questionID": 18708,
+              "question": "Which of the following is correct?\n If 0 > -7, then 0 < 7\n If -4 < 7, then 4 < - 7\n If 8 > 1, then -8 > -1\n If -2 < 5, then 2 > 5",
+              "question_raw": "<p>Which of the following is correct?</p>\r\n\r\n<ol start=\"1\" style=\"list-style-type: upper-alpha;\">\r\n\t<li>If 0 &gt; -7, then 0 &lt; 7</li>\r\n\t<li>If -4 &lt; 7, then 4 &lt; - 7</li>\r\n\t<li>If 8 &gt; 1, then -8 &gt; -1</li>\r\n\t<li>If -2 &lt; 5, then 2 &gt; 5</li>\r\n</ol>",
+              "options": [
+                {
+                  "label": "A",
+                  "id": 30034,
+                  "text": "C",
+                  "is_correct": false
+                },
+                {
+                  "label": "B",
+                  "id": 30033,
+                  "text": "B",
+                  "is_correct": false
+                },
+                {
+                  "label": "C",
+                  "id": 30035,
+                  "text": "D",
+                  "is_correct": false
+                },
+                {
+                  "label": "D",
+                  "id": 30032,
+                  "text": "A",
+                  "is_correct": true
+                }
+              ],
+              "correct_option_ids": [
+                30032
+              ],
+              "correct_option_labels": [
+                "D"
+              ],
+              "correct_option_texts": [
+                "A"
+              ],
+              "explanation": "Given 0 > -7\nMultiplying throughout by -1, we get 0 < 7 [When both sides of an inequality are multiplied by a negative number, then the sign of inequality is reversed]"
+            },
+            {
+              "questionID": 18709,
+              "question": "Solve the inequality 3 - 2x $ \\leq$ 9",
+              "question_raw": "<p>Solve the inequality 3 - 2x&nbsp;<span class=\"math-tex\">{tex} \\leq{/tex}</span>&nbsp;9</p>",
+              "options": [
+                {
+                  "label": "A",
+                  "id": 30036,
+                  "text": "x $\\ge$ -3",
+                  "is_correct": true
+                },
+                {
+                  "label": "B",
+                  "id": 30039,
+                  "text": "x $ \\leq$ -6",
+                  "is_correct": false
+                },
+                {
+                  "label": "C",
+                  "id": 30037,
+                  "text": "x $ \\leq$ -3",
+                  "is_correct": false
+                },
+                {
+                  "label": "D",
+                  "id": 30038,
+                  "text": "x $\\geq $ -6",
+                  "is_correct": false
+                }
+              ],
+              "correct_option_ids": [
+                30036
+              ],
+              "correct_option_labels": [
+                "A"
+              ],
+              "correct_option_texts": [
+                "x $\\ge$ -3"
+              ],
+              "explanation": "3 - 2x $\\le$ 9 \n$\\Rightarrow$ -2x $\\le$ 9 - 3\n$\\Rightarrow$ -2x $\\le$ 6\n$\\Rightarrow$ -x $\\le$ 3\n$\\Rightarrow$ x $\\ge$ -3"
+            },
+            {
+              "questionID": 18710,
+              "question": "Given that x is an integer, find the values of x which satisfy both 2x + 3 > 7and x + 4 < 10",
+              "question_raw": "<p>Given that x is an integer, find the values of x which satisfy both&nbsp;2x + 3 &gt; 7and&nbsp;x + 4 &lt; 10</p>",
+              "options": [
+                {
+                  "label": "A",
+                  "id": 30042,
+                  "text": "4",
+                  "is_correct": false
+                },
+                {
+                  "label": "B",
+                  "id": 30040,
+                  "text": "3, 4, 5",
+                  "is_correct": true
+                },
+                {
+                  "label": "C",
+                  "id": 30043,
+                  "text": "3",
+                  "is_correct": false
+                },
+                {
+                  "label": "D",
+                  "id": 30041,
+                  "text": "4, 5",
+                  "is_correct": false
+                }
+              ],
+              "correct_option_ids": [
+                30040
+              ],
+              "correct_option_labels": [
+                "B"
+              ],
+              "correct_option_texts": [
+                "3, 4, 5"
+              ],
+              "explanation": "2x + 3 > 7 \n$\\Rightarrow$ 2x + 3 - 3 > 7 - 3\n$\\Rightarrow$ 2x > 4\n$\\Rightarrow$ x > 2\nSince x is an integer the solution set = {x : x > 2, x $\\in$ Z} = {3, 4, 5, 6, 7 .....}\nNow x + 4 < 10\n$\\Rightarrow$ x + 4 - 4 < 10 - 4\n$\\Rightarrow$ x < 6\nSince x is an integer the solution set = {x : x > 6, x $\\in$ Z} = {.... -1, 0, 1, 2, 3, 4, 5}\nHence the integer values which satisfy both the inequalities are {3, 4, 5, 6, 7 .....} $\\cap$ {.... -1, 0, 1, 2, 3, 4, 5} = {3, 4, 5}"
+            },
+            {
+              "questionID": 18711,
+              "question": "The solution for the simultaneous linear inequalities 2x - 3 $\\leq$ 7 and -x $ \\leq$ 2 is :",
+              "question_raw": "<p>The solution for the simultaneous linear inequalities 2x - 3&nbsp;<span class=\"math-tex\">{tex}\\leq{/tex}</span>&nbsp;7&nbsp;and -x&nbsp;<span class=\"math-tex\">{tex} \\leq{/tex}</span>&nbsp;2 is :</p>",
+              "options": [
+                {
+                  "label": "A",
+                  "id": 30047,
+                  "text": "${\\text{ 2}} \\leq {\\text{x}} \\leq {\\text{5}}$",
+                  "is_correct": false
+                },
+                {
+                  "label": "B",
+                  "id": 30044,
+                  "text": "$ - {\\text{ 2}} \\leq {\\text{x}} \\leq {\\text{5}}$",
+                  "is_correct": true
+                },
+                {
+                  "label": "C",
+                  "id": 30045,
+                  "text": "$ - {\\text{ 1 }} < {\\text{ x }} \\leq {\\text{ 2}}$",
+                  "is_correct": false
+                },
+                {
+                  "label": "D",
+                  "id": 30046,
+                  "text": "$ - {\\text{ 5 }} \\leq {\\text{ x }} \\leq {\\text{ }} - {\\text{ 2}}$",
+                  "is_correct": false
+                }
+              ],
+              "correct_option_ids": [
+                30044
+              ],
+              "correct_option_labels": [
+                "B"
+              ],
+              "correct_option_texts": [
+                "$ - {\\text{ 2}} \\leq {\\text{x}} \\leq {\\text{5}}$"
+              ],
+              "explanation": "2x - 3 $ \\leq$ 7 \n$\\Rightarrow$ 2x - 3 + 3 $ \\leq$ 7 + 3\n$\\Rightarrow$ 2x $ \\leq$ 10\n$\\Rightarrow$ x $ \\leq$ 5\nNow -x $ \\leq$ 2\n$\\Rightarrow$ x $ \\geq$ -2\nTherefore the solution of the simultaneous linear equalities is $ - {\\text{ 2}} \\leq {\\text{x}} \\leq {\\text{5}}$."
+            },
+            {
+              "questionID": 18712,
+              "question": "{4, 5, 6} is the solution set of",
+              "question_raw": "<p>{4, 5, 6}&nbsp;is the solution set of</p>",
+              "options": [
+                {
+                  "label": "A",
+                  "id": 30049,
+                  "text": "x $\\ge$ 4 and x $\\le$ 7, x $\\in$ Z",
+                  "is_correct": false
+                },
+                {
+                  "label": "B",
+                  "id": 30051,
+                  "text": "x > 4 and x > 7, x $\\in$ Z",
+                  "is_correct": false
+                },
+                {
+                  "label": "C",
+                  "id": 30048,
+                  "text": "x $\\ge$ 4 and x < 7, x $\\in$ N",
+                  "is_correct": true
+                },
+                {
+                  "label": "D",
+                  "id": 30050,
+                  "text": "x > 4 and x < 7, x $\\in$ Z",
+                  "is_correct": false
+                }
+              ],
+              "correct_option_ids": [
+                30048
+              ],
+              "correct_option_labels": [
+                "C"
+              ],
+              "correct_option_texts": [
+                "x $\\ge$ 4 and x < 7, x $\\in$ N"
+              ],
+              "explanation": "x $\\ge$ 4, x $\\in$Z\n$\\Rightarrow$ x $\\in$ {4, 5, 6, 7, 8, .....}\nx < 7\n$\\Rightarrow$ x $\\in$ {.... 2, 3, 4, 5, 6}\nHence solution set of the system is {4, 5, 6, 7, 8 ....} $\\cap$ {...... 2, 3, 4, 5, 6}"
+            },
+            {
+              "questionID": 18713,
+              "question": "What are the integer values of x which satisfy the inequalities x > -2 and x < 2?",
+              "question_raw": "<p>What are the integer values of x which satisfy the inequalities&nbsp;x &gt; -2 and x &lt; 2?</p>",
+              "options": [
+                {
+                  "label": "A",
+                  "id": 30055,
+                  "text": "-1, 0, 3, 4",
+                  "is_correct": false
+                },
+                {
+                  "label": "B",
+                  "id": 30053,
+                  "text": "- 1, 0, 1, 2, 3",
+                  "is_correct": false
+                },
+                {
+                  "label": "C",
+                  "id": 30052,
+                  "text": "- 1, 0, 1",
+                  "is_correct": true
+                },
+                {
+                  "label": "D",
+                  "id": 30054,
+                  "text": "1, 2, 3, 4",
+                  "is_correct": false
+                }
+              ],
+              "correct_option_ids": [
+                30052
+              ],
+              "correct_option_labels": [
+                "C"
+              ],
+              "correct_option_texts": [
+                "- 1, 0, 1"
+              ],
+              "explanation": "x > - 2 and x < 2\n$\\Rightarrow$ -2 < x < 2, x $\\in$ Z\n$\\Rightarrow$ x = -1, 0, 1"
+            },
+            {
+              "questionID": 18714,
+              "question": "Given that x is an integer, find the values of x which satisfy the simultaneous linear inequalities ${\\text{2 }} + {\\text{ x }} < {\\text{ 6 and }} {\\text{2}} - {\\text{3x }} < {\\text{ }} - {\\text{ 1}}$.",
+              "question_raw": "<p>Given that x is an integer, find the values of x which satisfy the simultaneous linear inequalities <span class=\"math-tex\">{tex}{\\text{2 }} + {\\text{ x }} &lt; {\\text{ 6 and }} {\\text{2}} - {\\text{3x }} &lt; {\\text{ }} - {\\text{ 1}}{/tex}</span>.</p>",
+              "options": [
+                {
+                  "label": "A",
+                  "id": 30057,
+                  "text": "1 , 2 , 3",
+                  "is_correct": false
+                },
+                {
+                  "label": "B",
+                  "id": 30059,
+                  "text": "1 , 2, 3, 4.",
+                  "is_correct": false
+                },
+                {
+                  "label": "C",
+                  "id": 30056,
+                  "text": "2 , 3",
+                  "is_correct": true
+                },
+                {
+                  "label": "D",
+                  "id": 30058,
+                  "text": "2 , 3, 4,",
+                  "is_correct": false
+                }
+              ],
+              "correct_option_ids": [
+                30056
+              ],
+              "correct_option_labels": [
+                "C"
+              ],
+              "correct_option_texts": [
+                "2 , 3"
+              ],
+              "explanation": "We have ${\\text{2 }} + {\\text{ x }} < {\\text{ 6}}$ \n$\\Rightarrow$ 2 + x − 2 < 6 − 2 \n$\\Rightarrow x<4$ \nNow \n2 - 3x < -1\n$\\Rightarrow2-3x-2<-1-2$\n$\\Rightarrow$ -3x < -3\n$\\\\ \\\\ \\Rightarrow \\frac { -3x }{ -3 } >\\frac { -3 }{ -3 } $\n$\\Rightarrow $ x > 1\nHence the solution of the given system of equations is given by 1 < x < 4, $ x\\in Z\\quad $$\\Rightarrow$ x = 2, 3"
+            },
+            {
+              "questionID": 18715,
+              "question": "Solve : 30x < 200, when x is a natural number :",
+              "question_raw": "<p>Solve : 30x &lt; 200, when x is a natural number :</p>",
+              "options": [
+                {
+                  "label": "A",
+                  "id": 30061,
+                  "text": "{2, 3, 4, 5, 6}",
+                  "is_correct": false
+                },
+                {
+                  "label": "B",
+                  "id": 30063,
+                  "text": "{4, 5, 6, 7, 8, 9}",
+                  "is_correct": false
+                },
+                {
+                  "label": "C",
+                  "id": 30060,
+                  "text": "{1, 2, 3, 4, 5, 6}",
+                  "is_correct": true
+                },
+                {
+                  "label": "D",
+                  "id": 30062,
+                  "text": "{1, 2, 3, 4, 5, 6, 7}",
+                  "is_correct": false
+                }
+              ],
+              "correct_option_ids": [
+                30060
+              ],
+              "correct_option_labels": [
+                "C"
+              ],
+              "correct_option_texts": [
+                "{1, 2, 3, 4, 5, 6}"
+              ],
+              "explanation": "30x < 200\n$\\Rightarrow$ $\\frac{30 x}{30}<\\frac{200}{30}$ \n$\\Rightarrow$ x < $\\frac{20}{3}$ = $6\\frac{2}{3}$, x $\\in$ N\n$\\Rightarrow$ x = 1, 2, 3, 4, 5, 6"
+            },
+            {
+              "questionID": 18716,
+              "question": "The solution set for: 3x - 7 > x + 3.",
+              "question_raw": "<p>The solution set for: 3x - 7 &gt; x + 3.</p>",
+              "options": [
+                {
+                  "label": "A",
+                  "id": 30066,
+                  "text": "(- 5, $\\infty $)",
+                  "is_correct": false
+                },
+                {
+                  "label": "B",
+                  "id": 30067,
+                  "text": "(5, -$\\infty $)",
+                  "is_correct": false
+                },
+                {
+                  "label": "C",
+                  "id": 30064,
+                  "text": "(5, $\\infty $)",
+                  "is_correct": true
+                },
+                {
+                  "label": "D",
+                  "id": 30065,
+                  "text": "(-5, 5)",
+                  "is_correct": false
+                }
+              ],
+              "correct_option_ids": [
+                30064
+              ],
+              "correct_option_labels": [
+                "C"
+              ],
+              "correct_option_texts": [
+                "(5, $\\infty $)"
+              ],
+              "explanation": "3x - 7 > x + 3\n$\\Rightarrow$ 3x - 7 + 7 > x + 3 + 7\n$\\Rightarrow$ 3x > x + 10\n$\\Rightarrow$ 2x > 10\n$\\Rightarrow$ x > 5"
+            },
+            {
+              "questionID": 18717,
+              "question": "The solution set for (x + 3) + 4 > -2x + 5:",
+              "question_raw": "<p>The solution set for (x + 3) + 4 &gt; -2x + 5:</p>",
+              "options": [
+                {
+                  "label": "A",
+                  "id": 30071,
+                  "text": "(- $\\infty $, 2)",
+                  "is_correct": false
+                },
+                {
+                  "label": "B",
+                  "id": 30068,
+                  "text": "$\\left( \\frac { -2 }{ 3 } ,\\infty \\right) \\quad \\quad \\quad $",
+                  "is_correct": true
+                },
+                {
+                  "label": "C",
+                  "id": 30070,
+                  "text": "(- $\\infty $, - 2)",
+                  "is_correct": false
+                },
+                {
+                  "label": "D",
+                  "id": 30069,
+                  "text": "(2, $\\infty $)",
+                  "is_correct": false
+                }
+              ],
+              "correct_option_ids": [
+                30068
+              ],
+              "correct_option_labels": [
+                "B"
+              ],
+              "correct_option_texts": [
+                "$\\left( \\frac { -2 }{ 3 } ,\\infty \\right) \\quad \\quad \\quad $"
+              ],
+              "explanation": "(x + 3) + 4 > -2x + 5\n$\\Rightarrow$ x + 7 > -2x + 5\n$\\Rightarrow$ x + 7 + 2x > -2x + 5 + 2x\n$\\Rightarrow$ 3x + 7 > 5\n$\\Rightarrow$ 3x + 7 - 7 > 5 - 7\n$\\Rightarrow$ 3x > -2\n$\\Rightarrow$ x > $\\frac{-2}{3}$ \n$\\Rightarrow$ $ x\\in\\left( \\frac { -2 }{ 3 } ,\\infty \\right) $"
+            },
+            {
+              "questionID": 18718,
+              "question": "Solve the system of inequalities 2x + 5 $\\le$ 0, x - 3 $\\le$ 0.",
+              "question_raw": "<p>Solve the system of inequalities 2x + 5&nbsp;<span class=\"math-tex\">{tex}\\le{/tex}</span>&nbsp;0, x - 3&nbsp;<span class=\"math-tex\">{tex}\\le{/tex}</span>&nbsp;0.</p>",
+              "options": [
+                {
+                  "label": "A",
+                  "id": 30074,
+                  "text": "$ x ≥ - {\\frac 52}$",
+                  "is_correct": false
+                },
+                {
+                  "label": "B",
+                  "id": 30073,
+                  "text": "$ x ≥ {\\frac 52}$",
+                  "is_correct": false
+                },
+                {
+                  "label": "C",
+                  "id": 30072,
+                  "text": "$ x ≤ - {\\frac 52}$",
+                  "is_correct": true
+                },
+                {
+                  "label": "D",
+                  "id": 30075,
+                  "text": "$ x ≤ {\\frac 52}$",
+                  "is_correct": false
+                }
+              ],
+              "correct_option_ids": [
+                30072
+              ],
+              "correct_option_labels": [
+                "C"
+              ],
+              "correct_option_texts": [
+                "$ x ≤ - {\\frac 52}$"
+              ],
+              "explanation": "2x + 5 $\\le$ 0\n$\\Rightarrow$ 2x < -5\n$\\Rightarrow$ x $\\le$ $\\frac{-5}{2}$ \n$\\Rightarrow$ $x \\epsilon\\left(-\\infty, \\frac{-5}{2}\\right]$\nNow x - 3 $\\le$ 0\n$\\Rightarrow$ x $\\le$ 3\n$\\Rightarrow$ $x \\in(-\\infty, 3]$\nHence the solution set is $\\left( -\\infty ,\\frac { -5 }{ 2 } \\right] \\cap { \\left( -\\infty ,3 \\right] } $ = $\\left( -\\infty ,\\frac { -5 }{ 2 } \\right]$ \n$\\Rightarrow$$ x ≤ - {\\frac 52}$"
+            },
+            {
+              "questionID": 18719,
+              "question": "Solve the system of inequalities x - 2 > 0, 3x < 18",
+              "question_raw": "<p>Solve the system of inequalities x - 2 &gt; 0, 3x &lt; 18</p>",
+              "options": [
+                {
+                  "label": "A",
+                  "id": 30078,
+                  "text": "-6 < x < -2",
+                  "is_correct": false
+                },
+                {
+                  "label": "B",
+                  "id": 30079,
+                  "text": "3 < x < 18",
+                  "is_correct": false
+                },
+                {
+                  "label": "C",
+                  "id": 30076,
+                  "text": "2 < x < 6",
+                  "is_correct": true
+                },
+                {
+                  "label": "D",
+                  "id": 30077,
+                  "text": "1 < x < 3",
+                  "is_correct": false
+                }
+              ],
+              "correct_option_ids": [
+                30076
+              ],
+              "correct_option_labels": [
+                "C"
+              ],
+              "correct_option_texts": [
+                "2 < x < 6"
+              ],
+              "explanation": "x - 2 > 0\n$\\Rightarrow$ x > 2\n$\\Rightarrow$ $x \\in(2, \\infty)$ \nNow 3x < 18\n$\\Rightarrow$ x < 6\n$\\Rightarrow$ $x \\in(-\\infty, 6)$ \nSo solution set is $\\left( 2,\\infty \\right) \\cap { \\left( -\\infty ,6 \\right) }$ = (2, 6)\n$\\Rightarrow$ 2 < x < 6"
+            },
+            {
+              "questionID": 18720,
+              "question": "Solve the system of inequalities ${\\text{4x }} + {\\text{ 3 }} \\geq {\\text{ 2x }} + {\\text{ 17 }},{\\text{ 3x }}-{\\text{ 5 }} < {\\text{ }} - {\\text{ 2}}$ , for the values of x, then",
+              "question_raw": "<p>Solve the system of inequalities <span class=\"math-tex\">{tex}{\\text{4x }} + {\\text{ 3 }} \\geq {\\text{ 2x }} + {\\text{ 17 }},{\\text{ 3x }}-{\\text{ 5 }} &lt; {\\text{ }} - {\\text{ 2}}{/tex}</span>&nbsp;, for the values of x, then</p>",
+              "options": [
+                {
+                  "label": "A",
+                  "id": 30081,
+                  "text": "$\\left(-\\frac{3}{2}, \\frac{2}{5}\\right)$",
+                  "is_correct": false
+                },
+                {
+                  "label": "B",
+                  "id": 30083,
+                  "text": "(-2, 2)",
+                  "is_correct": false
+                },
+                {
+                  "label": "C",
+                  "id": 30080,
+                  "text": "no solution",
+                  "is_correct": true
+                },
+                {
+                  "label": "D",
+                  "id": 30082,
+                  "text": "$( - 4,12)$",
+                  "is_correct": false
+                }
+              ],
+              "correct_option_ids": [
+                30080
+              ],
+              "correct_option_labels": [
+                "C"
+              ],
+              "correct_option_texts": [
+                "no solution"
+              ],
+              "explanation": "We have given: $4 x+3 \\geq 2 x+17$\n$\\Rightarrow 4 x-2 x \\geq 17-3 \\Rightarrow 2 x \\geq 1$\n$\\Rightarrow x \\geq \\frac{14}{2}$ [Dividing by 2 on both sides]\n$\\Rightarrow$ $x \\geq 7$ ..... (i)\nAlso we have 3x - 5 < -2\n$\\Rightarrow \\quad 3 x<-2+5 \\Rightarrow 3 x<3$\n$\\Rightarrow \\quad x<1$\nOn combining (i) and (ii), we see that solution is not possible because nothing is common between these two solutions.(i.e., x < 1, x $\\geq$ 7)"
+            },
+            {
+              "questionID": 18721,
+              "question": "Solve the system of inequalities (x + 5) - 7(x - 2) $\\ge$ 4x + 9, 2(x - 3) - 7(x + 5) $\\le$ 3x - 9",
+              "question_raw": "<p>Solve the system of inequalities&nbsp;(x + 5) - 7(x - 2)&nbsp;<span class=\"math-tex\">{tex}\\ge{/tex}</span>&nbsp;4x + 9, 2(x - 3) - 7(x + 5)&nbsp;<span class=\"math-tex\">{tex}\\le{/tex}</span>&nbsp;3x - 9</p>",
+              "options": [
+                {
+                  "label": "A",
+                  "id": 30085,
+                  "text": "$ - {\\text{ 4 }} \\leq {\\text{ x }} \\leq {\\text{ 4}}$",
+                  "is_correct": false
+                },
+                {
+                  "label": "B",
+                  "id": 30084,
+                  "text": "$ - {\\text{ 4 }} \\leq {\\text{ x }} \\leq {\\text{ 1}}$",
+                  "is_correct": true
+                },
+                {
+                  "label": "C",
+                  "id": 30086,
+                  "text": "$ - {\\text{ 1 }} \\leq {\\text{ x }} \\leq {\\text{ 1}}$",
+                  "is_correct": false
+                },
+                {
+                  "label": "D",
+                  "id": 30087,
+                  "text": "$\\frac{-9}{4} \\leq {\\text{ x }} \\leq {\\text{ 1}}$",
+                  "is_correct": false
+                }
+              ],
+              "correct_option_ids": [
+                30084
+              ],
+              "correct_option_labels": [
+                "B"
+              ],
+              "correct_option_texts": [
+                "$ - {\\text{ 4 }} \\leq {\\text{ x }} \\leq {\\text{ 1}}$"
+              ],
+              "explanation": "(x + 5) - 7(x - 2) $\\ge$ 4x + 9\n$\\Rightarrow$ x + 5 - 7x + 14 $\\ge$ 4x + 9\n$\\Rightarrow$ -6x + 19 $\\ge$ 4x + 9\n$\\Rightarrow$ -6x - 4x $\\ge$ 9 - 19\n$\\Rightarrow$ -10x $\\ge$ -10\n$\\Rightarrow$ x $\\le$ 1\n$\\Rightarrow$ $x \\in(-\\infty, 1]$ \n2(x - 3) - 7(x + 5) $\\le$ 3x - 9\n$\\Rightarrow$ 2x - 6 - 7x - 35 $\\le$ 3x < 9 \n$\\Rightarrow$ -5x - 41 $\\le$ 3x - 9\n$\\Rightarrow$ -5x - 3x $\\le$ 41 - 9\n$\\Rightarrow$ -8x $\\le$ 32\n$\\Rightarrow$ -x $\\le$ $\\frac{32}{8}$ = 4\n$\\Rightarrow$ x $\\ge$ -4\n$\\Rightarrow$ $x \\epsilon[-4, \\infty)$\nHence the solution set is $\\left[ -4,\\infty \\right) \\cap { \\left( -\\infty ,1 \\right] }$ = [-4, 1]\nWhich means $ - {\\text{ 4 }} \\leq {\\text{ x }} \\leq {\\text{ 1}}$"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "testPaperID": 629,
+      "testPaperName": "Linear Inequalities Test 03",
+      "is_paid": true,
+      "category_full_name": "CBSE > Class 11 > Mathematics > Linear Inequalities",
+      "noOfQuestions": 15,
+      "has_answers": true,
+      "sections": [
+        {
+          "sectionName": "General",
+          "sectionID": null,
+          "questions": [
+            {
+              "questionID": 18722,
+              "question": "Solve the system of inequalities $ - {\\text{ 4x }} + {\\text{ 1 }} \\geq {\\text{ }}0{\\text{ }},{\\text{ 3 }}-{\\text{ 4x }} < {\\text{ }}0$",
+              "question_raw": "<p>Solve the system of inequalities <span class=\"math-tex\">{tex} - {\\text{ 4x }} + {\\text{ 1 }} \\geq {\\text{ }}0{\\text{ }},{\\text{ 3 }}-{\\text{ 4x }} &lt; {\\text{ }}0{/tex}</span></p>",
+              "options": [
+                {
+                  "label": "A",
+                  "id": 30089,
+                  "text": "( -2 , 3)",
+                  "is_correct": false
+                },
+                {
+                  "label": "B",
+                  "id": 30090,
+                  "text": "( - 4 , 3 )",
+                  "is_correct": false
+                },
+                {
+                  "label": "C",
+                  "id": 30091,
+                  "text": "( 1 , 3 )",
+                  "is_correct": false
+                },
+                {
+                  "label": "D",
+                  "id": 30088,
+                  "text": "no solution",
+                  "is_correct": true
+                }
+              ],
+              "correct_option_ids": [
+                30088
+              ],
+              "correct_option_labels": [
+                "D"
+              ],
+              "correct_option_texts": [
+                "no solution"
+              ],
+              "explanation": "$- {\\text{ 4x }} + {\\text{ 1 }} \\geq {\\text{ }}0{\\text{ }}$\n$\\Rightarrow -4x\\ge -1\\\\ \\Rightarrow \\frac { -4x }{ -4 } \\le \\frac { -1 }{ -4 } \\\\ \\Rightarrow x\\le \\frac { 1 }{ 4 } \\\\ \\Rightarrow x\\epsilon \\left( -\\infty ,\\frac { 1 }{ 4 } \\right]$\n${\\text{ 3 }}-{\\text{ 4x }} < {\\text{ }}0$\n$\\Rightarrow -4x<-3\\\\ \\Rightarrow \\frac { -4x }{ -4 } >\\frac { -3 }{ -4 } \\\\ \\Rightarrow x>\\frac { 3 }{ 4 } \\\\ \\Rightarrow x\\epsilon \\left( \\frac { 3 }{ 4 } ,\\infty \\right) $\nHence solution set is $\\left( -\\infty ,\\frac { -5 }{ 2 } \\right] \\bigcap { \\left( \\frac { 3 }{ 4 } ,\\infty \\right) } =\\Phi $\nwhich means no solution exist."
+            },
+            {
+              "questionID": 18723,
+              "question": "Solve the system of inequalities: x - 5 > 0, $\\frac{2 x-4}{x+2}$ < 2",
+              "question_raw": "<p>Solve the system of inequalities: x - 5 &gt; 0, <span class=\"math-tex\">{tex}\\frac{2 x-4}{x+2}{/tex}</span>&nbsp;&lt; 2</p>",
+              "options": [
+                {
+                  "label": "A",
+                  "id": 30095,
+                  "text": "x > -5",
+                  "is_correct": false
+                },
+                {
+                  "label": "B",
+                  "id": 30094,
+                  "text": "x > 2",
+                  "is_correct": false
+                },
+                {
+                  "label": "C",
+                  "id": 30093,
+                  "text": "x < -2",
+                  "is_correct": false
+                },
+                {
+                  "label": "D",
+                  "id": 30092,
+                  "text": "x > 5",
+                  "is_correct": true
+                }
+              ],
+              "correct_option_ids": [
+                30092
+              ],
+              "correct_option_labels": [
+                "D"
+              ],
+              "correct_option_texts": [
+                "x > 5"
+              ],
+              "explanation": "x - 5 > 0\n$\\Rightarrow$ x > 5\n$\\Rightarrow$ $x \\in(5, \\infty)$ \nNow $\\frac{2 x-4}{x+2}$ < 2\n$\\frac{2 x-4}{x+2}$ - 2 < 0\n$\\Rightarrow$ $\\frac{2 x-4-2(x+2)}{x+2}$ < 0\n$\\Rightarrow$ $\\frac{2 x-4-2 x-4}{x+2}$ < 0\n$\\Rightarrow$ $\\frac{-8}{x+2}$ < 0\n$\\Rightarrow$ x + 2 > 0 [$\\because$ $\\frac{a}{b}$ < 0, a < 0 $\\Rightarrow$ b > 0]\n$\\Rightarrow$ x > -2\n$\\Rightarrow$ $x \\in(-2, \\infty)$ \nHence the solution set is $\\left( 5,\\infty \\right) \\cap \\left( -2,\\infty \\right) =\\left( 5,\\infty \\right) $ \nWhich means x > 5."
+            },
+            {
+              "questionID": 18724,
+              "question": "Solve the system of inequalities: $\\frac{x+7}{x-8}>2, \\frac{2 x+1}{7 x-1}>5$",
+              "question_raw": "<p>Solve the system of inequalities: <span class=\"math-tex\">{tex}\\frac{x+7}{x-8}&gt;2, \\frac{2 x+1}{7 x-1}&gt;5{/tex}</span></p>",
+              "options": [
+                {
+                  "label": "A",
+                  "id": 30096,
+                  "text": "no solution",
+                  "is_correct": true
+                },
+                {
+                  "label": "B",
+                  "id": 30097,
+                  "text": "(2, 5)",
+                  "is_correct": false
+                },
+                {
+                  "label": "C",
+                  "id": 30098,
+                  "text": "(3, 6)",
+                  "is_correct": false
+                },
+                {
+                  "label": "D",
+                  "id": 30099,
+                  "text": "(4, 8)",
+                  "is_correct": false
+                }
+              ],
+              "correct_option_ids": [
+                30096
+              ],
+              "correct_option_labels": [
+                "A"
+              ],
+              "correct_option_texts": [
+                "no solution"
+              ],
+              "explanation": "$\\frac {x + 7} {x - 8} > 2$ \n$\\Rightarrow \\frac {x + 7} {x - 8} -2> 0$\n$\\Rightarrow$ $\\frac{x+7-2(x-8)}{x-8}$ > 0\n$\\Rightarrow$ $\\frac{x+7-2 x+16}{x-8}$ > 0\n$\\Rightarrow$ $\\frac{(23-x)}{x-8}$ > 0 [$\\because$ $\\frac{a}{b}$ > 0 $\\Rightarrow$ (a > 0 and b > 0) or (a < 0 and b < 0)]\n$\\Rightarrow$ (23 - x > 0 and x - 8 > 0) or (23 - x < 0 and x - 8 < 0)\n$\\Rightarrow$ (x < 23 and x > 8) or (x > 23 and x < 8)\n$\\Rightarrow$ 8 < x < 23 [Since x > 23 and x < 8 is not possible]\n$\\Rightarrow x\\epsilon \\left( 8,23 \\right) $\nNow ${{2x + 1} \\over {7x - 1}}$ > 5 \n$\\Rightarrow \\frac {2x + 1} {7x - 1}$ - 5 > 0\n$\\Rightarrow$ $\\frac{2 x+1-5(7 x-1)}{7 x-1}$ > 0\n$\\Rightarrow$ $\\frac{2 x+1-35 x+5}{7 x-1}$ > 0\n$\\Rightarrow$ $\\frac{(6-33 x)}{7 x-1}$ > 0 [$\\because$ $\\frac{a}{b}$ > 0 $\\Rightarrow$ (a > 0 and b > 0) or (a < 0 and b < 0)]\n$\\Rightarrow$ (6 - 33x > 0 and 7x - 1 > 0) or (6 - 33x < 0 and 7x - 1 < 0)\n$\\Rightarrow$ (x < $\\frac{6}{33}$ and x > $\\frac{1}{7}$) or (x > $\\frac{2}{11}$ and x < $\\frac{1}{7}$)\n$\\Rightarrow$ $\\frac{1}{7}<x<\\frac{2}{11}$ \n$\\Rightarrow$ $x \\in\\left(\\frac{1}{7}, \\frac{2}{11}\\right)$ [Since x > $\\frac{2}{11}$ and x < $\\frac{1}{7}$ is not possible]\nHence, the solution of the system $\\frac{x+7}{x-8}>2, \\frac{2 x+1}{7 x-1}>5$ will be $\\left( 8,23 \\right) \\cap \\left( \\frac { 1 }{ 7 } ,\\frac { 2 }{ 11 } \\right) =\\phi $"
+            },
+            {
+              "questionID": 18725,
+              "question": "Solve the system of inequalities -2 $ \\leq$ 6x - 1 < 2",
+              "question_raw": "<p>Solve the system of inequalities -2&nbsp;<span class=\"math-tex\">{tex} \\leq{/tex}</span>&nbsp;6x - 1 &lt; 2</p>",
+              "options": [
+                {
+                  "label": "A",
+                  "id": 30101,
+                  "text": "$-\\frac{1}{7} \\leq x>\\frac{1}{2}$",
+                  "is_correct": false
+                },
+                {
+                  "label": "B",
+                  "id": 30100,
+                  "text": "$-\\frac{1}{6} \\leq x<\\frac{1}{2} $",
+                  "is_correct": true
+                },
+                {
+                  "label": "C",
+                  "id": 30102,
+                  "text": "$-\\frac{1}{6}<x<\\frac{3}{2}$",
+                  "is_correct": false
+                },
+                {
+                  "label": "D",
+                  "id": 30103,
+                  "text": "$-\\frac{1}{6}<x<\\frac{5}{2}$",
+                  "is_correct": false
+                }
+              ],
+              "correct_option_ids": [
+                30100
+              ],
+              "correct_option_labels": [
+                "B"
+              ],
+              "correct_option_texts": [
+                "$-\\frac{1}{6} \\leq x<\\frac{1}{2} $"
+              ],
+              "explanation": "-2 $ \\leq$ 6x - 1 < 2\n$\\Rightarrow$ -2 + 1 $ \\leq$ 6x - 1 + 1 < 2 + 1\n$\\Rightarrow$ -1 $ \\leq$ 6x < 3\n$\\Rightarrow$ $\\frac{-1}{6} \\leq \\frac{6 x}{6}<\\frac{3}{6}$ \n$\\Rightarrow$ $\\frac{-1}{6} \\leq x<\\frac{1}{2}$"
+            },
+            {
+              "questionID": 18726,
+              "question": "Solve the system of inequalities -2 < 1 - 3x < 7",
+              "question_raw": "<p>Solve the system of inequalities -2 &lt; 1 - 3x &lt; 7&nbsp;</p>",
+              "options": [
+                {
+                  "label": "A",
+                  "id": 30105,
+                  "text": "-2 < x < 2",
+                  "is_correct": false
+                },
+                {
+                  "label": "B",
+                  "id": 30107,
+                  "text": "-1 < x < 10",
+                  "is_correct": false
+                },
+                {
+                  "label": "C",
+                  "id": 30104,
+                  "text": "-2 < x < 1",
+                  "is_correct": true
+                },
+                {
+                  "label": "D",
+                  "id": 30106,
+                  "text": "-1 < x < 1",
+                  "is_correct": false
+                }
+              ],
+              "correct_option_ids": [
+                30104
+              ],
+              "correct_option_labels": [
+                "C"
+              ],
+              "correct_option_texts": [
+                "-2 < x < 1"
+              ],
+              "explanation": "-2 < 1 - 3x < 7 \n$\\Rightarrow$ -2 - 1 < 1 - 3x - 1 < 7 - 1\n$\\Rightarrow$ -3 < -3x < 6\n$\\Rightarrow$ $\\frac{-3}{-3}>\\frac{-3 x}{-3}>\\frac{6}{-3}$ \n$\\Rightarrow$ 1 > x > -2\n$\\Rightarrow$ -2 < x < 1"
+            },
+            {
+              "questionID": 18727,
+              "question": "Solve the system of inequalities: $-15<\\frac{3(x-2)}{5} \\leq 0$",
+              "question_raw": "<p>Solve the system of inequalities:&nbsp;<span class=\"math-tex\">{tex}-15&lt;\\frac{3(x-2)}{5} \\leq 0{/tex}</span>&nbsp;</p>",
+              "options": [
+                {
+                  "label": "A",
+                  "id": 30109,
+                  "text": "-23 < x < 23",
+                  "is_correct": false
+                },
+                {
+                  "label": "B",
+                  "id": 30110,
+                  "text": "-13 < x < 13",
+                  "is_correct": false
+                },
+                {
+                  "label": "C",
+                  "id": 30111,
+                  "text": "-13 < x < 2",
+                  "is_correct": false
+                },
+                {
+                  "label": "D",
+                  "id": 30108,
+                  "text": "-23 < x $\\le$ 2",
+                  "is_correct": true
+                }
+              ],
+              "correct_option_ids": [
+                30108
+              ],
+              "correct_option_labels": [
+                "D"
+              ],
+              "correct_option_texts": [
+                "-23 < x $\\le$ 2"
+              ],
+              "explanation": "$-15<\\frac{3(x-2)}{5} \\leq 0$ \n$\\Rightarrow$ $-15 \\cdot \\frac{5}{3}<\\frac{3(x-2)}{5} \\cdot \\frac{5}{3} \\leq 0 \\cdot \\frac{5}{3}$ \n$\\Rightarrow$ -25 < (x - 2) $\\le$ 0 + 2\n$\\Rightarrow$ -25 + 2 < x - 2 + 2 $\\le$ 2\n$\\Rightarrow$ -23 < x $\\le$ 2"
+            },
+            {
+              "questionID": 18728,
+              "question": "The solution set for |3x - 2| $\\leq \\frac{1}{2}$",
+              "question_raw": "<p>The solution set for |3x - 2|&nbsp;<span class=\"math-tex\">{tex}\\leq \\frac{1}{2}{/tex}</span>&nbsp;</p>",
+              "options": [
+                {
+                  "label": "A",
+                  "id": 30114,
+                  "text": "[$\\frac{5}{6}$, $\\frac{1}{2}$]",
+                  "is_correct": false
+                },
+                {
+                  "label": "B",
+                  "id": 30115,
+                  "text": "[$\\frac{5}{6}$, $\\frac{2}{3}$]",
+                  "is_correct": false
+                },
+                {
+                  "label": "C",
+                  "id": 30113,
+                  "text": "[$\\frac{2}{3}$, $\\frac{2}{3}$]",
+                  "is_correct": false
+                },
+                {
+                  "label": "D",
+                  "id": 30112,
+                  "text": "[$\\frac{1}{2}$, $\\frac{5}{6}$]",
+                  "is_correct": true
+                }
+              ],
+              "correct_option_ids": [
+                30112
+              ],
+              "correct_option_labels": [
+                "D"
+              ],
+              "correct_option_texts": [
+                "[$\\frac{1}{2}$, $\\frac{5}{6}$]"
+              ],
+              "explanation": "|3x - 2| $\\le$ $\\frac{1}{2}$ \n$\\Rightarrow$ $\\frac{-1}{2} \\leq 3 x-2 \\leq \\frac{1}{2}$ \n$\\Rightarrow$ $\\frac{-1}{2}+2 \\leq 3 x-2+2 \\leq \\frac{1}{2}+2$ \n$\\Rightarrow$ $\\frac{3}{2} \\leq 3 x \\leq \\frac{5}{2}$ [$\\because$ $|x| \\leq a \\Leftrightarrow-a \\leq x \\leq a$]\n$\\Rightarrow$ $\\frac{3}{2} \\cdot \\frac{1}{3} \\leq 3 x \\cdot \\frac{1}{3} \\leq \\frac{5}{2} \\cdot \\frac{1}{3}$ \n $\\Rightarrow$ $\\frac{1}{2} \\leq x \\leq \\frac{5}{6}$ \n$\\Rightarrow$ $x \\in\\left[\\frac{1}{2}, \\frac{5}{6}\\right]$"
+            },
+            {
+              "questionID": 18729,
+              "question": "The solution set for |x| > 7",
+              "question_raw": "<p>The solution set for&nbsp;|x| &gt; 7</p>",
+              "options": [
+                {
+                  "label": "A",
+                  "id": 30119,
+                  "text": "(-7, $\\infty $)",
+                  "is_correct": false
+                },
+                {
+                  "label": "B",
+                  "id": 30116,
+                  "text": "$\\left( { - \\infty , - 7} \\right)\\mathop \\cup \\;(7,\\infty )$",
+                  "is_correct": true
+                },
+                {
+                  "label": "C",
+                  "id": 30118,
+                  "text": "$\\left( { - \\infty , - 7} \\right)\\mathop \\cap \\; (7,\\infty )$",
+                  "is_correct": false
+                },
+                {
+                  "label": "D",
+                  "id": 30117,
+                  "text": "(7, $\\infty $)",
+                  "is_correct": false
+                }
+              ],
+              "correct_option_ids": [
+                30116
+              ],
+              "correct_option_labels": [
+                "B"
+              ],
+              "correct_option_texts": [
+                "$\\left( { - \\infty , - 7} \\right)\\mathop \\cup \\;(7,\\infty )$"
+              ],
+              "explanation": "|x| > 7\n$\\Rightarrow$ -7 > x > 7\n$\\Rightarrow$ x < -7 or x > 7 [$\\because$ |x| > a $\\Leftrightarrow$ x < -a or x > a]\n$\\Rightarrow$ $x \\in(-\\infty,-7)$ or $x \\in(7, \\infty)$ \n$\\Rightarrow$ $x \\epsilon(-\\infty,-7) \\cup(7, \\infty)$"
+            },
+            {
+              "questionID": 18730,
+              "question": "The solution set for: $\\frac{|x|-1}{|x|-2} \\geq 0, x \\neq \\pm 2$",
+              "question_raw": "<p>The solution set for: <span class=\"math-tex\">{tex}\\frac{|x|-1}{|x|-2} \\geq 0, x \\neq \\pm 2{/tex}</span></p>",
+              "options": [
+                {
+                  "label": "A",
+                  "id": 30123,
+                  "text": "(-2, 2)",
+                  "is_correct": false
+                },
+                {
+                  "label": "B",
+                  "id": 30121,
+                  "text": "$\\left( { - 1,2} \\right)\\mathop \\cup (3,\\infty )$",
+                  "is_correct": false
+                },
+                {
+                  "label": "C",
+                  "id": 30122,
+                  "text": "($ - \\infty , - 2)\\mathop \\cup (2,\\infty )$",
+                  "is_correct": false
+                },
+                {
+                  "label": "D",
+                  "id": 30120,
+                  "text": "$( - \\infty , - 2)\\mathop \\cup \\nolimits \\left( { - 1,1} \\right)\\mathop \\cup \\nolimits (2,\\infty )$",
+                  "is_correct": true
+                }
+              ],
+              "correct_option_ids": [
+                30120
+              ],
+              "correct_option_labels": [
+                "D"
+              ],
+              "correct_option_texts": [
+                "$( - \\infty , - 2)\\mathop \\cup \\nolimits \\left( { - 1,1} \\right)\\mathop \\cup \\nolimits (2,\\infty )$"
+              ],
+              "explanation": "Given$\\frac{|x|-1}{|x|-2} \\geq 0, x \\neq \\pm 2$ \n$\\frac{|x|-1}{|x|-2} \\geq 0$\n$\\Rightarrow$ |x| - 1 $\\ge$ 0 and |x| - 2 $\\ge$ 0 or |x| - 1 $\\le$ 0 and |x| - 2 $\\le$ 0 [$\\because$ $\\frac{a}{b} \\geq 0$ $\\Rightarrow$ (a $\\ge$ 0 and b $\\ge$ 0) or (a $\\le$ 0 and b $\\le$ 0)]\n$\\Rightarrow$ |x| $\\ge$ 1 and |x| $\\ge$ 2 or |x| $\\le$ 1 and |x| $\\le$ 2\n$\\Rightarrow$ |x| $\\ge$ 2 or |x| $\\le$ 1 [$\\because$ |x| $\\ge$ a $\\Rightarrow$ x $\\ge$ a or x $\\le$ -a and |x| $\\le$ a $\\Rightarrow$ $-a \\leq x \\leq a$ ]\n$\\Rightarrow$ x $\\ge$ 2 or x $\\le$ -2 or $-1 \\leq x \\leq 1$\n$\\Rightarrow$ $x \\in(2, \\infty)$ or $x \\in(-\\infty,-2)$ or $x \\epsilon(-1,1)$\n$\\Rightarrow$ $x \\in(2, \\infty) \\cup(-\\infty,-2) \\cup(-1,1)$"
+            },
+            {
+              "questionID": 18731,
+              "question": "The solution set for: $\\left|\\frac{2(3-x)}{5}\\right|<\\frac{3}{5}$",
+              "question_raw": "<p>The solution set for: <span class=\"math-tex\">{tex}\\left|\\frac{2(3-x)}{5}\\right|&lt;\\frac{3}{5}{/tex}</span></p>",
+              "options": [
+                {
+                  "label": "A",
+                  "id": 30126,
+                  "text": "$(\\frac 1 2, \\frac 32)$",
+                  "is_correct": false
+                },
+                {
+                  "label": "B",
+                  "id": 30125,
+                  "text": "$(\\frac 14, \\frac 34)$",
+                  "is_correct": false
+                },
+                {
+                  "label": "C",
+                  "id": 30124,
+                  "text": "$(\\frac 32, \\frac 92)$",
+                  "is_correct": true
+                },
+                {
+                  "label": "D",
+                  "id": 30127,
+                  "text": "$(\\frac 34, \\frac 94)$",
+                  "is_correct": false
+                }
+              ],
+              "correct_option_ids": [
+                30124
+              ],
+              "correct_option_labels": [
+                "C"
+              ],
+              "correct_option_texts": [
+                "$(\\frac 32, \\frac 92)$"
+              ],
+              "explanation": "$\\left|\\frac{2(3-x)}{5}\\right|<\\frac{3}{5}$\n$\\Rightarrow-\\frac{3}{5}<\\frac{2(3-x)}{5}<\\frac{3}{5}$\n$\\Rightarrow-\\frac{3}{5} \\cdot \\frac{5}{2}<\\frac{2(3-x)}{5} \\cdot \\frac{5}{2}<\\frac{3}{5} \\cdot \\frac{5}{2}$\n$\\Rightarrow-\\frac{3}{2}<3-x<\\frac{3}{2}$\n$\\Rightarrow-\\frac{3}{2}-3<3-x-3<\\frac{3}{2}-3$ $[\\because|x|<a \\Leftrightarrow-a<x<a]$\n$\\Rightarrow-\\frac{9}{2}<-x<\\frac{-3}{2}$\n$\\Rightarrow \\frac{9}{2}>x>\\frac{3}{2}$\n$\\Rightarrow x \\in\\left(\\frac{3}{2}, \\frac{9}{2}\\right)$"
+            },
+            {
+              "questionID": 18732,
+              "question": "Find all pairs of consecutive even positive integers, both of which are larger than 5, such that their sum is less than 23.",
+              "question_raw": "<p>Find all pairs of consecutive even positive integers, both of which are larger than 5, such that their sum is less than 23.</p>",
+              "options": [
+                {
+                  "label": "A",
+                  "id": 30131,
+                  "text": "(8, 6), (6, 4), (10, 6)",
+                  "is_correct": false
+                },
+                {
+                  "label": "B",
+                  "id": 30128,
+                  "text": "(6, 8),(8, 10), (10, 12)",
+                  "is_correct": true
+                },
+                {
+                  "label": "C",
+                  "id": 30130,
+                  "text": "(4, 6), (6, 8), (8, 10)",
+                  "is_correct": false
+                },
+                {
+                  "label": "D",
+                  "id": 30129,
+                  "text": "(3, 5), (5, 7), (7, 9)",
+                  "is_correct": false
+                }
+              ],
+              "correct_option_ids": [
+                30128
+              ],
+              "correct_option_labels": [
+                "B"
+              ],
+              "correct_option_texts": [
+                "(6, 8),(8, 10), (10, 12)"
+              ],
+              "explanation": "Let the consecutive even positive integers be x and x + 2.\nBy data, x > 5 and x + (x + 2) < 23\nNow x + (x + 2) < 23\n$\\Rightarrow$ 2x + 2 < 23\n$\\Rightarrow$ 2x < 21\n$\\Rightarrow$ x < $\\frac{21}{2}$ = $10\\frac{1}{2}$\nSo we have the least possible value of x is 6 and the maximum value of x is 10.\nTherefore the possible pairs of consecutive even positive integers are (6, 8), (8, 10), (10, 12)."
+            },
+            {
+              "questionID": 18733,
+              "question": "Solve: 3x + 5 < x - 7, when x is a real number",
+              "question_raw": "<p>Solve: 3x + 5 &lt; x - 7, when x is a real number</p>",
+              "options": [
+                {
+                  "label": "A",
+                  "id": 30132,
+                  "text": "x < -6",
+                  "is_correct": true
+                },
+                {
+                  "label": "B",
+                  "id": 30133,
+                  "text": "x > -6",
+                  "is_correct": false
+                },
+                {
+                  "label": "C",
+                  "id": 30135,
+                  "text": "x > -12",
+                  "is_correct": false
+                },
+                {
+                  "label": "D",
+                  "id": 30134,
+                  "text": "x < -12",
+                  "is_correct": false
+                }
+              ],
+              "correct_option_ids": [
+                30132
+              ],
+              "correct_option_labels": [
+                "A"
+              ],
+              "correct_option_texts": [
+                "x < -6"
+              ],
+              "explanation": "3x + 5 < x - 7\n$\\Rightarrow$ 3x + 5 - x < x - 7 - x\n$\\Rightarrow$ 2x + 5 < -7\n$\\Rightarrow$ 2x + 5 - 5 < -7 - 5\n$\\Rightarrow$ 2x < -12\n$\\Rightarrow$ $\\frac{2x}{2}$ < - $\\frac{12}{2}$ \n$\\Rightarrow$ x < -6"
+            },
+            {
+              "questionID": 18734,
+              "question": "If x belongs to set of integers, A is the solution set of 2(x - 1) < 3x - 1 and B is the solution set of 4x - 3 $\\leq $ 8 + x, find A $\\cap$ B",
+              "question_raw": "<p>If x belongs to set of integers, A is the solution set of&nbsp;2(x - 1) &lt; 3x - 1&nbsp;and B is the solution set of 4x - 3&nbsp;<span class=\"math-tex\">{tex}\\leq {/tex}</span>&nbsp;8 + x, find A <span class=\"math-tex\">{tex}\\cap{/tex}</span> B</p>",
+              "options": [
+                {
+                  "label": "A",
+                  "id": 30136,
+                  "text": "{0, 1, 2, 3}",
+                  "is_correct": true
+                },
+                {
+                  "label": "B",
+                  "id": 30139,
+                  "text": "{0, 1, 2}",
+                  "is_correct": false
+                },
+                {
+                  "label": "C",
+                  "id": 30138,
+                  "text": "{0, 2, 4}",
+                  "is_correct": false
+                },
+                {
+                  "label": "D",
+                  "id": 30137,
+                  "text": "{1, 2, 3}",
+                  "is_correct": false
+                }
+              ],
+              "correct_option_ids": [
+                30136
+              ],
+              "correct_option_labels": [
+                "A"
+              ],
+              "correct_option_texts": [
+                "{0, 1, 2, 3}"
+              ],
+              "explanation": "Given 2(x - 1) < 3x - 1 \n$\\Rightarrow$ 2x - 2 < 3x - 1\n$\\Rightarrow$ 2x - 2 + 2 < 3x - 1 + 2\n$\\Rightarrow$ 2x < 3x + 1\n$\\Rightarrow$ 2x - 3x < 3x + 1 - 3x \n$\\Rightarrow$ -x < + 1\n$\\Rightarrow$ x > -1 but x $\\in$ Z\nHence A = {0, 1, 2, 3, 4, ....}\nNow 4x - 3 $\\leq$ 8 + x\n$\\Rightarrow$ 4x - 3 + 3 $\\leq$ 8 + x + 3\n$\\Rightarrow$ 4x $\\leq$ 11 + x\n$\\Rightarrow$ 4x - x $\\leq$ 11 + x - x\n$\\Rightarrow$ 3x $\\leq$ 11\n$\\Rightarrow$ $\\frac{3x}{3}$ $\\leq$ $\\frac{11}{3}$ \n$\\Rightarrow$ x $\\leq$ $\\frac{11}{3}$ \n$\\Rightarrow$ x $\\leq$ $3\\frac{2}{3}$, but x $\\in$ Z\nTherefore B = {....., -2, -1, 0, 1, 2, 3}\nHence A $\\cap$ B = {0, 1, 2, 3}"
+            },
+            {
+              "questionID": 18735,
+              "question": "The solution set of the inequation: $\\frac{2 x-1}{3}-\\frac{3 x}{5}+1<0, x \\in W$ is:",
+              "question_raw": "<p>The solution set of the inequation: <span class=\"math-tex\">{tex}\\frac{2 x-1}{3}-\\frac{3 x}{5}+1&lt;0, x \\in W{/tex}</span>&nbsp;is:</p>",
+              "options": [
+                {
+                  "label": "A",
+                  "id": 30143,
+                  "text": "x $ \\in$ S",
+                  "is_correct": false
+                },
+                {
+                  "label": "B",
+                  "id": 30140,
+                  "text": "null set",
+                  "is_correct": true
+                },
+                {
+                  "label": "C",
+                  "id": 30141,
+                  "text": "x $ \\in$ N",
+                  "is_correct": false
+                },
+                {
+                  "label": "D",
+                  "id": 30142,
+                  "text": "x $ \\in$ W",
+                  "is_correct": false
+                }
+              ],
+              "correct_option_ids": [
+                30140
+              ],
+              "correct_option_labels": [
+                "B"
+              ],
+              "correct_option_texts": [
+                "null set"
+              ],
+              "explanation": "$\\frac{2 x-1}{3}-\\frac{3 x}{5}+1<0$ \n$\\Rightarrow 15 \\cdot \\frac{2 x-1}{3}-15 \\cdot \\frac{3 x}{5}+15<0$ [Multiply the inequality throughout by the L.C.M]\n$\\Rightarrow$ 5(2x - 1) -3(3x) + 15 < 0\n$\\Rightarrow$ 10x - 5 - 9x + 15 < 0\n$\\Rightarrow$ x + 10 < 0\n$\\Rightarrow$ x < -10, but given x $\\in$ W\nHence the solution set will be null set."
+            },
+            {
+              "questionID": 18736,
+              "question": "The solution set of 6x - 1 > 5 is :",
+              "question_raw": "<p>The solution set of&nbsp;6x - 1 &gt; 5 is :</p>",
+              "options": [
+                {
+                  "label": "A",
+                  "id": 30146,
+                  "text": "{x : x < 1, x $\\in$ N}",
+                  "is_correct": false
+                },
+                {
+                  "label": "B",
+                  "id": 30144,
+                  "text": "{x : x > 1, x $\\in$ R}",
+                  "is_correct": true
+                },
+                {
+                  "label": "C",
+                  "id": 30145,
+                  "text": "{x : x < 1, x $\\in$ W}",
+                  "is_correct": false
+                },
+                {
+                  "label": "D",
+                  "id": 30147,
+                  "text": "{x : x > 1, x $\\in$ N}",
+                  "is_correct": false
+                }
+              ],
+              "correct_option_ids": [
+                30144
+              ],
+              "correct_option_labels": [
+                "B"
+              ],
+              "correct_option_texts": [
+                "{x : x > 1, x $\\in$ R}"
+              ],
+              "explanation": "6x - 1 > 5\n$\\Rightarrow$ 6x - 1 + 1 > 5 + 1\n$\\Rightarrow$ 6x > 6\n$\\Rightarrow$ x > 1\nHence the solution set is {x : x > 1, x $\\in$ R}"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "testPaperID": 630,
+      "testPaperName": "Linear Inequalities Test 04",
+      "is_paid": true,
+      "category_full_name": "CBSE > Class 11 > Mathematics > Linear Inequalities",
+      "noOfQuestions": 15,
+      "has_answers": true,
+      "sections": [
+        {
+          "sectionName": "General",
+          "sectionID": null,
+          "questions": [
+            {
+              "questionID": 18737,
+              "question": "If |x - 2| = p, where x < 2, then x - p =",
+              "question_raw": "<p>If |x - 2| = p, where x &lt; 2, then x - p =</p>",
+              "options": [
+                {
+                  "label": "A",
+                  "id": 30149,
+                  "text": "2p - 2",
+                  "is_correct": false
+                },
+                {
+                  "label": "B",
+                  "id": 30150,
+                  "text": "2",
+                  "is_correct": false
+                },
+                {
+                  "label": "C",
+                  "id": 30151,
+                  "text": "- 2",
+                  "is_correct": false
+                },
+                {
+                  "label": "D",
+                  "id": 30148,
+                  "text": "2 - 2p",
+                  "is_correct": true
+                }
+              ],
+              "correct_option_ids": [
+                30148
+              ],
+              "correct_option_labels": [
+                "D"
+              ],
+              "correct_option_texts": [
+                "2 - 2p"
+              ],
+              "explanation": "Since x < 2 we have x - 2 < 0 and hence |x - 2| = -(x - 2) = 2 - x \nNow |x - 2| = p $\\Rightarrow$ 2 - x\n$\\Rightarrow$ x = 2 - p\n$\\therefore$ x - p = (2 - p) - p = 2 - 2p"
+            },
+            {
+              "questionID": 18738,
+              "question": "A pack of coffee powder contains a mixture of x grams of coffee and y grams of choco. The amount of coffee is greater than that of choco and each coffee powder pack is atmost 10 grams. Which of the following inequations describe the conditions given?",
+              "question_raw": "<p>A pack of coffee powder contains a mixture of x grams of coffee and y grams of choco. The amount of coffee&nbsp;is greater than that of choco and each coffee powder pack is atmost&nbsp;10 grams. Which of the following inequations describe the conditions given?</p>",
+              "options": [
+                {
+                  "label": "A",
+                  "id": 30153,
+                  "text": "x + y < 12; x > y",
+                  "is_correct": false
+                },
+                {
+                  "label": "B",
+                  "id": 30152,
+                  "text": "x + y $\\le$ 10; x > y",
+                  "is_correct": true
+                },
+                {
+                  "label": "C",
+                  "id": 30154,
+                  "text": "x + y < 10; x < y",
+                  "is_correct": false
+                },
+                {
+                  "label": "D",
+                  "id": 30155,
+                  "text": "x + y > 10; x < y",
+                  "is_correct": false
+                }
+              ],
+              "correct_option_ids": [
+                30152
+              ],
+              "correct_option_labels": [
+                "B"
+              ],
+              "correct_option_texts": [
+                "x + y $\\le$ 10; x > y"
+              ],
+              "explanation": "Given in the mixture, amount of coffee = x grams\nAmount of choco = y grams\nAmount of coffee is greater than that of choco $\\Rightarrow $ x > y\nEach coffee powder pack is atmost 10 grams $\\Rightarrow $ x + y $\\le$10"
+            },
+            {
+              "questionID": 18739,
+              "question": "If a, b, c are real numbers such that a > b, c > 0, then",
+              "question_raw": "<p>If a, b, c are real numbers such that&nbsp;a &gt; b, c &gt; 0, then</p>",
+              "options": [
+                {
+                  "label": "A",
+                  "id": 30156,
+                  "text": "ac > bc",
+                  "is_correct": true
+                },
+                {
+                  "label": "B",
+                  "id": 30159,
+                  "text": "ac = bc",
+                  "is_correct": false
+                },
+                {
+                  "label": "C",
+                  "id": 30157,
+                  "text": "ac < bc",
+                  "is_correct": false
+                },
+                {
+                  "label": "D",
+                  "id": 30158,
+                  "text": "ac $ \\geq$ bc",
+                  "is_correct": false
+                }
+              ],
+              "correct_option_ids": [
+                30156
+              ],
+              "correct_option_labels": [
+                "A"
+              ],
+              "correct_option_texts": [
+                "ac > bc"
+              ],
+              "explanation": "The inequality remains same if both sides of an inequality are multiplied by the same positive real number."
+            },
+            {
+              "questionID": 18740,
+              "question": "If a , b , c are real numbers such that ${\\text{a }} \\geq {\\text{ b }},{\\text{ c }} > {\\text{ }}0$, then",
+              "question_raw": "<p>&nbsp;If a , b , c are real numbers such that <span class=\"math-tex\">{tex}{\\text{a }} \\geq {\\text{ b }},{\\text{ c }} &gt; {\\text{ }}0{/tex}</span>, then</p>",
+              "options": [
+                {
+                  "label": "A",
+                  "id": 30161,
+                  "text": "${\\text{ac }} > {\\text{ bc}}$",
+                  "is_correct": false
+                },
+                {
+                  "label": "B",
+                  "id": 30162,
+                  "text": "${\\text{ac }} < {\\text{ bc}}$",
+                  "is_correct": false
+                },
+                {
+                  "label": "C",
+                  "id": 30163,
+                  "text": "${\\text{ac }} \\ne {\\text{ bc}}$",
+                  "is_correct": false
+                },
+                {
+                  "label": "D",
+                  "id": 30160,
+                  "text": "${\\text{ac }} \\geq {\\text{ bc}}$",
+                  "is_correct": true
+                }
+              ],
+              "correct_option_ids": [
+                30160
+              ],
+              "correct_option_labels": [
+                "D"
+              ],
+              "correct_option_texts": [
+                "${\\text{ac }} \\geq {\\text{ bc}}$"
+              ],
+              "explanation": "The inequality remains same if both sides of an inequality are multiplied by the same positive real number."
+            },
+            {
+              "questionID": 18741,
+              "question": "Graph of the system of inequations x $\\ge$ 0, y $\\le$ 0 is",
+              "question_raw": "<p>Graph of the system of inequations x&nbsp;<span class=\"math-tex\">{tex}\\ge{/tex}</span>&nbsp;0, y&nbsp;<span class=\"math-tex\">{tex}\\le{/tex}</span>&nbsp;0 is</p>",
+              "options": [
+                {
+                  "label": "A",
+                  "id": 30165,
+                  "text": "first quadrant",
+                  "is_correct": false
+                },
+                {
+                  "label": "B",
+                  "id": 30164,
+                  "text": "second quadrant",
+                  "is_correct": false
+                },
+                {
+                  "label": "C",
+                  "id": 30167,
+                  "text": "fourth quadrant",
+                  "is_correct": true
+                },
+                {
+                  "label": "D",
+                  "id": 30166,
+                  "text": "third quadrant",
+                  "is_correct": false
+                }
+              ],
+              "correct_option_ids": [
+                30167
+              ],
+              "correct_option_labels": [
+                "C"
+              ],
+              "correct_option_texts": [
+                "fourth quadrant"
+              ],
+              "explanation": "The solution region of ${\\text{x }} \\geq {\\text{ }}0{\\text{ }}$will be half of XY –plane which lies on the right of the y-axis, including the points on y-axis. [First and Fourth quadrants]\nThe solution region of ${\\text{ y }} \\leq {\\text{ }}0$ will be the half of XY –plane which lies under x-axis, including the points on the x-axis. [Third and Fourth quadrants]\nHence the solution region of ${\\text{x }} \\geq {\\text{ }}0{\\text{ }},{\\text{ y }} \\leq {\\text{ }}0$ will be the intersection of the above two regions, which is the fourth quadrant."
+            },
+            {
+              "questionID": 18742,
+              "question": "If a , b , c are real numbers such that ${\\text{a }} < {\\text{ b }},{\\text{ c }} \\geq {\\text{ }}0$, then",
+              "question_raw": "<p>If a , b , c are real numbers such that <span class=\"math-tex\">{tex}{\\text{a }} &lt; {\\text{ b }},{\\text{ c }} \\geq {\\text{ }}0{/tex}</span>, then</p>",
+              "options": [
+                {
+                  "label": "A",
+                  "id": 30171,
+                  "text": "${\\text{ac }} \\ne {\\text{ bc}}$",
+                  "is_correct": false
+                },
+                {
+                  "label": "B",
+                  "id": 30168,
+                  "text": "${\\text{ac }} \\leq {\\text{ bc}}$",
+                  "is_correct": true
+                },
+                {
+                  "label": "C",
+                  "id": 30170,
+                  "text": "${\\text{ac }} < {\\text{ bc}}$",
+                  "is_correct": false
+                },
+                {
+                  "label": "D",
+                  "id": 30169,
+                  "text": "${\\text{ac }} > {\\text{ bc}}$",
+                  "is_correct": false
+                }
+              ],
+              "correct_option_ids": [
+                30168
+              ],
+              "correct_option_labels": [
+                "B"
+              ],
+              "correct_option_texts": [
+                "${\\text{ac }} \\leq {\\text{ bc}}$"
+              ],
+              "explanation": "The inequality remains same if both sides of an inequality are multiplied by the same positive real number and inequality will become an equation if we multiply it by 0."
+            },
+            {
+              "questionID": 18743,
+              "question": "Region represented by the system ${\\text{x }} \\geq {\\text{ }}0{\\text{ }},{\\text{ y }} \\geq {\\text{ }}0$ of inequations is",
+              "question_raw": "<p>Region represented by the system <span class=\"math-tex\">{tex}{\\text{x }} \\geq {\\text{ }}0{\\text{ }},{\\text{ y }} \\geq {\\text{ }}0{/tex}</span> of inequations is</p>",
+              "options": [
+                {
+                  "label": "A",
+                  "id": 30173,
+                  "text": "2^nd quadrant",
+                  "is_correct": false
+                },
+                {
+                  "label": "B",
+                  "id": 30172,
+                  "text": "1^st quadrant",
+                  "is_correct": true
+                },
+                {
+                  "label": "C",
+                  "id": 30174,
+                  "text": "3^rd quadrant",
+                  "is_correct": false
+                },
+                {
+                  "label": "D",
+                  "id": 30175,
+                  "text": "4th quadrant",
+                  "is_correct": false
+                }
+              ],
+              "correct_option_ids": [
+                30172
+              ],
+              "correct_option_labels": [
+                "B"
+              ],
+              "correct_option_texts": [
+                "1^st quadrant"
+              ],
+              "explanation": "The solution region of ${\\text{x }} \\geq {\\text{ }}0{\\text{ }}$will be the half of XY –plane which lies on the right of y-axis, including the points on y-axis. [First and Fourth quadrants]\nThe solution region of ${\\text{ y }} \\geq {\\text{ }}0$ will be the half of XY –plane which lies above x-axis, including the points on x-axis. [ First and Second quadrants]\nHence the solution region of ${\\text{x }} \\geq {\\text{ }}0{\\text{ }},{\\text{ y }} \\geq {\\text{ }}0$ will be the intersection of the above two regions, which is the first quadrant."
+            },
+            {
+              "questionID": 18744,
+              "question": "If a, b, c are real numbers such that a $\\leq$ b, c > 0, then",
+              "question_raw": "<p>If a, b, c are real numbers such that a&nbsp;<span class=\"math-tex\">{tex}\\leq{/tex}</span>&nbsp;b, c &gt; 0, then</p>",
+              "options": [
+                {
+                  "label": "A",
+                  "id": 30176,
+                  "text": "ac $\\leq$ bc",
+                  "is_correct": true
+                },
+                {
+                  "label": "B",
+                  "id": 30178,
+                  "text": "ac < bc",
+                  "is_correct": false
+                },
+                {
+                  "label": "C",
+                  "id": 30179,
+                  "text": "ac > bc",
+                  "is_correct": false
+                },
+                {
+                  "label": "D",
+                  "id": 30177,
+                  "text": "ac $\\geq$ bc",
+                  "is_correct": false
+                }
+              ],
+              "correct_option_ids": [
+                30176
+              ],
+              "correct_option_labels": [
+                "A"
+              ],
+              "correct_option_texts": [
+                "ac $\\leq$ bc"
+              ],
+              "explanation": "The inequality remains same if both sides of an inequality are multiplied by the same positive real number."
+            },
+            {
+              "questionID": 18745,
+              "question": "Solution set of the inequality y < 0 is",
+              "question_raw": "<p>Solution set of the inequality y &lt; 0 is</p>",
+              "options": [
+                {
+                  "label": "A",
+                  "id": 30182,
+                  "text": "half of XOY – plane which lies below the x-axis, including the points on the x-axis",
+                  "is_correct": false
+                },
+                {
+                  "label": "B",
+                  "id": 30180,
+                  "text": "half of XOY – plane which lies below x-axis",
+                  "is_correct": true
+                },
+                {
+                  "label": "C",
+                  "id": 30181,
+                  "text": "half of XOY – plane which lies above x -axis",
+                  "is_correct": false
+                },
+                {
+                  "label": "D",
+                  "id": 30183,
+                  "text": "half of XOY – plane which lies on the x-axis",
+                  "is_correct": false
+                }
+              ],
+              "correct_option_ids": [
+                30180
+              ],
+              "correct_option_labels": [
+                "B"
+              ],
+              "correct_option_texts": [
+                "half of XOY – plane which lies below x-axis"
+              ],
+              "explanation": "The solution region of ${\\text{ y }} \\le {\\text{ }}0$ will be half of XY–plane which lies under x-axis, including the points on the x-axis. [First and Second quadrants]\nHence the solution region of y < 0 will be half of XY–plane which lies below the x-axis.\nSince equality is not there it will not include any point on the x-axis."
+            },
+            {
+              "questionID": 18746,
+              "question": "If a, b, c are real numbers such that a $\\leq$ b, c < 0, then",
+              "question_raw": "<p>If a, b, c are real numbers such that a&nbsp;<span class=\"math-tex\">{tex}\\leq{/tex}</span>&nbsp;b, c &lt; 0, then</p>",
+              "options": [
+                {
+                  "label": "A",
+                  "id": 30186,
+                  "text": "ac > bc",
+                  "is_correct": false
+                },
+                {
+                  "label": "B",
+                  "id": 30184,
+                  "text": "ac $ \\geq$ bc",
+                  "is_correct": true
+                },
+                {
+                  "label": "C",
+                  "id": 30185,
+                  "text": "ac $\\leq$ bc",
+                  "is_correct": false
+                },
+                {
+                  "label": "D",
+                  "id": 30187,
+                  "text": "ac < bc",
+                  "is_correct": false
+                }
+              ],
+              "correct_option_ids": [
+                30184
+              ],
+              "correct_option_labels": [
+                "B"
+              ],
+              "correct_option_texts": [
+                "ac $ \\geq$ bc"
+              ],
+              "explanation": "The sign of the inequality is to be reversed ($\\le$ to $\\ge$ or $\\ge$ to $\\le$) if both sides of an inequality are multiplied by the same negative real number."
+            },
+            {
+              "questionID": 18747,
+              "question": "If a, b, c are real numbers such that a > b, c < 0",
+              "question_raw": "<p>If a, b, c are real numbers such that&nbsp;a &gt; b, c &lt; 0</p>",
+              "options": [
+                {
+                  "label": "A",
+                  "id": 30188,
+                  "text": "ac < bc",
+                  "is_correct": true
+                },
+                {
+                  "label": "B",
+                  "id": 30190,
+                  "text": "ac $\\geq$ bc",
+                  "is_correct": false
+                },
+                {
+                  "label": "C",
+                  "id": 30189,
+                  "text": "ac > bc",
+                  "is_correct": false
+                },
+                {
+                  "label": "D",
+                  "id": 30191,
+                  "text": "ac $\\ne$ bc",
+                  "is_correct": false
+                }
+              ],
+              "correct_option_ids": [
+                30188
+              ],
+              "correct_option_labels": [
+                "A"
+              ],
+              "correct_option_texts": [
+                "ac < bc"
+              ],
+              "explanation": "The sign of the inequality is to be reversed (< to > or > to <) if both sides of an inequality are multiplied by the same negative real number."
+            },
+            {
+              "questionID": 18748,
+              "question": "Solution set of the inequality 2x $\\geq$ 0 is",
+              "question_raw": "<p>Solution set of the inequality 2x&nbsp;<span class=\"math-tex\">{tex}\\geq{/tex}</span>&nbsp;0 is</p>",
+              "options": [
+                {
+                  "label": "A",
+                  "id": 30194,
+                  "text": "half of XOY– plane which lies on the right of the x-axis.",
+                  "is_correct": false
+                },
+                {
+                  "label": "B",
+                  "id": 30195,
+                  "text": "half of XOY– plane which lies on the left of the x-axis.",
+                  "is_correct": false
+                },
+                {
+                  "label": "C",
+                  "id": 30192,
+                  "text": "half of XOY–plane which lies on the right of the y-axis, including the points on y-axis.",
+                  "is_correct": true
+                },
+                {
+                  "label": "D",
+                  "id": 30193,
+                  "text": "half of XOY–plane which lies on the right of the y-axis.",
+                  "is_correct": false
+                }
+              ],
+              "correct_option_ids": [
+                30192
+              ],
+              "correct_option_labels": [
+                "C"
+              ],
+              "correct_option_texts": [
+                "half of XOY–plane which lies on the right of the y-axis, including the points on y-axis."
+              ],
+              "explanation": "2x $ \\geq$ 0 \n$\\Rightarrow$ $\\frac{2 x}{2} \\geq \\frac{0}{2}$ \n$\\Rightarrow$ x $ \\geq$ 0 \nThe solution region of x $\\geq$ 0 will be half of XY–plane which lies on the right of the y-axis, including the points on y-axis. [First and Fourth quadrants]"
+            },
+            {
+              "questionID": 18749,
+              "question": "If ${\\text{x }} < {\\text{ 5}}$, then",
+              "question_raw": "<p>If <span class=\"math-tex\">{tex}{\\text{x }} &lt; {\\text{ 5}}{/tex}</span>, then</p>",
+              "options": [
+                {
+                  "label": "A",
+                  "id": 30199,
+                  "text": "none of these .",
+                  "is_correct": false
+                },
+                {
+                  "label": "B",
+                  "id": 30198,
+                  "text": "${\\text{x }} > {\\text{ }} - {\\text{ 5}}$",
+                  "is_correct": false
+                },
+                {
+                  "label": "C",
+                  "id": 30197,
+                  "text": "$ - {\\text{ x }} < {\\text{ 5}}$",
+                  "is_correct": false
+                },
+                {
+                  "label": "D",
+                  "id": 30196,
+                  "text": "$ - {\\text{ x }} > {\\text{ }} - {\\text{ 5}}$",
+                  "is_correct": true
+                }
+              ],
+              "correct_option_ids": [
+                30196
+              ],
+              "correct_option_labels": [
+                "D"
+              ],
+              "correct_option_texts": [
+                "$ - {\\text{ x }} > {\\text{ }} - {\\text{ 5}}$"
+              ],
+              "explanation": "Given ${\\text{x }} < {\\text{ 5}}$\nMultiplying both sides of the above inequality by -1,we get\n$ - {\\text{ x }} > {\\text{ }} - {\\text{ 5}}$ [The sign of the inequality is to be reversed if both sides of an inequality are multiplied by the same negative real number]"
+            },
+            {
+              "questionID": 18750,
+              "question": "Given that x , y and b are real numbers and ${\\text{x }} < {\\text{ y }},{\\text{ b }} < {\\text{ }}0$, then",
+              "question_raw": "<p>Given that x , y and b are real numbers and <span class=\"math-tex\">{tex}{\\text{x }} &lt; {\\text{ y }},{\\text{ b }} &lt; {\\text{ }}0{/tex}</span>, then</p>",
+              "options": [
+                {
+                  "label": "A",
+                  "id": 30202,
+                  "text": "${\\text{x}}/{\\text{b }} \\leq {\\text{ y}}/{\\text{b}}$",
+                  "is_correct": false
+                },
+                {
+                  "label": "B",
+                  "id": 30201,
+                  "text": "${\\text{x}}/{\\text{b }} < {\\text{ y}}/{\\text{b}}$",
+                  "is_correct": false
+                },
+                {
+                  "label": "C",
+                  "id": 30203,
+                  "text": "${\\text{x}}/{\\text{b }} \\geq {\\text{ y}}/{\\text{b}}$",
+                  "is_correct": false
+                },
+                {
+                  "label": "D",
+                  "id": 30200,
+                  "text": "${\\text{x}}/{\\text{b }} > {\\text{ y}}/{\\text{b}}$",
+                  "is_correct": true
+                }
+              ],
+              "correct_option_ids": [
+                30200
+              ],
+              "correct_option_labels": [
+                "D"
+              ],
+              "correct_option_texts": [
+                "${\\text{x}}/{\\text{b }} > {\\text{ y}}/{\\text{b}}$"
+              ],
+              "explanation": "The sign of the inequality is to be reversed $\\left( <~ to, ~>\\quad or\\quad > ~to~< \\right) $ if both sides of an inequality are divided by the same negative real number."
+            },
+            {
+              "questionID": 18751,
+              "question": "solution set of the inequations ${\\text{x }} \\geq {\\text{ 2 }},{\\text{ x}} \\leq {\\text{ }} - {\\text{ 3}}$ is",
+              "question_raw": "<p>solution set of the inequations <span class=\"math-tex\">{tex}{\\text{x }} \\geq {\\text{ 2 }},{\\text{ x}} \\leq {\\text{ }} - {\\text{ 3}}{/tex}</span> is</p>",
+              "options": [
+                {
+                  "label": "A",
+                  "id": 30206,
+                  "text": "[ -3, 2 ]",
+                  "is_correct": false
+                },
+                {
+                  "label": "B",
+                  "id": 30204,
+                  "text": "{ }",
+                  "is_correct": true
+                },
+                {
+                  "label": "C",
+                  "id": 30207,
+                  "text": "[2 , -3 ]",
+                  "is_correct": false
+                },
+                {
+                  "label": "D",
+                  "id": 30205,
+                  "text": "( -3, 2 )",
+                  "is_correct": false
+                }
+              ],
+              "correct_option_ids": [
+                30204
+              ],
+              "correct_option_labels": [
+                "B"
+              ],
+              "correct_option_texts": [
+                "{ }"
+              ],
+              "explanation": "${\\text{x }} \\geq {\\text{ 2 }}$ $\\Rightarrow x\\epsilon \\left[2,\\infty \\right) $\n${\\text{ x}} \\leq {\\text{ }} - {\\text{ 3}}$$\\Rightarrow x\\epsilon \\left(-\\infty, -3 \\right]$\nHence solution set of ${\\text{x }} \\geq {\\text{ 2 }}$ and ${\\text{ x}} \\leq {\\text{ }} - {\\text{ 3}}$ is $\\\\ \\left[ 2,\\infty \\right) \\cap \\left( -\\infty ,-3 \\right] =\\Phi $"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "testPaperID": 631,
+      "testPaperName": "Linear Inequalities Test 05",
+      "is_paid": true,
+      "category_full_name": "CBSE > Class 11 > Mathematics > Linear Inequalities",
+      "noOfQuestions": 15,
+      "has_answers": true,
+      "sections": [
+        {
+          "sectionName": "General",
+          "sectionID": null,
+          "questions": [
+            {
+              "questionID": 18752,
+              "question": "The region of the XOY-plane represented by the inequalities x $\\ge$ 6, y $\\ge$ 2, 2x + y $\\le$ 10 is",
+              "question_raw": "<p>The region of the XOY-plane represented by the inequalities&nbsp;x&nbsp;<span class=\"math-tex\">{tex}\\ge{/tex}</span>&nbsp;6, y&nbsp;<span class=\"math-tex\">{tex}\\ge{/tex}</span>&nbsp;2, 2x + y&nbsp;<span class=\"math-tex\">{tex}\\le{/tex}</span>&nbsp;10 is</p>",
+              "options": [
+                {
+                  "label": "A",
+                  "id": 30208,
+                  "text": "none of these",
+                  "is_correct": true
+                },
+                {
+                  "label": "B",
+                  "id": 30210,
+                  "text": "unbounded",
+                  "is_correct": false
+                },
+                {
+                  "label": "C",
+                  "id": 30209,
+                  "text": "a polygon",
+                  "is_correct": false
+                },
+                {
+                  "label": "D",
+                  "id": 30211,
+                  "text": "exterior of a triangle",
+                  "is_correct": false
+                }
+              ],
+              "correct_option_ids": [
+                30208
+              ],
+              "correct_option_labels": [
+                "A"
+              ],
+              "correct_option_texts": [
+                "none of these"
+              ],
+              "explanation": "Since x $ \\geq$ 6 we have 2x $\\ge$ 12\nAlso given y $\\geq$ 2\nHence we have 2x + y $\\ge$ 12 + 2 $\\Rightarrow$ 2x + y $\\ge$ 14\nWhich means the minimum value of 2x + y is 14.\nNow since 2x + y $\\le$ 10 is not possible, the system x $\\ge$ 6, y $\\ge$ 2, 2x + y $\\le$ 10 have no solution."
+            },
+            {
+              "questionID": 18753,
+              "question": "If -3x + 17 < -13, then",
+              "question_raw": "<p>If&nbsp;-3x + 17 &lt; -13, then</p>",
+              "options": [
+                {
+                  "label": "A",
+                  "id": 30215,
+                  "text": "$x \\in ( \\infty ,-10]$",
+                  "is_correct": false
+                },
+                {
+                  "label": "B",
+                  "id": 30212,
+                  "text": "$x \\in (10,\\infty )$",
+                  "is_correct": true
+                },
+                {
+                  "label": "C",
+                  "id": 30213,
+                  "text": "$x \\in [10,\\infty )$",
+                  "is_correct": false
+                },
+                {
+                  "label": "D",
+                  "id": 30214,
+                  "text": "$x \\in ( - \\infty ,10]$",
+                  "is_correct": false
+                }
+              ],
+              "correct_option_ids": [
+                30212
+              ],
+              "correct_option_labels": [
+                "B"
+              ],
+              "correct_option_texts": [
+                "$x \\in (10,\\infty )$"
+              ],
+              "explanation": "- 3x + 17 < - 13\n$\\Rightarrow $ - 3x + 17 - 17 < - 13 - 17\n$\\Rightarrow $ - 3x < - 30\n$\\Rightarrow \\frac { -{ { 3x } } }{ -{ { 3 } } } >\\frac { -3{ 0 } }{ -{ { 3 } } } $\n$\\Rightarrow$ x > 10\n$\\Rightarrow x \\in (10,\\infty )$"
+            },
+            {
+              "questionID": 18754,
+              "question": "If x is a real number and ${\\text{| x | }} < {\\text{ 3}}$, then",
+              "question_raw": "<p>If x is a real number and <span class=\"math-tex\">{tex}{\\text{| x | }} &lt; {\\text{ 3}}{/tex}</span>, then</p>",
+              "options": [
+                {
+                  "label": "A",
+                  "id": 30218,
+                  "text": "${\\text{x }} \\geq {\\text{ }} - {\\text{3}}$",
+                  "is_correct": false
+                },
+                {
+                  "label": "B",
+                  "id": 30216,
+                  "text": "- 3 < x < 3",
+                  "is_correct": true
+                },
+                {
+                  "label": "C",
+                  "id": 30219,
+                  "text": "$x \\geq 3$",
+                  "is_correct": false
+                },
+                {
+                  "label": "D",
+                  "id": 30217,
+                  "text": "$ - {\\text{ 3 }} \\leq {\\text{x }} \\leq {\\text{ 3}}$",
+                  "is_correct": false
+                }
+              ],
+              "correct_option_ids": [
+                30216
+              ],
+              "correct_option_labels": [
+                "B"
+              ],
+              "correct_option_texts": [
+                "- 3 < x < 3"
+              ],
+              "explanation": "We have $\\left| x \\right| <a\\Leftrightarrow -a<x<a$"
+            },
+            {
+              "questionID": 18755,
+              "question": "If ${\\text{| x}}-{\\text{1}}{\\text{| }} > {\\text{5}}$, then",
+              "question_raw": "<p>If <span class=\"math-tex\">{tex}{\\text{| x}}-{\\text{1}}{\\text{| }} &gt; {\\text{5}}{/tex}</span>, then</p>",
+              "options": [
+                {
+                  "label": "A",
+                  "id": 30220,
+                  "text": "$x \\in \\left( { - \\infty , - 4} \\right)\\mathop \\cup \\nolimits^ (6,\\infty )$",
+                  "is_correct": true
+                },
+                {
+                  "label": "B",
+                  "id": 30222,
+                  "text": "$x \\in \\left( { - \\infty , - 4} \\right)\\mathop \\cup \\nolimits^ (6,\\infty ]$",
+                  "is_correct": false
+                },
+                {
+                  "label": "C",
+                  "id": 30221,
+                  "text": "$x \\in [6,\\infty )$",
+                  "is_correct": false
+                },
+                {
+                  "label": "D",
+                  "id": 30223,
+                  "text": "$x \\in (6,\\infty )$",
+                  "is_correct": false
+                }
+              ],
+              "correct_option_ids": [
+                30220
+              ],
+              "correct_option_labels": [
+                "A"
+              ],
+              "correct_option_texts": [
+                "$x \\in \\left( { - \\infty , - 4} \\right)\\mathop \\cup \\nolimits^ (6,\\infty )$"
+              ],
+              "explanation": "${\\text{| x}}-{\\text{1}}{\\text{| }} > {\\text{5}}$ \n $\\Rightarrow x-1<-5\\quad or\\quad x-1>5\\\\ \\Rightarrow x-1+1<-5+1\\quad or\\quad x-1+1>5+1\\\\ \\Rightarrow x<-4\\quad or\\quad x>6$ $\\left[ \\because \\left| x \\right| >a\\Leftrightarrow x<-a\\quad or\\quad x>a \\right] $ \n$\\Rightarrow x \\in \\left( { - \\infty , - 4} \\right)\\mathop \\cup \\nolimits^ (6,\\infty )$"
+            },
+            {
+              "questionID": 18756,
+              "question": "If ${\\text{|x}} + {\\text{2|}} \\leq {\\text{9}}$, then",
+              "question_raw": "<p>If <span class=\"math-tex\">{tex}{\\text{|x}} + {\\text{2|}} \\leq {\\text{9}}{/tex}</span>, then</p>",
+              "options": [
+                {
+                  "label": "A",
+                  "id": 30225,
+                  "text": "x $\\in $ ( - 7 , 11 )",
+                  "is_correct": false
+                },
+                {
+                  "label": "B",
+                  "id": 30227,
+                  "text": "$x \\in(-7, -\\infty) \\cup[\\infty, 11)$",
+                  "is_correct": false
+                },
+                {
+                  "label": "C",
+                  "id": 30226,
+                  "text": "$x \\in(-\\infty,-7) \\cup(11, \\infty)$",
+                  "is_correct": false
+                },
+                {
+                  "label": "D",
+                  "id": 30224,
+                  "text": "x $\\in $ [ - 11 , 7 ]",
+                  "is_correct": true
+                }
+              ],
+              "correct_option_ids": [
+                30224
+              ],
+              "correct_option_labels": [
+                "D"
+              ],
+              "correct_option_texts": [
+                "x $\\in $ [ - 11 , 7 ]"
+              ],
+              "explanation": "${\\text{|x}} + {\\text{2|}} \\leq {\\text{9}}$\n$\\Rightarrow -9\\leq x+2\\le 9$ $\\left[ \\because \\left| x \\right| \\le a\\Leftrightarrow -a\\le x\\le a \\right] $\n$\\Rightarrow -9-2\\leq x+2-2\\le 9-2$\n$\\Rightarrow -11\\leq x\\le 7$\n$\\\\ x\\epsilon \\left[ -11,7 \\right] $"
+            },
+            {
+              "questionID": 18757,
+              "question": "The graph of the inequations x $\\ge$ 0, y $\\ge$ 0, 3x + 4y $\\le$ 12 is",
+              "question_raw": "<p>The graph of the inequations&nbsp;x <span class=\"math-tex\">{tex}\\ge{/tex}</span>&nbsp;0, y&nbsp;<span class=\"math-tex\">{tex}\\ge{/tex}</span>&nbsp;0, 3x + 4y <span class=\"math-tex\">{tex}\\le{/tex}</span>&nbsp;12 is</p>",
+              "options": [
+                {
+                  "label": "A",
+                  "id": 30229,
+                  "text": "exterior of a triangle",
+                  "is_correct": false
+                },
+                {
+                  "label": "B",
+                  "id": 30228,
+                  "text": "interior of a triangle including the points on the sides",
+                  "is_correct": true
+                },
+                {
+                  "label": "C",
+                  "id": 30231,
+                  "text": "in the 3rd quadrant",
+                  "is_correct": false
+                },
+                {
+                  "label": "D",
+                  "id": 30230,
+                  "text": "in the 2^nd quadrant",
+                  "is_correct": false
+                }
+              ],
+              "correct_option_ids": [
+                30228
+              ],
+              "correct_option_labels": [
+                "B"
+              ],
+              "correct_option_texts": [
+                "interior of a triangle including the points on the sides"
+              ],
+              "explanation": "We have the graph of the system ${\\text{x }} \\geq {\\text{ }}0{\\text{ }},{\\text{ y }} \\geq {\\text{ }}0$ is the region in the first quadrant including all the points on the positive axes( X-axis and Y-axis)\nNow consider 3x + 4y = 12 \nIf we put x = 0 in the above equation we get y = $\\frac{12}{4}$ = 3 and if we put y = 0 in the above equation we get x = $\\frac{12}{3}$ = 4\nWhich means the graph of 3x + 4y = 12 is a straight line passing through the points (4, 0) and (0, 3).\nNow if we put (0, 0) in the inequality 3x + 4y $\\le$ 12 we get $0 \\leq{\\text{ 12}}$ which is true and hence the graph of this will be the region in the plane which contain the origin including all the points on this line.\nNow we can see the X-axis, Y-axis and the line ${\\text{ 3x }} + {\\text{ 4y }} ={\\text{ 12}}$ will make a small right-angled triangle in the first quadrant with their vertices at (0, 0), (4, 0) and (0, 3) \nHence, the solution of the system x $\\ge$ 0, y $\\ge$ 0, 3x + 4y $\\le$ 12 will be the interior of this triangle including the points on the sides."
+            },
+            {
+              "questionID": 18758,
+              "question": "Solve the linear inequalities in this linear inequality 2x - 17 > 3 - 8x",
+              "question_raw": "<p>&nbsp;Solve the linear inequalities in this linear inequality 2x - 17 &gt; 3 - 8x</p>",
+              "options": [
+                {
+                  "label": "A",
+                  "id": 30232,
+                  "text": "$x>2$",
+                  "is_correct": true
+                },
+                {
+                  "label": "B",
+                  "id": 30233,
+                  "text": "${x\\geq2}$",
+                  "is_correct": false
+                },
+                {
+                  "label": "C",
+                  "id": 30234,
+                  "text": "$x<2$",
+                  "is_correct": false
+                },
+                {
+                  "label": "D",
+                  "id": 30235,
+                  "text": "$x\\leq2$",
+                  "is_correct": false
+                }
+              ],
+              "correct_option_ids": [
+                30232
+              ],
+              "correct_option_labels": [
+                "A"
+              ],
+              "correct_option_texts": [
+                "$x>2$"
+              ],
+              "explanation": "Since it is given that: $2 x-5>3-8 x$\n$\\Rightarrow 2 x+8 x>3+17$\n$\\Rightarrow 10 x>20$\nTherefore the result is $x>2$"
+            },
+            {
+              "questionID": 18759,
+              "question": "The graph of the inequalities x $\\ge$ 0, y $\\ge$ 0, 2x + y + 6 $\\le$ 0 is",
+              "question_raw": "<p>The graph of the inequalities x&nbsp;<span class=\"math-tex\">{tex}\\ge{/tex}</span>&nbsp;0, y&nbsp;<span class=\"math-tex\">{tex}\\ge{/tex}</span>&nbsp;0, 2x + y + 6&nbsp;<span class=\"math-tex\">{tex}\\le{/tex}</span>&nbsp;0 is</p>",
+              "options": [
+                {
+                  "label": "A",
+                  "id": 30238,
+                  "text": "a square",
+                  "is_correct": false
+                },
+                {
+                  "label": "B",
+                  "id": 30237,
+                  "text": "a triangle",
+                  "is_correct": false
+                },
+                {
+                  "label": "C",
+                  "id": 30239,
+                  "text": "A rectangle",
+                  "is_correct": false
+                },
+                {
+                  "label": "D",
+                  "id": 30236,
+                  "text": "{ }",
+                  "is_correct": true
+                }
+              ],
+              "correct_option_ids": [
+                30236
+              ],
+              "correct_option_labels": [
+                "D"
+              ],
+              "correct_option_texts": [
+                "{ }"
+              ],
+              "explanation": "We have ${\\text{x }} \\geq {\\text{ }}0\\Rightarrow 2 {\\text{x }}\\geq {\\text{ }}0$ \nAlso given ${\\text{ y }} \\geq {\\text{ }}0{\\text{ }}$ \nHence 2x + y $\\ge$ 0, which means the minimum value possible for 2x + y is zero.\nNow 2x + y + 6 $\\le$ 0 $\\Rightarrow$ 2x + y $\\le$ -6 which is not possible \nHence the system x $\\ge$ 0, y $\\ge$ 0, 2x + y + 6 $\\le$ 0 has no solution."
+            },
+            {
+              "questionID": 18760,
+              "question": "The graph of the inequalities x $\\ge$ 0, y $\\ge$ 0, 2x + y + 6 $\\ge$ 0 is",
+              "question_raw": "<p>The graph of the inequalities x&nbsp;<span class=\"math-tex\">{tex}\\ge{/tex}</span>&nbsp;0, y&nbsp;<span class=\"math-tex\">{tex}\\ge{/tex}</span>&nbsp;0, 2x + y + 6&nbsp;<span class=\"math-tex\">{tex}\\ge{/tex}</span>&nbsp;0&nbsp;is</p>",
+              "options": [
+                {
+                  "label": "A",
+                  "id": 30240,
+                  "text": "the 1^st quadrant including the points on the positive axes",
+                  "is_correct": true
+                },
+                {
+                  "label": "B",
+                  "id": 30243,
+                  "text": "the 2nd quadrant including the points on the negative axes",
+                  "is_correct": false
+                },
+                {
+                  "label": "C",
+                  "id": 30242,
+                  "text": "that line of the XOY plane which lies below the line 2x + y + 6 = 0",
+                  "is_correct": false
+                },
+                {
+                  "label": "D",
+                  "id": 30241,
+                  "text": "that line of the XOY plane which lies above the line 2x + y + 6 = 0",
+                  "is_correct": false
+                }
+              ],
+              "correct_option_ids": [
+                30240
+              ],
+              "correct_option_labels": [
+                "A"
+              ],
+              "correct_option_texts": [
+                "the 1^st quadrant including the points on the positive axes"
+              ],
+              "explanation": "Consider the equation 2x + y + 6 = 0, put x = 0 we get y = -6 and put y = 0 we get x = -3.\nHence we have the solution of 2x + y + 6 = 0 will be a straight line which passes through the points (-3, 0) and (0, -6) and will be dividing the plane into two regions.\nIf we put x = 0, y = 0 in 2x + y + 6 $\\ge$ 0, we get 6$\\ge$ 0 which is true.\nHence the solution of 2x + y + 6 $\\ge$ 0 will be the region in the plane which contain the origin\nAlso, we have the solution region of x $\\ge$ 0, y $\\ge$ 0 is the first quadrant including the points on the positive axes.\nHence the solution region of the system x $\\ge$ 0, y $\\ge$ 0, 2x + y + 6 $\\ge$ 0 will be the intersection of the above two regions which will be the first quadrant including the points on the positive axes."
+            },
+            {
+              "questionID": 18761,
+              "question": "If x and b are real numbers . If b $>$ 0 and ${\\text{|x|}} > b$, then",
+              "question_raw": "<p>If x and b are real numbers . If b <span class=\"math-tex\">{tex}&gt;{/tex}</span> 0 and <span class=\"math-tex\">{tex}{\\text{|x|}} &gt; b{/tex}</span>, then</p>",
+              "options": [
+                {
+                  "label": "A",
+                  "id": 30246,
+                  "text": "$x \\in \\left( { - \\infty , - b} \\right)\\mathop \\cup \\nolimits^ (b,\\infty )$",
+                  "is_correct": true
+                },
+                {
+                  "label": "B",
+                  "id": 30245,
+                  "text": "$x \\in ( - b,\\infty )$",
+                  "is_correct": false
+                },
+                {
+                  "label": "C",
+                  "id": 30244,
+                  "text": "$x \\in ( - b,b)$",
+                  "is_correct": false
+                },
+                {
+                  "label": "D",
+                  "id": 30247,
+                  "text": "$x \\in[-\\infty, b)$",
+                  "is_correct": false
+                }
+              ],
+              "correct_option_ids": [
+                30246
+              ],
+              "correct_option_labels": [
+                "A"
+              ],
+              "correct_option_texts": [
+                "$x \\in \\left( { - \\infty , - b} \\right)\\mathop \\cup \\nolimits^ (b,\\infty )$"
+              ],
+              "explanation": "We have $\\left| x \\right| >a\\Leftrightarrow x<-a$ or x > a \nSo ${\\text{|x|}} > b$ $\\Rightarrow x<-b$ or x > b\n$\\Rightarrow x \\in \\left( { - \\infty , - b} \\right)\\mathop \\cup \\nolimits^ (b,\\infty )$"
+            },
+            {
+              "questionID": 18762,
+              "question": "The length of a rectangle is three times the breadth. If the minimum perimeter of the rectangle is 160 cm, then.",
+              "question_raw": "<p>The length of a rectangle is three times the breadth. If the minimum perimeter of the rectangle is 160 cm, then.</p>",
+              "options": [
+                {
+                  "label": "A",
+                  "id": 30251,
+                  "text": "length $≤$ 20",
+                  "is_correct": false
+                },
+                {
+                  "label": "B",
+                  "id": 30250,
+                  "text": "length $<$ 20",
+                  "is_correct": false
+                },
+                {
+                  "label": "C",
+                  "id": 30249,
+                  "text": "breadth $>$ 20",
+                  "is_correct": false
+                },
+                {
+                  "label": "D",
+                  "id": 30248,
+                  "text": "breadth x $≥$ 20",
+                  "is_correct": true
+                }
+              ],
+              "correct_option_ids": [
+                30248
+              ],
+              "correct_option_labels": [
+                "D"
+              ],
+              "correct_option_texts": [
+                "breadth x $≥$ 20"
+              ],
+              "explanation": "For the rectangle let length=L and breadth=B , then we have the perimeter= $2\\left( L+B \\right) $\nAccording to the question L=3B and perimeter $\\ge 160$\nNow perimeter $\\ge 160$\n$\\Rightarrow 2\\left( L+B \\right) \\ge 160$\n$\\Rightarrow 2\\left( 3B+B \\right) \\ge 160$ [Using L=3B]\n$\\Rightarrow 2\\left( 4B \\right) \\ge 160$\n$\\Rightarrow 8B \\ge 160$\n$\\Rightarrow B \\ge 20$"
+            },
+            {
+              "questionID": 18763,
+              "question": "The graph of the inequations x $\\le$ 0, y $\\le$ 0 and 2x + y + 6 $\\le$ 0 is",
+              "question_raw": "<p>The graph of the inequations&nbsp;x&nbsp;<span class=\"math-tex\">{tex}\\le{/tex}</span>&nbsp;0, y&nbsp;<span class=\"math-tex\">{tex}\\le{/tex}</span>&nbsp;0 and 2x + y + 6&nbsp;<span class=\"math-tex\">{tex}\\le{/tex}</span>&nbsp;0 is</p>",
+              "options": [
+                {
+                  "label": "A",
+                  "id": 30254,
+                  "text": "exterior of a triangle",
+                  "is_correct": false
+                },
+                {
+                  "label": "B",
+                  "id": 30255,
+                  "text": "interior of a triangle",
+                  "is_correct": false
+                },
+                {
+                  "label": "C",
+                  "id": 30252,
+                  "text": "a triangular region in the 3^rd quadrant including the points on its sides",
+                  "is_correct": true
+                },
+                {
+                  "label": "D",
+                  "id": 30253,
+                  "text": "in the 1^st quadrant",
+                  "is_correct": false
+                }
+              ],
+              "correct_option_ids": [
+                30252
+              ],
+              "correct_option_labels": [
+                "C"
+              ],
+              "correct_option_texts": [
+                "a triangular region in the 3^rd quadrant including the points on its sides"
+              ],
+              "explanation": "We have the solution region of x $\\le$ 0, y $\\le$ 0 is the third quadrant including the points on the negative axes(X-axis and Y-axis).\nConsider the equation 2x + y + 6 = 0 put x = 0 we get y = -6 and put y = 0 we get x = -3.\nHence we have a solution of 2x + y + 6 = 0 will be a straight line which passes through the points (-3, 0) and (0, -6) and will be the hypotenuse of a small right-angled triangle in the third quadrant with the negative axes.\nIf we put x = 0, y = 0 in 2x + y + 6 $\\ge$ 0, we get 6 $\\ge$ 0 which is true.\nHence the solution of 2x + y + 6 $\\ge$ 0 will be the region in the plane which contain the origin\nTherefore the solution region of the system x $\\ge$ 0, y $\\ge$ 0, 2x + y + 6 $\\ge$ 0 will be the intersection of the above two regions which will be a small right-angled triangle in the third quadrant with vertices (0, 0), (0, -6) and (-3, 0) including the points on the sides of this triangle."
+            },
+            {
+              "questionID": 18764,
+              "question": "The graph of the inequality xy $≥$ 0 is",
+              "question_raw": "<p>The graph of the inequality xy <span class=\"math-tex\">{tex}≥{/tex}</span> 0 is</p>",
+              "options": [
+                {
+                  "label": "A",
+                  "id": 30259,
+                  "text": "set of all points in the 1st and 3rd quadrants",
+                  "is_correct": false
+                },
+                {
+                  "label": "B",
+                  "id": 30257,
+                  "text": "set of all points in the 2^nd and 4^th quadrants",
+                  "is_correct": false
+                },
+                {
+                  "label": "C",
+                  "id": 30256,
+                  "text": "set of all points in the first and third quadrants including the points on the axes",
+                  "is_correct": true
+                },
+                {
+                  "label": "D",
+                  "id": 30258,
+                  "text": "set of all points on the x axis and y axis",
+                  "is_correct": false
+                }
+              ],
+              "correct_option_ids": [
+                30256
+              ],
+              "correct_option_labels": [
+                "C"
+              ],
+              "correct_option_texts": [
+                "set of all points in the first and third quadrants including the points on the axes"
+              ],
+              "explanation": "We have xy $\\ge$ 0 $\\Rightarrow$ x $\\ge$ 0 and y $\\ge$ 0 or x $\\le$ 0 and y $\\le$ 0 \nNow x $\\ge$ 0 and y $\\ge$ 0 implies the solution set consists of all points in the first quadrant including the points on the positive X-axis and the positive Y-axis.\nAnd x $\\le$ 0 and y $\\le$ 0 implies the solution set consists of all points in the third quadrant including the points on the negative X-axis and the negative Y-axis.\nHence the required solution set consists of all the points in the first and third quadrants including the points on the axes (X-axis and Y-axis)"
+            },
+            {
+              "questionID": 18765,
+              "question": "The graph of the inequality x^2 + y^2 > 0 is",
+              "question_raw": "<p>The graph of the inequality x<sup>2</sup> + y<sup>2</sup> &gt; 0 is</p>",
+              "options": [
+                {
+                  "label": "A",
+                  "id": 30260,
+                  "text": "set of all points in the XOY plane other than the origin",
+                  "is_correct": true
+                },
+                {
+                  "label": "B",
+                  "id": 30262,
+                  "text": "the plane XOY",
+                  "is_correct": false
+                },
+                {
+                  "label": "C",
+                  "id": 30263,
+                  "text": "lies on the axes",
+                  "is_correct": false
+                },
+                {
+                  "label": "D",
+                  "id": 30261,
+                  "text": "set of all points in the XOY plane other than those which lies on the axes",
+                  "is_correct": false
+                }
+              ],
+              "correct_option_ids": [
+                30260
+              ],
+              "correct_option_labels": [
+                "A"
+              ],
+              "correct_option_texts": [
+                "set of all points in the XOY plane other than the origin"
+              ],
+              "explanation": "For any real values of x and y we have x^2 + y^2 $\\ge$ 0 [$\\because $ square of a real number and sum of two real numbers are always non-negative real numbers]\nBut for x = 0 and y = 0 we get x^2 + y^2 = 0 \nHence the solution set of x^2 + y^2 > 0 consists of all real numbers except the origin (0, 0).\nTherefore we can say the solution set will be the set of all points in the XOY plane other than the origin"
+            },
+            {
+              "questionID": 18766,
+              "question": "The solution set of the inequation 3x < 5, when x is a natural number is",
+              "question_raw": "<p>The solution set of the inequation 3x &lt;&nbsp;5, when x is a natural number is</p>",
+              "options": [
+                {
+                  "label": "A",
+                  "id": 30265,
+                  "text": "{0, 1}",
+                  "is_correct": false
+                },
+                {
+                  "label": "B",
+                  "id": 30266,
+                  "text": "{1, 2}",
+                  "is_correct": false
+                },
+                {
+                  "label": "C",
+                  "id": 30264,
+                  "text": "{1}",
+                  "is_correct": true
+                },
+                {
+                  "label": "D",
+                  "id": 30267,
+                  "text": "{4}",
+                  "is_correct": false
+                }
+              ],
+              "correct_option_ids": [
+                30264
+              ],
+              "correct_option_labels": [
+                "C"
+              ],
+              "correct_option_texts": [
+                "{1}"
+              ],
+              "explanation": "3x < 5\n$\\Rightarrow x<{ { \\frac { 5 }{ 3 } } }$ \n$\\Rightarrow x<{ { 1\\frac { 2 }{ 3 } }}$ \nHence solution set = $\\{ x:x<{ { 1\\frac { 2 }{ 3 } } },x\\in N\\}$ = {1}"
+            }
+          ]
+        }
+      ]
+    }
+  ]
+}

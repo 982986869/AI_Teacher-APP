@@ -1,0 +1,847 @@
+CHAPTER: Sets  (id 1372)
+CBSE > Class 11 > Mathematics > Sets
+Online tests: 5
+
+========================================================================
+Sets Test 01  (id 602) [FREE]
+CBSE > Class 11 > Mathematics > Sets
+Questions: 15 | Answers: YES
+========================================================================
+
+Q1. If A and B are two sets, then $A \cap (A \cup B)'$ is equal to
+    (A) $\phi$   <-- CORRECT
+    (B) A
+    (C) 1
+    (D) B
+    Answer: A
+    Explanation: $A \cap (A \cup B)' = \phi $ 
+Since $(A \cup B)'$ Set represent the element which are not belongs to it, so there is no common element with the set A. So the answer is null set.
+
+Q2. Let A and B be two sets such that $n(A)=35,n(B)=42\quad and\quad n(A\cap B)=17$, find $n(A-B)$
+    (A) 17
+    (B) 25
+    (C) 19
+    (D) 18   <-- CORRECT
+    Answer: D
+    Explanation: $​​​​Given\quad that\quad n(A\cap B)=17\\ We\quad have\quad A-B=A-(A\cap B)\\ Therefore\quad n(A-B)=n(A)-n(A\cap B)=35-17=18$
+
+Q3. If A is any set, then
+    (A) A $\cup$ A' = $\phi$
+    (B) A $ \cup$ A' = U   <-- CORRECT
+    (C) A $\cap$ A' = A
+    (D) A $\cap$ A' = U
+    Answer: B
+    Explanation: A $\cup$ A' = {x $\in$ U : x $\in$ A} $\cup$ {x $\in$ U : x $\in$ A} = U
+
+Q4. If A and B be any two sets, then (A $\cup$ B)' is equal to
+    (A) A $\cap$ B
+    (B) A' $\cup$ B'
+    (C) A' $ \cap$ B'   <-- CORRECT
+    (D) A $\cup$ B
+    Answer: C
+    Explanation: x $\in$ (A $\cup$ B)'
+$\Rightarrow$ x $\notin$ (A $\cup$ B)
+$\Rightarrow$ x $\notin$ A or x $\notin$ B
+$\Rightarrow$ x $\in$ A' and x $\in$ B'
+$\Rightarrow$ x $\in$ A' $\cap$ B'
+$\Rightarrow$ (A $\cup$ B)' $\subseteq$ A' $\cap$ B'
+Similarly, we can show (A' $\cap$ B') $\subseteq$ (A $\cup$ B)'
+So (A $\cup$ B)' = (A' $\cap$ B')
+
+Q5. If A and B be any two sets, then (A $\cap$ B)' is equal to
+    (A) A' $\cap$ B'
+    (B) A $\cap$ B^'
+    (C) A $\cap$ B
+    (D) A' $\cup$ B'   <-- CORRECT
+    Answer: D
+    Explanation: x $\in$ A' $\cup$ B'
+$\Rightarrow$ x $\in$ A' or x $\in$ B'
+$\Rightarrow$ x $\in$ A or x $\notin$ B
+$\Rightarrow$ x $\in$ A $\cap$ B
+$\Rightarrow$ x $\notin$ (A $\cap$ B)
+Hence (A $\cap$ B)' = A' $\cup$ B'
+
+Q6. Let A = {1, 2, 3, 4}, B = {2, 3, 4, 5, 6}, then (A $\cap$ B) is equal to :
+    (A) {5, 6}
+    (B) {1, 2, 3}
+    (C) {2, 3, 4}   <-- CORRECT
+    (D) {1}
+    Answer: C
+    Explanation: Here A = {1, 2, 3, 4} and B = {2, 3, 4, 5, 6}
+A $\cap$ B = {1, 2, 3, 4} $\cap$ {2, 3, 4, 5, 6} = {2, 3, 4}
+
+Q7. Let U = {1, 2, 3, 4, 5, 6, 7, 8, 9, 10}, A = {1, 2, 5}, B = {6, 7}. Then A $\cap$ B' is
+    (A) B’
+    (B) A’
+    (C) B
+    (D) A   <-- CORRECT
+    Answer: D
+    Explanation: Given U = {1, 2, 3, 4, 5, 6, 7, 8, 9, 10}, A = {1, 2, 5}, B = {6, 7}
+B' = {1, 2, 3, 4, 5, 8, 9, 10}
+A $\cap$ B' = {1, 2, 5} = A
+
+Q8. Let A = {a, b, c}, B = {b, c, d}, C = {a, b, d, e}, then A $\cap$ (B $\cup$ C) is
+    (A) {a, b, d, e}
+    (B) {b, c, d}
+    (C) {a, b, c}   <-- CORRECT
+    (D) {e}
+    Answer: C
+    Explanation: Here A = {a, b, c}, B = {b, c, d} and C = {a, b, d, e}
+B $\cup$ C = {a, b, c, d, e}
+A $\cap$ (B $\cup$ C) = {a, b, c}
+
+Q9. If A and B are two sets , then $A\mathop \cup \nolimits B = A\mathop \cap \nolimits B$ iff
+    (A) A $ \subseteq $ B
+    (B) B $ \subseteq $ A
+    (C) A $\ne$ B
+    (D) A = B   <-- CORRECT
+    Answer: D
+    Explanation: Let A=B,Then,
+Conversely, let , now we have to prove that A=B.
+Let 
+So, ...(2)
+Let 
+So, ...(3)
+Thus, ...(4)
+From(1) and (4),we get
+
+Q10. Let A and B be two sets in the universal set. Then A - B is equal to
+    (A) A’ $\mathop \cap \nolimits $ B
+    (B) A $\mathop \cap \nolimits $ B^'   <-- CORRECT
+    (C) A - (A $\cap$ B)
+    (D) A $\mathop \cap \nolimits $ B
+    Answer: B
+    Explanation: A $\mathop \cap \nolimits $ B^'
+
+Q11. Two sets A and B are said to be disjoint if
+    (A) A – B = A
+    (B) A $\mathop \cap \nolimits $ B $ \ne $$\phi $
+    (C) A $\mathop \cup \nolimits $ B = $\phi $
+    (D) A $\cap$ B = $\phi$   <-- CORRECT
+    Answer: D
+    Explanation: Two sets are called disjoint if and only if these two set have no common element i.e $A \cap B = \phi$
+
+Q12. Which of the following is a null set?
+ {x : x^2 + 1 = 0, x $\in$ R}
+ {x : x > 0 or x < 0}
+ {x : x^2 = 4 or x = 3}
+ {0}
+    (A) D
+    (B) A   <-- CORRECT
+    (C) B
+    (D) C
+    Answer: B
+    Explanation: x^2 + 1 = 0
+$\Rightarrow$ x^2 = -1
+$\Rightarrow$ x^2 = $\sqrt{-1}$ 
+$\Rightarrow$ x = i $\in$ C
+[i = imaginary root of unity which is a complex no.]
+Since the solution of x does not belong to real no hence the set is null set.
+
+Q13. If A $ \subseteq $ B, then A $\cap$ B is equal to
+    (A) B’
+    (B) B
+    (C) A’
+    (D) A   <-- CORRECT
+    Answer: D
+    Explanation: A $ \subseteq $ B means set A is contained in the set B. So common region is the set A.
+
+Q14. If A $ \subseteq $ B, then A $\cup$ B is equal to
+    (A) B’
+    (B) A’
+    (C) B   <-- CORRECT
+    (D) A
+    Answer: C
+    Explanation: A $ \subseteq $ B refers to A set is contained in the set B. So set B is bigger. So union the sets will be B.
+
+Q15. If A and B are two sets, then A $\cup$ (A $\cap$ B) is equal to
+    (A) A'
+    (B) B
+    (C) A   <-- CORRECT
+    (D) B'
+    Answer: C
+    Explanation: Let A = {1, 2, 3, 4} and B = {1, 2, 3, 4, 5, 6}
+Here A $\cap$ B = {1, 2, 3, 4}
+Now A $\cup$ (A $\cap$ B) = {1, 2, 3, 4} = A
+
+========================================================================
+Sets Test 02  (id 603) [PAID]
+CBSE > Class 11 > Mathematics > Sets
+Questions: 15 | Answers: YES
+========================================================================
+
+Q1. If A and B are two sets, then A $\cap$ (A $\cup$ B) is equal to
+    (A) A   <-- CORRECT
+    (B) A'
+    (C) B'
+    (D) B
+    Answer: A
+    Explanation: Let A = {1, 2, 3, 4} and B = {1, 2, 3, 4, 5, 6}
+Here A $\cup$ B = {1, 2, 3, 4, 5, 6}
+Now A $\cap$ (A $\cup$ B) = {1, 2, 3, 4} = A
+
+Q2. If A = {2, 3, 4, 8, 10}, B = {3, 4, 5, 10, 12} and C = {4, 5, 6, 12, 14}, then (A $\cup$ B) $\cap$ (A $\cup$ C) is equal to
+    (A) {2, 3, 4, 5, 8, 10, 12}   <-- CORRECT
+    (B) {2, 4, 5, 10, 12}
+    (C) {3, 8, 10, 12}
+    (D) {4, 5, 8, 10, 12}
+    Answer: A
+    Explanation: Given A = {2, 3, 4, 8, 10}, B = {3, 4, 5, 10, 12} and C = {4, 5, 6, 12, 14}
+Here A $\cup$ B = {2, 3, 4, 5, 8, 10, 12} and A $\cup$ C = {2, 3, 4, 5, 6, 8, 10, 12, 14}
+Now (A $\cup$ B) $\cap$ (A $\cup$ C) = {2, 3, 4, 5, 8, 10, 12}
+
+Q3. If A = {2, 3, 4, 8, 10}, B = {3, 4, 5, 10, 12} and C = {4, 5, 6, 12, 14}, then ( A $\cap$ B) $\cup$ (A $\cap$ C)
+    (A) {4, 5, 6}
+    (B) {2, 8, 10}
+    (C) {3, 4, 5}
+    (D) {3, 4, 10}   <-- CORRECT
+    Answer: D
+    Explanation: Given A = {2, 3, 4, 8, 10}, B = {3, 4, 5, 10, 12} and C = {4, 5, 6, 12, 14}
+Here A $\cap$ B = {3, 4, 10} and A $\cap$ C = {4}
+Now (A $\cap$ B) $\cup$ (A $\cap$ C) = {3, 4, 10}
+
+Q4. If A and B are disjoint Set , then n (A $\cup$ B) is equal to
+    (A) n (A) + n(B) - n(A $\cap$ B)
+    (B) n (A) n (B)
+    (C) n (A) + n(B) + n(A $\cap$ B)
+    (D) n (A) + n (B)   <-- CORRECT
+    Answer: D
+    Explanation: Two sets are disjoint if they do not have a common element in them, i.e., $A \cap B=\varnothing$
+$\therefore$ n(A $\cup$ B) = n(A) + n(B)
+
+Q5. If A and B are not disjoint set, then n (A $\cup$ B) is equal to
+    (A) n(A)
+    (B) n(A) + n (B) + n(A $\cap $ B)
+    (C) n(A) + n(B) - n (A $\cap $ B)   <-- CORRECT
+    (D) n(B)
+    Answer: C
+    Explanation: Here A $\cap$ B = $\phi$, A and B are not disjoint
+Then, n (A $\cup$ B) = n(A) + n(B) - n (A $\cap $ B)
+
+Q6. The Collection of intelligent students in a class is
+    (A) a finite set
+    (B) a null set
+    (C) not a Set   <-- CORRECT
+    (D) a singleton set
+    Answer: C
+    Explanation: Intelligency can not be measured by numbers i.e the collection is not well defined that's why it can not be called as a Set.
+
+Q7. If A = {1, 2, 3}, and B = {1, 3, 5, 7}, then A $\cup$ B =
+    (A) {1, 3, 5, 7}
+    (B) {1, 2, 3, 5, 7}   <-- CORRECT
+    (C) {1, 3, 7}
+    (D) {1, 2, 3, 7}
+    Answer: B
+    Explanation: Given A = {1, 2, 3} and B = {1, 3, 5, 7}
+(A $\cup$ B) = {1, 2, 3, 5, 7}
+
+Q8. If A = {1, 2, 3, 4 }, B = {4, 5, 6, 7}, A $\cap$ B =
+    (A) {1, 2}
+    (B) {4}   <-- CORRECT
+    (C) {1, 2, 3, 4}
+    (D) {6, 7}
+    Answer: B
+    Explanation: Given A = {1, 2, 3, 4} and B = {4, 5, 6, 7}
+(a $\cap$ B) = {4}
+
+Q9. Let A = {1, 2, 3, 4} then total number of subsets of A are given by
+    (A) 8
+    (B) 4
+    (C) 12
+    (D) 16   <-- CORRECT
+    Answer: D
+    Explanation: Total no. of subsets = 2^n = 2^4 = 16
+Here n is the Cardinal no of the given set.
+
+Q10. If A = {1, 2, 3, 4} and B = {4, 5, 6, 7} then A - B =
+    (A) {5, 6, 7}
+    (B) {1, 2, 3}   <-- CORRECT
+    (C) {1, 2, 3, 4}
+    (D) {4}
+    Answer: B
+    Explanation: Given A = {1, 2, 3, 4} and B = {4, 5, 6, 7}
+A - B set will contain those elements which are present in A but not in B.
+we can see A $\cap$ B = {4}
+Now A - B = A - (A $\cap$ B)
+So A - B = {1, 2, 3, 4} - {4} = {1, 2, 3}
+
+Q11. If n(A) = 3 and n(B) = 6 and A $ \subseteq $ B, then n(A $\cup$ B) = ?
+    (A) 9
+    (B) 6   <-- CORRECT
+    (C) 12
+    (D) 3
+    Answer: B
+    Explanation: A $\subseteq$ B
+$\Rightarrow$ n(A $\cup$ B) = n(B) = 6
+
+Q12. If n (A) = 3 and n(B) = 6 and A $ \subseteq $ B, then n(A $\cap$ B) is equal to
+    (A) 6
+    (B) 3   <-- CORRECT
+    (C) 9
+    (D) 0
+    Answer: B
+    Explanation: A $\subseteq$ B
+$\Rightarrow$ n(A $\cap$ B) = n(A) = 3
+
+Q13. Let A and B be subsets of a set X. Then which of the following is correct
+    (A) A – B = A $\mathop \cap \nolimits $ B
+    (B) A – B = A’ $\mathop \cap \nolimits $ B’
+    (C) A – B = A $\mathop \cap \nolimits $ B’   <-- CORRECT
+    (D) A – B = A $\mathop \cup \nolimits $ B’
+    Answer: C
+    Explanation: For any set A - B = A $\cap$ B'
+
+Q14. If A , B and C are any three sets , then A – ( B $\mathop \cup \nolimits $ C ) is equal to
+    (A) ( A – B )$\mathop \cap \nolimits $C
+    (B) ( A – B )$\mathop \cap \nolimits $ C
+    (C) ( A – B ) $\mathop \cup \nolimits $( A – C )
+    (D) ( A – B ) $\mathop \cap \nolimits $ ( A – C )   <-- CORRECT
+    Answer: D
+    Explanation: $\eqalign{ & Let\;x \in A - (B \cup C) \cr & \Rightarrow x \in A\;and\;x \notin (B \cup C) \cr & \Rightarrow x \in A\;and(x \notin B\;and\;x \notin C) \cr & \Rightarrow (x \in A\;and\;x \notin B)and(x \in A\;and\;x \notin C) \cr & \Rightarrow x \in (A - B) \cap (A - C) \cr & A - (B \cup C) = (A - B) \cap (A - C) \cr} $
+
+Q15. If A, B and C are any three sets, then A – (B $\mathop \cap \nolimits $ C) is equal to
+    (A) (A – B) $\mathop \cap \nolimits $ C
+    (B) (A – B) $\mathop \cup \nolimits $ (A - C)   <-- CORRECT
+    (C) (A – B) $\mathop \cap \nolimits $ (A – C)
+    (D) (A – C) $\mathop \cap \nolimits $ (B - C)
+    Answer: B
+    Explanation: A - (B $\cap$ C) = (A - B) $\cup$ (A - C)
+Proof:
+Use following properties:
+X - Y = X $\cap$ Y'
+(X $\cap$ Y)' = X' $\cup$ Y' 
+A - (B $\cap$ C) = A $\cap$ (B $\cap$ C)'
+= A $\cap$ (B' $\cup$ C') = (A $\cap$ B') $\cup$ (A $\cap$ C') = (A - B) $\cup$ (A - C)
+
+========================================================================
+Sets Test 03  (id 604) [PAID]
+CBSE > Class 11 > Mathematics > Sets
+Questions: 15 | Answers: YES
+========================================================================
+
+Q1. If A, B and C are any three sets, then A $\mathop \cap \nolimits $ (B $\mathop \cup \nolimits $ C) is equal to
+    (A) (A $\mathop \cap \nolimits $ B) $\mathop \cup \nolimits $ (A $\mathop \cap \nolimits $ C)   <-- CORRECT
+    (B) (A – B) $\mathop \cap \nolimits $ (A – C)
+    (C) (A $\mathop \cup \nolimits $ B) $\mathop \cap \nolimits $ (A $\mathop \cap \nolimits $ C)
+    (D) (A $\mathop \cup \nolimits $ B) $\mathop \cup \nolimits $ (A $\mathop \cup \nolimits $ C)
+    Answer: A
+    Explanation: Let x $\in$ A $\cup$ (B $\cap$ C)
+x $\in$ A or x $\in$ (B and C)
+x $\in$ A or {x $\in$ B and x $\in$ C}
+{x $\in$ (A or B) and x $\in$ (A or C)
+x $\in$ (A or B) $\cap$ x $\in$ (A or C)
+x $\in$ (A $\cup$ B) $\cap$ x $\in$ (A $\cap$ C)
+x $\in$ (A $\cup$ B) $\cap$ (A $\cup$ C)
+Therefore, A $\cup$ (B $\cap$ C) $\subset$ (A $\cup$ B) $\cap$ (A $\cup$ C) .....(i)
+Similarly,
+(A $\cup$ B) $\cap$ (A $\cup$ C) $\subset$ A $\cup$ (B $\cap$ C) .....(ii)
+So
+A $\cup$ (B $\cup$ C) = (A $\cup$ B) $\cap$ (A $\cup$ C)
+
+Q2. If aN = {ax : x $ \in $ N}, then the set 3N $\mathop \cap \nolimits $ 7N is
+    (A) 10N
+    (B) 7N
+    (C) 4N
+    (D) 21N   <-- CORRECT
+    Answer: D
+    Explanation: Here 3N = {3, 6, 9,...} and 7N = {7, 14, 21,...}
+Hence 3N $\cap$ 7N = {21, 42, ...} = {21x : x $\in$ N} = 21N
+
+Q3. The smallest set A such that A $\mathop \cup \nolimits $ {1, 2} = {1, 2, 3, 5, 9} is
+    (A) {2, 3, 5}
+    (B) {3, 5, 9}   <-- CORRECT
+    (C) {4, 5, 6}
+    (D) {1, 2, 5, 9}
+    Answer: B
+    Explanation: The union of two sets A and B is the set of elements in A, or B, or both.
+So smallest set A = {3, 5, 9}
+
+Q4. If A and B are sets , then A $\mathop \cap \nolimits $ ( B – A ) is
+    (A) A'
+    (B) $\phi $   <-- CORRECT
+    (C) A
+    (D) B
+    Answer: B
+
+Q5. If A = {0, 1, 5, 4, 7}. Then the total number subsets of A are
+    (A) 64
+    (B) 32   <-- CORRECT
+    (C) 20
+    (D) 40
+    Answer: B
+    Explanation: In any set having 'n' elements the total no of subsets = 2^n
+So total subset = 2^5 = 32
+
+Q6. If A and B be two sets such that n(A) = 70 , n(B) = 60 , and n(A $\mathop \cup \nolimits $ B) = 110 . Then n (A $\mathop \cap \nolimits $ B) is equal to
+    (A) 120
+    (B) 100
+    (C) 240
+    (D) 20   <-- CORRECT
+    Answer: D
+    Explanation: n(A $\cap$ B) = n(A) + n(B) - n(A $\cup$ B)
+= 70 + 60 - 100
+= 20
+
+Q7. Which set is the subset of all given sets?
+    (A) { }   <-- CORRECT
+    (B) {0}
+    (C) {1}
+    (D) {1, 2, 3, 4}
+    Answer: A
+    Explanation: { } denoted as null set and Null set is subset of all sets.
+
+Q8. If Q = {x : x = $\frac{1}{y}$, where y $ \in $ N}, then
+    (A) 0 $ \in $ Q
+    (B) 1 $ \in $ Q   <-- CORRECT
+    (C) 2 $ \in $ Q
+    (D) $\frac{1}{2}$ $ \notin $ Q
+    Answer: B
+    Explanation: N is set of natural number, so
+x = $\frac{1}{y}$
+When y = 1 then x = 1
+So, 1 $ \in $Q
+
+Q9. If A = {x : x $\ne$ x} represents
+    (A) {0}
+    (B) {1}
+    (C) { }   <-- CORRECT
+    (D) {x}
+    Answer: C
+    Explanation: Here value of x is not possible so A is a null set.
+
+Q10. P(A) = P(B) $ \Rightarrow $
+    (A) $B\subseteq A$
+    (B) B $\subset$ A
+    (C) B $ \supseteq $ A
+    (D) A = B   <-- CORRECT
+    Answer: D
+    Explanation: To prove A = B it is enough to prove B $\subseteq$ A and A $\subseteq$ B
+So let P(A) = P(B)
+Also let x $\in$ A
+Now we have A $\in$ P(A)
+$\Rightarrow$ A $\in$ P(B), since P(A) = P(B)
+$\therefore$ x $\in$ E for some E $\in$ P(B)
+Now E $\subset$ B
+$\Rightarrow$ x $\in$ B
+Hence we proved A $\subseteq$ B
+Similarly by taking x $\in$ B and showing x $\in$ A we get B $\subseteq$ A
+Hence A = B
+
+Q11. Which of the following is a set?
+ A collection of vowels in English alphabets is a set.
+ The collection of most talented writers of India is a set.
+ The collection of most difficult topics in Mathematics is a set.
+ The collection of good cricket players of India is a set.
+    (A) C
+    (B) B
+    (C) D
+    (D) A   <-- CORRECT
+    Answer: D
+    Explanation: The set is {a, e, i, o, u}
+
+Q12. If A $\subset$ B, then
+    (A) ${ A }^{ c }\subset { B }^{ c }$
+    (B) ${ B }^{ c }⊄{ A }^{ c }$
+    (C) ${ B }^{ c }\subset { A }^{ c }$   <-- CORRECT
+    (D) ${ A }^{ c }={ B }^{ c }$
+    Answer: C
+    Explanation: Let A $\subset$ B
+To prove B^c $\subset$ A^c, it is enough to show that x $\in$ B^c $\Rightarrow$ x $\in$ A^c 
+Let x $\in$ B^c
+$\Rightarrow$ x $\notin$ B
+$\Rightarrow$ x $\notin$ A since A $\subset$ B
+$\Rightarrow$ x $\in$ A^c
+Hence B^c $\subset$ A^c
+
+Q13. Let A = {a, b, c}, B = {a, b}, C = {a, b, d}, D = {c, d} and E = {d}. Then which of the following statement is not correct?
+    (A) D $\supseteq$ E
+    (B) C - D = E   <-- CORRECT
+    (C) B $\cup$ E = C
+    (D) C - B = E
+    Answer: B
+    Explanation: C - D = {a, b, c} - {c, d} = {a, b}
+But E = {d}
+Hence C - D $\ne$ E
+
+Q14. A - B is equal to
+    (A) A^c $\cap$ B^c
+    (B) B^c - A^c   <-- CORRECT
+    (C) A $\cap$ B
+    (D) B - A
+    Answer: B
+    Explanation: Let x $\in$ A - B $\Rightarrow$ x $\in$ A and x $\notin$ B
+$\Rightarrow$ x $\notin$ A^c and x $\in$ B^c 
+$\Rightarrow$ x $\in$ B^c and x $\notin$ A^c
+$\Rightarrow$ x $\in$ B^c - A^c
+$\Rightarrow$ A - B $\subset$ B^c - A^c .....(i)
+Now let some y $\in$ B^c - A^c
+$\Rightarrow$ x $\in$ B^c and x $\in$ A^c
+$\Rightarrow$ x $\notin$ B and x $\in$ A
+$\Rightarrow$ x $\in$ A and x $\notin$ B
+$\Rightarrow$ x $\in$ A - B
+$\Rightarrow$ B^c - A^c $\subset$ A - B ......(ii)
+From (i) and (ii), we get A - B = B^c - A^c
+
+Q15. If a set A has n elements then the total number of subsets of A is
+    (A) 2^n   <-- CORRECT
+    (B) 2n
+    (C) n^2
+    (D) n
+    Answer: A
+    Explanation: The total no of subsets = 2^n
+
+========================================================================
+Sets Test 04  (id 605) [PAID]
+CBSE > Class 11 > Mathematics > Sets
+Questions: 15 | Answers: YES
+========================================================================
+
+Q1. If A, B, C be any three sets such that $A\cup B=A\cup C$ and $A\mathop \cap \nolimits B = A\mathop \cap \nolimits C$, then
+    (A) A = B
+    (B) B = C   <-- CORRECT
+    (C) A = B = C
+    (D) A = C
+    Answer: B
+    Explanation: A $\cup$ B = A $\cup$ C
+$\Rightarrow$ (A $\cup$ B) $\cap$ C = (A $\cup$ C) $\cap$ C
+$\Rightarrow$ (A $\cap$ C) $\cup$ (B $\cap$ C) = C .....(i)
+Now again A $\cup$ B = A $\cup$ C
+$\Rightarrow$ (A $\cup$ B) $\cap$ B = (A $\cup$ C) $\cap$ B
+$\Rightarrow$ B = (A $\cap$ B) $\cup$ (C $\cap$ B) 
+$\Rightarrow$ B = (A $\cap$ C) $\cup$ (C $\cap$ B), Since (A $\cap$ B) = (A $\cap$ C)
+$\Rightarrow$ (A $\cap$ C) $\cup$ (B $\cap$ C) = B .....(ii)
+Now from (i) and (ii) we get B = C
+
+Q2. Given the sets A = {1, 2, 3}, B = {3, 4}, C = {4, 5, 6}, then A $\mathop \cup \nolimits $(B $\mathop \cap \nolimits $ C) is
+    (A) {3}
+    (B) {1, 2, 3, 4}   <-- CORRECT
+    (C) {1, 2, 3}
+    (D) {1, 2, 3, 4, 5, 6}
+    Answer: B
+    Explanation: Given A = {1, 2, 3}, B = {3, 4} and C = {4, 5, 6}
+B $\cap$ C = {4} 
+A $\cup$ (B $\cap$ C) = {1, 2, 3, 4}
+
+Q3. Sets A and B have 3 and 6 elements respectively. What can be the minimum number of elements in ${A \cup B}$.
+    (A) 18
+    (B) 9
+    (C) 6   <-- CORRECT
+    (D) 3
+    Answer: C
+    Explanation: n(A) = 3
+n(B) = 6
+n(AUB) = n(A) + n(B) - n(A$\begin{array}{l}\cap\\\end{array}$B)
+for minimum number of elements in ${A \cup B}$ 
+n(A$\begin{array}{l}\cap\\\end{array}$B) = 3
+So n(A $\cup$ B) = 6
+
+Q4. Two finite sets have m and n elements. The total number of subsets of the first set is 56 more than the total number of subsets of the second set. The values of m and n are
+    (A) 6, 3   <-- CORRECT
+    (B) 6, 4
+    (C) 7, 4
+    (D) 3, 3
+    Answer: A
+    Explanation: Let A and B be two sets having m and n elements respectively. Then,
+Number of subsets of A = 2^m, Number of subsets of B = 2^n
+It is given that 2^m - 2^n = 56
+So, 2^n(2^m-n - 1) = 2^3(2^3 - 1)
+n = 3 and m - n = 3 $ \Rightarrow $ n = 3 and m = 6.
+
+Q5. The number of proper subsets of the set {1, 2, 3} is :
+    (A) 6
+    (B) 5
+    (C) 8
+    (D) 7   <-- CORRECT
+    Answer: D
+    Explanation: The no. of proper subsets = 2^n - 1 = 2^3 - 1 = 7
+Here n = no of elements of given set = 3.
+
+Q6. If A, B and C are non – empty sets, then (A - B) $\mathop \cup \nolimits $ (B - A) equals:
+    (A) (A $\mathop \cup \nolimits $ B) - B
+    (B) (A $\cap$ B) - B
+    (C) (A $\mathop \cup \nolimits $ B) – (A $\mathop \cap \nolimits $ B)   <-- CORRECT
+    (D) (A $\mathop \cap \nolimits $ B) $\mathop \cup \nolimits $ (A $\mathop \cup \nolimits $ B)
+    Answer: C
+    Explanation: We have (A $\cup$ B) = (A - B) $\cup$ (A $\cap$ B)
+Hence (A $\cup$ B) - (A $\cap$ B) = (A - B) $\cup$ (B - A)
+
+Q7. In a class of 100 students, 55 students have passed in Mathematics and 67 students have passed in Physics. Then the number of students who have passed in Physics only is
+    (A) 47
+    (B) 33
+    (C) 45   <-- CORRECT
+    (D) 25
+    Answer: C
+    Explanation: Let U denote the set of students of the class and let M and P denote the sets of students who passed in mathematics and physics respectively. Then
+n(U) = 100, n(M) = 55 and n(P) = 67
+Since all the students have passed in any of these subjects, we have 
+n(U) = 100 $\Rightarrow$ n(M $\cup$ P) = 100
+Now we have, n(M $\cup$ P) = n(M) + n(P) - n(M $\cap$ P)
+$\Rightarrow$ 100 = 55 + 67 - n(M $\cap$ P)
+$\Rightarrow$ n(M $\cap$ P) = 122 - 100 = 22
+Which means the number of students who passed in both the subjects = 22
+Hence the number of students who passed only in physics = n(P) - n(M $\cap$ P) = 67 - 22 = 45
+
+Q8. Out of 800 boys in a school, 224 played cricket, 240 played hockey and 336 played basketball. Of the total, 64 played both basketball and hockey, 80 played cricket and basketball and 40 played cricket and hockey, 24 played all the three games. The number of boys who did not play any game is:
+    (A) 160   <-- CORRECT
+    (B) 240
+    (C) 150
+    (D) 128
+    Answer: A
+    Explanation: Let U denote the set of boys in a school and let C, H and B denote the sets of boys who played Cricked, Hockey and Basketball respectively.
+Then we have n(U) = 800, n(C) = 224, n(H) = 240 and n(B) = 336
+Also $n(C \cap H)=40 \quad, n(B \cap H)=64,$ $n(C \cap B)=80$ and $n(C \cap B \cap H)=24$
+Now we have $n(C \cup H \cup B)=n(C)+n(H)+n(B)$$-n(C \cap H)-n(B \cap H)-n(C \cap B)+n(C \cap B \cap H)$
+$\Rightarrow n(C \cup H \cup B)=$ 224 + 240 + 336 - 40 - 64 - 80 + 24
+$\Rightarrow n(C \cup H \cup B)=640$
+Which means the number of boys who play any one game = 640
+Hence the number of boys who Did not play any game $=n(U)-n(C \cup H \cup B)=800-640=160$
+
+Q9. A survey shows that 75% of the Indians like apples, whereas 68% like oranges. What percentage of Indians like both apples and oranges.
+    (A) 53%
+    (B) 43%   <-- CORRECT
+    (C) 34%
+    (D) 35%
+    Answer: B
+    Explanation: Let U denote the set of Indians and let A and B denote the sets of Indians who like apples and oranges respectively. Then
+n(U) = 100, n(A) = 75 and n(B) = 68
+We have n(U) = 100 $\Rightarrow$ n(A $\cup$ B) = 100
+So n(A $\cup$ B) = n(A) + n(B) - n(A $\cap$ B)
+$\Rightarrow$ 100 = 75 + 68 - n(M $\cap$ P)
+$\Rightarrow$ n(M $\cap$ P) = 143 - 100 = 43
+Which means 43 percentage of Indians like apples and oranges.
+
+Q10. The number of non-empty subsets of the set {1, 2, 3, 4} is:
+    (A) 16
+    (B) 15   <-- CORRECT
+    (C) 14
+    (D) 17
+    Answer: B
+    Explanation: Total no. of subset including empty set = 2^n 
+So total subset = 2^4 = 16
+The no. of non empty set = 16 - 1 = 15
+
+Q11. Which of the following is (A – B) $\mathop \cup \nolimits $ (A – C)?
+    (A) A – (B $\mathop \cap \nolimits $C)   <-- CORRECT
+    (B) (A - B ) $\mathop \cup \nolimits $C
+    (C) ( A $\mathop \cup \nolimits $ B ) $\mathop \cup \nolimits $( A $\mathop \cap \nolimits $ B )
+    (D) A $\mathop \cap \nolimits $ ( B –C)
+    Answer: A
+    Explanation: Let $x\in A-(B\cap C)\Rightarrow x\in A\quad $and x $\notin$ B $\cap$ C
+$\Rightarrow x{ \in A }$ and ($x\notin B$ or $x\notin { A }$)
+$\Rightarrow$ (x $\in$ A and x $\notin$ B) or (x $\in$ A and x $\notin$ C)
+$\Rightarrow$ x $\in$ A − B or x $\in$ A − C
+$\Rightarrow$ x$\in$ (A − B) $\cup$ (A−C)
+$\Rightarrow$ A − (B $\cap$ C) $\subset$ (A − B) $\cup$ (A-C) ......(i)
+Now let y ∈ (A−B) ∪ (A−C)
+$\Rightarrow$ y $\in$ A−B or y $\in$ A − C
+$\Rightarrow$ (y $\in$ A and y ∉ B) or (y $\in$ A and y$\notin$ C)
+$\Rightarrow$ y $\in$ A and (y$\notin$ B or y$\notin$ A)
+$\Rightarrow$ y $\in$ A and y $\notin$ B $\cap$ C
+$\Rightarrow$ y ∈ A − (B $\cap$ C) 
+$\Rightarrow$ (A − B) $\cup$ (A − C) $\subset$ A − (B $\cap$ C)......(ii)
+From (i) and (ii) we get A − (B $\cap$ C) = (A−B) $\cup$ (A − C)
+
+Q12. If A and B are two given sets , then A $\cap$ (A $\cap$ B)^c is equal to
+    (A) $\phi $
+    (B) B
+    (C) A
+    (D) A $\cap$ B^c   <-- CORRECT
+    Answer: D
+    Explanation: A $\cap$ B^c
+A and B are two sets.
+A $\cap$ B is the common region in both the sets.
+(A $\cap$ B^c) is all the region in the universal set except A $\cap$ B
+Now, A $\cap$ (A $\cap$ B)^c = A $\cap$ B^c
+
+Q13. Given n ($\mathop \cup \nolimits $) = 20 , n ( A ) = 12 , n ( B ) = 9 , n ( A $\mathop \cap \nolimits $ B ) = 4 , where U is the universal set , A and B are subsets of U , then $n(A \cup B)'$
+    (A) 3   <-- CORRECT
+    (B) 9
+    (C) 17
+    (D) 11
+    Answer: A
+    Explanation: Given
+
+Q14. Sets A and B have 3 and 6 elements respectively. What can be the maximum number of elements in A $\mathop \cup \nolimits $ B.
+    (A) 3
+    (B) 9   <-- CORRECT
+    (C) 18
+    (D) 6
+    Answer: B
+    Explanation: n(A $\mathop \cup \nolimits $ B) = n(A) + n(B) - n(A $\cap$ B)
+If n(A $\cap$ B) = 0 then n(A $\mathop \cup \nolimits $ B) is max.
+So max number of element in A $\mathop \cup \nolimits $ B = 9
+
+Q15. A survey shows that 63% of Americans like cheese whereas 76% like apples. If x% of the Americans like both cheese and apples, then the value of x is
+    (A) 32
+    (B) 39   <-- CORRECT
+    (C) 49
+    (D) 63
+    Answer: B
+    Explanation: Let U denote the set of Americans and Lete A and B denote the sets of Americans who like cheese and apples respectively. Then
+$n(U)=100$, n(A) = 62 and n(B) = 76
+We have n(U) = 100 $\Rightarrow n(A \cup B)=100$
+So $n(A \cup B)=n(A)+n(B)-n(A \cap B)$
+$\Rightarrow 100=63+76-n(A \cap B)$
+$\Rightarrow n(A \cap B)=139-100=39$
+Which means 39 percent of Americans like Cheese and apples.
+
+========================================================================
+Sets Test 05  (id 606) [PAID]
+CBSE > Class 11 > Mathematics > Sets
+Questions: 14 | Answers: YES
+========================================================================
+
+Q1. In a town of 10,000 families it was found that 40% families buys newspaper A, 20% buy newspaper B, and 10% families buy newspaper C, 5% families buy A and B, 3% buy B and C and 4% buy A and C. If 2% buy all the three newspapers, then number of families which buy A only is
+    (A) 3100
+    (B) 2900
+    (C) 3300   <-- CORRECT
+    (D) 3400
+    Answer: C
+    Explanation: Let U denote the set of families who buy news paper and let X, Y and Z denote the sets of families who buy newspaper A, B and C respectively
+Then we have n(U) = 10000, n(X) = 40% of 10000 = 4000, n(Y) = 20% of 10000 = 2000 and n(Z) = 10% of 10000 = 1000
+Also n(X $\cap$ Y) = 5% of 10000 = 500, n(Y $\cap$ Z) = 3% of 10000 = 300
+n(X $\cap$ Z) = 4% of 10000 = 400 and (X $\cap$ Y $\cap$ Z) = 2% of 10000 = 200
+Hence the number of families who buy only newspaper A = n[X - (Y $\cup$ Z)]
+= n(X) - n[X $\cap$(Y $\cup$ Z)]
+= n(X) - n[X $\cap$(Y $\cup$ Z)]
+= n(X) - [n(X $\cap$ Y) + n(X $\cap$ Z) - n((X $\cap$ Y) $\cap$(X $\cap$ Z))]
+= n(X) - [n(X $\cap$ Y) + n(X $\cap$ Z) - n(X $\cap$ Y $\cap$ Z)]
+= 4000 - [500 + 400 - 200]
+= 4000 - 700 = 3300
+
+Q2. In a town of 10.000 families it was found that 40 %families buy newspaper A, 20% families buy newspaper B and 10% families buy newspaper C, 5% families buy A and B,3% buy B and C and 4% buy A and C.If 2% buy all the three newspapers, then the number of families which buy none of A, B, C is
+    (A) 4000   <-- CORRECT
+    (B) 3300
+    (C) 5000
+    (D) 4200
+    Answer: A
+    Explanation: 4000
+
+Q3. In a battle 70% of combatants lost one eye, 80% an ear, 75% an arm, 85% a leg, x% lose all the four limbs. The minimum value of x is:
+    (A) 15
+    (B) 10   <-- CORRECT
+    (C) 12
+    (D) 11
+    Answer: B
+    Explanation: Given that percentage of combatants who lost one eye = 70%, an ear = 80% and an arm = 75% and a leg = 85%
+Hence we get the percentage of combatants who lost one eye and one ear = (70% + 80%) - 100% = 50%
+Percentage of combatants who lost one eye, one ear and one arm = (50% + 75%) - 100% = 25%
+Similarly, the percentage of combatants who lost one eye, one ear, one arm, and one leg = (25% + 85%) - 100% = 10%
+Hence we get the percentage of the combatants who lost all 4 limbs = 10%
+Hence if x% represents the percentage of combatants who lost all 4 limbs we get the minimum value of x = 10
+
+Q4. f(A) = {$\phi$, {$\phi$}}, then the power set of A is
+    (A) {$\phi $, {$\phi $}, {{$\phi $}}, A}   <-- CORRECT
+    (B) {$\phi$, A}
+    (C) {$\phi$ , {$\phi$}, A}
+    (D) A
+    Answer: A
+    Explanation: Subsets of A are ${\phi ,\,\left\{ \phi \right\},\{ \{ \phi \} \} },\{ \phi,\{ \phi \} \} $ 
+ ${\therefore {\text{P}}({\text{A}})\; = \left\{ {\phi ,\{ \phi \} ,\{ \{ \phi \} \} ,{\text{A}}} \right\}}$
+
+Q5. Let A and B be two non- empty subsets of a set X such that A is not a subset of B, then
+    (A) A and B are always disjoint
+    (B) A is always a subset of B
+    (C) A and the complement of B are always non-disjoint   <-- CORRECT
+    (D) B is always a subset of A
+    Answer: C
+    Explanation: Let x $\in$ A, then x $\notin$ B as A is not a subset of B
+$\therefore$ x $\in$ A and x $\notin$ B
+$\Rightarrow$ x $\in$ A and x $\in$ B'
+$\Rightarrow$ x $\in$ A $\cap$ B'
+$\Rightarrow$ A and B' are non - disjoint.
+
+Q6. If A class has 175 students. The following data shows the number of students offering one or more subjects. Mathematics 100; Physics 70; Chemistry 40; Mathematics and Physics 30; Mathematics and Chemistry 28; Physics and Chemistry 23; Mathematics, Physics and Chemistry 18. How many students have offered Mathematics alone?
+    (A) 22.
+    (B) 48
+    (C) 60   <-- CORRECT
+    (D) 35
+    Answer: C
+    Explanation: M -mathematics
+P - physics
+C - chemistry
+Venn Diagram
+By Venn Diagram we can see that the students who offered mathematics alone are 60.
+
+Q7. If A = {(x, y) : x^2 + y^2 = 25} and B = {(x, y) : x^2 + 9y^2 = 144} then A $\mathop \cap \nolimits $ B contains
+    (A) three points
+    (B) two points
+    (C) one point
+    (D) four points   <-- CORRECT
+    Answer: D
+    Explanation: From A, x^2 + y^2 = 25 and from B, x^2 + 9y^2 = 144
+$\therefore$ From B, (x^2 + y^2) + 8y^2 = 144
+$ \Rightarrow$ 25 + 8y^2 = 144
+$ \Rightarrow$ 8y^2 = 119 
+$\Rightarrow$y = $\pm \sqrt{\frac{119}{8}}$ 
+$\therefore$ x^2 + y^2 = 25 $\Rightarrow$ x^2 = 25 - y^2 = 25 - $\frac{119}{8}$ = $\frac{81}{8}$ 
+$\Rightarrow$ x = $\pm \sqrt{\frac{81}{8}}$ 
+Since we solved equations simultaneously, therefore ${{\text{A}} \cap \;{\text{B}}}$ has four points A has 2 elements & B has 2 elements.
+
+Q8. In a city 20% of the population travels by car, 50% travels by bus and 10% travels by both car and bus. Then persons travelling by car or bus is
+    (A) 20%
+    (B) 80%
+    (C) 30%
+    (D) 60%   <-- CORRECT
+    Answer: D
+    Explanation: Suppose C and B represents the population travel by car and Bus respectively.
+n(C $\cup$ B) = n(C) + n(B) - n(B $\cap$ C)
+= 0.20 + 0.50 - 0.10
+= 0.6 or 60
+
+Q9. Let A and B be two sets such that n(A) = 0.16, n(B) = 0.14, n(A $\mathop \cup \nolimits $ B) = 0.25, then n(A $\mathop \cap \nolimits $ B) is equal to
+    (A) 0.3
+    (B) 0.5
+    (C) 0.03
+    (D) 0.05   <-- CORRECT
+    Answer: D
+    Explanation: Given n(A) = 0.16, n(B) = 0.14, n(A $\cup$ B) = 0.25
+n(A $\cap$ B) = n(A) + n(B) - n(A $\cup$ B) = 0.16 + 0.14 - 0.25 = 0.05
+
+Q10. if A = {x : x is a multiple of 3} and B = {x : x is a multiple of 5}, then A - B is
+    (A) $\overline{A \cap B}$
+    (B) $A \cap \bar{B}$   <-- CORRECT
+    (C) $\bar{A} \cap \bar{B}$
+    (D) A $\mathop \cap \nolimits $ B
+    Answer: B
+    Explanation: A = {x : x is a multiple of 3}
+A = {3, 6, 9, 12, 15, 18, 21, 24, 27, 30, 33, 36, 39, 42, 45, 48,...}
+B = {x : x is a multiple of 5}
+B = {5, 10, 15, 20, 25, 30, 35, 40, 45, 50,...}
+Now we have:
+A - B = {3, 6, 9, 12, 18, 21, 24, 27, 33, 36, 39, 42, 48, ...}
+= A - ( A $\mathop \cap \nolimits $ B)
+=$A \cap \bar{B}$
+
+Q11. The set of all prime numbers is
+    (A) an infinite set   <-- CORRECT
+    (B) a finite set
+    (C) a multi set
+    (D) a singleton set
+    Answer: A
+    Explanation: Set A = {2, 3, 5, 7,...} so it is infinite.
+
+Q12. The set A = {x : x is a positive prime number less than 10} in the tabular form is
+    (A) {1, 2, 3, 5, 7}
+    (B) {3, 5, 7}
+    (C) {1, 3, 5, 7, 9}
+    (D) {2, 3, 5, 7}   <-- CORRECT
+    Answer: D
+    Explanation: Prime no. less then 10 is 2, 3, 5, 7 so
+Set A = {2, 3, 5, 7}
+
+Q13. Which of the following is a null set?
+    (A) B = {x : x + 3 = 3}
+    (B) A = {x : x > 1 and x < 3}
+    (C) C = $\phi $   <-- CORRECT
+    (D) D = {0}
+    Answer: C
+    Explanation: $\phi $ is denoted as null set.
+
+Q14. The set of intelligent students in a class is
+    (A) a null set
+    (B) not a well defined collection   <-- CORRECT
+    (C) a singleton set
+    (D) a finite set
+    Answer: B
+    Explanation: The set of all intelligent students of a class, it is not possible to do so. No two persons will have the common list. Thus the collection of intelligent students in the class is not a set.

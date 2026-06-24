@@ -1,0 +1,979 @@
+CHAPTER: Straight Lines  (id 1381)
+CBSE > Class 11 > Mathematics > Straight Lines
+Online tests: 5
+
+========================================================================
+Straight Lines Test 01  (id 647) [FREE]
+CBSE > Class 11 > Mathematics > Straight Lines
+Questions: 15 | Answers: YES
+========================================================================
+
+Q1. The point which divides the joint of ( 1, 2 ) and ( 3,4 ) externally in the ratio 1 : 1 .
+    (A) lies in ${{\rm{3}}^{{\rm{rd}}}}$ quadrant
+    (B) lies in the ${{\rm{2}}^{{\rm{nd}}}}$ quadrant
+    (C) cannot be found   <-- CORRECT
+    (D) lies in the ${{\rm{1}}^{{\rm{st}}}}$ quadrant
+    Answer: C
+    Explanation: The point which divides the line in the ratio m:n externally is given by x =$m(x_2) -n(x_1)\over m - n$
+Substituting the values we get,
+x = $ 1(3) - 1(1)\over 1-1$ which is undefined.
+
+Q2. The distance of the point (x, y) from the origin is
+    (A) x
+    (B) $\sqrt {{x^2} + {y^2}} $   <-- CORRECT
+    (C) x + y
+    (D) x - y
+    Answer: B
+    Explanation: Distance between two points is given by $\sqrt{(x_2 - x_1)^2 +(y_2-y_1)^2}$ 
+Therefore the distance from the origin to the point (x, y) is $\sqrt{(x-0)^2 +(y-0)^2}$ = $\sqrt{x^2 +y^2}$
+
+Q3. The distance of the point ( x , y ) from Y axis is
+    (A) ${\text{|y|}}$
+    (B) y
+    (C) ${\text{|x|}}$   <-- CORRECT
+    (D) x
+    Answer: C
+    Explanation: The abscissa or the x co-ordiate of a point is the distance from the y- axis. Hence the distance is x
+
+Q4. Slope of a line is not defined if the line is
+    (A) parallel to the line x – y
+    (B) parallel to X axis
+    (C) parallel to Y axis   <-- CORRECT
+    (D) parallel to the line x + y
+    Answer: C
+    Explanation: Vertical lines have undefined slopes. Hence a line which is parallel to Y-axis has undefined slopes.
+
+Q5. The distance of the point ($\alpha {\rm{ }},{\rm{ }}\beta $) from X axis is
+    (A) $| \alpha |$
+    (B) $\alpha $
+    (C) $| \beta |$   <-- CORRECT
+    (D) none of these.
+    Answer: C
+    Explanation: The distance of a point from X axis is its y coordinate.
+Hence the distance of the point ($\alpha , \beta$) from X axis is |$\beta$|
+
+Q6. The line through the points (a, b) and (- a, - b) passes through the point
+    (A) (a^2, ab)   <-- CORRECT
+    (B) (1, 1)
+    (C) (3a, - 2b)
+    (D) (2a, - 3b)
+    Answer: A
+    Explanation: Equation of a line passing through (x_1, y_1) and (x_2, y_2) is given by
+$y-y_1 \over y_2-y_1$=$x - x_1\over x_2-x_1$ 
+Substituting the given values we get,
+$y-b\over -b-b$^ =^ $x-a \over -a-a$ 
+That is $y-b \over -2b $ = $x-a \over -2a$ 
+On cross multiplying and rearranging we get,
+bx - ay = 0
+If this passes through the given point (a^2, ab) then
+b(a^2) - a(ab) = 0
+
+Q7. Projection (the foot of perpendicular) from (x, y) on the x-axis is
+    (A) (x, 0)   <-- CORRECT
+    (B) (0, - y)
+    (C) (-x, 0)
+    (D) (0, y)
+    Answer: A
+    Explanation: Let L be the foot of the perpendicular from the X-axis. Therefore its y coordinate is zero.
+Therefore the coordinates of the point L is (x, 0).
+
+Q8. The image of the point ($\alpha {\rm{ }},{\rm{ }}\beta $) with respect to the line x + y = 0 is
+    (A) (- $\beta {\rm{ }},{\rm{ }} - {\rm{ }}\alpha $)
+    (B) ($\alpha {\rm{ }},{\rm{ }}\beta $)
+    (C) ($\beta {\rm{ }},{\rm{ }}\alpha $)
+    (D) (- $\beta {\rm{ }},{\rm{ }}\alpha $)   <-- CORRECT
+    Answer: D
+    Explanation: The equation of the line which is perpendicular to the given line x + y = 0 is x - y = 0
+The point of intersection of these two lines is (0, 0) which is the origin
+This point of intersection is the midpoint of the given point ($\alpha,\beta$) and its image, say (a, b)
+Therefore $\alpha +a\over 2$ 
+This implies a = $-\alpha$ 
+Similarly $\beta+b\over 2$ = 0
+This implies b = $-\beta$ 
+Therefore $(-\alpha, -\beta)$ is the image.
+
+Q9. The distance between the lines 5x – 12y + 65 = 0 and 5x – 12y – 39 = 0
+    (A) - 2
+    (B) 8   <-- CORRECT
+    (C) - 8
+    (D) 2
+    Answer: B
+    Explanation: To find the distance between two parallel lines given by the equations $A x+B y+C_1=0$ and $A x+B y+C_2=0$, we can use the formula:
+$ \text { Distance }=\frac{\left|C_2-C_1\right|}{\sqrt{A^2+B^2}} $
+For the lines $5 x-12 y+65=0$ and $5 x-12 y-39=0$ : - Here, $A=5, B=-12, C_1=65$, and $C_2=-39$. Now, we calculate the distance:
+$ \text { Distance }=\frac{|-39-65|}{\sqrt{5^2+(-12)^2}}=\frac{|-104|}{\sqrt{25+144}}=\frac{104}{\sqrt{169}}=\frac{104}{13}=8 $
+
+Q10. The image of the point ($\alpha {\rm{ }},{\rm{ }}\beta $) with respect to the line x = y is
+    (A) (- $\beta {\rm{ }},{\rm{ }} - {\rm{ }}\alpha $)
+    (B) (- $\alpha {\rm{ }}, - {\rm{ }}\beta $)
+    (C) ($\beta {\rm{ }},{\rm{ }}\alpha $)   <-- CORRECT
+    (D) ($\alpha {\rm{ }},{\rm{ }}\beta $)
+    Answer: C
+    Explanation: The image point of ($\alpha, \beta$) with respect x = y is ($\beta,\alpha$)
+
+Q11. The equation y - y_1 = m(x - x_1), m $\in$ R represents all lines through the point (x_1, y_1) except the line
+    (A) parallel to the line x + y = 0
+    (B) parallel to the line x – y = 0
+    (C) parallel to X axis
+    (D) parallel to Y axis   <-- CORRECT
+    Answer: D
+    Explanation: The vertical lines which are parallel to Y-axis have undefined slopes. Hence the slope of the line 'm' will be undefined.
+Therefore the above equation of the line will represent all lines through (x_1, y_1) except the line parallel to Y-axis.
+
+Q12. Slope of any line parallel to X axis is
+    (A) -1
+    (B) 2
+    (C) 1
+    (D) 0   <-- CORRECT
+    Answer: D
+    Explanation: Since the angle made with x-axis is zero since tan $\theta$ is the slope. Then tan $\theta$ = 0
+Hence the slope of the line parallel to the X-axis is zero.
+
+Q13. The distance between the parallel lines 3x + 4y + 13 = 0 and 3x + 4y - 13 = 0 is
+    (A) $\frac{26}{5}$   <-- CORRECT
+    (B) $\frac{26}{3}$
+    (C) $\frac{26}{4}$
+    (D) 26
+    Answer: A
+    Explanation: Distance between parallel lines is given by $|C_1-C_2| \over \sqrt {A^2+B^2} $ 
+Now substituting the values we get, $|13-(-13)|\over \sqrt{3^2+4^2}$ = $26\over 5$
+
+Q14. The straight lines x + y = 0, 3x - y – 4 = 0, x + 3y – 4 = 0 form a triangle which is
+    (A) isosceles
+    (B) equilateral
+    (C) scalene
+    (D) right angled   <-- CORRECT
+    Answer: D
+    Explanation: The lines formed by these lines is a right-angled, triangle.
+Two lines are perpendicular to each other if the product of their slopes is -1.
+Slope of the lines 3x - y – 4 = 0, x + 3y – 4 = 0 are 3 and $\frac{-1}{3}$ respectively.
+The product of these slopes is -1
+Hence the lines 3x - y – 4 = 0, x + 3y – 4 = 0 are perpendicular to each other.
+Therefore the triangle formed by these lines is a right-angled triangle.
+
+Q15. The lines 2x – 3y = 5 and 6x – 9y – 7 = 0 are
+    (A) coincident
+    (B) Incident
+    (C) parallel   <-- CORRECT
+    (D) perpendicular
+    Answer: C
+    Explanation: The given lines are parallel lines condition for the line to be parallel is $a_1\over a_2$= $b_1\over b_2$ $\ne $$C_1\over C_2$ 
+Substituting the values,
+$2\over 6$ =$-3\over -9$$\ne$$5\over 7$ 
+Hence they are parallel lines.
+
+========================================================================
+Straight Lines Test 02  (id 648) [PAID]
+CBSE > Class 11 > Mathematics > Straight Lines
+Questions: 15 | Answers: YES
+========================================================================
+
+Q1. The equation of the line which passes through the point (1, - 2) and cuts off equal intercepts from the axis is
+    (A) x - y - 1 = 0
+    (B) x - y - 2 = 0
+    (C) x + y + 1 = 0   <-- CORRECT
+    (D) x + y = 1
+    Answer: C
+    Explanation: Let the equation of the line which has equal intercepts be 
+$x\over a$ + $y\over a$ = 1
+Substituting the values for x and y
+1 - 2 = a
+Therefore a = -1
+Hence the equation of the line is x + y + 1 = 0
+
+Q2. If a line is drawn through the origin and parallel to the line x - 2y + 5 = 0, its equation is
+    (A) x = 2y   <-- CORRECT
+    (B) 2x + y = 0
+    (C) x – 2y + 5 = 0
+    (D) x – 2y – 5 = 0
+    Answer: A
+    Explanation: If the line is parallel to the given line x - 2y + 5 = 0, then the required line will have the same slope.
+Hence the equaion of the given line is x - 2y + k = 0
+Since it passes through the origin,
+0 + 0 + k = 0
+Therefore k = 0
+Hence the equation of the required line is x - 2y = 0 or x = 2y
+
+Q3. The line passing through (1, 1) and parallel to the line 2x – 3y + 5 = 0 is
+    (A) 3x + 2y = 5
+    (B) 2x – 3y + 1= 0   <-- CORRECT
+    (C) 2x + 3y = 5
+    (D) 3x – 2y = 1
+    Answer: B
+    Explanation: The required line is parallel to the given line, hence it has same slope.
+Therefore the equation of the required line is 2x - 3y + k = 0
+Since it passes through (1, 1)
+2(1) - 3(1) + k = 0
+Therefore k = 1
+Hence the equation of the required line is 2x - 3y + 1 = 0
+
+Q4. The equation of the line which passes through the point (2, -3) and cuts off equal intercepts from the axis is
+    (A) x – y – 2 = 0
+    (B) x – y = 1
+    (C) x + y + 1 = 0   <-- CORRECT
+    (D) x + y = 1
+    Answer: C
+    Explanation: The equation of the line which cuts equal intercepts is x + y = a 
+Since it passes through (2, -3), 2 - 3 = a
+Hence a = -1
+Hence the equation of the required line is x + y +1 = 0
+
+Q5. The straight lines x + y - 4 = 0, 3x + y – 4 = 0, x - 3y – 4 = 0 form a triangle which is
+    (A) equilateral
+    (B) Acute angled triangle
+    (C) right angled triangle   <-- CORRECT
+    (D) obtuse angled triangle
+    Answer: C
+    Explanation: The triangle formed by these lines is a right-angled triangle.
+If the lines are perpendicular to each other, then the product of their slopes is -1
+The slope of lines 3x + y – 4 = 0, x - 3y – 4 = 0 are -3 and $\frac{1}{3}$ respectively.
+The product of the slopes is -1.
+Hence these two lines are perpendicular to each other.
+This infers that the triangle formed by these lines is a right angled triangle.
+
+Q6. The distance between the parallel lines 4x + 3y + 11 = 0 and 8x + 6y = 15 is
+    (A) $\frac{7}{10}$   <-- CORRECT
+    (B) $\frac{5}{2}$
+    (C) $\frac{7}{2}$
+    (D) 4
+    Answer: A
+    Explanation: Distance between two parallel lines is given by $|c_1-c_2|\over \sqrt{A^2+B^2}$ 
+c_1 = 2 $\times$ 11 = 22 and c_2 = 15 and A = 8 and B = 6
+Now substituting the values we get
+$|22 - 15|\over\sqrt{36+64}$ = $\frac{7}{10}$
+
+Q7. The line which passes through the point ( 0 , 1 ) and perpendicular to the line x – 2y + 11 = 0 is
+    (A) 2x + y – 1 = 0   <-- CORRECT
+    (B) 2x – y + 1 = 0
+    (C) 2x – y - 3 = 0
+    (D) 2x – y + 3 = 0
+    Answer: A
+    Explanation: The line which is perpendicular to the given line is 2x + y + k = 0
+Since it passes through (0,1)
+2(0) + 1 + k = 0
+This implies k = -1
+Hence the equation of the required line is 2x + y - 1 = 0
+
+Q8. The perpendicular distance of the origin from the line 3x + 4y + 1 = 0 is
+    (A) $\frac{1}{2}$
+    (B) $\frac{1}{5}$   <-- CORRECT
+    (C) $\frac{1}{4}$
+    (D) 1
+    Answer: B
+    Explanation: The perpendicular distance from the origin to the line is given by $Ax_1 +By_1+C\over \sqrt{A^2+B^2}$ 
+For the given line c = 1, A = 3 and B = 4 and since it passes through the origin,
+Substituting the values we get,
+$1\over \sqrt{9+16}$ = $\frac{1}{5}$
+
+Q9. The acute angle between the lines x – y = 0 and y = 0 is
+    (A) 75^o
+    (B) 30^o
+    (C) 60^o
+    (D) 45^o   <-- CORRECT
+    Answer: D
+    Explanation: Slope of the line x - y = 0 is 1. This implies the tan$\theta$ = 1 Hence, the angle made by the line with X-axis is 45^o
+The angle made by the line y = 0 with the Y-axis is 90^o. Therefore the acute angle between the lines is 45^o.
+
+Q10. The vertices of a triangle are (0, 3), (-3, 0) and (3, 0). The orthocenter of the triangle is
+    (A) (3, 0)
+    (B) (-3, 0)
+    (C) (0, 3)   <-- CORRECT
+    (D) (0, -3)
+    Answer: C
+    Explanation: From the given points it is clear that these points form a right-angled isosceles triangle.
+The orthocentre of all right angle lies on its right-angle vertex.
+Here the right angle vertex is (0, 3)
+Hence the orthocentre is (0, 3)
+
+Q11. The lines x + ( k - 1)y + 1 = 0 and 2x + k^2y - 1 = 0 are at right angles if
+    (A) k > 1
+    (B) k = 1
+    (C) k < 1
+    (D) k = - 1   <-- CORRECT
+    Answer: D
+    Explanation: If the lines are at right angles to each other, then the product of their slopes = -1. Slope of any line = -(coefficient of x/coeffiecient of y)
+Therefore the slope of line 1 = -$\frac{1}{k-1}$
+The slope of line 2 = $\frac{-2}{k^2}$
+Therefore $-1 \over (k-1)$ $\times$ $-2 \over k^2$ = - 1
+That is k^2 (k - 1) = -2
+i.e; k^3 - k^2 + 2 = 0
+On factorizing we get (k + 1)(k^2 - 2k - 2) = 0
+This imlpies k + 1 is a factor, hence k = -1
+Hence they are at right angles if k = -1
+
+Q12. A line is equally inclined to the axis and the length of perpendicular from the origin upon the line is $\sqrt 2 $. A possible equation of the line is
+    (A) x + y = 2   <-- CORRECT
+    (B) y = $\sqrt 2 $ x + 2
+    (C) y = x + $\sqrt 2 $
+    (D) y = x + 1
+    Answer: A
+    Explanation: Since the line is equally inclined, the slope of the line should be -1, because it makes 135^o in the positive direction of the X-axis.
+This implies the equation of the line is y = -x + c 
+i.e; x + y - c = 0
+distance of the line from the origin is given as $\sqrt 2$ 
+Therefore $\sqrt 2$ = $|c|\over \sqrt{1^2+1^2}$ 
+This implies c = 2
+Hence, the equation of the line is x + y = 2
+
+Q13. The lines y = mx, y + 2x = 0, y = 2x + $\lambda $ and y = - mx + $\lambda $ form a rhombus if m =
+    (A) 2
+    (B) - 1
+    (C) -2   <-- CORRECT
+    (D) 1
+    Answer: C
+    Explanation: Rhombus is a parallelogram in which the opposite sides are equal and parallel.
+Therefore the lines y = mx and y = -2x are parallel, similarly y = 2x + $\lambda$ and y = -mx + $\lambda$ are parallel.
+If two lines are equal, then their slopes are equal.
+This implies m = -2
+
+Q14. Two points (a, 0) and (0, b) are joined by a straight line. Another point on this line is
+    (A) (-a, 2b)
+    (B) (a, -2b)
+    (C) (-3a, 2b)
+    (D) (3a, - 2b)   <-- CORRECT
+    Answer: D
+    Explanation: The slope of the line joining the points (a, 0) and (0, b) is [$\frac{[b-0]}{[0-a]}$ = -($\frac{b}{a}$)
+Hence the equation of the line is y = (-$\frac{b}{a}$)x + b
+i.e; ay = -bx + ab
+Substituting the x coordinate 3a in the place of x in the above equation we get y = -2b
+Hence (3a, -2b) is another point on the line.
+
+Q15. The coordinates of the foot of perpendicular from (0, 0) upon the line x + y = 2 are
+    (A) (1, 2)
+    (B) (1, 1)   <-- CORRECT
+    (C) (-1, 2)
+    (D) (1, -2)
+    Answer: B
+    Explanation: The equation of the line perpendicular to the given line is x - y + k = 0
+Since it passes through the origin, 
+0 - 0 + k = 0
+Therefore, k = 0
+Hence the equation of the line is x - y = 0
+On solving these two equations we get x = 1 and y = 1
+The point of intersection of these two lines is (1, 1)
+Hence the coordinates of the foot of the perpendicular is (1, 1)
+
+========================================================================
+Straight Lines Test 03  (id 649) [PAID]
+CBSE > Class 11 > Mathematics > Straight Lines
+Questions: 15 | Answers: YES
+========================================================================
+
+Q1. The area of the triangle whose sides are along the lines x = 0, y = 0 and 4x + 5y = 20 is
+    (A) 20 sq.units
+    (B) 10 sq.units   <-- CORRECT
+    (C) $\frac{1}{10}$ sq.units
+    (D) $\frac{1}{20}$ sq.units
+    Answer: B
+    Explanation: The equation 4x + 5y = 20 can be written as $x \over 5$ + $y \over4$ = 1
+This implies the intercepts cut by this line on the X and Y axes are 5 and 4 respectively.
+Hence the area of the triangle is $\frac{1}{2}$[5 $\times$ 4] = 10 square units.
+
+Q2. A line is drawn through the points (3, 4) and (5, 6). If the is extended to a point whose ordinate is – 1, then the abscissa of that point is
+    (A) - 2   <-- CORRECT
+    (B) 0
+    (C) -1
+    (D) 1
+    Answer: A
+    Explanation: The slope of the given line is $y_2 - y_1 \over x_2-x_1$ = $6-4 \over 5 -3$ = 1
+Therefore $4-(-1) \over 3-x$ = 1
+That is 4 + 1 = 3 - x
+Therefore x = -2
+
+Q3. The line x + y – 6 = 0 is the right bisector of the segment [PQ]. If P is the point (4, 3), then the point Q is
+    (A) (3, 3)
+    (B) (3, 4)
+    (C) (3, 2)   <-- CORRECT
+    (D) (4, 4)
+    Answer: C
+    Explanation: Equation of the line which is perpendicular to the given line x + y = 6 is x - y + k = 0
+Since it passes through the point (4, 3)
+4 - 3 + k = 0
+Therefore k = -1
+Hence the equation of the line segment PQ is x - y - 1 = 0
+On solving these two lines we get x = $\frac{7}{2}$ and y = $\frac{5}{2}$
+This point of intersection is the midpoint of the line segment PQ.
+That is $4+x \over 2$ = $\frac{7}{2}$ Hence x = 3
+Similarly $3+y \over 2$ = $\frac{5}{2}$. Hence y = 2
+Hence the coordinates of the point Q is (3, 2).
+
+Q4. The acute angle between the lines ax + by + c = 0 and (a + b)x = (a – b)y , a $ \ne $b , is
+    (A) 30^o
+    (B) 60^o
+    (C) 15^o
+    (D) 45^o   <-- CORRECT
+    Answer: D
+    Explanation: The slope of the first line is -($\frac{a}{b}$) and slope of the second line is $a+b \over a-b$ 
+Angle between the lines is $tan\theta$ = $|m_2 - m_1|\over 1+ m_1m_2$ 
+Let m_1 = -($\frac{a}{b}$) and m_2 = $a+b \over a-b$ 
+Hence $tan \theta$ =[ $(-a/b) - (a+b)/a-b)\over1 +(-a/b)(a+b)/(a-b)$]
+On simplifying we get, 
+tan $ \theta$ = 1
+This implies $\theta$ = 45^o
+
+Q5. The lines x + 2y – 3 = 0, 2x + y – 3 = 0 and the line l are concurrent. If the line I passes through the origin, then its equation is
+    (A) x – y = 0   <-- CORRECT
+    (B) x + y = 0
+    (C) x - 2y = 0
+    (D) x + 2y = 0
+    Answer: A
+    Explanation: Equation of a line passing through the intersection of two lies is given by ax_1 + by_1 +c_1 + k(ax_2 + by_2 + c_2) = 0
+Hence x + 2y - 3 + k(2x + y - 3) = 0
+Since it passes through (0, 0)
+-3 -3k = 0
+This implies k = -1
+Sustituting for k we get,
+x + 2y - 3 +(-1)(2x + y - 3) = 0
+-x + y = 0 or x - y = 0
+
+Q6. The triangle formed by the lines x + y = 1, 2x + 3y – 6 = 0 and 4x – y + 4 = 0 lies in
+    (A) 3^rd quadrant
+    (B) 1^st quadrant
+    (C) 4^th quadrant
+    (D) 2^nd quadrant   <-- CORRECT
+    Answer: D
+    Explanation: On solving line 1 and line 2 we get x = -3 and y = 4. Hence the point of intersection is (-3, 4)
+On solving line 2 and line 3 we get x = ($\frac{-3}{7}$) and y = $\frac{16}{7}$. Hence the point of intersection is ($\frac{-3}{7}$, $\frac{16}{7}$)
+On solving line 3 and line 1 we get x = $\frac{-3}{7}$ and y = $\frac{-8}{7}$. Hence the point of intersection is ($\frac{-3}{7}$, $\frac{-8}{7}$)
+All the above points lie in the second quadrant. Hence the triangle formed by these lines also lie in the second quadrant.
+
+Q7. The area of triangle formed by the lines y = x, y = 2x and y = 3x + 4 is
+    (A) 7
+    (B) 8
+    (C) 4   <-- CORRECT
+    (D) 9
+    Answer: C
+    Explanation: Area of the triangle formed by the coordinates (x_1, y_1), (x_2, y_2) and (x_3, y_3) is given by
+$1\over 2$[x_1(y_2 - y_3) + x_2(y_3 - y_1) + x_3(y_1 - y_2)]
+On solving the lines 1 and 2, the point of intersection is (0, 0)
+On solving the lines 2 and 3, the point of intersection is (4, 8)
+On solving the line 3 and 1 , the point of intersection is (-2, -2)
+Now substituting the values to find the area of the triangle,
+Area = $1\over 2$| [0 + 4(-2 - 0) + (-2)(0 - 8)] |
+= 4 sq units
+
+Q8. If the points representing the complex numbers - 4 +3i, 2 – 3i and 0 + pi are collinear, then the value of p is
+    (A) 1
+    (B) 2
+    (C) - 2
+    (D) - 1   <-- CORRECT
+    Answer: D
+    Explanation: Let us take the coordinates as (-4, 3), (2, -3) and (0, p).
+If the points are collienear the $1\over 2$|x_1(y_2 - y_3) + x_2(y_3 - y_1) + x_3(y_1 - y_2)| = 0
+Now substituting the values |-4(-3 - p) +2(p - 3) + 0(3 + 3)|= 0
+12 + 4p + 2p - 6 + 0 = 0
+6p +6 = 0
+6p = -6
+Therefore p = -1
+
+Q9. The lines lx + my + n = 0, mx + ny + l = 0 and nx + ly + m = 0 are concurrent if
+    (A) l + m + n = 0   <-- CORRECT
+    (B) l – m – n = 0
+    (C) l + m – n = 0
+    (D) I – m + n = 0
+    Answer: A
+    Explanation: The required condition for concurrency is a_3(b_1c_2 - b_2c_1) + b_3(c_1a_2 - c_2a_1) + c_3(a_1b_2 - a_2b_1) = 0
+Here a_1 = l, a_2 = m, a_3 = n and b_1 = m, b_2 = n, b_3 = l and c_1 = n, c_2 = l and c_3 = m
+Substituting the values we get
+n(ml - n^2) + l(nm - l^2) + m(ln - m^2) = 0
+This implies l^3 + m^3 + n^3 - 3lmn = 0
+That is (l + m+ n)(l^2 + m^2 + n^2 - lm - mn - nl) = 0
+This implies l + m + n = 0
+
+Q10. The equations of the lines through (-1, -1) and making angles of 45^o with the line x + y = 0 are
+    (A) x + 1 = 0, y + 1 = 0   <-- CORRECT
+    (B) x – 1 = 0, y – x = 0
+    (C) x - 1 = 0, y - 1 = 0
+    (D) x + y = 0, y + 1 = 0
+    Answer: A
+    Explanation: The lines x + 1 = 0 and y + 1 = 0 are perpendicular to each other.
+The slope of the line x + y = 0 is -1
+Hence the angle made by this line with respect to X-axis is 45^o
+In other words, the angle made by this line with x + 1 = 0 is 45^o
+Clearly the other line with which it can make 45^o is y + 1 = 0
+
+Q11. Given the 4 lines with equations x + 2y – 3 = 0, 2x + 3y – 4 = 0, 3x + 4y – 5 = 0, 4x + 5y – 6 = 0, then these lines are
+    (A) the sides of a quadrilateral
+    (B) sides of a Rhombus
+    (C) sides of a parallelogram
+    (D) concurrent   <-- CORRECT
+    Answer: D
+    Explanation: The lines are concurrent
+On solving the lies 1 and 2 we get the point of intersection as (-1, 2)
+Similarly on solving lines 2 and 3, the point of intersection is (-1, 2)
+Similarly solving lines 3 and 4, the point of intersection is (-1, 2)
+On solving lines 1 and 4 the point of intersection is (-1, 2)
+Since the point of intersection is the same for all the lines, the lines are concurrent.
+
+Q12. The locus of the equation xy = 0 is
+    (A) a straight line
+    (B) A parabola
+    (C) a pair of perpendicular lines   <-- CORRECT
+    (D) a hyperbola
+    Answer: C
+    Explanation: The equation of the pair of straight lines passing through the origin is given by ax^2 + 2hxy + by^2 = 0
+The condition for perpendicularity between the pair of lines is a + b = 0
+Hence the locus of the pair of these perpendicular straight lines should be xy = 0
+
+Q13. The locus of the inequation xy $≥$ 0 is
+    (A) a pair of straight lines
+    (B) a parallel line
+    (C) a straight line
+    (D) the set of all points either in the 1st quadrant or in the 3rd quadrant including the points on coordinate axis   <-- CORRECT
+    Answer: D
+    Explanation: It is the set of all points either in the 1st quadrant or in the 3rd quadrant including the points on coordiate axis. This is because the inequality $\ge$ indicates that the points belong either to 1st or 3rd quadrant.
+
+Q14. The acute angle between the lines y = 2x and y = - 2x is
+    (A) greater than 60^o
+    (B) 90^o
+    (C) 60^o
+    (D) less than 60^o   <-- CORRECT
+    Answer: D
+    Explanation: The angle between two straight lines is given by $|m_1-m_2|\over 1+m_1m_2$ 
+Here m_1 = 2 and m_2 = -2
+Sustituting the values we get,
+tan $\theta$ = $2-(-2)\over 1+2.(-2)$ 
+= $\frac{4}{5}$ < 60^0
+
+Q15. The image of the point (-1, 2) in the origin is
+    (A) (-1, -2)
+    (B) (1, 2)
+    (C) (1, -2)   <-- CORRECT
+    (D) (2, - 1)
+    Answer: C
+    Explanation: When a point M which is in the 2nd quadrant is reflected in the origin, its image is formed in the 4th quadrant whose coordinates are (x, -y)
+Hence, the image of the point (-1, 2) is (1, -2)
+
+========================================================================
+Straight Lines Test 04  (id 650) [PAID]
+CBSE > Class 11 > Mathematics > Straight Lines
+Questions: 15 | Answers: YES
+========================================================================
+
+Q1. The orthogonal projection of the point (2, - 3) on the line x + y = 0 is
+    (A) (-2, -3)
+    (B) (2, -3)
+    (C) (2, 3)
+    (D) ($\frac{5}{2}$, $\frac{-5}{2}$)   <-- CORRECT
+    Answer: D
+    Explanation: Equation of the line which is perpendicular to the given line is x - y + k = 0
+Since this line passes through (2, -3)
+2-(-3) + k = 0
+This implies k = -5
+Hence the equation og the line is x - y = 5
+On solving the lines x + y = 0 and x - y = 5, we get the point of intersection as x = $\frac{5}{2}$ and y = $\frac{-5}{2}$
+Hence ($\frac{5}{2}$, $\frac{-5}{2}$) is the coordinates of orthogonal projection.
+
+Q2. Three points A, B and C are collinear if the area of triangle ABC is
+    (A) greater than zero
+    (B) less than zero
+    (C) not equal to zero
+    (D) zero   <-- CORRECT
+    Answer: D
+    Explanation: Only non-collinear points can form a triangle. Hence if the three points are collinear a triangle cannot be formed, hence the area of the triangle is zero
+
+Q3. The lines 8x + 4y = 1, 8x + 4y = 5, 4x + 8y = 3, 4x + 8y = 7 form a
+    (A) Square
+    (B) Rectangle
+    (C) Trapezium
+    (D) Rhombus   <-- CORRECT
+    Answer: D
+    Explanation: On solving the equations 8x + 4y = 1 and 4x + 8y = 3, we get the point of intersection as ($\frac{-1}{2}$, $\frac{5}{12}$)
+On solving the equations 8x + 4y = 5 and 4x + 8y = 7, we get the point of intersection as ($\frac{1}{4}$, $\frac{3}{4}$)
+On solving the equations 8x + 4y = 1 and 4x + 8y = 7, we get the point of intersection as ($\frac{-5}{12}$, $\frac{13}{12}$)
+On solving the equations 8x + 4y = 5 and 4x + 8y = 3, we the point of intersection as ($\frac{7}{12}$, $\frac{1}{12}$)
+Let the points A(($\frac{-1}{2}$, $\frac{5}{12}$), B($\frac{7}{12}$, $\frac{1}{12}$) C($\frac{1}{4}$, $\frac{3}{4}$) and D($\frac{-5}{12}$, $\frac{13}{12}$) be the vertices of the quadrilateral
+Since the slopes of the opposite sides are equal the quadrilateral is a parallelogram
+The slope of the diagonal AC is $5/12 - 3/4\over -1/2 - 1/4$ = 1
+The slope of the diagonal BD is $1/2 - 13/12\over 7/12 - (-5/12)$ = -1
+Since the product of the slopes is -1, the diagonals are perpendicular to each other.
+Hence the parallelogram is a rhombus.
+
+Q4. The number of points on X-axis which are at a distance of c units (c < 3) from (2, 3) is
+    (A) 1
+    (B) 0   <-- CORRECT
+    (C) 3
+    (D) 2
+    Answer: B
+    Explanation: Let (x, 0) be the point.
+Then, by distance formula we have
+(x - 2)^2 + 3^2 = c^2
+x^2 - 4x + 4 + 9 - c^2 = 0
+x^2 - 4x + 13 - c^2 = 0
+x will be real if the b^2 - 4ac $\ge$0
+i.e; 16 - 4(13 - c^2) $\ge$ 0
+i.e; c^2 - 9 $\ge$ 0
+i.e; |c| $\ge$ 3
+Hence there is no point.
+
+Q5. If (x, y) are the coordinates of point in the plane, then $\left| {\begin{array}{*{20}{c}} 3&4&2 \\ 5&8&2 \\ x&y&2 \end{array}} \right| $ = 0 represents
+    (A) a circle
+    (B) a straight line parallel to y axis
+    (C) a straight line   <-- CORRECT
+    (D) a straight line parallel to x axis
+    Answer: C
+    Explanation: The given determinant can be written as 2$\begin{vmatrix} 3 & 4 & 1\\ 5 & 8 & 1\\ x & y & 1 \end{vmatrix}$ = 0
+On expansion we get 
+2[3(8 - y) - 4(5 - x) + 1(5y - 8x)]
+On simplifying the equation 2(-4x + 2y + 4) = 0 represents a striaght line.
+
+Q6. The equations of the lines through (1, 1) and making angles of 45^o with the line x + y = 0
+    (A) x – 1 = 0, x – y = 0
+    (B) x – y = 0, y – 1 = 0
+    (C) x + y = 0, y – 1 = 0
+    (D) x – 1 = 0, y – 1 = 0   <-- CORRECT
+    Answer: D
+    Explanation: If the lines make equal angles of 45^o with the given line, x + y = 0.
+Then these lines must be perpendicular with each other.
+This is possible only when the two lines are parallel to X-axis and Y-axis.
+That is the equations should be x = a constant and y = a constant.
+Since it passes through (1, 1)
+The equations should be x = 1 or x - 1 = 0 and y = 1 or y - 1 = 0
+
+Q7. The number of lines that are parallel to 2x + 6y – 7 = 0 and have an intercept 10 units between the coordinate axis is :
+    (A) 4
+    (B) 1
+    (C) 3
+    (D) 2   <-- CORRECT
+    Answer: D
+    Explanation: The slope of the given line 2x + 6y = 7 is $\frac{-1}{3}$
+Hence the line which is parallel to the above line is 
+y = ($\frac{-1}{3}$)x + c
+That is the y-intercept is (0, c) and the x-intercept is (3c, 0)
+Using the distance formula
+d^2 = (0 - 3c)^2 + (3c - 0)^2
+= 10c^2
+Since the distance is given as 10, then
+100 = 10c^2
+Therefore c = $ \pm$10
+Since two values are possible, two lines can be drawn.
+
+Q8. The line (p + 2q)x + (p – 3q)y = p - q for different values of p and q passes through the fixed point
+    (A) ($\frac{2}{5}$, $\frac{2}{5}$)
+    (B) ($\frac{3}{5}$, $\frac{5}{2}$)
+    (C) ($\frac{3}{5}$, $\frac{3}{5}$)
+    (D) ($\frac{2}{5}$, $\frac{3}{5}$)   <-- CORRECT
+    Answer: D
+    Explanation: Expanding the given equation
+px + 2qx + py - 3qy = p - q
+px + py + 2qx - 3qy = p - q
+p(x + y) - q(- 2x + 3y) = p - q
+Equating the coeffiecients of like terms
+x + y = 1 and - 2x + 3y = 1
+On solving both the equations we get,
+x = $\frac{2}{5}$ and y = $\frac{3}{5}$
+Hence the line passes through the fixed point ($\frac{2}{5}$, $\frac{3}{5}$)
+
+Q9. The area of the quadrilateral formed by the lines |x| + |y| = 1 is
+    (A) 4
+    (B) 2   <-- CORRECT
+    (C) 8
+    (D) 10
+    Answer: B
+    Explanation: Equations of the lines are
+x $\ge$ 0, y $\ge$ 0, then x + y = 1
+x $ \le$ 0, y $\le$ 0, then x + y = -1
+x $\ge$ 0, y $\le$ 0, then x - y = 2
+x $\le$ 0, y $\ge$ 0, then x - y = -2
+Clearly these lines form a square, whose coordinates are (1, 1), (1, -1),(-1, -1), (-1, 1)
+Hence its area is 4 $\times$ [$\frac{1}{2}$]1 $\times$ 1 = 2 sq units
+
+Q10. If a , b , c are in A . P. then straight line ax + by + c = 0 will always pass through a fixed point whose coordinates are
+    (A) ( -1 ,2 )
+    (B) ( 1 , - 2 )   <-- CORRECT
+    (C) ( - 1 , - 2 )
+    (D) ( 1 , 2 )
+    Answer: B
+    Explanation: Since a,b,c are in A.P,
+a+c = 2b
+This implies a-2b+c = 0
+This implies the the family of lines is concurrent at (1,2)
+
+Q11. The line segment joining the points (1, 2) and (-2, 1) is divided by the line 3x + 4y = 7 in the ratio
+    (A) 4 : 9   <-- CORRECT
+    (B) 3 : 4
+    (C) 4 : 3
+    (D) 9 : 4
+    Answer: A
+    Explanation: Let the line divide in the ratio k:1
+By applying section formula $k.x_2 -1.x_1\over k+1$, $k.y_2-1.y_1\over k+1$
+Substituting the values
+$-2k+1\over k+1$, $k+2\over k+1$
+This given line 3x + 4y = 7 passes through this point.
+Hence, 3($-2k+1\over k+1$) + 4($k+2\over k+1$ )= 7
+On simplifying, we get,
+k = $\frac {4}{9}$
+Hence the ratio is 4 : 9
+
+Q12. A line L passes through the points (1, 1) and (2, 0) and another line M which is perpendicular to L passes through the point (1/2, 0). The area of the triangle formed by these lines with y axis is :
+    (A) 25/10
+    (B) 25/16   <-- CORRECT
+    (C) 25/4
+    (D) 25/8
+    Answer: B
+    Explanation: The equation of the line joining the two points (x_1, y_1) and (x_2, y_2) is
+$y - y_1 \over y_2 - y_1$ = $x-x_1\over x_2 - x_1$
+The given points are (1, 1) and (2, 0)
+On substituting the values we get
+$y-1\over 0-1$ = $x-1\over 2-1 $
+On simplifying we get,
+x + y - 2 = 0
+The line which is perpendicular to this line is x - y + k = 0
+Since it passes through (1/2, 0)
+(1/2) - 0 = k
+This implies k = -1/2
+Hence the equation of this line is x - y - 1/2 = 0
+On solving these twolines we get the point of intersection as (5/4, 3/4)
+The point which line x + y - 2 = 0 cuts the Y axis is (0, 2) and the point which the line x - y - 1/2 = 0 cuts the Y axis is (0, -1/2)
+Hend e the area of the triangle = [1/2] x [5/4] x [5/4] = 25/16 squnits
+
+Q13. The medians AD and BE of a triangle with vertices A ( 0 , b ) , B ( 0, 0 ) and C ( a , 0 )are perpendicular to each other if
+    (A) $a = \sqrt { - 2} b$
+    (B) $a = \pm \sqrt 2 b$   <-- CORRECT
+    (C) $b = \sqrt { - 2} a$
+    (D) $b = \pm \sqrt 2 a$
+    Answer: B
+    Explanation: Let D be the midpoint of BC. Hence its midpoint is ($0+a\over2$,0) = ($a\over2$,0)
+Let E be the midpoint of AC. Hence its midpoint is ($0+a\over2$,$0+b\over2$) = ($a\over2$,$b\over2$)
+Slope of the median AD is $b-0\over (a/2)-0$ = -$2b\over a$
+Sope of BE = $(a/2)-0\over(b/2)-0$= $b\over a$
+If BE and AD are perpendicular to each other then their product is -1
+i.e;- $2b\over a$ x $b\over a$ = -1
+This implies 2b^2 = a^2
+a = $\pm\sqrt2$b
+
+Q14. The straight lines x + y = 0, 3x + y – 4 = 0, x + 3y – 4 = 0 form a triangle which is
+    (A) isosceles   <-- CORRECT
+    (B) right angled
+    (C) equilateral
+    (D) Scalene
+    Answer: A
+    Explanation: On solving lines 1 and 2 we get the point of intersection as (-2, 2)
+On solving the lines 2 and 3 we get, the point of intersection as (2, -2)
+On solving lines 3 and 1 we get the point of intersection as (1, 1)
+Now using distance formula we get AB = $\sqrt{(2-(-2))^2+(-2-2)^2}$ = $\sqrt 8$ 
+Similarly, BC = $\sqrt{(1-2)^2+(1-(-2))^2}$ = $\sqrt{10}$ 
+Similarly, AC = $\sqrt{(-2-1)^2+(2-1)^2}$= $\sqrt {10}$ 
+Since AB = AC, it is an isosceles triangle.
+
+Q15. The line which is parallel to X-axis and crosses the curve y = $\sqrt x $ at an angle of 45^o is:
+    (A) y = $\frac{3}{2}$
+    (B) y = $\frac{1}{2}$   <-- CORRECT
+    (C) y = 1
+    (D) y = $\frac 14$
+    Answer: B
+    Explanation: The equation of the line which is a tangent to the curve y = $\sqrt x$ is
+y = mx + a/m
+Since it makes and angle of 45^o, m = 1
+y^2 = x implies a = $\frac{1}{4}$
+Hence the equation of the tangent is y = x + $\frac 14$
+That is the y-intercept is $\sqrt \frac 14$ = $\frac{1}{2} $
+Hence the equation of the line is y = $\frac{1}{2} $
+
+========================================================================
+Straight Lines Test 05  (id 651) [PAID]
+CBSE > Class 11 > Mathematics > Straight Lines
+Questions: 15 | Answers: YES
+========================================================================
+
+Q1. Two opposite vertices of a rectangle are (1, 3), (5, 1). If the equation of a diagonal of this rectangle is y = 2x + c, then the value of c is
+    (A) 2
+    (B) 1
+    (C) -9
+    (D) - 4   <-- CORRECT
+    Answer: D
+    Explanation: Slope of the line joining the given points (1, 3) and (5, 1) is $1-3\over 5-1$ = $\frac{-1}{2}$
+Hence the line having slope $\frac{-1}{2}$ is y = [$\frac{-1}{2}$]x + c
+If the diagonal is y = 2x + c, then c = -4
+
+Q2. The sum of all the two-digit numbers is
+    (A) 4895
+    (B) 4315
+    (C) 4605
+    (D) 4905   <-- CORRECT
+    Answer: D
+    Explanation: The two digit numbers forms on A.P with a = 10, a_n = 99 and d = 1
+Now a_n = a + (n - 1)d $\Rightarrow$ 99 = 10 + (n - 1) $\Rightarrow$ n = 99 - 9 = 90
+We have S_n = $\frac {n}{2}$[2a + (n - 1)d]
+$\Rightarrow$ S_90 = $\frac {n}{2}$[20 + (90 - 1)1]
+$\Rightarrow$ S_90 = $\frac {90}{2}$ $\times$ 109 = 4905
+
+Q3. The points (- a, -b), (0, 0), (a, b) and (a^2, ab) are
+    (A) vertices of a square
+    (B) collinear   <-- CORRECT
+    (C) vertices of a parallelogram
+    (D) vertices of a rectangle
+    Answer: B
+    Explanation: Consider the points (a, b), (0, 0), (-a, -b)
+It is clear that (0, 0) is the midpoint of (a, b) and (-a, -b)
+This implies that these three points are collinear
+Now consider the points,
+(a, b), (a^2, ab) and (-a, -b)
+If three points are collinear then the area of the triangle formed by these points is zero.
+That is $1\over 2$[x_1(y_2 - y_3) + x_2(y_3 - y_1) + x_3(y_1 - y_2)]= 0
+Substituting the values
+$1\over 2$[a(a + b) + a^2(-b - b) + (-a)(b - ab)]
+On expanding and simplifying we get the value to be zero.
+Hence these points are collinear.
+
+Q4. The distance between the lines 3x + 4y = 9 and 6x + 8y = 15 is
+    (A) $\frac{2}{3}$
+    (B) $\frac{7}{10}$
+    (C) $\frac{3}{10}$   <-- CORRECT
+    (D) $\frac{3}{2}$
+    Answer: C
+    Explanation: Distance between two parallel lies is given by $|c_1-c_2|\over \sqrt{A^2+B^2}$ 
+The given lines are parallel where c_1 = 9 and c_2 = $\frac{15}{2}$
+Sustituting the values 
+d = $|9-15/2|\over \sqrt{9+16}$ = $\frac{3}{10}$
+
+Q5. The locus of a point, whose abscissa and ordinate are always equal is
+    (A) x + y = 1
+    (B) x + y - 1 = 0
+    (C) x + y + 1 = 0
+    (D) x – y = 0   <-- CORRECT
+    Answer: D
+    Explanation: The abscissa is equal to the ordinate implies x = y
+Hence, the locus is x - y = 0
+
+Q6. The ortho centre of the triangle formed by lines xy = 0 and x + y = 1 is :
+    (A) ($\frac{1}{3}$, $\frac{1}{3}$)
+    (B) (0, 0)   <-- CORRECT
+    (C) ($\frac{1}{4}$, $\frac{1}{4}$)
+    (D) ($\frac{1}{2}$, $\frac{1}{2}$)
+    Answer: B
+    Explanation: Given xy = 0 and x + y = 1, indicates that the straight line passes through (1, 0) and (0, 1). Hence it is a right-angled triangle whose vertex is the origin. Therefore the orthocenter is also at the origin (0, 0), this is one of the properties of right-angled triangle whose vertex is the origin.
+
+Q7. The straight-line 3x + y = 9 divides the line segment joining the points (1, 3) and (2, 7) in the ratio
+    (A) 5 : 4
+    (B) 4 : 2
+    (C) 3 : 4   <-- CORRECT
+    (D) 4 : 5
+    Answer: C
+    Explanation: Let the point be (x, y) and the ratio it divides (1, 3) and (2, 7) be k : 1
+By section formula, x = $2k+1\over k+1$, y = $7k+3\over k+1$ 
+his point also lies on the given line so it would satisfy the equation 3x + y - 9 = 0
+3(2k + 1) + (7k + 3) - 9(k + 1) = 0
+k = $\frac{3}{4}$
+Hence the ratio is ratio = 3 : 4
+
+Q8. In a $\Delta ABC,$ if A is the point (1, 2) and equations of the median through B and C are respectively x + y = 5 and x = 4, then B is
+    (A) (-2, 7)
+    (B) (1, 4)
+    (C) (4, 1)
+    (D) (7, - 2)   <-- CORRECT
+    Answer: D
+    Explanation: Let F be the midpoint on AC
+Hence the coordinate of F is $\frac{x_1 + 1}{2}$ and $\frac{5-x_1 + 2}{2}$
+This point lies on x = 4
+Therefore $\frac{x_1 + 1}{2}$ = 4
+Therefore x_1 = 7 
+Therefore y = 5 - 7 = -2
+Hence the coordinates of B is (7, -2)
+
+Q9. The ratio of the ${{\rm{7}}^{{\rm{th}}}}$ to the (n - 1)th mean between 1 and 31, when n arithmetic means are inserted between them, is 5 : 9. The value of n is
+    (A) 12
+    (B) 13
+    (C) 14   <-- CORRECT
+    (D) 15
+    Answer: C
+    Explanation: Let A_1, A_2, A_3, A_4 ..., A_n be the n arithmetic means inserted between 1 and 31.
+The we have 1, A_1, A_2, A_3, A_4 ..., A_n, 31 is an A.P with a = 1, T_n = 31 and number of terms = n + 2
+Now, T_n = 31 $\Rightarrow$ 1 + [(n + 2) - 1]d = 31
+$\Rightarrow$ d = $\frac{30}{n+1}$
+Hence we get T_7 = a + 7d = 1 + 7$\left[\frac{30}{n+1}\right]$ ...(i)
+And T_n - 1 = a(n - 1) + d = 1 + (n - 1)$\left[\frac{30}{n+1}\right]$ ...(ii)
+Given $\frac{T_{7}}{T_{n-1}}=\frac{5}{9}$
+$\Rightarrow \frac{1+7\left[\frac{30}{n+1}\right]}{1+(n-1)\left[\frac{30}{n+1}\right]}=\frac{5}{9}$
+$\Rightarrow \frac{\frac{n+1+210}{n+1}}{\frac{31 n-29}{n+1}}=\frac{5}{9}$
+$\Rightarrow$ 9n + 1899 = 155n - 145
+$\Rightarrow$ 2044 = 146 n
+$\Rightarrow$ n = $\frac{2044}{146}$ = 14
+
+Q10. The point on the axis of y which is equidistant from (- 1, 2) and (3, 4) is
+    (A) (4, 0)
+    (B) (0, 4)
+    (C) (5, 0)
+    (D) (0, 5)   <-- CORRECT
+    Answer: D
+    Explanation: Let (0, y) be the point on Y-axis which is equidistant from the points (-1, 2) and (3, 4)
+By applying the distance formula,
+(0 + 1)^2 + (y - 2)^2 = (3 - 0)^2 + (4 - y)^2
+on simplifying we get
+4y = 20
+Therefore y = 5
+Hence the point on the y-axis is (0, 5)
+
+Q11. Given the three straight lines with equations 5x + 4y = 0, x + 2y – 10 = 0 and 2x + y + 5 = 0, then these lines are
+    (A) the sides of a right angled triangle
+    (B) the sides of an equilateral triangle
+    (C) the sides of an isosceles triangle
+    (D) concurrent   <-- CORRECT
+    Answer: D
+    Explanation: The lines are said to be concurrent $\begin{vmatrix} 5 & 4 & 0\\ 1 & 2 & -10\\ 2 & 1 & 5\\ \end{vmatrix} $ = 0
+On expanding we get 
+5(10 + 10) -4(5 + 20) + 0 = 0
+Hence the lines are concurrent.
+
+Q12. A line passes through (2,2) and is perpendicular to the line 3x+y=3, then its y intercept is
+    (A) 1/3
+    (B) 2/3
+    (C) 4/3   <-- CORRECT
+    (D) 1
+    Answer: C
+    Explanation: The line which is perpendicular to the given line is x-3y+k=0
+This passes through the point (2,2)
+Substituting the values,
+2-3(2)+k=0
+k = 4
+Hence the equation of the line is x-3y+4=0
+This can be written as $x\over-4$+$y\over4/3$ = 1
+Hence the y intercept is 4/3
+
+Q13. The angle between the two straight lines 6y^2 - xy - x^2 + 30y + 36 = 0 is
+    (A) 60^o
+    (B) 30^o
+    (C) 50^o
+    (D) 45^o   <-- CORRECT
+    Answer: D
+    Explanation: Consider the equation -x^2 + xy + 6y^2 = 0 or x^2 - xy - 6y^2 = 0
+On factorizing we get,
+(x - 3y)(x + 2y) = 0
+Hence, the equation of the pair of straight lines is given by 
+x - 3y + l = 0 and x + 2y + m = 0
+Hence, the slope of these lines are $\frac{1}{3}$ and $\frac{-1}{2}$ respectively.
+The angle between the straight lines is given by,
+$tan \theta$ = $m_1 -m_2\over 1+m_1m_2$ = $1/3 - (-1/2)\over 1+(1/3)(-1/2)$ = 1
+Hence, the angle is 45^o.
+
+Q14. Area of a triangle is 5 sq. units. Its two vertices are (2, 1) and (3, - 2). Third vertex is on the line y = x + 3. The coordinates of that vertex are
+    (A) ($\frac{8}{3}$, $\frac{5}{3}$)
+    (B) (8, 14)
+    (C) ($\frac{7}{2}$, $\frac{13}{2}$)   <-- CORRECT
+    (D) ($\frac{8}{5}$, $\frac{6}{5}$)
+    Answer: C
+    Explanation: Area of a triangle whose vertices are (x_1, y_1), (x_2, y_2) and (x_3, y_3) is
+$1\over 2$[x_1(y_2 - y_3) + x_2(y_3 - y_1) + x_3(y_1 - y_2)
+The given veritces are (x, y), (2, 1), (3, -2) and area is 5 sq units
+Substituting the values we get
+5 = $1\over 2$[(x(1 + 2) + 2(-2 - y) + 3(y - 1)]
+That is 10 = 3x + y - 7
+or 3x + y = 17
+The third vertex passes lies on the line y = x + 3
+On solving the equations we get,
+x = $\frac{7}{2}$ and y = $\frac{13}{2}$
+Hence, the third vertex is ($\frac{7}{2}$, $\frac{13}{2}$)
+
+Q15. The foot of the perpendicular from (2, 3) on the line 3x + 4y – 6 = 0 is
+    (A) $(\frac {14} {25}, \frac {27} {25})$   <-- CORRECT
+    (B) $(\frac {14} {25}, - \frac {27} {25})$
+    (C) $( - \frac {14} {25}, - \frac {27} {25})$
+    (D) $( - \frac {14} {25}, \frac {29} {25})$
+    Answer: A
+    Explanation: The equation of the line perpendicular to the given line 3x + 4y = 6 is 4x - 3y + k = 0
+Since this line passes through (2, 3)
+4(2) - 3(3) + k = 0
+Therefore k = 1
+Therefore the line which is perpendicular to the given line is 4x - 3y + 1 = 0
+On solving both the equations we get, x = $\frac{14}{25}$ and y = $\frac{27}{25}$
+Hence the foot of the perpendicular is ($\frac{14}{25}$, $\frac{27}{25}$)

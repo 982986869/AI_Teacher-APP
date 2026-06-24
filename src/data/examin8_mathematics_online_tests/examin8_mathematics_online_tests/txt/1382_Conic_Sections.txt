@@ -1,0 +1,957 @@
+CHAPTER: Conic Sections  (id 1382)
+CBSE > Class 11 > Mathematics > Conic Sections
+Online tests: 5
+
+========================================================================
+Conic Sections Test 01  (id 652) [FREE]
+CBSE > Class 11 > Mathematics > Conic Sections
+Questions: 15 | Answers: YES
+========================================================================
+
+Q1. If the line 2x – y + $\lambda $ = 0 is a diameter of the circle x^2 + y^2 + 6x - 6y + 5 = 0 then $\lambda $ =
+    (A) 3
+    (B) 6
+    (C) 9   <-- CORRECT
+    (D) 12
+    Answer: C
+    Explanation: Equation of circle is x^2 + y^2 + 6x - 6y + 5 = 0 
+x^2 + 6x + y^2 - 6y = -5
+Applying completing the square method
+(x + 3)^2 + (y - 3)^2 = $(\sqrt{13})^{2}$ 
+Comparing the above equation with (x - h)^2 + (y - k)^2 = (r)^2 we get center as (-3, 3) and radius as $\sqrt{13}$
+As the centre of the circle lies on diameter, it will satisfy the equation of diameter, so on putting (-3, 3) in the equation of diameter we get 
+2(-3) - (3) + $\lambda$ = 0
+$\Rightarrow$ -6 - 3 - $\lambda$ = 0
+$\Rightarrow$ $\lambda$ = 9
+
+Q2. Length of common chord of the circles x^2 + y^2 + 2x + 6y = 0 and x^2 + y^2 - 4x - 2y - 6 = 0 is
+    (A) $2\sqrt {106} $
+    (B) $\frac 15\sqrt {106} $
+    (C) $\frac {2}{5}\sqrt {106} $   <-- CORRECT
+    (D) $\sqrt {106} $
+    Answer: C
+    Explanation: x^2 + y^2 + 2x + 6y = 0
+x^2 + 2x + y^2 + 6y = 0
+Applying the completing the square
+(x + 1)^2 + (y + 3)^2 = $(\sqrt{10})^{2}$
+Comparing the above equation with (x - h)^2 + (y - k)^2 = r^2, we get its center as (-1, -3) and radius (r_1) =$\sqrt{10}$ 
+x^2 + y^2 - 4x - 2y - 6 = 0
+(x - 2)^2 + (y - 1)^2 = $(\sqrt{11})^{2}$
+Comparing the above equation with (x - h)^2 + (y - k)^2 = r^2 we get its center as (2, 1) and radius (r_2) =$\sqrt{11}$ 
+So distance(d) between the centers is ​$\sqrt{(2+1)^2+(1+3)^2}$​ = 5 units
+After applying the general formula of the length of common chord as ${\sqrt \frac {(d^2-(r_1-r_2)^2)((r_1+r_2)^2-d^2)} {d}}$ and putting the values of r_1, r_2 and d we get length as ${\frac 25}\sqrt {106} $.
+
+Q3. The circles x^2 + y^2 + 6x + 6y = 0 and x^2 + y^2 - 12x - 12y = 0
+    (A) cut orthogonally
+    (B) intersect in two points
+    (C) touch each other externally   <-- CORRECT
+    (D) touch each other internally
+    Answer: C
+    Explanation: Circle touches externally if distance between the centers is equal to the sum of the radii.
+x^2 + y^2 + 6x + 6y = 0
+x^2 + 6x + y^2 + 6y = 0
+After applying completing the square, we get
+(x + 3)^2 + (y + 3)^2 = $(3 \sqrt{2})^{2}$ 
+So the center is (-3, -3) and radius is $ 3\sqrt{2}$ 
+x^2 + y^2 - 12x - 12y = 0
+x^2 - 12x + y^2 - 12y = 0
+After applying completing the square
+(x - 6)^2 + (y - 6)^2 = $(6 \sqrt{2})^{2}$ 
+So the center is (6, 6) and radius is $6\sqrt{2}$ 
+Distance between centres ​$\sqrt{(6+3)^2+(6+3)^2}=9\sqrt{2}$​ and sum of radii ($3\sqrt {2}+6\sqrt {2} =9\sqrt{2}$ ) are equal.
+Hence the circle touches externally.
+
+Q4. The equation x^2 + y^2 = 0 represents
+    (A) an equilateral hyperbola
+    (B) a degenerate circle   <-- CORRECT
+    (C) pairs of straight line
+    (D) an ellipse
+    Answer: B
+    Explanation: The above circle can be written as (x - 0)^2 + (y - 0)^2 = (0)^2 
+Here the center is (0, 0) and radius is also 0 units.
+So it is a degenerate circle as a degenerate circle is a circle( a point) where the radius is zero units.
+
+Q5. The equation (x^2 + y^2) + 5x - 7y - 2 = 0 represents
+    (A) an empty set
+    (B) a circle   <-- CORRECT
+    (C) a degenerate circle
+    (D) a pair of straight lines
+    Answer: B
+    Explanation: The general equation of the circle is x^2 + y^2 - 2gh - 2fy + c = 0. Since the given equations satisfy the general equation, it represents the equation of the circle.
+
+Q6. Circumcentre of the triangle, whose vertices are (0, 0), (6, 0) and (0, 4) is
+    (A) (0, 3)
+    (B) (3, 0)
+    (C) (3, 2)   <-- CORRECT
+    (D) (2, 0)
+    Answer: C
+    Explanation: Circumcentre of a right-angled triangle ABC right angled at A is $b+c\over2$ as circumcentre of right-angled triangle lies on the mid point of the hypotenuse.
+So mid point of BC = ($6+0\over2$,$0+4\over2$) i.e.(3, 2)
+
+Q7. If (x - a)^2 + (y - b)^2 = c^2 represents a circle, then
+    (A) b = 0
+    (B) a = b = 0
+    (C) a = 0
+    (D) c $ \ne $ 0   <-- CORRECT
+    Answer: D
+    Explanation: (x - a)^2 + (y - b)^2 = c^2 here (a, b) is center and c is the radius and radius cannot be zero because if radius is zero it will become a point or degenerate circle so c $ \ne $ 0.
+
+Q8. The length of the chord joining the point ( 4 cos $\theta $, 4 sin $\theta $) and 4 ( cos($\theta $+${60^o}$), 4 sin($\theta $ + ${60^o}$)) of the circle ${x^2} + {y^2} = 16$ is
+    (A) 4   <-- CORRECT
+    (B) 2
+    (C) 8
+    (D) 16
+    Answer: A
+    Explanation: using distance formulae $\sqrt{(x_2-x_1)^2 + (y_2 - y_1)^2}$$ =\sqrt{[(4cos\theta - 4cos(\theta + 60)^2 + (4sin\theta - 4sin(\theta+60)^2]}$
+on simplifying we get, $\sqrt{16 + 16 -32.-(1/2)}$$$ = 4
+
+Q9. Two perpendicular tangents to the circle ${x^2} + {y^2} = {r^2}$ meet at P. The locus of P is
+    (A) ${x^2} + {y^2} = 4\;{r^2}$
+    (B) x + y = r
+    (C) ${x^2} + {y^2} = \frac {r^2}{2}$
+    (D) ${x^2} + {y^2} = 2\;{r^2}$   <-- CORRECT
+    Answer: D
+    Explanation: locus of P is a circle with centre at origin and radius $\sqrt{2r^2}$. This is known as the director circle of the circle ${x^2} + {y^2} = {r^2}$
+
+Q10. The number of tangents to the circle x^2 + y^2 - 8x - 6y + 9 = 0, which pass through the point (3, - 2), is
+    (A) 2   <-- CORRECT
+    (B) 1
+    (C) 0
+    (D) 3
+    Answer: A
+    Explanation: x^2 + y^2 - 8x - 6y + 9 = 0
+After completing the square, we get
+(x - 4)^2 + (y - 3)^2 = (4)^2 
+So the center is (4, 3) and radius is 4.
+Distance between the center and the given point $\sqrt{(4-3)^2+(3+2)^2}=\sqrt{26}$ which is greater than 4.
+Hence point lies outside the circle.
+Since point lies outside of the circle there will be 2 tangents since two tangents can be drawn from external point to a circle.
+
+Q11. The value of k, such that the equation 2x^2 + 2y^2 - 6x + 8y + k = 0 represents a point circle, is
+    (A) $ -\frac {25} {2}$
+    (B) 0
+    (C) $\frac {25} {2}$   <-- CORRECT
+    (D) 25
+    Answer: C
+    Explanation: ​2x^2 + 2y^2 - 6x + 8y + k = 0​
+x^2 - 3x + y^2 + 4y = $\frac{-k}{2}$ 
+(x - 1.5)^2 + (y + 2)^2 = $\frac{-k}{2}+\frac{9}{4}+4$ 
+Which gives radius = $\sqrt{\frac{-k}{2}+\frac{9}{4}+4}$ 
+For a point circle radius should be zero.
+Hence $\frac{-k}{2}+\frac{9}{4}+4$ = 0
+Solving which we get k = $\frac {25} {2}$
+
+Q12. The equation $a{x^2} + b{y^2} + 2hxy + 2gx + 2fy + c = 0$ represents a circle only if
+    (A) a = b $ \ne $ 0, h = 0
+    (B) a = b , h = 0
+    (C) a = b $ \ne $ 0, h = 0, g^2 + f^2 - c > 0
+    (D) a = b $\neq$ 0,h = 0, g^2 + f^2 - ac > 0   <-- CORRECT
+    Answer: D
+    Explanation: Recalling the general form of a circle as
+ It is a quadratic equation in both x and y.
+ Coefficient of $x^2 $
+ = Coefficient of $y^2 $ .
+ There is no term containing xy i.e., the coefficient of xy is zero.
+ radius is $\mathrm{\frac{1}{a}\sqrt{g^{2} + f^{2} - ca}}$ 
+To satisfy (i) and (ii) condition we have $a = b \ne 0$ 
+To satisfy (iii) condition we have $h = 0$
+To satisfy (iv) and as we cant have a negative sign in root so g^2 + f^2 - ac > 0
+
+Q13. x^2 + y^2 - 6x + 8y - 11 = 0 is a circle. The points (0, 0) and (1, 8) lie
+    (A) both outside the circle
+    (B) one outside the circle and one inside   <-- CORRECT
+    (C) both inside the circle
+    (D) one on the circle and the other outside
+    Answer: B
+    Explanation: x^2 + y^2 - 6x + 8y - 11 = 0
+x^2 - 6x + y^2 + 8y = 11
+(x - 3)^2 + (y + 4)^2 = (6)^2
+So the center is (3, -4) and radius is 6 units.
+Distance between center and (0, 0) is $\sqrt{3-0)^2+(-4-0)^2}$ = 5 units which is less than the radius so it lies inside the circle.
+Whereas the distance between center and (1, 8) is $\sqrt{(3-1)^2 +(8-(-4))^2}$ = $\sqrt{148}$ which is greater than the radius so it lies outside the circle
+
+Q14. The length of tangent from the point (2, -3) to the circle 2x^2 + 2y^2 = 1 is
+    (A) $\frac {5} {\sqrt 2 }$   <-- CORRECT
+    (B) - 5
+    (C) 5
+    (D) $ - \frac {5} {\sqrt 2 }$
+    Answer: A
+    Explanation: 2x^2 + 2y^2 = 1
+Applying completing the square method, we get
+(x - 0)^2 + (y - 0)^2 = $ \frac{1}{2}$
+So it has center (0, 0) and radius $\frac {1}{\sqrt{2}} $ 
+Let O = (0, 0) be the center, A = (2, -3) be the external point and B be the point of contact of tangent and circle.
+OAB forms a triangle with angle OBA = 90° (as The angle between the tangent and radius is 90°) and distance OA =${\sqrt{13}} $ units (using distance formula) and OB = $\frac {1}{\sqrt{2}} $ units(radius)
+Length of tangent = AB
+Using Pythagoras theorem,
+OA^2 = OB^2 + AB^2
+$\Rightarrow$ AB^2 = OA^2 - OB^2
+Putting the values of OA and OB = AB^2 = 13 - $\frac 12$ = $\frac {25}{2}$
+Therefore AB = $\frac{5}{\sqrt{2}} $
+
+Q15. Which one of the following lines is farthest from the centre of the circle x^2 + y^2 = 10?
+    (A) 3x + 4y – 15 = 0
+    (B) x + y = 1
+    (C) x + $ \sqrt 3 \;y $ + 7 = 0   <-- CORRECT
+    (D) 12x + 5y + 26 = 0
+    Answer: C
+    Explanation: x^2 + y^2 = 10
+After completing the square, we get
+(x - 0)^2 + (y - 0)^2 = $(\sqrt{10})^{2}$ 
+So center is (0, 0) and equation of given line is $x + \sqrt 3 \;y + 7 = 0$ 
+By applying formula of the distance of a point from a given line i.e.,$Ax_1+By_1+C\over{\sqrt{A^2+B^2}}$ where(x_1, y_1) are the coordinates of point and A and B are coefficient of x,y in given line so d = $7\over{2}$ which is greatest.
+
+========================================================================
+Conic Sections Test 02  (id 653) [PAID]
+CBSE > Class 11 > Mathematics > Conic Sections
+Questions: 15 | Answers: YES
+========================================================================
+
+Q1. Which of the following lines is a normal to the circle (x - 1)^2 + (y - 2)^2 = 10
+    (A) 2x + y = 3
+    (B) x + y = 3   <-- CORRECT
+    (C) x + 2y = 10
+    (D) (x – 1) + (y – 2) = 10
+    Answer: B
+    Explanation: (x - 1)^2 + (y - 2)^2 = 10
+Comparing the above equation with (x - h)^2 + (y - k)^2 = r^2 we get center as (1, 2) putting (1, 2) in L.H.S of above line, we get 1 + 2 = 3 = R.H.S
+$\Rightarrow$ It satisfies the equation of line or the line passes through center and the line passing through the centre is normal.
+
+Q2. A circle with its centre on the line y = x + 1 is drawn to pass through the origin and touch the line y = x + 2. The centre of the circle is
+    (A) $\left( {{\frac 12},{\frac 12}} \right)$
+    (B) (-1, 2)
+    (C) $\left( { - {\frac 12},{\frac 12}} \right)$   <-- CORRECT
+    (D) (-1, 0)
+    Answer: C
+    Explanation: Let (x - h)^2 + (y - k)^2 = r^2 be the equation of circle with (h, k) as the center and r be the radius.
+As the center lies on the line y = x + 1
+$\Rightarrow$ k = h + 1 or k = 1 + h ...(i)
+Circle passes through origin so (0, 0) will satisfy the equation of line so putting (0, 0) in the equation of circle we get (h)^2 + (k)^2 = r^2 .....(ii)
+putting k from (i) into (ii), we get
+h^2 + (h + 1)^2 = r^2 
+2h^2 + 2h + 1 = r^2 ....(iii)
+and as the circle touches the line y = x + 2 so radius should be equal to the distance from the center to this line.
+$\Rightarrow$ r =$\frac {h-k+2}{\sqrt 2}$ 
+putting value ok k from (i) in above equation, we get
+r = $\frac {h-(h+1)+2}{\sqrt{2}}$ 
+r = $\frac {1}{\sqrt{2}}$ 
+putting the value of r in (iii)
+2h^2 + 2h + 1 = $\frac{1}{2}$ 
+2h^2 + 4h + 1 = 0
+2h^2 + 2h + 2h + 1 = 0
+(2h + 1)(2h = 1) = 0 which gives h = $\frac{-1}{2}$ putting h in (i) we get k = $\frac{1}{2}$ 
+Hence center is $(\frac{-1}{2},\frac{1}{2})$
+
+Q3. Four distinct points $(2\lambda ,3\lambda )$, (1, 0), (0, 1) and (0, 0) lie on a circle for
+    (A) only one value of $\lambda $
+    (B) $\lambda $ < 0
+    (C) none of these   <-- CORRECT
+    (D) 0 $<$ $\lambda $$<$1
+    Answer: C
+    Explanation: Because the equation of circle will be x^2 + y^2 - x - y = 0 which is a quadratic equation and by putting the given fourth point we will get two different values of $\lambda$. 
+Proof: let equation of cirle be (x - h)^2 + (y - k)^2 = r^2 
+As (1, 0) (0, 1) and (0, 0) lie on circle, we get
+(1 - h)^2 + k^2 = r^2 ....(i)
+h^2 + (1 - k)^2 = r^2 ....(ii)
+h^2 + k^2 = r^2 ....(iii)
+Comparing (i) and (iii) , we get h =$\frac{1}{2}$ 
+Comparing (ii) and (iii) we get k =$\frac{1}{2}$ 
+putting the value of h and k in (iii) we get $r^2=\frac{1}{4}$ 
+Hence we get the equation of circle as (2x - 1 )^2 + (2y - 1)^2 = 1 
+Now putting $(2\lambda ,3\lambda )$in above circle, we get
+$(4\lambda-1)^2+(6\lambda-1)^2=1$ 
+Which is quadratic and will give 2 values of $\lambda$
+
+Q4. The locus of the point of intersection of the lines x cos $\alpha $ + y sin $\alpha = a$ and x sin $\alpha $ - y cos $\alpha $ = b is
+    (A) an ellipse
+    (B) a straight line
+    (C) a circle   <-- CORRECT
+    (D) A parabola
+    Answer: C
+    Explanation: Solving the above two equations we get,
+x = $a\cos \alpha - b\sin \alpha$ .....(i) 
+y = $ a\sin \alpha - b\cos \alpha$ .....(ii)
+Squaring both sides of (i) and (ii) and adding both the equation we get x^2 + y^2 = a^2 + b^2.
+Which represents the locus of circle as
+ it is a quadratic equation
+ coeff of x^2 = coeff of y^2
+ there is no term involving xy.
+
+Q5. The line y = mx + c is a normal to the circle x^2 + y^2 + 2gx + 2fy + c = 0, if
+    (A) mg $ \ne $ c + f
+    (B) c $\ne$ 0
+    (C) c = 0
+    (D) mg = c + f   <-- CORRECT
+    Answer: D
+    Explanation: x^2 + y^2 + 2gx = 2fy + c = 0 has center (-g, -f)
+As normal passes through the center so center will satisfy the equation of normal put y = -f and x = -g in equation of the line y = mx + c
+-f = m(-g) + c
+Which gives mg = f + c.
+
+Q6. The line 3x – 4y = 0
+    (A) is a normal to the circle x^2 + y^2 = 25   <-- CORRECT
+    (B) is a tangent to the circle x^2 + y^2 = 25
+    (C) does not pass through the origin
+    (D) does not meet the circle x^2 + y^2 = 25
+    Answer: A
+    Explanation: x^2 + y^2 = 25
+After completing the square, we get
+(x - 0)^2 + (y - 0)^2 = 5^2 
+So the center is (0, 0) and the radius is 5 units.
+As the normal should pass through the centre of the circle, the center should satisfy the equation of normal.
+So 3x – 4y = 0 is the equation of normal as (0, 0) satisfy this equation.
+
+Q7. The equations x = a cos $\theta $ + b sin $\theta $ , and $y = a\sin \theta - b\cos \theta $ , 0 $ \le $ $\theta $ $ \le $ 2 $\pi $ represent
+    (A) a parabola
+    (B) a circle   <-- CORRECT
+    (C) a hyperbola
+    (D) an ellipse
+    Answer: B
+    Explanation: x = a cos $\theta $ + b sin $\theta $ , and $y = a\sin \theta - b\cos \theta $ 
+Putting the value of x and y in x^2 + y^2 
+$ (a\cos \theta + b\sin \theta)^2+( a\sin \theta - b\cos \theta)^2 $ we get a^2+b^2
+$\Rightarrow$ x^2 + y^2 = a^2 + b^2
+Which is quadratic in nature, coefficient of x^2 = coefficient of y^2 and no term involving xy
+Hence its locus represents a circle.
+
+Q8. If the lines 3x - 4y + 4 = 0 and 6x - 8y - 7 = 0 are tangents to the circle then the radius of the circle is
+    (A) $\frac{3}{4}$   <-- CORRECT
+    (B) $\frac{2}{3}$
+    (C) $\frac{4}{3}$
+    (D) $\frac{3}{2}$
+    Answer: A
+    Explanation: The given lines are parallel. Hence the tangents are parallel tangents. Distance between these lines is equal to the diameter
+D = $|8 - (-7)|\over \sqrt{36+64}$ = $\frac{3}{2}$ 
+Therefore, the radius is $\frac{3}{4}$
+
+Q9. A circle passes through (0, 0) ( a, 0), (0, b). The coordinates of its centre are
+    (A) (- a, - b)
+    (B) (a, b)
+    (C) $\left( \frac a 2, \frac b2 \right)$   <-- CORRECT
+    (D) (b, a)
+    Answer: C
+    Explanation: Because line joining the points (a, 0) and (0, b) will be diameter and it's mid-point will be centre of the circle.
+Or
+let the equation of circle be $(x-h)^2+(y-k)^2=r^2$ 
+as circle passes through (0, 0), (a, 0) and (0, b), they will satisfy the above equation
+putting the points in above equation we get
+$h^2+k^2=r^2$ ...(i)
+$(a-h)^2+k^2=r^2$ ...(ii)
+$h^2+(b-k)^2=r^2$ ...(iii)
+Solving (i) and (ii), we get h = $\frac a2$
+whereas solving (i) and (iii) we get k = $\frac b2$
+hence its center is $\left( \frac a2, \frac b2 \right)$
+
+Q10. The focus of the parabola x^2 - 8x + 2y + 7 = 0 is
+    (A) (4, 4)   <-- CORRECT
+    (B) $\left( {0, -\frac {1}{2}} \right)$
+    (C) $\left( {4,\frac{9}{2}} \right)$
+    (D) $\left( { - 4, - \frac{9}{2}} \right)$
+    Answer: A
+    Explanation: x^2 - 8x + 2y + 7 = 0
+x^2 - 8x = -2y - 7
+After completing the square we get,
+(x - 4)^2 = -2y + 9
+(x - 4)^2 = $-4 \frac{1}{2}\left(y-\frac{9}{2}\right)$ 
+Comparing the above equation with x^2 = -4ay focus is (0, -a)
+Putting x co-ordinate = 0 we get x - 4 = 0
+$\Rightarrow$ x = 4
+and y co-ordinate = -a we get $(y -\frac{ 9}{2})=-\frac{1}{2} $ 
+$\Rightarrow$ y = 4
+Hence (4, 4) is the focus.
+
+Q11. The radius of the circle passing through the foci of the ellipse $\frac{x^2}{16}+\frac{y^2}{9}$ = 1 and having its centre at (0, 3) is
+    (A) 3
+    (B) 4   <-- CORRECT
+    (C) $\sqrt {12} $
+    (D) $\frac 7 2$
+    Answer: B
+    Explanation: $\frac{x^2}{16}+\frac{y^2}{9}$ = 1
+Comparing with the standard equation we get a = 4 and b = 3 we get c =$\sqrt{16-9}$ = $\sqrt{7}$ 
+So focus is $(\sqrt{7},0)$ and the given centre is (0, 3).
+Using distance formulae. we get radius = 4 units
+
+Q12. The line y = c is a tangent to the parabola x^2 = y - 1 if c is equal to
+    (A) c = 1   <-- CORRECT
+    (B) a
+    (C) 0
+    (D) 2a
+    Answer: A
+    Explanation: Putting the value y = c into parabola, we get
+x^2 = c - 1
+or x^2 - (c - 1) = 0
+Here discriminat =$\sqrt{4c-4}$ 
+Line y = c is tangent when the discriminant is equal to 0.
+Putting discriminant = 0 we get c = 1.
+(0, c) will be a point on the parabola.
+
+Q13. The area of the circle centred at (1,2) and passing through (4,6) is
+    (A) $5\pi$ sq units
+    (B) $10\pi$ sq units
+    (C) $15\pi$ sq units
+    (D) $25\pi$ sq units   <-- CORRECT
+    Answer: D
+    Explanation: Given centre = (1,2)
+Therefore radius = $\sqrt{(4-1)^2 + (6 - 2)^2}$ = 5 units
+Area of the circle is $\pi r^2$ = $25\pi$ sq units
+
+Q14. The locus of a variable point whose distance from the point (2, 0) is $\frac {2}{ 3}$ times its distance from the line x = $\frac 9 2$ is
+    (A) a parabola
+    (B) a circle
+    (C) an ellipse   <-- CORRECT
+    (D) a hyperbola
+    Answer: C
+    Explanation: Let the point be (x, y)
+Hence (x - 2)^2 + (y - 0)^2 = $\frac{2}{3} \frac{(x-9 / 2)}{\sqrt{1}^2}$ 
+(x - 2)^2 + y^2 = $\frac 2 3$(x - $\frac{9}{2}$)
+On simplifying we get the equation of an ellipse
+
+Q15. The equation of a circle with origin as centre and passing through the vertices of an equilateral triangle whose median is of length 3a is [Hint: Centroid of the triangle coincides with the centre of the circle and the radius of the circle is $\frac{2}{3}$ of the length of the median]
+    (A) $x ^ { 2 } + y ^ { 2 } = 16 a ^ { 2 }$
+    (B) $x ^ { 2 } + y ^ { 2 } = a ^ { 2 }$
+    (C) $x ^ { 2 } + y ^ { 2 } = 9 a ^ { 2 }$
+    (D) $x ^ { 2 } + y ^ { 2 } = 4 a ^ { 2 }$   <-- CORRECT
+    Answer: D
+    Explanation: $x ^ { 2 } + y ^ { 2 } = 4 a ^ { 2 }$
+
+========================================================================
+Conic Sections Test 03  (id 654) [PAID]
+CBSE > Class 11 > Mathematics > Conic Sections
+Questions: 15 | Answers: YES
+========================================================================
+
+Q1. A and B are two distinct points, Locus of a point P satisfying |PA| + | PB| = 2k, a constant is
+    (A) nothing can be said as we will not get any specific equation as k is not specified   <-- CORRECT
+    (B) the line segment [AB]
+    (C) a hyperbola
+    (D) an ellipse
+    Answer: A
+    Explanation: Since the value of k is not specified, we cannot get a specific equation.
+
+Q2. The eccentricity of the hyperbola x^2 - y^2 = 9 is
+    (A) $\sqrt 2 $   <-- CORRECT
+    (B) More than 1
+    (C) 1
+    (D) less than 1
+    Answer: A
+    Explanation: x^2 - y^2 = 9
+above equation can be written as,
+$\frac{x^2}{(3)^2} -\frac {y^2}{(3)^2} $ = 1
+Comparing it with the standard equation we get a = 3 and b = 3
+As c =$\sqrt{a^2+b^2}$ 
+We get c = 3 $\sqrt 2 $ and as e = $\frac{c}{a}$ 
+We get e = $\sqrt 2 $
+
+Q3. The locus of the point of intersection of the lines $a x \sec \theta+b y \tan \theta=a$ and $a x \tan \theta+b y \sec \theta=b$ where $\theta$ is a parameter and
+$a \neq b$ is $a(a n)$
+    (A) A hyperbola   <-- CORRECT
+    (B) a parabola
+    (C) an ellipse
+    (D) a straight line
+    Answer: A
+    Explanation: A hyperbola
+
+Q4. The line y = mx + c, touches the parabola y^2 = 4ax if
+    (A) c = am^2
+    (B) $c = \frac{a}{{{m^2}}},m \ne 0$
+    (C) c = am
+    (D) $c = \frac{a}{m},m \ne 0$   <-- CORRECT
+    Answer: D
+    Explanation: y = mx + c ......(i)
+y^2 = 4ax ....(ii)
+Putting the value of y from (i) in (ii), we get
+(mx + c)^2 = 4ax
+$\Rightarrow$ (mx)^2 + x(2mc - 4a) + c^2 = 0
+Here discriminant =$\sqrt{(2mc-4a)^2-4m^2c^2}$ = $\sqrt{16a^2-16amc}$ 
+When discriminant > 0 line touches parabola at two points, when discriminant < 0 lines do not touch parabola and when discriminant = 0 line touches parabola at one point and we know that tangent is a line that touches the curve at exactly one point.
+So putting discriminate = 0 and solving
+we get $c = \frac{a}{m},m \ne 0$ 
+On putting the value of y from line in the parabola and solving for equal roots.
+
+Q5. The equations x = at^2, y = 4at; t $\in$ R represent
+    (A) an ellipse
+    (B) a circle
+    (C) a hyperbola
+    (D) a parabola   <-- CORRECT
+    Answer: D
+    Explanation: y = 4at
+Squaring both sides, we get
+y^2 = 16a^2t^2 
+Putting the value of at^2 i.e. at^2 = $\frac{y^{2}}{16 a}$ in x = at^2 we get,
+16ax = y^2 
+or y^2 = 4(4a)x
+Which is nothing but equation of parabola.
+
+Q6. $x=\frac{e^t+e^{-t}}{2}, y=\frac{e^t-e^{-t}}{2} ; t \in R$ represents
+    (A) a parabola
+    (B) a hyperbola   <-- CORRECT
+    (C) an ellipse
+    (D) a circle
+    Answer: B
+    Explanation: $x=\frac{e^t+e^{-t}}{2}, y=\frac{e^t-e^{-t}}{2} ; t \in R$ 
+Squaring both sides of both the equation, we get
+$$x^2 = $\frac {(e^t + e^-t)^2}{ 4}$ and y^2 = $\frac {(e^t - e^-t)^2}{4}$ 
+Subtracting one equation from another we get
+x^2 - y^2 = 1 which is nothing but equation of hyperbola.
+
+Q7. The vertex of the parabola y^2 = 4a(x - a) is
+    (A) (0, a)
+    (B) (0, 0)
+    (C) (a, 0)   <-- CORRECT
+    (D) (a, a)
+    Answer: C
+    Explanation: y^2 = 4a(x - a)
+Let Y = y and X = x - a
+For standard parbola Y^2 = 4aX the vertex is (0, 0)
+So put X = 0 and Y = 0.
+i.e. put x - a = 0 and y = 0
+So vertex is (a, 0)
+
+Q8. The two parabolas x^2 = 4y and y^2 = 4x meet in two distinct points. One of these is the origin and the other is
+    (A) (1, 1)
+    (B) (3 ,3)
+    (C) (2, 2)
+    (D) (4, 4)   <-- CORRECT
+    Answer: D
+    Explanation: Given, equations of the parabola are x^2 = 4y and y^2 = 4x ... (i)
+$\therefore$ $\left(\frac{x^{2}}{4}\right)^{2}$ = 4x
+$\Rightarrow$ x^4 - 64x = 0
+$\Rightarrow$ x = 0, x = 4
+On putting the values of x in Eq. (i), we get y = 0 and y = 4, −4
+($\because$ y = −4 does not satisfy the equation x^2 = 4y)
+Thus, the points of intersection are (0, 0) and (4, 4).
+Hence, the point other than origin is (4, 4).
+
+Q9. The equation of the directrix of the parabola x^2 = -4ay is
+    (A) y – a = 0   <-- CORRECT
+    (B) x + a = 0
+    (C) y + a = 0
+    (D) x – a = 0
+    Answer: A
+    Explanation: From the equation, we infer that the parabola is open downward.
+Hence the directrix passes through the point (0, a) and will be parallel to the X-axis. 
+Hence the equation of the directrix is y = a or y - a = 0
+
+Q10. The eccentricity e of a parabola is
+    (A) Less than 1
+    (B) More than 1
+    (C) Zero
+    (D) Equal to 1   <-- CORRECT
+    Answer: D
+    Explanation: Eccentricity of a parabola is 1.
+
+Q11. The ellipse = $\frac{x^2}{a^2}+\frac{y^2}{b^2}$ = 1, b^2 = a^2 is a
+    (A) vertical ellipse
+    (B) none of these   <-- CORRECT
+    (C) a hyperbola
+    (D) horizontal ellipse
+    Answer: B
+    Explanation: If a^2 = b^2, then the equation becomes x^2 + y^2 = a^2 which represents the equation of a circle.
+
+Q12. The equations x = a cos $\theta $ , y = b sin $\theta $, 0 $≤$ $\theta $ <${\rm{2}}\pi $ , a $ \ne $ b, represent
+    (A) a parabola
+    (B) a circle
+    (C) an ellipse   <-- CORRECT
+    (D) a hyperbola
+    Answer: C
+    Explanation: parametric form of ellipse.
+
+Q13. The graph of the function f(x) = $\frac 1 x$ i.e. the curve y = $\frac 1 x$ is
+    (A) a parabola
+    (B) an ellipse
+    (C) a hyperbola   <-- CORRECT
+    (D) a circle
+    Answer: C
+    Explanation: It is called rectangular hyperbola.
+
+Q14. The line y = c touches the parabola y^2 = 4ax when
+    (A) c > 0
+    (B) c = 0
+    (C) c < 0
+    (D) none of these   <-- CORRECT
+    Answer: D
+    Explanation: When y = c, then it implies slope = 0. Hence the line should be parallel to the X-axis.
+Therefore the line y = c, when m = 0.
+
+Q15. The parabolas x^2 = 4y and y^2 = 4x intersect
+    (A) on the line x + y = 0
+    (B) in a unique point
+    (C) on the line x - y = 0
+    (D) on the line y = x   <-- CORRECT
+    Answer: D
+    Explanation: Point of intersection is (0, 0) and (4, 4). This implies y = x. Hence, it intersects the line y = x.
+
+========================================================================
+Conic Sections Test 04  (id 655) [PAID]
+CBSE > Class 11 > Mathematics > Conic Sections
+Questions: 15 | Answers: YES
+========================================================================
+
+Q1. The length of the common chord of the parabolas y^2 = x and x^2 = y is
+    (A) $\sqrt 2 $   <-- CORRECT
+    (B) $2\sqrt 2 $
+    (C) 1
+    (D) $4\sqrt 2 $
+    Answer: A
+    Explanation: Point of intersection is (0, 0) and (1, 1). Hence by using the distance formula
+$\sqrt{(1^2-0)^2 + (1^2 + 0)^2}$ = $\sqrt2$
+
+Q2. The number of points on X-axis which are at a distance c units (c < 3) from (2, 3) is
+    (A) 3
+    (B) 1
+    (C) 0   <-- CORRECT
+    (D) 2
+    Answer: C
+    Explanation: The shortest distance from x-axis to the point is 3.
+
+Q3. The eccentricity of the conic 9x^2 - 16y^2 = 144 is
+    (A) $\sqrt 7 $
+    (B) $\frac{5}{4}$   <-- CORRECT
+    (C) $\frac{4}{3}$
+    (D) $\frac{4}{5}$
+    Answer: B
+    Explanation: Given 9x^2 - 16y^2 = 144
+Dividing throughout by 144 we get,
+$\frac{x^2}{16} $ - $\frac{y^2}{9}$ = 1
+This implies a^2 = 16 and b^2 = 9
+e = $\sqrt \frac{a^2 + b^2}{a}$ = $\frac{5}{4}$
+
+Q4. The eccentricity of 3x^2 + 4y^2 = 24 is
+    (A) $\frac{7}{4}$
+    (B) $\sqrt\frac {7}{4} $
+    (C) $\frac{1}{2}$   <-- CORRECT
+    (D) $\frac{1}{4}$
+    Answer: C
+    Explanation: Given equation is 3x^2 + 4y^2 = 24
+Dividing throught by 24 we get,
+$\frac{x^2}{8}$ + $\frac{y^2}{6}$ = 1
+This implies a^2 = 8 and b^2 = 6
+e = $\frac{\sqrt{a^2 - b^2}}{a}$ = $\frac{1}{2}$
+
+Q5. The angle between the tangents drawn from the origin to the circle = (x - 7)^2 + (y + 1)^2 = 25 is
+    (A) $\frac{\pi}{3}$
+    (B) $\frac{\pi}{8}$
+    (C) $\frac{\pi}{6}$
+    (D) $\frac{\pi}{2}$   <-- CORRECT
+    Answer: D
+    Explanation: Let tangent from origin be y = mx
+Using the condition of tangency, we get
+$\Rightarrow$ $\frac{7 m+1}{\sqrt{m^{2}+1}}$ = 5
+(7m + 1)^2 = 25(m^2 + 1)
+$\Rightarrow$ 24m^2 + 14m - 24 = 0
+$\Rightarrow$ 12m^2 + 7m - 12 = 0
+$\Rightarrow$ 12m^2 + 16m - 9m - 12 = 0
+(4m - 3)(3m - 4)
+$\therefore$ m = $\frac{3}{4}$ and m = -$\frac{4}{3}$ 
+The angle between tangents = $\frac{\pi}{2}$
+
+Q6. The line y = mx + 1 is a tangent to the parabola ${y^2} = 4x$ if m =
+    (A) 1   <-- CORRECT
+    (B) 2
+    (C) 3
+    (D) 4
+    Answer: A
+    Explanation: The condition for a line to be a tangent to the parabola is y = mx +$a\over m$
+From the given equation of the parabola we infer that a = 1 and from the equation of the line c = 1
+Therefore m = a/c = 1
+
+Q7. The equation x^2 - 7xy + 12y^2 = 0 represents a
+    (A) pair of parallel straight lines
+    (B) circle
+    (C) pair of non-perpendicular intersecting straight lines   <-- CORRECT
+    (D) pair of perpendicular straight lines
+    Answer: C
+    Explanation: On factorizing the given equation we get x - 4y = 0 and x - 3y = 0, which represents a pair of intersecting straight lines. Since the product of their slopes is not equal to -1, they are non-perpendicular.
+
+Q8. The equation y^2 - x^2 + 2x - 1 = 0 represents
+    (A) an ellipse
+    (B) a pair of straight lines   <-- CORRECT
+    (C) a parabola
+    (D) a circle
+    Answer: B
+    Explanation: On factorizing the given equation we get y + x - 1 = 0 and y - x + 1 = 0, which clearly represents a pair of straight lines which are intersecting.
+
+Q9. The length of latus rectum of an ellipse is one-third of its major axis. Its eccentricity would be
+    (A) $\frac{2}{3}$
+    (B) $\frac{1}{ {\sqrt 3 }}$
+    (C) $\frac{1}{{\sqrt 2 }}$
+    (D) $\sqrt \frac{2}{3} $   <-- CORRECT
+    Answer: D
+    Explanation: $\frac{2b^2}{a^2}$ = $\frac{2a}{3}$
+Hence $\frac{b^2}{a^2}$ = $\frac{1}{3}$. Hence, e^2 = 1 - $\frac{b^2}{a^2}$= 1 - ($\frac{1}{3}$) = $\frac{2}{3}$ 
+Therefore, e = $\sqrt\frac{2}{3}$
+
+Q10. Three normals to the parabola y^2 = x are drawn through a point (c, 0) then
+    (A) c = $\frac{3}{4}$
+    (B) c > $\frac{1}{2}$   <-- CORRECT
+    (C) c = $\frac{1}{2}$
+    (D) c = $\frac{1}{4}$
+    Answer: B
+    Explanation: The equation of the normal to a parabola y^2 = 4ax is
+y = mx - 2am - am^3
+Hence the equation of the normal to the given parabola y^2 = x is 
+mx - $\frac{m}{2}$ - $\frac{m^3}{4}$ 
+Since it passes through (c, 0)
+mc - $\frac{m}{2}$ - $\frac{m^3}{4}$ = 0
+on solving we get 
+m = 0 or m^2 = 4(c - $\frac{1}{2}$)
+If m = 0 then the equation of the normal is y = 0
+If m^2 $\ge$0, then 4(c - $\frac{1}{2}$) $\ge$0
+Hence c - $\frac{1}{2}$ $\ge$0 or c > $\frac{1}{2}$
+
+Q11. S and T are the foci of an ellipse and B is an end of the minor axis. If STB is an equilateral triangle, the eccentricity of the ellipse is
+    (A) $\frac{2}{3}$
+    (B) $\frac{1}{3}$
+    (C) $\frac{1}{2}$   <-- CORRECT
+    (D) $\frac{1}{4}$
+    Answer: C
+    Explanation: s = (ae, 0) and T = (-ae, 0) and B = (0, b)
+Since it is an equilateral triangle, ST^2 = TB^2
+This implies 4a^2e^2 = a^2e^2 + b^2
+3a^2e^2 = b^2 
+3a^2e^2 = a^2(1 - e^2)
+3e^2 = 1 - e^2
+Therefore e = $\frac{1}{2}$
+
+Q12. The centre of a circle passing through the points (0, 0), (1, 0) and touching the circle ${x^2} + {y^2} = 9$ is
+    (A) $\left(\frac{1}{2}, \frac{1}{2}\right)$
+    (B) $\left(\frac{1}{2},-\sqrt{2}\right)$   <-- CORRECT
+    (C) $\left(\frac{1}{2}, \sqrt{2}\right)$
+    (D) $\left(\frac{1}{2}, \frac{3}{2}\right)$
+    Answer: B
+    Explanation: Since the circle passes through (0, 0) the equation reduces to
+c = 0 ....(1)
+Since it passes through (1, 0),
+1 + 2g + c = 0
+This implies g = -1/2
+Since the circle touches the circle x^2 + y^2 = 9, their radii should be equal
+2$\sqrt{g^2 + f^2 + c}$ = 3
+Substituting the values and simplifying we get f = $\pm\sqrt 2$
+Hence the centre is $\left(\frac{1}{2},-\sqrt{2}\right)$
+
+Q13. The number of tangents to the circle x^2 + y^2 - 2x + 4y = 0 through the point (-1, 2) is
+    (A) 1
+    (B) 2   <-- CORRECT
+    (C) 3
+    (D) 0
+    Answer: B
+    Explanation: The given equation of the circle can be written as (x - 1)^2 - 1 + (y + 2)^2 - 4 = 0
+(x - 1)^2 + (y + 2)^2 = 5
+This implies the radius is $\sqrt 5$ and the centre is (1, -2)
+The given point is (-1, 2)
+The distance between the centre of the circle and the given point is
+$\sqrt{(-1-1)^2 + (2+2)^2}$ = $\sqrt 20$ 
+Since this is greater than the radius, the point lies outside the circle. Hence two tangents can be drawn.
+
+Q14. The slope of the tangent at the point (a, a) of the circle ${x^2} + {y^2} = {a^2}$ is
+    (A) -1   <-- CORRECT
+    (B) -2
+    (C) 0
+    (D) depends upon h
+    Answer: A
+    Explanation: the equation of the tangent is x+y=a. Hence its slope is -1
+
+Q15. The equation of the normal to the parabola y^2 = 8x having slope 1 is
+    (A) x – y – 6 = 0   <-- CORRECT
+    (B) x – y + 6 = 0
+    (C) x + y + 6 = 0
+    (D) x + y – 6 = 0
+    Answer: A
+    Explanation: slope form of normal is y = mx - 2am - am^3
+For the given parabola a = 2 and m = 1
+therefore y = x - 4 - 2 
+i.e; x - y - 6 = 0
+
+========================================================================
+Conic Sections Test 05  (id 656) [PAID]
+CBSE > Class 11 > Mathematics > Conic Sections
+Questions: 15 | Answers: YES
+========================================================================
+
+Q1. The equation of the tangent to the conic x^2 - y^2 - 8x + 2y + 11 = 0 at (2, 1) is
+    (A) 2x + 1 = 0
+    (B) x + 2 = 0
+    (C) x – 2 = 0   <-- CORRECT
+    (D) x + y + 1 = 0
+    Answer: C
+    Explanation: Differentiating the given equation w.r.t x, we get,
+2x - 2y$dy\over dx$ - 8 + 2 $dy\over dx$ = 0
+$dy\over dx$(1 - y) = x - 4
+Therefore, $dy\over dx$ = $x-4\over 1-y $ 
+Therefore, $dy\over dx$(2,1)_ is not defined
+ The equation of the tangent at (x_1, y_1) is y - y_1 = m(x - x_1)
+Therefore, the equation of the tangent is x - 2 = 0
+
+Q2. In an ellipse the distance between its foci is 6 and its minor axis is 8; the eccentricity of the ellipse is
+    (A) $\frac{2}{5}$
+    (B) $\frac{1}{{\sqrt {52} }}$
+    (C) $\frac{1}{2}$
+    (D) $\frac{3}{5}$   <-- CORRECT
+    Answer: D
+    Explanation: Here c = 3, b = 4, from relation a^2 = b^2 + c^2 we get a = 5.
+e = $\frac{c}{a}$ = $\frac{3}{5}$
+
+Q3. If the major axis of an ellipse is three times the minor axis, then its eccentricity is equal to
+    (A) $\frac{1}{{\sqrt 3 }}$
+    (B) $\frac{1}{{\sqrt 2 }}$
+    (C) $\frac{1}{3}$
+    (D) $\frac{2\sqrt 2 }{3}$   <-- CORRECT
+    Answer: D
+    Explanation: $\frac{2\sqrt 2 }{3}$
+Length of the major axis = 2b
+Length of the minor axis = 2a
+According to question, the major axis of the ellipse is three times the minor axis.
+i.e. 2b = 3(2a)
+$\Rightarrow$ 2b = 6a
+$\Rightarrow$ a = $\frac {2b} {6}$
+$\Rightarrow$ a = $\frac {b} {3}$, b = 3a
+Here, a > b, so the major and the minor axes of the ellipse are along the x - axis and they y - axis, respectively
+Now, e $=\sqrt{1-\frac{a^{2}}{b^{2}}}$
+$\Rightarrow e=\sqrt{1-\frac{\frac{b^{2}}{9}}{b^{2}}}$
+$\Rightarrow e=\sqrt{1-\frac{1}{9}}$
+$\Rightarrow e=\sqrt{\frac{8}{9}}$
+$\Rightarrow e=\frac{2 \sqrt{2}}{3}$
+
+Q4. At what point on the parabola y^2 = 4x the normal makes equal angles with the axes?
+    (A) (9, 6)
+    (B) (4, -4)
+    (C) (4, 4)
+    (D) (1, - 2)   <-- CORRECT
+    Answer: D
+    Explanation: If the normal has slope - 1 then the tangent, that is perpendicular to the normal, will have slope = + 1 
+Hence its equation is y = x + k
+Hence the point of intersection between the parabola and the normal is 
+(x + k)^2 = 4x
+i.e; x^2 + 2kx - 4x + k^2 = 0
+For discriminant value to be zero (b^2 - 4ac) = 0
+(2k - 1)^2 - 4k^2 = 0
+on solving this we get k = 1
+Therefore the equaiton is x^2 - 2x + 1 = 0
+This implies x = 1 and y = $\pm$2
+
+Q5. The number of common tangents to the circles x^2 + y^2 - x = 0, x^2 + y^2 + x = 0 is
+    (A) 1
+    (B) 2
+    (C) 3   <-- CORRECT
+    (D) 4
+    Answer: C
+    Explanation: The equation of the circles can be written as (x - $1\over 2$)^2 + y^2 = $1\over 4$ and (x + $1\over 2$)^2 + y^2 = $1\over 4$ 
+Hence their radii is $1\over 2$ and the centres is ($1\over 2$, 0) and ($-1\over 2$,0)
+Distance between their centres is 1 and sum of the radii is also 1, hence the circles touch externally.
+Therefore number of tangents that can be drawn is 3.
+
+Q6. The locus of a point which moves so that its distance from a fixed point, called focus, bears a constant ratio, which is less than unity, to its distance from a fixed line, called the directrix is called
+    (A) an ellipse   <-- CORRECT
+    (B) a circle
+    (C) a hyperbola
+    (D) a parabola
+    Answer: A
+    Explanation: For an ellipse e < 1
+
+Q7. The axis of the parabola 9y^2 - 16x - 12y - 57 = 0 is
+    (A) x + 3y = 3
+    (B) y = 3
+    (C) 3y = 2   <-- CORRECT
+    (D) 2x = 3
+    Answer: C
+    Explanation: The equation can be written as y^2 - $12\over 9$y - $16\over 9$x - $57\over 9$ = 0
+This can be written in the normal form as 
+(y - $2\over 3$)^2 = $16x\over 9$ + $61\over 9$ 
+y - $2\over 3$ = 0 
+Therefore, y = $2\over 3$
+or 3y = 2
+
+Q8. Consider a circle with its centre lying on the focus of the parabola y^2 = 2 px such that it touches the directrix of the parabola, then a point of intersection of the circle and the parabola is
+    (A) $\left(\frac{p}{2},-p\right)$
+    (B) $\left(-\frac{p}{2}, p\right)$
+    (C) $\left(-\frac{p}{2},-p\right)$
+    (D) $\left(\frac{p}{2}, p\right)$   <-- CORRECT
+    Answer: D
+    Explanation: Centre of circle = ($\frac{p}{2}$, 0), radius = p.
+Hence the equation of the circle is (x - $\frac{p}{2}$)^2 + y^2 = p^2. Since y = p,
+i.e; (x - $\frac{p}{2}$)^2 + p^2 = p^2
+This imlpies x = $\frac{p}{2}$
+Hence the point of intersection is ($\frac{p}{2}$, p)
+
+Q9. The straight line 3x + 4y = 20 and the circle x^2 + y^2 = 16
+    (A) intersect in two distinct points
+    (B) intersect in three distinct points
+    (C) touch each other   <-- CORRECT
+    (D) neither touch nor intersect in two points
+    Answer: C
+    Explanation: Distance from the origin to the line is equal to the radius.
+$\ 0+ 0 + 20\over \sqrt{3^2 + 4^2}$ = 4. The radius of the circle is 4.
+Hence the line and circle touch each other.
+
+Q10. The equation x^2 + 3y^2 - 9x + 2y + 1 = 0 represents
+    (A) a circle
+    (B) an ellipse   <-- CORRECT
+    (C) a hyperbola
+    (D) a parabola
+    Answer: B
+    Explanation: The given equation can be written of the form 
+(x - $\frac{9}{2}$)^2 + 3(y + $\frac{1}{3}$)^2 - $81\over 4$ - $1\over 3$ + 1 = 0, i.e; (x - $\frac{9}{2}$)^2 + 3(y + $\frac{1}{3}$)^2 = 235
+That is $(x-9/2)^2\over 235$ + 3$(y+2/3)^2\over 235$ = 1
+This is an equation of an ellipse.
+
+Q11. A bridge is in the shape of a semi-ellipse. It is 400 meters long and has a maximum height of 10 metres at the middle points. The height of the bridge at a point distant 80 meters from one end is
+    (A) 2 metres
+    (B) 8 metres   <-- CORRECT
+    (C) $\sqrt {91} $ metres
+    (D) 4 metres
+    Answer: B
+    Explanation: a = 200, b = 10, 
+Put x = 200 - 80 = 120.
+Substituting in the equation of the ellipese $x^2\over 200^2$ + $y^2\over 10^2$= 1
+y^2 = $\frac{256}{16}$
+therefore y = 8
+
+Q12. The radius of the circle 3x (x – 2) + 3y(y + 1) = 4 is
+    (A) 2
+    (B) 3
+    (C) $\sqrt{\frac{31}{12}}$   <-- CORRECT
+    (D) $\sqrt{\frac{15}{4}}$
+    Answer: C
+    Explanation: The general form of the given circle is x^2 + y^2 - 2x + y - $\frac{4}{3}$ = 0
+Hence g = 1, f = $\frac{-1}{2}$ and c = $\frac{-4}{3}$
+Radius = $\sqrt{g^2 + f^2 -c}$ 
+Substituting the values we get,
+Radius = $\sqrt{1 +\frac{1}{4}+\frac{4}{3}}$ = $\sqrt\frac{31}{12}$
+
+Q13. If the angle between the lines joining the foci of an ellipse to an extremity of a minor axis is 90^o, then the eccentricity of the ellipse is
+    (A) $\frac{1}{ 4}$
+    (B) $\frac{1}{\sqrt{2}}$   <-- CORRECT
+    (C) $\frac{1}{8}$
+    (D) $\frac{1}{{\sqrt 3 }}$
+    Answer: B
+    Explanation: The triangle formed is a right-angled triangle.
+Let us consider STS' as the triangle right angled at T.
+The coordinates of S is (ae, 0), S' (-ae, 0) and T(0, b)
+By applying Pythagoras theorem
+ST^2 + S'T^2 = SS'^2
+i.e; (a^2e^2 + b^2) + (a^2e^2 + b^2) = 2 a^2e^2
+on simplifying we get
+e^2 = $\frac{1}{2}$ or e = $\frac{1}{\sqrt2}$
+
+Q14. The vertex of the parabola y^2 = 4a(x + a) is
+    (A) (0, a)
+    (B) (0, 0)
+    (C) (a, 0)
+    (D) (- a, 0)   <-- CORRECT
+    Answer: D
+    Explanation: Let the equation y = Y and (x + a) = X
+Then the equation of the parabola can be written as
+Y^2 = 4aX, whose vertex is (0, 0)
+Therefore, x + a = 0 and y = 0., implies x = -a and y = 0
+Hence, the vertex of the given parabola is (-a, 0).
+
+Q15. If 3x + y = 0 is a tangent to the circle which has its center at the point (2, - 1), then the equation of the other tangent to the circle from the origin is
+    (A) 3x - y = 0
+    (B) x - 3y = 0   <-- CORRECT
+    (C) x + 2y = 0
+    (D) x + 3y = 0
+    Answer: B
+    Explanation: The other tangent will be perpendicular to the given tangent 3x + y = 0
+Therefore its equation is x - 3y + k = 0
+Since it passes through the origin, k = 0
+Hence the equation of the other tangent is x - 3y = 0

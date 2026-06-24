@@ -1,0 +1,3121 @@
+{
+  "id": 1390,
+  "name": "Biological Classification",
+  "full_name": "CBSE > Class 11 > Biology > Biological Classification",
+  "tests": [
+    {
+      "testPaperID": 3343,
+      "testPaperName": "Biological Classification Test-01",
+      "is_paid": false,
+      "category_full_name": "CBSE > Class 11 > Biology > Biological Classification",
+      "noOfQuestions": 15,
+      "has_answers": true,
+      "sections": [
+        {
+          "sectionName": "General",
+          "sectionID": null,
+          "questions": [
+            {
+              "questionID": 54988,
+              "question": "The five kingdom classification was proposed by",
+              "question_raw": "<p>The five kingdom classification was proposed by</p>",
+              "options": [
+                {
+                  "label": "A",
+                  "id": 175147,
+                  "text": "Hutchinson",
+                  "is_correct": false
+                },
+                {
+                  "label": "B",
+                  "id": 175145,
+                  "text": "Whittaker",
+                  "is_correct": true
+                },
+                {
+                  "label": "C",
+                  "id": 175146,
+                  "text": "Engler and Prantl",
+                  "is_correct": false
+                },
+                {
+                  "label": "D",
+                  "id": 175148,
+                  "text": "Bentham and Hooker",
+                  "is_correct": false
+                }
+              ],
+              "correct_option_ids": [
+                175145
+              ],
+              "correct_option_labels": [
+                "B"
+              ],
+              "correct_option_texts": [
+                "Whittaker"
+              ],
+              "explanation": "Five kingdom classification was proposed by R.H. Whittaker in 1969. The kingdoms identified by him were Monera, Protista,Fungi, Plantae and Animalia."
+            },
+            {
+              "questionID": 54989,
+              "question": "Which among the five-kingdom system of classification do not possess nuclear membrane?",
+              "question_raw": "<p>Which among the five-kingdom system of classification do not possess nuclear membrane?</p>",
+              "options": [
+                {
+                  "label": "A",
+                  "id": 175152,
+                  "text": "Kingdom Fungi",
+                  "is_correct": false
+                },
+                {
+                  "label": "B",
+                  "id": 175149,
+                  "text": "Kingdom Monera",
+                  "is_correct": true
+                },
+                {
+                  "label": "C",
+                  "id": 175151,
+                  "text": "Kingdom Plantae",
+                  "is_correct": false
+                },
+                {
+                  "label": "D",
+                  "id": 175150,
+                  "text": "Kingdom Protista",
+                  "is_correct": false
+                }
+              ],
+              "correct_option_ids": [
+                175149
+              ],
+              "correct_option_labels": [
+                "B"
+              ],
+              "correct_option_texts": [
+                "Kingdom Monera"
+              ],
+              "explanation": "Kingdom Protista, kingdom Fungi, kingdom Plantae possess the nuclear membrane while the kingdom Monera does not possess a nuclear membrane."
+            },
+            {
+              "questionID": 54990,
+              "question": "In five kingdom of classification, Whittaker assigned eukaryotes to how many kingdoms?",
+              "question_raw": "<p>In five kingdom of classification, Whittaker assigned eukaryotes to how many kingdoms?</p>",
+              "options": [
+                {
+                  "label": "A",
+                  "id": 175155,
+                  "text": "Only three of five kingdoms",
+                  "is_correct": false
+                },
+                {
+                  "label": "B",
+                  "id": 175154,
+                  "text": "Only two of five kingdoms",
+                  "is_correct": false
+                },
+                {
+                  "label": "C",
+                  "id": 175153,
+                  "text": "Only four of five kingdoms",
+                  "is_correct": true
+                },
+                {
+                  "label": "D",
+                  "id": 175156,
+                  "text": "All five kingdoms",
+                  "is_correct": false
+                }
+              ],
+              "correct_option_ids": [
+                175153
+              ],
+              "correct_option_labels": [
+                "C"
+              ],
+              "correct_option_texts": [
+                "Only four of five kingdoms"
+              ],
+              "explanation": "In Whittaker’s five kingdoms of classification, kingdom Protista, kingdom fungi, kingdom Plantae and kingdom Animalia are eukaryotic organisms. The kingdom monera includes prokaryotic organisms. Hence, four kingdoms out of five are eukayotes."
+            },
+            {
+              "questionID": 54991,
+              "question": "In five kingdom of classification, prokaryotic, non-nucleated and unicellular organisms are included under:",
+              "question_raw": "<p>In five kingdom of classification, prokaryotic, non-nucleated and unicellular organisms are included under:</p>",
+              "options": [
+                {
+                  "label": "A",
+                  "id": 175157,
+                  "text": "Kingdom Monera",
+                  "is_correct": true
+                },
+                {
+                  "label": "B",
+                  "id": 175158,
+                  "text": "Kingdom Animalia",
+                  "is_correct": false
+                },
+                {
+                  "label": "C",
+                  "id": 175160,
+                  "text": "Kingdom Protista",
+                  "is_correct": false
+                },
+                {
+                  "label": "D",
+                  "id": 175159,
+                  "text": "Kingdom Plantae",
+                  "is_correct": false
+                }
+              ],
+              "correct_option_ids": [
+                175157
+              ],
+              "correct_option_labels": [
+                "A"
+              ],
+              "correct_option_texts": [
+                "Kingdom Monera"
+              ],
+              "explanation": "The fifth kingdom, Monera, contains all the single-celled organisms that do not possess a true nucleus. Members of the kingdom Monera are commonly referred to as bacteria."
+            },
+            {
+              "questionID": 54992,
+              "question": "Which kingdom brought Chlorella and Chlamydomonas with Paramoecium and Amoeba?",
+              "question_raw": "<p>Which kingdom brought Chlorella and Chlamydomonas with Paramoecium and Amoeba?</p>",
+              "options": [
+                {
+                  "label": "A",
+                  "id": 175162,
+                  "text": "Kingdom Fungi",
+                  "is_correct": false
+                },
+                {
+                  "label": "B",
+                  "id": 175163,
+                  "text": "Kingdom Monera",
+                  "is_correct": false
+                },
+                {
+                  "label": "C",
+                  "id": 175164,
+                  "text": "Kingdom Plantae",
+                  "is_correct": false
+                },
+                {
+                  "label": "D",
+                  "id": 175161,
+                  "text": "Kingdom Protista",
+                  "is_correct": true
+                }
+              ],
+              "correct_option_ids": [
+                175161
+              ],
+              "correct_option_labels": [
+                "D"
+              ],
+              "correct_option_texts": [
+                "Kingdom Protista"
+              ],
+              "explanation": "Kingdom Protista has brought together Chlamydomonas, Chlorella which were earlier placed in Algae within Plants and (both having cell walls) with Paramoecium and Amoeba which was earlier placed in the animal kingdom which lacks it."
+            },
+            {
+              "questionID": 54993,
+              "question": "In five kingdom of classification, the kingdom Plantae are autotrophic, eukaryotic and_______.",
+              "question_raw": "<p>In five kingdom of classification, the kingdom Plantae are autotrophic, eukaryotic and_______.</p>",
+              "options": [
+                {
+                  "label": "A",
+                  "id": 175166,
+                  "text": "Motile",
+                  "is_correct": false
+                },
+                {
+                  "label": "B",
+                  "id": 175167,
+                  "text": "Possess sexual reproduction",
+                  "is_correct": false
+                },
+                {
+                  "label": "C",
+                  "id": 175168,
+                  "text": "All of these",
+                  "is_correct": false
+                },
+                {
+                  "label": "D",
+                  "id": 175165,
+                  "text": "Tissue level",
+                  "is_correct": true
+                }
+              ],
+              "correct_option_ids": [
+                175165
+              ],
+              "correct_option_labels": [
+                "D"
+              ],
+              "correct_option_texts": [
+                "Tissue level"
+              ],
+              "explanation": "The Kingdom Plantae includes all types of eukaryotic, multicellular, photosynthetic plants found in this biosphere. Most of the organism in this kingdom are autotrophs, which synthesis their own food with the help of solar energy."
+            },
+            {
+              "questionID": 54994,
+              "question": "Who was the earliest to attempt a more scientific basis for classification?",
+              "question_raw": "<p>Who was the earliest to attempt a more scientific basis for classification?</p>",
+              "options": [
+                {
+                  "label": "A",
+                  "id": 175172,
+                  "text": "Pasteur",
+                  "is_correct": false
+                },
+                {
+                  "label": "B",
+                  "id": 175169,
+                  "text": "Aristotle",
+                  "is_correct": true
+                },
+                {
+                  "label": "C",
+                  "id": 175171,
+                  "text": "Whittaker",
+                  "is_correct": false
+                },
+                {
+                  "label": "D",
+                  "id": 175170,
+                  "text": "Linnaeus",
+                  "is_correct": false
+                }
+              ],
+              "correct_option_ids": [
+                175169
+              ],
+              "correct_option_labels": [
+                "B"
+              ],
+              "correct_option_texts": [
+                "Aristotle"
+              ],
+              "explanation": "Aristotle was the earliest to attempt a more scientific basis for classification. He used simple morphological characters to classify plants into trees, shrubs, and herbs."
+            },
+            {
+              "questionID": 54995,
+              "question": "Who divided animals into two groups based on the presence and absence of red blood cells?",
+              "question_raw": "<p>Who divided animals into two groups based on the presence and absence of red blood cells?</p>",
+              "options": [
+                {
+                  "label": "A",
+                  "id": 175173,
+                  "text": "Aristotle",
+                  "is_correct": true
+                },
+                {
+                  "label": "B",
+                  "id": 175174,
+                  "text": "Linnaeus",
+                  "is_correct": false
+                },
+                {
+                  "label": "C",
+                  "id": 175176,
+                  "text": "Pasteur",
+                  "is_correct": false
+                },
+                {
+                  "label": "D",
+                  "id": 175175,
+                  "text": "Whittaker",
+                  "is_correct": false
+                }
+              ],
+              "correct_option_ids": [
+                175173
+              ],
+              "correct_option_labels": [
+                "A"
+              ],
+              "correct_option_texts": [
+                "Aristotle"
+              ],
+              "explanation": "Aristotle used simple morphological characters to classify plants into trees, shrubs, and herbs. He also divided animals into two groups, those which had red blood and those that did not."
+            },
+            {
+              "questionID": 54996,
+              "question": "Which system of classification was developed during Linnaeus's time?",
+              "question_raw": "<p>Which system of classification was developed during Linnaeus&#39;s time?</p>",
+              "options": [
+                {
+                  "label": "A",
+                  "id": 175180,
+                  "text": "Five kingdom of classification",
+                  "is_correct": false
+                },
+                {
+                  "label": "B",
+                  "id": 175178,
+                  "text": "Three kingdom of classification",
+                  "is_correct": false
+                },
+                {
+                  "label": "C",
+                  "id": 175179,
+                  "text": "Four kingdom of classificaition",
+                  "is_correct": false
+                },
+                {
+                  "label": "D",
+                  "id": 175177,
+                  "text": "Two kingdom of classification",
+                  "is_correct": true
+                }
+              ],
+              "correct_option_ids": [
+                175177
+              ],
+              "correct_option_labels": [
+                "D"
+              ],
+              "correct_option_texts": [
+                "Two kingdom of classification"
+              ],
+              "explanation": "In Linnaeus' time, a two Kingdom system of classification with Plantae and Animalia kingdoms was developed that included all plants and animals respectively. This system was used until very recently."
+            },
+            {
+              "questionID": 54997,
+              "question": "Which of the following organisms were placed together under algae?",
+              "question_raw": "<p>Which of the following organisms were placed together under algae?</p>",
+              "options": [
+                {
+                  "label": "A",
+                  "id": 175181,
+                  "text": "All of these",
+                  "is_correct": true
+                },
+                {
+                  "label": "B",
+                  "id": 175183,
+                  "text": "Spirogyra",
+                  "is_correct": false
+                },
+                {
+                  "label": "C",
+                  "id": 175182,
+                  "text": "Chlorella",
+                  "is_correct": false
+                },
+                {
+                  "label": "D",
+                  "id": 175184,
+                  "text": "Chlamydomonas",
+                  "is_correct": false
+                }
+              ],
+              "correct_option_ids": [
+                175181
+              ],
+              "correct_option_labels": [
+                "A"
+              ],
+              "correct_option_texts": [
+                "All of these"
+              ],
+              "explanation": "As spirogyra, chlorella and chlamydomonas have same characterstics which are perfectly suitable for the 'algae', they all are placed together in algae."
+            },
+            {
+              "questionID": 54998,
+              "question": "Who is called as Father of taxonomy?",
+              "question_raw": "<p>Who is called as Father of taxonomy?</p>",
+              "options": [
+                {
+                  "label": "A",
+                  "id": 175188,
+                  "text": "Theophrastus",
+                  "is_correct": false
+                },
+                {
+                  "label": "B",
+                  "id": 175185,
+                  "text": "Linnaeus",
+                  "is_correct": true
+                },
+                {
+                  "label": "C",
+                  "id": 175187,
+                  "text": "Aristotle",
+                  "is_correct": false
+                },
+                {
+                  "label": "D",
+                  "id": 175186,
+                  "text": "Hooker",
+                  "is_correct": false
+                }
+              ],
+              "correct_option_ids": [
+                175185
+              ],
+              "correct_option_labels": [
+                "B"
+              ],
+              "correct_option_texts": [
+                "Linnaeus"
+              ],
+              "explanation": "Carl Linnaeus, also known as Carl von Linné or Carolus Linnaeus, is often called the Father of Taxonomy. His system for naming, ranking, and classifying organisms is still in wide use today with many changes."
+            },
+            {
+              "questionID": 54999,
+              "question": "Which of the following type of classification based on a few morphological characters?",
+              "question_raw": "<p>Which of the following type of classification based on a few morphological characters?</p>",
+              "options": [
+                {
+                  "label": "A",
+                  "id": 175191,
+                  "text": "Phylogenetic",
+                  "is_correct": false
+                },
+                {
+                  "label": "B",
+                  "id": 175189,
+                  "text": "Artificial",
+                  "is_correct": true
+                },
+                {
+                  "label": "C",
+                  "id": 175190,
+                  "text": "Natural",
+                  "is_correct": false
+                },
+                {
+                  "label": "D",
+                  "id": 175192,
+                  "text": "Morphological",
+                  "is_correct": false
+                }
+              ],
+              "correct_option_ids": [
+                175189
+              ],
+              "correct_option_labels": [
+                "B"
+              ],
+              "correct_option_texts": [
+                "Artificial"
+              ],
+              "explanation": "Artificial classification is based on a few morphological characters of organisms like flower shape, the stem type and types of seeds."
+            },
+            {
+              "questionID": 55000,
+              "question": "The first phylogenetic system of classification was given by:",
+              "question_raw": "<p>The first phylogenetic system of classification was given by:</p>",
+              "options": [
+                {
+                  "label": "A",
+                  "id": 175196,
+                  "text": "Whittaker",
+                  "is_correct": false
+                },
+                {
+                  "label": "B",
+                  "id": 175195,
+                  "text": "John Ray",
+                  "is_correct": false
+                },
+                {
+                  "label": "C",
+                  "id": 175193,
+                  "text": "Engler and Prantl",
+                  "is_correct": true
+                },
+                {
+                  "label": "D",
+                  "id": 175194,
+                  "text": "Bantham and Hooker",
+                  "is_correct": false
+                }
+              ],
+              "correct_option_ids": [
+                175193
+              ],
+              "correct_option_labels": [
+                "C"
+              ],
+              "correct_option_texts": [
+                "Engler and Prantl"
+              ],
+              "explanation": "The first phylogenetic system of classification was given by Engler and Prantl which was based on the evolutionary relationship of the organisms. Those evolved earlier are classified first and newly evolved later on."
+            },
+            {
+              "questionID": 55001,
+              "question": "Classification and studies based on chemical constituents of an organism are called _______.",
+              "question_raw": "<p>Classification and studies based on chemical constituents of an organism are&nbsp;called _______.</p>",
+              "options": [
+                {
+                  "label": "A",
+                  "id": 175199,
+                  "text": "Phytotaxonomy",
+                  "is_correct": false
+                },
+                {
+                  "label": "B",
+                  "id": 175197,
+                  "text": "Chemotaxonomy",
+                  "is_correct": true
+                },
+                {
+                  "label": "C",
+                  "id": 175198,
+                  "text": "Cytotaxonomy",
+                  "is_correct": false
+                },
+                {
+                  "label": "D",
+                  "id": 175200,
+                  "text": "Karytaxonomy",
+                  "is_correct": false
+                }
+              ],
+              "correct_option_ids": [
+                175197
+              ],
+              "correct_option_labels": [
+                "B"
+              ],
+              "correct_option_texts": [
+                "Chemotaxonomy"
+              ],
+              "explanation": "Chemotaxonomy as the method of biological classification based on similarities in the structure of certain compounds among the organisms being classified. Two organisms morphologically similar to each other are classified on the basis of chemotaxonomy."
+            },
+            {
+              "questionID": 55002,
+              "question": "Which one is not a characteristic feature of prokaryotes?",
+              "question_raw": "<p>Which one is not a characteristic feature of prokaryotes?</p>",
+              "options": [
+                {
+                  "label": "A",
+                  "id": 175201,
+                  "text": "Sexual reproduction",
+                  "is_correct": true
+                },
+                {
+                  "label": "B",
+                  "id": 175204,
+                  "text": "Absence of spindle apparatus",
+                  "is_correct": false
+                },
+                {
+                  "label": "C",
+                  "id": 175202,
+                  "text": "Genetic material not organized in nucleus",
+                  "is_correct": false
+                },
+                {
+                  "label": "D",
+                  "id": 175203,
+                  "text": "Single envelop organization",
+                  "is_correct": false
+                }
+              ],
+              "correct_option_ids": [
+                175201
+              ],
+              "correct_option_labels": [
+                "A"
+              ],
+              "correct_option_texts": [
+                "Sexual reproduction"
+              ],
+              "explanation": "Prokaryotic organisms generally do not reproduce by sexual reproduction. However, they reproduce by asexual methods in favorable conditions."
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "testPaperID": 3344,
+      "testPaperName": "Biological Classification Test-02",
+      "is_paid": true,
+      "category_full_name": "CBSE > Class 11 > Biology > Biological Classification",
+      "noOfQuestions": 15,
+      "has_answers": true,
+      "sections": [
+        {
+          "sectionName": "General",
+          "sectionID": null,
+          "questions": [
+            {
+              "questionID": 55003,
+              "question": "Arranging organism on the basis of their shared similar or derived characters that differ from ancestral character is called _________.",
+              "question_raw": "<p>Arranging organism on the basis of their shared similar or derived characters that differ from ancestral character is called _________.</p>",
+              "options": [
+                {
+                  "label": "A",
+                  "id": 175205,
+                  "text": "Cladogram",
+                  "is_correct": true
+                },
+                {
+                  "label": "B",
+                  "id": 175208,
+                  "text": "Homogram",
+                  "is_correct": false
+                },
+                {
+                  "label": "C",
+                  "id": 175206,
+                  "text": "Histogram",
+                  "is_correct": false
+                },
+                {
+                  "label": "D",
+                  "id": 175207,
+                  "text": "Monogram",
+                  "is_correct": false
+                }
+              ],
+              "correct_option_ids": [
+                175205
+              ],
+              "correct_option_labels": [
+                "A"
+              ],
+              "correct_option_texts": [
+                "Cladogram"
+              ],
+              "explanation": "A cladogram is arranging organisms on the basis of their shared similar or derived characters that differ from ancestral character. It is an important tool for taxonomical studies."
+            },
+            {
+              "questionID": 55004,
+              "question": "Unicellular algae and fungi are separated from other organisms on the basis of:",
+              "question_raw": "<p>Unicellular algae and fungi are separated from other organisms on the basis of:</p>",
+              "options": [
+                {
+                  "label": "A",
+                  "id": 175211,
+                  "text": "Presence of chlorophyll",
+                  "is_correct": false
+                },
+                {
+                  "label": "B",
+                  "id": 175209,
+                  "text": "Lack of tissue differentiation",
+                  "is_correct": true
+                },
+                {
+                  "label": "C",
+                  "id": 175212,
+                  "text": "Absence of cilia",
+                  "is_correct": false
+                },
+                {
+                  "label": "D",
+                  "id": 175210,
+                  "text": "Absence of cell wall",
+                  "is_correct": false
+                }
+              ],
+              "correct_option_ids": [
+                175209
+              ],
+              "correct_option_labels": [
+                "B"
+              ],
+              "correct_option_texts": [
+                "Lack of tissue differentiation"
+              ],
+              "explanation": "Unicellular organisms are made of only one cell and there is an absence of tissue differentiation. All unicellular algae and fungi are separated from other organisms on this basis."
+            },
+            {
+              "questionID": 55005,
+              "question": "Prokaryotes differ from Eukaryotes in the absence of:",
+              "question_raw": "<p>Prokaryotes differ from Eukaryotes in the absence of:</p>",
+              "options": [
+                {
+                  "label": "A",
+                  "id": 175213,
+                  "text": "Nuclear membrane and membrane bounded organelles",
+                  "is_correct": true
+                },
+                {
+                  "label": "B",
+                  "id": 175215,
+                  "text": "Mitosis cell division and ribosome",
+                  "is_correct": false
+                },
+                {
+                  "label": "C",
+                  "id": 175216,
+                  "text": "All of these",
+                  "is_correct": false
+                },
+                {
+                  "label": "D",
+                  "id": 175214,
+                  "text": "Cell membrane and cytoplasm",
+                  "is_correct": false
+                }
+              ],
+              "correct_option_ids": [
+                175213
+              ],
+              "correct_option_labels": [
+                "A"
+              ],
+              "correct_option_texts": [
+                "Nuclear membrane and membrane bounded organelles"
+              ],
+              "explanation": "Prokaryotes differ from Eukaryotes in absence of nuclear membrane and membrane-bound organelles like mitochondria, Golgi bodies, etc."
+            },
+            {
+              "questionID": 55006,
+              "question": "Classification based on comparative cytological studies, the number of chromosome and behaviour of chromosome is called _______.",
+              "question_raw": "<p>Classification based on comparative cytological studies, the number of chromosome and behaviour of chromosome is called _______.</p>",
+              "options": [
+                {
+                  "label": "A",
+                  "id": 175218,
+                  "text": "Chemotaxonomy",
+                  "is_correct": false
+                },
+                {
+                  "label": "B",
+                  "id": 175217,
+                  "text": "Cytotaxonomy",
+                  "is_correct": true
+                },
+                {
+                  "label": "C",
+                  "id": 175220,
+                  "text": "Artificial taxonomy",
+                  "is_correct": false
+                },
+                {
+                  "label": "D",
+                  "id": 175219,
+                  "text": "Numerical taxonomy",
+                  "is_correct": false
+                }
+              ],
+              "correct_option_ids": [
+                175217
+              ],
+              "correct_option_labels": [
+                "B"
+              ],
+              "correct_option_texts": [
+                "Cytotaxonomy"
+              ],
+              "explanation": "Cytotaxonomy is the branch of biology dealing with the relationships and classification of organisms using comparative studies of chromosomes."
+            },
+            {
+              "questionID": 55007,
+              "question": "Plant cells differ from animal cells in:",
+              "question_raw": "<p>Plant cells differ from animal cells in:</p>",
+              "options": [
+                {
+                  "label": "A",
+                  "id": 175222,
+                  "text": "Having cell membrane and Golgi bodies",
+                  "is_correct": false
+                },
+                {
+                  "label": "B",
+                  "id": 175224,
+                  "text": "Having chloroplast and Golgi bodies",
+                  "is_correct": false
+                },
+                {
+                  "label": "C",
+                  "id": 175221,
+                  "text": "Having cell wall and Chloroplast",
+                  "is_correct": true
+                },
+                {
+                  "label": "D",
+                  "id": 175223,
+                  "text": "Having chloroplast and Mitochondria",
+                  "is_correct": false
+                }
+              ],
+              "correct_option_ids": [
+                175221
+              ],
+              "correct_option_labels": [
+                "C"
+              ],
+              "correct_option_texts": [
+                "Having cell wall and Chloroplast"
+              ],
+              "explanation": "Plant cells have a cell wall made up of cellulose and chloroplast that contain chlorophyll for photosynthesis. Animal cell lacks both cell wall and chloroplast."
+            },
+            {
+              "questionID": 55008,
+              "question": "A distinction between unicellular and multicellular is not possible in case of",
+              "question_raw": "<p>A distinction between unicellular and multicellular is not possible in case of</p>",
+              "options": [
+                {
+                  "label": "A",
+                  "id": 175227,
+                  "text": "Plantae",
+                  "is_correct": false
+                },
+                {
+                  "label": "B",
+                  "id": 175226,
+                  "text": "Animalia",
+                  "is_correct": false
+                },
+                {
+                  "label": "C",
+                  "id": 175228,
+                  "text": "Protozoa",
+                  "is_correct": false
+                },
+                {
+                  "label": "D",
+                  "id": 175225,
+                  "text": "Algae",
+                  "is_correct": true
+                }
+              ],
+              "correct_option_ids": [
+                175225
+              ],
+              "correct_option_labels": [
+                "D"
+              ],
+              "correct_option_texts": [
+                "Algae"
+              ],
+              "explanation": "Algae may be unicellular as well as multicellular, primitive algae are unicellular, and red and green algae are multicellular having a length of several meters. It is not possible to distinguish unicellular and multicellular algae because of this that unicellular green algae have not been included in kingdom Protista by Whittaker."
+            },
+            {
+              "questionID": 55009,
+              "question": "Which of the following archaebacteria is present in the guts of ruminant animals such as cows and buffaloes?",
+              "question_raw": "<p>Which of the following archaebacteria is present in the guts of ruminant animals such as cows and buffaloes?</p>",
+              "options": [
+                {
+                  "label": "A",
+                  "id": 175232,
+                  "text": "Speculums",
+                  "is_correct": false
+                },
+                {
+                  "label": "B",
+                  "id": 175230,
+                  "text": "Holophiles",
+                  "is_correct": false
+                },
+                {
+                  "label": "C",
+                  "id": 175231,
+                  "text": "Heterogens",
+                  "is_correct": false
+                },
+                {
+                  "label": "D",
+                  "id": 175229,
+                  "text": "Methanogens",
+                  "is_correct": true
+                }
+              ],
+              "correct_option_ids": [
+                175229
+              ],
+              "correct_option_labels": [
+                "D"
+              ],
+              "correct_option_texts": [
+                "Methanogens"
+              ],
+              "explanation": "Methanogens bacteria are present in the guts of ruminant animals such as cows and buffaloes. The characteristic smell of cow dungs is due to methane gas produced by this bacteria."
+            },
+            {
+              "questionID": 55010,
+              "question": "A peculiar odour found in marshy areas and cow sheds is of gas produced by________.",
+              "question_raw": "<p>A peculiar odour found in marshy areas and cow sheds is of gas produced by________.</p>",
+              "options": [
+                {
+                  "label": "A",
+                  "id": 175236,
+                  "text": "Cyanobacteria",
+                  "is_correct": false
+                },
+                {
+                  "label": "B",
+                  "id": 175235,
+                  "text": "Mycoplasm",
+                  "is_correct": false
+                },
+                {
+                  "label": "C",
+                  "id": 175234,
+                  "text": "Slime molds",
+                  "is_correct": false
+                },
+                {
+                  "label": "D",
+                  "id": 175233,
+                  "text": "Archaebacteria",
+                  "is_correct": true
+                }
+              ],
+              "correct_option_ids": [
+                175233
+              ],
+              "correct_option_labels": [
+                "D"
+              ],
+              "correct_option_texts": [
+                "Archaebacteria"
+              ],
+              "explanation": "The peculiar odour found in marshy areas and cow sheds is methane gas produced by methanogens bacteria that belong to class Archaebacteria."
+            },
+            {
+              "questionID": 55011,
+              "question": "The unicellular eukaryotes belong to the kingdom______.",
+              "question_raw": "<p>The unicellular eukaryotes belong to the kingdom______.</p>",
+              "options": [
+                {
+                  "label": "A",
+                  "id": 175240,
+                  "text": "Mycota",
+                  "is_correct": false
+                },
+                {
+                  "label": "B",
+                  "id": 175239,
+                  "text": "Plantae",
+                  "is_correct": false
+                },
+                {
+                  "label": "C",
+                  "id": 175237,
+                  "text": "Protista",
+                  "is_correct": true
+                },
+                {
+                  "label": "D",
+                  "id": 175238,
+                  "text": "Monera",
+                  "is_correct": false
+                }
+              ],
+              "correct_option_ids": [
+                175237
+              ],
+              "correct_option_labels": [
+                "C"
+              ],
+              "correct_option_texts": [
+                "Protista"
+              ],
+              "explanation": "Unicellular Eukaryotes were included in the kingdom Protista while unicellular Prokaryotes were included in the kingdom Monera."
+            },
+            {
+              "questionID": 55012,
+              "question": "A kingdom common to unicellular plants and animals is_______.",
+              "question_raw": "<p>A kingdom common to unicellular plants and animals is_______.</p>",
+              "options": [
+                {
+                  "label": "A",
+                  "id": 175241,
+                  "text": "Protista",
+                  "is_correct": true
+                },
+                {
+                  "label": "B",
+                  "id": 175242,
+                  "text": "Monera",
+                  "is_correct": false
+                },
+                {
+                  "label": "C",
+                  "id": 175243,
+                  "text": "Fungi",
+                  "is_correct": false
+                },
+                {
+                  "label": "D",
+                  "id": 175244,
+                  "text": "Algae",
+                  "is_correct": false
+                }
+              ],
+              "correct_option_ids": [
+                175241
+              ],
+              "correct_option_labels": [
+                "A"
+              ],
+              "correct_option_texts": [
+                "Protista"
+              ],
+              "explanation": "Protista includes all unicellular prokaryotic organisms that include both plants and animals. So, Protista is common to unicellular plants and animals."
+            },
+            {
+              "questionID": 55013,
+              "question": "The infectious spore-like stage is seen in_______.",
+              "question_raw": "<p>The infectious spore-like stage is seen in_______.</p>",
+              "options": [
+                {
+                  "label": "A",
+                  "id": 175247,
+                  "text": "Flagellated protozoans",
+                  "is_correct": false
+                },
+                {
+                  "label": "B",
+                  "id": 175245,
+                  "text": "Sporozoans",
+                  "is_correct": true
+                },
+                {
+                  "label": "C",
+                  "id": 175248,
+                  "text": "Amoeboid protozoans",
+                  "is_correct": false
+                },
+                {
+                  "label": "D",
+                  "id": 175246,
+                  "text": "Ciliated protozoans",
+                  "is_correct": false
+                }
+              ],
+              "correct_option_ids": [
+                175245
+              ],
+              "correct_option_labels": [
+                "B"
+              ],
+              "correct_option_texts": [
+                "Sporozoans"
+              ],
+              "explanation": "Sporozoans include diverse organisms that have an infectious spore-like stage in their life cycle."
+            },
+            {
+              "questionID": 55014,
+              "question": "In which group of kingdom Protista, plasmodium is formed?",
+              "question_raw": "<p>In which group of kingdom Protista, plasmodium is formed?</p>",
+              "options": [
+                {
+                  "label": "A",
+                  "id": 175251,
+                  "text": "Euglenoids",
+                  "is_correct": false
+                },
+                {
+                  "label": "B",
+                  "id": 175252,
+                  "text": "Dinoflagellates",
+                  "is_correct": false
+                },
+                {
+                  "label": "C",
+                  "id": 175249,
+                  "text": "Slime moulds",
+                  "is_correct": true
+                },
+                {
+                  "label": "D",
+                  "id": 175250,
+                  "text": "Chrysophytes",
+                  "is_correct": false
+                }
+              ],
+              "correct_option_ids": [
+                175249
+              ],
+              "correct_option_labels": [
+                "C"
+              ],
+              "correct_option_texts": [
+                "Slime moulds"
+              ],
+              "explanation": "Slime moulds are saprophytic protists. The body moves along decaying twigs and leaves engulfing organic material. Under suitable conditions, they form an aggregation called plasmodium which may grow and spread over several feet. During unfavourable conditions, the plasmodium differentiates and forms fruiting bodies bearing spores at their tips."
+            },
+            {
+              "questionID": 55015,
+              "question": "Which criterion made Fungi to be placed in separate groups?",
+              "question_raw": "<p>Which criterion made Fungi to be placed in separate groups?</p>",
+              "options": [
+                {
+                  "label": "A",
+                  "id": 175253,
+                  "text": "Cell wall",
+                  "is_correct": true
+                },
+                {
+                  "label": "B",
+                  "id": 175255,
+                  "text": "Mode of nutrition",
+                  "is_correct": false
+                },
+                {
+                  "label": "C",
+                  "id": 175254,
+                  "text": "Nuclear membrane",
+                  "is_correct": false
+                },
+                {
+                  "label": "D",
+                  "id": 175256,
+                  "text": "Cell type",
+                  "is_correct": false
+                }
+              ],
+              "correct_option_ids": [
+                175253
+              ],
+              "correct_option_labels": [
+                "A"
+              ],
+              "correct_option_texts": [
+                "Cell wall"
+              ],
+              "explanation": "The cell wall of fungi is made up of chitin while the green plants had a cellulosic cell wall. Due to this, fungi were placed in a separate kingdom – Kingdom Fungi."
+            },
+            {
+              "questionID": 55016,
+              "question": "How bacteria reproduce during unfavourable conditions?",
+              "question_raw": "<p>How bacteria reproduce during unfavourable conditions?</p>",
+              "options": [
+                {
+                  "label": "A",
+                  "id": 175258,
+                  "text": "By DNA transfer",
+                  "is_correct": false
+                },
+                {
+                  "label": "B",
+                  "id": 175259,
+                  "text": "By fission",
+                  "is_correct": false
+                },
+                {
+                  "label": "C",
+                  "id": 175257,
+                  "text": "By producing spores",
+                  "is_correct": true
+                },
+                {
+                  "label": "D",
+                  "id": 175260,
+                  "text": "All of these",
+                  "is_correct": false
+                }
+              ],
+              "correct_option_ids": [
+                175257
+              ],
+              "correct_option_labels": [
+                "C"
+              ],
+              "correct_option_texts": [
+                "By producing spores"
+              ],
+              "explanation": "Bacteria reproduce mainly by fission. Sometimes, under unfavourable conditions, they produce spores. They also reproduce by a sort of sexual reproduction by adopting a primitive type of DNA transfer from one bacterium to the other."
+            },
+            {
+              "questionID": 55017,
+              "question": "The filamentous body of the fungus is called _________.",
+              "question_raw": "<p>The filamentous body of the fungus is called _________.</p>",
+              "options": [
+                {
+                  "label": "A",
+                  "id": 175263,
+                  "text": "Filament",
+                  "is_correct": false
+                },
+                {
+                  "label": "B",
+                  "id": 175264,
+                  "text": "Stipe",
+                  "is_correct": false
+                },
+                {
+                  "label": "C",
+                  "id": 175262,
+                  "text": "Hyphae",
+                  "is_correct": false
+                },
+                {
+                  "label": "D",
+                  "id": 175261,
+                  "text": "Mycelium",
+                  "is_correct": true
+                }
+              ],
+              "correct_option_ids": [
+                175261
+              ],
+              "correct_option_labels": [
+                "D"
+              ],
+              "correct_option_texts": [
+                "Mycelium"
+              ],
+              "explanation": "Mycelium is the vegetative part of a fungus or fungus-like bacterial colony, consisting of a mass of branching, thread-like hyphae."
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "testPaperID": 3345,
+      "testPaperName": "Biological Classification Test-03",
+      "is_paid": true,
+      "category_full_name": "CBSE > Class 11 > Biology > Biological Classification",
+      "noOfQuestions": 15,
+      "has_answers": true,
+      "sections": [
+        {
+          "sectionName": "General",
+          "sectionID": null,
+          "questions": [
+            {
+              "questionID": 55018,
+              "question": "All prokaryotic, unicellular organisms are included under the kingdom:",
+              "question_raw": "<p>All prokaryotic, unicellular organisms are included under the kingdom:</p>",
+              "options": [
+                {
+                  "label": "A",
+                  "id": 175265,
+                  "text": "Monera",
+                  "is_correct": true
+                },
+                {
+                  "label": "B",
+                  "id": 175266,
+                  "text": "Protista",
+                  "is_correct": false
+                },
+                {
+                  "label": "C",
+                  "id": 175268,
+                  "text": "Animalia",
+                  "is_correct": false
+                },
+                {
+                  "label": "D",
+                  "id": 175267,
+                  "text": "Fungi",
+                  "is_correct": false
+                }
+              ],
+              "correct_option_ids": [
+                175265
+              ],
+              "correct_option_labels": [
+                "A"
+              ],
+              "correct_option_texts": [
+                "Monera"
+              ],
+              "explanation": "All prokaryotic, unicellular organisms are included in the kingdom Monera. The Eukaryotic unicellular organisms are placed in the Protista kingdom."
+            },
+            {
+              "questionID": 55019,
+              "question": "The cell wall of fungi consists of _______.",
+              "question_raw": "<p>The cell wall of fungi consists of _______.</p>",
+              "options": [
+                {
+                  "label": "A",
+                  "id": 175272,
+                  "text": "Starch",
+                  "is_correct": false
+                },
+                {
+                  "label": "B",
+                  "id": 175271,
+                  "text": "Glycopeptides",
+                  "is_correct": false
+                },
+                {
+                  "label": "C",
+                  "id": 175270,
+                  "text": "Cellulose",
+                  "is_correct": false
+                },
+                {
+                  "label": "D",
+                  "id": 175269,
+                  "text": "Chitin",
+                  "is_correct": true
+                }
+              ],
+              "correct_option_ids": [
+                175269
+              ],
+              "correct_option_labels": [
+                "D"
+              ],
+              "correct_option_texts": [
+                "Chitin"
+              ],
+              "explanation": "The cell wall of fungi consists of special sugar molecules called chitin. The cell wall of plants is made up of cellulose."
+            },
+            {
+              "questionID": 55020,
+              "question": "Which among the following is photosynthetic as well as saprophytic?",
+              "question_raw": "<p>Which among the following is photosynthetic as well as saprophytic?</p>",
+              "options": [
+                {
+                  "label": "A",
+                  "id": 175275,
+                  "text": "Mushroom",
+                  "is_correct": false
+                },
+                {
+                  "label": "B",
+                  "id": 175273,
+                  "text": "Euglena",
+                  "is_correct": true
+                },
+                {
+                  "label": "C",
+                  "id": 175276,
+                  "text": "Paramoecium",
+                  "is_correct": false
+                },
+                {
+                  "label": "D",
+                  "id": 175274,
+                  "text": "Amoeba",
+                  "is_correct": false
+                }
+              ],
+              "correct_option_ids": [
+                175273
+              ],
+              "correct_option_labels": [
+                "B"
+              ],
+              "correct_option_texts": [
+                "Euglena"
+              ],
+              "explanation": "Euglena is photosynthetic in presence of sunlight and is saprophytic in absence of sunlight."
+            },
+            {
+              "questionID": 55021,
+              "question": "Which bacteria help in oxidising inorganic substances?",
+              "question_raw": "<p>Which bacteria help in oxidising inorganic substances?</p>",
+              "options": [
+                {
+                  "label": "A",
+                  "id": 175280,
+                  "text": "Autotrophic bacteria",
+                  "is_correct": false
+                },
+                {
+                  "label": "B",
+                  "id": 175277,
+                  "text": "Chemosynthetic autotrophic bacteria",
+                  "is_correct": true
+                },
+                {
+                  "label": "C",
+                  "id": 175278,
+                  "text": "Cyanobacteria",
+                  "is_correct": false
+                },
+                {
+                  "label": "D",
+                  "id": 175279,
+                  "text": "Heterotrophic bacteria",
+                  "is_correct": false
+                }
+              ],
+              "correct_option_ids": [
+                175277
+              ],
+              "correct_option_labels": [
+                "B"
+              ],
+              "correct_option_texts": [
+                "Chemosynthetic autotrophic bacteria"
+              ],
+              "explanation": "Chemosynthetic autotrophic bacteria oxidize various inorganic substances such as nitrates, nitrites, and ammonia and use the released energy for their ATP production. They play a great role in recycling nutrients like nitrogen, phosphorous, iron, and sulphur."
+            },
+            {
+              "questionID": 55022,
+              "question": "The asexual reproduction in fungi takes place by",
+              "question_raw": "<p>The asexual reproduction in fungi takes place by</p>",
+              "options": [
+                {
+                  "label": "A",
+                  "id": 175283,
+                  "text": "Ascospores",
+                  "is_correct": false
+                },
+                {
+                  "label": "B",
+                  "id": 175284,
+                  "text": "Basidiospores",
+                  "is_correct": false
+                },
+                {
+                  "label": "C",
+                  "id": 175282,
+                  "text": "OOspores",
+                  "is_correct": false
+                },
+                {
+                  "label": "D",
+                  "id": 175281,
+                  "text": "Zoospores",
+                  "is_correct": true
+                }
+              ],
+              "correct_option_ids": [
+                175281
+              ],
+              "correct_option_labels": [
+                "D"
+              ],
+              "correct_option_texts": [
+                "Zoospores"
+              ],
+              "explanation": "In fungi, the asexual reproduction takes place by spores called conidia or sporangiospores or zoospores, and sexual reproduction is by oospores, ascospores and basidiospores."
+            },
+            {
+              "questionID": 55023,
+              "question": "A distinction between unicellular and multicellular is not possible in________.",
+              "question_raw": "<p>A distinction between unicellular and multicellular is not possible in________.</p>",
+              "options": [
+                {
+                  "label": "A",
+                  "id": 175287,
+                  "text": "Plantae",
+                  "is_correct": false
+                },
+                {
+                  "label": "B",
+                  "id": 175285,
+                  "text": "Algae",
+                  "is_correct": true
+                },
+                {
+                  "label": "C",
+                  "id": 175286,
+                  "text": "Animalia",
+                  "is_correct": false
+                },
+                {
+                  "label": "D",
+                  "id": 175288,
+                  "text": "Protozoa",
+                  "is_correct": false
+                }
+              ],
+              "correct_option_ids": [
+                175285
+              ],
+              "correct_option_labels": [
+                "B"
+              ],
+              "correct_option_texts": [
+                "Algae"
+              ],
+              "explanation": "Algae grouped together the unicellular organisms and the multicellular ones."
+            },
+            {
+              "questionID": 55024,
+              "question": "Which among the following is not included in the three domains system?",
+              "question_raw": "<p>Which among the following is not included in the three domains system?</p>",
+              "options": [
+                {
+                  "label": "A",
+                  "id": 175289,
+                  "text": "Viral Domain",
+                  "is_correct": true
+                },
+                {
+                  "label": "B",
+                  "id": 175291,
+                  "text": "Bacteria Domain",
+                  "is_correct": false
+                },
+                {
+                  "label": "C",
+                  "id": 175292,
+                  "text": "Eukara Domain",
+                  "is_correct": false
+                },
+                {
+                  "label": "D",
+                  "id": 175290,
+                  "text": "Archaea Domain",
+                  "is_correct": false
+                }
+              ],
+              "correct_option_ids": [
+                175289
+              ],
+              "correct_option_labels": [
+                "A"
+              ],
+              "correct_option_texts": [
+                "Viral Domain"
+              ],
+              "explanation": "The three-domain system includes Archaebacteria, Eubacteria, and Bacteria domain."
+            },
+            {
+              "questionID": 55025,
+              "question": "Which archaebacteria is present in guts of ruminant animals such as cows and buffaloes?",
+              "question_raw": "<p>Which archaebacteria is present in&nbsp;guts of ruminant animals such as cows and buffaloes?</p>",
+              "options": [
+                {
+                  "label": "A",
+                  "id": 175293,
+                  "text": "Methanogens",
+                  "is_correct": true
+                },
+                {
+                  "label": "B",
+                  "id": 175295,
+                  "text": "Heterogens",
+                  "is_correct": false
+                },
+                {
+                  "label": "C",
+                  "id": 175296,
+                  "text": "Thermoacidophiles",
+                  "is_correct": false
+                },
+                {
+                  "label": "D",
+                  "id": 175294,
+                  "text": "Holophiles",
+                  "is_correct": false
+                }
+              ],
+              "correct_option_ids": [
+                175293
+              ],
+              "correct_option_labels": [
+                "A"
+              ],
+              "correct_option_texts": [
+                "Methanogens"
+              ],
+              "explanation": "Methanogens are present in the guts of several ruminant animals such as cows and buffaloes and they are responsible for the production of methane (biogas) from the dung of these animals."
+            },
+            {
+              "questionID": 55026,
+              "question": "The blue-green algae are also referred to as________.",
+              "question_raw": "<p>The blue-green algae are also referred to as________.</p>",
+              "options": [
+                {
+                  "label": "A",
+                  "id": 175300,
+                  "text": "Heterotrophic bacteria",
+                  "is_correct": false
+                },
+                {
+                  "label": "B",
+                  "id": 175299,
+                  "text": "Archaebacteria",
+                  "is_correct": false
+                },
+                {
+                  "label": "C",
+                  "id": 175298,
+                  "text": "Eubacteria",
+                  "is_correct": false
+                },
+                {
+                  "label": "D",
+                  "id": 175297,
+                  "text": "Cyanobacteria",
+                  "is_correct": true
+                }
+              ],
+              "correct_option_ids": [
+                175297
+              ],
+              "correct_option_labels": [
+                "D"
+              ],
+              "correct_option_texts": [
+                "Cyanobacteria"
+              ],
+              "explanation": "Blue-green algae are also called cyanobacteria. They are considered as the most primitive organism that still survives. It includes different forms of unicellular and multicellular organisms."
+            },
+            {
+              "questionID": 55027,
+              "question": "The organism that completely lacks a cell wall and is the smallest living cell known that can highly pleomorphic is _________.",
+              "question_raw": "<p>The organism that completely lacks a cell wall and is the smallest living cell known that can highly pleomorphic&nbsp;is _________.</p>",
+              "options": [
+                {
+                  "label": "A",
+                  "id": 175303,
+                  "text": "Bacteriophages",
+                  "is_correct": false
+                },
+                {
+                  "label": "B",
+                  "id": 175304,
+                  "text": "Yeast",
+                  "is_correct": false
+                },
+                {
+                  "label": "C",
+                  "id": 175302,
+                  "text": "Virus",
+                  "is_correct": false
+                },
+                {
+                  "label": "D",
+                  "id": 175301,
+                  "text": "Mycoplasma",
+                  "is_correct": true
+                }
+              ],
+              "correct_option_ids": [
+                175301
+              ],
+              "correct_option_labels": [
+                "D"
+              ],
+              "correct_option_texts": [
+                "Mycoplasma"
+              ],
+              "explanation": "Mycoplasma is a genus of bacteria that lack a cell wall around their cell membrane. Without a cell wall, they are unaffected by many common antibiotics such as penicillin or other beta-lactam antibiotics that target cell wall synthesis.\nMycoplasma species are the smallest bacterial cells yet discovered, can survive without oxygen, and come in various shapes. For example, M. genitalium is flask-shaped."
+            },
+            {
+              "questionID": 55028,
+              "question": "Which one is not a member of the kingdom Protista?",
+              "question_raw": "<p>Which one is not a member of the kingdom Protista?</p>",
+              "options": [
+                {
+                  "label": "A",
+                  "id": 175307,
+                  "text": "Slime molds",
+                  "is_correct": false
+                },
+                {
+                  "label": "B",
+                  "id": 175306,
+                  "text": "Protozoa",
+                  "is_correct": false
+                },
+                {
+                  "label": "C",
+                  "id": 175305,
+                  "text": "Phycomycetes",
+                  "is_correct": true
+                },
+                {
+                  "label": "D",
+                  "id": 175308,
+                  "text": "Euglenoids",
+                  "is_correct": false
+                }
+              ],
+              "correct_option_ids": [
+                175305
+              ],
+              "correct_option_labels": [
+                "C"
+              ],
+              "correct_option_texts": [
+                "Phycomycetes"
+              ],
+              "explanation": "Phycomycetes is a subdivision of fungus which are multicellular. Protozoa, slime moulds and euglenoids are part of the kingdom Protista which are unicellular and eukaryotic organisms."
+            },
+            {
+              "questionID": 55029,
+              "question": "The class of fungi in which mushroom is included is________.",
+              "question_raw": "<p>The class of fungi in which mushroom is included is________.</p>",
+              "options": [
+                {
+                  "label": "A",
+                  "id": 175311,
+                  "text": "Ascomycetes",
+                  "is_correct": false
+                },
+                {
+                  "label": "B",
+                  "id": 175310,
+                  "text": "Deuteromycetes",
+                  "is_correct": false
+                },
+                {
+                  "label": "C",
+                  "id": 175309,
+                  "text": "Basidiomycetes",
+                  "is_correct": true
+                },
+                {
+                  "label": "D",
+                  "id": 175312,
+                  "text": "Phycomycetes",
+                  "is_correct": false
+                }
+              ],
+              "correct_option_ids": [
+                175309
+              ],
+              "correct_option_labels": [
+                "C"
+              ],
+              "correct_option_texts": [
+                "Basidiomycetes"
+              ],
+              "explanation": "Commonly known forms of basidiomycetes are mushrooms, bracket fungi, or puffballs."
+            },
+            {
+              "questionID": 55030,
+              "question": "Diatoms do not decay easily because:",
+              "question_raw": "<p>Diatoms do not decay easily because:</p>",
+              "options": [
+                {
+                  "label": "A",
+                  "id": 175313,
+                  "text": "They have siliceous walls",
+                  "is_correct": true
+                },
+                {
+                  "label": "B",
+                  "id": 175314,
+                  "text": "Their body is impervious to water",
+                  "is_correct": false
+                },
+                {
+                  "label": "C",
+                  "id": 175316,
+                  "text": "They are chitinous",
+                  "is_correct": false
+                },
+                {
+                  "label": "D",
+                  "id": 175315,
+                  "text": "They are abundant in saline water",
+                  "is_correct": false
+                }
+              ],
+              "correct_option_ids": [
+                175313
+              ],
+              "correct_option_labels": [
+                "A"
+              ],
+              "correct_option_texts": [
+                "They have siliceous walls"
+              ],
+              "explanation": "The walls of the diatoms are embedded with silica and thus the walls are indestructible."
+            },
+            {
+              "questionID": 55031,
+              "question": "In fungi like ascomycetes and basidiomycetes, an intervening dikaryotic stage occurs. Such condition is called",
+              "question_raw": "<p>In fungi like ascomycetes and basidiomycetes, an intervening dikaryotic stage occurs. Such condition is called</p>",
+              "options": [
+                {
+                  "label": "A",
+                  "id": 175320,
+                  "text": "Mycorrhizae",
+                  "is_correct": false
+                },
+                {
+                  "label": "B",
+                  "id": 175319,
+                  "text": "Karyogamy",
+                  "is_correct": false
+                },
+                {
+                  "label": "C",
+                  "id": 175318,
+                  "text": "Plasmogamy",
+                  "is_correct": false
+                },
+                {
+                  "label": "D",
+                  "id": 175317,
+                  "text": "Dikaryon",
+                  "is_correct": true
+                }
+              ],
+              "correct_option_ids": [
+                175317
+              ],
+              "correct_option_labels": [
+                "D"
+              ],
+              "correct_option_texts": [
+                "Dikaryon"
+              ],
+              "explanation": "In fungi like ascomycetes and basidiomycetes, an intervening dikaryotic stage (n + n i.e. two nuclei per cell) occurs; such a condition is called a dikaryon and the phase is called dikaryon phase of fungus."
+            },
+            {
+              "questionID": 55032,
+              "question": "The body of the fungus is filamentous and it is called _______.",
+              "question_raw": "<p>The body of the fungus is filamentous and it is called _______.</p>",
+              "options": [
+                {
+                  "label": "A",
+                  "id": 175322,
+                  "text": "Hyphae",
+                  "is_correct": false
+                },
+                {
+                  "label": "B",
+                  "id": 175323,
+                  "text": "Filament",
+                  "is_correct": false
+                },
+                {
+                  "label": "C",
+                  "id": 175321,
+                  "text": "Mycelium",
+                  "is_correct": true
+                },
+                {
+                  "label": "D",
+                  "id": 175324,
+                  "text": "Steepened",
+                  "is_correct": false
+                }
+              ],
+              "correct_option_ids": [
+                175321
+              ],
+              "correct_option_labels": [
+                "C"
+              ],
+              "correct_option_texts": [
+                "Mycelium"
+              ],
+              "explanation": "The body of the filamentous fungus is known as mycelium, which is a thread-like structure. Mycelium produces hyphae and sporogenous cells to produce spores."
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "testPaperID": 3346,
+      "testPaperName": "Biological Classification Test-04",
+      "is_paid": true,
+      "category_full_name": "CBSE > Class 11 > Biology > Biological Classification",
+      "noOfQuestions": 15,
+      "has_answers": true,
+      "sections": [
+        {
+          "sectionName": "General",
+          "sectionID": null,
+          "questions": [
+            {
+              "questionID": 55033,
+              "question": "Cellular genes which are known to take part in producing cancer are termed as",
+              "question_raw": "<p>Cellular genes which are known to take part in producing cancer are termed as</p>",
+              "options": [
+                {
+                  "label": "A",
+                  "id": 175327,
+                  "text": "Viral oncogens",
+                  "is_correct": false
+                },
+                {
+                  "label": "B",
+                  "id": 175326,
+                  "text": "Proto-oncogenes",
+                  "is_correct": true
+                },
+                {
+                  "label": "C",
+                  "id": 175328,
+                  "text": "Inactive oncogens",
+                  "is_correct": false
+                },
+                {
+                  "label": "D",
+                  "id": 175325,
+                  "text": "Cellular oncogens",
+                  "is_correct": false
+                }
+              ],
+              "correct_option_ids": [
+                175326
+              ],
+              "correct_option_labels": [
+                "B"
+              ],
+              "correct_option_texts": [
+                "Proto-oncogenes"
+              ],
+              "explanation": "Proto-oncogenes are a group of genes that cause normal cells to become cancerous when they are mutated."
+            },
+            {
+              "questionID": 55034,
+              "question": "Which one is important in nutrient to recycle and act as decomposer and mineralizes of the biosphere ______.",
+              "question_raw": "<p>Which one is important in nutrient to recycle and act as decomposer and mineralizes of the biosphere ______.</p>",
+              "options": [
+                {
+                  "label": "A",
+                  "id": 175331,
+                  "text": "Protozoa",
+                  "is_correct": false
+                },
+                {
+                  "label": "B",
+                  "id": 175332,
+                  "text": "Amphibians",
+                  "is_correct": false
+                },
+                {
+                  "label": "C",
+                  "id": 175330,
+                  "text": "Algae",
+                  "is_correct": false
+                },
+                {
+                  "label": "D",
+                  "id": 175329,
+                  "text": "Fungi",
+                  "is_correct": true
+                }
+              ],
+              "correct_option_ids": [
+                175329
+              ],
+              "correct_option_labels": [
+                "D"
+              ],
+              "correct_option_texts": [
+                "Fungi"
+              ],
+              "explanation": "Fungi is important in the nutrient cycle and acts as decomposer along with bacteria and mineralizers of the biosphere to regular recycling of nutrients in the biosphere."
+            },
+            {
+              "questionID": 55035,
+              "question": "In fungus, food reserves are:",
+              "question_raw": "<p>In fungus, food reserves are:</p>",
+              "options": [
+                {
+                  "label": "A",
+                  "id": 175335,
+                  "text": "Phosphoglceride",
+                  "is_correct": false
+                },
+                {
+                  "label": "B",
+                  "id": 175333,
+                  "text": "Glycogen and fat",
+                  "is_correct": true
+                },
+                {
+                  "label": "C",
+                  "id": 175336,
+                  "text": "Lipid",
+                  "is_correct": false
+                },
+                {
+                  "label": "D",
+                  "id": 175334,
+                  "text": "Glucose and fat",
+                  "is_correct": false
+                }
+              ],
+              "correct_option_ids": [
+                175333
+              ],
+              "correct_option_labels": [
+                "B"
+              ],
+              "correct_option_texts": [
+                "Glycogen and fat"
+              ],
+              "explanation": "Different fungi contain different kinds of reserve food materials depending upon the habitat and body structure of the fungus. In some fungi, the food reserves are glycogen and fat."
+            },
+            {
+              "questionID": 55036,
+              "question": "In which class of fungi the mushroom belongs to:",
+              "question_raw": "<p>In which class of fungi the mushroom belongs to:</p>",
+              "options": [
+                {
+                  "label": "A",
+                  "id": 175339,
+                  "text": "Ascomycetes",
+                  "is_correct": false
+                },
+                {
+                  "label": "B",
+                  "id": 175340,
+                  "text": "Phycomycetes",
+                  "is_correct": false
+                },
+                {
+                  "label": "C",
+                  "id": 175337,
+                  "text": "Basidiomycetes",
+                  "is_correct": true
+                },
+                {
+                  "label": "D",
+                  "id": 175338,
+                  "text": "Deuteromycetes",
+                  "is_correct": false
+                }
+              ],
+              "correct_option_ids": [
+                175337
+              ],
+              "correct_option_labels": [
+                "C"
+              ],
+              "correct_option_texts": [
+                "Basidiomycetes"
+              ],
+              "explanation": "The mushroom belongs to class Basidiomycetes to kingdom fungi. Basidiomycetes produce basidiospores as reproductive units. The member of this group grows on dead and decaying matters."
+            },
+            {
+              "questionID": 55037,
+              "question": "Which is the possible region of respiration in bacteria?",
+              "question_raw": "<p>Which is the possible region of respiration in bacteria?</p>",
+              "options": [
+                {
+                  "label": "A",
+                  "id": 175343,
+                  "text": "Cell wall",
+                  "is_correct": false
+                },
+                {
+                  "label": "B",
+                  "id": 175341,
+                  "text": "Mesosome",
+                  "is_correct": true
+                },
+                {
+                  "label": "C",
+                  "id": 175342,
+                  "text": "Mitochondria",
+                  "is_correct": false
+                },
+                {
+                  "label": "D",
+                  "id": 175344,
+                  "text": "Nucleoid",
+                  "is_correct": false
+                }
+              ],
+              "correct_option_ids": [
+                175341
+              ],
+              "correct_option_labels": [
+                "B"
+              ],
+              "correct_option_texts": [
+                "Mesosome"
+              ],
+              "explanation": "Bacteria belong to the kingdom Monera in which organisms are unicellular and prokaryotic. Prokaryotic organisms lack membrane-bounded organelles like mitochondria where respiration occurs. In bacteria, respiration occurs in the mesosome."
+            },
+            {
+              "questionID": 55038,
+              "question": "A bacterium capable of tolerating extreme heat, dryness, and toxic chemicals is probably having_____.",
+              "question_raw": "<p>A bacterium capable of tolerating extreme heat, dryness, and toxic chemicals is probably having_____.</p>",
+              "options": [
+                {
+                  "label": "A",
+                  "id": 175346,
+                  "text": "Endotoxins",
+                  "is_correct": false
+                },
+                {
+                  "label": "B",
+                  "id": 175348,
+                  "text": "Thick wall",
+                  "is_correct": false
+                },
+                {
+                  "label": "C",
+                  "id": 175345,
+                  "text": "Endospore",
+                  "is_correct": true
+                },
+                {
+                  "label": "D",
+                  "id": 175347,
+                  "text": "Endogenous buds",
+                  "is_correct": false
+                }
+              ],
+              "correct_option_ids": [
+                175345
+              ],
+              "correct_option_labels": [
+                "C"
+              ],
+              "correct_option_texts": [
+                "Endospore"
+              ],
+              "explanation": "A bacterium capable of tolerating extreme heat, dryness, and toxic chemicals have the ability to produce endospores inside the body that help them to tide over unfavorable conditions."
+            },
+            {
+              "questionID": 55039,
+              "question": "When a freshwater protozoan is placed in marine water:",
+              "question_raw": "<p>When a freshwater protozoan is placed in marine water:</p>",
+              "options": [
+                {
+                  "label": "A",
+                  "id": 175351,
+                  "text": "Number of contractile vacuole increases",
+                  "is_correct": false
+                },
+                {
+                  "label": "B",
+                  "id": 175350,
+                  "text": "The contractile vacuole increase in size",
+                  "is_correct": false
+                },
+                {
+                  "label": "C",
+                  "id": 175352,
+                  "text": "The contractile vacuole remain same",
+                  "is_correct": false
+                },
+                {
+                  "label": "D",
+                  "id": 175349,
+                  "text": "The contractile vacuole disappear",
+                  "is_correct": true
+                }
+              ],
+              "correct_option_ids": [
+                175349
+              ],
+              "correct_option_labels": [
+                "D"
+              ],
+              "correct_option_texts": [
+                "The contractile vacuole disappear"
+              ],
+              "explanation": "When freshwater protozoan is placed in marine water, the contractile vacuole disappears because the function of the vacuole is to expel out excess water but in the case of marine water, the water should be retained instead of getting expelled. If the contractile vacuole will not disappear the cell will get dehydrated."
+            },
+            {
+              "questionID": 55040,
+              "question": "The plant cells differ from animal cells in:",
+              "question_raw": "<p>The plant cells differ from animal cells in:</p>",
+              "options": [
+                {
+                  "label": "A",
+                  "id": 175353,
+                  "text": "Having cell wall and chloroplast",
+                  "is_correct": true
+                },
+                {
+                  "label": "B",
+                  "id": 175355,
+                  "text": "Having chloroplast and mitochondria",
+                  "is_correct": false
+                },
+                {
+                  "label": "C",
+                  "id": 175356,
+                  "text": "Having chloroplast and golgibodies",
+                  "is_correct": false
+                },
+                {
+                  "label": "D",
+                  "id": 175354,
+                  "text": "Having cell membrane and golgibodies",
+                  "is_correct": false
+                }
+              ],
+              "correct_option_ids": [
+                175353
+              ],
+              "correct_option_labels": [
+                "A"
+              ],
+              "correct_option_texts": [
+                "Having cell wall and chloroplast"
+              ],
+              "explanation": "The plant cells have a eukaryotic structure with prominent chloroplasts and cell walls mainly made of cellulose."
+            },
+            {
+              "questionID": 55041,
+              "question": "Plants complete their life cycle in two phase, sporophytic and gametophytic which occurs alternately called",
+              "question_raw": "<p>Plants complete their life cycle in two phase, sporophytic and gametophytic which occurs alternately called</p>",
+              "options": [
+                {
+                  "label": "A",
+                  "id": 175358,
+                  "text": "Alternation of diploid and haploid",
+                  "is_correct": false
+                },
+                {
+                  "label": "B",
+                  "id": 175359,
+                  "text": "Change in phases",
+                  "is_correct": false
+                },
+                {
+                  "label": "C",
+                  "id": 175357,
+                  "text": "Alternation of generation",
+                  "is_correct": true
+                },
+                {
+                  "label": "D",
+                  "id": 175360,
+                  "text": "Change in structure",
+                  "is_correct": false
+                }
+              ],
+              "correct_option_ids": [
+                175357
+              ],
+              "correct_option_labels": [
+                "C"
+              ],
+              "correct_option_texts": [
+                "Alternation of generation"
+              ],
+              "explanation": "The fluctuation between these diploid and haploid stages that occurs in plants is called the alternation of generations. The multicellular haploid plant structure is called the gametophyte, which is formed from the spore and gives rise to the haploid gametes."
+            },
+            {
+              "questionID": 55042,
+              "question": "Sexual reproduction is by the population of male and female followed by embryological development is a characteristic feature of_______.",
+              "question_raw": "<p>Sexual reproduction is by the population of male and female followed by embryological development is a characteristic feature of_______.</p>",
+              "options": [
+                {
+                  "label": "A",
+                  "id": 175363,
+                  "text": "Fungi",
+                  "is_correct": false
+                },
+                {
+                  "label": "B",
+                  "id": 175361,
+                  "text": "Animalia",
+                  "is_correct": true
+                },
+                {
+                  "label": "C",
+                  "id": 175362,
+                  "text": "Plantae",
+                  "is_correct": false
+                },
+                {
+                  "label": "D",
+                  "id": 175364,
+                  "text": "Mucor",
+                  "is_correct": false
+                }
+              ],
+              "correct_option_ids": [
+                175361
+              ],
+              "correct_option_labels": [
+                "B"
+              ],
+              "correct_option_texts": [
+                "Animalia"
+              ],
+              "explanation": "The sexual reproduction in the kingdom Animalia is by the population of males and female followed by embryological development."
+            },
+            {
+              "questionID": 55043,
+              "question": "A plant that is partially heterotrophic is______.",
+              "question_raw": "<p>A plant that is partially heterotrophic is______.</p>",
+              "options": [
+                {
+                  "label": "A",
+                  "id": 175367,
+                  "text": "Guava",
+                  "is_correct": false
+                },
+                {
+                  "label": "B",
+                  "id": 175368,
+                  "text": "Utricularias",
+                  "is_correct": false
+                },
+                {
+                  "label": "C",
+                  "id": 175365,
+                  "text": "Drosera",
+                  "is_correct": true
+                },
+                {
+                  "label": "D",
+                  "id": 175366,
+                  "text": "Orange",
+                  "is_correct": false
+                }
+              ],
+              "correct_option_ids": [
+                175365
+              ],
+              "correct_option_labels": [
+                "C"
+              ],
+              "correct_option_texts": [
+                "Drosera"
+              ],
+              "explanation": "Drosera plant is partially heterotrophic. These plants capture insects to fulfil its protein requirement although it performs photosynthesis also."
+            },
+            {
+              "questionID": 55044,
+              "question": "Who demonstrated that the extract of the infected plants of tobacco could cause infection in healthy plants?",
+              "question_raw": "<p>Who demonstrated that the extract of the infected plants of tobacco could cause infection in healthy plants?</p>",
+              "options": [
+                {
+                  "label": "A",
+                  "id": 175372,
+                  "text": "D.J.Ivanowsky",
+                  "is_correct": false
+                },
+                {
+                  "label": "B",
+                  "id": 175371,
+                  "text": "W.M.Stanley",
+                  "is_correct": false
+                },
+                {
+                  "label": "C",
+                  "id": 175369,
+                  "text": "M. W. Beijerinck",
+                  "is_correct": true
+                },
+                {
+                  "label": "D",
+                  "id": 175370,
+                  "text": "Pasteur",
+                  "is_correct": false
+                }
+              ],
+              "correct_option_ids": [
+                175369
+              ],
+              "correct_option_labels": [
+                "C"
+              ],
+              "correct_option_texts": [
+                "M. W. Beijerinck"
+              ],
+              "explanation": "Beijerinck is considered one of the founders of virology. In 1898, he published results on the filtration experiments demonstrating that tobacco mosaic disease is caused by an infectious agent smaller than a bacterium and called the fluid as Contagiumvivum fluidum (infectious living fluid)."
+            },
+            {
+              "questionID": 55045,
+              "question": "The outer protein covering of virus is_______.",
+              "question_raw": "<p>The outer protein covering of virus is_______.</p>",
+              "options": [
+                {
+                  "label": "A",
+                  "id": 175375,
+                  "text": "Virion",
+                  "is_correct": false
+                },
+                {
+                  "label": "B",
+                  "id": 175374,
+                  "text": "Coat",
+                  "is_correct": false
+                },
+                {
+                  "label": "C",
+                  "id": 175376,
+                  "text": "Viroid",
+                  "is_correct": false
+                },
+                {
+                  "label": "D",
+                  "id": 175373,
+                  "text": "Capsid",
+                  "is_correct": true
+                }
+              ],
+              "correct_option_ids": [
+                175373
+              ],
+              "correct_option_labels": [
+                "D"
+              ],
+              "correct_option_texts": [
+                "Capsid"
+              ],
+              "explanation": "A capsid is the protein shell of a virus. It consists of several oligomeric structural subunits made of a protein called protomers. The capsid encloses the genetic material of the virus."
+            },
+            {
+              "questionID": 55046,
+              "question": "The genetic material of a virus is:",
+              "question_raw": "<p>The genetic material of a virus is:</p>",
+              "options": [
+                {
+                  "label": "A",
+                  "id": 175378,
+                  "text": "Only DNA",
+                  "is_correct": false
+                },
+                {
+                  "label": "B",
+                  "id": 175379,
+                  "text": "Only RNA",
+                  "is_correct": false
+                },
+                {
+                  "label": "C",
+                  "id": 175380,
+                  "text": "Both DNA and RNA",
+                  "is_correct": false
+                },
+                {
+                  "label": "D",
+                  "id": 175377,
+                  "text": "Either DNA or RNA",
+                  "is_correct": true
+                }
+              ],
+              "correct_option_ids": [
+                175377
+              ],
+              "correct_option_labels": [
+                "D"
+              ],
+              "correct_option_texts": [
+                "Either DNA or RNA"
+              ],
+              "explanation": "Most viruses have either RNA or DNA as their genetic material. The nucleic acid may be single- or double-stranded. The entire infectious virus particle, called a virion, consists of the nucleic acid and an outer shell of protein."
+            },
+            {
+              "questionID": 55047,
+              "question": "Diener discovered_____.",
+              "question_raw": "<p>Diener discovered_____.</p>",
+              "options": [
+                {
+                  "label": "A",
+                  "id": 175384,
+                  "text": "Mycoplasm",
+                  "is_correct": false
+                },
+                {
+                  "label": "B",
+                  "id": 175383,
+                  "text": "Lichens",
+                  "is_correct": false
+                },
+                {
+                  "label": "C",
+                  "id": 175381,
+                  "text": "Viroids",
+                  "is_correct": true
+                },
+                {
+                  "label": "D",
+                  "id": 175382,
+                  "text": "Virus",
+                  "is_correct": false
+                }
+              ],
+              "correct_option_ids": [
+                175381
+              ],
+              "correct_option_labels": [
+                "C"
+              ],
+              "correct_option_texts": [
+                "Viroids"
+              ],
+              "explanation": "T.O. Diener discovered a new infectious agent that was smaller than viruses and caused potato spindle tuber disease. It was found to be a free RNA. It lacked the protein coat that is found in viruses, hence the name viroid."
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "testPaperID": 3347,
+      "testPaperName": "Biological Classification Test-05",
+      "is_paid": true,
+      "category_full_name": "CBSE > Class 11 > Biology > Biological Classification",
+      "noOfQuestions": 14,
+      "has_answers": true,
+      "sections": [
+        {
+          "sectionName": "General",
+          "sectionID": null,
+          "questions": [
+            {
+              "questionID": 55048,
+              "question": "A peculiar group of the dual organism which is formed by an association between algae and a fungus.",
+              "question_raw": "<p>A peculiar group of the dual organism which is formed by an association between algae and a fungus.</p>",
+              "options": [
+                {
+                  "label": "A",
+                  "id": 175387,
+                  "text": "Yeast",
+                  "is_correct": false
+                },
+                {
+                  "label": "B",
+                  "id": 175386,
+                  "text": "Mushroom",
+                  "is_correct": false
+                },
+                {
+                  "label": "C",
+                  "id": 175385,
+                  "text": "Lichens",
+                  "is_correct": true
+                },
+                {
+                  "label": "D",
+                  "id": 175388,
+                  "text": "Mucor",
+                  "is_correct": false
+                }
+              ],
+              "correct_option_ids": [
+                175385
+              ],
+              "correct_option_labels": [
+                "C"
+              ],
+              "correct_option_texts": [
+                "Lichens"
+              ],
+              "explanation": "A lichen is a composite organism that arises from algae or cyanobacteria living among filaments of multiple fungi in a symbiotic relationship. The combined lichen has properties different from those of its component organisms."
+            },
+            {
+              "questionID": 55049,
+              "question": "A virus that infects and replicates within a bacterium is called",
+              "question_raw": "<p>A virus that infects and replicates within a bacterium is called</p>",
+              "options": [
+                {
+                  "label": "A",
+                  "id": 175390,
+                  "text": "Fungi",
+                  "is_correct": false
+                },
+                {
+                  "label": "B",
+                  "id": 175389,
+                  "text": "Bacteriophage",
+                  "is_correct": true
+                },
+                {
+                  "label": "C",
+                  "id": 175392,
+                  "text": "Diatom",
+                  "is_correct": false
+                },
+                {
+                  "label": "D",
+                  "id": 175391,
+                  "text": "Bacterium",
+                  "is_correct": false
+                }
+              ],
+              "correct_option_ids": [
+                175389
+              ],
+              "correct_option_labels": [
+                "B"
+              ],
+              "correct_option_texts": [
+                "Bacteriophage"
+              ],
+              "explanation": "A bacteriophage is a virus that infects and replicates within a bacterium."
+            },
+            {
+              "questionID": 55050,
+              "question": "Which is NOT the characteristic of viroids?",
+              "question_raw": "<p>Which is NOT the characteristic of viroids?</p>",
+              "options": [
+                {
+                  "label": "A",
+                  "id": 175394,
+                  "text": "The RNA of the viroid has low molecular weight",
+                  "is_correct": false
+                },
+                {
+                  "label": "B",
+                  "id": 175393,
+                  "text": "It has a protein coat",
+                  "is_correct": true
+                },
+                {
+                  "label": "C",
+                  "id": 175395,
+                  "text": "It is smaller than virus",
+                  "is_correct": false
+                },
+                {
+                  "label": "D",
+                  "id": 175396,
+                  "text": "It caused potato spindle tuber disease",
+                  "is_correct": false
+                }
+              ],
+              "correct_option_ids": [
+                175393
+              ],
+              "correct_option_labels": [
+                "B"
+              ],
+              "correct_option_texts": [
+                "It has a protein coat"
+              ],
+              "explanation": "Viroids are smaller than viruses and caused potato spindle tuber disease. It was found to be a free RNA; it lacked the protein coat that is found in viruses, hence the name viroid. The RNA of the viroid was of low molecular weight."
+            },
+            {
+              "questionID": 55051,
+              "question": "The name virus was first given by_______.",
+              "question_raw": "<p>The name virus was first given by_______.</p>",
+              "options": [
+                {
+                  "label": "A",
+                  "id": 175398,
+                  "text": "D.J.Ivanowsky",
+                  "is_correct": false
+                },
+                {
+                  "label": "B",
+                  "id": 175397,
+                  "text": "Pasteur",
+                  "is_correct": false
+                },
+                {
+                  "label": "C",
+                  "id": 175399,
+                  "text": "Beijerinck",
+                  "is_correct": true
+                },
+                {
+                  "label": "D",
+                  "id": 175400,
+                  "text": "W.M.Stanley",
+                  "is_correct": false
+                }
+              ],
+              "correct_option_ids": [
+                175399
+              ],
+              "correct_option_labels": [
+                "C"
+              ],
+              "correct_option_texts": [
+                "Beijerinck"
+              ],
+              "explanation": "The name virus was first given by Beijerinck, in 1898."
+            },
+            {
+              "questionID": 55052,
+              "question": "Identify the virus in figure given below",
+              "question_raw": "<p>Identify the virus in figure given below<br />\r\n<img src=\"https://media-mycbseguide.s3.amazonaws.com/images/quiz/11/biology/47224_0.jpg\" style=\"width: 74px; height: 75px;\" /></p>",
+              "options": [
+                {
+                  "label": "A",
+                  "id": 175401,
+                  "text": "Bacteriophage",
+                  "is_correct": true
+                },
+                {
+                  "label": "B",
+                  "id": 175402,
+                  "text": "TMV",
+                  "is_correct": false
+                },
+                {
+                  "label": "C",
+                  "id": 175404,
+                  "text": "HIV",
+                  "is_correct": false
+                },
+                {
+                  "label": "D",
+                  "id": 175403,
+                  "text": "Retrovirus",
+                  "is_correct": false
+                }
+              ],
+              "correct_option_ids": [
+                175401
+              ],
+              "correct_option_labels": [
+                "A"
+              ],
+              "correct_option_texts": [
+                "Bacteriophage"
+              ],
+              "explanation": "A bacteriophage is a virus that infects and replicates within a bacterium.Bacteriophages are composed of proteins that encapsulate a DNA or RNA genome, and may have relatively simple or elaborate structures."
+            },
+            {
+              "questionID": 55053,
+              "question": "The genetic material for retrovirus is_________.",
+              "question_raw": "<p>The genetic material for retrovirus is_________.</p>",
+              "options": [
+                {
+                  "label": "A",
+                  "id": 175408,
+                  "text": "Both DNA and RNA",
+                  "is_correct": false
+                },
+                {
+                  "label": "B",
+                  "id": 175407,
+                  "text": "Nucleoprotein complex",
+                  "is_correct": false
+                },
+                {
+                  "label": "C",
+                  "id": 175406,
+                  "text": "DNA",
+                  "is_correct": false
+                },
+                {
+                  "label": "D",
+                  "id": 175405,
+                  "text": "RNA",
+                  "is_correct": true
+                }
+              ],
+              "correct_option_ids": [
+                175405
+              ],
+              "correct_option_labels": [
+                "D"
+              ],
+              "correct_option_texts": [
+                "RNA"
+              ],
+              "explanation": "The virus in which genetic material is RNA is called a retrovirus. In this virus reverse transcription takes place to form DNA that synthesis proteins."
+            },
+            {
+              "questionID": 55054,
+              "question": "The three domains system do not include:",
+              "question_raw": "<p>The three domains system do not include:</p>",
+              "options": [
+                {
+                  "label": "A",
+                  "id": 175410,
+                  "text": "Archaea Domain",
+                  "is_correct": false
+                },
+                {
+                  "label": "B",
+                  "id": 175412,
+                  "text": "Eukara Domain",
+                  "is_correct": false
+                },
+                {
+                  "label": "C",
+                  "id": 175411,
+                  "text": "Bacteria Domain",
+                  "is_correct": false
+                },
+                {
+                  "label": "D",
+                  "id": 175409,
+                  "text": "Viral Domain",
+                  "is_correct": true
+                }
+              ],
+              "correct_option_ids": [
+                175409
+              ],
+              "correct_option_labels": [
+                "D"
+              ],
+              "correct_option_texts": [
+                "Viral Domain"
+              ],
+              "explanation": "Three kingdoms or domain system of classification does not include the viral domain. The virus was discovered after the invention of the electron microscope so, they were not part of the living world."
+            },
+            {
+              "questionID": 55055,
+              "question": "Identify the cuboidal virus from the following:",
+              "question_raw": "<p>Identify the cuboidal virus from the following:</p>",
+              "options": [
+                {
+                  "label": "A",
+                  "id": 175416,
+                  "text": "Foot and mouth virus",
+                  "is_correct": false
+                },
+                {
+                  "label": "B",
+                  "id": 175415,
+                  "text": "T2",
+                  "is_correct": false
+                },
+                {
+                  "label": "C",
+                  "id": 175414,
+                  "text": "TMV virus",
+                  "is_correct": false
+                },
+                {
+                  "label": "D",
+                  "id": 175413,
+                  "text": "Polymyelitis virus",
+                  "is_correct": true
+                }
+              ],
+              "correct_option_ids": [
+                175413
+              ],
+              "correct_option_labels": [
+                "D"
+              ],
+              "correct_option_texts": [
+                "Polymyelitis virus"
+              ],
+              "explanation": "A virus consists of genetic material (DNA or RNA) surrounded by protein capsules. They are of different shapes and sizes. The poliomyelitis virus is cubical in shape."
+            },
+            {
+              "questionID": 55056,
+              "question": "The organism that completely lacks a cell wall and is the smallest living cell know can survive without oxygen is_______.",
+              "question_raw": "<p>The organism that completely lacks a cell wall and is the smallest living cell know can survive without oxygen is_______.</p>",
+              "options": [
+                {
+                  "label": "A",
+                  "id": 175417,
+                  "text": "Mycoplasmas",
+                  "is_correct": true
+                },
+                {
+                  "label": "B",
+                  "id": 175419,
+                  "text": "Bacteriophages",
+                  "is_correct": false
+                },
+                {
+                  "label": "C",
+                  "id": 175418,
+                  "text": "Virus",
+                  "is_correct": false
+                },
+                {
+                  "label": "D",
+                  "id": 175420,
+                  "text": "Yeast",
+                  "is_correct": false
+                }
+              ],
+              "correct_option_ids": [
+                175417
+              ],
+              "correct_option_labels": [
+                "A"
+              ],
+              "correct_option_texts": [
+                "Mycoplasmas"
+              ],
+              "explanation": "Mycoplasmas are a group of organisms that lack a cell wall and are the smallest living organisms. They can survive without oxygen. Mycoplasmas are also called as PPLO (pleuro pneumonia-like organism)."
+            },
+            {
+              "questionID": 55058,
+              "question": "Which one can be photosynthetic as well as saprophytic?",
+              "question_raw": "<p>Which one can be photosynthetic as well as saprophytic?</p>",
+              "options": [
+                {
+                  "label": "A",
+                  "id": 175427,
+                  "text": "Mushroom",
+                  "is_correct": false
+                },
+                {
+                  "label": "B",
+                  "id": 175426,
+                  "text": "Amoeba",
+                  "is_correct": false
+                },
+                {
+                  "label": "C",
+                  "id": 175425,
+                  "text": "Euglena",
+                  "is_correct": true
+                },
+                {
+                  "label": "D",
+                  "id": 175428,
+                  "text": "Paramecium",
+                  "is_correct": false
+                }
+              ],
+              "correct_option_ids": [
+                175425
+              ],
+              "correct_option_labels": [
+                "C"
+              ],
+              "correct_option_texts": [
+                "Euglena"
+              ],
+              "explanation": "Euglena is a photosynthetic as well as a saprophytic organism. It contains chlorophyll for photosynthesis and can absorb food from dead and decaying materials."
+            },
+            {
+              "questionID": 55059,
+              "question": "Select the incorrect pair:",
+              "question_raw": "<p>Select the incorrect pair:</p>",
+              "options": [
+                {
+                  "label": "A",
+                  "id": 175432,
+                  "text": "Bacterial Virus - Bacteriophages",
+                  "is_correct": false
+                },
+                {
+                  "label": "B",
+                  "id": 175429,
+                  "text": "Algal Virus - Mycophages",
+                  "is_correct": true
+                },
+                {
+                  "label": "C",
+                  "id": 175430,
+                  "text": "Animal Virus - Zoophagineae",
+                  "is_correct": false
+                },
+                {
+                  "label": "D",
+                  "id": 175431,
+                  "text": "Plant Virus - Phytophagineae",
+                  "is_correct": false
+                }
+              ],
+              "correct_option_ids": [
+                175429
+              ],
+              "correct_option_labels": [
+                "B"
+              ],
+              "correct_option_texts": [
+                "Algal Virus - Mycophages"
+              ],
+              "explanation": "Mycophages are not a group of bacteria. They are a group of organisms that use algae as food. The animal virus is called Zoophagineae, plant virus phytophagineae, and the bacterial virus is called bacteriophages."
+            },
+            {
+              "questionID": 55060,
+              "question": "Two categories of animals on the basis of red blood are:",
+              "question_raw": "<p>Two categories of animals on the basis of red blood are:</p>",
+              "options": [
+                {
+                  "label": "A",
+                  "id": 175436,
+                  "text": "Animate and inanimate",
+                  "is_correct": false
+                },
+                {
+                  "label": "B",
+                  "id": 175433,
+                  "text": "Enaima and Anaima",
+                  "is_correct": true
+                },
+                {
+                  "label": "C",
+                  "id": 175434,
+                  "text": "Erythrocytes and Thrombocytes",
+                  "is_correct": false
+                },
+                {
+                  "label": "D",
+                  "id": 175435,
+                  "text": "Leucocytes and erythrocytes",
+                  "is_correct": false
+                }
+              ],
+              "correct_option_ids": [
+                175433
+              ],
+              "correct_option_labels": [
+                "B"
+              ],
+              "correct_option_texts": [
+                "Enaima and Anaima"
+              ],
+              "explanation": "Haemoglobin in RBCs imparts red colour to it. The organisms whose blood contains haemoglobin are called enaima and those without it are called anaima."
+            },
+            {
+              "questionID": 55061,
+              "question": "The fusion of protoplasm between to motile or non-motile gamete is called ________.",
+              "question_raw": "<p>The fusion of protoplasm between to motile or non-motile gamete is called ________.</p>",
+              "options": [
+                {
+                  "label": "A",
+                  "id": 175437,
+                  "text": "Plasmogamy",
+                  "is_correct": true
+                },
+                {
+                  "label": "B",
+                  "id": 175438,
+                  "text": "Karyogamy",
+                  "is_correct": false
+                },
+                {
+                  "label": "C",
+                  "id": 175440,
+                  "text": "Homogamy",
+                  "is_correct": false
+                },
+                {
+                  "label": "D",
+                  "id": 175439,
+                  "text": "Heterogamy",
+                  "is_correct": false
+                }
+              ],
+              "correct_option_ids": [
+                175437
+              ],
+              "correct_option_labels": [
+                "A"
+              ],
+              "correct_option_texts": [
+                "Plasmogamy"
+              ],
+              "explanation": "Plasmogamy is the fusion of protoplasm of two cells which may be motile or non- motile. Plasmogamy occurs during sexual reproduction to form a diploid organism."
+            },
+            {
+              "questionID": 55062,
+              "question": "Plant disease in which pathogen is seen as cottony growth on the surface of the host is:",
+              "question_raw": "<p>Plant disease in which pathogen is seen as cottony growth on the surface of the host is:</p>",
+              "options": [
+                {
+                  "label": "A",
+                  "id": 175443,
+                  "text": "Smut",
+                  "is_correct": false
+                },
+                {
+                  "label": "B",
+                  "id": 175441,
+                  "text": "Downy mildew",
+                  "is_correct": true
+                },
+                {
+                  "label": "C",
+                  "id": 175442,
+                  "text": "Powdery mildew",
+                  "is_correct": false
+                },
+                {
+                  "label": "D",
+                  "id": 175444,
+                  "text": "Rust",
+                  "is_correct": false
+                }
+              ],
+              "correct_option_ids": [
+                175441
+              ],
+              "correct_option_labels": [
+                "B"
+              ],
+              "correct_option_texts": [
+                "Downy mildew"
+              ],
+              "explanation": "Downy mildew disease is caused due to fungus that forms cottony growth on the surface of the host. The leaves' surface gets reduced that alters the photosynthesis rate."
+            }
+          ]
+        }
+      ]
+    }
+  ]
+}

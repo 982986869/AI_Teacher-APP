@@ -1,0 +1,791 @@
+CHAPTER: Statistics  (id 1386)
+CBSE > Class 11 > Mathematics > Statistics
+Online tests: 5
+
+========================================================================
+Statistics Test 01  (id 672) [FREE]
+CBSE > Class 11 > Mathematics > Statistics
+Questions: 15 | Answers: YES
+========================================================================
+
+Q1. A batsman scores runs in 10 innings as 38, 70, 48, 34, 42, 55, 63, 46, 54 and 44 then the mean score is
+    (A) 494
+    (B) 0.494
+    (C) 49.4   <-- CORRECT
+    (D) 4.94
+    Answer: C
+    Explanation: Mean (x) = $\frac{(38+70+48+34+42+55+63+46+54+44)}{10}$ 
+= $\frac{494}{10}$ 
+= 49.4
+
+Q2. The S.D. of the observations 22, 26, 28, 20, 24, 30 is
+    (A) 2.4
+    (B) 2
+    (C) 3
+    (D) 3.42   <-- CORRECT
+    Answer: D
+    Explanation: $\bar X = \frac{(22 + 26 + 28 + 20 + 24 + 30)}{6}$ = 25
+$\frac{1}{n}\sum\limits_{i = 1}^n {{{({X_i} - \bar X)}^2}} $ = $\frac{9 + 1 + 9 + 25 + 1 + 25}{6}$ = 11.66
+S.D. = $ \sqrt {11.67} $ = 3.42
+
+Q3. If the angle between two lines of regression is 90^o, then it represents
+    (A) Moderate correlation
+    (B) perfect negative correlation
+    (C) perfect positive correlation
+    (D) no linear correlation   <-- CORRECT
+    Answer: D
+    Explanation: $[r = \tan \left( {\frac{\pi }{2} - \theta } \right)]$ 
+Here $[\theta = \frac{\pi }{2}]$ 
+Hence r = 0, therefore there is no linear correlation.
+
+Q4. The two lines of regression are 2x - 7y + 6 = 0 and 7x – 2y +1 = 0. What is correlation coefficient between x and y?
+    (A) $\frac{-2}{7}$
+    (B) $\frac{4}{49}$
+    (C) $\frac{2}{7}$   <-- CORRECT
+    (D) $\frac{7}{2}$
+    Answer: C
+    Explanation: $\rho = \pm \sqrt {{b_{xy}}.{b_{yx}}} = \pm \sqrt {\frac{2}{7}.\frac{2}{7}} = \pm \frac{2}{7}$ 
+But sign of $\rho $ is same as the sign of b_xy, b_yx
+Therefore, $\rho = \frac{2}{7}$
+
+Q5. The two lines of regression are x + 4y = 3 and 3x + y = 15 value of x for y = 3 is
+    (A) - 4
+    (B) 4   <-- CORRECT
+    (C) - 9
+    (D) 9
+    Answer: B
+    Explanation: We have x + 4y = 3 and 3x + y = 15 as the lines of regression of y on x and x on y respectively. 
+Therefore, for y = 3 the required line is x on y.
+So put y = 3 in 3x + y = 15
+We get, x = 4
+
+Q6. The mean of 5 observations is 4.4. If three observations are 1, 2 and 6 and the difference of the other two is 5, then the other two observations are:
+    (A) 9 and 4   <-- CORRECT
+    (B) 5 and 9
+    (C) 5 and 7
+    (D) 4 and 8
+    Answer: A
+    Explanation: Let other two numbers be x and y.
+Mean (x) = 4.4 = $\frac{(1+2+6+x+y)}{5}$ 
+This gives (x + y) = 13 ....(i) 
+Also, (x - y) = 5 .....(ii) 
+Therefore from (i) and (ii)
+x = 9 and y = 4
+
+Q7. If x and y are related as y – 4x = 3, then the nature of correlation between x and y is
+    (A) perfect positive   <-- CORRECT
+    (B) perfect negative
+    (C) no correlation
+    (D) between 0 and 1
+    Answer: A
+    Explanation: Comparing the given equation with ax + by + c = 0
+a = -4, b = 1 and c = -3
+So ab < 0
+Hence, $\rho = \frac{{\frac{{ - b}}{a}}}{{\left| {\frac{b}{a}} \right|}} = \frac{{\frac{{ - b}}{a}}}{{\frac{{ - b}}{a}}} = 1$ 
+So a perfect positive correlation.
+
+Q8. Coefficient of correlation between the observations ( 1, 6 ) , ( 2 , 5 ) , ( 3 , 4) , ( 4 , 3 ) , ( 5 , 2 ) , ( 6 , 1 ) is
+    (A) 1
+    (B) 2
+    (C) - 1   <-- CORRECT
+    (D) 0
+    Answer: C
+    Explanation: $use,r(x,y) = \frac{{\frac{1}{n}\sum\limits_{i = 1}^n {({X_i} - \bar X)({Y_i} - \bar Y)} }}{{\sqrt {\frac{1}{n}\sum\limits_{i = 1}^n {{{({X_i} - \bar X)}^2}} } \sqrt {\frac{1}{n}\sum\limits_{i = 1}^n {{{({Y_i} - \bar Y)}^2}} } }}$
+
+Q9. If the two lines of regression of a bivariate distribution coincide, then the correlation coefficient $\rho $ satisfies.
+    (A) $\rho $ > 0
+    (B) $\rho $ = 0
+    (C) $\rho$ = 1 or -1   <-- CORRECT
+    (D) $\rho $ < 0
+    Answer: C
+    Explanation: tan $\theta$ = $\frac{1-\rho^{2}}{\rho} \cdot \frac{\sigma_{x} \sigma_{y}}{\sigma_{x}^{2}+\sigma_{y}^{2}}$ 
+$\theta$ = 0^o, $\pi$ 
+So, $\rho=\pm 1$
+
+Q10. For a moderately skewed distribution, quartile deviation and the standard deviation are related by
+    (A) S.D. = $\frac{3}{2}$ Q.D.   <-- CORRECT
+    (B) S.D = $\frac{3}{4}$Q. D.
+    (C) S.D. = $\frac{2}{3}$Q.D.
+    (D) S.D. = $\frac{4}{3}$Q. D.
+    Answer: A
+    Explanation: Its a standard result.
+
+Q11. Which one of the following average is most affected of extreme observations?
+    (A) G.M.
+    (B) Mode
+    (C) A. M.   <-- CORRECT
+    (D) Median
+    Answer: C
+    Explanation: As A.M is calculated as the sum of all the observations divided by the number of observations, so it is affected by if there is any change in the outliers.
+
+Q12. The H.M. of 4, 8, 16 is
+    (A) 7.8
+    (B) 6.85   <-- CORRECT
+    (C) 6.7
+    (D) 6.4
+    Answer: B
+    Explanation: H.M = $ \frac{3}{{\frac{1}{a} + \frac{1}{b} + \frac{1}{c}}} $ = $\frac{3}{\frac{1}{4}+\frac{1}{8}+\frac{1}{16}}$ = $\frac{48}{7}$ = 6.85
+
+Q13. The Mode of the following items is 0, 1, 6, 7, 2, 3, 7, 6, 6, 2, 6, 0, 5, 6, 0.
+    (A) 0
+    (B) 6   <-- CORRECT
+    (C) 5
+    (D) 2
+    Answer: B
+    Explanation: 6 is the most frequent value here.
+
+Q14. The statistical method which helps us to estimate or predict the unknown value of one variable from the known value of the related variable is called
+    (A) regression   <-- CORRECT
+    (B) correlation
+    (C) scatter diagram
+    (D) dispersion
+    Answer: A
+    Explanation: It follows from the definition of regression.
+
+Q15. The coefficient of correlation r satisfies
+    (A) 0 < r < 1
+    (B) -1 < r < 0
+    (C) IrI $\leq$ 1   <-- CORRECT
+    (D) IrI > 1
+    Answer: C
+    Explanation: r can't be numerically more than 1.
+
+========================================================================
+Statistics Test 02  (id 673) [PAID]
+CBSE > Class 11 > Mathematics > Statistics
+Questions: 15 | Answers: YES
+========================================================================
+
+Q1. S.D. of a data is 6. When each observation is increased by 1, then the S.D. of new data is
+    (A) 8
+    (B) 7
+    (C) 6   <-- CORRECT
+    (D) 5
+    Answer: C
+    Explanation: S.D = $\sqrt {\frac{{{n^2} - 1}}{{12}}} $ 
+So it depends only on number of observations not on individual observations.
+
+Q2. The most stable measure of central tendency is
+    (A) median
+    (B) mean   <-- CORRECT
+    (C) mode
+    (D) range
+    Answer: B
+    Explanation: Because it takes into account every value in the given set of data to provide the average.
+
+Q3. The mean weight of a group of 10 items is 28 and that of another group of n items is 35. The mean of a combined group of 10 + n items is found to be 30. The value of n is
+    (A) 4   <-- CORRECT
+    (B) 2
+    (C) 12
+    (D) 10
+    Answer: A
+    Explanation: Sum of weights of 10 items = 280
+Sum of weights of n items = 35n
+So, sum of weights of (10 + n) items = 280 + 35n
+So, mean = $\frac{280 + 35n}{10 + n}$
+30(10 + n) = 280 + 35n 
+On solving we get, n = 4
+
+Q4. The measure of variation which is least affected by extreme items is
+    (A) range
+    (B) mean deviation
+    (C) standard deviation
+    (D) quartile deviation   <-- CORRECT
+    Answer: D
+    Explanation: As it only depends on upper and lower quartile not on extreme values.
+
+Q5. A group of 10 items has mean 6. If the mean of 4 of these items is 7.5, then the mean of the remaining items is
+    (A) 4.5
+    (B) 5.0   <-- CORRECT
+    (C) 6.5
+    (D) 5.5
+    Answer: B
+    Explanation: Sum of 10 items = 60
+Sum of 4 items = 30
+Sum of remaining items = 30
+Their mean = $\frac{30}{6}$ = 5
+
+Q6. If the coefficient of variation between x and y is 0.28, covariance between x and y is 7.6, and the variance of x is 9, then the S.D. of the y series is
+    (A) 9.05   <-- CORRECT
+    (B) 10.1
+    (C) 10.05
+    (D) 9.8
+    Answer: A
+    Explanation: Here, 
+r = 0.28, Cov(x, y) = 7.6, $\sigma_x$ = 3
+So, r = $\frac{\operatorname{Cov}(x, y)}{\sigma_{x} \sigma_{y}}$ 
+$\Rightarrow$ 0.28 = $\frac{7.6}{3 \sigma_{y}}$ 
+$\Rightarrow$ $\sigma_y$ = 9.05
+
+Q7. The Q.D. of the daily wages (in ₹) of 7 persons given below: 12, 7, 15, 10, 17, 19, 25 is
+    (A) 14.5
+    (B) 5
+    (C) 9
+    (D) 4.5   <-- CORRECT
+    Answer: D
+    Explanation: The given data in ascending order is
+7, 10, 12, 15, 17, 19, 25
+Q_1 = $\frac{{{{(n + 1)}^{th}}term}}{4}$ = 2^nd term = 10
+Q_3 = $\frac{{3{{(n + 1)}^{th}}term}}{4}$ = 6^th term = 19
+Q.D. = $ \frac{{{Q_3} - {Q_1}}}{2} = \frac{{19 - 10}}{2} = \frac{9}{2} $ = 4.5
+
+Q8. Which of the following is not a measure of central tendency:
+    (A) range   <-- CORRECT
+    (B) median
+    (C) mean
+    (D) mode
+    Answer: A
+    Explanation: Meausre of central tendencies give the middle most or average value whereas range gives the difference between highest and lowest value.
+
+Q9. If the mean of numbers 27, 31, 89, 107, 156 is 82, then the mean of 130, 126, 68, 50, 1 is :
+    (A) 82
+    (B) 157
+    (C) 80
+    (D) 75   <-- CORRECT
+    Answer: D
+    Explanation: mean = $ \frac{{130 + 126 + 68 + 50 + 1}}{5} = \frac{{375}}{5} $ = 75
+
+Q10. If in moderately asymmetrical distribution mode and mean of the data are 6$\mu $ and 9$\mu $ respectively, then the median is
+    (A) 6$\mu $
+    (B) 5$\mu $
+    (C) 8$\mu $   <-- CORRECT
+    (D) 7$\mu $
+    Answer: C
+    Explanation: $median = \frac{{mode + 2mean}}{3}$ = $\frac{6 \mu+2(9 \mu)}{3}$ = $\frac{24 \mu}{3}$ = 8$\mu $
+
+Q11. If the mean of the squares of first n natural numbers be 11, then n is equal to
+    (A) 5   <-- CORRECT
+    (B) $\frac{-13}{2}$
+    (C) 13
+    (D) 11
+    Answer: A
+    Explanation: Mean = $\frac{{\frac{{n(n + 1)(2n + 1)}}{6}}}{n} = \frac{{(n + 1)(2n + 1)}}{6}$ 
+$\Rightarrow$ 11 = $\frac{(n+1)(2 n+1)}{6}$ 
+$\Rightarrow$ 66 = (n + 1)(2n + 1)
+$\Rightarrow$ 2n^2 + 3n - 65 = 0
+$\Rightarrow$ 2n^2 + 13n - 10n - 65 = 0
+$\Rightarrow$ (2n + 13)(n - 5) = 0
+$\Rightarrow$ n = 5, $\frac{-13}{2}$ 
+So, n = 5
+
+Q12. If the mean of the first n odd natural numbers be n itself, then n is equal to
+    (A) any natural number   <-- CORRECT
+    (B) 2
+    (C) 1
+    (D) 3
+    Answer: A
+    Explanation: Mean = $\frac{X_{1}+X_{2}+\ldots \ldots+X_{n}}{n}$ 
+$\Rightarrow$ n = $\frac{X_{1}+X_{2}+\ldots . .+X_{n}}{n}$ 
+$\Rightarrow$ n^2 = X_1 + X_2 + .... + X_n 
+Here, n can be any natural number.
+
+Q13. The mean of the first n terms of the A.P. (a + d) + (a + 3d) + (a + 5d) +………..is
+    (A) a + nd   <-- CORRECT
+    (B) $a + \frac{n}{2}d$
+    (C) $\frac{a + nd}{2}$
+    (D) a + n^2d
+    Answer: A
+    Explanation: mean = $ \frac{{\frac{n}{2}\left[ {2(a + d) + (n - 1)2d} \right]}}{n} $ = $\frac{\frac{n}{2}[2 a+2 d+2 nd-2 d]}{n}$ = $\frac{1}{2}(2 a+2 n d)$ = a + nd
+
+Q14. If a, b, c be any three positive numbers, then the least value of (a + b + c)$\left(\frac{1}{a}+\frac{1}{b}+\frac{1}{c}\right)$ is
+    (A) 3
+    (B) 9   <-- CORRECT
+    (C) 6
+    (D) 1
+    Answer: B
+    Explanation: A.M > H.M
+$\Rightarrow$ $\frac{a+b+c}{3} \geq \frac{3}{\frac{1}{a}+\frac{1}{b}+\frac{1}{c}}$ 
+$\Rightarrow$ (a + b + c) $\left(\frac{1}{a}+\frac{1}{b}+\frac{1}{c}\right) \geq 3 \times 3 \geq 9$
+
+Q15. The median of the data 13, 14, 16, 18, 20, 22 is
+    (A) 17   <-- CORRECT
+    (B) 16
+    (C) 19
+    (D) 18
+    Answer: A
+    Explanation: Median = $\frac{{\left[ {{{(\frac{n}{2})}^{th}} + {{(\frac{{n + 1}}{2})}^{th}}} \right]term}}{2} $ = $\frac{3^{r d}+4^{t h}term}{2}$ = $\frac{16+18}{2}$ = $\frac{34}{2}$ = 17
+
+========================================================================
+Statistics Test 03  (id 674) [PAID]
+CBSE > Class 11 > Mathematics > Statistics
+Questions: 15 | Answers: YES
+========================================================================
+
+Q1. If the two lines of regression are at right angles, then $\rho$(X, Y) is equal to
+    (A) 0   <-- CORRECT
+    (B) - 1
+    (C) 1 or - 1
+    (D) 1
+    Answer: A
+    Explanation: tan $\theta$ = $\frac{1-\rho^{2}}{\rho} \cdot \frac{\sigma_{x} \sigma_{y}}{\sigma_{x}^{2}+\sigma_{y}^{2}}$ 
+$\Rightarrow$ $\tan \frac{\pi}{2}=\frac{1-\rho^{2}}{\rho} \cdot \frac{\sigma_{x} \sigma_{y}}{\sigma_{x}^{2}+\sigma_{y}^{2}}$ 
+$\Rightarrow$ $\infty=\frac{1-\rho^{2}}{\rho} \cdot \frac{\sigma_{x} \sigma_{y}}{\sigma_{x}^{2}+\sigma_{y}^{2}}$ 
+$\Rightarrow$ $\rho$ = 0
+
+Q2. If COV(X,Y) = 0, then the two lines of the regression are
+    (A) intersecting each other at 60^o
+    (B) parallel
+    (C) coincident
+    (D) at right angles   <-- CORRECT
+    Answer: D
+    Explanation: Using the formulae,
+$\rho = \frac{{{\mathop{\rm cov}} (x,y)}}{{\mathop \sigma \nolimits_x \mathop \sigma \nolimits_y }}$ 
+tan $\theta$ = $ \frac{{1 - \mathop \rho \nolimits^2 }}{\rho }.\frac{{\mathop \sigma \nolimits_x \mathop \sigma \nolimits_y }}{{\mathop \sigma \nolimits_x^2 + \mathop \sigma \nolimits_y^2 }}$ 
+Here $\rho = 0$ 
+Therefore $\theta = \frac{\pi }{2}$
+
+Q3. If the variance of the data is V, then its S.D. is
+    (A) $\sqrt V $   <-- CORRECT
+    (B) ±$\sqrt V $
+    (C) - $\sqrt V $
+    (D) V^2
+    Answer: A
+    Explanation: Standard deviation have the same units as the data but the variance is mean of the square of differences.
+
+Q4. If the two lines of regression are y = 3x – 5 and y = 2x - 4, then $\rho \left( {X,Y} \right)$ is equal to
+    (A) $\sqrt{\frac{2}{3}}$   <-- CORRECT
+    (B) $\sqrt{\frac{1}{6}}$
+    (C) 1
+    (D) $\sqrt{\frac{3}{2}}$
+    Answer: A
+    Explanation: let us assume that y = 3x – 5 and y = 2x – 4 are lines of regression of x on y and y on x respectively, therefore
+b_xy = $\frac{1}{3}$ 
+b_yz = 2
+$\rho = \pm \sqrt {{b_{xy}}{b_{yx}}} = \pm \sqrt {\frac{2}{3}} $ 
+But sign of $\rho $ is same as ${b_{yx}}$ and ${b_{xy}}$ 
+Therefore $\rho = \sqrt {\frac{2}{3}} $
+
+Q5. If the median = (mode + 2 mean)$\mu $, then $\mu $ is equal to
+    (A) 2
+    (B) $\frac{2}{3}$
+    (C) 3
+    (D) $\frac{1}{3}$   <-- CORRECT
+    Answer: D
+    Explanation: We know that 3 median = mode + 2 mean
+So, 
+3(mode + 2mean) $\mu$ = mode + 2mean
+$\mu$ = $\frac{1}{3}$
+
+Q6. If mean = (3 median – mode)x, then the value of x is
+    (A) 2
+    (B) $\frac{3}{2}$
+    (C) 1
+    (D) $\frac{1}{2}$   <-- CORRECT
+    Answer: D
+    Explanation: We know that, 3median = mode + 2 mean
+So, mean = $\frac{(3 median - mode)}{2}$ ........(1)
+Comparing equation (1) with the given equation
+Therefore, x = $\frac{1}{2}$
+
+Q7. Least square lines of regression give best possible estimates, when $\rho \left( {X,Y} \right)$ is equal to
+    (A) - 1 or 1   <-- CORRECT
+    (B) $\frac{1}{2}$
+    (C) less than 1
+    (D) greater than -1
+    Answer: A
+    Explanation: Least square lines of regression give best possible estimates when the lines coincide at that point $\rho = \pm 1$
+
+Q8. $\rho \left( {X,Y} \right)$ is equal to
+    (A) $\frac{\operatorname{COV}(X, Y)}{\operatorname{VAR}(X) \operatorname{VAR}(Y)}$
+    (B) $\frac{\operatorname{cov}(x, y)}{S . D}$
+    (C) COV(X, Y)
+    (D) $\frac{\operatorname{COV}(X, Y)}{\sqrt{\operatorname{VAR}(X)} \sqrt{\operatorname{VAR(Y)}}}$   <-- CORRECT
+    Answer: D
+    Explanation: $\frac{\operatorname{COV}(X, Y)}{S D x \cdot S D y}$ =$\frac{\operatorname{COV}(X, Y)}{\sqrt{\operatorname{VAR}(X)} \sqrt{\operatorname{VAR(Y)}}}$
+
+Q9. Quartile deviation is nearly equal to
+    (A) $\frac{2}{3} \sigma $   <-- CORRECT
+    (B) $\frac{2}{5} \sigma $
+    (C) 2$\sigma $
+    (D) $\frac{3}{2} \sigma $
+    Answer: A
+    Explanation: Quartile deviation $\frac{{\mathop Q\nolimits_3 - \mathop Q\nolimits_1 }}{2}$ is approximately $\frac{2}{3}$ times the standard deviation.
+
+Q10. For a symmetrical distribution Q_1 = 20 and Q_3 = 40. The median of the data is
+    (A) 30   <-- CORRECT
+    (B) 10
+    (C) 20
+    (D) 40
+    Answer: A
+    Explanation: For symmetric distribution, median = $\frac{{\mathop Q\nolimits_1 + \mathop Q\nolimits_3 }}{2}$ = $\frac{20+40}{2}$ = 30
+
+Q11. The number of families having expenditure range in Rs 16000-19000 is
+ Monthly Expenditure
+ Number of Families
+ Expenditure more than rs 10000
+ 100
+ Expenditure more thanrs 13000
+ 85
+ Expenditure more thanrs 16000
+ 69
+ Expenditure more thanrs 19000
+ 50
+ Expenditure more thanrs 22000
+ 33
+ Expenditure more thanrs 25000
+ 15
+    (A) 15
+    (B) 18
+    (C) 17
+    (D) 19   <-- CORRECT
+    Answer: D
+    Explanation: 19
+
+Q12. The mean and S.D. of 1, 2, 3, 4, 5, 6 is
+    (A) 3, $\frac{35}{12}$
+    (B) $\frac{7}{2}, \sqrt{\frac{35}{12}}$   <-- CORRECT
+    (C) 3, 3
+    (D) $\frac{7}{2},\sqrt 3 $
+    Answer: B
+    Explanation: Mean = $ \frac{{1 + 2 + 3 + 4 + 5 + 6}}{6} $ = $\frac{21}{6}$ = $\frac{7}{2}$ 
+S.D = $ \sqrt {\frac{{{n^2} - 1}}{{12}}} = \sqrt {\frac{{36 - 1}}{{12}}} $ = $\sqrt{\frac{35}{12}}$
+
+Q13. The range of the following set of observations 2, 3, 5, 9, 8, 7, 6, 5, 7, 4, 3 is
+    (A) 6
+    (B) 11
+    (C) 7   <-- CORRECT
+    (D) 5.5
+    Answer: C
+    Explanation: Range = 9 - 2 = 7
+
+Q14. Which of the following, in case of a discrete data, is not equal to the median?
+    (A) 2^nd quartile
+    (B) lower quartile   <-- CORRECT
+    (C) 5^th decile
+    (D) 50^th percentile
+    Answer: B
+    Explanation: As lower quartile is the $\frac{{{{(n + 1)}^{th}}term}}{4}$ whereas median is $\frac{{{{(n + 1)}^{th}}term}}{2}$ or the average of middle most terms
+
+Q15. Mean deviation from the mean for the observations – 1, 0, 4 is
+    (A) 1
+    (B) 2   <-- CORRECT
+    (C) $\frac{3}{2}$
+    (D) $\frac{2}{3}$
+    Answer: B
+    Explanation: Given observations are -1,0,4
+Mean $\bar x$ = $\frac{-1+0+4}{3}$ = 1
+Now, deviations of x_i from mean are |-1-1|, |0-1|, |4-1| i.e. 2, 1, 3
+Sum of deviations $\boldsymbol{\Sigma}\left|\mathbf{x}_{\mathbf{1}}-\overline{\mathbf{x}}\right|$ = 2 + 1 + 3 = 6
+Mean deviation $\frac{1}{n} \Sigma\left|x_{1}-\bar{x}\right|$ = $\frac{1}{3} \times 6$ = 2
+
+========================================================================
+Statistics Test 04  (id 675) [PAID]
+CBSE > Class 11 > Mathematics > Statistics
+Questions: 15 | Answers: YES
+========================================================================
+
+Q1. If the two lines of regression are 2x + y = 7 and x + 2y = 7, then $\rho \left( {x,y} \right)$ is equal to
+    (A) $\frac{1}{2}$
+    (B) $\frac{-1}{2}$   <-- CORRECT
+    (C) $\frac{1}{4}$
+    (D) $\frac{-1}{4}$
+    Answer: B
+    Explanation: Let us assume that 2x + y = 7 and x + 2y = 7 are lines of regression of y on x and x on y respectively.
+Therefore, 
+b_yx = $\frac{-1}{2}$ 
+b_xy, = $\frac{-1}{2}$ 
+$\Rightarrow$ $\rho = \pm \sqrt {({b_{yx}} {b_{xy}})}$ 
+But the sign of $\rho$ will be same as b_yx and b_xy
+Hence, $\rho = - \frac{1}{2}$
+
+Q2. The mean of 50 observations is 36, if two observations are 30 and 42 are deleted, then the mean of the remaining observations is
+    (A) 48
+    (B) 36   <-- CORRECT
+    (C) 46
+    (D) 38
+    Answer: B
+    Explanation: Mean = $\frac{1}{n} \sum_{i=1}^{n} X_{i}$ 
+$\Rightarrow$ 36 = $\frac{1}{50} \sum_{i=1}^{50} X_{i}$ 
+$\Rightarrow$ $\sum_{i=1}^{50} X_{i}$ = 36 $\times$ 50 = 1800
+After deleting the observations 30 and 42.
+New sum = 1800 - 30 - 42 = 1728
+New mean $\frac{1728}{48} $ = 36
+
+Q3. For a bivariate frequency distribution byx > 1, then b_xy is
+    (A) lies between 0 and 1   <-- CORRECT
+    (B) 0
+    (C) negative
+    (D) less than 1
+    Answer: A
+    Explanation: If b_yx > 1, then 0 < b_xy < 1
+
+Q4. A man travels at a speed of 20 km/hour and then return at a speed of 30 km/hour. His average speed of the whole journey is
+    (A) 24 km/hour   <-- CORRECT
+    (B) 26 km/hour
+    (C) 24.5 km/hour
+    (D) 25 km/hour
+    Answer: A
+    Explanation: Average speed for the whole journey is the H.M between 20 and 30
+Therefore, average speed = $ \frac{2}{{\frac{1}{{20}} + \frac{1}{{30}}}} = \frac{2}{{\frac{5}{{60}}}}$ = 24 km/hr
+
+Q5. The S.D. of the first n natural numbers is
+    (A) $\sqrt{\frac{n^2-1}{12}}$   <-- CORRECT
+    (B) $\frac{n + 1}{2}$
+    (C) n
+    (D) $\sqrt{\frac{n(n+1)}{2}}$
+    Answer: A
+    Explanation: First n natural numbers are 1, 2, 3.....n
+We know that, $\sum x = \frac{{n(n + 1)}}{2}$ 
+Sum of square is $\sum {{x^2}} = \sum {({1^2} + {2^2} + {3^2} + ......... + {n^2})} $ 
+$\sum x^{2}=\frac{n(n+1)(2 n+1)}{6}$ 
+SD = $\sqrt{\frac{\sum x^{2}}{n}-\left(\frac{\sum x}{n}\right)^{2}}$ 
+= $\sqrt{\frac{n(n+1)(2 n+1)}{6 n}-\left(\frac{n(n+1)}{2 n}\right)^{2}}$ 
+= $\sqrt{\frac{(n+1)(2 n+1)}{6}-\left(\frac{(n+1)}{2}\right)^{2}}$ 
+= $\sqrt{(n+1)\left[\frac{2 n+1}{6}-\frac{(n+1)}{4}\right]}$ 
+= $\sqrt{\frac{(n+1)(n-1)}{12}}$ 
+= $\sqrt{\frac{n^{2}-1}{12}}$
+
+Q6. In a group of students, mean weight of boys is 80 kg and mean weight of girls is 50kg. If the mean weight of all the students taken together is 60kg, then the ratio of the number of boys to that of the girls is
+    (A) 2 : 3
+    (B) 1 : 2   <-- CORRECT
+    (C) 2 : 1
+    (D) 3 : 2
+    Answer: B
+    Explanation: Let the no. of boys be x and no. of girls be y
+Sum of weights of boys = 80x
+Sum of weights of girls = 50y
+Sum of weights of boys and girls together = 60(x + y)
+Hence, 80x + 50 y = 60x + 60y
+Which gives, 20x = 10 y
+So, x : y = 1 : 2
+
+Q7. If the mean of 3, 4, x, 7, 10 is 6, then the value of x is
+    (A) 6   <-- CORRECT
+    (B) 7
+    (C) 4
+    (D) 5
+    Answer: A
+    Explanation: Mean = $\frac{3+4+x+7+10}{5}$ = $\frac{24+x}{5}$ 
+$\Rightarrow$ 6 = $\frac{24+x}{5}$ 
+$\Rightarrow$ 30 = 24 + x
+$\Rightarrow$ 30 - 24 = x
+$\Rightarrow$ x = 6
+
+Q8. For a normal distribution, we have
+    (A) median = mode
+    (B) mean = median
+    (C) mean = median = mode   <-- CORRECT
+    (D) mean = mode
+    Answer: C
+    Explanation: As in normal distribution, the curve is symmetric and unimodal. So, mean is at peak, mode is also at peak and median as well.
+
+Q9. The G.M. of the numbers 4, 8, 16 is
+    (A) $\frac{28}{7}$
+    (B) $\frac{28}{3}$
+    (C) 28
+    (D) 8   <-- CORRECT
+    Answer: D
+    Explanation: G.M between two numbers a and b is given by,
+G.M = $\sqrt{a b}$ 
+= $\sqrt{4 \times 16}$ = $\sqrt{64}$ = 8
+
+Q10. The H.M. of the numbers 2, 3, 4 is
+    (A) 13
+    (B) $\frac{13}{36}$
+    (C) $\frac{36}{13}$   <-- CORRECT
+    (D) 3
+    Answer: C
+    Explanation: H.M between two numbers is given by,
+H.M = $ \frac{3}{{\frac{1}{a} + \frac{1}{b} + \frac{1}{c}}}$ 
+Here, H.M = $ \frac{3}{{\frac{1}{2} + \frac{1}{3} + \frac{1}{4}}} = \frac{3}{{\frac{{6 + 4 + 3}}{{12}}}} = \frac{{36}}{{13}}$
+
+Q11. If two variables X and Y are connected by the relation 2x + y = 3, then $\rho \left( {X,Y} \right)$ is equal to
+    (A) - 2
+    (B) -1   <-- CORRECT
+    (C) 1
+    (D) 2
+    Answer: B
+    Explanation: Comparing the given equation with ax + by + c = 0
+a = 2, b = 1 and c = -3
+Therefore, $\rho (x,y) = \frac{{\frac{{ - b}}{a}}}{{\left| {\frac{b}{a}} \right|}} = - 1$ (as ab > 1 so, a and b are of same sign)
+
+Q12. The variance of 2, 4, 6, 8, 10 is
+    (A) 6
+    (B) 4
+    (C) 8   <-- CORRECT
+    (D) 7
+    Answer: C
+    Explanation: Mean = $\frac{2+4+6+8+10}{5}$ = $\frac{30}{5}$ = 6
+So, $\sum_{i=1}^{n}\left(X_{i}-\bar{X}\right)^{2}$ = (-4)^2+ (-2)^2 + 0 + (2)^2 + (4)^2 = 40
+Variance = $\frac{1}{n} \sum_{i=1}^{n}\left(X_{i}-\bar{X}\right)^{2}$ = $\frac{40}{5}$ = 8
+
+Q13. The S.D.of 7 scores 1, 2, 3, 4, 5, 6, 7 is
+    (A) 2   <-- CORRECT
+    (B) 1
+    (C) -1
+    (D) 4
+    Answer: A
+    Explanation: Mean = $\frac{1+2+3+4+5+6+7}{7}$ = $\frac{28}{7}$ = 4
+So, $\sum_{i=1}^{n}\left(X_{i}-\bar{X}\right)^{2}$ = (-3)^2 + (-2)^2 + (-1)^2 + 0 + (1)^2 + (2)^2 + (3)^2 = 28
+Variance = $\frac{1}{n} \sum_{i=1}^{n}\left(X_{i}-\bar{X}\right)^{2}$ = $\frac{28}{7}$ = 4
+S.D = $\sqrt{\operatorname{var}}=\sqrt{4}$ = 2
+
+Q14. A data consists of two 2’s, four 4’s, six 6’s, three 8’s and 10. The mode of the data is
+    (A) 10
+    (B) 4
+    (C) 6   <-- CORRECT
+    (D) 2
+    Answer: C
+    Explanation: 6 is most repeated observation.
+
+Q15. The two lines of regression can never be
+    (A) parallel   <-- CORRECT
+    (B) perpendicular
+    (C) intersecting
+    (D) coincident
+    Answer: A
+    Explanation: because $-1 \leq \rho \leq 1$ 
+So, tan $\theta$ = $\frac{1-\rho^{2}}{\rho} \cdot \frac{\sigma_{x} \sigma_{y}}{\sigma_{x}^{2}+\sigma_{y}^{2}}$
+$\theta = \pi ,\frac{\pi }{2},{0^ \circ }$ 
+So lines can't be parallel.
+
+========================================================================
+Statistics Test 05  (id 676) [PAID]
+CBSE > Class 11 > Mathematics > Statistics
+Questions: 15 | Answers: YES
+========================================================================
+
+Q1. If the correlation coefficient between two variables is 1, then the two least square lines of regression are
+    (A) coincident   <-- CORRECT
+    (B) at right angles
+    (C) parallel
+    (D) intersecting
+    Answer: A
+    Explanation: The angle between two regression lines is given by
+tan $\theta$ = $\frac{1-r^{2}}{r} \cdot \frac{\sigma_{x} \sigma_{y}}{\sigma_{x}^{2}+\sigma_{y}^{2}}$ 
+if, r = 1, then 
+$\theta=0, \pi$
+
+Q2. If covariance between two variables is 0, then the correlation coefficient between them is
+    (A) 0   <-- CORRECT
+    (B) positive
+    (C) nothing can be said
+    (D) negative
+    Answer: A
+    Explanation: Because, $\rho = \frac{{COV(x,y)}}{{{\sigma _x}{\sigma _y}}} = \frac{0}{{{\sigma _x}{\sigma _y}}}$ = 0
+
+Q3. Ram spends equal amounts on purchasing three kinds of pens being sold at ₹5, ₹10 and ₹15 per piece. Average cost of each pen is
+    (A) ₹$\frac{90}{11}$   <-- CORRECT
+    (B) ₹10
+    (C) ₹12
+    (D) ₹9
+    Answer: A
+    Explanation: Average price of each pen is given by the harmonic mean of 5, 10, 15.
+i.e. H.M = $\frac{3}{{\frac{1}{a} + \frac{1}{b} + \frac{1}{c}}} = \frac{3}{{\frac{1}{5} + \frac{1}{{10}} + \frac{1}{{15}}}} = \frac{3}{{\frac{{6 + 3 + 2}}{{30}}}}$ = $\frac{90}{11}$
+
+Q4. The coefficient of correlation between two variables is independent of
+    (A) origin but not scale
+    (B) both origin and the scale   <-- CORRECT
+    (C) scale but not origin
+    (D) neither scale nor origin
+    Answer: B
+    Explanation: Because variance and Covariance are independent of change in origin.
+
+Q5. Mean of the first n terms of the A.P. a + (a + d) + (a + 2d) + ………is
+    (A) a + (n - 1)d
+    (B) a + nd
+    (C) $\frac{a + nd}{2}$
+    (D) $a+\frac{(n-1) d}{2}$   <-- CORRECT
+    Answer: D
+    Explanation: Mean = $ \frac{{\frac{n}{2}\left[ {2a + (n - 1)d} \right]}}{n} = \frac{{\left[ {2a + (n - 1)d} \right]}}{2} $ = $a+\frac{(n-1) d}{2}$
+
+Q6. If the S.D. of the 1, 2, 3, 4, 5,………………..10 is $\sigma $, then the S.D. of 11, 12, 13, 14,…………….. 20 is
+    (A) $\sigma $   <-- CORRECT
+    (B) $\frac{\sigma }{10}$
+    (C) $\sigma $ + 10
+    (D) 10$\sigma $
+    Answer: A
+    Explanation: S.D = $\sqrt {\frac{{{n^2} - 1}}{{12}}} $ 
+Where n is the number of observations
+In case of 1, 2, 3, ......,10 as well as in case of 11, 12, 13,......, 20
+S.D = $ \sqrt {\frac{{{{(10)}^2} - 1}}{{12}}} = \sqrt {\frac{99}{12}} $ = 2.87
+
+Q7. Regression coefficient of X on Y is 0.25, then the regression coefficient of Y on X is
+    (A) 4
+    (B) greater than 4
+    (C) less than 4
+    (D) lies in ( 0 , 4 ]   <-- CORRECT
+    Answer: D
+    Explanation: Here,
+${b_{xy}} = r.\frac{{{\sigma _x}}}{{{\sigma _y}}} = 0.25$ $ \Rightarrow \frac{{{\sigma _x}}}{{{\sigma _y}}} = \frac{{0.25}}{r}$ 
+Now, ${b_{yx}} = r.\frac{{{\sigma _y}}}{{{\sigma _x}}} = r.\frac{r}{{0.25}} = {r^2} \times 4$ 
+As, $0 < {r^2} \le 1$ 
+So, $[\begin{array}{l} 0 < 4{r^2} \le 4\\ 0 < {b_{yx}} \le 4 \end{array}$
+
+Q8. If r is the correlation coefficient, then
+    (A) r $\leq$ 1
+    (B) r $ \ge$ 1
+    (C) IrI $\leq $ 1   <-- CORRECT
+    (D) IrI $ \geq$ 1
+    Answer: C
+    Explanation: By Cauchy-Schwarz inequality
+${\langle x,y\rangle ^2} \le \langle x,x\rangle \cdot\langle y,y\rangle $ 
+Which gives, $\left(\sum x_{i} y_{i}\right)^{2} \leq\left(\sum\left(x_{i}^{2}\right)\right) \cdot\left(\sum\left(y_{i}^{2}\right)\right)$ .........(1) 
+$\left(\sum x_{i} y_{i}\right) \leq \sqrt{\left(\sum\left(x_{i}^{2}\right)\right)} \cdot \sqrt{\left(\sum\left(y_{i}^{2}\right)\right)}$ 
+We, know that, r = $ \frac{{\sum {\Delta X\Delta Y} }}{{\sqrt {\sum {\Delta {X^2}} } \sqrt {\sum {\Delta {Y^2}} } }}$ 
+Using (1) it is clear that, $ - 1 \le r \le 1$
+
+Q9. The coefficient of variation is computed by
+    (A) $\frac{S . D .}{\text { Mean }}$
+    (B) $\frac{S . D .}{\text { Mean }}\times$ 100   <-- CORRECT
+    (C) $\frac{\text { Mean. }}{S . D} \times$ 100
+    (D) $\frac{\text { Mean }}{S . D .}$
+    Answer: B
+    Explanation: $\frac{S . D .}{\text { Mean }}\times$ 100
+
+Q10. If Cov(X, Y) = 0, then $\rho \left( {X,Y} \right)$ =
+    (A) - 1
+    (B) 1
+    (C) 0   <-- CORRECT
+    (D) $ \pm $1
+    Answer: C
+    Explanation: Here, $\rho (x,y) = \frac{{{\mathop{\rm cov}} (x,y)}}{{\mathop \sigma \nolimits_x \mathop \sigma \nolimits_y }} = \frac{0}{{\mathop \sigma \nolimits_x \mathop \sigma \nolimits_y }} $ = 0
+
+Q11. Mode of the data 3, 2, 5, 2, 3, 5, 6, 6, 5, 3, 5, 2, 5 is
+    (A) 3
+    (B) 4
+    (C) 6
+    (D) 5   <-- CORRECT
+    Answer: D
+    Explanation: Most repeated value is the mode. Here it is 5
+
+Q12. The median of 10, 14, 11, 9, 8, 12, 6 is
+    (A) 11
+    (B) 14
+    (C) 12
+    (D) 10   <-- CORRECT
+    Answer: D
+    Explanation: In ascending order the observations are 6, 8, 9, 10, 11, 12, 14
+Here n = 7 (odd)
+Median = $(\frac{{n + 1}}{2})$th observation
+Therefore median = 4th term = 10
+
+Q13. If the mode of a data is 18 and the mean is 24, then median is
+    (A) 21
+    (B) 24
+    (C) 22   <-- CORRECT
+    (D) 18
+    Answer: C
+    Explanation: Using the formula, 3 median = mode + 2 mean 
+Median = $\frac{18+2(24)}{3}$ = $\frac{66}{3}$ = 22
+
+Q14. Which of the following is not a measure of dispersion?
+    (A) standard deviation
+    (B) mode   <-- CORRECT
+    (C) mean deviation
+    (D) variance
+    Answer: B
+    Explanation: It is a measure of central tendancy.
+
+Q15. Product of n positive numbers is unity. The sum of these numbers cannot be less than
+    (A) n^2
+    (B) n^3
+    (C) 1
+    (D) n   <-- CORRECT
+    Answer: D
+    Explanation: We know that for a set of observations A.M. > G.M.
+If X_1, X_2, X_3, ...., X_n are the observations then
+$\frac{({X_1} + {X_2} + {X_3} + ........ + {X_n})}n >\sqrt {{X_1}.{X_2}.{X_3}...{X_n}} $ 
+As (X_1.X_2.X_3 ....X_n) = 1
+Therefore, $\frac{({X_1} + {X_2} + {X_3} + ... + {X_n})}{n}> 1$ 
+$ \Rightarrow $ (X_1 + X_2 + X_3 + .... + X_n) > n

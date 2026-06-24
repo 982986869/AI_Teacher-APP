@@ -1,0 +1,983 @@
+CHAPTER: Oscillations  (id 1354)
+CBSE > Class 11 > Physics > Oscillations
+Online tests: 5
+
+========================================================================
+Oscillations Test 01  (id 592) [FREE]
+CBSE > Class 11 > Physics > Oscillations
+Questions: 15 | Answers: YES
+========================================================================
+
+Q1. The pendulum of a wall clock executes
+    (A) an oscillatory motion   <-- CORRECT
+    (B) a translatory motion
+    (C) a circular motion
+    (D) a rotary motion
+    Answer: A
+    Explanation: It executes simple harmonic motion because in this motion restoring force is directly proportional to the displacement towards the mean position at any time.
+
+Q2. Oscillatory motion is best described by
+    (A) a rotational motion about an axis
+    (B) combination of translational motion and rotational motion
+    (C) a zig zag motion about a straight line
+    (D) periodic to and fro motion   <-- CORRECT
+    Answer: D
+    Explanation: In oscillatory motion object moves to and fro about mean position periodically or after a particular interval of time. All oscillatory motions are periodic in nature.
+
+Q3. Periodic motion is described as the motion that
+    (A) repeats itself at irregular intervals of time.
+    (B) repeats itself at regular intervals of time.   <-- CORRECT
+    (C) does not repeat itself at regular intervals of time.
+    (D) changes at random intervals of time.
+    Answer: B
+    Explanation: A motion of a body that repeats itself at regular intervals of time on the same path like rotation of earth around sun in 365.25 days is known as periodic motion.
+
+Q4. Period of a periodic motion is the ________ interval of time after which the motion is __________.
+    (A) smallest, repeated   <-- CORRECT
+    (B) average, repeated
+    (C) largest, repeated
+    (D) mean, not repeated
+    Answer: A
+    Explanation: The time period of oscillatory motion is the smallest interval of time for one complete oscillation. As when we apply the force on the bob, bob moves from mean position to extreme position then from extreme position to mean position and then again from mean to the extreme in opposite direction and at last come to mean position. The time taken by bob in this whole process is called period of oscillation.
+
+Q5. Frequency of the periodic motion is
+    (A) time taken to complete one oscillation
+    (B) the reciprocal of the period of oscillation   <-- CORRECT
+    (C) twice the period of oscillation
+    (D) the reciprocal of the wave velocity
+    Answer: B
+    Explanation: Frequency is defined as number of oscillation completed by an oscillating body in unit time i.e. in one second during oscillatory motion.
+ $\nu=\frac1T$
+
+Q6. For any periodic motion with a period T and displacement f(t), then
+    (A) f(t) = f(t + T - 1)
+    (B) f (t) = f (2t + T)
+    (C) f(t) = f(t + T)   <-- CORRECT
+    (D) f (t) = f (t + 2T + 1)
+    Answer: C
+    Explanation: The periodic function is that function which repeats itself in equal interval of time or periods.
+The function have same value for every 
+f(t) = f(t + T) = f(t + nT)
+e.g. Trigonimetric function sin(x) is periodic with periodicity of $2\mathrm\pi$
+
+Q7. Any periodic function can be expressed as a superposition of:
+    (A) polynomial functions of different time periods with suitable coefficients.
+    (B) sine and cosine functions of fixed time periods with suitable coefficients.   <-- CORRECT
+    (C) sine and cosine functions of increasing integral time period with suitable coefficients.
+    (D) any trigonometric functions of real time periods with suitable coefficients.
+    Answer: B
+    Explanation: Because sine and cosine functions both are periodic in nature and according to Fourier theorem a" Fourier series" is a way to represent a function as the sum of simple sine waves. More formally, it decomposes any periodic function or periodic signal into the sum of a (possibly infinite) set of simple oscillating functions, namely sines and cosines, or in simple terms any periodic function can be expressed as sum or superposition of sine and cosine functions with fixed time periods.
+
+Q8. Simple harmonic motion is a motion represented by
+    (A) x (t) = A ($\omega {\rm{t}}$ + $\varphi $)
+    (B) x (t) = A cos ($\omega {\rm{t}}$ + $\varphi $)   <-- CORRECT
+    (C) x (t) = A exp ($\omega {\rm{t}}$ + $\varphi $)
+    (D) x (t) = A log ($\omega {\rm{t}}$ + $\varphi $)
+    Answer: B
+    Explanation: Equation of simple harmonic motion is given by
+$x(t) = A\cos (\omega t + \phi )$
+Where x(t) is the displacement of the body at any instant of time, A is the amplitude of the body and
+$ (\omega t + \phi )$ is the phase angle at the instant of time.
+
+Q9. Simple harmonic motion is the projection of ___ of the circle in which the latter motion takes place.
+    (A) Uniform circular motion on a diameter   <-- CORRECT
+    (B) Uniform circular motion on a chord
+    (C) Non uniform circular motion on a diameter
+    (D) Non uniform circular motion on a chord
+    Answer: A
+    Explanation: Simple harmonic motion is the projection of uniform circular motion. In the above diagram P is the position of particle at at any instant of time. This motion follows the condition of SHM. Simple harmonic motion is a type of periodic motion or oscillation motion where the restoring force is directly proportional to the displacement and acts in the direction opposite to that of displacement,
+
+Q10. For a particle executing simple harmonic motion represented by x(t) = A cos ($\omega {\rm{t}}$ + $\phi$), the the velocity v(t) is given by
+    (A) v (t) = - $\omega {\rm{A}}$ cos ($\omega {\rm{t}}$ + $\phi $)
+    (B) v(t) = - $\omega {\rm{A}}$ sin ($\omega {\rm{t}}$ + $\phi$)   <-- CORRECT
+    (C) v(t) = - sint$A t$ ($\omega {\rm{t}}$ + $\phi $)
+    (D) v (t) = - $\omega {\rm{A}}$$\varphi $ sin ($\omega {\rm{t}}$ + $\phi $ )
+    Answer: B
+    Explanation: Displacement, x(t) = A cos($\omega$t + $\phi$)
+Velocity, v(t) = $\frac{dv}{dt}$ = $\frac{d[A \cos (​​\omega t+\phi)]}{d t}$
+= $A \frac{d \cos (\omega t+\phi)}{d t}$ , (because A is constant)
+= A(-$\omega$ sin ($\omega$t + $\phi$)) , $\left[\frac{d(\cos a x)}{d t}=-a \sin (a x)\right]$
+= -$\omega$A sin ($\omega$t + $\phi$)
+
+Q11. For a particle executing simple harmonic motion represented by x (t)= A cos ($\omega {\rm{t}}$ + $\varphi $) , the the acceleration a(t) is given by
+    (A) a(t) = - 2 ${\omega ^{\rm{2}}}$x(t)
+    (B) a(t) = - ${\omega ^{\rm{2}}}$x(t)   <-- CORRECT
+    (C) a(t) = ${\omega ^{\rm{2}}}$x(t)
+    (D) a(t) = - $\omega^2 v(t)$
+    Answer: B
+    Explanation: Displacement of particle is given by
+x (t) = A cos ($\omega {\rm{t}}$ + $\varphi $)
+Then velocity,
+$\begin{array}{l} v(t)= \frac{{dx}}{{dt}}\\ v(t) = A\frac{{d\cos (\omega t + \varphi )}}{{dt}}\\ v(t)= - A\;\omega \sin (\omega t + \varphi ) \end{array}$
+Now,acceleration,
+$a(t)=\frac{{dv}}{{dt}}$
+$\begin{array}{l} a(t) =-\omega A \frac{{ \ d\sin (\omega t + \varphi )}}{{dt}} \\a(t)=-\omega^2A\,cos(\omega t+\varphi)\;\;, \;\;\;\;\;(\because\,x(t)=A\,cos(\omega t+\varphi)) \\ \therefore a(t) = - {\omega ^2}x(t) \end{array}$
+
+Q12. For a particle of mass m executing simple harmonic motion represented by x (t) = A cos ($\omega {\rm{t }} + {\rm{ }}\varphi $) and a restoring force F = -kx, then the natural frequency is given by:
+    (A) $\omega=\sqrt{\frac{k}{m}}$   <-- CORRECT
+    (B) $\omega=\sqrt{\frac{2 k}{m}}$
+    (C) $\omega=-\sqrt{\frac{k}{m}}$
+    (D) $\omega=-\sqrt {{k}} $
+    Answer: A
+    Explanation: According to Newton's second law of motion
+F = ma
+= $-m \omega^{2} x$ .....(i) (Because a = $−\omega^2x$, maximum acceleration of a particle executing S.H.M.)
+F = -kx .....(ii) (Given)
+Comparing (i) and (ii), we have
+m$\omega^2$x = −kx
+m$\omega^2$ = k
+$\omega^2$ = $\frac{k}{m}$
+$\omega$ = $\sqrt{\frac{k}{m}}$
+where k is the force constant and $\omega $ is the natural frequency.
+
+Q13. The spring restoring force F = –kx is a conservative force, with associated potential energy.
+    (A) U(x) = $\;\frac12kx^2$   <-- CORRECT
+    (B) U(x) = $\frac32kx^2$
+    (C) U(x) = kx^2
+    (D) U(x) = $-\frac12kx^2$
+    Answer: A
+    Explanation: Potential energy is 
+U(x) = $-\int {{F.dx}}$
+Now, F = −kx
+Then, $U(x)=-\int F \cdot d x=-\int-k x \cdot d x$
+$=k \int x d x$
+$=k\left[\frac{x^{2}}{2}\right]$
+$=\frac{1}{2} k x^{2}$
+So, the potential energy is 
+U(x) = $\;\frac12kx^2$
+
+Q14. The total mechanical energy of a harmonic oscillator:
+    (A) Decreases linearly with time
+    (B) Increases linearly with time
+    (C) Is independent of time   <-- CORRECT
+    (D) Increases quadratically with time
+    Answer: C
+    Explanation: The total mechanical energy is the sum of kinetic energy(KE) and potential energy(PE), is constant.
+E = KE + PE = $\frac{1}{2}$mv^2 + $\frac{1}{2}$kx^2 = Constant
+Here the figure depicts the energy of a linear harmonic oscillator vs displacement, the horizontal axis represents the displacement x.
+|From the graph, it is clear that total energy is constant with displacement and displacement is a function of time. So, total energy (mechanical energy) is independent of time.
+
+Q15. The time period T of a spring system of mass m and spring constant k is given by:
+    (A) ​​ $T=2 \pi \sqrt{\frac{m}{k}}$   <-- CORRECT
+    (B) $T=\pi \sqrt{\frac{k}{m}}$
+    (C) $T=\sqrt{\frac{m}{k}}$
+    (D) ​​​ $T=2 \pi \sqrt{\frac{k}{m}}$
+    Answer: A
+    Explanation: If the restoring force of a vibrating or oscillatory system is proportional to the displacement
+of the body from its equilibrium position and is directed opposite to the direction of displacement,
+the motion of the system is simple harmonic and it is given by
+x(t) = A$cos \omega t$
+where A, the maximum value of the displacement, is called the amplitude of the motion. If
+T is the time for one complete oscillation, then
+x(t + T) = x(t)
+$Acos\omega(t+T)=Acos\omega t$
+$\omega T=2\pi$
+or $T=\frac{2 \pi}{\omega}$
+ As the angular frequency $\omega $ is given by $T=\frac{2 \pi}{\omega}$ and T = ${2\pi\over \omega }$ 
+Then,time period of oscillation of mass m is given by
+$T=2 \pi \sqrt{\frac{m}{k}}$
+
+========================================================================
+Oscillations Test 02  (id 593) [PAID]
+CBSE > Class 11 > Physics > Oscillations
+Questions: 15 | Answers: YES
+========================================================================
+
+Q1. The time period of a simple pendulum is given by ( l is the length of pendulum and g the acceleration due to gravity).
+    (A) $T=2 \pi \sqrt{\frac{l^2}{g}}$
+    (B) $T=2 \pi \sqrt{\frac{l}{g}}$   <-- CORRECT
+    (C) $T=2 \pi \sqrt{\frac{l}{g^2}}$
+    (D) ​ $T=2 \pi \sqrt{\frac{g}{l}}$
+    Answer: B
+    Explanation: The figure shows the motion of a simple pendulum
+The restoring force is $F=-mg\,sin \,\theta $ as the angle $\theta $ is small so $sin \, \theta\,\simeq \theta$ 
+we have $F=-mg\, \,\theta $ from S H M and also F = -kx 
+$\therefore mg\theta $ = kx
+$\frac{m}{k}=\frac{g \theta}{x}$
+as $l = \frac{\theta }{x}$
+$\frac{m}{k}=\frac{g}{l}$
+As $\omega=\sqrt{\frac{k}{m}}$
+So $T=\frac{2 \pi}{\omega}=2 \pi \sqrt{\frac{m}{k}}$
+$=2 \pi \sqrt{\frac{l}{g}}$
+
+Q2. The time period of a physical pendulum of mass m and moment of inertia I is given by (l is the length of pendulum and g the acceleration due to gravity):
+    (A) ​ $T=\pi \sqrt{\frac{I}{m g l}}$
+    (B) ​​ $T=4 \pi \sqrt{\frac{I}{m g l}}$
+    (C) $T=2 \pi \sqrt{\frac{I}{m g l}}$   <-- CORRECT
+    (D) $T=2 \pi \sqrt{\frac{l}{m g I}}$
+    Answer: C
+    Explanation: Torque;$\tau=I \alpha $, a= angular acceleration
+$\tau = -mgl sin\theta$
+$\therefore \alpha \simeq \frac{m g l \theta}{I}$ 
+$\alpha=-\omega^2 \theta$
+$\omega=\sqrt{\frac{m g l}{I}}$
+So, Time period T is :
+$\mathrm{T}=2 \pi \sqrt{\frac{I}{m g l}}$
+
+Q3. In a simple pendulum the restoring force is due to:
+    (A) the tangential component of the gravitational force.   <-- CORRECT
+    (B) the radial component of the tension in the string.
+    (C) the radial component of the gravitational force.
+    (D) the tangential component of the tension in the string.
+    Answer: A
+    Explanation: The tangential component of the gravitational field is F = −mgsin$\theta$
+that acts to the direction towards the mean position making it the restoring force for the oscillation.
+
+Q4. The total mechanical energy of a damped system is:
+    (A) Remains the same
+    (B) Continuously increases
+    (C) Continuously absorbed
+    (D) Continuously dissipated   <-- CORRECT
+    Answer: D
+    Explanation: The energy is dissipated as it decreases in the exponential form, making the amplitude to zero ultimately.
+every pendulum in nonideal condition behaves like damped system, where damping force which is proportional to velocity is offered it by air resistance the fig shows the damped motion 
+where the amplitude of the successive oscillation is damped by an exponential function of time.
+
+Q5. Damping is due to:
+    (A) Reactive forces like tension
+    (B) Resistive forces like air drag, friction etc.   <-- CORRECT
+    (C) Conservative forces like gravity
+    (D) Restoring force
+    Answer: B
+    Explanation: Damping is proportional to the velocity of the mass through the medium, so it can be said that air drag, friction offers to damp.
+
+Q6. In simple harmonic motion the damping force is:
+    (A) Directly proportional to velocity   <-- CORRECT
+    (B) Directly proportional to acceleration
+    (C) Inversely proportional to acceleration
+    (D) Inversely proportional to velocity
+    Answer: A
+    Explanation: In real oscillators, friction, or damping, slows the motion of the system. Due to frictional force, the velocity decreases in proportion to the acting frictional force. 
+$F= -c \,{dx\over dt}$ 
+where c is the damping constant.
+
+Q7. The damped system differential equation is:
+    (A) $m \frac{d^2 x}{d^2 t}$ + b + kx = 0
+    (B) $m \frac{d^2 x}{d^2 t}$ + kx = 0
+    (C) $m \frac{d^2 x}{d^2 t}+b \frac{d x}{d t}=0$
+    (D) $m \frac{d^2 x}{d^2 t}+b \frac{d x}{d t}$ + kx = 0   <-- CORRECT
+    Answer: D
+    Explanation: The forces on the system is restoring force F = -kx and the damping force is F = $-b v=-b \frac{d x}{d t}$ where 'k' is the force constant and 'b' is the damping constant
+The net force is F= m*a which is equal to the sum of restoring force F = −kx and the damping force is $F=-b v=-b \frac{d x}{d t}$ 
+$m \frac{d^2 x}{d t^2}=-k x-b \frac{d x}{d t}$
+$\therefore m \frac{d^2 x}{d t^2}+k x+b \frac{d x}{d t}$ = 0
+
+Q8. The damped natural frequency of a Damped system is:
+    (A) lower than the natural frequency   <-- CORRECT
+    (B) higher than natural frequency
+    (C) Different as natural frequency
+    (D) same as natural frequency
+    Answer: A
+    Explanation: The damped natural frequency f_d is related to the natural frequency f_n by a relation 
+$f_d =f_n \sqrt {1-\zeta^2} $ 
+where damping ratio $ \zeta $ = 1 
+so f_d is less than the natural frequency
+
+Q9. In forced oscillations apart from acceleration forces, damping and spring forces there is:
+    (A) Centripetal attractive force
+    (B) Restoring force
+    (C) The gravitational force acting in the line of action
+    (D) An external exciting force that changes the energy   <-- CORRECT
+    Answer: D
+    Explanation: The free damping oscillations contain the forces as acceleration forces, damping, and spring forces, But in the case of forced oscillations, there is an external force that acts to maintain the vibrations that usually get dumped due to presence of the damping forces like friction, air drag, etc. The presence of the force promotes Total Mechanical Energy relations.
+
+Q10. At resonance conditions when the frequency of the forced vibration matches the natural frequency of the system, amplitude ________ the natural frequency of the oscillator.
+    (A) increases when the driving force is close to   <-- CORRECT
+    (B) decreases when the driving force is close to
+    (C) oscillates when the driving force is close to
+    (D) increases when the driving force is far from
+    Answer: A
+    Explanation: When the mass and spring have no external force acting on them they transfer energy back and forth at a rate equal to the natural frequency. In other words, to efficiently pump energy into both mass and spring requires that the energy source feed the energy in at a rate equal to the natural frequency. Applying a force to the mass and spring is similar to pushing a child on a swing, a push is needed at the correct moment to make the swing get higher and higher. As in the case of the swing, the force applied need not be high to get large motions, but must just add energy to the system.
+The damper, instead of storing energy, dissipates energy. Since the damping force is proportional to the velocity, the more the motion, the more the damper dissipates the energy. Therefore, there is a point when the energy dissipated by the damper equals the energy added by the force. At this point, the system has reached its maximum amplitude and will continue to vibrate at this level as long as the force applied stays the same. If no damping exists, there is nothing to dissipate the energy, and, theoretically, the motion will continue to grow into infinity.
+
+Q11. What is constant in simple harmonic motion?
+    (A) Time period   <-- CORRECT
+    (B) Potential energy
+    (C) Kinetic motion
+    (D) Restoring force
+    Answer: A
+    Explanation: The time period of the SHM is given by T = $2\pi\sqrt{m\over k}$ where 'm' be the mass of the body (constant), 'k' restoring force constant as T depends on 'm' and 'k' and they are constant for the system, so the corresponding Time period of the motion is Constant.
+
+Q12. A particle of mass 10 g is executing simple harmonic motion with an amplitude of 0.5 m and a periodic time of $\frac \pi 5 $ seconds. The maximum value of the force acting on the particle is:
+    (A) 5 N
+    (B) - 5N
+    (C) 0.5 N
+    (D) -0.5 N   <-- CORRECT
+    Answer: D
+    Explanation: Given, T = $\frac \pi5 $s
+amplitude, x = 0.5 m
+mass , m = 10g = 0.01kg ,as we know that:
+$T= 2\pi \sqrt {\frac m k}$
+${\pi\over 5}= 2\pi\sqrt{\frac {0.01}{ k}}$
+or k = 1 N/m
+The maximum force is obtained at the maximum displacement i.e. amplitude 
+F = −kx 
+hence, F = −1(0.5) = −0.5N
+The negative value of force shows the attractive nature.
+
+Q13. A body of mass 5 g is executing simple harmonic motion about a point O with an amplitude of 10 cm. Its maximum velocity is 100 cm/s. Its velocity will be 50 cm/s at a distance (in cm) from O.
+    (A) 10$\sqrt 2 $
+    (B) 10$\sqrt 3 $
+    (C) 5$\sqrt 2 $
+    (D) 5$\sqrt3$   <-- CORRECT
+    Answer: D
+    Explanation: $ v=\omega \sqrt{A^2-x^2} $
+$ 50=10 \sqrt{10^2-x^2} $
+$ 5=\sqrt{100-x^2} $
+$ 25=100-x^2 $
+$ x^2=75 $
+$ x=\sqrt{75}=\sqrt{25 \times 3}=5 \sqrt{3} $
+
+Q14. The maximum velocity and maximum acceleration of a body moving in a simple harmonic oscillation are 2 m/s and 4 m/s^2. The angular velocity is:
+    (A) 2 rad/sec   <-- CORRECT
+    (B) 4 rad/sec
+    (C) 1 rad/sec
+    (D) 5 rad/sec
+    Answer: A
+    Explanation: Given that :-v_max = a$\omega$ = 2m/s
+a_max = a$\omega^2$_^ =_^ 4m/s^2
+On dividing the two, we get $\omega$= 2 radians/sec
+
+Q15. A particle is executing simple harmonic motion with an amplitude of 0.02 meter and frequency 50 hertz. The maximum acceleration of the particle is:
+    (A) 100 m/s^2
+    (B) 100 $\pi $ m/s^2
+    (C) 200$\pi^2$ m/s^2   <-- CORRECT
+    (D) 200 $\pi $ m/s^2
+    Answer: C
+    Explanation: Given frequency f = 50 Hz 
+Thus w = 2$\pi$f = 100$\pi$
+Acceleration
+a = w^2x at max displacement x = A
+a = (100$\pi$)^2 $\times$ 0.02
+a = 200$\pi ^2$m/s^2
+
+========================================================================
+Oscillations Test 03  (id 594) [PAID]
+CBSE > Class 11 > Physics > Oscillations
+Questions: 15 | Answers: YES
+========================================================================
+
+Q1. The angular velocities of three bodies in simple harmonic motion are ${{\rm{\omega }}_1}$, ${{\rm{\omega }}_2}$, ${{\rm{\omega }}_3}$ with the respective amplitudes as ${A_1}$ ${A_2}$ ${A_3}$ . If all the three bodies have the same mass and velocity, then
+    (A) ${{\rm{A}}_{\rm{1}}}{\omega ^{\rm{2}}}_{\rm{1}}$ = ${{\rm{A}}^{\rm{2}}}_{\rm{2}}{\omega ^{\rm{2}}}_{{\rm{2}} = }{{\rm{A}}^{\rm{2}}}_{\rm{3}}{\omega ^{\rm{2}}}_{\rm{3}}$
+    (B) ${{\rm{A}}^{\rm{2}}}_{\rm{1}}{\omega _{\rm{1}}}$ = ${{\rm{A}}^{\rm{2}}}_{\rm{2}}{\omega _{{\rm{2}} = }}{{\rm{A}}^{\rm{2}}}_{\rm{3}}{\omega _{\rm{3}}}$
+    (C) ${{\rm{A}}_{\rm{1}}}{\omega _{\rm{1}}}$ = ${{\rm{A}}_{\rm{2}}}{\omega _{{\rm{2}} }=}{{\rm{A}}_{\rm{3}}}{\omega _{\rm{3}}}$   <-- CORRECT
+    (D) ${{\rm{A}}^{\rm{2}}}_{\rm{1}}{\omega ^{\rm{2}}}_{\rm{1}}$ = ${{\rm{A}}^{\rm{2}}}_{\rm{2}}{\omega ^{\rm{2}}}_{{\rm{2}} {=} }{{\rm{A}}^{\rm{2}}}_{\rm{3}}{\omega ^{\rm{2}}}_{\rm{3}}$
+    Answer: C
+    Explanation: The velocity of a body performing SHM is given by: v = ω$\sqrt {A^2-x^2}$
+Maximum velocity is achieved when x=0.
+All three bodies are at maximum velocity. Therefore, we can say that x=0 for all these bodies. 
+Maximum velocity, Vmax​ = Aω
+Velocities are same so that A_1ω_1 = A_2​ω_2 ​= A_3​ω_3
+
+Q2. The kinetic energy of a body executing S.H.M. is $\frac 1 3$ of the potential energy. Then, the displacement of the body is x percent of the amplitude, where x is:
+    (A) 86.5%   <-- CORRECT
+    (B) 50%
+    (C) 33.5%
+    (D) 67%
+    Answer: A
+    Explanation: Given kinetic energy = $\frac 1 3$ potential energy
+$\frac{1}{2} m(A \times \omega \times \cos \omega t)^{2}$ = $\frac{1}{3} \times \frac{1}{2} \times m \times(A \times \omega \times \sin \omega t)^{2}$
+$\tan (\omega t)=\sqrt{3}$
+$\omega t=\frac{\pi}{3}$
+x = Asin($\omega$t)
+x = $A \sin \left(\frac{\pi}{3}\right)$
+x = $\frac{\sqrt{3}}{2} A$
+for the percentage
+$\frac{\frac{\sqrt{3}}{2} A}{{A}} \times 100$
+= 86.5%
+
+Q3. The total energy of a particle, executing simple harmonic motion is:
+    (A) independent of x   <-- CORRECT
+    (B) $\propto { x^2}$
+    (C) $\propto \frac{x}{2}$
+    (D) $\propto {x}$
+    Answer: A
+    Explanation: x= A cos( $\omega t+\phi$)
+E = KE + PE
+$PE=\frac{1}{2}kA^2cos^2(\omega t+\phi)$ and KE= $\frac{1}{2}kA^2sin^2(\omega t+\phi)$
+$E=\frac{1}{2}kA^2$ $(sin^2(\omega t+\phi)+cos^2(\omega t+\phi))$ = $\frac{1}{2}$kA^2 Therefore, total energy is independent of x. 
+Thus the total energy of the oscillator remains constant as displacement is regained after every half cycle.
+no energy is dissipated then all the potential energy becomes kinetic and vice versa.
+The figure below shows the variation of kinetic energy and potential energy of harmonic oscillator with time where phase φ is set to zero for simplicity
+
+Q4. A spring with spring constant k, when stretched through 1 cm, has a potential energy U. If it is stretched by 4 cm, the potential energy will become:
+    (A) 32U
+    (B) 8U
+    (C) 4U
+    (D) 16U   <-- CORRECT
+    Answer: D
+    Explanation: The potential energy of a spring is given by
+$U=\frac12kx^2$
+so U $\propto$ x^2
+thus for x = 4x
+U become 16 U
+
+Q5. For a particle executing S.H.M having amplitude A, the speed of the particle is one-half of its maximum speed when its displacement from the mean position is:
+    (A) x = $\frac{\sqrt3}2A$   <-- CORRECT
+    (B) x = $\frac A2$
+    (C) x = 2A
+    (D) x = $\sqrt3A$
+    Answer: A
+    Explanation: Given velocity is one half of its max. velocity thus using relation
+$v=\omega \sqrt{A^{2}-x^{2}}$
+as v_max = $\omega$A
+Put v = $\frac{\omega A}{2}$
+$\frac{\omega A}{2}=\omega \sqrt{A^{2}-x^{2}}$
+$\frac{\omega^{2} A^{2}}{4}=\omega^{2} A^{2}-\omega^{2} x^{2}$
+on solving x = $\frac{\sqrt{3}}{2}A$
+
+Q6. The time period of a spring oscillating simple harmonically is:
+    (A) $\mathrm{T}=2 \pi \sqrt{\left\{\frac{K}{m}\right\}}$
+    (B) $\mathrm{T}=2 \pi \sqrt{\left\{\frac{m}{K}\right\}}$   <-- CORRECT
+    (C) $\mathrm{T}=2 \pi \sqrt{\left\{\frac{m}{2 K}\right\}}$
+    (D) $T=2 \pi \sqrt{\left\{\frac{2 m}{K}\right\}}$
+    Answer: B
+    Explanation: The time period is given by
+$T=\frac{2 \pi}{\omega}$
+ where $\omega=\sqrt{\frac{k}{m}}$
+thus $\mathrm{T}=2 \pi \sqrt{\left\{\frac{m}{K}\right\}}$
+
+Q7. A spring has a certain mass suspended from it and its period for vertical oscillations is T_1. The spring is now cut into two equal halves and the same mass is suspended from one of the halves. The period of vertical oscillations is now T_2. The ratio of $\frac {T_1}{T_2}$ is:
+    (A) 2$\sqrt 2 $
+    (B) 1   <-- CORRECT
+    (C) $\sqrt 2 $
+    (D) $\frac 1 2$
+    Answer: B
+    Explanation: As the spring constant $k={\frac F x}$ i.e. restoring force per unit displacement remains the same thus time period in both cases will be same. Thus their ratio will be equal to 1.
+
+Q8. A simple spring has length l and forces constant K. It is cut into two springs of lengths l_1 and l_2 such that l_1 = n.l_2 (where n is an integer), the force constant of the spring of length l_2 is
+    (A) $\frac{K}{(n+1)}$
+    (B) $\frac{K}{n(1+n)}$
+    (C) $\frac{2 K}{(n+1)}$
+    (D) K (1 + n)   <-- CORRECT
+    Answer: D
+    Explanation: As spring constant is inversely proportional to the length of spring L i.e. 
+$k \propto \frac{1}{L} $ $\rightarrow$ (1)
+given L_1 = nL_2 
+L_1 + L_2 = L $\Rightarrow$ nL_2 + L_2 = L
+$L_{2}=\frac{L}{n+1}$
+thus using equation (1)
+$\frac{K}{K_{2}}=\frac{\frac{L}{n+1}}{L}$
+K_2 = (n + 1)K
+
+Q9. In the arrangement shown in the figure, if the block of mass m is displaced, the frequency is given by:
+    (A) f = $\frac{1}{2 \pi} \sqrt{\frac{\left(k_1-k_2\right)}{m}}$
+    (B) f = $\frac1{2\pi}\sqrt{\frac{k_1+k_2}m}$   <-- CORRECT
+    (C) f = $\frac1{2\pi}$ ​​​$\sqrt {\left[ {({k_1} - {k_2})m} \right]} $
+    (D) f = $\frac1{2\pi}$$\sqrt {\left[ {({k_1} - {k_2})m} \right]} $
+    Answer: B
+    Explanation: When the block is displaced slightly the restoring force acting on it in the same direction will be 
+k_1x and k_2x
+thus its equation of motion will be 
+m$\frac{d^2x}{dt^2}$ = k_1x + k_2x $\rightarrow$ (1)
+thus compare with the standard equation
+$\frac{d^2x}{dt^2}$ = $\omega^2$x $\rightarrow$ (2) where $\omega$ = $\sqrt{\frac{k}{m}}$
+on compare (1) and (2)
+$\omega$ = $\sqrt{\frac{k_1 + k_2}{m}}$
+f = $\frac{\omega}{2\pi}$ = $\frac{1}{2\pi}$$\sqrt{\frac{k_1 + k_2}{m}}$
+
+Q10. Two pendulums of length I meter and 16 meters start vibrating one behind the other from the same stand. At some instant, the two are in the mean position in the same phase. The time period of the shorter pendulum is T. The minimum time after which the two threads of the pendulums will be one behind the other is:
+    (A) $\frac{2T}{5}$
+    (B) $\frac{T}{4}$
+    (C) $\frac{4T}{3}$   <-- CORRECT
+    (D) $\frac{T}{3}$
+    Answer: C
+    Explanation: Given the length of 1st pendulum L_1 = 1 cm and that of 2nd pendulum L_2 = 16 cm as the time period is given by
+T = $2 \pi \sqrt{\frac{L}{g}}$
+the time period of 1st pendulum T
+the time period of 2nd pendulum will be
+T_2 = 4T
+When two pendulums become again one behind the other the phase difference between them again becomes 2$\pi$.
+$\left(\omega_{1} t-\omega_{2} t\right)=2 \pi$
+$\left(\frac{2\pi}T-\frac{2\pi}{4T}\right)t=2\pi$
+$\left(\frac{2\pi}{T_1}\;-\frac{2\pi}{T_2}\right)t=2\pi$
+$t=\frac{4 T}{3}$
+
+Q11. For all practical purposes, the motion of a simple pendulum is SHM:
+    (A) Only if the maximum angle which the string makes with the vertical is less than I.
+    (B) Only if the length of its string is at least one metre.
+    (C) Only if the maximum angle which its string makes with the vertical is less than 342.
+    (D) None of these   <-- CORRECT
+    Answer: D
+    Explanation: The motion of a simple pendulum is Simple Harmonic Motion(SHM) if a restoring force is proportional to the displacement, a relationship often known as Hooke's Law when applied to springs.
+
+Q12. A rubber ball with water, having a small hole in its bottom is used as the bob of a simple pendulum. The time period of such a pendulum:
+    (A) First increases and then decreases finally having the same value as at the beginning   <-- CORRECT
+    (B) Increases with time
+    (C) Is constant
+    (D) Decreases with time
+    Answer: A
+    Explanation: First increases and then decreases finally having the same value as at the beginning
+
+Q13. A mass M is suspended from a spring of negligible mass. The spring is pulled a little and then released so that the mass executes simple harmonic oscillations with a time period T.
+    (A) T = $\begin{array}{l}4\pi\sqrt{\frac mk}\\\end{array}$
+    (B) T = $8\pi\sqrt[{}]{\frac mk}$
+    (C) T = $\begin{array}{l}2\pi\sqrt{\frac mk}\\\end{array}$   <-- CORRECT
+    (D) T = $10\pi\sqrt[{}]{\frac mk}$
+    Answer: C
+    Explanation: The time period is defined as
+$T=\frac{2 \pi}{\omega}$
+and $\omega = \sqrt{\frac{k}{m}}$
+thus $T=2 \pi \sqrt{\frac{m}{k}}$
+
+Q14. The bob of a simple pendulum has a mass of 20 g. The period of oscillations of the pendulum is 0.75 s. When the mass of bob is increased to 40 g, without any other change, the time period now becomes:
+    (A) 1.5 s
+    (B) 0.75 $\sqrt 2 $
+    (C) 0.75 s   <-- CORRECT
+    (D) $\frac{0.75}{\sqrt{2}}$
+    Answer: C
+    Explanation: The time period of motion of the pendulum is independent of its mass.
+$\mathrm{T}=2 \pi \sqrt{\frac{L}{g}}$
+
+Q15. A pendulum suspended from a ceiling of a train has a period T when the train is at rest. When the train is accelerating with a uniform acceleration α, the period of oscillation will:
+    (A) Remain unaffected
+    (B) Increase
+    (C) Become infinite
+    (D) Decrease   <-- CORRECT
+    Answer: D
+    Explanation: Due to the acceleration of train the effective acceleration become 
+g_eff = $\sqrt{a^2+g^2}$
+thus time period become
+T = $2 \pi \sqrt{\frac{L}{g_{e f f}}}$
+T = $2 \pi \sqrt{\frac{L}{\sqrt{a^{2}+g^{2}}}}$
+thus the time period will decrease as compared to the rest state of the train.
+
+========================================================================
+Oscillations Test 04  (id 595) [PAID]
+CBSE > Class 11 > Physics > Oscillations
+Questions: 15 | Answers: YES
+========================================================================
+
+Q1. If the length of a simple pendulum is increased by 1percent, then the new time-period:
+    (A) Increases by 2.0 percent
+    (B) Increases by 0.5 percent   <-- CORRECT
+    (C) Increases by 1 percent
+    (D) Decreases by 0.5 percent
+    Answer: B
+    Explanation: The time period of a simple pendulum is given by
+T = $2 \pi \sqrt{\frac{L}{g}}$
+new length L_1 = $L+\frac{L}{100}$
+$L_{1}=\frac{101}{100} L$
+$T_{1}=2 \pi \sqrt{\frac{L_{1}}{g}}$
+$T_{1}=2 \pi \sqrt{\frac{\frac{101}{100} L}{L}}$
+T_1 = 1.004988 T
+change = $\frac{T_{1}-T}{T} \times 100$
+change = $\frac{1.004988-1}{1} \times 100$
+change = 0.4988%
+Thus it increases by 0.5%
+
+Q2. Two pendulums have time periods T and $5T\over4$. They are in phase at their mean positions at some instant of time. What will be their phase difference when the bigger pendulum completes one oscillation?
+    (A) 30^o
+    (B) 90^o   <-- CORRECT
+    (C) 45^o
+    (D) 60^o
+    Answer: B
+    Explanation: Assuming bigger pendulum as the pendulum of bigger time period i.e.having time period $5T\over4$ 
+As the two pendulums start at the same time in simple harmonic motion from the mean position, their initial phase angles are zero
+The bigger pendulum completes its one oscillation in time $t={5T\over 4}$ and comes back to the mean position. During this time the point on reference circle associated with SHM rotates by an angle 2$\pi$
+If ω represents the angular velocity of the reference point associated with SHM of the first pendulum of time period T, then the phase of this pendulum after $5T\over 4$ s will be
+${\omega5T \over 4}=\omega T +{\omega T\over 4} $ 
+${5T\over 4} = T+{T \over 4}$
+This means that when the second pendulum completes 1 oscillation the first one completes 1+1/4
+The first pendulum completes extra 1/4​ oscillation.
+Hence the phase difference = $\pi\over 2$ = 90^o
+
+Q3. A particle is executing S.H.M of amplitude A with a time period T sec. The time taken by it to move from a positive extreme position to half the amplitude is:
+    (A) $\frac{6 T}{12}$ sec
+    (B) $\frac{T}{6}$ sec   <-- CORRECT
+    (C) $\frac{T}{12}$ sec
+    (D) $\frac{3 T}{12}$ sec
+    Answer: B
+    Explanation: In this case, equation of motion will be given by
+x = A cos($\omega$t)
+time taken for x = 0 to x = $\frac{A}{2}$
+using $\omega$ = $\frac{2\pi}{T}$
+$\frac{A}{2}=A \cos \left(\frac{2 \pi}{T} \times T_1\right)$
+$\frac{1}{2}=\cos \left(\frac{2 \pi T_{1}}{T}\right)$
+$\frac{\pi}{3}=\frac{2 \pi T_{1}}{T}$
+T_1 = $\frac{T}{6}$
+
+Q4. Time period of a simple pendulum will be doubled, if we
+    (A) decrease the length 4 times
+    (B) decrease the length 2 times
+    (C) increase the length 2 times
+    (D) increase the length 4 times   <-- CORRECT
+    Answer: D
+    Explanation: When the time period is doubled length has to become 4 times as it is coming in square root.
+T = $2\pi\sqrt{\frac Lg}$
+
+Q5. A mass M is suspended by two springs which are connected in series. If the spring constants are K_1 and K_2 then the time period of the vertical vibrations is:
+    (A) T = $2 \pi \sqrt{\frac{M\left(k_1 k_2\right)}{\left(k_1+k_2\right)}}$
+    (B) T = $2\pi \sqrt{\frac{M\left(k_1+k_2\right)}{\left(k_1 k_2\right)}}$   <-- CORRECT
+    (C) T = $2 \pi \sqrt{\left\{\frac{M}{\left(k_1+k_2\right)}\right\}}$
+    (D) T = $2 \pi \sqrt{\left\{\frac{M}{\left(k_1-k_2\right)}\right\}}$
+    Answer: B
+    Explanation: Effective spring constant when two springs are connected in series is given by
+$\frac{1}{k_{e q}}=\frac{1}{k_{1}}+\frac{1}{k_{2}}$
+$k_{e q}=\frac{k_{1} k_{2}}{k_{1}+k_{2}}$
+time period T = 2$\pi$$\sqrt{\frac{m}{k_{e q}}}$
+T = $ 2 \pi \sqrt{\frac{m\left(k_{1}+k_{2}\right)}{k_{1} k_{2}}}$
+
+Q6. Whose motion is an ideal case of SHM?
+    (A) A simple pendulum with very Large angle of swing
+    (B) An electric dipole placed stably in a uniform electric field and then given a very small angular displacement   <-- CORRECT
+    (C) A simple pendulum with very small angle of swing
+    (D) Shadow of a point mass having uniform circular motion, on the vertical diameter
+    Answer: B
+    Explanation: When an electric dipole will pe placed in an electric field and given a small angular displacement it will oscillate about its mid point due to different line of forces that give rise to torque.
+
+Q7. A particle executes SHM of time period T, the time period with which the total energy changes is:
+    (A) T/2
+    (B) 2T
+    (C) Independent   <-- CORRECT
+    (D) T
+    Answer: C
+    Explanation: Total mechanical energy E does not depend on time period T. It is given by
+E = $\frac12m\omega^2A^2$
+
+Q8. The length of a second’s pendulum decreases by 0.1 percent, then the clock:
+    (A) Loses 30 seconds per day
+    (B) Loses 37.8 seconds per day
+    (C) Gains 43.2 seconds per day   <-- CORRECT
+    (D) Loses 13.5 seconds per day
+    Answer: C
+    Explanation: Initial time period T= 2 s
+newlengthL′ = L - $L\over 1000$
+$L^{\prime}=\frac{999}{1000} L$
+new time period T′ = $2 \pi \sqrt{\frac{L^{\prime}}{g}}$
+$T^{\prime}=2 \pi \sqrt{\frac{\frac{999 L}{1000}}{g}}$
+T′ = 0.9995T
+In one day there are 86400 seconds
+After reducing length new time will be
+0.9995 $\times$ 86400 = 86356.8
+Thus change is $\Delta$T = 86400 - 86356.8= 43.2s
+Thus clock gains 43.2 s per day
+
+Q9. A ball of mass 50 gm is suspended by a spring with a force constant K = 49 N/m. The ball is raised to the position at which the spring is not tensioned and is released without a push. The ball will fall through a maximum distance of:
+    (A) 0.141 m   <-- CORRECT
+    (B) 0.032 m
+    (C) 0.042 m
+    (D) 0.029 m
+    Answer: A
+    Explanation: At maximum stretching 
+mgx = 0+ $\frac12$kx^2
+x = $\frac{2mg}k=\frac{2\times50\times9.8}{49\times1000}$
+x = $\frac2{100}$
+x = 0.02m
+
+Q10. A cylinder floats vertically in a tank full of water. The period of oscillation of the cylinder when depressed and released is dependent on:
+    (A) Density of the liquid
+    (B) The area of cross-section of the cylinder
+    (C) The mass of the cylinder
+    (D) Length of cylinder immersed in the liquid at equilibrium   <-- CORRECT
+    Answer: D
+    Explanation: Consider a cylinder of length L and density $\rho$ floating in a liquid of density $\sigma$ . Let the cylinder have a cross-sectional area A and let a length h be below the surface when the cylinder is at rest. (See Figure 1)
+According to the law of floatation, weight of the body = weight of liquid displaced 
+ AL$\rho g$ = Ahag
+ $l$ =$ha\over\rho$
+The cylinder is now pushed downwards a little (x) and allowed to bob up and down, the forces causing the oscillation being gravity and the varying up-thrust on the cylinder.
+Extra up-thrust = extra weight of liquid displaced $ = A\sigma gx$
+Therefore restoring force $ = A\sigma gx$ = ma
+Acceleration (a) = $ - \frac{{A\sigma gx}}{m} = - \frac{{A\sigma gx}}{{A\rho L}} = - \left[ {\frac{{\sigma g}}{{\rho L}}} \right]x$
+The acceleration is therefore directly proportional to the displacement (x) and so the cylinder, therefore, moves with simple harmonic motion.
+The value of ω^2 for this system is σg/ρL so the period T is:
+$T = \frac{{2\pi }}{\omega } = 2\pi \sqrt {\frac{h}{g}} $= $2\pi\sqrt {\rho L\over\sigma g}$
+thus $T\propto \sqrt h $
+
+Q11. A particle is oscillating according to the equation X = 7 cos 0.5 $\pi $t, where t is in seconds. The point moves from the position of equilibrium to maximum displacement in time
+    (A) 4.0 seconds
+    (B) 1.0 seconds   <-- CORRECT
+    (C) 0.5 seconds
+    (D) 2.0 seconds
+    Answer: B
+    Explanation: Given x = 7 cos (0.5$\pi$t)
+Comparing it with standard equation x = A cos($\omega$t)
+$\omega$ = 0.5$\pi$ 
+Thus, $ T=\frac{2\pi}\omega=\frac{2\pi}{0.5\pi}$ = 4 sec
+thus the time taken for movement from the position of equilibrium to maximum displacement is, t = 4/4 = 1.0 sec
+
+Q12. A weightless spring that has a force constant k oscillates with frequency n when a mass m is suspended from it. The spring is cut into two equal halves and a mass 2m is suspended from it. The frequency of oscillation will now become:
+    (A) $\frac{n}{\sqrt{2}}$
+    (B) n   <-- CORRECT
+    (C) $\frac{2}{\sqrt{2}}$
+    (D) 2n
+    Answer: B
+    Explanation: Frequency of oscillation is given by
+$n=\frac{1}{2 \pi} \sqrt{\frac{k}{m}}$
+the spring constant is inversely proportional to the length
+$k \propto \frac{1}{L}$ 
+Thus if the length is halved spring constant will be doubled. Also, mass is also doubled
+n' = $\frac{1}{2 \pi} \sqrt{\frac{2 k}{2 m}}$
+$n'=\frac1{2\pi}\sqrt{\frac km}$
+n' = n
+
+Q13. The displacement of a particle executing S.H.M is given by y = 0.25 sin 200 t cm. The maximum speed of the particle is:
+    (A) 50 cm/sec   <-- CORRECT
+    (B) 200 cm/sec
+    (C) 0.25 cm/sec
+    (D) 100 cm/sec
+    Answer: A
+    Explanation: Given y = 0.25 sin(200t) 
+compare this equation with the standard equation
+y = Asin($\omega$t)
+amplitude A = 0.25cm
+$\omega$ = 200
+v_max = $\omega$A
+v_max = 200 $\times$ 0.25
+v_max = 50cm/s
+
+Q14. Which of the following equations does not represent simple harmonic motion:
+    (A) Y = A sin $\omega $t + Bcos $\omega $t
+    (B) Y = A sin $\omega $ t ​​​​​​
+    (C) Y = A sin $\omega $ t cos $\omega $ t
+    (D) Y= A sin^2 $\omega $ t   <-- CORRECT
+    Answer: D
+    Explanation: Because this is not a periodic function.
+
+Q15. The vertical extension in a light spring by a weight of 1 kg suspended from the wire is 9.8 cm. The period of oscillation is:
+    (A) $\frac{2\pi}7$ sec​​​​​​
+    (B) $\frac{2\pi}{10}$ sec​​​​   <-- CORRECT
+    (C) $\frac{2\pi}8$sec
+    (D) $\frac{2\pi}9$ sec​
+    Answer: B
+    Explanation: At equilibrium 
+mg = kx
+$k=\frac{1\times9.8\times100}{9.8}$
+k = 100N/m^2
+$T=2\pi\sqrt{\frac mk}$
+$T=2 \pi \sqrt{\frac{1}{100}}$
+$T=\frac{2\pi}{10}\;$second
+
+========================================================================
+Oscillations Test 05  (id 596) [PAID]
+CBSE > Class 11 > Physics > Oscillations
+Questions: 15 | Answers: YES
+========================================================================
+
+Q1. The maximum displacement of a particle executing S.H.M is 1 cm and the maximum acceleration is (1.57)^2 cm/sec, then the time period is:
+    (A) 4.00 sec   <-- CORRECT
+    (B) 1.57$^{\rm{2}}$ sec
+    (C) 1.57 sec
+    (D) 0.25 sec
+    Answer: A
+    Explanation: Maximum acceleration
+$a_{\max }={\omega}^{2} A$
+(1.57)^2 = $\omega^2 $ $\times$ 1
+$\omega$ = 1.57
+T = $\frac{2\pi}\omega=\frac{2\times3.14}{1.57}$
+T = 4second
+
+Q2. A body is executing S.H.M When its displacement from the mean position is 4 cm and 5 cm, the corresponding velocities of the body are 10 cm per sec and 8 cm per sec. Then the time period of the body is:
+    (A) 4$\pi $ ​​​sec
+    (B) $\pi $ sec   <-- CORRECT
+    (C) $\frac{3 \pi}{2}$ sec
+    (D) 2 $\pi $ sec
+    Answer: B
+    Explanation: Given
+x_1 = 4cm
+x_2 = 5cm
+v_1 = 10cm/s
+v_2 = 8cm/s
+Using relation
+$v=\omega\sqrt{A^2-x^2}$
+$10=\omega\sqrt{A^2-(4)^2}$
+8 = $\omega\sqrt{A^2\;-\;\left(5\right)^2}$ 
+Square and subtract these equations
+36 = 9$\omega^2$
+$\omega$ = 2
+time period T = $\frac{2 \pi}{\omega}=\frac{2 \pi}{2}$
+T = $\pi$seconds
+
+Q3. The ratio of maximum acceleration to the maximum velocity of a particle performing S.H.M is equal to:
+    (A) Square of amplitude
+    (B) Amplitude
+    (C) Angular velocity   <-- CORRECT
+    (D) Square of angular velocity
+    Answer: C
+    Explanation: a_max = $\omega^2$A
+v_max = $\omega$A
+thus
+$\frac{a_{\max }}{v_{\max }}=\frac{\omega^{2} A}{\omega A}$
+$\Rightarrow$ $\omega$
+
+Q4. A particle is executing S.H.M with an amplitude of 4 cm and a time period 12 sec. The time taken by the particle in going from its mean position to a position of displacement equal to 2 cm is T_1. The time taken from this displaced position of 2 cm to reach the extreme position is T_2. Therefore, $\frac {T_1}{T_2}$will be
+    (A) 1
+    (B) $\frac 1 3$
+    (C) 2
+    (D) 0.5   <-- CORRECT
+    Answer: D
+    Explanation: In s.h.m position of a body is given by
+x = A sin ($\omega$t + $\Delta$) where $\Delta$ is the phase difference
+given T = 12s and A = 4cm
+$\omega=\frac{2 \pi}{T}=\frac{2 \pi}{12}=\frac{\pi}{6}$
+at mean position $\Delta$ = 0
+thus for interval x = 0 to t = 2
+2 = $4 \sin \left(\frac{\pi}{6} T_{1}\right)$
+$\frac{1}{2}=\sin \left(\frac{\pi}{6} T_{1}\right)$
+$\frac{\pi}{6}=\frac{\pi T_{1}}{6}$
+T_1 = 1 seconds
+For interval x = 2 to x = 4 phase difference
+$\phi=\frac{\pi}{6}$
+4 = $4 \sin \left(\omega T_{2}+\phi\right)$
+$1=\sin \left(\frac{\pi}{6} T_{2}+\frac{\pi}{6}\right)$
+$\frac{\pi}{2}=\frac{\pi}{6} T_{2}+\frac{\pi}{6}$
+T_2 = 2 seconds
+$\frac{T_1}{T_2}=\frac12$ = 0.5
+
+Q5. If the period of oscillation of mass M suspended from a spring is one second, then the period of mass 4 M will be:
+    (A) 4s
+    (B) 2s   <-- CORRECT
+    (C) $\frac12$s
+    (D) $\frac14$s
+    Answer: B
+    Explanation: The relation for the time period is
+$T=2\pi\sqrt{\frac mk}$
+for constant k 
+$T \propto \sqrt{m}$
+$\frac{T_{1}}{T_{2}}=\frac{\sqrt{m_{1}}}{\sqrt{m_{2}}}$
+given m_2 = 4m and T_1 = 1s
+$\frac{1}{T_{2}}=\frac{\sqrt{m}}{\sqrt{4 m}}$
+T_2 = 2second
+
+Q6. The length of the second’s pendulum on the surface of the earth is 1m. The length of the second’s pendulum on the surface of the moon, where g is $\frac 1 6$th the value on earth is:
+    (A) 6m
+    (B) 36m
+    (C) $\frac {1} {36}$m
+    (D) $\frac 1 6$m   <-- CORRECT
+    Answer: D
+    Explanation: The time period of a second pendulum is 1 s. The relation for the time period is
+$T=2\pi\sqrt{\frac Lg}$
+if T remains constant 
+L $\propto$ g
+$\frac{L_{\text {earth }}}{L_{\text {moon }}}=\frac{g_{\text {earth }}}{g_{\text {moon }}}$
+given L_earth = 1 m
+$\frac{1}{L_{\text {moon }}}=\frac{g}{\frac{g}{6}}$
+L_moon = $\frac{1}{6} $m
+
+Q7. If the maximum velocity and acceleration of a particle executing S.H.M are equal in magnitude, the time period will be:
+    (A) 12.56 s
+    (B) 3.14 s
+    (C) 6.28 s   <-- CORRECT
+    (D) 1.57 s
+    Answer: C
+    Explanation: v_max = $\omega$A
+a_max = $\omega^2$A
+given they are equal
+$\omega^2$A = $\omega$A
+$\Rightarrow$$\omega$ = 1
+time period
+T = $2\pi \over \omega$
+T = 2 $\times$ 3.14
+T = 6.28s
+
+Q8. A particle executes S.H.M along a straight line with amplitude ‘A’. The potential energy is maximum when the displacement is:
+    (A) Zero
+    (B) $ \pm $ A$\sqrt 2 $
+    (C) $ \pm $ A   <-- CORRECT
+    (D) $ \pm {A\over2}$
+    Answer: C
+    Explanation: Potential energy in s.h.m. is given by
+$U=\;\frac12kx^2$
+Maximum possible values of x is equal to amplitude $\pm$A. I.e. maximum displacement on both sides. Thus maximum P.E. is when x = $\pm$A.
+
+Q9. The potential energy of a particle with displacement x is V(x). The motion is simple harmonic when (k is a positive constant):
+    (A) V = kx^2
+    (B) V = k
+    (C) V = kx
+    (D) V = k$\frac{x^2}{2}$   <-- CORRECT
+    Answer: D
+    Explanation: In s.h.m. equation of motion is F = -kx thus work done by force F during a displacement from x to x + dx is 
+dW = F $\times$ dx
+Total work done in a displacement from x = 0 to x is
+$W=\int_\limits0^x\;\left(-kx\right)dx$
+W = $-\frac12kx^2$
+thus change in P.E.
+U(0) − U(x) = W
+let U(0) = 0
+then U(x) = $\frac{1}{2}$kx^2
+P.E = W = $\frac{1}{2}$kx^2
+​​​​​P.E. will be maximum when x = $\pm$A i.e. amplitude of motion.
+And will be zero at x = 0 i.e. at the mean position. Thus motion will be s.h.m.
+
+Q10. If x, F, and V denote the displacement, force acting, and the potential energy of a particle then F = ?
+    (A) $\frac{1 d v}{x d x}$
+    (B) $\frac{-d V}{d x}$   <-- CORRECT
+    (C) + $\frac{d V}{d x}$
+    (D) Vx
+    Answer: B
+    Explanation: Potential energy V is given by
+$V=\frac{1}{2} k x^2$
+and force f = -kx
+thus f = $-\frac{d V}{d x}$
+f = $-\frac{d}{d x}\left(\frac{1}{2} k x^2\right)$
+f = -kx
+Hence proof.
+
+Q11. What is the ratio between the height H of a mountain and the depth h of a mine if a pendulum swings with the same period at the top of the mountain and at the bottom of the mine?
+    (A) $\frac12$   <-- CORRECT
+    (B) 4
+    (C) 6.0
+    (D) 1
+    Answer: A
+    Explanation: Gravity above the earth surface is given by 
+g = $g_0(1-\frac{2H}R)$ 
+And below the earth surface is given by
+g = $g_0(1-\frac hR)$ 
+Where h and d are height and depth below the earth's surface. As given time period at both location is same 
+T_1 = T_2
+$2 \pi \sqrt{\frac{L}{g_{u p}}}=2 \pi \sqrt{\frac{L}{g_{d a c m}}}$
+$\Rightarrow$ g_up = g_down
+$g_{0}\left(1-\frac{2 H}{R}\right)=g_{0}\left(1-\frac{h}{R}\right)$
+$\Rightarrow$ 2H = h
+$\frac{H}{h}=\frac{1}{2}$
+
+Q12. The time period of a simple pendulum of length L at a place where the acceleration due to gravity is g is T. What is the period of a simple pendulum of the same length at a place where the acceleration due to gravity is 1.02 g.
+    (A) 0.99T   <-- CORRECT
+    (B) 1.02T
+    (C) T
+    (D) 1.01T
+    Answer: A
+    Explanation: The relation for time period of a pendulum is 
+$T=2\pi\sqrt{\frac Lg}$
+thus T $\propto$ $\frac{1}{\sqrt{g}}$
+so $\frac{T_{1}}{T_{2}}=\frac{\sqrt{g_{2}}}{\sqrt{g_{1}}} \Rightarrow \frac{T}{T_{2}}=\frac{\sqrt{1.02 g}}{\sqrt{g}}$
+$T_{2}=\frac{T}{\sqrt{1.02}}$
+T_2 = 0.99T
+
+Q13. A particle executes S.H.M with a period of 6 seconds and amplitude 3 cm. Its maximum speed in cm/sec is:
+    (A) $3\pi $
+    (B) $\pi $   <-- CORRECT
+    (C) $2\pi $
+    (D) $\pi \over2$
+    Answer: B
+    Explanation: Given time period T = 6s and amplitude A = 3 cm/s
+Using relation
+angular frequency 
+$\omega=\frac{2 \pi}{T}$
+$\omega=\frac{2 \pi}{6}$
+v_max = $\omega\times A$
+v_max = $\frac{2 \pi}{6} \times 3$
+v_max = $\pi$ cm/s
+
+Q14. Which one of the following equations does not represent S.H.M?
+    (A) Y= A sin $\omega $ t + B cos $\omega $ t
+    (B) Y = A sin $\omega $ t
+    (C) Y= A sec $\omega $ t + B cosec $\omega $ t   <-- CORRECT
+    (D) Y = A cos $\omega $ t + B
+    Answer: C
+    Explanation: simple harmonic motion is a type of periodic motion or oscillation motion where the restoring force is directly proportional to the displacement and acts in the direction opposite to that of displacement. We can only state SHM in terms of sine and cosine functions of the fixed time period.
+
+Q15. A 0.5 kg weight attached to a light spring elongates it by 0.981 mm. The natural frequency of the system should be approximately ________. (the mass hangs from spring vertically).
+    (A) 8 Hz
+    (B) 36 Hz
+    (C) 16 Hz   <-- CORRECT
+    (D) 5 Hz
+    Answer: C
+    Explanation: When mass elongates the spring the restoring force must be equal to wt. Of block at equilibrium 
+kx = mg
+$k=\frac{0.5 \times 9.81}{0.981 \times 10^{-3}}$
+k = 5 $\times$ 10^3N/m
+frequency
+$f=\frac{1}{2 \pi} \times \sqrt{\frac{k}{m}}$
+$f=\frac{1}{2\times3.14} \times \sqrt{\frac{5 \times 10^{3}}{0.5}}$
+f = 15.92 Hz $\cong$ 16 Hz

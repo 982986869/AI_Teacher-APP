@@ -1,0 +1,992 @@
+CHAPTER: Trigonometric Functions  (id 1374)
+CBSE > Class 11 > Mathematics > Trigonometric Functions
+Online tests: 5
+
+========================================================================
+Trigonometric Functions Test 01  (id 612) [FREE]
+CBSE > Class 11 > Mathematics > Trigonometric Functions
+Questions: 15 | Answers: YES
+========================================================================
+
+Q1. In a triangle ABC, tan $\frac{A}{2}=\frac{5}{6}, \tan \frac{B}{2}=\frac{20}{37}$ then tan $\frac C 2$ is equal to
+    (A) $\frac {100} {222}$
+    (B) $\frac 2 5$   <-- CORRECT
+    (C) $\frac {34} {37}$
+    (D) $\frac 5 2$
+    Answer: B
+    Explanation: Given tan $\frac{A}{2}$ = $\frac{5}{6}$ $\Rightarrow$ cot $\frac{A}{2}$ = $\frac{6}{5}$, tan $\frac{B}{2}$ = $\frac{20}{37}$ $\Rightarrow$ cot $\frac{B}{2}$ = $\frac{37}{20}$ 
+Given A, B and C are angles of a triangle 
+Then, A + B + C = 180
+$\Rightarrow$ $\frac{A+B+C}{2}$ = $\frac{180}{2}$ 
+$\Rightarrow$ $\frac{A+B}{2}+\frac{C}{2}$ = 90
+$\Rightarrow$ $\frac{C}{2}$ = $90-\frac{A+B}{2}$ 
+Taking tan on both sides, we get
+$\Rightarrow$ $\tan \frac{C}{2}$ = $\tan \left(90-\frac{A+B}{2}\right)$ 
+$\Rightarrow$ $\tan \frac{C}{2}$ = $\cot \left(\frac{A+B}{2}\right)$ = $\cot \left(\frac{A}{2}+\frac{B}{2}\right)$ = $\frac{\cot \frac{A}{2} \cdot \cot \frac{B}{2}-1}{\cot \frac{A}{2}+\cot \frac{B}{2}}$ = $\frac{\frac{6}{5} \cdot \frac{37}{20}-1}{\frac{6}{5}+\frac{37}{20}}$ = $\frac{\frac{222}{100}-1}{\frac{305}{100}}$ = $\frac{\frac{122}{100}}{\frac{305}{100}}$ = $\frac{122}{305}$ = $\frac{2}{5}$
+
+Q2. In a triangle ABC, if A = ${75^o}$ and B = ${45^o}$ then b + 2 c is equal to
+    (A) 2a   <-- CORRECT
+    (B) $\frac{1}{2}(a+b+c)$
+    (C) a
+    (D) a + b + c
+    Answer: A
+    Explanation: Given $A=75^{\circ} \text { and } B=45^{\circ}$
+then $A+B+C=180^{\circ}$
+$\Rightarrow 75+45+C=180$
+$\Rightarrow$C=180-120=60
+From sin e formula
+$\frac{a}{\sin A}=\frac{b}{\sin B}=\frac{c}{\sin C}=k(\operatorname{lc} t)$
+$\Rightarrow \frac{a}{\sin 75}=\frac{b}{\sin 45}=\frac{c}{\sin 60}=k$
+Here
+$\frac{a}{\frac{\sqrt{3}+1}{2 \sqrt{2}}}=k, \frac{b}{\frac{1}{\sqrt{2}}}=k, \frac{c}{\frac{\sqrt{3}}{2}}=k$ Now,
+$\Rightarrow a=\left(\frac{\sqrt{3}+1}{2 \sqrt{2}}\right) k, b=\frac{k}{\sqrt{2}}, c=\frac{\sqrt{3} k}{2}$
+$b+2 c=\frac{k}{\sqrt{2}}+2 \cdot \frac{\sqrt{3} k}{2}=\frac{2 k+2 \sqrt{3} k}{2 \sqrt{2}}$$=2\left(\frac{\sqrt{3}+1}{2 \sqrt{2}}\right) k=2 a$
+
+Q3. The angles of a triangle are as 1 : 2 : 7, then ratio of greatest side to least side is
+    (A) $(\sqrt 2 + 3):(2 - \sqrt 3 )$
+    (B) $(\sqrt 2 + 1):(\sqrt 2 - 1)$
+    (C) $(\sqrt 5 + 1):(\sqrt 5 - 1)$   <-- CORRECT
+    (D) $(\sqrt 3 + 1):(\sqrt 3 - 1)$
+    Answer: C
+    Explanation: Let angles x, 2x and 7x.
+Then, x + 2x + 7x = 180^o 
+$\Rightarrow$ 10x = 180
+$\Rightarrow$ x = $\frac{180}{10}$ = 18^o 
+From sin formula
+$\frac{a}{\sin A}=\frac{b}{\sin B}=\frac{c}{\sin C}$ = k(let)
+$\Rightarrow$ $\frac{a}{\sin 18}=\frac{b}{\sin 36}=\frac{c}{\sin 126}$ = k
+Here a = k sin 18, b = k sin 36, c = k sin 126 
+$\Rightarrow$ a = $\frac{\sqrt{5}-1}{4} \cdot k$, b = $\frac{\sqrt{10-2 \sqrt{5}}}{4} \cdot k$, c = $\frac{\sqrt{5}+1}{4} \cdot k$ 
+a : b = $\sqrt{5}+1: \sqrt{5}-1$
+
+Q4. If the sides of a triangle are 13, 7, 8 the greatest angle of the triangle is
+    (A) $\frac {2\pi }{3}$   <-- CORRECT
+    (B) $\frac {\pi}{ 2}$
+    (C) $\frac {3\pi }{2}$
+    (D) $\frac {\pi}{3}$
+    Answer: A
+    Explanation: Let the sides of the triangle be a = 13, b = 7 and c = 8.
+Since a is the longest side the greatest angle is A.
+Using Cosine rule, we have
+cos A = $\frac{b^{2}+c^{2}-a^{2}}{2 b c}$ = $\frac{49+64-169}{112}$ = $\frac{-1}{2}$
+But we have $\cos \left(\frac{2 \pi}{3}\right)$ = $\cos \left(\pi-\frac{\pi}{3}\right)$ = $-\cos \left(\frac{\pi}{3}\right)$ = $\frac{-1}{2}$
+$\therefore$ A = $\frac{2 \pi}{3}$
+
+Q5. There exists a triangle ABC satisfying the conditions
+    (A) b sin A < a, A > $\frac { \pi }{ 2 } $
+    (B) b sin A = a, A < $\frac { \pi }{ 2 } $   <-- CORRECT
+    (C) b sin A = a, a > b
+    (D) b sin A < a, a = b, $A = \frac \pi 2$
+    Answer: B
+    Explanation: Using rule we have $\frac{a}{\sin A}=\frac{b}{\sin B}$ = k
+When k = 1 we have 
+b sin A = a sin B
+When B = $\frac{\pi}{2}$, we get b sin A = a
+But we have in a triangle the sum of the three angles is 180 degrees, so if B = 90 degrees then A < $\frac { \pi }{ 2 } $.
+
+Q6. In a $\Delta ABC,$ (b +c) cos A + (c + a) cos B + (a + b) cos C is equal to
+    (A) R r
+    (B) 0
+    (C) a + b + c   <-- CORRECT
+    (D) a - b - c
+    Answer: C
+    Explanation: $(b+c)cosA+(c+a)cosB+(a+b)cosC\\ =b.cosA+c.cosA+c.cosB+a.cosB+a.cosC+b.cosC\\ =\left( b.cosC+c.cosB \right) +\left( a.cosC+c.cosA \right) +\left( b.cosA+a.cosB \right) \\ =a+b+c\quad \quad \quad \quad \left[ using\quad projection\quad rule \right] $
+
+Q7. If the angles of a triangle ABC are in A.P., then
+    (A) c^2 = a^2 + b^2 + ab
+    (B) a^2 + c^2 - ac = b^2   <-- CORRECT
+    (C) c^2 = a^2 + b^2 - ab
+    (D) c^2 = a^2 + b^2
+    Answer: B
+    Explanation: Given angles of a triangle ABC are in A.P$\Rightarrow \frac { A+C }{ 2 } $ = B $\Rightarrow$ A + C = 2B .....(i)
+But we have in a triangle A + B + C = 180^o $\Rightarrow$ 3B = 180^o $\Rightarrow$ B = 60^o [using(i)]
+Using Cosine Rule we have
+b^2 = a^2 + c^2 - 2ac cos B
+$\Rightarrow$ b^2 = a^2 + c^2 - 2ac cos 60^o 
+$\Rightarrow$ b^2 = a^2 + c^2 - ac [$\because$ cos 60^o = $\frac{1}{2}$]
+
+Q8. The perimeter of a triangle ABC is 6 times the arithmetic mean of the sines of its angles. If the side b is 2, then the angle B is
+    (A) 60^o
+    (B) 120^o
+    (C) 90^o   <-- CORRECT
+    (D) 30^o
+    Answer: C
+    Explanation: Given a + b + c = $\frac{6(\sin A+\sin B+\sin C)}{3}$,
+$\Rightarrow$ a + b + c = 2(sin A + sin B + sin C)
+Now using sine rule a = k sin A, b = k sin B, c = k sin C
+$\Rightarrow$ k (sin A + sin B + sin C) = 2 (sin A + sin B + sin C)
+$\Rightarrow$ k = 2
+Now when b = 2 we get
+sin B = $\frac{b}{k}=\frac{2}{2}$ = 1
+$\Rightarrow$ B = 90^o
+
+Q9. In a triangle ABC, $\tan \frac{A+B}{2} \cot \frac{A-B}{2}$ is equal to
+    (A) $\frac {a + b} {a - b}$   <-- CORRECT
+    (B) $\frac {a - b} {c}$
+    (C) $\frac {a - b} {a + b}$
+    (D) $\frac {a + b} {c}$
+    Answer: A
+    Explanation: We have ${ tan\left( \frac { A-B }{ 2 } \right) }=\frac { a-b }{ a+b } .cot\frac { C }{ 2 } $
+But in a triangle ABC, we have A + B + C = ${ 180 }^{ \circ }\Rightarrow \frac { C }{ 2 } ={ 90 }^{ \circ }-\left( \frac { A+B }{ 2 } \right) $
+$\therefore \tan \left(\frac{A-B}{2}\right)=\frac{a-b}{a+b} \cdot \cot \left[90^{\circ}-\left(\frac{A+B}{2}\right)\right]$
+$\Rightarrow \tan \left(\frac{\dot{A}-B}{2}\right)=\frac{a-b}{a+b} \cdot \tan \left(\frac{A+B}{2}\right)$
+$\Rightarrow \tan \left(\frac{A+B}{2}\right) \cdot \cot \left(\frac{A-B}{2}\right)=\frac{a+b}{a-b}$
+
+Q10. The area of a triangle is 80 cm^2 and its perimeter is 8 cm. The radius of its inscribed circle is
+    (A) 5 cm
+    (B) 10 cm
+    (C) 20 cm   <-- CORRECT
+    (D) 30 cm
+    Answer: C
+    Explanation: We have if a,b,c are the sides of the triangle and r is the radius of the circle inscribed, then 
+r = $\frac{\Delta}{s}$, where 2s = a + b + c and $\Delta$ denotes the area of the triangle.
+Given $\Delta$ = 80 and a + b + c = 8
+$\therefore$ r = $\frac{\Delta}{s}=\frac{80}{4}$ = 20 cm
+
+Q11. If the angles of a triangle be in the ratio 1 : 4 : 5, then the ratio of the greatest side to the smallest side is
+    (A) $4:\left( {\sqrt 5 - 1} \right)$   <-- CORRECT
+    (B) $(\sqrt 5 - 1):1$
+    (C) 5 : 1
+    (D) $1:(\sqrt 5 - 1)$
+    Answer: A
+    Explanation: Let angles x, 4x and 5x, then x + 4x + 5x = 180^o $\Rightarrow$ 10x = 180 $\Rightarrow$ x = $\frac{180}{10}$ = 18^o 
+Using sine formula we have $\frac{a}{\sin A}=\frac{b}{\sin B}=\frac{c}{\sin C}$ = k(say)
+Here a = k sin 18, b = k sin 72, c = k sin 90
+$\Rightarrow$ a = $\frac{\sqrt{5}-1}{4} \cdot k$, b = $\frac{\sqrt{10+2 \sqrt{5}}}{4} \cdot k$, c = 1(k)
+c: a = $1: \frac{\sqrt{5}-1}{4}$ $\Rightarrow$ c: a = 4 : $\sqrt{5}-1$
+
+Q12. If a = 4, b = 3 and A =${60^ \circ }$, then c is a root of the equation
+    (A) ${x^2} - 3x - 7 = 0$   <-- CORRECT
+    (B) ${x^2} - 2x + 7 = 0$
+    (C) ${x^2} - 3x + 8 = 0$
+    (D) ${x^2} - 5x + 7 = 0$
+    Answer: A
+    Explanation: $cosA=\frac { { b }^{ 2 }+{ c }^{ 2 }-a^{ 2 } }{ 2bc } \\ \Rightarrow cos{ 60 }^{ \circ }=\frac { 1 }{ 2 } =\frac { 9+{ c }^{ 2 }-16 }{ 6c } \\ \Rightarrow { c }^{ 2 }-7=3c\\ \Rightarrow { c }^{ 2 }-3c-7=0\\ $
+Hence c is the root of the equation ${x^2} - 3x - 7 = 0$
+
+Q13. If b^2 + c^2 = 3a^2, then cot B + cot C - cot A =
+    (A) $\frac {ab} {4\Delta }$
+    (B) 1
+    (C) 0   <-- CORRECT
+    (D) $\frac {ac} {4\Delta }$
+    Answer: C
+    Explanation: We have cos A = $\frac{b^{2}+c^{2}-a^{2}}{2 b c}$, cos B = $\frac{c^{2}+a^{2}-b^{2}}{2 c a}$, cos C = $\frac{a^{2}+b^{2}-c^{2}}{2 a b}$ 
+Also sin A = $\frac{2 \Delta}{b c}$, sin B = $\frac{2 \Delta}{c a}$, sin C = $\frac{2 \Delta}{a b}$, where $\Delta$ = $\sqrt{s(s-a)(s-b)(s-c)}$ 
+Hence we get cos B + cos C - cot A = $\frac{c^{2}+a^{2}-b^{2}}{4 \Delta}+\frac{a^{2}+b^{2}-c^{2}}{4 \Delta}-\frac{b^{2}+c^{2}-a^{2}}{4 \Delta}$ = $\frac{3 a^{2}-\left(b^{2}+c^{2}\right)}{4 \Delta}=\frac{0}{4 \Delta}$ = 0 [$\because$ 3a^2 = b^2+ c^2]
+
+Q14. $bc{\cos ^2}{\frac A 2} + ca{\cos ^2}{\frac B 2} + ab{\cos ^2}{\frac C 2}$ is equal to
+    (A) ${(s - c)^2}$
+    (B) ${(s - a)^2}$
+    (C) ${s^2}$   <-- CORRECT
+    (D) ${(s - b)^2}$
+    Answer: C
+    Explanation: $b \cos ^{2}\left(\frac{A}{2}\right)+{cacos}^{2}\left(\frac{B}{2}\right)+a b \cos ^{2}\left(\frac{C}{2}\right)$
+$=b c\left(\frac{1+\cos A}{2}\right)+c a\left(\frac{1+\cos B}{2}\right)+a b\left(\frac{1+\cos C}{2}\right)$
+$=b c\left(\frac{1+\left(\frac{b^{2}+c^{2}-a^{2}}{2 b c}\right)}{2}\right)+c a\left(\frac{1+\left(\frac{c^{2}+a^{2}-b^{2}}{2 c a}\right)}{2}\right)+a b\left(\frac{1+\left(\frac{a^{2}+b^{2}-c^{2}}{2 a b}\right)}{2}\right)$
+$=b c\left(\frac{2 b c+b^{2}+c^{2}-a^{2}}{4 b c}\right)+c a\left(\frac{2 c a+c^{2}+a^{2}-b^{2}}{4 c a}\right)+a b\left(\frac{2 a b+a^{2}+b^{2}-c^{2}}{4 a b}\right)$
+$=\frac{2 b c+b^{2}+c^{2}-a^{2}+2 c a+c^{2}+a^{2}-b^{2}+2 a b+a^{2}+b^{2}-c^{2}}{4}$
+$=\frac{a^{2}+b^{2}+c^{2}+2 b c+2 c a+2 a b}{4}$
+$=\left(\frac{a+b+c}{2}\right)^{2} \quad[\because \quad 2 s=a+b+c]$
+$=s^{2}$
+
+Q15. If the sides of a triangle be 2x + 1, x^2 - 1 and x^2 + x + 1, then the greatest angle is
+    (A) 90^o
+    (B) 135^o
+    (C) 150^o
+    (D) 120^o   <-- CORRECT
+    Answer: D
+    Explanation: Let the sides of the triangle be a = 2x + 1, b = x^2 - 1 and c = x^2 + x + 1
+We have cos C = $\frac{a^{2}+b^{2}-c^{2}}{2 a b}$ = $\frac{(2 x+1)^{2}+\left(x^{2}-1\right)^{2}-\left(x^{2}+x+1\right)^{2}}{2(2 x+1)\left(x^{2}-1\right)}$ 
+= $\frac{4 x^{2}+4 x+1+x^{4}-2 x^{2}+1-\left(x^{4}+x^{2}+1+2 x^{3}+2 x^{2}+2 x\right)}{2\left(2 x^{3}-2 x+x^{2}-1\right)}$ 
+= $\frac{-2 x^{3}+2 x-x^{2}+1}{2\left(2 x^{3}-2 x+x^{2}-1\right)}$ = $\frac{-1}{2}$ 
+Now cos C = $\frac{-1}{2}$ 
+But we have $\cos \left(\frac{2 \pi}{3}\right)$ = $\cos \left(\pi-\frac{\pi}{3}\right)$ = $-\cos \left(\frac{\pi}{3}\right)$ = $\frac{-1}{2}$ 
+$\therefore$ C = $\frac{2 \pi}{3}$ = 120^o
+
+========================================================================
+Trigonometric Functions Test 02  (id 613) [PAID]
+CBSE > Class 11 > Mathematics > Trigonometric Functions
+Questions: 15 | Answers: YES
+========================================================================
+
+Q1. If in a triangle ABC, $a{\cos ^2}\left( {{\frac C2}} \right) + c{\cos ^2}\left( {{\frac A2}} \right) = {\frac {3b} {2}}$ then its sides a, b, c are in
+    (A) A. P.   <-- CORRECT
+    (B) G.P.
+    (C) H.P.
+    (D) H.M
+    Answer: A
+    Explanation: $a \cos ^{2}\left(\frac{C}{2}\right)+c \cos ^{2}\left(\frac{A}{2}\right)$ = $\frac{3 b}{2}$ 
+$\Rightarrow$ $a\left(\frac{1+\cos C}{2}\right)+c\left(\frac{1+\cos A}{2}\right)$ = $\frac{3b}{2}$ 
+$\Rightarrow$ $\frac{1}{2}$ (b + a + c) = $\frac{3b}{2}$ [$\because$ a cos C + c cos A = b using projection rule]
+$\Rightarrow$ a + c = 2b
+Which means they are in A.P.
+
+Q2. In a $\Delta ABC$, if a sin A = b sin B then the triangle is
+    (A) right angled
+    (B) isosceles   <-- CORRECT
+    (C) equilateral
+    (D) right angled isosceles
+    Answer: B
+    Explanation: Given a sin A = b sin B .....(i)
+But using sine rule we have $\frac{a}{\sin A}=\frac{b}{\sin B}=\frac{c}{\sin C}$ = k
+$\therefore$ sin A = $\frac{a}{k}$ and sin B = $\frac{b}{k}$ 
+Now from (i) we get $\frac{1}{k} $(a^2 - b^2) = 0 $\Rightarrow$ (a + b) (a - b) = 0 $\Rightarrow$ a = b
+Hence the triangle is isosceles.
+
+Q3. If in a $\Delta ABC$ , a cos A = b cos B, then the triangle is
+    (A) either isosceles or right angled   <-- CORRECT
+    (B) right angled
+    (C) equilateral
+    (D) isosceles
+    Answer: A
+    Explanation: a.cos A=b.cos B
+$\Rightarrow a \cdot\left(\frac{b^{2}+c^{2}-a^{2}}{2 b c}\right)=b \cdot\left(\frac{c^{2}+a^{2}-b^{2}}{2 c a}\right)$
+$\Rightarrow \frac{a^{2}\left(b^{2}+c^{2}-a^{2}\right)-b^{2}\left(c^{2}+a^{2}-b^{2}\right)}{2 a b c}=0$
+$\Rightarrow a^{2} c^{2}-b^{2} c^{2}=a^{4}-b^{4}$
+$\Rightarrow c^{2}\left(a^{2}-b^{2}\right)=\left(a^{2}-b^{2}\right)\left(a^{2}+b^{2}\right)$
+$\Rightarrow a^{2}-b^{2}=0 \quad \text { or } \quad a^{2}+b^{2}=c^{2}$$\Rightarrow a=b \quad \text { or } \quad a^{2}+b^{2}=c^{2}$
+Hence the triangle is either isosceles or right angle
+
+Q4. In a $\Delta ABC$, $\frac{\cos ^2\left(\frac{A}{2}\right)}{a}+\frac{\cos ^2\left(\frac{B}{2}\right)}{b}+\frac{\cos ^2\left(\frac{C}{2}\right)}{c}$ is equal to
+    (A) $\frac {2s} {abc}$
+    (B) $\frac {3s} {abc}$
+    (C) $\frac {s} {abc}$
+    (D) ${\frac {s^2} {abc}}$   <-- CORRECT
+    Answer: D
+    Explanation: $\frac{\cos ^{2}\left(\frac{A}{2}\right)}{a}+\frac{\cos ^{2}\left(\frac{B}{2}\right)}{b}+\frac{\cos ^{2}\left(\frac{c}{2}\right)}{c}$ = $\frac{\frac{1+\cos A}{2}}{a}+\frac{\frac{1+\cos B}{2}}{b}+\frac{\frac{1+\cos C}{2}}{c}$ 
+= $\frac { \frac { 1+\left( \frac { { b }^{ 2 }+{ c }^{ 2 }-a^{ 2 } }{ 2bc } \right) }{ 2 } }{ a } +\frac { \frac { 1+\left( \frac { { c }^{ 2 }+a^{ 2 }-{ b }^{ 2 } }{ 2ca } \right) }{ 2 } }{ b } +\frac { \frac { 1+\left( \frac { { a^{ 2 }+b }^{ 2 }-{ c }^{ 2 } }{ 2ab } \right) }{ 2 } }{ c }$ 
+= $\frac{2 b c+b^{2}+c^{2}-a^{2}+2 c a+c^{2}+a^{2}-b^{2}+2 a b+a^{2}+b^{2}-c^{2}}{4 a b c}$ 
+= $\frac{a^{2}+b^{2}+c^{2}+2 b c+2 c a+2 a b}{4 a b c}$ 
+= $\frac{\left(\frac{a+b+c}{2}\right)^{2}}{a b c}$ [$\because$ 2s = a + b + c]
+= $\frac{s^{2}}{a b c}$
+
+Q5. In a triangle ABC, a = 2b and $\angle A = 3\angle B,$ then angle A is
+    (A) 30^o
+    (B) 60^o
+    (C) 45^o
+    (D) 90^o   <-- CORRECT
+    Answer: D
+    Explanation: Using Sine rule we have $\frac{a}{\sin A}=\frac{b}{\sin B}=\frac{c}{\sin C}$ = k
+But given a = 2b and $\angle A=3 \angle B$ 
+$\therefore$ $\frac{a}{\sin A}=\frac{b}{\sin B}$ $\Rightarrow$ $\frac{2 b}{\sin 3 B}=\frac{b}{\sin B}$ 
+$\Rightarrow$ sin 3B = 2 sin B
+$\Rightarrow$ 3 sin B - 4 sin^3 B = 2 sin B
+$\Rightarrow$ sin B (1 - 4 sin^2 B) = 0
+$\Rightarrow$ sin^2 B = $\frac{1}{4}$ [$\because$ sin B $\ne$ 0]
+$\Rightarrow$ sin B = $\frac{\pm 1}{2}$ 
+Now sin B = $\frac{1}{2}$ $\Rightarrow$ B = 30^o and sin B = $\frac{-1}{2}$ $\Rightarrow$ B = 210^o, which is not possible.
+$\Rightarrow$ B = 30^o
+Hence $\angle A=3 \angle B$ = 90^o
+
+Q6. In a triangle ABC, AD is the median A to BC, then its length is equal to
+    (A) ${\frac 12}\sqrt {2({b^2} + {c^2}) - {a^2}} $   <-- CORRECT
+    (B) $\sqrt {{b^2} + {c^2} - \frac {a^2} {2}} $
+    (C) $\sqrt {{b^2} + {c^2} + \frac {a^2} {2}} $
+    (D) $\frac {b + c} {2}$
+    Answer: A
+    Explanation: Using the given information let the length of the median be d units, and let BD = DB = m units. Using Apollonius theorem we have the following results.
+From triangle ADC, if the angle ADC is $\theta$, then b^2 = m^2 + d^2 - 2mdcos $\theta$. The angle ADB is the supplement of angle ADC and it will be - cos $\theta$. Hence from triangle ADB we have b^2 = m^2 + d^2+ 2mdcos $\theta$ . When we add both the results we have b^2 + c^2 = 2 d^2 + 2 m^2 = 2 d^2 + 2 $(\frac{a}{2})^2$ = 2 d^2 + ( $\frac{a^2}{2} $).
+On simplifying we get the result.
+
+Q7. If cos A + cos B = $4{\sin ^2}{\frac C 2}$, then the sides of the triangle ABC are in
+    (A) G.P.
+    (B) H.M
+    (C) A.P.   <-- CORRECT
+    (D) H.P.
+    Answer: C
+    Explanation: cos A + cos B = $4 \sin ^{2} \frac{C}{2}$ 
+$\Rightarrow$ $2 \cos \left(\frac{A+B}{2}\right) \cdot \cos \left(\frac{A-B}{2}\right)$ = $4 \sin ^{2} \frac{C}{2}$ [$\because$ $\cos \left(\frac{A+B}{2}\right)$ = $\sin \left(\frac{C}{2}\right)$] 
+$\Rightarrow$ $\cos \left(\frac{A-B}{2}\right)$ = $2 \sin \frac{C}{2}$ = $\frac{2 \sin \frac{C}{2} \cos \frac{C}{2}}{\cos \frac{C}{2}}$ 
+$\Rightarrow$ $\cos \frac{C}{2} \cdot \cos \left(\frac{A-B}{2}\right)$ = sin C [$\because$$\sin \left(\frac{A+B}{2}\right)$ = $\cos \left(\frac{C}{2}\right)$
+$\Rightarrow$ $\frac{\sin A+\sin B}{2}$ = sin C [$\because$ 2sin A cos B = sin (A + b) + sin (A - B)]
+$\Rightarrow$ sin A, sin B, sin C are in A.P.
+$\Rightarrow$ a, b, c are in A.P. using Sine rule
+
+Q8. ABC is an equilateral triangle of each side a ($>$ 0). The inradius of the triangle is
+    (A) $\frac a3$
+    (B) $\frac{\sqrt{3} a}{3}$
+    (C) $\frac{a}{2 \sqrt{3}}$   <-- CORRECT
+    (D) $\frac a2$
+    Answer: C
+    Explanation: If r is the inradius of the circle then we have, r = $\frac{\Delta}{s}$ 
+Given ABC is an equilateral triangle, so $\triangle$ = $\sqrt{s(s-a)(s-b)(s-c)}$ $\Rightarrow$ $\triangle$ = $\sqrt{s(s-a)(s-a)(s-a)}$ 
+$\therefore$ r = $\frac{\Delta}{s}=\frac{s-a}{s} \sqrt{s(s-a)}$ 
+Also, s = $\frac{3 a}{2}$ [$\because$ 2s = a + b + c]
+$\Rightarrow$ r = $\frac{\frac{3 a}{2}-a}{\frac{3 a}{2}} \sqrt{\frac{3 a}{2}\left(\frac{3 a}{2}-a\right)}$ 
+$\Rightarrow$ r = $\frac{a}{2} \cdot \frac{2}{3 a} \sqrt{\frac{3 a^{2}}{4}}=\frac{a}{2 \sqrt{3}}$
+
+Q9. In any $\Delta ABC,$ the expression (a + b + c) (a + b – c) (b + c – a) (c + a – b) is equal to
+    (A) $16\Delta $
+    (B) $4{\Delta ^2}$   <-- CORRECT
+    (C) $3{\Delta ^2}$
+    (D) $4\Delta $
+    Answer: B
+    Explanation: In a triangle A B C, we have 2s=a+b+c
+$\therefore a+b-c=2(s-c), b+c-a=2(s-a), c+a-b=2(s-b)$
+Hence $(a+b+c)(a+b-c)(b+c-a)(c+a-b)$ 
+= $2 s .2(s-c) \cdot 2(s-a) \cdot 2(s-b)$
+= $16 s(s-a)(s-b)(s-c)$
+But we have $\Delta=\sqrt{s(s-a)(s-b)(s-c)}$
+$\therefore(a+b+c)(a+b-c)(b+c-a)(c+a-b)=4 \Delta^{2}$
+
+Q10. In any $\Delta ABC$, if C = 90^o, then tan $\frac B2$ is equal to
+    (A) $\sqrt{\frac{c+a}{c-a}}$
+    (B) $\sqrt{\frac{a-c}{a+c}}$
+    (C) $\sqrt{\frac{c-a}{c+a}}$   <-- CORRECT
+    (D) $\sqrt{\frac{c-a}{c-a}}$
+    Answer: C
+    Explanation: In any triangle ABC, A + C = 90^o, since C = 90^o $\Rightarrow$ B = 90^o - A 
+We know that $tan(\frac{(C-A)}{2})= \frac{(c-a)}{(c +a)} cot⁡(\frac{B}{2}) $ $\Rightarrow$ $tan (\frac{(90 - A)}{2})$ = $\frac{(c-a)}{(c +a)} (\frac{1}{tan⁡(\frac{B}{2})}) $ 
+$\Rightarrow$ $tan (\frac{B}{2}) tan (\frac{B}{2})$ = $\frac{(c-a)}{(c+a)}$ 
+$\Rightarrow$ $tan^2 (\frac{B}{2}) $ = $\frac{(c-a)}{(c+a)}$ 
+Hence the result follows.
+
+Q11. Angles of triangle are in A.P. If the number of degrees in the smallest to the number of radians in the largest is as $60:\pi $, then the smallest angle is
+    (A) ${30^ \circ }$   <-- CORRECT
+    (B) none of these.
+    (C) ${40^ \circ }$
+    (D) ${20^ \circ }$
+    Answer: A
+    Explanation: Let the measures of the angles of the triangle be a-d, a, a+d degrees respectively
+Then we have $a-d+a+a+d=180^{\circ}$
+$\Rightarrow 3 a=180^{\circ}$
+$\Rightarrow a=\frac{180^{\circ}}{3}=60^{\circ}$
+But it is clear that $a-d=60^{\circ}-d$ is the least and $a+d= 60^{\circ}+d$ is the greatest angle.
+Given greatest angle = $\pi$ $\text {radian}=180^{\circ}$
+$\frac{\text {least angle}}{\text {greatest angle}}=\frac{60^{\circ}}{\pi \text {radian}}$
+$\Rightarrow \frac{60^{\circ}-d}{60^{\circ}+d}=\frac{60^{\circ}}{180^{\circ}}=\frac{1}{3}$
+$\Rightarrow 180^{\circ}-3 d=60^{\circ}+d$
+$\Rightarrow 4 d=120^{\circ}$
+$\Rightarrow d=30^{\circ}$
+
+Q12. If x, y, z are perpendiculars drawn from the vertices of a triangle having sides a, b and c, then $\frac{b x}{c}+\frac{c y}{a}+\frac{a z}{b}$ =
+    (A) $\frac{a^2+b^2+c^2}{2 R}$   <-- CORRECT
+    (B) $\frac{2\left(a^2+b^2+c^2\right)}{R}$
+    (C) $\frac{a^2+b^2+c^2}{R}$
+    (D) $\frac{a^2+b^2+c^2}{4 R}$
+    Answer: A
+    Explanation: In triangle ABC given that the length of the altitude from A to BC is x units. let AD be the altitude. from triangle ADC sin C = x/b and from triangle ABD sin B = x/c Hence we get two values of x as x = c sin B and x = b sin C . similarly we have y = a sin C and z = bsin A. so when we substitute in the given equation we get b sin B $\neq$ c sinC $\neq$ a sin A.
+The sine formula gives that $\frac{a}{sin⁡A} = \frac{b}{sin⁡B} = \frac{c}{sin⁡C} =2R$ where R is the circumcenter of the triangle.By replacing Sin A = $\frac{a}{2R}$, sin B = $\frac{b}{2R}$, sin C =$\frac{c}{2R}$.
+If we use these in b sin B $\neq$ c sinC $\neq$ a sin A. we get the required result.
+
+Q13. The greatest value of sin x cos x is
+    (A) $\frac {1}{\sqrt 2 }$
+    (B) $\frac {\sqrt 3 } {2}$
+    (C) 1
+    (D) $\frac 1 2$   <-- CORRECT
+    Answer: D
+    Explanation: sin x cos x = $\frac{1}{2} \cdot$2sin x cos x = $\frac{1}{2} \cdot$ sin 2x
+But the maximum value of sin 2x is 1.
+So the maximum value of sin x cos x = $\frac{1}{2}$
+
+Q14. If $tan\theta + \sec \theta = \sqrt 3 ,0 < \theta< \;\pi ,$ then $\theta $ is equal to
+    (A) $\frac {2\pi } {3}$
+    (B) $\frac {5\pi }{6}$
+    (C) $\frac \pi 3$
+    (D) $\frac \pi 6$   <-- CORRECT
+    Answer: D
+    Explanation: $tan\theta +\sec \theta =\sqrt { 3 } $
+$\Rightarrow { sec }^{ 2 }x={ \left[ \sqrt { 3 } -tan\theta \right] }^{ 2 }$
+$\Rightarrow \left( 1+{ tan }^{ 2 }x \right) =3+{ tan }^{ 2 }x-2\sqrt { 3 } tanx$
+$\Rightarrow 2\sqrt { 3 } tanx=2$
+$tanx=\frac { 1 }{ \sqrt { 3 } } $
+$\Rightarrow tan x=tan\left( \frac { \pi }{ 6 } \right)$
+$\Rightarrow x=n\pi +\left( \frac { \pi }{ 6 } \right) ,n \in Z$
+$\Rightarrow x=\frac { \pi }{ 6 } ,0<\theta < \pi $
+
+Q15. If sin $({120^o} - \alpha ) = \sin ({120^o} - \beta )$ and 0 $ < \alpha ,\beta {\rm{ }} < {\rm{ }}\pi $ , then all values of $ \alpha$ and $\beta$ are given by
+    (A) $\alpha = \beta \;$
+    (B) $\alpha + \beta \; = 0$
+    (C) $\alpha+\beta=\frac{\pi}{3}$
+    (D) $\alpha = \beta $ or $\alpha+\beta=\frac{\pi}{3}$   <-- CORRECT
+    Answer: D
+    Explanation: Sin A = sin B will be sin A - sin B = 0 using the formula we get,
+2 cos $\frac{A+B}{2}$ sin $\frac{A-B}{2}$ = 0
+Replacing A by 120 - $α$ and B by 120 - $β$ we get 
+$cos(\frac{(120- \alpha+120- \beta)}{2})$ = 0
+$cos⁡[\frac{(240- \alpha - \beta)}{2}] $ = 0 
+$\Rightarrow$ 120 - $\alpha$ - $\beta$ = $\pi$ 
+$\Rightarrow$ $\alpha + \beta =60= \frac{\pi}{3}$ the other result.
+Replacing A by 120 - $α$ and B by 120 - $β$ we get sin A- B = 0 which gives $α=β$
+
+========================================================================
+Trigonometric Functions Test 03  (id 614) [PAID]
+CBSE > Class 11 > Mathematics > Trigonometric Functions
+Questions: 15 | Answers: YES
+========================================================================
+
+Q1. The equation (cos p – 1) ${x^2}$ + (cos p) x + sin p = 0, where x is a variable, has real roots. Then the interval of p may be any one of the following:38100
+    (A) $\left(-\frac{\pi}{2}, \frac{\pi}{2}\right)$
+    (B) $\left( {1,\pi } \right)$
+    (C) $\left( { - \pi ,0} \right)$
+    (D) $\left( {0,\pi } \right)$   <-- CORRECT
+    Answer: D
+    Explanation: $(cosp–1){ x }^{ 2 }+(cosp)x+sinp=0\\ We\quad have\quad the\quad roots\quad are\quad real\quad when\quad the\quad discriminant\ge 0\\ \Longrightarrow { cos }^{ 2 }p-4(cosp–1).sinp\ge 0\\ \Longrightarrow { cos }^{ 2 }p-4cospsinp+4sinp\ge 0\\ \Longrightarrow { (cosp–2sinp) }^{ 2 }-4{ sin }^{ 2 }p+4sinp\ge 0\\ \Longrightarrow { (cosp–2sinp) }^{ 2 }+4sinp\left( 1-sinp \right) \ge 0...........(i)$
+We have for all values of p 
+Hence from equation (i) we get $sin \:p$ has to be non-negative for all the values of p
+But we have $sin \: p \ge0$ only when $ p\in \left( 0,\pi \right) $
+
+Q2. In a triangle ABC, a = 13, b = 14, c = 15; then the radius of the incircle r of triangle ABC =
+    (A) 2
+    (B) 8
+    (C) 6
+    (D) 4   <-- CORRECT
+    Answer: D
+    Explanation: If r is the inradius of the circle then we have, r = $\frac{\Delta}{s}$ 
+Given a = 13, b = 14 and c = 15 and so s = $\frac{a+b+c}{2}$ = $\frac{ 42}{2}$ = 21
+$\therefore$ $\Delta$ = $\sqrt{s(s-a)(s-b)(s-c)}$ = $\sqrt{21(21-13)(21-14)(21-15)}$ = 84
+r = $\frac{\Delta}{s}$ = $\frac{84}{21}$ = 4
+
+Q3. If sin $\theta + {\rm{ cosec }}\theta $ = 2, then ${\sin ^2}\theta + \cos e{c^2}\theta $ is equal to
+    (A) 4
+    (B) 2   <-- CORRECT
+    (C) 3
+    (D) 1
+    Answer: B
+    Explanation: Given $\sin \theta+cosec \theta=2$ 
+Squaring on both sides, we get 
+$\sin ^{2} \theta+\csc ^{2} \theta+2 \sin \theta \csc \theta=4$ [$\because$ $\sin \theta cosec \theta=1$]
+$\Rightarrow$ $\sin ^{2} \theta+cosec ^{2} \theta$ = 4 - 2 = 2
+
+Q4. The value of tan ${75^ \circ }$ - cot ${75^ \circ }$ is equal to
+    (A) $2\sqrt 3 $   <-- CORRECT
+    (B) $1 + 2\sqrt 3 $
+    (C) $2 - \sqrt 3 $
+    (D) $2 + \sqrt 3 $
+    Answer: A
+    Explanation: tan 75° = tan(45° + 30°
+$= \frac{{1 + \frac{1}{{\sqrt 3 }}}}{{1 - \frac{1}{{\sqrt 3 }}}} = \frac{{\sqrt 3 + 1}}{{\sqrt 3 - 1}}\therefore cot{75^\circ } = \frac{{\sqrt 3 - 1}}{{\sqrt 3 + 1}}$
+Now $tan{75^\circ } - cot{75^\circ } = \frac{{\sqrt 3 + 1}}{{\sqrt 3 - 1}} - \frac{{\sqrt 3 - 1}}{{\sqrt 3 + 1}}$
+$ = \frac{{{{\left( {\sqrt 3 + 1} \right)}^2} - {{\left( {\sqrt 3 - 1} \right)}^2}}}{{\left( {\sqrt 3 + 1} \right)\left( {\sqrt 3 - 1} \right)}}$
+$\Rightarrow tan{75^\circ } - cot{75^\circ } = \frac{{4\sqrt 3 }}{2} = 2\sqrt 3 $
+
+Q5. In a triangle ABC, cosec A (sin B cos C + cos B sin C) equals
+    (A) 2
+    (B) -1
+    (C) 1   <-- CORRECT
+    (D) $\frac ac$
+    Answer: C
+    Explanation: cosec A (sin B cos C + cos B sin C)
+= cosec A$\cdot$sin (B + C) [$\because$ A + B + C = $\pi$]
+= $\frac{\sin (B+C)}{\sin A}=\frac{\sin (\pi-A)}{\sin A}=\frac{\sin A}{\sin A}$ = 1
+
+Q6. If the angles of at triangle are in the ratio 1 : 2 : 3, then the sides are in the ratio
+    (A) $\sqrt 3 :\sqrt 2 :1$
+    (B) $\sqrt 3 :1:2$
+    (C) $1:\sqrt 3 :2$   <-- CORRECT
+    (D) $1:\sqrt 3 :\sqrt {2} $
+    Answer: C
+    Explanation: $Let\; angles\; x,2x\; and\; 3x\quad then,x+2x+3x={ 180^{ o } }\Rightarrow 6x=180\Rightarrow x{ { =\frac { 180 }{ 6 } } }={ 30^{ o\\ } }\\ Using\; sine\quad rule\quad we\quad have\frac { a }{ sinA } =\frac { b }{ sinB } =\frac { c }{ sinC } =k(say)\\ Herea=k\sin 30,b=k\sin 60,c=k\sin 90\\ \Rightarrow a=\frac { { { k } } }{ 2 } ,b={ { \frac { \sqrt { 3 } }{ 2 } } }.k,c={ 1 }.k\\ a{ { :b{ { : } }c } }=\frac { { { k } } }{ 2 } { { :\frac { k\sqrt { 3 } }{ 2 } { { : } } } }{ 1 }.k\\ \Rightarrow a{ { :b{ { : } }c } }=1{ { :\sqrt { 3 } { { : } }2 } }$
+
+Q7. In a triangle ABC right angled at C, tan A and tan B satisfy the equation
+    (A) $a{x^2} - bx + a = 0$
+    (B) $ab{x^2} - {c^2}x + ab = 0$   <-- CORRECT
+    (C) $ab{x^2} - ({a^2} + {b^2})x - ab = 0$
+    (D) ${c^2}{x^2} - abx + {c^2} = 0$
+    Answer: B
+    Explanation: Using the given triangle we have tan A = a/b and tan B = b/a Also we have tan A . tan B = 1 and tan A + tan B = a/b + b /a = ( a^2 + b^2 )/ab = c^2 / ab . Hence x = tan A and x = tan B are two roots of the given quadratic equation.
+
+Q8. Let the angles A, B, C of $\Delta ABC$ be in A.P. and let b: c:: $\sqrt 3 :\sqrt 2 ,$ then the angle A is
+    (A) 90
+    (B) 45^o
+    (C) 60^o
+    (D) 75^o   <-- CORRECT
+    Answer: D
+    Explanation: Since A, B, C are in A.P. we get $\frac{A+C}{2}$ = B $\Rightarrow$ A + C = 2B .....(i)
+But in triangle ABc, we have A + B + C = $\pi$ $\Rightarrow$ 3B = $\pi$ $\Rightarrow$ B = $\frac{\pi}{3}$ 
+From (i) A + C = $2 \frac{\pi}{3}$ $\Rightarrow$ C = $\frac{2 \pi}{3}-A$ 
+Using sine rule we have $\frac{a}{\sin A}=\frac{b}{\sin B}=\frac{c}{\sin C}$ = k (say)
+Now $\frac{b}{\sin B}=\frac{c}{\sin C}$ $\Rightarrow$ $\frac{b}{\sin \frac{\pi}{3}}=\frac{c}{\sin \left(\frac{2 \pi}{3}-A\right)}$ 
+$\Rightarrow$ $\sin \left(\frac{2 \pi}{3}-A\right)$ = $\frac{c}{b} \cdot \sin \frac{\pi}{3}=\frac{\sqrt{2}}{\sqrt{3}} \cdot \frac{\sqrt{3}}{2}=\frac{1}{\sqrt{2}}$ [$\because$ b : c = $\sqrt{3}: \sqrt{2}$ ]
+$\Rightarrow$ $\sin \left(\frac{2 \pi}{3}-A\right)$ = $\sin \left(\frac{\pi}{4}\right)$ 
+$\Rightarrow$ $\frac{2 \pi}{3}-A$ = $\frac{\pi}{4}$ 
+$\Rightarrow$ A = $\frac{5 \pi}{12}$ = 75^o
+
+Q9. cot $\theta $ = sin 2 $\theta (\theta $ $ \ne $n $\pi $, n integer) if $\theta $ equals
+    (A) 45^o and 60^o
+    (B) 90^o only
+    (C) 45^o only
+    (D) 45^o and 90^o   <-- CORRECT
+    Answer: D
+    Explanation: sin 2$\theta$ = cot $\theta$ 
+$\Rightarrow$ 2 sin $\theta$ cos $\theta$ = $\frac{\sin \theta}{\cos \theta}$ 
+$\Rightarrow$ $\cos \theta\left(2 \sin \theta-\frac{1}{\sin \theta}\right)$ = 0
+$\Rightarrow$ -cos $\theta$ (1 - 2 sin^2 $\theta$) = 0
+$\Rightarrow$ -cos $\theta$ $\cdot$ cos 2$\theta$ = 0
+$\Rightarrow$ cos $\theta$ = cos $\frac{\pi}{2}$ or cos 2$\theta$ = cos $\frac{\pi}{2}$ 
+$\Rightarrow$ $\theta$ = $\frac{\pi}{2}, \frac{\pi}{4}$ [$\because$ $\theta \neq n \pi$, n $\in$ Z]
+
+Q10. If A = ${\sin ^2}\theta + {\cos ^4}\theta $ then for all real values of $\theta $
+    (A) ${\frac 3 4} \le A \le 1$   <-- CORRECT
+    (B) $\frac{3}{4} \leq A \leq \frac{13}{16}$
+    (C) $1 \le A \le 2$
+    (D) $\frac {13} {16} \le A \le 1$
+    Answer: A
+    Explanation: Given, A = $\sin ^{2} \theta+\cos ^{4} \theta$ 
+$\Rightarrow$ A = $\sin ^{2} \theta+\left(1-\sin ^{2} \theta\right)^{2}$ 
+$\Rightarrow$ A = $\sin ^{4} \theta-\sin ^{2} \theta+1$ 
+Let $\sin ^{2} \theta$ = x, then
+We get A = $x^{2}-x+\frac{1}{4}+\frac{3}{4}$ 
+$\Rightarrow$ A = $\left(x-\frac{1}{2}\right)^{2}+\frac{3}{4}$ 
+But we have $\sin ^{2} \theta$ = x ranges in the interval [0, 1]
+Hence we get $\frac{3}{4} \leq A \leq 1$
+
+Q11. The general solution of tan 3x = 1 is (n $ \in $ I)
+    (A) $n\pi \pm {\frac \pi 4}$
+    (B) ${\rm{n}}\pi $
+    (C) $\frac{n \pi}{3}+\frac{\pi}{12}$   <-- CORRECT
+    (D) $n\pi + {\frac \pi 4}$
+    Answer: C
+    Explanation: tan 3x = 1
+$\Rightarrow$ tan (3x) = tan ($\frac{\pi}{4}$)
+$\Rightarrow$ 3x = $n \pi+\frac{\pi}{4}, n \in Z$ 
+$\Rightarrow$ x = $\frac{n \pi}{3}+\frac{\pi}{12}, n \in Z$
+
+Q12. The value of $\sin \frac{\pi}{14} \sin \frac{3 \pi}{14} \sin \frac{5 \pi}{14} \sin$$ \frac{7 \pi}{14} \sin \frac{9 \pi}{14} \sin \frac{11 \pi}{14} \sin \frac{12}{1}$ is
+    (A) $\frac {1}{16}$
+    (B) $\frac {1}{32}$
+    (C) $\frac {1}{128}$
+    (D) $\frac {1}{64}$   <-- CORRECT
+    Answer: D
+    Explanation: First, convert the odd multiples of $\frac{\pi}{14}$ to even multiples using the formulas $\sin \theta=\cos \left(\frac{\pi}{2}-\theta\right)$ and $\cos \theta=\sin \left(\frac{\pi}{2}+\theta\right)$ 
+So, we get $\sin \frac{\pi}{14}=\cos \frac{6 \pi}{14}$, $\sin \frac{3 \pi}{14}=\cos \frac{4 \pi}{14}$, $\sin \frac{5 \pi}{14}=\cos \frac{2 \pi}{14}$, $\sin \frac{7 \pi}{14}$ = 1
+$\sin \frac{9 \pi}{14}=\sin \left(\frac{\pi}{2}+\frac{2 \pi}{14}\right)$ = $\cos \frac{2 \pi}{14}$, $\sin \frac{11 \pi}{14}=\sin \left(\frac{\pi}{2}+\frac{4 \pi}{14}\right)$ = $\cos \frac{4 \pi}{14}, \sin \frac{13 \pi}{14}$ = $\sin \left(\frac{\pi}{2}+\frac{6 \pi}{14}\right)=\cos \frac{6 \pi}{14}$ 
+Now $\sin \frac{\pi}{14} \sin \frac{3 \pi}{14} \sin \frac{5 \pi}{14} \sin \frac{7 \pi}{14} \sin \frac{9 \pi}{14} \sin \frac{11 \pi}{14} \sin \frac{13 \pi}{14}$ 
+= $\cos ^{2} \frac{6 \pi}{14} \cdot \cos ^{2} \frac{4 \pi}{14} \cdot \cos ^{2} \frac{2 \pi}{14}$ 
+= $\frac{\left(\sin ^{2} \frac{2 \pi}{14} \cdot \cos ^{2} \frac{2 \pi}{14}\right) \cdot \cos ^{2} \frac{4 \pi}{14} \cdot \cos ^{2} \frac{6 \pi}{14}}{\sin ^{2} \frac{2 \pi}{14}}$ [$\because$ sin 2x = 2 sinx cos x]
+= $\frac{\frac{1}{4} \sin ^{2} \frac{4 \pi}{14} \cdot \cos ^{2} \frac{4 \pi}{14} \cdot \cos ^{2} \frac{6 \pi}{14}}{\sin ^{2} \frac{2 \pi}{14}}$ 
+= $\frac{\frac{1}{4} \cdot \frac{1}{4} \cdot \sin ^{2} \frac{8 x}{14} \cdot \cos ^{2} \frac{6 \pi}{14}}{\sin ^{2} \frac{2 \pi}{14}}$ [$\because$ sin 2x = 2 sin x cos x]
+= $\frac{\frac{1}{16} \cdot\left(\sin \frac{8 \pi}{14} \cdot \cos \frac{6 \pi}{14}\right)^{2}}{\sin ^{2} \frac{2 \pi}{14}}$ 
+= $\frac{\frac{1}{16} \cdot\left(\frac{1}{2}\right)^{2} \cdot\left(\sin \frac{14 \pi}{14}+\sin \frac{2 \pi}{14}\right)^{2}}{\sin ^{2} \frac{2 \pi}{14}}$ [$\because$ 2 sin A cos B = sin (A + B) + sin (A - B)]
+= $\frac{\frac{1}{64} \cdot\left(0+\sin \frac{2 \pi}{14}\right)^{2}}{\sin ^{2} \frac{2 \pi}{14}}$ [$\because$ sin $\pi$ = 0]
+= $\frac{1}{64}$
+
+Q13. If the radius of the circumcircle of an isosceles triangle PQR is equal to PQ ( = PR), then the angle P is
+    (A) $\frac {2\pi } {3}$   <-- CORRECT
+    (B) $\frac \pi 6$
+    (C) $\frac {\pi}{3}$
+    (D) $\frac \pi 2$
+    Answer: A
+    Explanation: We have if R is the radius of the circumcircle of triangle PQR then we have
+$R=\frac{P Q}{2 \sin R}=\frac{Q R}{2 \sin P}=\frac{P R}{2 \sin Q}$ ...(i)
+But given radius of the circumcircle R = PQ = PR ...(ii)
+From (i) and (ii), we get $\frac{1}{2 \sin R}=1 $ and $\frac{1}{2 \sin Q}=1$
+$\Rightarrow \sin R=\sin Q=\frac{1}{2}$
+$\Rightarrow \angle R=\angle Q=30^{\circ}$
+But in a triangle $\angle P+\angle Q+\angle R=180^{\circ}$
+So, $\angle P=180^{\circ}-30^{\circ}-30^{\circ}=120^{\circ}=\frac{2 \pi}{3}$
+
+Q14. The maximum value of sin $\left(x+\frac{\pi}{6}\right)+\cos \left(x+\frac{\pi}{6}\right)$ in the interval $\left(0, \frac{\pi}{2}\right)$ is attained at
+    (A) $\frac {\pi}{12}$   <-- CORRECT
+    (B) $\frac \pi 3$
+    (C) $\frac \pi 2$
+    (D) $\frac \pi 6$
+    Answer: A
+    Explanation: $\sin \left(x+\frac{\pi}{6}\right)+\cos \left(x+\frac{\pi}{6}\right)$
+$\sin x \cdot \cos \frac{\pi}{6}+\cos x \cdot \sin \frac{\pi}{6}$$+\cos x \cdot \cos \frac{\pi}{6}-\sin x \cdot \sin \frac{\pi}{6}$
+$=\sin x \cdot \frac{\sqrt{3}}{2}+\cos x \cdot \frac{1}{2}+\cos x \cdot \frac{\sqrt{3}}{2}-\sin x \cdot \frac{1}{2}$
+$=\left(\frac{\sqrt{3}-1}{2}\right) \sin x+\left(\frac{\sqrt{3}+1}{2}\right) \cos x$
+$=\sqrt{2}\left[\sin 15^{\circ} \sin x+\cos 15^{\circ} \cos x\right]$
+$=\sqrt{2}\left[\cos \left(x-15^{\circ}\right)\right]$
+But we have the maximum value of cos x is 1, when x = 0
+Hence $\cos \left(x-15^{\circ}\right)$ takes its maximum value when $x-15^{\circ}=0 \Longrightarrow$ $x=15^{\circ} \Longrightarrow x=\frac{\pi}{12}$
+
+Q15. The solution of tan 2 $\theta $ tan $\theta $ = 1 is
+    (A) $(4n + 1){\frac \pi 6}$
+    (B) $(2n \pm 1){\frac \pi 6}$
+    (C) $(2n + 1){\frac \pi 3}$
+    (D) $(2n+1){ \frac { \pi }{ 6 } }$   <-- CORRECT
+    Answer: D
+    Explanation: $\tan 2 \theta \cdot \tan \theta$ = 1
+$\Rightarrow$ $\tan 2 \theta=\cot \theta$ 
+$\Rightarrow$ $\tan 2 \theta$ = $\tan \left(\frac{\pi}{2}-\theta\right)$ 
+$\Rightarrow$ $ 2 \theta$ = $n \pi+\left(\frac{\pi}{2}-\theta\right)$ 
+$\Rightarrow$ $ 3 \theta$ = $n \pi+\frac{\pi}{2}$ 
+$\Rightarrow$ $ \theta$ = $\frac{n \pi}{3}+\frac{\pi}{6}$ 
+$\Rightarrow$ $ \theta$ = $(2 n+1) \frac{\pi}{6}, n \in Z$
+
+========================================================================
+Trigonometric Functions Test 04  (id 615) [PAID]
+CBSE > Class 11 > Mathematics > Trigonometric Functions
+Questions: 15 | Answers: YES
+========================================================================
+
+Q1. sin $\left( {180 + \phi } \right)$ sin$\left( {180 - \phi } \right)$ $cose{c^2}\phi $
+    (A) - 1   <-- CORRECT
+    (B) 1
+    (C) 2
+    (D) 0
+    Answer: A
+    Explanation: $\sin (180+\phi)(180-\phi) \operatorname{cosec}^{2} \phi$ = $-\sin \phi \cdot \sin \phi \operatorname{cosec}^{2} \phi$ = $-\sin ^{2} \phi \operatorname{cosec}^{2} \phi$ = -1
+
+Q2. The general solution of the equation sin x + cos x = 2 is
+    (A) $3\;n\;\pi + \frac \pi 2$ or 2n$\pi$, n $\in$ I
+    (B) $\;n\;\pi ,n \in I$
+    (C) $2\;n\;\pi + {\frac \pi 2}$ or 2n$\pi$, n $\in$ I
+    (D) no solution   <-- CORRECT
+    Answer: D
+    Explanation: Given $sinx+cosx=2$ ...(i)
+This is of the form acos x + bsin x = c
+Now divide the equation (i) throughout by $\sqrt { { a }^{ 2 }+{ b }^{ 2 } } =\sqrt { 1+1 } =\sqrt { 2 } $, we get
+$\frac { 1 }{ \sqrt { 2 } } cosx+\frac { 1 }{ \sqrt { 2 } } sinx=\frac { 2 }{ \sqrt { 2 } }$
+$\Rightarrow cos\left( \frac { \pi }{ 4 } \right) cosx+sinxsin\left( \frac { \pi }{ 4 } \right) =\sqrt { 2 }$
+$\Rightarrow cos\left[ \frac { \pi }{ 4 } -x \right] =\sqrt { 2 } > 1$
+So no solution possible
+
+Q3. Which of the following is not possible?
+ $\cos \theta=\frac{1+t^2}{1-t^2}, t \neq 0$
+ $\sin \theta = \frac 57$
+ $\tan \theta = 100$
+ $\sec \theta = \frac 52$
+    (A) D
+    (B) B
+    (C) C
+    (D) A   <-- CORRECT
+    Answer: D
+    Explanation: The value of $\cos \theta$ lies between - 1 and 1.
+But when t = 2 the value of $\cos \theta=\frac{1+t^2}{1-t^2}, t \neq 0$ is $\frac { 5 }{ -3 } $ which is more than 1, so it is not possible.
+
+Q4. If (1 + tan $\theta $) (1 + tan $\phi $) = 2, then $\theta $ + $\phi $ =
+    (A) 30^o
+    (B) 75^o
+    (C) 45^o   <-- CORRECT
+    (D) 60^o
+    Answer: C
+    Explanation: $(1+\tan \theta)(1+\tan \phi)$ = 2 $\Rightarrow$ $1+\tan \theta+\tan \phi+\tan \theta \tan \phi$ = 2
+$\Rightarrow$ $\tan \theta+\tan \phi+\tan \theta \tan \phi$ = 1
+$\Rightarrow$ $\tan \theta+\tan \phi$ = $1-\tan \theta \tan \phi$ 
+$\Rightarrow$ $\frac{\tan \theta+\tan \phi}{1-\tan \theta \tan \phi}$ = 1
+$\Rightarrow$ $\tan (\theta+\phi)$ = 1
+$\Rightarrow$ $\theta+\phi$ = 45^o [tan 45^o = 1]
+
+Q5. The set of values of x for which $\frac{\tan 3 x-\tan 2 x}{1+\tan 3 x \tan 2 x}$ = 1 is
+    (A) $\left\{n \pi+\frac{\pi}{4}: n \epsilon Z\right\}$   <-- CORRECT
+    (B) $\left\{2 n \pi+\frac{\pi}{4}: n=1,2,3 \ldots\right\}$
+    (C) $\left\{\frac{\pi}{4}\right\}$
+    (D) $\phi $
+    Answer: A
+    Explanation: $\frac{\tan 3 x-\tan 2 x}{1+\tan 3 x \tan 2 x}$ = 1 $\Rightarrow$ tan x = 1
+$\Rightarrow$ tan (x) = tan ($\frac{\pi}{4}$) [$\because$ tan (A - B) = $\frac{\tan A-\tan B}{1+\tan A \tan B}$]
+$\Rightarrow$ x = $n \pi+\frac{\pi}{4}, n \in Z$
+
+Q6. The general value of $\theta $ satisfying the equation $2{\sin ^2}\theta - 3\sin \theta - 2 = 0$ is
+    (A) $n\pi + {( - 1)^n}{\frac \pi 2}$
+    (B) $n\pi + {( - 1)^n}{\frac {5\pi } {6}}$
+    (C) $n\pi + {( - 1)^n}{\frac \pi 6}$
+    (D) $n \pi+(-1)^{n+1} \frac{\pi}{6}$   <-- CORRECT
+    Answer: D
+    Explanation: $2 \sin ^2 \theta-3 \sin \theta-2=0$
+$ \Rightarrow \left( 2\sin \theta +1 \right) \left( \sin \theta -2 \right) =0$
+$ \Rightarrow \sin \theta =\frac { -1 }{ 2 } $ or $\sin \theta =2$
+$\Rightarrow \sin \theta=\sin \left(-\frac{\pi}{6}\right)$ [$\because$ sin $\theta$ = 2 > 1 so no solution]
+$\Rightarrow \theta =n\pi +{ \left( -1 \right) }^{ n }\left( -\frac { \pi }{ 6 } \right) ,n\epsilon Z$
+$\Rightarrow \theta =n\pi +{ \left( -1 \right) }^{ n+1 }\left( \frac { \pi }{ 6 } \right) ,n\epsilon Z$
+
+Q7. Number of solutions of the equation tan x + sec x = 2 cos x. lying in the interval $\left[ {0,2\pi } \right]$ is
+    (A) 2   <-- CORRECT
+    (B) 3
+    (C) 0
+    (D) 1
+    Answer: A
+    Explanation: $ \tan x+\sec x=2 \cos x $
+$ \frac{\sin x+1}{\cos x}=2 \cos x $
+$ 1+\sin x-2 \cos ^2 x=0 $
+$ 1+\sin x-2+2 \sin ^2 x=0 $
+$ 2 \sin ^2 x+\sin x-1=0 $
+Since the equation is a quadratic equation in $\sin x$. So, there will be two solutions.
+
+Q8. In a triangle ABC, if a, b, c are in A. P., then tan $\frac A2,\tan \frac B2, \tan \frac C2$ are in
+    (A) A.P.
+    (B) H.M.
+    (C) G.P.
+    (D) H.P.   <-- CORRECT
+    Answer: D
+    Explanation: If a, b, c are in A.P then we have $s-a, s-b, s-c$ are also in A . P
+We have $\tan \frac{A}{2}=\sqrt{\frac{(s-b)(s-c)}{s(s-a)}}, \tan \frac{B}{2}=\sqrt{\frac{(s-a)(s-c)}{s(s-b)}}, \tan \frac{C}{2}=\sqrt{\frac{(s-a)(s-b)}{s(s-c)}}$
+Multipling and dividing$\tan \frac{A}{2} \quad b y(s-a), \tan \frac{B}{2} \quad b y \quad(s-b) \text { and } \quad \tan \frac{C}{2}$ by $(s-b) a n d \quad \tan \frac{C}{2} \quad b y(s-c)$, we get
+$\tan \frac{A}{2}=\sqrt{\frac{(s-b)(s-c)}{s(s-a)}}=\frac{\sqrt{\frac{(s-a)(s-b)(s-c)}{s}}}{s-a}=\frac{K}{s-a}$
+Similarly we can get $\tan \frac{B}{2}=\frac{K}{s-b}$ and $\tan \frac{C}{2}=\frac{K}{s-c}$, where K=$\sqrt{\frac{(s-a)(s-b)(s-c)}{s}}$
+We have ifa, b, c are in A.P then $\frac{1}{a}, \frac{1}{b}, \frac{1}{c}$ are in H.P
+$\therefore \quad s-a, s-b, s-c$ are in $A \cdot P \cdot \Rightarrow \frac{K}{s-a}, \frac{K}{s-b}, \frac{K}{s-c}$ are in H.P
+$\Rightarrow$ $\tan \frac{A}{2}, \tan \frac{B}{2}, \tan \frac{C}{2}$ are in H.P
+
+Q9. In a $\Delta ABC,$ $\frac{\cos A}{a}=\frac{\cos B}{b}=\frac{\cos C}{c}$ and the side a = 2, then area of the triangle is
+    (A) $\frac {\sqrt 3 }{2}$
+    (B) 1
+    (C) $\sqrt 3 $   <-- CORRECT
+    (D) 2
+    Answer: C
+    Explanation: Given $\frac{\cos A}{a}=\frac{\cos B}{b}=\frac{\cos C}{c}$.....(i)
+Using Sine rule we have $\frac{a}{\sin A}=\frac{b}{\sin B}=\frac{c}{\sin C}=k$....(ii)
+From(i) and (ii) we get $\frac{\cos A}{\sin A}=\frac{\cos B}{\sin B}=\frac{\cos C}{\sin C}$
+$\Rightarrow $ cot A = cot B = cot C
+In a triangle this is possible only when $A=B=C=60^{\circ}$ 
+Hence the triangle is equilateral
+So a = b = c = 2
+$\therefore \text { Area }=\frac{1}{2} a b . \sin C=\frac{1}{2} 2.2 . \sin 60^{\circ}=\sqrt{3}$
+
+Q10. In a triangle ABC , a = 4, b = 3 and A = ${60^ \circ }$ ; then c is a root of the equation
+    (A) ${c^2} - 3c + 7 = 0$
+    (B) ${c^2} - 3c - 8 = 0$
+    (C) ${c^2} - 3c - 7 = 0$   <-- CORRECT
+    (D) ${c^2} + 3c + 7 = 0$
+    Answer: C
+    Explanation: $Using\quad Cosine\quad Rule\quad we\quad have\quad cosA=\frac { { b }^{ 2 }+{ c }^{ 2 }-a^{ 2 } }{ 2bc } \\ \Rightarrow cos{ 60 }^{ \circ }=\frac { 1 }{ 2 } =\frac { 9+{ c }^{ 2 }-16 }{ 6c } \\ \Rightarrow { c }^{ 2 }-7=3c\\ \Rightarrow { c }^{ 2 }-3c-7=0\\ \Rightarrow c\quad is\quad the\quad root\quad of\quad the\quad equation\quad { x }^{ 2 }-3x-7=0$
+
+Q11. Which of the following is not correct?
+    (A) tan $\theta $ = 20
+    (B) $\sin \theta = - {\frac 1 5}$
+    (C) $\sec \theta = \frac 1 2$   <-- CORRECT
+    (D) $\cos \theta = 1$
+    Answer: C
+    Explanation: $\sec \theta =\frac { 1 }{ 2 } \Rightarrow cos\theta =2$ 
+which is not possible since $cos\theta$ is a periodic function whose value oscillates between -1 and 1
+
+Q12. If x = $y \cos \frac{2 \pi}{3}=z \cos \frac{4 \pi}{3}$, then xy + yz + zx =
+    (A) 1
+    (B) 2
+    (C) 0   <-- CORRECT
+    (D) -1
+    Answer: C
+    Explanation: x = $y \cos \frac{2 \pi}{3}$ = $z \cos \frac{4 \pi}{3}$ 
+$\Rightarrow$ x = $y \cos \left(\pi-\frac{\pi}{3}\right)$ = $z \cos \left(\pi+\frac{\pi}{3}\right)$ 
+$\Rightarrow$ x = $-y \cos \left(\frac{\pi}{3}\right)$ = $-z \cos \left(\frac{\pi}{3}\right)$ 
+$\Rightarrow$ x = $-y \times \frac{1}{2}$ = $-z \times \frac{1}{2}$ 
+$\Rightarrow$ x = $\frac{-y}{2}=\frac{-z}{2}$ = k (say)
+$\Rightarrow$ x = k, y = -2k, z = -2k
+$\therefore$ xy + yz + zx = -2k^2 + 4k^2 - 2k^2 = 0
+
+Q13. The values of $\theta $ (0 < $\theta $ < 360^o) satisfying cosec $\theta $ + 2 = 0 are
+    (A) 240^o, 300^o
+    (B) 210^o, 330^o   <-- CORRECT
+    (C) 210^o, 240^o
+    (D) 210^o, 300^o
+    Answer: B
+    Explanation: cosec $\theta$ + 2 = 0 $\Rightarrow$ cosec $\theta$ = -2
+$\Rightarrow$ sin $\theta$ = $\frac{-1}{2}$ 
+$\Rightarrow$ sin $\theta$ = $\sin \left(-\frac{\pi}{6}\right)$ 
+$\Rightarrow$ $\theta$ = $n \pi+(-1)^{n}\left(-\frac{\pi}{6}\right), n \epsilon Z$ 
+Hence the values of $\theta$ betwwen 0 and 360 are 210^o, 330^o [when n = 1, n = 2]
+
+Q14. If z_1 and z_2 are non-real complex numbers such that z_1 and z_2 and z_1z_2 are real numbers, then
+    (A) ${z_1} = - \overline {{z_2}} $
+    (B) ${z_1} = \overline {{z_2}} $   <-- CORRECT
+    (C) ${z_1} = \overline {{z_1}} $ and ${z_2} = \overline {{z_2}} $
+    (D) ${z_2} = \overline {{z_2}} $
+    Answer: B
+    Explanation: Let z_1 = x_1 + iy_1 and z_2 = x_2 + iy_2 
+Given z_1 and z_2 are non-real complex numbers, so we have ${ y }_{ 1 }\neq 0,{ y }_{ 2 }\neq 0$ 
+z_1 + z_2 = (x + iy_1) + (x_2 + iy_2) = (x_1 + x_2) + i(y_1 + y_2) 
+z_1 + z_2 is a real number 
+$\Rightarrow$ y_1 + y_2 = 0 $\Rightarrow$ y_1 = -y_2 .....(i)
+Now z_1z_2 = (x_1 + iy_1) $\cdot$ (x_2 + iy_2) = (x_1x_2 - y_1y_2) + i(x_1y_1 + x_1y_2)
+z_1z_2 is a real number $\Rightarrow$ x_2y_1 + x_1y_2 = 0 $\Rightarrow$ x_2y_1 = -x_1y_2 ....(ii)
+Now from (i) and (ii) we get $\Rightarrow$ x_2y_1 = x_1y_1 $\Rightarrow$ x_2 = x_1 
+Hence we get z_1 = x_2 - iy_2 and z_2 = x_2 + iy_2 
+So ${z_1} = \overline {{z_2}} $
+
+Q15. If $sin\alpha = {\rm{ sin}}\beta $ and ${\rm{cos}}\alpha = {\rm{ cos}}\beta $ , then
+    (A) $\sin {{(\alpha + \beta }) } = 0$
+    (B) $\cos {{(\alpha + \beta) } } = 0$
+    (C) $\cos {{(\alpha - \beta) }} = 0$
+    (D) $\sin {{(\alpha - \beta )}} = 0$   <-- CORRECT
+    Answer: D
+    Explanation: Given $\sin \alpha=\sin \beta$ and $\cos \alpha=\cos \beta$ 
+Now $\sin \alpha \cdot \cos \beta$ = $\cos \alpha \cdot \sin \beta$ 
+$\Rightarrow$ $\sin \alpha \cdot \cos \beta-\cos \alpha \cdot \sin \beta$ = 0
+$\Rightarrow$ $\sin (\alpha-\beta)$ = 0
+
+========================================================================
+Trigonometric Functions Test 05  (id 616) [PAID]
+CBSE > Class 11 > Mathematics > Trigonometric Functions
+Questions: 15 | Answers: YES
+========================================================================
+
+Q1. If $sin\alpha + {\rm{ sin}}\beta $ = 0 = ${\rm{cos}}\alpha + {\rm{ cos}}\beta $, then ${\rm{cos 2}}\alpha + {\rm{ cos 2}}\beta $ =
+    (A) 2 ${\rm{sin }}(\alpha + \beta )$
+    (B) - 2 ${\rm{sin }}(\alpha + \beta )$
+    (C) - 2 ${\rm{cos }}(\alpha + \beta )$   <-- CORRECT
+    (D) 2 ${\rm{cos }}(\alpha + \beta )$
+    Answer: C
+    Explanation: $\cos 2 \alpha+\cos 2 \beta$ 
+= $2 \cos \left(\frac{2 \alpha+2 \beta}{2}\right) \cos \left(\frac{2 \alpha-2 \beta}{2}\right)$ 
+= $2 \cos (\alpha+\beta) \cos (\alpha-\beta)$ ....(i)
+But $\sin \alpha+\sin \beta$ = 0 and $\cos \alpha+\cos \beta$ = 0
+$\Rightarrow$ $\sin \alpha= -\sin \beta$ and $\cos \alpha=-\cos \beta$ .....(ii)
+$\therefore$ $\cos (\alpha-\beta)$ = $\cos \alpha \cdot \cos \beta+\sin \alpha \cdot \sin \beta$ = $-\cos ^{2} \beta-\sin ^{2} \beta$ = $-\left(\cos ^{2} \beta+\sin ^{2} \beta\right)$ = -1 [using (ii)]
+$\Rightarrow$ $\cos (\alpha-\beta)$ = -1 ....(iii)
+Now from (i) and (iii) we have $\cos 2 \alpha+\cos 2 \beta$ = $-2 \cos (\alpha+\beta)$
+
+Q2. If $\cot \frac{A}{2}=\frac{b+c}{a}$ then $\Delta ABC$ is
+    (A) right angled   <-- CORRECT
+    (B) isosceles
+    (C) equilateral
+    (D) Scalene
+    Answer: A
+    Explanation: Given $\cot \frac{A}{2}=\frac{b+c}{a}$ 
+Now using sine rule a = k sin A, b = k sin B, c = k sin C
+$\Rightarrow$ $\cot \frac{A}{2}$ = $\frac{k \sin B+k \sin C}{k \sin A}$ 
+$\Rightarrow$ $\cot \frac{A}{2}$ = $\frac{2 \sin \left(\frac{B+C}{2}\right) \cdot \cos \left(\frac{B-C}{2}\right)}{2 \sin \frac{A}{2} \cdot \cos \frac{A}{2}}$ 
+$\Rightarrow$ $\cot \frac{A}{2}$ = $\frac{2 \sin \left(\frac{\pi}{2}-\frac{A}{2}\right) \cdot \cos \left(\frac{B-C}{2}\right)}{2 \sin \frac{A}{2} \cdot \cos \frac{A}{2}}$ [$\because$ A + B + C = $\pi$ in a triangle]
+$\Rightarrow$ $\frac{\cos \frac{A}{2}}{\sin \frac{A}{2}}$ = $\frac{\cos \left(\frac{B-C}{2}\right)}{\sin \frac{A}{2}}$
+$\Rightarrow$ $\cos \frac{A}{2}$ - $\cos \left(\frac{B-C}{2}\right)$ = 0
+$\Rightarrow$ A + B - C = 0 or A - B + C = 180^o 
+Solving we get C = 90^o or B = 90^o 
+Hence we get $\Delta ABC$ is a right angled triangle.
+
+Q3. In a $\Delta ABC$ , tan $\frac A2 = \frac 56$ and $\frac C2 = 25,$ then
+    (A) a, b, c are in H.M
+    (B) a, b, c are in A.P.   <-- CORRECT
+    (C) a, b, c are in G.P.
+    (D) a, b, c are in H.P
+    Answer: B
+    Explanation: Given $\tan \frac{A}{2}=\frac{5}{6}$ and $\tan \frac{C}{2}=\frac{2}{5}$
+But we have $\tan \frac{A}{2} \cdot \tan \frac{C}{2}=\sqrt{\frac{(s-b)(s-c)}{s(s-a)}} \cdot \sqrt{\frac{(s-a)(s-b)}{s(s-c)}}$
+$\therefore \frac{5}{6} \cdot \frac{2}{5}=\frac{(s-b)}{s}$
+$ \Rightarrow s=3\left( s-b \right) $
+$ \Rightarrow 2\left( \frac { a+b+c }{ 2 } \right) =3b$ $\left[\because 2s=a+b+c\quad \right] $
+$ \Rightarrow $ a + c = 2b
+$ \Rightarrow $ a, b, c are in A.P
+
+Q4. In a triangle ABC, the line joining the circumcentre and the incentre is parallel to BC, then cos B + cos C =
+    (A) $\frac 32$
+    (B) $\frac 34$
+    (C) 1   <-- CORRECT
+    (D) $\frac 12$
+    Answer: C
+    Explanation: Using the given condition we have r = R cos A which gives r/R = cos A.hence Cos A + Cos B + cos C -1 = cos A which gives cos B + cos C = 1.
+
+Q5. The value of tan 1° tan 2° tan 3° ... tan 89° is
+    (A) 0
+    (B) $\infty $
+    (C) 1   <-- CORRECT
+    (D) not defined
+    Answer: C
+    Explanation: Since tan 1 .tan 89 = 1...... only tan 45 in the middle which has the value 1. hence the product is 1.
+
+Q6. If sin 2 $\theta $ = cos 3 $\theta $, then $\theta $ is equal to $\left( {0 \le \theta \le {{90}^ \circ }} \right)$
+    (A) 18^o
+    (B) 36^o
+    (C) 18 or 90^o   <-- CORRECT
+    (D) 45^o
+    Answer: C
+    Explanation: When the value of $θ$ is replace by 18 both LHS and RHS are equal since 38 and 54 are complimentary angles.
+
+Q7. When the length of the shadow of a pole is equal to the height of the pole, then the elevation of source of light is
+    (A) ${45^o}$   <-- CORRECT
+    (B) ${75^o}$
+    (C) ${60^o}$
+    (D) ${30^o}$
+    Answer: A
+    Explanation: Consider a triangle ABC right angled at B. 
+Let AB represent the pole then we have BC is it's shadow where angle C = $\theta$ is the elevation of the sun.
+Then $tan \theta = \frac {AB} {BC} = 1,$ since the length of the shadow of pole = height of the pole
+$ \Rightarrow tan\theta =tan{ 45 }^{ \circ }\\ \Rightarrow \theta ={ 45 }^{ \circ }$
+
+Q8. In a $\Delta ABC,B = \frac \pi 3$ and C $ = \frac \pi 4$. Let D divide BC internally in the ratio 1 : 3, then $\frac{\sin (\angle B A D)}{\sin (\angle C A D)}=$
+    (A) $\frac 13$
+    (B) $\sqrt \frac 23$
+    (C) $\frac {1}{\sqrt 3 }$
+    (D) $\frac{1}{\sqrt{6}}$   <-- CORRECT
+    Answer: D
+    Explanation: In $\triangle$ABC given $\angle$ B = $\frac { \pi }{ 3 } $, $\angle $C = $\frac { \pi }{ 4 }$
+Since D divide BC in the ratio 1 : 3 we can take BD = x and DC = 3x
+Let AD = y
+In $\triangle $CAD, using Sine Rule we get,
+$\frac { AD }{ sin\angle C } = \frac { DC }{ sin\angle CAD } $
+$\Rightarrow \frac { y }{ sin\frac { \pi }{ 4 } } = \frac { 3x }{ sin\angle CAD }$
+$\Rightarrow \frac { y }{ \frac { 1 }{ \sqrt { 2 } } } = \frac { 3x }{ sin\angle CAD }$
+$\Rightarrow sin\angle CAD=\frac { 3x }{ \sqrt { 2 } y } $ ...(i)
+In $\triangle$ADB, using Sine Rule we get,
+$\frac { AD }{ sin\angle B } = \frac { BD }{ sin\angle BAD } $
+$\Rightarrow \frac { y }{ sin\frac { \pi }{ 3 } } = \frac { x }{ sin\angle BAD }$
+$\Rightarrow \frac { y }{ \frac { \sqrt { 3 } }{ 2 } } = \frac { x }{ sin\angle BAD }$
+$ \Rightarrow sin\angle BAD=\frac { \sqrt { 3 } x }{ 2y } $ ...(ii)
+From (i) and (ii), we get
+$\frac { sin\angle BAD }{ sin\angle CAD } =\frac { 3x }{ \sqrt { 2 } y } .\frac { 2y }{ \sqrt { 3 } x } =\frac { 1 }{ \sqrt { 6 } } $
+
+Q9. The maximum value of ${\rm{sin}}\alpha + {\rm{ sin}}\beta + {\rm{ sin}}\gamma $ , where $\alpha ,{\rm{ }}\beta ,{\rm{ }}\gamma $ are positive real numbers satisfying $\alpha {\rm{ }} + \beta {\rm{ }} + \gamma {\rm{ }} = {\rm{ }}\pi $ is
+    (A) zero
+    (B) negative
+    (C) (- 3)
+    (D) positive   <-- CORRECT
+    Answer: D
+    Explanation: Since the sine ratio is positive in both first and second quadrants and the angles sum up to 180 and the ratios are related to the triangle, the value is always positive.
+
+Q10. If the sides a, b, c of a triangle ABC are in A.P., then
+    (A) $2 \sin \frac{A}{2} \sin \frac{B}{2}=\sin \frac{C}{2}$
+    (B) $2 \sin \frac{A}{2} \sin \frac{C}{2}=\sin \frac{B}{2}$   <-- CORRECT
+    (C) $\sin \frac{A}{2} \sin \frac{B}{2}=2 \sin \frac{C}{2}$
+    (D) $\sin \frac{B}{2} \sin \frac{C}{2}=\sin \frac{A}{2}$
+    Answer: B
+    Explanation: Since a, b, c are in AP, b = $\frac{(a+c)}{2}$ which gives a + c = 2b. adding b on both sides we get a + b + c - 2b = b. Hence 2s - 2b = b (since a + b + c = 2s) 
+On simplification we have $\frac{2(s-b)}{b}$ = 1. Rewriting this equation. Using the semi sum formulae we have
+$2 √(((s-b ))/b ) √(((s-b ))/b ) √(((s-c ) (s-a))/ac )$$= √(((s-c ) (s-a))/ac )$ 
+$2√(((s-b) (s-c))/bc ) √(((s-a) (s-b))/ab ) $ $= √(((s-c) (s-a))/ca )$ which is the given answer.
+
+Q11. If the sides of a triangle ABC are given as 4, 5, 7 respectively then cot $\frac B2 \cot \frac C2$ equals
+    (A) $\frac {16} {9}$
+    (B) 2   <-- CORRECT
+    (C) 3
+    (D) 1
+    Answer: B
+    Explanation: Since the sides of a triangle ABC are 4, 5, 7 respectively we can take a = 4x, b = 5x, c = 7x.
+Then, 2s = a + b + c = 16x $\Rightarrow$ s = 8x
+Now $\tan \frac{B}{2} \cdot \tan \frac{C}{2}$ = $\sqrt{\frac{(s-a)(s-c)}{s(s-b)}} \cdot \sqrt{\frac{(s-a)(s-b)}{s(s-c)}}$ = $\frac{(s-a)}{s}$
+$\Rightarrow$ $\tan \frac{B}{2} \cdot \tan \frac{C}{2}$ = $\frac{(s-a)}{s}=\frac{4 x}{8 x}=\frac{1}{2}$
+$\Rightarrow$ $\cot \frac{B}{2} \cdot \cot \frac{C}{2}$ = 2
+
+Q12. If sin x - cos x =$\sqrt 2 $, then x = ( n is any integer)
+    (A) 2n$\pi $
+    (B) $2n\pi -\frac {\pi } { 4}$
+    (C) $2n\pi \pm \pi-\frac {\pi } {4}$   <-- CORRECT
+    (D) (2n + 1)$\pi $
+    Answer: C
+    Explanation: $\sin x-\cos x=\sqrt{2}$
+Dividing throughout by $\sqrt{2}$, we get
+$\frac{1}{\sqrt{2}} \sin x-\frac{1}{\sqrt{2}} \cos x=1$
+$\Rightarrow \sin \frac{\pi}{4} \sin x-\cos \frac{\pi}{4} \cos x=1$
+$\Rightarrow \cos \left(x+\frac{\pi}{4}\right)=-1$
+$\Rightarrow \cos \left(x+\frac{\pi}{4}\right)=\cos \pi$
+$\Rightarrow x+\frac{\pi}{4}=2 n \pi \pm \pi$
+$\Rightarrow x=2 n \pi \pm \pi-\frac{\pi}{4}, n \in Z$
+
+Q13. The general value of $\theta $ satisfying sin$\theta$ = -$\frac 12$ and tan $\theta $ = $\frac {1} {\sqrt 3 }$ is
+    (A) $n \pi+\frac{\pi}{6}, n \in I$
+    (B) $2 n \pi+\frac{11 \pi}{6}, n \in I$
+    (C) $n \pi+(-1)^n \frac{7 \pi}{6}, n \in I$
+    (D) $2n\pi + \frac {7\pi }{6}$, $n \in I$   <-- CORRECT
+    Answer: D
+    Explanation: $\sin \theta=\frac{-1}{2}$
+$\Rightarrow \sin \theta=\sin \left(-\frac{\pi}{6}\right)$
+$\Rightarrow \theta=n \pi+(-1)^{n}\left(-\frac{\pi}{6}\right), n \in Z$
+$\Rightarrow \theta=\frac{7 \pi}{6}, \frac{11 \pi}{6}$
+$\tan \theta=\frac{1}{\sqrt{3}}$
+$\Rightarrow \tan \theta=\tan \left(\frac{\pi}{6}\right)$
+$\Rightarrow \theta=n \pi+\left(\frac{\pi}{6}\right), n \in Z$
+$\Rightarrow \theta=\frac{\pi}{6}, \frac{7 \pi}{6}$
+So principal value for both $\sin \theta$ and $\tan \theta$ is $\frac{7 \pi}{6}$
+Hence the general solution is $2 n \pi+\frac{7 \pi}{6}, n \in I$
+
+Q14. The equation sin $x - \frac \pi 2 + 1$ = 0 has no root in the interval
+    (A) $\left(\frac{\pi}{2}, \pi\right)$
+    (B) $\left(\frac{\pi}{2}, \frac{3 \pi}{2}\right)$
+    (C) $\left(0, \frac{\pi}{2}\right)$
+    (D) none of these   <-- CORRECT
+    Answer: D
+    Explanation: Since sin x lies between -1 to 1 hence the given equation will lie between $\frac{(-\pi)}{2}$ to 2 - $\frac{\pi}{2}$.
+
+Q15. The number of values of x satisfying the condition sin x + sin 5 x = sin 3x in the interval [0, $\pi $] is
+    (A) 10
+    (B) 0
+    (C) 6   <-- CORRECT
+    (D) 2
+    Answer: C
+    Explanation: sin x = sin 5x = sin 3x [$\because$ sin C + sin D = $2 \sin \left(\frac{C+D}{2}\right) \cos \left(\frac{C-D}{2}\right)$]
+$\Rightarrow$ 2 sin 3x cos (-2x) - sin 3x = 0
+$\Rightarrow$ sin 3x [2 cos 2x - 1] = 0
+$\Rightarrow$ sin 3x = 0 or, cos 2x = $\frac{1}{2}$ 
+$\Rightarrow$ sin 3x = sin 0 or cos 2x = cos $\frac{\pi}{3}$ 
+$\Rightarrow$ 3x = $n \pi+(-1)^{n} .0$ $\Rightarrow$ x = $\frac{n \pi}{3}$ or 2x = $2 n \pi \pm \frac{\pi}{3}$ $\Rightarrow$ x = $n \pi \pm \frac{\pi}{6}, n \in Z$ 
+$\Rightarrow$ x = $0, \frac{\pi}{3}, \frac{2 \pi}{3}, \pi$ or x = $\frac{\pi}{6}, \frac{5 \pi}{6}$ 
+$\Rightarrow$ 6 solutions in the interval [0, $\pi$].

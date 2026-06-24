@@ -1,0 +1,3162 @@
+{
+  "id": 1386,
+  "name": "Statistics",
+  "full_name": "CBSE > Class 11 > Mathematics > Statistics",
+  "tests": [
+    {
+      "testPaperID": 672,
+      "testPaperName": "Statistics Test 01",
+      "is_paid": false,
+      "category_full_name": "CBSE > Class 11 > Mathematics > Statistics",
+      "noOfQuestions": 15,
+      "has_answers": true,
+      "sections": [
+        {
+          "sectionName": "General",
+          "sectionID": null,
+          "questions": [
+            {
+              "questionID": 19366,
+              "question": "A batsman scores runs in 10 innings as 38, 70, 48, 34, 42, 55, 63, 46, 54 and 44 then the mean score is",
+              "question_raw": "<p>A batsman scores runs in 10 innings as 38, 70, 48, 34, 42, 55, 63, 46, 54 and 44&nbsp;then the mean score is</p>",
+              "options": [
+                {
+                  "label": "A",
+                  "id": 32666,
+                  "text": "494",
+                  "is_correct": false
+                },
+                {
+                  "label": "B",
+                  "id": 32665,
+                  "text": "0.494",
+                  "is_correct": false
+                },
+                {
+                  "label": "C",
+                  "id": 32663,
+                  "text": "49.4",
+                  "is_correct": true
+                },
+                {
+                  "label": "D",
+                  "id": 32664,
+                  "text": "4.94",
+                  "is_correct": false
+                }
+              ],
+              "correct_option_ids": [
+                32663
+              ],
+              "correct_option_labels": [
+                "C"
+              ],
+              "correct_option_texts": [
+                "49.4"
+              ],
+              "explanation": "Mean (x) = $\\frac{(38+70+48+34+42+55+63+46+54+44)}{10}$ \n= $\\frac{494}{10}$ \n= 49.4"
+            },
+            {
+              "questionID": 19367,
+              "question": "The S.D. of the observations 22, 26, 28, 20, 24, 30 is",
+              "question_raw": "<p>The S.D. of the observations 22, 26, 28, 20, 24, 30 is</p>",
+              "options": [
+                {
+                  "label": "A",
+                  "id": 32669,
+                  "text": "2.4",
+                  "is_correct": false
+                },
+                {
+                  "label": "B",
+                  "id": 32670,
+                  "text": "2",
+                  "is_correct": false
+                },
+                {
+                  "label": "C",
+                  "id": 32668,
+                  "text": "3",
+                  "is_correct": false
+                },
+                {
+                  "label": "D",
+                  "id": 32667,
+                  "text": "3.42",
+                  "is_correct": true
+                }
+              ],
+              "correct_option_ids": [
+                32667
+              ],
+              "correct_option_labels": [
+                "D"
+              ],
+              "correct_option_texts": [
+                "3.42"
+              ],
+              "explanation": "$\\bar X = \\frac{(22 + 26 + 28 + 20 + 24 + 30)}{6}$ = 25\n$\\frac{1}{n}\\sum\\limits_{i = 1}^n {{{({X_i} - \\bar X)}^2}} $ = $\\frac{9 + 1 + 9 + 25 + 1 + 25}{6}$ = 11.66\nS.D. = $ \\sqrt {11.67} $ = 3.42"
+            },
+            {
+              "questionID": 19368,
+              "question": "If the angle between two lines of regression is 90^o, then it represents",
+              "question_raw": "<p>If the angle between two lines of regression is 90<sup>o</sup>, then it represents</p>",
+              "options": [
+                {
+                  "label": "A",
+                  "id": 32674,
+                  "text": "Moderate correlation",
+                  "is_correct": false
+                },
+                {
+                  "label": "B",
+                  "id": 32672,
+                  "text": "perfect negative correlation",
+                  "is_correct": false
+                },
+                {
+                  "label": "C",
+                  "id": 32673,
+                  "text": "perfect positive correlation",
+                  "is_correct": false
+                },
+                {
+                  "label": "D",
+                  "id": 32671,
+                  "text": "no linear correlation",
+                  "is_correct": true
+                }
+              ],
+              "correct_option_ids": [
+                32671
+              ],
+              "correct_option_labels": [
+                "D"
+              ],
+              "correct_option_texts": [
+                "no linear correlation"
+              ],
+              "explanation": "$[r = \\tan \\left( {\\frac{\\pi }{2} - \\theta } \\right)]$ \nHere $[\\theta = \\frac{\\pi }{2}]$ \nHence r = 0, therefore there is no linear correlation."
+            },
+            {
+              "questionID": 19369,
+              "question": "The two lines of regression are 2x - 7y + 6 = 0 and 7x – 2y +1 = 0. What is correlation coefficient between x and y?",
+              "question_raw": "<p>The two lines of regression are 2x - 7y + 6 = 0 and 7x &ndash; 2y +1 = 0. What is correlation coefficient between x and y?</p>",
+              "options": [
+                {
+                  "label": "A",
+                  "id": 32677,
+                  "text": "$\\frac{-2}{7}$",
+                  "is_correct": false
+                },
+                {
+                  "label": "B",
+                  "id": 32676,
+                  "text": "$\\frac{4}{49}$",
+                  "is_correct": false
+                },
+                {
+                  "label": "C",
+                  "id": 32675,
+                  "text": "$\\frac{2}{7}$",
+                  "is_correct": true
+                },
+                {
+                  "label": "D",
+                  "id": 32678,
+                  "text": "$\\frac{7}{2}$",
+                  "is_correct": false
+                }
+              ],
+              "correct_option_ids": [
+                32675
+              ],
+              "correct_option_labels": [
+                "C"
+              ],
+              "correct_option_texts": [
+                "$\\frac{2}{7}$"
+              ],
+              "explanation": "$\\rho = \\pm \\sqrt {{b_{xy}}.{b_{yx}}} = \\pm \\sqrt {\\frac{2}{7}.\\frac{2}{7}} = \\pm \\frac{2}{7}$ \nBut sign of $\\rho $ is same as the sign of b_xy, b_yx\nTherefore, $\\rho = \\frac{2}{7}$"
+            },
+            {
+              "questionID": 19370,
+              "question": "The two lines of regression are x + 4y = 3 and 3x + y = 15 value of x for y = 3 is",
+              "question_raw": "<p>The two lines of regression are x + 4y = 3 and 3x + y = 15&nbsp;value of x for y = 3 is</p>",
+              "options": [
+                {
+                  "label": "A",
+                  "id": 32681,
+                  "text": "- 4",
+                  "is_correct": false
+                },
+                {
+                  "label": "B",
+                  "id": 32679,
+                  "text": "4",
+                  "is_correct": true
+                },
+                {
+                  "label": "C",
+                  "id": 32680,
+                  "text": "- 9",
+                  "is_correct": false
+                },
+                {
+                  "label": "D",
+                  "id": 32682,
+                  "text": "9",
+                  "is_correct": false
+                }
+              ],
+              "correct_option_ids": [
+                32679
+              ],
+              "correct_option_labels": [
+                "B"
+              ],
+              "correct_option_texts": [
+                "4"
+              ],
+              "explanation": "We have x + 4y = 3 and 3x + y = 15 as the lines of regression of y on x and x on y respectively. \nTherefore, for y = 3 the required line is x on y.\nSo put y = 3 in 3x + y = 15\nWe get, x = 4"
+            },
+            {
+              "questionID": 19371,
+              "question": "The mean of 5 observations is 4.4. If three observations are 1, 2 and 6 and the difference of the other two is 5, then the other two observations are:",
+              "question_raw": "<p>The mean of 5 observations is 4.4. If three observations are 1, 2 and 6 and the difference of the other two is 5, then&nbsp;the other two observations are:</p>\r\n",
+              "options": [
+                {
+                  "label": "A",
+                  "id": 32683,
+                  "text": "9 and 4",
+                  "is_correct": true
+                },
+                {
+                  "label": "B",
+                  "id": 32684,
+                  "text": "5 and 9",
+                  "is_correct": false
+                },
+                {
+                  "label": "C",
+                  "id": 32686,
+                  "text": "5 and 7",
+                  "is_correct": false
+                },
+                {
+                  "label": "D",
+                  "id": 32685,
+                  "text": "4 and 8",
+                  "is_correct": false
+                }
+              ],
+              "correct_option_ids": [
+                32683
+              ],
+              "correct_option_labels": [
+                "A"
+              ],
+              "correct_option_texts": [
+                "9 and 4"
+              ],
+              "explanation": "Let other two numbers be x and y.\nMean (x) = 4.4 = $\\frac{(1+2+6+x+y)}{5}$ \nThis gives (x + y) = 13 ....(i) \nAlso, (x - y) = 5 .....(ii) \nTherefore from (i) and (ii)\nx = 9 and y = 4"
+            },
+            {
+              "questionID": 19372,
+              "question": "If x and y are related as y – 4x = 3, then the nature of correlation between x and y is",
+              "question_raw": "<p>If x and y are related as y &ndash; 4x = 3, then the nature of correlation between x and y is</p>",
+              "options": [
+                {
+                  "label": "A",
+                  "id": 32687,
+                  "text": "perfect positive",
+                  "is_correct": true
+                },
+                {
+                  "label": "B",
+                  "id": 32688,
+                  "text": "perfect negative",
+                  "is_correct": false
+                },
+                {
+                  "label": "C",
+                  "id": 32689,
+                  "text": "no correlation",
+                  "is_correct": false
+                },
+                {
+                  "label": "D",
+                  "id": 32690,
+                  "text": "between 0 and 1",
+                  "is_correct": false
+                }
+              ],
+              "correct_option_ids": [
+                32687
+              ],
+              "correct_option_labels": [
+                "A"
+              ],
+              "correct_option_texts": [
+                "perfect positive"
+              ],
+              "explanation": "Comparing the given equation with ax + by + c = 0\na = -4, b = 1 and c = -3\nSo ab < 0\nHence, $\\rho = \\frac{{\\frac{{ - b}}{a}}}{{\\left| {\\frac{b}{a}} \\right|}} = \\frac{{\\frac{{ - b}}{a}}}{{\\frac{{ - b}}{a}}} = 1$ \nSo a perfect positive correlation."
+            },
+            {
+              "questionID": 19373,
+              "question": "Coefficient of correlation between the observations ( 1, 6 ) , ( 2 , 5 ) , ( 3 , 4) , ( 4 , 3 ) , ( 5 , 2 ) , ( 6 , 1 ) is",
+              "question_raw": "<p>Coefficient of correlation between the observations ( 1, 6 ) , ( 2 , 5 ) , ( 3 , 4) , ( 4 , 3 ) , ( 5 , 2 ) , ( 6 , 1 ) is</p>",
+              "options": [
+                {
+                  "label": "A",
+                  "id": 32692,
+                  "text": "1",
+                  "is_correct": false
+                },
+                {
+                  "label": "B",
+                  "id": 32694,
+                  "text": "2",
+                  "is_correct": false
+                },
+                {
+                  "label": "C",
+                  "id": 32691,
+                  "text": "- 1",
+                  "is_correct": true
+                },
+                {
+                  "label": "D",
+                  "id": 32693,
+                  "text": "0",
+                  "is_correct": false
+                }
+              ],
+              "correct_option_ids": [
+                32691
+              ],
+              "correct_option_labels": [
+                "C"
+              ],
+              "correct_option_texts": [
+                "- 1"
+              ],
+              "explanation": "$use,r(x,y) = \\frac{{\\frac{1}{n}\\sum\\limits_{i = 1}^n {({X_i} - \\bar X)({Y_i} - \\bar Y)} }}{{\\sqrt {\\frac{1}{n}\\sum\\limits_{i = 1}^n {{{({X_i} - \\bar X)}^2}} } \\sqrt {\\frac{1}{n}\\sum\\limits_{i = 1}^n {{{({Y_i} - \\bar Y)}^2}} } }}$"
+            },
+            {
+              "questionID": 19374,
+              "question": "If the two lines of regression of a bivariate distribution coincide, then the correlation coefficient $\\rho $ satisfies.",
+              "question_raw": "<p>If the two lines of regression of a bivariate distribution coincide, then the correlation coefficient <span class=\"math-tex\">{tex}\\rho {/tex}</span> satisfies.</p>\r\n",
+              "options": [
+                {
+                  "label": "A",
+                  "id": 32696,
+                  "text": "$\\rho $ > 0",
+                  "is_correct": false
+                },
+                {
+                  "label": "B",
+                  "id": 32698,
+                  "text": "$\\rho $ = 0",
+                  "is_correct": false
+                },
+                {
+                  "label": "C",
+                  "id": 32695,
+                  "text": "$\\rho$ = 1 or -1",
+                  "is_correct": true
+                },
+                {
+                  "label": "D",
+                  "id": 32697,
+                  "text": "$\\rho $ < 0",
+                  "is_correct": false
+                }
+              ],
+              "correct_option_ids": [
+                32695
+              ],
+              "correct_option_labels": [
+                "C"
+              ],
+              "correct_option_texts": [
+                "$\\rho$ = 1 or -1"
+              ],
+              "explanation": "tan $\\theta$ = $\\frac{1-\\rho^{2}}{\\rho} \\cdot \\frac{\\sigma_{x} \\sigma_{y}}{\\sigma_{x}^{2}+\\sigma_{y}^{2}}$ \n$\\theta$ = 0^o, $\\pi$ \nSo, $\\rho=\\pm 1$"
+            },
+            {
+              "questionID": 19375,
+              "question": "For a moderately skewed distribution, quartile deviation and the standard deviation are related by",
+              "question_raw": "<p>For a moderately skewed distribution, quartile deviation and the standard deviation are related by</p>\r\n",
+              "options": [
+                {
+                  "label": "A",
+                  "id": 32699,
+                  "text": "S.D. = $\\frac{3}{2}$ Q.D.",
+                  "is_correct": true
+                },
+                {
+                  "label": "B",
+                  "id": 32700,
+                  "text": "S.D = $\\frac{3}{4}$Q. D.",
+                  "is_correct": false
+                },
+                {
+                  "label": "C",
+                  "id": 32701,
+                  "text": "S.D. = $\\frac{2}{3}$Q.D.",
+                  "is_correct": false
+                },
+                {
+                  "label": "D",
+                  "id": 32702,
+                  "text": "S.D. = $\\frac{4}{3}$Q. D.",
+                  "is_correct": false
+                }
+              ],
+              "correct_option_ids": [
+                32699
+              ],
+              "correct_option_labels": [
+                "A"
+              ],
+              "correct_option_texts": [
+                "S.D. = $\\frac{3}{2}$ Q.D."
+              ],
+              "explanation": "Its a standard result."
+            },
+            {
+              "questionID": 19376,
+              "question": "Which one of the following average is most affected of extreme observations?",
+              "question_raw": "<p>Which one of the following average is most affected of extreme observations?</p>",
+              "options": [
+                {
+                  "label": "A",
+                  "id": 32704,
+                  "text": "G.M.",
+                  "is_correct": false
+                },
+                {
+                  "label": "B",
+                  "id": 32705,
+                  "text": "Mode",
+                  "is_correct": false
+                },
+                {
+                  "label": "C",
+                  "id": 32703,
+                  "text": "A. M.",
+                  "is_correct": true
+                },
+                {
+                  "label": "D",
+                  "id": 32706,
+                  "text": "Median",
+                  "is_correct": false
+                }
+              ],
+              "correct_option_ids": [
+                32703
+              ],
+              "correct_option_labels": [
+                "C"
+              ],
+              "correct_option_texts": [
+                "A. M."
+              ],
+              "explanation": "As A.M is calculated as the sum of all the observations divided by the number of observations, so it is affected by if there is any change in the outliers."
+            },
+            {
+              "questionID": 19377,
+              "question": "The H.M. of 4, 8, 16 is",
+              "question_raw": "<p>The H.M. of 4, 8, 16 is</p>\r\n",
+              "options": [
+                {
+                  "label": "A",
+                  "id": 32710,
+                  "text": "7.8",
+                  "is_correct": false
+                },
+                {
+                  "label": "B",
+                  "id": 32707,
+                  "text": "6.85",
+                  "is_correct": true
+                },
+                {
+                  "label": "C",
+                  "id": 32709,
+                  "text": "6.7",
+                  "is_correct": false
+                },
+                {
+                  "label": "D",
+                  "id": 32708,
+                  "text": "6.4",
+                  "is_correct": false
+                }
+              ],
+              "correct_option_ids": [
+                32707
+              ],
+              "correct_option_labels": [
+                "B"
+              ],
+              "correct_option_texts": [
+                "6.85"
+              ],
+              "explanation": "H.M = $ \\frac{3}{{\\frac{1}{a} + \\frac{1}{b} + \\frac{1}{c}}} $ = $\\frac{3}{\\frac{1}{4}+\\frac{1}{8}+\\frac{1}{16}}$ = $\\frac{48}{7}$ = 6.85"
+            },
+            {
+              "questionID": 19378,
+              "question": "The Mode of the following items is 0, 1, 6, 7, 2, 3, 7, 6, 6, 2, 6, 0, 5, 6, 0.",
+              "question_raw": "<p>The Mode of the following items is 0, 1, 6, 7, 2, 3, 7, 6, 6, 2, 6, 0, 5, 6, 0.</p>",
+              "options": [
+                {
+                  "label": "A",
+                  "id": 32714,
+                  "text": "0",
+                  "is_correct": false
+                },
+                {
+                  "label": "B",
+                  "id": 32711,
+                  "text": "6",
+                  "is_correct": true
+                },
+                {
+                  "label": "C",
+                  "id": 32712,
+                  "text": "5",
+                  "is_correct": false
+                },
+                {
+                  "label": "D",
+                  "id": 32713,
+                  "text": "2",
+                  "is_correct": false
+                }
+              ],
+              "correct_option_ids": [
+                32711
+              ],
+              "correct_option_labels": [
+                "B"
+              ],
+              "correct_option_texts": [
+                "6"
+              ],
+              "explanation": "6 is the most frequent value here."
+            },
+            {
+              "questionID": 19379,
+              "question": "The statistical method which helps us to estimate or predict the unknown value of one variable from the known value of the related variable is called",
+              "question_raw": "<p>The statistical method which helps us to estimate or predict the unknown value of one variable from the known value of the related variable is called</p>",
+              "options": [
+                {
+                  "label": "A",
+                  "id": 32715,
+                  "text": "regression",
+                  "is_correct": true
+                },
+                {
+                  "label": "B",
+                  "id": 32717,
+                  "text": "correlation",
+                  "is_correct": false
+                },
+                {
+                  "label": "C",
+                  "id": 32718,
+                  "text": "scatter diagram",
+                  "is_correct": false
+                },
+                {
+                  "label": "D",
+                  "id": 32716,
+                  "text": "dispersion",
+                  "is_correct": false
+                }
+              ],
+              "correct_option_ids": [
+                32715
+              ],
+              "correct_option_labels": [
+                "A"
+              ],
+              "correct_option_texts": [
+                "regression"
+              ],
+              "explanation": "It follows from the definition of regression."
+            },
+            {
+              "questionID": 19380,
+              "question": "The coefficient of correlation r satisfies",
+              "question_raw": "<p>The coefficient of correlation r satisfies</p>",
+              "options": [
+                {
+                  "label": "A",
+                  "id": 32722,
+                  "text": "0 < r < 1",
+                  "is_correct": false
+                },
+                {
+                  "label": "B",
+                  "id": 32721,
+                  "text": "-1 < r < 0",
+                  "is_correct": false
+                },
+                {
+                  "label": "C",
+                  "id": 32719,
+                  "text": "IrI $\\leq$ 1",
+                  "is_correct": true
+                },
+                {
+                  "label": "D",
+                  "id": 32720,
+                  "text": "IrI > 1",
+                  "is_correct": false
+                }
+              ],
+              "correct_option_ids": [
+                32719
+              ],
+              "correct_option_labels": [
+                "C"
+              ],
+              "correct_option_texts": [
+                "IrI $\\leq$ 1"
+              ],
+              "explanation": "r can't be numerically more than 1."
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "testPaperID": 673,
+      "testPaperName": "Statistics Test 02",
+      "is_paid": true,
+      "category_full_name": "CBSE > Class 11 > Mathematics > Statistics",
+      "noOfQuestions": 15,
+      "has_answers": true,
+      "sections": [
+        {
+          "sectionName": "General",
+          "sectionID": null,
+          "questions": [
+            {
+              "questionID": 19381,
+              "question": "S.D. of a data is 6. When each observation is increased by 1, then the S.D. of new data is",
+              "question_raw": "<p>S.D. of a data is 6. When each observation is increased by 1, then the S.D. of new data is</p>",
+              "options": [
+                {
+                  "label": "A",
+                  "id": 32724,
+                  "text": "8",
+                  "is_correct": false
+                },
+                {
+                  "label": "B",
+                  "id": 32725,
+                  "text": "7",
+                  "is_correct": false
+                },
+                {
+                  "label": "C",
+                  "id": 32723,
+                  "text": "6",
+                  "is_correct": true
+                },
+                {
+                  "label": "D",
+                  "id": 32726,
+                  "text": "5",
+                  "is_correct": false
+                }
+              ],
+              "correct_option_ids": [
+                32723
+              ],
+              "correct_option_labels": [
+                "C"
+              ],
+              "correct_option_texts": [
+                "6"
+              ],
+              "explanation": "S.D = $\\sqrt {\\frac{{{n^2} - 1}}{{12}}} $ \nSo it depends only on number of observations not on individual observations."
+            },
+            {
+              "questionID": 19382,
+              "question": "The most stable measure of central tendency is",
+              "question_raw": "<p>The most stable measure of central tendency is</p>",
+              "options": [
+                {
+                  "label": "A",
+                  "id": 32728,
+                  "text": "median",
+                  "is_correct": false
+                },
+                {
+                  "label": "B",
+                  "id": 32727,
+                  "text": "mean",
+                  "is_correct": true
+                },
+                {
+                  "label": "C",
+                  "id": 32729,
+                  "text": "mode",
+                  "is_correct": false
+                },
+                {
+                  "label": "D",
+                  "id": 32730,
+                  "text": "range",
+                  "is_correct": false
+                }
+              ],
+              "correct_option_ids": [
+                32727
+              ],
+              "correct_option_labels": [
+                "B"
+              ],
+              "correct_option_texts": [
+                "mean"
+              ],
+              "explanation": "Because it takes into account every value in the given set of data to provide the average."
+            },
+            {
+              "questionID": 19383,
+              "question": "The mean weight of a group of 10 items is 28 and that of another group of n items is 35. The mean of a combined group of 10 + n items is found to be 30. The value of n is",
+              "question_raw": "<p>The mean weight of a group of 10 items is 28 and that of another group of n items is 35. The mean of a combined group of 10 + n items is found to be 30. The value of n is</p>",
+              "options": [
+                {
+                  "label": "A",
+                  "id": 32731,
+                  "text": "4",
+                  "is_correct": true
+                },
+                {
+                  "label": "B",
+                  "id": 32732,
+                  "text": "2",
+                  "is_correct": false
+                },
+                {
+                  "label": "C",
+                  "id": 32734,
+                  "text": "12",
+                  "is_correct": false
+                },
+                {
+                  "label": "D",
+                  "id": 32733,
+                  "text": "10",
+                  "is_correct": false
+                }
+              ],
+              "correct_option_ids": [
+                32731
+              ],
+              "correct_option_labels": [
+                "A"
+              ],
+              "correct_option_texts": [
+                "4"
+              ],
+              "explanation": "Sum of weights of 10 items = 280\nSum of weights of n items = 35n\nSo, sum of weights of (10 + n) items = 280 + 35n\nSo, mean = $\\frac{280 + 35n}{10 + n}$\n30(10 + n) = 280 + 35n \nOn solving we get, n = 4"
+            },
+            {
+              "questionID": 19384,
+              "question": "The measure of variation which is least affected by extreme items is",
+              "question_raw": "<p>The measure of variation which is least affected by extreme items is</p>",
+              "options": [
+                {
+                  "label": "A",
+                  "id": 32737,
+                  "text": "range",
+                  "is_correct": false
+                },
+                {
+                  "label": "B",
+                  "id": 32738,
+                  "text": "mean deviation",
+                  "is_correct": false
+                },
+                {
+                  "label": "C",
+                  "id": 32736,
+                  "text": "standard deviation",
+                  "is_correct": false
+                },
+                {
+                  "label": "D",
+                  "id": 32735,
+                  "text": "quartile deviation",
+                  "is_correct": true
+                }
+              ],
+              "correct_option_ids": [
+                32735
+              ],
+              "correct_option_labels": [
+                "D"
+              ],
+              "correct_option_texts": [
+                "quartile deviation"
+              ],
+              "explanation": "As it only depends on upper and lower quartile not on extreme values."
+            },
+            {
+              "questionID": 19385,
+              "question": "A group of 10 items has mean 6. If the mean of 4 of these items is 7.5, then the mean of the remaining items is",
+              "question_raw": "<p>A group of 10 items has mean 6. If the mean of 4 of these items is 7.5, then the mean of the remaining items is</p>",
+              "options": [
+                {
+                  "label": "A",
+                  "id": 32740,
+                  "text": "4.5",
+                  "is_correct": false
+                },
+                {
+                  "label": "B",
+                  "id": 32739,
+                  "text": "5.0",
+                  "is_correct": true
+                },
+                {
+                  "label": "C",
+                  "id": 32742,
+                  "text": "6.5",
+                  "is_correct": false
+                },
+                {
+                  "label": "D",
+                  "id": 32741,
+                  "text": "5.5",
+                  "is_correct": false
+                }
+              ],
+              "correct_option_ids": [
+                32739
+              ],
+              "correct_option_labels": [
+                "B"
+              ],
+              "correct_option_texts": [
+                "5.0"
+              ],
+              "explanation": "Sum of 10 items = 60\nSum of 4 items = 30\nSum of remaining items = 30\nTheir mean = $\\frac{30}{6}$ = 5"
+            },
+            {
+              "questionID": 19386,
+              "question": "If the coefficient of variation between x and y is 0.28, covariance between x and y is 7.6, and the variance of x is 9, then the S.D. of the y series is",
+              "question_raw": "<p>If the coefficient of variation between x and y is 0.28, covariance between x and y is 7.6, and the variance of x is 9, then the S.D. of the y series is</p>\r\n",
+              "options": [
+                {
+                  "label": "A",
+                  "id": 32743,
+                  "text": "9.05",
+                  "is_correct": true
+                },
+                {
+                  "label": "B",
+                  "id": 32745,
+                  "text": "10.1",
+                  "is_correct": false
+                },
+                {
+                  "label": "C",
+                  "id": 32744,
+                  "text": "10.05",
+                  "is_correct": false
+                },
+                {
+                  "label": "D",
+                  "id": 32746,
+                  "text": "9.8",
+                  "is_correct": false
+                }
+              ],
+              "correct_option_ids": [
+                32743
+              ],
+              "correct_option_labels": [
+                "A"
+              ],
+              "correct_option_texts": [
+                "9.05"
+              ],
+              "explanation": "Here, \nr = 0.28, Cov(x, y) = 7.6, $\\sigma_x$ = 3\nSo, r = $\\frac{\\operatorname{Cov}(x, y)}{\\sigma_{x} \\sigma_{y}}$ \n$\\Rightarrow$ 0.28 = $\\frac{7.6}{3 \\sigma_{y}}$ \n$\\Rightarrow$ $\\sigma_y$ = 9.05"
+            },
+            {
+              "questionID": 19387,
+              "question": "The Q.D. of the daily wages (in ₹) of 7 persons given below: 12, 7, 15, 10, 17, 19, 25 is",
+              "question_raw": "<p>The Q.D. of the daily wages (in ₹) of 7 persons given below: 12, 7, 15, 10, 17, 19, 25 is</p>",
+              "options": [
+                {
+                  "label": "A",
+                  "id": 32750,
+                  "text": "14.5",
+                  "is_correct": false
+                },
+                {
+                  "label": "B",
+                  "id": 32749,
+                  "text": "5",
+                  "is_correct": false
+                },
+                {
+                  "label": "C",
+                  "id": 32748,
+                  "text": "9",
+                  "is_correct": false
+                },
+                {
+                  "label": "D",
+                  "id": 32747,
+                  "text": "4.5",
+                  "is_correct": true
+                }
+              ],
+              "correct_option_ids": [
+                32747
+              ],
+              "correct_option_labels": [
+                "D"
+              ],
+              "correct_option_texts": [
+                "4.5"
+              ],
+              "explanation": "The given data in ascending order is\n7, 10, 12, 15, 17, 19, 25\nQ_1 = $\\frac{{{{(n + 1)}^{th}}term}}{4}$ = 2^nd term = 10\nQ_3 = $\\frac{{3{{(n + 1)}^{th}}term}}{4}$ = 6^th term = 19\nQ.D. = $ \\frac{{{Q_3} - {Q_1}}}{2} = \\frac{{19 - 10}}{2} = \\frac{9}{2} $ = 4.5"
+            },
+            {
+              "questionID": 19388,
+              "question": "Which of the following is not a measure of central tendency:",
+              "question_raw": "<p>Which of the following is not a measure of central tendency:</p>",
+              "options": [
+                {
+                  "label": "A",
+                  "id": 32751,
+                  "text": "range",
+                  "is_correct": true
+                },
+                {
+                  "label": "B",
+                  "id": 32753,
+                  "text": "median",
+                  "is_correct": false
+                },
+                {
+                  "label": "C",
+                  "id": 32752,
+                  "text": "mean",
+                  "is_correct": false
+                },
+                {
+                  "label": "D",
+                  "id": 32754,
+                  "text": "mode",
+                  "is_correct": false
+                }
+              ],
+              "correct_option_ids": [
+                32751
+              ],
+              "correct_option_labels": [
+                "A"
+              ],
+              "correct_option_texts": [
+                "range"
+              ],
+              "explanation": "Meausre of central tendencies give the middle most or average value whereas range gives the difference between highest and lowest value."
+            },
+            {
+              "questionID": 19389,
+              "question": "If the mean of numbers 27, 31, 89, 107, 156 is 82, then the mean of 130, 126, 68, 50, 1 is :",
+              "question_raw": "<p>If the mean of numbers 27, 31, 89, 107, 156 is 82, then the mean of 130, 126, 68, 50, 1 is :</p>",
+              "options": [
+                {
+                  "label": "A",
+                  "id": 32757,
+                  "text": "82",
+                  "is_correct": false
+                },
+                {
+                  "label": "B",
+                  "id": 32756,
+                  "text": "157",
+                  "is_correct": false
+                },
+                {
+                  "label": "C",
+                  "id": 32758,
+                  "text": "80",
+                  "is_correct": false
+                },
+                {
+                  "label": "D",
+                  "id": 32755,
+                  "text": "75",
+                  "is_correct": true
+                }
+              ],
+              "correct_option_ids": [
+                32755
+              ],
+              "correct_option_labels": [
+                "D"
+              ],
+              "correct_option_texts": [
+                "75"
+              ],
+              "explanation": "mean = $ \\frac{{130 + 126 + 68 + 50 + 1}}{5} = \\frac{{375}}{5} $ = 75"
+            },
+            {
+              "questionID": 19390,
+              "question": "If in moderately asymmetrical distribution mode and mean of the data are 6$\\mu $ and 9$\\mu $ respectively, then the median is",
+              "question_raw": "<p>If in moderately asymmetrical distribution mode and mean of the data are 6<span class=\"math-tex\">{tex}\\mu {/tex}</span> and 9<span class=\"math-tex\">{tex}\\mu {/tex}</span> respectively, then the median is</p>",
+              "options": [
+                {
+                  "label": "A",
+                  "id": 32761,
+                  "text": "6$\\mu $",
+                  "is_correct": false
+                },
+                {
+                  "label": "B",
+                  "id": 32762,
+                  "text": "5$\\mu $",
+                  "is_correct": false
+                },
+                {
+                  "label": "C",
+                  "id": 32759,
+                  "text": "8$\\mu $",
+                  "is_correct": true
+                },
+                {
+                  "label": "D",
+                  "id": 32760,
+                  "text": "7$\\mu $",
+                  "is_correct": false
+                }
+              ],
+              "correct_option_ids": [
+                32759
+              ],
+              "correct_option_labels": [
+                "C"
+              ],
+              "correct_option_texts": [
+                "8$\\mu $"
+              ],
+              "explanation": "$median = \\frac{{mode + 2mean}}{3}$ = $\\frac{6 \\mu+2(9 \\mu)}{3}$ = $\\frac{24 \\mu}{3}$ = 8$\\mu $"
+            },
+            {
+              "questionID": 19391,
+              "question": "If the mean of the squares of first n natural numbers be 11, then n is equal to",
+              "question_raw": "<p>If the mean of the squares of first n natural numbers be 11, then n is equal to</p>",
+              "options": [
+                {
+                  "label": "A",
+                  "id": 32763,
+                  "text": "5",
+                  "is_correct": true
+                },
+                {
+                  "label": "B",
+                  "id": 32765,
+                  "text": "$\\frac{-13}{2}$",
+                  "is_correct": false
+                },
+                {
+                  "label": "C",
+                  "id": 32766,
+                  "text": "13",
+                  "is_correct": false
+                },
+                {
+                  "label": "D",
+                  "id": 32764,
+                  "text": "11",
+                  "is_correct": false
+                }
+              ],
+              "correct_option_ids": [
+                32763
+              ],
+              "correct_option_labels": [
+                "A"
+              ],
+              "correct_option_texts": [
+                "5"
+              ],
+              "explanation": "Mean = $\\frac{{\\frac{{n(n + 1)(2n + 1)}}{6}}}{n} = \\frac{{(n + 1)(2n + 1)}}{6}$ \n$\\Rightarrow$ 11 = $\\frac{(n+1)(2 n+1)}{6}$ \n$\\Rightarrow$ 66 = (n + 1)(2n + 1)\n$\\Rightarrow$ 2n^2 + 3n - 65 = 0\n$\\Rightarrow$ 2n^2 + 13n - 10n - 65 = 0\n$\\Rightarrow$ (2n + 13)(n - 5) = 0\n$\\Rightarrow$ n = 5, $\\frac{-13}{2}$ \nSo, n = 5"
+            },
+            {
+              "questionID": 19392,
+              "question": "If the mean of the first n odd natural numbers be n itself, then n is equal to",
+              "question_raw": "<p>If the mean of the first n odd natural numbers be n itself, then n is equal to</p>\r\n",
+              "options": [
+                {
+                  "label": "A",
+                  "id": 32767,
+                  "text": "any natural number",
+                  "is_correct": true
+                },
+                {
+                  "label": "B",
+                  "id": 32769,
+                  "text": "2",
+                  "is_correct": false
+                },
+                {
+                  "label": "C",
+                  "id": 32768,
+                  "text": "1",
+                  "is_correct": false
+                },
+                {
+                  "label": "D",
+                  "id": 32770,
+                  "text": "3",
+                  "is_correct": false
+                }
+              ],
+              "correct_option_ids": [
+                32767
+              ],
+              "correct_option_labels": [
+                "A"
+              ],
+              "correct_option_texts": [
+                "any natural number"
+              ],
+              "explanation": "Mean = $\\frac{X_{1}+X_{2}+\\ldots \\ldots+X_{n}}{n}$ \n$\\Rightarrow$ n = $\\frac{X_{1}+X_{2}+\\ldots . .+X_{n}}{n}$ \n$\\Rightarrow$ n^2 = X_1 + X_2 + .... + X_n \nHere, n can be any natural number."
+            },
+            {
+              "questionID": 19393,
+              "question": "The mean of the first n terms of the A.P. (a + d) + (a + 3d) + (a + 5d) +………..is",
+              "question_raw": "<p>The mean of the first n terms of the A.P. (a + d) + (a + 3d) + (a + 5d) +&hellip;&hellip;&hellip;..is</p>",
+              "options": [
+                {
+                  "label": "A",
+                  "id": 32771,
+                  "text": "a + nd",
+                  "is_correct": true
+                },
+                {
+                  "label": "B",
+                  "id": 32773,
+                  "text": "$a + \\frac{n}{2}d$",
+                  "is_correct": false
+                },
+                {
+                  "label": "C",
+                  "id": 32774,
+                  "text": "$\\frac{a + nd}{2}$",
+                  "is_correct": false
+                },
+                {
+                  "label": "D",
+                  "id": 32772,
+                  "text": "a + n^2d",
+                  "is_correct": false
+                }
+              ],
+              "correct_option_ids": [
+                32771
+              ],
+              "correct_option_labels": [
+                "A"
+              ],
+              "correct_option_texts": [
+                "a + nd"
+              ],
+              "explanation": "mean = $ \\frac{{\\frac{n}{2}\\left[ {2(a + d) + (n - 1)2d} \\right]}}{n} $ = $\\frac{\\frac{n}{2}[2 a+2 d+2 nd-2 d]}{n}$ = $\\frac{1}{2}(2 a+2 n d)$ = a + nd"
+            },
+            {
+              "questionID": 19394,
+              "question": "If a, b, c be any three positive numbers, then the least value of (a + b + c)$\\left(\\frac{1}{a}+\\frac{1}{b}+\\frac{1}{c}\\right)$ is",
+              "question_raw": "<p>If a, b, c be any three positive numbers, then the least value of (a + b + c)<span class=\"math-tex\">{tex}\\left(\\frac{1}{a}+\\frac{1}{b}+\\frac{1}{c}\\right){/tex}</span>&nbsp;is&nbsp;</p>",
+              "options": [
+                {
+                  "label": "A",
+                  "id": 32777,
+                  "text": "3",
+                  "is_correct": false
+                },
+                {
+                  "label": "B",
+                  "id": 32775,
+                  "text": "9",
+                  "is_correct": true
+                },
+                {
+                  "label": "C",
+                  "id": 32776,
+                  "text": "6",
+                  "is_correct": false
+                },
+                {
+                  "label": "D",
+                  "id": 32778,
+                  "text": "1",
+                  "is_correct": false
+                }
+              ],
+              "correct_option_ids": [
+                32775
+              ],
+              "correct_option_labels": [
+                "B"
+              ],
+              "correct_option_texts": [
+                "9"
+              ],
+              "explanation": "A.M > H.M\n$\\Rightarrow$ $\\frac{a+b+c}{3} \\geq \\frac{3}{\\frac{1}{a}+\\frac{1}{b}+\\frac{1}{c}}$ \n$\\Rightarrow$ (a + b + c) $\\left(\\frac{1}{a}+\\frac{1}{b}+\\frac{1}{c}\\right) \\geq 3 \\times 3 \\geq 9$"
+            },
+            {
+              "questionID": 19395,
+              "question": "The median of the data 13, 14, 16, 18, 20, 22 is",
+              "question_raw": "<p>The median of the data 13, 14, 16, 18, 20, 22 is</p>",
+              "options": [
+                {
+                  "label": "A",
+                  "id": 32779,
+                  "text": "17",
+                  "is_correct": true
+                },
+                {
+                  "label": "B",
+                  "id": 32780,
+                  "text": "16",
+                  "is_correct": false
+                },
+                {
+                  "label": "C",
+                  "id": 32782,
+                  "text": "19",
+                  "is_correct": false
+                },
+                {
+                  "label": "D",
+                  "id": 32781,
+                  "text": "18",
+                  "is_correct": false
+                }
+              ],
+              "correct_option_ids": [
+                32779
+              ],
+              "correct_option_labels": [
+                "A"
+              ],
+              "correct_option_texts": [
+                "17"
+              ],
+              "explanation": "Median = $\\frac{{\\left[ {{{(\\frac{n}{2})}^{th}} + {{(\\frac{{n + 1}}{2})}^{th}}} \\right]term}}{2} $ = $\\frac{3^{r d}+4^{t h}term}{2}$ = $\\frac{16+18}{2}$ = $\\frac{34}{2}$ = 17"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "testPaperID": 674,
+      "testPaperName": "Statistics Test 03",
+      "is_paid": true,
+      "category_full_name": "CBSE > Class 11 > Mathematics > Statistics",
+      "noOfQuestions": 15,
+      "has_answers": true,
+      "sections": [
+        {
+          "sectionName": "General",
+          "sectionID": null,
+          "questions": [
+            {
+              "questionID": 19396,
+              "question": "If the two lines of regression are at right angles, then $\\rho$(X, Y) is equal to",
+              "question_raw": "<p>If the two lines of regression are at right angles, then <span class=\"math-tex\">{tex}\\rho{/tex}</span>(X, Y)&nbsp;is equal to</p>\r\n",
+              "options": [
+                {
+                  "label": "A",
+                  "id": 32783,
+                  "text": "0",
+                  "is_correct": true
+                },
+                {
+                  "label": "B",
+                  "id": 32785,
+                  "text": "- 1",
+                  "is_correct": false
+                },
+                {
+                  "label": "C",
+                  "id": 32784,
+                  "text": "1 or - 1",
+                  "is_correct": false
+                },
+                {
+                  "label": "D",
+                  "id": 32786,
+                  "text": "1",
+                  "is_correct": false
+                }
+              ],
+              "correct_option_ids": [
+                32783
+              ],
+              "correct_option_labels": [
+                "A"
+              ],
+              "correct_option_texts": [
+                "0"
+              ],
+              "explanation": "tan $\\theta$ = $\\frac{1-\\rho^{2}}{\\rho} \\cdot \\frac{\\sigma_{x} \\sigma_{y}}{\\sigma_{x}^{2}+\\sigma_{y}^{2}}$ \n$\\Rightarrow$ $\\tan \\frac{\\pi}{2}=\\frac{1-\\rho^{2}}{\\rho} \\cdot \\frac{\\sigma_{x} \\sigma_{y}}{\\sigma_{x}^{2}+\\sigma_{y}^{2}}$ \n$\\Rightarrow$ $\\infty=\\frac{1-\\rho^{2}}{\\rho} \\cdot \\frac{\\sigma_{x} \\sigma_{y}}{\\sigma_{x}^{2}+\\sigma_{y}^{2}}$ \n$\\Rightarrow$ $\\rho$ = 0"
+            },
+            {
+              "questionID": 19397,
+              "question": "If COV(X,Y) = 0, then the two lines of the regression are",
+              "question_raw": "<p>If COV(X,Y) = 0, then the two lines of the regression are</p>",
+              "options": [
+                {
+                  "label": "A",
+                  "id": 32790,
+                  "text": "intersecting each other at 60^o",
+                  "is_correct": false
+                },
+                {
+                  "label": "B",
+                  "id": 32788,
+                  "text": "parallel",
+                  "is_correct": false
+                },
+                {
+                  "label": "C",
+                  "id": 32789,
+                  "text": "coincident",
+                  "is_correct": false
+                },
+                {
+                  "label": "D",
+                  "id": 32787,
+                  "text": "at right angles",
+                  "is_correct": true
+                }
+              ],
+              "correct_option_ids": [
+                32787
+              ],
+              "correct_option_labels": [
+                "D"
+              ],
+              "correct_option_texts": [
+                "at right angles"
+              ],
+              "explanation": "Using the formulae,\n$\\rho = \\frac{{{\\mathop{\\rm cov}} (x,y)}}{{\\mathop \\sigma \\nolimits_x \\mathop \\sigma \\nolimits_y }}$ \ntan $\\theta$ = $ \\frac{{1 - \\mathop \\rho \\nolimits^2 }}{\\rho }.\\frac{{\\mathop \\sigma \\nolimits_x \\mathop \\sigma \\nolimits_y }}{{\\mathop \\sigma \\nolimits_x^2 + \\mathop \\sigma \\nolimits_y^2 }}$ \nHere $\\rho = 0$ \nTherefore $\\theta = \\frac{\\pi }{2}$"
+            },
+            {
+              "questionID": 19398,
+              "question": "If the variance of the data is V, then its S.D. is",
+              "question_raw": "<p>If the variance of the data is V, then its S.D. is</p>",
+              "options": [
+                {
+                  "label": "A",
+                  "id": 32791,
+                  "text": "$\\sqrt V $",
+                  "is_correct": true
+                },
+                {
+                  "label": "B",
+                  "id": 32792,
+                  "text": "±$\\sqrt V $",
+                  "is_correct": false
+                },
+                {
+                  "label": "C",
+                  "id": 32793,
+                  "text": "- $\\sqrt V $",
+                  "is_correct": false
+                },
+                {
+                  "label": "D",
+                  "id": 32794,
+                  "text": "V^2",
+                  "is_correct": false
+                }
+              ],
+              "correct_option_ids": [
+                32791
+              ],
+              "correct_option_labels": [
+                "A"
+              ],
+              "correct_option_texts": [
+                "$\\sqrt V $"
+              ],
+              "explanation": "Standard deviation have the same units as the data but the variance is mean of the square of differences."
+            },
+            {
+              "questionID": 19399,
+              "question": "If the two lines of regression are y = 3x – 5 and y = 2x - 4, then $\\rho \\left( {X,Y} \\right)$ is equal to",
+              "question_raw": "<p>If the two lines of regression are y = 3x &ndash; 5 and y = 2x -&nbsp;4, then <span class=\"math-tex\">{tex}\\rho \\left( {X,Y} \\right){/tex}</span> is equal to</p>",
+              "options": [
+                {
+                  "label": "A",
+                  "id": 32795,
+                  "text": "$\\sqrt{\\frac{2}{3}}$",
+                  "is_correct": true
+                },
+                {
+                  "label": "B",
+                  "id": 32797,
+                  "text": "$\\sqrt{\\frac{1}{6}}$",
+                  "is_correct": false
+                },
+                {
+                  "label": "C",
+                  "id": 32798,
+                  "text": "1",
+                  "is_correct": false
+                },
+                {
+                  "label": "D",
+                  "id": 32796,
+                  "text": "$\\sqrt{\\frac{3}{2}}$",
+                  "is_correct": false
+                }
+              ],
+              "correct_option_ids": [
+                32795
+              ],
+              "correct_option_labels": [
+                "A"
+              ],
+              "correct_option_texts": [
+                "$\\sqrt{\\frac{2}{3}}$"
+              ],
+              "explanation": "let us assume that y = 3x – 5 and y = 2x – 4 are lines of regression of x on y and y on x respectively, therefore\nb_xy = $\\frac{1}{3}$ \nb_yz = 2\n$\\rho = \\pm \\sqrt {{b_{xy}}{b_{yx}}} = \\pm \\sqrt {\\frac{2}{3}} $ \nBut sign of $\\rho $ is same as ${b_{yx}}$ and ${b_{xy}}$ \nTherefore $\\rho = \\sqrt {\\frac{2}{3}} $"
+            },
+            {
+              "questionID": 19400,
+              "question": "If the median = (mode + 2 mean)$\\mu $, then $\\mu $ is equal to",
+              "question_raw": "<p>If the median = (mode + 2 mean)<span class=\"math-tex\">{tex}\\mu {/tex}</span>, then <span class=\"math-tex\">{tex}\\mu {/tex}</span> is equal to</p>",
+              "options": [
+                {
+                  "label": "A",
+                  "id": 32801,
+                  "text": "2",
+                  "is_correct": false
+                },
+                {
+                  "label": "B",
+                  "id": 32802,
+                  "text": "$\\frac{2}{3}$",
+                  "is_correct": false
+                },
+                {
+                  "label": "C",
+                  "id": 32800,
+                  "text": "3",
+                  "is_correct": false
+                },
+                {
+                  "label": "D",
+                  "id": 32799,
+                  "text": "$\\frac{1}{3}$",
+                  "is_correct": true
+                }
+              ],
+              "correct_option_ids": [
+                32799
+              ],
+              "correct_option_labels": [
+                "D"
+              ],
+              "correct_option_texts": [
+                "$\\frac{1}{3}$"
+              ],
+              "explanation": "We know that 3 median = mode + 2 mean\nSo, \n3(mode + 2mean) $\\mu$ = mode + 2mean\n$\\mu$ = $\\frac{1}{3}$"
+            },
+            {
+              "questionID": 19401,
+              "question": "If mean = (3 median – mode)x, then the value of x is",
+              "question_raw": "<p>If mean = (3 median &ndash; mode)x, then the value of x is</p>",
+              "options": [
+                {
+                  "label": "A",
+                  "id": 32805,
+                  "text": "2",
+                  "is_correct": false
+                },
+                {
+                  "label": "B",
+                  "id": 32806,
+                  "text": "$\\frac{3}{2}$",
+                  "is_correct": false
+                },
+                {
+                  "label": "C",
+                  "id": 32804,
+                  "text": "1",
+                  "is_correct": false
+                },
+                {
+                  "label": "D",
+                  "id": 32803,
+                  "text": "$\\frac{1}{2}$",
+                  "is_correct": true
+                }
+              ],
+              "correct_option_ids": [
+                32803
+              ],
+              "correct_option_labels": [
+                "D"
+              ],
+              "correct_option_texts": [
+                "$\\frac{1}{2}$"
+              ],
+              "explanation": "We know that, 3median = mode + 2 mean\nSo, mean = $\\frac{(3 median - mode)}{2}$ ........(1)\nComparing equation (1) with the given equation\nTherefore, x = $\\frac{1}{2}$"
+            },
+            {
+              "questionID": 19402,
+              "question": "Least square lines of regression give best possible estimates, when $\\rho \\left( {X,Y} \\right)$ is equal to",
+              "question_raw": "<p>Least square lines of regression give best possible estimates, when <span class=\"math-tex\">{tex}\\rho \\left( {X,Y} \\right){/tex}</span> is equal to</p>\r\n",
+              "options": [
+                {
+                  "label": "A",
+                  "id": 32807,
+                  "text": "- 1 or 1",
+                  "is_correct": true
+                },
+                {
+                  "label": "B",
+                  "id": 32810,
+                  "text": "$\\frac{1}{2}$",
+                  "is_correct": false
+                },
+                {
+                  "label": "C",
+                  "id": 32809,
+                  "text": "less than 1",
+                  "is_correct": false
+                },
+                {
+                  "label": "D",
+                  "id": 32808,
+                  "text": "greater than -1",
+                  "is_correct": false
+                }
+              ],
+              "correct_option_ids": [
+                32807
+              ],
+              "correct_option_labels": [
+                "A"
+              ],
+              "correct_option_texts": [
+                "- 1 or 1"
+              ],
+              "explanation": "Least square lines of regression give best possible estimates when the lines coincide at that point $\\rho = \\pm 1$"
+            },
+            {
+              "questionID": 19403,
+              "question": "$\\rho \\left( {X,Y} \\right)$ is equal to",
+              "question_raw": "<p><span class=\"math-tex\">{tex}\\rho \\left( {X,Y} \\right){/tex}</span> is equal to</p>",
+              "options": [
+                {
+                  "label": "A",
+                  "id": 32813,
+                  "text": "$\\frac{\\operatorname{COV}(X, Y)}{\\operatorname{VAR}(X) \\operatorname{VAR}(Y)}$",
+                  "is_correct": false
+                },
+                {
+                  "label": "B",
+                  "id": 32814,
+                  "text": "$\\frac{\\operatorname{cov}(x, y)}{S . D}$",
+                  "is_correct": false
+                },
+                {
+                  "label": "C",
+                  "id": 32812,
+                  "text": "COV(X, Y)",
+                  "is_correct": false
+                },
+                {
+                  "label": "D",
+                  "id": 32811,
+                  "text": "$\\frac{\\operatorname{COV}(X, Y)}{\\sqrt{\\operatorname{VAR}(X)} \\sqrt{\\operatorname{VAR(Y)}}}$",
+                  "is_correct": true
+                }
+              ],
+              "correct_option_ids": [
+                32811
+              ],
+              "correct_option_labels": [
+                "D"
+              ],
+              "correct_option_texts": [
+                "$\\frac{\\operatorname{COV}(X, Y)}{\\sqrt{\\operatorname{VAR}(X)} \\sqrt{\\operatorname{VAR(Y)}}}$"
+              ],
+              "explanation": "$\\frac{\\operatorname{COV}(X, Y)}{S D x \\cdot S D y}$ =$\\frac{\\operatorname{COV}(X, Y)}{\\sqrt{\\operatorname{VAR}(X)} \\sqrt{\\operatorname{VAR(Y)}}}$"
+            },
+            {
+              "questionID": 19404,
+              "question": "Quartile deviation is nearly equal to",
+              "question_raw": "<p>Quartile deviation is nearly equal to</p>",
+              "options": [
+                {
+                  "label": "A",
+                  "id": 32815,
+                  "text": "$\\frac{2}{3} \\sigma $",
+                  "is_correct": true
+                },
+                {
+                  "label": "B",
+                  "id": 32818,
+                  "text": "$\\frac{2}{5} \\sigma $",
+                  "is_correct": false
+                },
+                {
+                  "label": "C",
+                  "id": 32817,
+                  "text": "2$\\sigma $",
+                  "is_correct": false
+                },
+                {
+                  "label": "D",
+                  "id": 32816,
+                  "text": "$\\frac{3}{2} \\sigma $",
+                  "is_correct": false
+                }
+              ],
+              "correct_option_ids": [
+                32815
+              ],
+              "correct_option_labels": [
+                "A"
+              ],
+              "correct_option_texts": [
+                "$\\frac{2}{3} \\sigma $"
+              ],
+              "explanation": "Quartile deviation $\\frac{{\\mathop Q\\nolimits_3 - \\mathop Q\\nolimits_1 }}{2}$ is approximately $\\frac{2}{3}$ times the standard deviation."
+            },
+            {
+              "questionID": 19405,
+              "question": "For a symmetrical distribution Q_1 = 20 and Q_3 = 40. The median of the data is",
+              "question_raw": "<p>For a symmetrical distribution Q<sub>1</sub> = 20 and Q<sub>3</sub> = 40. The median of the data is</p>",
+              "options": [
+                {
+                  "label": "A",
+                  "id": 32819,
+                  "text": "30",
+                  "is_correct": true
+                },
+                {
+                  "label": "B",
+                  "id": 32820,
+                  "text": "10",
+                  "is_correct": false
+                },
+                {
+                  "label": "C",
+                  "id": 32821,
+                  "text": "20",
+                  "is_correct": false
+                },
+                {
+                  "label": "D",
+                  "id": 32822,
+                  "text": "40",
+                  "is_correct": false
+                }
+              ],
+              "correct_option_ids": [
+                32819
+              ],
+              "correct_option_labels": [
+                "A"
+              ],
+              "correct_option_texts": [
+                "30"
+              ],
+              "explanation": "For symmetric distribution, median = $\\frac{{\\mathop Q\\nolimits_1 + \\mathop Q\\nolimits_3 }}{2}$ = $\\frac{20+40}{2}$ = 30"
+            },
+            {
+              "questionID": 19406,
+              "question": "The number of families having expenditure range in Rs 16000-19000 is\n Monthly Expenditure\r\n Number of Families\r\n Expenditure more than rs 10000\r\n 100\r\n Expenditure more thanrs 13000\r\n 85\r\n Expenditure more thanrs 16000\r\n 69\r\n Expenditure more thanrs 19000\r\n 50\r\n Expenditure more thanrs 22000\r\n 33\r\n Expenditure more thanrs 25000\r\n 15",
+              "question_raw": "<p>The number of families having expenditure range in Rs 16000-19000 is</p>\r\n\r\n<table border=\"1\" cellpadding=\"3\" cellspacing=\"0\" style=\"width:100%;\">\r\n\t<thead>\r\n\t\t<tr>\r\n\t\t\t<th scope=\"col\">Monthly Expenditure</th>\r\n\t\t\t<th scope=\"col\">Number of Families</th>\r\n\t\t</tr>\r\n\t</thead>\r\n\t<tbody>\r\n\t\t<tr>\r\n\t\t\t<td>Expenditure more than rs 10000</td>\r\n\t\t\t<td>100</td>\r\n\t\t</tr>\r\n\t\t<tr>\r\n\t\t\t<td>Expenditure more thanrs 13000</td>\r\n\t\t\t<td>85</td>\r\n\t\t</tr>\r\n\t\t<tr>\r\n\t\t\t<td>Expenditure more thanrs 16000</td>\r\n\t\t\t<td>69</td>\r\n\t\t</tr>\r\n\t\t<tr>\r\n\t\t\t<td>Expenditure more thanrs 19000</td>\r\n\t\t\t<td>50</td>\r\n\t\t</tr>\r\n\t\t<tr>\r\n\t\t\t<td>Expenditure more thanrs 22000</td>\r\n\t\t\t<td>33</td>\r\n\t\t</tr>\r\n\t\t<tr>\r\n\t\t\t<td>Expenditure more thanrs 25000</td>\r\n\t\t\t<td>15</td>\r\n\t\t</tr>\r\n\t</tbody>\r\n</table>\r\n",
+              "options": [
+                {
+                  "label": "A",
+                  "id": 32826,
+                  "text": "15",
+                  "is_correct": false
+                },
+                {
+                  "label": "B",
+                  "id": 32824,
+                  "text": "18",
+                  "is_correct": false
+                },
+                {
+                  "label": "C",
+                  "id": 32825,
+                  "text": "17",
+                  "is_correct": false
+                },
+                {
+                  "label": "D",
+                  "id": 32823,
+                  "text": "19",
+                  "is_correct": true
+                }
+              ],
+              "correct_option_ids": [
+                32823
+              ],
+              "correct_option_labels": [
+                "D"
+              ],
+              "correct_option_texts": [
+                "19"
+              ],
+              "explanation": "19"
+            },
+            {
+              "questionID": 19407,
+              "question": "The mean and S.D. of 1, 2, 3, 4, 5, 6 is",
+              "question_raw": "<p>The mean and S.D. of 1, 2, 3, 4, 5, 6 is</p>",
+              "options": [
+                {
+                  "label": "A",
+                  "id": 32829,
+                  "text": "3, $\\frac{35}{12}$",
+                  "is_correct": false
+                },
+                {
+                  "label": "B",
+                  "id": 32827,
+                  "text": "$\\frac{7}{2}, \\sqrt{\\frac{35}{12}}$",
+                  "is_correct": true
+                },
+                {
+                  "label": "C",
+                  "id": 32828,
+                  "text": "3, 3",
+                  "is_correct": false
+                },
+                {
+                  "label": "D",
+                  "id": 32830,
+                  "text": "$\\frac{7}{2},\\sqrt 3 $",
+                  "is_correct": false
+                }
+              ],
+              "correct_option_ids": [
+                32827
+              ],
+              "correct_option_labels": [
+                "B"
+              ],
+              "correct_option_texts": [
+                "$\\frac{7}{2}, \\sqrt{\\frac{35}{12}}$"
+              ],
+              "explanation": "Mean = $ \\frac{{1 + 2 + 3 + 4 + 5 + 6}}{6} $ = $\\frac{21}{6}$ = $\\frac{7}{2}$ \nS.D = $ \\sqrt {\\frac{{{n^2} - 1}}{{12}}} = \\sqrt {\\frac{{36 - 1}}{{12}}} $ = $\\sqrt{\\frac{35}{12}}$"
+            },
+            {
+              "questionID": 19408,
+              "question": "The range of the following set of observations 2, 3, 5, 9, 8, 7, 6, 5, 7, 4, 3 is",
+              "question_raw": "<p>The range of the following set of observations 2, 3, 5, 9, 8, 7, 6, 5, 7, 4, 3 is</p>",
+              "options": [
+                {
+                  "label": "A",
+                  "id": 32832,
+                  "text": "6",
+                  "is_correct": false
+                },
+                {
+                  "label": "B",
+                  "id": 32833,
+                  "text": "11",
+                  "is_correct": false
+                },
+                {
+                  "label": "C",
+                  "id": 32831,
+                  "text": "7",
+                  "is_correct": true
+                },
+                {
+                  "label": "D",
+                  "id": 32834,
+                  "text": "5.5",
+                  "is_correct": false
+                }
+              ],
+              "correct_option_ids": [
+                32831
+              ],
+              "correct_option_labels": [
+                "C"
+              ],
+              "correct_option_texts": [
+                "7"
+              ],
+              "explanation": "Range = 9 - 2 = 7"
+            },
+            {
+              "questionID": 19409,
+              "question": "Which of the following, in case of a discrete data, is not equal to the median?",
+              "question_raw": "<p>Which of the following, in case of a discrete data, is not equal to the median?</p>",
+              "options": [
+                {
+                  "label": "A",
+                  "id": 32836,
+                  "text": "2^nd quartile",
+                  "is_correct": false
+                },
+                {
+                  "label": "B",
+                  "id": 32835,
+                  "text": "lower quartile",
+                  "is_correct": true
+                },
+                {
+                  "label": "C",
+                  "id": 32837,
+                  "text": "5^th decile",
+                  "is_correct": false
+                },
+                {
+                  "label": "D",
+                  "id": 32838,
+                  "text": "50^th percentile",
+                  "is_correct": false
+                }
+              ],
+              "correct_option_ids": [
+                32835
+              ],
+              "correct_option_labels": [
+                "B"
+              ],
+              "correct_option_texts": [
+                "lower quartile"
+              ],
+              "explanation": "As lower quartile is the $\\frac{{{{(n + 1)}^{th}}term}}{4}$ whereas median is $\\frac{{{{(n + 1)}^{th}}term}}{2}$ or the average of middle most terms"
+            },
+            {
+              "questionID": 19410,
+              "question": "Mean deviation from the mean for the observations – 1, 0, 4 is",
+              "question_raw": "<p>Mean deviation from the mean for the observations &ndash; 1, 0, 4 is</p>",
+              "options": [
+                {
+                  "label": "A",
+                  "id": 32842,
+                  "text": "1",
+                  "is_correct": false
+                },
+                {
+                  "label": "B",
+                  "id": 32839,
+                  "text": "2",
+                  "is_correct": true
+                },
+                {
+                  "label": "C",
+                  "id": 32841,
+                  "text": "$\\frac{3}{2}$",
+                  "is_correct": false
+                },
+                {
+                  "label": "D",
+                  "id": 32840,
+                  "text": "$\\frac{2}{3}$",
+                  "is_correct": false
+                }
+              ],
+              "correct_option_ids": [
+                32839
+              ],
+              "correct_option_labels": [
+                "B"
+              ],
+              "correct_option_texts": [
+                "2"
+              ],
+              "explanation": "Given observations are -1,0,4\nMean $\\bar x$ = $\\frac{-1+0+4}{3}$ = 1\nNow, deviations of x_i from mean are |-1-1|, |0-1|, |4-1| i.e. 2, 1, 3\nSum of deviations $\\boldsymbol{\\Sigma}\\left|\\mathbf{x}_{\\mathbf{1}}-\\overline{\\mathbf{x}}\\right|$ = 2 + 1 + 3 = 6\nMean deviation $\\frac{1}{n} \\Sigma\\left|x_{1}-\\bar{x}\\right|$ = $\\frac{1}{3} \\times 6$ = 2"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "testPaperID": 675,
+      "testPaperName": "Statistics Test 04",
+      "is_paid": true,
+      "category_full_name": "CBSE > Class 11 > Mathematics > Statistics",
+      "noOfQuestions": 15,
+      "has_answers": true,
+      "sections": [
+        {
+          "sectionName": "General",
+          "sectionID": null,
+          "questions": [
+            {
+              "questionID": 19411,
+              "question": "If the two lines of regression are 2x + y = 7 and x + 2y = 7, then $\\rho \\left( {x,y} \\right)$ is equal to",
+              "question_raw": "<p>If the two lines of regression are 2x + y = 7 and x + 2y = 7, then <span class=\"math-tex\">{tex}\\rho \\left( {x,y} \\right){/tex}</span> is equal to</p>",
+              "options": [
+                {
+                  "label": "A",
+                  "id": 32844,
+                  "text": "$\\frac{1}{2}$",
+                  "is_correct": false
+                },
+                {
+                  "label": "B",
+                  "id": 32843,
+                  "text": "$\\frac{-1}{2}$",
+                  "is_correct": true
+                },
+                {
+                  "label": "C",
+                  "id": 32845,
+                  "text": "$\\frac{1}{4}$",
+                  "is_correct": false
+                },
+                {
+                  "label": "D",
+                  "id": 32846,
+                  "text": "$\\frac{-1}{4}$",
+                  "is_correct": false
+                }
+              ],
+              "correct_option_ids": [
+                32843
+              ],
+              "correct_option_labels": [
+                "B"
+              ],
+              "correct_option_texts": [
+                "$\\frac{-1}{2}$"
+              ],
+              "explanation": "Let us assume that 2x + y = 7 and x + 2y = 7 are lines of regression of y on x and x on y respectively.\nTherefore, \nb_yx = $\\frac{-1}{2}$ \nb_xy, = $\\frac{-1}{2}$ \n$\\Rightarrow$ $\\rho = \\pm \\sqrt {({b_{yx}} {b_{xy}})}$ \nBut the sign of $\\rho$ will be same as b_yx and b_xy\nHence, $\\rho = - \\frac{1}{2}$"
+            },
+            {
+              "questionID": 19412,
+              "question": "The mean of 50 observations is 36, if two observations are 30 and 42 are deleted, then the mean of the remaining observations is",
+              "question_raw": "<p>The mean of 50 observations is 36, if two observations are 30 and 42 are deleted, then the mean of the remaining observations is</p>",
+              "options": [
+                {
+                  "label": "A",
+                  "id": 32848,
+                  "text": "48",
+                  "is_correct": false
+                },
+                {
+                  "label": "B",
+                  "id": 32847,
+                  "text": "36",
+                  "is_correct": true
+                },
+                {
+                  "label": "C",
+                  "id": 32850,
+                  "text": "46",
+                  "is_correct": false
+                },
+                {
+                  "label": "D",
+                  "id": 32849,
+                  "text": "38",
+                  "is_correct": false
+                }
+              ],
+              "correct_option_ids": [
+                32847
+              ],
+              "correct_option_labels": [
+                "B"
+              ],
+              "correct_option_texts": [
+                "36"
+              ],
+              "explanation": "Mean = $\\frac{1}{n} \\sum_{i=1}^{n} X_{i}$ \n$\\Rightarrow$ 36 = $\\frac{1}{50} \\sum_{i=1}^{50} X_{i}$ \n$\\Rightarrow$ $\\sum_{i=1}^{50} X_{i}$ = 36 $\\times$ 50 = 1800\nAfter deleting the observations 30 and 42.\nNew sum = 1800 - 30 - 42 = 1728\nNew mean $\\frac{1728}{48} $ = 36"
+            },
+            {
+              "questionID": 19413,
+              "question": "For a bivariate frequency distribution byx > 1, then b_xy is",
+              "question_raw": "<p>For a bivariate&nbsp;frequency distribution byx &gt; 1,&nbsp;then b<sub>xy</sub>&nbsp;is</p>",
+              "options": [
+                {
+                  "label": "A",
+                  "id": 32851,
+                  "text": "lies between 0 and 1",
+                  "is_correct": true
+                },
+                {
+                  "label": "B",
+                  "id": 32854,
+                  "text": "0",
+                  "is_correct": false
+                },
+                {
+                  "label": "C",
+                  "id": 32852,
+                  "text": "negative",
+                  "is_correct": false
+                },
+                {
+                  "label": "D",
+                  "id": 32853,
+                  "text": "less than 1",
+                  "is_correct": false
+                }
+              ],
+              "correct_option_ids": [
+                32851
+              ],
+              "correct_option_labels": [
+                "A"
+              ],
+              "correct_option_texts": [
+                "lies between 0 and 1"
+              ],
+              "explanation": "If b_yx > 1, then 0 < b_xy < 1"
+            },
+            {
+              "questionID": 19414,
+              "question": "A man travels at a speed of 20 km/hour and then return at a speed of 30 km/hour. His average speed of the whole journey is",
+              "question_raw": "<p>A man travels&nbsp;at a speed of 20 km/hour and then return at a speed of 30 km/hour. His average speed of the whole journey is</p>",
+              "options": [
+                {
+                  "label": "A",
+                  "id": 32855,
+                  "text": "24 km/hour",
+                  "is_correct": true
+                },
+                {
+                  "label": "B",
+                  "id": 32858,
+                  "text": "26 km/hour",
+                  "is_correct": false
+                },
+                {
+                  "label": "C",
+                  "id": 32857,
+                  "text": "24.5 km/hour",
+                  "is_correct": false
+                },
+                {
+                  "label": "D",
+                  "id": 32856,
+                  "text": "25 km/hour",
+                  "is_correct": false
+                }
+              ],
+              "correct_option_ids": [
+                32855
+              ],
+              "correct_option_labels": [
+                "A"
+              ],
+              "correct_option_texts": [
+                "24 km/hour"
+              ],
+              "explanation": "Average speed for the whole journey is the H.M between 20 and 30\nTherefore, average speed = $ \\frac{2}{{\\frac{1}{{20}} + \\frac{1}{{30}}}} = \\frac{2}{{\\frac{5}{{60}}}}$ = 24 km/hr"
+            },
+            {
+              "questionID": 19415,
+              "question": "The S.D. of the first n natural numbers is",
+              "question_raw": "<p>The S.D. of the first n natural numbers is</p>",
+              "options": [
+                {
+                  "label": "A",
+                  "id": 32859,
+                  "text": "$\\sqrt{\\frac{n^2-1}{12}}$",
+                  "is_correct": true
+                },
+                {
+                  "label": "B",
+                  "id": 32860,
+                  "text": "$\\frac{n + 1}{2}$",
+                  "is_correct": false
+                },
+                {
+                  "label": "C",
+                  "id": 32862,
+                  "text": "n",
+                  "is_correct": false
+                },
+                {
+                  "label": "D",
+                  "id": 32861,
+                  "text": "$\\sqrt{\\frac{n(n+1)}{2}}$",
+                  "is_correct": false
+                }
+              ],
+              "correct_option_ids": [
+                32859
+              ],
+              "correct_option_labels": [
+                "A"
+              ],
+              "correct_option_texts": [
+                "$\\sqrt{\\frac{n^2-1}{12}}$"
+              ],
+              "explanation": "First n natural numbers are 1, 2, 3.....n\nWe know that, $\\sum x = \\frac{{n(n + 1)}}{2}$ \nSum of square is $\\sum {{x^2}} = \\sum {({1^2} + {2^2} + {3^2} + ......... + {n^2})} $ \n$\\sum x^{2}=\\frac{n(n+1)(2 n+1)}{6}$ \nSD = $\\sqrt{\\frac{\\sum x^{2}}{n}-\\left(\\frac{\\sum x}{n}\\right)^{2}}$ \n= $\\sqrt{\\frac{n(n+1)(2 n+1)}{6 n}-\\left(\\frac{n(n+1)}{2 n}\\right)^{2}}$ \n= $\\sqrt{\\frac{(n+1)(2 n+1)}{6}-\\left(\\frac{(n+1)}{2}\\right)^{2}}$ \n= $\\sqrt{(n+1)\\left[\\frac{2 n+1}{6}-\\frac{(n+1)}{4}\\right]}$ \n= $\\sqrt{\\frac{(n+1)(n-1)}{12}}$ \n= $\\sqrt{\\frac{n^{2}-1}{12}}$"
+            },
+            {
+              "questionID": 19416,
+              "question": "In a group of students, mean weight of boys is 80 kg and mean weight of girls is 50kg. If the mean weight of all the students taken together is 60kg, then the ratio of the number of boys to that of the girls is",
+              "question_raw": "<p>In a group of students, mean weight of boys is 80 kg and mean weight of girls is 50kg. If the mean weight of all the students taken together is 60kg, then the ratio of the number of boys to that of the girls is</p>",
+              "options": [
+                {
+                  "label": "A",
+                  "id": 32865,
+                  "text": "2 : 3",
+                  "is_correct": false
+                },
+                {
+                  "label": "B",
+                  "id": 32863,
+                  "text": "1 : 2",
+                  "is_correct": true
+                },
+                {
+                  "label": "C",
+                  "id": 32864,
+                  "text": "2 : 1",
+                  "is_correct": false
+                },
+                {
+                  "label": "D",
+                  "id": 32866,
+                  "text": "3 : 2",
+                  "is_correct": false
+                }
+              ],
+              "correct_option_ids": [
+                32863
+              ],
+              "correct_option_labels": [
+                "B"
+              ],
+              "correct_option_texts": [
+                "1 : 2"
+              ],
+              "explanation": "Let the no. of boys be x and no. of girls be y\nSum of weights of boys = 80x\nSum of weights of girls = 50y\nSum of weights of boys and girls together = 60(x + y)\nHence, 80x + 50 y = 60x + 60y\nWhich gives, 20x = 10 y\nSo, x : y = 1 : 2"
+            },
+            {
+              "questionID": 19417,
+              "question": "If the mean of 3, 4, x, 7, 10 is 6, then the value of x is",
+              "question_raw": "<p>If the mean of 3, 4, x, 7, 10&nbsp;is 6, then the value of x is</p>",
+              "options": [
+                {
+                  "label": "A",
+                  "id": 32867,
+                  "text": "6",
+                  "is_correct": true
+                },
+                {
+                  "label": "B",
+                  "id": 32870,
+                  "text": "7",
+                  "is_correct": false
+                },
+                {
+                  "label": "C",
+                  "id": 32868,
+                  "text": "4",
+                  "is_correct": false
+                },
+                {
+                  "label": "D",
+                  "id": 32869,
+                  "text": "5",
+                  "is_correct": false
+                }
+              ],
+              "correct_option_ids": [
+                32867
+              ],
+              "correct_option_labels": [
+                "A"
+              ],
+              "correct_option_texts": [
+                "6"
+              ],
+              "explanation": "Mean = $\\frac{3+4+x+7+10}{5}$ = $\\frac{24+x}{5}$ \n$\\Rightarrow$ 6 = $\\frac{24+x}{5}$ \n$\\Rightarrow$ 30 = 24 + x\n$\\Rightarrow$ 30 - 24 = x\n$\\Rightarrow$ x = 6"
+            },
+            {
+              "questionID": 19418,
+              "question": "For a normal distribution, we have",
+              "question_raw": "<p>For a normal distribution, we have</p>",
+              "options": [
+                {
+                  "label": "A",
+                  "id": 32873,
+                  "text": "median = mode",
+                  "is_correct": false
+                },
+                {
+                  "label": "B",
+                  "id": 32872,
+                  "text": "mean = median",
+                  "is_correct": false
+                },
+                {
+                  "label": "C",
+                  "id": 32871,
+                  "text": "mean = median = mode",
+                  "is_correct": true
+                },
+                {
+                  "label": "D",
+                  "id": 32874,
+                  "text": "mean = mode",
+                  "is_correct": false
+                }
+              ],
+              "correct_option_ids": [
+                32871
+              ],
+              "correct_option_labels": [
+                "C"
+              ],
+              "correct_option_texts": [
+                "mean = median = mode"
+              ],
+              "explanation": "As in normal distribution, the curve is symmetric and unimodal. So, mean is at peak, mode is also at peak and median as well."
+            },
+            {
+              "questionID": 19419,
+              "question": "The G.M. of the numbers 4, 8, 16 is",
+              "question_raw": "<p>The G.M. of the numbers 4, 8, 16 is</p>\r\n",
+              "options": [
+                {
+                  "label": "A",
+                  "id": 32877,
+                  "text": "$\\frac{28}{7}$",
+                  "is_correct": false
+                },
+                {
+                  "label": "B",
+                  "id": 32876,
+                  "text": "$\\frac{28}{3}$",
+                  "is_correct": false
+                },
+                {
+                  "label": "C",
+                  "id": 32878,
+                  "text": "28",
+                  "is_correct": false
+                },
+                {
+                  "label": "D",
+                  "id": 32875,
+                  "text": "8",
+                  "is_correct": true
+                }
+              ],
+              "correct_option_ids": [
+                32875
+              ],
+              "correct_option_labels": [
+                "D"
+              ],
+              "correct_option_texts": [
+                "8"
+              ],
+              "explanation": "G.M between two numbers a and b is given by,\nG.M = $\\sqrt{a b}$ \n= $\\sqrt{4 \\times 16}$ = $\\sqrt{64}$ = 8"
+            },
+            {
+              "questionID": 19420,
+              "question": "The H.M. of the numbers 2, 3, 4 is",
+              "question_raw": "<p>The H.M. of the numbers 2, 3, 4 is</p>",
+              "options": [
+                {
+                  "label": "A",
+                  "id": 32882,
+                  "text": "13",
+                  "is_correct": false
+                },
+                {
+                  "label": "B",
+                  "id": 32881,
+                  "text": "$\\frac{13}{36}$",
+                  "is_correct": false
+                },
+                {
+                  "label": "C",
+                  "id": 32879,
+                  "text": "$\\frac{36}{13}$",
+                  "is_correct": true
+                },
+                {
+                  "label": "D",
+                  "id": 32880,
+                  "text": "3",
+                  "is_correct": false
+                }
+              ],
+              "correct_option_ids": [
+                32879
+              ],
+              "correct_option_labels": [
+                "C"
+              ],
+              "correct_option_texts": [
+                "$\\frac{36}{13}$"
+              ],
+              "explanation": "H.M between two numbers is given by,\nH.M = $ \\frac{3}{{\\frac{1}{a} + \\frac{1}{b} + \\frac{1}{c}}}$ \nHere, H.M = $ \\frac{3}{{\\frac{1}{2} + \\frac{1}{3} + \\frac{1}{4}}} = \\frac{3}{{\\frac{{6 + 4 + 3}}{{12}}}} = \\frac{{36}}{{13}}$"
+            },
+            {
+              "questionID": 19421,
+              "question": "If two variables X and Y are connected by the relation 2x + y = 3, then $\\rho \\left( {X,Y} \\right)$ is equal to",
+              "question_raw": "<p>If two variables X and Y are connected by the relation 2x + y = 3, then <span class=\"math-tex\">{tex}\\rho \\left( {X,Y} \\right){/tex}</span> is equal to</p>",
+              "options": [
+                {
+                  "label": "A",
+                  "id": 32886,
+                  "text": "- 2",
+                  "is_correct": false
+                },
+                {
+                  "label": "B",
+                  "id": 32883,
+                  "text": "-1",
+                  "is_correct": true
+                },
+                {
+                  "label": "C",
+                  "id": 32884,
+                  "text": "1",
+                  "is_correct": false
+                },
+                {
+                  "label": "D",
+                  "id": 32885,
+                  "text": "2",
+                  "is_correct": false
+                }
+              ],
+              "correct_option_ids": [
+                32883
+              ],
+              "correct_option_labels": [
+                "B"
+              ],
+              "correct_option_texts": [
+                "-1"
+              ],
+              "explanation": "Comparing the given equation with ax + by + c = 0\na = 2, b = 1 and c = -3\nTherefore, $\\rho (x,y) = \\frac{{\\frac{{ - b}}{a}}}{{\\left| {\\frac{b}{a}} \\right|}} = - 1$ (as ab > 1 so, a and b are of same sign)"
+            },
+            {
+              "questionID": 19422,
+              "question": "The variance of 2, 4, 6, 8, 10 is",
+              "question_raw": "<p>The variance of 2, 4, 6, 8, 10 is</p>",
+              "options": [
+                {
+                  "label": "A",
+                  "id": 32889,
+                  "text": "6",
+                  "is_correct": false
+                },
+                {
+                  "label": "B",
+                  "id": 32890,
+                  "text": "4",
+                  "is_correct": false
+                },
+                {
+                  "label": "C",
+                  "id": 32887,
+                  "text": "8",
+                  "is_correct": true
+                },
+                {
+                  "label": "D",
+                  "id": 32888,
+                  "text": "7",
+                  "is_correct": false
+                }
+              ],
+              "correct_option_ids": [
+                32887
+              ],
+              "correct_option_labels": [
+                "C"
+              ],
+              "correct_option_texts": [
+                "8"
+              ],
+              "explanation": "Mean = $\\frac{2+4+6+8+10}{5}$ = $\\frac{30}{5}$ = 6\nSo, $\\sum_{i=1}^{n}\\left(X_{i}-\\bar{X}\\right)^{2}$ = (-4)^2+ (-2)^2 + 0 + (2)^2 + (4)^2 = 40\nVariance = $\\frac{1}{n} \\sum_{i=1}^{n}\\left(X_{i}-\\bar{X}\\right)^{2}$ = $\\frac{40}{5}$ = 8"
+            },
+            {
+              "questionID": 19423,
+              "question": "The S.D.of 7 scores 1, 2, 3, 4, 5, 6, 7 is",
+              "question_raw": "<p>The S.D.of 7 scores 1, 2, 3, 4, 5, 6, 7&nbsp;is</p>",
+              "options": [
+                {
+                  "label": "A",
+                  "id": 32891,
+                  "text": "2",
+                  "is_correct": true
+                },
+                {
+                  "label": "B",
+                  "id": 32893,
+                  "text": "1",
+                  "is_correct": false
+                },
+                {
+                  "label": "C",
+                  "id": 32894,
+                  "text": "-1",
+                  "is_correct": false
+                },
+                {
+                  "label": "D",
+                  "id": 32892,
+                  "text": "4",
+                  "is_correct": false
+                }
+              ],
+              "correct_option_ids": [
+                32891
+              ],
+              "correct_option_labels": [
+                "A"
+              ],
+              "correct_option_texts": [
+                "2"
+              ],
+              "explanation": "Mean = $\\frac{1+2+3+4+5+6+7}{7}$ = $\\frac{28}{7}$ = 4\nSo, $\\sum_{i=1}^{n}\\left(X_{i}-\\bar{X}\\right)^{2}$ = (-3)^2 + (-2)^2 + (-1)^2 + 0 + (1)^2 + (2)^2 + (3)^2 = 28\nVariance = $\\frac{1}{n} \\sum_{i=1}^{n}\\left(X_{i}-\\bar{X}\\right)^{2}$ = $\\frac{28}{7}$ = 4\nS.D = $\\sqrt{\\operatorname{var}}=\\sqrt{4}$ = 2"
+            },
+            {
+              "questionID": 19424,
+              "question": "A data consists of two 2’s, four 4’s, six 6’s, three 8’s and 10. The mode of the data is",
+              "question_raw": "<p>A data consists of two 2&rsquo;s, four 4&rsquo;s, six 6&rsquo;s, three 8&rsquo;s and 10. The mode of the data is</p>",
+              "options": [
+                {
+                  "label": "A",
+                  "id": 32896,
+                  "text": "10",
+                  "is_correct": false
+                },
+                {
+                  "label": "B",
+                  "id": 32898,
+                  "text": "4",
+                  "is_correct": false
+                },
+                {
+                  "label": "C",
+                  "id": 32895,
+                  "text": "6",
+                  "is_correct": true
+                },
+                {
+                  "label": "D",
+                  "id": 32897,
+                  "text": "2",
+                  "is_correct": false
+                }
+              ],
+              "correct_option_ids": [
+                32895
+              ],
+              "correct_option_labels": [
+                "C"
+              ],
+              "correct_option_texts": [
+                "6"
+              ],
+              "explanation": "6 is most repeated observation."
+            },
+            {
+              "questionID": 19425,
+              "question": "The two lines of regression can never be",
+              "question_raw": "<p>The two lines of regression can never be</p>",
+              "options": [
+                {
+                  "label": "A",
+                  "id": 32899,
+                  "text": "parallel",
+                  "is_correct": true
+                },
+                {
+                  "label": "B",
+                  "id": 32900,
+                  "text": "perpendicular",
+                  "is_correct": false
+                },
+                {
+                  "label": "C",
+                  "id": 32902,
+                  "text": "intersecting",
+                  "is_correct": false
+                },
+                {
+                  "label": "D",
+                  "id": 32901,
+                  "text": "coincident",
+                  "is_correct": false
+                }
+              ],
+              "correct_option_ids": [
+                32899
+              ],
+              "correct_option_labels": [
+                "A"
+              ],
+              "correct_option_texts": [
+                "parallel"
+              ],
+              "explanation": "because $-1 \\leq \\rho \\leq 1$ \nSo, tan $\\theta$ = $\\frac{1-\\rho^{2}}{\\rho} \\cdot \\frac{\\sigma_{x} \\sigma_{y}}{\\sigma_{x}^{2}+\\sigma_{y}^{2}}$\n$\\theta = \\pi ,\\frac{\\pi }{2},{0^ \\circ }$ \nSo lines can't be parallel."
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "testPaperID": 676,
+      "testPaperName": "Statistics Test 05",
+      "is_paid": true,
+      "category_full_name": "CBSE > Class 11 > Mathematics > Statistics",
+      "noOfQuestions": 15,
+      "has_answers": true,
+      "sections": [
+        {
+          "sectionName": "General",
+          "sectionID": null,
+          "questions": [
+            {
+              "questionID": 19426,
+              "question": "If the correlation coefficient between two variables is 1, then the two least square lines of regression are",
+              "question_raw": "<p>If the correlation coefficient between two variables is 1, then the two least square lines of regression are</p>",
+              "options": [
+                {
+                  "label": "A",
+                  "id": 32903,
+                  "text": "coincident",
+                  "is_correct": true
+                },
+                {
+                  "label": "B",
+                  "id": 32905,
+                  "text": "at right angles",
+                  "is_correct": false
+                },
+                {
+                  "label": "C",
+                  "id": 32904,
+                  "text": "parallel",
+                  "is_correct": false
+                },
+                {
+                  "label": "D",
+                  "id": 32906,
+                  "text": "intersecting",
+                  "is_correct": false
+                }
+              ],
+              "correct_option_ids": [
+                32903
+              ],
+              "correct_option_labels": [
+                "A"
+              ],
+              "correct_option_texts": [
+                "coincident"
+              ],
+              "explanation": "The angle between two regression lines is given by\ntan $\\theta$ = $\\frac{1-r^{2}}{r} \\cdot \\frac{\\sigma_{x} \\sigma_{y}}{\\sigma_{x}^{2}+\\sigma_{y}^{2}}$ \nif, r = 1, then \n$\\theta=0, \\pi$"
+            },
+            {
+              "questionID": 19427,
+              "question": "If covariance between two variables is 0, then the correlation coefficient between them is",
+              "question_raw": "<p>If covariance between two variables is 0, then the correlation coefficient between them is</p>",
+              "options": [
+                {
+                  "label": "A",
+                  "id": 32907,
+                  "text": "0",
+                  "is_correct": true
+                },
+                {
+                  "label": "B",
+                  "id": 32908,
+                  "text": "positive",
+                  "is_correct": false
+                },
+                {
+                  "label": "C",
+                  "id": 32910,
+                  "text": "nothing can be said",
+                  "is_correct": false
+                },
+                {
+                  "label": "D",
+                  "id": 32909,
+                  "text": "negative",
+                  "is_correct": false
+                }
+              ],
+              "correct_option_ids": [
+                32907
+              ],
+              "correct_option_labels": [
+                "A"
+              ],
+              "correct_option_texts": [
+                "0"
+              ],
+              "explanation": "Because, $\\rho = \\frac{{COV(x,y)}}{{{\\sigma _x}{\\sigma _y}}} = \\frac{0}{{{\\sigma _x}{\\sigma _y}}}$ = 0"
+            },
+            {
+              "questionID": 19428,
+              "question": "Ram spends equal amounts on purchasing three kinds of pens being sold at ₹5, ₹10 and ₹15 per piece. Average cost of each pen is",
+              "question_raw": "<p>Ram spends equal amounts on purchasing three kinds of pens being sold at ₹5, ₹10 and ₹15 per piece. Average cost of each pen is</p>",
+              "options": [
+                {
+                  "label": "A",
+                  "id": 32911,
+                  "text": "₹$\\frac{90}{11}$",
+                  "is_correct": true
+                },
+                {
+                  "label": "B",
+                  "id": 32912,
+                  "text": "₹10",
+                  "is_correct": false
+                },
+                {
+                  "label": "C",
+                  "id": 32914,
+                  "text": "₹12",
+                  "is_correct": false
+                },
+                {
+                  "label": "D",
+                  "id": 32913,
+                  "text": "₹9",
+                  "is_correct": false
+                }
+              ],
+              "correct_option_ids": [
+                32911
+              ],
+              "correct_option_labels": [
+                "A"
+              ],
+              "correct_option_texts": [
+                "₹$\\frac{90}{11}$"
+              ],
+              "explanation": "Average price of each pen is given by the harmonic mean of 5, 10, 15.\ni.e. H.M = $\\frac{3}{{\\frac{1}{a} + \\frac{1}{b} + \\frac{1}{c}}} = \\frac{3}{{\\frac{1}{5} + \\frac{1}{{10}} + \\frac{1}{{15}}}} = \\frac{3}{{\\frac{{6 + 3 + 2}}{{30}}}}$ = $\\frac{90}{11}$"
+            },
+            {
+              "questionID": 19429,
+              "question": "The coefficient of correlation between two variables is independent of",
+              "question_raw": "<p>The coefficient of correlation between two variables is independent of</p>\r\n",
+              "options": [
+                {
+                  "label": "A",
+                  "id": 32918,
+                  "text": "origin but not scale",
+                  "is_correct": false
+                },
+                {
+                  "label": "B",
+                  "id": 32915,
+                  "text": "both origin and the scale",
+                  "is_correct": true
+                },
+                {
+                  "label": "C",
+                  "id": 32917,
+                  "text": "scale but not origin",
+                  "is_correct": false
+                },
+                {
+                  "label": "D",
+                  "id": 32916,
+                  "text": "neither scale nor origin",
+                  "is_correct": false
+                }
+              ],
+              "correct_option_ids": [
+                32915
+              ],
+              "correct_option_labels": [
+                "B"
+              ],
+              "correct_option_texts": [
+                "both origin and the scale"
+              ],
+              "explanation": "Because variance and Covariance are independent of change in origin."
+            },
+            {
+              "questionID": 19430,
+              "question": "Mean of the first n terms of the A.P. a + (a + d) + (a + 2d) + ………is",
+              "question_raw": "<p>Mean of the first n terms of the A.P. a + (a + d) + (a + 2d) + &hellip;&hellip;&hellip;is</p>",
+              "options": [
+                {
+                  "label": "A",
+                  "id": 32921,
+                  "text": "a + (n - 1)d",
+                  "is_correct": false
+                },
+                {
+                  "label": "B",
+                  "id": 32922,
+                  "text": "a + nd",
+                  "is_correct": false
+                },
+                {
+                  "label": "C",
+                  "id": 32920,
+                  "text": "$\\frac{a + nd}{2}$",
+                  "is_correct": false
+                },
+                {
+                  "label": "D",
+                  "id": 32919,
+                  "text": "$a+\\frac{(n-1) d}{2}$",
+                  "is_correct": true
+                }
+              ],
+              "correct_option_ids": [
+                32919
+              ],
+              "correct_option_labels": [
+                "D"
+              ],
+              "correct_option_texts": [
+                "$a+\\frac{(n-1) d}{2}$"
+              ],
+              "explanation": "Mean = $ \\frac{{\\frac{n}{2}\\left[ {2a + (n - 1)d} \\right]}}{n} = \\frac{{\\left[ {2a + (n - 1)d} \\right]}}{2} $ = $a+\\frac{(n-1) d}{2}$"
+            },
+            {
+              "questionID": 19431,
+              "question": "If the S.D. of the 1, 2, 3, 4, 5,………………..10 is $\\sigma $, then the S.D. of 11, 12, 13, 14,…………….. 20 is",
+              "question_raw": "<p>If the S.D. of the 1, 2, 3, 4, 5,&hellip;&hellip;&hellip;&hellip;&hellip;&hellip;..10 is <span class=\"math-tex\">{tex}\\sigma {/tex}</span>, then the S.D. of 11, 12, 13, 14,&hellip;&hellip;&hellip;&hellip;&hellip;.. 20 is</p>",
+              "options": [
+                {
+                  "label": "A",
+                  "id": 32923,
+                  "text": "$\\sigma $",
+                  "is_correct": true
+                },
+                {
+                  "label": "B",
+                  "id": 32926,
+                  "text": "$\\frac{\\sigma }{10}$",
+                  "is_correct": false
+                },
+                {
+                  "label": "C",
+                  "id": 32924,
+                  "text": "$\\sigma $ + 10",
+                  "is_correct": false
+                },
+                {
+                  "label": "D",
+                  "id": 32925,
+                  "text": "10$\\sigma $",
+                  "is_correct": false
+                }
+              ],
+              "correct_option_ids": [
+                32923
+              ],
+              "correct_option_labels": [
+                "A"
+              ],
+              "correct_option_texts": [
+                "$\\sigma $"
+              ],
+              "explanation": "S.D = $\\sqrt {\\frac{{{n^2} - 1}}{{12}}} $ \nWhere n is the number of observations\nIn case of 1, 2, 3, ......,10 as well as in case of 11, 12, 13,......, 20\nS.D = $ \\sqrt {\\frac{{{{(10)}^2} - 1}}{{12}}} = \\sqrt {\\frac{99}{12}} $ = 2.87"
+            },
+            {
+              "questionID": 19432,
+              "question": "Regression coefficient of X on Y is 0.25, then the regression coefficient of Y on X is",
+              "question_raw": "<p>Regression coefficient of X on Y is 0.25, then the regression coefficient of Y on X is</p>",
+              "options": [
+                {
+                  "label": "A",
+                  "id": 32930,
+                  "text": "4",
+                  "is_correct": false
+                },
+                {
+                  "label": "B",
+                  "id": 32929,
+                  "text": "greater than 4",
+                  "is_correct": false
+                },
+                {
+                  "label": "C",
+                  "id": 32928,
+                  "text": "less than 4",
+                  "is_correct": false
+                },
+                {
+                  "label": "D",
+                  "id": 32927,
+                  "text": "lies in ( 0 , 4 ]",
+                  "is_correct": true
+                }
+              ],
+              "correct_option_ids": [
+                32927
+              ],
+              "correct_option_labels": [
+                "D"
+              ],
+              "correct_option_texts": [
+                "lies in ( 0 , 4 ]"
+              ],
+              "explanation": "Here,\n${b_{xy}} = r.\\frac{{{\\sigma _x}}}{{{\\sigma _y}}} = 0.25$ $ \\Rightarrow \\frac{{{\\sigma _x}}}{{{\\sigma _y}}} = \\frac{{0.25}}{r}$ \nNow, ${b_{yx}} = r.\\frac{{{\\sigma _y}}}{{{\\sigma _x}}} = r.\\frac{r}{{0.25}} = {r^2} \\times 4$ \nAs, $0 < {r^2} \\le 1$ \nSo, $[\\begin{array}{l} 0 < 4{r^2} \\le 4\\\\ 0 < {b_{yx}} \\le 4 \\end{array}$"
+            },
+            {
+              "questionID": 19433,
+              "question": "If r is the correlation coefficient, then",
+              "question_raw": "<p>If r is the correlation coefficient, then</p>",
+              "options": [
+                {
+                  "label": "A",
+                  "id": 32934,
+                  "text": "r $\\leq$ 1",
+                  "is_correct": false
+                },
+                {
+                  "label": "B",
+                  "id": 32933,
+                  "text": "r $ \\ge$ 1",
+                  "is_correct": false
+                },
+                {
+                  "label": "C",
+                  "id": 32931,
+                  "text": "IrI $\\leq $ 1",
+                  "is_correct": true
+                },
+                {
+                  "label": "D",
+                  "id": 32932,
+                  "text": "IrI $ \\geq$ 1",
+                  "is_correct": false
+                }
+              ],
+              "correct_option_ids": [
+                32931
+              ],
+              "correct_option_labels": [
+                "C"
+              ],
+              "correct_option_texts": [
+                "IrI $\\leq $ 1"
+              ],
+              "explanation": "By Cauchy-Schwarz inequality\n${\\langle x,y\\rangle ^2} \\le \\langle x,x\\rangle \\cdot\\langle y,y\\rangle $ \nWhich gives, $\\left(\\sum x_{i} y_{i}\\right)^{2} \\leq\\left(\\sum\\left(x_{i}^{2}\\right)\\right) \\cdot\\left(\\sum\\left(y_{i}^{2}\\right)\\right)$ .........(1) \n$\\left(\\sum x_{i} y_{i}\\right) \\leq \\sqrt{\\left(\\sum\\left(x_{i}^{2}\\right)\\right)} \\cdot \\sqrt{\\left(\\sum\\left(y_{i}^{2}\\right)\\right)}$ \nWe, know that, r = $ \\frac{{\\sum {\\Delta X\\Delta Y} }}{{\\sqrt {\\sum {\\Delta {X^2}} } \\sqrt {\\sum {\\Delta {Y^2}} } }}$ \nUsing (1) it is clear that, $ - 1 \\le r \\le 1$"
+            },
+            {
+              "questionID": 19434,
+              "question": "The coefficient of variation is computed by",
+              "question_raw": "<p>The coefficient of variation is computed by</p>",
+              "options": [
+                {
+                  "label": "A",
+                  "id": 32937,
+                  "text": "$\\frac{S . D .}{\\text { Mean }}$",
+                  "is_correct": false
+                },
+                {
+                  "label": "B",
+                  "id": 32935,
+                  "text": "$\\frac{S . D .}{\\text { Mean }}\\times$ 100",
+                  "is_correct": true
+                },
+                {
+                  "label": "C",
+                  "id": 32938,
+                  "text": "$\\frac{\\text { Mean. }}{S . D} \\times$ 100",
+                  "is_correct": false
+                },
+                {
+                  "label": "D",
+                  "id": 32936,
+                  "text": "$\\frac{\\text { Mean }}{S . D .}$",
+                  "is_correct": false
+                }
+              ],
+              "correct_option_ids": [
+                32935
+              ],
+              "correct_option_labels": [
+                "B"
+              ],
+              "correct_option_texts": [
+                "$\\frac{S . D .}{\\text { Mean }}\\times$ 100"
+              ],
+              "explanation": "$\\frac{S . D .}{\\text { Mean }}\\times$ 100"
+            },
+            {
+              "questionID": 19435,
+              "question": "If Cov(X, Y) = 0, then $\\rho \\left( {X,Y} \\right)$ =",
+              "question_raw": "<p>If Cov(X, Y) = 0, then <span class=\"math-tex\">{tex}\\rho \\left( {X,Y} \\right){/tex}</span>&nbsp;=&nbsp;</p>",
+              "options": [
+                {
+                  "label": "A",
+                  "id": 32941,
+                  "text": "- 1",
+                  "is_correct": false
+                },
+                {
+                  "label": "B",
+                  "id": 32940,
+                  "text": "1",
+                  "is_correct": false
+                },
+                {
+                  "label": "C",
+                  "id": 32939,
+                  "text": "0",
+                  "is_correct": true
+                },
+                {
+                  "label": "D",
+                  "id": 32942,
+                  "text": "$ \\pm $1",
+                  "is_correct": false
+                }
+              ],
+              "correct_option_ids": [
+                32939
+              ],
+              "correct_option_labels": [
+                "C"
+              ],
+              "correct_option_texts": [
+                "0"
+              ],
+              "explanation": "Here, $\\rho (x,y) = \\frac{{{\\mathop{\\rm cov}} (x,y)}}{{\\mathop \\sigma \\nolimits_x \\mathop \\sigma \\nolimits_y }} = \\frac{0}{{\\mathop \\sigma \\nolimits_x \\mathop \\sigma \\nolimits_y }} $ = 0"
+            },
+            {
+              "questionID": 19436,
+              "question": "Mode of the data 3, 2, 5, 2, 3, 5, 6, 6, 5, 3, 5, 2, 5 is",
+              "question_raw": "<p>Mode of the data 3, 2, 5, 2, 3, 5, 6, 6, 5, 3, 5, 2, 5 is</p>",
+              "options": [
+                {
+                  "label": "A",
+                  "id": 32946,
+                  "text": "3",
+                  "is_correct": false
+                },
+                {
+                  "label": "B",
+                  "id": 32945,
+                  "text": "4",
+                  "is_correct": false
+                },
+                {
+                  "label": "C",
+                  "id": 32944,
+                  "text": "6",
+                  "is_correct": false
+                },
+                {
+                  "label": "D",
+                  "id": 32943,
+                  "text": "5",
+                  "is_correct": true
+                }
+              ],
+              "correct_option_ids": [
+                32943
+              ],
+              "correct_option_labels": [
+                "D"
+              ],
+              "correct_option_texts": [
+                "5"
+              ],
+              "explanation": "Most repeated value is the mode. Here it is 5"
+            },
+            {
+              "questionID": 19437,
+              "question": "The median of 10, 14, 11, 9, 8, 12, 6 is",
+              "question_raw": "<p>The median of 10, 14, 11, 9, 8, 12, 6 is</p>",
+              "options": [
+                {
+                  "label": "A",
+                  "id": 32949,
+                  "text": "11",
+                  "is_correct": false
+                },
+                {
+                  "label": "B",
+                  "id": 32948,
+                  "text": "14",
+                  "is_correct": false
+                },
+                {
+                  "label": "C",
+                  "id": 32950,
+                  "text": "12",
+                  "is_correct": false
+                },
+                {
+                  "label": "D",
+                  "id": 32947,
+                  "text": "10",
+                  "is_correct": true
+                }
+              ],
+              "correct_option_ids": [
+                32947
+              ],
+              "correct_option_labels": [
+                "D"
+              ],
+              "correct_option_texts": [
+                "10"
+              ],
+              "explanation": "In ascending order the observations are 6, 8, 9, 10, 11, 12, 14\nHere n = 7 (odd)\nMedian = $(\\frac{{n + 1}}{2})$th observation\nTherefore median = 4th term = 10"
+            },
+            {
+              "questionID": 19438,
+              "question": "If the mode of a data is 18 and the mean is 24, then median is",
+              "question_raw": "<p>If the mode of a data is 18 and the mean is 24, then median is</p>",
+              "options": [
+                {
+                  "label": "A",
+                  "id": 32954,
+                  "text": "21",
+                  "is_correct": false
+                },
+                {
+                  "label": "B",
+                  "id": 32953,
+                  "text": "24",
+                  "is_correct": false
+                },
+                {
+                  "label": "C",
+                  "id": 32951,
+                  "text": "22",
+                  "is_correct": true
+                },
+                {
+                  "label": "D",
+                  "id": 32952,
+                  "text": "18",
+                  "is_correct": false
+                }
+              ],
+              "correct_option_ids": [
+                32951
+              ],
+              "correct_option_labels": [
+                "C"
+              ],
+              "correct_option_texts": [
+                "22"
+              ],
+              "explanation": "Using the formula, 3 median = mode + 2 mean \nMedian = $\\frac{18+2(24)}{3}$ = $\\frac{66}{3}$ = 22"
+            },
+            {
+              "questionID": 19439,
+              "question": "Which of the following is not a measure of dispersion?",
+              "question_raw": "<p>Which of the following is not a measure of dispersion?</p>\r\n",
+              "options": [
+                {
+                  "label": "A",
+                  "id": 32956,
+                  "text": "standard deviation",
+                  "is_correct": false
+                },
+                {
+                  "label": "B",
+                  "id": 32955,
+                  "text": "mode",
+                  "is_correct": true
+                },
+                {
+                  "label": "C",
+                  "id": 32957,
+                  "text": "mean deviation",
+                  "is_correct": false
+                },
+                {
+                  "label": "D",
+                  "id": 32958,
+                  "text": "variance",
+                  "is_correct": false
+                }
+              ],
+              "correct_option_ids": [
+                32955
+              ],
+              "correct_option_labels": [
+                "B"
+              ],
+              "correct_option_texts": [
+                "mode"
+              ],
+              "explanation": "It is a measure of central tendancy."
+            },
+            {
+              "questionID": 19440,
+              "question": "Product of n positive numbers is unity. The sum of these numbers cannot be less than",
+              "question_raw": "<p>Product of n positive numbers is unity. The sum of these numbers cannot be less than</p>",
+              "options": [
+                {
+                  "label": "A",
+                  "id": 32961,
+                  "text": "n^2",
+                  "is_correct": false
+                },
+                {
+                  "label": "B",
+                  "id": 32962,
+                  "text": "n^3",
+                  "is_correct": false
+                },
+                {
+                  "label": "C",
+                  "id": 32960,
+                  "text": "1",
+                  "is_correct": false
+                },
+                {
+                  "label": "D",
+                  "id": 32959,
+                  "text": "n",
+                  "is_correct": true
+                }
+              ],
+              "correct_option_ids": [
+                32959
+              ],
+              "correct_option_labels": [
+                "D"
+              ],
+              "correct_option_texts": [
+                "n"
+              ],
+              "explanation": "We know that for a set of observations A.M. > G.M.\nIf X_1, X_2, X_3, ...., X_n are the observations then\n$\\frac{({X_1} + {X_2} + {X_3} + ........ + {X_n})}n >\\sqrt {{X_1}.{X_2}.{X_3}...{X_n}} $ \nAs (X_1.X_2.X_3 ....X_n) = 1\nTherefore, $\\frac{({X_1} + {X_2} + {X_3} + ... + {X_n})}{n}> 1$ \n$ \\Rightarrow $ (X_1 + X_2 + X_3 + .... + X_n) > n"
+            }
+          ]
+        }
+      ]
+    }
+  ]
+}

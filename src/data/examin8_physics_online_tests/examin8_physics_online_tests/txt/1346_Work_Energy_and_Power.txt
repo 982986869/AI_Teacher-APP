@@ -1,0 +1,904 @@
+CHAPTER: Work Energy and Power  (id 1346)
+CBSE > Class 11 > Physics > Work Energy and Power
+Online tests: 5
+
+========================================================================
+Work, Energy and Power Test 01  (id 552) [FREE]
+CBSE > Class 11 > Physics > Work Energy and Power
+Questions: 15 | Answers: YES
+========================================================================
+
+Q1. The scalar product of two vectors A and B is
+    (A) vector
+    (B) a scalar   <-- CORRECT
+    (C) a complex number
+    (D) a tensor
+    Answer: B
+    Explanation: Scalar product means dot product and the dot product of 2 vectors gives a scalar. For example dot product of force and displacement gives work which is scalar.
+
+Q2. The scalar product of two vectors A and B in terms of the magnitudes and angle $\theta $ is
+    (A) $\left| {\bf{A}} \right|\left| {\bf{B}} \right|{\rm{cot}}\theta $
+    (B) $\left| {\bf{A}} \right|\left| {\bf{B}} \right|{\rm{cos}}\theta $   <-- CORRECT
+    (C) $\left| {\bf{A}} \right|\left| {\bf{B}} \right|{\rm{tan}}\theta $
+    (D) $\left| {\bf{A}} \right|\left| {\bf{B}} \right|{\rm{sin}}\theta $
+    Answer: B
+    Explanation: The scalar product of two vectors can be constructed by taking the component of one vector in the direction of the other and multiplying it times the magnitude of the other vector. This can be expressed in the form $\vec A.\vec B = |A||B|\cos \theta $
+
+Q3. The scalar product of two vectors $\overrightarrow A$ and $\overrightarrow B$ in terms of the projections of the vectors on the x, y and z axis is
+    (A) $\overrightarrow A$.$\overrightarrow B$ = $A_x B_x-A_y B_y-A_z B_z$
+    (B) $\overrightarrow A$.$\overrightarrow B$ = $A_x B_x+A_y B_y-A_z B_z$
+    (C) $\overrightarrow A$.$\overrightarrow B$ = $A_x B_x-A_y B_y+A_z B_z$
+    (D) $\overrightarrow A$.$\overrightarrow B$ = $A_x B_x+A_y B_y+A_z B_z$   <-- CORRECT
+    Answer: D
+    Explanation: $\overrightarrow A$ = A_x i + A_y j+ A_zk
+$\overrightarrow B$ = B_x i + B_y j+ B_zk
+$\overrightarrow A$.$\overrightarrow B$ = (A_x i + A_y j+ A_zk). (B_x i+ B_y j+ B_zk) 
+$\overrightarrow A$.$\overrightarrow B$ = A_xB_x + A_yB_y + A_zB_z , this is required result.
+
+Q4. The scalar product of vectors is
+    (A) non commutative and not distributive
+    (B) commutative and not distributive
+    (C) non commutative and distributive
+    (D) commutative and distributive   <-- CORRECT
+    Answer: D
+    Explanation: The scalar product is:
+ Commutative:
+ $\vec A.\vec B = \vec B.\vec A$ 
+ |A||B| cos $\theta$ = |B||A| cos $\theta$
+ Distributive 
+ $\vec A.(\vec B + \vec C) = \vec A.\vec B + \vec A.\vec C$
+
+Q5. The change in kinetic energy of a particle is equal to the
+    (A) work done on it by some force.
+    (B) work done on it by the net force.   <-- CORRECT
+    (C) loss in ambient kinetic energy.
+    (D) work done on it by the aerodynamic force.
+    Answer: B
+    Explanation: If a body of mass m moving with velocity u under the action of force F. Its velocity become v after displaced by s, then by using equation of motion :-
+$\eqalign{ & {v^2} = {u^2} + 2as \cr & {v^2} - {u^2} = 2as \cr & m{v^2} - m{u^2} = 2mas \cr & {1 \over 2}m{v^2} - {1 \over 2}m{u^2} = Fs \cr & {K_f} - {K_i} = W \cr & \Delta K = W \cr} $
+
+Q6. The work done by the force is defined to be
+    (A) the product of component of the force in the direction of the displacement and the magnitude of the displacement   <-- CORRECT
+    (B) the product of component of the force in the direction perpendicular to displacement and the magnitude of the displacement
+    (C) the negative product of component of the force in the direction of the displacement and the magnitude of this displacement
+    (D) the product of force and the magnitude of the displacement
+    Answer: A
+    Explanation: Work done is given by 
+W = (Fcos$\theta$)d
+here Fcos$\theta$ is the component of applied force in direction of displacement and d is magnitude of displacement.
+
+Q7. If F is a force and d is the displacement in the direction of force then the work done by the force is given by
+    (A) - F.d
+    (B) F.d   <-- CORRECT
+    (C) -2F.d
+    (D) 2F.d
+    Answer: B
+    Explanation: Work done is equal to force in the direction of displacement multiplied by displacement i.e., 
+$W = \vec F.\vec d$
+
+Q8. In which case is the work done zero?
+    (A) Force and displacement are in the same direction
+    (B) Force and displacement are at an angle of 45$^\circ $
+    (C) Force and displacement are at an angle of 75$^\circ $
+    (D) Force and displacement are perpendicular to each other   <-- CORRECT
+    Answer: D
+    Explanation: Work done, W = Fdcos$\theta$
+where $\theta$ is the angle between F and d. If both are perpendicular then $\theta$ = 90 degrees, so cos$\theta$ = 0 and thus work done is zero.
+
+Q9. The S.I unit of force is
+    (A) erg
+    (B) dyne
+    (C) Newton   <-- CORRECT
+    (D) Joule
+    Answer: C
+    Explanation: In the International System of Units (SI) the newton is the unit for force. It is equal to the amount of net force required to accelerate a mass of one kilogram at a rate of 1 m/sec^2 in direction of the applied force. It is named after Isaac Newton in recognition of his work on classical mechanics, specifically Newton's second law of motion.
+
+Q10. In a graph of F(x) vs x, the area under the curve represents the
+    (A) work done by F(x).   <-- CORRECT
+    (B) energy of F(x)
+    (C) momentum of F(x)
+    (D) impulse of F(x)
+    Answer: A
+    Explanation: Work done by a variable force is given by 
+W = ${\int F(x)dx } $
+The above integration gives us the area under the curve F(x) Vs x.
+
+Q11. Work-energy theorem does not give information on
+    (A) difference of kinetic energies
+    (B) time dependence   <-- CORRECT
+    (C) change in kinetic energy
+    (D) work done
+    Answer: B
+    Explanation: According to the work-energy theorem, the net work done on a body equals the change in its kinetic energy. So it does not give any information about time dependence.
+
+Q12. Physically, the notion of potential energy is applicable only to:
+    (A) The class of forces where work is done against the force gets converted to kinetic energy
+    (B) The class of forces where work done against the force gets converted to thermal energy
+    (C) The class of forces where work is done against the force gets stored up as energy.   <-- CORRECT
+    (D) The class of forces where work is done against the force gets dissipated
+    Answer: C
+    Explanation: Potential energy is the , stored energy of an object. It is the energy by virtue of an object's position relative to other objects. Potential energy is often associated with restoring forces such as a spring . It is applicable only for the conservative forces.
+
+Q13. The work done by a conservative forces depends
+    (A) depends on the path
+    (B) only on the end points   <-- CORRECT
+    (C) on both the end points as well as the path
+    (D) on the position of the forces
+    Answer: B
+    Explanation: A force is said to be conservative if work done by this force is independent of path and is dependent only on end points.
+
+Q14. The total mechanical energy of a system is conserved if the forces, doing work on it, are
+    (A) conservative   <-- CORRECT
+    (B) viscous
+    (C) damped
+    (D) not conservative
+    Answer: A
+    Explanation: Mechanical energy is the sum of kinetic energy and potential energy in an object that is used to do a particular work. In other words, it describes the energy of an object because of its motion or position, or both.
+
+Q15. For a ball dropped from a tower of height h, the total mechanical energy is
+    (A) the difference of potential and kinetic energies
+    (B) the sum of potential and kinetic energies   <-- CORRECT
+    (C) the kinetic energy
+    (D) the potential energy
+    Answer: B
+    Explanation: Mechanical energy = K.E + P.E
+ A falling ball will have both these energies in between topmost and bottomost points of its motion so, mechanical energy is the sum of potential and kinetic energies.
+
+========================================================================
+Work, Energy and Power Test 02  (id 553) [PAID]
+CBSE > Class 11 > Physics > Work Energy and Power
+Questions: 15 | Answers: YES
+========================================================================
+
+Q1. The potential energy of a spring whose spring constant is k and is compressed by x is
+    (A) $2k{x^2}$
+    (B) $\frac{1}{2}k{x^2}$   <-- CORRECT
+    (C) $\frac{1}{4}k{x^2}$
+    (D) $k{x^2}$
+    Answer: B
+    Explanation: If a spring is stretched or compressed by a distance x from its natural length under the action of restoring force then
+ F = -kx
+Therefore, $d U=-F . d x$
+$U=\int_\limits{0}^{x}-F . d x=\int_\limits{0}^{x} k x . d x=k\left[\frac{x^{2}}{2}\right]_{0}^{x}$
+$U=\frac{1}{2} k x^{2}$
+
+Q2. Mass and energy are equivalent and are related by
+    (A) $E = m{c^2}/2$
+    (B) $E = m{c^3}$
+    (C) $E = m{c^2}$   <-- CORRECT
+    (D) $E = 2m{c^2}$
+    Answer: C
+    Explanation: Mass-energy equivalence states that anything having mass has an equivalent amount of energy and vice versa. With these fundamental quantities directly relating to one another by Einstein's theory of special relativity, it shows that matter (as mass) and energy can be converted into each other according to the famous equation $E = m{c^2}$.
+
+Q3. Power is defined as
+    (A) ability to do work.
+    (B) the time rate at which work is done.   <-- CORRECT
+    (C) stored energy.
+    (D) energy due to motion.
+    Answer: B
+    Explanation: Power is the rate of doing work. It is the amount of energy consumed per unit time. Having no direction, it is a scalar quantity. In the SI system, the unit of power is the joule per second (J/s), known as the watt. The integral of power over time defines the work performed.
+$P = {{dW} \over {dt}} = {{d(\vec F.\vec s)} \over {dt}}$
+
+Q4. S.I unit of power is
+    (A) Newton
+    (B) Joule
+    (C) Watt   <-- CORRECT
+    (D) Angstrom
+    Answer: C
+    Explanation: The SI unit of power is Watt(equivalent to one joule per second).
+
+Q5. Which of the following laws used to solve problems in collisions?
+    (A) Laws of conservation of linear momentum   <-- CORRECT
+    (B) Newton’s laws
+    (C) Kepler’s laws
+    (D) Kirchhoff’s laws
+    Answer: A
+    Explanation: If an external force is absent then the linear momentum of the system remains conserved.
+
+Q6. In an elastic collision the total kinetic energy of the system is
+    (A) the same after the collision as before.   <-- CORRECT
+    (B) greater than the total kinetic energy before.
+    (C) is less than the total kinetic energy before.
+    (D) zero after the collision.
+    Answer: A
+    Explanation: Kinetic energy is transferred to other forms of energy—such as thermal energy, potential energy, and sound—during the collision process. After the collision, if recovery of kinetic energy is 100% then it is called an elastic collision. So that in an elastic collision the total kinetic energy of the system is the same after the collision as before.
+
+Q7. In an inelastic collision, the total kinetic energy of the system is
+    (A) less than before the collision.   <-- CORRECT
+    (B) greater than the total kinetic energy before.
+    (C) same after the collision as before.
+    (D) zero after the collision.
+    Answer: A
+    Explanation: Kinetic energy is transferred to other forms of energy—such as thermal energy, potential energy, and sound—during the collision process. After collision if recovery of kinetic energy is less than 100% then it is called inelastic collision i.e., some part of kinetic energy is not recovered. So that in an inelastic collision the total kinetic energy after the collision is less than before the collision.
+
+Q8. In a completely inelastic collision the colliding bodies move
+    (A) in opposite directions after the collision.
+    (B) as one body after the collision.   <-- CORRECT
+    (C) at an angle after the collision.
+    (D) in same direction after the collision.
+    Answer: B
+    Explanation: For a perfectly inelastic collision coefficient of restitution is zero. i.e, e = 0 so that relative velocity of separation will be zero means the colliding bodies stick together and move as one body after the collision.
+
+Q9. Considering a completely inelastic collision of a particle of mass m_1 moving with initial velocity v_1 and a stationary particle of mass m_2, the final velocity is given by
+    (A) $\frac{m_1}{2 m_1+m_2} v_1$
+    (B) $\frac{m_1}{m_1+m_2} v_1$   <-- CORRECT
+    (C) $\frac{m_1}{m_1+2 m_2} v_1$
+    (D) $\frac{m_2}{m_1+m_2} v_1$
+    Answer: B
+    Explanation: For a completely inelastic collision momentum remains conserved i.e,
+p_i = p_f
+m_1v_1 + 0 = (m_1 + m_2)v
+$v=\frac{m_1}{\left(m_1+m_2\right)} v_1$
+
+Q10. Considering a completely inelastic collision of a particle of mass ${{\text{m}}_{\text{1}}}$moving with initial velocity ${{\text{v}}_{\text{1}}}$ and a stationary particle of mass ${{\text{m}}_{\text{2}}}$. The ratio of final to initial kinetic energy is
+    (A) $\frac{{m_1}} {{2{m_1} + {m_2}}}$
+    (B) $\frac{{m_1}}{{{m_1} + 2{m_2}}}$
+    (C) $\frac{{m_2}}{{{m_1} + {m_2}}}$
+    (D) $\frac{{m_1}}{{{m_1} + {m_2}}}$   <-- CORRECT
+    Answer: D
+    Explanation: p_i = p_f
+m_1v_1 + 0 = (m_1 + m_2)v
+$v=\frac{m_1}{\left(m_1+m_2\right)} v_1$
+$K_i=\frac{1}{2} m_1 v_1^2$
+$K_f=\frac{1}{2}\left(m_1+m_2\right)\left(\frac{m_1}{\left(m_1+m_2\right)} v_1\right)^2$
+$\frac{K_f}{K_i}=\frac{\frac{1}{2}\left(m_1+m_2\right)\left(\frac{m_1}{\left(m_1+m_2\right)} v_1\right)^2}{\frac{1}{2} m_1 v_1{ }^2}=\frac{m_1}{\left(m_1+m_2\right)}$
+
+Q11. A dog weighing 25 kg, while chasing a cat, jumps over a fence of height 1.6 m. What is the potential energy of dog at the top of fence?
+(Take gravity due to earth 'g'=10 m s^-2)
+    (A) 160 Joules
+    (B) 320 Joules
+    (C) 480 Joules
+    (D) 400 Joules   <-- CORRECT
+    Answer: D
+    Explanation: Mass of the dog = m = 25 kg
+Height of fence = h = 1.6 m
+Acceleration due to gravity = g = 10 m/s²
+$\therefore$ Potential energy of dog = m.g.h = 25×10×1.6 = 25×16 = 400 kgm²/s = 400 J
+
+Q12. A body of mass 2 kg initially at rest moves under the action of an applied horizontal force of 7 N on a table with coefficient of kinetic friction = 0.1. Compute the work done by the applied force in 10 s.
+    (A) 842 J
+    (B) 800 J
+    (C) 882 J   <-- CORRECT
+    (D) 822 J
+    Answer: C
+    Explanation: $\eqalign{ & f = {\mu _k}R = {\mu _k}mg = 0.1 \times 2 \times 9.8 = 1.96N \cr & F = 7N \cr & {F_{net}} = F - f = 7 - 1.96 = 5.04N \cr & a = {{{F_{net}}} \over m} = {{5.04} \over 2} = 2.52m/{\sec ^2} \cr} $
+Displacement in 10 second
+$s = ut + {1 \over 2}a{t^2} = 0 + {1 \over 2} \times 2.52 \times 10 \times 10 = 126m$
+Work done by applied force 
+${W_F} = Fs\cos 0^\circ = 7 \times 126 \times 1 = 882J$
+
+Q13. A body of mass 2 kg initially at rest moves under the action of an applied horizontal force of 7 N on a table with a coefficient of kinetic friction = 0.1. Compute the (a) work done by the net force on the body in 10 s,(b) change in kinetic energy of the body in 10 s?
+    (A) 600 J, 600 J
+    (B) 555 J, 555 J
+    (C) 635 J, 635 J   <-- CORRECT
+    (D) 655 J, 655 J
+    Answer: C
+    Explanation: f = $\mu_k$R = $\mu_k$mg = 0.1 $\times$ 2 $\times$ 9.8 = 1.96N
+F = 7N
+Fnet = F − f = 7 − 1.96 = 5.04N
+$a=\frac{F_{n e t}}{m}=\frac{5.04}{2}$ = 2.52 m/sec^2
+displacement in 10 second
+$s = ut + {1 \over 2}a{t^2} = 0 + {1 \over 2} $ $\times$ 2.52 $\times$ 10 $\times$ 10 = 126m
+work done by net force 
+W_ = F_net s cos0^o = 5.04 $\times$ 126 $\times$ 1 = 635
+change in kinetic energy = work done by a net force
+$\Delta K$ = W = 635J
+
+Q14. The casing of a rocket in flight burns up due to friction. At whose expense is the heat energy required for burning obtained?
+    (A) Reaction force energy
+    (B) Earth’s gravitational energy
+    (C) Atmosphere
+    (D) Rocket   <-- CORRECT
+    Answer: D
+    Explanation: The heat energy required for the burning of the casing of the rocket comes from the rocket itself. As a result of work done against friction the kinetic energy of the rocket continuously decreases and this work against friction reappears as heat energy. This results in a reduction of the mass of the rocket.
+
+Q15. A body constrained to move along the z-axis of a coordinate system is subject to a constant force F given by ${\bf{F}} = - {\bf{\hat i}} + 2{\bf{\hat j}} + 3{\bf{\hat k}}{\rm{N}}$, where $\hat i,{\rm{\hat j}}$ and $\hat k$ are unit vectors along the x-, y- and z-axis of the system respectively. What is the work done by this force in moving the body a distance of 4 m along the z-axis?
+    (A) 9 J
+    (B) 12 J   <-- CORRECT
+    (C) 15 J
+    (D) 7 J
+    Answer: B
+    Explanation: given that 
+$\overrightarrow{\mathbf{F}}=-\hat{\mathbf{i}}+2 \hat{\mathbf{j}}+3 \hat{\mathbf{k}}$
+$\vec{s}=4 \hat{\mathbf{k}}$
+$W=\vec{F} \cdot \vec{s}=(-\hat{\mathbf{i}}+2 \hat{\mathbf{j}}+3 \hat{\mathbf{k}}) \cdot 4 \hat{\mathbf{k}}$ = 12 J
+
+========================================================================
+Work, Energy and Power Test 03  (id 554) [PAID]
+CBSE > Class 11 > Physics > Work Energy and Power
+Questions: 15 | Answers: YES
+========================================================================
+
+Q1. Find the angle between the force ${\bf{F}} = 3{\bf{\hat i}} + 4{\bf{\hat j}} - 5{\bf{\hat k}}$ and displacement ${\bf{d}} = 5{\bf{\hat i}} + 4{\bf{\hat j}} + 3{\bf{\hat k}}$.
+    (A) $\theta=\sin ^{-1}\left(\frac{11}{25}\right)$
+    (B) $\theta=\sin ^{-1}\left(\frac{8}{25}\right)$
+    (C) $\theta=\cos ^{-1}\left(\frac{11}{25}\right)$
+    (D) $\theta=\cos ^{-1}\left(\frac{8}{25}\right)$   <-- CORRECT
+    Answer: D
+    Explanation: $W=\vec{F} \cdot \vec{d}$
+$\vec{F} \cdot \vec{d}$ = Fd cos$ \theta$
+$\cos \theta$ = $\frac{\vec{F} \cdot \vec{d}}{F d}$ = $\frac{(3 \hat{\mathbf{i}}+4 \hat{\mathbf{j}}-5 \hat{\mathbf{k}}) \cdot(5 \hat{\mathbf{i}}+4 \hat{\mathbf{j}}+3 \hat{\mathbf{k}})}{\sqrt{3^{2}+4^{2}+(-5)^{2}} \times \sqrt{5^{2}+4^{2}+3^{2}}}$ $=\frac{15+16-15}{\sqrt{50} \times \sqrt{50}}=\frac{16}{50}=\frac{8}{25}$
+$\theta=\cos ^{-1}\left(\frac{8}{25}\right)$ = 71^o
+
+Q2. Find the projection of F on d, if force ${\bf{F}} = 3{\bf{\hat i}} + 4{\bf{\hat j}} - 5{\bf{\hat k}}$ and displacement ${\bf{d}} = 5{\bf{\hat i}} + 4{\bf{\hat j}} + 3{\bf{\hat k}}$
+    (A) $\frac{8}{{25}}\left( {5{\bf{\hat i}} + 4{\bf{\hat j}} + 3{\bf{\hat k}}} \right)$   <-- CORRECT
+    (B) $\frac{3}{{25}}\left( {5{\bf{\hat i}} + 4{\bf{\hat j}} + 3{\bf{\hat k}}} \right)$
+    (C) $\frac{17}{{25}}\left( {5{\bf{\hat i}} + 4{\bf{\hat j}} + 3{\bf{\hat k}}} \right)$
+    (D) $\frac{11}{{25}}\left( {5{\bf{\hat i}} + 4{\bf{\hat j}} + 3{\bf{\hat k}}} \right)$
+    Answer: A
+    Explanation: The vector projection of a vector $\vec A$ on a nonzero vector $\vec B$ is also known as the vector component $\vec A$ in the direction of $\vec B$ and is equal to $\left( {\vec A.\hat B} \right).\hat B$ 
+Here projection of $\vec F$ on vector $\vec d$ = $\left( {\vec F.\hat d} \right).\hat d $ = $(\vec{F} \cdot \hat{d}) \cdot \hat{d}=\left[(3 \hat{\mathbf{i}}+4 \hat{\mathbf{j}}-5 \hat{\mathbf{k}}) \cdot \frac{(5 \hat{\mathbf{i}}+4 \hat{\mathbf{j}}+3 \hat{\mathbf{k}})}{\sqrt{5^2+4^2+3^2}}\right] \cdot\left[\frac{(5 \hat{\mathbf{i}}+4 \hat{\mathbf{j}}+3 \hat{\mathbf{k}})}{\sqrt{5^2+4^2+3^2}}\right]$
+$=\left[(3 \hat{\mathbf{i}}+4 \hat{\mathbf{j}}-5 \hat{\mathbf{k}}) \cdot \frac{(5 \hat{\mathbf{i}}+4 \hat{\mathbf{j}}+3 \hat{\mathbf{k}})}{\sqrt{50}}\right] \cdot\left[\frac{(5 \hat{\mathbf{i}}+4 \hat{\mathbf{j}}+3 \hat{\mathbf{k}})}{\sqrt{50}}\right]$
+$=\left[\frac{1}{\sqrt{50}}(15+16-15)\right] \cdot\left[\frac{(5 \hat{\mathbf{i}}+4 \hat{\mathbf{j}}+3 \hat{\mathbf{k}})}{\sqrt{50}}\right]$
+$=\frac{16}{\sqrt{50}} \cdot\left[\frac{(5 \hat{\mathbf{i}}+4 \hat{\mathbf{j}}+3 \hat{\mathbf{k}})}{\sqrt{50}}\right]=\frac{8}{25}(5 \hat{\mathbf{i}}+4 \hat{\mathbf{j}}+3 \hat{\mathbf{k}})$
+
+Q3. Balram exerts a steady force of magnitude 150 N on the stalled car as shown in the figure below; he pushes it a distance of 20 m. The car also has a flat tyre, so to make the car move straight. He pushes at an angle of 30^o to the direction of motion. How much work does he do?
+    (A) 2299 J
+    (B) 2323 J
+    (C) 2654 J
+    (D) 2598 J   <-- CORRECT
+    Answer: D
+    Explanation: W = Fs cos$ \theta$ = $ 150 \times 20 \times {{\sqrt 3 } \over 2} $ = 2598J
+
+Q4. Balram exerts a steady force of magnitude F = 200${\bf{\hat i}}$+ 2.0$\hat j$ on the stalled car as shown in the figure above, he pushes it a distance s = 10${\bf{\hat i}}$ + 10$\hat j$ m. How much work does he do?
+    (A) 2020 J   <-- CORRECT
+    (B) 2320 J
+    (C) 2220 J
+    (D) 2120 J
+    Answer: A
+    Explanation: $\vec{F}=200 \hat{i}+2 \hat{j}$
+$\vec{s}=10 \hat{i}+10 \hat{j}$
+$W=\vec{F} \cdot \vec{s}=(200 \hat{i}+2 \hat{j}) \cdot(10 \hat{i}+10 \hat{j})$
+W = 2000 + 20 = 2020 J
+
+Q5. A railway porter is holding a weight of 100 kgs on his head and is standing still. What is the work done by him?
+    (A) 200 J
+    (B) 1000 J
+    (C) 100 J
+    (D) 0 J   <-- CORRECT
+    Answer: D
+    Explanation: W = Force $\times$ displacement in the direction of the force
+Work done will be zero because porter is stationary (i.e. displacement is zero)
+
+Q6. Balram pushes 500kg weight on a horizontal frictionless surface a distance of 10 m. The work done by the gravitational force is:
+    (A) 100 J
+    (B) 5000 J
+    (C) 0 J   <-- CORRECT
+    (D) 200 J
+    Answer: C
+    Explanation: the angle between force and displacement is 90^o
+W = Fscos90^o = 0
+
+Q7. Weight of 20kg falls from a height of 10 m. The work done by the gravitational force is (Take g = 10 ms^−2)
+    (A) 2000 J   <-- CORRECT
+    (B) 1500 J
+    (C) 3000 J
+    (D) 2500 J
+    Answer: A
+    Explanation: W = Fscos$\theta$ = mghcos0^o
+W = 20 $\times$ 10 $\times$ 10 $\times$ 1 = 2000 J
+
+Q8. A raindrop of mass 2.00 g falls from a height of 1.00 km. It hits the ground with a speed of 50.0 m/s. What is the work done by the gravitational force? (Take g = 10 ms^−2)
+    (A) 20 J   <-- CORRECT
+    (B) 26 J
+    (C) 22 J
+    (D) 24 J
+    Answer: A
+    Explanation: W = Fscos$\theta$ = mghcos0^o
+W = 2 $\times$ 10^ − 3 $\times$ 10 $\times$ 1000 $\times$ 1 = 20J
+
+Q9. A raindrop of mass 2.00 g falls from a height of 1.00 km. It hits the ground with a speed of 50.0 m/s. What is the work done by the resistive forces if any? (Take g = 10 ms^−2)
+    (A) – 19.5 J
+    (B) – 22.5 J
+    (C) - 17.5 J   <-- CORRECT
+    (D) – 27.5 J
+    Answer: C
+    Explanation: From work kinetic energy theorem
+$\Delta$K = W_mg + W_air
+W_mg = Fscos$\theta$ = mghcos0^o
+W_mg = 2 $\times$ 10 ^- 3 $\times$ 10 $\times$ 1000 $\times$ 1 = 20J
+$1\over2$ $\times$2 $\times$ 10^ - 3(50^2 − 0) = 20 + W_air
+2.5 = 20 + W_air
+W_air = − 17.5J
+
+Q10. A 6.0-kg block initially at rest is pulled to the right along a horizontal frictionless surface by a constant horizontal force of 12 N. Find the speed of the block after it has moved 3.0 m?
+    (A) 4.5 m/s
+    (B) 5.5 m/s
+    (C) 2.5 m/s
+    (D) 3.5 m/s   <-- CORRECT
+    Answer: D
+    Explanation: From work kinetic energy theorem
+K.E. = $\frac{1}{2}$m v^2
+$\Delta$K = W
+$\frac{1}{2}$mv^2 - $\frac{1}{2}$mu^2 = Fs
+$\left(\frac{1}{2} \times 6 \times v^{2}\right)$ − 0 = 12 $\times$ 3
+3 v^2 = 36
+v^2 = 12
+v = 3.5m/sec
+
+Q11. A 6.0-kg block initially at rest is pulled to the right along a horizontal, surface having a coefficient of kinetic friction of 0.15, by a constant horizontal force of 12 N. Find the speed of the block after it has moved 3.0 m?
+    (A) 1.8 m/s   <-- CORRECT
+    (B) 0.8 m/s
+    (C) 3.8 m/s
+    (D) 2.8 m/s
+    Answer: A
+    Explanation: $\Delta$K = W
+F = 12N
+f = $\mu$R = $\mu$mg = 0.15 $\times$ 6 $\times$ 9.8 = 8.82N
+F_net = F - f = 12 - 8.82 = 3.18N
+1/2mv^2 - 1/2mu^2 = W
+1/2mv^2-0 = F_net x $x$
+$\left(\frac{1}{2} \times 6 \times v^{2}\right)$ = 3.18 $\times$ 3
+3v^2 = 3.18 $\times$ 3
+v^2 = 3.18v = 1.8m/sec
+
+Q12. A pump on the ground floor of a building can pump up water to fill a tank of volume 30m^3 in 15 min. If the tank is 40 m above the ground, and the efficiency of the pump is 30%, how much electric power is consumed by the pump?
+    (A) 43.3 kW   <-- CORRECT
+    (B) 33.6 kW
+    (C) 38.3 kW
+    (D) 45.2 kW
+    Answer: A
+    Explanation: P = $W\over t$
+W = mgh
+30m^3 = 30000 = 3 $\times$ 10^4 lit
+mass of 30000 lit water = 30000 Kg
+$P = {{mgh} \over t} = {{3 \times {{10}^4} \times 9.8 \times 40} \over {15 \times 60}} = 1.30 \times {10^4}W$ 
+efficiency = power output / power consumption
+$\eta=\frac{P}{P_{\mathrm{c}}}$
+$P_{c}=\frac{P}{\eta}=\frac{1.30 \times 10^{4}}{0.3}$ = 4.33 × 10^4 = 43.3KW.
+
+Q13. The bob of a pendulum is released from a horizontal position. If the length of the pendulum is 1.5 m, what is the speed with which the bob arrives at the lowermost point, given that it dissipated 5$\% $ of its initial energy against air resistance?
+    (A) 4.9 m/s
+    (B) 5.5 m/s
+    (C) 4.7 m/s
+    (D) 5.3 m/s   <-- CORRECT
+    Answer: D
+    Explanation: 95% of potential energy is converted into kinetic energy.
+applying conservation of mechanical energy between horizontal and lowermost points
+$mgl \times {{95} \over {100}} = {1 \over 2}m{v^2}$
+$gl \times {{95} \over {100}} = {1 \over 2}{v^2}$
+v = $\sqrt {{{2 \times gl \times 95} \over {100}}}$ = $\sqrt {{{2 \times 9.8 \times 1.5 \times 95} \over {100}}}$ = 5.3m/s
+
+Q14. Consider a collision between two pool balls. Ball 1 is at rest and ball 2 is moving towards it with a speed of 2 ms^-1. The mass of each ball is 0.3 kg. After the balls collide elastically, ball 2 comes to an immediate stop and ball 1 move off. What is the final velocity of ball 1?
+    (A) 2 m/s   <-- CORRECT
+    (B) 2.2 m/s
+    (C) 2.4 m/s
+    (D) 1.87 m/s
+    Answer: A
+    Explanation: Inelastic collision (e = 1) if the mass of colliding bodies is the same then their velocities after collision interchanged.
+m_1 = m_2 = m
+u_1 = 0
+u_2 = 2m/s
+${v_1} = \left( {{{{m_1} - {m_2}} \over {{m_1} + {m_2}}}} \right){u_1} + \left( {{{2{m_2}} \over {{m_1} + {m_2}}}} \right){u_2} $ = 2m/s
+${v_2} = \left( {{{2{m_1}} \over {{m_1} + {m_2}}}} \right){u_1} + \left( {{{{m_2} - {m_1}} \over {{m_1} - {m_2}}}} \right){u_2} $ = 0
+
+Q15. Consider two 2 marbles. Marble 1 has mass 100 g and marble 2 has mass 50 g. Edward rolls marble 1 along the ground towards marble 2 in the positive x-direction. Marble 2 is initially at rest and marble 1 has a velocity of 3 m /s in the positive x-direction. After they collide elastically, both marbles are moving. What is the final velocity of each marble?
+    (A) ball 1 moves to the right at 2 m /s and ball 2 moves to the left with a velocity of 2m /s
+    (B) ball 1 moves to the right at 5 m /s and ball 2 moves to the left with a velocity of 3m /s
+    (C) ball 1 moves to the right with a velocity of 1m/s and ball 2 also moves to the right at 4 m/s   <-- CORRECT
+    (D) ball 1 moves to the right at 3 m /s and ball 2 moves to the left with a velocity of 2m /s
+    Answer: C
+    Explanation: m_1 = 100gm
+m_2 = 50gm
+u_1 = 3m/s
+u_2 = 0
+$v_{1}=$$\left(\frac{m_{1}-m_{2}}{m_{1}+m_{2}}\right) u_{1}+\left(\frac{2 m_{2}}{m_{1}+m_{2}}\right) u_{2}$ = $\left(\frac{50}{150} \times 3\right)$ + 0 = 1 m/s
+$v_{2}$ = $\left(\frac{2 m_{1}}{m_{1}+m_{2}}\right) u_{1}+\left(\frac{m_{2}-m_{1}}{m_{1}-m_{2}}\right) u_{2}$ = $\left(\frac{200}{150} \times 3\right)+0$ = 4m/s
+
+========================================================================
+Work, Energy and Power Test 04  (id 555) [PAID]
+CBSE > Class 11 > Physics > Work Energy and Power
+Questions: 15 | Answers: YES
+========================================================================
+
+Q1. Two billiard balls each with a mass of 150g collide head-on in an elastic collision. Ball 1 was travelling at a speed of 2 m /s and ball 2 at a speed of 1.5 m /s. After the collision, ball 1 travels away from ball 2 at a velocity of 1.5 m /s .What is the velocity of ball 2?
+    (A) ball 2 moves with a velocity of 2.5 m /s
+    (B) ball 2 moves with a velocity of 2 m/s   <-- CORRECT
+    (C) ball 2 moves with a velocity of 3.5 m/s
+    (D) ball 2 moves with a velocity of 3.7 m/s
+    Answer: B
+    Explanation: In the elastic collision (e = 1) if the mass of colliding bodies is the same then their velocities after collision interchanged.
+m_1 = 150gm
+m_2 = 150gm
+u_1 = 2m/s
+u_2 = −1.5m/s
+$v_{1}=\left(\frac{m_{1}-m_{2}}{m_{1}+m_{2}}\right) u_{1}+\left(\frac{2 m_{2}}{m_{1}+m_{2}}\right) u_{2}$ = −u_2 = −1.5m/s
+v_2 = $\left(\frac{2 m_{1}}{m_{1}+m_{2}}\right) u_{1}+\left(\frac{m_{2}-m_{1}}{m_{1}-m_{2}}\right) u_{2}$ = u_1 = 2 m/s
+so that ball 2 moves with a velocity of 2 m/s
+
+Q2. Consider the collision of two cars. Car 1 is at rest and Car 2 is moving at a speed of 2 m /s in the negative x-direction. Both cars each have a mass of 500 kg. The cars collide inelastically and stick together. What is the resulting velocity of the resulting mass of metal?
+    (A) 1 m/s to the left   <-- CORRECT
+    (B) 1.5 m /s to the left
+    (C) 1.2 m /s to the left
+    (D) 1.4 m /s to the left
+    Answer: A
+    Explanation: from conservation of linear momentum initial momentum = final momentum
+$\vec{p}_{i}=\vec{p}_{f}$
+(500 $\times$ 0) + [500 $\times$ (−2)] = (500 + 500)v
+- 1000 = 1000v
+v = −1m/s negative sign indicates that cars move to the left.
+
+Q3. A body of mass 0.5 kg travels in a straight line with velocity v = $a x^{\frac 3 2}$ where a = $5 m^{\frac {−1}{2}}s^{−1}$. What is the work done by the net force during its displacement from x = 0 to x = 2 m is:
+    (A) 10 J
+    (B) 100 J
+    (C) 50 J   <-- CORRECT
+    (D) 1.5 J
+    Answer: C
+    Explanation: Mass of the body, m = 0.5 kg
+The velocity of the body v = $ax^{\frac 3 2}$
+a = 5 $m^{\frac {-1}{2}}$s^-1
+Initial velocity at x = 0 is u = 0
+Final velocity at x = 2 m is v = 10$\sqrt2$ m/s
+work done = Change in kinetic energy
+W = K_f - K_i
+W =$\frac 12$mv^2 - 0
+W = $\frac 12 \times$ 0.5 $\times$ (10$\sqrt 2$)^2 = $\frac 12 \times$0.5 $\times$ 200 = 50J
+
+Q4. A person trying to lose weight (dieter) lifts a 10 kg mass, one thousand times, to a height of 0.5 m each time. Assume that the potential energy lost each time she lowers the mass is dissipated. How much work does she do against the gravitational force?
+    (A) 49000 J   <-- CORRECT
+    (B) 45000 J
+    (C) 59000 J
+    (D) 55000 J
+    Answer: A
+    Explanation: Work done by force applied against gravity for one lift will be
+W = Fs = mgh = 10 $\times$ 9.8 $\times$ 0.5 = 49J
+So work done for 1000 lifts = 49 $\times$ 1000 = 49000 J
+
+Q5. A person trying to lose weight (dieter) lifts a 10 kg mass, one thousand times, to a height of 0.5 m each time. Assume that the potential energy lost each time she lowers the mass is dissipated. Fat supplies 3.8 ${\times }$ 10^7 J of energy per kilogram which is converted to mechanical energy with a 20% efficiency rate. How much fat will the dieter use up?
+    (A) 7.45 $ \times $ 10^-3 kg
+    (B) 6.45$ \times $ 10^-3 kg   <-- CORRECT
+    (C) 8.85 $ \times $ 10^-3 kg
+    (D) 8.45 $ \times $ 10^-3 kg
+    Answer: B
+    Explanation: Work done by force applied against gravity for one lift will be
+W = Fs = mgh = 10 $\times$ 9.8 $\times$ 0.5 = 49J
+So work done for 1000 lifts = 49 $\times$ 1000 = 49000 J
+efficiency = $Work \ done \over energy \ from \ fat$
+energy from fat used = $Work \ done \over efficiency$
+E = $ {W \over \eta } = {{49000} \over {0.2}} $ = 245000J
+Energy from per kilogram fat = 3.8 ${\times }$ 10^7 J
+Fat used $ = {{245000} \over {3.8 \times {{10}^7}}} $ = 64473 $\times$ 10^-7 = 6.45 $\times$ 10^-3 Kg
+
+Q6. The Sun converts an enormous amount of matter to energy. Each second, 4.19 ${\times }$ 10^9 kg-approximately the capacity of 400 average-sized cargo ships-is changed to energy. What is the power output of the Sun?
+    (A) 0.72 $ \times $ 10^26 W
+    (B) 3.77 $ \times $ 10^26 W   <-- CORRECT
+    (C) 1.57 $ \times $ 10^26 W
+    (D) 2.62 $ \times $ 10^26 W
+    Answer: B
+    Explanation: The energy liberated per second 
+E = mc^2 = 4.19 $\times$ 10^9 $\times$ 3 $\times$ 10^8 $\times$3 $\times$ 10^8 = 37.71 $\times$ 10^25 J
+power output of the sun is equal to energy output per second 
+P = ${W \over t} = {{37.71 \times {{10}^{25}}} \over 1} $ = 3.77 $\times$ 10^26 W
+
+Q7. A block having a mass of 0.80 kg is given an initial velocity of 1.2 m/s to the right and collides with a spring of negligible mass and force constant k = 50 N/m. Assuming the surface to be frictionless, calculate the maximum compression of the spring after the collision.
+    (A) 0.25 m
+    (B) 0.10 m
+    (C) 0.20 m
+    (D) 0.15 m   <-- CORRECT
+    Answer: D
+    Explanation: for maximum compression 
+${1 \over 2}k{x^2} = {1 \over 2}m{v^2}$
+x = $ \sqrt {{{m{v^2}} \over k}} = \sqrt {{{0.8 \times 1.2 \times 1.2} \over {50}}} $ = 0.15m
+the maximum compression of the spring after the collision = 0.15m.
+
+Q8. The launching mechanism of a toy gun consists of a spring of unknown spring constant. When the spring is compressed 0.120 m, the gun, when fired vertically, is able to launch a 35.0-g projectile to a maximum height of 20.0 m above the position of the projectile before firing. Neglecting all resistive forces, determine the spring constant.
+    (A) 953 N/m   <-- CORRECT
+    (B) 993 N/m
+    (C) 903 N/m
+    (D) 873 N/m
+    Answer: A
+    Explanation: The potential energy of spring converted into potential energy
+${1 \over 2}k{x^2} $ = mgh
+k = ${{2mgh} \over {{x^2}}}$ =$ {{2 \times 35 \times {{10}^{ - 3}} \times 9.8 \times 20} \over {0.12 \times 0.12}} $ = 953N/m
+
+Q9. A 3.00-kg crate slides down a ramp. The ramp is 1.00 m in length and inclined at an angle of 30.0^o. The crate starts from rest at the top, experiences a constant frictional force of magnitude 5.00 N, and continues to move a short distance on the flat floor after it leaves the ramp. Use energy methods to determine the speed of the crate at the bottom of the ramp?
+    (A) 1.76 m/s
+    (B) 2.25 m/s
+    (C) 2.54 m/s   <-- CORRECT
+    (D) 2.78 m/s
+    Answer: C
+    Explanation: Height of ramp 
+h = lsin30^o = 1 $\times$ 1/2 = 0.5m
+from work kinetic energy theorem
+K_f - K_i = W_mg + W_f
+$1\over 2$mv^2 - 0 = mgh + fd
+$1\over 2$ $\times$ 3v^2 = (3 $\times$ 9.8 $\times$0.5) + [5 $\times$ ( - 1)]
+$\frac{3}{2}$v^2 = 14.7 - 5
+v^2 = 9.7 $\times$ $\frac{2}{3}$
+v = $\sqrt{\frac{9.7 \times 2}{3}}$ = 2.54m/s
+
+Q10. A bullet of mass 0.012 kg and horizontal speed 70 m ${\rm{s}}{-^{\rm{1}}}$ strikes a block of wood of mass 0.4 kg and instantly comes to rest with respect to the block. The block is suspended from the ceiling by means of thin wires. Calculate the height to which the block rises. Also, estimate the amount of heat produced in the bloc?.
+    (A) 23.2 cm, 38.5 J
+    (B) 21.2 cm, 28.5 J   <-- CORRECT
+    (C) 29.2 cm, 29.5 J
+    (D) 72.2 cm, 28.5 J
+    Answer: B
+    Explanation: mass of bullet m = 0.012 kg
+mass of block = 0.4 kg
+The initial speed of a bullet, u =70m/s
+Let the final speed of block and bullet which move together = v m/s
+According to the law of conservation of momentum,
+$v\sqrt{\frac{9.7 \times 2}{3}}$
+v =$ {{mu} \over {M + m}} = {{0.012 \times 70} \over {0.412}} $ = 2.04m/s
+Let block rises to a height h after the collision, then
+Loss in K.E. of block and bullet = Gain in P.E. after the collision.
+${1 \over 2}\left( {m + M} \right){v^2} $ = (m + M)gh
+h = $ {{{v^2}} \over {2g}} = {{2.04 \times 2.04} \over {2 \times 9.8}} $ = 0.212m = 21.2 cm
+Heat produced in the block = loss of K.E. = K.E. of bullet - K.E. of block and bullet
+Heat produced in the block = ${1 \over 2}m{u^2} - {1 \over 2}\left( {m + M} \right){v^2}$ = $ \left( {{1 \over 2} \times 0.012 \times 70 \times 70} \right) - \left( {{1 \over 2} \times 0.412 \times 2.04 \times 2.04} \right) $ = 28.5J
+
+Q11. A 1 kg block situated on a rough incline is connected to a spring of spring constant 100 Nm^-1 as shown in Figure. The block is released from rest with the spring in the unstretched position. The block moves 10 cm down the incline before coming to rest. Find the coefficient of friction between the block and the incline. Assume that the spring has a negligible mass and the pulley is frictionless.
+    (A) 0.112   <-- CORRECT
+    (B) 0.25
+    (C) 0.3
+    (D) 0.07
+    Answer: A
+    Explanation: The weight of the block can be resolved in two components.
+the component parallel to incline plane (mgsin37^o)and a component perpendicular to the plane (mgcos37^o) 
+at equilibrium
+R = mg cos 37^o 
+f = $\mu$R = $\mu$mg cos 37
+The net force acting on the block = mgsin37^o - f 
+= mgsin37^o − $\mu $mgcos37^o 
+At equilibrium, the work done by the block is equal to the potential energy of the spring, i.e.,
+= (mg sin 37^o - $\mu$mg cos 37^o) $x$ = $\frac{1}{2}$kx^2 
+$(1 \times 9.8 \times 0.6)-(\mu \times 1 \times 9.8 \times 0.8)$ $=\frac{1}{2} \times 100 \times 0.1$
+5.88 - 7.84$\mu$ = 5
+$\mu=\frac{0.88}{0.784}$ = 0.112
+
+Q12. A bolt of mass 0.3 kg falls from the ceiling of an elevator moving down with a uniform speed of 7 m/s. It hits the floor of the elevator (length of the elevator = 3 m) and does not rebound. What is the heat produced by the impact?
+    (A) 8.42 J
+    (B) 9.22 J
+    (C) 8.82 J   <-- CORRECT
+    (D) 8.11 J
+    Answer: C
+    Explanation: The whole of the potential energy of bolt converted into heat energy 
+heat produced by the impact = mgh = 0.3 $\times$ 9.8 $\times$ 3 = 8.82J
+
+Q13. A trolley of mass 200 kg moves with a uniform speed of 36 km/h on a frictionless track. A child of mass 20 kg runs on the trolley from one end to the other (10 m away) with a speed of 4 ms^-1 relatives to the trolley in a direction opposite to its motion, and jumps out of the trolley. What is the final speed of the trolley?
+    (A) 9.36 m/s
+    (B) 8.13 m/s
+    (C) 10.36 m/s   <-- CORRECT
+    (D) 11.36 m/s
+    Answer: C
+    Explanation: Mass of trolley M = 200Kg
+mass of child m = 20Kg
+speed of trolley v = 36Km/hr = 36 $\times$ $5\over 18$ = 10m/s
+Let v' be the final velocity of the trolley with respect to the ground.
+The final velocity of the boy with respect to the ground = v' - 4
+from conservation of linear momentum
+p_i = p_f
+(M + m)v = Mv' +m(v' − 4)
+(200 + 20) $\times$ 10 = 200v' + 20(v' − 4)
+2200 = 220v' - 80
+= $2280\over 220$ = 10.36m/s
+
+Q14. A trolley of mass 200 kg moves with a uniform speed of 36 km/h on a frictionless track. A child of mass 20 kg runs on the trolley from one end to the other (10 m away) with a speed of 4 ms^−1 relatives to the trolley in a direction opposite to its motion, and jumps out of the trolley. How much has the trolley moved from the time the child begins to run?
+    (A) 25.9 m   <-- CORRECT
+    (B) 23.3 m
+    (C) 24.1 m
+    (D) 27.8 m
+    Answer: A
+    Explanation: Mass of trolly M = 200Kg
+mass of child m = 20Kg
+speed of trolley v = 36Km/hr = 36 $\times$ $5\over 18$ = 10m/s
+Let v' be the final velocity of the trolley with respect to the ground.
+The final velocity of the boy with respect to the ground = v' - 4 
+from conservation of linear momentum
+p_i = p_f
+(M + m)v = Mv' + m(v' − 4)
+(200 + 20) $\times$ 10 = 200v' + 20(v' − 4)
+2200 = 220v' - 80
+v' = $2280\over 220$ = 10.36m/s
+Time taken by the boy to run, t = $10\over 4$ = 2.5 sec
+Distance moved by the trolley = v't = 10.36 $\times$ 2.5 = 25.9 m
+
+Q15. A 50.0-kg marathon runner runs up the stairs to the top of a 443-m-tall Tower. To lift herself to the top in 15.0 minutes, what must be her average power output?
+    (A) 241 W   <-- CORRECT
+    (B) 221 W
+    (C) 261 W
+    (D) 201 W
+    Answer: A
+    Explanation: P = $ {W \over t}$
+W = mgh = 50 $\times$ 9.8 $\times$ 443
+t = 15 $\times$ 60sec
+P = ${{50 \times 9.8 \times 443} \over {15 \times 60}} $ = 241 W.
+
+========================================================================
+Work, Energy and Power Test 05  (id 556) [PAID]
+CBSE > Class 11 > Physics > Work Energy and Power
+Questions: 15 | Answers: YES
+========================================================================
+
+Q1. A 75.0-kg painter climbs a ladder that is 2.75 m long leaning against a vertical wall. The ladder makes an angle of $30^\circ $ with the wall. How much work does gravity do on the painter?
+    (A) -1750 J   <-- CORRECT
+    (B) -1850 J
+    (C) -1950 J
+    (D) -2050 J
+    Answer: A
+    Explanation: W = −mgh
+h = $ x\cos 30^\circ = 2.75 \times {{\sqrt 3 } \over 2}$
+$W = - 75 \times 9.8 \times 2.75 \times {{\sqrt 3 } \over 2} $ = - 1750J
+
+Q2. A 0.800-kg ball is tied to the end of a string 1.60 m long and swung in a vertical circle. (a) During one complete circle, starting anywhere, calculate the total work done on the ball by
+ the tension in the string and
+ gravity
+    (A) 10 J, 10 J
+    (B) 30 J, 30 J
+    (C) 0, 0   <-- CORRECT
+    (D) 25 J, -25 J
+    Answer: C
+    Explanation: Work done by the conservative force in round trip will be zero (displacement = 0).
+So that work done by tension and gravity will be zero.
+
+Q3. A 0.800-kg ball is tied to the end of a string 1.60 m long and swung in a vertical circle. Calculate the total work done on the ball by
+ the tension in the string and
+ gravity for motion along the semicircle from the lowest to the highest point on the path.
+    (A) 0, -281 J
+    (B) 0, -2.51 J
+    (C) 0, -25.1 J   <-- CORRECT
+    (D) 0, -251 J
+    Answer: C
+    Explanation: work done by tension will be zero because tension is perpendicular to the displacement.
+W = Tscos90^o = 0
+work is done by gravity in a semicircle from the lowest to the highest point on the path
+W = mghcos180^o = 0.8 $\times$ 9.8 $\times$ 3.2 $\times$ (−1) = −25.1J
+
+Q4. Adult cheetahs, the fastest of the great cats, have a mass of about 70 kg and have been clocked running at up to 72 mph (32 m/s). How many joules of kinetic energy does such a swift cheetah have?
+    (A) 34,000 J
+    (B) 29,000 J
+    (C) 32,000 J
+    (D) 35840 J   <-- CORRECT
+    Answer: D
+    Explanation: The kinetic energy of a cheetah 
+K = $ {1 \over 2}m{v^2}$
+m = 70Kg
+v = 32m/s
+K = $\frac{1}{2}$ $\times$ 70 $\times$ 32 $\times$ 32 = 35840J
+
+Q5. A sled with mass 8.00 kg moves in a straight line on a frictionless horizontal surface. At one point in its path, its speed is 4.00 m/s; after it has traveled 2.50 m beyond this point, its speed is 6.00 m/s. Use the work-energy theorem to find the force acting on the sled, assuming that this force is constant and that it acts in the direction of the sled’s motion.
+    (A) 30.0 N
+    (B) 28.0 N
+    (C) 32.0 N   <-- CORRECT
+    (D) 34.0 N
+    Answer: C
+    Explanation: from work-energy theorem
+change in kinetic energy = work done
+$\Delta K$ = W
+K_f − K_i = F_s
+${1 \over 2}m{v_f}^2 - {1 \over 2}m{v_i}^2 = Fs $
+${1 \over 2}m\left( {{v_f}^2 - {v_i}^2} \right) = Fs$ 
+m = 8Kg, s = 2.5m
+v_f = 6m/s, v_i = 4m/s
+$1 \over 2$ $\times$ 8(6^2 − 4^2) = F $\times$ 2.5
+4 $\times$20 = F $\times$ 2.5
+F = ${{80} \over {2.5}}$ = 32N
+
+Q6. A 12-pack of Omni-Cola (mass 4.30 kg) is initially at rest on a horizontal floor. It is then pushed in a straight line for 1.20 m by a trained dog that exerts a horizontal force with magnitude 36.0 N. Use the work-energy theorem to find the final speed of the 12-pack if there is no friction between the 12-pack and the floor.
+    (A) 4.38 m/s
+    (B) 4.68 m/s
+    (C) 4.48 m/s   <-- CORRECT
+    (D) 4.58 m/s
+    Answer: C
+    Explanation: from work-energy theorem
+change in kinetic energy = work done
+$\Delta K$ = W
+K_f - K_i = Fs
+${1 \over 2}m{v^2} - 0 $ = Fs 
+m = 4.30Kg, s = 1.2m, F = 36N
+v_f = vm/s, v_i = 0
+${1 \over 2}m{v^2} = Fs$
+$1\over 2$ $\times$ 4.3 $\times$ v^2 = 36 $\times$ 1.2
+$v = \sqrt {{{36 \times 1.2 \times 2} \over {4.3}}} $ = 4.48m/s
+
+Q7. A12-pack of Omni-Cola (mass 4.30 kg) is initially at rest on a horizontal floor. It is then pushed in a straight line for 1.20 m by a trained dog that exerts a horizontal force with magnitude 36.0 N. Use the work-energy theorem to find the final speed of the 12-pack if the coefficient of kinetic friction between the 12-pack and the floor is 0.30?
+    (A) 3.81 m/s
+    (B) 4.01 m/s
+    (C) 3.61 m/s   <-- CORRECT
+    (D) 4.22 m/s
+    Answer: C
+    Explanation: $\Delta$K = W
+F = 36N
+f = $\mu$R = $\mu$mg = 0.3 $\times$ 4.3 $\times$ 9.8 = 12.642N
+F_net = F - f = 36 - 12.642 = 23.358N
+s = 1.2 m
+$\frac{1}{2} m v^{2}$ - 0 = F_net $\times$ s
+$\frac{1}{2}$$ \times$ 4.3 $ \times$ v^2 = 23.358 $ \times$ 1.2
+${v^2} = {{23.358 \times 1.2 \times 2} \over {4.3}} $ = 13.03
+v = $ \sqrt {13.03} $ = 3.61m/s
+
+Q8. A 6.0-kg box moving at 3.0 m/s on a horizontal, frictionless surface runs into a light spring of force constant 75 N/cm Use the work–energy theorem to find the maximum compression of the spring.
+    (A) 8.5 cm   <-- CORRECT
+    (B) 9.5 cm
+    (C) 7.5 cm
+    (D) 6.5 cm
+    Answer: A
+    Explanation: For maximum compression of spring, kinetic energy will be converted into the potential energy of spring.
+${1 \over 2}k{x^2} = {1 \over 2}m{v^2}$
+${x^2} = {{m{v^2}} \over k} = {{6 \times 3 \times 3} \over {75 \times {{10}^2}}}$
+$x = \sqrt {{{6 \times 3 \times 3} \over {75 \times {{10}^2}}}} $ = 0.085m = 8.5cm
+
+Q9. How many joules of energy does a 100-watt light bulb use per hour? How fast would a 70-kg person have to run to have that amount of kinetic energy?
+    (A) 360000 J, 101 m/s   <-- CORRECT
+    (B) 380000 J, 120 m/s
+    (C) 320000 J, 130 m/s
+    (D) 340000 J, 140 m/s
+    Answer: A
+    Explanation: Energy = P $\times$ Time = 100 $\times$ 1Hr
+Energy = 100 $\times$ 1 $\times$ 60 $\times$ 60 = 360000 J
+for a 70 Kg man $K = {1 \over 2}m{v^2}$ 
+speed of man v = $ \sqrt {{{2K} \over m}} = \sqrt {{{2 \times 360000} \over {70}}} $ = 101m/s
+
+Q10. A tandem (two-person) bicycle team must overcome a force of 165 N to maintain a speed of 9.00 m/s. Find the power required per rider, assuming that each contributes equally?
+    (A) 798 W
+    (B) 742.5 W   <-- CORRECT
+    (C) 702 W
+    (D) 765 W
+    Answer: B
+    Explanation: Total power required to overcome a force of 165 N and to maintain a speed of 9.00 m/s
+F = 165N
+v = 9m/s
+P = Fv = 165 $\times$ 9 = 1485W
+if each rider contribute equal power, then the power required per rider will be $P\over 2$ = $1485\over 2$ = 742.5W
+
+Q11. You are asked to design spring bumpers for the walls of a parking garage. A freely rolling 1200-kg car moving at 0.65 m/s is to compress the spring no more than 0.090 m before stopping. What should be the force constant of the spring? Assume that the spring has negligible mass.
+    (A) 5.3 $ \times $ 10^4 N/m
+    (B) 6.25 $ \times $ 10^4 N/m   <-- CORRECT
+    (C) 5.8 $ \times $ 10^4 N/m
+    (D) 6.6 $ \times $10^4 N/m
+    Answer: B
+    Explanation: The kinetic energy of the car will be converted into the potential energy of spring.
+${1 \over 2}k{x^2} = {1 \over 2}m{v^2}$
+$k = {{m{v^2}} \over {{x^2}}}$
+m = 1200Kg
+v = 0.65m/s
+x = 0.09m
+$k = {{1200 \times 0.65 \times 0.65} \over {0.09 \times 0.09}} $ = 6.25 $\times$ 10^4N/m
+
+Q12. On an essentially frictionless, horizontal ice rink, a skater moving at 3.0 m/s encounters a rough patch that reduces her speed to 1.65 m/s due to a friction force that is 25$\% $ of her weight. Use the work-energy theorem to find the length of this rough patch?
+    (A) 1.1 m
+    (B) 1.3 m   <-- CORRECT
+    (C) 0.9 m
+    (D) 1.5 m
+    Answer: B
+    Explanation: Using the work-energy theorem, change in kinetic energy = work done by the friction force
+$\Delta K$ =W_f
+$\frac{1}{2} m\left(v_{f}^{2}-v_{i}^{2}\right)$ = -fd
+$\frac{1}{2} m\left(v_{f}^{2}-v_{i}^{2}\right)$ = $-m g \times \frac{25}{100} \times d$
+$\frac{1}{2} m\left[(1.65)^{2}-(3)^{2}\right]$ = $-m \times 9.8 \times \frac{25}{100} \times d$
+$\frac{1}{2} \times(2.7225-9)=-9.8 \times \frac{25}{100} \times d$
+$-\frac{6.2775}{2}=-9.8 \times \frac{25}{100} \times d$
+d = $\frac{6.2775 \times 100}{2 \times 9.8 \times 25}$ = 1.3 m
+
+Q13. A pump is required to lift 800 kg of water per minute from a well 14.0 m deep and eject it with a speed of 18.0 m/s. How much work is done per minute in lifting the water?
+    (A) 1.40 $ \times $ 10^5 J
+    (B) 1.30 $ \times $ 10^5 J
+    (C) 1.20 $ \times $ 10^5 J
+    (D) 1.10 $ \times $ 10^5 J   <-- CORRECT
+    Answer: D
+    Explanation: mass is given by ,m = 800Kg per minute
+h = 14m
+work done per minute in lifting the water is given by :-
+W = mgh = 800 $\times$ 9.8 $\times$ 14 = 109760J = 1.1 $\times$ 10^5J
+
+Q14. A pump is required to lift 800 kg of water (about 210 gallons) per minute from a well 14.0 m deep and eject it with a speed of 18.0 m/s. How much work is done in giving the water the kinetic energy it has when ejected?
+    (A) 1.10 $ \times $ 10^5J
+    (B) 1.30 $ \times $ 10^5J   <-- CORRECT
+    (C) 1.40 $ \times $ 10^5J
+    (D) 1.20 $ \times $ 10^5J
+    Answer: B
+    Explanation: Work is done in giving kinetic energy is equal to change in kinetic energy
+W = $ \Delta K$
+$W = {1 \over 2}m{v^2} - 0$
+W = $\frac{1}{2}$ $\times$ 800 $\times$ 18 $\times$ 18 = 129600J = 1.3 $\times$ 10^5J
+
+Q15. In which of the following cases is the work done positively?
+    (A) Work is done by friction on a body sliding down an inclined plane.
+    (B) Work is done by gravitational force while a man in lifts a bucket out of a well by means of a rope tied to the bucket.
+    (C) Work is done by the resistive force of air on a vibrating pendulum in bringing it to rest.
+    (D) Work is done by an applied force on a body moving on a rough horizontal plane with uniform velocity.   <-- CORRECT
+    Answer: D
+    Explanation: When a body is moving on a rough horizontal surface then there will be 2 forces acting on the body 
+ Applied force ( in the direction of motion)
+ friction ( opposite to the direction of motion)
+As applied force is in the same direction as displacement so work is done will be positive.

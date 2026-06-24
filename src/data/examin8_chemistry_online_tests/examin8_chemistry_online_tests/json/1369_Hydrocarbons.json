@@ -1,0 +1,3162 @@
+{
+  "id": 1369,
+  "name": "Hydrocarbons",
+  "full_name": "CBSE > Class 11 > Chemistry > Hydrocarbons",
+  "tests": [
+    {
+      "testPaperID": 991,
+      "testPaperName": "Hydrocarbons CBSE Online Test 01",
+      "is_paid": false,
+      "category_full_name": "CBSE > Class 11 > Chemistry > Hydrocarbons",
+      "noOfQuestions": 15,
+      "has_answers": true,
+      "sections": [
+        {
+          "sectionName": "General",
+          "sectionID": null,
+          "questions": [
+            {
+              "questionID": 22607,
+              "question": "Which of these fuels given below is not a hydrocarbon?\n Hydrogen\n LNG\n LPG\n CNG",
+              "question_raw": "<p>Which of these fuels given below is not a hydrocarbon?</p>\r\n\r\n<ol start=\"1\" style=\"list-style-type: upper-alpha;\">\r\n\t<li>Hydrogen</li>\r\n\t<li>LNG</li>\r\n\t<li>LPG</li>\r\n\t<li>CNG</li>\r\n</ol>",
+              "options": [
+                {
+                  "label": "A",
+                  "id": 45624,
+                  "text": "A",
+                  "is_correct": true
+                },
+                {
+                  "label": "B",
+                  "id": 45625,
+                  "text": "B",
+                  "is_correct": false
+                },
+                {
+                  "label": "C",
+                  "id": 45627,
+                  "text": "D",
+                  "is_correct": false
+                },
+                {
+                  "label": "D",
+                  "id": 45626,
+                  "text": "C",
+                  "is_correct": false
+                }
+              ],
+              "correct_option_ids": [
+                45624
+              ],
+              "correct_option_labels": [
+                "A"
+              ],
+              "correct_option_texts": [
+                "A"
+              ],
+              "explanation": "Because hydrocarbons contain both C and H and hence Hydrogen is not a hydrocarbon."
+            },
+            {
+              "questionID": 22608,
+              "question": "Saturated hydrocarbons contain",
+              "question_raw": "<p>Saturated hydrocarbons contain</p>",
+              "options": [
+                {
+                  "label": "A",
+                  "id": 45628,
+                  "text": "single bonds",
+                  "is_correct": true
+                },
+                {
+                  "label": "B",
+                  "id": 45630,
+                  "text": "triple bonds",
+                  "is_correct": false
+                },
+                {
+                  "label": "C",
+                  "id": 45631,
+                  "text": "ionic bonds",
+                  "is_correct": false
+                },
+                {
+                  "label": "D",
+                  "id": 45629,
+                  "text": "double bonds",
+                  "is_correct": false
+                }
+              ],
+              "correct_option_ids": [
+                45628
+              ],
+              "correct_option_labels": [
+                "A"
+              ],
+              "correct_option_texts": [
+                "single bonds"
+              ],
+              "explanation": "Saturated hydrocarbons are the compounds in which there is a single bond between the carbon atoms. They are also called alkanes and have the general formula C_nH_2n+2."
+            },
+            {
+              "questionID": 22609,
+              "question": "In cycloalkanes carbon atoms form:",
+              "question_raw": "<p>In cycloalkanes carbon atoms form:</p>",
+              "options": [
+                {
+                  "label": "A",
+                  "id": 45633,
+                  "text": "A an open chain",
+                  "is_correct": false
+                },
+                {
+                  "label": "B",
+                  "id": 45632,
+                  "text": "A closed chain or a ring",
+                  "is_correct": true
+                },
+                {
+                  "label": "C",
+                  "id": 45635,
+                  "text": "A open coiled chain",
+                  "is_correct": false
+                },
+                {
+                  "label": "D",
+                  "id": 45634,
+                  "text": "A zigzag chain",
+                  "is_correct": false
+                }
+              ],
+              "correct_option_ids": [
+                45632
+              ],
+              "correct_option_labels": [
+                "B"
+              ],
+              "correct_option_texts": [
+                "A closed chain or a ring"
+              ],
+              "explanation": "Cycloalkanes contain single bond between the carbon atoms, they form ring structures and have the general formula C_nH_2n."
+            },
+            {
+              "questionID": 22610,
+              "question": "Which of these is not a characteristic of Aromatic Hydrocarbons?",
+              "question_raw": "<p>Which of these is not a characteristic of Aromatic Hydrocarbons?</p>",
+              "options": [
+                {
+                  "label": "A",
+                  "id": 45637,
+                  "text": "Carbon atoms form a closed chain or ring.",
+                  "is_correct": false
+                },
+                {
+                  "label": "B",
+                  "id": 45639,
+                  "text": "They are special type of cyclic compounds.",
+                  "is_correct": false
+                },
+                {
+                  "label": "C",
+                  "id": 45638,
+                  "text": "They may contain double bonds.",
+                  "is_correct": false
+                },
+                {
+                  "label": "D",
+                  "id": 45636,
+                  "text": "Carbon atoms form a an open chain.",
+                  "is_correct": true
+                }
+              ],
+              "correct_option_ids": [
+                45636
+              ],
+              "correct_option_labels": [
+                "D"
+              ],
+              "correct_option_texts": [
+                "Carbon atoms form a an open chain."
+              ],
+              "explanation": "Aromatic hydrocarbon is not an open chain. They are ring structures. they contain one or more benzene rings either fused or isolated in their molecules."
+            },
+            {
+              "questionID": 22611,
+              "question": "The number of chain isomers of C_5H_12 are:",
+              "question_raw": "<p>The number of chain isomers of C<sub>5</sub>H<sub>12</sub>&nbsp;are:</p>",
+              "options": [
+                {
+                  "label": "A",
+                  "id": 45643,
+                  "text": "5",
+                  "is_correct": false
+                },
+                {
+                  "label": "B",
+                  "id": 45641,
+                  "text": "2",
+                  "is_correct": false
+                },
+                {
+                  "label": "C",
+                  "id": 45642,
+                  "text": "4",
+                  "is_correct": false
+                },
+                {
+                  "label": "D",
+                  "id": 45640,
+                  "text": "3",
+                  "is_correct": true
+                }
+              ],
+              "correct_option_ids": [
+                45640
+              ],
+              "correct_option_labels": [
+                "D"
+              ],
+              "correct_option_texts": [
+                "3"
+              ],
+              "explanation": "The number of chain isomers of C_5H_12 are as follows:\n n-pentane CH_3CH_2CH_2CH_2CH_3\n 2-Methylbutane CH_3CH(CH_3)CH_2CH_3\n 2,2-Dimethylpropane CH_3CH(CH_3)_2CH_3"
+            },
+            {
+              "questionID": 22612,
+              "question": "In the Wurtz reaction method of preparation of alkanes, the stoichiometric coefficient of Sodium is ________.",
+              "question_raw": "<p>In the Wurtz reaction method of preparation of alkanes, the stoichiometric coefficient of Sodium is ________.</p>",
+              "options": [
+                {
+                  "label": "A",
+                  "id": 45646,
+                  "text": "3",
+                  "is_correct": false
+                },
+                {
+                  "label": "B",
+                  "id": 45644,
+                  "text": "2",
+                  "is_correct": true
+                },
+                {
+                  "label": "C",
+                  "id": 45647,
+                  "text": "5",
+                  "is_correct": false
+                },
+                {
+                  "label": "D",
+                  "id": 45645,
+                  "text": "1",
+                  "is_correct": false
+                }
+              ],
+              "correct_option_ids": [
+                45644
+              ],
+              "correct_option_labels": [
+                "B"
+              ],
+              "correct_option_texts": [
+                "2"
+              ],
+              "explanation": "Wurtz reaction is used for the preparation of alkanes from alkyl halides in the presence of sodium and dry ether. For example:\nCH_3Br + 2Na +BrCH_3 $\\longrightarrow$ CH_3CH_3 + 2NaBr\nThus two atoms of Na are used."
+            },
+            {
+              "questionID": 22613,
+              "question": "The number of possible conformational isomers of ethane is ________.",
+              "question_raw": "<p>The number of possible conformational isomers of ethane is ________.</p>",
+              "options": [
+                {
+                  "label": "A",
+                  "id": 45650,
+                  "text": "zero",
+                  "is_correct": false
+                },
+                {
+                  "label": "B",
+                  "id": 45651,
+                  "text": "two",
+                  "is_correct": false
+                },
+                {
+                  "label": "C",
+                  "id": 45649,
+                  "text": "one",
+                  "is_correct": false
+                },
+                {
+                  "label": "D",
+                  "id": 45648,
+                  "text": "infinite",
+                  "is_correct": true
+                }
+              ],
+              "correct_option_ids": [
+                45648
+              ],
+              "correct_option_labels": [
+                "D"
+              ],
+              "correct_option_texts": [
+                "infinite"
+              ],
+              "explanation": "Conformational isomers are obtained by rotation about a carbon-carbon single bond. This results in an infinite number of momentary arrangements of atoms in space. Hence for ethane infinite number of conformations are possible."
+            },
+            {
+              "questionID": 22614,
+              "question": "Boiling point of alkanes are:",
+              "question_raw": "<p>Boiling point of alkanes are:</p>",
+              "options": [
+                {
+                  "label": "A",
+                  "id": 45654,
+                  "text": "is independent of molecular mass.",
+                  "is_correct": false
+                },
+                {
+                  "label": "B",
+                  "id": 45652,
+                  "text": "increases with increase in molecular mass.",
+                  "is_correct": true
+                },
+                {
+                  "label": "C",
+                  "id": 45655,
+                  "text": "is independent of branching.",
+                  "is_correct": false
+                },
+                {
+                  "label": "D",
+                  "id": 45653,
+                  "text": "decreases with increase in molecular mass.",
+                  "is_correct": false
+                }
+              ],
+              "correct_option_ids": [
+                45652
+              ],
+              "correct_option_labels": [
+                "B"
+              ],
+              "correct_option_texts": [
+                "increases with increase in molecular mass."
+              ],
+              "explanation": "As molecular mass increases, the magnitude of Van der Waals forces of attraction increases and hence boiling point increases accordingly."
+            },
+            {
+              "questionID": 22615,
+              "question": "Halogenation of alkanes is a:",
+              "question_raw": "<p>Halogenation of alkanes is a:</p>",
+              "options": [
+                {
+                  "label": "A",
+                  "id": 45657,
+                  "text": "Addition reaction",
+                  "is_correct": false
+                },
+                {
+                  "label": "B",
+                  "id": 45658,
+                  "text": "Elimination reaction",
+                  "is_correct": false
+                },
+                {
+                  "label": "C",
+                  "id": 45659,
+                  "text": "Rearrangement reaction",
+                  "is_correct": false
+                },
+                {
+                  "label": "D",
+                  "id": 45656,
+                  "text": "Substitution reaction",
+                  "is_correct": true
+                }
+              ],
+              "correct_option_ids": [
+                45656
+              ],
+              "correct_option_labels": [
+                "D"
+              ],
+              "correct_option_texts": [
+                "Substitution reaction"
+              ],
+              "explanation": "Halogenation of alkanes is a substitution reaction because the hydrogen atoms are replaced by halogens in the presence of sunlight to give the corresponding alkyl halides. The reaction follows a free radical mechanism."
+            },
+            {
+              "questionID": 22616,
+              "question": "The general formula for alkenes is:",
+              "question_raw": "<p>The general formula for alkenes is:</p>",
+              "options": [
+                {
+                  "label": "A",
+                  "id": 45661,
+                  "text": "C_nH_2n+1",
+                  "is_correct": false
+                },
+                {
+                  "label": "B",
+                  "id": 45663,
+                  "text": "C_nH_2n+3",
+                  "is_correct": false
+                },
+                {
+                  "label": "C",
+                  "id": 45662,
+                  "text": "C_nH_2n-1",
+                  "is_correct": false
+                },
+                {
+                  "label": "D",
+                  "id": 45660,
+                  "text": "C_nH_2n",
+                  "is_correct": true
+                }
+              ],
+              "correct_option_ids": [
+                45660
+              ],
+              "correct_option_labels": [
+                "D"
+              ],
+              "correct_option_texts": [
+                "C_nH_2n"
+              ],
+              "explanation": "Alkenes are unsaturated hydrocarbons with at least on double bond between the carbon atoms. Their general formula is C_nH_2n."
+            },
+            {
+              "questionID": 22617,
+              "question": "Carbon-carbon double bond in alkenes consists of:",
+              "question_raw": "<p>Carbon-carbon double bond in alkenes consists of:</p>",
+              "options": [
+                {
+                  "label": "A",
+                  "id": 45664,
+                  "text": "one strong sigma $\\left( \\sigma \\right)$ bond due to head-on overlapping of sp^2 hybridised orbitals one weak pi $\\left( \\pi \\right)$ bond.",
+                  "is_correct": true
+                },
+                {
+                  "label": "B",
+                  "id": 45665,
+                  "text": "one weak sigma $\\left( \\sigma \\right)$ bond due to head-on overlapping of sp^2 hybridised orbitals one weak pi $\\left( \\pi \\right)$ bond.",
+                  "is_correct": false
+                },
+                {
+                  "label": "C",
+                  "id": 45666,
+                  "text": "one strong sigma $\\left( \\sigma \\right)$ bond due to head-on overlapping of sp^3 hybridised orbitals one weak pi $\\left( \\pi \\right)$ bond.",
+                  "is_correct": false
+                },
+                {
+                  "label": "D",
+                  "id": 45667,
+                  "text": "one weak sigma $\\left( \\sigma \\right)$ bond due to head-on overlapping of ${\\text{s}}{{\\text{p}}^{\\text{3}}}$ hybridised orbitals one weak pi $\\left( \\pi \\right)$bond.",
+                  "is_correct": false
+                }
+              ],
+              "correct_option_ids": [
+                45664
+              ],
+              "correct_option_labels": [
+                "A"
+              ],
+              "correct_option_texts": [
+                "one strong sigma $\\left( \\sigma \\right)$ bond due to head-on overlapping of sp^2 hybridised orbitals one weak pi $\\left( \\pi \\right)$ bond."
+              ],
+              "explanation": "Sigma bond is formed by the head-on overlap of sp^2 hybridized orbitals while the pi bond is formed by lateral or sideways overlapping of the two 2p-orbitals of the two carbon atoms. Alkenes contain 1 weak pi bond and 1 strong sigma bond."
+            },
+            {
+              "questionID": 22618,
+              "question": "In the alkene having IUPAC name 3-Methyl-1-butene the double bond lies on carbon atom numbered ______.",
+              "question_raw": "<p>In the alkene having IUPAC name 3-Methyl-1-butene the double bond lies on carbon atom numbered ______.</p>",
+              "options": [
+                {
+                  "label": "A",
+                  "id": 45668,
+                  "text": "1",
+                  "is_correct": true
+                },
+                {
+                  "label": "B",
+                  "id": 45670,
+                  "text": "3",
+                  "is_correct": false
+                },
+                {
+                  "label": "C",
+                  "id": 45671,
+                  "text": "4",
+                  "is_correct": false
+                },
+                {
+                  "label": "D",
+                  "id": 45669,
+                  "text": "2",
+                  "is_correct": false
+                }
+              ],
+              "correct_option_ids": [
+                45668
+              ],
+              "correct_option_labels": [
+                "A"
+              ],
+              "correct_option_texts": [
+                "1"
+              ],
+              "explanation": "‘1’ is written before butene which indicates that the position of the double bond is on carbon 1. The structure of the compound is CH_2=CHCH(CH_3)CH_3."
+            },
+            {
+              "questionID": 22619,
+              "question": "Stereoisomeric alkenes due to the different arrangement of atoms or groups in space are referred to as:",
+              "question_raw": "<p>Stereoisomeric alkenes due to the different arrangement of atoms or groups in space are referred to as:</p>",
+              "options": [
+                {
+                  "label": "A",
+                  "id": 45674,
+                  "text": "Position isomers",
+                  "is_correct": false
+                },
+                {
+                  "label": "B",
+                  "id": 45675,
+                  "text": "Constitutional isomers",
+                  "is_correct": false
+                },
+                {
+                  "label": "C",
+                  "id": 45672,
+                  "text": "Geometric isomers",
+                  "is_correct": true
+                },
+                {
+                  "label": "D",
+                  "id": 45673,
+                  "text": "Chain isomers",
+                  "is_correct": false
+                }
+              ],
+              "correct_option_ids": [
+                45672
+              ],
+              "correct_option_labels": [
+                "C"
+              ],
+              "correct_option_texts": [
+                "Geometric isomers"
+              ],
+              "explanation": "Isomers which have the same structural formulae but differ in the relative spatial arrangements of atoms or groups around the double bond are called geometric isomers. Thus geometrical isomers are a type of stereoisomers."
+            },
+            {
+              "questionID": 22620,
+              "question": "One of the methods of preparing ethylene is given below.This is an example of _______ reaction",
+              "question_raw": "<p>One of the methods of preparing ethylene is given below.This is an example of _______ reaction<br />\r\n<img alt=\"\" src=\"https://media-mycbseguide.s3.amazonaws.com/images/cbse/review/ques_22095.JPG\" style=\"width: 200px; height: 75px;\" /></p>",
+              "options": [
+                {
+                  "label": "A",
+                  "id": 45677,
+                  "text": "Addition reaction",
+                  "is_correct": false
+                },
+                {
+                  "label": "B",
+                  "id": 45678,
+                  "text": "Substitution reaction",
+                  "is_correct": false
+                },
+                {
+                  "label": "C",
+                  "id": 45679,
+                  "text": "Rearrangement reaction",
+                  "is_correct": false
+                },
+                {
+                  "label": "D",
+                  "id": 45676,
+                  "text": "Elimination reaction",
+                  "is_correct": true
+                }
+              ],
+              "correct_option_ids": [
+                45676
+              ],
+              "correct_option_labels": [
+                "D"
+              ],
+              "correct_option_texts": [
+                "Elimination reaction"
+              ],
+              "explanation": "Dehydration of alcohols in the presence of alc. KOH to form an alkene is an example of elimination reaction."
+            },
+            {
+              "questionID": 22621,
+              "question": "The boiling point of isomeric branched chain alkene is:",
+              "question_raw": "<p>The boiling point of isomeric branched chain alkene is:</p>",
+              "options": [
+                {
+                  "label": "A",
+                  "id": 45682,
+                  "text": "same boiling point as straight chain alkenes.",
+                  "is_correct": false
+                },
+                {
+                  "label": "B",
+                  "id": 45683,
+                  "text": "same boiling point as straight chain alkenes except for optical isomers.",
+                  "is_correct": false
+                },
+                {
+                  "label": "C",
+                  "id": 45681,
+                  "text": "higher boiling point than straight chain alkenes.",
+                  "is_correct": false
+                },
+                {
+                  "label": "D",
+                  "id": 45680,
+                  "text": "lower than the boiling point of straight chain alkene.",
+                  "is_correct": true
+                }
+              ],
+              "correct_option_ids": [
+                45680
+              ],
+              "correct_option_labels": [
+                "D"
+              ],
+              "correct_option_texts": [
+                "lower than the boiling point of straight chain alkene."
+              ],
+              "explanation": "As the surface area decreases with branching, the boiling point also decreases."
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "testPaperID": 992,
+      "testPaperName": "Hydrocarbons CBSE Online Test 02",
+      "is_paid": true,
+      "category_full_name": "CBSE > Class 11 > Chemistry > Hydrocarbons",
+      "noOfQuestions": 15,
+      "has_answers": true,
+      "sections": [
+        {
+          "sectionName": "General",
+          "sectionID": null,
+          "questions": [
+            {
+              "questionID": 22622,
+              "question": "The reaction given below is used to produce polythene. This is an example of _______ reaction\n${\\text{n(CH = C}}{{\\text{H}}_{\\text{2}}}{\\text{)}}\\xrightarrow[{{\\text{Catalyst}}}]{{{\\text{High}}\\,{\\text{temp}}{\\text{./pressure}}}}\\mathop {{\\text{ - (C}}{{\\text{H}}_{\\text{2}}}\\,{\\text{ - }}\\,{\\text{C}}{{\\text{H}}_{\\text{2}}}{{\\text{)}}_{\\text{n}}}{{\\text{ - }}_{}}}\\limits_{{\\text{Polythene}}} $",
+              "question_raw": "<p>The reaction given below is used to produce polythene. This is an example of _______ reaction<br />\r\n<span class=\"math-tex\">{tex}{\\text{n(CH = C}}{{\\text{H}}_{\\text{2}}}{\\text{)}}\\xrightarrow[{{\\text{Catalyst}}}]{{{\\text{High}}\\,{\\text{temp}}{\\text{./pressure}}}}\\mathop {{\\text{ - (C}}{{\\text{H}}_{\\text{2}}}\\,{\\text{ - }}\\,{\\text{C}}{{\\text{H}}_{\\text{2}}}{{\\text{)}}_{\\text{n}}}{{\\text{ - }}_{}}}\\limits_{{\\text{Polythene}}} {/tex}</span></p>",
+              "options": [
+                {
+                  "label": "A",
+                  "id": 45685,
+                  "text": "Addition reaction",
+                  "is_correct": false
+                },
+                {
+                  "label": "B",
+                  "id": 45684,
+                  "text": "Polymerization reaction",
+                  "is_correct": true
+                },
+                {
+                  "label": "C",
+                  "id": 45686,
+                  "text": "Substitution reaction",
+                  "is_correct": false
+                },
+                {
+                  "label": "D",
+                  "id": 45687,
+                  "text": "Rearrangement reaction",
+                  "is_correct": false
+                }
+              ],
+              "correct_option_ids": [
+                45684
+              ],
+              "correct_option_labels": [
+                "B"
+              ],
+              "correct_option_texts": [
+                "Polymerization reaction"
+              ],
+              "explanation": "In polymerisation reaction many monomeric units combine to form a big macromolecule."
+            },
+            {
+              "questionID": 22623,
+              "question": "The number of position isomers of C_5H_8 is ________.",
+              "question_raw": "<p>The number of position isomers of C<sub>5</sub>H<sub>8</sub>&nbsp;is ________.</p>",
+              "options": [
+                {
+                  "label": "A",
+                  "id": 45691,
+                  "text": "5",
+                  "is_correct": false
+                },
+                {
+                  "label": "B",
+                  "id": 45690,
+                  "text": "2",
+                  "is_correct": false
+                },
+                {
+                  "label": "C",
+                  "id": 45688,
+                  "text": "3",
+                  "is_correct": true
+                },
+                {
+                  "label": "D",
+                  "id": 45689,
+                  "text": "4",
+                  "is_correct": false
+                }
+              ],
+              "correct_option_ids": [
+                45688
+              ],
+              "correct_option_labels": [
+                "C"
+              ],
+              "correct_option_texts": [
+                "3"
+              ],
+              "explanation": "The position isomers of C_5H_8 are n-pentyne, 3-methyl butyne, pent-2-yne."
+            },
+            {
+              "questionID": 22624,
+              "question": "Thus ethyne molecule consists of:",
+              "question_raw": "<p>Thus ethyne molecule consists of:</p>",
+              "options": [
+                {
+                  "label": "A",
+                  "id": 45695,
+                  "text": "three C - C $\\sigma$ bond, two C - H $\\sigma$ bonds and three C - C $\\pi$ bonds.",
+                  "is_correct": false
+                },
+                {
+                  "label": "B",
+                  "id": 45693,
+                  "text": "one C - C $\\sigma$ bond, three C - H $\\sigma$ bonds and two C - C $\\pi$ bonds.",
+                  "is_correct": false
+                },
+                {
+                  "label": "C",
+                  "id": 45694,
+                  "text": "one C - C $\\sigma$ bond, two C - H $\\sigma$ bonds and three C - C $\\pi$ bonds.",
+                  "is_correct": false
+                },
+                {
+                  "label": "D",
+                  "id": 45692,
+                  "text": "one C - C $\\sigma$ bond, two C - H $\\sigma$ bonds and two C - C $\\pi$ bonds.",
+                  "is_correct": true
+                }
+              ],
+              "correct_option_ids": [
+                45692
+              ],
+              "correct_option_labels": [
+                "D"
+              ],
+              "correct_option_texts": [
+                "one C - C $\\sigma$ bond, two C - H $\\sigma$ bonds and two C - C $\\pi$ bonds."
+              ],
+              "explanation": "Ethyne is an unsaturated compound which belongs to the alkyne family and has the formula C_2H_2. Thus it consists of one C–C $\\sigma$ bond, two C–H $\\sigma$ bonds, and two C–C $\\pi$ bonds."
+            },
+            {
+              "questionID": 22625,
+              "question": "The preparation of alkynes from vicinal dihalides is an example of ______?",
+              "question_raw": "<p>The preparation of alkynes from vicinal dihalides is an example of ______?</p>",
+              "options": [
+                {
+                  "label": "A",
+                  "id": 45696,
+                  "text": "Elimination reaction",
+                  "is_correct": true
+                },
+                {
+                  "label": "B",
+                  "id": 45697,
+                  "text": "Addition reaction",
+                  "is_correct": false
+                },
+                {
+                  "label": "C",
+                  "id": 45698,
+                  "text": "Substitution reaction",
+                  "is_correct": false
+                },
+                {
+                  "label": "D",
+                  "id": 45699,
+                  "text": "Rearrangement reaction",
+                  "is_correct": false
+                }
+              ],
+              "correct_option_ids": [
+                45696
+              ],
+              "correct_option_labels": [
+                "A"
+              ],
+              "correct_option_texts": [
+                "Elimination reaction"
+              ],
+              "explanation": "An elimination reaction is a type of organic reaction in which two substituents are removed from a molecule in either one or two steps. When the starting dihalide is a vicinal dihalide, the alkyne is obtained by two successive elimination reactions. \nExample :\nVicinal dihalide,$( CH_2Br-CH_2Br)$ on treatment with$alcoholic KOH$ forms a monosubstituted alkene Vinyl bromide, $CH_2CHBr$ which when reacted with sodium amide, $NaNH_2$ forms ethyne (ie. an alkyne ). The steps of conversion are,"
+            },
+            {
+              "questionID": 22626,
+              "question": "Majority of the reactions of alkynes are examples of:",
+              "question_raw": "<p>Majority of the reactions of alkynes are examples of:</p>",
+              "options": [
+                {
+                  "label": "A",
+                  "id": 45700,
+                  "text": "Electrophilic addition",
+                  "is_correct": true
+                },
+                {
+                  "label": "B",
+                  "id": 45703,
+                  "text": "Nucleophilic addition",
+                  "is_correct": false
+                },
+                {
+                  "label": "C",
+                  "id": 45701,
+                  "text": "Electrophilic substitution",
+                  "is_correct": false
+                },
+                {
+                  "label": "D",
+                  "id": 45702,
+                  "text": "Nucleophilic substitution",
+                  "is_correct": false
+                }
+              ],
+              "correct_option_ids": [
+                45700
+              ],
+              "correct_option_labels": [
+                "A"
+              ],
+              "correct_option_texts": [
+                "Electrophilic addition"
+              ],
+              "explanation": "Alkynes have two pi bonds, hence they are electron rich species. They attract electrophiles thereby undergoing electrophilic addition reactions."
+            },
+            {
+              "questionID": 22627,
+              "question": "When two hydrogen atoms in benzene are replaced by two similar or different monovalent atoms or groups, how many different position isomers are possible?",
+              "question_raw": "<p>When two hydrogen atoms in benzene are replaced by two similar or different monovalent atoms or groups, how many different position isomers are possible?</p>",
+              "options": [
+                {
+                  "label": "A",
+                  "id": 45706,
+                  "text": "6",
+                  "is_correct": false
+                },
+                {
+                  "label": "B",
+                  "id": 45707,
+                  "text": "5",
+                  "is_correct": false
+                },
+                {
+                  "label": "C",
+                  "id": 45704,
+                  "text": "3",
+                  "is_correct": true
+                },
+                {
+                  "label": "D",
+                  "id": 45705,
+                  "text": "2",
+                  "is_correct": false
+                }
+              ],
+              "correct_option_ids": [
+                45704
+              ],
+              "correct_option_labels": [
+                "C"
+              ],
+              "correct_option_texts": [
+                "3"
+              ],
+              "explanation": "The three isomers will be ortho(i.e.1,2- or 1,4-disubstituted), meta(i.e.1,3- or 1,5-disubstituted) and para (1,4-disubstituted)."
+            },
+            {
+              "questionID": 22628,
+              "question": "The unusual behavior of benzene is explained by:",
+              "question_raw": "<p>The unusual behavior of benzene is explained by:</p>",
+              "options": [
+                {
+                  "label": "A",
+                  "id": 45709,
+                  "text": "sp^3 hybridization",
+                  "is_correct": false
+                },
+                {
+                  "label": "B",
+                  "id": 45710,
+                  "text": "sp^2 hybridization",
+                  "is_correct": false
+                },
+                {
+                  "label": "C",
+                  "id": 45711,
+                  "text": "Kekule structure",
+                  "is_correct": false
+                },
+                {
+                  "label": "D",
+                  "id": 45708,
+                  "text": "Delocalized $\\pi $ electron cloud",
+                  "is_correct": true
+                }
+              ],
+              "correct_option_ids": [
+                45708
+              ],
+              "correct_option_labels": [
+                "D"
+              ],
+              "correct_option_texts": [
+                "Delocalized $\\pi $ electron cloud"
+              ],
+              "explanation": "Resonance stabilization explains the unusual stability of benzene. There is $\\pi$ electron delocalization in the ring which enhances the stability of the molecule."
+            },
+            {
+              "questionID": 22629,
+              "question": "Aromatic compounds are charachterized by the presence of _____ $\\pi $ electrons in the ring where n is an integer (n = 0, 1, 2, ...).",
+              "question_raw": "<p>Aromatic compounds&nbsp;are charachterized by the presence of _____ <span class=\"math-tex\">{tex}\\pi {/tex}</span> electrons in the ring where n is an integer (n = 0, 1, 2, ...).</p>",
+              "options": [
+                {
+                  "label": "A",
+                  "id": 45714,
+                  "text": "4n",
+                  "is_correct": false
+                },
+                {
+                  "label": "B",
+                  "id": 45715,
+                  "text": "(4n - 2)",
+                  "is_correct": false
+                },
+                {
+                  "label": "C",
+                  "id": 45712,
+                  "text": "(4n + 2)",
+                  "is_correct": true
+                },
+                {
+                  "label": "D",
+                  "id": 45713,
+                  "text": "(4n + 1)",
+                  "is_correct": false
+                }
+              ],
+              "correct_option_ids": [
+                45712
+              ],
+              "correct_option_labels": [
+                "C"
+              ],
+              "correct_option_texts": [
+                "(4n + 2)"
+              ],
+              "explanation": "Huckel rule which explains the unusual stability of cyclic conjugated polyenes (i.e. aromatic compounds) over other cyclic unsaturated compounds that does not contain (4n + 2) pi electrons."
+            },
+            {
+              "questionID": 22630,
+              "question": "Which of the following method is not a synthetic method for the production of Benzene?",
+              "question_raw": "<p>Which of the following method is not a&nbsp;synthetic method for the production of Benzene?</p>",
+              "options": [
+                {
+                  "label": "A",
+                  "id": 45717,
+                  "text": "Cyclic polymerization of ethyne",
+                  "is_correct": false
+                },
+                {
+                  "label": "B",
+                  "id": 45718,
+                  "text": "Decarboxylation of aromatic acids",
+                  "is_correct": false
+                },
+                {
+                  "label": "C",
+                  "id": 45719,
+                  "text": "By reduction of phenol",
+                  "is_correct": false
+                },
+                {
+                  "label": "D",
+                  "id": 45716,
+                  "text": "Isolation from coal tar",
+                  "is_correct": true
+                }
+              ],
+              "correct_option_ids": [
+                45716
+              ],
+              "correct_option_labels": [
+                "D"
+              ],
+              "correct_option_texts": [
+                "Isolation from coal tar"
+              ],
+              "explanation": "Since the isolation of benzene from coal tar involves the separation of benzene from other components through a physical operation \"fractional distillation\", it is not a synthetic method for the production of benzene."
+            },
+            {
+              "questionID": 22631,
+              "question": "In Friedel-Crafts alkylation reaction, when benzene is treated with an alkyl halide in the presence of a catalyst, alkylbenzene is formed. The catalyst used is:",
+              "question_raw": "<p>In Friedel-Crafts alkylation reaction, when benzene is treated with an alkyl halide in the presence of a catalyst, alkylbenzene is formed. The catalyst used is:</p>",
+              "options": [
+                {
+                  "label": "A",
+                  "id": 45722,
+                  "text": "Silver",
+                  "is_correct": false
+                },
+                {
+                  "label": "B",
+                  "id": 45721,
+                  "text": "Palladium",
+                  "is_correct": false
+                },
+                {
+                  "label": "C",
+                  "id": 45720,
+                  "text": "Anhydrous aluminium chloride",
+                  "is_correct": true
+                },
+                {
+                  "label": "D",
+                  "id": 45723,
+                  "text": "H_3PO_4",
+                  "is_correct": false
+                }
+              ],
+              "correct_option_ids": [
+                45720
+              ],
+              "correct_option_labels": [
+                "C"
+              ],
+              "correct_option_texts": [
+                "Anhydrous aluminium chloride"
+              ],
+              "explanation": "The acid chloride or anhydride reacts with anhydrous aluminium chloride to form the acylium ion which serves as an electrophile which then attacks the benzene ring to give alkylbenzene."
+            },
+            {
+              "questionID": 22632,
+              "question": "Some of the polynuclear hydrocarbons having fused benzene ring system have the property of being ________.",
+              "question_raw": "<p>Some of the polynuclear hydrocarbons having fused benzene ring system have the property of being ________.</p>",
+              "options": [
+                {
+                  "label": "A",
+                  "id": 45726,
+                  "text": "malleable",
+                  "is_correct": false
+                },
+                {
+                  "label": "B",
+                  "id": 45724,
+                  "text": "carcinogenic",
+                  "is_correct": true
+                },
+                {
+                  "label": "C",
+                  "id": 45727,
+                  "text": "conductive",
+                  "is_correct": false
+                },
+                {
+                  "label": "D",
+                  "id": 45725,
+                  "text": "nonflammable",
+                  "is_correct": false
+                }
+              ],
+              "correct_option_ids": [
+                45724
+              ],
+              "correct_option_labels": [
+                "B"
+              ],
+              "correct_option_texts": [
+                "carcinogenic"
+              ],
+              "explanation": "Polynuclear hydrocarbons are carcinogenic, i.e. cancer producing."
+            },
+            {
+              "questionID": 22633,
+              "question": "Arrange the following in decreasing order of their boiling points.\n n-butane\n 2-methylbutane\n n-pentane\n 2, 2-dimethylpropane",
+              "question_raw": "<p>Arrange the following in decreasing order of their boiling points.</p>\r\n\r\n<ol start=\"1\" style=\"list-style-type: upper-alpha;\">\r\n\t<li>n-butane</li>\r\n\t<li>2-methylbutane</li>\r\n\t<li>n-pentane</li>\r\n\t<li>2, 2-dimethylpropane</li>\r\n</ol>",
+              "options": [
+                {
+                  "label": "A",
+                  "id": 45730,
+                  "text": "B > C > D > A",
+                  "is_correct": false
+                },
+                {
+                  "label": "B",
+                  "id": 45728,
+                  "text": "C > B > D > A",
+                  "is_correct": true
+                },
+                {
+                  "label": "C",
+                  "id": 45731,
+                  "text": "D > C > B > A",
+                  "is_correct": false
+                },
+                {
+                  "label": "D",
+                  "id": 45729,
+                  "text": "A > B > C > D",
+                  "is_correct": false
+                }
+              ],
+              "correct_option_ids": [
+                45728
+              ],
+              "correct_option_labels": [
+                "B"
+              ],
+              "correct_option_texts": [
+                "C > B > D > A"
+              ],
+              "explanation": "The boiling point depends on the molecular mass and surface area. As the number of carbon atoms increases, the boiling point increases, hence n-butane has the minimum boiling point. Among isomeric alkanes, the boiling point decreases with branching. Hence the order."
+            },
+            {
+              "questionID": 22634,
+              "question": "Arrange the halogens F_2, Cl_2, Br_2, I_2, in order of their increasing reactivity with alkanes.",
+              "question_raw": "<p>Arrange the halogens F<sub>2</sub>, Cl<sub>2</sub>, Br<sub>2</sub>, I<sub>2</sub>, in order of their increasing reactivity with alkanes.</p>",
+              "options": [
+                {
+                  "label": "A",
+                  "id": 45734,
+                  "text": "F_2 < Cl_2 < Br_2 < I_2",
+                  "is_correct": false
+                },
+                {
+                  "label": "B",
+                  "id": 45733,
+                  "text": "Br_2 < Cl_2 < F_2 < I_2",
+                  "is_correct": false
+                },
+                {
+                  "label": "C",
+                  "id": 45735,
+                  "text": "Br_2 < I_2 < Cl_2 < F_2",
+                  "is_correct": false
+                },
+                {
+                  "label": "D",
+                  "id": 45732,
+                  "text": "I_2 < Br_2 < Cl_2 < F_2",
+                  "is_correct": true
+                }
+              ],
+              "correct_option_ids": [
+                45732
+              ],
+              "correct_option_labels": [
+                "D"
+              ],
+              "correct_option_texts": [
+                "I_2 < Br_2 < Cl_2 < F_2"
+              ],
+              "explanation": "The reaction follows a free radical mechanism in which the first step is the generation of halogen-free radical which is the fastest for fluorine. Hence the order."
+            },
+            {
+              "questionID": 22635,
+              "question": "The increasing order of reduction of alkyl halides with zinc and dilute HCl is",
+              "question_raw": "<p>The increasing order of reduction of alkyl halides with zinc and dilute HCl is</p>",
+              "options": [
+                {
+                  "label": "A",
+                  "id": 45738,
+                  "text": "R–I < R–Br < R–Cl",
+                  "is_correct": false
+                },
+                {
+                  "label": "B",
+                  "id": 45739,
+                  "text": "R–Br < R–I < R–Cl",
+                  "is_correct": false
+                },
+                {
+                  "label": "C",
+                  "id": 45736,
+                  "text": "R–Cl < R–Br < R–I",
+                  "is_correct": true
+                },
+                {
+                  "label": "D",
+                  "id": 45737,
+                  "text": "R–Cl < R–I < R–Br",
+                  "is_correct": false
+                }
+              ],
+              "correct_option_ids": [
+                45736
+              ],
+              "correct_option_labels": [
+                "C"
+              ],
+              "correct_option_texts": [
+                "R–Cl < R–Br < R–I"
+              ],
+              "explanation": "As we move from I to Br to Cl,atomic size decreases,it becomes difficult to release the halogen as the bond length decreases.Hence I^- is the best leaving group among halogens and reacts the fastest."
+            },
+            {
+              "questionID": 22636,
+              "question": "The correct IUPAC name of the following alkane is:",
+              "question_raw": "<html><body><p>The correct IUPAC name of the following alkane is:<br/>\n<img alt=\"\" data-imgur-src=\"hBkez4q.png\" src=\"https://media-mycbseguide.s3.amazonaws.com/images/imgur/hBkez4q.png\" style=\"width: 283px; height: 74px;\"/></p></body></html>",
+              "options": [
+                {
+                  "label": "A",
+                  "id": 45743,
+                  "text": "3 - Isopropyl - 6 - ethyloctane",
+                  "is_correct": false
+                },
+                {
+                  "label": "B",
+                  "id": 45742,
+                  "text": "3 - Ethyl - 5 - isopropyloctane",
+                  "is_correct": false
+                },
+                {
+                  "label": "C",
+                  "id": 45741,
+                  "text": "5 - Isopropyl - 3 - ethyloctane",
+                  "is_correct": false
+                },
+                {
+                  "label": "D",
+                  "id": 45740,
+                  "text": "3,6 - Diethyl - 2 - methyloctane",
+                  "is_correct": true
+                }
+              ],
+              "correct_option_ids": [
+                45740
+              ],
+              "correct_option_labels": [
+                "D"
+              ],
+              "correct_option_texts": [
+                "3,6 - Diethyl - 2 - methyloctane"
+              ],
+              "explanation": "Following the rules of nomenclature, the IUPAC name of the given compound is 3, 6-Diethyl-2-methyloctane."
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "testPaperID": 993,
+      "testPaperName": "Hydrocarbons CBSE Online Test 03",
+      "is_paid": true,
+      "category_full_name": "CBSE > Class 11 > Chemistry > Hydrocarbons",
+      "noOfQuestions": 15,
+      "has_answers": true,
+      "sections": [
+        {
+          "sectionName": "General",
+          "sectionID": null,
+          "questions": [
+            {
+              "questionID": 22637,
+              "question": "The addition of HBr to 1-butene gives a mixture of products A, B, and C.\n CH_3- CH_2- CH_2- CH_2- Br\nThe mixture consists of:",
+              "question_raw": "<p>The addition of HBr to 1-butene gives a mixture of products A, B, and C.</p>\r\n\r\n<ol start=\"1\" style=\"list-style-type: upper-alpha;\">\r\n\t<li><img alt=\"\" data-imgur-src=\"qU3oE4N.png\" src=\"https://media-mycbseguide.s3.amazonaws.com/images/imgur/qU3oE4N.png\" style=\"width: 100px; height: 69px;\" /></li>\r\n\t<li><img alt=\"\" data-imgur-src=\"UsrbLFx.png\" src=\"https://media-mycbseguide.s3.amazonaws.com/images/imgur/UsrbLFx.png\" style=\"width: 82px; height: 66px;\" /></li>\r\n\t<li>CH<sub>3</sub>- CH<sub>2</sub>- CH<sub>2</sub>- CH<sub>2</sub>- Br</li>\r\n</ol>\r\n\r\n<p>The mixture consists of:</p>",
+              "options": [
+                {
+                  "label": "A",
+                  "id": 45747,
+                  "text": "A and B as minor and C as major products",
+                  "is_correct": false
+                },
+                {
+                  "label": "B",
+                  "id": 45745,
+                  "text": "B as major, A and C as minor products",
+                  "is_correct": false
+                },
+                {
+                  "label": "C",
+                  "id": 45746,
+                  "text": "B as minor, A and C as major products",
+                  "is_correct": false
+                },
+                {
+                  "label": "D",
+                  "id": 45744,
+                  "text": "A and B as major and C as minor products",
+                  "is_correct": true
+                }
+              ],
+              "correct_option_ids": [
+                45744
+              ],
+              "correct_option_labels": [
+                "D"
+              ],
+              "correct_option_texts": [
+                "A and B as major and C as minor products"
+              ],
+              "explanation": "A and B both involve secondary carbocation but C involves primary carbocation and secondary carbocation is more stable than primary carbocation. Therefore A and B are the major product."
+            },
+            {
+              "questionID": 22638,
+              "question": "Which of the following will not show geometrical isomerism?",
+              "question_raw": "<p>Which of the following will not show geometrical isomerism?</p>",
+              "options": [
+                {
+                  "label": "A",
+                  "id": 45748,
+                  "text": "",
+                  "is_correct": true
+                },
+                {
+                  "label": "B",
+                  "id": 45750,
+                  "text": "",
+                  "is_correct": false
+                },
+                {
+                  "label": "C",
+                  "id": 45751,
+                  "text": "",
+                  "is_correct": false
+                },
+                {
+                  "label": "D",
+                  "id": 45749,
+                  "text": "",
+                  "is_correct": false
+                }
+              ],
+              "correct_option_ids": [
+                45748
+              ],
+              "correct_option_labels": [
+                "A"
+              ],
+              "correct_option_texts": [
+                ""
+              ],
+              "explanation": "This is because geometrical isomerism is not possible if three groups are same."
+            },
+            {
+              "questionID": 22639,
+              "question": "Arrange the following hydrogen halides in order of their decreasing reactivity with propene.",
+              "question_raw": "<p>Arrange the following hydrogen halides in order of their decreasing reactivity with propene.</p>",
+              "options": [
+                {
+                  "label": "A",
+                  "id": 45754,
+                  "text": "HBr > HI > HCl",
+                  "is_correct": false
+                },
+                {
+                  "label": "B",
+                  "id": 45755,
+                  "text": "HCl > HI > HBr",
+                  "is_correct": false
+                },
+                {
+                  "label": "C",
+                  "id": 45753,
+                  "text": "HCl > HBr > HI",
+                  "is_correct": false
+                },
+                {
+                  "label": "D",
+                  "id": 45752,
+                  "text": "HI > HBr > HCl",
+                  "is_correct": true
+                }
+              ],
+              "correct_option_ids": [
+                45752
+              ],
+              "correct_option_labels": [
+                "D"
+              ],
+              "correct_option_texts": [
+                "HI > HBr > HCl"
+              ],
+              "explanation": "As we move from Cl to I,the atomic size increases,bond length increases,bond strength decreases,hence it becomes easier to release halogen and hence the order.I^- is the a better leaving group."
+            },
+            {
+              "questionID": 22640,
+              "question": "Arrange the following carbanions in order of their decreasing stability.\n H_3C - C $ \\equiv $C^-\n H - C ≡ C^- \n H_3C - ${\\rm{C}}{\\mathop {\\rm{H}}\\limits^ - {_2}}$",
+              "question_raw": "<p>Arrange the following carbanions in order of their decreasing stability.</p>\r\n\r\n<ol start=\"1\" style=\"list-style-type: upper-alpha;\">\r\n\t<li>H<sub>3</sub>C -&nbsp;C <span class=\"math-tex\">{tex} \\equiv {/tex}</span>C<sup><span style=\"font-size: 10.8333px;\">-</span></sup></li>\r\n\t<li>H -&nbsp;C &equiv; C<sup><span style=\"font-size: 10.8333px;\">-</span></sup>&nbsp;</li>\r\n\t<li>H<sub>3</sub>C -&nbsp;<span class=\"math-tex\">{tex}{\\rm{C}}{\\mathop {\\rm{H}}\\limits^ - {_2}}{/tex}</span></li>\r\n</ol>",
+              "options": [
+                {
+                  "label": "A",
+                  "id": 45757,
+                  "text": "A > B > C",
+                  "is_correct": false
+                },
+                {
+                  "label": "B",
+                  "id": 45758,
+                  "text": "C > B > A",
+                  "is_correct": false
+                },
+                {
+                  "label": "C",
+                  "id": 45756,
+                  "text": "B > A > C",
+                  "is_correct": true
+                },
+                {
+                  "label": "D",
+                  "id": 45759,
+                  "text": "C > A > B",
+                  "is_correct": false
+                }
+              ],
+              "correct_option_ids": [
+                45756
+              ],
+              "correct_option_labels": [
+                "C"
+              ],
+              "correct_option_texts": [
+                "B > A > C"
+              ],
+              "explanation": "In B, the '-' charge is on sp hybridized C atom so the negative charge is stabilised. In A, there is an alkyl group attached to sp hybridised carbon which destabilizes the negative charge. In C, the '-' charge is on a sp^3 hybridised carbon and is hence the least stable."
+            },
+            {
+              "questionID": 22641,
+              "question": "Arrange the following alkyl halides in decreasing order of the rate of $\\beta$ - elimination reaction with alcoholic KOH\n $ {\\text{C}}{{\\text{H}}_{\\text{3}}}{\\text{ - }}\\mathop {\\mathop {\\text{C}}\\limits_{\\mathop {\\text{|}}\\limits_{{\\text{C}}{{\\text{H}}_{\\text{3}}}} }^{\\text{|}} }\\limits^{\\text{H}} {\\text{ - C}}{{\\text{H}}_{\\text{2}}}{\\text{Br}}$\n CH_3-CH_2-Br\n CH_3-CH_2-CH_2-Br",
+              "question_raw": "<p>Arrange the following alkyl halides in decreasing order of the rate of <span class=\"math-tex\">{tex}\\beta{/tex}</span> - elimination reaction with alcoholic KOH</p>\r\n\r\n<ol start=\"1\" style=\"list-style-type: upper-alpha;\">\r\n\t<li><span class=\"math-tex\">{tex} {\\text{C}}{{\\text{H}}_{\\text{3}}}{\\text{ - }}\\mathop {\\mathop {\\text{C}}\\limits_{\\mathop {\\text{|}}\\limits_{{\\text{C}}{{\\text{H}}_{\\text{3}}}} }^{\\text{|}} }\\limits^{\\text{H}} {\\text{ - C}}{{\\text{H}}_{\\text{2}}}{\\text{Br}}{/tex}</span></li>\r\n\t<li>CH<sub>3</sub>-CH<sub>2</sub>-Br</li>\r\n\t<li>CH<sub>3</sub>-CH<sub>2</sub>-CH<sub>2</sub>-Br</li>\r\n</ol>",
+              "options": [
+                {
+                  "label": "A",
+                  "id": 45761,
+                  "text": "A > B > C",
+                  "is_correct": false
+                },
+                {
+                  "label": "B",
+                  "id": 45763,
+                  "text": "B > C > A",
+                  "is_correct": false
+                },
+                {
+                  "label": "C",
+                  "id": 45760,
+                  "text": "A > C > B",
+                  "is_correct": true
+                },
+                {
+                  "label": "D",
+                  "id": 45762,
+                  "text": "C > B > A",
+                  "is_correct": false
+                }
+              ],
+              "correct_option_ids": [
+                45760
+              ],
+              "correct_option_labels": [
+                "C"
+              ],
+              "correct_option_texts": [
+                "A > C > B"
+              ],
+              "explanation": "A more substituted alkene is preferred in accordance with the Saytzeff's rule. Hence the order."
+            },
+            {
+              "questionID": 22642,
+              "question": "Which of the following reactions of methane represents its incomplete combustion?",
+              "question_raw": "<p>Which of the following reactions of methane represents its incomplete combustion?</p>",
+              "options": [
+                {
+                  "label": "A",
+                  "id": 45764,
+                  "text": "2CH_4(g) + O_2(g) $\\to$ 2CO(g) + 4H_2(g)",
+                  "is_correct": true
+                },
+                {
+                  "label": "B",
+                  "id": 45767,
+                  "text": "CH_4 + 2O_2 $\\to$ CO_2(g) + 2H_2O(l)",
+                  "is_correct": false
+                },
+                {
+                  "label": "C",
+                  "id": 45766,
+                  "text": "$\\text{2C}{{\\text{H}}_{\\text{4}}}+\\text{ }{{\\text{O}}_{\\text{2}}}\\xrightarrow{Cu,523K,100atm}\\text{2C}{{\\text{H}}_{\\text{3}}}\\text{OH}$",
+                  "is_correct": false
+                },
+                {
+                  "label": "D",
+                  "id": 45765,
+                  "text": "$\\text{C}{{\\text{H}}_{\\text{4}}}+\\text{ }{{\\text{O}}_{\\text{2}}}\\xrightarrow{M{{o}_{2}}{{O}_{3}}}\\text{HCHO }+\\text{ }{{\\text{H}}_{\\text{2}}}\\text{O}$",
+                  "is_correct": false
+                }
+              ],
+              "correct_option_ids": [
+                45764
+              ],
+              "correct_option_labels": [
+                "A"
+              ],
+              "correct_option_texts": [
+                "2CH_4(g) + O_2(g) $\\to$ 2CO(g) + 4H_2(g)"
+              ],
+              "explanation": "CH_4 on complete combustion gets completely oxidized to form (CO_2 + H_2O), as per the following equation;\n$CH_4 + 2O_2\\to CO_2 +2H_2O$\nThe given reaction,\n$2CH_4 + O_2\\to2CO + 4H_2$\n$or, CH_4 + \\frac{1}{2} O_2\\to CO + 2H_2$\nrepresents incomplete combustion, because stoichiometrically,\n for complete combustion 2 moles of O_2 per mole of CH_4 is required, while the only $\\frac{1}{2}$mole of O_2 per mole of CH_4 is taken to carry out its complete oxidation or combustion.\n O_2(g)is the limiting reagent for the reaction.\nThus, one mole of methane is burnt in a limited supply of oxygen, resulting in the formation of one mole of CO(g).\n ​​​CO(g)could have been further oxidized to form CO_2(g) as the final product of combustion.\n $CO(g) + \\frac{1}{2} O_2(g)\\to CO_2(g)$\n Hence, the given equation represents incomplete combustion of methane."
+            },
+            {
+              "questionID": 22643,
+              "question": "Among the following compounds one that is most reactive towards electrophilic nitration is:",
+              "question_raw": "<p>Among the following compounds one that is most reactive towards electrophilic nitration is:</p>",
+              "options": [
+                {
+                  "label": "A",
+                  "id": 45768,
+                  "text": "Toluene",
+                  "is_correct": true
+                },
+                {
+                  "label": "B",
+                  "id": 45771,
+                  "text": "Nitrobenzene",
+                  "is_correct": false
+                },
+                {
+                  "label": "C",
+                  "id": 45770,
+                  "text": "Benzoic Acid",
+                  "is_correct": false
+                },
+                {
+                  "label": "D",
+                  "id": 45769,
+                  "text": "Benzene",
+                  "is_correct": false
+                }
+              ],
+              "correct_option_ids": [
+                45768
+              ],
+              "correct_option_labels": [
+                "A"
+              ],
+              "correct_option_texts": [
+                "Toluene"
+              ],
+              "explanation": "Presence of electron releasing group like -R, -OH etc. increases the electron density at ortho and para position and thus makes the benzene ring more reactive towards electrophile. On the other hand, electron withdrawing groups like -COOH, -NO_2 etc. reduces electron density and thus reduces the reactivity of benzene towards electrophile. Thus, order of the given compounds towards electrophilic nitration is:"
+            },
+            {
+              "questionID": 22644,
+              "question": "Which branched chain isomer of the hydrocarbon with molecular mass 72u gives only one isomer of monosubstituted alkyl halide?",
+              "question_raw": "<p>Which branched chain isomer of the hydrocarbon with molecular mass 72u gives only one isomer of monosubstituted alkyl halide?</p>",
+              "options": [
+                {
+                  "label": "A",
+                  "id": 45773,
+                  "text": "Tertiary butyl chloride",
+                  "is_correct": false
+                },
+                {
+                  "label": "B",
+                  "id": 45775,
+                  "text": "Neohexane",
+                  "is_correct": false
+                },
+                {
+                  "label": "C",
+                  "id": 45772,
+                  "text": "Neopentane",
+                  "is_correct": true
+                },
+                {
+                  "label": "D",
+                  "id": 45774,
+                  "text": "Isohexane",
+                  "is_correct": false
+                }
+              ],
+              "correct_option_ids": [
+                45772
+              ],
+              "correct_option_labels": [
+                "C"
+              ],
+              "correct_option_texts": [
+                "Neopentane"
+              ],
+              "explanation": "(CH_3)_3CCH_3 + HX(X=Cl,Br,I) $\\to$ (CH_3)_3CCH_2X\nHence a monosubstituted derivative is formed."
+            },
+            {
+              "questionID": 22645,
+              "question": "Ethylbenzene cannot be prepared by ______.",
+              "question_raw": "<p>Ethylbenzene cannot&nbsp;be prepared by ______.</p>",
+              "options": [
+                {
+                  "label": "A",
+                  "id": 45777,
+                  "text": "Clemmensen reduction",
+                  "is_correct": false
+                },
+                {
+                  "label": "B",
+                  "id": 45778,
+                  "text": "Wurtz-Fittig reaction",
+                  "is_correct": false
+                },
+                {
+                  "label": "C",
+                  "id": 45779,
+                  "text": "Friedel-Crafts reaction",
+                  "is_correct": false
+                },
+                {
+                  "label": "D",
+                  "id": 45776,
+                  "text": "Wurtz reaction",
+                  "is_correct": true
+                }
+              ],
+              "correct_option_ids": [
+                45776
+              ],
+              "correct_option_labels": [
+                "D"
+              ],
+              "correct_option_texts": [
+                "Wurtz reaction"
+              ],
+              "explanation": "Wurtz reaction is used to prepare alkanes with an even number of carbon atoms. To prepare ethylbenzene, the Wurtz Fittig reaction has to be used."
+            },
+            {
+              "questionID": 22646,
+              "question": "Identify B and D in the following sequence of reactions.",
+              "question_raw": "<p>Identify B and D in the following sequence of reactions.<br />\r\n<img src=\"https://media-mycbseguide.s3.amazonaws.com/images/testpaper/1.04.11.13.40.Ques.jpg\" style=\"width: 200px; height: 114px;\" /></p>",
+              "options": [
+                {
+                  "label": "A",
+                  "id": 45781,
+                  "text": "Methanol, and Bromoethane",
+                  "is_correct": false
+                },
+                {
+                  "label": "B",
+                  "id": 45783,
+                  "text": "Ethyl - hydrogensulphate + aqueous KOH",
+                  "is_correct": false
+                },
+                {
+                  "label": "C",
+                  "id": 45782,
+                  "text": "Ethyl - hydrogensulphate + alcoholic KOH",
+                  "is_correct": false
+                },
+                {
+                  "label": "D",
+                  "id": 45780,
+                  "text": "Ethanol and alcoholic KOH",
+                  "is_correct": true
+                }
+              ],
+              "correct_option_ids": [
+                45780
+              ],
+              "correct_option_labels": [
+                "D"
+              ],
+              "correct_option_texts": [
+                "Ethanol and alcoholic KOH"
+              ],
+              "explanation": "The given sequence of reactions conform to following stepwise conversions:\nStep (1)$ \\ C_2H_5OH \\overset{conc.H_2SO_4}{\\underset{110^oC}\\longrightarrow} \\ C_2H_5HSO_4 $\nStep (2)$\\ C_2H_5HSO_4 \\ + \\ H_2O \\to \\ CH_3CH_2OH \\ + \\ H_2SO_4$\nStep (3) $ C_2H_5OH \\overset{PBr_3} \\longrightarrow{CH_3CH_2Br}$\nStep (4) $\\ CH_3CH_2Br \\overset{alc.KOH}{\\underset{heat}\\longrightarrow} \\ H_2C=CH_2 + HBr$\nThus, the above sequence of reaction shows that the product 'B ' is C_2H_5OH ( i.e. ethanol ) and D is a reactant alcoholic KOH."
+            },
+            {
+              "questionID": 22647,
+              "question": "Ozonolysis of an organic compound 'A' produces an equimolar mixture of acetone and propionaldehyde. \nIdentify the organic compound 'A'.",
+              "question_raw": "<p>Ozonolysis of an organic compound &#39;A&#39; produces an equimolar mixture of acetone and propionaldehyde.&nbsp;<br />\r\nIdentify the organic compound &#39;A&#39;.</p>",
+              "options": [
+                {
+                  "label": "A",
+                  "id": 45787,
+                  "text": "2 - Pentene",
+                  "is_correct": false
+                },
+                {
+                  "label": "B",
+                  "id": 45784,
+                  "text": "2 - Methyl - 2 - pentene",
+                  "is_correct": true
+                },
+                {
+                  "label": "C",
+                  "id": 45786,
+                  "text": "1 - Pentene",
+                  "is_correct": false
+                },
+                {
+                  "label": "D",
+                  "id": 45785,
+                  "text": "2 - Methyl - 1 - pentene",
+                  "is_correct": false
+                }
+              ],
+              "correct_option_ids": [
+                45784
+              ],
+              "correct_option_labels": [
+                "B"
+              ],
+              "correct_option_texts": [
+                "2 - Methyl - 2 - pentene"
+              ],
+              "explanation": "2- Methyl -2 - pentene, when treated with ozone, forms an unstable ozonide intermediate. The ozonide when treated with$( zinc -{dust} + H_2O )$) yields an aldehyde (propionaldehyde ) and a ketone ( acetone ) as the final products The conversion reactions are represented as below.\nThus, the compound A is (2-Methyl -2 -pentene )"
+            },
+            {
+              "questionID": 22648,
+              "question": "Ozonolysis of an organic compound gives formaldehyde as one of the products. This confirms the presence of:",
+              "question_raw": "<p>Ozonolysis of an organic compound gives formaldehyde as one of the products. This confirms the presence of:</p>",
+              "options": [
+                {
+                  "label": "A",
+                  "id": 45789,
+                  "text": "two ethylenic double bonds",
+                  "is_correct": false
+                },
+                {
+                  "label": "B",
+                  "id": 45791,
+                  "text": "an isopropyl group",
+                  "is_correct": false
+                },
+                {
+                  "label": "C",
+                  "id": 45788,
+                  "text": "a vinyl group",
+                  "is_correct": true
+                },
+                {
+                  "label": "D",
+                  "id": 45790,
+                  "text": "an acetylenic triple bond",
+                  "is_correct": false
+                }
+              ],
+              "correct_option_ids": [
+                45788
+              ],
+              "correct_option_labels": [
+                "C"
+              ],
+              "correct_option_texts": [
+                "a vinyl group"
+              ],
+              "explanation": "The presence of a double bond on terminal carbon will give formaldehyde as one of the products."
+            },
+            {
+              "questionID": 22649,
+              "question": "The non-aromatic compound among the following is",
+              "question_raw": "<html><body><p>The non-aromatic compound among the following is</p>\n<ol start=\"1\" style=\"list-style-type: upper-alpha;\">\n<li><img alt=\"\" data-imgur-src=\"M0g4spW.png\" src=\"https://media-mycbseguide.s3.amazonaws.com/images/imgur/M0g4spW.png\" style=\"width: 55px; height: 40px;\"/></li>\n<li><img alt=\"\" data-imgur-src=\"Lg1CNyx.png\" src=\"https://media-mycbseguide.s3.amazonaws.com/images/imgur/Lg1CNyx.png\" style=\"width: 55px; height: 40px;\"/></li>\n<li><img alt=\"\" data-imgur-src=\"KIRINKW.png\" src=\"https://media-mycbseguide.s3.amazonaws.com/images/imgur/KIRINKW.png\" style=\"width: 55px; height: 40px;\"/></li>\n<li><img alt=\"\" data-imgur-src=\"r7nKwb1.png\" src=\"https://media-mycbseguide.s3.amazonaws.com/images/imgur/r7nKwb1.png\" style=\"width: 55px; height: 40px;\"/></li>\n</ol></body></html>",
+              "options": [
+                {
+                  "label": "A",
+                  "id": 45794,
+                  "text": "C",
+                  "is_correct": false
+                },
+                {
+                  "label": "B",
+                  "id": 45795,
+                  "text": "A",
+                  "is_correct": false
+                },
+                {
+                  "label": "C",
+                  "id": 45792,
+                  "text": "B",
+                  "is_correct": true
+                },
+                {
+                  "label": "D",
+                  "id": 45793,
+                  "text": "D",
+                  "is_correct": false
+                }
+              ],
+              "correct_option_ids": [
+                45792
+              ],
+              "correct_option_labels": [
+                "C"
+              ],
+              "correct_option_texts": [
+                "B"
+              ],
+              "explanation": "The compound B does not satisfy the (4n + 2)pi electron rule and is therefore not an aromatic compound."
+            },
+            {
+              "questionID": 22650,
+              "question": "A dibromo derivative of an alkane reacts with sodium metal to form an alicyclic hydrocarbon.\nThe derivative is ______.",
+              "question_raw": "<p>A dibromo derivative of an alkane reacts with sodium metal to form an alicyclic hydrocarbon.<br />\r\nThe derivative is ______.</p>",
+              "options": [
+                {
+                  "label": "A",
+                  "id": 45796,
+                  "text": "1, 4-dibromobutane",
+                  "is_correct": true
+                },
+                {
+                  "label": "B",
+                  "id": 45798,
+                  "text": "1, 1-dibromopropane",
+                  "is_correct": false
+                },
+                {
+                  "label": "C",
+                  "id": 45799,
+                  "text": "dibromoethane",
+                  "is_correct": false
+                },
+                {
+                  "label": "D",
+                  "id": 45797,
+                  "text": "2, 2-dibromobutane",
+                  "is_correct": false
+                }
+              ],
+              "correct_option_ids": [
+                45796
+              ],
+              "correct_option_labels": [
+                "A"
+              ],
+              "correct_option_texts": [
+                "1, 4-dibromobutane"
+              ],
+              "explanation": "1,4 - dibromobutane ( ie. a dibromo derivative of an alkane, butane) when reacted within$(Na - metal)$ ethereal solution produces alicyclic hydrocarbon, Cyclobutane as per the following reaction.\nTherefore, the dibromo-derivative of an alkane is identified as 1, 4-dibromobutane."
+            },
+            {
+              "questionID": 22651,
+              "question": "Which one of these statements is false for benzene?",
+              "question_raw": "<p>Which one of these statements&nbsp;is&nbsp;false&nbsp;for benzene?</p>",
+              "options": [
+                {
+                  "label": "A",
+                  "id": 45802,
+                  "text": "The bond length between each carbon to a carbon atom is $133\\ pm$",
+                  "is_correct": true
+                },
+                {
+                  "label": "B",
+                  "id": 45803,
+                  "text": "The bond angle between carbon-carbon bonds is ${\\text{12}}0^\\circ $",
+                  "is_correct": false
+                },
+                {
+                  "label": "C",
+                  "id": 45800,
+                  "text": "Electrophilic substitution reactions result in yielding the corresponding monoderivative of benzene.",
+                  "is_correct": false
+                },
+                {
+                  "label": "D",
+                  "id": 45801,
+                  "text": "Heat of hydrogenation of benzene is lesser than that of its theoretical value",
+                  "is_correct": false
+                }
+              ],
+              "correct_option_ids": [
+                45802
+              ],
+              "correct_option_labels": [
+                "A"
+              ],
+              "correct_option_texts": [
+                "The bond length between each carbon to a carbon atom is $133\\ pm$"
+              ],
+              "explanation": "'The given statement that \" the bond length between each carbon to a carbon atom in benzene is $133 \\ pm$ \" is false because the experimentally determined bond - length between carbon to carbon bond is$139 \\ pm$.\nFurther, even though, there are three carbon-carbon single bonds and three carbon-carbon double bonds and,\nthe actual bond lengths of [$\\equiv C-C \\equiv (ie. single \\ bond ) $] are$154 \\ pm$ and bond length of [$=C=C= \\ (double \\ bond )$] is $133 \\ pm$, whereas the X-Ray diffraction data reveals that in a benzene molecule\nthe bond lengths of (carbon-carbon) bond are 139 pm, which is intermediate between carbon-carbon single and carbon-carbon double bond\nThis variation in carbon to carbon bond length is caused due to resonating structures in a benzene molecule, as shown below,\n​​​​​​"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "testPaperID": 994,
+      "testPaperName": "Hydrocarbons CBSE Online Test 04",
+      "is_paid": true,
+      "category_full_name": "CBSE > Class 11 > Chemistry > Hydrocarbons",
+      "noOfQuestions": 15,
+      "has_answers": true,
+      "sections": [
+        {
+          "sectionName": "General",
+          "sectionID": null,
+          "questions": [
+            {
+              "questionID": 22652,
+              "question": "The synthesis of 3-octyne is achieved by subsequent stepwise reactions of sodium amide with an alkyne, and a bromoalkane. The bromoalkane and the other alkyne respectively are:",
+              "question_raw": "<p>The synthesis of 3-octyne is achieved by&nbsp;subsequent stepwise reactions of sodium amide with an alkyne, and a bromoalkane. The bromoalkane and the other alkyne respectively are:</p>",
+              "options": [
+                {
+                  "label": "A",
+                  "id": 45806,
+                  "text": "BrCH_2CH_2CH_3 and ${\\text{C}}{{\\text{H}}_{\\text{3}}}{\\text{C}}{{\\text{H}}_{\\text{2}}}{\\text{C}}{{\\text{H}}_{\\text{2}}}{\\text{C }} \\equiv {\\text{ CH}}$",
+                  "is_correct": false
+                },
+                {
+                  "label": "B",
+                  "id": 45804,
+                  "text": "BrCH_2CH_2CH_2CH_3 and ${\\text{C}}{{\\text{H}}_{\\text{3}}}{\\text{C}}{{\\text{H}}_{\\text{2}}}{\\text{C }} \\equiv {\\text{ CH}}$",
+                  "is_correct": true
+                },
+                {
+                  "label": "C",
+                  "id": 45807,
+                  "text": "BrCH_2CH_2CH_2CH_2CH_3 and ${\\text{C}}{{\\text{H}}_{\\text{3}}}{\\text{C }} \\equiv {\\text{ CH}}$",
+                  "is_correct": false
+                },
+                {
+                  "label": "D",
+                  "id": 45805,
+                  "text": "BrCH_2CH_2CH_2CH_2CH_3 and ${\\text{C}}{{\\text{H}}_{\\text{3}}}{\\text{C}}{{\\text{H}}_{\\text{2}}}{\\text{C }} \\equiv {\\text{ CH}}$",
+                  "is_correct": false
+                }
+              ],
+              "correct_option_ids": [
+                45804
+              ],
+              "correct_option_labels": [
+                "B"
+              ],
+              "correct_option_texts": [
+                "BrCH_2CH_2CH_2CH_3 and ${\\text{C}}{{\\text{H}}_{\\text{3}}}{\\text{C}}{{\\text{H}}_{\\text{2}}}{\\text{C }} \\equiv {\\text{ CH}}$"
+              ],
+              "explanation": "3 - Octyne can be synthesized as per the following stepwise conversion reactions:\nStep 1. Formation of a Sodium alkynide, by the reaction of 1 -butyne with sodium amide\n$CH_3CH_2C\\equiv CH +NaNH_2 \\rightarrow CH_3CH_2C\\equiv C Na^+ +NH_3$\n1-butyne sodium amide sodium butynide\nStep 2. Reaction of the alkynide ( sodium butynide) with 1 - bromobutane\n$CH_3 CH_2 C \\equiv C Na^+ + CH_3 CH_2 CH_2CH_2 Br $$\\rightarrow$ $CH_3CH_2C \\equiv CCH_2CH_2CH_2CH_3$$+ NaBr$\nSodium Butynide 1-bromobutane 3 - Octyne"
+            },
+            {
+              "questionID": 22653,
+              "question": "One mole of a symmetrical alkene on ozonolysis and subsequent treatment with ( Zn/H_2O) gives two moles of an aldehyde having a molecular mass of 44 u.\nThe alkene is ---------?",
+              "question_raw": "<p>&nbsp;One mole of a symmetrical alkene on ozonolysis and subsequent treatment with&nbsp;( Zn/H<sub>2</sub>O) gives two moles of an aldehyde having a molecular mass of 44 u.<br />\r\nThe alkene is ---------?</p>",
+              "options": [
+                {
+                  "label": "A",
+                  "id": 45808,
+                  "text": "2-butene",
+                  "is_correct": true
+                },
+                {
+                  "label": "B",
+                  "id": 45811,
+                  "text": "1-butene",
+                  "is_correct": false
+                },
+                {
+                  "label": "C",
+                  "id": 45810,
+                  "text": "Propene",
+                  "is_correct": false
+                },
+                {
+                  "label": "D",
+                  "id": 45809,
+                  "text": "Ethene",
+                  "is_correct": false
+                }
+              ],
+              "correct_option_ids": [
+                45808
+              ],
+              "correct_option_labels": [
+                "A"
+              ],
+              "correct_option_texts": [
+                "2-butene"
+              ],
+              "explanation": "Ozonolysis of alkenes involves the addition of ozone molecule to an alkene to form an unstable ozonide, and then cleavage of the ozonide by $(Zn+H_2O)$to smaller molecules.\n2- butene is a symmetrical alkene, which on ozonolysis yields two moles of $CH_3CHO$having a molecular mass of 44 u. as per reaction given below,"
+            },
+            {
+              "questionID": 22654,
+              "question": "n-propyl bromide, when treated with alcoholic KOH, produces _______.",
+              "question_raw": "<p>n-propyl bromide, when treated with alcoholic KOH, produces _______.</p>",
+              "options": [
+                {
+                  "label": "A",
+                  "id": 45813,
+                  "text": "propyne",
+                  "is_correct": false
+                },
+                {
+                  "label": "B",
+                  "id": 45815,
+                  "text": "propanol",
+                  "is_correct": false
+                },
+                {
+                  "label": "C",
+                  "id": 45814,
+                  "text": "propane",
+                  "is_correct": false
+                },
+                {
+                  "label": "D",
+                  "id": 45812,
+                  "text": "propene",
+                  "is_correct": true
+                }
+              ],
+              "correct_option_ids": [
+                45812
+              ],
+              "correct_option_labels": [
+                "D"
+              ],
+              "correct_option_texts": [
+                "propene"
+              ],
+              "explanation": "n- propyl bromide when treated with alcoholic KOH produces propene as shown below:\n$CH_3CH_2CH_2Br \\overset{alcoholicKOH} \\longrightarrow CH_3CH=CH_2 \\ + KBr \\ +H_2O$"
+            },
+            {
+              "questionID": 22655,
+              "question": "The bond angle deviation in cyclobutane is ________.",
+              "question_raw": "<p>The bond angle deviation in cyclobutane is ________.</p>",
+              "options": [
+                {
+                  "label": "A",
+                  "id": 45816,
+                  "text": "19.5^o",
+                  "is_correct": true
+                },
+                {
+                  "label": "B",
+                  "id": 45817,
+                  "text": "19^o",
+                  "is_correct": false
+                },
+                {
+                  "label": "C",
+                  "id": 45818,
+                  "text": "29.16^o",
+                  "is_correct": false
+                },
+                {
+                  "label": "D",
+                  "id": 45819,
+                  "text": "24.44^o",
+                  "is_correct": false
+                }
+              ],
+              "correct_option_ids": [
+                45816
+              ],
+              "correct_option_labels": [
+                "A"
+              ],
+              "correct_option_texts": [
+                "19.5^o"
+              ],
+              "explanation": "The ideal bond angle in tetrahedral carbon is 109.5^o. In cyclobutane, the interior carbon to carbon bond angles is considerably less. This results in repulsions between the electron clouds causing instability of the molecule.\nThe deviation in bond angle in cyclobutane is calculated as -\nThe bond angle in cyclobutane is = 90^o\nThe normal tetrahedral bond angle\n= 109.5^o\n$\\therefore$ Deviation = (normal tetrahedral bond angle - actual normal bond angle)\n= (109.5^o - 90^o)\n= 19.5^o\nHence, the bond angle deviation for cyclobutane is 19.5^o."
+            },
+            {
+              "questionID": 22656,
+              "question": "In the following sequence of reactions, the alkene is converted to compound $B$ \n${\\text{C}}{{\\text{H}}_{\\text{3}}}{\\text{CH }} = {\\text{ CHC}}{{\\text{H}}_{\\text{3}}}\\mathop \\to \\limits^{{O_3}} {\\text{A}}\\mathop \\to \\limits^{{H_2}O,Zn} B$ \nThe compound $B$--------- is?",
+              "question_raw": "<p>In the following sequence of reactions, the alkene is converted to&nbsp;&nbsp;compound&nbsp;&nbsp;<span class=\"math-tex\">{tex}B{/tex}</span>&nbsp;<br />\r\n<span class=\"math-tex\">{tex}{\\text{C}}{{\\text{H}}_{\\text{3}}}{\\text{CH }} = {\\text{ CHC}}{{\\text{H}}_{\\text{3}}}\\mathop \\to \\limits^{{O_3}} {\\text{A}}\\mathop \\to \\limits^{{H_2}O,Zn} B{/tex}</span>&nbsp;<br />\r\nThe compound&nbsp;<span class=\"math-tex\">{tex}B{/tex}</span>--------- is?</p>",
+              "options": [
+                {
+                  "label": "A",
+                  "id": 45821,
+                  "text": "${\\text{C}}{{\\text{H}}_{\\text{3}}}{\\text{C}}{{\\text{H}}_{\\text{2}}}{\\text{COC}}{{\\text{H}}_{\\text{3}}}$",
+                  "is_correct": false
+                },
+                {
+                  "label": "B",
+                  "id": 45823,
+                  "text": "${\\text{C}}{{\\text{H}}_{\\text{3}}}{\\text{C}}{{\\text{H}}_{\\text{2}}}{\\text{CHO}}$",
+                  "is_correct": false
+                },
+                {
+                  "label": "C",
+                  "id": 45820,
+                  "text": "${\\text{C}}{{\\text{H}}_{\\text{3}}}{\\text{CHO}}$",
+                  "is_correct": true
+                },
+                {
+                  "label": "D",
+                  "id": 45822,
+                  "text": "${\\text{C}}{{\\text{H}}_{\\text{3}}}{\\text{COC}}{{\\text{H}}_{\\text{3}}}$",
+                  "is_correct": false
+                }
+              ],
+              "correct_option_ids": [
+                45820
+              ],
+              "correct_option_labels": [
+                "C"
+              ],
+              "correct_option_texts": [
+                "${\\text{C}}{{\\text{H}}_{\\text{3}}}{\\text{CHO}}$"
+              ],
+              "explanation": "The given sequence of conversion steps represent Ozonolysis of 2-Butene, which follows the following path,\n Formation of an unstable intermediate/ozonide$(A)$ \n Cleavage of the intermediate/ozonide by $(Zn+H_2O)$ to smaller molecules, giving out the compound$B$, which is CH_3 CHO ( Ethanal )\nThe reaction is well depicted as below,\n,"
+            },
+            {
+              "questionID": 22657,
+              "question": "The hydrocarbon which can react with sodium in liquid ammonia is________.",
+              "question_raw": "<p>The hydrocarbon which can react with sodium in liquid ammonia is________.</p>",
+              "options": [
+                {
+                  "label": "A",
+                  "id": 45827,
+                  "text": "${\\text{C}}{{\\text{H}}_{\\text{3}}}{\\text{C}}{{\\text{H}}_{\\text{2}}}{\\text{C}} \\equiv {\\text{CC}}{{\\text{H}}_{\\text{2}}}{\\text{C}}{{\\text{H}}_{\\text{3}}}$",
+                  "is_correct": false
+                },
+                {
+                  "label": "B",
+                  "id": 45826,
+                  "text": "CH_3CH=CHCH_3",
+                  "is_correct": false
+                },
+                {
+                  "label": "C",
+                  "id": 45825,
+                  "text": "${\\text{C}}{{\\text{H}}_{\\text{3}}}{\\text{C}}{{\\text{H}}_{\\text{2}}}{\\text{C}}{{\\text{H}}_{\\text{2}}}{\\text{C}} \\equiv {\\text{CC}}{{\\text{H}}_{\\text{2}}}{\\text{C}}{{\\text{H}}_{\\text{2}}}{\\text{C}}{{\\text{H}}_{\\text{3}}}$",
+                  "is_correct": false
+                },
+                {
+                  "label": "D",
+                  "id": 45824,
+                  "text": "${\\text{C}}{{\\text{H}}_{\\text{3}}}{\\text{C}}{{\\text{H}}_{\\text{2}}}{\\text{C}} \\equiv {\\text{CH}}$",
+                  "is_correct": true
+                }
+              ],
+              "correct_option_ids": [
+                45824
+              ],
+              "correct_option_labels": [
+                "D"
+              ],
+              "correct_option_texts": [
+                "${\\text{C}}{{\\text{H}}_{\\text{3}}}{\\text{C}}{{\\text{H}}_{\\text{2}}}{\\text{C}} \\equiv {\\text{CH}}$"
+              ],
+              "explanation": "Terminal alkynes react with Na in the presence of liquid NH_3 to form higher alkynes. The alkyne contains acidic H at the end (i.e. the H bonded to C_1 of the chain). Therefore, it is easily replaced with highly electropositive metals such as Na in liquid ammonia, to form sodium alkaline ion which can react further in the presence of a suitable catalyst to yield higher alkynes/hydrocarbons."
+            },
+            {
+              "questionID": 22658,
+              "question": "The treatment of CH_3MgX with CH_3C $\\equiv $ C - H gives ________.",
+              "question_raw": "<p>The treatment of CH<sub>3</sub>MgX with CH<sub>3</sub>C <span class=\"math-tex\">{tex}\\equiv {/tex}</span>&nbsp;C - H gives ________.</p>",
+              "options": [
+                {
+                  "label": "A",
+                  "id": 45830,
+                  "text": "CH_3 - CH = CH_2",
+                  "is_correct": false
+                },
+                {
+                  "label": "B",
+                  "id": 45828,
+                  "text": "CH_4",
+                  "is_correct": true
+                },
+                {
+                  "label": "C",
+                  "id": 45829,
+                  "text": "H_3C-CH_3",
+                  "is_correct": false
+                },
+                {
+                  "label": "D",
+                  "id": 45831,
+                  "text": "CH_3C $\\equiv$ C - CH_3",
+                  "is_correct": false
+                }
+              ],
+              "correct_option_ids": [
+                45828
+              ],
+              "correct_option_labels": [
+                "B"
+              ],
+              "correct_option_texts": [
+                "CH_4"
+              ],
+              "explanation": "Terminal alkynes act as a nucleophile. The organometallic compound 'Grignard's reagent (R -Mg-X), therefore, reacts to form alkane. Thus when CH_3-Mg-Br is treated with CH_3C $\\equiv$ CH we get CH_4 as per the following equation:\nCH_3C $\\equiv$ CH - Mg - Br $\\rightarrow$ CH_3C $\\equiv$ C-Mg -Br + CH_4"
+            },
+            {
+              "questionID": 22659,
+              "question": "Benzene reacts with chlorine in the presence of sunlight and in the absence of halogen carriers to give .............?",
+              "question_raw": "<p>Benzene reacts with chlorine&nbsp;in the presence&nbsp;of sunlight and&nbsp;in&nbsp;the absence&nbsp;of&nbsp;halogen carriers&nbsp;to give .............?</p>",
+              "options": [
+                {
+                  "label": "A",
+                  "id": 45833,
+                  "text": "${{\\text{C}}_{\\text{6}}}{{\\text{H}}_{\\text{5}}}{\\text{Cl}}$",
+                  "is_correct": false
+                },
+                {
+                  "label": "B",
+                  "id": 45835,
+                  "text": "${\\text{CC}}{{\\text{l}}_{\\text{4}}}$",
+                  "is_correct": false
+                },
+                {
+                  "label": "C",
+                  "id": 45832,
+                  "text": "$C_6H_6Cl_6$",
+                  "is_correct": true
+                },
+                {
+                  "label": "D",
+                  "id": 45834,
+                  "text": "${{\\text{C}}_{\\text{6}}}{\\text{C}}{{\\text{l}}_{\\text{6}}}$",
+                  "is_correct": false
+                }
+              ],
+              "correct_option_ids": [
+                45832
+              ],
+              "correct_option_labels": [
+                "C"
+              ],
+              "correct_option_texts": [
+                "$C_6H_6Cl_6$"
+              ],
+              "explanation": "Benzene, in the presence of sunlight and in absence of halogen carriers,\nundergoes an addition reaction with Cl_2 to form benzene hexachloride,$C_6H_6Cl_6$"
+            },
+            {
+              "questionID": 22660,
+              "question": "The general formula of a cycloalkane with one benzene ring is ________.",
+              "question_raw": "<p>The general formula of a cycloalkane with one benzene ring&nbsp;is ________.</p>",
+              "options": [
+                {
+                  "label": "A",
+                  "id": 45836,
+                  "text": "C_nH_2n",
+                  "is_correct": true
+                },
+                {
+                  "label": "B",
+                  "id": 45838,
+                  "text": "C_nH_2n-2",
+                  "is_correct": false
+                },
+                {
+                  "label": "C",
+                  "id": 45837,
+                  "text": "C_nH_2n+2",
+                  "is_correct": false
+                },
+                {
+                  "label": "D",
+                  "id": 45839,
+                  "text": "C_nH_n",
+                  "is_correct": false
+                }
+              ],
+              "correct_option_ids": [
+                45836
+              ],
+              "correct_option_labels": [
+                "A"
+              ],
+              "correct_option_texts": [
+                "C_nH_2n"
+              ],
+              "explanation": "Cycloalkane with one benzene ring has a formula C_6H_12.\n$\\therefore$ The formula becomes C_nH_2n"
+            },
+            {
+              "questionID": 22661,
+              "question": "Cyclohexene on ozonolysis followed by reaction with zinc dust and water gives compound E. Compound E on further treatment with aqueous KOH yields compound F. Compound F is",
+              "question_raw": "<html><body><p>Cyclohexene on ozonolysis followed by reaction with zinc dust and water gives compound E. Compound E on further treatment with aqueous KOH yields compound F. Compound F is</p>\n<ol start=\"1\" style=\"list-style-type: upper-alpha;\">\n<li><img alt=\"\" data-imgur-src=\"19InjKU.png\" src=\"https://media-mycbseguide.s3.amazonaws.com/images/imgur/19InjKU.png\" style=\"width: 55px; height: 40px;\"/></li>\n<li><img alt=\"\" data-imgur-src=\"UdB4qoC.png\" src=\"https://media-mycbseguide.s3.amazonaws.com/images/imgur/UdB4qoC.png\" style=\"width: 55px; height: 40px;\"/></li>\n<li><img alt=\"\" data-imgur-src=\"GiKh50M.png\" src=\"https://media-mycbseguide.s3.amazonaws.com/images/imgur/GiKh50M.png\" style=\"width: 55px; height: 40px;\"/></li>\n<li><img alt=\"\" data-imgur-src=\"Trm9GlK.png\" src=\"https://media-mycbseguide.s3.amazonaws.com/images/imgur/Trm9GlK.png\" style=\"width: 55px; height: 40px;\"/></li>\n</ol></body></html>",
+              "options": [
+                {
+                  "label": "A",
+                  "id": 45840,
+                  "text": "(A)",
+                  "is_correct": true
+                },
+                {
+                  "label": "B",
+                  "id": 45843,
+                  "text": "(B)",
+                  "is_correct": false
+                },
+                {
+                  "label": "C",
+                  "id": 45841,
+                  "text": "(D)",
+                  "is_correct": false
+                },
+                {
+                  "label": "D",
+                  "id": 45842,
+                  "text": "(C)",
+                  "is_correct": false
+                }
+              ],
+              "correct_option_ids": [
+                45840
+              ],
+              "correct_option_labels": [
+                "A"
+              ],
+              "correct_option_texts": [
+                "(A)"
+              ],
+              "explanation": "The following stepwise conversions reactions occuring separately in each step explain the formation of compound at option (A) ,\nStep1. Treatment of cyclo hexene with ozone O_3 _ forms of an unstable intermediate \"ozonide\".\nStep 2. Cleavage of the ozonide by (Zn + H_2O) to form compound E [ ie. Pentan 1, 5-dicarbaldehyde, (OHC - CH_2. CH_2. CH_2 - CHO) ]\nStep 3 The compound E (ie. CHO - CH_2. CH_2. CH_2 - CHO) when treated with (aqueous KOH) suffers 'aldol condensation' to yield compound F as the final product."
+            },
+            {
+              "questionID": 22662,
+              "question": "The reagent(s) for the following conversion, is/are",
+              "question_raw": "<p>The reagent(s) for the following conversion, is/are<br />\r\n<img src=\"https://media-mycbseguide.s3.amazonaws.com/images/testpaper/1.04.11.13.56.Ques.jpg\" style=\"width: 250px; height: 44px;\" /></p>",
+              "options": [
+                {
+                  "label": "A",
+                  "id": 45844,
+                  "text": "alcoholic KOH followed NaNH_2",
+                  "is_correct": true
+                },
+                {
+                  "label": "B",
+                  "id": 45845,
+                  "text": "alcoholic KOH",
+                  "is_correct": false
+                },
+                {
+                  "label": "C",
+                  "id": 45846,
+                  "text": "aqueous KOH followed by NaNH_2",
+                  "is_correct": false
+                },
+                {
+                  "label": "D",
+                  "id": 45847,
+                  "text": "ZN/CH_3OH",
+                  "is_correct": false
+                }
+              ],
+              "correct_option_ids": [
+                45844
+              ],
+              "correct_option_labels": [
+                "A"
+              ],
+              "correct_option_texts": [
+                "alcoholic KOH followed NaNH_2"
+              ],
+              "explanation": "This is an example of elimination reaction in two steps ,\nIn the first step alc. KOH is used as a base forming vinyl bromide (CH_2 = CHBr) and in the second step,a stronger base NaNH_2 (sodium -amide) is used.\nThe stepwise conversions reactions are,\n$BrC{H_2}C{H_2}Br\\xrightarrow[{alc.KOH}]{}C{H_2}CHBr\\xrightarrow[{NaN{H_2}}]{}C_ 2H_2$\n$\\mathop {BrC{H_2}C{H_2}Br}\\limits_{(1,\\;2 - dibromoethane)} \\xrightarrow[{alc.KOH}]{}\\mathop {C{H_2}CHBr}\\limits_{(Vinylbromide)} \\xrightarrow[{NaN{H_2}}]{}\\mathop {C_2H_2}\\limits_{(Ethyne)} $"
+            },
+            {
+              "questionID": 22663,
+              "question": "Presence of a nitro group in a benzene ring:",
+              "question_raw": "<p>Presence of a nitro group in a benzene ring:</p>",
+              "options": [
+                {
+                  "label": "A",
+                  "id": 45850,
+                  "text": "renders the ring basic.",
+                  "is_correct": false
+                },
+                {
+                  "label": "B",
+                  "id": 45849,
+                  "text": "deactivates the ring towards nucleophilic substitution.",
+                  "is_correct": false
+                },
+                {
+                  "label": "C",
+                  "id": 45848,
+                  "text": "deactivates the ring towards electrophilic substitution.",
+                  "is_correct": true
+                },
+                {
+                  "label": "D",
+                  "id": 45851,
+                  "text": "activates the ring towards electrophilic substitution.",
+                  "is_correct": false
+                }
+              ],
+              "correct_option_ids": [
+                45848
+              ],
+              "correct_option_labels": [
+                "C"
+              ],
+              "correct_option_texts": [
+                "deactivates the ring towards electrophilic substitution."
+              ],
+              "explanation": "This is because the Nitro is an electron-withdrawing group, it pulls the electron density from the ring towards itself thereby decreasing the electron density in the ring and deactivating the ring towards attack by the electrophile."
+            },
+            {
+              "questionID": 22664,
+              "question": "The compound formed as a result of oxidation of ethyl benzene by ${\\text{KMn}}{{\\text{O}}_{\\text{4}}}$ is",
+              "question_raw": "<p>The compound formed as a result of oxidation of ethyl benzene by <span class=\"math-tex\">{tex}{\\text{KMn}}{{\\text{O}}_{\\text{4}}}{/tex}</span> is</p>",
+              "options": [
+                {
+                  "label": "A",
+                  "id": 45852,
+                  "text": "benzoic acid",
+                  "is_correct": true
+                },
+                {
+                  "label": "B",
+                  "id": 45853,
+                  "text": "benzophenone",
+                  "is_correct": false
+                },
+                {
+                  "label": "C",
+                  "id": 45855,
+                  "text": "benzyl alcohol",
+                  "is_correct": false
+                },
+                {
+                  "label": "D",
+                  "id": 45854,
+                  "text": "acetophenone",
+                  "is_correct": false
+                }
+              ],
+              "correct_option_ids": [
+                45852
+              ],
+              "correct_option_labels": [
+                "A"
+              ],
+              "correct_option_texts": [
+                "benzoic acid"
+              ],
+              "explanation": "All alkylbenzenes (such as C_6H_5CH_3 or C_6H_5C_2H_5) on oxidation with alkaline - KMnO_4\nTherefore, the oxidation of ethylbenzene with alkaline KMnO_4 yields\" Benzoic - acid."
+            },
+            {
+              "questionID": 22665,
+              "question": "Which of the following reactions will yield 2, 2-dibromopropane?",
+              "question_raw": "<p>Which of the following reactions will yield 2, 2-dibromopropane?</p>",
+              "options": [
+                {
+                  "label": "A",
+                  "id": 45859,
+                  "text": "${\\text{C}}{{\\text{H}}_{\\text{3}}} - {\\text{ CH }} = {\\text{ C}}{{\\text{H}}_{\\text{2}}} + {\\text{ HBr }} \\to $",
+                  "is_correct": false
+                },
+                {
+                  "label": "B",
+                  "id": 45858,
+                  "text": "${\\text{CH }} \\equiv {\\text{ CH }} + {\\text{ 2HBr}} \\to $",
+                  "is_correct": false
+                },
+                {
+                  "label": "C",
+                  "id": 45857,
+                  "text": "${\\text{C}}{{\\text{H}}_{\\text{3}}}{\\text{CH }} \\equiv {\\text{ CHBr }} + {\\text{ HBr}} \\to $",
+                  "is_correct": false
+                },
+                {
+                  "label": "D",
+                  "id": 45856,
+                  "text": "${\\text{C}}{{\\text{H}}_{\\text{3}}} - {\\text{ C }} \\equiv {\\text{ CH }} + {\\text{ 2HBr }} \\to $",
+                  "is_correct": true
+                }
+              ],
+              "correct_option_ids": [
+                45856
+              ],
+              "correct_option_labels": [
+                "D"
+              ],
+              "correct_option_texts": [
+                "${\\text{C}}{{\\text{H}}_{\\text{3}}} - {\\text{ C }} \\equiv {\\text{ CH }} + {\\text{ 2HBr }} \\to $"
+              ],
+              "explanation": "The reaction follows Markovnikoff’s rule of addition which states that in addition of HBr to an unsymmetrical alkene, the major product is the one in which the Br gets attached to the more substituted carbon of the double bond."
+            },
+            {
+              "questionID": 22666,
+              "question": "HBr reacts with CH_2 = CH-OCH_3 under anhydrous conditions at room temperature to give _________.",
+              "question_raw": "<p>HBr&nbsp;reacts with &nbsp;CH<sub>2&nbsp;</sub>= CH-OCH<sub>3</sub>&nbsp;under anhydrous conditions at room temperature to give _________.</p>",
+              "options": [
+                {
+                  "label": "A",
+                  "id": 45862,
+                  "text": "BrCH_2CHO and CH_3OH",
+                  "is_correct": false
+                },
+                {
+                  "label": "B",
+                  "id": 45860,
+                  "text": "H_3C-CHBr-OCH_3",
+                  "is_correct": true
+                },
+                {
+                  "label": "C",
+                  "id": 45863,
+                  "text": "BrCH_2-CH_2-OCH_3",
+                  "is_correct": false
+                },
+                {
+                  "label": "D",
+                  "id": 45861,
+                  "text": "CH_3CHO and CH_3Br",
+                  "is_correct": false
+                }
+              ],
+              "correct_option_ids": [
+                45860
+              ],
+              "correct_option_labels": [
+                "B"
+              ],
+              "correct_option_texts": [
+                "H_3C-CHBr-OCH_3"
+              ],
+              "explanation": "The product is formed through a reaction in accordance with Markovnikov’s rule (i.e. the negative part of the adding reagent goes to that carbon of the double bond which is more highly substituted).\nThe reaction is better understood to occur in the following two steps,\nStep (1) generation of a carbocation, CH_3-C^+H-OCH_3 as per Markovnikov's rule.\nStep (2) attack of the bromide ion (Br^-) over the carbocation to yield the product.\nCH_3-CHBr-OCH_3."
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "testPaperID": 995,
+      "testPaperName": "Hydrocarbons CBSE Online Test 05",
+      "is_paid": true,
+      "category_full_name": "CBSE > Class 11 > Chemistry > Hydrocarbons",
+      "noOfQuestions": 15,
+      "has_answers": true,
+      "sections": [
+        {
+          "sectionName": "General",
+          "sectionID": null,
+          "questions": [
+            {
+              "questionID": 22667,
+              "question": "Phenyl magnesium bromide reacts with methanol to give:",
+              "question_raw": "<p>Phenyl magnesium bromide reacts with methanol to give:</p>",
+              "options": [
+                {
+                  "label": "A",
+                  "id": 45866,
+                  "text": "a mixture of toluene and Mg(OH)Br.",
+                  "is_correct": false
+                },
+                {
+                  "label": "B",
+                  "id": 45867,
+                  "text": "a mixture of phenol and Mg(Me)Br.",
+                  "is_correct": false
+                },
+                {
+                  "label": "C",
+                  "id": 45864,
+                  "text": "a mixture of benzene and Mg(OMe)Br.",
+                  "is_correct": true
+                },
+                {
+                  "label": "D",
+                  "id": 45865,
+                  "text": "a mixture of anisole and Mg(OH)Br.",
+                  "is_correct": false
+                }
+              ],
+              "correct_option_ids": [
+                45864
+              ],
+              "correct_option_labels": [
+                "C"
+              ],
+              "correct_option_texts": [
+                "a mixture of benzene and Mg(OMe)Br."
+              ],
+              "explanation": "This is because Grignard reagents react with proton from methanol to give benzene and Mg(OMe)Br."
+            },
+            {
+              "questionID": 22668,
+              "question": "A gas decolourised by KMnO_4 solution but gives no precipitate with ammoniacal cuprous chloride is ________.",
+              "question_raw": "<p>A gas decolourised by KMnO<sub>4</sub> solution but gives no precipitate with ammoniacal cuprous chloride is ________.</p>",
+              "options": [
+                {
+                  "label": "A",
+                  "id": 45868,
+                  "text": "Ethene",
+                  "is_correct": true
+                },
+                {
+                  "label": "B",
+                  "id": 45869,
+                  "text": "Ethane",
+                  "is_correct": false
+                },
+                {
+                  "label": "C",
+                  "id": 45871,
+                  "text": "Acetylene",
+                  "is_correct": false
+                },
+                {
+                  "label": "D",
+                  "id": 45870,
+                  "text": "Methane",
+                  "is_correct": false
+                }
+              ],
+              "correct_option_ids": [
+                45868
+              ],
+              "correct_option_labels": [
+                "A"
+              ],
+              "correct_option_texts": [
+                "Ethene"
+              ],
+              "explanation": "Due to unsaturation, ethene decolourises KMnO_4 solution forming glycol. However, it shows no reaction with ammoniacal cupric chloride."
+            },
+            {
+              "questionID": 22669,
+              "question": "What would be the product formed when 1-Bromo-3-chlorocyclobutane reacts with two equivalents of metallic sodium in ether?",
+              "question_raw": "<p>What would be the product formed when 1-Bromo-3-chlorocyclobutane reacts with two equivalents of metallic sodium in ether?<br />\r\n<img src=\"https://media-mycbseguide.s3.amazonaws.com/images/testpaper/1.04.11.13.63.Ques.jpg\" style=\"width: 200px; height: 120px;\" /></p>",
+              "options": [
+                {
+                  "label": "A",
+                  "id": 45874,
+                  "text": "(A)",
+                  "is_correct": false
+                },
+                {
+                  "label": "B",
+                  "id": 45873,
+                  "text": "(C)",
+                  "is_correct": false
+                },
+                {
+                  "label": "C",
+                  "id": 45875,
+                  "text": "(B)",
+                  "is_correct": false
+                },
+                {
+                  "label": "D",
+                  "id": 45872,
+                  "text": "(D)",
+                  "is_correct": true
+                }
+              ],
+              "correct_option_ids": [
+                45872
+              ],
+              "correct_option_labels": [
+                "D"
+              ],
+              "correct_option_texts": [
+                "(D)"
+              ],
+              "explanation": "This is because an intramolecular reaction takes Wurtz reaction takes place with the release of a molecule of NaCl and a molecule of NaBr."
+            },
+            {
+              "questionID": 22670,
+              "question": "2-methylbutane on reacting with bromine in the presence of sunlight gives mainly ________.",
+              "question_raw": "<p>2-methylbutane on reacting with bromine in the presence of sunlight gives mainly ________.</p>",
+              "options": [
+                {
+                  "label": "A",
+                  "id": 45876,
+                  "text": "2-bromo 2-methylbutane",
+                  "is_correct": true
+                },
+                {
+                  "label": "B",
+                  "id": 45877,
+                  "text": "1-bromo 2-methylbutane",
+                  "is_correct": false
+                },
+                {
+                  "label": "C",
+                  "id": 45879,
+                  "text": "1-bromo 3-methylbutane",
+                  "is_correct": false
+                },
+                {
+                  "label": "D",
+                  "id": 45878,
+                  "text": "2-bromo 3-methylbutane",
+                  "is_correct": false
+                }
+              ],
+              "correct_option_ids": [
+                45876
+              ],
+              "correct_option_labels": [
+                "A"
+              ],
+              "correct_option_texts": [
+                "2-bromo 2-methylbutane"
+              ],
+              "explanation": "The halogenation of alkanes follows free radical mechanism with the formation of free radical intermediates. As the secondary free radical is more stable than primary free radical, hence the product is 2-bromo-2-methylbutane."
+            },
+            {
+              "questionID": 22671,
+              "question": "Alkyl halides react with dialkyl copper reagents to give:",
+              "question_raw": "<p>Alkyl halides react with dialkyl copper reagents to give:</p>",
+              "options": [
+                {
+                  "label": "A",
+                  "id": 45881,
+                  "text": "Alkyl copper halides",
+                  "is_correct": false
+                },
+                {
+                  "label": "B",
+                  "id": 45883,
+                  "text": "Alkenyl halides",
+                  "is_correct": false
+                },
+                {
+                  "label": "C",
+                  "id": 45882,
+                  "text": "Alkenes",
+                  "is_correct": false
+                },
+                {
+                  "label": "D",
+                  "id": 45880,
+                  "text": "Alkanes",
+                  "is_correct": true
+                }
+              ],
+              "correct_option_ids": [
+                45880
+              ],
+              "correct_option_labels": [
+                "D"
+              ],
+              "correct_option_texts": [
+                "Alkanes"
+              ],
+              "explanation": "Alkyl halides react with dialkyl copper reagents to give alkanes. This is Corey-House reaction and gives good yields of both symmetrical and unsymmetrical alkanes."
+            },
+            {
+              "questionID": 22672,
+              "question": "n-Propylbromide on treatment with ethanolic KOH is:",
+              "question_raw": "<p>n-Propylbromide on treatment with ethanolic KOH is:</p>",
+              "options": [
+                {
+                  "label": "A",
+                  "id": 45886,
+                  "text": "Propyne",
+                  "is_correct": false
+                },
+                {
+                  "label": "B",
+                  "id": 45887,
+                  "text": "Propanal",
+                  "is_correct": false
+                },
+                {
+                  "label": "C",
+                  "id": 45885,
+                  "text": "Propane",
+                  "is_correct": false
+                },
+                {
+                  "label": "D",
+                  "id": 45884,
+                  "text": "Propene",
+                  "is_correct": true
+                }
+              ],
+              "correct_option_ids": [
+                45884
+              ],
+              "correct_option_labels": [
+                "D"
+              ],
+              "correct_option_texts": [
+                "Propene"
+              ],
+              "explanation": "Elimination reaction takes place, a molecule of HBr gets eliminated to form propene."
+            },
+            {
+              "questionID": 22673,
+              "question": "Acetylene is prepared by the action of water on:",
+              "question_raw": "<p>Acetylene is prepared by the action of water on:</p>",
+              "options": [
+                {
+                  "label": "A",
+                  "id": 45889,
+                  "text": "Al_4C_3",
+                  "is_correct": false
+                },
+                {
+                  "label": "B",
+                  "id": 45890,
+                  "text": "Silicon carbide",
+                  "is_correct": false
+                },
+                {
+                  "label": "C",
+                  "id": 45891,
+                  "text": "all of these",
+                  "is_correct": false
+                },
+                {
+                  "label": "D",
+                  "id": 45888,
+                  "text": "CaC_2",
+                  "is_correct": true
+                }
+              ],
+              "correct_option_ids": [
+                45888
+              ],
+              "correct_option_labels": [
+                "D"
+              ],
+              "correct_option_texts": [
+                "CaC_2"
+              ],
+              "explanation": "The reaction of CaC_2 (Calcium carbide) with water produces acetylene (C_2H_2).\nThe chemical equation for the reaction of calcium\\ carbide (CaC_2) with water to yield acetylene ($HC \\equiv CH$) is\n$CaC_2 + H_2O \\to CaO + C_2H_2$\nThe calcium oxide (CaO) is formed as a byproduct, which simultaneously reacts with water to give Ca(OH)_2\n$CaO + H_2O\\to Ca(OH)_2$\nThus, the overall reaction is,\n$CaC_2 \\ + \\ 2H_2O \\to C_2H_2 \\ + \\ Ca(OH)_2 $"
+            },
+            {
+              "questionID": 22674,
+              "question": "What product is obtained on electrolyzing potassium fumarate?",
+              "question_raw": "<p>What&nbsp;product is obtained on electrolyzing potassium fumarate?</p>",
+              "options": [
+                {
+                  "label": "A",
+                  "id": 45893,
+                  "text": "CH_4",
+                  "is_correct": false
+                },
+                {
+                  "label": "B",
+                  "id": 45894,
+                  "text": "C_2H_4",
+                  "is_correct": false
+                },
+                {
+                  "label": "C",
+                  "id": 45892,
+                  "text": "C_2H_2",
+                  "is_correct": true
+                },
+                {
+                  "label": "D",
+                  "id": 45895,
+                  "text": "C_2H_6",
+                  "is_correct": false
+                }
+              ],
+              "correct_option_ids": [
+                45892
+              ],
+              "correct_option_labels": [
+                "C"
+              ],
+              "correct_option_texts": [
+                "C_2H_2"
+              ],
+              "explanation": "Acetylene can be prepared by electrolysis of a concentrated solution of sodium or potassium salt of fumaric acid. This is Kolbe's electrolytic method."
+            },
+            {
+              "questionID": 22675,
+              "question": "What product is obtained by heating ethylidene chloride with alcoholic KOH?",
+              "question_raw": "<p>What product is obtained by heating ethylidene chloride with alcoholic KOH?</p>",
+              "options": [
+                {
+                  "label": "A",
+                  "id": 45896,
+                  "text": "Ethyne",
+                  "is_correct": true
+                },
+                {
+                  "label": "B",
+                  "id": 45897,
+                  "text": "Ethene",
+                  "is_correct": false
+                },
+                {
+                  "label": "C",
+                  "id": 45898,
+                  "text": "Ethane",
+                  "is_correct": false
+                },
+                {
+                  "label": "D",
+                  "id": 45899,
+                  "text": "Methane",
+                  "is_correct": false
+                }
+              ],
+              "correct_option_ids": [
+                45896
+              ],
+              "correct_option_labels": [
+                "A"
+              ],
+              "correct_option_texts": [
+                "Ethyne"
+              ],
+              "explanation": "Ethylidene chloride is 1,1 - dichloroethane having the structural formula,\nEthylidene chloride, when treated with alcoholic KOH forms ethyne.\nThe reaction takes place in two steps giving vinyl chloride in the first step, which further undergoes an elimination reaction to form ethyne. as shown below,\n$\\mathop {C{H_3}CHC{l_2}}\\limits_{(Ethylidene\\;chloride)} \\xrightarrow[{alcoholicKOH}]{}\\mathop {C{H_2} = CHCl}\\limits_{(VinylChloride)} \\xrightarrow[{KOH(alc.)}]{}\\mathop {HC = CH}\\limits_{(Ethyne)} $"
+            },
+            {
+              "questionID": 22676,
+              "question": "Which product is obtained by passing ethanol vapours over heated alumina?",
+              "question_raw": "<p>Which product is obtained by passing ethanol vapours over heated alumina?</p>",
+              "options": [
+                {
+                  "label": "A",
+                  "id": 45901,
+                  "text": "CH_4",
+                  "is_correct": false
+                },
+                {
+                  "label": "B",
+                  "id": 45902,
+                  "text": "C_2H_6",
+                  "is_correct": false
+                },
+                {
+                  "label": "C",
+                  "id": 45903,
+                  "text": "C_2H_2",
+                  "is_correct": false
+                },
+                {
+                  "label": "D",
+                  "id": 45900,
+                  "text": "C_2H_4",
+                  "is_correct": true
+                }
+              ],
+              "correct_option_ids": [
+                45900
+              ],
+              "correct_option_labels": [
+                "D"
+              ],
+              "correct_option_texts": [
+                "C_2H_4"
+              ],
+              "explanation": "It is an example of dehydration of alcohols to give alkenes.\n$RC{H_2} - \\mathop {C{H_2}OH}\\limits_{alcohol} \\xrightarrow[{ - {H_2}O}]{{A{l_2}{O_3},623K}}\\mathop {RCH = C{H_2}}\\limits_{alkene} $\nFor example,\n$\\mathop {{C_2}{H_5}OH}\\limits_{ethanol} \\xrightarrow[{ - {H_2}O}]{{A{l_2}{O_3},623K}}\\mathop {C{H_2} = C{H_2}}\\limits_{ethene} $\nThus, when ethanol vapours are passed over heated alumina, the alcohol gets dehydrated to form ethene, as given above."
+            },
+            {
+              "questionID": 22677,
+              "question": "Ethene is obtained by electrolyzing:",
+              "question_raw": "<p>Ethene is obtained by electrolyzing:</p>",
+              "options": [
+                {
+                  "label": "A",
+                  "id": 45907,
+                  "text": "All of these",
+                  "is_correct": false
+                },
+                {
+                  "label": "B",
+                  "id": 45905,
+                  "text": "Pot. Acetate",
+                  "is_correct": false
+                },
+                {
+                  "label": "C",
+                  "id": 45904,
+                  "text": "Pot. Succinate",
+                  "is_correct": true
+                },
+                {
+                  "label": "D",
+                  "id": 45906,
+                  "text": "Pot. Fumarate",
+                  "is_correct": false
+                }
+              ],
+              "correct_option_ids": [
+                45904
+              ],
+              "correct_option_labels": [
+                "C"
+              ],
+              "correct_option_texts": [
+                "Pot. Succinate"
+              ],
+              "explanation": "Ethene is obtained by the electrolysis of potassium succinate by the Kolbe's electrolytic method."
+            },
+            {
+              "questionID": 22678,
+              "question": "Pyrolysis of coal with heavy oil in the presence of H_2 at 250 atm.and 350^0C and catalyst yields.",
+              "question_raw": "<p>Pyrolysis of coal with heavy oil in the presence of H<sub>2 </sub>at 250 atm.and 350<sup>0</sup>C and catalyst yields.</p>",
+              "options": [
+                {
+                  "label": "A",
+                  "id": 45909,
+                  "text": "CH_4",
+                  "is_correct": false
+                },
+                {
+                  "label": "B",
+                  "id": 45910,
+                  "text": "C_2H_6",
+                  "is_correct": false
+                },
+                {
+                  "label": "C",
+                  "id": 45908,
+                  "text": "A mixture of low boiling hydrocarbons.",
+                  "is_correct": true
+                },
+                {
+                  "label": "D",
+                  "id": 45911,
+                  "text": "C_3H_8",
+                  "is_correct": false
+                }
+              ],
+              "correct_option_ids": [
+                45908
+              ],
+              "correct_option_labels": [
+                "C"
+              ],
+              "correct_option_texts": [
+                "A mixture of low boiling hydrocarbons."
+              ],
+              "explanation": "Pyrolysis is the decomposition of a compound by the application of heat. It involves the breaking of C-C and C-H bonds resulting in the formation of lower boiling alkanes."
+            },
+            {
+              "questionID": 22679,
+              "question": "What does Marsh gas mainly contains?",
+              "question_raw": "<p>What does Marsh gas mainly contains?</p>",
+              "options": [
+                {
+                  "label": "A",
+                  "id": 45913,
+                  "text": "C_2H_2",
+                  "is_correct": false
+                },
+                {
+                  "label": "B",
+                  "id": 45915,
+                  "text": "CO",
+                  "is_correct": false
+                },
+                {
+                  "label": "C",
+                  "id": 45914,
+                  "text": "H_2S",
+                  "is_correct": false
+                },
+                {
+                  "label": "D",
+                  "id": 45912,
+                  "text": "CH_4",
+                  "is_correct": true
+                }
+              ],
+              "correct_option_ids": [
+                45912
+              ],
+              "correct_option_labels": [
+                "D"
+              ],
+              "correct_option_texts": [
+                "CH_4"
+              ],
+              "explanation": "Marsh gas which is also called methane is produced by the anaerobic bacterial decomposition of vegetable matter and the rumen of herbivorous animals underwater."
+            },
+            {
+              "questionID": 22680,
+              "question": "Organic compounds are found in:",
+              "question_raw": "<p>Organic compounds are found in:</p>",
+              "options": [
+                {
+                  "label": "A",
+                  "id": 45916,
+                  "text": "both animal and vegetable kingdom",
+                  "is_correct": true
+                },
+                {
+                  "label": "B",
+                  "id": 45918,
+                  "text": "only Animal kingdom",
+                  "is_correct": false
+                },
+                {
+                  "label": "C",
+                  "id": 45919,
+                  "text": "only vegetable kingdom",
+                  "is_correct": false
+                },
+                {
+                  "label": "D",
+                  "id": 45917,
+                  "text": "only mineral kingdom",
+                  "is_correct": false
+                }
+              ],
+              "correct_option_ids": [
+                45916
+              ],
+              "correct_option_labels": [
+                "A"
+              ],
+              "correct_option_texts": [
+                "both animal and vegetable kingdom"
+              ],
+              "explanation": "Compounds which are isolated directly or indirectly from living organisms like plants and animals are called organic compounds."
+            },
+            {
+              "questionID": 22681,
+              "question": "The organic compound can be formed by:",
+              "question_raw": "<p>The organic compound can be formed by:</p>",
+              "options": [
+                {
+                  "label": "A",
+                  "id": 45920,
+                  "text": "Plants, animals, and synthetic methods",
+                  "is_correct": true
+                },
+                {
+                  "label": "B",
+                  "id": 45921,
+                  "text": "Plants only",
+                  "is_correct": false
+                },
+                {
+                  "label": "C",
+                  "id": 45922,
+                  "text": "Animals only",
+                  "is_correct": false
+                },
+                {
+                  "label": "D",
+                  "id": 45923,
+                  "text": "Plants and animals both",
+                  "is_correct": false
+                }
+              ],
+              "correct_option_ids": [
+                45920
+              ],
+              "correct_option_labels": [
+                "A"
+              ],
+              "correct_option_texts": [
+                "Plants, animals, and synthetic methods"
+              ],
+              "explanation": "Berzelius, a Swedish chemist proposed a theory termed as\" Vital force theory \", during the 16th century. According to the theory it was considered that organic compounds are formed by living bodies such as plants and animals. The theory thus differentiated between organic compounds and the inorganic compounds. Around the year 1780attempts were made to synthesize or form organic compounds artificially by several chemists. However, this notion was rejected in 1828 when F . Wohler synthesized an organic compound, urea, from an inorganic compound ammonium cyanate.\n${NH_4CNO} \\overset{\\Delta} \\longrightarrow {H_2N.CO.NH_2}$\nSince then many organic compounds could be formed by synthetic methods also."
+            }
+          ]
+        }
+      ]
+    }
+  ]
+}
