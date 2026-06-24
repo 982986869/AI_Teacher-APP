@@ -763,6 +763,7 @@ const s = StyleSheet.create({
 // ── Sectioned mock-test (teal reference) styles ───────────────────────────────
 const TEAL = '#0E9A93';
 const TEAL_DARK = '#0B7E78';
+const CORAL = '#FF6F61';   // primary action (matches instructions/CTA)
 const mt = StyleSheet.create({
   safe: { flex: 1, backgroundColor: '#EEF1F3' },
   accent: { height: 4, backgroundColor: TEAL },
@@ -770,7 +771,7 @@ const mt = StyleSheet.create({
   exitBtn: { paddingVertical: 6, paddingHorizontal: 12, borderRadius: 18, backgroundColor: '#F4F6F6' },
   exitTxt: { fontSize: 13, fontWeight: '800', color: '#6B7B7B' },
   appbarTitle: { flex: 1, textAlign: 'center', fontSize: 14, fontWeight: '800', color: '#2D3A3A', marginHorizontal: 8 },
-  finishTopBtn: { paddingVertical: 6, paddingHorizontal: 14, borderRadius: 18, backgroundColor: TEAL },
+  finishTopBtn: { paddingVertical: 6, paddingHorizontal: 14, borderRadius: 18, backgroundColor: CORAL },
   finishTopTxt: { fontSize: 13, fontWeight: '800', color: '#fff' },
   finishNext: { backgroundColor: '#1C9D5B' },
   exitConfirmBtn: { backgroundColor: '#E0322E', borderRadius: 50, paddingVertical: 14, alignItems: 'center', marginTop: 6 },
@@ -801,7 +802,7 @@ const mt = StyleSheet.create({
   prevTxt: { fontSize: 14, fontWeight: '700', color: '#6B7B7B' },
   menuBtn: { width: 46, height: 44, borderRadius: 10, backgroundColor: '#EEF1F3', alignItems: 'center', justifyContent: 'center' },
   menuTxt: { fontSize: 18, color: '#3A4A4A' },
-  nextBtn: { paddingVertical: 12, paddingHorizontal: 22, borderRadius: 10, backgroundColor: TEAL },
+  nextBtn: { paddingVertical: 12, paddingHorizontal: 22, borderRadius: 10, backgroundColor: CORAL },
   nextTxt: { fontSize: 14, fontWeight: '800', color: '#fff' },
   dim: { opacity: 0.45 },
 
@@ -815,7 +816,7 @@ const mt = StyleSheet.create({
   palAns: { backgroundColor: TEAL, borderColor: TEAL },
   palCur: { backgroundColor: TEAL_DARK, borderColor: TEAL_DARK },
   palCellTxt: { fontSize: 13, fontWeight: '700', color: '#6B7B7B' },
-  finishBtn: { backgroundColor: TEAL, borderRadius: 50, paddingVertical: 14, alignItems: 'center', marginTop: 6 },
+  finishBtn: { backgroundColor: CORAL, borderRadius: 50, paddingVertical: 14, alignItems: 'center', marginTop: 6 },
   finishTxt: { color: '#fff', fontSize: 15, fontWeight: '800' },
   closeTxt: { textAlign: 'center', color: '#8A9A9A', fontSize: 13, fontWeight: '700', marginTop: 12 },
   confirmTitle: { fontSize: 17, fontWeight: '800', color: '#3A4A4A', textAlign: 'center', marginBottom: 6 },
