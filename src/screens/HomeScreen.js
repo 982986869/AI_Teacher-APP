@@ -433,7 +433,7 @@ const s = StyleSheet.create({
   greetSub:     { fontSize: 13, color: '#8E8E93', marginTop: 5, fontWeight: '600', lineHeight: 19 },
   streakBox:    { backgroundColor: '#F7F7F7', borderWidth: 1.5, borderColor: '#EBEBEB', borderRadius: 18, padding: 12, flexDirection: 'row', alignItems: 'center', gap: 12 },
   sItem:        { flexDirection: 'row', alignItems: 'center', gap: 8 },
-  sNum:         { fontSize: 17, fontWeight: '900', color: '#1C1C1E' },
+  sNum:         { fontSize: 17, fontWeight: '900', color: '#5A67E8' },
   sLbl:         { fontSize: 9, color: '#8E8E93', fontWeight: '700', marginTop: 1 },
   sDiv:         { width: 1, height: 30, backgroundColor: '#E8E8E8' },
 
@@ -443,7 +443,7 @@ const s = StyleSheet.create({
   charName:       { fontSize: 16, fontWeight: '900', color: '#1C1C1E', letterSpacing: -0.3 },
   charRole:       { fontSize: 11, color: '#8E8E93', fontWeight: '700', marginTop: 2 },
   xpBarWrap:      { height: 6, backgroundColor: '#F0F0F0', borderRadius: 10, marginTop: 10, overflow: 'hidden' },
-  xpBarFill:      { height: '100%', backgroundColor: '#1C1C1E', borderRadius: 10, width: '72%' },
+  xpBarFill:      { height: '100%', backgroundColor: '#0FA39A', borderRadius: 10, width: '72%' },
   xpRow:          { flexDirection: 'row', justifyContent: 'space-between', marginTop: 5 },
   xpTxt:          { fontSize: 10, color: '#8E8E93', fontWeight: '700' },
   charChangeBtn:  { borderWidth: 2, borderColor: '#1C1C1E', borderRadius: 11, paddingVertical: 8, paddingHorizontal: 12 },

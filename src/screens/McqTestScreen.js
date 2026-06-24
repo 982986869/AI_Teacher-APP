@@ -660,7 +660,7 @@ const s = StyleSheet.create({
 
   pc: { backgroundColor: C.white, borderRadius: 14, padding: 16, borderWidth: 1.5, borderColor: C.border },
   secTitleRow: { flexDirection: 'row', alignItems: 'center', gap: 6, marginBottom: 10 },
-  secBar: { width: 3, height: 16, backgroundColor: C.primary, borderRadius: 4 },
+  secBar: { width: 3, height: 16, backgroundColor: '#5A67E8', borderRadius: 4 },
   secTitle: { fontSize: 13, fontWeight: '800', color: C.text },
 
   markRow: { flexDirection: 'row', gap: 8 },

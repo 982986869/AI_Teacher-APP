@@ -30,6 +30,8 @@ const C = {
   peachSoft: '#FCE9EC',
   sand: '#F5A623',      // unanswered (amber)
   sandSoft: '#FFF6E6',
+  indigo: '#5A67E8',    // secondary accent
+  indigoSoft: '#EAECFB',
   headerA: '#E1F5F3',   // teal soft
   headerB: '#E1F5F3',   // teal soft
 };
@@ -228,6 +230,6 @@ const styles = StyleSheet.create({
 
   primaryBtn: { backgroundColor: C.mint, borderRadius: 14, paddingVertical: 15, alignItems: 'center', marginBottom: 10 },
   primaryTxt: { color: '#fff', fontSize: 15, fontWeight: '800' },
-  secondaryBtn: { backgroundColor: C.peachSoft, borderRadius: 14, paddingVertical: 15, alignItems: 'center' },
-  secondaryTxt: { color: '#A23A33', fontSize: 15, fontWeight: '800' },
+  secondaryBtn: { backgroundColor: C.indigoSoft, borderRadius: 14, paddingVertical: 15, alignItems: 'center' },
+  secondaryTxt: { color: C.indigo, fontSize: 15, fontWeight: '800' },
 });
