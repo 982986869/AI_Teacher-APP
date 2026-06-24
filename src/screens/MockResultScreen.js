@@ -19,19 +19,19 @@ import Svg, { Circle, G } from 'react-native-svg';
 
 // ---- pastel mint & peach palette ----
 const C = {
-  bg: '#F4FBF8',
+  bg: '#FFF8F5',
   card: '#FFFFFF',
-  border: '#E6F2EC',
-  text: '#2E4039',
-  textMuted: '#7C8C85',
-  mint: '#7BD3B0',      // correct
-  mintSoft: '#D6F2E7',
-  peach: '#F6A98C',     // incorrect
-  peachSoft: '#FBE0D5',
-  sand: '#F3D9A4',      // unanswered
-  sandSoft: '#FBEFD6',
-  headerA: '#CDEFE2',
-  headerB: '#FBE0D5',
+  border: '#F0E8E3',
+  text: '#2A2D3A',
+  textMuted: '#8A8F9C',
+  mint: '#0FA39A',      // correct (teal)
+  mintSoft: '#E1F5F3',
+  peach: '#FF6F61',     // incorrect (coral)
+  peachSoft: '#FFEAE6',
+  sand: '#F5A623',      // unanswered (amber)
+  sandSoft: '#FFF6E6',
+  headerA: '#E1F5F3',   // teal soft
+  headerB: '#FFEAE6',   // coral soft
 };
 
 function Donut({ correct, incorrect, unanswered, size = 168, stroke = 26 }) {
@@ -227,7 +227,7 @@ const styles = StyleSheet.create({
   miniLegend: { flexDirection: 'row', justifyContent: 'center', gap: 14, marginTop: 4 },
 
   primaryBtn: { backgroundColor: C.mint, borderRadius: 14, paddingVertical: 15, alignItems: 'center', marginBottom: 10 },
-  primaryTxt: { color: '#1F3B30', fontSize: 15, fontWeight: '800' },
+  primaryTxt: { color: '#fff', fontSize: 15, fontWeight: '800' },
   secondaryBtn: { backgroundColor: C.peachSoft, borderRadius: 14, paddingVertical: 15, alignItems: 'center' },
-  secondaryTxt: { color: '#7A3B26', fontSize: 15, fontWeight: '800' },
+  secondaryTxt: { color: '#A23A33', fontSize: 15, fontWeight: '800' },
 });
