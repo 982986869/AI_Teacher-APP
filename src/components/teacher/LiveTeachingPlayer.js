@@ -567,7 +567,7 @@ const st = StyleSheet.create({
   waveBar: { width: 4, borderRadius: 3 },
 
   badge: { flexDirection: 'row', alignItems: 'center', gap: 6, marginTop: 10, backgroundColor: '#FFFFFF', borderWidth: 1, borderColor: C.line, borderRadius: 13, paddingHorizontal: 12, paddingVertical: 5 },
-  badgeOn: { backgroundColor: '#FFF1E9', borderColor: 'rgba(255,111,97,0.35)' },
+  badgeOn: { backgroundColor: '#EEF1F4', borderColor: 'rgba(15,163,154,0.35)' },
   badgeDot: { width: 7, height: 7, borderRadius: 4, backgroundColor: C.dim },
   badgeDotOn: { backgroundColor: '#0FA39A' },
   badgeTxt: { fontSize: 11.5, fontWeight: '800', color: C.dim, letterSpacing: 0.3 },

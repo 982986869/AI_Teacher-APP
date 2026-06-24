@@ -1,6 +1,7 @@
 import React, { useState, useEffect, useCallback } from 'react';
 import { View, Text, StyleSheet, SafeAreaView, ScrollView, TouchableOpacity, StatusBar, Platform, ActivityIndicator, Modal } from 'react-native';
 import { useFocusEffect, useNavigation } from '@react-navigation/native';
+import { Ionicons } from '@expo/vector-icons';
 import { WebView } from 'react-native-webview';
 import { getQuestionsByPath, getChapters, getMcqByPath } from '../api/resourcesApi';
 import McqTestScreen from './McqTestScreen';
@@ -409,7 +410,7 @@ const McqLoader = ({ subject, chapter, preset, onExit }) => {
         {Platform.OS === 'android' && <View style={{ height: 24, backgroundColor: '#fff' }} />}
         <BackHeader onBack={onExit} />
         <View style={[s.webLoading, { flex: 1 }]}>
-          <ActivityIndicator size="large" color="#FF6F61" />
+          <ActivityIndicator size="large" color="#0FA39A" />
         </View>
       </SafeAreaView>
     );
@@ -716,7 +717,7 @@ const PracticeScreen = () => {
           {Platform.OS === 'android' && <View style={{ height: 24, backgroundColor: '#fff' }} />}
           <BackHeader onBack={closePhysMock} />
           <View style={{ flex: 1, alignItems: 'center', justifyContent: 'center', gap: 12 }}>
-            <ActivityIndicator size="large" color="#FF6F61" />
+            <ActivityIndicator size="large" color="#0FA39A" />
             <Text style={s.pageSub}>Loading {physMock.label}…</Text>
           </View>
         </SafeAreaView>
@@ -733,7 +734,7 @@ const PracticeScreen = () => {
             <Text style={[s.pageTitle, { textAlign: 'center' }]}>Couldn't load this test</Text>
             <Text style={[s.pageSub, { textAlign: 'center' }]}>{physMock.error}</Text>
             <TouchableOpacity
-              style={{ marginTop: 8, backgroundColor: '#FF6F61', borderRadius: 50, paddingVertical: 12, paddingHorizontal: 28 }}
+              style={{ marginTop: 8, backgroundColor: '#0FA39A', borderRadius: 50, paddingVertical: 12, paddingHorizontal: 28 }}
               activeOpacity={0.85}
               onPress={retryDbMock}>
               <Text style={{ color: '#fff', fontWeight: '800', fontSize: 14 }}>Retry</Text>
@@ -796,7 +797,7 @@ const PracticeScreen = () => {
                   <View style={{ marginTop: 10, gap: 10 }}>
                     {sd && sd.loading && (
                       <View style={{ paddingVertical: 18, alignItems: 'center' }}>
-                        <ActivityIndicator color="#FF6F61" />
+                        <ActivityIndicator color="#0FA39A" />
                       </View>
                     )}
                     {sd && !sd.loading && sd.error ? (
@@ -821,7 +822,11 @@ const PracticeScreen = () => {
                           activeOpacity={0.8}
                           onPress={() => onPickTest(subject.name, t, att)}>
                           <View style={[s.mockRowIcon, attempted && s.mockRowIconDone]}>
-                            <Text style={{ fontSize: 18 }}>{attempted ? '✅' : '📄'}</Text>
+                            <Ionicons
+                              name={attempted ? 'checkmark-circle' : 'document-text-outline'}
+                              size={20}
+                              color="#0FA39A"
+                            />
                           </View>
                           <View style={{ flex: 1 }}>
                             <Text style={s.mockRowTitle}>{t.name}</Text>
@@ -1121,15 +1126,15 @@ const s = StyleSheet.create({
   mcqSectionTitle:  { fontSize: 16, fontWeight: '900', color: '#1C1C1E', letterSpacing: -0.3 },
   mcqSectionSub:    { fontSize: 12, color: '#8E8E93', fontWeight: '600', marginTop: 2 },
   mcqChevron:       { fontSize: 18, color: '#8E8E93', fontWeight: '700' },
-  mockRow:          { backgroundColor: '#fff', borderRadius: 14, borderWidth: 1.5, borderColor: '#F0F0F0', flexDirection: 'row', alignItems: 'center', gap: 14, padding: 14 },
-  mockRowIcon:      { width: 40, height: 40, borderRadius: 11, backgroundColor: '#EEF2FF', alignItems: 'center', justifyContent: 'center', borderWidth: 1.5, borderColor: '#E0E7FF' },
-  mockRowIconDone:  { backgroundColor: '#E7F7EC', borderColor: '#CDEBD6' },
+  mockRow:          { backgroundColor: '#fff', borderRadius: 16, borderWidth: 1, borderColor: '#EFF1F4', flexDirection: 'row', alignItems: 'center', gap: 14, padding: 15, shadowColor: '#2A2D3A', shadowOpacity: 0.05, shadowRadius: 10, shadowOffset: { width: 0, height: 4 }, elevation: 2 },
+  mockRowIcon:      { width: 42, height: 42, borderRadius: 12, backgroundColor: '#E1F5F3', alignItems: 'center', justifyContent: 'center', borderWidth: 1, borderColor: '#C7E9E5' },
+  mockRowIconDone:  { backgroundColor: '#E1F5F3', borderColor: '#C7E9E5' },
   mockRowTitle:     { fontSize: 15, fontWeight: '800', color: '#1C1C1E', letterSpacing: -0.2 },
   mockRowSub:       { fontSize: 12, color: '#8E8E93', fontWeight: '600', marginTop: 3 },
   mockRowChevron:   { fontSize: 20, color: '#C7C7CC', fontWeight: '600' },
   mockBadge:        { backgroundColor: '#E7F7EC', borderRadius: 8, paddingVertical: 5, paddingHorizontal: 10, borderWidth: 1, borderColor: '#CDEBD6' },
   mockBadgeTxt:     { fontSize: 11, fontWeight: '800', color: '#2C8C84' },
-  mockRetryBtn:     { backgroundColor: '#FF6F61', borderRadius: 50, paddingVertical: 9, paddingHorizontal: 22 },
+  mockRetryBtn:     { backgroundColor: '#0FA39A', borderRadius: 50, paddingVertical: 9, paddingHorizontal: 22 },
   mockRetryTxt:     { color: '#fff', fontSize: 13, fontWeight: '800' },
   retestOverlay:    { flex: 1, backgroundColor: 'rgba(20,30,30,0.5)', alignItems: 'center', justifyContent: 'center', padding: 28 },
   retestCard:       { width: '100%', backgroundColor: '#fff', borderRadius: 18, padding: 22, alignItems: 'center' },

@@ -19,19 +19,19 @@ import Svg, { Circle, G } from 'react-native-svg';
 
 // ---- pastel mint & peach palette ----
 const C = {
-  bg: '#FFF8F5',
+  bg: '#F6F7F9',
   card: '#FFFFFF',
   border: '#F0E8E3',
   text: '#2A2D3A',
   textMuted: '#8A8F9C',
   mint: '#0FA39A',      // correct (teal)
   mintSoft: '#E1F5F3',
-  peach: '#FF6F61',     // incorrect (coral)
-  peachSoft: '#FFEAE6',
+  peach: '#E25563',     // incorrect (rose)
+  peachSoft: '#FCE9EC',
   sand: '#F5A623',      // unanswered (amber)
   sandSoft: '#FFF6E6',
   headerA: '#E1F5F3',   // teal soft
-  headerB: '#FFEAE6',   // coral soft
+  headerB: '#E1F5F3',   // teal soft
 };
 
 function Donut({ correct, incorrect, unanswered, size = 168, stroke = 26 }) {

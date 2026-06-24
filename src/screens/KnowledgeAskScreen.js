@@ -326,9 +326,9 @@ const st = StyleSheet.create({
   chipTxt:     { fontSize: 13, fontWeight: '800', color: '#8E8E93' },
   chipTxtOn:   { color: '#fff' },
 
-  input:       { backgroundColor: '#FFF8F0', borderWidth: 2, borderColor: '#FFE0C2', borderRadius: 16, paddingVertical: 14, paddingHorizontal: 18, fontSize: 16, fontWeight: '700', color: '#2C3043', minHeight: 80, textAlignVertical: 'top' },
-  inputSm:     { backgroundColor: '#FFF8F0', borderWidth: 2, borderColor: '#FFE0C2', borderRadius: 14, paddingVertical: 12, paddingHorizontal: 16, fontSize: 15, fontWeight: '700', color: '#2C3043' },
-  textArea:    { backgroundColor: '#FFF8F0', borderWidth: 2, borderColor: '#FFE0C2', borderRadius: 16, paddingVertical: 14, paddingHorizontal: 18, fontSize: 15, fontWeight: '600', color: '#2C3043', minHeight: 160, textAlignVertical: 'top' },
+  input:       { backgroundColor: '#F6F7F9', borderWidth: 2, borderColor: '#CFE9E5', borderRadius: 16, paddingVertical: 14, paddingHorizontal: 18, fontSize: 16, fontWeight: '700', color: '#2C3043', minHeight: 80, textAlignVertical: 'top' },
+  inputSm:     { backgroundColor: '#F6F7F9', borderWidth: 2, borderColor: '#CFE9E5', borderRadius: 14, paddingVertical: 12, paddingHorizontal: 16, fontSize: 15, fontWeight: '700', color: '#2C3043' },
+  textArea:    { backgroundColor: '#F6F7F9', borderWidth: 2, borderColor: '#CFE9E5', borderRadius: 16, paddingVertical: 14, paddingHorizontal: 18, fontSize: 15, fontWeight: '600', color: '#2C3043', minHeight: 160, textAlignVertical: 'top' },
   row2:        { flexDirection: 'row', gap: 12, marginTop: 14 },
 
   err:         { color: '#C0392B', fontSize: 12, fontWeight: '600', marginTop: 12 },

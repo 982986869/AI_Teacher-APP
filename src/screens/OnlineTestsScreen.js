@@ -28,7 +28,7 @@ const C = {
   textMuted: '#7C8C85',
   mint: '#3FBFAE',
   mintSoft: '#D6F2E7',
-  peach: '#FF8E7E',
+  peach: '#56C4B6',
   peachSoft: '#FBE0D5',
   sand: '#F3D9A4',
   sandSoft: '#FBEFD6',

@@ -400,7 +400,7 @@ const HomeScreen = ({ navigation }) => {
 
 // Pastel palette cycled across the AI Teacher quick-question pills.
 const QPILL_PASTELS = [
-  { bg: '#FFEDE8', border: '#FFD8D0', text: '#C24A42' }, // lavender
+  { bg: '#E1F5F3', border: '#C7E9E5', text: '#0B7E78' }, // lavender
   { bg: '#E2FBEF', border: '#BCEFD7', text: '#1E9466' }, // mint
   { bg: '#FFF0E6', border: '#FFDCC2', text: '#D9712B' }, // peach
   { bg: '#E6F4FF', border: '#C5E4FF', text: '#2C7BD4' }, // sky
@@ -526,24 +526,24 @@ const s = StyleSheet.create({
   // AI Teacher
   aiSection:      { marginHorizontal: PAD, marginBottom: 10, marginTop: 4 },
   aiSectionLabel: { fontSize: 16, fontWeight: '900', color: '#1C1C1E', letterSpacing: -0.3, marginBottom: 10, paddingHorizontal: 2 },
-  aiHeaderCard:   { backgroundColor: '#FFEDE8', borderRadius: 26, borderBottomLeftRadius: 0, borderBottomRightRadius: 0, padding: 20, borderWidth: 1, borderBottomWidth: 0, borderColor: '#FFD8D0' },
+  aiHeaderCard:   { backgroundColor: '#E1F5F3', borderRadius: 26, borderBottomLeftRadius: 0, borderBottomRightRadius: 0, padding: 20, borderWidth: 1, borderBottomWidth: 0, borderColor: '#C7E9E5' },
   aiTopRow:       { flexDirection: 'row', justifyContent: 'space-between', alignItems: 'center' },
   aiLeft:         { flexDirection: 'row', alignItems: 'center', gap: 12 },
-  aiAvatar:       { width: 48, height: 48, backgroundColor: '#fff', borderRadius: 16, alignItems: 'center', justifyContent: 'center', borderWidth: 1, borderColor: '#FFE0D8', shadowColor: '#FF6F61', shadowOpacity: 0.18, shadowRadius: 8, shadowOffset: { width: 0, height: 3 }, elevation: 2 },
+  aiAvatar:       { width: 48, height: 48, backgroundColor: '#fff', borderRadius: 16, alignItems: 'center', justifyContent: 'center', borderWidth: 1, borderColor: '#C7E9E5', shadowColor: '#0FA39A', shadowOpacity: 0.18, shadowRadius: 8, shadowOffset: { width: 0, height: 3 }, elevation: 2 },
   aiName:         { fontSize: 17, fontWeight: '900', color: '#2C3043', letterSpacing: -0.3 },
   aiSub:          { fontSize: 10, color: '#9A93A6', fontWeight: '700', marginTop: 2 },
   aiOnline:       { flexDirection: 'row', alignItems: 'center', gap: 6, backgroundColor: '#E2FBEF', borderWidth: 1, borderColor: '#BCEFD7', borderRadius: 18, paddingVertical: 6, paddingHorizontal: 11 },
   aiDot:          { width: 7, height: 7, backgroundColor: '#27B07A', borderRadius: 3.5 },
   aiOnlineTxt:    { fontSize: 10, color: '#1E9466', fontWeight: '800' },
   aiDesc:         { color: '#6E6A82', fontSize: 12, fontWeight: '600', lineHeight: 18, marginTop: 12 },
-  chipSection:    { backgroundColor: '#FFEDE8', paddingHorizontal: 20, paddingBottom: 16, borderLeftWidth: 1, borderRightWidth: 1, borderColor: '#FFD8D0' },
+  chipSection:    { backgroundColor: '#E1F5F3', paddingHorizontal: 20, paddingBottom: 16, borderLeftWidth: 1, borderRightWidth: 1, borderColor: '#C7E9E5' },
   chipLbl:        { fontSize: 9, fontWeight: '800', color: '#ABA6B2', textTransform: 'uppercase', letterSpacing: 0.8, marginBottom: 9 },
-  chip:           { paddingVertical: 8, paddingHorizontal: 16, borderRadius: 18, borderWidth: 2, borderColor: '#FFD8D0', backgroundColor: '#fff' },
-  chipOn:         { backgroundColor: '#FF6F61', borderColor: '#FF6F61' },
+  chip:           { paddingVertical: 8, paddingHorizontal: 16, borderRadius: 18, borderWidth: 2, borderColor: '#C7E9E5', backgroundColor: '#fff' },
+  chipOn:         { backgroundColor: '#0FA39A', borderColor: '#0FA39A' },
   chipTxt:        { fontSize: 13, fontWeight: '800', color: '#8A8296' },
   chipTxtOn:      { color: '#fff' },
-  previewCard:    { backgroundColor: '#fff', borderWidth: 1, borderTopWidth: 0, borderColor: '#FFD8D0', borderBottomLeftRadius: 26, borderBottomRightRadius: 26, paddingHorizontal: 14, paddingTop: 12, paddingBottom: 14 },
-  openAiBtn:      { backgroundColor: '#FF6F61', borderRadius: 14, paddingVertical: 13, alignItems: 'center', marginTop: 12, shadowColor: '#FF6F61', shadowOpacity: 0.35, shadowRadius: 10, shadowOffset: { width: 0, height: 4 }, elevation: 4 },
+  previewCard:    { backgroundColor: '#fff', borderWidth: 1, borderTopWidth: 0, borderColor: '#C7E9E5', borderBottomLeftRadius: 26, borderBottomRightRadius: 26, paddingHorizontal: 14, paddingTop: 12, paddingBottom: 14 },
+  openAiBtn:      { backgroundColor: '#0FA39A', borderRadius: 14, paddingVertical: 13, alignItems: 'center', marginTop: 12, shadowColor: '#0FA39A', shadowOpacity: 0.35, shadowRadius: 10, shadowOffset: { width: 0, height: 4 }, elevation: 4 },
   openAiTxt:      { color: '#fff', fontSize: 15, fontWeight: '900', letterSpacing: -0.3 },
   chatWrap:       { borderLeftWidth: 1.5, borderRightWidth: 1.5, borderColor: '#F0F0F0', backgroundColor: '#F7F7F7' },
   chatMsgs:       { maxHeight: 220 },

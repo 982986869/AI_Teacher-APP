@@ -6,11 +6,11 @@ import MathText from '../components/MathText';
 // Warm coral + teal pastel palette (Cuemath-style). coral = primary/brand,
 // teal = correct/positive, warm-red = wrong, amber = skipped.
 const C = {
-  primary: '#FF6F61', primaryLight: '#FFEAE6',   // coral
-  accent: '#EF5B54', accentLight: '#FFECEA',      // wrong (warm red)
+  primary: '#0FA39A', primaryLight: '#E1F5F3',   // coral
+  accent: '#E25563', accentLight: '#FCE9EC',      // wrong (warm red)
   green: '#0FA39A', greenLight: '#E1F5F3',        // correct (teal)
   yellow: '#F5A623', yellowLight: '#FFF6E6',
-  bg: '#FFF8F5', white: '#fff',                   // warm white
+  bg: '#F6F7F9', white: '#fff',                   // warm white
   text: '#2A2D3A', muted: '#8A8F9C', border: '#F0E8E3',
 };
 
@@ -763,7 +763,7 @@ const s = StyleSheet.create({
 // ── Sectioned mock-test (teal reference) styles ───────────────────────────────
 const TEAL = '#0E9A93';
 const TEAL_DARK = '#0B7E78';
-const CORAL = '#FF6F61';   // primary action (matches instructions/CTA)
+const CORAL = '#0FA39A';   // primary action (matches instructions/CTA)
 const mt = StyleSheet.create({
   safe: { flex: 1, backgroundColor: '#EEF1F3' },
   accent: { height: 4, backgroundColor: TEAL },
@@ -785,8 +785,8 @@ const mt = StyleSheet.create({
   tabOn: { backgroundColor: TEAL },
   tabTxt: { fontSize: 13, fontWeight: '700', color: '#6B7B7B' },
   tabTxtOn: { color: '#fff' },
-  instr: { backgroundColor: '#FCEFC7', borderRadius: 10, paddingVertical: 12, paddingHorizontal: 14, marginBottom: 16 },
-  instrTxt: { fontSize: 14, fontWeight: '700', color: '#8A6D1F' },
+  instr: { backgroundColor: '#E1F5F3', borderRadius: 10, paddingVertical: 12, paddingHorizontal: 14, marginBottom: 16, borderWidth: 1, borderColor: '#C7E9E5' },
+  instrTxt: { fontSize: 14, fontWeight: '700', color: '#0B7E78' },
   qText: { fontSize: 16, fontWeight: '600', color: '#3A4A4A', lineHeight: 24, marginBottom: 14 },
   opt: { flexDirection: 'row', alignItems: 'center', gap: 12, borderWidth: 1.5, borderColor: '#E2E8E8', borderRadius: 12, paddingVertical: 14, paddingHorizontal: 16, backgroundColor: '#fff' },
   optSel: { borderColor: TEAL, backgroundColor: '#E6F4F3' },

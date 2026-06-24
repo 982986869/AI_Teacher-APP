@@ -5,9 +5,9 @@
 
 export const T = {
   // Surfaces (warm white)
-  bg: '#FFF9F5',
+  bg: '#F6F7F9',
   bgElev: '#FFFFFF',
-  bgElev2: '#FFF1E9',
+  bgElev2: '#EEF1F4',
 
   // Fills (translucent dark over the light bg) + borders
   glass: 'rgba(44,48,67,0.04)',
@@ -16,12 +16,12 @@ export const T = {
   borderStrong: 'rgba(44,48,67,0.16)',
 
   // Brand (peach / coral)
-  primary: '#FF6F61',
-  primaryBright: '#FF5C4D',
-  primarySoft: 'rgba(255,111,97,0.16)',
+  primary: '#0FA39A',
+  primaryBright: '#0C8F88',
+  primarySoft: 'rgba(15,163,154,0.16)',
 
   // State accents
-  speaking: '#FF6F61',   // peach
+  speaking: '#0FA39A',   // peach
   listening: '#0FA39A',  // mint
   thinking: '#F5A623',   // amber
 
@@ -49,8 +49,8 @@ export const stateColor = (s) => (
 // ── CLASSROOM palette — LIGHT peach & mint theme. Key names kept (cream = app
 // bg, ink = text…) so the player and its SVG boards re-theme together.
 export const C = {
-  cream: '#FFF9F5',      // app background (warm white)
-  cream2: '#FFF1E9',     // soft peach elevated
+  cream: '#F6F7F9',      // app background (warm white)
+  cream2: '#EEF1F4',     // soft peach elevated
   board: '#FFFFFF',      // card / surface
   ink: '#2C3043',        // primary text (dark slate)
   ink2: '#5E6473',       // secondary text
@@ -63,10 +63,10 @@ export const C = {
   blue: '#3C9DF0',
   green: '#0FA39A',
   pink: '#EE6F96',
-  accent: '#FF6F61',     // peach primary
+  accent: '#0FA39A',     // peach primary
 
   // bottom area — peach fading into mint (warm → cool)
-  peachBands: ['#FFF9F5', '#FFF4EE', '#FFEFE7', '#F1F8F3', '#E9F6EF', '#E3F5EC'],
+  peachBands: ['#F6F7F9', '#FFF4EE', '#FFEFE7', '#F1F8F3', '#E9F6EF', '#E3F5EC'],
   // very subtle bottom scrim
   scrim: ['rgba(0,0,0,0)', 'rgba(0,0,0,0.02)', 'rgba(0,0,0,0.04)', 'rgba(0,0,0,0.06)'],
 };

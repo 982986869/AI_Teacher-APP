@@ -20,13 +20,13 @@ export const BOARD = {
   purple: '#8A7CF0',
 
   // Cards / bubbles on the light stage
-  stage: '#FFF9F5',
+  stage: '#F6F7F9',
   card: '#FFFFFF',
   cardBorder: 'rgba(44,48,67,0.10)',
   textDim: '#5E6473',
   textBright: '#2C3043',
 
-  glow: '#FF6F61',
+  glow: '#0FA39A',
 };
 
 // A small rotating palette so successive strokes/steps feel hand-drawn & lively.
