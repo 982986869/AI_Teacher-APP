@@ -3,14 +3,15 @@ import { View, Text, StyleSheet, SafeAreaView, ScrollView, TouchableOpacity, Sta
 import { useSafeAreaInsets } from 'react-native-safe-area-context';
 import MathText from '../components/MathText';
 
-// Purple/pastel palette (from the AiLernova demo)
+// Warm coral + teal pastel palette (Cuemath-style). coral = primary/brand,
+// teal = correct/positive, warm-red = wrong, amber = skipped.
 const C = {
-  primary: '#6C63FF', primaryLight: '#EAE8FF',
-  accent: '#FF7B7B', accentLight: '#FFF0F0',
-  green: '#4CAF7D', greenLight: '#E8F8F0',
-  yellow: '#FFB74D', yellowLight: '#FFF8ED',
-  bg: '#F4F6FF', white: '#fff',
-  text: '#2D2D3A', muted: '#8A8AA0', border: '#E4E6F1',
+  primary: '#0FA39A', primaryLight: '#E1F5F3',   // coral
+  accent: '#E25563', accentLight: '#FCE9EC',      // wrong (warm red)
+  green: '#0FA39A', greenLight: '#E1F5F3',        // correct (teal)
+  yellow: '#F5A623', yellowLight: '#FFF6E6',
+  bg: '#F6F7F9', white: '#fff',                   // warm white
+  text: '#2A2D3A', muted: '#8A8F9C', border: '#F0E8E3',
 };
 
 const LETTERS = ['A', 'B', 'C', 'D', 'E', 'F'];
@@ -51,6 +52,7 @@ export default function McqTestScreen({
   const [activeSec, setActiveSec] = useState(0);     // sectioned mode: active section tab
   const [paletteOpen, setPaletteOpen] = useState(false);
   const [showExit, setShowExit] = useState(false);   // exit-test confirmation
+  const [showStart, setShowStart] = useState(false); // start-test confirmation popup
   const submittedRef = useRef(false);                // guards against double submit
 
   // Sectioned mode (mock tests): cumulative global-index ranges per section.
@@ -253,7 +255,7 @@ export default function McqTestScreen({
           </View>
 
           <TouchableOpacity style={s.ctaBtn} activeOpacity={0.85}
-            onPress={() => { if (total > 0) setPhase('quiz'); }}>
+            onPress={() => { if (total > 0) setShowStart(true); }}>
             <Text style={s.ctaBtnTxt}>🚀 Start Test</Text>
           </TouchableOpacity>
 
@@ -261,6 +263,25 @@ export default function McqTestScreen({
             <Text style={s.noQ}>No questions added for this chapter yet.</Text>
           )}
         </ScrollView>
+
+        {/* Start-test confirmation popup */}
+        <Modal visible={showStart} transparent animationType="slide" onRequestClose={() => setShowStart(false)}>
+          <View style={mt.modalOv}>
+            <View style={mt.sheet}>
+              <View style={mt.handle} />
+              <Text style={s.startEmoji}>🚀</Text>
+              <Text style={mt.confirmTitle}>Ready to begin?</Text>
+              <Text style={mt.confirmSub}>
+                {total} questions · {durationMin} min. The timer starts as soon as you begin — answers lock with Save & Next.
+              </Text>
+              <TouchableOpacity style={[mt.finishBtn, s.startGo]} activeOpacity={0.85}
+                onPress={() => { setShowStart(false); setPhase('quiz'); }}>
+                <Text style={mt.finishTxt}>Start Test</Text>
+              </TouchableOpacity>
+              <TouchableOpacity onPress={() => setShowStart(false)}><Text style={mt.closeTxt}>Not yet</Text></TouchableOpacity>
+            </View>
+          </View>
+        </Modal>
       </SafeAreaView>
     );
   }
@@ -628,7 +649,7 @@ const s = StyleSheet.create({
   timerDot: { width: 6, height: 6, borderRadius: 3, backgroundColor: C.primary },
   timerTxt: { fontSize: 12, fontWeight: '800', color: C.primary },
 
-  hero: { backgroundColor: C.primary, borderRadius: 14, padding: 20 },
+  hero: { backgroundColor: C.primary, borderRadius: 20, padding: 20, shadowColor: C.primary, shadowOpacity: 0.28, shadowRadius: 16, shadowOffset: { width: 0, height: 8 }, elevation: 6 },
   heroTagWrap: { alignSelf: 'flex-start', backgroundColor: 'rgba(255,255,255,0.2)', paddingVertical: 3, paddingHorizontal: 10, borderRadius: 50, marginBottom: 8 },
   heroTag: { fontSize: 10, fontWeight: '700', letterSpacing: 1.2, color: '#fff' },
   heroTitle: { fontSize: 16, fontWeight: '800', color: '#fff', marginBottom: 4 },
@@ -639,7 +660,7 @@ const s = StyleSheet.create({
 
   pc: { backgroundColor: C.white, borderRadius: 14, padding: 16, borderWidth: 1.5, borderColor: C.border },
   secTitleRow: { flexDirection: 'row', alignItems: 'center', gap: 6, marginBottom: 10 },
-  secBar: { width: 3, height: 16, backgroundColor: C.primary, borderRadius: 4 },
+  secBar: { width: 3, height: 16, backgroundColor: '#5A67E8', borderRadius: 4 },
   secTitle: { fontSize: 13, fontWeight: '800', color: C.text },
 
   markRow: { flexDirection: 'row', gap: 8 },
@@ -653,8 +674,10 @@ const s = StyleSheet.create({
   instrNumTxt: { fontSize: 10, fontWeight: '800', color: C.primary },
   instrTxt: { flex: 1, fontSize: 12, color: '#4A4A60', lineHeight: 18 },
 
-  ctaBtn: { backgroundColor: C.primary, borderRadius: 50, paddingVertical: 14, alignItems: 'center', justifyContent: 'center' },
+  ctaBtn: { backgroundColor: C.primary, borderRadius: 50, paddingVertical: 15, alignItems: 'center', justifyContent: 'center', shadowColor: C.primary, shadowOpacity: 0.32, shadowRadius: 12, shadowOffset: { width: 0, height: 6 }, elevation: 5 },
   ctaBtnTxt: { color: '#fff', fontSize: 14, fontWeight: '800' },
+  startEmoji: { fontSize: 34, textAlign: 'center', marginBottom: 4 },
+  startGo: { backgroundColor: C.primary },
   noQ: { textAlign: 'center', color: C.muted, fontSize: 12, fontWeight: '600' },
 
   progMeta: { flexDirection: 'row', justifyContent: 'space-between', marginBottom: 6 },
@@ -740,6 +763,7 @@ const s = StyleSheet.create({
 // ── Sectioned mock-test (teal reference) styles ───────────────────────────────
 const TEAL = '#0E9A93';
 const TEAL_DARK = '#0B7E78';
+const CORAL = '#0FA39A';   // primary action (matches instructions/CTA)
 const mt = StyleSheet.create({
   safe: { flex: 1, backgroundColor: '#EEF1F3' },
   accent: { height: 4, backgroundColor: TEAL },
@@ -747,7 +771,7 @@ const mt = StyleSheet.create({
   exitBtn: { paddingVertical: 6, paddingHorizontal: 12, borderRadius: 18, backgroundColor: '#F4F6F6' },
   exitTxt: { fontSize: 13, fontWeight: '800', color: '#6B7B7B' },
   appbarTitle: { flex: 1, textAlign: 'center', fontSize: 14, fontWeight: '800', color: '#2D3A3A', marginHorizontal: 8 },
-  finishTopBtn: { paddingVertical: 6, paddingHorizontal: 14, borderRadius: 18, backgroundColor: TEAL },
+  finishTopBtn: { paddingVertical: 6, paddingHorizontal: 14, borderRadius: 18, backgroundColor: CORAL },
   finishTopTxt: { fontSize: 13, fontWeight: '800', color: '#fff' },
   finishNext: { backgroundColor: '#1C9D5B' },
   exitConfirmBtn: { backgroundColor: '#E0322E', borderRadius: 50, paddingVertical: 14, alignItems: 'center', marginTop: 6 },
@@ -761,8 +785,8 @@ const mt = StyleSheet.create({
   tabOn: { backgroundColor: TEAL },
   tabTxt: { fontSize: 13, fontWeight: '700', color: '#6B7B7B' },
   tabTxtOn: { color: '#fff' },
-  instr: { backgroundColor: '#FCEFC7', borderRadius: 10, paddingVertical: 12, paddingHorizontal: 14, marginBottom: 16 },
-  instrTxt: { fontSize: 14, fontWeight: '700', color: '#8A6D1F' },
+  instr: { backgroundColor: '#E1F5F3', borderRadius: 10, paddingVertical: 12, paddingHorizontal: 14, marginBottom: 16, borderWidth: 1, borderColor: '#C7E9E5' },
+  instrTxt: { fontSize: 14, fontWeight: '700', color: '#0B7E78' },
   qText: { fontSize: 16, fontWeight: '600', color: '#3A4A4A', lineHeight: 24, marginBottom: 14 },
   opt: { flexDirection: 'row', alignItems: 'center', gap: 12, borderWidth: 1.5, borderColor: '#E2E8E8', borderRadius: 12, paddingVertical: 14, paddingHorizontal: 16, backgroundColor: '#fff' },
   optSel: { borderColor: TEAL, backgroundColor: '#E6F4F3' },
@@ -778,7 +802,7 @@ const mt = StyleSheet.create({
   prevTxt: { fontSize: 14, fontWeight: '700', color: '#6B7B7B' },
   menuBtn: { width: 46, height: 44, borderRadius: 10, backgroundColor: '#EEF1F3', alignItems: 'center', justifyContent: 'center' },
   menuTxt: { fontSize: 18, color: '#3A4A4A' },
-  nextBtn: { paddingVertical: 12, paddingHorizontal: 22, borderRadius: 10, backgroundColor: TEAL },
+  nextBtn: { paddingVertical: 12, paddingHorizontal: 22, borderRadius: 10, backgroundColor: CORAL },
   nextTxt: { fontSize: 14, fontWeight: '800', color: '#fff' },
   dim: { opacity: 0.45 },
 
@@ -792,7 +816,7 @@ const mt = StyleSheet.create({
   palAns: { backgroundColor: TEAL, borderColor: TEAL },
   palCur: { backgroundColor: TEAL_DARK, borderColor: TEAL_DARK },
   palCellTxt: { fontSize: 13, fontWeight: '700', color: '#6B7B7B' },
-  finishBtn: { backgroundColor: TEAL, borderRadius: 50, paddingVertical: 14, alignItems: 'center', marginTop: 6 },
+  finishBtn: { backgroundColor: CORAL, borderRadius: 50, paddingVertical: 14, alignItems: 'center', marginTop: 6 },
   finishTxt: { color: '#fff', fontSize: 15, fontWeight: '800' },
   closeTxt: { textAlign: 'center', color: '#8A9A9A', fontSize: 13, fontWeight: '700', marginTop: 12 },
   confirmTitle: { fontSize: 17, fontWeight: '800', color: '#3A4A4A', textAlign: 'center', marginBottom: 6 },

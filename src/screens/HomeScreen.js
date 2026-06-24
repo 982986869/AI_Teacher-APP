@@ -313,11 +313,16 @@ const HomeScreen = ({ navigation }) => {
             <Text style={s.qsLbl}>QUICK QUESTIONS</Text>
             <ScrollView horizontal showsHorizontalScrollIndicator={false}
               contentContainerStyle={{ gap: 8 }}>
-              {(SUBJECT_QS[activeSubject] || []).map((q, i) => (
-                <TouchableOpacity key={i} style={s.qPill} onPress={() => openAITeacher(q)}>
-                  <Text style={s.qPillTxt}>{q}</Text>
-                </TouchableOpacity>
-              ))}
+              {(SUBJECT_QS[activeSubject] || []).map((q, i) => {
+                const p = QPILL_PASTELS[i % QPILL_PASTELS.length];
+                return (
+                  <TouchableOpacity key={i}
+                    style={[s.qPill, { backgroundColor: p.bg, borderColor: p.border }]}
+                    onPress={() => openAITeacher(q)}>
+                    <Text style={[s.qPillTxt, { color: p.text }]}>{q}</Text>
+                  </TouchableOpacity>
+                );
+              })}
             </ScrollView>
             <TouchableOpacity style={s.openAiBtn} onPress={() => openAITeacher()}>
               <Text style={s.openAiTxt}>Open AI Teacher  ↗</Text>
@@ -393,6 +398,15 @@ const HomeScreen = ({ navigation }) => {
   );
 };
 
+// Pastel palette cycled across the AI Teacher quick-question pills.
+const QPILL_PASTELS = [
+  { bg: '#E1F5F3', border: '#C7E9E5', text: '#0B7E78' }, // lavender
+  { bg: '#E2FBEF', border: '#BCEFD7', text: '#1E9466' }, // mint
+  { bg: '#FFF0E6', border: '#FFDCC2', text: '#D9712B' }, // peach
+  { bg: '#E6F4FF', border: '#C5E4FF', text: '#2C7BD4' }, // sky
+  { bg: '#FFE9F2', border: '#FFCCE0', text: '#D6478B' }, // pink
+];
+
 // ─────────────────────────────────────────────────────────────────────────────
 // STYLES
 // ─────────────────────────────────────────────────────────────────────────────
@@ -419,7 +433,7 @@ const s = StyleSheet.create({
   greetSub:     { fontSize: 13, color: '#8E8E93', marginTop: 5, fontWeight: '600', lineHeight: 19 },
   streakBox:    { backgroundColor: '#F7F7F7', borderWidth: 1.5, borderColor: '#EBEBEB', borderRadius: 18, padding: 12, flexDirection: 'row', alignItems: 'center', gap: 12 },
   sItem:        { flexDirection: 'row', alignItems: 'center', gap: 8 },
-  sNum:         { fontSize: 17, fontWeight: '900', color: '#1C1C1E' },
+  sNum:         { fontSize: 17, fontWeight: '900', color: '#5A67E8' },
   sLbl:         { fontSize: 9, color: '#8E8E93', fontWeight: '700', marginTop: 1 },
   sDiv:         { width: 1, height: 30, backgroundColor: '#E8E8E8' },
 
@@ -429,7 +443,7 @@ const s = StyleSheet.create({
   charName:       { fontSize: 16, fontWeight: '900', color: '#1C1C1E', letterSpacing: -0.3 },
   charRole:       { fontSize: 11, color: '#8E8E93', fontWeight: '700', marginTop: 2 },
   xpBarWrap:      { height: 6, backgroundColor: '#F0F0F0', borderRadius: 10, marginTop: 10, overflow: 'hidden' },
-  xpBarFill:      { height: '100%', backgroundColor: '#1C1C1E', borderRadius: 10, width: '72%' },
+  xpBarFill:      { height: '100%', backgroundColor: '#0FA39A', borderRadius: 10, width: '72%' },
   xpRow:          { flexDirection: 'row', justifyContent: 'space-between', marginTop: 5 },
   xpTxt:          { fontSize: 10, color: '#8E8E93', fontWeight: '700' },
   charChangeBtn:  { borderWidth: 2, borderColor: '#1C1C1E', borderRadius: 11, paddingVertical: 8, paddingHorizontal: 12 },
@@ -512,24 +526,24 @@ const s = StyleSheet.create({
   // AI Teacher
   aiSection:      { marginHorizontal: PAD, marginBottom: 10, marginTop: 4 },
   aiSectionLabel: { fontSize: 16, fontWeight: '900', color: '#1C1C1E', letterSpacing: -0.3, marginBottom: 10, paddingHorizontal: 2 },
-  aiHeaderCard:   { backgroundColor: '#1C1C1E', borderRadius: 26, borderBottomLeftRadius: 0, borderBottomRightRadius: 0, padding: 20 },
+  aiHeaderCard:   { backgroundColor: '#E1F5F3', borderRadius: 26, borderBottomLeftRadius: 0, borderBottomRightRadius: 0, padding: 20, borderWidth: 1, borderBottomWidth: 0, borderColor: '#C7E9E5' },
   aiTopRow:       { flexDirection: 'row', justifyContent: 'space-between', alignItems: 'center' },
   aiLeft:         { flexDirection: 'row', alignItems: 'center', gap: 12 },
-  aiAvatar:       { width: 48, height: 48, backgroundColor: '#fff', borderRadius: 14, alignItems: 'center', justifyContent: 'center' },
-  aiName:         { fontSize: 17, fontWeight: '900', color: '#fff', letterSpacing: -0.3 },
-  aiSub:          { fontSize: 10, color: '#8E8E93', fontWeight: '600', marginTop: 2 },
-  aiOnline:       { flexDirection: 'row', alignItems: 'center', gap: 6, backgroundColor: 'rgba(255,255,255,0.1)', borderWidth: 1, borderColor: 'rgba(255,255,255,0.15)', borderRadius: 18, paddingVertical: 6, paddingHorizontal: 11 },
-  aiDot:          { width: 7, height: 7, backgroundColor: '#fff', borderRadius: 3.5 },
-  aiOnlineTxt:    { fontSize: 10, color: '#fff', fontWeight: '800' },
-  aiDesc:         { color: '#8E8E93', fontSize: 12, fontWeight: '600', lineHeight: 18, marginTop: 12 },
-  chipSection:    { backgroundColor: '#1C1C1E', paddingHorizontal: 20, paddingBottom: 16 },
-  chipLbl:        { fontSize: 9, fontWeight: '800', color: '#636366', textTransform: 'uppercase', letterSpacing: 0.8, marginBottom: 9 },
-  chip:           { paddingVertical: 8, paddingHorizontal: 16, borderRadius: 18, borderWidth: 2, borderColor: 'rgba(255,255,255,0.15)' },
-  chipOn:         { backgroundColor: '#fff', borderColor: '#fff' },
-  chipTxt:        { fontSize: 13, fontWeight: '800', color: '#8E8E93' },
-  chipTxtOn:      { color: '#1C1C1E' },
-  previewCard:    { backgroundColor: '#fff', borderWidth: 1.5, borderTopWidth: 0, borderColor: '#F0F0F0', borderBottomLeftRadius: 26, borderBottomRightRadius: 26, paddingHorizontal: 14, paddingTop: 12, paddingBottom: 14 },
-  openAiBtn:      { backgroundColor: '#1C1C1E', borderRadius: 14, paddingVertical: 13, alignItems: 'center', marginTop: 12 },
+  aiAvatar:       { width: 48, height: 48, backgroundColor: '#fff', borderRadius: 16, alignItems: 'center', justifyContent: 'center', borderWidth: 1, borderColor: '#C7E9E5', shadowColor: '#0FA39A', shadowOpacity: 0.18, shadowRadius: 8, shadowOffset: { width: 0, height: 3 }, elevation: 2 },
+  aiName:         { fontSize: 17, fontWeight: '900', color: '#2C3043', letterSpacing: -0.3 },
+  aiSub:          { fontSize: 10, color: '#9A93A6', fontWeight: '700', marginTop: 2 },
+  aiOnline:       { flexDirection: 'row', alignItems: 'center', gap: 6, backgroundColor: '#E2FBEF', borderWidth: 1, borderColor: '#BCEFD7', borderRadius: 18, paddingVertical: 6, paddingHorizontal: 11 },
+  aiDot:          { width: 7, height: 7, backgroundColor: '#27B07A', borderRadius: 3.5 },
+  aiOnlineTxt:    { fontSize: 10, color: '#1E9466', fontWeight: '800' },
+  aiDesc:         { color: '#6E6A82', fontSize: 12, fontWeight: '600', lineHeight: 18, marginTop: 12 },
+  chipSection:    { backgroundColor: '#E1F5F3', paddingHorizontal: 20, paddingBottom: 16, borderLeftWidth: 1, borderRightWidth: 1, borderColor: '#C7E9E5' },
+  chipLbl:        { fontSize: 9, fontWeight: '800', color: '#ABA6B2', textTransform: 'uppercase', letterSpacing: 0.8, marginBottom: 9 },
+  chip:           { paddingVertical: 8, paddingHorizontal: 16, borderRadius: 18, borderWidth: 2, borderColor: '#C7E9E5', backgroundColor: '#fff' },
+  chipOn:         { backgroundColor: '#0FA39A', borderColor: '#0FA39A' },
+  chipTxt:        { fontSize: 13, fontWeight: '800', color: '#8A8296' },
+  chipTxtOn:      { color: '#fff' },
+  previewCard:    { backgroundColor: '#fff', borderWidth: 1, borderTopWidth: 0, borderColor: '#C7E9E5', borderBottomLeftRadius: 26, borderBottomRightRadius: 26, paddingHorizontal: 14, paddingTop: 12, paddingBottom: 14 },
+  openAiBtn:      { backgroundColor: '#0FA39A', borderRadius: 14, paddingVertical: 13, alignItems: 'center', marginTop: 12, shadowColor: '#0FA39A', shadowOpacity: 0.35, shadowRadius: 10, shadowOffset: { width: 0, height: 4 }, elevation: 4 },
   openAiTxt:      { color: '#fff', fontSize: 15, fontWeight: '900', letterSpacing: -0.3 },
   chatWrap:       { borderLeftWidth: 1.5, borderRightWidth: 1.5, borderColor: '#F0F0F0', backgroundColor: '#F7F7F7' },
   chatMsgs:       { maxHeight: 220 },
@@ -542,9 +556,9 @@ const s = StyleSheet.create({
   bMe:            { backgroundColor: '#1C1C1E', borderBottomRightRadius: 4 },
   bubbleTxt:      { fontSize: 13, fontWeight: '600', color: '#1C1C1E', lineHeight: 20 },
   quickQs:        { padding: 14, paddingTop: 8, backgroundColor: '#F7F7F7' },
-  qsLbl:          { fontSize: 9, fontWeight: '800', color: '#8E8E93', textTransform: 'uppercase', letterSpacing: 0.6, marginBottom: 8 },
-  qPill:          { backgroundColor: '#fff', borderWidth: 1.5, borderColor: '#EBEBEB', borderRadius: 18, paddingVertical: 8, paddingHorizontal: 13 },
-  qPillTxt:       { fontSize: 11, fontWeight: '700', color: '#1C1C1E' },
+  qsLbl:          { fontSize: 9, fontWeight: '800', color: '#ABA6B2', textTransform: 'uppercase', letterSpacing: 0.6, marginBottom: 8 },
+  qPill:          { borderWidth: 1.5, borderRadius: 18, paddingVertical: 8, paddingHorizontal: 13 },
+  qPillTxt:       { fontSize: 11, fontWeight: '700' },
   inputArea:      { backgroundColor: '#fff', borderWidth: 1.5, borderColor: '#F0F0F0', borderRadius: 0, borderBottomLeftRadius: 26, borderBottomRightRadius: 26, padding: 12, paddingBottom: 14 },
   inputRow:       { flexDirection: 'row', alignItems: 'center', gap: 10, marginBottom: 10 },
   inp:            { flex: 1, backgroundColor: '#F7F7F7', borderWidth: 1.5, borderColor: '#EBEBEB', borderRadius: 22, paddingVertical: 11, paddingHorizontal: 17, fontSize: 13, fontWeight: '600', color: '#1C1C1E' },

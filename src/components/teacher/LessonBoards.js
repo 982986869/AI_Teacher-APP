@@ -314,7 +314,7 @@ const s = StyleSheet.create({
   legTerm: { fontSize: 13, fontWeight: '900' },
   legDesc: { fontSize: 11.5, fontWeight: '600', color: C.dim, lineHeight: 16, marginTop: 1 },
 
-  formulaCard: { backgroundColor: 'rgba(255,255,255,0.05)', borderWidth: 1, borderColor: C.line, borderRadius: 16, paddingVertical: 16, paddingHorizontal: 18 },
+  formulaCard: { backgroundColor: 'rgba(44,48,67,0.04)', borderWidth: 1, borderColor: C.line, borderRadius: 16, paddingVertical: 16, paddingHorizontal: 18 },
   formulaRow: { flexDirection: 'row', flexWrap: 'wrap', alignItems: 'center', justifyContent: 'center', gap: 2 },
   formulaTokWrap: { borderRadius: 8, paddingHorizontal: 3, paddingVertical: 2 },
   formulaTokActive: { backgroundColor: 'rgba(255,138,61,0.14)' },
@@ -322,7 +322,7 @@ const s = StyleSheet.create({
   varList: { marginTop: 12, gap: 4, alignItems: 'center' },
   varLine: { fontSize: 13, fontWeight: '600', color: C.ink2 },
 
-  sumPill: { marginTop: 10, backgroundColor: 'rgba(255,255,255,0.06)', borderWidth: 1, borderColor: C.line, borderRadius: 14, paddingVertical: 8, paddingHorizontal: 18 },
+  sumPill: { marginTop: 10, backgroundColor: 'rgba(44,48,67,0.05)', borderWidth: 1, borderColor: C.line, borderRadius: 14, paddingVertical: 8, paddingHorizontal: 18 },
   sumTxt: { fontSize: 20, fontWeight: '900', letterSpacing: 0.5 },
 
   pointRow: { flexDirection: 'row', alignItems: 'flex-start', gap: 10, marginTop: 10, alignSelf: 'stretch' },
@@ -332,12 +332,12 @@ const s = StyleSheet.create({
   pointTxt: { flex: 1, fontSize: 15, fontWeight: '600', color: C.ink, lineHeight: 22 },
 
   flowRow: { flexDirection: 'row', flexWrap: 'wrap', justifyContent: 'center', alignItems: 'center', gap: 8 },
-  flowBox: { backgroundColor: 'rgba(255,255,255,0.05)', borderWidth: 1, borderColor: C.line, borderRadius: 12, paddingVertical: 10, paddingHorizontal: 14 },
+  flowBox: { backgroundColor: 'rgba(44,48,67,0.04)', borderWidth: 1, borderColor: C.line, borderRadius: 12, paddingVertical: 10, paddingHorizontal: 14 },
   flowTxt: { fontSize: 13, fontWeight: '800', color: C.ink },
   flowArrow: { fontSize: 18, fontWeight: '900', color: C.accent },
 
   quizQ: { fontSize: 17, fontWeight: '800', color: C.ink, lineHeight: 24, alignSelf: 'stretch', marginBottom: 4 },
-  opt: { flexDirection: 'row', alignItems: 'center', justifyContent: 'space-between', alignSelf: 'stretch', backgroundColor: 'rgba(255,255,255,0.05)', borderWidth: 1, borderColor: C.line, borderRadius: 13, paddingVertical: 12, paddingHorizontal: 15, marginTop: 9 },
+  opt: { flexDirection: 'row', alignItems: 'center', justifyContent: 'space-between', alignSelf: 'stretch', backgroundColor: 'rgba(44,48,67,0.04)', borderWidth: 1, borderColor: C.line, borderRadius: 13, paddingVertical: 12, paddingHorizontal: 15, marginTop: 9 },
   optRight: { backgroundColor: 'rgba(87,214,151,0.16)', borderColor: C.green },
   optWrong: { backgroundColor: 'rgba(255,143,176,0.14)', borderColor: C.pink },
   optTxt: { flex: 1, fontSize: 14, fontWeight: '700', color: C.ink },

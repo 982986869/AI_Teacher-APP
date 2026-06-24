@@ -1,36 +1,38 @@
-// Premium dark design tokens for the AI Teacher (App-Store-grade EdTech look).
-// One source of truth so the avatar, glass cards, dock and screens stay cohesive.
+// Light "peach & mint" design tokens for the AI Teacher (Cuemath-style, friendly
+// EdTech look). One source of truth so the avatar, cards, dock and screens stay
+// cohesive. Key names are unchanged from the old dark theme — only the values —
+// so every screen and SVG board re-themes together.
 
 export const T = {
-  // Surfaces
-  bg: '#0D1117',
-  bgElev: '#161B22',
-  bgElev2: '#1B2230',
+  // Surfaces (warm white)
+  bg: '#F6F7F9',
+  bgElev: '#FFFFFF',
+  bgElev2: '#EEF1F4',
 
-  // Glass (translucent fills layered over the dark bg)
-  glass: 'rgba(255,255,255,0.055)',
-  glassStrong: 'rgba(255,255,255,0.09)',
-  border: 'rgba(255,255,255,0.10)',
-  borderStrong: 'rgba(255,255,255,0.18)',
+  // Fills (translucent dark over the light bg) + borders
+  glass: 'rgba(44,48,67,0.04)',
+  glassStrong: 'rgba(44,48,67,0.07)',
+  border: 'rgba(44,48,67,0.10)',
+  borderStrong: 'rgba(44,48,67,0.16)',
 
-  // Brand
-  primary: '#7C3AED',
-  primaryBright: '#9F67FF',
-  primarySoft: 'rgba(124,58,237,0.16)',
+  // Brand (peach / coral)
+  primary: '#0FA39A',
+  primaryBright: '#0C8F88',
+  primarySoft: 'rgba(15,163,154,0.16)',
 
   // State accents
-  speaking: '#9F67FF',   // purple
-  listening: '#22D3EE',  // cyan
-  thinking: '#F59E0B',   // amber
+  speaking: '#0FA39A',   // peach
+  listening: '#0FA39A',  // mint
+  thinking: '#F5A623',   // amber
 
-  // Text
-  text: '#E6EDF3',
-  textDim: '#9BA7B4',
-  textFaint: '#6B7686',
+  // Text (dark slate)
+  text: '#2C3043',
+  textDim: '#5E6473',
+  textFaint: '#9097A6',
 
   // Semantic
-  success: '#34D399',
-  danger: '#F87171',
+  success: '#0FA39A',    // mint-green
+  danger: '#F2685F',
 
   // Radii
   rXl: 28,
@@ -39,34 +41,32 @@ export const T = {
   rSm: 12,
 };
 
-// State → accent color helper (dark theme).
+// State → accent color helper.
 export const stateColor = (s) => (
   s === 'listening' ? T.listening : s === 'thinking' ? T.thinking : T.speaking
 );
 
-// ── CLASSROOM palette — DARK premium theme (deep navy/black + purple accent).
-// Key names are kept (cream = app bg, ink = text…) so the player and its SVG
-// boards re-theme together; only the values are dark now.
+// ── CLASSROOM palette — LIGHT peach & mint theme. Key names kept (cream = app
+// bg, ink = text…) so the player and its SVG boards re-theme together.
 export const C = {
-  cream: '#0C0C13',      // app background (dark)
-  cream2: '#14141F',     // slightly elevated dark
-  board: '#15161F',      // card / surface
-  ink: '#F1F1F7',        // primary text (near white)
-  ink2: '#C3C4D2',       // secondary text (light grey)
-  dim: '#8C8DA0',        // dim grey
-  faint: '#5C5D70',      // faint grey / placeholders
-  line: 'rgba(255,255,255,0.10)',  // borders/dividers on dark
+  cream: '#F6F7F9',      // app background (warm white)
+  cream2: '#EEF1F4',     // soft peach elevated
+  board: '#FFFFFF',      // card / surface
+  ink: '#2C3043',        // primary text (dark slate)
+  ink2: '#5E6473',       // secondary text
+  dim: '#9097A6',        // dim grey
+  faint: '#B9BECB',      // faint grey / placeholders
+  line: 'rgba(44,48,67,0.10)',  // borders/dividers on light
 
-  // diagram / token colors (base=orange, height=blue, hypotenuse=green) — tuned
-  // a touch brighter so they read on the dark board.
-  orange: '#F2A15C',
-  blue: '#6FB7FF',
-  green: '#57D697',
-  pink: '#FF8FB0',
-  accent: '#7C3AED',     // purple primary
+  // diagram / token colors — tuned to read on a white board
+  orange: '#EF8A43',
+  blue: '#3C9DF0',
+  green: '#0FA39A',
+  pink: '#EE6F96',
+  accent: '#0FA39A',     // peach primary
 
-  // bottom area — kept dark (near-solid) so the whole screen reads as one surface
-  peachBands: ['#0C0C13', '#0C0C13', '#0D0D15', '#0E0E17', '#0F0F1A', '#10101C'],
+  // bottom area — peach fading into mint (warm → cool)
+  peachBands: ['#F6F7F9', '#FFF4EE', '#FFEFE7', '#F1F8F3', '#E9F6EF', '#E3F5EC'],
   // very subtle bottom scrim
-  scrim: ['rgba(0,0,0,0)', 'rgba(0,0,0,0.04)', 'rgba(0,0,0,0.10)', 'rgba(0,0,0,0.16)'],
+  scrim: ['rgba(0,0,0,0)', 'rgba(0,0,0,0.02)', 'rgba(0,0,0,0.04)', 'rgba(0,0,0,0.06)'],
 };
