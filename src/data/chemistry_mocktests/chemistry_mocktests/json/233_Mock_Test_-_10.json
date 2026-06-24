@@ -1,0 +1,2070 @@
+{
+  "test_id": 233,
+  "test_name": "Mock Test - 10",
+  "instruction": "The Question Paper contains three sections.\n Section A has 25 questions. Attempt any 20 questions.\n Section B has 24 questions. Attempt any 20 questions.\n Section C has 6 questions. Attempt any 5 questions.\n All questions carry equal marks.\n There is no negative marking.",
+  "duration_min": 90,
+  "no_of_questions": 55,
+  "question_types": {
+    "MULTIPLE_CHOICE_QUESTION": 1,
+    "MULTIPLE_RESPONSE_QUESTION": 2,
+    "SUBJECTIVE_QUESTION": 5,
+    "FILL_IN_THE_BLANKS_ONLINE": 18,
+    "NUMERICAL_QUESTION": 16,
+    "TRUE_AND_FALSE_ONLINE_QUESTION": 17
+  },
+  "sections": [
+    {
+      "section_name": "Section A",
+      "section_id": 819,
+      "questions": [
+        {
+          "id": 21920,
+          "type": "MCQ",
+          "question": "Mg^(2+) is isoelectronic with:",
+          "question_html": "<p>Mg<sup>2+</sup>&nbsp;is isoelectronic with:</p>",
+          "options": [
+            {
+              "id": 42879,
+              "text": "Ca^(2+)",
+              "html": "Ca<sup>2+</sup>",
+              "is_correct": false
+            },
+            {
+              "id": 42880,
+              "text": "Zn^(2+)",
+              "html": "Zn<sup>2+</sup>",
+              "is_correct": false
+            },
+            {
+              "id": 42878,
+              "text": "Na^(+)",
+              "html": "Na<sup>+</sup>",
+              "is_correct": true
+            },
+            {
+              "id": 42881,
+              "text": "Cu^(2+)",
+              "html": "Cu<sup>2+</sup>",
+              "is_correct": false
+            }
+          ],
+          "correct_options": [
+            "Na^(+)"
+          ],
+          "explanation": "Total electrons in Mg^(2+ )and Na^(+) are same i.e. 10.",
+          "solutions": []
+        },
+        {
+          "id": 21910,
+          "type": "MCQ",
+          "question": "Which of the following is not an actinoid?",
+          "question_html": "<p>Which of the following is not an actinoid?</p>",
+          "options": [
+            {
+              "id": 42841,
+              "text": "Uranium (Z = 92)",
+              "html": "Uranium (Z = 92)",
+              "is_correct": false
+            },
+            {
+              "id": 42839,
+              "text": "Curium (Z = 96)",
+              "html": "Curium (Z = 96)",
+              "is_correct": false
+            },
+            {
+              "id": 42838,
+              "text": "Terbium (Z = 65)",
+              "html": "Terbium (Z = 65)",
+              "is_correct": true
+            },
+            {
+              "id": 42840,
+              "text": "Californium (Z = 98)",
+              "html": "Californium (Z = 98)",
+              "is_correct": false
+            }
+          ],
+          "correct_options": [
+            "Terbium (Z = 65)"
+          ],
+          "explanation": "Terbium (Z=65) has an electronic configuration of [Xe] 4f^(9) 6s^(2). It is a member of 4f-inner transition series which is called lanthanoid series. Rest option are all the members of 5f-inner transition series, also known as the actinoid series i.e. Curium ([Rn] 5f^(7) 6d^(1) 7s^(2)) ; Californium ([Rn] 5f^(10) 7s_(2)); and Uranium ([Rn] 5f^(3) 6d^(1) 7s^(2)).",
+          "solutions": []
+        },
+        {
+          "id": 21929,
+          "type": "35",
+          "question": "Which of the following statements is false?\n\n Alkali metals form covalent bonds with oxygen.\n Alkali metals form oxides that act as basic anhydrides.\n Alkali metals usually have a +1 oxidation state.\n Alkali metals have relatively low first ionization energies.",
+          "question_html": "<p>Which of the following statements is false?</p>\r\n\r\n<ol start=\"1\" style=\"list-style-type: upper-alpha;\">\r\n\t<li>Alkali metals form covalent bonds with oxygen.</li>\r\n\t<li>Alkali metals form oxides that act as basic anhydrides.</li>\r\n\t<li>Alkali metals usually have a +1 oxidation state.</li>\r\n\t<li>Alkali metals have relatively low first ionization energies.</li>\r\n</ol>\r\n",
+          "options": [
+            {
+              "id": 42914,
+              "text": "A",
+              "html": "A",
+              "is_correct": true
+            },
+            {
+              "id": 42915,
+              "text": "B",
+              "html": "B",
+              "is_correct": false
+            },
+            {
+              "id": 42917,
+              "text": "D",
+              "html": "D",
+              "is_correct": false
+            },
+            {
+              "id": 42916,
+              "text": "C",
+              "html": "C",
+              "is_correct": false
+            }
+          ],
+          "correct_options": [
+            "A"
+          ],
+          "explanation": "Alkali metals have lowest ionization energies in their respective periods. They prefer to loose an electron to form a cation and thereby form an ionic compound.",
+          "solutions": []
+        },
+        {
+          "id": 21990,
+          "type": "MCQ",
+          "question": "Which one of the following pairs of species has the same bond order?",
+          "question_html": "<p>Which one of the following pairs of species has the same bond order?</p>",
+          "options": [
+            {
+              "id": 43161,
+              "text": "NO^(+)and CN^(+)",
+              "html": "NO<sup>+</sup>and CN<sup>+</sup>",
+              "is_correct": false
+            },
+            {
+              "id": 43159,
+              "text": "CN^(-) and CN^(+)",
+              "html": "CN<sup>-</sup> and CN<sup>+</sup>",
+              "is_correct": false
+            },
+            {
+              "id": 43158,
+              "text": "CN^(-) and NO^(+)",
+              "html": "CN<sup>-</sup> and NO<sup>+</sup>",
+              "is_correct": true
+            },
+            {
+              "id": 43160,
+              "text": "${{\\text{O}}_{\\text{2}}}^ - $ and CN^(-)",
+              "html": "<span class=\"math-tex\">{tex}{{\\text{O}}_{\\text{2}}}^ - {/tex}</span>and CN<sup>-</sup>",
+              "is_correct": false
+            }
+          ],
+          "correct_options": [
+            "CN^(-) and NO^(+)"
+          ],
+          "explanation": "Bond order= ${n_b−n_a\\over 2}$ \n\nIn CN^(-), there are 8 bonding electrons and 2 antibonding electrons,\n\nTherefore B.O.= $8−2\\over 2$ = 3\n\nNO^(+) has 10 electrons, a triple bond between N and O, and two pairs, one on each atom. This means that both N and O follow the octet rule. The bond order is 3.",
+          "solutions": []
+        },
+        {
+          "id": 22250,
+          "type": "MCQ",
+          "question": "The electrolytic decomposition of water gives H_(2) and O_(2) in the ratio of",
+          "question_html": "<p>The electrolytic decomposition of water gives H<sub>2</sub>&nbsp;and O<sub>2</sub>&nbsp;in the ratio of</p>\r\n",
+          "options": [
+            {
+              "id": 44201,
+              "text": "1 : 2 by mass",
+              "html": "1 : 2 by mass",
+              "is_correct": false
+            },
+            {
+              "id": 44198,
+              "text": "2 : 1 by volume",
+              "html": "2 : 1 by volume",
+              "is_correct": true
+            },
+            {
+              "id": 44199,
+              "text": "1 : 2 by volume",
+              "html": "1 : 2 by volume",
+              "is_correct": false
+            },
+            {
+              "id": 44200,
+              "text": "8 : 1 by mass",
+              "html": "8 : 1 by mass",
+              "is_correct": false
+            }
+          ],
+          "correct_options": [
+            "2 : 1 by volume"
+          ],
+          "explanation": "2 : 1 by volume",
+          "solutions": []
+        },
+        {
+          "id": 22314,
+          "type": "Numerical/MCQ",
+          "question": "The giant planets Jupiter and Saturn consist mostly of ________.",
+          "question_html": "<p>The giant planets Jupiter and Saturn consist mostly of ________.</p>",
+          "options": [
+            {
+              "id": 44453,
+              "text": "hydrogen",
+              "html": "hydrogen",
+              "is_correct": true
+            },
+            {
+              "id": 44455,
+              "text": "nitrogen",
+              "html": "nitrogen",
+              "is_correct": false
+            },
+            {
+              "id": 44454,
+              "text": "oxygen",
+              "html": "oxygen",
+              "is_correct": false
+            },
+            {
+              "id": 44456,
+              "text": "carbon dioxide",
+              "html": "carbon dioxide",
+              "is_correct": false
+            }
+          ],
+          "correct_options": [
+            "hydrogen"
+          ],
+          "explanation": "The name ‘gas giant’ was coined in 1952 by science fiction writer James Blish to refer to all the giant planets. The giant planets (Jupiter and Saturn) are huge gas balls, which is quite different than Earth and the other three rocky inner planets. Gas giants are primarily composed of gases, such as hydrogen and helium, and a much thicker layer of metallic hydrogen, along with a molten rocky core.\n\nUnlike rocky planets, gas giants do not have a well-defined surface, and there is no clear boundary between where the atmosphere ends and the surface begins. In other words, you wouldn’t be able to land on these planets, as their atmospheres simply become gradually denser towards the core, perhaps with liquid or liquid-like states somewhere in between.",
+          "solutions": []
+        },
+        {
+          "id": 22532,
+          "type": "MCQ",
+          "question": "Hybridisation in methane (CH_(4)) ethene (C_(2)H_(4)) ethyne (C_(2)H_(2)) involves s and p orbitals. Choose the correct hybrid orbitals in the options given below for CH_(4),_( )C_(2)H_(4) and C_(2)H_(2) respectively:",
+          "question_html": "<p>Hybridisation in methane (CH<sub>4</sub>) ethene (C<sub>2</sub>H<sub>4</sub>)&nbsp;ethyne (C<sub>2</sub>H<sub>2</sub>) involves s and p orbitals. Choose the correct hybrid orbitals in the options given below for CH<sub>4</sub>,<sub>&nbsp;</sub>C<sub>2</sub>H<sub>4</sub> and&nbsp;C<sub>2</sub>H<sub>2</sub> respectively:</p>",
+          "options": [
+            {
+              "id": 45326,
+              "text": "sp, sp^(3), sp^(2)",
+              "html": "sp, sp<sup>3</sup>, sp<sup>2</sup>",
+              "is_correct": false
+            },
+            {
+              "id": 45325,
+              "text": "sp^(2), sp, sp^(3)",
+              "html": "sp<sup>2</sup>, sp, sp<sup>3</sup>",
+              "is_correct": false
+            },
+            {
+              "id": 45327,
+              "text": "sp^(3), sp, sp^(2)",
+              "html": "sp<sup>3</sup>, sp, sp<sup>2</sup>",
+              "is_correct": false
+            },
+            {
+              "id": 45324,
+              "text": "sp^(3), sp^(2), sp",
+              "html": "sp<sup>3</sup>, sp<sup>2</sup>, sp",
+              "is_correct": true
+            }
+          ],
+          "correct_options": [
+            "sp^(3), sp^(2), sp"
+          ],
+          "explanation": "In methane C is sp^(3) hybridised because of 3 sigma bond formation. While in ethane both the C are sp^(2) hybridised, and in ethyne both the C are sp hybridised.",
+          "solutions": []
+        },
+        {
+          "id": 21723,
+          "type": "MCQ",
+          "question": "According to Gay Lussac’s Law of Gaseous Volumes, when gases combine or produced in a chemical reaction they do so in",
+          "question_html": "<p>According to Gay Lussac&rsquo;s Law of Gaseous Volumes,&nbsp;when gases combine or produced in a chemical reaction they do so in</p>\r\n",
+          "options": [
+            {
+              "id": 42092,
+              "text": "a ratio of 1:1 by volume provided all gases are at the same temperature and pressure.",
+              "html": "&nbsp;a ratio of 1:1 by volume provided all gases are at the same temperature and pressure.",
+              "is_correct": false
+            },
+            {
+              "id": 42091,
+              "text": "the inverse ratio by volume provided all gases are at the same temperature and pressure.",
+              "html": "&nbsp;the inverse ratio by volume provided all gases are at the same temperature and pressure.",
+              "is_correct": false
+            },
+            {
+              "id": 42090,
+              "text": "a simple ratio by volume provided all gases are at the same temperature and pressure.",
+              "html": "&nbsp;a simple ratio by volume provided all gases are at the same temperature and pressure.",
+              "is_correct": true
+            },
+            {
+              "id": 42093,
+              "text": "a ratio of 1:2 by volume provided all gases are at the same temperature and pressure.",
+              "html": "&nbsp;a ratio of 1:2 by volume provided all gases are at the same temperature and pressure.",
+              "is_correct": false
+            }
+          ],
+          "correct_options": [
+            "a simple ratio by volume provided all gases are at the same temperature and pressure."
+          ],
+          "explanation": "The given statement for Gaylussac's law of gaseous volume is correct. The law can be exemplified and understood easily as below-\n\nExperimentally it has been observed that 100mL of hydrogen combine with 50 mL of oxygen to produce 100 mL of water vapour\n\n $\\mathop {{H_2}(g)}\\limits_{100\\;mL} + \\mathop {{O_2}(g)}\\limits_{50\\;mL} \\to \\mathop {{H_2}O(g)}\\limits_{100\\;mL} $ \n\nThus the volumes of hydrogen and oxygen which combine together ( ie. 100mL and 50 mL ) bear a simple ratio of 2 : 1",
+          "solutions": []
+        },
+        {
+          "id": 68830,
+          "type": "MCQ",
+          "question": "In the modern periodic table, the period indicates the value of:",
+          "question_html": "<p>In the modern periodic table, the period indicates the value of:</p>",
+          "options": [
+            {
+              "id": 210748,
+              "text": "mass number",
+              "html": "mass number",
+              "is_correct": false
+            },
+            {
+              "id": 210746,
+              "text": "principal quantum number",
+              "html": "principal quantum number",
+              "is_correct": true
+            },
+            {
+              "id": 210749,
+              "text": "azimuthal quantum number",
+              "html": "azimuthal quantum number",
+              "is_correct": false
+            },
+            {
+              "id": 210747,
+              "text": "atomic number",
+              "html": "atomic number",
+              "is_correct": false
+            }
+          ],
+          "correct_options": [
+            "principal quantum number"
+          ],
+          "explanation": "In the modern periodic table, each period indicates the value of principal quantum number (n). It also implies the number of shells or orbits.",
+          "solutions": []
+        },
+        {
+          "id": 22533,
+          "type": "MCQ",
+          "question": "Change in hybridisation affects the carbon’s and the organic compound’s:",
+          "question_html": "<p>Change in hybridisation affects the carbon&rsquo;s and the organic compound&rsquo;s:</p>",
+          "options": [
+            {
+              "id": 45329,
+              "text": "bond length",
+              "html": "bond length",
+              "is_correct": false
+            },
+            {
+              "id": 45330,
+              "text": "bond enthalpy",
+              "html": "bond enthalpy",
+              "is_correct": false
+            },
+            {
+              "id": 45331,
+              "text": "bond strength",
+              "html": "bond strength",
+              "is_correct": false
+            },
+            {
+              "id": 45328,
+              "text": "electronegativity",
+              "html": "electronegativity",
+              "is_correct": true
+            }
+          ],
+          "correct_options": [
+            "electronegativity"
+          ],
+          "explanation": "In hybridization as % of 's' character increases electronegativity also increases.\n\nMore the s character more will be the electronegativity of that atom.\n\nIncreasing order of electronegativity with %s character is sp (50%) > sp^(2)(33.33%) > sp^(3)(25%).",
+          "solutions": []
+        },
+        {
+          "id": 21949,
+          "type": "MCQ",
+          "question": "N_(2), CO, and NO^(+ )are isoelectronic molecules. Their respective bond order is:",
+          "question_html": "<p>N<sub>2</sub>, CO, and NO<sup>+&nbsp;</sup>are isoelectronic molecules. Their respective bond order is:</p>",
+          "options": [
+            {
+              "id": 42996,
+              "text": "1,1,3",
+              "html": "1,1,3",
+              "is_correct": false
+            },
+            {
+              "id": 42997,
+              "text": "2,3,3",
+              "html": "2,3,3",
+              "is_correct": false
+            },
+            {
+              "id": 42995,
+              "text": "2,3,4",
+              "html": "2,3,4",
+              "is_correct": false
+            },
+            {
+              "id": 42994,
+              "text": "3,3,3",
+              "html": "3,3,3",
+              "is_correct": true
+            }
+          ],
+          "correct_options": [
+            "3,3,3"
+          ],
+          "explanation": "Total number of electrons in N_(2) molecule is 7+ 7= 14.\n\nAs per the formula Bonded pair of electrons N_(b): $σ1s^2\\ σ2s^2\\ $\\pi$ 2p_y^2\\ $\\pi$ 2p_z^2\\ σ 2p_x^2$ \n\nTotal 10 electrons.\n\nAnti bond pairs of electrons N_(a): $σ 1s*^2\\ σ 2s*^2$ Total 4 electrons.\n\nBond Order (B.O.) = ${N_b-N_a\\over 2} ={ 10-4\\over 2} = 3 $ \n\nSimilarly bond order of CO And NO^(+) is 3",
+          "solutions": []
+        },
+        {
+          "id": 22265,
+          "type": "MCQ",
+          "question": "2 Na(s) $\\longrightarrow$ 2Na^(+) + 2e^(-)\n\n2H^(+ )+ 2 e^(-​​​​_(​​​​ )) $\\longrightarrow$ H_(​​​​​​2)\n\nWhich is oxidizing and Reducing?",
+          "question_html": "<p>2 Na(s) <span class=\"math-tex\">{tex}\\longrightarrow{/tex}</span> 2Na<sup>+</sup>&nbsp;+ 2e<sup>-</sup><br />\r\n2H<sup>+&nbsp; &nbsp;</sup>+&nbsp;&nbsp;2 e<sup>-​​​​<sub>​​​​&nbsp;</sub></sup><span class=\"math-tex\">{tex}\\longrightarrow{/tex}</span> H<sub>​​​​​​2</sub><br />\r\nWhich is oxidizing and Reducing?</p>",
+          "options": [
+            {
+              "id": 44259,
+              "text": "Sodium is reduced",
+              "html": "Sodium is reduced",
+              "is_correct": false
+            },
+            {
+              "id": 44261,
+              "text": "Electronegativity of sodium determines the direction of the reaction",
+              "html": "Electronegativity of sodium determines the direction of the reaction",
+              "is_correct": false
+            },
+            {
+              "id": 44258,
+              "text": "Sodium is oxidised and hydrogen is reduced",
+              "html": "Sodium is oxidised and hydrogen is reduced",
+              "is_correct": true
+            },
+            {
+              "id": 44260,
+              "text": "Hydrogen is oxidised",
+              "html": "Hydrogen is oxidised",
+              "is_correct": false
+            }
+          ],
+          "correct_options": [
+            "Sodium is oxidised and hydrogen is reduced"
+          ],
+          "explanation": "Oxidation is a process in which one or more electrons are lost and the oxidation number is increased. Sodium has 0 oxidation state as a reactant and +1 oxidation state as a product.\n\nSimilarly, Reduction is a process in which one or more electrons are gained and the oxidation number is reduced i.e. from +1 to 0.",
+          "solutions": []
+        },
+        {
+          "id": 22341,
+          "type": "MCQ",
+          "question": "Hydrogen resembles halogens in many respects for which several factors are responsible. Of the following factors which one is most important in this respect?",
+          "question_html": "<p>Hydrogen resembles halogens in many respects for which several factors are responsible. Of the following factors which one is most important in this respect?</p>",
+          "options": [
+            {
+              "id": 44563,
+              "text": "Its small size.",
+              "html": "Its small size.",
+              "is_correct": false
+            },
+            {
+              "id": 44561,
+              "text": "Its tendency to lose an electron to form a cation.",
+              "html": "Its tendency to lose an electron to form a cation.",
+              "is_correct": false
+            },
+            {
+              "id": 44562,
+              "text": "Its low negative electron gain enthalpy value.",
+              "html": "Its low negative electron gain enthalpy value.",
+              "is_correct": false
+            },
+            {
+              "id": 44560,
+              "text": "Its tendency to gain a single electron in its valence shell to attain stable electronic configuration.",
+              "html": "Its tendency to gain a single electron in its valence shell to attain stable electronic configuration.",
+              "is_correct": true
+            }
+          ],
+          "correct_options": [
+            "Its tendency to gain a single electron in its valence shell to attain stable electronic configuration."
+          ],
+          "explanation": "Hydrogen, like the halogens, has one electron short of a complete outer shell and can form H- ions like Cl- and therefore forms ionic compounds with reactive metals – NaH similar in structure to NaCl. Hydrogen can gain one electron to form a duplet.Hydrogen also exists as a diatomic gas like fluorine and chlorine.",
+          "solutions": []
+        },
+        {
+          "id": 22534,
+          "type": "MCQ",
+          "question": "Condense the following complete structural formula given below. Choose the appropriate answer given below\n\n ![image](https://media-mycbseguide.s3.amazonaws.com/images/testpaper/1.04.11.12.03.Ques.jpg)",
+          "question_html": "<p>Condense the following complete structural formula given below. Choose the appropriate answer given below<br />\r\n<img src=\"https://media-mycbseguide.s3.amazonaws.com/images/testpaper/1.04.11.12.03.Ques.jpg\" style=\"width: 200px; height: 69px;\" /></p>",
+          "options": [
+            {
+              "id": 45334,
+              "text": "(CH_(2))_(3)CH (CH_(3)) CH(CH_(3))_(2)",
+              "html": "(CH<sub>2</sub>)<sub>3</sub>CH (CH<sub>3</sub>) CH(CH<sub>3</sub>)<sub>2</sub>",
+              "is_correct": false
+            },
+            {
+              "id": 45333,
+              "text": "CH_(3)CH_(2)CH = CH_(2)CH_(2)CH_(3)",
+              "html": "CH<sub>3</sub>CH<sub>2</sub>CH = CH<sub>2</sub>CH<sub>2</sub>CH<sub>3</sub>",
+              "is_correct": false
+            },
+            {
+              "id": 45332,
+              "text": "CH_(3)CH = CH(CH_(2))_(3)CH_(3)",
+              "html": "CH<sub>3</sub>CH = CH(CH<sub>2</sub>)<sub>3</sub>CH<sub>3</sub>",
+              "is_correct": true
+            },
+            {
+              "id": 45335,
+              "text": "CH_(2)C(CH_(3))_(3)",
+              "html": "CH<sub>2</sub>C(CH<sub>3</sub>)<sub>3</sub>",
+              "is_correct": false
+            }
+          ],
+          "correct_options": [
+            "CH_(3)CH = CH(CH_(2))_(3)CH_(3)"
+          ],
+          "explanation": "All the single bonds are broken and atoms are written together.",
+          "solutions": []
+        },
+        {
+          "id": 61976,
+          "type": "MCQ",
+          "question": "For the reaction, 2 N_(2)H_(4) (l) + N_(2)O_(4 )(l) $\\to $ 3N_(2)(g) + 4H_(2)O(l), if 160 g of N_(2)H_(4 )is mixed with 160 g N_(2)O_(4), the yield of H_(2)O is:",
+          "question_html": "<p>For the reaction, 2 N<sub>2</sub>H<sub>4</sub> (l) + N<sub>2</sub>O<sub>4 </sub>(l) <span class=\"math-tex\">{tex}\\to {/tex}</span> 3N<sub>2</sub>(g) + 4H<sub>2</sub>O(l), if 160 g of N<sub>2</sub>H<sub>4 </sub>is mixed with 160 g N<sub>2</sub>O<sub>4</sub>, the yield of H<sub>2</sub>O is:</p>",
+          "options": [
+            {
+              "id": 203089,
+              "text": "115.0 g",
+              "html": "115.0 g",
+              "is_correct": false
+            },
+            {
+              "id": 203087,
+              "text": "124.56 g",
+              "html": "124.56 g",
+              "is_correct": true
+            },
+            {
+              "id": 203088,
+              "text": "120.5 g",
+              "html": "120.5 g",
+              "is_correct": false
+            },
+            {
+              "id": 203090,
+              "text": "105.0 g",
+              "html": "105.0 g",
+              "is_correct": false
+            }
+          ],
+          "correct_options": [
+            "124.56 g"
+          ],
+          "explanation": "Calculations:\n\nMoles of N_(2)H_(4)\n\n= $\\frac{160}{32}$ \n\n= 5 moles \n\nMoles of N_(2)O_(4)\n\n= $\\frac{160}{92}$ \n\n= 1.739 moles\n\nAs per stoichiometry of the given reaction,\n\n2 moles of N_(2)H_(4) require 1 mole of N_(2)O_(4),\n\n $\\therefore$ 5 mole of N_(2)H_(4) will need 2.5 moles of N_(2)O_(4)\n\n. But we have only 1.73 mole of N_(2)O_(4) so it would be consumed first.\n\nThus N_(2)O_(4) is the limiting reagent for this reaction.\n\nAgain, since 1 mole of N_(2)O_(4 )yields water\n\n= 4 mole of water\n\n $ \\therefore$ 1.73 mole of N_(2)O_(4) will yield water\n\n= 6.92 moles\n\n $\\equiv $ (6.92 $\\times$ 18) g\n\n= 124.56g of water",
+          "solutions": []
+        },
+        {
+          "id": 62013,
+          "type": "MCQ",
+          "question": "What will be the Electronic configuration of the element having atomic number 24?",
+          "question_html": "<p>What will be the Electronic configuration of the element having atomic number 24?</p>",
+          "options": [
+            {
+              "id": 203238,
+              "text": "1s^(2) 2s^(2) 2p^(6) 3s^(2) 3p^(6) 3d^(4) 4s^(1 )4p^(1)",
+              "html": "1s<sup>2</sup> 2s<sup>2</sup>&nbsp;2p<sup><span style=\"font-size: 10.8333px;\">6</span></sup>&nbsp;3s<sup>2</sup>&nbsp;3p<sup>6</sup>&nbsp;3d<sup>4</sup> 4s<sup>1&nbsp;</sup>4p<sup>1</sup>",
+              "is_correct": false
+            },
+            {
+              "id": 203235,
+              "text": "1s^(2) 2s^(2) 2p^(6) 3s^(2) 3p^(6) 3d^(5) 4s^(1)",
+              "html": "1s<sup>2</sup> 2s<sup>2</sup>&nbsp;2p<sup>6</sup> 3s<sup>2</sup>&nbsp;3p<sup>6</sup>&nbsp;3d<sup>5</sup> 4s<sup>1</sup>",
+              "is_correct": true
+            },
+            {
+              "id": 203236,
+              "text": "1s^(2) 2s^(2) 2p^(3) 3s^(2) 3p^(6) 3d^(5) 4s^(1 )4p^(3)",
+              "html": "1s<sup>2</sup> 2s<sup>2</sup>&nbsp;2p<sup>3</sup> 3s<sup>2</sup>&nbsp;3p<sup>6</sup>&nbsp;3d<sup>5</sup> 4s<sup>1&nbsp;</sup>4p<sup>3</sup>",
+              "is_correct": false
+            },
+            {
+              "id": 203237,
+              "text": "1s^(2) 2s^(2) 2p^(6) 3s^(2) 3p^(3) 3d^(5) 4s^(1 )4p^(3)",
+              "html": "1s<sup>2</sup> 2s<sup>2</sup>&nbsp;2p<sup><span style=\"font-size: 10.8333px;\">6</span></sup>&nbsp;3s<sup>2</sup>&nbsp;3p<sup>3</sup>&nbsp;3d<sup>5</sup> 4s<sup>1&nbsp;</sup>4p<sup>3</sup>",
+              "is_correct": false
+            }
+          ],
+          "correct_options": [
+            "1s^(2) 2s^(2) 2p^(6) 3s^(2) 3p^(6) 3d^(5) 4s^(1)"
+          ],
+          "explanation": "The atomic number 24 is of Cr. Due to half-filled orbital stability, it does not follow the Aufbau rule so its electronic configuration is 1s^(2) 2s^(2) 2p^(6) 3s^(2) 3p^(6) 3d^(5) 4s^(1).",
+          "solutions": []
+        },
+        {
+          "id": 22305,
+          "type": "MCQ",
+          "question": "In which of the following compounds, an element exhibits two different oxidation states?",
+          "question_html": "<p>In which of the following compounds, an element exhibits two different&nbsp;oxidation states?</p>",
+          "options": [
+            {
+              "id": 44418,
+              "text": "NH_(4)NO_(3)",
+              "html": "NH<sub>4</sub>NO<sub>3</sub>",
+              "is_correct": true
+            },
+            {
+              "id": 44421,
+              "text": "N_(3)H",
+              "html": "N<sub>3</sub>H",
+              "is_correct": false
+            },
+            {
+              "id": 44419,
+              "text": "NH_(2)OH",
+              "html": "NH<sub>2</sub>OH",
+              "is_correct": false
+            },
+            {
+              "id": 44420,
+              "text": "N_(2)H_(4)",
+              "html": "N<sub>2</sub>H<sub>4</sub>",
+              "is_correct": false
+            }
+          ],
+          "correct_options": [
+            "NH_(4)NO_(3)"
+          ],
+          "explanation": "NH_(4)NO_(3) is an ionic compound consisting of NH_(4)^(+) and NO_(3)^(-) ion. The oxidation number of N in two species is different as shown below:\n\nIn the case of NH_(4)^(+),\n\nLet the oxidation state of N in NH_(4)^(+ )be x.\n\nx + 4 $\\times$ (+1) = +1\n\nx = -3\n\nIn the NO_(3)^(-)_(,)\n\nLet the oxidation state of N in NO_(3)^(- )be y,\n\ny + 3 $\\times$ (-2) = -1\n\ny = +5\n\nHence, NH_(4)NO_(3 )exhibits two different oxidation states.",
+          "solutions": []
+        },
+        {
+          "id": 21976,
+          "type": "MCQ",
+          "question": "When ${{\\text{O}}_{\\text{2}}}$ is converted into ${{\\text{O}}_{\\text{2}}}^ + $",
+          "question_html": "<p>When <span class=\"math-tex\">{tex}{{\\text{O}}_{\\text{2}}}{/tex}</span> is converted into <span class=\"math-tex\">{tex}{{\\text{O}}_{\\text{2}}}^ + {/tex}</span></p>",
+          "options": [
+            {
+              "id": 43105,
+              "text": "both paramagnetic character and bond order increase",
+              "html": "both paramagnetic character and bond order increase",
+              "is_correct": false
+            },
+            {
+              "id": 43103,
+              "text": "bond order decreases",
+              "html": "bond order decreases",
+              "is_correct": false
+            },
+            {
+              "id": 43104,
+              "text": "paramagnetic character increases",
+              "html": "paramagnetic character increases",
+              "is_correct": false
+            },
+            {
+              "id": 43102,
+              "text": "paramagnetic character decreases and the bond order increases",
+              "html": "paramagnetic character decreases and the bond order increases",
+              "is_correct": true
+            }
+          ],
+          "correct_options": [
+            "paramagnetic character decreases and the bond order increases"
+          ],
+          "explanation": "For O_(2): $\\sigma$ 1s^(2), $\\sigma$ *1s^(2), $\\sigma$ 2s^(2), $\\sigma$ *2s^(2), $\\sigma$ 2pz^(2) \n\n( $\\pi$ 2py^(2) = $\\pi$ 2px^(2)), ( $\\pi$ *2py^(1) = $\\pi$ *2px^(1)) $\\sigma$ *2pz\n\nFor O_(2): $\\sigma$ 1s^(2), $\\sigma$ *1s^(2), $\\sigma$ 2s^(2), $\\sigma$ *2s^(2), $\\sigma$ 2pz^(2) \n\n( $\\pi$ 2py^(2) = $\\pi$ 2px^(2)), ( $\\pi$ *2py^(1) = $\\pi$ *2px^(0)) $\\sigma$ *2pz\n\nBond order = $N_b-N_a\\over 2 $ \n\nFor O_(2) = $10-6\\over 2$ = 2\n\nFor O_(2)^(+) = $10-5\\over 2$ = 2.5",
+          "solutions": []
+        },
+        {
+          "id": 22535,
+          "type": "MCQ",
+          "question": "2-bromo butane can be represented in various ways. Choose the incorrect one from the following",
+          "question_html": "<p>2-bromo butane can be represented in various ways. Choose the incorrect one from the following</p>",
+          "options": [
+            {
+              "id": 45338,
+              "text": "![image](https://media-mycbseguide.s3.amazonaws.com/images/testpaper/1.04.11.12.04.WA2.jpg)",
+              "html": "<img src=\"https://media-mycbseguide.s3.amazonaws.com/images/testpaper/1.04.11.12.04.WA2.jpg\" style=\"height:55px; width:75px\" />",
+              "is_correct": false
+            },
+            {
+              "id": 45336,
+              "text": "![image](https://media-mycbseguide.s3.amazonaws.com/images/testpaper/1.04.11.12.04.Ans.jpg)",
+              "html": "<img src=\"https://media-mycbseguide.s3.amazonaws.com/images/testpaper/1.04.11.12.04.Ans.jpg\" style=\"height:76px; width:100px\" />",
+              "is_correct": true
+            },
+            {
+              "id": 45339,
+              "text": "![image](https://media-mycbseguide.s3.amazonaws.com/images/testpaper/1.04.11.12.04.WA3.jpg)",
+              "html": "<img src=\"https://media-mycbseguide.s3.amazonaws.com/images/testpaper/1.04.11.12.04.WA3.jpg\" style=\"height:36px; width:35px\" />",
+              "is_correct": false
+            },
+            {
+              "id": 45337,
+              "text": "CH_(2)CHBrCH_(2)CH_(2)",
+              "html": "CH<sub>2</sub>CHBrCH<sub>2</sub>CH<sub>2</sub>",
+              "is_correct": false
+            }
+          ],
+          "correct_options": [
+            "![image](https://media-mycbseguide.s3.amazonaws.com/images/testpaper/1.04.11.12.04.Ans.jpg)"
+          ],
+          "explanation": "methyl group is represented at 3rd carbon no bromine is there on 2nd carbon",
+          "solutions": []
+        },
+        {
+          "id": 21717,
+          "type": "73",
+          "question": "Which of the following statement is correct about the reaction is given below:\n\n $4 \\mathrm { Fe } ( \\mathrm { s } ) + 3 \\mathrm { O } _ { 2 } ( \\mathrm { g } ) \\rightarrow 2 \\mathrm { Fe } _ { 2 } \\mathrm { O } _ { 3 } ( \\mathrm { g } )$",
+          "question_html": "<p>Which of the following statement is correct about the reaction is given below:<br />\r\n<span class=\"math-tex\">{tex}4 \\mathrm { Fe } ( \\mathrm { s } ) + 3 \\mathrm { O } _ { 2 } ( \\mathrm { g } ) \\rightarrow 2 \\mathrm { Fe } _ { 2 } \\mathrm { O } _ { 3 } ( \\mathrm { g } ){/tex}</span></p>\r\n",
+          "options": [
+            {
+              "id": 42067,
+              "text": "Total mass of reactant = total mass of product; therefore, law of multiple proportions is followed.",
+              "html": "Total mass of reactant = total mass of product; therefore, law of multiple proportions is followed.",
+              "is_correct": false
+            },
+            {
+              "id": 42069,
+              "text": "Amount of Fe_(2)O_(3) produced will decrease if the amount of any of the reactants (iron or oxygen) is taken in excess.",
+              "html": "Amount of Fe<sub>2</sub>O<sub>3</sub> produced will decrease if the amount of any of the reactants (iron or oxygen) is taken in excess.",
+              "is_correct": false
+            },
+            {
+              "id": 42068,
+              "text": "Amount of Fe_(2)O_(3) can be increase by taking any one of the reactants (iron or oxygen) in excess.",
+              "html": "Amount of Fe<sub>2</sub>O<sub>3</sub> can be increase by taking any one of the reactants (iron or oxygen) in excess.",
+              "is_correct": false
+            },
+            {
+              "id": 42066,
+              "text": "Total mass of iron and oxygen in reactants = total mass of iron and oxygen in product therefore it follows law of conservation of mass.",
+              "html": "Total mass of iron and oxygen in reactants = total mass of iron and oxygen in product therefore it follows law of conservation of mass.",
+              "is_correct": true
+            }
+          ],
+          "correct_options": [
+            "Total mass of iron and oxygen in reactants = total mass of iron and oxygen in product therefore it follows law of conservation of mass."
+          ],
+          "explanation": "Total mass of iron and oxygen in reactants = total mass of iron and oxygen in product therefore it follows law of conservation of mass.",
+          "solutions": []
+        },
+        {
+          "id": 61945,
+          "type": "MCQ",
+          "question": "The molar mass of C_(6) H_(10) O_(5 ) is",
+          "question_html": "<p>The molar mass of &nbsp; C<sub>6</sub>&nbsp;H<sub>10</sub>&nbsp;O<sub>5&nbsp;</sub> is</p>\r\n\r\n",
+          "options": [
+            {
+              "id": 202966,
+              "text": "182 u",
+              "html": "182 u",
+              "is_correct": false
+            },
+            {
+              "id": 202967,
+              "text": "282 u",
+              "html": "282 u",
+              "is_correct": false
+            },
+            {
+              "id": 202965,
+              "text": "172 u",
+              "html": "172 u",
+              "is_correct": false
+            },
+            {
+              "id": 202964,
+              "text": "162 u",
+              "html": "162 u",
+              "is_correct": true
+            }
+          ],
+          "correct_options": [
+            "162 u"
+          ],
+          "explanation": "Molar massof C_(6 )H_(10) O_(5)\n\n= Sum of the atomic masses of six C atoms , ten H atoms & six O atoms\n\nthus , substituting the required atomic masses of\n\n C= 12 ,\n\nH = 1 , &\n\n O = 16 ,\n\n we get ,\n\nMolar mass of C_(6) H_(10) O_(5) \n\n = [ 6(12)+10(1)+5(16) ] u\n\n= (72 + 10 + 80 ) u\n\n=162 u",
+          "solutions": []
+        },
+        {
+          "id": 22236,
+          "type": "MCQ",
+          "question": "Does the term reduction have one of the following options taking place?",
+          "question_html": "<p>Does the term reduction have one of the following options taking place?</p>",
+          "options": [
+            {
+              "id": 44142,
+              "text": "Removal of oxygen from a substance",
+              "html": "Removal of oxygen from a substance",
+              "is_correct": true
+            },
+            {
+              "id": 44144,
+              "text": "Removal of the electropositive element from a substance",
+              "html": "Removal of the electropositive element from a substance",
+              "is_correct": false
+            },
+            {
+              "id": 44143,
+              "text": "Removal of hydrogen to a substance",
+              "html": "Removal of hydrogen to a substance",
+              "is_correct": false
+            },
+            {
+              "id": 44145,
+              "text": "Addition of an electronegative element to a substance",
+              "html": "Addition of an electronegative element to a substance",
+              "is_correct": false
+            }
+          ],
+          "correct_options": [
+            "Removal of oxygen from a substance"
+          ],
+          "explanation": "The reduction is addition of hydrogen, removal of oxygen, removal of an electronegative element or addition of an electropositive element.\n\n Removal of Oxygen: Reduction is a chemical reaction in which oxygen is removed from any chemical species (atom, ion or molecule).\n\n CuO + C $\\longrightarrow$ Cu + CO\n\n H_(2)O + C $\\longrightarrow$ CO + H_(2)\n\n 2CO + O_(2 ) $\\longrightarrow$ 2CO_(2)\n\n Fe_(3)O_(4) + 4H_(2) $\\longrightarrow$ 3F_(2) + 4H_(2)O\n Addition of Hydrogen: Reduction is a chemical reaction in which hydrogen is added to any chemical species (atom, ion or molecule).\n\n Cl_(2) + H_(2) $\\longrightarrow$ 2HCl\n\n S + H_(2) $\\longrightarrow$ H_(2)S\n\n C_(2)H_(4) + H_(2) $\\longrightarrow$ C_(2)H_(6)\n Removal of an Electronegative Element: Reduction is a chemical reaction in which an electronegative element is removed from any chemical species (atom, ion or molecule).\n 2HgCl_(2) + SnCl_(2) $\\longrightarrow$ Hg_(2)Cl_(2) + SnCl_(4) (Reduction of mercuric chloride)\n 2FeCl_(3) + H_(2) $\\longrightarrow$ 2FeCl_(2) + 2HCl (Reduction of ferric chloride)\n 2FeCl_(3) + H_(2)S $\\longrightarrow$ 2FeCl_(2) + 2HCl + S (Reduction of ferric chloride)\n Addition of an Electropositive Element: Reduction is a chemical reaction in which an electropositive element is added any chemical species (atom, ion or molecule).\n\n HgCl_(2) + Hg $\\longrightarrow$ Hg_(2)Cl_(2) (Reduction of mercuric chloride)\n\n CuCl_(2) + Cu $\\longrightarrow$ Cu_(2)Cl_(2) (Reduction of cupric chloride)\n The substance which brings reduction is known as a reducing agent.\n A substance, which undergoes oxidation, acts as a reducing agent while a substance, which undergoes reduction, acts as an oxidizing agent.\n\nMg, S, Cu, Na_(2)SO_(3), H_(2)S, HI, H_(2), C, KI are reducing agents, while O_(2), Cl_(2), F_(2), H_(2)O_(2), MnO_(2), FeCl_(3), CuCl_(2), Fe_(3)O_(4), CuO, etc., are oxidizing agents in the above examples.\n\n All oxidation and reduction reactions are complimentary of one another and occur simultaneously, one cannot take place without the other.\n No single oxidation and no single reduction process is known. The simultaneously oxidation and reduction reactions are generally termed as redox reactions. e.g., 2FeCl_(3) + SnCl_(2) $\\longrightarrow$ 2FeCl_(2) + SnCl_(4).\n\nIn above example iron undergoes reduction from +3 to +2.",
+          "solutions": []
+        },
+        {
+          "id": 21947,
+          "type": "MCQ",
+          "question": "H.O.H bond angle in water is:",
+          "question_html": "<p>H.O.H bond angle in water is:</p>",
+          "options": [
+            {
+              "id": 42987,
+              "text": "240°",
+              "html": "240&deg;",
+              "is_correct": false
+            },
+            {
+              "id": 42986,
+              "text": "104.5^(0)",
+              "html": "104.5<sup>0</sup>",
+              "is_correct": true
+            },
+            {
+              "id": 42988,
+              "text": "110°",
+              "html": "110&deg;",
+              "is_correct": false
+            },
+            {
+              "id": 42989,
+              "text": "416°",
+              "html": "416&deg;",
+              "is_correct": false
+            }
+          ],
+          "correct_options": [
+            "104.5^(0)"
+          ],
+          "explanation": "Due to the presence of two lone pairs on O in the H_(2)O bond angle reduce to 104.5^(0) from 109^(0).",
+          "solutions": []
+        },
+        {
+          "id": 22536,
+          "type": "MCQ",
+          "question": "Which of the following is the correct IUPAC name?",
+          "question_html": "<p>Which of the following is the correct IUPAC name?</p>",
+          "options": [
+            {
+              "id": 45340,
+              "text": "4, 4-Dimethyl-3-ethylheptane",
+              "html": "4, 4-Dimethyl-3-ethylheptane",
+              "is_correct": false
+            },
+            {
+              "id": 45341,
+              "text": "3-Ethyl-4,4-dimethylheptane",
+              "html": "3-Ethyl-4,4-dimethylheptane",
+              "is_correct": true
+            },
+            {
+              "id": 45343,
+              "text": "4, 4-Bis(methyl)-3-ethylheptane",
+              "html": "4, 4-Bis(methyl)-3-ethylheptane",
+              "is_correct": false
+            },
+            {
+              "id": 45342,
+              "text": "5-Ethyl-4, 4-dimethylheptane",
+              "html": "5-Ethyl-4, 4-dimethylheptane",
+              "is_correct": false
+            }
+          ],
+          "correct_options": [
+            "3-Ethyl-4,4-dimethylheptane"
+          ],
+          "explanation": "While writing IUPAC name, alkyl groups are written in alphabetical order. thus lower locant 3 is assigned to ethyl. prefix di, tri or tetra are not included in alphabetical order",
+          "solutions": []
+        },
+        {
+          "id": 21738,
+          "type": "MCQ",
+          "question": "Choose the most appropriate answer amongst the options given below for the statement. A solution of a desired lower concentration is prepared by diluting:",
+          "question_html": "<p>Choose the most appropriate answer amongst the options given below for the statement. A solution of a desired lower concentration is prepared by diluting:</p>",
+          "options": [
+            {
+              "id": 42153,
+              "text": "from a serially diluted solution",
+              "html": "from a serially diluted solution",
+              "is_correct": false
+            },
+            {
+              "id": 42152,
+              "text": "solution of known lower concentration",
+              "html": "solution of known lower concentration",
+              "is_correct": false
+            },
+            {
+              "id": 42151,
+              "text": "solution of known higher concentration",
+              "html": "solution of known higher concentration",
+              "is_correct": true
+            },
+            {
+              "id": 42150,
+              "text": "stock solution",
+              "html": "stock solution",
+              "is_correct": false
+            }
+          ],
+          "correct_options": [
+            "solution of known higher concentration"
+          ],
+          "explanation": "Since the known concentration is higher than the desired concentration of a solution to be prepared, it is easily possible to dilute the solution to any lower concentration, through suitably related calculations. Hence the given statement is the most appropriate answer.",
+          "solutions": []
+        }
+      ]
+    },
+    {
+      "section_name": "Section B",
+      "section_id": 820,
+      "questions": [
+        {
+          "id": 68839,
+          "type": "MCQ",
+          "question": "Considering the elements B, Al, Mg and K, the correct order of their metallic character is:",
+          "question_html": "<p>Considering the elements B, Al, Mg and K, the correct order of their metallic character is:</p>",
+          "options": [
+            {
+              "id": 210766,
+              "text": "B > Al > Mg > K",
+              "html": "B &gt; Al &gt; Mg &gt; K",
+              "is_correct": false
+            },
+            {
+              "id": 210765,
+              "text": "K > Mg > Al >B",
+              "html": "K &gt; Mg &gt; Al &gt;B",
+              "is_correct": true
+            },
+            {
+              "id": 210768,
+              "text": "Mg > Al > K > B",
+              "html": "Mg &gt; Al &gt; K &gt; B",
+              "is_correct": false
+            },
+            {
+              "id": 210767,
+              "text": "Al > Mg > B > K",
+              "html": "Al &gt; Mg &gt; B &gt; K",
+              "is_correct": false
+            }
+          ],
+          "correct_options": [
+            "K > Mg > Al >B"
+          ],
+          "explanation": "The metallic character depends on the ease with which an atom can loose electron i.e. its the ionisation energy. Lower the ionization energy higher is the metallic character. The ionization energy is of the order K < Mg < Al < B; hence the metallic character is reverse of that K > Mg > Al > B.",
+          "solutions": []
+        },
+        {
+          "id": 21999,
+          "type": "MCQ",
+          "question": "Amongst the following elements whose electronic configurations are given below, the one having the highest ionisation enthalpy is",
+          "question_html": "<p>Amongst the following elements whose electronic configurations are given below, the one having the highest ionisation enthalpy is</p>",
+          "options": [
+            {
+              "id": 43197,
+              "text": "$[Ar]3d^{10}4s^24p^3$",
+              "html": "<span class=\"math-tex\">{tex}[Ar]3d^{10}4s^24p^3{/tex}</span>",
+              "is_correct": false
+            },
+            {
+              "id": 43194,
+              "text": "$[Ne]3s^23p^3$",
+              "html": "<span class=\"math-tex\">{tex}[Ne]3s^23p^3{/tex}</span>",
+              "is_correct": true
+            },
+            {
+              "id": 43195,
+              "text": "$[Ne]3s^23p^1$",
+              "html": "<span class=\"math-tex\">{tex}[Ne]3s^23p^1{/tex}</span>",
+              "is_correct": false
+            },
+            {
+              "id": 43196,
+              "text": "$[Ne]3s^23p^2$",
+              "html": "<span class=\"math-tex\">{tex}[Ne]3s^23p^2{/tex}</span>",
+              "is_correct": false
+            }
+          ],
+          "correct_options": [
+            "$[Ne]3s^23p^3$"
+          ],
+          "explanation": "$[Ne]3s^23p^3$ and $[Ar]3d^{10}4s^24p^3$ both have stable half-filled configuration but in $[Ne]3s^23p^3$ the atomic radii are smaller than $[Ar]3d^{10}4s^24p^3$ . So ionization enthalpy of $[Ne]3s^23p^3$ is highest amongst all.",
+          "solutions": []
+        },
+        {
+          "id": 22348,
+          "type": "73",
+          "question": "Consider the reactions:\n\n H_(2)O_(2) + 2HI $\\to$ I_(2) + 2H_(2)O\n HOCl + H_(2)O_(2) $\\to$ H_(3)O + Cl + O_(2) \n\nWhich of the following statements is correct about H_(2)O_(2) with reference to these reactions? Hydrogen perioxide is:",
+          "question_html": "<p>Consider the reactions:</p>\n\n<ol start=\"1\" style=\"list-style-type: upper-alpha;\">\n\t<li>H<sub>2</sub>O<sub>2</sub> + 2HI&nbsp;<span class=\"math-tex\">{tex}\\to{/tex}</span>&nbsp;I<sub>2</sub> + 2H<sub>2</sub>O</li>\n\t<li>HOCl + H<sub>2</sub>O<sub>2</sub>&nbsp;<span class=\"math-tex\">{tex}\\to{/tex}</span>&nbsp;H<sub>3</sub>O + Cl + O<sub>2</sub>&nbsp;</li>\n</ol>\n\n<p>Which of the following statements is correct about H<sub>2</sub>O<sub>2</sub> with reference to these reactions? Hydrogen perioxide is:</p>",
+          "options": [
+            {
+              "id": 44589,
+              "text": "an oxidising agent in both A and B",
+              "html": "an oxidising agent in both A&nbsp;and B",
+              "is_correct": false
+            },
+            {
+              "id": 44591,
+              "text": "a reducing agent in both A and B",
+              "html": "a reducing agent in both A&nbsp;and B",
+              "is_correct": false
+            },
+            {
+              "id": 44588,
+              "text": "an oxidising agent in A and reducing agent in B",
+              "html": "an oxidising agent in A&nbsp;and reducing agent in B",
+              "is_correct": true
+            },
+            {
+              "id": 44590,
+              "text": "a reducing agent in A and oxidising agent in B",
+              "html": "a reducing agent in A&nbsp;and oxidising agent in B",
+              "is_correct": false
+            }
+          ],
+          "correct_options": [
+            "an oxidising agent in A and reducing agent in B"
+          ],
+          "explanation": "H_(2)O_(2) is an oxidizing agent in 1st reaction and Reducing agent in 2nd reaction.",
+          "solutions": []
+        },
+        {
+          "id": 22537,
+          "type": "MCQ",
+          "question": "Write the state of hybridisation of carbon in H_(2)C = O and mention the molecular geometry also.",
+          "question_html": "<p>Write the state of hybridisation of carbon in H<sub>2</sub>C&nbsp;= O&nbsp;and mention the molecular geometry also.</p>",
+          "options": [
+            {
+              "id": 45346,
+              "text": "sp hybridised carbon, linear",
+              "html": "sp hybridised carbon, linear",
+              "is_correct": false
+            },
+            {
+              "id": 45344,
+              "text": "sp^(2) hybridised carbon, trigonal planar",
+              "html": "sp<sup>2</sup>&nbsp;hybridised carbon, trigonal planar",
+              "is_correct": true
+            },
+            {
+              "id": 45347,
+              "text": "sp^(3 )hybridised carbon, trigonal pyramidal",
+              "html": "sp<sup>3&nbsp;</sup>hybridised carbon, trigonal pyramidal",
+              "is_correct": false
+            },
+            {
+              "id": 45345,
+              "text": "sp^(3) hybridised carbon, tetrahedral",
+              "html": "sp<sup>3</sup> hybridised carbon, tetrahedral",
+              "is_correct": false
+            }
+          ],
+          "correct_options": [
+            "sp^(2) hybridised carbon, trigonal planar"
+          ],
+          "explanation": "Due to the presence of a double bond in the carbonyl carbon ( $>\\mathrm C=\\mathrm O$ ), carbon is sp^(2) hybridised. This hybridization leads to a trigonal planar geometry which means a bond angle of 120° around the C.",
+          "solutions": []
+        },
+        {
+          "id": 22538,
+          "type": "MCQ",
+          "question": "The IUPAC name for\n\n ![image](https://media-mycbseguide.s3.amazonaws.com/images/testpaper/1.04.11.12.07.Ques.jpg)",
+          "question_html": "<p>The IUPAC name for<br />\r\n<img src=\"https://media-mycbseguide.s3.amazonaws.com/images/testpaper/1.04.11.12.07.Ques.jpg\" style=\"width: 80px; height: 96px;\" /></p>",
+          "options": [
+            {
+              "id": 45349,
+              "text": "1-Chloro-2-nitro-4-methylbenzene",
+              "html": "1-Chloro-2-nitro-4-methylbenzene",
+              "is_correct": false
+            },
+            {
+              "id": 45348,
+              "text": "1-Chloro-4-methyl-2-nitrobenzene",
+              "html": "1-Chloro-4-methyl-2-nitrobenzene",
+              "is_correct": true
+            },
+            {
+              "id": 45351,
+              "text": "m-Nitro-p-chlorotoluene",
+              "html": "m-Nitro-p-chlorotoluene",
+              "is_correct": false
+            },
+            {
+              "id": 45350,
+              "text": "2-Chloro-1-nitro-5-methylbenzene",
+              "html": "2-Chloro-1-nitro-5-methylbenzene",
+              "is_correct": false
+            }
+          ],
+          "correct_options": [
+            "1-Chloro-4-methyl-2-nitrobenzene"
+          ],
+          "explanation": "The given compound contains chloro group at position 1, nitro at position 2 and methyl at position 3. So 1-Chloro-4-methyl-2-nitrobenzene is the IUPAC name of the given compound with groups named in alphabetical order.",
+          "solutions": []
+        },
+        {
+          "id": 62011,
+          "type": "MCQ",
+          "question": "The formula E= h $\\nu $ is used to calculate:",
+          "question_html": "<p>The formula E= h<span class=\"math-tex\">{tex}\\nu {/tex}</span>is used to calculate:</p>",
+          "options": [
+            {
+              "id": 203229,
+              "text": "radiation emitted by a black body",
+              "html": "radiation emitted by a black body",
+              "is_correct": false
+            },
+            {
+              "id": 203227,
+              "text": "energy of quantum",
+              "html": "energy of quantum",
+              "is_correct": true
+            },
+            {
+              "id": 203228,
+              "text": "Energy of the ejected electrons",
+              "html": "Energy of the ejected electrons",
+              "is_correct": false
+            },
+            {
+              "id": 203230,
+              "text": "wave number",
+              "html": "wave number",
+              "is_correct": false
+            }
+          ],
+          "correct_options": [
+            "energy of quantum"
+          ],
+          "explanation": "Max Planck theorized that energy was transferred in chunks known as quanta, equal to $h\\nu$ . The variable h is a constant equal to 6.63 $\\times$ 10^(-34) J·s and the variable $\\nu $ represents the frequency in 1/s.\n\nThis equation allows us to calculate the energy of photons, given their frequency.\n\nIf the wavelength is given, the energy can be determined by first using the wave equation $ (c = \\lambda \\times \\nu) $ to find the frequency, then using Planck’s equation to calculate energy.",
+          "solutions": []
+        },
+        {
+          "id": 22001,
+          "type": "35",
+          "question": "Which of the following statements are not correct?",
+          "question_html": "<p>Which of the following statements are not correct?</p>",
+          "options": [
+            {
+              "id": 43203,
+              "text": "In canonical structures, there is no difference in the arrangement of atoms.",
+              "html": "In canonical structures, there is no difference in the arrangement of atoms.",
+              "is_correct": false
+            },
+            {
+              "id": 43205,
+              "text": "VSEPR Theory can explain the square planar geometry of XeF_(4).",
+              "html": "VSEPR Theory can explain the square planar geometry of XeF<sub>4</sub>.",
+              "is_correct": false
+            },
+            {
+              "id": 43204,
+              "text": "Hybrid orbitals form stronger bonds than pure orbitals.",
+              "html": "Hybrid orbitals form stronger bonds than pure orbitals.",
+              "is_correct": false
+            },
+            {
+              "id": 43202,
+              "text": "NaCl being an ionic compound is a good conductor of electricity in the solid state.",
+              "html": "NaCl being an ionic compound is a good conductor of electricity in the solid state.",
+              "is_correct": true
+            }
+          ],
+          "correct_options": [
+            "NaCl being an ionic compound is a good conductor of electricity in the solid state."
+          ],
+          "explanation": "NaCl is not a good conductor in solid-state. NaCl is a good conductor of electricity only in their molten state or in aqueous solution.",
+          "solutions": []
+        },
+        {
+          "id": 69329,
+          "type": "MCQ",
+          "question": "Water undergoes self ionization to a small extent to give:",
+          "question_html": "<p>Water undergoes self ionization to a small extent to give:</p>",
+          "options": [
+            {
+              "id": 211069,
+              "text": "OH^(+) and OH^(​​​​​-)",
+              "html": "OH<sup>+</sup>&nbsp;and OH<sup>​​​​​-</sup>",
+              "is_correct": false
+            },
+            {
+              "id": 211068,
+              "text": "OH^(+) and H^(​​​​​-)",
+              "html": "OH<sup>+</sup>&nbsp;and H<sup>​​​​​-</sup>",
+              "is_correct": false
+            },
+            {
+              "id": 211067,
+              "text": "H^(+) and OH^(​​​-)",
+              "html": "&nbsp; H<sup>+</sup>&nbsp;and OH<sup>​​​-</sup>",
+              "is_correct": false
+            },
+            {
+              "id": 211066,
+              "text": "H_(3)O^(+) and OH^(​​​​​-)",
+              "html": "H<sub>3</sub>O<sup>+</sup> and OH<sup>​​​​​-</sup>",
+              "is_correct": true
+            }
+          ],
+          "correct_options": [
+            "H_(3)O^(+) and OH^(​​​​​-)"
+          ],
+          "explanation": "Water molecules collide with one another to cause the self-ionization reaction represented by this equation:\n\n $2H_2O \\rightleftharpoons H_3O^+ + OH^- $ \n\nIt is a reversible reaction so the equation is usually written with the arrows going in both directions.\n\nThe reaction does not form very much H_(3)O^(+) or OH^(-). In one liter of water there are about 55 moles of water molecules, but only 1.0 $\\times$ 10^(-7) moles of H_(3)O^(+) and OH^(-) are formed (at room temperature). So the concentrations of H_(3)O^(+) and OH^(-) in pure water are 1.0 $\\times$ 10^(-7) M.",
+          "solutions": []
+        },
+        {
+          "id": 22539,
+          "type": "MCQ",
+          "question": "In $\\pi$ (pi) bond formation, one of the below criteria is necessary. Choose the appropriate one.",
+          "question_html": "<p>In <span class=\"math-tex\">{tex}\\pi{/tex}</span> (pi) bond formation, one of the below criteria is necessary. Choose the appropriate one.</p>",
+          "options": [
+            {
+              "id": 45354,
+              "text": "trigonal orientation of the two p orbitals on adjacent atoms.",
+              "html": "trigonal orientation of the two p orbitals on adjacent atoms.",
+              "is_correct": false
+            },
+            {
+              "id": 45355,
+              "text": "pentagonal orientation of the two p orbitals on adjacent atoms.",
+              "html": "pentagonal orientation of the two p orbitals on adjacent atoms.",
+              "is_correct": false
+            },
+            {
+              "id": 45353,
+              "text": "planar orientation of the two p orbitals on adjacent atoms.",
+              "html": "planar orientation of the two p orbitals on adjacent atoms.",
+              "is_correct": false
+            },
+            {
+              "id": 45352,
+              "text": "parallel orientation of the two p orbitals on adjacent atoms.",
+              "html": "parallel orientation of the two p orbitals on adjacent atoms.",
+              "is_correct": true
+            }
+          ],
+          "correct_options": [
+            "parallel orientation of the two p orbitals on adjacent atoms."
+          ],
+          "explanation": "Parallel orientation of p orbitals on adjacent atoms is necessary for side-ways overlapping and formation of $\\pi$ bond.",
+          "solutions": []
+        },
+        {
+          "id": 21781,
+          "type": "MCQ",
+          "question": "When excess of CO is used for the reaction,\n\nFe_(2) O_(3(s) )+ 3CO_(()_(g)) $\\longrightarrow$ 2Fe + 3CO_(2) \n\nthe limiting reagent is_____.",
+          "question_html": "<p>When excess of &nbsp;CO is used for the reaction,<br />\r\nFe<sub>2</sub>&nbsp;O<sub>3(s)&nbsp;</sub>+ 3CO<sub>(</sub><sub>g)</sub>&nbsp;<span class=\"math-tex\">{tex}\\longrightarrow{/tex}</span> &nbsp; 2Fe + 3CO<sub>2</sub>&nbsp;<br />\r\nthe limiting reagent is_____.</p>",
+          "options": [
+            {
+              "id": 42323,
+              "text": "CO",
+              "html": "CO",
+              "is_correct": false
+            },
+            {
+              "id": 42322,
+              "text": "Fe_(2)O_(3)",
+              "html": "Fe<sub>2</sub>O<sub>3</sub>",
+              "is_correct": true
+            },
+            {
+              "id": 42325,
+              "text": "${\\text{C}}{{\\text{O}}_{\\text{2}}}$",
+              "html": "<span class=\"math-tex\">{tex}{\\text{C}}{{\\text{O}}_{\\text{2}}}{/tex}</span>",
+              "is_correct": false
+            },
+            {
+              "id": 42324,
+              "text": "Fe",
+              "html": "Fe",
+              "is_correct": false
+            }
+          ],
+          "correct_options": [
+            "Fe_(2)O_(3)"
+          ],
+          "explanation": "As per stoichiometry of the reaction,\n\nFe_(2) O_(3(s) )+ 3CO_(()_(g)) $\\longrightarrow$ 2Fe + 3CO_(2) \n\nFe_(2) O_(3) is the limiting reagent for the given reaction as it would be consumed first, because the other reagent ie. CO_((g)) is used in excess.",
+          "solutions": []
+        },
+        {
+          "id": 21817,
+          "type": "MCQ",
+          "question": "Elements with 1-3 valence electrons are called",
+          "question_html": "<p>Elements with 1-3 valence electrons are called</p>\r\n",
+          "options": [
+            {
+              "id": 42466,
+              "text": "metals",
+              "html": "metals",
+              "is_correct": true
+            },
+            {
+              "id": 42469,
+              "text": "amphoteric oxides",
+              "html": "amphoteric oxides",
+              "is_correct": false
+            },
+            {
+              "id": 42467,
+              "text": "non-metals",
+              "html": "non-metals",
+              "is_correct": false
+            },
+            {
+              "id": 42468,
+              "text": "inert gases",
+              "html": "inert gases",
+              "is_correct": false
+            }
+          ],
+          "correct_options": [
+            "metals"
+          ],
+          "explanation": "metals",
+          "solutions": []
+        },
+        {
+          "id": 22540,
+          "type": "Numerical/MCQ",
+          "question": "In general, in the molecules containing multiple bonds, ________ provide the most reactive centres. Choose the most appropriate one.",
+          "question_html": "<p>In general, in the molecules containing multiple bonds, ________ provide the most reactive centres. Choose the most appropriate one.</p>",
+          "options": [
+            {
+              "id": 45359,
+              "text": "$\\sigma$ bond",
+              "html": "<span class=\"math-tex\">{tex}\\sigma{/tex}</span> bond",
+              "is_correct": false
+            },
+            {
+              "id": 45358,
+              "text": "hyperconjugation",
+              "html": "hyperconjugation",
+              "is_correct": false
+            },
+            {
+              "id": 45357,
+              "text": "p orbitals",
+              "html": "p orbitals",
+              "is_correct": false
+            },
+            {
+              "id": 45356,
+              "text": "$\\pi$ bonds",
+              "html": "<span class=\"math-tex\">{tex}\\pi{/tex}</span> bonds",
+              "is_correct": true
+            }
+          ],
+          "correct_options": [
+            "$\\pi$ bonds"
+          ],
+          "explanation": "$\\pi$ bond formed by sideways overlapping of p orbitals/d orbitals on adjacent atoms provides the most reactive centers.",
+          "solutions": []
+        },
+        {
+          "id": 21944,
+          "type": "MCQ",
+          "question": "Bond lengths are lower in elements having:",
+          "question_html": "<p>Bond lengths are lower in elements having:</p>",
+          "options": [
+            {
+              "id": 42976,
+              "text": "triple bond",
+              "html": "triple bond",
+              "is_correct": true
+            },
+            {
+              "id": 42977,
+              "text": "crystal structure",
+              "html": "crystal structure",
+              "is_correct": false
+            },
+            {
+              "id": 42975,
+              "text": "double bond",
+              "html": "double bond",
+              "is_correct": false
+            },
+            {
+              "id": 42974,
+              "text": "single bond",
+              "html": "single bond",
+              "is_correct": false
+            }
+          ],
+          "correct_options": [
+            "triple bond"
+          ],
+          "explanation": "The bond length depends on the strength of the bond. The stronger the bond is, the shorter it will be. The triple bonds are the strongest and hence the shortest. Then comes double bonds which are of intermediate strength between the triple and single bonds. And finally, the single bonds are weaker than the other two. This way, Triple bonds are the shortest. Then comes double bonds. Finally, single bonds are the longest among the three.\n\nThe order of bond lengths is given as Triple bond < Double bond < Single bond.",
+          "solutions": []
+        },
+        {
+          "id": 22542,
+          "type": "MCQ",
+          "question": "Delocalisation of σ-electrons of C - H bond of an alkyl group directly attached to an atom of unsaturated system or to an atom with an unshared p-orbital is called",
+          "question_html": "<p>Delocalisation of &sigma;-electrons of C - H bond of an alkyl group directly attached to an atom of unsaturated system or to an atom with an unshared p-orbital is called</p>",
+          "options": [
+            {
+              "id": 45366,
+              "text": "Elimination reactions",
+              "html": "Elimination reactions",
+              "is_correct": false
+            },
+            {
+              "id": 45367,
+              "text": "Rearrangement reactions",
+              "html": "Rearrangement reactions",
+              "is_correct": false
+            },
+            {
+              "id": 45365,
+              "text": "Substitution reactions",
+              "html": "Substitution reactions",
+              "is_correct": false
+            },
+            {
+              "id": 45364,
+              "text": "Hyperconjugation",
+              "html": "Hyperconjugation",
+              "is_correct": true
+            }
+          ],
+          "correct_options": [
+            "Hyperconjugation"
+          ],
+          "explanation": "The interaction of the electrons in a sigma bond (usually C–H or C–C) with an adjacent empty (or partially filled) non-bonding p-orbital, antibonding $\\sigma$ or $\\pi$ orbital or filled $\\pi$ orbital, to give an extended molecular orbital that increases the stability of the system is Hyperconjugation.",
+          "solutions": []
+        },
+        {
+          "id": 62033,
+          "type": "MCQ",
+          "question": "Calculate the energy required for the process He^(+)(g) $\\to$ He^(2+)(g) + e^(-) (Hint: The ionization energy of the lowest state, also called as the ground state is 2.18 $\\times$ 10^(-18) J atom^(-1)).",
+          "question_html": "<p>Calculate the energy required for the process&nbsp;He<sup>+</sup>(g) <span class=\"math-tex\">{tex}\\to{/tex}</span> He<sup>2+</sup>(g) + e<sup>-</sup>&nbsp;(Hint: The ionization energy of the lowest state, also called as the ground state&nbsp;is 2.18 <span class=\"math-tex\">{tex}\\times{/tex}</span> 10<sup>-18</sup> J atom<sup>-1</sup>).</p>",
+          "options": [
+            {
+              "id": 203316,
+              "text": "3.72 $\\times$ 10^(- 18)J atom^(-1)",
+              "html": "3.72&nbsp;<span class=\"math-tex\">{tex}\\times{/tex}</span>&nbsp;10<sup>- 18</sup>J atom<sup>-1</sup>",
+              "is_correct": false
+            },
+            {
+              "id": 203318,
+              "text": "7.72 $\\times$ 10^(- 18)J atom^(-1)",
+              "html": "7.72 <span class=\"math-tex\">{tex}\\times{/tex}</span>&nbsp;10<sup>- 18</sup>J atom<sup>-1</sup>",
+              "is_correct": false
+            },
+            {
+              "id": 203317,
+              "text": "5.72 $\\times$ 10^(- 18)J atom^(-1)",
+              "html": "5.72 <span class=\"math-tex\">{tex}\\times{/tex}</span>&nbsp;10<sup>- 18</sup>J atom<sup>-1</sup>",
+              "is_correct": false
+            },
+            {
+              "id": 203315,
+              "text": "8.72 $\\times$ 10^(- 18)J atom^(-1)",
+              "html": "8.72 <span class=\"math-tex\">{tex}\\times{/tex}</span>&nbsp;10<sup>- 18</sup>J atom<sup>-1</sup>",
+              "is_correct": true
+            }
+          ],
+          "correct_options": [
+            "8.72 $\\times$ 10^(- 18)J atom^(-1)"
+          ],
+          "explanation": "He^(+) ion is a single electron species which resembles like hydrogen. Therefore, the energies of the stationary states of hydrogen-like ions are given by the expression\n\n $E_n ={ 2.18 \\times 10^{-18} }\\times { Z^2 \\over n^2 }$ \n\nHere n = 1 and Z = 2\n\n $E_n = {2.18 \\times 10^{-18}}\\times {2^2\\over 1^2}$ = 8.72 $\\times$ 10^(- 18)J atom^(-1)",
+          "solutions": []
+        },
+        {
+          "id": 22543,
+          "type": "MCQ",
+          "question": "Hyperconjugation in an organic compound is a",
+          "question_html": "<p>Hyperconjugation in an organic compound is a</p>",
+          "options": [
+            {
+              "id": 45368,
+              "text": "stabilizing interaction",
+              "html": "stabilizing interaction",
+              "is_correct": true
+            },
+            {
+              "id": 45370,
+              "text": "temporary effect",
+              "html": "temporary effect",
+              "is_correct": false
+            },
+            {
+              "id": 45369,
+              "text": "destabilizing interaction",
+              "html": "destabilizing interaction",
+              "is_correct": false
+            },
+            {
+              "id": 45371,
+              "text": "delocalisation of σ electrons of C -C bond of an alkyl group",
+              "html": "delocalisation of &sigma; electrons of C -C bond of an alkyl group",
+              "is_correct": false
+            }
+          ],
+          "correct_options": [
+            "stabilizing interaction"
+          ],
+          "explanation": "Hyperconjugation is the stabilizing interaction that results from the interaction of the electrons in a C-H $\\sigma$ -bond with an adjacent empty p orbital or a $\\pi$ orbital to give an extended molecular orbital that increases the stability of the system. It is a permanent effect.",
+          "solutions": []
+        },
+        {
+          "id": 21856,
+          "type": "MCQ",
+          "question": "An anion A^(3- )has 18 electrons. Write the atomic number of A.",
+          "question_html": "<p>An anion A<sup>3-&nbsp;</sup>has 18 electrons. Write the atomic number of A.</p>",
+          "options": [
+            {
+              "id": 42622,
+              "text": "15",
+              "html": "15",
+              "is_correct": true
+            },
+            {
+              "id": 42623,
+              "text": "21",
+              "html": "21",
+              "is_correct": false
+            },
+            {
+              "id": 42624,
+              "text": "12",
+              "html": "12",
+              "is_correct": false
+            },
+            {
+              "id": 42625,
+              "text": "24",
+              "html": "24",
+              "is_correct": false
+            }
+          ],
+          "correct_options": [
+            "15"
+          ],
+          "explanation": "A^(3-) means it has got an additional 3 electrons. The atomic number is the number of electrons in a neutral atom. Therefore atomic number=18-3 =15.",
+          "solutions": []
+        },
+        {
+          "id": 22544,
+          "type": "MCQ",
+          "question": "Covalent bonds are formed with other carbon atoms due to:",
+          "question_html": "<p>Covalent bonds are formed with other carbon atoms due to:</p>",
+          "options": [
+            {
+              "id": 45374,
+              "text": "coordination",
+              "html": "coordination",
+              "is_correct": false
+            },
+            {
+              "id": 45373,
+              "text": "ionisation",
+              "html": "ionisation",
+              "is_correct": false
+            },
+            {
+              "id": 45375,
+              "text": "substitution",
+              "html": "substitution",
+              "is_correct": false
+            },
+            {
+              "id": 45372,
+              "text": "catenation",
+              "html": "catenation",
+              "is_correct": true
+            }
+          ],
+          "correct_options": [
+            "catenation"
+          ],
+          "explanation": "Catenation is the linkage of atoms of the same element into longer chains. Catenation occurs most readily in carbon, which forms covalent bonds with other carbon atoms to form longer chains and structures. This is the reason for the presence of the vast number of organic compounds in nature.",
+          "solutions": []
+        },
+        {
+          "id": 21833,
+          "type": "MCQ",
+          "question": "How many protons, neutrons, and electrons are in $^{{\\text{56}}}{\\text{F}}{{\\text{e}}^{{\\text{3}} + }}?$",
+          "question_html": "<p>How many protons, neutrons, and electrons are in <span class=\"math-tex\">{tex}^{{\\text{56}}}{\\text{F}}{{\\text{e}}^{{\\text{3}} + }}?{/tex}</span></p>\r\n",
+          "options": [
+            {
+              "id": 42531,
+              "text": "26 protons, 30 neutrons, 26 electrons",
+              "html": "26 protons, 30 neutrons, 26 electrons",
+              "is_correct": false
+            },
+            {
+              "id": 42530,
+              "text": "26 protons, 30 neutrons, 23 electrons",
+              "html": "26 protons, 30 neutrons, 23 electrons",
+              "is_correct": true
+            },
+            {
+              "id": 42533,
+              "text": "23 protons, 33 neutrons, 26 electrons",
+              "html": "23 protons, 33 neutrons, 26 electrons",
+              "is_correct": false
+            },
+            {
+              "id": 42532,
+              "text": "23 protons, 33 neutrons, 20 electrons",
+              "html": "23 protons, 33 neutrons, 20 electrons",
+              "is_correct": false
+            }
+          ],
+          "correct_options": [
+            "26 protons, 30 neutrons, 23 electrons"
+          ],
+          "explanation": "The atomic number of iron (Fe) = 26\n\nSo number of protons = 26\n\nNumber of protons = number of electrons\n\nBut To gain 3+ charge it should loose 3 electron. So, number of electrons present = 26-3 = 23\n\nNow atomic mass = 56 (Given).\n\nNumber of neutrons = atomic mass - number of protons = 56-26 = 30.",
+          "solutions": []
+        },
+        {
+          "id": 287424,
+          "type": "14",
+          "question": "Assertion: Absorption spectrum consists of some bright lines separated by dark spaces.\n\nReason: Emission spectrum consists of dark lines.",
+          "question_html": "<p><strong>Assertion:</strong> Absorption spectrum consists of some bright lines separated by dark spaces.<br />\r\n<strong>Reason:</strong> Emission spectrum consists of dark lines.</p>",
+          "options": [
+            {
+              "id": 409897,
+              "text": "A is true but R is false.",
+              "html": "A is true but R is false.",
+              "is_correct": false
+            },
+            {
+              "id": 409896,
+              "text": "Both A and R are true but R is not the correct explanation of A.",
+              "html": "Both A and R are true but R is not the correct explanation of A.",
+              "is_correct": false
+            },
+            {
+              "id": 409898,
+              "text": "If both Assertion and Reason are false statements.",
+              "html": "If both Assertion and Reason are false statements.",
+              "is_correct": true
+            },
+            {
+              "id": 409895,
+              "text": "Both A and R are true and R is the correct explanation of A.",
+              "html": "Both A and R are true and R is the correct explanation of A.",
+              "is_correct": false
+            }
+          ],
+          "correct_options": [
+            "If both Assertion and Reason are false statements."
+          ],
+          "explanation": "The absorption spectrum is produced when white light is passed through a substance and transmitted light is analyzed by a spectrograph. The dark spaces correspond to the light radiation absorbed by the substance. And the emission spectrum is produced by analyzing the radiant energy emitted by an excited substance by a spectrograph. Thus, discontinuous spectra consisting of a series of sharp lines and separated by dark bands are obtained.",
+          "solutions": []
+        },
+        {
+          "id": 593678,
+          "type": "14",
+          "question": "Assertion (A): Second ionization enthalpy will be higher than the first ionization enthalpy.\n\nReason (R): Ionization enthalpy is a quantitative measure of the tendency of an element to lose electrons.",
+          "question_html": "<p><strong>Assertion (A):&nbsp;</strong>Second ionization enthalpy will be higher than the first ionization enthalpy.<br />\r\n<strong>Reason (R):</strong>&nbsp;Ionization enthalpy is a quantitative measure of the tendency of an element to lose electrons.</p>",
+          "options": [
+            {
+              "id": 1172566,
+              "text": "A is true but R is false.",
+              "html": "A is true but R is false.",
+              "is_correct": false
+            },
+            {
+              "id": 1172564,
+              "text": "Both A and R are true and R is the correct explanation of A.",
+              "html": "Both A and R are true and R is the correct explanation of A.",
+              "is_correct": false
+            },
+            {
+              "id": 1172565,
+              "text": "Both A and R are true but R is not the correct explanation of A.",
+              "html": "Both A and R are true but R is not the correct explanation of A.",
+              "is_correct": true
+            },
+            {
+              "id": 1172567,
+              "text": "A is false but R is true.",
+              "html": "A is false but R is true.",
+              "is_correct": false
+            }
+          ],
+          "correct_options": [
+            "Both A and R are true but R is not the correct explanation of A."
+          ],
+          "explanation": "The second ionization enthalpy will be higher than that of the first ionization enthalpy because it is difficult to remove an electron from a positively charged ion than a neutral atom.",
+          "solutions": []
+        },
+        {
+          "id": 593711,
+          "type": "14",
+          "question": "Assertion (A): SF_(6 )orbitals hybridise to form six new sp^(3)d hybrid orbitals.\n\nReason (R): In SF_(6) the central sulphur atom has the ground state outer electronic configuration 3s^(2)3p.",
+          "question_html": "<p><strong>Assertion (A):&nbsp;</strong>SF<sub>6&nbsp;</sub>orbitals hybridise to form six new sp<sup>3</sup>d&nbsp;hybrid orbitals.<br />\r\n<strong>Reason (R):&nbsp;</strong>In SF<sub>6</sub>&nbsp;the central sulphur atom has the ground state outer electronic configuration 3s<sup>2</sup>3p.</p>",
+          "options": [
+            {
+              "id": 1172692,
+              "text": "Both A and R are true and R is the correct explanation of A.",
+              "html": "Both A and R are true and R is the correct explanation of A.",
+              "is_correct": false
+            },
+            {
+              "id": 1172693,
+              "text": "Both A and R are true but R is not the correct explanation of A.",
+              "html": "Both A and R are true but R is not the correct explanation of A.",
+              "is_correct": false
+            },
+            {
+              "id": 1172694,
+              "text": "A is true but R is false.",
+              "html": "A is true but R is false.",
+              "is_correct": false
+            },
+            {
+              "id": 1172695,
+              "text": "A is false but R is true.",
+              "html": "A is false but R is true.",
+              "is_correct": true
+            }
+          ],
+          "correct_options": [
+            "A is false but R is true."
+          ],
+          "explanation": "In the excited state the available six orbitals i.e., one s, three p and two d are singly occupied by electrons. These orbitals hybridise to form six new sp^(3)d^(2) hybrid orbitals, which are projected towards the six corners of a regular octahedron in SF_(6).",
+          "solutions": []
+        },
+        {
+          "id": 594542,
+          "type": "14",
+          "question": "Assertion (A): The compound AgF_(2)​ is an unstable compound but it acts as a very strong oxidizing agent.\n\nReason (R): Redox couple is defined as having together the oxidized and reduced forms of a substance taking part in an oxidation or reduction half-reaction.",
+          "question_html": "<p><strong>Assertion (A):</strong>&nbsp;The compound&nbsp;AgF<sub>2</sub>​&nbsp;is an unstable compound but it acts as a very strong oxidizing agent.<br />\r\n<strong>Reason (R): </strong>Redox couple is defined as having together the oxidized and reduced forms of a substance taking part in an oxidation or reduction half-reaction.</p>",
+          "options": [
+            {
+              "id": 1175919,
+              "text": "Both A and R are true but R is not the correct explanation of A.",
+              "html": "Both A and R are true but R is not the correct explanation of A.",
+              "is_correct": true
+            },
+            {
+              "id": 1175921,
+              "text": "A is false but R is true.",
+              "html": "A is false but R is true.",
+              "is_correct": false
+            },
+            {
+              "id": 1175918,
+              "text": "Both A and R are true and R is the correct explanation of A.",
+              "html": "Both A and R are true and R is the correct explanation of A.",
+              "is_correct": false
+            },
+            {
+              "id": 1175920,
+              "text": "A is true but R is false.",
+              "html": "A is true but R is false.",
+              "is_correct": false
+            }
+          ],
+          "correct_options": [
+            "Both A and R are true but R is not the correct explanation of A."
+          ],
+          "explanation": "Ag in AgF_(2)​ has +2 oxidation state which is an unstable oxidation state of Ag. When AgF_(2)​ is formed, silver accepts an electron to form Ag^(+). Hence, silver is reduced and AgF_(2)​ acts as a very strong oxidizing agent.",
+          "solutions": []
+        },
+        {
+          "id": 594582,
+          "type": "14",
+          "question": "Assertion (A): Molar volume of gases change considerably with temperature and pressure.\n\nReason (R): Molar volume of a substance is the volume occupied by 1 mole of the substance.",
+          "question_html": "<p><strong>Assertion (A):</strong>&nbsp;Molar volume of gases change considerably with temperature and pressure.<br />\r\n<strong>Reason (R):</strong>&nbsp;Molar volume of a substance is the volume occupied by 1 mole of the substance.</p>",
+          "options": [
+            {
+              "id": 1176078,
+              "text": "Both A and R are true and R is the correct explanation of A.",
+              "html": "Both A and R are true and R is the correct explanation of A.",
+              "is_correct": false
+            },
+            {
+              "id": 1176081,
+              "text": "A is false but R is true.",
+              "html": "A is false but R is true.",
+              "is_correct": false
+            },
+            {
+              "id": 1176079,
+              "text": "Both A and R are true but R is not the correct explanation of A.",
+              "html": "Both A and R are true but R is not the correct explanation of A.",
+              "is_correct": true
+            },
+            {
+              "id": 1176080,
+              "text": "A is true but R is false.",
+              "html": "A is true but R is false.",
+              "is_correct": false
+            }
+          ],
+          "correct_options": [
+            "Both A and R are true but R is not the correct explanation of A."
+          ],
+          "explanation": "Volume occupied changes with change in temperature and pressure. For example, change in temperature increases the K.E of the molecules and gases expand and hence occupy more volume.",
+          "solutions": []
+        }
+      ]
+    },
+    {
+      "section_name": "Section C",
+      "section_id": 821,
+      "questions": [
+        {
+          "id": 21770,
+          "type": "Numerical/MCQ",
+          "question": "There are ___ ltr in 12.0 ml",
+          "question_html": "<p>There are ___ ltr in 12.0 ml</p>",
+          "options": [
+            {
+              "id": 42280,
+              "text": "120",
+              "html": "120&nbsp;",
+              "is_correct": false
+            },
+            {
+              "id": 42281,
+              "text": "12000",
+              "html": "12000",
+              "is_correct": false
+            },
+            {
+              "id": 42279,
+              "text": "0.12",
+              "html": "0.12",
+              "is_correct": false
+            },
+            {
+              "id": 42278,
+              "text": "0.012",
+              "html": "0.012&nbsp;",
+              "is_correct": true
+            }
+          ],
+          "correct_options": [
+            "0.012"
+          ],
+          "explanation": "1000 ml = 1l\n\n $\\therefore$ 12.0 ml\n\n= ( 12 /1000 ) l\n\n= 0.012 l\n\nThus , there are 0.012 l in 12.0 ml",
+          "solutions": []
+        },
+        {
+          "id": 382966,
+          "type": "MCQ",
+          "question": "Which of the following is responsible to rule out the existence of definite paths or trajectories of electrons?",
+          "question_html": "<p>Which of the following is responsible to rule out the existence of definite paths or trajectories of electrons?</p>",
+          "options": [
+            {
+              "id": 589719,
+              "text": "Pauli’s exclusion principle.",
+              "html": "Pauli&rsquo;s exclusion principle.",
+              "is_correct": false
+            },
+            {
+              "id": 589721,
+              "text": "Aufbau principle.",
+              "html": "Aufbau principle.",
+              "is_correct": false
+            },
+            {
+              "id": 589720,
+              "text": "Hund’s rule of maximum multiplicity.",
+              "html": "Hund&rsquo;s rule of maximum multiplicity.",
+              "is_correct": false
+            },
+            {
+              "id": 589718,
+              "text": "Heisenberg’s uncertainty principle",
+              "html": "Heisenberg&rsquo;s uncertainty principle",
+              "is_correct": true
+            }
+          ],
+          "correct_options": [
+            "Heisenberg’s uncertainty principle"
+          ],
+          "explanation": "Werner Heisenberg, a German physicist in 1927, stated the uncertainty principle which is the consequence of the dual behavior of matter and radiation. It states that it is impossible to determine simultaneously, the exact position and exact momentum (or velocity) of an electron. It rules out the existence of definite paths or trajectories of electron and other similar particles.",
+          "solutions": []
+        },
+        {
+          "id": 22545,
+          "type": "MCQ",
+          "question": "Which of the following organic compound Wohler synthesised from an inorganic compound, ammonium cyanate in the presence of heat?",
+          "question_html": "<p>Which of the following organic compound&nbsp;Wohler synthesised from an inorganic compound, ammonium cyanate&nbsp;in the presence of heat?</p>",
+          "options": [
+            {
+              "id": 45378,
+              "text": "ammonium hydroxide",
+              "html": "ammonium hydroxide",
+              "is_correct": false
+            },
+            {
+              "id": 45377,
+              "text": "HOCH(CN_(2))",
+              "html": "HOCH(CN<sub>2</sub>)",
+              "is_correct": false
+            },
+            {
+              "id": 45379,
+              "text": "ammonia",
+              "html": "ammonia",
+              "is_correct": false
+            },
+            {
+              "id": 45376,
+              "text": "Urea",
+              "html": "Urea",
+              "is_correct": true
+            }
+          ],
+          "correct_options": [
+            "Urea"
+          ],
+          "explanation": "The reaction can be given as starting with solutions of potassium cyanate and ammonium chloride which are mixed, heated and cooled again to get ammonium cyanate salt which on decomposition gives the urea.",
+          "solutions": []
+        },
+        {
+          "id": 575053,
+          "type": "14",
+          "question": "Instructions for Question 53 to 55:\nIn view of the shortcoming of Bohr’s model, attempts were made to develop a more suitable and general model for atoms. Two important developments which contributed significantly in the formulation of such a model were the Dual behaviour of matter, Heisenberg uncertainty principle. Uncertainty principle which is the consequence of the dual behaviour of matter and radiation. It states that it is impossible to determine simultaneously, the exact position and exact momentum (or velocity) of an electron. If the position of the electron is known with a high degree of accuracy ( $\\Delta$ x is small), then the velocity of the electron will be uncertain [ $\\Delta$ (v_(x)) is large]. Physical measurements on the electron’s position or velocity, the outcome will always depict a fuzzy or blur picture. One of the important implications of the Heisenberg Uncertainty Principle is that it rules out the existence of definite paths or trajectories of electrons and other similar particles.\n\nAssertion (A): For a sub-atomic object such as an electron, it is not possible simultaneously to determine the position and velocity.\n\nReason (R): $\\Delta$ x is the uncertainty in momentum.",
+          "question_html": "<b>Instructions for Question 53 to 55:</b><br><p>In view of the shortcoming of&nbsp;Bohr&rsquo;s model, attempts were made to develop a more suitable and general model for atoms. Two important developments which contributed significantly in the formulation of such a model were the Dual behaviour of matter, Heisenberg uncertainty principle. Uncertainty principle which is the consequence of the dual behaviour of matter and radiation. It states that it is impossible to determine simultaneously, the exact position and exact momentum (or velocity) of an electron.&nbsp;If the position of the electron is known with a high degree of accuracy (<span class=\"math-tex\">{tex}\\Delta{/tex}</span>x is small), then the velocity of the electron will be uncertain [<span class=\"math-tex\">{tex}\\Delta{/tex}</span>(v<sub>x</sub>) is large]. Physical measurements on the electron&rsquo;s position or velocity, the outcome will always depict a fuzzy or blur picture.&nbsp;One of the important implications of the Heisenberg Uncertainty Principle is that it rules out the existence of definite paths or trajectories of electrons and other similar particles.</p><br><p><strong>Assertion (A):&nbsp;</strong>For a sub-atomic object such as an electron, it is not possible simultaneously to determine the position and velocity.<br />\r\n<strong>Reason (R):&nbsp;</strong><span class=\"math-tex\">{tex}\\Delta{/tex}</span>x is the uncertainty in momentum.</p>",
+          "options": [
+            {
+              "id": 1105063,
+              "text": "A is false but R is true.",
+              "html": "A is false but R is true.",
+              "is_correct": false
+            },
+            {
+              "id": 1105061,
+              "text": "Both A and R are true but R is not the correct explanation of A.",
+              "html": "Both A and R are true but R is not the correct explanation of A.",
+              "is_correct": false
+            },
+            {
+              "id": 1105060,
+              "text": "Both A and R are true and R is the correct explanation of A.",
+              "html": "Both A and R are true and R is the correct explanation of A.",
+              "is_correct": false
+            },
+            {
+              "id": 1105062,
+              "text": "A is true but R is false.",
+              "html": "A is true but R is false.",
+              "is_correct": true
+            }
+          ],
+          "correct_options": [
+            "A is true but R is false."
+          ],
+          "explanation": "A is true but R is false.",
+          "solutions": []
+        },
+        {
+          "id": 575136,
+          "type": "14",
+          "question": "Instructions for Question 53 to 55:\nIn view of the shortcoming of Bohr’s model, attempts were made to develop a more suitable and general model for atoms. Two important developments which contributed significantly in the formulation of such a model were the Dual behaviour of matter, Heisenberg uncertainty principle. Uncertainty principle which is the consequence of the dual behaviour of matter and radiation. It states that it is impossible to determine simultaneously, the exact position and exact momentum (or velocity) of an electron. If the position of the electron is known with a high degree of accuracy ( $\\Delta$ x is small), then the velocity of the electron will be uncertain [ $\\Delta$ (v_(x)) is large]. Physical measurements on the electron’s position or velocity, the outcome will always depict a fuzzy or blur picture. One of the important implications of the Heisenberg Uncertainty Principle is that it rules out the existence of definite paths or trajectories of electrons and other similar particles.\n\nAssertion (A): Radiation exhibits dual behaviour i.e., both particle and wavelike properties.\n\nReason (R): Electrons should also have momentum as well as wavelength.",
+          "question_html": "<b>Instructions for Question 53 to 55:</b><br><p>In view of the shortcoming of&nbsp;Bohr&rsquo;s model, attempts were made to develop a more suitable and general model for atoms. Two important developments which contributed significantly in the formulation of such a model were the Dual behaviour of matter, Heisenberg uncertainty principle. Uncertainty principle which is the consequence of the dual behaviour of matter and radiation. It states that it is impossible to determine simultaneously, the exact position and exact momentum (or velocity) of an electron.&nbsp;If the position of the electron is known with a high degree of accuracy (<span class=\"math-tex\">{tex}\\Delta{/tex}</span>x is small), then the velocity of the electron will be uncertain [<span class=\"math-tex\">{tex}\\Delta{/tex}</span>(v<sub>x</sub>) is large]. Physical measurements on the electron&rsquo;s position or velocity, the outcome will always depict a fuzzy or blur picture.&nbsp;One of the important implications of the Heisenberg Uncertainty Principle is that it rules out the existence of definite paths or trajectories of electrons and other similar particles.</p><br><p><strong>Assertion (A):&nbsp;</strong>Radiation exhibits dual behaviour i.e., both particle and wavelike properties.<br />\r\n<strong>Reason (R):&nbsp;</strong>Electrons should also have momentum as well as wavelength.</p>",
+          "options": [
+            {
+              "id": 1105394,
+              "text": "A is true but R is false.",
+              "html": "A is true but R is false.",
+              "is_correct": false
+            },
+            {
+              "id": 1105393,
+              "text": "Both A and R are true but R is not the correct explanation of A.",
+              "html": "Both A and R are true but R is not the correct explanation of A.",
+              "is_correct": true
+            },
+            {
+              "id": 1105396,
+              "text": "A is false but R is true.",
+              "html": "A is false but R is true.",
+              "is_correct": false
+            },
+            {
+              "id": 1105392,
+              "text": "Both A and R are true and R is the correct explanation of A.",
+              "html": "Both A and R are true and R is the correct explanation of A.",
+              "is_correct": false
+            }
+          ],
+          "correct_options": [
+            "Both A and R are true but R is not the correct explanation of A."
+          ],
+          "explanation": "Both A and R are true but R is not the correct explanation of A.",
+          "solutions": []
+        },
+        {
+          "id": 575166,
+          "type": "14",
+          "question": "Instructions for Question 53 to 55:\nIn view of the shortcoming of Bohr’s model, attempts were made to develop a more suitable and general model for atoms. Two important developments which contributed significantly in the formulation of such a model were the Dual behaviour of matter, Heisenberg uncertainty principle. Uncertainty principle which is the consequence of the dual behaviour of matter and radiation. It states that it is impossible to determine simultaneously, the exact position and exact momentum (or velocity) of an electron. If the position of the electron is known with a high degree of accuracy ( $\\Delta$ x is small), then the velocity of the electron will be uncertain [ $\\Delta$ (v_(x)) is large]. Physical measurements on the electron’s position or velocity, the outcome will always depict a fuzzy or blur picture. One of the important implications of the Heisenberg Uncertainty Principle is that it rules out the existence of definite paths or trajectories of electrons and other similar particles.\n\nAssertion (A): The effect of the Heisenberg Uncertainty Principle is significant only for the motion of microscopic objects. \n\nReason (R): The trajectory of an object is determined by its location and velocity at various moments.",
+          "question_html": "<b>Instructions for Question 53 to 55:</b><br><p>In view of the shortcoming of&nbsp;Bohr&rsquo;s model, attempts were made to develop a more suitable and general model for atoms. Two important developments which contributed significantly in the formulation of such a model were the Dual behaviour of matter, Heisenberg uncertainty principle. Uncertainty principle which is the consequence of the dual behaviour of matter and radiation. It states that it is impossible to determine simultaneously, the exact position and exact momentum (or velocity) of an electron.&nbsp;If the position of the electron is known with a high degree of accuracy (<span class=\"math-tex\">{tex}\\Delta{/tex}</span>x is small), then the velocity of the electron will be uncertain [<span class=\"math-tex\">{tex}\\Delta{/tex}</span>(v<sub>x</sub>) is large]. Physical measurements on the electron&rsquo;s position or velocity, the outcome will always depict a fuzzy or blur picture.&nbsp;One of the important implications of the Heisenberg Uncertainty Principle is that it rules out the existence of definite paths or trajectories of electrons and other similar particles.</p><br><p><strong>Assertion (A):&nbsp;</strong>The effect of the Heisenberg Uncertainty Principle is significant only for the motion of microscopic objects.&nbsp;<br />\r\n<strong>Reason (R): </strong>The trajectory of an object is determined by its location and velocity at various moments.</p>",
+          "options": [
+            {
+              "id": 1105515,
+              "text": "Both A and R are true and R is the correct explanation of A.",
+              "html": "Both A and R are true and R is the correct explanation of A.",
+              "is_correct": false
+            },
+            {
+              "id": 1105518,
+              "text": "A is true but R is false.",
+              "html": "A is true but R is false.",
+              "is_correct": false
+            },
+            {
+              "id": 1105519,
+              "text": "A is false but R is true.",
+              "html": "A is false but R is true.",
+              "is_correct": false
+            },
+            {
+              "id": 1105516,
+              "text": "Both A and R are true but R is not the correct explanation of A.",
+              "html": "Both A and R are true but R is not the correct explanation of A.",
+              "is_correct": true
+            }
+          ],
+          "correct_options": [
+            "Both A and R are true but R is not the correct explanation of A."
+          ],
+          "explanation": "Both A and R are true but R is not the correct explanation of A.",
+          "solutions": []
+        }
+      ]
+    }
+  ]
+}

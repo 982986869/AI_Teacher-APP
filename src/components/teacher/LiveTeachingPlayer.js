@@ -7,7 +7,7 @@ import TeacherAvatar from './TeacherAvatar';
 import VoicePicker from './VoicePicker';
 import { buildScenes } from './teachingScenes';
 import { C } from './premiumTheme';
-import { speakTeacher, stopTeacher, primeTeacherVoice, getSpeechProgress, SPEECH_OK } from '../../utils/teacherVoice';
+import { speakTeacher, stopTeacher, primeTeacherVoice, getSpeechProgress, SPEECH_OK, speakTeacherQueued, resetTeacherQueue, isTeacherQueueActive } from '../../utils/teacherVoice';
 
 // Optional student camera — degrades to a friendly placeholder.
 let ExpoCamera = null;
@@ -224,7 +224,7 @@ function VoiceMic({ onStart, onPartial, onFinal, onEnd, onError, dock }) {
 }
 
 // ══════════════════════════════════════════════════════════════════════════════
-export default function LiveTeachingPlayer({ lesson, ttsOk = true, onAsk, onExit, onNewLesson }) {
+export default function LiveTeachingPlayer({ lesson, ttsOk = true, onAsk, onAskStream, onExit, onNewLesson }) {
   const scenes = useMemo(() => buildScenes(lesson || {}), [lesson]);
   const N = scenes.length;
 
@@ -317,6 +317,42 @@ export default function LiveTeachingPlayer({ lesson, ttsOk = true, onAsk, onExit
     setQInput(''); setPartial(''); setHint('');
     setQa({ q, a: null }); setDoubtDone(false); setMode(M.THINKING);
     stopTeacher();
+
+    // ── STREAMING path: speak sentence-by-sentence as the answer arrives ──
+    // (only when a streaming handler is provided AND voice is on).
+    if (onAskStream && voiceOnRef.current) {
+      resetTeacherQueue();
+      let acc = '';
+      let buf = '';
+      setMode(M.ANSWERING); setTtsActive(true);
+      const flush = (force) => {
+        let m;
+        // emit each completed sentence to the voice queue as soon as it's whole
+        while ((m = buf.match(/[\s\S]*?[.!?\n।]/))) {
+          const s = m[0]; buf = buf.slice(s.length);
+          if (s.trim()) speakTeacherQueued(s.trim(), { onStart: () => setTtsActive(true) });
+        }
+        if (force && buf.trim()) { speakTeacherQueued(buf.trim()); buf = ''; }
+      };
+      onAskStream(q, askPosRef.current, {
+        onDelta: (t) => { acc += t; buf += t; setQa({ q, a: acc }); flush(false); },
+      })
+        .then((res) => {
+          flush(true);
+          setQa({ q, a: (res && res.answer) || acc || "Sorry, I didn't catch that. Could you ask again?" });
+          // Mark done once the queued speech actually finishes playing.
+          const tick = setInterval(() => {
+            if (!isTeacherQueueActive()) { clearInterval(tick); setTtsActive(false); setDoubtDone(true); }
+          }, 300);
+        })
+        .catch((e) => {
+          resetTeacherQueue();
+          setQa({ q, a: `⚠️ ${e?.message || 'Could not get an answer.'}` });
+          setTtsActive(false); setDoubtDone(true);
+        });
+      return;
+    }
+
     // Never get stuck in THINKING — race the answer against a timeout so a hung
     // network falls through to the error → Resume path.
     let to;

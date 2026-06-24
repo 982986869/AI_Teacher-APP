@@ -1,26 +1,25 @@
-import React, { useState, useEffect } from 'react';
-import { View, Text, StyleSheet, SafeAreaView, ScrollView, TouchableOpacity, StatusBar, Platform, ActivityIndicator } from 'react-native';
+import React, { useState, useEffect, useCallback } from 'react';
+import { View, Text, StyleSheet, SafeAreaView, ScrollView, TouchableOpacity, StatusBar, Platform, ActivityIndicator, Modal } from 'react-native';
+import { useFocusEffect, useNavigation } from '@react-navigation/native';
 import { WebView } from 'react-native-webview';
 import { getQuestionsByPath, getChapters } from '../api/resourcesApi';
 import { getMcqChapterTest } from '../api/mcqPracticeApi';
 import McqTestScreen from './McqTestScreen';
 import McqPracticeScreen from './McqPracticeScreen';
-import MockTestScreen from './mockTestScreen';
 import TestQuestionScreen from './testQuestionScreen';
 import MockResultScreen from './MockResultScreen';
 import ChapterListScreen from './ChapterListScreen';
+import OnlineTestsScreen from './OnlineTestsScreen';
 import { getQuestions, allQuestions } from '../data/questionBank';
+import { getMcqQuestions } from '../data/mcqQuestions';
+import { getSubtopicTest } from '../data/subtopicBank';
+import { listMockTests, getMockTestQuestions, listMockAttempts, submitMockTest } from '../api/mockTestsApi';
 
-// A sectioned mock: 25 in Section A, 24 in B, 6 in C — each question tagged
-// with a `section` so the test screen shows the A/B/C tabs.
-const MOCK_QUESTIONS = (() => {
-  const step = Math.max(1, Math.floor(allQuestions.length / 60));
-  const pool = allQuestions.filter((_, i) => i % step === 0);
-  const A = pool.slice(0, 25).map((q) => ({ ...q, section: 'A' }));
-  const B = pool.slice(25, 49).map((q) => ({ ...q, section: 'B' }));
-  const C = pool.slice(49, 55).map((q) => ({ ...q, section: 'C' }));
-  return [...A, ...B, ...C];
-})();
+// Subjects with DB-backed mock tests (served by mockTestsApi). The Mock Test
+// button opens a subject -> mock list flow that runs each test through the
+// shared (sectioned) McqTestScreen.
+const DB_MOCK_SUBJECTS = ['Physics', 'Chemistry', 'Mathematics', 'Biology'];
+const MOCK_QUIZ_COUNT = 10;
 
 // Compute a sectioned result from the test submission. Uses each question's
 // correctAnswer when available; otherwise counts as unanswered/incorrect.
@@ -452,14 +451,110 @@ const PracticeScreen = () => {
   const [mcqOpen, setMcqOpen] = useState(false);         // showing the practice picker
   const [mcqSel, setMcqSel]   = useState(null);          // { subject, chapter } once chosen
 
-  // Mock Test navigation: null -> 'intro' (MockTestScreen) -> 'quiz' (TestQuestionScreen)
-  const [mockStage, setMockStage] = useState(null);
-  const [mockSel, setMockSel]     = useState(null);      // { subject, mockNo } once picked
-  const [mockResult, setMockResult] = useState(null);    // computed report after submit
+  // Mock Test (DB-backed): subject list -> mock list -> McqTestScreen.
+  const [mockOpen, setMockOpen]       = useState(false);  // showing the Mock Test subject list
+  const [mockOpenSub, setMockOpenSub] = useState(null);   // which subject section is expanded
+  // DB-backed list + attempt data per subject:
+  // { [subject]: { loading, error, tests:[{id,name,durationMin,questionCount}], attempts:{ [testId]: {bestScore,total,attempts} } } }
+  const [mockData, setMockData]       = useState({});
+  // Active DB test: { subject, label, testId, status:'loading'|'ready'|'error', questions, sections, durationMin, name, error }
+  const [physMock, setPhysMock]       = useState(null);
+  // Retest confirmation when re-opening an already-attempted test: { subject, test, att }
+  const [retest, setRetest]           = useState(null);
 
-  // Chapter-wise Tests: list chapters (ChapterListScreen) -> attempt (TestQuestionScreen)
+  // Online Tests: subject -> chapter list (OnlineTestsScreen) -> attempt (TestQuestionScreen)
   const [chOpen, setChOpen] = useState(false);  // showing the chapter list
-  const [chSel, setChSel]   = useState(null);   // chosen chapter ({ id, name, count })
+  const [chSel, setChSel]   = useState(null);   // chosen { subject, chapterId, chapterName, questions }
+  const [chResult, setChResult] = useState(null);  // computed report after an online test
+
+  // Full-screen test: hide the bottom tab bar while a DB mock test is open.
+  const navigation = useNavigation();
+  useEffect(() => {
+    const inTest = !!physMock;
+    navigation.setOptions({ tabBarStyle: inTest ? { display: 'none' } : undefined });
+    return () => navigation.setOptions({ tabBarStyle: undefined });
+  }, [physMock, navigation]);
+
+  // Fetch the DB mock-test list + this user's attempt summary for a subject.
+  const loadSubjectTests = async (subject) => {
+    setMockData(prev => ({
+      ...prev,
+      [subject]: { loading: true, error: '', tests: (prev[subject] && prev[subject].tests) || [], attempts: (prev[subject] && prev[subject].attempts) || {} },
+    }));
+    try {
+      const [listRes, attRes] = await Promise.all([
+        listMockTests(subject),
+        listMockAttempts(subject).catch(() => ({ attempts: [] })),
+      ]);
+      const attempts = {};
+      for (const a of (attRes.attempts || [])) attempts[a.testId] = a;
+      setMockData(prev => ({ ...prev, [subject]: { loading: false, error: '', tests: (listRes.tests || []), attempts } }));
+    } catch (e) {
+      setMockData(prev => ({ ...prev, [subject]: { loading: false, error: e?.response?.data?.error || e?.message || 'Could not load tests.', tests: [], attempts: {} } }));
+    }
+  };
+
+  // Refresh just the attempt summary (after a test is submitted) so badges update.
+  const refreshAttempts = async (subject) => {
+    try {
+      const res = await listMockAttempts(subject);
+      const attempts = {};
+      for (const a of (res.attempts || [])) attempts[a.testId] = a;
+      setMockData(prev => ({ ...prev, [subject]: { ...(prev[subject] || { tests: [], loading: false, error: '' }), attempts } }));
+    } catch (e) { /* non-fatal */ }
+  };
+
+  // Toggle a subject section open/closed; lazy-load its DB tests on first open.
+  const openSubjectSection = (subjectName) => {
+    const willOpen = mockOpenSub !== subjectName;
+    setMockOpenSub(willOpen ? subjectName : null);
+    if (willOpen && DB_MOCK_SUBJECTS.includes(subjectName) && !mockData[subjectName]) loadSubjectTests(subjectName);
+  };
+
+  // Launch a DB-backed test (we already have the test object from the list).
+  const startDbMock = (subject, test) => {
+    setPhysMock({ subject, label: test.name, testId: test.id, status: 'loading' });
+    getMockTestQuestions(test.id)
+      .then((data) => setPhysMock({
+        subject, label: test.name, testId: test.id, status: 'ready',
+        questions: (data && data.questions) || [],
+        sections: (data && data.sections) || [],
+        durationMin: test.durationMin || 90,
+        name: test.name,
+      }))
+      .catch((e) => setPhysMock({ subject, label: test.name, testId: test.id, status: 'error', error: e?.response?.data?.error || e?.message || 'Could not load this test.' }));
+  };
+
+  // Tapping a test: if already attempted, confirm a retest first; else start it.
+  const onPickTest = (subject, test, att) => {
+    if (att) setRetest({ subject, test, att });
+    else startDbMock(subject, test);
+  };
+
+  const retryDbMock = () => {
+    if (!physMock) return;
+    const sub = physMock.subject;
+    const list = (mockData[sub] && mockData[sub].tests) || [];
+    const test = list.find(t => t.id === physMock.testId) || list.find(t => t.name === physMock.label);
+    if (test) startDbMock(sub, test);
+  };
+
+  // Exit the test and return to the subject's mock list; refresh attempt badges.
+  const closePhysMock = () => {
+    const sub = physMock && physMock.subject;
+    setPhysMock(null);
+    if (sub && DB_MOCK_SUBJECTS.includes(sub)) refreshAttempts(sub);
+  };
+
+  // Leaving the Practice tab resets all sub-navigation so it opens fresh next
+  // time (fixes the bug where returning re-opened the last mock test).
+  useFocusEffect(useCallback(() => () => {
+    setPyqOpen(false); setPyqSubject(null); setPyqChapter(null);
+    setImpOpen(false); setImpSubject(null); setImpChapter(null);
+    setMcqOpen(false); setMcqSel(null);
+    setMockOpen(false); setMockOpenSub(null); setPhysMock(null); setRetest(null);
+    setChOpen(false); setChSel(null); setChResult(null);
+  }, []));
 
   const activeFull = SUBJECTS.find(s => s.name === activeSub) || SUBJECTS[0];
   const pct = Math.round((activeFull.done / activeFull.topics) * 100);
@@ -582,64 +677,205 @@ const PracticeScreen = () => {
     );
   }
 
-  // ── CHAPTER-WISE TEST: attempt the chosen chapter (real questions) ──────────
+  // ── ONLINE TESTS: result / report screen (after submit) ────────────────────
+  if (chOpen && chResult) {
+    return (
+      <MockResultScreen
+        title={`${chResult.title} - Result`}
+        result={chResult.data}
+        onReview={() => { setChResult(null); }}
+        onRetake={() => { setChResult(null); }}
+        onClose={() => { setChResult(null); setChSel(null); setChOpen(false); }}
+      />
+    );
+  }
+
+  // ── ONLINE TESTS: attempt the chosen chapter (real questions) ──────────────
   if (chOpen && chSel) {
     return (
       <TestQuestionScreen
-        bannerText={`${chSel.name} • attempt the questions`}
-        questions={getQuestions(chSel.id)}
+        bannerText={`${chSel.subject} · ${chSel.chapterName} • attempt the questions`}
+        questions={chSel.questions}
         onExit={() => setChSel(null)}
-        onSubmit={() => { setChSel(null); setChOpen(false); }}
-      />
-    );
-  }
-
-  // ── CHAPTER-WISE TEST: chapter list (from the question bank) ────────────────
-  if (chOpen) {
-    return (
-      <ChapterListScreen
-        subject="Physics · Class 11"
-        onBack={() => setChOpen(false)}
-        onSelectChapter={(ch) => setChSel(ch)}
-      />
-    );
-  }
-
-  // ── MOCK TEST: result / report screen (after submit) ────────────────────────
-  if (mockStage === 'result' && mockResult) {
-    return (
-      <MockResultScreen
-        title={`Mock Test - ${String(mockSel?.mockNo || 1).padStart(2, '0')} - Result`}
-        result={mockResult}
-        onReview={() => setMockStage('quiz')}
-        onRetake={() => { setMockResult(null); setMockStage('quiz'); }}
-        onClose={() => { setMockResult(null); setMockSel(null); setMockStage(null); }}
-      />
-    );
-  }
-
-  // ── MOCK TEST: question-attempt screen (after picking a mock) ───────────────
-  if (mockStage === 'quiz') {
-    return (
-      <TestQuestionScreen
-        bannerText={`${(mockSel?.subject || '').toUpperCase()} • Mock Test ${String(mockSel?.mockNo || 1).padStart(2, '0')}`}
-        questions={MOCK_QUESTIONS}
-        onExit={() => setMockStage('intro')}
-        onSubmit={(payload) => { setMockResult(computeMockResult(payload)); setMockStage('result'); }}
-      />
-    );
-  }
-
-  // ── MOCK TEST: subject -> 10 mocks list ─────────────────────────────────────
-  if (mockStage === 'intro') {
-    return (
-      <MockTestScreen
-        onBack={() => setMockStage(null)}
-        onStartMock={({ subject, mockNo }) => {
-          setMockSel({ subject, mockNo });
-          setMockStage('quiz');
+        onSubmit={(payload) => {
+          setChResult({ title: chSel.chapterName, data: computeMockResult(payload) });
+          setChSel(null);
         }}
       />
+    );
+  }
+
+  // ── ONLINE TESTS: subject -> chapter list (all 4 subjects, offline banks) ───
+  if (chOpen) {
+    return (
+      <OnlineTestsScreen
+        onBack={() => setChOpen(false)}
+        onStartTest={(sel) => setChSel(sel)}
+      />
+    );
+  }
+
+  // ── MOCK TEST: the test itself (DB-backed, sectioned McqTestScreen) ──────────
+  // physMock is set the moment a test is picked; show loading / error / the test.
+  if (physMock) {
+    if (physMock.status === 'loading') {
+      return (
+        <SafeAreaView style={s.safe}>
+          <StatusBar barStyle="dark-content" backgroundColor="#fff" />
+          {Platform.OS === 'android' && <View style={{ height: 24, backgroundColor: '#fff' }} />}
+          <BackHeader onBack={closePhysMock} />
+          <View style={{ flex: 1, alignItems: 'center', justifyContent: 'center', gap: 12 }}>
+            <ActivityIndicator size="large" color="#6C63FF" />
+            <Text style={s.pageSub}>Loading {physMock.label}…</Text>
+          </View>
+        </SafeAreaView>
+      );
+    }
+    if (physMock.status === 'error') {
+      return (
+        <SafeAreaView style={s.safe}>
+          <StatusBar barStyle="dark-content" backgroundColor="#fff" />
+          {Platform.OS === 'android' && <View style={{ height: 24, backgroundColor: '#fff' }} />}
+          <BackHeader onBack={closePhysMock} />
+          <View style={{ flex: 1, alignItems: 'center', justifyContent: 'center', gap: 12, padding: 30 }}>
+            <Text style={{ fontSize: 40 }}>⚠️</Text>
+            <Text style={[s.pageTitle, { textAlign: 'center' }]}>Couldn't load this test</Text>
+            <Text style={[s.pageSub, { textAlign: 'center' }]}>{physMock.error}</Text>
+            <TouchableOpacity
+              style={{ marginTop: 8, backgroundColor: '#6C63FF', borderRadius: 50, paddingVertical: 12, paddingHorizontal: 28 }}
+              activeOpacity={0.85}
+              onPress={retryDbMock}>
+              <Text style={{ color: '#fff', fontWeight: '800', fontSize: 14 }}>Retry</Text>
+            </TouchableOpacity>
+          </View>
+        </SafeAreaView>
+      );
+    }
+    return (
+      <McqTestScreen
+        subject={physMock.subject}
+        chapter={physMock.name || physMock.label}
+        questions={physMock.questions}
+        sections={physMock.sections}
+        durationMin={physMock.durationMin}
+        pointsPerCorrect={1}
+        negative={0}
+        onExit={closePhysMock}
+        onSubmit={(payload) => {
+          if (physMock.testId != null) submitMockTest(physMock.testId, payload).catch(() => {});
+        }}
+      />
+    );
+  }
+
+  // ── MOCK TEST: subject sections, each with its DB-backed mock list ───────────
+  if (mockOpen) {
+    return (
+      <SafeAreaView style={s.safe}>
+        <StatusBar barStyle="dark-content" backgroundColor="#fff" />
+        {Platform.OS === 'android' && <View style={{ height: 24, backgroundColor: '#fff' }} />}
+        <BackHeader onBack={() => setMockOpen(false)} />
+        <View style={s.pageTitleWrap}>
+          <Text style={s.pageTitle}>Mock Test</Text>
+          <Text style={s.pageSub}>Pick a subject, then a mock test to begin</Text>
+        </View>
+        <ScrollView contentContainerStyle={{ padding: 16, paddingBottom: 32 }}>
+          {PYQ_SUBJECTS.map((subject) => {
+            const isOpen = mockOpenSub === subject.name;
+            const sd = mockData[subject.name];
+            const tests = (sd && sd.tests) || [];
+            const subSub = sd && sd.tests.length ? `${sd.tests.length} mock tests` : `${MOCK_QUIZ_COUNT} mock tests`;
+            return (
+              <View key={subject.name} style={s.mcqSection}>
+                <TouchableOpacity
+                  style={s.mcqSectionHeader}
+                  activeOpacity={0.8}
+                  onPress={() => openSubjectSection(subject.name)}>
+                  <View style={[s.mcqSectionIcon, { backgroundColor: subject.bg }]}>
+                    <Text style={{ fontSize: 20 }}>{subject.emoji}</Text>
+                  </View>
+                  <View style={{ flex: 1 }}>
+                    <Text style={s.mcqSectionTitle}>{subject.name}</Text>
+                    <Text style={s.mcqSectionSub}>{subSub}</Text>
+                  </View>
+                  <Text style={s.mcqChevron}>{isOpen ? '▾' : '▸'}</Text>
+                </TouchableOpacity>
+
+                {isOpen && (
+                  <View style={{ marginTop: 10, gap: 10 }}>
+                    {sd && sd.loading && (
+                      <View style={{ paddingVertical: 18, alignItems: 'center' }}>
+                        <ActivityIndicator color="#6C63FF" />
+                      </View>
+                    )}
+                    {sd && !sd.loading && sd.error ? (
+                      <View style={{ paddingVertical: 14, alignItems: 'center', gap: 8 }}>
+                        <Text style={s.mockRowSub}>{sd.error}</Text>
+                        <TouchableOpacity style={s.mockRetryBtn} onPress={() => loadSubjectTests(subject.name)}>
+                          <Text style={s.mockRetryTxt}>Retry</Text>
+                        </TouchableOpacity>
+                      </View>
+                    ) : null}
+                    {sd && !sd.loading && !sd.error && tests.length === 0 ? (
+                      <Text style={[s.mockRowSub, { textAlign: 'center', paddingVertical: 12 }]}>No mock tests yet.</Text>
+                    ) : null}
+                    {tests.map((t) => {
+                      const att = sd.attempts && sd.attempts[t.id];
+                      const attempted = !!att;
+                      const scoreTxt = att && att.total != null ? `Score: ${att.bestScore}/${att.total}` : null;
+                      return (
+                        <TouchableOpacity
+                          key={t.id}
+                          style={s.mockRow}
+                          activeOpacity={0.8}
+                          onPress={() => onPickTest(subject.name, t, att)}>
+                          <View style={[s.mockRowIcon, attempted && s.mockRowIconDone]}>
+                            <Text style={{ fontSize: 18 }}>{attempted ? '✅' : '📄'}</Text>
+                          </View>
+                          <View style={{ flex: 1 }}>
+                            <Text style={s.mockRowTitle}>{t.name}</Text>
+                            <Text style={s.mockRowSub}>
+                              {attempted ? (scoreTxt || 'Attempted') : `${t.questionCount || ''} Qs · ${t.durationMin || 90} min`}
+                            </Text>
+                          </View>
+                          {attempted ? (
+                            <View style={s.mockBadge}>
+                              <Text style={s.mockBadgeTxt}>Attempted</Text>
+                            </View>
+                          ) : (
+                            <Text style={s.mockRowChevron}>›</Text>
+                          )}
+                        </TouchableOpacity>
+                      );
+                    })}
+                  </View>
+                )}
+              </View>
+            );
+          })}
+        </ScrollView>
+
+        {/* Retest confirmation for an already-attempted test */}
+        <Modal visible={!!retest} transparent animationType="fade" onRequestClose={() => setRetest(null)}>
+          <View style={s.retestOverlay}>
+            <View style={s.retestCard}>
+              <Text style={s.retestTitle}>{retest?.test?.name}</Text>
+              <Text style={s.retestSub}>
+                You've already attempted this test{retest?.att && retest.att.total != null ? ` (best score ${retest.att.bestScore}/${retest.att.total})` : ''}. Retake it? Your new score will be saved.
+              </Text>
+              <TouchableOpacity
+                style={s.retestPrimary}
+                activeOpacity={0.85}
+                onPress={() => { const r = retest; setRetest(null); if (r) startDbMock(r.subject, r.test); }}>
+                <Text style={s.retestPrimaryTxt}>🔄 Retake Test</Text>
+              </TouchableOpacity>
+              <TouchableOpacity onPress={() => setRetest(null)}>
+                <Text style={s.retestCancel}>Cancel</Text>
+              </TouchableOpacity>
+            </View>
+          </View>
+        </Modal>
+      </SafeAreaView>
     );
   }
 
@@ -748,7 +984,7 @@ const PracticeScreen = () => {
         <View style={s.practiceTestsCard}>
           {[
             { icon: '⚡', label: 'Online Tests',  sub: 'Test one chapter at a time', count: '120+ Tests', onPress: () => setChOpen(true) },
-            { icon: '📋', label: 'Mock Test',           sub: 'Subject-wise mock tests',     count: '10 each', onPress: () => setMockStage('intro') },
+            { icon: '📋', label: 'Mock Test',           sub: 'Subject-wise mock tests',     count: '10 each', onPress: () => setMockOpen(true) },
             { icon: '🎯', label: 'Previous Year Papers',sub: '10 years question bank',      count: '50 Papers', onPress: () => setPyqOpen(true) },
           ].map((item, i, arr) => (
             <TouchableOpacity key={i}
@@ -880,6 +1116,31 @@ const s = StyleSheet.create({
   scoreBadgeLow:    { backgroundColor: '#E8E8E8' },
   scoreTxt:         { fontSize: 13, fontWeight: '900', color: '#fff' },
   recentDate:       { fontSize: 10, color: '#8E8E93', fontWeight: '600' },
+
+  // Mock Test — collapsible subject sections + DB-backed mock rows + retest modal
+  mcqSection:       { marginBottom: 14 },
+  mcqSectionHeader: { backgroundColor: '#fff', borderRadius: 16, borderWidth: 1.5, borderColor: '#F0F0F0', flexDirection: 'row', alignItems: 'center', gap: 14, padding: 14 },
+  mcqSectionIcon:   { width: 44, height: 44, borderRadius: 13, alignItems: 'center', justifyContent: 'center' },
+  mcqSectionTitle:  { fontSize: 16, fontWeight: '900', color: '#1C1C1E', letterSpacing: -0.3 },
+  mcqSectionSub:    { fontSize: 12, color: '#8E8E93', fontWeight: '600', marginTop: 2 },
+  mcqChevron:       { fontSize: 18, color: '#8E8E93', fontWeight: '700' },
+  mockRow:          { backgroundColor: '#fff', borderRadius: 14, borderWidth: 1.5, borderColor: '#F0F0F0', flexDirection: 'row', alignItems: 'center', gap: 14, padding: 14 },
+  mockRowIcon:      { width: 40, height: 40, borderRadius: 11, backgroundColor: '#EEF2FF', alignItems: 'center', justifyContent: 'center', borderWidth: 1.5, borderColor: '#E0E7FF' },
+  mockRowIconDone:  { backgroundColor: '#E7F7EC', borderColor: '#CDEBD6' },
+  mockRowTitle:     { fontSize: 15, fontWeight: '800', color: '#1C1C1E', letterSpacing: -0.2 },
+  mockRowSub:       { fontSize: 12, color: '#8E8E93', fontWeight: '600', marginTop: 3 },
+  mockRowChevron:   { fontSize: 20, color: '#C7C7CC', fontWeight: '600' },
+  mockBadge:        { backgroundColor: '#E7F7EC', borderRadius: 8, paddingVertical: 5, paddingHorizontal: 10, borderWidth: 1, borderColor: '#CDEBD6' },
+  mockBadgeTxt:     { fontSize: 11, fontWeight: '800', color: '#2C8C84' },
+  mockRetryBtn:     { backgroundColor: '#6C63FF', borderRadius: 50, paddingVertical: 9, paddingHorizontal: 22 },
+  mockRetryTxt:     { color: '#fff', fontSize: 13, fontWeight: '800' },
+  retestOverlay:    { flex: 1, backgroundColor: 'rgba(20,30,30,0.5)', alignItems: 'center', justifyContent: 'center', padding: 28 },
+  retestCard:       { width: '100%', backgroundColor: '#fff', borderRadius: 18, padding: 22, alignItems: 'center' },
+  retestTitle:      { fontSize: 17, fontWeight: '900', color: '#2D3A3A', marginBottom: 6 },
+  retestSub:        { fontSize: 13, fontWeight: '600', color: '#6B7B7B', textAlign: 'center', lineHeight: 19, marginBottom: 18 },
+  retestPrimary:    { alignSelf: 'stretch', backgroundColor: '#0E9A93', borderRadius: 50, paddingVertical: 13, alignItems: 'center' },
+  retestPrimaryTxt: { color: '#fff', fontSize: 15, fontWeight: '800' },
+  retestCancel:     { color: '#8A9A9A', fontSize: 13, fontWeight: '700', marginTop: 14 },
 });
 
 export default PracticeScreen;

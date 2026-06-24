@@ -1,0 +1,1728 @@
+{
+  "testPaperID": 176,
+  "testPaperName": "Mock Test - 03",
+  "category_full_name": "CBSE > Class 11 > Mathematics",
+  "testDuration_min": 90,
+  "noOfQuestions": 50,
+  "instruction": "This question paper contains three sections - A, B and C. Each part is compulsory.\n Section - A has 20 MCQs, attempt any 16 out of 20.\n Section - B has 20 MCQs, attempt any 16 out of 20\n Section - C has 10 MCQs, attempt any 8 out of 10.\n There is no negative marking.\n All questions carry equal marks.",
+  "sections": [
+    {
+      "sectionName": "Section A",
+      "sectionID": 648,
+      "questions": [
+        {
+          "questionID": 291071,
+          "question": "The symmetric difference of A and B is equal to",
+          "question_raw": "<p>The symmetric difference of A and B is equal to</p>\r\n",
+          "options": [
+            {
+              "id": 415922,
+              "text": "{(A $\\cup$ B) - A} $\\cup$ {(A $\\cup$ B) - B}",
+              "is_correct": false
+            },
+            {
+              "id": 415920,
+              "text": "(A - B) $\\cup$ (B - A)",
+              "is_correct": true
+            },
+            {
+              "id": 415919,
+              "text": "(A - B) $\\cap$ (B - A)",
+              "is_correct": false
+            },
+            {
+              "id": 415921,
+              "text": "(A $\\cup$ B) - (B $\\cap$ A)",
+              "is_correct": false
+            }
+          ],
+          "correct_option_ids": [
+            415920
+          ],
+          "correct_option_texts": [
+            "(A - B) $\\cup$ (B - A)"
+          ],
+          "explanation": "The symmetric difference of any two sets A and B is given by:- (A - B) $\\cup$ (B - A)"
+        },
+        {
+          "questionID": 291124,
+          "question": "If R is a relation from a finite set A having m elements to a finite set B having n elements, then the number of relations from A to B is",
+          "question_raw": "<p>If R is a relation from a finite set A having m elements to a finite set B having n elements, then the number of relations from A to B is</p>",
+          "options": [
+            {
+              "id": 416024,
+              "text": "2^mn -1",
+              "is_correct": false
+            },
+            {
+              "id": 416025,
+              "text": "2mn",
+              "is_correct": false
+            },
+            {
+              "id": 416023,
+              "text": "2^mn",
+              "is_correct": true
+            },
+            {
+              "id": 416026,
+              "text": "m^n",
+              "is_correct": false
+            }
+          ],
+          "correct_option_ids": [
+            416023
+          ],
+          "correct_option_texts": [
+            "2^mn"
+          ],
+          "explanation": "Since we know that a relation from A to B consists of mn ordered pairs if they contain m and n elements respectively.\nEach subset of those mn pairs will be a relation. so, each pair has two choices, either to be in that particular relation or not.\nSo, we have a total of 2^mn relations."
+        },
+        {
+          "questionID": 291918,
+          "question": "The amplitude of $\\frac{1}{i}$ is equal to",
+          "question_raw": "<p>The amplitude of&nbsp;<span class=\"math-tex\">{tex}\\frac{1}{i}{/tex}</span>&nbsp;is equal to</p>",
+          "options": [
+            {
+              "id": 416661,
+              "text": "$-\\frac{\\pi}{2}$",
+              "is_correct": true
+            },
+            {
+              "id": 416662,
+              "text": "$\\pi$",
+              "is_correct": false
+            },
+            {
+              "id": 416659,
+              "text": "0",
+              "is_correct": false
+            },
+            {
+              "id": 416660,
+              "text": "$\\frac{\\pi}{2}$",
+              "is_correct": false
+            }
+          ],
+          "correct_option_ids": [
+            416661
+          ],
+          "correct_option_texts": [
+            "$-\\frac{\\pi}{2}$"
+          ],
+          "explanation": "$-\\frac{\\pi}{2}$\nLet z $=\\frac{1}{i}$\n$\\Rightarrow z=\\frac{1}{i} \\times \\frac{i}{i}$\n$\\Rightarrow z = \\frac{i}{i^{2}}$\n$\\Rightarrow$ z = -i\nSince, z(0, -1) lies on the negative imaginary axis.\nTherefore, arg (z) $=\\frac{-\\pi}{2}$"
+        },
+        {
+          "questionID": 290517,
+          "question": "If a, b, c are in GP then log a, log b, log c are in",
+          "question_raw": "<p>If a, b, c are in GP then log a, log b, log c are in</p>",
+          "options": [
+            {
+              "id": 415563,
+              "text": "AP",
+              "is_correct": true
+            },
+            {
+              "id": 415566,
+              "text": "H.M.",
+              "is_correct": false
+            },
+            {
+              "id": 415564,
+              "text": "GP",
+              "is_correct": false
+            },
+            {
+              "id": 415565,
+              "text": "HP",
+              "is_correct": false
+            }
+          ],
+          "correct_option_ids": [
+            415563
+          ],
+          "correct_option_texts": [
+            "AP"
+          ],
+          "explanation": "Here, a, b, c are in GP\nb^2 = ac $\\Rightarrow$ log(b^2) - log(ac)\n$\\Rightarrow$ 2 log b = log a + log c $\\Rightarrow$ log a, log b, log c are in AP."
+        },
+        {
+          "questionID": 294436,
+          "question": "The line segment joining the points (-3, -4) and (1, -2) is divided by y-axis in the ratio.",
+          "question_raw": "<p>The line segment joining the points (-3, -4) and (1, -2) is divided by y-axis in the ratio.</p>",
+          "options": [
+            {
+              "id": 419001,
+              "text": "2 : 3",
+              "is_correct": false
+            },
+            {
+              "id": 419003,
+              "text": "3 : 2",
+              "is_correct": false
+            },
+            {
+              "id": 419002,
+              "text": "3 : 1",
+              "is_correct": true
+            },
+            {
+              "id": 419000,
+              "text": "1 : 3",
+              "is_correct": false
+            }
+          ],
+          "correct_option_ids": [
+            419002
+          ],
+          "correct_option_texts": [
+            "3 : 1"
+          ],
+          "explanation": "Let the points (-3, -4) and (1, -2) be divided by y-axis (0, t) in the ratio m : n.\nUsing section formula we get the following points , \n$\\therefore\\left(\\frac{m-3 n}{m+n}\\right.$, $\\left.\\frac{-2 m-4 n}{m+n}\\right)$ = (0, t)\n$\\Rightarrow 0=\\frac{m-3 n}{m+n}$\n$\\Rightarrow$ m : n = 3 : 1"
+        },
+        {
+          "questionID": 19275,
+          "question": "If y = log $(x + \\sqrt {1 + {x^2})} $ then $\\frac {d^2y} {dx^2}$ =",
+          "question_raw": "<p>If y = log <span class=\"math-tex\">{tex}(x + \\sqrt {1 + {x^2})} {/tex}</span> then <span class=\"math-tex\">{tex}\\frac {d^2y} {dx^2}{/tex}</span>&nbsp;=&nbsp;</p>",
+          "options": [
+            {
+              "id": 32300,
+              "text": "$\\frac{-2 x}{\\left(x^2+1\\right)^{3 / 2}}$",
+              "is_correct": false
+            },
+            {
+              "id": 32302,
+              "text": "$\\frac {1} {\\sqrt {x^2 + 1}}$",
+              "is_correct": false
+            },
+            {
+              "id": 32301,
+              "text": "$\\frac {x} {(x^2 + 1)^{3/2}}$",
+              "is_correct": false
+            },
+            {
+              "id": 32299,
+              "text": "$\\frac { - x} {(x^2 + 1)^{3/2}}$",
+              "is_correct": true
+            }
+          ],
+          "correct_option_ids": [
+            32299
+          ],
+          "correct_option_texts": [
+            "$\\frac { - x} {(x^2 + 1)^{3/2}}$"
+          ],
+          "explanation": "Substitute x = tan $\\theta$ \nThen y = log (sin $\\theta$ + 1) - log (cos $\\theta$)\ny'($\\theta$) = $\\left(\\frac{\\cos \\theta}{1+\\sin \\theta}\\right)-\\left(\\frac{-\\sin \\theta}{\\cos \\theta}\\right)$ \ny'($\\theta$) = sec $\\theta$ \ny'(x) = $\\frac{1}{\\sqrt{\\left(1+x^{2}\\right)}}$ \ny''(x) = $\\frac{-x}{\\left(x^{2}+1\\right)^{3 / 2}}$"
+        },
+        {
+          "questionID": 19429,
+          "question": "The coefficient of correlation between two variables is independent of",
+          "question_raw": "<p>The coefficient of correlation between two variables is independent of</p>\r\n",
+          "options": [
+            {
+              "id": 32916,
+              "text": "neither scale nor origin",
+              "is_correct": false
+            },
+            {
+              "id": 32915,
+              "text": "both origin and the scale",
+              "is_correct": true
+            },
+            {
+              "id": 32917,
+              "text": "scale but not origin",
+              "is_correct": false
+            },
+            {
+              "id": 32918,
+              "text": "origin but not scale",
+              "is_correct": false
+            }
+          ],
+          "correct_option_ids": [
+            32915
+          ],
+          "correct_option_texts": [
+            "both origin and the scale"
+          ],
+          "explanation": "Because variance and Covariance are independent of change in origin."
+        },
+        {
+          "questionID": 284489,
+          "question": "Let F_1 be the set of parallelograms, F_2 the set of rectangles, F_3 the set of rhombuses, F_4 the set of squares and F_5 the set of trapeziums in a plane. Then F_1 may be equal to",
+          "question_raw": "<p>Let F<sub>1</sub> be the set of parallelograms, F<sub>2</sub> the set of rectangles, F<sub>3</sub> the set of rhombuses, F<sub>4</sub> the set of squares and F<sub>5</sub> the set of trapeziums in a plane. Then F<sub>1</sub> may be equal to</p>",
+          "options": [
+            {
+              "id": 406792,
+              "text": "F_2 $\\cup$ F_5",
+              "is_correct": false
+            },
+            {
+              "id": 406791,
+              "text": "F_3 $\\cap$ F_4",
+              "is_correct": false
+            },
+            {
+              "id": 406790,
+              "text": "F_2 $\\cap$ F_3",
+              "is_correct": false
+            },
+            {
+              "id": 406793,
+              "text": "F_2 $\\cup$ F_3 $\\cup$ F_4 $\\cup$ F_1",
+              "is_correct": true
+            }
+          ],
+          "correct_option_ids": [
+            406793
+          ],
+          "correct_option_texts": [
+            "F_2 $\\cup$ F_3 $\\cup$ F_4 $\\cup$ F_1"
+          ],
+          "explanation": "We know that\nEvery rectangle, square and rhombus is a parallelogram\nBut, no trapezium is a paralleogrm\nThus, F_1 = F_2 $\\cup$ F_3 $\\cup$ F_4 $\\cup$ F_1"
+        },
+        {
+          "questionID": 292348,
+          "question": "Let A = {1, 2, 3}, B = {2, 3, 4}, then which of the following is a function from A to B ?",
+          "question_raw": "<p>Let A = {1, 2, 3}, B = {2, 3, 4}, then which of the following is a function from A to B ?</p>",
+          "options": [
+            {
+              "id": 417185,
+              "text": "{(1,3), (2,2), (3,3)}",
+              "is_correct": true
+            },
+            {
+              "id": 417183,
+              "text": "{(1,2), (1,3), (2,3), (3,3)}",
+              "is_correct": false
+            },
+            {
+              "id": 417184,
+              "text": "{(1, 3), (1, 4)}",
+              "is_correct": false
+            },
+            {
+              "id": 417186,
+              "text": "{(1,2), (2,3), (3,2), (3,4)}",
+              "is_correct": false
+            }
+          ],
+          "correct_option_ids": [
+            417185
+          ],
+          "correct_option_texts": [
+            "{(1,3), (2,2), (3,3)}"
+          ],
+          "explanation": "A relation is a function if first entry in each pair (element) is not repeated."
+        },
+        {
+          "questionID": 291922,
+          "question": "$\\frac{1+2 i+3 i^{2}}{1-2 i+3 i^{2}}$ equals.",
+          "question_raw": "<p><span class=\"math-tex\">{tex}\\frac{1+2 i+3 i^{2}}{1-2 i+3 i^{2}}{/tex}</span>&nbsp;equals.</p>",
+          "options": [
+            {
+              "id": 416677,
+              "text": "-i",
+              "is_correct": true
+            },
+            {
+              "id": 416678,
+              "text": "4",
+              "is_correct": false
+            },
+            {
+              "id": 416675,
+              "text": "i",
+              "is_correct": false
+            },
+            {
+              "id": 416676,
+              "text": "-1",
+              "is_correct": false
+            }
+          ],
+          "correct_option_ids": [
+            416677
+          ],
+          "correct_option_texts": [
+            "-i"
+          ],
+          "explanation": "-i\nLet z $=\\frac{1+2 i+3 i^{2}}{1-2 i+3 i^{2}}$\n$\\Rightarrow z=\\frac{1+2 i-3}{1-2 i-3}$\n$\\Rightarrow z=\\frac{-2+2 i}{-2-2 i}$ $\\times\\frac{-2+2 i}{-2+2 i}$\n$\\Rightarrow z=\\frac{(-2+2 i)^{2}}{(-2)^{2}-(2 i)^{2}}$\n$\\Rightarrow z=\\frac{4+4 i^{2}-8 i}{4+4}$\n$\\Rightarrow z=\\frac{4-4-8 i}{8}$\n$\\Rightarrow z=\\frac{-8 i}{8}$\n$\\Rightarrow$ z = -i"
+        },
+        {
+          "questionID": 295688,
+          "question": "The first three of four given numbers are in G.P. and their last three are in A.P. with common difference 6. If first and fourth numbers are equal, then the first number is",
+          "question_raw": "<p>The first three of four given numbers are in G.P. and their last three are in A.P. with common difference 6. If first and fourth numbers are equal, then the first number is</p>",
+          "options": [
+            {
+              "id": 420474,
+              "text": "6",
+              "is_correct": false
+            },
+            {
+              "id": 420475,
+              "text": "8",
+              "is_correct": true
+            },
+            {
+              "id": 420473,
+              "text": "4",
+              "is_correct": false
+            },
+            {
+              "id": 420472,
+              "text": "2",
+              "is_correct": false
+            }
+          ],
+          "correct_option_ids": [
+            420475
+          ],
+          "correct_option_texts": [
+            "8"
+          ],
+          "explanation": "As per given question,\nThe first and the last numbers are equal.\nlet the four given numbers be p, q, r and p\nThe first three of four given numbers are in G.P.\n$\\therefore$ q^2 = p $\\cdot$ r ...(i)\nAnd, the last three numbers are in A.P. with common difference 6.\nWe have,\nFirst term = q\nSecond term = r = q + 6\nThird term = p = q + 12\nAlso, 2r = q + p\nNow, put the values of p and r in (i):\nq^2 = (q + 12)(q + 6)\n$\\Rightarrow$ q^2 = q^2 + 18q + 72\n$\\Rightarrow$ 18q + 72 = 0\n$\\Rightarrow$ q + 4 = 0\n$\\Rightarrow$ q = -4\nNow put the value of q in p = q + 12\np = -4 + 12 = 8"
+        },
+        {
+          "questionID": 19026,
+          "question": "The lines x + 2y – 3 = 0, 2x + y – 3 = 0 and the line l are concurrent. If the line I passes through the origin, then its equation is",
+          "question_raw": "<p>The lines x + 2y &ndash; 3 = 0, 2x + y &ndash; 3 = 0 and the line l are concurrent. If the line I passes through the origin, then its equation is</p>",
+          "options": [
+            {
+              "id": 31304,
+              "text": "x + y = 0",
+              "is_correct": false
+            },
+            {
+              "id": 31303,
+              "text": "x – y = 0",
+              "is_correct": true
+            },
+            {
+              "id": 31306,
+              "text": "x - 2y = 0",
+              "is_correct": false
+            },
+            {
+              "id": 31305,
+              "text": "x + 2y = 0",
+              "is_correct": false
+            }
+          ],
+          "correct_option_ids": [
+            31303
+          ],
+          "correct_option_texts": [
+            "x – y = 0"
+          ],
+          "explanation": "Equation of a line passing through the intersection of two lies is given by ax_1 + by_1 +c_1 + k(ax_2 + by_2 + c_2) = 0\nHence x + 2y - 3 + k(2x + y - 3) = 0\nSince it passes through (0, 0)\n-3 -3k = 0\nThis implies k = -1\nSustituting for k we get,\nx + 2y - 3 +(-1)(2x + y - 3) = 0\n-x + y = 0 or x - y = 0"
+        },
+        {
+          "questionID": 284670,
+          "question": "$\\lim _\\limits{x \\rightarrow 1}$[x - 1], where [.] is the greatest integer function, is equal to:",
+          "question_raw": "<p><span class=\"math-tex\">{tex}\\lim _\\limits{x \\rightarrow 1}{/tex}</span>[x - 1],&nbsp;where [.] is the greatest integer function, is equal to:</p>",
+          "options": [
+            {
+              "id": 406940,
+              "text": "0",
+              "is_correct": false
+            },
+            {
+              "id": 406941,
+              "text": "None of these",
+              "is_correct": true
+            },
+            {
+              "id": 406939,
+              "text": "2",
+              "is_correct": false
+            },
+            {
+              "id": 406938,
+              "text": "1",
+              "is_correct": false
+            }
+          ],
+          "correct_option_ids": [
+            406941
+          ],
+          "correct_option_texts": [
+            "None of these"
+          ],
+          "explanation": "R.H.S = $\\lim _\\limits{x \\rightarrow 1^{+}}$ [x - 1] = 0\nand L.H.S = $\\lim _\\limits{x \\rightarrow 1^{-}}$ [x - 1] = -1"
+        },
+        {
+          "questionID": 19417,
+          "question": "If the mean of 3, 4, x, 7, 10 is 6, then the value of x is",
+          "question_raw": "<p>If the mean of 3, 4, x, 7, 10&nbsp;is 6, then the value of x is</p>",
+          "options": [
+            {
+              "id": 32870,
+              "text": "7",
+              "is_correct": false
+            },
+            {
+              "id": 32867,
+              "text": "6",
+              "is_correct": true
+            },
+            {
+              "id": 32868,
+              "text": "4",
+              "is_correct": false
+            },
+            {
+              "id": 32869,
+              "text": "5",
+              "is_correct": false
+            }
+          ],
+          "correct_option_ids": [
+            32867
+          ],
+          "correct_option_texts": [
+            "6"
+          ],
+          "explanation": "Mean = $\\frac{3+4+x+7+10}{5}$ = $\\frac{24+x}{5}$ \n$\\Rightarrow$ 6 = $\\frac{24+x}{5}$ \n$\\Rightarrow$ 30 = 24 + x\n$\\Rightarrow$ 30 - 24 = x\n$\\Rightarrow$ x = 6"
+        },
+        {
+          "questionID": 18369,
+          "question": "If A, B and C are non – empty sets, then (A - B) $\\mathop \\cup \\nolimits $ (B - A) equals:",
+          "question_raw": "<p>If A, B and C are non &ndash; empty sets, then (A -&nbsp;B) <span class=\"math-tex\">{tex}\\mathop \\cup \\nolimits {/tex}</span>&nbsp;(B -&nbsp;A) equals:</p>\r\n",
+          "options": [
+            {
+              "id": 28679,
+              "text": "(A $\\cap$ B) - B",
+              "is_correct": false
+            },
+            {
+              "id": 28676,
+              "text": "(A $\\mathop \\cup \\nolimits $ B) – (A $\\mathop \\cap \\nolimits $ B)",
+              "is_correct": true
+            },
+            {
+              "id": 28678,
+              "text": "(A $\\mathop \\cup \\nolimits $ B) - B",
+              "is_correct": false
+            },
+            {
+              "id": 28677,
+              "text": "(A $\\mathop \\cap \\nolimits $ B) $\\mathop \\cup \\nolimits $ (A $\\mathop \\cup \\nolimits $ B)",
+              "is_correct": false
+            }
+          ],
+          "correct_option_ids": [
+            28676
+          ],
+          "correct_option_texts": [
+            "(A $\\mathop \\cup \\nolimits $ B) – (A $\\mathop \\cap \\nolimits $ B)"
+          ],
+          "explanation": "We have (A $\\cup$ B) = (A - B) $\\cup$ (A $\\cap$ B)\nHence (A $\\cup$ B) - (A $\\cap$ B) = (A - B) $\\cup$ (B - A)"
+        },
+        {
+          "questionID": 18409,
+          "question": "The domain of the real-valued function $f(x)=\\frac{(x-3)(x-1)}{\\sqrt{x^2-4}}$ is",
+          "question_raw": "<p>The domain of the real-valued function <span class=\"math-tex\">{tex}f(x)=\\frac{(x-3)(x-1)}{\\sqrt{x^2-4}}{/tex}</span> is</p>",
+          "options": [
+            {
+              "id": 28838,
+              "text": "(-$\\infty $, - 2) $ \\cup $ ( 1, $\\infty $)",
+              "is_correct": false
+            },
+            {
+              "id": 28836,
+              "text": "(-$\\infty $, - 2) $ \\cup $ (2, $\\infty $)",
+              "is_correct": true
+            },
+            {
+              "id": 28837,
+              "text": "(1, 2)",
+              "is_correct": false
+            },
+            {
+              "id": 28839,
+              "text": "(-$\\infty $, - 1) $ \\cup $ ( 1, $\\infty $).",
+              "is_correct": false
+            }
+          ],
+          "correct_option_ids": [
+            28836
+          ],
+          "correct_option_texts": [
+            "(-$\\infty $, - 2) $ \\cup $ (2, $\\infty $)"
+          ],
+          "explanation": "For f(x) to be real, we much have,\n${{x^2}\\; - \\;4\\; > 0}$ \n${ \\Rightarrow (x - 2)(x + 2) > 0}$ \n${ \\Rightarrow - \\infty < - 2\\;or\\;2 < x < \\infty }$ \n$\\therefore$ Domain ${ = \\;( - \\infty , - 2) \\cup (2,\\infty )}$ ($\\infty$ means infinity)"
+        },
+        {
+          "questionID": 285337,
+          "question": "If a + ib = c + id, then",
+          "question_raw": "<p>If a + ib = c + id, then</p>",
+          "options": [
+            {
+              "id": 407805,
+              "text": "a^2 + b^2 = c^2 + d^2",
+              "is_correct": true
+            },
+            {
+              "id": 407803,
+              "text": "b^2 + c^2 = 0",
+              "is_correct": false
+            },
+            {
+              "id": 407802,
+              "text": "a^2 + c^2 = 0",
+              "is_correct": false
+            },
+            {
+              "id": 407804,
+              "text": "b^2 + d^2 = 0",
+              "is_correct": false
+            }
+          ],
+          "correct_option_ids": [
+            407805
+          ],
+          "correct_option_texts": [
+            "a^2 + b^2 = c^2 + d^2"
+          ],
+          "explanation": "Given that: a + ib = c + id\n$\\Rightarrow$ |a + ib| = |c + id|\n$\\Rightarrow$ $\\sqrt{a^{2}+b^{2}}=\\sqrt{c^{2}+d^{2}}$\nSquaring both sides, we get a^2 + b^2 = c^2 + d^2"
+        },
+        {
+          "questionID": 18940,
+          "question": "The number of numbers between 105 and 1000 which are divisible by 7 is",
+          "question_raw": "<p>The number of numbers between 105 and 1000 which are divisible by 7 is</p>",
+          "options": [
+            {
+              "id": 30961,
+              "text": "142",
+              "is_correct": false
+            },
+            {
+              "id": 30962,
+              "text": "125",
+              "is_correct": false
+            },
+            {
+              "id": 30959,
+              "text": "127",
+              "is_correct": true
+            },
+            {
+              "id": 30960,
+              "text": "128",
+              "is_correct": false
+            }
+          ],
+          "correct_option_ids": [
+            30959
+          ],
+          "correct_option_texts": [
+            "127"
+          ],
+          "explanation": "112, 119, ....994\na_n = a + (n - 1)d = 994\n$\\Rightarrow$ 112 + (n - 1)7 = 994\n$\\Rightarrow$ (n - 1)7 = 882\n$\\Rightarrow$ (n - 1) = 126\nn = 127"
+        },
+        {
+          "questionID": 19041,
+          "question": "If (x, y) are the coordinates of point in the plane, then $\\left| {\\begin{array}{*{20}{c}} 3&4&2 \\\\ 5&8&2 \\\\ x&y&2 \\end{array}} \\right| $ = 0 represents",
+          "question_raw": "<p>If (x, y) are the coordinates of point in the plane, then <span class=\"math-tex\">{tex}\\left| {\\begin{array}{*{20}{c}} 3&amp;4&amp;2 \\\\ 5&amp;8&amp;2 \\\\ x&amp;y&amp;2 \\end{array}} \\right| {/tex}</span> = 0 represents</p>",
+          "options": [
+            {
+              "id": 31364,
+              "text": "a circle",
+              "is_correct": false
+            },
+            {
+              "id": 31365,
+              "text": "a straight line parallel to x axis",
+              "is_correct": false
+            },
+            {
+              "id": 31366,
+              "text": "a straight line parallel to y axis",
+              "is_correct": false
+            },
+            {
+              "id": 31363,
+              "text": "a straight line",
+              "is_correct": true
+            }
+          ],
+          "correct_option_ids": [
+            31363
+          ],
+          "correct_option_texts": [
+            "a straight line"
+          ],
+          "explanation": "The given determinant can be written as 2$\\begin{vmatrix} 3 & 4 & 1\\\\ 5 & 8 & 1\\\\ x & y & 1 \\end{vmatrix}$ = 0\nOn expansion we get \n2[3(8 - y) - 4(5 - x) + 1(5y - 8x)]\nOn simplifying the equation 2(-4x + 2y + 4) = 0 represents a striaght line."
+        },
+        {
+          "questionID": 19230,
+          "question": "If $\\begin{array}{c} \\frac{\\sin [x]}{[x]},[x] \\neq 0 \\\\ 0 \\quad,[x]=0 \\end{array}$, where [.] denotes the greatest integer function, then $\\lim \\limits _{x \\rightarrow 0} f(x)$ is equal to",
+          "question_raw": "<p>If&nbsp;<span class=\"math-tex\">{tex}\\begin{array}{c} \\frac{\\sin [x]}{[x]},[x] \\neq 0 \\\\ 0 \\quad,[x]=0 \\end{array}{/tex}</span>, where [.] denotes the greatest integer function, then&nbsp;<span class=\"math-tex\">{tex}\\lim \\limits _{x \\rightarrow 0} f(x){/tex}</span>&nbsp;is equal to</p>",
+          "options": [
+            {
+              "id": 32119,
+              "text": "does not exist",
+              "is_correct": true
+            },
+            {
+              "id": 32122,
+              "text": "is equal to 1",
+              "is_correct": false
+            },
+            {
+              "id": 32120,
+              "text": "is equal to 0",
+              "is_correct": false
+            },
+            {
+              "id": 32121,
+              "text": "is equal to -1",
+              "is_correct": false
+            }
+          ],
+          "correct_option_ids": [
+            32119
+          ],
+          "correct_option_texts": [
+            "does not exist"
+          ],
+          "explanation": "$\\mathop {Lt}\\limits_{x \\to 0^+}\\frac{sin\\;[x]}{[x]}$ = 1\n$\\Rightarrow \\mathop {Lt}\\limits_{x \\to 0^-}\\frac{sin\\;[x]}{[x]}$ = sin 1\n$\\Rightarrow$ L.H.L.$\\neq$ R.H.L.\nhence limit does not exist."
+        }
+      ]
+    },
+    {
+      "sectionName": "Section B",
+      "sectionID": 649,
+      "questions": [
+        {
+          "questionID": 292564,
+          "question": "If for a sample of size 60, we have the following information $\\Sigma x_{i}^{2}$ = 18000 and $\\Sigma x_{i}$ = 960, then the variance is",
+          "question_raw": "<p>If for a sample of size 60, we have the following information <span class=\"math-tex\">{tex}\\Sigma x_{i}^{2}{/tex}</span> = 18000 and <span class=\"math-tex\">{tex}\\Sigma x_{i}{/tex}</span>&nbsp;= 960, then the variance is</p>",
+          "options": [
+            {
+              "id": 417581,
+              "text": "22",
+              "is_correct": false
+            },
+            {
+              "id": 417582,
+              "text": "44",
+              "is_correct": true
+            },
+            {
+              "id": 417580,
+              "text": "16",
+              "is_correct": false
+            },
+            {
+              "id": 417579,
+              "text": "6.63",
+              "is_correct": false
+            }
+          ],
+          "correct_option_ids": [
+            417582
+          ],
+          "correct_option_texts": [
+            "44"
+          ],
+          "explanation": "Given, \n$\\Sigma x_{i}^{2}$ = 18000, $\\Sigma x_{i}$ = 960 and n = 60\n$\\therefore$ Variance\n= $\\frac{\\sum x_{i}^{2}}{n}-\\left(\\frac{\\sum x_{i}}{n}\\right)^{2}$\n= $\\frac{18000}{60}-\\left(\\frac{960}{60}\\right)^{2}$\n= 300 - 256\n= 44"
+        },
+        {
+          "questionID": 92445,
+          "question": "For any two sets A and B, $A \\cap (A \\cup B) = ....$",
+          "question_raw": "<p>For any two sets A and B,&nbsp;<span class=\"math-tex\">{tex}A \\cap (A \\cup B) = ....{/tex}</span>&nbsp;</p>",
+          "options": [
+            {
+              "id": 234137,
+              "text": "$\\ne$$\\phi$",
+              "is_correct": false
+            },
+            {
+              "id": 234134,
+              "text": "B",
+              "is_correct": false
+            },
+            {
+              "id": 234136,
+              "text": "$\\phi$",
+              "is_correct": false
+            },
+            {
+              "id": 234135,
+              "text": "A",
+              "is_correct": true
+            }
+          ],
+          "correct_option_ids": [
+            234135
+          ],
+          "correct_option_texts": [
+            "A"
+          ],
+          "explanation": "Since, $A \\subseteq A \\cup B$, therefore, $A \\cap(A \\cup B)$ = A"
+        },
+        {
+          "questionID": 18431,
+          "question": "Let f(x) = x^2 and g(x) = $\\sqrt x$, then",
+          "question_raw": "<p>Let f(x) = x<sup>2</sup> and g(x) = <span class=\"math-tex\">{tex}\\sqrt x{/tex}</span>,&nbsp;then</p>",
+          "options": [
+            {
+              "id": 28924,
+              "text": "(gof)(- 2) = 2",
+              "is_correct": true
+            },
+            {
+              "id": 28926,
+              "text": "(gof) (2) = 4",
+              "is_correct": false
+            },
+            {
+              "id": 28925,
+              "text": "(fog) (2) = 4",
+              "is_correct": false
+            },
+            {
+              "id": 28927,
+              "text": "(fog) (3) = 6",
+              "is_correct": false
+            }
+          ],
+          "correct_option_ids": [
+            28924
+          ],
+          "correct_option_texts": [
+            "(gof)(- 2) = 2"
+          ],
+          "explanation": "gof(x) = g(f(x)) = g(x^2) = $\\sqrt{x^2}$ = x\n$\\therefore$ gof(-2) = 2"
+        },
+        {
+          "questionID": 289801,
+          "question": "The solution set of x^2 + 2 = 0 is",
+          "question_raw": "<p>&nbsp;The solution set of x<sup>2</sup> + 2 = 0 is</p>",
+          "options": [
+            {
+              "id": 414007,
+              "text": "$(\\sqrt{2} i,-\\sqrt{2} i)$",
+              "is_correct": true
+            },
+            {
+              "id": 414010,
+              "text": "$(\\sqrt{2}i,-\\sqrt{2})$",
+              "is_correct": false
+            },
+            {
+              "id": 414009,
+              "text": "$(\\sqrt{2},-\\sqrt{2})$",
+              "is_correct": false
+            },
+            {
+              "id": 414008,
+              "text": "$(\\sqrt{2},-\\sqrt{2} i)$",
+              "is_correct": false
+            }
+          ],
+          "correct_option_ids": [
+            414007
+          ],
+          "correct_option_texts": [
+            "$(\\sqrt{2} i,-\\sqrt{2} i)$"
+          ],
+          "explanation": "x^2 + 2 = 0 $\\Rightarrow$ x^2 = - 2 $\\Rightarrow$ $\\pm \\sqrt{2} i$\nSolution set is $(\\sqrt{2} i,-\\sqrt{2} i)$"
+        },
+        {
+          "questionID": 295691,
+          "question": "If S be the sum, P the product and R be the sum of the reciprocals of n terms of a GP, then P^2 is equal to",
+          "question_raw": "<p>If S be the sum, P the product and R be the sum of the reciprocals of n terms of a GP, then P<sup>2</sup> is equal to</p>",
+          "options": [
+            {
+              "id": 420482,
+              "text": "$(\\frac {R}{S})^n$",
+              "is_correct": false
+            },
+            {
+              "id": 420481,
+              "text": "$\\frac {R}{S}$",
+              "is_correct": false
+            },
+            {
+              "id": 420480,
+              "text": "$\\frac {S}{R}$",
+              "is_correct": false
+            },
+            {
+              "id": 420483,
+              "text": "$(\\frac {S}{R})^n$",
+              "is_correct": true
+            }
+          ],
+          "correct_option_ids": [
+            420483
+          ],
+          "correct_option_texts": [
+            "$(\\frac {S}{R})^n$"
+          ],
+          "explanation": "According to the question,\nSum of n terms of the G.P., S = $\\frac{a\\left(r^{n}-1\\right)}{(r-1)}$\nProduct of n terms of the G.P., P = a^nr$\\left[\\frac{n(n-1)}{2}\\right]$\nSum of the reciprocals of n terms of the G.P., R = $\\frac{\\left[\\frac{1}{r^{n}}-1\\right]}{a\\left(\\frac{1}{r}-1\\right)}=\\frac{\\left(r^{n}-1\\right)}{a r^{(n-1)}(r-1)}$\n$\\therefore P^{2}=\\left\\{a^{2} r^{\\frac{2(n-1)}{2}}\\right\\}^{n}$\n$\\Rightarrow P^{2}=\\left\\{\\frac{\\frac{a\\left(r^{n}-1\\right)}{(r-1)}}{\\frac{\\left(r^{n-1}\\right)}{a r^{(n-1)}(r-1)}}\\right\\}^{n}$\n$\\Rightarrow P^{2}=\\left\\{\\frac{S}{R}\\right\\}^{n}$\nLet the first term of the G.P. be a and the common ratio be r.\nSum of n terms, S = $\\frac{a\\left(r^{n}-1\\right)}{r-1}$\nProduct of the G.P., P = a^n$r^{\\frac{n(n+1)}{2}}$\nSum of the reciprocals of n terms, R = $\\frac{\\left(\\frac{1}{r^{\\infty}-1}\\right)}{a\\left(\\frac{1}{r-1}\\right)}=\\frac{\\left(\\frac{1-r^{n}}{r^{n}}\\right)}{a\\left(\\frac{1-r}{r}\\right)}$\np^2 = $\\left\\{a^{2} r^{\\frac{(n+1)}{2}}\\right\\}^{n}$\np^2 = $\\left\\{\\begin{array}{l} \\frac{a\\left(r^{n-1}-1\\right)}{r-1} \\\\ \\frac{\\left(\\frac{1+n}{r^{n}}\\right)}{a\\left(\\frac{1+}{r}\\right)} \\end{array}\\right\\}=\\left\\{\\frac{S}{R}\\right\\}^{n}$"
+        },
+        {
+          "questionID": 19277,
+          "question": "The derivative of $\\sec ^{-1}\\left(\\frac{1}{2 x^2-1}\\right)$ with respect to $\\sqrt {1 - {x^2}} $ at x = $\\frac{1}{2}$ is",
+          "question_raw": "<p>The derivative of <span class=\"math-tex\">{tex}\\sec ^{-1}\\left(\\frac{1}{2 x^2-1}\\right){/tex}</span> with respect to <span class=\"math-tex\">{tex}\\sqrt {1 - {x^2}} {/tex}</span>&nbsp;at x =&nbsp;<span class=\"math-tex\">{tex}\\frac{1}{2}{/tex}</span>&nbsp;is</p>",
+          "options": [
+            {
+              "id": 32309,
+              "text": "-2",
+              "is_correct": false
+            },
+            {
+              "id": 32307,
+              "text": "4",
+              "is_correct": true
+            },
+            {
+              "id": 32308,
+              "text": "2",
+              "is_correct": false
+            },
+            {
+              "id": 32310,
+              "text": "1",
+              "is_correct": false
+            }
+          ],
+          "correct_option_ids": [
+            32307
+          ],
+          "correct_option_texts": [
+            "4"
+          ],
+          "explanation": "Substitute x = cos $\\theta$ \n$\\Rightarrow$ $\\frac{d(2 \\theta)}{d(\\sin \\theta)}=\\frac{\\frac{d(2 \\theta)}{d t}}{\\frac{d(\\sin \\theta)}{d t}}$ \n$\\Rightarrow$ 2 sec $\\theta$ \n$\\Rightarrow$ 2(2) = 4"
+        },
+        {
+          "questionID": 292508,
+          "question": "For a frequency distribution mean deviation from mean is computed by",
+          "question_raw": "<p>For a frequency distribution mean deviation from mean is computed by</p>",
+          "options": [
+            {
+              "id": 417426,
+              "text": "M.D. = $\\frac{\\sum f|d|}{\\sum f}$",
+              "is_correct": true
+            },
+            {
+              "id": 417423,
+              "text": "M.D. = $\\frac{\\Sigma f}{\\Sigma f|d|}$",
+              "is_correct": false
+            },
+            {
+              "id": 417425,
+              "text": "M.D. = $\\frac{\\Sigma f d}{\\Sigma f}$",
+              "is_correct": false
+            },
+            {
+              "id": 417424,
+              "text": "M.D. = $\\frac{\\Sigma d}{\\Sigma f}$",
+              "is_correct": false
+            }
+          ],
+          "correct_option_ids": [
+            417426
+          ],
+          "correct_option_texts": [
+            "M.D. = $\\frac{\\sum f|d|}{\\sum f}$"
+          ],
+          "explanation": "The general formula of Mean is $\\overline{\\mathrm{x}}=\\frac{\\sum \\mathrm{x}_{1} \\mathrm{f}_{1}}{\\sum \\mathrm{f}_{1}}$\nFor mean deviation, d = (x-mean)\nM.D. = $\\frac{\\sum f|d|}{\\sum f}$"
+        },
+        {
+          "questionID": 284418,
+          "question": "The set (A $\\cup$ B $\\cup$ C) $\\cap$ (A $\\cap$ B′ $\\cap$ C′)′ $\\cap$ C′ is equal to",
+          "question_raw": "<p>The set (A&nbsp;<span class=\"math-tex\">{tex}\\cup{/tex}</span> B <span class=\"math-tex\">{tex}\\cup{/tex}</span>&nbsp;C) <span class=\"math-tex\">{tex}\\cap{/tex}</span>&nbsp;(A <span class=\"math-tex\">{tex}\\cap{/tex}</span>&nbsp;B&prime; <span class=\"math-tex\">{tex}\\cap{/tex}</span>&nbsp;C&prime;)&prime; <span class=\"math-tex\">{tex}\\cap{/tex}</span>&nbsp;C&prime; is equal to</p>\r\n",
+          "options": [
+            {
+              "id": 406706,
+              "text": "B $\\cap$ C'",
+              "is_correct": true
+            },
+            {
+              "id": 406707,
+              "text": "A $\\cap$ C",
+              "is_correct": false
+            },
+            {
+              "id": 406708,
+              "text": "B $\\cup$ C'",
+              "is_correct": false
+            },
+            {
+              "id": 406709,
+              "text": "A $\\cup$ C'",
+              "is_correct": false
+            }
+          ],
+          "correct_option_ids": [
+            406706
+          ],
+          "correct_option_texts": [
+            "B $\\cap$ C'"
+          ],
+          "explanation": "We have,(A $\\cup$ B $\\cup$ C) $\\cap$ (A $\\cap$ B′ $\\cap$ C′)′ $\\cap$ C′\n= (A $\\cup$ (B $\\cup$ C)) $\\cap$ (A′ $\\cup$ (B $\\cup$ C)) $\\cap$ C′\n= (A $\\cap$ A′) $\\cup$ (B $\\cup$ C) $\\cap$ C′\n= $\\phi$ $\\cup$ (B $\\cup$ C) $\\cap$ C′\n= B $\\cap$ C′ $\\cup$ $\\phi$ = B $\\cap$ C′"
+        },
+        {
+          "questionID": 292319,
+          "question": "If 3 f (x) + 5 $f\\left(\\frac{1}{x}\\right)=\\frac{1}{x}-3$ for all non - zero x then f(x)=",
+          "question_raw": "<p>If 3 f (x) + 5 <span class=\"math-tex\">{tex}f\\left(\\frac{1}{x}\\right)=\\frac{1}{x}-3{/tex}</span>&nbsp;for all non - zero x then f(x)=</p>",
+          "options": [
+            {
+              "id": 417121,
+              "text": "$\\frac{1}{14}\\left(-\\frac{3}{x}+5 x+6\\right)$",
+              "is_correct": false
+            },
+            {
+              "id": 417120,
+              "text": "$\\frac{1}{16}\\left(-\\frac{3}{x}+5 x-6\\right)$",
+              "is_correct": true
+            },
+            {
+              "id": 417122,
+              "text": "$\\frac{1}{14}\\left(-\\frac{3}{x}+5 x-6\\right)$",
+              "is_correct": false
+            },
+            {
+              "id": 417119,
+              "text": "$\\frac{1}{14}\\left(\\frac{3}{x}+5 x-6\\right)$",
+              "is_correct": false
+            }
+          ],
+          "correct_option_ids": [
+            417120
+          ],
+          "correct_option_texts": [
+            "$\\frac{1}{16}\\left(-\\frac{3}{x}+5 x-6\\right)$"
+          ],
+          "explanation": "$3 f(x)+5 f\\left(\\frac{1}{x}\\right)=\\frac{1}{x}-3 $ ... (1)\nReplacing x by 1/x;\n$3 f\\left(\\frac{1}{x}\\right)+5 f(x)$= x - 3 ... (2)\nMultiply eqn 1 by 3 and eqn 2 by 5 and then subtract them \nWe get,\n$-16 f(x)=\\frac{3}{x}-5 x+6$\n$f(x)=\\frac{1}{16}\\left(-\\frac{3}{x}+5 x-6\\right)$"
+        },
+        {
+          "questionID": 291692,
+          "question": "The value of p and q (p $\\ne$ 0, q $\\ne$ 0) for which p, q are the roots of the equation x^2 + px + q ab = 0 are",
+          "question_raw": "<p>The value of p and q (p <span class=\"math-tex\">{tex}\\ne{/tex}</span>&nbsp;0, q <span class=\"math-tex\">{tex}\\ne{/tex}</span>&nbsp;0) for which p, q are the roots of the equation x<sup>2</sup> + px + q ab = 0 are</p>",
+          "options": [
+            {
+              "id": 416474,
+              "text": "p = 1, q = 2",
+              "is_correct": false
+            },
+            {
+              "id": 416471,
+              "text": "p = 1, q = -2",
+              "is_correct": true
+            },
+            {
+              "id": 416472,
+              "text": "p = - 1, q = - 2",
+              "is_correct": false
+            },
+            {
+              "id": 416473,
+              "text": "p = - 1, q = 2",
+              "is_correct": false
+            }
+          ],
+          "correct_option_ids": [
+            416471
+          ],
+          "correct_option_texts": [
+            "p = 1, q = -2"
+          ],
+          "explanation": "It is given that, p and q (p $\\ne$ 0, q $\\ne$ 0) are the roots of the equation x^2 + px + q = 0.\n$\\therefore$ Sum of roots = p + q = -p\n$\\Rightarrow$ 2p + q = 0 ... (i)\nProduct of roots = pq = q\n$\\Rightarrow$ qp - 1 = 0\n$\\Rightarrow$ p = 1, q = 0 but q $\\ne$ 0\nNow, substituting p = 1 in (i), we get,\n2 + q = 0\n$\\Rightarrow$ q = -2"
+        },
+        {
+          "questionID": 290515,
+          "question": "If a, b, c are in GP and $a^{\\frac{1}{x}}=b^{\\frac{1}{y}}=c^{\\frac{1}{z}}$ then x, y, z are in",
+          "question_raw": "<p>If a, b, c are in GP and <span class=\"math-tex\">{tex}a^{\\frac{1}{x}}=b^{\\frac{1}{y}}=c^{\\frac{1}{z}}{/tex}</span> then x, y, z are in</p>",
+          "options": [
+            {
+              "id": 415556,
+              "text": "GP",
+              "is_correct": false
+            },
+            {
+              "id": 415558,
+              "text": "H.M.",
+              "is_correct": false
+            },
+            {
+              "id": 415555,
+              "text": "AP",
+              "is_correct": true
+            },
+            {
+              "id": 415557,
+              "text": "HP",
+              "is_correct": false
+            }
+          ],
+          "correct_option_ids": [
+            415555
+          ],
+          "correct_option_texts": [
+            "AP"
+          ],
+          "explanation": "Let $a^{1 \\over x}=b^{1 \\over y}=c^{1 \\over z} = k$ Then, a = k^x, b = k^y and c = k^z.\nSince, a, b, c are in GP\n$\\Rightarrow b^{2}=a c \\Rightarrow\\left(k^{y}\\right)^{2}=\\left(k^{x} \\times k^{z}\\right)$\n$\\Rightarrow$ k^2y = k^(x+z) $\\Rightarrow$ 2y = x + z\n$\\Rightarrow$ x, y, z are in AP."
+        },
+        {
+          "questionID": 284665,
+          "question": "$\\lim _\\limits{x \\rightarrow \\frac{\\pi}{2}} \\frac{1-\\sin x}{\\cos x}$ is equal to",
+          "question_raw": "<p><span class=\"math-tex\">{tex}\\lim _\\limits{x \\rightarrow \\frac{\\pi}{2}} \\frac{1-\\sin x}{\\cos x}{/tex}</span> is equal to</p>\r\n",
+          "options": [
+            {
+              "id": 406931,
+              "text": "-1",
+              "is_correct": false
+            },
+            {
+              "id": 406933,
+              "text": "does not exit",
+              "is_correct": false
+            },
+            {
+              "id": 406930,
+              "text": "0",
+              "is_correct": true
+            },
+            {
+              "id": 406932,
+              "text": "1",
+              "is_correct": false
+            }
+          ],
+          "correct_option_ids": [
+            406930
+          ],
+          "correct_option_texts": [
+            "0"
+          ],
+          "explanation": "$\\lim _\\limits{x \\rightarrow \\frac{\\pi}{2}} \\frac{1-\\sin x}{\\cos x}=\\lim _\\limits{y \\rightarrow 0} \\frac{1-\\sin (\\frac{\\pi}{2}-y)}{\\cos (\\frac{\\pi}{2}-y)} \\quad \\text { taking } \\frac{\\pi}{2}-x=y$\n$=\\lim _\\limits{y \\rightarrow 0} \\frac{1-\\cos y}{\\sin y}=\\lim _\\limits{y \\rightarrow 0} \\frac{2 \\sin ^{2} \\frac{y}{2}}{2 \\sin \\frac{y}{2} \\cos \\frac{y}{2}}$\n$=\\lim _\\limits{y \\rightarrow 0} \\tan \\frac{y}{2}=0$"
+        },
+        {
+          "questionID": 292527,
+          "question": "A batsman scores runs in 10 innings as 38, 70, 48, 34, 42, 55, 63, 46, 54 and 44. The mean deviation about mean is",
+          "question_raw": "<p>A batsman scores runs in 10 innings as 38, 70, 48, 34, 42, 55, 63, 46, 54 and 44. The mean deviation about mean is</p>",
+          "options": [
+            {
+              "id": 417498,
+              "text": "7.6",
+              "is_correct": false
+            },
+            {
+              "id": 417497,
+              "text": "10.6",
+              "is_correct": false
+            },
+            {
+              "id": 417496,
+              "text": "6.4",
+              "is_correct": false
+            },
+            {
+              "id": 417495,
+              "text": "8.6",
+              "is_correct": true
+            }
+          ],
+          "correct_option_ids": [
+            417495
+          ],
+          "correct_option_texts": [
+            "8.6"
+          ],
+          "explanation": "First we arrange score in the ascending order\nThen scores are : 34, 38, 42, 44, 46, 48, 54, 55, 63, 70\nAs there are 10 items in this data,\nSo, median will be the mean of fifth and sixth term\n$\\therefore$ Median = $\\frac{46+48}{2}$ = 47\nNow, deviation from median for each value\nd_i = 13, 9, 5, 3, 1, 1, 7, 8, 16, 23\n$\\therefore$ Required Mean deviation = $\\frac{\\sum d_{i}}{10}=\\frac{86}{10}$ = 8.6"
+        },
+        {
+          "questionID": 291917,
+          "question": "If z $=\\frac{1+7 i}{(2-i)^{2}}$, then",
+          "question_raw": "<p>If z&nbsp;<span class=\"math-tex\">{tex}=\\frac{1+7 i}{(2-i)^{2}}{/tex}</span>, then</p>",
+          "options": [
+            {
+              "id": 416657,
+              "text": "amp (z) $=\\frac{\\pi}{4}$",
+              "is_correct": false
+            },
+            {
+              "id": 416656,
+              "text": "$|z|=\\frac{1}{2}$",
+              "is_correct": false
+            },
+            {
+              "id": 416655,
+              "text": "$|z|=2$",
+              "is_correct": false
+            },
+            {
+              "id": 416658,
+              "text": "amp (z) $=\\frac{3 \\pi}{4}$",
+              "is_correct": true
+            }
+          ],
+          "correct_option_ids": [
+            416658
+          ],
+          "correct_option_texts": [
+            "amp (z) $=\\frac{3 \\pi}{4}$"
+          ],
+          "explanation": "amp (z) $=\\frac{3 \\pi}{4}$\n$z=\\frac{1+7 i}{(2-i)^{2}}$\n$\\Rightarrow z=\\frac{1+7 i}{4+i^{2}-4 i}$\n$\\Rightarrow z=\\frac{1+7 i}{4-1-4 i}$ [$\\because$ i^2 = -1]\n$\\Rightarrow z=\\frac{1+7 i}{3-4 i}$\n$\\Rightarrow z=\\frac{1+7 i}{3-4 i} \\times \\frac{3+4 i}{3+4 i}$\n$\\Rightarrow z=\\frac{3+4 i+21 i+28 i^{2}}{9-16 i^{2}}$\n$\\Rightarrow z=\\frac{3-28+25 i}{9+16}$\n$\\Rightarrow z=\\frac{-25+25 i}{25}$\n$\\Rightarrow$ = -1 + i\n$\\tan \\alpha=\\left|\\frac{\\operatorname{Im}(z)}{\\operatorname{Re}(z)}\\right|$\n= 1\n$\\Rightarrow \\alpha=\\frac{\\pi}4$\nsince, z lies in the second quadrant.\nTherefore amp (z) $=\\pi-a$\n$=\\pi-\\frac{\\pi}{4}$\n$=\\frac{3 \\pi}{4}$"
+        },
+        {
+          "questionID": 284817,
+          "question": "The 10th common term between the series 3 + 7 + 11 + ... and 1 + 6 + 11 + ... is:",
+          "question_raw": "<p>The 10th common term between the series 3 + 7 + 11 + ... and 1 + 6 + 11 + ... is:</p>",
+          "options": [
+            {
+              "id": 407081,
+              "text": "201",
+              "is_correct": false
+            },
+            {
+              "id": 407079,
+              "text": "193",
+              "is_correct": false
+            },
+            {
+              "id": 407078,
+              "text": "191",
+              "is_correct": true
+            },
+            {
+              "id": 407080,
+              "text": "211",
+              "is_correct": false
+            }
+          ],
+          "correct_option_ids": [
+            407078
+          ],
+          "correct_option_texts": [
+            "191"
+          ],
+          "explanation": "The first common term is 11.\nNow, the next common term is obtained by adding L.C.M. of the common difference 4 and 5, i.e., 20.\nThus, 10^th common term = T_10 of the AP whose a = 11 and d = 20\nT_10 = a + 9d = 11 + 9 (20) = 191"
+        },
+        {
+          "questionID": 18342,
+          "question": "Let A = {1, 2, 3, 4} then total number of subsets of A are given by",
+          "question_raw": "<p>Let A = {1, 2, 3, 4}&nbsp;then total number of subsets of A are given by</p>",
+          "options": [
+            {
+              "id": 28569,
+              "text": "8",
+              "is_correct": false
+            },
+            {
+              "id": 28571,
+              "text": "12",
+              "is_correct": false
+            },
+            {
+              "id": 28568,
+              "text": "16",
+              "is_correct": true
+            },
+            {
+              "id": 28570,
+              "text": "4",
+              "is_correct": false
+            }
+          ],
+          "correct_option_ids": [
+            28568
+          ],
+          "correct_option_texts": [
+            "16"
+          ],
+          "explanation": "Total no. of subsets = 2^n = 2^4 = 16\nHere n is the Cardinal no of the given set."
+        },
+        {
+          "questionID": 292380,
+          "question": "The range of the function f(x) $=\\frac{x+2}{|x+2|}, x \\neq-2$ is",
+          "question_raw": "<p>The range of the function f(x)&nbsp;&nbsp;<span class=\"math-tex\">{tex}=\\frac{x+2}{|x+2|}, x \\neq-2{/tex}</span> is</p>",
+          "options": [
+            {
+              "id": 417246,
+              "text": "$(0, \\infty)$",
+              "is_correct": false
+            },
+            {
+              "id": 417244,
+              "text": "{-1, 0, 1 }",
+              "is_correct": false
+            },
+            {
+              "id": 417243,
+              "text": "{-1, 1}",
+              "is_correct": true
+            },
+            {
+              "id": 417245,
+              "text": "{1}",
+              "is_correct": false
+            }
+          ],
+          "correct_option_ids": [
+            417243
+          ],
+          "correct_option_texts": [
+            "{-1, 1}"
+          ],
+          "explanation": "We have $f(x)=\\frac{x+2}{|x+2|}$\nwhen x > -2,\nf(x) = $\\frac{x+2}{x+2}=1$\nWhen x < -2\nWe have $=\\frac{x+2}{-(x+2)}$ = -1\nR(f) = {-1, 1}"
+        },
+        {
+          "questionID": 291924,
+          "question": "The value of (1 + i)^4 + (1 - i)^4 is",
+          "question_raw": "<p>The value of (1 + i)<sup>4</sup> + (1 - i)<sup>4</sup> is</p>",
+          "options": [
+            {
+              "id": 416686,
+              "text": "-4",
+              "is_correct": false
+            },
+            {
+              "id": 416685,
+              "text": "-8",
+              "is_correct": true
+            },
+            {
+              "id": 416683,
+              "text": "8",
+              "is_correct": false
+            },
+            {
+              "id": 416684,
+              "text": "4",
+              "is_correct": false
+            }
+          ],
+          "correct_option_ids": [
+            416685
+          ],
+          "correct_option_texts": [
+            "-8"
+          ],
+          "explanation": "-8\nUsing a^4 + b^4 = (a^2 + b^2) - 2a^2b^2\n(1 + i)^4 + (1 - i)^4\n= ((1 + i)^2 + (1 - i)^2)^2 - 2(1 + i)^2 (1 - i)^2\n= (1 + i2 + 2i + 1 + i^2 - 2i)^2 - 2(1 + i^2 + 2i) (1 + i^2 - 2i)\n= (1 - 1 + 2i + 1 - 1 - 2i)^2 - 2(1 - 1 + 2i) (1 - 1 - 2i)\n= (0) - 2(2i) (-2i) ($\\because$ i^2 = -1)\n= 8i^2\n= -8"
+        },
+        {
+          "questionID": 18935,
+          "question": "The next term of the sequence 1, 3, 6, 10, …. is",
+          "question_raw": "<p>The next term of the sequence 1, 3, 6, 10, &hellip;. is</p>",
+          "options": [
+            {
+              "id": 30941,
+              "text": "13",
+              "is_correct": false
+            },
+            {
+              "id": 30940,
+              "text": "14",
+              "is_correct": false
+            },
+            {
+              "id": 30939,
+              "text": "15",
+              "is_correct": true
+            },
+            {
+              "id": 30942,
+              "text": "16",
+              "is_correct": false
+            }
+          ],
+          "correct_option_ids": [
+            30939
+          ],
+          "correct_option_texts": [
+            "15"
+          ],
+          "explanation": "In this sequence the n^th term is, a_n = 1 + 2 + 3 + .....+ n\nSo, for n = 5, a_5 = 1 + 2 + 3 + 4 + 5"
+        },
+        {
+          "questionID": 18951,
+          "question": "Sum of first 5 terms of an A.P. is one fourth of the sum of next five terms. If the first term = 2, then the common difference of the A.P. is",
+          "question_raw": "<p>Sum of first 5 terms of an A.P. is one fourth of the sum of next five terms. If the first term = 2, then the common difference of the A.P. is</p>",
+          "options": [
+            {
+              "id": 31004,
+              "text": "6",
+              "is_correct": false
+            },
+            {
+              "id": 31005,
+              "text": "3",
+              "is_correct": false
+            },
+            {
+              "id": 31003,
+              "text": "- 6",
+              "is_correct": true
+            },
+            {
+              "id": 31006,
+              "text": "-3",
+              "is_correct": false
+            }
+          ],
+          "correct_option_ids": [
+            31003
+          ],
+          "correct_option_texts": [
+            "- 6"
+          ],
+          "explanation": "Given a = 2\nLet d be the common difference of the A.P.\nGiven S_5 = $\\frac{1}{4}\\left[S_{10}-S_{5}\\right]$ ....(i)\nWe have $\\frac{n}{2}[2 a+(n-1) d]$ \n$\\therefore$ S_5 = $\\frac{5}{2}[4+4 d]$ = 20 + 45d ....(iii)\nSo S_10 - S_5 = 10 + 35d ....(ii)\nFrom (i) and (ii) we get 10 + 10d = $\\frac{1}{4}[10+35 d]$ \n$\\Rightarrow$ 40 + 40d - 10 - 35d = 0\n$\\Rightarrow$ 5d = -30\n$\\Rightarrow$ d = -6"
+        }
+      ]
+    },
+    {
+      "sectionName": "Section C",
+      "sectionID": 650,
+      "questions": [
+        {
+          "questionID": 18325,
+          "question": "Let U = {1, 2, 3, 4, 5, 6, 7, 8, 9, 10}, A = {1, 2, 5}, B = {6, 7}. Then A $\\cap$ B' is",
+          "question_raw": "<p>Let U = {1, 2, 3, 4, 5, 6, 7, 8, 9, 10}, A = {1, 2, 5}, B = {6, 7}. Then A&nbsp;<span class=\"math-tex\">{tex}\\cap{/tex}</span>&nbsp;B&#39;&nbsp;is</p>",
+          "options": [
+            {
+              "id": 28503,
+              "text": "B’",
+              "is_correct": false
+            },
+            {
+              "id": 28502,
+              "text": "A’",
+              "is_correct": false
+            },
+            {
+              "id": 28500,
+              "text": "A",
+              "is_correct": true
+            },
+            {
+              "id": 28501,
+              "text": "B",
+              "is_correct": false
+            }
+          ],
+          "correct_option_ids": [
+            28500
+          ],
+          "correct_option_texts": [
+            "A"
+          ],
+          "explanation": "Given U = {1, 2, 3, 4, 5, 6, 7, 8, 9, 10}, A = {1, 2, 5}, B = {6, 7}\nB' = {1, 2, 3, 4, 5, 8, 9, 10}\nA $\\cap$ B' = {1, 2, 5} = A"
+        },
+        {
+          "questionID": 292253,
+          "question": "If 2 f (x) - $3 f\\left(\\frac{1}{x}\\right)=x^{2}$ (x $\\ne$ 0) Then f(2) is equal to",
+          "question_raw": "<p>If 2 f (x) -&nbsp;<span class=\"math-tex\">{tex}3 f\\left(\\frac{1}{x}\\right)=x^{2}{/tex}</span>&nbsp;(x&nbsp;<span class=\"math-tex\">{tex}\\ne{/tex}</span> 0) Then f(2)&nbsp; is equal to</p>",
+          "options": [
+            {
+              "id": 417051,
+              "text": "$-\\frac{7}{4}$",
+              "is_correct": true
+            },
+            {
+              "id": 417054,
+              "text": "2",
+              "is_correct": false
+            },
+            {
+              "id": 417052,
+              "text": "$\\frac{5}{2}$",
+              "is_correct": false
+            },
+            {
+              "id": 417053,
+              "text": "-1",
+              "is_correct": false
+            }
+          ],
+          "correct_option_ids": [
+            417051
+          ],
+          "correct_option_texts": [
+            "$-\\frac{7}{4}$"
+          ],
+          "explanation": "$2 f(x)-3 f\\left(\\frac{1}{x}\\right)=x^{2} $ .... (1)\nReplace x by 1/x in eqn 1)\n$2 f\\left(\\frac{1}{x}\\right)-3 f(x)=\\frac{1}{x^{2}} $ ... (2)\nMultiply eqn 1 by 2 and eqn 2 by 3 and add them .\nOn adding we get,\n$-5 f(x)=2 x^{2}+\\frac{3}{x^{2}}$\n$f(x)=\\frac{-1}{5}\\left(2 x^{2}+\\frac{3}{x^{2}}\\right)$\n$f(2)=\\frac{-1}{5}\\left(2 \\times 2^{2}+\\frac{3}{2^{2}}\\right)=\\frac{-1}{5}\\left(8+\\frac{3}{4}\\right)$\n$=\\frac{-1}{5}\\left(\\frac{35}{4}\\right)=\\frac{-7}{4}$"
+        },
+        {
+          "questionID": 18643,
+          "question": "If z = x + iy ; x, y $\\in $ R then :",
+          "question_raw": "<p>If z = x + iy ; x, y <span class=\"math-tex\">{tex}\\in {/tex}</span> R then :</p>",
+          "options": [
+            {
+              "id": 29773,
+              "text": "$z\\bar z > {\\left| z \\right|^2}$",
+              "is_correct": false
+            },
+            {
+              "id": 29775,
+              "text": "$z\\bar z \\ne {\\left| z \\right|^2}$",
+              "is_correct": false
+            },
+            {
+              "id": 29772,
+              "text": "$z\\bar z = {\\left| z \\right|^2}$",
+              "is_correct": true
+            },
+            {
+              "id": 29774,
+              "text": "$z\\bar z < {\\left| z \\right|^2}$",
+              "is_correct": false
+            }
+          ],
+          "correct_option_ids": [
+            29772
+          ],
+          "correct_option_texts": [
+            "$z\\bar z = {\\left| z \\right|^2}$"
+          ],
+          "explanation": "If z = x + iy then $\\bar { Z }$ = x - iy\nNow $z \\bar{z}$ = (x + iy) $\\cdot$ (x - iy) = x^2 + y^2 = |z|^2 [$\\because$ |z| = $\\sqrt{x^{2}+y^{2}}$]"
+        },
+        {
+          "questionID": 295619,
+          "question": "The sum to n terms of the series $\\frac{1}{\\sqrt{1}+\\sqrt{3}}$ + $\\frac{1}{\\sqrt{3}+\\sqrt{5}}$ + $\\frac{1}{\\sqrt{5}+\\sqrt{7}}$ + ...... is",
+          "question_raw": "<p>The sum to n terms of the series&nbsp;<span class=\"math-tex\">{tex}\\frac{1}{\\sqrt{1}+\\sqrt{3}}{/tex}</span>&nbsp;+&nbsp;<span class=\"math-tex\">{tex}\\frac{1}{\\sqrt{3}+\\sqrt{5}}{/tex}</span>&nbsp;+&nbsp;<span class=\"math-tex\">{tex}\\frac{1}{\\sqrt{5}+\\sqrt{7}}{/tex}</span>&nbsp;+ ...... is</p>",
+          "options": [
+            {
+              "id": 420356,
+              "text": "$\\sqrt{2 n+1}$",
+              "is_correct": false
+            },
+            {
+              "id": 420359,
+              "text": "$\\frac{1}{2}\\{\\sqrt{2 n+1}-1\\}$",
+              "is_correct": true
+            },
+            {
+              "id": 420357,
+              "text": "$\\frac{1}{2} \\sqrt{2 n+1}$",
+              "is_correct": false
+            },
+            {
+              "id": 420358,
+              "text": "$\\sqrt{2 n+1}-1$",
+              "is_correct": false
+            }
+          ],
+          "correct_option_ids": [
+            420359
+          ],
+          "correct_option_texts": [
+            "$\\frac{1}{2}\\{\\sqrt{2 n+1}-1\\}$"
+          ],
+          "explanation": "Let T_n be the nth term of the given series.\nThus, we have:\nT_n = $\\frac{1}{\\sqrt{2 n-1}+\\sqrt{2 n+1}}$ = $\\frac{\\sqrt{2 n+1}-\\sqrt{2 n-1}}{2}$\nNow,we calculate the sum\nLet S_n be the n term of the given series.\nThus, we have:\nS_n = $\\sum_{k=1}^{n} T_{k}$\n= $\\sum_{k=1}^{n}$ $\\left(\\frac{\\sqrt{2 k+1}-\\sqrt{2 k-1}}{2}\\right)$\n= $\\frac{1}{2}$ $\\sum_{k=1}^{n}$ $(\\sqrt{2 k+1}-\\sqrt{2 k-1})$\n= $\\frac{1}{2}$ $[(\\sqrt{3}-\\sqrt{1})+(\\sqrt{5}-\\sqrt{3})$ + $(\\sqrt{7}-\\sqrt{5})+\\ldots+$ $(\\sqrt{2 n+1}-\\sqrt{2 n-1})]$\n= $\\frac{1}{2}$ $\\{(-1)+\\sqrt{2 n+1}\\}$\n= $\\frac{1}{2}$ $\\{\\sqrt{2 n+1}-1\\}$"
+        },
+        {
+          "questionID": 19419,
+          "question": "The G.M. of the numbers 4, 8, 16 is",
+          "question_raw": "<p>The G.M. of the numbers 4, 8, 16 is</p>\r\n",
+          "options": [
+            {
+              "id": 32878,
+              "text": "28",
+              "is_correct": false
+            },
+            {
+              "id": 32876,
+              "text": "$\\frac{28}{3}$",
+              "is_correct": false
+            },
+            {
+              "id": 32877,
+              "text": "$\\frac{28}{7}$",
+              "is_correct": false
+            },
+            {
+              "id": 32875,
+              "text": "8",
+              "is_correct": true
+            }
+          ],
+          "correct_option_ids": [
+            32875
+          ],
+          "correct_option_texts": [
+            "8"
+          ],
+          "explanation": "G.M between two numbers a and b is given by,\nG.M = $\\sqrt{a b}$ \n= $\\sqrt{4 \\times 16}$ = $\\sqrt{64}$ = 8"
+        },
+        {
+          "questionID": 595922,
+          "question": "Instructions for Question 46 to 50:\nA parking lot in an IT company is triangular shaped with two of its vertices at B(-2, 0) and C(1, 12). The third vertex A is at mid point of the line joining the points (1, 1) and (3, 11).\nThe line obtained in (iv) divides the parking lot in two unequal areas. Volunteers are asked to put posters on Child Labour and Education for All in these two areas. Suggest which posters should be put up in which area of the parking lot.",
+          "question_raw": "<b>Instructions for Question 46 to 50:</b><br><p>A parking lot in an IT company is triangular shaped with two of its vertices at B(-2, 0)&nbsp;and C(1, 12). The third vertex A&nbsp;is at mid point of the line joining the points (1, 1)&nbsp;and (3, 11).<br />\n<img alt=\"\" data-imgur-src=\"GV6dfEf.png\" src=\"https://media-mycbseguide.s3.amazonaws.com/images/imgur/1632316533-3zwvh8.jpg\" style=\"width: 280px; height: 194px;\" /></p><br><p>The line obtained in (iv) divides the parking lot in two unequal areas. Volunteers are asked to put posters on Child Labour&nbsp;and Education for All&nbsp;in these two areas. Suggest which posters should be put up in which area of the parking lot.</p>",
+          "options": [
+            {
+              "id": 1181278,
+              "text": "Child Labour deserves more space",
+              "is_correct": false
+            },
+            {
+              "id": 1181279,
+              "text": "Education for All deserves more space",
+              "is_correct": false
+            },
+            {
+              "id": 1181280,
+              "text": "Both should be given equal space",
+              "is_correct": true
+            },
+            {
+              "id": 1181281,
+              "text": "No poster should be put up",
+              "is_correct": false
+            }
+          ],
+          "correct_option_ids": [
+            1181280
+          ],
+          "correct_option_texts": [
+            "Both should be given equal space"
+          ],
+          "explanation": "Both are socially relevant topics and are like the two sides of the same coin. Both the poster should be treated equally."
+        },
+        {
+          "questionID": 595924,
+          "question": "Instructions for Question 46 to 50:\nA parking lot in an IT company is triangular shaped with two of its vertices at B(-2, 0) and C(1, 12). The third vertex A is at mid point of the line joining the points (1, 1) and (3, 11).\nFind the equation of line perpendicular to BC and passing through the vertex A.",
+          "question_raw": "<b>Instructions for Question 46 to 50:</b><br><p>A parking lot in an IT company is triangular shaped with two of its vertices at B(-2, 0)&nbsp;and C(1, 12). The third vertex A&nbsp;is at mid point of the line joining the points (1, 1)&nbsp;and (3, 11).<br />\n<img alt=\"\" data-imgur-src=\"GV6dfEf.png\" src=\"https://media-mycbseguide.s3.amazonaws.com/images/imgur/1632316533-3zwvh8.jpg\" style=\"width: 280px; height: 194px;\" /></p><br><p>Find the equation of line perpendicular to BC&nbsp;and passing through the vertex A.</p>",
+          "options": [
+            {
+              "id": 1181286,
+              "text": "x - 4y = 26",
+              "is_correct": false
+            },
+            {
+              "id": 1181287,
+              "text": "x + 2y = 26",
+              "is_correct": false
+            },
+            {
+              "id": 1181288,
+              "text": "x - 2y = 26",
+              "is_correct": false
+            },
+            {
+              "id": 1181289,
+              "text": "x + 4y = 26",
+              "is_correct": true
+            }
+          ],
+          "correct_option_ids": [
+            1181289
+          ],
+          "correct_option_texts": [
+            "x + 4y = 26"
+          ],
+          "explanation": "Equation of line perpendicular to 4x - y + 8 = 0 and passing through A(2, 6)\ny - 6 = $\\frac{-1}{4}$ (x - 2)\n$\\Rightarrow$ 4y - 24 = -x + 2\n$\\Rightarrow$ x + 4y = 26"
+        },
+        {
+          "questionID": 595926,
+          "question": "Instructions for Question 46 to 50:\nA parking lot in an IT company is triangular shaped with two of its vertices at B(-2, 0) and C(1, 12). The third vertex A is at mid point of the line joining the points (1, 1) and (3, 11).\nFind the equation of line parallel to BC and passing through the vertex A.",
+          "question_raw": "<b>Instructions for Question 46 to 50:</b><br><p>A parking lot in an IT company is triangular shaped with two of its vertices at B(-2, 0)&nbsp;and C(1, 12). The third vertex A&nbsp;is at mid point of the line joining the points (1, 1)&nbsp;and (3, 11).<br />\n<img alt=\"\" data-imgur-src=\"GV6dfEf.png\" src=\"https://media-mycbseguide.s3.amazonaws.com/images/imgur/1632316533-3zwvh8.jpg\" style=\"width: 280px; height: 194px;\" /></p><br><p>Find the equation of line parallel to BC and passing through the vertex A.</p>",
+          "options": [
+            {
+              "id": 1181294,
+              "text": "4x - y = 2",
+              "is_correct": true
+            },
+            {
+              "id": 1181295,
+              "text": "4y - x = 2",
+              "is_correct": false
+            },
+            {
+              "id": 1181297,
+              "text": "4y - x = -2",
+              "is_correct": false
+            },
+            {
+              "id": 1181296,
+              "text": "4x - y = -2",
+              "is_correct": false
+            }
+          ],
+          "correct_option_ids": [
+            1181294
+          ],
+          "correct_option_texts": [
+            "4x - y = 2"
+          ],
+          "explanation": "Equation of line parallel to 4x - y + 8 = 0 and passing through A(2, 6) is:\ny - 6 = 4(x - 2)\n$\\Rightarrow$ 4x - y - 2 = 0\n$\\Rightarrow$ 4x - y = 2"
+        },
+        {
+          "questionID": 595928,
+          "question": "Instructions for Question 46 to 50:\nA parking lot in an IT company is triangular shaped with two of its vertices at B(-2, 0) and C(1, 12). The third vertex A is at mid point of the line joining the points (1, 1) and (3, 11).\nFind the equation of line that passes through the points B(-2, 0) and C(1, 12).",
+          "question_raw": "<b>Instructions for Question 46 to 50:</b><br><p>A parking lot in an IT company is triangular shaped with two of its vertices at B(-2, 0)&nbsp;and C(1, 12). The third vertex A&nbsp;is at mid point of the line joining the points (1, 1)&nbsp;and (3, 11).<br />\n<img alt=\"\" data-imgur-src=\"GV6dfEf.png\" src=\"https://media-mycbseguide.s3.amazonaws.com/images/imgur/1632316533-3zwvh8.jpg\" style=\"width: 280px; height: 194px;\" /></p><br><p>Find the equation of line that passes through the points B(-2, 0) and C(1, 12).</p>",
+          "options": [
+            {
+              "id": 1181305,
+              "text": "4y - 4x = 8",
+              "is_correct": false
+            },
+            {
+              "id": 1181304,
+              "text": "4x - y + 8 = 0",
+              "is_correct": true
+            },
+            {
+              "id": 1181302,
+              "text": "y + 4x = 8",
+              "is_correct": false
+            },
+            {
+              "id": 1181303,
+              "text": "4x - y - 8 = 0",
+              "is_correct": false
+            }
+          ],
+          "correct_option_ids": [
+            1181304
+          ],
+          "correct_option_texts": [
+            "4x - y + 8 = 0"
+          ],
+          "explanation": "Equation of line through B(-2, 0) and C(1, 12) is given by $\\frac{y-y_{1}}{y_{2}-y_{1}}=\\frac{x-x_{1}}{x_{2}-x_{1}}$\n$\\Rightarrow \\frac{y-0}{12-0}=\\frac{x+2}{1+2}$\n$\\Rightarrow \\frac{y}{12}=\\frac{x+2}{3}$\n$\\Rightarrow$ 4x - y + 8 = 0"
+        },
+        {
+          "questionID": 595930,
+          "question": "Instructions for Question 46 to 50:\nA parking lot in an IT company is triangular shaped with two of its vertices at B(-2, 0) and C(1, 12). The third vertex A is at mid point of the line joining the points (1, 1) and (3, 11).\nFind the coordinates of A.",
+          "question_raw": "<b>Instructions for Question 46 to 50:</b><br><p>A parking lot in an IT company is triangular shaped with two of its vertices at B(-2, 0)&nbsp;and C(1, 12). The third vertex A&nbsp;is at mid point of the line joining the points (1, 1)&nbsp;and (3, 11).<br />\n<img alt=\"\" data-imgur-src=\"GV6dfEf.png\" src=\"https://media-mycbseguide.s3.amazonaws.com/images/imgur/1632316533-3zwvh8.jpg\" style=\"width: 280px; height: 194px;\" /></p><br><p>Find the coordinates of A.</p>",
+          "options": [
+            {
+              "id": 1181312,
+              "text": "(1, -1)",
+              "is_correct": false
+            },
+            {
+              "id": 1181310,
+              "text": "(-1, -5)",
+              "is_correct": false
+            },
+            {
+              "id": 1181311,
+              "text": "(2, 6)",
+              "is_correct": true
+            },
+            {
+              "id": 1181313,
+              "text": "(-2, -6)",
+              "is_correct": false
+            }
+          ],
+          "correct_option_ids": [
+            1181311
+          ],
+          "correct_option_texts": [
+            "(2, 6)"
+          ],
+          "explanation": "A is the midpoint of line segment joining (1, 1) and (3, 11). By midpoint formula,\nA = $\\left(\\frac{1+3}{2}, \\frac{1+11}{2}\\right)$\n= (2, 6)"
+        }
+      ]
+    }
+  ]
+}

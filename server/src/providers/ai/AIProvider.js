@@ -28,6 +28,24 @@ class AIProvider {
   async answerDoubt(question, lessonContext, history, slideIndex) {
     throw new Error(`${this.constructor.name} must implement answerDoubt()`)
   }
+
+  /**
+   * Classify a student message into one of the 8 teaching intents + language.
+   * @param {string} text
+   * @returns {Promise<{intent:string, language:string, confidence:number}>}
+   */
+  async classifyIntent(text) {
+    throw new Error(`${this.constructor.name} must implement classifyIntent()`)
+  }
+
+  /**
+   * Generate a grounded, teacher-style answer for a classified turn.
+   * @param {Object} args { intent, language, contexts, lesson, history, question, slideIndex }
+   * @returns {Promise<string>}
+   */
+  async generateTeacherResponse(args) {
+    throw new Error(`${this.constructor.name} must implement generateTeacherResponse()`)
+  }
 }
 
 module.exports = AIProvider

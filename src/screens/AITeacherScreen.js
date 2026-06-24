@@ -1,11 +1,11 @@
-import React, { useState, useEffect, useMemo } from 'react';
+import React, { useState, useEffect, useMemo, useRef } from 'react';
 import {
   View, Text, StyleSheet, SafeAreaView, ScrollView,
   TouchableOpacity, StatusBar, TextInput, Platform,
   KeyboardAvoidingView, ActivityIndicator,
 } from 'react-native';
 import { useAuth } from '../context/AuthContext';
-import { generateLesson, askDoubt } from '../api/aiApi';
+import { generateLesson, askAgent, askAgentStream } from '../api/aiApi';
 import KnowledgeAskScreen from './KnowledgeAskScreen';
 import LiveTeachingPlayer from '../components/teacher/LiveTeachingPlayer';
 import TeacherAvatar from '../components/teacher/TeacherAvatar';
@@ -43,6 +43,12 @@ const AITeacherScreen = ({ initialSubject = 'Physics', initialTopic = '', onBack
   const [slides, setSlides] = useState([]);
   const [keyTerms, setKeyTerms] = useState([]);
 
+  // Rolling doubt history for the agent (multi-turn context), capped to keep it light.
+  const historyRef = useRef([]);
+  // Carries the agent's quiz / understanding-check state to the next turn so the
+  // teaching loops (grade my answer, "did you understand?") work across messages.
+  const pendingRef = useRef(null);
+
   useEffect(() => { primeTeacherVoice(); }, []);
   useEffect(() => {
     if (!loading) { setGenStage(0); return undefined; }
@@ -57,6 +63,8 @@ const AITeacherScreen = ({ initialSubject = 'Physics', initialTopic = '', onBack
     if (!t || loading) return;
     setLoading(true);
     setError('');
+    historyRef.current = [];
+    pendingRef.current = null;
     try {
       const payload = { topic: t, subject: activeSubject, gradeLevel: user?.grade || '8' };
       const { lessonId: id, lesson } = await generateLesson(payload);
@@ -71,7 +79,7 @@ const AITeacherScreen = ({ initialSubject = 'Physics', initialTopic = '', onBack
     }
   };
 
-  const newLesson = () => { stopTeacher(); setSlides([]); setLessonId(null); };
+  const newLesson = () => { stopTeacher(); setSlides([]); setLessonId(null); historyRef.current = []; pendingRef.current = null; };
 
   // Stable lesson object so the player's buildScenes() memo isn't invalidated on
   // every re-render of this screen.
@@ -177,8 +185,44 @@ const AITeacherScreen = ({ initialSubject = 'Physics', initialTopic = '', onBack
         lesson={lessonObj}
         ttsOk={SPEECH_OK}
         onAsk={async (q, i) => {
-          const { answer } = await askDoubt(lessonId, { question: q, slideIndex: i });
-          return answer;
+          // Route doubts through the AI Teacher agent: intent → RAG grounding →
+          // teacher-style answer → quality guard. `pending` carries the quiz /
+          // understanding-check state so those loops continue across turns.
+          const res = await askAgent({
+            text: q,
+            subject: activeSubject,
+            gradeLevel: user?.grade || '8',
+            lessonId,
+            slideIndex: i,
+            history: historyRef.current,
+            pending: pendingRef.current,
+          });
+          pendingRef.current = res.pending || null;
+          historyRef.current = [
+            ...historyRef.current,
+            { role: 'USER', content: q },
+            { role: 'ASSISTANT', content: res.answer },
+          ].slice(-12);
+          return res.answer;
+        }}
+        onAskStream={async (q, i, { onDelta }) => {
+          // Streaming variant — the player speaks sentences as they arrive.
+          const res = await askAgentStream({
+            text: q,
+            subject: activeSubject,
+            gradeLevel: user?.grade || '8',
+            lessonId,
+            slideIndex: i,
+            history: historyRef.current,
+            pending: pendingRef.current,
+          }, { onDelta });
+          pendingRef.current = res.pending || null;
+          historyRef.current = [
+            ...historyRef.current,
+            { role: 'USER', content: q },
+            { role: 'ASSISTANT', content: res.answer || '' },
+          ].slice(-12);
+          return res;
         }}
         onExit={handleBack}
         onNewLesson={newLesson}

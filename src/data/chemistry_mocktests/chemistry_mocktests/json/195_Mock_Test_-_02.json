@@ -1,0 +1,2070 @@
+{
+  "test_id": 195,
+  "test_name": "Mock Test - 02",
+  "instruction": "The Question Paper contains three sections.\n Section A has 25 questions. Attempt any 20 questions.\n Section B has 24 questions. Attempt any 20 questions.\n Section C has 6 questions. Attempt any 5 questions.\n All questions carry equal marks.\n There is no negative marking.",
+  "duration_min": 90,
+  "no_of_questions": 55,
+  "question_types": {
+    "MULTIPLE_CHOICE_QUESTION": 1,
+    "MULTIPLE_RESPONSE_QUESTION": 2,
+    "SUBJECTIVE_QUESTION": 5,
+    "FILL_IN_THE_BLANKS_ONLINE": 18,
+    "NUMERICAL_QUESTION": 16,
+    "TRUE_AND_FALSE_ONLINE_QUESTION": 17
+  },
+  "sections": [
+    {
+      "section_name": "Section A",
+      "section_id": 705,
+      "questions": [
+        {
+          "id": 21877,
+          "type": "MCQ",
+          "question": "Maximum number of electrons occupied by s,p, and d orbitals are:",
+          "question_html": "<p>Maximum number of electrons occupied by s,p, and d orbitals&nbsp;are:</p>",
+          "options": [
+            {
+              "id": 42706,
+              "text": "2, 6 and 10",
+              "html": "2, 6 and&nbsp;10",
+              "is_correct": true
+            },
+            {
+              "id": 42707,
+              "text": "2, 2, 8",
+              "html": "2, 2, 8",
+              "is_correct": false
+            },
+            {
+              "id": 42708,
+              "text": "2, 8, 8",
+              "html": "2, 8, 8",
+              "is_correct": false
+            },
+            {
+              "id": 42709,
+              "text": "2, 10, 10",
+              "html": "2, 10, 10",
+              "is_correct": false
+            }
+          ],
+          "correct_options": [
+            "2, 6 and 10"
+          ],
+          "explanation": "s-orbital ml=0, so it can accommodate 2 electron.\n\np-orbital has ml = -1,0,+1. It can accommodate 6 electrons.\n\nd-orbital has ml = -2,-1,0,1,2.It can accommodate 10 electrons.",
+          "solutions": []
+        },
+        {
+          "id": 21802,
+          "type": "MCQ",
+          "question": "Chlorine's (Cl) relative atomic mass is 35.5. this half number is due to",
+          "question_html": "<p>Chlorine&#39;s (Cl) relative atomic mass is 35.5. this half number is due to</p>\r\n",
+          "options": [
+            {
+              "id": 42407,
+              "text": "a half proton",
+              "html": "a half proton",
+              "is_correct": false
+            },
+            {
+              "id": 42406,
+              "text": "isotopes",
+              "html": "isotopes",
+              "is_correct": true
+            },
+            {
+              "id": 42409,
+              "text": "a half electron",
+              "html": "a half electron",
+              "is_correct": false
+            },
+            {
+              "id": 42408,
+              "text": "a half neutron",
+              "html": "a half neutron",
+              "is_correct": false
+            }
+          ],
+          "correct_options": [
+            "isotopes"
+          ],
+          "explanation": "isotopes",
+          "solutions": []
+        },
+        {
+          "id": 21886,
+          "type": "MCQ",
+          "question": "Select the species which are iso-electronic (same number of the electron) with each other.",
+          "question_html": "<p>Select the species which are iso-electronic (same number of the electron) with each other.</p>",
+          "options": [
+            {
+              "id": 42743,
+              "text": "Ne and Ca^(2+)",
+              "html": "Ne&nbsp;&nbsp;and Ca<sup>2+</sup>",
+              "is_correct": false
+            },
+            {
+              "id": 42745,
+              "text": "Cl^(-) and Rb^(+)",
+              "html": "Cl<sup>-</sup> and Rb<sup>+</sup>",
+              "is_correct": false
+            },
+            {
+              "id": 42744,
+              "text": "Rb^(+) and Ca^(2+)",
+              "html": "Rb<sup>+</sup>&nbsp;and Ca<sup>2+</sup>",
+              "is_correct": false
+            },
+            {
+              "id": 42742,
+              "text": "Cl^(- ) and Ca^(2+)",
+              "html": "Cl<sup>-&nbsp;</sup>&nbsp;and Ca<sup>2+</sup>",
+              "is_correct": true
+            }
+          ],
+          "correct_options": [
+            "Cl^(- ) and Ca^(2+)"
+          ],
+          "explanation": "Neutral Cl ( Z=17) has 17 electrons and with the addition of one more electron, it becomes Cl^(-) anion which has 18 electrons.\n\nNeutral Ca (Z=20) has 20 electrons and with the removal of 2 electrons, it becomes Ca^(2+) cation which has 18 electrons.\n\nSince Cl^(- ) and Ca^(2+) both has 18 electrons, so they are isoelectronic.",
+          "solutions": []
+        },
+        {
+          "id": 21993,
+          "type": "MCQ",
+          "question": "Which of the following species have the same shape?",
+          "question_html": "<p>Which of the following species have the same shape?</p>",
+          "options": [
+            {
+              "id": 43170,
+              "text": "O_(3 )and N ${\\text{O}}_2^ - $",
+              "html": "O<sub>3&nbsp;</sub>and N<span class=\"math-tex\">{tex}{\\text{O}}_2^ - {/tex}</span>",
+              "is_correct": true
+            },
+            {
+              "id": 43171,
+              "text": "O_(3) and CO_(2)",
+              "html": "O<sub>3</sub> and CO<sub>2</sub>",
+              "is_correct": false
+            },
+            {
+              "id": 43173,
+              "text": "$ NO_2^ - $ and CCl_(4)",
+              "html": "<span class=\"math-tex\">{tex} NO_2^ - {/tex}</span> and CCl<sub>4</sub>",
+              "is_correct": false
+            },
+            {
+              "id": 43172,
+              "text": "CCl_(4) and $NO_2^ - $",
+              "html": "CCl<sub>4</sub> and <span class=\"math-tex\">{tex}NO_2^ - {/tex}</span>",
+              "is_correct": false
+            }
+          ],
+          "correct_options": [
+            "O_(3 )and N ${\\text{O}}_2^ - $"
+          ],
+          "explanation": "O_(3) and NO_(2)^(-) have same shape i.e planar.",
+          "solutions": []
+        },
+        {
+          "id": 32376,
+          "type": "MCQ",
+          "question": "An oxidation number of +1 is found in all their compounds of one of the below-given options:",
+          "question_html": "<p>An oxidation number of +1 is found in all their compounds of one of the below-given options:</p>",
+          "options": [
+            {
+              "id": 84700,
+              "text": "All alkaline earth metals",
+              "html": "All alkaline earth metals",
+              "is_correct": false
+            },
+            {
+              "id": 84703,
+              "text": "All transition elements",
+              "html": "All transition elements",
+              "is_correct": false
+            },
+            {
+              "id": 84702,
+              "text": "Superoxides",
+              "html": "Superoxides",
+              "is_correct": false
+            },
+            {
+              "id": 84701,
+              "text": "All alkali metals",
+              "html": "All alkali metals",
+              "is_correct": true
+            }
+          ],
+          "correct_options": [
+            "All alkali metals"
+          ],
+          "explanation": "The alkali metals (Group 1) have 1 valence electron. Alkali metals lose this electron to achieve noble gas configuration, and so alkali metals have oxidation number +1.",
+          "solutions": []
+        },
+        {
+          "id": 22332,
+          "type": "MCQ",
+          "question": "Water behaves as an amphoteric substance because:\n\n it has the ability to act as an acid.\n it has the ability to act as a base.\n it has the ability to act as an acid as well as a base.\n it has the ability to oxidize as well as reduce.",
+          "question_html": "<p>Water behaves as an amphoteric substance because:</p>\r\n\r\n<ol start=\"1\" style=\"list-style-type: upper-alpha;\">\r\n\t<li>it has the ability to act as an acid.</li>\r\n\t<li>it has the ability to act as a base.</li>\r\n\t<li>it has the ability to act as an acid as well as a base.</li>\r\n\t<li>it has the ability to oxidize as well as reduce.</li>\r\n</ol>",
+          "options": [
+            {
+              "id": 44528,
+              "text": "Only D is correct",
+              "html": "Only D is correct",
+              "is_correct": false
+            },
+            {
+              "id": 44526,
+              "text": "Only A is correct",
+              "html": "Only A is correct",
+              "is_correct": false
+            },
+            {
+              "id": 44525,
+              "text": "Only C is correct",
+              "html": "Only C is correct",
+              "is_correct": true
+            },
+            {
+              "id": 44527,
+              "text": "Only B is correct",
+              "html": "Only B is correct",
+              "is_correct": false
+            }
+          ],
+          "correct_options": [
+            "Only C is correct"
+          ],
+          "explanation": "An amphoteric compound is a compound that can act either as an acid or as a base in a chemical reaction. The first example of water's amphoteric character is the fact that it can self-ionize to a small extent. A water molecule is capable of donating one of its protons (H^(+)) to a neighbouring water molecule, forming the hydroxide and hydronium ions.\n\n $H_2O+H_2O\\rightleftharpoons H_3O^++OH^-$",
+          "solutions": []
+        },
+        {
+          "id": 22582,
+          "type": "MCQ",
+          "question": "Acid catalysed electrophilic addition reaction to carbon-carbon double bond proceeds in two steps. The first step involves the addition of an H^(+ )to double bond. Name the type of intermediate formed in the first step of the following addition reaction:\n\n ${{\\text{H}}_{\\text{3}}}{\\text{C}}-{\\text{HC }} = {\\text{ C}}{{\\text{H}}_{\\text{2}}} + {\\text{ }}{{\\text{H}}^ + } \\to ?$",
+          "question_html": "<p>Acid catalysed electrophilic addition reaction&nbsp;to carbon-carbon double bond&nbsp;proceeds in two steps. The first step involves the addition of an H<sup>+ </sup>to double bond. Name the type of intermediate formed in the first step of the following addition reaction:<br />\r\n<span class=\"math-tex\">{tex}{{\\text{H}}_{\\text{3}}}{\\text{C}}-{\\text{HC }} = {\\text{ C}}{{\\text{H}}_{\\text{2}}} + {\\text{ }}{{\\text{H}}^ + } \\to ?{/tex}</span></p>",
+          "options": [
+            {
+              "id": 45527,
+              "text": "1° Carbanion",
+              "html": "1&deg; Carbanion",
+              "is_correct": false
+            },
+            {
+              "id": 45526,
+              "text": "2° Carbanion",
+              "html": "2&deg; Carbanion",
+              "is_correct": false
+            },
+            {
+              "id": 45524,
+              "text": "2° Carbocation",
+              "html": "2&deg; Carbocation",
+              "is_correct": true
+            },
+            {
+              "id": 45525,
+              "text": "1° Carbocation",
+              "html": "1&deg; Carbocation",
+              "is_correct": false
+            }
+          ],
+          "correct_options": [
+            "2° Carbocation"
+          ],
+          "explanation": "In this reaction, formation of secondary carbocation takes place by the addition of H^(+) to terminal carbon of carbon-carbon double bond among the two possible carbon atoms. The more stable secondary carbocation formation will take place instead of primary carbocation.",
+          "solutions": []
+        },
+        {
+          "id": 61964,
+          "type": "MCQ",
+          "question": "A person is suffering with fever with a high temperature of 104 °F. What will be his body temperature in °C?",
+          "question_html": "<p>A person is suffering with fever with a high temperature of 104 &deg;F. What will be his body temperature in &deg;C?</p>\r\n",
+          "options": [
+            {
+              "id": 203042,
+              "text": "28 .10 °C",
+              "html": "28 .10 &deg;C",
+              "is_correct": false
+            },
+            {
+              "id": 203041,
+              "text": "32.38 °C",
+              "html": "32.38&nbsp;&deg;C",
+              "is_correct": false
+            },
+            {
+              "id": 203040,
+              "text": "40 °C",
+              "html": "40 &deg;C",
+              "is_correct": true
+            },
+            {
+              "id": 203043,
+              "text": "18.68 °C",
+              "html": "18.68 &deg;C",
+              "is_correct": false
+            }
+          ],
+          "correct_options": [
+            "40 °C"
+          ],
+          "explanation": "104°F − 32) × 5/9 = 40°C",
+          "solutions": []
+        },
+        {
+          "id": 61981,
+          "type": "MCQ",
+          "question": "Charge on the electron was determined by",
+          "question_html": "<p>Charge on the electron was determined by</p>",
+          "options": [
+            {
+              "id": 203107,
+              "text": "R.A. Millikan's oil drop experiment",
+              "html": "R.A. Millikan&#39;s oil drop experiment",
+              "is_correct": true
+            },
+            {
+              "id": 203108,
+              "text": "cathode ray discharge tube experiments",
+              "html": "cathode ray discharge tube experiments",
+              "is_correct": false
+            },
+            {
+              "id": 203110,
+              "text": "Electrical discharge carried out in the modified cathode ray tube",
+              "html": "Electrical discharge carried out in the modified cathode ray tube",
+              "is_correct": false
+            },
+            {
+              "id": 203109,
+              "text": "x-ray tube experiments",
+              "html": "x-ray tube experiments",
+              "is_correct": false
+            }
+          ],
+          "correct_options": [
+            "R.A. Millikan's oil drop experiment"
+          ],
+          "explanation": "In 1909, Robert Millikan and Harvey Fletcher conducted the oil drop experiment to determine the charge of an electron. They suspended tiny charged droplets of oil between two metal electrodes by balancing downward gravitational force with upward drag and electric forces.\n\nThe experiment helped earn Millikan a Nobel prize in 1923",
+          "solutions": []
+        },
+        {
+          "id": 21870,
+          "type": "MCQ",
+          "question": "Choose one of the following in the order of increasing radii:",
+          "question_html": "<p>Choose one of the following in the order of increasing radii:</p>",
+          "options": [
+            {
+              "id": 42679,
+              "text": "I^(-) < I^(+ )< I",
+              "html": "I<sup>-</sup>&nbsp;&lt; I<sup>+ </sup>&lt;&nbsp;I",
+              "is_correct": false
+            },
+            {
+              "id": 42681,
+              "text": "I < I^(+ )< I^(-)",
+              "html": "I &lt; I<sup>+ </sup>&lt; I<sup>-</sup>",
+              "is_correct": false
+            },
+            {
+              "id": 42678,
+              "text": "I^(-) > I > I^(+)",
+              "html": "I<sup>-</sup>&nbsp;&gt; I &gt; I<sup>+</sup>",
+              "is_correct": true
+            },
+            {
+              "id": 42680,
+              "text": "I^(+ )< I^(-) < I",
+              "html": "I<sup>+ </sup>&lt; I<sup>-</sup>&nbsp;&lt; I",
+              "is_correct": false
+            }
+          ],
+          "correct_options": [
+            "I^(-) > I > I^(+)"
+          ],
+          "explanation": "The size of the anion is greater than the size of the parent atom and the size of the cation. As the –ve charge of anion increases ionic radii increases due to a decrease in the effective nuclear charge and vice versa.",
+          "solutions": []
+        },
+        {
+          "id": 68966,
+          "type": "MCQ",
+          "question": "In SO_(2) molecule, S atom is",
+          "question_html": "<p>In SO<sub>2</sub>&nbsp;molecule, S atom is</p>",
+          "options": [
+            {
+              "id": 210834,
+              "text": "sp^(3) hybridized",
+              "html": "sp<sup>3</sup> hybridized",
+              "is_correct": false
+            },
+            {
+              "id": 210835,
+              "text": "sp hybridized",
+              "html": "sp hybridized",
+              "is_correct": false
+            },
+            {
+              "id": 210836,
+              "text": "dsp^(2) hybridized",
+              "html": "dsp<sup>2</sup> hybridized",
+              "is_correct": false
+            },
+            {
+              "id": 210833,
+              "text": "sP^(2) hybridized",
+              "html": "sP<sup>2</sup> hybridized",
+              "is_correct": true
+            }
+          ],
+          "correct_options": [
+            "sP^(2) hybridized"
+          ],
+          "explanation": "The Lewis Structure of SO_( 2).\n\n ![image](https://media-mycbseguide.s3.amazonaws.com/images/cbse/review/ques_68430.gif) \n\nthere are 3 things or regions around the central atom. 1 single bond, 1 double bond and a lone pair.\n\nThe hybridization for S is sp^(2 )Where: s has 1 orbital, p has 3 orbitals, d has 5 orbitals, and f has 7 orbitals.",
+          "solutions": []
+        },
+        {
+          "id": 22296,
+          "type": "MCQ",
+          "question": "The oxidation state of iron in K_(4)[Fe (CN)_(6)] is:",
+          "question_html": "<p>The oxidation state of iron in K<sub>4</sub>[Fe&nbsp;(CN)<sub>6</sub>] is:</p>",
+          "options": [
+            {
+              "id": 44385,
+              "text": "1",
+              "html": "1",
+              "is_correct": false
+            },
+            {
+              "id": 44383,
+              "text": "3",
+              "html": "3",
+              "is_correct": false
+            },
+            {
+              "id": 44382,
+              "text": "+2",
+              "html": "+2",
+              "is_correct": true
+            },
+            {
+              "id": 44384,
+              "text": "4",
+              "html": "4",
+              "is_correct": false
+            }
+          ],
+          "correct_options": [
+            "+2"
+          ],
+          "explanation": "K_(4 )[Fe(CN)_(6)]\n\n4(+1) + x + 6(-1) = 0\n\nHence x = +2",
+          "solutions": []
+        },
+        {
+          "id": 22354,
+          "type": "MCQ",
+          "question": "Which one of the following given reactions is used to increase the yield of dihydrogen obtained from the coal gasification reaction?",
+          "question_html": "<p>Which one of the following given reactions is used to increase the yield of dihydrogen obtained from the coal gasification reaction?</p>",
+          "options": [
+            {
+              "id": 44615,
+              "text": "${{\\text{H}}_{\\text{2}}}{{\\text{O}}_{\\text{2}}} + {\\text{ 2HI }} \\to {\\text{ }}{{\\text{I}}_{\\text{2}}} + {\\text{ 2}}{{\\text{H}}_{\\text{2}}}{\\text{O}}$",
+              "html": "<span class=\"math-tex\">{tex}{{\\text{H}}_{\\text{2}}}{{\\text{O}}_{\\text{2}}} + {\\text{ 2HI }} \\to {\\text{ }}{{\\text{I}}_{\\text{2}}} + {\\text{ 2}}{{\\text{H}}_{\\text{2}}}{\\text{O}}{/tex}</span>",
+              "is_correct": false
+            },
+            {
+              "id": 44613,
+              "text": "${\\text{CO }}\\left( {\\text{g}} \\right){\\text{ }} + {\\text{ }}{{\\text{H}}_{\\text{2}}}{\\text{O}}\\left( {\\text{g}} \\right){\\text{ }} \\to {\\text{ C}}{{\\text{O}}_{\\text{2}}} + {\\text{ }}{{\\text{H}}_{\\text{2}}}{\\text{O}}$",
+              "html": "<span class=\"math-tex\">{tex}{\\text{CO }}\\left( {\\text{g}} \\right){\\text{ }} + {\\text{ }}{{\\text{H}}_{\\text{2}}}{\\text{O}}\\left( {\\text{g}} \\right){\\text{ }} \\to {\\text{ C}}{{\\text{O}}_{\\text{2}}} + {\\text{ }}{{\\text{H}}_{\\text{2}}}{\\text{O}}{/tex}</span>",
+              "is_correct": false
+            },
+            {
+              "id": 44614,
+              "text": "$CH_4 + H_2O\\to CO+ H_2$",
+              "html": "<span class=\"math-tex\">{tex}CH_4 + H_2O\\to CO+ H_2{/tex}</span>",
+              "is_correct": false
+            },
+            {
+              "id": 44612,
+              "text": "${\\text{C}}\\left( {\\text{s}} \\right){\\text{ }} + {\\text{ }}{{\\text{H}}_{\\text{2}}}{\\text{O}}\\left( {\\text{g}} \\right){\\text{ }} \\to {\\text{ CO }}\\left( {\\text{g}} \\right){\\text{ }} + {\\text{ }}{{\\text{H}}_{\\text{2}}}\\left( {\\text{g}} \\right)$",
+              "html": "<span class=\"math-tex\">{tex}{\\text{C}}\\left( {\\text{s}} \\right){\\text{ }} + {\\text{ }}{{\\text{H}}_{\\text{2}}}{\\text{O}}\\left( {\\text{g}} \\right){\\text{ }} \\to {\\text{ CO }}\\left( {\\text{g}} \\right){\\text{ }} + {\\text{ }}{{\\text{H}}_{\\text{2}}}\\left( {\\text{g}} \\right){/tex}</span>",
+              "is_correct": true
+            }
+          ],
+          "correct_options": [
+            "${\\text{C}}\\left( {\\text{s}} \\right){\\text{ }} + {\\text{ }}{{\\text{H}}_{\\text{2}}}{\\text{O}}\\left( {\\text{g}} \\right){\\text{ }} \\to {\\text{ CO }}\\left( {\\text{g}} \\right){\\text{ }} + {\\text{ }}{{\\text{H}}_{\\text{2}}}\\left( {\\text{g}} \\right)$"
+          ],
+          "explanation": "The reaction which is used to increase the yield of hydrogen is ${\\text{C}}\\left( {\\text{s}} \\right){\\text{ }} + {\\text{ }}{{\\text{H}}_{\\text{2}}}{\\text{O}}\\left( {\\text{g}} \\right){\\text{ }} \\to {\\text{ CO }}\\left( {\\text{g}} \\right){\\text{ }} + {\\text{ }}{{\\text{H}}_{\\text{2}}}\\left( {\\text{g}} \\right)$ .",
+          "solutions": []
+        },
+        {
+          "id": 69578,
+          "type": "MCQ",
+          "question": "Which of the following compound will exhibit cis-trans isomerism?",
+          "question_html": "<p>Which of the following compound will exhibit cis-trans isomerism?</p>",
+          "options": [
+            {
+              "id": 211247,
+              "text": "2-butyne",
+              "html": "2-butyne",
+              "is_correct": false
+            },
+            {
+              "id": 211248,
+              "text": "1-butene",
+              "html": "1-butene",
+              "is_correct": false
+            },
+            {
+              "id": 211249,
+              "text": "2-butanol",
+              "html": "2-butanol",
+              "is_correct": false
+            },
+            {
+              "id": 211246,
+              "text": "2-butene",
+              "html": "2-butene",
+              "is_correct": true
+            }
+          ],
+          "correct_options": [
+            "2-butene"
+          ],
+          "explanation": "2-butene has the following cis and transforms\n\n ![image](https://media-mycbseguide.s3.amazonaws.com/images/imgur/DYtdhjw.png) \n\nIn cis-2-butene the same groups (-CH_(3)) lie on the same side of the double bond whereas in trans-2-butene same groups lie on the opposite side of the double bond.",
+          "solutions": []
+        },
+        {
+          "id": 61921,
+          "type": "Numerical/MCQ",
+          "question": "According to Gay Lussac’s Law of Gaseous Volumes, \" when gases combine or are produced in a chemical reaction they do so in a ______ ratio by volumes provided all gases are at the same temperature and pressure.\"",
+          "question_html": "<p>According to Gay Lussac&rsquo;s Law of Gaseous Volumes, &quot; when gases combine or are produced in a chemical reaction they do so in a ______&nbsp;ratio &nbsp;by volumes provided all gases are at the same temperature and pressure.&quot;</p>\r\n",
+          "options": [
+            {
+              "id": 202868,
+              "text": "simple",
+              "html": "simple",
+              "is_correct": true
+            },
+            {
+              "id": 202870,
+              "text": "equal",
+              "html": "equal",
+              "is_correct": false
+            },
+            {
+              "id": 202869,
+              "text": "inverse",
+              "html": "inverse",
+              "is_correct": false
+            },
+            {
+              "id": 202871,
+              "text": "uncertain",
+              "html": "uncertain",
+              "is_correct": false
+            }
+          ],
+          "correct_options": [
+            "simple"
+          ],
+          "explanation": "Gay lussac’s law states that when gases combine or are produced in a chemical reaction they do so in a simple ratio by volume provided all gases are at the same temperature and pressure.\n\nMathematically, the law is expressed as,\n\n[V/n] = k\n\nwhere V represents the volume of the gas, n denotes the number of moles of the gas & k is the proportionality constant.\n\nThus, the volume ratio must be related to the relative number of molecules.\n\nThis relationship was crucial in establishing the formula of simple molecules at a time when a distinction between atoms and molecules was not clearly understood.",
+          "solutions": []
+        },
+        {
+          "id": 62009,
+          "type": "MCQ",
+          "question": "Television pictures result due to",
+          "question_html": "<p>Television pictures result due to</p>",
+          "options": [
+            {
+              "id": 203222,
+              "text": "phosphorescence of protons on the television screen",
+              "html": "phosphorescence of protons on the television screen",
+              "is_correct": false
+            },
+            {
+              "id": 203219,
+              "text": "fluorescence of cathode rays on the television screen",
+              "html": "fluorescence of cathode rays on the television screen",
+              "is_correct": true
+            },
+            {
+              "id": 203221,
+              "text": "fluorescence of protons on the television screen",
+              "html": "fluorescence of protons on the television screen",
+              "is_correct": false
+            },
+            {
+              "id": 203220,
+              "text": "fluorescence of canal rays on the television screen",
+              "html": "fluorescence of canal rays on the television screen",
+              "is_correct": false
+            }
+          ],
+          "correct_options": [
+            "fluorescence of cathode rays on the television screen"
+          ],
+          "explanation": "Cathode rays (also called an electron beam or e-beam) are streams of electrons observed in vacuum tubes. If an evacuated glass tube is equipped with two electrodes and a voltage is applied, the glass behind of the positive electrode is observed to glow, due to electrons emitted from and traveling away from the cathode (the electrode connected to the negative terminal of the voltage supply).\n\nCathode ray tubes (CRTs) use a focused beam of electrons deflected by electric or magnetic fields to create the image in a television set.",
+          "solutions": []
+        },
+        {
+          "id": 22251,
+          "type": "MCQ",
+          "question": "Displacement of hydrogen from cold water is done by:",
+          "question_html": "<p>Displacement of hydrogen from cold water is done by:</p>",
+          "options": [
+            {
+              "id": 44203,
+              "text": "All alkaline earth metals",
+              "html": "All alkaline earth metals",
+              "is_correct": false
+            },
+            {
+              "id": 44205,
+              "text": "All transition elements",
+              "html": "All transition elements",
+              "is_correct": false
+            },
+            {
+              "id": 44202,
+              "text": "All alkali metals",
+              "html": "All alkali metals",
+              "is_correct": true
+            },
+            {
+              "id": 44204,
+              "text": "Superoxides",
+              "html": "Superoxides",
+              "is_correct": false
+            }
+          ],
+          "correct_options": [
+            "All alkali metals"
+          ],
+          "explanation": "A common characteristic of most Alkali metal is their ability to displace H_(2) (g) from water. This is represented by their large, negative electrode potentials. In this event, the Group 1 metal is oxidized to its metal ion, and water is reduced to form hydrogen gas and hydroxide ions. The general reaction of an alkali metal (M) with H_(2)O (l) is given in the following equation:\n\n2M(s) + 2H_(2)O(l) $\\longrightarrow$ 2M + (aq) + 2OH−(aq) + H_(2)(g)\n\nFrom this reaction it is apparent that OH- is produced, creating a basic or alkaline environment. Group 1 elements are called alkali metals because of their ability to displace H_(2) (g) from water and create a basic solution. Alkali metals are also known to react violently and explosively with water. This is because enough heat is given off during the exothermic reaction to ignite the H_(2)(g).",
+          "solutions": []
+        },
+        {
+          "id": 68958,
+          "type": "MCQ",
+          "question": "The species CO, CN^(- )and N_(2 )are",
+          "question_html": "<p>The species CO, CN<sup>-&nbsp;</sup>and N<sub>2&nbsp;</sub>are</p>",
+          "options": [
+            {
+              "id": 210828,
+              "text": "Having low bond energies",
+              "html": "Having low bond energies",
+              "is_correct": false
+            },
+            {
+              "id": 210827,
+              "text": "Having polar bond",
+              "html": "Having polar bond",
+              "is_correct": false
+            },
+            {
+              "id": 210826,
+              "text": "Having coordinated bond",
+              "html": "Having coordinated bond",
+              "is_correct": false
+            },
+            {
+              "id": 210825,
+              "text": "Isoelectronic",
+              "html": "Isoelectronic",
+              "is_correct": true
+            }
+          ],
+          "correct_options": [
+            "Isoelectronic"
+          ],
+          "explanation": "Isoelectronic species are elements or ions that have the same, or equal number of electrons. Although isoelectronic species have the same number of electrons, they are different in their physical and chemical properties. All of given species have 14 electrons.",
+          "solutions": []
+        },
+        {
+          "id": 69559,
+          "type": "MCQ",
+          "question": "The following reaction: $C{H_3}C{H_2}I + KOH(aq) \\to C{H_3}C{H_2}OH + KI$ is classified as:",
+          "question_html": "<p>The following reaction:&nbsp;<span class=\"math-tex\">{tex}C{H_3}C{H_2}I + KOH(aq) \\to C{H_3}C{H_2}OH + KI{/tex}</span> is classified as:</p>\r\n",
+          "options": [
+            {
+              "id": 211195,
+              "text": "electrophilic substitution",
+              "html": "electrophilic substitution",
+              "is_correct": false
+            },
+            {
+              "id": 211194,
+              "text": "nucleophilic substitution",
+              "html": "nucleophilic substitution",
+              "is_correct": true
+            },
+            {
+              "id": 211197,
+              "text": "addition",
+              "html": "addition",
+              "is_correct": false
+            },
+            {
+              "id": 211196,
+              "text": "elimination",
+              "html": "elimination",
+              "is_correct": false
+            }
+          ],
+          "correct_options": [
+            "nucleophilic substitution"
+          ],
+          "explanation": "In this reaction we can observe that I- is replaced or substituted by a negatively charged ion -OH which is a nucleophile. So it is a nucleophilic substitution reaction.",
+          "solutions": []
+        },
+        {
+          "id": 68719,
+          "type": "MCQ",
+          "question": "One mole of CO_(2 )contains",
+          "question_html": "<p>One mole of CO<sub>2&nbsp;</sub>contains</p>\r\n",
+          "options": [
+            {
+              "id": 210670,
+              "text": "6.022 $\\times$ 10^(23) atoms of C",
+              "html": "6.022 <span class=\"math-tex\">{tex}\\times{/tex}</span>&nbsp;10<sup>23</sup>&nbsp;&nbsp;atoms of C",
+              "is_correct": true
+            },
+            {
+              "id": 210673,
+              "text": "18.1 $\\times$ 10^(23) molecules of CO^(2)",
+              "html": "18.1&nbsp;<span class=\"math-tex\">{tex}\\times{/tex}</span>&nbsp;10<sup>23</sup> molecules of&nbsp;CO<sup>2</sup>",
+              "is_correct": false
+            },
+            {
+              "id": 210672,
+              "text": "6.02 $\\times$ 10^(23 ) atoms of O",
+              "html": "6.02&nbsp;<span class=\"math-tex\">{tex}\\times{/tex}</span>&nbsp;10<sup>23&nbsp;</sup> atoms of O",
+              "is_correct": false
+            },
+            {
+              "id": 210671,
+              "text": "3 g of CO_(2)",
+              "html": "3 g of CO<sub>2</sub>",
+              "is_correct": false
+            }
+          ],
+          "correct_options": [
+            "6.022 $\\times$ 10^(23) atoms of C"
+          ],
+          "explanation": "Since , as per Avogadro's law one mole of CO_(2) contains 6.022 $\\times$ 10^(23) molecules & the number of atoms of carbon per molecule of CO_(2) = 1\n\n $\\therefore$ the number of atoms of carbon in 6.022 $\\times$ 10^(23) molecules of CO_(2)\n\n= 6.022 $\\times$ 10^(23 )atoms of C",
+          "solutions": []
+        },
+        {
+          "id": 61917,
+          "type": "MCQ",
+          "question": "The Kelvin scale is related to celsius scale as:",
+          "question_html": "<p>The Kelvin scale is related to celsius scale as:</p>",
+          "options": [
+            {
+              "id": 202852,
+              "text": "K = °C + 273.15",
+              "html": "K = &deg;C + 273.15",
+              "is_correct": true
+            },
+            {
+              "id": 202855,
+              "text": "K = °C + 212",
+              "html": "K = &deg;C + 212",
+              "is_correct": false
+            },
+            {
+              "id": 202853,
+              "text": "K = °C + 32",
+              "html": "K = &deg;C + 32",
+              "is_correct": false
+            },
+            {
+              "id": 202854,
+              "text": "K = °C + 100",
+              "html": "K = &deg;C + 100",
+              "is_correct": false
+            }
+          ],
+          "correct_options": [
+            "K = °C + 273.15"
+          ],
+          "explanation": "The relation between the Kelvin scale & Celcius scale of temperatures is -\n\nK = °C + 273.15\n\nSuch a relationship is based upon the experimental findings and subsequent conclusion of Charle's law.\n\nThe Kelvin scale is also termed as an \"absolute scale of temperature.\"\n\nIt is interesting to note that temperature below 0^(o)C ( ie. negative values ) is possible in the Celcius scale but in Kelvin scale, the negative temperature is not possible.",
+          "solutions": []
+        },
+        {
+          "id": 22252,
+          "type": "MCQ",
+          "question": "Fractional Oxidation Number exists because:",
+          "question_html": "<p>Fractional Oxidation Number exists because:</p>",
+          "options": [
+            {
+              "id": 44206,
+              "text": "the element is present in different oxidation states.",
+              "html": "the element is present in different oxidation states.",
+              "is_correct": true
+            },
+            {
+              "id": 44209,
+              "text": "middle carbon in such elements has always zero oxidation state.",
+              "html": "middle carbon in such elements has always zero oxidation state.",
+              "is_correct": false
+            },
+            {
+              "id": 44208,
+              "text": "the average oxidation state of the element is divided into two.",
+              "html": "the average oxidation state of the element is divided into two.",
+              "is_correct": false
+            },
+            {
+              "id": 44207,
+              "text": "electrons are never shared/transferred in that element.",
+              "html": "electrons are never shared/transferred in that element.",
+              "is_correct": false
+            }
+          ],
+          "correct_options": [
+            "the element is present in different oxidation states."
+          ],
+          "explanation": "The oxidation states are usually in whole numbers, but in some cases, they are in fractional numbers. Consider Fe_(3)O_(4).\n\n Using rule #2, the sum of the oxidation state of all atoms is 0\n Using rule #6, the O has the oxidation state of -2. 4 $\\times$ (-2) = -8\n Equation: 3Fe + (-8) = 0\n 3Fe = 8\n Fe = $8 \\over 3$ \n\nIn most cases, atoms of the same element in a given compound have the same oxidation states, but each atom can have a different state than the other. For Fe_(3)O_(4), two Fe atoms have an oxidation state of +3 and one of +2, which makes the total oxidation state of Fe= $8 \\over 3$ .\n\nInstead of averaging the oxidation states, we must keep them separated. This is called fragmenting, which occurs if there is an ionic compound, and the ions can be separated. The oxidation state of the individual atoms in the different ions can be determined.",
+          "solutions": []
+        },
+        {
+          "id": 21959,
+          "type": "MCQ",
+          "question": "The shape of the below molecule is\n\n ![image](https://media-mycbseguide.s3.amazonaws.com/images/testpaper/1.04.11.04.25.Ques.jpg)",
+          "question_html": "<p>The shape of the below molecule is<br />\r\n<img src=\"https://media-mycbseguide.s3.amazonaws.com/images/testpaper/1.04.11.04.25.Ques.jpg\" style=\"width: 100px; height: 72px;\" /></p>",
+          "options": [
+            {
+              "id": 43035,
+              "text": "see saw",
+              "html": "see saw",
+              "is_correct": false
+            },
+            {
+              "id": 43036,
+              "text": "trigonal",
+              "html": "trigonal",
+              "is_correct": false
+            },
+            {
+              "id": 43037,
+              "text": "trigonal planar",
+              "html": "trigonal planar",
+              "is_correct": false
+            },
+            {
+              "id": 43034,
+              "text": "bent",
+              "html": "bent",
+              "is_correct": true
+            }
+          ],
+          "correct_options": [
+            "bent"
+          ],
+          "explanation": "Bent shape is the shape of a molecule with 3 atoms that have a bond angle less than 180°.",
+          "solutions": []
+        },
+        {
+          "id": 386714,
+          "type": "MCQ",
+          "question": "Electrophilic addition reactions proceed in two steps. The first step involves the addition of an electrophile. Name the type of intermediate formed in the first step of the following addition reaction.\n\nH_(3)C—HC = CH_(2) + H^(+) $\\rightarrow$ ?",
+          "question_html": "<p>Electrophilic addition reactions proceed in two steps. The first step involves the addition of an electrophile. Name the type of intermediate formed in the first step of the following addition reaction.<br />\nH<sub>3</sub>C&mdash;HC = CH<sub>2</sub> + H<sup>+</sup><span class=\"math-tex\">{tex}\\rightarrow{/tex}</span> ?</p>",
+          "options": [
+            {
+              "id": 597407,
+              "text": "2° Carbanion",
+              "html": "2&deg; Carbanion",
+              "is_correct": false
+            },
+            {
+              "id": 597406,
+              "text": "1° Carbocation",
+              "html": "1&deg; Carbocation",
+              "is_correct": false
+            },
+            {
+              "id": 597409,
+              "text": "1° Carbanion",
+              "html": "1&deg; Carbanion",
+              "is_correct": false
+            },
+            {
+              "id": 597408,
+              "text": "2° Carbocation",
+              "html": "2&deg; Carbocation",
+              "is_correct": true
+            }
+          ],
+          "correct_options": [
+            "2° Carbocation"
+          ],
+          "explanation": "When the electrophile attacks CH_(3)-CH=CH_(2), delocalisation of electron can take place in two ways:\n\n ![image](https://media-mycbseguide.s3.amazonaws.com/images/imgur/59dsIAs.jpg) \n\nAs 2° carbocation is more stable than 1° carbocation, the first addition is more feasible.",
+          "solutions": []
+        },
+        {
+          "id": 21712,
+          "type": "MCQ",
+          "question": "Animal husbandry is the scientific management of\n\n animal breeding\n culture of animals\n animal livestock\n rearing of animals",
+          "question_html": "<p>Animal husbandry is the scientific management of</p>\r\n\r\n<ol start=\"1\" style=\"list-style-type: lower-roman;\">\r\n\t<li>animal breeding</li>\r\n\t<li>culture of animals</li>\r\n\t<li>animal livestock</li>\r\n\t<li>rearing of animals</li>\r\n</ol>\r\n",
+          "options": [
+            {
+              "id": 42049,
+              "text": "(i), (ii) and (iv)",
+              "html": "(i), (ii) and (iv)",
+              "is_correct": false
+            },
+            {
+              "id": 42046,
+              "text": "(i), (iii) and (iv)",
+              "html": "(i), (iii) and (iv)",
+              "is_correct": true
+            },
+            {
+              "id": 42047,
+              "text": "(i), (ii) and (iii)",
+              "html": "(i), (ii) and (iii)",
+              "is_correct": false
+            },
+            {
+              "id": 42048,
+              "text": "(ii), (iii) and (iv)",
+              "html": "(ii), (iii) and (iv)",
+              "is_correct": false
+            }
+          ],
+          "correct_options": [
+            "(i), (iii) and (iv)"
+          ],
+          "explanation": "(i), (iii) and (iv)",
+          "solutions": []
+        }
+      ]
+    },
+    {
+      "section_name": "Section B",
+      "section_id": 706,
+      "questions": [
+        {
+          "id": 21805,
+          "type": "MCQ",
+          "question": "In periodic table, valence electrons are indicated by",
+          "question_html": "<p>In periodic table, valence electrons are indicated by</p>\r\n",
+          "options": [
+            {
+              "id": 42419,
+              "text": "Shell Number",
+              "html": "Shell Number",
+              "is_correct": false
+            },
+            {
+              "id": 42420,
+              "text": "Period Number",
+              "html": "Period Number",
+              "is_correct": false
+            },
+            {
+              "id": 42421,
+              "text": "Atomic mass",
+              "html": "Atomic mass",
+              "is_correct": false
+            },
+            {
+              "id": 42418,
+              "text": "Group Number",
+              "html": "Group Number",
+              "is_correct": true
+            }
+          ],
+          "correct_options": [
+            "Group Number"
+          ],
+          "explanation": "Group Number",
+          "solutions": []
+        },
+        {
+          "id": 21961,
+          "type": "MCQ",
+          "question": "Ionic crystalline compounds formed by ion-formation by electron transfer proves:",
+          "question_html": "<p>Ionic crystalline compounds formed by ion-formation by electron transfer proves:</p>",
+          "options": [
+            {
+              "id": 43045,
+              "text": "Molecular Orbital (MO) Theory",
+              "html": "Molecular Orbital (MO) Theory",
+              "is_correct": false
+            },
+            {
+              "id": 43042,
+              "text": "Electronic theory of chemical bonding",
+              "html": "Electronic theory of chemical bonding",
+              "is_correct": true
+            },
+            {
+              "id": 43043,
+              "text": "Valence Shell Electron Pair Repulsion VSEPR Theory",
+              "html": "Valence Shell Electron Pair Repulsion VSEPR Theory",
+              "is_correct": false
+            },
+            {
+              "id": 43044,
+              "text": "Valence Bond (VB) Theory",
+              "html": "Valence Bond (VB) Theory",
+              "is_correct": false
+            }
+          ],
+          "correct_options": [
+            "Electronic theory of chemical bonding"
+          ],
+          "explanation": "Ionic crystalline compounds formed by ion-formation by electron transfer proves the electronic theory of chemical bonding. According to this theory, ionic bonds are formed when an atom loses electron/ electrons to become a positive ion and another atom gains the electron/ electrons to become a negative ion. Ionic bonding is a process of complete transfer of Valence electrons.",
+          "solutions": []
+        },
+        {
+          "id": 386480,
+          "type": "MCQ",
+          "question": "Radioactive elements emit $\\alpha$ , $\\beta$ and $\\gamma$ rays and are characterised by their halflives. The radioactive isotope of hydrogen is:",
+          "question_html": "<p>Radioactive elements emit <span class=\"math-tex\">{tex}\\alpha{/tex}</span>, <span class=\"math-tex\">{tex}\\beta{/tex}</span>&nbsp;and <span class=\"math-tex\">{tex}\\gamma{/tex}</span>&nbsp;rays and are characterised by their halflives. The radioactive isotope of hydrogen is:</p>",
+          "options": [
+            {
+              "id": 597178,
+              "text": "Protium",
+              "html": "Protium",
+              "is_correct": false
+            },
+            {
+              "id": 597181,
+              "text": "Hydronium",
+              "html": "Hydronium",
+              "is_correct": false
+            },
+            {
+              "id": 597179,
+              "text": "Deuterium",
+              "html": "Deuterium",
+              "is_correct": false
+            },
+            {
+              "id": 597180,
+              "text": "Tritium",
+              "html": "Tritium",
+              "is_correct": true
+            }
+          ],
+          "correct_options": [
+            "Tritium"
+          ],
+          "explanation": "The tritium concentration is about one atom per 10^(18) atoms of protium. of these isotopes, the only tritium is radioactive and emits low energy beta particles(t_(1/2), 12.33years).",
+          "solutions": []
+        },
+        {
+          "id": 22596,
+          "type": "MCQ",
+          "question": "In sulphur estimation, 0.157 g of an organic compound gave 0.4813 g of barium sulphate. What is the percentage of sulphur in the compound?",
+          "question_html": "<p>In sulphur estimation, 0.157 g of an organic compound gave 0.4813 g of barium sulphate. What is the percentage of sulphur in the compound?</p>\r\n",
+          "options": [
+            {
+              "id": 45583,
+              "text": "41.6%",
+              "html": "41.6%",
+              "is_correct": false
+            },
+            {
+              "id": 45582,
+              "text": "11%",
+              "html": "11%",
+              "is_correct": false
+            },
+            {
+              "id": 45580,
+              "text": "42.10%",
+              "html": "42.10%",
+              "is_correct": true
+            },
+            {
+              "id": 45581,
+              "text": "24%",
+              "html": "24%",
+              "is_correct": false
+            }
+          ],
+          "correct_options": [
+            "42.10%"
+          ],
+          "explanation": "Molecular mass of BaSO_(4 )= 137 + 32 + 64 g = 233 g\n\n233 g BaSO_(4) contains 32 g S\n\n0.4813 g BaSO_(4 )contains $\\frac{{(32 \\times 0.4813g)}}{{233\\;S}}$ \n\nSo % of S = $ \\frac{{(32 \\times 0.4813 \\times 100)}}{{(233 \\times 0.157)}}$ \n\nS = 42.10%",
+          "solutions": []
+        },
+        {
+          "id": 61936,
+          "type": "MCQ",
+          "question": "Amount of sodium hydroxide present in 500ml of 0.2M solutions is :",
+          "question_html": "<p>Amount of sodium hydroxide present in&nbsp;500ml&nbsp;of&nbsp;0.2M&nbsp;solutions is :</p>",
+          "options": [
+            {
+              "id": 202930,
+              "text": "40gm",
+              "html": "40gm",
+              "is_correct": false
+            },
+            {
+              "id": 202929,
+              "text": "8gm",
+              "html": "8gm",
+              "is_correct": false
+            },
+            {
+              "id": 202931,
+              "text": "80gm",
+              "html": "80gm",
+              "is_correct": false
+            },
+            {
+              "id": 202928,
+              "text": "4gm",
+              "html": "4gm",
+              "is_correct": true
+            }
+          ],
+          "correct_options": [
+            "4gm"
+          ],
+          "explanation": "Molarity of a solution\n\n(M) = $\\frac{mass of solute}{molar mass of solute } \\times $ $\\frac{1000}{volume of solution in mL } $ \n\n∴0.2​ $=\\frac{w}{40 } \\times $ $\\frac{1000}{500} $ \n\nso, w = 4gm.\n\nAmount of sodium hydroxide present in 500ml of 0.2M solutions is 4 gm.",
+          "solutions": []
+        },
+        {
+          "id": 21809,
+          "type": "MCQ",
+          "question": "Elements with 4-7 valence electrons are referred to as",
+          "question_html": "<p>Elements with 4-7 valence electrons are referred to as</p>",
+          "options": [
+            {
+              "id": 42435,
+              "text": "metals",
+              "html": "metals",
+              "is_correct": false
+            },
+            {
+              "id": 42436,
+              "text": "inert gases",
+              "html": "inert gases",
+              "is_correct": false
+            },
+            {
+              "id": 42434,
+              "text": "non-metals",
+              "html": "non-metals",
+              "is_correct": true
+            },
+            {
+              "id": 42437,
+              "text": "transition metals",
+              "html": "transition metals",
+              "is_correct": false
+            }
+          ],
+          "correct_options": [
+            "non-metals"
+          ],
+          "explanation": "non-metals",
+          "solutions": []
+        },
+        {
+          "id": 21995,
+          "type": "MCQ",
+          "question": "Polarity in a molecule and hence the dipole moment depends primarily on electronegativity of the constituent atoms and shape of a molecule. Which of the following has the highest dipole moment?",
+          "question_html": "<p>Polarity in a molecule and hence the dipole moment depends primarily on electronegativity of the constituent atoms and shape of a molecule. Which of the following has the highest dipole moment?</p>",
+          "options": [
+            {
+              "id": 43180,
+              "text": "CO_(2)",
+              "html": "CO<sub>2</sub>",
+              "is_correct": false
+            },
+            {
+              "id": 43179,
+              "text": "HI",
+              "html": "HI",
+              "is_correct": false
+            },
+            {
+              "id": 43178,
+              "text": "H_(2)O",
+              "html": "H<sub>2</sub>O",
+              "is_correct": true
+            },
+            {
+              "id": 43181,
+              "text": "SO_(2)",
+              "html": "SO<sub>2</sub>",
+              "is_correct": false
+            }
+          ],
+          "correct_options": [
+            "H_(2)O"
+          ],
+          "explanation": "Because of presence of lp on head of O atom in H_(2)O therefore it has max dipole moment.",
+          "solutions": []
+        },
+        {
+          "id": 22362,
+          "type": "MCQ",
+          "question": "H_(2)O_(2) behaves as a bleaching agent because:\n\n it breaks the chemical bonds of the chromophores.\n acts as a strong reducing agent in acidic media.\n acts as a strong reducing agent in basic media.\n it absorbs the visible light.",
+          "question_html": "<p>H<sub>2</sub>O<sub>2</sub> behaves as a bleaching agent because:</p>\r\n\r\n<ol start=\"1\" style=\"list-style-type: upper-alpha;\">\r\n\t<li>it breaks the chemical bonds of the chromophores.</li>\r\n\t<li>acts as a strong reducing agent in acidic media.</li>\r\n\t<li>acts as a strong reducing agent in basic media.</li>\r\n\t<li>it absorbs the visible light.</li>\r\n</ol>\r\n",
+          "options": [
+            {
+              "id": 44647,
+              "text": "Only D is correct",
+              "html": "Only D&nbsp;is correct",
+              "is_correct": false
+            },
+            {
+              "id": 44646,
+              "text": "Only C is correct",
+              "html": "Only C is correct",
+              "is_correct": false
+            },
+            {
+              "id": 44644,
+              "text": "Only A is correct",
+              "html": "Only A is correct",
+              "is_correct": true
+            },
+            {
+              "id": 44645,
+              "text": "Only B is correct",
+              "html": "Only B is correct",
+              "is_correct": false
+            }
+          ],
+          "correct_options": [
+            "Only A is correct"
+          ],
+          "explanation": "Because it can undergo bond dissociation randomly in the presence of light. It dissociates and generates free radicals which are very reactive and act as a bleaching agent.",
+          "solutions": []
+        },
+        {
+          "id": 22536,
+          "type": "MCQ",
+          "question": "Which of the following is the correct IUPAC name?",
+          "question_html": "<p>Which of the following is the correct IUPAC name?</p>",
+          "options": [
+            {
+              "id": 45340,
+              "text": "4, 4-Dimethyl-3-ethylheptane",
+              "html": "4, 4-Dimethyl-3-ethylheptane",
+              "is_correct": false
+            },
+            {
+              "id": 45341,
+              "text": "3-Ethyl-4,4-dimethylheptane",
+              "html": "3-Ethyl-4,4-dimethylheptane",
+              "is_correct": true
+            },
+            {
+              "id": 45343,
+              "text": "4, 4-Bis(methyl)-3-ethylheptane",
+              "html": "4, 4-Bis(methyl)-3-ethylheptane",
+              "is_correct": false
+            },
+            {
+              "id": 45342,
+              "text": "5-Ethyl-4, 4-dimethylheptane",
+              "html": "5-Ethyl-4, 4-dimethylheptane",
+              "is_correct": false
+            }
+          ],
+          "correct_options": [
+            "3-Ethyl-4,4-dimethylheptane"
+          ],
+          "explanation": "While writing IUPAC name, alkyl groups are written in alphabetical order. thus lower locant 3 is assigned to ethyl. prefix di, tri or tetra are not included in alphabetical order",
+          "solutions": []
+        },
+        {
+          "id": 61937,
+          "type": "MCQ",
+          "question": "A solution is prepared by adding 2 g of a substance A to 18 g of water. Mass percent of the solute is _______.",
+          "question_html": "<p>A solution is prepared by adding 2 g of a substance A to 18 g of water. Mass percent of the solute is _______.</p>",
+          "options": [
+            {
+              "id": 202933,
+              "text": "11 %",
+              "html": "11 %",
+              "is_correct": false
+            },
+            {
+              "id": 202934,
+              "text": "1 2.11%",
+              "html": "1 2.11%",
+              "is_correct": false
+            },
+            {
+              "id": 202935,
+              "text": "20.5 %",
+              "html": "20.5 %",
+              "is_correct": false
+            },
+            {
+              "id": 202932,
+              "text": "10 %",
+              "html": "10 %",
+              "is_correct": true
+            }
+          ],
+          "correct_options": [
+            "10 %"
+          ],
+          "explanation": "Since , mass % =[{(mass of solute) $\\times$ ) / (mass of solution ) } $\\times$ 100]\n\n $\\therefore$ Substituting the given values we get,\n\nMass per cent\n\n= [ ( 2 g ) / { (2 g of A ) + 18 g of water } ]\n\n= [ ( 2 /20 ) x 100 ]\n\n= 10%",
+          "solutions": []
+        },
+        {
+          "id": 62039,
+          "type": "MCQ",
+          "question": "Bohr’s model of the atom could explain quantitatively the general features of the structure of:",
+          "question_html": "<p>Bohr&rsquo;s model of the atom could explain quantitatively the general features of the structure of:</p>",
+          "options": [
+            {
+              "id": 203342,
+              "text": "nitrogen atom",
+              "html": "nitrogen atom",
+              "is_correct": false
+            },
+            {
+              "id": 203339,
+              "text": "Hydrogen atom",
+              "html": "Hydrogen atom",
+              "is_correct": true
+            },
+            {
+              "id": 203340,
+              "text": "carbon atom",
+              "html": "carbon atom",
+              "is_correct": false
+            },
+            {
+              "id": 203341,
+              "text": "oxygen atom",
+              "html": "oxygen atom",
+              "is_correct": false
+            }
+          ],
+          "correct_options": [
+            "Hydrogen atom"
+          ],
+          "explanation": "Neils Bohr proposed a model of hydrogen atom based on the quantum theory and explained the atomic spectrum of hydrogen.",
+          "solutions": []
+        },
+        {
+          "id": 382973,
+          "type": "MCQ",
+          "question": "The element with atomic number 57 belongs to:",
+          "question_html": "<p>The element with atomic number 57 belongs to:</p>",
+          "options": [
+            {
+              "id": 589746,
+              "text": "s-block",
+              "html": "s-block",
+              "is_correct": false
+            },
+            {
+              "id": 589747,
+              "text": "p-block",
+              "html": "p-block",
+              "is_correct": false
+            },
+            {
+              "id": 589748,
+              "text": "d-block",
+              "html": "d-block",
+              "is_correct": true
+            },
+            {
+              "id": 589749,
+              "text": "f-block",
+              "html": "f-block",
+              "is_correct": false
+            }
+          ],
+          "correct_options": [
+            "d-block"
+          ],
+          "explanation": "The configuration of _(57)X is (Xe) 5d^(1) 6s^(2). Hence it belongs to d-block.",
+          "solutions": []
+        },
+        {
+          "id": 21966,
+          "type": "MCQ",
+          "question": "During the formation of a chemical bond:",
+          "question_html": "<p>During the formation of a chemical bond:</p>",
+          "options": [
+            {
+              "id": 43062,
+              "text": "energy decreases",
+              "html": "energy decreases",
+              "is_correct": true
+            },
+            {
+              "id": 43064,
+              "text": "energy of the system does not change",
+              "html": "energy of the system does not change",
+              "is_correct": false
+            },
+            {
+              "id": 43063,
+              "text": "energy increases",
+              "html": "energy increases",
+              "is_correct": false
+            },
+            {
+              "id": 43065,
+              "text": "electron-electron repulsion becomes more than the nucleus-electron attraction",
+              "html": "electron-electron repulsion becomes more than the nucleus-electron attraction",
+              "is_correct": false
+            }
+          ],
+          "correct_options": [
+            "energy decreases"
+          ],
+          "explanation": "A chemical bond is a lasting attraction between atoms that enables the formation of chemical compounds. The bond may result from the electrostatic force of attraction between atoms with opposite charges, or through the sharing of electrons as in the covalent bonds. When a bond forms, electrons are attracted to the space between nuclei where the electrostatic force of attraction is greater. As the electrons fall to a position of lower potential energy, the total mechanical energy of the molecular system decreases. Part of the mechanical energy of the unbound atoms is lost when they form the molecular system with a lower total mechanical energy.",
+          "solutions": []
+        },
+        {
+          "id": 22600,
+          "type": "MCQ",
+          "question": "What does the following diagram showing Lewis structures depict?\n\n ![image](https://media-mycbseguide.s3.amazonaws.com/images/testpaper/1.04.11.12.69.Ques.jpg)",
+          "question_html": "<p>What does the following diagram showing Lewis structures depict?<br />\r\n<img src=\"https://media-mycbseguide.s3.amazonaws.com/images/testpaper/1.04.11.12.69.Ques.jpg\" style=\"width: 250px; height: 70px;\" /></p>\r\n",
+          "options": [
+            {
+              "id": 45597,
+              "text": "metamerism in nitromethane (CH_(3)NO_(2))",
+              "html": "metamerism in nitromethane (CH<sub>3</sub>NO<sub>2</sub>)",
+              "is_correct": false
+            },
+            {
+              "id": 45599,
+              "text": "electron displacement effects in nitromethane (CH_(3)NO_(2))",
+              "html": "electron displacement effects in nitromethane (CH<sub>3</sub>NO<sub>2</sub>)",
+              "is_correct": false
+            },
+            {
+              "id": 45598,
+              "text": "inductive effect in nitromethane (CH_(3)NO_(2))",
+              "html": "inductive effect in nitromethane (CH<sub>3</sub>NO<sub>2</sub>)",
+              "is_correct": false
+            },
+            {
+              "id": 45596,
+              "text": "resonance structures of nitromethane $\\left( {{\\text{C}}{{\\text{H}}_{\\text{3}}}{\\text{N}}{{\\text{O}}_{\\text{2}}}} \\right)$",
+              "html": "resonance structures of nitromethane <span class=\"math-tex\">{tex}\\left( {{\\text{C}}{{\\text{H}}_{\\text{3}}}{\\text{N}}{{\\text{O}}_{\\text{2}}}} \\right){/tex}</span>",
+              "is_correct": true
+            }
+          ],
+          "correct_options": [
+            "resonance structures of nitromethane $\\left( {{\\text{C}}{{\\text{H}}_{\\text{3}}}{\\text{N}}{{\\text{O}}_{\\text{2}}}} \\right)$"
+          ],
+          "explanation": "These are resonating structures of nitromethane. It is known that the two N-O bonds of nitromethane are of the same length (intermediate between a N-O single bond and a N=O double bond). The actual structure of nitromethane is, therefore, a resonance hybrid of the two canonical forms I and II.",
+          "solutions": []
+        },
+        {
+          "id": 62020,
+          "type": "MCQ",
+          "question": "Energy of an electron in stationary state is given by the formula\n\n ${E_{{n^m}}}{R_H}\\left( {1 - \\frac{1}{{{{\\text{n}}^2}}}} \\right)$ \n\nwhere n = 1,2,3........ In this equation, R_(H) is called",
+          "question_html": "<p>Energy of an electron in stationary state is given by the formula<br />\r\n<span class=\"math-tex\">{tex}{E_{{n^m}}}{R_H}\\left( {1 - \\frac{1}{{{{\\text{n}}^2}}}} \\right){/tex}</span><br />\r\nwhere n = 1,2,3........ In this equation, R<sub>H</sub> is called</p>",
+          "options": [
+            {
+              "id": 203263,
+              "text": "Rydberg’s constant",
+              "html": "Rydberg&rsquo;s constant",
+              "is_correct": true
+            },
+            {
+              "id": 203265,
+              "text": "Avagadro’s Number",
+              "html": "Avagadro&rsquo;s Number",
+              "is_correct": false
+            },
+            {
+              "id": 203264,
+              "text": "Planck’s constant",
+              "html": "Planck&rsquo;s constant",
+              "is_correct": false
+            },
+            {
+              "id": 203266,
+              "text": "Proportionality constant",
+              "html": "Proportionality constant",
+              "is_correct": false
+            }
+          ],
+          "correct_options": [
+            "Rydberg’s constant"
+          ],
+          "explanation": "The Rydberg constant, symbol $R_\\infty$ for heavy atoms or R_(H) for hydrogen, named after the Swedish physicist Johannes Rydberg, is a physical constant relating to atomic spectra, in the science of spectroscopy.",
+          "solutions": []
+        },
+        {
+          "id": 22559,
+          "type": "MCQ",
+          "question": "If an –NH_(2) functional group is present in an organic compound it is called amine. If a -CONH_(2) functional group is present in an organic compound then it is called:",
+          "question_html": "<p>If an &ndash;NH<sub>2</sub> functional group is present in an organic compound it is called amine. If a -CONH<sub>2</sub> functional group is present in an organic compound then it is called:</p>",
+          "options": [
+            {
+              "id": 45433,
+              "text": "ester",
+              "html": "ester",
+              "is_correct": false
+            },
+            {
+              "id": 45435,
+              "text": "ether",
+              "html": "ether",
+              "is_correct": false
+            },
+            {
+              "id": 45434,
+              "text": "nitrile",
+              "html": "nitrile",
+              "is_correct": false
+            },
+            {
+              "id": 45432,
+              "text": "amide",
+              "html": "amide",
+              "is_correct": true
+            }
+          ],
+          "correct_options": [
+            "amide"
+          ],
+          "explanation": "-CONH_(2 )is amide functional group. Amides are formed by conversion of a carboxylic acid into ammonium salt and then heating it.",
+          "solutions": []
+        },
+        {
+          "id": 61990,
+          "type": "MCQ",
+          "question": "When an electric discharge is passed through gaseous hydrogen, the H_(2) molecules dissociate and the energetically excited hydrogen atoms produced emit electromagnetic radiation of discrete frequencies. The hydrogen spectrum consists of",
+          "question_html": "<p>When an electric discharge is passed through gaseous hydrogen, the H<sub>2</sub> molecules dissociate and the energetically excited hydrogen atoms produced emit electromagnetic radiation of discrete frequencies. The hydrogen spectrum consists of</p>",
+          "options": [
+            {
+              "id": 203143,
+              "text": "several series of lines named after their discoverers",
+              "html": "several series of lines named after their discoverers",
+              "is_correct": true
+            },
+            {
+              "id": 203146,
+              "text": "a continuous spectrum that reduces to zero at small wavelengths",
+              "html": "a continuous spectrum that reduces to zero at small wavelengths",
+              "is_correct": false
+            },
+            {
+              "id": 203144,
+              "text": "several lines named after their discoverers",
+              "html": "several lines named after their discoverers",
+              "is_correct": false
+            },
+            {
+              "id": 203145,
+              "text": "a continuous spectrum that reduces to zero at large wavelengths",
+              "html": "a continuous spectrum that reduces to zero at large wavelengths",
+              "is_correct": false
+            }
+          ],
+          "correct_options": [
+            "several series of lines named after their discoverers"
+          ],
+          "explanation": "The emission spectrum of hydrogen consists of several series of sharp emission lines in the ultraviolet (Lyman series). in the visible (Balmer series), and in the infrared (Paschen series, Brackett series, etc,) regions of the spectrum. These series are named after their discoverer.",
+          "solutions": []
+        },
+        {
+          "id": 21880,
+          "type": "MCQ",
+          "question": "d-Block Elements are characterized by the:",
+          "question_html": "<p>d-Block Elements are characterized by the:</p>",
+          "options": [
+            {
+              "id": 42718,
+              "text": "filling of inner d orbitals by electrons.",
+              "html": "filling of inner d orbitals by electrons.",
+              "is_correct": true
+            },
+            {
+              "id": 42721,
+              "text": "filling of outer d orbitals.",
+              "html": "filling of outer d orbitals.",
+              "is_correct": false
+            },
+            {
+              "id": 42720,
+              "text": "inner d orbitals are not filled.",
+              "html": "inner d orbitals are not filled.",
+              "is_correct": false
+            },
+            {
+              "id": 42719,
+              "text": "absence of d orbital electrons.",
+              "html": "absence of d orbital electrons.",
+              "is_correct": false
+            }
+          ],
+          "correct_options": [
+            "filling of inner d orbitals by electrons."
+          ],
+          "explanation": "d-Block elements also known as transition elements are characterized by the filling of inner d orbitals by electrons before the valence-shell s orbital.",
+          "solutions": []
+        },
+        {
+          "id": 21852,
+          "type": "MCQ",
+          "question": "The energy associated with the first orbit in the hydrogen atom is -2.17 $\\times$ 10^(-18) J/atom. What is the energy associated with the fifth orbit?",
+          "question_html": "<p>The energy associated with the first orbit in the hydrogen atom is -2.17&nbsp;<span class=\"math-tex\">{tex}\\times{/tex}</span>10<sup>-18</sup>&nbsp;J/atom. What is the energy associated with the fifth orbit?</p>",
+          "options": [
+            {
+              "id": 42607,
+              "text": "3.72 $\\times$ 10^(-20)Js",
+              "html": "3.72&nbsp;<span class=\"math-tex\">{tex}\\times{/tex}</span>&nbsp;10<sup>-20</sup>Js",
+              "is_correct": false
+            },
+            {
+              "id": 42606,
+              "text": "8.68 $\\times$ 10^(-20)Js",
+              "html": "8.68&nbsp;<span class=\"math-tex\">{tex}\\times{/tex}</span>&nbsp;10<sup>-20</sup>Js",
+              "is_correct": true
+            },
+            {
+              "id": 42608,
+              "text": "5.72 $\\times$ 10^(-20)Js",
+              "html": "5.72&nbsp;<span class=\"math-tex\">{tex}\\times{/tex}</span>&nbsp;10<sup>-20</sup>Js",
+              "is_correct": false
+            },
+            {
+              "id": 42609,
+              "text": "7.72 $\\times$ 10^(-20)Js",
+              "html": "7.72&nbsp;<span class=\"math-tex\">{tex}\\times{/tex}</span>&nbsp;10<sup>-20</sup>Js",
+              "is_correct": false
+            }
+          ],
+          "correct_options": [
+            "8.68 $\\times$ 10^(-20)Js"
+          ],
+          "explanation": "The energy of first (Bohr) orbit in hydrogen atom = -2.17 $\\times$ 10^(-18)Jatom^(-1)\n\nThe energy of the fifth orbit will be given by $E_n= E_1\\times {Z^2\\over N^2}$ \n\n $E_5={-2.17\\times 10^{-18}\\over 5^2}=$ 8.68 $\\times$ 10^(-20)Jatom^(-1)",
+          "solutions": []
+        },
+        {
+          "id": 594603,
+          "type": "14",
+          "question": "Assertion (A): Thomson's atomic model is known as the raisin pudding model.\n\nReason (R): The atom is visualized as a pudding of positive charge with electrons (raisins) embedded in it.",
+          "question_html": "<p><strong>Assertion (A):</strong>&nbsp;Thomson&#39;s atomic model is known as the&nbsp;<strong>raisin pudding</strong>&nbsp;model.<br />\r\n<strong>Reason (R):</strong>&nbsp;The atom is visualized as a pudding of positive charge with electrons (raisins) embedded in it.</p>",
+          "options": [
+            {
+              "id": 1176162,
+              "text": "Both A and R are true and R is the correct explanation of A.",
+              "html": "Both A and R are true and R is the correct explanation of A.",
+              "is_correct": true
+            },
+            {
+              "id": 1176165,
+              "text": "A is false but R is true.",
+              "html": "A is false but R is true.",
+              "is_correct": false
+            },
+            {
+              "id": 1176163,
+              "text": "Both A and R are true but R is not the correct explanation of A.",
+              "html": "Both A and R are true but R is not the correct explanation of A.",
+              "is_correct": false
+            },
+            {
+              "id": 1176164,
+              "text": "A is true but R is false.",
+              "html": "A is true but R is false.",
+              "is_correct": false
+            }
+          ],
+          "correct_options": [
+            "Both A and R are true and R is the correct explanation of A."
+          ],
+          "explanation": "Both A and R are true and R is the correct explanation of A.",
+          "solutions": []
+        },
+        {
+          "id": 593745,
+          "type": "14",
+          "question": "Assertion (A): Na^(+) is smaller in size than Na.\n\nReason (R): Na^(+) has same nuclear charge as that of Na.",
+          "question_html": "<p><strong>Assertion (A):</strong> Na<sup>+</sup>&nbsp;is smaller in size than Na.<br />\r\n<strong>Reason (R):</strong>&nbsp;Na<sup>+</sup> has same nuclear charge as that of Na.</p>",
+          "options": [
+            {
+              "id": 1172825,
+              "text": "Both A and R are true but R is not the correct explanation of A.",
+              "html": "Both A and R are true but R is not the correct explanation of A.",
+              "is_correct": true
+            },
+            {
+              "id": 1172826,
+              "text": "A is true but R is false.",
+              "html": "A is true but R is false.",
+              "is_correct": false
+            },
+            {
+              "id": 1172827,
+              "text": "A is false but R is true.",
+              "html": "A is false but R is true.",
+              "is_correct": false
+            },
+            {
+              "id": 1172824,
+              "text": "Both A and R are true and R is the correct explanation of A.",
+              "html": "Both A and R are true and R is the correct explanation of A.",
+              "is_correct": false
+            }
+          ],
+          "correct_options": [
+            "Both A and R are true but R is not the correct explanation of A."
+          ],
+          "explanation": "Na^(+) is smaller in size because it has less number of electrons (10) compared to Na (11 electrons) while its nuclear charge remains the same.",
+          "solutions": []
+        },
+        {
+          "id": 593713,
+          "type": "14",
+          "question": "Assertion (A): The molecular orbital $\\sigma$ formed by the addition of atomic orbitals is called the anti-bonding molecular orbital.\n\nReason (R): The combining atomic orbitals must have the same or nearly the same energy.",
+          "question_html": "<p><strong>Assertion (A):&nbsp;</strong>The molecular orbital <span class=\"math-tex\">{tex}\\sigma{/tex}</span> formed by the addition of atomic orbitals is called the anti-bonding molecular orbital.<br />\r\n<strong>Reason (R): </strong>The combining atomic orbitals must have the same or nearly the same energy.</p>",
+          "options": [
+            {
+              "id": 1172703,
+              "text": "A is false but R is true.",
+              "html": "A is false but R is true.",
+              "is_correct": true
+            },
+            {
+              "id": 1172701,
+              "text": "Both A and R are true but R is not the correct explanation of A.",
+              "html": "Both A and R are true but R is not the correct explanation of A.",
+              "is_correct": false
+            },
+            {
+              "id": 1172700,
+              "text": "Both A and R are true and R is the correct explanation of A.",
+              "html": "Both A and R are true and R is the correct explanation of A.",
+              "is_correct": false
+            },
+            {
+              "id": 1172702,
+              "text": "A is true but R is false.",
+              "html": "A is true but R is false.",
+              "is_correct": false
+            }
+          ],
+          "correct_options": [
+            "A is false but R is true."
+          ],
+          "explanation": "The molecular orbital $\\sigma$ formed by the addition of atomic orbitals is called the bonding molecular orbital.",
+          "solutions": []
+        },
+        {
+          "id": 594545,
+          "type": "14",
+          "question": "Assertion (A): In CIF_(3), chlorine has the oxidation number -1. \n\nReason (R): Electron affinity of chlorine is greater than that of fluorine.",
+          "question_html": "<p><strong>Assertion (A):</strong>&nbsp;In CIF<sub>3</sub>, chlorine has the oxidation number -1.&nbsp;<br />\r\n<strong>Reason (R):</strong>&nbsp;Electron affinity of chlorine is greater than that of fluorine.</p>",
+          "options": [
+            {
+              "id": 1175931,
+              "text": "Both A and R are true but R is not the correct explanation of A.",
+              "html": "Both A and R are true but R is not the correct explanation of A.",
+              "is_correct": false
+            },
+            {
+              "id": 1175933,
+              "text": "A is false but R is true.",
+              "html": "A is false but R is true.",
+              "is_correct": true
+            },
+            {
+              "id": 1175930,
+              "text": "Both A and R are true and R is the correct explanation of A.",
+              "html": "Both A and R are true and R is the correct explanation of A.",
+              "is_correct": false
+            },
+            {
+              "id": 1175932,
+              "text": "A is true but R is false.",
+              "html": "A is true but R is false.",
+              "is_correct": false
+            }
+          ],
+          "correct_options": [
+            "A is false but R is true."
+          ],
+          "explanation": "In CIF_(3) oxidation number of Cl = +3 ( $\\therefore$ F has oxidation number -1 always). Electron affinity of Cl is greater than F but electronegativity of F is more than Cl.",
+          "solutions": []
+        },
+        {
+          "id": 386618,
+          "type": "14",
+          "question": "Assertion (A): All the carbon atoms in H_(2)C = C = CH_(2) are sp^(2) hybridised.\n\nReason (R): In this molecule all the carbon atoms are attached to each other by double bonds.",
+          "question_html": "<p><strong>Assertion (A):</strong> All the carbon atoms in H<sub>2</sub>C = C = CH<sub>2</sub> are sp<sup>2</sup> hybridised.<br />\n<strong>Reason (R):</strong> In this molecule all the carbon atoms are attached to each other by double bonds.</p>",
+          "options": [
+            {
+              "id": 597329,
+              "text": "A is false but R is true.",
+              "html": "A is false but R is true.",
+              "is_correct": true
+            },
+            {
+              "id": 597327,
+              "text": "Both A and R are true but R is not the correct explanation of A.",
+              "html": "Both A and R are true but R is not the correct explanation of A.",
+              "is_correct": false
+            },
+            {
+              "id": 597326,
+              "text": "Both A and R are true and R is the correct explanation of A.",
+              "html": "Both A and R are true and R is the correct explanation of A.",
+              "is_correct": false
+            },
+            {
+              "id": 597328,
+              "text": "A is true but R is false.",
+              "html": "A is true but R is false.",
+              "is_correct": false
+            }
+          ],
+          "correct_options": [
+            "A is false but R is true."
+          ],
+          "explanation": "Hybridization of C can be find out by counting $\\sigma$ bonds and $\\pi$ bonds present on C atom.\n\n $\\underset{1\\pi }{\\overset{3\\sigma }{\\mathop{C{{H}_{2}}}}}\\,=\\underset{2\\pi }{\\overset{2\\sigma }{\\mathop{C}}}\\,=\\underset{1\\pi }{\\overset{3\\sigma }{\\mathop{C{{H}_{2}}}}}\\,$ \n\nIf C has 3 $\\sigma$ bonds, it is sp^(2) hybridized. If C has 2 $\\sigma$ bonds, it is sp hybridized.",
+          "solutions": []
+        }
+      ]
+    },
+    {
+      "section_name": "Section C",
+      "section_id": 707,
+      "questions": [
+        {
+          "id": 61928,
+          "type": "MCQ",
+          "question": "Molecular formula represents:",
+          "question_html": "<p>Molecular formula represents:</p>",
+          "options": [
+            {
+              "id": 202899,
+              "text": "average fractionall ratio of various atoms present in a compound",
+              "html": "average fractionall ratio of various atoms present in a compound",
+              "is_correct": false
+            },
+            {
+              "id": 202896,
+              "text": "the exact number of different types of atoms present in a molecule of a compound",
+              "html": "the exact number of different types of atoms present in a molecule of a compound",
+              "is_correct": true
+            },
+            {
+              "id": 202897,
+              "text": "whole number ratio of different types of atoms present in a molecule of a compound",
+              "html": "whole number ratio of different types of atoms present in a molecule of a compound",
+              "is_correct": false
+            },
+            {
+              "id": 202898,
+              "text": "ratio of masses of various atoms present in a compound",
+              "html": "ratio of masses of various atoms present in a compound",
+              "is_correct": false
+            }
+          ],
+          "correct_options": [
+            "the exact number of different types of atoms present in a molecule of a compound"
+          ],
+          "explanation": "Molecular formula is the exact no. of atoms present in a molecule of a compound.\n\nMolecular formula of a compound is related with its empirical formula as,\n\nMollecular formula = (Empirical formula)_(n)\n\nwhere n represents a positive integer.",
+          "solutions": []
+        },
+        {
+          "id": 68795,
+          "type": "MCQ",
+          "question": "de-Broglie equation is",
+          "question_html": "<p>de-Broglie equation is</p>",
+          "options": [
+            {
+              "id": 210725,
+              "text": "$\\lambda$ = hmv",
+              "html": "<span class=\"math-tex\">{tex}\\lambda{/tex}</span> = hmv",
+              "is_correct": false
+            },
+            {
+              "id": 210724,
+              "text": "$\\lambda$ = $\\frac{mv}{h}$",
+              "html": "<span class=\"math-tex\">{tex}\\lambda{/tex}</span> = <span class=\"math-tex\">{tex}\\frac{mv}{h}{/tex}</span>",
+              "is_correct": false
+            },
+            {
+              "id": 210722,
+              "text": "$\\lambda$ = $\\frac{h}{m v}$",
+              "html": "<span class=\"math-tex\">{tex}\\lambda{/tex}</span> = <span class=\"math-tex\">{tex}\\frac{h}{m v}{/tex}</span>",
+              "is_correct": true
+            },
+            {
+              "id": 210723,
+              "text": "$\\lambda$ = $\\frac{hv}{m}$",
+              "html": "<span class=\"math-tex\">{tex}\\lambda{/tex}</span> = <span class=\"math-tex\">{tex}\\frac{hv}{m}{/tex}</span>",
+              "is_correct": false
+            }
+          ],
+          "correct_options": [
+            "$\\lambda$ = $\\frac{h}{m v}$"
+          ],
+          "explanation": "Louis de-Broglie proposed that matter, like light , has a dual character.It exhibits wave as well as particle nature. The wavelength of the wave associated with a particle of mass m moving with velocity v is given by\n\n $\\lambda$ = $\\frac{h}{m v}$",
+          "solutions": []
+        },
+        {
+          "id": 22593,
+          "type": "MCQ",
+          "question": "In the four compounds below, which of the following pairs are position isomers?\n\n $C{H_3} - C{H_2} - C{H_2} - C{H_2} - \\mathop {\\mathop C\\limits^{||} }\\limits^O - H$ \n $C{H_3} - C{H_2} - C{H_2} - \\mathop {\\mathop C\\limits^{||} }\\limits^O - C{H_3}$ \n $C{H_3} - C{H_2} - \\mathop {\\mathop C\\limits_{||} }\\limits_O - C{H_2} - C{H_3}$ \n $C{H_3} - \\mathop {\\mathop C\\limits_| H}\\limits_{C{H_3}} - C{H_2} - \\mathop {\\mathop C\\limits_{||} }\\limits_O - H$",
+          "question_html": "<p>In the four compounds below, which of the following pairs are position isomers?</p>\r\n\r\n<ol start=\"1\" style=\"list-style-type: upper-alpha;\">\r\n\t<li><span class=\"math-tex\">{tex}C{H_3} - C{H_2} - C{H_2} - C{H_2} - \\mathop {\\mathop C\\limits^{||} }\\limits^O - H{/tex}</span></li>\r\n\t<li><span class=\"math-tex\">{tex}C{H_3} - C{H_2} - C{H_2} - \\mathop {\\mathop C\\limits^{||} }\\limits^O - C{H_3}{/tex}</span></li>\r\n\t<li><span class=\"math-tex\">{tex}C{H_3} - C{H_2} - \\mathop {\\mathop C\\limits_{||} }\\limits_O - C{H_2} - C{H_3}{/tex}</span></li>\r\n\t<li><span class=\"math-tex\">{tex}C{H_3} - \\mathop {\\mathop C\\limits_| H}\\limits_{C{H_3}} - C{H_2} - \\mathop {\\mathop C\\limits_{||} }\\limits_O - H{/tex}</span></li>\r\n</ol>\r\n",
+          "options": [
+            {
+              "id": 45568,
+              "text": "A and B",
+              "html": "A and B",
+              "is_correct": false
+            },
+            {
+              "id": 45570,
+              "text": "B and D",
+              "html": "B and D",
+              "is_correct": false
+            },
+            {
+              "id": 45569,
+              "text": "B and C",
+              "html": "B and C",
+              "is_correct": true
+            },
+            {
+              "id": 45571,
+              "text": "C and D",
+              "html": "C and D",
+              "is_correct": false
+            }
+          ],
+          "correct_options": [
+            "B and C"
+          ],
+          "explanation": "B and C are position isomers as they have the same number of C atoms and same functional group -C=O but the position of carbonyl group is C-2 in B and C-3 in C.",
+          "solutions": []
+        },
+        {
+          "id": 575764,
+          "type": "14",
+          "question": "Instructions for Question 53 to 55:\nThe phenomenon of the existence of two or more compounds possessing the same molecular formula but different properties is known as isomerism. Such compounds are called isomers. Compounds having the same molecular formula but different structures (manners in which atoms are linked) are classified as structural isomers. Structural isomers are classified as chain isomer, position isomer, functional group isomer. Meristematic arises due to different alkyl chains on either side of the functional group in the molecule and stereoisomerism and can be classified as geometrical and optical isomerism. Hyperconjugation is a general stabilising interaction. It involves delocalisation of σ electrons of the C-H bond of an alkyl group directly attached to an atom of an unsaturated system or to an atom with an unshared p orbital. This type of overlap stabilises the carbocation because electron density from the adjacent σ bond helps in dispersing the positive charge.\n\nAssertion (A): Isopentane, pentane and Neopentane are chain isomers.\n\nReason (R): They have a similar molecular formula but a different carbon skeleton.",
+          "question_html": "<b>Instructions for Question 53 to 55:</b><br><p>The phenomenon of the existence of two or more compounds possessing the same molecular formula but different properties is known as isomerism. Such compounds are called isomers.&nbsp;Compounds having the same molecular formula but different structures (manners in which atoms are linked) are classified as structural isomers. Structural isomers are classified as chain isomer, position isomer, functional group isomer. Meristematic&nbsp;arises due to different alkyl chains on either side of the functional group in the molecule&nbsp;and stereoisomerism and can be classified as geometrical and optical isomerism. Hyperconjugation is a general stabilising interaction. It involves delocalisation of &sigma; electrons of the C-H bond of an alkyl group directly attached to an atom of an unsaturated system or to an atom with an unshared p orbital.&nbsp;This type of overlap stabilises the carbocation because electron density from the adjacent &sigma; bond helps in dispersing the positive charge.</p><br><p><strong>Assertion (A):</strong> Isopentane, pentane and Neopentane are chain isomers.<br />\r\n<strong>Reason (R): </strong>They have a similar molecular formula but a different carbon skeleton.&nbsp;</p>",
+          "options": [
+            {
+              "id": 1107904,
+              "text": "Both A and R are true and R is the correct explanation of A.",
+              "html": "Both A and R are true and R is the correct explanation of A.",
+              "is_correct": true
+            },
+            {
+              "id": 1107905,
+              "text": "Both A and R are true but R is not the correct explanation of A.",
+              "html": "Both A and R are true but R is not the correct explanation of A.",
+              "is_correct": false
+            },
+            {
+              "id": 1107909,
+              "text": "A is false but R is true.",
+              "html": "A is false but R is true.",
+              "is_correct": false
+            },
+            {
+              "id": 1107906,
+              "text": "A is true but R is false.",
+              "html": "A is true but R is false.",
+              "is_correct": false
+            }
+          ],
+          "correct_options": [
+            "Both A and R are true and R is the correct explanation of A."
+          ],
+          "explanation": "Both A and R are true and R is the correct explanation of A.",
+          "solutions": []
+        },
+        {
+          "id": 576120,
+          "type": "14",
+          "question": "Instructions for Question 53 to 55:\nThe phenomenon of the existence of two or more compounds possessing the same molecular formula but different properties is known as isomerism. Such compounds are called isomers. Compounds having the same molecular formula but different structures (manners in which atoms are linked) are classified as structural isomers. Structural isomers are classified as chain isomer, position isomer, functional group isomer. Meristematic arises due to different alkyl chains on either side of the functional group in the molecule and stereoisomerism and can be classified as geometrical and optical isomerism. Hyperconjugation is a general stabilising interaction. It involves delocalisation of σ electrons of the C-H bond of an alkyl group directly attached to an atom of an unsaturated system or to an atom with an unshared p orbital. This type of overlap stabilises the carbocation because electron density from the adjacent σ bond helps in dispersing the positive charge.\n\nAssertion (A): $CHCH_3^{2+}$ (ethyl cation) has a positively charged carbon atom has an empty porbital.\n\nReason (R): Hyperconjugation is not possible in alkenes and alkylarenes.",
+          "question_html": "<b>Instructions for Question 53 to 55:</b><br><p>The phenomenon of the existence of two or more compounds possessing the same molecular formula but different properties is known as isomerism. Such compounds are called isomers.&nbsp;Compounds having the same molecular formula but different structures (manners in which atoms are linked) are classified as structural isomers. Structural isomers are classified as chain isomer, position isomer, functional group isomer. Meristematic&nbsp;arises due to different alkyl chains on either side of the functional group in the molecule&nbsp;and stereoisomerism and can be classified as geometrical and optical isomerism. Hyperconjugation is a general stabilising interaction. It involves delocalisation of &sigma; electrons of the C-H bond of an alkyl group directly attached to an atom of an unsaturated system or to an atom with an unshared p orbital.&nbsp;This type of overlap stabilises the carbocation because electron density from the adjacent &sigma; bond helps in dispersing the positive charge.</p><br><p><strong>Assertion (A):&nbsp;</strong><span class=\"math-tex\">{tex}CHCH_3^{2+}{/tex}</span>&nbsp;(ethyl cation) has&nbsp;a positively charged carbon atom has an empty porbital.<br />\r\n<strong>Reason (R):&nbsp;</strong>Hyperconjugation is not possible in alkenes and alkylarenes.</p>",
+          "options": [
+            {
+              "id": 1109330,
+              "text": "A is true but R is false.",
+              "html": "A is true but R is false.",
+              "is_correct": true
+            },
+            {
+              "id": 1109331,
+              "text": "A is false but R is true.",
+              "html": "A is false but R is true.",
+              "is_correct": false
+            },
+            {
+              "id": 1109328,
+              "text": "Both A and R are true and R is the correct explanation of A.",
+              "html": "Both A and R are true and R is the correct explanation of A.",
+              "is_correct": false
+            },
+            {
+              "id": 1109329,
+              "text": "Both A and R are true but R is not the correct explanation of A.",
+              "html": "Both A and R are true but R is not the correct explanation of A.",
+              "is_correct": false
+            }
+          ],
+          "correct_options": [
+            "A is true but R is false."
+          ],
+          "explanation": "A is true but R is false.",
+          "solutions": []
+        },
+        {
+          "id": 576355,
+          "type": "14",
+          "question": "Instructions for Question 53 to 55:\nThe phenomenon of the existence of two or more compounds possessing the same molecular formula but different properties is known as isomerism. Such compounds are called isomers. Compounds having the same molecular formula but different structures (manners in which atoms are linked) are classified as structural isomers. Structural isomers are classified as chain isomer, position isomer, functional group isomer. Meristematic arises due to different alkyl chains on either side of the functional group in the molecule and stereoisomerism and can be classified as geometrical and optical isomerism. Hyperconjugation is a general stabilising interaction. It involves delocalisation of σ electrons of the C-H bond of an alkyl group directly attached to an atom of an unsaturated system or to an atom with an unshared p orbital. This type of overlap stabilises the carbocation because electron density from the adjacent σ bond helps in dispersing the positive charge.\n\nAssertion (A): C_(4)H_(10)O represents methoxypropane (CH_(3)OC_(3)H_(7)) and ethoxyethane (C_(2)H_(5)OC_(2)H_(5)). \n\nReason (R): Stereoisomerism can be classified as geometrical and optical isomerism.",
+          "question_html": "<b>Instructions for Question 53 to 55:</b><br><p>The phenomenon of the existence of two or more compounds possessing the same molecular formula but different properties is known as isomerism. Such compounds are called isomers.&nbsp;Compounds having the same molecular formula but different structures (manners in which atoms are linked) are classified as structural isomers. Structural isomers are classified as chain isomer, position isomer, functional group isomer. Meristematic&nbsp;arises due to different alkyl chains on either side of the functional group in the molecule&nbsp;and stereoisomerism and can be classified as geometrical and optical isomerism. Hyperconjugation is a general stabilising interaction. It involves delocalisation of &sigma; electrons of the C-H bond of an alkyl group directly attached to an atom of an unsaturated system or to an atom with an unshared p orbital.&nbsp;This type of overlap stabilises the carbocation because electron density from the adjacent &sigma; bond helps in dispersing the positive charge.</p><br><p><strong>Assertion (A):&nbsp;</strong>C<sub>4</sub>H<sub>10</sub>O represents methoxypropane (CH<sub>3</sub>OC<sub>3</sub>H<sub>7</sub>) and ethoxyethane (C<sub>2</sub>H<sub>5</sub>OC<sub>2</sub>H<sub>5</sub>).&nbsp;<br />\r\n<strong>Reason (R):&nbsp;</strong>Stereoisomerism can be classified as geometrical and optical isomerism.</p>",
+          "options": [
+            {
+              "id": 1110269,
+              "text": "Both A and R are true but R is not the correct explanation of A.",
+              "html": "Both A and R are true but R is not the correct explanation of A.",
+              "is_correct": true
+            },
+            {
+              "id": 1110271,
+              "text": "A is false but R is true.",
+              "html": "A is false but R is true.",
+              "is_correct": false
+            },
+            {
+              "id": 1110268,
+              "text": "Both A and R are true and R is the correct explanation of A.",
+              "html": "Both A and R are true and R is the correct explanation of A.",
+              "is_correct": false
+            },
+            {
+              "id": 1110270,
+              "text": "A is true but R is false.",
+              "html": "A is true but R is false.",
+              "is_correct": false
+            }
+          ],
+          "correct_options": [
+            "Both A and R are true but R is not the correct explanation of A."
+          ],
+          "explanation": "Both A and R are true but R is not the correct explanation of A.",
+          "solutions": []
+        }
+      ]
+    }
+  ]
+}

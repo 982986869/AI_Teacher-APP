@@ -27,10 +27,17 @@ async function authenticate(req, res, next) {
     return next(new AppError('Invalid authentication token', 401))
   }
 
-  const user = await db.user.findUnique({
-    where: { id: decoded.sub },
-    select: { id: true, name: true, email: true, phone: true, grade: true },
-  })
+  let user
+  try {
+    user = await db.user.findUnique({
+      where: { id: decoded.sub },
+      select: { id: true, name: true, email: true, phone: true, grade: true },
+    })
+  } catch (err) {
+    // Transient DB issue (e.g. Supabase pooler connection reset / P1001). Surface a
+    // clean 503 instead of letting the rejection crash the whole server.
+    return next(new AppError('Service temporarily unavailable. Please try again.', 503))
+  }
 
   if (!user) {
     return next(new AppError('User no longer exists', 401))

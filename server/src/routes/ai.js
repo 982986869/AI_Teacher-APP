@@ -10,6 +10,14 @@ const {
   deleteLesson,
   askDoubt,
   getDoubts,
+  ask,
+  askStream,
+  startRevision,
+  updateProgress,
+  getProgress,
+  recordMemory,
+  getMemorySummary,
+  getPlan,
 } = require('../controllers/ai.controller')
 
 const router = Router()
@@ -45,9 +53,43 @@ const doubtRules = [
     .toInt(),
 ]
 
+const askRules = [
+  body('text')
+    .trim()
+    .notEmpty().withMessage('text is required')
+    .isLength({ max: 1000 }).withMessage('text must be 1000 characters or fewer'),
+  body('subject').optional().isLength({ max: 100 }),
+  body('gradeLevel').optional().isLength({ max: 20 }),
+  body('lessonId').optional().isString(),
+  body('slideIndex').optional().isInt({ min: 0 }).toInt(),
+  body('history').optional().isArray({ max: 20 }).withMessage('history must be an array'),
+  body('level').optional().isIn(['beginner', 'intermediate', 'advanced']).withMessage('invalid level'),
+  body('pending').optional().isObject(),
+]
+
+const progressRules = [
+  body('slideIndex').isInt({ min: 0 }).withMessage('slideIndex required').toInt(),
+  body('total').optional().isInt({ min: 0 }).toInt(),
+]
+
 // ─── Routes ───────────────────────────────────────────────────────────────────
 
+const memoryRules = [
+  body('type').isIn(['doubt', 'mistake', 'quiz']).withMessage('type must be doubt|mistake|quiz'),
+  body('subject').optional().isLength({ max: 100 }),
+  body('chapter').optional().isLength({ max: 200 }),
+  body('detail').optional().isObject(),
+]
+
+router.post('/ask',                    askRules,     ask)
+router.post('/ask/stream',             askRules,     askStream)
+router.post('/revision',                             startRevision)
+router.post('/memory/event',           memoryRules,  recordMemory)
+router.get('/memory/summary',                        getMemorySummary)
+router.get('/plan',                                  getPlan)
 router.post('/lesson/generate',        generateRules, generateLesson)
+router.post('/lesson/:lessonId/progress', progressRules, updateProgress)
+router.get('/lesson/:lessonId/progress',               getProgress)
 router.get('/lessons',                               getLessons)
 router.get('/lesson/:lessonId',                      getLesson)
 router.delete('/lesson/:lessonId',                   deleteLesson)

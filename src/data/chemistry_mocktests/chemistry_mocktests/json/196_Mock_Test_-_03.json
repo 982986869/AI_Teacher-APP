@@ -1,0 +1,2070 @@
+{
+  "test_id": 196,
+  "test_name": "Mock Test - 03",
+  "instruction": "The Question Paper contains three sections.\n Section A has 25 questions. Attempt any 20 questions.\n Section B has 24 questions. Attempt any 20 questions.\n Section C has 6 questions. Attempt any 5 questions.\n All questions carry equal marks.\n There is no negative marking.",
+  "duration_min": 90,
+  "no_of_questions": 55,
+  "question_types": {
+    "MULTIPLE_CHOICE_QUESTION": 1,
+    "MULTIPLE_RESPONSE_QUESTION": 2,
+    "SUBJECTIVE_QUESTION": 5,
+    "FILL_IN_THE_BLANKS_ONLINE": 18,
+    "NUMERICAL_QUESTION": 16,
+    "TRUE_AND_FALSE_ONLINE_QUESTION": 17
+  },
+  "sections": [
+    {
+      "section_name": "Section A",
+      "section_id": 708,
+      "questions": [
+        {
+          "id": 382953,
+          "type": "MCQ",
+          "question": "Among halogens, the correct order of amount of energy released in electron gain (electron gain enthalpy) is:",
+          "question_html": "<p>Among halogens, the correct order of amount of energy released in electron gain (electron gain enthalpy) is:</p>",
+          "options": [
+            {
+              "id": 589667,
+              "text": "F < Cl < I < Br",
+              "html": "F &lt; Cl &lt; I &lt; Br",
+              "is_correct": false
+            },
+            {
+              "id": 589669,
+              "text": "F < Cl < Br < I",
+              "html": "F &lt; Cl &lt; Br &lt; I",
+              "is_correct": false
+            },
+            {
+              "id": 589668,
+              "text": "F < Cl > Br > I",
+              "html": "F &lt; Cl &gt; Br &gt; I",
+              "is_correct": true
+            },
+            {
+              "id": 589666,
+              "text": "F > Cl > Br > I",
+              "html": "F &gt; Cl &gt; Br &gt; I",
+              "is_correct": false
+            }
+          ],
+          "correct_options": [
+            "F < Cl > Br > I"
+          ],
+          "explanation": "Chlorine has a higher electron gain enthalpy than fluorine. This is due to the small size of fluorine atom, i.e., the electron density is high which resists the addition of an electron (F < CI) In general, electron gain enthalpy decreases as atomic size increases. Thus, electron gain enthalpy follows the order: CI > Br > I.\n\nF, Cl, Br, I have electron gain enthalpy value -328, -349, -325, and -295 respectively.",
+          "solutions": []
+        },
+        {
+          "id": 62012,
+          "type": "MCQ",
+          "question": "Wavenumber of yellow radiations having a wavelength of 5800 $\\overset{\\circ }{\\mathop{A}}\\,$ is:",
+          "question_html": "<p>Wavenumber of yellow radiations having a wavelength of 5800 <span class=\"math-tex\">{tex}\\overset{\\circ }{\\mathop{A}}\\,{/tex}</span>&nbsp;is:</p>",
+          "options": [
+            {
+              "id": 203231,
+              "text": "1.72 $\\times$ 10^(6) m^(-1)",
+              "html": "1.72 <span class=\"math-tex\">{tex}\\times{/tex}</span> 10<sup>6</sup> m<sup>-1</sup>",
+              "is_correct": true
+            },
+            {
+              "id": 203232,
+              "text": "1.72 $\\times$ 10^(5) m^(-1)",
+              "html": "1.72 <span class=\"math-tex\">{tex}\\times{/tex}</span> 10<sup><span style=\"font-size: 10.8333px;\">5</span></sup>&nbsp;m<sup>-1</sup>",
+              "is_correct": false
+            },
+            {
+              "id": 203234,
+              "text": "1.72 $\\times$ 10^(3) m^(-1)",
+              "html": "1.72 <span class=\"math-tex\">{tex}\\times{/tex}</span> 10<sup><span style=\"font-size: 10.8333px;\">3</span></sup>&nbsp;m<sup>-1</sup>",
+              "is_correct": false
+            },
+            {
+              "id": 203233,
+              "text": "1.72 $\\times$ 10^(2) m^(-1)",
+              "html": "1.72 <span class=\"math-tex\">{tex}\\times{/tex}</span> 10<sup><span style=\"font-size: 10.8333px;\">2</span></sup>&nbsp;m<sup>-1</sup>",
+              "is_correct": false
+            }
+          ],
+          "correct_options": [
+            "1.72 $\\times$ 10^(6) m^(-1)"
+          ],
+          "explanation": "Wavenumber is defined as the reciprocal of a wavelength.\n\n $\\bar \\nu ={1\\over \\lambda}$ \n\nwhere, $\\lambda $ = wavelength = 5800 Å = 5.8 $\\times$ 10^(-7) m\n\nSo, $\\bar \\nu ={1\\over 5.8\\times 10^{-7}}= $ 1.72 $\\times$ 10^(6) m^(-1).",
+          "solutions": []
+        },
+        {
+          "id": 68850,
+          "type": "MCQ",
+          "question": "In a period, the lowest first ionization energy is exhibited by:",
+          "question_html": "<p>In a period, the lowest first ionization&nbsp;energy is exhibited by:</p>",
+          "options": [
+            {
+              "id": 210778,
+              "text": "Halogens",
+              "html": "Halogens",
+              "is_correct": false
+            },
+            {
+              "id": 210779,
+              "text": "Transition metals",
+              "html": "Transition metals",
+              "is_correct": false
+            },
+            {
+              "id": 210780,
+              "text": "Noble gases",
+              "html": "Noble gases",
+              "is_correct": false
+            },
+            {
+              "id": 210777,
+              "text": "Alkali earth metals",
+              "html": "Alkali earth metals",
+              "is_correct": true
+            }
+          ],
+          "correct_options": [
+            "Alkali earth metals"
+          ],
+          "explanation": "The first ionization energy is the energy required to remove one mole of the most loosely held electrons from one mole of gaseous atoms to produce 1 mole of gaseous ions each with a charge of 1+. Alkali earth metals have the lowest ionization energy in their respective periods, due to their general electronic configuration (ns^(1)).",
+          "solutions": []
+        },
+        {
+          "id": 21963,
+          "type": "MCQ",
+          "question": "The criterion of overlap of atomic orbitals is the main factor for the formation of:",
+          "question_html": "<p>The criterion of overlap of atomic orbitals is the main factor for the formation of:</p>",
+          "options": [
+            {
+              "id": 43052,
+              "text": "coordinate bonds",
+              "html": "coordinate bonds",
+              "is_correct": false
+            },
+            {
+              "id": 43053,
+              "text": "Hydrogen bonds",
+              "html": "Hydrogen bonds",
+              "is_correct": false
+            },
+            {
+              "id": 43050,
+              "text": "covalent bonds",
+              "html": "covalent bonds",
+              "is_correct": true
+            },
+            {
+              "id": 43051,
+              "text": "ionic bonds",
+              "html": "ionic bonds",
+              "is_correct": false
+            }
+          ],
+          "correct_options": [
+            "covalent bonds"
+          ],
+          "explanation": "The valence bond theory is introduced to describe the bonding in organic molecules. In this model, bonds are considered to form from the overlapping of two atomic orbitals on different atoms, each orbital containing a single electron.\n\nIn general, greater the overlap, stronger is the bond formed between the two atoms. Thus, according to the orbital overlap concept, atoms combine together by overlapping their orbital and thus forming a lower energy state where their valence electrons with opposite spin, pair up to form the covalent bond.",
+          "solutions": []
+        },
+        {
+          "id": 22291,
+          "type": "MCQ",
+          "question": "The standard emf of a galvanic cell involving 2 moles of electrons in its redox reaction is 0.59 V. The equilibrium constant for the redox reaction of the cell is______.",
+          "question_html": "<p>The standard emf of a galvanic cell involving 2 moles of electrons in its redox reaction is 0.59 V. The equilibrium constant for the redox reaction of the cell is______.</p>",
+          "options": [
+            {
+              "id": 44365,
+              "text": "10",
+              "html": "10",
+              "is_correct": false
+            },
+            {
+              "id": 44363,
+              "text": "10^(5)",
+              "html": "10<sup>5</sup>",
+              "is_correct": false
+            },
+            {
+              "id": 44362,
+              "text": "10^(20)",
+              "html": "10<sup>20</sup>",
+              "is_correct": true
+            },
+            {
+              "id": 44364,
+              "text": "10^(10)",
+              "html": "10<sup>10</sup>",
+              "is_correct": false
+            }
+          ],
+          "correct_options": [
+            "10^(20)"
+          ],
+          "explanation": "constant K_(c) can be calculated as\n\nhere, no. of moles of electrons = 2\n\n $E^0cell = {0.059 \\over n}logKc$ or $0.59 = {0.059 \\over 2}logKc$ \n\nor $logKc= {0.59\\times2 \\over 0.059}= 20$ \n\nKc = antilog 20 = 10^(20)\n\nKc = 10^(20)",
+          "solutions": []
+        },
+        {
+          "id": 22366,
+          "type": "73",
+          "question": "Which of the following statements about hydrogen are correct?\n\n The hydrogen ion, H^(+), exists freely in solution.\n Dihydrogen does not act as a reducing agent.\n Hydrogen has three isotopes of which protium is the most common.\n Hydrogen never acts as an anion in ionic salts.",
+          "question_html": "<p>Which of the following statements about hydrogen are correct?</p>\r\n\r\n<ol start=\"1\" style=\"list-style-type: upper-alpha;\">\r\n\t<li>The hydrogen ion, H<sup>+</sup>, exists freely in solution.</li>\r\n\t<li>Dihydrogen does not act as a reducing agent.</li>\r\n\t<li>Hydrogen has three isotopes of which protium is the most common.</li>\r\n\t<li>Hydrogen never acts as an anion in ionic salts.</li>\r\n</ol>",
+          "options": [
+            {
+              "id": 44662,
+              "text": "Only B is correct",
+              "html": "Only B is correct",
+              "is_correct": false
+            },
+            {
+              "id": 44660,
+              "text": "Only C is correct",
+              "html": "Only C is correct",
+              "is_correct": true
+            },
+            {
+              "id": 44663,
+              "text": "Only D is correct",
+              "html": "Only D is correct",
+              "is_correct": false
+            },
+            {
+              "id": 44661,
+              "text": "Only A is correct",
+              "html": "Only A is correct",
+              "is_correct": false
+            }
+          ],
+          "correct_options": [
+            "Only C is correct"
+          ],
+          "explanation": "Hydrogen has three naturally occurring isotopes: protium, deuterium, and tritium. Each isotope has different chemical properties. Protium is the most prevalent hydrogen isotope, with an abundance of 99.98%. It consists of one proton and one electron. It is typically not found in its monoatomic form, but bonded with itself (H_(2)) or other elements.",
+          "solutions": []
+        },
+        {
+          "id": 22599,
+          "type": "MCQ",
+          "question": "When inductive and electromeric effects operate in opposite directions, what happens?",
+          "question_html": "<p>When inductive and electromeric effects operate in opposite directions, what happens?</p>",
+          "options": [
+            {
+              "id": 45595,
+              "text": "resonance structures are formed.",
+              "html": "resonance structures are formed.",
+              "is_correct": false
+            },
+            {
+              "id": 45593,
+              "text": "the inductive effect predominates.",
+              "html": "the inductive effect predominates.",
+              "is_correct": false
+            },
+            {
+              "id": 45592,
+              "text": "the electomeric effect predominates.",
+              "html": "the electomeric effect predominates.",
+              "is_correct": true
+            },
+            {
+              "id": 45594,
+              "text": "inductive and electromeric effects operate with the same magnitude.",
+              "html": "inductive and electromeric effects operate with the same magnitude.",
+              "is_correct": false
+            }
+          ],
+          "correct_options": [
+            "the electomeric effect predominates."
+          ],
+          "explanation": "Electromeric Effect (E effect) is a temporary effect. The organic compounds having multiple bonds (a double or triple bond) show this effect in the presence of an attacking reagent only. It is defined as the complete transfer of a shared pair of $\\pi$ -electrons to one of the atoms joined by multiple bonds on the demand of an attacking reagent. Polarisation of $\\sigma$ -bond caused by the polarisation of adjacent $\\sigma$ -bond is referred to as the inductive effect. When inductive and electromeric effects operate in opposite directions then electromeric effect predominates.",
+          "solutions": []
+        },
+        {
+          "id": 21771,
+          "type": "MCQ",
+          "question": "The gram molar mass of ZnSO_(4) is",
+          "question_html": "<p>The gram molar mass of ZnSO<sub>4</sub> is</p>",
+          "options": [
+            {
+              "id": 42283,
+              "text": "156.42 g/mol",
+              "html": "156.42 g/mol",
+              "is_correct": false
+            },
+            {
+              "id": 42285,
+              "text": "166.04 g/mol",
+              "html": "166.04 g/mol",
+              "is_correct": false
+            },
+            {
+              "id": 42282,
+              "text": "136.40 g/mol",
+              "html": "136.40 g/mol",
+              "is_correct": false
+            },
+            {
+              "id": 42284,
+              "text": "161.44 g/mol",
+              "html": "161.44 g/mol",
+              "is_correct": true
+            }
+          ],
+          "correct_options": [
+            "161.44 g/mol"
+          ],
+          "explanation": "Calculations:\n\nMolar mass of ZnSO_(4)\n\n= [Atomic masses of (Zn + S + 4 * O) atoms]\n\n= [65.38 + 32.065 + (4 $\\times$ 15.9994)]\n\n= 161.4426 g/mol",
+          "solutions": []
+        },
+        {
+          "id": 21794,
+          "type": "MCQ",
+          "question": "Isotopes are atoms having the",
+          "question_html": "<p>Isotopes are atoms having the</p>\r\n",
+          "options": [
+            {
+              "id": 42377,
+              "text": "same number of protons and neutrons",
+              "html": "same number of protons and neutrons",
+              "is_correct": false
+            },
+            {
+              "id": 42374,
+              "text": "same atomic number but different mass numbers",
+              "html": "same atomic number but different mass numbers",
+              "is_correct": true
+            },
+            {
+              "id": 42375,
+              "text": "different atomic numbers but same mass number",
+              "html": "different atomic numbers but same mass number",
+              "is_correct": false
+            },
+            {
+              "id": 42376,
+              "text": "same number of neutrons but different number of protons",
+              "html": "same number of neutrons but different number of protons",
+              "is_correct": false
+            }
+          ],
+          "correct_options": [
+            "same atomic number but different mass numbers"
+          ],
+          "explanation": "Isotopes are atoms with different atomic masses which have the same atomic number. The atoms of different isotopes are atoms of the same chemical element; they differ in the number of neutrons in the nucleus.",
+          "solutions": []
+        },
+        {
+          "id": 68837,
+          "type": "MCQ",
+          "question": "Which of the following statements is incorrect in relation to ionization enthalpy?",
+          "question_html": "<p>Which of the following statements is incorrect in relation to ionization enthalpy?</p>",
+          "options": [
+            {
+              "id": 210762,
+              "text": "ionization enthalpy increases for each successive electron",
+              "html": "ionization enthalpy increases for each successive electron",
+              "is_correct": false
+            },
+            {
+              "id": 210761,
+              "text": "Removal of electron from orbitals bearing lower n value is easier than from orbital having higher n value.",
+              "html": "Removal of electron from orbitals bearing lower n value is easier than from orbital having higher n value.",
+              "is_correct": true
+            },
+            {
+              "id": 210763,
+              "text": "the greatest increase in ionization enthalpy is experienced on removal of electrons from core noble gas configuration",
+              "html": "the greatest increase in ionization enthalpy is experienced on removal of electrons from core noble gas configuration",
+              "is_correct": false
+            },
+            {
+              "id": 210764,
+              "text": "End of valence electrons is marked by a big jump in ionization enthalpy",
+              "html": "End of valence electrons is marked by a big jump in ionization enthalpy",
+              "is_correct": false
+            }
+          ],
+          "correct_options": [
+            "Removal of electron from orbitals bearing lower n value is easier than from orbital having higher n value."
+          ],
+          "explanation": "Orbitals with lower n values are always nearer to the nucleus of the atom. The electrons in these orbitals face maximum nuclear charge hence their ionization energies are maximum.",
+          "solutions": []
+        },
+        {
+          "id": 21983,
+          "type": "MCQ",
+          "question": "Which molecule/ion out of the following does not contain unpaired electrons?",
+          "question_html": "<p>Which molecule/ion out of the following does not contain unpaired electrons?</p>",
+          "options": [
+            {
+              "id": 43133,
+              "text": "${{\\text{B}}_2}$",
+              "html": "<span class=\"math-tex\">{tex}{{\\text{B}}_2}{/tex}</span>",
+              "is_correct": false
+            },
+            {
+              "id": 43131,
+              "text": "${{\\text{O}}_2}$",
+              "html": "<span class=\"math-tex\">{tex}{{\\text{O}}_2}{/tex}</span>",
+              "is_correct": false
+            },
+            {
+              "id": 43130,
+              "text": "${\\text{O}}_2^{2 - }$",
+              "html": "<span class=\"math-tex\">{tex}{\\text{O}}_2^{2 - }{/tex}</span>",
+              "is_correct": true
+            },
+            {
+              "id": 43132,
+              "text": "${\\text{N}}_2^ + $",
+              "html": "<span class=\"math-tex\">{tex}{\\text{N}}_2^ + {/tex}</span>",
+              "is_correct": false
+            }
+          ],
+          "correct_options": [
+            "${\\text{O}}_2^{2 - }$"
+          ],
+          "explanation": "![image](https://media-mycbseguide.s3.amazonaws.com/images/quiz/11/chemistry/14135_e1.png) \n\nThere is no unpaired electrons.",
+          "solutions": []
+        },
+        {
+          "id": 69182,
+          "type": "MCQ",
+          "question": "Which one among the following is not example of autoredox reaction?",
+          "question_html": "<p>Which one among the following is not example of autoredox reaction?</p>",
+          "options": [
+            {
+              "id": 211017,
+              "text": "AgCl + NH_(3 ) $\\rightarrow $ [Ag(NH_(3))_(2)]Cl",
+              "html": "AgCl + NH<sub>3 </sub><span class=\"math-tex\">{tex}\\rightarrow {/tex}</span> [Ag(NH<sub>3</sub>)<sub>2</sub>]Cl",
+              "is_correct": true
+            },
+            {
+              "id": 211018,
+              "text": "P4 + OH- $\\rightarrow$ H2PO^(-)_(4 )+ PH_(3)",
+              "html": "P4 + OH- <span class=\"math-tex\">{tex}\\rightarrow{/tex}</span> H2PO<sup>-</sup><sub>4 </sub>+ PH<sub>3</sub>",
+              "is_correct": false
+            },
+            {
+              "id": 211020,
+              "text": "$\\mathrm{S}_{2} \\mathrm{O}_{3}^{2-} \\longrightarrow \\mathrm{SO}_{4}^{2-}+\\mathrm{S}$",
+              "html": "<span class=\"math-tex\">{tex}\\mathrm{S}_{2} \\mathrm{O}_{3}^{2-} \\longrightarrow \\mathrm{SO}_{4}^{2-}+\\mathrm{S}{/tex}</span>",
+              "is_correct": false
+            },
+            {
+              "id": 211019,
+              "text": "H_(2)O_(2) $\\rightarrow$ H_(2)O + O_(2)",
+              "html": "H<sub>2</sub>O<sub>2</sub> <span class=\"math-tex\">{tex}\\rightarrow{/tex}</span> H<sub>2</sub>O + O<sub>2</sub>",
+              "is_correct": false
+            }
+          ],
+          "correct_options": [
+            "AgCl + NH_(3 ) $\\rightarrow $ [Ag(NH_(3))_(2)]Cl"
+          ],
+          "explanation": "A chemical reaction in which a substance oxidizes and reduces simultaneously is called auto oxidation reduction reaction. Where as in this reaction when a concentration of NH_(3) is added to AgCl, the ammonia binds to the Ag+ ion and forms the complex ion.",
+          "solutions": []
+        },
+        {
+          "id": 22343,
+          "type": "33",
+          "question": "Metal hydrides are ionic, covalent or molecular in nature. Among LiH, NaH, KH, RbH, CsH, the correct order of increasing ionic character is",
+          "question_html": "<p>Metal hydrides are ionic, covalent or molecular in nature. Among LiH, NaH, KH, RbH, CsH, the correct order of increasing ionic character is</p>",
+          "options": [
+            {
+              "id": 44568,
+              "text": "LiH < NaH < KH < RbH < CsH",
+              "html": "LiH &lt; NaH &lt; KH &lt; RbH &lt; CsH",
+              "is_correct": true
+            },
+            {
+              "id": 44570,
+              "text": "RbH > CsH > NaH > KH > LiH",
+              "html": "RbH &gt; CsH &gt; NaH &gt; KH &gt; LiH",
+              "is_correct": false
+            },
+            {
+              "id": 44571,
+              "text": "NaH > CsH > RbH > LiH > KH",
+              "html": "NaH &gt; CsH &gt; RbH &gt; LiH &gt; KH",
+              "is_correct": false
+            },
+            {
+              "id": 44569,
+              "text": "LiH > NaH > CsH > KH>RbH",
+              "html": "LiH &gt; NaH &gt; CsH &gt; KH&gt;RbH",
+              "is_correct": false
+            }
+          ],
+          "correct_options": [
+            "LiH < NaH < KH < RbH < CsH"
+          ],
+          "explanation": "As the size of cation increases ionic character also increases.",
+          "solutions": []
+        },
+        {
+          "id": 22555,
+          "type": "MCQ",
+          "question": "The nitrogen containing organic compound, when heated with copper oxide in an atmosphere of carbon dioxide, yields:",
+          "question_html": "<p>The nitrogen containing organic compound, when heated with copper oxide in an atmosphere of carbon dioxide, yields:</p>\r\n",
+          "options": [
+            {
+              "id": 45416,
+              "text": "free nitrogen in addition to carbondioxide and water.",
+              "html": "free nitrogen in addition to carbondioxide and water.",
+              "is_correct": true
+            },
+            {
+              "id": 45418,
+              "text": "ammonium sulphate",
+              "html": "ammonium sulphate",
+              "is_correct": false
+            },
+            {
+              "id": 45419,
+              "text": "only carbon dioxide and water.",
+              "html": "only carbon dioxide and water.",
+              "is_correct": false
+            },
+            {
+              "id": 45417,
+              "text": "ammonia",
+              "html": "ammonia",
+              "is_correct": false
+            }
+          ],
+          "correct_options": [
+            "free nitrogen in addition to carbondioxide and water."
+          ],
+          "explanation": "In the Dumas method for estimation of nitrogen in an organic compound, the nitrogen-containing organic compound, when heated with copper oxide in an atmosphere of carbon dioxide, yields free nitrogen in addition to carbon dioxide and water.\n\n $C_xH_yN_z\\;+\\;\\left(x+\\frac y2\\right)CuO\\rightarrow xCO_2\\;+\\frac y2\\;H_2O\\;+\\frac z2N_2\\;+\\left(2x+\\frac y2\\right)Cu$",
+          "solutions": []
+        },
+        {
+          "id": 21774,
+          "type": "MCQ",
+          "question": "20 °F can also be written in K as",
+          "question_html": "<p>20 &deg;F can also be written&nbsp;in K&nbsp;as</p>",
+          "options": [
+            {
+              "id": 42294,
+              "text": "266.5 K",
+              "html": "266.5 K",
+              "is_correct": true
+            },
+            {
+              "id": 42296,
+              "text": "206.5 K",
+              "html": "206.5 K",
+              "is_correct": false
+            },
+            {
+              "id": 42297,
+              "text": "169.5 K",
+              "html": "169.5 K",
+              "is_correct": false
+            },
+            {
+              "id": 42295,
+              "text": "256.00 K",
+              "html": "256.00 K",
+              "is_correct": false
+            }
+          ],
+          "correct_options": [
+            "266.5 K"
+          ],
+          "explanation": "K = (°F- 32) $ \\times $ $\\frac{5}{9}$ + 273.15\n\nK = ( 20 - 32) $ \\times $ $\\frac{5}{9}$ + 273.15\n\nK = -12 $ \\times $ $\\frac{5}{9}$ + 273.15 = -6.66 + 273.15\n\n= 266.49 Kelvin (approximately 266.5 kelvin)",
+          "solutions": []
+        },
+        {
+          "id": 62007,
+          "type": "MCQ",
+          "question": "One of the following scientists was the first to discover electron",
+          "question_html": "<p>One of the following scientists was the first to discover electron</p>\r\n",
+          "options": [
+            {
+              "id": 203212,
+              "text": "J.J. Thomson",
+              "html": "J.J. Thomson",
+              "is_correct": true
+            },
+            {
+              "id": 203211,
+              "text": "Robert Hooke",
+              "html": "Robert Hooke",
+              "is_correct": false
+            },
+            {
+              "id": 203214,
+              "text": "Ernest Rutherford",
+              "html": "Ernest Rutherford",
+              "is_correct": false
+            },
+            {
+              "id": 203213,
+              "text": "James Chadwick",
+              "html": "James Chadwick",
+              "is_correct": false
+            }
+          ],
+          "correct_options": [
+            "J.J. Thomson"
+          ],
+          "explanation": "Electron was discovered by J. J. Thomson in 1897 when he was studying the properties of the cathode ray. J. J. Thomson won Nobel Prize in 1906 for discovering the elementary particle electron.",
+          "solutions": []
+        },
+        {
+          "id": 22267,
+          "type": "MCQ",
+          "question": "For ions composed of only one atom, the oxidation number is equal to the:",
+          "question_html": "<p>For ions composed of only one atom, the oxidation number is equal to the:</p>",
+          "options": [
+            {
+              "id": 44266,
+              "text": "Charge on the ion",
+              "html": "Charge on the ion",
+              "is_correct": true
+            },
+            {
+              "id": 44268,
+              "text": "Always -1",
+              "html": "Always -1",
+              "is_correct": false
+            },
+            {
+              "id": 44267,
+              "text": "Always +1",
+              "html": "Always +1",
+              "is_correct": false
+            },
+            {
+              "id": 44269,
+              "text": "The sum of different oxidation states",
+              "html": "The sum of different oxidation states",
+              "is_correct": false
+            }
+          ],
+          "correct_options": [
+            "Charge on the ion"
+          ],
+          "explanation": "By definition, the oxidation number of an atom is the charge that an atom would have if the compound was composed of ions. The oxidation number of simple ions is equal to the charge on the ion. The oxidation number of sodium in the Na^(+) ion is +1, for example, and the oxidation number of chlorine in the Cl^(-) ion is -1.",
+          "solutions": []
+        },
+        {
+          "id": 21992,
+          "type": "MCQ",
+          "question": "CO is isoelectronic with:",
+          "question_html": "<p>CO is isoelectronic with:</p>",
+          "options": [
+            {
+              "id": 43166,
+              "text": "${\\text{N}}{{\\text{O}}^ + }$ and N_(2)",
+              "html": "<span class=\"math-tex\">{tex}{\\text{N}}{{\\text{O}}^ + }{/tex}</span>and N<sub>2</sub>",
+              "is_correct": true
+            },
+            {
+              "id": 43167,
+              "text": "N_(2 )and ${\\text{SnC}}{{\\text{l}}_{\\text{2}}}$",
+              "html": "N<sub>2&nbsp;</sub>and <span class=\"math-tex\">{tex}{\\text{SnC}}{{\\text{l}}_{\\text{2}}}{/tex}</span>",
+              "is_correct": false
+            },
+            {
+              "id": 43169,
+              "text": "$NO_2^ - $ and SnCl_(2)",
+              "html": "<span class=\"math-tex\">{tex}NO_2^ - {/tex}</span> and SnCl<sub>2</sub>",
+              "is_correct": false
+            },
+            {
+              "id": 43168,
+              "text": "SnCl_(2) and NO^(+)",
+              "html": "SnCl<sub>2</sub>&nbsp;and NO<sup>+</sup>",
+              "is_correct": false
+            }
+          ],
+          "correct_options": [
+            "${\\text{N}}{{\\text{O}}^ + }$ and N_(2)"
+          ],
+          "explanation": "CO, N_(2,) and NO^(+) have same number of electrons = 14.",
+          "solutions": []
+        },
+        {
+          "id": 69579,
+          "type": "MCQ",
+          "question": "$CH_2=CH-CH(CH_2CH_3)-C(Cl)=CH_2$ \n\nThe IUPAC name of this compound is:",
+          "question_html": "<p><span class=\"math-tex\">{tex}CH_2=CH-CH(CH_2CH_3)-C(Cl)=CH_2{/tex}</span><br />\nThe IUPAC name of this compound is:</p>",
+          "options": [
+            {
+              "id": 211252,
+              "text": "4-chloro-3-ethyl-1-pentene",
+              "html": "4-chloro-3-ethyl-1-pentene",
+              "is_correct": false
+            },
+            {
+              "id": 211251,
+              "text": "3-ethyl - 4- chloro-1, 4-pentadiene",
+              "html": "3-ethyl - 4- chloro-1, 4-pentadiene",
+              "is_correct": false
+            },
+            {
+              "id": 211250,
+              "text": "2-chloro-3-ethyl-1, 4-pentadiene",
+              "html": "2-chloro-3-ethyl-1, 4-pentadiene",
+              "is_correct": true
+            },
+            {
+              "id": 211253,
+              "text": "3-ethyl-4-chloro-4-pentene",
+              "html": "3-ethyl-4-chloro-4-pentene",
+              "is_correct": false
+            }
+          ],
+          "correct_options": [
+            "2-chloro-3-ethyl-1, 4-pentadiene"
+          ],
+          "explanation": "The given compound has 5 carbons in the longest chain and has double bonds at positions 1 and 4. At position 2 there is chloro i.e. -Cl and at position 3 there is ethyl i.e. -C_(2)H_(5) group and they are named alphabetically. So the IUPAC name is 2-chloro-3-ethyl-1, 4-pentadiene.",
+          "solutions": []
+        },
+        {
+          "id": 21778,
+          "type": "MCQ",
+          "question": "What is the mass of 1 molecule of O_(2)?",
+          "question_html": "<p>What is the mass of 1 molecule of O<sub>2</sub>?</p>",
+          "options": [
+            {
+              "id": 42313,
+              "text": "6.32 $\\times$ 10^(-23)g",
+              "html": "6.32&nbsp;<span class=\"math-tex\">{tex}\\times{/tex}</span>&nbsp;10<sup>-23</sup>g",
+              "is_correct": false
+            },
+            {
+              "id": 42311,
+              "text": "7.32 $\\times$ 10^(-23)g",
+              "html": "7.32&nbsp;<span class=\"math-tex\">{tex}\\times{/tex}</span>&nbsp;10<sup>-23</sup>g",
+              "is_correct": false
+            },
+            {
+              "id": 42310,
+              "text": "5.32 $\\times$ 10^(-23)g",
+              "html": "5.32&nbsp;<span class=\"math-tex\">{tex}\\times{/tex}</span>&nbsp;10<sup>-23</sup>g",
+              "is_correct": true
+            },
+            {
+              "id": 42312,
+              "text": "4.32 $\\times$ 10^(-23)g",
+              "html": "4.32&nbsp;<span class=\"math-tex\">{tex}\\times{/tex}</span>&nbsp;10<sup>-23</sup>g",
+              "is_correct": false
+            }
+          ],
+          "correct_options": [
+            "5.32 $\\times$ 10^(-23)g"
+          ],
+          "explanation": "Calculations: Since the molar mass of O_(2 )= 32 g / mole\n\n $\\therefore$ 1 mol of O_(2) gas containing 6.022 $\\times$ 10^(23 ) molecules have a mass = 32.0 g\n\nso 1 molecule would have a mass\n\n= [ 32 / ( 6.022 $\\times$ 10^(23) ) ] g\n\n= 5.3138 $\\times$ 10^(-23) g\n\nThus, the mass of one molecule of O_(2) = 5.32 $\\times$ 10^(-23) g",
+          "solutions": []
+        },
+        {
+          "id": 61975,
+          "type": "MCQ",
+          "question": "For the reaction\n\n2N_(2)H_(4)(l) + N_(2)O_(4)(l) $\\rightarrow$ 3N_(2) (g) + 4H_(2)O (l),\n\nWhich is the limiting reagent for this reaction?",
+          "question_html": "<p>For the reaction<br />\n2N<sub>2</sub>H<sub>4</sub>(l) + N<sub>2</sub>O<sub>4</sub>(l)&nbsp;<span class=\"math-tex\">{tex}\\rightarrow{/tex}</span>&nbsp;3N<sub>2</sub>&nbsp;(g) + 4H<sub>2</sub>O (l),<br />\nWhich is the limiting reagent for this reaction?</p>",
+          "options": [
+            {
+              "id": 203084,
+              "text": "N_(2)H_(4)",
+              "html": "N<sub>2</sub>H<sub>4</sub>",
+              "is_correct": false
+            },
+            {
+              "id": 203086,
+              "text": "H_(2)O",
+              "html": "H<sub>2</sub>O",
+              "is_correct": false
+            },
+            {
+              "id": 203083,
+              "text": "N_(2)O_(4)",
+              "html": "N<sub>2</sub>O<sub>4</sub>",
+              "is_correct": true
+            },
+            {
+              "id": 203085,
+              "text": "N_(2)",
+              "html": "N<sub>2</sub>",
+              "is_correct": false
+            }
+          ],
+          "correct_options": [
+            "N_(2)O_(4)"
+          ],
+          "explanation": "For the given reaction,\n\n2N_(2)H_(4 )(l) + N_(2)O_(4 )(l) $\\rightarrow$ 3N_(2) (g) + 4H_(2)O (l)\n\nas per its stoichiometry, if only the right and exact amount of N_(2)O_(4) is taken, the reaction may not go to completion. As such it would be consumed first & is, therefore, the limiting reagent.",
+          "solutions": []
+        },
+        {
+          "id": 22300,
+          "type": "MCQ",
+          "question": "Metal in a compound can be displaced by another metal in the uncombined state. Which metal is a better reducing agent in such a case?",
+          "question_html": "<p>Metal in a compound can be displaced by another metal in the uncombined state. Which metal is a better reducing agent in such a case?</p>",
+          "options": [
+            {
+              "id": 44398,
+              "text": "A better reducing agent is the one that loses more electrons",
+              "html": "A better reducing agent is the one that loses more electrons",
+              "is_correct": true
+            },
+            {
+              "id": 44400,
+              "text": "The reduced metal is a better reducing agent than the reducing metal",
+              "html": "The reduced metal is a better reducing agent than the reducing metal",
+              "is_correct": false
+            },
+            {
+              "id": 44401,
+              "text": "Both are the same in reducing capacity",
+              "html": "Both are the same in reducing capacity",
+              "is_correct": false
+            },
+            {
+              "id": 44399,
+              "text": "A better reducing agent is the one that loses fewer electrons",
+              "html": "A better reducing agent is the one that loses fewer electrons",
+              "is_correct": false
+            }
+          ],
+          "correct_options": [
+            "A better reducing agent is the one that loses more electrons"
+          ],
+          "explanation": "The metal causing displacement is a better reducing agent than the one that is being replaced. In simple words, such a metal shows more capability to loose electrons as compared to the one that is reduced.",
+          "solutions": []
+        },
+        {
+          "id": 21972,
+          "type": "MCQ",
+          "question": "Which one of the following is paramagnetic?",
+          "question_html": "<p>Which one of the following is paramagnetic?</p>",
+          "options": [
+            {
+              "id": 43087,
+              "text": "N_(2)",
+              "html": "N<sub>2</sub>",
+              "is_correct": false
+            },
+            {
+              "id": 43086,
+              "text": "NO",
+              "html": "NO",
+              "is_correct": true
+            },
+            {
+              "id": 43089,
+              "text": "O_(3)",
+              "html": "O<sub>3</sub>",
+              "is_correct": false
+            },
+            {
+              "id": 43088,
+              "text": "CO",
+              "html": "CO",
+              "is_correct": false
+            }
+          ],
+          "correct_options": [
+            "NO"
+          ],
+          "explanation": "The number of electrons in Nitrogen is 7 and in oxygen is 8. Hence the number of electrons that would be present in the molecular orbitals in NO is 7 + 8 = 15. As the number of electrons is odd, all the electrons in the NO molecule cannot be paired. Hence, a single electron would be present in a $\\pi$ *2p orbital. Therefore NO is an odd electron species and the gas is hence paramagnetic due to the presence of unpaired electron.",
+          "solutions": []
+        },
+        {
+          "id": 22550,
+          "type": "MCQ",
+          "question": "Compounds containing carbon atoms joined together in the form of a ring as following are:\n\n ![image](https://media-mycbseguide.s3.amazonaws.com/images/testpaper/1.04.11.12.19.Ques.jpg)",
+          "question_html": "<p>Compounds containing carbon atoms joined together in the form of a ring as following&nbsp;are:<br />\r\n<img src=\"https://media-mycbseguide.s3.amazonaws.com/images/testpaper/1.04.11.12.19.Ques.jpg\" style=\"width: 100px; height: 47px;\" /></p>",
+          "options": [
+            {
+              "id": 45399,
+              "text": "Aromatic compounds",
+              "html": "Aromatic compounds",
+              "is_correct": false
+            },
+            {
+              "id": 45396,
+              "text": "Alicyclic compounds",
+              "html": "Alicyclic compounds",
+              "is_correct": true
+            },
+            {
+              "id": 45397,
+              "text": "Aliphatic compounds",
+              "html": "Aliphatic compounds",
+              "is_correct": false
+            },
+            {
+              "id": 45398,
+              "text": "Heterocyclic compounds",
+              "html": "Heterocyclic compounds",
+              "is_correct": false
+            }
+          ],
+          "correct_options": [
+            "Alicyclic compounds"
+          ],
+          "explanation": "An alicyclic compound is an organic compound that is both aliphatic and cyclic. They contain one or more all-carbon rings which may be either saturated or unsaturated, but do not have aromatic character.",
+          "solutions": []
+        },
+        {
+          "id": 21713,
+          "type": "MCQ",
+          "question": "In a homogeneous mixture,",
+          "question_html": "<p>In a homogeneous mixture,</p>",
+          "options": [
+            {
+              "id": 42050,
+              "text": "the components completely mix with each other and its composition is uniform throughout.",
+              "html": "the components completely mix with each other and its composition is uniform throughout.",
+              "is_correct": true
+            },
+            {
+              "id": 42051,
+              "text": "the components do not mix with each other and its composition is uniform throughout.",
+              "html": "the components do not mix with each other and its composition is uniform throughout.",
+              "is_correct": false
+            },
+            {
+              "id": 42052,
+              "text": "the components completely mix with each other and its composition is not uniform throughout.",
+              "html": "the components completely mix with each other and its composition is not uniform throughout.",
+              "is_correct": false
+            },
+            {
+              "id": 42053,
+              "text": "the components do not mix with each other and its composition is not uniform throughout.",
+              "html": "the components do not mix with each other and its composition is not uniform throughout.",
+              "is_correct": false
+            }
+          ],
+          "correct_options": [
+            "the components completely mix with each other and its composition is uniform throughout."
+          ],
+          "explanation": "Its a basic criteria of a homogeneous mixture.\n\n The components get mixed up uniformly throughout the mixture.\n Its individual parts are not easily identifiable.\n It has same proportions of its components through out the sample.",
+          "solutions": []
+        }
+      ]
+    },
+    {
+      "section_name": "Section B",
+      "section_id": 709,
+      "questions": [
+        {
+          "id": 62034,
+          "type": "MCQ",
+          "question": "The electrons are ejected from the metal surface when the light of certain frequencies strikes the surface is called ________.",
+          "question_html": "<p>The electrons are ejected from the metal surface when the&nbsp;light of certain frequencies&nbsp;strikes the surface is called ________.</p>",
+          "options": [
+            {
+              "id": 203320,
+              "text": "Planck's quantum theory",
+              "html": "Planck&#39;s quantum theory",
+              "is_correct": false
+            },
+            {
+              "id": 203322,
+              "text": "Faraday’s cathode ray discharge model",
+              "html": "Faraday&rsquo;s cathode ray discharge model",
+              "is_correct": false
+            },
+            {
+              "id": 203321,
+              "text": "Thomson model for electron",
+              "html": "Thomson model for electron",
+              "is_correct": false
+            },
+            {
+              "id": 203319,
+              "text": "Photoelectric effect",
+              "html": "Photoelectric effect",
+              "is_correct": true
+            }
+          ],
+          "correct_options": [
+            "Photoelectric effect"
+          ],
+          "explanation": "Electrons are ejected from the metal when the light of a certain frequency strikes the surface of a metal, This phenomenon is known as the photoelectric effect and the ejected electrons are called photoelectrons.",
+          "solutions": []
+        },
+        {
+          "id": 386449,
+          "type": "Numerical/MCQ",
+          "question": "If the electronic configuration of an element is 1s^(2) 2s^(2) 2p^(6) 3s^(2) 3p^(6) 3d^(2) 4s^(2), the four electrons involved in chemical bond formation will be ________.",
+          "question_html": "<p>If the electronic configuration of an element is 1s<sup>2</sup> 2s<sup>2</sup> 2p<sup>6</sup> 3s<sup>2</sup> 3p<sup>6</sup> 3d<sup>2</sup> 4s<sup>2</sup>, the four electrons involved in chemical bond formation will be ________.</p>",
+          "options": [
+            {
+              "id": 597147,
+              "text": "3p^(6), 4s^(2)",
+              "html": "3p<sup>6</sup>, 4s<sup>2</sup>",
+              "is_correct": false
+            },
+            {
+              "id": 597149,
+              "text": "3d^(2), 4s^(2)",
+              "html": "3d<sup>2</sup>, 4s<sup>2</sup>",
+              "is_correct": true
+            },
+            {
+              "id": 597148,
+              "text": "3p^(6), 3d^(2)",
+              "html": "3p<sup>6</sup>, 3d<sup>2</sup>",
+              "is_correct": false
+            },
+            {
+              "id": 597146,
+              "text": "3p^(6)",
+              "html": "3p<sup>6</sup>",
+              "is_correct": false
+            }
+          ],
+          "correct_options": [
+            "3d^(2), 4s^(2)"
+          ],
+          "explanation": "In bonding, valence electrons and electrons from the penultimate shell participate. In transition element ns electrons and (n - 1)d orbitals electrons participate.",
+          "solutions": []
+        },
+        {
+          "id": 22380,
+          "type": "MCQ",
+          "question": "Aerobic conditions to sewage wastes is restored by:",
+          "question_html": "<p>Aerobic conditions to sewage wastes is restored by:</p>",
+          "options": [
+            {
+              "id": 44717,
+              "text": "Aluminium hydride",
+              "html": "Aluminium hydride",
+              "is_correct": false
+            },
+            {
+              "id": 44716,
+              "text": "Hydrogen peroxide",
+              "html": "Hydrogen peroxide",
+              "is_correct": true
+            },
+            {
+              "id": 44718,
+              "text": "Hydrogen",
+              "html": "Hydrogen",
+              "is_correct": false
+            },
+            {
+              "id": 44719,
+              "text": "By adding an excess of water",
+              "html": "By adding an excess of water",
+              "is_correct": false
+            }
+          ],
+          "correct_options": [
+            "Hydrogen peroxide"
+          ],
+          "explanation": "Hydrogen peroxide has been used to reduce the BOD and COD of industrial wastewaters for many years. H_(2)O_(2) can be used as a stand-alone treatment or as an enhancement to existing physical or biological treatment processes, depending on the situation. H_(2)O_(2) can be used alone or with catalysts such as iron, UV light, ozone (O_(3)), and alkali to oxidize BOD/COD contributing compounds in wastewaters.",
+          "solutions": []
+        },
+        {
+          "id": 22590,
+          "type": "MCQ",
+          "question": "Why Kjeldahl method cannot be used for the estimation of nitrogen present in DNA and RNA? Choose the most appropriate option.",
+          "question_html": "<p>Why Kjeldahl method cannot be used for the estimation of nitrogen present in DNA and RNA? Choose the most appropriate option.</p>\r\n",
+          "options": [
+            {
+              "id": 45559,
+              "text": "The bases present in the DNA and RNA structures do not allow them to participate in the Kjeldahl method",
+              "html": "The bases present in the DNA and RNA structures do not allow them to participate in the Kjeldahl method",
+              "is_correct": false
+            },
+            {
+              "id": 45556,
+              "text": "Nitrogen present in rings, azo groups and nitro groups of DNA and RNA cannot be removed",
+              "html": "Nitrogen present in rings, azo groups and nitro groups of DNA and RNA cannot be removed",
+              "is_correct": true
+            },
+            {
+              "id": 45557,
+              "text": "DNA and RNA have phosphorous which interferes in the Kjeldahl method",
+              "html": "DNA and RNA have phosphorous which interferes in the Kjeldahl method",
+              "is_correct": false
+            },
+            {
+              "id": 45558,
+              "text": "DNA and RNA have deoxyribose and ribose which interferes in the Kjeldahl method",
+              "html": "DNA and RNA have deoxyribose and ribose which interferes in the Kjeldahl method",
+              "is_correct": false
+            }
+          ],
+          "correct_options": [
+            "Nitrogen present in rings, azo groups and nitro groups of DNA and RNA cannot be removed"
+          ],
+          "explanation": "Kjeldahl method is not applicable to compounds containing nitrogen in nitro and azo groups and nitrogen present in the ring (e.g. pyridine) as nitrogen of these compounds does not change to ammonium sulphate under these conditions. So it is not used to estimate Nitrogen in DNA and RNA.",
+          "solutions": []
+        },
+        {
+          "id": 21765,
+          "type": "MCQ",
+          "question": "Chemical equation is balanced according to the law of",
+          "question_html": "<p>Chemical equation is balanced according to the law of</p>\r\n",
+          "options": [
+            {
+              "id": 42259,
+              "text": "Multiple proportion",
+              "html": "Multiple proportion",
+              "is_correct": false
+            },
+            {
+              "id": 42258,
+              "text": "Conservation of mass",
+              "html": "Conservation of mass",
+              "is_correct": true
+            },
+            {
+              "id": 42261,
+              "text": "Definite proportions",
+              "html": "Definite proportions",
+              "is_correct": false
+            },
+            {
+              "id": 42260,
+              "text": "Reciprocal proportion",
+              "html": "Reciprocal proportion",
+              "is_correct": false
+            }
+          ],
+          "correct_options": [
+            "Conservation of mass"
+          ],
+          "explanation": "Conservation of mass",
+          "solutions": []
+        },
+        {
+          "id": 382968,
+          "type": "MCQ",
+          "question": "Orbital angular momentum depends on ________.",
+          "question_html": "<p>Orbital angular momentum depends on ________.</p>",
+          "options": [
+            {
+              "id": 589729,
+              "text": "m and s",
+              "html": "m and s",
+              "is_correct": false
+            },
+            {
+              "id": 589727,
+              "text": "n and l",
+              "html": "n and l",
+              "is_correct": false
+            },
+            {
+              "id": 589726,
+              "text": "l",
+              "html": "l",
+              "is_correct": true
+            },
+            {
+              "id": 589728,
+              "text": "n and m",
+              "html": "n and m",
+              "is_correct": false
+            }
+          ],
+          "correct_options": [
+            "l"
+          ],
+          "explanation": "Azimuthal quantum number. 'I' also known as orbital angular momentum or subsidiary quantum number. It defines the three-dimensional shape of the orbital. For a given value of n,1 can have n values ranging from 0 to n-1, that is, for a given value of n, the possible values of 1 are: 1 = 0, 1, 2, .......(n - 1).",
+          "solutions": []
+        },
+        {
+          "id": 22002,
+          "type": "MCQ",
+          "question": "Rank the bonds in the set C=O, C-O, C $ \\equiv $ O in order of decreasing bond length.",
+          "question_html": "<p>Rank the bonds in the set C=O, C-O, C&nbsp;<span class=\"math-tex\">{tex} \\equiv {/tex}</span> O in order of decreasing bond length.</p>",
+          "options": [
+            {
+              "id": 43209,
+              "text": "C-O > C $ \\equiv $ O > C=O",
+              "html": "C-O &gt; C&nbsp;<span class=\"math-tex\">{tex} \\equiv {/tex}</span> O &gt; C=O",
+              "is_correct": false
+            },
+            {
+              "id": 43207,
+              "text": "C=O > C $ \\equiv $ O > C-O",
+              "html": "C=O &gt; C&nbsp;<span class=\"math-tex\">{tex} \\equiv {/tex}</span> O &gt; C-O",
+              "is_correct": false
+            },
+            {
+              "id": 43208,
+              "text": "C $ \\equiv $ O < C-O < C=O",
+              "html": "C&nbsp;<span class=\"math-tex\">{tex} \\equiv {/tex}</span>&nbsp;O &lt; C-O &lt; C=O",
+              "is_correct": false
+            },
+            {
+              "id": 43206,
+              "text": "C-O > C=O > C $ \\equiv $ O",
+              "html": "C-O &gt; C=O &gt; C&nbsp;<span class=\"math-tex\">{tex} \\equiv {/tex}</span>&nbsp;O",
+              "is_correct": true
+            }
+          ],
+          "correct_options": [
+            "C-O > C=O > C $ \\equiv $ O"
+          ],
+          "explanation": "The length of the bond is determined by the number of bonded electrons (the bond order). The higher the bond order, the stronger the pull between the two atoms and the shorter the bond length. Generally, the length of the bond between two atoms is approximately the sum of the covalent radii of the two atoms. CO has a triple bond so has minimum bond length.",
+          "solutions": []
+        },
+        {
+          "id": 22324,
+          "type": "MCQ",
+          "question": "Diborane $\\left( {{{\\text{B}}_{\\text{2}}}{{\\text{H}}_{\\text{6}}}} \\right)$ is one of the following",
+          "question_html": "<p>Diborane <span class=\"math-tex\">{tex}\\left( {{{\\text{B}}_{\\text{2}}}{{\\text{H}}_{\\text{6}}}} \\right){/tex}</span> is one of the following</p>",
+          "options": [
+            {
+              "id": 44495,
+              "text": "Electron-precise compound",
+              "html": "Electron-precise compound",
+              "is_correct": false
+            },
+            {
+              "id": 44494,
+              "text": "electron donor",
+              "html": "electron donor",
+              "is_correct": false
+            },
+            {
+              "id": 44493,
+              "text": "electron acceptor",
+              "html": "electron acceptor",
+              "is_correct": true
+            },
+            {
+              "id": 44496,
+              "text": "Lewis bases",
+              "html": "Lewis bases",
+              "is_correct": false
+            }
+          ],
+          "correct_options": [
+            "electron acceptor"
+          ],
+          "explanation": "Diborane is said to be electron deficient because boron requires 5 electrons to complete its octet. But in this molecule, each boron atom is bonded to 2 terminal hydrogen atoms each. Also, the two boron atoms are held together by two hydrogen atoms as shown below:\n\n ![image](https://media-mycbseguide.s3.amazonaws.com/images/cbse/review/ques_21799.jpg)",
+          "solutions": []
+        },
+        {
+          "id": 69549,
+          "type": "MCQ",
+          "question": "In the organic compound, CH_(2)=CH-CH_(2)-CH_(2)-CH=CH_(2), the =CH-CH_(2 )bond is formed by the interaction of the following pair of hybridized orbitals:",
+          "question_html": "<p>In the organic compound, CH<sub>2</sub>=CH-CH<sub>2</sub>-CH<sub>2</sub>-CH=CH<sub>2</sub>, the =CH-CH<sub>2&nbsp;</sub>bond is formed by the interaction of the following&nbsp;pair of hybridized orbitals:</p>",
+          "options": [
+            {
+              "id": 211179,
+              "text": "sp - sp^(2)",
+              "html": "sp - sp<sup>2</sup>",
+              "is_correct": false
+            },
+            {
+              "id": 211180,
+              "text": "sp - sp^(3)",
+              "html": "sp - sp<sup>3</sup>",
+              "is_correct": false
+            },
+            {
+              "id": 211181,
+              "text": "sp^(3) - sp^(3)",
+              "html": "sp<sup>3</sup> - sp<sup>3</sup>",
+              "is_correct": false
+            },
+            {
+              "id": 211178,
+              "text": "sp^(2) - sp^(3)",
+              "html": "sp<sup>2</sup> - sp<sup>3</sup>",
+              "is_correct": true
+            }
+          ],
+          "correct_options": [
+            "sp^(2) - sp^(3)"
+          ],
+          "explanation": "The C which is involved in a double bond is sp^(2) hybridized whereas the other C which is involved in only single bonds is sp^(3) hybridized.",
+          "solutions": []
+        },
+        {
+          "id": 61946,
+          "type": "MCQ",
+          "question": "Atomicity of glucose is ________.",
+          "question_html": "<p>Atomicity of glucose is ________.</p>",
+          "options": [
+            {
+              "id": 202969,
+              "text": "24",
+              "html": "24",
+              "is_correct": true
+            },
+            {
+              "id": 202970,
+              "text": "36",
+              "html": "36",
+              "is_correct": false
+            },
+            {
+              "id": 202971,
+              "text": "48",
+              "html": "48",
+              "is_correct": false
+            },
+            {
+              "id": 202968,
+              "text": "12",
+              "html": "12",
+              "is_correct": false
+            }
+          ],
+          "correct_options": [
+            "24"
+          ],
+          "explanation": "Atomicity is defined as the number of atoms contained in 1 molecule of the compound. As glucose contains 6 carbon atoms, 12 hydrogen atoms, and 6 oxygen atoms, thus the atomicity is 24.",
+          "solutions": []
+        },
+        {
+          "id": 21825,
+          "type": "MCQ",
+          "question": "If proton number is 19, electron configuration will be",
+          "question_html": "<p>If proton number is 19, electron configuration will be</p>\r\n",
+          "options": [
+            {
+              "id": 42501,
+              "text": "2,8,8,3",
+              "html": "2,8,8,3",
+              "is_correct": false
+            },
+            {
+              "id": 42498,
+              "text": "2,8,8,1",
+              "html": "2,8,8,1",
+              "is_correct": true
+            },
+            {
+              "id": 42499,
+              "text": "2,8,7",
+              "html": "2,8,7",
+              "is_correct": false
+            },
+            {
+              "id": 42500,
+              "text": "2,8,18",
+              "html": "2,8,18",
+              "is_correct": false
+            }
+          ],
+          "correct_options": [
+            "2,8,8,1"
+          ],
+          "explanation": "2,8,8,1",
+          "solutions": []
+        },
+        {
+          "id": 21917,
+          "type": "MCQ",
+          "question": "Where is nitrogen found in the periodic table?",
+          "question_html": "<p>Where is nitrogen found in the periodic table?</p>",
+          "options": [
+            {
+              "id": 42867,
+              "text": "3^(nd )period, group 15",
+              "html": "3<sup>nd&nbsp;</sup>period, group 15",
+              "is_correct": false
+            },
+            {
+              "id": 42866,
+              "text": "2^(nd )period, group 15",
+              "html": "2<sup>nd&nbsp;</sup>period, group 15",
+              "is_correct": true
+            },
+            {
+              "id": 42868,
+              "text": "2^(nd )period, group 18",
+              "html": "2<sup>nd&nbsp;</sup>period, group 18",
+              "is_correct": false
+            },
+            {
+              "id": 42869,
+              "text": "2^(nd )period, group 14",
+              "html": "2<sup>nd&nbsp;</sup>period, group 14",
+              "is_correct": false
+            }
+          ],
+          "correct_options": [
+            "2^(nd )period, group 15"
+          ],
+          "explanation": "Nitrogen is the seventh element on the periodic table. It is located in period 2 and group 15. It is at the top of the periodic table, between carbon and oxygen.",
+          "solutions": []
+        },
+        {
+          "id": 21946,
+          "type": "MCQ",
+          "question": "The amount of energy required to break one mole of bonds of a particular type between two atoms in a gaseous state is called ________.",
+          "question_html": "<p>The amount of energy required to break one mole of bonds of a particular type between two atoms in a gaseous state is called ________.</p>",
+          "options": [
+            {
+              "id": 42983,
+              "text": "ionization enthalpy",
+              "html": "ionization enthalpy",
+              "is_correct": false
+            },
+            {
+              "id": 42985,
+              "text": "lattice enthalpy",
+              "html": "lattice enthalpy",
+              "is_correct": false
+            },
+            {
+              "id": 42984,
+              "text": "Electron affinity",
+              "html": "Electron affinity",
+              "is_correct": false
+            },
+            {
+              "id": 42982,
+              "text": "bond enthalpy",
+              "html": "bond enthalpy",
+              "is_correct": true
+            }
+          ],
+          "correct_options": [
+            "bond enthalpy"
+          ],
+          "explanation": "Bond enthalpy also known as bond energy is the energy that is needed to break a particular bond in a gaseous compound. The unit that expresses bond enthalpy is kilojoules per mole or kJ/mol.",
+          "solutions": []
+        },
+        {
+          "id": 22571,
+          "type": "MCQ",
+          "question": "Select the electrophile(s) among the following molecules/ions\n\n ${\\text{H}}{{\\text{S}}^{\\text{ - }}}{\\text{,}}\\,{\\text{B}}{{\\text{F}}_{\\text{3}}}{\\text{,}}\\,{{\\text{C}}_{\\text{2}}}{{\\text{H}}_{\\text{5}}}{{\\text{O}}^{\\text{ - }}}{\\text{,}}\\,{{\\text{(C}}{{\\text{H}}_{\\text{3}}}{\\text{)}}_{\\text{3}}}\\,{\\text{N:,}}\\,{\\text{C}}\\mathop {\\text{l}}\\limits^{\\text{ + }} {\\text{,}}\\,{\\text{C}}{{\\text{H}}_{\\mathop {\\text{ - }}\\limits_{\\text{3}} }}\\mathop {\\text{C}}\\limits^{\\text{ + }} \\,{\\text{ = }}\\,{\\text{O,}}\\,{{\\text{H}}_{\\text{2}}}{\\text{N}}\\mathop {\\text{:}}\\limits^{\\text{ - }} {\\text{,}}\\,\\,\\mathop {\\text{N}}\\limits^{\\text{ + }} \\,{{\\text{O}}_{\\text{2}}}$",
+          "question_html": "<p>Select&nbsp;the electrophile(s) among the following molecules/ions<br />\r\n<span class=\"math-tex\">{tex}{\\text{H}}{{\\text{S}}^{\\text{ - }}}{\\text{,}}\\,{\\text{B}}{{\\text{F}}_{\\text{3}}}{\\text{,}}\\,{{\\text{C}}_{\\text{2}}}{{\\text{H}}_{\\text{5}}}{{\\text{O}}^{\\text{ - }}}{\\text{,}}\\,{{\\text{(C}}{{\\text{H}}_{\\text{3}}}{\\text{)}}_{\\text{3}}}\\,{\\text{N:,}}\\,{\\text{C}}\\mathop {\\text{l}}\\limits^{\\text{ + }} {\\text{,}}\\,{\\text{C}}{{\\text{H}}_{\\mathop {\\text{ - }}\\limits_{\\text{3}} }}\\mathop {\\text{C}}\\limits^{\\text{ + }} \\,{\\text{ = }}\\,{\\text{O,}}\\,{{\\text{H}}_{\\text{2}}}{\\text{N}}\\mathop {\\text{:}}\\limits^{\\text{ - }} {\\text{,}}\\,\\,\\mathop {\\text{N}}\\limits^{\\text{ + }} \\,{{\\text{O}}_{\\text{2}}}{/tex}</span></p>\r\n",
+          "options": [
+            {
+              "id": 45483,
+              "text": "H_(2)N^(-), HS^(-)",
+              "html": "H<sub>2</sub>N<sup>-</sup>, HS<sup>-</sup>",
+              "is_correct": false
+            },
+            {
+              "id": 45481,
+              "text": "C_(2)H_(5)O^(-), (CH_(3))_(3)N:",
+              "html": "C<sub>2</sub>H<sub>5</sub>O<sup>-</sup>, (CH<sub>3</sub>)<sub>3</sub>N:",
+              "is_correct": false
+            },
+            {
+              "id": 45480,
+              "text": "BF_(3), Cl^(+), NO_(2)^(+), CH_(3)-C^(+)=O",
+              "html": "BF<sub>3</sub>, Cl<sup>+</sup>, NO<sub>2</sub><sup>+</sup>, CH<sub>3</sub>-C<sup>+</sup>=O",
+              "is_correct": true
+            },
+            {
+              "id": 45482,
+              "text": "(CH_(3))_(3)N:, HS^(-)",
+              "html": "(CH<sub>3</sub>)<sub>3</sub>N:,&nbsp; HS<sup>-</sup>",
+              "is_correct": false
+            }
+          ],
+          "correct_options": [
+            "BF_(3), Cl^(+), NO_(2)^(+), CH_(3)-C^(+)=O"
+          ],
+          "explanation": "Electrophiles are electron loving species. These can be electron deficient neutral molecules or positively charged ions. Thus BF_(3), Cl^(+), NO_(2)^(+), CH_(3)-C^(+)=O are electrophiles.",
+          "solutions": []
+        },
+        {
+          "id": 62041,
+          "type": "MCQ",
+          "question": "According to Heisenberg's Uncertainty Principle, the product of the uncertainties in the position and momentum of an electron is always:",
+          "question_html": "<p>According to Heisenberg&#39;s&nbsp;Uncertainty Principle, the product of the uncertainties in&nbsp;the&nbsp;position and momentum&nbsp;of an electron&nbsp;is always:</p>",
+          "options": [
+            {
+              "id": 203349,
+              "text": "greater than or equal to h/2 $\\pi$",
+              "html": "greater than or&nbsp;equal to &nbsp;h/2<span class=\"math-tex\">{tex}\\pi{/tex}</span>",
+              "is_correct": false
+            },
+            {
+              "id": 203348,
+              "text": "greater than or equal to h/3 $\\pi$",
+              "html": "greater than or equal to h/3<span class=\"math-tex\">{tex}\\pi{/tex}</span>",
+              "is_correct": false
+            },
+            {
+              "id": 203350,
+              "text": "greater than or equal to h/ 6 $\\pi$",
+              "html": "greater than or&nbsp;equal to h/ 6<span class=\"math-tex\">{tex}\\pi{/tex}</span>",
+              "is_correct": false
+            },
+            {
+              "id": 203347,
+              "text": "greater than or equal to h/4 $\\pi$ .",
+              "html": "greater &nbsp;than&nbsp;or equal to&nbsp; h/4<span class=\"math-tex\">{tex}\\pi{/tex}</span>.",
+              "is_correct": true
+            }
+          ],
+          "correct_options": [
+            "greater than or equal to h/4 $\\pi$ ."
+          ],
+          "explanation": "The uncertainty principle says that we cannot measure the position (x) and the momentum (p) of a particle with absolute precision. The more accurately we know one of these values, the less accurately we know the other. Multiplying together the errors in the measurements of these values (the errors are represented by the triangle symbol in front of each property, the Greek letter \"delta\") has to give a number greater than or equal to half of a constant called \"h-bar\". This is equal to Planck's constant (usually written as h) divided by 2 $\\pi$ .\n\n $Δx. Δp \\ge { h\\over 4\\pi}$",
+          "solutions": []
+        },
+        {
+          "id": 22566,
+          "type": "MCQ",
+          "question": "In which of the following compounds the carbon marked with asterisk is expected to have greatest partial positive charge?",
+          "question_html": "<p>In which of the following compounds the carbon marked with asterisk is expected to have greatest partial positive charge?</p>",
+          "options": [
+            {
+              "id": 45461,
+              "text": "*CH_(3) - CH_(2) - I",
+              "html": "*CH<sub>3</sub>&nbsp;- CH<sub>2</sub> - I",
+              "is_correct": false
+            },
+            {
+              "id": 45463,
+              "text": "*CH_(3) - CH_(2) - CH_(3)",
+              "html": "*CH<sub>3</sub> - CH<sub>2</sub> - CH<sub>3</sub>",
+              "is_correct": false
+            },
+            {
+              "id": 45462,
+              "text": "*CH_(3 )- CH_(2 )- Br",
+              "html": "*CH<sub>3&nbsp;</sub>- CH<sub>2&nbsp;</sub>- Br",
+              "is_correct": false
+            },
+            {
+              "id": 45460,
+              "text": "*CH_(3 )- CH_(2 )- Cl",
+              "html": "*CH<sub>3&nbsp;</sub>- CH<sub>2&nbsp;</sub>- Cl",
+              "is_correct": true
+            }
+          ],
+          "correct_options": [
+            "*CH_(3 )- CH_(2 )- Cl"
+          ],
+          "explanation": "Cl is most electronegative amongst Cl, Br and I and has more -I (inductive electron withdrawing) effect. So it causes the asterisk marked to have the maximum partial positive charge.",
+          "solutions": []
+        },
+        {
+          "id": 21807,
+          "type": "MCQ",
+          "question": "According to quantum mechanics, ${|\\psi| ^{\\text{2}}}$ (r) the wave function squared gives:",
+          "question_html": "<p>According to quantum mechanics,&nbsp;<span class=\"math-tex\">{tex}{|\\psi| ^{\\text{2}}}{/tex}</span> (r) the wave function squared gives:</p>",
+          "options": [
+            {
+              "id": 42428,
+              "text": "probability density of finding a proton",
+              "html": "probability density of finding a proton",
+              "is_correct": false
+            },
+            {
+              "id": 42429,
+              "text": "probability of finding a neutron",
+              "html": "probability of finding a neutron",
+              "is_correct": false
+            },
+            {
+              "id": 42426,
+              "text": "probability density of finding an electron",
+              "html": "probability density of finding an electron",
+              "is_correct": true
+            },
+            {
+              "id": 42427,
+              "text": "probability of finding an electron",
+              "html": "probability of finding an electron",
+              "is_correct": false
+            }
+          ],
+          "correct_options": [
+            "probability density of finding an electron"
+          ],
+          "explanation": "The probability density of finding an electron at a point within an atom, predicts the region around the nucleus where the electron can most probably be found.",
+          "solutions": []
+        },
+        {
+          "id": 21901,
+          "type": "MCQ",
+          "question": "The increasing order of ionic radii for given species is:",
+          "question_html": "<p>The increasing order of ionic radii for given species is:</p>",
+          "options": [
+            {
+              "id": 42804,
+              "text": "$Mg^{2+} \\ {<} \\ {Na^{+}} \\ {<} \\ F{^-} \\ {<} \\ O^{2-} \\ {<} \\ N^{3-} \\ {<}\\ Al^{3+}$",
+              "html": "<span class=\"math-tex\">{tex}Mg^{2+} \\ {&lt;} \\ {Na^{+}} \\ {&lt;} \\ F{^-} \\ {&lt;} \\ O^{2-} \\ {&lt;} \\ N^{3-} \\ {&lt;}\\ Al^{3+}{/tex}</span>",
+              "is_correct": false
+            },
+            {
+              "id": 42805,
+              "text": "$Na^+ {<} \\ F^- \\ {<} \\ O^{2-} \\ {<} \\ N^{3-} \\ {<} \\ Al^ {3+} \\ {<} \\ Mg^{2+}$",
+              "html": "<span class=\"math-tex\">{tex}Na^+ {&lt;} \\ F^- \\ {&lt;} \\ O^{2-} \\ {&lt;} \\ N^{3-} \\ {&lt;} \\ Al^ {3+} \\ {&lt;} \\ Mg^{2+}{/tex}</span>",
+              "is_correct": false
+            },
+            {
+              "id": 42802,
+              "text": "$Al^{3+} \\ {<} \\ Mg^{2+} {<} \\ Na^+ \\ {<} \\ F^- {<} \\ O^{2^-} \\ {<} \\ N^{3^-}$",
+              "html": "<span class=\"math-tex\">{tex}Al^{3+} \\ {&lt;} \\ Mg^{2+} {&lt;} \\ Na^+ \\ {&lt;} \\ F^- {&lt;} \\ O^{2^-} \\ {&lt;} \\ N^{3^-}{/tex}</span>",
+              "is_correct": true
+            },
+            {
+              "id": 42803,
+              "text": "$ N^{3-} \\ {<} \\ O^{2-} \\ {<} F^- \\ {<} \\ Na^+ \\ {<} \\ Mg^{2+} \\ {<} \\ Al^{3+}$",
+              "html": "<span class=\"math-tex\">{tex} N^{3-} \\ {&lt;} \\ O^{2-} \\ {&lt;} F^- \\ {&lt;} \\ Na^+ \\ {&lt;} \\ Mg^{2+} \\ {&lt;} \\ Al^{3+}{/tex}</span>",
+              "is_correct": false
+            }
+          ],
+          "correct_options": [
+            "$Al^{3+} \\ {<} \\ Mg^{2+} {<} \\ Na^+ \\ {<} \\ F^- {<} \\ O^{2^-} \\ {<} \\ N^{3^-}$"
+          ],
+          "explanation": "In the case of cations,\n \n there is a decrease in ionic radii of the resulting cation as compared to its neutral parent atom, due to loss of electron /(s)\n greater the positive charge over the cation more would be a decrease in ionic size or radius.\n \n \n In the case of anion,\n \n the addition of each new electron (or negative charge) results in an increase in anionic radius.\n With an increase in negative charge over anion the anionic radius also becomes larger.\n\n Thus, considering as above the correct answer is-\n\n $Al^{3+} \\ {<} \\ Mg^{2+} \\ {<} \\ Na^+ \\ {<} \\ F^- {<} O^{2-} \\ {<} \\ N^{3-}$",
+          "solutions": []
+        },
+        {
+          "id": 62021,
+          "type": "MCQ",
+          "question": "Lines in the hydrogen spectrum which appear in the ultraviolet region of the electromagnetic spectrum, then they are called as:",
+          "question_html": "<p>Lines in the hydrogen spectrum which appear in the ultraviolet region of the electromagnetic spectrum, then they are called as:</p>",
+          "options": [
+            {
+              "id": 203267,
+              "text": "Lyman series",
+              "html": "Lyman series",
+              "is_correct": true
+            },
+            {
+              "id": 203268,
+              "text": "Pfund series",
+              "html": "Pfund series",
+              "is_correct": false
+            },
+            {
+              "id": 203269,
+              "text": "Balmer series",
+              "html": "Balmer series",
+              "is_correct": false
+            },
+            {
+              "id": 203270,
+              "text": "Bracket series",
+              "html": "Bracket series",
+              "is_correct": false
+            }
+          ],
+          "correct_options": [
+            "Lyman series"
+          ],
+          "explanation": "The Lyman series is a hydrogen spectral series of transitions and resulting ultraviolet emission lines of the hydrogen atom as an electron goes from n $\\ge $ 2 to n = 1 (where n is the principal quantum number), the lowest energy level of the electron.",
+          "solutions": []
+        },
+        {
+          "id": 594589,
+          "type": "14",
+          "question": "Assertion (A): Fine lines are observed in spectra if an atom is placed in a magnetic field.\n\nReason (R): Degenerate orbitals split in the presence of magnetic field.",
+          "question_html": "<p><strong>Assertion (A):</strong>&nbsp;Fine lines are observed in spectra if an atom is placed in a magnetic field.<br />\r\n<strong>Reason (R):&nbsp;</strong>Degenerate orbitals split in the presence of magnetic field.</p>",
+          "options": [
+            {
+              "id": 1176107,
+              "text": "Both A and R are true but R is not the correct explanation of A.",
+              "html": "Both A and R are true but R is not the correct explanation of A.",
+              "is_correct": false
+            },
+            {
+              "id": 1176108,
+              "text": "A is true but R is false.",
+              "html": "A is true but R is false.",
+              "is_correct": false
+            },
+            {
+              "id": 1176106,
+              "text": "Both A and R are true and R is the correct explanation of A.",
+              "html": "Both A and R are true and R is the correct explanation of A.",
+              "is_correct": true
+            },
+            {
+              "id": 1176109,
+              "text": "A is false but R is true.",
+              "html": "A is false but R is true.",
+              "is_correct": false
+            }
+          ],
+          "correct_options": [
+            "Both A and R are true and R is the correct explanation of A."
+          ],
+          "explanation": "An electron, due to its angular motion around the nucleus, generates an electric field. This electric field in turn produces a magnetic field that can interact with the external magnetic field. Thus, under the influence of the external magnetic field, the electrons of a subshell can orient themselves in certain preferred regions of space around the nucleus called orbitals. These orbitals of the same sub-shell having equal energy are called degenerate orbitals. In the presence of an external magnetic field, this degeneracy split, and the orbitals of the same subshell acquire slightly different energies. This causes the splitting of a given spectral line into many.",
+          "solutions": []
+        },
+        {
+          "id": 593737,
+          "type": "14",
+          "question": "Assertion (A): Electron gain enthalpy can be exothermic or endothermic.\n\nReason (R): Electron gain enthalpy provides a measure of the ease with which an atom adds an electron to form an anion.",
+          "question_html": "<p><strong>Assertion (A):</strong> Electron gain enthalpy can be exothermic or endothermic.<br />\r\n<strong>Reason (R):</strong> Electron gain enthalpy provides a measure of the ease with which an atom adds an electron to form an anion.</p>",
+          "options": [
+            {
+              "id": 1172793,
+              "text": "Both A and R are true but R is not the correct explanation of A.",
+              "html": "Both A and R are true but R is not the correct explanation of A.",
+              "is_correct": true
+            },
+            {
+              "id": 1172794,
+              "text": "A is true but R is false.",
+              "html": "A is true but R is false.",
+              "is_correct": false
+            },
+            {
+              "id": 1172795,
+              "text": "A is false but R is true.",
+              "html": "A is false but R is true.",
+              "is_correct": false
+            },
+            {
+              "id": 1172792,
+              "text": "Both A and R are true and R is the correct explanation of A.",
+              "html": "Both A and R are true and R is the correct explanation of A.",
+              "is_correct": false
+            }
+          ],
+          "correct_options": [
+            "Both A and R are true but R is not the correct explanation of A."
+          ],
+          "explanation": "Depending on the element, the process of adding an electron to the atom can be either endothermic or exothermic.",
+          "solutions": []
+        },
+        {
+          "id": 593703,
+          "type": "14",
+          "question": "Assertion (A): If N_(b) is the number of electrons occupying bonding orbitals and N_(a )the number occupying the antibonding orbitals, then the molecule is stable if N_(b) is greater than N_(a).\n\nReason (R): The molecule is unstable if N_(b) is less than N_(a).",
+          "question_html": "<p><strong>Assertion (A):</strong>&nbsp;If N<sub>b</sub>&nbsp;is the number of electrons occupying bonding orbitals and N<sub>a&nbsp;</sub>the number occupying the antibonding orbitals, then the molecule is stable if N<sub>b</sub>&nbsp;is greater than N<sub>a</sub>.<br />\r\n<strong>Reason (R):&nbsp;</strong>The molecule is unstable if N<sub>b</sub>&nbsp;is less than N<sub>a</sub>.</p>",
+          "options": [
+            {
+              "id": 1172660,
+              "text": "Both A and R are true and R is the correct explanation of A.",
+              "html": "Both A and R are true and R is the correct explanation of A.",
+              "is_correct": false
+            },
+            {
+              "id": 1172662,
+              "text": "A is true but R is false.",
+              "html": "A is true but R is false.",
+              "is_correct": false
+            },
+            {
+              "id": 1172663,
+              "text": "A is false but R is true.",
+              "html": "A is false but R is true.",
+              "is_correct": false
+            },
+            {
+              "id": 1172661,
+              "text": "Both A and R are true but R is not the correct explanation of A.",
+              "html": "Both A and R are true but R is not the correct explanation of A.",
+              "is_correct": true
+            }
+          ],
+          "correct_options": [
+            "Both A and R are true but R is not the correct explanation of A."
+          ],
+          "explanation": "If N_(b) is the number of electrons occupying bonding orbitals and N_(a) the number occupying the antibonding orbitals, then the molecule is stable if N_(b) is greater than N_(a) more bonding orbitals are occupied and so the bonding influence is stronger and a stable molecule results.",
+          "solutions": []
+        },
+        {
+          "id": 594544,
+          "type": "14",
+          "question": "Assertion (A): Oxidation number of magnesium in Mg^(2+) is +2.\n\nReason (R): Magnesium belongs to 2^(nd) group of the periodic table.",
+          "question_html": "<p><strong>Assertion (A):</strong>&nbsp;Oxidation number of magnesium in Mg<sup>2+</sup> is +2.<br />\r\n<strong>Reason (R):</strong>&nbsp;Magnesium belongs to 2<sup>nd</sup>&nbsp;group of the periodic table.</p>",
+          "options": [
+            {
+              "id": 1175929,
+              "text": "A is false but R is true.",
+              "html": "A is false but R is true.",
+              "is_correct": false
+            },
+            {
+              "id": 1175928,
+              "text": "A is true but R is false.",
+              "html": "A is true but R is false.",
+              "is_correct": false
+            },
+            {
+              "id": 1175926,
+              "text": "Both A and R are true and R is the correct explanation of A.",
+              "html": "Both A and R are true and R is the correct explanation of A.",
+              "is_correct": false
+            },
+            {
+              "id": 1175927,
+              "text": "Both A and R are true but R is not the correct explanation of A.",
+              "html": "Both A and R are true but R is not the correct explanation of A.",
+              "is_correct": true
+            }
+          ],
+          "correct_options": [
+            "Both A and R are true but R is not the correct explanation of A."
+          ],
+          "explanation": "Oxidation number of an atom in its charged monoatomic ion is equal to the charge on the ion. e.g. Mg^(2+)(+2), Al^(3+)(+3), S^(2-)(-2).",
+          "solutions": []
+        },
+        {
+          "id": 292907,
+          "type": "14",
+          "question": "Assertion (A): Cyclopentadienyl anion is much more stable than allyl anion.\n\nReason (R): Cyclopentadienyl anion is aromatic in character.",
+          "question_html": "<p><strong>Assertion (A):</strong>&nbsp;Cyclopentadienyl anion is much more stable than allyl anion.<br />\n<strong>Reason (R):&nbsp;</strong>Cyclopentadienyl anion is aromatic in character.</p>",
+          "options": [
+            {
+              "id": 418366,
+              "text": "A is true but R is false.",
+              "html": "A is true but R is false.",
+              "is_correct": false
+            },
+            {
+              "id": 418364,
+              "text": "Both A and R are true and R is the correct explanation of A.",
+              "html": "Both A and R are true and R is the correct explanation of A.",
+              "is_correct": true
+            },
+            {
+              "id": 418367,
+              "text": "A is false but R is true.",
+              "html": "A is false but R is true.",
+              "is_correct": false
+            },
+            {
+              "id": 418365,
+              "text": "Both A and R are true but R is not the correct explanation of A.",
+              "html": "Both A and R are true but R is not the correct explanation of A.",
+              "is_correct": false
+            }
+          ],
+          "correct_options": [
+            "Both A and R are true and R is the correct explanation of A."
+          ],
+          "explanation": "![image](https://media-mycbseguide.s3.amazonaws.com/images/imgur/qeNASGc.png) \n\nHere the resonance approach is a poor predictor of stability. The Huckel rule. based on molecular orbital theory is a much better predictor of stability for this aromatic and antiaromatic system.",
+          "solutions": []
+        }
+      ]
+    },
+    {
+      "section_name": "Section C",
+      "section_id": 710,
+      "questions": [
+        {
+          "id": 61959,
+          "type": "Numerical/MCQ",
+          "question": "15 km is = ______ m.?",
+          "question_html": "<p>15 km is &nbsp;= ______&nbsp;m.?</p>",
+          "options": [
+            {
+              "id": 203020,
+              "text": "15000 m",
+              "html": "15000 m",
+              "is_correct": true
+            },
+            {
+              "id": 203023,
+              "text": "0.015 m",
+              "html": "0.015 m",
+              "is_correct": false
+            },
+            {
+              "id": 203022,
+              "text": "150 m",
+              "html": "150 m",
+              "is_correct": false
+            },
+            {
+              "id": 203021,
+              "text": "1500 m",
+              "html": "1500 m",
+              "is_correct": false
+            }
+          ],
+          "correct_options": [
+            "15000 m"
+          ],
+          "explanation": "Since, 1km\n\n= 1000 m\n\n $\\therefore$ 15 km\n\n= (15 $\\times$ 1000) m \n\n=15000 m",
+          "solutions": []
+        },
+        {
+          "id": 21859,
+          "type": "MCQ",
+          "question": "Which of the following sets of quantum numbers represents the highest energy of an atom?",
+          "question_html": "<p>Which of the following sets of quantum numbers represents the highest energy of an atom?</p>",
+          "options": [
+            {
+              "id": 42635,
+              "text": "n = 3, l = 1, m = 1, s = +1/ 2",
+              "html": "n = 3, l = 1, m = 1, s = +1/ 2",
+              "is_correct": false
+            },
+            {
+              "id": 42636,
+              "text": "n = 4, l = 0, m = 0, s = +1/ 2",
+              "html": "n = 4, l = 0, m = 0, s = +1/ 2",
+              "is_correct": false
+            },
+            {
+              "id": 42637,
+              "text": "n = 3, l = 0, m = 0, s = +1/ 2",
+              "html": "n = 3, l = 0, m = 0, s = +1/ 2",
+              "is_correct": false
+            },
+            {
+              "id": 42634,
+              "text": "n = 3, l = 2, m = 1, s = +1/ 2",
+              "html": "n = 3, l = 2, m = 1, s = +1/ 2",
+              "is_correct": true
+            }
+          ],
+          "correct_options": [
+            "n = 3, l = 2, m = 1, s = +1/ 2"
+          ],
+          "explanation": "The respective orbitals are:\n\n 3d, n+l = 5\n 3p, n+l = 4\n 4s, n+l = 4\n 3s, n+ l = 3\n\nThe energies of orbitals increases with the increasing value of n+l according to Bohr' bury rule. So, set (n = 3, l = 2, m = 1, s = +1/ 2 ) of quantum numbers represent the highest energy.",
+          "solutions": []
+        },
+        {
+          "id": 22562,
+          "type": "MCQ",
+          "question": "In which of the following, functional group isomerism is not possible?",
+          "question_html": "<p>In which of the following, functional group isomerism is not possible?</p>",
+          "options": [
+            {
+              "id": 45444,
+              "text": "Alkyl halides",
+              "html": "Alkyl halides",
+              "is_correct": true
+            },
+            {
+              "id": 45447,
+              "text": "Cyanides",
+              "html": "Cyanides",
+              "is_correct": false
+            },
+            {
+              "id": 45446,
+              "text": "Alcohols",
+              "html": "Alcohols",
+              "is_correct": false
+            },
+            {
+              "id": 45445,
+              "text": "Aldehydes",
+              "html": "Aldehydes",
+              "is_correct": false
+            }
+          ],
+          "correct_options": [
+            "Alkyl halides"
+          ],
+          "explanation": "Two or more compounds having the same molecular formula but different functional groups are called functional isomers and this phenomenon is termed as functional group isomerism. Alkyl halides do not show functional isomerism.",
+          "solutions": []
+        },
+        {
+          "id": 575376,
+          "type": "14",
+          "question": "Instructions for Question 53 to 55:\nChromatography is an important technique extensively used to separate mixtures into their components, purify compounds and also test the purity of compounds. Based on the principle involved, chromatography is classified into different categories. Two of these are Adsorption chromatography and Partition chromatography. Two main types of chromatographic techniques are based on the principle of differential adsorption column chromatography, and thin-layer chromatography. Adsorption chromatography is based on the fact that different compounds are adsorbed on an adsorbent to different degrees. Column chromatography involves the separation of a mixture over a column of adsorbent (stationary phase) packed in a glass tube. Thin-layer chromatography (TLC) is another type of adsorption chromatography, which involves the separation of substances of a mixture over a thin layer of an adsorbent coated on a glass plate. Partition chromatography is based on the continuous differential partitioning of components of a mixture between stationary and mobile phases.\n\nAssertion (A): In adsorption chromatography, different compounds are adsorbed on an adsorbent to a different degree.\n\nReason (R): Commonly used adsorbents in chromatography are silica gel and alumina.",
+          "question_html": "<b>Instructions for Question 53 to 55:</b><br><p>Chromatography is an important technique extensively used to separate mixtures into their components, purify compounds and also&nbsp;test the purity of compounds.&nbsp;Based on the principle involved, chromatography is classified into different categories. Two of these are Adsorption chromatography and Partition chromatography. Two main types of chromatographic techniques are based on the principle of differential adsorption column chromatography, and thin-layer chromatography.&nbsp;&nbsp;Adsorption chromatography is based on the fact that different compounds are adsorbed on an adsorbent to different degrees.&nbsp;Column chromatography involves the separation of a mixture over a column of adsorbent (stationary phase) packed in a glass tube.&nbsp;Thin-layer chromatography (TLC) is another type of adsorption chromatography, which involves the separation of substances of a mixture over a thin layer of an adsorbent coated on a glass plate.&nbsp;Partition chromatography is based on the continuous differential partitioning of components of a mixture between stationary and mobile phases.</p><br><p><strong>Assertion (A):</strong> In adsorption chromatography, different compounds are adsorbed on an adsorbent to a different degree.<br />\r\n<strong>Reason (R):&nbsp;</strong>Commonly used adsorbents in chromatography are silica gel and alumina.</p>",
+          "options": [
+            {
+              "id": 1106353,
+              "text": "Both A and R are true but R is not the correct explanation of A.",
+              "html": "Both A and R are true but R is not the correct explanation of A.",
+              "is_correct": true
+            },
+            {
+              "id": 1106352,
+              "text": "Both A and R are true and R is the correct explanation of A.",
+              "html": "Both A and R are true and R is the correct explanation of A.",
+              "is_correct": false
+            },
+            {
+              "id": 1106355,
+              "text": "A is false but R is true.",
+              "html": "A is false but R is true.",
+              "is_correct": false
+            },
+            {
+              "id": 1106354,
+              "text": "A is true but R is false.",
+              "html": "A is true but R is false.",
+              "is_correct": false
+            }
+          ],
+          "correct_options": [
+            "Both A and R are true but R is not the correct explanation of A."
+          ],
+          "explanation": "Both A and R are true but R is not the correct explanation of A.",
+          "solutions": []
+        },
+        {
+          "id": 575409,
+          "type": "14",
+          "question": "Instructions for Question 53 to 55:\nChromatography is an important technique extensively used to separate mixtures into their components, purify compounds and also test the purity of compounds. Based on the principle involved, chromatography is classified into different categories. Two of these are Adsorption chromatography and Partition chromatography. Two main types of chromatographic techniques are based on the principle of differential adsorption column chromatography, and thin-layer chromatography. Adsorption chromatography is based on the fact that different compounds are adsorbed on an adsorbent to different degrees. Column chromatography involves the separation of a mixture over a column of adsorbent (stationary phase) packed in a glass tube. Thin-layer chromatography (TLC) is another type of adsorption chromatography, which involves the separation of substances of a mixture over a thin layer of an adsorbent coated on a glass plate. Partition chromatography is based on the continuous differential partitioning of components of a mixture between stationary and mobile phases.\n\nAssertion: In thin layer chromatography separation of the substance of a mixture over a thin layer of absorbent is coated on the glass plate.\n\nReason: The spot of coloured compounds are visible on the TLC plate die to their original colour.",
+          "question_html": "<b>Instructions for Question 53 to 55:</b><br><p>Chromatography is an important technique extensively used to separate mixtures into their components, purify compounds and also&nbsp;test the purity of compounds.&nbsp;Based on the principle involved, chromatography is classified into different categories. Two of these are Adsorption chromatography and Partition chromatography. Two main types of chromatographic techniques are based on the principle of differential adsorption column chromatography, and thin-layer chromatography.&nbsp;&nbsp;Adsorption chromatography is based on the fact that different compounds are adsorbed on an adsorbent to different degrees.&nbsp;Column chromatography involves the separation of a mixture over a column of adsorbent (stationary phase) packed in a glass tube.&nbsp;Thin-layer chromatography (TLC) is another type of adsorption chromatography, which involves the separation of substances of a mixture over a thin layer of an adsorbent coated on a glass plate.&nbsp;Partition chromatography is based on the continuous differential partitioning of components of a mixture between stationary and mobile phases.</p><br><p><strong>Assertion:</strong> In thin layer chromatography separation of the substance of a mixture over a thin layer of absorbent is coated on the glass plate.<br />\r\n<strong>Reason:</strong> The spot of coloured compounds are visible on the TLC plate die to their original colour.</p>",
+          "options": [
+            {
+              "id": 1106487,
+              "text": "A is true but R is false.",
+              "html": "A is true but R is false.",
+              "is_correct": false
+            },
+            {
+              "id": 1106484,
+              "text": "Both A and R are true and R is the correct explanation of A.",
+              "html": "Both A and R are true and R is the correct explanation of A.",
+              "is_correct": false
+            },
+            {
+              "id": 1106485,
+              "text": "Both A and R are true but R is not the correct explanation of A.",
+              "html": "Both A and R are true but R is not the correct explanation of A.",
+              "is_correct": false
+            },
+            {
+              "id": 1106489,
+              "text": "A is false but R is true.",
+              "html": "A is false but R is true.",
+              "is_correct": true
+            }
+          ],
+          "correct_options": [
+            "A is false but R is true."
+          ],
+          "explanation": "A is false but R is true.",
+          "solutions": []
+        },
+        {
+          "id": 575509,
+          "type": "14",
+          "question": "Instructions for Question 53 to 55:\nChromatography is an important technique extensively used to separate mixtures into their components, purify compounds and also test the purity of compounds. Based on the principle involved, chromatography is classified into different categories. Two of these are Adsorption chromatography and Partition chromatography. Two main types of chromatographic techniques are based on the principle of differential adsorption column chromatography, and thin-layer chromatography. Adsorption chromatography is based on the fact that different compounds are adsorbed on an adsorbent to different degrees. Column chromatography involves the separation of a mixture over a column of adsorbent (stationary phase) packed in a glass tube. Thin-layer chromatography (TLC) is another type of adsorption chromatography, which involves the separation of substances of a mixture over a thin layer of an adsorbent coated on a glass plate. Partition chromatography is based on the continuous differential partitioning of components of a mixture between stationary and mobile phases.\n\nAssertion: Paper chromatography is a type of partition chromatography.\n\nReason: Chromatography paper contain water trapped in it which act as the stationary phase.",
+          "question_html": "<b>Instructions for Question 53 to 55:</b><br><p>Chromatography is an important technique extensively used to separate mixtures into their components, purify compounds and also&nbsp;test the purity of compounds.&nbsp;Based on the principle involved, chromatography is classified into different categories. Two of these are Adsorption chromatography and Partition chromatography. Two main types of chromatographic techniques are based on the principle of differential adsorption column chromatography, and thin-layer chromatography.&nbsp;&nbsp;Adsorption chromatography is based on the fact that different compounds are adsorbed on an adsorbent to different degrees.&nbsp;Column chromatography involves the separation of a mixture over a column of adsorbent (stationary phase) packed in a glass tube.&nbsp;Thin-layer chromatography (TLC) is another type of adsorption chromatography, which involves the separation of substances of a mixture over a thin layer of an adsorbent coated on a glass plate.&nbsp;Partition chromatography is based on the continuous differential partitioning of components of a mixture between stationary and mobile phases.</p><br><p><strong>Assertion:</strong> Paper chromatography is a type of partition chromatography.<br />\r\n<strong>Reason</strong>: Chromatography paper contain water trapped in it which act as the stationary phase.</p>",
+          "options": [
+            {
+              "id": 1106890,
+              "text": "A is false but R is true.",
+              "html": "A is false but R is true.",
+              "is_correct": false
+            },
+            {
+              "id": 1106884,
+              "text": "Both A and R are true and R is the correct explanation of A.",
+              "html": "Both A and R are true and R is the correct explanation of A.",
+              "is_correct": false
+            },
+            {
+              "id": 1106888,
+              "text": "A is true but R is false.",
+              "html": "A is true but R is false.",
+              "is_correct": false
+            },
+            {
+              "id": 1106886,
+              "text": "Both A and R are true but R is not the correct explanation of A.",
+              "html": "Both A and R are true but R is not the correct explanation of A.",
+              "is_correct": true
+            }
+          ],
+          "correct_options": [
+            "Both A and R are true but R is not the correct explanation of A."
+          ],
+          "explanation": "Both A and R are true but R is not the correct explanation of A.",
+          "solutions": []
+        }
+      ]
+    }
+  ]
+}

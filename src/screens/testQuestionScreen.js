@@ -69,6 +69,7 @@ export default function TestQuestionScreen({
   const [index, setIndex] = useState(0); // index within active section
   const [answers, setAnswers] = useState({});
   const [paletteVisible, setPaletteVisible] = useState(false);
+  const [confirmFinish, setConfirmFinish] = useState(false);
   const [remaining, setRemaining] = useState(durationSeconds);
   const timerRef = useRef(null);
 
@@ -99,7 +100,7 @@ export default function TestQuestionScreen({
     // move to next section if any, else submit
     const pos = sections.findIndex((s) => s.id === activeSec);
     if (pos < sections.length - 1) { switchSection(sections[pos + 1].id); }
-    else handleSubmit(false);
+    else setConfirmFinish(true);
   };
   const jumpTo = (i) => { setIndex(i); setPaletteVisible(false); };
 
@@ -137,7 +138,7 @@ export default function TestQuestionScreen({
           <Ionicons name="time-outline" size={15} color={COLORS.white} />
           <Text style={styles.topTimerText}>{formatTime(remaining)}</Text>
         </View>
-        <Pressable style={styles.submitTop} onPress={() => handleSubmit(false)}>
+        <Pressable style={styles.submitTop} onPress={() => setConfirmFinish(true)}>
           <Text style={styles.submitTopText}>Submit</Text>
         </Pressable>
       </View>
@@ -206,6 +207,27 @@ export default function TestQuestionScreen({
         </Pressable>
       </View>
 
+      {/* Finish confirmation */}
+      <Modal visible={confirmFinish} transparent animationType="fade" onRequestClose={() => setConfirmFinish(false)}>
+        <View style={styles.confirmOverlay}>
+          <View style={styles.confirmCard}>
+            <Text style={styles.confirmTitle}>Finish Test?</Text>
+            <Text style={styles.confirmSub}>
+              You've answered {answeredCount} of {grandTotal} questions.
+              {answeredCount < grandTotal ? ' Unanswered questions will be marked as skipped.' : ''}
+            </Text>
+            <View style={styles.confirmActions}>
+              <Pressable style={styles.confirmCancel} onPress={() => setConfirmFinish(false)}>
+                <Text style={styles.confirmCancelTxt}>Keep Going</Text>
+              </Pressable>
+              <Pressable style={styles.confirmFinishBtn} onPress={() => { setConfirmFinish(false); handleSubmit(false); }}>
+                <Text style={styles.confirmFinishTxt}>Finish Test</Text>
+              </Pressable>
+            </View>
+          </View>
+        </View>
+      </Modal>
+
       {/* Palette */}
       <Modal visible={paletteVisible} transparent animationType="slide" onRequestClose={() => setPaletteVisible(false)}>
         <Pressable style={styles.sheetOverlay} onPress={() => setPaletteVisible(false)}>
@@ -232,7 +254,7 @@ export default function TestQuestionScreen({
               <Legend color={COLORS.white} border={COLORS.dark} label="Current" />
               <Legend color={COLORS.optionBadge} label="Not answered" />
             </View>
-            <Pressable style={styles.submitBtn} onPress={() => handleSubmit(false)}>
+            <Pressable style={styles.submitBtn} onPress={() => { setPaletteVisible(false); setConfirmFinish(true); }}>
               <Text style={styles.submitBtnText}>Finish Test</Text>
             </Pressable>
           </Pressable>
@@ -319,4 +341,15 @@ const styles = StyleSheet.create({
   legendText: { fontSize: 12, color: COLORS.textMuted },
   submitBtn: { marginTop: 18, backgroundColor: COLORS.dark, borderRadius: 12, paddingVertical: 14, alignItems: 'center' },
   submitBtnText: { fontSize: 15, fontWeight: '700', color: COLORS.white },
+
+  // finish confirmation
+  confirmOverlay: { flex: 1, backgroundColor: 'rgba(0,0,0,0.4)', alignItems: 'center', justifyContent: 'center', padding: 28 },
+  confirmCard: { width: '100%', maxWidth: 340, backgroundColor: COLORS.white, borderRadius: 18, padding: 20 },
+  confirmTitle: { fontSize: 18, fontWeight: '800', color: COLORS.text, marginBottom: 8 },
+  confirmSub: { fontSize: 13.5, color: COLORS.textSecondary, lineHeight: 20, marginBottom: 18 },
+  confirmActions: { flexDirection: 'row', justifyContent: 'flex-end', gap: 8 },
+  confirmCancel: { paddingVertical: 11, paddingHorizontal: 16, borderRadius: 12, borderWidth: 1, borderColor: COLORS.border },
+  confirmCancelTxt: { fontSize: 14, fontWeight: '700', color: COLORS.textSecondary },
+  confirmFinishBtn: { backgroundColor: COLORS.dark, paddingVertical: 11, paddingHorizontal: 20, borderRadius: 12 },
+  confirmFinishTxt: { fontSize: 14, fontWeight: '800', color: COLORS.white },
 });

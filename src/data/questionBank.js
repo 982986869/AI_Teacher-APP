@@ -17,6 +17,8 @@ import c1352 from './physics_questions/1352_Thermodynamics.json';
 import c1353 from './physics_questions/1353_Kinetic_Theory.json';
 import c1354 from './physics_questions/1354_Oscillations.json';
 import c4529 from './physics_questions/4529_Waves.json';
+// Fetched answers, keyed by question id: { id: { correctAnswer, correctOptionId, explanation } }
+import answerKey from './physics_questions/answer_key.json';
 
 const rawChapters = [
   c1342, c1343, c1344, c1345, c1346, c1347, c1348,
@@ -106,11 +108,22 @@ function normalizeQuestion(q) {
     label: htmlToText(o.option ?? o.label ?? ''),
     optionId: o.id ?? null,
   }));
+  // Answers come from the fetched answer key (chapter files have null answers).
+  const ak = answerKey[q.id] || {};
+  const correctOptionId = q.correct_option_id ?? ak.correctOptionId ?? null;
+  let correctAnswer = null;
+  if (correctOptionId != null) {
+    const idx = options.findIndex((o) => String(o.optionId) === String(correctOptionId));
+    if (idx >= 0) correctAnswer = LETTERS[idx];
+  }
+  if (!correctAnswer && ak.correctAnswer) correctAnswer = ak.correctAnswer; // letter fallback
   return {
     id: q.id,
     text: htmlToText(q.question ?? q.text ?? ''),
     difficulty: q.difficulty_label ?? q.difficulty ?? null,
     options,
+    correctAnswer,
+    explanation: htmlToText(q.explanation ?? ak.explanation ?? ''),
   };
 }
 

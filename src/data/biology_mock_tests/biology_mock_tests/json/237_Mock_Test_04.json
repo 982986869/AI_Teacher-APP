@@ -1,0 +1,2068 @@
+{
+  "testPaperID": 237,
+  "testPaperName": "Mock Test - 04",
+  "category_full_name": "CBSE > Class 11 > Biology",
+  "testDuration_min": 90,
+  "noOfQuestions": 60,
+  "instruction": "The Question Paper contains three sections.\n Section A has 24 questions. Attempt any 20 questions.\n Section B has 24 questions. Attempt any 20 questions.\n Section C has 12 questions. Attempt any 10 questions.\n All questions carry equal marks.\n There is no negative marking.",
+  "sections": [
+    {
+      "sectionName": "Section A",
+      "sectionID": 831,
+      "questions": [
+        {
+          "questionID": 54981,
+          "question": "Botanical garden provide:",
+          "question_raw": "<p>Botanical garden provide:</p>",
+          "options": [
+            {
+              "id": 175120,
+              "text": "Reservoir for tropical plants",
+              "is_correct": false
+            },
+            {
+              "id": 175117,
+              "text": "Ex-situ conservation of germplasm",
+              "is_correct": true
+            },
+            {
+              "id": 175119,
+              "text": "Beautiful area for recreation",
+              "is_correct": false
+            },
+            {
+              "id": 175118,
+              "text": "Natural habitat for wildlife",
+              "is_correct": false
+            }
+          ],
+          "correct_option_ids": [
+            175117
+          ],
+          "correct_option_texts": [
+            "Ex-situ conservation of germplasm"
+          ],
+          "explanation": "Ex-situ conservation is the conservation of germplasm in their natural habitat. In-situ conservation is the conservation in laboratory condition. In the botanical garden, conservation is an ex-situ conservation of germplasm."
+        },
+        {
+          "questionID": 55453,
+          "question": "Which is common in plant and animal cells?",
+          "question_raw": "<p>Which is common in plant and animal cells?</p>",
+          "options": [
+            {
+              "id": 177008,
+              "text": "Central vacuoles",
+              "is_correct": false
+            },
+            {
+              "id": 177005,
+              "text": "Mitochondria",
+              "is_correct": true
+            },
+            {
+              "id": 177006,
+              "text": "Plastids",
+              "is_correct": false
+            },
+            {
+              "id": 177007,
+              "text": "Centrioles",
+              "is_correct": false
+            }
+          ],
+          "correct_option_ids": [
+            177005
+          ],
+          "correct_option_texts": [
+            "Mitochondria"
+          ],
+          "explanation": "Mitochondria are present in both plants as well as animal cells. Plastids and central vacuoles are present in plant cells and centrioles are present in only animal cells."
+        },
+        {
+          "questionID": 352609,
+          "question": "If the diploid number of a flowering plant is 36. What would be the chromosome number in its endosperm?",
+          "question_raw": "<p>If the diploid number of a flowering plant is 36. What would be the chromosome number in its endosperm?</p>",
+          "options": [
+            {
+              "id": 545208,
+              "text": "18",
+              "is_correct": false
+            },
+            {
+              "id": 545210,
+              "text": "72",
+              "is_correct": false
+            },
+            {
+              "id": 545207,
+              "text": "36",
+              "is_correct": false
+            },
+            {
+              "id": 545209,
+              "text": "54",
+              "is_correct": true
+            }
+          ],
+          "correct_option_ids": [
+            545209
+          ],
+          "correct_option_texts": [
+            "54"
+          ],
+          "explanation": "2n = 36\nn = 18\nThe endosperm is triploid i.e. 3n = 3$\\times$18 = 54."
+        },
+        {
+          "questionID": 352614,
+          "question": "Which one of the following sets of animals share a four chambered heart?",
+          "question_raw": "<p>Which one of the following sets of animals share a four chambered heart?</p>",
+          "options": [
+            {
+              "id": 545228,
+              "text": "Crocodiles, Birds, Mammals",
+              "is_correct": true
+            },
+            {
+              "id": 545230,
+              "text": "Lizards, Mammals, Birds",
+              "is_correct": false
+            },
+            {
+              "id": 545229,
+              "text": "Crocodiles, Lizards, Turtles",
+              "is_correct": false
+            },
+            {
+              "id": 545227,
+              "text": "Amphibian, Reptiles, Birds",
+              "is_correct": false
+            }
+          ],
+          "correct_option_ids": [
+            545228
+          ],
+          "correct_option_texts": [
+            "Crocodiles, Birds, Mammals"
+          ],
+          "explanation": "Birds, Mammals, and Crocodiles (the exception of reptiles) have 4 chambered heart."
+        },
+        {
+          "questionID": 55233,
+          "question": "120^o phyllotaxy occurs in _________.",
+          "question_raw": "<p>120<sup>o</sup> phyllotaxy occurs in _________.</p>",
+          "options": [
+            {
+              "id": 176128,
+              "text": "Octastichous",
+              "is_correct": false
+            },
+            {
+              "id": 176125,
+              "text": "Tristichous",
+              "is_correct": true
+            },
+            {
+              "id": 176126,
+              "text": "Distichous",
+              "is_correct": false
+            },
+            {
+              "id": 176127,
+              "text": "Pentstichous",
+              "is_correct": false
+            }
+          ],
+          "correct_option_ids": [
+            176125
+          ],
+          "correct_option_texts": [
+            "Tristichous"
+          ],
+          "explanation": "Phyllotaxy is the arrangement of leaves on a plant stem. 120^o phyllotaxy occurs in a Tristichous arrangement in which three leaves are arranged at each node."
+        },
+        {
+          "questionID": 55447,
+          "question": "Blood plasma contains ________ % water.",
+          "question_raw": "<p>Blood plasma contains ________ % water.</p>",
+          "options": [
+            {
+              "id": 176982,
+              "text": "98",
+              "is_correct": false
+            },
+            {
+              "id": 176981,
+              "text": "90",
+              "is_correct": true
+            },
+            {
+              "id": 176984,
+              "text": "60",
+              "is_correct": false
+            },
+            {
+              "id": 176983,
+              "text": "80",
+              "is_correct": false
+            }
+          ],
+          "correct_option_ids": [
+            176981
+          ],
+          "correct_option_texts": [
+            "90"
+          ],
+          "explanation": "Blood consists of blood plasma formed cells ( RBC, WBC, Platelets) along with sugar, proteins, etc. Blood plasma contains about 90% water with a number of salts and few circulating hormones."
+        },
+        {
+          "questionID": 352665,
+          "question": "Which of the following is not a function of the cytoskeleton in a cell?",
+          "question_raw": "<p>Which of the following is not a function of the cytoskeleton in a cell?</p>",
+          "options": [
+            {
+              "id": 545433,
+              "text": "Support of the organelle",
+              "is_correct": false
+            },
+            {
+              "id": 545434,
+              "text": "Cell motility",
+              "is_correct": false
+            },
+            {
+              "id": 545432,
+              "text": "Maintenance of cell shape and structure",
+              "is_correct": false
+            },
+            {
+              "id": 545431,
+              "text": "Intracellular transport",
+              "is_correct": true
+            }
+          ],
+          "correct_option_ids": [
+            545431
+          ],
+          "correct_option_texts": [
+            "Intracellular transport"
+          ],
+          "explanation": "Intracellular transport is not the role of the cytoskeleton."
+        },
+        {
+          "questionID": 55526,
+          "question": "Lipids that are found in the cell membrane are:",
+          "question_raw": "<p>Lipids that are found in the cell membrane are:</p>",
+          "options": [
+            {
+              "id": 177297,
+              "text": "Phospholipids",
+              "is_correct": true
+            },
+            {
+              "id": 177300,
+              "text": "Diglycerides",
+              "is_correct": false
+            },
+            {
+              "id": 177298,
+              "text": "Triglycerides",
+              "is_correct": false
+            },
+            {
+              "id": 177299,
+              "text": "Simple lipids",
+              "is_correct": false
+            }
+          ],
+          "correct_option_ids": [
+            177297
+          ],
+          "correct_option_texts": [
+            "Phospholipids"
+          ],
+          "explanation": "Some lipids have phosphorous and a phosphorylated organic compound in them. These are phospholipids. They are found in the cell membrane."
+        },
+        {
+          "questionID": 55502,
+          "question": "Proteins synthesized by ribosomes on the endoplasmic reticulum are modified in________.",
+          "question_raw": "<p>Proteins synthesized by ribosomes on the endoplasmic reticulum are modified in________.</p>",
+          "options": [
+            {
+              "id": 177201,
+              "text": "Cisternae",
+              "is_correct": true
+            },
+            {
+              "id": 177204,
+              "text": "Stroma",
+              "is_correct": false
+            },
+            {
+              "id": 177203,
+              "text": "Vesicles",
+              "is_correct": false
+            },
+            {
+              "id": 177202,
+              "text": "Tubules",
+              "is_correct": false
+            }
+          ],
+          "correct_option_ids": [
+            177201
+          ],
+          "correct_option_texts": [
+            "Cisternae"
+          ],
+          "explanation": "The cisternae of the Golgi apparatus is responsible for transporting, modifying, and packaging proteins and lipids into vesicles for delivery to targeted destinations."
+        },
+        {
+          "questionID": 55554,
+          "question": "Base pairs found in 5 turns of DNA spirals are _______.",
+          "question_raw": "<p>Base pairs found in 5 turns of DNA spirals are _______.</p>",
+          "options": [
+            {
+              "id": 177412,
+              "text": "100",
+              "is_correct": false
+            },
+            {
+              "id": 177410,
+              "text": "20",
+              "is_correct": false
+            },
+            {
+              "id": 177409,
+              "text": "50",
+              "is_correct": true
+            },
+            {
+              "id": 177411,
+              "text": "10",
+              "is_correct": false
+            }
+          ],
+          "correct_option_ids": [
+            177409
+          ],
+          "correct_option_texts": [
+            "50"
+          ],
+          "explanation": "Each turn of DNA spirals contains 10 base pairs. So, in five turns of DNA total number of Base pair is 5 $\\times$ 10 = 50 base pairs."
+        },
+        {
+          "questionID": 54958,
+          "question": "Carolus Linnaeus is associated with:",
+          "question_raw": "<p>Carolus Linnaeus is associated with:</p>",
+          "options": [
+            {
+              "id": 175026,
+              "text": "Law of limiting factor",
+              "is_correct": false
+            },
+            {
+              "id": 175025,
+              "text": "Binomial nomenclature",
+              "is_correct": true
+            },
+            {
+              "id": 175027,
+              "text": "Inheritance of acquired character",
+              "is_correct": false
+            },
+            {
+              "id": 175028,
+              "text": "Origin of species",
+              "is_correct": false
+            }
+          ],
+          "correct_option_ids": [
+            175025
+          ],
+          "correct_option_texts": [
+            "Binomial nomenclature"
+          ],
+          "explanation": "Carolus Linnaeus is associated with Binomial nomenclature in which the name of the organism consists of the genus name and species name."
+        },
+        {
+          "questionID": 55528,
+          "question": "Which of the following is not obtained on hydrolysis of nucleic acid?",
+          "question_raw": "<p>Which of the following is not obtained on hydrolysis of nucleic acid?</p>",
+          "options": [
+            {
+              "id": 177306,
+              "text": "Pentose sugar",
+              "is_correct": false
+            },
+            {
+              "id": 177308,
+              "text": "Pyrimidine",
+              "is_correct": false
+            },
+            {
+              "id": 177307,
+              "text": "Purine",
+              "is_correct": false
+            },
+            {
+              "id": 177305,
+              "text": "Phosphoric acid",
+              "is_correct": true
+            }
+          ],
+          "correct_option_ids": [
+            177305
+          ],
+          "correct_option_texts": [
+            "Phosphoric acid"
+          ],
+          "explanation": "Hydrolysis of nucleic acid (DNA and RNA) produces pentose sugar (ribose or deoxyribose) purine and pyrimidine. Phosphoric acid is not released on hydrolysis of DNA or RNA."
+        },
+        {
+          "questionID": 55067,
+          "question": "Angiosperm: roots :: Phaeophyceae:",
+          "question_raw": "<p>Angiosperm: roots :: Phaeophyceae:</p>",
+          "options": [
+            {
+              "id": 175463,
+              "text": "Prop root",
+              "is_correct": false
+            },
+            {
+              "id": 175464,
+              "text": "Substratum",
+              "is_correct": false
+            },
+            {
+              "id": 175462,
+              "text": "Root hair",
+              "is_correct": false
+            },
+            {
+              "id": 175461,
+              "text": "Holdfast",
+              "is_correct": true
+            }
+          ],
+          "correct_option_ids": [
+            175461
+          ],
+          "correct_option_texts": [
+            "Holdfast"
+          ],
+          "explanation": "The plant body of Phaeophyceae is usually attached to the substratum by a holdfast whereas the angiosperms attach to the substratum with the help of roots."
+        },
+        {
+          "questionID": 55117,
+          "question": "Primary endosperm nucleus is formed by ________.",
+          "question_raw": "<p>Primary endosperm nucleus is formed by ________.</p>",
+          "options": [
+            {
+              "id": 175664,
+              "text": "Egg synergid",
+              "is_correct": false
+            },
+            {
+              "id": 175662,
+              "text": "Syngamy",
+              "is_correct": false
+            },
+            {
+              "id": 175663,
+              "text": "Fusion of central nucleus",
+              "is_correct": false
+            },
+            {
+              "id": 175661,
+              "text": "Triple fusion",
+              "is_correct": true
+            }
+          ],
+          "correct_option_ids": [
+            175661
+          ],
+          "correct_option_texts": [
+            "Triple fusion"
+          ],
+          "explanation": "The pollen tubes enter the embryo-sac where two male gametes are discharged. One of the male gametes fuses with the egg cell to form a zygote (syngamy). The other male gamete fuses with the diploid secondary nucleus to produce the triploid primary endosperm nucleus (PEN). Because of the involvement of two fusions, this event is termed as double fertilization."
+        },
+        {
+          "questionID": 55284,
+          "question": "When the several pistils of the same flower are separate and the ovary belongs to a single free carpel, it is called _________.",
+          "question_raw": "<p>When the several pistils of the same flower are separate and the ovary belongs to a single free carpel, it is called _________.</p>",
+          "options": [
+            {
+              "id": 176331,
+              "text": "Polycarpous",
+              "is_correct": false
+            },
+            {
+              "id": 176329,
+              "text": "Apocarpous",
+              "is_correct": true
+            },
+            {
+              "id": 176332,
+              "text": "Megacarpous",
+              "is_correct": false
+            },
+            {
+              "id": 176330,
+              "text": "Syncarpous",
+              "is_correct": false
+            }
+          ],
+          "correct_option_ids": [
+            176329
+          ],
+          "correct_option_texts": [
+            "Apocarpous"
+          ],
+          "explanation": "When the several pistils of the same flower are separate and the ovary belongs to a single free carpel, it is called apocarpous."
+        },
+        {
+          "questionID": 55414,
+          "question": "Choose the odd pair out in the following:",
+          "question_raw": "<p>Choose the odd pair out in the following:</p>",
+          "options": [
+            {
+              "id": 176851,
+              "text": "Muscle fibre - actin",
+              "is_correct": false
+            },
+            {
+              "id": 176849,
+              "text": "Neuron - melanin",
+              "is_correct": true
+            },
+            {
+              "id": 176850,
+              "text": "Epithelium - keratin",
+              "is_correct": false
+            },
+            {
+              "id": 176852,
+              "text": "Areolar connective tissue - collagen",
+              "is_correct": false
+            }
+          ],
+          "correct_option_ids": [
+            176849
+          ],
+          "correct_option_texts": [
+            "Neuron - melanin"
+          ],
+          "explanation": "Epithelium tissues contain keratin, muscles fibres contain actin and areolar connective tissue contain collagen but melanin is absent in neuron."
+        },
+        {
+          "questionID": 55479,
+          "question": "The staining procedure is developed by:",
+          "question_raw": "<p>The staining procedure is developed by:</p>",
+          "options": [
+            {
+              "id": 177111,
+              "text": "Schleiden",
+              "is_correct": false
+            },
+            {
+              "id": 177110,
+              "text": "Schwann",
+              "is_correct": false
+            },
+            {
+              "id": 177112,
+              "text": "A.V.Leeuwenhoek",
+              "is_correct": false
+            },
+            {
+              "id": 177109,
+              "text": "Hans Christian Gram",
+              "is_correct": true
+            }
+          ],
+          "correct_option_ids": [
+            177109
+          ],
+          "correct_option_texts": [
+            "Hans Christian Gram"
+          ],
+          "explanation": "The staining procedure developed by Gram viz., those that take up the gram stain are gram-positive and the others that do not are called gram-negative bacteria."
+        },
+        {
+          "questionID": 55575,
+          "question": "The energy currency of the cell is______.",
+          "question_raw": "<p>The energy currency of the cell is______.</p>",
+          "options": [
+            {
+              "id": 177496,
+              "text": "NAD",
+              "is_correct": false
+            },
+            {
+              "id": 177494,
+              "text": "ADP",
+              "is_correct": false
+            },
+            {
+              "id": 177493,
+              "text": "ATP",
+              "is_correct": true
+            },
+            {
+              "id": 177495,
+              "text": "GDP",
+              "is_correct": false
+            }
+          ],
+          "correct_option_ids": [
+            177493
+          ],
+          "correct_option_texts": [
+            "ATP"
+          ],
+          "explanation": "The most important form of energy currency in living systems is the bond energy in a chemical called ATP."
+        },
+        {
+          "questionID": 54922,
+          "question": "The number of species that are known and described is:",
+          "question_raw": "<p>The number of species that are known and described is:</p>",
+          "options": [
+            {
+              "id": 174884,
+              "text": "5,000 - 10,000",
+              "is_correct": false
+            },
+            {
+              "id": 174883,
+              "text": "5 - 30 million",
+              "is_correct": false
+            },
+            {
+              "id": 174881,
+              "text": "1.7 - 1.8 million",
+              "is_correct": true
+            },
+            {
+              "id": 174882,
+              "text": "2 - 4 million",
+              "is_correct": false
+            }
+          ],
+          "correct_option_ids": [
+            174881
+          ],
+          "correct_option_texts": [
+            "1.7 - 1.8 million"
+          ],
+          "explanation": "Each different kind of plant, animal, or organism represents a species. The number of species known and described ranges between 1.7-1.8 million. This refers to biodiversity or the number and types of organisms present on earth. Hence, the correct option is 1.7 - 1.8 million."
+        },
+        {
+          "questionID": 55386,
+          "question": "Which of the following structure is Ectodermal in origin?",
+          "question_raw": "<p>Which of the following&nbsp;structure is Ectodermal in origin?</p>",
+          "options": [
+            {
+              "id": 176737,
+              "text": "Brain",
+              "is_correct": true
+            },
+            {
+              "id": 176738,
+              "text": "Kidney",
+              "is_correct": false
+            },
+            {
+              "id": 176740,
+              "text": "Notochord",
+              "is_correct": false
+            },
+            {
+              "id": 176739,
+              "text": "Lungs",
+              "is_correct": false
+            }
+          ],
+          "correct_option_ids": [
+            176737
+          ],
+          "correct_option_texts": [
+            "Brain"
+          ],
+          "explanation": "The ectoderm differentiates to form the nervous system (spine, peripheral nerves and brain), tooth enamel and the epidermis, the outer part of the integument. It also forms the lining of mouth, anus, nostrils, sweat glands, hair and nails."
+        },
+        {
+          "questionID": 352606,
+          "question": "A Prothallus is:",
+          "question_raw": "<p>A Prothallus is:</p>",
+          "options": [
+            {
+              "id": 545198,
+              "text": "A primitive structure formed after fertilization in pteridophytes.",
+              "is_correct": false
+            },
+            {
+              "id": 545196,
+              "text": "A sporophytic free-living structure formed in pteridophytes.",
+              "is_correct": false
+            },
+            {
+              "id": 545195,
+              "text": "A structure in pteridophytes formed before the thallus develops.",
+              "is_correct": false
+            },
+            {
+              "id": 545197,
+              "text": "A gametophyte free-living structure formed in pteridophytes.",
+              "is_correct": true
+            }
+          ],
+          "correct_option_ids": [
+            545197
+          ],
+          "correct_option_texts": [
+            "A gametophyte free-living structure formed in pteridophytes."
+          ],
+          "explanation": "A gametophyte free-living structure formed in pteridophytes which is of short duration."
+        },
+        {
+          "questionID": 67770,
+          "question": "Which of the following is an example of an oviparous mammal?",
+          "question_raw": "<p>Which of the following is an example of an oviparous mammal?</p>",
+          "options": [
+            {
+              "id": 209796,
+              "text": "Delphiunus",
+              "is_correct": false
+            },
+            {
+              "id": 209795,
+              "text": "Macropus",
+              "is_correct": false
+            },
+            {
+              "id": 209797,
+              "text": "Felis",
+              "is_correct": false
+            },
+            {
+              "id": 209794,
+              "text": "Ornithorhynchus",
+              "is_correct": true
+            }
+          ],
+          "correct_option_ids": [
+            209794
+          ],
+          "correct_option_texts": [
+            "Ornithorhynchus"
+          ],
+          "explanation": "Ornithorhynchus is a mammal but lays egg."
+        },
+        {
+          "questionID": 67856,
+          "question": "Which of the following plants shows parallel venation?",
+          "question_raw": "<p>Which of the following plants shows parallel venation?</p>",
+          "options": [
+            {
+              "id": 209853,
+              "text": "Black gram",
+              "is_correct": false
+            },
+            {
+              "id": 209852,
+              "text": "Mango",
+              "is_correct": false
+            },
+            {
+              "id": 209851,
+              "text": "Peepal",
+              "is_correct": false
+            },
+            {
+              "id": 209850,
+              "text": "Banana",
+              "is_correct": true
+            }
+          ],
+          "correct_option_ids": [
+            209850
+          ],
+          "correct_option_texts": [
+            "Banana"
+          ],
+          "explanation": "In parallel venation, Veins run parallel to one another from the base to the tip of the leaf."
+        },
+        {
+          "questionID": 55420,
+          "question": "The pharyngeal nephridia of earthworm occur in segments:",
+          "question_raw": "<p>The pharyngeal nephridia of earthworm occur in segments:</p>",
+          "options": [
+            {
+              "id": 176873,
+              "text": "4th, 5th and 6th",
+              "is_correct": true
+            },
+            {
+              "id": 176874,
+              "text": "14th, 15th and 16th",
+              "is_correct": false
+            },
+            {
+              "id": 176876,
+              "text": "5th, 6th and 7th",
+              "is_correct": false
+            },
+            {
+              "id": 176875,
+              "text": "3rd, 4th and 5th",
+              "is_correct": false
+            }
+          ],
+          "correct_option_ids": [
+            176873
+          ],
+          "correct_option_texts": [
+            "4th, 5th and 6th"
+          ],
+          "explanation": "The excretory system of earthworm contains a pair of nephridia in every segment, except for the first three and the last ones. Three types of nephridia are found in earthworm: integumentary, septal, and pharyngeal. The pharyngeal nephridia are present as three paired tufts in the 4th, 5th, and 6th segments."
+        }
+      ]
+    },
+    {
+      "sectionName": "Section B",
+      "sectionID": 832,
+      "questions": [
+        {
+          "questionID": 595227,
+          "question": "Assertion (A): Unsaturated fats are more reactive compared with saturated fats.\nReason (R): Unsaturated fats have only single bonds in their structure.",
+          "question_raw": "<p><strong>Assertion (A):</strong> Unsaturated fats are more reactive compared with saturated fats.<br />\r\n<strong>Reason (R):</strong> Unsaturated fats have only single bonds in their structure.</p>",
+          "options": [
+            {
+              "id": 1178504,
+              "text": "A is true but R is false.",
+              "is_correct": true
+            },
+            {
+              "id": 1178505,
+              "text": "A is false but R is true.",
+              "is_correct": false
+            },
+            {
+              "id": 1178502,
+              "text": "Both A and R are true and R is the correct explanation of A.",
+              "is_correct": false
+            },
+            {
+              "id": 1178503,
+              "text": "Both A and R are true but R is not the correct explanation of A.",
+              "is_correct": false
+            }
+          ],
+          "correct_option_ids": [
+            1178504
+          ],
+          "correct_option_texts": [
+            "A is true but R is false."
+          ],
+          "explanation": "Compounds having a double bond in their structure are more unstable compounds in comparison to single bondholders. Unsaturated fats that have double bonds in their structures are more reactive than saturated fats."
+        },
+        {
+          "questionID": 592385,
+          "question": "Assertion (A): Resolving power is the ability to distinguish between two close points\nReason (R): Microscope reduces resolving power.",
+          "question_raw": "<p><strong>Assertion (A):&nbsp;</strong>Resolving power is the ability to distinguish between two close points<br />\r\n<strong>Reason (R):</strong> Microscope reduces resolving power.</p>",
+          "options": [
+            {
+              "id": 1167840,
+              "text": "Both A and R are true but R is not the correct explanation of A.",
+              "is_correct": false
+            },
+            {
+              "id": 1167841,
+              "text": "A is true but R is false.",
+              "is_correct": true
+            },
+            {
+              "id": 1167842,
+              "text": "A is false but R is true.",
+              "is_correct": false
+            },
+            {
+              "id": 1167839,
+              "text": "Both A and R are true and R is the correct explanation of A.",
+              "is_correct": false
+            }
+          ],
+          "correct_option_ids": [
+            1167841
+          ],
+          "correct_option_texts": [
+            "A is true but R is false."
+          ],
+          "explanation": "Resolving power is the ability to distinguish two close points as distinct points. Microscope increases resolving power. For example, human eye has a resolving power of 100 $\\mu$m, optical microscope 0.25 $\\mu$m and electron microscope 2-10 A°."
+        },
+        {
+          "questionID": 426101,
+          "question": "Assertion (A): A special membranous structure is a mesosome which is formed by the extensions of the plasma membrane into the cell.\nReason (R): In some prokaryotes like cyanobacteria, there are other membranous extensions chromatophores present but mesosome absent.",
+          "question_raw": "<p><strong>Assertion (A):</strong> A special membranous structure is a mesosome which is formed by the extensions of the plasma membrane into the cell.<br />\n<strong>Reason (R):</strong> In some prokaryotes like cyanobacteria, there are other membranous extensions chromatophores present but mesosome absent.</p>",
+          "options": [
+            {
+              "id": 699964,
+              "text": "A is true but R is false.",
+              "is_correct": false
+            },
+            {
+              "id": 699965,
+              "text": "A is false but R is true.",
+              "is_correct": false
+            },
+            {
+              "id": 699962,
+              "text": "Both A and R are true and R is the correct explanation of A.",
+              "is_correct": false
+            },
+            {
+              "id": 699963,
+              "text": "Both A and R are true but R is not the correct explanation of A.",
+              "is_correct": true
+            }
+          ],
+          "correct_option_ids": [
+            699963
+          ],
+          "correct_option_texts": [
+            "Both A and R are true but R is not the correct explanation of A."
+          ],
+          "explanation": "Both A and R are true but R is not the correct explanation of A."
+        },
+        {
+          "questionID": 591188,
+          "question": "Assertion (A): Green algae forms a partner of lichen.\nReason (R): Some green algae live epizoically or endozoically.",
+          "question_raw": "<p><strong>Assertion (A):</strong>&nbsp;Green algae forms a partner of lichen.<br />\r\n<strong>Reason (R):</strong>&nbsp;Some green algae live epizoically or endozoically.</p>",
+          "options": [
+            {
+              "id": 1164137,
+              "text": "A is true but R is false.",
+              "is_correct": false
+            },
+            {
+              "id": 1164135,
+              "text": "Both A and R are true and R is the correct explanation of A.",
+              "is_correct": false
+            },
+            {
+              "id": 1164138,
+              "text": "A is false but R is true.",
+              "is_correct": false
+            },
+            {
+              "id": 1164136,
+              "text": "Both A and R are true but R is not the correct explanation of A.",
+              "is_correct": true
+            }
+          ],
+          "correct_option_ids": [
+            1164136
+          ],
+          "correct_option_texts": [
+            "Both A and R are true but R is not the correct explanation of A."
+          ],
+          "explanation": "These are instances of green algae which live epizoically on or endozoically within the bodies of lower animals. For example, Chlorella is found in Hydra, Characium on the antennae of mosquito and chlorella beneath the scales of fish. A few green algae in association with the fungi constitute lichens."
+        },
+        {
+          "questionID": 55145,
+          "question": "The alimentary canal is absent in:",
+          "question_raw": "<p>The alimentary canal is absent in:</p>",
+          "options": [
+            {
+              "id": 175775,
+              "text": "Fasciola hepatica",
+              "is_correct": false
+            },
+            {
+              "id": 175773,
+              "text": "Taenia Solium",
+              "is_correct": true
+            },
+            {
+              "id": 175774,
+              "text": "Ascaris suum",
+              "is_correct": false
+            },
+            {
+              "id": 175776,
+              "text": "Ancylostoma",
+              "is_correct": false
+            }
+          ],
+          "correct_option_ids": [
+            175773
+          ],
+          "correct_option_texts": [
+            "Taenia Solium"
+          ],
+          "explanation": "The alimentary canal is absent in Taenia Solium. Taenia Solium is an obligate parasite and obtains digested food from the small intestine of the human being as well as pigs. Pick the animals with true placenta."
+        },
+        {
+          "questionID": 55276,
+          "question": "Which one is a monocarpic in nature?",
+          "question_raw": "<p>Which one is a monocarpic in nature?</p>",
+          "options": [
+            {
+              "id": 176298,
+              "text": "Cotton",
+              "is_correct": false
+            },
+            {
+              "id": 176297,
+              "text": "Bamboo",
+              "is_correct": true
+            },
+            {
+              "id": 176299,
+              "text": "Castor",
+              "is_correct": false
+            },
+            {
+              "id": 176300,
+              "text": "Radish",
+              "is_correct": false
+            }
+          ],
+          "correct_option_ids": [
+            176297
+          ],
+          "correct_option_texts": [
+            "Bamboo"
+          ],
+          "explanation": "Monocarpic plants are those that flower, set seeds, and then die. Bamboo is monocarpic in nature that flowers once in a lifetime."
+        },
+        {
+          "questionID": 352650,
+          "question": "Match the followings and choose the correct option:\n Column I\r\n Column II\r\n a. Hermaphrodite\r\n i. Produces blood cells and haemoglobin\r\n b. Direct development\r\n ii. Testis and ovary in the same animal\r\n c. Chemoreceptor\r\n iii. Larval form absent\r\n d. Blood gland in earthworm\r\n iv. Sense of chemical substances",
+          "question_raw": "<p>Match the followings and choose the correct option:</p>\r\n\r\n<table border=\"1\" cellpadding=\"3\" cellspacing=\"0\" style=\"width: 100%;\">\r\n\t<tbody>\r\n\t\t<tr>\r\n\t\t\t<td style=\"text-align: center;\"><strong>Column I</strong></td>\r\n\t\t\t<td style=\"text-align: center;\"><strong>Column II</strong></td>\r\n\t\t</tr>\r\n\t\t<tr>\r\n\t\t\t<td>a.&nbsp;Hermaphrodite</td>\r\n\t\t\t<td>i. Produces blood cells and haemoglobin</td>\r\n\t\t</tr>\r\n\t\t<tr>\r\n\t\t\t<td>b.&nbsp;Direct development</td>\r\n\t\t\t<td>ii. Testis and ovary in the same animal</td>\r\n\t\t</tr>\r\n\t\t<tr>\r\n\t\t\t<td>c.&nbsp;Chemoreceptor</td>\r\n\t\t\t<td>iii. Larval form absent</td>\r\n\t\t</tr>\r\n\t\t<tr>\r\n\t\t\t<td>d.&nbsp;Blood gland in earthworm</td>\r\n\t\t\t<td>iv. Sense of chemical substances</td>\r\n\t\t</tr>\r\n\t</tbody>\r\n</table>",
+          "options": [
+            {
+              "id": 545372,
+              "text": "(a)-(iii), (b)-(ii), (c)-(iv), (d)-(i)",
+              "is_correct": false
+            },
+            {
+              "id": 545374,
+              "text": "(a)-(ii), (b)-(iv), (c)-(iii), (d)-(i)",
+              "is_correct": false
+            },
+            {
+              "id": 545371,
+              "text": "(a)-(ii), (b)-(iii), (c)-(iv), (d)-(i)",
+              "is_correct": true
+            },
+            {
+              "id": 545373,
+              "text": "(a)-(i), (b)-(iii), (c)-(ii), (d)-(iv)",
+              "is_correct": false
+            }
+          ],
+          "correct_option_ids": [
+            545371
+          ],
+          "correct_option_texts": [
+            "(a)-(ii), (b)-(iii), (c)-(iv), (d)-(i)"
+          ],
+          "explanation": "Hermaphrodites are having testis and ovaries in the same animal.\n Larval stage is absent in the direct development.\n Chemoreceptor has a sense of chemical substance.\n Blood gland in earthworms produces blood cells and haemoglobin."
+        },
+        {
+          "questionID": 55559,
+          "question": "The number of amino acids found in proteins is _____.",
+          "question_raw": "<p>The number of amino acids found in proteins is _____.</p>",
+          "options": [
+            {
+              "id": 177431,
+              "text": "16",
+              "is_correct": false
+            },
+            {
+              "id": 177432,
+              "text": "18",
+              "is_correct": false
+            },
+            {
+              "id": 177429,
+              "text": "20",
+              "is_correct": true
+            },
+            {
+              "id": 177430,
+              "text": "22",
+              "is_correct": false
+            }
+          ],
+          "correct_option_ids": [
+            177429
+          ],
+          "correct_option_texts": [
+            "20"
+          ],
+          "explanation": "Proteins are made up of amino acids, which are organic compounds that combine to form the building blocks of proteins. There are 20 standard amino acids that are encoded by the universal genetic code and found in proteins. These include essential amino acids that must be obtained through the diet and non-essential amino acids that can be synthesized by the body.\nAlthough there are some other amino acids like selenocysteine (sometimes referred to as the 21st amino acid) and pyrrolysine, these are not universally found in all proteins and are encoded by specific rare genetic mechanisms."
+        },
+        {
+          "questionID": 54964,
+          "question": "Larger animals like birds and mammals are usually stuffed and preserved in ______.",
+          "question_raw": "<p>Larger animals like birds and mammals are usually stuffed and preserved in ______.</p>",
+          "options": [
+            {
+              "id": 175052,
+              "text": "Herbarium",
+              "is_correct": false
+            },
+            {
+              "id": 175050,
+              "text": "Zoo",
+              "is_correct": false
+            },
+            {
+              "id": 175049,
+              "text": "Museum",
+              "is_correct": true
+            },
+            {
+              "id": 175051,
+              "text": "Park",
+              "is_correct": false
+            }
+          ],
+          "correct_option_ids": [
+            175049
+          ],
+          "correct_option_texts": [
+            "Museum"
+          ],
+          "explanation": "Larger animals like birds and mammals are usually stuffed and preserved in the museum. Hence, the correct choice is the Museum."
+        },
+        {
+          "questionID": 55469,
+          "question": "The plasma membrane consists mainly of:",
+          "question_raw": "<p>The plasma membrane consists mainly of:</p>",
+          "options": [
+            {
+              "id": 177069,
+              "text": "Proteins embedded in a phospholipids bilayer",
+              "is_correct": true
+            },
+            {
+              "id": 177071,
+              "text": "Proteins embedded in a carbohydrate bilayer",
+              "is_correct": false
+            },
+            {
+              "id": 177070,
+              "text": "Proteins embedded in a polymer of glucose molecules",
+              "is_correct": false
+            },
+            {
+              "id": 177072,
+              "text": "Phospholipids embedded in protein bilayer",
+              "is_correct": false
+            }
+          ],
+          "correct_option_ids": [
+            177069
+          ],
+          "correct_option_texts": [
+            "Proteins embedded in a phospholipids bilayer"
+          ],
+          "explanation": "The plasma membrane is composed of lipids that are arranged in a bilayer. Also, the lipids are arranged within the membrane with the polar head towards the outer sides and the hydrophobic tails towards the inner part. The membrane proteins can be classified as integral or peripheral. Peripheral proteins lie on the surface."
+        },
+        {
+          "questionID": 55122,
+          "question": "Top shaped multinucleate male gametes and mature seeds with one embryo having two cotyledons are characteristic features of_______.",
+          "question_raw": "<p>Top shaped multinucleate male gametes and mature seeds with one embryo having two cotyledons are characteristic features of_______.</p>",
+          "options": [
+            {
+              "id": 175683,
+              "text": "Gametopetalous angiosperms",
+              "is_correct": false
+            },
+            {
+              "id": 175682,
+              "text": "Conifers",
+              "is_correct": false
+            },
+            {
+              "id": 175684,
+              "text": "Polypetalous angiosperms",
+              "is_correct": false
+            },
+            {
+              "id": 175681,
+              "text": "Cycas",
+              "is_correct": true
+            }
+          ],
+          "correct_option_ids": [
+            175681
+          ],
+          "correct_option_texts": [
+            "Cycas"
+          ],
+          "explanation": "Cycas produces top-shaped multinucleate male gametes and mature seeds with one embryo having two cotyledons. Although, male and female gametes are generally uninucleate in gymnosperms."
+        },
+        {
+          "questionID": 55152,
+          "question": "An egg-laying animal grouped under mammals is:",
+          "question_raw": "<p>An egg-laying animal grouped under mammals is:</p>",
+          "options": [
+            {
+              "id": 175804,
+              "text": "Kangaroo",
+              "is_correct": false
+            },
+            {
+              "id": 175803,
+              "text": "Fluke",
+              "is_correct": false
+            },
+            {
+              "id": 175802,
+              "text": "Horn-bill",
+              "is_correct": false
+            },
+            {
+              "id": 175801,
+              "text": "Duck-billed Platypus",
+              "is_correct": true
+            }
+          ],
+          "correct_option_ids": [
+            175801
+          ],
+          "correct_option_texts": [
+            "Duck-billed Platypus"
+          ],
+          "explanation": "Most of the animals belonging to class Mammalia are viviparous, produces young ones. But, Duck-billed platypus belongs to mammalian class but lay eggs."
+        },
+        {
+          "questionID": 55275,
+          "question": "Dry indehiscent single-seeded fruit formed by bicarpellarysyncarpous inferior ovary is in the diagram given below, the parts A and B are respectively,",
+          "question_raw": "<p>Dry indehiscent single-seeded fruit formed by bicarpellarysyncarpous inferior ovary is in the diagram given below, the parts A and B are respectively,<br />\r\n<img src=\"https://media-mycbseguide.s3.amazonaws.com/images/quiz/11/biology/47447_0.jpg\" style=\"width: 84px; height: 100px;\" /></p>",
+          "options": [
+            {
+              "id": 176294,
+              "text": "Plumule and Radicle",
+              "is_correct": false
+            },
+            {
+              "id": 176293,
+              "text": "Hilum and Micropyle",
+              "is_correct": true
+            },
+            {
+              "id": 176296,
+              "text": "Radicle and Plumule",
+              "is_correct": false
+            },
+            {
+              "id": 176295,
+              "text": "Micropyle and Hilum",
+              "is_correct": false
+            }
+          ],
+          "correct_option_ids": [
+            176293
+          ],
+          "correct_option_texts": [
+            "Hilum and Micropyle"
+          ],
+          "explanation": "The part is identified as Hilum and Micropyle."
+        },
+        {
+          "questionID": 55382,
+          "question": "Myelin sheath is derived from:",
+          "question_raw": "<p>Myelin sheath is derived from:</p>",
+          "options": [
+            {
+              "id": 176724,
+              "text": "Myocytes",
+              "is_correct": false
+            },
+            {
+              "id": 176722,
+              "text": "Neuroglial cells",
+              "is_correct": false
+            },
+            {
+              "id": 176721,
+              "text": "Schwann cells",
+              "is_correct": true
+            },
+            {
+              "id": 176723,
+              "text": "Nerve cells",
+              "is_correct": false
+            }
+          ],
+          "correct_option_ids": [
+            176721
+          ],
+          "correct_option_texts": [
+            "Schwann cells"
+          ],
+          "explanation": "The outer layer of the axon of nerve cells is called the myelin sheath. Myelin sheath is derived from Schwann cells."
+        },
+        {
+          "questionID": 68017,
+          "question": "Which of the following plastids stores proteins?",
+          "question_raw": "<p>Which of the following plastids stores proteins?</p>",
+          "options": [
+            {
+              "id": 210025,
+              "text": "Chloroplasts",
+              "is_correct": false
+            },
+            {
+              "id": 210022,
+              "text": "Aleuroplasts",
+              "is_correct": true
+            },
+            {
+              "id": 210024,
+              "text": "Elaioplasts",
+              "is_correct": false
+            },
+            {
+              "id": 210023,
+              "text": "Amyloplasts",
+              "is_correct": false
+            }
+          ],
+          "correct_option_ids": [
+            210022
+          ],
+          "correct_option_texts": [
+            "Aleuroplasts"
+          ],
+          "explanation": "Aleuroplasts are also known as Proteoplasts or proteinoplasts. They store proteins and found in seeds (maize)."
+        },
+        {
+          "questionID": 68056,
+          "question": "Aromatic amino acids contain which reactive group?",
+          "question_raw": "<p>Aromatic amino acids contain which reactive group?</p>",
+          "options": [
+            {
+              "id": 210050,
+              "text": "Benzene",
+              "is_correct": true
+            },
+            {
+              "id": 210053,
+              "text": "Hydroxil",
+              "is_correct": false
+            },
+            {
+              "id": 210052,
+              "text": "Ketone",
+              "is_correct": false
+            },
+            {
+              "id": 210051,
+              "text": "Ethyl",
+              "is_correct": false
+            }
+          ],
+          "correct_option_ids": [
+            210050
+          ],
+          "correct_option_texts": [
+            "Benzene"
+          ],
+          "explanation": "An aromatic amino acid is an amino acid that contains an aromatic ring."
+        },
+        {
+          "questionID": 54921,
+          "question": "Which is not the universal rule of nomenclature?\n Biological names are generally in Greek.\n The biological names are printed in italics.\n Genus name starts with a capital letter while the species name starts with small letters.\n The first word represents the genus and the second word represents species.",
+          "question_raw": "<p>Which is not the universal rule of nomenclature?</p>\n\n<ol start=\"1\" style=\"list-style-type: upper-alpha;\">\n\t<li>Biological names are generally in Greek.</li>\n\t<li>The biological names are printed in italics.</li>\n\t<li>Genus name starts with a capital letter while the species name starts with small letters.</li>\n\t<li>The first word represents the genus and the second word represents species.</li>\n</ol>",
+          "options": [
+            {
+              "id": 174879,
+              "text": "(C)",
+              "is_correct": false
+            },
+            {
+              "id": 174877,
+              "text": "(A)",
+              "is_correct": true
+            },
+            {
+              "id": 174880,
+              "text": "(D)",
+              "is_correct": false
+            },
+            {
+              "id": 174878,
+              "text": "(B)",
+              "is_correct": false
+            }
+          ],
+          "correct_option_ids": [
+            174877
+          ],
+          "correct_option_texts": [
+            "(A)"
+          ],
+          "explanation": "According to the universal rule of nomenclature, the biological names are generally in Latin and written in italics. Hence, the correct option is Biological names are generally in Greek."
+        },
+        {
+          "questionID": 352627,
+          "question": "The placenta is attached to the developing seed near the:",
+          "question_raw": "<p>The placenta is attached to the developing seed near the:</p>",
+          "options": [
+            {
+              "id": 545279,
+              "text": "Testa",
+              "is_correct": false
+            },
+            {
+              "id": 545281,
+              "text": "Micropyle",
+              "is_correct": false
+            },
+            {
+              "id": 545282,
+              "text": "Hilum",
+              "is_correct": true
+            },
+            {
+              "id": 545280,
+              "text": "Chalaza",
+              "is_correct": false
+            }
+          ],
+          "correct_option_ids": [
+            545282
+          ],
+          "correct_option_texts": [
+            "Hilum"
+          ],
+          "explanation": "Hilum"
+        },
+        {
+          "questionID": 55371,
+          "question": "Intercalated discs occur in:",
+          "question_raw": "<p>Intercalated discs occur in:</p>",
+          "options": [
+            {
+              "id": 176679,
+              "text": "In striped muscles",
+              "is_correct": false
+            },
+            {
+              "id": 176677,
+              "text": "Between cardiac muscle fibres",
+              "is_correct": true
+            },
+            {
+              "id": 176680,
+              "text": "At the junction of muscle and nerve cells",
+              "is_correct": false
+            },
+            {
+              "id": 176678,
+              "text": "Between neurons",
+              "is_correct": false
+            }
+          ],
+          "correct_option_ids": [
+            176677
+          ],
+          "correct_option_texts": [
+            "Between cardiac muscle fibres"
+          ],
+          "explanation": "In between cardiac muscle fibres, there are communication junctions which are made up of intercalated discs."
+        },
+        {
+          "questionID": 54955,
+          "question": "The branch of study that deals with identification, nomenclature, and classification is called _______.",
+          "question_raw": "<p>The branch of study that deals with identification, nomenclature, and classification is called _______.</p>",
+          "options": [
+            {
+              "id": 175016,
+              "text": "Grouping",
+              "is_correct": false
+            },
+            {
+              "id": 175013,
+              "text": "Taxonomy",
+              "is_correct": true
+            },
+            {
+              "id": 175015,
+              "text": "Phylactery",
+              "is_correct": false
+            },
+            {
+              "id": 175014,
+              "text": "Genetics",
+              "is_correct": false
+            }
+          ],
+          "correct_option_ids": [
+            175013
+          ],
+          "correct_option_texts": [
+            "Taxonomy"
+          ],
+          "explanation": "Taxonomy is the branch of biological science that deals with identification, nomenclature, and classification of organisms according to certain sets of rules."
+        },
+        {
+          "questionID": 55492,
+          "question": "Plasmodesmata take parts in:",
+          "question_raw": "<p>Plasmodesmata take parts in:</p>",
+          "options": [
+            {
+              "id": 177163,
+              "text": "Cytoplasmic streaming",
+              "is_correct": false
+            },
+            {
+              "id": 177162,
+              "text": "Locomotion in unicellular organism",
+              "is_correct": false
+            },
+            {
+              "id": 177164,
+              "text": "Synchronize mitotic divisions",
+              "is_correct": false
+            },
+            {
+              "id": 177161,
+              "text": "Movement of substances between cells",
+              "is_correct": true
+            }
+          ],
+          "correct_option_ids": [
+            177161
+          ],
+          "correct_option_texts": [
+            "Movement of substances between cells"
+          ],
+          "explanation": "The plasmodesmata consist of pores, or channels, lying between individual plant cells, and connect the symplastic space in the plant. They can also be termed as \"bridges\" between two plant cells. The plasmodesmata separate the outer cell membranes of the plant cells. A plasmodesma (plural plasmodesmata, singular plasmodesma) is a channel through the cell wall that allows molecules and substances to move back and forth as needed."
+        },
+        {
+          "questionID": 55137,
+          "question": "Fusion between one large and non-motile female gamete with smaller, motile male gamete is termed as______.",
+          "question_raw": "<p>Fusion between one large and non-motile female gamete with smaller, motile male gamete is termed as______.</p>",
+          "options": [
+            {
+              "id": 175743,
+              "text": "Anisogamous",
+              "is_correct": false
+            },
+            {
+              "id": 175742,
+              "text": "Isogamous",
+              "is_correct": false
+            },
+            {
+              "id": 175744,
+              "text": "Homogamous",
+              "is_correct": false
+            },
+            {
+              "id": 175741,
+              "text": "Oogamous",
+              "is_correct": true
+            }
+          ],
+          "correct_option_ids": [
+            175741
+          ],
+          "correct_option_texts": [
+            "Oogamous"
+          ],
+          "explanation": "Oogamy is a form of anisogamy (heterogamy) in which the female gamete (e.g. egg cell) is significantly larger than the male gamete and is non-motile."
+        },
+        {
+          "questionID": 67772,
+          "question": "Which of the following is a unique characteristic of vertebrates?",
+          "question_raw": "<p>Which of the following is a unique characteristic of vertebrates?</p>",
+          "options": [
+            {
+              "id": 209802,
+              "text": "Presence of vertebral column",
+              "is_correct": true
+            },
+            {
+              "id": 209805,
+              "text": "Presence of jaw",
+              "is_correct": false
+            },
+            {
+              "id": 209803,
+              "text": "Presence of notochord",
+              "is_correct": false
+            },
+            {
+              "id": 209804,
+              "text": "Presence of four-chambered heart",
+              "is_correct": false
+            }
+          ],
+          "correct_option_ids": [
+            209802
+          ],
+          "correct_option_texts": [
+            "Presence of vertebral column"
+          ],
+          "explanation": "Presence of vertebral column"
+        },
+        {
+          "questionID": 55429,
+          "question": "In male cockroaches, genital pouch lies at the hind end of the abdomen bounded by:",
+          "question_raw": "<p>In male cockroaches, genital pouch lies at the hind end of the abdomen bounded by:</p>",
+          "options": [
+            {
+              "id": 176909,
+              "text": "Dorsally by 9th and 10th terga and ventrally by the 9th sternum",
+              "is_correct": true
+            },
+            {
+              "id": 176910,
+              "text": "Dorsally by 9th and 10th terga and ventrally by the 10th sternum",
+              "is_correct": false
+            },
+            {
+              "id": 176911,
+              "text": "Dorsally by 8th and 9th terga and ventrally by the 9th sternum",
+              "is_correct": false
+            },
+            {
+              "id": 176912,
+              "text": "Dorsally by 8th and 9th terga and ventrally by the 8th sternum",
+              "is_correct": false
+            }
+          ],
+          "correct_option_ids": [
+            176909
+          ],
+          "correct_option_texts": [
+            "Dorsally by 9th and 10th terga and ventrally by the 9th sternum"
+          ],
+          "explanation": "In males, genital pouch or chamber lies at the hind end of abdomen bounded dorsally by 9th and 10th terga and ventrally by the 9th sternum. It contains dorsal anus, ventral male genital pore, and gonapophysis."
+        }
+      ]
+    },
+    {
+      "sectionName": "Section C",
+      "sectionID": 833,
+      "questions": [
+        {
+          "questionID": 595532,
+          "question": "Instructions for Question 49 to 54:\nR.H. Whittaker proposed a Five Kingdom Classification. The kingdoms defined by him were named Monera, Protista, Fungi, Plantae, and Animalia. The main criteria for classification used by him include cell structure, body organisation, mode of nutrition, reproduction and phylogenetic relationships. The three-domain system has also been proposed that divides the Kingdom Monera into two domains, leaving the remaining eukaryotic kingdoms in the third domain and thereby a six kingdom classification. Earlier classification systems included bacteria, blue-green algae, fungi, mosses, ferns, gymnosperms and the angiosperms under 'Plants'. The character that unified this whole kingdom was that all the organisms included had a cell wall in their cells.\nAnother Name of Cyanobacteria",
+          "question_raw": "<b>Instructions for Question 49 to 54:</b><br><p>R.H. Whittaker proposed a Five Kingdom Classification. The kingdoms defined by him were named Monera, Protista, Fungi, Plantae, and Animalia. The main criteria for classification used by him include cell structure, body organisation, mode of nutrition, reproduction and phylogenetic relationships.&nbsp;The three-domain system has also been proposed that divides the Kingdom Monera into two domains, leaving the remaining eukaryotic kingdoms in the third domain and thereby a six kingdom classification.&nbsp;Earlier classification systems included bacteria, blue-green algae, fungi, mosses, ferns, gymnosperms and the angiosperms under &#39;Plants&#39;. The character that unified this whole kingdom was that all the organisms included had a cell wall in their cells.</p><br><p>Another Name of Cyanobacteria</p>",
+          "options": [
+            {
+              "id": 1179720,
+              "text": "Protists",
+              "is_correct": false
+            },
+            {
+              "id": 1179719,
+              "text": "Golden algae",
+              "is_correct": false
+            },
+            {
+              "id": 1179721,
+              "text": "Slime moulds",
+              "is_correct": false
+            },
+            {
+              "id": 1179718,
+              "text": "Blue-green algae",
+              "is_correct": true
+            }
+          ],
+          "correct_option_ids": [
+            1179718
+          ],
+          "correct_option_texts": [
+            "Blue-green algae"
+          ],
+          "explanation": "Blue-green algae"
+        },
+        {
+          "questionID": 595540,
+          "question": "Instructions for Question 49 to 54:\nR.H. Whittaker proposed a Five Kingdom Classification. The kingdoms defined by him were named Monera, Protista, Fungi, Plantae, and Animalia. The main criteria for classification used by him include cell structure, body organisation, mode of nutrition, reproduction and phylogenetic relationships. The three-domain system has also been proposed that divides the Kingdom Monera into two domains, leaving the remaining eukaryotic kingdoms in the third domain and thereby a six kingdom classification. Earlier classification systems included bacteria, blue-green algae, fungi, mosses, ferns, gymnosperms and the angiosperms under 'Plants'. The character that unified this whole kingdom was that all the organisms included had a cell wall in their cells.\nStudy the table given below and fill A, B and C\n Characters\r\n kingdom\r\n Cell type\r\n Prokaryotic\r\n Eukaryotic\r\n C\r\n Cell wall\r\n Noncellulosic (Polysaccharide + amino acid)\r\n Present in some\r\n Present with chitin\r\n Nuclear membrane\r\n Absent\r\n B\r\n Present\r\n A\r\n Cellular\r\n Cellular\r\n Multiceullar/ loose tissue",
+          "question_raw": "<b>Instructions for Question 49 to 54:</b><br><p>R.H. Whittaker proposed a Five Kingdom Classification. The kingdoms defined by him were named Monera, Protista, Fungi, Plantae, and Animalia. The main criteria for classification used by him include cell structure, body organisation, mode of nutrition, reproduction and phylogenetic relationships.&nbsp;The three-domain system has also been proposed that divides the Kingdom Monera into two domains, leaving the remaining eukaryotic kingdoms in the third domain and thereby a six kingdom classification.&nbsp;Earlier classification systems included bacteria, blue-green algae, fungi, mosses, ferns, gymnosperms and the angiosperms under &#39;Plants&#39;. The character that unified this whole kingdom was that all the organisms included had a cell wall in their cells.</p><br><p>Study the table given below and fill A, B and C</p>\r\n\r\n<table border=\"1\" cellpadding=\"3\" cellspacing=\"0\" style=\"width:100%;\">\r\n\t<thead>\r\n\t\t<tr>\r\n\t\t\t<th scope=\"col\"><strong>Characters</strong></th>\r\n\t\t\t<th colspan=\"3\" rowspan=\"1\" scope=\"col\">&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;<strong> kingdom</strong></th>\r\n\t\t</tr>\r\n\t</thead>\r\n\t<tbody>\r\n\t\t<tr>\r\n\t\t\t<td>Cell type</td>\r\n\t\t\t<td>Prokaryotic</td>\r\n\t\t\t<td>Eukaryotic</td>\r\n\t\t\t<td>&nbsp; &nbsp;C</td>\r\n\t\t</tr>\r\n\t\t<tr>\r\n\t\t\t<td>Cell wall</td>\r\n\t\t\t<td>Noncellulosic (Polysaccharide + amino acid)</td>\r\n\t\t\t<td>Present in some</td>\r\n\t\t\t<td>Present with chitin</td>\r\n\t\t</tr>\r\n\t\t<tr>\r\n\t\t\t<td>Nuclear membrane</td>\r\n\t\t\t<td>Absent</td>\r\n\t\t\t<td>&nbsp; &nbsp; &nbsp; B</td>\r\n\t\t\t<td>&nbsp;Present</td>\r\n\t\t</tr>\r\n\t\t<tr>\r\n\t\t\t<td>&nbsp; &nbsp;A</td>\r\n\t\t\t<td>Cellular</td>\r\n\t\t\t<td>Cellular</td>\r\n\t\t\t<td>Multiceullar/ loose tissue</td>\r\n\t\t</tr>\r\n\t</tbody>\r\n</table>",
+          "options": [
+            {
+              "id": 1179751,
+              "text": "A-Body organisation, B-Present, C-Eukaryotic",
+              "is_correct": false
+            },
+            {
+              "id": 1179749,
+              "text": "A-Body organisation, B-Eukaryotic, C-Present",
+              "is_correct": true
+            },
+            {
+              "id": 1179753,
+              "text": "A-Present, B-Body organisation, C-Eukaryotic",
+              "is_correct": false
+            },
+            {
+              "id": 1179746,
+              "text": "A-Eukaryotic, B-Body organisation, C-Present",
+              "is_correct": false
+            }
+          ],
+          "correct_option_ids": [
+            1179749
+          ],
+          "correct_option_texts": [
+            "A-Body organisation, B-Eukaryotic, C-Present"
+          ],
+          "explanation": "A-Body organisation, B-Eukaryotic, C-Present"
+        },
+        {
+          "questionID": 595544,
+          "question": "Instructions for Question 49 to 54:\nR.H. Whittaker proposed a Five Kingdom Classification. The kingdoms defined by him were named Monera, Protista, Fungi, Plantae, and Animalia. The main criteria for classification used by him include cell structure, body organisation, mode of nutrition, reproduction and phylogenetic relationships. The three-domain system has also been proposed that divides the Kingdom Monera into two domains, leaving the remaining eukaryotic kingdoms in the third domain and thereby a six kingdom classification. Earlier classification systems included bacteria, blue-green algae, fungi, mosses, ferns, gymnosperms and the angiosperms under 'Plants'. The character that unified this whole kingdom was that all the organisms included had a cell wall in their cells.\nLinnaeus used which kingdom of classification?",
+          "question_raw": "<b>Instructions for Question 49 to 54:</b><br><p>R.H. Whittaker proposed a Five Kingdom Classification. The kingdoms defined by him were named Monera, Protista, Fungi, Plantae, and Animalia. The main criteria for classification used by him include cell structure, body organisation, mode of nutrition, reproduction and phylogenetic relationships.&nbsp;The three-domain system has also been proposed that divides the Kingdom Monera into two domains, leaving the remaining eukaryotic kingdoms in the third domain and thereby a six kingdom classification.&nbsp;Earlier classification systems included bacteria, blue-green algae, fungi, mosses, ferns, gymnosperms and the angiosperms under &#39;Plants&#39;. The character that unified this whole kingdom was that all the organisms included had a cell wall in their cells.</p><br><p>Linnaeus used which kingdom of classification?</p>",
+          "options": [
+            {
+              "id": 1179767,
+              "text": "Natural system",
+              "is_correct": false
+            },
+            {
+              "id": 1179766,
+              "text": "Artificial system",
+              "is_correct": true
+            },
+            {
+              "id": 1179768,
+              "text": "Phylogenetic system",
+              "is_correct": false
+            },
+            {
+              "id": 1179769,
+              "text": "Asexual system",
+              "is_correct": false
+            }
+          ],
+          "correct_option_ids": [
+            1179766
+          ],
+          "correct_option_texts": [
+            "Artificial system"
+          ],
+          "explanation": "Artificial system"
+        },
+        {
+          "questionID": 595550,
+          "question": "Instructions for Question 49 to 54:\nR.H. Whittaker proposed a Five Kingdom Classification. The kingdoms defined by him were named Monera, Protista, Fungi, Plantae, and Animalia. The main criteria for classification used by him include cell structure, body organisation, mode of nutrition, reproduction and phylogenetic relationships. The three-domain system has also been proposed that divides the Kingdom Monera into two domains, leaving the remaining eukaryotic kingdoms in the third domain and thereby a six kingdom classification. Earlier classification systems included bacteria, blue-green algae, fungi, mosses, ferns, gymnosperms and the angiosperms under 'Plants'. The character that unified this whole kingdom was that all the organisms included had a cell wall in their cells.\nAssertion (A): The green plants had a cellulosic cell wall.\nReason (R): Kingdom Protista has brought together Chlamydomonas, Chlorella with Paramoecium and Amoeba.",
+          "question_raw": "<b>Instructions for Question 49 to 54:</b><br><p>R.H. Whittaker proposed a Five Kingdom Classification. The kingdoms defined by him were named Monera, Protista, Fungi, Plantae, and Animalia. The main criteria for classification used by him include cell structure, body organisation, mode of nutrition, reproduction and phylogenetic relationships.&nbsp;The three-domain system has also been proposed that divides the Kingdom Monera into two domains, leaving the remaining eukaryotic kingdoms in the third domain and thereby a six kingdom classification.&nbsp;Earlier classification systems included bacteria, blue-green algae, fungi, mosses, ferns, gymnosperms and the angiosperms under &#39;Plants&#39;. The character that unified this whole kingdom was that all the organisms included had a cell wall in their cells.</p><br><p><strong>Assertion (A): </strong>The green plants had a cellulosic cell wall.<br />\r\n<strong>Reason (R):&nbsp;</strong>Kingdom Protista has brought together Chlamydomonas, Chlorella&nbsp;with Paramoecium and Amoeba.</p>",
+          "options": [
+            {
+              "id": 1179790,
+              "text": "Both A and R are true and R is the correct explanation of A.",
+              "is_correct": false
+            },
+            {
+              "id": 1179792,
+              "text": "A is true but R is false.",
+              "is_correct": false
+            },
+            {
+              "id": 1179793,
+              "text": "A is false but R is true.",
+              "is_correct": false
+            },
+            {
+              "id": 1179791,
+              "text": "Both A and R are true but R is not the correct explanation of A.",
+              "is_correct": true
+            }
+          ],
+          "correct_option_ids": [
+            1179791
+          ],
+          "correct_option_texts": [
+            "Both A and R are true but R is not the correct explanation of A."
+          ],
+          "explanation": "Both A and R are true but R is not the correct explanation of A."
+        },
+        {
+          "questionID": 595555,
+          "question": "Instructions for Question 49 to 54:\nR.H. Whittaker proposed a Five Kingdom Classification. The kingdoms defined by him were named Monera, Protista, Fungi, Plantae, and Animalia. The main criteria for classification used by him include cell structure, body organisation, mode of nutrition, reproduction and phylogenetic relationships. The three-domain system has also been proposed that divides the Kingdom Monera into two domains, leaving the remaining eukaryotic kingdoms in the third domain and thereby a six kingdom classification. Earlier classification systems included bacteria, blue-green algae, fungi, mosses, ferns, gymnosperms and the angiosperms under 'Plants'. The character that unified this whole kingdom was that all the organisms included had a cell wall in their cells.\nWhich of the following is incorrect match?",
+          "question_raw": "<b>Instructions for Question 49 to 54:</b><br><p>R.H. Whittaker proposed a Five Kingdom Classification. The kingdoms defined by him were named Monera, Protista, Fungi, Plantae, and Animalia. The main criteria for classification used by him include cell structure, body organisation, mode of nutrition, reproduction and phylogenetic relationships.&nbsp;The three-domain system has also been proposed that divides the Kingdom Monera into two domains, leaving the remaining eukaryotic kingdoms in the third domain and thereby a six kingdom classification.&nbsp;Earlier classification systems included bacteria, blue-green algae, fungi, mosses, ferns, gymnosperms and the angiosperms under &#39;Plants&#39;. The character that unified this whole kingdom was that all the organisms included had a cell wall in their cells.</p><br><p>Which of the following is incorrect match?</p>",
+          "options": [
+            {
+              "id": 1179815,
+              "text": "Animalia- Heterotrophic (Holozoic/ Saprophytic)",
+              "is_correct": false
+            },
+            {
+              "id": 1179813,
+              "text": "Fungi- Autotrophic (Photosynthetic) and Heterotrophic",
+              "is_correct": true
+            },
+            {
+              "id": 1179817,
+              "text": "Plantae- Autotrophic (Photosynthetic)",
+              "is_correct": false
+            },
+            {
+              "id": 1179810,
+              "text": "Monera- Autotrophic (chemosynthetic and photosynthetic)",
+              "is_correct": false
+            }
+          ],
+          "correct_option_ids": [
+            1179813
+          ],
+          "correct_option_texts": [
+            "Fungi- Autotrophic (Photosynthetic) and Heterotrophic"
+          ],
+          "explanation": "Fungi- Autotrophic (Photosynthetic) and Heterotrophic"
+        },
+        {
+          "questionID": 595563,
+          "question": "Instructions for Question 49 to 54:\nR.H. Whittaker proposed a Five Kingdom Classification. The kingdoms defined by him were named Monera, Protista, Fungi, Plantae, and Animalia. The main criteria for classification used by him include cell structure, body organisation, mode of nutrition, reproduction and phylogenetic relationships. The three-domain system has also been proposed that divides the Kingdom Monera into two domains, leaving the remaining eukaryotic kingdoms in the third domain and thereby a six kingdom classification. Earlier classification systems included bacteria, blue-green algae, fungi, mosses, ferns, gymnosperms and the angiosperms under 'Plants'. The character that unified this whole kingdom was that all the organisms included had a cell wall in their cells.\nWhich of the following statement is incorrect?\n All prokaryotic organisms were grouped together under Kingdom Monera.\n Chlorella is placed into the plant kingdom.\n The unicellular eukaryotic organisms were placed in Kingdom Protista\n Paramoecium and Amoeba were earlier placed in the animal kingdom as they contain a cell wall.",
+          "question_raw": "<b>Instructions for Question 49 to 54:</b><br><p>R.H. Whittaker proposed a Five Kingdom Classification. The kingdoms defined by him were named Monera, Protista, Fungi, Plantae, and Animalia. The main criteria for classification used by him include cell structure, body organisation, mode of nutrition, reproduction and phylogenetic relationships.&nbsp;The three-domain system has also been proposed that divides the Kingdom Monera into two domains, leaving the remaining eukaryotic kingdoms in the third domain and thereby a six kingdom classification.&nbsp;Earlier classification systems included bacteria, blue-green algae, fungi, mosses, ferns, gymnosperms and the angiosperms under &#39;Plants&#39;. The character that unified this whole kingdom was that all the organisms included had a cell wall in their cells.</p><br><p>Which of the following statement is incorrect?</p>\r\n\r\n<ol start=\"1\" style=\"list-style-type:upper-roman\">\r\n\t<li>All prokaryotic organisms were grouped together under Kingdom Monera.</li>\r\n\t<li>Chlorella is placed into the plant kingdom.</li>\r\n\t<li>The unicellular eukaryotic organisms were placed in Kingdom Protista</li>\r\n\t<li>Paramoecium and Amoeba were earlier placed in the animal kingdom as they contain a cell wall.</li>\r\n</ol>",
+          "options": [
+            {
+              "id": 1179845,
+              "text": "I and IV",
+              "is_correct": false
+            },
+            {
+              "id": 1179842,
+              "text": "II and I",
+              "is_correct": false
+            },
+            {
+              "id": 1179844,
+              "text": "II and III",
+              "is_correct": false
+            },
+            {
+              "id": 1179843,
+              "text": "IV and II",
+              "is_correct": true
+            }
+          ],
+          "correct_option_ids": [
+            1179843
+          ],
+          "correct_option_texts": [
+            "IV and II"
+          ],
+          "explanation": "IV and II"
+        },
+        {
+          "questionID": 55277,
+          "question": "Which one of the following is a true nut?",
+          "question_raw": "<p>Which one of the following is a true nut?</p>\r\n\r\n<ol style=\"list-style-type:upper-alpha\">\r\n</ol>",
+          "options": [
+            {
+              "id": 176301,
+              "text": "Hazelnut",
+              "is_correct": true
+            },
+            {
+              "id": 176302,
+              "text": "Coconut",
+              "is_correct": false
+            },
+            {
+              "id": 176304,
+              "text": "Cashewnut",
+              "is_correct": false
+            },
+            {
+              "id": 176303,
+              "text": "Groundnut",
+              "is_correct": false
+            }
+          ],
+          "correct_option_ids": [
+            176301
+          ],
+          "correct_option_texts": [
+            "Hazelnut"
+          ],
+          "explanation": "A true nut is a fruit composed of a hard shell and an edible seed. The shell does not open to release the seed (indehiscent), e.g., hazelnut, chestnuts.\nWalnuts, almonds and pecans are drupes. The fruit of the coconut is a large, dry drupe. Cashew nuts are not true nuts. In the cashew nut, the ovary develops outside of the fruit (false fruit). The groundnut or peanut is not a true nut, but rather a legume. In groundnut, edible the cotyledons remain below ground and act as a storage organ."
+        },
+        {
+          "questionID": 55415,
+          "question": "A close approximation of an axon of one neuron and a dendrite of the next is called ________.",
+          "question_raw": "<p>A close approximation of an axon of one neuron and a dendrite of the next is called ________.</p>",
+          "options": [
+            {
+              "id": 176856,
+              "text": "Joint",
+              "is_correct": false
+            },
+            {
+              "id": 176853,
+              "text": "Synapse",
+              "is_correct": true
+            },
+            {
+              "id": 176854,
+              "text": "Junction",
+              "is_correct": false
+            },
+            {
+              "id": 176855,
+              "text": "Bridge",
+              "is_correct": false
+            }
+          ],
+          "correct_option_ids": [
+            176853
+          ],
+          "correct_option_texts": [
+            "Synapse"
+          ],
+          "explanation": "The close connection between an axon and dendrite of the next neuron is called a synapse. Nerve impulses pass through it in the form of neurotransmitters due to the presence of synaptic fluid present in it."
+        },
+        {
+          "questionID": 55484,
+          "question": "Chlorophyll is located inside_______.",
+          "question_raw": "<p>Chlorophyll is located inside_______.</p>",
+          "options": [
+            {
+              "id": 177130,
+              "text": "Stroma",
+              "is_correct": false
+            },
+            {
+              "id": 177131,
+              "text": "Plasma lemma",
+              "is_correct": false
+            },
+            {
+              "id": 177129,
+              "text": "Thylakoids",
+              "is_correct": true
+            },
+            {
+              "id": 177132,
+              "text": "Chromatophores",
+              "is_correct": false
+            }
+          ],
+          "correct_option_ids": [
+            177129
+          ],
+          "correct_option_texts": [
+            "Thylakoids"
+          ],
+          "explanation": "The chloroplast consists of a number of organized flattened membranous sacs called the thylakoids, Chlorophyll pigments are present in the thylakoids."
+        },
+        {
+          "questionID": 55578,
+          "question": "ATP is______.",
+          "question_raw": "<p>ATP is______.</p>",
+          "options": [
+            {
+              "id": 177508,
+              "text": "Nuleosome",
+              "is_correct": false
+            },
+            {
+              "id": 177506,
+              "text": "Purine base",
+              "is_correct": false
+            },
+            {
+              "id": 177507,
+              "text": "Nucleoside",
+              "is_correct": false
+            },
+            {
+              "id": 177505,
+              "text": "Nucleotide",
+              "is_correct": true
+            }
+          ],
+          "correct_option_ids": [
+            177505
+          ],
+          "correct_option_texts": [
+            "Nucleotide"
+          ],
+          "explanation": "Adenosine triphosphate (ATP) is a nucleotide. A nucleotide is formed by pentose sugar, nitrogenous base and phosphates. Many nucleotides join together to form polynucleotide."
+        },
+        {
+          "questionID": 352663,
+          "question": "Which of the following statements is not true for plasma membrane?",
+          "question_raw": "<p>Which of the following statements is not true for plasma membrane?</p>",
+          "options": [
+            {
+              "id": 545426,
+              "text": "Carbohydrate is never found in it.",
+              "is_correct": true
+            },
+            {
+              "id": 545424,
+              "text": "Lipid is present as a bilayer in it.",
+              "is_correct": false
+            },
+            {
+              "id": 545423,
+              "text": "It is present in both plant and animal cells.",
+              "is_correct": false
+            },
+            {
+              "id": 545425,
+              "text": "Proteins are present integrated as well as loosely associated with the lipid bilayer.",
+              "is_correct": false
+            }
+          ],
+          "correct_option_ids": [
+            545426
+          ],
+          "correct_option_texts": [
+            "Carbohydrate is never found in it."
+          ],
+          "explanation": "Carbohydrates are found in the membrane are branched or unbranched oligosaccharides eg hexose, hexosamine, silica acid, etc."
+        },
+        {
+          "questionID": 55589,
+          "question": "The enzymes show high activity at:",
+          "question_raw": "<p>The enzymes show high activity at:</p>",
+          "options": [
+            {
+              "id": 177550,
+              "text": "High temperature",
+              "is_correct": false
+            },
+            {
+              "id": 177549,
+              "text": "Low temperature",
+              "is_correct": false
+            },
+            {
+              "id": 177551,
+              "text": "Freezing temperature",
+              "is_correct": false
+            },
+            {
+              "id": 177548,
+              "text": "Optimum temperature",
+              "is_correct": true
+            }
+          ],
+          "correct_option_ids": [
+            177548
+          ],
+          "correct_option_texts": [
+            "Optimum temperature"
+          ],
+          "explanation": "Each enzyme shows its highest activity at a particular temperature and pH called the optimum temperature and optimum pH."
+        }
+      ]
+    }
+  ]
+}

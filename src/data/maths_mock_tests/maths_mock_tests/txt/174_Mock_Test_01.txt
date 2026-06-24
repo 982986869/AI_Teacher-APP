@@ -1,0 +1,613 @@
+======================================================================
+Mock Test - 01  (id 174)
+CBSE > Class 11 > Mathematics
+Duration: 90 min | Questions: 50
+======================================================================
+
+INSTRUCTIONS:
+This question paper contains three sections - A, B and C. Each part is compulsory.
+ Section - A has 20 MCQs, attempt any 16 out of 20.
+ Section - B has 20 MCQs, attempt any 16 out of 20
+ Section - C has 10 MCQs, attempt any 8 out of 10.
+ There is no negative marking.
+ All questions carry equal marks.
+
+------------------------------------------------------------
+Section A
+------------------------------------------------------------
+Q1. In a battle 70% of combatants lost one eye, 80% an ear, 75% an arm, 85% a leg, x% lose all the four limbs. The minimum value of x is:
+    (A) 10   <-- CORRECT
+    (B) 15
+    (C) 12
+    (D) 11
+    Answer: A
+    Explanation: Given that percentage of combatants who lost one eye = 70%, an ear = 80% and an arm = 75% and a leg = 85%
+Hence we get the percentage of combatants who lost one eye and one ear = (70% + 80%) - 100% = 50%
+Percentage of combatants who lost one eye, one ear and one arm = (50% + 75%) - 100% = 25%
+Similarly, the percentage of combatants who lost one eye, one ear, one arm, and one leg = (25% + 85%) - 100% = 10%
+Hence we get the percentage of the combatants who lost all 4 limbs = 10%
+Hence if x% represents the percentage of combatants who lost all 4 limbs we get the minimum value of x = 10
+
+Q2. If f : [1, $\infty \infty $) $ \to $ [2, $\infty \infty $) is given by f(x) = x + $\frac{1}{x}$ then f^-1(x) equals]
+    (A) $\frac{x+\sqrt{x^2-4}}{2}$   <-- CORRECT
+    (B) $1 + \sqrt {{x^2} - 4} $
+    (C) $\frac{x \sqrt{x^2-4}}{2}$
+    (D) $\frac{x}{1+x^2}$
+    Answer: A
+    Explanation: Let y = f(x), then
+y = x + $\frac{1}{x}$ $\Rightarrow$ y = $\frac{x^{2}+1}{x}$ 
+$\Rightarrow$ x^2 + 1 = xy $\Rightarrow$ x^2 - xy + 1 = 0 
+$\Rightarrow$ x = $\frac{y \pm \sqrt{y^{2}-4}}{2}$ 
+$\Rightarrow$ f^-1(y) = $\frac{y \pm \sqrt{y^{2}-4}}{2}$ (negative sign is rejected)
+f^-1 (x) = $\frac{x+\sqrt{x^{2}-4}}{2}$
+
+Q3. If a cos $\theta$ + i sin $\theta$, then $\frac{1+a}{1-a}=$
+    (A) cot $\theta$
+    (B) $i \tan \frac{\theta}{2}$
+    (C) $\cot \frac{\theta}{2}$
+    (D) $i \cot \frac{\theta}{2}$   <-- CORRECT
+    Answer: D
+    Explanation: $i \cot \frac{\theta}{2}$
+$a=\cos \theta+i \sin \theta$ (given)
+$\Rightarrow \frac{1+a}{1-a}$ $=\frac{1+\cos \theta+i \sin \theta}{1-\cos \theta-i \sin \theta}$
+$\Rightarrow \begin{array}{l} 1+a \\ 1-a \end{array}$ $=\begin{array}{l} 1+\cos \theta+i \sin \theta \\ 1-\cos \theta-i \sin \theta \end{array}$ $\times\begin{array}{l} 1-\cos \theta+i \sin \theta \\ 1-\cos \theta+i \sin \theta \end{array}$
+$\Rightarrow \frac{1+a}{1-a}$ $=\frac{(1+i \sin \theta)^{2}-\cos ^{2} \theta}{(1-\cos \theta)^{2}-(i \sin \theta)^{2}}$
+$\Rightarrow \frac{1+a}{1-a}$$=\frac{1-\sin ^{2} \theta+2 i \sin \theta-\cos ^{2} \theta}{1+\cos ^{2} \theta-2 \cos \theta+\sin ^{2} \theta}$
+$\Rightarrow \frac{1+a}{1-a}$ $=\frac{1-\left(\sin ^{2} \theta+\cos ^{2} \theta\right)+2 i \sin \theta}{1+\left(\sin ^{2} \theta+\cos ^{2} \theta\right)-2 \cos \theta}$
+$\Rightarrow \frac{1+a}{1-a}=\frac{2 i \sin \theta}{2(1-\cos \theta)}$
+$\Rightarrow \frac{1+a}{1-a}=\frac{2 i \sin \frac{\theta}{2} \cos \frac{\theta}{2}}{2 \sin ^{2} \frac{\theta}{2}}$
+$\Rightarrow \frac{1+a}{1-a}=\frac{i \cos \frac{\theta}{2}}{\sin \frac{\theta}{2}}$
+$\Rightarrow \frac{1+a}{1-a}=i \cot \frac{\theta}{2}$
+
+Q4. If $\frac{\left(a^{n+1}+b^{n+1}\right)}{\left(a^{n}+b^{n}\right)}$ is the arithmetic mean between unequal numbers a and b then n = ?
+    (A) 1
+    (B) 0   <-- CORRECT
+    (C) 2
+    (D) 4
+    Answer: B
+    Explanation: Here, it is given : $\frac{\left(a^{n+1}+b^{n+1}\right)}{\left(a^{n}+b^{n}\right)}=\frac{a+b}{2}$
+$\Rightarrow \left(a^{n}+b^{n}\right)(a+b)=2\left(a^{n+1}+b^{n+1}\right)$
+$\Rightarrow a^{n+1}+b^{n+1}+a^{n} b+b^{n} a=2 a^{n+1}+2 b^{n+1}$
+$\Rightarrow a^{n+1}-a^{n} b+b^{n+1}-b^{n} a=0$
+$\Rightarrow a^{n}(a-b)-b^{n}(a-b)=0$
+$\Rightarrow (a-b)\left(a^{n}-b^{n}\right)=0 \Rightarrow a^{n}-b^{n}=0$ $[\because a-b \neq 0]$
+$\Rightarrow$ a^n = b^n and $a \neq b \Rightarrow n=0$.
+
+Q5. Two vertices of a triangle are (-2, -1) and (3, 2) and the third vertex lies on the line x + y = 5. If the area of the triangle is 4 square units, then the third vertex is
+    (A) (0, 5) or (1, 4)
+    (B) (0, 5) or (4, 1)   <-- CORRECT
+    (C) (5, 0) or (4, 1)
+    (D) (5, 0) or (1, 4)
+    Answer: B
+    Explanation: Let (h, k) be the third vertex of the triangle.
+It is given that the area of the triangle with vertices (h, k), (-2, -1) and (3, 2) is 4 square units.
+$\frac{1}{2}$[h(-1 - 2) - 3(-1 - k) - 2(2 - k)] = 4
+$\Rightarrow$ 3h - 5k + 1 = $\pm$8
+Taking positive sign, we get,
+3h - 5k + 1 = 8
+3h - 5k + 7 = 0 ...(i)
+Taking negative sign, we get,
+3h - 5k + 9 = 0 ...(ii)
+The vertex (h, k) lies on the line x + y = 5.
+h + k - 5 = 0 ...(iii)
+On solving (i) and (iii), we find (4, 1) to be the coordinates of the third vertex.
+Similarly, on solving (ii) and (iii), we find the required vertex (0, 5) or (4, 1).
+
+Q6. Let f(x) = x sin$\frac 1 x$, x $ \ne $ 0, then the value of the function at x = 0, so that f is continuous at x = 0, is
+    (A) $% MathType!Translator!2!1!LaTeX.tdl!LaTeX 2.09 and later! % MathType!MTEF!2!1!+- % feaagGart1ev2aaatCvAUfeBSjuyZL2yd9gzLbvyNv2CaerbuLwBLn % hiov2DGi1BTfMBaeXatLxBI9gBaerbd9wDYLwzYbItLDharqqtubsr % 4rNCHbGeaGqiVu0Je9sqqrpepC0xbbL8F4rqqrFfpeea0xe9Lq-Jc9 % vqaqpepm0xbba9pwe9Q8fs0-yqaqpepae9pg0FirpepeKkFr0xfr-x % fr-xb9adbaqaaeGaciGaaiaabeqaamaabaabaaqcfayaaiabgkziUk % abg6HiLcaa!39D7! \[ \to \infty \]% MathType!End!2!1! $$\sqrt{2}$
+    (B) 0   <-- CORRECT
+    (C) 1
+    (D) -1
+    Answer: B
+    Explanation: Here, if we directly put x = 0, f(0) = 0 $\times$ sin ($\frac{1}{0}$) = 0.
+At L.H.L, put x = 0 - h$% MathType!Translator!2!1!LaTeX.tdl!LaTeX 2.09 and later! % MathType!MTEF!2!1!+- % feaagGart1ev2aaatCvAUfeBSjuyZL2yd9gzLbvyNv2CaerbuLwBLn % hiov2DGi1BTfMBaeXatLxBI9gBaerbd9wDYLwzYbItLDharqqtubsr % 4rNCHbGeaGqiVu0Je9sqqrpepC0xbbL8F4rqqrFfpeea0xe9Lq-Jc9 % vqaqpepm0xbba9pwe9Q8fs0-yqaqpepae9pg0FirpepeKkFr0xfr-x % fr-xb9adbaqaaeGaciGaaiaabeqaamaabaabaaqcfayaamaaxababa % GaciiBaiaacMgacaGGTbaabaGaamiAaiabgkziUkaaicdaaeqaaaaa % !3D0B! \[\mathop {\lim }\limits_{h \to 0} \]% MathType!End!2!1! $, $\mathop {lim}\limits_{x \to 0} x.\sin \frac1x$ f(0 - h) = 0.
+At R.H.L, put x = 0 + h ,$\mathop {lim}\limits_{x \to 0} x.\sin \frac1x$$% MathType!Translator!2!1!LaTeX.tdl!LaTeX 2.09 and later! % MathType!MTEF!2!1!+- % feaagGart1ev2aaatCvAUfeBSjuyZL2yd9gzLbvyNv2CaerbuLwBLn % hiov2DGi1BTfMBaeXatLxBI9gBaerbd9wDYLwzYbItLDharqqtubsr % 4rNCHbGeaGqiVu0Je9sqqrpepC0xbbL8F4rqqrFfpeea0xe9Lq-Jc9 % vqaqpepm0xbba9pwe9Q8fs0-yqaqpepae9pg0FirpepeKkFr0xfr-x % fr-xb9adbaqaaeGaciGaaiaabeqaamaabaabaaqcfayaamaaxababa % GaciiBaiaacMgacaGGTbaabaGaamiAaiabgkziUkaaicdaaeqaaaaa % !3D0B! \[\mathop {\lim }\limits_{h \to 0} \]% MathType!End!2!1! $, f(0 + h) = 0.
+Hence, L.H.L = f(0) = R.H.L.
+f(x) is continuous at x = 0.
+
+Q7. Least square lines of regression give best possible estimates, when $\rho \left( {X,Y} \right)$ is equal to
+    (A) $\frac{1}{2}$
+    (B) less than 1
+    (C) - 1 or 1   <-- CORRECT
+    (D) greater than -1
+    Answer: C
+    Explanation: Least square lines of regression give best possible estimates when the lines coincide at that point $\rho = \pm 1$
+
+Q8. In a set builder method the null set is represented by
+    (A) (x: x $\neq$x ).   <-- CORRECT
+    (B) { x : x = x }
+    (C) { }
+    (D) $\phi$
+    Answer: A
+    Explanation: (x: x $\neq$x ). x is not equal to x is null set as it refers to there is no element in the set.And it also representing the set builder form pattern
+
+Q9. If f (x) = ${(25 - {x^4})^{1/4}}$ for 0 < x <$\sqrt 5 $, then $f\left(f\left(\frac{1}{2}\right)\right)$ =
+    (A) 2^-3
+    (B) 2^-4
+    (C) 2^-2
+    (D) 2^-1   <-- CORRECT
+    Answer: D
+    Explanation: fof(x) = f(f(x)) = $\left\{ {f{{\left( {25 - {x^4}} \right)}^{\frac{1}{4}}}} \right\}$
+= $\left\{25-\left(25-x^{4}\right)\right\}^{\frac{1}{4}}$ = $\left(x^{4}\right)^{\frac{1}{4}}$ = x 
+$\therefore$ $f\left(f\left(\frac{1}{2}\right)\right)$ = $\frac{1}{2}$
+= 2^-1
+
+Q10. If $\alpha, \beta$ are roots of the equation 4x^2 + 3 x + 7 = 0, then $\frac{1}{\alpha}+\frac{1}{\beta}$ is equal to
+    (A) $\frac{-7}{3}$
+    (B) $\frac{-3}{7}$   <-- CORRECT
+    (C) $\frac{7}{3}$
+    (D) $\frac{3}{7}$
+    Answer: B
+    Explanation: Given equation: 4x^2 + 3x + 7 = 0
+Also, $\alpha$ and $\beta$ are the roots of the equation.
+Sum of the roots = $\alpha+\beta$ = $\frac{-\text { Coefficient of } x}{\text { Coefficient of } x^{2}}$= -$\frac{3}{4}$ 
+Product of the roots = $\alpha\beta$ = $\frac{\text { Constant term }}{\text { Coefficient of } x^{2}}$ = $\frac{7}{4}$ 
+$\therefore$ $\frac{1}{\alpha}+\frac{1}{\beta}$ = $\frac{\alpha+\beta}{\alpha \beta}$ = $\frac{-\frac{3}{4}}{\frac{7}{4}}$ = -$\frac{3}{7}$
+
+Q11. The values of x for which the solutions of the equation cos $\theta = x,\theta \ge 0$ form an A.P. are
+    (A) 0 and 1
+    (B) 0 and -1
+    (C) 1, 0 and -1   <-- CORRECT
+    (D) - 1 and 1
+    Answer: C
+    Explanation: We have cos $\theta$ is a periodic function whose value oscillates between -1 and 1.
+Also cos $\theta$ = 1 when $\theta$ = 0, cos $\theta$ = 0 when $\theta$ = 90^o and cos $\theta$ = -1 when $\theta$ = 180^o 
+But we have 1, 0, -1 is an A.P.
+Hence the values of x are 1, 0, -1
+
+Q12. A line is drawn through the points (3, 4) and (5, 6). If the is extended to a point whose ordinate is – 1, then the abscissa of that point is
+    (A) 1
+    (B) -1
+    (C) 0
+    (D) - 2   <-- CORRECT
+    Answer: D
+    Explanation: The slope of the given line is $y_2 - y_1 \over x_2-x_1$ = $6-4 \over 5 -3$ = 1
+Therefore $4-(-1) \over 3-x$ = 1
+That is 4 + 1 = 3 - x
+Therefore x = -2
+
+Q13. $\frac{d^2}{d x^2}\left(\cos ^{-1}(1-x)\right)$ is equal to
+    (A) $\frac{x-1}{\left(2 x-x^2\right)^{3 / 2}}$   <-- CORRECT
+    (B) $\frac{1-x}{\left(2 x-x^2\right)^{3 / 2}}$
+    (C) $\frac{1}{1-x^2}$
+    (D) $\frac{1}{2\left(2 x-x^2\right)^{3 / 2}}$
+    Answer: A
+    Explanation: y = cos^-1 (1 - x)
+$\Rightarrow$ cos y = 1 - x
+$\Rightarrow$ (-sin y)y' = -1
+$\Rightarrow$ y'' = -(y')^2 (cot y) = $\frac{(-\cos y)}{(\sin y)^{3}}$ 
+$\Rightarrow$ $\frac{x-1}{\left(2 x-x^{2}\right)^{\frac{3}{2}}}$
+
+Q14. If a, b, c be any three positive numbers, then the least value of (a + b + c)$\left(\frac{1}{a}+\frac{1}{b}+\frac{1}{c}\right)$ is
+    (A) 3
+    (B) 6
+    (C) 1
+    (D) 9   <-- CORRECT
+    Answer: D
+    Explanation: A.M > H.M
+$\Rightarrow$ $\frac{a+b+c}{3} \geq \frac{3}{\frac{1}{a}+\frac{1}{b}+\frac{1}{c}}$ 
+$\Rightarrow$ (a + b + c) $\left(\frac{1}{a}+\frac{1}{b}+\frac{1}{c}\right) \geq 3 \times 3 \geq 9$
+
+Q15. A survey shows that 63% of the people watch a News Channel whereas 76% watch another channel. If x% of the people watch both channels, then
+    (A) x = 39
+    (B) x = 35
+    (C) 39 $\leq$ x $\leq$ 63   <-- CORRECT
+    (D) x = 63
+    Answer: C
+    Explanation: Suppose p% and q% of people watch a news channel and another channel respectively
+n(p)= 63, n(q) = 76, n(p $\cap$ q) = x, n(p $\cup$ q) $\geq$ 100
+We know that,
+n(p $\cup$ q) $\geq$ n(p) + n(q) – n(p $\cap$ q)
+⇒ 100 $\geq$ 63 + 76 – x
+⇒ x $\geq$ 139 – 100
+⇒ x $\geq$ 39
+Now, n(p $\cup$ q) $\leq$ n(p) and n(p $\cup$ q) $\leq$ n(q)
+⇒ x $\leq$ 63 and x $\leq$ 76
+Therefore, 39 $\leq$ x $\leq$ 63
+
+Q16. Let n (A) = m, and n (B) = n. Then the total number of non-empty relations that can be defined from A to B is
+    (A) n^m - 1
+    (B) m^n - 1
+    (C) 2^mn - 1   <-- CORRECT
+    (D) m^n
+    Answer: C
+    Explanation: We have, n(A) = m and n(B) = n
+n(A $\times$ B) = n(A) $\cdot$ n(B) = mn
+Total number of relation from A to B = Number of subsets of A $\times$ B = 2^mn
+So, total number of non-empty relations = 2^mn - 1
+
+Q17. The values of k for which the quadratic equation for kx^2 +1 = kx + 3x - 11x^2 has real and equal roots are
+    (A) -11, 3
+    (B) 5, 7
+    (C) -11, -3
+    (D) 5, -7   <-- CORRECT
+    Answer: D
+    Explanation: The given equation is kx^2 + 1 = kx + 3x - 11x^2 which can be written as.
+kx^2 + 11x^2 - kx - 3x + 1 = 0
+$\Rightarrow$ (k + 11)x^2 - (k + 3) x + 1 = 0
+For equal and real roots, the discriminant of 
+(k + 11)x^2 - (k + 3)x + 1 = 0
+$\therefore$ (k + 3)^2 - 4(k + 11) = 0
+$\Rightarrow$ k^2 + 2k - 35 = 0
+$\Rightarrow$ (k - 5) (k + 7) = 0
+$\Rightarrow$ k = 5, -7
+Hence, the equation has real and equal roots when k = 5, -7.
+
+Q18. If a, x, b are in GP then
+    (A) $x=\frac{1}{2} a b$
+    (B) x = ab
+    (C) x^2 = ab   <-- CORRECT
+    (D) $d=\frac{1}{2}(a+b)$
+    Answer: C
+    Explanation: Here, a, x, b are in GP $\Rightarrow \frac{x}{a}=\frac{b}{x} \Rightarrow x^{2}=a b$.
+
+Q19. The point which divides the joint of ( 1, 2 ) and ( 3,4 ) externally in the ratio 1 : 1 .
+    (A) lies in the ${{\rm{1}}^{{\rm{st}}}}$ quadrant
+    (B) lies in the ${{\rm{2}}^{{\rm{nd}}}}$ quadrant
+    (C) cannot be found   <-- CORRECT
+    (D) lies in ${{\rm{3}}^{{\rm{rd}}}}$ quadrant
+    Answer: C
+    Explanation: The point which divides the line in the ratio m:n externally is given by x =$m(x_2) -n(x_1)\over m - n$
+Substituting the values we get,
+x = $ 1(3) - 1(1)\over 1-1$ which is undefined.
+
+Q20. $\lim \limits_{x \rightarrow 4} \frac{3-\sqrt{5+x}}{1-\sqrt{5-x}}$ =
+    (A) $\frac 1 3$
+    (B) does not exist
+    (C) $ - \frac{1}{3}$   <-- CORRECT
+    (D) 0
+    Answer: C
+    Explanation: Equation is in the form of $\frac{0}{0}$
+Using L'Hospital rule we get $ \frac{-\frac{1}{2 \sqrt{5+x}}}{\frac{1}{2 \sqrt{5-x}}}$
+Substituting x = 4 we get $\frac{-1}{3}$
+
+------------------------------------------------------------
+Section B
+------------------------------------------------------------
+Q1. For a symmetrical distribution Q_1 = 20 and Q_3 = 40. The median of the data is
+    (A) 10
+    (B) 30   <-- CORRECT
+    (C) 40
+    (D) 20
+    Answer: B
+    Explanation: For symmetric distribution, median = $\frac{{\mathop Q\nolimits_1 + \mathop Q\nolimits_3 }}{2}$ = $\frac{20+40}{2}$ = 30
+
+Q2. The number of subsets of a set containing n elements is
+    (A) 2^n-1
+    (B) n
+    (C) 2^n   <-- CORRECT
+    (D) 2^n - 2
+    Answer: C
+    Explanation: 2^n
+The total number of subsets of a finite set consisting of n elements is 2^n.
+
+Q3. Let A = {1, 2, 3}, B = {1, 3, 5}. If relation R from A to B is given by R = {(1, 3), (2, 5), (3, 3)}. Then, R^-1 is
+    (A) {(3, 3), (3, 1), (5, 2)}   <-- CORRECT
+    (B) {(5, 2)}
+    (C) {(1, 3), (2, 5), (3, 3)}
+    (D) {(1, 3), (5, 2)}
+    Answer: A
+    Explanation: Inverse of a relation is given by interchanging the element’s position in each pair.
+Ex: Inverse of relation P = {(x, y)} is given by P^−^1 = {(y, x)}.
+Therefore, R^−^1 = {(3, 1), (5, 2), (3, 3)}.
+
+Q4. (-1 - i), when expressed in polar form, is
+    (A) $\sqrt{2}\left\{\cos \left(\frac{-3 \pi}{4}\right)+i \sin \left(\frac{-3 \pi}{4}\right)\right\}$   <-- CORRECT
+    (B) $\sqrt{2}\left\{\cos \left(\frac{-\pi}{4}\right)+i \sin \left(\frac{-\pi}{4}\right)\right\}$
+    (C) $\sqrt{2}\left\{\cos \left(\frac{-2 \pi}{3}\right)+i \sin \left(\frac{-2 \pi}{3}\right)\right\}$
+    (D) $\sqrt{2}\left\{\cos \left(\frac{-\pi}{2}\right)+i \sin \left(\frac{-\pi}{2}\right)\right\}$
+    Answer: A
+    Explanation: Let z = (-1 - i) and let z = r(cos$\theta$ + i sin$\theta$)
+Then, r cos $\theta$ = -1 and r sin $\theta$ = -1.
+Squaring and adding, we get r^2 = 2 $\Rightarrow$ r = 2
+$\therefore$ $\left[\cos \theta=\frac{-1}{\sqrt{2}} \text { and } \sin \theta=\frac{-1}{\sqrt{2}}\right]$ $\Rightarrow$ $\theta$ = $\frac{-3\pi}{4}$
+$\therefore$ (-1 - i) = $\sqrt{2}\left\{\cos \left(\frac{-3 \pi}{4}\right)+i \sin \left(\frac{-3 \pi}{4}\right)\right\}$
+
+Q5. The 17th term of the GP 2, $\sqrt{8}$, 4, $\sqrt{32 }$... is
+    (A) $256 \sqrt{2}$
+    (B) 256
+    (C) $128 \sqrt{2}$
+    (D) 512   <-- CORRECT
+    Answer: D
+    Explanation: Given GP is 2, 2$\sqrt2$, 4, 4$\sqrt2$, ...
+Here, a = 2 and $=\frac{2 \sqrt{2}}{2}=\sqrt{2}$
+$\therefore T_{17}=a r^{16}=2 \times(\sqrt{2})^{16}=2 \times 2^{8}=2^{9}$ = 512
+Therefore, the required 17^th term is 512.
+
+Q6. $\lim _\limits{x \rightarrow 1} \frac{(\sqrt{x}-1)(2 x-3)}{2 x^{2}+x-3}$ is equal to:
+    (A) $\frac {-1}{10}$   <-- CORRECT
+    (B) 2
+    (C) $\frac 1{10}$
+    (D) 1
+    Answer: A
+    Explanation: Given, $\lim _\limits{x \rightarrow 1} \frac{(\sqrt{x}-1)(2 x-3)}{2 x^{2}+3 x-2 x-3}$
+= $\lim _\limits{x \rightarrow 1} \frac{(\sqrt{x}-1)(2 x-3)}{x(2 x+3)-1(2 x+3)}$ = $\lim _\limits{x \rightarrow 1} \frac{(\sqrt{x}-1)(2 x-3)}{(x-1)(2 x+3)}$
+= $\lim _\limits{x \rightarrow 1} \frac{(\sqrt{x}-1)(\sqrt{x}+1)(2 x-3)}{(x-1)(\sqrt{x}+1)(2 x+3)}$ = $\lim _\limits{x \rightarrow 1} \frac{(x-1)(2 x-3)}{(x-1)(\sqrt{x}+1)(2 x+3)}$
+= $\lim _\limits{x \rightarrow 1} \frac{2 x-3}{(\sqrt{x}+1)(2 x+3)}$
+Taking limit we have
+= $\frac{2(1)-3}{(\sqrt{1}+1)(2 \times 1+3)}=\frac{-1}{2 \times 5}=\frac{-1}{10}$
+
+Q7. The mean deviation of the series a, a + d, a + 2d, ..., a + 2n from its mean is
+    (A) $\frac{n d}{2 n+1}$
+    (B) $\frac{(2 n+1) d}{n(n+1)}$
+    (C) $\frac{n(n+1) d}{2 n+1}$   <-- CORRECT
+    (D) $\frac{(n+1) d}{2 n+1}$
+    Answer: C
+    Explanation: Given, Series is a, a + d, a + 2d, …, + a + 2n
+Mean (X) = $\frac{a+a+d+a+2 d+\cdots+a+2 n d}{2 n+1}$
+$\bar{X}=\frac{a+a+d+a+2 d+\cdots+a+2 n d}{2 n+1}$
+$\bar{x}=\frac{a(2 n+1)+(d+2 d+\cdots+2 n d)}{2 n+1}$
+$\overline{\mathrm{X}}=\frac{\mathrm{a}(2 \mathrm{n}+1)+\mathrm{d}(1+2+3 \ldots+2 \mathrm{n})}{2 \mathrm{n}+1}$
+$\overline{\mathrm{X}}=\frac{\mathrm{a}(2 \mathrm{n}+1)+\mathrm{d} \frac{2 \mathrm{n}(2 \mathrm{n}+1)}{2}}{2 \mathrm{n}+1}$
+$\overline{\mathrm{X}}=\frac{\mathrm{a}(2 \mathrm{n}+1)+\mathrm{dn}(2 \mathrm{n}+1)}{2 \mathrm{n}+1}$
+$\overline{\mathrm{X}}=\frac{(2 \mathrm{n}+1)(\mathrm{a}+\mathrm{nd})}{2 \mathrm{n}+1}$
+$\overline{\mathrm{X}}$ = a + nd
+Now, deviation from mean is x_i - X
+M.D. = $\frac{\mathrm{nd}+(\mathrm{n}-1) \mathrm{d}+(\mathrm{n}-2) \mathrm{d}+\cdots+0+\mathrm{d}+2 \mathrm{d}+\cdots+(\mathrm{n}-1) \mathrm{d}+(\mathrm{n}-2) \mathrm{d}+\mathrm{n} \mathrm{d}}{2 \mathrm{n}+1}$
+M.D. = $\frac{2 \mathrm{d}(1+2+3+\cdots(\mathrm{n}-1)+(\mathrm{n}-2)+\mathrm{n})}{2 \mathrm{n}+1}$
+M.D. = $\frac{2\left(\frac{n(n+1)}{2}\right) d}{2 n+1}$
+Hence, M.D. = $\frac{n(n+1) d}{2 n+1}$
+
+Q8. Given n ($\mathop \cup \nolimits $) = 20 , n ( A ) = 12 , n ( B ) = 9 , n ( A $\mathop \cap \nolimits $ B ) = 4 , where U is the universal set , A and B are subsets of U , then $n(A \cup B)'$
+    (A) 3   <-- CORRECT
+    (B) 11
+    (C) 17
+    (D) 9
+    Answer: A
+    Explanation: Given
+
+Q9. If f (x) = sin $\left[x^{2}\right] x+\sin \left[-\pi^{2}\right]$ x. where x denotes the greatest integer less than or equal to x them
+    (A) f $(\pi$/4) = -1
+    (B) f $(\pi$/4) = -2
+    (C) f $(\pi$/2) = 1   <-- CORRECT
+    (D) f $(\pi$) = 2
+    Answer: C
+    Explanation: $\mathrm{f}\left(\frac{\pi}{2}\right)=\sin 9\left(\frac{\pi}{2}\right)-\sin 10\left(\frac{\pi}{2}\right)$
+= 1-0
+=1
+
+Q10. If i = $\sqrt{-1}$ and n is a positive integer then (i^n + i^n+1 + i^n+2 + i^n+3) = ?
+    (A) i^n
+    (B) i
+    (C) 1
+    (D) 0   <-- CORRECT
+    Answer: D
+    Explanation: (i^n + i^n+1 + i^n+2 + i^n+3) = i^n(1+ i + i^2 + i^3) = i^n(1 + i - 1 - i) = i^n $\times$0 = 0
+
+Q11. If A be one A.M. and p, q be two G.M.'s between two numbers, then 2 A is equal to
+    (A) $\frac{p q}{2}$
+    (B) $\frac{p^{2}+q^{2}}{2}$
+    (C) $\frac{p^{3}-q^{3}}{p q}$
+    (D) $\frac{p^{3}+q^{3}}{p q}$   <-- CORRECT
+    Answer: D
+    Explanation: Let the two positive numbers be a and b
+a, A and b are in A.P.
+$\therefore$ 2A = a + b ....(i)
+Also, we have a, p, q and b are in G.P.
+$\therefore r=\left(\frac{b}{a}\right)^{\frac{1}{3}}$
+Again, p = ar and q = ar^2 ...(ii)
+Now, 2A = a + b [From (i)]
+= a + a$\left(\frac{b}{a}\right)$
+= a + a$\left(\left(\frac{b}{a}\right)^{\frac{1}{3}}\right)^{3}$
+= a + ar^3
+$=\frac{(a r)^{2}}{a r^{2}}+\frac{\left(a r^{2}\right)^{2}}{a r}$
+$=\frac{p^{2}}{q}+\frac{q^{2}}{p}$ [Using (ii)]
+$=\frac{p^{3}+q^{3}}{p q}$
+
+Q12. If $f(x)=\left\{\begin{array}{cl} \frac{\sin [x]}{[x]}, & {[x] \neq 0} \\ 0 & ,[x]=0 \end{array}\right.$, where $[\cdot]$ denotes the greatest integer function, then $\lim \limits_{x \rightarrow 0} f(x)$ is equal to
+    (A) None of these   <-- CORRECT
+    (B) 1
+    (C) -1
+    (D) 0
+    Answer: A
+    Explanation: We have,
+$[x]=\left\{\begin{array}{ll} 0, & 0 \leq x<1 \\ -1, & -1 \leq x<0 \end{array}\right.$
+$\therefore f(x)=\left\{\begin{array}{ll} \frac{\sin (-1)}{-1}, & -1 \leq x<0 \\ 0, & 0 \leq x<1 \end{array}\right.$
+$\Rightarrow f(x)=\left\{\begin{array}{ll} \sin 1, & -1 \leq x<0 \\ 0, & 0 \leq x<1 \end{array}\right.$
+Now,
+$\lim \limits_{x \rightarrow 0^{-}} f(x)=\lim \limits_{x \rightarrow 0} \sin 1=\sin 1$
+$\lim \limits_{x \rightarrow 0^{+}} f(x)=\lim \limits_{x \rightarrow 0} 0=0$
+Clearly,
+$\lim \limits_{x \rightarrow 0^{-}} f(x) \neq \lim _{x \rightarrow 0^{+}} f(x)$
+Thus,
+$\lim \limits_{x \rightarrow 0} f(x)$ does not exist.
+
+Q13. The H.M. of 4, 8, 16 is
+    (A) 7.8
+    (B) 6.85   <-- CORRECT
+    (C) 6.7
+    (D) 6.4
+    Answer: B
+    Explanation: H.M = $ \frac{3}{{\frac{1}{a} + \frac{1}{b} + \frac{1}{c}}} $ = $\frac{3}{\frac{1}{4}+\frac{1}{8}+\frac{1}{16}}$ = $\frac{48}{7}$ = 6.85
+
+Q14. $\frac{(1-3 i)}{(1+2 i)}$, when expressed in polar form, is
+    (A) $\sqrt{2}\left(\cos \frac{3 \pi}{4}+i \sin \frac{3 \pi}{4}\right)$
+    (B) $\sqrt{2}\left(\cos \frac{\pi}{4}+i \sin \frac{\pi}{4}\right)$
+    (C) $\sqrt{2}\left(\cos \frac{5 \pi}{4}+i \sin \frac{5 \pi}{4}\right)$   <-- CORRECT
+    (D) $\sqrt{2}\left(\cos \frac{3 \pi}{2}+i \sin \frac{3 \pi}{2}\right)$
+    Answer: C
+    Explanation: Let z = $\frac{(1-3 i)}{(1+2 i)}$ and let z = r(cos$\theta$ + i sin$\theta$)
+Then, r cos $\theta$ = $\frac{1\times(1-2i)}{(1+2i)}$ and r sin $\theta$ = $\frac{-3i\times(1-2i)}{(1+2i)}$.
+Squaring and adding, we get r^2 = 2 $\Rightarrow$ r = $\sqrt2$
+$\therefore$ $\theta$ = $\frac{5\pi}{4}$
+$\therefore$ $\frac{(1-3 i)}{(1+2 i)}$ = $\sqrt{2}\left(\cos \frac{5 \pi}{4}+i \sin \frac{5 \pi}{4}\right)$
+
+Q15. The 12th term from the end of the AP 17, 14, 11, ..., -61 is
+    (A) -34
+    (B) -28   <-- CORRECT
+    (C) -31
+    (D) -37
+    Answer: B
+    Explanation: 12th term from the end = l - (n - 1)d, where l = - 61, n = 12, d = -3
+= -61 - 11 $\times$ (-3 ) = (-61 + 33) = -28
+
+Q16. If A $ \subseteq $ B, then A $\cap$ B is equal to
+    (A) B
+    (B) B’
+    (C) A’
+    (D) A   <-- CORRECT
+    Answer: D
+    Explanation: A $ \subseteq $ B means set A is contained in the set B. So common region is the set A.
+
+Q17. The domain of definition of the function f(x) = $\sqrt{\frac{x-2}{x+2}}+\sqrt{\frac{1-x}{1+x}}$ is
+    (A) $(-\infty,-2] \cup[2, \infty)$
+    (B) [1, -1]
+    (C) $\phi$   <-- CORRECT
+    (D) [-1, 1]
+    Answer: C
+    Explanation: For function to be defined,
+$\frac{x-2}{x+2} \geq 0, x \neq-2$
+$x \in(-\infty,-2) \cup[2, \infty) \ldots(1)$
+and $\frac{1-x}{1+x} \geq 0, x \neq-1$
+$\frac{x-1}{x+1} \leq 0$
+$x \in(-1,1] \dots(2)$
+Taking common of both the solutions we get $x \in \phi$
+
+Q18. If ( x + iy ) ( 3 – 4i ) = (5 + 12i ) , then $\sqrt {{x^2} + {y^2}} = $
+    (A) 5/13
+    (B) 16
+    (C) 65
+    (D) 13/5   <-- CORRECT
+    Answer: D
+    Explanation: Given ( x + iy ) ( 3 – 4i ) = (5 + 12i )
+$\Rightarrow x+i y=\frac{5+12 i}{3-4 i}=\frac{(5+12 i)(3+4 i)}{(3-4 i)(3+4 i)}$
+$\frac{(15-48)+i(20+36)}{9+16}=\frac{-33+56 i}{25}$
+$\Rightarrow x=\frac{-33}{25}, y=\frac{56}{25}$
+$\therefore \sqrt{x^{2}+y^{2}}=\sqrt{\left(\frac{-33}{25}\right)^{2}+\left(\frac{56}{25}\right)^{2}}$
+$=\sqrt{\frac{1089+3136}{625}}=\sqrt{\frac{4225}{625}}=\frac{65}{25}=\frac{13}{5}$
+
+Q19. How many numbers are there between 102 and 750 which are divisible by 8?
+    (A) 78
+    (B) 81   <-- CORRECT
+    (C) 75
+    (D) 84
+    Answer: B
+    Explanation: The required numbers are 104, 112, 120,..., 744.
+This is an AP in which a = 104, d = 8 and T_n = 744.
+Therefore, a + (n - 1) d = 744 $\Rightarrow$ 104 + (n - 1) $\times$ 8 = 744
+$\Rightarrow$ (n - 1) = $\frac{640}{8}=80$ 
+$\Rightarrow$ n = 81.
+Therefore, there are 81 such numbers.
+
+Q20. If $a\; \in \;\;R,$ then the roots of the equation tan x = a are in G.P for what values of a
+    (A) $\frac { 1 }{ \sqrt { 3 } } ,1,\sqrt { 3 } $   <-- CORRECT
+    (B) G.P
+    (C) H.P.
+    (D) 1,0,-1
+    Answer: A
+    Explanation: We have $\tan 30^{\circ}=\frac{1}{\sqrt{3}}, \tan 45^{\circ}=1$ and $\tan 60^{\circ}=\sqrt{3}$
+Also we have $\frac{1}{\sqrt{3}}, 1, \sqrt{3}$ are in G.P
+
+------------------------------------------------------------
+Section C
+------------------------------------------------------------
+Q1. If A and B are not disjoint set, then n (A $\cup$ B) is equal to
+    (A) n(A)
+    (B) n(A) + n (B) + n(A $\cap $ B)
+    (C) n(A) + n(B) - n (A $\cap $ B)   <-- CORRECT
+    (D) n(B)
+    Answer: C
+    Explanation: Here A $\cap$ B = $\phi$, A and B are not disjoint
+Then, n (A $\cup$ B) = n(A) + n(B) - n (A $\cap $ B)
+
+Q2. The relation R = {1, 1), (2, 2), (3, 3)} on the set {1, 2, 3) is
+    (A) reflexive relation only
+    (B) transitive relation only
+    (C) symmetric relation only
+    (D) an equivalence relation   <-- CORRECT
+    Answer: D
+    Explanation: Given Relation R = {(1, 1), (2, 2), (3, 3)}
+Reflexive: If a relation has {(a, b)} as its element, then it should also have {(a, a), (b, b)} as its elements too.
+Symmetric: If a relation has (a, b) as its element, then it should also have {(b, a)} as its element too.
+Transitive: If a relation has {(a, b), (b, c)} as its elements, then it should also have {(a,c)} as its element too.
+Now, the given relation satisfies all these three properties.
+Therefore, its an equivalence relation.
+
+Q3. Mark the correct answer for: arg$\left(\frac{2+6 \sqrt{3} i}{5+\sqrt{3} i}\right)$ = ?
+    (A) $\frac{\pi}{3}$   <-- CORRECT
+    (B) $\frac{2\pi}{3}$
+    (C) $\frac{\pi}{4}$
+    (D) $\pi$
+    Answer: A
+    Explanation: $\left(\frac{2+6 \sqrt{3} i}{5+\sqrt{3} i}\right)$ = $\frac{(2+6 \sqrt{3} i)}{(5+\sqrt{3} i)} \times \frac{(5-\sqrt{3} i)}{(5-\sqrt{3} i)}$ = $\frac{(2+6 \sqrt{3} i)(5-\sqrt{3} i)}{(5+\sqrt{3} i)(5-\sqrt{3} i)}$
+= $\frac{(28+28 \sqrt{3} i)}{28}$ = $\frac{28(1+\sqrt{3} i)}{28}$ = (1 +$\sqrt{3}$) = $2\left(\cos \frac{\pi}{3}+i \sin \frac{\pi}{3}\right)$
+$\therefore$ $\arg \left(\frac{2+6 \sqrt{3} i}{5+\sqrt{3} i}\right)$ = $\frac{\pi}{3}$
+
+Q4. If the first term of a G.P. a_1, a_2, a_3, ... is unity such that 4a_2 + 5a_3 is least, then the common ratio of G.P. is
+    (A) $\frac {3}{5}$
+    (B) $\frac {2}{5}$
+    (C) $-\frac {3}{5}$
+    (D) $-\frac {2}{5}$   <-- CORRECT
+    Answer: D
+    Explanation: As per given, 
+If the first term is 1, then, the G.P. will be 1, r, r^2, r^3, ....
+Now, 5r^2 + 4r = 5$\left(r^{2}+\frac{4}{5} r\right)$
+$=5\left(r^{2}+\frac{4}{5} r+\frac{4}{25}-\frac{4}{25}\right)$
+$=5\left(r+\frac{2}{5}\right)^{2}-\frac{4}{5}$
+This will be the least when r = $\frac{2}{5}$ = 0 i.e. r = -$\frac{2}{5}$
+
+Q5. If mean = (3 median – mode)x, then the value of x is
+    (A) $\frac{1}{2}$   <-- CORRECT
+    (B) $\frac{3}{2}$
+    (C) 1
+    (D) 2
+    Answer: A
+    Explanation: We know that, 3median = mode + 2 mean
+So, mean = $\frac{(3 median - mode)}{2}$ ........(1)
+Comparing equation (1) with the given equation
+Therefore, x = $\frac{1}{2}$
+
+Q6. Instructions for Question 46 to 50:
+In a park road 1 and road 2 of width 5 m and 4 m are crossing at centre point O(0, 0). As shown in the following figure:
+For trees A, B, C and D are situated in four quadrants of the Cartesian system of coordinate. The coordinates of the trees A, B, C and D are (6, 8), (12, 5), (-5, 0) and (-3, -4) respectively.
+What is the distance of Tree C from the Origin?
+    (A) 5 m   <-- CORRECT
+    (B) 25 m
+    (C) 15 m
+    (D) 10 m
+    Answer: A
+    Explanation: 5 m
+
+Q7. Instructions for Question 46 to 50:
+In a park road 1 and road 2 of width 5 m and 4 m are crossing at centre point O(0, 0). As shown in the following figure:
+For trees A, B, C and D are situated in four quadrants of the Cartesian system of coordinate. The coordinates of the trees A, B, C and D are (6, 8), (12, 5), (-5, 0) and (-3, -4) respectively.
+What is the equation of line AB?
+    (A) x - 2y = -6
+    (B) x + 2y - 22 = 0   <-- CORRECT
+    (C) 2x + y = 22
+    (D) x + 2y = 6
+    Answer: B
+    Explanation: x + 2y - 22 = 0
+
+Q8. Instructions for Question 46 to 50:
+In a park road 1 and road 2 of width 5 m and 4 m are crossing at centre point O(0, 0). As shown in the following figure:
+For trees A, B, C and D are situated in four quadrants of the Cartesian system of coordinate. The coordinates of the trees A, B, C and D are (6, 8), (12, 5), (-5, 0) and (-3, -4) respectively.
+What is the slope of line CD?
+    (A) $\frac {3}{2}$
+    (B) $\frac {2}{1}$
+    (C) $\frac {-2}{1}$   <-- CORRECT
+    (D) $\frac {-1}{2}$
+    Answer: C
+    Explanation: $\frac {-2}{1}$
+
+Q9. Instructions for Question 46 to 50:
+In a park road 1 and road 2 of width 5 m and 4 m are crossing at centre point O(0, 0). As shown in the following figure:
+For trees A, B, C and D are situated in four quadrants of the Cartesian system of coordinate. The coordinates of the trees A, B, C and D are (6, 8), (12, 5), (-5, 0) and (-3, -4) respectively.
+What is the slope of line OA?
+    (A) $\frac 68$
+    (B) $\frac {3}{4}$
+    (C) $\frac 43$   <-- CORRECT
+    (D) 1
+    Answer: C
+    Explanation: $\frac 43$
+
+Q10. Instructions for Question 46 to 50:
+In a park road 1 and road 2 of width 5 m and 4 m are crossing at centre point O(0, 0). As shown in the following figure:
+For trees A, B, C and D are situated in four quadrants of the Cartesian system of coordinate. The coordinates of the trees A, B, C and D are (6, 8), (12, 5), (-5, 0) and (-3, -4) respectively.
+What is the distance of point B from the origin?
+    (A) 12 m
+    (B) 5 m
+    (C) 15 m
+    (D) 13 m   <-- CORRECT
+    Answer: D
+    Explanation: 13 m
