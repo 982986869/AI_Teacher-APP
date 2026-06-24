@@ -218,7 +218,7 @@ const HomeScreen = ({ navigation }) => {
               <View style={s.clBar}><View style={s.clFill} /></View>
               <Text style={s.clPct}>60% Completed</Text>
             </View>
-            <TouchableOpacity style={s.clResume}>
+            <TouchableOpacity style={s.clResume} onPress={() => openAITeacher()} activeOpacity={0.85}>
               <Text style={s.clResumeTxt}>Resume ›</Text>
             </TouchableOpacity>
           </View>

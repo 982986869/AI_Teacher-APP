@@ -68,9 +68,52 @@ const STRATEGY_LINE = {
   step_by_step: 'RE-EXPLAIN: break it into 2-4 tiny numbered steps, each its own short line.',
 }
 
-function buildTeacherSystemPrompt({ intent, language, contexts = [], lesson = null, level = 'intermediate', strategy = null }) {
+// The teacher REMEMBERS this student. Turns mastery/struggle data into a short
+// instruction so the reply naturally references it — the difference between a
+// generic AI and a teacher who knows you. `sc` = { conceptName, masteryPct,
+// status, strugglingBefore, prereqs } or null.
+// Mastery is used INTERNALLY ONLY. It never appears as a number/label in the reply.
+// Here it picks the warm, human framing a real teacher would open with — and the
+// depth is handled separately by levelLine(). Anchor on the CHAPTER (reliable);
+// the nearest catalog concept can be a sibling of what was literally asked.
+function studentMemoryBlock(sc) {
+  if (!sc) return ''
+  const area = sc.chapter || sc.conceptName || 'this topic'
+  const lines = []
+
+  // Warm framing from mastery (only when we actually have history on this topic).
+  if (sc.status) {
+    if (sc.strugglingBefore) {
+      lines.push(`This student found ${area} confusing last time. Open warmly and put them at ease, and go slowly — e.g. "Last time ${area} felt a bit confusing, so let's take it slowly today."`)
+    } else if (sc.status === 'strong') {
+      lines.push(`This student already has the fundamentals of ${area} solid. Acknowledge that warmly and move to the deeper idea — e.g. "Since the basics of ${area} are clear, let's look at the deeper idea."`)
+    } else {
+      lines.push(`This student knows the basics of ${area} but is still building confidence. Build on what they know — e.g. "You already know the basics of ${area} — let's build on that."`)
+    }
+  }
+
+  // Prerequisite coaching — proactively guide learning order. Stronger nudge when
+  // the student is shaky on this topic; a light touch otherwise.
+  if (Array.isArray(sc.prereqs) && sc.prereqs.length) {
+    const pr = sc.prereqs.slice(0, 3).join(', ')
+    lines.push(sc.strugglingBefore
+      ? `This topic builds on ${pr}. Since they are still finding it hard, OPEN with a quick, friendly refresher of ${pr} before the new idea — e.g. "Before we go further, let's quickly revise ${pr}."`
+      : `This topic builds on ${pr}. Briefly remind them it rests on ${pr}, and offer a quick recap of those only if they seem unsure.`)
+  }
+
+  if (!lines.length) return ''
+  return '\nSTUDENT MEMORY (you are a real teacher who remembers this student and guides their learning order — talk like a human, never like a system) —\n'
+    + lines.join(' ')
+    + '\nWeave this into your FIRST line, naturally and only ONCE. '
+    + 'NEVER expose the internal tracking: do NOT say "your mastery is…", "you are NN%", "NN% through this", '
+    + '"you are strong/weak in…", "let me give you the sharp/simple version", or any score, percentage, or level label. '
+    + 'Just speak like a teacher who genuinely remembers them.\n'
+}
+
+function buildTeacherSystemPrompt({ intent, language, contexts = [], lesson = null, level = 'intermediate', strategy = null, studentContext = null }) {
   const shape = INTENT_SHAPE[intent] || INTENT_SHAPE.concept_explanation
   const strategyBlock = strategy && STRATEGY_LINE[strategy] ? `\n${STRATEGY_LINE[strategy]}\n` : ''
+  const memoryBlock = studentMemoryBlock(studentContext)
 
   const grounding = contexts.length
     ? 'GROUNDING (source = curriculum) — answer using the retrieved material below. Do NOT invent facts, numbers, or formulas that contradict it. If it only partially helps, use what fits and keep the rest minimal.\n\nRETRIEVED MATERIAL:\n'
@@ -84,7 +127,7 @@ function buildTeacherSystemPrompt({ intent, language, contexts = [], lesson = nu
   return `${PERSONA}
 
 ${grounding}${lessonLine}
-
+${memoryBlock}
 ${levelLine(level)}
 ${strategyBlock}
 ${shape}
@@ -94,6 +137,7 @@ HOW A REAL TEACHER ANSWERS (follow exactly):
 - Short and point-wise. MAX 5 short lines. ONE concept at a time. Each line is one clear point.
 - Warm and human: a quick "Good.", "Exactly.", "Don't worry." is fine when it fits. Sound like a person who is glad to help, not a manual.
 - No storytelling, no padding. Never write "Imagine a world where", "In many real-world situations", "In conclusion", "To sum up", "Let's dive deeper".
+- Never reveal internal tracking or talk like a system: no scores, percentages, mastery levels, or labels like "beginner/advanced level", and never announce "the simple version" / "the sharp version". Just teach at the right depth silently.
 - Give an example ONLY if it truly helps, and then exactly ONE — short and from everyday Indian student life.
 - You MAY use natural classroom phrases: "Listen carefully.", "Remember this.", "This is the key point.", "Now look here.", "Notice this.", "Clear?", "Let's continue."
 - Plain conversational text only — no markdown, bullets, code fences, or LaTeX. Spell math out in words (it may be read aloud).

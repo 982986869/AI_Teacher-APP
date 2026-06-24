@@ -5,6 +5,7 @@ const aiService = require('../services/ai.service')
 const agentService = require('../services/agent.service')
 const memoryService = require('../services/memory.service')
 const plannerService = require('../services/planner.service')
+const sessionService = require('../services/session.service')
 const progressService = require('../services/progress.service')
 const lessonService = require('../services/lesson.service')
 const ApiResponse = require('../utils/ApiResponse')
@@ -186,6 +187,8 @@ async function updateProgress(req, res, next) {
       lessonId: req.params.lessonId,
       slideIndex: Number(req.body.slideIndex),
       total: req.body.total !== undefined ? Number(req.body.total) : undefined,
+      studyTimeSeconds: req.body.studyTimeSeconds !== undefined ? Number(req.body.studyTimeSeconds) : undefined,
+      concept: req.body.concept,
     })
     return ApiResponse.success(res, result)
   } catch (err) {
@@ -197,6 +200,31 @@ async function getProgress(req, res, next) {
   try {
     const result = await progressService.getProgress(req.user.id, req.params.lessonId)
     return ApiResponse.success(res, result)
+  } catch (err) {
+    next(err)
+  }
+}
+
+// ─── GET /api/ai/lessons/progress ─────────────────────────────────────────────
+// The user's lessons merged with their progress (for "completed lessons" + resume).
+async function getLessonsProgress(req, res, next) {
+  try {
+    const page = Math.max(1, parseInt(req.query.page, 10) || 1)
+    const limit = Math.min(50, Math.max(1, parseInt(req.query.limit, 10) || 30))
+    const { lessons, total, totalPages } = await lessonService.getUserLessons(req.user.id, { page, limit })
+    const progressById = await progressService.getProgressForLessons(req.user.id, lessons.map((l) => l.id))
+    const merged = lessons.map((l) => {
+      const p = progressById[l.id] || null
+      return {
+        ...l,
+        percent: p ? p.percent : 0,
+        completed: p ? p.completed : false,
+        lastSlideIndex: p ? p.lastSlideIndex : 0,
+        studyTimeSeconds: p ? p.studyTimeSeconds : 0,
+        currentConcept: p ? p.currentConcept : null,
+      }
+    })
+    return ApiResponse.success(res, { lessons: merged, total, page, totalPages })
   } catch (err) {
     next(err)
   }
@@ -226,6 +254,34 @@ async function getMemorySummary(req, res, next) {
   }
 }
 
+// ─── GET /api/ai/chapters/progress ────────────────────────────────────────────
+// Chapter-based learning view: per-chapter completion %, completed/in-progress,
+// weak/strong flags, and the recommended next chapter. Composes existing systems.
+async function getChaptersProgress(req, res, next) {
+  try {
+    const subject = req.query.subject
+    const [chapters, weak, strong, plan] = await Promise.all([
+      progressService.getChapterProgress(req.user.id, subject),
+      memoryService.getWeakChapters(req.user.id, { subject, limit: 50 }),
+      memoryService.getStrongChapters(req.user.id, { limit: 50 }),
+      plannerService.recommendNext(req.user.id, subject).catch(() => ({})),
+    ])
+    const weakSet = new Set(weak.filter((w) => w.weakness > 0).map((w) => w.chapter))
+    const strongSet = new Set(strong.map((s) => s.chapter))
+    const enriched = chapters.map((c) => ({ ...c, weak: weakSet.has(c.chapter), strong: strongSet.has(c.chapter) }))
+    return ApiResponse.success(res, {
+      chapters: enriched,
+      weakChapters: weak.filter((w) => w.weakness > 0),
+      strongChapters: strong,
+      recommendedChapter: plan && plan.chapter
+        ? { subject: plan.subject, chapter: plan.chapter, concept: plan.concept || null, reason: plan.reason, action: plan.action }
+        : null,
+    })
+  } catch (err) {
+    next(err)
+  }
+}
+
 // ─── GET /api/ai/plan ─────────────────────────────────────────────────────────
 async function getPlan(req, res, next) {
   try {
@@ -236,8 +292,22 @@ async function getPlan(req, res, next) {
   }
 }
 
+// ─── GET /api/ai/session/resume ───────────────────────────────────────────────
+// "Welcome back" continuity: what we studied last + the weak concept to continue.
+async function getResume(req, res, next) {
+  try {
+    const resume = await sessionService.getResumeContext(req.user.id, {
+      subject: req.query.subject,
+      user: req.user,
+    })
+    return ApiResponse.success(res, resume)
+  } catch (err) {
+    next(err)
+  }
+}
+
 module.exports = {
   generateLesson, getLesson, getLessons, deleteLesson, askDoubt, getDoubts,
-  ask, askStream, startRevision, updateProgress, getProgress,
-  recordMemory, getMemorySummary, getPlan,
+  ask, askStream, startRevision, updateProgress, getProgress, getLessonsProgress,
+  getChaptersProgress, recordMemory, getMemorySummary, getPlan, getResume,
 }

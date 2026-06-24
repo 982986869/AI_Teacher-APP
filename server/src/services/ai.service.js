@@ -1,10 +1,23 @@
 'use strict'
 
 const { config } = require('../config/env')
+const db = require('../config/database')
 const lessonService = require('./lesson.service')
 const { getAIProvider } = require('../providers')
+const { retrieve } = require('./retriever.service')
 const { AppError } = require('../middleware/errorHandler')
 const { normalizeAnimation } = require('../utils/slideAnimation')
+
+// Best-effort: resolve the lesson's chapter from its topic so progress can roll up
+// by chapter. Reuses the 99.6%-accurate concept resolver; never blocks generation.
+async function tagLessonChapter(lessonId, topic, subject) {
+  try {
+    const { concept } = await retrieve({ query: topic, subject, minSimilarity: 0.4 })
+    if (concept && concept.chapter) {
+      await db.$executeRaw`UPDATE lessons SET chapter = ${concept.chapter} WHERE id = ${lessonId}::uuid`
+    }
+  } catch (_) { /* chapter tagging is optional */ }
+}
 
 const MOCK_MODEL = 'mock-v1'
 
@@ -184,6 +197,9 @@ async function generateLesson({ userId, topic, subject, gradeLevel }) {
       generationModel,
       generationTimeMs,
     })
+
+    // Resolve + store the chapter in the background (doesn't delay the response).
+    tagLessonChapter(lessonId, topic, subject)
 
     return lessonService.getLessonWithSlides(lessonId, userId)
   } catch (err) {

@@ -65,6 +65,65 @@ export const askAgent = async ({ text, subject, gradeLevel, lessonId, slideIndex
   return res.data.data;
 };
 
+// GET /api/ai/plan → { action, subject, chapter, reason, weakChapters }
+// "What should I study next?" — the existing planner (revise vs learn vs review).
+export const getStudyPlan = async (subject) => {
+  const res = await axiosInstance.get('/api/ai/plan', {
+    params: subject ? { subject } : undefined,
+  });
+  return res.data.data;
+};
+
+// POST /api/ai/revision → generated weak-topic revision (recap + a quick-check quiz).
+// Returns { mode, focus, weakChapters, recap, answer, pending, ... }.
+export const startRevision = async (subject) => {
+  const body = subject ? { subject } : {};
+  const res = await axiosInstance.post('/api/ai/revision', body, { timeout: 30000 });
+  return res.data.data;
+};
+
+// POST /api/ai/lesson/:id/progress → records position, study time & current concept.
+// Best-effort telemetry from the live player; failures never block playback.
+export const updateLessonProgress = async (lessonId, { slideIndex, total, studyTimeSeconds, concept }) => {
+  const body = { slideIndex };
+  if (total != null) body.total = total;
+  if (studyTimeSeconds != null) body.studyTimeSeconds = studyTimeSeconds;
+  if (concept) body.concept = concept;
+  const res = await axiosInstance.post(`/api/ai/lesson/${lessonId}/progress`, body);
+  return res.data.data;
+};
+
+// GET /api/ai/lessons/progress → user's lessons merged with progress (completed/resume).
+export const getLessonsProgress = async () => {
+  const res = await axiosInstance.get('/api/ai/lessons/progress');
+  return res.data.data;
+};
+
+// GET /api/ai/chapters/progress → per-chapter completion %, weak/strong, recommended.
+export const getChapterProgress = async (subject) => {
+  const res = await axiosInstance.get('/api/ai/chapters/progress', {
+    params: subject ? { subject } : undefined,
+  });
+  return res.data.data;
+};
+
+// GET /api/ai/session/resume → "Welcome back" continuity snapshot.
+// { hasHistory, name, daysSince, last:{subject,chapter,at}, focusConcept, greeting, suggestion }.
+export const getResumeContext = async (subject) => {
+  const res = await axiosInstance.get('/api/ai/session/resume', {
+    params: subject ? { subject } : undefined,
+  });
+  return res.data.data;
+};
+
+// GET /api/ai/memory/summary → progress snapshot.
+// { chaptersEngaged, totalDoubts, totalMistakes, quizAccuracy, quiz,
+//   weakChapters, strongChapters, recentActivity }.
+export const getMemorySummary = async () => {
+  const res = await axiosInstance.get('/api/ai/memory/summary');
+  return res.data.data;
+};
+
 // Streaming agent call (SSE over XHR — RN-compatible, no extra library). Calls
 // onMeta/onDelta as events arrive and resolves with the final `done` payload
 // (same shape as askAgent). Lets the teacher start speaking sentence-by-sentence.

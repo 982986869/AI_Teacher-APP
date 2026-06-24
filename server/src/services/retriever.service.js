@@ -43,6 +43,19 @@ async function rawSearch({ queryVec, orderVec, subject, gradeLevel, limit }) {
 }
 
 const PREREQ_BOOST = 0.05
+// A concept resolves only when the query is genuinely close to its name embedding.
+// Below this we return no concept rather than a wrong one (e.g. a topic with no
+// catalog entry like an un-ingested chapter). Concept names are embedded in the
+// QUERY space (symmetric), so true matches score ~0.85+ while cross-topic noise
+// sits ~0.6-0.7 — this floor cleanly separates them. Tuned against the benchmark.
+const CONCEPT_FLOOR = 0.72
+// When a slightly-lower-ranked concept sits in the chapter our chunk search landed
+// in, that agreement breaks the tie in its favour (within this similarity margin).
+const CHAPTER_AGREE_MARGIN = 0.08
+// The chunk-tag fallback (used only when the concept embedding match is weak) is
+// trusted only when the top chunk itself is a confident hit — otherwise an
+// un-catalogued query (no source material) would resolve to a random nearby tag.
+const FALLBACK_CHUNK_FLOOR = 0.55
 
 // Concept-aware retrieval. Returns chunks + the resolved concept (when the catalog
 // agrees with the retrieved chapter), its prerequisites, and a confidence tier.
@@ -60,29 +73,42 @@ async function retrieve({ query, subject, gradeLevel, topK, minSimilarity } = {}
   const candidates = await rawSearch({ queryVec: qLit, orderVec: qLit, subject: subj, gradeLevel, limit: Math.max(12, k + 7) })
   const anchorChapter = candidates[0] && candidates[0].metadata ? candidates[0].metadata.chapter : null
 
-  // Resolve the query to a catalog concept, but TRUST it only when its chapter
-  // agrees with what we actually retrieved (kills "escape velocity → Velocity").
+  // Resolve the query to a catalog concept. The concept-NAME embedding match is the
+  // reliable signal (benchmarked ~95%+); the chunk search's chapter is only a SOFT
+  // confirmation, never a hard veto (the old veto wrongly killed "adiabatic process"
+  // when chunk retrieval happened to land in another chapter). We pick the best
+  // concept by similarity, let chunk-chapter agreement break near-ties, and accept
+  // only above a confidence floor so un-catalogued topics resolve to nothing.
   let concept = null
   let prereqConcepts = []
   const pool = candidates.map((c) => ({ ...c, isPrereq: false }))
 
-  if (subj && anchorChapter) {
-    const resolved = await kg.nearestConcept(queryEmbedding, subj).catch(() => null)
-    if (resolved && resolved.chapter === anchorChapter) {
-      concept = { id: resolved.id, name: resolved.name, chapter: resolved.chapter, similarity: round(resolved.similarity) }
-      const prereqs = await kg.getPrereqs(resolved.id).catch(() => [])
-      prereqConcepts = prereqs.map((p) => p.name)
-      // Pull a couple of chunks for each prerequisite (e.g. Impulse → Momentum).
-      for (const pr of prereqs.slice(0, 2)) {
-        if (!pr.emb) continue
-        const extra = await rawSearch({ queryVec: qLit, orderVec: pr.emb, subject: subj, gradeLevel, limit: 2 }).catch(() => [])
-        extra.forEach((e) => pool.push({ ...e, isPrereq: true, prereqName: pr.name }))
+  if (subj) {
+    const top = await kg.nearestConcepts(queryEmbedding, subj, 5).catch(() => [])
+    if (top.length) {
+      let best = top[0]
+      if (anchorChapter) {
+        const agree = top.find((t) => t.chapter === anchorChapter && t.similarity >= best.similarity - CHAPTER_AGREE_MARGIN)
+        if (agree) best = agree
+      }
+      if (best.similarity >= CONCEPT_FLOOR) {
+        concept = { id: best.id, name: best.name, chapter: best.chapter, similarity: round(best.similarity) }
+        const prereqs = await kg.getPrereqs(best.id).catch(() => [])
+        prereqConcepts = prereqs.map((p) => p.name)
+        // Pull a couple of chunks for each prerequisite (e.g. Impulse → Momentum).
+        for (const pr of prereqs.slice(0, 2)) {
+          if (!pr.emb) continue
+          const extra = await rawSearch({ queryVec: qLit, orderVec: pr.emb, subject: subj, gradeLevel, limit: 2 }).catch(() => [])
+          extra.forEach((e) => pool.push({ ...e, isPrereq: true, prereqName: pr.name }))
+        }
       }
     }
   }
 
-  // Fallback concept (for mastery) = the top chunk's tagged concept.
-  if (!concept && candidates[0] && candidates[0].metadata) {
+  // Last-resort fallback (for mastery) = the top chunk's tagged concept — but only
+  // when the embedding match was below the floor AND the chunk itself is a confident
+  // hit, so an un-catalogued query doesn't latch onto a random nearby tag.
+  if (!concept && candidates[0] && candidates[0].metadata && candidates[0].similarity >= FALLBACK_CHUNK_FLOOR) {
     const { concept: tc, chapter: tch } = candidates[0].metadata
     if (tc && tch) {
       const id = await kg.getConceptId(subj, tch, tc).catch(() => null)

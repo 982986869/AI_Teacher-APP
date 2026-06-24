@@ -49,6 +49,7 @@ model Lesson {
   userId            String         @db.Uuid
   topic             String
   subject           String
+  chapter           String?        // resolved from the topic at generation time (concept resolver)
   gradeLevel        String
   lessonTitle       String
   estimatedDuration String

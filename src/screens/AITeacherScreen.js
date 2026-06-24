@@ -5,8 +5,10 @@ import {
   KeyboardAvoidingView, ActivityIndicator,
 } from 'react-native';
 import { useAuth } from '../context/AuthContext';
-import { generateLesson, askAgent, askAgentStream } from '../api/aiApi';
+import { generateLesson, askAgent, askAgentStream, getResumeContext, getLesson, updateLessonProgress } from '../api/aiApi';
+import { saveActiveLesson, getActiveLesson, clearActiveLesson } from '../utils/storage';
 import KnowledgeAskScreen from './KnowledgeAskScreen';
+import StudyInsightsScreen from './StudyInsightsScreen';
 import LiveTeachingPlayer from '../components/teacher/LiveTeachingPlayer';
 import TeacherAvatar from '../components/teacher/TeacherAvatar';
 import { C } from '../components/teacher/premiumTheme';
@@ -30,6 +32,21 @@ const AITeacherScreen = ({ initialSubject = 'Physics', initialTopic = '', onBack
   const [activeSubject, setActiveSubject] = useState(initialSubject);
   // 'learn' = generate a lesson; 'ask' = grounded RAG Q&A over uploaded material.
   const [mode, setMode] = useState('learn');
+  // When set ({ tab }), the Study Insights screen (plan / revision / progress) is shown.
+  const [insights, setInsights] = useState(null);
+  // "Welcome back" continuity snapshot (null until loaded; dismissible per session).
+  const [resume, setResume] = useState(null);
+  const [resumeDismissed, setResumeDismissed] = useState(false);
+  // A lesson left open in a previous app session (persisted) → offer to resume it.
+  const [savedLesson, setSavedLesson] = useState(null);
+  const [restoring, setRestoring] = useState(false);
+  // Where the live player should start (resume position); 0 for a fresh lesson.
+  const [startIndex, setStartIndex] = useState(0);
+  // Latest player position, persisted on a timer (decouples scene changes from network).
+  const posRef = useRef({ slideIndex: 0, total: 0 });
+  // True while tearing down a lesson via "New Lesson" — stops the flush cleanup from
+  // re-saving the just-cleared resume pointer (a race that revived stale lessons).
+  const clearingRef = useRef(false);
 
   // Generator
   const [topic, setTopic] = useState(initialTopic);
@@ -50,6 +67,61 @@ const AITeacherScreen = ({ initialSubject = 'Physics', initialTopic = '', onBack
   const pendingRef = useRef(null);
 
   useEffect(() => { primeTeacherVoice(); }, []);
+  // Load the "Welcome back" snapshot once on mount (best-effort — never blocks the UI).
+  useEffect(() => {
+    let alive = true;
+    getResumeContext().then((r) => { if (alive && r && r.hasHistory) setResume(r); }).catch(() => {});
+    // Restore a lesson left open in a previous app session (session restoration).
+    getActiveLesson().then((l) => { if (alive && l && l.lessonId) setSavedLesson(l); }).catch(() => {});
+    return () => { alive = false; };
+  }, []);
+
+  // Player position → ref (persisted on a timer below, not on every scene change).
+  const handleProgress = ({ slideIndex, total }) => {
+    posRef.current = { slideIndex: Number(slideIndex) || 0, total: Number(total) || 0 };
+  };
+
+  // While a lesson is open, persist progress + study time every 15s (and a final
+  // flush on unmount/leave). This fills lesson_progress → resume, completed lessons,
+  // chapter %, and Study Insights study-time all become real.
+  useEffect(() => {
+    if (!lessonId || slides.length === 0) return undefined;
+    const flush = (secs) => {
+      const { slideIndex, total } = posRef.current;
+      updateLessonProgress(lessonId, { slideIndex, total, studyTimeSeconds: secs, concept: lessonTitle }).catch(() => {});
+      // Don't revive the resume pointer if the lesson is being intentionally cleared.
+      if (!clearingRef.current) saveActiveLesson({ lessonId, title: lessonTitle, subject: activeSubject, slideIndex });
+    };
+    const id = setInterval(() => flush(15), 15000);
+    return () => { clearInterval(id); flush(3); };
+  }, [lessonId, slides.length, lessonTitle, activeSubject]);
+
+  // Pull a persisted lesson back into the player (re-fetches slides by id).
+  const resumeSavedLesson = async () => {
+    if (!savedLesson || restoring) return;
+    setRestoring(true);
+    setError('');
+    try {
+      const { lesson } = await getLesson(savedLesson.lessonId);
+      if (!lesson || !Array.isArray(lesson.slides) || lesson.slides.length === 0) throw new Error('empty');
+      if (lesson.subject) setActiveSubject(lesson.subject);
+      clearingRef.current = false;
+      setStartIndex(Number(savedLesson.slideIndex) || 0); // resume at saved position
+      setLessonId(savedLesson.lessonId);
+      setLessonTitle(lesson.lessonTitle || savedLesson.title || '');
+      setSlides(lesson.slides);
+      setKeyTerms(lesson.keyTerms || []);
+      historyRef.current = [];
+      pendingRef.current = null;
+    } catch (e) {
+      // Lesson gone/deleted — drop the stale pointer so we don't offer it again.
+      await clearActiveLesson();
+      setSavedLesson(null);
+      setError('That lesson is no longer available. Start a new one below.');
+    } finally {
+      setRestoring(false);
+    }
+  };
   useEffect(() => {
     if (!loading) { setGenStage(0); return undefined; }
     const id = setInterval(() => setGenStage((s) => Math.min(GEN_STAGES.length - 1, s + 1)), 2600);
@@ -72,6 +144,12 @@ const AITeacherScreen = ({ initialSubject = 'Physics', initialTopic = '', onBack
       setLessonTitle(lesson.lessonTitle || t);
       setSlides(lesson.slides || []);
       setKeyTerms(lesson.keyTerms || []);
+      // Persist so this lesson can be resumed if the app is closed mid-way.
+      setStartIndex(0);
+      posRef.current = { slideIndex: 0, total: 0 };
+      clearingRef.current = false;
+      saveActiveLesson({ lessonId: id, title: lesson.lessonTitle || t, subject: activeSubject, slideIndex: 0 });
+      setSavedLesson(null);
     } catch (e) {
       setError(e?.response?.data?.error || e?.message || 'Could not generate the lesson. Please try again.');
     } finally {
@@ -79,11 +157,22 @@ const AITeacherScreen = ({ initialSubject = 'Physics', initialTopic = '', onBack
     }
   };
 
-  const newLesson = () => { stopTeacher(); setSlides([]); setLessonId(null); historyRef.current = []; pendingRef.current = null; };
+  const newLesson = () => { clearingRef.current = true; stopTeacher(); setSlides([]); setLessonId(null); historyRef.current = []; pendingRef.current = null; clearActiveLesson(); setSavedLesson(null); };
 
   // Stable lesson object so the player's buildScenes() memo isn't invalidated on
   // every re-render of this screen.
   const lessonObj = useMemo(() => ({ lessonTitle, slides, keyTerms }), [lessonTitle, slides, keyTerms]);
+
+  // ── Study Insights (plan / revision / progress) — self-contained screen ──
+  if (insights) {
+    return (
+      <StudyInsightsScreen
+        initialSubject={activeSubject}
+        initialTab={insights.tab}
+        onBack={() => setInsights(null)}
+      />
+    );
+  }
 
   // ── Ask-the-material (grounded RAG) — self-contained screen ──
   if (slides.length === 0 && mode === 'ask') {
@@ -108,6 +197,51 @@ const AITeacherScreen = ({ initialSubject = 'Physics', initialTopic = '', onBack
             <Text style={st.hi}>Hi {firstName} 👋</Text>
             <Text style={st.q}>What should we learn today?</Text>
 
+            {savedLesson && (
+              <TouchableOpacity style={st.resumeLessonCard} onPress={resumeSavedLesson} disabled={restoring} activeOpacity={0.9}>
+                <View style={st.resumeLessonIcon}><Text style={{ fontSize: 18 }}>▶</Text></View>
+                <View style={{ flex: 1 }}>
+                  <Text style={st.resumeLessonTag}>RESUME YOUR LESSON</Text>
+                  <Text style={st.resumeLessonTitle} numberOfLines={1}>{savedLesson.title || 'Continue where you left off'}</Text>
+                </View>
+                {restoring
+                  ? <ActivityIndicator color={C.accent} size="small" />
+                  : <Text style={st.resumeLessonGo}>›</Text>}
+              </TouchableOpacity>
+            )}
+
+            {resume && !resumeDismissed && (
+              <View style={st.welcomeCard}>
+                <TouchableOpacity style={st.welcomeClose} onPress={() => setResumeDismissed(true)} hitSlop={{ top: 8, bottom: 8, left: 8, right: 8 }}>
+                  <Text style={st.welcomeCloseTxt}>✕</Text>
+                </TouchableOpacity>
+                <Text style={st.welcomeTag}>👋 WELCOME BACK</Text>
+                <Text style={st.welcomeGreeting}>{resume.greeting}</Text>
+                {!!resume.suggestion && <Text style={st.welcomeSuggest}>{resume.suggestion}</Text>}
+                <View style={st.welcomeBtns}>
+                  <TouchableOpacity
+                    style={st.welcomePrimary}
+                    onPress={() => {
+                      if (resume.last?.subject && SUBJECTS.includes(resume.last.subject)) setActiveSubject(resume.last.subject);
+                      setInsights({ tab: 'revise' });
+                    }}
+                    activeOpacity={0.9}
+                  >
+                    <Text style={st.welcomePrimaryTxt}>Continue revising  ›</Text>
+                  </TouchableOpacity>
+                  {!!resume.last?.chapter && (
+                    <TouchableOpacity
+                      style={st.welcomeGhost}
+                      onPress={() => { setTopic(resume.last.chapter); if (resume.last?.subject && SUBJECTS.includes(resume.last.subject)) setActiveSubject(resume.last.subject); }}
+                      activeOpacity={0.9}
+                    >
+                      <Text style={st.welcomeGhostTxt}>Re-learn {resume.last.chapter}</Text>
+                    </TouchableOpacity>
+                  )}
+                </View>
+              </View>
+            )}
+
             <View style={st.modeRow}>
               <TouchableOpacity style={[st.modeBtn, st.modeBtnOn]} onPress={() => setMode('learn')} activeOpacity={0.9}>
                 <Text style={[st.modeTxt, st.modeTxtOn]}>📖  Learn a Topic</Text>
@@ -117,7 +251,22 @@ const AITeacherScreen = ({ initialSubject = 'Physics', initialTopic = '', onBack
               </TouchableOpacity>
             </View>
 
-            <Text style={st.label}>SUBJECT</Text>
+            <Text style={st.label}>FOR YOU</Text>
+            <View style={st.insightRow}>
+              {[
+                { tab: 'next', icon: '🧭', title: 'What next?', sub: 'Smart plan' },
+                { tab: 'revise', icon: '🔁', title: 'Revise', sub: 'Weak topics' },
+                { tab: 'progress', icon: '📊', title: 'Progress', sub: 'Your stats' },
+              ].map((a) => (
+                <TouchableOpacity key={a.tab} style={st.insightCard} onPress={() => setInsights({ tab: a.tab })} activeOpacity={0.9}>
+                  <Text style={st.insightIcon}>{a.icon}</Text>
+                  <Text style={st.insightTitle}>{a.title}</Text>
+                  <Text style={st.insightSub}>{a.sub}</Text>
+                </TouchableOpacity>
+              ))}
+            </View>
+
+            <Text style={[st.label, { marginTop: 20 }]}>SUBJECT</Text>
             <ScrollView horizontal showsHorizontalScrollIndicator={false} contentContainerStyle={{ gap: 8, paddingVertical: 2 }}>
               {SUBJECTS.map((subj) => (
                 <TouchableOpacity key={subj} style={[st.chip, activeSubject === subj && st.chipOn]} onPress={() => setActiveSubject(subj)} activeOpacity={0.9}>
@@ -184,6 +333,8 @@ const AITeacherScreen = ({ initialSubject = 'Physics', initialTopic = '', onBack
       <LiveTeachingPlayer
         lesson={lessonObj}
         ttsOk={SPEECH_OK}
+        startIndex={startIndex}
+        onProgress={handleProgress}
         onAsk={async (q, i) => {
           // Route doubts through the AI Teacher agent: intent → RAG grounding →
           // teacher-style answer → quality guard. `pending` carries the quiz /
@@ -203,7 +354,9 @@ const AITeacherScreen = ({ initialSubject = 'Physics', initialTopic = '', onBack
             { role: 'USER', content: q },
             { role: 'ASSISTANT', content: res.answer },
           ].slice(-12);
-          return res.answer;
+          // Return the full response so the player can surface retrieval metadata
+          // (concept, prerequisites, confidence) alongside the answer text.
+          return res;
         }}
         onAskStream={async (q, i, { onDelta }) => {
           // Streaming variant — the player speaks sentences as they arrive.
@@ -245,7 +398,31 @@ const st = StyleSheet.create({
   q: { fontSize: 25, fontWeight: '900', color: C.ink, letterSpacing: -0.5, marginTop: 4, marginBottom: 24, textAlign: 'center', fontFamily: Platform.OS === 'ios' ? 'Georgia' : 'serif' },
   label: { fontSize: 11, fontWeight: '800', color: C.dim, letterSpacing: 1, marginBottom: 10 },
 
+  resumeLessonCard: { flexDirection: 'row', alignItems: 'center', gap: 12, backgroundColor: C.board, borderWidth: 1, borderColor: C.accent, borderRadius: 16, paddingVertical: 13, paddingHorizontal: 14, marginBottom: 14 },
+  resumeLessonIcon: { width: 38, height: 38, borderRadius: 19, backgroundColor: 'rgba(124,58,237,0.18)', alignItems: 'center', justifyContent: 'center' },
+  resumeLessonTag: { fontSize: 9, fontWeight: '900', color: C.accent, letterSpacing: 1 },
+  resumeLessonTitle: { fontSize: 14, fontWeight: '900', color: C.ink, marginTop: 2 },
+  resumeLessonGo: { fontSize: 24, fontWeight: '900', color: C.accent },
+
+  welcomeCard: { backgroundColor: 'rgba(124,58,237,0.10)', borderWidth: 1, borderColor: 'rgba(124,58,237,0.45)', borderRadius: 18, padding: 16, marginBottom: 18 },
+  welcomeClose: { position: 'absolute', top: 10, right: 12, zIndex: 2 },
+  welcomeCloseTxt: { fontSize: 14, fontWeight: '900', color: C.dim },
+  welcomeTag: { fontSize: 10, fontWeight: '900', color: C.accent, letterSpacing: 1, marginBottom: 6 },
+  welcomeGreeting: { fontSize: 15, fontWeight: '800', color: C.ink, lineHeight: 21, paddingRight: 16 },
+  welcomeSuggest: { fontSize: 13, fontWeight: '600', color: C.ink2, lineHeight: 19, marginTop: 6 },
+  welcomeBtns: { flexDirection: 'row', flexWrap: 'wrap', gap: 8, marginTop: 12 },
+  welcomePrimary: { backgroundColor: C.accent, borderRadius: 12, paddingVertical: 10, paddingHorizontal: 16 },
+  welcomePrimaryTxt: { color: '#fff', fontSize: 13, fontWeight: '900' },
+  welcomeGhost: { borderWidth: 1, borderColor: C.line, borderRadius: 12, paddingVertical: 10, paddingHorizontal: 14, backgroundColor: C.board },
+  welcomeGhostTxt: { color: C.ink2, fontSize: 13, fontWeight: '800' },
+
   modeRow: { flexDirection: 'row', gap: 10, marginBottom: 24 },
+
+  insightRow: { flexDirection: 'row', gap: 10, marginBottom: 4 },
+  insightCard: { flex: 1, paddingVertical: 14, paddingHorizontal: 8, borderRadius: 16, borderWidth: 1, borderColor: C.line, backgroundColor: C.board, alignItems: 'center', gap: 3 },
+  insightIcon: { fontSize: 22, marginBottom: 2 },
+  insightTitle: { fontSize: 13, fontWeight: '900', color: C.ink, letterSpacing: -0.2 },
+  insightSub: { fontSize: 10, fontWeight: '700', color: C.dim },
   modeBtn: { flex: 1, paddingVertical: 13, borderRadius: 16, borderWidth: 1, borderColor: C.line, backgroundColor: C.board, alignItems: 'center' },
   modeBtnOn: { backgroundColor: C.accent, borderColor: C.accent },
   modeTxt: { fontSize: 14, fontWeight: '800', color: C.dim },

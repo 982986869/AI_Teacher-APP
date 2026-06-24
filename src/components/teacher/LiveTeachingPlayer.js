@@ -223,17 +223,73 @@ function VoiceMic({ onStart, onPartial, onFinal, onEnd, onError, dock }) {
   );
 }
 
+// Pull the retrieval signals the agent already returns (concept, prerequisites,
+// confidence tier, grounding source) off a doubt response. Returns null when the
+// handler resolved to a plain string (older call shape) or nothing useful.
+function extractMeta(res) {
+  if (!res || typeof res !== 'object') return null;
+  const concept = res.concept && res.concept.name ? res.concept.name : null;
+  const prereqs = Array.isArray(res.prereqConcepts) ? res.prereqConcepts.filter(Boolean) : [];
+  const tier = res.confidenceTier || null;
+  const grounded = typeof res.grounded === 'boolean' ? res.grounded : null;
+  if (!concept && !prereqs.length && !tier && grounded == null) return null;
+  return { concept, prereqs, tier, grounded };
+}
+
+const TIER_LABEL = { high: 'High match', medium: 'Fair match', low: 'Low match' };
+
+// Compact strip shown under a doubt answer: where the answer came from (your
+// material vs general knowledge), how strong the match was, the resolved concept,
+// and the prerequisite concepts it builds on — all already computed server-side.
+function DoubtMeta({ meta }) {
+  if (!meta) return null;
+  const { concept, prereqs, tier, grounded } = meta;
+  const tierColor = tier === 'high' ? C.green : tier === 'medium' ? C.orange : C.dim;
+  return (
+    <View style={st.metaWrap}>
+      <View style={st.metaRow}>
+        {grounded != null && (
+          <View style={[st.metaPill, grounded ? st.metaPillOn : null]}>
+            <Text style={[st.metaPillTxt, grounded ? st.metaPillTxtOn : null]}>
+              {grounded ? '📘 From your material' : '🌐 General knowledge'}
+            </Text>
+          </View>
+        )}
+        {!!tier && (
+          <View style={[st.metaPill, { borderColor: tierColor }]}>
+            <View style={[st.metaDot, { backgroundColor: tierColor }]} />
+            <Text style={[st.metaPillTxt, { color: tierColor }]}>{TIER_LABEL[tier] || tier}</Text>
+          </View>
+        )}
+      </View>
+      {!!concept && (
+        <Text style={st.metaConcept} numberOfLines={1}>Concept · <Text style={st.metaConceptName}>{concept}</Text></Text>
+      )}
+      {prereqs.length > 0 && (
+        <View style={st.metaPrereqRow}>
+          <Text style={st.metaPrereqLbl}>Builds on</Text>
+          {prereqs.slice(0, 4).map((p) => (
+            <View key={p} style={st.metaChip}><Text style={st.metaChipTxt}>{p}</Text></View>
+          ))}
+        </View>
+      )}
+    </View>
+  );
+}
+
 // ══════════════════════════════════════════════════════════════════════════════
-export default function LiveTeachingPlayer({ lesson, ttsOk = true, onAsk, onAskStream, onExit, onNewLesson }) {
+export default function LiveTeachingPlayer({ lesson, ttsOk = true, startIndex = 0, onProgress, onAsk, onAskStream, onExit, onNewLesson }) {
   const scenes = useMemo(() => buildScenes(lesson || {}), [lesson]);
   const N = scenes.length;
 
   const [mode, setMode] = useState(M.TEACHING);
-  const [idx, setIdx] = useState(0);
+  // Resume at the saved position (clamped), else start at the beginning.
+  const [idx, setIdx] = useState(() => Math.min(Math.max(0, Math.floor(Number(startIndex)) || 0), Math.max(0, N - 1)));
   const [animKey, setAnimKey] = useState(0);
   const [muted, setMuted] = useState(false);
   const [ttsActive, setTtsActive] = useState(false); // is audio playing right now (avatar/sync)
   const [qa, setQa] = useState(null);                // { q, a } during a doubt
+  const [qaMeta, setQaMeta] = useState(null);        // retrieval signals for the doubt answer
   const [partial, setPartial] = useState('');
   const [qInput, setQInput] = useState('');
   const [doubtDone, setDoubtDone] = useState(false); // answer fully spoken
@@ -252,9 +308,21 @@ export default function LiveTeachingPlayer({ lesson, ttsOk = true, onAsk, onAskS
   askPosRef.current = scene.slideIndex != null ? scene.slideIndex : idx;
   const voiceOnRef = useRef(voiceOn);
   voiceOnRef.current = voiceOn;
+  // The doubt-completion poller (interval) — kept in a ref so it's always cleared
+  // on unmount / new doubt, never leaking or firing setState after unmount.
+  const doubtTickRef = useRef(null);
+  const mountedRef = useRef(true);
+  const clearDoubtTick = () => { if (doubtTickRef.current) { clearInterval(doubtTickRef.current); doubtTickRef.current = null; } };
 
   useEffect(() => { primeTeacherVoice(); }, []);
-  useEffect(() => () => stopTeacher(), []);
+  useEffect(() => () => { mountedRef.current = false; clearDoubtTick(); stopTeacher(); }, []);
+
+  // Report the current position so the screen can persist progress + study time
+  // (enables resume-to-position and the Study Insights tiles).
+  useEffect(() => {
+    if (onProgress) onProgress({ slideIndex: idx, total: N });
+    // eslint-disable-next-line react-hooks/exhaustive-deps
+  }, [idx, N]);
 
   // ── THE ONE DRIVER: while TEACHING, speech is the source of truth. Advance only
   // when TTS finishes (or, muted, after holdFor). Everything else hangs off mode. ─
@@ -298,7 +366,7 @@ export default function LiveTeachingPlayer({ lesson, ttsOk = true, onAsk, onAskS
   }, [mode, idx, animKey]);
 
   // ── transport ──
-  const goTeach = (next) => { stopTeacher(); setQa(null); setDoubtDone(false); setHint(''); setIdx(next); setMode(M.TEACHING); setAnimKey((k) => k + 1); };
+  const goTeach = (next) => { stopTeacher(); setQa(null); setQaMeta(null); setDoubtDone(false); setHint(''); setIdx(next); setMode(M.TEACHING); setAnimKey((k) => k + 1); };
   const pause = () => { stopTeacher(); setTtsActive(false); setMode(M.PAUSED); };
   const resume = () => { setMode(M.TEACHING); setAnimKey((k) => k + 1); };
   const togglePlay = () => { if (teaching) pause(); else if (mode === M.PAUSED) resume(); };
@@ -310,13 +378,13 @@ export default function LiveTeachingPlayer({ lesson, ttsOk = true, onAsk, onAskS
   const toggleMute = () => { setMuted((m) => !m); if (teaching) setAnimKey((k) => k + 1); };
 
   // ── doubt flow (lesson fully frozen the whole time) ──
-  const beginListen = () => { stopTeacher(); setTtsActive(false); setPartial(''); setQInput(''); setQa(null); setDoubtDone(false); setHint(''); setMode(M.LISTENING); };
+  const beginListen = () => { stopTeacher(); clearDoubtTick(); setTtsActive(false); setPartial(''); setQInput(''); setQa(null); setQaMeta(null); setDoubtDone(false); setHint(''); setMode(M.LISTENING); };
   const sendDoubt = (override) => {
     const q = (typeof override === 'string' ? override : qInput).trim();
     if (!q || !onAsk) { if (!q) setMode(M.PAUSED); return; }
     setQInput(''); setPartial(''); setHint('');
-    setQa({ q, a: null }); setDoubtDone(false); setMode(M.THINKING);
-    stopTeacher();
+    setQa({ q, a: null }); setQaMeta(null); setDoubtDone(false); setMode(M.THINKING);
+    stopTeacher(); clearDoubtTick();
 
     // ── STREAMING path: speak sentence-by-sentence as the answer arrives ──
     // (only when a streaming handler is provided AND voice is on).
@@ -338,15 +406,25 @@ export default function LiveTeachingPlayer({ lesson, ttsOk = true, onAsk, onAskS
         onDelta: (t) => { acc += t; buf += t; setQa({ q, a: acc }); flush(false); },
       })
         .then((res) => {
+          if (!mountedRef.current) return;
           flush(true);
           setQa({ q, a: (res && res.answer) || acc || "Sorry, I didn't catch that. Could you ask again?" });
-          // Mark done once the queued speech actually finishes playing.
-          const tick = setInterval(() => {
-            if (!isTeacherQueueActive()) { clearInterval(tick); setTtsActive(false); setDoubtDone(true); }
+          setQaMeta(extractMeta(res));
+          // Mark done once the queued speech actually finishes playing. Capped so a
+          // stuck queue can never poll forever (force-done after ~20s).
+          clearDoubtTick();
+          let polls = 0;
+          doubtTickRef.current = setInterval(() => {
+            polls += 1;
+            if (!isTeacherQueueActive() || polls > 66) {
+              clearDoubtTick();
+              if (mountedRef.current) { setTtsActive(false); setDoubtDone(true); }
+            }
           }, 300);
         })
         .catch((e) => {
           resetTeacherQueue();
+          if (!mountedRef.current) return;
           setQa({ q, a: `⚠️ ${e?.message || 'Could not get an answer.'}` });
           setTtsActive(false); setDoubtDone(true);
         });
@@ -360,8 +438,10 @@ export default function LiveTeachingPlayer({ lesson, ttsOk = true, onAsk, onAskS
     Promise.race([Promise.resolve(onAsk(q, askPosRef.current)), timeoutP])
       .then((ans) => {
         clearTimeout(to);
-        const a = ans || "Sorry, I didn't catch that. Could you ask again?";
-        setQa({ q, a }); setMode(M.ANSWERING);
+        if (!mountedRef.current) return;
+        // onAsk may resolve to a plain string (answer) or the full agent response.
+        const a = (typeof ans === 'string' ? ans : (ans && ans.answer)) || "Sorry, I didn't catch that. Could you ask again?";
+        setQa({ q, a }); setQaMeta(extractMeta(ans)); setMode(M.ANSWERING);
         if (voiceOnRef.current) {
           speakTeacher(a, {
             onStart: () => setTtsActive(true),
@@ -371,9 +451,9 @@ export default function LiveTeachingPlayer({ lesson, ttsOk = true, onAsk, onAskS
           });
         } else { setDoubtDone(true); }
       })
-      .catch((e) => { clearTimeout(to); setQa({ q, a: `⚠️ ${e?.response?.data?.error || e?.message || 'Could not get an answer.'}` }); setMode(M.ANSWERING); setDoubtDone(true); });
+      .catch((e) => { clearTimeout(to); if (!mountedRef.current) return; setQa({ q, a: `⚠️ ${e?.response?.data?.error || e?.message || 'Could not get an answer.'}` }); setMode(M.ANSWERING); setDoubtDone(true); });
   };
-  const resumeFromDoubt = () => { stopTeacher(); setQa(null); setDoubtDone(false); setMode(M.TEACHING); setAnimKey((k) => k + 1); };
+  const resumeFromDoubt = () => { stopTeacher(); clearDoubtTick(); setQa(null); setQaMeta(null); setDoubtDone(false); setMode(M.TEACHING); setAnimKey((k) => k + 1); };
 
   // ── derived avatar state + layout ──
   const teacherState = mode === M.LISTENING ? 'listening'
@@ -409,6 +489,7 @@ export default function LiveTeachingPlayer({ lesson, ttsOk = true, onAsk, onAskS
       <>
         <Text style={st.askedLabel} numberOfLines={1}>You asked · “{qa.q}”</Text>
         <SpokenCaption key={`ans-${idx}-${qa.a ? 1 : 0}`} text={captionText} speaking={ttsActive} karaoke={voiceOn} resetKey={`ans-${qa.a ? 1 : 0}`} style={st.captionTxt} />
+        {doubtDone && <DoubtMeta meta={qaMeta} />}
       </>
     ) : mode === M.LISTENING ? (
       <Text style={st.captionTxt}>I’m listening…</Text>
@@ -575,6 +656,21 @@ const st = StyleSheet.create({
 
   caption: { width: '100%', alignItems: 'center', paddingHorizontal: 16, marginTop: 14 },
   askedLabel: { fontSize: 11, fontWeight: '800', color: C.dim, textAlign: 'center', marginBottom: 5, maxWidth: SCREEN_W * 0.8 },
+
+  // doubt metadata strip (concept / prerequisites / confidence / source)
+  metaWrap: { marginTop: 12, alignItems: 'center', gap: 7, maxWidth: SCREEN_W * 0.86 },
+  metaRow: { flexDirection: 'row', flexWrap: 'wrap', justifyContent: 'center', gap: 6 },
+  metaPill: { flexDirection: 'row', alignItems: 'center', gap: 5, backgroundColor: 'rgba(255,255,255,0.05)', borderWidth: 1, borderColor: C.line, borderRadius: 12, paddingHorizontal: 10, paddingVertical: 4 },
+  metaPillOn: { backgroundColor: 'rgba(87,214,151,0.12)', borderColor: 'rgba(87,214,151,0.5)' },
+  metaPillTxt: { fontSize: 10.5, fontWeight: '800', color: C.dim, letterSpacing: 0.2 },
+  metaPillTxtOn: { color: C.green },
+  metaDot: { width: 6, height: 6, borderRadius: 3 },
+  metaConcept: { fontSize: 12, fontWeight: '700', color: C.dim, textAlign: 'center' },
+  metaConceptName: { color: C.ink, fontWeight: '900' },
+  metaPrereqRow: { flexDirection: 'row', flexWrap: 'wrap', justifyContent: 'center', alignItems: 'center', gap: 6 },
+  metaPrereqLbl: { fontSize: 10, fontWeight: '800', color: C.faint, letterSpacing: 0.5, textTransform: 'uppercase' },
+  metaChip: { backgroundColor: 'rgba(124,58,237,0.15)', borderWidth: 1, borderColor: 'rgba(124,58,237,0.45)', borderRadius: 11, paddingHorizontal: 9, paddingVertical: 3 },
+  metaChipTxt: { fontSize: 11, fontWeight: '800', color: C.ink2 },
   captionTxt: { fontSize: 16, fontWeight: '800', color: C.ink, textAlign: 'center', lineHeight: 23 }, // PRIMARY — spoken words (bright)
   capDim: { color: 'rgba(241,241,247,0.32)' }, // not-yet-spoken words (light); brighten as she speaks
 

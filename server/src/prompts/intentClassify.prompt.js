@@ -7,6 +7,7 @@ const INTENTS = [
   'example_request',
   'quiz_request',
   'revision',
+  'greeting',
   'off_topic',
   'unclear',
 ]
@@ -32,8 +33,11 @@ function quickIntent(rawText) {
   if (/\b(example|examples|ek example|koi example|for example|e\.?g\.?)\b/.test(t) && /\b(give|show|do|bata|de|chahiye|want)\b/.test(t)) {
     return { intent: 'example_request', language }
   }
-  if (/^(hi|hello|hey|yo|hii+|namaste|good morning|good evening|thanks|thank you|thik hai|ok|okay|bye)\b[.! ]*$/.test(t)) {
-    return { intent: 'off_topic', language }
+  // Greetings & acknowledgements get a WARM, continuity-aware reply (not the
+  // dismissive "stay on topic" line) — that first hello is where the teacher must
+  // feel human. Genuine off-topic (games/food/chit-chat) still falls to off_topic.
+  if (/^(hi+|hello+|hey+|yo|namaste|good morning|good evening|good afternoon|thanks|thank you|thank u|thik hai|theek hai|ok|okay|k|bye|good night|gn)\b[.! ]*$/.test(t)) {
+    return { intent: 'greeting', language }
   }
   // Clear "explain X" style openers are concept_explanation — settle by rule so we
   // skip the classify LLM call on the most common request (big latency win).
@@ -49,7 +53,7 @@ function quickIntent(rawText) {
 function detectLanguage(rawText) {
   const text = String(rawText || '')
   if (/[ऀ-ॿ]/.test(text)) return 'hi' // Devanagari
-  const hinglish = /\b(kaise|kyun|kyu|kya|kaisa|nahi|hai|hain|samajh|matlab|batao|bata|karo|karke|wala|wali|mujhe|ye|yeh|woh|kar|hota|hoti|diya|nikalega|chahiye)\b/i
+  const hinglish = /\b(kaise|kyun|kyu|kya|kaisa|nahi|hai|hain|samajh|matlab|batao|bata|karo|karke|wala|wali|mujhe|ye|yeh|woh|kar|hota|hoti|diya|nikalega|chahiye|namaste|namaskar|dhanyavaad|shukriya|alvida)\b/i
   if (hinglish.test(text)) return 'hinglish'
   return 'en'
 }
@@ -65,7 +69,8 @@ INTENTS:
 - example_request: explicitly asks for an example.
 - quiz_request: wants to be tested or asked questions.
 - revision: wants a quick recap / summary of a topic.
-- off_topic: not about studies (games, food, greetings, chit-chat).
+- greeting: a greeting, thanks, or acknowledgement ("hi", "hello", "namaste", "thanks", "ok", "bye").
+- off_topic: not about studies (games, food, chit-chat) — but NOT greetings.
 - unclear: too vague, empty, or garbled to classify.
 
 LANGUAGE:
