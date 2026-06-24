@@ -3,8 +3,9 @@ import { View, Text, StyleSheet, SafeAreaView, ScrollView, TouchableOpacity, Sta
 import { useFocusEffect, useNavigation } from '@react-navigation/native';
 import { WebView } from 'react-native-webview';
 import { getQuestionsByPath, getChapters } from '../api/resourcesApi';
-import { getMcqChapterTest } from '../api/mcqPracticeApi';
+import { getMcqChapterTest, getMcqSubtopicTest } from '../api/mcqPracticeApi';
 import McqTestScreen from './McqTestScreen';
+import McqQuizScreen from './McqQuizScreen';
 import McqPracticeScreen from './McqPracticeScreen';
 import TestQuestionScreen from './testQuestionScreen';
 import MockResultScreen from './MockResultScreen';
@@ -378,38 +379,34 @@ const ChapterList = ({
   );
 };
 
-// Maps an API question { text, options:[{label,optionId}], correctOptionId }
-// to the shape McqTestScreen expects: { cat, question, options:[string], correct:index }.
-function toTestShape(apiQuestions) {
-  return (apiQuestions || [])
-    .map((q) => {
-      const options = (q.options || []).map((o) => o.label);
-      const correct = (q.options || []).findIndex((o) => String(o.optionId) === String(q.correctOptionId));
-      return { cat: q.topicName || q.difficulty || 'MCQ', question: q.text, options, correct: correct >= 0 ? correct : 0 };
-    })
-    .filter((q) => q.options.length >= 2);
-}
-
 // Renders the MCQ test. Questions come from the DB-backed API (per chapter,
-// across its subtopics). Empty list (e.g. Physics — no MCQ data) → McqTestScreen
+// across its subtopics). Empty list (e.g. Physics — no MCQ data) → McqQuizScreen
 // shows its "No questions" state. No local sample fallback.
-const McqLoader = ({ subject, chapter, onExit }) => {
+const McqLoader = ({ subject, chapter, subtopicId, onExit }) => {
   const [state, setState] = useState({ loading: true, questions: null });
 
   useEffect(() => {
     let alive = true;
     setState({ loading: true, questions: null });
-    getMcqChapterTest(slugify(subject), slugify(chapter))
+    // Subtopic selected → that subtopic's questions; else the whole chapter.
+    const req = subtopicId != null
+      ? getMcqSubtopicTest(subtopicId)
+      : getMcqChapterTest(slugify(subject), slugify(chapter));
+    req
       .then((data) => {
         if (!alive) return;
-        setState({ loading: false, questions: toTestShape(data && data.questions) });
+        setState({
+          loading: false,
+          questions: (data && data.questions) || [],
+          subtopicName: data && data.subtopic && data.subtopic.name,
+        });
       })
       .catch(() => {
         if (!alive) return;
         setState({ loading: false, questions: [] });
       });
     return () => { alive = false; };
-  }, [subject, chapter]);
+  }, [subject, chapter, subtopicId]);
 
   if (state.loading) {
     return (
@@ -425,9 +422,10 @@ const McqLoader = ({ subject, chapter, onExit }) => {
   }
 
   return (
-    <McqTestScreen
+    <McqQuizScreen
       subject={subject}
       chapter={chapter}
+      subtopicName={state.subtopicName}
       questions={state.questions}
       onExit={onExit}
     />
@@ -885,6 +883,7 @@ const PracticeScreen = () => {
       <McqLoader
         subject={mcqSel.subject}
         chapter={mcqSel.chapter}
+        subtopicId={mcqSel.subtopicId}
         onExit={() => setMcqSel(null)}
       />
     );
@@ -896,7 +895,7 @@ const PracticeScreen = () => {
       <McqPracticeScreen
         onBack={() => setMcqOpen(false)}
         onStartChapter={(subject, chapter) => setMcqSel({ subject, chapter })}
-        onStartSubtopic={(subject, chapter) => setMcqSel({ subject, chapter })}
+        onStartSubtopic={(subject, chapter, subtopicId) => setMcqSel({ subject, chapter, subtopicId })}
       />
     );
   }

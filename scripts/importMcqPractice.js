@@ -31,8 +31,9 @@ const SOURCES = [
   { subject: 'Mathematics', slug: 'mathematics', dir: 'maths_questions' },
   // Biology: from biology_practice.zip (subtopics + answers already present).
   { subject: 'Biology', slug: 'biology', dir: 'biology_practice' },
-  // Physics: dropped for now (only partial fetch done). Re-enable when complete.
-  // { subject: 'Physics', slug: 'physics', dir: 'physics_practice' },
+  // Physics: subtopics from physics_practice + answers merged from answer_key
+  // (run scripts/mergePhysicsAnswers.js first).
+  { subject: 'Physics', slug: 'physics', dir: 'physics_practice' },
 ]
 
 const slugify = (s) =>
@@ -96,7 +97,9 @@ function collect() {
           source_id: q.id,
           question_html: q.question || '',
           difficulty: q.difficulty || null,
-          options: (q.options || []).map((o) => ({ id: o.id, html: o.option || '' })),
+          // option text field varies by source: chem/maths use `option`,
+          // physics_practice uses `text`/`html`.
+          options: (q.options || []).map((o) => ({ id: o.id, html: o.option || o.text || o.html || '' })),
           correct_option_id: q.correctOptionId != null ? q.correctOptionId : null,
           explanation_html: q.explanation || null,
         })),
