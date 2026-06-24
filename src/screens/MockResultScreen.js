@@ -107,7 +107,6 @@ export default function MockResultScreen({
     ],
   },
   onReview = () => {},
-  onReview = () => {},
   onRetake = () => {},
   onClose = () => {},
 }) {

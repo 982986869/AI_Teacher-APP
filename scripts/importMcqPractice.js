@@ -20,10 +20,19 @@ const path = require('path')
 
 const ROOT = path.join(__dirname, '..')
 const LIVE = process.argv.includes('--live')
+// --only=<slug> imports just that subject (e.g. --only=mathematics). Default: all.
+const ONLY = (process.argv.find((a) => a.startsWith('--only=')) || '').split('=')[1] || null
 
 // Subjects whose subtopic-grouped exports exist (answer-key present).
 const SOURCES = [
   { subject: 'Chemistry', slug: 'chemistry', dir: 'chemistry_questions' },
+  // Maths activates once maths_questions/*.by_topic.json exist
+  // (note: maths subtopic ids return wrong content on the live API — disabled).
+  { subject: 'Mathematics', slug: 'mathematics', dir: 'maths_questions' },
+  // Biology: from biology_practice.zip (subtopics + answers already present).
+  { subject: 'Biology', slug: 'biology', dir: 'biology_practice' },
+  // Physics: dropped for now (only partial fetch done). Re-enable when complete.
+  // { subject: 'Physics', slug: 'physics', dir: 'physics_practice' },
 ]
 
 const slugify = (s) =>
@@ -50,8 +59,20 @@ create table if not exists mcq_questions (
   position          int not null default 0,
   created_at        timestamptz not null default now()
 );
+create table if not exists mcq_attempts (
+  id                 bigint generated always as identity primary key,
+  user_id            uuid not null references users(id) on delete cascade,
+  question_id        bigint not null references mcq_questions(id) on delete cascade,
+  subtopic_id        bigint not null references subtopics(id) on delete cascade,
+  selected_option_id bigint,
+  is_correct         boolean not null default false,
+  created_at         timestamptz not null default now(),
+  updated_at         timestamptz not null default now(),
+  unique (user_id, question_id)
+);
 create index if not exists idx_subtopics_chapter      on subtopics(chapter_id);
 create index if not exists idx_mcq_questions_subtopic  on mcq_questions(subtopic_id);
+create index if not exists idx_mcq_attempts_user_sub   on mcq_attempts(user_id, subtopic_id);
 `
 
 function getDatabaseUrl() {
@@ -63,7 +84,8 @@ function getDatabaseUrl() {
 
 // Collect subject -> [{ chapter, subtopics: [{ name, questions: [...] }] }]
 function collect() {
-  return SOURCES.map((src) => {
+  const srcs = ONLY ? SOURCES.filter((s) => s.slug === ONLY) : SOURCES
+  return srcs.map((src) => {
     const dir = path.join(ROOT, 'src', 'data', src.dir)
     const files = fs.readdirSync(dir).filter((f) => f.endsWith('.by_topic.json'))
     const chapters = files.map((f) => {
