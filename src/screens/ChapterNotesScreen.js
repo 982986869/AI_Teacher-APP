@@ -29,7 +29,7 @@ const EMBEDDED_IMAGES = {
 };
 
 // ── Build full HTML page with MathJax ────────────────────────────────────────
-const buildHTML = (notes, chapterName) => {
+export const buildHTML = (notes, chapterName) => {
   if (!notes) return `
     <html><body style="font-family:sans-serif;padding:20px;text-align:center;color:#888;">
       <h3>Content coming soon</h3>
@@ -48,6 +48,11 @@ const buildHTML = (notes, chapterName) => {
     // Content text
     if (sec.content) {
       html += `<p class="content">${sec.content.replace(/\n/g, '<br/>')}</p>`;
+    }
+
+    // Raw HTML block (used by flashcard-sourced notes; rendered as-is)
+    if (sec.html) {
+      html += `<div class="content html-content">${sec.html}</div>`;
     }
 
     // Table
@@ -181,6 +186,31 @@ const buildHTML = (notes, chapterName) => {
       padding-left: 24px;
       margin-top: 4px;
       margin-bottom: 4px;
+    }
+
+    .html-content { padding-left: 0; }
+    .html-content .card {
+      background: #fafafa;
+      border: 1px solid #eee;
+      border-left: 3px solid #1f8a93;
+      border-radius: 10px;
+      padding: 12px 14px;
+      margin: 10px 0;
+    }
+    .html-content .card strong { color: #1a1a1a; }
+    .html-content ul, .html-content ol { padding-left: 20px; margin: 6px 0; }
+    .html-content li { margin: 3px 0; }
+    .html-content p { margin: 4px 0; }
+    .html-content img.note-img,
+    .html-content img {
+      display: block;
+      max-width: 100%;
+      height: auto;
+      margin: 10px auto;
+      padding: 6px;
+      background: #fff;
+      border: 1px solid #eee;
+      border-radius: 8px;
     }
 
     .bullet-list {

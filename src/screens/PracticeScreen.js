@@ -15,9 +15,10 @@ import OnlineTestsScreen from './OnlineTestsScreen';
 import { getQuestions, allQuestions } from '../data/questionBank';
 import { getMcqQuestions } from '../data/mcqQuestions';
 import { getSubtopicTest } from '../data/subtopicBank';
+import { getPhysics12ImportantHtml } from '../data/physics12Important';
 import { listMockTests, getMockTestQuestions, listMockAttempts, submitMockTest } from '../api/mockTestsApi';
 import { useAuth } from '../context/AuthContext';
-import { ComingSoon, isClassReady } from '../components/ClassPicker';
+import { ClassTabs } from '../components/ClassPicker';
 
 // Subjects with DB-backed mock tests (served by mockTestsApi). The Mock Test
 // button opens a subject -> mock list flow that runs each test through the
@@ -236,6 +237,41 @@ const PYQ_SUBJECTS = [
   },
 ];
 
+// Class 12 Physics chapters (NCERT order). These have local Important-Questions
+// content bundled in src/data/physics12Important; the rest of Class 12 is not
+// added yet, so other subjects show "coming soon".
+const PHYSICS12_IMP_CHAPTERS = [
+  'Electric Charges and Fields',
+  'Electrostatic Potential and Capacitance',
+  'Current Electricity',
+  'Moving Charges and Magnetism',
+  'Magnetism and Matter',
+  'Electromagnetic Induction',
+  'Alternating Current',
+  'Electromagnetic Waves',
+  'Ray Optics and Optical Instruments',
+  'Wave Optics',
+  'Dual Nature of Radiation and Matter',
+  'Atoms',
+  'Nuclei',
+  'Electronic Devices',
+];
+
+// Important-Questions subject list for the chosen class. Class 11 keeps the
+// API-backed PYQ_SUBJECTS. Class 12 swaps Physics for its 14 local chapters
+// (local: true) and marks the other subjects "coming soon" (comingSoon: true)
+// so they don't hit the API with Class-11 chapter names.
+const impSubjectsForClass = (cls) => {
+  if (cls === 'Class 12') {
+    return PYQ_SUBJECTS.map((sub) =>
+      sub.name === 'Physics'
+        ? { ...sub, chapters: PHYSICS12_IMP_CHAPTERS, local: true }
+        : { ...sub, chapters: [], comingSoon: true }
+    );
+  }
+  return PYQ_SUBJECTS;
+};
+
 const QUESTION_TYPES = [
   { icon: '🎯', label: 'Practice Questions',    sub: 'Multiple choice questions',  count: '120+ Qs' },
   { icon: '✍️', label: 'Short Answer',    sub: 'Written response questions', count: '80+ Qs' },
@@ -338,17 +374,20 @@ const ChapterList = ({
   sectionType = 'pyq',
   subtitle = 'Select a chapter',
   availableLabel = 'View previous year questions',
+  localChapters = null, // Set<slug> with content → skip the API (local data)
 }) => {
-  const [available, setAvailable] = useState(null); // Set<slug> | null while loading
+  const [available, setAvailable] = useState(localChapters); // Set<slug> | null while loading
 
   useEffect(() => {
+    // Local data (e.g. Class 12 Physics) — availability is known up front.
+    if (localChapters) { setAvailable(localChapters); return; }
     let alive = true;
     setAvailable(null);
     getChapters(slugify(subject.name), sectionType)
       .then((chs) => { if (alive) setAvailable(new Set((chs || []).map((c) => c.slug))); })
       .catch(() => { if (alive) setAvailable(new Set()); });
     return () => { alive = false; };
-  }, [subject, sectionType]);
+  }, [subject, sectionType, localChapters]);
 
   return (
     <SafeAreaView style={s.safe}>
@@ -359,6 +398,14 @@ const ChapterList = ({
         <Text style={s.pageTitle}>{subject.name}</Text>
         <Text style={s.pageSub}>{subtitle}</Text>
       </View>
+      {subject.chapters.length === 0 ? (
+        <View style={s.emptyWrap}>
+          <Text style={s.emptyTitle}>Coming soon</Text>
+          <Text style={s.emptySub}>
+            Important questions for {subject.name} haven't been added for this class yet.
+          </Text>
+        </View>
+      ) : (
       <ScrollView contentContainerStyle={{ padding: 16, gap: 10, paddingBottom: 32 }}>
         {subject.chapters.map((chapter, i) => {
           const loading = available === null;
@@ -378,6 +425,7 @@ const ChapterList = ({
           );
         })}
       </ScrollView>
+      )}
     </SafeAreaView>
   );
 };
@@ -436,7 +484,7 @@ const McqLoader = ({ subject, chapter, subtopicId, onExit }) => {
 };
 
 const PracticeScreen = () => {
-  const { selectedClass } = useAuth();
+  const { selectedClass, setSelectedClass } = useAuth();
   const [activeSub, setActiveSub] = useState('Physics');
 
   // Previous Year Papers navigation
@@ -561,20 +609,6 @@ const PracticeScreen = () => {
   const activeFull = SUBJECTS.find(s => s.name === activeSub) || SUBJECTS[0];
   const pct = Math.round((activeFull.done / activeFull.topics) * 100);
 
-  // ── CLASS GATE: only Class 11 has practice content for now ──────────────────
-  if (!isClassReady(selectedClass)) {
-    return (
-      <SafeAreaView style={s.safe}>
-        <StatusBar barStyle="dark-content" backgroundColor="#fff" />
-        {Platform.OS === 'android' && <View style={{ height: 24, backgroundColor: '#fff' }} />}
-        <View style={s.header}>
-          <Text style={s.headerTitle}>Practice</Text>
-        </View>
-        <ComingSoon className={selectedClass} />
-      </SafeAreaView>
-    );
-  }
-
   // ── PYQ LEVEL 3: Previous-year questions for a chapter (fetched from API) ────
   if (pyqOpen && pyqSubject && pyqChapter) {
     return (
@@ -644,19 +678,34 @@ const PracticeScreen = () => {
           <Text style={s.pageTitle}>{impChapter}</Text>
           <Text style={s.pageSub}>{impSubject.name}  •  Important Questions</Text>
         </View>
-        <PyqWebView subject={impSubject.name} chapter={impChapter} sectionType="important_questions" />
+        <PyqWebView
+          subject={impSubject.name}
+          chapter={impChapter}
+          sectionType="important_questions"
+          // Local data (Class 12 Physics) → render bundled HTML directly; '' keeps
+          // it from falling back to the API. Other subjects fetch from the API.
+          html={impSubject.local ? (getPhysics12ImportantHtml(impChapter) || '') : undefined}
+        />
       </SafeAreaView>
     );
   }
 
   // ── IMPORTANT QUESTIONS LEVEL 2: Chapter list for the chosen subject ─────────
   if (impOpen && impSubject) {
+    // Local subjects (Class 12 Physics) mark every bundled chapter available;
+    // "coming soon" subjects pass an empty set so none show as available.
+    const localChapters = impSubject.local
+      ? new Set(impSubject.chapters.map(slugify))
+      : impSubject.comingSoon
+        ? new Set()
+        : null; // API-backed (Class 11)
     return (
       <ChapterList
         subject={impSubject}
         sectionType="important_questions"
         subtitle="Select a chapter  •  Important Questions"
         availableLabel="View important questions"
+        localChapters={localChapters}
         onBack={() => setImpSubject(null)}
         onPick={(chapter) => setImpChapter(chapter)}
       />
@@ -675,7 +724,7 @@ const PracticeScreen = () => {
           <Text style={s.pageSub}>Select a subject  •  Hand-picked must-do questions</Text>
         </View>
         <ScrollView contentContainerStyle={{ padding: 16, gap: 12, paddingBottom: 32 }}>
-          {PYQ_SUBJECTS.map((subject, i) => (
+          {impSubjectsForClass(selectedClass).map((subject, i) => (
             <TouchableOpacity key={i} style={s.subjectRow} activeOpacity={0.8}
               onPress={() => setImpSubject(subject)}>
               <View style={[s.subjectIconWrap, { backgroundColor: subject.bg }]}>
@@ -683,7 +732,9 @@ const PracticeScreen = () => {
               </View>
               <View style={{ flex: 1 }}>
                 <Text style={s.subjectName}>{subject.name}</Text>
-                <Text style={s.subjectSub}>{subject.chapters.length} chapters</Text>
+                <Text style={s.subjectSub}>
+                  {subject.comingSoon ? 'Coming soon' : `${subject.chapters.length} chapters`}
+                </Text>
               </View>
               <Text style={s.listArrow}>→</Text>
             </TouchableOpacity>
@@ -934,6 +985,8 @@ const PracticeScreen = () => {
           <View style={s.xpBadge}><Text style={s.xpTxt}>🔥 7 day streak</Text></View>
         </View>
       </View>
+
+      <ClassTabs value={selectedClass} onChange={setSelectedClass} />
 
       <ScrollView showsVerticalScrollIndicator={false} contentContainerStyle={{ paddingBottom: 32 }}>
 

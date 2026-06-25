@@ -1,0 +1,1235 @@
+[
+  {
+    "subject": "Physics",
+    "subject_id": "1251",
+    "chapter": "Alternating Current",
+    "chapter_id": 1258,
+    "question_id": 1715208,
+    "question_html": "<p>An alternating current is given by <span class=\"math-tex\">{tex}{I}={I}_{0} \\cos (100 \\pi) {t}{/tex}</span>. The least time the current takes to decrease from its maximum value to zero will be:</p>",
+    "question_text": "An alternating current is given by {tex}{I}={I}_{0} \\cos (100 \\pi) {t}{/tex} . The least time the current takes to decrease from its maximum value to zero will be:",
+    "options": [
+      {
+        "id": 3561911,
+        "text": "{tex}\\left(\\frac{1}{200}\\right) {s}{/tex}",
+        "html": "<p style=\"display:inline\"><span class=\"math-tex\">{tex}\\left(\\frac{1}{200}\\right) {s}{/tex}</span></p>",
+        "is_correct": true,
+        "explanation": "{tex}\\left(\\frac{1}{200}\\right) {s}{/tex}"
+      },
+      {
+        "id": 3561912,
+        "text": "{tex}\\left(\\frac{1}{150}\\right) {s}{/tex}",
+        "html": "<p style=\"display:inline\"><span class=\"math-tex\">{tex}\\left(\\frac{1}{150}\\right) {s}{/tex}</span></p>",
+        "is_correct": false,
+        "explanation": ""
+      },
+      {
+        "id": 3561913,
+        "text": "{tex}\\left(\\frac{1}{100}\\right) {s}{/tex}",
+        "html": "<p style=\"display:inline\"><span class=\"math-tex\">{tex}\\left(\\frac{1}{100}\\right) {s}{/tex}</span></p>",
+        "is_correct": false,
+        "explanation": ""
+      },
+      {
+        "id": 3561914,
+        "text": "{tex}\\left(\\frac{1}{50}\\right) {s}{/tex}",
+        "html": "<p style=\"display:inline\"><span class=\"math-tex\">{tex}\\left(\\frac{1}{50}\\right) {s}{/tex}</span></p>",
+        "is_correct": false,
+        "explanation": ""
+      }
+    ],
+    "correct_option_ids": [
+      3561911
+    ],
+    "correct_option_text": "{tex}\\left(\\frac{1}{200}\\right) {s}{/tex}",
+    "explanation": "{tex}\\left(\\frac{1}{200}\\right) {s}{/tex}",
+    "solution": "",
+    "solution_html": "",
+    "weightage": "VSA (Very Short Answer)"
+  },
+  {
+    "subject": "Physics",
+    "subject_id": "1251",
+    "chapter": "Alternating Current",
+    "chapter_id": 1258,
+    "question_id": 1345983,
+    "question_html": "<p>Which of the following quantity/quantities remains same in primary and secondary coils of an ideal transformer?<br />\nCurrent, Voltage, Power, Magnetic flux</p>",
+    "question_text": "Which of the following quantity/quantities remains same in primary and secondary coils of an ideal transformer? Current, Voltage, Power, Magnetic flux",
+    "options": [
+      {
+        "id": 2690805,
+        "text": "Current only",
+        "html": "<p style=\"display:inline\">Current only</p>",
+        "is_correct": false,
+        "explanation": ""
+      },
+      {
+        "id": 2690806,
+        "text": "Voltage only",
+        "html": "<p style=\"display:inline\">Voltage only</p>",
+        "is_correct": false,
+        "explanation": ""
+      },
+      {
+        "id": 2690807,
+        "text": "Power only",
+        "html": "<p style=\"display:inline\">Power only</p>",
+        "is_correct": false,
+        "explanation": ""
+      },
+      {
+        "id": 2690808,
+        "text": "Magnetic flux and Power both",
+        "html": "<p style=\"display:inline\">Magnetic flux and Power both</p>",
+        "is_correct": true,
+        "explanation": "In an ideal transformer, the following quantities remain the same in both the primary and secondary coils: Magnetic Flux : The magnetic flux linked with both the primary and secondary coils is the same. Power : In an ideal transformer (ignoring losses), the power input to the primary coil equals the power output from the secondary coil."
+      }
+    ],
+    "correct_option_ids": [
+      2690808
+    ],
+    "correct_option_text": "Magnetic flux and Power both",
+    "explanation": "In an ideal transformer, the following quantities remain the same in both the primary and secondary coils: Magnetic Flux : The magnetic flux linked with both the primary and secondary coils is the same. Power : In an ideal transformer (ignoring losses), the power input to the primary coil equals the power output from the secondary coil.",
+    "solution": "",
+    "solution_html": "",
+    "weightage": "VSA (Very Short Answer)"
+  },
+  {
+    "subject": "Physics",
+    "subject_id": "1251",
+    "chapter": "Alternating Current",
+    "chapter_id": 1258,
+    "question_id": 1161551,
+    "question_html": "<p>A small signal voltage V(t) = V<sub>0</sub> sin t is applied across an ideal capacitor C.</p>",
+    "question_text": "A small signal voltage V(t) = V 0 sin t is applied across an ideal capacitor C.",
+    "options": [
+      {
+        "id": 2367026,
+        "text": "Current I(t) lags voltage V(t) by 90 o",
+        "html": "<p style=\"display:inline\">Current I(t) lags voltage V(t) by 90<sup>o</sup></p>",
+        "is_correct": false,
+        "explanation": ""
+      },
+      {
+        "id": 2367027,
+        "text": "Over a full cycle the capacitor C does not consume any energy from the voltage source.",
+        "html": "<p style=\"display:inline\">Over a full cycle the capacitor C does not consume any energy from the voltage source.</p>",
+        "is_correct": true,
+        "explanation": "The current in a capacitor is ahead of voltage in phase by 90 o . {tex}P_{a v}=\\varepsilon_{m s} I_{r m s} {/tex} {tex}cos \\left(-\\frac{\\pi}{2}\\right)=0{/tex}"
+      },
+      {
+        "id": 2367028,
+        "text": "Current I(t) is in phase with voltage V(t)",
+        "html": "<p style=\"display:inline\">Current I(t) is in phase with voltage V(t)</p>",
+        "is_correct": false,
+        "explanation": ""
+      },
+      {
+        "id": 2367029,
+        "text": "Current I(t) leads voltage V(t) by 180 o .",
+        "html": "<p style=\"display:inline\">Current I(t) leads voltage V(t) by 180<sup>o</sup>.</p>",
+        "is_correct": false,
+        "explanation": ""
+      }
+    ],
+    "correct_option_ids": [
+      2367027
+    ],
+    "correct_option_text": "Over a full cycle the capacitor C does not consume any energy from the voltage source.",
+    "explanation": "The current in a capacitor is ahead of voltage in phase by 90 o . {tex}P_{a v}=\\varepsilon_{m s} I_{r m s} {/tex} {tex}cos \\left(-\\frac{\\pi}{2}\\right)=0{/tex}",
+    "solution": "",
+    "solution_html": "",
+    "weightage": "VSA (Very Short Answer)"
+  },
+  {
+    "subject": "Physics",
+    "subject_id": "1251",
+    "chapter": "Alternating Current",
+    "chapter_id": 1258,
+    "question_id": 13880,
+    "question_html": "<p>In a transformer, number of truns in the primary is 140 and that in the secondary is 280. If current in primary is 4 A, then that in the secondary is:</p>",
+    "question_text": "In a transformer, number of truns in the primary is 140 and that in the secondary is 280. If current in primary is 4 A, then that in the secondary is:",
+    "options": [
+      {
+        "id": 10720,
+        "text": "4 A",
+        "html": "<p style=\"display:inline\">4 A</p>",
+        "is_correct": false,
+        "explanation": ""
+      },
+      {
+        "id": 10721,
+        "text": "2 A",
+        "html": "<p style=\"display:inline\">2 A</p>",
+        "is_correct": true,
+        "explanation": "Here, N p = 140; N s = 280 and I p = 4 A {tex}\\therefore I_s = I_p\\times\\frac{N_p}{N_s}=4\\times\\frac{140}{280}=2A{/tex}"
+      },
+      {
+        "id": 10722,
+        "text": "6 A",
+        "html": "<p style=\"display:inline\">6 A</p>",
+        "is_correct": false,
+        "explanation": ""
+      },
+      {
+        "id": 10723,
+        "text": "10 A",
+        "html": "<p style=\"display:inline\">10 A</p>",
+        "is_correct": false,
+        "explanation": ""
+      }
+    ],
+    "correct_option_ids": [
+      10721
+    ],
+    "correct_option_text": "2 A",
+    "explanation": "Here, N p = 140; N s = 280 and I p = 4 A {tex}\\therefore I_s = I_p\\times\\frac{N_p}{N_s}=4\\times\\frac{140}{280}=2A{/tex}",
+    "solution": "",
+    "solution_html": "",
+    "weightage": "VSA (Very Short Answer)"
+  },
+  {
+    "subject": "Physics",
+    "subject_id": "1251",
+    "chapter": "Alternating Current",
+    "chapter_id": 1258,
+    "question_id": 1142949,
+    "question_html": "<p>When an alternating voltage E = E<sub>0</sub> sin <span class=\"math-tex\">{tex}\\omega{/tex}</span>t is applied to a circuit, a current I = I<sub>0</sub> sin<span class=\"math-tex\">{tex}\\left(\\omega t+\\frac{\\pi}{2}\\right){/tex}</span>&nbsp;flows through it. The average power dissipated in the circuit is</p>",
+    "question_text": "When an alternating voltage E = E 0 sin {tex}\\omega{/tex} t is applied to a circuit, a current I = I 0 sin {tex}\\left(\\omega t+\\frac{\\pi}{2}\\right){/tex} flows through it. The average power dissipated in the circuit is",
+    "options": [
+      {
+        "id": 2314484,
+        "text": "{tex}\\mathrm{E}_{\\mathrm{rms}} \\cdot \\mathrm{I}_{\\mathrm{rms}}{/tex}",
+        "html": "<p style=\"display:inline\"><span class=\"math-tex\">{tex}\\mathrm{E}_{\\mathrm{rms}} \\cdot \\mathrm{I}_{\\mathrm{rms}}{/tex}</span></p>",
+        "is_correct": false,
+        "explanation": ""
+      },
+      {
+        "id": 2314485,
+        "text": "{tex}\\mathrm{E}_0 \\mathrm{I}_0{/tex}",
+        "html": "<p style=\"display:inline\"><span class=\"math-tex\">{tex}\\mathrm{E}_0 \\mathrm{I}_0{/tex}</span></p>",
+        "is_correct": false,
+        "explanation": ""
+      },
+      {
+        "id": 2314486,
+        "text": "{tex}\\frac{E_0 I_0}{\\sqrt{2}}{/tex}",
+        "html": "<p style=\"display:inline\"><span class=\"math-tex\">{tex}\\frac{E_0 I_0}{\\sqrt{2}}{/tex}</span></p>",
+        "is_correct": false,
+        "explanation": ""
+      },
+      {
+        "id": 2314487,
+        "text": "Zero",
+        "html": "<p style=\"display:inline\">Zero</p>",
+        "is_correct": true,
+        "explanation": "Power = V rms {tex}\\times{/tex} I rms {tex}\\times{/tex} cos {tex}\\phi{/tex} Here {tex}\\phi{/tex} = {tex}\\frac{\\pi}{2}{/tex} So, Power = 0"
+      }
+    ],
+    "correct_option_ids": [
+      2314487
+    ],
+    "correct_option_text": "Zero",
+    "explanation": "Power = V rms {tex}\\times{/tex} I rms {tex}\\times{/tex} cos {tex}\\phi{/tex} Here {tex}\\phi{/tex} = {tex}\\frac{\\pi}{2}{/tex} So, Power = 0",
+    "solution": "",
+    "solution_html": "",
+    "weightage": "VSA (Very Short Answer)"
+  },
+  {
+    "subject": "Physics",
+    "subject_id": "1251",
+    "chapter": "Alternating Current",
+    "chapter_id": 1258,
+    "question_id": 1148158,
+    "question_html": "<p>An ideal inductor is connected across an AC source of voltage. The current in the circuit</p>",
+    "question_text": "An ideal inductor is connected across an AC source of voltage. The current in the circuit",
+    "options": [
+      {
+        "id": 2324330,
+        "text": "is ahead of the voltage in phase by {tex}\\pi{/tex} .",
+        "html": "<p style=\"display:inline\">is ahead of the voltage in phase by <span class=\"math-tex\">{tex}\\pi{/tex}</span>.</p>",
+        "is_correct": false,
+        "explanation": ""
+      },
+      {
+        "id": 2324331,
+        "text": "lags voltage in phase by {tex}\\pi{/tex} .",
+        "html": "<p style=\"display:inline\">lags voltage in phase by <span class=\"math-tex\">{tex}\\pi{/tex}</span>.</p>",
+        "is_correct": false,
+        "explanation": ""
+      },
+      {
+        "id": 2324332,
+        "text": "is ahead of voltage in phase by {tex}\\frac{\\pi}{2}{/tex} .",
+        "html": "<p style=\"display:inline\">is ahead of voltage in phase by <span class=\"math-tex\">{tex}\\frac{\\pi}{2}{/tex}</span>.</p>",
+        "is_correct": false,
+        "explanation": ""
+      },
+      {
+        "id": 2324333,
+        "text": "lags voltage in phase by {tex}\\frac{\\pi}{2}{/tex} .",
+        "html": "<p style=\"display:inline\">lags voltage in phase by <span class=\"math-tex\">{tex}\\frac{\\pi}{2}{/tex}</span>.</p>",
+        "is_correct": true,
+        "explanation": "lags voltage in phase by {tex}\\frac{\\pi}{2}{/tex} ."
+      }
+    ],
+    "correct_option_ids": [
+      2324333
+    ],
+    "correct_option_text": "lags voltage in phase by {tex}\\frac{\\pi}{2}{/tex} .",
+    "explanation": "lags voltage in phase by {tex}\\frac{\\pi}{2}{/tex} .",
+    "solution": "",
+    "solution_html": "",
+    "weightage": "VSA (Very Short Answer)"
+  },
+  {
+    "subject": "Physics",
+    "subject_id": "1251",
+    "chapter": "Alternating Current",
+    "chapter_id": 1258,
+    "question_id": 13892,
+    "question_html": "<p>A circuit has a resistance of 12 ohm and an impedance of 15 ohm. The power factor of the circuit will be</p>",
+    "question_text": "A circuit has a resistance of 12 ohm and an impedance of 15 ohm. The power factor of the circuit will be",
+    "options": [
+      {
+        "id": 10768,
+        "text": "{tex}0\\cdot8{/tex}",
+        "html": "<p style=\"display:inline\"><span class=\"math-tex\">{tex}0\\cdot8{/tex}</span></p>",
+        "is_correct": true,
+        "explanation": "Power factor {tex}cos\\phi = \\frac{R}{Z}{/tex} Here, R = 12 ohm and Z = 15 ohm {tex}\\therefore{/tex} power factor = {tex}\\frac{12}{15}{/tex} = {tex}0\\cdot8{/tex}"
+      },
+      {
+        "id": 10769,
+        "text": "{tex}0\\cdot4{/tex}",
+        "html": "<p style=\"display:inline\"><span class=\"math-tex\">{tex}0\\cdot4{/tex}</span></p>",
+        "is_correct": false,
+        "explanation": ""
+      },
+      {
+        "id": 10770,
+        "text": "{tex}1\\cdot25{/tex}",
+        "html": "<p style=\"display:inline\"><span class=\"math-tex\">{tex}1\\cdot25{/tex}</span></p>",
+        "is_correct": false,
+        "explanation": ""
+      },
+      {
+        "id": 10771,
+        "text": "{tex}1\\cdot125{/tex}",
+        "html": "<p style=\"display:inline\"><span class=\"math-tex\">{tex}1\\cdot125{/tex}</span></p>",
+        "is_correct": false,
+        "explanation": ""
+      }
+    ],
+    "correct_option_ids": [
+      10768
+    ],
+    "correct_option_text": "{tex}0\\cdot8{/tex}",
+    "explanation": "Power factor {tex}cos\\phi = \\frac{R}{Z}{/tex} Here, R = 12 ohm and Z = 15 ohm {tex}\\therefore{/tex} power factor = {tex}\\frac{12}{15}{/tex} = {tex}0\\cdot8{/tex}",
+    "solution": "",
+    "solution_html": "",
+    "weightage": "VSA (Very Short Answer)"
+  },
+  {
+    "subject": "Physics",
+    "subject_id": "1251",
+    "chapter": "Alternating Current",
+    "chapter_id": 1258,
+    "question_id": 13997,
+    "question_html": "<p>In a circuit, the current lags behind the&nbsp;voltage by a phase difference of <span class=\"math-tex\">{tex}\\pi/2{/tex}</span>. The circuit contains which of the following?</p>",
+    "question_text": "In a circuit, the current lags behind the voltage by a phase difference of {tex}\\pi/2{/tex} . The circuit contains which of the following?",
+    "options": [
+      {
+        "id": 11188,
+        "text": "only R",
+        "html": "<p style=\"display:inline\">only R</p>",
+        "is_correct": false,
+        "explanation": ""
+      },
+      {
+        "id": 11189,
+        "text": "only L",
+        "html": "<p style=\"display:inline\">only L</p>",
+        "is_correct": true,
+        "explanation": "When a circuit inductance only, then the current lags behind the voltage by the phase difference of {tex}\\pi/2{/tex} ."
+      },
+      {
+        "id": 11190,
+        "text": "only C",
+        "html": "<p style=\"display:inline\">only C</p>",
+        "is_correct": false,
+        "explanation": ""
+      },
+      {
+        "id": 11191,
+        "text": "R and C",
+        "html": "<p style=\"display:inline\">R and C</p>",
+        "is_correct": false,
+        "explanation": ""
+      }
+    ],
+    "correct_option_ids": [
+      11189
+    ],
+    "correct_option_text": "only L",
+    "explanation": "When a circuit inductance only, then the current lags behind the voltage by the phase difference of {tex}\\pi/2{/tex} .",
+    "solution": "",
+    "solution_html": "",
+    "weightage": "VSA (Very Short Answer)"
+  },
+  {
+    "subject": "Physics",
+    "subject_id": "1251",
+    "chapter": "Alternating Current",
+    "chapter_id": 1258,
+    "question_id": 13864,
+    "question_html": "<p>In an a.c. circuit, the current flowing is I = 5 sin (100 t -&nbsp;<span class=\"math-tex\">{tex}\\frac \\pi 2{/tex}</span>) (in A) and the potential difference is V = 200 sin 100 t (in V).&nbsp;The power consumption is equal to</p>",
+    "question_text": "In an a.c. circuit, the current flowing is I = 5 sin (100 t - {tex}\\frac \\pi 2{/tex} ) (in A) and the potential difference is V = 200 sin 100 t (in V). The power consumption is equal to",
+    "options": [
+      {
+        "id": 10656,
+        "text": "1,000 W",
+        "html": "<p style=\"display:inline\">1,000 W</p>",
+        "is_correct": false,
+        "explanation": ""
+      },
+      {
+        "id": 10657,
+        "text": "40 W",
+        "html": "<p style=\"display:inline\">40 W</p>",
+        "is_correct": false,
+        "explanation": ""
+      },
+      {
+        "id": 10658,
+        "text": "20 W",
+        "html": "<p style=\"display:inline\">20 W</p>",
+        "is_correct": false,
+        "explanation": ""
+      },
+      {
+        "id": 10659,
+        "text": "0 W",
+        "html": "<p style=\"display:inline\">0 W</p>",
+        "is_correct": true,
+        "explanation": "By comparing the given equations, the phase difference between current and emf is , {tex}\\phi= \\frac \\pi2{/tex} {tex}\\therefore{/tex} P av = E v I v {tex}cos\\phi{/tex} = E v I v cos {tex}\\frac \\pi 2{/tex} = 0"
+      }
+    ],
+    "correct_option_ids": [
+      10659
+    ],
+    "correct_option_text": "0 W",
+    "explanation": "By comparing the given equations, the phase difference between current and emf is , {tex}\\phi= \\frac \\pi2{/tex} {tex}\\therefore{/tex} P av = E v I v {tex}cos\\phi{/tex} = E v I v cos {tex}\\frac \\pi 2{/tex} = 0",
+    "solution": "",
+    "solution_html": "",
+    "weightage": "VSA (Very Short Answer)"
+  },
+  {
+    "subject": "Physics",
+    "subject_id": "1251",
+    "chapter": "Alternating Current",
+    "chapter_id": 1258,
+    "question_id": 1165641,
+    "question_html": "<p>A metal detector is based on:</p>",
+    "question_text": "A metal detector is based on:",
+    "options": [
+      {
+        "id": 2374851,
+        "text": "Self-induction",
+        "html": "<p style=\"display:inline\">Self-induction</p>",
+        "is_correct": false,
+        "explanation": ""
+      },
+      {
+        "id": 2374852,
+        "text": "Mutual induction",
+        "html": "<p style=\"display:inline\">Mutual induction</p>",
+        "is_correct": false,
+        "explanation": ""
+      },
+      {
+        "id": 2374853,
+        "text": "Electrical resonance",
+        "html": "<p style=\"display:inline\">Electrical resonance</p>",
+        "is_correct": true,
+        "explanation": "Electrical resonance"
+      },
+      {
+        "id": 2374854,
+        "text": "Power transmission",
+        "html": "<p style=\"display:inline\">Power transmission</p>",
+        "is_correct": false,
+        "explanation": ""
+      }
+    ],
+    "correct_option_ids": [
+      2374853
+    ],
+    "correct_option_text": "Electrical resonance",
+    "explanation": "Electrical resonance",
+    "solution": "",
+    "solution_html": "",
+    "weightage": "VSA (Very Short Answer)"
+  },
+  {
+    "subject": "Physics",
+    "subject_id": "1251",
+    "chapter": "Alternating Current",
+    "chapter_id": 1258,
+    "question_id": 66936,
+    "question_html": "<p>A capacitor of capacity C has reactance X. If capacitance and frequency are doubled, the reactance would be:</p>",
+    "question_text": "A capacitor of capacity C has reactance X. If capacitance and frequency are doubled, the reactance would be:",
+    "options": [
+      {
+        "id": 209155,
+        "text": "{tex}\\frac{X}{4}{/tex}",
+        "html": "<p style=\"display:inline\"><span class=\"math-tex\">{tex}\\frac{X}{4}{/tex}</span></p>",
+        "is_correct": true,
+        "explanation": "The capacitive reactance X is given by, {tex}X= {1\\over 2\\pi f C}{/tex} Let new reactance after doubling frequency and capacitance is {tex}X'{/tex} . So, {tex}X' = {1\\over 2\\pi (2f) (2C)}{/tex} {tex} \\Rightarrow X' = {1\\over 4(2\\pi f C)}{/tex} {tex} \\Rightarrow X'= {X\\over 4}{/tex}"
+      },
+      {
+        "id": 209156,
+        "text": "4X",
+        "html": "<p style=\"display:inline\">4X</p>",
+        "is_correct": false,
+        "explanation": ""
+      },
+      {
+        "id": 209157,
+        "text": "{tex}\\frac{X}{2}{/tex}",
+        "html": "<p style=\"display:inline\"><span class=\"math-tex\">{tex}\\frac{X}{2}{/tex}</span></p>",
+        "is_correct": false,
+        "explanation": ""
+      },
+      {
+        "id": 209158,
+        "text": "2X",
+        "html": "<p style=\"display:inline\">2X</p>",
+        "is_correct": false,
+        "explanation": ""
+      }
+    ],
+    "correct_option_ids": [
+      209155
+    ],
+    "correct_option_text": "{tex}\\frac{X}{4}{/tex}",
+    "explanation": "The capacitive reactance X is given by, {tex}X= {1\\over 2\\pi f C}{/tex} Let new reactance after doubling frequency and capacitance is {tex}X'{/tex} . So, {tex}X' = {1\\over 2\\pi (2f) (2C)}{/tex} {tex} \\Rightarrow X' = {1\\over 4(2\\pi f C)}{/tex} {tex} \\Rightarrow X'= {X\\over 4}{/tex}",
+    "solution": "",
+    "solution_html": "",
+    "weightage": "VSA (Very Short Answer)"
+  },
+  {
+    "subject": "Physics",
+    "subject_id": "1251",
+    "chapter": "Alternating Current",
+    "chapter_id": 1258,
+    "question_id": 13874,
+    "question_html": "<p>A current I = I<sub>0</sub> sin (<span class=\"math-tex\">{tex}\\omega{/tex}</span>t + <span class=\"math-tex\">{tex}\\pi{/tex}</span>/2) flows in a circuit across which an alternating potential E = E<sub>0</sub>&nbsp;sin&nbsp;<span class=\"math-tex\">{tex}\\omega{/tex}</span>t&nbsp;is applied. The power consumed in the circuit is</p>",
+    "question_text": "A current I = I 0 sin ( {tex}\\omega{/tex} t + {tex}\\pi{/tex} /2) flows in a circuit across which an alternating potential E = E 0 sin {tex}\\omega{/tex} t is applied. The power consumed in the circuit is",
+    "options": [
+      {
+        "id": 10696,
+        "text": "E 0 I 0 / 2",
+        "html": "<p style=\"display:inline\">E<sub>0 </sub>I<sub>0 </sub>/ 2</p>",
+        "is_correct": false,
+        "explanation": ""
+      },
+      {
+        "id": 10697,
+        "text": "E 0 I 0",
+        "html": "<p style=\"display:inline\">E<sub>0 </sub>I<sub>0 </sub></p>",
+        "is_correct": false,
+        "explanation": ""
+      },
+      {
+        "id": 10698,
+        "text": "E",
+        "html": "<p style=\"display:inline\">E</p>",
+        "is_correct": false,
+        "explanation": ""
+      },
+      {
+        "id": 10699,
+        "text": "zero",
+        "html": "<p style=\"display:inline\">zero</p>",
+        "is_correct": true,
+        "explanation": "Here, the phase difference between current and e.m.f., {tex}\\phi=\\pi/2{/tex} {tex}\\therefore{/tex} P av = E v I v {tex}cos\\phi{/tex} = E v I v cos {tex}\\pi{/tex} /2 = 0"
+      }
+    ],
+    "correct_option_ids": [
+      10699
+    ],
+    "correct_option_text": "zero",
+    "explanation": "Here, the phase difference between current and e.m.f., {tex}\\phi=\\pi/2{/tex} {tex}\\therefore{/tex} P av = E v I v {tex}cos\\phi{/tex} = E v I v cos {tex}\\pi{/tex} /2 = 0",
+    "solution": "",
+    "solution_html": "",
+    "weightage": "VSA (Very Short Answer)"
+  },
+  {
+    "subject": "Physics",
+    "subject_id": "1251",
+    "chapter": "Alternating Current",
+    "chapter_id": 1258,
+    "question_id": 1142974,
+    "question_html": "<p>The core of a transformer is laminated to reduce the effect of</p>",
+    "question_text": "The core of a transformer is laminated to reduce the effect of",
+    "options": [
+      {
+        "id": 2314532,
+        "text": "flux leakage",
+        "html": "<p style=\"display:inline\">flux leakage</p>",
+        "is_correct": false,
+        "explanation": ""
+      },
+      {
+        "id": 2314533,
+        "text": "copper loss",
+        "html": "<p style=\"display:inline\">copper loss</p>",
+        "is_correct": false,
+        "explanation": ""
+      },
+      {
+        "id": 2314534,
+        "text": "hysteresis loss",
+        "html": "<p style=\"display:inline\">hysteresis loss</p>",
+        "is_correct": false,
+        "explanation": ""
+      },
+      {
+        "id": 2314535,
+        "text": "eddy current",
+        "html": "<p style=\"display:inline\">eddy current</p>",
+        "is_correct": true,
+        "explanation": "Lamination increases the resistance and hence reduced the eddy current."
+      }
+    ],
+    "correct_option_ids": [
+      2314535
+    ],
+    "correct_option_text": "eddy current",
+    "explanation": "Lamination increases the resistance and hence reduced the eddy current.",
+    "solution": "",
+    "solution_html": "",
+    "weightage": "VSA (Very Short Answer)"
+  },
+  {
+    "subject": "Physics",
+    "subject_id": "1251",
+    "chapter": "Alternating Current",
+    "chapter_id": 1258,
+    "question_id": 66938,
+    "question_html": "<p>In an ideal inductor, L = 4H and <span class=\"math-tex\">{tex}\\omega {/tex}</span>&nbsp;= 100 rad/s. The power developed is:</p>",
+    "question_text": "In an ideal inductor, L = 4H and {tex}\\omega {/tex} = 100 rad/s. The power developed is:",
+    "options": [
+      {
+        "id": 209163,
+        "text": "0",
+        "html": "<p style=\"display:inline\">0</p>",
+        "is_correct": true,
+        "explanation": "Power in an ac circuit, {tex}P = {V_{rms}} {I_{rms}} \\cos \\phi {/tex} If only inductor is present in circuit, then voltage leads the current by 90 o i.e. {tex}\\phi = 90^\\circ {/tex} Hence, P = 0 as {tex}{\\cos 90^\\circ = 0} {/tex}"
+      },
+      {
+        "id": 209164,
+        "text": "V 0 I 0",
+        "html": "<p style=\"display:inline\">V<sub>0</sub>I<sub>0</sub></p>",
+        "is_correct": false,
+        "explanation": ""
+      },
+      {
+        "id": 209165,
+        "text": "{tex}\\frac {V_oI_o}2{/tex}",
+        "html": "<p style=\"display:inline\"><span class=\"math-tex\">{tex}\\frac {V_oI_o}2{/tex}</span></p>",
+        "is_correct": false,
+        "explanation": ""
+      },
+      {
+        "id": 209166,
+        "text": "2V 0 I 0",
+        "html": "<p style=\"display:inline\">2V<sub>0</sub>I<sub>0</sub></p>",
+        "is_correct": false,
+        "explanation": ""
+      }
+    ],
+    "correct_option_ids": [
+      209163
+    ],
+    "correct_option_text": "0",
+    "explanation": "Power in an ac circuit, {tex}P = {V_{rms}} {I_{rms}} \\cos \\phi {/tex} If only inductor is present in circuit, then voltage leads the current by 90 o i.e. {tex}\\phi = 90^\\circ {/tex} Hence, P = 0 as {tex}{\\cos 90^\\circ = 0} {/tex}",
+    "solution": "",
+    "solution_html": "",
+    "weightage": "VSA (Very Short Answer)"
+  },
+  {
+    "subject": "Physics",
+    "subject_id": "1251",
+    "chapter": "Alternating Current",
+    "chapter_id": 1258,
+    "question_id": 1142708,
+    "question_html": "<p><strong>Assertion (A):</strong> A step-up transformer cannot be used as a step-down transformer.<br />\r\n<strong>Reason (R):</strong> A transformer works only in one direction.</p>",
+    "question_text": "Assertion (A): A step-up transformer cannot be used as a step-down transformer. Reason (R): A transformer works only in one direction.",
+    "options": [
+      {
+        "id": 2314092,
+        "text": "Both A and R are true and R is the correct explanation of A.",
+        "html": "<p style=\"display:inline\">Both A and R are true and R is the correct explanation of A.</p>",
+        "is_correct": false,
+        "explanation": ""
+      },
+      {
+        "id": 2314093,
+        "text": "Both A and R are true but R is not the correct explanation of A.",
+        "html": "<p style=\"display:inline\">Both A and R are true but R is not the correct explanation of A.</p>",
+        "is_correct": true,
+        "explanation": "Step-up transformer cannot be used as a step down transformer or vice versa. The assertion is true. So, the transformer is a uni-directional device. The reason is also true. But the reason does not explain the assertion."
+      },
+      {
+        "id": 2314094,
+        "text": "A is true but R is false.",
+        "html": "<p style=\"display:inline\">A is true but R is false.</p>",
+        "is_correct": false,
+        "explanation": ""
+      },
+      {
+        "id": 2314095,
+        "text": "A is false but R is true.",
+        "html": "<p style=\"display:inline\">A is false but R is true.</p>",
+        "is_correct": false,
+        "explanation": ""
+      }
+    ],
+    "correct_option_ids": [
+      2314093
+    ],
+    "correct_option_text": "Both A and R are true but R is not the correct explanation of A.",
+    "explanation": "Step-up transformer cannot be used as a step down transformer or vice versa. The assertion is true. So, the transformer is a uni-directional device. The reason is also true. But the reason does not explain the assertion.",
+    "solution": "",
+    "solution_html": "",
+    "weightage": "VSA (Very Short Answer)"
+  },
+  {
+    "subject": "Physics",
+    "subject_id": "1251",
+    "chapter": "Alternating Current",
+    "chapter_id": 1258,
+    "question_id": 1345968,
+    "question_html": "<ol start=\"1\" style=\"list-style-type:lower-alpha\">\n\t<li>Draw the graphs showing the variation of the following with the frequency of ac source in a circuit:\n\t<ol start=\"1\" style=\"list-style-type:lower-roman\">\n\t\t<li>Resistance</li>\n\t\t<li>Capacitive reactance</li>\n\t\t<li>Inductive reactance</li>\n\t</ol>\n\t</li>\n\t<li>Can the voltage drop across the inductor or the capacitor in a series LCR circuit be greater than the applied voltage of the ac source? Justify your answer.</li>\n</ol>",
+    "question_text": "Draw the graphs showing the variation of the following with the frequency of ac source in a circuit: Resistance Capacitive reactance Inductive reactance Can the voltage drop across the inductor or the capacitor in a series LCR circuit be greater than the applied voltage of the ac source? Justify your answer.",
+    "options": [],
+    "correct_option_ids": [],
+    "correct_option_text": "",
+    "explanation": "Resistance Capacitive reactance Inductive reactance Yes, the voltage drop across the inductor or the capacitor in a series LCR (inductor-capacitor-resistor) circuit can be greater than the applied voltage of the AC source. This phenomenon occurs due to the concept of reactive voltage and phase differences in an AC circuit.",
+    "solution": "Resistance Capacitive reactance Inductive reactance Yes, the voltage drop across the inductor or the capacitor in a series LCR (inductor-capacitor-resistor) circuit can be greater than the applied voltage of the AC source. This phenomenon occurs due to the concept of reactive voltage and phase differences in an AC circuit.",
+    "solution_html": "<ol start=\"1\" style=\"list-style-type:lower-alpha\">\n\t<li>\n\t<ol start=\"1\" style=\"list-style-type:lower-roman\">\n\t\t<li>Resistance<br />\n\t\t<img src=\"https://media-mycbseguide.s3.amazonaws.com/images/question_images/1729833193-xpk447.jpg\" style=\"height:128px; width:200px\" /></li>\n\t\t<li>Capacitive reactance<br />\n\t\t<img src=\"https://media-mycbseguide.s3.amazonaws.com/images/question_images/1729833220-vf7rmr.jpg\" style=\"height:127px; width:150px\" /></li>\n\t\t<li>Inductive reactance<br />\n\t\t<img src=\"https://media-mycbseguide.s3.amazonaws.com/images/question_images/1729833249-f67bqv.jpg\" style=\"height:93px; width:180px\" /></li>\n\t</ol>\n\t</li>\n\t<li>Yes, the voltage drop across the inductor or the capacitor in a series LCR (inductor-capacitor-resistor) circuit can be greater than the applied voltage of the AC source. This phenomenon occurs due to the concept of <strong>reactive voltage</strong> and phase differences in an AC circuit.</li>\n</ol>",
+    "weightage": "SA-1 (Short answer type-1)"
+  },
+  {
+    "subject": "Physics",
+    "subject_id": "1251",
+    "chapter": "Alternating Current",
+    "chapter_id": 1258,
+    "question_id": 399874,
+    "question_html": "<p>A light bulb is rated at 100W for a 220 V supply. Find</p>\r\n\r\n<ol start=\"1\" style=\"list-style-type:lower-alpha\">\r\n\t<li>the resistance of the bulb;</li>\r\n\t<li>the peak voltage of the source; and</li>\r\n\t<li>the rms current through the bulb.</li>\r\n</ol>",
+    "question_text": "A light bulb is rated at 100W for a 220 V supply. Find the resistance of the bulb; the peak voltage of the source; and the rms current through the bulb.",
+    "options": [],
+    "correct_option_ids": [],
+    "correct_option_text": "",
+    "explanation": "We are given P = 100 W and V = 220 V. The resistance of the bulb is {tex}R=\\frac{V^{2}}{P}=\\frac{(220 \\mathrm{V})^{2}}{100 \\mathrm{W}}=484 \\Omega{/tex} The peak voltage of the source is {tex}v_{m}=\\sqrt{2} V=311 \\mathrm{V} {/tex} Since, P = lV thus rms cureent is given by, {tex}I=\\frac{P}{V}=\\frac{100 \\mathrm{W}}{220 \\mathrm{V}}{/tex} = 0.454 A",
+    "solution": "We are given P = 100 W and V = 220 V. The resistance of the bulb is {tex}R=\\frac{V^{2}}{P}=\\frac{(220 \\mathrm{V})^{2}}{100 \\mathrm{W}}=484 \\Omega{/tex} The peak voltage of the source is {tex}v_{m}=\\sqrt{2} V=311 \\mathrm{V} {/tex} Since, P = lV thus rms cureent is given by, {tex}I=\\frac{P}{V}=\\frac{100 \\mathrm{W}}{220 \\mathrm{V}}{/tex} = 0.454 A",
+    "solution_html": "<ol start=\"1\" style=\"list-style-type:lower-alpha\">\r\n\t<li>We are given P = 100 W and V = 220 V. The resistance of the bulb is&nbsp;<br />\r\n\t<span class=\"math-tex\">{tex}R=\\frac{V^{2}}{P}=\\frac{(220 \\mathrm{V})^{2}}{100 \\mathrm{W}}=484 \\Omega{/tex}</span></li>\r\n\t<li>The peak voltage of the source is<br />\r\n\t<span class=\"math-tex\">{tex}v_{m}=\\sqrt{2} V=311 \\mathrm{V} {/tex}</span></li>\r\n\t<li>Since, P = lV&nbsp; &nbsp;thus rms cureent is given by,<br />\r\n\t<span class=\"math-tex\">{tex}I=\\frac{P}{V}=\\frac{100 \\mathrm{W}}{220 \\mathrm{V}}{/tex}</span>&nbsp;= 0.454 A</li>\r\n</ol>",
+    "weightage": "SA-1 (Short answer type-1)"
+  },
+  {
+    "subject": "Physics",
+    "subject_id": "1251",
+    "chapter": "Alternating Current",
+    "chapter_id": 1258,
+    "question_id": 422773,
+    "question_html": "<ol start=\"1\" style=\"list-style-type: lower-roman;\">\r\n\t<li>What is the principle of the transformer?</li>\r\n\t<li>Explain how laminating the core a transformer helps to reduce eddy current losses in it?</li>\r\n\t<li>Why the primary and secondary coils of a transformer are preferably wound on the same core?</li>\r\n</ol>",
+    "question_text": "What is the principle of the transformer? Explain how laminating the core a transformer helps to reduce eddy current losses in it? Why the primary and secondary coils of a transformer are preferably wound on the same core?",
+    "options": [],
+    "correct_option_ids": [],
+    "correct_option_text": "",
+    "explanation": "A transformer works on the principle of mutual induction between the two circuits which is linked by a common magnetic flux. (Alternatively-an emf is induced in the secondary coil when the magnetic flux, linked with it changes with time due to a (time) changing magnetic flux linked with the primary coil). Laminations are thin, making the resistance higher. Eddy currents are confined within each thin lamination. This reduces the net eddy current. For maximum sharing of magnetic flux and magnetic flux per turn to be the same in both primary and secondary.",
+    "solution": "A transformer works on the principle of mutual induction between the two circuits which is linked by a common magnetic flux. (Alternatively-an emf is induced in the secondary coil when the magnetic flux, linked with it changes with time due to a (time) changing magnetic flux linked with the primary coil). Laminations are thin, making the resistance higher. Eddy currents are confined within each thin lamination. This reduces the net eddy current. For maximum sharing of magnetic flux and magnetic flux per turn to be the same in both primary and secondary.",
+    "solution_html": "<ol start=\"1\" style=\"list-style-type: lower-roman;\">\n\t<li>A transformer works on the principle of mutual induction between the two circuits which is&nbsp;linked by a common magnetic flux. (Alternatively-an emf is induced in the secondary coil when the magnetic flux, linked with it changes with time due to a (time) changing magnetic flux linked with the primary coil).</li>\n\t<li>Laminations are thin, making the resistance higher. Eddy currents are confined within each thin lamination. This reduces the net eddy current.</li>\n\t<li>For maximum sharing of magnetic flux and magnetic flux per turn to be the same in both primary and secondary.</li>\n</ol>",
+    "weightage": "SA-2 (Short answer type-2)"
+  },
+  {
+    "subject": "Physics",
+    "subject_id": "1251",
+    "chapter": "Alternating Current",
+    "chapter_id": 1258,
+    "question_id": 497336,
+    "question_html": "<p>When an ideal capacitor is connected to an a.c. source, show that the average power supplied by the source over a complete cycle is Zero.</p>",
+    "question_text": "When an ideal capacitor is connected to an a.c. source, show that the average power supplied by the source over a complete cycle is Zero.",
+    "options": [],
+    "correct_option_ids": [],
+    "correct_option_text": "",
+    "explanation": "Average power associated with a capacitor: When an a.c. is applied to a capacitor, the current leads the voltage in phase by {tex}\\pi \\over 2{/tex} radian. So we write the expressions for instantaneous voltage and current as follows: {tex}V=V_{0} \\sin \\omega t{/tex} and {tex}I=I_{0} \\sin \\left(\\omega t+\\frac{\\pi}{2}\\right)=I_{0} \\cos \\omega t{/tex} Work done in the circuit in small time dt will be dW = Pdt = VIdt = V 0 I 0 sin {tex}\\omega{/tex} t cos {tex}\\omega{/tex} t dt {tex}=\\frac{V_{0} I_{0}}{2} \\sin 2 \\omega t d t{/tex} The average power dissipated per cycle in the capacitor is Pav = {tex}\\frac{W}{T}=\\frac{1}{T} \\int_{0}^{T} d W=\\frac{V_{0} I_{0}}{2 T} \\int_{0}^{T} \\sin 2 \\omega t d t{/tex} {tex}=\\frac{V_{0} I_{0}}{2 T}\\left[-\\frac{\\cos 2 \\omega t}{2 \\omega}\\right]_{0}^{T}{/tex} {tex}=-\\frac{V_{0} I_{0}}{4 T \\omega}\\left[\\cos \\frac{4 \\pi}{T} t\\right]_{0}^{T}{/tex} {tex}=-\\frac{V_{0} I_{0}}{4 T \\omega}[\\cos 4 \\pi-\\cos 0]{/tex} {tex}=-\\frac{V_{0} I_{0}}{4 T \\omega}[1-1]=0{/tex} Thus the average power dissipated per cycle in a capacitor is zero.",
+    "solution": "Average power associated with a capacitor: When an a.c. is applied to a capacitor, the current leads the voltage in phase by {tex}\\pi \\over 2{/tex} radian. So we write the expressions for instantaneous voltage and current as follows: {tex}V=V_{0} \\sin \\omega t{/tex} and {tex}I=I_{0} \\sin \\left(\\omega t+\\frac{\\pi}{2}\\right)=I_{0} \\cos \\omega t{/tex} Work done in the circuit in small time dt will be dW = Pdt = VIdt = V 0 I 0 sin {tex}\\omega{/tex} t cos {tex}\\omega{/tex} t dt {tex}=\\frac{V_{0} I_{0}}{2} \\sin 2 \\omega t d t{/tex} The average power dissipated per cycle in the capacitor is Pav = {tex}\\frac{W}{T}=\\frac{1}{T} \\int_{0}^{T} d W=\\frac{V_{0} I_{0}}{2 T} \\int_{0}^{T} \\sin 2 \\omega t d t{/tex} {tex}=\\frac{V_{0} I_{0}}{2 T}\\left[-\\frac{\\cos 2 \\omega t}{2 \\omega}\\right]_{0}^{T}{/tex} {tex}=-\\frac{V_{0} I_{0}}{4 T \\omega}\\left[\\cos \\frac{4 \\pi}{T} t\\right]_{0}^{T}{/tex} {tex}=-\\frac{V_{0} I_{0}}{4 T \\omega}[\\cos 4 \\pi-\\cos 0]{/tex} {tex}=-\\frac{V_{0} I_{0}}{4 T \\omega}[1-1]=0{/tex} Thus the average power dissipated per cycle in a capacitor is zero.",
+    "solution_html": "<p><strong>Average power associated with a capacitor:</strong>&nbsp;When an a.c. is applied to a capacitor, the current leads the voltage in phase by <span class=\"math-tex\">{tex}\\pi \\over 2{/tex}</span> radian. So we write the expressions for instantaneous voltage and current as follows:<br />\r\n<span class=\"math-tex\">{tex}V=V_{0} \\sin \\omega t{/tex}</span><br />\r\nand&nbsp;<span class=\"math-tex\">{tex}I=I_{0} \\sin \\left(\\omega t+\\frac{\\pi}{2}\\right)=I_{0} \\cos \\omega t{/tex}</span><br />\r\nWork done in the circuit in small time dt will be<br />\r\ndW = Pdt = VIdt = V<sub>0</sub>I<sub>0</sub> sin <span class=\"math-tex\">{tex}\\omega{/tex}</span>t cos <span class=\"math-tex\">{tex}\\omega{/tex}</span>t dt<br />\r\n<span class=\"math-tex\">{tex}=\\frac{V_{0} I_{0}}{2} \\sin 2 \\omega t d t{/tex}</span><br />\r\nThe average power dissipated per cycle in the capacitor is<br />\r\nPav =&nbsp;<span class=\"math-tex\">{tex}\\frac{W}{T}=\\frac{1}{T} \\int_{0}^{T} d W=\\frac{V_{0} I_{0}}{2 T} \\int_{0}^{T} \\sin 2 \\omega t d t{/tex}</span>&nbsp;<br />\r\n<span class=\"math-tex\">{tex}=\\frac{V_{0} I_{0}}{2 T}\\left[-\\frac{\\cos 2 \\omega t}{2 \\omega}\\right]_{0}^{T}{/tex}</span><br />\r\n<span class=\"math-tex\">{tex}=-\\frac{V_{0} I_{0}}{4 T \\omega}\\left[\\cos \\frac{4 \\pi}{T} t\\right]_{0}^{T}{/tex}</span><br />\r\n<span class=\"math-tex\">{tex}=-\\frac{V_{0} I_{0}}{4 T \\omega}[\\cos 4 \\pi-\\cos 0]{/tex}</span><br />\r\n<span class=\"math-tex\">{tex}=-\\frac{V_{0} I_{0}}{4 T \\omega}[1-1]=0{/tex}</span>&nbsp;<br />\r\nThus the average power dissipated per cycle in a capacitor is zero.</p>",
+    "weightage": "SA-2 (Short answer type-2)"
+  },
+  {
+    "subject": "Physics",
+    "subject_id": "1251",
+    "chapter": "Alternating Current",
+    "chapter_id": 1258,
+    "question_id": 1715494,
+    "question_html": "<p>An ac source of voltage is connected to a circuit element X. It is observed that the current flowing through X varies as <span class=\"math-tex\">{tex}I=I_0 \\sin \\left(\\omega t-\\frac{\\pi}{2}\\right) .{/tex}</span></p>\r\n\r\n<ol start=\"1\" style=\"list-style-type:lower-alpha\">\r\n\t<li>Identify the element X and write the expression for its reactance.</li>\r\n\t<li>Plot a graph to show the variation of reactance of the element with the frequency of the applied voltage.</li>\r\n\t<li>Draw plots showing the variation of voltage and current with time over one cycle of applied ac.</li>\r\n</ol>",
+    "question_text": "An ac source of voltage is connected to a circuit element X. It is observed that the current flowing through X varies as {tex}I=I_0 \\sin \\left(\\omega t-\\frac{\\pi}{2}\\right) .{/tex} Identify the element X and write the expression for its reactance. Plot a graph to show the variation of reactance of the element with the frequency of the applied voltage. Draw plots showing the variation of voltage and current with time over one cycle of applied ac.",
+    "options": [],
+    "correct_option_ids": [],
+    "correct_option_text": "",
+    "explanation": "Inductor",
+    "solution": "Inductor",
+    "solution_html": "<ol start=\"1\" style=\"list-style-type:lower-alpha\">\r\n\t<li>Inductor</li>\r\n\t<li><img src=\"https://media-mycbseguide.s3.amazonaws.com/images/imgur/1761222508-5gt5zj.jpg\" style=\"height:129px; width:150px\" /></li>\r\n\t<li><img src=\"https://media-mycbseguide.s3.amazonaws.com/images/imgur/1761222508-yajzcq.jpg\" style=\"height:215px; width:300px\" /></li>\r\n</ol>",
+    "weightage": "SA-2 (Short answer type-2)"
+  },
+  {
+    "subject": "Physics",
+    "subject_id": "1251",
+    "chapter": "Alternating Current",
+    "chapter_id": 1258,
+    "question_id": 178747,
+    "question_html": "<p>A step-up down transformer operated on a 2.5 kV line. It supplies a load with 20 A. The ratio of the primary winding to the secondary is 10 : 1. If the transformer is 90% efficient, calculate</p>\r\n\r\n<ol start=\"1\" style=\"list-style-type: lower-roman;\">\r\n\t<li>the power output</li>\r\n\t<li>the voltage and</li>\r\n\t<li>the current in the secondary coil.</li>\r\n</ol>",
+    "question_text": "A step-up down transformer operated on a 2.5 kV line. It supplies a load with 20 A. The ratio of the primary winding to the secondary is 10 : 1. If the transformer is 90% efficient, calculate the power output the voltage and the current in the secondary coil.",
+    "options": [],
+    "correct_option_ids": [],
+    "correct_option_text": "",
+    "explanation": "Given: {tex}V _ { P } = 2.5 \\times 10 ^ { 3 } \\mathrm { V }{/tex} , Input current, {tex}I _ { P } = 20 \\mathrm { A }{/tex} Also, {tex}\\frac{N _ { p }} {N _ { s}}= \\frac{10 }{1}{/tex} Output Power = {tex}\\frac{{90}}{{100}} \\times \\left( {2.5 \\times {{10}^3}} \\right) \\times (20{\\text{)}} = 4.5 \\times {10^4}{\\text{W}}{/tex} {tex}\\frac {V_s}{V_p} = \\frac {N_s}{N_p} \\Rightarrow {V_s} = \\frac {N_s}{N_p} \\times {V_p}{/tex} Voltage, {tex}V _ { S } = \\frac { 1 } { 10 } \\times 2.5 \\times 10 ^ { 3 } \\mathrm { } = 250 \\mathrm { V }{/tex} {tex}V _ { \\mathrm { s } } I _ { \\mathrm { s } } = 4.5 \\times 10 ^ { 4 } \\mathrm { W }{/tex} Current, {tex}I _ { S } = \\frac { 4.5 \\times 10 ^ { 4 } } { V _ { S } } = \\frac { 4.5 \\times 10 ^ { 4 } } { 250 }{/tex} {tex}\\Rightarrow \\quad I _ { S } = 180 \\mathrm { A }{/tex}",
+    "solution": "Given: {tex}V _ { P } = 2.5 \\times 10 ^ { 3 } \\mathrm { V }{/tex} , Input current, {tex}I _ { P } = 20 \\mathrm { A }{/tex} Also, {tex}\\frac{N _ { p }} {N _ { s}}= \\frac{10 }{1}{/tex} Output Power = {tex}\\frac{{90}}{{100}} \\times \\left( {2.5 \\times {{10}^3}} \\right) \\times (20{\\text{)}} = 4.5 \\times {10^4}{\\text{W}}{/tex} {tex}\\frac {V_s}{V_p} = \\frac {N_s}{N_p} \\Rightarrow {V_s} = \\frac {N_s}{N_p} \\times {V_p}{/tex} Voltage, {tex}V _ { S } = \\frac { 1 } { 10 } \\times 2.5 \\times 10 ^ { 3 } \\mathrm { } = 250 \\mathrm { V }{/tex} {tex}V _ { \\mathrm { s } } I _ { \\mathrm { s } } = 4.5 \\times 10 ^ { 4 } \\mathrm { W }{/tex} Current, {tex}I _ { S } = \\frac { 4.5 \\times 10 ^ { 4 } } { V _ { S } } = \\frac { 4.5 \\times 10 ^ { 4 } } { 250 }{/tex} {tex}\\Rightarrow \\quad I _ { S } = 180 \\mathrm { A }{/tex}",
+    "solution_html": "<ol start=\"1\" style=\"list-style-type: lower-roman;\">\r\n\t<li>Given:&nbsp;<span class=\"math-tex\">{tex}V _ { P } = 2.5 \\times 10 ^ { 3 } \\mathrm { V }{/tex}</span>, Input current,&nbsp;<span class=\"math-tex\">{tex}I _ { P } = 20 \\mathrm { A }{/tex}</span><br />\r\n\tAlso,&nbsp;<span class=\"math-tex\">{tex}\\frac{N _ { p }} {N _ { s}}= \\frac{10 }{1}{/tex}</span><br />\r\n\tOutput Power =&nbsp;<span class=\"math-tex\">{tex}\\frac{{90}}{{100}} \\times \\left( {2.5 \\times {{10}^3}} \\right) \\times (20{\\text{)}} = 4.5 \\times {10^4}{\\text{W}}{/tex}</span></li>\r\n\t<li><span class=\"math-tex\">{tex}\\frac {V_s}{V_p} = \\frac {N_s}{N_p} \\Rightarrow {V_s} = \\frac {N_s}{N_p} \\times {V_p}{/tex}</span><br />\r\n\tVoltage,&nbsp;<span class=\"math-tex\">{tex}V _ { S } = \\frac { 1 } { 10 } \\times 2.5 \\times 10 ^ { 3 } \\mathrm { } = 250 \\mathrm { V }{/tex}</span></li>\r\n\t<li><span class=\"math-tex\">{tex}V _ { \\mathrm { s } } I _ { \\mathrm { s } } = 4.5 \\times 10 ^ { 4 } \\mathrm { W }{/tex}</span><br />\r\n\tCurrent,&nbsp;<span class=\"math-tex\">{tex}I _ { S } = \\frac { 4.5 \\times 10 ^ { 4 } } { V _ { S } } = \\frac { 4.5 \\times 10 ^ { 4 } } { 250 }{/tex}</span><br />\r\n\t<span class=\"math-tex\">{tex}\\Rightarrow \\quad I _ { S } = 180 \\mathrm { A }{/tex}</span></li>\r\n</ol>",
+    "weightage": "SA-2 (Short answer type-2)"
+  },
+  {
+    "subject": "Physics",
+    "subject_id": "1251",
+    "chapter": "Alternating Current",
+    "chapter_id": 1258,
+    "question_id": 422366,
+    "question_html": "<p>A device <strong>X</strong>&nbsp;is connected to an a.c source. The variation of voltage, current and power in one complete cycle is shown in Figure.<br />\r\n<img alt=\"\" src=\"https://media-mycbseguide.s3.amazonaws.com/images/imgur/1606752471-gaa65n.jpg\" style=\"height:115px; width:161px\" /></p>\r\n\r\n<ol start=\"1\" style=\"list-style-type:lower-alpha\">\r\n\t<li>Which curve shows power consumption over a full cycle?</li>\r\n\t<li>What is the average power consumption over a cycle?</li>\r\n\t<li>Identify the device <strong>X</strong>.</li>\r\n</ol>",
+    "question_text": "A device X is connected to an a.c source. The variation of voltage, current and power in one complete cycle is shown in Figure. Which curve shows power consumption over a full cycle? What is the average power consumption over a cycle? Identify the device X .",
+    "options": [],
+    "correct_option_ids": [],
+    "correct_option_text": "",
+    "explanation": "We know that Power is the product of voltage and current (Power = P = VI) So, the curve of power will be having the maximum amplitude, equals to the product of amplitudes of voltage (V) and current (I) curve. Frequencies, of B and C are-equal, therefore they represent V and I curves. So, the curve A represents power consumption over a full cycle. The full cycle of the graph (as shown by the shaded area in the diagram) consists of one positive and one negative symmetrical area. Hence, average power consumption over a cycle is zero. Here phase difference between V and I is {tex}\\pi{/tex} / 2 therefore, the device &#39;X&#39; may be an inductor (L) or capacitor (C) or the series combination of L and C.",
+    "solution": "We know that Power is the product of voltage and current (Power = P = VI) So, the curve of power will be having the maximum amplitude, equals to the product of amplitudes of voltage (V) and current (I) curve. Frequencies, of B and C are-equal, therefore they represent V and I curves. So, the curve A represents power consumption over a full cycle. The full cycle of the graph (as shown by the shaded area in the diagram) consists of one positive and one negative symmetrical area. Hence, average power consumption over a cycle is zero. Here phase difference between V and I is {tex}\\pi{/tex} / 2 therefore, the device &#39;X&#39; may be an inductor (L) or capacitor (C) or the series combination of L and C.",
+    "solution_html": "<ol start=\"1\" style=\"list-style-type:lower-alpha\">\r\n\t<li>We know that Power is the product of voltage and current (Power = P = VI) So, the curve of power will be having the maximum amplitude, equals to the product of amplitudes of voltage (V) and current (I) curve. Frequencies, of B&nbsp;and C&nbsp;are-equal, therefore they represent V&nbsp;and I curves. So, the curve A represents power consumption over a full cycle.</li>\r\n\t<li>The full cycle of the graph (as shown by the shaded area in the diagram) consists of one positive and one negative symmetrical area.<br />\r\n\t<img alt=\"\" src=\"https://media-mycbseguide.s3.amazonaws.com/images/imgur/1606752475-j67aut.jpg\" style=\"height:180px; width:150px\" /><br />\r\n\tHence, average power consumption over a cycle is zero.</li>\r\n\t<li>Here phase difference between V&nbsp;and I&nbsp;is <span class=\"math-tex\">{tex}\\pi{/tex}</span> / 2&nbsp;therefore, the device &#39;X&#39; may be an inductor (L) or capacitor (C) or the series combination of L and C.</li>\r\n</ol>",
+    "weightage": "SA-2 (Short answer type-2)"
+  },
+  {
+    "subject": "Physics",
+    "subject_id": "1251",
+    "chapter": "Alternating Current",
+    "chapter_id": 1258,
+    "question_id": 144263,
+    "question_html": "<ol start=\"1\" style=\"list-style-type: lower-roman;\">\r\n\t<li>When an AC source is connected to an ideal inductor show that the average power supplied by the source over a complete cycle is zero.</li>\r\n\t<li>A lamp is connected in series with an inductor and an AC source. What happens to the brightness of the lamp when the key is plugged in and an iron rod is inserted inside the inductor? Explain.<br />\r\n\t<img alt=\"\" data-imgur-src=\"tSeujEG.png\" src=\"https://media-mycbseguide.s3.amazonaws.com/images/imgur/tSeujEG.png\" style=\"width: 156px; height: 91px;\" /></li>\r\n</ol>",
+    "question_text": "When an AC source is connected to an ideal inductor show that the average power supplied by the source over a complete cycle is zero. A lamp is connected in series with an inductor and an AC source. What happens to the brightness of the lamp when the key is plugged in and an iron rod is inserted inside the inductor? Explain.",
+    "options": [],
+    "correct_option_ids": [],
+    "correct_option_text": "",
+    "explanation": "As {tex}P _ { { av } } = V _ { { rms } } I _ { { rms } } \\cos \\phi{/tex} In an ideal inductor, rms current I rms lags behind the applied rms voltage V rms by {tex}\\frac{\\pi}{2}{/tex} {tex}\\therefore \\quad \\phi = \\frac{\\pi}{2}{/tex} {tex}P _ { a v } = V _ { rm s } I _ { r m s } \\cos \\frac{\\pi}{2}{/tex} or {tex}P _ { { av } } = V _ { { rms } } I _ { { rms } } \\times { 0 }{/tex} or {tex}P _ { a v } = 0{/tex} The brightness of the lamp decreases. It is because when iron rod is inserted inside the inductor, its inductance L increases(as inductance depends directly on the permeability of the material inside it i.e., {tex}L\\propto\\mu{/tex} , thereby increasing its inductive reactance X L as permeability of iron rod is greater than that of free space or air and hence impedance Z of the circuit. As I rms = V rms /Z, so, this decreases the current I rms in the circuit and hence decreases the brightness of lamp.",
+    "solution": "As {tex}P _ { { av } } = V _ { { rms } } I _ { { rms } } \\cos \\phi{/tex} In an ideal inductor, rms current I rms lags behind the applied rms voltage V rms by {tex}\\frac{\\pi}{2}{/tex} {tex}\\therefore \\quad \\phi = \\frac{\\pi}{2}{/tex} {tex}P _ { a v } = V _ { rm s } I _ { r m s } \\cos \\frac{\\pi}{2}{/tex} or {tex}P _ { { av } } = V _ { { rms } } I _ { { rms } } \\times { 0 }{/tex} or {tex}P _ { a v } = 0{/tex} The brightness of the lamp decreases. It is because when iron rod is inserted inside the inductor, its inductance L increases(as inductance depends directly on the permeability of the material inside it i.e., {tex}L\\propto\\mu{/tex} , thereby increasing its inductive reactance X L as permeability of iron rod is greater than that of free space or air and hence impedance Z of the circuit. As I rms = V rms /Z, so, this decreases the current I rms in the circuit and hence decreases the brightness of lamp.",
+    "solution_html": "<ol start=\"1\" style=\"list-style-type: lower-roman;\">\r\n\t<li>As&nbsp;<span class=\"math-tex\">{tex}P _ { { av } } = V _ { { rms } } I _ { { rms } } \\cos \\phi{/tex}</span><br />\r\n\tIn an ideal inductor, rms current &nbsp;I<sub>rms</sub> lags behind the applied rms voltage V<sub>rms</sub>&nbsp;by&nbsp;<span class=\"math-tex\">{tex}\\frac{\\pi}{2}{/tex}</span><br />\r\n\t<span class=\"math-tex\">{tex}\\therefore \\quad \\phi = \\frac{\\pi}{2}{/tex}</span><br />\r\n\t<span class=\"math-tex\">{tex}P _ { a v } = V _ { rm s } I _ { r m s } \\cos \\frac{\\pi}{2}{/tex}</span><br />\r\n\tor&nbsp;<span class=\"math-tex\">{tex}P _ { { av } } = V _ { { rms } } I _ { { rms } } \\times { 0 }{/tex}</span><br />\r\n\tor&nbsp;<span class=\"math-tex\">{tex}P _ { a v } = 0{/tex}</span></li>\r\n\t<li>The brightness of the lamp decreases. It is because when iron rod is inserted inside the inductor, its inductance L increases(as inductance depends directly on the permeability of the material inside it i.e.,&nbsp;<span class=\"math-tex\">{tex}L\\propto\\mu{/tex}</span>, thereby increasing its inductive reactance X<sub>L</sub> as permeability of iron rod is greater than that of free space or air and hence impedance Z of the circuit. As I<sub>rms</sub>&nbsp;= V<sub>rms</sub>/Z, so, this decreases the current I<sub>rms</sub> in the circuit and hence decreases the brightness of lamp.</li>\r\n</ol>",
+    "weightage": "SA-2 (Short answer type-2)"
+  },
+  {
+    "subject": "Physics",
+    "subject_id": "1251",
+    "chapter": "Alternating Current",
+    "chapter_id": 1258,
+    "question_id": 140264,
+    "question_html": "<p>Mention various energy losses in a transformer.</p>",
+    "question_text": "Mention various energy losses in a transformer.",
+    "options": [],
+    "correct_option_ids": [],
+    "correct_option_text": "",
+    "explanation": "The various losses in a transformer are: (i) Flux Leakage: There is always some flux leakage; that is, not all of the flux due to primary passes through the secondary due to poor design of the core or the air gaps in the core. It can be reduced by winding the primary and secondary coils one over the other. (ii) Resistance of the windings: The wire used for the winding has some resistance and so, energy is lost due to heat produced in the wire (I 2 R). In high current, low voltage windings, these are minimised by using thick wire. (iii) Eddy currents : The alternating magnetic flux induces eddy currents in the iron core and causes heating. The effect is reduced by using a laminated core. (iv) Hysteresis: The magnetisation of the core is repeatedly reversed by the alternating magnetic field. The resulting expenditure of energy in the core appears as heat and is kept to a minimum by using a magnetic material which has a low hysteresis loss.",
+    "solution": "The various losses in a transformer are: (i) Flux Leakage: There is always some flux leakage; that is, not all of the flux due to primary passes through the secondary due to poor design of the core or the air gaps in the core. It can be reduced by winding the primary and secondary coils one over the other. (ii) Resistance of the windings: The wire used for the winding has some resistance and so, energy is lost due to heat produced in the wire (I 2 R). In high current, low voltage windings, these are minimised by using thick wire. (iii) Eddy currents : The alternating magnetic flux induces eddy currents in the iron core and causes heating. The effect is reduced by using a laminated core. (iv) Hysteresis: The magnetisation of the core is repeatedly reversed by the alternating magnetic field. The resulting expenditure of energy in the core appears as heat and is kept to a minimum by using a magnetic material which has a low hysteresis loss.",
+    "solution_html": "<p>The various losses in a transformer are:<br />\n(i) <strong>Flux Leakage:</strong> There is always some flux leakage; that is, not all of the flux due to primary passes through the secondary due to poor design of the core or the air gaps in the core. It can be reduced by winding the primary and secondary coils one over the other.<br />\n(ii) <strong>Resistance of the windings:</strong> The wire used for the winding&nbsp;has some resistance and so, energy is lost due to heat produced in the wire (I<sup>2</sup>R). In high current, low voltage windings, these are minimised by using thick wire.<br />\n(iii) <strong>Eddy currents</strong>: The alternating magnetic flux induces eddy currents in the iron core and causes heating. The effect is reduced by using a laminated core.<br />\n(iv) <strong>Hysteresis:</strong> The magnetisation of the core is repeatedly reversed by the alternating magnetic field. The resulting expenditure of energy in the core appears as heat and is kept to a minimum by using a magnetic material which has a low hysteresis loss.<br />\n&nbsp;</p>",
+    "weightage": "SA-2 (Short answer type-2)"
+  },
+  {
+    "subject": "Physics",
+    "subject_id": "1251",
+    "chapter": "Alternating Current",
+    "chapter_id": 1258,
+    "question_id": 492896,
+    "question_html": "<p>A circuit draws a power of 550 W from a source of 220 V, 50 Hz. The power factor of the circuit is 0.8. The current in the circuit lags behind the voltage. Show that a capacitor of about <span class=\"math-tex\">{tex}\\frac{1}{42 \\pi} \\times 10^{-2}{/tex}</span> will have to be connected to bring its power factor to unity.</p>",
+    "question_text": "A circuit draws a power of 550 W from a source of 220 V, 50 Hz. The power factor of the circuit is 0.8. The current in the circuit lags behind the voltage. Show that a capacitor of about {tex}\\frac{1}{42 \\pi} \\times 10^{-2}{/tex} will have to be connected to bring its power factor to unity.",
+    "options": [],
+    "correct_option_ids": [],
+    "correct_option_text": "",
+    "explanation": "As {tex}P_{a v}=V_{e f f} \\cdot I_{e f f} \\cos \\phi{/tex} {tex}\\therefore{/tex} {tex}I_{e f f}=\\frac{P_{a v}}{V_{e f f} \\cos \\phi}=\\frac{550}{220 \\times 0.8}=\\frac{25}{8} \\mathrm{~A}{/tex} {tex}R=\\frac{P_{a v}}{I_{f f}^{2}}=\\frac{550 \\times 8 \\times 8}{25 \\times 25}=\\frac{22 \\times 64}{25} \\Omega{/tex} {tex}\\left[\\because P_{a v}=I_{e f f}^{2} R\\right]{/tex} {tex}\\tan \\phi=\\frac{\\sin \\phi}{\\cos \\phi}=\\frac{\\sqrt{1-(0.8)^{2}}}{0.8}=\\frac{0.6}{0.8}=\\frac{3}{4}{/tex} But {tex}\\tan \\phi=\\frac{X_{L}}{R}{/tex} {tex}X_{L}=\\tan \\phi . R=\\frac{3}{4} \\times \\frac{22 \\times 64}{25} \\simeq 42 \\Omega{/tex} For power factor to be unity. {tex}X_{L}=X_{C}{/tex} or {tex}\\omega L=\\frac{1}{\\omega C}{/tex} or {tex}C=\\frac{1}{\\omega^{2} L}=\\frac{1}{\\omega X_{L}}=\\frac{1}{2 \\pi f} \\cdot \\frac{1}{X_{L}}=\\frac{1}{100 \\pi} \\cdot \\frac{1}{42}{/tex} [ {tex}\\because{/tex} {tex}\\omega L=X_{L}{/tex} ] or {tex}C=\\frac{1}{42 \\pi} \\times 10^{-2} \\mathrm{~F}{/tex}",
+    "solution": "As {tex}P_{a v}=V_{e f f} \\cdot I_{e f f} \\cos \\phi{/tex} {tex}\\therefore{/tex} {tex}I_{e f f}=\\frac{P_{a v}}{V_{e f f} \\cos \\phi}=\\frac{550}{220 \\times 0.8}=\\frac{25}{8} \\mathrm{~A}{/tex} {tex}R=\\frac{P_{a v}}{I_{f f}^{2}}=\\frac{550 \\times 8 \\times 8}{25 \\times 25}=\\frac{22 \\times 64}{25} \\Omega{/tex} {tex}\\left[\\because P_{a v}=I_{e f f}^{2} R\\right]{/tex} {tex}\\tan \\phi=\\frac{\\sin \\phi}{\\cos \\phi}=\\frac{\\sqrt{1-(0.8)^{2}}}{0.8}=\\frac{0.6}{0.8}=\\frac{3}{4}{/tex} But {tex}\\tan \\phi=\\frac{X_{L}}{R}{/tex} {tex}X_{L}=\\tan \\phi . R=\\frac{3}{4} \\times \\frac{22 \\times 64}{25} \\simeq 42 \\Omega{/tex} For power factor to be unity. {tex}X_{L}=X_{C}{/tex} or {tex}\\omega L=\\frac{1}{\\omega C}{/tex} or {tex}C=\\frac{1}{\\omega^{2} L}=\\frac{1}{\\omega X_{L}}=\\frac{1}{2 \\pi f} \\cdot \\frac{1}{X_{L}}=\\frac{1}{100 \\pi} \\cdot \\frac{1}{42}{/tex} [ {tex}\\because{/tex} {tex}\\omega L=X_{L}{/tex} ] or {tex}C=\\frac{1}{42 \\pi} \\times 10^{-2} \\mathrm{~F}{/tex}",
+    "solution_html": "<p>As&nbsp;<span class=\"math-tex\">{tex}P_{a v}=V_{e f f} \\cdot I_{e f f} \\cos \\phi{/tex}</span><br />\r\n<span class=\"math-tex\">{tex}\\therefore{/tex}</span>&nbsp;<span class=\"math-tex\">{tex}I_{e f f}=\\frac{P_{a v}}{V_{e f f} \\cos \\phi}=\\frac{550}{220 \\times 0.8}=\\frac{25}{8} \\mathrm{~A}{/tex}</span><br />\r\n<span class=\"math-tex\">{tex}R=\\frac{P_{a v}}{I_{f f}^{2}}=\\frac{550 \\times 8 \\times 8}{25 \\times 25}=\\frac{22 \\times 64}{25} \\Omega{/tex}</span>&nbsp;<span class=\"math-tex\">{tex}\\left[\\because P_{a v}=I_{e f f}^{2} R\\right]{/tex}</span><br />\r\n<span class=\"math-tex\">{tex}\\tan \\phi=\\frac{\\sin \\phi}{\\cos \\phi}=\\frac{\\sqrt{1-(0.8)^{2}}}{0.8}=\\frac{0.6}{0.8}=\\frac{3}{4}{/tex}</span><br />\r\nBut&nbsp;<span class=\"math-tex\">{tex}\\tan \\phi=\\frac{X_{L}}{R}{/tex}</span><br />\r\n<span class=\"math-tex\">{tex}X_{L}=\\tan \\phi . R=\\frac{3}{4} \\times \\frac{22 \\times 64}{25} \\simeq 42 \\Omega{/tex}</span><br />\r\nFor power factor to be unity.<br />\r\n<span class=\"math-tex\">{tex}X_{L}=X_{C}{/tex}</span>&nbsp;or&nbsp;<span class=\"math-tex\">{tex}\\omega L=\\frac{1}{\\omega C}{/tex}</span><br />\r\nor&nbsp;<span class=\"math-tex\">{tex}C=\\frac{1}{\\omega^{2} L}=\\frac{1}{\\omega X_{L}}=\\frac{1}{2 \\pi f} \\cdot \\frac{1}{X_{L}}=\\frac{1}{100 \\pi} \\cdot \\frac{1}{42}{/tex}</span>[<span class=\"math-tex\">{tex}\\because{/tex}</span>&nbsp;<span class=\"math-tex\">{tex}\\omega L=X_{L}{/tex}</span>]<br />\r\nor&nbsp;<span class=\"math-tex\">{tex}C=\\frac{1}{42 \\pi} \\times 10^{-2} \\mathrm{~F}{/tex}</span></p>",
+    "weightage": "SA-2 (Short answer type-2)"
+  },
+  {
+    "subject": "Physics",
+    "subject_id": "1251",
+    "chapter": "Alternating Current",
+    "chapter_id": 1258,
+    "question_id": 499935,
+    "question_html": "<p>Show graphically the variation of instantaneous power P with angle cot when the alternating voltage V = V<sub>0</sub> sin <span class=\"math-tex\">{tex}\\omega{/tex}</span>t is applied across</p>\r\n\r\n<ol start=\"1\" style=\"list-style-type:lower-roman\">\r\n\t<li>a pure resistor</li>\r\n\t<li>a pure inductor and</li>\r\n\t<li>a pure capacitor.</li>\r\n</ol>",
+    "question_text": "Show graphically the variation of instantaneous power P with angle cot when the alternating voltage V = V 0 sin {tex}\\omega{/tex} t is applied across a pure resistor a pure inductor and a pure capacitor.",
+    "options": [],
+    "correct_option_ids": [],
+    "correct_option_text": "",
+    "explanation": "Instantaneous voltage and current are in same phase in a pure resistor {tex}V=V_{0} \\sin \\omega t{/tex} and {tex}I=I_{0} \\sin \\omega t{/tex} Instantaneous power, P = VI = {tex}V_{0} I_{0} \\sin ^{2} \\omega t{/tex} Variation of instantaneous power with {tex}\\omega t{/tex} in a resistive a.c. circuit. Instantaneous power is +ve at every instant except when both V and I are zero. In a pure inductor, current lags behind voltage by a phase angle of {tex}\\pi \\over 2{/tex} {tex}V=V_{0} \\sin \\omega t{/tex} and {tex}I=I_{0} \\sin (\\omega t-\\pi / 2)=-I_{0} \\cos \\omega t{/tex} Instantaneous power, {tex}P=V I=-V_{0} I_{0} \\sin \\omega t \\cos \\omega t=-\\frac{V_{0} I_{0}}{2} \\sin 2 \\omega t{/tex} Variation of instantaneous power with {tex}\\omega t{/tex} in an inductive a.c. circuit. In a pure capacitor, voltage lags behind the current by a phase angle of {tex}\\frac{\\pi}{2}{/tex} . {tex}V=V_{0} \\sin \\omega t{/tex} , and I = I 0 sin( {tex}\\omega{/tex} t + {tex}\\pi \\over 2{/tex} ) = I 0 cos {tex}\\omega{/tex} t Instantaneous power, P = VI = {tex}V_{0} I_{0} \\sin \\omega t \\cos \\omega t=\\frac{V_{0} I_{0}}{2} \\sin 2 \\omega t{/tex} Variation of instantaneous power with {tex}\\omega t{/tex} in a capacitive a.c. circuit.",
+    "solution": "Instantaneous voltage and current are in same phase in a pure resistor {tex}V=V_{0} \\sin \\omega t{/tex} and {tex}I=I_{0} \\sin \\omega t{/tex} Instantaneous power, P = VI = {tex}V_{0} I_{0} \\sin ^{2} \\omega t{/tex} Variation of instantaneous power with {tex}\\omega t{/tex} in a resistive a.c. circuit. Instantaneous power is +ve at every instant except when both V and I are zero. In a pure inductor, current lags behind voltage by a phase angle of {tex}\\pi \\over 2{/tex} {tex}V=V_{0} \\sin \\omega t{/tex} and {tex}I=I_{0} \\sin (\\omega t-\\pi / 2)=-I_{0} \\cos \\omega t{/tex} Instantaneous power, {tex}P=V I=-V_{0} I_{0} \\sin \\omega t \\cos \\omega t=-\\frac{V_{0} I_{0}}{2} \\sin 2 \\omega t{/tex} Variation of instantaneous power with {tex}\\omega t{/tex} in an inductive a.c. circuit. In a pure capacitor, voltage lags behind the current by a phase angle of {tex}\\frac{\\pi}{2}{/tex} . {tex}V=V_{0} \\sin \\omega t{/tex} , and I = I 0 sin( {tex}\\omega{/tex} t + {tex}\\pi \\over 2{/tex} ) = I 0 cos {tex}\\omega{/tex} t Instantaneous power, P = VI = {tex}V_{0} I_{0} \\sin \\omega t \\cos \\omega t=\\frac{V_{0} I_{0}}{2} \\sin 2 \\omega t{/tex} Variation of instantaneous power with {tex}\\omega t{/tex} in a capacitive a.c. circuit.",
+    "solution_html": "<ol start=\"1\" style=\"list-style-type:lower-roman\">\r\n\t<li>Instantaneous voltage and current are in same phase in a pure resistor<br />\r\n\t<span class=\"math-tex\">{tex}V=V_{0} \\sin \\omega t{/tex}</span>&nbsp;and&nbsp;<span class=\"math-tex\">{tex}I=I_{0} \\sin \\omega t{/tex}</span><br />\r\n\tInstantaneous power, P = VI =&nbsp;<span class=\"math-tex\">{tex}V_{0} I_{0} \\sin ^{2} \\omega t{/tex}</span><br />\r\n\t<img alt=\"\" src=\"https://media-mycbseguide.s3.amazonaws.com/images/imgur/1617615990-s9ueaa.jpg\" style=\"height:108px; width:200px\" /><br />\r\n\tVariation of instantaneous power with&nbsp;<span class=\"math-tex\">{tex}\\omega t{/tex}</span>&nbsp;in a resistive a.c. circuit.<br />\r\n\tInstantaneous power is +ve at every instant except when both V and I are zero.</li>\r\n\t<li>In a pure inductor, current lags behind voltage by a phase angle of&nbsp;<span class=\"math-tex\">{tex}\\pi \\over 2{/tex}</span><br />\r\n\t<span class=\"math-tex\">{tex}V=V_{0} \\sin \\omega t{/tex}</span><br />\r\n\tand&nbsp;<span class=\"math-tex\">{tex}I=I_{0} \\sin (\\omega t-\\pi / 2)=-I_{0} \\cos \\omega t{/tex}</span><br />\r\n\tInstantaneous power,<br />\r\n\t<span class=\"math-tex\">{tex}P=V I=-V_{0} I_{0} \\sin \\omega t \\cos \\omega t=-\\frac{V_{0} I_{0}}{2} \\sin 2 \\omega t{/tex}</span><br />\r\n\t<img alt=\"\" src=\"https://media-mycbseguide.s3.amazonaws.com/images/imgur/1617615992-sawt22.jpg\" style=\"height:93px; width:200px\" />&nbsp;<br />\r\n\tVariation of instantaneous power with&nbsp;<span class=\"math-tex\">{tex}\\omega t{/tex}</span>&nbsp;in an inductive a.c. circuit.</li>\r\n\t<li>In a pure capacitor, voltage lags behind the current by a phase angle of&nbsp;<span class=\"math-tex\">{tex}\\frac{\\pi}{2}{/tex}</span>.<br />\r\n\t<span class=\"math-tex\">{tex}V=V_{0} \\sin \\omega t{/tex}</span>, and I = I<sub>0</sub> sin(<span class=\"math-tex\">{tex}\\omega{/tex}</span>t +&nbsp;<span class=\"math-tex\">{tex}\\pi \\over 2{/tex}</span>) = I<sub>0</sub> cos<span class=\"math-tex\">{tex}\\omega{/tex}</span>t&nbsp;<br />\r\n\tInstantaneous power,&nbsp;<br />\r\n\tP = VI =&nbsp;<span class=\"math-tex\">{tex}V_{0} I_{0} \\sin \\omega t \\cos \\omega t=\\frac{V_{0} I_{0}}{2} \\sin 2 \\omega t{/tex}</span><br />\r\n\t<img alt=\"\" src=\"https://media-mycbseguide.s3.amazonaws.com/images/imgur/1617615995-szfkrn.jpg\" style=\"height:94px; width:200px\" /><br />\r\n\tVariation of instantaneous power with&nbsp;<span class=\"math-tex\">{tex}\\omega t{/tex}</span>&nbsp;in a capacitive&nbsp;a.c. circuit.</li>\r\n</ol>",
+    "weightage": "SA-2 (Short answer type-2)"
+  },
+  {
+    "subject": "Physics",
+    "subject_id": "1251",
+    "chapter": "Alternating Current",
+    "chapter_id": 1258,
+    "question_id": 1715463,
+    "question_html": "<p>A <span class=\"math-tex\">{tex}20 \\mu {~F}{/tex}</span> capacitor is connected to a <span class=\"math-tex\">{tex}220 {~V}, \\frac{125}{\\pi} {~Hz}{/tex}</span> ac source.</p>\r\n\r\n<ol start=\"1\" style=\"list-style-type:lower-roman\">\r\n\t<li>Find the capacitive reactance and the peak value of current in the circuit.</li>\r\n\t<li>If the frequency of the ac source is doubled, by what factor will the capacitive reactance and the current be changed?</li>\r\n</ol>",
+    "question_text": "A {tex}20 \\mu {~F}{/tex} capacitor is connected to a {tex}220 {~V}, \\frac{125}{\\pi} {~Hz}{/tex} ac source. Find the capacitive reactance and the peak value of current in the circuit. If the frequency of the ac source is doubled, by what factor will the capacitive reactance and the current be changed?",
+    "options": [],
+    "correct_option_ids": [],
+    "correct_option_text": "",
+    "explanation": "{tex} X_c =\\frac{1}{2 \\pi v C} {/tex} {tex} =\\frac{1}{2 \\pi \\times \\frac{125}{\\pi} \\times 20 \\times 10^{-6}} {/tex} {tex} =200 \\Omega {/tex} {tex} I_0 =\\frac{V_0}{X_C} {/tex} {tex} =\\frac{220 \\times 1.414}{200} {/tex} {tex} =1.6 {~A} \\text { or } 1.1 \\sqrt{2} {~A} {/tex} {tex}{X}_{{c}}{/tex} becomes half Current becomes double.",
+    "solution": "{tex} X_c =\\frac{1}{2 \\pi v C} {/tex} {tex} =\\frac{1}{2 \\pi \\times \\frac{125}{\\pi} \\times 20 \\times 10^{-6}} {/tex} {tex} =200 \\Omega {/tex} {tex} I_0 =\\frac{V_0}{X_C} {/tex} {tex} =\\frac{220 \\times 1.414}{200} {/tex} {tex} =1.6 {~A} \\text { or } 1.1 \\sqrt{2} {~A} {/tex} {tex}{X}_{{c}}{/tex} becomes half Current becomes double.",
+    "solution_html": "<ol start=\"1\" style=\"list-style-type:lower-roman\">\r\n\t<li><span class=\"math-tex\">{tex} X_c =\\frac{1}{2 \\pi v C} {/tex}</span><br />\r\n\t<span class=\"math-tex\">{tex} =\\frac{1}{2 \\pi \\times \\frac{125}{\\pi} \\times 20 \\times 10^{-6}} {/tex}</span><br />\r\n\t<span class=\"math-tex\">{tex} =200 \\Omega {/tex}</span><br />\r\n\t<span class=\"math-tex\">{tex} I_0 =\\frac{V_0}{X_C} {/tex}</span><br />\r\n\t<span class=\"math-tex\">{tex} =\\frac{220 \\times 1.414}{200} {/tex}</span><br />\r\n\t<span class=\"math-tex\">{tex} =1.6 {~A} \\text { or } 1.1 \\sqrt{2} {~A} {/tex}</span></li>\r\n\t<li><span class=\"math-tex\">{tex}{X}_{{c}}{/tex}</span> becomes half<br />\r\n\tCurrent becomes double.</li>\r\n</ol>",
+    "weightage": "SA-2 (Short answer type-2)"
+  },
+  {
+    "subject": "Physics",
+    "subject_id": "1251",
+    "chapter": "Alternating Current",
+    "chapter_id": 1258,
+    "question_id": 422320,
+    "question_html": "<p>An electrical device draws 2kW power from AC mains (voltage 223V (rms) = <span class=\"math-tex\">{tex}\\sqrt{50,000} \\mathrm{V}{/tex}</span>). The current differs (lags) in phase by&nbsp;<span class=\"math-tex\">{tex}\\phi\\left(\\tan \\phi=\\frac{-3}{4}\\right){/tex}</span> as compared to voltage. Find</p>\r\n\r\n<ol start=\"1\" style=\"list-style-type: lower-alpha;\">\r\n\t<li>R</li>\r\n\t<li>X<sub>C</sub>&nbsp;-&nbsp;X<sub>L</sub>, and</li>\r\n\t<li>I<sub>M</sub>. Another device has twice the values for R, X<sub>C</sub> and X<sub>L</sub>. How are the answers affected?</li>\r\n</ol>",
+    "question_text": "An electrical device draws 2kW power from AC mains (voltage 223V (rms) = {tex}\\sqrt{50,000} \\mathrm{V}{/tex} ). The current differs (lags) in phase by {tex}\\phi\\left(\\tan \\phi=\\frac{-3}{4}\\right){/tex} as compared to voltage. Find R X C - X L , and I M . Another device has twice the values for R, X C and X L . How are the answers affected?",
+    "options": [],
+    "correct_option_ids": [],
+    "correct_option_text": "",
+    "explanation": "An electrical device draws 2kW power from AC mains so P =2kW= 2000 W Current lags the voltage so V 2 = 50,000V X C > X L {tex}\\tan \\phi=\\frac{-3}{4}{/tex} I m = I 0 {tex}P=\\frac{V^{2}}{Z}{/tex} {tex}2000=\\frac{50,000}{Z}{/tex} {tex}Z=\\frac{50,000}{2000}=25 \\Omega{/tex} {tex}Z=\\sqrt{R^{2}+\\left(X_{c}-X_{L}\\right)^{2}}{/tex} R 2 + (X C - X L ) 2 = 25 2 ...... (i) {tex}\\mathrm{R}^{2} +\\left(\\mathrm{X}_{\\mathrm{C}}-\\mathrm{X}_{\\mathrm{L}}\\right)^{2}=625{/tex} {tex}\\tan \\phi=\\frac{-3}{4}{/tex} {tex}\\frac{X_{C}-X_{L}}{R}=\\frac{-3}{4}{/tex} {tex}X_{C}-X_{L}=\\frac{-3}{4} R{/tex} {tex}\\left(X_{C}-X_{L}\\right)^{2}=\\frac{9}{16} R^{2}{/tex} ..... (ii) Put the value of (X C - X L ) 2 in (i) {tex}R^{2}+\\frac{9}{16} R^{2}=625{/tex} {tex}R^{2}=16 \\times 25{/tex} {tex}R=4 \\times 5=20 \\Omega{/tex} {tex}\\frac{X_{c}-X_{L}}{R}=\\frac{-3}{4}{/tex} {tex}X_{c}-X_{L}=\\frac{-3}{4} \\times 20{/tex} {tex}X_{C}-X_{L}=-15 \\Omega{/tex} {tex}I_{rms}=\\frac{V}{Z}=\\frac{223}{25} \\cong 9 A{/tex} {tex}I_{0}=\\sqrt{2} I_{rms}=\\sqrt{2} \\times 9{/tex} I 0 = 12.6 A As R, X C , X L all are double tan {tex}\\phi=\\frac{X_{L}-X_{C}}{R}{/tex} will remain same, Z will become double then I {tex}=\\frac{v}{Z}{/tex} become half as value of V does not change. As I become half p = VI will become again half as voltage remains same.",
+    "solution": "An electrical device draws 2kW power from AC mains so P =2kW= 2000 W Current lags the voltage so V 2 = 50,000V X C > X L {tex}\\tan \\phi=\\frac{-3}{4}{/tex} I m = I 0 {tex}P=\\frac{V^{2}}{Z}{/tex} {tex}2000=\\frac{50,000}{Z}{/tex} {tex}Z=\\frac{50,000}{2000}=25 \\Omega{/tex} {tex}Z=\\sqrt{R^{2}+\\left(X_{c}-X_{L}\\right)^{2}}{/tex} R 2 + (X C - X L ) 2 = 25 2 ...... (i) {tex}\\mathrm{R}^{2} +\\left(\\mathrm{X}_{\\mathrm{C}}-\\mathrm{X}_{\\mathrm{L}}\\right)^{2}=625{/tex} {tex}\\tan \\phi=\\frac{-3}{4}{/tex} {tex}\\frac{X_{C}-X_{L}}{R}=\\frac{-3}{4}{/tex} {tex}X_{C}-X_{L}=\\frac{-3}{4} R{/tex} {tex}\\left(X_{C}-X_{L}\\right)^{2}=\\frac{9}{16} R^{2}{/tex} ..... (ii) Put the value of (X C - X L ) 2 in (i) {tex}R^{2}+\\frac{9}{16} R^{2}=625{/tex} {tex}R^{2}=16 \\times 25{/tex} {tex}R=4 \\times 5=20 \\Omega{/tex} {tex}\\frac{X_{c}-X_{L}}{R}=\\frac{-3}{4}{/tex} {tex}X_{c}-X_{L}=\\frac{-3}{4} \\times 20{/tex} {tex}X_{C}-X_{L}=-15 \\Omega{/tex} {tex}I_{rms}=\\frac{V}{Z}=\\frac{223}{25} \\cong 9 A{/tex} {tex}I_{0}=\\sqrt{2} I_{rms}=\\sqrt{2} \\times 9{/tex} I 0 = 12.6 A As R, X C , X L all are double tan {tex}\\phi=\\frac{X_{L}-X_{C}}{R}{/tex} will remain same, Z will become double then I {tex}=\\frac{v}{Z}{/tex} become half as value of V does not change. As I become half p = VI will become again half as voltage remains same.",
+    "solution_html": "<p>An electrical device draws&nbsp;2kW&nbsp;power from&nbsp;AC&nbsp;mains so&nbsp; P =2kW= 2000 W Current lags the voltage so<br />\nV<sup>2</sup> = 50,000V X<sub>C</sub> &gt; X<sub>L</sub><br />\n<span class=\"math-tex\">{tex}\\tan \\phi=\\frac{-3}{4}{/tex}</span><br />\nI<sub>m</sub> = I<sub>0</sub><br />\n<span class=\"math-tex\">{tex}P=\\frac{V^{2}}{Z}{/tex}</span><br />\n<span class=\"math-tex\">{tex}2000=\\frac{50,000}{Z}{/tex}</span><br />\n<span class=\"math-tex\">{tex}Z=\\frac{50,000}{2000}=25 \\Omega{/tex}</span><br />\n<span class=\"math-tex\">{tex}Z=\\sqrt{R^{2}+\\left(X_{c}-X_{L}\\right)^{2}}{/tex}</span><br />\nR<sup>2</sup> + (X<sub>C</sub>-<sub>&nbsp;</sub>X<sub>L</sub>)<sup>2</sup>= 25<sup>2</sup> ...... (i)<br />\n<span class=\"math-tex\">{tex}\\mathrm{R}^{2} +\\left(\\mathrm{X}_{\\mathrm{C}}-\\mathrm{X}_{\\mathrm{L}}\\right)^{2}=625{/tex}</span><br />\n<span class=\"math-tex\">{tex}\\tan \\phi=\\frac{-3}{4}{/tex}</span><br />\n<span class=\"math-tex\">{tex}\\frac{X_{C}-X_{L}}{R}=\\frac{-3}{4}{/tex}</span><br />\n<span class=\"math-tex\">{tex}X_{C}-X_{L}=\\frac{-3}{4} R{/tex}</span><br />\n<span class=\"math-tex\">{tex}\\left(X_{C}-X_{L}\\right)^{2}=\\frac{9}{16} R^{2}{/tex}</span>&nbsp;..... (ii)<br />\nPut the value of (X<sub>C</sub> - X<sub>L</sub>)<sup>2</sup> in (i)<br />\n<span class=\"math-tex\">{tex}R^{2}+\\frac{9}{16} R^{2}=625{/tex}</span><br />\n<span class=\"math-tex\">{tex}R^{2}=16 \\times 25{/tex}</span><br />\n<span class=\"math-tex\">{tex}R=4 \\times 5=20 \\Omega{/tex}</span><br />\n<span class=\"math-tex\">{tex}\\frac{X_{c}-X_{L}}{R}=\\frac{-3}{4}{/tex}</span><br />\n<span class=\"math-tex\">{tex}X_{c}-X_{L}=\\frac{-3}{4} \\times 20{/tex}</span><br />\n<span class=\"math-tex\">{tex}X_{C}-X_{L}=-15 \\Omega{/tex}</span><br />\n<span class=\"math-tex\">{tex}I_{rms}=\\frac{V}{Z}=\\frac{223}{25} \\cong 9 A{/tex}</span><br />\n<span class=\"math-tex\">{tex}I_{0}=\\sqrt{2} I_{rms}=\\sqrt{2} \\times 9{/tex}</span><br />\nI<sub>0</sub> = 12.6 A<br />\nAs</p>\n\n<ol start=\"1\" style=\"list-style-type: lower-alpha;\">\n\t<li>R, X<sub>C</sub>, X<sub>L</sub> all are double tan&nbsp;<span class=\"math-tex\">{tex}\\phi=\\frac{X_{L}-X_{C}}{R}{/tex}</span>&nbsp;will remain same,</li>\n\t<li>Z will become double then I&nbsp;<span class=\"math-tex\">{tex}=\\frac{v}{Z}{/tex}</span>&nbsp;become half as value of V does not change.</li>\n\t<li>As I become half p = VI will become again half as voltage remains same.</li>\n</ol>",
+    "weightage": "SA-2 (Short answer type-2)"
+  },
+  {
+    "subject": "Physics",
+    "subject_id": "1251",
+    "chapter": "Alternating Current",
+    "chapter_id": 1258,
+    "question_id": 1163080,
+    "question_html": "<p>The figure shows the graphical variation of the reactance of a capacitor with frequency of ac source.<br />\n<img alt=\"\" src=\"https://media-mycbseguide.s3.amazonaws.com/images/imgur/JHIHtuN.png\" style=\"height:240px; width:250px\" /></p>\n\n<ol start=\"1\" style=\"list-style-type:lower-alpha\">\n\t<li>Find the capacitance of the capacitor.</li>\n\t<li>An ideal inductor has the same reactance at 100 Hz frequency as the capacitor has at the same frequency. Find the value of inductance of the inductor.</li>\n\t<li>Draw the graph showing the variation of the reactance of this inductor with frequency.</li>\n</ol>",
+    "question_text": "The figure shows the graphical variation of the reactance of a capacitor with frequency of ac source. Find the capacitance of the capacitor. An ideal inductor has the same reactance at 100 Hz frequency as the capacitor has at the same frequency. Find the value of inductance of the inductor. Draw the graph showing the variation of the reactance of this inductor with frequency.",
+    "options": [],
+    "correct_option_ids": [],
+    "correct_option_text": "",
+    "explanation": "From graph Xc = 6 {tex}\\Omega{/tex} at v = 100 Hz X c = {tex}\\frac{1}{\\omega \\mathrm{C}}=\\frac{1}{2 \\pi U C}{/tex} C = {tex}\\frac{1}{2 \\pi v X_c}=\\frac{1}{2 \\pi \\times 600}{/tex} C = {tex}\\frac{1}{1200 \\pi}{/tex} = 0.265mF = 0.265 {tex}\\times{/tex} 10 &minus;3 f X c = X L = {tex}\\omega{/tex} L = 6 at 100 Hz L = {tex}\\frac{6}{2 \\pi v}{/tex} = {tex}\\frac{6}{2 \\pi \\times 100}{/tex} = 0.955 {tex}\\times{/tex} 10 -2 H hence, the value of inductance of the inductor will be 0.955 {tex}\\times{/tex} 10 -2 H.",
+    "solution": "From graph Xc = 6 {tex}\\Omega{/tex} at v = 100 Hz X c = {tex}\\frac{1}{\\omega \\mathrm{C}}=\\frac{1}{2 \\pi U C}{/tex} C = {tex}\\frac{1}{2 \\pi v X_c}=\\frac{1}{2 \\pi \\times 600}{/tex} C = {tex}\\frac{1}{1200 \\pi}{/tex} = 0.265mF = 0.265 {tex}\\times{/tex} 10 &minus;3 f X c = X L = {tex}\\omega{/tex} L = 6 at 100 Hz L = {tex}\\frac{6}{2 \\pi v}{/tex} = {tex}\\frac{6}{2 \\pi \\times 100}{/tex} = 0.955 {tex}\\times{/tex} 10 -2 H hence, the value of inductance of the inductor will be 0.955 {tex}\\times{/tex} 10 -2 H.",
+    "solution_html": "<ol start=\"1\" style=\"list-style-type:lower-alpha\">\n\t<li>From graph Xc = 6 <span class=\"math-tex\">{tex}\\Omega{/tex}</span> at v = 100 Hz<br />\n\tX<sub>c</sub> = <span class=\"math-tex\">{tex}\\frac{1}{\\omega \\mathrm{C}}=\\frac{1}{2 \\pi U C}{/tex}</span><br />\n\tC = <span class=\"math-tex\">{tex}\\frac{1}{2 \\pi v X_c}=\\frac{1}{2 \\pi \\times 600}{/tex}</span><br />\n\tC = <span class=\"math-tex\">{tex}\\frac{1}{1200 \\pi}{/tex}</span> = 0.265mF = 0.265 <span class=\"math-tex\">{tex}\\times{/tex}</span> 10<sup>&minus;3</sup>f</li>\n\t<li>X<sub>c</sub> = X<sub>L</sub> = <span class=\"math-tex\">{tex}\\omega{/tex}</span>L = 6 at 100 Hz<br />\n\tL = <span class=\"math-tex\">{tex}\\frac{6}{2 \\pi v}{/tex}</span><br />\n\t= <span class=\"math-tex\">{tex}\\frac{6}{2 \\pi \\times 100}{/tex}</span> = 0.955 <span class=\"math-tex\">{tex}\\times{/tex}</span> 10<sup>-2</sup>H<br />\n\thence,&nbsp;the value of inductance of the inductor will be&nbsp;0.955 <span class=\"math-tex\">{tex}\\times{/tex}</span> 10<sup>-2</sup>H.</li>\n\t<li><img src=\"https://media-mycbseguide.s3.amazonaws.com/images/question_images/1712724468-5jy5wz.jpg\" style=\"height:114px; width:120px\" /></li>\n</ol>",
+    "weightage": "SA-2 (Short answer type-2)"
+  },
+  {
+    "subject": "Physics",
+    "subject_id": "1251",
+    "chapter": "Alternating Current",
+    "chapter_id": 1258,
+    "question_id": 144268,
+    "question_html": "<p>An AC voltage, V = V<sub>0</sub> sin&nbsp;<span class=\"math-tex\">{tex}\\omega t{/tex}</span> is applied across a pure capacitor, C. Obtain an expression for the current I in the circuit and hence obtain the</p>\n\n<ol start=\"1\" style=\"list-style-type: lower-roman;\">\n\t<li>capacitive reactance of the circuit and</li>\n\t<li>the phase of the current flowing with respect to the applied voltage.</li>\n</ol>",
+    "question_text": "An AC voltage, V = V 0 sin {tex}\\omega t{/tex} is applied across a pure capacitor, C. Obtain an expression for the current I in the circuit and hence obtain the capacitive reactance of the circuit and the phase of the current flowing with respect to the applied voltage.",
+    "options": [],
+    "correct_option_ids": [],
+    "correct_option_text": "",
+    "explanation": "Let an alternating voltage, V = V 0 sin {tex}\\omega t{/tex} ....(a) is applied across a capacitor of capacitance C. At any instant, the potential difference across the capacitor is equal to this applied ac voltage. V = Potential difference across the capacitor {tex}= \\frac { q } { C }{/tex} {tex}\\Rightarrow q = C V \\text { or } q = C V _ { 0 } \\sin \\omega t{/tex} Again we know that, the current I = {tex}\\frac { d q } { d t } = \\omega C V _ { 0 } \\cos \\omega t \\text { or } I = \\frac { V _ { 0 } } { ( 1 / \\omega C ) } \\cos \\omega t{/tex} , {tex}\\frac {1}{\\omega C} {/tex} is the capacitive reactance offered by the capacitor. or {tex}I = I _ { 0 } \\sin \\left( \\omega t + \\frac { \\pi } { 2 } \\right){/tex} ....(b) where, {tex}I _ { 0 } = \\frac { V _ { 0 } } { ( 1 / \\omega C ) } = \\frac { V _ { 0 } } { X _ { C } }{/tex} Thus, Capacitive reactance, {tex}X _ { c } = \\frac { 1 } { \\omega C }{/tex} From the equations (a) and (b), current leads the voltage by phase {tex}\\pi / 2{/tex} .",
+    "solution": "Let an alternating voltage, V = V 0 sin {tex}\\omega t{/tex} ....(a) is applied across a capacitor of capacitance C. At any instant, the potential difference across the capacitor is equal to this applied ac voltage. V = Potential difference across the capacitor {tex}= \\frac { q } { C }{/tex} {tex}\\Rightarrow q = C V \\text { or } q = C V _ { 0 } \\sin \\omega t{/tex} Again we know that, the current I = {tex}\\frac { d q } { d t } = \\omega C V _ { 0 } \\cos \\omega t \\text { or } I = \\frac { V _ { 0 } } { ( 1 / \\omega C ) } \\cos \\omega t{/tex} , {tex}\\frac {1}{\\omega C} {/tex} is the capacitive reactance offered by the capacitor. or {tex}I = I _ { 0 } \\sin \\left( \\omega t + \\frac { \\pi } { 2 } \\right){/tex} ....(b) where, {tex}I _ { 0 } = \\frac { V _ { 0 } } { ( 1 / \\omega C ) } = \\frac { V _ { 0 } } { X _ { C } }{/tex} Thus, Capacitive reactance, {tex}X _ { c } = \\frac { 1 } { \\omega C }{/tex} From the equations (a) and (b), current leads the voltage by phase {tex}\\pi / 2{/tex} .",
+    "solution_html": "<ol start=\"1\" style=\"list-style-type: lower-roman;\">\n\t<li>Let an alternating voltage, V = V<sub>0</sub> sin <span class=\"math-tex\">{tex}\\omega t{/tex}</span>&nbsp;....(a)<br />\n\tis applied across a capacitor of capacitance C. At any instant, the potential difference across the capacitor is equal to this applied ac voltage.<br />\n\t<img alt=\"\" data-imgur-src=\"nhlYvpn.png\" src=\"https://media-mycbseguide.s3.amazonaws.com/images/imgur/nhlYvpn.png\" style=\"width: 160px; height: 98px;\" /><br />\n\tV = Potential difference across the capacitor <span class=\"math-tex\">{tex}= \\frac { q } { C }{/tex}</span><br />\n\t<span class=\"math-tex\">{tex}\\Rightarrow q = C V \\text { or } q = C V _ { 0 } \\sin \\omega t{/tex}</span>&nbsp;&nbsp;<br />\n\tAgain we know that, the current I =&nbsp;<span class=\"math-tex\">{tex}\\frac { d q } { d t } = \\omega C V _ { 0 } \\cos \\omega t \\text { or } I = \\frac { V _ { 0 } } { ( 1 / \\omega C ) } \\cos \\omega t{/tex}</span>,&nbsp;<span class=\"math-tex\">{tex}\\frac {1}{\\omega C} {/tex}</span>is the capacitive reactance offered by the capacitor.<br />\n\tor&nbsp;<span class=\"math-tex\">{tex}I = I _ { 0 } \\sin \\left( \\omega t + \\frac { \\pi } { 2 } \\right){/tex}</span>....(b)<br />\n\twhere,&nbsp;<span class=\"math-tex\">{tex}I _ { 0 } = \\frac { V _ { 0 } } { ( 1 / \\omega C ) } = \\frac { V _ { 0 } } { X _ { C } }{/tex}</span><br />\n\tThus, Capacitive reactance,&nbsp;<span class=\"math-tex\">{tex}X _ { c } = \\frac { 1 } { \\omega C }{/tex}</span></li>\n\t<li>From the equations (a) and (b), current leads the voltage by phase&nbsp;<span class=\"math-tex\">{tex}\\pi / 2{/tex}</span>.</li>\n</ol>",
+    "weightage": "SA-2 (Short answer type-2)"
+  },
+  {
+    "subject": "Physics",
+    "subject_id": "1251",
+    "chapter": "Alternating Current",
+    "chapter_id": 1258,
+    "question_id": 1094512,
+    "question_html": "<p>A sinusoidal voltage of peak value 10 V is applied to a series LCR circuit in which resistance, capacitance, and inductance have values of 10 <span class=\"math-tex\">{tex}\\Omega{/tex}</span>, 1 <span class=\"math-tex\">{tex}\\mu{/tex}</span>F and 1 H respectively. Find</p>\n\n<ol start=\"1\" style=\"list-style-type:lower-roman\">\n\t<li>the peak voltage across the inductor at resonance</li>\n\t<li>quality factor of the circuit.</li>\n</ol>",
+    "question_text": "A sinusoidal voltage of peak value 10 V is applied to a series LCR circuit in which resistance, capacitance, and inductance have values of 10 {tex}\\Omega{/tex} , 1 {tex}\\mu{/tex} F and 1 H respectively. Find the peak voltage across the inductor at resonance quality factor of the circuit.",
+    "options": [],
+    "correct_option_ids": [],
+    "correct_option_text": "",
+    "explanation": "I 0 = V 0 /R = 10/10 = 1 A &omega; r = 1/&radic;LC = 1/&radic; (1 x 1 x 10 -6 ) = 10 3 rad/s V 0 = I 0 X L = I 0 &omega;r L = 1 x 10 3 x 1 = 10 3 V Q = &omega; r L/R = (10 3 x 1)/10 = 100",
+    "solution": "I 0 = V 0 /R = 10/10 = 1 A &omega; r = 1/&radic;LC = 1/&radic; (1 x 1 x 10 -6 ) = 10 3 rad/s V 0 = I 0 X L = I 0 &omega;r L = 1 x 10 3 x 1 = 10 3 V Q = &omega; r L/R = (10 3 x 1)/10 = 100",
+    "solution_html": "<ol>\n\t<li>I<sub>0</sub>&nbsp;= V<sub>0</sub>/R<br />\n\t= 10/10<br />\n\t= 1 A&nbsp;<br />\n\t&omega;<sub>r</sub> = 1/&radic;LC = 1/&radic; (1 x 1 x 10<sup>-6</sup>)<br />\n\t= 10<sup>3</sup>&nbsp;rad/s<br />\n\tV<sub>0</sub>&nbsp;= I<sub>0</sub>&nbsp;X<sub>L</sub>&nbsp;= I<sub>0</sub>&nbsp;&omega;r L = 1 x 10<sup><sup>3</sup></sup>&nbsp;x 1 = 10<sup>3</sup>&nbsp;V</li>\n\t<li>Q = &omega;<sub>r</sub> L/R<br />\n\t= (10<sup>3</sup>&nbsp;x 1)/10 = 100</li>\n</ol>",
+    "weightage": "SA-2 (Short answer type-2)"
+  },
+  {
+    "subject": "Physics",
+    "subject_id": "1251",
+    "chapter": "Alternating Current",
+    "chapter_id": 1258,
+    "question_id": 422777,
+    "question_html": "<ol start=\"1\" style=\"list-style-type: lower-alpha;\">\n\t<li>State the principle of working of a transformer.</li>\n\t<li>Define the efficiency of a transformer.</li>\n\t<li>State any two factors that reduce the efficiency of a transformer.</li>\n\t<li>Calculate the current drawn by the primary of a 90% efficient transformer which steps down 220 V to 22 V&nbsp;if the output resistance is 440 <span class=\"math-tex\">{tex}\\Omega{/tex}</span>.</li>\n</ol>",
+    "question_text": "State the principle of working of a transformer. Define the efficiency of a transformer. State any two factors that reduce the efficiency of a transformer. Calculate the current drawn by the primary of a 90% efficient transformer which steps down 220 V to 22 V if the output resistance is 440 {tex}\\Omega{/tex} .",
+    "options": [],
+    "correct_option_ids": [],
+    "correct_option_text": "",
+    "explanation": "A transformer works on the principle of mutual induction. (Alternatively-an emf is induced in the secondary coil when the magnetic flux, linked with it changes with time due to a (time) changing magnetic flux linked with the primary coil). The efficiency of a transformer equals the ratio of the output power to the input power. The input and output power are measured in the same unit Alternatively: Efficiency = {tex}\\frac{\\text { output power }}{\\text { input power }}{/tex} Efficiency = {tex}\\frac{V_{s} I_{s}}{V_{p} I_{p}}{/tex} Efficiency is affected by the factors Eddy current losses joule heat losses hysteresis losses magnetic flux leakage losses Calculating the current drawn We have {tex}\\frac{V_{s} I_{s}}{V_{p} I_{p}}{/tex} = 90% = 0.9 {tex}\\therefore \\frac{22 I_{s}}{220 I_{p}}{/tex} = 0.9 or {tex}\\frac{I_{s}}{I_{p}}=\\frac{0.9}{0.1}{/tex} = 9 {tex}\\therefore{/tex} I p = {tex}\\frac{I_{5}}{9}=\\frac{\\left(\\frac{22}{440}\\right)}{9}{/tex} A {tex}=\\frac{1}{180}{/tex} A = 0.0056 A",
+    "solution": "A transformer works on the principle of mutual induction. (Alternatively-an emf is induced in the secondary coil when the magnetic flux, linked with it changes with time due to a (time) changing magnetic flux linked with the primary coil). The efficiency of a transformer equals the ratio of the output power to the input power. The input and output power are measured in the same unit Alternatively: Efficiency = {tex}\\frac{\\text { output power }}{\\text { input power }}{/tex} Efficiency = {tex}\\frac{V_{s} I_{s}}{V_{p} I_{p}}{/tex} Efficiency is affected by the factors Eddy current losses joule heat losses hysteresis losses magnetic flux leakage losses Calculating the current drawn We have {tex}\\frac{V_{s} I_{s}}{V_{p} I_{p}}{/tex} = 90% = 0.9 {tex}\\therefore \\frac{22 I_{s}}{220 I_{p}}{/tex} = 0.9 or {tex}\\frac{I_{s}}{I_{p}}=\\frac{0.9}{0.1}{/tex} = 9 {tex}\\therefore{/tex} I p = {tex}\\frac{I_{5}}{9}=\\frac{\\left(\\frac{22}{440}\\right)}{9}{/tex} A {tex}=\\frac{1}{180}{/tex} A = 0.0056 A",
+    "solution_html": "<ol start=\"1\" style=\"list-style-type: lower-alpha;\">\n\t<li>A transformer works on the principle of mutual induction.<br />\n\t(Alternatively-an emf is induced in the secondary coil when the magnetic flux, linked with it changes with time due to a (time) changing magnetic flux linked with the primary coil).</li>\n\t<li>The efficiency of a transformer equals the ratio of the output power to the input power. The input and output power are measured in the same unit<br />\n\tAlternatively:<br />\n\tEfficiency =&nbsp;<span class=\"math-tex\">{tex}\\frac{\\text { output power }}{\\text { input power }}{/tex}</span><br />\n\tEfficiency&nbsp; =&nbsp;<span class=\"math-tex\">{tex}\\frac{V_{s} I_{s}}{V_{p} I_{p}}{/tex}</span></li>\n\t<li>Efficiency is affected by the factors\n\t<ol start=\"1\" style=\"list-style-type: lower-roman;\">\n\t\t<li>Eddy current losses</li>\n\t\t<li>joule heat losses</li>\n\t\t<li>hysteresis losses</li>\n\t\t<li>magnetic flux leakage losses</li>\n\t</ol>\n\t</li>\n\t<li>Calculating the current drawn<br />\n\tWe have<br />\n\t<span class=\"math-tex\">{tex}\\frac{V_{s} I_{s}}{V_{p} I_{p}}{/tex}</span>&nbsp;= 90% = 0.9<br />\n\t<span class=\"math-tex\">{tex}\\therefore \\frac{22 I_{s}}{220 I_{p}}{/tex}</span>&nbsp;= 0.9<br />\n\tor&nbsp;<span class=\"math-tex\">{tex}\\frac{I_{s}}{I_{p}}=\\frac{0.9}{0.1}{/tex}</span>&nbsp;= 9<br />\n\t<span class=\"math-tex\">{tex}\\therefore{/tex}</span>&nbsp;I<sub>p</sub>&nbsp;=&nbsp;<span class=\"math-tex\">{tex}\\frac{I_{5}}{9}=\\frac{\\left(\\frac{22}{440}\\right)}{9}{/tex}</span>&nbsp;A<br />\n\t<span class=\"math-tex\">{tex}=\\frac{1}{180}{/tex}</span>&nbsp;A<br />\n\t= 0.0056 A</li>\n</ol>",
+    "weightage": "SA-2 (Short answer type-2)"
+  },
+  {
+    "subject": "Physics",
+    "subject_id": "1251",
+    "chapter": "Alternating Current",
+    "chapter_id": 1258,
+    "question_id": 497159,
+    "question_html": "<ol start=\"1\" style=\"list-style-type: lower-roman;\">\r\n\t<li>The primary of a transformer has 400 turns while the secondary has 2000 turns. If the power output from the secondary at 1100 V is 12.1 kW, calculate the primary voltage.</li>\r\n\t<li>If the resistance of the primary is 0.2 <span class=\"math-tex\">{tex}\\Omega{/tex}</span> and that of the secondary is 2.0 <span class=\"math-tex\">{tex}\\Omega{/tex}</span> and the efficiency of the transformer is 90 %, calculate the heat losses in the primary and the secondary coils.</li>\r\n</ol>",
+    "question_text": "The primary of a transformer has 400 turns while the secondary has 2000 turns. If the power output from the secondary at 1100 V is 12.1 kW, calculate the primary voltage. If the resistance of the primary is 0.2 {tex}\\Omega{/tex} and that of the secondary is 2.0 {tex}\\Omega{/tex} and the efficiency of the transformer is 90 %, calculate the heat losses in the primary and the secondary coils.",
+    "options": [],
+    "correct_option_ids": [],
+    "correct_option_text": "",
+    "explanation": "N 1 = 400, N 2 = 2000, {tex}\\varepsilon_{2}{/tex} = 1100 V {tex}\\varepsilon_{1}=\\varepsilon_{2} \\cdot \\frac{N_{1}}{N_{2}}=1100 \\times \\frac{400}{2000}{/tex} = 220V Resistance of primary, = 0.2 {tex}\\Omega{/tex} Output power = {tex}\\varepsilon_{2} I_{2}{/tex} = 12.1 kW = 12100 W {tex}\\therefore{/tex} Current in the secondary, {tex}I_{2}=\\frac{\\varepsilon_{2} I_{2}}{\\varepsilon_{2}}=\\frac{12100}{1100}=11 \\mathrm{~A}{/tex} As Efficiency = {tex}Output \\ power \\over Input \\ power{/tex} {tex}\\frac{90}{100}=\\frac{12100 \\mathrm{~W}}{\\text { Input power }}{/tex} or Input power, {tex}\\varepsilon_{1} I_{1}=\\frac{12100 \\times 100}{90}=13.44 \\times 10^{3} \\mathrm{~W}{/tex} Current in the primary, {tex}I_1=\\frac{\\varepsilon_{1} I_{1}}{\\varepsilon_{1}}=\\frac{13.44 \\times 10^{3}}{220}=61.1 \\mathrm{~A}{/tex} Power loss in the primary {tex}=I_{1}^{2} R_{1}=(61.1)^{2} \\times 0.2{/tex} = 746.61 W Power loss in the secondary {tex}=I_{2}^{2} R_{2}=(11)^{2} \\times 2.0{/tex} = 242 W",
+    "solution": "N 1 = 400, N 2 = 2000, {tex}\\varepsilon_{2}{/tex} = 1100 V {tex}\\varepsilon_{1}=\\varepsilon_{2} \\cdot \\frac{N_{1}}{N_{2}}=1100 \\times \\frac{400}{2000}{/tex} = 220V Resistance of primary, = 0.2 {tex}\\Omega{/tex} Output power = {tex}\\varepsilon_{2} I_{2}{/tex} = 12.1 kW = 12100 W {tex}\\therefore{/tex} Current in the secondary, {tex}I_{2}=\\frac{\\varepsilon_{2} I_{2}}{\\varepsilon_{2}}=\\frac{12100}{1100}=11 \\mathrm{~A}{/tex} As Efficiency = {tex}Output \\ power \\over Input \\ power{/tex} {tex}\\frac{90}{100}=\\frac{12100 \\mathrm{~W}}{\\text { Input power }}{/tex} or Input power, {tex}\\varepsilon_{1} I_{1}=\\frac{12100 \\times 100}{90}=13.44 \\times 10^{3} \\mathrm{~W}{/tex} Current in the primary, {tex}I_1=\\frac{\\varepsilon_{1} I_{1}}{\\varepsilon_{1}}=\\frac{13.44 \\times 10^{3}}{220}=61.1 \\mathrm{~A}{/tex} Power loss in the primary {tex}=I_{1}^{2} R_{1}=(61.1)^{2} \\times 0.2{/tex} = 746.61 W Power loss in the secondary {tex}=I_{2}^{2} R_{2}=(11)^{2} \\times 2.0{/tex} = 242 W",
+    "solution_html": "<ol start=\"1\" style=\"list-style-type: lower-roman;\">\r\n\t<li>N<sub>1</sub> = 400, N<sub>2</sub> = 2000,&nbsp;<span class=\"math-tex\">{tex}\\varepsilon_{2}{/tex}</span>&nbsp;= 1100 V<br />\r\n\t<span class=\"math-tex\">{tex}\\varepsilon_{1}=\\varepsilon_{2} \\cdot \\frac{N_{1}}{N_{2}}=1100 \\times \\frac{400}{2000}{/tex}</span>&nbsp;= 220V</li>\r\n\t<li>Resistance of primary, = 0.2 <span class=\"math-tex\">{tex}\\Omega{/tex}</span><br />\r\n\tOutput power =&nbsp;<span class=\"math-tex\">{tex}\\varepsilon_{2} I_{2}{/tex}</span>&nbsp;=&nbsp;12.1 kW = 12100 W<br />\r\n\t<span class=\"math-tex\">{tex}\\therefore{/tex}</span>&nbsp;Current in the secondary,<br />\r\n\t<span class=\"math-tex\">{tex}I_{2}=\\frac{\\varepsilon_{2} I_{2}}{\\varepsilon_{2}}=\\frac{12100}{1100}=11 \\mathrm{~A}{/tex}</span><br />\r\n\tAs Efficiency =&nbsp;<span class=\"math-tex\">{tex}Output \\ power \\over Input \\ power{/tex}</span><br />\r\n\t<span class=\"math-tex\">{tex}\\frac{90}{100}=\\frac{12100 \\mathrm{~W}}{\\text { Input power }}{/tex}</span><br />\r\n\tor Input power,<br />\r\n\t<span class=\"math-tex\">{tex}\\varepsilon_{1} I_{1}=\\frac{12100 \\times 100}{90}=13.44 \\times 10^{3} \\mathrm{~W}{/tex}</span><br />\r\n\tCurrent in the primary,<br />\r\n\t<span class=\"math-tex\">{tex}I_1=\\frac{\\varepsilon_{1} I_{1}}{\\varepsilon_{1}}=\\frac{13.44 \\times 10^{3}}{220}=61.1 \\mathrm{~A}{/tex}</span><br />\r\n\tPower loss in the primary<br />\r\n\t<span class=\"math-tex\">{tex}=I_{1}^{2} R_{1}=(61.1)^{2} \\times 0.2{/tex}</span>&nbsp;= 746.61 W<br />\r\n\tPower loss in the secondary<br />\r\n\t<span class=\"math-tex\">{tex}=I_{2}^{2} R_{2}=(11)^{2} \\times 2.0{/tex}</span>&nbsp;= 242 W</li>\r\n</ol>",
+    "weightage": "SA-2 (Short answer type-2)"
+  },
+  {
+    "subject": "Physics",
+    "subject_id": "1251",
+    "chapter": "Alternating Current",
+    "chapter_id": 1258,
+    "question_id": 1185352,
+    "question_html": "<ol start=\"1\" style=\"list-style-type:lower-alpha\">\n\t<li>Draw the diagram of a device which is used to decrease high ac voltage into a low ac voltage and state its working principle. Write four sources of energy loss in this device.</li>\n\t<li>A small town with a demand of 1200 kW of electric power at 220 V is situated 20 km away from an electric plant generating power at 440 V. The resistance of the two wire line carrying power is 0.5<span class=\"math-tex\">{tex}\\Omega{/tex}</span> per&nbsp;km. The town gets the power from the line through a 4000-220 V step-down transformer at a sub-station in the town. Estimate the line power loss in the form of heat</li>\n</ol>",
+    "question_text": "Draw the diagram of a device which is used to decrease high ac voltage into a low ac voltage and state its working principle. Write four sources of energy loss in this device. A small town with a demand of 1200 kW of electric power at 220 V is situated 20 km away from an electric plant generating power at 440 V. The resistance of the two wire line carrying power is 0.5 {tex}\\Omega{/tex} per km. The town gets the power from the line through a 4000-220 V step-down transformer at a sub-station in the town. Estimate the line power loss in the form of heat",
+    "options": [],
+    "correct_option_ids": [],
+    "correct_option_text": "",
+    "explanation": "The device used to decrease high ac voltage into a low ac voltage is called transformer (step-down transformer). Working principle: Transformer works on the principle of Faraday&rsquo;s law of electromagnetic induction. The law of electromagnetic induction states that when magnetic flux linked with a coil changes, an emf is induced in the coil. Transformer consists of two coils called primary coil and secondary coil. The ac current in primary coil changes magnetic flux linked with the secondary coil and thus an emf is induced in the secondary coil. Sources of energy loss in transformer Copper loss: The coils of transformer (made of copper) have a finite resistance due to which some energy in lost as heat. Iron loss: Due to induced eddy currents in the iron core, some energy is lost in the bulk. Magnetic loss: Since all magnetic flux in primary coil does not pass through the secondary coil, there is some loss of energy due to leakage of flux. Hysteresis loss: alternating magnetization and demagnetization of the iron core cause some loss of energy in form of heat Demand of electric power = 1200 kW Distance of town from power station = 20 km Two wire = 20 {tex}\\times{/tex} 2 = 40 km Total resistance of line = 40 {tex}\\times{/tex} 0.5 = 200 The town gets a power of 4000 volts Power = voltage {tex}\\times{/tex} current {tex}I=\\frac{1200 \\times 10^3}{4000}=\\frac{1200}{4}=300 \\mathrm{~A}{/tex} The line power loss in the form of heat = I 2 {tex}\\times{/tex} R = (300) 2 {tex}\\times{/tex} 2 = 9000 {tex}\\times{/tex} 20 = 1800 kW",
+    "solution": "The device used to decrease high ac voltage into a low ac voltage is called transformer (step-down transformer). Working principle: Transformer works on the principle of Faraday&rsquo;s law of electromagnetic induction. The law of electromagnetic induction states that when magnetic flux linked with a coil changes, an emf is induced in the coil. Transformer consists of two coils called primary coil and secondary coil. The ac current in primary coil changes magnetic flux linked with the secondary coil and thus an emf is induced in the secondary coil. Sources of energy loss in transformer Copper loss: The coils of transformer (made of copper) have a finite resistance due to which some energy in lost as heat. Iron loss: Due to induced eddy currents in the iron core, some energy is lost in the bulk. Magnetic loss: Since all magnetic flux in primary coil does not pass through the secondary coil, there is some loss of energy due to leakage of flux. Hysteresis loss: alternating magnetization and demagnetization of the iron core cause some loss of energy in form of heat Demand of electric power = 1200 kW Distance of town from power station = 20 km Two wire = 20 {tex}\\times{/tex} 2 = 40 km Total resistance of line = 40 {tex}\\times{/tex} 0.5 = 200 The town gets a power of 4000 volts Power = voltage {tex}\\times{/tex} current {tex}I=\\frac{1200 \\times 10^3}{4000}=\\frac{1200}{4}=300 \\mathrm{~A}{/tex} The line power loss in the form of heat = I 2 {tex}\\times{/tex} R = (300) 2 {tex}\\times{/tex} 2 = 9000 {tex}\\times{/tex} 20 = 1800 kW",
+    "solution_html": "<ol start=\"1\" style=\"list-style-type:lower-alpha\">\n\t<li>The device used to decrease high ac voltage into a low ac voltage is called transformer (step-down transformer).<br />\n\tWorking principle:<br />\n\tTransformer works on the principle of Faraday&rsquo;s law of electromagnetic induction. The law of electromagnetic induction states that when magnetic flux linked with a coil changes, an emf is induced in the coil. Transformer consists of two coils called primary coil and secondary coil. The ac current in primary coil changes magnetic flux linked with the secondary coil and thus an emf is induced in the secondary coil.<br />\n\t<img src=\"https://media-mycbseguide.s3.amazonaws.com/images/question_images/1716359166-u3q6kv.jpg\" style=\"height:129px; width:350px\" /><br />\n\tSources of energy loss in transformer\n\t<ol start=\"1\" style=\"list-style-type:lower-roman\">\n\t\t<li><strong>Copper loss:</strong> The coils of transformer (made of copper) have a finite resistance due to which some energy in lost as heat.&nbsp;</li>\n\t\t<li><strong>Iron loss:</strong> Due to induced eddy currents in the iron core, some energy is lost in the bulk.&nbsp;</li>\n\t\t<li><strong>Magnetic loss:</strong> Since all magnetic flux in primary coil does not pass through the secondary coil, there is some loss of energy due to leakage of flux.&nbsp;</li>\n\t\t<li><strong>Hysteresis loss:</strong> alternating magnetization and demagnetization of the iron core cause some loss of energy in form of heat</li>\n\t</ol>\n\t</li>\n\t<li>Demand of electric power = 1200 kW<br />\n\tDistance of town from power station = 20 km Two wire = 20 <span class=\"math-tex\">{tex}\\times{/tex}</span> 2 = 40 km<br />\n\tTotal resistance of line = 40 <span class=\"math-tex\">{tex}\\times{/tex}</span> 0.5 = 200<br />\n\tThe town gets a power of 4000 volts<br />\n\tPower = voltage <span class=\"math-tex\">{tex}\\times{/tex}</span>&nbsp;current<br />\n\t<span class=\"math-tex\">{tex}I=\\frac{1200 \\times 10^3}{4000}=\\frac{1200}{4}=300 \\mathrm{~A}{/tex}</span><br />\n\tThe line power loss in the form of heat&nbsp;= I<sup>2</sup> <span class=\"math-tex\">{tex}\\times{/tex}</span> R<br />\n\t= (300)<sup>2</sup> <span class=\"math-tex\">{tex}\\times{/tex}</span> 2<br />\n\t= 9000 <span class=\"math-tex\">{tex}\\times{/tex}</span> 20 = 1800 kW</li>\n</ol>",
+    "weightage": "LA-1 (Long answer type-1)"
+  },
+  {
+    "subject": "Physics",
+    "subject_id": "1251",
+    "chapter": "Alternating Current",
+    "chapter_id": 1258,
+    "question_id": 1146182,
+    "question_html": "<p>With the help of a diagram, explain the principle of a device which changes a low voltage into a high voltage but does not violate the law of conservation of energy. Give any one reason why the device may not be 100% efficient.</p>",
+    "question_text": "With the help of a diagram, explain the principle of a device which changes a low voltage into a high voltage but does not violate the law of conservation of energy. Give any one reason why the device may not be 100% efficient.",
+    "options": [],
+    "correct_option_ids": [],
+    "correct_option_text": "",
+    "explanation": "Device - transformer {tex}\\varepsilon_p{/tex} = -N p {tex}\\frac{\\Delta \\phi}{\\Delta t}{/tex} ...(i) and emf induced in the secondary coil = -N S {tex}\\frac{\\Delta \\phi}{\\Delta t}{/tex} ...(ii) From (i) and (ii) {tex}\\frac{\\varepsilon_S}{\\varepsilon_p}{/tex} = {tex}\\frac{N_S}{N_p}{/tex} ...(iii) {tex}\\frac{V_S}{V_p}{/tex} = {tex}\\frac{\\varepsilon_S}{\\varepsilon_p}{/tex} = {tex}\\frac{N_S}{N_p}{/tex} = r (say) ...(iv) V p i p = V S i S {tex}\\therefore{/tex} {tex}\\frac{i_S}{i_p}{/tex} = {tex}\\frac{V_p}{V_S}{/tex} = {tex}\\frac{N_p}{N_S}{/tex} = {tex}\\frac{1}{r}{/tex} ...(v) In step up transformer , N s > N p {tex}\\rightarrow{/tex} r > 1; So V S > V p and i S < i p i.e., step up transformer increases the voltage. Two coils on separate limbs of the core Principle: It is based on the principle of mutual inductance and transforms the alternating low voltage to alternating high voltage and in this the number of turns in secondary coil is more than that in primary coil. (i.e., N S > Np). Efficiency: Assuming no energy losses, the transformer is 100% efficient i.e. I P V P = I s V s",
+    "solution": "Device - transformer {tex}\\varepsilon_p{/tex} = -N p {tex}\\frac{\\Delta \\phi}{\\Delta t}{/tex} ...(i) and emf induced in the secondary coil = -N S {tex}\\frac{\\Delta \\phi}{\\Delta t}{/tex} ...(ii) From (i) and (ii) {tex}\\frac{\\varepsilon_S}{\\varepsilon_p}{/tex} = {tex}\\frac{N_S}{N_p}{/tex} ...(iii) {tex}\\frac{V_S}{V_p}{/tex} = {tex}\\frac{\\varepsilon_S}{\\varepsilon_p}{/tex} = {tex}\\frac{N_S}{N_p}{/tex} = r (say) ...(iv) V p i p = V S i S {tex}\\therefore{/tex} {tex}\\frac{i_S}{i_p}{/tex} = {tex}\\frac{V_p}{V_S}{/tex} = {tex}\\frac{N_p}{N_S}{/tex} = {tex}\\frac{1}{r}{/tex} ...(v) In step up transformer , N s > N p {tex}\\rightarrow{/tex} r > 1; So V S > V p and i S < i p i.e., step up transformer increases the voltage. Two coils on separate limbs of the core Principle: It is based on the principle of mutual inductance and transforms the alternating low voltage to alternating high voltage and in this the number of turns in secondary coil is more than that in primary coil. (i.e., N S > Np). Efficiency: Assuming no energy losses, the transformer is 100% efficient i.e. I P V P = I s V s",
+    "solution_html": "<p>Device - transformer<br />\r\n<span class=\"math-tex\">{tex}\\varepsilon_p{/tex}</span> = -N<sub>p</sub> <span class=\"math-tex\">{tex}\\frac{\\Delta \\phi}{\\Delta t}{/tex}</span> ...(i)<br />\r\nand emf induced in the secondary coil<br />\r\n= -N<sub>S</sub> <span class=\"math-tex\">{tex}\\frac{\\Delta \\phi}{\\Delta t}{/tex}</span> ...(ii)<br />\r\nFrom (i) and (ii)<br />\r\n<span class=\"math-tex\">{tex}\\frac{\\varepsilon_S}{\\varepsilon_p}{/tex}</span> = <span class=\"math-tex\">{tex}\\frac{N_S}{N_p}{/tex}</span> ...(iii)<br />\r\n<span class=\"math-tex\">{tex}\\frac{V_S}{V_p}{/tex}</span> = <span class=\"math-tex\">{tex}\\frac{\\varepsilon_S}{\\varepsilon_p}{/tex}</span> = <span class=\"math-tex\">{tex}\\frac{N_S}{N_p}{/tex}</span> = r (say) ...(iv)<br />\r\nV<sub>p</sub>i<sub>p</sub> = V<sub>S</sub> i<sub>S</sub><br />\r\n<span class=\"math-tex\">{tex}\\therefore{/tex}</span> <span class=\"math-tex\">{tex}\\frac{i_S}{i_p}{/tex}</span> = <span class=\"math-tex\">{tex}\\frac{V_p}{V_S}{/tex}</span> = <span class=\"math-tex\">{tex}\\frac{N_p}{N_S}{/tex}</span> = <span class=\"math-tex\">{tex}\\frac{1}{r}{/tex}</span> ...(v)<br />\r\n<strong>In step up transformer</strong>, N<sub>s</sub> &gt; N<sub>p</sub> <span class=\"math-tex\">{tex}\\rightarrow{/tex}</span> r &gt; 1;<br />\r\nSo V<sub>S</sub> &gt; V<sub>p</sub> and i<sub>S</sub> &lt; i<sub>p</sub><br />\r\ni.e., step up transformer increases the voltage.<br />\r\n<img src=\"https://media-mycbseguide.s3.amazonaws.com/images/question_images/1709028981-nd4e94.jpg\" style=\"height:125px; width:202px\" /><br />\r\nTwo coils on separate limbs of the core<br />\r\nPrinciple: It is based on the principle of mutual inductance and transforms the alternating low voltage to alternating high voltage and in this the number of turns in secondary coil is more than that in primary coil. (i.e., N<sub>S</sub> &gt; Np).<br />\r\n<strong>Efficiency:</strong> Assuming no energy losses, the transformer is 100% efficient i.e. I<sub>P</sub>V<sub>P</sub> = I<sub>s</sub>V<sub>s</sub></p>",
+    "weightage": "LA-1 (Long answer type-1)"
+  },
+  {
+    "subject": "Physics",
+    "subject_id": "1251",
+    "chapter": "Alternating Current",
+    "chapter_id": 1258,
+    "question_id": 1715133,
+    "question_html": "<ol start=\"1\" style=\"list-style-type:lower-roman\">\r\n\t<li>Write the principle of working of a transformer. With the help of a labelled diagram, explain the working of a step-up transformer.</li>\r\n\t<li>An ideal transformer is designed to convert 50 V into 250 V. It draws 200 W power from an ac source whose instantaneous voltage is given by <span class=\"math-tex\">{tex}{v}_{{i}}=20 \\sin (100 \\pi) {t} {V}{/tex}</span>.<br />\r\n\tFind:\r\n\t<ol start=\"1\" style=\"list-style-type:upper-roman\">\r\n\t\t<li>rms value of input current.</li>\r\n\t\t<li>expression for instantaneous output voltage.</li>\r\n\t\t<li>expression for instantaneous output current.</li>\r\n\t</ol>\r\n\t</li>\r\n</ol>",
+    "question_text": "Write the principle of working of a transformer. With the help of a labelled diagram, explain the working of a step-up transformer. An ideal transformer is designed to convert 50 V into 250 V. It draws 200 W power from an ac source whose instantaneous voltage is given by {tex}{v}_{{i}}=20 \\sin (100 \\pi) {t} {V}{/tex} . Find: rms value of input current. expression for instantaneous output voltage. expression for instantaneous output current.",
+    "options": [],
+    "correct_option_ids": [],
+    "correct_option_text": "",
+    "explanation": "Principle : It works on the principle of mutual induction. Working: When an alternating voltage is applied to the primary, the resulting current produces an alternating magnetic flux which links the secondary and induces an emf in it. Since the no. of turns are more in secondary windings an emf induced is proportional to the no. of turns. Therefore more emf is developed across the secondary windings. {tex}P_{i}=V_{p} I_{p}{/tex} {tex}200=\\frac{20}{\\sqrt{2}} I_{p}{/tex} {tex}I_{p}=10 \\sqrt{2} {~A}{/tex} {tex}\\frac{V_{o}}{V_{i}}=\\frac{250}{50}{/tex} {tex}5=\\frac{V_{o}}{V_{i}}{/tex} {tex}V_{o}=100 \\sin (100 \\pi) {tV}{/tex} {tex}{P}_{o}=\\left(V_{o}\\right)_{r m s}\\left(I_{o}\\right)_{r m s}{/tex} {tex}200=\\frac{100}{\\sqrt{2}}\\left(I_{o}\\right)_{r m s}{/tex} {tex}\\left(I_{o}\\right)_{r m s}=2 \\sqrt{2} {~A}{/tex} {tex}\\therefore I_{o} =(2 \\sqrt{2}) \\sqrt{2} \\sin (100 \\pi) {t}{/tex} {tex}I_{o} =4 \\sin (100 \\pi) {t} {~A}{/tex}",
+    "solution": "Principle : It works on the principle of mutual induction. Working: When an alternating voltage is applied to the primary, the resulting current produces an alternating magnetic flux which links the secondary and induces an emf in it. Since the no. of turns are more in secondary windings an emf induced is proportional to the no. of turns. Therefore more emf is developed across the secondary windings. {tex}P_{i}=V_{p} I_{p}{/tex} {tex}200=\\frac{20}{\\sqrt{2}} I_{p}{/tex} {tex}I_{p}=10 \\sqrt{2} {~A}{/tex} {tex}\\frac{V_{o}}{V_{i}}=\\frac{250}{50}{/tex} {tex}5=\\frac{V_{o}}{V_{i}}{/tex} {tex}V_{o}=100 \\sin (100 \\pi) {tV}{/tex} {tex}{P}_{o}=\\left(V_{o}\\right)_{r m s}\\left(I_{o}\\right)_{r m s}{/tex} {tex}200=\\frac{100}{\\sqrt{2}}\\left(I_{o}\\right)_{r m s}{/tex} {tex}\\left(I_{o}\\right)_{r m s}=2 \\sqrt{2} {~A}{/tex} {tex}\\therefore I_{o} =(2 \\sqrt{2}) \\sqrt{2} \\sin (100 \\pi) {t}{/tex} {tex}I_{o} =4 \\sin (100 \\pi) {t} {~A}{/tex}",
+    "solution_html": "<ol start=\"1\" style=\"list-style-type:lower-roman\">\r\n\t<li><strong>Principle</strong>: It works on the principle of mutual induction.<br />\r\n\t<img src=\"https://media-mycbseguide.s3.amazonaws.com/images/question_images/1760440616-mwbtm9.jpg\" style=\"height:150px; width:250px\" /><br />\r\n\t<strong>Working: </strong>When an alternating voltage is applied to the primary, the resulting current produces an alternating magnetic flux which links the secondary and induces an emf in it. Since the no. of turns are more in secondary windings an emf induced is proportional to the no. of turns. Therefore more emf is developed across the secondary windings.</li>\r\n\t<li><span class=\"math-tex\">{tex}P_{i}=V_{p} I_{p}{/tex}</span><br />\r\n\t<span class=\"math-tex\">{tex}200=\\frac{20}{\\sqrt{2}} I_{p}{/tex}</span><br />\r\n\t<span class=\"math-tex\">{tex}I_{p}=10 \\sqrt{2} {~A}{/tex}</span><br />\r\n\t<span class=\"math-tex\">{tex}\\frac{V_{o}}{V_{i}}=\\frac{250}{50}{/tex}</span><br />\r\n\t<span class=\"math-tex\">{tex}5=\\frac{V_{o}}{V_{i}}{/tex}</span><br />\r\n\t<span class=\"math-tex\">{tex}V_{o}=100 \\sin (100 \\pi) {tV}{/tex}</span><br />\r\n\t<span class=\"math-tex\">{tex}{P}_{o}=\\left(V_{o}\\right)_{r m s}\\left(I_{o}\\right)_{r m s}{/tex}</span><br />\r\n\t<span class=\"math-tex\">{tex}200=\\frac{100}{\\sqrt{2}}\\left(I_{o}\\right)_{r m s}{/tex}</span><br />\r\n\t<span class=\"math-tex\">{tex}\\left(I_{o}\\right)_{r m s}=2 \\sqrt{2} {~A}{/tex}</span><br />\r\n\t<span class=\"math-tex\">{tex}\\therefore I_{o} =(2 \\sqrt{2}) \\sqrt{2} \\sin (100 \\pi) {t}{/tex}</span><br />\r\n\t<span class=\"math-tex\">{tex}I_{o} =4 \\sin (100 \\pi) {t} {~A}{/tex}</span></li>\r\n</ol>",
+    "weightage": "LA-1 (Long answer type-1)"
+  },
+  {
+    "subject": "Physics",
+    "subject_id": "1251",
+    "chapter": "Alternating Current",
+    "chapter_id": 1258,
+    "question_id": 144226,
+    "question_html": "<ol start=\"1\" style=\"list-style-type: lower-roman;\">\n\t<li>When an AC source is connected to an ideal capacitor, then show that the average power supplied by the source over a complete cycle is zero.</li>\n\t<li>A lamp is connected in series with a capacitor. Predict your observations when the system is connected first across a DC and then an AC source. What happens in each case if the capacitance of the capacitor is reduced?</li>\n</ol>",
+    "question_text": "When an AC source is connected to an ideal capacitor, then show that the average power supplied by the source over a complete cycle is zero. A lamp is connected in series with a capacitor. Predict your observations when the system is connected first across a DC and then an AC source. What happens in each case if the capacitance of the capacitor is reduced?",
+    "options": [],
+    "correct_option_ids": [],
+    "correct_option_text": "",
+    "explanation": "When a source of AC is connected to a capacitor of capacitance C , the charge on it grows from zero to maximum steady value Q 0 . The energy stored in a capacitor is, {tex}E = \\frac { 1 } { 2 } C V _ { 0 } ^ { 2 }{/tex} where, V 0 is maximum potential difference across the plates of the capacitor. The alternating voltage applied is {tex} { V } = { V } _ { 0 } \\sin \\omega t{/tex} and the current leads the emf by a phase angle of {tex}\\pi /2{/tex} {tex}I = I _ { 0 } \\sin \\left( \\omega t + \\frac { \\pi } { 2 } \\right) = I _ { 0 } \\cos \\omega t{/tex} {tex}\\therefore {/tex} Work done over a complete cycle is, {tex}W = \\int _ { 0 } ^ { T } V Id t = \\int _ { 0 } ^ { T } \\left( V_ { 0 } \\sin \\omega t \\right) \\left( I _ { 0 } \\cos \\omega t \\right) d t{/tex} {tex}= \\frac { V _ { 0 } I _ { 0 } } { 2 } \\int _ { 0 } ^ { T } 2 \\sin \\omega t \\cos \\omega t d t{/tex} {tex}\\therefore W = \\frac { V _ { 0 } I _ { 0 } } { 2 } \\int _ { 0 } ^ { T } \\sin 2 \\omega t d t{/tex} {tex}W = \\frac { V _ { 0 } I _ { 0 } } { 2 } \\left[ 1 - \\frac { \\cos 2 \\omega t } { 2 \\omega } \\right] _ { 0 } ^ { T } = 0{/tex} Now as the work done is zero, hence the average power is also zero (as, time can never be zero). When a DC source is connected, the condenser is charged but no current flows in the circuit. Because a condenser offers infinite resistance for a DC source and never allows a DC current to flow through it. Therefore, the lamp does not glow. No change occurs even when capacitance of capacitor is reduced. Now when an AC source is connected with the circuit, the capacitor offers capacitive reactance {tex}X _ { C } = 1 / \\omega C{/tex} (where {tex}\\omega {/tex} is the angular frequency of the applied AC voltage). The current flows in the circuit and the lamp glows. On reducing the value of C , the capacitive reactance, X C increases. Therefore, the glowing of the bulb reduces.",
+    "solution": "When a source of AC is connected to a capacitor of capacitance C , the charge on it grows from zero to maximum steady value Q 0 . The energy stored in a capacitor is, {tex}E = \\frac { 1 } { 2 } C V _ { 0 } ^ { 2 }{/tex} where, V 0 is maximum potential difference across the plates of the capacitor. The alternating voltage applied is {tex} { V } = { V } _ { 0 } \\sin \\omega t{/tex} and the current leads the emf by a phase angle of {tex}\\pi /2{/tex} {tex}I = I _ { 0 } \\sin \\left( \\omega t + \\frac { \\pi } { 2 } \\right) = I _ { 0 } \\cos \\omega t{/tex} {tex}\\therefore {/tex} Work done over a complete cycle is, {tex}W = \\int _ { 0 } ^ { T } V Id t = \\int _ { 0 } ^ { T } \\left( V_ { 0 } \\sin \\omega t \\right) \\left( I _ { 0 } \\cos \\omega t \\right) d t{/tex} {tex}= \\frac { V _ { 0 } I _ { 0 } } { 2 } \\int _ { 0 } ^ { T } 2 \\sin \\omega t \\cos \\omega t d t{/tex} {tex}\\therefore W = \\frac { V _ { 0 } I _ { 0 } } { 2 } \\int _ { 0 } ^ { T } \\sin 2 \\omega t d t{/tex} {tex}W = \\frac { V _ { 0 } I _ { 0 } } { 2 } \\left[ 1 - \\frac { \\cos 2 \\omega t } { 2 \\omega } \\right] _ { 0 } ^ { T } = 0{/tex} Now as the work done is zero, hence the average power is also zero (as, time can never be zero). When a DC source is connected, the condenser is charged but no current flows in the circuit. Because a condenser offers infinite resistance for a DC source and never allows a DC current to flow through it. Therefore, the lamp does not glow. No change occurs even when capacitance of capacitor is reduced. Now when an AC source is connected with the circuit, the capacitor offers capacitive reactance {tex}X _ { C } = 1 / \\omega C{/tex} (where {tex}\\omega {/tex} is the angular frequency of the applied AC voltage). The current flows in the circuit and the lamp glows. On reducing the value of C , the capacitive reactance, X C increases. Therefore, the glowing of the bulb reduces.",
+    "solution_html": "<ol start=\"1\" style=\"list-style-type: lower-roman;\">\n\t<li>When a source of AC is connected to a capacitor of capacitance C<span style=\"font-size: 10.8333px;\">,</span>&nbsp;the charge on it grows from zero to maximum steady value Q<sub>0</sub> .&nbsp;<br />\n\tThe energy stored in a capacitor is, <span class=\"math-tex\">{tex}E = \\frac { 1 } { 2 } C V _ { 0 } ^ { 2 }{/tex}</span>&nbsp;where, V<sub>0</sub> is maximum potential difference across the plates of the capacitor.<br />\n\tThe alternating voltage applied is<br />\n\t<span class=\"math-tex\">{tex} { V } = { V } _ { 0 } \\sin \\omega t{/tex}</span><br />\n\tand the current leads the emf by a phase angle of&nbsp;<span class=\"math-tex\">{tex}\\pi /2{/tex}</span><br />\n\t<span class=\"math-tex\">{tex}I = I _ { 0 } \\sin \\left( \\omega t + \\frac { \\pi } { 2 } \\right) = I _ { 0 } \\cos \\omega t{/tex}</span><br />\n\t<span class=\"math-tex\">{tex}\\therefore {/tex}</span>&nbsp;Work done over a complete cycle is,<br />\n\t<span class=\"math-tex\">{tex}W = \\int _ { 0 } ^ { T } V Id t = \\int _ { 0 } ^ { T } \\left( V_ { 0 } \\sin \\omega t \\right) \\left( I _ { 0 } \\cos \\omega t \\right) d t{/tex}</span><br />\n\t<span class=\"math-tex\">{tex}= \\frac { V _ { 0 } I _ { 0 } } { 2 } \\int _ { 0 } ^ { T } 2 \\sin \\omega t \\cos \\omega t d t{/tex}</span><br />\n\t<span class=\"math-tex\">{tex}\\therefore W = \\frac { V _ { 0 } I _ { 0 } } { 2 } \\int _ { 0 } ^ { T } \\sin 2 \\omega t d t{/tex}</span><br />\n\t<span class=\"math-tex\">{tex}W = \\frac { V _ { 0 } I _ { 0 } } { 2 } \\left[ 1 - \\frac { \\cos 2 \\omega t } { 2 \\omega } \\right] _ { 0 } ^ { T } = 0{/tex}</span><br />\n\tNow as the work done is zero, hence the average power is also zero (as, time can never be zero).</li>\n\t<li>When a DC source is connected, the condenser is charged but no current flows in the circuit. Because a condenser offers infinite resistance for a DC source and never allows a DC current to flow through it. Therefore, the lamp does not glow. No change occurs even when capacitance of capacitor is reduced.<br />\n\tNow when an AC source is connected with the circuit, the capacitor offers capacitive reactance <span class=\"math-tex\">{tex}X _ { C } = 1 / \\omega C{/tex}</span>&nbsp;(where&nbsp;<span class=\"math-tex\">{tex}\\omega {/tex}</span>&nbsp;is the angular frequency of the applied AC voltage).&nbsp;The current flows in the circuit and the lamp glows. On reducing the value of C<sub><span style=\"font-size: 13px;\">, </span></sub><span style=\"font-size: 13px;\">the capacitive reactance,&nbsp;</span><span style=\"font-size: 13px;\">X<sub>C</sub></span>&nbsp;increases. Therefore, the glowing of the bulb reduces.</li>\n</ol>",
+    "weightage": "LA-1 (Long answer type-1)"
+  },
+  {
+    "subject": "Physics",
+    "subject_id": "1251",
+    "chapter": "Alternating Current",
+    "chapter_id": 1258,
+    "question_id": 449235,
+    "question_html": "<p>A small town with a demand of 800 kW of electric power at 220 V is situated 15 km away from an electric plant generating power at 440 V. The resistance of the two wire line carrying power is 0.5 <span class=\"math-tex\">{tex}\\Omega{/tex}</span> per km. By&nbsp;replacement of the earlier transformer by a 40,000 - 220 V step-down transformer (Neglect, as before, leakage losses though this may not be a good assumption any longer because of the very high voltage transmission involved). Hence, explain why high voltage transmission is preferred?</p>",
+    "question_text": "A small town with a demand of 800 kW of electric power at 220 V is situated 15 km away from an electric plant generating power at 440 V. The resistance of the two wire line carrying power is 0.5 {tex}\\Omega{/tex} per km. By replacement of the earlier transformer by a 40,000 - 220 V step-down transformer (Neglect, as before, leakage losses though this may not be a good assumption any longer because of the very high voltage transmission involved). Hence, explain why high voltage transmission is preferred?",
+    "options": [],
+    "correct_option_ids": [],
+    "correct_option_text": "",
+    "explanation": "Power loss is minimum when voltage is high this can be explained as:- The rating of a step-down transformer is 40000 V - 220 V. Input voitage is given by, V 1 = 40000 V Output voltage is given by, V 2 = 220 V and Total electric power required, P = 800 KW = 800 {tex}\\times{/tex} 10 3 W Source potential, V = 220 V Voltage at which the electric plant generates power, V&#39; = 440 V Distance between the town and power generating station is given by, d = 15 Km Resistance of the two wire lines carrying power = 0.5 {tex}\\Omega{/tex} /Km Total resistance of the wire lines, R = (15 + 15) 0.5 = 15 {tex}\\Omega{/tex} P = V 1 I Rms current in the wire line is given as: {tex}I=\\frac{P}{V_{1}}{/tex} {tex}=\\frac{800 \\times 10^{3}}{40000}=20 \\mathrm{A}{/tex} Line power loss due to heat is given by = I 2 R = (20) 2 {tex}\\times{/tex} 15 = 6 KW Assuming that the power loss is negligible due to the leakage of current. Hence, power supplied by the plant = 800 KW + 6 KW = 806 KW Voltage drop in the power line = IR = 20 {tex}\\times{/tex} 15 = 300 V Hence, voltage that is transmitted by the power plant = 300 + 40000 = 40300 V The power is being generated in the plant at 440 V. Hence, the rating of the step-up transformer needed at the plant is 440 V = 40300 V. Hence, power loss during transmission is {tex}=\\frac{600}{1400} \\times 100{/tex} = 42.8% In the previous exercise, the power loss due to the same reason is = {tex}\\frac{6}{806} \\times 100{/tex} = 0.744%. Thus we get that the power loss is less for a high voltage transmission, high voltage transmissions are preferred for this purpose.",
+    "solution": "Power loss is minimum when voltage is high this can be explained as:- The rating of a step-down transformer is 40000 V - 220 V. Input voitage is given by, V 1 = 40000 V Output voltage is given by, V 2 = 220 V and Total electric power required, P = 800 KW = 800 {tex}\\times{/tex} 10 3 W Source potential, V = 220 V Voltage at which the electric plant generates power, V&#39; = 440 V Distance between the town and power generating station is given by, d = 15 Km Resistance of the two wire lines carrying power = 0.5 {tex}\\Omega{/tex} /Km Total resistance of the wire lines, R = (15 + 15) 0.5 = 15 {tex}\\Omega{/tex} P = V 1 I Rms current in the wire line is given as: {tex}I=\\frac{P}{V_{1}}{/tex} {tex}=\\frac{800 \\times 10^{3}}{40000}=20 \\mathrm{A}{/tex} Line power loss due to heat is given by = I 2 R = (20) 2 {tex}\\times{/tex} 15 = 6 KW Assuming that the power loss is negligible due to the leakage of current. Hence, power supplied by the plant = 800 KW + 6 KW = 806 KW Voltage drop in the power line = IR = 20 {tex}\\times{/tex} 15 = 300 V Hence, voltage that is transmitted by the power plant = 300 + 40000 = 40300 V The power is being generated in the plant at 440 V. Hence, the rating of the step-up transformer needed at the plant is 440 V = 40300 V. Hence, power loss during transmission is {tex}=\\frac{600}{1400} \\times 100{/tex} = 42.8% In the previous exercise, the power loss due to the same reason is = {tex}\\frac{6}{806} \\times 100{/tex} = 0.744%. Thus we get that the power loss is less for a high voltage transmission, high voltage transmissions are preferred for this purpose.",
+    "solution_html": "<p>&nbsp;Power loss is minimum&nbsp;when voltage is high this can be explained as:-<br />\r\nThe rating of a step-down transformer is 40000 V - 220 V.<br />\r\nInput voitage is given by, V<sub>1</sub> = 40000 V<br />\r\nOutput voltage is given&nbsp;by, V<sub>2 </sub>= 220 V and Total electric power required, P = 800 KW = 800&nbsp;<span class=\"math-tex\">{tex}\\times{/tex}</span>&nbsp;10<sup>3</sup> W<br />\r\nSource potential, V = 220 V<br />\r\nVoltage at which the electric plant generates power, V&#39; = 440 V<br />\r\nDistance between the town and power generating station is given by, d = 15 Km<br />\r\nResistance of the two wire lines carrying power = 0.5&nbsp;<span class=\"math-tex\">{tex}\\Omega{/tex}</span>/Km<br />\r\nTotal resistance of the wire lines, R = (15 + 15) 0.5 = 15&nbsp;<span class=\"math-tex\">{tex}\\Omega{/tex}</span><br />\r\nP = V<sub>1</sub>I<br />\r\nRms current in the wire line is given as:<br />\r\n<span class=\"math-tex\">{tex}I=\\frac{P}{V_{1}}{/tex}</span><br />\r\n<span class=\"math-tex\">{tex}=\\frac{800 \\times 10^{3}}{40000}=20 \\mathrm{A}{/tex}</span></p>\r\n\r\n<ol start=\"1\" style=\"list-style-type: lower-alpha;\">\r\n\t<li>Line power loss due to heat is given by = I<sup>2</sup>R<br />\r\n\t= (20)<sup>2</sup>&nbsp;<span class=\"math-tex\">{tex}\\times{/tex}</span>&nbsp;15<br />\r\n\t= 6 KW</li>\r\n\t<li>Assuming that the power loss is negligible due to the leakage of current.&nbsp;<br />\r\n\tHence, power supplied by the plant = 800 KW + 6 KW = 806 KW</li>\r\n\t<li>Voltage drop in the power line = IR = 20&nbsp;<span class=\"math-tex\">{tex}\\times{/tex}</span>&nbsp;15 = 300 V<br />\r\n\tHence, voltage that is transmitted by the power plant&nbsp;<br />\r\n\t= 300 + 40000 = 40300 V<br />\r\n\tThe power is being generated in the plant at 440 V.<br />\r\n\tHence, the rating of the step-up transformer needed at the plant is<br />\r\n\t440 V = 40300 V.<br />\r\n\tHence, power loss during transmission is&nbsp;<span class=\"math-tex\">{tex}=\\frac{600}{1400} \\times 100{/tex}</span>&nbsp;= 42.8%<br />\r\n\tIn the previous exercise, the power loss due to the same reason is =&nbsp;<span class=\"math-tex\">{tex}\\frac{6}{806} \\times 100{/tex}</span>&nbsp;= 0.744%. Thus we get that&nbsp;the power loss is less for a high voltage transmission, high voltage transmissions are preferred for this purpose.</li>\r\n</ol>",
+    "weightage": "LA-1 (Long answer type-1)"
+  },
+  {
+    "subject": "Physics",
+    "subject_id": "1251",
+    "chapter": "Alternating Current",
+    "chapter_id": 1258,
+    "question_id": 1324570,
+    "question_html": "<ol start=\"1\" style=\"list-style-type:lower-roman\">\n\t<li>Draw a labelled diagram of a step-up transformer and describe its working principle. Explain any three causes for energy losses in a real transformer.</li>\n\t<li>A step-up transformer converts a low voltage into high voltage. Does it violate the principle of conservation of energy? Explain.</li>\n\t<li>A step-up transformer has 200 and 3000 turns in its primary and secondary coils respectively. The input voltage given to the primary coil is 90 V. Calculate:\n\t<ol start=\"1\" style=\"list-style-type:decimal\">\n\t\t<li>The output voltage across the secondary coil</li>\n\t\t<li>The current in the primary coil if the current in the<br />\n\t\tsecondary coil is 2.0 A.</li>\n\t</ol>\n\t</li>\n</ol>",
+    "question_text": "Draw a labelled diagram of a step-up transformer and describe its working principle. Explain any three causes for energy losses in a real transformer. A step-up transformer converts a low voltage into high voltage. Does it violate the principle of conservation of energy? Explain. A step-up transformer has 200 and 3000 turns in its primary and secondary coils respectively. The input voltage given to the primary coil is 90 V. Calculate: The output voltage across the secondary coil The current in the primary coil if the current in the secondary coil is 2.0 A.",
+    "options": [],
+    "correct_option_ids": [],
+    "correct_option_text": "",
+    "explanation": "The working principle of transformer is mutual induction. When an alternating voltage is applied to the primary, the resulting current produces an alternating magnetic flux which links the secondary and induces an emf in it. Causes of energy losses Copper Losses (I 2 R Losses): Explanation: These losses occur due to the resistance of the wire in the coils. When current flows through the wire, some energy is dissipated as heat due to the resistance. Mitigation: Using thicker wires with lower resistance and cooling mechanisms can help reduce these losses. Core Losses (Iron Losses): Explanation: Core losses include hysteresis loss and eddy current loss. Hysteresis loss occurs due to the lagging of magnetic domains behind the changing magnetic field. Eddy current loss is caused by circulating currents induced within the core material due to the changing magnetic field. Mitigation: Using laminated silicon steel cores reduces eddy currents, and using materials with low hysteresis loss minimizes core losses. Leakage Flux: Explanation: Not all magnetic flux produced by the primary coil links with the secondary coil. Some flux \"leaks\" and does not contribute to energy transfer between coils, leading to inefficiency. Mitigation: Improving core design and using better core materials can help reduce leakage flux. A step-up transformer does not violate the conservation of energy. It increases voltage by decreasing current proportionally. The power input (low voltage, high current) equals the power output (high voltage, low current), ensuring energy conservation. The transformer merely transfers energy, with losses typically due to inefficiencies. {tex}\\frac{V_s}{V_P}=\\frac{N_s}{N_P}{/tex} {tex}V_s=\\frac{N_s}{N_P} \\times V_P=\\frac{3000}{200} \\times 90{/tex} {tex}V_s=1350 \\mathrm{~V}{/tex} {tex}\\frac{I_P}{I_s}=\\frac{N_s}{N_P}{/tex} {tex}I_P=\\frac{3000}{200} \\times 2=30 \\mathrm{~A}{/tex}",
+    "solution": "The working principle of transformer is mutual induction. When an alternating voltage is applied to the primary, the resulting current produces an alternating magnetic flux which links the secondary and induces an emf in it. Causes of energy losses Copper Losses (I 2 R Losses): Explanation: These losses occur due to the resistance of the wire in the coils. When current flows through the wire, some energy is dissipated as heat due to the resistance. Mitigation: Using thicker wires with lower resistance and cooling mechanisms can help reduce these losses. Core Losses (Iron Losses): Explanation: Core losses include hysteresis loss and eddy current loss. Hysteresis loss occurs due to the lagging of magnetic domains behind the changing magnetic field. Eddy current loss is caused by circulating currents induced within the core material due to the changing magnetic field. Mitigation: Using laminated silicon steel cores reduces eddy currents, and using materials with low hysteresis loss minimizes core losses. Leakage Flux: Explanation: Not all magnetic flux produced by the primary coil links with the secondary coil. Some flux \"leaks\" and does not contribute to energy transfer between coils, leading to inefficiency. Mitigation: Improving core design and using better core materials can help reduce leakage flux. A step-up transformer does not violate the conservation of energy. It increases voltage by decreasing current proportionally. The power input (low voltage, high current) equals the power output (high voltage, low current), ensuring energy conservation. The transformer merely transfers energy, with losses typically due to inefficiencies. {tex}\\frac{V_s}{V_P}=\\frac{N_s}{N_P}{/tex} {tex}V_s=\\frac{N_s}{N_P} \\times V_P=\\frac{3000}{200} \\times 90{/tex} {tex}V_s=1350 \\mathrm{~V}{/tex} {tex}\\frac{I_P}{I_s}=\\frac{N_s}{N_P}{/tex} {tex}I_P=\\frac{3000}{200} \\times 2=30 \\mathrm{~A}{/tex}",
+    "solution_html": "<ol start=\"1\" style=\"list-style-type:lower-roman\">\n\t<li><img src=\"https://media-mycbseguide.s3.amazonaws.com/images/question_images/1726471783-s6ng93.jpg\" style=\"height:163px; width:261px\" /><br />\n\tThe working principle of transformer is mutual induction.<br />\n\tWhen an alternating voltage is applied to the primary, the resulting current produces an alternating magnetic flux which links the secondary and induces an emf in it.<br />\n\t<strong>Causes of energy losses</strong>\n\t<ol start=\"1\" style=\"list-style-type:lower-alpha\">\n\t\t<li><strong>Copper Losses (I<sup>2</sup>R&nbsp;Losses):</strong><br />\n\t\t<strong>Explanation:</strong> These losses occur due to the resistance of the wire in the coils. When current flows through the wire, some energy is dissipated as heat due to the resistance.<br />\n\t\t<strong>Mitigation:</strong> Using thicker wires with lower resistance and cooling mechanisms can help reduce these losses.</li>\n\t\t<li><strong>Core Losses (Iron Losses):</strong><br />\n\t\t<strong>Explanation:</strong> Core losses include hysteresis loss and eddy current loss. Hysteresis loss occurs due to the lagging of magnetic domains behind the changing magnetic field. Eddy current loss is caused by circulating currents induced within the core material due to the changing magnetic field.<br />\n\t\t<strong>Mitigation:</strong> Using laminated silicon steel cores reduces eddy currents, and using materials with low hysteresis loss minimizes core losses.</li>\n\t\t<li><strong>Leakage Flux:</strong><br />\n\t\t<strong>Explanation:</strong> Not all magnetic flux produced by the primary coil links with the secondary coil. Some flux &quot;leaks&quot; and does not contribute to energy transfer between coils, leading to inefficiency.<br />\n\t\t<strong>Mitigation:</strong> Improving core design and using better core materials can help reduce leakage flux.</li>\n\t</ol>\n\t</li>\n\t<li>A step-up transformer does not violate the conservation of energy. It increases voltage by decreasing current proportionally. The power input (low voltage, high current) equals the power output (high voltage, low current), ensuring energy conservation. The transformer merely transfers energy, with losses typically due to inefficiencies.</li>\n\t<li>\n\t<ol start=\"1\" style=\"list-style-type:decimal\">\n\t\t<li><span class=\"math-tex\">{tex}\\frac{V_s}{V_P}=\\frac{N_s}{N_P}{/tex}</span><br />\n\t\t<span class=\"math-tex\">{tex}V_s=\\frac{N_s}{N_P} \\times V_P=\\frac{3000}{200} \\times 90{/tex}</span><br />\n\t\t<span class=\"math-tex\">{tex}V_s=1350 \\mathrm{~V}{/tex}</span></li>\n\t\t<li><span class=\"math-tex\">{tex}\\frac{I_P}{I_s}=\\frac{N_s}{N_P}{/tex}</span><br />\n\t\t<span class=\"math-tex\">{tex}I_P=\\frac{3000}{200} \\times 2=30 \\mathrm{~A}{/tex}</span></li>\n\t</ol>\n\t</li>\n</ol>",
+    "weightage": "LA-1 (Long answer type-1)"
+  },
+  {
+    "subject": "Physics",
+    "subject_id": "1251",
+    "chapter": "Alternating Current",
+    "chapter_id": 1258,
+    "question_id": 1163090,
+    "question_html": "<ol start=\"1\" style=\"list-style-type:lower-roman\">\n\t<li>With the help of a labelled diagram, describe the principle and working of an ac generator. Hence, obtain an expression for the instantaneous value of the emf generated.</li>\n\t<li>The coil of an ac generator consists of 100 turns of wire, each of area 0.5 m<sup>2</sup>. The resistance of the wire is 100 <span class=\"math-tex\">{tex}\\Omega{/tex}</span>. The coil is rotating in a magnetic field of 0.8 T&nbsp;perpendicular to its axis of rotation, at a constant angular speed of 60 radian per second. Calculate the maximum emf generated and power dissipated in the coil.</li>\n</ol>",
+    "question_text": "With the help of a labelled diagram, describe the principle and working of an ac generator. Hence, obtain an expression for the instantaneous value of the emf generated. The coil of an ac generator consists of 100 turns of wire, each of area 0.5 m 2 . The resistance of the wire is 100 {tex}\\Omega{/tex} . The coil is rotating in a magnetic field of 0.8 T perpendicular to its axis of rotation, at a constant angular speed of 60 radian per second. Calculate the maximum emf generated and power dissipated in the coil.",
+    "options": [],
+    "correct_option_ids": [],
+    "correct_option_text": "",
+    "explanation": "Diagram Principle - It is based on the principle of electromagnetic induction. Whenever there is a change in magnetic flux linked with a coil , an emf is induced in the coil. Working - When a rectangular coil is rotated in a magnetic field, the magnetic flux changes continuously which induces an emf and the direction of current changes periodically. {tex}\\varepsilon=\\frac{-N d \\phi}{d t}{/tex} {tex}=-N B A \\frac{d}{d t}(\\cos \\omega t){/tex} {tex}\\varepsilon=N B A \\omega \\sin \\omega t{/tex} {tex}\\varepsilon=N B A \\omega{/tex} = 100 {tex}\\times{/tex} 0.8 {tex}\\times{/tex} 0.5 {tex}\\times{/tex} 60 = 2400 V hence, the maximum emf generated will be 2400 V. Power dissipated, P = {tex}\\frac{\\varepsilon_{r m s}^2}{R}{/tex} {tex}=\\frac{\\left(\\frac{2400}{\\sqrt{2}}\\right)^2}{100}{/tex} = 28.8 kW",
+    "solution": "Diagram Principle - It is based on the principle of electromagnetic induction. Whenever there is a change in magnetic flux linked with a coil , an emf is induced in the coil. Working - When a rectangular coil is rotated in a magnetic field, the magnetic flux changes continuously which induces an emf and the direction of current changes periodically. {tex}\\varepsilon=\\frac{-N d \\phi}{d t}{/tex} {tex}=-N B A \\frac{d}{d t}(\\cos \\omega t){/tex} {tex}\\varepsilon=N B A \\omega \\sin \\omega t{/tex} {tex}\\varepsilon=N B A \\omega{/tex} = 100 {tex}\\times{/tex} 0.8 {tex}\\times{/tex} 0.5 {tex}\\times{/tex} 60 = 2400 V hence, the maximum emf generated will be 2400 V. Power dissipated, P = {tex}\\frac{\\varepsilon_{r m s}^2}{R}{/tex} {tex}=\\frac{\\left(\\frac{2400}{\\sqrt{2}}\\right)^2}{100}{/tex} = 28.8 kW",
+    "solution_html": "<ol start=\"1\" style=\"list-style-type:lower-roman\">\n\t<li>Diagram<br />\n\t<img src=\"https://media-mycbseguide.s3.amazonaws.com/images/question_images/1705397382-dvg5r2.jpg\" style=\"height:143px; width:170px\" /><br />\n\t<strong>Principle - </strong>It is based on the principle of electromagnetic induction. Whenever there is a change in magnetic flux linked with a coil , an emf is induced in the coil.<br />\n\t<strong>Working -</strong> When a rectangular coil is rotated in a magnetic field, the magnetic flux changes continuously which induces an emf and the direction of current changes periodically.<br />\n\t<span class=\"math-tex\">{tex}\\varepsilon=\\frac{-N d \\phi}{d t}{/tex}</span><br />\n\t<span class=\"math-tex\">{tex}=-N B A \\frac{d}{d t}(\\cos \\omega t){/tex}</span><br />\n\t<span class=\"math-tex\">{tex}\\varepsilon=N B A \\omega \\sin \\omega t{/tex}</span></li>\n\t<li><span class=\"math-tex\">{tex}\\varepsilon=N B A \\omega{/tex}</span><br />\n\t= 100 <span class=\"math-tex\">{tex}\\times{/tex}</span> 0.8 <span class=\"math-tex\">{tex}\\times{/tex}</span> 0.5 <span class=\"math-tex\">{tex}\\times{/tex}</span> 60<br />\n\t= 2400 V<br />\n\thence,&nbsp;the maximum emf generated will be&nbsp;2400 V.&nbsp;<br />\n\tPower dissipated, P = <span class=\"math-tex\">{tex}\\frac{\\varepsilon_{r m s}^2}{R}{/tex}</span><br />\n\t<span class=\"math-tex\">{tex}=\\frac{\\left(\\frac{2400}{\\sqrt{2}}\\right)^2}{100}{/tex}</span><br />\n\t= 28.8 kW</li>\n</ol>",
+    "weightage": "LA-1 (Long answer type-1)"
+  },
+  {
+    "subject": "Physics",
+    "subject_id": "1251",
+    "chapter": "Alternating Current",
+    "chapter_id": 1258,
+    "question_id": 422818,
+    "question_html": "<ol start=\"1\" style=\"list-style-type: lower-roman;\">\n\t<li>Describe, with the help of a suitable diagram, the working principle of a step-up transformer. Obtain the relation between input and output voltages in terms of the number of turns of primary and secondary windings and the currents in the input and output circuits.</li>\n\t<li>Given the input current 15 A and the input voltage of 100 V for a step-up transformer having 90% efficiency, find the output power and the voltage in the secondary if the output current is 3 A.</li>\n</ol>",
+    "question_text": "Describe, with the help of a suitable diagram, the working principle of a step-up transformer. Obtain the relation between input and output voltages in terms of the number of turns of primary and secondary windings and the currents in the input and output circuits. Given the input current 15 A and the input voltage of 100 V for a step-up transformer having 90% efficiency, find the output power and the voltage in the secondary if the output current is 3 A.",
+    "options": [],
+    "correct_option_ids": [],
+    "correct_option_text": "",
+    "explanation": "Working principle: Step-down transformer is made up of two or more coil wound on the iron core of the transformer. It works on the principle of magnetic induction between the coils. Whenever current in one coil changes an emf gets induced in the neighboring coil (Principle of mutual induction) Voltage across secondary V s = e s = -N s {tex}\\frac{d \\phi}{d t}{/tex} Voltage across primary V p = e p = -N p {tex}\\frac{d \\phi}{d t}{/tex} {tex}\\frac{V_{s}}{V_{p}}=\\frac{N_{s}}{N_{p}}{/tex} (here, N s > N p ) In an ideal transformer Power Input - Power output I p V p = I s V s {tex}\\therefore \\frac{V_{s}}{V_{p}}=\\frac{N_{s}}{N_{p}}=\\frac{I_{p}}{I_{s}}{/tex} Input power, P i = I i {tex}\\times{/tex} V i = 15 {tex}\\times{/tex} 100 = 1500 W Power output, P 0 = P i {tex}\\times \\frac{90}{100}{/tex} = 1350 W {tex}\\Rightarrow{/tex} I 0 V = 1350 W Output voltage, V 0 = {tex}\\frac{1350}{3}{/tex} V = 450 V",
+    "solution": "Working principle: Step-down transformer is made up of two or more coil wound on the iron core of the transformer. It works on the principle of magnetic induction between the coils. Whenever current in one coil changes an emf gets induced in the neighboring coil (Principle of mutual induction) Voltage across secondary V s = e s = -N s {tex}\\frac{d \\phi}{d t}{/tex} Voltage across primary V p = e p = -N p {tex}\\frac{d \\phi}{d t}{/tex} {tex}\\frac{V_{s}}{V_{p}}=\\frac{N_{s}}{N_{p}}{/tex} (here, N s > N p ) In an ideal transformer Power Input - Power output I p V p = I s V s {tex}\\therefore \\frac{V_{s}}{V_{p}}=\\frac{N_{s}}{N_{p}}=\\frac{I_{p}}{I_{s}}{/tex} Input power, P i = I i {tex}\\times{/tex} V i = 15 {tex}\\times{/tex} 100 = 1500 W Power output, P 0 = P i {tex}\\times \\frac{90}{100}{/tex} = 1350 W {tex}\\Rightarrow{/tex} I 0 V = 1350 W Output voltage, V 0 = {tex}\\frac{1350}{3}{/tex} V = 450 V",
+    "solution_html": "<ol start=\"1\" style=\"list-style-type: lower-roman;\">\n<li><br/>\n<img alt=\"\" data-imgur-src=\"Vt2ovW0.png\" src=\"https://media-mycbseguide.s3.amazonaws.com/images/imgur/1606755022-39wu9w.jpg\" style=\"width: 300px; height: 182px;\"/><br/>\n\tWorking principle:<br/>\n\tStep-down transformer is made up of two or more coil wound on the iron core of the transformer. It works on the principle of magnetic induction between the coils. Whenever current in one coil changes an emf gets induced in the neighboring coil (Principle of mutual induction)<br/>\n\tVoltage across secondary<br/>\n\tV<sub>s</sub> = e<sub>s<sup> </sup></sub>= -N<sub>s</sub> <span class=\"math-tex\">{tex}\\frac{d \\phi}{d t}{/tex}</span><br/>\n\tVoltage across primary<br/>\n\tV<sub>p</sub> = e<sub>p</sub> = -N<sub>p</sub> <span class=\"math-tex\">{tex}\\frac{d \\phi}{d t}{/tex}</span><br/>\n<span class=\"math-tex\">{tex}\\frac{V_{s}}{V_{p}}=\\frac{N_{s}}{N_{p}}{/tex}</span> (here, N<sub>s</sub> &gt; N<sub>p</sub>)<br/>\n\tIn an ideal transformer<br/>\n\tPower Input - Power output<br/>\n\tI<sub>p</sub> V<sub>p</sub> = I<sub>s</sub> V<sub>s</sub><br/>\n<span class=\"math-tex\">{tex}\\therefore \\frac{V_{s}}{V_{p}}=\\frac{N_{s}}{N_{p}}=\\frac{I_{p}}{I_{s}}{/tex}</span></li>\n<li><br/>\n<img alt=\"\" data-imgur-src=\"idCRrfJ.png\" src=\"https://media-mycbseguide.s3.amazonaws.com/images/imgur/1606755026-zr5mc9.jpg\" style=\"width: 250px; height: 144px;\"/><br/>\n\tInput power, P<sub>i</sub> = I<sub>i</sub> <span class=\"math-tex\">{tex}\\times{/tex}</span> V<sub>i</sub> = 15 <span class=\"math-tex\">{tex}\\times{/tex}</span> 100 = 1500 W<br/>\n\tPower output, P<sub>0</sub> = P<sub>i</sub> <span class=\"math-tex\">{tex}\\times \\frac{90}{100}{/tex}</span> = 1350 W<br/>\n<span class=\"math-tex\">{tex}\\Rightarrow{/tex}</span> I<sub>0</sub> V = 1350 W<br/>\n\tOutput voltage, V<sub>0</sub> = <span class=\"math-tex\">{tex}\\frac{1350}{3}{/tex}</span> V = 450 V</li>\n</ol>",
+    "weightage": "LA-1 (Long answer type-1)"
+  },
+  {
+    "subject": "Physics",
+    "subject_id": "1251",
+    "chapter": "Alternating Current",
+    "chapter_id": 1258,
+    "question_id": 1142907,
+    "question_html": "<ol start=\"1\" style=\"list-style-type:lower-alpha\">\r\n\t<li>Show that an ideal inductor does not dissipate power in an ac&nbsp;circuit.</li>\r\n\t<li>The variation of inductive reactance (X<sub>L</sub>) of an inductor with the frequency (f) of the ac source of 100 V and variable frequency is shown in the fig.<br />\r\n\t<img src=\"https://media-mycbseguide.s3.amazonaws.com/images/question_images/1713328280-sh3fu5.jpg\" style=\"height:176px; width:200px\" />\r\n\t<ol start=\"1\" style=\"list-style-type:lower-roman\">\r\n\t\t<li>Calculate the self-inductance of the inductor.</li>\r\n\t\t<li>When this inductor is used in series with a capacitor of unknown value and a resistor of 10<span class=\"math-tex\">{tex}\\Omega{/tex}</span> at 300 s<sup>-1</sup>, maximum power dissipation occurs in the circuit. Calculate the capacitance of the capacitor.</li>\r\n\t</ol>\r\n\t</li>\r\n</ol>",
+    "question_text": "Show that an ideal inductor does not dissipate power in an ac circuit. The variation of inductive reactance (X L ) of an inductor with the frequency (f) of the ac source of 100 V and variable frequency is shown in the fig. Calculate the self-inductance of the inductor. When this inductor is used in series with a capacitor of unknown value and a resistor of 10 {tex}\\Omega{/tex} at 300 s -1 , maximum power dissipation occurs in the circuit. Calculate the capacitance of the capacitor.",
+    "options": [],
+    "correct_option_ids": [],
+    "correct_option_text": "",
+    "explanation": "Power dissipation = P = V rms I rms cos {tex}\\phi{/tex} cos {tex}\\phi{/tex} = {tex}\\frac{R}{Z}{/tex} For ideal inductor R = 0 {tex}\\therefore{/tex} cos {tex}\\phi{/tex} = 0 {tex}\\therefore{/tex} P = V rms I rms cos {tex}\\phi{/tex} = 0 Thus, ideal inductor does not dissipate power in an ac circuit. Inductive reactance = X L = 2 {tex}\\pi{/tex} fL {tex}\\therefore{/tex} L = {tex}\\frac{X_L}{2 \\pi f}{/tex} From graph, at f = 100 Hz X L = 20 {tex}\\Omega{/tex} {tex}\\therefore{/tex} L = {tex}\\frac{X_L}{2 \\pi f}{/tex} = {tex}\\frac{20}{2 \\pi \\times 100}{/tex} = 0.032 H = 32 mH Power dissipation is maximum when 2 {tex}\\pi{/tex} fL = {tex}\\frac{1}{2 \\pi f C}{/tex} f = 300 s -1 L = 0.032 H 2 {tex}\\pi{/tex} fL = {tex}\\frac{1}{2 \\pi f C}{/tex} Or, 2 {tex}\\pi{/tex} {tex}\\times{/tex} 300 {tex}\\times{/tex} 0.032 = {tex}\\frac{1}{2 \\pi \\times 300 \\times C}{/tex} {tex}\\therefore{/tex} C = 8.8 {tex}\\times{/tex} 10 -6 F = 8.8 {tex}\\mu{/tex} F",
+    "solution": "Power dissipation = P = V rms I rms cos {tex}\\phi{/tex} cos {tex}\\phi{/tex} = {tex}\\frac{R}{Z}{/tex} For ideal inductor R = 0 {tex}\\therefore{/tex} cos {tex}\\phi{/tex} = 0 {tex}\\therefore{/tex} P = V rms I rms cos {tex}\\phi{/tex} = 0 Thus, ideal inductor does not dissipate power in an ac circuit. Inductive reactance = X L = 2 {tex}\\pi{/tex} fL {tex}\\therefore{/tex} L = {tex}\\frac{X_L}{2 \\pi f}{/tex} From graph, at f = 100 Hz X L = 20 {tex}\\Omega{/tex} {tex}\\therefore{/tex} L = {tex}\\frac{X_L}{2 \\pi f}{/tex} = {tex}\\frac{20}{2 \\pi \\times 100}{/tex} = 0.032 H = 32 mH Power dissipation is maximum when 2 {tex}\\pi{/tex} fL = {tex}\\frac{1}{2 \\pi f C}{/tex} f = 300 s -1 L = 0.032 H 2 {tex}\\pi{/tex} fL = {tex}\\frac{1}{2 \\pi f C}{/tex} Or, 2 {tex}\\pi{/tex} {tex}\\times{/tex} 300 {tex}\\times{/tex} 0.032 = {tex}\\frac{1}{2 \\pi \\times 300 \\times C}{/tex} {tex}\\therefore{/tex} C = 8.8 {tex}\\times{/tex} 10 -6 F = 8.8 {tex}\\mu{/tex} F",
+    "solution_html": "<ol start=\"1\" style=\"list-style-type:lower-alpha\">\r\n\t<li>Power dissipation = P = V<sub>rms</sub>&nbsp;I<sub>rms</sub>&nbsp;cos&nbsp;<span class=\"math-tex\">{tex}\\phi{/tex}</span><br />\r\n\tcos <span class=\"math-tex\">{tex}\\phi{/tex}</span>&nbsp;= <span class=\"math-tex\">{tex}\\frac{R}{Z}{/tex}</span><br />\r\n\tFor ideal inductor R = 0<br />\r\n\t<span class=\"math-tex\">{tex}\\therefore{/tex}</span>&nbsp;cos <span class=\"math-tex\">{tex}\\phi{/tex}</span>&nbsp;= 0<br />\r\n\t<span class=\"math-tex\">{tex}\\therefore{/tex}</span>&nbsp;P = V<sub>rms</sub>&nbsp;I<sub>rms</sub>&nbsp;cos <span class=\"math-tex\">{tex}\\phi{/tex}</span>&nbsp;= 0<br />\r\n\tThus, ideal inductor does not dissipate power in an ac circuit.</li>\r\n\t<li>\r\n\t<ol start=\"1\" style=\"list-style-type:lower-roman\">\r\n\t\t<li>Inductive reactance = X<sub>L</sub>&nbsp;= 2<span class=\"math-tex\">{tex}\\pi{/tex}</span>fL<br />\r\n\t\t<span class=\"math-tex\">{tex}\\therefore{/tex}</span>&nbsp;L =&nbsp;<span class=\"math-tex\">{tex}\\frac{X_L}{2 \\pi f}{/tex}</span><br />\r\n\t\tFrom graph, at f = 100 Hz<br />\r\n\t\tX<sub>L</sub> = 20 <span class=\"math-tex\">{tex}\\Omega{/tex}</span><br />\r\n\t\t<span class=\"math-tex\">{tex}\\therefore{/tex}</span>&nbsp;L = <span class=\"math-tex\">{tex}\\frac{X_L}{2 \\pi f}{/tex}</span>&nbsp;=&nbsp;<span class=\"math-tex\">{tex}\\frac{20}{2 \\pi \\times 100}{/tex}</span><br />\r\n\t\t= 0.032 H = 32 mH</li>\r\n\t\t<li>Power dissipation is maximum when<br />\r\n\t\t2<span class=\"math-tex\">{tex}\\pi{/tex}</span>fL&nbsp;= <span class=\"math-tex\">{tex}\\frac{1}{2 \\pi f C}{/tex}</span><br />\r\n\t\tf = 300 s<sup>-1</sup><br />\r\n\t\tL = 0.032 H<br />\r\n\t\t2<span class=\"math-tex\">{tex}\\pi{/tex}</span>fL&nbsp;=&nbsp;<span class=\"math-tex\">{tex}\\frac{1}{2 \\pi f C}{/tex}</span><br />\r\n\t\tOr, 2<span class=\"math-tex\">{tex}\\pi{/tex}</span>&nbsp;<span class=\"math-tex\">{tex}\\times{/tex}</span>&nbsp;300 <span class=\"math-tex\">{tex}\\times{/tex}</span>&nbsp;0.032 =&nbsp;<span class=\"math-tex\">{tex}\\frac{1}{2 \\pi \\times 300 \\times C}{/tex}</span><br />\r\n\t\t<span class=\"math-tex\">{tex}\\therefore{/tex}</span>&nbsp;C = 8.8 <span class=\"math-tex\">{tex}\\times{/tex}</span>&nbsp;10<sup>-6</sup>&nbsp;F = 8.8&nbsp;<span class=\"math-tex\">{tex}\\mu{/tex}</span>F</li>\r\n\t</ol>\r\n\t</li>\r\n</ol>",
+    "weightage": "LA-1 (Long answer type-1)"
+  },
+  {
+    "subject": "Physics",
+    "subject_id": "1251",
+    "chapter": "Alternating Current",
+    "chapter_id": 1258,
+    "question_id": 219121,
+    "question_html": "<ol start=\"1\" style=\"list-style-type: lower-roman;\">\n\t<li>Write the function of a transformer. State its principle of working with the help of a diagram. Mention various energy losses in this device.</li>\n\t<li>The primary coil of an ideal step-up transformer has 100 turns and transformation ratio is also 100. The input voltage and power are respectively 220 V and 1100 W. Calculate\n\t<ol start=\"1\" style=\"list-style-type: lower-alpha;\">\n\t\t<li>number of turns in secondary</li>\n\t\t<li>current in primary</li>\n\t\t<li>voltage across secondary</li>\n\t\t<li>current in secondary</li>\n\t\t<li>power in secondary</li>\n\t</ol>\n\t</li>\n</ol>",
+    "question_text": "Write the function of a transformer. State its principle of working with the help of a diagram. Mention various energy losses in this device. The primary coil of an ideal step-up transformer has 100 turns and transformation ratio is also 100. The input voltage and power are respectively 220 V and 1100 W. Calculate number of turns in secondary current in primary voltage across secondary current in secondary power in secondary",
+    "options": [],
+    "correct_option_ids": [],
+    "correct_option_text": "",
+    "explanation": "A transformer is a device that changes a low alternating voltage into a high alternating voltage or vice versa. The transformer works on the principle of mutual induction. A changing alternate current in the primary coil produces a changing magnetic field, which induces a changing alternating current in the secondary coil. Energy losses in the transformer: a. Flux leakage due to poor structure of the core and air gaps in the core. b. Loss of energy due to heat produced by the resistance of the windings. c. Eddy currents due to alternating magnetic flux in the iron core, which leads to loss of energy due to heat. d. Hysterisis, frequent and periodic magnetisation and demagnetisation of the core, leading to loss of energy due to heat. Now, N = {tex}\\frac{N_{s}}{N_{p}}{/tex} {tex}\\Rightarrow{/tex} {tex}\\frac{N_{S}}{100}{/tex} = 100 {tex}\\Rightarrow{/tex} N S = 10000 turns Current in primary is given by, I P V P = P {tex}\\Rightarrow{/tex} I P = {tex}\\frac{1100}{220}{/tex} = 5A Voltage across secondary is given by, {tex}\\frac{V_{s}}{V_{p}}=\\frac{N_{s}}{N_{p}}{/tex} = N {tex}\\Rightarrow{/tex} V S = 100 {tex}\\times{/tex} 220 = 22000 V Current in secondary is given by V S I S = P {tex}\\Rightarrow{/tex} I S = {tex}\\frac{P}{V_{s}}{/tex} = {tex}\\frac{1100}{22000}{/tex} = 0.05 A In an ideal transformer, Power in secondary = Power in primary = 1100 W",
+    "solution": "A transformer is a device that changes a low alternating voltage into a high alternating voltage or vice versa. The transformer works on the principle of mutual induction. A changing alternate current in the primary coil produces a changing magnetic field, which induces a changing alternating current in the secondary coil. Energy losses in the transformer: a. Flux leakage due to poor structure of the core and air gaps in the core. b. Loss of energy due to heat produced by the resistance of the windings. c. Eddy currents due to alternating magnetic flux in the iron core, which leads to loss of energy due to heat. d. Hysterisis, frequent and periodic magnetisation and demagnetisation of the core, leading to loss of energy due to heat. Now, N = {tex}\\frac{N_{s}}{N_{p}}{/tex} {tex}\\Rightarrow{/tex} {tex}\\frac{N_{S}}{100}{/tex} = 100 {tex}\\Rightarrow{/tex} N S = 10000 turns Current in primary is given by, I P V P = P {tex}\\Rightarrow{/tex} I P = {tex}\\frac{1100}{220}{/tex} = 5A Voltage across secondary is given by, {tex}\\frac{V_{s}}{V_{p}}=\\frac{N_{s}}{N_{p}}{/tex} = N {tex}\\Rightarrow{/tex} V S = 100 {tex}\\times{/tex} 220 = 22000 V Current in secondary is given by V S I S = P {tex}\\Rightarrow{/tex} I S = {tex}\\frac{P}{V_{s}}{/tex} = {tex}\\frac{1100}{22000}{/tex} = 0.05 A In an ideal transformer, Power in secondary = Power in primary = 1100 W",
+    "solution_html": "<ol start=\"1\" style=\"list-style-type: lower-roman;\">\n\t<li>A transformer is a device that changes a low alternating voltage into a high alternating voltage or vice versa. The transformer works on the principle of mutual induction. A changing alternate current in the primary coil produces a changing magnetic field, which induces a changing alternating current in the secondary coil.<br />\n\t<img alt=\"\" data-imgur-src=\"NfSVN0z.png\" src=\"https://media-mycbseguide.s3.amazonaws.com/images/imgur/NfSVN0z.png\" style=\"width: 250px; height: 153px;\" /><br />\n\tEnergy losses in the transformer:<br />\n\ta. Flux leakage due to poor structure of the core and air gaps in the&nbsp;core.&nbsp;<br />\n\tb. Loss of energy due to heat produced by the resistance of the windings.<br />\n\tc. Eddy currents due to alternating magnetic flux in the iron core, which leads to loss of energy due to heat.<br />\n\td. Hysterisis, frequent and periodic magnetisation and demagnetisation of the core, leading to loss of energy due to heat.</li>\n\t<li>\n\t<ol start=\"1\" style=\"list-style-type: lower-alpha;\">\n\t\t<li>Now,<br />\n\t\tN =&nbsp;<span class=\"math-tex\">{tex}\\frac{N_{s}}{N_{p}}{/tex}</span><br />\n\t\t<span class=\"math-tex\">{tex}\\Rightarrow{/tex}</span>&nbsp;<span class=\"math-tex\">{tex}\\frac{N_{S}}{100}{/tex}</span>&nbsp;= 100<br />\n\t\t<span class=\"math-tex\">{tex}\\Rightarrow{/tex}</span>&nbsp;N<sub>S&nbsp;</sub>= 10000 turns</li>\n\t\t<li>Current in primary is given by,<br />\n\t\tI<sub>P</sub>V<sub>P</sub>&nbsp;= P<br />\n\t\t<span class=\"math-tex\">{tex}\\Rightarrow{/tex}</span>&nbsp;I<sub>P</sub>&nbsp;=&nbsp;<span class=\"math-tex\">{tex}\\frac{1100}{220}{/tex}</span>&nbsp;= 5A</li>\n\t\t<li>Voltage across secondary is given by,<br />\n\t\t<span class=\"math-tex\">{tex}\\frac{V_{s}}{V_{p}}=\\frac{N_{s}}{N_{p}}{/tex}</span>&nbsp;= N<br />\n\t\t<span class=\"math-tex\">{tex}\\Rightarrow{/tex}</span>&nbsp;V<sub>S</sub>&nbsp;= 100&nbsp;<span class=\"math-tex\">{tex}\\times{/tex}</span> 220&nbsp;= 22000 V</li>\n\t\t<li>Current in secondary is given by<br />\n\t\tV<sub>S</sub>I<sub>S</sub>&nbsp;= P<br />\n\t\t<span class=\"math-tex\">{tex}\\Rightarrow{/tex}</span>&nbsp;I<sub>S</sub>&nbsp;=&nbsp;<span class=\"math-tex\">{tex}\\frac{P}{V_{s}}{/tex}</span>&nbsp;=&nbsp;<span class=\"math-tex\">{tex}\\frac{1100}{22000}{/tex}</span>&nbsp;= 0.05 A</li>\n\t\t<li>In an ideal transformer,&nbsp;<br />\n\t\tPower in secondary = Power in primary = 1100 W</li>\n\t</ol>\n\t</li>\n</ol>",
+    "weightage": "LA-1 (Long answer type-1)"
+  },
+  {
+    "subject": "Physics",
+    "subject_id": "1251",
+    "chapter": "Alternating Current",
+    "chapter_id": 1258,
+    "question_id": 422825,
+    "question_html": "<ol start=\"1\" style=\"list-style-type: lower-roman;\">\r\n\t<li>Draw a labelled diagram of a step-down transformer. State the principle of its working.</li>\r\n\t<li>Express the turn ratio in terms of voltages.</li>\r\n\t<li>Find the ratio of primary and secondary currents in terms of turn ratio in an ideal transformer.</li>\r\n\t<li>How much current is drawn by the primary of a transformer connected to 220 V supply when it delivers power to a 110 V - 550 W refrigerator?</li>\r\n</ol>",
+    "question_text": "Draw a labelled diagram of a step-down transformer. State the principle of its working. Express the turn ratio in terms of voltages. Find the ratio of primary and secondary currents in terms of turn ratio in an ideal transformer. How much current is drawn by the primary of a transformer connected to 220 V supply when it delivers power to a 110 V - 550 W refrigerator?",
+    "options": [],
+    "correct_option_ids": [],
+    "correct_option_text": "",
+    "explanation": "Principle: Step-down transformer is made up of two or more coil wound on the iron core of the transformer. It works on the principle of magnetic induction between the coils. When the current flowing through the primary coil changes, an emf is induced in the secondary coil due to the change in magnetic flux linked with it. {tex}\\frac{V_{s}}{V_{p}}=\\frac{N_{s}}{N_{p}}{/tex} For an ideal transformer, i p V p = i s V s {tex}\\therefore \\frac{i_{p}}{i_{s}}=\\frac{V_{s}}{V_{p}}=\\frac{N_{s}}{N_{p}}{/tex} We have i p V p = i s V s = 550 W V p = 220 V i p = {tex}\\frac{550}{220}=\\frac{5}{2}{/tex} = 2.5 A",
+    "solution": "Principle: Step-down transformer is made up of two or more coil wound on the iron core of the transformer. It works on the principle of magnetic induction between the coils. When the current flowing through the primary coil changes, an emf is induced in the secondary coil due to the change in magnetic flux linked with it. {tex}\\frac{V_{s}}{V_{p}}=\\frac{N_{s}}{N_{p}}{/tex} For an ideal transformer, i p V p = i s V s {tex}\\therefore \\frac{i_{p}}{i_{s}}=\\frac{V_{s}}{V_{p}}=\\frac{N_{s}}{N_{p}}{/tex} We have i p V p = i s V s = 550 W V p = 220 V i p = {tex}\\frac{550}{220}=\\frac{5}{2}{/tex} = 2.5 A",
+    "solution_html": "<ol start=\"1\" style=\"list-style-type: lower-roman;\">\n<li><br/>\n<img alt=\"\" data-imgur-src=\"RhjhRlH.png\" src=\"https://media-mycbseguide.s3.amazonaws.com/images/imgur/1606755054-q9srdw.jpg\" style=\"width: 200px; height: 100px;\"/><br/>\n<img alt=\"\" data-imgur-src=\"rtO2Pxi.png\" src=\"https://media-mycbseguide.s3.amazonaws.com/images/imgur/1606755058-7yn6zf.jpg\" style=\"width: 200px; height: 121px;\"/><br/>\n\tPrinciple: Step-down transformer is made up of two or more coil wound on the iron core of the transformer. It works on the principle of magnetic induction between the coils. When the current flowing through the primary coil changes, an emf is induced in the secondary coil due to the change in magnetic flux linked with it.</li>\n<li><span class=\"math-tex\">{tex}\\frac{V_{s}}{V_{p}}=\\frac{N_{s}}{N_{p}}{/tex}</span></li>\n<li>For an ideal transformer,<br/>\n\ti<sub>p</sub> V<sub>p</sub> = i<sub>s</sub> V<sub>s</sub><br/>\n<span class=\"math-tex\">{tex}\\therefore \\frac{i_{p}}{i_{s}}=\\frac{V_{s}}{V_{p}}=\\frac{N_{s}}{N_{p}}{/tex}</span></li>\n<li>We have<br/>\n\ti<sub>p</sub> V<sub>p</sub> = i<sub>s</sub> V<sub>s</sub> = 550 W<br/>\n\tV<sub>p</sub> = 220 V<br/>\n\ti<sub>p</sub> = <span class=\"math-tex\">{tex}\\frac{550}{220}=\\frac{5}{2}{/tex}</span> = 2.5 A</li>\n</ol>",
+    "weightage": "LA-1 (Long answer type-1)"
+  },
+  {
+    "subject": "Physics",
+    "subject_id": "1251",
+    "chapter": "Alternating Current",
+    "chapter_id": 1258,
+    "question_id": 422820,
+    "question_html": "<ol start=\"1\" style=\"list-style-type: lower-roman;\">\n\t<li>Draw a labelled diagram of a step-up transformer. Obtain the ratio of secondary to primary voltage in terms of the number of turns and currents in the two coils.</li>\n\t<li>A power transmission line feeds input power at 2200 V to a step-down transformer with its primary windings having 3000 turns. Find the number of turns in the secondary to get the power output at 220 V.</li>\n</ol>",
+    "question_text": "Draw a labelled diagram of a step-up transformer. Obtain the ratio of secondary to primary voltage in terms of the number of turns and currents in the two coils. A power transmission line feeds input power at 2200 V to a step-down transformer with its primary windings having 3000 turns. Find the number of turns in the secondary to get the power output at 220 V.",
+    "options": [],
+    "correct_option_ids": [],
+    "correct_option_text": "",
+    "explanation": "Whenever current in one coil changes an emf gets induced in the neighbouring coil (Principle of mutual induction) Voltage across secondary V s = e s = -N s {tex}\\frac{d \\phi}{d t}{/tex} Voltage across primary V p = e p = -N p {tex}\\frac{d \\phi}{d t}{/tex} {tex}\\frac{V_{s}}{V_{p}}=\\frac{N_{s}}{N_{p}}{/tex} (here, N s > N p ) In an ideal transformer Power Input = Power output I p V p = I s V s {tex}\\therefore \\frac{V_{s}}{V_{p}}=\\frac{N_{s}}{N_{p}}=\\frac{I_{p}}{I_{s}}{/tex} Calculation of the number of turns in the secondary: No. of turns in primary coil N p = 3000, V s = 220V, V p = 2200V {tex}\\frac{N_{s}}{N_{p}}=\\frac{V_{s}}{V_{p}}{/tex} {tex}\\frac{N_{s}}{3000}=\\frac{220}{2200}{/tex} {tex}\\therefore{/tex} N s = 300",
+    "solution": "Whenever current in one coil changes an emf gets induced in the neighbouring coil (Principle of mutual induction) Voltage across secondary V s = e s = -N s {tex}\\frac{d \\phi}{d t}{/tex} Voltage across primary V p = e p = -N p {tex}\\frac{d \\phi}{d t}{/tex} {tex}\\frac{V_{s}}{V_{p}}=\\frac{N_{s}}{N_{p}}{/tex} (here, N s > N p ) In an ideal transformer Power Input = Power output I p V p = I s V s {tex}\\therefore \\frac{V_{s}}{V_{p}}=\\frac{N_{s}}{N_{p}}=\\frac{I_{p}}{I_{s}}{/tex} Calculation of the number of turns in the secondary: No. of turns in primary coil N p = 3000, V s = 220V, V p = 2200V {tex}\\frac{N_{s}}{N_{p}}=\\frac{V_{s}}{V_{p}}{/tex} {tex}\\frac{N_{s}}{3000}=\\frac{220}{2200}{/tex} {tex}\\therefore{/tex} N s = 300",
+    "solution_html": "<ol start=\"1\" style=\"list-style-type: lower-roman;\">\n<li><br/>\n<img alt=\"\" data-imgur-src=\"Vt2ovW0.png\" src=\"https://media-mycbseguide.s3.amazonaws.com/images/imgur/1606755030-xkcjvj.jpg\"/><br/>\n\tWhenever current in one coil changes an emf gets induced in the neighbouring coil (Principle of mutual induction)<br/>\n\tVoltage across secondary<br/>\n\tV<sub>s</sub> = e<sub>s<sup> </sup></sub>= -N<sub>s</sub> <span class=\"math-tex\">{tex}\\frac{d \\phi}{d t}{/tex}</span><br/>\n\tVoltage across primary<br/>\n\tV<sub>p</sub> = e<sub>p</sub> = -N<sub>p</sub> <span class=\"math-tex\">{tex}\\frac{d \\phi}{d t}{/tex}</span><br/>\n<span class=\"math-tex\">{tex}\\frac{V_{s}}{V_{p}}=\\frac{N_{s}}{N_{p}}{/tex}</span> (here, N<sub>s</sub> &gt; N<sub>p</sub>)<br/>\n\tIn an ideal transformer<br/>\n\tPower Input = Power output<br/>\n\tI<sub>p</sub> V<sub>p</sub> = I<sub>s</sub> V<sub>s</sub><br/>\n<span class=\"math-tex\">{tex}\\therefore \\frac{V_{s}}{V_{p}}=\\frac{N_{s}}{N_{p}}=\\frac{I_{p}}{I_{s}}{/tex}</span></li>\n<li>Calculation of the number of turns in the secondary:<br/>\n\tNo. of turns in primary coil N<sub>p </sub>= 3000, V<sub>s </sub>= 220V, V<sub>p </sub>= 2200V<br/>\n<span class=\"math-tex\">{tex}\\frac{N_{s}}{N_{p}}=\\frac{V_{s}}{V_{p}}{/tex}</span><br/>\n<span class=\"math-tex\">{tex}\\frac{N_{s}}{3000}=\\frac{220}{2200}{/tex}</span><br/>\n<span class=\"math-tex\">{tex}\\therefore{/tex}</span> N<sub>s</sub> = 300</li>\n</ol>",
+    "weightage": "LA-1 (Long answer type-1)"
+  },
+  {
+    "subject": "Physics",
+    "subject_id": "1251",
+    "chapter": "Alternating Current",
+    "chapter_id": 1258,
+    "question_id": 422762,
+    "question_html": "<html><body><p>In the following circuit, calculate:</p>\n<ol start=\"1\" style=\"list-style-type: lower-roman;\">\n<li>the capacitance of the capacitor, if the power factor of the circuit is unity,</li>\n<li>the Q-factor of this circuit. What is the significance of the Q-factor in ac circuit? Given the angular frequency of the ac source to be 100 rad/s. Calculate the average power dissipated in the circuit.<br/>\n<img alt=\"\" data-imgur-src=\"sEbEJqR.png\" src=\"https://media-mycbseguide.s3.amazonaws.com/images/imgur/1606754818-kfe6tw.jpg\" style=\"width: 300px; height: 87px;\"/></li>\n</ol></body></html>",
+    "question_text": "In the following circuit, calculate: the capacitance of the capacitor, if the power factor of the circuit is unity, the Q-factor of this circuit. What is the significance of the Q-factor in ac circuit? Given the angular frequency of the ac source to be 100 rad/s. Calculate the average power dissipated in the circuit.",
+    "options": [],
+    "correct_option_ids": [],
+    "correct_option_text": "",
+    "explanation": "Calculation of Capacitance As power factor is unity, {tex}\\therefore{/tex} X L = X C also L=200mH and R= 10 {tex}\\Omega{/tex} {tex}\\Rightarrow \\omega=\\frac{1}{\\sqrt{L C}}{/tex} 100 = {tex}\\frac{1}{\\sqrt{200 \\times 10^{-3} \\times C}}{/tex} 10 4 {tex}\\times{/tex} 2 {tex}\\times{/tex} 10 2 {tex}\\times{/tex} 10 -3 {tex}\\times{/tex} C = 1 hence ca[pacitance is given by ,C = {tex}\\frac{1}{2 \\times 10^{3}}{/tex} F = 0.5 {tex}\\times{/tex} 10 -3 F = 0.5mF Q-factor of circuit and its importance Calculation of average power dissipated Quality factor, {tex}Q=\\frac{1}{R} \\sqrt{\\frac{L}{C}}{/tex} {tex}=\\frac{1}{10} \\sqrt{\\frac{200 \\times 10^{-3}}{0.5 \\times 10^{-3}}}{/tex} {tex}=\\frac{1}{10} \\times{/tex} 20 = 2 Significance: It measures the sharpness of resnance. Average Power dissipated, P = V rms I rms cos {tex}\\phi{/tex} {tex}=50 \\times \\frac{50}{10} \\times{/tex} 1 W = 250 watts",
+    "solution": "Calculation of Capacitance As power factor is unity, {tex}\\therefore{/tex} X L = X C also L=200mH and R= 10 {tex}\\Omega{/tex} {tex}\\Rightarrow \\omega=\\frac{1}{\\sqrt{L C}}{/tex} 100 = {tex}\\frac{1}{\\sqrt{200 \\times 10^{-3} \\times C}}{/tex} 10 4 {tex}\\times{/tex} 2 {tex}\\times{/tex} 10 2 {tex}\\times{/tex} 10 -3 {tex}\\times{/tex} C = 1 hence ca[pacitance is given by ,C = {tex}\\frac{1}{2 \\times 10^{3}}{/tex} F = 0.5 {tex}\\times{/tex} 10 -3 F = 0.5mF Q-factor of circuit and its importance Calculation of average power dissipated Quality factor, {tex}Q=\\frac{1}{R} \\sqrt{\\frac{L}{C}}{/tex} {tex}=\\frac{1}{10} \\sqrt{\\frac{200 \\times 10^{-3}}{0.5 \\times 10^{-3}}}{/tex} {tex}=\\frac{1}{10} \\times{/tex} 20 = 2 Significance: It measures the sharpness of resnance. Average Power dissipated, P = V rms I rms cos {tex}\\phi{/tex} {tex}=50 \\times \\frac{50}{10} \\times{/tex} 1 W = 250 watts",
+    "solution_html": "<ol start=\"1\" style=\"list-style-type: lower-roman;\">\n\t<li>Calculation of Capacitance<br />\n\tAs power factor is unity,<br />\n\t<span class=\"math-tex\">{tex}\\therefore{/tex}</span>&nbsp;X<sub>L&nbsp;</sub>= X<sub>C&nbsp;&nbsp;</sub>also L=200mH and R= 10&nbsp;<span class=\"math-tex\">{tex}\\Omega{/tex}</span><br />\n\t<span class=\"math-tex\">{tex}\\Rightarrow \\omega=\\frac{1}{\\sqrt{L C}}{/tex}</span><br />\n\t100 =&nbsp;<span class=\"math-tex\">{tex}\\frac{1}{\\sqrt{200 \\times 10^{-3} \\times C}}{/tex}</span><br />\n\t10<sup>4</sup>&nbsp;<span class=\"math-tex\">{tex}\\times{/tex}</span>&nbsp;2&nbsp;<span class=\"math-tex\">{tex}\\times{/tex}</span>&nbsp;10<sup>2</sup>&nbsp;<span class=\"math-tex\">{tex}\\times{/tex}</span>&nbsp;10<sup>-3</sup>&nbsp;<span class=\"math-tex\">{tex}\\times{/tex}</span>&nbsp;C = 1<br />\n\thence ca[pacitance is given by ,C =&nbsp;<span class=\"math-tex\">{tex}\\frac{1}{2 \\times 10^{3}}{/tex}</span>&nbsp;F<br />\n\t= 0.5&nbsp;<span class=\"math-tex\">{tex}\\times{/tex}</span>&nbsp;10<sup>-3</sup>&nbsp;F<br />\n\t= 0.5mF</li>\n\t<li>Q-factor of circuit and its importance Calculation of average power dissipated<br />\n\tQuality factor,&nbsp;<span class=\"math-tex\">{tex}Q=\\frac{1}{R} \\sqrt{\\frac{L}{C}}{/tex}</span><br />\n\t<span class=\"math-tex\">{tex}=\\frac{1}{10} \\sqrt{\\frac{200 \\times 10^{-3}}{0.5 \\times 10^{-3}}}{/tex}</span><br />\n\t<span class=\"math-tex\">{tex}=\\frac{1}{10} \\times{/tex}</span>&nbsp;20 = 2<br />\n\tSignificance:&nbsp;It measures the sharpness of resnance.<br />\n\tAverage Power dissipated,&nbsp;<br />\n\tP = V<sub>rms</sub>&nbsp;I<sub>rms</sub>&nbsp;cos&nbsp;<span class=\"math-tex\">{tex}\\phi{/tex}</span><br />\n\t<span class=\"math-tex\">{tex}=50 \\times \\frac{50}{10} \\times{/tex}</span>&nbsp;1 W<br />\n\t= 250 watts</li>\n</ol>",
+    "weightage": "LA-1 (Long answer type-1)"
+  },
+  {
+    "subject": "Physics",
+    "subject_id": "1251",
+    "chapter": "Alternating Current",
+    "chapter_id": 1258,
+    "question_id": 492897,
+    "question_html": "<p>An emf <span class=\"math-tex\">{tex}\\varepsilon{/tex}</span>&nbsp;= 100 sin 314 t is applied across a pure capacitor of 637 <span class=\"math-tex\">{tex}\\mu{/tex}</span>F. Find</p>\r\n\r\n<ol start=\"1\" style=\"list-style-type: lower-roman;\">\r\n\t<li>the instantaneous current I</li>\r\n\t<li>instantaneous power P</li>\r\n\t<li>the frequency of power and</li>\r\n\t<li>the maximum energy stored in the capacitor.</li>\r\n</ol>",
+    "question_text": "An emf {tex}\\varepsilon{/tex} = 100 sin 314 t is applied across a pure capacitor of 637 {tex}\\mu{/tex} F. Find the instantaneous current I instantaneous power P the frequency of power and the maximum energy stored in the capacitor.",
+    "options": [],
+    "correct_option_ids": [],
+    "correct_option_text": "",
+    "explanation": "Given {tex}\\varepsilon{/tex} = 100 sin 314 t volt As the current in a capacitor leads the voltage by 90 o , so the instantaneous current is given by I = {tex}I_{0} \\sin \\left(314 t+90^{\\circ}\\right)=I_{0} \\cos 314 t{/tex} where {tex}I_{0}=\\frac{\\varepsilon_{0}}{X_{C}}=\\frac{\\varepsilon_{0}}{1 / \\omega C}=\\varepsilon_{0} \\omega C{/tex} But {tex}\\varepsilon_{0}{/tex} = 100 V, {tex}\\omega=314{/tex} rads -1 , C = {tex}637 \\times 10^{-6} \\mathrm{~F}{/tex} {tex}\\therefore{/tex} {tex}I_{0}=100 \\times 314 \\times 637 \\times 10^{-6}=20 \\mathrm{~A}{/tex} Where {tex}I_{0}=\\frac{\\varepsilon_{0}}{X_{C}}=\\frac{\\varepsilon_{0}}{1 / \\omega C}=\\varepsilon_{0} \\omega C{/tex} But {tex}\\varepsilon_{0}{/tex} = 100 V, {tex}\\omega=314 \\text { rad } s^{-1}{/tex} , {tex}C=637 \\times 10^{-6} \\mathrm{~F}{/tex} {tex}\\therefore{/tex} {tex}I_{0}=100 \\times 314 \\times 637 \\times 10^{-6}=20 \\mathrm{~A}{/tex} Hence I = 20 cos 314 t ampere Instantaneous power, P = {tex}\\varepsilon I=100 \\sin 314 t \\times 20 \\cos 314 t{/tex} = 1000 sin 628 t watt Angular frequency of power, {tex}\\omega_{p}=628{/tex} rads -1 {tex}\\therefore{/tex} Frequency of power, {tex}f_{p}=\\frac{\\omega_{p}}{2 \\pi}=\\frac{628}{2 \\pi}=100 \\mathrm{~Hz}{/tex} The maximum energy stored in the capacitor is U 0 = {tex}\\frac{1}{2} C E_{0}^{2}=\\frac{1}{2} \\times 637 \\times 10^{-6} \\times(100)^{2}{/tex} = 3.185 J",
+    "solution": "Given {tex}\\varepsilon{/tex} = 100 sin 314 t volt As the current in a capacitor leads the voltage by 90 o , so the instantaneous current is given by I = {tex}I_{0} \\sin \\left(314 t+90^{\\circ}\\right)=I_{0} \\cos 314 t{/tex} where {tex}I_{0}=\\frac{\\varepsilon_{0}}{X_{C}}=\\frac{\\varepsilon_{0}}{1 / \\omega C}=\\varepsilon_{0} \\omega C{/tex} But {tex}\\varepsilon_{0}{/tex} = 100 V, {tex}\\omega=314{/tex} rads -1 , C = {tex}637 \\times 10^{-6} \\mathrm{~F}{/tex} {tex}\\therefore{/tex} {tex}I_{0}=100 \\times 314 \\times 637 \\times 10^{-6}=20 \\mathrm{~A}{/tex} Where {tex}I_{0}=\\frac{\\varepsilon_{0}}{X_{C}}=\\frac{\\varepsilon_{0}}{1 / \\omega C}=\\varepsilon_{0} \\omega C{/tex} But {tex}\\varepsilon_{0}{/tex} = 100 V, {tex}\\omega=314 \\text { rad } s^{-1}{/tex} , {tex}C=637 \\times 10^{-6} \\mathrm{~F}{/tex} {tex}\\therefore{/tex} {tex}I_{0}=100 \\times 314 \\times 637 \\times 10^{-6}=20 \\mathrm{~A}{/tex} Hence I = 20 cos 314 t ampere Instantaneous power, P = {tex}\\varepsilon I=100 \\sin 314 t \\times 20 \\cos 314 t{/tex} = 1000 sin 628 t watt Angular frequency of power, {tex}\\omega_{p}=628{/tex} rads -1 {tex}\\therefore{/tex} Frequency of power, {tex}f_{p}=\\frac{\\omega_{p}}{2 \\pi}=\\frac{628}{2 \\pi}=100 \\mathrm{~Hz}{/tex} The maximum energy stored in the capacitor is U 0 = {tex}\\frac{1}{2} C E_{0}^{2}=\\frac{1}{2} \\times 637 \\times 10^{-6} \\times(100)^{2}{/tex} = 3.185 J",
+    "solution_html": "<ol start=\"1\" style=\"list-style-type: lower-roman;\">\r\n\t<li>Given <span class=\"math-tex\">{tex}\\varepsilon{/tex}</span> = 100 sin 314 t volt<br />\r\n\tAs the current in a capacitor leads the voltage by 90<sup>o</sup>, so the instantaneous current is given by<br />\r\n\tI =&nbsp;<span class=\"math-tex\">{tex}I_{0} \\sin \\left(314 t+90^{\\circ}\\right)=I_{0} \\cos 314 t{/tex}</span><br />\r\n\twhere&nbsp;<span class=\"math-tex\">{tex}I_{0}=\\frac{\\varepsilon_{0}}{X_{C}}=\\frac{\\varepsilon_{0}}{1 / \\omega C}=\\varepsilon_{0} \\omega C{/tex}</span><br />\r\n\tBut&nbsp;<span class=\"math-tex\">{tex}\\varepsilon_{0}{/tex}</span>&nbsp;= 100 V,&nbsp;<span class=\"math-tex\">{tex}\\omega=314{/tex}</span>&nbsp;rads<sup>-1</sup>,&nbsp;C =&nbsp;<span class=\"math-tex\">{tex}637 \\times 10^{-6} \\mathrm{~F}{/tex}</span><br />\r\n\t<span class=\"math-tex\">{tex}\\therefore{/tex}</span>&nbsp;<span class=\"math-tex\">{tex}I_{0}=100 \\times 314 \\times 637 \\times 10^{-6}=20 \\mathrm{~A}{/tex}</span><br />\r\n\tWhere&nbsp;<span class=\"math-tex\">{tex}I_{0}=\\frac{\\varepsilon_{0}}{X_{C}}=\\frac{\\varepsilon_{0}}{1 / \\omega C}=\\varepsilon_{0} \\omega C{/tex}</span><br />\r\n\tBut&nbsp;<span class=\"math-tex\">{tex}\\varepsilon_{0}{/tex}</span>&nbsp;= 100 V,&nbsp;<span class=\"math-tex\">{tex}\\omega=314 \\text { rad } s^{-1}{/tex}</span>,&nbsp;<span class=\"math-tex\">{tex}C=637 \\times 10^{-6} \\mathrm{~F}{/tex}</span><br />\r\n\t<span class=\"math-tex\">{tex}\\therefore{/tex}</span>&nbsp;<span class=\"math-tex\">{tex}I_{0}=100 \\times 314 \\times 637 \\times 10^{-6}=20 \\mathrm{~A}{/tex}</span><br />\r\n\tHence&nbsp;I = 20 cos 314 t ampere</li>\r\n\t<li>Instantaneous power,<br />\r\n\tP =&nbsp;<span class=\"math-tex\">{tex}\\varepsilon I=100 \\sin 314 t \\times 20 \\cos 314 t{/tex}</span><br />\r\n\t= 1000 sin 628 t watt</li>\r\n\t<li>Angular frequency of power,&nbsp;<span class=\"math-tex\">{tex}\\omega_{p}=628{/tex}</span>&nbsp;rads<sup>-1</sup><br />\r\n\t<span class=\"math-tex\">{tex}\\therefore{/tex}</span>&nbsp;Frequency of power,&nbsp;<span class=\"math-tex\">{tex}f_{p}=\\frac{\\omega_{p}}{2 \\pi}=\\frac{628}{2 \\pi}=100 \\mathrm{~Hz}{/tex}</span></li>\r\n\t<li>The maximum energy stored in the capacitor is<br />\r\n\tU<sub>0</sub> =&nbsp;<span class=\"math-tex\">{tex}\\frac{1}{2} C E_{0}^{2}=\\frac{1}{2} \\times 637 \\times 10^{-6} \\times(100)^{2}{/tex}</span>&nbsp;= 3.185 J</li>\r\n</ol>",
+    "weightage": "LA-1 (Long answer type-1)"
+  },
+  {
+    "subject": "Physics",
+    "subject_id": "1251",
+    "chapter": "Alternating Current",
+    "chapter_id": 1258,
+    "question_id": 422280,
+    "question_html": "<p>A small town with a demand of 800 kW of electric power at 220 V is situated 15 km away from an electric plant generating power at 440 V. The resistance of the two wirelines carrying power is 0.5 <span class=\"math-tex\">{tex}\\Omega{/tex}</span>&nbsp;per km. The town gets power from the line through a 4000 - 220 V step-down transformer at a sub-station in the town.</p>\n\n<ol start=\"1\" style=\"list-style-type: lower-alpha;\">\n\t<li>Estimate the line power loss in the form of heat.</li>\n\t<li>How much power must the plant supply, assuming there is negligible power loss due to leakage?</li>\n\t<li>Characterize the step-up transformer at the plant.</li>\n</ol>",
+    "question_text": "A small town with a demand of 800 kW of electric power at 220 V is situated 15 km away from an electric plant generating power at 440 V. The resistance of the two wirelines carrying power is 0.5 {tex}\\Omega{/tex} per km. The town gets power from the line through a 4000 - 220 V step-down transformer at a sub-station in the town. Estimate the line power loss in the form of heat. How much power must the plant supply, assuming there is negligible power loss due to leakage? Characterize the step-up transformer at the plant.",
+    "options": [],
+    "correct_option_ids": [],
+    "correct_option_text": "",
+    "explanation": "Total electric power required, Supply voltage, V = 220 V The voltage at which electric plant is generating power, V&#39; = 440 V Distance between the town and power generating station, d = 15 km The resistance of the two-wire lines carrying power = 0.5 {tex}\\Omega{/tex} /km Total resistance of the wires, R = (15 + 15) 0.5 = 15 {tex}\\Omega{/tex} A step-down transformer of rating 4000 - 220 V is used in the sub-station. Input voltage is , V 1 = 4000 V Output voltage is, V 2 = 220 V Rms current in the wire lines is given as: {tex}I=\\frac{P}{V_{1}}{/tex} {tex}=\\frac{800 \\times 10^{3}}{4000}{/tex} = 200 A Line power loss in the form of heat is given by = I 2 R = (200) 2 {tex}\\times{/tex} 15 = 600 {tex}\\times{/tex} 10 3 W = 600 KW Assuming that the power loss is negligible due to the leakage of the current: hence Total power supplied by the plant = 800 KW + 600 KW = 1400 KW Voltage drop in the power line is given by = IR = 200 {tex}\\times{/tex} 15 = 3000 V Hence, total voltage transmitted by the plant = 3000 + 4000 = 7000 V Hence, the rating of the step-up transformer situated at the power plant is 440 V - 7000 V.",
+    "solution": "Total electric power required, Supply voltage, V = 220 V The voltage at which electric plant is generating power, V&#39; = 440 V Distance between the town and power generating station, d = 15 km The resistance of the two-wire lines carrying power = 0.5 {tex}\\Omega{/tex} /km Total resistance of the wires, R = (15 + 15) 0.5 = 15 {tex}\\Omega{/tex} A step-down transformer of rating 4000 - 220 V is used in the sub-station. Input voltage is , V 1 = 4000 V Output voltage is, V 2 = 220 V Rms current in the wire lines is given as: {tex}I=\\frac{P}{V_{1}}{/tex} {tex}=\\frac{800 \\times 10^{3}}{4000}{/tex} = 200 A Line power loss in the form of heat is given by = I 2 R = (200) 2 {tex}\\times{/tex} 15 = 600 {tex}\\times{/tex} 10 3 W = 600 KW Assuming that the power loss is negligible due to the leakage of the current: hence Total power supplied by the plant = 800 KW + 600 KW = 1400 KW Voltage drop in the power line is given by = IR = 200 {tex}\\times{/tex} 15 = 3000 V Hence, total voltage transmitted by the plant = 3000 + 4000 = 7000 V Hence, the rating of the step-up transformer situated at the power plant is 440 V - 7000 V.",
+    "solution_html": "<p>Total electric power required,<br />\nSupply voltage, V = 220 V<br />\nThe voltage at which electric plant is generating power, V&#39; = 440 V<br />\nDistance between the town and power generating station, d = 15 km<br />\nThe resistance of the two-wire lines carrying power = 0.5&nbsp;<span class=\"math-tex\">{tex}\\Omega{/tex}</span>/km<br />\nTotal resistance of the wires, R = (15 + 15) 0.5 = 15&nbsp;<span class=\"math-tex\">{tex}\\Omega{/tex}</span><br />\nA step-down transformer of rating 4000 - 220 V is used in the sub-station.<br />\nInput voltage is , V<sub>1</sub> = 4000 V<br />\nOutput voltage is, V<sub>2</sub> = 220 V<br />\nRms current in the wire lines is given as:<br />\n<span class=\"math-tex\">{tex}I=\\frac{P}{V_{1}}{/tex}</span><br />\n<span class=\"math-tex\">{tex}=\\frac{800 \\times 10^{3}}{4000}{/tex}</span>&nbsp;= 200 A</p>\n\n<ol start=\"1\" style=\"list-style-type: lower-alpha;\">\n\t<li>Line power loss in the form of heat is given by&nbsp; = I<sup>2</sup>R<br />\n\t= (200)<sup>2</sup>&nbsp;<span class=\"math-tex\">{tex}\\times{/tex}</span>&nbsp;15<br />\n\t= 600&nbsp;<span class=\"math-tex\">{tex}\\times{/tex}</span>&nbsp;10<sup>3</sup> W<br />\n\t= 600 KW</li>\n\t<li>Assuming that the power loss is negligible due to the leakage of the current:<br />\n\t&nbsp;hence Total power supplied by the plant = 800 KW + 600 KW<br />\n\t= 1400 KW</li>\n\t<li>Voltage drop in the power line is given by = IR = 200&nbsp;<span class=\"math-tex\">{tex}\\times{/tex}</span>&nbsp;15 = 3000 V<br />\n\tHence, total voltage transmitted by&nbsp;the plant = 3000 + 4000<br />\n\t= 7000 V<br />\n\tHence, the rating of the step-up transformer situated at the power plant is 440 V - 7000 V.</li>\n</ol>",
+    "weightage": "LA-1 (Long answer type-1)"
+  }
+]

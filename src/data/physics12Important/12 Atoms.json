@@ -1,0 +1,1267 @@
+[
+  {
+    "subject": "Physics",
+    "subject_id": "1251",
+    "chapter": "Atoms",
+    "chapter_id": 1263,
+    "question_id": 1715501,
+    "question_html": "<p>The minimum energy required to free the electron from the ground state of the hydrogen atom is:</p>",
+    "question_text": "The minimum energy required to free the electron from the ground state of the hydrogen atom is:",
+    "options": [
+      {
+        "id": 3562375,
+        "text": "{tex}3 \\cdot 4 {eV}{/tex}",
+        "html": "<p style=\"display:inline\"><span class=\"math-tex\">{tex}3 \\cdot 4 {eV}{/tex}</span></p>",
+        "is_correct": false,
+        "explanation": ""
+      },
+      {
+        "id": 3562376,
+        "text": "less than 3.4 eV",
+        "html": "<p style=\"display:inline\">less than 3.4 eV</p>",
+        "is_correct": false,
+        "explanation": ""
+      },
+      {
+        "id": 3562377,
+        "text": "{tex}13 \\cdot 6 {eV}{/tex}",
+        "html": "<p style=\"display:inline\"><span class=\"math-tex\">{tex}13 \\cdot 6 {eV}{/tex}</span></p>",
+        "is_correct": true,
+        "explanation": "{tex}13 \\cdot 6 {eV}{/tex}"
+      },
+      {
+        "id": 3562378,
+        "text": "between 13.6 eV and 3.4 eV",
+        "html": "<p style=\"display:inline\">between 13.6 eV and 3.4 eV</p>",
+        "is_correct": false,
+        "explanation": ""
+      }
+    ],
+    "correct_option_ids": [
+      3562377
+    ],
+    "correct_option_text": "{tex}13 \\cdot 6 {eV}{/tex}",
+    "explanation": "{tex}13 \\cdot 6 {eV}{/tex}",
+    "solution": "",
+    "solution_html": "",
+    "weightage": "VSA (Very Short Answer)"
+  },
+  {
+    "subject": "Physics",
+    "subject_id": "1251",
+    "chapter": "Atoms",
+    "chapter_id": 1263,
+    "question_id": 1715185,
+    "question_html": "<p>Out of the four options given, in which transition will the emitted photon have the maximum wavelength?</p>",
+    "question_text": "Out of the four options given, in which transition will the emitted photon have the maximum wavelength?",
+    "options": [
+      {
+        "id": 3561848,
+        "text": "{tex}{n}=4{/tex} to {tex}{n}=3{/tex}",
+        "html": "<p style=\"display:inline\"><span class=\"math-tex\">{tex}{n}=4{/tex}</span> to <span class=\"math-tex\">{tex}{n}=3{/tex}</span></p>",
+        "is_correct": true,
+        "explanation": "{tex}{n}=4{/tex} to {tex}{n}=3{/tex}"
+      },
+      {
+        "id": 3561850,
+        "text": "{tex}{n}=3{/tex} to {tex}{n}=2{/tex}",
+        "html": "<p style=\"display:inline\"><span class=\"math-tex\">{tex}{n}=3{/tex}</span> to <span class=\"math-tex\">{tex}{n}=2{/tex}</span></p>",
+        "is_correct": false,
+        "explanation": ""
+      },
+      {
+        "id": 3561851,
+        "text": "{tex}{n}=2{/tex} to {tex}{n}=1{/tex}",
+        "html": "<p style=\"display:inline\"><span class=\"math-tex\">{tex}{n}=2{/tex}</span> to <span class=\"math-tex\">{tex}{n}=1{/tex}</span></p>",
+        "is_correct": false,
+        "explanation": ""
+      },
+      {
+        "id": 3561853,
+        "text": "{tex}{n}=3{/tex} to {tex}{n}=1{/tex}",
+        "html": "<p style=\"display:inline\"><span class=\"math-tex\">{tex}{n}=3{/tex}</span> to <span class=\"math-tex\">{tex}{n}=1{/tex}</span></p>",
+        "is_correct": false,
+        "explanation": ""
+      }
+    ],
+    "correct_option_ids": [
+      3561848
+    ],
+    "correct_option_text": "{tex}{n}=4{/tex} to {tex}{n}=3{/tex}",
+    "explanation": "{tex}{n}=4{/tex} to {tex}{n}=3{/tex}",
+    "solution": "",
+    "solution_html": "",
+    "weightage": "VSA (Very Short Answer)"
+  },
+  {
+    "subject": "Physics",
+    "subject_id": "1251",
+    "chapter": "Atoms",
+    "chapter_id": 1263,
+    "question_id": 1324630,
+    "question_html": "<p>The transition of electron that gives rise to the formation of the second spectral line of the Balmer series in the spectrum of hydrogen atom corresponds to:</p>",
+    "question_text": "The transition of electron that gives rise to the formation of the second spectral line of the Balmer series in the spectrum of hydrogen atom corresponds to:",
+    "options": [
+      {
+        "id": 2661992,
+        "text": "n f = 2 and n i = 3",
+        "html": "<p style=\"display:inline\">n<sub>f</sub> = 2 and n<sub>i</sub> = 3</p>",
+        "is_correct": false,
+        "explanation": ""
+      },
+      {
+        "id": 2661993,
+        "text": "n f = 3 and n i = 4",
+        "html": "<p style=\"display:inline\">n<sub>f</sub> = 3 and n<sub>i</sub> = 4</p>",
+        "is_correct": false,
+        "explanation": ""
+      },
+      {
+        "id": 2661994,
+        "text": "n f = 2 and n i = 4",
+        "html": "<p style=\"display:inline\">n<sub>f</sub> = 2 and n<sub>i</sub> = 4</p>",
+        "is_correct": true,
+        "explanation": "n f = 2 and n i = 4"
+      },
+      {
+        "id": 2661995,
+        "text": "n f = 2 and n i = {tex}\\infty{/tex}",
+        "html": "<p style=\"display:inline\">n<sub>f</sub> = 2 and n<sub>i</sub> = <span class=\"math-tex\">{tex}\\infty{/tex}</span></p>",
+        "is_correct": false,
+        "explanation": ""
+      }
+    ],
+    "correct_option_ids": [
+      2661994
+    ],
+    "correct_option_text": "n f = 2 and n i = 4",
+    "explanation": "n f = 2 and n i = 4",
+    "solution": "",
+    "solution_html": "",
+    "weightage": "VSA (Very Short Answer)"
+  },
+  {
+    "subject": "Physics",
+    "subject_id": "1251",
+    "chapter": "Atoms",
+    "chapter_id": 1263,
+    "question_id": 1434273,
+    "question_html": "<p>An electron makes a transition from n = 2 level to n = 1 level in the Bohr model of a hydrogen atom. Its period of revolution</p>",
+    "question_text": "An electron makes a transition from n = 2 level to n = 1 level in the Bohr model of a hydrogen atom. Its period of revolution",
+    "options": [
+      {
+        "id": 2935517,
+        "text": "increases by 87.5%",
+        "html": "<p style=\"display:inline\">increases by 87.5%</p>",
+        "is_correct": false,
+        "explanation": ""
+      },
+      {
+        "id": 2935518,
+        "text": "decrease by 87.5%",
+        "html": "<p style=\"display:inline\">decrease by 87.5%</p>",
+        "is_correct": true,
+        "explanation": "decrease by 87.5%"
+      },
+      {
+        "id": 2935519,
+        "text": "increases by 43.75%",
+        "html": "<p style=\"display:inline\">increases by 43.75%</p>",
+        "is_correct": false,
+        "explanation": ""
+      },
+      {
+        "id": 2935520,
+        "text": "decreases by 43.75%",
+        "html": "<p style=\"display:inline\">decreases by 43.75%</p>",
+        "is_correct": false,
+        "explanation": ""
+      }
+    ],
+    "correct_option_ids": [
+      2935518
+    ],
+    "correct_option_text": "decrease by 87.5%",
+    "explanation": "decrease by 87.5%",
+    "solution": "",
+    "solution_html": "",
+    "weightage": "VSA (Very Short Answer)"
+  },
+  {
+    "subject": "Physics",
+    "subject_id": "1251",
+    "chapter": "Atoms",
+    "chapter_id": 1263,
+    "question_id": 1715320,
+    "question_html": "<p>The energy of an electron in a hydrogen atom in ground state is -13.6 eV. Its energy in an orbit corresponding to quantum number n is -0.544 eV. The value of n is</p>",
+    "question_text": "The energy of an electron in a hydrogen atom in ground state is -13.6 eV. Its energy in an orbit corresponding to quantum number n is -0.544 eV. The value of n is",
+    "options": [
+      {
+        "id": 3562147,
+        "text": "2",
+        "html": "<p style=\"display:inline\">2</p>",
+        "is_correct": false,
+        "explanation": ""
+      },
+      {
+        "id": 3562148,
+        "text": "3",
+        "html": "<p style=\"display:inline\">3</p>",
+        "is_correct": false,
+        "explanation": ""
+      },
+      {
+        "id": 3562149,
+        "text": "4",
+        "html": "<p style=\"display:inline\">4</p>",
+        "is_correct": false,
+        "explanation": ""
+      },
+      {
+        "id": 3562150,
+        "text": "5",
+        "html": "<p style=\"display:inline\">5</p>",
+        "is_correct": true,
+        "explanation": "5"
+      }
+    ],
+    "correct_option_ids": [
+      3562150
+    ],
+    "correct_option_text": "5",
+    "explanation": "5",
+    "solution": "",
+    "solution_html": "",
+    "weightage": "VSA (Very Short Answer)"
+  },
+  {
+    "subject": "Physics",
+    "subject_id": "1251",
+    "chapter": "Atoms",
+    "chapter_id": 1263,
+    "question_id": 1148118,
+    "question_html": "<p>The diagram shows four energy level of an electron in Bohr model of hydrogen atom. Identify the transition in which the emitted photon will have the highest energy.<br />\n<img src=\"https://media-mycbseguide.s3.amazonaws.com/images/question_images/1706180160-vrmjnw.jpg\" style=\"height:141px; width:200px\" /></p>",
+    "question_text": "The diagram shows four energy level of an electron in Bohr model of hydrogen atom. Identify the transition in which the emitted photon will have the highest energy.",
+    "options": [
+      {
+        "id": 2324270,
+        "text": "I",
+        "html": "<p style=\"display:inline\">I</p>",
+        "is_correct": true,
+        "explanation": "I"
+      },
+      {
+        "id": 2324272,
+        "text": "II",
+        "html": "<p style=\"display:inline\">II</p>",
+        "is_correct": false,
+        "explanation": ""
+      },
+      {
+        "id": 2324274,
+        "text": "III",
+        "html": "<p style=\"display:inline\">III</p>",
+        "is_correct": false,
+        "explanation": ""
+      },
+      {
+        "id": 2324276,
+        "text": "IV",
+        "html": "<p style=\"display:inline\">IV</p>",
+        "is_correct": false,
+        "explanation": ""
+      }
+    ],
+    "correct_option_ids": [
+      2324270
+    ],
+    "correct_option_text": "I",
+    "explanation": "I",
+    "solution": "",
+    "solution_html": "",
+    "weightage": "VSA (Very Short Answer)"
+  },
+  {
+    "subject": "Physics",
+    "subject_id": "1251",
+    "chapter": "Atoms",
+    "chapter_id": 1263,
+    "question_id": 1148192,
+    "question_html": "<p>The radius of the n<sup>th</sup> orbit in Bohr model of hydrogen atom is proportional to:</p>",
+    "question_text": "The radius of the n th orbit in Bohr model of hydrogen atom is proportional to:",
+    "options": [
+      {
+        "id": 2324394,
+        "text": "{tex}\\frac{1}{\\mathrm{n}^2}{/tex}",
+        "html": "<p style=\"display:inline\"><span class=\"math-tex\">{tex}\\frac{1}{\\mathrm{n}^2}{/tex}</span></p>",
+        "is_correct": false,
+        "explanation": ""
+      },
+      {
+        "id": 2324395,
+        "text": "{tex}\\frac{1}{n}{/tex}",
+        "html": "<p style=\"display:inline\"><span class=\"math-tex\">{tex}\\frac{1}{n}{/tex}</span></p>",
+        "is_correct": false,
+        "explanation": ""
+      },
+      {
+        "id": 2324396,
+        "text": "n 2",
+        "html": "<p style=\"display:inline\">n<sup>2</sup></p>",
+        "is_correct": true,
+        "explanation": "n 2"
+      },
+      {
+        "id": 2324397,
+        "text": "n",
+        "html": "<p style=\"display:inline\">n</p>",
+        "is_correct": false,
+        "explanation": ""
+      }
+    ],
+    "correct_option_ids": [
+      2324396
+    ],
+    "correct_option_text": "n 2",
+    "explanation": "n 2",
+    "solution": "",
+    "solution_html": "",
+    "weightage": "VSA (Very Short Answer)"
+  },
+  {
+    "subject": "Physics",
+    "subject_id": "1251",
+    "chapter": "Atoms",
+    "chapter_id": 1263,
+    "question_id": 1147990,
+    "question_html": "<p>The ratio of maximum frequency and minimum frequency of light emitted in Balmer series of hydrogen spectrum, in Bohr&#39;s model is:</p>",
+    "question_text": "The ratio of maximum frequency and minimum frequency of light emitted in Balmer series of hydrogen spectrum, in Bohr&#39;s model is:",
+    "options": [
+      {
+        "id": 2324034,
+        "text": "{tex}\\frac{11}{9}{/tex}",
+        "html": "<p style=\"display:inline\"><span class=\"math-tex\">{tex}\\frac{11}{9}{/tex}</span></p>",
+        "is_correct": false,
+        "explanation": ""
+      },
+      {
+        "id": 2324035,
+        "text": "{tex}\\frac{9}{5}{/tex}",
+        "html": "<p style=\"display:inline\"><span class=\"math-tex\">{tex}\\frac{9}{5}{/tex}</span></p>",
+        "is_correct": true,
+        "explanation": "{tex}\\frac{9}{5}{/tex}"
+      },
+      {
+        "id": 2324036,
+        "text": "{tex}\\frac{11}{7}{/tex}",
+        "html": "<p style=\"display:inline\"><span class=\"math-tex\">{tex}\\frac{11}{7}{/tex}</span></p>",
+        "is_correct": false,
+        "explanation": ""
+      },
+      {
+        "id": 2324037,
+        "text": "{tex}\\frac{16}{7}{/tex}",
+        "html": "<p style=\"display:inline\"><span class=\"math-tex\">{tex}\\frac{16}{7}{/tex}</span></p>",
+        "is_correct": false,
+        "explanation": ""
+      }
+    ],
+    "correct_option_ids": [
+      2324035
+    ],
+    "correct_option_text": "{tex}\\frac{9}{5}{/tex}",
+    "explanation": "{tex}\\frac{9}{5}{/tex}",
+    "solution": "",
+    "solution_html": "",
+    "weightage": "VSA (Very Short Answer)"
+  },
+  {
+    "subject": "Physics",
+    "subject_id": "1251",
+    "chapter": "Atoms",
+    "chapter_id": 1263,
+    "question_id": 1161830,
+    "question_html": "<p>The impact parameter for an alpha particle approaching a target nucleus is maximum when the scattering angle <span class=\"math-tex\">{tex}(\\theta){/tex}</span> is:</p>",
+    "question_text": "The impact parameter for an alpha particle approaching a target nucleus is maximum when the scattering angle {tex}(\\theta){/tex} is:",
+    "options": [
+      {
+        "id": 2367464,
+        "text": "0 o",
+        "html": "<p style=\"display:inline\">0<sup>o</sup></p>",
+        "is_correct": true,
+        "explanation": "0 o"
+      },
+      {
+        "id": 2367465,
+        "text": "90 o",
+        "html": "<p style=\"display:inline\">90<sup>o</sup></p>",
+        "is_correct": false,
+        "explanation": ""
+      },
+      {
+        "id": 2367466,
+        "text": "180 o",
+        "html": "<p style=\"display:inline\">180<sup>o</sup></p>",
+        "is_correct": false,
+        "explanation": ""
+      },
+      {
+        "id": 2367467,
+        "text": "45 o",
+        "html": "<p style=\"display:inline\">45<sup>o</sup></p>",
+        "is_correct": false,
+        "explanation": ""
+      }
+    ],
+    "correct_option_ids": [
+      2367464
+    ],
+    "correct_option_text": "0 o",
+    "explanation": "0 o",
+    "solution": "",
+    "solution_html": "",
+    "weightage": "VSA (Very Short Answer)"
+  },
+  {
+    "subject": "Physics",
+    "subject_id": "1251",
+    "chapter": "Atoms",
+    "chapter_id": 1263,
+    "question_id": 1349942,
+    "question_html": "<p>Energy levels A, B and C of an atom correspond to increasing values of energy i.e. <span class=\"math-tex\">{tex}\\mathrm{E}_{\\mathrm{A}} \\lt \\mathrm{E}_{\\mathrm{B}} \\lt \\mathrm{E}_{\\mathrm{C}}{/tex}</span>. Let <span class=\"math-tex\">{tex}\\lambda_1, \\lambda_2{/tex}</span> and <span class=\"math-tex\">{tex}\\lambda_3{/tex}</span> be the wavelengths of radiation corresponding to the transitions C to <span class=\"math-tex\">{tex}\\mathrm{B}, \\mathrm{B}{/tex}</span> to A and C to A , respectively. The correct relation between <span class=\"math-tex\">{tex}\\lambda_1, \\lambda_2{/tex}</span> and <span class=\"math-tex\">{tex}\\lambda_3{/tex}</span> is:</p>",
+    "question_text": "Energy levels A, B and C of an atom correspond to increasing values of energy i.e. {tex}\\mathrm{E}_{\\mathrm{A}} \\lt \\mathrm{E}_{\\mathrm{B}} \\lt \\mathrm{E}_{\\mathrm{C}}{/tex} . Let {tex}\\lambda_1, \\lambda_2{/tex} and {tex}\\lambda_3{/tex} be the wavelengths of radiation corresponding to the transitions C to {tex}\\mathrm{B}, \\mathrm{B}{/tex} to A and C to A , respectively. The correct relation between {tex}\\lambda_1, \\lambda_2{/tex} and {tex}\\lambda_3{/tex} is:",
+    "options": [
+      {
+        "id": 2697091,
+        "text": "{tex}\\lambda_1^2+\\lambda_2^2=\\lambda_3^2{/tex}",
+        "html": "<p style=\"display:inline\"><span class=\"math-tex\">{tex}\\lambda_1^2+\\lambda_2^2=\\lambda_3^2{/tex}</span></p>",
+        "is_correct": false,
+        "explanation": ""
+      },
+      {
+        "id": 2697092,
+        "text": "{tex}\\frac{1}{\\lambda_1}+\\frac{1}{\\lambda_2}=\\frac{1}{\\lambda_3}{/tex}",
+        "html": "<p style=\"display:inline\"><span class=\"math-tex\">{tex}\\frac{1}{\\lambda_1}+\\frac{1}{\\lambda_2}=\\frac{1}{\\lambda_3}{/tex}</span></p>",
+        "is_correct": true,
+        "explanation": "{tex}\\frac{1}{\\lambda_1}+\\frac{1}{\\lambda_2}=\\frac{1}{\\lambda_3}{/tex}"
+      },
+      {
+        "id": 2697093,
+        "text": "{tex}\\lambda_1+\\lambda_2+\\lambda_3=0{/tex}",
+        "html": "<p style=\"display:inline\"><span class=\"math-tex\">{tex}\\lambda_1+\\lambda_2+\\lambda_3=0{/tex}</span></p>",
+        "is_correct": false,
+        "explanation": ""
+      },
+      {
+        "id": 2697094,
+        "text": "{tex}\\lambda_1+\\lambda_2=\\lambda_3{/tex}",
+        "html": "<p style=\"display:inline\"><span class=\"math-tex\">{tex}\\lambda_1+\\lambda_2=\\lambda_3{/tex}</span></p>",
+        "is_correct": false,
+        "explanation": ""
+      }
+    ],
+    "correct_option_ids": [
+      2697092
+    ],
+    "correct_option_text": "{tex}\\frac{1}{\\lambda_1}+\\frac{1}{\\lambda_2}=\\frac{1}{\\lambda_3}{/tex}",
+    "explanation": "{tex}\\frac{1}{\\lambda_1}+\\frac{1}{\\lambda_2}=\\frac{1}{\\lambda_3}{/tex}",
+    "solution": "",
+    "solution_html": "",
+    "weightage": "VSA (Very Short Answer)"
+  },
+  {
+    "subject": "Physics",
+    "subject_id": "1251",
+    "chapter": "Atoms",
+    "chapter_id": 1263,
+    "question_id": 1715451,
+    "question_html": "<p>In Bohr model of the hydrogen atom, the potential energy of electron in the ground state is:</p>",
+    "question_text": "In Bohr model of the hydrogen atom, the potential energy of electron in the ground state is:",
+    "options": [
+      {
+        "id": 3562307,
+        "text": "13.6 eV",
+        "html": "<p style=\"display:inline\">13.6 eV</p>",
+        "is_correct": false,
+        "explanation": ""
+      },
+      {
+        "id": 3562308,
+        "text": "{tex}-13 .6 {eV}{/tex}",
+        "html": "<p style=\"display:inline\"><span class=\"math-tex\">{tex}-13 .6 {eV}{/tex}</span></p>",
+        "is_correct": false,
+        "explanation": ""
+      },
+      {
+        "id": 3562309,
+        "text": "{tex}27 .2 {eV}{/tex}",
+        "html": "<p style=\"display:inline\"><span class=\"math-tex\">{tex}27 .2 {eV}{/tex}</span></p>",
+        "is_correct": false,
+        "explanation": ""
+      },
+      {
+        "id": 3562310,
+        "text": "{tex}-27 .2 {eV}{/tex}",
+        "html": "<p style=\"display:inline\"><span class=\"math-tex\">{tex}-27 .2 {eV}{/tex}</span></p>",
+        "is_correct": true,
+        "explanation": "{tex}-27 .2 {eV}{/tex}"
+      }
+    ],
+    "correct_option_ids": [
+      3562310
+    ],
+    "correct_option_text": "{tex}-27 .2 {eV}{/tex}",
+    "explanation": "{tex}-27 .2 {eV}{/tex}",
+    "solution": "",
+    "solution_html": "",
+    "weightage": "VSA (Very Short Answer)"
+  },
+  {
+    "subject": "Physics",
+    "subject_id": "1251",
+    "chapter": "Atoms",
+    "chapter_id": 1263,
+    "question_id": 1715327,
+    "question_html": "<p>Atomic spectral emission lines of hydrogen atom are incident on a zinc surface. The lines which can emit photoelectrons from the surface are members of</p>",
+    "question_text": "Atomic spectral emission lines of hydrogen atom are incident on a zinc surface. The lines which can emit photoelectrons from the surface are members of",
+    "options": [
+      {
+        "id": 3562167,
+        "text": "Balmer series",
+        "html": "<p style=\"display:inline\">Balmer series</p>",
+        "is_correct": false,
+        "explanation": ""
+      },
+      {
+        "id": 3562168,
+        "text": "Paschen series",
+        "html": "<p style=\"display:inline\">Paschen series</p>",
+        "is_correct": false,
+        "explanation": ""
+      },
+      {
+        "id": 3562169,
+        "text": "Lyman series",
+        "html": "<p style=\"display:inline\">Lyman series</p>",
+        "is_correct": true,
+        "explanation": "Lyman series"
+      },
+      {
+        "id": 3562170,
+        "text": "Neither Balmer, nor Paschen nor Lyman series",
+        "html": "<p style=\"display:inline\">Neither Balmer, nor Paschen nor Lyman series</p>",
+        "is_correct": false,
+        "explanation": ""
+      }
+    ],
+    "correct_option_ids": [
+      3562169
+    ],
+    "correct_option_text": "Lyman series",
+    "explanation": "Lyman series",
+    "solution": "",
+    "solution_html": "",
+    "weightage": "VSA (Very Short Answer)"
+  },
+  {
+    "subject": "Physics",
+    "subject_id": "1251",
+    "chapter": "Atoms",
+    "chapter_id": 1263,
+    "question_id": 1715427,
+    "question_html": "<p>In Bohr model of the hydrogen atom, the kinetic energy of an electron in <span class=\"math-tex\">{tex}{n}=2{/tex}</span> orbit is:</p>",
+    "question_text": "In Bohr model of the hydrogen atom, the kinetic energy of an electron in {tex}{n}=2{/tex} orbit is:",
+    "options": [
+      {
+        "id": 3562291,
+        "text": "1.7 eV",
+        "html": "<p style=\"display:inline\">1.7 eV</p>",
+        "is_correct": false,
+        "explanation": ""
+      },
+      {
+        "id": 3562292,
+        "text": "{tex}3.4 {eV}{/tex}",
+        "html": "<p style=\"display:inline\"><span class=\"math-tex\">{tex}3.4 {eV}{/tex}</span></p>",
+        "is_correct": true,
+        "explanation": "{tex}3.4 {eV}{/tex}"
+      },
+      {
+        "id": 3562293,
+        "text": "6.8 eV",
+        "html": "<p style=\"display:inline\">6.8 eV</p>",
+        "is_correct": false,
+        "explanation": ""
+      },
+      {
+        "id": 3562294,
+        "text": "{tex}10.2 {eV}{/tex}",
+        "html": "<p style=\"display:inline\"><span class=\"math-tex\">{tex}10.2 {eV}{/tex}</span></p>",
+        "is_correct": false,
+        "explanation": ""
+      }
+    ],
+    "correct_option_ids": [
+      3562292
+    ],
+    "correct_option_text": "{tex}3.4 {eV}{/tex}",
+    "explanation": "{tex}3.4 {eV}{/tex}",
+    "solution": "",
+    "solution_html": "",
+    "weightage": "VSA (Very Short Answer)"
+  },
+  {
+    "subject": "Physics",
+    "subject_id": "1251",
+    "chapter": "Atoms",
+    "chapter_id": 1263,
+    "question_id": 1147921,
+    "question_html": "<p>Specify the transition of electron in the wavelength of the line in the Bohr model of hydrogen atom which gives rise to the spectral line of highest wavelength.</p>",
+    "question_text": "Specify the transition of electron in the wavelength of the line in the Bohr model of hydrogen atom which gives rise to the spectral line of highest wavelength.",
+    "options": [
+      {
+        "id": 2323902,
+        "text": "n = 3 to n = 1",
+        "html": "<p style=\"display:inline\">n = 3 to n = 1</p>",
+        "is_correct": false,
+        "explanation": ""
+      },
+      {
+        "id": 2323903,
+        "text": "n = 3 to n = 2",
+        "html": "<p style=\"display:inline\">n = 3 to n = 2</p>",
+        "is_correct": true,
+        "explanation": "n = 3 to n = 2"
+      },
+      {
+        "id": 2323904,
+        "text": "n = 4 to n = 1",
+        "html": "<p style=\"display:inline\">n = 4 to n = 1</p>",
+        "is_correct": false,
+        "explanation": ""
+      },
+      {
+        "id": 2323905,
+        "text": "n = 4 to n = 2",
+        "html": "<p style=\"display:inline\">n = 4 to n = 2</p>",
+        "is_correct": false,
+        "explanation": ""
+      }
+    ],
+    "correct_option_ids": [
+      2323903
+    ],
+    "correct_option_text": "n = 3 to n = 2",
+    "explanation": "n = 3 to n = 2",
+    "solution": "",
+    "solution_html": "",
+    "weightage": "VSA (Very Short Answer)"
+  },
+  {
+    "subject": "Physics",
+    "subject_id": "1251",
+    "chapter": "Atoms",
+    "chapter_id": 1263,
+    "question_id": 1715197,
+    "question_html": "<p><strong>Assertion (A):</strong> In Rutherford&#39;s alpha particle scattering experiment, the presence of only few alpha particles at angle of scattering <span class=\"math-tex\">{tex}\\pi{/tex}</span> led him to the discovery of nucleus.<br />\r\n<strong>Reason <span class=\"math-tex\">{tex}(R){/tex}</span>:</strong> The size of nucleus is approximately <span class=\"math-tex\">{tex}10^{-5}{/tex}</span> times the size of an atom and therefore only few alpha particles are rebounded.</p>",
+    "question_text": "Assertion (A): In Rutherford&#39;s alpha particle scattering experiment, the presence of only few alpha particles at angle of scattering {tex}\\pi{/tex} led him to the discovery of nucleus. Reason {tex}(R){/tex} : The size of nucleus is approximately {tex}10^{-5}{/tex} times the size of an atom and therefore only few alpha particles are rebounded.",
+    "options": [
+      {
+        "id": 3561875,
+        "text": "Both A and R are true and R is the correct explanation of A.",
+        "html": "<p style=\"display:inline\">Both A and R are true and R is the correct explanation of A.</p>",
+        "is_correct": true,
+        "explanation": "Both A and R are true and R is the correct explanation of A."
+      },
+      {
+        "id": 3561876,
+        "text": "Both A and R are true but R is not the correct explanation of A.",
+        "html": "<p style=\"display:inline\">Both A and R are true but R is not the correct explanation of A.</p>",
+        "is_correct": false,
+        "explanation": ""
+      },
+      {
+        "id": 3561877,
+        "text": "A is true but R is false.",
+        "html": "<p style=\"display:inline\">A is true but R is false.</p>",
+        "is_correct": false,
+        "explanation": ""
+      },
+      {
+        "id": 3561878,
+        "text": "A is false but R is true.",
+        "html": "<p style=\"display:inline\">A is false but R is true.</p>",
+        "is_correct": false,
+        "explanation": ""
+      }
+    ],
+    "correct_option_ids": [
+      3561875
+    ],
+    "correct_option_text": "Both A and R are true and R is the correct explanation of A.",
+    "explanation": "Both A and R are true and R is the correct explanation of A.",
+    "solution": "",
+    "solution_html": "",
+    "weightage": "VSA (Very Short Answer)"
+  },
+  {
+    "subject": "Physics",
+    "subject_id": "1251",
+    "chapter": "Atoms",
+    "chapter_id": 1263,
+    "question_id": 188889,
+    "question_html": "<p>A 12.5 eV electron beam is used to bombard gaseous hydrogen at room temperature. What series of wavelengths will be emitted?</p>",
+    "question_text": "A 12.5 eV electron beam is used to bombard gaseous hydrogen at room temperature. What series of wavelengths will be emitted?",
+    "options": [],
+    "correct_option_ids": [],
+    "correct_option_text": "",
+    "explanation": "Given energy of electron beam E = {tex}12.5 \\mathrm{eV}=12.5 \\times 10^{-19} \\mathrm{J}{/tex} . Also, the energy of the gaseous hydrogen in its ground state at room temperature is &minus;13.6 eV. When gaseous hydrogen is bombarded with an electron beam, the energy of the gaseous hydrogen becomes = &minus;13.6 + 12.5 eV i.e., &minus;1.1 eV. Thus, the electrons of hydrogen will be raised to the third orbit, because this energy is approximately equal to the energy of gaseous hydrogen(-1.5eV). Now, the following transitions are possible n = 3 to n = 2 then n = 2 to n = 1 or n = 3 to n = 1 Therefore, three spectral lines will be obtained. These are {tex}\\frac{1}{\\lambda}=1.097 \\times 10^{7}\\left(\\frac{1}{2^{2}}-\\frac{1}{3^{2}}\\right){/tex} or {tex}\\lambda=6.56 \\times 10^{-7} \\mathrm{m}{/tex} or 656 nm. This line lies in the Balmer series {tex}\\frac{1}{\\lambda}=1.097 \\times 10^{7}\\left(\\frac{1}{1^{2}}-\\frac{1}{2^{2}}\\right){/tex} or {tex}\\lambda=1.22 \\times 10^{7} \\mathrm{m}{/tex} or 122 nm. This line lies in the Lyman series. {tex}\\frac{1}{\\lambda}=1.097 \\times 10^{7}\\left(\\frac{1}{1^{2}}-\\frac{1}{3^{2}}\\right){/tex} or {tex}\\lambda=1.03 \\times 10^{7} \\mathrm{m}{/tex} or 103 nm. This line lies in the Lyman series.",
+    "solution": "Given energy of electron beam E = {tex}12.5 \\mathrm{eV}=12.5 \\times 10^{-19} \\mathrm{J}{/tex} . Also, the energy of the gaseous hydrogen in its ground state at room temperature is &minus;13.6 eV. When gaseous hydrogen is bombarded with an electron beam, the energy of the gaseous hydrogen becomes = &minus;13.6 + 12.5 eV i.e., &minus;1.1 eV. Thus, the electrons of hydrogen will be raised to the third orbit, because this energy is approximately equal to the energy of gaseous hydrogen(-1.5eV). Now, the following transitions are possible n = 3 to n = 2 then n = 2 to n = 1 or n = 3 to n = 1 Therefore, three spectral lines will be obtained. These are {tex}\\frac{1}{\\lambda}=1.097 \\times 10^{7}\\left(\\frac{1}{2^{2}}-\\frac{1}{3^{2}}\\right){/tex} or {tex}\\lambda=6.56 \\times 10^{-7} \\mathrm{m}{/tex} or 656 nm. This line lies in the Balmer series {tex}\\frac{1}{\\lambda}=1.097 \\times 10^{7}\\left(\\frac{1}{1^{2}}-\\frac{1}{2^{2}}\\right){/tex} or {tex}\\lambda=1.22 \\times 10^{7} \\mathrm{m}{/tex} or 122 nm. This line lies in the Lyman series. {tex}\\frac{1}{\\lambda}=1.097 \\times 10^{7}\\left(\\frac{1}{1^{2}}-\\frac{1}{3^{2}}\\right){/tex} or {tex}\\lambda=1.03 \\times 10^{7} \\mathrm{m}{/tex} or 103 nm. This line lies in the Lyman series.",
+    "solution_html": "<p>Given energy of electron beam<br />\r\nE =&nbsp;<span class=\"math-tex\">{tex}12.5 \\mathrm{eV}=12.5 \\times 10^{-19} \\mathrm{J}{/tex}</span>.&nbsp;Also, the energy of the gaseous hydrogen in its ground state at room temperature is &minus;13.6 eV. When gaseous hydrogen is bombarded with an electron beam, the energy of the gaseous hydrogen becomes = &minus;13.6 + 12.5 eV i.e., &minus;1.1 eV.<br />\r\nThus, the electrons of hydrogen will be raised to the third orbit, because this energy is approximately equal to the energy of gaseous hydrogen(-1.5eV).&nbsp;<br />\r\nNow, the following transitions are possible<br />\r\nn = 3 to n = 2 then n = 2 to n = 1 or n = 3 to n = 1<br />\r\nTherefore, three spectral lines will be obtained. These are<br />\r\n<span class=\"math-tex\">{tex}\\frac{1}{\\lambda}=1.097 \\times 10^{7}\\left(\\frac{1}{2^{2}}-\\frac{1}{3^{2}}\\right){/tex}</span>&nbsp;or&nbsp;<span class=\"math-tex\">{tex}\\lambda=6.56 \\times 10^{-7} \\mathrm{m}{/tex}</span>&nbsp;or 656 nm. This line lies in the Balmer series<br />\r\n<span class=\"math-tex\">{tex}\\frac{1}{\\lambda}=1.097 \\times 10^{7}\\left(\\frac{1}{1^{2}}-\\frac{1}{2^{2}}\\right){/tex}</span>&nbsp;or&nbsp;<span class=\"math-tex\">{tex}\\lambda=1.22 \\times 10^{7} \\mathrm{m}{/tex}</span>&nbsp;or 122 nm. This line lies in the Lyman series.&nbsp;<br />\r\n<span class=\"math-tex\">{tex}\\frac{1}{\\lambda}=1.097 \\times 10^{7}\\left(\\frac{1}{1^{2}}-\\frac{1}{3^{2}}\\right){/tex}</span>&nbsp;or&nbsp;<span class=\"math-tex\">{tex}\\lambda=1.03 \\times 10^{7} \\mathrm{m}{/tex}</span>&nbsp;or 103 nm. This line lies in the Lyman series.</p>",
+    "weightage": "SA-1 (Short answer type-1)"
+  },
+  {
+    "subject": "Physics",
+    "subject_id": "1251",
+    "chapter": "Atoms",
+    "chapter_id": 1263,
+    "question_id": 67378,
+    "question_html": "<p>Suppose you are given a chance to repeat the alpha particle scattering experiment using a thin sheet of solid hydrogen in place of the gold foil. (Hydrogen is a solid at temperatures below 14 K). What results do you expect?</p>",
+    "question_text": "Suppose you are given a chance to repeat the alpha particle scattering experiment using a thin sheet of solid hydrogen in place of the gold foil. (Hydrogen is a solid at temperatures below 14 K). What results do you expect?",
+    "options": [],
+    "correct_option_ids": [],
+    "correct_option_text": "",
+    "explanation": "The nucleus of a hydrogen atom is a proton (mass {tex}1.67 \\times {10^{ - 27}}kg{/tex} ) which has only about one-fourth of the mass of an alpha particle {tex}\\left( {6.64 \\times {{10}^{ - 27}}kg} \\right){/tex} . Because the alpha particle is more massive, it won&#39;t bounce back in even a head on collision with a proton. It is like a bowling ball colliding with a ping pong ball at rest. Thus, there would be no large angle scattering in this case. In Rutherford&#39;s experiment, by contrast, there was large angle scattering because a gold nucleus is more massive than an alpha particle. The analogy there is a ping pong ball hitting a bowling ball at rest.",
+    "solution": "The nucleus of a hydrogen atom is a proton (mass {tex}1.67 \\times {10^{ - 27}}kg{/tex} ) which has only about one-fourth of the mass of an alpha particle {tex}\\left( {6.64 \\times {{10}^{ - 27}}kg} \\right){/tex} . Because the alpha particle is more massive, it won&#39;t bounce back in even a head on collision with a proton. It is like a bowling ball colliding with a ping pong ball at rest. Thus, there would be no large angle scattering in this case. In Rutherford&#39;s experiment, by contrast, there was large angle scattering because a gold nucleus is more massive than an alpha particle. The analogy there is a ping pong ball hitting a bowling ball at rest.",
+    "solution_html": "<p>The nucleus of a hydrogen atom is a proton (mass <span class=\"math-tex\">{tex}1.67 \\times {10^{ - 27}}kg{/tex}</span>) which has only about one-fourth of the mass of an alpha particle <span class=\"math-tex\">{tex}\\left( {6.64 \\times {{10}^{ - 27}}kg} \\right){/tex}</span>. Because the alpha particle is more massive, it won&#39;t bounce back in even a head on collision with a proton. It is like a bowling ball colliding with a ping pong ball at rest. Thus, there would be no large angle scattering in this case. In Rutherford&#39;s experiment, by contrast, there was large angle scattering because a gold nucleus is more massive than an alpha particle. The analogy there is a ping pong ball hitting a bowling ball at rest.</p>",
+    "weightage": "SA-1 (Short answer type-1)"
+  },
+  {
+    "subject": "Physics",
+    "subject_id": "1251",
+    "chapter": "Atoms",
+    "chapter_id": 1263,
+    "question_id": 399775,
+    "question_html": "<p>According to the classical electromagnetic theory, calculate the initial frequency of the light emitted by the electron revolving around a proton in hydrogen atom.</p>",
+    "question_text": "According to the classical electromagnetic theory, calculate the initial frequency of the light emitted by the electron revolving around a proton in hydrogen atom.",
+    "options": [],
+    "correct_option_ids": [],
+    "correct_option_text": "",
+    "explanation": "We know that the velocity of an electron moving around a proton in a hydrogen atom in an orbit of radius is 5.3 {tex}\\times{/tex} 10 &ndash;11 m is 2.2 {tex}\\times{/tex} 10 6 m/s. Thus, the frequency of the electron moving around the proton is given by ; {tex}v=\\frac{v}{2 \\pi r}=\\frac{2.2 \\times 10^{6} \\mathrm{m} \\mathrm{s}^{-1}}{2 \\pi\\left(5.3 \\times 10^{-11} \\mathrm{m}\\right)}{/tex} {tex}\\approx {/tex} 6.6 {tex}\\times{/tex} 10 15 Hz According to the classical electromagnetic theory, we know that the frequency of the electromagnetic waves emitted by the revolving electrons is equal to the frequency of its revolution around the nucleus. Thus the initial frequency of the light emitted is given by 6.6 {tex}\\times{/tex} 10 15 Hz.",
+    "solution": "We know that the velocity of an electron moving around a proton in a hydrogen atom in an orbit of radius is 5.3 {tex}\\times{/tex} 10 &ndash;11 m is 2.2 {tex}\\times{/tex} 10 6 m/s. Thus, the frequency of the electron moving around the proton is given by ; {tex}v=\\frac{v}{2 \\pi r}=\\frac{2.2 \\times 10^{6} \\mathrm{m} \\mathrm{s}^{-1}}{2 \\pi\\left(5.3 \\times 10^{-11} \\mathrm{m}\\right)}{/tex} {tex}\\approx {/tex} 6.6 {tex}\\times{/tex} 10 15 Hz According to the classical electromagnetic theory, we know that the frequency of the electromagnetic waves emitted by the revolving electrons is equal to the frequency of its revolution around the nucleus. Thus the initial frequency of the light emitted is given by 6.6 {tex}\\times{/tex} 10 15 Hz.",
+    "solution_html": "<p>We&nbsp;know that the velocity of an electron moving around a proton in a hydrogen atom in an orbit of radius is 5.3 <span class=\"math-tex\">{tex}\\times{/tex}</span>&nbsp;10<sup>&ndash;11</sup> m is 2.2 <span class=\"math-tex\">{tex}\\times{/tex}</span>&nbsp;10<sup>6 </sup>m/s. Thus, the frequency of the electron moving around the proton is given by ;<br />\r\n<span class=\"math-tex\">{tex}v=\\frac{v}{2 \\pi r}=\\frac{2.2 \\times 10^{6} \\mathrm{m} \\mathrm{s}^{-1}}{2 \\pi\\left(5.3 \\times 10^{-11} \\mathrm{m}\\right)}{/tex}</span><br />\r\n<span class=\"math-tex\">{tex}\\approx {/tex}</span> 6.6 <span class=\"math-tex\">{tex}\\times{/tex}</span> 10<sup>15</sup> Hz<br />\r\nAccording to the classical electromagnetic theory, we know that the frequency of the electromagnetic waves emitted by the revolving electrons is equal to the frequency of its revolution around the nucleus. Thus the initial frequency of the light emitted is given by&nbsp;6.6 <span class=\"math-tex\">{tex}\\times{/tex}</span> 10<sup>15</sup> Hz.</p>",
+    "weightage": "SA-1 (Short answer type-1)"
+  },
+  {
+    "subject": "Physics",
+    "subject_id": "1251",
+    "chapter": "Atoms",
+    "chapter_id": 1263,
+    "question_id": 422114,
+    "question_html": "<p>In Rutherford&rsquo;s nuclear model of the atom, the nucleus (radius about 10<sup>&ndash;15</sup> m) is analogous to the sun about which the electron move in orbit (radius <span class=\"math-tex\">{tex}\\approx {/tex}</span>10<sup>&ndash;10</sup> m) like the earth orbits around the sun. If the dimensions of the solar system had the same proportions as those of the atom, would the earth be closer to or farther away from the sun than actually, it is? The radius of the earth&rsquo;s orbit is about 1.5 <span class=\"math-tex\">{tex}\\times{/tex}</span> 10<sup>11</sup> m. The radius of the sun is taken as 7 <span class=\"math-tex\">{tex}\\times{/tex}</span> 10<sup>8</sup> m.</p>",
+    "question_text": "In Rutherford&rsquo;s nuclear model of the atom, the nucleus (radius about 10 &ndash;15 m) is analogous to the sun about which the electron move in orbit (radius {tex}\\approx {/tex} 10 &ndash;10 m) like the earth orbits around the sun. If the dimensions of the solar system had the same proportions as those of the atom, would the earth be closer to or farther away from the sun than actually, it is? The radius of the earth&rsquo;s orbit is about 1.5 {tex}\\times{/tex} 10 11 m. The radius of the sun is taken as 7 {tex}\\times{/tex} 10 8 m.",
+    "options": [],
+    "correct_option_ids": [],
+    "correct_option_text": "",
+    "explanation": "The ratio of the radius of electron&rsquo;s orbit to the radius of a nucleus is (10 &ndash;10 m)/(10 &ndash;15 m) = 10 5 , that is, the radius of the electron&rsquo;s orbit is 10 5 times larger than the radius of the nucleus. If the radius of the earth&rsquo;s orbit around the sun were 10 5 times larger than the radius of the sun, the radius of the earth&rsquo;s orbit would be 10 5 {tex}\\times{/tex} 7 {tex}\\times{/tex} 10 8 m = 7 {tex}\\times{/tex} 10 13 m. This is more than 100 times greater than the actual orbital radius of the earth. Thus, the earth would be much farther away from the sun. It implies that an atom contains a much greater fraction of empty space than our solar system does.",
+    "solution": "The ratio of the radius of electron&rsquo;s orbit to the radius of a nucleus is (10 &ndash;10 m)/(10 &ndash;15 m) = 10 5 , that is, the radius of the electron&rsquo;s orbit is 10 5 times larger than the radius of the nucleus. If the radius of the earth&rsquo;s orbit around the sun were 10 5 times larger than the radius of the sun, the radius of the earth&rsquo;s orbit would be 10 5 {tex}\\times{/tex} 7 {tex}\\times{/tex} 10 8 m = 7 {tex}\\times{/tex} 10 13 m. This is more than 100 times greater than the actual orbital radius of the earth. Thus, the earth would be much farther away from the sun. It implies that an atom contains a much greater fraction of empty space than our solar system does.",
+    "solution_html": "<p>The ratio of the radius of electron&rsquo;s orbit to the radius of a nucleus is (10<sup>&ndash;10</sup> m)/(10<sup>&ndash;15 </sup>m) = 10<sup>5</sup>, that is, the radius of the electron&rsquo;s orbit is 10<sup>5</sup> times larger than the radius of the nucleus. If the radius of the earth&rsquo;s orbit around the sun were 10<sup>5</sup> times larger than the radius of the sun, the radius of the earth&rsquo;s orbit would be 10<sup>5</sup> <span class=\"math-tex\">{tex}\\times{/tex}</span> 7 <span class=\"math-tex\">{tex}\\times{/tex}</span> 10<sup>8</sup> m = 7 <span class=\"math-tex\">{tex}\\times{/tex}</span> 10<sup>13</sup> m. This is more than 100 times greater than the actual orbital radius of the earth. Thus, the earth would be much farther away from the sun. It implies that an atom contains a much greater fraction of empty space than our solar system does.</p>",
+    "weightage": "SA-1 (Short answer type-1)"
+  },
+  {
+    "subject": "Physics",
+    "subject_id": "1251",
+    "chapter": "Atoms",
+    "chapter_id": 1263,
+    "question_id": 1715498,
+    "question_html": "<p>Define the &#39;distance of closest approach&#39;. An <span class=\"math-tex\">{tex}\\alpha{/tex}</span>-particle of kinetic energy K is bombarded on a thin gold foil. Derive an expression for the &#39;distance of closest approach&#39;.</p>",
+    "question_text": "Define the &#39;distance of closest approach&#39;. An {tex}\\alpha{/tex} -particle of kinetic energy K is bombarded on a thin gold foil. Derive an expression for the &#39;distance of closest approach&#39;.",
+    "options": [],
+    "correct_option_ids": [],
+    "correct_option_text": "",
+    "explanation": "The distance between the {tex}\\alpha{/tex} particle and the target nucleus when whole kinetic energy of an {tex}\\alpha{/tex} particle gets converted into potential energy. At distance of closest approach {tex} {K}={U} {/tex} {tex} {~K}=\\frac{(2 e)(Z e)}{4 \\pi \\varepsilon_0 d} {/tex} {tex} \\therefore d=\\frac{2 Z e^2}{4 \\pi \\varepsilon_0 {~K}} {/tex}",
+    "solution": "The distance between the {tex}\\alpha{/tex} particle and the target nucleus when whole kinetic energy of an {tex}\\alpha{/tex} particle gets converted into potential energy. At distance of closest approach {tex} {K}={U} {/tex} {tex} {~K}=\\frac{(2 e)(Z e)}{4 \\pi \\varepsilon_0 d} {/tex} {tex} \\therefore d=\\frac{2 Z e^2}{4 \\pi \\varepsilon_0 {~K}} {/tex}",
+    "solution_html": "<p>The distance between the <span class=\"math-tex\">{tex}\\alpha{/tex}</span> particle and the target nucleus when whole kinetic energy of an <span class=\"math-tex\">{tex}\\alpha{/tex}</span> particle gets converted into potential energy.<br />\r\nAt distance of closest approach<br />\r\n<span class=\"math-tex\">{tex} {K}={U} {/tex}</span><br />\r\n<span class=\"math-tex\">{tex} {~K}=\\frac{(2 e)(Z e)}{4 \\pi \\varepsilon_0 d} {/tex}</span><br />\r\n<span class=\"math-tex\">{tex} \\therefore d=\\frac{2 Z e^2}{4 \\pi \\varepsilon_0 {~K}} {/tex}</span></p>",
+    "weightage": "SA-1 (Short answer type-1)"
+  },
+  {
+    "subject": "Physics",
+    "subject_id": "1251",
+    "chapter": "Atoms",
+    "chapter_id": 1263,
+    "question_id": 1715139,
+    "question_html": "<p>Write the mathematical forms of three postulates of Bohr&#39;s theory of the hydrogen atom. Using them prove that, for an electron revolving in the <span class=\"math-tex\">{tex}{n}^{\\text {th }}{/tex}</span> orbit,</p>\r\n\r\n<ol start=\"1\" style=\"list-style-type:lower-alpha\">\r\n\t<li>the radius of the orbit is proportional to <span class=\"math-tex\">{tex}{n}^{2}{/tex}</span>, and</li>\r\n\t<li>the total energy of the atom is proportional to <span class=\"math-tex\">{tex}\\left(\\frac{1}{{n}^{2}}\\right){/tex}</span>.</li>\r\n</ol>",
+    "question_text": "Write the mathematical forms of three postulates of Bohr&#39;s theory of the hydrogen atom. Using them prove that, for an electron revolving in the {tex}{n}^{\\text {th }}{/tex} orbit, the radius of the orbit is proportional to {tex}{n}^{2}{/tex} , and the total energy of the atom is proportional to {tex}\\left(\\frac{1}{{n}^{2}}\\right){/tex} .",
+    "options": [],
+    "correct_option_ids": [],
+    "correct_option_text": "",
+    "explanation": "Mathematical form of postulates of Bohr&#39;s Theory {tex} \\text { } E_n=\\frac{-13.6}{n^2} {eV} {/tex} {tex}{L}={mvr}=\\frac{{nh}}{2 \\pi}{/tex} {tex}{h} v={E}_{{f}}-{E}_{{i}}{/tex} (a) {tex}\\frac{{mv}^2}{{r}}=\\frac{{Ze}^2}{{r}^2}{/tex} ...(1) {tex} {mvr}=\\frac{{nh}}{2 \\pi} {/tex} ...(2) Solving (1) & (2) {tex} {r}={n}^2\\left(\\frac{{~h}}{2 \\pi}\\right)^2 \\frac{4 \\pi \\varepsilon_0}{{me}^2} {/tex} ...(3) Since energy in the orbit {tex}E_n=\\frac{-e^2}{8 \\pi \\varepsilon_0 r}{/tex} Using eq (3) {tex}E_n=\\frac{-m e^4}{8 n^2 \\varepsilon_0{ }^2 h^2}{/tex} or {tex}{E}_{{n}} \\propto \\frac{1}{{n}^2}{/tex}",
+    "solution": "Mathematical form of postulates of Bohr&#39;s Theory {tex} \\text { } E_n=\\frac{-13.6}{n^2} {eV} {/tex} {tex}{L}={mvr}=\\frac{{nh}}{2 \\pi}{/tex} {tex}{h} v={E}_{{f}}-{E}_{{i}}{/tex} (a) {tex}\\frac{{mv}^2}{{r}}=\\frac{{Ze}^2}{{r}^2}{/tex} ...(1) {tex} {mvr}=\\frac{{nh}}{2 \\pi} {/tex} ...(2) Solving (1) & (2) {tex} {r}={n}^2\\left(\\frac{{~h}}{2 \\pi}\\right)^2 \\frac{4 \\pi \\varepsilon_0}{{me}^2} {/tex} ...(3) Since energy in the orbit {tex}E_n=\\frac{-e^2}{8 \\pi \\varepsilon_0 r}{/tex} Using eq (3) {tex}E_n=\\frac{-m e^4}{8 n^2 \\varepsilon_0{ }^2 h^2}{/tex} or {tex}{E}_{{n}} \\propto \\frac{1}{{n}^2}{/tex}",
+    "solution_html": "<p>Mathematical form of postulates of Bohr&#39;s Theory</p>\r\n\r\n<ol start=\"1\" style=\"list-style-type:lower-roman\">\r\n\t<li><span class=\"math-tex\">{tex} \\text { } E_n=\\frac{-13.6}{n^2} {eV} {/tex}</span></li>\r\n\t<li><span class=\"math-tex\">{tex}{L}={mvr}=\\frac{{nh}}{2 \\pi}{/tex}</span></li>\r\n\t<li><span class=\"math-tex\">{tex}{h} v={E}_{{f}}-{E}_{{i}}{/tex}</span></li>\r\n</ol>\r\n\r\n<p>(a)&nbsp;<span class=\"math-tex\">{tex}\\frac{{mv}^2}{{r}}=\\frac{{Ze}^2}{{r}^2}{/tex}</span>&nbsp;...(1)<br />\r\n<span class=\"math-tex\">{tex} {mvr}=\\frac{{nh}}{2 \\pi} {/tex}</span>&nbsp;...(2)<br />\r\nSolving (1) &amp; (2)<br />\r\n<span class=\"math-tex\">{tex} {r}={n}^2\\left(\\frac{{~h}}{2 \\pi}\\right)^2 \\frac{4 \\pi \\varepsilon_0}{{me}^2} {/tex}</span>&nbsp;...(3)<br />\r\nSince energy in the orbit <span class=\"math-tex\">{tex}E_n=\\frac{-e^2}{8 \\pi \\varepsilon_0 r}{/tex}</span><br />\r\nUsing eq (3) <span class=\"math-tex\">{tex}E_n=\\frac{-m e^4}{8 n^2 \\varepsilon_0{ }^2 h^2}{/tex}</span><br />\r\nor <span class=\"math-tex\">{tex}{E}_{{n}} \\propto \\frac{1}{{n}^2}{/tex}</span></p>",
+    "weightage": "SA-2 (Short answer type-2)"
+  },
+  {
+    "subject": "Physics",
+    "subject_id": "1251",
+    "chapter": "Atoms",
+    "chapter_id": 1263,
+    "question_id": 929468,
+    "question_html": "<ol start=\"1\" style=\"list-style-type: lower-alpha;\">\r\n\t<li>State Bohr&#39;s quantization condition for defining stationary orbits.</li>\r\n\t<li>Use the energy level diagram shown below to obtain the relation between three wavelengths <span class=\"math-tex\">{tex}\\lambda_1, \\lambda_2{/tex}</span> and <span class=\"math-tex\">{tex}\\lambda_3{/tex}</span> emitted due to the transition of electron from the energy states C and B.<br />\r\n\t<img src=\"https://media-mycbseguide.s3.amazonaws.com/images/question_images/1679463534-zsts6w.jpg\" style=\"width: 150px; height: 94px;\" /></li>\r\n</ol>",
+    "question_text": "State Bohr&#39;s quantization condition for defining stationary orbits. Use the energy level diagram shown below to obtain the relation between three wavelengths {tex}\\lambda_1, \\lambda_2{/tex} and {tex}\\lambda_3{/tex} emitted due to the transition of electron from the energy states C and B.",
+    "options": [],
+    "correct_option_ids": [],
+    "correct_option_text": "",
+    "explanation": "According to Bohr&#39;s quantization condition for defining stationary orbits is only those orbits around the nucleus are allowed and stable for electron to revolve for which the angular momentum of the electron is an integral multiple of {tex}\\frac{h}{2 \\pi}{/tex} where h is Planck&#39;s constant {tex}\\text { mvr }=\\frac{n h}{2 \\pi}{/tex} {tex}\\frac{1}{\\lambda_1}=R\\left(\\frac{1}{n_B^2}-\\frac{1}{n_C^2}\\right){/tex} ...(i) {tex}\\frac{1}{\\lambda_2}=R\\left(\\frac{1}{n_A^2}-\\frac{1}{n_B^2}\\right){/tex} ...(ii) {tex}\\frac{1}{\\lambda_3}=R\\left(\\frac{1}{n_A^2}-\\frac{1}{n_C^2}\\right){/tex} ...(iii) From (i) {tex}\\frac{R}{n_B^2}=\\frac{1}{\\lambda_1}+\\frac{R}{n_C^2}{/tex} Substituting in (ii) {tex}\\frac{1}{\\lambda_2}=\\frac{R}{n_A^2}-\\frac{1}{\\lambda_1}-\\frac{R}{n_C^2}{/tex} {tex}\\frac{1}{\\lambda_2}+\\frac{1}{\\lambda_1}=R\\left(\\frac{1}{n_{A^2}}-\\frac{1}{n_{C^2}}\\right){/tex} {tex}\\frac{1}{\\lambda_2}+\\frac{1}{\\lambda_1}=\\frac{1}{\\lambda_3}{/tex}",
+    "solution": "According to Bohr&#39;s quantization condition for defining stationary orbits is only those orbits around the nucleus are allowed and stable for electron to revolve for which the angular momentum of the electron is an integral multiple of {tex}\\frac{h}{2 \\pi}{/tex} where h is Planck&#39;s constant {tex}\\text { mvr }=\\frac{n h}{2 \\pi}{/tex} {tex}\\frac{1}{\\lambda_1}=R\\left(\\frac{1}{n_B^2}-\\frac{1}{n_C^2}\\right){/tex} ...(i) {tex}\\frac{1}{\\lambda_2}=R\\left(\\frac{1}{n_A^2}-\\frac{1}{n_B^2}\\right){/tex} ...(ii) {tex}\\frac{1}{\\lambda_3}=R\\left(\\frac{1}{n_A^2}-\\frac{1}{n_C^2}\\right){/tex} ...(iii) From (i) {tex}\\frac{R}{n_B^2}=\\frac{1}{\\lambda_1}+\\frac{R}{n_C^2}{/tex} Substituting in (ii) {tex}\\frac{1}{\\lambda_2}=\\frac{R}{n_A^2}-\\frac{1}{\\lambda_1}-\\frac{R}{n_C^2}{/tex} {tex}\\frac{1}{\\lambda_2}+\\frac{1}{\\lambda_1}=R\\left(\\frac{1}{n_{A^2}}-\\frac{1}{n_{C^2}}\\right){/tex} {tex}\\frac{1}{\\lambda_2}+\\frac{1}{\\lambda_1}=\\frac{1}{\\lambda_3}{/tex}",
+    "solution_html": "<p>According to Bohr&#39;s quantization condition for defining stationary orbits is only those orbits around the nucleus are allowed and stable for electron to revolve for which the angular momentum of the electron is an integral multiple of&nbsp;<span class=\"math-tex\">{tex}\\frac{h}{2 \\pi}{/tex}</span> where h is Planck&#39;s constant<br />\r\n<span class=\"math-tex\">{tex}\\text { mvr }=\\frac{n h}{2 \\pi}{/tex}</span><br />\r\n<span class=\"math-tex\">{tex}\\frac{1}{\\lambda_1}=R\\left(\\frac{1}{n_B^2}-\\frac{1}{n_C^2}\\right){/tex}</span> ...(i)<br />\r\n<span class=\"math-tex\">{tex}\\frac{1}{\\lambda_2}=R\\left(\\frac{1}{n_A^2}-\\frac{1}{n_B^2}\\right){/tex}</span> ...(ii)<br />\r\n<span class=\"math-tex\">{tex}\\frac{1}{\\lambda_3}=R\\left(\\frac{1}{n_A^2}-\\frac{1}{n_C^2}\\right){/tex}</span> ...(iii)<br />\r\nFrom (i)<br />\r\n<span class=\"math-tex\">{tex}\\frac{R}{n_B^2}=\\frac{1}{\\lambda_1}+\\frac{R}{n_C^2}{/tex}</span><br />\r\nSubstituting in (ii)<br />\r\n<span class=\"math-tex\">{tex}\\frac{1}{\\lambda_2}=\\frac{R}{n_A^2}-\\frac{1}{\\lambda_1}-\\frac{R}{n_C^2}{/tex}</span><br />\r\n<span class=\"math-tex\">{tex}\\frac{1}{\\lambda_2}+\\frac{1}{\\lambda_1}=R\\left(\\frac{1}{n_{A^2}}-\\frac{1}{n_{C^2}}\\right){/tex}</span><br />\r\n<span class=\"math-tex\">{tex}\\frac{1}{\\lambda_2}+\\frac{1}{\\lambda_1}=\\frac{1}{\\lambda_3}{/tex}</span></p>",
+    "weightage": "SA-2 (Short answer type-2)"
+  },
+  {
+    "subject": "Physics",
+    "subject_id": "1251",
+    "chapter": "Atoms",
+    "chapter_id": 1263,
+    "question_id": 67383,
+    "question_html": "<ol start=\"1\" style=\"list-style-type:lower-alpha\">\n\t<li>Using the Bohr&#39;s model, calculate the speed of the electron in a hydrogen atom in the n = 1, 2 and 3 levels.</li>\n\t<li>Calculate the orbital period in each of these levels.</li>\n</ol>",
+    "question_text": "Using the Bohr&#39;s model, calculate the speed of the electron in a hydrogen atom in the n = 1, 2 and 3 levels. Calculate the orbital period in each of these levels.",
+    "options": [],
+    "correct_option_ids": [],
+    "correct_option_text": "",
+    "explanation": "Now, {tex}v = \\frac{c}{n}\\alpha {/tex} , where {tex}\\alpha = \\frac{{2\\pi K{e^2}}}{{ch}}{/tex} = 0.0073 {tex}{v_1} = \\frac{{3 \\times {{10}^8}}}{1} \\times 0.0073 = 2.19 \\times {10^6}m/s{/tex} {tex}{v_2} = \\frac{{3 \\times {{10}^8}}}{3} \\times 0.0073 = 1.095 \\times {10^6}m/s{/tex} {tex}{v_3} = \\frac{{3 \\times {{10}^8}}}{3} \\times 0.0073 = 7.3 \\times {10^5}m/s{/tex} Orbital period, {tex}T = \\frac{{2\\pi r}}{\\upsilon }{/tex} As {tex}{r_1} = 0.53 \\times {10^{ - 10}}m{/tex} {tex}{T_1} = \\frac{{2\\pi \\times 0.53 \\times {{10}^{ - 10}}}}{{2.19 \\times {{10}^6}}} = 1.52 \\times {10^{ - 16}}s{/tex} As r 2 = 4 r 1 and {tex}{\\upsilon _2} = \\frac{1}{2}{\\upsilon _1}{/tex} {tex}{T_2} = 8\\;{T_1} = 8 \\times 1.52 \\times {10^{ - 16}}s = 1.216 \\times {10^{ - 15}}s{/tex} As r 3 = 9r 1 and {tex}{\\upsilon _3} = \\frac{1}{3}{\\upsilon _1}{/tex} {tex}\\therefore {T_3} = 27{/tex} {tex}{T_1} = 27 \\times 1.52 \\times {10^{ - 16}}s = 4.1 \\times {10^{ - 15}}s{/tex}",
+    "solution": "Now, {tex}v = \\frac{c}{n}\\alpha {/tex} , where {tex}\\alpha = \\frac{{2\\pi K{e^2}}}{{ch}}{/tex} = 0.0073 {tex}{v_1} = \\frac{{3 \\times {{10}^8}}}{1} \\times 0.0073 = 2.19 \\times {10^6}m/s{/tex} {tex}{v_2} = \\frac{{3 \\times {{10}^8}}}{3} \\times 0.0073 = 1.095 \\times {10^6}m/s{/tex} {tex}{v_3} = \\frac{{3 \\times {{10}^8}}}{3} \\times 0.0073 = 7.3 \\times {10^5}m/s{/tex} Orbital period, {tex}T = \\frac{{2\\pi r}}{\\upsilon }{/tex} As {tex}{r_1} = 0.53 \\times {10^{ - 10}}m{/tex} {tex}{T_1} = \\frac{{2\\pi \\times 0.53 \\times {{10}^{ - 10}}}}{{2.19 \\times {{10}^6}}} = 1.52 \\times {10^{ - 16}}s{/tex} As r 2 = 4 r 1 and {tex}{\\upsilon _2} = \\frac{1}{2}{\\upsilon _1}{/tex} {tex}{T_2} = 8\\;{T_1} = 8 \\times 1.52 \\times {10^{ - 16}}s = 1.216 \\times {10^{ - 15}}s{/tex} As r 3 = 9r 1 and {tex}{\\upsilon _3} = \\frac{1}{3}{\\upsilon _1}{/tex} {tex}\\therefore {T_3} = 27{/tex} {tex}{T_1} = 27 \\times 1.52 \\times {10^{ - 16}}s = 4.1 \\times {10^{ - 15}}s{/tex}",
+    "solution_html": "<ol start=\"1\" style=\"list-style-type:lower-alpha\">\n\t<li>Now,&nbsp;<span class=\"math-tex\">{tex}v = \\frac{c}{n}\\alpha {/tex}</span>,<br />\n\twhere <span class=\"math-tex\">{tex}\\alpha = \\frac{{2\\pi K{e^2}}}{{ch}}{/tex}</span>&nbsp;= 0.0073<br />\n\t<span class=\"math-tex\">{tex}{v_1} = \\frac{{3 \\times {{10}^8}}}{1} \\times 0.0073 = 2.19 \\times {10^6}m/s{/tex}</span><br />\n\t<span class=\"math-tex\">{tex}{v_2} = \\frac{{3 \\times {{10}^8}}}{3} \\times 0.0073 = 1.095 \\times {10^6}m/s{/tex}</span><br />\n\t<span class=\"math-tex\">{tex}{v_3} = \\frac{{3 \\times {{10}^8}}}{3} \\times 0.0073 = 7.3 \\times {10^5}m/s{/tex}</span></li>\n\t<li>Orbital period, <span class=\"math-tex\">{tex}T = \\frac{{2\\pi r}}{\\upsilon }{/tex}</span><br />\n\tAs&nbsp;<span class=\"math-tex\">{tex}{r_1} = 0.53 \\times {10^{ - 10}}m{/tex}</span><br />\n\t<span class=\"math-tex\">{tex}{T_1} = \\frac{{2\\pi \\times 0.53 \\times {{10}^{ - 10}}}}{{2.19 \\times {{10}^6}}} = 1.52 \\times {10^{ - 16}}s{/tex}</span><br />\n\tAs r<sub>2</sub> = 4 r<sub>1</sub> and <span class=\"math-tex\">{tex}{\\upsilon _2} = \\frac{1}{2}{\\upsilon _1}{/tex}</span><br />\n\t<span class=\"math-tex\">{tex}{T_2} = 8\\;{T_1} = 8 \\times 1.52 \\times {10^{ - 16}}s = 1.216 \\times {10^{ - 15}}s{/tex}</span><br />\n\tAs r<sub>3</sub> = 9r<sub>1</sub> and <span class=\"math-tex\">{tex}{\\upsilon _3} = \\frac{1}{3}{\\upsilon _1}{/tex}</span><br />\n\t<span class=\"math-tex\">{tex}\\therefore {T_3} = 27{/tex}</span>&nbsp;<span class=\"math-tex\">{tex}{T_1} = 27 \\times 1.52 \\times {10^{ - 16}}s = 4.1 \\times {10^{ - 15}}s{/tex}</span></li>\n</ol>",
+    "weightage": "SA-2 (Short answer type-2)"
+  },
+  {
+    "subject": "Physics",
+    "subject_id": "1251",
+    "chapter": "Atoms",
+    "chapter_id": 1263,
+    "question_id": 929473,
+    "question_html": "<p>A narrow beam of protons, each having 4.1 MeV energy is approaching a sheet of lead (Z = 82). Calculate:</p>\r\n\r\n<ol start=\"1\" style=\"list-style-type: lower-alpha;\">\r\n\t<li>the speed of a proton in the beam, and</li>\r\n\t<li>the distance of its closest approach</li>\r\n</ol>",
+    "question_text": "A narrow beam of protons, each having 4.1 MeV energy is approaching a sheet of lead (Z = 82). Calculate: the speed of a proton in the beam, and the distance of its closest approach",
+    "options": [],
+    "correct_option_ids": [],
+    "correct_option_text": "",
+    "explanation": "KE of proton = 4.1 Mev = 4.1 {tex}\\times{/tex} 10 6 {tex}\\times{/tex} 1.6 {tex}\\times{/tex} 10 -19 J = 6.56 {tex}\\times{/tex} 10 -13 J Mass of proton = 1.67 {tex}\\times{/tex} 10 -21 kg {tex}K E=\\frac{1}{2} m v^2{/tex} {tex}v=\\sqrt{\\frac{2 K E}{m}}=\\sqrt{\\frac{2 \\times 6.56 \\times 10^{-13}}{1.67 \\times 10^{-27}}}{/tex} = 2.8 {tex}\\times{/tex} 10 7 J For the distance of closest approach KE of proton = PE of system 6.56 {tex}\\times{/tex} 10 -13 = {tex}\\frac{k e \\times 82 e}{\\gamma}{/tex} {tex}r=\\frac{9 \\times 10^9 \\times 82 \\times\\left(1.6 \\times 10^{-19}\\right)^2}{6.56 \\times 10^{-13}}{/tex} = 288 {tex}\\times{/tex} 10 -16 = 2.88 {tex}\\times{/tex} 10 -14 m",
+    "solution": "KE of proton = 4.1 Mev = 4.1 {tex}\\times{/tex} 10 6 {tex}\\times{/tex} 1.6 {tex}\\times{/tex} 10 -19 J = 6.56 {tex}\\times{/tex} 10 -13 J Mass of proton = 1.67 {tex}\\times{/tex} 10 -21 kg {tex}K E=\\frac{1}{2} m v^2{/tex} {tex}v=\\sqrt{\\frac{2 K E}{m}}=\\sqrt{\\frac{2 \\times 6.56 \\times 10^{-13}}{1.67 \\times 10^{-27}}}{/tex} = 2.8 {tex}\\times{/tex} 10 7 J For the distance of closest approach KE of proton = PE of system 6.56 {tex}\\times{/tex} 10 -13 = {tex}\\frac{k e \\times 82 e}{\\gamma}{/tex} {tex}r=\\frac{9 \\times 10^9 \\times 82 \\times\\left(1.6 \\times 10^{-19}\\right)^2}{6.56 \\times 10^{-13}}{/tex} = 288 {tex}\\times{/tex} 10 -16 = 2.88 {tex}\\times{/tex} 10 -14 m",
+    "solution_html": "<ol start=\"1\" style=\"list-style-type: lower-alpha;\">\r\n\t<li>KE of proton = 4.1 Mev = 4.1 <span class=\"math-tex\">{tex}\\times{/tex}</span> 10<sup>6</sup> <span class=\"math-tex\">{tex}\\times{/tex}</span> 1.6 <span class=\"math-tex\">{tex}\\times{/tex}</span> 10<sup>-19</sup> J<br />\r\n\t= 6.56 <span class=\"math-tex\">{tex}\\times{/tex}</span> 10<sup>-13</sup> J<br />\r\n\tMass of proton = 1.67 <span class=\"math-tex\">{tex}\\times{/tex}</span> 10<sup>-21</sup> kg<br />\r\n\t<span class=\"math-tex\">{tex}K E=\\frac{1}{2} m v^2{/tex}</span><br />\r\n\t<span class=\"math-tex\">{tex}v=\\sqrt{\\frac{2 K E}{m}}=\\sqrt{\\frac{2 \\times 6.56 \\times 10^{-13}}{1.67 \\times 10^{-27}}}{/tex}</span><br />\r\n\t= 2.8 <span class=\"math-tex\">{tex}\\times{/tex}</span> 10<sup>7</sup> J</li>\r\n\t<li>For the distance of closest approach<br />\r\n\tKE of proton = PE of system<br />\r\n\t6.56 <span class=\"math-tex\">{tex}\\times{/tex}</span> 10<sup>-13</sup> = <span class=\"math-tex\">{tex}\\frac{k e \\times 82 e}{\\gamma}{/tex}</span><br />\r\n\t<span class=\"math-tex\">{tex}r=\\frac{9 \\times 10^9 \\times 82 \\times\\left(1.6 \\times 10^{-19}\\right)^2}{6.56 \\times 10^{-13}}{/tex}</span><br />\r\n\t= 288 <span class=\"math-tex\">{tex}\\times{/tex}</span> 10<sup>-16</sup><br />\r\n\t= 2.88 <span class=\"math-tex\">{tex}\\times{/tex}</span> 10<sup>-14</sup> m</li>\r\n</ol>",
+    "weightage": "SA-2 (Short answer type-2)"
+  },
+  {
+    "subject": "Physics",
+    "subject_id": "1251",
+    "chapter": "Atoms",
+    "chapter_id": 1263,
+    "question_id": 1715476,
+    "question_html": "<p>In Bohr model of hydrogen atom, an electron is revolving in second orbit. Find the value of:</p>\r\n\r\n<ol start=\"1\" style=\"list-style-type:lower-roman\">\r\n\t<li>angular momentum of electron,</li>\r\n\t<li>radius of the orbit, and</li>\r\n\t<li>kinetic energy of electron.</li>\r\n</ol>\r\n\r\n<p>Take radius of first orbit of hydrogen atom as <span class=\"math-tex\">{tex}0.5 \\overset oA{/tex}</span>.</p>",
+    "question_text": "In Bohr model of hydrogen atom, an electron is revolving in second orbit. Find the value of: angular momentum of electron, radius of the orbit, and kinetic energy of electron. Take radius of first orbit of hydrogen atom as {tex}0.5 \\overset oA{/tex} .",
+    "options": [],
+    "correct_option_ids": [],
+    "correct_option_text": "",
+    "explanation": "{tex}L=\\frac{n h}{2 \\pi}{/tex} for {tex}n=2{/tex} {tex}L=\\frac{2 \\times 6.63 \\times 10^{-34}}{2 \\times 3.14}{/tex} {tex}=2.11 \\times 10^{-34} {kg} \\ {m}^{2} {s}^{-1}{/tex} {tex}r_{n}=n^{2} r_{0}{/tex} {tex}r_{2}=4(0.5 \\overset oA){/tex} {tex}r_{2}=2 \\overset 0A{/tex} Total energy of electron {tex}=-\\frac{13.6}{n^{2}} {eV}{/tex} {tex}E=-3.4 {eV} (n=2){/tex} {tex}K=-E{/tex} {tex}K=3.4 {eV}{/tex}",
+    "solution": "{tex}L=\\frac{n h}{2 \\pi}{/tex} for {tex}n=2{/tex} {tex}L=\\frac{2 \\times 6.63 \\times 10^{-34}}{2 \\times 3.14}{/tex} {tex}=2.11 \\times 10^{-34} {kg} \\ {m}^{2} {s}^{-1}{/tex} {tex}r_{n}=n^{2} r_{0}{/tex} {tex}r_{2}=4(0.5 \\overset oA){/tex} {tex}r_{2}=2 \\overset 0A{/tex} Total energy of electron {tex}=-\\frac{13.6}{n^{2}} {eV}{/tex} {tex}E=-3.4 {eV} (n=2){/tex} {tex}K=-E{/tex} {tex}K=3.4 {eV}{/tex}",
+    "solution_html": "<ol start=\"1\" style=\"list-style-type:lower-roman\">\r\n\t<li><span class=\"math-tex\">{tex}L=\\frac{n h}{2 \\pi}{/tex}</span><br />\r\n\tfor <span class=\"math-tex\">{tex}n=2{/tex}</span><br />\r\n\t<span class=\"math-tex\">{tex}L=\\frac{2 \\times 6.63 \\times 10^{-34}}{2 \\times 3.14}{/tex}</span><br />\r\n\t<span class=\"math-tex\">{tex}=2.11 \\times 10^{-34} {kg} \\ {m}^{2} {s}^{-1}{/tex}</span></li>\r\n\t<li><span class=\"math-tex\">{tex}r_{n}=n^{2} r_{0}{/tex}</span><br />\r\n\t<span class=\"math-tex\">{tex}r_{2}=4(0.5 \\overset oA){/tex}</span><br />\r\n\t<span class=\"math-tex\">{tex}r_{2}=2 \\overset 0A{/tex}</span></li>\r\n\t<li>Total energy of electron <span class=\"math-tex\">{tex}=-\\frac{13.6}{n^{2}} {eV}{/tex}</span><br />\r\n\t<span class=\"math-tex\">{tex}E=-3.4 {eV} (n=2){/tex}</span><br />\r\n\t<span class=\"math-tex\">{tex}K=-E{/tex}</span><br />\r\n\t<span class=\"math-tex\">{tex}K=3.4 {eV}{/tex}</span></li>\r\n</ol>",
+    "weightage": "SA-2 (Short answer type-2)"
+  },
+  {
+    "subject": "Physics",
+    "subject_id": "1251",
+    "chapter": "Atoms",
+    "chapter_id": 1263,
+    "question_id": 929463,
+    "question_html": "<ol start=\"1\" style=\"list-style-type: lower-alpha;\">\r\n\t<li>Sketch the energy level diagram for hydrogen atom.</li>\r\n\t<li>Find the ratio of the longest and the shortest wavelength in Lyman series in hydrogen atom.</li>\r\n</ol>",
+    "question_text": "Sketch the energy level diagram for hydrogen atom. Find the ratio of the longest and the shortest wavelength in Lyman series in hydrogen atom.",
+    "options": [],
+    "correct_option_ids": [],
+    "correct_option_text": "",
+    "explanation": "{tex}E=-\\frac{13 \\cdot 6}{n^2}{/tex} {tex}\\frac{1}{\\lambda}=R\\left(\\frac{1}{n_1{ }^2}-\\frac{1}{n_2{ }^2}\\right){/tex} {tex}\\frac{1}{\\lambda_{\\min }}=R\\left(\\frac{1}{1^2}-\\frac{1}{\\infty^2}\\right)=R{/tex} {tex}\\frac{1}{\\lambda_{\\text {max }}}=R\\left(\\frac{1}{1^2}-\\frac{1}{2^2}\\right)=\\frac{3 R}{4} {/tex} {tex}\\frac{\\lambda_{\\max }}{\\lambda_{\\min }}=\\frac{4}{3 R} \\times R=\\frac4 3{/tex}",
+    "solution": "{tex}E=-\\frac{13 \\cdot 6}{n^2}{/tex} {tex}\\frac{1}{\\lambda}=R\\left(\\frac{1}{n_1{ }^2}-\\frac{1}{n_2{ }^2}\\right){/tex} {tex}\\frac{1}{\\lambda_{\\min }}=R\\left(\\frac{1}{1^2}-\\frac{1}{\\infty^2}\\right)=R{/tex} {tex}\\frac{1}{\\lambda_{\\text {max }}}=R\\left(\\frac{1}{1^2}-\\frac{1}{2^2}\\right)=\\frac{3 R}{4} {/tex} {tex}\\frac{\\lambda_{\\max }}{\\lambda_{\\min }}=\\frac{4}{3 R} \\times R=\\frac4 3{/tex}",
+    "solution_html": "<p><img src=\"https://media-mycbseguide.s3.amazonaws.com/images/question_images/1683874433-khp3wr.jpg\" style=\"width: 275px; height: 166px;\" /><br />\r\n<span class=\"math-tex\">{tex}E=-\\frac{13 \\cdot 6}{n^2}{/tex}</span><br />\r\n<span class=\"math-tex\">{tex}\\frac{1}{\\lambda}=R\\left(\\frac{1}{n_1{ }^2}-\\frac{1}{n_2{ }^2}\\right){/tex}</span><br />\r\n<span class=\"math-tex\">{tex}\\frac{1}{\\lambda_{\\min }}=R\\left(\\frac{1}{1^2}-\\frac{1}{\\infty^2}\\right)=R{/tex}</span><br />\r\n<span class=\"math-tex\">{tex}\\frac{1}{\\lambda_{\\text {max }}}=R\\left(\\frac{1}{1^2}-\\frac{1}{2^2}\\right)=\\frac{3 R}{4} {/tex}</span><br />\r\n<span class=\"math-tex\">{tex}\\frac{\\lambda_{\\max }}{\\lambda_{\\min }}=\\frac{4}{3 R} \\times R=\\frac4 3{/tex}</span></p>",
+    "weightage": "SA-2 (Short answer type-2)"
+  },
+  {
+    "subject": "Physics",
+    "subject_id": "1251",
+    "chapter": "Atoms",
+    "chapter_id": 1263,
+    "question_id": 929467,
+    "question_html": "<p>The energy of a hydrogen atom in the first excited state is -3.4 eV. Find:</p>\r\n\r\n<ol start=\"1\" style=\"list-style-type: lower-alpha;\">\r\n\t<li>the radius of this orbit. (Take Bohr radius = 0.53 <span class=\"math-tex\">{tex}\\overset \\circ A{/tex}</span>)</li>\r\n\t<li>the angular momentum of the electron in the orbit.</li>\r\n\t<li>the kinetic and potential energy of the electron in the orbit.</li>\r\n</ol>",
+    "question_text": "The energy of a hydrogen atom in the first excited state is -3.4 eV. Find: the radius of this orbit. (Take Bohr radius = 0.53 {tex}\\overset \\circ A{/tex} ) the angular momentum of the electron in the orbit. the kinetic and potential energy of the electron in the orbit.",
+    "options": [],
+    "correct_option_ids": [],
+    "correct_option_text": "",
+    "explanation": "Energy E = -3.4eV {tex}r=\\frac{k e^2}{2 E}{/tex} as PE = 2 {tex}\\times{/tex} E {tex}r=\\frac{9 \\times 10^9 \\times\\left(1.6 \\times 10^{-19}\\right)^2}{2 \\times 3.4 \\times 1.6 \\times 10^{-19}}{/tex} r = 2.11 {tex}\\times{/tex} 10 -10 m {tex}L=\\frac{n h}{2 \\pi}{/tex} {tex}E=-\\frac{13.6}{n^2}{/tex} {tex}-3.4=\\frac{-13.6}{n^2}{/tex} n = 2 {tex}L=\\frac{2 \\times 6.63 \\times 10^{-34}}{2 \\times \\pi}{/tex} L = 2.11 {tex}\\times{/tex} 10 -34 js KE = -E = 3.4 eV PE = 2 {tex}\\times{/tex} E = -2 {tex}\\times{/tex} 3.4 = -6.8 eV",
+    "solution": "Energy E = -3.4eV {tex}r=\\frac{k e^2}{2 E}{/tex} as PE = 2 {tex}\\times{/tex} E {tex}r=\\frac{9 \\times 10^9 \\times\\left(1.6 \\times 10^{-19}\\right)^2}{2 \\times 3.4 \\times 1.6 \\times 10^{-19}}{/tex} r = 2.11 {tex}\\times{/tex} 10 -10 m {tex}L=\\frac{n h}{2 \\pi}{/tex} {tex}E=-\\frac{13.6}{n^2}{/tex} {tex}-3.4=\\frac{-13.6}{n^2}{/tex} n = 2 {tex}L=\\frac{2 \\times 6.63 \\times 10^{-34}}{2 \\times \\pi}{/tex} L = 2.11 {tex}\\times{/tex} 10 -34 js KE = -E = 3.4 eV PE = 2 {tex}\\times{/tex} E = -2 {tex}\\times{/tex} 3.4 = -6.8 eV",
+    "solution_html": "<p>Energy E = -3.4eV</p>\r\n\r\n<ol start=\"1\" style=\"list-style-type: lower-alpha;\">\r\n\t<li><span class=\"math-tex\">{tex}r=\\frac{k e^2}{2 E}{/tex}</span> as PE = 2 <span class=\"math-tex\">{tex}\\times{/tex}</span> E<br />\r\n\t<span class=\"math-tex\">{tex}r=\\frac{9 \\times 10^9 \\times\\left(1.6 \\times 10^{-19}\\right)^2}{2 \\times 3.4 \\times 1.6 \\times 10^{-19}}{/tex}</span><br />\r\n\tr = 2.11 <span class=\"math-tex\">{tex}\\times{/tex}</span> 10<sup>-10</sup> m</li>\r\n\t<li><span class=\"math-tex\">{tex}L=\\frac{n h}{2 \\pi}{/tex}</span><br />\r\n\t<span class=\"math-tex\">{tex}E=-\\frac{13.6}{n^2}{/tex}</span><br />\r\n\t<span class=\"math-tex\">{tex}-3.4=\\frac{-13.6}{n^2}{/tex}</span><br />\r\n\tn = 2<br />\r\n\t<span class=\"math-tex\">{tex}L=\\frac{2 \\times 6.63 \\times 10^{-34}}{2 \\times \\pi}{/tex}</span><br />\r\n\tL = 2.11 <span class=\"math-tex\">{tex}\\times{/tex}</span> 10<sup>-34</sup> js</li>\r\n\t<li>KE = -E = 3.4 eV<br />\r\n\tPE = 2 <span class=\"math-tex\">{tex}\\times{/tex}</span> E = -2 <span class=\"math-tex\">{tex}\\times{/tex}</span> 3.4<br />\r\n\t= -6.8 eV</li>\r\n</ol>",
+    "weightage": "SA-2 (Short answer type-2)"
+  },
+  {
+    "subject": "Physics",
+    "subject_id": "1251",
+    "chapter": "Atoms",
+    "chapter_id": 1263,
+    "question_id": 1172901,
+    "question_html": "<p>Calculate the de-Broglie wavelength associated with the electron revolving in the first excited state of hydrogen atom. The ground state energy of the hydrogen atom is -13.6 eV.</p>",
+    "question_text": "Calculate the de-Broglie wavelength associated with the electron revolving in the first excited state of hydrogen atom. The ground state energy of the hydrogen atom is -13.6 eV.",
+    "options": [],
+    "correct_option_ids": [],
+    "correct_option_text": "",
+    "explanation": "Energy of the electron in the first excited state E 1 = {tex}-\\frac{13.6}{2^2} e V{/tex} = -3.4 eV = -3.4 {tex}\\times{/tex} 1.6 {tex}\\times{/tex} 10 -19 J = -5.44 {tex}\\times{/tex} 10 -19 J Associated kinetic energy = Negative of total energy K = 5.44 {tex}\\times{/tex} 10 -19 J de-Broglie wavelength, {tex}\\lambda{/tex} = {tex}\\frac {h} {p}{/tex} {tex}\\lambda{/tex} = {tex}\\frac{h}{\\sqrt{2 \\mathrm{mK}}}{/tex} {tex}\\lambda{/tex} = {tex}\\frac{6.63 \\times 10^{-34}}{\\left(2 \\times 9.1 \\times 10^{-31} \\times 5.44 \\times 10^{-19}\\right)^{\\frac {1} {2}}} \\mathrm{~m}{/tex} {tex}\\lambda{/tex} = {tex}\\frac{6.63 \\times 10^{-34}}{(99.008)^{\\frac {1}{2}} \\times 10^{-25}} \\mathrm{~m}{/tex} {tex}\\approx{/tex} 0.663 {tex}\\times{/tex} 10 -9 m = 0.663 nm = 6.63 A o Hence, the de-Broglie wavelength associated with the electron is 6.63 A o",
+    "solution": "Energy of the electron in the first excited state E 1 = {tex}-\\frac{13.6}{2^2} e V{/tex} = -3.4 eV = -3.4 {tex}\\times{/tex} 1.6 {tex}\\times{/tex} 10 -19 J = -5.44 {tex}\\times{/tex} 10 -19 J Associated kinetic energy = Negative of total energy K = 5.44 {tex}\\times{/tex} 10 -19 J de-Broglie wavelength, {tex}\\lambda{/tex} = {tex}\\frac {h} {p}{/tex} {tex}\\lambda{/tex} = {tex}\\frac{h}{\\sqrt{2 \\mathrm{mK}}}{/tex} {tex}\\lambda{/tex} = {tex}\\frac{6.63 \\times 10^{-34}}{\\left(2 \\times 9.1 \\times 10^{-31} \\times 5.44 \\times 10^{-19}\\right)^{\\frac {1} {2}}} \\mathrm{~m}{/tex} {tex}\\lambda{/tex} = {tex}\\frac{6.63 \\times 10^{-34}}{(99.008)^{\\frac {1}{2}} \\times 10^{-25}} \\mathrm{~m}{/tex} {tex}\\approx{/tex} 0.663 {tex}\\times{/tex} 10 -9 m = 0.663 nm = 6.63 A o Hence, the de-Broglie wavelength associated with the electron is 6.63 A o",
+    "solution_html": "<p>Energy of the electron in the first excited state<br />\nE<sub>1</sub> = <span class=\"math-tex\">{tex}-\\frac{13.6}{2^2} e V{/tex}</span> = -3.4 eV<br />\n= -3.4 <span class=\"math-tex\">{tex}\\times{/tex}</span> 1.6 <span class=\"math-tex\">{tex}\\times{/tex}</span> 10<sup>-19</sup> J<br />\n= -5.44 <span class=\"math-tex\">{tex}\\times{/tex}</span> 10<sup>-19</sup> J<br />\nAssociated kinetic energy = Negative of total energy<br />\nK = 5.44 <span class=\"math-tex\">{tex}\\times{/tex}</span> 10<sup>-19</sup> J<br />\nde-Broglie wavelength, <span class=\"math-tex\">{tex}\\lambda{/tex}</span> = <span class=\"math-tex\">{tex}\\frac {h} {p}{/tex}</span><br />\n<span class=\"math-tex\">{tex}\\lambda{/tex}</span> = <span class=\"math-tex\">{tex}\\frac{h}{\\sqrt{2 \\mathrm{mK}}}{/tex}</span><br />\n<span class=\"math-tex\">{tex}\\lambda{/tex}</span> = <span class=\"math-tex\">{tex}\\frac{6.63 \\times 10^{-34}}{\\left(2 \\times 9.1 \\times 10^{-31} \\times 5.44 \\times 10^{-19}\\right)^{\\frac {1} {2}}} \\mathrm{~m}{/tex}</span><br />\n<span class=\"math-tex\">{tex}\\lambda{/tex}</span> = <span class=\"math-tex\">{tex}\\frac{6.63 \\times 10^{-34}}{(99.008)^{\\frac {1}{2}} \\times 10^{-25}} \\mathrm{~m}{/tex}</span><br />\n<span class=\"math-tex\">{tex}\\approx{/tex}</span> 0.663 <span class=\"math-tex\">{tex}\\times{/tex}</span> 10<sup>-9</sup> m = 0.663 nm = 6.63 A<sup>o</sup><br />\nHence,&nbsp;the de-Broglie wavelength associated with the electron is&nbsp;6.63 A<sup>o</sup></p>",
+    "weightage": "SA-2 (Short answer type-2)"
+  },
+  {
+    "subject": "Physics",
+    "subject_id": "1251",
+    "chapter": "Atoms",
+    "chapter_id": 1263,
+    "question_id": 1172905,
+    "question_html": "<p>Calculate the de-Broglie wavelength associated with the electron in the 2<sup>nd</sup> excited state of hydrogen atom. The ground state energy of the hydrogen atom is 13.6 eV.</p>",
+    "question_text": "Calculate the de-Broglie wavelength associated with the electron in the 2 nd excited state of hydrogen atom. The ground state energy of the hydrogen atom is 13.6 eV.",
+    "options": [],
+    "correct_option_ids": [],
+    "correct_option_text": "",
+    "explanation": "Energy of the electron in the second excited state = {tex}\\frac{-13.6}{3^2} \\mathrm{eV}{/tex} = -1.51 eV Kinetic energy (K) in this state = 1.51 eV de-Broglie wavelength {tex}\\lambda=\\frac{h}{p}=\\frac{h}{\\sqrt{2 m K}}{/tex} {tex}\\lambda=\\frac{6.63 \\times 10^{-34}}{\\left(2 \\times 9.1 \\times 10^{-31} \\times 1.51 \\times 1.6 \\times 10^{-19}\\right)^{\\frac {1}{2}}} \\mathrm{~m}{/tex} = {tex}\\frac{6.63}{(43.97)^{\\frac {1}{2}}} \\times 10^{-9} \\mathrm{~m}{/tex} = 10 -9 m = 1nm Hence, the de-Broglie wavelength associated with the electron in the 2 nd excited state of hydrogen is 1nm.",
+    "solution": "Energy of the electron in the second excited state = {tex}\\frac{-13.6}{3^2} \\mathrm{eV}{/tex} = -1.51 eV Kinetic energy (K) in this state = 1.51 eV de-Broglie wavelength {tex}\\lambda=\\frac{h}{p}=\\frac{h}{\\sqrt{2 m K}}{/tex} {tex}\\lambda=\\frac{6.63 \\times 10^{-34}}{\\left(2 \\times 9.1 \\times 10^{-31} \\times 1.51 \\times 1.6 \\times 10^{-19}\\right)^{\\frac {1}{2}}} \\mathrm{~m}{/tex} = {tex}\\frac{6.63}{(43.97)^{\\frac {1}{2}}} \\times 10^{-9} \\mathrm{~m}{/tex} = 10 -9 m = 1nm Hence, the de-Broglie wavelength associated with the electron in the 2 nd excited state of hydrogen is 1nm.",
+    "solution_html": "<p>Energy of the electron in the second excited state =&nbsp;<span class=\"math-tex\">{tex}\\frac{-13.6}{3^2} \\mathrm{eV}{/tex}</span><br />\n= -1.51 eV<br />\nKinetic energy (K) in this state = 1.51 eV<br />\nde-Broglie wavelength&nbsp;<span class=\"math-tex\">{tex}\\lambda=\\frac{h}{p}=\\frac{h}{\\sqrt{2 m K}}{/tex}</span><br />\n<span class=\"math-tex\">{tex}\\lambda=\\frac{6.63 \\times 10^{-34}}{\\left(2 \\times 9.1 \\times 10^{-31} \\times 1.51 \\times 1.6 \\times 10^{-19}\\right)^{\\frac {1}{2}}} \\mathrm{~m}{/tex}</span><br />\n=&nbsp;<span class=\"math-tex\">{tex}\\frac{6.63}{(43.97)^{\\frac {1}{2}}} \\times 10^{-9} \\mathrm{~m}{/tex}</span><br />\n= 10<sup>-9</sup> m = 1nm<br />\nHence,&nbsp;the de-Broglie wavelength associated with the electron in the 2<sup>nd</sup> excited state of hydrogen is&nbsp;1nm.</p>",
+    "weightage": "SA-2 (Short answer type-2)"
+  },
+  {
+    "subject": "Physics",
+    "subject_id": "1251",
+    "chapter": "Atoms",
+    "chapter_id": 1263,
+    "question_id": 934579,
+    "question_html": "<p>An electron in a hydrogen atom makes transitions from orbits of higher energies to orbits of lower energies.</p>\r\n\r\n<ol start=\"1\" style=\"list-style-type: lower-alpha;\">\r\n\t<li>When will such transitions result in (a) Lyman (b) Balmer series?</li>\r\n\t<li>Find the ratio of the longest wavelength in Lyman series to the shortest wavelength in Balmer series.</li>\r\n</ol>",
+    "question_text": "An electron in a hydrogen atom makes transitions from orbits of higher energies to orbits of lower energies. When will such transitions result in (a) Lyman (b) Balmer series? Find the ratio of the longest wavelength in Lyman series to the shortest wavelength in Balmer series.",
+    "options": [],
+    "correct_option_ids": [],
+    "correct_option_text": "",
+    "explanation": "Transition result in Lyman series if electron will jump from a higher energy orbit to n = 1 orbit Transition result in Balmer series if electron will jump from a higher energy orbit to n = 2 orbit Longest wavelength in Lyman Series {tex}\\frac{1}{\\lambda_L}=R \\cdot\\left[\\frac{1}{n_1^2}-\\frac{1}{n_2^2}\\right]{/tex} {tex}=R\\left[\\frac{1}{1^2}-\\frac{1}{2^2}\\right]=\\frac{3 R}{4}{/tex} Shorted wavelength in Balmer Series {tex}\\frac{1}{\\lambda_S}=R\\left[\\frac{1}{n_1{ }^2}-\\frac{1}{n_2^2}\\right]{/tex} {tex}=R\\left[\\frac{1}{2^2}-\\frac{1}{\\infty}\\right]=\\frac{R}{4}{/tex} Ratio {tex}\\frac{\\lambda_2}{\\lambda_S}=\\frac{4 }{3 R} \\times \\frac{R}{4}=\\frac{1}{3}{/tex}",
+    "solution": "Transition result in Lyman series if electron will jump from a higher energy orbit to n = 1 orbit Transition result in Balmer series if electron will jump from a higher energy orbit to n = 2 orbit Longest wavelength in Lyman Series {tex}\\frac{1}{\\lambda_L}=R \\cdot\\left[\\frac{1}{n_1^2}-\\frac{1}{n_2^2}\\right]{/tex} {tex}=R\\left[\\frac{1}{1^2}-\\frac{1}{2^2}\\right]=\\frac{3 R}{4}{/tex} Shorted wavelength in Balmer Series {tex}\\frac{1}{\\lambda_S}=R\\left[\\frac{1}{n_1{ }^2}-\\frac{1}{n_2^2}\\right]{/tex} {tex}=R\\left[\\frac{1}{2^2}-\\frac{1}{\\infty}\\right]=\\frac{R}{4}{/tex} Ratio {tex}\\frac{\\lambda_2}{\\lambda_S}=\\frac{4 }{3 R} \\times \\frac{R}{4}=\\frac{1}{3}{/tex}",
+    "solution_html": "<ol start=\"1\" style=\"list-style-type: lower-alpha;\">\r\n\t<li>Transition result in Lyman series if electron will jump from a higher energy orbit to n = 1 orbit<br />\r\n\tTransition result in Balmer series if electron will jump from a higher energy orbit to n = 2 orbit<br />\r\n\t<img src=\"https://media-mycbseguide.s3.amazonaws.com/images/question_images/1684231465-f4dfh9.jpg\" /></li>\r\n\t<li>Longest wavelength in Lyman Series<br />\r\n\t<span class=\"math-tex\">{tex}\\frac{1}{\\lambda_L}=R \\cdot\\left[\\frac{1}{n_1^2}-\\frac{1}{n_2^2}\\right]{/tex}</span> <span class=\"math-tex\">{tex}=R\\left[\\frac{1}{1^2}-\\frac{1}{2^2}\\right]=\\frac{3 R}{4}{/tex}</span><br />\r\n\tShorted wavelength in Balmer Series<br />\r\n\t<span class=\"math-tex\">{tex}\\frac{1}{\\lambda_S}=R\\left[\\frac{1}{n_1{ }^2}-\\frac{1}{n_2^2}\\right]{/tex}</span> <span class=\"math-tex\">{tex}=R\\left[\\frac{1}{2^2}-\\frac{1}{\\infty}\\right]=\\frac{R}{4}{/tex}</span><br />\r\n\tRatio <span class=\"math-tex\">{tex}\\frac{\\lambda_2}{\\lambda_S}=\\frac{4 }{3 R} \\times \\frac{R}{4}=\\frac{1}{3}{/tex}</span></li>\r\n</ol>",
+    "weightage": "SA-2 (Short answer type-2)"
+  },
+  {
+    "subject": "Physics",
+    "subject_id": "1251",
+    "chapter": "Atoms",
+    "chapter_id": 1263,
+    "question_id": 929469,
+    "question_html": "<p>An electron is in the third excited state in a hydrogen atom. It undergoes transitions to the lower energy states.</p>\r\n\r\n<ol start=\"1\" style=\"list-style-type: lower-alpha;\">\r\n\t<li>What is the maximum number of spectral lines that can be emitted?</li>\r\n\t<li>Calculate the minimum wavelength of the spectral lines emitted.</li>\r\n</ol>",
+    "question_text": "An electron is in the third excited state in a hydrogen atom. It undergoes transitions to the lower energy states. What is the maximum number of spectral lines that can be emitted? Calculate the minimum wavelength of the spectral lines emitted.",
+    "options": [],
+    "correct_option_ids": [],
+    "correct_option_text": "",
+    "explanation": "as {tex}\\frac{1}{\\lambda}=R\\left(\\frac{1}{n_1^2}-\\frac{1}{n_2^2}\\right){/tex} {tex}\\frac{1}{\\lambda_{\\min }}=R\\left(\\frac{1}{1^2}-\\frac{1}{4^2}\\right)=\\frac{15 R}{16}{/tex} {tex}\\lambda_{\\min }=\\frac{16}{15 R}=\\frac{16}{15 \\times 1.09 \\times 10^7}{/tex} = 0.978 {tex}\\times{/tex} 10 -7 m = 97.8 nm",
+    "solution": "as {tex}\\frac{1}{\\lambda}=R\\left(\\frac{1}{n_1^2}-\\frac{1}{n_2^2}\\right){/tex} {tex}\\frac{1}{\\lambda_{\\min }}=R\\left(\\frac{1}{1^2}-\\frac{1}{4^2}\\right)=\\frac{15 R}{16}{/tex} {tex}\\lambda_{\\min }=\\frac{16}{15 R}=\\frac{16}{15 \\times 1.09 \\times 10^7}{/tex} = 0.978 {tex}\\times{/tex} 10 -7 m = 97.8 nm",
+    "solution_html": "<p><img src=\"https://media-mycbseguide.s3.amazonaws.com/images/question_images/1683888119-c2hx38.jpg\" /><br />\r\nas <span class=\"math-tex\">{tex}\\frac{1}{\\lambda}=R\\left(\\frac{1}{n_1^2}-\\frac{1}{n_2^2}\\right){/tex}</span><br />\r\n<span class=\"math-tex\">{tex}\\frac{1}{\\lambda_{\\min }}=R\\left(\\frac{1}{1^2}-\\frac{1}{4^2}\\right)=\\frac{15 R}{16}{/tex}</span><br />\r\n<span class=\"math-tex\">{tex}\\lambda_{\\min }=\\frac{16}{15 R}=\\frac{16}{15 \\times 1.09 \\times 10^7}{/tex}</span><br />\r\n= 0.978 <span class=\"math-tex\">{tex}\\times{/tex}</span> 10<sup>-7</sup> m<br />\r\n= 97.8 nm</p>",
+    "weightage": "SA-2 (Short answer type-2)"
+  },
+  {
+    "subject": "Physics",
+    "subject_id": "1251",
+    "chapter": "Atoms",
+    "chapter_id": 1263,
+    "question_id": 1259136,
+    "question_html": "<ol start=\"1\" style=\"list-style-type:lower-alpha\">\n\t<li>How is the stability of hydrogen atom in Bohr model explained by de-Broglie&rsquo;s hypothesis?</li>\n\t<li>A hydrogen atom initially in the ground state absorbs a photon which excites it to n = 4 level. When it gets de-excited, find the maximum number of lines which are emitted by the atom. Identify the series to which these lines belong. Which of them has the shortest wavelength?</li>\n</ol>",
+    "question_text": "How is the stability of hydrogen atom in Bohr model explained by de-Broglie&rsquo;s hypothesis? A hydrogen atom initially in the ground state absorbs a photon which excites it to n = 4 level. When it gets de-excited, find the maximum number of lines which are emitted by the atom. Identify the series to which these lines belong. Which of them has the shortest wavelength?",
+    "options": [],
+    "correct_option_ids": [],
+    "correct_option_text": "",
+    "explanation": "The quantised electron orbits and energy state are due to wave nature of the electron and only resonant standing waves can persist. Ace. De Broglie Apotheosis. {tex}2 \\pi r=n \\lambda{/tex} {tex}=\\frac{n h}{m v}{/tex} {tex}m v r=\\left(\\frac{n h}{2 \\pi}\\right){/tex} Lyman series transition from n = 4 to n = 1 will have shortest wavelength.",
+    "solution": "The quantised electron orbits and energy state are due to wave nature of the electron and only resonant standing waves can persist. Ace. De Broglie Apotheosis. {tex}2 \\pi r=n \\lambda{/tex} {tex}=\\frac{n h}{m v}{/tex} {tex}m v r=\\left(\\frac{n h}{2 \\pi}\\right){/tex} Lyman series transition from n = 4 to n = 1 will have shortest wavelength.",
+    "solution_html": "<ol start=\"1\" style=\"list-style-type:lower-alpha\">\n\t<li>The quantised electron orbits and energy state are due to wave nature of the electron and only resonant standing waves can persist. Ace. De Broglie Apotheosis.<br />\n\t<span class=\"math-tex\">{tex}2 \\pi r=n \\lambda{/tex}</span><br />\n\t<span class=\"math-tex\">{tex}=\\frac{n h}{m v}{/tex}</span><br />\n\t<span class=\"math-tex\">{tex}m v r=\\left(\\frac{n h}{2 \\pi}\\right){/tex}</span></li>\n\t<li>Lyman series<br />\n\ttransition from n = 4 to n = 1 will have shortest wavelength.</li>\n</ol>",
+    "weightage": "SA-2 (Short answer type-2)"
+  },
+  {
+    "subject": "Physics",
+    "subject_id": "1251",
+    "chapter": "Atoms",
+    "chapter_id": 1263,
+    "question_id": 185158,
+    "question_html": "<p>State Bohr&#39;s quantization condition of angular momentum. Calculate the shortest wavelength of the Bracket series and state to which part of the electromagnetic spectrum does it belong.</p>",
+    "question_text": "State Bohr&#39;s quantization condition of angular momentum. Calculate the shortest wavelength of the Bracket series and state to which part of the electromagnetic spectrum does it belong.",
+    "options": [],
+    "correct_option_ids": [],
+    "correct_option_text": "",
+    "explanation": "Bohr&rsquo;s quantization condition of angular momentum: According to Bohr, the electron can revolve in certain discrete orbits called stationary orbits. The total angular momentum (L) of the revolving electron is an integral multiple of {tex}\\frac{h}{2 \\pi}{/tex} . Thus, angular momentum, L = mvr = {tex}\\frac{nh}{2 \\pi}{/tex} where n = 1, 2, 3.... Brackett series is obtained when an electron jumps to fourth orbit (n 1 = 4) from any outer orbit (n 2 = 5, 6, 7.....) of the hydrogen atom. The wavelength of a spectral line is given as {tex}\\frac{1}{\\lambda}{/tex} = RZ {tex}\\left(\\frac{1}{n_{1}^{2}}-\\frac{1}{n_{2}^{2}}\\right){/tex} where R is Rydberg&rsquo;s constant (1.097 {tex}\\times{/tex} 10 7 m -1 ) and Z is the atomic number (Z = 1 for hydrogen atom). For Brackett series, n 1 = 4 and n 2 = 5, 6, 7&hellip; Therefore, {tex}\\frac{1}{\\lambda}=R\\left(\\frac{1}{4^{2}}-\\frac{1}{n_{2}^{2}}\\right){/tex} For the shortest wavelength, n 2 = {tex}\\infty{/tex} . Therefore, {tex}\\frac{1}{\\lambda}=R\\left[\\frac{1}{4^{2}}-\\frac{1}{\\infty^{2}}\\right]=R\\left(\\frac{1}{4^{2}}-0\\right){/tex} {tex}\\frac{1}{\\lambda}= \\frac{R}{16}=\\frac{1.097 \\times 10^{7}}{16}{/tex} {tex}\\Rightarrow \\lambda=\\frac{16}{1.097 \\times 10^{7}}{/tex} = 14.585 {tex}\\times{/tex} 10 -7 or {tex}\\lambda{/tex} = 1458.5 nm. The shortest wavelength of the Brackett series is 1458.5 nm. This wavelength belongs to infrared range of electromagnetic spectrum.",
+    "solution": "Bohr&rsquo;s quantization condition of angular momentum: According to Bohr, the electron can revolve in certain discrete orbits called stationary orbits. The total angular momentum (L) of the revolving electron is an integral multiple of {tex}\\frac{h}{2 \\pi}{/tex} . Thus, angular momentum, L = mvr = {tex}\\frac{nh}{2 \\pi}{/tex} where n = 1, 2, 3.... Brackett series is obtained when an electron jumps to fourth orbit (n 1 = 4) from any outer orbit (n 2 = 5, 6, 7.....) of the hydrogen atom. The wavelength of a spectral line is given as {tex}\\frac{1}{\\lambda}{/tex} = RZ {tex}\\left(\\frac{1}{n_{1}^{2}}-\\frac{1}{n_{2}^{2}}\\right){/tex} where R is Rydberg&rsquo;s constant (1.097 {tex}\\times{/tex} 10 7 m -1 ) and Z is the atomic number (Z = 1 for hydrogen atom). For Brackett series, n 1 = 4 and n 2 = 5, 6, 7&hellip; Therefore, {tex}\\frac{1}{\\lambda}=R\\left(\\frac{1}{4^{2}}-\\frac{1}{n_{2}^{2}}\\right){/tex} For the shortest wavelength, n 2 = {tex}\\infty{/tex} . Therefore, {tex}\\frac{1}{\\lambda}=R\\left[\\frac{1}{4^{2}}-\\frac{1}{\\infty^{2}}\\right]=R\\left(\\frac{1}{4^{2}}-0\\right){/tex} {tex}\\frac{1}{\\lambda}= \\frac{R}{16}=\\frac{1.097 \\times 10^{7}}{16}{/tex} {tex}\\Rightarrow \\lambda=\\frac{16}{1.097 \\times 10^{7}}{/tex} = 14.585 {tex}\\times{/tex} 10 -7 or {tex}\\lambda{/tex} = 1458.5 nm. The shortest wavelength of the Brackett series is 1458.5 nm. This wavelength belongs to infrared range of electromagnetic spectrum.",
+    "solution_html": "<p><u>Bohr&rsquo;s quantization condition of angular momentum:</u> According to Bohr, the electron can revolve in certain discrete orbits called stationary orbits. The total angular momentum (L) of the revolving electron is an integral multiple of <span class=\"math-tex\">{tex}\\frac{h}{2 \\pi}{/tex}</span>.<br />\r\nThus, angular momentum, L = mvr =&nbsp;<span class=\"math-tex\">{tex}\\frac{nh}{2 \\pi}{/tex}</span><br />\r\nwhere n = 1, 2, 3....<br />\r\nBrackett series is obtained when an electron jumps to fourth orbit (n<sub>1</sub> = 4) from any outer orbit (n<sub>2</sub> = 5, 6, 7.....) of the hydrogen atom.<br />\r\nThe wavelength of a spectral line is given as<br />\r\n<span class=\"math-tex\">{tex}\\frac{1}{\\lambda}{/tex}</span>&nbsp;= RZ<span class=\"math-tex\">{tex}\\left(\\frac{1}{n_{1}^{2}}-\\frac{1}{n_{2}^{2}}\\right){/tex}</span><br />\r\nwhere R is Rydberg&rsquo;s constant&nbsp;(1.097 <span class=\"math-tex\">{tex}\\times{/tex}</span>10<sup>7</sup> m<sup>-1</sup>)&nbsp;and Z is the atomic number (Z = 1 for hydrogen atom). For Brackett series, n<sub>1</sub> = 4 and n<sub>2</sub> = 5, 6, 7&hellip;<br />\r\nTherefore,<br />\r\n<span class=\"math-tex\">{tex}\\frac{1}{\\lambda}=R\\left(\\frac{1}{4^{2}}-\\frac{1}{n_{2}^{2}}\\right){/tex}</span><br />\r\nFor the shortest wavelength, n<sub>2</sub> = <span class=\"math-tex\">{tex}\\infty{/tex}</span>. Therefore,<br />\r\n<span class=\"math-tex\">{tex}\\frac{1}{\\lambda}=R\\left[\\frac{1}{4^{2}}-\\frac{1}{\\infty^{2}}\\right]=R\\left(\\frac{1}{4^{2}}-0\\right){/tex}</span><br />\r\n<span class=\"math-tex\">{tex}\\frac{1}{\\lambda}= \\frac{R}{16}=\\frac{1.097 \\times 10^{7}}{16}{/tex}</span><br />\r\n<span class=\"math-tex\">{tex}\\Rightarrow \\lambda=\\frac{16}{1.097 \\times 10^{7}}{/tex}</span>&nbsp;= 14.585 <span class=\"math-tex\">{tex}\\times{/tex}</span> 10<sup>-7</sup><br />\r\nor&nbsp;<span class=\"math-tex\">{tex}\\lambda{/tex}</span>&nbsp;= 1458.5 nm.<br />\r\nThe shortest wavelength of the Brackett series is 1458.5 nm.<br />\r\nThis wavelength belongs to infrared range of electromagnetic spectrum.</p>",
+    "weightage": "SA-2 (Short answer type-2)"
+  },
+  {
+    "subject": "Physics",
+    "subject_id": "1251",
+    "chapter": "Atoms",
+    "chapter_id": 1263,
+    "question_id": 1259150,
+    "question_html": "<ol start=\"1\" style=\"list-style-type:lower-alpha\">\n\t<li>Draw the energy level diagram for the line spectra representing Lyman series and Balmer series in the spectrum of hydrogen atom.</li>\n\t<li>Using the Rydberg formula for the spectrum of hydrogen atom, calculate the largest and shortest wavelengths of the emission lines of the Balmer series in the spectrum of hydrogen atom. (Use the value of Rydberg constant R = 1.1 <span class=\"math-tex\">{tex}\\times{/tex}</span> 10<sup>7</sup> m<sup>-1</sup>)</li>\n</ol>",
+    "question_text": "Draw the energy level diagram for the line spectra representing Lyman series and Balmer series in the spectrum of hydrogen atom. Using the Rydberg formula for the spectrum of hydrogen atom, calculate the largest and shortest wavelengths of the emission lines of the Balmer series in the spectrum of hydrogen atom. (Use the value of Rydberg constant R = 1.1 {tex}\\times{/tex} 10 7 m -1 )",
+    "options": [],
+    "correct_option_ids": [],
+    "correct_option_text": "",
+    "explanation": "{tex}\\frac{1}{\\lambda_{\\text {longest }}}=R\\left\\{\\frac{1}{n_f^2}-\\frac{1}{n_C^2}\\right\\}=R \\frac{5}{36}{/tex} {tex}\\lambda \\max =\\frac{36}{5 R}{/tex} {tex}=\\frac{36}{5 \\times 1.1 \\times 10^7} m{/tex} = 6.5 {tex}\\times{/tex} 10 -7 m {tex}\\frac{1}{\\lambda_{\\text {Smallest }}}=R\\left\\{\\frac{1}{2^2}-\\frac{1}{\\infty^2}\\right\\}{/tex} {tex}=\\frac{R}{4}{/tex} {tex}\\lambda_{m m}=\\frac{4}{R}=\\frac{4}{1.1 \\times 10^7} \\mathrm{~m}{/tex} = 3.6 {tex}\\times{/tex} 10 -7 m",
+    "solution": "{tex}\\frac{1}{\\lambda_{\\text {longest }}}=R\\left\\{\\frac{1}{n_f^2}-\\frac{1}{n_C^2}\\right\\}=R \\frac{5}{36}{/tex} {tex}\\lambda \\max =\\frac{36}{5 R}{/tex} {tex}=\\frac{36}{5 \\times 1.1 \\times 10^7} m{/tex} = 6.5 {tex}\\times{/tex} 10 -7 m {tex}\\frac{1}{\\lambda_{\\text {Smallest }}}=R\\left\\{\\frac{1}{2^2}-\\frac{1}{\\infty^2}\\right\\}{/tex} {tex}=\\frac{R}{4}{/tex} {tex}\\lambda_{m m}=\\frac{4}{R}=\\frac{4}{1.1 \\times 10^7} \\mathrm{~m}{/tex} = 3.6 {tex}\\times{/tex} 10 -7 m",
+    "solution_html": "<ol start=\"1\" style=\"list-style-type:lower-alpha\">\n\t<li><img src=\"https://media-mycbseguide.s3.amazonaws.com/images/question_images/1721817173-rvatfh.jpg\" style=\"height:342px; width:300px\" /></li>\n\t<li><span class=\"math-tex\">{tex}\\frac{1}{\\lambda_{\\text {longest }}}=R\\left\\{\\frac{1}{n_f^2}-\\frac{1}{n_C^2}\\right\\}=R \\frac{5}{36}{/tex}</span><br />\n\t<span class=\"math-tex\">{tex}\\lambda \\max =\\frac{36}{5 R}{/tex}</span><br />\n\t<span class=\"math-tex\">{tex}=\\frac{36}{5 \\times 1.1 \\times 10^7} m{/tex}</span><br />\n\t= 6.5 <span class=\"math-tex\">{tex}\\times{/tex}</span> 10<sup>-7</sup>m<br />\n\t<span class=\"math-tex\">{tex}\\frac{1}{\\lambda_{\\text {Smallest }}}=R\\left\\{\\frac{1}{2^2}-\\frac{1}{\\infty^2}\\right\\}{/tex}</span><br />\n\t<span class=\"math-tex\">{tex}=\\frac{R}{4}{/tex}</span><br />\n\t<span class=\"math-tex\">{tex}\\lambda_{m m}=\\frac{4}{R}=\\frac{4}{1.1 \\times 10^7} \\mathrm{~m}{/tex}</span><br />\n\t= 3.6 <span class=\"math-tex\">{tex}\\times{/tex}</span> 10<sup>-7</sup>m</li>\n</ol>",
+    "weightage": "SA-2 (Short answer type-2)"
+  },
+  {
+    "subject": "Physics",
+    "subject_id": "1251",
+    "chapter": "Atoms",
+    "chapter_id": 1263,
+    "question_id": 1262082,
+    "question_html": "<p>A hydrogen atom in its excited state emits radiations of wavelengths 1218 <span class=\"math-tex\">{tex}\\overset oA{/tex}</span> and 974.3 <span class=\"math-tex\">{tex}\\overset oA{/tex}</span> when it finally comes to the ground state. Identify the energy levels from where transitions occur. Given Rydberg constant R = 1.1 <span class=\"math-tex\">{tex}\\times{/tex}</span> 10<sup>7</sup> m<sup>-1</sup>. Also specify the spectral series to which these lines belong.</p>",
+    "question_text": "A hydrogen atom in its excited state emits radiations of wavelengths 1218 {tex}\\overset oA{/tex} and 974.3 {tex}\\overset oA{/tex} when it finally comes to the ground state. Identify the energy levels from where transitions occur. Given Rydberg constant R = 1.1 {tex}\\times{/tex} 10 7 m -1 . Also specify the spectral series to which these lines belong.",
+    "options": [],
+    "correct_option_ids": [],
+    "correct_option_text": "",
+    "explanation": "{tex} \\lambda_1=1218 \\overset \\circ A{/tex} {tex} \\lambda_2=974.3 \\overset \\circ A{/tex} {tex} \\text { Rydberg const, } R=1.1 \\times 10^7 \\mathrm{~m}^{-1} {/tex} {tex} \\frac{1}{1218 \\times 10^{-10}}=1.1 \\times 10^7\\left(\\frac{1}{1^2}-\\frac{1}{n^2}\\right) {/tex} {tex} n^2=\\frac{1}{0.2536} {/tex} {tex} n^2=3.9429 \\therefore n=1.98 \\cong 2 {/tex} {tex} \\text { given } \\lambda_2=974.3 \\overset \\circ A{/tex} {tex} \\frac{1}{974.3 \\times 10^{-10}}=1.1 \\times 10^{-1}\\left(\\frac{1}{1^2}-\\frac{1}{n^2}\\right) {/tex} {tex} n^2=\\frac{1}{0.0669} {/tex} {tex} n^2=14.9411 {/tex} {tex}\\therefore n=3.86 \\cong 4{/tex} These lines belong to layman series.",
+    "solution": "{tex} \\lambda_1=1218 \\overset \\circ A{/tex} {tex} \\lambda_2=974.3 \\overset \\circ A{/tex} {tex} \\text { Rydberg const, } R=1.1 \\times 10^7 \\mathrm{~m}^{-1} {/tex} {tex} \\frac{1}{1218 \\times 10^{-10}}=1.1 \\times 10^7\\left(\\frac{1}{1^2}-\\frac{1}{n^2}\\right) {/tex} {tex} n^2=\\frac{1}{0.2536} {/tex} {tex} n^2=3.9429 \\therefore n=1.98 \\cong 2 {/tex} {tex} \\text { given } \\lambda_2=974.3 \\overset \\circ A{/tex} {tex} \\frac{1}{974.3 \\times 10^{-10}}=1.1 \\times 10^{-1}\\left(\\frac{1}{1^2}-\\frac{1}{n^2}\\right) {/tex} {tex} n^2=\\frac{1}{0.0669} {/tex} {tex} n^2=14.9411 {/tex} {tex}\\therefore n=3.86 \\cong 4{/tex} These lines belong to layman series.",
+    "solution_html": "<p><span class=\"math-tex\">{tex} \\lambda_1=1218 \\overset \\circ A{/tex}</span><br />\r\n<span class=\"math-tex\">{tex} \\lambda_2=974.3 \\overset \\circ A{/tex}</span><br />\r\n<span class=\"math-tex\">{tex} \\text { Rydberg const, } R=1.1 \\times 10^7 \\mathrm{~m}^{-1} {/tex}</span><br />\r\n<span class=\"math-tex\">{tex} \\frac{1}{1218 \\times 10^{-10}}=1.1 \\times 10^7\\left(\\frac{1}{1^2}-\\frac{1}{n^2}\\right) {/tex}</span><br />\r\n<span class=\"math-tex\">{tex} n^2=\\frac{1}{0.2536} {/tex}</span><br />\r\n<span class=\"math-tex\">{tex} n^2=3.9429 \\therefore n=1.98 \\cong 2 {/tex}</span><br />\r\n<span class=\"math-tex\">{tex} \\text { given } \\lambda_2=974.3 \\overset \\circ A{/tex}</span><br />\r\n<span class=\"math-tex\">{tex} \\frac{1}{974.3 \\times 10^{-10}}=1.1 \\times 10^{-1}\\left(\\frac{1}{1^2}-\\frac{1}{n^2}\\right) {/tex}</span><br />\r\n<span class=\"math-tex\">{tex} n^2=\\frac{1}{0.0669} {/tex}</span><br />\r\n<span class=\"math-tex\">{tex} n^2=14.9411 {/tex}</span><br />\r\n<span class=\"math-tex\">{tex}\\therefore n=3.86 \\cong 4{/tex}</span><br />\r\nThese lines belong to layman series.</p>",
+    "weightage": "SA-2 (Short answer type-2)"
+  },
+  {
+    "subject": "Physics",
+    "subject_id": "1251",
+    "chapter": "Atoms",
+    "chapter_id": 1263,
+    "question_id": 933102,
+    "question_html": "<p>The photon emitted during the de-excitation from the first excited level to the ground state of hydrogen atom is used to irradiate a photocathode of a photocell, in which stopping potential of 5 V is used. Calculate the work function of the cathode used.</p>",
+    "question_text": "The photon emitted during the de-excitation from the first excited level to the ground state of hydrogen atom is used to irradiate a photocathode of a photocell, in which stopping potential of 5 V is used. Calculate the work function of the cathode used.",
+    "options": [],
+    "correct_option_ids": [],
+    "correct_option_text": "",
+    "explanation": "Energy of incident photon = E 2 - E 1 = -3.4 - (13.6) = 10.2 eV K.E. of photo electron = eV 0 =5 eV By conservation of energy, Energy of incident photon = K.E. of photo electron + Work function 10.2 eV = 5 eV + W 0 {tex}​​​​​​​\\therefore{/tex} W 0 = 5.2 eV",
+    "solution": "Energy of incident photon = E 2 - E 1 = -3.4 - (13.6) = 10.2 eV K.E. of photo electron = eV 0 =5 eV By conservation of energy, Energy of incident photon = K.E. of photo electron + Work function 10.2 eV = 5 eV + W 0 {tex}​​​​​​​\\therefore{/tex} W 0 = 5.2 eV",
+    "solution_html": "<p>Energy of incident photon&nbsp;= E<sub>2&nbsp;</sub>- E<sub>1&nbsp;</sub>= -3.4 - (13.6) = 10.2 eV<br />\r\nK.E. of photo electron =&nbsp;eV<sub>0</sub>=5 eV<br />\r\nBy conservation of energy,<br />\r\nEnergy of incident photon&nbsp;= K.E. of photo electron + Work function<br />\r\n10.2 eV = 5 eV + W<sub>0</sub><br />\r\n<span class=\"math-tex\">{tex}​​​​​​​\\therefore{/tex}</span> W<sub>0&nbsp;</sub>= 5.2 eV</p>",
+    "weightage": "SA-2 (Short answer type-2)"
+  },
+  {
+    "subject": "Physics",
+    "subject_id": "1251",
+    "chapter": "Atoms",
+    "chapter_id": 1263,
+    "question_id": 67375,
+    "question_html": "<p>The ground state energy of hydrogen atom is -13.6eV</p>\r\n\r\n<ol start=\"1\" style=\"list-style-type: lower-roman;\">\r\n\t<li>What is the potential energy of an electron in the 3<sup>rd</sup> excited state?</li>\r\n\t<li>If the electron jumps to the ground state from the 3<sup>rd</sup> excited state, calculate the wavelength of the photon emitted.</li>\r\n</ol>",
+    "question_text": "The ground state energy of hydrogen atom is -13.6eV What is the potential energy of an electron in the 3 rd excited state? If the electron jumps to the ground state from the 3 rd excited state, calculate the wavelength of the photon emitted.",
+    "options": [],
+    "correct_option_ids": [],
+    "correct_option_text": "",
+    "explanation": "The energy of an electron in nth orbit is given by {tex}{E_n} = - \\frac{{13.6}}{{{n^2}}}eV{/tex} For 3 rd excite state, n = 4 {tex}\\therefore {E_4} = - \\frac{{13.6}}{{{4^2}}} = - \\frac{{13.6}}{{16}} = - 0.85eV{/tex} Required energy to jump electron to the ground state from the 3 rd excited state E = E 4 - E 1 {tex} = - \\frac{{13.6}}{{{4^2}}} - \\left( { - \\frac{{13.6}}{{{1^2}}}} \\right){/tex} = - 0.85 + 13.6 = 12.75 eV {tex}\\therefore {/tex} Wavelength of the photon emitted as {tex}\\lambda = \\frac{{hc}}{E}\\left( {As,\\;E = \\frac{{hc}}{\\lambda }} \\right){/tex} {tex} \\Rightarrow \\lambda = \\frac{{6.63 \\times {{10}^{ - 34}} \\times 3 \\times {{10}^8}}}{{12.75 \\times 1.6 \\times {{10}^{ - 19}}}}{/tex} {tex} = \\frac{{19.878 \\times {{10}^{ - 7}}}}{{20.4}} = 0.974 \\times {10^{ - 7}}{/tex} {tex} = 974\\mathop A\\limits^o {/tex}",
+    "solution": "The energy of an electron in nth orbit is given by {tex}{E_n} = - \\frac{{13.6}}{{{n^2}}}eV{/tex} For 3 rd excite state, n = 4 {tex}\\therefore {E_4} = - \\frac{{13.6}}{{{4^2}}} = - \\frac{{13.6}}{{16}} = - 0.85eV{/tex} Required energy to jump electron to the ground state from the 3 rd excited state E = E 4 - E 1 {tex} = - \\frac{{13.6}}{{{4^2}}} - \\left( { - \\frac{{13.6}}{{{1^2}}}} \\right){/tex} = - 0.85 + 13.6 = 12.75 eV {tex}\\therefore {/tex} Wavelength of the photon emitted as {tex}\\lambda = \\frac{{hc}}{E}\\left( {As,\\;E = \\frac{{hc}}{\\lambda }} \\right){/tex} {tex} \\Rightarrow \\lambda = \\frac{{6.63 \\times {{10}^{ - 34}} \\times 3 \\times {{10}^8}}}{{12.75 \\times 1.6 \\times {{10}^{ - 19}}}}{/tex} {tex} = \\frac{{19.878 \\times {{10}^{ - 7}}}}{{20.4}} = 0.974 \\times {10^{ - 7}}{/tex} {tex} = 974\\mathop A\\limits^o {/tex}",
+    "solution_html": "<p>The energy of an electron in nth orbit is given by<br />\r\n<span class=\"math-tex\">{tex}{E_n} = - \\frac{{13.6}}{{{n^2}}}eV{/tex}</span></p>\r\n\r\n<ol start=\"1\" style=\"list-style-type: lower-roman;\">\r\n\t<li>For 3<sup> rd</sup> excite state, n = 4<br />\r\n\t<span class=\"math-tex\">{tex}\\therefore {E_4} = - \\frac{{13.6}}{{{4^2}}} = - \\frac{{13.6}}{{16}} = - 0.85eV{/tex}</span></li>\r\n\t<li>Required energy to jump electron to the ground state from the 3<sup> rd</sup> excited state<br />\r\n\tE = E<sub>4</sub> - E<sub>1</sub><br />\r\n\t<span class=\"math-tex\">{tex} = - \\frac{{13.6}}{{{4^2}}} - \\left( { - \\frac{{13.6}}{{{1^2}}}} \\right){/tex}</span><br />\r\n\t= - 0.85 + 13.6 = 12.75 eV<br />\r\n\t<span class=\"math-tex\">{tex}\\therefore {/tex}</span>&nbsp;Wavelength of the photon emitted as<br />\r\n\t<span class=\"math-tex\">{tex}\\lambda = \\frac{{hc}}{E}\\left( {As,\\;E = \\frac{{hc}}{\\lambda }} \\right){/tex}</span><br />\r\n\t<span class=\"math-tex\">{tex} \\Rightarrow \\lambda = \\frac{{6.63 \\times {{10}^{ - 34}} \\times 3 \\times {{10}^8}}}{{12.75 \\times 1.6 \\times {{10}^{ - 19}}}}{/tex}</span><br />\r\n\t<span class=\"math-tex\">{tex} = \\frac{{19.878 \\times {{10}^{ - 7}}}}{{20.4}} = 0.974 \\times {10^{ - 7}}{/tex}</span><br />\r\n\t<span class=\"math-tex\">{tex} = 974\\mathop A\\limits^o {/tex}</span></li>\r\n</ol>",
+    "weightage": "SA-2 (Short answer type-2)"
+  },
+  {
+    "subject": "Physics",
+    "subject_id": "1251",
+    "chapter": "Atoms",
+    "chapter_id": 1263,
+    "question_id": 449268,
+    "question_html": "<p>The radius of the innermost electron orbit of a hydrogen atom is 5.3&nbsp;<span class=\"math-tex\">{tex} \\times {/tex}</span>10<sup>-11</sup> m. What are the radii of the n = 2 and n = 3 orbits?</p>",
+    "question_text": "The radius of the innermost electron orbit of a hydrogen atom is 5.3 {tex} \\times {/tex} 10 -11 m. What are the radii of the n = 2 and n = 3 orbits?",
+    "options": [],
+    "correct_option_ids": [],
+    "correct_option_text": "",
+    "explanation": "Given, the radius of the innermost orbit, r 1 = 5.3 {tex}\\times{/tex} 10 &ndash;11 m Then, let r 2 be the radius of an orbit at n = 2. Then, r 2 = (n) 2 r 1 As shown in the diagram: {tex}\\Rightarrow{/tex} r 2 = 2 2 {tex}\\times{/tex} 5.3 {tex}\\times{/tex} 10 &ndash;11 m {tex}\\Rightarrow{/tex} r 2 = 2.12 {tex}\\times{/tex} 10 &ndash;10 m For n = 3, we can write the corresponding electron radius as: {tex}\\Rightarrow{/tex} r 3 = (n) 2 r 1 {tex}\\Rightarrow{/tex} r 3 = 3 2 {tex}\\times{/tex} 5.3 {tex}\\times{/tex} 10 &ndash;11 m {tex}\\Rightarrow{/tex} r 3 = 4.77 {tex}\\times{/tex} 10 &ndash;10 m Hence, the radii of an electron for n = 2 and n = 3 orbits are 2.12 {tex}\\times{/tex} 10 &ndash;10 m and 4.77 {tex}\\times{/tex} 10 &ndash;10 m",
+    "solution": "Given, the radius of the innermost orbit, r 1 = 5.3 {tex}\\times{/tex} 10 &ndash;11 m Then, let r 2 be the radius of an orbit at n = 2. Then, r 2 = (n) 2 r 1 As shown in the diagram: {tex}\\Rightarrow{/tex} r 2 = 2 2 {tex}\\times{/tex} 5.3 {tex}\\times{/tex} 10 &ndash;11 m {tex}\\Rightarrow{/tex} r 2 = 2.12 {tex}\\times{/tex} 10 &ndash;10 m For n = 3, we can write the corresponding electron radius as: {tex}\\Rightarrow{/tex} r 3 = (n) 2 r 1 {tex}\\Rightarrow{/tex} r 3 = 3 2 {tex}\\times{/tex} 5.3 {tex}\\times{/tex} 10 &ndash;11 m {tex}\\Rightarrow{/tex} r 3 = 4.77 {tex}\\times{/tex} 10 &ndash;10 m Hence, the radii of an electron for n = 2 and n = 3 orbits are 2.12 {tex}\\times{/tex} 10 &ndash;10 m and 4.77 {tex}\\times{/tex} 10 &ndash;10 m",
+    "solution_html": "<p>Given, the radius of the innermost orbit, r<sub>1</sub>&nbsp;= 5.3 <span class=\"math-tex\">{tex}\\times{/tex}</span> 10<sup>&ndash;11</sup>&nbsp;m<br />\r\nThen, let r<sub>2</sub>&nbsp;be the radius of an orbit at n = 2.<br />\r\nThen, r<sub>2</sub>&nbsp;= (n)<sup>2</sup>r<sub>1</sub><br />\r\nAs shown in the diagram:<br />\r\n<img data-imgur-src=\"5477TFr.png\" src=\"https://media-mycbseguide.s3.amazonaws.com/images/imgur/1609410224-c4b9zp.jpg\" style=\"width: 180px; height: 228px;\" /><br />\r\n<span class=\"math-tex\">{tex}\\Rightarrow{/tex}</span>&nbsp;r<sub>2</sub>&nbsp;= 2<sup>2</sup>&nbsp;<span class=\"math-tex\">{tex}\\times{/tex}</span> 5.3 <span class=\"math-tex\">{tex}\\times{/tex}</span>&nbsp;10<sup>&ndash;11</sup>&nbsp;m<br />\r\n<span class=\"math-tex\">{tex}\\Rightarrow{/tex}</span>&nbsp;r<sub>2</sub>&nbsp;= 2.12 <span class=\"math-tex\">{tex}\\times{/tex}</span> 10<sup>&ndash;10</sup>&nbsp;m<br />\r\nFor n = 3, we&nbsp;can write the corresponding electron radius as:<br />\r\n<span class=\"math-tex\">{tex}\\Rightarrow{/tex}</span>&nbsp;r<sub>3</sub>&nbsp;= (n)<sup>2</sup>&nbsp;r<sub>1</sub><br />\r\n<span class=\"math-tex\">{tex}\\Rightarrow{/tex}</span>&nbsp;r<sub>3</sub>&nbsp;= 3<sup>2</sup>&nbsp;<span class=\"math-tex\">{tex}\\times{/tex}</span> 5.3 <span class=\"math-tex\">{tex}\\times{/tex}</span> 10<sup>&ndash;11</sup>&nbsp;m<br />\r\n<span class=\"math-tex\">{tex}\\Rightarrow{/tex}</span>&nbsp;r<sub>3</sub>&nbsp;= 4.77 <span class=\"math-tex\">{tex}\\times{/tex}</span> 10<sup>&ndash;10</sup>&nbsp;m<br />\r\nHence, the radii of an electron for n = 2 and n = 3 orbits are 2.12 <span class=\"math-tex\">{tex}\\times{/tex}</span> 10<sup>&ndash;10</sup>&nbsp;m and 4.77 <span class=\"math-tex\">{tex}\\times{/tex}</span> 10<sup>&ndash;10</sup>&nbsp;m</p>",
+    "weightage": "SA-2 (Short answer type-2)"
+  },
+  {
+    "subject": "Physics",
+    "subject_id": "1251",
+    "chapter": "Atoms",
+    "chapter_id": 1263,
+    "question_id": 422115,
+    "question_html": "<p>In a Geiger-Marsden experiment, what is the distance of closest approach to the nucleus of a 7.7 MeV <span class=\"math-tex\">{tex}\\alpha - {/tex}</span>particle before it comes momentarily to rest and reverses its direction?</p>",
+    "question_text": "In a Geiger-Marsden experiment, what is the distance of closest approach to the nucleus of a 7.7 MeV {tex}\\alpha - {/tex} particle before it comes momentarily to rest and reverses its direction?",
+    "options": [],
+    "correct_option_ids": [],
+    "correct_option_text": "",
+    "explanation": "The key idea here is that throughout the scattering process, the total mechanical energy of the system consisting of an &alpha;-particle and a gold nucleus is conserved. The system&rsquo;s initial mechanical energy is E i , before the particle and nucleus interact, and it is equal to its mechanical energy E f when the {tex}\\alpha{/tex} -particle momentarily stops. The initial energy E i is just the kinetic energy K of the incoming {tex}\\alpha{/tex} -particle. The final energy E f is just the electric potential energy U of the system. The potential energy U can be calculated from Eq. Let d be the centre-to-centre distance between the {tex}\\alpha{/tex} -particle and the gold nucleus when the {tex}\\alpha{/tex} -particle is at its stopping point. Then we can write the conservation of energy E i = E f as {tex}K=\\frac{1}{4 \\pi \\varepsilon_{0}} \\frac{(2 e)(Z e)}{d}=\\frac{2 Z e^{2}}{4 \\pi \\varepsilon_{0} d}{/tex} Thus the distance of closest approach d is given by:- {tex}d=\\frac{2 Z e^{2}}{4 \\pi \\varepsilon_{0} K}{/tex} The maximum kinetic energy found in &alpha;-particles of natural origin is 7.7 MeV or 1.2 {tex}\\times{/tex} 10 &ndash;12 J. Since {tex}\\frac{1}{4 \\pi \\varepsilon_{0}}{/tex} = 9.0 {tex}\\times{/tex} 10 9 N m 2 /C 2 . Therefore with e = 1.6 {tex}\\times{/tex} 10 &ndash;19 C, Z = 79 we have, {tex}d=\\frac{(2)\\left(9.0 \\times 10^{9} \\mathrm{Nm}^{2} / \\mathrm{C}^{2}\\right)\\left(1.6 \\times 10^{-19} \\mathrm{C}\\right)^{2} \\mathrm{79}}{1.2 \\times 10^{-12} \\mathrm{J}}{/tex} d (Au) = 3.0 {tex}\\times{/tex} 10 &ndash;14 m = 30 fm. (1 fm (i.e. fermi) = 10 &ndash;15 m.) The radius of gold nucleus is, therefore, less than 3.0 {tex}\\times{/tex} 10 &ndash;14 m. This is not in very good agreement with the observed result as the actual radius of gold nucleus is 6 fm. The cause of discrepancy is that the distance of closest approach is considerably larger than the sum of the radii of the gold nucleus and the {tex}\\alpha{/tex} -particle. Thus, the {tex}\\alpha{/tex} -particle reverses its motion without ever actually touching the gold nucleus.",
+    "solution": "The key idea here is that throughout the scattering process, the total mechanical energy of the system consisting of an &alpha;-particle and a gold nucleus is conserved. The system&rsquo;s initial mechanical energy is E i , before the particle and nucleus interact, and it is equal to its mechanical energy E f when the {tex}\\alpha{/tex} -particle momentarily stops. The initial energy E i is just the kinetic energy K of the incoming {tex}\\alpha{/tex} -particle. The final energy E f is just the electric potential energy U of the system. The potential energy U can be calculated from Eq. Let d be the centre-to-centre distance between the {tex}\\alpha{/tex} -particle and the gold nucleus when the {tex}\\alpha{/tex} -particle is at its stopping point. Then we can write the conservation of energy E i = E f as {tex}K=\\frac{1}{4 \\pi \\varepsilon_{0}} \\frac{(2 e)(Z e)}{d}=\\frac{2 Z e^{2}}{4 \\pi \\varepsilon_{0} d}{/tex} Thus the distance of closest approach d is given by:- {tex}d=\\frac{2 Z e^{2}}{4 \\pi \\varepsilon_{0} K}{/tex} The maximum kinetic energy found in &alpha;-particles of natural origin is 7.7 MeV or 1.2 {tex}\\times{/tex} 10 &ndash;12 J. Since {tex}\\frac{1}{4 \\pi \\varepsilon_{0}}{/tex} = 9.0 {tex}\\times{/tex} 10 9 N m 2 /C 2 . Therefore with e = 1.6 {tex}\\times{/tex} 10 &ndash;19 C, Z = 79 we have, {tex}d=\\frac{(2)\\left(9.0 \\times 10^{9} \\mathrm{Nm}^{2} / \\mathrm{C}^{2}\\right)\\left(1.6 \\times 10^{-19} \\mathrm{C}\\right)^{2} \\mathrm{79}}{1.2 \\times 10^{-12} \\mathrm{J}}{/tex} d (Au) = 3.0 {tex}\\times{/tex} 10 &ndash;14 m = 30 fm. (1 fm (i.e. fermi) = 10 &ndash;15 m.) The radius of gold nucleus is, therefore, less than 3.0 {tex}\\times{/tex} 10 &ndash;14 m. This is not in very good agreement with the observed result as the actual radius of gold nucleus is 6 fm. The cause of discrepancy is that the distance of closest approach is considerably larger than the sum of the radii of the gold nucleus and the {tex}\\alpha{/tex} -particle. Thus, the {tex}\\alpha{/tex} -particle reverses its motion without ever actually touching the gold nucleus.",
+    "solution_html": "<p>The key idea here is that throughout the scattering process, the total mechanical energy of the system consisting of an &alpha;-particle and a gold nucleus is conserved. The system&rsquo;s initial mechanical energy is E<sub>i</sub>, before the particle and nucleus interact, and it is equal to its mechanical energy E<sub>f </sub>when the <span class=\"math-tex\">{tex}\\alpha{/tex}</span>-particle momentarily stops. The initial energy E<sub>i</sub> is just the kinetic energy K of the incoming <span class=\"math-tex\">{tex}\\alpha{/tex}</span>-particle. The final energy E<sub>f</sub> is just the electric potential energy U of the system. The potential energy U can be calculated from Eq.&nbsp;Let d be the centre-to-centre distance between the <span class=\"math-tex\">{tex}\\alpha{/tex}</span>-particle and the gold nucleus when the <span class=\"math-tex\">{tex}\\alpha{/tex}</span>-particle is at its stopping point. Then we can write the conservation of energy E<sub>i </sub>= E<sub>f</sub> as<br />\r\n<span class=\"math-tex\">{tex}K=\\frac{1}{4 \\pi \\varepsilon_{0}} \\frac{(2 e)(Z e)}{d}=\\frac{2 Z e^{2}}{4 \\pi \\varepsilon_{0} d}{/tex}</span><br />\r\nThus the distance of closest approach d is given by:-<br />\r\n<span class=\"math-tex\">{tex}d=\\frac{2 Z e^{2}}{4 \\pi \\varepsilon_{0} K}{/tex}</span><br />\r\nThe maximum kinetic energy found in &alpha;-particles of natural origin is&nbsp;7.7 MeV or 1.2 <span class=\"math-tex\">{tex}\\times{/tex}</span> 10<sup>&ndash;12</sup> J. Since&nbsp;<span class=\"math-tex\">{tex}\\frac{1}{4 \\pi \\varepsilon_{0}}{/tex}</span> = 9.0 <span class=\"math-tex\">{tex}\\times{/tex}</span> 10<sup>9</sup>&nbsp;N m<sup>2</sup>/C<sup>2</sup>. Therefore with e = 1.6 <span class=\"math-tex\">{tex}\\times{/tex}</span> 10<sup>&ndash;19</sup> C, Z = 79 we have,<br />\r\n<span class=\"math-tex\">{tex}d=\\frac{(2)\\left(9.0 \\times 10^{9} \\mathrm{Nm}^{2} / \\mathrm{C}^{2}\\right)\\left(1.6 \\times 10^{-19} \\mathrm{C}\\right)^{2} \\mathrm{79}}{1.2 \\times 10^{-12} \\mathrm{J}}{/tex}</span><br />\r\nd (Au) = 3.0 <span class=\"math-tex\">{tex}\\times{/tex}</span> 10<sup>&ndash;14</sup> m = 30 fm. (1 fm (i.e. fermi) = 10<sup>&ndash;15</sup> m.)<br />\r\nThe radius of gold nucleus is, therefore, less than 3.0 <span class=\"math-tex\">{tex}\\times{/tex}</span> 10<sup>&ndash;14</sup> m. This is not in very good agreement with the observed result as the actual radius of gold nucleus is 6 fm. The cause of discrepancy is that the<br />\r\ndistance of closest approach is considerably larger than the sum of the radii of the gold nucleus and the <span class=\"math-tex\">{tex}\\alpha{/tex}</span>-particle. Thus, the <span class=\"math-tex\">{tex}\\alpha{/tex}</span>-particle reverses its motion without ever actually touching the gold nucleus.</p>",
+    "weightage": "SA-2 (Short answer type-2)"
+  },
+  {
+    "subject": "Physics",
+    "subject_id": "1251",
+    "chapter": "Atoms",
+    "chapter_id": 1263,
+    "question_id": 933108,
+    "question_html": "<p>The ground state energy of an atom is - 13.6 eV. The photon emitted during the transition of an electron from n - 3 to n = 1 state, is incident on a photosensitive material of unknown work function. The photoelectrons are emitted from the materials with a maximum kinetic energy of 9 eV. Calculate the threshold wavelength of the material used.</p>",
+    "question_text": "The ground state energy of an atom is - 13.6 eV. The photon emitted during the transition of an electron from n - 3 to n = 1 state, is incident on a photosensitive material of unknown work function. The photoelectrons are emitted from the materials with a maximum kinetic energy of 9 eV. Calculate the threshold wavelength of the material used.",
+    "options": [],
+    "correct_option_ids": [],
+    "correct_option_text": "",
+    "explanation": "For a transition from n = 3 to n = 1 state, the energy of the emitted photon, hv = E 2 - E 1 {tex}=13.6\\left[\\frac{1}{1^{2}}-\\frac{1}{3^{2}}\\right] \\mathrm{eV}=12.1 \\mathrm{eV}{/tex} From Einstein&#39;s photoelectric equation, hv = K max + W 0 {tex}\\therefore {/tex} W 0 = hv - K max = 12.1 - 9 = 3.1 eV Threshold wavelength, {tex}\\lambda_{0}=\\frac{h c}{W_{0}}{/tex} {tex}=\\frac{6.62 \\times 10^{-34} \\times 3 \\times 10^{8}}{3.1 \\times 1.6 \\times 10^{-19}}=4 \\times 10^{-7} \\mathrm{~m}{/tex}",
+    "solution": "For a transition from n = 3 to n = 1 state, the energy of the emitted photon, hv = E 2 - E 1 {tex}=13.6\\left[\\frac{1}{1^{2}}-\\frac{1}{3^{2}}\\right] \\mathrm{eV}=12.1 \\mathrm{eV}{/tex} From Einstein&#39;s photoelectric equation, hv = K max + W 0 {tex}\\therefore {/tex} W 0 = hv - K max = 12.1 - 9 = 3.1 eV Threshold wavelength, {tex}\\lambda_{0}=\\frac{h c}{W_{0}}{/tex} {tex}=\\frac{6.62 \\times 10^{-34} \\times 3 \\times 10^{8}}{3.1 \\times 1.6 \\times 10^{-19}}=4 \\times 10^{-7} \\mathrm{~m}{/tex}",
+    "solution_html": "<p>For a transition from n = 3 to n = 1 state, the energy of the emitted photon,<br />\r\nhv = E<sub>2</sub> - E<sub>1</sub><br />\r\n<span class=\"math-tex\">{tex}=13.6\\left[\\frac{1}{1^{2}}-\\frac{1}{3^{2}}\\right] \\mathrm{eV}=12.1 \\mathrm{eV}{/tex}</span><br />\r\nFrom Einstein&#39;s photoelectric equation,<br />\r\nhv = K<sub>max&nbsp;</sub>+ W<sub>0</sub><br />\r\n<span class=\"math-tex\">{tex}\\therefore {/tex}</span> W<sub>0&nbsp;</sub>= hv - K<sub>max&nbsp;</sub>= 12.1 - 9 = 3.1 eV<br />\r\nThreshold wavelength,&nbsp;<span class=\"math-tex\">{tex}\\lambda_{0}=\\frac{h c}{W_{0}}{/tex}</span><br />\r\n<span class=\"math-tex\">{tex}=\\frac{6.62 \\times 10^{-34} \\times 3 \\times 10^{8}}{3.1 \\times 1.6 \\times 10^{-19}}=4 \\times 10^{-7} \\mathrm{~m}{/tex}</span></p>",
+    "weightage": "SA-2 (Short answer type-2)"
+  },
+  {
+    "subject": "Physics",
+    "subject_id": "1251",
+    "chapter": "Atoms",
+    "chapter_id": 1263,
+    "question_id": 471076,
+    "question_html": "<p>It is found experimentally that 13.6 eV energy is required to separate a hydrogen atom into a proton and an electron. Compute the orbital radius and the velocity of the electron in a hydrogen atom.</p>",
+    "question_text": "It is found experimentally that 13.6 eV energy is required to separate a hydrogen atom into a proton and an electron. Compute the orbital radius and the velocity of the electron in a hydrogen atom.",
+    "options": [],
+    "correct_option_ids": [],
+    "correct_option_text": "",
+    "explanation": "Total energy of the electron in hydrogen atom is &ndash;13.6 eV = &ndash;13.6 {tex}\\times{/tex} 1.6 {tex}\\times{/tex} 10 &ndash;19 J = &ndash;2.2 {tex}\\times{/tex} 10 &ndash;18 J. Thus from Eq., we have {tex}-\\frac{e^{2}}{8 \\pi \\varepsilon_{0} r}{/tex} = E This gives the orbital radius {tex}r=-\\frac{e^{2}}{8 \\pi \\varepsilon_{0} E}=-\\frac{\\left(9 \\times 10^{9} \\mathrm{N} \\mathrm{m}^{2} / \\mathrm{C}^{2}\\right)\\left(1.6 \\times 10^{-19} \\mathrm{C}\\right)^{2}}{(2)\\left(-2.2 \\times 10^{-18} \\mathrm{J}\\right)}{/tex} = 5.3 {tex}\\times{/tex} 10 &ndash;11 m The velocity of the revolving electron can be computed from Eq. with m = 9.1 {tex}\\times{/tex} 10 &ndash;31 kg, {tex}{1\\over 2 }mv^2 ={e^2\\over 4\\pi\\epsilon_0 r^2}{/tex} thus velocity of electron is given by :- {tex}v=\\frac{e}{\\sqrt{4 \\pi \\varepsilon_{0} m r^2}}=2.2 \\times 10^{6} \\mathrm{m} / \\mathrm{s}{/tex}",
+    "solution": "Total energy of the electron in hydrogen atom is &ndash;13.6 eV = &ndash;13.6 {tex}\\times{/tex} 1.6 {tex}\\times{/tex} 10 &ndash;19 J = &ndash;2.2 {tex}\\times{/tex} 10 &ndash;18 J. Thus from Eq., we have {tex}-\\frac{e^{2}}{8 \\pi \\varepsilon_{0} r}{/tex} = E This gives the orbital radius {tex}r=-\\frac{e^{2}}{8 \\pi \\varepsilon_{0} E}=-\\frac{\\left(9 \\times 10^{9} \\mathrm{N} \\mathrm{m}^{2} / \\mathrm{C}^{2}\\right)\\left(1.6 \\times 10^{-19} \\mathrm{C}\\right)^{2}}{(2)\\left(-2.2 \\times 10^{-18} \\mathrm{J}\\right)}{/tex} = 5.3 {tex}\\times{/tex} 10 &ndash;11 m The velocity of the revolving electron can be computed from Eq. with m = 9.1 {tex}\\times{/tex} 10 &ndash;31 kg, {tex}{1\\over 2 }mv^2 ={e^2\\over 4\\pi\\epsilon_0 r^2}{/tex} thus velocity of electron is given by :- {tex}v=\\frac{e}{\\sqrt{4 \\pi \\varepsilon_{0} m r^2}}=2.2 \\times 10^{6} \\mathrm{m} / \\mathrm{s}{/tex}",
+    "solution_html": "<p>Total energy of the electron in hydrogen atom is &ndash;13.6 eV = &ndash;13.6 <span class=\"math-tex\">{tex}\\times{/tex}</span> 1.6 <span class=\"math-tex\">{tex}\\times{/tex}</span> 10<sup>&ndash;19 </sup>J = &ndash;2.2 <span class=\"math-tex\">{tex}\\times{/tex}</span>10<sup>&ndash;18</sup> J.<br />\r\nThus from Eq., we have<br />\r\n<span class=\"math-tex\">{tex}-\\frac{e^{2}}{8 \\pi \\varepsilon_{0} r}{/tex}</span>= E<br />\r\nThis gives the orbital radius<br />\r\n<span class=\"math-tex\">{tex}r=-\\frac{e^{2}}{8 \\pi \\varepsilon_{0} E}=-\\frac{\\left(9 \\times 10^{9} \\mathrm{N} \\mathrm{m}^{2} / \\mathrm{C}^{2}\\right)\\left(1.6 \\times 10^{-19} \\mathrm{C}\\right)^{2}}{(2)\\left(-2.2 \\times 10^{-18} \\mathrm{J}\\right)}{/tex}</span><br />\r\n= 5.3 <span class=\"math-tex\">{tex}\\times{/tex}</span> 10<sup>&ndash;11</sup> m<br />\r\nThe velocity of the revolving electron can be computed from Eq. with m = 9.1 <span class=\"math-tex\">{tex}\\times{/tex}</span> 10<sup>&ndash;31</sup> kg,</p>\r\n\r\n<p><span class=\"math-tex\">{tex}{1\\over 2 }mv^2 ={e^2\\over 4\\pi\\epsilon_0 r^2}{/tex}</span>&nbsp;thus velocity of electron is given by :-<br />\r\n<span class=\"math-tex\">{tex}v=\\frac{e}{\\sqrt{4 \\pi \\varepsilon_{0} m r^2}}=2.2 \\times 10^{6} \\mathrm{m} / \\mathrm{s}{/tex}</span></p>",
+    "weightage": "SA-2 (Short answer type-2)"
+  },
+  {
+    "subject": "Physics",
+    "subject_id": "1251",
+    "chapter": "Atoms",
+    "chapter_id": 1263,
+    "question_id": 422123,
+    "question_html": "<p>The total energy of an electron in the first excited state of the hydrogen atom is about &ndash;3.4 eV.</p>\r\n\r\n<ol start=\"1\" style=\"list-style-type: lower-alpha;\">\r\n\t<li>What is the kinetic energy of the electron in this state?</li>\r\n\t<li>What is the potential energy of the electron in this state?</li>\r\n\t<li>Which of the answers above would change if the choice of the zero of potential energy is changed?<br />\r\n\t&nbsp;</li>\r\n</ol>",
+    "question_text": "The total energy of an electron in the first excited state of the hydrogen atom is about &ndash;3.4 eV. What is the kinetic energy of the electron in this state? What is the potential energy of the electron in this state? Which of the answers above would change if the choice of the zero of potential energy is changed?",
+    "options": [],
+    "correct_option_ids": [],
+    "correct_option_text": "",
+    "explanation": "Given: The total energy of an electron in the first excited state of the hydrogen atom is about &ndash;3.4 eV. The kinetic energy of the electron in this state = negative of the total energy = -E Kinetic energy of the electron in this state = -(-3.4)eV = + 3.4 eV Potential energy is given as the negative of the twice of the kinetic energy U = -2 {tex}\\times{/tex} (3.4) eV U = -6.8eV Hence the potential energy of the electron in the given state is &minus; 6.8 eV. If the choice of the zero of potential energy is changed, then the value of potential energy of the system also changes and as we know the total energy is the sum of kinetic energy as well as potential energy. Therefore, the potential energy will also change.",
+    "solution": "Given: The total energy of an electron in the first excited state of the hydrogen atom is about &ndash;3.4 eV. The kinetic energy of the electron in this state = negative of the total energy = -E Kinetic energy of the electron in this state = -(-3.4)eV = + 3.4 eV Potential energy is given as the negative of the twice of the kinetic energy U = -2 {tex}\\times{/tex} (3.4) eV U = -6.8eV Hence the potential energy of the electron in the given state is &minus; 6.8 eV. If the choice of the zero of potential energy is changed, then the value of potential energy of the system also changes and as we know the total energy is the sum of kinetic energy as well as potential energy. Therefore, the potential energy will also change.",
+    "solution_html": "<ol start=\"1\" style=\"list-style-type: lower-alpha;\">\r\n\t<li>Given: The total energy of an electron in the first excited state of the hydrogen atom is about &ndash;3.4 eV.<br />\r\n\tThe kinetic energy of the electron in this state = negative of the total energy = -E<br />\r\n\tKinetic energy of the electron in this state = -(-3.4)eV = + 3.4 eV</li>\r\n\t<li>Potential energy is given as the negative of the twice of the kinetic energy U = -2 <span class=\"math-tex\">{tex}\\times{/tex}</span> (3.4) eV<br />\r\n\tU = -6.8eV<br />\r\n\tHence&nbsp;the potential energy of the electron in the given state is &minus; 6.8 eV.</li>\r\n\t<li>If the choice of the zero of potential energy is changed, then the value of potential energy of the system also changes and as we know the total energy is the sum of kinetic energy as well as potential energy. Therefore, the potential energy will also change.</li>\r\n</ol>",
+    "weightage": "SA-2 (Short answer type-2)"
+  },
+  {
+    "subject": "Physics",
+    "subject_id": "1251",
+    "chapter": "Atoms",
+    "chapter_id": 1263,
+    "question_id": 144249,
+    "question_html": "<p>Using Rutherford model of the atom, derive the expression for the total energy of the electron in hydrogen atom. What is the significance of total negative energy possessed by the electron?</p>\r\n",
+    "question_text": "Using Rutherford model of the atom, derive the expression for the total energy of the electron in hydrogen atom. What is the significance of total negative energy possessed by the electron?",
+    "options": [],
+    "correct_option_ids": [],
+    "correct_option_text": "",
+    "explanation": "The Rutherford nuclear model of the atom describes the atom as an electrically neutral sphere consisting of a very small, massive and positively charged nucleus at the centre surrounded by the revolving electrons in their respective dynamically stable orbits. The electrostatic force of attraction F, between the revolving electrons and the nucleus provides the requisite centripetal force (F c ) to keep them in their orbits. Thus, for a dynamically stable orbit in a hydrogen atom F c = F e {tex}\\frac { m v ^ { 2 } } { r } = \\frac { 1 } { 4 \\pi \\varepsilon _ { 0 } } \\cdot \\frac { e ^ { 2 } } { r ^ { 2 } }{/tex} [ Z = 1] Thus, the relation between the orbit radius and the electron velocity is {tex}r = \\frac { e ^ { 2 } } { 4 \\pi \\varepsilon _ { 0 } m v ^ { 2 } }{/tex} The kinetic energy (K) and electrostatic potential energy (U) of the electron in hydrogen atom are {tex}K = \\frac { 1 } { 2 } m v ^ { 2 } = \\frac { e ^ { 2 } } { 8 \\pi \\varepsilon _ { 0 } r }{/tex} and {tex}U = - \\frac { e ^ { 2 } } { 4 \\pi \\varepsilon _ { 0 } r }{/tex} (The negative sign in U signifies that the electrostatic force is attractive in nature.) Thus, the total mechanical energy E of the electron in a hydrogen atom is {tex}E = K + U = \\frac { e ^ { 2 } } { 8 \\pi \\varepsilon _ { 0 } r } - \\frac { e ^ { 2 } } { 4 \\pi \\varepsilon _ { 0 } r } = - \\frac { e ^ { 2 } } { 8 \\pi \\varepsilon _ { 0 } r }{/tex} The total energy of the electron is negative. This implies the fact that the electron is bound to the nucleus. If E were positive, an electron will not follow a dosed orbit around the nucleus and it would leave the atom.",
+    "solution": "The Rutherford nuclear model of the atom describes the atom as an electrically neutral sphere consisting of a very small, massive and positively charged nucleus at the centre surrounded by the revolving electrons in their respective dynamically stable orbits. The electrostatic force of attraction F, between the revolving electrons and the nucleus provides the requisite centripetal force (F c ) to keep them in their orbits. Thus, for a dynamically stable orbit in a hydrogen atom F c = F e {tex}\\frac { m v ^ { 2 } } { r } = \\frac { 1 } { 4 \\pi \\varepsilon _ { 0 } } \\cdot \\frac { e ^ { 2 } } { r ^ { 2 } }{/tex} [ Z = 1] Thus, the relation between the orbit radius and the electron velocity is {tex}r = \\frac { e ^ { 2 } } { 4 \\pi \\varepsilon _ { 0 } m v ^ { 2 } }{/tex} The kinetic energy (K) and electrostatic potential energy (U) of the electron in hydrogen atom are {tex}K = \\frac { 1 } { 2 } m v ^ { 2 } = \\frac { e ^ { 2 } } { 8 \\pi \\varepsilon _ { 0 } r }{/tex} and {tex}U = - \\frac { e ^ { 2 } } { 4 \\pi \\varepsilon _ { 0 } r }{/tex} (The negative sign in U signifies that the electrostatic force is attractive in nature.) Thus, the total mechanical energy E of the electron in a hydrogen atom is {tex}E = K + U = \\frac { e ^ { 2 } } { 8 \\pi \\varepsilon _ { 0 } r } - \\frac { e ^ { 2 } } { 4 \\pi \\varepsilon _ { 0 } r } = - \\frac { e ^ { 2 } } { 8 \\pi \\varepsilon _ { 0 } r }{/tex} The total energy of the electron is negative. This implies the fact that the electron is bound to the nucleus. If E were positive, an electron will not follow a dosed orbit around the nucleus and it would leave the atom.",
+    "solution_html": "<p>The Rutherford nuclear model of the atom describes the atom as an electrically neutral sphere consisting of a very small, massive and positively charged nucleus at the centre surrounded by the revolving electrons in their respective dynamically stable orbits. The electrostatic force of attraction F, between the revolving electrons and the nucleus provides the requisite centripetal force (F<sub>c</sub>) to keep them in their orbits. Thus, for a dynamically stable orbit in a hydrogen atom<br />\r\nF<sub>c</sub>&nbsp;= F<sub>e</sub><br />\r\n<span class=\"math-tex\">{tex}\\frac { m v ^ { 2 } } { r } = \\frac { 1 } { 4 \\pi \\varepsilon _ { 0 } } \\cdot \\frac { e ^ { 2 } } { r ^ { 2 } }{/tex}</span>&nbsp;[ Z = 1]<br />\r\nThus, the relation between the orbit radius and the electron velocity is<br />\r\n<span class=\"math-tex\">{tex}r = \\frac { e ^ { 2 } } { 4 \\pi \\varepsilon _ { 0 } m v ^ { 2 } }{/tex}</span><br />\r\nThe kinetic energy (K) and electrostatic potential energy (U) of the electron in hydrogen atom are<br />\r\n<span class=\"math-tex\">{tex}K = \\frac { 1 } { 2 } m v ^ { 2 } = \\frac { e ^ { 2 } } { 8 \\pi \\varepsilon _ { 0 } r }{/tex}</span><br />\r\nand&nbsp;<span class=\"math-tex\">{tex}U = - \\frac { e ^ { 2 } } { 4 \\pi \\varepsilon _ { 0 } r }{/tex}</span><br />\r\n(The negative sign in U signifies that the electrostatic force is attractive in nature.)<br />\r\nThus, the total mechanical energy E of the electron in a hydrogen atom is&nbsp;<br />\r\n<span class=\"math-tex\">{tex}E = K + U = \\frac { e ^ { 2 } } { 8 \\pi \\varepsilon _ { 0 } r } - \\frac { e ^ { 2 } } { 4 \\pi \\varepsilon _ { 0 } r } = - \\frac { e ^ { 2 } } { 8 \\pi \\varepsilon _ { 0 } r }{/tex}</span><br />\r\nThe total energy of the electron is negative. This implies the fact that the electron is bound to the nucleus. If E were positive, an electron will not follow a dosed orbit around the nucleus and it would leave the atom.</p>",
+    "weightage": "SA-2 (Short answer type-2)"
+  },
+  {
+    "subject": "Physics",
+    "subject_id": "1251",
+    "chapter": "Atoms",
+    "chapter_id": 1263,
+    "question_id": 67348,
+    "question_html": "<p>Hydrogen atom in its ground state is excited by means of monochromatic radiation of wavelength <span class=\"math-tex\">{tex}975\\mathop A\\limits^o {/tex}</span>.</p>\r\n\r\n<ol start=\"1\" style=\"list-style-type: lower-roman;\">\r\n\t<li>How many different lines are possible in the resulting spectrum?</li>\r\n\t<li>Calculate the longest wavelength amongst them. You may assume the ionization energy for hydrogen atom as 13.6 eV.</li>\r\n</ol>",
+    "question_text": "Hydrogen atom in its ground state is excited by means of monochromatic radiation of wavelength {tex}975\\mathop A\\limits^o {/tex} . How many different lines are possible in the resulting spectrum? Calculate the longest wavelength amongst them. You may assume the ionization energy for hydrogen atom as 13.6 eV.",
+    "options": [],
+    "correct_option_ids": [],
+    "correct_option_text": "",
+    "explanation": "Energy of the ground state (n = 1) = – (ionization energy) = –13.6 eV The wavelength of the incident radiation, {tex}\\lambda{/tex} = 975 {tex}\\mathop {\\text{A}}\\limits^{\\text{o}} {/tex} {tex}\\therefore{/tex} The energy of the incident photon = hc/ {tex}\\lambda{/tex} = {tex}\\frac{6.63 \\times 10^{-34} \\times 3 \\times 10^{8}}{975 \\times 10^{-10} \\times 1.6 \\times 10^{-19}}{/tex} = 12.75 eV Let electron is exerted to nth orbit, {tex}\\Rightarrow{/tex} 12.75 = 13.6 {tex}\\left(\\frac{1}{1^{2}}-\\frac{1}{n^{2}}\\right){/tex} {tex}\\Rightarrow{/tex} n = 4 The quantum transitions to the less excited states gives six possible lines as follows: n = 4 : (4 {tex}\\rightarrow{/tex} 3), (4 {tex}\\rightarrow{/tex} 2), (4 {tex}\\rightarrow{/tex} 1) n = 3 : (3 {tex}\\rightarrow{/tex} 2), (3 {tex}\\rightarrow{/tex} 1) n = 2 : (2 {tex}\\rightarrow{/tex} 1) The longest wavelength emitted is for the transitions (4 {tex}\\rightarrow{/tex} 3) where energy difference is minimum. E min = (E 4 - E 3 ) = 13.6 {tex}\\left(\\frac{1}{3^{2}}-\\frac{1}{4^{2}}\\right){/tex} = 0.661 eV Thus {tex}\\lambda_{\\max }=\\frac{h c}{\\mathrm{E}_{\\min }}{/tex} = {tex}\\frac{6.63 \\times 10^{-34} \\times 3 \\times 10^{8}}{0.661 \\times 1.6 \\times 10^{-19}} \\mathrm{m}{/tex} {tex}\\approx{/tex} 18807 {tex}\\mathop {\\text{A}}\\limits^{\\text{o}} {/tex}",
+    "solution": "Energy of the ground state (n = 1) = – (ionization energy) = –13.6 eV The wavelength of the incident radiation, {tex}\\lambda{/tex} = 975 {tex}\\mathop {\\text{A}}\\limits^{\\text{o}} {/tex} {tex}\\therefore{/tex} The energy of the incident photon = hc/ {tex}\\lambda{/tex} = {tex}\\frac{6.63 \\times 10^{-34} \\times 3 \\times 10^{8}}{975 \\times 10^{-10} \\times 1.6 \\times 10^{-19}}{/tex} = 12.75 eV Let electron is exerted to nth orbit, {tex}\\Rightarrow{/tex} 12.75 = 13.6 {tex}\\left(\\frac{1}{1^{2}}-\\frac{1}{n^{2}}\\right){/tex} {tex}\\Rightarrow{/tex} n = 4 The quantum transitions to the less excited states gives six possible lines as follows: n = 4 : (4 {tex}\\rightarrow{/tex} 3), (4 {tex}\\rightarrow{/tex} 2), (4 {tex}\\rightarrow{/tex} 1) n = 3 : (3 {tex}\\rightarrow{/tex} 2), (3 {tex}\\rightarrow{/tex} 1) n = 2 : (2 {tex}\\rightarrow{/tex} 1) The longest wavelength emitted is for the transitions (4 {tex}\\rightarrow{/tex} 3) where energy difference is minimum. E min = (E 4 - E 3 ) = 13.6 {tex}\\left(\\frac{1}{3^{2}}-\\frac{1}{4^{2}}\\right){/tex} = 0.661 eV Thus {tex}\\lambda_{\\max }=\\frac{h c}{\\mathrm{E}_{\\min }}{/tex} = {tex}\\frac{6.63 \\times 10^{-34} \\times 3 \\times 10^{8}}{0.661 \\times 1.6 \\times 10^{-19}} \\mathrm{m}{/tex} {tex}\\approx{/tex} 18807 {tex}\\mathop {\\text{A}}\\limits^{\\text{o}} {/tex}",
+    "solution_html": "<html><body><ol start=\"1\" style=\"list-style-type: lower-roman;\">\n<li>Energy of the ground state (n = 1) = – (ionization energy) = –13.6 eV<br/>\r\n\tThe wavelength of the incident radiation, <span class=\"math-tex\">{tex}\\lambda{/tex}</span> = 975 <span class=\"math-tex\">{tex}\\mathop {\\text{A}}\\limits^{\\text{o}} {/tex}</span><br/>\n<span class=\"math-tex\">{tex}\\therefore{/tex}</span> The energy of the incident photon = hc/<span class=\"math-tex\">{tex}\\lambda{/tex}</span> <br/>\r\n\t= <span class=\"math-tex\">{tex}\\frac{6.63 \\times 10^{-34} \\times 3 \\times 10^{8}}{975 \\times 10^{-10} \\times 1.6 \\times 10^{-19}}{/tex}</span> = 12.75 eV<br/>\r\n\tLet electron is exerted to nth orbit,<br/>\n<span class=\"math-tex\">{tex}\\Rightarrow{/tex}</span> 12.75 = 13.6 <span class=\"math-tex\">{tex}\\left(\\frac{1}{1^{2}}-\\frac{1}{n^{2}}\\right){/tex}</span><br/>\n<span class=\"math-tex\">{tex}\\Rightarrow{/tex}</span> n = 4<br/>\r\n\tThe quantum transitions to the less excited states gives six possible lines as follows:<br/>\r\n\tn = 4 : (4 <span class=\"math-tex\">{tex}\\rightarrow{/tex}</span> 3), (4 <span class=\"math-tex\">{tex}\\rightarrow{/tex}</span> 2), (4 <span class=\"math-tex\">{tex}\\rightarrow{/tex}</span> 1)<br/>\r\n\tn = 3 : (3 <span class=\"math-tex\">{tex}\\rightarrow{/tex}</span> 2), (3 <span class=\"math-tex\">{tex}\\rightarrow{/tex}</span> 1)<br/>\r\n\tn = 2 : (2 <span class=\"math-tex\">{tex}\\rightarrow{/tex}</span> 1)<br/>\n<img alt=\"\" data-imgur-src=\"2pdcJse.png\" src=\"https://media-mycbseguide.s3.amazonaws.com/images/imgur/2pdcJse.png\" style=\"width: 200px; height: 110px;\"/></li>\n<li>The longest wavelength emitted is for the transitions (4 <span class=\"math-tex\">{tex}\\rightarrow{/tex}</span> 3) where energy difference is minimum.<br/>\r\n\tE<sub>min</sub> = (E<sub>4</sub> - E<sub>3</sub>) = 13.6 <span class=\"math-tex\">{tex}\\left(\\frac{1}{3^{2}}-\\frac{1}{4^{2}}\\right){/tex}</span> = 0.661 eV<br/>\r\n\tThus <span class=\"math-tex\">{tex}\\lambda_{\\max }=\\frac{h c}{\\mathrm{E}_{\\min }}{/tex}</span><br/>\r\n\t= <span class=\"math-tex\">{tex}\\frac{6.63 \\times 10^{-34} \\times 3 \\times 10^{8}}{0.661 \\times 1.6 \\times 10^{-19}} \\mathrm{m}{/tex}</span><br/>\n<span class=\"math-tex\">{tex}\\approx{/tex}</span> 18807 <span class=\"math-tex\">{tex}\\mathop {\\text{A}}\\limits^{\\text{o}} {/tex}</span></li>\n</ol></body></html>",
+    "weightage": "SA-2 (Short answer type-2)"
+  },
+  {
+    "subject": "Physics",
+    "subject_id": "1251",
+    "chapter": "Atoms",
+    "chapter_id": 1263,
+    "question_id": 933282,
+    "question_html": "<p>Using Bohr&#39;s postulates, derive the expression for the orbital period of the electron moving in the nth orbit of the hydrogen atom.</p>",
+    "question_text": "Using Bohr&#39;s postulates, derive the expression for the orbital period of the electron moving in the nth orbit of the hydrogen atom.",
+    "options": [],
+    "correct_option_ids": [],
+    "correct_option_text": "",
+    "explanation": "Centripetal force = Electrostatic attraction {tex}\\frac{m v^{2}}{r}=\\frac{k e^{2}}{r^{2}}{/tex} m v 2 r = k e 2 ...(i) Bohr's quantization condition for angular momentum is {tex}m v r=\\frac{n h}{2 \\pi}{/tex} ...(ii) Dividing (i) by (ii), we get {tex}v=\\frac{2 \\pi k e^{2}}{n h}{/tex} {tex}T=\\frac{2 \\pi r}{v}=\\frac{2 \\pi m v r}{m v^{2}}=\\frac{2 \\pi\\left(\\frac{n h}{2 \\pi}\\right)}{m\\left(\\frac{2 \\pi k e^{2}}{n h}\\right)^{2}}{/tex} {tex}=\\frac{n^{3} h^{3}}{4 \\pi^{2} m k^{2} e^{4}} \\quad\\left[k=\\frac{1}{4 \\pi \\varepsilon_{0}}\\right]{/tex}",
+    "solution": "Centripetal force = Electrostatic attraction {tex}\\frac{m v^{2}}{r}=\\frac{k e^{2}}{r^{2}}{/tex} m v 2 r = k e 2 ...(i) Bohr's quantization condition for angular momentum is {tex}m v r=\\frac{n h}{2 \\pi}{/tex} ...(ii) Dividing (i) by (ii), we get {tex}v=\\frac{2 \\pi k e^{2}}{n h}{/tex} {tex}T=\\frac{2 \\pi r}{v}=\\frac{2 \\pi m v r}{m v^{2}}=\\frac{2 \\pi\\left(\\frac{n h}{2 \\pi}\\right)}{m\\left(\\frac{2 \\pi k e^{2}}{n h}\\right)^{2}}{/tex} {tex}=\\frac{n^{3} h^{3}}{4 \\pi^{2} m k^{2} e^{4}} \\quad\\left[k=\\frac{1}{4 \\pi \\varepsilon_{0}}\\right]{/tex}",
+    "solution_html": "<html><body><p>Centripetal force = Electrostatic attraction <span class=\"math-tex\">{tex}\\frac{m v^{2}}{r}=\\frac{k e^{2}}{r^{2}}{/tex}</span><br/>\r\nm v<sup>2</sup> r = k e<sup>2</sup> ...(i)<br/>\n<img alt=\"\" data-imgur-src=\"nfVb1tV.png\" src=\"https://media-mycbseguide.s3.amazonaws.com/images/imgur/1685082673-zdbpa2.jpg\"/><br/>\r\nBohr's quantization condition for angular momentum is<br/>\n<span class=\"math-tex\">{tex}m v r=\\frac{n h}{2 \\pi}{/tex}</span> ...(ii)<br/>\r\nDividing (i) by (ii), we get<br/>\n<span class=\"math-tex\">{tex}v=\\frac{2 \\pi k e^{2}}{n h}{/tex}</span><br/>\n<span class=\"math-tex\">{tex}T=\\frac{2 \\pi r}{v}=\\frac{2 \\pi m v r}{m v^{2}}=\\frac{2 \\pi\\left(\\frac{n h}{2 \\pi}\\right)}{m\\left(\\frac{2 \\pi k e^{2}}{n h}\\right)^{2}}{/tex}</span><br/>\n<span class=\"math-tex\">{tex}=\\frac{n^{3} h^{3}}{4 \\pi^{2} m k^{2} e^{4}} \\quad\\left[k=\\frac{1}{4 \\pi \\varepsilon_{0}}\\right]{/tex}</span></p></body></html>",
+    "weightage": "SA-2 (Short answer type-2)"
+  },
+  {
+    "subject": "Physics",
+    "subject_id": "1251",
+    "chapter": "Atoms",
+    "chapter_id": 1263,
+    "question_id": 152216,
+    "question_html": "<p>Using Bohr&#39;s postulates, derive the expression for the frequency of radiation emitted when electron in hydrogen atom undergoes transition from higher energy state (quantum number n<sub>i</sub>) to the lower state,(n<sub>f</sub>).<br />\r\nWhen electron in hydrogen atom jumps from energy state n<sub>i</sub>&nbsp;= 4 to n<sub>f</sub> = 3, 2, 1, identify the spectral series to which the emission lines belong.</p>",
+    "question_text": "Using Bohr&#39;s postulates, derive the expression for the frequency of radiation emitted when electron in hydrogen atom undergoes transition from higher energy state (quantum number n i ) to the lower state,(n f ). When electron in hydrogen atom jumps from energy state n i = 4 to n f = 3, 2, 1, identify the spectral series to which the emission lines belong.",
+    "options": [],
+    "correct_option_ids": [],
+    "correct_option_text": "",
+    "explanation": "Suppose m be the mass of an electron and v be its speed in nth orbit of radius r. The centripetal force for revolution is produced by electrostatic attraction between electron and nucleus. {tex}\\frac{m v^{2}}{r}=\\frac{1}{4 \\pi \\varepsilon_{0}} \\frac{(Z e)(e)}{r^{2}}{/tex} or, {tex}m v^{2}=\\frac{1}{4 \\pi \\varepsilon_{0}} \\frac{Z e^{2}}{r}{/tex} .....(i) So, Kinetic energy [K] = {tex}\\frac{1}{2} m v^{2}{/tex} K = {tex}\\frac{1}{4 \\pi \\varepsilon_{0}} \\frac{Z e^{2}}{2 r}{/tex} Potential energy = {tex}\\frac{1}{4 \\pi \\varepsilon_{0}} \\frac{(Z e)(-e)}{r}=-\\frac{1}{4 \\pi \\varepsilon_{0}} \\frac{Z e^{2}}{r}{/tex} Total energy, E = KE + PE = {tex}\\frac{1}{4 \\pi \\varepsilon_{0}} \\frac{Z e^{2}}{2 r}+\\left(-\\frac{1}{4 \\pi \\varepsilon_{0}} \\frac{Z e^{2}}{r}\\right){/tex} E = {tex}-\\frac{1}{4 \\pi \\varepsilon_{0}} \\frac{Z e^{2}}{2 r}{/tex} So, E n = {tex}-\\frac{1}{4 \\pi \\varepsilon_{0}} \\frac{Z e^{2}}{2 r_{n}}{/tex} ......(ii) Again from Bohr&#39;s postulate for quantization of angular momentum, velocity, v = {tex}\\frac{nh}{2\\pi mr}{/tex} Substituting this value of v in equation (i), we get m( {tex}\\frac{nh}{2\\pi mr}{/tex} ) 2 = {tex}\\frac{1}{4 \\pi \\varepsilon_{0}} \\frac{Z e^{2}}{r}{/tex} or, r = {tex}\\frac{\\varepsilon_{0} h^{2} n^{2}}{\\pi m Z e^{2}}{/tex} or r n = {tex}\\frac{\\varepsilon_{0} h^{2} n^{2}}{\\pi m Z e^{2}}{/tex} ....(iii) Substituting this value of r n in equation (ii), we get E n = {tex}-\\frac{1}{4 \\pi \\varepsilon_{0}}{/tex} {tex}\\frac{Z e^{2}}{2\\left(\\frac{\\varepsilon_{0} h^{2} n^{2}}{\\pi m Z e^{2}}\\right)}{/tex} = {tex}-\\frac{m Z^{2} e^{4}}{8 \\varepsilon_{0}^2 h^{2} n^{2}}{/tex} or, E n = {tex}-\\frac{Z^{2} R h c}{n^{2}}{/tex} , where R = {tex}\\frac{m e^{4}}{8 \\varepsilon_{0}^{2} c h^{3}}{/tex} where R is called Rydberg constant. For hydrogen atom, Z = 1, so E n = {tex}\\frac{-R c h}{n^{2}}{/tex} If n i and n f are the quantum numbers of initial and final states and E i & E f are energies of electron in H-atom in an initial and final state, we have E i = {tex}\\frac{-R h c}{n_{i}^{2}}{/tex} and {tex}E_{f}=\\frac{-R h c}{n_{f}^{2}}{/tex} If {tex}\\nu{/tex} is the frequency of emitted radiation, we get {tex}\\nu{/tex} = {tex}\\frac{E_{i}-E_{f}}{h}{/tex} {tex}\\nu{/tex} = {tex}\\frac{-R ch}{n_{i}^{2}}{/tex} - {tex}\\left(\\frac{-R ch}{n_{f}^{2}}\\right){/tex} = Rch {tex}\\left[\\frac{1}{n_{f}^{2}}-\\frac{1}{n_{i}^{2}}\\right]{/tex} = {tex}\\frac{m e^{4}}{8 \\varepsilon_{0}^{2} h^{2}}{/tex} {tex}\\left[\\frac{1}{n_{f}^{2}}-\\frac{1}{n_{i}^{2}}\\right]{/tex} This is the required expression. If electron jumps from n i = 4 to n f = 3, 2, 1, radiation belongs to Paschen, Balmer and Lyman series.",
+    "solution": "Suppose m be the mass of an electron and v be its speed in nth orbit of radius r. The centripetal force for revolution is produced by electrostatic attraction between electron and nucleus. {tex}\\frac{m v^{2}}{r}=\\frac{1}{4 \\pi \\varepsilon_{0}} \\frac{(Z e)(e)}{r^{2}}{/tex} or, {tex}m v^{2}=\\frac{1}{4 \\pi \\varepsilon_{0}} \\frac{Z e^{2}}{r}{/tex} .....(i) So, Kinetic energy [K] = {tex}\\frac{1}{2} m v^{2}{/tex} K = {tex}\\frac{1}{4 \\pi \\varepsilon_{0}} \\frac{Z e^{2}}{2 r}{/tex} Potential energy = {tex}\\frac{1}{4 \\pi \\varepsilon_{0}} \\frac{(Z e)(-e)}{r}=-\\frac{1}{4 \\pi \\varepsilon_{0}} \\frac{Z e^{2}}{r}{/tex} Total energy, E = KE + PE = {tex}\\frac{1}{4 \\pi \\varepsilon_{0}} \\frac{Z e^{2}}{2 r}+\\left(-\\frac{1}{4 \\pi \\varepsilon_{0}} \\frac{Z e^{2}}{r}\\right){/tex} E = {tex}-\\frac{1}{4 \\pi \\varepsilon_{0}} \\frac{Z e^{2}}{2 r}{/tex} So, E n = {tex}-\\frac{1}{4 \\pi \\varepsilon_{0}} \\frac{Z e^{2}}{2 r_{n}}{/tex} ......(ii) Again from Bohr&#39;s postulate for quantization of angular momentum, velocity, v = {tex}\\frac{nh}{2\\pi mr}{/tex} Substituting this value of v in equation (i), we get m( {tex}\\frac{nh}{2\\pi mr}{/tex} ) 2 = {tex}\\frac{1}{4 \\pi \\varepsilon_{0}} \\frac{Z e^{2}}{r}{/tex} or, r = {tex}\\frac{\\varepsilon_{0} h^{2} n^{2}}{\\pi m Z e^{2}}{/tex} or r n = {tex}\\frac{\\varepsilon_{0} h^{2} n^{2}}{\\pi m Z e^{2}}{/tex} ....(iii) Substituting this value of r n in equation (ii), we get E n = {tex}-\\frac{1}{4 \\pi \\varepsilon_{0}}{/tex} {tex}\\frac{Z e^{2}}{2\\left(\\frac{\\varepsilon_{0} h^{2} n^{2}}{\\pi m Z e^{2}}\\right)}{/tex} = {tex}-\\frac{m Z^{2} e^{4}}{8 \\varepsilon_{0}^2 h^{2} n^{2}}{/tex} or, E n = {tex}-\\frac{Z^{2} R h c}{n^{2}}{/tex} , where R = {tex}\\frac{m e^{4}}{8 \\varepsilon_{0}^{2} c h^{3}}{/tex} where R is called Rydberg constant. For hydrogen atom, Z = 1, so E n = {tex}\\frac{-R c h}{n^{2}}{/tex} If n i and n f are the quantum numbers of initial and final states and E i & E f are energies of electron in H-atom in an initial and final state, we have E i = {tex}\\frac{-R h c}{n_{i}^{2}}{/tex} and {tex}E_{f}=\\frac{-R h c}{n_{f}^{2}}{/tex} If {tex}\\nu{/tex} is the frequency of emitted radiation, we get {tex}\\nu{/tex} = {tex}\\frac{E_{i}-E_{f}}{h}{/tex} {tex}\\nu{/tex} = {tex}\\frac{-R ch}{n_{i}^{2}}{/tex} - {tex}\\left(\\frac{-R ch}{n_{f}^{2}}\\right){/tex} = Rch {tex}\\left[\\frac{1}{n_{f}^{2}}-\\frac{1}{n_{i}^{2}}\\right]{/tex} = {tex}\\frac{m e^{4}}{8 \\varepsilon_{0}^{2} h^{2}}{/tex} {tex}\\left[\\frac{1}{n_{f}^{2}}-\\frac{1}{n_{i}^{2}}\\right]{/tex} This is the required expression. If electron jumps from n i = 4 to n f = 3, 2, 1, radiation belongs to Paschen, Balmer and Lyman series.",
+    "solution_html": "<p>Suppose m be the mass of an electron and v be its speed in nth orbit of radius r. The centripetal force for revolution is produced by electrostatic attraction between electron and nucleus.<br />\r\n<span class=\"math-tex\">{tex}\\frac{m v^{2}}{r}=\\frac{1}{4 \\pi \\varepsilon_{0}} \\frac{(Z e)(e)}{r^{2}}{/tex}</span>&nbsp;<br />\r\nor,&nbsp;<span class=\"math-tex\">{tex}m v^{2}=\\frac{1}{4 \\pi \\varepsilon_{0}} \\frac{Z e^{2}}{r}{/tex}</span>&nbsp;.....(i)<br />\r\nSo, Kinetic energy [K] =&nbsp;<span class=\"math-tex\">{tex}\\frac{1}{2} m v^{2}{/tex}</span><br />\r\nK =&nbsp;<span class=\"math-tex\">{tex}\\frac{1}{4 \\pi \\varepsilon_{0}} \\frac{Z e^{2}}{2 r}{/tex}</span><br />\r\nPotential energy =&nbsp;<span class=\"math-tex\">{tex}\\frac{1}{4 \\pi \\varepsilon_{0}} \\frac{(Z e)(-e)}{r}=-\\frac{1}{4 \\pi \\varepsilon_{0}} \\frac{Z e^{2}}{r}{/tex}</span><br />\r\nTotal energy,&nbsp;<br />\r\nE = KE + PE =&nbsp;<span class=\"math-tex\">{tex}\\frac{1}{4 \\pi \\varepsilon_{0}} \\frac{Z e^{2}}{2 r}+\\left(-\\frac{1}{4 \\pi \\varepsilon_{0}} \\frac{Z e^{2}}{r}\\right){/tex}</span><br />\r\nE =&nbsp;<span class=\"math-tex\">{tex}-\\frac{1}{4 \\pi \\varepsilon_{0}} \\frac{Z e^{2}}{2 r}{/tex}</span><br />\r\nSo, E<sub>n</sub> =&nbsp;<span class=\"math-tex\">{tex}-\\frac{1}{4 \\pi \\varepsilon_{0}} \\frac{Z e^{2}}{2 r_{n}}{/tex}</span>&nbsp;......(ii)<br />\r\nAgain from Bohr&#39;s postulate for quantization of angular momentum,<br />\r\nvelocity, v =&nbsp;<span class=\"math-tex\">{tex}\\frac{nh}{2\\pi mr}{/tex}</span><br />\r\nSubstituting this value of v in equation (i), we get<br />\r\nm(<span class=\"math-tex\">{tex}\\frac{nh}{2\\pi mr}{/tex}</span>)<sup>2</sup>&nbsp;=&nbsp;<span class=\"math-tex\">{tex}\\frac{1}{4 \\pi \\varepsilon_{0}} \\frac{Z e^{2}}{r}{/tex}</span><br />\r\nor, r =&nbsp;<span class=\"math-tex\">{tex}\\frac{\\varepsilon_{0} h^{2} n^{2}}{\\pi m Z e^{2}}{/tex}</span>&nbsp;or r<sub>n</sub> =&nbsp;<span class=\"math-tex\">{tex}\\frac{\\varepsilon_{0} h^{2} n^{2}}{\\pi m Z e^{2}}{/tex}</span>&nbsp;....(iii)<br />\r\nSubstituting this value of r<sub>n</sub> in equation (ii), we get<br />\r\nE<sub>n</sub> =&nbsp;<span class=\"math-tex\">{tex}-\\frac{1}{4 \\pi \\varepsilon_{0}}{/tex}</span>&nbsp;<span class=\"math-tex\">{tex}\\frac{Z e^{2}}{2\\left(\\frac{\\varepsilon_{0} h^{2} n^{2}}{\\pi m Z e^{2}}\\right)}{/tex}</span>&nbsp;=&nbsp;<span class=\"math-tex\">{tex}-\\frac{m Z^{2} e^{4}}{8 \\varepsilon_{0}^2 h^{2} n^{2}}{/tex}</span><br />\r\nor, E<sub>n</sub> =&nbsp;<span class=\"math-tex\">{tex}-\\frac{Z^{2} R h c}{n^{2}}{/tex}</span>, where R =&nbsp;<span class=\"math-tex\">{tex}\\frac{m e^{4}}{8 \\varepsilon_{0}^{2} c h^{3}}{/tex}</span><br />\r\nwhere R is called Rydberg constant.<br />\r\nFor hydrogen atom, Z = 1, so<br />\r\nE<sub>n</sub> =&nbsp;<span class=\"math-tex\">{tex}\\frac{-R c h}{n^{2}}{/tex}</span><br />\r\nIf n<sub>i</sub> and n<sub>f</sub>&nbsp;are the quantum numbers of initial and final states and E<sub>i</sub> &amp; E<sub>f</sub> are energies of electron in H-atom in an initial and final state, we have<br />\r\nE<sub>i</sub> =&nbsp;<span class=\"math-tex\">{tex}\\frac{-R h c}{n_{i}^{2}}{/tex}</span>&nbsp;and&nbsp;<span class=\"math-tex\">{tex}E_{f}=\\frac{-R h c}{n_{f}^{2}}{/tex}</span><br />\r\nIf <span class=\"math-tex\">{tex}\\nu{/tex}</span>&nbsp;is the frequency of emitted radiation,&nbsp;we get<br />\r\n<span class=\"math-tex\">{tex}\\nu{/tex}</span>&nbsp;=&nbsp;<span class=\"math-tex\">{tex}\\frac{E_{i}-E_{f}}{h}{/tex}</span><br />\r\n<span class=\"math-tex\">{tex}\\nu{/tex}</span>&nbsp;=&nbsp;<span class=\"math-tex\">{tex}\\frac{-R ch}{n_{i}^{2}}{/tex}</span>&nbsp;-&nbsp;<span class=\"math-tex\">{tex}\\left(\\frac{-R ch}{n_{f}^{2}}\\right){/tex}</span>&nbsp;= Rch<span class=\"math-tex\">{tex}\\left[\\frac{1}{n_{f}^{2}}-\\frac{1}{n_{i}^{2}}\\right]{/tex}</span>&nbsp;=&nbsp;<span class=\"math-tex\">{tex}\\frac{m e^{4}}{8 \\varepsilon_{0}^{2} h^{2}}{/tex}</span><span class=\"math-tex\">{tex}\\left[\\frac{1}{n_{f}^{2}}-\\frac{1}{n_{i}^{2}}\\right]{/tex}</span><br />\r\nThis is the required expression.<br />\r\nIf electron jumps from n<sub>i</sub> = 4 to n<sub>f&nbsp;</sub>= 3, 2, 1, radiation belongs to Paschen, Balmer and Lyman series.</p>",
+    "weightage": "LA-1 (Long answer type-1)"
+  },
+  {
+    "subject": "Physics",
+    "subject_id": "1251",
+    "chapter": "Atoms",
+    "chapter_id": 1263,
+    "question_id": 490161,
+    "question_html": "<ol start=\"1\" style=\"list-style-type: lower-roman;\">\r\n\t<li>Using Bohr&#39;s postulates, derive the expression for the total energy of the electron in the stationary states of the hydrogen atom.&nbsp;</li>\r\n\t<li>Using Rydberg formula, calculate the wavelengths of the spectral lines of the first member of the Lyman series and of the Balmer series.</li>\r\n</ol>",
+    "question_text": "Using Bohr&#39;s postulates, derive the expression for the total energy of the electron in the stationary states of the hydrogen atom. Using Rydberg formula, calculate the wavelengths of the spectral lines of the first member of the Lyman series and of the Balmer series.",
+    "options": [],
+    "correct_option_ids": [],
+    "correct_option_text": "",
+    "explanation": "{tex}m v r=\\frac{n h}{2 \\pi}{/tex} {tex}\\frac{m v^{2}}{r}=\\frac{1}{4 \\pi \\varepsilon_{0}} \\frac{e^{2}}{r^{2}}{/tex} {tex}r={{4 \\pi \\varepsilon_{0} m v^{2}}\\over e^2}{/tex} {tex}r={{4 \\pi \\varepsilon_{0} m\\left(\\frac{n h}{2 \\pi m r}\\right)^{2}}\\over e^2}{/tex} {tex}\\Rightarrow \\quad r=\\frac{\\varepsilon_{0} n^{2} h^{2}}{\\pi m e^{2}}{/tex} Potential energy, U = {tex}-\\frac{1}{4 \\pi \\varepsilon_{0}} \\cdot \\frac{e^{2}}{r}{/tex} {tex}=-\\frac{m e^{4}}{4 \\varepsilon_{0} n^{2} h^{2}}{/tex} {tex}K{. E .}=\\frac{1}{2} m v^{2}=\\frac{1}{2} m\\left(\\frac{n h}{2 \\pi m r}\\right)^{2}{/tex} {tex}=\\frac{n^{2} h^{2} \\pi^{2} m^{2} e^{4}}{8 \\pi^{2} m e_{0}^{2} n^{4} h^{4}}{/tex} K.E. = {tex}\\frac{m e^{4}}{8 \\varepsilon_{0}^{2} n^{2} h^{2}}{/tex} total energy = Kinetic energy + Potential energy {tex}=-\\frac{m e^{4}}{8 \\varepsilon_{0}^{2} n^{2} h^{2}}{/tex} Rydberg formula: For first member of Lyman series {tex}\\frac{1}{\\lambda}=R\\left(\\frac{1}{1^{2}}-\\frac{1}{2^{2}}\\right){/tex} {tex}\\lambda=\\frac{4}{3 R}=\\frac{4}{3} \\times 912 \\overset oA{/tex} = 1216 {tex}\\overset oA{/tex} For first member of Balmer Series {tex}\\frac{1}{\\lambda}=R\\left(\\frac{1}{2^{2}}-\\frac{1}{3^{2}}\\right){/tex} {tex}\\lambda=\\frac{36}{5 R}{/tex} {tex}=\\frac{36}{5} \\times 912 \\overset oA{/tex} = 6566.4 {tex}\\overset oA{/tex}",
+    "solution": "{tex}m v r=\\frac{n h}{2 \\pi}{/tex} {tex}\\frac{m v^{2}}{r}=\\frac{1}{4 \\pi \\varepsilon_{0}} \\frac{e^{2}}{r^{2}}{/tex} {tex}r={{4 \\pi \\varepsilon_{0} m v^{2}}\\over e^2}{/tex} {tex}r={{4 \\pi \\varepsilon_{0} m\\left(\\frac{n h}{2 \\pi m r}\\right)^{2}}\\over e^2}{/tex} {tex}\\Rightarrow \\quad r=\\frac{\\varepsilon_{0} n^{2} h^{2}}{\\pi m e^{2}}{/tex} Potential energy, U = {tex}-\\frac{1}{4 \\pi \\varepsilon_{0}} \\cdot \\frac{e^{2}}{r}{/tex} {tex}=-\\frac{m e^{4}}{4 \\varepsilon_{0} n^{2} h^{2}}{/tex} {tex}K{. E .}=\\frac{1}{2} m v^{2}=\\frac{1}{2} m\\left(\\frac{n h}{2 \\pi m r}\\right)^{2}{/tex} {tex}=\\frac{n^{2} h^{2} \\pi^{2} m^{2} e^{4}}{8 \\pi^{2} m e_{0}^{2} n^{4} h^{4}}{/tex} K.E. = {tex}\\frac{m e^{4}}{8 \\varepsilon_{0}^{2} n^{2} h^{2}}{/tex} total energy = Kinetic energy + Potential energy {tex}=-\\frac{m e^{4}}{8 \\varepsilon_{0}^{2} n^{2} h^{2}}{/tex} Rydberg formula: For first member of Lyman series {tex}\\frac{1}{\\lambda}=R\\left(\\frac{1}{1^{2}}-\\frac{1}{2^{2}}\\right){/tex} {tex}\\lambda=\\frac{4}{3 R}=\\frac{4}{3} \\times 912 \\overset oA{/tex} = 1216 {tex}\\overset oA{/tex} For first member of Balmer Series {tex}\\frac{1}{\\lambda}=R\\left(\\frac{1}{2^{2}}-\\frac{1}{3^{2}}\\right){/tex} {tex}\\lambda=\\frac{36}{5 R}{/tex} {tex}=\\frac{36}{5} \\times 912 \\overset oA{/tex} = 6566.4 {tex}\\overset oA{/tex}",
+    "solution_html": "<ol start=\"1\" style=\"list-style-type: lower-roman;\">\r\n\t<li><span class=\"math-tex\">{tex}m v r=\\frac{n h}{2 \\pi}{/tex}</span><br />\r\n\t<span class=\"math-tex\">{tex}\\frac{m v^{2}}{r}=\\frac{1}{4 \\pi \\varepsilon_{0}} \\frac{e^{2}}{r^{2}}{/tex}</span><br />\r\n\t<span class=\"math-tex\">{tex}r={{4 \\pi \\varepsilon_{0} m v^{2}}\\over e^2}{/tex}</span><br />\r\n\t<span class=\"math-tex\">{tex}r={{4 \\pi \\varepsilon_{0} m\\left(\\frac{n h}{2 \\pi m r}\\right)^{2}}\\over e^2}{/tex}</span><br />\r\n\t<span class=\"math-tex\">{tex}\\Rightarrow \\quad r=\\frac{\\varepsilon_{0} n^{2} h^{2}}{\\pi m e^{2}}{/tex}</span><br />\r\n\tPotential energy, U =&nbsp;<span class=\"math-tex\">{tex}-\\frac{1}{4 \\pi \\varepsilon_{0}} \\cdot \\frac{e^{2}}{r}{/tex}</span><br />\r\n\t<span class=\"math-tex\">{tex}=-\\frac{m e^{4}}{4 \\varepsilon_{0} n^{2} h^{2}}{/tex}</span><br />\r\n\t<span class=\"math-tex\">{tex}K{. E .}=\\frac{1}{2} m v^{2}=\\frac{1}{2} m\\left(\\frac{n h}{2 \\pi m r}\\right)^{2}{/tex}</span><br />\r\n\t<span class=\"math-tex\">{tex}=\\frac{n^{2} h^{2} \\pi^{2} m^{2} e^{4}}{8 \\pi^{2} m e_{0}^{2} n^{4} h^{4}}{/tex}</span><br />\r\n\tK.E. =&nbsp;<span class=\"math-tex\">{tex}\\frac{m e^{4}}{8 \\varepsilon_{0}^{2} n^{2} h^{2}}{/tex}</span><br />\r\n\ttotal energy = Kinetic energy &nbsp;+ Potential energy&nbsp;<br />\r\n\t<span class=\"math-tex\">{tex}=-\\frac{m e^{4}}{8 \\varepsilon_{0}^{2} n^{2} h^{2}}{/tex}</span></li>\r\n\t<li><strong>Rydberg formula:&nbsp;</strong>For first member of Lyman&nbsp;series<br />\r\n\t<span class=\"math-tex\">{tex}\\frac{1}{\\lambda}=R\\left(\\frac{1}{1^{2}}-\\frac{1}{2^{2}}\\right){/tex}</span><br />\r\n\t<span class=\"math-tex\">{tex}\\lambda=\\frac{4}{3 R}=\\frac{4}{3} \\times 912 \\overset oA{/tex}</span><br />\r\n\t= 1216&nbsp;<span class=\"math-tex\">{tex}\\overset oA{/tex}</span><br />\r\n\tFor first member of Balmer Series<br />\r\n\t<span class=\"math-tex\">{tex}\\frac{1}{\\lambda}=R\\left(\\frac{1}{2^{2}}-\\frac{1}{3^{2}}\\right){/tex}</span><br />\r\n\t<span class=\"math-tex\">{tex}\\lambda=\\frac{36}{5 R}{/tex}</span><br />\r\n\t<span class=\"math-tex\">{tex}=\\frac{36}{5} \\times 912 \\overset oA{/tex}</span><br />\r\n\t= 6566.4&nbsp;<span class=\"math-tex\">{tex}\\overset oA{/tex}</span></li>\r\n</ol>",
+    "weightage": "LA-1 (Long answer type-1)"
+  },
+  {
+    "subject": "Physics",
+    "subject_id": "1251",
+    "chapter": "Atoms",
+    "chapter_id": 1263,
+    "question_id": 158835,
+    "question_html": "<p>Using postulates of Bohr&#39;s theory of hydrogen atom, show that (i) radii of orbits increases as n<sup>2</sup> and (ii) the total energy of electron increases as&nbsp;<span class=\"math-tex\">{tex} \\frac{1}{n^2}{/tex}</span>, where n is the principal&nbsp;quantum number of the atom.</p>",
+    "question_text": "Using postulates of Bohr&#39;s theory of hydrogen atom, show that (i) radii of orbits increases as n 2 and (ii) the total energy of electron increases as {tex} \\frac{1}{n^2}{/tex} , where n is the principal quantum number of the atom.",
+    "options": [],
+    "correct_option_ids": [],
+    "correct_option_text": "",
+    "explanation": "In an nucleus we know that the centripetal force is provided by the electrostatic force of attraction, therefore, {tex}\\frac { m v ^ { 2 } } { r } = \\frac { 1 } { 4 \\pi \\varepsilon _ { 0 } } \\cdot \\frac { ( Z e ) \\times e } { r ^ { 2 } } \\text { or } m v ^ { 2 } = \\frac { Z e ^ { 2 } } { 4 \\pi \\varepsilon _ { 0 } r }{/tex} ...................(i) From the first postulate of Bohr&#39;s atomic model, the angular momentum of the electron is {tex}m v r = n \\frac { h } { 2 \\pi }{/tex} .............(ii) From Eqs. (i) and (ii), we get {tex}r = n ^ { 2 } \\frac { h ^ { 2 } \\varepsilon _ { 0 } } { \\pi m Z e ^ { 2 } }{/tex} ...........(iii) This is the equation for the radii of the permitted orbits. According to this equation, {tex}r _ { n } \\propto n ^ { 2 }{/tex} Force acting on electron due to nucleus is, {tex}F = Z e ^ { 2 } / 4 \\pi \\varepsilon _ { 0 } r ^ { 2 }{/tex} The acceleration of electron = v 2 /r (towards the centre) From Newton&#39;s second law, {tex}F = m \\left( v ^ { 2 } / r \\right) \\Rightarrow \\frac { z e ^ { 2 } } { 4 \\pi \\varepsilon _ { 0 } r ^ { 2 } } = m \\left( \\frac { v ^ { 2 } } { r } \\right){/tex} {tex}\\Rightarrow \\quad r = Z e ^ { 2 } / 4 \\pi \\varepsilon _ { 0 } m v ^ { 2 }{/tex} ................(i) From Bohr&#39;s quantisation rules, {tex}m v r = n \\frac { h } { 2 \\pi }{/tex} ..........(ii) Substituting the value of r from Eq (i), we get {tex}m v \\frac { Z e ^ { 2 } } { 4 \\pi \\varepsilon _ { 0 } \\left( m v ^ { 2 } \\right) } = n \\frac { h } { 2 \\pi } \\Rightarrow v = Z e ^ { 2 } / 2 \\varepsilon _ { 0 } h n{/tex} ..........(iii) So, kinetic energy, {tex}K = \\frac { 1 } { 2 } m v ^ { 2 } = \\frac { Z ^ { 2 } e ^ { 4 } } { 8 \\varepsilon _ { 0 } ^ { 2 } h ^ { 2 } n ^ { 2 } }{/tex} ............(iv) Potential energy of the atom, U {tex}= - \\frac { Z e ^ { 2 } } { 4 \\pi \\varepsilon _ { 0 } r }{/tex} ...........(v) Using value of r from (iii) in Eq. (v), we get {tex}U = \\frac { - Z e ^ { 2 } } { 4 \\pi \\varepsilon _ { 0 } \\left( \\varepsilon _ { 0 } h ^ { 2 } n ^ { 2 } / \\pi m Z e ^ { 2 } \\right) } = \\frac { - Z ^ { 2 } e ^ { 4 } m } { 4 \\varepsilon _ { 0 } ^ { 2 } h ^ { 2 } n ^ { 2 } }{/tex} The total energy in n th energy level of hydrogen atom is given by: {tex}E = K + U = + \\frac { m Z ^ { 2 } e ^ { 4 } } { 8 \\varepsilon _ { 0 } ^ { 2 } h ^ { 2 } n ^ { 2 } } - \\frac { m Z ^ { 2 } e ^ { 4 } } { 4 \\varepsilon _ { 0 } ^ { 2 } h ^ { 2 } n ^ { 2 } } = - \\frac { Z ^ { 2 } e ^ { 4 } m } { 8 \\varepsilon _ { 0 } ^ { 2 } h ^ { 2 } n ^ { 2 } }{/tex} i.e total energy of electron varies as {tex}\\frac { 1 } { n ^ { 2 } }{/tex} .",
+    "solution": "In an nucleus we know that the centripetal force is provided by the electrostatic force of attraction, therefore, {tex}\\frac { m v ^ { 2 } } { r } = \\frac { 1 } { 4 \\pi \\varepsilon _ { 0 } } \\cdot \\frac { ( Z e ) \\times e } { r ^ { 2 } } \\text { or } m v ^ { 2 } = \\frac { Z e ^ { 2 } } { 4 \\pi \\varepsilon _ { 0 } r }{/tex} ...................(i) From the first postulate of Bohr&#39;s atomic model, the angular momentum of the electron is {tex}m v r = n \\frac { h } { 2 \\pi }{/tex} .............(ii) From Eqs. (i) and (ii), we get {tex}r = n ^ { 2 } \\frac { h ^ { 2 } \\varepsilon _ { 0 } } { \\pi m Z e ^ { 2 } }{/tex} ...........(iii) This is the equation for the radii of the permitted orbits. According to this equation, {tex}r _ { n } \\propto n ^ { 2 }{/tex} Force acting on electron due to nucleus is, {tex}F = Z e ^ { 2 } / 4 \\pi \\varepsilon _ { 0 } r ^ { 2 }{/tex} The acceleration of electron = v 2 /r (towards the centre) From Newton&#39;s second law, {tex}F = m \\left( v ^ { 2 } / r \\right) \\Rightarrow \\frac { z e ^ { 2 } } { 4 \\pi \\varepsilon _ { 0 } r ^ { 2 } } = m \\left( \\frac { v ^ { 2 } } { r } \\right){/tex} {tex}\\Rightarrow \\quad r = Z e ^ { 2 } / 4 \\pi \\varepsilon _ { 0 } m v ^ { 2 }{/tex} ................(i) From Bohr&#39;s quantisation rules, {tex}m v r = n \\frac { h } { 2 \\pi }{/tex} ..........(ii) Substituting the value of r from Eq (i), we get {tex}m v \\frac { Z e ^ { 2 } } { 4 \\pi \\varepsilon _ { 0 } \\left( m v ^ { 2 } \\right) } = n \\frac { h } { 2 \\pi } \\Rightarrow v = Z e ^ { 2 } / 2 \\varepsilon _ { 0 } h n{/tex} ..........(iii) So, kinetic energy, {tex}K = \\frac { 1 } { 2 } m v ^ { 2 } = \\frac { Z ^ { 2 } e ^ { 4 } } { 8 \\varepsilon _ { 0 } ^ { 2 } h ^ { 2 } n ^ { 2 } }{/tex} ............(iv) Potential energy of the atom, U {tex}= - \\frac { Z e ^ { 2 } } { 4 \\pi \\varepsilon _ { 0 } r }{/tex} ...........(v) Using value of r from (iii) in Eq. (v), we get {tex}U = \\frac { - Z e ^ { 2 } } { 4 \\pi \\varepsilon _ { 0 } \\left( \\varepsilon _ { 0 } h ^ { 2 } n ^ { 2 } / \\pi m Z e ^ { 2 } \\right) } = \\frac { - Z ^ { 2 } e ^ { 4 } m } { 4 \\varepsilon _ { 0 } ^ { 2 } h ^ { 2 } n ^ { 2 } }{/tex} The total energy in n th energy level of hydrogen atom is given by: {tex}E = K + U = + \\frac { m Z ^ { 2 } e ^ { 4 } } { 8 \\varepsilon _ { 0 } ^ { 2 } h ^ { 2 } n ^ { 2 } } - \\frac { m Z ^ { 2 } e ^ { 4 } } { 4 \\varepsilon _ { 0 } ^ { 2 } h ^ { 2 } n ^ { 2 } } = - \\frac { Z ^ { 2 } e ^ { 4 } m } { 8 \\varepsilon _ { 0 } ^ { 2 } h ^ { 2 } n ^ { 2 } }{/tex} i.e total energy of electron varies as {tex}\\frac { 1 } { n ^ { 2 } }{/tex} .",
+    "solution_html": "<ol start=\"1\" style=\"list-style-type: lower-roman;\">\n\t<li>In an nucleus we know that the centripetal force is provided by the electrostatic force of attraction, therefore,&nbsp;<span class=\"math-tex\">{tex}\\frac { m v ^ { 2 } } { r } = \\frac { 1 } { 4 \\pi \\varepsilon _ { 0 } } \\cdot \\frac { ( Z e ) \\times e } { r ^ { 2 } } \\text { or } m v ^ { 2 } = \\frac { Z e ^ { 2 } } { 4 \\pi \\varepsilon _ { 0 } r }{/tex}</span>&nbsp;...................(i)<br />\n\tFrom the first postulate of Bohr&#39;s atomic model, the angular momentum of the electron is<br />\n\t<span class=\"math-tex\">{tex}m v r = n \\frac { h } { 2 \\pi }{/tex}</span>.............(ii)<br />\n\tFrom Eqs. (i) and (ii), we get<br />\n\t<span class=\"math-tex\">{tex}r = n ^ { 2 } \\frac { h ^ { 2 } \\varepsilon _ { 0 } } { \\pi m Z e ^ { 2 } }{/tex}</span> ...........(iii)<br />\n\tThis is the equation for the radii of the permitted orbits.<br />\n\tAccording to this equation,&nbsp;<span class=\"math-tex\">{tex}r _ { n } \\propto n ^ { 2 }{/tex}</span></li>\n\t<li>Force acting on electron due to nucleus is,&nbsp;<span class=\"math-tex\">{tex}F = Z e ^ { 2 } / 4 \\pi \\varepsilon _ { 0 } r ^ { 2 }{/tex}</span><br />\n\tThe acceleration of electron = v<sup>2</sup>/r (towards the centre)<br />\n\tFrom Newton&#39;s second law,<br />\n\t<span class=\"math-tex\">{tex}F = m \\left( v ^ { 2 } / r \\right) \\Rightarrow \\frac { z e ^ { 2 } } { 4 \\pi \\varepsilon _ { 0 } r ^ { 2 } } = m \\left( \\frac { v ^ { 2 } } { r } \\right){/tex}</span><br />\n\t<span class=\"math-tex\">{tex}\\Rightarrow \\quad r = Z e ^ { 2 } / 4 \\pi \\varepsilon _ { 0 } m v ^ { 2 }{/tex}</span>................(i)<br />\n\tFrom Bohr&#39;s quantisation rules,<br />\n\t<span class=\"math-tex\">{tex}m v r = n \\frac { h } { 2 \\pi }{/tex}</span>..........(ii)<br />\n\tSubstituting the value of r from Eq (i), we get<br />\n\t<span class=\"math-tex\">{tex}m v \\frac { Z e ^ { 2 } } { 4 \\pi \\varepsilon _ { 0 } \\left( m v ^ { 2 } \\right) } = n \\frac { h } { 2 \\pi } \\Rightarrow v = Z e ^ { 2 } / 2 \\varepsilon _ { 0 } h n{/tex}</span>..........(iii)<br />\n\tSo, kinetic energy,&nbsp;<span class=\"math-tex\">{tex}K = \\frac { 1 } { 2 } m v ^ { 2 } = \\frac { Z ^ { 2 } e ^ { 4 } } { 8 \\varepsilon _ { 0 } ^ { 2 } h ^ { 2 } n ^ { 2 } }{/tex}</span> ............(iv)<br />\n\tPotential energy of the atom, U&nbsp;<span class=\"math-tex\">{tex}= - \\frac { Z e ^ { 2 } } { 4 \\pi \\varepsilon _ { 0 } r }{/tex}</span> ...........(v)<br />\n\tUsing value of r from (iii) in Eq. (v), we get<br />\n\t<span class=\"math-tex\">{tex}U = \\frac { - Z e ^ { 2 } } { 4 \\pi \\varepsilon _ { 0 } \\left( \\varepsilon _ { 0 } h ^ { 2 } n ^ { 2 } / \\pi m Z e ^ { 2 } \\right) } = \\frac { - Z ^ { 2 } e ^ { 4 } m } { 4 \\varepsilon _ { 0 } ^ { 2 } h ^ { 2 } n ^ { 2 } }{/tex}</span><br />\n\tThe total energy in n<sup>th</sup>&nbsp;energy level of hydrogen atom is given by:<br />\n\t<span class=\"math-tex\">{tex}E = K + U = + \\frac { m Z ^ { 2 } e ^ { 4 } } { 8 \\varepsilon _ { 0 } ^ { 2 } h ^ { 2 } n ^ { 2 } } - \\frac { m Z ^ { 2 } e ^ { 4 } } { 4 \\varepsilon _ { 0 } ^ { 2 } h ^ { 2 } n ^ { 2 } } = - \\frac { Z ^ { 2 } e ^ { 4 } m } { 8 \\varepsilon _ { 0 } ^ { 2 } h ^ { 2 } n ^ { 2 } }{/tex}</span><br />\n\ti.e total energy of electron varies&nbsp;as&nbsp;<span class=\"math-tex\">{tex}\\frac { 1 } { n ^ { 2 } }{/tex}</span>.</li>\n</ol>",
+    "weightage": "LA-1 (Long answer type-1)"
+  },
+  {
+    "subject": "Physics",
+    "subject_id": "1251",
+    "chapter": "Atoms",
+    "chapter_id": 1263,
+    "question_id": 144292,
+    "question_html": "<p>Using Bohr&#39;s postulates for hydrogen atom, show that the total energy (E) of the electron in the stationary states can be expressed as the sum of kinetic energy (K) and potential energy (U), where <i>K </i>= - 2 U. Hence, deduce the expression for the total energy in the nth energy level of hydrogen atom.</p>",
+    "question_text": "Using Bohr&#39;s postulates for hydrogen atom, show that the total energy (E) of the electron in the stationary states can be expressed as the sum of kinetic energy (K) and potential energy (U), where K = - 2 U. Hence, deduce the expression for the total energy in the nth energy level of hydrogen atom.",
+    "options": [],
+    "correct_option_ids": [],
+    "correct_option_text": "",
+    "explanation": "According to Bohr&#39;s postulates for hydrogen atom electron revolves in a circular orbit around the heavy positively charged nucleus. For a particular orbit, electron moves there, so it has kinetic energy. Also, there is potential energy due to charge on electron and heavy positively charged nucleus. Hence, total energy (E) of atom is sum of kinetic energy (K) and potential energy (U). i.e. E = K + U Let us assume that the nucleus has positive charge Ze. An electron moving with a constant speed v along a circle of radius r with centre at the nucleus. Force acting on electron due to nucleus is given by, {tex}F = Z e ^ { 2 } / 4 \\pi \\varepsilon _ { 0 } r ^ { 2 }{/tex} The acceleration of electron = v 2 /r If m = mass of an electron, then from Newton&#39;s second law {tex}F = m \\left( v ^ { 2 } / r \\right) \\Rightarrow \\frac { z e ^ { 2 } } { 4 \\pi \\varepsilon _ { 0 } r ^ { 2 } } = m \\left( \\frac { v ^ { 2 } } { r } \\right){/tex} {tex}\\Rightarrow \\quad r = Z e ^ { 2 } / 4 \\pi \\varepsilon _ { 0 } m v ^ { 2 }{/tex} ................(i) From Bohr&#39;s quantisation rules {tex}m v r = n \\frac { h } { 2 \\pi }{/tex} ..........(ii) where n is positive integer Substituting the value of r from Eq (i), we get {tex}m v \\frac { Z e ^ { 2 } } { 4 \\pi \\varepsilon _ { 0 } \\left( m v ^ { 2 } \\right) } = n \\frac { h } { 2 \\pi } \\Rightarrow v = Z e ^ { 2 } / 2 \\varepsilon _ { 0 } h n{/tex} ..........(iii) Kinetic energy, {tex}K = \\frac { 1 } { 2 } m v ^ { 2 } = \\frac { Z ^ { 2 } e ^ { 4 } } { 8 \\varepsilon _ { 0 } ^ { 2 } h ^ { 2 } n ^ { 2 } }{/tex} ............(iv) Potential energy of the atom, U {tex}= - \\frac { Z e ^ { 2 } } { 4 \\pi \\varepsilon _ { 0 } r }{/tex} ...........(v) Using Eq. (iii) in Eq. (i), we get {tex}r = \\frac { Z e ^ { 2 } } { 4 \\pi \\varepsilon _ { 0 } m \\frac { \\left( Z e ^ { 2 } \\right) ^ { 2 } } { \\left( 2 \\varepsilon _ { 0 } h n \\right) ^ { 2 } } } = \\frac { 4 \\varepsilon _ { 0 } ^ { 2 } h ^ { 2 } n ^ { 2 } } { \\left( 4 \\pi \\varepsilon _ { 0 } \\right) m Z e ^ { 2 } } \\Rightarrow r = \\frac { \\varepsilon _ { 0 } h ^ { 2 } n ^ { 2 } } { \\pi m z e ^ { 2 } }{/tex} Using value of r in Eq. (v), we get {tex}U = \\frac { - Z e ^ { 2 } } { 4 \\pi \\varepsilon _ { 0 } \\left( \\varepsilon _ { 0 } h ^ { 2 } n ^ { 2 } / \\pi m Z e ^ { 2 } \\right) } = \\frac { - Z ^ { 2 } e ^ { 4 } m } { 4 \\varepsilon _ { 0 } ^ { 2 } h ^ { 2 } n ^ { 2 } }{/tex} This implies, K = -2U So, the total energy in n th energy level of hydrogen atom is {tex}E = K + U = + \\frac { m Z ^ { 2 } e ^ { 4 } } { 8 \\varepsilon _ { 0 } ^ { 2 } h ^ { 2 } n ^ { 2 } } - \\frac { m Z ^ { 2 } e ^ { 4 } } { 4 \\varepsilon _ { 0 } ^ { 2 } h ^ { 2 } n ^ { 2 } } = - \\frac { Z ^ { 2 } e ^ { 4 } m } { 8 \\varepsilon _ { 0 } ^ { 2 } h ^ { 2 } n ^ { 2 } }{/tex}",
+    "solution": "According to Bohr&#39;s postulates for hydrogen atom electron revolves in a circular orbit around the heavy positively charged nucleus. For a particular orbit, electron moves there, so it has kinetic energy. Also, there is potential energy due to charge on electron and heavy positively charged nucleus. Hence, total energy (E) of atom is sum of kinetic energy (K) and potential energy (U). i.e. E = K + U Let us assume that the nucleus has positive charge Ze. An electron moving with a constant speed v along a circle of radius r with centre at the nucleus. Force acting on electron due to nucleus is given by, {tex}F = Z e ^ { 2 } / 4 \\pi \\varepsilon _ { 0 } r ^ { 2 }{/tex} The acceleration of electron = v 2 /r If m = mass of an electron, then from Newton&#39;s second law {tex}F = m \\left( v ^ { 2 } / r \\right) \\Rightarrow \\frac { z e ^ { 2 } } { 4 \\pi \\varepsilon _ { 0 } r ^ { 2 } } = m \\left( \\frac { v ^ { 2 } } { r } \\right){/tex} {tex}\\Rightarrow \\quad r = Z e ^ { 2 } / 4 \\pi \\varepsilon _ { 0 } m v ^ { 2 }{/tex} ................(i) From Bohr&#39;s quantisation rules {tex}m v r = n \\frac { h } { 2 \\pi }{/tex} ..........(ii) where n is positive integer Substituting the value of r from Eq (i), we get {tex}m v \\frac { Z e ^ { 2 } } { 4 \\pi \\varepsilon _ { 0 } \\left( m v ^ { 2 } \\right) } = n \\frac { h } { 2 \\pi } \\Rightarrow v = Z e ^ { 2 } / 2 \\varepsilon _ { 0 } h n{/tex} ..........(iii) Kinetic energy, {tex}K = \\frac { 1 } { 2 } m v ^ { 2 } = \\frac { Z ^ { 2 } e ^ { 4 } } { 8 \\varepsilon _ { 0 } ^ { 2 } h ^ { 2 } n ^ { 2 } }{/tex} ............(iv) Potential energy of the atom, U {tex}= - \\frac { Z e ^ { 2 } } { 4 \\pi \\varepsilon _ { 0 } r }{/tex} ...........(v) Using Eq. (iii) in Eq. (i), we get {tex}r = \\frac { Z e ^ { 2 } } { 4 \\pi \\varepsilon _ { 0 } m \\frac { \\left( Z e ^ { 2 } \\right) ^ { 2 } } { \\left( 2 \\varepsilon _ { 0 } h n \\right) ^ { 2 } } } = \\frac { 4 \\varepsilon _ { 0 } ^ { 2 } h ^ { 2 } n ^ { 2 } } { \\left( 4 \\pi \\varepsilon _ { 0 } \\right) m Z e ^ { 2 } } \\Rightarrow r = \\frac { \\varepsilon _ { 0 } h ^ { 2 } n ^ { 2 } } { \\pi m z e ^ { 2 } }{/tex} Using value of r in Eq. (v), we get {tex}U = \\frac { - Z e ^ { 2 } } { 4 \\pi \\varepsilon _ { 0 } \\left( \\varepsilon _ { 0 } h ^ { 2 } n ^ { 2 } / \\pi m Z e ^ { 2 } \\right) } = \\frac { - Z ^ { 2 } e ^ { 4 } m } { 4 \\varepsilon _ { 0 } ^ { 2 } h ^ { 2 } n ^ { 2 } }{/tex} This implies, K = -2U So, the total energy in n th energy level of hydrogen atom is {tex}E = K + U = + \\frac { m Z ^ { 2 } e ^ { 4 } } { 8 \\varepsilon _ { 0 } ^ { 2 } h ^ { 2 } n ^ { 2 } } - \\frac { m Z ^ { 2 } e ^ { 4 } } { 4 \\varepsilon _ { 0 } ^ { 2 } h ^ { 2 } n ^ { 2 } } = - \\frac { Z ^ { 2 } e ^ { 4 } m } { 8 \\varepsilon _ { 0 } ^ { 2 } h ^ { 2 } n ^ { 2 } }{/tex}",
+    "solution_html": "<p>According to Bohr&#39;s postulates for hydrogen atom electron revolves in a circular orbit around the heavy positively charged nucleus.<br />\r\nFor a particular orbit, electron moves there, so it has kinetic energy.<br />\r\nAlso, there is potential energy due to charge on electron and heavy positively charged nucleus. Hence, total energy (E) of atom is sum of kinetic energy (K) and potential energy (U). i.e. E = K + U<br />\r\nLet us assume that the nucleus has positive charge Ze. An electron moving with a constant speed v along a circle of radius r with centre at the nucleus. Force acting on electron due to nucleus is given by,<br />\r\n<span class=\"math-tex\">{tex}F = Z e ^ { 2 } / 4 \\pi \\varepsilon _ { 0 } r ^ { 2 }{/tex}</span><br />\r\nThe acceleration of electron = v<sup>2</sup>/r&nbsp;<br />\r\nIf m = mass of an electron, then from Newton&#39;s second law<br />\r\n<span class=\"math-tex\">{tex}F = m \\left( v ^ { 2 } / r \\right) \\Rightarrow \\frac { z e ^ { 2 } } { 4 \\pi \\varepsilon _ { 0 } r ^ { 2 } } = m \\left( \\frac { v ^ { 2 } } { r } \\right){/tex}</span><br />\r\n<span class=\"math-tex\">{tex}\\Rightarrow \\quad r = Z e ^ { 2 } / 4 \\pi \\varepsilon _ { 0 } m v ^ { 2 }{/tex}</span>................(i)<br />\r\nFrom Bohr&#39;s quantisation rules<br />\r\n<span class=\"math-tex\">{tex}m v r = n \\frac { h } { 2 \\pi }{/tex}</span>..........(ii)<br />\r\nwhere n is positive integer<br />\r\nSubstituting the value of r from Eq (i), we get<br />\r\n<span class=\"math-tex\">{tex}m v \\frac { Z e ^ { 2 } } { 4 \\pi \\varepsilon _ { 0 } \\left( m v ^ { 2 } \\right) } = n \\frac { h } { 2 \\pi } \\Rightarrow v = Z e ^ { 2 } / 2 \\varepsilon _ { 0 } h n{/tex}</span>..........(iii)<br />\r\nKinetic energy, <span class=\"math-tex\">{tex}K = \\frac { 1 } { 2 } m v ^ { 2 } = \\frac { Z ^ { 2 } e ^ { 4 } } { 8 \\varepsilon _ { 0 } ^ { 2 } h ^ { 2 } n ^ { 2 } }{/tex}</span> ............(iv)<br />\r\nPotential energy of the atom, U&nbsp;<span class=\"math-tex\">{tex}= - \\frac { Z e ^ { 2 } } { 4 \\pi \\varepsilon _ { 0 } r }{/tex}</span> ...........(v)<br />\r\nUsing Eq. (iii) in Eq. (i), we get<br />\r\n<span class=\"math-tex\">{tex}r = \\frac { Z e ^ { 2 } } { 4 \\pi \\varepsilon _ { 0 } m \\frac { \\left( Z e ^ { 2 } \\right) ^ { 2 } } { \\left( 2 \\varepsilon _ { 0 } h n \\right) ^ { 2 } } } = \\frac { 4 \\varepsilon _ { 0 } ^ { 2 } h ^ { 2 } n ^ { 2 } } { \\left( 4 \\pi \\varepsilon _ { 0 } \\right) m Z e ^ { 2 } } \\Rightarrow r = \\frac { \\varepsilon _ { 0 } h ^ { 2 } n ^ { 2 } } { \\pi m z e ^ { 2 } }{/tex}</span><br />\r\nUsing value of r in Eq. (v), we get<br />\r\n<span class=\"math-tex\">{tex}U = \\frac { - Z e ^ { 2 } } { 4 \\pi \\varepsilon _ { 0 } \\left( \\varepsilon _ { 0 } h ^ { 2 } n ^ { 2 } / \\pi m Z e ^ { 2 } \\right) } = \\frac { - Z ^ { 2 } e ^ { 4 } m } { 4 \\varepsilon _ { 0 } ^ { 2 } h ^ { 2 } n ^ { 2 } }{/tex}</span><br />\r\nThis implies, K = -2U<br />\r\nSo, the total energy in n<sup>th</sup>&nbsp;energy level of hydrogen atom is<br />\r\n<span class=\"math-tex\">{tex}E = K + U = + \\frac { m Z ^ { 2 } e ^ { 4 } } { 8 \\varepsilon _ { 0 } ^ { 2 } h ^ { 2 } n ^ { 2 } } - \\frac { m Z ^ { 2 } e ^ { 4 } } { 4 \\varepsilon _ { 0 } ^ { 2 } h ^ { 2 } n ^ { 2 } } = - \\frac { Z ^ { 2 } e ^ { 4 } m } { 8 \\varepsilon _ { 0 } ^ { 2 } h ^ { 2 } n ^ { 2 } }{/tex}</span></p>",
+    "weightage": "LA-1 (Long answer type-1)"
+  },
+  {
+    "subject": "Physics",
+    "subject_id": "1251",
+    "chapter": "Atoms",
+    "chapter_id": 1263,
+    "question_id": 67385,
+    "question_html": "<p>Obtain an expression for the frequency of radiations emitted when a hydrogen atom de-excites from level n to level (n - 1). For large n, show that the frequency equals the classical frequency of revolution of the electron in the orbit.</p>",
+    "question_text": "Obtain an expression for the frequency of radiations emitted when a hydrogen atom de-excites from level n to level (n - 1). For large n, show that the frequency equals the classical frequency of revolution of the electron in the orbit.",
+    "options": [],
+    "correct_option_ids": [],
+    "correct_option_text": "",
+    "explanation": "The frequency {tex}\\nu {/tex} of the emitted radiation when a hydrogen atom de-excites from level n to level (n - 1) is E = h {tex}\\nu {/tex} = E 2 - E 1 {tex}\\nu = \\frac{1}{2}\\frac{{m{c^2}{\\alpha ^2}}}{h}\\left[ {\\frac{1}{{n_1^2}} - \\frac{1}{{n_2^2}}} \\right]{/tex} where {tex}\\alpha = \\frac{{2\\pi K{e^2}}}{{ch}}{/tex} {tex}\\nu = \\frac{1}{2}\\frac{{m{c^2}{\\alpha ^2}}}{h}\\left[ {\\frac{1}{{{{(n - 1)}^2}}} - \\frac{1}{{{n^2}}}} \\right] = \\frac{{m{c^2}{\\alpha ^2}}}{{2h}}\\left[ {\\frac{{{n^2} - {{(n - 1)}^2}}}{{{n^2}{{(n - 1)}^2}}}} \\right]{/tex} {tex} = \\frac{{m{c^2}{\\alpha ^2}\\left[ {(n + n - 1)(n - n + 1)} \\right]}}{{2h\\;{n^2}{{(n - 1)}^2}}}{/tex} {tex}\\nu = \\frac{{m{c^2}{\\alpha ^2}(2n - 1)}}{{2h\\;{n^2}{{(n - 1)}^2}}}{/tex} For large n, (2n - 1) = 2n, and (n - 1) = n {tex}\\nu = \\frac{{m{c^2}{\\alpha ^2} \\cdot 2n}}{{2h\\;{n^2} \\cdot {n^2}}} = \\frac{{m{c^2}{\\alpha ^2}}}{{h\\;{n^3}}}{/tex} Putting {tex}\\alpha = \\frac{{2\\pi K{e^2}}}{{ch}}{/tex} we get, {tex}\\nu = \\frac{{m{c^2}}}{{h\\;{n^3}}} \\cdot \\frac{{4{\\pi ^2}{K^2}{e^4}}}{{{c^2}{h^2}}}{/tex} {tex}\\nu = \\frac{{4{\\pi ^2}m{K^2}{e^4}}}{{{n^3}{h^3}}}{/tex} .....(i) In Bohr&#39;s atom model, velocity of electron in nth orbit is {tex}v = \\frac{{n\\;h}}{{2\\pi mr}}{/tex} and radius of nth orbit is {tex}r = \\frac{{{n^2}{h^2}}}{{4{\\pi ^2}mK{e^2}}}(\\because Z = 1){/tex} Frequency of revolution of electron, {tex}\\nu = \\frac{\\upsilon }{{2\\pi r}} = \\frac{{nh}}{{2\\pi mr}}\\left( {\\frac{{4{\\pi ^2}mK{e^2}}}{{2\\pi .{n^2}{h^2}}}} \\right){/tex} {tex}\\nu = \\frac{{K{e^2}}}{{nh \\cdot r}} = \\frac{{K{e^2}}}{{nh}}\\left( {\\frac{{4{\\pi ^2}mK{e^2}}}{{{n^2}{h^2}}}} \\right){/tex} {tex}\\nu = \\frac{{4{\\pi ^2}m{K^2}{e^4}}}{{{n^3}{h^3}}}{/tex} which is the same as (i) Hence for large values of n, classical frequency of revolution of electron in nth orbit is the same as the frequency of radiation emitted when hydrogen atom de-excites from level (n) to level (n - 1).",
+    "solution": "The frequency {tex}\\nu {/tex} of the emitted radiation when a hydrogen atom de-excites from level n to level (n - 1) is E = h {tex}\\nu {/tex} = E 2 - E 1 {tex}\\nu = \\frac{1}{2}\\frac{{m{c^2}{\\alpha ^2}}}{h}\\left[ {\\frac{1}{{n_1^2}} - \\frac{1}{{n_2^2}}} \\right]{/tex} where {tex}\\alpha = \\frac{{2\\pi K{e^2}}}{{ch}}{/tex} {tex}\\nu = \\frac{1}{2}\\frac{{m{c^2}{\\alpha ^2}}}{h}\\left[ {\\frac{1}{{{{(n - 1)}^2}}} - \\frac{1}{{{n^2}}}} \\right] = \\frac{{m{c^2}{\\alpha ^2}}}{{2h}}\\left[ {\\frac{{{n^2} - {{(n - 1)}^2}}}{{{n^2}{{(n - 1)}^2}}}} \\right]{/tex} {tex} = \\frac{{m{c^2}{\\alpha ^2}\\left[ {(n + n - 1)(n - n + 1)} \\right]}}{{2h\\;{n^2}{{(n - 1)}^2}}}{/tex} {tex}\\nu = \\frac{{m{c^2}{\\alpha ^2}(2n - 1)}}{{2h\\;{n^2}{{(n - 1)}^2}}}{/tex} For large n, (2n - 1) = 2n, and (n - 1) = n {tex}\\nu = \\frac{{m{c^2}{\\alpha ^2} \\cdot 2n}}{{2h\\;{n^2} \\cdot {n^2}}} = \\frac{{m{c^2}{\\alpha ^2}}}{{h\\;{n^3}}}{/tex} Putting {tex}\\alpha = \\frac{{2\\pi K{e^2}}}{{ch}}{/tex} we get, {tex}\\nu = \\frac{{m{c^2}}}{{h\\;{n^3}}} \\cdot \\frac{{4{\\pi ^2}{K^2}{e^4}}}{{{c^2}{h^2}}}{/tex} {tex}\\nu = \\frac{{4{\\pi ^2}m{K^2}{e^4}}}{{{n^3}{h^3}}}{/tex} .....(i) In Bohr&#39;s atom model, velocity of electron in nth orbit is {tex}v = \\frac{{n\\;h}}{{2\\pi mr}}{/tex} and radius of nth orbit is {tex}r = \\frac{{{n^2}{h^2}}}{{4{\\pi ^2}mK{e^2}}}(\\because Z = 1){/tex} Frequency of revolution of electron, {tex}\\nu = \\frac{\\upsilon }{{2\\pi r}} = \\frac{{nh}}{{2\\pi mr}}\\left( {\\frac{{4{\\pi ^2}mK{e^2}}}{{2\\pi .{n^2}{h^2}}}} \\right){/tex} {tex}\\nu = \\frac{{K{e^2}}}{{nh \\cdot r}} = \\frac{{K{e^2}}}{{nh}}\\left( {\\frac{{4{\\pi ^2}mK{e^2}}}{{{n^2}{h^2}}}} \\right){/tex} {tex}\\nu = \\frac{{4{\\pi ^2}m{K^2}{e^4}}}{{{n^3}{h^3}}}{/tex} which is the same as (i) Hence for large values of n, classical frequency of revolution of electron in nth orbit is the same as the frequency of radiation emitted when hydrogen atom de-excites from level (n) to level (n - 1).",
+    "solution_html": "<p>The frequency <span class=\"math-tex\">{tex}\\nu {/tex}</span> of the emitted radiation when a hydrogen atom de-excites from level n to level (n - 1) is<br />\r\nE = h<span class=\"math-tex\">{tex}\\nu {/tex}</span>&nbsp;= E<sub>2</sub> - E<sub>1</sub><br />\r\n<span class=\"math-tex\">{tex}\\nu = \\frac{1}{2}\\frac{{m{c^2}{\\alpha ^2}}}{h}\\left[ {\\frac{1}{{n_1^2}} - \\frac{1}{{n_2^2}}} \\right]{/tex}</span> where <span class=\"math-tex\">{tex}\\alpha = \\frac{{2\\pi K{e^2}}}{{ch}}{/tex}</span><br />\r\n<span class=\"math-tex\">{tex}\\nu = \\frac{1}{2}\\frac{{m{c^2}{\\alpha ^2}}}{h}\\left[ {\\frac{1}{{{{(n - 1)}^2}}} - \\frac{1}{{{n^2}}}} \\right] = \\frac{{m{c^2}{\\alpha ^2}}}{{2h}}\\left[ {\\frac{{{n^2} - {{(n - 1)}^2}}}{{{n^2}{{(n - 1)}^2}}}} \\right]{/tex}</span><br />\r\n<span class=\"math-tex\">{tex} = \\frac{{m{c^2}{\\alpha ^2}\\left[ {(n + n - 1)(n - n + 1)} \\right]}}{{2h\\;{n^2}{{(n - 1)}^2}}}{/tex}</span><br />\r\n<span class=\"math-tex\">{tex}\\nu = \\frac{{m{c^2}{\\alpha ^2}(2n - 1)}}{{2h\\;{n^2}{{(n - 1)}^2}}}{/tex}</span><br />\r\nFor large n, (2n - 1) = 2n, and (n - 1) = n<br />\r\n<span class=\"math-tex\">{tex}\\nu = \\frac{{m{c^2}{\\alpha ^2} \\cdot 2n}}{{2h\\;{n^2} \\cdot {n^2}}} = \\frac{{m{c^2}{\\alpha ^2}}}{{h\\;{n^3}}}{/tex}</span><br />\r\nPutting <span class=\"math-tex\">{tex}\\alpha = \\frac{{2\\pi K{e^2}}}{{ch}}{/tex}</span> we get,&nbsp;<span class=\"math-tex\">{tex}\\nu = \\frac{{m{c^2}}}{{h\\;{n^3}}} \\cdot \\frac{{4{\\pi ^2}{K^2}{e^4}}}{{{c^2}{h^2}}}{/tex}</span><br />\r\n<span class=\"math-tex\">{tex}\\nu = \\frac{{4{\\pi ^2}m{K^2}{e^4}}}{{{n^3}{h^3}}}{/tex}</span> .....(i)<br />\r\nIn Bohr&#39;s atom model, velocity of electron in nth orbit is <span class=\"math-tex\">{tex}v = \\frac{{n\\;h}}{{2\\pi mr}}{/tex}</span> and radius of nth orbit is <span class=\"math-tex\">{tex}r = \\frac{{{n^2}{h^2}}}{{4{\\pi ^2}mK{e^2}}}(\\because Z = 1){/tex}</span><br />\r\nFrequency of revolution of electron,&nbsp;<span class=\"math-tex\">{tex}\\nu = \\frac{\\upsilon }{{2\\pi r}} = \\frac{{nh}}{{2\\pi mr}}\\left( {\\frac{{4{\\pi ^2}mK{e^2}}}{{2\\pi .{n^2}{h^2}}}} \\right){/tex}</span><br />\r\n<span class=\"math-tex\">{tex}\\nu = \\frac{{K{e^2}}}{{nh \\cdot r}} = \\frac{{K{e^2}}}{{nh}}\\left( {\\frac{{4{\\pi ^2}mK{e^2}}}{{{n^2}{h^2}}}} \\right){/tex}</span><br />\r\n<span class=\"math-tex\">{tex}\\nu = \\frac{{4{\\pi ^2}m{K^2}{e^4}}}{{{n^3}{h^3}}}{/tex}</span><br />\r\nwhich is the same as (i)<br />\r\nHence for large values of n, classical frequency of revolution of electron in nth orbit is the same as the frequency of radiation emitted when hydrogen atom de-excites from level (n) to level (n - 1).</p>",
+    "weightage": "LA-1 (Long answer type-1)"
+  }
+]

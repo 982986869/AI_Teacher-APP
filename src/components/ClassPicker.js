@@ -4,7 +4,7 @@
 // and decides which content the user sees. Only classes in READY have content.
 
 import React, { useState } from 'react';
-import { View, Text, Pressable, Modal, StyleSheet } from 'react-native';
+import { View, Text, Pressable, Modal, ScrollView, StyleSheet } from 'react-native';
 import { Ionicons } from '@expo/vector-icons';
 
 export const CLASSES = ['Class 9', 'Class 10', 'Class 11', 'Class 12'];
@@ -50,6 +50,25 @@ export function ClassPicker({ value, onChange }) {
   );
 }
 
+// Side-by-side class chips (9–12) for quick switching — black & white theme.
+// Used at the top of the Practice and Resources tabs.
+export function ClassTabs({ value, onChange }) {
+  return (
+    <View style={st.tabsWrap}>
+      {CLASSES.map((c) => {
+        const active = c === value;
+        const ready = isClassReady(c);
+        return (
+          <Pressable key={c} style={[st.tab, active && st.tabActive]} onPress={() => onChange(c)}>
+            <Text style={[st.tabTxt, active && st.tabTxtActive]}>{c}</Text>
+            {!ready && <View style={[st.tabDot, active && { backgroundColor: '#fff' }]} />}
+          </Pressable>
+        );
+      })}
+    </View>
+  );
+}
+
 export function ComingSoon({ className = 'This class' }) {
   return (
     <View style={st.csWrap}>
@@ -74,6 +93,13 @@ const st = StyleSheet.create({
   rowTxt: { flex: 1, fontSize: 15.5, fontWeight: '700', color: INK },
   rowTxtActive: { color: TEAL, fontWeight: '800' },
   soon: { fontSize: 11, fontWeight: '800', color: INDIGO, backgroundColor: '#EAECFB', paddingVertical: 3, paddingHorizontal: 8, borderRadius: 8 },
+
+  tabsWrap: { flexDirection: 'row', gap: 8, paddingHorizontal: 16, paddingVertical: 10, backgroundColor: '#fff' },
+  tab: { flex: 1, flexDirection: 'row', alignItems: 'center', justifyContent: 'center', gap: 5, paddingVertical: 10, borderRadius: 12, borderWidth: 1.5, borderColor: '#E8E8E8', backgroundColor: '#F7F7F7' },
+  tabActive: { backgroundColor: '#1C1C1E', borderColor: '#1C1C1E' },
+  tabTxt: { fontSize: 12.5, fontWeight: '800', color: '#8E8E93' },
+  tabTxtActive: { color: '#fff' },
+  tabDot: { width: 5, height: 5, borderRadius: 2.5, backgroundColor: '#B0B0B6' },
 
   csWrap: { alignItems: 'center', justifyContent: 'center', paddingHorizontal: 32, paddingVertical: 48, gap: 12 },
   csIcon: { width: 76, height: 76, borderRadius: 24, backgroundColor: '#EAECFB', alignItems: 'center', justifyContent: 'center' },

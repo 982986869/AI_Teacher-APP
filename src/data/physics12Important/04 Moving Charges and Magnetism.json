@@ -1,0 +1,1267 @@
+[
+  {
+    "subject": "Physics",
+    "subject_id": "1251",
+    "chapter": "Moving Charges and Magnetism",
+    "chapter_id": 1255,
+    "question_id": 1324453,
+    "question_html": "<p>A long straight wire of radius <strong>a</strong> carries a steady current <strong>I</strong>. The current is uniformly distributed across its area of cross-section. The ratio of magnitude of magnetic field <span class=\"math-tex\">{tex}\\vec{B}_1{/tex}</span> at <span class=\"math-tex\">{tex}\\frac{a}{2}{/tex}</span> and <span class=\"math-tex\">{tex}\\vec{B}_2{/tex}</span> at distance 2a is</p>",
+    "question_text": "A long straight wire of radius a carries a steady current I . The current is uniformly distributed across its area of cross-section. The ratio of magnitude of magnetic field {tex}\\vec{B}_1{/tex} at {tex}\\frac{a}{2}{/tex} and {tex}\\vec{B}_2{/tex} at distance 2a is",
+    "options": [
+      {
+        "id": 2661712,
+        "text": "{tex}\\frac{1}{2}{/tex}",
+        "html": "<p style=\"display:inline\"><span class=\"math-tex\">{tex}\\frac{1}{2}{/tex}</span></p>",
+        "is_correct": false,
+        "explanation": ""
+      },
+      {
+        "id": 2661713,
+        "text": "1",
+        "html": "<p style=\"display:inline\">1</p>",
+        "is_correct": true,
+        "explanation": "Consider two amperian loops of radius {tex}\\frac a2{/tex} and 2a as shown in the diagram. Applying ampere&#39;s circuital law for these loops, we get {tex}\\oint{/tex} B. {tex}d L=\\mu_0 I_{\\text {enclosed }}{/tex} For the smaller loop, {tex} \\Rightarrow B \\times 2 \\pi \\frac{a}{2}=\\mu_0 \\times \\frac{1}{\\pi a^2} \\times\\left(\\frac{a}{2}\\right)^2 {/tex} {tex} =\\mu_0 I \\times \\frac{1}{4}=\\frac{\\mu_0 I}{4} {/tex} {tex} \\Rightarrow B_1=\\frac{\\mu_0 I}{4 \\pi a} {/tex} {tex} B^{\\prime} \\times 2 \\pi(2 a)=\\mu_0 I {/tex} {tex} \\frac{B}{B^{\\prime}}=\\frac{\\mu_0 I}{4 \\pi a} \\times \\frac{4 \\pi a}{\\mu_0 I}=1{/tex}"
+      },
+      {
+        "id": 2661714,
+        "text": "2",
+        "html": "<p style=\"display:inline\">2</p>",
+        "is_correct": false,
+        "explanation": ""
+      },
+      {
+        "id": 2661715,
+        "text": "4",
+        "html": "<p style=\"display:inline\">4</p>",
+        "is_correct": false,
+        "explanation": ""
+      }
+    ],
+    "correct_option_ids": [
+      2661713
+    ],
+    "correct_option_text": "1",
+    "explanation": "Consider two amperian loops of radius {tex}\\frac a2{/tex} and 2a as shown in the diagram. Applying ampere&#39;s circuital law for these loops, we get {tex}\\oint{/tex} B. {tex}d L=\\mu_0 I_{\\text {enclosed }}{/tex} For the smaller loop, {tex} \\Rightarrow B \\times 2 \\pi \\frac{a}{2}=\\mu_0 \\times \\frac{1}{\\pi a^2} \\times\\left(\\frac{a}{2}\\right)^2 {/tex} {tex} =\\mu_0 I \\times \\frac{1}{4}=\\frac{\\mu_0 I}{4} {/tex} {tex} \\Rightarrow B_1=\\frac{\\mu_0 I}{4 \\pi a} {/tex} {tex} B^{\\prime} \\times 2 \\pi(2 a)=\\mu_0 I {/tex} {tex} \\frac{B}{B^{\\prime}}=\\frac{\\mu_0 I}{4 \\pi a} \\times \\frac{4 \\pi a}{\\mu_0 I}=1{/tex}",
+    "solution": "",
+    "solution_html": "",
+    "weightage": "VSA (Very Short Answer)"
+  },
+  {
+    "subject": "Physics",
+    "subject_id": "1251",
+    "chapter": "Moving Charges and Magnetism",
+    "chapter_id": 1255,
+    "question_id": 1149805,
+    "question_html": "<p>Two thin long parallel wires A and B are separated by a distance r and carry current I each in the same direction. The force per unit length exerted by A on wire B is:</p>",
+    "question_text": "Two thin long parallel wires A and B are separated by a distance r and carry current I each in the same direction. The force per unit length exerted by A on wire B is:",
+    "options": [
+      {
+        "id": 2329224,
+        "text": "{tex}\\frac{\\mu_0 \\mathrm{I}}{2 \\mathrm{r}}{/tex} , attractive",
+        "html": "<p style=\"display:inline\"><span class=\"math-tex\">{tex}\\frac{\\mu_0 \\mathrm{I}}{2 \\mathrm{r}}{/tex}</span>, attractive</p>",
+        "is_correct": false,
+        "explanation": ""
+      },
+      {
+        "id": 2329225,
+        "text": "{tex}\\frac{\\mu_0 I^2}{2 \\pi r}{/tex} , repulsive",
+        "html": "<p style=\"display:inline\"><span class=\"math-tex\">{tex}\\frac{\\mu_0 I^2}{2 \\pi r}{/tex}</span>, repulsive</p>",
+        "is_correct": false,
+        "explanation": ""
+      },
+      {
+        "id": 2329226,
+        "text": "{tex}\\frac{\\mu_0 \\mathrm{I}}{2 \\pi \\mathrm{r}}{/tex} , repulsive",
+        "html": "<p style=\"display:inline\"><span class=\"math-tex\">{tex}\\frac{\\mu_0 \\mathrm{I}}{2 \\pi \\mathrm{r}}{/tex}</span>, repulsive</p>",
+        "is_correct": false,
+        "explanation": ""
+      },
+      {
+        "id": 2329227,
+        "text": "{tex}\\frac{\\mu_0 \\mathrm{I}^2}{2 \\pi \\mathrm{r}}{/tex} , attractive",
+        "html": "<p style=\"display:inline\"><span class=\"math-tex\">{tex}\\frac{\\mu_0 \\mathrm{I}^2}{2 \\pi \\mathrm{r}}{/tex}</span>, attractive</p>",
+        "is_correct": true,
+        "explanation": "{tex}\\frac{\\mu_0 \\mathrm{I}^2}{2 \\pi \\mathrm{r}}{/tex} , attractive"
+      }
+    ],
+    "correct_option_ids": [
+      2329227
+    ],
+    "correct_option_text": "{tex}\\frac{\\mu_0 \\mathrm{I}^2}{2 \\pi \\mathrm{r}}{/tex} , attractive",
+    "explanation": "{tex}\\frac{\\mu_0 \\mathrm{I}^2}{2 \\pi \\mathrm{r}}{/tex} , attractive",
+    "solution": "",
+    "solution_html": "",
+    "weightage": "VSA (Very Short Answer)"
+  },
+  {
+    "subject": "Physics",
+    "subject_id": "1251",
+    "chapter": "Moving Charges and Magnetism",
+    "chapter_id": 1255,
+    "question_id": 1324625,
+    "question_html": "<p>A galvanometer of resistance <span class=\"math-tex\">{tex}\\mathrm{G} \\Omega{/tex}</span> is converted into an ammeter of range 0 to IA. If the current through the galvanometer is <span class=\"math-tex\">{tex}0.1 \\%{/tex}</span> of I A, the resistance of the ammeter is:</p>",
+    "question_text": "A galvanometer of resistance {tex}\\mathrm{G} \\Omega{/tex} is converted into an ammeter of range 0 to IA. If the current through the galvanometer is {tex}0.1 \\%{/tex} of I A, the resistance of the ammeter is:",
+    "options": [
+      {
+        "id": 2661980,
+        "text": "{tex}\\frac{\\mathrm{G}}{999} \\Omega{/tex}",
+        "html": "<p style=\"display:inline\"><span class=\"math-tex\">{tex}\\frac{\\mathrm{G}}{999} \\Omega{/tex}</span></p>",
+        "is_correct": false,
+        "explanation": ""
+      },
+      {
+        "id": 2661981,
+        "text": "{tex}\\frac{\\mathrm{G}}{1000} \\Omega{/tex}",
+        "html": "<p style=\"display:inline\"><span class=\"math-tex\">{tex}\\frac{\\mathrm{G}}{1000} \\Omega{/tex}</span></p>",
+        "is_correct": true,
+        "explanation": "{tex}\\frac{\\mathrm{G}}{1000} \\Omega{/tex}"
+      },
+      {
+        "id": 2661982,
+        "text": "{tex}\\frac{\\mathrm{G}}{1001} \\Omega{/tex}",
+        "html": "<p style=\"display:inline\"><span class=\"math-tex\">{tex}\\frac{\\mathrm{G}}{1001} \\Omega{/tex}</span></p>",
+        "is_correct": false,
+        "explanation": ""
+      },
+      {
+        "id": 2661983,
+        "text": "{tex}\\frac{\\mathrm{G}}{100 \\cdot 1} \\Omega{/tex}",
+        "html": "<p style=\"display:inline\"><span class=\"math-tex\">{tex}\\frac{\\mathrm{G}}{100 \\cdot 1} \\Omega{/tex}</span></p>",
+        "is_correct": false,
+        "explanation": ""
+      }
+    ],
+    "correct_option_ids": [
+      2661981
+    ],
+    "correct_option_text": "{tex}\\frac{\\mathrm{G}}{1000} \\Omega{/tex}",
+    "explanation": "{tex}\\frac{\\mathrm{G}}{1000} \\Omega{/tex}",
+    "solution": "",
+    "solution_html": "",
+    "weightage": "VSA (Very Short Answer)"
+  },
+  {
+    "subject": "Physics",
+    "subject_id": "1251",
+    "chapter": "Moving Charges and Magnetism",
+    "chapter_id": 1255,
+    "question_id": 1150114,
+    "question_html": "<p>Beams of electrons and protons move parallel to each other in the same direction. They</p>",
+    "question_text": "Beams of electrons and protons move parallel to each other in the same direction. They",
+    "options": [
+      {
+        "id": 2329664,
+        "text": "attract each other.",
+        "html": "<p style=\"display:inline\">attract each other.</p>",
+        "is_correct": false,
+        "explanation": ""
+      },
+      {
+        "id": 2329665,
+        "text": "repel each other.",
+        "html": "<p style=\"display:inline\">repel each other.</p>",
+        "is_correct": true,
+        "explanation": "currents in the same direction repel each other."
+      },
+      {
+        "id": 2329666,
+        "text": "neither attract nor repel.",
+        "html": "<p style=\"display:inline\">neither attract nor repel.</p>",
+        "is_correct": false,
+        "explanation": ""
+      },
+      {
+        "id": 2329667,
+        "text": "force of attraction or repulsion depends upon speed of beams.",
+        "html": "<p style=\"display:inline\">force of attraction or repulsion depends upon speed of beams.</p>",
+        "is_correct": false,
+        "explanation": ""
+      }
+    ],
+    "correct_option_ids": [
+      2329665
+    ],
+    "correct_option_text": "repel each other.",
+    "explanation": "currents in the same direction repel each other.",
+    "solution": "",
+    "solution_html": "",
+    "weightage": "VSA (Very Short Answer)"
+  },
+  {
+    "subject": "Physics",
+    "subject_id": "1251",
+    "chapter": "Moving Charges and Magnetism",
+    "chapter_id": 1255,
+    "question_id": 471678,
+    "question_html": "<p>Two parallel beams of positrons moving in the same direction will:</p>",
+    "question_text": "Two parallel beams of positrons moving in the same direction will:",
+    "options": [
+      {
+        "id": 815131,
+        "text": "attract each other",
+        "html": "<p style=\"display:inline\">attract each other</p>",
+        "is_correct": true,
+        "explanation": "Two parallel beams of positrons moving in the same direction set up two parallel currents flowing in the same direction. Hence they attract each other."
+      },
+      {
+        "id": 815132,
+        "text": "repel each other",
+        "html": "<p style=\"display:inline\">repel each other</p>",
+        "is_correct": false,
+        "explanation": ""
+      },
+      {
+        "id": 815133,
+        "text": "will not interact with each other",
+        "html": "<p style=\"display:inline\">will not interact with each other</p>",
+        "is_correct": false,
+        "explanation": ""
+      },
+      {
+        "id": 815134,
+        "text": "be deflected normal to the plane containing two beams",
+        "html": "<p style=\"display:inline\">be deflected normal to the plane containing two beams</p>",
+        "is_correct": false,
+        "explanation": ""
+      }
+    ],
+    "correct_option_ids": [
+      815131
+    ],
+    "correct_option_text": "attract each other",
+    "explanation": "Two parallel beams of positrons moving in the same direction set up two parallel currents flowing in the same direction. Hence they attract each other.",
+    "solution": "",
+    "solution_html": "",
+    "weightage": "VSA (Very Short Answer)"
+  },
+  {
+    "subject": "Physics",
+    "subject_id": "1251",
+    "chapter": "Moving Charges and Magnetism",
+    "chapter_id": 1255,
+    "question_id": 1150167,
+    "question_html": "<p>In a moving coil galvanometer, the deflecting torque <span class=\"math-tex\">{tex}\\tau{/tex}</span>&nbsp;acting on the coil is related to the current I flowing through it as:</p>",
+    "question_text": "In a moving coil galvanometer, the deflecting torque {tex}\\tau{/tex} acting on the coil is related to the current I flowing through it as:",
+    "options": [
+      {
+        "id": 2329784,
+        "text": "{tex}\\tau \\propto I^3{/tex}",
+        "html": "<p style=\"display:inline\"><span class=\"math-tex\">{tex}\\tau \\propto I^3{/tex}</span></p>",
+        "is_correct": false,
+        "explanation": ""
+      },
+      {
+        "id": 2329785,
+        "text": "{tex}\\tau \\propto I^2{/tex}",
+        "html": "<p style=\"display:inline\"><span class=\"math-tex\">{tex}\\tau \\propto I^2{/tex}</span></p>",
+        "is_correct": false,
+        "explanation": ""
+      },
+      {
+        "id": 2329786,
+        "text": "{tex}\\tau \\propto I{/tex}",
+        "html": "<p style=\"display:inline\"><span class=\"math-tex\">{tex}\\tau \\propto I{/tex}</span></p>",
+        "is_correct": true,
+        "explanation": "{tex}\\tau \\propto I{/tex}"
+      },
+      {
+        "id": 2329787,
+        "text": "{tex}\\tau \\propto \\sqrt{I}{/tex}",
+        "html": "<p style=\"display:inline\"><span class=\"math-tex\">{tex}\\tau \\propto \\sqrt{I}{/tex}</span></p>",
+        "is_correct": false,
+        "explanation": ""
+      }
+    ],
+    "correct_option_ids": [
+      2329786
+    ],
+    "correct_option_text": "{tex}\\tau \\propto I{/tex}",
+    "explanation": "{tex}\\tau \\propto I{/tex}",
+    "solution": "",
+    "solution_html": "",
+    "weightage": "VSA (Very Short Answer)"
+  },
+  {
+    "subject": "Physics",
+    "subject_id": "1251",
+    "chapter": "Moving Charges and Magnetism",
+    "chapter_id": 1255,
+    "question_id": 1149814,
+    "question_html": "<p>An electron enters a uniform magnetic field with speed v. It describes a semicircular path and comes out of the field. The final speed of the electron is:</p>",
+    "question_text": "An electron enters a uniform magnetic field with speed v. It describes a semicircular path and comes out of the field. The final speed of the electron is:",
+    "options": [
+      {
+        "id": 2329232,
+        "text": "Zero",
+        "html": "<p style=\"display:inline\">Zero</p>",
+        "is_correct": false,
+        "explanation": ""
+      },
+      {
+        "id": 2329233,
+        "text": "v",
+        "html": "<p style=\"display:inline\">v</p>",
+        "is_correct": true,
+        "explanation": "Magnetic force does not change the speed, it only changes the direction."
+      },
+      {
+        "id": 2329234,
+        "text": "{tex}\\frac{v}{2}{/tex}",
+        "html": "<p style=\"display:inline\"><span class=\"math-tex\">{tex}\\frac{v}{2}{/tex}</span></p>",
+        "is_correct": false,
+        "explanation": ""
+      },
+      {
+        "id": 2329235,
+        "text": "2v",
+        "html": "<p style=\"display:inline\">2v</p>",
+        "is_correct": false,
+        "explanation": ""
+      }
+    ],
+    "correct_option_ids": [
+      2329233
+    ],
+    "correct_option_text": "v",
+    "explanation": "Magnetic force does not change the speed, it only changes the direction.",
+    "solution": "",
+    "solution_html": "",
+    "weightage": "VSA (Very Short Answer)"
+  },
+  {
+    "subject": "Physics",
+    "subject_id": "1251",
+    "chapter": "Moving Charges and Magnetism",
+    "chapter_id": 1255,
+    "question_id": 1345948,
+    "question_html": "<p>Two charged particles, <span class=\"math-tex\">{tex}P{/tex}</span> and <span class=\"math-tex\">{tex}Q{/tex}</span>, each having charge <span class=\"math-tex\">{tex}q{/tex}</span> but of masses <span class=\"math-tex\">{tex}m_1{/tex}</span> and <span class=\"math-tex\">{tex}\\mathrm{m}_2{/tex}</span>, are accelerated through the same potential difference V . They enter a region of magnetic field <span class=\"math-tex\">{tex}\\vec{B}(\\perp \\vec{v}){/tex}</span> and describe the circular paths of radii a and b respectively. Then <span class=\"math-tex\">{tex}\\left(\\frac{m_1}{m_2}\\right){/tex}</span> is equal to:</p>",
+    "question_text": "Two charged particles, {tex}P{/tex} and {tex}Q{/tex} , each having charge {tex}q{/tex} but of masses {tex}m_1{/tex} and {tex}\\mathrm{m}_2{/tex} , are accelerated through the same potential difference V . They enter a region of magnetic field {tex}\\vec{B}(\\perp \\vec{v}){/tex} and describe the circular paths of radii a and b respectively. Then {tex}\\left(\\frac{m_1}{m_2}\\right){/tex} is equal to:",
+    "options": [
+      {
+        "id": 2690765,
+        "text": "{tex}\\frac{\\mathrm{a}}{\\mathrm{b}}{/tex}",
+        "html": "<p style=\"display:inline\"><span class=\"math-tex\">{tex}\\frac{\\mathrm{a}}{\\mathrm{b}}{/tex}</span></p>",
+        "is_correct": false,
+        "explanation": ""
+      },
+      {
+        "id": 2690766,
+        "text": "{tex}\\frac{\\mathrm{b}}{\\mathrm{a}}{/tex}",
+        "html": "<p style=\"display:inline\"><span class=\"math-tex\">{tex}\\frac{\\mathrm{b}}{\\mathrm{a}}{/tex}</span></p>",
+        "is_correct": false,
+        "explanation": ""
+      },
+      {
+        "id": 2690767,
+        "text": "{tex}\\left(\\frac{a}{b}\\right)^2{/tex}",
+        "html": "<p style=\"display:inline\"><span class=\"math-tex\">{tex}\\left(\\frac{a}{b}\\right)^2{/tex}</span></p>",
+        "is_correct": true,
+        "explanation": "{tex}\\left(\\frac{a}{b}\\right)^2{/tex}"
+      },
+      {
+        "id": 2690768,
+        "text": "{tex}\\left(\\frac{\\mathrm{b}}{\\mathrm{a}}\\right)^2{/tex}",
+        "html": "<p style=\"display:inline\"><span class=\"math-tex\">{tex}\\left(\\frac{\\mathrm{b}}{\\mathrm{a}}\\right)^2{/tex}</span></p>",
+        "is_correct": false,
+        "explanation": ""
+      }
+    ],
+    "correct_option_ids": [
+      2690767
+    ],
+    "correct_option_text": "{tex}\\left(\\frac{a}{b}\\right)^2{/tex}",
+    "explanation": "{tex}\\left(\\frac{a}{b}\\right)^2{/tex}",
+    "solution": "",
+    "solution_html": "",
+    "weightage": "VSA (Very Short Answer)"
+  },
+  {
+    "subject": "Physics",
+    "subject_id": "1251",
+    "chapter": "Moving Charges and Magnetism",
+    "chapter_id": 1255,
+    "question_id": 1150149,
+    "question_html": "<p>Which of the following graphs correctly represents the variation of the magnitude of the magnetic field outside a straight infinite current carrying wire of radius <strong>a</strong>, as a function of distance <strong>r</strong> from the centre of the wire?</p>",
+    "question_text": "Which of the following graphs correctly represents the variation of the magnitude of the magnetic field outside a straight infinite current carrying wire of radius a , as a function of distance r from the centre of the wire?",
+    "options": [
+      {
+        "id": 2329728,
+        "text": "",
+        "html": "<p style=\"display:inline\"><img src=\"https://media-mycbseguide.s3.amazonaws.com/images/question_images/1705471196-g55rtg.jpg\" style=\"height:100px; width:100px\"/></p>",
+        "is_correct": false,
+        "explanation": ""
+      },
+      {
+        "id": 2329729,
+        "text": "",
+        "html": "<p style=\"display:inline\"><img src=\"https://media-mycbseguide.s3.amazonaws.com/images/question_images/1705471222-76wbkb.jpg\" style=\"height:103px; width:100px\"/></p>",
+        "is_correct": false,
+        "explanation": ""
+      },
+      {
+        "id": 2329730,
+        "text": "",
+        "html": "<p style=\"display:inline\"><img src=\"https://media-mycbseguide.s3.amazonaws.com/images/question_images/1705471242-sy57sr.jpg\" style=\"height:99px; width:100px\"/></p>",
+        "is_correct": true,
+        "explanation": "Magnectic field inside the conductor is zero."
+      },
+      {
+        "id": 2329731,
+        "text": "",
+        "html": "<p style=\"display:inline\"><img src=\"https://media-mycbseguide.s3.amazonaws.com/images/question_images/1705471264-p9mrtz.jpg\" style=\"height:99px; width:100px\"/></p>",
+        "is_correct": false,
+        "explanation": ""
+      }
+    ],
+    "correct_option_ids": [
+      2329730
+    ],
+    "correct_option_text": "",
+    "explanation": "Magnectic field inside the conductor is zero.",
+    "solution": "",
+    "solution_html": "",
+    "weightage": "VSA (Very Short Answer)"
+  },
+  {
+    "subject": "Physics",
+    "subject_id": "1251",
+    "chapter": "Moving Charges and Magnetism",
+    "chapter_id": 1255,
+    "question_id": 1185332,
+    "question_html": "<p>The current I flowing through a conductor of radius r is uniformly distributed across its cross-section. Which of the following graphs represents the variation of magnitude of magnetic field <span class=\"math-tex\">{tex}\\vec B{/tex}</span> with distance x from the axis of the conductor?</p>",
+    "question_text": "The current I flowing through a conductor of radius r is uniformly distributed across its cross-section. Which of the following graphs represents the variation of magnitude of magnetic field {tex}\\vec B{/tex} with distance x from the axis of the conductor?",
+    "options": [
+      {
+        "id": 2422841,
+        "text": "",
+        "html": "<p style=\"display:inline\"><img src=\"https://media-mycbseguide.s3.amazonaws.com/images/question_images/1709785654-4fng57.jpg\" style=\"height:94px; width:100px\"/></p>",
+        "is_correct": true,
+        "explanation": "Inside a current carrying cylindrical conductor, B = {tex}\\frac{\\mu_0 I}{2 \\pi R^2} r{/tex} {tex}\\therefore{/tex} B {tex}\\propto{/tex} r Outside the conductor, B = {tex}\\frac{\\mu_0 I}{2 \\pi}{/tex} {tex}\\therefore{/tex} B {tex}\\propto{/tex} {tex}\\frac {I}{r} {/tex}"
+      },
+      {
+        "id": 2422842,
+        "text": "",
+        "html": "<p style=\"display:inline\"><img src=\"https://media-mycbseguide.s3.amazonaws.com/images/question_images/1709785673-ffba58.jpg\" style=\"height:95px; width:100px\"/></p>",
+        "is_correct": false,
+        "explanation": ""
+      },
+      {
+        "id": 2422843,
+        "text": "",
+        "html": "<p style=\"display:inline\"><img src=\"https://media-mycbseguide.s3.amazonaws.com/images/question_images/1709785697-ungmau.jpg\" style=\"height:91px; width:100px\"/></p>",
+        "is_correct": false,
+        "explanation": ""
+      },
+      {
+        "id": 2422844,
+        "text": "",
+        "html": "<p style=\"display:inline\"><img src=\"https://media-mycbseguide.s3.amazonaws.com/images/question_images/1709785717-ruwxh3.jpg\" style=\"height:93px; width:100px\"/></p>",
+        "is_correct": false,
+        "explanation": ""
+      }
+    ],
+    "correct_option_ids": [
+      2422841
+    ],
+    "correct_option_text": "",
+    "explanation": "Inside a current carrying cylindrical conductor, B = {tex}\\frac{\\mu_0 I}{2 \\pi R^2} r{/tex} {tex}\\therefore{/tex} B {tex}\\propto{/tex} r Outside the conductor, B = {tex}\\frac{\\mu_0 I}{2 \\pi}{/tex} {tex}\\therefore{/tex} B {tex}\\propto{/tex} {tex}\\frac {I}{r} {/tex}",
+    "solution": "",
+    "solution_html": "",
+    "weightage": "VSA (Very Short Answer)"
+  },
+  {
+    "subject": "Physics",
+    "subject_id": "1251",
+    "chapter": "Moving Charges and Magnetism",
+    "chapter_id": 1255,
+    "question_id": 1161825,
+    "question_html": "<p>Two horizontal thin long parallel wires, separated by a distance r carry current I each in the opposite directions. The net magnetic field at a point midway between them, will be</p>",
+    "question_text": "Two horizontal thin long parallel wires, separated by a distance r carry current I each in the opposite directions. The net magnetic field at a point midway between them, will be",
+    "options": [
+      {
+        "id": 2367444,
+        "text": "zero",
+        "html": "<p style=\"display:inline\">zero</p>",
+        "is_correct": true,
+        "explanation": "The magnetic field produced by both conductors will be equal and opposite in direction and will cancel out each other."
+      },
+      {
+        "id": 2367445,
+        "text": "{tex}\\left(\\frac{\\mu_0 I}{2 \\pi r}\\right){/tex} vertically downward",
+        "html": "<p style=\"display:inline\"><span class=\"math-tex\">{tex}\\left(\\frac{\\mu_0 I}{2 \\pi r}\\right){/tex}</span> vertically downward</p>",
+        "is_correct": false,
+        "explanation": ""
+      },
+      {
+        "id": 2367446,
+        "text": "{tex}\\left(\\frac{2 \\mu_0 \\mathrm{I}}{\\mathrm{r}}\\right){/tex} vertically upward",
+        "html": "<p style=\"display:inline\"><span class=\"math-tex\">{tex}\\left(\\frac{2 \\mu_0 \\mathrm{I}}{\\mathrm{r}}\\right){/tex}</span> vertically upward</p>",
+        "is_correct": false,
+        "explanation": ""
+      },
+      {
+        "id": 2367447,
+        "text": "{tex}\\left(\\frac{\\mu_0 I}{\\pi r}\\right){/tex} vertically downward",
+        "html": "<p style=\"display:inline\"><span class=\"math-tex\">{tex}\\left(\\frac{\\mu_0 I}{\\pi r}\\right){/tex}</span> vertically downward</p>",
+        "is_correct": false,
+        "explanation": ""
+      }
+    ],
+    "correct_option_ids": [
+      2367444
+    ],
+    "correct_option_text": "zero",
+    "explanation": "The magnetic field produced by both conductors will be equal and opposite in direction and will cancel out each other.",
+    "solution": "",
+    "solution_html": "",
+    "weightage": "VSA (Very Short Answer)"
+  },
+  {
+    "subject": "Physics",
+    "subject_id": "1251",
+    "chapter": "Moving Charges and Magnetism",
+    "chapter_id": 1255,
+    "question_id": 1142793,
+    "question_html": "<p>A constant current is flowing through a solenoid. An iron rod is inserted in the solenoid along its axis. Which of the following quantities will not increase?</p>",
+    "question_text": "A constant current is flowing through a solenoid. An iron rod is inserted in the solenoid along its axis. Which of the following quantities will not increase?",
+    "options": [
+      {
+        "id": 2314208,
+        "text": "The magnetic field at the centre",
+        "html": "<p style=\"display:inline\">The magnetic field at the centre</p>",
+        "is_correct": false,
+        "explanation": ""
+      },
+      {
+        "id": 2314209,
+        "text": "The magnetic flux linked with the solenoid",
+        "html": "<p style=\"display:inline\">The magnetic flux linked with the solenoid</p>",
+        "is_correct": false,
+        "explanation": ""
+      },
+      {
+        "id": 2314210,
+        "text": "The rate of heating",
+        "html": "<p style=\"display:inline\">The rate of heating</p>",
+        "is_correct": true,
+        "explanation": "Since, the current remains constant, the rate of heating will not increase."
+      },
+      {
+        "id": 2314211,
+        "text": "The self-inductance of the solenoid",
+        "html": "<p style=\"display:inline\">The self-inductance of the solenoid</p>",
+        "is_correct": false,
+        "explanation": ""
+      }
+    ],
+    "correct_option_ids": [
+      2314210
+    ],
+    "correct_option_text": "The rate of heating",
+    "explanation": "Since, the current remains constant, the rate of heating will not increase.",
+    "solution": "",
+    "solution_html": "",
+    "weightage": "VSA (Very Short Answer)"
+  },
+  {
+    "subject": "Physics",
+    "subject_id": "1251",
+    "chapter": "Moving Charges and Magnetism",
+    "chapter_id": 1255,
+    "question_id": 1161828,
+    "question_html": "<p>An electron with velocity <span class=\"math-tex\">{tex}\\vec{v}=\\left(v_x \\hat{i}+v_y \\hat{j}\\right){/tex}</span> moves through a magnetic field <span class=\"math-tex\">{tex}\\vec{B}=\\left(B_x \\hat{i}-B_y \\hat{j}\\right){/tex}</span>. The force <span class=\"math-tex\">{tex}\\vec{\\mathrm{F}}{/tex}</span> on the electron is : (e is the magnitude of its charge)</p>",
+    "question_text": "An electron with velocity {tex}\\vec{v}=\\left(v_x \\hat{i}+v_y \\hat{j}\\right){/tex} moves through a magnetic field {tex}\\vec{B}=\\left(B_x \\hat{i}-B_y \\hat{j}\\right){/tex} . The force {tex}\\vec{\\mathrm{F}}{/tex} on the electron is : (e is the magnitude of its charge)",
+    "options": [
+      {
+        "id": 2367456,
+        "text": "{tex}-e\\left(v_x B_y-v_y B_x\\right) \\hat{k}{/tex}",
+        "html": "<p style=\"display:inline\"><span class=\"math-tex\">{tex}-e\\left(v_x B_y-v_y B_x\\right) \\hat{k}{/tex}</span></p>",
+        "is_correct": false,
+        "explanation": ""
+      },
+      {
+        "id": 2367457,
+        "text": "{tex}e\\left(v_x B_y+v_y B_x\\right) \\hat{k}{/tex}",
+        "html": "<p style=\"display:inline\"><span class=\"math-tex\">{tex}e\\left(v_x B_y+v_y B_x\\right) \\hat{k}{/tex}</span></p>",
+        "is_correct": false,
+        "explanation": ""
+      },
+      {
+        "id": 2367458,
+        "text": "{tex}-e\\left(v_x B_y+v_y B_x\\right) \\hat{k}{/tex}",
+        "html": "<p style=\"display:inline\"><span class=\"math-tex\">{tex}-e\\left(v_x B_y+v_y B_x\\right) \\hat{k}{/tex}</span></p>",
+        "is_correct": false,
+        "explanation": ""
+      },
+      {
+        "id": 2367459,
+        "text": "{tex}e\\left(v_x B_y-v_y B_x\\right) \\hat{k}{/tex}",
+        "html": "<p style=\"display:inline\"><span class=\"math-tex\">{tex}e\\left(v_x B_y-v_y B_x\\right) \\hat{k}{/tex}</span></p>",
+        "is_correct": true,
+        "explanation": "{tex}e\\left(v_x B_y-v_y B_x\\right) \\hat{k}{/tex}"
+      }
+    ],
+    "correct_option_ids": [
+      2367459
+    ],
+    "correct_option_text": "{tex}e\\left(v_x B_y-v_y B_x\\right) \\hat{k}{/tex}",
+    "explanation": "{tex}e\\left(v_x B_y-v_y B_x\\right) \\hat{k}{/tex}",
+    "solution": "",
+    "solution_html": "",
+    "weightage": "VSA (Very Short Answer)"
+  },
+  {
+    "subject": "Physics",
+    "subject_id": "1251",
+    "chapter": "Moving Charges and Magnetism",
+    "chapter_id": 1255,
+    "question_id": 471784,
+    "question_html": "<p>A long straight wire of circular cross-section (radius a) carries a steady current I&nbsp;and the current I is uniformly distributed across this cross-section. Which of the following plots represents the variation of the magnitude of magnetic field B with distance centre of the wire?</p>",
+    "question_text": "A long straight wire of circular cross-section (radius a) carries a steady current I and the current I is uniformly distributed across this cross-section. Which of the following plots represents the variation of the magnitude of magnetic field B with distance centre of the wire?",
+    "options": [
+      {
+        "id": 815499,
+        "text": "",
+        "html": "<p style=\"display:inline\"><img alt=\"\" data-imgur-src=\"TLGzJNU.png\" src=\"https://media-mycbseguide.s3.amazonaws.com/images/imgur/1613390911-4f6yk7.jpg\"/></p>",
+        "is_correct": true,
+        "explanation": "{tex}\\mathrm{B}_{\\text {inside }} \\propto r{/tex} and {tex}B_{\\text {outside }} \\propto \\frac{1}{r}{/tex}"
+      },
+      {
+        "id": 815500,
+        "text": "",
+        "html": "<p style=\"display:inline\"><img alt=\"\" data-imgur-src=\"TflK604.png\" src=\"https://media-mycbseguide.s3.amazonaws.com/images/imgur/1613390916-f7bjug.jpg\"/></p>",
+        "is_correct": false,
+        "explanation": ""
+      },
+      {
+        "id": 815501,
+        "text": "",
+        "html": "<p style=\"display:inline\"><img alt=\"\" data-imgur-src=\"qKUax0P.png\" src=\"https://media-mycbseguide.s3.amazonaws.com/images/imgur/1613390921-hwd9tj.jpg\"/></p>",
+        "is_correct": false,
+        "explanation": ""
+      },
+      {
+        "id": 815502,
+        "text": "",
+        "html": "<p style=\"display:inline\"><img alt=\"\" data-imgur-src=\"QEca2bf.png\" src=\"https://media-mycbseguide.s3.amazonaws.com/images/imgur/1613390925-prnqvr.jpg\"/></p>",
+        "is_correct": false,
+        "explanation": ""
+      }
+    ],
+    "correct_option_ids": [
+      815499
+    ],
+    "correct_option_text": "",
+    "explanation": "{tex}\\mathrm{B}_{\\text {inside }} \\propto r{/tex} and {tex}B_{\\text {outside }} \\propto \\frac{1}{r}{/tex}",
+    "solution": "",
+    "solution_html": "",
+    "weightage": "VSA (Very Short Answer)"
+  },
+  {
+    "subject": "Physics",
+    "subject_id": "1251",
+    "chapter": "Moving Charges and Magnetism",
+    "chapter_id": 1255,
+    "question_id": 1715174,
+    "question_html": "<p><strong>Assertion (A):</strong> A charged particle is moving with velocity v in <span class=\"math-tex\">{tex}{x}-{y}{/tex}</span> plane, making an angle <span class=\"math-tex\">{tex}\\theta\\left(0 \\lt \\theta \\lt \\frac{\\pi}{2}\\right){/tex}</span>&nbsp;with x-axis. If a uniform magnetic field <span class=\"math-tex\">{tex}\\overrightarrow{{B}}{/tex}</span> is applied in the region, along <span class=\"math-tex\">{tex}y{/tex}</span>-axis, the particle will move in a helical path with its axis parallel to x-axis.<br />\r\n<strong>Reason <span class=\"math-tex\">{tex}(R){/tex}</span>: </strong>The direction of the magnetic force acting on a charged particle moving in a magnetic field is along the velocity of the particle.</p>",
+    "question_text": "Assertion (A): A charged particle is moving with velocity v in {tex}{x}-{y}{/tex} plane, making an angle {tex}\\theta\\left(0 \\lt \\theta \\lt \\frac{\\pi}{2}\\right){/tex} with x-axis. If a uniform magnetic field {tex}\\overrightarrow{{B}}{/tex} is applied in the region, along {tex}y{/tex} -axis, the particle will move in a helical path with its axis parallel to x-axis. Reason {tex}(R){/tex} : The direction of the magnetic force acting on a charged particle moving in a magnetic field is along the velocity of the particle.",
+    "options": [
+      {
+        "id": 3561831,
+        "text": "Both A and R are true and R is the correct explanation of A.",
+        "html": "<p style=\"display:inline\">Both A and R are true and R is the correct explanation of A.</p>",
+        "is_correct": false,
+        "explanation": ""
+      },
+      {
+        "id": 3561832,
+        "text": "Both A and R are true but R is not the correct explanation of A.",
+        "html": "<p style=\"display:inline\">Both A and R are true but R is not the correct explanation of A.</p>",
+        "is_correct": false,
+        "explanation": ""
+      },
+      {
+        "id": 3561833,
+        "text": "A is true but R is false.",
+        "html": "<p style=\"display:inline\">A is true but R is false.</p>",
+        "is_correct": false,
+        "explanation": ""
+      },
+      {
+        "id": 3561834,
+        "text": "Both A and R are false.",
+        "html": "<p style=\"display:inline\">Both A and R are false.</p>",
+        "is_correct": true,
+        "explanation": "Both A and R are false."
+      }
+    ],
+    "correct_option_ids": [
+      3561834
+    ],
+    "correct_option_text": "Both A and R are false.",
+    "explanation": "Both A and R are false.",
+    "solution": "",
+    "solution_html": "",
+    "weightage": "VSA (Very Short Answer)"
+  },
+  {
+    "subject": "Physics",
+    "subject_id": "1251",
+    "chapter": "Moving Charges and Magnetism",
+    "chapter_id": 1255,
+    "question_id": 471628,
+    "question_html": "<p>Two identical coils P and Q each of radius R are lying in perpendicular planes such that they have a common centre. Find the magnitude and direction of the magnetic field at the common centre when they carry currents equal to I and <span class=\"math-tex\">{tex}\\sqrt{3}{/tex}</span>&nbsp;I respectively.<br />\r\n<img src=\"https://media-mycbseguide.s3.amazonaws.com/images/question_images/1722232843-nea6j2.jpg\" style=\"height:127px; width:120px\" /></p>",
+    "question_text": "Two identical coils P and Q each of radius R are lying in perpendicular planes such that they have a common centre. Find the magnitude and direction of the magnetic field at the common centre when they carry currents equal to I and {tex}\\sqrt{3}{/tex} I respectively.",
+    "options": [],
+    "correct_option_ids": [],
+    "correct_option_text": "",
+    "explanation": "{tex}\\vec{B_{p}}=\\frac{\\mu_{0} I}{2 R}{/tex} , vertically upwards {tex}\\vec{{B}_{Q}}=\\frac{\\mu_{0} \\sqrt{3} I}{2 R}{/tex} , along with horizontal The resultant field at the centre is B = {tex}\\sqrt{B_{P}^{2}+B_{Q}^{2}}=\\left[\\left(\\frac{\\mu_{0} I}{2 R}\\right)^{2}+\\left(\\frac{\\mu_{0} \\sqrt{3} I}{2 R}\\right)^{2}\\right]^{1 / 2}{/tex} = {tex}\\frac{\\mu_{0} I}{2 R}(1+3)^{1 / 2}=\\left(\\frac{\\mu_{0} I}{R}\\right){/tex} {tex}\\tan \\theta=\\frac{B P}{B Q}=\\frac{1}{\\sqrt{3}}{/tex} {tex}\\Rightarrow{/tex} {tex}\\theta{/tex} = 30 o",
+    "solution": "{tex}\\vec{B_{p}}=\\frac{\\mu_{0} I}{2 R}{/tex} , vertically upwards {tex}\\vec{{B}_{Q}}=\\frac{\\mu_{0} \\sqrt{3} I}{2 R}{/tex} , along with horizontal The resultant field at the centre is B = {tex}\\sqrt{B_{P}^{2}+B_{Q}^{2}}=\\left[\\left(\\frac{\\mu_{0} I}{2 R}\\right)^{2}+\\left(\\frac{\\mu_{0} \\sqrt{3} I}{2 R}\\right)^{2}\\right]^{1 / 2}{/tex} = {tex}\\frac{\\mu_{0} I}{2 R}(1+3)^{1 / 2}=\\left(\\frac{\\mu_{0} I}{R}\\right){/tex} {tex}\\tan \\theta=\\frac{B P}{B Q}=\\frac{1}{\\sqrt{3}}{/tex} {tex}\\Rightarrow{/tex} {tex}\\theta{/tex} = 30 o",
+    "solution_html": "<p><span class=\"math-tex\">{tex}\\vec{B_{p}}=\\frac{\\mu_{0} I}{2 R}{/tex}</span>, vertically upwards<br />\r\n<span class=\"math-tex\">{tex}\\vec{{B}_{Q}}=\\frac{\\mu_{0} \\sqrt{3} I}{2 R}{/tex}</span>,&nbsp;along with horizontal<br />\r\nThe resultant field at the centre is<br />\r\nB =&nbsp;<span class=\"math-tex\">{tex}\\sqrt{B_{P}^{2}+B_{Q}^{2}}=\\left[\\left(\\frac{\\mu_{0} I}{2 R}\\right)^{2}+\\left(\\frac{\\mu_{0} \\sqrt{3} I}{2 R}\\right)^{2}\\right]^{1 / 2}{/tex}</span><br />\r\n=&nbsp;<span class=\"math-tex\">{tex}\\frac{\\mu_{0} I}{2 R}(1+3)^{1 / 2}=\\left(\\frac{\\mu_{0} I}{R}\\right){/tex}</span><br />\r\n<span class=\"math-tex\">{tex}\\tan \\theta=\\frac{B P}{B Q}=\\frac{1}{\\sqrt{3}}{/tex}</span><br />\r\n<span class=\"math-tex\">{tex}\\Rightarrow{/tex}</span>&nbsp;<span class=\"math-tex\">{tex}\\theta{/tex}</span>&nbsp;= 30<sup>o</sup></p>",
+    "weightage": "SA-1 (Short answer type-1)"
+  },
+  {
+    "subject": "Physics",
+    "subject_id": "1251",
+    "chapter": "Moving Charges and Magnetism",
+    "chapter_id": 1255,
+    "question_id": 1715149,
+    "question_html": "<ol start=\"1\" style=\"list-style-type:lower-roman\">\r\n\t<li>Write Biot-Savart&#39;s law in vector form.</li>\r\n\t<li>Two identical circular coils A and B, each of radius R , carrying currents <span class=\"math-tex\">{tex}I{/tex}</span> and <span class=\"math-tex\">{tex}\\sqrt{3} I{/tex}</span> respectively, are placed concentrically in XY and YZ planes respectively. Find the magnitude and direction of the net magnetic field at their common centre.</li>\r\n</ol>",
+    "question_text": "Write Biot-Savart&#39;s law in vector form. Two identical circular coils A and B, each of radius R , carrying currents {tex}I{/tex} and {tex}\\sqrt{3} I{/tex} respectively, are placed concentrically in XY and YZ planes respectively. Find the magnitude and direction of the net magnetic field at their common centre.",
+    "options": [],
+    "correct_option_ids": [],
+    "correct_option_text": "",
+    "explanation": "{tex}\\overrightarrow{{dB}}=\\frac{\\mu_0}{4 \\pi} \\frac{{I}(\\overrightarrow{{d}} \\times \\overrightarrow{{r}})}{{r}^3}{/tex} {tex} {B}_1 =\\frac{\\mu_0 {I}}{2 {R}} {/tex} {tex} {~B}_2 =\\frac{\\mu_0 \\sqrt{3} {I}}{2 {R}} {/tex} {tex} {~B} =\\sqrt{{B}_1^2+{B}_2^2} {/tex} {tex} \\therefore {~B} =\\frac{\\mu_0 {I}}{2 {R}} \\sqrt{1+3} {/tex} {tex} B =\\frac{\\mu_0 I}{R} {/tex} {tex} \\tan \\theta =\\frac{B_1}{B_2}=\\frac{1}{\\sqrt{3}} {/tex} Direction of net magnetic field is {tex}30^{\\circ}{/tex} with direction of {tex}{B}_2 / 60^{\\circ}{/tex} with the direction of {tex}B_1{/tex} .",
+    "solution": "{tex}\\overrightarrow{{dB}}=\\frac{\\mu_0}{4 \\pi} \\frac{{I}(\\overrightarrow{{d}} \\times \\overrightarrow{{r}})}{{r}^3}{/tex} {tex} {B}_1 =\\frac{\\mu_0 {I}}{2 {R}} {/tex} {tex} {~B}_2 =\\frac{\\mu_0 \\sqrt{3} {I}}{2 {R}} {/tex} {tex} {~B} =\\sqrt{{B}_1^2+{B}_2^2} {/tex} {tex} \\therefore {~B} =\\frac{\\mu_0 {I}}{2 {R}} \\sqrt{1+3} {/tex} {tex} B =\\frac{\\mu_0 I}{R} {/tex} {tex} \\tan \\theta =\\frac{B_1}{B_2}=\\frac{1}{\\sqrt{3}} {/tex} Direction of net magnetic field is {tex}30^{\\circ}{/tex} with direction of {tex}{B}_2 / 60^{\\circ}{/tex} with the direction of {tex}B_1{/tex} .",
+    "solution_html": "<ol start=\"1\" style=\"list-style-type:lower-roman\">\r\n\t<li><span class=\"math-tex\">{tex}\\overrightarrow{{dB}}=\\frac{\\mu_0}{4 \\pi} \\frac{{I}(\\overrightarrow{{d}} \\times \\overrightarrow{{r}})}{{r}^3}{/tex}</span><br />\r\n\t<img src=\"https://media-mycbseguide.s3.amazonaws.com/images/question_images/1760439156-g62fv7.jpg\" style=\"height:184px; width:200px\" /></li>\r\n\t<li><span class=\"math-tex\">{tex} {B}_1 =\\frac{\\mu_0 {I}}{2 {R}} {/tex}</span><br />\r\n\t<span class=\"math-tex\">{tex} {~B}_2 =\\frac{\\mu_0 \\sqrt{3} {I}}{2 {R}} {/tex}</span><br />\r\n\t<span class=\"math-tex\">{tex} {~B} =\\sqrt{{B}_1^2+{B}_2^2} {/tex}</span><br />\r\n\t<span class=\"math-tex\">{tex} \\therefore {~B} =\\frac{\\mu_0 {I}}{2 {R}} \\sqrt{1+3} {/tex}</span><br />\r\n\t<span class=\"math-tex\">{tex} B =\\frac{\\mu_0 I}{R} {/tex}</span><br />\r\n\t<span class=\"math-tex\">{tex} \\tan \\theta =\\frac{B_1}{B_2}=\\frac{1}{\\sqrt{3}} {/tex}</span><br />\r\n\tDirection of net magnetic field is <span class=\"math-tex\">{tex}30^{\\circ}{/tex}</span> with direction of <span class=\"math-tex\">{tex}{B}_2 / 60^{\\circ}{/tex}</span> with the direction of <span class=\"math-tex\">{tex}B_1{/tex}</span>.</li>\r\n</ol>",
+    "weightage": "SA-1 (Short answer type-1)"
+  },
+  {
+    "subject": "Physics",
+    "subject_id": "1251",
+    "chapter": "Moving Charges and Magnetism",
+    "chapter_id": 1255,
+    "question_id": 1345787,
+    "question_html": "<p>Two long, straight, parallel conductors carry steady currents in opposite directions. Explain the nature of the force of interaction between them. Obtain an expression for the magnitude of the force between the two conductors. Hence define one ampere.</p>",
+    "question_text": "Two long, straight, parallel conductors carry steady currents in opposite directions. Explain the nature of the force of interaction between them. Obtain an expression for the magnitude of the force between the two conductors. Hence define one ampere.",
+    "options": [],
+    "correct_option_ids": [],
+    "correct_option_text": "",
+    "explanation": "Nature of force is repulsive. Magnetic field due to current {tex}I_a{/tex} at all points of conductor {tex}b{/tex} {tex}B_{a b}=\\frac{\\mu_0 I_a}{2 \\pi d} {/tex} directed downwards Force experienced by conductor b on its segment of length {tex}l{/tex} {tex}F_{a b}=I_b l B_{a b}{/tex} {tex}=\\frac{\\mu_0 I_a I_b}{2 \\pi d} l {/tex} directed towards left Similarly Force experienced by conductor a on its segment of length {tex}l{/tex} {tex}F_{b a}=\\frac{\\mu_0 I_a I_b}{2 \\pi d} l {/tex} directed towards right One ampere is that steady current which when maintained in each of two very long straight parallel conductors of negligible cross- section, placed one metre apart in vacuum produces a force of {tex}2 \\times 10^{-7} {~N} / {m}{/tex} on each conductor.",
+    "solution": "Nature of force is repulsive. Magnetic field due to current {tex}I_a{/tex} at all points of conductor {tex}b{/tex} {tex}B_{a b}=\\frac{\\mu_0 I_a}{2 \\pi d} {/tex} directed downwards Force experienced by conductor b on its segment of length {tex}l{/tex} {tex}F_{a b}=I_b l B_{a b}{/tex} {tex}=\\frac{\\mu_0 I_a I_b}{2 \\pi d} l {/tex} directed towards left Similarly Force experienced by conductor a on its segment of length {tex}l{/tex} {tex}F_{b a}=\\frac{\\mu_0 I_a I_b}{2 \\pi d} l {/tex} directed towards right One ampere is that steady current which when maintained in each of two very long straight parallel conductors of negligible cross- section, placed one metre apart in vacuum produces a force of {tex}2 \\times 10^{-7} {~N} / {m}{/tex} on each conductor.",
+    "solution_html": "<p>Nature of force is repulsive.<br />\n<img src=\"https://media-mycbseguide.s3.amazonaws.com/images/question_images/1729853918-6jm26c.jpg\" style=\"height:184px; width:200px\" /><br />\nMagnetic field due to current <span class=\"math-tex\">{tex}I_a{/tex}</span> at all points of conductor <span class=\"math-tex\">{tex}b{/tex}</span><br />\n<span class=\"math-tex\">{tex}B_{a b}=\\frac{\\mu_0 I_a}{2 \\pi d} {/tex}</span> directed downwards<br />\nForce experienced by conductor b on its segment of length <span class=\"math-tex\">{tex}l{/tex}</span><br />\n<span class=\"math-tex\">{tex}F_{a b}=I_b l B_{a b}{/tex}</span><br />\n<span class=\"math-tex\">{tex}=\\frac{\\mu_0 I_a I_b}{2 \\pi d} l {/tex}</span> directed towards left<br />\nSimilarly<br />\nForce experienced by conductor a on its segment of length <span class=\"math-tex\">{tex}l{/tex}</span><br />\n<span class=\"math-tex\">{tex}F_{b a}=\\frac{\\mu_0 I_a I_b}{2 \\pi d} l {/tex}</span> directed towards right<br />\nOne ampere is that steady current which when maintained in each of two very long straight parallel conductors of negligible cross- section, placed one metre apart in vacuum produces a force of <span class=\"math-tex\">{tex}2 \\times 10^{-7} {~N} / {m}{/tex}</span> on each conductor.</p>",
+    "weightage": "SA-1 (Short answer type-1)"
+  },
+  {
+    "subject": "Physics",
+    "subject_id": "1251",
+    "chapter": "Moving Charges and Magnetism",
+    "chapter_id": 1255,
+    "question_id": 1149987,
+    "question_html": "<p>A current carrying circular loop and a straight wire bent partly in the form of a semicircle are placed as shown in the figure. Find the magnitude and direction of net magnetic field at point O.<br />\n<img src=\"https://media-mycbseguide.s3.amazonaws.com/images/question_images/1706175627-u5p6sq.jpg\" style=\"height:120px; width:200px\" /></p>",
+    "question_text": "A current carrying circular loop and a straight wire bent partly in the form of a semicircle are placed as shown in the figure. Find the magnitude and direction of net magnetic field at point O.",
+    "options": [],
+    "correct_option_ids": [],
+    "correct_option_text": "",
+    "explanation": "Magnetic field due to inner circle at O, {tex}B_1=\\frac{\\mu_0 I}{2 r}{/tex} {tex}=\\frac{2 \\pi \\times 10^{-7} \\times 1}{4 \\times 10^{-2}}{/tex} {tex}=\\frac{\\pi}{2} \\times{/tex} 10 -5 T into the page Magnetic field due to semi-circle at O, {tex}B_2=\\frac{\\mu_0 I}{2 r} \\cdot \\frac{1}{2}{/tex} {tex}=\\frac{2 \\pi \\times 10^{-7} \\times 2}{12 \\times 10^{-2}}{/tex} {tex}=\\frac{\\pi}{6} \\times{/tex} 10 -5 T out of the page as magnetic fields are in opposite directions so B net = B 1 - B 2 {tex}=\\left(\\frac{\\pi}{2} \\times 10^{-5}-\\frac{\\pi}{6} \\times 10^{-5}\\right) T \\approx 1.0 \\times 10^{-5} T{/tex} Direction of the net magnetic field is into the page, since B 1 > B 2 .",
+    "solution": "Magnetic field due to inner circle at O, {tex}B_1=\\frac{\\mu_0 I}{2 r}{/tex} {tex}=\\frac{2 \\pi \\times 10^{-7} \\times 1}{4 \\times 10^{-2}}{/tex} {tex}=\\frac{\\pi}{2} \\times{/tex} 10 -5 T into the page Magnetic field due to semi-circle at O, {tex}B_2=\\frac{\\mu_0 I}{2 r} \\cdot \\frac{1}{2}{/tex} {tex}=\\frac{2 \\pi \\times 10^{-7} \\times 2}{12 \\times 10^{-2}}{/tex} {tex}=\\frac{\\pi}{6} \\times{/tex} 10 -5 T out of the page as magnetic fields are in opposite directions so B net = B 1 - B 2 {tex}=\\left(\\frac{\\pi}{2} \\times 10^{-5}-\\frac{\\pi}{6} \\times 10^{-5}\\right) T \\approx 1.0 \\times 10^{-5} T{/tex} Direction of the net magnetic field is into the page, since B 1 > B 2 .",
+    "solution_html": "<p>Magnetic field due to inner circle at O,<br />\n<span class=\"math-tex\">{tex}B_1=\\frac{\\mu_0 I}{2 r}{/tex}</span><br />\n<span class=\"math-tex\">{tex}=\\frac{2 \\pi \\times 10^{-7} \\times 1}{4 \\times 10^{-2}}{/tex}</span><br />\n<span class=\"math-tex\">{tex}=\\frac{\\pi}{2} \\times{/tex}</span> 10<sup>-5</sup> T into the page<br />\nMagnetic field due to semi-circle at O,<br />\n<span class=\"math-tex\">{tex}B_2=\\frac{\\mu_0 I}{2 r} \\cdot \\frac{1}{2}{/tex}</span><br />\n<span class=\"math-tex\">{tex}=\\frac{2 \\pi \\times 10^{-7} \\times 2}{12 \\times 10^{-2}}{/tex}</span><br />\n<span class=\"math-tex\">{tex}=\\frac{\\pi}{6} \\times{/tex}</span> 10<sup>-5 </sup>T out of the page</p>\n\n<p>as magnetic fields are in opposite directions so&nbsp;<br />\nB<sub>net</sub> = B<sub>1</sub> - B<sub>2</sub><br />\n<span class=\"math-tex\">{tex}=\\left(\\frac{\\pi}{2} \\times 10^{-5}-\\frac{\\pi}{6} \\times 10^{-5}\\right) T \\approx 1.0 \\times 10^{-5} T{/tex}</span><br />\nDirection of the net magnetic field is into the page, since B<sub>1 </sub>&gt; B<sub>2</sub>.</p>",
+    "weightage": "SA-1 (Short answer type-1)"
+  },
+  {
+    "subject": "Physics",
+    "subject_id": "1251",
+    "chapter": "Moving Charges and Magnetism",
+    "chapter_id": 1255,
+    "question_id": 639059,
+    "question_html": "<p>Describe the working principle of a moving coil galvanometer. Why is it necessary to use (i) a radial magnetic field and (ii) a cylindrical soft iron core in a galvanometer?&nbsp;Can a galvanometer as such be used for measuring the current? Explain.</p>",
+    "question_text": "Describe the working principle of a moving coil galvanometer. Why is it necessary to use (i) a radial magnetic field and (ii) a cylindrical soft iron core in a galvanometer? Can a galvanometer as such be used for measuring the current? Explain.",
+    "options": [],
+    "correct_option_ids": [],
+    "correct_option_text": "",
+    "explanation": "Principle of a moving coil galvanometer: A current-carrying coil placed in a magnetic field experiences a current dependent torque, which tends to rotate the coil and produces angular deflection. Radial magnetic field maximizes the torque on the coil and provides a linear current scale. A cylindrical soft iron core makes the field radial. This increases the strength of the magnetic field and hence increases the sensitivity of the galvanometer. A galvanometer as such cannot be used to measure current in a circuit due to two reasons: A galvanometer can detect only small currents and its coil is likely to be damaged by currents of (mA/A) range. For measuring currents, it has to be first calibrated.",
+    "solution": "Principle of a moving coil galvanometer: A current-carrying coil placed in a magnetic field experiences a current dependent torque, which tends to rotate the coil and produces angular deflection. Radial magnetic field maximizes the torque on the coil and provides a linear current scale. A cylindrical soft iron core makes the field radial. This increases the strength of the magnetic field and hence increases the sensitivity of the galvanometer. A galvanometer as such cannot be used to measure current in a circuit due to two reasons: A galvanometer can detect only small currents and its coil is likely to be damaged by currents of (mA/A) range. For measuring currents, it has to be first calibrated.",
+    "solution_html": "<p><strong>Principle of a moving coil galvanometer: </strong>A current-carrying coil placed in a magnetic field experiences a current dependent torque, which tends to rotate the coil and produces angular deflection.</p>\n\n<ol start=\"1\" style=\"list-style-type: lower-alpha;\">\n\t<li>Radial magnetic field maximizes the torque on the coil and provides a linear current scale.</li>\n\t<li>A cylindrical soft iron core makes the field radial. This increases the strength of the magnetic field and hence increases the sensitivity of the galvanometer.</li>\n</ol>\n\n<p>A galvanometer as such cannot be used to measure current in a circuit due to two reasons:</p>\n\n<ol start=\"1\" style=\"list-style-type: lower-roman;\">\n\t<li>A galvanometer can detect only small currents and its coil is likely to be damaged by currents of (mA/A) range.</li>\n\t<li>For measuring currents, it has to be first calibrated.</li>\n</ol>",
+    "weightage": "SA-1 (Short answer type-1)"
+  },
+  {
+    "subject": "Physics",
+    "subject_id": "1251",
+    "chapter": "Moving Charges and Magnetism",
+    "chapter_id": 1255,
+    "question_id": 1172176,
+    "question_html": "<p>A galvanometer of resistance 16 <span class=\"math-tex\">{tex}\\Omega{/tex}</span> shows full scale deflection for a current of 4 mA. How will you convert it into a voltmeter to measure a voltage up to 3 V?</p>",
+    "question_text": "A galvanometer of resistance 16 {tex}\\Omega{/tex} shows full scale deflection for a current of 4 mA. How will you convert it into a voltmeter to measure a voltage up to 3 V?",
+    "options": [],
+    "correct_option_ids": [],
+    "correct_option_text": "",
+    "explanation": "R = {tex}\\frac{\\mathrm{v}}{\\mathrm{Ig}}-\\mathrm{G}{/tex} Here V = 3 V I g = 4 mA = 4 {tex}\\times{/tex} 10 -3 A G = 16 {tex}\\Omega{/tex} R = {tex}\\frac{3}{4 \\times 10^{-3}}-16{/tex} = {tex}\\frac{3 \\times 1000}{4}-16{/tex} = 734 {tex}\\Omega{/tex} Hence, in order to measure a voltage upto 3 V, a resistance of 734 {tex}\\Omega{/tex} in series is added with the galvanometer.",
+    "solution": "R = {tex}\\frac{\\mathrm{v}}{\\mathrm{Ig}}-\\mathrm{G}{/tex} Here V = 3 V I g = 4 mA = 4 {tex}\\times{/tex} 10 -3 A G = 16 {tex}\\Omega{/tex} R = {tex}\\frac{3}{4 \\times 10^{-3}}-16{/tex} = {tex}\\frac{3 \\times 1000}{4}-16{/tex} = 734 {tex}\\Omega{/tex} Hence, in order to measure a voltage upto 3 V, a resistance of 734 {tex}\\Omega{/tex} in series is added with the galvanometer.",
+    "solution_html": "<p><img src=\"https://media-mycbseguide.s3.amazonaws.com/images/question_images/1712733839-4m5kct.jpg\" style=\"height:90px; width:200px\" /><br />\nR = <span class=\"math-tex\">{tex}\\frac{\\mathrm{v}}{\\mathrm{Ig}}-\\mathrm{G}{/tex}</span><br />\nHere V = 3 V<br />\nI<sub>g</sub> = 4 mA = 4 <span class=\"math-tex\">{tex}\\times{/tex}</span> 10<sup>-3</sup> A<br />\nG = 16 <span class=\"math-tex\">{tex}\\Omega{/tex}</span><br />\nR = <span class=\"math-tex\">{tex}\\frac{3}{4 \\times 10^{-3}}-16{/tex}</span><br />\n= <span class=\"math-tex\">{tex}\\frac{3 \\times 1000}{4}-16{/tex}</span><br />\n= 734 <span class=\"math-tex\">{tex}\\Omega{/tex}</span><br />\nHence, in order to measure a voltage upto 3 V, a resistance of&nbsp; 734 <span class=\"math-tex\">{tex}\\Omega{/tex}</span>&nbsp;in series is added&nbsp;with the galvanometer.</p>",
+    "weightage": "SA-1 (Short answer type-1)"
+  },
+  {
+    "subject": "Physics",
+    "subject_id": "1251",
+    "chapter": "Moving Charges and Magnetism",
+    "chapter_id": 1255,
+    "question_id": 422514,
+    "question_html": "<p>A proton and an electron travelling along parallel paths enter a region of the uniform magnetic field, acting perpendicular to their paths. Which of them will move in a circular path with a higher&nbsp;frequency?</p>",
+    "question_text": "A proton and an electron travelling along parallel paths enter a region of the uniform magnetic field, acting perpendicular to their paths. Which of them will move in a circular path with a higher frequency?",
+    "options": [],
+    "correct_option_ids": [],
+    "correct_option_text": "",
+    "explanation": "Electron moves in a circular path with higher frequency.m e =mass of electron , m p =mass of proton. {tex}\\frac{m v^{2}}{r}=q v B, r=\\frac{m v}{q B}{/tex} {tex}\\omega=\\frac{v}{r}=\\frac{q B}{m}{/tex} {tex}\\omega=2 \\pi f \\Rightarrow \\frac{q B}{m}=2 \\pi f \\Rightarrow f \\propto \\frac{1}{m}{/tex} Since m e < m p , therefore f e > f p Thus, the electron moves in circular path with higher frequency.",
+    "solution": "Electron moves in a circular path with higher frequency.m e =mass of electron , m p =mass of proton. {tex}\\frac{m v^{2}}{r}=q v B, r=\\frac{m v}{q B}{/tex} {tex}\\omega=\\frac{v}{r}=\\frac{q B}{m}{/tex} {tex}\\omega=2 \\pi f \\Rightarrow \\frac{q B}{m}=2 \\pi f \\Rightarrow f \\propto \\frac{1}{m}{/tex} Since m e < m p , therefore f e > f p Thus, the electron moves in circular path with higher frequency.",
+    "solution_html": "<p>Electron moves in a circular path with higher frequency.m<sub>e</sub>=mass of electron , m<sub>p</sub>=mass of proton.<br />\n<span class=\"math-tex\">{tex}\\frac{m v^{2}}{r}=q v B, r=\\frac{m v}{q B}{/tex}</span><br />\n<span class=\"math-tex\">{tex}\\omega=\\frac{v}{r}=\\frac{q B}{m}{/tex}</span><br />\n<span class=\"math-tex\">{tex}\\omega=2 \\pi f \\Rightarrow \\frac{q B}{m}=2 \\pi f \\Rightarrow f \\propto \\frac{1}{m}{/tex}</span><br />\nSince m<sub>e</sub>&nbsp;&lt; m<sub>p</sub>, therefore f<sub>e</sub> &gt; f<sub>p</sub><br />\nThus, the electron moves in circular path with higher frequency.</p>",
+    "weightage": "SA-1 (Short answer type-1)"
+  },
+  {
+    "subject": "Physics",
+    "subject_id": "1251",
+    "chapter": "Moving Charges and Magnetism",
+    "chapter_id": 1255,
+    "question_id": 742499,
+    "question_html": "<html><body><ol start=\"1\" style=\"list-style-type: lower-alpha;\">\n<li>A point charge q moving with speed v v enters a uniform magnetic field B that is acting into the plane of the paper as shown. What is the path followed by the charge q and in which plane does it move?<br/>\n<img alt=\"\" data-imgur-src=\"qKNtoGK.png\" src=\"https://media-mycbseguide.s3.amazonaws.com/images/imgur/1657888324-rnd5yb.jpg\" style=\"width: 101px; height: 99px;\"/></li>\n<li>How does the path followed by the charge get affected if its velocity has a component parallel to B?</li>\n<li>If an electric <span class=\"math-tex\">{tex}\\vec{E}{/tex}</span> is also applied such that the particle continues moving along the original straight line path, what would be the magnitude and direction of the electric field <span class=\"math-tex\">{tex}\\vec{E}{/tex}</span> ?</li>\n</ol></body></html>",
+    "question_text": "A point charge q moving with speed v v enters a uniform magnetic field B that is acting into the plane of the paper as shown. What is the path followed by the charge q and in which plane does it move? How does the path followed by the charge get affected if its velocity has a component parallel to B? If an electric {tex}\\vec{E}{/tex} is also applied such that the particle continues moving along the original straight line path, what would be the magnitude and direction of the electric field {tex}\\vec{E}{/tex} ?",
+    "options": [],
+    "correct_option_ids": [],
+    "correct_option_text": "",
+    "explanation": "The charge q moves in the XY plane describing a circular path in the anticlockwise sense. The path of the charged particle will become helical. By Fleming&#39;s left hand rule, the magnetic Lorentz force acts on charge q in -Y direction {tex}\\therefore{/tex} Applied electric field should be in the + Y direction to make the charged particle move along the original straight line path. F e = F m {tex}q E=q v B \\sin 90^{\\circ} \\quad \\text { or } \\quad E=v B{/tex}",
+    "solution": "The charge q moves in the XY plane describing a circular path in the anticlockwise sense. The path of the charged particle will become helical. By Fleming&#39;s left hand rule, the magnetic Lorentz force acts on charge q in -Y direction {tex}\\therefore{/tex} Applied electric field should be in the + Y direction to make the charged particle move along the original straight line path. F e = F m {tex}q E=q v B \\sin 90^{\\circ} \\quad \\text { or } \\quad E=v B{/tex}",
+    "solution_html": "<ol start=\"1\" style=\"list-style-type: lower-alpha;\">\r\n\t<li>The charge q moves in the XY plane describing a circular path in the anticlockwise sense.</li>\r\n\t<li>The path of the charged particle will become helical.</li>\r\n\t<li>By Fleming&#39;s left hand rule, the magnetic Lorentz force acts on charge q in -Y direction<br />\r\n\t<span class=\"math-tex\">{tex}\\therefore{/tex}</span>Applied electric field should be in the + Y direction to make the charged particle move along the original straight line path.<br />\r\n\tF<sub>e</sub>&nbsp;= F<sub>m</sub><br />\r\n\t<span class=\"math-tex\">{tex}q E=q v B \\sin 90^{\\circ} \\quad \\text { or } \\quad E=v B{/tex}</span></li>\r\n</ol>",
+    "weightage": "SA-1 (Short answer type-1)"
+  },
+  {
+    "subject": "Physics",
+    "subject_id": "1251",
+    "chapter": "Moving Charges and Magnetism",
+    "chapter_id": 1255,
+    "question_id": 1324542,
+    "question_html": "<p>A charged particle q is moving in the presence of a magnetic field B which is inclined to an angle 30<sup>o</sup> with the direction of the motion of the particle. Draw the trajectory followed by the particle in the presence of the field and explain how the particle describes this path.</p>",
+    "question_text": "A charged particle q is moving in the presence of a magnetic field B which is inclined to an angle 30 o with the direction of the motion of the particle. Draw the trajectory followed by the particle in the presence of the field and explain how the particle describes this path.",
+    "options": [],
+    "correct_option_ids": [],
+    "correct_option_text": "",
+    "explanation": "The force acting on a charged particle in a magnetic field is given by; {tex}\\vec{F}=q(\\vec{V} \\times \\vec{B}){/tex} Where q = charge of the particle v = velocity of particle and B = magnetic field in that region Let velocity has a component along with B, this component remains unchanged as the motion along the magnetic field will not be affected by the magnetic field. The motion in a plane perpendicular to B is circular one, thereby producing a helical motion. Thus the described path will be helical as shown in the figure.",
+    "solution": "The force acting on a charged particle in a magnetic field is given by; {tex}\\vec{F}=q(\\vec{V} \\times \\vec{B}){/tex} Where q = charge of the particle v = velocity of particle and B = magnetic field in that region Let velocity has a component along with B, this component remains unchanged as the motion along the magnetic field will not be affected by the magnetic field. The motion in a plane perpendicular to B is circular one, thereby producing a helical motion. Thus the described path will be helical as shown in the figure.",
+    "solution_html": "<p>The force acting on a charged particle in a magnetic field is given by; <span class=\"math-tex\">{tex}\\vec{F}=q(\\vec{V} \\times \\vec{B}){/tex}</span><br />\nWhere q = charge of the particle<br />\nv = velocity of particle and<br />\nB = magnetic field in that region<br />\nLet velocity has a component along with B, this component remains unchanged as the motion along the magnetic field will not be affected by the magnetic field.<br />\nThe motion in a plane perpendicular to B is circular one, thereby producing a helical motion. Thus the described path will be helical as shown in the figure.</p>\n\n<p><img src=\"https://media-mycbseguide.s3.amazonaws.com/images/question_images/1727933413-phxtdk.jpg\" style=\"height:196px; width:425px\" /></p>",
+    "weightage": "SA-1 (Short answer type-1)"
+  },
+  {
+    "subject": "Physics",
+    "subject_id": "1251",
+    "chapter": "Moving Charges and Magnetism",
+    "chapter_id": 1255,
+    "question_id": 639046,
+    "question_html": "<p>A charged particle of mass&#39;m&#39;, charge &#39;q&#39; moving at uniform velocity &#39;v&#39;, enters a uniform magnetic field &#39;B&#39; acting normal to the plane of the paper. Deduce expression for the (t) radius of the circular path in which it travels, (ii) kinetic energy of the particle (assuming v &lt;&lt;&nbsp;c).</p>",
+    "question_text": "A charged particle of mass&#39;m&#39;, charge &#39;q&#39; moving at uniform velocity &#39;v&#39;, enters a uniform magnetic field &#39;B&#39; acting normal to the plane of the paper. Deduce expression for the (t) radius of the circular path in which it travels, (ii) kinetic energy of the particle (assuming v << c).",
+    "options": [],
+    "correct_option_ids": [],
+    "correct_option_text": "",
+    "explanation": "Force exerted by the magnetic field = Centripetal force on the charge or {tex}q v B \\sin 90^{\\circ}=\\frac{m v^{2}}{r}{/tex} {tex}\\therefore{/tex} Radius {tex}r=\\frac{m v}{q B}{/tex} Velocity, {tex}v=\\frac{q B r}{m}{/tex} {tex}\\therefore \\mathrm{K} . \\mathrm{E} .=\\frac{1}{2} m v^{2}=\\frac{1}{2} m\\left(\\frac{q B r}{m}\\right)^{2}=\\frac{B^{2} q^{2} r^{2}}{2 m}{/tex}",
+    "solution": "Force exerted by the magnetic field = Centripetal force on the charge or {tex}q v B \\sin 90^{\\circ}=\\frac{m v^{2}}{r}{/tex} {tex}\\therefore{/tex} Radius {tex}r=\\frac{m v}{q B}{/tex} Velocity, {tex}v=\\frac{q B r}{m}{/tex} {tex}\\therefore \\mathrm{K} . \\mathrm{E} .=\\frac{1}{2} m v^{2}=\\frac{1}{2} m\\left(\\frac{q B r}{m}\\right)^{2}=\\frac{B^{2} q^{2} r^{2}}{2 m}{/tex}",
+    "solution_html": "<ol start=\"1\" style=\"list-style-type: lower-roman;\">\n\t<li>Force exerted by the magnetic field<br />\n\t= Centripetal force on the charge<br />\n\tor&nbsp;<span class=\"math-tex\">{tex}q v B \\sin 90^{\\circ}=\\frac{m v^{2}}{r}{/tex}</span><br />\n\t<span class=\"math-tex\">{tex}\\therefore{/tex}</span>&nbsp;Radius&nbsp;<span class=\"math-tex\">{tex}r=\\frac{m v}{q B}{/tex}</span></li>\n\t<li>Velocity,<span class=\"math-tex\">{tex}v=\\frac{q B r}{m}{/tex}</span><br />\n\t<span class=\"math-tex\">{tex}\\therefore \\mathrm{K} . \\mathrm{E} .=\\frac{1}{2} m v^{2}=\\frac{1}{2} m\\left(\\frac{q B r}{m}\\right)^{2}=\\frac{B^{2} q^{2} r^{2}}{2 m}{/tex}</span></li>\n</ol>",
+    "weightage": "SA-1 (Short answer type-1)"
+  },
+  {
+    "subject": "Physics",
+    "subject_id": "1251",
+    "chapter": "Moving Charges and Magnetism",
+    "chapter_id": 1255,
+    "question_id": 1715267,
+    "question_html": "<p>A current of 5 A is passing along +X direction through a wire lying along X -axis. Find the magnetic field <span class=\"math-tex\">{tex}\\overrightarrow{{B}}{/tex}</span> at a point <span class=\"math-tex\">{tex}\\vec{r}=(3 \\hat{i}+4 \\hat{j}) {m}{/tex}</span> due to 1 cm element of the wire, centered at origin.</p>",
+    "question_text": "A current of 5 A is passing along +X direction through a wire lying along X -axis. Find the magnetic field {tex}\\overrightarrow{{B}}{/tex} at a point {tex}\\vec{r}=(3 \\hat{i}+4 \\hat{j}) {m}{/tex} due to 1 cm element of the wire, centered at origin.",
+    "options": [],
+    "correct_option_ids": [],
+    "correct_option_text": "",
+    "explanation": "Using Biot - Savart&#39;s law {tex} \\vec{B} =\\frac{\\mu_0}{4 \\pi} \\frac{I \\overrightarrow{d l} \\times \\vec{r}}{r^3} {/tex} {tex} =\\frac{\\left(10^{-7}\\right)\\left[5\\left(10^{-2}\\right) \\hat{{i}} \\times(3 \\hat{{i}}+4 \\hat{{j}})\\right]}{5^3} {/tex} {tex} =1.6 \\times 10^{-10} \\hat{k} T {/tex}",
+    "solution": "Using Biot - Savart&#39;s law {tex} \\vec{B} =\\frac{\\mu_0}{4 \\pi} \\frac{I \\overrightarrow{d l} \\times \\vec{r}}{r^3} {/tex} {tex} =\\frac{\\left(10^{-7}\\right)\\left[5\\left(10^{-2}\\right) \\hat{{i}} \\times(3 \\hat{{i}}+4 \\hat{{j}})\\right]}{5^3} {/tex} {tex} =1.6 \\times 10^{-10} \\hat{k} T {/tex}",
+    "solution_html": "<p>Using Biot - Savart&#39;s law<br />\r\n<span class=\"math-tex\">{tex} \\vec{B} =\\frac{\\mu_0}{4 \\pi} \\frac{I \\overrightarrow{d l} \\times \\vec{r}}{r^3} {/tex}</span><br />\r\n<span class=\"math-tex\">{tex} =\\frac{\\left(10^{-7}\\right)\\left[5\\left(10^{-2}\\right) \\hat{{i}} \\times(3 \\hat{{i}}+4 \\hat{{j}})\\right]}{5^3} {/tex}</span><br />\r\n<span class=\"math-tex\">{tex} =1.6 \\times 10^{-10} \\hat{k} T {/tex}</span></p>",
+    "weightage": "SA-1 (Short answer type-1)"
+  },
+  {
+    "subject": "Physics",
+    "subject_id": "1251",
+    "chapter": "Moving Charges and Magnetism",
+    "chapter_id": 1255,
+    "question_id": 1149962,
+    "question_html": "<p>State the condition under which a charged particle moving with velocity v goes undeflected in a magnetic field B.</p>",
+    "question_text": "State the condition under which a charged particle moving with velocity v goes undeflected in a magnetic field B.",
+    "options": [],
+    "correct_option_ids": [],
+    "correct_option_text": "",
+    "explanation": "Force on a charge moving parallel or antiparallel to the direction of the magnetic field is zero {tex}F=\\;qvB\\sin\\theta{/tex} for (0 o or 180 o ) {tex}\\sin\\theta\\;=0\\;{/tex} So Force =0",
+    "solution": "Force on a charge moving parallel or antiparallel to the direction of the magnetic field is zero {tex}F=\\;qvB\\sin\\theta{/tex} for (0 o or 180 o ) {tex}\\sin\\theta\\;=0\\;{/tex} So Force =0",
+    "solution_html": "<p>Force on a charge moving parallel or antiparallel to the direction of the magnetic field is zero <span class=\"math-tex\">{tex}F=\\;qvB\\sin\\theta{/tex}</span></p>\n\n<p>for (0<sup>o</sup> or 180<sup>o</sup>)&nbsp;</p>\n\n<p><span class=\"math-tex\">{tex}\\sin\\theta\\;=0\\;{/tex}</span></p>\n\n<p>So Force =0</p>",
+    "weightage": "SA-1 (Short answer type-1)"
+  },
+  {
+    "subject": "Physics",
+    "subject_id": "1251",
+    "chapter": "Moving Charges and Magnetism",
+    "chapter_id": 1255,
+    "question_id": 1142725,
+    "question_html": "<p>A square loop of side <strong>a</strong>&nbsp;carrying a current 12 is kept at distance x from an infinitely long straight wire carrying a current I<sub>1</sub> as shown in the figure. Obtain the expression for the resultant force acting on the loop.</p>",
+    "question_text": "A square loop of side a carrying a current 12 is kept at distance x from an infinitely long straight wire carrying a current I 1 as shown in the figure. Obtain the expression for the resultant force acting on the loop.",
+    "options": [],
+    "correct_option_ids": [],
+    "correct_option_text": "",
+    "explanation": "Force per unit length between two parallel straight conductors {tex}F=\\frac{\\mu_0}{4 \\pi} \\frac{2 I_1 I_2}{d}{/tex} Force on the part of the loop which is parallel to infinite straight wire and at a distance x from it. {tex}F_1=\\frac{\\mu_0}{2 \\pi} \\frac{I_1 I_2 a}{x}{/tex} (away from the infinite straight wire) Force on the part of the loop which is at a distance (x + a) from it, {tex}F_2=\\frac{\\mu_0}{2 \\pi} \\frac{l_1 l_2 a}{(x+a)}{/tex} (towards the infinite straight wire) Net force, F = F 1 - F 2 {tex}F=\\frac{\\mu_0}{2 \\pi} l_1 l_2a\\left[\\frac{1}{x}-\\frac{1}{x+a}\\right]{/tex} {tex}F=\\frac{\\mu_0 I_1 l_2 a^2}{2 \\pi \\;x(x+a)}{/tex} (away from the infinite straight wire)",
+    "solution": "Force per unit length between two parallel straight conductors {tex}F=\\frac{\\mu_0}{4 \\pi} \\frac{2 I_1 I_2}{d}{/tex} Force on the part of the loop which is parallel to infinite straight wire and at a distance x from it. {tex}F_1=\\frac{\\mu_0}{2 \\pi} \\frac{I_1 I_2 a}{x}{/tex} (away from the infinite straight wire) Force on the part of the loop which is at a distance (x + a) from it, {tex}F_2=\\frac{\\mu_0}{2 \\pi} \\frac{l_1 l_2 a}{(x+a)}{/tex} (towards the infinite straight wire) Net force, F = F 1 - F 2 {tex}F=\\frac{\\mu_0}{2 \\pi} l_1 l_2a\\left[\\frac{1}{x}-\\frac{1}{x+a}\\right]{/tex} {tex}F=\\frac{\\mu_0 I_1 l_2 a^2}{2 \\pi \\;x(x+a)}{/tex} (away from the infinite straight wire)",
+    "solution_html": "<p>Force per unit length between two parallel straight conductors&nbsp;<br />\r\n<span class=\"math-tex\">{tex}F=\\frac{\\mu_0}{4 \\pi} \\frac{2 I_1 I_2}{d}{/tex}</span><br />\r\nForce on the part of the loop which is parallel to infinite straight wire and at a distance x&nbsp;from it.<br />\r\n<span class=\"math-tex\">{tex}F_1=\\frac{\\mu_0}{2 \\pi} \\frac{I_1 I_2 a}{x}{/tex}</span><br />\r\n(away from the infinite straight wire) Force on the part of the loop which is at a distance (x + a)&nbsp;from it,<br />\r\n<span class=\"math-tex\">{tex}F_2=\\frac{\\mu_0}{2 \\pi} \\frac{l_1 l_2 a}{(x+a)}{/tex}</span><br />\r\n(towards the infinite straight wire)<br />\r\nNet force, F = F<sub>1</sub> - F<sub>2</sub><br />\r\n<span class=\"math-tex\">{tex}F=\\frac{\\mu_0}{2 \\pi} l_1 l_2a\\left[\\frac{1}{x}-\\frac{1}{x+a}\\right]{/tex}</span><br />\r\n<span class=\"math-tex\">{tex}F=\\frac{\\mu_0 I_1 l_2 a^2}{2 \\pi \\;x(x+a)}{/tex}</span><br />\r\n(away from the infinite straight wire)</p>",
+    "weightage": "SA-1 (Short answer type-1)"
+  },
+  {
+    "subject": "Physics",
+    "subject_id": "1251",
+    "chapter": "Moving Charges and Magnetism",
+    "chapter_id": 1255,
+    "question_id": 1117788,
+    "question_html": "<p>Describe the working principle of a moving coil galvanometer. Why is it necessary to use</p>\n\n<ol start=\"1\" style=\"list-style-type:lower-roman\">\n\t<li>a radial magnetic field and</li>\n\t<li>a cylindrical soft iron core in a galvanometer?</li>\n</ol>\n\n<p>Write the expression for current sensitivity of the galvanometer. Can a galvanometer as such be used for measuring the current? Explain.</p>",
+    "question_text": "Describe the working principle of a moving coil galvanometer. Why is it necessary to use a radial magnetic field and a cylindrical soft iron core in a galvanometer? Write the expression for current sensitivity of the galvanometer. Can a galvanometer as such be used for measuring the current? Explain.",
+    "options": [],
+    "correct_option_ids": [],
+    "correct_option_text": "",
+    "explanation": "A current-carrying coil, when placed in an external magnetic field, experiences magnetic torque. The angle through which the coil is deflected due to the effect of the magnetic torque is proportional to the magnitude of current in the coil. The radial magnetic field is used in a suspended coil galvanometer to provide a uniform torque on the coil because it provides a uniform magnetic field. It ensures that the magnetic field is radial and uniform throughout the area of the coil. In order to produce magnetic field inside the galvanometer device, we can use any magnetic material but soft iron core is especially used in galvanometer because Soft iron is ferromagnetic in nature which in turn strengthen the magnetic field lines, and stronger the magnetic field lines passing through the coil larger Expression for current sensitivity {tex}I_{s}=\\frac{\\theta}{I} {/tex} The galvanometer is a very sensitive device. For a small amount of current, the galvanometer deflection will be maximum. Hence, it may get damaged when a strong current is passed through the galvanometer. So the galvanometer is not used to measure the current.",
+    "solution": "A current-carrying coil, when placed in an external magnetic field, experiences magnetic torque. The angle through which the coil is deflected due to the effect of the magnetic torque is proportional to the magnitude of current in the coil. The radial magnetic field is used in a suspended coil galvanometer to provide a uniform torque on the coil because it provides a uniform magnetic field. It ensures that the magnetic field is radial and uniform throughout the area of the coil. In order to produce magnetic field inside the galvanometer device, we can use any magnetic material but soft iron core is especially used in galvanometer because Soft iron is ferromagnetic in nature which in turn strengthen the magnetic field lines, and stronger the magnetic field lines passing through the coil larger Expression for current sensitivity {tex}I_{s}=\\frac{\\theta}{I} {/tex} The galvanometer is a very sensitive device. For a small amount of current, the galvanometer deflection will be maximum. Hence, it may get damaged when a strong current is passed through the galvanometer. So the galvanometer is not used to measure the current.",
+    "solution_html": "<p>A current-carrying coil, when placed in an external magnetic field, experiences magnetic torque. The angle through which the coil is deflected due to the effect of the magnetic torque is proportional to the magnitude of current in the coil.</p>\n\n<ol start=\"1\" style=\"list-style-type:lower-roman\">\n\t<li>The radial magnetic field is used in a suspended coil galvanometer&nbsp;to provide a uniform torque on the coil&nbsp;because it provides a uniform magnetic field. It ensures that the magnetic field is radial and uniform throughout the area of the coil.</li>\n\t<li>In order to produce magnetic field inside the galvanometer device, we can use any magnetic material but soft iron core is especially used in galvanometer because Soft iron is ferromagnetic in nature which in turn strengthen the magnetic field lines, and stronger the magnetic field lines passing through the coil larger</li>\n</ol>\n\n<p>Expression for current sensitivity</p>\n\n<p><span class=\"math-tex\">{tex}I_{s}=\\frac{\\theta}{I} {/tex}</span></p>\n\n<p>The galvanometer is a very sensitive device. For a small amount of current, the galvanometer deflection will be maximum. Hence, it may get damaged when a strong current is passed through the galvanometer. So&nbsp;the galvanometer is not used to measure the current.</p>",
+    "weightage": "SA-2 (Short answer type-2)"
+  },
+  {
+    "subject": "Physics",
+    "subject_id": "1251",
+    "chapter": "Moving Charges and Magnetism",
+    "chapter_id": 1255,
+    "question_id": 170184,
+    "question_html": "<ol start=\"1\" style=\"list-style-type: lower-roman;\">\r\n\t<li>Write the expression for the magnetic force acting on a charged particle moving with velocity v in the presence of magnetic field B.</li>\r\n\t<li>A neutron, an electron and an alpha particle moving with equal velocities, enter a uniform magnetic field going into the plane of the&nbsp;paper as shown in the figure. Trace their paths in the field and justify your answer.<br />\r\n\t<img data-imgur-src=\"zM0iwT5.png\" src=\"https://media-mycbseguide.s3.amazonaws.com/images/imgur/zM0iwT5.png\" /></li>\r\n</ol>",
+    "question_text": "Write the expression for the magnetic force acting on a charged particle moving with velocity v in the presence of magnetic field B. A neutron, an electron and an alpha particle moving with equal velocities, enter a uniform magnetic field going into the plane of the paper as shown in the figure. Trace their paths in the field and justify your answer.",
+    "options": [],
+    "correct_option_ids": [],
+    "correct_option_text": "",
+    "explanation": "When a charged particle,q moves with velocity,v in a uniform magnetic field, B, then magnetic lorentz force,F acting on it is given by, {tex}\\ { F } = q ( { v } \\times { B } ){/tex} The direction of force on the charged particle is given by {tex}(v \\times B ){/tex} . Here, direction of v is + {tex}\\hat i{/tex} and direction of B is {tex}- \\hat { k }{/tex} . For {tex}\\alpha {/tex} -particle, charge is positive So, direction of force is {tex}+(+\\widehat i\\times-\\widehat k)\\;i.e.+\\widehat j{/tex} Thus for {tex}\\alpha {/tex} -particle, it describes a circle with anti-clockwise motion. For neutron: It is a neutral particle, so it goes undeviated as {tex}\\ { F } = q ( { v } \\times { B } ) = 0{/tex} For electron: Magnetic Force is given by {tex}\\ { F } = - e ( \\ { v } \\times \\ { B } ){/tex} So, direction is {tex}-(+\\widehat i\\times-\\widehat k)\\Rightarrow-\\widehat{j}{/tex} Thus, e - describes a circle with clockwise motion. The path of the particles in the presence of magnetic field is shown below:",
+    "solution": "When a charged particle,q moves with velocity,v in a uniform magnetic field, B, then magnetic lorentz force,F acting on it is given by, {tex}\\ { F } = q ( { v } \\times { B } ){/tex} The direction of force on the charged particle is given by {tex}(v \\times B ){/tex} . Here, direction of v is + {tex}\\hat i{/tex} and direction of B is {tex}- \\hat { k }{/tex} . For {tex}\\alpha {/tex} -particle, charge is positive So, direction of force is {tex}+(+\\widehat i\\times-\\widehat k)\\;i.e.+\\widehat j{/tex} Thus for {tex}\\alpha {/tex} -particle, it describes a circle with anti-clockwise motion. For neutron: It is a neutral particle, so it goes undeviated as {tex}\\ { F } = q ( { v } \\times { B } ) = 0{/tex} For electron: Magnetic Force is given by {tex}\\ { F } = - e ( \\ { v } \\times \\ { B } ){/tex} So, direction is {tex}-(+\\widehat i\\times-\\widehat k)\\Rightarrow-\\widehat{j}{/tex} Thus, e - describes a circle with clockwise motion. The path of the particles in the presence of magnetic field is shown below:",
+    "solution_html": "<ol start=\"1\" style=\"list-style-type: lower-roman;\">\r\n\t<li>When a charged particle,q&nbsp;moves with velocity,v&nbsp;in&nbsp;a uniform magnetic field, B, then magnetic lorentz force,F acting on it is given by,<span class=\"math-tex\">{tex}\\ { F } = q ( { v } \\times { B } ){/tex}</span><br />\r\n\t&nbsp;</li>\r\n\t<li>The direction of force on the charged particle is given by&nbsp;<span class=\"math-tex\">{tex}(v \\times B ){/tex}</span>. Here, direction of v is +<span class=\"math-tex\">{tex}\\hat i{/tex}</span>&nbsp;and direction of B is&nbsp;<span class=\"math-tex\">{tex}- \\hat { k }{/tex}</span>.<br />\r\n\tFor&nbsp; <span class=\"math-tex\">{tex}\\alpha {/tex}</span> -particle, charge is positive<br />\r\n\tSo, direction of force is&nbsp;<span class=\"math-tex\">{tex}+(+\\widehat i\\times-\\widehat k)\\;i.e.+\\widehat j{/tex}</span><br />\r\n\tThus for&nbsp;<span class=\"math-tex\">{tex}\\alpha {/tex}</span>-particle, it describes a circle with anti-clockwise motion.<br />\r\n\t<br />\r\n\tFor neutron:<br />\r\n\tIt is a neutral particle, so&nbsp;it goes undeviated as<span class=\"math-tex\">{tex}\\ { F } = q ( { v } \\times { B } ) = 0{/tex}</span><br />\r\n\t<br />\r\n\tFor electron:<br />\r\n\tMagnetic Force is given by<span class=\"math-tex\">{tex}\\ { F } = - e ( \\ { v } \\times \\ { B } ){/tex}</span><br />\r\n\tSo, direction is&nbsp;<span class=\"math-tex\">{tex}-(+\\widehat i\\times-\\widehat k)\\Rightarrow-\\widehat{j}{/tex}</span><br />\r\n\tThus, e<sup>-</sup>&nbsp;describes a circle with clockwise motion.<br />\r\n\t<br />\r\n\tThe path of the particles in the presence of magnetic field is shown below:<br />\r\n\t<img alt=\"\" data-imgur-src=\"vrCBMxV.png\" src=\"https://media-mycbseguide.s3.amazonaws.com/images/imgur/vrCBMxV.png\" style=\"width: 117px; height: 195px;\" /></li>\r\n</ol>",
+    "weightage": "SA-2 (Short answer type-2)"
+  },
+  {
+    "subject": "Physics",
+    "subject_id": "1251",
+    "chapter": "Moving Charges and Magnetism",
+    "chapter_id": 1255,
+    "question_id": 422677,
+    "question_html": "<p>Derive the expression for the torque <span class=\"math-tex\">{tex}\\tau{/tex}</span>&nbsp;acting on a rectangular current loop of area A placed in a uniform magnetic field B. Show that&nbsp;<span class=\"math-tex\">{tex}\\vec{\\tau}=\\vec{m} \\times \\vec{B}{/tex}</span>&nbsp;where&nbsp;<span class=\"math-tex\">{tex}\\vec m{/tex}</span>&nbsp;is the magnetic moment of the current loop given by&nbsp;<span class=\"math-tex\">{tex}\\vec{m}=I\\vec A{/tex}</span></p>",
+    "question_text": "Derive the expression for the torque {tex}\\tau{/tex} acting on a rectangular current loop of area A placed in a uniform magnetic field B. Show that {tex}\\vec{\\tau}=\\vec{m} \\times \\vec{B}{/tex} where {tex}\\vec m{/tex} is the magnetic moment of the current loop given by {tex}\\vec{m}=I\\vec A{/tex}",
+    "options": [],
+    "correct_option_ids": [],
+    "correct_option_text": "",
+    "explanation": "The force, on a wire of length l, carrying a current {tex}I{/tex} , in a magnetic field {tex}\\vec B{/tex} , is given by {tex}\\vec F{/tex} = {tex}IlB{/tex} sin {tex}\\theta{/tex} = {tex}\\text { I } \\vec{l} \\times \\vec{B}{/tex} For a rectangular loop, placed as shown, in a magnetic field {tex}\\vec B{/tex} , |Force on arm BC| = |Force on arm DA| = {tex}IlB{/tex} sin {tex}\\theta{/tex} where, {tex}\\theta{/tex} = angle between side BC and {tex}\\vec B{/tex} These two forces add up to zero as they are collinear (along the axis of the coil) and act in opposite directions. |Force on arm AB| = |Force on arm CD| = IbB These two equal and opposite forces are not collinear. The perpendicular distance between their lines of action is, as shown, {tex}2 \\times \\frac{a}{2}{/tex} sin {tex}\\theta{/tex} = a sin {tex}\\theta{/tex} {tex}\\therefore{/tex} Torque acting on the coil, has a magnitude {tex}\\tau{/tex} , where, {tex}\\tau{/tex} = (lbB) {tex}\\times{/tex} (a sin {tex}\\theta{/tex} ) = IABsin {tex}\\theta{/tex} (A = ab = area of the coil) In vector form, {tex}\\vec{\\tau} =I \\vec{A} \\times \\vec{B} {/tex} But {tex}\\overrightarrow{I A} =\\vec{m},{/tex} as given {tex}\\therefore{/tex} {tex}\\vec{\\tau} =\\vec{m} \\times \\vec{B}{/tex}",
+    "solution": "The force, on a wire of length l, carrying a current {tex}I{/tex} , in a magnetic field {tex}\\vec B{/tex} , is given by {tex}\\vec F{/tex} = {tex}IlB{/tex} sin {tex}\\theta{/tex} = {tex}\\text { I } \\vec{l} \\times \\vec{B}{/tex} For a rectangular loop, placed as shown, in a magnetic field {tex}\\vec B{/tex} , |Force on arm BC| = |Force on arm DA| = {tex}IlB{/tex} sin {tex}\\theta{/tex} where, {tex}\\theta{/tex} = angle between side BC and {tex}\\vec B{/tex} These two forces add up to zero as they are collinear (along the axis of the coil) and act in opposite directions. |Force on arm AB| = |Force on arm CD| = IbB These two equal and opposite forces are not collinear. The perpendicular distance between their lines of action is, as shown, {tex}2 \\times \\frac{a}{2}{/tex} sin {tex}\\theta{/tex} = a sin {tex}\\theta{/tex} {tex}\\therefore{/tex} Torque acting on the coil, has a magnitude {tex}\\tau{/tex} , where, {tex}\\tau{/tex} = (lbB) {tex}\\times{/tex} (a sin {tex}\\theta{/tex} ) = IABsin {tex}\\theta{/tex} (A = ab = area of the coil) In vector form, {tex}\\vec{\\tau} =I \\vec{A} \\times \\vec{B} {/tex} But {tex}\\overrightarrow{I A} =\\vec{m},{/tex} as given {tex}\\therefore{/tex} {tex}\\vec{\\tau} =\\vec{m} \\times \\vec{B}{/tex}",
+    "solution_html": "<p>The force, on a wire of length l, carrying a current <span class=\"math-tex\">{tex}I{/tex}</span>, in a magnetic field <span class=\"math-tex\">{tex}\\vec B{/tex}</span>, is given by <span class=\"math-tex\">{tex}\\vec F{/tex}</span>&nbsp;= <span class=\"math-tex\">{tex}IlB{/tex}</span>&nbsp;sin&nbsp;<span class=\"math-tex\">{tex}\\theta{/tex}</span><br />\r\n=&nbsp;<span class=\"math-tex\">{tex}\\text { I } \\vec{l} \\times \\vec{B}{/tex}</span><br />\r\nFor a rectangular loop, placed as shown, in a magnetic field&nbsp;<span class=\"math-tex\">{tex}\\vec B{/tex}</span>,<br />\r\n<img alt=\"\" data-imgur-src=\"7vawfR6.png\" src=\"https://media-mycbseguide.s3.amazonaws.com/images/imgur/1606754186-e3z5xt.jpg\" style=\"width: 300px; height: 130px;\" /><br />\r\n|Force on arm BC| = |Force on arm DA| = <span class=\"math-tex\">{tex}IlB{/tex}</span>sin&nbsp;<span class=\"math-tex\">{tex}\\theta{/tex}</span><br />\r\nwhere, <span class=\"math-tex\">{tex}\\theta{/tex}</span>&nbsp;= angle between side BC and&nbsp;<span class=\"math-tex\">{tex}\\vec B{/tex}</span><br />\r\nThese two forces add up to zero as they are collinear (along the axis of the coil) and act in opposite directions.<br />\r\n|Force on arm AB| = |Force on arm CD| = IbB<br />\r\nThese two equal and opposite forces are not collinear. The perpendicular distance between their lines of action is, as shown,&nbsp;<span class=\"math-tex\">{tex}2 \\times \\frac{a}{2}{/tex}</span>&nbsp;sin&nbsp;<span class=\"math-tex\">{tex}\\theta{/tex}</span>&nbsp;= a sin&nbsp;<span class=\"math-tex\">{tex}\\theta{/tex}</span><br />\r\n<span class=\"math-tex\">{tex}\\therefore{/tex}</span>&nbsp;Torque acting on the coil, has a magnitude&nbsp;<span class=\"math-tex\">{tex}\\tau{/tex}</span>,<br />\r\nwhere,<br />\r\n<span class=\"math-tex\">{tex}\\tau{/tex}</span>&nbsp;= (lbB)&nbsp;<span class=\"math-tex\">{tex}\\times{/tex}</span> (a sin <span class=\"math-tex\">{tex}\\theta{/tex}</span>) = IABsin&nbsp;<span class=\"math-tex\">{tex}\\theta{/tex}</span>&nbsp;(A = ab = area of the coil)<br />\r\nIn vector form,<br />\r\n<span class=\"math-tex\">{tex}\\vec{\\tau} =I \\vec{A} \\times \\vec{B} {/tex}</span><br />\r\nBut&nbsp;<span class=\"math-tex\">{tex}\\overrightarrow{I A} =\\vec{m},{/tex}</span>&nbsp;as given<br />\r\n<span class=\"math-tex\">{tex}\\therefore{/tex}</span>&nbsp;<span class=\"math-tex\">{tex}\\vec{\\tau} =\\vec{m} \\times \\vec{B}{/tex}</span>&nbsp;</p>",
+    "weightage": "SA-2 (Short answer type-2)"
+  },
+  {
+    "subject": "Physics",
+    "subject_id": "1251",
+    "chapter": "Moving Charges and Magnetism",
+    "chapter_id": 1255,
+    "question_id": 1259088,
+    "question_html": "<p>Explain how a galvanometer can be converted into an ammeter of a given range. Derive an expression for shunt resistance and current for full scale deflection. Find the effective resistance of the ammeter.</p>",
+    "question_text": "Explain how a galvanometer can be converted into an ammeter of a given range. Derive an expression for shunt resistance and current for full scale deflection. Find the effective resistance of the ammeter.",
+    "options": [],
+    "correct_option_ids": [],
+    "correct_option_text": "",
+    "explanation": "A galvanometer is converted into an ammeter when a suitable shunt resistance is connected in parallel with the galvanometer. Glg = (I - Ig)S {tex}\\mathrm{S}=\\left(\\frac{1 g}{l-1 g}\\right) \\mathrm{G}{/tex} {tex}\\mathrm{R}_{eff}=\\frac{G S}{G+S}{/tex}",
+    "solution": "A galvanometer is converted into an ammeter when a suitable shunt resistance is connected in parallel with the galvanometer. Glg = (I - Ig)S {tex}\\mathrm{S}=\\left(\\frac{1 g}{l-1 g}\\right) \\mathrm{G}{/tex} {tex}\\mathrm{R}_{eff}=\\frac{G S}{G+S}{/tex}",
+    "solution_html": "<p>A galvanometer is converted into an ammeter when a suitable shunt resistance is connected in parallel with the galvanometer.<br />\n<img src=\"https://media-mycbseguide.s3.amazonaws.com/images/question_images/1722235556-ebruuv.jpg\" style=\"height:152px; width:240px\" /><br />\nGlg = (I - Ig)S<br />\n<span class=\"math-tex\">{tex}\\mathrm{S}=\\left(\\frac{1 g}{l-1 g}\\right) \\mathrm{G}{/tex}</span><br />\n<span class=\"math-tex\">{tex}\\mathrm{R}_{eff}=\\frac{G S}{G+S}{/tex}</span></p>",
+    "weightage": "SA-2 (Short answer type-2)"
+  },
+  {
+    "subject": "Physics",
+    "subject_id": "1251",
+    "chapter": "Moving Charges and Magnetism",
+    "chapter_id": 1255,
+    "question_id": 1715147,
+    "question_html": "<ol start=\"1\" style=\"list-style-type:lower-roman\">\r\n\t<li>A rectangular loop of sides <span class=\"math-tex\">{tex}l{/tex}</span> and b carries a current I clockwise. Write the magnetic moment <span class=\"math-tex\">{tex}\\vec{m}{/tex}</span> of the loop and show its direction in a diagram.</li>\r\n\t<li>The loop is placed in a uniform magnetic field <span class=\"math-tex\">{tex}\\overrightarrow{{B}}{/tex}</span> and is free to rotate about an axis which is perpendicular to <span class=\"math-tex\">{tex}\\overrightarrow{{B}}{/tex}</span>. Prove that the loop experiences no net force, but a torque <span class=\"math-tex\">{tex}\\vec{\\tau}=\\overrightarrow{{m}} \\times \\overrightarrow{{B}}{/tex}</span>.</li>\r\n</ol>",
+    "question_text": "A rectangular loop of sides {tex}l{/tex} and b carries a current I clockwise. Write the magnetic moment {tex}\\vec{m}{/tex} of the loop and show its direction in a diagram. The loop is placed in a uniform magnetic field {tex}\\overrightarrow{{B}}{/tex} and is free to rotate about an axis which is perpendicular to {tex}\\overrightarrow{{B}}{/tex} . Prove that the loop experiences no net force, but a torque {tex}\\vec{\\tau}=\\overrightarrow{{m}} \\times \\overrightarrow{{B}}{/tex} .",
+    "options": [],
+    "correct_option_ids": [],
+    "correct_option_text": "",
+    "explanation": "{tex}\\overrightarrow{{m}}={I} \\overrightarrow{{A}}{/tex} {tex} {F}_1={F}_2={IbB} {/tex} {tex}{F}_1=\\text { Force on } {AB} \\text { into the plane } {/tex} {tex} {F}_2=\\text { Force on } {CD} \\text { out of the plane } {/tex} Since forces are equal & opposite so net force {tex}=0{/tex} Both forces form a couple, magnitude of torque acting on the coil is {tex} \\therefore \\tau ={F}_1 \\frac{l}{2} \\sin \\theta+{F}_2 \\frac{l}{2} \\sin \\theta {/tex} {tex} ={I} {b} {B} l \\sin \\theta {/tex} {tex} ={I} {A} {B} \\sin \\theta {/tex} {tex} ={m} {B} \\sin \\theta {/tex} {tex} \\vec{\\tau} =\\overrightarrow{{m}} \\times \\overrightarrow{{B}} {/tex}",
+    "solution": "{tex}\\overrightarrow{{m}}={I} \\overrightarrow{{A}}{/tex} {tex} {F}_1={F}_2={IbB} {/tex} {tex}{F}_1=\\text { Force on } {AB} \\text { into the plane } {/tex} {tex} {F}_2=\\text { Force on } {CD} \\text { out of the plane } {/tex} Since forces are equal & opposite so net force {tex}=0{/tex} Both forces form a couple, magnitude of torque acting on the coil is {tex} \\therefore \\tau ={F}_1 \\frac{l}{2} \\sin \\theta+{F}_2 \\frac{l}{2} \\sin \\theta {/tex} {tex} ={I} {b} {B} l \\sin \\theta {/tex} {tex} ={I} {A} {B} \\sin \\theta {/tex} {tex} ={m} {B} \\sin \\theta {/tex} {tex} \\vec{\\tau} =\\overrightarrow{{m}} \\times \\overrightarrow{{B}} {/tex}",
+    "solution_html": "<ol start=\"1\" style=\"list-style-type:lower-roman\">\r\n\t<li><span class=\"math-tex\">{tex}\\overrightarrow{{m}}={I} \\overrightarrow{{A}}{/tex}</span><br />\r\n\t<img src=\"https://media-mycbseguide.s3.amazonaws.com/images/question_images/1760439299-ej5p89.jpg\" style=\"height:189px; width:150px\" /></li>\r\n\t<li><span class=\"math-tex\">{tex} {F}_1={F}_2={IbB} {/tex}</span><br />\r\n\t<span class=\"math-tex\">{tex}{F}_1=\\text { Force on } {AB} \\text { into the plane } {/tex}</span><br />\r\n\t<span class=\"math-tex\">{tex} {F}_2=\\text { Force on } {CD} \\text { out of the plane } {/tex}</span><br />\r\n\t<img src=\"https://media-mycbseguide.s3.amazonaws.com/images/question_images/1760439353-d7frr6.jpg\" style=\"height:129px; width:300px\" /><br />\r\n\tSince forces are equal &amp; opposite so net force <span class=\"math-tex\">{tex}=0{/tex}</span><br />\r\n\tBoth forces form a couple, magnitude of torque acting on the coil is<br />\r\n\t<span class=\"math-tex\">{tex} \\therefore \\tau ={F}_1 \\frac{l}{2} \\sin \\theta+{F}_2 \\frac{l}{2} \\sin \\theta {/tex}</span><br />\r\n\t<span class=\"math-tex\">{tex} ={I} {b} {B} l \\sin \\theta {/tex}</span><br />\r\n\t<span class=\"math-tex\">{tex} ={I} {A} {B} \\sin \\theta {/tex}</span><br />\r\n\t<span class=\"math-tex\">{tex} ={m} {B} \\sin \\theta {/tex}</span><br />\r\n\t<span class=\"math-tex\">{tex} \\vec{\\tau} =\\overrightarrow{{m}} \\times \\overrightarrow{{B}} {/tex}</span><br />\r\n\t<img src=\"https://media-mycbseguide.s3.amazonaws.com/images/question_images/1760439412-9x3urh.jpg\" style=\"height:194px; width:200px\" /></li>\r\n</ol>",
+    "weightage": "SA-2 (Short answer type-2)"
+  },
+  {
+    "subject": "Physics",
+    "subject_id": "1251",
+    "chapter": "Moving Charges and Magnetism",
+    "chapter_id": 1255,
+    "question_id": 154067,
+    "question_html": "<p>Deduce the expression for the torque experienced by a rectangular loop carrying a steady current I and placed in a uniform magnetic field B. Indicate the direction of the torque acting on the loop.</p>",
+    "question_text": "Deduce the expression for the torque experienced by a rectangular loop carrying a steady current I and placed in a uniform magnetic field B. Indicate the direction of the torque acting on the loop.",
+    "options": [],
+    "correct_option_ids": [],
+    "correct_option_text": "",
+    "explanation": "Let a current carrying rectangular loop PQRS is carrying a steady current I placed in a uniform magnetic field B keeping the axis of the coil perpendicular to the field as shown in figure. Let at any instant the area vector A makes an angle {tex}\\theta {/tex} with the direction of magnetic field intensity B. Let length and breadth of the coil are I and b respectively. Now, magnetic force on PS arm of the coil is given by {tex}F _ { 1 } = BIl \\sin 90 ^ { \\circ }{/tex} [ {tex}\\because {/tex} PS || axis of coil, {tex}\\therefore{/tex} {tex}\\theta = 90 ^ { \\circ }{/tex} ] F 1 = BIl ...... (i) By Fleming&#39;s left hand rule, the direction of the above force is perpendicular to SP and B is along upward direction. Similarly, force on QR arm of the coil F 2 = BIl sin 90&deg; ..... (ii) The direction of force is perpendicular to QR and B is along downward direction {tex}\\because{/tex} F 1 and F 2 are equal in magnitude and opposite in direction, parallel to each other acting on the loop forms a couple which try to rotate the coil. Now, force on RS part of the coil {tex}F _ { 3 } = I B b \\sin \\left( 90 ^ { \\circ } + \\theta \\right) \\Rightarrow F _ { 3 } = I B b \\cos \\theta{/tex} and also force on PQ part of the coil {tex}F _ { 4 } = I B b \\sin \\left( 90 ^ { \\circ } - \\theta \\right) = I B b \\cos \\theta{/tex} But by Fleming&#39;s left hand rule, F 3 and F 4 are equal in magnitude and opposite in direction along the same line of action. Therefore, they balance each other. Now, torque due to F 1 and F 2 is given by {tex}\\tau {/tex} = force {tex} \\times {/tex} perpendicular distance between Iines of action of F 1 and F 2 . {tex}\\tau = F \\times b \\sin \\theta{/tex} But, {tex}F _ { 1 } = F _ { 2 } = F = I B l, \\therefore \\tau = ( I B l ) \\times ( b \\sin \\theta ){/tex} {tex}\\Rightarrow \\tau = I B ( l b ) \\sin \\theta{/tex} {tex}\\therefore \\tau = I B A \\sin \\theta{/tex} where, A = lb = area of coil. For N turns of the coil, we have {tex}\\tau = N I A B \\sin \\theta{/tex} , this is the required expression of the torque in the current carrying rectangular loop.",
+    "solution": "Let a current carrying rectangular loop PQRS is carrying a steady current I placed in a uniform magnetic field B keeping the axis of the coil perpendicular to the field as shown in figure. Let at any instant the area vector A makes an angle {tex}\\theta {/tex} with the direction of magnetic field intensity B. Let length and breadth of the coil are I and b respectively. Now, magnetic force on PS arm of the coil is given by {tex}F _ { 1 } = BIl \\sin 90 ^ { \\circ }{/tex} [ {tex}\\because {/tex} PS || axis of coil, {tex}\\therefore{/tex} {tex}\\theta = 90 ^ { \\circ }{/tex} ] F 1 = BIl ...... (i) By Fleming&#39;s left hand rule, the direction of the above force is perpendicular to SP and B is along upward direction. Similarly, force on QR arm of the coil F 2 = BIl sin 90&deg; ..... (ii) The direction of force is perpendicular to QR and B is along downward direction {tex}\\because{/tex} F 1 and F 2 are equal in magnitude and opposite in direction, parallel to each other acting on the loop forms a couple which try to rotate the coil. Now, force on RS part of the coil {tex}F _ { 3 } = I B b \\sin \\left( 90 ^ { \\circ } + \\theta \\right) \\Rightarrow F _ { 3 } = I B b \\cos \\theta{/tex} and also force on PQ part of the coil {tex}F _ { 4 } = I B b \\sin \\left( 90 ^ { \\circ } - \\theta \\right) = I B b \\cos \\theta{/tex} But by Fleming&#39;s left hand rule, F 3 and F 4 are equal in magnitude and opposite in direction along the same line of action. Therefore, they balance each other. Now, torque due to F 1 and F 2 is given by {tex}\\tau {/tex} = force {tex} \\times {/tex} perpendicular distance between Iines of action of F 1 and F 2 . {tex}\\tau = F \\times b \\sin \\theta{/tex} But, {tex}F _ { 1 } = F _ { 2 } = F = I B l, \\therefore \\tau = ( I B l ) \\times ( b \\sin \\theta ){/tex} {tex}\\Rightarrow \\tau = I B ( l b ) \\sin \\theta{/tex} {tex}\\therefore \\tau = I B A \\sin \\theta{/tex} where, A = lb = area of coil. For N turns of the coil, we have {tex}\\tau = N I A B \\sin \\theta{/tex} , this is the required expression of the torque in the current carrying rectangular loop.",
+    "solution_html": "<p>Let a current carrying rectangular loop PQRS is carrying a steady current I placed in a uniform magnetic field B keeping the axis of the coil perpendicular to the field as shown in figure. Let at any instant the area vector A makes an angle <span class=\"math-tex\">{tex}\\theta {/tex}</span>&nbsp;with the direction of magnetic field intensity B.<br />\n<img alt=\"\" data-imgur-src=\"wAAyzyC.png\" src=\"https://media-mycbseguide.s3.amazonaws.com/images/imgur/wAAyzyC.png\" style=\"width: 180px; height: 231px;\" /><br />\n<img alt=\"\" data-imgur-src=\"kPGukQS.png\" src=\"https://media-mycbseguide.s3.amazonaws.com/images/imgur/kPGukQS.png\" style=\"width: 200px; height: 187px;\" /><br />\nLet length and breadth of the coil are I and b respectively.<br />\nNow, magnetic force on PS arm of the coil is given by&nbsp;<span class=\"math-tex\">{tex}F _ { 1 } = BIl \\sin 90 ^ { \\circ }{/tex}</span>&nbsp;[<span class=\"math-tex\">{tex}\\because {/tex}</span> PS || axis of coil,&nbsp; <span class=\"math-tex\">{tex}\\therefore{/tex}</span>&nbsp; <span class=\"math-tex\">{tex}\\theta = 90 ^ { \\circ }{/tex}</span>]<br />\nF<sub>1</sub> = BIl ...... (i)<br />\nBy Fleming&#39;s left hand rule, the direction of the above force is perpendicular to SP and B is along upward direction. Similarly, force on QR arm of the coil<br />\nF<sub>2</sub> = BIl sin 90&deg; ..... (ii)<br />\nThe direction of force is perpendicular to QR and B is along downward direction<br />\n<span class=\"math-tex\">{tex}\\because{/tex}</span>&nbsp;F<sub>1</sub> and F<sub>2</sub> are equal in magnitude and opposite in direction, parallel to each other acting on the loop forms a couple which try to rotate the coil.<br />\nNow, force on RS part of the coil<br />\n<span class=\"math-tex\">{tex}F _ { 3 } = I B b \\sin \\left( 90 ^ { \\circ } + \\theta \\right) \\Rightarrow F _ { 3 } = I B b \\cos \\theta{/tex}</span><br />\nand also force on PQ part of the coil<br />\n<span class=\"math-tex\">{tex}F _ { 4 } = I B b \\sin \\left( 90 ^ { \\circ } - \\theta \\right) = I B b \\cos \\theta{/tex}</span><br />\nBut by Fleming&#39;s left hand rule, F<sub>3</sub> and F<sub>4</sub> are equal in magnitude and opposite in direction along the same line of action. Therefore, they balance each other.<br />\nNow, torque due to F<sub>1</sub> and F<sub>2</sub> is given by<br />\n<span class=\"math-tex\">{tex}\\tau {/tex}</span>&nbsp;= force&nbsp;<span class=\"math-tex\">{tex} \\times {/tex}</span>&nbsp;perpendicular distance between Iines of action of F<sub>1</sub> and F<sub>2</sub>.<br />\n<span class=\"math-tex\">{tex}\\tau = F \\times b \\sin \\theta{/tex}</span><br />\nBut,&nbsp;<span class=\"math-tex\">{tex}F _ { 1 } = F _ { 2 } = F = I B l, \\therefore \\tau = ( I B l ) \\times ( b \\sin \\theta ){/tex}</span><br />\n<span class=\"math-tex\">{tex}\\Rightarrow \\tau = I B ( l b ) \\sin \\theta{/tex}</span><br />\n<span class=\"math-tex\">{tex}\\therefore \\tau = I B A \\sin \\theta{/tex}</span><br />\nwhere, A = lb = area of coil.<br />\nFor N turns of the coil, we have<br />\n<span class=\"math-tex\">{tex}\\tau = N I A B \\sin \\theta{/tex}</span>, this is the required expression of the torque in the current carrying rectangular loop.</p>",
+    "weightage": "SA-2 (Short answer type-2)"
+  },
+  {
+    "subject": "Physics",
+    "subject_id": "1251",
+    "chapter": "Moving Charges and Magnetism",
+    "chapter_id": 1255,
+    "question_id": 146200,
+    "question_html": "<p>Consider the motion of a charged particle of mass m and charge q moving with velocity v in a magnetic field B.</p>\r\n\r\n<ol start=\"1\" style=\"list-style-type: lower-roman;\">\r\n\t<li>If v is perpendicular to B, then show that it describes a circular path having angular frequency&nbsp;<span class=\"math-tex\">{tex}\\omega = \\frac {q B }{ m}{/tex}</span>.</li>\r\n\t<li>If the velocity v has a component parallel to the magnetic field B, then trace the path described by the particle. Justify your answer.</li>\r\n</ol>",
+    "question_text": "Consider the motion of a charged particle of mass m and charge q moving with velocity v in a magnetic field B. If v is perpendicular to B, then show that it describes a circular path having angular frequency {tex}\\omega = \\frac {q B }{ m}{/tex} . If the velocity v has a component parallel to the magnetic field B, then trace the path described by the particle. Justify your answer.",
+    "options": [],
+    "correct_option_ids": [],
+    "correct_option_text": "",
+    "explanation": "Force acting on the charged particle, moving with a velocity v, in magnetic field B. {tex}\\vec F = q(\\vec v× \\vec B){/tex} As, {tex}\\mathbf { v } \\perp \\mathbf { B } , | \\text { Force } | = q v B{/tex} Since, {tex}\\mathbf { F } \\perp \\mathbf { v }{/tex} , it acts as a centripetal force and makes the particle move in a circular path, in the plane, perpendicular to the magnetic field. Now, {tex}q v B = \\frac { m v ^ { 2 } } { r }{/tex} (as the magnetic force supplies the required centripetal force) {tex}\\therefore \\quad r = \\frac { m v } { q B }{/tex} Now, {tex}\\omega = \\frac { v } { r }{/tex} {tex}\\therefore \\quad \\omega = \\frac { q B } { m }{/tex} Component of velocity, v parallel to magnetic field, will make the particle move along the field. Perpendicular component of velocity, v, will cause the particle to move along circular path in the plane perpendicular to the magnetic field. That means the particle will revolve in a circular path and will shift in the forward direction as shown in the figure above. Hence, the particle will travel the helix path.",
+    "solution": "Force acting on the charged particle, moving with a velocity v, in magnetic field B. {tex}\\vec F = q(\\vec v× \\vec B){/tex} As, {tex}\\mathbf { v } \\perp \\mathbf { B } , | \\text { Force } | = q v B{/tex} Since, {tex}\\mathbf { F } \\perp \\mathbf { v }{/tex} , it acts as a centripetal force and makes the particle move in a circular path, in the plane, perpendicular to the magnetic field. Now, {tex}q v B = \\frac { m v ^ { 2 } } { r }{/tex} (as the magnetic force supplies the required centripetal force) {tex}\\therefore \\quad r = \\frac { m v } { q B }{/tex} Now, {tex}\\omega = \\frac { v } { r }{/tex} {tex}\\therefore \\quad \\omega = \\frac { q B } { m }{/tex} Component of velocity, v parallel to magnetic field, will make the particle move along the field. Perpendicular component of velocity, v, will cause the particle to move along circular path in the plane perpendicular to the magnetic field. That means the particle will revolve in a circular path and will shift in the forward direction as shown in the figure above. Hence, the particle will travel the helix path.",
+    "solution_html": "<ol start=\"1\" style=\"list-style-type: lower-roman;\">\r\n\t<li>Force acting on the charged particle, moving with a velocity v, in magnetic field B.<br />\r\n\t<span class=\"math-tex\">{tex}\\vec F = q(\\vec v× \\vec B){/tex}</span><br />\r\n\tAs,&nbsp;<span class=\"math-tex\">{tex}\\mathbf { v } \\perp \\mathbf { B } , | \\text { Force } | = q v B{/tex}</span><br />\r\n\tSince,&nbsp;<span class=\"math-tex\">{tex}\\mathbf { F } \\perp \\mathbf { v }{/tex}</span>, it acts as a centripetal force and makes the particle move in a circular path, in the plane, perpendicular to the magnetic field.<br />\r\n\tNow,&nbsp;<span class=\"math-tex\">{tex}q v B = \\frac { m v ^ { 2 } } { r }{/tex}</span>(as the magnetic force supplies the required centripetal force)<br />\r\n\t<span class=\"math-tex\">{tex}\\therefore \\quad r = \\frac { m v } { q B }{/tex}</span><br />\r\n\tNow,&nbsp;<span class=\"math-tex\">{tex}\\omega = \\frac { v } { r }{/tex}</span><br />\r\n\t<span class=\"math-tex\">{tex}\\therefore \\quad \\omega = \\frac { q B } { m }{/tex}</span></li>\r\n\t<li><img alt=\"\" data-imgur-src=\"wfPoNj2.png\" src=\"https://media-mycbseguide.s3.amazonaws.com/images/imgur/wfPoNj2.png\" style=\"width: 200px; height: 175px;\" /><br />\r\n\tComponent of velocity, v parallel to magnetic field, will make the particle move along the field.<br />\r\n\tPerpendicular component of velocity, v, will cause the particle to move along&nbsp;circular path in the plane perpendicular to the magnetic field. That means the particle will revolve in a circular path and will shift in the forward direction as shown in&nbsp;the figure above. Hence, the particle will travel the helix path.</li>\r\n</ol>",
+    "weightage": "SA-2 (Short answer type-2)"
+  },
+  {
+    "subject": "Physics",
+    "subject_id": "1251",
+    "chapter": "Moving Charges and Magnetism",
+    "chapter_id": 1255,
+    "question_id": 639315,
+    "question_html": "<p>A proton, a deutron and an alpha particle having the same kinetic energy are allowed to pass through a uniform magnetic field perpendicular to their direction of motion. Compare the radii o f their circular paths.</p>",
+    "question_text": "A proton, a deutron and an alpha particle having the same kinetic energy are allowed to pass through a uniform magnetic field perpendicular to their direction of motion. Compare the radii o f their circular paths.",
+    "options": [],
+    "correct_option_ids": [],
+    "correct_option_text": "",
+    "explanation": "If m p , m d and m a are the masses of proton, deutron and a-particle respectively, then m d = 2m p and m a = 4m p Also q d = q p and {tex}q_{\\alpha}{/tex} = 2q p Kinetic energy, {tex}K=\\frac{1}{2} m v^{2}{/tex} {tex}\\therefore{/tex} Velocity {tex}v=\\sqrt{\\frac{2 K}{m}}{/tex} Radius of the circular path of a charged particle in a magnetic field is given by {tex}r=\\frac{m v}{q B}=\\frac{m}{q B} \\cdot \\sqrt{\\frac{2 K}{m}}=\\frac{\\sqrt{2 m K}}{q B}{/tex} {tex}\\therefore \\quad r_{p}=\\frac{\\sqrt{2 m_{p} K}}{q_{p} B}, r_{d}=\\frac{\\sqrt{2 m_{d} K}}{q_{d} B}{/tex} and {tex}r_{\\alpha}=\\frac{\\sqrt{2 m_{\\alpha} K}}{q_{\\alpha} B}{/tex} {tex}\\frac{r_{p}}{r_{d}}=\\frac{q_{d}}{q_{p}} \\sqrt{\\frac{m_{p}}{m_{d}}}=\\frac{q_{p}}{q_{p}} \\sqrt{\\frac{m_{p}}{2 m_{p}}}=\\frac{1}{\\sqrt{2}}{/tex} {tex}\\frac{r_{p}}{r_{\\alpha}}=\\frac{q_{\\alpha}}{q_{p}} \\sqrt{\\frac{m_{p}}{m_{\\alpha}}}=\\frac{2 q_{p}}{q_{p}} \\sqrt{\\frac{m_{p}}{4 m_{p}}}=1{/tex} Hence {tex}r_{p}: r_{d}: r_{\\alpha}=1: \\sqrt{2}: \\mathbf{1}{/tex}",
+    "solution": "If m p , m d and m a are the masses of proton, deutron and a-particle respectively, then m d = 2m p and m a = 4m p Also q d = q p and {tex}q_{\\alpha}{/tex} = 2q p Kinetic energy, {tex}K=\\frac{1}{2} m v^{2}{/tex} {tex}\\therefore{/tex} Velocity {tex}v=\\sqrt{\\frac{2 K}{m}}{/tex} Radius of the circular path of a charged particle in a magnetic field is given by {tex}r=\\frac{m v}{q B}=\\frac{m}{q B} \\cdot \\sqrt{\\frac{2 K}{m}}=\\frac{\\sqrt{2 m K}}{q B}{/tex} {tex}\\therefore \\quad r_{p}=\\frac{\\sqrt{2 m_{p} K}}{q_{p} B}, r_{d}=\\frac{\\sqrt{2 m_{d} K}}{q_{d} B}{/tex} and {tex}r_{\\alpha}=\\frac{\\sqrt{2 m_{\\alpha} K}}{q_{\\alpha} B}{/tex} {tex}\\frac{r_{p}}{r_{d}}=\\frac{q_{d}}{q_{p}} \\sqrt{\\frac{m_{p}}{m_{d}}}=\\frac{q_{p}}{q_{p}} \\sqrt{\\frac{m_{p}}{2 m_{p}}}=\\frac{1}{\\sqrt{2}}{/tex} {tex}\\frac{r_{p}}{r_{\\alpha}}=\\frac{q_{\\alpha}}{q_{p}} \\sqrt{\\frac{m_{p}}{m_{\\alpha}}}=\\frac{2 q_{p}}{q_{p}} \\sqrt{\\frac{m_{p}}{4 m_{p}}}=1{/tex} Hence {tex}r_{p}: r_{d}: r_{\\alpha}=1: \\sqrt{2}: \\mathbf{1}{/tex}",
+    "solution_html": "<p>If m<sub>p</sub> , m<sub>d</sub> and m<sub>a</sub> are the masses of proton, deutron and a-particle respectively, then<br />\nm<sub>d&nbsp;</sub>= 2m<sub>p</sub>&nbsp;and m<sub>a&nbsp;</sub>= 4m<sub>p</sub><br />\nAlso&nbsp;q<sub>d&nbsp;</sub>= q<sub>p</sub>&nbsp;and <span class=\"math-tex\">{tex}q_{\\alpha}{/tex}</span>&nbsp;= 2q<sub>p</sub><br />\nKinetic energy,<br />\n<span class=\"math-tex\">{tex}K=\\frac{1}{2} m v^{2}{/tex}</span><br />\n<span class=\"math-tex\">{tex}\\therefore{/tex}</span>&nbsp;Velocity&nbsp;<span class=\"math-tex\">{tex}v=\\sqrt{\\frac{2 K}{m}}{/tex}</span><br />\nRadius of the circular path of a charged particle in a magnetic field is given by<br />\n<span class=\"math-tex\">{tex}r=\\frac{m v}{q B}=\\frac{m}{q B} \\cdot \\sqrt{\\frac{2 K}{m}}=\\frac{\\sqrt{2 m K}}{q B}{/tex}</span><br />\n<span class=\"math-tex\">{tex}\\therefore \\quad r_{p}=\\frac{\\sqrt{2 m_{p} K}}{q_{p} B}, r_{d}=\\frac{\\sqrt{2 m_{d} K}}{q_{d} B}{/tex}</span>&nbsp;and&nbsp;<span class=\"math-tex\">{tex}r_{\\alpha}=\\frac{\\sqrt{2 m_{\\alpha} K}}{q_{\\alpha} B}{/tex}</span><br />\n<span class=\"math-tex\">{tex}\\frac{r_{p}}{r_{d}}=\\frac{q_{d}}{q_{p}} \\sqrt{\\frac{m_{p}}{m_{d}}}=\\frac{q_{p}}{q_{p}} \\sqrt{\\frac{m_{p}}{2 m_{p}}}=\\frac{1}{\\sqrt{2}}{/tex}</span><br />\n<span class=\"math-tex\">{tex}\\frac{r_{p}}{r_{\\alpha}}=\\frac{q_{\\alpha}}{q_{p}} \\sqrt{\\frac{m_{p}}{m_{\\alpha}}}=\\frac{2 q_{p}}{q_{p}} \\sqrt{\\frac{m_{p}}{4 m_{p}}}=1{/tex}</span><br />\nHence&nbsp;<span class=\"math-tex\">{tex}r_{p}: r_{d}: r_{\\alpha}=1: \\sqrt{2}: \\mathbf{1}{/tex}</span></p>",
+    "weightage": "SA-2 (Short answer type-2)"
+  },
+  {
+    "subject": "Physics",
+    "subject_id": "1251",
+    "chapter": "Moving Charges and Magnetism",
+    "chapter_id": 1255,
+    "question_id": 932940,
+    "question_html": "<p>A long wire is bent into a circular coil of one turn and then into a circular coil of a smaller radius having n turns. If the same current passes in both cases find the ratio of the magnetic fields produced at the centres in the two cases.</p>",
+    "question_text": "A long wire is bent into a circular coil of one turn and then into a circular coil of a smaller radius having n turns. If the same current passes in both cases find the ratio of the magnetic fields produced at the centres in the two cases.",
+    "options": [],
+    "correct_option_ids": [],
+    "correct_option_text": "",
+    "explanation": "Let l be the length of the wire. When the wire is first bent in the form of one turn circular coil, {tex}l=2 \\pi r_{1}{/tex} or {tex}r_{1}=\\frac{l}{2 \\pi}, N=1{/tex} {tex}\\therefore \\quad B_{1}=\\frac{\\mu_{0} N I}{2 r_{1}}=\\frac{\\mu_{0} \\times 1 \\times I}{2 \\times(l / 2 \\pi)}=\\frac{\\mu_{0} \\pi l}{l}{/tex} When the wire is bent in the form of n-turn coil, {tex}l=n \\times 2 \\pi r_{2} \\text { or } r_{2}=\\frac{l}{2 n \\pi}, N=n{/tex} {tex}\\therefore \\quad B_{2}=\\frac{\\mu_{0} n I}{2(l / 2 n \\pi)}=\\frac{\\mu_{0} \\pi n^{2} I}{l}{/tex} {tex}\\therefore \\quad \\frac{B_{1}}{B_{2}}=\\frac{1}{n^{2}}=1: n^{2}{/tex}",
+    "solution": "Let l be the length of the wire. When the wire is first bent in the form of one turn circular coil, {tex}l=2 \\pi r_{1}{/tex} or {tex}r_{1}=\\frac{l}{2 \\pi}, N=1{/tex} {tex}\\therefore \\quad B_{1}=\\frac{\\mu_{0} N I}{2 r_{1}}=\\frac{\\mu_{0} \\times 1 \\times I}{2 \\times(l / 2 \\pi)}=\\frac{\\mu_{0} \\pi l}{l}{/tex} When the wire is bent in the form of n-turn coil, {tex}l=n \\times 2 \\pi r_{2} \\text { or } r_{2}=\\frac{l}{2 n \\pi}, N=n{/tex} {tex}\\therefore \\quad B_{2}=\\frac{\\mu_{0} n I}{2(l / 2 n \\pi)}=\\frac{\\mu_{0} \\pi n^{2} I}{l}{/tex} {tex}\\therefore \\quad \\frac{B_{1}}{B_{2}}=\\frac{1}{n^{2}}=1: n^{2}{/tex}",
+    "solution_html": "<p>Let l be the length of the wire. When the wire is first bent in the form of one turn circular coil,&nbsp;<span class=\"math-tex\">{tex}l=2 \\pi r_{1}{/tex}</span>&nbsp;or&nbsp;<span class=\"math-tex\">{tex}r_{1}=\\frac{l}{2 \\pi}, N=1{/tex}</span><br />\r\n<span class=\"math-tex\">{tex}\\therefore \\quad B_{1}=\\frac{\\mu_{0} N I}{2 r_{1}}=\\frac{\\mu_{0} \\times 1 \\times I}{2 \\times(l / 2 \\pi)}=\\frac{\\mu_{0} \\pi l}{l}{/tex}</span><br />\r\nWhen the wire is bent in the form of n-turn&nbsp;coil,<br />\r\n<span class=\"math-tex\">{tex}l=n \\times 2 \\pi r_{2} \\text { or } r_{2}=\\frac{l}{2 n \\pi}, N=n{/tex}</span><br />\r\n<span class=\"math-tex\">{tex}\\therefore \\quad B_{2}=\\frac{\\mu_{0} n I}{2(l / 2 n \\pi)}=\\frac{\\mu_{0} \\pi n^{2} I}{l}{/tex}</span><br />\r\n<span class=\"math-tex\">{tex}\\therefore \\quad \\frac{B_{1}}{B_{2}}=\\frac{1}{n^{2}}=1: n^{2}{/tex}</span></p>",
+    "weightage": "SA-2 (Short answer type-2)"
+  },
+  {
+    "subject": "Physics",
+    "subject_id": "1251",
+    "chapter": "Moving Charges and Magnetism",
+    "chapter_id": 1255,
+    "question_id": 66698,
+    "question_html": "<p>Define current sensitivity and voltage sensitivity of a galvanometer. Increasing the current sensitivity may not necessarily increase the voltage sensitivity of galvanometer. Justify.</p>",
+    "question_text": "Define current sensitivity and voltage sensitivity of a galvanometer. Increasing the current sensitivity may not necessarily increase the voltage sensitivity of galvanometer. Justify.",
+    "options": [],
+    "correct_option_ids": [],
+    "correct_option_text": "",
+    "explanation": "Current sensitivity: It is defined as the deflection of coil per unit current flowing on it. Current Sensitivity, {tex}S_{\\theta}=\\frac{\\theta}{I}=\\frac{N A B}{C}{/tex} Voltage sensitivity: It is defined on the deflection of coil per unit potential difference across its ends. Voltage Sensitivity, {tex}S_{V}=\\frac{\\theta}{V}=\\frac{N A B}{G C}{/tex} Where G is resistance of galvanometer. Justification: When number of turns N is doulbed, then the current sensitivity {tex}(\\propto N){/tex} is doubled; but at the same time, the resistance of galvanometer coil (G) will also be doubled, So voltage sensitivity {tex} \\left(S_V \\propto \\frac{N}{G}\\right){/tex} will remain unchanged; hence increasing current sensitivity does not necessarily increase the voltage sensitivity.",
+    "solution": "Current sensitivity: It is defined as the deflection of coil per unit current flowing on it. Current Sensitivity, {tex}S_{\\theta}=\\frac{\\theta}{I}=\\frac{N A B}{C}{/tex} Voltage sensitivity: It is defined on the deflection of coil per unit potential difference across its ends. Voltage Sensitivity, {tex}S_{V}=\\frac{\\theta}{V}=\\frac{N A B}{G C}{/tex} Where G is resistance of galvanometer. Justification: When number of turns N is doulbed, then the current sensitivity {tex}(\\propto N){/tex} is doubled; but at the same time, the resistance of galvanometer coil (G) will also be doubled, So voltage sensitivity {tex} \\left(S_V \\propto \\frac{N}{G}\\right){/tex} will remain unchanged; hence increasing current sensitivity does not necessarily increase the voltage sensitivity.",
+    "solution_html": "<p><strong>Current sensitivity:</strong> It is defined as the deflection of coil per unit current flowing on it.<br />\r\nCurrent Sensitivity,<br />\r\n<span class=\"math-tex\">{tex}S_{\\theta}=\\frac{\\theta}{I}=\\frac{N A B}{C}{/tex}</span></p>\r\n\r\n<p><strong>Voltage sensitivity:</strong> It is defined on the deflection of coil per unit potential difference across its ends.<br />\r\nVoltage Sensitivity,<br />\r\n<span class=\"math-tex\">{tex}S_{V}=\\frac{\\theta}{V}=\\frac{N A B}{G C}{/tex}</span><br />\r\nWhere G is resistance of galvanometer.</p>\r\n\r\n<p><strong>Justification: </strong>When number of turns N is doulbed, then the current sensitivity&nbsp;<span class=\"math-tex\">{tex}(\\propto N){/tex}</span>&nbsp;is doubled; but at the same time, the resistance of galvanometer coil (G) will also be doubled, So voltage sensitivity&nbsp;<span class=\"math-tex\">{tex} \\left(S_V \\propto \\frac{N}{G}\\right){/tex}</span>&nbsp;will remain unchanged; hence increasing current sensitivity does not necessarily increase the voltage sensitivity.</p>",
+    "weightage": "SA-2 (Short answer type-2)"
+  },
+  {
+    "subject": "Physics",
+    "subject_id": "1251",
+    "chapter": "Moving Charges and Magnetism",
+    "chapter_id": 1255,
+    "question_id": 422662,
+    "question_html": "<p>The magnitude F of the force between two straight parallel current-carrying conductors kept at a distance d apart in the air is given by F =&nbsp;<span class=\"math-tex\">{tex}\\frac{\\mu_{0}}{2 \\pi} \\cdot \\frac{I_{1} I_{2}}{d}{/tex}</span>&nbsp;where I<sub>1</sub> and I<sub>2</sub> are the currents flowing through the two wires<br />\nUse this expression, and the sign convention that the: &quot; Force of attraction is assigned a negative sign and force of repulsion assigned a positive sign&quot;. Draw graphs showing the dependence of F on:</p>\n\n<ol start=\"1\" style=\"list-style-type: lower-roman;\">\n\t<li>I<sub>1</sub>I<sub>2</sub> when d kept constant</li>\n\t<li>when the product I<sub>1</sub>I<sub>2</sub> is maintained at a constant positive value.</li>\n\t<li>when the product I<sub>1</sub>I<sub>2</sub> is maintained at a constant negative value.</li>\n</ol>",
+    "question_text": "The magnitude F of the force between two straight parallel current-carrying conductors kept at a distance d apart in the air is given by F = {tex}\\frac{\\mu_{0}}{2 \\pi} \\cdot \\frac{I_{1} I_{2}}{d}{/tex} where I 1 and I 2 are the currents flowing through the two wires Use this expression, and the sign convention that the: \" Force of attraction is assigned a negative sign and force of repulsion assigned a positive sign\". Draw graphs showing the dependence of F on: I 1 I 2 when d kept constant when the product I 1 I 2 is maintained at a constant positive value. when the product I 1 I 2 is maintained at a constant negative value.",
+    "options": [],
+    "correct_option_ids": [],
+    "correct_option_text": "",
+    "explanation": "The magnitude F of the force between two straight parallel current-carrying conductors kept at a distance d apart in the air We know that F is an attractive (- ve) force when the currents l 1 and I 2 are 'like' currents, i.e., when the product l 1 l 2 is positive or when they are flowing in the same direction. Similarly, F is a repulsive (+ve) force when the currents l 1 and I 2 are 'unlike' currents, i.e., when the product l 1 l 2 is negative or when they are flowing in the opposite direction. Now F {tex}\\propto{/tex} (l 1 l 2 ), when d is kept constant and F {tex}\\propto \\frac{1}{d}{/tex} when l 1 l 2 is kept constant. The required graphs, therefore, have the forms shown below.",
+    "solution": "The magnitude F of the force between two straight parallel current-carrying conductors kept at a distance d apart in the air We know that F is an attractive (- ve) force when the currents l 1 and I 2 are 'like' currents, i.e., when the product l 1 l 2 is positive or when they are flowing in the same direction. Similarly, F is a repulsive (+ve) force when the currents l 1 and I 2 are 'unlike' currents, i.e., when the product l 1 l 2 is negative or when they are flowing in the opposite direction. Now F {tex}\\propto{/tex} (l 1 l 2 ), when d is kept constant and F {tex}\\propto \\frac{1}{d}{/tex} when l 1 l 2 is kept constant. The required graphs, therefore, have the forms shown below.",
+    "solution_html": "<p>The magnitude F of the force between two straight parallel current-carrying conductors kept at a distance d apart in the air We know that F is an attractive (- ve) force when the currents l<sub>1 </sub>and I<sub>2</sub> are 'like' currents, i.e., when the product l<sub>1</sub>l<sub>2</sub> is positive or when they are flowing in the same direction.<br/>\nSimilarly, F is a repulsive (+ve) force when the currents l<sub>1 </sub>and I<sub>2</sub> are 'unlike' currents, i.e., when the product l<sub>1</sub>l<sub>2</sub> is negative or when they are flowing in the opposite direction.<br/>\nNow F <span class=\"math-tex\">{tex}\\propto{/tex}</span> (l<sub>1</sub>l<sub>2</sub>), when d is kept constant and F <span class=\"math-tex\">{tex}\\propto \\frac{1}{d}{/tex}</span><br/>\nwhen l<sub>1</sub>l<sub>2</sub> is kept constant.<br/>\nThe required graphs, therefore, have the forms shown below.<br/>\n<img alt=\"\" data-imgur-src=\"lgXO7fz.png\" src=\"https://media-mycbseguide.s3.amazonaws.com/images/imgur/1606754144-qq2fcx.jpg\" style=\"width: 300px; height: 94px;\"/></p>",
+    "weightage": "SA-2 (Short answer type-2)"
+  },
+  {
+    "subject": "Physics",
+    "subject_id": "1251",
+    "chapter": "Moving Charges and Magnetism",
+    "chapter_id": 1255,
+    "question_id": 1434302,
+    "question_html": "<ol start=\"1\" style=\"list-style-type:lower-roman\">\r\n\t<li>State Biot-Savart&#39;s law for the magnetic field due to a current carrying element. Use this law to obtain an expression for the magnetic field at the centre of a circular loop of radius &#39;a&#39; and carrying a current <strong>I</strong>.&nbsp;Draw the magnetic field lines for a current loop indicating the direction of magnetic field.</li>\r\n\t<li>An electron is revolving around the nucleus in a circular orbit with a speed of 10<sup>7</sup>&nbsp;ms<sup>-1</sup>. If the radius of the orbit is 10<sup>-10</sup> m, find the current constituted by the revolving electron in the orbit.</li>\r\n</ol>",
+    "question_text": "State Biot-Savart&#39;s law for the magnetic field due to a current carrying element. Use this law to obtain an expression for the magnetic field at the centre of a circular loop of radius &#39;a&#39; and carrying a current I . Draw the magnetic field lines for a current loop indicating the direction of magnetic field. An electron is revolving around the nucleus in a circular orbit with a speed of 10 7 ms -1 . If the radius of the orbit is 10 -10 m, find the current constituted by the revolving electron in the orbit.",
+    "options": [],
+    "correct_option_ids": [],
+    "correct_option_text": "",
+    "explanation": "The magnetic field at a point due to a current carrying element is proportional to magnitude of current, element length and inversely proportional to the square of the distance from the element. {tex}\\vec{d B}=\\frac{\\mu_o}{4 \\pi} I \\frac{\\vec{d l} \\times \\vec{r}}{r^3}{/tex} {tex}|d B|=\\frac{\\mu_o}{4 \\pi} \\frac{I d l \\sin \\theta}{r^2}{/tex} Consider a circular coil of radius a carrying current I. According to Biot-Savart&rsquo;s law {tex}|\\vec{d B}|=\\frac{\\mu_o}{4 \\pi} \\frac{I d l \\sin \\theta}{r^2}{/tex} At point A {tex}\\mathrm{I} \\vec{d l} \\perp \\vec{a}{/tex} {tex}\\therefore{/tex} {tex}\\theta{/tex} = 90 o , sin 90 o = 1 Hence dB = {tex}\\frac{\\mu_o}{4 \\pi} \\frac{I d l}{a^2}{/tex} Magnetic field at centre {tex}\\mathrm{B}=\\int_\\limits o^{2 \\pi a} d B=\\int_\\limits0^{2 \\pi a} \\frac{\\mu_o}{4 \\pi} \\frac{I d l}{a^2}{/tex} {tex}\\mathrm{B}=\\frac{\\mu_o}{4 \\pi} \\times \\frac{I}{a^2} \\times 2 \\pi a{/tex} {tex}\\mathrm{B}=\\frac{\\mu_0 I}{2 a}{/tex} q = e, v = 10 7 ms -1 , r = 10 -10 m {tex}\\mathrm{i}=\\frac{q}{T}{/tex} {tex}=\\frac{\\mathrm{qv}}{2 \\pi \\mathrm{r}}{/tex} {tex}=\\frac{\\mathrm{eV}}{2 \\pi \\mathrm{r}}{/tex} {tex}=\\frac{1.6 \\times 10^{-19} \\times 10^7}{2 \\times \\pi \\times 10^{-10}}{/tex} {tex}=\\frac{0.8}{\\pi} \\times{/tex} 10 -2 A = 0.255 {tex}\\times{/tex} 10 -2 A = 2.55 mA",
+    "solution": "The magnetic field at a point due to a current carrying element is proportional to magnitude of current, element length and inversely proportional to the square of the distance from the element. {tex}\\vec{d B}=\\frac{\\mu_o}{4 \\pi} I \\frac{\\vec{d l} \\times \\vec{r}}{r^3}{/tex} {tex}|d B|=\\frac{\\mu_o}{4 \\pi} \\frac{I d l \\sin \\theta}{r^2}{/tex} Consider a circular coil of radius a carrying current I. According to Biot-Savart&rsquo;s law {tex}|\\vec{d B}|=\\frac{\\mu_o}{4 \\pi} \\frac{I d l \\sin \\theta}{r^2}{/tex} At point A {tex}\\mathrm{I} \\vec{d l} \\perp \\vec{a}{/tex} {tex}\\therefore{/tex} {tex}\\theta{/tex} = 90 o , sin 90 o = 1 Hence dB = {tex}\\frac{\\mu_o}{4 \\pi} \\frac{I d l}{a^2}{/tex} Magnetic field at centre {tex}\\mathrm{B}=\\int_\\limits o^{2 \\pi a} d B=\\int_\\limits0^{2 \\pi a} \\frac{\\mu_o}{4 \\pi} \\frac{I d l}{a^2}{/tex} {tex}\\mathrm{B}=\\frac{\\mu_o}{4 \\pi} \\times \\frac{I}{a^2} \\times 2 \\pi a{/tex} {tex}\\mathrm{B}=\\frac{\\mu_0 I}{2 a}{/tex} q = e, v = 10 7 ms -1 , r = 10 -10 m {tex}\\mathrm{i}=\\frac{q}{T}{/tex} {tex}=\\frac{\\mathrm{qv}}{2 \\pi \\mathrm{r}}{/tex} {tex}=\\frac{\\mathrm{eV}}{2 \\pi \\mathrm{r}}{/tex} {tex}=\\frac{1.6 \\times 10^{-19} \\times 10^7}{2 \\times \\pi \\times 10^{-10}}{/tex} {tex}=\\frac{0.8}{\\pi} \\times{/tex} 10 -2 A = 0.255 {tex}\\times{/tex} 10 -2 A = 2.55 mA",
+    "solution_html": "<ol start=\"1\" style=\"list-style-type:lower-roman\">\n\t<li>The magnetic field at a point due to a current carrying element is proportional to magnitude of current, element length and inversely proportional to the square of the distance from the element.<br />\n\t<span class=\"math-tex\">{tex}\\vec{d B}=\\frac{\\mu_o}{4 \\pi} I \\frac{\\vec{d l} \\times \\vec{r}}{r^3}{/tex}</span><br />\n\t<span class=\"math-tex\">{tex}|d B|=\\frac{\\mu_o}{4 \\pi} \\frac{I d l \\sin \\theta}{r^2}{/tex}</span><br />\n\t<img src=\"https://media-mycbseguide.s3.amazonaws.com/images/question_images/1705031712-e6d6ja.jpg\" style=\"height:141px; width:200px\" /><br />\n\tConsider a circular coil of radius a carrying current I.<br />\n\t<img src=\"https://media-mycbseguide.s3.amazonaws.com/images/question_images/1705031773-7tup2j.jpg\" style=\"height:134px; width:150px\" /><br />\n\tAccording to Biot-Savart&rsquo;s law<br />\n\t<span class=\"math-tex\">{tex}|\\vec{d B}|=\\frac{\\mu_o}{4 \\pi} \\frac{I d l \\sin \\theta}{r^2}{/tex}</span><br />\n\tAt point A<br />\n\t<span class=\"math-tex\">{tex}\\mathrm{I} \\vec{d l} \\perp \\vec{a}{/tex}</span><br />\n\t<span class=\"math-tex\">{tex}\\therefore{/tex}</span> <span class=\"math-tex\">{tex}\\theta{/tex}</span> = 90<sup>o</sup>, sin 90<sup>o</sup> = 1<br />\n\tHence dB = <span class=\"math-tex\">{tex}\\frac{\\mu_o}{4 \\pi} \\frac{I d l}{a^2}{/tex}</span><br />\n\tMagnetic field at centre<br />\n\t<span class=\"math-tex\">{tex}\\mathrm{B}=\\int_\\limits o^{2 \\pi a} d B=\\int_\\limits0^{2 \\pi a} \\frac{\\mu_o}{4 \\pi} \\frac{I d l}{a^2}{/tex}</span><br />\n\t<span class=\"math-tex\">{tex}\\mathrm{B}=\\frac{\\mu_o}{4 \\pi} \\times \\frac{I}{a^2} \\times 2 \\pi a{/tex}</span><br />\n\t<span class=\"math-tex\">{tex}\\mathrm{B}=\\frac{\\mu_0 I}{2 a}{/tex}</span><br />\n\t<img src=\"https://media-mycbseguide.s3.amazonaws.com/images/question_images/1705032153-t2qgxq.jpg\" style=\"height:133px; width:150px\" /></li>\n\t<li>q = e, v = 10<sup>7</sup> ms<sup>-1</sup>, r = 10<sup>-10</sup> m<br />\n\t<span class=\"math-tex\">{tex}\\mathrm{i}=\\frac{q}{T}{/tex}</span><br />\n\t<span class=\"math-tex\">{tex}=\\frac{\\mathrm{qv}}{2 \\pi \\mathrm{r}}{/tex}</span><br />\n\t<span class=\"math-tex\">{tex}=\\frac{\\mathrm{eV}}{2 \\pi \\mathrm{r}}{/tex}</span><br />\n\t<span class=\"math-tex\">{tex}=\\frac{1.6 \\times 10^{-19} \\times 10^7}{2 \\times \\pi \\times 10^{-10}}{/tex}</span><br />\n\t<span class=\"math-tex\">{tex}=\\frac{0.8}{\\pi} \\times{/tex}</span> 10<sup>-2</sup> A<br />\n\t= 0.255 <span class=\"math-tex\">{tex}\\times{/tex}</span> 10<sup>-2 </sup>A = 2.55 mA</li>\n</ol>",
+    "weightage": "LA-1 (Long answer type-1)"
+  },
+  {
+    "subject": "Physics",
+    "subject_id": "1251",
+    "chapter": "Moving Charges and Magnetism",
+    "chapter_id": 1255,
+    "question_id": 1146936,
+    "question_html": "<ol start=\"1\" style=\"list-style-type:lower-alpha\">\n\t<li>With the help of a diagram, explain the principle and working of a moving coil galvanometer.</li>\n\t<li>What is the importance of a radial magnetic field and how is it produced?</li>\n\t<li>Why is it necessary to introduce a cylindrical soft iron core inside the coil of a galvanometer?</li>\n\t<li>Increasing the current sensitivity of a galvanometer may not necessarily increase its voltage sensitivity. Justify this statement.</li>\n</ol>",
+    "question_text": "With the help of a diagram, explain the principle and working of a moving coil galvanometer. What is the importance of a radial magnetic field and how is it produced? Why is it necessary to introduce a cylindrical soft iron core inside the coil of a galvanometer? Increasing the current sensitivity of a galvanometer may not necessarily increase its voltage sensitivity. Justify this statement.",
+    "options": [],
+    "correct_option_ids": [],
+    "correct_option_text": "",
+    "explanation": "Principle and working: When current (I) is passed in the coil, torque &tau; acts on the coil, given by {tex}\\tau{/tex} = NIABsin {tex}\\theta{/tex} When the magnetic field is radial, as in the case of cylindrical pole pieces and soft iron core, then in every position of coil the plane of the coil, is parallel to the magnetic field lines, so that {tex}\\theta{/tex} = 90 o and sin 90 o = 1 Deflecting torque, {tex}\\tau{/tex} = NIAB If C is the torsional rigidity of the wire and {tex}\\theta{/tex} is the twist of suspension strip, then restoring torque = C {tex}\\theta{/tex} For equilibrium, deflecting torque = restoring torque i.e. NIAB = C {tex}\\theta{/tex} {tex}\\therefore{/tex} {tex}\\theta{/tex} = {tex}\\frac{N A B}{C}{/tex} I ...(i) i.e. {tex}\\theta{/tex} {tex}\\propto{/tex} I Importance (or function) of uniform radial magnetic field: In radial magnetic field sin {tex}\\theta{/tex} = 1, so torque is {tex}\\tau{/tex} = NIAB. This makes the deflection ( {tex}\\theta{/tex} ) proportional to current.To produce radial magnetic field pole pieces of permanent magnet are made cylindrical and a soft iron core is placed between them. The soft iron core helps in making the field radial and reduce energy losses produced due to eddy currents. lection of coil is directly proportional to current flowing in the coil and hence we can construct a linear scale. Importance of uniform radial magnetic field: Torque for current carrying coil in a magnetic field is {tex}\\tau{/tex} = NIAB sin {tex}\\theta{/tex} In radial magnetic field Sin {tex}\\theta{/tex} = 1, so torque is {tex}\\tau{/tex} = NIAB sin {tex}\\theta{/tex} This makes the deflection proportional to current. In other words, the radial magnetic field makes the scale linear. The cylindrical soft iron core makes the filed radial and increases the strength of the magnetic field. i.e. the magnitude of the torque. A voltmeter is used to measure p.d. across a resistance in an electrical circuit. If a voltmeter has very high resistance, it will not affect the resistance of circuit, hence reading will be true. That is why while using a moving coil galvanometer on a voltmeter, a high resistance in series is required. An ammeter is used to measure current in circuit, hence it is connected in series with the circuit. If an ammeter has very low resistance it will not affect the circuit - resistance and so reading will be true. That is why while using a moving coil galvanometer as an ammeter, a shunt (small resistance in parallel) is used.",
+    "solution": "Principle and working: When current (I) is passed in the coil, torque &tau; acts on the coil, given by {tex}\\tau{/tex} = NIABsin {tex}\\theta{/tex} When the magnetic field is radial, as in the case of cylindrical pole pieces and soft iron core, then in every position of coil the plane of the coil, is parallel to the magnetic field lines, so that {tex}\\theta{/tex} = 90 o and sin 90 o = 1 Deflecting torque, {tex}\\tau{/tex} = NIAB If C is the torsional rigidity of the wire and {tex}\\theta{/tex} is the twist of suspension strip, then restoring torque = C {tex}\\theta{/tex} For equilibrium, deflecting torque = restoring torque i.e. NIAB = C {tex}\\theta{/tex} {tex}\\therefore{/tex} {tex}\\theta{/tex} = {tex}\\frac{N A B}{C}{/tex} I ...(i) i.e. {tex}\\theta{/tex} {tex}\\propto{/tex} I Importance (or function) of uniform radial magnetic field: In radial magnetic field sin {tex}\\theta{/tex} = 1, so torque is {tex}\\tau{/tex} = NIAB. This makes the deflection ( {tex}\\theta{/tex} ) proportional to current.To produce radial magnetic field pole pieces of permanent magnet are made cylindrical and a soft iron core is placed between them. The soft iron core helps in making the field radial and reduce energy losses produced due to eddy currents. lection of coil is directly proportional to current flowing in the coil and hence we can construct a linear scale. Importance of uniform radial magnetic field: Torque for current carrying coil in a magnetic field is {tex}\\tau{/tex} = NIAB sin {tex}\\theta{/tex} In radial magnetic field Sin {tex}\\theta{/tex} = 1, so torque is {tex}\\tau{/tex} = NIAB sin {tex}\\theta{/tex} This makes the deflection proportional to current. In other words, the radial magnetic field makes the scale linear. The cylindrical soft iron core makes the filed radial and increases the strength of the magnetic field. i.e. the magnitude of the torque. A voltmeter is used to measure p.d. across a resistance in an electrical circuit. If a voltmeter has very high resistance, it will not affect the resistance of circuit, hence reading will be true. That is why while using a moving coil galvanometer on a voltmeter, a high resistance in series is required. An ammeter is used to measure current in circuit, hence it is connected in series with the circuit. If an ammeter has very low resistance it will not affect the circuit - resistance and so reading will be true. That is why while using a moving coil galvanometer as an ammeter, a shunt (small resistance in parallel) is used.",
+    "solution_html": "<ol start=\"1\" style=\"list-style-type:lower-alpha\">\n\t<li><strong>Principle and working:</strong> When current (I) is passed in the coil, torque &tau; acts on the coil, given by <span class=\"math-tex\">{tex}\\tau{/tex}</span> = NIABsin<span class=\"math-tex\">{tex}\\theta{/tex}</span><br />\n\t<img src=\"https://media-mycbseguide.s3.amazonaws.com/images/question_images/1709033550-mgxtnx.jpg\" style=\"height:147px; width:300px\" /><br />\n\tWhen the magnetic field is radial, as in the case of cylindrical pole pieces and soft iron core, then in every position of coil the plane of the coil, is parallel to the magnetic field lines, so that <span class=\"math-tex\">{tex}\\theta{/tex}</span> = 90<sup>o</sup> and sin 90<sup>o</sup> = 1 Deflecting torque, <span class=\"math-tex\">{tex}\\tau{/tex}</span> = NIAB<br />\n\tIf C is the torsional rigidity of the wire and <span class=\"math-tex\">{tex}\\theta{/tex}</span> is the twist of suspension strip, then restoring torque = C<span class=\"math-tex\">{tex}\\theta{/tex}</span> For equilibrium, deflecting torque = restoring torque<br />\n\ti.e. NIAB = C<span class=\"math-tex\">{tex}\\theta{/tex}</span><br />\n\t<span class=\"math-tex\">{tex}\\therefore{/tex}</span> <span class=\"math-tex\">{tex}\\theta{/tex}</span> = <span class=\"math-tex\">{tex}\\frac{N A B}{C}{/tex}</span>I ...(i)<br />\n\ti.e. <span class=\"math-tex\">{tex}\\theta{/tex}</span> <span class=\"math-tex\">{tex}\\propto{/tex}</span> I</li>\n\t<li>Importance (or function) of uniform radial magnetic field: In radial magnetic field sin <span class=\"math-tex\">{tex}\\theta{/tex}</span> = 1, so torque is <span class=\"math-tex\">{tex}\\tau{/tex}</span> = NIAB. This makes the deflection (<span class=\"math-tex\">{tex}\\theta{/tex}</span>) proportional to current.To produce radial magnetic field pole pieces of permanent magnet are made cylindrical and a soft iron core is placed between them. The soft iron core helps in making the field radial and reduce energy losses produced due to eddy currents.</li>\n\t<li>lection of coil is directly proportional to current flowing in the coil and hence we can construct a linear scale. Importance of uniform radial magnetic field: Torque for current carrying coil in a magnetic field is <span class=\"math-tex\">{tex}\\tau{/tex}</span> = NIAB sin<span class=\"math-tex\">{tex}\\theta{/tex}</span><br />\n\tIn radial magnetic field Sin<span class=\"math-tex\">{tex}\\theta{/tex}</span> = 1, so torque is <span class=\"math-tex\">{tex}\\tau{/tex}</span> = NIAB sin<span class=\"math-tex\">{tex}\\theta{/tex}</span><br />\n\tThis makes the deflection proportional to current. In other words, the radial magnetic field makes the scale linear.<br />\n\tThe cylindrical soft iron core makes the filed radial and increases the strength of the magnetic field. i.e. the magnitude of the torque.</li>\n\t<li>A voltmeter is used to measure p.d. across a resistance in an electrical circuit. If a voltmeter has very high resistance, it will not affect the resistance of circuit, hence reading will be true. That is why while using a moving coil galvanometer on a voltmeter, a high resistance in series is required. An ammeter is used to measure current in circuit, hence it is connected in series with the circuit. If an ammeter has very low resistance it will not affect the circuit - resistance and so reading will be true. That is why while using a moving coil galvanometer as an ammeter, a shunt (small resistance in parallel) is used.</li>\n</ol>",
+    "weightage": "LA-1 (Long answer type-1)"
+  },
+  {
+    "subject": "Physics",
+    "subject_id": "1251",
+    "chapter": "Moving Charges and Magnetism",
+    "chapter_id": 1255,
+    "question_id": 1133067,
+    "question_html": "<p>State Biot-Savart law expressing it in vector form. Use it to obtain the magnetic field, at an axial point, distant r from the centre of a circular coil of radius a carrying a current I. Hence, compare the magnitudes of the magnetic field of this coil at the centre and at an axial point for which <span class=\"math-tex\">{tex}r=\\sqrt{3} a{/tex}</span></p>",
+    "question_text": "State Biot-Savart law expressing it in vector form. Use it to obtain the magnetic field, at an axial point, distant r from the centre of a circular coil of radius a carrying a current I. Hence, compare the magnitudes of the magnetic field of this coil at the centre and at an axial point for which {tex}r=\\sqrt{3} a{/tex}",
+    "options": [],
+    "correct_option_ids": [],
+    "correct_option_text": "",
+    "explanation": "Biot- Savart law: The magnetic field due to a current element of length dl carrying a current I at a point P, which is at a distance r from it is directly proportional to the current I and element length {tex}\\overrightarrow{d l}{/tex} . Inversely proportional to the square of the distance between the current element and the point P. The direction of the magnetic field is perpendicular to the plane containing {tex}\\overrightarrow{d l}{/tex} and {tex}\\vec{r}{/tex} Vector form: {tex}\\overrightarrow{d B}=\\frac{\\mu_0}{4 \\pi} I \\frac{\\overrightarrow{d l} \\times \\vec{r}}{r^3}{/tex} Due to the current element dl considered at A the magnetic field at P is- dB = {tex}\\frac{\\mu_0 I}{4 \\pi} \\frac{|\\overrightarrow{d l} \\times \\vec{r}|}{r^3}{/tex} Since, dl {tex}\\times{/tex} r = dlr dB = {tex}\\frac{\\mu_0 I}{4 \\pi} \\frac{d l}{r^2}{/tex} dB = {tex}\\frac{\\mu_0 I}{4 \\pi} \\frac{d l}{\\left(X^2+R^2\\right)}{/tex} Consider a current element opposite to A, that is at B, then we can see that the y components of the magnetic, field due to this current element cancel and X component is only present. So we can say that the net magnetic field is along the X-direction. dB X = dB cos {tex}\\theta{/tex} Net magnetic field at P is B = {tex}\\int{/tex} dB X = {tex}\\int{/tex} dB cos {tex}\\theta{/tex} = {tex}\\int{/tex} {tex}\\frac{\\mu_0}{4 \\pi} \\frac{I d l}{\\left(X^2+R^2\\right)}{/tex} cos {tex}\\theta{/tex} = {tex}\\int{/tex} {tex}\\frac{\\mu_0}{4 \\pi} \\frac{I d l}{\\left(X^2+R^2\\right)} {/tex} {tex}\\frac{R}{\\left(X^2+R^2\\right)^{\\frac{1}{2}}}{/tex} = {tex}\\frac{\\mu_0 I R}{4 \\pi\\left(X^2+R^2\\right)^{\\frac{3}{2}}}{/tex} {tex}\\int{/tex} dl = {tex}\\frac{\\mu_0 I R 2 \\pi R}{4 \\pi\\left(X^2+R^2\\right)^{\\frac{3}{2}}}{/tex} B = {tex}\\frac{\\mu_0 I R^2}{2\\left(X^2+R^2\\right)^{\\frac{3}{2}}}{/tex}",
+    "solution": "Biot- Savart law: The magnetic field due to a current element of length dl carrying a current I at a point P, which is at a distance r from it is directly proportional to the current I and element length {tex}\\overrightarrow{d l}{/tex} . Inversely proportional to the square of the distance between the current element and the point P. The direction of the magnetic field is perpendicular to the plane containing {tex}\\overrightarrow{d l}{/tex} and {tex}\\vec{r}{/tex} Vector form: {tex}\\overrightarrow{d B}=\\frac{\\mu_0}{4 \\pi} I \\frac{\\overrightarrow{d l} \\times \\vec{r}}{r^3}{/tex} Due to the current element dl considered at A the magnetic field at P is- dB = {tex}\\frac{\\mu_0 I}{4 \\pi} \\frac{|\\overrightarrow{d l} \\times \\vec{r}|}{r^3}{/tex} Since, dl {tex}\\times{/tex} r = dlr dB = {tex}\\frac{\\mu_0 I}{4 \\pi} \\frac{d l}{r^2}{/tex} dB = {tex}\\frac{\\mu_0 I}{4 \\pi} \\frac{d l}{\\left(X^2+R^2\\right)}{/tex} Consider a current element opposite to A, that is at B, then we can see that the y components of the magnetic, field due to this current element cancel and X component is only present. So we can say that the net magnetic field is along the X-direction. dB X = dB cos {tex}\\theta{/tex} Net magnetic field at P is B = {tex}\\int{/tex} dB X = {tex}\\int{/tex} dB cos {tex}\\theta{/tex} = {tex}\\int{/tex} {tex}\\frac{\\mu_0}{4 \\pi} \\frac{I d l}{\\left(X^2+R^2\\right)}{/tex} cos {tex}\\theta{/tex} = {tex}\\int{/tex} {tex}\\frac{\\mu_0}{4 \\pi} \\frac{I d l}{\\left(X^2+R^2\\right)} {/tex} {tex}\\frac{R}{\\left(X^2+R^2\\right)^{\\frac{1}{2}}}{/tex} = {tex}\\frac{\\mu_0 I R}{4 \\pi\\left(X^2+R^2\\right)^{\\frac{3}{2}}}{/tex} {tex}\\int{/tex} dl = {tex}\\frac{\\mu_0 I R 2 \\pi R}{4 \\pi\\left(X^2+R^2\\right)^{\\frac{3}{2}}}{/tex} B = {tex}\\frac{\\mu_0 I R^2}{2\\left(X^2+R^2\\right)^{\\frac{3}{2}}}{/tex}",
+    "solution_html": "<p><strong>Biot- Savart law:</strong><br />\r\nThe magnetic field due to a current element of length dl carrying a current I at a point P, which is at a distance r from it is</p>\r\n\r\n<ol start=\"1\" style=\"list-style-type:lower-roman\">\r\n\t<li>directly proportional to the current I and element length <span class=\"math-tex\">{tex}\\overrightarrow{d l}{/tex}</span>.</li>\r\n\t<li>Inversely proportional to the square of the distance between the current element and the point P.</li>\r\n</ol>\r\n\r\n<p>The direction of the magnetic field is perpendicular to the plane containing <span class=\"math-tex\">{tex}\\overrightarrow{d l}{/tex}</span> and <span class=\"math-tex\">{tex}\\vec{r}{/tex}</span><br />\r\n<strong>Vector form:<br />\r\n<span class=\"math-tex\">{tex}\\overrightarrow{d B}=\\frac{\\mu_0}{4 \\pi} I \\frac{\\overrightarrow{d l} \\times \\vec{r}}{r^3}{/tex}</span></strong><br />\r\n<img src=\"https://media-mycbseguide.s3.amazonaws.com/images/question_images/1709016958-tddsbh.jpg\" style=\"height:137px; width:300px\" /><br />\r\nDue to the current element dl considered at A the magnetic field at P is-<br />\r\ndB = <span class=\"math-tex\">{tex}\\frac{\\mu_0 I}{4 \\pi} \\frac{|\\overrightarrow{d l} \\times \\vec{r}|}{r^3}{/tex}</span><br />\r\nSince, dl <span class=\"math-tex\">{tex}\\times{/tex}</span> r = dlr<br />\r\ndB = <span class=\"math-tex\">{tex}\\frac{\\mu_0 I}{4 \\pi} \\frac{d l}{r^2}{/tex}</span><br />\r\ndB = <span class=\"math-tex\">{tex}\\frac{\\mu_0 I}{4 \\pi} \\frac{d l}{\\left(X^2+R^2\\right)}{/tex}</span><br />\r\nConsider a current element opposite to A, that is at B, then we can see that the y components of the magnetic, field due to this current element cancel and X component is only present.<br />\r\nSo we can say that the net magnetic field is along the X-direction.<br />\r\ndB<sub>X</sub> = dB cos<span class=\"math-tex\">{tex}\\theta{/tex}</span><br />\r\nNet magnetic field at P is<br />\r\nB = <span class=\"math-tex\">{tex}\\int{/tex}</span>dB<sub>X</sub> = <span class=\"math-tex\">{tex}\\int{/tex}</span>dB cos<span class=\"math-tex\">{tex}\\theta{/tex}</span><br />\r\n= <span class=\"math-tex\">{tex}\\int{/tex}</span><span class=\"math-tex\">{tex}\\frac{\\mu_0}{4 \\pi} \\frac{I d l}{\\left(X^2+R^2\\right)}{/tex}</span>cos<span class=\"math-tex\">{tex}\\theta{/tex}</span><br />\r\n= <span class=\"math-tex\">{tex}\\int{/tex}</span><span class=\"math-tex\">{tex}\\frac{\\mu_0}{4 \\pi} \\frac{I d l}{\\left(X^2+R^2\\right)} {/tex}</span><span class=\"math-tex\">{tex}\\frac{R}{\\left(X^2+R^2\\right)^{\\frac{1}{2}}}{/tex}</span><br />\r\n= <span class=\"math-tex\">{tex}\\frac{\\mu_0 I R}{4 \\pi\\left(X^2+R^2\\right)^{\\frac{3}{2}}}{/tex}</span> <span class=\"math-tex\">{tex}\\int{/tex}</span>dl = <span class=\"math-tex\">{tex}\\frac{\\mu_0 I R 2 \\pi R}{4 \\pi\\left(X^2+R^2\\right)^{\\frac{3}{2}}}{/tex}</span><br />\r\nB = <span class=\"math-tex\">{tex}\\frac{\\mu_0 I R^2}{2\\left(X^2+R^2\\right)^{\\frac{3}{2}}}{/tex}</span></p>",
+    "weightage": "LA-1 (Long answer type-1)"
+  },
+  {
+    "subject": "Physics",
+    "subject_id": "1251",
+    "chapter": "Moving Charges and Magnetism",
+    "chapter_id": 1255,
+    "question_id": 1349952,
+    "question_html": "<ol start=\"1\" style=\"list-style-type:lower-roman\">\n\t<li>What is current sensitivity of a galvanometer? Show how the current sensitivity of a galvanometer may be increased. &quot;Increasing the current sensitivity of a galvanometer may not necessarily increase its voltage sensitivity.&quot; Explain.</li>\n\t<li>A moving coil galvanometer has a resistance <span class=\"math-tex\">{tex}15 \\Omega{/tex}</span> and takes 20 mA to produce full scale deflection. How can this galvanometer be converted into a voltmeter of range 0 to <span class=\"math-tex\">{tex}100 {~V} ?{/tex}</span></li>\n</ol>",
+    "question_text": "What is current sensitivity of a galvanometer? Show how the current sensitivity of a galvanometer may be increased. \"Increasing the current sensitivity of a galvanometer may not necessarily increase its voltage sensitivity.\" Explain. A moving coil galvanometer has a resistance {tex}15 \\Omega{/tex} and takes 20 mA to produce full scale deflection. How can this galvanometer be converted into a voltmeter of range 0 to {tex}100 {~V} ?{/tex}",
+    "options": [],
+    "correct_option_ids": [],
+    "correct_option_text": "",
+    "explanation": "Deflection produced per unit current is called its current sensitivity. Current sensitivity can be increased by (a) increasing number of turns in coil (b) increasing area of coil in magnetic field (c) decreasing K (Torsional Constant) (any one) {tex}V_s=\\frac{\\theta}{V}=\\frac{N B A}{K R}{/tex} If current sensitivity is increased by increasing number of turns of the coil, the resistance of the galvanometer will also increase. Thus voltage sensitivity may not increase. {tex} V =I_G(R+G) {/tex} {tex} R =\\frac{V}{I_G}-G {/tex} {tex} =\\frac{100}{20 \\times 10^{-3}}-15 {/tex} {tex} =5000-15 {/tex} {tex} =4985 \\Omega {/tex} By connecting {tex}4985 \\Omega{/tex} in series with galvanometer it is converted to voltmeter of range {tex}(0-100 {~V}){/tex}",
+    "solution": "Deflection produced per unit current is called its current sensitivity. Current sensitivity can be increased by (a) increasing number of turns in coil (b) increasing area of coil in magnetic field (c) decreasing K (Torsional Constant) (any one) {tex}V_s=\\frac{\\theta}{V}=\\frac{N B A}{K R}{/tex} If current sensitivity is increased by increasing number of turns of the coil, the resistance of the galvanometer will also increase. Thus voltage sensitivity may not increase. {tex} V =I_G(R+G) {/tex} {tex} R =\\frac{V}{I_G}-G {/tex} {tex} =\\frac{100}{20 \\times 10^{-3}}-15 {/tex} {tex} =5000-15 {/tex} {tex} =4985 \\Omega {/tex} By connecting {tex}4985 \\Omega{/tex} in series with galvanometer it is converted to voltmeter of range {tex}(0-100 {~V}){/tex}",
+    "solution_html": "<ol start=\"1\" style=\"list-style-type:lower-roman\">\n\t<li>Deflection produced per unit current is called its current sensitivity.<br />\n\tCurrent sensitivity can be increased by<br />\n\t(a) increasing number of turns in coil<br />\n\t(b) increasing area of coil in magnetic field<br />\n\t(c) decreasing K (Torsional Constant)<br />\n\t<strong>(any one)</strong><br />\n\t<span class=\"math-tex\">{tex}V_s=\\frac{\\theta}{V}=\\frac{N B A}{K R}{/tex}</span><br />\n\tIf current sensitivity is increased by increasing number of turns of the coil, the resistance of the galvanometer will also increase. Thus voltage sensitivity may not increase.</li>\n\t<li><span class=\"math-tex\">{tex} V =I_G(R+G) {/tex}</span><br />\n\t<span class=\"math-tex\">{tex} R =\\frac{V}{I_G}-G {/tex}</span><br />\n\t<span class=\"math-tex\">{tex} =\\frac{100}{20 \\times 10^{-3}}-15 {/tex}</span><br />\n\t<span class=\"math-tex\">{tex} =5000-15 {/tex}</span><br />\n\t<span class=\"math-tex\">{tex} =4985 \\Omega {/tex}</span><br />\n\tBy connecting <span class=\"math-tex\">{tex}4985 \\Omega{/tex}</span> in series with galvanometer it is converted to voltmeter of range <span class=\"math-tex\">{tex}(0-100 {~V}){/tex}</span></li>\n</ol>",
+    "weightage": "LA-1 (Long answer type-1)"
+  },
+  {
+    "subject": "Physics",
+    "subject_id": "1251",
+    "chapter": "Moving Charges and Magnetism",
+    "chapter_id": 1255,
+    "question_id": 1147001,
+    "question_html": "<ol start=\"1\" style=\"list-style-type:lower-roman\">\n\t<li>Write the principle and explain the working of a moving coil galvanometer. A galvanometer as such cannot be used to measure the current in a circuit. Why?</li>\n\t<li>Why is the magnetic field made radial in a moving coil galvanometer? How is it achieved?</li>\n</ol>",
+    "question_text": "Write the principle and explain the working of a moving coil galvanometer. A galvanometer as such cannot be used to measure the current in a circuit. Why? Why is the magnetic field made radial in a moving coil galvanometer? How is it achieved?",
+    "options": [],
+    "correct_option_ids": [],
+    "correct_option_text": "",
+    "explanation": "Principle- When a current carrying coil is placed in a uniform magnetic field, it experiences a torque. Working:- When a current flows through the coil of a galvanometer, a torque acts on it. It is given as {tex}\\tau=N i A B \\sin \\theta{/tex} For radial magnetic field; sin {tex}\\theta{/tex} = 1 The spring provides a counter or restoring toqrue {tex}k \\phi{/tex} . {tex}k \\phi{/tex} = NiAB In equilibrium; {tex}\\phi=\\left(\\frac{N A B}{k}\\right) i{/tex} Galvanometer cannot be used as such to measure current because: It has large resistance and hence will decrease the value of current in the circuit. The magnetic field is made radial in a moving coil galvanometer so that the area vector of the coil is always normal to the magnetic field {tex}(\\vec{B}){/tex} Hence,sin {tex}\\theta{/tex} = 1 always The magnetic field is made radial in a moving coil galvanometer to make the scale linear. It is achieved by using curved magnetic poles.",
+    "solution": "Principle- When a current carrying coil is placed in a uniform magnetic field, it experiences a torque. Working:- When a current flows through the coil of a galvanometer, a torque acts on it. It is given as {tex}\\tau=N i A B \\sin \\theta{/tex} For radial magnetic field; sin {tex}\\theta{/tex} = 1 The spring provides a counter or restoring toqrue {tex}k \\phi{/tex} . {tex}k \\phi{/tex} = NiAB In equilibrium; {tex}\\phi=\\left(\\frac{N A B}{k}\\right) i{/tex} Galvanometer cannot be used as such to measure current because: It has large resistance and hence will decrease the value of current in the circuit. The magnetic field is made radial in a moving coil galvanometer so that the area vector of the coil is always normal to the magnetic field {tex}(\\vec{B}){/tex} Hence,sin {tex}\\theta{/tex} = 1 always The magnetic field is made radial in a moving coil galvanometer to make the scale linear. It is achieved by using curved magnetic poles.",
+    "solution_html": "<ol start=\"1\" style=\"list-style-type:lower-roman\">\n\t<li>Principle- When a current carrying coil&nbsp;is placed in a uniform magnetic field, it experiences a torque.<br />\n\tWorking:- When a current flows through the coil of a galvanometer, a torque acts on it. It is given as&nbsp;<br />\n\t<span class=\"math-tex\">{tex}\\tau=N i A B \\sin \\theta{/tex}</span><br />\n\tFor radial magnetic field; sin <span class=\"math-tex\">{tex}\\theta{/tex}</span> = 1<br />\n\tThe spring provides a counter or restoring toqrue <span class=\"math-tex\">{tex}k \\phi{/tex}</span>.<br />\n\t<span class=\"math-tex\">{tex}k \\phi{/tex}</span> = NiAB<br />\n\tIn equilibrium; <span class=\"math-tex\">{tex}\\phi=\\left(\\frac{N A B}{k}\\right) i{/tex}</span><br />\n\tGalvanometer cannot be used as such to measure current because:<br />\n\tIt has large resistance and hence will decrease the value of current in the circuit.</li>\n\t<li>The magnetic field is made radial in a moving coil galvanometer so that the area vector of the coil &nbsp;is always normal to the magnetic field <span class=\"math-tex\">{tex}(\\vec{B}){/tex}</span> Hence,sin <span class=\"math-tex\">{tex}\\theta{/tex}</span> = 1 always<br />\n\tThe magnetic field is made radial in a moving coil galvanometer to make the scale linear. It is achieved by using curved magnetic poles.</li>\n</ol>",
+    "weightage": "LA-1 (Long answer type-1)"
+  },
+  {
+    "subject": "Physics",
+    "subject_id": "1251",
+    "chapter": "Moving Charges and Magnetism",
+    "chapter_id": 1255,
+    "question_id": 1715125,
+    "question_html": "<ol start=\"1\" style=\"list-style-type:lower-roman\">\r\n\t<li>\r\n\t<ol start=\"1\" style=\"list-style-type:upper-roman\">\r\n\t\t<li>Write Ampere&#39;s circuital law in mathematical form and explain the terms used.</li>\r\n\t\t<li>As the current carrying solenoid is made longer, the magnetic field produced outside it approaches zero. Why?</li>\r\n\t\t<li>A flexible loop of irregular shape carrying current when located in an external magnetic field, changes to a circular shape. Give reason.</li>\r\n\t</ol>\r\n\t</li>\r\n\t<li>A galvanometer of resistance G is converted into a voltmeter to measure up to V volts, by connecting a resistance <span class=\"math-tex\">{tex}{R}_{1}{/tex}</span> in series with the coil. If <span class=\"math-tex\">{tex}R_{1}{/tex}</span> is replaced by <span class=\"math-tex\">{tex}R_{2}{/tex}</span>, then it can only measure up to <span class=\"math-tex\">{tex}\\frac{{V}}{2}{/tex}</span> volt. Find the value of the resistance <span class=\"math-tex\">{tex}{R}_{3}{/tex}</span> (in terms of <span class=\"math-tex\">{tex}{R}_{1}{/tex}</span> and <span class=\"math-tex\">{tex}{R}_{2}{/tex}</span>) needed to convert it into a voltmeter that can read up to 2 V.</li>\r\n</ol>",
+    "question_text": "Write Ampere&#39;s circuital law in mathematical form and explain the terms used. As the current carrying solenoid is made longer, the magnetic field produced outside it approaches zero. Why? A flexible loop of irregular shape carrying current when located in an external magnetic field, changes to a circular shape. Give reason. A galvanometer of resistance G is converted into a voltmeter to measure up to V volts, by connecting a resistance {tex}{R}_{1}{/tex} in series with the coil. If {tex}R_{1}{/tex} is replaced by {tex}R_{2}{/tex} , then it can only measure up to {tex}\\frac{{V}}{2}{/tex} volt. Find the value of the resistance {tex}{R}_{3}{/tex} (in terms of {tex}{R}_{1}{/tex} and {tex}{R}_{2}{/tex} ) needed to convert it into a voltmeter that can read up to 2 V.",
+    "options": [],
+    "correct_option_ids": [],
+    "correct_option_text": "",
+    "explanation": "{tex}\\oint \\vec{B} \\cdot \\overrightarrow{d l}=\\mu_0 {I}_e{/tex} {tex}{I}_{{e}}={/tex} Total current through the surface {tex}{B}={/tex} Magnetic field {tex}{dl}={/tex} length of small element As length of solenoid increases, it appears like a long cylindrical metal sheet, so field outside approaches zero. For a given perimeter, a circle encloses greater area than any other shape, which maximizes the flux. {tex} \\text { } {R}_1=\\frac{{V}}{{I}_{{g}}}-{G} \\Rightarrow \\frac{{~V}}{{I}_{{g}}}={R}_1+{G} {/tex} ...(1) {tex} {R}_2=\\frac{{V}}{2 {I}_{{g}}}-{G} \\Rightarrow \\frac{{~V}}{2 {I}_{{g}}}={R}_2+{G} {/tex} ...(2) Solving (1) & (2) {tex} {G} ={R}_1-2 {R}_2 {/tex} {tex} {R}_3 =\\frac{2 {~V}}{{I}_{{g}}}-{G} {/tex} ...(3) Solving using eq (1) & (3) {tex} R_3=3 R_1-2 R_2 {/tex}",
+    "solution": "{tex}\\oint \\vec{B} \\cdot \\overrightarrow{d l}=\\mu_0 {I}_e{/tex} {tex}{I}_{{e}}={/tex} Total current through the surface {tex}{B}={/tex} Magnetic field {tex}{dl}={/tex} length of small element As length of solenoid increases, it appears like a long cylindrical metal sheet, so field outside approaches zero. For a given perimeter, a circle encloses greater area than any other shape, which maximizes the flux. {tex} \\text { } {R}_1=\\frac{{V}}{{I}_{{g}}}-{G} \\Rightarrow \\frac{{~V}}{{I}_{{g}}}={R}_1+{G} {/tex} ...(1) {tex} {R}_2=\\frac{{V}}{2 {I}_{{g}}}-{G} \\Rightarrow \\frac{{~V}}{2 {I}_{{g}}}={R}_2+{G} {/tex} ...(2) Solving (1) & (2) {tex} {G} ={R}_1-2 {R}_2 {/tex} {tex} {R}_3 =\\frac{2 {~V}}{{I}_{{g}}}-{G} {/tex} ...(3) Solving using eq (1) & (3) {tex} R_3=3 R_1-2 R_2 {/tex}",
+    "solution_html": "<ol start=\"1\" style=\"list-style-type:lower-roman\">\r\n\t<li>\r\n\t<ol start=\"1\" style=\"list-style-type:upper-roman\">\r\n\t\t<li><span class=\"math-tex\">{tex}\\oint \\vec{B} \\cdot \\overrightarrow{d l}=\\mu_0 {I}_e{/tex}</span><br />\r\n\t\t<span class=\"math-tex\">{tex}{I}_{{e}}={/tex}</span> Total current through the surface<br />\r\n\t\t<span class=\"math-tex\">{tex}{B}={/tex}</span> Magnetic field<br />\r\n\t\t<span class=\"math-tex\">{tex}{dl}={/tex}</span> length of small element</li>\r\n\t\t<li>As length of solenoid increases, it appears like a long cylindrical metal sheet, so field outside approaches zero.</li>\r\n\t\t<li>For a given perimeter, a circle encloses greater area than any other shape, which maximizes the flux.</li>\r\n\t</ol>\r\n\t</li>\r\n\t<li><span class=\"math-tex\">{tex} \\text { } {R}_1=\\frac{{V}}{{I}_{{g}}}-{G} \\Rightarrow \\frac{{~V}}{{I}_{{g}}}={R}_1+{G} {/tex}</span>&nbsp;...(1)<br />\r\n\t<span class=\"math-tex\">{tex} {R}_2=\\frac{{V}}{2 {I}_{{g}}}-{G} \\Rightarrow \\frac{{~V}}{2 {I}_{{g}}}={R}_2+{G} {/tex}</span>&nbsp;...(2)<br />\r\n\tSolving (1) &amp; (2)<br />\r\n\t<span class=\"math-tex\">{tex} {G} ={R}_1-2 {R}_2 {/tex}</span><br />\r\n\t<span class=\"math-tex\">{tex} {R}_3 =\\frac{2 {~V}}{{I}_{{g}}}-{G} {/tex}</span>&nbsp;...(3)<br />\r\n\tSolving using eq (1) &amp; (3)<br />\r\n\t<span class=\"math-tex\">{tex} R_3=3 R_1-2 R_2 {/tex}</span></li>\r\n</ol>",
+    "weightage": "LA-1 (Long answer type-1)"
+  },
+  {
+    "subject": "Physics",
+    "subject_id": "1251",
+    "chapter": "Moving Charges and Magnetism",
+    "chapter_id": 1255,
+    "question_id": 1715126,
+    "question_html": "<ol start=\"1\" style=\"list-style-type:lower-roman\">\r\n\t<li>With the help of a labelled diagram, explain the principle of working of a moving coil galvanometer. Write the purpose of using (I) radial magnetic field, and (II) soft iron core, in it.</li>\r\n\t<li>Define current sensitivity of a galvanometer. &quot;Increasing the current sensitivity may not necessarily increase the voltage sensitivity.&quot; Give reason.</li>\r\n</ol>",
+    "question_text": "With the help of a labelled diagram, explain the principle of working of a moving coil galvanometer. Write the purpose of using (I) radial magnetic field, and (II) soft iron core, in it. Define current sensitivity of a galvanometer. \"Increasing the current sensitivity may not necessarily increase the voltage sensitivity.\" Give reason.",
+    "options": [],
+    "correct_option_ids": [],
+    "correct_option_text": "",
+    "explanation": "Principle: A current carrying coil placed in uniform magnetic field, experiences a torque. Radial magnetic field makes the scale linear Use of soft iron core is to increase the strength of magnetic field/ increase sensitivity of the galvanometer. Current sensitivity is defined as deflection per unit current. Voltage sensitivity {tex} V_s=\\frac{\\Phi}{V}=\\left(\\frac{N A B}{k}\\right) \\frac{{I}}{V}=\\left(\\frac{N A B}{k}\\right) \\frac{1}{R}{/tex} Increase in number of turns, increases the current sensitivity and resistance of the galvanometer in the same proportion of current sensitivity therefore Voltage sensitivity remains unchanged.",
+    "solution": "Principle: A current carrying coil placed in uniform magnetic field, experiences a torque. Radial magnetic field makes the scale linear Use of soft iron core is to increase the strength of magnetic field/ increase sensitivity of the galvanometer. Current sensitivity is defined as deflection per unit current. Voltage sensitivity {tex} V_s=\\frac{\\Phi}{V}=\\left(\\frac{N A B}{k}\\right) \\frac{{I}}{V}=\\left(\\frac{N A B}{k}\\right) \\frac{1}{R}{/tex} Increase in number of turns, increases the current sensitivity and resistance of the galvanometer in the same proportion of current sensitivity therefore Voltage sensitivity remains unchanged.",
+    "solution_html": "<ol start=\"1\" style=\"list-style-type:lower-roman\">\r\n\t<li><img src=\"https://media-mycbseguide.s3.amazonaws.com/images/question_images/1760442081-ufne4j.jpg\" style=\"height:294px; width:250px\" /><br />\r\n\t<strong>Principle:</strong>A current carrying coil placed in uniform magnetic field, experiences a torque.\r\n\t<ol start=\"1\" style=\"list-style-type:upper-roman\">\r\n\t\t<li>Radial magnetic field makes the scale linear</li>\r\n\t\t<li>Use of soft iron core is to increase the strength of magnetic field/ increase sensitivity of the galvanometer.</li>\r\n\t</ol>\r\n\t</li>\r\n\t<li><strong>Current sensitivity </strong>is defined as deflection per unit current.<br />\r\n\tVoltage sensitivity <span class=\"math-tex\">{tex} V_s=\\frac{\\Phi}{V}=\\left(\\frac{N A B}{k}\\right) \\frac{{I}}{V}=\\left(\\frac{N A B}{k}\\right) \\frac{1}{R}{/tex}</span><br />\r\n\tIncrease in number of turns, increases the current sensitivity and resistance of the galvanometer in the same proportion of current sensitivity therefore Voltage sensitivity remains unchanged.</li>\r\n</ol>",
+    "weightage": "LA-1 (Long answer type-1)"
+  },
+  {
+    "subject": "Physics",
+    "subject_id": "1251",
+    "chapter": "Moving Charges and Magnetism",
+    "chapter_id": 1255,
+    "question_id": 933261,
+    "question_html": "<ol start=\"1\" style=\"list-style-type: lower-alpha;\">\r\n\t<li>Using Ampere&#39;s circuital law, obtain the expression for the magnetic field due to a long solenoid at a point inside the solenoid on its axis.</li>\r\n\t<li>In what respect is a toroid different from a solenoid? Draw and compare the pattern of the magnetic field lines in two cases.</li>\r\n\t<li>How is the magnetic field inside a given solenoid made strong?</li>\r\n</ol>",
+    "question_text": "Using Ampere&#39;s circuital law, obtain the expression for the magnetic field due to a long solenoid at a point inside the solenoid on its axis. In what respect is a toroid different from a solenoid? Draw and compare the pattern of the magnetic field lines in two cases. How is the magnetic field inside a given solenoid made strong?",
+    "options": [],
+    "correct_option_ids": [],
+    "correct_option_text": "",
+    "explanation": "Consider a symmetrical long solenoid having a number of turns per unit length equal to n. Let I be the current flowing in the solenoid, then by the right-hand rule, the magnetic field is parallel to the axis of the solenoid. Field inside the solenoid: Consider a closed path abcd. Now, using Ampere's circuital law to this path, we have {tex}\\oint \\overrightarrow{\\mathrm{B}} \\cdot \\overrightarrow{d l}=\\mu \\times 0{/tex} Therefore, B = 0 This implies, the magnetic field outside the solenoid is 0. Field inside the solenoid: Consider a closed path pqrs. The line integral of the magnetic field is given by, {tex}\\oint_{\\text {pqrs }} \\overrightarrow{\\mathrm{B}} \\cdot \\overrightarrow{d l}{/tex} = {tex}\\int_{p q} \\overrightarrow{\\mathrm{B}} \\cdot \\overrightarrow{d l}+\\int_{q r} \\overrightarrow{\\mathrm{B}} \\cdot \\overrightarrow{d l}+\\int_{r s} \\overrightarrow{\\mathrm{B}} \\cdot \\overrightarrow{d l}+\\int_{s p} \\overrightarrow{\\mathrm{B}} \\cdot \\overrightarrow{d l}{/tex} ....(i) For path pq, {tex}\\vec{B}{/tex} and {tex}\\overrightarrow{\\mathrm{dl}}{/tex} are along the same direction, {tex}\\therefore \\quad \\int_{q r} \\overrightarrow{\\mathrm{B}} \\cdot \\overrightarrow{d l}=\\int_{S p} \\overrightarrow{\\mathrm{B}} \\cdot d \\vec{l}=\\int B d l \\cos 90^{\\circ}{/tex} = 0 For path rs, B = 0 because outside the solenoid field is zero. {tex}\\therefore \\quad \\int_{r s} \\overrightarrow{\\mathrm{B}} \\cdot \\overrightarrow{d l}=0{/tex} Now, using Ampere's law, Using these equations, equation (i) gives, {tex}\\oint_{p q r s} \\overrightarrow{\\mathrm{B}} \\cdot \\overrightarrow{d l}=\\int_{p q} \\overrightarrow{\\mathrm{B}} \\cdot \\overrightarrow{d l}=B l{/tex} Now, using Ampere's law, {tex}\\oint \\vec{B} \\cdot \\vec{d} I=\\mu_{0} I{/tex} This implies, {tex}B l=\\mu_{0}(n l I){/tex} {tex}\\therefore B=\\mu_{0} n I{/tex} Magnetic lines do not exist outside the body of a toroid. Toroid is closed and the solenoid is open on both sides. The magnetic field is uniform inside a toroid whereas, for a solenoid, it is different at two ends and centre. The magnetic field is made strong by, passing large current and using a laminated coil of soft iron.",
+    "solution": "Consider a symmetrical long solenoid having a number of turns per unit length equal to n. Let I be the current flowing in the solenoid, then by the right-hand rule, the magnetic field is parallel to the axis of the solenoid. Field inside the solenoid: Consider a closed path abcd. Now, using Ampere's circuital law to this path, we have {tex}\\oint \\overrightarrow{\\mathrm{B}} \\cdot \\overrightarrow{d l}=\\mu \\times 0{/tex} Therefore, B = 0 This implies, the magnetic field outside the solenoid is 0. Field inside the solenoid: Consider a closed path pqrs. The line integral of the magnetic field is given by, {tex}\\oint_{\\text {pqrs }} \\overrightarrow{\\mathrm{B}} \\cdot \\overrightarrow{d l}{/tex} = {tex}\\int_{p q} \\overrightarrow{\\mathrm{B}} \\cdot \\overrightarrow{d l}+\\int_{q r} \\overrightarrow{\\mathrm{B}} \\cdot \\overrightarrow{d l}+\\int_{r s} \\overrightarrow{\\mathrm{B}} \\cdot \\overrightarrow{d l}+\\int_{s p} \\overrightarrow{\\mathrm{B}} \\cdot \\overrightarrow{d l}{/tex} ....(i) For path pq, {tex}\\vec{B}{/tex} and {tex}\\overrightarrow{\\mathrm{dl}}{/tex} are along the same direction, {tex}\\therefore \\quad \\int_{q r} \\overrightarrow{\\mathrm{B}} \\cdot \\overrightarrow{d l}=\\int_{S p} \\overrightarrow{\\mathrm{B}} \\cdot d \\vec{l}=\\int B d l \\cos 90^{\\circ}{/tex} = 0 For path rs, B = 0 because outside the solenoid field is zero. {tex}\\therefore \\quad \\int_{r s} \\overrightarrow{\\mathrm{B}} \\cdot \\overrightarrow{d l}=0{/tex} Now, using Ampere's law, Using these equations, equation (i) gives, {tex}\\oint_{p q r s} \\overrightarrow{\\mathrm{B}} \\cdot \\overrightarrow{d l}=\\int_{p q} \\overrightarrow{\\mathrm{B}} \\cdot \\overrightarrow{d l}=B l{/tex} Now, using Ampere's law, {tex}\\oint \\vec{B} \\cdot \\vec{d} I=\\mu_{0} I{/tex} This implies, {tex}B l=\\mu_{0}(n l I){/tex} {tex}\\therefore B=\\mu_{0} n I{/tex} Magnetic lines do not exist outside the body of a toroid. Toroid is closed and the solenoid is open on both sides. The magnetic field is uniform inside a toroid whereas, for a solenoid, it is different at two ends and centre. The magnetic field is made strong by, passing large current and using a laminated coil of soft iron.",
+    "solution_html": "<html><body><ol start=\"1\" style=\"list-style-type: lower-alpha;\">\n<li>Consider a symmetrical long solenoid having a number of turns per unit length equal to n.<br/>\r\n\tLet I be the current flowing in the solenoid, then by the right-hand rule, the magnetic field is parallel to the axis of the solenoid.<br/>\n<img alt=\"\" data-imgur-src=\"zqRcSfm.png\" src=\"https://media-mycbseguide.s3.amazonaws.com/images/imgur/1685082644-n8rbxr.jpg\" style=\"width: 231px; height: 156px;\"/><br/>\r\n\tField inside the solenoid:<br/>\r\n\tConsider a closed path abcd.<br/>\r\n\tNow, using Ampere's circuital law to this path, we have<br/>\n<span class=\"math-tex\">{tex}\\oint \\overrightarrow{\\mathrm{B}} \\cdot \\overrightarrow{d l}=\\mu \\times 0{/tex}</span><br/>\r\n\tTherefore, B = 0<br/>\r\n\tThis implies, the magnetic field outside the solenoid is 0.<br/>\r\n\tField inside the solenoid:<br/>\r\n\tConsider a closed path pqrs.<br/>\r\n\tThe line integral of the magnetic field is given by,<br/>\n<span class=\"math-tex\">{tex}\\oint_{\\text {pqrs }} \\overrightarrow{\\mathrm{B}} \\cdot \\overrightarrow{d l}{/tex}</span> = <span class=\"math-tex\">{tex}\\int_{p q} \\overrightarrow{\\mathrm{B}} \\cdot \\overrightarrow{d l}+\\int_{q r} \\overrightarrow{\\mathrm{B}} \\cdot \\overrightarrow{d l}+\\int_{r s} \\overrightarrow{\\mathrm{B}} \\cdot \\overrightarrow{d l}+\\int_{s p} \\overrightarrow{\\mathrm{B}} \\cdot \\overrightarrow{d l}{/tex}</span> ....(i)<br/>\r\n\tFor path pq, <span class=\"math-tex\">{tex}\\vec{B}{/tex}</span> and <span class=\"math-tex\">{tex}\\overrightarrow{\\mathrm{dl}}{/tex}</span> are along the same direction,<br/>\n<span class=\"math-tex\">{tex}\\therefore \\quad \\int_{q r} \\overrightarrow{\\mathrm{B}} \\cdot \\overrightarrow{d l}=\\int_{S p} \\overrightarrow{\\mathrm{B}} \\cdot d \\vec{l}=\\int B d l \\cos 90^{\\circ}{/tex}</span> = 0<br/>\r\n\tFor path rs, B = 0 because outside the solenoid field is zero.<br/>\n<span class=\"math-tex\">{tex}\\therefore \\quad \\int_{r s} \\overrightarrow{\\mathrm{B}} \\cdot \\overrightarrow{d l}=0{/tex}</span><br/>\r\n\tNow, using Ampere's law,<br/>\r\n\tUsing these equations, equation (i) gives,<br/>\n<span class=\"math-tex\">{tex}\\oint_{p q r s} \\overrightarrow{\\mathrm{B}} \\cdot \\overrightarrow{d l}=\\int_{p q} \\overrightarrow{\\mathrm{B}} \\cdot \\overrightarrow{d l}=B l{/tex}</span><br/>\r\n\tNow, using Ampere's law,<br/>\n<span class=\"math-tex\">{tex}\\oint \\vec{B} \\cdot \\vec{d} I=\\mu_{0} I{/tex}</span><br/>\r\n\tThis implies,<br/>\n<span class=\"math-tex\">{tex}B l=\\mu_{0}(n l I){/tex}</span><br/>\n<span class=\"math-tex\"><span class=\"math-tex\">{tex}\\therefore B=\\mu_{0} n I{/tex}</span></span></li>\n<li>Magnetic lines do not exist outside the body of a toroid. Toroid is closed and the solenoid is open on both sides. The magnetic field is uniform inside a toroid whereas, for a solenoid, it is different at two ends and centre.<br/>\n<img alt=\"\" data-imgur-src=\"YdTOinW.png\" src=\"https://media-mycbseguide.s3.amazonaws.com/images/imgur/1685082645-5qbrsd.jpg\" style=\"width: 331px; height: 138px;\"/></li>\n<li>The magnetic field is made strong by,\r\n\t<ol start=\"1\" style=\"list-style-type: lower-roman;\">\n<li>passing large current and</li>\n<li>using a laminated coil of soft iron.</li>\n</ol>\n</li>\n</ol></body></html>",
+    "weightage": "LA-1 (Long answer type-1)"
+  },
+  {
+    "subject": "Physics",
+    "subject_id": "1251",
+    "chapter": "Moving Charges and Magnetism",
+    "chapter_id": 1255,
+    "question_id": 1018168,
+    "question_html": "<ol start=\"1\" style=\"list-style-type:lower-roman\">\r\n\t<li>An <span class=\"math-tex\">{tex}\\alpha{/tex}</span>-particle, a deuteron and a proton enter into a uniform magnetic field normally with the same kinetic energy and describe circular paths. Find the ratio of radii of their paths.</li>\r\n\t<li>Give the direction of magnetic field acting on the current carrying coil ACDE shown in the figure so that the coil is in unstable equilibrium.<br />\r\n\t<img src=\"https://media-mycbseguide.s3.amazonaws.com/images/question_images/1688104084-873qb4.jpg\" style=\"height:170px; width:200px\" /></li>\r\n\t<li>Why do we use a low resistance ammeter in a circuit to measure current?</li>\r\n</ol>",
+    "question_text": "An {tex}\\alpha{/tex} -particle, a deuteron and a proton enter into a uniform magnetic field normally with the same kinetic energy and describe circular paths. Find the ratio of radii of their paths. Give the direction of magnetic field acting on the current carrying coil ACDE shown in the figure so that the coil is in unstable equilibrium. Why do we use a low resistance ammeter in a circuit to measure current?",
+    "options": [],
+    "correct_option_ids": [],
+    "correct_option_text": "",
+    "explanation": "{tex}\\frac{1}{2} m_\\alpha v_\\alpha^2{/tex} = {tex}\\frac{1}{2} m_p v_p^2 {/tex} {tex}\\frac{V_\\alpha}{V_p}{/tex} = {tex}\\sqrt{\\frac{m_p}{m_\\alpha}}{/tex} = {tex}\\frac{1}{2}{/tex} Now, {tex}\\frac{1}{2} m_d v_d^2{/tex} = {tex}\\frac{1}{2} m_p v_p^2{/tex} {tex}\\frac{v_d}{v_p}{/tex} = {tex}\\frac{1}{\\sqrt{2}}{/tex} Radius of the circular path r = {tex}\\frac{m v}{B q} {/tex} {tex}\\frac{r_\\alpha}{r_p}{/tex} = {tex}\\frac{1}{1}{/tex} & {tex}\\frac{r_d}{r_p}{/tex} = {tex}\\frac{\\sqrt{2}}{1}{/tex} {tex}\\therefore{/tex} r a : r d : r p = 1 : {tex}\\sqrt{2}{/tex} : 1 Magnetic field is along Z axis Low resistance ammeter does not affect the net current drawn from the battery.",
+    "solution": "{tex}\\frac{1}{2} m_\\alpha v_\\alpha^2{/tex} = {tex}\\frac{1}{2} m_p v_p^2 {/tex} {tex}\\frac{V_\\alpha}{V_p}{/tex} = {tex}\\sqrt{\\frac{m_p}{m_\\alpha}}{/tex} = {tex}\\frac{1}{2}{/tex} Now, {tex}\\frac{1}{2} m_d v_d^2{/tex} = {tex}\\frac{1}{2} m_p v_p^2{/tex} {tex}\\frac{v_d}{v_p}{/tex} = {tex}\\frac{1}{\\sqrt{2}}{/tex} Radius of the circular path r = {tex}\\frac{m v}{B q} {/tex} {tex}\\frac{r_\\alpha}{r_p}{/tex} = {tex}\\frac{1}{1}{/tex} & {tex}\\frac{r_d}{r_p}{/tex} = {tex}\\frac{\\sqrt{2}}{1}{/tex} {tex}\\therefore{/tex} r a : r d : r p = 1 : {tex}\\sqrt{2}{/tex} : 1 Magnetic field is along Z axis Low resistance ammeter does not affect the net current drawn from the battery.",
+    "solution_html": "<ol start=\"1\" style=\"list-style-type:lower-roman\">\r\n\t<li><span class=\"math-tex\">{tex}\\frac{1}{2} m_\\alpha v_\\alpha^2{/tex}</span>&nbsp;= <span class=\"math-tex\">{tex}\\frac{1}{2} m_p v_p^2 {/tex}</span><br />\r\n\t<span class=\"math-tex\">{tex}\\frac{V_\\alpha}{V_p}{/tex}</span>&nbsp;= <span class=\"math-tex\">{tex}\\sqrt{\\frac{m_p}{m_\\alpha}}{/tex}</span>&nbsp;=&nbsp;<span class=\"math-tex\">{tex}\\frac{1}{2}{/tex}</span><br />\r\n\tNow,<br />\r\n\t<span class=\"math-tex\">{tex}\\frac{1}{2} m_d v_d^2{/tex}</span>&nbsp;= <span class=\"math-tex\">{tex}\\frac{1}{2} m_p v_p^2{/tex}</span><br />\r\n\t<span class=\"math-tex\">{tex}\\frac{v_d}{v_p}{/tex}</span>&nbsp;= <span class=\"math-tex\">{tex}\\frac{1}{\\sqrt{2}}{/tex}</span><br />\r\n\tRadius of the circular path<br />\r\n\tr = <span class=\"math-tex\">{tex}\\frac{m v}{B q} {/tex}</span><br />\r\n\t<span class=\"math-tex\">{tex}\\frac{r_\\alpha}{r_p}{/tex}</span>&nbsp;= <span class=\"math-tex\">{tex}\\frac{1}{1}{/tex}</span> &amp; <span class=\"math-tex\">{tex}\\frac{r_d}{r_p}{/tex}</span>&nbsp;= <span class=\"math-tex\">{tex}\\frac{\\sqrt{2}}{1}{/tex}</span><br />\r\n\t<span class=\"math-tex\">{tex}\\therefore{/tex}</span> r<sub>a</sub> : r<sub>d</sub> : r<sub>p</sub> = 1 : <span class=\"math-tex\">{tex}\\sqrt{2}{/tex}</span>&nbsp;: 1</li>\r\n\t<li>Magnetic field is along Z axis</li>\r\n\t<li>Low&nbsp;resistance ammeter does not affect the net current drawn from the battery.</li>\r\n</ol>",
+    "weightage": "LA-1 (Long answer type-1)"
+  },
+  {
+    "subject": "Physics",
+    "subject_id": "1251",
+    "chapter": "Moving Charges and Magnetism",
+    "chapter_id": 1255,
+    "question_id": 1146934,
+    "question_html": "<ol start=\"1\" style=\"list-style-type:lower-alpha\">\n\t<li>Derive an expression for the force between two long parallel current carrying conductors.</li>\n\t<li>Use this expression to define SI unit of current.</li>\n\t<li>A long straight wire AB carries a current I. A proton P travels with a speed v, parallel to the wire, at a distance d from it in a direction opposite to the current as shown in Fig. What is the force experienced by the proton and what is its direction?<br />\n\t<img src=\"https://media-mycbseguide.s3.amazonaws.com/images/question_images/1709033107-2q38du.jpg\" style=\"height:99px; width:100px\" /></li>\n</ol>",
+    "question_text": "Derive an expression for the force between two long parallel current carrying conductors. Use this expression to define SI unit of current. A long straight wire AB carries a current I. A proton P travels with a speed v, parallel to the wire, at a distance d from it in a direction opposite to the current as shown in Fig. What is the force experienced by the proton and what is its direction?",
+    "options": [],
+    "correct_option_ids": [],
+    "correct_option_text": "",
+    "explanation": "Let the conductors PQ and RS carry currents I 1 I 2 and in same direction and placed at separation r.(fig.). Consider a current&ndash;element &lsquo;ab&rsquo; of length {tex}\\Delta{/tex} L of wire RS. The magnetic field produced by current-carrying conductor PQ at the location of other wire RS {tex}B_1=\\frac{\\mu_0 I_1}{2 \\pi r}{/tex} ...(i) According to Maxwell&rsquo;s right hand rule the direction of B 1 will be perpendicular to the plane of paper and directed downward. Due to this magnetic field, each element of other wire experiences a force. The direction of current element is perpendicular to the magnetic field; therefore the magnetic force on element ab of length {tex}\\Delta{/tex} L {tex}\\Delta{/tex} F = B 1 I 2 {tex}\\Delta{/tex} L sin 90 o = {tex}\\frac{\\mu_0 I_1}{2 \\pi r} I_2{/tex} {tex}\\Delta{/tex} L {tex}\\therefore{/tex} The total force on conductor of length L will be F = {tex}\\frac{\\mu_0 I_1 I_2}{2 \\pi r} \\Sigma{/tex} {tex}\\Delta{/tex} L = {tex}\\frac{\\mu_0 I_1 I_2}{2 \\pi r}{/tex} L {tex}\\therefore{/tex} Force acting on per unit length of conductor f = {tex}\\frac{F}{L}{/tex} = {tex}\\frac{\\mu_0 I_1 I_2}{2 \\pi r}{/tex} N/m ...(ii) Definition S.I. unit of Current (Ampere): Thus 1 ampere is the current which when flowing in each of parallel conductors placed at separation 1 m in vacuum exert a force of 2 {tex}\\times{/tex} 10 -7 on 1m length of either wire. Magnetic field due to current carrying wire is perpendicular to plane of paper - downward. i.e., {tex}\\vec{B}{/tex} = {tex}-\\frac{\\mu_0 I}{2 \\pi d} \\hat{k}{/tex} Force {tex}\\vec{F}{/tex} = q {tex}\\vec{v} \\times \\vec{B}{/tex} = e(-v {tex}\\hat{j}{/tex} ) {tex}\\times{/tex} {tex}\\left(-\\frac{\\mu_0 I}{2 \\pi d} \\hat{k}\\right){/tex} = {tex}\\frac{\\mu_0 e v I}{2 \\pi d}{/tex} {tex}\\hat{i}{/tex} That is the magnetic force has magnitude {tex}\\frac{(\\mu _0evI)}{2\\pi d}{/tex} and is directed along positive x-axis i.e., in the plane of paper perpendicular to direction of vector v and to the right.",
+    "solution": "Let the conductors PQ and RS carry currents I 1 I 2 and in same direction and placed at separation r.(fig.). Consider a current&ndash;element &lsquo;ab&rsquo; of length {tex}\\Delta{/tex} L of wire RS. The magnetic field produced by current-carrying conductor PQ at the location of other wire RS {tex}B_1=\\frac{\\mu_0 I_1}{2 \\pi r}{/tex} ...(i) According to Maxwell&rsquo;s right hand rule the direction of B 1 will be perpendicular to the plane of paper and directed downward. Due to this magnetic field, each element of other wire experiences a force. The direction of current element is perpendicular to the magnetic field; therefore the magnetic force on element ab of length {tex}\\Delta{/tex} L {tex}\\Delta{/tex} F = B 1 I 2 {tex}\\Delta{/tex} L sin 90 o = {tex}\\frac{\\mu_0 I_1}{2 \\pi r} I_2{/tex} {tex}\\Delta{/tex} L {tex}\\therefore{/tex} The total force on conductor of length L will be F = {tex}\\frac{\\mu_0 I_1 I_2}{2 \\pi r} \\Sigma{/tex} {tex}\\Delta{/tex} L = {tex}\\frac{\\mu_0 I_1 I_2}{2 \\pi r}{/tex} L {tex}\\therefore{/tex} Force acting on per unit length of conductor f = {tex}\\frac{F}{L}{/tex} = {tex}\\frac{\\mu_0 I_1 I_2}{2 \\pi r}{/tex} N/m ...(ii) Definition S.I. unit of Current (Ampere): Thus 1 ampere is the current which when flowing in each of parallel conductors placed at separation 1 m in vacuum exert a force of 2 {tex}\\times{/tex} 10 -7 on 1m length of either wire. Magnetic field due to current carrying wire is perpendicular to plane of paper - downward. i.e., {tex}\\vec{B}{/tex} = {tex}-\\frac{\\mu_0 I}{2 \\pi d} \\hat{k}{/tex} Force {tex}\\vec{F}{/tex} = q {tex}\\vec{v} \\times \\vec{B}{/tex} = e(-v {tex}\\hat{j}{/tex} ) {tex}\\times{/tex} {tex}\\left(-\\frac{\\mu_0 I}{2 \\pi d} \\hat{k}\\right){/tex} = {tex}\\frac{\\mu_0 e v I}{2 \\pi d}{/tex} {tex}\\hat{i}{/tex} That is the magnetic force has magnitude {tex}\\frac{(\\mu _0evI)}{2\\pi d}{/tex} and is directed along positive x-axis i.e., in the plane of paper perpendicular to direction of vector v and to the right.",
+    "solution_html": "<ol start=\"1\" style=\"list-style-type:lower-alpha\">\n\t<li>Let the conductors PQ and RS carry currents I<sub>1 </sub>I<sub>2</sub> and in same direction and placed at separation r.(fig.). Consider a current&ndash;element &lsquo;ab&rsquo; of length <span class=\"math-tex\">{tex}\\Delta{/tex}</span>L of wire RS. The magnetic field produced by current-carrying conductor PQ at the location of other wire RS <span class=\"math-tex\">{tex}B_1=\\frac{\\mu_0 I_1}{2 \\pi r}{/tex}</span> ...(i)<br />\n\tAccording to Maxwell&rsquo;s right hand rule the direction of B<sub>1</sub> will be perpendicular to the plane of paper and directed downward. Due to this magnetic field, each element of other wire experiences a force. The direction of current element is perpendicular to the magnetic field; therefore the magnetic force on element ab of length <span class=\"math-tex\">{tex}\\Delta{/tex}</span>L<br />\n\t<img src=\"https://media-mycbseguide.s3.amazonaws.com/images/imgur/1709024340-2a7ttg.jpg\" style=\"height:160px; width:225px\" /><br />\n\t<span class=\"math-tex\">{tex}\\Delta{/tex}</span>F = B<sub>1</sub>I<sub>2</sub> <span class=\"math-tex\">{tex}\\Delta{/tex}</span>L sin 90<sup>o</sup> = <span class=\"math-tex\">{tex}\\frac{\\mu_0 I_1}{2 \\pi r} I_2{/tex}</span><span class=\"math-tex\">{tex}\\Delta{/tex}</span>L<br />\n\t<span class=\"math-tex\">{tex}\\therefore{/tex}</span> The total force on conductor of length L will be<br />\n\tF = <span class=\"math-tex\">{tex}\\frac{\\mu_0 I_1 I_2}{2 \\pi r} \\Sigma{/tex}</span> <span class=\"math-tex\">{tex}\\Delta{/tex}</span>L = <span class=\"math-tex\">{tex}\\frac{\\mu_0 I_1 I_2}{2 \\pi r}{/tex}</span>L<br />\n\t<span class=\"math-tex\">{tex}\\therefore{/tex}</span> Force acting on per unit length of conductor<br />\n\tf = <span class=\"math-tex\">{tex}\\frac{F}{L}{/tex}</span> = <span class=\"math-tex\">{tex}\\frac{\\mu_0 I_1 I_2}{2 \\pi r}{/tex}</span> N/m ...(ii)</li>\n\t<li>Definition S.I. unit of Current (Ampere): Thus 1 ampere is the current which when flowing in each of parallel conductors placed at separation 1 m in vacuum exert a force of 2 <span class=\"math-tex\">{tex}\\times{/tex}</span> 10<sup>-7</sup> on 1m length of either wire.</li>\n\t<li>Magnetic field due to current carrying wire is perpendicular to plane of paper - downward. i.e., <span class=\"math-tex\">{tex}\\vec{B}{/tex}</span> = <span class=\"math-tex\">{tex}-\\frac{\\mu_0 I}{2 \\pi d} \\hat{k}{/tex}</span><br />\n\tForce <span class=\"math-tex\">{tex}\\vec{F}{/tex}</span>= q <span class=\"math-tex\">{tex}\\vec{v} \\times \\vec{B}{/tex}</span>= e(-v<span class=\"math-tex\">{tex}\\hat{j}{/tex}</span>) <span class=\"math-tex\">{tex}\\times{/tex}</span> <span class=\"math-tex\">{tex}\\left(-\\frac{\\mu_0 I}{2 \\pi d} \\hat{k}\\right){/tex}</span> = <span class=\"math-tex\">{tex}\\frac{\\mu_0 e v I}{2 \\pi d}{/tex}</span><span class=\"math-tex\">{tex}\\hat{i}{/tex}</span><br />\n\tThat is the magnetic force has magnitude <span class=\"math-tex\">{tex}\\frac{(\\mu _0evI)}{2\\pi d}{/tex}</span> and is directed along positive x-axis i.e., in the plane of paper perpendicular to direction of vector v and to the right.</li>\n</ol>",
+    "weightage": "LA-1 (Long answer type-1)"
+  },
+  {
+    "subject": "Physics",
+    "subject_id": "1251",
+    "chapter": "Moving Charges and Magnetism",
+    "chapter_id": 1255,
+    "question_id": 1090926,
+    "question_html": "<ol start=\"1\" style=\"list-style-type:lower-roman\">\n\t<li>Derive an expression for the magnetic field at a point on the axis of a current-carrying circular loop.</li>\n\t<li>A coil of 100 turns (tightly bound) and radius 10 cm, carries a current of 1 A. What is the magnitude of the magnetic field at the entre of the coil.</li>\n</ol>",
+    "question_text": "Derive an expression for the magnetic field at a point on the axis of a current-carrying circular loop. A coil of 100 turns (tightly bound) and radius 10 cm, carries a current of 1 A. What is the magnitude of the magnetic field at the entre of the coil.",
+    "options": [],
+    "correct_option_ids": [],
+    "correct_option_text": "",
+    "explanation": "i. We have, {tex}\\overrightarrow{d B} =\\frac{\\mu_{0}}{4 \\pi} I \\frac{|\\overrightarrow{d I} \\times \\vec{r}|}{r^{3}} {/tex} r 2 = x 2 + R 2 {tex}\\therefore{/tex} dB = {tex}\\frac{\\mu_{0} I}{4 \\pi} \\frac{d l}{\\left(x^{2}+R^{2}\\right)^{3 / 2}}{/tex} We need to add only the components of dB along the axis of the coil. Hence, B = {tex}\\int \\frac{\\mu_{0} I}{4 \\pi} \\cdot \\frac{I d l}{\\left(x^{2}+R^{2}\\right)^{3 / 2}} \\cos \\theta{/tex} = {tex}\\int \\frac{\\mu_{0} I}{4 \\pi} \\frac{(I d l) R}{\\left(x^{2}+R^{2}\\right)^{3 / 2}}{/tex} = {tex}\\frac{\\mu_{0} I R^{2}}{2\\left(x^{2}+R^{2}\\right)^{3 / 2}}{/tex} {tex}\\therefore \\vec{B} =\\frac{\\mu_{0} I R^{2}}{2\\left(x^{2}+R^{2}\\right)^{3 / 2}} \\hat{i}{/tex} ii. Since the coil is tightly bound, we may take each circular element to have the same radius R = 10 cm = 0.1 m, N = 100 Magnitude of magnetic field at the enter of the coil: B = {tex}\\frac{\\mu_{0} N I}{2 R}{/tex} B = {tex}\\frac{4 \\pi \\times 10^{-7} \\times 10^{2} \\times 1}{2 \\times 10^{-1}}{/tex} = 2 {tex}\\pi\\times{/tex} 10 -4 = 6.28 {tex}\\times{/tex} 10 -4 T",
+    "solution": "i. We have, {tex}\\overrightarrow{d B} =\\frac{\\mu_{0}}{4 \\pi} I \\frac{|\\overrightarrow{d I} \\times \\vec{r}|}{r^{3}} {/tex} r 2 = x 2 + R 2 {tex}\\therefore{/tex} dB = {tex}\\frac{\\mu_{0} I}{4 \\pi} \\frac{d l}{\\left(x^{2}+R^{2}\\right)^{3 / 2}}{/tex} We need to add only the components of dB along the axis of the coil. Hence, B = {tex}\\int \\frac{\\mu_{0} I}{4 \\pi} \\cdot \\frac{I d l}{\\left(x^{2}+R^{2}\\right)^{3 / 2}} \\cos \\theta{/tex} = {tex}\\int \\frac{\\mu_{0} I}{4 \\pi} \\frac{(I d l) R}{\\left(x^{2}+R^{2}\\right)^{3 / 2}}{/tex} = {tex}\\frac{\\mu_{0} I R^{2}}{2\\left(x^{2}+R^{2}\\right)^{3 / 2}}{/tex} {tex}\\therefore \\vec{B} =\\frac{\\mu_{0} I R^{2}}{2\\left(x^{2}+R^{2}\\right)^{3 / 2}} \\hat{i}{/tex} ii. Since the coil is tightly bound, we may take each circular element to have the same radius R = 10 cm = 0.1 m, N = 100 Magnitude of magnetic field at the enter of the coil: B = {tex}\\frac{\\mu_{0} N I}{2 R}{/tex} B = {tex}\\frac{4 \\pi \\times 10^{-7} \\times 10^{2} \\times 1}{2 \\times 10^{-1}}{/tex} = 2 {tex}\\pi\\times{/tex} 10 -4 = 6.28 {tex}\\times{/tex} 10 -4 T",
+    "solution_html": "<html><body><p>i.</p>\n<p><img alt=\"\" data-imgur-src=\"MN4EzXC.png\" src=\"https://media-mycbseguide.s3.amazonaws.com/images/imgur/1705558039-xhf45w.jpg\"/><br/>\nWe have, <span class=\"math-tex\">{tex}\\overrightarrow{d B} =\\frac{\\mu_{0}}{4 \\pi} I \\frac{|\\overrightarrow{d I} \\times \\vec{r}|}{r^{3}} {/tex}</span><br/>\nr<sup>2</sup> = x<sup>2 </sup>+ R<sup>2</sup><br/>\n<span class=\"math-tex\">{tex}\\therefore{/tex}</span> dB = <span class=\"math-tex\">{tex}\\frac{\\mu_{0} I}{4 \\pi} \\frac{d l}{\\left(x^{2}+R^{2}\\right)^{3 / 2}}{/tex}</span><br/>\nWe need to add only the components of dB along the axis of the coil.<br/>\nHence, B = <span class=\"math-tex\">{tex}\\int \\frac{\\mu_{0} I}{4 \\pi} \\cdot \\frac{I d l}{\\left(x^{2}+R^{2}\\right)^{3 / 2}} \\cos \\theta{/tex}</span><br/>\n= <span class=\"math-tex\">{tex}\\int \\frac{\\mu_{0} I}{4 \\pi} \\frac{(I d l) R}{\\left(x^{2}+R^{2}\\right)^{3 / 2}}{/tex}</span><br/>\n= <span class=\"math-tex\">{tex}\\frac{\\mu_{0} I R^{2}}{2\\left(x^{2}+R^{2}\\right)^{3 / 2}}{/tex}</span><br/>\n<span class=\"math-tex\">{tex}\\therefore \\vec{B} =\\frac{\\mu_{0} I R^{2}}{2\\left(x^{2}+R^{2}\\right)^{3 / 2}} \\hat{i}{/tex}</span></p>\n<p>ii. Since the coil is tightly bound, we may take each circular element to have the same radius R = 10 cm = 0.1 m, N = 100<br/>\nMagnitude of magnetic field at the enter of the coil: B = <span class=\"math-tex\">{tex}\\frac{\\mu_{0} N I}{2 R}{/tex}</span><br/>\nB = <span class=\"math-tex\">{tex}\\frac{4 \\pi \\times 10^{-7} \\times 10^{2} \\times 1}{2 \\times 10^{-1}}{/tex}</span><br/>\n= 2<span class=\"math-tex\">{tex}\\pi\\times{/tex}</span> 10<sup>-4</sup><br/>\n= 6.28 <span class=\"math-tex\">{tex}\\times{/tex}</span> 10<sup>-4</sup>T</p></body></html>",
+    "weightage": "LA-1 (Long answer type-1)"
+  }
+]

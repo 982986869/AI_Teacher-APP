@@ -1,13 +1,17 @@
 import React, { useState, useEffect } from 'react';
 import {
   View, Text, StyleSheet, SafeAreaView, ScrollView,
-  TouchableOpacity, StatusBar, Platform, Image, Dimensions, ActivityIndicator,
+  TouchableOpacity, StatusBar, Platform, Image, Dimensions, ActivityIndicator, Alert,
 } from 'react-native';
+import * as Print from 'expo-print';
+import * as Sharing from 'expo-sharing';
 
 import { getExemplarSolutions, getNcertChapters } from '../api/resourcesApi';
+import { useAuth } from '../context/AuthContext';
+import { ClassTabs } from '../components/ClassPicker';
 import { getChapterNotes } from '../notes/index';
 import Ch2Images from '../notes/images/Ch2Images';
-import ChapterNotesScreen from './ChapterNotesScreen';
+import ChapterNotesScreen, { buildHTML } from './ChapterNotesScreen';
 import ChapterEndScreen from './ChapterEndScreen';
 import Ncert2Screen from './Ncert2Screen';
 import { ch1ExemplarQuestions } from '../data/ch1ExemplarQuestions';
@@ -246,6 +250,24 @@ const SUBJECTS = [
       { name: 'Oscillations' },
       { name: 'Waves' },
     ],
+    chaptersByClass: {
+      'Class 12': [
+        { name: 'Electric Charges and Fields' },
+        { name: 'Electrostatic Potential and Capacitance' },
+        { name: 'Current Electricity' },
+        { name: 'Moving Charges and Magnetism' },
+        { name: 'Magnetism and Matter' },
+        { name: 'Electromagnetic Induction' },
+        { name: 'Alternating Current' },
+        { name: 'Electromagnetic Waves' },
+        { name: 'Ray Optics and Optical Instruments' },
+        { name: 'Wave Optics' },
+        { name: 'Dual Nature of Radiation and Matter' },
+        { name: 'Atoms' },
+        { name: 'Nuclei' },
+        { name: 'Electronic Devices' },
+      ],
+    },
   },
   {
     name: 'Chemistry', emoji: '🧪', bg: '#333',
@@ -495,7 +517,8 @@ const BackHeader = ({ onBack }) => (
 // ── Main Screen ───────────────────────────────────────────────────────────────
 const ResourcesScreen = () => {
   const [activeBoard,   setActiveBoard]   = useState('CBSE');
-  const [activeClass,   setActiveClass]   = useState('Class 11');
+  // Class is the app-wide selection (synced with the Practice tab & Home).
+  const { selectedClass: activeClass, setSelectedClass: setActiveClass } = useAuth();
   const [activeSubject, setActiveSubject] = useState(null);
   const [activeResType, setActiveResType] = useState(null);
   const [activeChapter, setActiveChapter] = useState(null);
@@ -503,6 +526,31 @@ const ResourcesScreen = () => {
   const [showNotes,     setShowNotes]     = useState(false);
   const [showChapterEnd, setShowChapterEnd] = useState(false);
   const [activeSectionQs, setActiveSectionQs] = useState([]);
+  const [downloading,    setDownloading]    = useState(false);
+
+  // Generate a PDF of the chapter notes and hand it to the OS share/save sheet.
+  const handleDownloadNotes = async () => {
+    if (downloading || !activeSubject || !activeChapter) return;
+    setDownloading(true);
+    try {
+      const notes = getChapterNotes(activeSubject.name, activeChapter.name);
+      const html = buildHTML(notes, activeChapter.name);
+      const { uri } = await Print.printToFileAsync({ html, base64: false });
+      if (await Sharing.isAvailableAsync()) {
+        await Sharing.shareAsync(uri, {
+          mimeType: 'application/pdf',
+          dialogTitle: `${activeChapter.name} — Notes`,
+          UTI: 'com.adobe.pdf',
+        });
+      } else {
+        Alert.alert('Saved', `Notes PDF created at:\n${uri}`);
+      }
+    } catch (e) {
+      Alert.alert('Download failed', e?.message || 'Could not generate the notes PDF.');
+    } finally {
+      setDownloading(false);
+    }
+  };
 
   // Exemplar Solutions are now DB-backed: fetch the chapter's sections from the
   // API when the exemplar list (LEVEL 4a) is active. Same shape the static map
@@ -569,7 +617,7 @@ const ResourcesScreen = () => {
         <StatusBar barStyle="dark-content" backgroundColor="#fff" />
         {Platform.OS === 'android' && <View style={{ height: 24, backgroundColor: '#fff' }} />}
         <BackHeader onBack={() => setShowCards(false)} />
-        <Breadcrumb parts={['Home', activeBoard, activeClass, activeSubject.name, activeResType.name, activeChapter.name]} />
+        <Breadcrumb parts={['Home', activeClass, activeSubject.name, activeResType.name, activeChapter.name]} />
         <View style={s.pageTitleWrap}>
           <Text style={s.pageTitle}>{activeChapter.name}</Text>
         </View>
@@ -625,7 +673,7 @@ const ResourcesScreen = () => {
         className={activeClass}
         onBack={() => setShowCards(false)}
         title={activeResType.name}
-        breadcrumb={['Home', activeBoard, activeClass, activeSubject.name, activeResType.name]}
+        breadcrumb={['Home', activeClass, activeSubject.name, activeResType.name]}
       />
     );
   }
@@ -637,7 +685,7 @@ const ResourcesScreen = () => {
         <StatusBar barStyle="dark-content" backgroundColor="#fff" />
         {Platform.OS === 'android' && <View style={{ height: 24, backgroundColor: '#fff' }} />}
         <BackHeader onBack={() => setShowCards(false)} />
-        <Breadcrumb parts={['Home', activeBoard, activeClass, activeSubject.name, activeResType.name, activeChapter.name]} />
+        <Breadcrumb parts={['Home', activeClass, activeSubject.name, activeResType.name, activeChapter.name]} />
         <View style={s.pageTitleWrap}>
           <Text style={s.pageTitle}>{activeChapter.name}</Text>
           <Text style={s.pageSub}>{RESOURCE_CARDS.length} resources available</Text>
@@ -662,12 +710,15 @@ const ResourcesScreen = () => {
                 </View>
               </View>
               <View style={s.resActions}>
-                <TouchableOpacity style={s.previewBtn}>
+                <TouchableOpacity
+                  style={s.previewBtn}
+                  onPress={res.isNotes ? () => setShowNotes(true) : undefined}
+                >
                   <Text style={s.previewTxt}>Preview</Text>
                 </TouchableOpacity>
                 {res.isNotes ? (
-                  <TouchableOpacity style={s.downloadBtn} onPress={() => setShowNotes(true)}>
-                    <Text style={s.downloadTxt}>⬇  Download</Text>
+                  <TouchableOpacity style={s.downloadBtn} onPress={handleDownloadNotes} disabled={downloading}>
+                    <Text style={s.downloadTxt}>{downloading ? '⏳  Preparing…' : '⬇  Download'}</Text>
                   </TouchableOpacity>
                 ) : (
                   <TouchableOpacity style={s.downloadBtn}>
@@ -688,16 +739,21 @@ const ResourcesScreen = () => {
     // from the API — replaces the old static getNcert2Chapters()). Other resource
     // types keep showing the full chapter list.
     const isNcert2 = activeResType?.type === 'ncert2';
+    // Chapters can vary by class (e.g. Physics Class 12 has its own list); fall
+    // back to the subject's default chapters when there's no class-specific set.
+    const subjectChapters =
+      (activeSubject.chaptersByClass && activeSubject.chaptersByClass[activeClass]) ||
+      activeSubject.chapters;
     const chaptersToShow =
       isNcert2 && ncert2.chapters.length > 0
-        ? activeSubject.chapters.filter((c) => ncert2.chapters.includes(c.name))
-        : activeSubject.chapters;
+        ? subjectChapters.filter((c) => ncert2.chapters.includes(c.name))
+        : subjectChapters;
     return (
       <SafeAreaView style={s.safe}>
         <StatusBar barStyle="dark-content" backgroundColor="#fff" />
         {Platform.OS === 'android' && <View style={{ height: 24, backgroundColor: '#fff' }} />}
         <BackHeader onBack={() => setActiveResType(null)} />
-        <Breadcrumb parts={['Home', activeBoard, activeClass, activeSubject.name, activeResType.name]} />
+        <Breadcrumb parts={['Home', activeClass, activeSubject.name, activeResType.name]} />
         <View style={s.pageTitleWrap}>
           <Text style={s.pageTitle}>Chapters</Text>
           <Text style={s.pageSub}>Select a chapter to explore</Text>
@@ -778,26 +834,11 @@ const ResourcesScreen = () => {
         <Text style={s.headerTitle}>Resources</Text>
       </View>
       <Breadcrumb parts={['Home', 'Student Subscription']} />
-      <View style={s.filterWrap}>
-        <View style={s.filterRow}>
-          {BOARDS.map(b => (
-            <TouchableOpacity key={b} style={[s.filterChip, activeBoard === b && s.filterChipActive]} onPress={() => setActiveBoard(b)}>
-              <Text style={[s.filterChipTxt, activeBoard === b && s.filterChipTxtActive]}>{b}</Text>
-            </TouchableOpacity>
-          ))}
-        </View>
-        <View style={[s.filterRow, { marginTop: 8 }]}>
-          {CLASSES.map(c => (
-            <TouchableOpacity key={c} style={[s.filterChip, activeClass === c && s.filterChipActive]} onPress={() => setActiveClass(c)}>
-              <Text style={[s.filterChipTxt, activeClass === c && s.filterChipTxtActive]}>{c}</Text>
-            </TouchableOpacity>
-          ))}
-        </View>
-      </View>
+      <ClassTabs value={activeClass} onChange={setActiveClass} />
       <View style={s.pageTitleWrap}>
         <Text style={s.pageTitle}>Subjects</Text>
         <Text style={s.pageSub}>Select a subject to explore</Text>
-        <Text style={s.boardLabel}>{activeBoard} &gt; {activeClass}</Text>
+        <Text style={s.boardLabel}>{activeClass}</Text>
       </View>
       <ScrollView contentContainerStyle={{ padding: 16, gap: 12, paddingBottom: 32 }}>
         {SUBJECTS.map((subject, i) => (
