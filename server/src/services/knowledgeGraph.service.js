@@ -6,14 +6,21 @@ const vecLit = (e) => (Array.isArray(e) ? `[${e.join(',')}]` : e)
 
 // Nearest catalog concept to a query embedding, within a subject.
 async function nearestConcept(queryVec, subject) {
+  const [top] = await nearestConcepts(queryVec, subject, 1)
+  return top || null
+}
+
+// Top-K nearest catalog concepts to a query embedding (highest cosine first).
+// Used by the resolver to combine concept-similarity with chunk agreement.
+async function nearestConcepts(queryVec, subject, limit = 5) {
+  const k = Math.min(20, Math.max(1, Number(limit) || 5))
   const rows = await db.$queryRawUnsafe(
     `SELECT id, name, chapter, 1 - (embedding <=> $1::vector) sim
      FROM concepts WHERE subject = $2 AND embedding IS NOT NULL
-     ORDER BY embedding <=> $1::vector LIMIT 1`,
+     ORDER BY embedding <=> $1::vector LIMIT ${k}`,
     vecLit(queryVec), subject
   )
-  if (!rows.length) return null
-  return { id: rows[0].id, name: rows[0].name, chapter: rows[0].chapter, similarity: Number(rows[0].sim) }
+  return rows.map((r) => ({ id: r.id, name: r.name, chapter: r.chapter, similarity: Number(r.sim) }))
 }
 
 // Direct prerequisites of a concept (with their embeddings, for supplementary search).
@@ -32,4 +39,4 @@ async function getConceptId(subject, chapter, name) {
   return rows.length ? rows[0].id : null
 }
 
-module.exports = { nearestConcept, getPrereqs, getConceptId, vecLit }
+module.exports = { nearestConcept, nearestConcepts, getPrereqs, getConceptId, vecLit }

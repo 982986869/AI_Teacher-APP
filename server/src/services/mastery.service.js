@@ -6,13 +6,21 @@ const clamp = (x, a, b) => Math.max(a, Math.min(b, x))
 const round = (x) => Math.round(Number(x) * 100) / 100
 
 // How each learning signal moves the estimate. `target` = where this signal pulls
-// mastery; `alpha` = how hard (strong for quiz, soft for a doubt).
+// mastery; `alpha` = how hard. ONLY assessment moves the skill estimate:
+//   - quiz_correct / quiz_wrong: real evidence of skill (strong alpha).
+//   - understood / not_understood: the student's own confirmation (medium alpha).
+// `doubt` (merely ASKING/engaging) is NOT assessment — asking a question is no
+// evidence that you are weak (or average) at a topic. With alpha 0.12 toward 0.4 it
+// used to regress every student toward the mean, silently demoting a quiz-proven
+// strong student from advanced to intermediate after just two questions. So `doubt`
+// now records engagement (dDoubt) and recency WITHOUT moving the mastery estimate
+// (alpha 0). Skill changes only when the student is actually assessed.
 const SIGNALS = {
   quiz_correct:   { target: 1.0, alpha: 0.35, dCorrect: 1, dTotal: 1, failDelta: -1, dDoubt: 0 },
   quiz_wrong:     { target: 0.0, alpha: 0.35, dCorrect: 0, dTotal: 1, failDelta: 1, dDoubt: 0 },
   understood:     { target: 0.8, alpha: 0.25, dCorrect: 0, dTotal: 0, failDelta: -1, dDoubt: 0 },
   not_understood: { target: 0.2, alpha: 0.30, dCorrect: 0, dTotal: 0, failDelta: 1, dDoubt: 0 },
-  doubt:          { target: 0.4, alpha: 0.12, dCorrect: 0, dTotal: 0, failDelta: 0, dDoubt: 1 },
+  doubt:          { target: 0.4, alpha: 0.0,  dCorrect: 0, dTotal: 0, failDelta: 0, dDoubt: 1 },
 }
 
 async function getStudentConcept(userId, conceptId) {

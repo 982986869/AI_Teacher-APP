@@ -56,9 +56,21 @@ create table if not exists questions (
   created_at      timestamptz not null default now()
 );
 
+-- 6. NOTES — long-form revision-notes content (NOT question/answer).
+--    One row per (chapter, revision_notes) section.
+create table if not exists notes (
+  id          bigint generated always as identity primary key,
+  section_id  bigint not null references sections(id) on delete cascade,
+  intro       text,
+  blocks      jsonb,                    -- [{ title, content, bullets:[...] }]
+  created_at  timestamptz not null default now(),
+  unique (section_id)
+);
+
 create index if not exists idx_chapters_subject on chapters(subject_id);
 create index if not exists idx_sections_chapter  on sections(chapter_id);
 create index if not exists idx_questions_section  on questions(section_id);
+create index if not exists idx_notes_section      on notes(section_id);
 
 -- ------------------------------------------------------------
 -- Seed: the 4 subjects
@@ -76,7 +88,7 @@ on conflict (slug) do nothing;
 insert into section_types (key, label, position) values
   ('pyq',                 'Previous Year Questions', 1),
   ('important_questions', 'Important Questions',     2),
-  ('revision_solutions',  'Revision Solutions',      3),
+  ('revision_notes',      'Revision Notes',          3),
   ('exemplar_notes',      'Exemplar Notes',          4)
-  -- TODO: add the remaining ~5 section types (key, label, position)
+  -- TODO: add the remaining section types (key, label, position)
 on conflict (key) do nothing;

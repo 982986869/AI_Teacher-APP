@@ -15,9 +15,12 @@ const {
   startRevision,
   updateProgress,
   getProgress,
+  getLessonsProgress,
+  getChaptersProgress,
   recordMemory,
   getMemorySummary,
   getPlan,
+  getResume,
 } = require('../controllers/ai.controller')
 
 const router = Router()
@@ -70,6 +73,8 @@ const askRules = [
 const progressRules = [
   body('slideIndex').isInt({ min: 0 }).withMessage('slideIndex required').toInt(),
   body('total').optional().isInt({ min: 0 }).toInt(),
+  body('studyTimeSeconds').optional().isInt({ min: 0, max: 3600 }).toInt(),
+  body('concept').optional().isString().isLength({ max: 200 }),
 ]
 
 // ─── Routes ───────────────────────────────────────────────────────────────────
@@ -87,9 +92,12 @@ router.post('/revision',                             startRevision)
 router.post('/memory/event',           memoryRules,  recordMemory)
 router.get('/memory/summary',                        getMemorySummary)
 router.get('/plan',                                  getPlan)
+router.get('/chapters/progress',                     getChaptersProgress)
+router.get('/session/resume',                        getResume)
 router.post('/lesson/generate',        generateRules, generateLesson)
 router.post('/lesson/:lessonId/progress', progressRules, updateProgress)
 router.get('/lesson/:lessonId/progress',               getProgress)
+router.get('/lessons/progress',                      getLessonsProgress)
 router.get('/lessons',                               getLessons)
 router.get('/lesson/:lessonId',                      getLesson)
 router.delete('/lesson/:lessonId',                   deleteLesson)

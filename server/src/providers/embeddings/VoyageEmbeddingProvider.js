@@ -65,6 +65,19 @@ class VoyageEmbeddingProvider {
     const [vector] = await this._embed([text], 'query')
     return vector
   }
+
+  // Batched query-type embeddings. Used for short LABELS (concept names) that are
+  // matched against user queries — both sides must share the 'query' input space,
+  // otherwise even an exact-name match scores low (the document/query asymmetry is
+  // designed for short-query-vs-long-document, not label-vs-label).
+  async embedQueries(texts) {
+    const out = []
+    for (let i = 0; i < texts.length; i += BATCH) {
+      const vectors = await this._embed(texts.slice(i, i + BATCH), 'query')
+      out.push(...vectors)
+    }
+    return out
+  }
 }
 
 module.exports = VoyageEmbeddingProvider

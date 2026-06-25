@@ -158,24 +158,34 @@ function parsePq($, $el) {
 // ── Collect every section type -> its subjects -> {chapter: html} maps ───────
 // Add a new block here to import another section (revision_solutions, etc.).
 function collectSources() {
-  const load = (f) => loadModule(path.join(DATA, f)).default
+  const data = (f) => loadModule(path.join(DATA, f)).default
+  const notes = (f) => loadModule(path.join(ROOT, 'src', 'notes', f)).default
   return [
     {
-      sectionType: 'pyq',
+      sectionType: 'pyq', kind: 'questions',
       subjects: [
-        { name: 'Physics',     slug: 'physics',     map: load('pyqContent.js').Physics },
-        { name: 'Mathematics', slug: 'mathematics', map: load('mathsPyq.js') },
-        { name: 'Chemistry',   slug: 'chemistry',   map: load('chemistryPyq.js') },
-        { name: 'Biology',     slug: 'biology',      map: load('biologyPyq.js') },
+        { name: 'Physics',     slug: 'physics',     map: data('pyqContent.js').Physics },
+        { name: 'Mathematics', slug: 'mathematics', map: data('mathsPyq.js') },
+        { name: 'Chemistry',   slug: 'chemistry',   map: data('chemistryPyq.js') },
+        { name: 'Biology',     slug: 'biology',      map: data('biologyPyq.js') },
       ],
     },
     {
-      sectionType: 'important_questions',
+      sectionType: 'important_questions', kind: 'questions',
       subjects: [
-        { name: 'Physics',     slug: 'physics',     map: load('physicsImportant.js') },
-        { name: 'Mathematics', slug: 'mathematics', map: load('mathsImportant.js') },
-        { name: 'Chemistry',   slug: 'chemistry',   map: load('chemistryImportant.js') },
-        { name: 'Biology',     slug: 'biology',      map: load('biologyImportant.js') },
+        { name: 'Physics',     slug: 'physics',     map: data('physicsImportant.js') },
+        { name: 'Mathematics', slug: 'mathematics', map: data('mathsImportant.js') },
+        { name: 'Chemistry',   slug: 'chemistry',   map: data('chemistryImportant.js') },
+        { name: 'Biology',     slug: 'biology',      map: data('biologyImportant.js') },
+      ],
+    },
+    {
+      sectionType: 'revision_notes', kind: 'notes',
+      subjects: [
+        { name: 'Physics',     slug: 'physics',     map: notes('PhysicsNotes.js') },
+        { name: 'Mathematics', slug: 'mathematics', map: notes('MathsNotes.js') },
+        { name: 'Chemistry',   slug: 'chemistry',   map: notes('ChemistryNotes.js') },
+        { name: 'Biology',     slug: 'biology',      map: notes('BiologyNotes.js') },
       ],
     },
   ]
@@ -211,16 +221,29 @@ async function insertQuestions(client, sectionId, questions) {
   )
 }
 
+// Insert one chapter's revision-notes content (intro + section blocks).
+async function insertNote(client, sectionId, note) {
+  if (!note) return
+  await client.query(
+    `insert into notes (section_id, intro, blocks) values ($1,$2,$3)`,
+    [sectionId, note.intro || null, note.sections ? JSON.stringify(note.sections) : null]
+  )
+}
+
 // ── Main ─────────────────────────────────────────────────────────────────────
 async function main() {
   const sources = collectSources()
 
   // Parse every source (works in both dry-run and live)
-  let grandQ = 0
+  let grandQ = 0, grandNotes = 0
   const parsedSources = sources.map((src, idx) => {
-    let totalQ = 0
+    let totalQ = 0, totalNotes = 0
     const subjects = src.subjects.map((s) => {
       const chapters = Object.keys(s.map || {}).map((chapter) => {
+        if (src.kind === 'notes') {
+          totalNotes++
+          return { chapter, note: s.map[chapter] }
+        }
         const questions = parseChapter(s.map[chapter])
         totalQ += questions.length
         return { chapter, questions }
@@ -228,20 +251,28 @@ async function main() {
       return { ...s, chapters }
     })
     grandQ += totalQ
-    return { sectionType: src.sectionType, position: idx + 1, subjects, totalQ }
+    grandNotes += totalNotes
+    return { sectionType: src.sectionType, kind: src.kind, position: idx + 1, subjects, totalQ, totalNotes }
   })
 
   // Report
   console.log('\n=== PARSE REPORT ===')
   for (const src of parsedSources) {
-    console.log(`\n### section: ${src.sectionType}  —  ${src.totalQ} questions`)
-    for (const s of src.subjects) {
-      const qn = s.chapters.reduce((a, c) => a + c.questions.length, 0)
-      const mcq = s.chapters.reduce((a, c) => a + c.questions.filter((q) => q.is_mcq).length, 0)
-      console.log(`   ${s.name.padEnd(12)} ${String(s.chapters.length).padStart(2)} ch  ${String(qn).padStart(4)} q  (${mcq} mcq)`)
+    if (src.kind === 'notes') {
+      console.log(`\n### section: ${src.sectionType}  —  ${src.totalNotes} chapters (notes)`)
+      for (const s of src.subjects) {
+        console.log(`   ${s.name.padEnd(12)} ${String(s.chapters.length).padStart(2)} chapters`)
+      }
+    } else {
+      console.log(`\n### section: ${src.sectionType}  —  ${src.totalQ} questions`)
+      for (const s of src.subjects) {
+        const qn = s.chapters.reduce((a, c) => a + c.questions.length, 0)
+        const mcq = s.chapters.reduce((a, c) => a + c.questions.filter((q) => q.is_mcq).length, 0)
+        console.log(`   ${s.name.padEnd(12)} ${String(s.chapters.length).padStart(2)} ch  ${String(qn).padStart(4)} q  (${mcq} mcq)`)
+      }
     }
   }
-  console.log(`\nGRAND TOTAL: ${grandQ} questions`)
+  console.log(`\nGRAND TOTAL: ${grandQ} questions, ${grandNotes} note-chapters`)
 
   if (!LIVE) {
     console.log('\n[DRY RUN] Kuch insert nahi hua. Live insert ke liye: node scripts/importResources.js --live\n')
@@ -296,9 +327,14 @@ async function main() {
           )
           const sectionId = secRes.rows[0].id
 
-          // Re-runnable: clear this section's questions, then bulk-insert fresh
-          await client.query('delete from questions where section_id = $1', [sectionId])
-          await insertQuestions(client, sectionId, c.questions)
+          // Re-runnable: clear this section's content, then insert fresh
+          if (src.kind === 'notes') {
+            await client.query('delete from notes where section_id = $1', [sectionId])
+            await insertNote(client, sectionId, c.note)
+          } else {
+            await client.query('delete from questions where section_id = $1', [sectionId])
+            await insertQuestions(client, sectionId, c.questions)
+          }
         }
         console.log(`   ✓ ${s.name}: ${s.chapters.length} chapters`)
       }

@@ -6,6 +6,7 @@ const { retrieve, canonicalSubject } = require('./retriever.service')
 const memory = require('./memory.service')
 const mastery = require('./mastery.service')
 const planner = require('./planner.service')
+const session = require('./session.service')
 const lessonService = require('./lesson.service')
 const { applyGuard } = require('../utils/responseGuard')
 const { quickIntent } = require('../prompts/intentClassify.prompt')
@@ -39,6 +40,55 @@ const LINES = {
   },
 }
 const line = (key, language) => (LINES[key] && (LINES[key][language] || LINES[key].en)) || ''
+
+// Warm greetings — what a real teacher says when you walk in, in the student's
+// language. Continuity copy uses the chapter name (a proper noun) inside a
+// localized sentence, so it reads naturally in en / hi / hinglish.
+const GREET = {
+  en: 'Hi! Lovely to see you. What shall we learn today?',
+  hi: 'नमस्ते! तुम्हें देखकर अच्छा लगा। आज हम क्या सीखें?',
+  hinglish: 'Arre, hello! Tumhe dekh ke accha laga. Aaj kya seekhein?',
+}
+// Continuation copy. When we know the specific concept the student paused on, name
+// it ("shall we continue from escape velocity?"); otherwise reference the chapter.
+const CONTINUE = {
+  en: (ch, concept) => concept
+    ? `Welcome back! We stopped while working on ${ch}. Shall we pick up from ${concept}, or is something else on your mind?`
+    : `Welcome back! Last time we were on ${ch}. Shall we continue, or is there something you'd like to ask?`,
+  hi: (ch, concept) => concept
+    ? `वापस आ गए! पिछली बार हम ${ch} पर रुके थे। ${concept} से आगे बढ़ें, या कुछ और पूछना है?`
+    : `वापस आ गए! पिछली बार हम ${ch} पर थे। आगे बढ़ें, या कुछ पूछना है?`,
+  hinglish: (ch, concept) => concept
+    ? `Welcome back! Pichhli baar hum ${ch} pe ruke the. ${concept} se aage badhein, ya kuch aur poochhna hai?`
+    : `Welcome back! Pichhli baar hum ${ch} pe the. Aage badhein, ya kuch poochhna hai?`,
+}
+
+// A greeting or acknowledgement → respond like a teacher, not a gatekeeper. In a
+// lesson it's a brief warm nod; on the home turn it greets and offers continuity.
+async function greetingReply({ userId, language, lessonId, slideIndex, subject }) {
+  // A one-word greeting ("hi") is a weak language signal — prefer the language the
+  // student usually speaks, so a Hinglish learner gets a Hinglish welcome.
+  const pref = userId ? await memory.getPreferredLanguage(userId).catch(() => null) : null
+  const lang = pref || language
+  let answer
+  if (lessonId) {
+    answer = line('understood', lang) // "Good. Let's continue." — brief, warm, in-lesson
+  } else {
+    const resume = userId ? await session.getResumeContext(userId, { subject }).catch(() => null) : null
+    if (resume && resume.hasHistory && resume.last && resume.last.chapter) {
+      const concept = resume.focusConcept && resume.focusConcept.concept ? resume.focusConcept.concept : null
+      answer = (CONTINUE[lang] || CONTINUE.en)(resume.last.chapter, concept)
+    } else {
+      answer = GREET[lang] || GREET.en
+    }
+  }
+  return {
+    intent: 'greeting', language: lang, mode: 'greeting',
+    grounded: false, source: 'none', confidence: 0, sources: [],
+    answer, expecting: null, pending: null,
+    resumeCue: lessonId ? line('resume', lang) : null, resumeSlideIndex: slideIndex ?? null,
+  }
+}
 
 function cannedReply(intent, language, { lessonId, slideIndex, via }) {
   return {
@@ -239,9 +289,41 @@ async function reExplain({ userId, pending, level, lessonId, slideIndex }) {
   }
 }
 
+// What the teacher REMEMBERS about this student on the resolved concept. Drives
+// BOTH the explanation depth (level) and the natural "I remember you struggled
+// with X" references in the reply. Returns null when there's no concept or no
+// evidence yet (the teacher then just teaches normally). One indexed read.
+async function conceptMemory({ userId, concept }) {
+  if (!userId || !concept || !concept.id) return null
+  const sc = await mastery.getStudentConcept(userId, concept.id).catch(() => null)
+  if (!sc || sc.evidenceCount < 1) return null
+  const masteryPct = Math.round((sc.mastery || 0) * 100)
+  const level = sc.mastery < 0.4 ? 'beginner' : sc.mastery >= 0.75 ? 'advanced' : 'intermediate'
+  const status = sc.mastery < 0.4 ? 'weak' : sc.mastery < 0.75 ? 'developing' : 'strong'
+  const strugglingBefore = sc.recentFails > 0 || sc.mastery < 0.4
+  return { level, masteryPct, status, strugglingBefore }
+}
+
+// Shape the memory + retrieval into the studentContext the teaching prompt uses.
+// Built whenever we have EITHER mastery memory OR prerequisites to coach on — so
+// prerequisite guidance fires even on a brand-new topic (where it matters most).
+function buildStudentContext(concept, cm, retrieval) {
+  const prereqs = (retrieval && retrieval.prereqConcepts) || []
+  if (!cm && !prereqs.length) return null
+  return {
+    conceptName: concept ? concept.name : null,
+    chapter: concept ? concept.chapter : null,
+    masteryPct: cm ? cm.masteryPct : null,
+    status: cm ? cm.status : null,
+    strugglingBefore: cm ? cm.strugglingBefore : false,
+    prereqs,
+  }
+}
+
 // ── Main entry (non-streaming) ────────────────────────────────────────────────
 async function ask(params) {
-  const { userId, text, lessonId, slideIndex, history = [], level = 'intermediate', pending = null } = params
+  const { userId, text, lessonId, slideIndex, history = [], pending = null } = params
+  const pinnedLevel = params.level // only honour an explicit client level; else adapt
   const question = String(text || '').trim()
   if (!question) {
     return { intent: 'unclear', language: 'en', mode: 'canned', grounded: false, source: 'none', confidence: 0, sources: [], answer: line('unclear', 'en'), expecting: null, pending: null, resumeCue: null }
@@ -254,7 +336,7 @@ async function ask(params) {
   if (pending && pending.kind === 'understanding') {
     const u = classifyUnderstanding(question)
     if (u === 'understood') return understoodReply(pending, { userId, lessonId, slideIndex })
-    if (u === 'not_understood') return reExplain({ userId, pending, level, lessonId, slideIndex })
+    if (u === 'not_understood') return reExplain({ userId, pending, level: pinnedLevel || 'intermediate', lessonId, slideIndex })
     // 'other' → a new question; fall through and drop the understanding loop.
   }
 
@@ -263,6 +345,19 @@ async function ask(params) {
   subject = prep.subject; gradeLevel = prep.gradeLevel
   const { lesson, intentRes, retrieval } = prep
   const { intent, language, via } = intentRes
+
+  // Remember the language the student uses (rolling) so we can address them in it.
+  if (userId) memory.recordLanguage(userId, language).catch(() => {})
+
+  // A "hi" / "thanks" deserves a warm human reply, not a dismissal — handle it
+  // before any retrieval / mastery work.
+  if (intent === 'greeting') return greetingReply({ userId, language, lessonId, slideIndex, subject })
+
+  // The teacher remembers this student on this concept — drives explanation depth
+  // AND the natural "I remember you struggled here" reference in the reply.
+  const cm = await conceptMemory({ userId, concept: retrieval.concept })
+  const level = pinnedLevel || (cm && cm.level) || 'intermediate'
+  const studentContext = buildStudentContext(retrieval.concept, cm, retrieval)
 
   if (intent === 'off_topic' || intent === 'unclear') return cannedReply(intent, language, { lessonId, slideIndex, via })
   if (intent === 'quiz_request') return startQuiz({ userId, subject, retrieval, level, language, lessonId, slideIndex })
@@ -275,7 +370,7 @@ async function ask(params) {
       ? `Here is the key idea. ${String(contexts[0].content).split('\n').slice(1).join(' ').slice(0, 160)} Clear?`
       : "This isn't in your material yet. Ask me about your topic and I'll explain it. Clear?"
   } else {
-    rawAnswer = await getAIProvider().generateTeacherResponse({ intent, language, contexts, lesson, history: trimmedHistory, question, slideIndex, level })
+    rawAnswer = await getAIProvider().generateTeacherResponse({ intent, language, contexts, lesson, history: trimmedHistory, question, slideIndex, level, studentContext })
   }
   const guarded = applyGuard(rawAnswer, { language })
   logEngagement({ userId, subject, intent, contexts })
@@ -288,7 +383,8 @@ async function ask(params) {
 
 // ── Streaming entry — streams the teaching answer token-by-token ──────────────
 async function askStream(params, { onMeta, onDelta } = {}) {
-  const { userId, text, lessonId, slideIndex, history = [], level = 'intermediate', pending = null } = params
+  const { userId, text, lessonId, slideIndex, history = [], pending = null } = params
+  const pinnedLevel = params.level
   const question = String(text || '').trim()
   const emit = (res) => { if (onMeta) onMeta({ intent: res.intent, mode: res.mode, grounded: res.grounded }); if (onDelta) onDelta(res.answer); return res }
 
@@ -303,6 +399,17 @@ async function askStream(params, { onMeta, onDelta } = {}) {
   const { lesson, intentRes, retrieval } = prep
   const { intent, language, via } = intentRes
 
+  // Remember the language the student uses (rolling).
+  if (userId) memory.recordLanguage(userId, language).catch(() => {})
+
+  // Greetings get a warm human reply before any retrieval / mastery work.
+  if (intent === 'greeting') return emit(await greetingReply({ userId, language, lessonId, slideIndex, subject }))
+
+  // The teacher remembers this student (see ask()).
+  const cm = await conceptMemory({ userId, concept: retrieval.concept })
+  const level = pinnedLevel || (cm && cm.level) || 'intermediate'
+  const studentContext = buildStudentContext(retrieval.concept, cm, retrieval)
+
   if (intent === 'off_topic' || intent === 'unclear') return emit(cannedReply(intent, language, { lessonId, slideIndex, via }))
   if (intent === 'quiz_request') return emit(await startQuiz({ userId, subject, retrieval, level, language, lessonId, slideIndex }))
 
@@ -315,7 +422,7 @@ async function askStream(params, { onMeta, onDelta } = {}) {
     if (onDelta) onDelta(raw)
   } else {
     raw = await getAIProvider().streamTeacherResponse(
-      { intent, language, contexts, lesson, history: history.slice(-8), question, slideIndex, level },
+      { intent, language, contexts, lesson, history: history.slice(-8), question, slideIndex, level, studentContext },
       (t) => { if (onDelta) onDelta(t) }
     )
   }
@@ -331,10 +438,12 @@ async function startRevision({ userId, subject }) {
   const plan = await planner.recommendNext(userId, subject)
   const focusSubject = plan.subject || (subject ? canonicalSubject(subject) : null)
   const focusChapter = plan.chapter || null
+  const focusConcept = plan.concept || null // present when the planner is mastery-driven
   const language = 'en'
   const level = 'intermediate'
 
-  const query = `${focusChapter || focusSubject || ''} key concepts to revise`.trim()
+  // Target the specific weak concept when the planner found one, else the chapter.
+  const query = `${focusConcept || focusChapter || focusSubject || ''} key concepts to revise`.trim()
   const retrieval = await retrieve({ query, subject: focusSubject, minSimilarity: GROUND_FLOOR })
     .catch(() => ({ chunks: [], grounded: false, topSimilarity: 0 }))
   const contexts = retrieval.grounded ? retrieval.chunks : []
@@ -356,8 +465,9 @@ async function startRevision({ userId, subject }) {
 
   return {
     mode: 'revision', intent: 'revision', language, level,
-    focus: { action: plan.action, subject: focusSubject, chapter: focusChapter, reason: plan.reason },
+    focus: { action: plan.action, subject: focusSubject, chapter: focusChapter, concept: focusConcept, masteryPct: plan.masteryPct ?? null, reason: plan.reason },
     weakChapters: plan.weakChapters,
+    weakConcepts: plan.weakConcepts || [],
     grounded: retrieval.grounded, source: retrieval.grounded ? 'curriculum' : 'model_knowledge',
     confidence: retrieval.topSimilarity, sources: buildSources(contexts),
     recap: gRecap.text,

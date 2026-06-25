@@ -45,3 +45,12 @@ src/data/physics_questions/build-answer-key.js
 src/data/physics_questions/answer_key.json
 src/data/physics_questions/answers.txt
 src/data/physics_questions/*.with_answers.json
+
+# Local MCQ-practice data & raw exports (lives in DB, not pushed)
+*.zip
+src/data/physics_practice/
+src/data/biology_practice/
+src/data/maths_questions/*.by_topic.json
+src/data/maths_questions/answer_key_maths_practice.json
+src/data/maths_questions/fetch-by-subtopic.js
+CHANGES_pyq_supabase.md

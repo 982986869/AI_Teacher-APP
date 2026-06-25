@@ -10,6 +10,10 @@ import {
 } from 'react-native';
 import { Ionicons } from '@expo/vector-icons';
 import MCQ_DATA, { getMcqSubtopics } from '../data/mcqPractice';
+import { getMcqSubtopics as apiMcqSubtopics } from '../api/mcqPracticeApi';
+
+const slugify = (s) =>
+  String(s).toLowerCase().replace(/[^a-z0-9]+/g, '-').replace(/^-+|-+$/g, '');
 
 const C = {
   purple: '#0C8F88', purpleDeep: '#26215C', purpleLight: '#EEEDFE',
@@ -44,23 +48,24 @@ function ProgressBar({ answered, total, score }) {
 
 function ChapterCard({ subject, chapter, onStart, onStartSubtopic }) {
   const [open, setOpen] = useState(false);
+  const [subtopics, setSubtopics] = useState(null); // API: [{ id, name, questionCount }] | null
   const data = (MCQ_DATA[subject] && MCQ_DATA[subject][chapter]) || {};
   const p = data.progress || { answered: 0, total: 50, score: 0 };
   const started = p.answered > 0;
-  const subtopics = getMcqSubtopics(subject, chapter);
+
+  const toggle = () => {
+    setOpen((v) => !v);
+    if (subtopics == null) {
+      apiMcqSubtopics(slugify(subject), slugify(chapter))
+        .then((list) => setSubtopics(Array.isArray(list) ? list : []))
+        .catch(() => setSubtopics([]));
+    }
+  };
 
   return (
     <View style={st.card}>
       <View style={st.cardTopRow}>
         <Text style={st.chapName}>{chapter}</Text>
-        <Pressable
-          onPress={() => onStart(subject, chapter)}
-          style={[st.actionBtn, started ? st.actionBtnFilled : st.actionBtnOutline]}
-        >
-          <Text style={[st.actionTxt, started ? st.actionTxtFilled : st.actionTxtOutline]}>
-            {started ? 'Continue' : 'Start'}
-          </Text>
-        </Pressable>
       </View>
 
       <ProgressBar answered={p.answered} total={p.total} score={p.score} />
@@ -70,31 +75,27 @@ function ChapterCard({ subject, chapter, onStart, onStartSubtopic }) {
         <Text style={st.metaTxt}>Score: {pct(p.score)}%</Text>
       </View>
 
-      {subtopics.length > 0 && (
-        <Pressable style={st.showMore} onPress={() => setOpen((v) => !v)}>
-          <Text style={st.showMoreTxt}>Show more</Text>
-          <Ionicons name={open ? 'chevron-up' : 'chevron-down'} size={14} color={C.muted} />
-        </Pressable>
-      )}
+      <Pressable style={st.showMore} onPress={toggle}>
+        <Text style={st.showMoreTxt}>{open ? 'Hide sub-topics' : 'Show sub-topics'}</Text>
+        <Ionicons name={open ? 'chevron-up' : 'chevron-down'} size={14} color={C.muted} />
+      </Pressable>
 
-      {open && subtopics.map((s, i) => (
-        <View key={i} style={st.subRow}>
+      {open && subtopics == null && <Text style={st.subMeta}>Loading…</Text>}
+      {open && subtopics != null && subtopics.length === 0 && (
+        <Text style={st.subMeta}>No sub-topics yet.</Text>
+      )}
+      {open && (subtopics || []).map((s) => (
+        <View key={s.id} style={st.subRow}>
           <View style={st.subTopRow}>
             <Text style={st.subName} numberOfLines={2}>{s.name}</Text>
             <Pressable
-              onPress={() => onStartSubtopic(subject, chapter, s.name)}
-              style={[st.subStartBtn, s.answered > 0 ? st.actionBtnFilled : st.actionBtnOutline]}
+              onPress={() => onStartSubtopic(subject, chapter, s.id)}
+              style={[st.subStartBtn, st.actionBtnOutline]}
             >
-              <Text style={[st.subStartTxt, s.answered > 0 ? st.actionTxtFilled : st.actionTxtOutline]}>
-                {s.answered > 0 ? 'Resume' : 'Start'}
-              </Text>
+              <Text style={[st.subStartTxt, st.actionTxtOutline]}>Start</Text>
             </Pressable>
           </View>
-          <ProgressBar answered={s.answered} total={s.total} score={s.score} />
-          <View style={st.metaRow}>
-            <Text style={st.subMeta}>{s.answered}/{s.total} Answered</Text>
-            <Text style={st.subMeta}>Score: {pct(s.score)}%</Text>
-          </View>
+          <Text style={st.subMeta}>{s.questionCount} questions</Text>
         </View>
       ))}
     </View>

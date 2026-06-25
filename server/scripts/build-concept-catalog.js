@@ -1,7 +1,15 @@
 'use strict'
-// Builds the Physics concept catalog: for each chapter, an LLM extracts the key
-// concepts + their prerequisites; each concept name is embedded (for query→concept
-// and chunk→concept matching). Idempotent for Physics. Run from server/.
+// Builds the concept catalog for the AI Teacher's knowledge graph. For each chapter
+// of each subject, an LLM extracts the key named concepts + their prerequisites;
+// each concept name is embedded (for query→concept and chunk→concept matching).
+//
+// ADDITIVE & idempotent: it never deletes existing concepts (so student mastery,
+// which references concept ids, is preserved). It only fills gaps via
+// INSERT ... ON CONFLICT DO NOTHING, then links prerequisites by the concept's
+// real id (existing or newly inserted).
+//
+// Usage:  node scripts/build-concept-catalog.js [Subject]
+//         node scripts/build-concept-catalog.js            # all subjects with chunks
 require('dotenv').config()
 const crypto = require('crypto')
 const Anthropic = require('@anthropic-ai/sdk')
@@ -11,7 +19,6 @@ const { getEmbeddingProvider } = require('../src/providers/embeddings')
 const prisma = new PrismaClient()
 const client = new Anthropic({ apiKey: process.env.ANTHROPIC_API_KEY })
 const MODEL = process.env.AI_DOUBT_MODEL || 'claude-haiku-4-5'
-const SUBJECT = 'Physics'
 const slug = (s) => String(s).toLowerCase().replace(/[^a-z0-9]+/g, '-').replace(/^-|-$/g, '')
 
 function parseJson(text) {
@@ -21,55 +28,65 @@ function parseJson(text) {
   return JSON.parse(c)
 }
 
-async function chapterSample(chapter) {
+async function chapterSample(subject, chapter) {
   const rows = await prisma.$queryRaw`
     SELECT content FROM knowledge_chunks
-    WHERE metadata->>'subject' = ${SUBJECT} AND metadata->>'chapter' = ${chapter}
-    ORDER BY "chunkIndex" LIMIT 14`
-  return rows.map((r) => r.content).join('\n---\n').slice(0, 6500)
+    WHERE metadata->>'subject' = ${subject} AND metadata->>'chapter' = ${chapter}
+    ORDER BY "chunkIndex" LIMIT 16`
+  return rows.map((r) => r.content).join('\n---\n').slice(0, 7000)
 }
 
-async function extractConcepts(chapter, sample) {
+async function extractConcepts(subject, chapter, sample) {
   const msg = await client.messages.create({
-    model: MODEL, max_tokens: 700,
-    system: `You map the key concepts of a Class 11 Physics chapter for a learning system. `
-      + `List the 5 to 9 most important named concepts a student must master in "${chapter}", and for each, `
-      + `its DIRECT prerequisite concepts chosen ONLY from this same list (the ones that must be understood first). `
-      + `Order from foundational to advanced. Use short canonical names (e.g. "Momentum", "Impulse", "Escape Velocity"). `
-      + `Return ONLY JSON: {"concepts":[{"name":"Force","prereqs":[]},{"name":"Momentum","prereqs":["Force"]},{"name":"Impulse","prereqs":["Momentum"]}]}`,
-    messages: [{ role: 'user', content: `Material from "${chapter}":\n${sample}\n\nList the concepts + prerequisites as JSON.` }],
+    model: MODEL, max_tokens: 1100,
+    system: `You map the key concepts of a "${chapter}" chapter in school ${subject} for a learning system. `
+      + `List the 12 to 20 most important NAMED concepts a student must master in this chapter — be thorough and `
+      + `COMPLETE: include every specific named law, quantity, process, theorem, reaction or principle that appears `
+      + `(e.g. for Physics Gravitation: "Escape Velocity", "Gravitational Potential Energy", "Orbital Velocity", "Kepler's Laws"). `
+      + `Use short canonical names as a student/teacher would say them. For each concept give its DIRECT prerequisite `
+      + `concepts chosen ONLY from this same list (the ones that must be understood first). Order foundational → advanced. `
+      + `Return ONLY JSON: {"concepts":[{"name":"Force","prereqs":[]},{"name":"Momentum","prereqs":["Force"]}]}`,
+    messages: [{ role: 'user', content: `Material from "${chapter}" (${subject}):\n${sample}\n\nList the concepts + prerequisites as JSON.` }],
   })
   const text = msg.content.filter((b) => b.type === 'text').map((b) => b.text).join('')
   return parseJson(text).concepts || []
 }
 
-;(async () => {
+// Insert a concept if absent; return its real id (existing or new).
+async function upsertConcept(subject, chapter, name, position, vec) {
+  const id = crypto.randomUUID()
+  await prisma.$executeRaw`
+    INSERT INTO concepts (id, subject, chapter, name, slug, position, embedding)
+    VALUES (${id}::uuid, ${subject}, ${chapter}, ${name}, ${slug(name)}, ${position}, ${vec}::vector)
+    ON CONFLICT (subject, chapter, name) DO NOTHING`
+  const rows = await prisma.$queryRaw`
+    SELECT id FROM concepts WHERE subject = ${subject} AND chapter = ${chapter} AND name = ${name} LIMIT 1`
+  return rows.length ? rows[0].id : null
+}
+
+async function buildSubject(subject) {
   const emb = getEmbeddingProvider()
   const chapters = (await prisma.$queryRaw`
-    SELECT DISTINCT metadata->>'chapter' chapter FROM knowledge_chunks WHERE metadata->>'subject' = ${SUBJECT}`)
+    SELECT DISTINCT metadata->>'chapter' chapter FROM knowledge_chunks WHERE metadata->>'subject' = ${subject}`)
     .map((r) => r.chapter).filter(Boolean)
 
-  await prisma.$executeRaw`DELETE FROM concept_prereqs WHERE concept_id IN (SELECT id FROM concepts WHERE subject = ${SUBJECT})`
-  await prisma.$executeRaw`DELETE FROM concepts WHERE subject = ${SUBJECT}`
-
-  let total = 0
+  let added = 0
   for (const chapter of chapters) {
-    const sample = await chapterSample(chapter)
+    const sample = await chapterSample(subject, chapter)
+    if (!sample) { console.log(`  [no chunks] ${chapter}`); continue }
     let concepts = []
-    try { concepts = await extractConcepts(chapter, sample) } catch (e) { console.log(`  [skip] ${chapter}: ${e.message}`); continue }
+    try { concepts = await extractConcepts(subject, chapter, sample) } catch (e) { console.log(`  [skip] ${chapter}: ${e.message}`); continue }
     concepts = concepts.filter((c) => c && c.name)
     if (!concepts.length) { console.log(`  [empty] ${chapter}`); continue }
 
-    const vecs = await emb.embedDocuments(concepts.map((c) => c.name))
+    // Concept names are matched against student QUERIES, so embed them in the query
+    // space (symmetric) — not as documents. This is what makes "charles law" resolve
+    // to "Charles's Law" instead of falling under the confidence floor.
+    const vecs = await emb.embedQueries(concepts.map((c) => c.name))
     const idByName = {}
     for (let i = 0; i < concepts.length; i++) {
-      const id = crypto.randomUUID()
-      idByName[concepts[i].name] = id
-      const vec = `[${vecs[i].join(',')}]`
-      await prisma.$executeRaw`
-        INSERT INTO concepts (id, subject, chapter, name, slug, position, embedding)
-        VALUES (${id}::uuid, ${SUBJECT}, ${chapter}, ${concepts[i].name}, ${slug(concepts[i].name)}, ${i}, ${vec}::vector)
-        ON CONFLICT (subject, chapter, name) DO NOTHING`
+      const id = await upsertConcept(subject, chapter, concepts[i].name, i, `[${vecs[i].join(',')}]`)
+      if (id) idByName[concepts[i].name] = id
     }
     for (const c of concepts) {
       for (const pr of (c.prereqs || [])) {
@@ -80,9 +97,19 @@ async function extractConcepts(chapter, sample) {
         }
       }
     }
-    total += concepts.length
-    console.log(`  ${chapter}: ${concepts.length} concepts (${concepts.map((c) => c.name).join(', ')})`)
+    added += concepts.length
+    console.log(`  ${chapter}: ${concepts.length} concepts`)
   }
-  console.log(`\nDONE. ${total} Physics concepts across ${chapters.length} chapters.`)
+  console.log(`[${subject}] processed ${chapters.length} chapters, ~${added} concepts ensured.`)
+}
+
+;(async () => {
+  const arg = process.argv[2]
+  const subjects = arg ? [arg] : (await prisma.$queryRaw`
+    SELECT DISTINCT metadata->>'subject' subject FROM knowledge_chunks WHERE metadata->>'subject' IS NOT NULL ORDER BY 1`)
+    .map((r) => r.subject)
+  console.log('Building concept catalog (additive) for:', subjects.join(', '))
+  for (const s of subjects) { console.log(`\n=== ${s} ===`); await buildSubject(s) }
+  console.log('\nDONE.')
   await prisma.$disconnect()
 })().catch(async (e) => { console.error('CATALOG ERROR:', e); await prisma.$disconnect(); process.exit(1) })

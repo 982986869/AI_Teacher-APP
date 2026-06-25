@@ -108,7 +108,6 @@ export default function MockResultScreen({
       { id: 'C', correct: 0, incorrect: 0, unanswered: 0, total: 0 },
     ],
   },
-
   onReview = () => {},
   onRetake = () => {},
   onClose = () => {},
