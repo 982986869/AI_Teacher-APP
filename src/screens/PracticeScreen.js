@@ -12,6 +12,8 @@ import OnlineTestsScreen from './OnlineTestsScreen';
 import { getMcqQuestions } from '../data/mcqQuestions';
 import { getSubtopicTest } from '../data/subtopicBank';
 import { listMockTests, getMockTestQuestions, listMockAttempts, submitMockTest } from '../api/mockTestsApi';
+import { useAuth } from '../context/AuthContext';
+import { ComingSoon, isClassReady } from '../components/ClassPicker';
 
 // Subjects with DB-backed mock tests (served by mockTestsApi). The Mock Test
 // button opens a subject -> mock list flow that runs each test through the
@@ -427,6 +429,7 @@ const McqLoader = ({ subject, chapter, preset, onExit }) => {
 };
 
 const PracticeScreen = () => {
+  const { selectedClass } = useAuth();
   const [activeSub, setActiveSub] = useState('Physics');
 
   // Previous Year Papers navigation
@@ -550,6 +553,20 @@ const PracticeScreen = () => {
 
   const activeFull = SUBJECTS.find(s => s.name === activeSub) || SUBJECTS[0];
   const pct = Math.round((activeFull.done / activeFull.topics) * 100);
+
+  // ── CLASS GATE: only Class 11 has practice content for now ──────────────────
+  if (!isClassReady(selectedClass)) {
+    return (
+      <SafeAreaView style={s.safe}>
+        <StatusBar barStyle="dark-content" backgroundColor="#fff" />
+        {Platform.OS === 'android' && <View style={{ height: 24, backgroundColor: '#fff' }} />}
+        <View style={s.header}>
+          <Text style={s.headerTitle}>Practice</Text>
+        </View>
+        <ComingSoon className={selectedClass} />
+      </SafeAreaView>
+    );
+  }
 
   // ── PYQ LEVEL 3: Previous-year questions for a chapter (fetched from API) ────
   if (pyqOpen && pyqSubject && pyqChapter) {

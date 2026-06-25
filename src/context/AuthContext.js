@@ -13,25 +13,34 @@ export const AuthProvider = ({ children }) => {
   // true only for the session where the user actually logged in via the login screen.
   // A storage-restore on reload leaves this false, so post-login steps are skipped.
   const [justLoggedIn, setJustLoggedIn] = useState(false);
+  // App-wide selected class (Class 9–12). Drives which content the user sees.
+  const [selectedClass, setSelClass]    = useState('Class 11');
 
   useEffect(() => {
     (async () => {
       try {
-        const [storedToken, storedUser, onboarded] = await Promise.all([
+        const [storedToken, storedUser, onboarded, storedClass] = await Promise.all([
           getToken(),
           getUser(),
           AsyncStorage.getItem('@ailernova_onboarded'),
+          AsyncStorage.getItem('@ailernova_class'),
         ]);
         if (storedToken && storedUser) {
           setToken(storedToken);
           setUser(storedUser);
         }
         setHasOnboarded(onboarded === 'true');
+        if (storedClass) setSelClass(storedClass);
       } catch (_) {
       } finally {
         setLoading(false);
       }
     })();
+  }, []);
+
+  const setSelectedClass = useCallback(async (cls) => {
+    setSelClass(cls);
+    try { await AsyncStorage.setItem('@ailernova_class', cls); } catch (_) {}
   }, []);
 
   const signIn = useCallback(async ({ token: t, user: u }) => {
@@ -74,6 +83,7 @@ export const AuthProvider = ({ children }) => {
       isAuthenticated: !!token,
       hasOnboarded,
       justLoggedIn,
+      selectedClass, setSelectedClass,
       signIn, signOut, completeOnboarding,
     }}>
       {children}

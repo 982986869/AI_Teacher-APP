@@ -5,6 +5,7 @@ import {
   Platform, KeyboardAvoidingView, Animated,
 } from 'react-native';
 import { useAuth } from '../context/AuthContext';
+import { ClassPicker } from '../components/ClassPicker';
 import AITeacherScreen from './AITeacherScreen';
 
 const { width } = Dimensions.get('window');
@@ -70,7 +71,7 @@ const TypingDots = () => {
 
 // ─── Main HomeScreen ──────────────────────────────────────────────────────────
 const HomeScreen = ({ navigation }) => {
-  const { user } = useAuth();
+  const { user, selectedClass, setSelectedClass } = useAuth();
   const firstName = user?.name?.split(' ')[0] || 'Saurabh';
 
   const [charIdx, setCharIdx]           = useState(0);
@@ -118,6 +119,7 @@ const HomeScreen = ({ navigation }) => {
           <Text style={s.brandName}>Ailernova</Text>
         </View>
         <View style={s.topbarRight}>
+          <ClassPicker value={selectedClass} onChange={setSelectedClass} />
           <TouchableOpacity style={s.bellBtn}>
             <Text style={{ fontSize: 17 }}>🔔</Text>
             <View style={s.bellDot} />
