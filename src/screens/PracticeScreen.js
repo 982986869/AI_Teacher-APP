@@ -16,6 +16,7 @@ import { getQuestions, allQuestions } from '../data/questionBank';
 import { getMcqQuestions } from '../data/mcqQuestions';
 import { getSubtopicTest } from '../data/subtopicBank';
 import { getPhysics12ImportantHtml } from '../data/physics12Important';
+import { getPhysics12PyqHtml, getPhysics12PyqChapters } from '../data/physics12Pyq';
 import { listMockTests, getMockTestQuestions, listMockAttempts, submitMockTest } from '../api/mockTestsApi';
 import { useAuth } from '../context/AuthContext';
 import { ClassTabs } from '../components/ClassPicker';
@@ -84,11 +85,18 @@ function buildFragmentFromQuestions(questions) {
 // Wraps a question-card fragment in a full HTML doc with MathJax (renders
 // {tex}...{/tex}) and the black-&-white card styling used elsewhere in the app.
 function buildPyqDocument(fragmentHtml) {
+  // The scraped data wraps math in {tex}…{/tex}, but MathJax renders the standard
+  // \( … \) inline delimiters far more reliably than custom-string delimiters
+  // (same conversion MathText.js does). Convert before injecting so every formula
+  // typesets. Spaces keep math from fusing with adjacent words.
+  const html = String(fragmentHtml || '')
+    .replace(/\{tex\}/g, ' \\(')
+    .replace(/\{\/tex\}/g, '\\) ');
   return `<!DOCTYPE html><html><head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
 <script>
-  window.MathJax = { tex: { inlineMath: [['{tex}', '{/tex}']], displayMath: [] },
+  window.MathJax = { tex: { inlineMath: [['\\\\(', '\\\\)']], displayMath: [] },
     startup: { ready: function () { window.MathJax.startup.defaultReady();
       window.MathJax.startup.promise.then(fitWideMath); } } };
   function fitWideMath(){ try{ var avail=document.body.clientWidth;
@@ -138,7 +146,7 @@ function buildPyqDocument(fragmentHtml) {
   strong,b{ font-weight:700; }
   em,i{ font-style:italic; }
 </style></head>
-<body>${fragmentHtml}</body></html>`;
+<body>${html}</body></html>`;
 }
 
 const SUBJECTS = [
@@ -262,6 +270,22 @@ const PHYSICS12_IMP_CHAPTERS = [
 // (local: true) and marks the other subjects "coming soon" (comingSoon: true)
 // so they don't hit the API with Class-11 chapter names.
 const impSubjectsForClass = (cls) => {
+  if (cls === 'Class 12') {
+    return PYQ_SUBJECTS.map((sub) =>
+      sub.name === 'Physics'
+        ? { ...sub, chapters: PHYSICS12_IMP_CHAPTERS, local: true }
+        : { ...sub, chapters: [], comingSoon: true }
+    );
+  }
+  return PYQ_SUBJECTS;
+};
+
+// Previous-Year-Questions subject list for the chosen class. Class 11 keeps the
+// API-backed PYQ_SUBJECTS. Class 12 swaps Physics for its 14 local chapters
+// (local: true) — only the chapters with bundled PYQ data show as available —
+// and marks the other subjects "coming soon" so they don't hit the API with
+// Class-11 chapter names.
+const pyqSubjectsForClass = (cls) => {
   if (cls === 'Class 12') {
     return PYQ_SUBJECTS.map((sub) =>
       sub.name === 'Physics'
@@ -620,17 +644,32 @@ const PracticeScreen = () => {
           <Text style={s.pageTitle}>{pyqChapter}</Text>
           <Text style={s.pageSub}>{pyqSubject.name}  •  Previous Year Questions</Text>
         </View>
-        <PyqWebView subject={pyqSubject.name} chapter={pyqChapter} />
+        <PyqWebView
+          subject={pyqSubject.name}
+          chapter={pyqChapter}
+          // Local data (Class 12 Physics) → render bundled PYQ HTML directly; ''
+          // keeps it from falling back to the API. Other subjects fetch from API.
+          html={pyqSubject.local ? (getPhysics12PyqHtml(pyqChapter) || '') : undefined}
+        />
       </SafeAreaView>
     );
   }
 
   // ── PYQ LEVEL 2: Chapter list for the chosen subject ────────────────────────
   if (pyqOpen && pyqSubject) {
+    // Class 12 Physics ships bundled PYQ data → only the chapters that actually
+    // have a JSON file are marked available. "Coming soon" subjects pass an
+    // empty set; API-backed subjects (Class 11) pass null to query the API.
+    const localChapters = pyqSubject.local
+      ? new Set(getPhysics12PyqChapters().map(slugify))
+      : pyqSubject.comingSoon
+        ? new Set()
+        : null;
     return (
       <ChapterList
         subject={pyqSubject}
         sectionType="pyq"
+        localChapters={localChapters}
         onBack={() => setPyqSubject(null)}
         onPick={(chapter) => setPyqChapter(chapter)}
       />
@@ -649,7 +688,7 @@ const PracticeScreen = () => {
           <Text style={s.pageSub}>Select a subject  •  10 years question bank</Text>
         </View>
         <ScrollView contentContainerStyle={{ padding: 16, gap: 12, paddingBottom: 32 }}>
-          {PYQ_SUBJECTS.map((subject, i) => (
+          {pyqSubjectsForClass(selectedClass).map((subject, i) => (
             <TouchableOpacity key={i} style={s.subjectRow} activeOpacity={0.8}
               onPress={() => setPyqSubject(subject)}>
               <View style={[s.subjectIconWrap, { backgroundColor: subject.bg }]}>
@@ -657,7 +696,9 @@ const PracticeScreen = () => {
               </View>
               <View style={{ flex: 1 }}>
                 <Text style={s.subjectName}>{subject.name}</Text>
-                <Text style={s.subjectSub}>{subject.chapters.length} chapters</Text>
+                <Text style={s.subjectSub}>
+                  {subject.comingSoon ? 'Coming soon' : `${subject.chapters.length} chapters`}
+                </Text>
               </View>
               <Text style={s.listArrow}>→</Text>
             </TouchableOpacity>
