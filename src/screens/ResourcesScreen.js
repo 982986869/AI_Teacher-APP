@@ -5,8 +5,10 @@ import {
 } from 'react-native';
 import * as Print from 'expo-print';
 import * as Sharing from 'expo-sharing';
+import { WebView } from 'react-native-webview';
 
 import { getExemplarSolutions, getNcertChapters } from '../api/resourcesApi';
+import { getPhysics12ExemplarHtml } from '../data/physics12Exemplar';
 import { useAuth } from '../context/AuthContext';
 import { ClassTabs } from '../components/ClassPicker';
 import { getChapterNotes } from '../notes/index';
@@ -557,7 +559,14 @@ const ResourcesScreen = () => {
   // gave ([{ label, questions }]), so the rows render unchanged.
   const [exemplar, setExemplar] = useState({ loading: false, error: null, sections: [] });
   const [exemplarRetry, setExemplarRetry] = useState(0);
-  const exemplarActive = !!(activeSubject && activeResType?.type === 'exemplar' && activeChapter && showCards);
+  // Class 12 Physics Exemplar ships locally (full MathJax HTML doc per chapter);
+  // everything else is DB-backed. When local data exists we skip the API entirely.
+  const localExemplarHtml =
+    activeResType?.type === 'exemplar' && activeChapter &&
+    activeClass === 'Class 12' && activeSubject?.name === 'Physics'
+      ? getPhysics12ExemplarHtml(activeChapter.name)
+      : null;
+  const exemplarActive = !!(activeSubject && activeResType?.type === 'exemplar' && activeChapter && showCards && !localExemplarHtml);
   useEffect(() => {
     if (!exemplarActive) return undefined;
     let alive = true;
@@ -607,6 +616,31 @@ const ResourcesScreen = () => {
         questions={activeSectionQs}
         onBack={() => setShowChapterEnd(false)}
       />
+    );
+  }
+
+  // ── LEVEL 4 (local): Class 12 Physics Exemplar — MathJax cards in a WebView ──
+  if (activeResType?.type === 'exemplar' && activeChapter && showCards && localExemplarHtml) {
+    return (
+      <SafeAreaView style={s.safe}>
+        <StatusBar barStyle="dark-content" backgroundColor="#fff" />
+        {Platform.OS === 'android' && <View style={{ height: 24, backgroundColor: '#fff' }} />}
+        <BackHeader onBack={() => setShowCards(false)} />
+        <Breadcrumb parts={['Home', activeClass, activeSubject.name, activeResType.name, activeChapter.name]} />
+        <View style={s.pageTitleWrap}>
+          <Text style={s.pageTitle}>{activeChapter.name}</Text>
+          <Text style={s.pageSub}>NCERT Exemplar · Chapter-end</Text>
+        </View>
+        <WebView
+          originWhitelist={['*']}
+          source={{ html: localExemplarHtml }}
+          style={{ flex: 1, backgroundColor: '#F4F4F5' }}
+          javaScriptEnabled
+          domStorageEnabled
+          mixedContentMode="always"
+          androidLayerType={Platform.OS === 'android' ? 'hardware' : undefined}
+        />
+      </SafeAreaView>
     );
   }
 
