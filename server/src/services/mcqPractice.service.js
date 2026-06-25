@@ -6,11 +6,11 @@ const num = (v) => (typeof v === 'bigint' ? Number(v) : v)
 const LETTERS = 'ABCDEFGHIJ'.split('')
 
 // ─── Subtopics of a chapter (with question counts) ────────────────────────────
-async function listSubtopics(subjectSlug, chapterSlug) {
+async function listSubtopics(subjectSlug, chapterSlug, classLevel = 11) {
   const subject = await db.subjects.findUnique({ where: { slug: subjectSlug } })
   if (!subject) return null
   const chapter = await db.chapters.findFirst({
-    where: { slug: chapterSlug, subject_id: subject.id },
+    where: { slug: chapterSlug, subject_id: subject.id, class_level: classLevel },
   })
   if (!chapter) return null
   const rows = await db.subtopics.findMany({
@@ -99,11 +99,11 @@ async function gradeSubmission(subtopicId, answers) {
 }
 
 // ─── All MCQs of a chapter (across its subtopics) — chapter-level test ────────
-async function getChapterTest(subjectSlug, chapterSlug) {
+async function getChapterTest(subjectSlug, chapterSlug, classLevel = 11) {
   const subject = await db.subjects.findUnique({ where: { slug: subjectSlug } })
   if (!subject) return null
   const chapter = await db.chapters.findFirst({
-    where: { slug: chapterSlug, subject_id: subject.id },
+    where: { slug: chapterSlug, subject_id: subject.id, class_level: classLevel },
   })
   if (!chapter) return null
   const rows = await db.mcq_questions.findMany({
@@ -143,7 +143,7 @@ async function submitTest(userId, subtopicId, answers) {
 }
 
 // ─── Per-user progress for a chapter: each subtopic's answered/total/score ────
-async function getProgress(subjectSlug, chapterSlug, userId) {
+async function getProgress(subjectSlug, chapterSlug, userId, classLevel = 11) {
   const rows = await db.$queryRawUnsafe(
     `select st.id::text as id, st.name, st.position,
        count(mq.id) as total,
@@ -154,10 +154,10 @@ async function getProgress(subjectSlug, chapterSlug, userId) {
      join subjects sub on sub.id = ch.subject_id
      left join mcq_questions mq on mq.subtopic_id = st.id
      left join mcq_attempts a on a.question_id = mq.id and a.user_id = $1::uuid
-     where sub.slug = $2 and ch.slug = $3
+     where sub.slug = $2 and ch.slug = $3 and ch.class_level = $4
      group by st.id, st.name, st.position
      order by st.position`,
-    userId, subjectSlug, chapterSlug
+    userId, subjectSlug, chapterSlug, classLevel
   )
   if (!rows.length) return null
   const pct = (n, d) => (d ? Math.round((n / d) * 10000) / 100 : 0)

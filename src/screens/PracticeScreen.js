@@ -54,6 +54,9 @@ function computeMockResult(payload) {
 const slugify = (s) =>
   String(s).toLowerCase().replace(/[^a-z0-9]+/g, '-').replace(/^-+|-+$/g, '');
 
+// 'Class 11' → 11; defaults to 11. Tags which grade's content to fetch.
+const classNum = (c) => parseInt(String(c).replace(/\D/g, ''), 10) || 11;
+
 // Build the .pyq-card HTML fragment from the structured questions the API returns.
 function buildFragmentFromQuestions(questions) {
   return questions
@@ -298,6 +301,8 @@ const BackHeader = ({ onBack }) => (
 // Questions, from static files) it's shown directly; otherwise the PYQ for the
 // given subject/chapter is fetched from the API.
 const PyqWebView = ({ html, subject, chapter, sectionType = 'pyq' }) => {
+  const { selectedClass } = useAuth();
+  const classLevel = classNum(selectedClass);
   const [status, setStatus] = useState(
     html != null
       ? { loading: false, error: null, html }
@@ -313,7 +318,7 @@ const PyqWebView = ({ html, subject, chapter, sectionType = 'pyq' }) => {
     // Otherwise fetch this chapter's questions from the API (PYQ).
     let alive = true;
     setStatus({ loading: true, error: null, html: null });
-    getQuestionsByPath(slugify(subject), slugify(chapter), sectionType)
+    getQuestionsByPath(slugify(subject), slugify(chapter), sectionType, classLevel)
       .then((questions) => {
         if (!alive) return;
         const h = questions && questions.length ? buildFragmentFromQuestions(questions) : '';
@@ -325,7 +330,7 @@ const PyqWebView = ({ html, subject, chapter, sectionType = 'pyq' }) => {
         setStatus({ loading: false, error: msg, html: null });
       });
     return () => { alive = false; };
-  }, [html, subject, chapter, sectionType]);
+  }, [html, subject, chapter, sectionType, classLevel]);
 
   if (status.loading) {
     return (
@@ -376,6 +381,8 @@ const ChapterList = ({
   availableLabel = 'View previous year questions',
   localChapters = null, // Set<slug> with content → skip the API (local data)
 }) => {
+  const { selectedClass } = useAuth();
+  const classLevel = classNum(selectedClass);
   const [available, setAvailable] = useState(localChapters); // Set<slug> | null while loading
 
   useEffect(() => {
@@ -383,11 +390,11 @@ const ChapterList = ({
     if (localChapters) { setAvailable(localChapters); return; }
     let alive = true;
     setAvailable(null);
-    getChapters(slugify(subject.name), sectionType)
+    getChapters(slugify(subject.name), sectionType, classLevel)
       .then((chs) => { if (alive) setAvailable(new Set((chs || []).map((c) => c.slug))); })
       .catch(() => { if (alive) setAvailable(new Set()); });
     return () => { alive = false; };
-  }, [subject, sectionType, localChapters]);
+  }, [subject, sectionType, localChapters, classLevel]);
 
   return (
     <SafeAreaView style={s.safe}>
@@ -434,6 +441,8 @@ const ChapterList = ({
 // across its subtopics). Empty list (e.g. Physics — no MCQ data) → McqQuizScreen
 // shows its "No questions" state. No local sample fallback.
 const McqLoader = ({ subject, chapter, subtopicId, onExit }) => {
+  const { selectedClass } = useAuth();
+  const classLevel = classNum(selectedClass);
   const [state, setState] = useState({ loading: true, questions: null });
 
   useEffect(() => {
@@ -442,7 +451,7 @@ const McqLoader = ({ subject, chapter, subtopicId, onExit }) => {
     // Subtopic selected → that subtopic's questions; else the whole chapter.
     const req = subtopicId != null
       ? getMcqSubtopicTest(subtopicId)
-      : getMcqChapterTest(slugify(subject), slugify(chapter));
+      : getMcqChapterTest(slugify(subject), slugify(chapter), classLevel);
     req
       .then((data) => {
         if (!alive) return;
@@ -457,7 +466,7 @@ const McqLoader = ({ subject, chapter, subtopicId, onExit }) => {
         setState({ loading: false, questions: [] });
       });
     return () => { alive = false; };
-  }, [subject, chapter, subtopicId]);
+  }, [subject, chapter, subtopicId, classLevel]);
 
   if (state.loading) {
     return (

@@ -6,9 +6,10 @@ import axiosInstance from './axiosInstance';
 export const getSubjects = async () =>
   (await axiosInstance.get('/api/resources/subjects')).data.data;
 
-export const getChapters = async (subjectSlug, sectionType) =>
+// classLevel (9–12) selects the grade; defaults to 11 for back-compat.
+export const getChapters = async (subjectSlug, sectionType, classLevel = 11) =>
   (await axiosInstance.get(`/api/resources/subjects/${subjectSlug}/chapters`, {
-    params: sectionType ? { section: sectionType } : undefined,
+    params: { class: classLevel, ...(sectionType ? { section: sectionType } : {}) },
   })).data.data;
 
 export const getSections = async (chapterId) =>
@@ -18,15 +19,17 @@ export const getQuestions = async (sectionId) =>
   (await axiosInstance.get(`/api/resources/sections/${sectionId}/questions`)).data.data;
 
 // Convenience: questions straight from slugs (matches the screen navigation).
-export const getQuestionsByPath = async (subjectSlug, chapterSlug, sectionType) =>
+export const getQuestionsByPath = async (subjectSlug, chapterSlug, sectionType, classLevel = 11) =>
   (await axiosInstance.get(
-    `/api/resources/content/${subjectSlug}/${chapterSlug}/${sectionType}`
+    `/api/resources/content/${subjectSlug}/${chapterSlug}/${sectionType}`,
+    { params: { class: classLevel } }
   )).data.data;
 
 // MCQ Practice: real MCQs for a chapter, shaped for McqTestScreen
 // ({ cat, question, options: string[], correct: index }).
-export const getMcqByPath = async (subjectSlug, chapterSlug) =>
-  (await axiosInstance.get(`/api/resources/mcq/${subjectSlug}/${chapterSlug}`)).data.data;
+export const getMcqByPath = async (subjectSlug, chapterSlug, classLevel = 11) =>
+  (await axiosInstance.get(`/api/resources/mcq/${subjectSlug}/${chapterSlug}`,
+    { params: { class: classLevel } })).data.data;
 
 // Exemplar Solutions (DB-backed). Returns { subject, className, chapter, sections }
 // where sections = [{ label, questions: [{ q, text, options, solutionLabel,

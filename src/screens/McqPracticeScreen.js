@@ -11,9 +11,13 @@ import {
 import { Ionicons } from '@expo/vector-icons';
 import MCQ_DATA, { getMcqSubtopics } from '../data/mcqPractice';
 import { getMcqSubtopics as apiMcqSubtopics } from '../api/mcqPracticeApi';
+import { useAuth } from '../context/AuthContext';
 
 const slugify = (s) =>
   String(s).toLowerCase().replace(/[^a-z0-9]+/g, '-').replace(/^-+|-+$/g, '');
+
+// 'Class 11' → 11; defaults to 11.
+const classNum = (c) => parseInt(String(c).replace(/\D/g, ''), 10) || 11;
 
 const C = {
   purple: '#0C8F88', purpleDeep: '#26215C', purpleLight: '#EEEDFE',
@@ -46,7 +50,7 @@ function ProgressBar({ answered, total, score }) {
   );
 }
 
-function ChapterCard({ subject, chapter, onStart, onStartSubtopic }) {
+function ChapterCard({ subject, chapter, classLevel = 11, onStart, onStartSubtopic }) {
   const [open, setOpen] = useState(false);
   const [subtopics, setSubtopics] = useState(null); // API: [{ id, name, questionCount }] | null
   const data = (MCQ_DATA[subject] && MCQ_DATA[subject][chapter]) || {};
@@ -56,7 +60,7 @@ function ChapterCard({ subject, chapter, onStart, onStartSubtopic }) {
   const toggle = () => {
     setOpen((v) => !v);
     if (subtopics == null) {
-      apiMcqSubtopics(slugify(subject), slugify(chapter))
+      apiMcqSubtopics(slugify(subject), slugify(chapter), classLevel)
         .then((list) => setSubtopics(Array.isArray(list) ? list : []))
         .catch(() => setSubtopics([]));
     }
@@ -105,6 +109,8 @@ function ChapterCard({ subject, chapter, onStart, onStartSubtopic }) {
 export default function McqPracticeScreen({ onBack = () => {}, onStartChapter = () => {}, onStartSubtopic = () => {} }) {
   const [subject, setSubject] = useState('Physics');
   const [picker, setPicker] = useState(false);
+  const { selectedClass } = useAuth();
+  const classLevel = classNum(selectedClass);
   const subjMeta = SUBJECTS.find((s) => s.name === subject) || SUBJECTS[0];
   const chapters = Object.keys(MCQ_DATA[subject] || {});
 
@@ -150,7 +156,7 @@ export default function McqPracticeScreen({ onBack = () => {}, onStartChapter = 
         )}
 
         {chapters.map((ch) => (
-          <ChapterCard key={ch} subject={subject} chapter={ch}
+          <ChapterCard key={ch} subject={subject} chapter={ch} classLevel={classLevel}
             onStart={onStartChapter} onStartSubtopic={onStartSubtopic} />
         ))}
         <View style={{ height: 24 }} />

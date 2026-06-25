@@ -73,10 +73,10 @@ async function listSubjects() {
 
 // ─── Chapters of a subject (by slug) ──────────────────────────────────────────
 // If sectionType is given, only chapters that actually have that section.
-async function listChapters(subjectSlug, sectionType) {
+async function listChapters(subjectSlug, sectionType, classLevel = 11) {
   const subject = await db.subjects.findUnique({ where: { slug: subjectSlug } })
   if (!subject) return null
-  const where = { subject_id: subject.id }
+  const where = { subject_id: subject.id, class_level: classLevel }
   if (sectionType) where.sections = { some: { type_key: sectionType } }
   const rows = await db.chapters.findMany({ where, orderBy: { position: 'asc' } })
   return rows.map((c) => ({ id: num(c.id), name: c.name, slug: c.slug, position: c.position }))
@@ -107,11 +107,11 @@ async function listQuestions(sectionId) {
 }
 
 // ─── Convenience: questions by subject/chapter/section-type slugs ─────────────
-async function getQuestionsByPath(subjectSlug, chapterSlug, sectionType) {
+async function getQuestionsByPath(subjectSlug, chapterSlug, sectionType, classLevel = 11) {
   const section = await db.sections.findFirst({
     where: {
       type_key: sectionType,
-      chapters: { slug: chapterSlug, subjects: { slug: subjectSlug } },
+      chapters: { slug: chapterSlug, class_level: classLevel, subjects: { slug: subjectSlug } },
     },
   })
   if (!section) return null
@@ -121,11 +121,11 @@ async function getQuestionsByPath(subjectSlug, chapterSlug, sectionType) {
 // ─── MCQ questions for a chapter (across all its sections) ────────────────────
 // MCQs aren't a section type of their own — they live inside pyq /
 // important_questions flagged is_mcq. Gather all of them for the chapter.
-async function getMcqByPath(subjectSlug, chapterSlug) {
+async function getMcqByPath(subjectSlug, chapterSlug, classLevel = 11) {
   const subject = await db.subjects.findUnique({ where: { slug: subjectSlug } })
   if (!subject) return null
   const chapter = await db.chapters.findFirst({
-    where: { slug: chapterSlug, subject_id: subject.id },
+    where: { slug: chapterSlug, subject_id: subject.id, class_level: classLevel },
   })
   if (!chapter) return null
   const rows = await db.questions.findMany({

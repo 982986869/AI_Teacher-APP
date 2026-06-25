@@ -13,16 +13,21 @@ create table if not exists subjects (
   created_at  timestamptz not null default now()
 );
 
--- 2. Chapters inside a subject
+-- 2. Chapters inside a subject (class_level tags the grade: 9/10/11/12).
+--    A subject stays a single row, shared across classes; the chapter carries
+--    the class, and everything below (sections, questions, subtopics,
+--    mcq_questions) inherits class via its chapter.
 create table if not exists chapters (
   id          bigint generated always as identity primary key,
   subject_id  bigint not null references subjects(id) on delete cascade,
   name        text not null,
   slug        text not null,
+  class_level int  not null default 11,
   position    int  not null default 0,
   created_at  timestamptz not null default now(),
-  unique (subject_id, slug)
+  unique (subject_id, class_level, slug)
 );
+create index if not exists idx_chapters_subject_class on chapters(subject_id, class_level);
 
 -- 3. Section TYPES (pyq, important_questions, revision_solutions, exemplar_notes, ...)
 create table if not exists section_types (

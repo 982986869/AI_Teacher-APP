@@ -3,6 +3,9 @@
 const ApiResponse = require('../utils/ApiResponse')
 const svc = require('../services/resources.service')
 
+// Class/grade from ?class=12 (9–12). Defaults to 11 for back-compat.
+const classOf = (req) => parseInt(req.query.class, 10) || 11
+
 async function getSubjects(req, res, next) {
   try {
     return ApiResponse.success(res, await svc.listSubjects())
@@ -11,7 +14,7 @@ async function getSubjects(req, res, next) {
 
 async function getChapters(req, res, next) {
   try {
-    const data = await svc.listChapters(req.params.subjectSlug, req.query.section)
+    const data = await svc.listChapters(req.params.subjectSlug, req.query.section, classOf(req))
     if (!data) return ApiResponse.error(res, 'Subject not found', 404)
     return ApiResponse.success(res, data)
   } catch (err) { next(err) }
@@ -32,7 +35,7 @@ async function getQuestions(req, res, next) {
 async function getQuestionsByPath(req, res, next) {
   try {
     const { subjectSlug, chapterSlug, sectionType } = req.params
-    const data = await svc.getQuestionsByPath(subjectSlug, chapterSlug, sectionType)
+    const data = await svc.getQuestionsByPath(subjectSlug, chapterSlug, sectionType, classOf(req))
     if (!data) return ApiResponse.error(res, 'Section not found', 404)
     return ApiResponse.success(res, data)
   } catch (err) { next(err) }
@@ -41,7 +44,7 @@ async function getQuestionsByPath(req, res, next) {
 async function getMcqByPath(req, res, next) {
   try {
     const { subjectSlug, chapterSlug } = req.params
-    const data = await svc.getMcqByPath(subjectSlug, chapterSlug)
+    const data = await svc.getMcqByPath(subjectSlug, chapterSlug, classOf(req))
     if (!data) return ApiResponse.error(res, 'Chapter not found', 404)
     return ApiResponse.success(res, data)
   } catch (err) { next(err) }

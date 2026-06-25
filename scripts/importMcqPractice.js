@@ -22,18 +22,22 @@ const ROOT = path.join(__dirname, '..')
 const LIVE = process.argv.includes('--live')
 // --only=<slug> imports just that subject (e.g. --only=mathematics). Default: all.
 const ONLY = (process.argv.find((a) => a.startsWith('--only=')) || '').split('=')[1] || null
+// --class=<n> (9/10/11/12) overrides the class for EVERY source in this run —
+// use it when importing another class's exports from the same dirs. Default:
+// each source's own `classLevel` below (existing exports are Class 11).
+const CLASS_OVERRIDE = parseInt((process.argv.find((a) => a.startsWith('--class=')) || '').split('=')[1], 10) || null
 
 // Subjects whose subtopic-grouped exports exist (answer-key present).
 const SOURCES = [
-  { subject: 'Chemistry', slug: 'chemistry', dir: 'chemistry_questions' },
+  { subject: 'Chemistry', slug: 'chemistry', dir: 'chemistry_questions', classLevel: 11 },
   // Maths activates once maths_questions/*.by_topic.json exist
   // (note: maths subtopic ids return wrong content on the live API — disabled).
-  { subject: 'Mathematics', slug: 'mathematics', dir: 'maths_questions' },
+  { subject: 'Mathematics', slug: 'mathematics', dir: 'maths_questions', classLevel: 11 },
   // Biology: from biology_practice.zip (subtopics + answers already present).
-  { subject: 'Biology', slug: 'biology', dir: 'biology_practice' },
+  { subject: 'Biology', slug: 'biology', dir: 'biology_practice', classLevel: 11 },
   // Physics: subtopics from physics_practice + answers merged from answer_key
   // (run scripts/mergePhysicsAnswers.js first).
-  { subject: 'Physics', slug: 'physics', dir: 'physics_practice' },
+  { subject: 'Physics', slug: 'physics', dir: 'physics_practice', classLevel: 11 },
 ]
 
 const slugify = (s) =>
@@ -174,14 +178,15 @@ async function main() {
         [src.subject, src.slug]
       )
       const subjectId = subRes.rows[0].id
-      console.log(`\n--- ${src.subject} ---`)
+      const classLevel = CLASS_OVERRIDE || src.classLevel || 11
+      console.log(`\n--- ${src.subject} (Class ${classLevel}) ---`)
       let cpos = 0
       for (const ch of src.chapters) {
         cpos++
         const chRes = await client.query(
-          `insert into chapters (subject_id, name, slug, position) values ($1,$2,$3,$4)
-           on conflict (subject_id, slug) do update set name = excluded.name returning id`,
-          [subjectId, ch.chapter, slugify(ch.chapter), cpos]
+          `insert into chapters (subject_id, name, slug, class_level, position) values ($1,$2,$3,$4,$5)
+           on conflict (subject_id, class_level, slug) do update set name = excluded.name returning id`,
+          [subjectId, ch.chapter, slugify(ch.chapter), classLevel, cpos]
         )
         const chapterId = chRes.rows[0].id
         let spos = 0

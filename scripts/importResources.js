@@ -25,6 +25,9 @@ const cheerio = require('cheerio')
 const ROOT = path.join(__dirname, '..')
 const DATA = path.join(ROOT, 'src', 'data')
 const LIVE = process.argv.includes('--live')
+// --class=<n> (9/10/11/12) tags the class for this run's chapters. Existing
+// static resource sources are Class 11; default 11 keeps them backward-compatible.
+const CLASS_LEVEL = parseInt((process.argv.find((a) => a.startsWith('--class=')) || '').split('=')[1], 10) || 11
 
 // ── Load an ESM data module (template-literal exports) via Babel ─────────────
 function loadModule(p) {
@@ -312,10 +315,10 @@ async function main() {
         for (const c of s.chapters) {
           pos++
           const chRes = await client.query(
-            `insert into chapters (subject_id, name, slug, position) values ($1,$2,$3,$4)
-             on conflict (subject_id, slug) do update set name = excluded.name
+            `insert into chapters (subject_id, name, slug, class_level, position) values ($1,$2,$3,$4,$5)
+             on conflict (subject_id, class_level, slug) do update set name = excluded.name
              returning id`,
-            [subjectId, c.chapter, slugify(c.chapter), pos]
+            [subjectId, c.chapter, slugify(c.chapter), CLASS_LEVEL, pos]
           )
           const chapterId = chRes.rows[0].id
 
