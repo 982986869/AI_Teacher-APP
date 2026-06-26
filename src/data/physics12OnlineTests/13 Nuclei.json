@@ -1,0 +1,585 @@
+{
+  "chapter": "Nuclei",
+  "chapter_id": 1264,
+  "tests": [
+    {
+      "test_id": 176,
+      "test_name": "Nuclei Test 01",
+      "is_paid": false,
+      "questionCount": 15,
+      "questions": [
+        {
+          "n": 1,
+          "question_id": 14277,
+          "question_text": "What is the percentage of the mass of an atom concentrated in the nucleus?",
+          "question_html": "<p>What is the percentage of the mass of an atom&nbsp;concentrated in the nucleus?</p>",
+          "options": [
+            {
+              "id": 12310,
+              "text": "66.9 {tex}\\% {/tex}",
+              "html": "66.9<span class=\"math-tex\">{tex}\\% {/tex}</span>",
+              "is_correct": false
+            },
+            {
+              "id": 12309,
+              "text": "50.9 {tex}\\% {/tex}",
+              "html": "50.9<span class=\"math-tex\">{tex}\\% {/tex}</span>",
+              "is_correct": false
+            },
+            {
+              "id": 12311,
+              "text": "79.9 {tex}\\% {/tex}",
+              "html": "79.9<span class=\"math-tex\">{tex}\\% {/tex}</span>",
+              "is_correct": false
+            },
+            {
+              "id": 12308,
+              "text": "99.9 {tex}\\% {/tex}",
+              "html": "99.9<span class=\"math-tex\">{tex}\\% {/tex}</span>",
+              "is_correct": true
+            }
+          ],
+          "correct_option_text": "99.9 {tex}\\% {/tex}",
+          "correct_option_ids": [
+            12308
+          ],
+          "explanation": "A proton and a neutron have roughly 2000 times the mass of an electron. The numbers of an electron in a stable atom (not isotope) is equal to the electrons. So for most atoms, the nucleus will hold roughly 4000 times the mass of its electron cloud. Thus, {tex}\\frac{m_{nucleus}}{m_{atom}}=\\frac{4000}{4001}\\times100\\%\\approx99.9\\%{/tex}",
+          "solution": ""
+        },
+        {
+          "n": 2,
+          "question_id": 14278,
+          "question_text": "What is the unit of mass when measured on the atomic scale?",
+          "question_html": "<p>What is the unit&nbsp;of mass when measured on the atomic scale?</p>",
+          "options": [
+            {
+              "id": 12313,
+              "text": "Kilogram",
+              "html": "Kilogram",
+              "is_correct": false
+            },
+            {
+              "id": 12315,
+              "text": "Milligram",
+              "html": "Milligram",
+              "is_correct": false
+            },
+            {
+              "id": 12314,
+              "text": "Gram",
+              "html": "Gram",
+              "is_correct": false
+            },
+            {
+              "id": 12312,
+              "text": "Unified atomic mass unit",
+              "html": "Unified atomic mass unit",
+              "is_correct": true
+            }
+          ],
+          "correct_option_text": "Unified atomic mass unit",
+          "correct_option_ids": [
+            12312
+          ],
+          "explanation": "The unified atomic mass unit (u) is defined as one twelfth of the mass of an unbound neutral atom of carbon-12 in its nuclear and electronic ground state and at rest.",
+          "solution": ""
+        },
+        {
+          "n": 3,
+          "question_id": 14279,
+          "question_text": "Atomic mass unit (u) is defined as ________ of the mass of the carbon ( {tex}^{{\\rm{12}}}{\\rm{C}}{/tex} ) atom.",
+          "question_html": "<p>Atomic mass unit (u)&nbsp;is defined as ________&nbsp;of the mass of the carbon (<span class=\"math-tex\">{tex}^{{\\rm{12}}}{\\rm{C}}{/tex}</span>) atom.</p>",
+          "options": [
+            {
+              "id": 12319,
+              "text": "{tex}\\left(\\frac{1}{16}\\right)^{t h}{/tex}",
+              "html": "<span class=\"math-tex\">{tex}\\left(\\frac{1}{16}\\right)^{t h}{/tex}</span>",
+              "is_correct": false
+            },
+            {
+              "id": 12317,
+              "text": "{tex}\\left(\\frac{1}{10}\\right)^{t h}{/tex}",
+              "html": "<span class=\"math-tex\">{tex}\\left(\\frac{1}{10}\\right)^{t h}{/tex}</span>",
+              "is_correct": false
+            },
+            {
+              "id": 12316,
+              "text": "{tex}\\left(\\frac{1}{12}\\right)^{t h}{/tex}",
+              "html": "<span class=\"math-tex\">{tex}\\left(\\frac{1}{12}\\right)^{t h}{/tex}</span>",
+              "is_correct": true
+            },
+            {
+              "id": 12318,
+              "text": "{tex}\\left(\\frac{1}{14}\\right)^{t h}{/tex}",
+              "html": "<span class=\"math-tex\">{tex}\\left(\\frac{1}{14}\\right)^{t h}{/tex}</span>",
+              "is_correct": false
+            }
+          ],
+          "correct_option_text": "{tex}\\left(\\frac{1}{12}\\right)^{t h}{/tex}",
+          "correct_option_ids": [
+            12316
+          ],
+          "explanation": "For standardization, a specific atomic nucleus (carbon-12) had to be chosen because the average mass of a nucleon depends on the count of the nucleons in the atomic nucleus due to mass defect. This is also why the mass of a proton or neutron by itself is more than (and not equal to) 1 u.",
+          "solution": ""
+        },
+        {
+          "n": 4,
+          "question_id": 14280,
+          "question_text": "A free neutron decays into a proton, an electron and",
+          "question_html": "<p>A free neutron decays into a proton, an electron and</p>",
+          "options": [
+            {
+              "id": 12321,
+              "text": "a beta particle",
+              "html": "a beta particle",
+              "is_correct": false
+            },
+            {
+              "id": 12322,
+              "text": "an alpha particle",
+              "html": "an alpha particle",
+              "is_correct": false
+            },
+            {
+              "id": 12323,
+              "text": "a neutrino",
+              "html": "a neutrino",
+              "is_correct": false
+            },
+            {
+              "id": 12320,
+              "text": "an anti-neutrino",
+              "html": "an anti-neutrino",
+              "is_correct": true
+            }
+          ],
+          "correct_option_text": "an anti-neutrino",
+          "correct_option_ids": [
+            12320
+          ],
+          "explanation": "Consider a reaction: 0 n 1 {tex}\\rightarrow{/tex} 1 p 1 + -1 e 0 + X In this, X is zero charge and mass when the electrons emitted, so X need to be anti-neutrino {tex}(\\bar {\\text v}){/tex} .",
+          "solution": ""
+        },
+        {
+          "n": 5,
+          "question_id": 14281,
+          "question_text": "Relation between atomic number (Z), neutron number (N) and mass number (A) is",
+          "question_html": "<p>Relation between atomic number (Z), neutron number (N) and mass number (A) is</p>",
+          "options": [
+            {
+              "id": 12324,
+              "text": "A = Z + N",
+              "html": "A = Z + N",
+              "is_correct": true
+            },
+            {
+              "id": 12326,
+              "text": "A = Z - N",
+              "html": "A = Z - N",
+              "is_correct": false
+            },
+            {
+              "id": 12327,
+              "text": "Z = A + 2N",
+              "html": "Z = A + 2N",
+              "is_correct": false
+            },
+            {
+              "id": 12325,
+              "text": "Z = A + N",
+              "html": "Z = A + N",
+              "is_correct": false
+            }
+          ],
+          "correct_option_text": "A = Z + N",
+          "correct_option_ids": [
+            12324
+          ],
+          "explanation": "mass number (A) = total number of nucleons = number of protons + number of neutrons = atomic number (Z) + neutron number (N)",
+          "solution": ""
+        },
+        {
+          "n": 6,
+          "question_id": 14282,
+          "question_text": "Nuclear species or nuclides are shown by the notation ________ where X is the chemical symbol of the species.",
+          "question_html": "<p>Nuclear species or nuclides are shown by the notation ________&nbsp;where X is the chemical symbol of the species.</p>",
+          "options": [
+            {
+              "id": 12331,
+              "text": "{tex}{}_A^NX{/tex}",
+              "html": "<span class=\"math-tex\">{tex}{}_A^NX{/tex}</span>",
+              "is_correct": false
+            },
+            {
+              "id": 12328,
+              "text": "{tex}{}_Z^AX{/tex}",
+              "html": "<span class=\"math-tex\">{tex}{}_Z^AX{/tex}</span>",
+              "is_correct": true
+            },
+            {
+              "id": 12330,
+              "text": "{tex}{}_N^AX{/tex}",
+              "html": "<span class=\"math-tex\">{tex}{}_N^AX{/tex}</span>",
+              "is_correct": false
+            },
+            {
+              "id": 12329,
+              "text": "{tex}_Z^NX{/tex}",
+              "html": "<span class=\"math-tex\">{tex}_Z^NX{/tex}</span>",
+              "is_correct": false
+            }
+          ],
+          "correct_option_text": "{tex}{}_Z^AX{/tex}",
+          "correct_option_ids": [
+            12328
+          ],
+          "explanation": "Atomic mass number (total number of nucleons) and the atomic number (number of protons) of the species are given by A and Z, respectively.",
+          "solution": ""
+        },
+        {
+          "n": 7,
+          "question_id": 14283,
+          "question_text": "{tex}{}_{79}^{197}Au{/tex} contains",
+          "question_html": "<p><span class=\"math-tex\">{tex}{}_{79}^{197}Au{/tex}</span>&nbsp;contains</p>",
+          "options": [
+            {
+              "id": 12334,
+              "text": "197 protons and 118 neutrons",
+              "html": "197 protons and 118 neutrons",
+              "is_correct": false
+            },
+            {
+              "id": 12335,
+              "text": "79 neutrons and 118 protons",
+              "html": "79 neutrons and 118 protons",
+              "is_correct": false
+            },
+            {
+              "id": 12332,
+              "text": "79 protons and 118 neutrons",
+              "html": "79 protons and 118 neutrons",
+              "is_correct": true
+            },
+            {
+              "id": 12333,
+              "text": "79 protons and 197 neutrons",
+              "html": "79 protons and 197 neutrons",
+              "is_correct": false
+            }
+          ],
+          "correct_option_text": "79 protons and 118 neutrons",
+          "correct_option_ids": [
+            12332
+          ],
+          "explanation": "Number of protons = Atomic number = 79 Number of neutrons = Atomic mass number - Atomic number = 197 - 79 = 118",
+          "solution": ""
+        },
+        {
+          "n": 8,
+          "question_id": 14284,
+          "question_text": "The nuclei of isotopes of a given element contain the same number of",
+          "question_html": "<p>The nuclei of isotopes of a given element contain the same number of</p>",
+          "options": [
+            {
+              "id": 12338,
+              "text": "Neutrinos",
+              "html": "Neutrinos",
+              "is_correct": false
+            },
+            {
+              "id": 12339,
+              "text": "Positrons",
+              "html": "Positrons",
+              "is_correct": false
+            },
+            {
+              "id": 12337,
+              "text": "Neutrons",
+              "html": "Neutrons",
+              "is_correct": false
+            },
+            {
+              "id": 12336,
+              "text": "Protons",
+              "html": "Protons",
+              "is_correct": true
+            }
+          ],
+          "correct_option_text": "Protons",
+          "correct_option_ids": [
+            12336
+          ],
+          "explanation": "Isotopes are variants of a particular chemical element that differ in neutron number. All isotopes of a given element have the same number of protons in each atom. Example:",
+          "solution": ""
+        },
+        {
+          "n": 9,
+          "question_id": 14285,
+          "question_text": "The nuclei of isotopes of a given element differ from each other in their number of",
+          "question_html": "<p>The nuclei of isotopes of a given element differ from each other in their number of</p>",
+          "options": [
+            {
+              "id": 12341,
+              "text": "Protons",
+              "html": "Protons",
+              "is_correct": false
+            },
+            {
+              "id": 12342,
+              "text": "Electrons",
+              "html": "Electrons",
+              "is_correct": false
+            },
+            {
+              "id": 12340,
+              "text": "Neutrons",
+              "html": "Neutrons",
+              "is_correct": true
+            },
+            {
+              "id": 12343,
+              "text": "Positron",
+              "html": "Positron",
+              "is_correct": false
+            }
+          ],
+          "correct_option_text": "Neutrons",
+          "correct_option_ids": [
+            12340
+          ],
+          "explanation": "Isotopes are variants of a particular chemical element which differ in neutron number. All isotopes of a given element have the same number of protons in each atom.",
+          "solution": ""
+        },
+        {
+          "n": 10,
+          "question_id": 14286,
+          "question_text": "All nuclides with same mass number A are called",
+          "question_html": "<p>All nuclides with same mass number A are called</p>",
+          "options": [
+            {
+              "id": 12344,
+              "text": "Isobars",
+              "html": "Isobars",
+              "is_correct": true
+            },
+            {
+              "id": 12345,
+              "text": "Isoclines",
+              "html": "Isoclines",
+              "is_correct": false
+            },
+            {
+              "id": 12346,
+              "text": "Isotopes",
+              "html": "Isotopes",
+              "is_correct": false
+            },
+            {
+              "id": 12347,
+              "text": "Isotones",
+              "html": "Isotones",
+              "is_correct": false
+            }
+          ],
+          "correct_option_text": "Isobars",
+          "correct_option_ids": [
+            12344
+          ],
+          "explanation": "These are the elements having same atomic number but different mass number. They have the same atomic number because the number of protons inside their nuclei remains the same. The difference in their mass number is due to the difference in their number of neutrons.",
+          "solution": ""
+        },
+        {
+          "n": 11,
+          "question_id": 14287,
+          "question_text": "Nuclides with same neutron number N but different atomic number Z are called",
+          "question_html": "<p>Nuclides with same neutron number N but different atomic number&nbsp;Z are called</p>",
+          "options": [
+            {
+              "id": 12348,
+              "text": "Isotones",
+              "html": "Isotones",
+              "is_correct": true
+            },
+            {
+              "id": 12349,
+              "text": "Isoclines",
+              "html": "Isoclines",
+              "is_correct": false
+            },
+            {
+              "id": 12350,
+              "text": "Isotopes",
+              "html": "Isotopes",
+              "is_correct": false
+            },
+            {
+              "id": 12351,
+              "text": "Isobars",
+              "html": "Isobars",
+              "is_correct": false
+            }
+          ],
+          "correct_option_text": "Isotones",
+          "correct_option_ids": [
+            12348
+          ],
+          "explanation": "Two nuclides are isotones if they have the same neutron number N, but different proton number Z. For example, boron-12 and carbon-13 nuclei both contain 7 neutrons, and so are isotones.",
+          "solution": ""
+        },
+        {
+          "n": 12,
+          "question_id": 14288,
+          "question_text": "A nucleus of mass number A has a radius R such that",
+          "question_html": "<p>A nucleus of mass number A has a radius R such that</p>",
+          "options": [
+            {
+              "id": 12353,
+              "text": "{tex}R=R_0 A^{\\frac{2}{3}}{/tex}",
+              "html": "<span class=\"math-tex\">{tex}R=R_0 A^{\\frac{2}{3}}{/tex}</span>",
+              "is_correct": false
+            },
+            {
+              "id": 12354,
+              "text": "{tex}R=R_0 A^{\\frac{4}{3}}{/tex}",
+              "html": "<span class=\"math-tex\">{tex}R=R_0 A^{\\frac{4}{3}}{/tex}</span>",
+              "is_correct": false
+            },
+            {
+              "id": 12352,
+              "text": "{tex}R=R_0 A^{\\frac{1}{3}}{/tex}",
+              "html": "<span class=\"math-tex\">{tex}R=R_0 A^{\\frac{1}{3}}{/tex}</span>",
+              "is_correct": true
+            },
+            {
+              "id": 12355,
+              "text": "{tex}R=R_0 A^{\\frac{5}{3}}{/tex}",
+              "html": "<span class=\"math-tex\">{tex}R=R_0 A^{\\frac{5}{3}}{/tex}</span>",
+              "is_correct": false
+            }
+          ],
+          "correct_option_text": "{tex}R=R_0 A^{\\frac{1}{3}}{/tex}",
+          "correct_option_ids": [
+            12352
+          ],
+          "explanation": "{tex}R=R_0 A^{\\frac{1}{3}}{/tex}",
+          "solution": ""
+        },
+        {
+          "n": 13,
+          "question_id": 14289,
+          "question_text": "Nuclear mass M is found to be",
+          "question_html": "<p>Nuclear mass M is found to be</p>",
+          "options": [
+            {
+              "id": 12358,
+              "text": "Always equal to the total mass of its individual protons and neutrons",
+              "html": "Always equal to the total mass of its individual protons and neutrons",
+              "is_correct": false
+            },
+            {
+              "id": 12356,
+              "text": "Always less than total mass of its individual protons and neutrons",
+              "html": "Always less than total mass of its individual protons and neutrons",
+              "is_correct": true
+            },
+            {
+              "id": 12357,
+              "text": "Always greater than total mass of its individual protons and neutrons",
+              "html": "Always greater than total mass of its individual protons and neutrons",
+              "is_correct": false
+            },
+            {
+              "id": 12359,
+              "text": "Always equal to the total mass of its individual neutrons",
+              "html": "Always equal to the total mass of its individual neutrons",
+              "is_correct": false
+            }
+          ],
+          "correct_option_text": "Always less than total mass of its individual protons and neutrons",
+          "correct_option_ids": [
+            12356
+          ],
+          "explanation": "This phenomenon is called mass defect. The mass defect of a nucleus represents the mass equivalent of the energy of binding of the nucleus, and is the difference between the mass of a nucleus and the sum of the masses of the nucleons of which it is composed.",
+          "solution": ""
+        },
+        {
+          "n": 14,
+          "question_id": 14290,
+          "question_text": "The difference in mass of a nucleus and its constituents is called",
+          "question_html": "<p>The difference in mass of a nucleus and its constituents is called</p>",
+          "options": [
+            {
+              "id": 12361,
+              "text": "Rest mass",
+              "html": "Rest mass",
+              "is_correct": false
+            },
+            {
+              "id": 12360,
+              "text": "Mass defect",
+              "html": "Mass defect",
+              "is_correct": true
+            },
+            {
+              "id": 12363,
+              "text": "Lost mass",
+              "html": "Lost mass",
+              "is_correct": false
+            },
+            {
+              "id": 12362,
+              "text": "Mass number",
+              "html": "Mass number",
+              "is_correct": false
+            }
+          ],
+          "correct_option_text": "Mass defect",
+          "correct_option_ids": [
+            12360
+          ],
+          "explanation": "The mass defect of a nucleus represents the mass of the energy of binding of the nucleus, and is the difference between the mass of a nucleus and the sum of the masses of the nucleons of which it is composed.",
+          "solution": ""
+        },
+        {
+          "n": 15,
+          "question_id": 14291,
+          "question_text": "Correct expression for mass defect {tex}\\Delta {/tex} m is",
+          "question_html": "<p>Correct expression for mass defect <span class=\"math-tex\">{tex}\\Delta {/tex}</span>m is</p>",
+          "options": [
+            {
+              "id": 12367,
+              "text": "{tex}Z{m_p} - \\left( {A - Z} \\right){m_n} + M{/tex}",
+              "html": "<span class=\"math-tex\">{tex}Z{m_p} - \\left( {A - Z} \\right){m_n} + M{/tex}</span>",
+              "is_correct": false
+            },
+            {
+              "id": 12365,
+              "text": "{tex}Z{m_p} + \\left( {A - Z} \\right){m_n} + M{/tex}",
+              "html": "<span class=\"math-tex\">{tex}Z{m_p} + \\left( {A - Z} \\right){m_n} + M{/tex}</span>",
+              "is_correct": false
+            },
+            {
+              "id": 12366,
+              "text": "{tex}Z{m_p} - \\left( {A - Z} \\right){m_n} - M{/tex}",
+              "html": "<span class=\"math-tex\">{tex}Z{m_p} - \\left( {A - Z} \\right){m_n} - M{/tex}</span>",
+              "is_correct": false
+            },
+            {
+              "id": 12364,
+              "text": "{tex}Z{m_p} + \\left( {A - Z} \\right){m_n} - M{/tex}",
+              "html": "<span class=\"math-tex\">{tex}Z{m_p} + \\left( {A - Z} \\right){m_n} - M{/tex}</span>",
+              "is_correct": true
+            }
+          ],
+          "correct_option_text": "{tex}Z{m_p} + \\left( {A - Z} \\right){m_n} - M{/tex}",
+          "correct_option_ids": [
+            12364
+          ],
+          "explanation": "Measurements have shown that the mass of a particular atom is always slightly less than the sum of the masses of the individual neutrons, protons, and electrons of which the atom consists. The difference between the mass of the atom and the sum of the masses of its parts is called the mass defect. Here Z is the number of protons (atomic number) and (A - Z) is the number of neutrons, A being the total number of nucleons (mass number), M is nuclear mass.",
+          "solution": ""
+        }
+      ]
+    }
+  ],
+  "totalQuestions": 15
+}

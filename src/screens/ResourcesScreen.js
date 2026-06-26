@@ -9,6 +9,8 @@ import { WebView } from 'react-native-webview';
 
 import { getExemplarSolutions, getNcertChapters, getQuestionsByPath, getNotesByPath } from '../api/resourcesApi';
 import { buildFragmentFromQuestions, buildPyqDocument } from '../utils/pyqDocument';
+import { getPhysics12Ncert1Html } from '../data/physics12Ncert1';
+import { getPhysics12Ncert2Html } from '../data/physics12Ncert2';
 import { useAuth } from '../context/AuthContext';
 import { ClassTabs } from '../components/ClassPicker';
 import { getChapterNotes } from '../notes/index';
@@ -587,6 +589,22 @@ const ResourcesScreen = () => {
   }, [isPhysics12Exemplar, activeSubject?.name, activeChapter?.name, exemplarRetry]);
 
   const exemplarActive = !!(activeSubject && activeResType?.type === 'exemplar' && activeChapter && showCards && !isPhysics12Exemplar);
+
+  // Class 12 Physics NCERT Solutions Part-I also ships locally (full MathJax HTML
+  // doc per chapter), mirroring the Exemplar local-first approach.
+  const localNcert1Html =
+    activeResType?.type === 'ncert1' && activeChapter &&
+    activeClass === 'Class 12' && activeSubject?.name === 'Physics'
+      ? getPhysics12Ncert1Html(activeChapter.name)
+      : null;
+
+  // Class 12 Physics NCERT Solutions Part-II also ships locally (full MathJax
+  // HTML doc per chapter), overriding the DB-backed Ncert2Screen for these.
+  const localNcert2Html =
+    activeResType?.type === 'ncert2' && activeChapter &&
+    activeClass === 'Class 12' && activeSubject?.name === 'Physics'
+      ? getPhysics12Ncert2Html(activeChapter.name)
+      : null;
   useEffect(() => {
     if (!exemplarActive) return undefined;
     let alive = true;
@@ -730,6 +748,31 @@ const ResourcesScreen = () => {
     );
   }
 
+  // ── LEVEL 4 (local): Class 12 Physics NCERT Part-I — MathJax cards in a WebView ──
+  if (activeResType?.type === 'ncert1' && activeChapter && showCards && localNcert1Html) {
+    return (
+      <SafeAreaView style={s.safe}>
+        <StatusBar barStyle="dark-content" backgroundColor="#fff" />
+        {Platform.OS === 'android' && <View style={{ height: 24, backgroundColor: '#fff' }} />}
+        <BackHeader onBack={() => setShowCards(false)} />
+        <Breadcrumb parts={['Home', activeClass, activeSubject.name, activeResType.name, activeChapter.name]} />
+        <View style={s.pageTitleWrap}>
+          <Text style={s.pageTitle}>{activeChapter.name}</Text>
+          <Text style={s.pageSub}>NCERT Solutions · Part I</Text>
+        </View>
+        <WebView
+          originWhitelist={['*']}
+          source={{ html: localNcert1Html }}
+          style={{ flex: 1, backgroundColor: '#F4F4F5' }}
+          javaScriptEnabled
+          domStorageEnabled
+          mixedContentMode="always"
+          androidLayerType={Platform.OS === 'android' ? 'hardware' : undefined}
+        />
+      </SafeAreaView>
+    );
+  }
+
   // ── LEVEL 4a: Exemplar Solutions — single "Chapter-end" entry (Image 1 layout) ──
   if (activeSubject && activeResType?.type === 'exemplar' && activeChapter && showCards) {
     return (
@@ -779,6 +822,31 @@ const ResourcesScreen = () => {
             ))
           )}
         </ScrollView>
+      </SafeAreaView>
+    );
+  }
+
+  // ── NCERT Part-II (local): Class 12 Physics — MathJax cards in a WebView ──
+  if (activeResType?.type === 'ncert2' && activeChapter && showCards && localNcert2Html) {
+    return (
+      <SafeAreaView style={s.safe}>
+        <StatusBar barStyle="dark-content" backgroundColor="#fff" />
+        {Platform.OS === 'android' && <View style={{ height: 24, backgroundColor: '#fff' }} />}
+        <BackHeader onBack={() => setShowCards(false)} />
+        <Breadcrumb parts={['Home', activeClass, activeSubject.name, activeResType.name, activeChapter.name]} />
+        <View style={s.pageTitleWrap}>
+          <Text style={s.pageTitle}>{activeChapter.name}</Text>
+          <Text style={s.pageSub}>NCERT Solutions · Part II</Text>
+        </View>
+        <WebView
+          originWhitelist={['*']}
+          source={{ html: localNcert2Html }}
+          style={{ flex: 1, backgroundColor: '#F4F4F5' }}
+          javaScriptEnabled
+          domStorageEnabled
+          mixedContentMode="always"
+          androidLayerType={Platform.OS === 'android' ? 'hardware' : undefined}
+        />
       </SafeAreaView>
     );
   }

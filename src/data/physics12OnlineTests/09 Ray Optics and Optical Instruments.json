@@ -1,0 +1,585 @@
+{
+  "chapter": "Ray Optics and Optical Instruments",
+  "chapter_id": 1260,
+  "tests": [
+    {
+      "test_id": 156,
+      "test_name": "Ray Optics & Optical Instruments Test 01",
+      "is_paid": false,
+      "questionCount": 15,
+      "questions": [
+        {
+          "n": 1,
+          "question_id": 13980,
+          "question_text": "Light rays from a point object",
+          "question_html": "<p>Light rays from a point object</p>",
+          "options": [
+            {
+              "id": 11120,
+              "text": "radiate in all directions",
+              "html": "radiate in all directions",
+              "is_correct": true
+            },
+            {
+              "id": 11122,
+              "text": "radiate only at the front",
+              "html": "radiate only at the front",
+              "is_correct": false
+            },
+            {
+              "id": 11123,
+              "text": "radiate only to the side",
+              "html": "radiate only to the side",
+              "is_correct": false
+            },
+            {
+              "id": 11121,
+              "text": "radiate in some lines",
+              "html": "radiate in some lines",
+              "is_correct": false
+            }
+          ],
+          "correct_option_text": "radiate in all directions",
+          "correct_option_ids": [
+            11120
+          ],
+          "explanation": "Light waves emerging from point source radiates in all the directions.",
+          "solution": ""
+        },
+        {
+          "n": 2,
+          "question_id": 13981,
+          "question_text": "According to Cartesian sign convention, all distances are measured from the",
+          "question_html": "<p>According to Cartesian sign convention,&nbsp;all distances are measured from the</p>",
+          "options": [
+            {
+              "id": 11125,
+              "text": "top of the mirror or the lens",
+              "html": "top of the mirror or the lens",
+              "is_correct": false
+            },
+            {
+              "id": 11126,
+              "text": "bottom of the mirror or the lens",
+              "html": "bottom of the mirror or the lens",
+              "is_correct": false
+            },
+            {
+              "id": 11127,
+              "text": "infinity",
+              "html": "infinity",
+              "is_correct": false
+            },
+            {
+              "id": 11124,
+              "text": "pole of the mirror or the optical centre of the lens",
+              "html": "pole of the mirror or the optical centre of the lens",
+              "is_correct": true
+            }
+          ],
+          "correct_option_text": "pole of the mirror or the optical centre of the lens",
+          "correct_option_ids": [
+            11124
+          ],
+          "explanation": "According to New Cartesian sign conventions, all distances (object distance, image distance, focal length, radius of curvature) are measured from pole of mirror / optical centre of lens.",
+          "solution": ""
+        },
+        {
+          "n": 3,
+          "question_id": 13982,
+          "question_text": "A microscope is focussed on a mark on a piece of paper and then a slab of glass of thickness 3 cm and refractive index {tex}1\\cdot5{/tex} is placed over the mark. How should the microscope be moved to get the mark in focus again?",
+          "question_html": "<p>A microscope is focussed on a mark on a piece of paper and then a slab of glass of thickness 3 cm and refractive index&nbsp;<span class=\"math-tex\">{tex}1\\cdot5{/tex}</span>&nbsp;is placed over the mark. How should the microscope be moved to get the mark in focus again?</p>",
+          "options": [
+            {
+              "id": 11129,
+              "text": "1 cm upward",
+              "html": "1 cm&nbsp;upward",
+              "is_correct": true
+            },
+            {
+              "id": 11131,
+              "text": "1 cm downward",
+              "html": "1&nbsp;cm downward",
+              "is_correct": false
+            },
+            {
+              "id": 11130,
+              "text": "{tex}4\\cdot5{/tex} cm downward",
+              "html": "<span class=\"math-tex\">{tex}4\\cdot5{/tex}</span>&nbsp;cm downward",
+              "is_correct": false
+            },
+            {
+              "id": 11128,
+              "text": "2 cm upward",
+              "html": "2 cm upward",
+              "is_correct": false
+            }
+          ],
+          "correct_option_text": "1 cm upward",
+          "correct_option_ids": [
+            11129
+          ],
+          "explanation": "Normal shift, d = {tex}t(1-\\frac{1}{^a\\mu_g})=3(1-\\frac{1}{1\\cdot5}){/tex} = 1 cm",
+          "solution": ""
+        },
+        {
+          "n": 4,
+          "question_id": 13983,
+          "question_text": "Focal length of a mirror is given by",
+          "question_html": "<p>Focal length of a mirror is given by</p>",
+          "options": [
+            {
+              "id": 11134,
+              "text": "f = R 2 , R = radius of curvature",
+              "html": "f = R<sup>2</sup>, R = radius of curvature",
+              "is_correct": false
+            },
+            {
+              "id": 11135,
+              "text": "f = {tex}\\frac{R}{4}{/tex} , R = radius of curvature",
+              "html": "f = <span class=\"math-tex\">{tex}\\frac{R}{4}{/tex}</span>, R = radius of curvature",
+              "is_correct": false
+            },
+            {
+              "id": 11133,
+              "text": "f = R, R = radius of curvature",
+              "html": "f = R, R = radius of curvature",
+              "is_correct": false
+            },
+            {
+              "id": 11132,
+              "text": "f = {tex}\\frac{R}{2}{/tex} , R = radius of curvature",
+              "html": "f = <span class=\"math-tex\">{tex}\\frac{R}{2}{/tex}</span>, R = radius of curvature",
+              "is_correct": true
+            }
+          ],
+          "correct_option_text": "f = {tex}\\frac{R}{2}{/tex} , R = radius of curvature",
+          "correct_option_ids": [
+            11132
+          ],
+          "explanation": "R = 2 f",
+          "solution": ""
+        },
+        {
+          "n": 5,
+          "question_id": 13984,
+          "question_text": "According to the mirror equation,",
+          "question_html": "<p>According to the mirror equation,</p>",
+          "options": [
+            {
+              "id": 11139,
+              "text": "{tex}\\frac{1}{f}=\\frac{2}{u}+\\frac{1}{v}{/tex}",
+              "html": "<span class=\"math-tex\">{tex}\\frac{1}{f}=\\frac{2}{u}+\\frac{1}{v}{/tex}</span>",
+              "is_correct": false
+            },
+            {
+              "id": 11138,
+              "text": "{tex}\\frac{1}{f}=\\frac{1}{u}+\\frac{2}{v}{/tex}",
+              "html": "<span class=\"math-tex\">{tex}\\frac{1}{f}=\\frac{1}{u}+\\frac{2}{v}{/tex}</span>",
+              "is_correct": false
+            },
+            {
+              "id": 11137,
+              "text": "{tex}\\frac{2}{f}=\\frac{1}{u}+\\frac{1}{v}{/tex}",
+              "html": "<span class=\"math-tex\">{tex}\\frac{2}{f}=\\frac{1}{u}+\\frac{1}{v}{/tex}</span>",
+              "is_correct": false
+            },
+            {
+              "id": 11136,
+              "text": "{tex}\\frac{1}{f}=\\frac{1}{u}+\\frac{1}{v}{/tex}",
+              "html": "<span class=\"math-tex\">{tex}\\frac{1}{f}=\\frac{1}{u}+\\frac{1}{v}{/tex}</span>",
+              "is_correct": true
+            }
+          ],
+          "correct_option_text": "{tex}\\frac{1}{f}=\\frac{1}{u}+\\frac{1}{v}{/tex}",
+          "correct_option_ids": [
+            11136
+          ],
+          "explanation": "{tex}\\frac{1}{f}=\\frac{1}{u}+\\frac{1}{v}{/tex} where f is focal length, u is object distance and v is image distance.",
+          "solution": ""
+        },
+        {
+          "n": 6,
+          "question_id": 13985,
+          "question_text": "Magnification for spherical mirrors m is given by",
+          "question_html": "<p>Magnification for spherical mirrors m is given by</p>",
+          "options": [
+            {
+              "id": 11142,
+              "text": "{tex}\\frac{u}{v}{/tex}",
+              "html": "<span class=\"math-tex\">{tex}\\frac{u}{v}{/tex}</span>",
+              "is_correct": false
+            },
+            {
+              "id": 11141,
+              "text": "{tex}\\frac{v}{u}{/tex}",
+              "html": "<span class=\"math-tex\">{tex}\\frac{v}{u}{/tex}</span>",
+              "is_correct": false
+            },
+            {
+              "id": 11143,
+              "text": "{tex}-\\frac{u}{v}{/tex}",
+              "html": "<span class=\"math-tex\">{tex}-\\frac{u}{v}{/tex}</span>",
+              "is_correct": false
+            },
+            {
+              "id": 11140,
+              "text": "- {tex}\\frac{v}{u}{/tex}",
+              "html": "- <span class=\"math-tex\">{tex}\\frac{v}{u}{/tex}</span>",
+              "is_correct": true
+            }
+          ],
+          "correct_option_text": "- {tex}\\frac{v}{u}{/tex}",
+          "correct_option_ids": [
+            11140
+          ],
+          "explanation": "m = - {tex}\\frac{v}{u}{/tex} m = - image distance/object distance",
+          "solution": ""
+        },
+        {
+          "n": 7,
+          "question_id": 13986,
+          "question_text": "If {tex}^i\\mu_j{/tex} represents refractive index, when a light ray goes from medium i to medium j, then the product {tex}^2\\mu_1 \\times \\ ^3\\mu_2\\times\\ ^4\\mu_3{/tex} is equal to",
+          "question_html": "<p>If&nbsp;<span class=\"math-tex\">{tex}^i\\mu_j{/tex}</span>&nbsp;<span style=\"font-size: 10.8333px;\">represents refractive index, when a light ray goes from medium i to medium j, then the product&nbsp;<span class=\"math-tex\">{tex}^2\\mu_1 \\times \\ ^3\\mu_2\\times\\ ^4\\mu_3{/tex}</span> is equal to</span></p>",
+          "options": [
+            {
+              "id": 11146,
+              "text": "{tex}^4\\mu_1{/tex}",
+              "html": "<span style=\"font-size: 10.8333px;\"><span class=\"math-tex\">{tex}^4\\mu_1{/tex}</span></span>",
+              "is_correct": true
+            },
+            {
+              "id": 11145,
+              "text": "{tex}^3\\mu_2{/tex}",
+              "html": "<span style=\"font-size: 10.8333px;\"><span class=\"math-tex\">{tex}^3\\mu_2{/tex}</span></span>",
+              "is_correct": false
+            },
+            {
+              "id": 11147,
+              "text": "{tex}^4\\mu_2{/tex}",
+              "html": "<span style=\"font-size: 10.8333px;\"><span class=\"math-tex\">{tex}^4\\mu_2{/tex}</span></span>",
+              "is_correct": false
+            },
+            {
+              "id": 11144,
+              "text": "{tex} ^3\\mu_1{/tex}",
+              "html": "<span style=\"font-size: 10.8333px;\"><span class=\"math-tex\">{tex} ^3\\mu_1{/tex}</span></span>",
+              "is_correct": false
+            }
+          ],
+          "correct_option_text": "{tex}^4\\mu_1{/tex}",
+          "correct_option_ids": [
+            11146
+          ],
+          "explanation": "When refraction takes place through a multiple media, we have {tex}^a\\mu_c =\\ ^a\\mu_b \\times \\ ^b\\mu_c{/tex} {tex}\\therefore \\ ^2\\mu_1 \\times \\ ^3\\mu_2\\times\\ ^4\\mu_3{/tex} = {tex}^4\\mu_1{/tex}",
+          "solution": ""
+        },
+        {
+          "n": 8,
+          "question_id": 13987,
+          "question_text": "According to Snell&rsquo;s law,",
+          "question_html": "<p>According to Snell&rsquo;s law,</p>",
+          "options": [
+            {
+              "id": 11149,
+              "text": "The ratio of the tangent of the angle of incidence to the tangent of angle of refraction is constant",
+              "html": "The ratio of the tangent of the angle of incidence to the tangent of angle of refraction is constant",
+              "is_correct": false
+            },
+            {
+              "id": 11148,
+              "text": "The ratio of the sine of the angle of incidence to the sine of angle of refraction is constant",
+              "html": "The ratio of the sine of the angle of incidence to the sine of angle of refraction is constant",
+              "is_correct": true
+            },
+            {
+              "id": 11150,
+              "text": "The ratio of the cosine of the angle of incidence to the cosine of angle of refraction is constant",
+              "html": "The ratio of the cosine of the angle of incidence to the cosine of angle of refraction is constant",
+              "is_correct": false
+            },
+            {
+              "id": 11151,
+              "text": "The ratio of the angle of incidence to the angle of refraction is constant",
+              "html": "The ratio of the angle of incidence to the angle of refraction is constant",
+              "is_correct": false
+            }
+          ],
+          "correct_option_text": "The ratio of the sine of the angle of incidence to the sine of angle of refraction is constant",
+          "correct_option_ids": [
+            11148
+          ],
+          "explanation": "The ratio of sine of angle of incidence and sine of angle of refraction is constant for a given pair of media for a given wavelength of light.",
+          "solution": ""
+        },
+        {
+          "n": 9,
+          "question_id": 13988,
+          "question_text": "For a rectangular slab, refraction takes place at",
+          "question_html": "<p>For a rectangular slab, refraction takes place at</p>",
+          "options": [
+            {
+              "id": 11155,
+              "text": "Four interfaces",
+              "html": "Four interfaces",
+              "is_correct": false
+            },
+            {
+              "id": 11154,
+              "text": "Three interfaces",
+              "html": "Three interfaces",
+              "is_correct": false
+            },
+            {
+              "id": 11152,
+              "text": "Two interfaces",
+              "html": "Two interfaces",
+              "is_correct": true
+            },
+            {
+              "id": 11153,
+              "text": "One interface",
+              "html": "One interface",
+              "is_correct": false
+            }
+          ],
+          "correct_option_text": "Two interfaces",
+          "correct_option_ids": [
+            11152
+          ],
+          "explanation": "At one surface, light enters from air into glass and at the other surface light enters from glass into air.",
+          "solution": ""
+        },
+        {
+          "n": 10,
+          "question_id": 13989,
+          "question_text": "Total internal reflection can take place only if light is travelling from",
+          "question_html": "<p>Total internal reflection can take place only if light is travelling from</p>",
+          "options": [
+            {
+              "id": 11157,
+              "text": "Rarer to denser medium",
+              "html": "Rarer to denser medium",
+              "is_correct": false
+            },
+            {
+              "id": 11156,
+              "text": "Denser to rarer medium",
+              "html": "Denser to rarer medium",
+              "is_correct": true
+            },
+            {
+              "id": 11159,
+              "text": "Denser to denser medium",
+              "html": "Denser to denser medium",
+              "is_correct": false
+            },
+            {
+              "id": 11158,
+              "text": "Rarer to rarer medium",
+              "html": "Rarer to rarer&nbsp;medium",
+              "is_correct": false
+            }
+          ],
+          "correct_option_text": "Denser to rarer medium",
+          "correct_option_ids": [
+            11156
+          ],
+          "explanation": "Conditions for Total Internal Reflection are: Light should travel from denser medium to rarer medium Angle of incidence > critical angle",
+          "solution": ""
+        },
+        {
+          "n": 11,
+          "question_id": 13990,
+          "question_text": "Light travels through a glass plate of thickness t and having a refractive index {tex}\\mu{/tex} . If c is the velocity of light in vacuum, the time taken by the light to travel this thickness of glass is",
+          "question_html": "<p>Light travels through a glass plate of thickness t and having a refractive index <span class=\"math-tex\">{tex}\\mu{/tex}</span>. If c is the velocity of light in vacuum, the time taken by the light to travel this thickness of glass is</p>\r\n",
+          "options": [
+            {
+              "id": 11163,
+              "text": "{tex}\\mu{/tex} t / c",
+              "html": "<span class=\"math-tex\">{tex}\\mu{/tex}</span>&nbsp;t / c",
+              "is_correct": true
+            },
+            {
+              "id": 11162,
+              "text": "{tex}\\mu{/tex} c /t",
+              "html": "<span class=\"math-tex\">{tex}\\mu{/tex}</span>&nbsp;c /t",
+              "is_correct": false
+            },
+            {
+              "id": 11160,
+              "text": "t {tex}\\mu{/tex} c",
+              "html": "t&nbsp;<span class=\"math-tex\">{tex}\\mu{/tex}</span>&nbsp;c",
+              "is_correct": false
+            },
+            {
+              "id": 11161,
+              "text": "t c / {tex}\\mu{/tex}",
+              "html": "t&nbsp;c /<span class=\"math-tex\">{tex}\\mu{/tex}</span>",
+              "is_correct": false
+            }
+          ],
+          "correct_option_text": "{tex}\\mu{/tex} t / c",
+          "correct_option_ids": [
+            11163
+          ],
+          "explanation": "The speed of light in glass plate, {tex}v =\\frac{c}{\\mu}{/tex} Therefore, time taken by light to traverse the thickness of the glass plate = {tex}\\frac{t}{c\\ / \\mu}=\\frac{\\mu \\ t}{c}{/tex}",
+          "solution": ""
+        },
+        {
+          "n": 12,
+          "question_id": 13991,
+          "question_text": "Optical fibre communication uses the principle of",
+          "question_html": "<p>Optical fibre communication uses the principle of</p>",
+          "options": [
+            {
+              "id": 11164,
+              "text": "total internal reflection",
+              "html": "total internal reflection",
+              "is_correct": true
+            },
+            {
+              "id": 11166,
+              "text": "light path reversibility",
+              "html": "light path reversibility",
+              "is_correct": false
+            },
+            {
+              "id": 11165,
+              "text": "least action",
+              "html": "least action",
+              "is_correct": false
+            },
+            {
+              "id": 11167,
+              "text": "light scattering",
+              "html": "light scattering",
+              "is_correct": false
+            }
+          ],
+          "correct_option_text": "total internal reflection",
+          "correct_option_ids": [
+            11164
+          ],
+          "explanation": "Here, refracting index of cladding < refracting index of core Hence, when i > c, TIR takes place.",
+          "solution": ""
+        },
+        {
+          "n": 13,
+          "question_id": 13992,
+          "question_text": "For small angles Snell&rsquo;s law becomes",
+          "question_html": "<p>For small angles Snell&rsquo;s law becomes</p>",
+          "options": [
+            {
+              "id": 11171,
+              "text": "i = r",
+              "html": "i = r",
+              "is_correct": false
+            },
+            {
+              "id": 11168,
+              "text": "{tex}{{\\rm{n}}_{\\rm{1}}}{\\rm{i}}{/tex} = {tex}{{\\rm{n}}_{\\rm{2}}}{/tex} r",
+              "html": "<span class=\"math-tex\">{tex}{{\\rm{n}}_{\\rm{1}}}{\\rm{i}}{/tex}</span> = <span class=\"math-tex\">{tex}{{\\rm{n}}_{\\rm{2}}}{/tex}</span>r",
+              "is_correct": true
+            },
+            {
+              "id": 11170,
+              "text": "{tex}{{\\rm{n}}_{\\rm{1}}}{/tex} = {tex}{{\\rm{n}}_{\\rm{2}}}{/tex} r",
+              "html": "<span class=\"math-tex\">{tex}{{\\rm{n}}_{\\rm{1}}}{/tex}</span>= <span class=\"math-tex\">{tex}{{\\rm{n}}_{\\rm{2}}}{/tex}</span>r",
+              "is_correct": false
+            },
+            {
+              "id": 11169,
+              "text": "{tex}{{\\rm{n}}_{\\rm{1}}}{\\rm{i}}{/tex} = {tex}{{\\rm{n}}_{\\rm{2}}}{/tex}",
+              "html": "<span class=\"math-tex\">{tex}{{\\rm{n}}_{\\rm{1}}}{\\rm{i}}{/tex}</span> = <span class=\"math-tex\">{tex}{{\\rm{n}}_{\\rm{2}}}{/tex}</span>",
+              "is_correct": false
+            }
+          ],
+          "correct_option_text": "{tex}{{\\rm{n}}_{\\rm{1}}}{\\rm{i}}{/tex} = {tex}{{\\rm{n}}_{\\rm{2}}}{/tex} r",
+          "correct_option_ids": [
+            11168
+          ],
+          "explanation": "According to Snell&#39;s law, {tex}\\frac{{sin{\\text{ }}i}}{{sin{\\text{ }}r}} = \\frac{{{n_2}}}{{{n_1}}}{/tex} If angles are small, {tex}sin\\ i\\approx i\\ and\\ sin\\ r\\approx r,{/tex} Hence, {tex}\\frac{i}{r} = \\frac{{{n_2}}}{{{n_1}}}{/tex} or i n 1 = r n 2",
+          "solution": ""
+        },
+        {
+          "n": 14,
+          "question_id": 13993,
+          "question_text": "Lens maker&rsquo;s formula is",
+          "question_html": "<p>Lens maker&rsquo;s formula is</p>",
+          "options": [
+            {
+              "id": 11173,
+              "text": "{tex}\\frac{1}{f}=\\left(n_{21}+1\\right)\\left(\\frac{1}{R_1}-\\frac{1}{R_2}\\right){/tex}",
+              "html": "<span class=\"math-tex\">{tex}\\frac{1}{f}=\\left(n_{21}+1\\right)\\left(\\frac{1}{R_1}-\\frac{1}{R_2}\\right){/tex}</span>",
+              "is_correct": false
+            },
+            {
+              "id": 11174,
+              "text": "{tex}\\frac{1}{f}=\\left(n_{21}-1\\right)\\left(\\frac{1}{R_1}+\\frac{1}{R_2}\\right){/tex}",
+              "html": "<span class=\"math-tex\">{tex}\\frac{1}{f}=\\left(n_{21}-1\\right)\\left(\\frac{1}{R_1}+\\frac{1}{R_2}\\right){/tex}</span>",
+              "is_correct": false
+            },
+            {
+              "id": 11172,
+              "text": "{tex}\\frac{1}{f}=\\left(n_{21}-1\\right)\\left(\\frac{1}{R_1}-\\frac{1}{R_2}\\right){/tex}",
+              "html": "<span class=\"math-tex\">{tex}\\frac{1}{f}=\\left(n_{21}-1\\right)\\left(\\frac{1}{R_1}-\\frac{1}{R_2}\\right){/tex}</span>",
+              "is_correct": true
+            },
+            {
+              "id": 11175,
+              "text": "{tex}\\frac{1}{f}=\\left(n_{21}+1\\right)\\left(\\frac{1}{R_1}+\\frac{1}{R_2}\\right){/tex}",
+              "html": "<span class=\"math-tex\">{tex}\\frac{1}{f}=\\left(n_{21}+1\\right)\\left(\\frac{1}{R_1}+\\frac{1}{R_2}\\right){/tex}</span>",
+              "is_correct": false
+            }
+          ],
+          "correct_option_text": "{tex}\\frac{1}{f}=\\left(n_{21}-1\\right)\\left(\\frac{1}{R_1}-\\frac{1}{R_2}\\right){/tex}",
+          "correct_option_ids": [
+            11172
+          ],
+          "explanation": "{tex}\\frac{1}{f}=\\left(n_{21}-1\\right)\\left(\\frac{1}{R_1}-\\frac{1}{R_2}\\right){/tex}",
+          "solution": ""
+        },
+        {
+          "n": 15,
+          "question_id": 13994,
+          "question_text": "Thin lens approximation for a lens is",
+          "question_html": "<p>Thin lens approximation for a lens is</p>",
+          "options": [
+            {
+              "id": 11179,
+              "text": "{tex}\\frac{1}{v}+\\frac{1}{u}=-\\frac{1}{f}{/tex}",
+              "html": "<span class=\"math-tex\">{tex}\\frac{1}{v}+\\frac{1}{u}=-\\frac{1}{f}{/tex}</span>",
+              "is_correct": false
+            },
+            {
+              "id": 11178,
+              "text": "{tex}\\frac{1}{v}+\\frac{1}{u}=\\frac{1}{f}{/tex}",
+              "html": "<span class=\"math-tex\">{tex}\\frac{1}{v}+\\frac{1}{u}=\\frac{1}{f}{/tex}</span>",
+              "is_correct": false
+            },
+            {
+              "id": 11176,
+              "text": "{tex}\\frac{1}{v}-\\frac{1}{u}=\\frac{1}{f}{/tex}",
+              "html": "<span class=\"math-tex\">{tex}\\frac{1}{v}-\\frac{1}{u}=\\frac{1}{f}{/tex}</span>",
+              "is_correct": true
+            },
+            {
+              "id": 11177,
+              "text": "{tex}\\frac{1}{v}-\\frac{1}{u}=-\\frac{1}{f}{/tex}",
+              "html": "<span class=\"math-tex\">{tex}\\frac{1}{v}-\\frac{1}{u}=-\\frac{1}{f}{/tex}</span>",
+              "is_correct": false
+            }
+          ],
+          "correct_option_text": "{tex}\\frac{1}{v}-\\frac{1}{u}=\\frac{1}{f}{/tex}",
+          "correct_option_ids": [
+            11176
+          ],
+          "explanation": "For thin lens, lens equation is given by {tex}\\frac{1}{v}-\\frac{1}{u}=\\frac{1}{f}{/tex}",
+          "solution": ""
+        }
+      ]
+    }
+  ],
+  "totalQuestions": 15
+}

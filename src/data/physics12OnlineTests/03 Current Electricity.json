@@ -1,0 +1,585 @@
+{
+  "chapter": "Current Electricity",
+  "chapter_id": 1254,
+  "tests": [
+    {
+      "test_id": 126,
+      "test_name": "Current Electricity Test 01",
+      "is_paid": false,
+      "questionCount": 15,
+      "questions": [
+        {
+          "n": 1,
+          "question_id": 13553,
+          "question_text": "Two cells of 1.25 V and 0.75 V are connected in series with anode of one connected to cathode of the other. The effective voltage will be",
+          "question_html": "<p>Two cells of 1.25 V and 0.75 V are connected in series&nbsp;with anode of one connected to cathode of the other. The effective voltage will be</p>\r\n",
+          "options": [
+            {
+              "id": 9415,
+              "text": "0.50 V",
+              "html": "0.50 V",
+              "is_correct": false
+            },
+            {
+              "id": 9412,
+              "text": "2.0 V",
+              "html": "2.0 V",
+              "is_correct": true
+            },
+            {
+              "id": 9414,
+              "text": "1.25 V",
+              "html": "1.25 V",
+              "is_correct": false
+            },
+            {
+              "id": 9413,
+              "text": "0.75 V",
+              "html": "0.75 V",
+              "is_correct": false
+            }
+          ],
+          "correct_option_text": "2.0 V",
+          "correct_option_ids": [
+            9412
+          ],
+          "explanation": "The cells support each other. {tex}{E_{eq}} = {E_1} + {E_2} = 1.25 + 0.75 = 2.0V{/tex}",
+          "solution": ""
+        },
+        {
+          "n": 2,
+          "question_id": 13554,
+          "question_text": "Two cells of 1.25 V and 0.75 V are connected in series with anode of one connected to anode of the other. The effective voltage will be",
+          "question_html": "<p>Two cells of 1.25 V and 0.75 V are connected in series&nbsp;with anode of one connected to anode of the other. The effective voltage will be</p>\r\n",
+          "options": [
+            {
+              "id": 9416,
+              "text": "0.50 V",
+              "html": "0.50 V",
+              "is_correct": true
+            },
+            {
+              "id": 9417,
+              "text": "0.75 V",
+              "html": "0.75 V",
+              "is_correct": false
+            },
+            {
+              "id": 9419,
+              "text": "1.25 V",
+              "html": "1.25 V",
+              "is_correct": false
+            },
+            {
+              "id": 9418,
+              "text": "2.0 V",
+              "html": "2.0 V",
+              "is_correct": false
+            }
+          ],
+          "correct_option_text": "0.50 V",
+          "correct_option_ids": [
+            9416
+          ],
+          "explanation": "The cells are in opposition. {tex}{E_{eq}} = {E_1} - {E_2} = 1.25 - 0.75 = 0.5V{/tex}",
+          "solution": ""
+        },
+        {
+          "n": 3,
+          "question_id": 13555,
+          "question_text": "A current of 2 A flows in conductors as shown. The potential difference V A - V B will be",
+          "question_html": "<p>A current of 2 A flows in conductors as shown. The potential difference V<sub>A</sub>- V<sub>B </sub>will be<br />\r\n<img src=\"https://media-mycbseguide.s3.amazonaws.com/images/quiz/12/physics/1805_0.png\" style=\"width: 180px; height: 146px;\" /></p>",
+          "options": [
+            {
+              "id": 9420,
+              "text": "+1 V",
+              "html": "+1 V",
+              "is_correct": true
+            },
+            {
+              "id": 9421,
+              "text": "+2 V",
+              "html": "+2 V",
+              "is_correct": false
+            },
+            {
+              "id": 9422,
+              "text": "-1 V",
+              "html": "-1 V",
+              "is_correct": false
+            },
+            {
+              "id": 9423,
+              "text": "+4 V",
+              "html": "+4 V",
+              "is_correct": false
+            }
+          ],
+          "correct_option_text": "+1 V",
+          "correct_option_ids": [
+            9420
+          ],
+          "explanation": "Potential divider formula, {tex}{{V_X} = \\frac{{{R_X}}}{{{R_{arm}}}} \\times {V_{arm}}}{/tex} R X is resistance across which potential drop is to be determined, R arm is resistance of arm and V arm is potential across arm. {tex}{{V_s} = I \\times {R_{total}} = 2 \\times \\frac{5}{2} = 5V}{/tex} {tex}{{V_{CA}} = \\frac{{{R_A}}}{{{R_{CD}}}} \\times {V_s}}{/tex} {tex}{ \\Rightarrow {V_{CA}} = \\frac{2}{5} \\times 5 = 2V}{/tex} and {tex}{{V_{CB}} = \\frac{3}{5} \\times 5 = 3V}{/tex} potential at A, V A = 5 - 2 = 3V potential at B, V B = 5 - 3 = 2V , hence potential difference is given by ; {tex}\\therefore{/tex} V A - V B = 3 - 2 = 1V",
+          "solution": ""
+        },
+        {
+          "n": 4,
+          "question_id": 13556,
+          "question_text": "The instrument for the accurate measurement of the e.m.f of a cell is",
+          "question_html": "<p>The instrument for the accurate measurement of the e.m.f of a cell is</p>",
+          "options": [
+            {
+              "id": 9424,
+              "text": "a potentiometer",
+              "html": "a potentiometer",
+              "is_correct": true
+            },
+            {
+              "id": 9426,
+              "text": "an ammeter",
+              "html": "an ammeter",
+              "is_correct": false
+            },
+            {
+              "id": 9427,
+              "text": "a slide wire bridge",
+              "html": "a slide wire bridge",
+              "is_correct": false
+            },
+            {
+              "id": 9425,
+              "text": "a voltmeter",
+              "html": "a voltmeter",
+              "is_correct": false
+            }
+          ],
+          "correct_option_text": "a potentiometer",
+          "correct_option_ids": [
+            9424
+          ],
+          "explanation": "Both potentiometer and voltmeter are devices to measure potential difference. Emf is the terminal p.d between the electrodes of a cell in open circuit, i.e., when no current is drawn from it. Potentiometer measures the potential difference using null deflection method, where no current is drawn from the cell; whereas voltmeter needs a small current to show deflection. So, accurate measurement of p.d is done using a potentiometer.",
+          "solution": ""
+        },
+        {
+          "n": 5,
+          "question_id": 13557,
+          "question_text": "Potentiometer measures the potential difference more accurately than a voltmeter, because",
+          "question_html": "<p>Potentiometer measures the potential difference more accurately than a voltmeter, because</p>",
+          "options": [
+            {
+              "id": 9429,
+              "text": "It has a wire of high resistance.",
+              "html": "It has a wire of high resistance.",
+              "is_correct": false
+            },
+            {
+              "id": 9431,
+              "text": "It draws a heavy current from external circuit.",
+              "html": "It draws a heavy current from external circuit.",
+              "is_correct": false
+            },
+            {
+              "id": 9428,
+              "text": "It does not draw current from external circuit.",
+              "html": "It does not draw current from external circuit.",
+              "is_correct": true
+            },
+            {
+              "id": 9430,
+              "text": "It has a wire of low resistance.",
+              "html": "It has a wire of low resistance.",
+              "is_correct": false
+            }
+          ],
+          "correct_option_text": "It does not draw current from external circuit.",
+          "correct_option_ids": [
+            9428
+          ],
+          "explanation": "Potentiometer measures the potential difference using null deflection method, where no current is drawn from the cell; whereas voltmeter needs a small current to show deflection. So, accurate measurement of p.d is done using a potentiometer.",
+          "solution": ""
+        },
+        {
+          "n": 6,
+          "question_id": 13558,
+          "question_text": "In a potentiometer experiment, for measuring internal resistance of a cell, the balance point has been obtained on the fourth wire. The balance point can be shifted to fifth wire by",
+          "question_html": "<p>In a potentiometer experiment, for measuring internal resistance of a cell, the balance point has been obtained on the fourth wire. The balance point can be shifted to fifth wire by</p>",
+          "options": [
+            {
+              "id": 9433,
+              "text": "increasing the current due to auxiliary battery",
+              "html": "increasing the current due to auxiliary battery",
+              "is_correct": false
+            },
+            {
+              "id": 9432,
+              "text": "decreasing the current due to auxiliary battery",
+              "html": "decreasing the current due to auxiliary battery",
+              "is_correct": true
+            },
+            {
+              "id": 9434,
+              "text": "putting a suitable resistance in series with the cell",
+              "html": "putting a suitable resistance in series with the cell",
+              "is_correct": false
+            },
+            {
+              "id": 9435,
+              "text": "putting a shunt resistance in parallel with the cell",
+              "html": "putting a shunt resistance in parallel with the cell",
+              "is_correct": false
+            }
+          ],
+          "correct_option_text": "decreasing the current due to auxiliary battery",
+          "correct_option_ids": [
+            9432
+          ],
+          "explanation": "If the current due to the auxillary battery is decreased, the potential gradient will be decreases, so the balancing length increases. Thus, null point will move to fifth wire.",
+          "solution": ""
+        },
+        {
+          "n": 7,
+          "question_id": 13559,
+          "question_text": "It is observed in a potentiometer experiment that no current passes through the galvanometer, when the terminals of the cell are connected across a certain length of the potentiometer wire. On shunting the cell by a 2 &Omega; resistance, the balancing length is reduced to half. The internal resistance of the cell is",
+          "question_html": "<p>It is observed in a potentiometer experiment that no current passes through the galvanometer, when the terminals of the cell are connected across a certain length of the potentiometer wire. On shunting the cell by a 2 &Omega; resistance, the balancing length is reduced to half. The internal resistance of the cell is</p>",
+          "options": [
+            {
+              "id": 9438,
+              "text": "9 {tex}\\Omega {/tex}",
+              "html": "9 <span class=\"math-tex\">{tex}\\Omega {/tex}</span>",
+              "is_correct": false
+            },
+            {
+              "id": 9437,
+              "text": "4 {tex}\\Omega {/tex}",
+              "html": "4 <span class=\"math-tex\">{tex}\\Omega {/tex}</span>",
+              "is_correct": false
+            },
+            {
+              "id": 9436,
+              "text": "2 {tex}\\Omega {/tex}",
+              "html": "2<span class=\"math-tex\">{tex}\\Omega {/tex}</span>",
+              "is_correct": true
+            },
+            {
+              "id": 9439,
+              "text": "18 {tex}\\Omega {/tex}",
+              "html": "18 <span class=\"math-tex\">{tex}\\Omega {/tex}</span>",
+              "is_correct": false
+            }
+          ],
+          "correct_option_text": "2 {tex}\\Omega {/tex}",
+          "correct_option_ids": [
+            9436
+          ],
+          "explanation": "The internal resistance of the cell is given by: {tex}{r = \\left( {\\frac{{{I_1}}}{{{I_2}}} - 1} \\right) \\times R}{/tex} {tex}{r = \\left( {\\frac{{2{I_1}}}{{{I_1}}} - 1} \\right) \\times R}{/tex} {tex}{ \\Rightarrow r = \\left( {2 - 1} \\right) \\times R}{/tex} {tex}{r = R = 2\\Omega }{/tex}",
+          "solution": ""
+        },
+        {
+          "n": 8,
+          "question_id": 13560,
+          "question_text": "The sensitivity of the potentiometer can be increased by:",
+          "question_html": "<p>The sensitivity of the potentiometer can be increased by:</p>",
+          "options": [
+            {
+              "id": 9443,
+              "text": "decreasing the length of potentiometer wire.",
+              "html": "decreasing the length of potentiometer wire.",
+              "is_correct": false
+            },
+            {
+              "id": 9440,
+              "text": "increasing the length of potentiometer wire.",
+              "html": "increasing the length of potentiometer wire.",
+              "is_correct": true
+            },
+            {
+              "id": 9441,
+              "text": "increasing the e.m.f. of primary cell.",
+              "html": "increasing the e.m.f. of primary cell.",
+              "is_correct": false
+            },
+            {
+              "id": 9442,
+              "text": "increasing the potential gradient.",
+              "html": "increasing the potential gradient.",
+              "is_correct": false
+            }
+          ],
+          "correct_option_text": "increasing the length of potentiometer wire.",
+          "correct_option_ids": [
+            9440
+          ],
+          "explanation": "A potentiometer is considered to be sensitive if the potential gradient {tex}\\frac{{dV}}{{dl}}{/tex} is low. Such a potentiometer can measure very small changes in potential difference. Increasing the length of the potentiometer wire decreases the potential gradient. Its sensitivity increases. Increasing potential gradient decreases the sensitivity, increasing the emf of the primary cell and by decreasing the length, potential gradient increases.",
+          "solution": ""
+        },
+        {
+          "n": 9,
+          "question_id": 13561,
+          "question_text": "Two resistances are connected in the two gaps of a meter bridge. The balance points is 20 cm from the zero end. When a resistance of 15 ohm is connected in series with the smaller of the two resistances, the null point shifts to 40 cm. The smaller of the two resistances has the value (in ohm)",
+          "question_html": "<p>Two resistances are connected in the two gaps of a meter bridge. The balance points is 20 cm from the zero end. When a resistance of 15 ohm is connected in series with the smaller of the two resistances, the null point shifts to 40 cm. The smaller of the two resistances has the value (in ohm)</p>\r\n",
+          "options": [
+            {
+              "id": 9444,
+              "text": "9",
+              "html": "9",
+              "is_correct": true
+            },
+            {
+              "id": 9447,
+              "text": "12",
+              "html": "12",
+              "is_correct": false
+            },
+            {
+              "id": 9446,
+              "text": "10",
+              "html": "10",
+              "is_correct": false
+            },
+            {
+              "id": 9445,
+              "text": "8",
+              "html": "8",
+              "is_correct": false
+            }
+          ],
+          "correct_option_text": "9",
+          "correct_option_ids": [
+            9444
+          ],
+          "explanation": "Let the resistances be P and Q. When balanced, {tex}{\\frac{P}{Q} = \\frac{{20}}{{80}} = \\frac{1}{4}....\\left( i \\right)}{/tex} When another resistance is connected in series, {tex}{\\frac{{P + 15}}{Q} = \\frac{{40}}{{60}} = \\frac{2}{3}....\\left( {ii} \\right)}{/tex} From (i) and (ii), {tex}{\\frac{{P + 15}}{{4P}} = \\frac{2}{3}}{/tex} {tex} \\Rightarrow{/tex} 3P + 45 = 8P {tex} \\Rightarrow{/tex} 5P = 45 {tex}{ \\Rightarrow P = 9\\Omega }{/tex}",
+          "solution": ""
+        },
+        {
+          "n": 10,
+          "question_id": 13562,
+          "question_text": "Kirchhoff&rsquo;s second law is a consequence of law of conservation of",
+          "question_html": "<p>Kirchhoff&rsquo;s second law is a consequence of law of conservation of</p>",
+          "options": [
+            {
+              "id": 9449,
+              "text": "momentum",
+              "html": "momentum",
+              "is_correct": false
+            },
+            {
+              "id": 9450,
+              "text": "charge",
+              "html": "charge",
+              "is_correct": false
+            },
+            {
+              "id": 9451,
+              "text": "angular momentum",
+              "html": "angular momentum",
+              "is_correct": false
+            },
+            {
+              "id": 9448,
+              "text": "energy",
+              "html": "energy",
+              "is_correct": true
+            }
+          ],
+          "correct_option_text": "energy",
+          "correct_option_ids": [
+            9448
+          ],
+          "explanation": "Work done in moving a charge in a closed circuit is zero, therefore the algebraic sum of potential differences in a closed circuit is zero.",
+          "solution": ""
+        },
+        {
+          "n": 11,
+          "question_id": 13563,
+          "question_text": "In a meter bridge, when galvanometer and cell positions are interchanged,",
+          "question_html": "<p>In a meter bridge, when galvanometer and&nbsp;cell positions are interchanged,</p>",
+          "options": [
+            {
+              "id": 9453,
+              "text": "Inverse relation between four resistance is obtained",
+              "html": "Inverse relation between four resistance is&nbsp;obtained",
+              "is_correct": false
+            },
+            {
+              "id": 9455,
+              "text": "Can&rsquo;t predict the relation",
+              "html": "Can&rsquo;t predict the relation",
+              "is_correct": false
+            },
+            {
+              "id": 9452,
+              "text": "Exactly same relation between four resistance is obtained",
+              "html": "Exactly same relation between four resistance is obtained",
+              "is_correct": true
+            },
+            {
+              "id": 9454,
+              "text": "No relation is obtained between four resistances",
+              "html": "No relation is obtained&nbsp;between four resistances",
+              "is_correct": false
+            }
+          ],
+          "correct_option_text": "Exactly same relation between four resistance is obtained",
+          "correct_option_ids": [
+            9452
+          ],
+          "explanation": "The battery in the circuit (1) shown is connected between A and C, while the galvanometer is connected between B and D. In the bridge balanced condition, {tex}\\frac{P}{R} = \\frac{Q}{S}{/tex} When the battery and the galvanometer are interchanged, the circuit takes the form (2). The circuit (2) can be redrawn as circuit (3). The ratio of the resistances in the bridge balanced condition is {tex}\\frac{P}{Q} = \\frac{R}{S}{/tex} which is same as, {tex}\\frac{P}{R} = \\frac{Q}{S}{/tex}",
+          "solution": ""
+        },
+        {
+          "n": 12,
+          "question_id": 13564,
+          "question_text": "An ammeter together with an unknown resistance in series is connected across two identical batteries each of emf 1.5 V. When the batteries are connected in series, the galvanometer records a current of 1A and when the batteries are in parallel, the current is 0.6A. Then the internal resistance of the battery is",
+          "question_html": "<p>An ammeter together with an unknown resistance in series is connected across two identical batteries each of emf 1.5 V. When the batteries are connected in series, the galvanometer records a current of 1A and when the batteries are in parallel, the current is 0.6A. Then the internal resistance of the battery is</p>",
+          "options": [
+            {
+              "id": 9459,
+              "text": "{tex}\\frac{1}{5}\\Omega {/tex}",
+              "html": "<span class=\"math-tex\">{tex}\\frac{1}{5}\\Omega {/tex}</span>",
+              "is_correct": false
+            },
+            {
+              "id": 9456,
+              "text": "{tex}\\frac{1}{3} \\Omega{/tex}",
+              "html": "<span class=\"math-tex\">{tex}\\frac{1}{3} \\Omega{/tex}</span>",
+              "is_correct": true
+            },
+            {
+              "id": 9458,
+              "text": "{tex}\\frac{1}{4}\\Omega {/tex}",
+              "html": "<span class=\"math-tex\">{tex}\\frac{1}{4}\\Omega {/tex}</span>",
+              "is_correct": false
+            },
+            {
+              "id": 9457,
+              "text": "{tex}\\frac{1}{ 2}\\Omega {/tex}",
+              "html": "&nbsp;<span class=\"math-tex\">{tex}\\frac{1}{ 2}\\Omega {/tex}</span>",
+              "is_correct": false
+            }
+          ],
+          "correct_option_text": "{tex}\\frac{1}{3} \\Omega{/tex}",
+          "correct_option_ids": [
+            9456
+          ],
+          "explanation": "When the batteries are in series, the internal resistances are in series. Both emf and the internal resistances add up. {tex}I=\\frac{E}{(r+R)}{/tex} {tex}1=\\frac{3}{(2 r+R)}{/tex} {tex}\\Rightarrow{/tex} R + 2r = 3 ...(i) and in parallel combination, {tex}0.6=\\frac{2 \\times 1.5}{\\left(\\frac{r}{2}+R\\right)}{/tex} {tex}\\Rightarrow{/tex} 10 = 2R + r ...(ii) From equation (i) and (ii), {tex}r=\\frac13\\Omega{/tex}",
+          "solution": ""
+        },
+        {
+          "n": 13,
+          "question_id": 13565,
+          "question_text": "A battery is connected with a potentiometer wire. The internal resistance of the battery is negligible. If the length of the potentiometer wire of the same material and radius is doubled then",
+          "question_html": "<p>A battery is connected with a potentiometer wire. The internal resistance of the battery is negligible. If the length of the potentiometer wire of the same material and radius is doubled then</p>",
+          "options": [
+            {
+              "id": 9462,
+              "text": "Potential gradient becomes two times",
+              "html": "Potential gradient becomes two times",
+              "is_correct": false
+            },
+            {
+              "id": 9461,
+              "text": "Potential gradient becomes half",
+              "html": "Potential gradient becomes half",
+              "is_correct": false
+            },
+            {
+              "id": 9460,
+              "text": "Potential gradient does not change",
+              "html": "Potential gradient does not change",
+              "is_correct": true
+            },
+            {
+              "id": 9463,
+              "text": "Potential gradient becomes three times",
+              "html": "Potential gradient becomes three&nbsp;times",
+              "is_correct": false
+            }
+          ],
+          "correct_option_text": "Potential gradient does not change",
+          "correct_option_ids": [
+            9460
+          ],
+          "explanation": "Potential gradient is given by V/l. If V and l are constant, the potential gradient also remains constant. The change in the radius will cause a change in the current. This does not change the potential gradient.",
+          "solution": ""
+        },
+        {
+          "n": 14,
+          "question_id": 13566,
+          "question_text": "A potential difference of 220 V is maintained across 12000 {tex}{\\Omega }{/tex} rheostat. Then voltmeter V has a resistance of 6000 {tex}{\\Omega }{/tex} and point C is at one fourth the distance from a to b. Then the reading of voltmeter is",
+          "question_html": "<p>A potential difference of 220 V is maintained across 12000 <span class=\"math-tex\">{tex}{\\Omega }{/tex}</span> rheostat. Then voltmeter V has a resistance of 6000 <span class=\"math-tex\">{tex}{\\Omega }{/tex}</span> and point C is at one fourth the distance from a to b. Then the reading of voltmeter is<br />\r\n<img src=\"https://media-mycbseguide.s3.amazonaws.com/images/quiz/12/physics/1816_e1.png\" /></p>\r\n",
+          "options": [
+            {
+              "id": 9466,
+              "text": "45 volt",
+              "html": "45 volt",
+              "is_correct": false
+            },
+            {
+              "id": 9465,
+              "text": "30 volt",
+              "html": "30 volt",
+              "is_correct": false
+            },
+            {
+              "id": 9464,
+              "text": "40 volt",
+              "html": "40 volt",
+              "is_correct": true
+            },
+            {
+              "id": 9467,
+              "text": "60 volt",
+              "html": "60 volt",
+              "is_correct": false
+            }
+          ],
+          "correct_option_text": "40 volt",
+          "correct_option_ids": [
+            9464
+          ],
+          "explanation": "Resistance R = {tex}\\frac{1}{4}{/tex} R = {tex}\\frac{12000}{4}{/tex} = 3000 parallel {tex}\\frac{1}{{{R_p}}} = \\frac{1}{{{R_{ac}}}} + \\frac{1}{{{R_V}}}{/tex} {tex} = \\frac{1}{{3000}} + \\frac{1}{{6000}} = \\frac{1}{{2000}}{/tex} ; {tex}{R_p} = 2000\\Omega{/tex} This is in series with R bc . R bc = R - R ac = 12000 - 3000 {tex}\\Omega{/tex} = 9000 {tex}\\Omega{/tex} R eq = R p + R bc = 9000 + 2000 = 11000 {tex}\\Omega{/tex} . The current in the circuit {tex}I = \\frac{{220}}{{11000}} = 0.02A{/tex} The reading of the voltmeter is the potential drop across R p , V = 0.02 {tex}\\times{/tex} 2000 = 40 V",
+          "solution": ""
+        },
+        {
+          "n": 15,
+          "question_id": 13567,
+          "question_text": "Figure shows current in a part of an electrical circuit. Then current I is",
+          "question_html": "<p>Figure shows current in a part of an electrical circuit. Then current I is<br />\r\n<img src=\"https://media-mycbseguide.s3.amazonaws.com/images/quiz/12/physics/1817_e1.png\" style=\"width: 200px; height: 103px;\" /></p>\r\n",
+          "options": [
+            {
+              "id": 9470,
+              "text": "0.5 A",
+              "html": "0.5 A",
+              "is_correct": false
+            },
+            {
+              "id": 9468,
+              "text": "2.5 A",
+              "html": "2.5 A",
+              "is_correct": true
+            },
+            {
+              "id": 9469,
+              "text": "1.5 A",
+              "html": "1.5 A",
+              "is_correct": false
+            },
+            {
+              "id": 9471,
+              "text": "2.1 A",
+              "html": "2.1 A",
+              "is_correct": false
+            }
+          ],
+          "correct_option_text": "2.5 A",
+          "correct_option_ids": [
+            9468
+          ],
+          "explanation": "Using Kirchhoff&rsquo;s junction rule at junction A, 2 + 5 - 2 - 1 + I AB = 0 ; I AB = -4 Amp The current I AB is directed away from the junction A. Using the junction rule at B, 4 + 0.2 - 1.7 - I = 0 I = 2.5 Amp",
+          "solution": ""
+        }
+      ]
+    }
+  ],
+  "totalQuestions": 15
+}

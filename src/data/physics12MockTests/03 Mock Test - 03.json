@@ -1,0 +1,2098 @@
+{
+  "mock_id": 211,
+  "name": "Mock Test - 03",
+  "instruction": "The Question Paper contains three sections. Section A has 25 questions. Attempt any 20 questions. Section B has 24 questions. Attempt any20 questions. Section C has 6 questions. Attempt any 5 questions. All questions carry equal marks. There is no negative marking.",
+  "totalQuestions": 55,
+  "questions": [
+    {
+      "n": 1,
+      "question_id": 13458,
+      "question_text": "There is a uniform field of strength {tex}{\\rm{1}}{0^{\\rm{3}}}{\\rm{V}}{{\\rm{m}}^{ - {\\rm{1}}}}{/tex} along the y-axis. A body of mass 1g and charge {tex}{\\rm{1}}0{ ^{ - {\\rm{6}}}}{/tex} C is projected into the field from the origin along the positive x-axis with a velocity of {tex}{\\rm{1}}0{\\rm{ m}}{{\\rm{s}}^{ - {\\rm{1}}}}{/tex} . Its speed (in {tex}{\\rm{m}}{{\\rm{s}}^{ - {\\rm{1}}}}{/tex} ) after 10 second will be (neglect gravitation)",
+      "question_html": "<p>There is a uniform field of strength <span class=\"math-tex\">{tex}{\\rm{1}}{0^{\\rm{3}}}{\\rm{V}}{{\\rm{m}}^{ - {\\rm{1}}}}{/tex}</span> along the y-axis. A body of mass 1g and charge <span class=\"math-tex\">{tex}{\\rm{1}}0{ ^{ - {\\rm{6}}}}{/tex}</span>C is projected into the field from the origin along the positive x-axis with a velocity of <span class=\"math-tex\">{tex}{\\rm{1}}0{\\rm{ m}}{{\\rm{s}}^{ - {\\rm{1}}}}{/tex}</span>. Its speed (in <span class=\"math-tex\">{tex}{\\rm{m}}{{\\rm{s}}^{ - {\\rm{1}}}}{/tex}</span>) after 10 second will be (neglect gravitation)</p>",
+      "options": [
+        {
+          "id": 9033,
+          "text": "10",
+          "html": "10",
+          "is_correct": false
+        },
+        {
+          "id": 9035,
+          "text": "20",
+          "html": "20",
+          "is_correct": false
+        },
+        {
+          "id": 9032,
+          "text": "{tex}10\\sqrt 2 {/tex}",
+          "html": "<span class=\"math-tex\">{tex}10\\sqrt 2 {/tex}</span>",
+          "is_correct": true
+        },
+        {
+          "id": 9034,
+          "text": "{tex}5\\sqrt 2 {/tex}",
+          "html": "<span class=\"math-tex\">{tex}5\\sqrt 2 {/tex}</span>",
+          "is_correct": false
+        }
+      ],
+      "correct_option_text": "{tex}10\\sqrt 2 {/tex}",
+      "correct_option_ids": [
+        9032
+      ],
+      "explanation": "Given v x = 10 m/s Since the electric field is in y-direction, so the acceleration is in y-direction. {tex}{a_{y = }}\\left( {\\frac{{qE}}{m}} \\right) = \\frac{{{{10}^{ - 6}} \\times {{10}^3}}}{{{{10}^{ - 3}}}} = 1\\;m/s^2{/tex} So, velocity in y direction v y = a y t = 1 {tex}\\times 10 = 10\\;m/s{/tex} So, {tex}v = \\sqrt {{v_x}^2 + {v_y}^2} = \\sqrt {{{10}^2} + {{10}^2}} = 10\\sqrt 2 \\;m/s{/tex}",
+      "solution": ""
+    },
+    {
+      "n": 2,
+      "question_id": 463842,
+      "question_text": "Electric potential of earth is taken to be zero, because earth is a good",
+      "question_html": "<p>Electric potential of earth is taken to be zero, because earth is a good</p>",
+      "options": [
+        {
+          "id": 798391,
+          "text": "semiconductor",
+          "html": "semiconductor",
+          "is_correct": false
+        },
+        {
+          "id": 798390,
+          "text": "insulator",
+          "html": "insulator",
+          "is_correct": false
+        },
+        {
+          "id": 798389,
+          "text": "conductor",
+          "html": "conductor",
+          "is_correct": true
+        },
+        {
+          "id": 798392,
+          "text": "dielectric",
+          "html": "dielectric",
+          "is_correct": false
+        }
+      ],
+      "correct_option_text": "conductor",
+      "correct_option_ids": [
+        798389
+      ],
+      "explanation": "Earth is a conducting sphere of large capacitance. {tex}V=\\frac{q}{C}{/tex} As C is very large, so V {tex}\\times{/tex} 0 for all finite charges.",
+      "solution": ""
+    },
+    {
+      "n": 3,
+      "question_id": 13594,
+      "question_text": "The wire of the potentiometer has resistance 4 ohms and length 1 m. It is connected to a cell of e.m.f. 2 volts and internal resistance 1 ohm, if a cell of e.m.f. 1.2 volt is balanced by it, the balancing length will be",
+      "question_html": "<p>The wire of the potentiometer has resistance 4 ohms and length 1 m. It is connected to a cell of e.m.f. 2 volts and internal resistance 1 ohm, if a cell of e.m.f. 1.2 volt is balanced by it, the balancing length will be</p>",
+      "options": [
+        {
+          "id": 9578,
+          "text": "90 cm",
+          "html": "90 cm",
+          "is_correct": false
+        },
+        {
+          "id": 9576,
+          "text": "75 cm",
+          "html": "75 cm",
+          "is_correct": true
+        },
+        {
+          "id": 9577,
+          "text": "60 cm",
+          "html": "60 cm",
+          "is_correct": false
+        },
+        {
+          "id": 9579,
+          "text": "50 cm",
+          "html": "50 cm",
+          "is_correct": false
+        }
+      ],
+      "correct_option_text": "75 cm",
+      "correct_option_ids": [
+        9576
+      ],
+      "explanation": "If the battery has e.m.f E, resistance of the potentiometer is R and the internal resistance of the battery is r, then the current I flowing in the potentiometer wire is given by, {tex}I = \\frac{E}{{\\left( {R + r} \\right)}}{/tex} {tex}I = \\frac{2}{{\\left( {4 + 1} \\right)}}{/tex} I = 0.4 A The potential difference V across the potentiometer {tex}V = I \\times R{/tex} {tex} \\Rightarrow V = 0.4 \\times 4{/tex} V = 1.6V The potential gradient = ( potential drop across the potentiometer)/ length of the potentiometer wire) {tex} = \\frac{V}{l}{/tex} {tex} = \\frac{{1.6}}{1}{/tex} {tex} \\Rightarrow {/tex} Potential gradient = 1.6V/m The emf of the cell {tex}{E_1}=\\left( {Potential\\;gradient \\times Balancing\\;length} \\right){/tex} {tex} \\Rightarrow L = \\frac{{{E_1}}}{{Potential\\;gradient}} = \\frac{{1.2}}{{1.6}}{/tex} L = 0.75 m or L = 75 cm",
+      "solution": ""
+    },
+    {
+      "n": 4,
+      "question_id": 13415,
+      "question_text": "The unit of charge is",
+      "question_html": "<p>The unit of charge is&nbsp;</p>",
+      "options": [
+        {
+          "id": 8861,
+          "text": "ampere",
+          "html": "ampere&nbsp;",
+          "is_correct": false
+        },
+        {
+          "id": 8862,
+          "text": "volt",
+          "html": "volt",
+          "is_correct": false
+        },
+        {
+          "id": 8863,
+          "text": "ohm",
+          "html": "ohm",
+          "is_correct": false
+        },
+        {
+          "id": 8860,
+          "text": "coulomb",
+          "html": "coulomb&nbsp;",
+          "is_correct": true
+        }
+      ],
+      "correct_option_text": "coulomb",
+      "correct_option_ids": [
+        8860
+      ],
+      "explanation": "The SI unit of quantity of electric charge is the coulomb, which is equivalent to about 6.242&times;10 18 e (e is the charge of a proton).",
+      "solution": ""
+    },
+    {
+      "n": 5,
+      "question_id": 463703,
+      "question_text": "If the potential of a capacitor having capacity 8 pF is increased from 10 V to 20 V, then increase in its energy will be:",
+      "question_html": "<p>If the potential of a capacitor having capacity 8 pF is increased from 10 V to 20 V, then increase in its energy will be:</p>",
+      "options": [
+        {
+          "id": 798224,
+          "text": "12 {tex}\\times{/tex} 10 -6 J",
+          "html": "12 <span class=\"math-tex\">{tex}\\times{/tex}</span> 10<sup>-6</sup> J",
+          "is_correct": false
+        },
+        {
+          "id": 798222,
+          "text": "4 {tex}\\times{/tex} 10 -4 J",
+          "html": "4 <span class=\"math-tex\">{tex}\\times{/tex}</span>&nbsp;10<sup>-4</sup> J",
+          "is_correct": false
+        },
+        {
+          "id": 798223,
+          "text": "4 {tex}\\times{/tex} 10 -6 J",
+          "html": "4&nbsp;<span class=\"math-tex\">{tex}\\times{/tex}</span>&nbsp;10<sup>-6</sup>&nbsp;J",
+          "is_correct": false
+        },
+        {
+          "id": 798221,
+          "text": "12 {tex}\\times{/tex} 10 -4 J",
+          "html": "12 <span class=\"math-tex\">{tex}\\times{/tex}</span>&nbsp;10<sup>-4</sup> J",
+          "is_correct": true
+        }
+      ],
+      "correct_option_text": "12 {tex}\\times{/tex} 10 -4 J",
+      "correct_option_ids": [
+        798221
+      ],
+      "explanation": "{tex}\\Delta U=U_{2}-U_{1}=\\frac{1}{2} C\\left(V_{2}^{2}-V_{1}^{2}\\right){/tex} {tex}=\\frac{1}{2} \\times 8 \\times 10^{-6}\\left(20^{2}-10^{2}\\right){/tex} = 4 {tex}\\times{/tex} 10 -6 {tex}\\times{/tex} 300 J = 12 {tex}\\times{/tex} 10 -4 J",
+      "solution": ""
+    },
+    {
+      "n": 6,
+      "question_id": 471345,
+      "question_text": "The internal resistance of a 2.1 V cell which gives a current of 0.2 A through a resistance of 10 {tex}\\Omega{/tex} is:",
+      "question_html": "<p>The internal resistance of a 2.1 V cell which gives a current of 0.2 A through a resistance of 10&nbsp;<span class=\"math-tex\">{tex}\\Omega{/tex}</span>&nbsp;is:</p>",
+      "options": [
+        {
+          "id": 814713,
+          "text": "0.8 {tex}\\Omega{/tex}",
+          "html": "0.8&nbsp;<span class=\"math-tex\">{tex}\\Omega{/tex}</span>",
+          "is_correct": false
+        },
+        {
+          "id": 814712,
+          "text": "0.5 {tex}\\Omega{/tex}",
+          "html": "0.5&nbsp;<span class=\"math-tex\">{tex}\\Omega{/tex}</span>",
+          "is_correct": true
+        },
+        {
+          "id": 814714,
+          "text": "1.0 {tex}\\Omega{/tex}",
+          "html": "1.0&nbsp;<span class=\"math-tex\">{tex}\\Omega{/tex}</span>",
+          "is_correct": false
+        },
+        {
+          "id": 814711,
+          "text": "0.2 {tex}\\Omega{/tex}",
+          "html": "0.2&nbsp;<span class=\"math-tex\">{tex}\\Omega{/tex}</span>",
+          "is_correct": false
+        }
+      ],
+      "correct_option_text": "0.5 {tex}\\Omega{/tex}",
+      "correct_option_ids": [
+        814712
+      ],
+      "explanation": "r = {tex}\\frac{E}{I}-R=\\frac{2.1}{0.2}{/tex} - 10 = 10.5 - 10 = 0.5 {tex}\\Omega{/tex}",
+      "solution": ""
+    },
+    {
+      "n": 7,
+      "question_id": 488956,
+      "question_text": "In an inductor of self-inductance L = 2mH, current changes with time according to relation I = t 2 e -t . At what time, emf is zero?",
+      "question_html": "<p>In an inductor of self-inductance L = 2mH, current changes with time according to relation I = t<sup>2</sup>e<sup>-t</sup>. At what time, emf is zero?</p>",
+      "options": [
+        {
+          "id": 852938,
+          "text": "3 s",
+          "html": "3 s",
+          "is_correct": false
+        },
+        {
+          "id": 852940,
+          "text": "1 s",
+          "html": "1 s",
+          "is_correct": false
+        },
+        {
+          "id": 852937,
+          "text": "4 s",
+          "html": "4 s",
+          "is_correct": false
+        },
+        {
+          "id": 852939,
+          "text": "2 s",
+          "html": "2 s",
+          "is_correct": true
+        }
+      ],
+      "correct_option_text": "2 s",
+      "correct_option_ids": [
+        852939
+      ],
+      "explanation": "{tex}\\varepsilon=-L \\frac{d I}{d t}=0{/tex} or {tex}\\frac{d I}{d t}=0{/tex} or {tex}\\frac{d}{d t}\\left(t^{2} e^{-t}\\right)=0{/tex} or 2t {tex}\\times{/tex} t 2 e -t (-1) = 0 or te -t ((2 - t) = 0 or t = 2s {tex}\\left[t e^{-t} \\neq 0\\right]{/tex}",
+      "solution": ""
+    },
+    {
+      "n": 8,
+      "question_id": 491990,
+      "question_text": "The magnetic susceptibility is negative for",
+      "question_html": "<p>The magnetic susceptibility is negative for</p>",
+      "options": [
+        {
+          "id": 856788,
+          "text": "paramagnetic and ferromagnetic materials",
+          "html": "paramagnetic and ferromagnetic materials",
+          "is_correct": false
+        },
+        {
+          "id": 856787,
+          "text": "ferromagnetic material only",
+          "html": "ferromagnetic material only",
+          "is_correct": false
+        },
+        {
+          "id": 856786,
+          "text": "paramagnetic material only",
+          "html": "paramagnetic material only",
+          "is_correct": false
+        },
+        {
+          "id": 856785,
+          "text": "diamagnetic material only",
+          "html": "diamagnetic material only",
+          "is_correct": true
+        }
+      ],
+      "correct_option_text": "diamagnetic material only",
+      "correct_option_ids": [
+        856785
+      ],
+      "explanation": "The susceptibility of a diamagnetic material is small and negative because it develops a weak magnetization in the opposite direction of the magnetizing field.",
+      "solution": ""
+    },
+    {
+      "n": 9,
+      "question_id": 488949,
+      "question_text": "The self-inductance of a coil having 500 turns is 50 mH. The magnetic flux through the cross-sectional area of the coil, while the current through it is 8 mA, is found to be:",
+      "question_html": "<p>The self-inductance of a coil having 500 turns is 50 mH. The magnetic flux through the cross-sectional area of the coil, while the current through it is 8 mA, is found to be:</p>",
+      "options": [
+        {
+          "id": 852910,
+          "text": "0.04 Wb",
+          "html": "0.04 Wb",
+          "is_correct": false
+        },
+        {
+          "id": 852909,
+          "text": "{tex}4 \\times 10^{-4}{/tex} Wb",
+          "html": "<span class=\"math-tex\">{tex}4 \\times 10^{-4}{/tex}</span> Wb",
+          "is_correct": true
+        },
+        {
+          "id": 852912,
+          "text": "40m Wb",
+          "html": "40m Wb",
+          "is_correct": false
+        },
+        {
+          "id": 852911,
+          "text": "{tex}4 \\mu W b{/tex}",
+          "html": "<span class=\"math-tex\">{tex}4 \\mu W b{/tex}</span>",
+          "is_correct": false
+        }
+      ],
+      "correct_option_text": "{tex}4 \\times 10^{-4}{/tex} Wb",
+      "correct_option_ids": [
+        852909
+      ],
+      "explanation": "{tex}\\phi=L I=50 \\times 10^{-3} \\times 8 \\times 10^{-3} \\mathrm{~Wb}{/tex} {tex}=4 \\times 10^{-4}{/tex} Wb",
+      "solution": ""
+    },
+    {
+      "n": 10,
+      "question_id": 13848,
+      "question_text": "The current in a series LCR circuit excited by AC of frequency {tex}\\omega {/tex} in general is",
+      "question_html": "<p>The current in a series LCR circuit excited by AC of frequency <span class=\"math-tex\">{tex}\\omega {/tex}</span> in general is</p>",
+      "options": [
+        {
+          "id": 10594,
+          "text": "2I m sin( {tex}\\omega {\\rm{t}}{/tex} )",
+          "html": "2I<sub>m</sub>sin(<span class=\"math-tex\">{tex}\\omega {\\rm{t}}{/tex}</span>)",
+          "is_correct": false
+        },
+        {
+          "id": 10592,
+          "text": "I m sin( {tex}\\omega {\\rm{t }} + {\\rm{ }}\\phi {/tex} )",
+          "html": "I<sub>m</sub>sin(<span class=\"math-tex\">{tex}\\omega {\\rm{t }} + {\\rm{ }}\\phi {/tex}</span>)",
+          "is_correct": true
+        },
+        {
+          "id": 10593,
+          "text": "I m sin( {tex}\\omega {\\rm{t}}{/tex} + 90)",
+          "html": "I<sub>m</sub>sin(<span class=\"math-tex\">{tex}\\omega {\\rm{t}}{/tex}</span> + 90)",
+          "is_correct": false
+        },
+        {
+          "id": 10595,
+          "text": "{tex}{{\\rm{I}}_{\\rm{m}}}{\\rm{sin}}\\omega {\\rm{t}}{/tex}",
+          "html": "<span class=\"math-tex\">{tex}{{\\rm{I}}_{\\rm{m}}}{\\rm{sin}}\\omega {\\rm{t}}{/tex}</span>",
+          "is_correct": false
+        }
+      ],
+      "correct_option_text": "I m sin( {tex}\\omega {\\rm{t }} + {\\rm{ }}\\phi {/tex} )",
+      "correct_option_ids": [
+        10592
+      ],
+      "explanation": "I = I m sin( {tex}\\omega {\\rm{t }} + {\\rm{ }}\\phi {/tex} ) The above expression is for instantaneous value of current in an AC Circuit and since in an LCR circuit current is same across the circuit, the above expression holds valid for the entire LCR series circuit.",
+      "solution": ""
+    },
+    {
+      "n": 11,
+      "question_id": 471700,
+      "question_text": "A proton and an alpha particle enter in a uniform magnetic field with the same velocity. The time period of rotation of the alpha particle will be:",
+      "question_html": "<p>A proton and an alpha particle enter in a uniform magnetic field with the same velocity. The time period of rotation of the alpha particle will be:</p>",
+      "options": [
+        {
+          "id": 815222,
+          "text": "same as that of the proton",
+          "html": "same as that of the proton",
+          "is_correct": false
+        },
+        {
+          "id": 815220,
+          "text": "four times that of the proton",
+          "html": "four times that of the proton",
+          "is_correct": false
+        },
+        {
+          "id": 815219,
+          "text": "two times that of the proton",
+          "html": "two times that of the proton",
+          "is_correct": true
+        },
+        {
+          "id": 815221,
+          "text": "three times that of the proton",
+          "html": "three times that of the proton",
+          "is_correct": false
+        }
+      ],
+      "correct_option_text": "two times that of the proton",
+      "correct_option_ids": [
+        815219
+      ],
+      "explanation": "As {tex}T=\\frac{2 \\pi m}{q B}{/tex} {tex}\\therefore \\ T_{p}=\\frac{2 \\pi m_{p}}{e B}{/tex} {tex}T_{\\alpha}=\\frac{2 \\pi \\times 4 m_{p}}{2 e B}=2 T_{p}{/tex}",
+      "solution": ""
+    },
+    {
+      "n": 12,
+      "question_id": 471348,
+      "question_text": "A potentiometer circuit has been set up for finding the internal resistance of a given cell. The main battery, used across the potentiometer wire, has an emf of 2.0 V and a negligible internal resistance. The potentiometer wire itself is 4 m long. When the resistance R, connected across the given cell, has values of infinity 9.5 {tex}\\Omega{/tex} the balancing lengths , on the potentiometer wire are found to be 3 and 2.85 m, respectively. The value of internal resistance of the cell is:",
+      "question_html": "<p>A potentiometer circuit has been set up for finding the internal resistance of a given cell. The main battery, used across the potentiometer wire, has an emf of 2.0 V and a negligible internal resistance. The&nbsp;potentiometer wire itself is 4&nbsp;m long. When the resistance R, connected across the given cell, has values of</p>\r\n\r\n<ol start=\"1\" style=\"list-style-type:lower-roman\">\r\n\t<li>infinity</li>\r\n\t<li>9.5&nbsp;<span class=\"math-tex\">{tex}\\Omega{/tex}</span></li>\r\n</ol>\r\n\r\n<p>the&nbsp;balancing lengths<strong>, </strong>on the potentiometer wire are found to be 3 and 2.85 m, respectively. The value of internal resistance of the cell is:</p>",
+      "options": [
+        {
+          "id": 814726,
+          "text": "0.25 {tex}\\Omega{/tex}",
+          "html": "0.25&nbsp;<span class=\"math-tex\">{tex}\\Omega{/tex}</span>",
+          "is_correct": false
+        },
+        {
+          "id": 814723,
+          "text": "0.95 {tex}\\Omega{/tex}",
+          "html": "0.95&nbsp;<span class=\"math-tex\">{tex}\\Omega{/tex}</span>",
+          "is_correct": false
+        },
+        {
+          "id": 814725,
+          "text": "0.75 {tex}\\Omega{/tex}",
+          "html": "0.75&nbsp;<span class=\"math-tex\">{tex}\\Omega{/tex}</span>",
+          "is_correct": false
+        },
+        {
+          "id": 814724,
+          "text": "0.5 {tex}\\Omega{/tex}",
+          "html": "0.5&nbsp;<span class=\"math-tex\">{tex}\\Omega{/tex}</span>",
+          "is_correct": true
+        }
+      ],
+      "correct_option_text": "0.5 {tex}\\Omega{/tex}",
+      "correct_option_ids": [
+        814724
+      ],
+      "explanation": "r = {tex}\\left(\\frac{l_{1}}{l_{2}}-1\\right) R=\\left(\\frac{3}{2.85}-1\\right) \\times 9.5{/tex} = {tex}\\frac{0.15}{2.85} \\times 9.5=0.5 \\Omega{/tex}",
+      "solution": ""
+    },
+    {
+      "n": 13,
+      "question_id": 488990,
+      "question_text": "Two inductors each of inductance L are joined in parallel. What is their equivalent inductance?",
+      "question_html": "<p>Two inductors each of inductance L&nbsp;are joined in parallel. What is their equivalent inductance?</p>",
+      "options": [
+        {
+          "id": 853016,
+          "text": "zero",
+          "html": "zero",
+          "is_correct": false
+        },
+        {
+          "id": 853015,
+          "text": "L",
+          "html": "L",
+          "is_correct": false
+        },
+        {
+          "id": 853014,
+          "text": "{tex}\\frac{L}{2}{/tex}",
+          "html": "<span class=\"math-tex\">{tex}\\frac{L}{2}{/tex}</span>",
+          "is_correct": true
+        },
+        {
+          "id": 853013,
+          "text": "2 L",
+          "html": "2 L",
+          "is_correct": false
+        }
+      ],
+      "correct_option_text": "{tex}\\frac{L}{2}{/tex}",
+      "correct_option_ids": [
+        853014
+      ],
+      "explanation": "If M is negligible, then for parallel combination of two inductors, {tex}L_{e q}=\\frac{L_{1} L_{2}}{L_{1}+L_{2}}{/tex} {tex}=\\frac{L \\times L}{L+L}=\\frac{L}{2}{/tex}",
+      "solution": ""
+    },
+    {
+      "n": 14,
+      "question_id": 13834,
+      "question_text": "Alternating current is so called because",
+      "question_html": "<p>Alternating current is so called because</p>",
+      "options": [
+        {
+          "id": 10539,
+          "text": "Voltage alternates between 10 V and 15 V",
+          "html": "Voltage alternates between 10 V and 15 V",
+          "is_correct": false
+        },
+        {
+          "id": 10537,
+          "text": "Current is switched on and off alternately",
+          "html": "Current is switched&nbsp;on and off alternately",
+          "is_correct": false
+        },
+        {
+          "id": 10538,
+          "text": "Voltage alternates between 0 V and 5 V",
+          "html": "Voltage alternates between 0 V and 5 V",
+          "is_correct": false
+        },
+        {
+          "id": 10536,
+          "text": "Polarity alternates from + to &ndash; and &ndash; to + with time",
+          "html": "Polarity alternates from + to &ndash; and &ndash;&nbsp;to + with time",
+          "is_correct": true
+        }
+      ],
+      "correct_option_text": "Polarity alternates from + to &ndash; and &ndash; to + with time",
+      "correct_option_ids": [
+        10536
+      ],
+      "explanation": "Alternating Current is the current in which the polarity of source continuously changes on a fixed frequency. So the positive and the negative terminals &lsquo;alternate&rsquo;.",
+      "solution": ""
+    },
+    {
+      "n": 15,
+      "question_id": 463961,
+      "question_text": "A charge q {tex}\\mu{/tex} C is placed at the centre of a cube of side 0.1 m. Then the electric flux diverging from each face of this cube is",
+      "question_html": "<p>A charge q&nbsp;<span class=\"math-tex\">{tex}\\mu{/tex}</span>C is placed at the centre of a cube of side 0.1 m. Then the electric flux diverging from each face of this cube is</p>",
+      "options": [
+        {
+          "id": 798639,
+          "text": "{tex}\\frac{q \\times 10^{-6}}{\\varepsilon_{0}}{/tex}",
+          "html": "<span class=\"math-tex\">{tex}\\frac{q \\times 10^{-6}}{\\varepsilon_{0}}{/tex}</span>",
+          "is_correct": false
+        },
+        {
+          "id": 798640,
+          "text": "{tex}\\frac{q \\times 10^{-4}}{6 \\varepsilon_{0}}{/tex}",
+          "html": "<span class=\"math-tex\">{tex}\\frac{q \\times 10^{-4}}{6 \\varepsilon_{0}}{/tex}</span>",
+          "is_correct": false
+        },
+        {
+          "id": 798638,
+          "text": "{tex}\\frac{9}{\\varepsilon_{0}} \\times{/tex} 10 -4",
+          "html": "<span class=\"math-tex\">{tex}\\frac{9}{\\varepsilon_{0}} \\times{/tex}</span>&nbsp;10<sup>-4</sup>",
+          "is_correct": false
+        },
+        {
+          "id": 798637,
+          "text": "{tex}\\frac{q \\times 10^{-6}}{6 \\varepsilon_{0}}{/tex}",
+          "html": "<span class=\"math-tex\">{tex}\\frac{q \\times 10^{-6}}{6 \\varepsilon_{0}}{/tex}</span>",
+          "is_correct": true
+        }
+      ],
+      "correct_option_text": "{tex}\\frac{q \\times 10^{-6}}{6 \\varepsilon_{0}}{/tex}",
+      "correct_option_ids": [
+        798637
+      ],
+      "explanation": "{tex}\\phi_{E}=\\frac{1}{6} \\cdot \\frac{\\text { Net charge enclosed }}{\\varepsilon_{0}}=\\frac{q \\times 10^{-6}}{6 \\varepsilon_{0}} {/tex}",
+      "solution": ""
+    },
+    {
+      "n": 16,
+      "question_id": 13489,
+      "question_text": "In a system of n point charges electric potential at a point P having a distance {tex}{{\\rm{r}}_{\\rm{i}}}{/tex} from the charge {tex}{{\\rm{q}}_{\\rm{i}}}{/tex} is",
+      "question_html": "<p>In a system of n point charges electric potential at a point P having a distance <span class=\"math-tex\">{tex}{{\\rm{r}}_{\\rm{i}}}{/tex}</span> from the charge <span class=\"math-tex\">{tex}{{\\rm{q}}_{\\rm{i}}}{/tex}</span> is</p>",
+      "options": [
+        {
+          "id": 9158,
+          "text": "{tex}\\frac{1}{4\\pi\\epsilon_0} \\Sigma\\frac{q_i}{r^2}{/tex}",
+          "html": "<span class=\"math-tex\">{tex}\\frac{1}{4\\pi\\epsilon_0} \\Sigma\\frac{q_i}{r^2}{/tex}</span>",
+          "is_correct": false
+        },
+        {
+          "id": 9159,
+          "text": "{tex}\\frac{1}{4\\pi\\epsilon_0} \\Sigma\\frac{q_i}{r^3}{/tex}",
+          "html": "<span class=\"math-tex\">{tex}\\frac{1}{4\\pi\\epsilon_0} \\Sigma\\frac{q_i}{r^3}{/tex}</span>",
+          "is_correct": false
+        },
+        {
+          "id": 9156,
+          "text": "{tex}\\frac1{4\\mathrm\\pi\\in_0}{/tex} {tex}\\sum_1^i{/tex} {tex}\\frac{q_i}{r_i}{/tex}",
+          "html": "<span class=\"math-tex\">{tex}\\frac1{4\\mathrm\\pi\\in_0}{/tex}</span> <span class=\"math-tex\">{tex}\\sum_1^i{/tex}</span><span class=\"math-tex\">{tex}\\frac{q_i}{r_i}{/tex}</span>",
+          "is_correct": true
+        },
+        {
+          "id": 9157,
+          "text": "{tex}\\frac{1}{2\\pi\\epsilon_0} \\Sigma\\frac{q_i}{r}{/tex}",
+          "html": "<span class=\"math-tex\">{tex}\\frac{1}{2\\pi\\epsilon_0} \\Sigma\\frac{q_i}{r}{/tex}</span>",
+          "is_correct": false
+        }
+      ],
+      "correct_option_text": "{tex}\\frac1{4\\mathrm\\pi\\in_0}{/tex} {tex}\\sum_1^i{/tex} {tex}\\frac{q_i}{r_i}{/tex}",
+      "correct_option_ids": [
+        9156
+      ],
+      "explanation": "Electric potential at a point V is the work done in bringing unit positive charge from infinity to the point in an electric field. When there are multiple charges, the net potential will be the scaler sum of the potentials due to the individual charges because electric potential is a scaler quantity thus {tex}{V_1} = \\frac{{{q_1}}}{{4\\pi {\\varepsilon _0}{r_1}}};{V_2} = \\frac{{{q_2}}}{{4\\pi {\\varepsilon _0}{r_2}}};...{V_i} = \\frac{{{q_i}}}{{4\\pi {\\varepsilon _0}{r_i}}}{/tex} And V = V 1 + V 2 + .... + V i {tex}= \\sum\\limits_1^i {\\frac{{{q_i}}}{{4\\pi {\\varepsilon _0}{r_i}}}} = \\frac{1}{{4\\pi {\\varepsilon _0}}}\\sum\\limits_1^i {\\frac{{{q_i}}}{{{r_i}}}} {/tex}",
+      "solution": ""
+    },
+    {
+      "n": 17,
+      "question_id": 13629,
+      "question_text": "Magnetic moment of a single-turn current loop of aluminium wire of area A, carrying a current I in a wire of diameter d is",
+      "question_html": "<p>Magnetic moment of a single-turn current loop of aluminium wire of area A, carrying a current I in a wire of diameter d is</p>",
+      "options": [
+        {
+          "id": 9719,
+          "text": "Ad",
+          "html": "Ad",
+          "is_correct": false
+        },
+        {
+          "id": 9718,
+          "text": "IAd",
+          "html": "IAd",
+          "is_correct": false
+        },
+        {
+          "id": 9717,
+          "text": "&mu;IA",
+          "html": "&mu;IA",
+          "is_correct": false
+        },
+        {
+          "id": 9716,
+          "text": "IA",
+          "html": "IA",
+          "is_correct": true
+        }
+      ],
+      "correct_option_text": "IA",
+      "correct_option_ids": [
+        9716
+      ],
+      "explanation": "The magnetic moment, m = NIA Here N = 1, Thus, m = IA",
+      "solution": ""
+    },
+    {
+      "n": 18,
+      "question_id": 492797,
+      "question_text": "If the rotational velocity of dynamo armature is doubled, then induced emf will become:",
+      "question_html": "<p>If the rotational velocity of dynamo armature is doubled, then induced emf will become:</p>",
+      "options": [
+        {
+          "id": 858450,
+          "text": "two times",
+          "html": "two times",
+          "is_correct": true
+        },
+        {
+          "id": 858451,
+          "text": "unchanged",
+          "html": "unchanged",
+          "is_correct": false
+        },
+        {
+          "id": 858449,
+          "text": "four times",
+          "html": "four times",
+          "is_correct": false
+        },
+        {
+          "id": 858448,
+          "text": "half",
+          "html": "half",
+          "is_correct": false
+        }
+      ],
+      "correct_option_text": "two times",
+      "correct_option_ids": [
+        858450
+      ],
+      "explanation": "{tex}\\varepsilon=N B A \\omega \\sin \\omega t{/tex} i.e., {tex}\\varepsilon \\propto \\omega{/tex} {tex}\\frac{\\varepsilon_{2}}{\\varepsilon_{1}}=\\frac{2 \\omega}{\\omega}=2{/tex}",
+      "solution": ""
+    },
+    {
+      "n": 19,
+      "question_id": 13746,
+      "question_text": "The value of 1 Bohr magneton is: [Given h = 6.62 {tex}\\times{/tex} 10 -34 Js, e = 1.6 {tex}\\times{/tex} 10 -19 C and m e = 9.1 {tex}\\times{/tex} 10 -31 kg]",
+      "question_html": "<p>The value of 1 Bohr magneton is:&nbsp;[Given h = 6.62&nbsp;<span class=\"math-tex\">{tex}\\times{/tex}</span>&nbsp;10<sup>-34</sup> Js, e = 1.6&nbsp;<span class=\"math-tex\">{tex}\\times{/tex}</span>&nbsp;10<sup>-19</sup> C and m<sub>e</sub> = 9.1&nbsp;<span class=\"math-tex\">{tex}\\times{/tex}</span>&nbsp;10<sup>-31</sup> kg]</p>",
+      "options": [
+        {
+          "id": 10185,
+          "text": "8.57 {tex}\\times{/tex} 10 -24 Am 2",
+          "html": "8.57&nbsp;<span class=\"math-tex\">{tex}\\times{/tex}</span>&nbsp;10<sup>-24</sup> Am<sup>2</sup>",
+          "is_correct": false
+        },
+        {
+          "id": 10187,
+          "text": "10.57 {tex}\\times{/tex} 10 -24 Am 2",
+          "html": "10.57&nbsp;<span class=\"math-tex\">{tex}\\times{/tex}</span>&nbsp;10<sup>-24</sup> Am<sup>2</sup>",
+          "is_correct": false
+        },
+        {
+          "id": 10186,
+          "text": "7.27 {tex}\\times{/tex} 10 -24 Am 2",
+          "html": "7.27&nbsp;<span class=\"math-tex\">{tex}\\times{/tex}</span>&nbsp;10<sup>-24</sup> Am<sup>2</sup>",
+          "is_correct": false
+        },
+        {
+          "id": 10184,
+          "text": "9.27 {tex}\\times{/tex} 10 -24 Am 2",
+          "html": "9.27&nbsp;<span class=\"math-tex\">{tex}\\times{/tex}</span>&nbsp;10<sup>-24</sup> Am<sup>2</sup>",
+          "is_correct": true
+        }
+      ],
+      "correct_option_text": "9.27 {tex}\\times{/tex} 10 -24 Am 2",
+      "correct_option_ids": [
+        10184
+      ],
+      "explanation": "1 Bohr magneton = {tex}\\frac{eh}{4\\pi m_e}{/tex} = {tex}\\frac{1.6 \\times {10^{-19}} \\times 6.62 \\times 10^{-34}}{4\\pi \\times 9.1 \\times 10 ^{-31}}{/tex} = 9.27 {tex}\\times{/tex} 10 -24 Am 2",
+      "solution": ""
+    },
+    {
+      "n": 20,
+      "question_id": 463658,
+      "question_text": "The voltage of clouds is 4 {tex}\\times{/tex} 10 6 V with respect to ground. In a lightning strike lasting 0.1 s, a charge of 4 C is delivered to the ground. The power of the lightning strike is:",
+      "question_html": "<p>The voltage of clouds is 4 <span class=\"math-tex\">{tex}\\times{/tex}</span>&nbsp;10<sup>6</sup>&nbsp;V with respect to ground. In a lightning strike lasting 0.1 s, a charge of 4 C is delivered to the ground. The power of the lightning strike is:</p>",
+      "options": [
+        {
+          "id": 798097,
+          "text": "160 MW",
+          "html": "160 MW",
+          "is_correct": true
+        },
+        {
+          "id": 798098,
+          "text": "80 MW",
+          "html": "80 MW",
+          "is_correct": false
+        },
+        {
+          "id": 798099,
+          "text": "20 MW",
+          "html": "20 MW",
+          "is_correct": false
+        },
+        {
+          "id": 798100,
+          "text": "500 MW",
+          "html": "500 MW",
+          "is_correct": false
+        }
+      ],
+      "correct_option_text": "160 MW",
+      "correct_option_ids": [
+        798097
+      ],
+      "explanation": "{tex}P=\\frac{W}{t}=\\frac{q V}{t}=\\frac{4 \\times 4 \\times 10^{6}}{0.1} W{/tex} = 160 MW",
+      "solution": ""
+    },
+    {
+      "n": 21,
+      "question_id": 329972,
+      "question_text": "Five charges q 1 , q 2 , q 3 , q 4 , and q 5 are fixed at their positions as shown in Fig., S is a Gaussian surface. The Gauss’s law is given by {tex}\\oint_{\\mathrm{s}} \\mathbf{E} \\cdot d \\mathbf{s}=\\frac{q}{\\varepsilon_{0}}{/tex} Which of the following statements is correct?",
+      "question_html": "<html><body><p>Five charges q<sub>1</sub> , q<sub>2</sub> , q<sub>3 </sub>, q<sub>4</sub>, and q<sub>5</sub> are fixed at their positions as shown in Fig., S is a Gaussian surface. The Gauss’s law is given by <span class=\"math-tex\">{tex}\\oint_{\\mathrm{s}} \\mathbf{E} \\cdot d \\mathbf{s}=\\frac{q}{\\varepsilon_{0}}{/tex}</span><br/>\n<img alt=\"\" data-imgur-src=\"eWH5WW3.png\" src=\"https://media-mycbseguide.s3.amazonaws.com/images/imgur/eWH5WW3.png\" style=\"width: 156px; height: 179px;\"/><br/>\r\nWhich of the following statements is correct?</p></body></html>",
+      "options": [
+        {
+          "id": 497516,
+          "text": "Both E on the LHS and q on the RHS will have contributions from q 2 and q 4 only.",
+          "html": "Both&nbsp;<strong>E</strong>&nbsp;on the LHS and&nbsp;<em>q&nbsp;</em>on the RHS will have contributions from&nbsp;<em>q</em><sub>2</sub>&nbsp;and&nbsp;<em>q</em><sub>4</sub>&nbsp;only.",
+          "is_correct": false
+        },
+        {
+          "id": 497515,
+          "text": "E on the LHS of the above equation will have a contribution from all charges while q on the RHS will have a contribution from q 1 , q 3 , and q 5 only.",
+          "html": "<strong>E</strong>&nbsp;on the LHS of the above equation will have a contribution from all charges while q on the RHS will have a contribution from&nbsp;<em>q</em><sub>1</sub>,&nbsp;<em>q</em><sub>3</sub>,&nbsp;and&nbsp;<em>q</em><sub>5</sub>&nbsp;only.",
+          "is_correct": false
+        },
+        {
+          "id": 497514,
+          "text": "E on the LHS of the above equation will have a contribution from q 1 , q 5 , and q 3 while q on the RHS will have a contribution from q 2 and q 4 only.",
+          "html": "<strong>E&nbsp;</strong>on the LHS of the above equation will have a contribution from&nbsp;<em>q</em><sub>1</sub>,&nbsp;<em>q</em><sub>5</sub>,<sub>&nbsp;</sub>and&nbsp;<em>q</em><sub>3</sub>&nbsp;while&nbsp;<em>q&nbsp;</em>on the RHS will have a contribution from&nbsp;<em>q</em><sub>2</sub>&nbsp;and&nbsp;<em>q</em><sub>4</sub>&nbsp;only.",
+          "is_correct": false
+        },
+        {
+          "id": 497513,
+          "text": "E on the LHS of the above equation will have a contribution from all charges while q on the RHS will have a contribution from q 2 and q 4 only.",
+          "html": "<strong>E</strong>&nbsp;on the LHS of the above equation will have a contribution from all charges while&nbsp;<strong>q</strong>&nbsp;on the RHS will have a contribution from&nbsp;<em>q</em><sub>2</sub>&nbsp;and&nbsp;<em>q</em><sub>4</sub>&nbsp;only.",
+          "is_correct": true
+        }
+      ],
+      "correct_option_text": "E on the LHS of the above equation will have a contribution from all charges while q on the RHS will have a contribution from q 2 and q 4 only.",
+      "correct_option_ids": [
+        497513
+      ],
+      "explanation": "According to the Gauss&#39; theorem, the term q on the right side of the equation includes the sum of all charges enclosed by the surface (irrespective of the position of the charges inside the surface). If the surface is so chosen that there are some charges inside and some outside, the electric field on the left side of the equation will be due to all charges (both inside as well as outside) Hence, E on LHS of the above equation will have a contribution from all charges while q on the RHS will have a contribution from charges q 2 and q 4 only. Hence option (a) is correct.",
+      "solution": ""
+    },
+    {
+      "n": 22,
+      "question_id": 492877,
+      "question_text": "In an a.c. circuit, the potential differences across an inductance and resistance joined in series are respectively 16 V and 20 V. The total potential difference of the source is",
+      "question_html": "<p>In an a.c. circuit, the potential differences across an inductance and resistance joined in series are respectively 16 V and 20 V. The total potential difference of the source is</p>",
+      "options": [
+        {
+          "id": 858667,
+          "text": "53.5 V",
+          "html": "53.5 V",
+          "is_correct": false
+        },
+        {
+          "id": 858666,
+          "text": "31.9 V",
+          "html": "31.9 V",
+          "is_correct": false
+        },
+        {
+          "id": 858665,
+          "text": "25.6 V",
+          "html": "25.6 V",
+          "is_correct": true
+        },
+        {
+          "id": 858664,
+          "text": "20.0 V",
+          "html": "20.0 V",
+          "is_correct": false
+        }
+      ],
+      "correct_option_text": "25.6 V",
+      "correct_option_ids": [
+        858665
+      ],
+      "explanation": "For an RL-circuit, {tex}V_{\\text {eff }}=\\sqrt{V_{R}^{2}+V_{L}^{2}}=\\sqrt{20^{2}+16^{2}}=\\sqrt{656}=25.6 \\mathrm{~V}{/tex}",
+      "solution": ""
+    },
+    {
+      "n": 23,
+      "question_id": 13762,
+      "question_text": "Magnetic flux (&Phi; B ) through a surface S is given by",
+      "question_html": "<p>Magnetic flux (&Phi;<sub>B</sub>) through a surface S is given by</p>",
+      "options": [
+        {
+          "id": 10250,
+          "text": "{tex} \\vec{B}. \\vec{ds}{/tex}",
+          "html": "<span class=\"math-tex\">{tex} \\vec{B}. \\vec{ds}{/tex}</span>",
+          "is_correct": false
+        },
+        {
+          "id": 10251,
+          "text": "{tex}\\int \\mu_0 \\vec{B}. \\vec{ds}{/tex}",
+          "html": "<span class=\"math-tex\">{tex}\\int \\mu_0 \\vec{B}. \\vec{ds}{/tex}</span>",
+          "is_correct": false
+        },
+        {
+          "id": 10249,
+          "text": "{tex}\\int \\vec{B}× \\vec{ds}{/tex}",
+          "html": "<span class=\"math-tex\">{tex}\\int \\vec{B}× \\vec{ds}{/tex}</span>",
+          "is_correct": false
+        },
+        {
+          "id": 10248,
+          "text": "{tex}\\int \\vec{B}. \\vec{ds}{/tex}",
+          "html": "<span class=\"math-tex\">{tex}\\int \\vec{B}. \\vec{ds}{/tex}</span>",
+          "is_correct": true
+        }
+      ],
+      "correct_option_text": "{tex}\\int \\vec{B}. \\vec{ds}{/tex}",
+      "correct_option_ids": [
+        10248
+      ],
+      "explanation": "if dS is area of an element of any arbitrary shape and magnetic field at this element is B. The total magnetic flux through the surface is the sum of the contributions from the individual area elements.",
+      "solution": ""
+    },
+    {
+      "n": 24,
+      "question_id": 491978,
+      "question_text": "Due to earth&#39;s magnetic field, the charged cosmic rays particles:",
+      "question_html": "<p>Due to earth&#39;s magnetic field, the charged cosmic rays particles:</p>",
+      "options": [
+        {
+          "id": 856752,
+          "text": "can never reach the equator",
+          "html": "can never reach the equator",
+          "is_correct": false
+        },
+        {
+          "id": 856750,
+          "text": "require less kinetic energy to reach the equator than pole",
+          "html": "require less kinetic energy to reach the equator&nbsp;than pole",
+          "is_correct": false
+        },
+        {
+          "id": 856751,
+          "text": "can never reach the pole",
+          "html": "can never reach the pole",
+          "is_correct": false
+        },
+        {
+          "id": 856749,
+          "text": "require greater kinetic energy to reach the equator than pole",
+          "html": "require greater kinetic energy to reach the equator than pole",
+          "is_correct": true
+        }
+      ],
+      "correct_option_text": "require greater kinetic energy to reach the equator than pole",
+      "correct_option_ids": [
+        856749
+      ],
+      "explanation": "At the equator, the earth&#39;s magnetic field is perpendicular to the direction of motion of the charged cosmic ray particles. As these particles get deflected due to the earth&#39;s magnetic field, so they require greater kinetic energy to reach the equator than the poles.",
+      "solution": ""
+    },
+    {
+      "n": 25,
+      "question_id": 471704,
+      "question_text": "An alternating electric field, of frequency {tex}\\nu{/tex} , is applied across the dees (radius = R) of a cyclotron that is being used to accelerate protons (mass = m). The operating magnetic field (B) used in the cyclotron and the kinetic energy (K) of the proton beam, produced by it, are given by",
+      "question_html": "<p>An alternating electric field, of frequency <span class=\"math-tex\">{tex}\\nu{/tex}</span>, is applied across the dees (radius = R) of a cyclotron that is being used to accelerate protons (mass = m). The operating magnetic field (B) used in the cyclotron and the kinetic energy (K) of the proton beam, produced by it, are given by</p>\r\n",
+      "options": [
+        {
+          "id": 815235,
+          "text": "{tex}B=\\frac{2 \\pi m \\nu}{e}{/tex} and {tex}K=2 m \\pi^{2} \\nu^{2} R^{2}{/tex}",
+          "html": "<span class=\"math-tex\">{tex}B=\\frac{2 \\pi m \\nu}{e}{/tex}</span>&nbsp;and&nbsp;<span class=\"math-tex\">{tex}K=2 m \\pi^{2} \\nu^{2} R^{2}{/tex}</span>",
+          "is_correct": true
+        },
+        {
+          "id": 815236,
+          "text": "{tex}B=\\frac{m \\nu}{e}{/tex} and {tex}K=2 m \\pi^{2} \\nu^{2} R^{2}{/tex}",
+          "html": "<span class=\"math-tex\">{tex}B=\\frac{m \\nu}{e}{/tex}</span>&nbsp;and&nbsp;<span class=\"math-tex\">{tex}K=2 m \\pi^{2} \\nu^{2} R^{2}{/tex}</span>",
+          "is_correct": false
+        },
+        {
+          "id": 815237,
+          "text": "{tex}B=\\frac{2 \\pi m \\nu}{e}{/tex} and {tex}K=m^{2} \\pi \\nu R^{2}{/tex}",
+          "html": "<span class=\"math-tex\">{tex}B=\\frac{2 \\pi m \\nu}{e}{/tex}</span>&nbsp;and&nbsp;<span class=\"math-tex\">{tex}K=m^{2} \\pi \\nu R^{2}{/tex}</span>",
+          "is_correct": false
+        },
+        {
+          "id": 815238,
+          "text": "{tex}B=\\frac{m \\nu}{e}{/tex} and {tex}K=m^{2} \\pi \\nu R^{2}{/tex}",
+          "html": "<span class=\"math-tex\">{tex}B=\\frac{m \\nu}{e}{/tex}</span>&nbsp;and&nbsp;<span class=\"math-tex\">{tex}K=m^{2} \\pi \\nu R^{2}{/tex}</span>",
+          "is_correct": false
+        }
+      ],
+      "correct_option_text": "{tex}B=\\frac{2 \\pi m \\nu}{e}{/tex} and {tex}K=2 m \\pi^{2} \\nu^{2} R^{2}{/tex}",
+      "correct_option_ids": [
+        815235
+      ],
+      "explanation": "Cyclotron frequency, {tex}\\nu=\\frac{e B}{2 \\pi m}{/tex} {tex}\\therefore B=\\frac{2 \\pi m \\nu}{e}{/tex} When protons attain maximum speed, {tex}\\frac{m v_{0}^{2}}{R}=e v_{0} B \\text { or } v_{0}=\\frac{e B R}{m}{/tex} {tex}\\therefore \\quad K=\\frac{1}{2} m v_{0}^{2}=\\frac{1}{2} \\times m \\frac{e^{2} B^{2} R}{m^{2}}=\\frac{1}{2} \\frac{e^{2} R}{m} \\times \\frac{4 \\pi^{2} m \\nu^{2}}{e^{2}}{/tex} {tex}=2 \\pi^{2} m \\nu^{2} R^{2}{/tex}",
+      "solution": ""
+    },
+    {
+      "n": 26,
+      "question_id": 66672,
+      "question_text": "The electric current in a circular coil of two turns produces a magnetic induction of 0.2 T at its centre. The coil is unwound and is rewound into a circular coil of four turns. The magnetic induction at the centre of the coil now is, in tesla",
+      "question_html": "<p>The electric current in a circular coil of two turns produces a magnetic induction of 0.2 T at its centre. The coil is unwound and is rewound into a circular coil of four turns. The magnetic induction at the centre of the coil now is, in tesla</p>",
+      "options": [
+        {
+          "id": 209005,
+          "text": "0.4",
+          "html": "0.4",
+          "is_correct": false
+        },
+        {
+          "id": 209003,
+          "text": "0.8",
+          "html": "0.8",
+          "is_correct": true
+        },
+        {
+          "id": 209004,
+          "text": "0.2",
+          "html": "0.2",
+          "is_correct": false
+        },
+        {
+          "id": 209006,
+          "text": "0.6",
+          "html": "0.6",
+          "is_correct": false
+        }
+      ],
+      "correct_option_text": "0.8",
+      "correct_option_ids": [
+        209003
+      ],
+      "explanation": "We know that, {tex}B=\\frac{\\mu_{0} N I}{2 r}{/tex} If the number of turns is doubled the radius is halved. Therefore, {tex}B^{\\prime}=\\frac{\\mu_{0}(2 N) I}{2(r / 2)}=4 B=4 \\times 0.2=0.8 \\mathrm{T}{/tex}",
+      "solution": ""
+    },
+    {
+      "n": 27,
+      "question_id": 13523,
+      "question_text": "The electric field between the plates of a fully charged capacitor is E. If a material of dielectric constant K is introduced between the plates, the electric field at a point between the plates",
+      "question_html": "<p>The electric field between the plates of a fully charged capacitor is E. If a material of dielectric constant K&nbsp;is introduced between the plates, the electric field at a point between the plates</p>",
+      "options": [
+        {
+          "id": 9293,
+          "text": "becomes EK",
+          "html": "becomes EK",
+          "is_correct": false
+        },
+        {
+          "id": 9292,
+          "text": "becomes E/K",
+          "html": "becomes E/K",
+          "is_correct": true
+        },
+        {
+          "id": 9294,
+          "text": "remains unchanged",
+          "html": "remains unchanged",
+          "is_correct": false
+        },
+        {
+          "id": 9295,
+          "text": "becomes zero",
+          "html": "becomes zero",
+          "is_correct": false
+        }
+      ],
+      "correct_option_text": "becomes E/K",
+      "correct_option_ids": [
+        9292
+      ],
+      "explanation": "Charge on the plates of the capacitor is q = CV When a dielectric slab (dielectric constant, K) introduced between the plates of the capacitor, capacity of the capacitor becomes K times that of it had in case of air. Thus, C (dielectric) = KC Therefore, if dielectric slab is introduced then charge on the plates remain the same. But potential difference V&deg; between the plates decreases as q = C (dielectric) V&deg; or V&deg; = {tex}\\frac{q} {C_{(dielectric)}}{/tex} = {tex}\\frac{q}{{KC}}{/tex} = {tex}\\frac{V}{K}{/tex} Since K is greater than 1, therefore, V&deg; < V and electric field E = {tex}\\frac{V}{d}{/tex} Here d is the distance between the plates of the capacitor. Therefore E&deg;, electric field between the plates in presence of dielectric slab, E&deg; = {tex}\\frac{V ^\\circ}{d}{/tex} = {tex}\\frac{V}{Kd}{/tex} = {tex}\\frac{E}{K}{/tex} That is E&deg; < E.",
+      "solution": ""
+    },
+    {
+      "n": 28,
+      "question_id": 13437,
+      "question_text": "A metallic solid sphere is placed in a uniform electric field. In the figure, which path will the lines of force follow?",
+      "question_html": "<p>A metallic solid sphere is placed in a uniform electric field. In the figure, which path will the lines of force follow?<br />\r\n<img src=\"https://media-mycbseguide.s3.amazonaws.com/images/testpaper/1.02.12.01.35.Ques.jpg\" style=\"width: 180px; height: 115px;\" /></p>",
+      "options": [
+        {
+          "id": 8948,
+          "text": "4",
+          "html": "4",
+          "is_correct": true
+        },
+        {
+          "id": 8949,
+          "text": "1",
+          "html": "1",
+          "is_correct": false
+        },
+        {
+          "id": 8951,
+          "text": "3",
+          "html": "3",
+          "is_correct": false
+        },
+        {
+          "id": 8950,
+          "text": "2",
+          "html": "2",
+          "is_correct": false
+        }
+      ],
+      "correct_option_text": "4",
+      "correct_option_ids": [
+        8948
+      ],
+      "explanation": "The electric field is always normal to the surface of a conductor. On the surface of a metallic solid sphere, the electrical field is oriented normally (i.e. directed towards the centre of the sphere) and inside the conductor electric field is zero. So, 4th line is correct.",
+      "solution": ""
+    },
+    {
+      "n": 29,
+      "question_id": 66931,
+      "question_text": "Alternating current can not be measured by d.c. ammeter, because:",
+      "question_html": "<p>Alternating current can not be measured by d.c. ammeter, because:</p>",
+      "options": [
+        {
+          "id": 209136,
+          "text": "a.c. changes direction",
+          "html": "a.c. changes direction",
+          "is_correct": false
+        },
+        {
+          "id": 209138,
+          "text": "a.c. ammeter will get damaged",
+          "html": "a.c. ammeter will get damaged",
+          "is_correct": false
+        },
+        {
+          "id": 209137,
+          "text": "average value of current of complete cycle is zero",
+          "html": "average value of current of complete cycle is zero",
+          "is_correct": true
+        },
+        {
+          "id": 209135,
+          "text": "a.c. cannot pass through a.c. ammeter",
+          "html": "a.c. cannot pass through a.c. ammeter",
+          "is_correct": false
+        }
+      ],
+      "correct_option_text": "average value of current of complete cycle is zero",
+      "correct_option_ids": [
+        209137
+      ],
+      "explanation": "The average value of alternating current over a complete cycle is zero",
+      "solution": ""
+    },
+    {
+      "n": 30,
+      "question_id": 13827,
+      "question_text": "A uniformly wound long solenoid of inductance L and resistance R is broken into two equal parts in the ratio {tex}\\frac {\\eta}1{/tex} , which are then joined in parallel. This combination is then joined to a cell of emf {tex}\\varepsilon {/tex} . The time constant of the circuit is",
+      "question_html": "<p>A uniformly wound long solenoid of inductance L and resistance R is broken into two equal parts in the ratio&nbsp;<span class=\"math-tex\">{tex}\\frac {\\eta}1{/tex}</span>, which are then joined in parallel. This combination is then joined to a cell of emf <span class=\"math-tex\">{tex}\\varepsilon {/tex}</span>. The time constant of the circuit is</p>",
+      "options": [
+        {
+          "id": 10509,
+          "text": "{tex}\\frac{L}{{2R}}{/tex}",
+          "html": "<span class=\"math-tex\">{tex}\\frac{L}{{2R}}{/tex}</span>",
+          "is_correct": false
+        },
+        {
+          "id": 10510,
+          "text": "{tex}\\frac{{2L}}{R}{/tex}",
+          "html": "<span class=\"math-tex\">{tex}\\frac{{2L}}{R}{/tex}</span>",
+          "is_correct": false
+        },
+        {
+          "id": 10511,
+          "text": "{tex}\\frac{L}{{R^2}}{/tex}",
+          "html": "<span class=\"math-tex\">{tex}\\frac{L}{{R^2}}{/tex}</span>",
+          "is_correct": false
+        },
+        {
+          "id": 10508,
+          "text": "{tex}\\frac{L}{R}{/tex}",
+          "html": "<span class=\"math-tex\">{tex}\\frac{L}{R}{/tex}</span>",
+          "is_correct": true
+        }
+      ],
+      "correct_option_text": "{tex}\\frac{L}{R}{/tex}",
+      "correct_option_ids": [
+        10508
+      ],
+      "explanation": "{tex}L_{1}=\\left(\\frac{\\eta}{\\eta+1}\\right) L, R_{1}=\\left(\\frac{\\eta}{\\eta+1}\\right) R{/tex} {tex}L_{2}=\\left(\\frac{1}{\\eta+1}\\right) L, R_{2}=\\left(\\frac{1}{\\eta+1}\\right) R{/tex} {tex}L_{n e t}=\\frac{L_{1} L_{2}}{L_{1}+L_{2}}=\\frac{\\eta L L}{(\\eta+1)(\\eta L+L)}{/tex} Similarly, {tex}R_{n e t}=\\frac{R_{1} R_{2}}{R_{1}+R_{2}}=\\frac{\\eta R R}{(\\eta+1)(\\eta R+R)}{/tex} {tex}\\tau_L=\\frac{L_{n e t}}{R_{n e t}}=\\frac{L}{R}{/tex}",
+      "solution": ""
+    },
+    {
+      "n": 31,
+      "question_id": 13743,
+      "question_text": "Tesla is the unit of",
+      "question_html": "<p>Tesla is the unit of</p>",
+      "options": [
+        {
+          "id": 10174,
+          "text": "magnetic induction",
+          "html": "magnetic induction",
+          "is_correct": true
+        },
+        {
+          "id": 10172,
+          "text": "electric flux",
+          "html": "electric flux",
+          "is_correct": false
+        },
+        {
+          "id": 10175,
+          "text": "magnetic flux",
+          "html": "magnetic flux",
+          "is_correct": false
+        },
+        {
+          "id": 10173,
+          "text": "electric field",
+          "html": "electric field",
+          "is_correct": false
+        }
+      ],
+      "correct_option_text": "magnetic induction",
+      "correct_option_ids": [
+        10174
+      ],
+      "explanation": "magnetic induction",
+      "solution": ""
+    },
+    {
+      "n": 32,
+      "question_id": 13796,
+      "question_text": "Given magnetic field B, area A and length l of a solenoid. The magnetic energy per unit volume is",
+      "question_html": "<p>Given magnetic field B, area A and length l of a solenoid. The magnetic energy per unit volume is</p>",
+      "options": [
+        {
+          "id": 10386,
+          "text": "{tex}\\frac{1}{2\\mu_0}B^2A{/tex}",
+          "html": "<span class=\"math-tex\">{tex}\\frac{1}{2\\mu_0}B^2A{/tex}</span>",
+          "is_correct": false
+        },
+        {
+          "id": 10385,
+          "text": "{tex}\\frac{3}{2\\mu_0}B^2Al{/tex}",
+          "html": "<span class=\"math-tex\">{tex}\\frac{3}{2\\mu_0}B^2Al{/tex}</span>",
+          "is_correct": false
+        },
+        {
+          "id": 10384,
+          "text": "{tex} \\frac{{B^2}} {2{\\mu _0}}{/tex}",
+          "html": "<span class=\"math-tex\">{tex} \\frac{{B^2}} {2{\\mu _0}}{/tex}</span>",
+          "is_correct": true
+        },
+        {
+          "id": 10387,
+          "text": "{tex}\\frac{1}{2\\mu_0}B^3Al{/tex}",
+          "html": "<span class=\"math-tex\">{tex}\\frac{1}{2\\mu_0}B^3Al{/tex}</span>",
+          "is_correct": false
+        }
+      ],
+      "correct_option_text": "{tex} \\frac{{B^2}} {2{\\mu _0}}{/tex}",
+      "correct_option_ids": [
+        10384
+      ],
+      "explanation": "{tex}U = \\frac{1}{{2{\\mu _0}}}{B^2}Al{/tex} {tex}\\frac{U}{V} = \\frac{{{B^2}}}{{2{\\mu _0}}}{/tex}",
+      "solution": ""
+    },
+    {
+      "n": 33,
+      "question_id": 471470,
+      "question_text": "The potential difference (V A - V B ) between the points A and B in the given figure is:",
+      "question_html": "<html><body><p>The potential difference (V<sub>A</sub> - V<sub>B</sub>) between the points A and B in the given figure is:<br/>\n<img alt=\"\" data-imgur-src=\"ZmOynP4.png\" src=\"https://media-mycbseguide.s3.amazonaws.com/images/imgur/1613389231-xvyehn.jpg\" style=\"width: 150px; height: 33px;\"/></p></body></html>",
+      "options": [
+        {
+          "id": 815012,
+          "text": "+9 V",
+          "html": "+9 V",
+          "is_correct": true
+        },
+        {
+          "id": 815013,
+          "text": "-3 V",
+          "html": "-3 V",
+          "is_correct": false
+        },
+        {
+          "id": 815011,
+          "text": "+6 V",
+          "html": "+6 V",
+          "is_correct": false
+        },
+        {
+          "id": 815014,
+          "text": "+3 V",
+          "html": "+3 V",
+          "is_correct": false
+        }
+      ],
+      "correct_option_text": "+9 V",
+      "correct_option_ids": [
+        815012
+      ],
+      "explanation": "V B = V A - 2 {tex}\\times{/tex} 2 - 3 - 2 {tex}\\times{/tex} 1 = V A - 9 {tex}\\therefore{/tex} V A - V B = 9 V Alternative V A - V B = 9 - 0 = 9 V",
+      "solution": ""
+    },
+    {
+      "n": 34,
+      "question_id": 13532,
+      "question_text": "A parallel combination of 0.1 M {tex}\\Omega {/tex} resistor and a 10 {tex}\\mu {\\rm{F}}{/tex} capacitor is connected across a 1.5 V source of negligible resistance. The time (in seconds) required for the capacitor to get charged up to 0.75 V is approximately",
+      "question_html": "<p>A parallel combination of 0.1 M<span class=\"math-tex\">{tex}\\Omega {/tex}</span> resistor and a 10 <span class=\"math-tex\">{tex}\\mu {\\rm{F}}{/tex}</span> capacitor is connected across a 1.5 V source of negligible resistance. The time (in seconds) required for the capacitor to get charged up to 0.75 V is approximately</p>\r\n",
+      "options": [
+        {
+          "id": 9329,
+          "text": "{tex}\\infty {/tex}",
+          "html": "&nbsp;<span class=\"math-tex\">{tex}\\infty {/tex}</span>",
+          "is_correct": false
+        },
+        {
+          "id": 9330,
+          "text": "{tex}{\\rm{lo}}{{\\rm{g}}_{\\rm{e}}}{\\rm{2}}{/tex}",
+          "html": "<span class=\"math-tex\">{tex}{\\rm{lo}}{{\\rm{g}}_{\\rm{e}}}{\\rm{2}}{/tex}</span>",
+          "is_correct": false
+        },
+        {
+          "id": 9328,
+          "text": "zero",
+          "html": "zero",
+          "is_correct": true
+        },
+        {
+          "id": 9331,
+          "text": "{tex}{\\rm{lo}}{{\\rm{g}}_{{\\rm{1}}0}}{\\rm{2}}{/tex}",
+          "html": "<span class=\"math-tex\">{tex}{\\rm{lo}}{{\\rm{g}}_{{\\rm{1}}0}}{\\rm{2}}{/tex}</span>",
+          "is_correct": false
+        }
+      ],
+      "correct_option_text": "zero",
+      "correct_option_ids": [
+        9328
+      ],
+      "explanation": "There is no resistance in the part of the circuit containing battery and the capacitor, i.e., R = 0 in this circuit. Hence the time constant which is equal to RC would be equal to zero.",
+      "solution": ""
+    },
+    {
+      "n": 35,
+      "question_id": 334165,
+      "question_text": "Which of the following characteristics of electrons determines the current in a conductor?",
+      "question_html": "<p>Which of the following characteristics of electrons determines the current in a conductor?</p>",
+      "options": [
+        {
+          "id": 503949,
+          "text": "Both drift velocity and thermal velocity.",
+          "html": "Both drift velocity and thermal velocity.",
+          "is_correct": false
+        },
+        {
+          "id": 503950,
+          "text": "Neither drift nor thermal velocity.",
+          "html": "Neither drift nor thermal velocity.",
+          "is_correct": false
+        },
+        {
+          "id": 503947,
+          "text": "Drift velocity alone.",
+          "html": "Drift velocity alone.",
+          "is_correct": true
+        },
+        {
+          "id": 503948,
+          "text": "The thermal velocity alone.",
+          "html": "The thermal velocity alone.",
+          "is_correct": false
+        }
+      ],
+      "correct_option_text": "Drift velocity alone.",
+      "correct_option_ids": [
+        503947
+      ],
+      "explanation": "As I = Anev d &rsquo; So current I {tex}\\propto{/tex} v d Although I also depend on n, the number of free electrons which increases on increasing temperature which makes more collision between electrons increases the resistance or decrease the current and we obtain a large amount of current even drift velocity is small because electron no. Density is very large.",
+      "solution": ""
+    },
+    {
+      "n": 36,
+      "question_id": 337476,
+      "question_text": "To reduce the reasonant frequency in an LCR series circuit with a generator",
+      "question_html": "<p>To reduce the reasonant frequency in an LCR series circuit with a generator</p>",
+      "options": [
+        {
+          "id": 512012,
+          "text": "dielectric in the capacitor should be removed",
+          "html": "dielectric in the capacitor should be removed",
+          "is_correct": false
+        },
+        {
+          "id": 512011,
+          "text": "the iron core of the inductor should be removed",
+          "html": "the iron core of the inductor should be removed",
+          "is_correct": false
+        },
+        {
+          "id": 512010,
+          "text": "another capacitor should be added in parallel to the first",
+          "html": "another capacitor should be added in parallel to the first",
+          "is_correct": true
+        },
+        {
+          "id": 512009,
+          "text": "the generator frequency should be reduced",
+          "html": "the generator frequency should be reduced",
+          "is_correct": false
+        }
+      ],
+      "correct_option_text": "another capacitor should be added in parallel to the first",
+      "correct_option_ids": [
+        512010
+      ],
+      "explanation": "Resonant frequency in an L-C-R circuit is given by {tex}v_{0}=\\frac{1}{2 \\pi \\sqrt{L C}}{/tex} , {tex}v_{0} {/tex} is the frequency and L is the inductor and C for the capacitor. If L or C increases, the resonant frequency will reduce. To increase capacitance, we must connect another capacitor parallel to the first.",
+      "solution": ""
+    },
+    {
+      "n": 37,
+      "question_id": 13797,
+      "question_text": "Kamla peddles a stationary bicycle the pedals of the bicycle are attached to a 100 turn coil of area {tex}0.{\\rm{1}}0{\\rm{ }}{{\\rm{m}}^{\\rm{2}}}{/tex} . The coil rotates at half a revolution per second and it is placed in a uniform magnetic field of 0.02 T perpendicular to the axis of rotation of the coil. What is the maximum voltage generated in the coil?",
+      "question_html": "<p>Kamla peddles a stationary bicycle the pedals of the bicycle are attached to a 100 turn coil of area&nbsp;<span class=\"math-tex\">{tex}0.{\\rm{1}}0{\\rm{ }}{{\\rm{m}}^{\\rm{2}}}{/tex}</span>. The coil rotates at half a revolution per second and it is placed in a uniform magnetic field of 0.02 T perpendicular to the axis of rotation of the coil. What is the maximum voltage generated in the coil?</p>",
+      "options": [
+        {
+          "id": 10388,
+          "text": "0.628 V",
+          "html": "0.628 V",
+          "is_correct": true
+        },
+        {
+          "id": 10390,
+          "text": "0.714 V",
+          "html": "0.714 V",
+          "is_correct": false
+        },
+        {
+          "id": 10389,
+          "text": "0.314 V",
+          "html": "0.314 V",
+          "is_correct": false
+        },
+        {
+          "id": 10391,
+          "text": "0.554 V",
+          "html": "0.554 V",
+          "is_correct": false
+        }
+      ],
+      "correct_option_text": "0.628 V",
+      "correct_option_ids": [
+        10388
+      ],
+      "explanation": "Maximum voltage is given by: {tex}{e_0} = NBA\\omega {/tex} but, {tex}\\omega = 2\\pi n = 2 \\times 3.14 \\times 0.5{/tex} Therefore, {tex}{e_0} = NBA\\omega = 100 \\times 0.02 \\times 0.1 \\times 2 \\times 3.14 \\times 0.5 = 0.628{\\text{V}}{/tex}",
+      "solution": ""
+    },
+    {
+      "n": 38,
+      "question_id": 491964,
+      "question_text": "A copper rod is suspended in a nonhomogeneous magnetic field region. The rod when in equilibrium will align itself",
+      "question_html": "<p>A copper rod is suspended in a nonhomogeneous magnetic field region. The rod when in equilibrium will align itself</p>",
+      "options": [
+        {
+          "id": 856695,
+          "text": "in the direction in which it was originally suspended",
+          "html": "in the direction in which it was originally suspended",
+          "is_correct": false
+        },
+        {
+          "id": 856694,
+          "text": "in the region where the magnetic field is weakest and parallel to the direction of the magnetic field there",
+          "html": "in the region where the magnetic field is weakest and parallel to the direction of the magnetic field there",
+          "is_correct": false
+        },
+        {
+          "id": 856696,
+          "text": "in the region where the magnetic field is weakest and perpendicular to the direction of the magnetic field there",
+          "html": "in the region where the magnetic field is weakest and perpendicular to the direction of the magnetic field there",
+          "is_correct": true
+        },
+        {
+          "id": 856693,
+          "text": "in the region where the magnetic field is strongest",
+          "html": "in the region where the magnetic field is strongest",
+          "is_correct": false
+        }
+      ],
+      "correct_option_text": "in the region where the magnetic field is weakest and perpendicular to the direction of the magnetic field there",
+      "correct_option_ids": [
+        856696
+      ],
+      "explanation": "Copper is diamagnetic. When suspended in a non-uniform magnetic field, its rod will align itself in the region where the field is weakest and perpendicular to the direction of the field so that repulsion is minimum.",
+      "solution": ""
+    },
+    {
+      "n": 39,
+      "question_id": 349713,
+      "question_text": "The output of a step-down transformer is measured to be 24 V when connected to a 12 watt light bulb. The value of the peak current is",
+      "question_html": "<p>The output of a step-down transformer is measured to be 24 V when connected to a 12 watt light bulb. The value of the peak current is</p>",
+      "options": [
+        {
+          "id": 538107,
+          "text": "2A",
+          "html": "2A",
+          "is_correct": false
+        },
+        {
+          "id": 538106,
+          "text": "{tex}\\sqrt{2} \\mathrm{A}{/tex}",
+          "html": "<span class=\"math-tex\">{tex}\\sqrt{2} \\mathrm{A}{/tex}</span>",
+          "is_correct": false
+        },
+        {
+          "id": 538108,
+          "text": "{tex}2 \\sqrt{2} \\mathrm{A}{/tex}",
+          "html": "<span class=\"math-tex\">{tex}2 \\sqrt{2} \\mathrm{A}{/tex}</span>",
+          "is_correct": false
+        },
+        {
+          "id": 538105,
+          "text": "{tex}\\frac {1} {\\sqrt{2} \\mathrm{A}}{/tex}",
+          "html": "<span class=\"math-tex\">{tex}\\frac {1} {\\sqrt{2} \\mathrm{A}}{/tex}</span>",
+          "is_correct": true
+        }
+      ],
+      "correct_option_text": "{tex}\\frac {1} {\\sqrt{2} \\mathrm{A}}{/tex}",
+      "correct_option_ids": [
+        538105
+      ],
+      "explanation": "According to the problem output/secondary voltage V s = 24V Power associated with secondary P s = 12W {tex}I_{S}=\\frac{P_{S}}{V_{S}}=\\frac{12}{24}=0.5 \\mathrm{A}{/tex} The amplitude of the current in the secondary winding {tex}I_{0}=I_{S} \\sqrt{2}{/tex} = (0.5) (1.414) = 0.707 {tex}=\\frac{1}{\\sqrt{2}} \\mathrm{A}{/tex} thus the value of peak current is given by = 0.707A = {tex}1\\over\\sqrt 2{/tex} A",
+      "solution": ""
+    },
+    {
+      "n": 40,
+      "question_id": 13572,
+      "question_text": "The Wheatstone bridge is balanced for four resistors R 1 , R 2 , R 3 and R 4 with a cell of emf 1.46 V. The cell is now replaced by another cell of emf 1.08 V. To obtain the balance again",
+      "question_html": "<p>The Wheatstone bridge is balanced for four resistors R<sub>1</sub>, R<sub>2</sub>, R<sub>3</sub> and R<sub>4</sub> with a cell of emf 1.46 V. The cell is now replaced by another cell of emf 1.08 V. To obtain the balance again</p>",
+      "options": [
+        {
+          "id": 9491,
+          "text": "All the four resistance should be changed",
+          "html": "All the four resistance should be changed",
+          "is_correct": false
+        },
+        {
+          "id": 9488,
+          "text": "No resistance needs to be changed",
+          "html": "No resistance needs to be changed",
+          "is_correct": true
+        },
+        {
+          "id": 9490,
+          "text": "Both the resistance R 1 and R 4 should be changed",
+          "html": "Both the resistance R<sub>1</sub> and R<sub>4</sub> should be changed",
+          "is_correct": false
+        },
+        {
+          "id": 9489,
+          "text": "Resistance R 4 should be changed only",
+          "html": "Resistance R<sub>4</sub> should be changed only",
+          "is_correct": false
+        }
+      ],
+      "correct_option_text": "No resistance needs to be changed",
+      "correct_option_ids": [
+        9488
+      ],
+      "explanation": "The balance point of the Wheatstone&rsquo;s bridge is determined by the ratio of the resistances. The change in the emf of the external battery will have no effect on the balance point.",
+      "solution": ""
+    },
+    {
+      "n": 41,
+      "question_id": 471351,
+      "question_text": "In producing chlorine by electrolysis 100 kW power at 125 V is being consumed. How much chlorine per minute is liberated? (E.C.E. of chlorine is 0.367 {tex}\\times{/tex} 10 -6 kg)",
+      "question_html": "<p>In producing chlorine by electrolysis 100 kW power at 125 V is being consumed. How much chlorine per minute is liberated? (E.C.E. of chlorine is 0.367 <span class=\"math-tex\">{tex}\\times{/tex}</span>&nbsp;10<sup>-6</sup> kg)</p>",
+      "options": [
+        {
+          "id": 814737,
+          "text": "17.61 {tex}\\times{/tex} 10 -3 kg",
+          "html": "17.61&nbsp;<span class=\"math-tex\">{tex}\\times{/tex}</span>&nbsp;10<sup>-3</sup> kg",
+          "is_correct": true
+        },
+        {
+          "id": 814736,
+          "text": "9.67 {tex}\\times{/tex} 10 -3 kg",
+          "html": "9.67&nbsp;<span class=\"math-tex\">{tex}\\times{/tex}</span>&nbsp;10<sup>-3</sup> kg",
+          "is_correct": false
+        },
+        {
+          "id": 814738,
+          "text": "3.67 {tex}\\times{/tex} 10 -3 kg",
+          "html": "3.67&nbsp;<span class=\"math-tex\">{tex}\\times{/tex}</span>&nbsp;10<sup>-3</sup> kg",
+          "is_correct": false
+        },
+        {
+          "id": 814735,
+          "text": "1.76 {tex}\\times{/tex} 10 -3 kg",
+          "html": "1.76&nbsp;<span class=\"math-tex\">{tex}\\times{/tex}</span>&nbsp;10<sup>-3</sup> kg",
+          "is_correct": false
+        }
+      ],
+      "correct_option_text": "17.61 {tex}\\times{/tex} 10 -3 kg",
+      "correct_option_ids": [
+        814737
+      ],
+      "explanation": "m = Zlt = {tex}Z \\frac{P}{V} t{/tex} = 0.367 {tex}\\times{/tex} 10 -6 {tex}\\times \\frac{100 \\ \\times \\ 10^{3}}{125} \\times{/tex} 60 kg = 17.61 {tex}\\times{/tex} 10 -3 kg",
+      "solution": ""
+    },
+    {
+      "n": 42,
+      "question_id": 463905,
+      "question_text": "Three charged particles are collinear and are in equilibrium, then",
+      "question_html": "<p>Three charged particles are collinear and are in equilibrium, then</p>",
+      "options": [
+        {
+          "id": 798523,
+          "text": "all the charged particles cannot have the same polarity",
+          "html": "all the charged particles cannot have the same polarity",
+          "is_correct": false
+        },
+        {
+          "id": 798524,
+          "text": "the equilibrium is unstable and all the charged particles cannot have the same polarity",
+          "html": "the equilibrium is unstable and&nbsp;all the charged particles cannot have the same polarity",
+          "is_correct": true
+        },
+        {
+          "id": 798522,
+          "text": "the equilibrium is unstable",
+          "html": "the equilibrium is unstable",
+          "is_correct": false
+        },
+        {
+          "id": 798521,
+          "text": "all the charged particles have the same polarity",
+          "html": "all the charged particles have the same polarity",
+          "is_correct": false
+        }
+      ],
+      "correct_option_text": "the equilibrium is unstable and all the charged particles cannot have the same polarity",
+      "correct_option_ids": [
+        798524
+      ],
+      "explanation": "The three charged particles cannot be in stable equilibrium and cannot have the same polarity.",
+      "solution": ""
+    },
+    {
+      "n": 43,
+      "question_id": 471777,
+      "question_text": "Cyclotron is used to accelerate",
+      "question_html": "<p>Cyclotron is used to accelerate</p>\r\n",
+      "options": [
+        {
+          "id": 815471,
+          "text": "positive ions",
+          "html": "positive ions",
+          "is_correct": true
+        },
+        {
+          "id": 815473,
+          "text": "neutrons",
+          "html": "neutrons",
+          "is_correct": false
+        },
+        {
+          "id": 815474,
+          "text": "negative ions",
+          "html": "negative ions",
+          "is_correct": false
+        },
+        {
+          "id": 815472,
+          "text": "electrons",
+          "html": "electrons",
+          "is_correct": false
+        }
+      ],
+      "correct_option_text": "positive ions",
+      "correct_option_ids": [
+        815471
+      ],
+      "explanation": "A cyclotron is used to accelerate positive ions.",
+      "solution": ""
+    },
+    {
+      "n": 44,
+      "question_id": 491965,
+      "question_text": "A paramagnetic substance of susceptibility 3 {tex}\\times{/tex} 10 -4 is placed in a magnetising field of 4 {tex}\\times{/tex} 10 -4 Am -1 . Then the intensity of magnetisation in the units of Am -1 is",
+      "question_html": "<p>A paramagnetic substance of susceptibility 3 <span class=\"math-tex\">{tex}\\times{/tex}</span> 10<sup>-4</sup> is placed in a magnetising field of 4 <span class=\"math-tex\">{tex}\\times{/tex}</span> 10<sup>-4</sup> Am<sup>-1</sup>. Then the intensity of magnetisation in the units of Am<sup>-1</sup> is</p>",
+      "options": [
+        {
+          "id": 856697,
+          "text": "1.33 {tex}\\times{/tex} 10 8",
+          "html": "1.33 <span class=\"math-tex\">{tex}\\times{/tex}</span> 10<sup>8</sup>",
+          "is_correct": false
+        },
+        {
+          "id": 856698,
+          "text": "0.75 {tex}\\times{/tex} 10 -8",
+          "html": "0.75&nbsp;<span class=\"math-tex\">{tex}\\times{/tex}</span> 10<sup>-8</sup>",
+          "is_correct": false
+        },
+        {
+          "id": 856700,
+          "text": "14 {tex}\\times{/tex} 10 -8",
+          "html": "14&nbsp;<span class=\"math-tex\">{tex}\\times{/tex}</span> 10<sup>-8</sup>",
+          "is_correct": false
+        },
+        {
+          "id": 856699,
+          "text": "12 {tex}\\times{/tex} 10 -8",
+          "html": "12&nbsp;<span class=\"math-tex\">{tex}\\times{/tex}</span> 10<sup>-8</sup>",
+          "is_correct": true
+        }
+      ],
+      "correct_option_text": "12 {tex}\\times{/tex} 10 -8",
+      "correct_option_ids": [
+        856699
+      ],
+      "explanation": "I = {tex}\\chi_{m} H=3 \\times 10^{-4} \\times 4 \\times 10^{-4}{/tex} = 12 {tex}\\times{/tex} 10 -8 Am -1",
+      "solution": ""
+    },
+    {
+      "n": 45,
+      "question_id": 399233,
+      "question_text": "Assertion (A): Increasing the charge on the plates of a capacitor means increasing the capacitance. Reason (R): For a capacitor Q = CV {tex}\\Rightarrow{/tex} Q {tex}\\propto{/tex} C.",
+      "question_html": "<p><strong>Assertion (A):</strong>&nbsp;Increasing the charge on the plates of a capacitor means increasing the capacitance.<br />\r\n<strong>Reason (R):&nbsp;</strong>For a capacitor Q = CV <span class=\"math-tex\">{tex}\\Rightarrow{/tex}</span> Q <span class=\"math-tex\">{tex}\\propto{/tex}</span>&nbsp;C.</p>",
+      "options": [
+        {
+          "id": 628788,
+          "text": "A is false and R is also false",
+          "html": "A is false and R is also false",
+          "is_correct": true
+        },
+        {
+          "id": 628786,
+          "text": "Both A and R are true but R is NOT the correct explanation of A",
+          "html": "Both A and R are true but R is NOT the correct explanation of A",
+          "is_correct": false
+        },
+        {
+          "id": 628787,
+          "text": "A is true but R is false",
+          "html": "A is true but R is false",
+          "is_correct": false
+        },
+        {
+          "id": 628785,
+          "text": "Both A and R are true and R is the correct explanation of A",
+          "html": "Both A and R are true and R is the correct explanation of A",
+          "is_correct": false
+        }
+      ],
+      "correct_option_text": "A is false and R is also false",
+      "correct_option_ids": [
+        628788
+      ],
+      "explanation": "A is false and R is also false",
+      "solution": ""
+    },
+    {
+      "n": 46,
+      "question_id": 568051,
+      "question_text": "Assertion (A): Ferro-magnetic substances become paramagnetic above Curie temp. Reason (R): Domains are destroyed at high temperatures.",
+      "question_html": "<p><strong>Assertion (A):&nbsp;</strong>Ferro-magnetic substances become paramagnetic above Curie temp.<br />\n<strong>Reason (R):&nbsp;</strong>Domains are destroyed at high temperatures.</p>",
+      "options": [
+        {
+          "id": 1080818,
+          "text": "Both A and R are true and R is the correct explanation of A.",
+          "html": "Both A and R are true and R is the correct explanation of A.",
+          "is_correct": true
+        },
+        {
+          "id": 1080821,
+          "text": "A is false but R is true.",
+          "html": "A is false but R is true.",
+          "is_correct": false
+        },
+        {
+          "id": 1080820,
+          "text": "A is true but R is false.",
+          "html": "A is true but R is false.",
+          "is_correct": false
+        },
+        {
+          "id": 1080819,
+          "text": "Both A and R are true but R is not the correct explanation of A.",
+          "html": "Both A and R are true but R is not the correct explanation of A.",
+          "is_correct": false
+        }
+      ],
+      "correct_option_text": "Both A and R are true and R is the correct explanation of A.",
+      "correct_option_ids": [
+        1080818
+      ],
+      "explanation": "Both A and R are true and R is the correct explanation of A.",
+      "solution": ""
+    },
+    {
+      "n": 47,
+      "question_id": 571952,
+      "question_text": "Assertion (A): The induced e.m.f. and current will be same in two identical loops of copper and aluminium, when rotated with same speed in the same magnetic field. Reason (R): Induced e.m.f. is proportional to rate of change of magnetic field while induced current depends on resistance of wire.",
+      "question_html": "<p><strong>Assertion (A):</strong> The induced e.m.f. and current will be same in two identical loops of copper and aluminium, when rotated with same speed in the same magnetic field.<br />\n<strong>Reason (R):</strong> Induced e.m.f. is proportional to rate of change of magnetic field while induced current depends on resistance of wire.</p>",
+      "options": [
+        {
+          "id": 1094898,
+          "text": "Both A and R are true and R is the correct explanation of A.",
+          "html": "Both A and R are true and R is the correct explanation of A.",
+          "is_correct": false
+        },
+        {
+          "id": 1094901,
+          "text": "A is false but R is true.",
+          "html": "A is false but R is true.",
+          "is_correct": true
+        },
+        {
+          "id": 1094900,
+          "text": "A is true but R is false.",
+          "html": "A is true but R is false.",
+          "is_correct": false
+        },
+        {
+          "id": 1094899,
+          "text": "Both A and R are true but R is not the correct explanation of A.",
+          "html": "Both A and R are true but R is not the correct explanation of A.",
+          "is_correct": false
+        }
+      ],
+      "correct_option_text": "A is false but R is true.",
+      "correct_option_ids": [
+        1094901
+      ],
+      "explanation": "Since both, the loops are identical (same area and number of turns) and moving with the same speed in the same magnetic field. Therefore the same emf is induced in both coils. But the induced current will be more in the copper loop as its resistance will be lesser as compared to that of the aluminum loop.",
+      "solution": ""
+    },
+    {
+      "n": 48,
+      "question_id": 492811,
+      "question_text": "Assertion (A): Transformers are used only in alternating current sources, not in direct current. Reasons (R): Only a.c. can be stepped up or down by means of transformers.",
+      "question_html": "<p><strong>Assertion (A):</strong>&nbsp;Transformers are used only in alternating current sources, not in direct current.<br />\n<strong>Reasons (R):</strong> Only a.c. can be stepped up or down by means of transformers.</p>",
+      "options": [
+        {
+          "id": 858505,
+          "text": "Both A and R are true but R is not the correct explanation of A.",
+          "html": "Both A and R are true but R is not the correct explanation of A.",
+          "is_correct": false
+        },
+        {
+          "id": 858504,
+          "text": "Both A and R are true and R is the correct explanation of A.",
+          "html": "Both A and R are true and R is the correct explanation of A.",
+          "is_correct": true
+        },
+        {
+          "id": 858506,
+          "text": "A is true but R is false.",
+          "html": "A is true but R is false.",
+          "is_correct": false
+        },
+        {
+          "id": 858507,
+          "text": "A is false but R is true.",
+          "html": "A is false but R is true.",
+          "is_correct": false
+        }
+      ],
+      "correct_option_text": "Both A and R are true and R is the correct explanation of A.",
+      "correct_option_ids": [
+        858504
+      ],
+      "explanation": "A transformer works on the principle of mutual induction. It can step up or step down a changing current like a.c. and not d.c",
+      "solution": ""
+    },
+    {
+      "n": 49,
+      "question_id": 399221,
+      "question_text": "Assertion (A): A small metal ball is suspended in a uniform electric field with an insulated thread. If a high-energy X-ray beam falls on the ball, the ball will be deflected in the electric field. Reason (R): X-rays emit photo-electrons and metal becomes negatively charged.",
+      "question_html": "<p><strong>Assertion (A):</strong> A small metal ball is suspended in a uniform electric field with an insulated thread. If a high-energy X-ray beam falls on the ball, the ball will be deflected in the electric field.<br />\n<strong>Reason (R):</strong>&nbsp;X-rays emit photo-electrons and metal becomes negatively charged.</p>",
+      "options": [
+        {
+          "id": 628744,
+          "text": "A is false but R is true.",
+          "html": "A is false but R is true.",
+          "is_correct": false
+        },
+        {
+          "id": 628741,
+          "text": "Both A and R are true and R is the correct explanation of A.",
+          "html": "Both A and R are true and R is the correct explanation of A.",
+          "is_correct": false
+        },
+        {
+          "id": 628743,
+          "text": "A is true but R is false.",
+          "html": "A is true but R is false.",
+          "is_correct": true
+        },
+        {
+          "id": 628742,
+          "text": "Both A and R are true but R is not the correct explanation of A.",
+          "html": "Both A and R are true but R is not the correct explanation of A.",
+          "is_correct": false
+        }
+      ],
+      "correct_option_text": "A is true but R is false.",
+      "correct_option_ids": [
+        628743
+      ],
+      "explanation": "When high energy X-ray beam falls on the ball, the metal will emit photo-electrons, thus, leaving the positive charge on the ball. As a result of this, the ball is deflected in the direction of the electric field.",
+      "solution": ""
+    },
+    {
+      "n": 50,
+      "question_id": 463690,
+      "question_text": "The potential at the centre of the sphere, if the hollow metallic sphere of radius 10 cm is charged such that the potential of its surface is 70 V, is",
+      "question_html": "<p>The potential at the centre of the sphere, if the hollow metallic sphere of radius 10 cm is charged such that the potential of its surface is 70 V, is</p>",
+      "options": [
+        {
+          "id": 798181,
+          "text": "70 V",
+          "html": "70 V",
+          "is_correct": true
+        },
+        {
+          "id": 798182,
+          "text": "100 V",
+          "html": "100 V",
+          "is_correct": false
+        },
+        {
+          "id": 798184,
+          "text": "7 V",
+          "html": "7 V",
+          "is_correct": false
+        },
+        {
+          "id": 798183,
+          "text": "35 V",
+          "html": "35 V",
+          "is_correct": false
+        }
+      ],
+      "correct_option_text": "70 V",
+      "correct_option_ids": [
+        798181
+      ],
+      "explanation": "The potential at any point inside the charged hollow metallic sphere is the same as that on its surface.",
+      "solution": ""
+    },
+    {
+      "n": 51,
+      "question_id": 13423,
+      "question_text": "Gauss&#39;s law states that the total electric field flux coming out of",
+      "question_html": "<p>Gauss&#39;s law states that&nbsp;the total electric field flux coming out of&nbsp;</p>",
+      "options": [
+        {
+          "id": 8892,
+          "text": "a closed surface in vacuum equals the net charge enclosed within the volume divided by {tex}{\\varepsilon _0}{/tex}",
+          "html": "a closed surface in vacuum equals the net charge enclosed within the volume divided by <span class=\"math-tex\">{tex}{\\varepsilon _0}{/tex}</span>",
+          "is_correct": true
+        },
+        {
+          "id": 8895,
+          "text": "an open surface equals the net charge enclosed within the volume divided by {tex}{\\varepsilon _0}{/tex}",
+          "html": "an open surface equals the net charge enclosed within the volume divided by <span class=\"math-tex\">{tex}{\\varepsilon _0}{/tex}</span>",
+          "is_correct": false
+        },
+        {
+          "id": 8894,
+          "text": "any surface equals the charge enclosed within the volume divided by {tex}{\\varepsilon _0}{/tex}",
+          "html": "any surface&nbsp;equals the charge enclosed within the volume divided by <span class=\"math-tex\">{tex}{\\varepsilon _0}{/tex}</span>",
+          "is_correct": false
+        },
+        {
+          "id": 8893,
+          "text": "a closed surface equals the net charge enclosed within the volume",
+          "html": "a closed surface equals the net charge enclosed within the volume",
+          "is_correct": false
+        }
+      ],
+      "correct_option_text": "a closed surface in vacuum equals the net charge enclosed within the volume divided by {tex}{\\varepsilon _0}{/tex}",
+      "correct_option_ids": [
+        8892
+      ],
+      "explanation": "Gauss Theorem- According to Gauss theorem the electric flux through a closed surface in vacuum is given by times net charge enclosed within the surface. {tex}\\oint\\overrightarrow E.\\overrightarrow{ds}\\;=\\;\\oint Eds\\cos\\theta\\;=\\frac{q_{enclosed}}{\\varepsilon_0}{/tex}",
+      "solution": ""
+    },
+    {
+      "n": 52,
+      "question_id": 578610,
+      "question_text": "Instructions for Question 52 to 55: A single cell provides a feeble current. In order to get a higher current in a circuit, we often use a combination of cells. A combination of cells is called a battery. Cells can be joined in series, parallel or in a mixed way. Two cells are said to be connected in series when negative terminal of one cell is connected to positive terminal of the other cell and so on. Two cells are said to be connected in parallel if positive terminal of each cell is connected to one point and negative terminal of each cell connected to the other point. In mixed grouping of cells, a certain number of identical cells are joined in series, and all such rows are then connected in parallel with each other. 4 cells each of emf 2 V and internal resistance of 1 {tex}\\Omega{/tex} are connected in parallel to a load resistor of 2 {tex}\\Omega{/tex} . Then the current through the load resistor is",
+      "question_html": "<b>Instructions for Question 52 to 55:</b><br><p>A single cell provides a feeble current. In order to get a higher current in a circuit, we often use a combination of cells. A combination&nbsp;of cells is called a battery. Cells can be joined in series, parallel or in a mixed way.<br />\r\nTwo cells are said to be connected in series when negative terminal of one cell is connected to positive terminal of the other cell and so on. Two cells are said to be connected in parallel if positive terminal of each cell is connected to one point and negative terminal of each cell connected to the other point. In mixed&nbsp;grouping of cells, a certain&nbsp;number of identical cells are joined in series, and all such rows are then connected in parallel with each other.<br />\r\n<img alt=\"\" data-imgur-src=\"gBPQO8i.png\" src=\"https://media-mycbseguide.s3.amazonaws.com/images/imgur/1630339990-x2shjb.jpg\" /></p><br><p>4 cells each of emf 2 V&nbsp;and internal resistance of 1<span class=\"math-tex\">{tex}\\Omega{/tex}</span> are connected in parallel to a load resistor of 2 <span class=\"math-tex\">{tex}\\Omega{/tex}</span>. Then the current through the load resistor is</p>",
+      "options": [
+        {
+          "id": 1118409,
+          "text": "1A",
+          "html": "1A",
+          "is_correct": false
+        },
+        {
+          "id": 1118405,
+          "text": "2A",
+          "html": "2A",
+          "is_correct": false
+        },
+        {
+          "id": 1118407,
+          "text": "1.5A",
+          "html": "1.5A",
+          "is_correct": false
+        },
+        {
+          "id": 1118410,
+          "text": "0.888A",
+          "html": "0.888A",
+          "is_correct": true
+        }
+      ],
+      "correct_option_text": "0.888A",
+      "correct_option_ids": [
+        1118410
+      ],
+      "explanation": "I = {tex}\\frac{m E}{m R+r}{/tex} ,m = number of cells = 4 E = 2V, R = 2 {tex}\\Omega{/tex} , r = 1 {tex}\\Omega{/tex} I = {tex}\\frac{8}{8+1}=\\frac{8}{9}{/tex} = 0.888 A",
+      "solution": ""
+    },
+    {
+      "n": 53,
+      "question_id": 578722,
+      "question_text": "Instructions for Question 52 to 55: A single cell provides a feeble current. In order to get a higher current in a circuit, we often use a combination of cells. A combination of cells is called a battery. Cells can be joined in series, parallel or in a mixed way. Two cells are said to be connected in series when negative terminal of one cell is connected to positive terminal of the other cell and so on. Two cells are said to be connected in parallel if positive terminal of each cell is connected to one point and negative terminal of each cell connected to the other point. In mixed grouping of cells, a certain number of identical cells are joined in series, and all such rows are then connected in parallel with each other. If two cells out of n number of cells each of internal resistance r are wrongly connected in series, then total resistance of the cell is",
+      "question_html": "<b>Instructions for Question 52 to 55:</b><br><p>A single cell provides a feeble current. In order to get a higher current in a circuit, we often use a combination of cells. A combination&nbsp;of cells is called a battery. Cells can be joined in series, parallel or in a mixed way.<br />\r\nTwo cells are said to be connected in series when negative terminal of one cell is connected to positive terminal of the other cell and so on. Two cells are said to be connected in parallel if positive terminal of each cell is connected to one point and negative terminal of each cell connected to the other point. In mixed&nbsp;grouping of cells, a certain&nbsp;number of identical cells are joined in series, and all such rows are then connected in parallel with each other.<br />\r\n<img alt=\"\" data-imgur-src=\"gBPQO8i.png\" src=\"https://media-mycbseguide.s3.amazonaws.com/images/imgur/1630339990-x2shjb.jpg\" /></p><br><p>If two cells out of n&nbsp;number of cells each of internal resistance r&nbsp;are wrongly connected in series, then total resistance of the cell is</p>",
+      "options": [
+        {
+          "id": 1118852,
+          "text": "r",
+          "html": "r",
+          "is_correct": false
+        },
+        {
+          "id": 1118849,
+          "text": "2nr",
+          "html": "2nr",
+          "is_correct": false
+        },
+        {
+          "id": 1118850,
+          "text": "nr - 4r",
+          "html": "nr - 4r",
+          "is_correct": true
+        },
+        {
+          "id": 1118851,
+          "text": "nr",
+          "html": "nr",
+          "is_correct": false
+        }
+      ],
+      "correct_option_text": "nr - 4r",
+      "correct_option_ids": [
+        1118850
+      ],
+      "explanation": "nr - 4r",
+      "solution": ""
+    },
+    {
+      "n": 54,
+      "question_id": 578843,
+      "question_text": "Instructions for Question 52 to 55: A single cell provides a feeble current. In order to get a higher current in a circuit, we often use a combination of cells. A combination of cells is called a battery. Cells can be joined in series, parallel or in a mixed way. Two cells are said to be connected in series when negative terminal of one cell is connected to positive terminal of the other cell and so on. Two cells are said to be connected in parallel if positive terminal of each cell is connected to one point and negative terminal of each cell connected to the other point. In mixed grouping of cells, a certain number of identical cells are joined in series, and all such rows are then connected in parallel with each other. Two identical non-ideal batteries are connected in parallel. Consider the following statements. The equivalent emf is smaller than either of the two emfs. The equivalent internal resistance is smaller than either of the two internal resistances.",
+      "question_html": "<b>Instructions for Question 52 to 55:</b><br><p>A single cell provides a feeble current. In order to get a higher current in a circuit, we often use a combination of cells. A combination&nbsp;of cells is called a battery. Cells can be joined in series, parallel or in a mixed way.<br />\r\nTwo cells are said to be connected in series when negative terminal of one cell is connected to positive terminal of the other cell and so on. Two cells are said to be connected in parallel if positive terminal of each cell is connected to one point and negative terminal of each cell connected to the other point. In mixed&nbsp;grouping of cells, a certain&nbsp;number of identical cells are joined in series, and all such rows are then connected in parallel with each other.<br />\r\n<img alt=\"\" data-imgur-src=\"gBPQO8i.png\" src=\"https://media-mycbseguide.s3.amazonaws.com/images/imgur/1630339990-x2shjb.jpg\" /></p><br><p>Two identical non-ideal batteries are connected in parallel. Consider the following statements.</p>\r\n\r\n<ol start=\"1\" style=\"list-style-type: lower-roman;\">\r\n\t<li>The equivalent emf is smaller than either of the two emfs.</li>\r\n\t<li>The equivalent internal resistance is smaller than either of the two internal resistances.</li>\r\n</ol>",
+      "options": [
+        {
+          "id": 1119336,
+          "text": "Both (i) and (ii) are correct.",
+          "html": "Both (i) and (ii) are correct.",
+          "is_correct": false
+        },
+        {
+          "id": 1119338,
+          "text": "(ii) is correct but (i) is wrong.",
+          "html": "(ii) is correct but (i) is wrong.",
+          "is_correct": true
+        },
+        {
+          "id": 1119337,
+          "text": "(i) is correct but (ii) is wrong.",
+          "html": "(i) is correct but (ii) is wrong.",
+          "is_correct": false
+        },
+        {
+          "id": 1119340,
+          "text": "Both (i) and (ii) are wrong.",
+          "html": "Both (i) and (ii) are wrong.",
+          "is_correct": false
+        }
+      ],
+      "correct_option_text": "(ii) is correct but (i) is wrong.",
+      "correct_option_ids": [
+        1119338
+      ],
+      "explanation": "Let two cells of emfs {tex}\\varepsilon_1{/tex} and {tex}\\varepsilon_2{/tex} and of internal resistance r 1 and r 2 respectively are connected in parallel. The equivalent emf is given by {tex}\\varepsilon_{e q}=\\frac{\\varepsilon_{1} p_{2}+\\varepsilon_{2} \\gamma}{n+r_{2}}{/tex} ... (i) The equivalent internal resistance is given by {tex}\\frac{1}{r_{e q}}=\\frac{1}{r_{1}}+\\frac{1}{r_{2}}{/tex} or {tex}r_{c q}=\\frac{\\gamma_{1} r_{2}}{r_{1}+r_{2}}{/tex} ... (ii) Let us consider, two cells connected in parallel of same emf {tex}\\varepsilon{/tex} and same internal resistance r. From equation (i), we get {tex}\\varepsilon_{\\mathrm{eq}}=\\frac{\\varepsilon r+\\varepsilon r}{r+r}=\\varepsilon{/tex} From equation (ii), we get {tex}r_{\\text {eq }}=\\frac{r^{2}}{r+r}=\\frac{r}{2}{/tex}",
+      "solution": ""
+    },
+    {
+      "n": 55,
+      "question_id": 581311,
+      "question_text": "Instructions for Question 52 to 55: A single cell provides a feeble current. In order to get a higher current in a circuit, we often use a combination of cells. A combination of cells is called a battery. Cells can be joined in series, parallel or in a mixed way. Two cells are said to be connected in series when negative terminal of one cell is connected to positive terminal of the other cell and so on. Two cells are said to be connected in parallel if positive terminal of each cell is connected to one point and negative terminal of each cell connected to the other point. In mixed grouping of cells, a certain number of identical cells are joined in series, and all such rows are then connected in parallel with each other. To draw the maximum current from a combination of cells, how should the cells be grouped?",
+      "question_html": "<b>Instructions for Question 52 to 55:</b><br><p>A single cell provides a feeble current. In order to get a higher current in a circuit, we often use a combination of cells. A combination&nbsp;of cells is called a battery. Cells can be joined in series, parallel or in a mixed way.<br />\r\nTwo cells are said to be connected in series when negative terminal of one cell is connected to positive terminal of the other cell and so on. Two cells are said to be connected in parallel if positive terminal of each cell is connected to one point and negative terminal of each cell connected to the other point. In mixed&nbsp;grouping of cells, a certain&nbsp;number of identical cells are joined in series, and all such rows are then connected in parallel with each other.<br />\r\n<img alt=\"\" data-imgur-src=\"gBPQO8i.png\" src=\"https://media-mycbseguide.s3.amazonaws.com/images/imgur/1630339990-x2shjb.jpg\" /></p><br><p>To draw the maximum current from a combination of cells, how should the cells be grouped?</p>",
+      "options": [
+        {
+          "id": 1129208,
+          "text": "Depends upon the relative values of internal and external resistances",
+          "html": "Depends upon the relative values of internal and external resistances",
+          "is_correct": true
+        },
+        {
+          "id": 1129205,
+          "text": "Parallel",
+          "html": "Parallel",
+          "is_correct": false
+        },
+        {
+          "id": 1129206,
+          "text": "Series",
+          "html": "Series",
+          "is_correct": false
+        },
+        {
+          "id": 1129207,
+          "text": "Mixed grouping",
+          "html": "Mixed grouping",
+          "is_correct": false
+        }
+      ],
+      "correct_option_text": "Depends upon the relative values of internal and external resistances",
+      "correct_option_ids": [
+        1129208
+      ],
+      "explanation": "Depends upon the relative values of internal and external resistances",
+      "solution": ""
+    }
+  ]
+}

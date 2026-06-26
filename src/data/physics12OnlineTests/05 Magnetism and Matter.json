@@ -1,0 +1,585 @@
+{
+  "chapter": "Magnetism and Matter",
+  "chapter_id": 1256,
+  "tests": [
+    {
+      "test_id": 136,
+      "test_name": "Magnetism and Matter Test 01",
+      "is_paid": false,
+      "questionCount": 15,
+      "questions": [
+        {
+          "n": 1,
+          "question_id": 13685,
+          "question_text": "Which of the following statements about earth&#39;s magnetism is correct?",
+          "question_html": "<p>Which of the following statements about earth&#39;s magnetism is correct?</p>",
+          "options": [
+            {
+              "id": 9941,
+              "text": "The earth behaves as a magnet with the magnetic field pointing approximately from the geographic east to the west.",
+              "html": "The earth behaves as a magnet with the magnetic field pointing approximately from the geographic east to the west.",
+              "is_correct": false
+            },
+            {
+              "id": 9942,
+              "text": "The earth behaves as a magnet with the magnetic field pointing approximately from the geographic south-east to the north-west.",
+              "html": "The earth behaves as a magnet with the magnetic field pointing approximately from the geographic south-east to the north-west.",
+              "is_correct": false
+            },
+            {
+              "id": 9940,
+              "text": "The earth behaves as a magnet with the magnetic field pointing approximately from the geographic south to the north.",
+              "html": "The earth behaves as a magnet with the magnetic field pointing approximately from the geographic south to the north.",
+              "is_correct": true
+            },
+            {
+              "id": 9943,
+              "text": "The earth behaves as a magnet with the magnetic field pointing approximately from the geographic south-west to the north-east.",
+              "html": "The earth behaves as a magnet with the magnetic field pointing approximately from the geographic south-west to the north-east.",
+              "is_correct": false
+            }
+          ],
+          "correct_option_text": "The earth behaves as a magnet with the magnetic field pointing approximately from the geographic south to the north.",
+          "correct_option_ids": [
+            9940
+          ],
+          "explanation": "",
+          "solution": ""
+        },
+        {
+          "n": 2,
+          "question_id": 13686,
+          "question_text": "Which of the following statements about bar magnet is correct?",
+          "question_html": "<p>Which of the following statements about bar magnet&nbsp;is correct?</p>",
+          "options": [
+            {
+              "id": 9944,
+              "text": "We cannot isolate the north and south pole of a bar magnet",
+              "html": "We cannot isolate the north and south pole of a bar magnet",
+              "is_correct": true
+            },
+            {
+              "id": 9946,
+              "text": "South Pole atrracts South Pole",
+              "html": "South Pole atrracts South Pole",
+              "is_correct": false
+            },
+            {
+              "id": 9945,
+              "text": "North Pole atrracts North Pole",
+              "html": "North Pole atrracts North Pole",
+              "is_correct": false
+            },
+            {
+              "id": 9947,
+              "text": "We can isolate the north and south pole of a bar magnet",
+              "html": "We can isolate the north and&nbsp;south pole of a bar magnet",
+              "is_correct": false
+            }
+          ],
+          "correct_option_text": "We cannot isolate the north and south pole of a bar magnet",
+          "correct_option_ids": [
+            9944
+          ],
+          "explanation": "As magnetic monopole does not exist. If we split the bar magnet into two pieces, each part will have its own north and south pole.",
+          "solution": ""
+        },
+        {
+          "n": 3,
+          "question_id": 13687,
+          "question_text": "When iron filings are sprinkled on a sheet of glass placed over a short bar magnet then, the iron filings form a pattern suggesting that the magnet has",
+          "question_html": "<p>When iron filings are sprinkled on a sheet of glass placed over a short bar magnet then, the iron filings form a pattern suggesting that the magnet has</p>",
+          "options": [
+            {
+              "id": 9950,
+              "text": "south pole similar to the negative charge",
+              "html": "south pole similar to the negative charge",
+              "is_correct": false
+            },
+            {
+              "id": 9949,
+              "text": "north pole similar to the positive charge",
+              "html": "north pole similar to the positive charge",
+              "is_correct": false
+            },
+            {
+              "id": 9951,
+              "text": "random pole",
+              "html": "random pole",
+              "is_correct": false
+            },
+            {
+              "id": 9948,
+              "text": "two poles similar to the positive and negative charge of an electric dipole",
+              "html": "two poles similar to the positive and negative charge of an electric dipole",
+              "is_correct": true
+            }
+          ],
+          "correct_option_text": "two poles similar to the positive and negative charge of an electric dipole",
+          "correct_option_ids": [
+            9948
+          ],
+          "explanation": "North pole act as positive end and South pole act as negative end. The iron fillings in the presence of magnetic field gets magnetized and form a tiny magnet which then gets attracted to the poles of bar magnet. North pole of bar magnet attracts south pole of tiny magnet and vice-versa. So all the iron fillings are arranged as the magnetic field lines of bar magnet.",
+          "solution": ""
+        },
+        {
+          "n": 4,
+          "question_id": 13688,
+          "question_text": "Which of the following statement about magnetic field lines is true?",
+          "question_html": "<p>Which of the following statement about magnetic field lines is true?</p>",
+          "options": [
+            {
+              "id": 9953,
+              "text": "The larger the number of field lines crossing per unit area, the weaker is the magnitude of the magnetic field B",
+              "html": "The larger the number of field lines crossing per unit area, the weaker is the magnitude of the magnetic field B",
+              "is_correct": false
+            },
+            {
+              "id": 9954,
+              "text": "The perpendicular to the field line at a given point gives direction of magnetic field",
+              "html": "The perpendicular to the field line at a given point gives direction of magnetic field",
+              "is_correct": false
+            },
+            {
+              "id": 9955,
+              "text": "The smaller the number of field lines crossing per unit area, the stronger is the magnitude of the magnetic field B",
+              "html": "The smaller the number of field lines crossing per unit area, the stronger is the magnitude of the magnetic field B",
+              "is_correct": false
+            },
+            {
+              "id": 9952,
+              "text": "The magnetic field lines of a magnet (or a solenoid) form continuous closed loops",
+              "html": "The magnetic field lines of a magnet (or a solenoid) form continuous closed loops",
+              "is_correct": true
+            }
+          ],
+          "correct_option_text": "The magnetic field lines of a magnet (or a solenoid) form continuous closed loops",
+          "correct_option_ids": [
+            9952
+          ],
+          "explanation": "Outside the solenoid field lines moves from North to South pole, whereas inside it moves from South to North pole.",
+          "solution": ""
+        },
+        {
+          "n": 5,
+          "question_id": 13689,
+          "question_text": "In which case of comparing solenoid and bar magnet there is no exact similarity?",
+          "question_html": "<p>In which case of comparing solenoid and bar magnet there is no exact similarity?</p>",
+          "options": [
+            {
+              "id": 9956,
+              "text": "there is a current entering and a current leaving a solenoid",
+              "html": "there is a current entering and a current leaving a solenoid",
+              "is_correct": true
+            },
+            {
+              "id": 9957,
+              "text": "moving a small compass needle in the neighbourhood of a solenoid enables tracing the flux lines",
+              "html": "moving a small compass needle in the neighbourhood of a solenoid enables tracing the flux lines",
+              "is_correct": false
+            },
+            {
+              "id": 9958,
+              "text": "solenoid can be broken into two weaker solenoids",
+              "html": "solenoid can be broken into two weaker solenoids",
+              "is_correct": false
+            },
+            {
+              "id": 9959,
+              "text": "flux lines enter one end of a solenoid",
+              "html": "flux lines enter one end of a solenoid",
+              "is_correct": false
+            }
+          ],
+          "correct_option_text": "there is a current entering and a current leaving a solenoid",
+          "correct_option_ids": [
+            9956
+          ],
+          "explanation": "The solenoid will change the field direction and the magnetic pole polarity as current direction is changed. But, the bar magnet will always have same poles, and it does not change.",
+          "solution": ""
+        },
+        {
+          "n": 6,
+          "question_id": 13690,
+          "question_text": "Magnetic field at far axial point due to solenoid as well as bar magnet varies",
+          "question_html": "<p>Magnetic field at far axial point due to&nbsp;solenoid as well as bar magnet varies</p>",
+          "options": [
+            {
+              "id": 9960,
+              "text": "inversely as cube of R, where R = axial distance from the magnet/solenoid",
+              "html": "inversely as cube of R, where R = axial distance from the magnet/solenoid",
+              "is_correct": true
+            },
+            {
+              "id": 9962,
+              "text": "inversely as R square, where R = axial distance to the magnet/solenoid",
+              "html": "inversely as R square, where R = axial distance to the magnet/solenoid",
+              "is_correct": false
+            },
+            {
+              "id": 9963,
+              "text": "directly as R squared, where R = axial distance to the magnet/solenoid",
+              "html": "directly as R squared, where R = axial distance to the magnet/solenoid",
+              "is_correct": false
+            },
+            {
+              "id": 9961,
+              "text": "directly as R cubed, where R = axial distance to the magnet/solenoid",
+              "html": "directly as R cubed, where R = axial distance to the magnet/solenoid",
+              "is_correct": false
+            }
+          ],
+          "correct_option_text": "inversely as cube of R, where R = axial distance from the magnet/solenoid",
+          "correct_option_ids": [
+            9960
+          ],
+          "explanation": "Magnetic field at far off axial point due to a bar magnet as well as solenoid is given by {tex}\\frac{\\mu_o}{4\\pi}\\frac{2\\overrightarrow m}{R^3}{/tex} , where m is magnetic moment and R is distance of axial point.",
+          "solution": ""
+        },
+        {
+          "n": 7,
+          "question_id": 13691,
+          "question_text": "Compass needle of magnetic moment m placed in a uniform magnetic field, experiences a torque equal to",
+          "question_html": "<p>Compass needle of magnetic moment <strong>m</strong>&nbsp;placed in a uniform magnetic field, experiences a torque equal to</p>",
+          "options": [
+            {
+              "id": 9965,
+              "text": "{tex}\\vec{\\tau}=\\vec{m}.\\vec{B}{/tex}",
+              "html": "<span class=\"math-tex\">{tex}\\vec{\\tau}=\\vec{m}.\\vec{B}{/tex}</span>",
+              "is_correct": false
+            },
+            {
+              "id": 9966,
+              "text": "{tex}\\vec{\\tau}=2\\pi(\\vec{m}×\\vec{B}){/tex}",
+              "html": "<span class=\"math-tex\">{tex}\\vec{\\tau}=2\\pi(\\vec{m}×\\vec{B}){/tex}</span>",
+              "is_correct": false
+            },
+            {
+              "id": 9964,
+              "text": "{tex}\\vec{\\tau}=\\vec{m}×\\vec{B}{/tex}",
+              "html": "<span class=\"math-tex\">{tex}\\vec{\\tau}=\\vec{m}×\\vec{B}{/tex}</span>",
+              "is_correct": true
+            },
+            {
+              "id": 9967,
+              "text": "{tex}\\vec{\\tau}=\\mu_0(\\vec{m}×\\vec{B}){/tex}",
+              "html": "<span class=\"math-tex\">{tex}\\vec{\\tau}=\\mu_0(\\vec{m}×\\vec{B}){/tex}</span>",
+              "is_correct": false
+            }
+          ],
+          "correct_option_text": "{tex}\\vec{\\tau}=\\vec{m}×\\vec{B}{/tex}",
+          "correct_option_ids": [
+            9964
+          ],
+          "explanation": "Torque is vector quantity and is given by cross product of {tex}\\overrightarrow m\\times\\overrightarrow B{/tex} Its magnitude is {tex}mBsin\\theta{/tex} .",
+          "solution": ""
+        },
+        {
+          "n": 8,
+          "question_id": 13692,
+          "question_text": "Magnetic potential energy U m of compass needle of known magnetic moment m in a uniform magnetic field is",
+          "question_html": "<p>Magnetic potential energy U<sub>m</sub> of compass needle of known magnetic moment m in a uniform magnetic field is</p>",
+          "options": [
+            {
+              "id": 9970,
+              "text": "{tex}2\\vec{m}.\\vec{B}{/tex}",
+              "html": "<span class=\"math-tex\">{tex}2\\vec{m}.\\vec{B}{/tex}</span>",
+              "is_correct": false
+            },
+            {
+              "id": 9971,
+              "text": "{tex}2\\pi\\vec{m}.\\vec{B}{/tex}",
+              "html": "<span class=\"math-tex\">{tex}2\\pi\\vec{m}.\\vec{B}{/tex}</span>",
+              "is_correct": false
+            },
+            {
+              "id": 9968,
+              "text": "{tex}-\\vec{m}.\\vec{B}{/tex}",
+              "html": "<span class=\"math-tex\">{tex}-\\vec{m}.\\vec{B}{/tex}</span>",
+              "is_correct": true
+            },
+            {
+              "id": 9969,
+              "text": "{tex}\\vec{m}.\\vec{B}{/tex}",
+              "html": "<span class=\"math-tex\">{tex}\\vec{m}.\\vec{B}{/tex}</span>",
+              "is_correct": false
+            }
+          ],
+          "correct_option_text": "{tex}-\\vec{m}.\\vec{B}{/tex}",
+          "correct_option_ids": [
+            9968
+          ],
+          "explanation": "The magnetic potential energy is negative times the scalar product of magnetic moment and the magnetic feild.",
+          "solution": ""
+        },
+        {
+          "n": 9,
+          "question_id": 13693,
+          "question_text": "According to the dipole analogy {tex}{\\rm{1}}/{\\varepsilon _0}{/tex} corresponds to",
+          "question_html": "<p>According to the dipole analogy <span class=\"math-tex\">{tex}{\\rm{1}}/{\\varepsilon _0}{/tex}</span> corresponds to</p>",
+          "options": [
+            {
+              "id": 9975,
+              "text": "{tex}\\pi {\\mu _0}{/tex}",
+              "html": "<span class=\"math-tex\">{tex}\\pi {\\mu _0}{/tex}</span>",
+              "is_correct": false
+            },
+            {
+              "id": 9972,
+              "text": "{tex}{\\mu _0}{/tex}",
+              "html": "<span class=\"math-tex\">{tex}{\\mu _0}{/tex}</span>",
+              "is_correct": true
+            },
+            {
+              "id": 9973,
+              "text": "{tex}{\\rm{1}}/{\\mu _0}{/tex}",
+              "html": "<span class=\"math-tex\">{tex}{\\rm{1}}/{\\mu _0}{/tex}</span>",
+              "is_correct": false
+            },
+            {
+              "id": 9974,
+              "text": "{tex}{\\rm{2}}{\\mu _0}{/tex}",
+              "html": "<span class=\"math-tex\">{tex}{\\rm{2}}{\\mu _0}{/tex}</span>",
+              "is_correct": false
+            }
+          ],
+          "correct_option_text": "{tex}{\\mu _0}{/tex}",
+          "correct_option_ids": [
+            9972
+          ],
+          "explanation": "{tex}{\\mu _0}{/tex} in magnetisim is analogous to {tex}{\\rm{1}}/{\\varepsilon _0}{/tex} in electricity.",
+          "solution": ""
+        },
+        {
+          "n": 10,
+          "question_id": 13694,
+          "question_text": "According to Gauss&rsquo;s law for magnetism -",
+          "question_html": "<p>According to Gauss&rsquo;s law for magnetism -</p>",
+          "options": [
+            {
+              "id": 9977,
+              "text": "The magnetic flux through an open surface is zero",
+              "html": "The magnetic flux through an open surface is zero",
+              "is_correct": false
+            },
+            {
+              "id": 9979,
+              "text": "The net magnetic flux through any closed surface is not zero",
+              "html": "The net magnetic flux through any closed surface is not zero",
+              "is_correct": false
+            },
+            {
+              "id": 9978,
+              "text": "The net magnetic flux through any closed surface is zero",
+              "html": "The net magnetic flux through any closed surface is zero",
+              "is_correct": true
+            },
+            {
+              "id": 9976,
+              "text": "The net magnetic flux through any surface is infinite",
+              "html": "The net magnetic flux through any surface is infinite",
+              "is_correct": false
+            }
+          ],
+          "correct_option_text": "The net magnetic flux through any closed surface is zero",
+          "correct_option_ids": [
+            9978
+          ],
+          "explanation": "Total magnetic flux through a closed surface is zero as magnetic monoples do not exist. So the amount of magnetic flux entering a closed surface is equal to amount of magnetic flux leaving the surface.",
+          "solution": ""
+        },
+        {
+          "n": 11,
+          "question_id": 13695,
+          "question_text": "Considering the magnetic field of the earth, the correct relation of the geographic pole and the magnetic pole is",
+          "question_html": "<p>Considering the magnetic field of the earth, the correct relation of the geographic pole and the magnetic pole&nbsp;is</p>",
+          "options": [
+            {
+              "id": 9982,
+              "text": "north magnetic pole is located near the south geographic pole but south magnetic pole is not located near the north geographic pole",
+              "html": "north magnetic pole is located near the south geographic pole but south magnetic pole is not located near the north geographic pole",
+              "is_correct": false
+            },
+            {
+              "id": 9980,
+              "text": "north magnetic pole is located near the south geographic pole and south magnetic pole is located near the north geographic pole",
+              "html": "north magnetic pole is located near the south geographic pole and south magnetic pole is located near the north geographic pole",
+              "is_correct": true
+            },
+            {
+              "id": 9981,
+              "text": "north magnetic pole is located near the north geographic pole",
+              "html": "north magnetic pole is located near the north geographic pole",
+              "is_correct": false
+            },
+            {
+              "id": 9983,
+              "text": "north magnetic pole is not located near the south geographic pole but south magnetic pole is located near the north geographic pole",
+              "html": "north magnetic pole is not located near the south geographic pole but south magnetic pole is located near the north geographic pole",
+              "is_correct": false
+            }
+          ],
+          "correct_option_text": "north magnetic pole is located near the south geographic pole and south magnetic pole is located near the north geographic pole",
+          "correct_option_ids": [
+            9980
+          ],
+          "explanation": "",
+          "solution": ""
+        },
+        {
+          "n": 12,
+          "question_id": 13696,
+          "question_text": "Nickel shows ferromagnetic property at room temperature. If the temperature is increased beyond curie temperature, then it will show",
+          "question_html": "<p>Nickel shows ferromagnetic property at room temperature. If the temperature is increased beyond curie temperature, then it will show</p>",
+          "options": [
+            {
+              "id": 9984,
+              "text": "paramagnetism",
+              "html": "paramagnetism",
+              "is_correct": true
+            },
+            {
+              "id": 9986,
+              "text": "diamagnetism",
+              "html": "diamagnetism",
+              "is_correct": false
+            },
+            {
+              "id": 9985,
+              "text": "anti-ferromagnetism",
+              "html": "anti-ferromagnetism",
+              "is_correct": false
+            },
+            {
+              "id": 9987,
+              "text": "no magnetic property",
+              "html": "no magnetic property",
+              "is_correct": false
+            }
+          ],
+          "correct_option_text": "paramagnetism",
+          "correct_option_ids": [
+            9984
+          ],
+          "explanation": "Above curie temperature, a ferromagnetic substance becomes paramagnetic.",
+          "solution": ""
+        },
+        {
+          "n": 13,
+          "question_id": 13697,
+          "question_text": "If the inclination is {tex}\\theta{/tex} , the horizontal component of the earth&rsquo;s field is H E and the vertical component of the earth&rsquo;s field is Z E , then tan( {tex}\\theta{/tex} ) is",
+          "question_html": "<p>If the inclination is <span class=\"math-tex\">{tex}\\theta{/tex}</span>, the horizontal component of the earth&rsquo;s field is H<sub>E</sub>&nbsp;and the vertical component of the earth&rsquo;s field is Z<sub>E</sub>, then <strong>tan(<span class=\"math-tex\">{tex}\\theta{/tex}</span>)</strong>&nbsp;is</p>",
+          "options": [
+            {
+              "id": 9991,
+              "text": "{tex}\\frac{H_E^2}{Z_E^2 }{/tex}",
+              "html": "<span class=\"math-tex\">{tex}\\frac{H_E^2}{Z_E^2 }{/tex}</span>",
+              "is_correct": false
+            },
+            {
+              "id": 9988,
+              "text": "{tex}\\frac{Z_E}{H_E}{/tex}",
+              "html": "<span class=\"math-tex\">{tex}\\frac{Z_E}{H_E}{/tex}</span>",
+              "is_correct": true
+            },
+            {
+              "id": 9990,
+              "text": "{tex}\\frac{Z_E^2}{H_E^2}{/tex}",
+              "html": "<span class=\"math-tex\">{tex}\\frac{Z_E^2}{H_E^2}{/tex}</span>",
+              "is_correct": false
+            },
+            {
+              "id": 9989,
+              "text": "{tex}\\frac{H_E}{Z_E }{/tex}",
+              "html": "<span class=\"math-tex\">{tex}\\frac{H_E}{Z_E }{/tex}</span>",
+              "is_correct": false
+            }
+          ],
+          "correct_option_text": "{tex}\\frac{Z_E}{H_E}{/tex}",
+          "correct_option_ids": [
+            9988
+          ],
+          "explanation": "{tex}Z_E=B\\sin\\theta{/tex} {tex}H_E=B\\cos\\theta{/tex} Dividing the two we get, {tex}tan\\theta=\\frac{Z_E}{H_E}{/tex}",
+          "solution": ""
+        },
+        {
+          "n": 14,
+          "question_id": 13698,
+          "question_text": "Magnetic intensity is given by",
+          "question_html": "<p>Magnetic intensity is given by</p>",
+          "options": [
+            {
+              "id": 9994,
+              "text": "{tex}\\frac{2\\vec{B}}{\\mu_0} - \\vec{M}{/tex}",
+              "html": "<span class=\"math-tex\">{tex}\\frac{2\\vec{B}}{\\mu_0} - \\vec{M}{/tex}</span>",
+              "is_correct": false
+            },
+            {
+              "id": 9992,
+              "text": "{tex}\\frac{\\vec{B}}{\\mu_0} - \\vec{M}{/tex}",
+              "html": "<span class=\"math-tex\">{tex}\\frac{\\vec{B}}{\\mu_0} - \\vec{M}{/tex}</span>",
+              "is_correct": true
+            },
+            {
+              "id": 9993,
+              "text": "{tex}\\frac{\\vec{B}}{\\mu_0^2} - \\vec{M}{/tex}",
+              "html": "<span class=\"math-tex\">{tex}\\frac{\\vec{B}}{\\mu_0^2} - \\vec{M}{/tex}</span>",
+              "is_correct": false
+            },
+            {
+              "id": 9995,
+              "text": "{tex}\\frac{\\vec{B}}{\\mu_0^3} - \\vec{M}{/tex}",
+              "html": "<span class=\"math-tex\">{tex}\\frac{\\vec{B}}{\\mu_0^3} - \\vec{M}{/tex}</span>",
+              "is_correct": false
+            }
+          ],
+          "correct_option_text": "{tex}\\frac{\\vec{B}}{\\mu_0} - \\vec{M}{/tex}",
+          "correct_option_ids": [
+            9992
+          ],
+          "explanation": "When magnetic field is passed through materials with non zero magnetization, generates field which themselves contributes internal field. So it is convenient to introduce another term \"magnetic Intensity\" (H), where H has the same dimensions as M and is measured in units of Am -1 . In this way we can find total magnetic field given by {tex}\\overrightarrow B=\\mu_o(\\overrightarrow H+\\overrightarrow{M)}{/tex}",
+          "solution": ""
+        },
+        {
+          "n": 15,
+          "question_id": 13699,
+          "question_text": "If {tex}\\vec{H}{/tex} = magnetic intensity, {tex}\\chi{/tex} = susceptibility, magnetic moment per unit volume {tex}\\vec{M}{/tex} equals",
+          "question_html": "<p>If <span class=\"math-tex\">{tex}\\vec{H}{/tex}</span> = magnetic intensity,&nbsp;<span class=\"math-tex\">{tex}\\chi{/tex}</span> = susceptibility, magnetic moment per unit volume <span class=\"math-tex\">{tex}\\vec{M}{/tex}</span> equals</p>",
+          "options": [
+            {
+              "id": 9997,
+              "text": "{tex}\\pi\\chi\\vec{H}{/tex}",
+              "html": "<span class=\"math-tex\">{tex}\\pi\\chi\\vec{H}{/tex}</span>",
+              "is_correct": false
+            },
+            {
+              "id": 9996,
+              "text": "{tex}\\chi\\vec{H}{/tex}",
+              "html": "<span class=\"math-tex\">{tex}\\chi\\vec{H}{/tex}</span>",
+              "is_correct": true
+            },
+            {
+              "id": 9999,
+              "text": "{tex}\\chi^2\\vec{H}{/tex}",
+              "html": "<span class=\"math-tex\">{tex}\\chi^2\\vec{H}{/tex}</span>",
+              "is_correct": false
+            },
+            {
+              "id": 9998,
+              "text": "{tex}2\\chi\\vec{H}{/tex}",
+              "html": "<span class=\"math-tex\">{tex}2\\chi\\vec{H}{/tex}</span>",
+              "is_correct": false
+            }
+          ],
+          "correct_option_text": "{tex}\\chi\\vec{H}{/tex}",
+          "correct_option_ids": [
+            9996
+          ],
+          "explanation": "Magnetic moment per unit volume is called magnetization and it is given by {tex}\\chi\\vec{H}{/tex}",
+          "solution": ""
+        }
+      ]
+    }
+  ],
+  "totalQuestions": 15
+}
