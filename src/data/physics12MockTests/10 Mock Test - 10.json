@@ -1,0 +1,2098 @@
+{
+  "mock_id": 218,
+  "name": "Mock Test - 10",
+  "instruction": "The Question Paper contains three sections. Section A has 25 questions. Attempt any 20 questions. Section B has 24 questions. Attempt any20 questions. Section C has 6 questions. Attempt any 5 questions. All questions carry equal marks. There is no negative marking.",
+  "totalQuestions": 55,
+  "questions": [
+    {
+      "n": 1,
+      "question_id": 66358,
+      "question_text": "If a charge q is placed at the centre of the line joining two equal like charges Q such that the system is in equilibrium, then the value of q is:",
+      "question_html": "<p>If a charge q is placed at the centre of the line joining two equal like charges Q such that the system is in equilibrium, then the value of&nbsp;q is:</p>",
+      "options": [
+        {
+          "id": 208819,
+          "text": "4Q",
+          "html": "4Q",
+          "is_correct": false
+        },
+        {
+          "id": 208818,
+          "text": "{tex}\\frac{Q}{2}{/tex}",
+          "html": "<span class=\"math-tex\">{tex}\\frac{Q}{2}{/tex}</span>",
+          "is_correct": false
+        },
+        {
+          "id": 208817,
+          "text": "{tex}\\frac{-Q}{4}{/tex}",
+          "html": "<span class=\"math-tex\">{tex}\\frac{-Q}{4}{/tex}</span>",
+          "is_correct": true
+        },
+        {
+          "id": 208816,
+          "text": "{tex}\\frac{-Q}{2}{/tex}",
+          "html": "<span class=\"math-tex\">{tex}\\frac{-Q}{2}{/tex}</span>",
+          "is_correct": false
+        }
+      ],
+      "correct_option_text": "{tex}\\frac{-Q}{4}{/tex}",
+      "correct_option_ids": [
+        208817
+      ],
+      "explanation": "The total force on one Q is {tex}F=\\frac{k Q^{2}}{4 a^{2}}+\\frac{k q Q}{a^{2}}{/tex} For the system to be in equilibrium F = 0 {tex}\\frac{k Q^{2}}{4 a^{2}}+\\frac{k q Q}{a^{2}}=0{/tex} {tex}q=-\\frac{Q}{4}{/tex}",
+      "solution": ""
+    },
+    {
+      "n": 2,
+      "question_id": 13535,
+      "question_text": "If the charge on a capacitor is increased by 2 coulomb, the energy stored in it increases by 21%. The original charge on the capacitor (in coulomb) is -",
+      "question_html": "<p>If the charge on a capacitor is increased by 2 coulomb, the energy stored in it increases by 21%. The original charge on the capacitor (in coulomb) is -</p>",
+      "options": [
+        {
+          "id": 9342,
+          "text": "30",
+          "html": "30",
+          "is_correct": false
+        },
+        {
+          "id": 9340,
+          "text": "20",
+          "html": "20",
+          "is_correct": true
+        },
+        {
+          "id": 9343,
+          "text": "40",
+          "html": "40",
+          "is_correct": false
+        },
+        {
+          "id": 9341,
+          "text": "10",
+          "html": "10",
+          "is_correct": false
+        }
+      ],
+      "correct_option_text": "20",
+      "correct_option_ids": [
+        9340
+      ],
+      "explanation": "The initial energy of the capacitor of capacitance C and charge Q 1 is {tex}{U_1} = \\frac{{Q_1^2}}{{2C}}{/tex} When the charge increases to Q 2 , the energy of the capacitor {tex}\\frac{{{U_2} - {U_1}}}{{{U_1}}} = \\frac{{Q_2^2 - Q_1^2}}{{Q_1^2}}{/tex} Given percentage increase of energy {tex}\\frac{{{U_2} - {U_1}}}{{{U_1}}} = 0.21{/tex} {tex}\\therefore \\;\\frac{{Q_2^2 - Q_1^2}}{{Q_1^2}} = \\frac{{Q_2^2}}{{Q_1^2}} - 1{/tex} {tex}\\Rightarrow0.21=\\;\\frac{Q_2^2}{Q_1^2}-1{/tex} {tex}\\Rightarrow1.21=\\;\\frac{Q_2^2}{Q_1^2}{/tex} {tex}\\Rightarrow \\frac{Q_2}{Q_1}=1.1{/tex} But {tex}{Q_2} - {Q_1} = 2;{Q_2} = 1.1{Q_1}{/tex} On solving, we get initial charge on capacitor is, Q 1 = 20C",
+      "solution": ""
+    },
+    {
+      "n": 3,
+      "question_id": 471429,
+      "question_text": "The equivalent resistance (R AB ) between the points A and B is:",
+      "question_html": "<html><body><p>The equivalent resistance (R<sub>AB</sub>) between the points A and B is:<br/>\n<img alt=\"\" data-imgur-src=\"euEulu3.png\" src=\"https://media-mycbseguide.s3.amazonaws.com/images/imgur/1613388913-z3yux7.jpg\" style=\"width: 150px; height: 190px;\"/></p></body></html>",
+      "options": [
+        {
+          "id": 814847,
+          "text": "6 {tex}\\Omega{/tex}",
+          "html": "6&nbsp;<span class=\"math-tex\">{tex}\\Omega{/tex}</span>",
+          "is_correct": false
+        },
+        {
+          "id": 814849,
+          "text": "4.5 {tex}\\Omega{/tex}",
+          "html": "4.5&nbsp;<span class=\"math-tex\">{tex}\\Omega{/tex}</span>",
+          "is_correct": true
+        },
+        {
+          "id": 814850,
+          "text": "8 {tex}\\Omega{/tex}",
+          "html": "8&nbsp;<span class=\"math-tex\">{tex}\\Omega{/tex}</span>",
+          "is_correct": false
+        },
+        {
+          "id": 814848,
+          "text": "7.5 {tex}\\Omega{/tex}",
+          "html": "7.5&nbsp;<span class=\"math-tex\">{tex}\\Omega{/tex}</span>",
+          "is_correct": false
+        }
+      ],
+      "correct_option_text": "4.5 {tex}\\Omega{/tex}",
+      "correct_option_ids": [
+        814849
+      ],
+      "explanation": "As {tex}\\frac{2 \\Omega}{4 \\Omega}=\\frac{6 \\Omega}{12 \\Omega}{/tex} The Wheatstone bridge is balanced. R ACB = 2 + 4 = 6 R ADB = 6 + 12 = 18 R AB = {tex}\\frac{6 \\ \\times \\ 18}{6 \\ + \\ 18}{/tex} = 4.5 {tex}\\Omega{/tex}",
+      "solution": ""
+    },
+    {
+      "n": 4,
+      "question_id": 13486,
+      "question_text": "Electric potential is potential energy",
+      "question_html": "<p>Electric potential is potential energy</p>",
+      "options": [
+        {
+          "id": 9146,
+          "text": "per unit volume",
+          "html": "per unit volume",
+          "is_correct": false
+        },
+        {
+          "id": 9145,
+          "text": "per unit time",
+          "html": "per unit time",
+          "is_correct": false
+        },
+        {
+          "id": 9144,
+          "text": "per unit charge",
+          "html": "per unit charge",
+          "is_correct": true
+        },
+        {
+          "id": 9147,
+          "text": "per unit current",
+          "html": "per unit current",
+          "is_correct": false
+        }
+      ],
+      "correct_option_text": "per unit charge",
+      "correct_option_ids": [
+        9144
+      ],
+      "explanation": "Electric potential V is the work done in bringing unit positive charge from infinity to the point in an electric field, and the potential energy U is the work done in bringing any finite charge from infinity to the point in an electric field. They are related as, {tex}U = qV{/tex} or {tex}V = \\frac{U }{q}{/tex}",
+      "solution": ""
+    },
+    {
+      "n": 5,
+      "question_id": 468570,
+      "question_text": "A metal rod consumes power P on passing current. If it is cut into halves and joined in parallel, it will consume power:",
+      "question_html": "<p>A metal rod consumes power P on passing current. If it is cut into halves and joined in parallel, it will consume power:</p>",
+      "options": [
+        {
+          "id": 807698,
+          "text": "2P",
+          "html": "2P",
+          "is_correct": false
+        },
+        {
+          "id": 807699,
+          "text": "4P",
+          "html": "4P",
+          "is_correct": true
+        },
+        {
+          "id": 807700,
+          "text": "{tex}\\frac P4{/tex}",
+          "html": "<span class=\"math-tex\">{tex}\\frac P4{/tex}</span>",
+          "is_correct": false
+        },
+        {
+          "id": 807697,
+          "text": "P",
+          "html": "P",
+          "is_correct": false
+        }
+      ],
+      "correct_option_text": "4P",
+      "correct_option_ids": [
+        807699
+      ],
+      "explanation": "Original power consumed, P = {tex}\\frac{V^{2}}{R}{/tex} When the two halves are connected in parallel, V is the same {tex}\\therefore P^{\\prime}=\\frac{V^{2}}{\\frac R2}+\\frac{V^{2}}{\\frac R2}=4 \\frac{V^{2}}{R}{/tex} = 4P",
+      "solution": ""
+    },
+    {
+      "n": 6,
+      "question_id": 334162,
+      "question_text": "Consider a current-carrying wire (current I) in the shape of a circle. Note that as the current progresses along the wire, the direction of j (current density) changes in an exact manner, while the current I remain unaffected. The agent that is essentially responsible for, is",
+      "question_html": "<p>Consider a current-carrying wire (current I) in the shape of a circle. Note that as the current progresses along the wire, the direction of j (current density) changes in an exact manner, while the current I remain unaffected. The agent that is essentially responsible for, is</p>",
+      "options": [
+        {
+          "id": 503937,
+          "text": "the charges just behind a given segment of wire which push them just the right way by repulsion.",
+          "html": "the charges just behind a given segment of wire which push them just the right way by repulsion.",
+          "is_correct": false
+        },
+        {
+          "id": 503935,
+          "text": "the electric field produced by charges accumulated on the surface of the wire.",
+          "html": "the electric field produced by charges accumulated on the surface of the wire.",
+          "is_correct": true
+        },
+        {
+          "id": 503938,
+          "text": "the charges ahead.",
+          "html": "the charges ahead.",
+          "is_correct": false
+        },
+        {
+          "id": 503936,
+          "text": "source of emf.",
+          "html": "source of emf.",
+          "is_correct": false
+        }
+      ],
+      "correct_option_text": "the electric field produced by charges accumulated on the surface of the wire.",
+      "correct_option_ids": [
+        503935
+      ],
+      "explanation": "Current density (J) depends on conductivity {tex}\\sigma=\\frac{1}{\\rho}=\\frac{l}{R A}{/tex} Electric field {tex}(J=\\sigma E){/tex} current and length and area of cross-section. The direction of current density is directed along the electric field. In our options only E i.e., an electric field can be varied by the charges accumulated on the surface of the wire.",
+      "solution": ""
+    },
+    {
+      "n": 7,
+      "question_id": 13812,
+      "question_text": "Eddy currents are produced in",
+      "question_html": "<p>Eddy currents are produced in</p>",
+      "options": [
+        {
+          "id": 10448,
+          "text": "Induction furnace",
+          "html": "Induction furnace",
+          "is_correct": false
+        },
+        {
+          "id": 10449,
+          "text": "Electromagnetic brakes",
+          "html": "Electromagnetic brakes",
+          "is_correct": false
+        },
+        {
+          "id": 10451,
+          "text": "All of these",
+          "html": "All of these",
+          "is_correct": true
+        },
+        {
+          "id": 10450,
+          "text": "Speedometer",
+          "html": "Speedometer",
+          "is_correct": false
+        }
+      ],
+      "correct_option_text": "All of these",
+      "correct_option_ids": [
+        10451
+      ],
+      "explanation": "All of these",
+      "solution": ""
+    },
+    {
+      "n": 8,
+      "question_id": 491973,
+      "question_text": "A bar magnet having a magnetic moment of 2 {tex}\\times{/tex} 10 4 JT -1 is free to rotate in a horizontal plane. A horizontal magnetic field B = 6 {tex}\\times{/tex} 10 -4 T exists in the space. The work done in taking the magnet slowly from a direction parallel to the field to a direction 60&deg; from the field is",
+      "question_html": "<p>A bar magnet having a magnetic moment of 2 <span class=\"math-tex\">{tex}\\times{/tex}</span> 10<sup>4</sup> JT<sup>-1</sup> is free to rotate in a horizontal plane. A horizontal magnetic field B = 6 <span class=\"math-tex\">{tex}\\times{/tex}</span> 10<sup>-4</sup> T exists in the space. The work done in taking the magnet slowly from a direction parallel to the field to a direction 60&deg; from the field is</p>",
+      "options": [
+        {
+          "id": 856732,
+          "text": "0.6 J",
+          "html": "0.6 J",
+          "is_correct": false
+        },
+        {
+          "id": 856729,
+          "text": "12 J",
+          "html": "12 J",
+          "is_correct": false
+        },
+        {
+          "id": 856731,
+          "text": "2 J",
+          "html": "2 J",
+          "is_correct": false
+        },
+        {
+          "id": 856730,
+          "text": "6 J",
+          "html": "6 J",
+          "is_correct": true
+        }
+      ],
+      "correct_option_text": "6 J",
+      "correct_option_ids": [
+        856730
+      ],
+      "explanation": "W = {tex}m B\\left(\\cos \\theta_{1}-\\cos \\theta_{2}\\right){/tex} = {tex}2 \\times 10^{4} \\times 6 \\times 10^{-4}{/tex} (cos 0&deg; - cos 60&deg;) = 6J",
+      "solution": ""
+    },
+    {
+      "n": 9,
+      "question_id": 13798,
+      "question_text": "A transformer is used to light a 100 watt and 110 volt lamp from a 220 volt mains. If the main current is 0.5 ampere, the efficiency of the transformer is approximately",
+      "question_html": "<p>A transformer is used to light a 100 watt and 110 volt lamp from a 220 volt mains. If the main current is 0.5 ampere, the efficiency of the transformer is approximately</p>",
+      "options": [
+        {
+          "id": 10395,
+          "text": "20%",
+          "html": "20%",
+          "is_correct": false
+        },
+        {
+          "id": 10392,
+          "text": "90%",
+          "html": "90%",
+          "is_correct": true
+        },
+        {
+          "id": 10394,
+          "text": "30%",
+          "html": "30%",
+          "is_correct": false
+        },
+        {
+          "id": 10393,
+          "text": "10%",
+          "html": "10%",
+          "is_correct": false
+        }
+      ],
+      "correct_option_text": "90%",
+      "correct_option_ids": [
+        10392
+      ],
+      "explanation": "{tex}\\eta =\\frac{output\\; power}{input\\; power}= {{{V_s}{I_s}} \\over {{V_p}{I_p}}} \\times 100 = {{100} \\over {220 \\times 0.5}}\\times 100 = 90\\% {/tex}",
+      "solution": ""
+    },
+    {
+      "n": 10,
+      "question_id": 492881,
+      "question_text": "The coil of a choke in a circuit",
+      "question_html": "<p>The coil of a choke in a circuit</p>",
+      "options": [
+        {
+          "id": 858679,
+          "text": "has high resistance to d.c. circuit.",
+          "html": "has high resistance to d.c. circuit.",
+          "is_correct": false
+        },
+        {
+          "id": 858678,
+          "text": "does not change the current",
+          "html": "does not change the current",
+          "is_correct": false
+        },
+        {
+          "id": 858677,
+          "text": "decreases the current",
+          "html": "decreases the current",
+          "is_correct": true
+        },
+        {
+          "id": 858676,
+          "text": "increases the current",
+          "html": "increases the current",
+          "is_correct": false
+        }
+      ],
+      "correct_option_text": "decreases the current",
+      "correct_option_ids": [
+        858677
+      ],
+      "explanation": "The coil of choke in a circuit decreases the current.",
+      "solution": ""
+    },
+    {
+      "n": 11,
+      "question_id": 471689,
+      "question_text": "A positively charged particle moving due east enters a region of uniform magnetic field directed vertically upward. The particle will:",
+      "question_html": "<p>A positively charged particle moving due east enters a region of uniform magnetic field directed vertically upward. The particle will:</p>",
+      "options": [
+        {
+          "id": 815176,
+          "text": "get deflected in a vertically upward direction",
+          "html": "get deflected in a vertically upward direction",
+          "is_correct": false
+        },
+        {
+          "id": 815178,
+          "text": "move in a circular path with a decreased speed",
+          "html": "move in a circular path with a decreased speed",
+          "is_correct": false
+        },
+        {
+          "id": 815175,
+          "text": "move in a circular path with a uniform speed",
+          "html": "move in a circular path with a uniform speed",
+          "is_correct": true
+        },
+        {
+          "id": 815177,
+          "text": "move in a circular path with an increased speed",
+          "html": "move in a circular path with an&nbsp;increased speed",
+          "is_correct": false
+        }
+      ],
+      "correct_option_text": "move in a circular path with a uniform speed",
+      "correct_option_ids": [
+        815175
+      ],
+      "explanation": "The perpendicular magnetic force continuously deflects the charge from its path making it move along a circular path with a uniform speed.",
+      "solution": ""
+    },
+    {
+      "n": 12,
+      "question_id": 21588,
+      "question_text": "Kirchhoff&rsquo;s second law is a consequence of____________",
+      "question_html": "<p>Kirchhoff&rsquo;s second law is a consequence of____________</p>",
+      "options": [
+        {
+          "id": 41552,
+          "text": "Law of conservation of momentum",
+          "html": "Law of conservation of momentum",
+          "is_correct": false
+        },
+        {
+          "id": 41553,
+          "text": "Law of conservation of charge",
+          "html": "Law of conservation of charge",
+          "is_correct": false
+        },
+        {
+          "id": 41554,
+          "text": "Law of conservation of angular momentum",
+          "html": "Law of conservation of angular momentum",
+          "is_correct": false
+        },
+        {
+          "id": 41551,
+          "text": "Law of conservation of energy",
+          "html": "Law of conservation of energy",
+          "is_correct": true
+        }
+      ],
+      "correct_option_text": "Law of conservation of energy",
+      "correct_option_ids": [
+        41551
+      ],
+      "explanation": "If a charge moves around a closed loop in a circuit, it must gain as much energy as it loses.Hence, the gain in electrical energy by the charge = corresponding losses in energy through resistances.",
+      "solution": ""
+    },
+    {
+      "n": 13,
+      "question_id": 13814,
+      "question_text": "In lenz&#39;s law, there is conservation of",
+      "question_html": "<p>In lenz&#39;s law, there is conservation of&nbsp;</p>",
+      "options": [
+        {
+          "id": 10456,
+          "text": "Charge",
+          "html": "Charge",
+          "is_correct": false
+        },
+        {
+          "id": 10457,
+          "text": "Momentum",
+          "html": "Momentum",
+          "is_correct": false
+        },
+        {
+          "id": 10459,
+          "text": "Current",
+          "html": "Current",
+          "is_correct": false
+        },
+        {
+          "id": 10458,
+          "text": "Energy",
+          "html": "Energy",
+          "is_correct": true
+        }
+      ],
+      "correct_option_text": "Energy",
+      "correct_option_ids": [
+        10458
+      ],
+      "explanation": "Energy",
+      "solution": ""
+    },
+    {
+      "n": 14,
+      "question_id": 13895,
+      "question_text": "An LRC series circuit has phase angle 31.5&deg;. The voltage amplitude of the source is 90.0 V. Voltage amplitude across the resistor is",
+      "question_html": "<p>An LRC series circuit has phase angle 31.5&deg;. The voltage amplitude of the source is 90.0 V. Voltage amplitude across the resistor is</p>",
+      "options": [
+        {
+          "id": 10782,
+          "text": "74.7 V",
+          "html": "74.7 V",
+          "is_correct": false
+        },
+        {
+          "id": 10780,
+          "text": "76.7 V",
+          "html": "76.7 V",
+          "is_correct": true
+        },
+        {
+          "id": 10783,
+          "text": "68.7 V",
+          "html": "68.7 V",
+          "is_correct": false
+        },
+        {
+          "id": 10781,
+          "text": "70.7 V",
+          "html": "70.7 V",
+          "is_correct": false
+        }
+      ],
+      "correct_option_text": "76.7 V",
+      "correct_option_ids": [
+        10780
+      ],
+      "explanation": "Consider RLC circuit phasor diagram: Hence, {tex}\\cos \\phi = \\frac{{{V_R}}}{V_o}{/tex} {tex}\\cos 31.5^\\circ = \\frac{{{V_R}}}{{90}}{/tex} Thus, {tex}{V_R} = 90 \\times \\cos 31.5^\\circ = 90 \\times 0.852 = 76.7V{/tex}",
+      "solution": ""
+    },
+    {
+      "n": 15,
+      "question_id": 13506,
+      "question_text": "If one penetrates a uniformly charged solid metallic sphere, the electric field strength E",
+      "question_html": "<p>If one penetrates a uniformly charged solid metallic sphere, the electric field strength E</p>",
+      "options": [
+        {
+          "id": 9227,
+          "text": "remains the same as at the surface",
+          "html": "remains the same as at the surface",
+          "is_correct": false
+        },
+        {
+          "id": 9225,
+          "text": "increases",
+          "html": "increases",
+          "is_correct": false
+        },
+        {
+          "id": 9224,
+          "text": "decreases",
+          "html": "decreases",
+          "is_correct": true
+        },
+        {
+          "id": 9226,
+          "text": "is zero at all points",
+          "html": "is zero at all points",
+          "is_correct": false
+        }
+      ],
+      "correct_option_text": "decreases",
+      "correct_option_ids": [
+        9224
+      ],
+      "explanation": "E decreases as we move from the surface of the sphere to its centre.",
+      "solution": ""
+    },
+    {
+      "n": 16,
+      "question_id": 463770,
+      "question_text": "What would be the voltage across C 3 ?",
+      "question_html": "<html><body><p>What would be the voltage across C<sub>3</sub>?<br/>\n<img alt=\"\" data-imgur-src=\"8r0566a.png\" src=\"https://media-mycbseguide.s3.amazonaws.com/images/imgur/1612416698-s6bpcg.jpg\" style=\"width: 99px; height: 133px;\"/></p></body></html>",
+      "options": [
+        {
+          "id": 798343,
+          "text": "{tex}\\frac{C_{2} V}{C_{1}+C_{2}+C_{3}}{/tex}",
+          "html": "<span class=\"math-tex\">{tex}\\frac{C_{2} V}{C_{1}+C_{2}+C_{3}}{/tex}</span>",
+          "is_correct": false
+        },
+        {
+          "id": 798344,
+          "text": "{tex}\\frac{C_{3} V}{C_{1}+C_{2}+C_{3}}{/tex}",
+          "html": "<span class=\"math-tex\">{tex}\\frac{C_{3} V}{C_{1}+C_{2}+C_{3}}{/tex}</span>",
+          "is_correct": false
+        },
+        {
+          "id": 798341,
+          "text": "{tex}\\frac{\\left(C_{1}+C_{2}\\right) V}{C_{1}+C_{2}+C_{3}}{/tex}",
+          "html": "<span class=\"math-tex\">{tex}\\frac{\\left(C_{1}+C_{2}\\right) V}{C_{1}+C_{2}+C_{3}}{/tex}</span>",
+          "is_correct": true
+        },
+        {
+          "id": 798342,
+          "text": "{tex}\\frac{C_{1} V}{C_{1}+C_{2}+C_{3}}{/tex}",
+          "html": "<span class=\"math-tex\">{tex}\\frac{C_{1} V}{C_{1}+C_{2}+C_{3}}{/tex}</span>",
+          "is_correct": false
+        }
+      ],
+      "correct_option_text": "{tex}\\frac{\\left(C_{1}+C_{2}\\right) V}{C_{1}+C_{2}+C_{3}}{/tex}",
+      "correct_option_ids": [
+        798341
+      ],
+      "explanation": "Parallel combination of C 1 and C 2 is in series with C 3 . So {tex}C_{c q}=\\frac{\\left(C_{1}+C_{2}\\right) C_{3}}{C_{1}+C_{2}+C_{3}}{/tex} Charge on C 3 , Q = (C 1 + C 2 )V {tex}=\\frac{\\left(C_{1}+C_{2}\\right) C_{3} V}{C_{1}+C_{2}+C_{3}}{/tex} Voltage across {tex}C_{3}=\\frac{Q}{C_{3}}=\\frac{\\left(C_{1}+C_{2}\\right) V}{C_{1}+C_{2}+C_{3}}{/tex}",
+      "solution": ""
+    },
+    {
+      "n": 17,
+      "question_id": 66665,
+      "question_text": "Two long parallel wires P and Q are held perpendicular to the plane of the paper with distance of 5 m between them. If P and Q carry current of 2.5 A and 5A respectively in the same direction, then the magnetic field at a point half way between the wire is",
+      "question_html": "<p>Two long parallel wires P and Q are held perpendicular to the plane of the paper with distance of 5 m between them. If P and Q carry current of 2.5 A and 5A respectively in the same direction, then the magnetic field at a point half way between the wire is</p>",
+      "options": [
+        {
+          "id": 208975,
+          "text": "{tex}\\frac{{{\\mu _0}}}{{2\\pi }}{/tex}",
+          "html": "<span class=\"math-tex\">{tex}\\frac{{{\\mu _0}}}{{2\\pi }}{/tex}</span>",
+          "is_correct": true
+        },
+        {
+          "id": 208977,
+          "text": "{tex}\\frac{{\\sqrt 3 {\\mu _0}}}{\\pi }{/tex}",
+          "html": "<span class=\"math-tex\">{tex}\\frac{{\\sqrt 3 {\\mu _0}}}{\\pi }{/tex}</span>",
+          "is_correct": false
+        },
+        {
+          "id": 208978,
+          "text": "{tex}\\frac{{3{\\mu _0}}}{{2\\pi }}{/tex}",
+          "html": "<span class=\"math-tex\">{tex}\\frac{{3{\\mu _0}}}{{2\\pi }}{/tex}</span>",
+          "is_correct": false
+        },
+        {
+          "id": 208976,
+          "text": "{tex}\\frac{{{\\mu _0}}}{\\pi }{/tex}",
+          "html": "<span class=\"math-tex\">{tex}\\frac{{{\\mu _0}}}{\\pi }{/tex}</span>",
+          "is_correct": false
+        }
+      ],
+      "correct_option_text": "{tex}\\frac{{{\\mu _0}}}{{2\\pi }}{/tex}",
+      "correct_option_ids": [
+        208975
+      ],
+      "explanation": "{tex}\\begin{array}{l}{B_{\\# t}=B_{Q}-B_{P}} \\\\ {=\\frac{\\mu_{0}}{4 \\pi} \\frac{.2}{r}\\left(i_{Q}-i_{P}\\right)} \\\\ {=\\frac{\\mu_{0}}{4 \\pi} \\times \\frac{2}{2.5}(5-2.5)=\\frac{\\mu_{0}}{2 \\pi}}\\end{array}{/tex}",
+      "solution": ""
+    },
+    {
+      "n": 18,
+      "question_id": 13839,
+      "question_text": "For a series LCR-circuit, the power loss at resonance is",
+      "question_html": "<p>For a series&nbsp;LCR-circuit, the power loss at resonance is</p>",
+      "options": [
+        {
+          "id": 10559,
+          "text": "I 2 R",
+          "html": "I<sup>2</sup>&nbsp;R",
+          "is_correct": true
+        },
+        {
+          "id": 10557,
+          "text": "{tex}\\frac{V^2}{\\omega \\ C}{/tex}",
+          "html": "<span class=\"math-tex\">{tex}\\frac{V^2}{\\omega \\ C}{/tex}</span>",
+          "is_correct": false
+        },
+        {
+          "id": 10558,
+          "text": "I 2 {tex}\\omega{/tex} C",
+          "html": "I<sup>2</sup>&nbsp;<span class=\"math-tex\">{tex}\\omega{/tex}</span> C",
+          "is_correct": false
+        },
+        {
+          "id": 10556,
+          "text": "{tex}\\frac{V^2}{\\omega\\ L- 1/ \\omega \\ C}{/tex}",
+          "html": "<span class=\"math-tex\">{tex}\\frac{V^2}{\\omega\\ L- 1/ \\omega \\ C}{/tex}</span>",
+          "is_correct": false
+        }
+      ],
+      "correct_option_text": "I 2 R",
+      "correct_option_ids": [
+        10559
+      ],
+      "explanation": "At resonance, the impedance of the circuit is equal to the resistance. Therefore, P av = I 2 R",
+      "solution": ""
+    },
+    {
+      "n": 19,
+      "question_id": 13709,
+      "question_text": "If you made a map of magnetic field lines at Melbourne in Australia, would the lines go into the ground or come out of the ground?",
+      "question_html": "<p>If you made a map of magnetic field lines at Melbourne in Australia, would the lines go into the ground or come out of the ground?</p>",
+      "options": [
+        {
+          "id": 10039,
+          "text": "Lines seem to go into the ground",
+          "html": "Lines seem to go into the ground",
+          "is_correct": false
+        },
+        {
+          "id": 10036,
+          "text": "Lines seem to come out of the ground",
+          "html": "Lines seem to come out of the ground",
+          "is_correct": true
+        },
+        {
+          "id": 10038,
+          "text": "Lines seem to be horizontal to the ground",
+          "html": "Lines seem to be horizontal to the ground",
+          "is_correct": false
+        },
+        {
+          "id": 10037,
+          "text": "Lines seem to come out at 45 degrees to the ground",
+          "html": "Lines seem to come out at 45 degrees to the ground",
+          "is_correct": false
+        }
+      ],
+      "correct_option_text": "Lines seem to come out of the ground",
+      "correct_option_ids": [
+        10036
+      ],
+      "explanation": "Magnetic field lines seem to come out of the ground, because magnetic feild lines emerges from magnetic North pole that lies in the Southern Hemisphere. Australia is near the magnetic north pole so, magnetic field lines will seem to be emerging.",
+      "solution": ""
+    },
+    {
+      "n": 20,
+      "question_id": 468627,
+      "question_text": "If two identical heaters each rated as (1000 W, 220 V) are connected in parallel to 220 V, then the total power consumed is:",
+      "question_html": "<p>If two identical heaters each rated as (1000 W, 220 V) are connected in parallel to 220 V, then the total power consumed is:</p>",
+      "options": [
+        {
+          "id": 807921,
+          "text": "200 W",
+          "html": "200 W",
+          "is_correct": false
+        },
+        {
+          "id": 807922,
+          "text": "2500 W",
+          "html": "2500 W",
+          "is_correct": false
+        },
+        {
+          "id": 807923,
+          "text": "250 W",
+          "html": "250 W",
+          "is_correct": false
+        },
+        {
+          "id": 807924,
+          "text": "2000 W",
+          "html": "2000 W",
+          "is_correct": true
+        }
+      ],
+      "correct_option_text": "2000 W",
+      "correct_option_ids": [
+        807924
+      ],
+      "explanation": "For a parallel combination, P = P 1 + P 2 = 1000 + 1000 = 2000 W",
+      "solution": ""
+    },
+    {
+      "n": 21,
+      "question_id": 13457,
+      "question_text": "A particle of mass m and charge q is released from rest in a uniform electric field E. The kinetic energy attained by the particle after moving a distance x is",
+      "question_html": "<p>A particle of mass m and charge q is released from rest in a uniform electric field E. The kinetic energy attained by the particle after moving a distance x is</p>",
+      "options": [
+        {
+          "id": 9031,
+          "text": "{tex}{{\\rm{q}}^{\\rm{2}}}{\\rm{Ex}}{/tex}",
+          "html": "<span class=\"math-tex\">{tex}{{\\rm{q}}^{\\rm{2}}}{\\rm{Ex}}{/tex}</span>",
+          "is_correct": false
+        },
+        {
+          "id": 9028,
+          "text": "{tex}{\\rm{q E}}{{\\rm{x}}}{/tex}",
+          "html": "<span class=\"math-tex\">{tex}{\\rm{q E}}{{\\rm{x}}}{/tex}</span>",
+          "is_correct": true
+        },
+        {
+          "id": 9030,
+          "text": "{tex}{\\rm{q}}{{\\rm{E}}^{\\rm{2}}}{\\rm{x}}{/tex}",
+          "html": "<span class=\"math-tex\">{tex}{\\rm{q}}{{\\rm{E}}^{\\rm{2}}}{\\rm{x}}{/tex}</span>",
+          "is_correct": false
+        },
+        {
+          "id": 9029,
+          "text": "{tex}{\\rm{q E}}{{\\rm{x}}^{\\rm{2}}}{/tex}",
+          "html": "<span class=\"math-tex\">{tex}{\\rm{q E}}{{\\rm{x}}^{\\rm{2}}}{/tex}</span>",
+          "is_correct": false
+        }
+      ],
+      "correct_option_text": "{tex}{\\rm{q E}}{{\\rm{x}}}{/tex}",
+      "correct_option_ids": [
+        9028
+      ],
+      "explanation": "If a charge q placed in uniform electric field E, it experiences force, F = qE displacement = x W = Force {tex}\\times{/tex} displacement = qE x According to work energy theorem, Net work done = change in Kinetic energy Hence, Kinetic energy attained = qE x.",
+      "solution": ""
+    },
+    {
+      "n": 22,
+      "question_id": 13902,
+      "question_text": "A coil has a resistance of 48.0 {tex}\\Omega {/tex} . At a frequency of 80.0 Hz, the voltage across the coil leads the current in it by {tex}53^\\circ {/tex} . Inductance of the coil is",
+      "question_html": "<p>A coil has a resistance of 48.0 <span class=\"math-tex\">{tex}\\Omega {/tex}</span>. At a frequency of 80.0 Hz, the voltage across the coil leads the current in it by&nbsp;<span class=\"math-tex\">{tex}53^\\circ {/tex}</span>. Inductance of the coil is</p>",
+      "options": [
+        {
+          "id": 10811,
+          "text": "0.84 H",
+          "html": "0.84 H",
+          "is_correct": false
+        },
+        {
+          "id": 10810,
+          "text": "0.94 H",
+          "html": "0.94 H",
+          "is_correct": false
+        },
+        {
+          "id": 10809,
+          "text": "0.114 H",
+          "html": "0.114 H",
+          "is_correct": false
+        },
+        {
+          "id": 10808,
+          "text": "0.124 H",
+          "html": "0.124 H",
+          "is_correct": true
+        }
+      ],
+      "correct_option_text": "0.124 H",
+      "correct_option_ids": [
+        10808
+      ],
+      "explanation": "{tex}R = 48\\Omega {/tex} f = 80Hz {tex}\\phi = 53^\\circ {/tex} Now, {tex}\\omega = 2\\pi f = 2 \\times 3.14 \\times 80{/tex} In series LR circuit, {tex}\\tan \\phi = \\frac{{\\omega L}}{R}{/tex} {tex}\\tan 53^\\circ = \\frac{{2 \\times 3.14 \\times 80 \\times L}}{{48}}{/tex} {tex}\\frac{4}{3} = \\frac{{2 \\times 3.14 \\times 80 \\times L}}{{48}}{/tex} Thus, L = 0.124 H",
+      "solution": ""
+    },
+    {
+      "n": 23,
+      "question_id": 13766,
+      "question_text": "The SI unit of magnetic flux is:",
+      "question_html": "<p>The SI unit of magnetic flux is:</p>",
+      "options": [
+        {
+          "id": 10265,
+          "text": "Oersted",
+          "html": "Oersted",
+          "is_correct": false
+        },
+        {
+          "id": 10267,
+          "text": "Weber",
+          "html": "Weber",
+          "is_correct": true
+        },
+        {
+          "id": 10264,
+          "text": "Gauss",
+          "html": "Gauss",
+          "is_correct": false
+        },
+        {
+          "id": 10266,
+          "text": "Tesla",
+          "html": "Tesla",
+          "is_correct": false
+        }
+      ],
+      "correct_option_text": "Weber",
+      "correct_option_ids": [
+        10267
+      ],
+      "explanation": "Weber",
+      "solution": ""
+    },
+    {
+      "n": 24,
+      "question_id": 387179,
+      "question_text": "Consider the two idealized systems: a parallel plate capacitor with large plates and small separation and a long solenoid of length L >> R, radius of cross-section. In E is ideally treated as a constant between plates and zero outside. In magnetic field is constant inside the solenoid and zero outside. These idealised assumptions, however, contradict fundamental laws as below:",
+      "question_html": "<p>Consider the two idealized systems:</p>\r\n\r\n<ol start=\"1\" style=\"list-style-type: lower-alpha;\">\r\n\t<li>a parallel plate capacitor with large plates and small separation and</li>\r\n\t<li>a long solenoid of length L &gt;&gt; R, radius of cross-section. In E is ideally treated as a constant between plates and zero outside. In magnetic field is constant inside the solenoid and zero outside. These idealised assumptions, however, contradict fundamental laws as below:</li>\r\n</ol>",
+      "options": [
+        {
+          "id": 597613,
+          "text": "case (b) contradicts {tex}\\oint{/tex} H.d 1 = I en",
+          "html": "case (b) contradicts&nbsp;<span class=\"math-tex\">{tex}\\oint{/tex}</span>&nbsp;H.d<sub>1</sub> = I<sub>en</sub>",
+          "is_correct": false
+        },
+        {
+          "id": 597612,
+          "text": "case (a) agrees with {tex}\\oint{/tex} ED 1 = 0.",
+          "html": "case (a) agrees with&nbsp;<span class=\"math-tex\">{tex}\\oint{/tex}</span>&nbsp;ED<sub>1</sub> = 0.",
+          "is_correct": false
+        },
+        {
+          "id": 597611,
+          "text": "case (b) contradicts Gauss&rsquo;s law for magnetic fields.",
+          "html": "case (b) contradicts Gauss&rsquo;s law for magnetic fields.",
+          "is_correct": true
+        },
+        {
+          "id": 597610,
+          "text": "case (a) contradicts Gauss&rsquo;s law for electrostatic fields.",
+          "html": "case (a) contradicts Gauss&rsquo;s law for electrostatic fields.",
+          "is_correct": false
+        }
+      ],
+      "correct_option_text": "case (b) contradicts Gauss&rsquo;s law for magnetic fields.",
+      "correct_option_ids": [
+        597611
+      ],
+      "explanation": "Key concept: The electrostatic field lines, do not form a continuous closed path (this follows from the conservative nature of electric field) while the magnetic field lines form the closed paths. According to the Gauss&#39; law, {tex}\\oint \\mathbf{E} \\cdot \\mathbf{d s}=\\frac{q}{\\varepsilon_{0}}{/tex} for the electrostatic field. It does not contradict for electrostatic fields as the electric field lines do not form a continuous closed path. According to Gauss&#39; law in magnetism, {tex}\\oint{/tex} B. ds = 0 Which implies that the number of magnetic field lines entering the Gaussian surface is equal to the number of magnetic field lines leaving it. It contradicts for the magnetic field because there is a magnetic field inside the solenoid and no field outside the solenoid carrying current. So it doesn&#39;t form the closed-loop.",
+      "solution": ""
+    },
+    {
+      "n": 25,
+      "question_id": 471806,
+      "question_text": "A millivoltmeter of 25 millivolt range is to be converted into an ammeter of 25-ampere range. The value (in ohm) of the necessary shunt will be:",
+      "question_html": "<p>A millivoltmeter of 25 millivolt range is to be converted into an ammeter of 25-ampere range. The value (in ohm) of the necessary shunt will be:</p>",
+      "options": [
+        {
+          "id": 815580,
+          "text": "0.01",
+          "html": "0.01",
+          "is_correct": false
+        },
+        {
+          "id": 815581,
+          "text": "1",
+          "html": "1",
+          "is_correct": false
+        },
+        {
+          "id": 815579,
+          "text": "0.001",
+          "html": "0.001",
+          "is_correct": true
+        },
+        {
+          "id": 815582,
+          "text": "0.05",
+          "html": "0.05",
+          "is_correct": false
+        }
+      ],
+      "correct_option_text": "0.001",
+      "correct_option_ids": [
+        815579
+      ],
+      "explanation": "{tex}\\frac{G S}{G+S}=\\frac{V_{G}}{I}=\\frac{25 \\times 10^{-3}}{25}{/tex} or {tex}\\frac{G S}{G+S}=0.001 \\Omega{/tex} as S << G, so S = 0.001 {tex}\\Omega{/tex}",
+      "solution": ""
+    },
+    {
+      "n": 26,
+      "question_id": 13620,
+      "question_text": "Consider the motion of a charged particle in a uniform magnetic field directed into the paper. If velocity v of the particle is in the plane of the paper the charged particle will",
+      "question_html": "<p>Consider the motion of a charged particle in a uniform magnetic field directed into the paper. If velocity v of the particle is in the plane of the paper the charged particle will</p>",
+      "options": [
+        {
+          "id": 9683,
+          "text": "describe an ellipse",
+          "html": "describe an ellipse",
+          "is_correct": false
+        },
+        {
+          "id": 9681,
+          "text": "describe a straight line",
+          "html": "describe a straight line",
+          "is_correct": false
+        },
+        {
+          "id": 9680,
+          "text": "describe a circle",
+          "html": "describe a circle",
+          "is_correct": true
+        },
+        {
+          "id": 9682,
+          "text": "describe a hyperbola",
+          "html": "describe a hyperbola",
+          "is_correct": false
+        }
+      ],
+      "correct_option_text": "describe a circle",
+      "correct_option_ids": [
+        9680
+      ],
+      "explanation": "The charged particle experiences magnetic Lorentz force given by {tex}\\vec F = q\\left( {\\vec v \\times \\vec B} \\right){/tex} . This force acts in the plane of the paper perpendicular to the velocity vector at all points on the plane. Magnetic Lorentz force acts like a centripetal force, causing the particle to move in a circle.",
+      "solution": ""
+    },
+    {
+      "n": 27,
+      "question_id": 471436,
+      "question_text": "For the circuit shown in the figure, determine the charge of the capacitor in steady-state.",
+      "question_html": "<html><body><p>For the circuit shown in the figure, determine the charge of the capacitor in steady-state.<br/>\n<img alt=\"\" data-imgur-src=\"xfYlkaM.png\" src=\"https://media-mycbseguide.s3.amazonaws.com/images/imgur/1613389078-3azbwp.jpg\" style=\"width: 200px; height: 104px;\"/></p></body></html>",
+      "options": [
+        {
+          "id": 814875,
+          "text": "4 {tex}\\mu{/tex} C",
+          "html": "4&nbsp;<span class=\"math-tex\">{tex}\\mu{/tex}</span>C",
+          "is_correct": false
+        },
+        {
+          "id": 814877,
+          "text": "1 {tex}\\mu{/tex} C",
+          "html": "1&nbsp;<span class=\"math-tex\">{tex}\\mu{/tex}</span>C",
+          "is_correct": false
+        },
+        {
+          "id": 814878,
+          "text": "Zero",
+          "html": "Zero",
+          "is_correct": false
+        },
+        {
+          "id": 814876,
+          "text": "6 {tex}\\mu{/tex} C",
+          "html": "6&nbsp;<span class=\"math-tex\">{tex}\\mu{/tex}</span>C",
+          "is_correct": true
+        }
+      ],
+      "correct_option_text": "6 {tex}\\mu{/tex} C",
+      "correct_option_ids": [
+        814876
+      ],
+      "explanation": "In the steady state, the capacitor is fully charged and no current flows through the branch containing the capacitor {tex}\\therefore{/tex} 6 + 2 {tex}\\times{/tex} 0 + V C = 0 {tex}\\Rightarrow{/tex} V C = -6 V q = CV = 1 {tex}\\mu{/tex} F {tex}\\times{/tex} (-6 V) = -6 {tex}\\mu{/tex} C Negative sign shows that the left plate of the capacitor is negatively charged.",
+      "solution": ""
+    },
+    {
+      "n": 28,
+      "question_id": 13515,
+      "question_text": "In series combination of capacitors, potential drops across the individual capacitors is",
+      "question_html": "<p>In series combination of capacitors, potential drops across the individual capacitors is</p>",
+      "options": [
+        {
+          "id": 9261,
+          "text": "direct ratio of capacitors",
+          "html": "direct ratio of capacitors",
+          "is_correct": false
+        },
+        {
+          "id": 9260,
+          "text": "inverse ratio of capacitors",
+          "html": "inverse ratio of capacitors",
+          "is_correct": true
+        },
+        {
+          "id": 9262,
+          "text": "inverse ratio of charges stored",
+          "html": "inverse ratio of charges stored",
+          "is_correct": false
+        },
+        {
+          "id": 9263,
+          "text": "indirect ratio of capacitors",
+          "html": "indirect ratio of capacitors",
+          "is_correct": false
+        }
+      ],
+      "correct_option_text": "inverse ratio of capacitors",
+      "correct_option_ids": [
+        9260
+      ],
+      "explanation": "When capacitors are connected in series, they have equal charge but the potential difference across them is given by {tex}{V_1} = \\frac{Q}{{{C_1}}};{V_2} = \\frac{Q}{{{C_2}}}...{/tex} and so on. Therefore, {tex}V \\propto \\frac{1}{C}{/tex}",
+      "solution": ""
+    },
+    {
+      "n": 29,
+      "question_id": 492833,
+      "question_text": "In an ac circuit an alternating voltage, e = {tex}200 \\sqrt{2} \\sin 100 t{/tex} volts is connected to a capacitor of capacity 1 {tex}\\mu{/tex} F. The rms value of the current in the circuit is",
+      "question_html": "<p>In an ac circuit an alternating voltage, e =&nbsp;<span class=\"math-tex\">{tex}200 \\sqrt{2} \\sin 100 t{/tex}</span> volts is connected to a capacitor of capacity 1 <span class=\"math-tex\">{tex}\\mu{/tex}</span>F. The rms value of the current in the circuit is</p>",
+      "options": [
+        {
+          "id": 858586,
+          "text": "200 mA",
+          "html": "200 mA",
+          "is_correct": false
+        },
+        {
+          "id": 858587,
+          "text": "20 mA",
+          "html": "20 mA",
+          "is_correct": true
+        },
+        {
+          "id": 858585,
+          "text": "100 mA",
+          "html": "100 mA",
+          "is_correct": false
+        },
+        {
+          "id": 858584,
+          "text": "10 mA",
+          "html": "10 mA",
+          "is_correct": false
+        }
+      ],
+      "correct_option_text": "20 mA",
+      "correct_option_ids": [
+        858587
+      ],
+      "explanation": "{tex}e_{r m s}=\\frac{e_{0}}{\\sqrt{2}}=\\frac{200 \\sqrt{2}}{\\sqrt{2}}=200 \\mathrm{~V}{/tex} {tex}X_{C}=\\frac{1}{\\omega C}=\\frac{1}{100 \\times 10^{-6}}=10^{4} \\Omega{/tex} {tex}i_{\\mathrm{rms}}=\\frac{e_{\\mathrm{rms}}}{X_{C}}=\\frac{200}{10^{4}} \\mathrm{~A}{/tex} = 20 mA",
+      "solution": ""
+    },
+    {
+      "n": 30,
+      "question_id": 488981,
+      "question_text": "A moving conductor coil produces an induced emf. This is in accordance with:",
+      "question_html": "<p>A moving conductor coil produces an induced emf. This is in accordance with:</p>",
+      "options": [
+        {
+          "id": 852980,
+          "text": "Ampere&#39;s law",
+          "html": "Ampere&#39;s law",
+          "is_correct": false
+        },
+        {
+          "id": 852977,
+          "text": "Lenz&#39;s law",
+          "html": "Lenz&#39;s law",
+          "is_correct": false
+        },
+        {
+          "id": 852978,
+          "text": "Coulomb&#39;s law",
+          "html": "Coulomb&#39;s law",
+          "is_correct": false
+        },
+        {
+          "id": 852979,
+          "text": "Faraday&#39;s law",
+          "html": "Faraday&#39;s law",
+          "is_correct": true
+        }
+      ],
+      "correct_option_text": "Faraday&#39;s law",
+      "correct_option_ids": [
+        852979
+      ],
+      "explanation": "According to Faraday&#39;s laws, {tex}|\\varepsilon|=\\frac{d \\phi}{d t}{/tex}",
+      "solution": ""
+    },
+    {
+      "n": 31,
+      "question_id": 13710,
+      "question_text": "To increase the magnetic field of a solenoid what core material should be used?",
+      "question_html": "<p>To increase the magnetic field of a solenoid what core material should be used?</p>",
+      "options": [
+        {
+          "id": 10041,
+          "text": "Insulating material",
+          "html": "Insulating material",
+          "is_correct": false
+        },
+        {
+          "id": 10042,
+          "text": "Diamagnetic material",
+          "html": "Diamagnetic material",
+          "is_correct": false
+        },
+        {
+          "id": 10040,
+          "text": "Ferromagnetic material",
+          "html": "Ferromagnetic material",
+          "is_correct": true
+        },
+        {
+          "id": 10043,
+          "text": "Paramagnetic material",
+          "html": "Paramagnetic material",
+          "is_correct": false
+        }
+      ],
+      "correct_option_text": "Ferromagnetic material",
+      "correct_option_ids": [
+        10040
+      ],
+      "explanation": "Ferromagnetic substances get strongly magnetized by magnetic field. The relative permeability of ferromagnetic substances is very high, of the order of 1000.",
+      "solution": ""
+    },
+    {
+      "n": 32,
+      "question_id": 13824,
+      "question_text": "What happens to the current in coil while accelerating a magnet inside it?",
+      "question_html": "<p>What happens to the current in coil while accelerating a magnet inside it?</p>",
+      "options": [
+        {
+          "id": 10497,
+          "text": "Decreases",
+          "html": "Decreases",
+          "is_correct": false
+        },
+        {
+          "id": 10496,
+          "text": "Increases",
+          "html": "Increases",
+          "is_correct": true
+        },
+        {
+          "id": 10499,
+          "text": "Reverses",
+          "html": "Reverses",
+          "is_correct": false
+        },
+        {
+          "id": 10498,
+          "text": "Remains constant",
+          "html": "Remains constant",
+          "is_correct": false
+        }
+      ],
+      "correct_option_text": "Increases",
+      "correct_option_ids": [
+        10496
+      ],
+      "explanation": "A change in the magnetic field induces an emf. When there is an emf, there has to be current. Hence, when the magnet is moved inside a coil, the current in it increases.",
+      "solution": ""
+    },
+    {
+      "n": 33,
+      "question_id": 471468,
+      "question_text": "In the network shown in the figure, each resistance is equal to 2 {tex}\\Omega{/tex} . The resistance between points A and B is:",
+      "question_html": "<html><body><p>In the network shown in the figure, each resistance is equal to 2 <span class=\"math-tex\">{tex}\\Omega{/tex}</span>. The resistance between points A and B is:<br/>\n<img alt=\"\" data-imgur-src=\"zrr2gZA.png\" src=\"https://media-mycbseguide.s3.amazonaws.com/images/imgur/1613389220-bns8ha.jpg\" style=\"width: 150px; height: 151px;\"/></p></body></html>",
+      "options": [
+        {
+          "id": 815006,
+          "text": "4 {tex}\\Omega{/tex}",
+          "html": "4&nbsp;<span class=\"math-tex\">{tex}\\Omega{/tex}</span>",
+          "is_correct": false
+        },
+        {
+          "id": 815005,
+          "text": "3 {tex}\\Omega{/tex}",
+          "html": "3&nbsp;<span class=\"math-tex\">{tex}\\Omega{/tex}</span>",
+          "is_correct": false
+        },
+        {
+          "id": 815004,
+          "text": "2 {tex}\\Omega{/tex}",
+          "html": "2&nbsp;<span class=\"math-tex\">{tex}\\Omega{/tex}</span>",
+          "is_correct": true
+        },
+        {
+          "id": 815003,
+          "text": "1 {tex}\\Omega{/tex}",
+          "html": "1&nbsp;<span class=\"math-tex\">{tex}\\Omega{/tex}</span>",
+          "is_correct": false
+        }
+      ],
+      "correct_option_text": "2 {tex}\\Omega{/tex}",
+      "correct_option_ids": [
+        815004
+      ],
+      "explanation": "R AB = R = 2 {tex}\\Omega{/tex}",
+      "solution": ""
+    },
+    {
+      "n": 34,
+      "question_id": 468572,
+      "question_text": "A 60 W incandescent lamp operates at 120 V. The number of electrons passing through the filament per second will be:",
+      "question_html": "<p>A 60 W incandescent lamp operates at 120 V. The number of electrons passing through the filament per second will be:</p>",
+      "options": [
+        {
+          "id": 807708,
+          "text": "12.40 {tex}\\times{/tex} 10 13",
+          "html": "12.40&nbsp;<span class=\"math-tex\">{tex}\\times{/tex}</span>&nbsp;10<sup>13</sup>",
+          "is_correct": false
+        },
+        {
+          "id": 807706,
+          "text": "3.12 {tex}\\times{/tex} 10 18",
+          "html": "3.12&nbsp;<span class=\"math-tex\">{tex}\\times{/tex}</span>&nbsp;10<sup>18</sup>",
+          "is_correct": true
+        },
+        {
+          "id": 807707,
+          "text": "7.21 {tex}\\times{/tex} 10 12",
+          "html": "7.21&nbsp;<span class=\"math-tex\">{tex}\\times{/tex}</span>&nbsp;10<sup>12</sup>",
+          "is_correct": false
+        },
+        {
+          "id": 807705,
+          "text": "1.61 {tex}\\times{/tex} 10 12",
+          "html": "1.61&nbsp;<span class=\"math-tex\">{tex}\\times{/tex}</span>&nbsp;10<sup>12</sup>",
+          "is_correct": false
+        }
+      ],
+      "correct_option_text": "3.12 {tex}\\times{/tex} 10 18",
+      "correct_option_ids": [
+        807706
+      ],
+      "explanation": "Current, I = {tex}\\frac{P}{V}=\\frac{60}{120}=\\frac{1}{2} \\mathrm{~A}{/tex} q = {tex}I \\times t=\\frac{1}{2} \\mathrm{~A} \\times 1 \\mathrm{~s}=\\frac{1}{2} \\mathrm{C}{/tex} Now q = ne = {tex}\\frac{1}{2} C{/tex} {tex}\\therefore n=\\frac{1}{2 \\ \\times \\ 1.6 \\ \\times \\ 10^{-19}}{/tex} = 3.12 {tex}\\times{/tex} 10 18",
+      "solution": ""
+    },
+    {
+      "n": 35,
+      "question_id": 468589,
+      "question_text": "Two wires of the same metal have same length, but their cross-sections are in the ratio 3 : 1. They are joined in series. The resistance of the thicker wire is 10 {tex}\\Omega{/tex} . The total resistance of the combination will be:",
+      "question_html": "<p>Two wires of the same metal have same length, but their cross-sections are in the ratio 3 : 1. They are joined in series. The resistance of the thicker wire is 10 <span class=\"math-tex\">{tex}\\Omega{/tex}</span>. The total resistance of the combination will be:</p>",
+      "options": [
+        {
+          "id": 807776,
+          "text": "100 {tex}\\Omega{/tex}",
+          "html": "100&nbsp;<span class=\"math-tex\">{tex}\\Omega{/tex}</span>",
+          "is_correct": false
+        },
+        {
+          "id": 807774,
+          "text": "{tex}\\frac{40}{3} \\Omega{/tex}",
+          "html": "<span class=\"math-tex\">{tex}\\frac{40}{3} \\Omega{/tex}</span>",
+          "is_correct": false
+        },
+        {
+          "id": 807773,
+          "text": "{tex}\\frac{5}{2} \\Omega{/tex}",
+          "html": "<span class=\"math-tex\">{tex}\\frac{5}{2} \\Omega{/tex}</span>",
+          "is_correct": false
+        },
+        {
+          "id": 807775,
+          "text": "40 {tex}\\Omega{/tex}",
+          "html": "40&nbsp;<span class=\"math-tex\">{tex}\\Omega{/tex}</span>",
+          "is_correct": true
+        }
+      ],
+      "correct_option_text": "40 {tex}\\Omega{/tex}",
+      "correct_option_ids": [
+        807775
+      ],
+      "explanation": "As {tex}R \\propto \\frac{1}{A}{/tex} {tex}\\therefore \\ \\frac{R_{2}}{R_{1}}=\\frac{A_{1}}{A_{2}}=\\frac{3}{1}{/tex} or R 2 = 3R 1 = 3 {tex}\\times{/tex} 10 = 30 {tex}\\Omega{/tex} R s = R 1 + R 2 = 10 + 30 = 40 {tex}\\Omega{/tex}",
+      "solution": ""
+    },
+    {
+      "n": 36,
+      "question_id": 13882,
+      "question_text": "A hair dryer meant for 110V, 60Hz is to be used in India. If 220 V is the supply voltage in India, the turns ratio for a transformer would be",
+      "question_html": "<p>A hair dryer meant for 110V, 60Hz is to be used in India. If 220 V is the supply voltage in India, the turns ratio for a transformer would be</p>",
+      "options": [
+        {
+          "id": 10731,
+          "text": "step-down transformer with turn ratio 2.5 : 1",
+          "html": "step-down&nbsp;transformer with turn ratio&nbsp;2.5 : 1",
+          "is_correct": false
+        },
+        {
+          "id": 10728,
+          "text": "step-down transformer with turn ratio 2 : 1",
+          "html": "step-down&nbsp;transformer with turn ratio&nbsp;2 : 1",
+          "is_correct": true
+        },
+        {
+          "id": 10730,
+          "text": "step-down transformer with turn ratio 3 : 1",
+          "html": "step-down&nbsp;transformer with turn ratio&nbsp;3 : 1",
+          "is_correct": false
+        },
+        {
+          "id": 10729,
+          "text": "step-up transformer with turn ratio 1 : 2",
+          "html": "step-up&nbsp;transformer with turn ratio&nbsp;1 : 2",
+          "is_correct": false
+        }
+      ],
+      "correct_option_text": "step-down transformer with turn ratio 2 : 1",
+      "correct_option_ids": [
+        10728
+      ],
+      "explanation": "The ratio between the number of primary turns to the number of secondary turns being called the &ldquo;turns ratio&rdquo; or &ldquo;transformer ratio&rdquo;. Thus, {tex}\\frac{{{N_p}}}{{{N_s}}} = \\frac{{{V_p}}}{{{V_s}}}\\left( { = \\frac{{input}}{{output}}} \\right){/tex} {tex}\\frac{{{N_p}}}{{{N_s}}} = \\frac{{220}}{{110}} = \\frac{2}{1}{/tex} Turn ratio is {tex}{N_p}:{N_s} = 2:1{/tex} As {tex}{N_p} > {N_s}{/tex} , hence it is a step down transformer.",
+      "solution": ""
+    },
+    {
+      "n": 37,
+      "question_id": 13769,
+      "question_text": "A moving conductor rod is 0.10 m long, and moves with a velocity of 2.5 m/s perpendicular to the magnetic field B of 0.60 T. If the circuit is completed with a resistance of 0.03&Omega;. Find the motional emf and the induced current.",
+      "question_html": "<p>A moving conductor rod is 0.10 m long, and moves with a velocity of 2.5 m/s perpendicular to the magnetic field B of 0.60 T. If the circuit is completed with a resistance of 0.03&Omega;. Find the motional emf and the induced current.</p>",
+      "options": [
+        {
+          "id": 10276,
+          "text": "0.15 V, 5.0 A",
+          "html": "0.15 V, 5.0 A",
+          "is_correct": true
+        },
+        {
+          "id": 10278,
+          "text": "0.15 V, 6.0 A",
+          "html": "0.15 V, 6.0 A",
+          "is_correct": false
+        },
+        {
+          "id": 10277,
+          "text": "0.25 V, 5.0 A",
+          "html": "0.25 V, 5.0 A",
+          "is_correct": false
+        },
+        {
+          "id": 10279,
+          "text": "0.20 V, 6.5 A",
+          "html": "0.20 V, 6.5 A",
+          "is_correct": false
+        }
+      ],
+      "correct_option_text": "0.15 V, 5.0 A",
+      "correct_option_ids": [
+        10276
+      ],
+      "explanation": "e = Bvl = 0.60 {tex}\\times{/tex} 2.5 {tex}\\times{/tex} 0.1 = 0.15V {tex}i = {e \\over R} = {{0.15} \\over {0.03}} = 5 A{/tex}",
+      "solution": ""
+    },
+    {
+      "n": 38,
+      "question_id": 13754,
+      "question_text": "A bar magnet of magnetic moment M is cut into two parts of equal lengths. The magnetic moment and pole strength of either part is:",
+      "question_html": "<p>A bar magnet of magnetic moment M is cut into two parts of equal lengths. The magnetic moment and pole strength of either part is:</p>",
+      "options": [
+        {
+          "id": 10216,
+          "text": "M/2, m/2",
+          "html": "M/2, m/2",
+          "is_correct": false
+        },
+        {
+          "id": 10217,
+          "text": "M, m/2",
+          "html": "M,&nbsp;m/2",
+          "is_correct": false
+        },
+        {
+          "id": 10219,
+          "text": "M, m",
+          "html": "M, m",
+          "is_correct": false
+        },
+        {
+          "id": 10218,
+          "text": "M/2, m",
+          "html": "M/2, m",
+          "is_correct": true
+        }
+      ],
+      "correct_option_text": "M/2, m",
+      "correct_option_ids": [
+        10218
+      ],
+      "explanation": "Let m and 2 {tex}l{/tex} be the pole strength and the length of the given bar magnet. Then, magnetic moment of the magnet is given by , {tex}M = m \\times 2\\ l{/tex} When the magnet is cut into two equal parts, each part will be a magnet having pole strength m (unchanged) and length {tex}l{/tex} . Therefore, the magnetic moment of each part is given by M/2 having the pole strength m",
+      "solution": ""
+    },
+    {
+      "n": 39,
+      "question_id": 493045,
+      "question_text": "Reciprocal of impedance is",
+      "question_html": "<p>Reciprocal of impedance is</p>",
+      "options": [
+        {
+          "id": 858982,
+          "text": "admittance",
+          "html": "admittance",
+          "is_correct": true
+        },
+        {
+          "id": 858981,
+          "text": "conductance",
+          "html": "conductance",
+          "is_correct": false
+        },
+        {
+          "id": 858980,
+          "text": "susceptance",
+          "html": "susceptance",
+          "is_correct": false
+        },
+        {
+          "id": 858983,
+          "text": "transconductance",
+          "html": "transconductance",
+          "is_correct": false
+        }
+      ],
+      "correct_option_text": "admittance",
+      "correct_option_ids": [
+        858982
+      ],
+      "explanation": "The reciprocal of the impedance of an a.c. the circuit is called admittance.",
+      "solution": ""
+    },
+    {
+      "n": 40,
+      "question_id": 468591,
+      "question_text": "A student measures the terminal potential difference (V) of a cell (of emf {tex}\\varepsilon{/tex} and internal resistance r) as a function of the current (l) flowing through it. The slope, and intercept, of the graph between V and l, then, respectively, equal:",
+      "question_html": "<p>A student measures the terminal potential difference (V) of a cell (of emf <span class=\"math-tex\">{tex}\\varepsilon{/tex}</span>&nbsp;and internal resistance r) as a function of the current (l) flowing through it. The slope, and intercept, of the graph between V and l, then, respectively, equal:</p>",
+      "options": [
+        {
+          "id": 807783,
+          "text": "- {tex}\\varepsilon{/tex} and r",
+          "html": "-<span class=\"math-tex\">{tex}\\varepsilon{/tex}</span>&nbsp;and r",
+          "is_correct": false
+        },
+        {
+          "id": 807784,
+          "text": "{tex}\\varepsilon{/tex} and -r",
+          "html": "<span class=\"math-tex\">{tex}\\varepsilon{/tex}</span>&nbsp;and -r",
+          "is_correct": false
+        },
+        {
+          "id": 807782,
+          "text": "r and - {tex}\\varepsilon{/tex}",
+          "html": "r and -<span class=\"math-tex\">{tex}\\varepsilon{/tex}</span>",
+          "is_correct": false
+        },
+        {
+          "id": 807781,
+          "text": "-r and {tex}\\varepsilon{/tex}",
+          "html": "-r and&nbsp;<span class=\"math-tex\">{tex}\\varepsilon{/tex}</span>",
+          "is_correct": true
+        }
+      ],
+      "correct_option_text": "-r and {tex}\\varepsilon{/tex}",
+      "correct_option_ids": [
+        807781
+      ],
+      "explanation": "V = {tex}\\varepsilon{/tex} - Ir or V = -rI + {tex}\\varepsilon{/tex} On comparing with y = mx + c, we get slope = -r and intercept = {tex}\\varepsilon{/tex}",
+      "solution": ""
+    },
+    {
+      "n": 41,
+      "question_id": 21578,
+      "question_text": "Direction of the conventional current",
+      "question_html": "<p>Direction of the conventional current</p>",
+      "options": [
+        {
+          "id": 41512,
+          "text": "is the direction in which negative charges move",
+          "html": "is the direction in which negative charges move",
+          "is_correct": false
+        },
+        {
+          "id": 41514,
+          "text": "is the direction in which charges move",
+          "html": "is the direction in which&nbsp;charges move",
+          "is_correct": false
+        },
+        {
+          "id": 41513,
+          "text": "is the direction in which no charges move",
+          "html": "is the direction in which no charges move",
+          "is_correct": false
+        },
+        {
+          "id": 41511,
+          "text": "is the direction in which positive charges move",
+          "html": "is the direction in which positive charges move",
+          "is_correct": true
+        }
+      ],
+      "correct_option_text": "is the direction in which positive charges move",
+      "correct_option_ids": [
+        41511
+      ],
+      "explanation": "Current flows in a conductor due to the flow of negatively charged electrons. However, the direction of conventional current is taken to be opposite to the direction of flow of electrons. It can therefore be considered as the direction in which positive charges move.",
+      "solution": ""
+    },
+    {
+      "n": 42,
+      "question_id": 463666,
+      "question_text": "Two insulated metallic spheres of 3 {tex}\\mu{/tex} F and 5 {tex}\\mu{/tex} F capacitances are charged to 300 V and 500 V respectively. The energy loss, when they are connected by a wire, is:",
+      "question_html": "<p>Two insulated metallic spheres of 3 <span class=\"math-tex\">{tex}\\mu{/tex}</span>F and 5 <span class=\"math-tex\">{tex}\\mu{/tex}</span>F capacitances are charged to 300 V and 500 V respectively. The energy loss, when they are connected by a wire, is:</p>",
+      "options": [
+        {
+          "id": 798131,
+          "text": "0.0218 J",
+          "html": "0.0218 J",
+          "is_correct": false
+        },
+        {
+          "id": 798132,
+          "text": "3.75 J",
+          "html": "3.75 J",
+          "is_correct": false
+        },
+        {
+          "id": 798129,
+          "text": "0.0375 J",
+          "html": "0.0375 J",
+          "is_correct": true
+        },
+        {
+          "id": 798130,
+          "text": "0.012 J",
+          "html": "0.012 J",
+          "is_correct": false
+        }
+      ],
+      "correct_option_text": "0.0375 J",
+      "correct_option_ids": [
+        798129
+      ],
+      "explanation": "Energy loss = {tex}\\frac{1}{2} \\cdot \\frac{C_{1} C_{2}}{C_{1}+C_{2}}\\left(V_{1}-V_{2}\\right)^{2}{/tex} {tex}=\\frac{1}{2} \\cdot \\frac{3 \\times 10^{-6} \\times 5 \\times 10^{-6}}{(3+5) 10^{-6}}(500-300)^{2}{/tex} {tex}=\\frac{15 \\times 10^{-6} \\times(200)^{2}}{16} \\mathrm{~J}{/tex} = 0.0375 J",
+      "solution": ""
+    },
+    {
+      "n": 43,
+      "question_id": 13653,
+      "question_text": "A bar magnet is equivalent to",
+      "question_html": "<p>A bar magnet is equivalent to</p>",
+      "options": [
+        {
+          "id": 9813,
+          "text": "straight conductor carrying current",
+          "html": "straight conductor carrying current",
+          "is_correct": false
+        },
+        {
+          "id": 9814,
+          "text": "circular coil carrying current",
+          "html": "circular coil carrying current",
+          "is_correct": false
+        },
+        {
+          "id": 9812,
+          "text": "solenoid carrying current",
+          "html": "solenoid carrying current",
+          "is_correct": true
+        },
+        {
+          "id": 9815,
+          "text": "toroid carrying current",
+          "html": "toroid carrying current",
+          "is_correct": false
+        }
+      ],
+      "correct_option_text": "solenoid carrying current",
+      "correct_option_ids": [
+        9812
+      ],
+      "explanation": "A solenoid carrying current produces a magnetic field very similar to that of bar magnet. The magnetic field lines emerge from the ends of a solenoid and the number of field lines near its perpendicular bisector is almost equal to zero. A circular coil produces field along its axis. A straight conductor produces a magnetic field that can be represented by concentric circles. A toroid is a solenoid that has collapsed on itself. The field in a toroid is confined to the ring like region bounded by the toroid.",
+      "solution": ""
+    },
+    {
+      "n": 44,
+      "question_id": 491922,
+      "question_text": "Which one of the following is not made of soft iron?",
+      "question_html": "<p>Which one of the following is not made of soft iron?</p>",
+      "options": [
+        {
+          "id": 856574,
+          "text": "Core of transformer",
+          "html": "Core of transformer",
+          "is_correct": false
+        },
+        {
+          "id": 856575,
+          "text": "Core of dynamo",
+          "html": "Core of dynamo",
+          "is_correct": false
+        },
+        {
+          "id": 856576,
+          "text": "Magnet of loudspeaker",
+          "html": "Magnet of loudspeaker",
+          "is_correct": true
+        },
+        {
+          "id": 856573,
+          "text": "Electromagnet",
+          "html": "Electromagnet",
+          "is_correct": false
+        }
+      ],
+      "correct_option_text": "Magnet of loudspeaker",
+      "correct_option_ids": [
+        856576
+      ],
+      "explanation": "A permanent magnet is used in a loudspeaker. The magnet is of steel or some other alloy but not of soft iron.",
+      "solution": ""
+    },
+    {
+      "n": 45,
+      "question_id": 568017,
+      "question_text": "Assertion (A): Electric field is discontinuous across the surface of a spherical charged shell. Reason (R): Electric potential is continuous across the surface of a spherical charged shell.",
+      "question_html": "<p><strong>Assertion (A):&nbsp;</strong>Electric field is discontinuous across the surface of a spherical charged shell.<br />\n<strong>Reason (R):&nbsp;</strong>Electric potential is continuous across the surface of a spherical charged shell.</p>",
+      "options": [
+        {
+          "id": 1080688,
+          "text": "A is true but R is false.",
+          "html": "A is true but R is false.",
+          "is_correct": false
+        },
+        {
+          "id": 1080686,
+          "text": "Both A and R are true and R is the correct explanation of A.",
+          "html": "Both A and R are true and R is the correct explanation of A.",
+          "is_correct": false
+        },
+        {
+          "id": 1080687,
+          "text": "Both A and R are true but R is not the correct explanation of A.",
+          "html": "Both A and R are true but R is not the correct explanation of A.",
+          "is_correct": true
+        },
+        {
+          "id": 1080689,
+          "text": "A is false but R is true.",
+          "html": "A is false but R is true.",
+          "is_correct": false
+        }
+      ],
+      "correct_option_text": "Both A and R are true but R is not the correct explanation of A.",
+      "correct_option_ids": [
+        1080687
+      ],
+      "explanation": "Both A and R are true but R is not the correct explanation of A.",
+      "solution": ""
+    },
+    {
+      "n": 46,
+      "question_id": 399163,
+      "question_text": "Assertion (A): The poles of magnets cannot be separated by breaking it into two pieces. Reason (R): The magnetic moment will be reduced to half when a magnet is broken into two equal pieces.",
+      "question_html": "<p><strong>Assertion (A):</strong>&nbsp;The poles of magnets cannot be separated by breaking it into two pieces.<br />\n<strong>Reason (R):</strong>&nbsp;The magnetic moment will be reduced to half when a magnet is broken into two equal pieces.</p>",
+      "options": [
+        {
+          "id": 628511,
+          "text": "A is true but R is false.",
+          "html": "A is true but R is false.",
+          "is_correct": false
+        },
+        {
+          "id": 628510,
+          "text": "Both A and R are true but R is not the correct explanation of A.",
+          "html": "Both A and R are true but R is not the correct explanation of A.",
+          "is_correct": false
+        },
+        {
+          "id": 628509,
+          "text": "Both A and R are true and R is the correct explanation of A.",
+          "html": "Both A and R are true and R is the correct explanation of A.",
+          "is_correct": true
+        },
+        {
+          "id": 628512,
+          "text": "A is false but R is true.",
+          "html": "A is false but R is true.",
+          "is_correct": false
+        }
+      ],
+      "correct_option_text": "Both A and R are true and R is the correct explanation of A.",
+      "correct_option_ids": [
+        628509
+      ],
+      "explanation": "As we know every atom of a magnet acts as a dipole. So poles cannot be separated. When the magnet is broken into two equal pieces, the magnetic moment of each part will behalf of the original magnet.",
+      "solution": ""
+    },
+    {
+      "n": 47,
+      "question_id": 399200,
+      "question_text": "Assertion (A): The electric field and magnetic field have equal average values. Reason (R): Electric energy and magnetic energy have equal average values.",
+      "question_html": "<p><strong>Assertion (A):</strong> The electric field and magnetic field have equal average values.<br />\r\n<strong>Reason (R):</strong>&nbsp;Electric energy and magnetic energy have equal average values.</p>",
+      "options": [
+        {
+          "id": 628657,
+          "text": "Both A and R are true and R is the correct explanation of A",
+          "html": "Both A and R are true and R is the correct explanation of A",
+          "is_correct": true
+        },
+        {
+          "id": 628660,
+          "text": "A is false but R is true.",
+          "html": "A is false but R is true.",
+          "is_correct": false
+        },
+        {
+          "id": 628658,
+          "text": "Both A and R are true but R is not the correct explanation of A.",
+          "html": "Both A and R are true but R is not the correct explanation of A.",
+          "is_correct": false
+        },
+        {
+          "id": 628659,
+          "text": "A is true but R is false.",
+          "html": "A is true but R is false.",
+          "is_correct": false
+        }
+      ],
+      "correct_option_text": "Both A and R are true and R is the correct explanation of A",
+      "correct_option_ids": [
+        628657
+      ],
+      "explanation": "Both A and R are true and R is the correct explanation of A.",
+      "solution": ""
+    },
+    {
+      "n": 48,
+      "question_id": 399212,
+      "question_text": "Assertion (A): Series L-C-R circuit is a voltage magnifier . Reason (R): In series L-C-R circuit at resonance voltage drop across inductance ((or capacitance) is Q (quality factor) times the applied voltage.",
+      "question_html": "<p><strong>Assertion (A):</strong>&nbsp;Series L-C-R circuit is a <strong>voltage magnifier</strong>.<br />\n<strong>Reason (R):</strong>&nbsp;In series L-C-R circuit at resonance voltage drop across inductance ((or capacitance) is Q (quality factor) times the applied voltage.</p>",
+      "options": [
+        {
+          "id": 628705,
+          "text": "Both A and R are true and R is the correct explanation of A.",
+          "html": "Both A and R are true and R is the correct explanation of A.",
+          "is_correct": true
+        },
+        {
+          "id": 628708,
+          "text": "A is false but R is true.",
+          "html": "A is false but R is true.",
+          "is_correct": false
+        },
+        {
+          "id": 628706,
+          "text": "Both A and R are true but R is not the correct explanation of A.",
+          "html": "Both A and R are true but R is not the correct explanation of A.",
+          "is_correct": false
+        },
+        {
+          "id": 628707,
+          "text": "A is true but R is false.",
+          "html": "A is true but R is false.",
+          "is_correct": false
+        }
+      ],
+      "correct_option_text": "Both A and R are true and R is the correct explanation of A.",
+      "correct_option_ids": [
+        628705
+      ],
+      "explanation": "Both A and R are true and R is the correct explanation of A.",
+      "solution": ""
+    },
+    {
+      "n": 49,
+      "question_id": 463930,
+      "question_text": "Assertion (A): If the bob of a simple pendulum is kept in a horizontal electric field, its period of oscillation will remain the same. Reason (R): If the bob is charged and kept in a horizontal electric field, then the time period will be decreased.",
+      "question_html": "<p><strong>Assertion (A):</strong> If the bob of a simple pendulum is kept in a horizontal electric field, its period of oscillation will remain the same.<br />\n<strong>Reason (R):</strong>&nbsp;If the bob is charged and kept in a horizontal electric field, then the time period will be decreased.</p>",
+      "options": [
+        {
+          "id": 798542,
+          "text": "Both A and R are true but R is not the correct explanation of A.",
+          "html": "Both A and R are true but R is not the correct explanation of A.",
+          "is_correct": false
+        },
+        {
+          "id": 798543,
+          "text": "A is true but R is false.",
+          "html": "A is true but R is false.",
+          "is_correct": true
+        },
+        {
+          "id": 798544,
+          "text": "A is false but R is true.",
+          "html": "A is false but R is true.",
+          "is_correct": false
+        },
+        {
+          "id": 798541,
+          "text": "Both A and R are true and R is the correct explanation of A.",
+          "html": "Both A and R are true and R is the correct explanation of A.",
+          "is_correct": false
+        }
+      ],
+      "correct_option_text": "A is true but R is false.",
+      "correct_option_ids": [
+        798543
+      ],
+      "explanation": "When the uncharged bob is placed in an electric field, its time period does not change. For the charged bob, the time period increases in an electric field because of the increase in restoring force.",
+      "solution": ""
+    },
+    {
+      "n": 50,
+      "question_id": 13528,
+      "question_text": "Three capacitors connected in series have an effective capacitance of 2 {tex}\\mu {\\rm{F}}{/tex} . If one of the capacitors is removed, the effective capacitance becomes 3 {tex}\\mu {\\rm{F}}{/tex} . The capacitance of the capacitor that is removed is",
+      "question_html": "<p>Three capacitors connected in series have an effective capacitance of 2 <span class=\"math-tex\">{tex}\\mu {\\rm{F}}{/tex}</span>. If one of the capacitors is removed, the effective capacitance becomes 3 <span class=\"math-tex\">{tex}\\mu {\\rm{F}}{/tex}</span>. The capacitance of the capacitor that is removed is</p>\r\n",
+      "options": [
+        {
+          "id": 9312,
+          "text": "6 {tex}\\mu {\\rm{F}}{/tex}",
+          "html": "6 <span class=\"math-tex\">{tex}\\mu {\\rm{F}}{/tex}</span>",
+          "is_correct": true
+        },
+        {
+          "id": 9313,
+          "text": "1 {tex}\\mu {\\rm{F}}{/tex}",
+          "html": "1 <span class=\"math-tex\">{tex}\\mu {\\rm{F}}{/tex}</span>",
+          "is_correct": false
+        },
+        {
+          "id": 9314,
+          "text": "{tex}\\frac{3}{2} \\mu \\mathrm{F}{/tex}",
+          "html": "<span class=\"math-tex\">{tex}\\frac{3}{2} \\mu \\mathrm{F}{/tex}</span>",
+          "is_correct": false
+        },
+        {
+          "id": 9315,
+          "text": "{tex}\\frac{2}{3} \\mu \\mathrm{F}{/tex}",
+          "html": "<span class=\"math-tex\">{tex}\\frac{2}{3} \\mu \\mathrm{F}{/tex}</span>",
+          "is_correct": false
+        }
+      ],
+      "correct_option_text": "6 {tex}\\mu {\\rm{F}}{/tex}",
+      "correct_option_ids": [
+        9312
+      ],
+      "explanation": "If C is the capacitance of three capacitors C 1 , C 2 and C 3 , then, {tex}\\frac{1}{C} = \\frac{1}{{{C_1}}} + \\frac{1}{{{C_2}}} + \\frac{1}{{{C_3}}} = \\frac{1}{2}{/tex} According to the given question , If C 3 is removed, the equivalent capacitance becomes C&rsquo;. {tex}\\frac{1}{{C'}} = \\frac{1}{{{C_1}}} + \\frac{1}{{{C_2}}} = \\frac{1}{3}{/tex} Therefore, {tex}\\frac{1}{{{C_3}}} = \\frac{1}{C} - \\frac{1}{{C'}} = \\frac{1}{2} - \\frac{1}{3} = \\frac{1}{6}{/tex} The capacitance of the capacitor which is removed {tex}{C_3} = 6\\mu F{/tex}",
+      "solution": ""
+    },
+    {
+      "n": 51,
+      "question_id": 330009,
+      "question_text": "What would happen if a plastic rod rubbed with fur is brought near the glass rod rubbed with silk?",
+      "question_html": "<p>What would happen if a plastic rod rubbed with fur is brought near the&nbsp;glass rod rubbed with silk?</p>",
+      "options": [
+        {
+          "id": 497525,
+          "text": "Repel each other.",
+          "html": "Repel each other.",
+          "is_correct": false
+        },
+        {
+          "id": 497527,
+          "text": "Attract each other.",
+          "html": "Attract each other.",
+          "is_correct": true
+        },
+        {
+          "id": 497526,
+          "text": "Mix up with each other.",
+          "html": "Mix up with each other.",
+          "is_correct": false
+        },
+        {
+          "id": 497528,
+          "text": "Avoid each other.",
+          "html": "Avoid&nbsp;each other.",
+          "is_correct": false
+        }
+      ],
+      "correct_option_text": "Attract each other.",
+      "correct_option_ids": [
+        497527
+      ],
+      "explanation": "Rubbing a rod with certain materials causes the loss of electron and it will cause the rod to become charged. If a plastic rod rubbed with fur becomes negatively charged and a glass rod rubbed with silk becomes positively charged.",
+      "solution": ""
+    },
+    {
+      "n": 52,
+      "question_id": 580328,
+      "question_text": "Instructions for Question 52 to 55: When electric dipole is placed in uniform electric field, its two charges experience equal and opposite forces, which cancel each other and hence net force on electric dipole in uniform electric field is zero. However these forces are not collinear, so they give rise to some torque on the dipole. Since net force on electric dipole in uniform electric field is zero. so no work is done in moving the electric dipole in uniform electric field. However some work is done in rotating the dipole against the torque acting on it. The dipole moment of a dipole in a uniform external field {tex}\\vec E{/tex} is {tex}\\vec{P}{/tex} . Then the torque {tex}\\vec{\\tau}{/tex} acting on the dipole is",
+      "question_html": "<b>Instructions for Question 52 to 55:</b><br><p>When electric dipole is placed in uniform electric field, its two charges experience equal and opposite forces, which cancel each other and hence net force on electric dipole in uniform electric field is zero. However these forces are not collinear, so they give rise to some torque on the dipole. Since net force on electric dipole in uniform electric field is zero. so no work is done in moving the electric dipole in uniform electric field. However some work is done in rotating the dipole against the torque acting on it.<br />\r\n<img alt=\"\" data-imgur-src=\"qUZr0FS.png\" src=\"https://media-mycbseguide.s3.amazonaws.com/images/imgur/1630339918-9r3mr3.jpg\" /></p><br><p>The dipole moment of a dipole in a uniform external field <span class=\"math-tex\">{tex}\\vec E{/tex}</span> is <span class=\"math-tex\">{tex}\\vec{P}{/tex}</span>. Then the torque <span class=\"math-tex\">{tex}\\vec{\\tau}{/tex}</span> acting on the dipole is</p>",
+      "options": [
+        {
+          "id": 1125278,
+          "text": "{tex}\\vec{\\tau}=2(\\vec{P}+\\vec{E}){/tex}",
+          "html": "<span class=\"math-tex\">{tex}\\vec{\\tau}=2(\\vec{P}+\\vec{E}){/tex}</span>",
+          "is_correct": false
+        },
+        {
+          "id": 1125284,
+          "text": "{tex}\\vec{\\tau}=(\\vec{P}+\\vec{E}){/tex}",
+          "html": "<span class=\"math-tex\">{tex}\\vec{\\tau}=(\\vec{P}+\\vec{E}){/tex}</span>",
+          "is_correct": false
+        },
+        {
+          "id": 1125275,
+          "text": "{tex}\\vec{\\tau}=\\vec{P} \\times \\vec{E}{/tex}",
+          "html": "<span class=\"math-tex\">{tex}\\vec{\\tau}=\\vec{P} \\times \\vec{E}{/tex}</span>",
+          "is_correct": true
+        },
+        {
+          "id": 1125277,
+          "text": "{tex}\\vec{\\tau}=\\vec{P} \\cdot \\vec{E}{/tex}",
+          "html": "<span class=\"math-tex\">{tex}\\vec{\\tau}=\\vec{P} \\cdot \\vec{E}{/tex}</span>",
+          "is_correct": false
+        }
+      ],
+      "correct_option_text": "{tex}\\vec{\\tau}=\\vec{P} \\times \\vec{E}{/tex}",
+      "correct_option_ids": [
+        1125275
+      ],
+      "explanation": "As {tex}\\tau{/tex} = either force {tex}\\times{/tex} perpendicular distance between the two forces = qaE sin {tex}\\theta{/tex} or {tex}\\tau{/tex} = PE sin {tex}\\theta{/tex} or {tex}\\vec{P} \\times \\vec{E}{/tex} ( {tex}\\because{/tex} qa = P)",
+      "solution": ""
+    },
+    {
+      "n": 53,
+      "question_id": 580587,
+      "question_text": "Instructions for Question 52 to 55: When electric dipole is placed in uniform electric field, its two charges experience equal and opposite forces, which cancel each other and hence net force on electric dipole in uniform electric field is zero. However these forces are not collinear, so they give rise to some torque on the dipole. Since net force on electric dipole in uniform electric field is zero. so no work is done in moving the electric dipole in uniform electric field. However some work is done in rotating the dipole against the torque acting on it. An electric dipole consists of two opposite charges, each of magnitude 1.0 {tex}\\mu{/tex} C separated by a distance of 2.0 cm. The dipole is placed in an external field of 10 5 NC -1 . The maximum torque on the dipole is",
+      "question_html": "<b>Instructions for Question 52 to 55:</b><br><p>When electric dipole is placed in uniform electric field, its two charges experience equal and opposite forces, which cancel each other and hence net force on electric dipole in uniform electric field is zero. However these forces are not collinear, so they give rise to some torque on the dipole. Since net force on electric dipole in uniform electric field is zero. so no work is done in moving the electric dipole in uniform electric field. However some work is done in rotating the dipole against the torque acting on it.<br />\r\n<img alt=\"\" data-imgur-src=\"qUZr0FS.png\" src=\"https://media-mycbseguide.s3.amazonaws.com/images/imgur/1630339918-9r3mr3.jpg\" /></p><br><p>An electric dipole consists of two opposite charges, each of magnitude 1.0 <span class=\"math-tex\">{tex}\\mu{/tex}</span>C&nbsp;separated by a distance of 2.0 cm. The dipole is placed in an external field of 10<sup>5</sup> NC<sup>-1</sup>. The maximum torque on the dipole is</p>",
+      "options": [
+        {
+          "id": 1126317,
+          "text": "4 {tex}\\times{/tex} 10 -3 Nm",
+          "html": "4&nbsp;<span class=\"math-tex\">{tex}\\times{/tex}</span>&nbsp;10<sup>-3</sup> Nm",
+          "is_correct": false
+        },
+        {
+          "id": 1126311,
+          "text": "2 {tex}\\times{/tex} 10 -3 Nm",
+          "html": "2&nbsp;<span class=\"math-tex\">{tex}\\times{/tex}</span>&nbsp;10<sup>-3</sup> Nm",
+          "is_correct": true
+        },
+        {
+          "id": 1126308,
+          "text": "0.2 {tex}\\times{/tex} 10 -3 Nm",
+          "html": "0.2&nbsp;<span class=\"math-tex\">{tex}\\times{/tex}</span>&nbsp;10<sup>-3</sup> Nm",
+          "is_correct": false
+        },
+        {
+          "id": 1126310,
+          "text": "1 {tex}\\times{/tex} 10 -3 Nm",
+          "html": "1&nbsp;<span class=\"math-tex\">{tex}\\times{/tex}</span>&nbsp;10<sup>-3</sup> Nm",
+          "is_correct": false
+        }
+      ],
+      "correct_option_text": "2 {tex}\\times{/tex} 10 -3 Nm",
+      "correct_option_ids": [
+        1126311
+      ],
+      "explanation": "The maximum torque on the dipole in an external field is given by {tex}\\tau{/tex} = pE = q(2a) {tex}\\times{/tex} E Here, q = {tex}1 \\mu \\mathrm{C}=10^{-6} \\mathrm{C}{/tex} , 2a = 2 cm = 2 {tex}\\times{/tex} 10 -2 m, E = 10 5 NC -1 , {tex}\\tau{/tex} = ? {tex}\\therefore{/tex} {tex}\\tau{/tex} = {tex}10^{-6} \\times 2 \\times 10^{-2} \\times 10^{5}=2 \\times 10^{-3}{/tex} Nm",
+      "solution": ""
+    },
+    {
+      "n": 54,
+      "question_id": 580878,
+      "question_text": "Instructions for Question 52 to 55: When electric dipole is placed in uniform electric field, its two charges experience equal and opposite forces, which cancel each other and hence net force on electric dipole in uniform electric field is zero. However these forces are not collinear, so they give rise to some torque on the dipole. Since net force on electric dipole in uniform electric field is zero. so no work is done in moving the electric dipole in uniform electric field. However some work is done in rotating the dipole against the torque acting on it. Torque on a dipole in uniform electric field is minimum when {tex}\\theta{/tex} is equal to",
+      "question_html": "<b>Instructions for Question 52 to 55:</b><br><p>When electric dipole is placed in uniform electric field, its two charges experience equal and opposite forces, which cancel each other and hence net force on electric dipole in uniform electric field is zero. However these forces are not collinear, so they give rise to some torque on the dipole. Since net force on electric dipole in uniform electric field is zero. so no work is done in moving the electric dipole in uniform electric field. However some work is done in rotating the dipole against the torque acting on it.<br />\r\n<img alt=\"\" data-imgur-src=\"qUZr0FS.png\" src=\"https://media-mycbseguide.s3.amazonaws.com/images/imgur/1630339918-9r3mr3.jpg\" /></p><br><p>Torque on a dipole in uniform electric field is minimum when&nbsp;<span class=\"math-tex\">{tex}\\theta{/tex}</span> is equal to</p>",
+      "options": [
+        {
+          "id": 1127475,
+          "text": "180 o",
+          "html": "180<sup>o</sup>",
+          "is_correct": false
+        },
+        {
+          "id": 1127474,
+          "text": "90 o",
+          "html": "90<sup>o</sup>",
+          "is_correct": false
+        },
+        {
+          "id": 1127476,
+          "text": "Both 0 o and 180 o",
+          "html": "Both 0<sup>o</sup> and 180<sup>o</sup>",
+          "is_correct": true
+        },
+        {
+          "id": 1127473,
+          "text": "0 o",
+          "html": "0<sup>o</sup>",
+          "is_correct": false
+        }
+      ],
+      "correct_option_text": "Both 0 o and 180 o",
+      "correct_option_ids": [
+        1127476
+      ],
+      "explanation": "When {tex}\\theta{/tex} is 0 or 180 o , the {tex}\\tau{/tex} is minimum, which means the dipole moment should be parallel to the direction of the uniform electric field.",
+      "solution": ""
+    },
+    {
+      "n": 55,
+      "question_id": 580983,
+      "question_text": "Instructions for Question 52 to 55: When electric dipole is placed in uniform electric field, its two charges experience equal and opposite forces, which cancel each other and hence net force on electric dipole in uniform electric field is zero. However these forces are not collinear, so they give rise to some torque on the dipole. Since net force on electric dipole in uniform electric field is zero. so no work is done in moving the electric dipole in uniform electric field. However some work is done in rotating the dipole against the torque acting on it. When an electric dipole is held at an angle in a uniform electric field, the net force F and torque {tex}\\tau{/tex} on the dipole are",
+      "question_html": "<b>Instructions for Question 52 to 55:</b><br><p>When electric dipole is placed in uniform electric field, its two charges experience equal and opposite forces, which cancel each other and hence net force on electric dipole in uniform electric field is zero. However these forces are not collinear, so they give rise to some torque on the dipole. Since net force on electric dipole in uniform electric field is zero. so no work is done in moving the electric dipole in uniform electric field. However some work is done in rotating the dipole against the torque acting on it.<br />\r\n<img alt=\"\" data-imgur-src=\"qUZr0FS.png\" src=\"https://media-mycbseguide.s3.amazonaws.com/images/imgur/1630339918-9r3mr3.jpg\" /></p><br><p>When an electric dipole is held at an angle in a uniform electric field, the net force F&nbsp;and torque <span class=\"math-tex\">{tex}\\tau{/tex}</span> on the dipole are</p>",
+      "options": [
+        {
+          "id": 1127894,
+          "text": "{tex}F \\neq 0, \\tau \\neq 0{/tex}",
+          "html": "<span class=\"math-tex\">{tex}F \\neq 0, \\tau \\neq 0{/tex}</span>",
+          "is_correct": false
+        },
+        {
+          "id": 1127893,
+          "text": "F = 0, {tex}\\tau{/tex} = 0",
+          "html": "F = 0,&nbsp;<span class=\"math-tex\">{tex}\\tau{/tex}</span>&nbsp;= 0",
+          "is_correct": false
+        },
+        {
+          "id": 1127895,
+          "text": "F = 0, {tex}\\tau \\ne 0{/tex}",
+          "html": "F = 0,&nbsp;<span class=\"math-tex\">{tex}\\tau \\ne 0{/tex}</span>",
+          "is_correct": true
+        },
+        {
+          "id": 1127896,
+          "text": "F {tex}\\ne{/tex} 0, {tex}\\tau{/tex} = 0",
+          "html": "F&nbsp;<span class=\"math-tex\">{tex}\\ne{/tex}</span>&nbsp;0,&nbsp;<span class=\"math-tex\">{tex}\\tau{/tex}</span>&nbsp;= 0",
+          "is_correct": false
+        }
+      ],
+      "correct_option_text": "F = 0, {tex}\\tau \\ne 0{/tex}",
+      "correct_option_ids": [
+        1127895
+      ],
+      "explanation": "Net force is zero and torque acts on the dipole, trying to align p with E.",
+      "solution": ""
+    }
+  ]
+}

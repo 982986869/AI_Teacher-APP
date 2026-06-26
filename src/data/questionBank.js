@@ -88,7 +88,7 @@ function latexToText(tex) {
   return s;
 }
 
-function htmlToText(html) {
+export function htmlToText(html) {
   if (html == null) return '';
   let s = String(html);
   s = s.replace(/\{tex\}([\s\S]*?)\{\/tex\}/g, (m, t) => latexToText(t));

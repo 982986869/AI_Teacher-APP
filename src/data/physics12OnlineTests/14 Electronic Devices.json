@@ -1,0 +1,585 @@
+{
+  "chapter": "Electronic Devices",
+  "chapter_id": 1265,
+  "tests": [
+    {
+      "test_id": 181,
+      "test_name": "Electronic Devices Test 01",
+      "is_paid": false,
+      "questionCount": 15,
+      "questions": [
+        {
+          "n": 1,
+          "question_id": 14352,
+          "question_text": "Basic materials used in the present solid state electronic devices like diode, transistor, ICs, etc are",
+          "question_html": "<p>Basic materials used in the present solid state electronic devices like diode, transistor, ICs, etc are</p>\r\n",
+          "options": [
+            {
+              "id": 12611,
+              "text": "insulators",
+              "html": "insulators",
+              "is_correct": false
+            },
+            {
+              "id": 12610,
+              "text": "metals",
+              "html": "metals",
+              "is_correct": false
+            },
+            {
+              "id": 12609,
+              "text": "conductors",
+              "html": "conductors",
+              "is_correct": false
+            },
+            {
+              "id": 12608,
+              "text": "Semiconductors",
+              "html": "Semiconductors",
+              "is_correct": true
+            }
+          ],
+          "correct_option_text": "Semiconductors",
+          "correct_option_ids": [
+            12608
+          ],
+          "explanation": "Semiconductors are materials that have electrical conductivity between conductors such as most metals and nonconductors or insulators like ceramics. Semiconductor material is used in the manufacturing of electrical components and used in electronic devices such as transistors and diodes. Semiconductors are the basic materials used in the present solid-state electronic devices like diode, transistor, ICs etc",
+          "solution": ""
+        },
+        {
+          "n": 2,
+          "question_id": 14353,
+          "question_text": "In the case of metals, the valence and conduction bands",
+          "question_html": "<p>In the case of metals, the valence and conduction bands</p>",
+          "options": [
+            {
+              "id": 12612,
+              "text": "overlap, energy gap = 0",
+              "html": "overlap, energy gap = 0",
+              "is_correct": true
+            },
+            {
+              "id": 12615,
+              "text": "do not overlap, energy gap is large",
+              "html": "do not overlap, energy gap is large",
+              "is_correct": false
+            },
+            {
+              "id": 12614,
+              "text": "do not overlap, energy gap is small",
+              "html": "do not overlap, energy gap is small",
+              "is_correct": false
+            },
+            {
+              "id": 12613,
+              "text": "do not overlap, energy gap = 0",
+              "html": "do not overlap, energy gap = 0",
+              "is_correct": false
+            }
+          ],
+          "correct_option_text": "overlap, energy gap = 0",
+          "correct_option_ids": [
+            12612
+          ],
+          "explanation": "In the case of conductors, energy gap is absent or in other words conduction band, and valence band overlaps each other.",
+          "solution": ""
+        },
+        {
+          "n": 3,
+          "question_id": 14354,
+          "question_text": "In the case of semiconductors, the valence and conduction bands",
+          "question_html": "<p>In the case of semiconductors, the valence and conduction bands</p>",
+          "options": [
+            {
+              "id": 12619,
+              "text": "do not overlap, energy gap is large",
+              "html": "do not overlap, energy gap is large",
+              "is_correct": false
+            },
+            {
+              "id": 12616,
+              "text": "do not overlap, energy gap is small",
+              "html": "do not overlap, energy gap is small",
+              "is_correct": true
+            },
+            {
+              "id": 12618,
+              "text": "overlap, energy gap = 0",
+              "html": "overlap, energy gap = 0",
+              "is_correct": false
+            },
+            {
+              "id": 12617,
+              "text": "do not overlap, energy gap = 0",
+              "html": "do not overlap, energy gap = 0",
+              "is_correct": false
+            }
+          ],
+          "correct_option_text": "do not overlap, energy gap is small",
+          "correct_option_ids": [
+            12616
+          ],
+          "explanation": "Semiconductors have an energy gap that is in between that of conductors and insulators. This gap is typically more or less 1 eV.",
+          "solution": ""
+        },
+        {
+          "n": 4,
+          "question_id": 14355,
+          "question_text": "A piece of copper and another of germanium are cooled from room temperature to 77K. The resistance of:",
+          "question_html": "<p>A piece of copper and another of germanium are cooled from room temperature to 77K. The resistance of:</p>",
+          "options": [
+            {
+              "id": 12621,
+              "text": "copper strip increases and that of germanium decreases",
+              "html": "copper strip increases and that of germanium decreases",
+              "is_correct": false
+            },
+            {
+              "id": 12623,
+              "text": "each of these increases",
+              "html": "each of these increases",
+              "is_correct": false
+            },
+            {
+              "id": 12622,
+              "text": "copper strip decreases and that of germanium increases",
+              "html": "copper strip decreases and that of germanium increases",
+              "is_correct": true
+            },
+            {
+              "id": 12620,
+              "text": "each of these decreases",
+              "html": "each of these decreases",
+              "is_correct": false
+            }
+          ],
+          "correct_option_text": "copper strip decreases and that of germanium increases",
+          "correct_option_ids": [
+            12622
+          ],
+          "explanation": "The resistance of copper (a conductor) decreases and that of germanium (a semiconductor) increases on decrease of temperature.",
+          "solution": ""
+        },
+        {
+          "n": 5,
+          "question_id": 14356,
+          "question_text": "In a pure or intrinsic semiconductor, valence band holes and conduction-band electrons are always",
+          "question_html": "<p>In a pure or intrinsic&nbsp;semiconductor, valence band holes and conduction-band electrons are always</p>",
+          "options": [
+            {
+              "id": 12625,
+              "text": "such that number of electrons is greater than the number of holes",
+              "html": "such that number of electrons is greater than the number of holes",
+              "is_correct": false
+            },
+            {
+              "id": 12624,
+              "text": "in equal numbers",
+              "html": "in equal numbers",
+              "is_correct": true
+            },
+            {
+              "id": 12627,
+              "text": "zero",
+              "html": "zero",
+              "is_correct": false
+            },
+            {
+              "id": 12626,
+              "text": "such that number of holes is greater than the number of electrons",
+              "html": "such that number of holes is greater than the number of electrons",
+              "is_correct": false
+            }
+          ],
+          "correct_option_text": "in equal numbers",
+          "correct_option_ids": [
+            12624
+          ],
+          "explanation": "An intrinsic semiconductor also called an undoped semiconductor is a pure semiconductor without any significant dopant species present. In intrinsic semiconductors, the number of excited electrons and the number of holes are equal, n e = n h",
+          "solution": ""
+        },
+        {
+          "n": 6,
+          "question_id": 14357,
+          "question_text": "Doping of semiconductor is the process of",
+          "question_html": "<p>Doping of semiconductor is the process of</p>",
+          "options": [
+            {
+              "id": 12628,
+              "text": "adding impurity to pure semiconductor",
+              "html": "adding impurity to pure semiconductor",
+              "is_correct": true
+            },
+            {
+              "id": 12631,
+              "text": "eliminate a surface coating",
+              "html": "eliminate a surface coating",
+              "is_correct": false
+            },
+            {
+              "id": 12630,
+              "text": "adding a surface coating",
+              "html": "adding a surface coating",
+              "is_correct": false
+            },
+            {
+              "id": 12629,
+              "text": "removing impurity from pure semiconductor",
+              "html": "removing impurity from pure semiconductor",
+              "is_correct": false
+            }
+          ],
+          "correct_option_text": "adding impurity to pure semiconductor",
+          "correct_option_ids": [
+            12628
+          ],
+          "explanation": "Doping is the process of adding impurities to intrinsic semiconductors to increase their conductivity.",
+          "solution": ""
+        },
+        {
+          "n": 7,
+          "question_id": 14358,
+          "question_text": "Motion of hole is a convenient way of describing",
+          "question_html": "<p>Motion of hole is a convenient way of describing</p>",
+          "options": [
+            {
+              "id": 12635,
+              "text": "the actual motion of energy gap",
+              "html": "the actual motion of energy gap",
+              "is_correct": false
+            },
+            {
+              "id": 12634,
+              "text": "the actual motion of free electrons",
+              "html": "the actual motion of free electrons",
+              "is_correct": false
+            },
+            {
+              "id": 12632,
+              "text": "the actual motion of bound electrons",
+              "html": "the actual motion of bound electrons",
+              "is_correct": true
+            },
+            {
+              "id": 12633,
+              "text": "the actual motion of conduction electrons",
+              "html": "the actual motion of conduction electrons",
+              "is_correct": false
+            }
+          ],
+          "correct_option_text": "the actual motion of bound electrons",
+          "correct_option_ids": [
+            12632
+          ],
+          "explanation": "The motion of the hole is a convenient way of describing the actual motion of bound electrons, whenever there is an empty bond anywhere in the crystal.",
+          "solution": ""
+        },
+        {
+          "n": 8,
+          "question_id": 14359,
+          "question_text": "The total current in a semiconductor is",
+          "question_html": "<p>The total current in a semiconductor is</p>",
+          "options": [
+            {
+              "id": 12639,
+              "text": "hole current only",
+              "html": "hole current only",
+              "is_correct": false
+            },
+            {
+              "id": 12637,
+              "text": "the difference of electron and hole currents",
+              "html": "the difference of electron and hole currents",
+              "is_correct": false
+            },
+            {
+              "id": 12636,
+              "text": "the sum of electron and hole currents",
+              "html": "the sum of electron and hole currents",
+              "is_correct": true
+            },
+            {
+              "id": 12638,
+              "text": "electron current only",
+              "html": "electron current only",
+              "is_correct": false
+            }
+          ],
+          "correct_option_text": "the sum of electron and hole currents",
+          "correct_option_ids": [
+            12636
+          ],
+          "explanation": "In a semiconductor electric current is carried by both electrons and holes. The total current in intrinsic semiconductor is the sum of hole and electron current.",
+          "solution": ""
+        },
+        {
+          "n": 9,
+          "question_id": 14360,
+          "question_text": "In n-type semiconductor, the fifth electron",
+          "question_html": "<p>In n-type semiconductor, the fifth electron</p>",
+          "options": [
+            {
+              "id": 12643,
+              "text": "is not capable of moving",
+              "html": "is not capable of moving",
+              "is_correct": false
+            },
+            {
+              "id": 12642,
+              "text": "is not present",
+              "html": "is not present",
+              "is_correct": false
+            },
+            {
+              "id": 12641,
+              "text": "needs high energy to be set free",
+              "html": "needs high energy to be set free",
+              "is_correct": false
+            },
+            {
+              "id": 12640,
+              "text": "needs low energy to be set free",
+              "html": "needs low energy to be set free",
+              "is_correct": true
+            }
+          ],
+          "correct_option_text": "needs low energy to be set free",
+          "correct_option_ids": [
+            12640
+          ],
+          "explanation": "Suppose, in any pure or intrinsic germanium or silicon semiconductor any pentavalent impurity is added. The pentavalent impurities are those which have atoms with five valence electrons. As soon as we add the impurity to the semiconductor, the impurity atoms will replace some of the semiconductor atoms in the crystal structure. Now four of the five valence electrons of impurity atom will involve in bonding with four neighbourhood semiconductor atoms, but the fifth one electron will not find any place to occupy. This fifth electron of the impurity atom can be made available as free electron or negative charge carrier even if a very small amount of energy is applied.",
+          "solution": ""
+        },
+        {
+          "n": 10,
+          "question_id": 14361,
+          "question_text": "When p-n junction diode is forward biased, then:",
+          "question_html": "<p>When p-n junction diode is forward biased, then:</p>",
+          "options": [
+            {
+              "id": 12644,
+              "text": "the depletion region is reduced and barrier height is increased.",
+              "html": "the depletion region is reduced and barrier height is increased.",
+              "is_correct": false
+            },
+            {
+              "id": 12646,
+              "text": "both the depletion region and barrier height are reduced.",
+              "html": "both the depletion region and barrier height are reduced.",
+              "is_correct": true
+            },
+            {
+              "id": 12647,
+              "text": "both the depletion region and barrier height are increased.",
+              "html": "both the depletion region and barrier height are increased.",
+              "is_correct": false
+            },
+            {
+              "id": 12645,
+              "text": "the depletion region is widened and barrier height is reduced.",
+              "html": "the depletion region is widened and barrier height is reduced.",
+              "is_correct": false
+            }
+          ],
+          "correct_option_text": "both the depletion region and barrier height are reduced.",
+          "correct_option_ids": [
+            12646
+          ],
+          "explanation": "When the p-n junction is forward biased, the majority carriers in each section (holes in p-section and electrons in n-section) cross to the other side. As a result of recombination of the holes and electrons, the width of the depletion region gets reduced.",
+          "solution": ""
+        },
+        {
+          "n": 11,
+          "question_id": 14362,
+          "question_text": "In n-type semiconductor majority carriers and minority carriers are respectively",
+          "question_html": "<p>In n-type semiconductor majority carriers and minority carriers are respectively</p>\r\n",
+          "options": [
+            {
+              "id": 12648,
+              "text": "electrons and holes",
+              "html": "electrons and holes",
+              "is_correct": true
+            },
+            {
+              "id": 12649,
+              "text": "holes and electrons",
+              "html": "holes and electrons",
+              "is_correct": false
+            },
+            {
+              "id": 12651,
+              "text": "aluminum and boron",
+              "html": "aluminum and boron",
+              "is_correct": false
+            },
+            {
+              "id": 12650,
+              "text": "germanium and silicon",
+              "html": "germanium and silicon",
+              "is_correct": false
+            }
+          ],
+          "correct_option_text": "electrons and holes",
+          "correct_option_ids": [
+            12648
+          ],
+          "explanation": "N-type semiconductors have a larger electron concentration than hole concentration. The term n-type comes from the negative charge of the electron. In n-type semiconductors, electrons are the majority carriers and holes are the minority carriers. ​​​​​​​ N-type semiconductors are created by doping an intrinsic semiconductor with donor impurities (or doping a p-type semiconductor as done in the making of CMOS chips). A common dopant for n-type silicon is phosphorus.",
+          "solution": ""
+        },
+        {
+          "n": 12,
+          "question_id": 14363,
+          "question_text": "In p-type semiconductor, the dopant is",
+          "question_html": "<p>In p-type semiconductor, the dopant is</p>",
+          "options": [
+            {
+              "id": 12655,
+              "text": "always germanium",
+              "html": "always germanium",
+              "is_correct": false
+            },
+            {
+              "id": 12653,
+              "text": "donor",
+              "html": "donor",
+              "is_correct": false
+            },
+            {
+              "id": 12654,
+              "text": "always silicon",
+              "html": "always silicon",
+              "is_correct": false
+            },
+            {
+              "id": 12652,
+              "text": "acceptor",
+              "html": "acceptor",
+              "is_correct": true
+            }
+          ],
+          "correct_option_text": "acceptor",
+          "correct_option_ids": [
+            12652
+          ],
+          "explanation": "In p-type semiconductors, holes are the majority carriers and electrons are the minority carriers. p-type semiconductors are created by doping an intrinsic semiconductor with acceptor impurities.",
+          "solution": ""
+        },
+        {
+          "n": 13,
+          "question_id": 14364,
+          "question_text": "In p-type semiconductor,",
+          "question_html": "<p>In p-type semiconductor,</p>",
+          "options": [
+            {
+              "id": 12658,
+              "text": "{tex}{{\\rm{n}}_{\\rm{h}}} < {\\rm{ }}{{\\rm{n}}_{\\rm{e}}}{/tex}",
+              "html": "<span class=\"math-tex\">{tex}{{\\rm{n}}_{\\rm{h}}} &lt; {\\rm{ }}{{\\rm{n}}_{\\rm{e}}}{/tex}</span>",
+              "is_correct": false
+            },
+            {
+              "id": 12656,
+              "text": "{tex}{{\\rm{n}}_{\\rm{h}}} > > {\\rm{ }}{{\\rm{n}}_{\\rm{e}}}{/tex}",
+              "html": "<span class=\"math-tex\">{tex}{{\\rm{n}}_{\\rm{h}}} &gt; &gt; {\\rm{ }}{{\\rm{n}}_{\\rm{e}}}{/tex}</span>",
+              "is_correct": true
+            },
+            {
+              "id": 12659,
+              "text": "{tex}{{\\rm{n}}_{\\rm{h}}} = {\\rm{ }}{{\\rm{n}}_{\\rm{e}}}{/tex}",
+              "html": "<span class=\"math-tex\">{tex}{{\\rm{n}}_{\\rm{h}}} = {\\rm{ }}{{\\rm{n}}_{\\rm{e}}}{/tex}</span>",
+              "is_correct": false
+            },
+            {
+              "id": 12657,
+              "text": "{tex}{{\\rm{n}}_{\\rm{h}}} > {\\rm{ }}{{\\rm{n}}_{\\rm{e}}}{/tex}",
+              "html": "<span class=\"math-tex\">{tex}{{\\rm{n}}_{\\rm{h}}} &gt; {\\rm{ }}{{\\rm{n}}_{\\rm{e}}}{/tex}</span>",
+              "is_correct": false
+            }
+          ],
+          "correct_option_text": "{tex}{{\\rm{n}}_{\\rm{h}}} > > {\\rm{ }}{{\\rm{n}}_{\\rm{e}}}{/tex}",
+          "correct_option_ids": [
+            12656
+          ],
+          "explanation": "Number density of valence band holes (n h ) in p-type semiconductor is approximately equal to that of the acceptor atoms (N a ) and is very large as compared to the number density of conduction band electrons (n e ). Thus, n h {tex}\\approx{/tex} N a >> n e",
+          "solution": ""
+        },
+        {
+          "n": 14,
+          "question_id": 14365,
+          "question_text": "The electron and hole concentration in a semiconductor in thermal equilibrium is given by",
+          "question_html": "<p>The electron and hole concentration in a semiconductor in thermal equilibrium is given by</p>",
+          "options": [
+            {
+              "id": 12661,
+              "text": "{tex}{n_e}{n_h} = 2n_i^2{/tex}",
+              "html": "<span class=\"math-tex\">{tex}{n_e}{n_h} = 2n_i^2{/tex}</span>",
+              "is_correct": false
+            },
+            {
+              "id": 12662,
+              "text": "{tex}2{n_{e}}{n_h} = n_i^2{/tex}",
+              "html": "<span class=\"math-tex\">{tex}2{n_{e}}{n_h} = n_i^2{/tex}</span>",
+              "is_correct": false
+            },
+            {
+              "id": 12660,
+              "text": "{tex}{n_e}{n_h} = n_i^2{/tex}",
+              "html": "<span class=\"math-tex\">{tex}{n_e}{n_h} = n_i^2{/tex}</span>",
+              "is_correct": true
+            },
+            {
+              "id": 12663,
+              "text": "{tex}{n_e}{n_h} = n_i^3{/tex}",
+              "html": "<span class=\"math-tex\">{tex}{n_e}{n_h} = n_i^3{/tex}</span>",
+              "is_correct": false
+            }
+          ],
+          "correct_option_text": "{tex}{n_e}{n_h} = n_i^2{/tex}",
+          "correct_option_ids": [
+            12660
+          ],
+          "explanation": "At equilibrium, the product of the majority and minority carrier concentration is a constant, and this is mathematically expressed by the Law of Mass Action, {tex}{n_e}{n_h} = n_i^2{/tex} where n i is the intrinsic carrier concentration and n e and n h are the electron and hole equilibrium carrier concentrations.",
+          "solution": ""
+        },
+        {
+          "n": 15,
+          "question_id": 14366,
+          "question_text": "Diffusion in a p-n junction is due to",
+          "question_html": "<p>Diffusion in a p-n junction is due to</p>",
+          "options": [
+            {
+              "id": 12667,
+              "text": "majority carriers",
+              "html": "majority carriers",
+              "is_correct": false
+            },
+            {
+              "id": 12664,
+              "text": "concentration gradient",
+              "html": "concentration gradient",
+              "is_correct": true
+            },
+            {
+              "id": 12665,
+              "text": "minority carriers",
+              "html": "minority carriers",
+              "is_correct": false
+            },
+            {
+              "id": 12666,
+              "text": "carrier injection",
+              "html": "carrier injection",
+              "is_correct": false
+            }
+          ],
+          "correct_option_text": "concentration gradient",
+          "correct_option_ids": [
+            12664
+          ],
+          "explanation": "In n-type semiconductor, the concentration of electrons is more compared to the concentration of holes. Similarly, in p-type semiconductor, the concentration of holes is more compared to the concentration of electrons. In the formation of the p-n junction, due to the concentration gradient across the &#39;p&#39; and the &#39;n&#39; sides, the electrons diffuse from &#39;n&#39; region to &#39;p&#39; region and the holes diffuse from p region to n region.",
+          "solution": ""
+        }
+      ]
+    }
+  ],
+  "totalQuestions": 15
+}

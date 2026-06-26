@@ -15,6 +15,7 @@ import React, { useState } from 'react';
 import { View, Text, ScrollView, Pressable, StyleSheet, StatusBar, SafeAreaView } from 'react-native';
 
 import { chapterList as physicsChapters, getQuestions as getPhysics } from '../data/questionBank';
+import { chapterList as physics12Chapters, getQuestions as getPhysics12 } from '../data/physics12OnlineTests';
 import { chapterList as chemChapters,    getQuestions as getChem }    from '../data/chemistryBank';
 import { chapterList as mathsChapters,   getQuestions as getMaths }   from '../data/mathsBank';
 import { chapterList as bioChapters,     getQuestions as getBio }     from '../data/biologyBank';
@@ -36,14 +37,22 @@ const C = {
   headerMint: '#CDEFE2',
 };
 
-const SUBJECTS = [
-  { key: 'physics',   name: 'Physics',   emoji: '\u269B\uFE0F', tile: C.mintSoft,  chapters: physicsChapters, getQuestions: getPhysics },
-  { key: 'chemistry', name: 'Chemistry', emoji: '\u{1F9EA}',    tile: C.peachSoft, chapters: chemChapters,    getQuestions: getChem },
-  { key: 'maths',     name: 'Maths',     emoji: '\u{1F4D0}',    tile: C.sandSoft,  chapters: mathsChapters,   getQuestions: getMaths },
-  { key: 'biology',   name: 'Biology',   emoji: '\u{1F9EC}',    tile: C.lilacSoft, chapters: bioChapters,     getQuestions: getBio },
-];
+// Physics uses the Class-12 offline bank when the user is on Class 12, else the
+// Class-11 bank. The other subjects are class-agnostic for now.
+const buildSubjects = (selectedClass) => {
+  const phys = selectedClass === 'Class 12'
+    ? { chapters: physics12Chapters, getQuestions: getPhysics12 }
+    : { chapters: physicsChapters, getQuestions: getPhysics };
+  return [
+    { key: 'physics',   name: 'Physics',   emoji: '\u269B\uFE0F', tile: C.mintSoft,  chapters: phys.chapters, getQuestions: phys.getQuestions },
+    { key: 'chemistry', name: 'Chemistry', emoji: '\u{1F9EA}',    tile: C.peachSoft, chapters: chemChapters,  getQuestions: getChem },
+    { key: 'maths',     name: 'Maths',     emoji: '\u{1F4D0}',    tile: C.sandSoft,  chapters: mathsChapters, getQuestions: getMaths },
+    { key: 'biology',   name: 'Biology',   emoji: '\u{1F9EC}',    tile: C.lilacSoft, chapters: bioChapters,   getQuestions: getBio },
+  ];
+};
 
-export default function OnlineTestsScreen({ onBack, onStartTest = () => {} }) {
+export default function OnlineTestsScreen({ onBack, onStartTest = () => {}, selectedClass }) {
+  const SUBJECTS = buildSubjects(selectedClass);
   const [subject, setSubject] = useState(null);
   const [chapter, setChapter] = useState(null); // chosen chapter -> show its 5 tests
 

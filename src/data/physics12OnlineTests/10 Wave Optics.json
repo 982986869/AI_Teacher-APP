@@ -1,0 +1,585 @@
+{
+  "chapter": "Wave Optics",
+  "chapter_id": 1261,
+  "tests": [
+    {
+      "test_id": 161,
+      "test_name": "Wave Optics Test 01",
+      "is_paid": false,
+      "questionCount": 15,
+      "questions": [
+        {
+          "n": 1,
+          "question_id": 14053,
+          "question_text": "Light behaves as",
+          "question_html": "<p>Light behaves as&nbsp;</p>",
+          "options": [
+            {
+              "id": 11412,
+              "text": "particle and a wave",
+              "html": "particle and a wave",
+              "is_correct": true
+            },
+            {
+              "id": 11414,
+              "text": "wave",
+              "html": "wave",
+              "is_correct": false
+            },
+            {
+              "id": 11415,
+              "text": "sometimes a particle and other times a wave",
+              "html": "sometimes a particle and other times&nbsp;a wave",
+              "is_correct": false
+            },
+            {
+              "id": 11413,
+              "text": "particle",
+              "html": "particle",
+              "is_correct": false
+            }
+          ],
+          "correct_option_text": "particle and a wave",
+          "correct_option_ids": [
+            11412
+          ],
+          "explanation": "Light is an electromagnetic wave. It has a dual nature and behaves as both particle and wave.",
+          "solution": ""
+        },
+        {
+          "n": 2,
+          "question_id": 14054,
+          "question_text": "The propagation of light is best described by",
+          "question_html": "<p>The propagation of light is best described by</p>\r\n",
+          "options": [
+            {
+              "id": 11419,
+              "text": "Rectilinear propagation of light",
+              "html": "Rectilinear propagation of light",
+              "is_correct": false
+            },
+            {
+              "id": 11417,
+              "text": "Particle model",
+              "html": "Particle model",
+              "is_correct": false
+            },
+            {
+              "id": 11418,
+              "text": "Dual / schizophrenic model",
+              "html": "Dual / schizophrenic model",
+              "is_correct": true
+            },
+            {
+              "id": 11416,
+              "text": "Wave model",
+              "html": "Wave model",
+              "is_correct": false
+            }
+          ],
+          "correct_option_text": "Dual / schizophrenic model",
+          "correct_option_ids": [
+            11418
+          ],
+          "explanation": "According to Maxwell&#39;s electromagnetic theory of light, light is an electromagnetic wave and it has a dual nature i.e it has both wave nature and particulate nature.",
+          "solution": ""
+        },
+        {
+          "n": 3,
+          "question_id": 14055,
+          "question_text": "Emission and absorption is best described by",
+          "question_html": "<p>Emission and absorption is best described by</p>",
+          "options": [
+            {
+              "id": 11420,
+              "text": "Particle model",
+              "html": "Particle model",
+              "is_correct": true
+            },
+            {
+              "id": 11421,
+              "text": "Wave model",
+              "html": "Wave model",
+              "is_correct": false
+            },
+            {
+              "id": 11422,
+              "text": "Dual / schizophrenic model",
+              "html": "Dual / schizophrenic model",
+              "is_correct": false
+            },
+            {
+              "id": 11423,
+              "text": "Rutherford\"s model of an atom",
+              "html": "Rutherford&quot;s model of an atom",
+              "is_correct": false
+            }
+          ],
+          "correct_option_text": "Particle model",
+          "correct_option_ids": [
+            11420
+          ],
+          "explanation": "Emission and absorption is best described by a particle model.",
+          "solution": ""
+        },
+        {
+          "n": 4,
+          "question_id": 14056,
+          "question_text": "Wavefront is",
+          "question_html": "<p>Wavefront is</p>",
+          "options": [
+            {
+              "id": 11427,
+              "text": "locus of all adjacent points at which the electric field is the same",
+              "html": "locus of all adjacent points at which the electric field is the same",
+              "is_correct": false
+            },
+            {
+              "id": 11425,
+              "text": "series of points on the wave with same amplitude",
+              "html": "series of points on the wave with same amplitude",
+              "is_correct": false
+            },
+            {
+              "id": 11424,
+              "text": "locus of all adjacent points at which the phase of oscillation is the same",
+              "html": "locus of all adjacent points at which the phase of oscillation is the same",
+              "is_correct": true
+            },
+            {
+              "id": 11426,
+              "text": "series of points on the wave with same frequency",
+              "html": "series of points on the wave with same frequency",
+              "is_correct": false
+            }
+          ],
+          "correct_option_text": "locus of all adjacent points at which the phase of oscillation is the same",
+          "correct_option_ids": [
+            11424
+          ],
+          "explanation": "A locus of points, which oscillate in phase is called a wavefront. Thus a wavefront is defined as a surface of constant phase. The speed with which the wavefront moves outwards from the source is called the speed of the wave.",
+          "solution": ""
+        },
+        {
+          "n": 5,
+          "question_id": 14057,
+          "question_text": "A ray is an imaginary line",
+          "question_html": "<p>A ray is an imaginary line</p>",
+          "options": [
+            {
+              "id": 11428,
+              "text": "along the direction of travel of the wave",
+              "html": "along the direction of travel of the wave",
+              "is_correct": true
+            },
+            {
+              "id": 11430,
+              "text": "along the direction perpendicular to travel of the wave",
+              "html": "along the direction perpendicular to travel of the wave",
+              "is_correct": false
+            },
+            {
+              "id": 11431,
+              "text": "from source to horizon",
+              "html": "from source to horizon",
+              "is_correct": false
+            },
+            {
+              "id": 11429,
+              "text": "along the direction at an angle to the travel of the wave",
+              "html": "along the direction at an angle to the travel of the wave",
+              "is_correct": false
+            }
+          ],
+          "correct_option_text": "along the direction of travel of the wave",
+          "correct_option_ids": [
+            11428
+          ],
+          "explanation": "The direction or path along which light energy travels in medium is called ray of light. Rays are the arrows perpendicular to the wavefront in direction of propagation of a wave.",
+          "solution": ""
+        },
+        {
+          "n": 6,
+          "question_id": 14058,
+          "question_text": "According to Huygens principle,",
+          "question_html": "<p>According to Huygens principle,</p>",
+          "options": [
+            {
+              "id": 11432,
+              "text": "Each point on a wavefront is a source of secondary waves",
+              "html": "Each point on a wavefront is a source of secondary waves",
+              "is_correct": true
+            },
+            {
+              "id": 11433,
+              "text": "No point on a wavefront is a source of secondary waves",
+              "html": "No point on a wavefront is a source of secondary waves",
+              "is_correct": false
+            },
+            {
+              "id": 11435,
+              "text": "Each point on a wavefront is travelling at any speed",
+              "html": "Each point on a wavefront is travelling&nbsp;at any speed",
+              "is_correct": false
+            },
+            {
+              "id": 11434,
+              "text": "Each point on a wavefront is a sink of secondary waves",
+              "html": "Each point on a wavefront is a sink of secondary waves",
+              "is_correct": false
+            }
+          ],
+          "correct_option_text": "Each point on a wavefront is a source of secondary waves",
+          "correct_option_ids": [
+            11432
+          ],
+          "explanation": "According to Huygens principle, each point of the wavefront is the source of a secondary disturbance and the wavelets emanating from these points spread out in all directions with the speed of the wave. These wavelets emanating from the wavefront are usually referred to as secondary wavelets.",
+          "solution": ""
+        },
+        {
+          "n": 7,
+          "question_id": 14059,
+          "question_text": "According to Huygen&#39;s construction, relation between old and new wavefront is",
+          "question_html": "<p>According to Huygen&#39;s construction, relation between old and new wavefront&nbsp;is</p>",
+          "options": [
+            {
+              "id": 11436,
+              "text": "The new wavefront is the forward envelope of the secondary wavelet",
+              "html": "The new wavefront is the forward envelope of the secondary wavelet",
+              "is_correct": true
+            },
+            {
+              "id": 11437,
+              "text": "The new wavefront is inclined at an angle to the old wavefront",
+              "html": "The new wavefront is inclined at an angle to the old wavefront",
+              "is_correct": false
+            },
+            {
+              "id": 11439,
+              "text": "New wavefront is backward to old wavefront",
+              "html": "New wavefront is backward to old wavefront",
+              "is_correct": false
+            },
+            {
+              "id": 11438,
+              "text": "New wavefront is perpendicular to the old wavefront",
+              "html": "New wavefront is perpendicular to the old wavefront",
+              "is_correct": false
+            }
+          ],
+          "correct_option_text": "The new wavefront is the forward envelope of the secondary wavelet",
+          "correct_option_ids": [
+            11436
+          ],
+          "explanation": "Huygens&rsquo; construction tells us that the new wavefront is the forward envelope of the secondary waves.",
+          "solution": ""
+        },
+        {
+          "n": 8,
+          "question_id": 14060,
+          "question_text": "Relation between ray and wavefront is",
+          "question_html": "<p>Relation between ray and wavefront is</p>",
+          "options": [
+            {
+              "id": 11442,
+              "text": "Rays are tangential to wavefront",
+              "html": "Rays are tangential to wavefront",
+              "is_correct": false
+            },
+            {
+              "id": 11440,
+              "text": "Rays are perpendicular to wavefront",
+              "html": "Rays are perpendicular to wavefront",
+              "is_correct": true
+            },
+            {
+              "id": 11443,
+              "text": "Rays are at acute angle to wavefront",
+              "html": "Rays are at acute angle to wavefront",
+              "is_correct": false
+            },
+            {
+              "id": 11441,
+              "text": "Rays are parallel to wavefront",
+              "html": "Rays are parallel to wavefront",
+              "is_correct": false
+            }
+          ],
+          "correct_option_text": "Rays are perpendicular to wavefront",
+          "correct_option_ids": [
+            11440
+          ],
+          "explanation": "Huygens&rsquo; construction tells us that the new wavefront is the forward envelope of the secondary waves. When the speed of light is independent of direction, the secondary waves are spherical. The rays are then perpendicular to the wavefronts.",
+          "solution": ""
+        },
+        {
+          "n": 9,
+          "question_id": 14061,
+          "question_text": "Approximate Doppler shift formula for light is",
+          "question_html": "<p>Approximate Doppler shift formula for light is</p>",
+          "options": [
+            {
+              "id": 11444,
+              "text": "{tex}\\frac{\\Delta\\nu}\\nu=-\\frac{v_{rad}}c{/tex}",
+              "html": "<span class=\"math-tex\">{tex}\\frac{\\Delta\\nu}\\nu=-\\frac{v_{rad}}c{/tex}</span>",
+              "is_correct": true
+            },
+            {
+              "id": 11445,
+              "text": "{tex}\\frac{\\Delta\\nu}\\nu=\\frac{v_{rad}}c{/tex}",
+              "html": "<span class=\"math-tex\">{tex}\\frac{\\Delta\\nu}\\nu=\\frac{v_{rad}}c{/tex}</span>",
+              "is_correct": false
+            },
+            {
+              "id": 11447,
+              "text": "{tex}\\frac{\\Delta \\nu}{\\nu}=-\\frac{v_{\\mathrm{rad}}}{2 c}{/tex}",
+              "html": "<span class=\"math-tex\">{tex}\\frac{\\Delta \\nu}{\\nu}=-\\frac{v_{\\mathrm{rad}}}{2 c}{/tex}</span>",
+              "is_correct": false
+            },
+            {
+              "id": 11446,
+              "text": "{tex}\\frac{\\Delta \\nu}{\\nu}=2 \\frac{v_{\\mathrm{rad}}}{c}{/tex}",
+              "html": "<span class=\"math-tex\">{tex}\\frac{\\Delta \\nu}{\\nu}=2 \\frac{v_{\\mathrm{rad}}}{c}{/tex}</span>",
+              "is_correct": false
+            }
+          ],
+          "correct_option_text": "{tex}\\frac{\\Delta\\nu}\\nu=-\\frac{v_{rad}}c{/tex}",
+          "correct_option_ids": [
+            11444
+          ],
+          "explanation": "The fractional change in frequency &Delta; {tex}\\nu{/tex} / {tex}\\nu{/tex} is given by &ndash;v radial /c, where v radial is the component of the source velocity along the line joining the observer to the source relative to the observer. v radial is considered positive when the source moves away from the observer.",
+          "solution": ""
+        },
+        {
+          "n": 10,
+          "question_id": 14062,
+          "question_text": "When a beam of light is used to determine the position of an object, the maximum accuracy is achieved, if the light is",
+          "question_html": "<p>When a beam of light is used to determine the position of an object, the maximum accuracy is achieved, if the light is</p>",
+          "options": [
+            {
+              "id": 11451,
+              "text": "of high intensity",
+              "html": "of high intensity",
+              "is_correct": false
+            },
+            {
+              "id": 11449,
+              "text": "of longer wavelength",
+              "html": "of longer wavelength",
+              "is_correct": false
+            },
+            {
+              "id": 11450,
+              "text": "of shorter wavelength",
+              "html": "of shorter wavelength",
+              "is_correct": true
+            },
+            {
+              "id": 11448,
+              "text": "polarised",
+              "html": "polarised",
+              "is_correct": false
+            }
+          ],
+          "correct_option_text": "of shorter wavelength",
+          "correct_option_ids": [
+            11450
+          ],
+          "explanation": "The position of an object can be determined with maximum accuracy by using the light of shorter wavelength.",
+          "solution": ""
+        },
+        {
+          "n": 11,
+          "question_id": 14063,
+          "question_text": "Two sources of light are coherent if they have",
+          "question_html": "<p>Two sources of light are coherent if they have</p>",
+          "options": [
+            {
+              "id": 11452,
+              "text": "same frequency with a constant phase relationship",
+              "html": "same frequency with a constant phase relationship",
+              "is_correct": true
+            },
+            {
+              "id": 11454,
+              "text": "different frequency with a constant phase relationship",
+              "html": "different frequency with a constant phase relationship",
+              "is_correct": false
+            },
+            {
+              "id": 11455,
+              "text": "different frequency and random phase",
+              "html": "different frequency and random phase",
+              "is_correct": false
+            },
+            {
+              "id": 11453,
+              "text": "same frequency and changes phase randomly",
+              "html": "same frequency and changes phase randomly",
+              "is_correct": false
+            }
+          ],
+          "correct_option_text": "same frequency with a constant phase relationship",
+          "correct_option_ids": [
+            11452
+          ],
+          "explanation": "Two sources are said to be coherent if they have exactly same frequency, and have zero or constant phase difference.",
+          "solution": ""
+        },
+        {
+          "n": 12,
+          "question_id": 14064,
+          "question_text": "Interference effects of light from two sources can be observed if the sources are",
+          "question_html": "<p>Interference effects of light from two sources can be observed if the sources are</p>",
+          "options": [
+            {
+              "id": 11456,
+              "text": "coherent",
+              "html": "coherent",
+              "is_correct": true
+            },
+            {
+              "id": 11458,
+              "text": "of different frequency",
+              "html": "of different frequency",
+              "is_correct": false
+            },
+            {
+              "id": 11457,
+              "text": "independent",
+              "html": "independent",
+              "is_correct": false
+            },
+            {
+              "id": 11459,
+              "text": "of different frequency and random phases",
+              "html": "of different frequency and random phases",
+              "is_correct": false
+            }
+          ],
+          "correct_option_text": "coherent",
+          "correct_option_ids": [
+            11456
+          ],
+          "explanation": "If the two sources are coherent, then the phase difference &phi; at any point will not change with time, and we will have a stable interference pattern; i.e., the positions of maxima and minima will not change with time.",
+          "solution": ""
+        },
+        {
+          "n": 13,
+          "question_id": 14065,
+          "question_text": "If we have two coherent sources S 1 and S 2 vibrating in phase, then for an arbitrary point P constructive interference is observed whenever the path difference is",
+          "question_html": "<p>If we have two coherent sources S<sub>1</sub> and S<sub>2</sub> vibrating in phase, then for an arbitrary point P constructive interference is observed whenever the path difference is</p>",
+          "options": [
+            {
+              "id": 11462,
+              "text": "An odd multiple of wavelength",
+              "html": "An odd multiple of wavelength",
+              "is_correct": false
+            },
+            {
+              "id": 11460,
+              "text": "An integral multiple of wavelength",
+              "html": "An integral multiple of wavelength",
+              "is_correct": true
+            },
+            {
+              "id": 11463,
+              "text": "A fraction of a wavelength",
+              "html": "A fraction of a wavelength",
+              "is_correct": false
+            },
+            {
+              "id": 11461,
+              "text": "An even multiple of wavelength",
+              "html": "An even multiple of wavelength",
+              "is_correct": false
+            }
+          ],
+          "correct_option_text": "An integral multiple of wavelength",
+          "correct_option_ids": [
+            11460
+          ],
+          "explanation": "If we have two coherent sources S 1 and S 2 vibrating in phase, then for an arbitrary point P whenever the path difference, S 1 P ~ S 2 P = n {tex}\\lambda{/tex} (n = 0, 1, 2, 3,...), we will have constructive interference.",
+          "solution": ""
+        },
+        {
+          "n": 14,
+          "question_id": 14066,
+          "question_text": "If we have two coherent sources S 1 and S 2 vibrating in phase, then for an arbitrary point P destructive interference is observed whenever the path difference is",
+          "question_html": "<p>If we have two coherent sources S<sub>1</sub> and S<sub>2</sub> vibrating in phase, then for an arbitrary point P destructive interference is observed whenever the path difference is</p>",
+          "options": [
+            {
+              "id": 11466,
+              "text": "{tex}n\\lambda {/tex} , where n = 0, 1, 2, 3, ...",
+              "html": "<span class=\"math-tex\">{tex}n\\lambda {/tex}</span>&nbsp;, where n = 0, 1, 2, 3, ...",
+              "is_correct": false
+            },
+            {
+              "id": 11464,
+              "text": "{tex}(n + \\frac{1}{2})\\lambda {/tex} , where n = 0, 1, 2, 3 ...",
+              "html": "<span class=\"math-tex\">{tex}(n + \\frac{1}{2})\\lambda {/tex}</span>&nbsp;, where n = 0, 1, 2, 3 ...",
+              "is_correct": true
+            },
+            {
+              "id": 11465,
+              "text": "{tex}(n + \\frac{1}{{3}})\\lambda {/tex} , where n = 0, 1, 2, 3, ...",
+              "html": "<span class=\"math-tex\">{tex}(n + \\frac{1}{{3}})\\lambda {/tex}</span>&nbsp;, where n = 0, 1, 2, 3, ...",
+              "is_correct": false
+            },
+            {
+              "id": 11467,
+              "text": "{tex}(2n + \\frac{1}{ {2}})\\lambda{/tex} , where n = 0, 1, 2, 3, ...",
+              "html": "<span class=\"math-tex\">{tex}(2n + \\frac{1}{ {2}})\\lambda{/tex}</span>&nbsp;, where n = 0, 1, 2, 3, ...",
+              "is_correct": false
+            }
+          ],
+          "correct_option_text": "{tex}(n + \\frac{1}{2})\\lambda {/tex} , where n = 0, 1, 2, 3 ...",
+          "correct_option_ids": [
+            11464
+          ],
+          "explanation": "If the point P is such that the path difference, S 2 P ~ S 1 P = {tex}(n + \\frac{1}{2})\\lambda {/tex} (where n = 0, 1, 2, 3, ...), we will have destructive interference and the resultant intensity will be zero.",
+          "solution": ""
+        },
+        {
+          "n": 15,
+          "question_id": 14067,
+          "question_text": "If we have two coherent sources S 1 and S 2 vibrating in phase with same amplitude, then for an arbitrary point P with path difference corresponding to {tex}\\phi {/tex} , the resultant intensity if the intensity due to each is {tex}I_{0}{/tex} would be",
+          "question_html": "<p>If we have two coherent sources S<sub>1</sub> and S<sub>2</sub> vibrating in phase with same amplitude, then for an arbitrary point P with path difference corresponding to <span class=\"math-tex\">{tex}\\phi {/tex}</span>, the resultant intensity if the intensity due to each is&nbsp;<span class=\"math-tex\">{tex}I_{0}{/tex}</span> would be</p>",
+          "options": [
+            {
+              "id": 11470,
+              "text": "{tex}{I_0}co{s^2}\\left( \\phi \\right){/tex}",
+              "html": "<span class=\"math-tex\">{tex}{I_0}co{s^2}\\left( \\phi \\right){/tex}</span>",
+              "is_correct": false
+            },
+            {
+              "id": 11468,
+              "text": "{tex}4{I_0}co{s^2}\\left( {\\phi /2} \\right){/tex}",
+              "html": "<span class=\"math-tex\">{tex}4{I_0}co{s^2}\\left( {\\phi /2} \\right){/tex}</span>",
+              "is_correct": true
+            },
+            {
+              "id": 11469,
+              "text": "{tex}4{I_0}co{s^2}\\left( \\phi \\right){/tex}",
+              "html": "<span class=\"math-tex\">{tex}4{I_0}co{s^2}\\left( \\phi \\right){/tex}</span>",
+              "is_correct": false
+            },
+            {
+              "id": 11471,
+              "text": "{tex}{I_0}co{s^2}\\left( {\\phi /2} \\right){/tex}",
+              "html": "<span class=\"math-tex\">{tex}{I_0}co{s^2}\\left( {\\phi /2} \\right){/tex}</span>",
+              "is_correct": false
+            }
+          ],
+          "correct_option_text": "{tex}4{I_0}co{s^2}\\left( {\\phi /2} \\right){/tex}",
+          "correct_option_ids": [
+            11468
+          ],
+          "explanation": "{tex}I =I_{1}+I_{2}+2 \\sqrt I_{1}\\sqrt I_{2} cos\\phi{/tex} {tex}I_{1}=I_{2}=I_{0}{/tex} {tex}I=I_{0}+I_{0}+2I_{0}cos\\phi{/tex} {tex}I=2I_{0}(1+cos\\phi){/tex} {tex}I=4I_{0} cos^{2}\\phi/2{/tex}",
+          "solution": ""
+        }
+      ]
+    }
+  ],
+  "totalQuestions": 15
+}

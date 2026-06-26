@@ -1,0 +1,585 @@
+{
+  "chapter": "Alternating Current",
+  "chapter_id": 1258,
+  "tests": [
+    {
+      "test_id": 146,
+      "test_name": "Alternating Current Test 01",
+      "is_paid": false,
+      "questionCount": 15,
+      "questions": [
+        {
+          "n": 1,
+          "question_id": 13832,
+          "question_text": "Domestic power supply in India is ______________",
+          "question_html": "<p>Domestic power supply in India is ______________</p>",
+          "options": [
+            {
+              "id": 10530,
+              "text": "110 V, 60 Hz",
+              "html": "110 V, 60 Hz",
+              "is_correct": false
+            },
+            {
+              "id": 10528,
+              "text": "220 V, 50 Hz",
+              "html": "220 V, 50 Hz",
+              "is_correct": true
+            },
+            {
+              "id": 10529,
+              "text": "24 V, 0 Hz",
+              "html": "24 V, 0 Hz",
+              "is_correct": false
+            },
+            {
+              "id": 10531,
+              "text": "416 V, 60 Hz",
+              "html": "416 V, 60 Hz",
+              "is_correct": false
+            }
+          ],
+          "correct_option_text": "220 V, 50 Hz",
+          "correct_option_ids": [
+            10528
+          ],
+          "explanation": "The standard voltage and frequency of alternating current supply in India is set to 220 V and 50Hz respectively by the government of India because when power has to be transmitted from a power plant, the biggest challenge is to cut the transmission losses. For this purpose, the current value should be small and potential difference(voltage) should be more. Also losses are minimal at 50 Hz/60 Hz frequency.",
+          "solution": ""
+        },
+        {
+          "n": 2,
+          "question_id": 13833,
+          "question_text": "The main reason for preferring usage of AC voltage over DC voltage is",
+          "question_html": "<p>The main reason for preferring usage of AC voltage over DC voltage is</p>",
+          "options": [
+            {
+              "id": 10532,
+              "text": "AC voltages can be easily and efficiently converted by means of transformers",
+              "html": "AC voltages can be easily and efficiently converted by means of transformers",
+              "is_correct": true
+            },
+            {
+              "id": 10534,
+              "text": "there are no DC generators",
+              "html": "there are no DC generators",
+              "is_correct": false
+            },
+            {
+              "id": 10533,
+              "text": "DC uses alternators whereas AC uses generators",
+              "html": "DC uses alternators whereas AC uses generators",
+              "is_correct": false
+            },
+            {
+              "id": 10535,
+              "text": "DC Batteries are of low voltage",
+              "html": "DC Batteries are of low voltage",
+              "is_correct": false
+            }
+          ],
+          "correct_option_text": "AC voltages can be easily and efficiently converted by means of transformers",
+          "correct_option_ids": [
+            10532
+          ],
+          "explanation": "By using the phenomenon of mutual induction, transformers allow us to easily change voltage of AC. This is necessary to cut down poor losses while supplying electricity to our homes.",
+          "solution": ""
+        },
+        {
+          "n": 3,
+          "question_id": 13834,
+          "question_text": "Alternating current is so called because",
+          "question_html": "<p>Alternating current is so called because</p>",
+          "options": [
+            {
+              "id": 10538,
+              "text": "Voltage alternates between 0 V and 5 V",
+              "html": "Voltage alternates between 0 V and 5 V",
+              "is_correct": false
+            },
+            {
+              "id": 10537,
+              "text": "Current is switched on and off alternately",
+              "html": "Current is switched&nbsp;on and off alternately",
+              "is_correct": false
+            },
+            {
+              "id": 10539,
+              "text": "Voltage alternates between 10 V and 15 V",
+              "html": "Voltage alternates between 10 V and 15 V",
+              "is_correct": false
+            },
+            {
+              "id": 10536,
+              "text": "Polarity alternates from + to &ndash; and &ndash; to + with time",
+              "html": "Polarity alternates from + to &ndash; and &ndash;&nbsp;to + with time",
+              "is_correct": true
+            }
+          ],
+          "correct_option_text": "Polarity alternates from + to &ndash; and &ndash; to + with time",
+          "correct_option_ids": [
+            10536
+          ],
+          "explanation": "Alternating Current is the current in which the polarity of source continuously changes on a fixed frequency. So the positive and the negative terminals &lsquo;alternate&rsquo;.",
+          "solution": ""
+        },
+        {
+          "n": 4,
+          "question_id": 13835,
+          "question_text": "In a circuit containing resistance only, voltage and current are",
+          "question_html": "<p>In a circuit containing resistance only, voltage and current are</p>",
+          "options": [
+            {
+              "id": 10541,
+              "text": "Out of phase by 90 o",
+              "html": "Out of phase by 90<sup>o</sup>",
+              "is_correct": false
+            },
+            {
+              "id": 10542,
+              "text": "Out of phase by 120 o",
+              "html": "Out of phase by 120<sup>o</sup>",
+              "is_correct": false
+            },
+            {
+              "id": 10543,
+              "text": "Out of phase by 180 o",
+              "html": "Out of phase by 180<sup>o</sup>",
+              "is_correct": false
+            },
+            {
+              "id": 10540,
+              "text": "In phase",
+              "html": "In phase",
+              "is_correct": true
+            }
+          ],
+          "correct_option_text": "In phase",
+          "correct_option_ids": [
+            10540
+          ],
+          "explanation": "The electrical current that flows through an AC resistance varies sinusoidally with time and is represented by the expression, I(t) = I sin(&omega;t + {tex}\\theta{/tex} ) Now by ohm&#39;s law, V = IR So, for the AC circuit, V = IR sin(&omega;t + {tex}\\theta{/tex} ) In a circuit containing resistance only, both V and I have zero phase difference and hence are in phase.",
+          "solution": ""
+        },
+        {
+          "n": 5,
+          "question_id": 13836,
+          "question_text": "If {tex}{{\\rm{I}}_{\\rm{m}}}{/tex} is the maximum current, then the average value of power dissipated in a resistance R over a cycle is",
+          "question_html": "<p>If <span class=\"math-tex\">{tex}{{\\rm{I}}_{\\rm{m}}}{/tex}</span> is the maximum current, then the average value of power dissipated in a resistance R over a cycle is</p>",
+          "options": [
+            {
+              "id": 10544,
+              "text": "{tex}\\frac{1}{2}I_m^2R{/tex}",
+              "html": "<span class=\"math-tex\">{tex}\\frac{1}{2}I_m^2R{/tex}</span>",
+              "is_correct": true
+            },
+            {
+              "id": 10546,
+              "text": "{tex}\\frac{3}{2}I_m^2R{/tex}",
+              "html": "<span class=\"math-tex\">{tex}\\frac{3}{2}I_m^2R{/tex}</span>",
+              "is_correct": false
+            },
+            {
+              "id": 10547,
+              "text": "{tex}2I_m^2R{/tex}",
+              "html": "<span class=\"math-tex\">{tex}2I_m^2R{/tex}</span>",
+              "is_correct": false
+            },
+            {
+              "id": 10545,
+              "text": "{tex}I_m^2R{/tex}",
+              "html": "<span class=\"math-tex\">{tex}I_m^2R{/tex}</span>",
+              "is_correct": false
+            }
+          ],
+          "correct_option_text": "{tex}\\frac{1}{2}I_m^2R{/tex}",
+          "correct_option_ids": [
+            10544
+          ],
+          "explanation": "As in the case with DC power, the instantaneous electric power in an AC circuit is given by P = VI, but these quantities are continuously varying. So the average power is given by P avg = VI cos {tex}\\phi{/tex} where {tex}\\phi{/tex} is the phase angle between the current and the voltage and where V and I are understood to be the effective or rms values of the voltage and current. Now, RMS value of I is = {tex}\\frac{I_m }{\\sqrt 2 }{/tex} So, RMS value of V = {tex}\\frac{I_{\\mathrm{m}} R}{\\sqrt{2}}{/tex} Therefore, Power will be P = {tex}\\frac{1}{2}I_m^2R{/tex} (because cos {tex}\\phi{/tex} = 1 for circuit containing resistance only).",
+          "solution": ""
+        },
+        {
+          "n": 6,
+          "question_id": 13837,
+          "question_text": "The rms current I rms is related to the peak current {tex}{{\\rm{I}}_{\\rm{o}}}{/tex} as",
+          "question_html": "<p>The rms current I<sub>rms</sub> is related to the peak current <span class=\"math-tex\">{tex}{{\\rm{I}}_{\\rm{o}}}{/tex}</span> as</p>",
+          "options": [
+            {
+              "id": 10548,
+              "text": "I rms = 0.707 {tex}{{\\rm{I}}_{\\rm{o}}}{/tex}",
+              "html": "I<sub>rms</sub> = 0.707 <span class=\"math-tex\">{tex}{{\\rm{I}}_{\\rm{o}}}{/tex}</span>",
+              "is_correct": true
+            },
+            {
+              "id": 10550,
+              "text": "I rms = 0.787 {tex}{{\\rm{I}}_{\\rm{o}}}{/tex}",
+              "html": "I<sub>rms&nbsp;</sub>= 0.787 <span class=\"math-tex\">{tex}{{\\rm{I}}_{\\rm{o}}}{/tex}</span>",
+              "is_correct": false
+            },
+            {
+              "id": 10549,
+              "text": "I rms = 0.5 {tex}{{\\rm{I}}_{\\rm{o}}}{/tex}",
+              "html": "I<sub>rms</sub> = 0.5 <span class=\"math-tex\">{tex}{{\\rm{I}}_{\\rm{o}}}{/tex}</span>",
+              "is_correct": false
+            },
+            {
+              "id": 10551,
+              "text": "I rms = 0.9 {tex}{{\\rm{I}}_{\\rm{o}}}{/tex}",
+              "html": "I<sub>rms</sub> = 0.9 <span class=\"math-tex\">{tex}{{\\rm{I}}_{\\rm{o}}}{/tex}</span>",
+              "is_correct": false
+            }
+          ],
+          "correct_option_text": "I rms = 0.707 {tex}{{\\rm{I}}_{\\rm{o}}}{/tex}",
+          "correct_option_ids": [
+            10548
+          ],
+          "explanation": "Average value of i 2 over a complete cycle is given by {tex}{\\bar i^2} = \\frac{1}{T}\\int_0^T {{i^2}dt}{/tex} {tex}i = {i_o}\\sin \\omega t{/tex} {tex}T = \\frac{{2\\pi }}{\\omega }{/tex} {tex}{\\bar i^2} = \\frac{\\omega }{{2\\pi }}\\int_0^{2\\pi /\\omega } {{i_o}^2{{\\sin }^2}\\omega tdt}{/tex} {tex}= \\frac{\\omega }{{2\\pi }}i_0^2\\int_0^{2\\pi /\\omega } {\\frac{{\\left( {1 - \\cos 2\\omega t} \\right)}}{2}dt}{/tex} {tex}{\\bar i^2} = \\frac{\\omega }{{2\\pi }}\\frac{{{i_o}^2}}{2}\\left[ {t - \\frac{{\\sin 2\\omega t}}{{2\\omega }}} \\right]_0^{2\\pi /\\omega }{/tex} {tex}= \\frac{\\omega }{{2\\pi }}\\frac{{{i_o}^2}}{2}\\left( {\\frac{{2\\pi }}{\\omega }} \\right){/tex} {tex}{\\bar i^2} = \\frac{{i_0^2}}{2}{/tex} The root-mean-square value of the alternating current is {tex}{i_{rms}} = \\sqrt {{{\\bar i}^2}} = \\frac{{{i_0}}}{{\\sqrt 2 }}{/tex} Thus, i rms = 0.707 i 0",
+          "solution": ""
+        },
+        {
+          "n": 7,
+          "question_id": 13838,
+          "question_text": "Effective voltage V rms is related to peak voltage V o by",
+          "question_html": "<p>Effective voltage V<sub>rms</sub> is related to peak voltage V<sub>o</sub> by</p>",
+          "options": [
+            {
+              "id": 10552,
+              "text": "V rms = 0.707 V o",
+              "html": "V<sub><span>rms</span></sub> = 0.707 V<sub><span>o</span></sub>",
+              "is_correct": true
+            },
+            {
+              "id": 10554,
+              "text": "V rms = 0.5 V o",
+              "html": "V<sub><span style=\"font-size: 10.8333px;\">rms</span></sub> = 0.5 V<sub><span style=\"font-size: 10.8333px;\">o</span></sub>",
+              "is_correct": false
+            },
+            {
+              "id": 10555,
+              "text": "V rms = 0.9 V o",
+              "html": "V<sub><span style=\"font-size: 10.8333px;\">rms</span></sub> = 0.9&nbsp;V<sub><span style=\"font-size: 10.8333px;\">o</span></sub>",
+              "is_correct": false
+            },
+            {
+              "id": 10553,
+              "text": "V rms = 0.787 V o",
+              "html": "V<sub><span style=\"font-size: 10.8333px;\">rms</span></sub> = 0.787 V<sub><span style=\"font-size: 10.8333px;\">o</span></sub>",
+              "is_correct": false
+            }
+          ],
+          "correct_option_text": "V rms = 0.707 V o",
+          "correct_option_ids": [
+            10552
+          ],
+          "explanation": "Average value of V 2 over a complete cycle is given by {tex}{\\bar V^2} = \\frac{1}{T}\\int_0^T {{V^2}dt}{/tex} {tex}V = {V_o}\\sin \\omega t{/tex} {tex}T = \\frac{{2\\pi }}{\\omega }{/tex} {tex}{\\bar V^2} = \\frac{\\omega }{{2\\pi }}\\int_0^{2\\pi /\\omega } {{V_o}^2{{\\sin }^2}\\omega tdt = }{/tex} {tex}\\frac{\\omega }{{2\\pi }}{V_o}^2\\int_0^{2\\pi /\\omega } {\\frac{{\\left( {1 - \\cos 2\\omega t} \\right)}}{2}dt}{/tex} {tex}{\\bar V^2} = \\frac{\\omega }{{2\\pi }}\\frac{{{V_o}^2}}{2}\\left[ {t - \\frac{{\\sin 2\\omega t}}{{2\\omega }}} \\right]_0^{2\\pi /\\omega }{/tex} {tex} = \\frac{\\omega }{{2\\pi }}\\frac{{{V_o}^2}}{2}\\left( {\\frac{{2\\pi }}{\\omega }} \\right){/tex} {tex}{\\bar V^2} = \\frac{{V_0^2}}{2}{/tex} The root-mean-square value of the alternating voltage is given by {tex}{V_{rms}} = \\sqrt {{{\\bar V}^2}} = \\frac{{{V_o}}}{{\\sqrt 2 }}{/tex} V rms = 0.707 V 0",
+          "solution": ""
+        },
+        {
+          "n": 8,
+          "question_id": 13839,
+          "question_text": "For a series LCR-circuit, the power loss at resonance is",
+          "question_html": "<p>For a series&nbsp;LCR-circuit, the power loss at resonance is</p>",
+          "options": [
+            {
+              "id": 10558,
+              "text": "I 2 {tex}\\omega{/tex} C",
+              "html": "I<sup>2</sup>&nbsp;<span class=\"math-tex\">{tex}\\omega{/tex}</span> C",
+              "is_correct": false
+            },
+            {
+              "id": 10556,
+              "text": "{tex}\\frac{V^2}{\\omega\\ L- 1/ \\omega \\ C}{/tex}",
+              "html": "<span class=\"math-tex\">{tex}\\frac{V^2}{\\omega\\ L- 1/ \\omega \\ C}{/tex}</span>",
+              "is_correct": false
+            },
+            {
+              "id": 10557,
+              "text": "{tex}\\frac{V^2}{\\omega \\ C}{/tex}",
+              "html": "<span class=\"math-tex\">{tex}\\frac{V^2}{\\omega \\ C}{/tex}</span>",
+              "is_correct": false
+            },
+            {
+              "id": 10559,
+              "text": "I 2 R",
+              "html": "I<sup>2</sup>&nbsp;R",
+              "is_correct": true
+            }
+          ],
+          "correct_option_text": "I 2 R",
+          "correct_option_ids": [
+            10559
+          ],
+          "explanation": "At resonance, the impedance of the circuit is equal to the resistance. Therefore, P av = I 2 R",
+          "solution": ""
+        },
+        {
+          "n": 9,
+          "question_id": 13840,
+          "question_text": "Average power supplied to an inductor over one complete cycle is",
+          "question_html": "<p>Average power supplied to an inductor over one complete cycle is</p>",
+          "options": [
+            {
+              "id": 10561,
+              "text": "1 W",
+              "html": "1 W",
+              "is_correct": false
+            },
+            {
+              "id": 10562,
+              "text": "always positive",
+              "html": "always positive",
+              "is_correct": false
+            },
+            {
+              "id": 10560,
+              "text": "0 W",
+              "html": "0 W",
+              "is_correct": true
+            },
+            {
+              "id": 10563,
+              "text": "always negative",
+              "html": "always negative",
+              "is_correct": false
+            }
+          ],
+          "correct_option_text": "0 W",
+          "correct_option_ids": [
+            10560
+          ],
+          "explanation": "In the first half of the cycle, power is supplied to the inductive circuit. In the next half, the inductor dissipates the energy supplied by circuit. Thus overall no power is supplied to the circuit.",
+          "solution": ""
+        },
+        {
+          "n": 10,
+          "question_id": 13841,
+          "question_text": "If circuit containing inductance only, the current",
+          "question_html": "<p>If circuit containing inductance only, the current</p>",
+          "options": [
+            {
+              "id": 10565,
+              "text": "leads the voltage",
+              "html": "leads the voltage",
+              "is_correct": false
+            },
+            {
+              "id": 10566,
+              "text": "is in phase",
+              "html": "is in phase",
+              "is_correct": false
+            },
+            {
+              "id": 10567,
+              "text": "is zero",
+              "html": "is zero",
+              "is_correct": false
+            },
+            {
+              "id": 10564,
+              "text": "lags the voltage",
+              "html": "lags the voltage",
+              "is_correct": true
+            }
+          ],
+          "correct_option_text": "lags the voltage",
+          "correct_option_ids": [
+            10564
+          ],
+          "explanation": "For inductive circuit, {tex}i = {i_o}\\sin \\left( {\\omega t - {\\pi \\over 2}} \\right){/tex} and {tex}E = {E_o}\\sin \\omega t{/tex} it means that, the current lags behind the emf when pure inductor is present in circuit.",
+          "solution": ""
+        },
+        {
+          "n": 11,
+          "question_id": 13842,
+          "question_text": "Average power supplied to a capacitor over one complete cycle is",
+          "question_html": "<p>Average power supplied to a capacitor over one complete cycle is</p>",
+          "options": [
+            {
+              "id": 10569,
+              "text": "1",
+              "html": "1",
+              "is_correct": false
+            },
+            {
+              "id": 10571,
+              "text": "always negative",
+              "html": "always negative",
+              "is_correct": false
+            },
+            {
+              "id": 10568,
+              "text": "zero",
+              "html": "zero",
+              "is_correct": true
+            },
+            {
+              "id": 10570,
+              "text": "always positive",
+              "html": "always positive",
+              "is_correct": false
+            }
+          ],
+          "correct_option_text": "zero",
+          "correct_option_ids": [
+            10568
+          ],
+          "explanation": "We know that in capacitor current leads voltage by 90 degree. Over one complete cycle, in first quarter cycle, capacitor charges and next quarter cycle, it gets discharged. This will continue in next negative half cycle. So the net power absorb is zero.",
+          "solution": ""
+        },
+        {
+          "n": 12,
+          "question_id": 13843,
+          "question_text": "If circuit containing capacitance only, the current",
+          "question_html": "<p>If circuit containing capacitance only, the current</p>",
+          "options": [
+            {
+              "id": 10572,
+              "text": "leads the voltage",
+              "html": "leads the voltage",
+              "is_correct": true
+            },
+            {
+              "id": 10573,
+              "text": "lags the voltage",
+              "html": "lags the voltage",
+              "is_correct": false
+            },
+            {
+              "id": 10575,
+              "text": "is zero",
+              "html": "is zero",
+              "is_correct": false
+            },
+            {
+              "id": 10574,
+              "text": "is in phase",
+              "html": "is in phase",
+              "is_correct": false
+            }
+          ],
+          "correct_option_text": "leads the voltage",
+          "correct_option_ids": [
+            10572
+          ],
+          "explanation": "For capacitive circuit, {tex}i = {i_o}\\sin \\left( {\\omega t + {\\pi \\over 2}} \\right){/tex} and {tex}E = {E_o}\\sin \\omega t{/tex} it means that the current leads the emf when perfect capacitor is present in circuit.",
+          "solution": ""
+        },
+        {
+          "n": 13,
+          "question_id": 13844,
+          "question_text": "In a series LCR circuit supplied with AC,",
+          "question_html": "<p>In a series LCR circuit supplied with AC,</p>",
+          "options": [
+            {
+              "id": 10576,
+              "text": "current in L, C and R is the same",
+              "html": "current in L, C and R is the same",
+              "is_correct": true
+            },
+            {
+              "id": 10577,
+              "text": "current in L and C is same but different in R",
+              "html": "current in L and C is same but different in R",
+              "is_correct": false
+            },
+            {
+              "id": 10578,
+              "text": "current in R and C is same but different in L",
+              "html": "current in R and C is same but different in L",
+              "is_correct": false
+            },
+            {
+              "id": 10579,
+              "text": "current in L and R is same but different in C",
+              "html": "current in L and R is same but different in C",
+              "is_correct": false
+            }
+          ],
+          "correct_option_text": "current in L, C and R is the same",
+          "correct_option_ids": [
+            10576
+          ],
+          "explanation": "In series circuits, the current always remains same while potential is different across different circuit components.",
+          "solution": ""
+        },
+        {
+          "n": 14,
+          "question_id": 13845,
+          "question_text": "In an a.c. circuit, with phase voltage V and current I, the power dissipated is",
+          "question_html": "<p>In an a.c. circuit, with phase voltage V and current I, the power dissipated is</p>",
+          "options": [
+            {
+              "id": 10583,
+              "text": "depends on the phase angle between V and I",
+              "html": "depends on the phase angle between V and I",
+              "is_correct": true
+            },
+            {
+              "id": 10580,
+              "text": "V I / 2",
+              "html": "V I / 2",
+              "is_correct": false
+            },
+            {
+              "id": 10582,
+              "text": "V I",
+              "html": "V I",
+              "is_correct": false
+            },
+            {
+              "id": 10581,
+              "text": "V I / {tex}\\sqrt2{/tex}",
+              "html": "V I /<span class=\"math-tex\">{tex}\\sqrt2{/tex}</span>",
+              "is_correct": false
+            }
+          ],
+          "correct_option_text": "depends on the phase angle between V and I",
+          "correct_option_ids": [
+            10583
+          ],
+          "explanation": "Since P av = E v I v cos {tex}\\phi{/tex} , the power dissipated depends on the phase angle between V and I",
+          "solution": ""
+        },
+        {
+          "n": 15,
+          "question_id": 13846,
+          "question_text": "If V m and I m are peak voltage and current, impedance Z in an AC circuit is",
+          "question_html": "<p>If V<sub>m</sub> and I<sub>m</sub> are peak voltage and current, impedance Z in an AC circuit is</p>",
+          "options": [
+            {
+              "id": 10584,
+              "text": "{tex}\\frac{V_m}{I_m}{/tex}",
+              "html": "<span class=\"math-tex\">{tex}\\frac{V_m}{I_m}{/tex}</span>",
+              "is_correct": true
+            },
+            {
+              "id": 10585,
+              "text": "{tex}\\frac{2 V_m}{I_m}{/tex}",
+              "html": "<span class=\"math-tex\">{tex}\\frac{2 V_m}{I_m}{/tex}</span>",
+              "is_correct": false
+            },
+            {
+              "id": 10586,
+              "text": "{tex}\\frac{V_m}{2 I_m}{/tex}",
+              "html": "<span class=\"math-tex\">{tex}\\frac{V_m}{2 I_m}{/tex}</span>",
+              "is_correct": false
+            },
+            {
+              "id": 10587,
+              "text": "{tex}V_mI_m{/tex}",
+              "html": "<span class=\"math-tex\">{tex}V_mI_m{/tex}</span>",
+              "is_correct": false
+            }
+          ],
+          "correct_option_text": "{tex}\\frac{V_m}{I_m}{/tex}",
+          "correct_option_ids": [
+            10584
+          ],
+          "explanation": "Impedance Z refers to the overall obstruction offered by a circuit containing different components to the passage of current. Also, Z has unit same as resistance. So, drawing an analogy with the ohm&#39;s law, we get the relation, {tex}Z=\\frac{V_m}{I_m}{/tex}",
+          "solution": ""
+        }
+      ]
+    }
+  ],
+  "totalQuestions": 15
+}

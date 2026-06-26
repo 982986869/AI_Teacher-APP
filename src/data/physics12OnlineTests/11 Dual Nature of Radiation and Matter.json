@@ -1,0 +1,585 @@
+{
+  "chapter": "Dual Nature of Radiation and Matter",
+  "chapter_id": 1262,
+  "tests": [
+    {
+      "test_id": 166,
+      "test_name": "Dual Nature of Radiation & Matter Test 01",
+      "is_paid": false,
+      "questionCount": 15,
+      "questions": [
+        {
+          "n": 1,
+          "question_id": 14128,
+          "question_text": "According to Einstein&#39;s photoelectric equation, the plot of the kinetic energy of the emitted photoelectrons from a metal versus the frequencey of the incident radiation gives a straight line, whose slope:",
+          "question_html": "<p>According to Einstein&#39;s photoelectric equation, the plot of the kinetic energy of the emitted photoelectrons from a metal versus the frequencey of the incident radiation gives a straight line, whose slope:</p>",
+          "options": [
+            {
+              "id": 11714,
+              "text": "depends both on the intensity of the radiation and the metal used",
+              "html": "depends both on the intensity of the radiation and the metal used",
+              "is_correct": false
+            },
+            {
+              "id": 11715,
+              "text": "is the same for all metals and independent of the intensity of the radiation",
+              "html": "is the same for all metals and independent of the intensity of the radiation",
+              "is_correct": true
+            },
+            {
+              "id": 11712,
+              "text": "depends on the nature of the metal used",
+              "html": "depends on the nature of the metal used",
+              "is_correct": false
+            },
+            {
+              "id": 11713,
+              "text": "depends on the intensity of the radiation",
+              "html": "depends on the intensity of the radiation",
+              "is_correct": false
+            }
+          ],
+          "correct_option_text": "is the same for all metals and independent of the intensity of the radiation",
+          "correct_option_ids": [
+            11715
+          ],
+          "explanation": "According to Einstein&#39;s photoelectric equation, {tex}h\\nu=h\\nu_0+\\frac12mv_{max^2}{/tex} or {tex}\\frac12mv_{max^2}=h\\nu-h\\nu_0{/tex} ...(i) The equation of a straight line in intercept form is given by y = mx + c ...(ii) Comparing the equations (i) and (ii), we get m = h Therefore, slope of the plot is equal to Planck&#39;s constant. Hence, the plot is same for all metals and independent of the intensity of the radiation.",
+          "solution": ""
+        },
+        {
+          "n": 2,
+          "question_id": 14129,
+          "question_text": "In which case is electron emission from a metal not known?",
+          "question_html": "<p>In which case is electron emission from a metal not known?</p>",
+          "options": [
+            {
+              "id": 11717,
+              "text": "Illuminating a metal surface with suitable light",
+              "html": "Illuminating a metal surface with suitable light",
+              "is_correct": false
+            },
+            {
+              "id": 11718,
+              "text": "Heating the metal sufficiently",
+              "html": "Heating the metal sufficiently",
+              "is_correct": false
+            },
+            {
+              "id": 11716,
+              "text": "Applying a very strong magnetic field to a metal",
+              "html": "Applying a very strong magnetic field to a metal",
+              "is_correct": true
+            },
+            {
+              "id": 11719,
+              "text": "Applying a very strong electric field to a metal",
+              "html": "Applying a very strong electric field to a metal",
+              "is_correct": false
+            }
+          ],
+          "correct_option_text": "Applying a very strong magnetic field to a metal",
+          "correct_option_ids": [
+            11716
+          ],
+          "explanation": "Photo emission, thermo emission and electric field emission are known. Emission of electrons due to magnetic field is not known.",
+          "solution": ""
+        },
+        {
+          "n": 3,
+          "question_id": 14130,
+          "question_text": "Photoelectric effect is",
+          "question_html": "<p>Photoelectric effect is</p>",
+          "options": [
+            {
+              "id": 11722,
+              "text": "emission of electrons by glass when illuminated by light of suitable frequency",
+              "html": "emission of electrons by glass when illuminated by light of suitable frequency",
+              "is_correct": false
+            },
+            {
+              "id": 11723,
+              "text": "emission of electrons by insulators when illuminated by light of suitable frequency",
+              "html": "emission of electrons by insulators when illuminated by light of suitable frequency",
+              "is_correct": false
+            },
+            {
+              "id": 11720,
+              "text": "emission of electrons by metals when illuminated by light of suitable frequency",
+              "html": "emission of electrons by metals when illuminated by light of suitable frequency",
+              "is_correct": true
+            },
+            {
+              "id": 11721,
+              "text": "emission of electrons by metals when heated",
+              "html": "emission of electrons by metals when heated",
+              "is_correct": false
+            }
+          ],
+          "correct_option_text": "emission of electrons by metals when illuminated by light of suitable frequency",
+          "correct_option_ids": [
+            11720
+          ],
+          "explanation": "When the light strikes on a metal surface, electrons on the surface of the metal get energy from the light and get emitted from the surface. It is found that there will be no photoemission from a metal surface below a certain frequency of light. The phenomenon of emission of photoelectron from a metal surface by light of suitable frequency is called photoelectric effect.",
+          "solution": ""
+        },
+        {
+          "n": 4,
+          "question_id": 14131,
+          "question_text": "Photoelectric effect is possible",
+          "question_html": "<p>Photoelectric effect is possible</p>",
+          "options": [
+            {
+              "id": 11724,
+              "text": "with both visible and UV light depending on the metal",
+              "html": "with both visible and UV light&nbsp;depending on the metal",
+              "is_correct": true
+            },
+            {
+              "id": 11726,
+              "text": "with only ultraviolet light",
+              "html": "with only ultraviolet light",
+              "is_correct": false
+            },
+            {
+              "id": 11725,
+              "text": "with only visible light",
+              "html": "with only visible light",
+              "is_correct": false
+            },
+            {
+              "id": 11727,
+              "text": "with only white light",
+              "html": "with only white light",
+              "is_correct": false
+            }
+          ],
+          "correct_option_text": "with both visible and UV light depending on the metal",
+          "correct_option_ids": [
+            11724
+          ],
+          "explanation": "Emission of photo-electron takes place when energy of incident photon is greater than that of work function of material. Work function is different for different material. Photoelectric effect takes place for both UV and visible light depending on work function.",
+          "solution": ""
+        },
+        {
+          "n": 5,
+          "question_id": 14132,
+          "question_text": "In Photoelectric effect",
+          "question_html": "<p>In Photoelectric effect</p>",
+          "options": [
+            {
+              "id": 11728,
+              "text": "light is converted into electrical energy",
+              "html": "light is converted into electrical energy",
+              "is_correct": true
+            },
+            {
+              "id": 11729,
+              "text": "electrical energy is converted into light energy",
+              "html": "electrical energy is converted into light energy",
+              "is_correct": false
+            },
+            {
+              "id": 11731,
+              "text": "electrical energy is converted magnetic field energy",
+              "html": "electrical energy is converted magnetic field energy",
+              "is_correct": false
+            },
+            {
+              "id": 11730,
+              "text": "electrical energy is converted into heat",
+              "html": "electrical energy is converted into heat",
+              "is_correct": false
+            }
+          ],
+          "correct_option_text": "light is converted into electrical energy",
+          "correct_option_ids": [
+            11728
+          ],
+          "explanation": "In photoelectric effect, emission of photo-electron takes place so that photo-current flows in circuit.",
+          "solution": ""
+        },
+        {
+          "n": 6,
+          "question_id": 14133,
+          "question_text": "In the experimental set up for studying photoelectric effect, if keeping the frequency of the incident radiation and the accelerating potential fixed, the intensity of light is varied, then",
+          "question_html": "<p>In the experimental set up for studying photoelectric effect, if keeping the frequency of the incident radiation and the accelerating potential fixed, the intensity of light is varied, then<br />\r\n<img src=\"https://media-mycbseguide.s3.amazonaws.com/images/testpaper/1.02.12.11.06.Ques.jpg\" style=\"width: 250px; height: 222px;\" /></p>\r\n",
+          "options": [
+            {
+              "id": 11732,
+              "text": "photocurrent increases linearly with intensity",
+              "html": "photocurrent increases linearly with intensity",
+              "is_correct": true
+            },
+            {
+              "id": 11733,
+              "text": "photocurrent decreases linearly with intensity",
+              "html": "photocurrent decreases linearly with intensity",
+              "is_correct": false
+            },
+            {
+              "id": 11735,
+              "text": "photocurrent remains same",
+              "html": "photocurrent remains same",
+              "is_correct": false
+            },
+            {
+              "id": 11734,
+              "text": "photocurrent decreases nonlinearly with intensity",
+              "html": "photocurrent decreases nonlinearly with intensity",
+              "is_correct": false
+            }
+          ],
+          "correct_option_text": "photocurrent increases linearly with intensity",
+          "correct_option_ids": [
+            11732
+          ],
+          "explanation": "With increase in intensity, no. of photons incident increases. So more electrons emitted from metal and photo current increases with increase in intensity.",
+          "solution": ""
+        },
+        {
+          "n": 7,
+          "question_id": 14134,
+          "question_text": "Sodium and copper have work function 2.3 eV and 4.5 eV respectively. Then, the ratio of the wavelengths is nearest to :",
+          "question_html": "<p>Sodium and copper have work function 2.3 eV and 4.5 eV respectively. Then, the ratio of the wavelengths is nearest to :</p>",
+          "options": [
+            {
+              "id": 11737,
+              "text": "4 : 1",
+              "html": "4 : 1",
+              "is_correct": false
+            },
+            {
+              "id": 11736,
+              "text": "1 : 2",
+              "html": "1 : 2",
+              "is_correct": false
+            },
+            {
+              "id": 11739,
+              "text": "1 : 4",
+              "html": "1 : 4",
+              "is_correct": false
+            },
+            {
+              "id": 11738,
+              "text": "2 : 1",
+              "html": "2 : 1",
+              "is_correct": true
+            }
+          ],
+          "correct_option_text": "2 : 1",
+          "correct_option_ids": [
+            11738
+          ],
+          "explanation": "Here, {tex}\\omega_{Cu\\;}=4.5eV{/tex} and {tex}\\omega_{Na\\;}=2.3eV{/tex} Let {tex}\\lambda_{Cu}{/tex} and {tex}\\lambda_{Na}{/tex} be the corresponding wavelengths of these metals. Then, {tex}\\omega_{Cu}=\\frac{hc}{\\lambda_{Cu}}{/tex} and {tex}\\omega_{Na}=\\frac{hc}{\\lambda_{Na}}{/tex} or {tex}\\frac{\\omega_{Cu}}{\\omega_{Na}}=\\frac{hc}{\\lambda_{Cu}}\\times\\frac{\\lambda_{Na}}{hc}{/tex} or {tex}\\frac{\\lambda_{Na}}{\\lambda_{Cu}}=\\frac{\\omega_{Cu}}{\\omega_{Na}}=\\frac{4\\cdot5}{2\\cdot3}\\approx2{/tex}",
+          "solution": ""
+        },
+        {
+          "n": 8,
+          "question_id": 14135,
+          "question_text": "For a given frequency of light and a positive plate potential in the set up below, If the intensity of light is increased then",
+          "question_html": "<p>For a given frequency of light and a positive plate potential in the set up below, If the intensity of light is increased then<br />\r\n<img src=\"https://media-mycbseguide.s3.amazonaws.com/images/testpaper/1.02.12.11.08.Ques.jpg\" style=\"width: 250px; height: 214px;\" /></p>\r\n",
+          "options": [
+            {
+              "id": 11743,
+              "text": "current becomes zero",
+              "html": "current becomes zero",
+              "is_correct": false
+            },
+            {
+              "id": 11742,
+              "text": "current remains same",
+              "html": "current remains same",
+              "is_correct": false
+            },
+            {
+              "id": 11741,
+              "text": "current decreases",
+              "html": "current decreases",
+              "is_correct": false
+            },
+            {
+              "id": 11740,
+              "text": "current increases",
+              "html": "current increases",
+              "is_correct": true
+            }
+          ],
+          "correct_option_text": "current increases",
+          "correct_option_ids": [
+            11740
+          ],
+          "explanation": "With increase in intensity, no. of incident photon increases. So more electrons emitted from metal and photo current increases with increase in intensity.",
+          "solution": ""
+        },
+        {
+          "n": 9,
+          "question_id": 14136,
+          "question_text": "In various experiments on photo electricity, the stopping potential for a given frequency of the incident radiation is",
+          "question_html": "<p>In various experiments on photo electricity, the stopping potential for a given frequency of the incident radiation is</p>",
+          "options": [
+            {
+              "id": 11744,
+              "text": "independent of the radiation intensity",
+              "html": "independent of the radiation intensity",
+              "is_correct": true
+            },
+            {
+              "id": 11745,
+              "text": "proportional to radiation intensity",
+              "html": "proportional to radiation intensity",
+              "is_correct": false
+            },
+            {
+              "id": 11747,
+              "text": "proportional to square of radiation intensity",
+              "html": "proportional to square of radiation intensity",
+              "is_correct": false
+            },
+            {
+              "id": 11746,
+              "text": "inversely proportional to radiation intensity",
+              "html": "inversely proportional to radiation intensity",
+              "is_correct": false
+            }
+          ],
+          "correct_option_text": "independent of the radiation intensity",
+          "correct_option_ids": [
+            11744
+          ],
+          "explanation": "The stopping potential is defined as the potential necessary to stop any electron even the electron with the most kinetic energy from reaching the other plate. By changing radiation intensity only no. of emitted electron changes, their kinetic energy will not change.",
+          "solution": ""
+        },
+        {
+          "n": 10,
+          "question_id": 14137,
+          "question_text": "If the kinetic energy of a free electron doubles, its de-Broglie wavelength changes by the factor",
+          "question_html": "<p>If the kinetic energy of a free electron doubles, its de-Broglie wavelength changes by the factor</p>",
+          "options": [
+            {
+              "id": 11748,
+              "text": "1/2",
+              "html": "1/2",
+              "is_correct": false
+            },
+            {
+              "id": 11749,
+              "text": "2",
+              "html": "2",
+              "is_correct": false
+            },
+            {
+              "id": 11751,
+              "text": "{tex}\\sqrt2{/tex}",
+              "html": "<span class=\"math-tex\">{tex}\\sqrt2{/tex}</span>",
+              "is_correct": false
+            },
+            {
+              "id": 11750,
+              "text": "{tex}1/\\sqrt2{/tex}",
+              "html": "<span class=\"math-tex\">{tex}1/\\sqrt2{/tex}</span>",
+              "is_correct": true
+            }
+          ],
+          "correct_option_text": "{tex}1/\\sqrt2{/tex}",
+          "correct_option_ids": [
+            11750
+          ],
+          "explanation": "Let {tex}\\lambda{/tex} be de-Broglie wavelength of electron, when its kinetic energy is E. Then, {tex}\\lambda=\\frac h{\\sqrt{2mE}}{/tex} Let {tex}\\lambda'{/tex} be de-Broglie wavelength of electron, when its kinetic energy is doubled. Then, {tex}\\lambda'=\\frac h{\\sqrt{2m\\times2E}}=\\frac1{\\sqrt2}\\times\\frac h{\\sqrt{2mE}}=\\frac1{\\sqrt2}\\lambda{/tex}",
+          "solution": ""
+        },
+        {
+          "n": 11,
+          "question_id": 14138,
+          "question_text": "According to the Einstein&rsquo;s model minimum energy needed for the electron to escape from a metal surface having work function {tex}{\\phi _0}{/tex} , the electron is emitted with maximum kinetic energy, K max =",
+          "question_html": "<p>According to the Einstein&rsquo;s model minimum energy needed for the electron to escape from a metal surface having work function <span class=\"math-tex\">{tex}{\\phi _0}{/tex}</span>, the electron is emitted with maximum kinetic energy, K<sub>max</sub> =</p>",
+          "options": [
+            {
+              "id": 11754,
+              "text": "h {tex}\\nu{/tex} + {tex}{\\phi _0}{/tex}",
+              "html": "h<span class=\"math-tex\">{tex}\\nu{/tex}</span>&nbsp;+ <span class=\"math-tex\">{tex}{\\phi _0}{/tex}</span>",
+              "is_correct": false
+            },
+            {
+              "id": 11753,
+              "text": "h {tex}\\nu{/tex}",
+              "html": "h<span class=\"math-tex\">{tex}\\nu{/tex}</span>",
+              "is_correct": false
+            },
+            {
+              "id": 11755,
+              "text": "h {tex}\\nu{/tex} - 2 {tex}{\\phi _0}{/tex}",
+              "html": "h<span class=\"math-tex\">{tex}\\nu{/tex}</span>&nbsp;- 2 <span class=\"math-tex\">{tex}{\\phi _0}{/tex}</span>",
+              "is_correct": false
+            },
+            {
+              "id": 11752,
+              "text": "h {tex}\\nu{/tex} - {tex}{\\phi _0}{/tex}",
+              "html": "h<span class=\"math-tex\">{tex}\\nu{/tex}</span>&nbsp;- <span class=\"math-tex\">{tex}{\\phi _0}{/tex}</span>",
+              "is_correct": true
+            }
+          ],
+          "correct_option_text": "h {tex}\\nu{/tex} - {tex}{\\phi _0}{/tex}",
+          "correct_option_ids": [
+            11752
+          ],
+          "explanation": "When any photon is incident on a metal surface it gives its total energy to a electron. Some energy(Work Function) is used up in come out from the metal surface and remaining energy is kinetic energy of electron. {tex}E = {\\phi _0} + {K_{\\max }}{/tex} {tex}{K_{\\max }} = E - {\\phi _0}{/tex} {tex}{K_{\\max }} = h\\nu - {\\phi _0}{/tex}",
+          "solution": ""
+        },
+        {
+          "n": 12,
+          "question_id": 14139,
+          "question_text": "According to the Einstein&rsquo;s model, the threshold frequency for a metal having work function {tex}{\\phi _0}{/tex} is given by",
+          "question_html": "<p>According to the Einstein&rsquo;s model, the threshold frequency for a metal having work function <span class=\"math-tex\">{tex}{\\phi _0}{/tex}</span> is given by</p>",
+          "options": [
+            {
+              "id": 11758,
+              "text": "{tex}{\\phi _0}{/tex} h",
+              "html": "<span class=\"math-tex\">{tex}{\\phi _0}{/tex}</span>h",
+              "is_correct": false
+            },
+            {
+              "id": 11759,
+              "text": "{tex}{\\phi _0}{/tex} h +100",
+              "html": "<span class=\"math-tex\">{tex}{\\phi _0}{/tex}</span>h +100",
+              "is_correct": false
+            },
+            {
+              "id": 11756,
+              "text": "{tex}\\frac{\\phi_0}{h}{/tex}",
+              "html": "<span class=\"math-tex\">{tex}\\frac{\\phi_0}{h}{/tex}</span>",
+              "is_correct": true
+            },
+            {
+              "id": 11757,
+              "text": "{tex}\\frac{h}{\\phi_0}{/tex}",
+              "html": "<span class=\"math-tex\">{tex}\\frac{h}{\\phi_0}{/tex}</span>",
+              "is_correct": false
+            }
+          ],
+          "correct_option_text": "{tex}\\frac{\\phi_0}{h}{/tex}",
+          "correct_option_ids": [
+            11756
+          ],
+          "explanation": "Threshold frequency is defined as the minimum frequency of incident light which can cause photo electric emission. Work Function, {tex}{\\phi _0} = h{\\nu _0}{/tex} Thus, {tex}\\nu_0=\\frac{\\phi_0}{h}{/tex}",
+          "solution": ""
+        },
+        {
+          "n": 13,
+          "question_id": 14140,
+          "question_text": "According to the Einstein&rsquo;s model, stopping potential V o for a metal having work function {tex}{\\phi _0}{/tex} is given by",
+          "question_html": "<p>According to the Einstein&rsquo;s model, stopping potential V<sub>o</sub> for a metal having work function <span class=\"math-tex\">{tex}{\\phi _0}{/tex}</span> is given by</p>",
+          "options": [
+            {
+              "id": 11763,
+              "text": "{tex}V_0=\\left(\\frac{h}{e}\\right) \\nu+\\frac{\\phi_0}{e}{/tex}",
+              "html": "<span class=\"math-tex\">{tex}V_0=\\left(\\frac{h}{e}\\right) \\nu+\\frac{\\phi_0}{e}{/tex}</span>",
+              "is_correct": false
+            },
+            {
+              "id": 11762,
+              "text": "{tex}V_0=\\left(\\frac{h}{e}\\right) \\nu-2 \\frac{\\phi_0}{e}{/tex}",
+              "html": "<span class=\"math-tex\">{tex}V_0=\\left(\\frac{h}{e}\\right) \\nu-2 \\frac{\\phi_0}{e}{/tex}</span>",
+              "is_correct": false
+            },
+            {
+              "id": 11760,
+              "text": "{tex}V_0=\\left(\\frac{h}{e}\\right) \\nu-\\frac{\\phi_0}{e}{/tex}",
+              "html": "<span class=\"math-tex\">{tex}V_0=\\left(\\frac{h}{e}\\right) \\nu-\\frac{\\phi_0}{e}{/tex}</span>",
+              "is_correct": true
+            },
+            {
+              "id": 11761,
+              "text": "{tex}V_0=\\left(\\frac{h}{e}\\right) \\nu+2 \\frac{\\phi_0}{e}{/tex}",
+              "html": "<span class=\"math-tex\">{tex}V_0=\\left(\\frac{h}{e}\\right) \\nu+2 \\frac{\\phi_0}{e}{/tex}</span>",
+              "is_correct": false
+            }
+          ],
+          "correct_option_text": "{tex}V_0=\\left(\\frac{h}{e}\\right) \\nu-\\frac{\\phi_0}{e}{/tex}",
+          "correct_option_ids": [
+            11760
+          ],
+          "explanation": "{tex}e{V_0} = {K_{\\max }}{/tex} {tex}{K_{\\max }} = h\\nu - {\\phi _0}{/tex} {tex}e{V_0} = h\\nu - {\\phi _0}{/tex} {tex}V_0=\\left(\\frac{h}{e}\\right) \\nu-\\frac{\\phi_0}{e}{/tex}",
+          "solution": ""
+        },
+        {
+          "n": 14,
+          "question_id": 14141,
+          "question_text": "In interaction of radiation with matter, radiation behaves as if it is made up of particles called",
+          "question_html": "<p>In interaction of radiation with matter, radiation behaves as if it is made up of particles called</p>",
+          "options": [
+            {
+              "id": 11764,
+              "text": "photons",
+              "html": "photons",
+              "is_correct": true
+            },
+            {
+              "id": 11766,
+              "text": "positrons",
+              "html": "positrons",
+              "is_correct": false
+            },
+            {
+              "id": 11767,
+              "text": "bosons",
+              "html": "bosons",
+              "is_correct": false
+            },
+            {
+              "id": 11765,
+              "text": "electrons",
+              "html": "electrons",
+              "is_correct": false
+            }
+          ],
+          "correct_option_text": "photons",
+          "correct_option_ids": [
+            11764
+          ],
+          "explanation": "Photon is the small packet of energy. Rest mass of photon is zero but its kinetic mass is not zero. The photon travels with the speed of light.",
+          "solution": ""
+        },
+        {
+          "n": 15,
+          "question_id": 14142,
+          "question_text": "Each photon has the same speed but different",
+          "question_html": "<p>Each photon has the same speed but different</p>",
+          "options": [
+            {
+              "id": 11769,
+              "text": "energy",
+              "html": "energy",
+              "is_correct": false
+            },
+            {
+              "id": 11768,
+              "text": "frequency",
+              "html": "frequency",
+              "is_correct": true
+            },
+            {
+              "id": 11770,
+              "text": "rest mass",
+              "html": "rest mass",
+              "is_correct": false
+            },
+            {
+              "id": 11771,
+              "text": "radius",
+              "html": "radius",
+              "is_correct": false
+            }
+          ],
+          "correct_option_text": "frequency",
+          "correct_option_ids": [
+            11768
+          ],
+          "explanation": "Each photon travels with the speed of light. Energy of photon is {tex}h\\nu {/tex} . {tex}\\nu {/tex} is the frequency of photon. Energy depends on frequency.",
+          "solution": ""
+        }
+      ]
+    }
+  ],
+  "totalQuestions": 15
+}

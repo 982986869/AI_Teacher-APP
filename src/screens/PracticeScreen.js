@@ -18,6 +18,7 @@ import { getSubtopicTest } from '../data/subtopicBank';
 import { getPhysics12ImportantHtml } from '../data/physics12Important';
 import { getPhysics12PyqHtml, getPhysics12PyqChapters } from '../data/physics12Pyq';
 import { listMockTests, getMockTestQuestions, listMockAttempts, submitMockTest } from '../api/mockTestsApi';
+import { getPhysics12MockList, getPhysics12MockQuestions, isLocalMockId } from '../data/physics12MockTests';
 import { useAuth } from '../context/AuthContext';
 import { ClassTabs } from '../components/ClassPicker';
 
@@ -560,6 +561,11 @@ const PracticeScreen = () => {
 
   // Fetch the DB mock-test list + this user's attempt summary for a subject.
   const loadSubjectTests = async (subject) => {
+    // Class 12 Physics mock tests ship locally (offline) and override the DB set.
+    if (subject === 'Physics' && selectedClass === 'Class 12') {
+      setMockData(prev => ({ ...prev, [subject]: { loading: false, error: '', tests: getPhysics12MockList(), attempts: {} } }));
+      return;
+    }
     setMockData(prev => ({
       ...prev,
       [subject]: { loading: true, error: '', tests: (prev[subject] && prev[subject].tests) || [], attempts: (prev[subject] && prev[subject].attempts) || {} },
@@ -596,6 +602,18 @@ const PracticeScreen = () => {
 
   // Launch a DB-backed test (we already have the test object from the list).
   const startDbMock = (subject, test) => {
+    // Local (offline) Physics mock: build the runner payload synchronously.
+    if (isLocalMockId(test.id)) {
+      const local = getPhysics12MockQuestions(test.id);
+      setPhysMock({
+        subject, label: test.name, testId: test.id, status: 'ready',
+        questions: (local && local.questions) || [],
+        sections: (local && local.sections) || [],
+        durationMin: test.durationMin || 90,
+        name: test.name,
+      });
+      return;
+    }
     setPhysMock({ subject, label: test.name, testId: test.id, status: 'loading' });
     getMockTestQuestions(test.id)
       .then((data) => setPhysMock({
@@ -826,6 +844,7 @@ const PracticeScreen = () => {
   if (chOpen) {
     return (
       <OnlineTestsScreen
+        selectedClass={selectedClass}
         onBack={() => setChOpen(false)}
         onStartTest={(sel) => setChSel(sel)}
       />
@@ -879,7 +898,8 @@ const PracticeScreen = () => {
         negative={0}
         onExit={closePhysMock}
         onSubmit={(payload) => {
-          if (physMock.testId != null) submitMockTest(physMock.testId, payload).catch(() => {});
+          // Local mocks score client-side in McqTestScreen; no server persistence.
+          if (physMock.testId != null && !isLocalMockId(physMock.testId)) submitMockTest(physMock.testId, payload).catch(() => {});
         }}
       />
     );
