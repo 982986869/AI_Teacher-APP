@@ -11,6 +11,7 @@ import { getExemplarSolutions, getNcertChapters } from '../api/resourcesApi';
 import { getPhysics12ExemplarHtml } from '../data/physics12Exemplar';
 import { getPhysics12Ncert1Html } from '../data/physics12Ncert1';
 import { getPhysics12Ncert2Html } from '../data/physics12Ncert2';
+import { getPhysics12Papers, getPhysics12PaperDoc } from '../data/physics12Papers';
 import { useAuth } from '../context/AuthContext';
 import { ClassTabs } from '../components/ClassPicker';
 import { getChapterNotes } from '../notes/index';
@@ -345,7 +346,83 @@ const RESOURCE_TYPES = [
   { icon: '🔄', name: 'Exemplar Solutions',      sub: 'Textbook Solutions', type: 'exemplar' },
   { icon: '📘', name: 'NCERT Solutions Part-II', sub: 'Textbook Solutions', type: 'ncert2'   },
   { icon: '📗', name: 'NCERT Solutions Part-I',  sub: 'Textbook Solutions', type: 'ncert1'   },
+  { icon: '📄', name: 'Last Year Papers',        sub: 'Previous Year Papers', type: 'papers' },
 ];
+
+// CBSE board paper set-codes shown under "Last Year Papers". The subject name in
+// each card title is filled in at render time, so the same list serves every
+// subject (only the displayed subject changes).
+const LAST_YEAR_PAPERS = [
+  { year: 2025, code: '55/1/1' }, { year: 2025, code: '55/1/2' },
+  { year: 2025, code: '55/2/1' }, { year: 2025, code: '55/1/3' },
+  { year: 2025, code: '55/4/1' }, { year: 2025, code: '55/2/2' },
+  { year: 2025, code: '55/2/3' }, { year: 2025, code: '55/4/2' },
+  { year: 2025, code: '55/5/1' }, { year: 2025, code: '55/4/3' },
+  { year: 2025, code: '55/5/2' }, { year: 2025, code: '55/3/1' },
+];
+
+// Set number is the last segment of the QP code (e.g. 55/1/3 -> Set 3).
+const paperSet = (code) => String(code).split('/').pop();
+
+// The CBSE board-paper front matter (printed-page/general instructions + the
+// five-section breakdown), rendered as a self-contained HTML doc for a WebView.
+// The subject name (SUBJ, upper-case) is filled in so the same template serves
+// every subject; the structure mirrors a standard CBSE (Theory) question paper.
+const buildPaperFrontMatter = (SUBJ, paper) => {
+  const set = paperSet(paper.code);
+  return `<!DOCTYPE html><html><head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+<style>
+  *{ box-sizing:border-box; -webkit-tap-highlight-color:transparent; }
+  html,body{ margin:0; }
+  body{ padding:14px; background:#F4F4F5; color:#1C1C1E;
+        font-family:-apple-system,Roboto,"Segoe UI",sans-serif; line-height:1.55; }
+  .card{ background:#fff; border:1px solid #ECEEF3; border-radius:14px; padding:18px 16px;
+         box-shadow:0 6px 20px rgba(17,24,39,0.05); }
+  .meta{ text-align:right; color:#0F172A; font-weight:700; font-size:13px; }
+  .meta .code{ font-weight:600; color:#334155; }
+  .ibox{ border:1px solid #CBD5E1; border-radius:8px; padding:10px 12px; margin:14px 0; }
+  ol.roman{ list-style:upper-roman; margin:0; padding-left:24px; }
+  ol.lroman{ list-style:lower-roman; margin:6px 0 0; padding-left:24px; }
+  li{ margin:6px 0; font-size:13.5px; }
+  .red{ color:#C0392B; }
+  .title{ text-align:center; font-size:18px; font-weight:800; margin:16px 0 8px; }
+  .tm{ display:flex; justify-content:space-between; font-size:13.5px; font-weight:700; margin:6px 2px; }
+  .gi{ font-weight:800; margin-top:14px; }
+  .lead{ font-weight:700; margin:6px 0; font-size:13.5px; }
+  b{ font-weight:800; }
+</style></head><body>
+  <div class="card">
+    <div class="meta">Annual Exam - ${paper.year}<br><span class="code">Code: ${paper.code} (set-${set})</span></div>
+    <div class="ibox">
+      <ol class="roman">
+        <li class="red">Please check that this question paper contains <b>23 printed pages</b>.</li>
+        <li class="red">Please check that this question paper contains <b>33 questions</b>.</li>
+        <li>Q.P. Code given on the right hand side of the question paper should be written on the title page of the answer-book by the candidate.</li>
+        <li><b>Please write down the serial number of the question in the answer-book at the given place before attempting it.</b></li>
+        <li>15 minute time has been allotted to read this question paper. The question paper <span class="red">will</span> be distributed at 10.15 a.m. From 10.15 a.m. to 10.30 a.m., the candidates <span class="red">will</span> read the question paper only and <span class="red">will not</span> write any answer on the answer-book during this period.</li>
+      </ol>
+    </div>
+    <div class="title">${SUBJ} (Theory)</div>
+    <div class="tm"><span>Time allowed: 3 hours</span><span>Maximum Marks: 70</span></div>
+    <div class="gi">General Instructions :</div>
+    <div class="lead">Read the following instructions very carefully and follow them:</div>
+    <ol class="lroman">
+      <li>This question paper contains <b>33 questions</b>. <b>All questions are compulsory</b>.</li>
+      <li>This question paper is divided into <b>FIVE sections</b> - Sections <b>A, B, C, D</b> and <b>E</b>.</li>
+      <li>In <b>Section A</b>: Question numbers <b>1 to 16</b> are Multiple Choice (MCQ) type questions. Each question carries <b>1 mark</b>.</li>
+      <li>In <b>Section B</b>: Question numbers <b>17 to 21</b> are Very Short Answer (VSA) type questions. Each question carries <b>2 marks</b>.</li>
+      <li>In <b>Section C</b>: Question numbers <b>22 to 28</b> are Short Answer (SA) type questions. Each question carries <b>3 marks</b>.</li>
+      <li>In <b>Section D</b>: Question numbers <b>29 &amp; 30</b> are Case Study-Based questions. Each question carries <b>4 marks</b>.</li>
+      <li>In <b>Section E</b>: Question numbers <b>31 to 33</b> are Long Answer (LA) type questions. Each question carries <b>5 marks</b>.</li>
+      <li>There is no overall choice given in the question paper. However, an internal choice has been provided in few questions in all the Sections except Section A.</li>
+      <li>Kindly note that there is a separate question paper for Visually Impaired candidates.</li>
+      <li>Use of calculators is <b>not</b> allowed.</li>
+    </ol>
+  </div>
+</body></html>`;
+};
 
 // Resource types shown for a given subject. Maths and Biology NCERT are not
 // split into Part-I / Part-II, so for those subjects we drop the Part-I entry
@@ -526,6 +603,8 @@ const ResourcesScreen = () => {
   const [activeSubject, setActiveSubject] = useState(null);
   const [activeResType, setActiveResType] = useState(null);
   const [activeChapter, setActiveChapter] = useState(null);
+  const [activePaper,   setActivePaper]   = useState(null);  // selected Last Year Paper
+  const [paperTab,      setPaperTab]      = useState('questions'); // 'questions' | 'solutions'
   const [showCards,     setShowCards]     = useState(false);
   const [showNotes,     setShowNotes]     = useState(false);
   const [showChapterEnd, setShowChapterEnd] = useState(false);
@@ -835,6 +914,112 @@ const ResourcesScreen = () => {
     );
   }
 
+  // ── LAST YEAR PAPERS: a tapped paper — teal header, Questions/Solutions tabs ──
+  if (activeSubject && activeResType?.type === 'papers' && activePaper) {
+    const subjUpper = activeSubject.name.toUpperCase();
+    const setNum = activePaper.set || paperSet(activePaper.code);
+    // Class 12 Physics ships the real CBSE paper + answer key locally; other
+    // subjects fall back to the standard front-matter template.
+    const papersLocal = activeClass === 'Class 12' && activeSubject.name === 'Physics';
+    const questionsHtml = papersLocal
+      ? getPhysics12PaperDoc(activePaper.code, 'questions')
+      : null;
+    const solutionsHtml = papersLocal
+      ? getPhysics12PaperDoc(activePaper.code, 'solutions')
+      : null;
+    return (
+      <SafeAreaView style={[s.safe, { backgroundColor: '#1f8a93' }]}>
+        <StatusBar barStyle="light-content" backgroundColor="#1f8a93" />
+        {Platform.OS === 'android' && <View style={{ height: 24, backgroundColor: '#1f8a93' }} />}
+        <View style={s.paperHeader}>
+          <TouchableOpacity onPress={() => setActivePaper(null)} hitSlop={{ top: 10, bottom: 10, left: 10, right: 10 }}>
+            <Text style={s.paperClose}>✕</Text>
+          </TouchableOpacity>
+          <Text style={s.paperHeaderTitle} numberOfLines={1}>
+            {`${subjUpper} (Theory) Question Paper ${activePaper.year} (${activePaper.code}) Set - ${setNum}`}
+          </Text>
+        </View>
+        <View style={s.paperTabsWrap}>
+          <View style={s.paperTabs}>
+            {[['questions', 'Questions'], ['solutions', 'Solutions']].map(([key, label]) => (
+              <TouchableOpacity
+                key={key}
+                style={[s.paperTab, paperTab === key && s.paperTabActive]}
+                activeOpacity={0.85}
+                onPress={() => setPaperTab(key)}>
+                <Text style={[s.paperTabTxt, paperTab === key && s.paperTabTxtActive]}>{label}</Text>
+              </TouchableOpacity>
+            ))}
+          </View>
+        </View>
+        {paperTab === 'questions' ? (
+          <WebView
+            originWhitelist={['*']}
+            source={{ html: questionsHtml || buildPaperFrontMatter(subjUpper, activePaper) }}
+            style={{ flex: 1, backgroundColor: '#F4F4F5' }}
+            javaScriptEnabled
+            domStorageEnabled
+            mixedContentMode="always"
+            androidLayerType={Platform.OS === 'android' ? 'hardware' : undefined}
+          />
+        ) : solutionsHtml ? (
+          <WebView
+            originWhitelist={['*']}
+            source={{ html: solutionsHtml }}
+            style={{ flex: 1, backgroundColor: '#F4F4F5' }}
+            javaScriptEnabled
+            domStorageEnabled
+            mixedContentMode="always"
+            androidLayerType={Platform.OS === 'android' ? 'hardware' : undefined}
+          />
+        ) : (
+          <View style={{ flex: 1, backgroundColor: '#F4F4F5', alignItems: 'center', justifyContent: 'center', padding: 30, gap: 10 }}>
+            <Text style={{ fontSize: 40 }}>📝</Text>
+            <Text style={[s.pageTitle, { textAlign: 'center' }]}>Solutions coming soon</Text>
+            <Text style={[s.pageSub, { textAlign: 'center' }]}>Step-by-step solutions for this paper will be available shortly.</Text>
+          </View>
+        )}
+      </SafeAreaView>
+    );
+  }
+
+  // ── LAST YEAR PAPERS: the paper list (subject name is filled in per subject) ──
+  if (activeSubject && activeResType?.type === 'papers') {
+    const subjUpper = activeSubject.name.toUpperCase();
+    // Class 12 Physics shows the real CBSE papers shipped locally; other subjects
+    // fall back to the static code list with the subject name swapped in.
+    const papers =
+      activeClass === 'Class 12' && activeSubject.name === 'Physics'
+        ? getPhysics12Papers()
+        : LAST_YEAR_PAPERS;
+    return (
+      <SafeAreaView style={s.safe}>
+        <StatusBar barStyle="dark-content" backgroundColor="#fff" />
+        {Platform.OS === 'android' && <View style={{ height: 24, backgroundColor: '#fff' }} />}
+        <BackHeader onBack={() => setActiveResType(null)} />
+        <Breadcrumb parts={['Home', activeClass, activeSubject.name, activeResType.name]} />
+        <View style={s.pageTitleWrap}>
+          <Text style={s.pageTitle}>Last Year Papers</Text>
+          <Text style={s.pageSub}>Select a paper to explore</Text>
+        </View>
+        <ScrollView contentContainerStyle={{ padding: 16, gap: 10, paddingBottom: 32 }}>
+          {papers.map((p, i) => (
+            <TouchableOpacity key={`${p.year}-${p.code}`} style={s.listRow}
+              onPress={() => { setPaperTab('questions'); setActivePaper(p); }}
+              activeOpacity={0.8}>
+              <View style={[s.listNum, { backgroundColor: '#E8F0FE' }]}><Text style={{ fontSize: 16 }}>📄</Text></View>
+              <View style={{ flex: 1 }}>
+                <Text style={s.listRowTitle}>{`Question Paper ${p.year} (${p.code}) - ${subjUpper} (Theory)`}</Text>
+                <Text style={s.listRowSub}>Tap to view paper</Text>
+              </View>
+              <Text style={s.listArrow}>›</Text>
+            </TouchableOpacity>
+          ))}
+        </ScrollView>
+      </SafeAreaView>
+    );
+  }
+
   // ── LEVEL 3: Chapters list ────────────────────────────────────────────────
   if (activeSubject && activeResType) {
     // For NCERT Solutions Part-II, show only chapters that have content (fetched
@@ -911,7 +1096,7 @@ const ResourcesScreen = () => {
         </View>
         <ScrollView contentContainerStyle={{ padding: 16, gap: 10, paddingBottom: 32 }}>
           {getResourceTypes(activeSubject.name).map((rt, i) => (
-            <TouchableOpacity key={i} style={s.resTypeRow} onPress={() => setActiveResType(rt)} activeOpacity={0.8}>
+            <TouchableOpacity key={i} style={s.resTypeRow} onPress={() => { setActivePaper(null); setActiveResType(rt); }} activeOpacity={0.8}>
               <View style={s.resTypeIconWrap}>
                 <Text style={{ fontSize: 22 }}>{rt.icon}</Text>
               </View>
@@ -998,6 +1183,17 @@ const s = StyleSheet.create({
   listRowTitle:      { fontSize: 15, fontWeight: '800', color: '#1C1C1E', letterSpacing: -0.2 },
   listRowSub:        { fontSize: 12, color: '#8E8E93', fontWeight: '600', marginTop: 3 },
   listArrow:         { fontSize: 18, color: '#C7C7CC', fontWeight: '600' },
+
+  // Last Year Papers — teal header + Questions/Solutions tabs
+  paperHeader:       { backgroundColor: '#1f8a93', flexDirection: 'row', alignItems: 'center', gap: 14, paddingHorizontal: 16, paddingVertical: 14 },
+  paperClose:        { fontSize: 18, color: '#fff', fontWeight: '800' },
+  paperHeaderTitle:  { flex: 1, fontSize: 15, fontWeight: '800', color: '#fff', letterSpacing: -0.2 },
+  paperTabsWrap:     { backgroundColor: '#fff', borderBottomWidth: 1, borderBottomColor: '#ECECEC', paddingVertical: 10, alignItems: 'center' },
+  paperTabs:         { flexDirection: 'row', backgroundColor: '#F2F2F4', borderRadius: 10, padding: 3 },
+  paperTab:          { paddingVertical: 7, paddingHorizontal: 22, borderRadius: 8 },
+  paperTabActive:    { backgroundColor: '#fff', shadowColor: '#000', shadowOpacity: 0.08, shadowRadius: 4, shadowOffset: { width: 0, height: 1 }, elevation: 1 },
+  paperTabTxt:       { fontSize: 14, fontWeight: '700', color: '#8E8E93' },
+  paperTabTxtActive: { color: '#1C1C1E' },
 
   // Resource card styles
   resCard:           { backgroundColor: '#fff', borderRadius: 18, borderWidth: 1.5, borderColor: '#F0F0F0', padding: 14 },
