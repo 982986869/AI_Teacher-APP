@@ -133,6 +133,29 @@ async function getNotesByPath(subjectSlug, chapterSlug, classLevel = 11) {
   return { intro: note.intro, blocks: Array.isArray(note.blocks) ? note.blocks : [] }
 }
 
+// ─── Last Year Papers (papers table, raw SQL — not a Prisma model) ────────────
+// List: metadata only (no heavy HTML). Detail: one paper's question + answer HTML.
+async function listPapers(subjectSlug, classLevel = 12) {
+  return db.$queryRawUnsafe(
+    `SELECT p.code, p.year, p.set_label AS "setLabel", p.name, p.position
+       FROM papers p JOIN subjects s ON s.id = p.subject_id
+      WHERE s.slug = $1 AND p.class_level = $2
+      ORDER BY p.position`,
+    subjectSlug, classLevel,
+  )
+}
+
+async function getPaper(subjectSlug, classLevel, code) {
+  const [row] = await db.$queryRawUnsafe(
+    `SELECT p.code, p.year, p.set_label AS "setLabel", p.name,
+            p.question_paper_html AS "questionPaperHtml", p.answer_key_html AS "answerKeyHtml"
+       FROM papers p JOIN subjects s ON s.id = p.subject_id
+      WHERE s.slug = $1 AND p.class_level = $2 AND p.code = $3`,
+    subjectSlug, classLevel, code,
+  )
+  return row || null
+}
+
 // ─── MCQ questions for a chapter (across all its sections) ────────────────────
 // MCQs aren't a section type of their own — they live inside pyq /
 // important_questions flagged is_mcq. Gather all of them for the chapter.
@@ -157,5 +180,7 @@ module.exports = {
   listQuestions,
   getQuestionsByPath,
   getNotesByPath,
+  listPapers,
+  getPaper,
   getMcqByPath,
 }

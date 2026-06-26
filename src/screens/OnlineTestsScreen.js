@@ -11,14 +11,33 @@
 // exist in src/data. If you haven't added a subject yet, comment out its import
 // and its entry in SUBJECTS below.
 
-import React, { useState } from 'react';
-import { View, Text, ScrollView, Pressable, StyleSheet, StatusBar, SafeAreaView } from 'react-native';
+import React, { useState, useEffect } from 'react';
+import { View, Text, ScrollView, Pressable, StyleSheet, StatusBar, SafeAreaView, ActivityIndicator } from 'react-native';
 
-import { chapterList as physicsChapters, getQuestions as getPhysics } from '../data/questionBank';
-import { chapterList as physics12Chapters, getQuestions as getPhysics12 } from '../data/physics12OnlineTests';
+import { chapterList as physicsChapters, getQuestions as getPhysics, htmlToText } from '../data/questionBank';
 import { chapterList as chemChapters,    getQuestions as getChem }    from '../data/chemistryBank';
 import { chapterList as mathsChapters,   getQuestions as getMaths }   from '../data/mathsBank';
 import { chapterList as bioChapters,     getQuestions as getBio }     from '../data/biologyBank';
+import { getChapters, getQuestionsByPath } from '../api/resourcesApi';
+
+const LETTERS = 'ABCDEFGHIJ'.split('');
+
+// Map a DB online-test question (questionHtml + options:[{idx,html,is_correct}])
+// to the normalized shape TestQuestionScreen renders (plain text, letter answer).
+const normalizeApiQuestion = (q) => {
+  const opts = Array.isArray(q.options) ? q.options : [];
+  const options = opts.map((o, i) => ({ key: o.idx || LETTERS[i], label: htmlToText(o.html || ''), optionId: null }));
+  let correctAnswer = q.correctOption || null;
+  if (!correctAnswer) { const ci = opts.findIndex((o) => o.is_correct); if (ci >= 0) correctAnswer = opts[ci].idx || LETTERS[ci]; }
+  return {
+    id: q.id,
+    text: htmlToText(q.questionHtml || ''),
+    difficulty: null,
+    options,
+    correctAnswer,
+    explanation: htmlToText(q.solutionHtml || ''),
+  };
+};
 
 // ---- pastel mint & peach palette ----
 const C = {
@@ -37,14 +56,15 @@ const C = {
   headerMint: '#CDEFE2',
 };
 
-// Physics uses the Class-12 offline bank when the user is on Class 12, else the
-// Class-11 bank. The other subjects are class-agnostic for now.
-const buildSubjects = (selectedClass) => {
+// On Class 12, Physics online tests come from the DB (the `online12` flag routes
+// the chapter list + questions through the API). Other subjects (and Class 11
+// Physics) stay on the offline banks.
+const buildSubjects = (selectedClass, phys12Chapters) => {
   const phys = selectedClass === 'Class 12'
-    ? { chapters: physics12Chapters, getQuestions: getPhysics12 }
+    ? { chapters: phys12Chapters, getQuestions: null, online12: true }
     : { chapters: physicsChapters, getQuestions: getPhysics };
   return [
-    { key: 'physics',   name: 'Physics',   emoji: '\u269B\uFE0F', tile: C.mintSoft,  chapters: phys.chapters, getQuestions: phys.getQuestions },
+    { key: 'physics',   name: 'Physics',   emoji: '\u269B\uFE0F', tile: C.mintSoft,  chapters: phys.chapters, getQuestions: phys.getQuestions, online12: phys.online12 },
     { key: 'chemistry', name: 'Chemistry', emoji: '\u{1F9EA}',    tile: C.peachSoft, chapters: chemChapters,  getQuestions: getChem },
     { key: 'maths',     name: 'Maths',     emoji: '\u{1F4D0}',    tile: C.sandSoft,  chapters: mathsChapters, getQuestions: getMaths },
     { key: 'biology',   name: 'Biology',   emoji: '\u{1F9EC}',    tile: C.lilacSoft, chapters: bioChapters,   getQuestions: getBio },
@@ -52,9 +72,34 @@ const buildSubjects = (selectedClass) => {
 };
 
 export default function OnlineTestsScreen({ onBack, onStartTest = () => {}, selectedClass }) {
-  const SUBJECTS = buildSubjects(selectedClass);
   const [subject, setSubject] = useState(null);
   const [chapter, setChapter] = useState(null); // chosen chapter -> show its 5 tests
+
+  // Class 12 Physics online tests are DB-backed: chapter list + per-chapter
+  // questions are fetched from the API and normalized for TestQuestionScreen.
+  const isClass12 = selectedClass === 'Class 12';
+  const [phys12Chapters, setPhys12Chapters] = useState([]);
+  const [apiQuestions, setApiQuestions] = useState({ loading: false, list: [] });
+  const SUBJECTS = buildSubjects(selectedClass, phys12Chapters);
+
+  useEffect(() => {
+    if (!isClass12) { setPhys12Chapters([]); return undefined; }
+    let alive = true;
+    getChapters('physics', 'online_test', 12)
+      .then((chs) => { if (alive) setPhys12Chapters((chs || []).map((c) => ({ id: c.slug, name: c.name, slug: c.slug }))); })
+      .catch(() => { if (alive) setPhys12Chapters([]); });
+    return () => { alive = false; };
+  }, [isClass12]);
+
+  useEffect(() => {
+    if (!subject?.online12 || !chapter) return undefined;
+    let alive = true;
+    setApiQuestions({ loading: true, list: [] });
+    getQuestionsByPath('physics', chapter.slug, 'online_test', 12)
+      .then((qs) => { if (alive) setApiQuestions({ loading: false, list: (qs || []).map(normalizeApiQuestion) }); })
+      .catch(() => { if (alive) setApiQuestions({ loading: false, list: [] }); });
+    return () => { alive = false; };
+  }, [subject, chapter]);
 
   const TESTS_PER_CHAPTER = 5;
 
@@ -96,8 +141,21 @@ export default function OnlineTestsScreen({ onBack, onStartTest = () => {}, sele
 
   // ---- 5 tests for the chosen chapter ----
   if (chapter) {
+    // Class 12 Physics: questions fetched from the API; others from the bank.
+    if (subject.online12 && apiQuestions.loading) {
+      return (
+        <SafeAreaView style={s.safe}>
+          <StatusBar barStyle="dark-content" backgroundColor={C.headerMint} />
+          <Header title={chapter.name} subtitle="Select an online test to explore" />
+          <View style={{ flex: 1, alignItems: 'center', justifyContent: 'center', gap: 12 }}>
+            <ActivityIndicator size="large" color={C.mint} />
+            <Text style={{ color: C.textMuted, fontSize: 13 }}>Loading tests…</Text>
+          </View>
+        </SafeAreaView>
+      );
+    }
     // split the chapter's questions into 5 roughly-equal tests
-    const all = subject.getQuestions(chapter.id) || [];
+    const all = subject.online12 ? apiQuestions.list : (subject.getQuestions(chapter.id) || []);
     const per = Math.ceil(all.length / TESTS_PER_CHAPTER) || 0;
     const tests = Array.from({ length: TESTS_PER_CHAPTER }, (_, t) => {
       const slice = all.slice(t * per, (t + 1) * per);
@@ -147,13 +205,14 @@ export default function OnlineTestsScreen({ onBack, onStartTest = () => {}, sele
             onPress={() => setChapter({
               id: ch.id,
               name: ch.name || ch.chapter_name || ch.chapterName || ch.title || `Chapter ${i + 1}`,
+              slug: ch.slug,
               count: ch.count,
             })}
           >
             <View style={s.chapterNum}><Text style={s.chapterNumTxt}>{i + 1}</Text></View>
             <View style={{ flex: 1 }}>
               <Text style={s.chapterName}>{ch.name || ch.chapter_name || ch.chapterName || ch.title || `Chapter ${i + 1}`}</Text>
-              <Text style={s.chapterSub}>{ch.count} questions</Text>
+              <Text style={s.chapterSub}>{ch.count != null ? `${ch.count} questions` : 'Online test'}</Text>
             </View>
             <Text style={s.chevron}>{'\u203A'}</Text>
           </Pressable>

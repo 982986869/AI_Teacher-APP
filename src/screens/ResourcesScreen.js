@@ -9,9 +9,6 @@ import { WebView } from 'react-native-webview';
 
 import { getExemplarSolutions, getNcertChapters, getQuestionsByPath, getNotesByPath } from '../api/resourcesApi';
 import { buildFragmentFromQuestions, buildPyqDocument } from '../utils/pyqDocument';
-import { getPhysics12Ncert1Html } from '../data/physics12Ncert1';
-import { getPhysics12Ncert2Html } from '../data/physics12Ncert2';
-import { getPhysics12Papers, getPhysics12PaperDoc } from '../data/physics12Papers';
 import { useAuth } from '../context/AuthContext';
 import { ClassTabs } from '../components/ClassPicker';
 import { getChapterNotes } from '../notes/index';
@@ -599,6 +596,94 @@ const BackHeader = ({ onBack }) => (
   </View>
 );
 
+// Renders an async-fetched HTML doc ({ loading, error, html }) in a WebView,
+// with shared loading / error+retry / empty states. Used by NCERT Part-I & II.
+const DocWebView = ({ state, onRetry, emptyText }) => {
+  if (state.loading) {
+    return (
+      <View style={{ flex: 1, alignItems: 'center', justifyContent: 'center', gap: 12 }}>
+        <ActivityIndicator size="large" color="#1f8a93" />
+        <Text style={{ color: '#64748b', fontSize: 13 }}>Loading…</Text>
+      </View>
+    );
+  }
+  if (state.error) {
+    return (
+      <View style={{ flex: 1, alignItems: 'center', justifyContent: 'center', gap: 12, paddingHorizontal: 24 }}>
+        <Text style={{ color: '#b91c1c', fontSize: 14, textAlign: 'center' }}>{'⚠️'}  {state.error}</Text>
+        <TouchableOpacity
+          style={{ borderWidth: 1.5, borderColor: '#1f8a93', borderRadius: 10, paddingVertical: 9, paddingHorizontal: 18 }}
+          activeOpacity={0.8} onPress={onRetry}
+        >
+          <Text style={{ color: '#1f8a93', fontWeight: '700' }}>Retry</Text>
+        </TouchableOpacity>
+      </View>
+    );
+  }
+  if (!state.html) {
+    return (
+      <View style={{ flex: 1, alignItems: 'center', justifyContent: 'center', paddingHorizontal: 24 }}>
+        <Text style={{ color: '#94a3b8', fontSize: 14, textAlign: 'center' }}>{emptyText || 'No content yet.'}</Text>
+      </View>
+    );
+  }
+  return (
+    <WebView
+      originWhitelist={['*']}
+      source={{ html: state.html }}
+      style={{ flex: 1, backgroundColor: '#F4F4F5' }}
+      javaScriptEnabled
+      domStorageEnabled
+      mixedContentMode="always"
+      androidLayerType={Platform.OS === 'android' ? 'hardware' : undefined}
+    />
+  );
+};
+
+// Wrap a board paper's raw HTML (question paper / answer key) in a full MathJax
+// document. {tex}…{/tex} → \( … \). Mirrors src/data/physics12Papers.js buildDoc
+// so DB-served papers render identically to the old bundled ones.
+const PAPER_HEAD = `
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+<script>
+  window.MathJax = { startup: { ready: function () {
+    window.MathJax.startup.defaultReady();
+    window.MathJax.startup.promise.then(fitWideMath);
+  } } };
+  function fitWideMath(){ try{ var avail=document.body.clientWidth;
+    var nodes=document.querySelectorAll('mjx-container');
+    for(var i=0;i<nodes.length;i++){ var c=nodes[i];
+      if(c.parentNode && c.parentNode.className==='math-scroll') continue;
+      var w=c.scrollWidth||c.getBoundingClientRect().width;
+      if(w>avail+1){ var b=document.createElement('span'); b.className='math-scroll';
+        c.parentNode.insertBefore(b,c); b.appendChild(c); } } }catch(e){} }
+</script>
+<script src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
+<style>
+  *{ -webkit-tap-highlight-color:transparent; box-sizing:border-box; }
+  html,body{ margin:0; max-width:100%; overflow-x:hidden; }
+  body{ padding:14px 12px; background:#F4F4F5; color:#1C1C1E;
+        font-family:-apple-system,Roboto,"Segoe UI",sans-serif; font-size:15px; line-height:1.6;
+        overflow-wrap:break-word; word-break:break-word; }
+  img{ max-width:100%; height:auto; border-radius:6px; }
+  h1{ font-size:22px; }
+  .math-scroll{ display:block; max-width:100%; overflow-x:auto; -webkit-overflow-scrolling:touch; }
+  mjx-container{ max-width:100% !important; }
+  ol,ul{ padding-left:22px; } li{ margin:3px 0; }
+  hr{ border:0; border-top:1px solid #ddd; }
+  table{ max-width:100%; }
+  .ques_text table{ display:block; overflow-x:auto; }
+  strong,b{ font-weight:700; }
+</style>
+`;
+const buildPaperDoc = (html) =>
+  html
+    ? `<!DOCTYPE html><html><head>${PAPER_HEAD}</head><body>` +
+      String(html).replace(/\{tex\}/g, ' \\(').replace(/\{\/tex\}/g, '\\) ') +
+      `</body></html>`
+    : '';
+
 // ── Main Screen ───────────────────────────────────────────────────────────────
 const ResourcesScreen = () => {
   const [activeBoard,   setActiveBoard]   = useState('CBSE');
@@ -669,21 +754,66 @@ const ResourcesScreen = () => {
 
   const exemplarActive = !!(activeSubject && activeResType?.type === 'exemplar' && activeChapter && showCards && !isPhysics12Exemplar);
 
-  // Class 12 Physics NCERT Solutions Part-I also ships locally (full MathJax HTML
-  // doc per chapter), mirroring the Exemplar local-first approach.
-  const localNcert1Html =
-    activeResType?.type === 'ncert1' && activeChapter &&
+  // Class 12 Physics NCERT Part-I & Part-II come from the DB too (questions table,
+  // type_key='ncert1'/'ncert2') — rendered as MathJax cards in a WebView, exactly
+  // like Exemplar. Other subjects' ncert2 still uses the DB-backed Ncert2Screen.
+  const isPhysics12Ncert1 = !!(
+    activeResType?.type === 'ncert1' && activeChapter && showCards &&
     activeClass === 'Class 12' && activeSubject?.name === 'Physics'
-      ? getPhysics12Ncert1Html(activeChapter.name)
-      : null;
+  );
+  const isPhysics12Ncert2 = !!(
+    activeResType?.type === 'ncert2' && activeChapter && showCards &&
+    activeClass === 'Class 12' && activeSubject?.name === 'Physics'
+  );
+  const [phy12Ncert1, setPhy12Ncert1] = useState({ loading: false, error: null, html: '' });
+  const [phy12Ncert2, setPhy12Ncert2] = useState({ loading: false, error: null, html: '' });
+  const [docRetry, setDocRetry] = useState(0); // bumps NCERT/paper re-fetches on Retry
+  useEffect(() => {
+    if (!isPhysics12Ncert1) return undefined;
+    let alive = true;
+    setPhy12Ncert1({ loading: true, error: null, html: '' });
+    getQuestionsByPath(slugify(activeSubject.name), slugify(activeChapter.name), 'ncert1', 12)
+      .then((qs) => { if (alive) setPhy12Ncert1({ loading: false, error: null, html: qs && qs.length ? buildPyqDocument(buildFragmentFromQuestions(qs)) : '' }); })
+      .catch((e) => { if (alive) setPhy12Ncert1({ loading: false, error: e?.message || 'Could not load NCERT solutions.', html: '' }); });
+    return () => { alive = false; };
+    // eslint-disable-next-line react-hooks/exhaustive-deps
+  }, [isPhysics12Ncert1, activeSubject?.name, activeChapter?.name, docRetry]);
+  useEffect(() => {
+    if (!isPhysics12Ncert2) return undefined;
+    let alive = true;
+    setPhy12Ncert2({ loading: true, error: null, html: '' });
+    getQuestionsByPath(slugify(activeSubject.name), slugify(activeChapter.name), 'ncert2', 12)
+      .then((qs) => { if (alive) setPhy12Ncert2({ loading: false, error: null, html: qs && qs.length ? buildPyqDocument(buildFragmentFromQuestions(qs)) : '' }); })
+      .catch((e) => { if (alive) setPhy12Ncert2({ loading: false, error: e?.message || 'Could not load NCERT solutions.', html: '' }); });
+    return () => { alive = false; };
+    // eslint-disable-next-line react-hooks/exhaustive-deps
+  }, [isPhysics12Ncert2, activeSubject?.name, activeChapter?.name, docRetry]);
 
-  // Class 12 Physics NCERT Solutions Part-II also ships locally (full MathJax
-  // HTML doc per chapter), overriding the DB-backed Ncert2Screen for these.
-  const localNcert2Html =
-    activeResType?.type === 'ncert2' && activeChapter &&
-    activeClass === 'Class 12' && activeSubject?.name === 'Physics'
-      ? getPhysics12Ncert2Html(activeChapter.name)
-      : null;
+  // Class 12 Physics Last Year Papers are DB-backed: the list (metadata) and the
+  // tapped paper's question/answer HTML both come from the API.
+  const isPhysics12Papers = !!(
+    activeResType?.type === 'papers' && activeClass === 'Class 12' && activeSubject?.name === 'Physics'
+  );
+  const [phy12Papers, setPhy12Papers] = useState({ loading: false, list: [] });
+  const [phy12Paper, setPhy12Paper] = useState({ loading: false, error: null, qHtml: '', aHtml: '' });
+  useEffect(() => {
+    if (!isPhysics12Papers) return undefined;
+    let alive = true;
+    setPhy12Papers({ loading: true, list: [] });
+    getPapers('physics', 12)
+      .then((rows) => { if (alive) setPhy12Papers({ loading: false, list: rows || [] }); })
+      .catch(() => { if (alive) setPhy12Papers({ loading: false, list: [] }); });
+    return () => { alive = false; };
+  }, [isPhysics12Papers]);
+  useEffect(() => {
+    if (!isPhysics12Papers || !activePaper) return undefined;
+    let alive = true;
+    setPhy12Paper({ loading: true, error: null, qHtml: '', aHtml: '' });
+    getPaper('physics', activePaper.code, 12)
+      .then((p) => { if (alive) setPhy12Paper({ loading: false, error: null, qHtml: buildPaperDoc(p && p.questionPaperHtml), aHtml: buildPaperDoc(p && p.answerKeyHtml) }); })
+      .catch((e) => { if (alive) setPhy12Paper({ loading: false, error: e?.message || 'Could not load paper.', qHtml: '', aHtml: '' }); });
+    return () => { alive = false; };
+  }, [isPhysics12Papers, activePaper]);
   useEffect(() => {
     if (!exemplarActive) return undefined;
     let alive = true;
@@ -827,8 +957,8 @@ const ResourcesScreen = () => {
     );
   }
 
-  // ── LEVEL 4 (local): Class 12 Physics NCERT Part-I — MathJax cards in a WebView ──
-  if (activeResType?.type === 'ncert1' && activeChapter && showCards && localNcert1Html) {
+  // ── LEVEL 4 (DB): Class 12 Physics NCERT Part-I — MathJax cards in a WebView ──
+  if (isPhysics12Ncert1) {
     return (
       <SafeAreaView style={s.safe}>
         <StatusBar barStyle="dark-content" backgroundColor="#fff" />
@@ -839,15 +969,7 @@ const ResourcesScreen = () => {
           <Text style={s.pageTitle}>{activeChapter.name}</Text>
           <Text style={s.pageSub}>NCERT Solutions · Part I</Text>
         </View>
-        <WebView
-          originWhitelist={['*']}
-          source={{ html: localNcert1Html }}
-          style={{ flex: 1, backgroundColor: '#F4F4F5' }}
-          javaScriptEnabled
-          domStorageEnabled
-          mixedContentMode="always"
-          androidLayerType={Platform.OS === 'android' ? 'hardware' : undefined}
-        />
+        <DocWebView state={phy12Ncert1} onRetry={() => setDocRetry((k) => k + 1)} emptyText="No NCERT Part-I solutions for this chapter yet." />
       </SafeAreaView>
     );
   }
@@ -905,8 +1027,8 @@ const ResourcesScreen = () => {
     );
   }
 
-  // ── NCERT Part-II (local): Class 12 Physics — MathJax cards in a WebView ──
-  if (activeResType?.type === 'ncert2' && activeChapter && showCards && localNcert2Html) {
+  // ── NCERT Part-II (DB): Class 12 Physics — MathJax cards in a WebView ──
+  if (isPhysics12Ncert2) {
     return (
       <SafeAreaView style={s.safe}>
         <StatusBar barStyle="dark-content" backgroundColor="#fff" />
@@ -917,15 +1039,7 @@ const ResourcesScreen = () => {
           <Text style={s.pageTitle}>{activeChapter.name}</Text>
           <Text style={s.pageSub}>NCERT Solutions · Part II</Text>
         </View>
-        <WebView
-          originWhitelist={['*']}
-          source={{ html: localNcert2Html }}
-          style={{ flex: 1, backgroundColor: '#F4F4F5' }}
-          javaScriptEnabled
-          domStorageEnabled
-          mixedContentMode="always"
-          androidLayerType={Platform.OS === 'android' ? 'hardware' : undefined}
-        />
+        <DocWebView state={phy12Ncert2} onRetry={() => setDocRetry((k) => k + 1)} emptyText="No NCERT Part-II solutions for this chapter yet." />
       </SafeAreaView>
     );
   }
@@ -1003,16 +1117,12 @@ const ResourcesScreen = () => {
   // ── LAST YEAR PAPERS: a tapped paper — teal header, Questions/Solutions tabs ──
   if (activeSubject && activeResType?.type === 'papers' && activePaper) {
     const subjUpper = activeSubject.name.toUpperCase();
-    const setNum = activePaper.set || paperSet(activePaper.code);
-    // Class 12 Physics ships the real CBSE paper + answer key locally; other
-    // subjects fall back to the standard front-matter template.
-    const papersLocal = activeClass === 'Class 12' && activeSubject.name === 'Physics';
-    const questionsHtml = papersLocal
-      ? getPhysics12PaperDoc(activePaper.code, 'questions')
-      : null;
-    const solutionsHtml = papersLocal
-      ? getPhysics12PaperDoc(activePaper.code, 'solutions')
-      : null;
+    const setNum = activePaper.set || activePaper.setLabel || paperSet(activePaper.code);
+    // Class 12 Physics serves the real CBSE paper + answer key from the DB (fetched
+    // above); other subjects fall back to the standard front-matter template.
+    const questionsHtml = isPhysics12Papers ? phy12Paper.qHtml : null;
+    const solutionsHtml = isPhysics12Papers ? phy12Paper.aHtml : null;
+    const paperLoading = isPhysics12Papers && phy12Paper.loading;
     return (
       <SafeAreaView style={[s.safe, { backgroundColor: '#1f8a93' }]}>
         <StatusBar barStyle="light-content" backgroundColor="#1f8a93" />
@@ -1038,7 +1148,12 @@ const ResourcesScreen = () => {
             ))}
           </View>
         </View>
-        {paperTab === 'questions' ? (
+        {paperLoading ? (
+          <View style={{ flex: 1, backgroundColor: '#F4F4F5', alignItems: 'center', justifyContent: 'center', gap: 12 }}>
+            <ActivityIndicator size="large" color="#1f8a93" />
+            <Text style={{ color: '#64748b', fontSize: 13 }}>Loading paper…</Text>
+          </View>
+        ) : paperTab === 'questions' ? (
           <WebView
             originWhitelist={['*']}
             source={{ html: questionsHtml || buildPaperFrontMatter(subjUpper, activePaper) }}
@@ -1072,12 +1187,9 @@ const ResourcesScreen = () => {
   // ── LAST YEAR PAPERS: the paper list (subject name is filled in per subject) ──
   if (activeSubject && activeResType?.type === 'papers') {
     const subjUpper = activeSubject.name.toUpperCase();
-    // Class 12 Physics shows the real CBSE papers shipped locally; other subjects
-    // fall back to the static code list with the subject name swapped in.
-    const papers =
-      activeClass === 'Class 12' && activeSubject.name === 'Physics'
-        ? getPhysics12Papers()
-        : LAST_YEAR_PAPERS;
+    // Class 12 Physics shows the real CBSE papers from the DB; other subjects fall
+    // back to the static code list with the subject name swapped in.
+    const papers = isPhysics12Papers ? phy12Papers.list : LAST_YEAR_PAPERS;
     return (
       <SafeAreaView style={s.safe}>
         <StatusBar barStyle="dark-content" backgroundColor="#fff" />

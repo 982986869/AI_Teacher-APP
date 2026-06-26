@@ -17,7 +17,6 @@ import { getQuestions, allQuestions } from '../data/questionBank';
 import { getMcqQuestions } from '../data/mcqQuestions';
 import { getSubtopicTest } from '../data/subtopicBank';
 import { listMockTests, getMockTestQuestions, listMockAttempts, submitMockTest } from '../api/mockTestsApi';
-import { getPhysics12MockList, getPhysics12MockQuestions, isLocalMockId } from '../data/physics12MockTests';
 import { useAuth } from '../context/AuthContext';
 import { ClassTabs } from '../components/ClassPicker';
 
@@ -468,19 +467,15 @@ const PracticeScreen = () => {
 
   // Fetch the DB mock-test list + this user's attempt summary for a subject.
   const loadSubjectTests = async (subject) => {
-    // Class 12 Physics mock tests ship locally (offline) and override the DB set.
-    if (subject === 'Physics' && selectedClass === 'Class 12') {
-      setMockData(prev => ({ ...prev, [subject]: { loading: false, error: '', tests: getPhysics12MockList(), attempts: {} } }));
-      return;
-    }
+    const classLevel = classNum(selectedClass);
     setMockData(prev => ({
       ...prev,
       [subject]: { loading: true, error: '', tests: (prev[subject] && prev[subject].tests) || [], attempts: (prev[subject] && prev[subject].attempts) || {} },
     }));
     try {
       const [listRes, attRes] = await Promise.all([
-        listMockTests(subject),
-        listMockAttempts(subject).catch(() => ({ attempts: [] })),
+        listMockTests(subject, classLevel),
+        listMockAttempts(subject, classLevel).catch(() => ({ attempts: [] })),
       ]);
       const attempts = {};
       for (const a of (attRes.attempts || [])) attempts[a.testId] = a;
@@ -493,7 +488,7 @@ const PracticeScreen = () => {
   // Refresh just the attempt summary (after a test is submitted) so badges update.
   const refreshAttempts = async (subject) => {
     try {
-      const res = await listMockAttempts(subject);
+      const res = await listMockAttempts(subject, classNum(selectedClass));
       const attempts = {};
       for (const a of (res.attempts || [])) attempts[a.testId] = a;
       setMockData(prev => ({ ...prev, [subject]: { ...(prev[subject] || { tests: [], loading: false, error: '' }), attempts } }));
@@ -509,18 +504,6 @@ const PracticeScreen = () => {
 
   // Launch a DB-backed test (we already have the test object from the list).
   const startDbMock = (subject, test) => {
-    // Local (offline) Physics mock: build the runner payload synchronously.
-    if (isLocalMockId(test.id)) {
-      const local = getPhysics12MockQuestions(test.id);
-      setPhysMock({
-        subject, label: test.name, testId: test.id, status: 'ready',
-        questions: (local && local.questions) || [],
-        sections: (local && local.sections) || [],
-        durationMin: test.durationMin || 90,
-        name: test.name,
-      });
-      return;
-    }
     setPhysMock({ subject, label: test.name, testId: test.id, status: 'loading' });
     getMockTestQuestions(test.id)
       .then((data) => setPhysMock({
@@ -790,8 +773,8 @@ const PracticeScreen = () => {
         negative={0}
         onExit={closePhysMock}
         onSubmit={(payload) => {
-          // Local mocks score client-side in McqTestScreen; no server persistence.
-          if (physMock.testId != null && !isLocalMockId(physMock.testId)) submitMockTest(physMock.testId, payload).catch(() => {});
+          // Persist the attempt to the DB (scored authoritatively server-side).
+          if (physMock.testId != null) submitMockTest(physMock.testId, payload).catch(() => {});
         }}
       />
     );

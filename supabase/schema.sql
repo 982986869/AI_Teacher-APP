@@ -94,6 +94,28 @@ insert into section_types (key, label, position) values
   ('pyq',                 'Previous Year Questions', 1),
   ('important_questions', 'Important Questions',     2),
   ('revision_notes',      'Revision Notes',          3),
-  ('exemplar_notes',      'Exemplar Notes',          4)
-  -- TODO: add the remaining section types (key, label, position)
+  ('exemplar_notes',      'Exemplar Notes',          4),
+  ('ncert1',              'NCERT Solutions Part-I',  5),
+  ('ncert2',              'NCERT Solutions Part-II', 6),
+  ('online_test',         'Online Tests',            7)
 on conflict (key) do nothing;
+
+-- ------------------------------------------------------------
+-- 7. PAPERS — full board "Last Year Papers" (question paper + answer key as
+--    self-contained HTML). Subject-level (not per-chapter), tagged by class.
+-- ------------------------------------------------------------
+create table if not exists papers (
+  id                  bigint generated always as identity primary key,
+  subject_id          bigint not null references subjects(id) on delete cascade,
+  class_level         int  not null default 12,
+  year                int,
+  code                text not null,            -- '55/1/1'
+  set_label           text,                     -- '1'
+  name                text,                     -- 'PHYSICS (Theory)'
+  question_paper_html text,
+  answer_key_html     text,
+  position            int  not null default 0,
+  created_at          timestamptz not null default now(),
+  unique (subject_id, class_level, code)
+);
+create index if not exists idx_papers_subject_class on papers(subject_id, class_level);

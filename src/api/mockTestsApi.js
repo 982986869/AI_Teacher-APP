@@ -3,15 +3,16 @@ import axiosInstance from './axiosInstance';
 // Mock tests API client. Responses are wrapped as { success, message, data };
 // we return res.data.data. JWT is attached by the axios interceptor.
 
-// GET /api/mock-tests?subject=Physics → { tests, total }
-export const listMockTests = async (subject = 'Physics') => {
-  const res = await axiosInstance.get('/api/mock-tests', { params: subject ? { subject } : {} });
+// GET /api/mock-tests?subject=Physics&class=12 → { tests, total }
+// classLevel (9–12) separates Class 12 mocks from Class 11; defaults to 11.
+export const listMockTests = async (subject = 'Physics', classLevel = 11) => {
+  const res = await axiosInstance.get('/api/mock-tests', { params: { ...(subject ? { subject } : {}), class: classLevel } });
   return res.data.data;
 };
 
-// GET /api/mock-tests/attempts?subject=Physics → { attempts:[{ testId, attempts, bestScore, total }] }
-export const listMockAttempts = async (subject) => {
-  const res = await axiosInstance.get('/api/mock-tests/attempts', { params: subject ? { subject } : {} });
+// GET /api/mock-tests/attempts?subject=Physics&class=12 → { attempts:[{ testId, attempts, bestScore, total }] }
+export const listMockAttempts = async (subject, classLevel = 11) => {
+  const res = await axiosInstance.get('/api/mock-tests/attempts', { params: { ...(subject ? { subject } : {}), class: classLevel } });
   return res.data.data;
 };
 
