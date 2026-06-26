@@ -7,8 +7,8 @@ import * as Print from 'expo-print';
 import * as Sharing from 'expo-sharing';
 import { WebView } from 'react-native-webview';
 
-import { getExemplarSolutions, getNcertChapters } from '../api/resourcesApi';
-import { getPhysics12ExemplarHtml } from '../data/physics12Exemplar';
+import { getExemplarSolutions, getNcertChapters, getQuestionsByPath, getNotesByPath } from '../api/resourcesApi';
+import { buildFragmentFromQuestions, buildPyqDocument } from '../utils/pyqDocument';
 import { useAuth } from '../context/AuthContext';
 import { ClassTabs } from '../components/ClassPicker';
 import { getChapterNotes } from '../notes/index';
@@ -232,6 +232,10 @@ const NOTE_IMG_HEIGHT = NOTE_IMG_WIDTH * 0.75;
 
 const BOARDS  = ['CBSE', 'ICSE', 'State Board'];
 const CLASSES = ['Class 9', 'Class 10', 'Class 11', 'Class 12'];
+
+// Slug must match how rows were inserted (scripts/importPhysics12.js slugify).
+const slugify = (str) =>
+  String(str).toLowerCase().replace(/[^a-z0-9]+/g, '-').replace(/^-+|-+$/g, '');
 
 const SUBJECTS = [
   {
@@ -559,14 +563,30 @@ const ResourcesScreen = () => {
   // gave ([{ label, questions }]), so the rows render unchanged.
   const [exemplar, setExemplar] = useState({ loading: false, error: null, sections: [] });
   const [exemplarRetry, setExemplarRetry] = useState(0);
-  // Class 12 Physics Exemplar ships locally (full MathJax HTML doc per chapter);
-  // everything else is DB-backed. When local data exists we skip the API entirely.
-  const localExemplarHtml =
-    activeResType?.type === 'exemplar' && activeChapter &&
+  // Class 12 Physics Exemplar comes from the DB too (questions table,
+  // type_key='exemplar_notes') — rendered as MathJax cards in a WebView, just
+  // like PYQ/Important. Everything else uses the section-list endpoint below.
+  const isPhysics12Exemplar = !!(
+    activeResType?.type === 'exemplar' && activeChapter && showCards &&
     activeClass === 'Class 12' && activeSubject?.name === 'Physics'
-      ? getPhysics12ExemplarHtml(activeChapter.name)
-      : null;
-  const exemplarActive = !!(activeSubject && activeResType?.type === 'exemplar' && activeChapter && showCards && !localExemplarHtml);
+  );
+  const [phy12Exemplar, setPhy12Exemplar] = useState({ loading: false, error: null, html: '' });
+  useEffect(() => {
+    if (!isPhysics12Exemplar) return undefined;
+    let alive = true;
+    setPhy12Exemplar({ loading: true, error: null, html: '' });
+    getQuestionsByPath(slugify(activeSubject.name), slugify(activeChapter.name), 'exemplar_notes', 12)
+      .then((qs) => {
+        if (!alive) return;
+        const html = qs && qs.length ? buildPyqDocument(buildFragmentFromQuestions(qs)) : '';
+        setPhy12Exemplar({ loading: false, error: null, html });
+      })
+      .catch((e) => { if (alive) setPhy12Exemplar({ loading: false, error: e?.response?.data?.error || e?.message || 'Could not load exemplar.', html: '' }); });
+    return () => { alive = false; };
+    // eslint-disable-next-line react-hooks/exhaustive-deps
+  }, [isPhysics12Exemplar, activeSubject?.name, activeChapter?.name, exemplarRetry]);
+
+  const exemplarActive = !!(activeSubject && activeResType?.type === 'exemplar' && activeChapter && showCards && !isPhysics12Exemplar);
   useEffect(() => {
     if (!exemplarActive) return undefined;
     let alive = true;
@@ -594,10 +614,54 @@ const ResourcesScreen = () => {
     // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [ncert2ListActive, activeSubject?.name, activeClass]);
 
+  // Class 12 Physics Revision Notes are DB-backed (notes table, by chapter slug).
+  // The API returns { intro, blocks:[{title,html}] }; ChapterNotesScreen wants
+  // { intro, sections:[{title,html}] } with $…$ math, so map blocks→sections and
+  // convert {tex} delimiters (matching the old static Physics12Notes output).
+  const isPhysics12Notes = !!(
+    activeSubject && activeResType && activeChapter && showNotes &&
+    activeClass === 'Class 12' && activeSubject?.name === 'Physics'
+  );
+  const [phy12Notes, setPhy12Notes] = useState({ loading: false, error: null, notes: null });
+  useEffect(() => {
+    if (!isPhysics12Notes) return undefined;
+    let alive = true;
+    setPhy12Notes({ loading: true, error: null, notes: null });
+    getNotesByPath(slugify(activeSubject.name), slugify(activeChapter.name), 12)
+      .then((d) => {
+        if (!alive) return;
+        const sections = ((d && d.blocks) || []).map((b) => ({
+          title: b.title,
+          html: String(b.html || '').replace(/\{tex\}/g, '$').replace(/\{\/tex\}/g, '$'),
+        }));
+        setPhy12Notes({ loading: false, error: null, notes: { intro: d && d.intro, sections } });
+      })
+      .catch((e) => { if (alive) setPhy12Notes({ loading: false, error: e?.message || 'Could not load notes.', notes: null }); });
+    return () => { alive = false; };
+    // eslint-disable-next-line react-hooks/exhaustive-deps
+  }, [isPhysics12Notes, activeSubject?.name, activeChapter?.name]);
+
 
   // ── LEVEL 5: Chapter Notes — WebView with MathJax ────────────────────────
   if (activeSubject && activeResType && activeChapter && showNotes) {
-    const notes = getChapterNotes(activeSubject.name, activeChapter.name);
+    // Class 12 Physics → DB-backed notes (fetched above); show a loader until
+    // ready. Everything else uses the bundled static notes.
+    if (isPhysics12Notes && phy12Notes.loading) {
+      return (
+        <SafeAreaView style={s.safe}>
+          <StatusBar barStyle="dark-content" backgroundColor="#fff" />
+          {Platform.OS === 'android' && <View style={{ height: 24, backgroundColor: '#fff' }} />}
+          <BackHeader onBack={() => setShowNotes(false)} />
+          <View style={{ flex: 1, alignItems: 'center', justifyContent: 'center', gap: 12 }}>
+            <ActivityIndicator size="large" color="#1C1C1E" />
+            <Text style={{ color: '#64748b', fontSize: 13 }}>Loading notes…</Text>
+          </View>
+        </SafeAreaView>
+      );
+    }
+    const notes = isPhysics12Notes
+      ? phy12Notes.notes
+      : getChapterNotes(activeSubject.name, activeChapter.name);
     return (
       <ChapterNotesScreen
         chapterName={activeChapter.name}
@@ -619,8 +683,8 @@ const ResourcesScreen = () => {
     );
   }
 
-  // ── LEVEL 4 (local): Class 12 Physics Exemplar — MathJax cards in a WebView ──
-  if (activeResType?.type === 'exemplar' && activeChapter && showCards && localExemplarHtml) {
+  // ── LEVEL 4 (DB): Class 12 Physics Exemplar — MathJax cards in a WebView ─────
+  if (isPhysics12Exemplar) {
     return (
       <SafeAreaView style={s.safe}>
         <StatusBar barStyle="dark-content" backgroundColor="#fff" />
@@ -631,15 +695,37 @@ const ResourcesScreen = () => {
           <Text style={s.pageTitle}>{activeChapter.name}</Text>
           <Text style={s.pageSub}>NCERT Exemplar · Chapter-end</Text>
         </View>
-        <WebView
-          originWhitelist={['*']}
-          source={{ html: localExemplarHtml }}
-          style={{ flex: 1, backgroundColor: '#F4F4F5' }}
-          javaScriptEnabled
-          domStorageEnabled
-          mixedContentMode="always"
-          androidLayerType={Platform.OS === 'android' ? 'hardware' : undefined}
-        />
+        {phy12Exemplar.loading ? (
+          <View style={{ flex: 1, alignItems: 'center', justifyContent: 'center', gap: 12 }}>
+            <ActivityIndicator size="large" color="#1f8a93" />
+            <Text style={{ color: '#64748b', fontSize: 13 }}>Loading exemplar…</Text>
+          </View>
+        ) : phy12Exemplar.error ? (
+          <View style={{ flex: 1, alignItems: 'center', justifyContent: 'center', gap: 12, paddingHorizontal: 24 }}>
+            <Text style={{ color: '#b91c1c', fontSize: 14, textAlign: 'center' }}>{'⚠️'}  {phy12Exemplar.error}</Text>
+            <TouchableOpacity
+              style={{ borderWidth: 1.5, borderColor: '#1f8a93', borderRadius: 10, paddingVertical: 9, paddingHorizontal: 18 }}
+              activeOpacity={0.8}
+              onPress={() => setExemplarRetry((k) => k + 1)}
+            >
+              <Text style={{ color: '#1f8a93', fontWeight: '700' }}>Retry</Text>
+            </TouchableOpacity>
+          </View>
+        ) : !phy12Exemplar.html ? (
+          <View style={{ flex: 1, alignItems: 'center', justifyContent: 'center' }}>
+            <Text style={{ color: '#94a3b8', fontSize: 14 }}>No exemplar available for this chapter yet.</Text>
+          </View>
+        ) : (
+          <WebView
+            originWhitelist={['*']}
+            source={{ html: phy12Exemplar.html }}
+            style={{ flex: 1, backgroundColor: '#F4F4F5' }}
+            javaScriptEnabled
+            domStorageEnabled
+            mixedContentMode="always"
+            androidLayerType={Platform.OS === 'android' ? 'hardware' : undefined}
+          />
+        )}
       </SafeAreaView>
     );
   }

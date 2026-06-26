@@ -41,6 +41,15 @@ async function getQuestionsByPath(req, res, next) {
   } catch (err) { next(err) }
 }
 
+async function getNotesByPath(req, res, next) {
+  try {
+    const { subjectSlug, chapterSlug } = req.params
+    const data = await svc.getNotesByPath(subjectSlug, chapterSlug, classOf(req))
+    if (!data) return ApiResponse.error(res, 'Notes not found', 404)
+    return ApiResponse.success(res, data)
+  } catch (err) { next(err) }
+}
+
 async function getMcqByPath(req, res, next) {
   try {
     const { subjectSlug, chapterSlug } = req.params
@@ -50,4 +59,4 @@ async function getMcqByPath(req, res, next) {
   } catch (err) { next(err) }
 }
 
-module.exports = { getSubjects, getChapters, getSections, getQuestions, getQuestionsByPath, getMcqByPath }
+module.exports = { getSubjects, getChapters, getSections, getQuestions, getQuestionsByPath, getNotesByPath, getMcqByPath }

@@ -118,6 +118,21 @@ async function getQuestionsByPath(subjectSlug, chapterSlug, sectionType, classLe
   return listQuestions(section.id)
 }
 
+// ─── Revision Notes for a chapter (notes table, by slugs) ─────────────────────
+// Returns { intro, blocks } for the chapter's revision_notes section, or null.
+async function getNotesByPath(subjectSlug, chapterSlug, classLevel = 11) {
+  const section = await db.sections.findFirst({
+    where: {
+      type_key: 'revision_notes',
+      chapters: { slug: chapterSlug, class_level: classLevel, subjects: { slug: subjectSlug } },
+    },
+  })
+  if (!section) return null
+  const note = await db.notes.findUnique({ where: { section_id: section.id } })
+  if (!note) return null
+  return { intro: note.intro, blocks: Array.isArray(note.blocks) ? note.blocks : [] }
+}
+
 // ─── MCQ questions for a chapter (across all its sections) ────────────────────
 // MCQs aren't a section type of their own — they live inside pyq /
 // important_questions flagged is_mcq. Gather all of them for the chapter.
@@ -141,5 +156,6 @@ module.exports = {
   listSections,
   listQuestions,
   getQuestionsByPath,
+  getNotesByPath,
   getMcqByPath,
 }

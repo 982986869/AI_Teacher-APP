@@ -25,6 +25,12 @@ export const getQuestionsByPath = async (subjectSlug, chapterSlug, sectionType, 
     { params: { class: classLevel } }
   )).data.data;
 
+// Revision Notes for a chapter (DB-backed). Returns { intro, blocks } where
+// blocks = [{ title, html }] — the flashcard-grouped notes the importer stored.
+export const getNotesByPath = async (subjectSlug, chapterSlug, classLevel = 11) =>
+  (await axiosInstance.get(`/api/resources/notes/${subjectSlug}/${chapterSlug}`,
+    { params: { class: classLevel } })).data.data;
+
 // MCQ Practice: real MCQs for a chapter, shaped for McqTestScreen
 // ({ cat, question, options: string[], correct: index }).
 export const getMcqByPath = async (subjectSlug, chapterSlug, classLevel = 11) =>
