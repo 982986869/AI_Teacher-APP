@@ -9,6 +9,7 @@ import { WebView } from 'react-native-webview';
 
 import { getExemplarSolutions, getNcertChapters } from '../api/resourcesApi';
 import { getPhysics12ExemplarHtml } from '../data/physics12Exemplar';
+import { getChemistry12ExemplarHtml } from '../data/chemistry12Exemplar';
 import { getPhysics12Ncert1Html } from '../data/physics12Ncert1';
 import { getPhysics12Ncert2Html } from '../data/physics12Ncert2';
 import { getPhysics12Papers, getPhysics12PaperDoc } from '../data/physics12Papers';
@@ -292,6 +293,27 @@ const SUBJECTS = [
       { name: 'Hydrocarbons' },
       { name: 'Environmental Chemistry' },
     ],
+    chaptersByClass: {
+      'Class 12': [
+        { name: 'Solutions' },
+        { name: 'Electrochemistry' },
+        { name: 'Chemical Kinetics' },
+        { name: 'The d- and f- Block Elements' },
+        { name: 'Coordination Compounds' },
+        { name: 'Haloalkanes and Haloarenes' },
+        { name: 'Alcohols Phenols and Ethers' },
+        { name: 'Aldehydes Ketones and Carboxylic Acids' },
+        { name: 'Amines' },
+        { name: 'Biomolecules' },
+        // Exemplar-only chapters (no revision notes yet).
+        { name: 'Chemistry in Everyday Life' },
+        { name: 'General Principles and Processes of Isolation of Elements' },
+        { name: 'Polymers' },
+        { name: 'Solid State' },
+        { name: 'Some p-Block Elements' },
+        { name: 'Surface Chemistry' },
+      ],
+    },
   },
   {
     name: 'Mathematics', emoji: '📐', bg: '#444',
@@ -640,12 +662,15 @@ const ResourcesScreen = () => {
   // gave ([{ label, questions }]), so the rows render unchanged.
   const [exemplar, setExemplar] = useState({ loading: false, error: null, sections: [] });
   const [exemplarRetry, setExemplarRetry] = useState(0);
-  // Class 12 Physics Exemplar ships locally (full MathJax HTML doc per chapter);
-  // everything else is DB-backed. When local data exists we skip the API entirely.
+  // Class 12 Physics & Chemistry Exemplar ship locally (full MathJax HTML doc per
+  // chapter); everything else is DB-backed. When local data exists we skip the API.
   const localExemplarHtml =
-    activeResType?.type === 'exemplar' && activeChapter &&
-    activeClass === 'Class 12' && activeSubject?.name === 'Physics'
-      ? getPhysics12ExemplarHtml(activeChapter.name)
+    activeResType?.type === 'exemplar' && activeChapter && activeClass === 'Class 12'
+      ? activeSubject?.name === 'Physics'
+        ? getPhysics12ExemplarHtml(activeChapter.name)
+        : activeSubject?.name === 'Chemistry'
+          ? getChemistry12ExemplarHtml(activeChapter.name)
+          : null
       : null;
   const exemplarActive = !!(activeSubject && activeResType?.type === 'exemplar' && activeChapter && showCards && !localExemplarHtml);
 
