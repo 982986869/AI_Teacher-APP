@@ -6,7 +6,7 @@
 //
 //   • ncert1       (questions)  ← src/data/physics12Ncert1/*.json   (8 chapters)
 //   • ncert2       (questions)  ← src/data/physics12Ncert2/*.json   (6 chapters)
-//   • online_test  (questions)  ← src/data/physics12OnlineTests/*.json (14 ch)
+//   • online_test  (questions)  ← extraction pkg Physics_Online_Tests_all.json (14 ch)
 //   • mock tests   (mock_tests + mock_test_questions, class_level=12)
 //   • papers       (papers table — full board paper + answer key HTML)
 //
@@ -25,6 +25,12 @@ const ROOT = path.join(__dirname, '..')
 const DATA = path.join(ROOT, 'src', 'data')
 const LIVE = process.argv.includes('--live')
 const CLASS_LEVEL = 12
+
+// Online-test questions are NOT bundled in the app (the app fetches them from the
+// DB via the API). The seed source is the raw extraction package in the sibling
+// data-extraction repo. Override with ONLINE_TESTS_SRC=<path> if it moves.
+const ONLINE_TESTS_SRC = process.env.ONLINE_TESTS_SRC ||
+  'F:/dataExtraction-Class12/scripts/examin8_output/packages/Physics_Online_Tests/Physics_Online_Tests_all.json'
 
 // Safe id bases (existing mock_tests maxid 243, mock_test_questions maxid ~606k).
 const MOCK_TEST_ID_BASE = 5000
@@ -101,15 +107,23 @@ function collectQuestionSources() {
     }
     return byChapter
   }
+  // Online tests come from the extraction package's single array file
+  // ([{ chapter, tests:[{ questions }] }, …]); flatten each chapter's tests
+  // into one question list. (Not bundled in the app — DB is the runtime source.)
+  const fromOnlineTestsFile = (file) => {
+    const byChapter = {}
+    const arr = fs.existsSync(file) ? loadJson(file) : []
+    for (const c of Array.isArray(arr) ? arr : []) {
+      const qs = (c.tests || []).flatMap((t) => t.questions || [])
+      if (!c.chapter || !qs.length) continue
+      byChapter[alias(c.chapter)] = qs.map((q, i) => mapQuestion(q, i + 1))
+    }
+    return byChapter
+  }
   return [
     { type: 'ncert1', position: 5, byChapter: fromDir(path.join(DATA, 'physics12Ncert1')) },
     { type: 'ncert2', position: 6, byChapter: fromDir(path.join(DATA, 'physics12Ncert2')) },
-    {
-      type: 'online_test', position: 7,
-      // Online-test files wrap questions in tests[]; flatten to one chapter list.
-      byChapter: fromDir(path.join(DATA, 'physics12OnlineTests'),
-        (raw) => (raw.tests || []).flatMap((t) => t.questions || [])),
-    },
+    { type: 'online_test', position: 7, byChapter: fromOnlineTestsFile(ONLINE_TESTS_SRC) },
   ]
 }
 
