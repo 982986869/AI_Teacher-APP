@@ -4,14 +4,14 @@
 // mcqPractice.js, with "Show more" to reveal sub-topic progress. Tapping
 // Start/Continue launches the MCQ test for that chapter.
 
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import {
   View, Text, ScrollView, Pressable, StyleSheet, StatusBar, SafeAreaView, Platform,
 } from 'react-native';
 import { Ionicons } from '@expo/vector-icons';
 import MCQ_DATA, { getMcqSubtopics } from '../data/mcqPractice';
 import { getMcqSubtopics as apiMcqSubtopics } from '../api/mcqPracticeApi';
-import { getPhysics12PracticeChapters, getPhysics12PracticeSubtopics } from '../data/physics12Practice';
+import { getChapters } from '../api/resourcesApi';
 import { getChemistry12PracticeChapters, getChemistry12PracticeSubtopics } from '../data/chemistry12Practice';
 import { useAuth } from '../context/AuthContext';
 
@@ -64,12 +64,10 @@ function ChapterCard({ subject, chapter, classLevel = 11, local = false, localTo
     setOpen((v) => !v);
     if (subtopics == null) {
       if (local) {
-        setSubtopics(
-          subject === 'Chemistry'
-            ? getChemistry12PracticeSubtopics(chapter)
-            : getPhysics12PracticeSubtopics(chapter)
-        );
+        // Local bank (Class 12 Chemistry only).
+        setSubtopics(getChemistry12PracticeSubtopics(chapter));
       } else {
+        // DB-backed (incl. Class 12 Physics, imported at class_level=12).
         apiMcqSubtopics(slugify(subject), slugify(chapter), classLevel)
           .then((list) => setSubtopics(Array.isArray(list) ? list : []))
           .catch(() => setSubtopics([]));
@@ -123,16 +121,28 @@ export default function McqPracticeScreen({ onBack = () => {}, onStartChapter = 
   const { selectedClass } = useAuth();
   const classLevel = classNum(selectedClass);
   const subjMeta = SUBJECTS.find((s) => s.name === subject) || SUBJECTS[0];
-  // Class 12 Physics and Chemistry use their local "Practice Questions" banks
-  // (14 / 10 chapters); every other subject/class keeps the DB-backed MCQ_DATA.
+  // Class 12 Physics practice is DB-backed (imported at class_level=12) → fetch
+  // its chapters from the API. Class 12 Chemistry still uses its local bank.
+  // Every other subject/class keeps the DB-backed MCQ_DATA static bank.
   const isPhys12 = subject === 'Physics' && classLevel === 12;
   const isChem12 = subject === 'Chemistry' && classLevel === 12;
-  const localChapters = isPhys12
-    ? getPhysics12PracticeChapters()
-    : isChem12
-      ? getChemistry12PracticeChapters()
-      : null;
-  const chapters = localChapters ? localChapters.map((c) => c.name) : Object.keys(MCQ_DATA[subject] || {});
+  const localChapters = isChem12 ? getChemistry12PracticeChapters() : null;
+  const [apiChapters, setApiChapters] = useState(null); // null = loading
+  useEffect(() => {
+    if (!isPhys12) { setApiChapters(null); return undefined; }
+    let alive = true;
+    setApiChapters(null);
+    getChapters('physics', undefined, 12)
+      .then((chs) => { if (alive) setApiChapters((chs || []).map((c) => c.name)); })
+      .catch(() => { if (alive) setApiChapters([]); });
+    return () => { alive = false; };
+  }, [isPhys12]);
+  const chaptersLoading = isPhys12 && apiChapters == null;
+  const chapters = isPhys12
+    ? (apiChapters || [])
+    : localChapters
+      ? localChapters.map((c) => c.name)
+      : Object.keys(MCQ_DATA[subject] || {});
 
   return (
     <SafeAreaView style={st.safe}>
@@ -175,12 +185,18 @@ export default function McqPracticeScreen({ onBack = () => {}, onStartChapter = 
           </View>
         )}
 
-        {chapters.map((ch) => (
-          <ChapterCard key={ch} subject={subject} chapter={ch} classLevel={classLevel}
-            local={!!localChapters}
-            localTotal={localChapters ? (localChapters.find((c) => c.name === ch) || {}).total || 0 : 0}
-            onStart={onStartChapter} onStartSubtopic={onStartSubtopic} />
-        ))}
+        {chaptersLoading ? (
+          <Text style={st.subMeta}>Loading chapters…</Text>
+        ) : chapters.length === 0 ? (
+          <Text style={st.subMeta}>No chapters available yet.</Text>
+        ) : (
+          chapters.map((ch) => (
+            <ChapterCard key={ch} subject={subject} chapter={ch} classLevel={classLevel}
+              local={!!localChapters}
+              localTotal={localChapters ? (localChapters.find((c) => c.name === ch) || {}).total || 0 : 0}
+              onStart={onStartChapter} onStartSubtopic={onStartSubtopic} />
+          ))
+        )}
         <View style={{ height: 24 }} />
       </ScrollView>
     </SafeAreaView>

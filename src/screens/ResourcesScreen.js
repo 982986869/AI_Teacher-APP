@@ -7,9 +7,8 @@ import * as Print from 'expo-print';
 import * as Sharing from 'expo-sharing';
 import { WebView } from 'react-native-webview';
 
-import { getExemplarSolutions, getNcertChapters, getQuestionsByPath, getNotesByPath } from '../api/resourcesApi';
+import { getExemplarSolutions, getNcertChapters, getChapters, getQuestionsByPath, getNotesByPath } from '../api/resourcesApi';
 import { buildFragmentFromQuestions, buildPyqDocument } from '../utils/pyqDocument';
-import { getChemistry12ExemplarHtml } from '../data/chemistry12Exemplar';
 import { getChemistry12Ncert1Html } from '../data/chemistry12Ncert1';
 import { getChemistry12Ncert2Html } from '../data/chemistry12Ncert2';
 import { getChemistry12Papers, getChemistry12PaperDoc } from '../data/chemistry12Papers';
@@ -754,16 +753,17 @@ const ResourcesScreen = () => {
   // gave ([{ label, questions }]), so the rows render unchanged.
   const [exemplar, setExemplar] = useState({ loading: false, error: null, sections: [] });
   const [exemplarRetry, setExemplarRetry] = useState(0);
-  // Class 12 Physics Exemplar comes from the DB too (questions table,
+  // Class 12 Physics & Chemistry Exemplar come from the DB (questions table,
   // type_key='exemplar_notes') — rendered as MathJax cards in a WebView, just
   // like PYQ/Important. Everything else uses the section-list endpoint below.
-  const isPhysics12Exemplar = !!(
+  const isClass12Exemplar = !!(
     activeResType?.type === 'exemplar' && activeChapter && showCards &&
-    activeClass === 'Class 12' && activeSubject?.name === 'Physics'
+    activeClass === 'Class 12' &&
+    (activeSubject?.name === 'Physics' || activeSubject?.name === 'Chemistry')
   );
   const [phy12Exemplar, setPhy12Exemplar] = useState({ loading: false, error: null, html: '' });
   useEffect(() => {
-    if (!isPhysics12Exemplar) return undefined;
+    if (!isClass12Exemplar) return undefined;
     let alive = true;
     setPhy12Exemplar({ loading: true, error: null, html: '' });
     getQuestionsByPath(slugify(activeSubject.name), slugify(activeChapter.name), 'exemplar_notes', 12)
@@ -775,15 +775,7 @@ const ResourcesScreen = () => {
       .catch((e) => { if (alive) setPhy12Exemplar({ loading: false, error: e?.response?.data?.error || e?.message || 'Could not load exemplar.', html: '' }); });
     return () => { alive = false; };
     // eslint-disable-next-line react-hooks/exhaustive-deps
-  }, [isPhysics12Exemplar, activeSubject?.name, activeChapter?.name, exemplarRetry]);
-
-  // Class 12 Chemistry Exemplar ships locally (full MathJax HTML doc per chapter,
-  // built from src/data/chemistry12Exemplar) — rendered in a WebView like the
-  // Physics DB path. When local data exists we skip the section-list API.
-  const chem12ExemplarHtml = (
-    activeResType?.type === 'exemplar' && activeChapter && showCards &&
-    activeClass === 'Class 12' && activeSubject?.name === 'Chemistry'
-  ) ? getChemistry12ExemplarHtml(activeChapter.name) : null;
+  }, [isClass12Exemplar, activeSubject?.name, activeChapter?.name, exemplarRetry]);
 
   // Class 12 Chemistry NCERT Solutions Part-I also ship locally (full MathJax HTML
   // doc per chapter, built from src/data/chemistry12Ncert1) — rendered in a WebView
@@ -799,7 +791,7 @@ const ResourcesScreen = () => {
     activeClass === 'Class 12' && activeSubject?.name === 'Chemistry'
   ) ? getChemistry12Ncert2Html(activeChapter.name) : null;
 
-  const exemplarActive = !!(activeSubject && activeResType?.type === 'exemplar' && activeChapter && showCards && !isPhysics12Exemplar && !chem12ExemplarHtml);
+  const exemplarActive = !!(activeSubject && activeResType?.type === 'exemplar' && activeChapter && showCards && !isClass12Exemplar);
 
   // Class 12 Physics NCERT Part-I & Part-II come from the DB too (questions table,
   // type_key='ncert1'/'ncert2') — rendered as MathJax cards in a WebView, exactly
@@ -900,13 +892,34 @@ const ResourcesScreen = () => {
     // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [ncert2ListActive, activeSubject?.name, activeClass]);
 
-  // Class 12 Physics Revision Notes are DB-backed (notes table, by chapter slug).
-  // The API returns { intro, blocks:[{title,html}] }; ChapterNotesScreen wants
-  // { intro, sections:[{title,html}] } with $…$ math, so map blocks→sections and
-  // convert {tex} delimiters (matching the old static Physics12Notes output).
+  // Class 12 Physics/Chemistry Revision Notes: not every chapter has notes (e.g.
+  // Chemistry's exemplar-only chapters). Fetch the chapters that actually have a
+  // `revision_notes` section so the chapter list hides the rest.
+  const [notesAvail, setNotesAvail] = useState({ loading: false, chapters: null });
+  const notesListActive = !!(
+    activeSubject && activeResType?.type === 'notes' && !activeChapter &&
+    activeClass === 'Class 12' &&
+    (activeSubject?.name === 'Physics' || activeSubject?.name === 'Chemistry')
+  );
+  useEffect(() => {
+    if (!notesListActive) { setNotesAvail({ loading: false, chapters: null }); return undefined; }
+    let alive = true;
+    setNotesAvail({ loading: true, chapters: null });
+    getChapters(slugify(activeSubject.name), 'revision_notes', 12)
+      .then((chs) => { if (alive) setNotesAvail({ loading: false, chapters: (chs || []).map((c) => c.name) }); })
+      .catch(() => { if (alive) setNotesAvail({ loading: false, chapters: [] }); });
+    return () => { alive = false; };
+    // eslint-disable-next-line react-hooks/exhaustive-deps
+  }, [notesListActive, activeSubject?.name]);
+
+  // Class 12 Physics & Chemistry Revision Notes are DB-backed (notes table, by
+  // chapter slug). The API returns { intro, blocks:[{title,html}] };
+  // ChapterNotesScreen wants { intro, sections:[{title,html}] } with $…$ math, so
+  // map blocks→sections and convert {tex} delimiters.
   const isPhysics12Notes = !!(
     activeSubject && activeResType && activeChapter && showNotes &&
-    activeClass === 'Class 12' && activeSubject?.name === 'Physics'
+    activeClass === 'Class 12' &&
+    (activeSubject?.name === 'Physics' || activeSubject?.name === 'Chemistry')
   );
   const [phy12Notes, setPhy12Notes] = useState({ loading: false, error: null, notes: null });
   useEffect(() => {
@@ -970,7 +983,7 @@ const ResourcesScreen = () => {
   }
 
   // ── LEVEL 4 (DB): Class 12 Physics Exemplar — MathJax cards in a WebView ─────
-  if (isPhysics12Exemplar) {
+  if (isClass12Exemplar) {
     return (
       <SafeAreaView style={s.safe}>
         <StatusBar barStyle="dark-content" backgroundColor="#fff" />
@@ -1012,31 +1025,6 @@ const ResourcesScreen = () => {
             androidLayerType={Platform.OS === 'android' ? 'hardware' : undefined}
           />
         )}
-      </SafeAreaView>
-    );
-  }
-
-  // ── LEVEL 4 (local): Class 12 Chemistry Exemplar — MathJax cards in a WebView ─
-  if (chem12ExemplarHtml) {
-    return (
-      <SafeAreaView style={s.safe}>
-        <StatusBar barStyle="dark-content" backgroundColor="#fff" />
-        {Platform.OS === 'android' && <View style={{ height: 24, backgroundColor: '#fff' }} />}
-        <BackHeader onBack={() => setShowCards(false)} />
-        <Breadcrumb parts={['Home', activeClass, activeSubject.name, activeResType.name, activeChapter.name]} />
-        <View style={s.pageTitleWrap}>
-          <Text style={s.pageTitle}>{activeChapter.name}</Text>
-          <Text style={s.pageSub}>NCERT Exemplar · Chapter-end</Text>
-        </View>
-        <WebView
-          originWhitelist={['*']}
-          source={{ html: chem12ExemplarHtml }}
-          style={{ flex: 1, backgroundColor: '#F4F4F5' }}
-          javaScriptEnabled
-          domStorageEnabled
-          mixedContentMode="always"
-          androidLayerType={Platform.OS === 'android' ? 'hardware' : undefined}
-        />
       </SafeAreaView>
     );
   }
@@ -1366,10 +1354,14 @@ const ResourcesScreen = () => {
     const subjectChapters =
       (activeSubject.chaptersByClass && activeSubject.chaptersByClass[activeClass]) ||
       activeSubject.chapters;
+    // Revision Notes (Class 12 Physics/Chemistry): hide chapters with no notes.
+    const isNotesList = activeResType?.type === 'notes' && Array.isArray(notesAvail.chapters);
     const chaptersToShow =
       isNcert2 && ncert2.chapters.length > 0
         ? subjectChapters.filter((c) => ncert2.chapters.includes(c.name))
-        : subjectChapters;
+        : isNotesList
+          ? subjectChapters.filter((c) => notesAvail.chapters.some((n) => slugify(n) === slugify(c.name)))
+          : subjectChapters;
     return (
       <SafeAreaView style={s.safe}>
         <StatusBar barStyle="dark-content" backgroundColor="#fff" />
@@ -1382,12 +1374,12 @@ const ResourcesScreen = () => {
           <Text style={s.boardLabel}>{activeSubject.name} Chapters</Text>
         </View>
         <ScrollView contentContainerStyle={{ padding: 16, gap: 10, paddingBottom: 32 }}>
-          {isNcert2 && ncert2.loading ? (
+          {(isNcert2 && ncert2.loading) || notesAvail.loading ? (
             <View style={{ paddingVertical: 48, alignItems: 'center', gap: 12 }}>
               <ActivityIndicator size="large" color="#1f8a93" />
               <Text style={{ color: '#64748b', fontSize: 13 }}>Loading chapters…</Text>
             </View>
-          ) : isNcert2 && chaptersToShow.length === 0 ? (
+          ) : (isNcert2 || isNotesList) && chaptersToShow.length === 0 ? (
             <View style={{ paddingVertical: 48, alignItems: 'center' }}>
               <Text style={{ color: '#94a3b8', fontSize: 14 }}>No chapters available yet.</Text>
             </View>

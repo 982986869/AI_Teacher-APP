@@ -5,7 +5,6 @@
 import PhysicsNotes     from './PhysicsNotes';
 import Physics12Notes   from './Physics12Notes';
 import ChemistryNotes   from './ChemistryNotes';
-import Chemistry12Notes from './Chemistry12Notes';
 import MathsNotes       from './MathsNotes';
 import BiologyNotes     from './BiologyNotes';
 
@@ -13,7 +12,7 @@ const NOTES_MAP = {
   // Class 11 + Class 12 notes share one map per subject; chapter names are unique
   // across classes, so they merge without collision.
   'Physics':     { ...PhysicsNotes, ...Physics12Notes },
-  'Chemistry':   { ...ChemistryNotes, ...Chemistry12Notes },
+  'Chemistry':   { ...ChemistryNotes }, // Class 12 Chemistry notes are DB-backed
   'Mathematics': MathsNotes,
   'Biology':     BiologyNotes,
 };
