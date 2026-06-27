@@ -11,6 +11,8 @@ import {
 import { Ionicons } from '@expo/vector-icons';
 import MCQ_DATA, { getMcqSubtopics } from '../data/mcqPractice';
 import { getMcqSubtopics as apiMcqSubtopics } from '../api/mcqPracticeApi';
+import { getPhysics12PracticeChapters, getPhysics12PracticeSubtopics } from '../data/physics12Practice';
+import { getChemistry12PracticeChapters, getChemistry12PracticeSubtopics } from '../data/chemistry12Practice';
 import { useAuth } from '../context/AuthContext';
 
 const slugify = (s) =>
@@ -50,19 +52,28 @@ function ProgressBar({ answered, total, score }) {
   );
 }
 
-function ChapterCard({ subject, chapter, classLevel = 11, onStart, onStartSubtopic }) {
+function ChapterCard({ subject, chapter, classLevel = 11, local = false, localTotal = 0, onStart, onStartSubtopic }) {
   const [open, setOpen] = useState(false);
-  const [subtopics, setSubtopics] = useState(null); // API: [{ id, name, questionCount }] | null
+  const [subtopics, setSubtopics] = useState(null); // [{ id, name, questionCount }] | null
   const data = (MCQ_DATA[subject] && MCQ_DATA[subject][chapter]) || {};
-  const p = data.progress || { answered: 0, total: 50, score: 0 };
+  // Local (Class 12 Physics) chapters have no stored attempt progress yet.
+  const p = local ? { answered: 0, total: localTotal, score: 0 } : (data.progress || { answered: 0, total: 50, score: 0 });
   const started = p.answered > 0;
 
   const toggle = () => {
     setOpen((v) => !v);
     if (subtopics == null) {
-      apiMcqSubtopics(slugify(subject), slugify(chapter), classLevel)
-        .then((list) => setSubtopics(Array.isArray(list) ? list : []))
-        .catch(() => setSubtopics([]));
+      if (local) {
+        setSubtopics(
+          subject === 'Chemistry'
+            ? getChemistry12PracticeSubtopics(chapter)
+            : getPhysics12PracticeSubtopics(chapter)
+        );
+      } else {
+        apiMcqSubtopics(slugify(subject), slugify(chapter), classLevel)
+          .then((list) => setSubtopics(Array.isArray(list) ? list : []))
+          .catch(() => setSubtopics([]));
+      }
     }
   };
 
@@ -112,7 +123,16 @@ export default function McqPracticeScreen({ onBack = () => {}, onStartChapter = 
   const { selectedClass } = useAuth();
   const classLevel = classNum(selectedClass);
   const subjMeta = SUBJECTS.find((s) => s.name === subject) || SUBJECTS[0];
-  const chapters = Object.keys(MCQ_DATA[subject] || {});
+  // Class 12 Physics and Chemistry use their local "Practice Questions" banks
+  // (14 / 10 chapters); every other subject/class keeps the DB-backed MCQ_DATA.
+  const isPhys12 = subject === 'Physics' && classLevel === 12;
+  const isChem12 = subject === 'Chemistry' && classLevel === 12;
+  const localChapters = isPhys12
+    ? getPhysics12PracticeChapters()
+    : isChem12
+      ? getChemistry12PracticeChapters()
+      : null;
+  const chapters = localChapters ? localChapters.map((c) => c.name) : Object.keys(MCQ_DATA[subject] || {});
 
   return (
     <SafeAreaView style={st.safe}>
@@ -157,6 +177,8 @@ export default function McqPracticeScreen({ onBack = () => {}, onStartChapter = 
 
         {chapters.map((ch) => (
           <ChapterCard key={ch} subject={subject} chapter={ch} classLevel={classLevel}
+            local={!!localChapters}
+            localTotal={localChapters ? (localChapters.find((c) => c.name === ch) || {}).total || 0 : 0}
             onStart={onStartChapter} onStartSubtopic={onStartSubtopic} />
         ))}
         <View style={{ height: 24 }} />

@@ -6,6 +6,8 @@ import { WebView } from 'react-native-webview';
 import { getQuestionsByPath, getChapters } from '../api/resourcesApi';
 import { buildFragmentFromQuestions, buildPyqDocument } from '../utils/pyqDocument';
 import { getMcqChapterTest, getMcqSubtopicTest } from '../api/mcqPracticeApi';
+import { getPhysics12PracticeTest, isLocalPracticeId } from '../data/physics12Practice';
+import { getChemistry12PracticeTest, isLocalChem12PracticeId } from '../data/chemistry12Practice';
 import { getChemistry12ImportantHtml, getChemistry12ImportantChapters } from '../data/chemistry12Important';
 import { getChemistry12PyqHtml, getChemistry12PyqChapters } from '../data/chemistry12Pyq';
 import { getChemistry12MockList, getChemistry12MockQuestions, isLocalChem12MockId } from '../data/chemistry12MockTests';
@@ -395,6 +397,18 @@ const McqLoader = ({ subject, chapter, subtopicId, onExit }) => {
   useEffect(() => {
     let alive = true;
     setState({ loading: true, questions: null });
+    // Class 12 Physics / Chemistry practice questions are bundled locally (no API).
+    if (isLocalPracticeId(subtopicId) || isLocalChem12PracticeId(subtopicId)) {
+      const data = isLocalChem12PracticeId(subtopicId)
+        ? getChemistry12PracticeTest(subtopicId)
+        : getPhysics12PracticeTest(subtopicId);
+      setState({
+        loading: false,
+        questions: (data && data.questions) || [],
+        subtopicName: data && data.subtopic && data.subtopic.name,
+      });
+      return () => { alive = false; };
+    }
     // Subtopic selected → that subtopic's questions; else the whole chapter.
     const req = subtopicId != null
       ? getMcqSubtopicTest(subtopicId)
