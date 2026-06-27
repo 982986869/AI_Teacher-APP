@@ -8,6 +8,9 @@ const {
   getSections,
   getQuestions,
   getQuestionsByPath,
+  getNotesByPath,
+  listPapers,
+  getPaper,
   getMcqByPath,
 } = require('../controllers/resources.controller')
 const { getExemplar } = require('../controllers/exemplar.controller')
@@ -27,8 +30,15 @@ router.get('/sections/:sectionId/questions',     getQuestions)
 // ─── Convenience: questions straight from slugs (matches the UI flow) ──────────
 router.get('/content/:subjectSlug/:chapterSlug/:sectionType', getQuestionsByPath)
 
+// ─── Revision Notes for a chapter (notes table; ?class=) ───────────────────────
+router.get('/notes/:subjectSlug/:chapterSlug', getNotesByPath)
+
 // ─── MCQ Practice: all MCQs for a chapter, ready for the test screen ───────────
 router.get('/mcq/:subjectSlug/:chapterSlug', getMcqByPath)
+
+// ─── Last Year Papers (papers table; ?class=) ──────────────────────────────────
+router.get('/papers/:subjectSlug', listPapers)            // list (metadata)
+router.get('/paper/:subjectSlug', getPaper)               // one paper: ?code=55/1/1
 
 // ─── Exemplar Solutions (DB-backed; ?subject=&class=&chapter=) ─────────────────
 router.get('/exemplar', getExemplar)

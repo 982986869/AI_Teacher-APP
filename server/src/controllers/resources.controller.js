@@ -41,6 +41,15 @@ async function getQuestionsByPath(req, res, next) {
   } catch (err) { next(err) }
 }
 
+async function getNotesByPath(req, res, next) {
+  try {
+    const { subjectSlug, chapterSlug } = req.params
+    const data = await svc.getNotesByPath(subjectSlug, chapterSlug, classOf(req))
+    if (!data) return ApiResponse.error(res, 'Notes not found', 404)
+    return ApiResponse.success(res, data)
+  } catch (err) { next(err) }
+}
+
 async function getMcqByPath(req, res, next) {
   try {
     const { subjectSlug, chapterSlug } = req.params
@@ -50,4 +59,22 @@ async function getMcqByPath(req, res, next) {
   } catch (err) { next(err) }
 }
 
-module.exports = { getSubjects, getChapters, getSections, getQuestions, getQuestionsByPath, getMcqByPath }
+// GET /api/resources/papers/:subjectSlug?class=12  → [{ code, year, setLabel, name }]
+async function listPapers(req, res, next) {
+  try {
+    return ApiResponse.success(res, await svc.listPapers(req.params.subjectSlug, classOf(req)))
+  } catch (err) { next(err) }
+}
+
+// GET /api/resources/paper/:subjectSlug?class=12&code=55/1/1  → one paper (both HTMLs)
+// code is a query param so its slashes don't break route matching.
+async function getPaper(req, res, next) {
+  try {
+    const code = String(req.query.code || '')
+    const data = await svc.getPaper(req.params.subjectSlug, classOf(req), code)
+    if (!data) return ApiResponse.error(res, 'Paper not found', 404)
+    return ApiResponse.success(res, data)
+  } catch (err) { next(err) }
+}
+
+module.exports = { getSubjects, getChapters, getSections, getQuestions, getQuestionsByPath, getNotesByPath, listPapers, getPaper, getMcqByPath }

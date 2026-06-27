@@ -10,20 +10,23 @@ function parseId(raw) {
   return id
 }
 
-// GET /api/mock-tests?subject=Physics
+// Class/grade from ?class=12 (9–12). Defaults to 11 for back-compat.
+const classOf = (req) => parseInt(req.query.class, 10) || 11
+
+// GET /api/mock-tests?subject=Physics&class=12
 async function listTests(req, res, next) {
   try {
     const subject = req.query.subject ? String(req.query.subject) : undefined
-    const tests = await mockTestService.listTests({ subject })
+    const tests = await mockTestService.listTests({ subject, classLevel: classOf(req) })
     return ApiResponse.success(res, { tests, total: tests.length })
   } catch (err) { next(err) }
 }
 
-// GET /api/mock-tests/attempts?subject=Physics  → per-test best-score summary for the user
+// GET /api/mock-tests/attempts?subject=Physics&class=12  → per-test best-score summary
 async function getAttempts(req, res, next) {
   try {
     const subject = req.query.subject ? String(req.query.subject) : undefined
-    const attempts = await mockTestService.listAttempts({ subject, userId: req.user && req.user.id })
+    const attempts = await mockTestService.listAttempts({ subject, userId: req.user && req.user.id, classLevel: classOf(req) })
     return ApiResponse.success(res, { attempts })
   } catch (err) { next(err) }
 }

@@ -11,7 +11,9 @@ const { AppError } = require('../middleware/errorHandler')
 const POINTS_PER_CORRECT = 1
 const NEGATIVE = 0
 
-async function listTests({ subject } = {}) {
+// classLevel (9–12) separates Class 12 mocks from the original Class 11 rows;
+// defaults to 11 for back-compat (the column defaults existing rows to 11).
+async function listTests({ subject, classLevel = 11 } = {}) {
   return db.$queryRawUnsafe(
     `SELECT id, subject, name,
             category_full_name AS "categoryFullName",
@@ -20,9 +22,9 @@ async function listTests({ subject } = {}) {
             section_count      AS "sectionCount",
             question_count     AS "questionCount"
        FROM mock_tests
-      WHERE ($1::text IS NULL OR subject = $1)
+      WHERE ($1::text IS NULL OR subject = $1) AND class_level = $2
       ORDER BY id`,
-    subject || null,
+    subject || null, classLevel,
   )
 }
 
@@ -109,16 +111,16 @@ async function getQuestions(id) {
 
 // Per-test attempt summary for a user (best score), optionally filtered by subject.
 // Used to show "Attempted · Score x/total" in the mock-test list.
-async function listAttempts({ subject, userId }) {
+async function listAttempts({ subject, userId, classLevel = 11 }) {
   if (!userId) return []
   return db.$queryRawUnsafe(
     `SELECT a.test_id AS "testId", count(*)::int AS attempts,
             max(a.score)::int AS "bestScore", max(a.total)::int AS total
        FROM mock_test_attempts a
        JOIN mock_tests t ON t.id = a.test_id
-      WHERE a.user_id = $1::uuid AND ($2::text IS NULL OR t.subject = $2)
+      WHERE a.user_id = $1::uuid AND ($2::text IS NULL OR t.subject = $2) AND t.class_level = $3
       GROUP BY a.test_id`,
-    userId, subject || null,
+    userId, subject || null, classLevel,
   )
 }
 

@@ -25,6 +25,23 @@ export const getQuestionsByPath = async (subjectSlug, chapterSlug, sectionType, 
     { params: { class: classLevel } }
   )).data.data;
 
+// Revision Notes for a chapter (DB-backed). Returns { intro, blocks } where
+// blocks = [{ title, html }] — the flashcard-grouped notes the importer stored.
+export const getNotesByPath = async (subjectSlug, chapterSlug, classLevel = 11) =>
+  (await axiosInstance.get(`/api/resources/notes/${subjectSlug}/${chapterSlug}`,
+    { params: { class: classLevel } })).data.data;
+
+// Last Year Papers (DB-backed). List returns [{ code, year, setLabel, name }];
+// getPaper returns one paper's { code, year, setLabel, name, questionPaperHtml,
+// answerKeyHtml }. code carries slashes (55/1/1) so it goes as a query param.
+export const getPapers = async (subjectSlug, classLevel = 12) =>
+  (await axiosInstance.get(`/api/resources/papers/${subjectSlug}`,
+    { params: { class: classLevel } })).data.data;
+
+export const getPaper = async (subjectSlug, code, classLevel = 12) =>
+  (await axiosInstance.get(`/api/resources/paper/${subjectSlug}`,
+    { params: { class: classLevel, code } })).data.data;
+
 // MCQ Practice: real MCQs for a chapter, shaped for McqTestScreen
 // ({ cat, question, options: string[], correct: index }).
 export const getMcqByPath = async (subjectSlug, chapterSlug, classLevel = 11) =>
