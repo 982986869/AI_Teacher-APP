@@ -6,6 +6,9 @@ import { WebView } from 'react-native-webview';
 import { getQuestionsByPath, getChapters } from '../api/resourcesApi';
 import { buildFragmentFromQuestions, buildPyqDocument } from '../utils/pyqDocument';
 import { getMcqChapterTest, getMcqSubtopicTest } from '../api/mcqPracticeApi';
+import { getChemistry12ImportantHtml, getChemistry12ImportantChapters } from '../data/chemistry12Important';
+import { getChemistry12PyqHtml, getChemistry12PyqChapters } from '../data/chemistry12Pyq';
+import { getChemistry12MockList, getChemistry12MockQuestions, isLocalChem12MockId } from '../data/chemistry12MockTests';
 import McqTestScreen from './McqTestScreen';
 import McqQuizScreen from './McqQuizScreen';
 import McqPracticeScreen from './McqPracticeScreen';
@@ -176,32 +179,45 @@ const PHYSICS12_IMP_CHAPTERS = [
   'Electronic Devices',
 ];
 
+// Class 12 Chemistry Important-Questions chapters (NCERT order). Unlike Physics
+// (DB/API-backed), these ship locally in src/data/chemistry12Important — the
+// chapter list comes straight from that bundled data so the two stay in sync.
+const CHEMISTRY12_IMP_CHAPTERS = getChemistry12ImportantChapters();
+
+// Class 12 Chemistry Previous-Year-Question chapters (NCERT order). Like the
+// Important set (and unlike Physics, which is DB/API-backed), these ship locally
+// in src/data/chemistry12Pyq — the chapter list comes straight from that bundled
+// data so the two stay in sync.
+const CHEMISTRY12_PYQ_CHAPTERS = getChemistry12PyqChapters();
+
 // Important-Questions subject list for the chosen class. Class 11 keeps the
-// API-backed PYQ_SUBJECTS. Class 12 swaps Physics for its 14 chapters (also
-// API-backed now — data lives in the DB at class_level=12) and marks the other
-// subjects "coming soon" so they don't hit the API with Class-11 chapter names.
+// API-backed PYQ_SUBJECTS. Class 12 swaps Physics for its 14 chapters (API-backed,
+// data in the DB at class_level=12) and Chemistry for its 10 chapters (bundled
+// locally); the other subjects are marked "coming soon" so they don't hit the
+// API with Class-11 chapter names.
 const impSubjectsForClass = (cls) => {
   if (cls === 'Class 12') {
-    return PYQ_SUBJECTS.map((sub) =>
-      sub.name === 'Physics'
-        ? { ...sub, chapters: PHYSICS12_IMP_CHAPTERS }
-        : { ...sub, chapters: [], comingSoon: true }
-    );
+    return PYQ_SUBJECTS.map((sub) => {
+      if (sub.name === 'Physics') return { ...sub, chapters: PHYSICS12_IMP_CHAPTERS };
+      if (sub.name === 'Chemistry') return { ...sub, chapters: CHEMISTRY12_IMP_CHAPTERS };
+      return { ...sub, chapters: [], comingSoon: true };
+    });
   }
   return PYQ_SUBJECTS;
 };
 
 // Previous-Year-Questions subject list for the chosen class. Class 11 keeps the
 // API-backed PYQ_SUBJECTS. Class 12 swaps Physics for its 14 chapters (API-backed
-// too) — chapter availability comes from the API — and marks the other subjects
-// "coming soon" so they don't hit the API with Class-11 chapter names.
+// too — chapter availability comes from the API) and Chemistry for its 10 chapters
+// (bundled locally); the other subjects are marked "coming soon" so they don't hit
+// the API with Class-11 chapter names.
 const pyqSubjectsForClass = (cls) => {
   if (cls === 'Class 12') {
-    return PYQ_SUBJECTS.map((sub) =>
-      sub.name === 'Physics'
-        ? { ...sub, chapters: PHYSICS12_IMP_CHAPTERS }
-        : { ...sub, chapters: [], comingSoon: true }
-    );
+    return PYQ_SUBJECTS.map((sub) => {
+      if (sub.name === 'Physics') return { ...sub, chapters: PHYSICS12_IMP_CHAPTERS };
+      if (sub.name === 'Chemistry') return { ...sub, chapters: CHEMISTRY12_PYQ_CHAPTERS };
+      return { ...sub, chapters: [], comingSoon: true };
+    });
   }
   return PYQ_SUBJECTS;
 };
@@ -465,8 +481,29 @@ const PracticeScreen = () => {
     return () => navigation.setOptions({ tabBarStyle: undefined });
   }, [physMock, navigation]);
 
+  // Mock lists/attempts are keyed by subject only, but differ by class (Class 11
+  // is DB-backed; Class 12 Chemistry is local). Clear the cache and collapse any
+  // open section when the class changes so the right source loads on next open.
+  useEffect(() => {
+    setMockData({});
+    setMockOpenSub(null);
+  }, [selectedClass]);
+
+  // True when this subject's mocks ship locally (Class 12 Chemistry) rather than
+  // from the DB — mirrors how the rest of Class 12 Chemistry content is bundled.
+  const isLocalChem12Mock = (subject) =>
+    subject === 'Chemistry' && classNum(selectedClass) === 12;
+
   // Fetch the DB mock-test list + this user's attempt summary for a subject.
   const loadSubjectTests = async (subject) => {
+    // Class 12 Chemistry ships its mocks locally — no API, no attempt tracking.
+    if (isLocalChem12Mock(subject)) {
+      setMockData(prev => ({
+        ...prev,
+        [subject]: { loading: false, error: '', tests: getChemistry12MockList(), attempts: {} },
+      }));
+      return;
+    }
     const classLevel = classNum(selectedClass);
     setMockData(prev => ({
       ...prev,
@@ -502,8 +539,20 @@ const PracticeScreen = () => {
     if (willOpen && DB_MOCK_SUBJECTS.includes(subjectName) && !mockData[subjectName]) loadSubjectTests(subjectName);
   };
 
-  // Launch a DB-backed test (we already have the test object from the list).
+  // Launch a test. Class 12 Chemistry mocks are bundled locally (no API call);
+  // everything else fetches the questions from the DB.
   const startDbMock = (subject, test) => {
+    if (isLocalChem12MockId(test.id)) {
+      const data = getChemistry12MockQuestions(test.id);
+      setPhysMock({
+        subject, label: test.name, testId: test.id, status: 'ready',
+        questions: (data && data.questions) || [],
+        sections: (data && data.sections) || [],
+        durationMin: test.durationMin || 90,
+        name: test.name,
+      });
+      return;
+    }
     setPhysMock({ subject, label: test.name, testId: test.id, status: 'loading' });
     getMockTestQuestions(test.id)
       .then((data) => setPhysMock({
@@ -534,7 +583,8 @@ const PracticeScreen = () => {
   const closePhysMock = () => {
     const sub = physMock && physMock.subject;
     setPhysMock(null);
-    if (sub && DB_MOCK_SUBJECTS.includes(sub)) refreshAttempts(sub);
+    // Local Class 12 Chemistry mocks have no server-side attempt summary to refresh.
+    if (sub && DB_MOCK_SUBJECTS.includes(sub) && !isLocalChem12Mock(sub)) refreshAttempts(sub);
   };
 
   // Leaving the Practice tab resets all sub-navigation so it opens fresh next
@@ -564,6 +614,10 @@ const PracticeScreen = () => {
         <PyqWebView
           subject={pyqSubject.name}
           chapter={pyqChapter}
+          // Class 12 Chemistry ships locally; everything else fetches from the API.
+          html={selectedClass === 'Class 12' && pyqSubject.name === 'Chemistry'
+            ? getChemistry12PyqHtml(pyqChapter)
+            : undefined}
         />
       </SafeAreaView>
     );
@@ -571,9 +625,15 @@ const PracticeScreen = () => {
 
   // ── PYQ LEVEL 2: Chapter list for the chosen subject ────────────────────────
   if (pyqOpen && pyqSubject) {
-    // "Coming soon" subjects pass an empty set so none show as available;
-    // everything else (incl. Class 12 Physics) queries the API for availability.
-    const localChapters = pyqSubject.comingSoon ? new Set() : null;
+    // "Coming soon" subjects pass an empty set so none show as available; Class 12
+    // Chemistry is bundled locally so its availability is known up front; everything
+    // else (incl. Class 12 Physics) queries the API for availability.
+    const isChem12Pyq = selectedClass === 'Class 12' && pyqSubject.name === 'Chemistry';
+    const localChapters = pyqSubject.comingSoon
+      ? new Set()
+      : isChem12Pyq
+        ? new Set(getChemistry12PyqChapters().map((c) => slugify(c)))
+        : null;
     return (
       <ChapterList
         subject={pyqSubject}
@@ -632,6 +692,10 @@ const PracticeScreen = () => {
           subject={impSubject.name}
           chapter={impChapter}
           sectionType="important_questions"
+          // Class 12 Chemistry ships locally; everything else fetches from the API.
+          html={selectedClass === 'Class 12' && impSubject.name === 'Chemistry'
+            ? getChemistry12ImportantHtml(impChapter)
+            : undefined}
         />
       </SafeAreaView>
     );
@@ -639,9 +703,15 @@ const PracticeScreen = () => {
 
   // ── IMPORTANT QUESTIONS LEVEL 2: Chapter list for the chosen subject ─────────
   if (impOpen && impSubject) {
-    // "Coming soon" subjects pass an empty set so none show as available;
-    // everything else (incl. Class 12 Physics) queries the API for availability.
-    const localChapters = impSubject.comingSoon ? new Set() : null;
+    // "Coming soon" subjects pass an empty set so none show as available; Class 12
+    // Chemistry is bundled locally so its availability is known up front; everything
+    // else (incl. Class 12 Physics) queries the API for availability.
+    const isChem12Imp = selectedClass === 'Class 12' && impSubject.name === 'Chemistry';
+    const localChapters = impSubject.comingSoon
+      ? new Set()
+      : isChem12Imp
+        ? new Set(getChemistry12ImportantChapters().map((c) => slugify(c)))
+        : null;
     return (
       <ChapterList
         subject={impSubject}
@@ -774,7 +844,10 @@ const PracticeScreen = () => {
         onExit={closePhysMock}
         onSubmit={(payload) => {
           // Persist the attempt to the DB (scored authoritatively server-side).
-          if (physMock.testId != null) submitMockTest(physMock.testId, payload).catch(() => {});
+          // Local Class 12 Chemistry mocks have no server record — skip the call.
+          if (physMock.testId != null && !isLocalChem12MockId(physMock.testId)) {
+            submitMockTest(physMock.testId, payload).catch(() => {});
+          }
         }}
       />
     );

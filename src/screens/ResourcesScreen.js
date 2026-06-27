@@ -10,6 +10,9 @@ import { WebView } from 'react-native-webview';
 import { getExemplarSolutions, getNcertChapters, getQuestionsByPath, getNotesByPath } from '../api/resourcesApi';
 import { buildFragmentFromQuestions, buildPyqDocument } from '../utils/pyqDocument';
 import { getChemistry12ExemplarHtml } from '../data/chemistry12Exemplar';
+import { getChemistry12Ncert1Html } from '../data/chemistry12Ncert1';
+import { getChemistry12Ncert2Html } from '../data/chemistry12Ncert2';
+import { getChemistry12Papers, getChemistry12PaperDoc } from '../data/chemistry12Papers';
 import { useAuth } from '../context/AuthContext';
 import { ClassTabs } from '../components/ClassPicker';
 import { getChapterNotes } from '../notes/index';
@@ -782,6 +785,20 @@ const ResourcesScreen = () => {
     activeClass === 'Class 12' && activeSubject?.name === 'Chemistry'
   ) ? getChemistry12ExemplarHtml(activeChapter.name) : null;
 
+  // Class 12 Chemistry NCERT Solutions Part-I also ship locally (full MathJax HTML
+  // doc per chapter, built from src/data/chemistry12Ncert1) — rendered in a WebView
+  // like the Physics DB path.
+  const chem12Ncert1Html = (
+    activeResType?.type === 'ncert1' && activeChapter && showCards &&
+    activeClass === 'Class 12' && activeSubject?.name === 'Chemistry'
+  ) ? getChemistry12Ncert1Html(activeChapter.name) : null;
+
+  // Class 12 Chemistry NCERT Solutions Part-II also ship locally.
+  const chem12Ncert2Html = (
+    activeResType?.type === 'ncert2' && activeChapter && showCards &&
+    activeClass === 'Class 12' && activeSubject?.name === 'Chemistry'
+  ) ? getChemistry12Ncert2Html(activeChapter.name) : null;
+
   const exemplarActive = !!(activeSubject && activeResType?.type === 'exemplar' && activeChapter && showCards && !isPhysics12Exemplar && !chem12ExemplarHtml);
 
   // Class 12 Physics NCERT Part-I & Part-II come from the DB too (questions table,
@@ -844,6 +861,18 @@ const ResourcesScreen = () => {
       .catch((e) => { if (alive) setPhy12Paper({ loading: false, error: e?.message || 'Could not load paper.', qHtml: '', aHtml: '' }); });
     return () => { alive = false; };
   }, [isPhysics12Papers, activePaper]);
+
+  // Class 12 Chemistry Last Year Papers (2019–2025) ship locally (src/data/
+  // chemistry12Papers): both the paper list and each paper's question/answer HTML
+  // come from the bundled JSON — no API call, same local approach as Exemplar/NCERT.
+  const isChemistry12Papers = !!(
+    activeResType?.type === 'papers' && activeClass === 'Class 12' && activeSubject?.name === 'Chemistry'
+  );
+  const chem12PapersList = isChemistry12Papers ? getChemistry12Papers() : null;
+  const chem12PaperQHtml = (isChemistry12Papers && activePaper)
+    ? getChemistry12PaperDoc(activePaper.uuid, 'questions') : null;
+  const chem12PaperAHtml = (isChemistry12Papers && activePaper)
+    ? getChemistry12PaperDoc(activePaper.uuid, 'solutions') : null;
   useEffect(() => {
     if (!exemplarActive) return undefined;
     let alive = true;
@@ -1029,6 +1058,31 @@ const ResourcesScreen = () => {
     );
   }
 
+  // ── LEVEL 4 (local): Class 12 Chemistry NCERT Part-I — MathJax cards in WebView ─
+  if (chem12Ncert1Html) {
+    return (
+      <SafeAreaView style={s.safe}>
+        <StatusBar barStyle="dark-content" backgroundColor="#fff" />
+        {Platform.OS === 'android' && <View style={{ height: 24, backgroundColor: '#fff' }} />}
+        <BackHeader onBack={() => setShowCards(false)} />
+        <Breadcrumb parts={['Home', activeClass, activeSubject.name, activeResType.name, activeChapter.name]} />
+        <View style={s.pageTitleWrap}>
+          <Text style={s.pageTitle}>{activeChapter.name}</Text>
+          <Text style={s.pageSub}>NCERT Solutions · Part I</Text>
+        </View>
+        <WebView
+          originWhitelist={['*']}
+          source={{ html: chem12Ncert1Html }}
+          style={{ flex: 1, backgroundColor: '#F4F4F5' }}
+          javaScriptEnabled
+          domStorageEnabled
+          mixedContentMode="always"
+          androidLayerType={Platform.OS === 'android' ? 'hardware' : undefined}
+        />
+      </SafeAreaView>
+    );
+  }
+
   // ── LEVEL 4a: Exemplar Solutions — single "Chapter-end" entry (Image 1 layout) ──
   if (activeSubject && activeResType?.type === 'exemplar' && activeChapter && showCards) {
     return (
@@ -1095,6 +1149,31 @@ const ResourcesScreen = () => {
           <Text style={s.pageSub}>NCERT Solutions · Part II</Text>
         </View>
         <DocWebView state={phy12Ncert2} onRetry={() => setDocRetry((k) => k + 1)} emptyText="No NCERT Part-II solutions for this chapter yet." />
+      </SafeAreaView>
+    );
+  }
+
+  // ── LEVEL 4 (local): Class 12 Chemistry NCERT Part-II — MathJax cards in WebView ─
+  if (chem12Ncert2Html) {
+    return (
+      <SafeAreaView style={s.safe}>
+        <StatusBar barStyle="dark-content" backgroundColor="#fff" />
+        {Platform.OS === 'android' && <View style={{ height: 24, backgroundColor: '#fff' }} />}
+        <BackHeader onBack={() => setShowCards(false)} />
+        <Breadcrumb parts={['Home', activeClass, activeSubject.name, activeResType.name, activeChapter.name]} />
+        <View style={s.pageTitleWrap}>
+          <Text style={s.pageTitle}>{activeChapter.name}</Text>
+          <Text style={s.pageSub}>NCERT Solutions · Part II</Text>
+        </View>
+        <WebView
+          originWhitelist={['*']}
+          source={{ html: chem12Ncert2Html }}
+          style={{ flex: 1, backgroundColor: '#F4F4F5' }}
+          javaScriptEnabled
+          domStorageEnabled
+          mixedContentMode="always"
+          androidLayerType={Platform.OS === 'android' ? 'hardware' : undefined}
+        />
       </SafeAreaView>
     );
   }
@@ -1174,9 +1253,10 @@ const ResourcesScreen = () => {
     const subjUpper = activeSubject.name.toUpperCase();
     const setNum = activePaper.set || activePaper.setLabel || paperSet(activePaper.code);
     // Class 12 Physics serves the real CBSE paper + answer key from the DB (fetched
-    // above); other subjects fall back to the standard front-matter template.
-    const questionsHtml = isPhysics12Papers ? phy12Paper.qHtml : null;
-    const solutionsHtml = isPhysics12Papers ? phy12Paper.aHtml : null;
+    // above); Class 12 Chemistry serves them from bundled local JSON; other subjects
+    // fall back to the standard front-matter template.
+    const questionsHtml = isPhysics12Papers ? phy12Paper.qHtml : (isChemistry12Papers ? chem12PaperQHtml : null);
+    const solutionsHtml = isPhysics12Papers ? phy12Paper.aHtml : (isChemistry12Papers ? chem12PaperAHtml : null);
     const paperLoading = isPhysics12Papers && phy12Paper.loading;
     return (
       <SafeAreaView style={[s.safe, { backgroundColor: '#1f8a93' }]}>
@@ -1187,7 +1267,7 @@ const ResourcesScreen = () => {
             <Text style={s.paperClose}>✕</Text>
           </TouchableOpacity>
           <Text style={s.paperHeaderTitle} numberOfLines={1}>
-            {`${subjUpper} (Theory) Question Paper ${activePaper.year} (${activePaper.code}) Set - ${setNum}`}
+            {`${subjUpper} (Theory) Question Paper ${activePaper.year} (${activePaper.code}) Set - ${setNum}${activePaper.variantCount ? ` — Paper ${activePaper.variant}` : ''}`}
           </Text>
         </View>
         <View style={s.paperTabsWrap}>
@@ -1242,9 +1322,11 @@ const ResourcesScreen = () => {
   // ── LAST YEAR PAPERS: the paper list (subject name is filled in per subject) ──
   if (activeSubject && activeResType?.type === 'papers') {
     const subjUpper = activeSubject.name.toUpperCase();
-    // Class 12 Physics shows the real CBSE papers from the DB; other subjects fall
-    // back to the static code list with the subject name swapped in.
-    const papers = isPhysics12Papers ? phy12Papers.list : LAST_YEAR_PAPERS;
+    // Class 12 Physics shows the real CBSE papers from the DB; Class 12 Chemistry
+    // shows them from bundled local JSON; other subjects fall back to the static
+    // code list with the subject name swapped in.
+    const papers = isPhysics12Papers ? phy12Papers.list
+      : (isChemistry12Papers ? chem12PapersList : LAST_YEAR_PAPERS);
     return (
       <SafeAreaView style={s.safe}>
         <StatusBar barStyle="dark-content" backgroundColor="#fff" />
@@ -1257,12 +1339,12 @@ const ResourcesScreen = () => {
         </View>
         <ScrollView contentContainerStyle={{ padding: 16, gap: 10, paddingBottom: 32 }}>
           {papers.map((p, i) => (
-            <TouchableOpacity key={`${p.year}-${p.code}`} style={s.listRow}
+            <TouchableOpacity key={p.uuid || `${p.year}-${p.code}-${i}`} style={s.listRow}
               onPress={() => { setPaperTab('questions'); setActivePaper(p); }}
               activeOpacity={0.8}>
               <View style={[s.listNum, { backgroundColor: '#E8F0FE' }]}><Text style={{ fontSize: 16 }}>📄</Text></View>
               <View style={{ flex: 1 }}>
-                <Text style={s.listRowTitle}>{`Question Paper ${p.year} (${p.code}) - ${subjUpper} (Theory)`}</Text>
+                <Text style={s.listRowTitle}>{`Question Paper ${p.year} (${p.code})${p.variantCount ? ` — Paper ${p.variant}` : ''} - ${subjUpper} (Theory)`}</Text>
                 <Text style={s.listRowSub}>Tap to view paper</Text>
               </View>
               <Text style={s.listArrow}>›</Text>
