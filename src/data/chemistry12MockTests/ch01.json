@@ -1,0 +1,2098 @@
+{
+  "mock_id": 199,
+  "name": "Mock Test - 01",
+  "instruction": "The Question Paper contains three sections. Section A has 25 questions. Attempt any 20 questions. Section B has 24 questions. Attempt any 20 questions. Section C has 6 questions. Attempt any 5 questions. All questions carry equal marks. There is no negative marking.",
+  "totalQuestions": 55,
+  "questions": [
+    {
+      "n": 1,
+      "question_id": 59975,
+      "question_text": "Point defect is also known as",
+      "question_html": "<p>Point defect is also known as</p>",
+      "options": [
+        {
+          "id": 195086,
+          "text": "Zero dimensional defect",
+          "html": "Zero dimensional defect",
+          "is_correct": true
+        },
+        {
+          "id": 195088,
+          "text": "Two dimensional defect",
+          "html": "Two dimensional defect",
+          "is_correct": false
+        },
+        {
+          "id": 195087,
+          "text": "Single dimensional defect",
+          "html": "Single dimensional defect",
+          "is_correct": false
+        },
+        {
+          "id": 195089,
+          "text": "Three dimensional defect",
+          "html": "Three&nbsp;dimensional defect",
+          "is_correct": false
+        }
+      ],
+      "correct_option_text": "Zero dimensional defect",
+      "correct_option_ids": [
+        195086
+      ],
+      "explanation": "Point defect is zero dimensional defect. Point defects are the irregularities or deviations from ideal arrangement around a point or an atom in a crystalline substance.",
+      "solution": ""
+    },
+    {
+      "n": 2,
+      "question_id": 60045,
+      "question_text": "In the depression of freezing point experiment, it is found that",
+      "question_html": "<p>In the depression of freezing point experiment, it is found that</p>",
+      "options": [
+        {
+          "id": 195366,
+          "text": "The vapour pressure of the solution is less than that of pure solvent",
+          "html": "The vapour pressure of the solution is less than that of pure solvent",
+          "is_correct": true
+        },
+        {
+          "id": 195369,
+          "text": "Both solute and solvent molecules solidify at freezing point",
+          "html": "Both solute and solvent molecules solidify at freezing point",
+          "is_correct": false
+        },
+        {
+          "id": 195368,
+          "text": "Only solute molecules solidify at the freezing point",
+          "html": "Only solute molecules solidify at the freezing point",
+          "is_correct": false
+        },
+        {
+          "id": 195367,
+          "text": "The vapour pressure of the solution is more than that of pure solvent",
+          "html": "The vapour pressure of the solution is more than that of pure solvent",
+          "is_correct": false
+        }
+      ],
+      "correct_option_text": "The vapour pressure of the solution is less than that of pure solvent",
+      "correct_option_ids": [
+        195366
+      ],
+      "explanation": "Addition of non volatile solute decreases the vapour pressure.",
+      "solution": ""
+    },
+    {
+      "n": 3,
+      "question_id": 349568,
+      "question_text": "Elements of group-15 form compounds in +5 oxidation state. However, bismuth forms only one well-characterised compound in +5 oxidation state. The compound is",
+      "question_html": "<p>Elements of group-15 form compounds in +5 oxidation state. However, bismuth forms only one well-characterised compound in +5 oxidation state. The compound is</p>",
+      "options": [
+        {
+          "id": 537840,
+          "text": "Bi 2 S 5",
+          "html": "Bi<sub>2</sub>S<sub>5</sub>",
+          "is_correct": false
+        },
+        {
+          "id": 537839,
+          "text": "BiCl 5",
+          "html": "BiCl<sub>5</sub>",
+          "is_correct": false
+        },
+        {
+          "id": 537837,
+          "text": "Bi 2 O 5",
+          "html": "Bi<sub>2</sub>O<sub>5</sub>",
+          "is_correct": false
+        },
+        {
+          "id": 537838,
+          "text": "BiF 5",
+          "html": "BiF<sub>5</sub>",
+          "is_correct": true
+        }
+      ],
+      "correct_option_text": "BiF 5",
+      "correct_option_ids": [
+        537838
+      ],
+      "explanation": "Bismuth commonly shows +3 oxidation state instead of +5 oxidation state due to the inert pair effect. But Bi forms BiF compound due to high electronegativity and small size of the fluorine atom fluorine Bismuth forms BiF ​​​​5 ​​​ only.",
+      "solution": ""
+    },
+    {
+      "n": 4,
+      "question_id": 60510,
+      "question_text": "Arrange the following organic compounds in descending order of their reactivity towards S N 1 reaction C 6 H 5 CH 2 Br, C 6 H 5 CH(C 6 H 5 )Br, C 6 H 5 CH(CH 3 )Br, C 6 H 5 C(CH 3 )(C 6 H 5 )Br",
+      "question_html": "<p>Arrange the following organic compounds in descending order of their reactivity towards&nbsp;S<sub>N</sub>1 reaction<br />\r\nC<sub>6</sub>H<sub>5</sub>CH<sub>2</sub>Br, C<sub>6</sub>H<sub>5</sub>CH(C<sub>6</sub>H<sub>5</sub>)Br, C<sub>6</sub>H<sub>5</sub>CH(CH<sub>3</sub>)Br, C<sub>6</sub>H<sub>5</sub>C(CH<sub>3</sub>)(C<sub>6</sub>H<sub>5</sub>)Br</p>",
+      "options": [
+        {
+          "id": 197228,
+          "text": "C 6 H 5 C(CH 3 )(C 6 H 5 )Br > C 6 H 5 CH(C 6 H 2 )Br > C 6 H 5 CH 2 Br > C 6 H 5 CH(CH 3 )Br",
+          "html": "C<sub>6</sub>H<sub>5</sub>C(CH<sub>3</sub>)(C<sub>6</sub>H<sub>5</sub>)Br &gt; C<sub>6</sub>H<sub>5</sub>CH(C<sub>6</sub>H<sub><span style=\"font-size: 10.8333px;\">2</span></sub>)Br &gt; C<sub>6</sub>H<sub>5</sub>CH<sub>2</sub>Br &gt; C<sub>6</sub>H<sub>5</sub>CH(CH<sub>3</sub>)Br",
+          "is_correct": false
+        },
+        {
+          "id": 197227,
+          "text": "C 6 H 5 C(CH 3 )(C 6 H 5 )Br > C 6 H 5 CH(C 6 H 5 )Br > C 6 H 5 CH 2 Br > C 6 H 5 CH(CH 3 )Br",
+          "html": "C<sub>6</sub>H<sub>5</sub>C(CH<sub>3</sub>)(C<sub>6</sub>H<sub>5</sub>)Br &gt; C<sub>6</sub>H<sub>5</sub>CH(C<sub>6</sub>H<sub>5</sub>)Br &gt; C<sub>6</sub>H<sub>5</sub>CH<sub>2</sub>Br &gt; C<sub>6</sub>H<sub>5</sub>CH(CH<sub>3</sub>)Br",
+          "is_correct": false
+        },
+        {
+          "id": 197226,
+          "text": "C 6 H 5 C(CH 3 )(C 6 H 5 )Br > C 6 H 5 CH(C 6 H 5 )Br > C 6 H 5 CH(CH 3 )Br > C 6 H 5 CH 2 Br",
+          "html": "C<sub>6</sub>H<sub>5</sub>C(CH<sub>3</sub>)(C<sub>6</sub>H<sub>5</sub>)Br &gt; C<sub>6</sub>H<sub>5</sub>CH(C<sub>6</sub>H<sub>5</sub>)Br &gt; C<sub>6</sub>H<sub>5</sub>CH(CH<sub>3</sub>)Br &gt; C<sub>6</sub>H<sub>5</sub>CH<sub>2</sub>Br",
+          "is_correct": true
+        },
+        {
+          "id": 197229,
+          "text": "C 6 H 5 C(CH 3 )(C 6 H 5 )Br > C 3 H 5 CH(CH 3 )Br > C 6 H 5 CH 2 Br > C 6 H 5 CH(C 6 H 5 )Br",
+          "html": "C<sub>6</sub>H<sub>5</sub>C(CH<sub>3</sub>)(C<sub>6</sub>H<sub>5</sub>)Br &gt; C<sub><span style=\"font-size: 10.8333px;\">3</span></sub>H<sub>5</sub>CH(CH<sub>3</sub>)Br &gt; C<sub>6</sub>H<sub>5</sub>CH<sub>2</sub>Br &gt; C<sub>6</sub>H<sub>5</sub>CH(C<sub>6</sub>H<sub>5</sub>)Br",
+          "is_correct": false
+        }
+      ],
+      "correct_option_text": "C 6 H 5 C(CH 3 )(C 6 H 5 )Br > C 6 H 5 CH(C 6 H 5 )Br > C 6 H 5 CH(CH 3 )Br > C 6 H 5 CH 2 Br",
+      "correct_option_ids": [
+        197226
+      ],
+      "explanation": "The nucleophilic substitution in S N 1 occurs in two steps. In step I, the polarised C&mdash;Br bond undergoes slow cleavage to produce a carbocation and a bromide ion. This is the slow rate determining step. Thus, the stability of the carbocation formed determines the rate of reaction. The carbocation thus formed is then attacked by nucleophile in step II to complete the substitution reaction. In C 6 H 5 C(CH 3 )(C 6 H 5 )Br carbocation will be tertiary and will be resonance stablised. So the rate of S N 1 reaction is greatest in this case. In case of C 6 H 5 CH(C 6 H 5 )Br, the carbocation formed will be secondary and hence less stable than the previous one, so the reaction will be slower in this case. In C 6 H 5 CH(CH 3 )Br, the carbocation formed will be less stable than that formed in case of C 6 H 5 CH(C 6 H 5 )Br because in the latter the carbocation is stabilised by two phenyl groups due to resonance. In C 6 H 5 CH 2 Br, the carbocation formed will be primary and hence least stable causing the rate of reaction to be least in this case.",
+      "solution": ""
+    },
+    {
+      "n": 5,
+      "question_id": 60605,
+      "question_text": "n &ndash; propyl bromide on treating with alcoholic KOH produces ______.",
+      "question_html": "<p>n &ndash; propyl bromide on treating with alcoholic KOH produces ______.</p>",
+      "options": [
+        {
+          "id": 197608,
+          "text": "propane",
+          "html": "propane",
+          "is_correct": false
+        },
+        {
+          "id": 197606,
+          "text": "propene",
+          "html": "propene",
+          "is_correct": true
+        },
+        {
+          "id": 197607,
+          "text": "propyne",
+          "html": "propyne",
+          "is_correct": false
+        },
+        {
+          "id": 197609,
+          "text": "propanol",
+          "html": "propanol",
+          "is_correct": false
+        }
+      ],
+      "correct_option_text": "propene",
+      "correct_option_ids": [
+        197606
+      ],
+      "explanation": "Alkenes can be prepared from alkyl halides by treatment with alcoholic solution of caustic potash (KOH) at about 353-363 K. This reaction is known as dehydrohalogenation of alkyl halides. {tex}\\mathop {C{H_3}C{H_2}C{H_2}Br}\\limits_{n - Propyl\\;bromide} + KOH\\xrightarrow[{353 - 363K}]{{{C_2}{H_5}OH}}\\mathop {C{H_3}CH = C{H_2}}\\limits_{Propene} + KBr + {H_2}O{/tex}",
+      "solution": ""
+    },
+    {
+      "n": 6,
+      "question_id": 60818,
+      "question_text": "Glycosidic linkage is found between",
+      "question_html": "<p>Glycosidic linkage is found between</p>",
+      "options": [
+        {
+          "id": 198460,
+          "text": "two amino acids",
+          "html": "two amino acids",
+          "is_correct": false
+        },
+        {
+          "id": 198459,
+          "text": "two polysaccharide units",
+          "html": "two polysaccharide units",
+          "is_correct": false
+        },
+        {
+          "id": 198457,
+          "text": "two monosaccharide units",
+          "html": "two monosaccharide units",
+          "is_correct": true
+        },
+        {
+          "id": 198458,
+          "text": "two disaccharide units",
+          "html": "two disaccharide units",
+          "is_correct": false
+        }
+      ],
+      "correct_option_text": "two monosaccharide units",
+      "correct_option_ids": [
+        198457
+      ],
+      "explanation": "Glycosidic bond is an ether linkage between two monosaccharides.",
+      "solution": ""
+    },
+    {
+      "n": 7,
+      "question_id": 59969,
+      "question_text": "All those atoms or molecules which have an odd number of electrons are",
+      "question_html": "<p>All those atoms or molecules which have an odd number of electrons are</p>",
+      "options": [
+        {
+          "id": 195063,
+          "text": "Diamagnetic",
+          "html": "Diamagnetic",
+          "is_correct": false
+        },
+        {
+          "id": 195064,
+          "text": "Ferromagnetic",
+          "html": "Ferromagnetic",
+          "is_correct": false
+        },
+        {
+          "id": 195062,
+          "text": "Paramagnetic",
+          "html": "Paramagnetic",
+          "is_correct": true
+        },
+        {
+          "id": 195065,
+          "text": "Ferrimagnetic",
+          "html": "Ferrimagnetic",
+          "is_correct": false
+        }
+      ],
+      "correct_option_text": "Paramagnetic",
+      "correct_option_ids": [
+        195062
+      ],
+      "explanation": "They will have unpaired electrons so are weakly attracted by a magnetic field.",
+      "solution": ""
+    },
+    {
+      "n": 8,
+      "question_id": 60063,
+      "question_text": "The molarity of 900 g of water is",
+      "question_html": "<p>The molarity of 900 g of water is</p>\r\n",
+      "options": [
+        {
+          "id": 195440,
+          "text": "5 M",
+          "html": "5 M",
+          "is_correct": false
+        },
+        {
+          "id": 195441,
+          "text": "Cannot be calculated",
+          "html": "Cannot be calculated",
+          "is_correct": false
+        },
+        {
+          "id": 195438,
+          "text": "50 M",
+          "html": "50 M",
+          "is_correct": false
+        },
+        {
+          "id": 195439,
+          "text": "55.55 M",
+          "html": "55.55 M",
+          "is_correct": true
+        }
+      ],
+      "correct_option_text": "55.55 M",
+      "correct_option_ids": [
+        195439
+      ],
+      "explanation": "Density of water = 1g/mL Volume of 900g of water = 900mL Moles of water = Given mass/Molecular mass = 900/18 = 50mol Molarity of water = 50/900&times;1000 = 55.55M",
+      "solution": ""
+    },
+    {
+      "n": 9,
+      "question_id": 337372,
+      "question_text": "In qualitative analysis when H 2 S is passed through an aqueous solution of salt acidified with dil. HCl, a black precipitate is obtained. On boiling the precipitate with dil. HNO 3 , it forms a solution of blue colour. Addition of an excess of an aqueous solution of ammonia to this solution gives ________.",
+      "question_html": "<p>In qualitative analysis when H<sub>2</sub>S is passed through an aqueous solution of salt acidified with dil. HCl, a black precipitate is obtained. On boiling the precipitate with dil. HNO<sub>3</sub>, it forms a solution of blue colour.&nbsp; Addition of an excess of an aqueous solution of ammonia to this solution gives ________.</p>",
+      "options": [
+        {
+          "id": 511793,
+          "text": "deep blue precipitate of Cu(OH) 2",
+          "html": "deep blue precipitate of Cu(OH)<sub>2</sub>",
+          "is_correct": false
+        },
+        {
+          "id": 511794,
+          "text": "deep blue solution of [Cu(NH 3 ) 4 ] 2+",
+          "html": "deep blue solution of [Cu(NH<sub>3</sub>)<sub>4</sub>]<sup>2+</sup>",
+          "is_correct": true
+        },
+        {
+          "id": 511795,
+          "text": "deep blue solution of Cu(NO 3 ) 2",
+          "html": "deep blue solution of Cu(NO<sub>3</sub>)<sub>2</sub>",
+          "is_correct": false
+        },
+        {
+          "id": 511796,
+          "text": "deep blue solution of Cu(OH) 2 .Cu(NO 3 ) 2",
+          "html": "deep blue solution of Cu(OH)<sub>2</sub>.Cu(NO<sub>3</sub>)<sub>2</sub>",
+          "is_correct": false
+        }
+      ],
+      "correct_option_text": "deep blue solution of [Cu(NH 3 ) 4 ] 2+",
+      "correct_option_ids": [
+        511794
+      ],
+      "explanation": "Black precipitate of copper sulphide is formed which gives blue colour of copper nitrate on boiling with dilute HNO 3 . When an aqueous solution of ammonia is added to it, the deep blue colour of(Cu(NH ​​​​​3 ) 4 ) 2+ is formed. {tex}{\\text{C}}{{\\text{u}}^{{\\text{2 + }}}}{\\text{ + }}{{\\text{H}}_{\\text{2}}}{\\text{S}} \\to \\mathop {{\\text{CuS}}}\\limits_{Black} {\\text{ + 2}}{{\\text{H}}^{\\text{ + }}}{/tex} {tex}CuS + dil.HN{O_3} \\to \\mathop {Cu{{(N{O_3})}_2}}\\limits_{Blue} {/tex} {tex}Cu{(N{O_3})_2} + 4N{H_3} \\to \\mathop {{{[Cu{{(N{H_3})}_4}]}^{2 + }}}\\limits_{Deep\\,\\,blue} {/tex}",
+      "solution": ""
+    },
+    {
+      "n": 10,
+      "question_id": 337399,
+      "question_text": "Which of the following alkyl halides will undergo S N 1 reaction most readily?",
+      "question_html": "<p>Which of the following alkyl halides will undergo S<sub>N</sub>1 reaction most readily?</p>",
+      "options": [
+        {
+          "id": 511871,
+          "text": "(CH 3 ) 3 C&mdash;Cl",
+          "html": "(CH<sub>3</sub>)<sub>3</sub>C&mdash;Cl",
+          "is_correct": false
+        },
+        {
+          "id": 511870,
+          "text": "(CH 3 ) 3 C&mdash;F",
+          "html": "(CH<sub>3</sub>)<sub>3</sub>C&mdash;F",
+          "is_correct": false
+        },
+        {
+          "id": 511872,
+          "text": "(CH 3 ) 3 C&mdash;Br",
+          "html": "(CH<sub>3</sub>)<sub>3</sub>C&mdash;Br",
+          "is_correct": false
+        },
+        {
+          "id": 511869,
+          "text": "(CH 3 ) 3 C&mdash;I",
+          "html": "(CH<sub>3</sub>)<sub>3</sub>C&mdash;I",
+          "is_correct": true
+        }
+      ],
+      "correct_option_text": "(CH 3 ) 3 C&mdash;I",
+      "correct_option_ids": [
+        511869
+      ],
+      "explanation": "S N 1 reactions are generally carried out mainly in polar protic solvents (like H 2 O) and they follow first-order kinetics. This means that the rate of reaction depends only on one reactant. This reaction favours tertiary alkyl halides because of the high stability of the formed carbocation. The carbocation forms when the molecule is polarized in water to form a carbocation and halide ion attacked by the nucleophile. The reactivity of the halides are R&ndash;I> R&ndash;Br>R&ndash;Cl>>R&ndash;F. Hence, (CH 3 ) 3 C&mdash;I will undergo the reaction most readily.",
+      "solution": ""
+    },
+    {
+      "n": 11,
+      "question_id": 10706,
+      "question_text": "What is inversion of configuration?",
+      "question_html": "<p>What is inversion of configuration?</p>",
+      "options": [
+        {
+          "id": 3415,
+          "text": "iso-butyl iodide",
+          "html": "iso-butyl iodide",
+          "is_correct": false
+        },
+        {
+          "id": 3413,
+          "text": "Secondary butyl chloride",
+          "html": "Secondary butyl chloride",
+          "is_correct": true
+        },
+        {
+          "id": 3414,
+          "text": "w-butyI bromide",
+          "html": "w-butyI bromide",
+          "is_correct": false
+        },
+        {
+          "id": 3416,
+          "text": "tert-butyl chloride",
+          "html": "tert-butyl chloride",
+          "is_correct": false
+        }
+      ],
+      "correct_option_text": "Secondary butyl chloride",
+      "correct_option_ids": [
+        3413
+      ],
+      "explanation": "Secondary butyl chloride is optically active because it has chiral carbon atom marked* {tex}C{H_3} - \\mathop {\\mathop {CH}\\limits_| }\\limits_{Cl}^* - CH_2^ - - C{H_3}{/tex}",
+      "solution": ""
+    },
+    {
+      "n": 12,
+      "question_id": 66122,
+      "question_text": "Which of the following bases is not present in DNA?",
+      "question_html": "<p>Which of the following bases is not present in DNA?</p>",
+      "options": [
+        {
+          "id": 208700,
+          "text": "Uracil",
+          "html": "Uracil",
+          "is_correct": true
+        },
+        {
+          "id": 208703,
+          "text": "Cytosine",
+          "html": "Cytosine",
+          "is_correct": false
+        },
+        {
+          "id": 208701,
+          "text": "Adenine",
+          "html": "Adenine",
+          "is_correct": false
+        },
+        {
+          "id": 208702,
+          "text": "Thymine",
+          "html": "Thymine",
+          "is_correct": false
+        }
+      ],
+      "correct_option_text": "Uracil",
+      "correct_option_ids": [
+        208700
+      ],
+      "explanation": "DNA contains four bases viz. adenine (A), guanine (G), cytosine (C) and thymine (T). So Uracil is not present in DNA.",
+      "solution": ""
+    },
+    {
+      "n": 13,
+      "question_id": 60011,
+      "question_text": "A compound is formed by two elements A and B. The element B forms cubic close packing and atoms of A occupy {tex}\\frac{1}{3}{/tex} rd of tetrahedral voids. The formula of this compound is",
+      "question_html": "<p>A compound is formed by two elements A and B. The element B forms cubic close packing and atoms of A occupy <span class=\"math-tex\">{tex}\\frac{1}{3}{/tex}</span><sup>rd</sup> of tetrahedral voids. The formula of this compound is</p>",
+      "options": [
+        {
+          "id": 195230,
+          "text": "A 2 B 3",
+          "html": "A<sub>2</sub>B<sub>3</sub>",
+          "is_correct": true
+        },
+        {
+          "id": 195232,
+          "text": "AB 2",
+          "html": "AB<sub>2</sub>",
+          "is_correct": false
+        },
+        {
+          "id": 195231,
+          "text": "AB",
+          "html": "AB",
+          "is_correct": false
+        },
+        {
+          "id": 195233,
+          "text": "A 3 B 2",
+          "html": "A<sub>3</sub>B<sub>2</sub>",
+          "is_correct": false
+        }
+      ],
+      "correct_option_text": "A 2 B 3",
+      "correct_option_ids": [
+        195230
+      ],
+      "explanation": "Contribution of B = 4, Td voids = 8 , Contribution of A = {tex}{\\text{ }}\\frac{1}{3}{\\text{ }} \\times {\\text{ }}8{/tex} .",
+      "solution": ""
+    },
+    {
+      "n": 14,
+      "question_id": 60082,
+      "question_text": "Following set up is used to measure",
+      "question_html": "<p>Following set up is used to measure<br />\r\n<img src=\"https://media-mycbseguide.s3.amazonaws.com/images/quiz/12/chemistry/52258_0.png\" style=\"width: 250px; height: 144px;\" /></p>",
+      "options": [
+        {
+          "id": 195515,
+          "text": "Relative lowering of vapour pressure",
+          "html": "Relative lowering of vapour pressure",
+          "is_correct": false
+        },
+        {
+          "id": 195516,
+          "text": "Elevation in boiling point",
+          "html": "Elevation in boiling point",
+          "is_correct": false
+        },
+        {
+          "id": 195517,
+          "text": "Depression in freezing point",
+          "html": "Depression in freezing point",
+          "is_correct": false
+        },
+        {
+          "id": 195514,
+          "text": "Osmotic pressure",
+          "html": "Osmotic pressure",
+          "is_correct": true
+        }
+      ],
+      "correct_option_text": "Osmotic pressure",
+      "correct_option_ids": [
+        195514
+      ],
+      "explanation": "This setup is Berkeley and Hartley method used for measurement of osmotic pressure.",
+      "solution": ""
+    },
+    {
+      "n": 15,
+      "question_id": 349734,
+      "question_text": "Hot conc. H 2 SO 4 acts as a moderately strong oxidising agent. It oxidizes both metals and nonmetals. Which of the following element is oxidized by conc. H 2 SO 4 into two gaseous products?",
+      "question_html": "<p>Hot conc. H<sub>2</sub>SO<sub>4</sub> acts as a moderately strong oxidising agent. It oxidizes both metals and nonmetals. Which of the following element is oxidized by conc. H<sub>2</sub>SO<sub>4</sub> into two gaseous products?</p>",
+      "options": [
+        {
+          "id": 538163,
+          "text": "Cu",
+          "html": "Cu",
+          "is_correct": false
+        },
+        {
+          "id": 538164,
+          "text": "S",
+          "html": "S",
+          "is_correct": false
+        },
+        {
+          "id": 538165,
+          "text": "C",
+          "html": "C",
+          "is_correct": true
+        },
+        {
+          "id": 538166,
+          "text": "Zn",
+          "html": "Zn",
+          "is_correct": false
+        }
+      ],
+      "correct_option_text": "C",
+      "correct_option_ids": [
+        538165
+      ],
+      "explanation": "CO 2 and SO 2 are two gaseous products formed by oxidation Carbon by conc. H 2 SO 4 .",
+      "solution": ""
+    },
+    {
+      "n": 16,
+      "question_id": 60551,
+      "question_text": "Decreasing order of reactivity of hydrogen halide acids in the conversion of ROH {tex} \\to {/tex} RX is:",
+      "question_html": "<p>Decreasing order of reactivity of hydrogen halide acids in the conversion of ROH <span class=\"math-tex\">{tex} \\to {/tex}</span>&nbsp;RX is:</p>",
+      "options": [
+        {
+          "id": 197391,
+          "text": "HCI > HBr > HI > HF",
+          "html": "HCI &gt; HBr &gt; HI &gt; HF",
+          "is_correct": false
+        },
+        {
+          "id": 197393,
+          "text": "HF > HBr > HI > HCI",
+          "html": "HF &gt; HBr &gt; HI &gt; HCI",
+          "is_correct": false
+        },
+        {
+          "id": 197392,
+          "text": "HF > HCI> HBr > HI",
+          "html": "HF &gt; HCI&gt; HBr &gt; HI",
+          "is_correct": false
+        },
+        {
+          "id": 197390,
+          "text": "HI > HBr > HCl > HF",
+          "html": "HI &gt; HBr &gt; HCl &gt; HF",
+          "is_correct": true
+        }
+      ],
+      "correct_option_text": "HI > HBr > HCl > HF",
+      "correct_option_ids": [
+        197390
+      ],
+      "explanation": "As we move down the group 17, the size of atom increases as F<Cl<Br<I. Thus the bond strength of hydrogen halides reduces as HF>HCl>HBr>HI. So, it is easiest to break the H-I bond. Hence, the decreasing order of reactivity for the conversion of ROH to RX is HI>HBr>HCl>HF.",
+      "solution": ""
+    },
+    {
+      "n": 17,
+      "question_id": 60600,
+      "question_text": "A hydrocarbon C 5 H 10 does not react with chlorine in dark but gives a single monochloro compound C 5 H 9 Cl in bright sunlight. The hydrocarbon is",
+      "question_html": "<p>A hydrocarbon C<sub>5</sub>H<sub>10</sub> does not react with chlorine in dark but gives a single monochloro compound C<sub>5</sub>H<sub>9</sub>Cl in bright sunlight. The hydrocarbon is</p>",
+      "options": [
+        {
+          "id": 197587,
+          "text": "Cyclopentene",
+          "html": "Cyclopentene",
+          "is_correct": false
+        },
+        {
+          "id": 197588,
+          "text": "Cyclosporine",
+          "html": "Cyclosporine",
+          "is_correct": false
+        },
+        {
+          "id": 197586,
+          "text": "Cyclopentane",
+          "html": "Cyclopentane",
+          "is_correct": true
+        },
+        {
+          "id": 197589,
+          "text": "Cycloalkyne",
+          "html": "Cycloalkyne",
+          "is_correct": false
+        }
+      ],
+      "correct_option_text": "Cyclopentane",
+      "correct_option_ids": [
+        197586
+      ],
+      "explanation": "Cyclopentane is nearly inert chemically, they react with halogens in the presence of light through the substitution of one hydrogen atoms. Since the cyclic structure confers a high degree of symmetry on the molecule, only one monochloro cyclopentane is possible.",
+      "solution": ""
+    },
+    {
+      "n": 18,
+      "question_id": 60853,
+      "question_text": "Progesterone is responsible for",
+      "question_html": "<p>&nbsp;Progesterone is responsible for</p>",
+      "options": [
+        {
+          "id": 198599,
+          "text": "development of secondary female characteristics.",
+          "html": "development of secondary female characteristics.",
+          "is_correct": false
+        },
+        {
+          "id": 198598,
+          "text": "development of secondary male characteristics.",
+          "html": "development of secondary male characteristics.",
+          "is_correct": false
+        },
+        {
+          "id": 198597,
+          "text": "preparing the uterus for implantation of fertilised egg.",
+          "html": "preparing the uterus for implantation of fertilised egg.<br />\r\n&nbsp;",
+          "is_correct": true
+        },
+        {
+          "id": 198600,
+          "text": "controlling menstrual cycle.",
+          "html": "controlling&nbsp;menstrual cycle.",
+          "is_correct": false
+        }
+      ],
+      "correct_option_text": "preparing the uterus for implantation of fertilised egg.",
+      "correct_option_ids": [
+        198597
+      ],
+      "explanation": "The combination of ovum and sperm forms the fertilized egg which further gets implanted in the uterus. This is brought about by the hormone progesterone which prepares uterus for this process.",
+      "solution": ""
+    },
+    {
+      "n": 19,
+      "question_id": 59989,
+      "question_text": "Packing efficiency for simple cubic structure is",
+      "question_html": "<p>Packing efficiency for simple cubic structure is</p>",
+      "options": [
+        {
+          "id": 195145,
+          "text": "100%",
+          "html": "100%",
+          "is_correct": false
+        },
+        {
+          "id": 195143,
+          "text": "74%",
+          "html": "74%",
+          "is_correct": false
+        },
+        {
+          "id": 195142,
+          "text": "52.36%",
+          "html": "52.36%",
+          "is_correct": true
+        },
+        {
+          "id": 195144,
+          "text": "68%",
+          "html": "68%",
+          "is_correct": false
+        }
+      ],
+      "correct_option_text": "52.36%",
+      "correct_option_ids": [
+        195142
+      ],
+      "explanation": "Packing efficiency {tex}= \\frac{{{\\text{Volume of one atom}}}}{{{\\text{Volume of cubic unit cell}}}} \\times 100\\%{/tex} {tex}= \\frac{{\\frac{4}{3}\\pi {r^3}}}{{8{r^3}}} \\times 100 = \\frac{\\pi }{6} \\times 100{/tex} = 52.36% = 52.4%",
+      "solution": ""
+    },
+    {
+      "n": 20,
+      "question_id": 60057,
+      "question_text": "Which among the following is soluble in n-octane?",
+      "question_html": "<p>Which among the following is soluble in n-octane?</p>",
+      "options": [
+        {
+          "id": 195416,
+          "text": "Chloroform",
+          "html": "Chloroform",
+          "is_correct": false
+        },
+        {
+          "id": 195417,
+          "text": "Ethylene glycol",
+          "html": "Ethylene glycol",
+          "is_correct": false
+        },
+        {
+          "id": 195414,
+          "text": "Hexane",
+          "html": "Hexane",
+          "is_correct": true
+        },
+        {
+          "id": 195415,
+          "text": "Methanol",
+          "html": "Methanol",
+          "is_correct": false
+        }
+      ],
+      "correct_option_text": "Hexane",
+      "correct_option_ids": [
+        195414
+      ],
+      "explanation": "Both hexane and n-octane are non-polar, so they mix easily.",
+      "solution": ""
+    },
+    {
+      "n": 21,
+      "question_id": 60313,
+      "question_text": "Formula of oleum is",
+      "question_html": "<p>Formula of oleum is</p>",
+      "options": [
+        {
+          "id": 196439,
+          "text": "H 2 S 2 O 6",
+          "html": "H<sub>2</sub>S<sub>2</sub>O<sub>6</sub>",
+          "is_correct": false
+        },
+        {
+          "id": 196440,
+          "text": "H 2 SO 5",
+          "html": "H<sub>2</sub>SO<sub>5</sub>",
+          "is_correct": false
+        },
+        {
+          "id": 196441,
+          "text": "H 2 S 2 O 8",
+          "html": "H<sub>2</sub>S<sub>2</sub>O<sub>8</sub>",
+          "is_correct": false
+        },
+        {
+          "id": 196438,
+          "text": "H 2 S 2 O 7",
+          "html": "H<sub>2</sub>S<sub>2</sub>O<sub>7</sub>",
+          "is_correct": true
+        }
+      ],
+      "correct_option_text": "H 2 S 2 O 7",
+      "correct_option_ids": [
+        196438
+      ],
+      "explanation": "Oleum is pyrosulphuric acid (H 2 S 2 O 7 )",
+      "solution": ""
+    },
+    {
+      "n": 22,
+      "question_id": 60519,
+      "question_text": "Hydrocarbons are prepared from Grignard reagent by:",
+      "question_html": "<p>Hydrocarbons are prepared from Grignard reagent by:</p>",
+      "options": [
+        {
+          "id": 197265,
+          "text": "by reacting them with Sodium",
+          "html": "by reacting&nbsp;them with Sodium",
+          "is_correct": false
+        },
+        {
+          "id": 197264,
+          "text": "by exposing them to Diethyl ether",
+          "html": "by exposing them to Diethyl ether",
+          "is_correct": false
+        },
+        {
+          "id": 197263,
+          "text": "by exposing them to Magnesium",
+          "html": "by exposing them to Magnesium",
+          "is_correct": false
+        },
+        {
+          "id": 197262,
+          "text": "by reacting them with water",
+          "html": "by reacting them with&nbsp;water",
+          "is_correct": true
+        }
+      ],
+      "correct_option_text": "by reacting them with water",
+      "correct_option_ids": [
+        197262
+      ],
+      "explanation": "Grignard reagents are highly reactive and react with any source of a proton to give hydrocarbons. Even water, alcohols, amines are sufficiently acidic to convert them to corresponding hydrocarbons. Thus Grignard reagent abstracts acidic hydrogen from H 2 O forming alkane. {tex}RMgX + H_2O \\rightarrow RH + Mg(OH)X{/tex}",
+      "solution": ""
+    },
+    {
+      "n": 23,
+      "question_id": 65711,
+      "question_text": "Williamson&#39;s synthesis is used for the preparation of",
+      "question_html": "<p>Williamson&#39;s synthesis is used for the preparation of</p>",
+      "options": [
+        {
+          "id": 208577,
+          "text": "alkyl halides",
+          "html": "alkyl halides",
+          "is_correct": false
+        },
+        {
+          "id": 208576,
+          "text": "ethers",
+          "html": "ethers",
+          "is_correct": true
+        },
+        {
+          "id": 208579,
+          "text": "aldehydes",
+          "html": "aldehydes",
+          "is_correct": false
+        },
+        {
+          "id": 208578,
+          "text": "alcohols",
+          "html": "alcohols",
+          "is_correct": false
+        }
+      ],
+      "correct_option_text": "ethers",
+      "correct_option_ids": [
+        208576
+      ],
+      "explanation": "The Williamson ether synthesis is an organic reaction, forming an ether from an organohalide and deprotonated alcohol (alkoxide). This reaction was developed by Alexander Williamson in 1850. Typically it involves the reaction of an alkoxide ion with a primary alkyl halide via an S N 2 reaction.",
+      "solution": ""
+    },
+    {
+      "n": 24,
+      "question_id": 352101,
+      "question_text": "Three cyclic structures of monosaccharides are given below which of these are anomers.",
+      "question_html": "<html><body><p>Three cyclic structures of monosaccharides are given below which of these are anomers.<br/>\n<img alt=\"\" data-imgur-src=\"j5PGcCb.png\" src=\"https://media-mycbseguide.s3.amazonaws.com/images/imgur/j5PGcCb.png\" style=\"width: 300px; height: 136px;\"/></p></body></html>",
+      "options": [
+        {
+          "id": 544269,
+          "text": "III is anomer of I and II",
+          "html": "III is anomer of I and II",
+          "is_correct": false
+        },
+        {
+          "id": 544267,
+          "text": "II and III",
+          "html": "II and III",
+          "is_correct": false
+        },
+        {
+          "id": 544268,
+          "text": "I and III",
+          "html": "I and III",
+          "is_correct": false
+        },
+        {
+          "id": 544266,
+          "text": "I and II",
+          "html": "I and II",
+          "is_correct": true
+        }
+      ],
+      "correct_option_text": "I and II",
+      "correct_option_ids": [
+        544266
+      ],
+      "explanation": "Cyclic structures of monosaccharides which differ in the structure at carbon- 1 position are known as anomers. Here, I and II are anomer because they differ from each other at carbon- 1 only.",
+      "solution": ""
+    },
+    {
+      "n": 25,
+      "question_id": 65147,
+      "question_text": "Hydrolysis of one mole of peroxodisulphuric acid produces:",
+      "question_html": "<p>Hydrolysis of one mole of peroxodisulphuric acid produces:</p>",
+      "options": [
+        {
+          "id": 208412,
+          "text": "One mole of sulphuric acid and one mole of peroxomonosulphuric acid.",
+          "html": "One mole of sulphuric acid and one mole of peroxomonosulphuric acid.",
+          "is_correct": true
+        },
+        {
+          "id": 208415,
+          "text": "Two moles of sulphuric acid.",
+          "html": "Two moles of sulphuric acid.",
+          "is_correct": false
+        },
+        {
+          "id": 208413,
+          "text": "One mole of sulphuric acid, one mole of peroxomonosulphuric acid and one mole of hydrogen peroxide.",
+          "html": "One mole of sulphuric acid, one mole of peroxomonosulphuric acid and one mole of hydrogen peroxide.",
+          "is_correct": false
+        },
+        {
+          "id": 208414,
+          "text": "Two moles of perxomoonosulphuric acid.",
+          "html": "Two moles of perxomoonosulphuric acid.",
+          "is_correct": false
+        }
+      ],
+      "correct_option_text": "One mole of sulphuric acid and one mole of peroxomonosulphuric acid.",
+      "correct_option_ids": [
+        208412
+      ],
+      "explanation": "One mole of sulphuric acid and one mole of peroxomonosulphuric acid is produced when 1 mole of peroxodisulphuric acid is hydrolyzed. H 2 S 2 O 8 + H 2 O &rarr; H 2 SO 4 + H 2 SO 5",
+      "solution": ""
+    },
+    {
+      "n": 26,
+      "question_id": 334869,
+      "question_text": "Which of the following statement is not true about the hexagonal close packing?",
+      "question_html": "<p>Which of the following statement is not true about the hexagonal close packing?</p>",
+      "options": [
+        {
+          "id": 505856,
+          "text": "The coordination number is 12.",
+          "html": "The coordination number is 12.",
+          "is_correct": false
+        },
+        {
+          "id": 505858,
+          "text": "Tetrahedral voids of the second layer are covered by the spheres of the third layer.",
+          "html": "Tetrahedral voids of the second layer are covered by the spheres of the third layer.",
+          "is_correct": false
+        },
+        {
+          "id": 505857,
+          "text": "It has 74% packing efficiency.",
+          "html": "It has 74% packing efficiency.",
+          "is_correct": false
+        },
+        {
+          "id": 505855,
+          "text": "In this arrangement spheres of the fourth layer are exactly aligned with those of the first layer.",
+          "html": "In this arrangement spheres of the fourth layer are exactly aligned with those of the first layer.",
+          "is_correct": true
+        }
+      ],
+      "correct_option_text": "In this arrangement spheres of the fourth layer are exactly aligned with those of the first layer.",
+      "correct_option_ids": [
+        505855
+      ],
+      "explanation": "Hexagonal close-packing can be arranged as two layers A and B as one over another which can be diagrammatically represented as follows: In this case, spheres of the third layer are exactly aligned with the first layer, and the sphere of 4th payer is aligned with the second layer. Thus the pattern of spheres is repeated in alternate layers.",
+      "solution": ""
+    },
+    {
+      "n": 27,
+      "question_id": 60037,
+      "question_text": "The sum of all mole fraction for a mixture is always equal to",
+      "question_html": "<p>The sum of all mole fraction for a mixture is always equal to</p>",
+      "options": [
+        {
+          "id": 195337,
+          "text": "3",
+          "html": "3",
+          "is_correct": false
+        },
+        {
+          "id": 195335,
+          "text": "0",
+          "html": "0",
+          "is_correct": false
+        },
+        {
+          "id": 195334,
+          "text": "1",
+          "html": "1",
+          "is_correct": true
+        },
+        {
+          "id": 195336,
+          "text": "2",
+          "html": "2",
+          "is_correct": false
+        }
+      ],
+      "correct_option_text": "1",
+      "correct_option_ids": [
+        195334
+      ],
+      "explanation": "{tex}{X_A} = \\frac{{{N_A}}}{{\\left( {{N_A} + {N_B}} \\right)}}{/tex} and {tex}{X_B} = \\frac{{{N_B}}}{{\\left( {{N_A} + {N_B}} \\right)}}{/tex} So X A + X B = 1",
+      "solution": ""
+    },
+    {
+      "n": 28,
+      "question_id": 60873,
+      "question_text": "DNA fingerprinting means the",
+      "question_html": "<p>DNA fingerprinting means the</p>",
+      "options": [
+        {
+          "id": 198679,
+          "text": "sequencing the bases present in double helix",
+          "html": "sequencing the bases present in double helix",
+          "is_correct": false
+        },
+        {
+          "id": 198680,
+          "text": "sequencing the nucleotides in DNA",
+          "html": "sequencing the nucleotides in DNA",
+          "is_correct": false
+        },
+        {
+          "id": 198678,
+          "text": "information reagrding the unique imprints on the fingertip for a person",
+          "html": "information reagrding the unique imprints&nbsp;on the fingertip for a person",
+          "is_correct": false
+        },
+        {
+          "id": 198677,
+          "text": "information regarding the unique sequence of bases on DNA for a person",
+          "html": "information regarding the unique sequence of bases on DNA&nbsp;for a person",
+          "is_correct": true
+        }
+      ],
+      "correct_option_text": "information regarding the unique sequence of bases on DNA for a person",
+      "correct_option_ids": [
+        198677
+      ],
+      "explanation": "A sequence of bases on DNA is unique for a person and information regarding this is called DNA fingerprinting. It is same for every cell and cannot be altered by any known treatment.",
+      "solution": ""
+    },
+    {
+      "n": 29,
+      "question_id": 60351,
+      "question_text": "First compound of inert gas was prepared by Bartlett in 1962. The compound is:",
+      "question_html": "<p>First compound of inert gas was prepared by Bartlett in 1962. The compound is:</p>",
+      "options": [
+        {
+          "id": 196593,
+          "text": "XeO 3",
+          "html": "XeO<sub>3</sub>",
+          "is_correct": false
+        },
+        {
+          "id": 196590,
+          "text": "Xe[PtF 6 ]",
+          "html": "Xe[PtF<sub>6</sub>]",
+          "is_correct": true
+        },
+        {
+          "id": 196591,
+          "text": "XeOF 4",
+          "html": "XeOF<sub>4</sub>",
+          "is_correct": false
+        },
+        {
+          "id": 196592,
+          "text": "XeF 6",
+          "html": "XeF<sub>6</sub>",
+          "is_correct": false
+        }
+      ],
+      "correct_option_text": "Xe[PtF 6 ]",
+      "correct_option_ids": [
+        196590
+      ],
+      "explanation": "Bartlett in 1962 prepared Xe[PtF 6 ] . He passed orange red vapours platinum hexa fluoride over xenon to form yellow solid of xenon platinum hexa fluoride. PtF 6 + Xe {tex}\\to{/tex} Xe[PtF 6 ] xenon hexafluoroplatinate(V)",
+      "solution": ""
+    },
+    {
+      "n": 30,
+      "question_id": 337394,
+      "question_text": "The position of &ndash;Br in the compound in CH 3 CH=CHC(Br)(CH 3 ) 2 can be classified as ________.",
+      "question_html": "<p>The position of &ndash;Br in the compound in CH<sub>3</sub>CH=CHC(Br)(CH<sub>3</sub>)<sub>2</sub> can be classified as ________.</p>",
+      "options": [
+        {
+          "id": 511855,
+          "text": "Allyl",
+          "html": "Allyl",
+          "is_correct": true
+        },
+        {
+          "id": 511856,
+          "text": "Aryl",
+          "html": "Aryl",
+          "is_correct": false
+        },
+        {
+          "id": 511858,
+          "text": "Secondary",
+          "html": "Secondary",
+          "is_correct": false
+        },
+        {
+          "id": 511857,
+          "text": "Vinyl",
+          "html": "Vinyl",
+          "is_correct": false
+        }
+      ],
+      "correct_option_text": "Allyl",
+      "correct_option_ids": [
+        511855
+      ],
+      "explanation": "Allyl halides occur when the halogen atom is bonded to an sp 3 -hybridized carbon atom adjacent to an allylic carbon, that is, a carbon-carbon double bond. Aryl halides are formed when the halogen atom is bonded directly to the sp 2 -hybridized carbon atom of an aromatic ring. Vinylic bonds are formed when the halogen atom is bonded to an sp 2 -hybridized carbon atom of a carbon-carbon double bond. Simply put, it is the ethylene molecule with one of the hydrogen atoms replaced by another &ndash;R group. Secondary bonds occur when the halogen is bound to a secondary carbon atom in the molecule. In the given molecule, the &ndash;Br is attached to a tertiary carbon atom which is, in turn, attached an sp 3 -hybridized carbon-carbon double bond which is further attached to sp ​​​​​2 hybridized carbon atom. Hence this &ndash;Br is in an allylic position.",
+      "solution": ""
+    },
+    {
+      "n": 31,
+      "question_id": 60329,
+      "question_text": "N 2 O 3 is:",
+      "question_html": "<p>N<sub>2</sub>O<sub>3</sub> is:</p>",
+      "options": [
+        {
+          "id": 196502,
+          "text": "An acidic oxide and anhydride of HNO 2 .",
+          "html": "An acidic oxide and anhydride of HNO<sub>2</sub>.",
+          "is_correct": true
+        },
+        {
+          "id": 196505,
+          "text": "A basic oxide and the anhydride of HNO 2 .",
+          "html": "A basic oxide and the anhydride of HNO<sub>2</sub>.",
+          "is_correct": false
+        },
+        {
+          "id": 196504,
+          "text": "A neutral oxide and the anhydride of HNO 3 .",
+          "html": "A neutral oxide and the anhydride of HNO<sub>3</sub>.",
+          "is_correct": false
+        },
+        {
+          "id": 196503,
+          "text": "An acidic oxide and the anhydride of H 2 N 2 O 2 .",
+          "html": "An acidic oxide and the anhydride of H<sub>2</sub>N<sub>2</sub>O<sub>2</sub>.",
+          "is_correct": false
+        }
+      ],
+      "correct_option_text": "An acidic oxide and anhydride of HNO 2 .",
+      "correct_option_ids": [
+        196502
+      ],
+      "explanation": "N 2 O 3 + H 2 O {tex}\\to{/tex} 2HNO 2 It is also called nitrous anhydride or nitrogen sesquioxide.",
+      "solution": ""
+    },
+    {
+      "n": 32,
+      "question_id": 349740,
+      "question_text": "Which of the following pair represents anomers?",
+      "question_html": "<p>Which of the following pair&nbsp;represents anomers?</p>\r\n",
+      "options": [
+        {
+          "id": 538173,
+          "text": "",
+          "html": "<img alt=\"\" data-imgur-src=\"iZKG9jO.png\" src=\"https://media-mycbseguide.s3.amazonaws.com/images/imgur/iZKG9jO.png\" style=\"width: 199px; height: 123px;\" />",
+          "is_correct": true
+        },
+        {
+          "id": 538171,
+          "text": "",
+          "html": "<img alt=\"\" data-imgur-src=\"sfVWAn9.png\" src=\"https://media-mycbseguide.s3.amazonaws.com/images/imgur/sfVWAn9.png\" style=\"width: 200px; height: 116px;\" />",
+          "is_correct": false
+        },
+        {
+          "id": 538174,
+          "text": "",
+          "html": "<img alt=\"\" data-imgur-src=\"R9gw8Wi.png\" src=\"https://media-mycbseguide.s3.amazonaws.com/images/imgur/R9gw8Wi.png\" style=\"width: 200px; height: 123px;\" />",
+          "is_correct": false
+        },
+        {
+          "id": 538172,
+          "text": "",
+          "html": "<img alt=\"\" data-imgur-src=\"FrtVwub.png\" src=\"https://media-mycbseguide.s3.amazonaws.com/images/imgur/FrtVwub.png\" style=\"width: 200px; height: 109px;\" />",
+          "is_correct": false
+        }
+      ],
+      "correct_option_text": "",
+      "correct_option_ids": [
+        538173
+      ],
+      "explanation": "The isomers which differ only in the configuration of the hydroxyl group at C-1 carbon are called anomers and are referred to as {tex}\\alpha{/tex} - and {tex}\\beta{/tex} -forms",
+      "solution": ""
+    },
+    {
+      "n": 33,
+      "question_id": 60588,
+      "question_text": "With dilute nitric acid at low temperature (298 K), phenol yields",
+      "question_html": "<p>With dilute nitric acid at low temperature (298 K), phenol yields</p>",
+      "options": [
+        {
+          "id": 197541,
+          "text": "p &ndash; Nitrophenol",
+          "html": "p &ndash; Nitrophenol",
+          "is_correct": false
+        },
+        {
+          "id": 197538,
+          "text": "a mixture of ortho and para nitro phenols",
+          "html": "a mixture of ortho and para nitro phenols",
+          "is_correct": true
+        },
+        {
+          "id": 197539,
+          "text": "o &ndash; Nitrophenol",
+          "html": "o &ndash; Nitrophenol",
+          "is_correct": false
+        },
+        {
+          "id": 197540,
+          "text": "m &ndash; Nitrophenol",
+          "html": "m &ndash; Nitrophenol",
+          "is_correct": false
+        }
+      ],
+      "correct_option_text": "a mixture of ortho and para nitro phenols",
+      "correct_option_ids": [
+        197538
+      ],
+      "explanation": "Nitration of phenols: Phenols upon treatment with dilute nitric acid undergoes nitration at low temperature (298 K) to give a mixture of ortho and para nitrophenols. The mixture formed is further separated into ortho and para nitrophenols by steam distillation on the basis of their volatility. Due to intramolecular and intermolecular hydrogen bonding, ortho nitrophenols are lesser volatile in comparison to para nitrophenols which involves only intermolecular hydrogen bonding. ​​​​​​​",
+      "solution": ""
+    },
+    {
+      "n": 34,
+      "question_id": 60070,
+      "question_text": "Calculate the molarity of liquid HCl solution whose density is 1.17 g/cm 3 .",
+      "question_html": "<p>Calculate the molarity of liquid HCl solution whose density is 1.17 g/cm<sup>3</sup>.</p>",
+      "options": [
+        {
+          "id": 195466,
+          "text": "32.05",
+          "html": "32.05",
+          "is_correct": true
+        },
+        {
+          "id": 195468,
+          "text": "18.25",
+          "html": "18.25",
+          "is_correct": false
+        },
+        {
+          "id": 195467,
+          "text": "42.10",
+          "html": "42.10",
+          "is_correct": false
+        },
+        {
+          "id": 195469,
+          "text": "36.5",
+          "html": "36.5",
+          "is_correct": false
+        }
+      ],
+      "correct_option_text": "32.05",
+      "correct_option_ids": [
+        195466
+      ],
+      "explanation": "{tex}M = {\\text{ }}\\frac{{\\left( {1.17{\\text{ }}*{\\text{ }}1000} \\right)}}{{\\left( {36.5} \\right)}}{/tex} = 32.054",
+      "solution": ""
+    },
+    {
+      "n": 35,
+      "question_id": 60316,
+      "question_text": "Which of the following is the strongest Lewis base?",
+      "question_html": "<p>Which of the following is the strongest Lewis base?</p>",
+      "options": [
+        {
+          "id": 196452,
+          "text": "NBr 3",
+          "html": "NBr<sub>3</sub>",
+          "is_correct": false
+        },
+        {
+          "id": 196453,
+          "text": "NF 3",
+          "html": "NF<sub>3</sub>",
+          "is_correct": false
+        },
+        {
+          "id": 196450,
+          "text": "NI 3",
+          "html": "NI<sub>3</sub>",
+          "is_correct": true
+        },
+        {
+          "id": 196451,
+          "text": "NCl 3",
+          "html": "NCl<sub>3</sub>",
+          "is_correct": false
+        }
+      ],
+      "correct_option_text": "NI 3",
+      "correct_option_ids": [
+        196450
+      ],
+      "explanation": "The strongest lewis base is NI 3 due to lower electronegativity of I. So the tendency of trihalides of N decreases from NI 3 > NBr 3 > NCl 3 > NF 3 due to increase in electronegativity from I to F.",
+      "solution": ""
+    },
+    {
+      "n": 36,
+      "question_id": 60546,
+      "question_text": "Maximum number of molecules of CH 3 I that can react with a molecule of CH 3 NH 2 is:",
+      "question_html": "<p>Maximum number of molecules of CH<sub>3</sub>I that can react with a molecule of CH<sub>3</sub>NH<sub>2</sub> is:</p>",
+      "options": [
+        {
+          "id": 197373,
+          "text": "1",
+          "html": "1",
+          "is_correct": false
+        },
+        {
+          "id": 197370,
+          "text": "3",
+          "html": "3",
+          "is_correct": true
+        },
+        {
+          "id": 197371,
+          "text": "2",
+          "html": "2",
+          "is_correct": false
+        },
+        {
+          "id": 197372,
+          "text": "4",
+          "html": "4",
+          "is_correct": false
+        }
+      ],
+      "correct_option_text": "3",
+      "correct_option_ids": [
+        197370
+      ],
+      "explanation": "CH 3 NH 2 can act as a nucleophile to cause substitution reaction. (CH 3 ) 4 N + this is formed when 3 moles of CH 3 NH 2 reacts with methyl halide.",
+      "solution": ""
+    },
+    {
+      "n": 37,
+      "question_id": 64364,
+      "question_text": "In a body centred cubic cell, an atom at the body centre is shared by:",
+      "question_html": "<p>In a body centred cubic cell, an atom at the body centre is shared by:</p>",
+      "options": [
+        {
+          "id": 208190,
+          "text": "2 unit cells",
+          "html": "2 unit cells",
+          "is_correct": false
+        },
+        {
+          "id": 208189,
+          "text": "4 unit cells",
+          "html": "4 unit cells",
+          "is_correct": false
+        },
+        {
+          "id": 208191,
+          "text": "8 unit cells",
+          "html": "8 unit cells",
+          "is_correct": false
+        },
+        {
+          "id": 208188,
+          "text": "1 unit cell",
+          "html": "1 unit cell",
+          "is_correct": true
+        }
+      ],
+      "correct_option_text": "1 unit cell",
+      "correct_option_ids": [
+        208188
+      ],
+      "explanation": "Atom in the body center is shared by each unit cell alone.",
+      "solution": ""
+    },
+    {
+      "n": 38,
+      "question_id": 60613,
+      "question_text": "Which one of the following alcohol is poisonous and its ingestion of even small quantities can cause blindness and large quantities to cause even death?",
+      "question_html": "<p>Which one of the following alcohol is&nbsp;poisonous and its ingestion of even small quantities can cause blindness and large quantities to cause even death?</p>\r\n",
+      "options": [
+        {
+          "id": 197640,
+          "text": "propanol",
+          "html": "propanol",
+          "is_correct": false
+        },
+        {
+          "id": 197638,
+          "text": "methanol",
+          "html": "methanol",
+          "is_correct": true
+        },
+        {
+          "id": 197641,
+          "text": "Iso-propanol",
+          "html": "Iso-propanol",
+          "is_correct": false
+        },
+        {
+          "id": 197639,
+          "text": "ethanol",
+          "html": "ethanol",
+          "is_correct": false
+        }
+      ],
+      "correct_option_text": "methanol",
+      "correct_option_ids": [
+        197638
+      ],
+      "explanation": "The most common cause of blindness from drinking is methanol. Methanol, otherwise known as methyl alcohol or wood alcohol, can damage the optic nerve and even kill you in high concentrations. During Prohibition, bootleggers were known to sell moonshine that contained methanol, and the practice continues abroad.",
+      "solution": ""
+    },
+    {
+      "n": 39,
+      "question_id": 59998,
+      "question_text": "In cubic close packing(ccp) arrangement, the pattern of the successive layers will be designated as",
+      "question_html": "<p>In cubic close packing(ccp) arrangement, the pattern of the successive layers will be designated as</p>",
+      "options": [
+        {
+          "id": 195178,
+          "text": "ABC, ABC, ABC",
+          "html": "ABC, ABC, ABC",
+          "is_correct": true
+        },
+        {
+          "id": 195179,
+          "text": "AB, AB, AB&hellip;.",
+          "html": "AB, AB, AB&hellip;.",
+          "is_correct": false
+        },
+        {
+          "id": 195180,
+          "text": "AB, ABC, AB, ABC&hellip;.",
+          "html": "AB, ABC, AB, ABC&hellip;.",
+          "is_correct": false
+        },
+        {
+          "id": 195181,
+          "text": "ABC, AB, ABC, AB&hellip;.",
+          "html": "ABC, AB, ABC, AB&hellip;.",
+          "is_correct": false
+        }
+      ],
+      "correct_option_text": "ABC, ABC, ABC",
+      "correct_option_ids": [
+        195178
+      ],
+      "explanation": "First layer and fourth layer are same.",
+      "solution": ""
+    },
+    {
+      "n": 40,
+      "question_id": 60062,
+      "question_text": "Ethylene glycol is added to water as antifreeze. It will",
+      "question_html": "<p>Ethylene glycol is added to water as antifreeze. It will</p>",
+      "options": [
+        {
+          "id": 195435,
+          "text": "Only decrease the freezing point of water",
+          "html": "Only decrease the freezing point of water",
+          "is_correct": false
+        },
+        {
+          "id": 195436,
+          "text": "Only increase the boiling point of water",
+          "html": "Only increase the boiling point of water",
+          "is_correct": false
+        },
+        {
+          "id": 195437,
+          "text": "It is used to clean the radiator in car",
+          "html": "It is used to clean the radiator in car",
+          "is_correct": false
+        },
+        {
+          "id": 195434,
+          "text": "Decrease the freezing point of water in the winter and increase the boiling point of water in the summer.",
+          "html": "Decrease the freezing point of water in the winter and increase the boiling point&nbsp;of water in the summer.",
+          "is_correct": true
+        }
+      ],
+      "correct_option_text": "Decrease the freezing point of water in the winter and increase the boiling point of water in the summer.",
+      "correct_option_ids": [
+        195434
+      ],
+      "explanation": "Adding ethylene glycol to water reduces the freezing point of water. Water freezes at temperatures much less than 0 degrees Celsius when ethylene glycol is added to it. It is used as an anti-freeze. This practice was mostly practised in older radiators in cold weather conditions. Another aspect of using glycols is that they have a higher boiling point(197 deg C) as compared to water. Hence, they don&rsquo;t get vapourised easily inside the radiator. They also have a higher specific heat capacity for which they are capable of transferring more heat from the engine as compared to water.",
+      "solution": ""
+    },
+    {
+      "n": 41,
+      "question_id": 60340,
+      "question_text": "The reagent used to distinguish between H 2 O 2 and O 3 is:",
+      "question_html": "<p>The reagent used to distinguish between H<sub>2</sub>O<sub>2</sub> and O<sub>3</sub> is:</p>",
+      "options": [
+        {
+          "id": 196549,
+          "text": "Starch and iodine",
+          "html": "Starch and iodine",
+          "is_correct": false
+        },
+        {
+          "id": 196546,
+          "text": "KMnO 4",
+          "html": "KMnO<sub>4</sub>",
+          "is_correct": true
+        },
+        {
+          "id": 196548,
+          "text": "Bleaching powder",
+          "html": "Bleaching powder",
+          "is_correct": false
+        },
+        {
+          "id": 196547,
+          "text": "PbS",
+          "html": "PbS",
+          "is_correct": false
+        }
+      ],
+      "correct_option_text": "KMnO 4",
+      "correct_option_ids": [
+        196546
+      ],
+      "explanation": "H 2 O 2 can decolorize the color of KMnO 4 . H 2 O 2 + KMnO 4 {tex}\\to{/tex} O 2 + MnO 2 + KOH + H 2 O Ozone can activate soluble or insoluble Mn into permanganate ion but will not oxidize it further. So no effect.",
+      "solution": ""
+    },
+    {
+      "n": 42,
+      "question_id": 65704,
+      "question_text": "The increasing order of acidic strength of the following is:",
+      "question_html": "<p>The increasing order of acidic strength of the following is:<br />\r\n<img src=\"https://media-mycbseguide.s3.amazonaws.com/images/quesbank/12/chem/bulk/image4363.png\" style=\"height: 109px; width: 200px;\" /></p>",
+      "options": [
+        {
+          "id": 208550,
+          "text": "(ii) < (iii) < (i)",
+          "html": "(ii) &lt; (iii) &lt; (i)",
+          "is_correct": false
+        },
+        {
+          "id": 208551,
+          "text": "(i) < (iii) < (ii)",
+          "html": "(i) &lt; (iii) &lt; (ii)",
+          "is_correct": false
+        },
+        {
+          "id": 208548,
+          "text": "(iii) < (ii) < (i)",
+          "html": "(iii) &lt; (ii) &lt; (i)",
+          "is_correct": true
+        },
+        {
+          "id": 208549,
+          "text": "(i) < (ii) < (iii)",
+          "html": "(i) &lt; (ii) &lt; (iii)",
+          "is_correct": false
+        }
+      ],
+      "correct_option_text": "(iii) < (ii) < (i)",
+      "correct_option_ids": [
+        208548
+      ],
+      "explanation": "The nitro-group is an electron-withdrawing group. The presence of this group in the para position decreases the electron density on the benzene ring. which in turn decreases the electron density on the oxygen of O-H bond. As a result, it is easier to lose a proton. Also, the p-nitrophenoxide ion formed after the loss of protons is stabilized by resonance. Hence, ortho nitrophenol is a stronger acid. On the other hand, methoxy group is an electron-releasing group. Thus, it increases the electron density on the oxygen of the O-H bond and hence, the proton cannot be given out easily. For this reason, para-nitrophenol is more acidic than para-methoxyphenol.",
+      "solution": ""
+    },
+    {
+      "n": 43,
+      "question_id": 60295,
+      "question_text": "[Ar]3d 10 4s 2 4p 3 is the electronic configuration of",
+      "question_html": "<p>[Ar]3d<sup>10</sup>4s<sup>2</sup>4p<sup>3</sup> is the electronic configuration of</p>",
+      "options": [
+        {
+          "id": 196366,
+          "text": "Arsenic",
+          "html": "Arsenic",
+          "is_correct": true
+        },
+        {
+          "id": 196369,
+          "text": "Phosphorous",
+          "html": "Phosphorous",
+          "is_correct": false
+        },
+        {
+          "id": 196368,
+          "text": "Bismuth",
+          "html": "Bismuth",
+          "is_correct": false
+        },
+        {
+          "id": 196367,
+          "text": "Antimony",
+          "html": "Antimony",
+          "is_correct": false
+        }
+      ],
+      "correct_option_text": "Arsenic",
+      "correct_option_ids": [
+        196366
+      ],
+      "explanation": "Arsenic is a group 15 element and its atomic no. is 33.",
+      "solution": ""
+    },
+    {
+      "n": 44,
+      "question_id": 349834,
+      "question_text": "Glycogen is a branched chain polymer of {tex}\\alpha{/tex} -D-glucose units in which chain is formed by C 1 -C 4 glycosidic linkage whereas branching occurs by the formation of C 1 -C 6 glycosidic linkage. Structure of glycogen is similar to ________.",
+      "question_html": "<p>Glycogen is a branched chain polymer of <span class=\"math-tex\">{tex}\\alpha{/tex}</span>-D-glucose units in which chain is formed by C<sub>1</sub>-C<sub>4</sub> glycosidic linkage whereas branching occurs by the formation of C<sub>1</sub>-C<sub>6</sub> glycosidic linkage. Structure of glycogen is similar to ________.</p>\r\n",
+      "options": [
+        {
+          "id": 538208,
+          "text": "Glucose",
+          "html": "Glucose",
+          "is_correct": false
+        },
+        {
+          "id": 538205,
+          "text": "Amylose",
+          "html": "Amylose",
+          "is_correct": false
+        },
+        {
+          "id": 538206,
+          "text": "Amylopectin",
+          "html": "Amylopectin",
+          "is_correct": true
+        },
+        {
+          "id": 538207,
+          "text": "Cellulose",
+          "html": "Cellulose",
+          "is_correct": false
+        }
+      ],
+      "correct_option_text": "Amylopectin",
+      "correct_option_ids": [
+        538206
+      ],
+      "explanation": "The structure of glycogen is similar to amylopectin. It is a water-soluble polysaccharide and branched-chain polymer of {tex}\\alpha{/tex} -D glucose units in which chain is formed by C 1 -C 4 glycosidic linkage and branching occurs by C 1 -C 6 glycosidic linkage.",
+      "solution": ""
+    },
+    {
+      "n": 45,
+      "question_id": 569614,
+      "question_text": "Assertion (A): The m.pt./b.pt. of noble gases are quite high. Reason (R): The interparticle forces among noble gases in their liquid state are weak van der Waals&#39; forces.",
+      "question_html": "<p><strong>Assertion (A):</strong> The m.pt./b.pt. of noble gases are quite high.<br />\n<strong>Reason (R):</strong> The interparticle forces among noble gases in their liquid state are weak van der Waals&#39; forces.</p>",
+      "options": [
+        {
+          "id": 1087652,
+          "text": "A is true but R is false.",
+          "html": "A is true but R is false.",
+          "is_correct": false
+        },
+        {
+          "id": 1087651,
+          "text": "Both A and R are true but R is not the correct explanation of A.",
+          "html": "Both A and R are true but R is not the correct explanation of A.",
+          "is_correct": false
+        },
+        {
+          "id": 1087653,
+          "text": "A is false but R is true.",
+          "html": "A is false but R is true.",
+          "is_correct": true
+        },
+        {
+          "id": 1087650,
+          "text": "Both A and R are true and R is the correct explanation of A.",
+          "html": "Both A and R are true and R is the correct explanation of A.",
+          "is_correct": false
+        }
+      ],
+      "correct_option_text": "A is false but R is true.",
+      "correct_option_ids": [
+        1087653
+      ],
+      "explanation": "The melting point/ boiling point of noble gases are quite low. The interparticle forces among noble gases are weak van der Waals&#39; forces.",
+      "solution": ""
+    },
+    {
+      "n": 46,
+      "question_id": 571778,
+      "question_text": "Assertion (A): Benzyl chloride is more reactive than p-chlorotoluene towards aqueous NaOH. Reason (R): The C - Cl bond in benzyl chloride is more polar than C - Cl bond in p-chlorotoluene.",
+      "question_html": "<p><strong>Assertion (A):</strong> Benzyl chloride is more reactive than p-chlorotoluene towards aqueous NaOH.<br />\n<strong>Reason (R):</strong> The C - Cl bond in benzyl chloride is more polar than C - Cl bond in p-chlorotoluene.</p>",
+      "options": [
+        {
+          "id": 1094582,
+          "text": "Both A and R are true and R is the correct explanation of A.",
+          "html": "Both A and R are true and R is the correct explanation of A.",
+          "is_correct": true
+        },
+        {
+          "id": 1094583,
+          "text": "Both A and R are true but R is not the correct explanation of A.",
+          "html": "Both A and R are true but R is not the correct explanation of A.",
+          "is_correct": false
+        },
+        {
+          "id": 1094585,
+          "text": "A is false but R is true.",
+          "html": "A is false but R is true.",
+          "is_correct": false
+        },
+        {
+          "id": 1094584,
+          "text": "A is true but R is false.",
+          "html": "A is true but R is false.",
+          "is_correct": false
+        }
+      ],
+      "correct_option_text": "Both A and R are true and R is the correct explanation of A.",
+      "correct_option_ids": [
+        1094582
+      ],
+      "explanation": "Both A and R are true and R is the correct explanation of A.",
+      "solution": ""
+    },
+    {
+      "n": 47,
+      "question_id": 571805,
+      "question_text": "Assertion (A): Glucose and fructose give the same osazone. Reason (R): During osazone formation stereochemistry at C 1 and C 2 is destroyed.",
+      "question_html": "<p><strong>Assertion (A):</strong> Glucose and fructose give the same osazone.<br />\n<strong>Reason (R):</strong> During osazone formation stereochemistry at C<sub>1</sub> and C<sub>2</sub> is destroyed.</p>",
+      "options": [
+        {
+          "id": 1094691,
+          "text": "Both A and R are true but R is not the correct explanation of A.",
+          "html": "Both A and R are true but R is not the correct explanation of A.",
+          "is_correct": false
+        },
+        {
+          "id": 1094692,
+          "text": "A is true but R is false.",
+          "html": "A is true but R is false.",
+          "is_correct": false
+        },
+        {
+          "id": 1094690,
+          "text": "Both A and R are true and R is the correct explanation of A.",
+          "html": "Both A and R are true and R is the correct explanation of A.",
+          "is_correct": true
+        },
+        {
+          "id": 1094693,
+          "text": "A is false but R is true.",
+          "html": "A is false but R is true.",
+          "is_correct": false
+        }
+      ],
+      "correct_option_text": "Both A and R are true and R is the correct explanation of A.",
+      "correct_option_ids": [
+        1094690
+      ],
+      "explanation": "Glucose and fructose differ from each other only at C 1 and C 2 positions.",
+      "solution": ""
+    },
+    {
+      "n": 48,
+      "question_id": 569612,
+      "question_text": "Assertion (A): Cl 2 gas bleaches the articles permanently. Reason (R): Cl 2 is a strong reducing agent.",
+      "question_html": "<p><strong>Assertion (A):</strong> Cl<sub>2</sub> gas bleaches the articles permanently.<br />\n<strong>Reason (R):</strong>&nbsp;Cl<sub>2</sub> is a strong reducing agent.</p>",
+      "options": [
+        {
+          "id": 1087647,
+          "text": "Both A and R are true but R is not the correct explanation of A.",
+          "html": "Both A and R are true but R is not the correct explanation of A.",
+          "is_correct": false
+        },
+        {
+          "id": 1087648,
+          "text": "A is true but R is false.",
+          "html": "A is true but R is false.",
+          "is_correct": true
+        },
+        {
+          "id": 1087646,
+          "text": "Both A and R are true and R is the correct explanation of A.",
+          "html": "Both A and R are true and R is the correct explanation of A.",
+          "is_correct": false
+        },
+        {
+          "id": 1087649,
+          "text": "A is false but R is true.",
+          "html": "A is false but R is true.",
+          "is_correct": false
+        }
+      ],
+      "correct_option_text": "A is true but R is false.",
+      "correct_option_ids": [
+        1087648
+      ],
+      "explanation": "Cl 2 is an oxidising agent. It bleaches the articles by oxidation permanently in presence of moisture.",
+      "solution": ""
+    },
+    {
+      "n": 49,
+      "question_id": 478322,
+      "question_text": "Assertion (A): The packing efficiency is maximum for the fcc structure. Reason (R): The coordination number is 12 in fcc structures.",
+      "question_html": "<p><strong>Assertion (A): </strong>The packing efficiency is maximum for the fcc structure.<br />\n<strong>Reason (R):</strong> The coordination number is 12 in fcc structures.</p>",
+      "options": [
+        {
+          "id": 831214,
+          "text": "A is true but R is false.",
+          "html": "A is true but R is false.",
+          "is_correct": false
+        },
+        {
+          "id": 831212,
+          "text": "Both A and R are true and R is the correct explanation of A.",
+          "html": "Both A and R are true and R is the correct explanation of A.",
+          "is_correct": false
+        },
+        {
+          "id": 831213,
+          "text": "Both A and R are true but R is not the correct explanation of A.",
+          "html": "Both A and R are true but R is not the correct explanation of A.",
+          "is_correct": true
+        },
+        {
+          "id": 831215,
+          "text": "A is false but R is true.",
+          "html": "A is false but R is true.",
+          "is_correct": false
+        }
+      ],
+      "correct_option_text": "Both A and R are true but R is not the correct explanation of A.",
+      "correct_option_ids": [
+        831213
+      ],
+      "explanation": "The FCC has maximum packing efficiency of 74% which in the case of BCC is 68% and Simple cubic has 52.4%. FCC has coordination number 12.",
+      "solution": ""
+    },
+    {
+      "n": 50,
+      "question_id": 60080,
+      "question_text": "A 500 g of tooth paste has 0.2 g of fluoride concentration. Fluorine concentration in terms of ppm is",
+      "question_html": "<p>A 500 g of tooth paste has 0.2 g of fluoride concentration. Fluorine concentration in terms of ppm is</p>",
+      "options": [
+        {
+          "id": 195507,
+          "text": "250",
+          "html": "250",
+          "is_correct": false
+        },
+        {
+          "id": 195508,
+          "text": "200",
+          "html": "200",
+          "is_correct": false
+        },
+        {
+          "id": 195509,
+          "text": "1000",
+          "html": "1000",
+          "is_correct": false
+        },
+        {
+          "id": 195506,
+          "text": "400",
+          "html": "400",
+          "is_correct": true
+        }
+      ],
+      "correct_option_text": "400",
+      "correct_option_ids": [
+        195506
+      ],
+      "explanation": "{tex}\\frac{{0.2 \\times {{10}^6}}}{{500}} = ppm=400{/tex}",
+      "solution": ""
+    },
+    {
+      "n": 51,
+      "question_id": 337396,
+      "question_text": "A primary alkyl halide would prefer to undergo ________.",
+      "question_html": "<p>A primary alkyl halide would prefer to undergo ________.</p>",
+      "options": [
+        {
+          "id": 511861,
+          "text": "S N 2 reaction",
+          "html": "S<sub>N</sub>2 reaction",
+          "is_correct": true
+        },
+        {
+          "id": 511864,
+          "text": "Racemisation",
+          "html": "Racemisation",
+          "is_correct": false
+        },
+        {
+          "id": 511862,
+          "text": "S N 1 reaction",
+          "html": "S<sub>N</sub>1 reaction",
+          "is_correct": false
+        },
+        {
+          "id": 511863,
+          "text": "{tex}\\alpha{/tex} &ndash;Elimination",
+          "html": "<span class=\"math-tex\">{tex}\\alpha{/tex}</span>&ndash;Elimination",
+          "is_correct": false
+        }
+      ],
+      "correct_option_text": "S N 2 reaction",
+      "correct_option_ids": [
+        511861
+      ],
+      "explanation": "An alkyl halide with &beta;-hydrogen atoms when reacting with a base or a nucleophile can undergo a particular type of reaction depending on the nature of the alkyl halide, the strength of the base or nucleophile, the size of the molecules and the conditions of the reaction. An alkyl halide can follow substitution or elimination reaction, and can also follow the two types of substitution, S N 1 or S N 2. A primary alkyl halide will prefer an S N 2 (bimolecular nucleophilic displacement) reaction as the incoming nucleophile cannot interact with the bulky substituents on or near the carbon atom thus having an inhibiting effect. Hence, primary alkyl halides and methyl halides have the highest tendency towards an S N 2 reaction.",
+      "solution": ""
+    },
+    {
+      "n": 52,
+      "question_id": 60572,
+      "question_text": "Which of the following reactions will not result in the formation of carbon-carbon bond?",
+      "question_html": "<p>Which of the following reactions will not result in the formation of carbon-carbon bond?</p>",
+      "options": [
+        {
+          "id": 197475,
+          "text": "Wurtz reaction",
+          "html": "Wurtz reaction",
+          "is_correct": false
+        },
+        {
+          "id": 197477,
+          "text": "Friedel Crafts acylation",
+          "html": "Friedel Crafts acylation",
+          "is_correct": false
+        },
+        {
+          "id": 197474,
+          "text": "Cannizzaro reaction",
+          "html": "Cannizzaro reaction",
+          "is_correct": true
+        },
+        {
+          "id": 197476,
+          "text": "Reimer-Tieman reaction",
+          "html": "Reimer-Tieman reaction",
+          "is_correct": false
+        }
+      ],
+      "correct_option_text": "Cannizzaro reaction",
+      "correct_option_ids": [
+        197474
+      ],
+      "explanation": "The Cannizzaro reaction, named after its discoverer Stanislao Cannizzaro, is a chemical reaction that involves the base-induced disproportionation of an aldehyde lacking a hydrogen atom in the alpha position. This redox disproportionation of non-enolizable aldehydes to carboxylic acids and alcohols is conducted in concentrated base.",
+      "solution": ""
+    },
+    {
+      "n": 53,
+      "question_id": 575028,
+      "question_text": "Instructions for Question 53 to 55: Noble gases are inert gases with general electronic configuration of ns 2 np 6 . These are monoatomic, colourless, odourless and tasteless gases. The first compound of noble gases was obtained by the reaction of Xe with PtF 6 . A large number of compounds of Xe and fluorine have been prepared till now. The structure of these compounds can be explained on the basis of VSEPR theory as well as concept of hybridisation. The compounds of krypton are fewer. Only the difluoride of krypton (KrF 2 ) has been studied in detail. Compounds of radon have not isolated but only identified by radiotracer technique. However, no true compounds of helium, neon or argon are yet known. The formula of the compound when Xe and PtF 6 are mixed, is",
+      "question_html": "<b>Instructions for Question 53 to 55:</b><br><p>Noble gases are inert gases with general electronic configuration of ns<sup>2</sup>&nbsp;np<sup>6</sup>.&nbsp;These are monoatomic, colourless, odourless and tasteless gases. The first compound of noble gases was obtained by the reaction of Xe with PtF<sub>6</sub>. A large number of compounds of Xe and fluorine have been prepared till now. The structure of these compounds can be explained on the basis of VSEPR theory as well as concept of hybridisation. The compounds of krypton are fewer. Only the difluoride of krypton (KrF<sub>2</sub>) has been studied in detail. Compounds of radon have not isolated but only identified by radiotracer technique. However, no true compounds of helium, neon or argon are yet known.</p><br><p>The formula of the compound when Xe and PtF<sub>6</sub> are mixed, is</p>",
+      "options": [
+        {
+          "id": 1104959,
+          "text": "Xe + [PtF 6 ] -",
+          "html": "Xe<sup>+</sup>[PtF<sub>6</sub>]<sup>-</sup>",
+          "is_correct": true
+        },
+        {
+          "id": 1104953,
+          "text": "XeF 6",
+          "html": "XeF<sub>6</sub>",
+          "is_correct": false
+        },
+        {
+          "id": 1104954,
+          "text": "XeF 4",
+          "html": "<ol start=\"1\">\r\n\t<li>XeF<sub>4</sub></li>\r\n\t<br />\r\n\t<br />\r\n\t&nbsp;\r\n</ol>",
+          "is_correct": false
+        },
+        {
+          "id": 1104955,
+          "text": "Xe 2 PtF 6",
+          "html": "Xe<sub>2</sub>PtF<sub>6</sub>",
+          "is_correct": false
+        }
+      ],
+      "correct_option_text": "Xe + [PtF 6 ] -",
+      "correct_option_ids": [
+        1104959
+      ],
+      "explanation": "XeF 6",
+      "solution": ""
+    },
+    {
+      "n": 54,
+      "question_id": 575512,
+      "question_text": "Instructions for Question 53 to 55: Noble gases are inert gases with general electronic configuration of ns 2 np 6 . These are monoatomic, colourless, odourless and tasteless gases. The first compound of noble gases was obtained by the reaction of Xe with PtF 6 . A large number of compounds of Xe and fluorine have been prepared till now. The structure of these compounds can be explained on the basis of VSEPR theory as well as concept of hybridisation. The compounds of krypton are fewer. Only the difluoride of krypton (KrF 2 ) has been studied in detail. Compounds of radon have not isolated but only identified by radiotracer technique. However, no true compounds of helium, neon or argon are yet known. The shape and hybridisation of some xenon oxy-fluoride and fluoride compounds are given below. Find the incorrect one.",
+      "question_html": "<b>Instructions for Question 53 to 55:</b><br><p>Noble gases are inert gases with general electronic configuration of ns<sup>2</sup>&nbsp;np<sup>6</sup>.&nbsp;These are monoatomic, colourless, odourless and tasteless gases. The first compound of noble gases was obtained by the reaction of Xe with PtF<sub>6</sub>. A large number of compounds of Xe and fluorine have been prepared till now. The structure of these compounds can be explained on the basis of VSEPR theory as well as concept of hybridisation. The compounds of krypton are fewer. Only the difluoride of krypton (KrF<sub>2</sub>) has been studied in detail. Compounds of radon have not isolated but only identified by radiotracer technique. However, no true compounds of helium, neon or argon are yet known.</p><br><p>The shape and hybridisation of some xenon oxy-fluoride and fluoride compounds are given below. Find the incorrect one.</p>",
+      "options": [
+        {
+          "id": 1106894,
+          "text": "XeOF 2 - T-shape - sp 3 d",
+          "html": "XeOF<sub>2</sub> - T-shape - sp<sup>3</sup>d",
+          "is_correct": false
+        },
+        {
+          "id": 1106896,
+          "text": "XeOF 4 - square pyramidal - sp 3 d 2",
+          "html": "XeOF<sub>4</sub>&nbsp;- square pyramidal - sp<sup>3</sup>&nbsp;d<sup>2</sup>",
+          "is_correct": false
+        },
+        {
+          "id": 1106898,
+          "text": "XeF 2 - linear - sp 3 d",
+          "html": "XeF<sub>2</sub>&nbsp;- linear - sp<sup>3</sup> d",
+          "is_correct": false
+        },
+        {
+          "id": 1106899,
+          "text": "XeF 6 - square planar - dsp 2",
+          "html": "XeF<sub>6</sub>&nbsp;- square planar - dsp<sup>2</sup>",
+          "is_correct": true
+        }
+      ],
+      "correct_option_text": "XeF 6 - square planar - dsp 2",
+      "correct_option_ids": [
+        1106899
+      ],
+      "explanation": "XeF 6 has sp 3 d 3 hybridisation and distorted octahedral shape.",
+      "solution": ""
+    },
+    {
+      "n": 55,
+      "question_id": 575664,
+      "question_text": "Instructions for Question 53 to 55: Noble gases are inert gases with general electronic configuration of ns 2 np 6 . These are monoatomic, colourless, odourless and tasteless gases. The first compound of noble gases was obtained by the reaction of Xe with PtF 6 . A large number of compounds of Xe and fluorine have been prepared till now. The structure of these compounds can be explained on the basis of VSEPR theory as well as concept of hybridisation. The compounds of krypton are fewer. Only the difluoride of krypton (KrF 2 ) has been studied in detail. Compounds of radon have not isolated but only identified by radiotracer technique. However, no true compounds of helium, neon or argon are yet known. Which of the following is not formed by Xe?",
+      "question_html": "<b>Instructions for Question 53 to 55:</b><br><p>Noble gases are inert gases with general electronic configuration of ns<sup>2</sup>&nbsp;np<sup>6</sup>.&nbsp;These are monoatomic, colourless, odourless and tasteless gases. The first compound of noble gases was obtained by the reaction of Xe with PtF<sub>6</sub>. A large number of compounds of Xe and fluorine have been prepared till now. The structure of these compounds can be explained on the basis of VSEPR theory as well as concept of hybridisation. The compounds of krypton are fewer. Only the difluoride of krypton (KrF<sub>2</sub>) has been studied in detail. Compounds of radon have not isolated but only identified by radiotracer technique. However, no true compounds of helium, neon or argon are yet known.</p><br><p>Which of the following is not formed by Xe?</p>",
+      "options": [
+        {
+          "id": 1107511,
+          "text": "All of these",
+          "html": "All of these",
+          "is_correct": true
+        },
+        {
+          "id": 1107507,
+          "text": "XeF 5",
+          "html": "XeF<sub>5</sub>",
+          "is_correct": false
+        },
+        {
+          "id": 1107510,
+          "text": "XeF 3",
+          "html": "XeF<sub>3</sub>",
+          "is_correct": false
+        },
+        {
+          "id": 1107508,
+          "text": "XeF",
+          "html": "XeF",
+          "is_correct": false
+        }
+      ],
+      "correct_option_text": "All of these",
+      "correct_option_ids": [
+        1107511
+      ],
+      "explanation": "Xe has completely filled 5p -orbital. As a result, when it undergoes bonding with an odd number (1, 3 or 5) of fluorine atoms, it leaves behind one unpaired electron. This causes the molecule to become unstable. As a result, XeF, XeF 3 and XeF 5 do not exist.",
+      "solution": ""
+    }
+  ]
+}

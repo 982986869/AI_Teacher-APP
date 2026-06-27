@@ -1,0 +1,2098 @@
+{
+  "mock_id": 208,
+  "name": "Mock Test - 10",
+  "instruction": "The Question Paper contains three sections. Section A has 25 questions. Attempt any 20 questions. Section B has 24 questions. Attempt any 20 questions. Section C has 6 questions. Attempt any 5 questions. All questions carry equal marks. There is no negative marking.",
+  "totalQuestions": 55,
+  "questions": [
+    {
+      "n": 1,
+      "question_id": 59986,
+      "question_text": "Volume of unit cell occupied in face centered cubic arrangement is",
+      "question_html": "<p>Volume of unit cell occupied in face centered cubic arrangement is</p>",
+      "options": [
+        {
+          "id": 195132,
+          "text": "68%",
+          "html": "68%",
+          "is_correct": false
+        },
+        {
+          "id": 195131,
+          "text": "52.35%",
+          "html": "52.35%",
+          "is_correct": false
+        },
+        {
+          "id": 195130,
+          "text": "74%",
+          "html": "74%",
+          "is_correct": true
+        },
+        {
+          "id": 195133,
+          "text": "100%",
+          "html": "100%",
+          "is_correct": false
+        }
+      ],
+      "correct_option_text": "74%",
+      "correct_option_ids": [
+        195130
+      ],
+      "explanation": "Packing efficiency {tex} = \\frac{{{\\text{Volume occupied by four shares in the unit cell}} \\times {\\text{100}}}}{{{\\text{Total volume of the unit cell}}}}\\%{/tex} {tex}= \\frac{{4 \\times \\left( {\\frac{4}{3}} \\right)\\pi {r^3} \\times 100}}{{{{\\left( {2\\sqrt 2 r} \\right)}^3}}}\\%{/tex} {tex}= \\frac{{\\left( {\\frac{{16}}{3}} \\right)\\pi {r^3} \\times 100}}{{16\\sqrt 2 {r^3}}}\\% = 74\\%{/tex}",
+      "solution": ""
+    },
+    {
+      "n": 2,
+      "question_id": 60073,
+      "question_text": "25mL of a solution of barium hydroxide on titration with 0.1molar solution of hydrochloric acid give a titre value of 35mL. The molarity of Barium hydroxide solution is",
+      "question_html": "<p>25mL&nbsp;of a solution of barium hydroxide on titration with&nbsp;0.1molar&nbsp;solution of hydrochloric acid give a titre value of&nbsp;35mL. The molarity of Barium hydroxide solution is</p>",
+      "options": [
+        {
+          "id": 195479,
+          "text": "0.35",
+          "html": "0.35",
+          "is_correct": false
+        },
+        {
+          "id": 195481,
+          "text": "0.14",
+          "html": "0.14",
+          "is_correct": false
+        },
+        {
+          "id": 195480,
+          "text": "0.28",
+          "html": "0.28",
+          "is_correct": false
+        },
+        {
+          "id": 195478,
+          "text": "0.07",
+          "html": "0.07",
+          "is_correct": true
+        }
+      ],
+      "correct_option_text": "0.07",
+      "correct_option_ids": [
+        195478
+      ],
+      "explanation": "M 1 v 1 = M 2 v 2 {tex}N = M \\times {n_f}{/tex} {tex}35 \\times 0.1 = 2 \\times {M_2} \\times 25{/tex} Therefore, M Ba(OH)2 = 0.07",
+      "solution": ""
+    },
+    {
+      "n": 3,
+      "question_id": 21605,
+      "question_text": "Which gas is evolved when the urea is treated with NaOH?",
+      "question_html": "<p>Which gas is evolved when the urea is treated with NaOH?</p>",
+      "options": [
+        {
+          "id": 41620,
+          "text": "Laughing gas",
+          "html": "Laughing gas",
+          "is_correct": false
+        },
+        {
+          "id": 41618,
+          "text": "Ammonia",
+          "html": "Ammonia",
+          "is_correct": true
+        },
+        {
+          "id": 41619,
+          "text": "Nitrogen",
+          "html": "Nitrogen",
+          "is_correct": false
+        },
+        {
+          "id": 41621,
+          "text": "Nitrous oxide",
+          "html": "Nitrous oxide",
+          "is_correct": false
+        }
+      ],
+      "correct_option_text": "Ammonia",
+      "correct_option_ids": [
+        41618
+      ],
+      "explanation": "H 2 NCONH 2 + 2NaOH {tex}\\to{/tex} 2NH 3 + Na 2 CO 3",
+      "solution": ""
+    },
+    {
+      "n": 4,
+      "question_id": 60507,
+      "question_text": "Finkelstein reaction is:",
+      "question_html": "<p>Finkelstein reaction is:</p>",
+      "options": [
+        {
+          "id": 197214,
+          "text": "CH 3 CH 2 CH 2 Cl + NaI {tex}\\rightarrow{/tex} CH 3 CH 2 CH 2 I + NaCl",
+          "html": "CH<sub>3</sub>CH<sub>2</sub>CH<sub>2</sub>Cl + NaI <span class=\"math-tex\">{tex}\\rightarrow{/tex}</span> CH<sub>3</sub>CH<sub>2</sub>CH<sub>2</sub>I + NaCl",
+          "is_correct": true
+        },
+        {
+          "id": 197217,
+          "text": "CH 3 CH 2 CH 2 Cl + NaBr {tex}\\rightarrow{/tex} CH 3 CH 2 CH 2 Br + NaCl",
+          "html": "CH<sub>3</sub>CH<sub>2</sub>CH<sub>2</sub>Cl + NaBr <span class=\"math-tex\">{tex}\\rightarrow{/tex}</span> CH<sub>3</sub>CH<sub>2</sub>CH<sub>2</sub>Br + NaCl",
+          "is_correct": false
+        },
+        {
+          "id": 197216,
+          "text": "CH 3 = CH 2 + H - I {tex}\\rightarrow{/tex} CH 3 CH 2 CH 2 I + CH 3 CHICH 3",
+          "html": "CH<sub>3</sub> = CH<sub>2</sub> + H - I <span class=\"math-tex\">{tex}\\rightarrow{/tex}</span> CH<sub>3</sub>CH<sub>2</sub>CH<sub>2</sub>I + CH<sub>3</sub>CHICH<sub>3</sub>",
+          "is_correct": false
+        },
+        {
+          "id": 197215,
+          "text": "CH 3 CH 2 CH 2 I + NaCl {tex}\\rightarrow{/tex} CH 3 CH 2 CH 2 - Cl + NaI",
+          "html": "CH<sub>3</sub>CH<sub>2</sub>CH<sub>2</sub>I + NaCl <span class=\"math-tex\">{tex}\\rightarrow{/tex}</span> CH<sub>3</sub>CH<sub>2</sub>CH<sub>2</sub> - Cl + NaI",
+          "is_correct": false
+        }
+      ],
+      "correct_option_text": "CH 3 CH 2 CH 2 Cl + NaI {tex}\\rightarrow{/tex} CH 3 CH 2 CH 2 I + NaCl",
+      "correct_option_ids": [
+        197214
+      ],
+      "explanation": "Halide exchange reaction is Finkelstein reaction in which alkyl chloride is converted to alkyl iodide. The classic Finkelstein reaction entails the conversion of an alkyl chloride or an alkyl bromide to an alkyl iodide by treatment with a solution of sodium iodide in dry acetone. Sodium iodide is soluble in acetone and sodium chloride and sodium bromide are not. The reaction is driven toward products according to Le chatelier&#39;s principle due to the precipitation of the salt insoluble in acetone. For example, in this case, chloropropane can be converted to iodopropane: CH 3 CH 2 CH 2 Cl (acetone) + NaI (acetone) {tex}\\rightarrow{/tex} CH 3 CH 2 CH 2 I (acetone) + NaCl (s)",
+      "solution": ""
+    },
+    {
+      "n": 5,
+      "question_id": 60582,
+      "question_text": "Lucas test is associated with ________.",
+      "question_html": "<p>Lucas test is associated with ________.</p>",
+      "options": [
+        {
+          "id": 197515,
+          "text": "Carboxylic acid",
+          "html": "Carboxylic acid",
+          "is_correct": false
+        },
+        {
+          "id": 197517,
+          "text": "Phenols",
+          "html": "Phenols",
+          "is_correct": false
+        },
+        {
+          "id": 197516,
+          "text": "Aldehydes",
+          "html": "Aldehydes",
+          "is_correct": false
+        },
+        {
+          "id": 197514,
+          "text": "Alcohols",
+          "html": "Alcohols",
+          "is_correct": true
+        }
+      ],
+      "correct_option_text": "Alcohols",
+      "correct_option_ids": [
+        197514
+      ],
+      "explanation": "Lucas Test is a test that is used to distinguish between primary, secondary, and tertiary alcohols. This test is carried out with the help of Lucas reagent, which is a solution of anhydrous Zinc Chloride and concentrated hydrochloric acid (ZnCl 2 + HCl). It is based on the difference between the reactivity of primary, secondary, and tertiary alcohols with hydrogen halides.",
+      "solution": ""
+    },
+    {
+      "n": 6,
+      "question_id": 66118,
+      "question_text": "Which of the following is a non-reducing sugar ?",
+      "question_html": "<p>Which of the following is a non-reducing sugar ?</p>",
+      "options": [
+        {
+          "id": 208687,
+          "text": "Lactose",
+          "html": "Lactose",
+          "is_correct": false
+        },
+        {
+          "id": 208685,
+          "text": "Maltose",
+          "html": "Maltose",
+          "is_correct": false
+        },
+        {
+          "id": 208686,
+          "text": "Glucose",
+          "html": "Glucose",
+          "is_correct": false
+        },
+        {
+          "id": 208684,
+          "text": "Sucrose",
+          "html": "Sucrose",
+          "is_correct": true
+        }
+      ],
+      "correct_option_text": "Sucrose",
+      "correct_option_ids": [
+        208684
+      ],
+      "explanation": "The two monosaccharides of sucrose are held together by a glycosidic linkage between C 1 of &alpha;-D-glucose and C 2 of &beta;-D-fructose. Since the reducing groups of glucose and fructose are involved in glycosidic bond formation, sucrose is a non reducing sugar.",
+      "solution": ""
+    },
+    {
+      "n": 7,
+      "question_id": 59987,
+      "question_text": "The radius ratio of body centred cubic structure is",
+      "question_html": "<p>The radius ratio of body centred cubic structure is</p>",
+      "options": [
+        {
+          "id": 195137,
+          "text": "0.414 to 0.732",
+          "html": "0.414 to 0.732",
+          "is_correct": false
+        },
+        {
+          "id": 195134,
+          "text": "0.732 to 1.00",
+          "html": "0.732 to 1.00",
+          "is_correct": true
+        },
+        {
+          "id": 195135,
+          "text": "0.155 to 0.225",
+          "html": "0.155 to 0.225",
+          "is_correct": false
+        },
+        {
+          "id": 195136,
+          "text": "0.225 to 0.414",
+          "html": "0.225 to 0.414",
+          "is_correct": false
+        }
+      ],
+      "correct_option_text": "0.732 to 1.00",
+      "correct_option_ids": [
+        195134
+      ],
+      "explanation": "The radius ratio of body centred cubic structure is 0.732-1.00.",
+      "solution": ""
+    },
+    {
+      "n": 8,
+      "question_id": 65622,
+      "question_text": "Which of the following compounds has the highest boiling points?",
+      "question_html": "<p>Which of the following compounds has the highest boiling points?</p>",
+      "options": [
+        {
+          "id": 208542,
+          "text": "CH 3 CH(CH 3 )CH 2 Cl",
+          "html": "CH<sub>3</sub>CH(CH<sub>3</sub>)CH<sub>2</sub>Cl",
+          "is_correct": false
+        },
+        {
+          "id": 208541,
+          "text": "(CH 3 ) 3 Cl",
+          "html": "(CH<sub>3</sub>)<sub>3</sub>Cl",
+          "is_correct": false
+        },
+        {
+          "id": 208543,
+          "text": "CH 3 CH 2 CH 2 Cl",
+          "html": "CH<sub>3</sub>CH<sub>2</sub>CH<sub>2</sub>Cl",
+          "is_correct": false
+        },
+        {
+          "id": 208540,
+          "text": "CH 3 CH 2 CH 2 CH 2 Cl",
+          "html": "CH<sub>3</sub>CH<sub>2</sub>CH<sub>2</sub>CH<sub>2</sub>Cl",
+          "is_correct": true
+        }
+      ],
+      "correct_option_text": "CH 3 CH 2 CH 2 CH 2 Cl",
+      "correct_option_ids": [
+        208540
+      ],
+      "explanation": "The forces of attraction between the molecules of a compound get stronger as they get bigger in size and have more electrons. Also, for a straight-chain compound, the points of interaction between the molecules are more than for a branched compound having the same molecular formula. Thus CH 3 CH 2 CH 2 CH 2 Cl has the highest melting point since it is the longest chain compound among the given options.",
+      "solution": ""
+    },
+    {
+      "n": 9,
+      "question_id": 60295,
+      "question_text": "[Ar]3d 10 4s 2 4p 3 is the electronic configuration of",
+      "question_html": "<p>[Ar]3d<sup>10</sup>4s<sup>2</sup>4p<sup>3</sup> is the electronic configuration of</p>",
+      "options": [
+        {
+          "id": 196369,
+          "text": "Phosphorous",
+          "html": "Phosphorous",
+          "is_correct": false
+        },
+        {
+          "id": 196366,
+          "text": "Arsenic",
+          "html": "Arsenic",
+          "is_correct": true
+        },
+        {
+          "id": 196368,
+          "text": "Bismuth",
+          "html": "Bismuth",
+          "is_correct": false
+        },
+        {
+          "id": 196367,
+          "text": "Antimony",
+          "html": "Antimony",
+          "is_correct": false
+        }
+      ],
+      "correct_option_text": "Arsenic",
+      "correct_option_ids": [
+        196366
+      ],
+      "explanation": "Arsenic is a group 15 element and its atomic no. is 33.",
+      "solution": ""
+    },
+    {
+      "n": 10,
+      "question_id": 60537,
+      "question_text": "Carbon tetrachloride has a dipole moment:",
+      "question_html": "<p>Carbon tetrachloride has a dipole moment:</p>",
+      "options": [
+        {
+          "id": 197337,
+          "text": "&mu; = 2",
+          "html": "&mu; = 2",
+          "is_correct": false
+        },
+        {
+          "id": 197335,
+          "text": "&mu; = 1",
+          "html": "&mu; = 1",
+          "is_correct": false
+        },
+        {
+          "id": 197334,
+          "text": "&mu; = 0",
+          "html": "&mu; = 0",
+          "is_correct": true
+        },
+        {
+          "id": 197336,
+          "text": "&mu; = 4",
+          "html": "&mu; = 4",
+          "is_correct": false
+        }
+      ],
+      "correct_option_text": "&mu; = 0",
+      "correct_option_ids": [
+        197334
+      ],
+      "explanation": "CCl 4 is a symmetrical molecule. Hence, the dipole moment is zero.",
+      "solution": ""
+    },
+    {
+      "n": 11,
+      "question_id": 60502,
+      "question_text": "For the same alkyl group, an alkyl bromide has a higher boiling point than alkyl fluoride because:",
+      "question_html": "<p>For the same alkyl group, an alkyl bromide has a higher boiling point than alkyl fluoride because:</p>",
+      "options": [
+        {
+          "id": 197195,
+          "text": "Iodide has more electrons",
+          "html": "Iodide has more electrons",
+          "is_correct": false
+        },
+        {
+          "id": 197197,
+          "text": "Iodide is bigger in size",
+          "html": "Iodide is bigger in size",
+          "is_correct": false
+        },
+        {
+          "id": 197196,
+          "text": "All of these",
+          "html": "All of these",
+          "is_correct": false
+        },
+        {
+          "id": 197194,
+          "text": "The magnitude of Van der Waal forces",
+          "html": "The magnitude of Van der Waal forces",
+          "is_correct": true
+        }
+      ],
+      "correct_option_text": "The magnitude of Van der Waal forces",
+      "correct_option_ids": [
+        197194
+      ],
+      "explanation": "The magnitude of Van der Waal forces",
+      "solution": ""
+    },
+    {
+      "n": 12,
+      "question_id": 60861,
+      "question_text": "The vitamin that cannot be stored in our body is",
+      "question_html": "<p>The vitamin that cannot be stored&nbsp;in our body is</p>",
+      "options": [
+        {
+          "id": 198629,
+          "text": "vitamin C",
+          "html": "vitamin C",
+          "is_correct": true
+        },
+        {
+          "id": 198631,
+          "text": "vitamin E",
+          "html": "vitamin E",
+          "is_correct": false
+        },
+        {
+          "id": 198630,
+          "text": "vitamin D",
+          "html": "vitamin D",
+          "is_correct": false
+        },
+        {
+          "id": 198632,
+          "text": "vitamin K",
+          "html": "vitamin K",
+          "is_correct": false
+        }
+      ],
+      "correct_option_text": "vitamin C",
+      "correct_option_ids": [
+        198629
+      ],
+      "explanation": "B group vitamins and vitamin C are soluble in water so they are grouped together as water soluble vitamins, these must be supplied regularly in diet because they are readily excreted in urine and cannot be stored (except vitamin B 12 ) in our body.",
+      "solution": ""
+    },
+    {
+      "n": 13,
+      "question_id": 64368,
+      "question_text": "The structure of CsCl crystal is",
+      "question_html": "<p>The structure of CsCl crystal is</p>",
+      "options": [
+        {
+          "id": 208204,
+          "text": "Body centred cubic lattice",
+          "html": "Body centred cubic lattice",
+          "is_correct": true
+        },
+        {
+          "id": 208207,
+          "text": "Back centred cubic lattice",
+          "html": "Back centred cubic lattice",
+          "is_correct": false
+        },
+        {
+          "id": 208205,
+          "text": "Octahedral",
+          "html": "Octahedral",
+          "is_correct": false
+        },
+        {
+          "id": 208206,
+          "text": "Face centred cubic lattice",
+          "html": "Face centred cubic lattice",
+          "is_correct": false
+        }
+      ],
+      "correct_option_text": "Body centred cubic lattice",
+      "correct_option_ids": [
+        208204
+      ],
+      "explanation": "A body-centred cubic (bcc) unit cell has an atom at each of its corners and also one atom at its body centre as in CsCl.",
+      "solution": ""
+    },
+    {
+      "n": 14,
+      "question_id": 258965,
+      "question_text": "0.5 M aquous solution of Glucose is isotonic with:",
+      "question_html": "<p>0.5 M aquous solution of Glucose is isotonic with:</p>",
+      "options": [
+        {
+          "id": 375771,
+          "text": "0.5 M CaCl 2 solution",
+          "html": "0.5 M CaCl<sub>2</sub> solution",
+          "is_correct": false
+        },
+        {
+          "id": 375770,
+          "text": "0.5 M KCl solution",
+          "html": "0.5 M KCl solution",
+          "is_correct": false
+        },
+        {
+          "id": 375772,
+          "text": "0.5 M Urea solution",
+          "html": "0.5 M Urea solution",
+          "is_correct": true
+        },
+        {
+          "id": 375773,
+          "text": "1 M solution of sucrose",
+          "html": "1 M solution of sucrose",
+          "is_correct": false
+        }
+      ],
+      "correct_option_text": "0.5 M Urea solution",
+      "correct_option_ids": [
+        375772
+      ],
+      "explanation": "0.5 M Urea solution",
+      "solution": ""
+    },
+    {
+      "n": 15,
+      "question_id": 60299,
+      "question_text": "Which among the following forms basic oxide?",
+      "question_html": "<p>Which among the following forms basic oxide?</p>",
+      "options": [
+        {
+          "id": 196383,
+          "text": "Nitrogen",
+          "html": "Nitrogen",
+          "is_correct": false
+        },
+        {
+          "id": 196385,
+          "text": "Antimony",
+          "html": "Antimony",
+          "is_correct": false
+        },
+        {
+          "id": 196382,
+          "text": "Bismuth",
+          "html": "Bismuth",
+          "is_correct": true
+        },
+        {
+          "id": 196384,
+          "text": "Phosphorous",
+          "html": "Phosphorous",
+          "is_correct": false
+        }
+      ],
+      "correct_option_text": "Bismuth",
+      "correct_option_ids": [
+        196382
+      ],
+      "explanation": "As we move down the group in the periodic table, the metallic character increases so Bi is a metal thus its oxide is basic.",
+      "solution": ""
+    },
+    {
+      "n": 16,
+      "question_id": 60501,
+      "question_text": "In which of the following compound yield is high?",
+      "question_html": "<p>In which of the following compound&nbsp;yield is high?&nbsp;</p>",
+      "options": [
+        {
+          "id": 197193,
+          "text": "CH 2 CH 3 (CH 2 Cl)CH 4 CH 3",
+          "html": "CH<sub>2</sub>CH<sub>3</sub>(CH<sub>2</sub>Cl)CH<sub>4</sub>CH<sub>3</sub>",
+          "is_correct": false
+        },
+        {
+          "id": 197191,
+          "text": "(CH 3 ) 2 CHCH 2 CH 2 Cl",
+          "html": "(CH<sub>3</sub>)<sub>2</sub>CHCH<sub>2</sub>CH<sub>2</sub>Cl",
+          "is_correct": false
+        },
+        {
+          "id": 197192,
+          "text": "CH 3 CH(CH 2 Cl)CH 2 CH 3",
+          "html": "CH<sub>3</sub>CH(CH<sub>2</sub>Cl)CH<sub>2</sub>CH<sub>3</sub>",
+          "is_correct": false
+        },
+        {
+          "id": 197190,
+          "text": "(CH 3 ) 2 C(Cl)CH 2 CH 3",
+          "html": "(CH<sub>3</sub>)<sub>2</sub>C(Cl)CH<sub>2</sub>CH<sub>3</sub>",
+          "is_correct": true
+        }
+      ],
+      "correct_option_text": "(CH 3 ) 2 C(Cl)CH 2 CH 3",
+      "correct_option_ids": [
+        197190
+      ],
+      "explanation": "This reaction is a free radical reaction and 3 o (Tertiary) free radical is most stable.",
+      "solution": ""
+    },
+    {
+      "n": 17,
+      "question_id": 60557,
+      "question_text": "Glycerol is",
+      "question_html": "<p>Glycerol is</p>",
+      "options": [
+        {
+          "id": 197416,
+          "text": "1, 2, 3 &ndash; hydroxy propane",
+          "html": "1, 2, 3 &ndash; hydroxy propane",
+          "is_correct": false
+        },
+        {
+          "id": 197417,
+          "text": "1, 2, 3 &ndash; trihydroxy propane",
+          "html": "1, 2, 3 &ndash; trihydroxy propane",
+          "is_correct": false
+        },
+        {
+          "id": 197415,
+          "text": "Propane &ndash; 1, 2, 3 &ndash; ol",
+          "html": "Propane &ndash; 1, 2, 3 &ndash; ol",
+          "is_correct": false
+        },
+        {
+          "id": 197414,
+          "text": "Propane &ndash; 1, 2, 3 &ndash; triol",
+          "html": "Propane &ndash; 1, 2, 3 &ndash; triol",
+          "is_correct": true
+        }
+      ],
+      "correct_option_text": "Propane &ndash; 1, 2, 3 &ndash; triol",
+      "correct_option_ids": [
+        197414
+      ],
+      "explanation": "Glycerol and trihydroxypropane are common names. The IUPAC name is propane-1,2,3-triol. The common name glycerol comes from the root glyco- which means sweet. Glucose, glycogen, and glycerin (another name for glycerol) have the same etymology.",
+      "solution": ""
+    },
+    {
+      "n": 18,
+      "question_id": 60835,
+      "question_text": "The following structure of protein is called",
+      "question_html": "<p>The following structure of protein is called<br />\r\n<img src=\"https://media-mycbseguide.s3.amazonaws.com/images/quiz/12/chemistry/53011_0.png\" style=\"width: 120px; height: 80px;\" /></p>",
+      "options": [
+        {
+          "id": 198527,
+          "text": "quaternary structure",
+          "html": "quaternary structure",
+          "is_correct": false
+        },
+        {
+          "id": 198526,
+          "text": "Secondary structure",
+          "html": "Secondary structure",
+          "is_correct": false
+        },
+        {
+          "id": 198528,
+          "text": "primary structure",
+          "html": "primary structure",
+          "is_correct": false
+        },
+        {
+          "id": 198525,
+          "text": "Tertiary structure",
+          "html": "Tertiary structure",
+          "is_correct": true
+        }
+      ],
+      "correct_option_text": "Tertiary structure",
+      "correct_option_ids": [
+        198525
+      ],
+      "explanation": "This structure represents tertiary structure of proteins. The tertiary structure of proteins represents overall folding of the polypeptide chains i.e., further folding of the secondary structure.",
+      "solution": ""
+    },
+    {
+      "n": 19,
+      "question_id": 60008,
+      "question_text": "Total number of voids in 0.5 mole of a compound which forms hexagonal close packed structure is",
+      "question_html": "<p>Total number of voids in 0.5 mole of a compound which forms hexagonal close packed structure is</p>",
+      "options": [
+        {
+          "id": 195220,
+          "text": "6.022 &times; 10 23",
+          "html": "6.022 &times; 10<sup>23</sup>",
+          "is_correct": false
+        },
+        {
+          "id": 195221,
+          "text": "12.044 &times; 10 23",
+          "html": "12.044&nbsp;&times;&nbsp;10<sup>23</sup>",
+          "is_correct": false
+        },
+        {
+          "id": 195218,
+          "text": "9.033 &times; 10 23",
+          "html": "9.033 &times; 10<sup>23</sup>",
+          "is_correct": true
+        },
+        {
+          "id": 195219,
+          "text": "3.011 &times; 10 23",
+          "html": "3.011 &times; 10<sup>23</sup>",
+          "is_correct": false
+        }
+      ],
+      "correct_option_text": "9.033 &times; 10 23",
+      "correct_option_ids": [
+        195218
+      ],
+      "explanation": "Number of atoms in 1 mole of compound = {tex}6.022 \\times 10^{23}{/tex} Number of atoms in 0.5 mole of compound = 0.5 &times; {tex}6.022 \\times 10^{23}{/tex} = 3.011 &times; {tex}10^{23}{/tex} For a hexagonal close&minus;packed structure, Number of octahedral voids = number of atoms in close packaging Therefore, the Number of octahedral voids = 3.011 &times; {tex}10^{23}{/tex} and Number of tetrahedral voids = 2 &times; number of atoms in close packaging so, Number of tetrahedral voids = 2 &times; 3.011 &times; {tex}10^{23}{/tex} = 6.022 &times; {tex}10^{23}{/tex} Total number of voids = Tetrahedral void + octahedral void = (6.022 + 3.011) &times; {tex}10^{23}{/tex} = 9.033 &times; {tex}10^{23}{/tex}",
+      "solution": ""
+    },
+    {
+      "n": 20,
+      "question_id": 349628,
+      "question_text": "Which of the following units is useful in relating the concentration of a solution with its vapour pressure?",
+      "question_html": "<p>Which of the following units is useful in relating the concentration of a solution with its vapour pressure?</p>",
+      "options": [
+        {
+          "id": 537962,
+          "text": "parts per million",
+          "html": "parts per million",
+          "is_correct": false
+        },
+        {
+          "id": 537963,
+          "text": "mass percentage",
+          "html": "mass percentage",
+          "is_correct": false
+        },
+        {
+          "id": 537961,
+          "text": "mole fraction",
+          "html": "mole fraction",
+          "is_correct": true
+        },
+        {
+          "id": 537964,
+          "text": "molality",
+          "html": "molality",
+          "is_correct": false
+        }
+      ],
+      "correct_option_text": "mole fraction",
+      "correct_option_ids": [
+        537961
+      ],
+      "explanation": "Mole fraction is useful in relating vapour pressure with a concentration of the solution. According to Raoult&#39;s law, the partial vapour pressure of each component in the solution is directly proportional to its mole fraction present in solution. A is one component. p A {tex}\\propto{/tex} x A , {tex}\\mathrm{x}_{\\mathrm{A}}=\\frac{\\mathrm{n}_{\\mathrm{A}}}{\\mathrm{n}_{\\mathrm{A}}+\\mathrm{n}_{\\mathrm{B}}}{/tex}",
+      "solution": ""
+    },
+    {
+      "n": 21,
+      "question_id": 60302,
+      "question_text": "Which compound is used in the preparation of caprolactam?",
+      "question_html": "<p>Which compound is used in the preparation of caprolactam?</p>",
+      "options": [
+        {
+          "id": 196396,
+          "text": "Nitric acid",
+          "html": "Nitric acid",
+          "is_correct": false
+        },
+        {
+          "id": 196395,
+          "text": "Phosphine",
+          "html": "Phosphine",
+          "is_correct": false
+        },
+        {
+          "id": 196397,
+          "text": "Phosphorous halide",
+          "html": "Phosphorous halide",
+          "is_correct": false
+        },
+        {
+          "id": 196394,
+          "text": "Ammonia",
+          "html": "Ammonia",
+          "is_correct": true
+        }
+      ],
+      "correct_option_text": "Ammonia",
+      "correct_option_ids": [
+        196394
+      ],
+      "explanation": "NH 3 is used in the preparation of caprolactam. Caprolactam is an organic compound with the formula (CH 2 ) 5 C(O)NH. It is used to make Nylon 6 fibre and plastics.",
+      "solution": ""
+    },
+    {
+      "n": 22,
+      "question_id": 60303,
+      "question_text": "Which compound is used as the cooling liquid in refrigerators?",
+      "question_html": "<p>Which compound is used as the cooling liquid in refrigerators?</p>",
+      "options": [
+        {
+          "id": 196400,
+          "text": "Nitrous oxide",
+          "html": "Nitrous oxide",
+          "is_correct": false
+        },
+        {
+          "id": 196401,
+          "text": "Ozone",
+          "html": "Ozone",
+          "is_correct": false
+        },
+        {
+          "id": 196399,
+          "text": "Phosphine",
+          "html": "Phosphine",
+          "is_correct": false
+        },
+        {
+          "id": 196398,
+          "text": "Ammonia",
+          "html": "Ammonia",
+          "is_correct": true
+        }
+      ],
+      "correct_option_text": "Ammonia",
+      "correct_option_ids": [
+        196398
+      ],
+      "explanation": "Liquid NH 3 is used as a refrigerant. evaporation of a liquid needs heat energy. When liquid ammonia vapourises, it absorbs large quantities of heat without changing its temperature.",
+      "solution": ""
+    },
+    {
+      "n": 23,
+      "question_id": 60609,
+      "question_text": "How many alcohols with molecular formula C 4 H 10 O are chiral in nature?",
+      "question_html": "<p>How many alcohols with molecular formula C<sub>4</sub>H<sub>10</sub>O are chiral in nature?</p>",
+      "options": [
+        {
+          "id": 197623,
+          "text": "1",
+          "html": "1",
+          "is_correct": true
+        },
+        {
+          "id": 197622,
+          "text": "2",
+          "html": "2",
+          "is_correct": false
+        },
+        {
+          "id": 197625,
+          "text": "4",
+          "html": "4",
+          "is_correct": false
+        },
+        {
+          "id": 197624,
+          "text": "3",
+          "html": "3",
+          "is_correct": false
+        }
+      ],
+      "correct_option_text": "1",
+      "correct_option_ids": [
+        197623
+      ],
+      "explanation": "A chiral molecule is one that is not superimposable on its mirror image. 2-Butanol is a small molecule with a chirality center. It is the simplest alcohol containing an asymmetric carbon. For a better illustration, the four different substituents are shown in different colours. Carbon atom C-2 of 2-butanol carries four different substituents H, CH 3 , OH, and CH 2 CH 3 . Exchange of any two of these substituents would yield the opposite enantiomer. However, such an exchange does not occur spontaneously because it requires a bond breakage. Therefore, enantiomers are different, stable, coexisting compounds.",
+      "solution": ""
+    },
+    {
+      "n": 24,
+      "question_id": 60821,
+      "question_text": "D &ndash; ribose and 2 &ndash; deoxy &ndash; D &ndash; ribose are",
+      "question_html": "<p>D &ndash; ribose and 2 &ndash; deoxy &ndash; D &ndash; ribose are</p>",
+      "options": [
+        {
+          "id": 198472,
+          "text": "vitamins",
+          "html": "vitamins",
+          "is_correct": false
+        },
+        {
+          "id": 198469,
+          "text": "pentose sugars",
+          "html": "pentose sugars",
+          "is_correct": true
+        },
+        {
+          "id": 198470,
+          "text": "hexose sugars",
+          "html": "hexose sugars",
+          "is_correct": false
+        },
+        {
+          "id": 198471,
+          "text": "nucleic acids",
+          "html": "nucleic acids",
+          "is_correct": false
+        }
+      ],
+      "correct_option_text": "pentose sugars",
+      "correct_option_ids": [
+        198469
+      ],
+      "explanation": "Two aldopentoses viz. D-ribose and 2-deoxy-D-ribose are present in nucleic acids.",
+      "solution": ""
+    },
+    {
+      "n": 25,
+      "question_id": 60308,
+      "question_text": "is the structure of:-",
+      "question_html": "<p><img src=\"https://media-mycbseguide.s3.amazonaws.com/images/quiz/12/chemistry/52484_0.png\" style=\"width: 70px; height: 67px;\" />is the structure of:-</p>",
+      "options": [
+        {
+          "id": 196419,
+          "text": "Phosphorous acid",
+          "html": "Phosphorous acid",
+          "is_correct": false
+        },
+        {
+          "id": 196421,
+          "text": "Pyrophosphoric acid",
+          "html": "Pyrophosphoric acid",
+          "is_correct": false
+        },
+        {
+          "id": 196420,
+          "text": "Phosphinic acid",
+          "html": "Phosphinic acid",
+          "is_correct": false
+        },
+        {
+          "id": 196418,
+          "text": "Orthophosphoric acid",
+          "html": "Orthophosphoric acid",
+          "is_correct": true
+        }
+      ],
+      "correct_option_text": "Orthophosphoric acid",
+      "correct_option_ids": [
+        196418
+      ],
+      "explanation": "This structure is of H 3 PO 4 . (Orthophosphoric acid). It has three P-OH and one P=O bond.",
+      "solution": ""
+    },
+    {
+      "n": 26,
+      "question_id": 334136,
+      "question_text": "In which of the following structures, coordination number for cations and anions in the packed structure will be the same?",
+      "question_html": "<p>In which of the following structures, coordination number for cations and anions in the packed structure will be the same?</p>",
+      "options": [
+        {
+          "id": 503885,
+          "text": "O 2&ndash; ions form fcc lattice and Na + ions occupy all the eight tetrahedral voids of the unit cell.",
+          "html": "O<sup>2&ndash; </sup>ions form fcc lattice and Na<sup>+ </sup>ions occupy all the eight tetrahedral voids of the unit cell.",
+          "is_correct": false
+        },
+        {
+          "id": 503886,
+          "text": "S 2&ndash; ions form fcc lattice and Zn 2+ ions go into alternate tetrahedral voids of the unit cell.",
+          "html": "S<sup> 2&ndash; </sup>ions form fcc lattice and Zn<sup>2+ </sup>ions go into alternate tetrahedral voids of the unit cell.",
+          "is_correct": false
+        },
+        {
+          "id": 503884,
+          "text": "Ca 2+ ions form fcc lattice and F - ions occupy all the eight tetrahedral voids of the unit cell.",
+          "html": "Ca<sup>2+</sup> ions form fcc lattice and F<sup>-</sup>&nbsp;ions occupy all the eight tetrahedral voids of the unit cell.",
+          "is_correct": false
+        },
+        {
+          "id": 503883,
+          "text": "Cl &ndash; ion form fcc lattice and Na + ions occupy all octahedral voids of the unit cell.",
+          "html": "Cl<sup>&ndash;</sup> ion form fcc lattice and Na<sup>+</sup> ions occupy all octahedral voids of the unit cell.",
+          "is_correct": true
+        }
+      ],
+      "correct_option_text": "Cl &ndash; ion form fcc lattice and Na + ions occupy all octahedral voids of the unit cell.",
+      "correct_option_ids": [
+        503883
+      ],
+      "explanation": "In NaCl, the Cl - ions are arranged in a cubic closed packed arrangement where Cl - ions are present at the corners as well as the center of the face of the cube. The Na + ions are located such that each Na + ion is surrounded with six chloride ions. Na + ions occupy all the octahedral voids. Each chloride ion is also surrounded by six Na + ions and the stoichiometry is 1:1. Thus the coordination number for both species is the same. In CaF 2 arrangement, the Ca 2+ ions are arranged in a cubic closed packed arrangement where Ca 2+ ions are placed at the corners as well as the center of the face of the cube. Fluoride ions occupy tetrahedral voids and in a way that each ion is surrounded by four calcium ions. The coordination number of F - is 4. There are two tetrahedral sites available for each calcium ion, and thus the F - ions occupy all eight tetrahedral voids. However, the stoichiometry is 1:2, and the coordination number of calcium ion is 8, therefore the coordination number for is not the same for Ca 2+ and F - . In Na 2 O arrangement, the O 2- ions are arranged in a cubic closed packed arrangement where O 2- ions are placed at corners as well as the center of the face of the cube. Na + ions occupy all tetrahedral voids surrounding O 2- ion. Each sodium ion is surrounded by 4 oxide ions and each oxide ion is surrounded by 8 sodium ions. The coordination number of Na + is 4 and O 2- is 8, therefore the coordination number is not the same for O 2- and Na + . In Zinc blende ZnS arrangement, the S 2- atoms are in ccp arrangement, where each sulphide ion is surrounded by four zinc ions. There are eight tetrahedral voids and four sulphide ions occupy half of the tetrahedral holes. Each sulphide ion itself is surrounded by four zinc ions, thus making both of their coordination numbers 4.",
+      "solution": ""
+    },
+    {
+      "n": 27,
+      "question_id": 258974,
+      "question_text": "6% (W/V) solution of urea will be isotonic with -",
+      "question_html": "<p>6% (W/V) solution of urea will be isotonic with -</p>",
+      "options": [
+        {
+          "id": 375809,
+          "text": "6% (W/V) solution of sucrose",
+          "html": "6% (W/V) solution of sucrose",
+          "is_correct": false
+        },
+        {
+          "id": 375806,
+          "text": "18% (W/V) solution of glucose",
+          "html": "18% (W/V) solution of glucose",
+          "is_correct": true
+        },
+        {
+          "id": 375807,
+          "text": "0.8 M solution of NaCl",
+          "html": "0.8 M solution of NaCl",
+          "is_correct": false
+        },
+        {
+          "id": 375808,
+          "text": "5 M solution of CH 3 COOH",
+          "html": "5 M solution of CH<sub>3</sub>COOH",
+          "is_correct": false
+        }
+      ],
+      "correct_option_text": "18% (W/V) solution of glucose",
+      "correct_option_ids": [
+        375806
+      ],
+      "explanation": "18% (W/V) solution of glucose",
+      "solution": ""
+    },
+    {
+      "n": 28,
+      "question_id": 60864,
+      "question_text": "The vitamins are generally stored in the body in the",
+      "question_html": "<p>The vitamins are generally stored in the body in the</p>",
+      "options": [
+        {
+          "id": 198642,
+          "text": "muscles",
+          "html": "muscles",
+          "is_correct": false
+        },
+        {
+          "id": 198643,
+          "text": "pancreas",
+          "html": "pancreas",
+          "is_correct": false
+        },
+        {
+          "id": 198641,
+          "text": "liver and adipose tissue",
+          "html": "liver and adipose tissue",
+          "is_correct": true
+        },
+        {
+          "id": 198644,
+          "text": "abdomen",
+          "html": "abdomen",
+          "is_correct": false
+        }
+      ],
+      "correct_option_text": "liver and adipose tissue",
+      "correct_option_ids": [
+        198641
+      ],
+      "explanation": "Vitamins which are soluble in fat and oils but insoluble in water are kept in fat soluble vitamins. These are vitamins A, D, E and K. These are generally stored in liver and adipose (fat storing) tissues.",
+      "solution": ""
+    },
+    {
+      "n": 29,
+      "question_id": 60309,
+      "question_text": "is the structure of:",
+      "question_html": "<p><img src=\"https://media-mycbseguide.s3.amazonaws.com/images/quiz/12/chemistry/52485_0.png\" style=\"width: 80px; height: 82px;\" />&nbsp;is the structure of:</p>",
+      "options": [
+        {
+          "id": 196422,
+          "text": "Hypophosphorus acid.",
+          "html": "Hypophosphorus acid.",
+          "is_correct": true
+        },
+        {
+          "id": 196425,
+          "text": "Pyrophosphoric acid",
+          "html": "Pyrophosphoric acid",
+          "is_correct": false
+        },
+        {
+          "id": 196423,
+          "text": "Phosphorous acid",
+          "html": "Phosphorous acid",
+          "is_correct": false
+        },
+        {
+          "id": 196424,
+          "text": "Phosphoric acid",
+          "html": "Phosphoric acid",
+          "is_correct": false
+        }
+      ],
+      "correct_option_text": "Hypophosphorus acid.",
+      "correct_option_ids": [
+        196422
+      ],
+      "explanation": "H 3 PO 2 is Hypophosphorus acid. It has one P-OH, two P-H and one P=O bonds.",
+      "solution": ""
+    },
+    {
+      "n": 30,
+      "question_id": 60310,
+      "question_text": "Elements of which group are known as ore forming elements?",
+      "question_html": "<p>Elements of which group are known as ore forming elements?</p>",
+      "options": [
+        {
+          "id": 196427,
+          "text": "Group 15",
+          "html": "Group 15",
+          "is_correct": false
+        },
+        {
+          "id": 196426,
+          "text": "Group 16",
+          "html": "Group 16",
+          "is_correct": true
+        },
+        {
+          "id": 196429,
+          "text": "Group 18",
+          "html": "Group 18",
+          "is_correct": false
+        },
+        {
+          "id": 196428,
+          "text": "Group 17",
+          "html": "Group 17",
+          "is_correct": false
+        }
+      ],
+      "correct_option_text": "Group 16",
+      "correct_option_ids": [
+        196426
+      ],
+      "explanation": "A maximum number of ores contain group 16 elements (O, S, etc). They are known as \"chalcogens\" which was derived from the Greek word chalcos, meaning \"ore formers,\" since they all are be found in copper ores.",
+      "solution": ""
+    },
+    {
+      "n": 31,
+      "question_id": 60311,
+      "question_text": "Most metal oxides are:",
+      "question_html": "<p>Most metal oxides are:</p>",
+      "options": [
+        {
+          "id": 196433,
+          "text": "Basic in nature",
+          "html": "Basic&nbsp;in nature",
+          "is_correct": false
+        },
+        {
+          "id": 196431,
+          "text": "Covalent in nature",
+          "html": "Covalent in nature",
+          "is_correct": false
+        },
+        {
+          "id": 196432,
+          "text": "Acidic in nature",
+          "html": "Acidic in nature",
+          "is_correct": false
+        },
+        {
+          "id": 196430,
+          "text": "Ionic in nature",
+          "html": "Ionic in nature",
+          "is_correct": true
+        }
+      ],
+      "correct_option_text": "Ionic in nature",
+      "correct_option_ids": [
+        196430
+      ],
+      "explanation": "In general, metal oxides are basic and ionic in nature.",
+      "solution": ""
+    },
+    {
+      "n": 32,
+      "question_id": 60817,
+      "question_text": "The cyclic form of fructose is called",
+      "question_html": "<p>The cyclic form of fructose is called</p>",
+      "options": [
+        {
+          "id": 198456,
+          "text": "Pyran",
+          "html": "Pyran",
+          "is_correct": false
+        },
+        {
+          "id": 198455,
+          "text": "Pyranose",
+          "html": "Pyranose",
+          "is_correct": false
+        },
+        {
+          "id": 198454,
+          "text": "Furan",
+          "html": "Furan",
+          "is_correct": false
+        },
+        {
+          "id": 198453,
+          "text": "Fructofuranose",
+          "html": "Fructofuranose",
+          "is_correct": true
+        }
+      ],
+      "correct_option_text": "Fructofuranose",
+      "correct_option_ids": [
+        198453
+      ],
+      "explanation": "Cyclic form of fructose is called Fructofuranose. The ring, thus formed is a five membered ring and is named as furanose with analogy to the compound furan. Furan is a five membered cyclic compound with one oxygen and four carbon atoms.",
+      "solution": ""
+    },
+    {
+      "n": 33,
+      "question_id": 343584,
+      "question_text": "Mark the correct increasing order of reactivity of the following compounds with HBr/HCl.",
+      "question_html": "<html><body><p>Mark the correct increasing order of reactivity of the following compounds with HBr/HCl.</p>\n<ol start=\"1\" style=\"list-style-type: lower-alpha;\">\n<li><img alt=\"\" data-imgur-src=\"yCAVI2j.png\" src=\"https://media-mycbseguide.s3.amazonaws.com/images/imgur/yCAVI2j.png\" style=\"width: 60px; height: 66px;\"/></li>\n<li><img alt=\"\" data-imgur-src=\"lzWwEqu.png\" src=\"https://media-mycbseguide.s3.amazonaws.com/images/imgur/lzWwEqu.png\" style=\"width: 60px; height: 92px;\"/></li>\n<li><img alt=\"\" data-imgur-src=\"689rjGP.png\" src=\"https://media-mycbseguide.s3.amazonaws.com/images/imgur/689rjGP.png\" style=\"width: 60px; height: 102px;\"/></li>\n</ol></body></html>",
+      "options": [
+        {
+          "id": 524288,
+          "text": "b < a < c",
+          "html": "b &lt; a &lt; c",
+          "is_correct": false
+        },
+        {
+          "id": 524287,
+          "text": "a < b < c",
+          "html": "a &lt; b &lt; c",
+          "is_correct": false
+        },
+        {
+          "id": 524289,
+          "text": "b < c < a",
+          "html": "b &lt; c &lt; a",
+          "is_correct": true
+        },
+        {
+          "id": 524290,
+          "text": "c < b < a",
+          "html": "c &lt; b &lt; a",
+          "is_correct": false
+        }
+      ],
+      "correct_option_text": "b < c < a",
+      "correct_option_ids": [
+        524289
+      ],
+      "explanation": "All three benzyl alcohols react with HBr/HCl through the formation of an intermediate carbocation. The more stable the carbocation, the more reactive is the alcohol. The electron releasing groups i.e. NO 2 , Cl decreases the stability of the carbocation. Since -NO 2 group is stronger electron-withdrawing than -Cl group, therefore, the stability of carbocation increases in the order: The stability of the first Carbonium ion formed is also decreased by - M effect showing by a nitro group which develops positive charge on the carbon of the ring on which CH 2 OH is attached .",
+      "solution": ""
+    },
+    {
+      "n": 34,
+      "question_id": 60521,
+      "question_text": "Name the following compound as per the IUPAC system",
+      "question_html": "<p>Name the following compound as per the IUPAC system<br />\r\n<img alt=\"\" src=\"https://media-mycbseguide.s3.amazonaws.com/images/question_images/1762172307-j2veef.jpg\" style=\"height:96px; width:200px\" /></p>",
+      "options": [
+        {
+          "id": 197273,
+          "text": "4 diethyl, 2 - ethyl pentene",
+          "html": "4 diethyl, 2&nbsp;-&nbsp;ethyl pentene",
+          "is_correct": false
+        },
+        {
+          "id": 197271,
+          "text": "2, 2, 3 - trimethylpent - 4 - ene",
+          "html": "2, 2, 3 -&nbsp;trimethylpent -&nbsp;4 -&nbsp;ene",
+          "is_correct": false
+        },
+        {
+          "id": 197272,
+          "text": "2 diethyl, 3 - ethyl pentene",
+          "html": "2 diethyl, 3 -&nbsp;ethyl pentene",
+          "is_correct": false
+        },
+        {
+          "id": 197270,
+          "text": "3, 4, 4 - trimethylpent - 2 - ene",
+          "html": "3, 4, 4 - trimethylpent - 2 - ene",
+          "is_correct": true
+        }
+      ],
+      "correct_option_text": "3, 4, 4 - trimethylpent - 2 - ene",
+      "correct_option_ids": [
+        197270
+      ],
+      "explanation": "The longest chain contains a double bond and five carbon i.e pent-2-ene and 2 methyl is attached to the 4th carbon and one is attached to 3rd carbon. Therefore IUPAC name is 3, 4, 4 - trimethylpent - 2 - ene.",
+      "solution": ""
+    },
+    {
+      "n": 35,
+      "question_id": 60312,
+      "question_text": "The thermal stability of hydrides of group 16 elements decreases in the order:",
+      "question_html": "<p>The thermal stability of hydrides of group 16 elements decreases in the order:</p>",
+      "options": [
+        {
+          "id": 196437,
+          "text": "H 2 O, H 2 S, H 2 Te, H 2 Se",
+          "html": "H<sub>2</sub>O, H<sub>2</sub>S, H<sub>2</sub>Te, H<sub>2</sub>Se",
+          "is_correct": false
+        },
+        {
+          "id": 196434,
+          "text": "H 2 O, H 2 S, H 2 Se, H 2 Te",
+          "html": "H<sub>2</sub>O, H<sub>2</sub>S, H<sub>2</sub>Se, H<sub>2</sub>Te",
+          "is_correct": true
+        },
+        {
+          "id": 196436,
+          "text": "H 2 S, H 2 O H 2 Se, H 2 Te",
+          "html": "H<sub>2</sub>S, H<sub>2</sub>O H<sub>2</sub>Se, H<sub>2</sub>Te",
+          "is_correct": false
+        },
+        {
+          "id": 196435,
+          "text": "H 2 S, H 2 Se, H 2 Te,H 2 O",
+          "html": "H<sub>2</sub>S, H<sub>2</sub>Se, H<sub>2</sub>Te,H<sub>2</sub>O",
+          "is_correct": false
+        }
+      ],
+      "correct_option_text": "H 2 O, H 2 S, H 2 Se, H 2 Te",
+      "correct_option_ids": [
+        196434
+      ],
+      "explanation": "As we move down the group bond length increases and bond enthalpy for the dissociation of H-E bond decreases. Due to a decrease in enthalpy, the thermal stability of hydrides decreases down the group.",
+      "solution": ""
+    },
+    {
+      "n": 36,
+      "question_id": 60313,
+      "question_text": "Formula of oleum is",
+      "question_html": "<p>Formula of oleum is</p>",
+      "options": [
+        {
+          "id": 196439,
+          "text": "H 2 S 2 O 6",
+          "html": "H<sub>2</sub>S<sub>2</sub>O<sub>6</sub>",
+          "is_correct": false
+        },
+        {
+          "id": 196438,
+          "text": "H 2 S 2 O 7",
+          "html": "H<sub>2</sub>S<sub>2</sub>O<sub>7</sub>",
+          "is_correct": true
+        },
+        {
+          "id": 196440,
+          "text": "H 2 SO 5",
+          "html": "H<sub>2</sub>SO<sub>5</sub>",
+          "is_correct": false
+        },
+        {
+          "id": 196441,
+          "text": "H 2 S 2 O 8",
+          "html": "H<sub>2</sub>S<sub>2</sub>O<sub>8</sub>",
+          "is_correct": false
+        }
+      ],
+      "correct_option_text": "H 2 S 2 O 7",
+      "correct_option_ids": [
+        196438
+      ],
+      "explanation": "Oleum is pyrosulphuric acid (H 2 S 2 O 7 )",
+      "solution": ""
+    },
+    {
+      "n": 37,
+      "question_id": 60022,
+      "question_text": "The following diagram shows:",
+      "question_html": "<p>The following diagram shows:<br />\r\n<img src=\"https://media-mycbseguide.s3.amazonaws.com/images/quiz/12/chemistry/52198_0.jpg\" /></p>",
+      "options": [
+        {
+          "id": 195274,
+          "text": "Frenkel defect",
+          "html": "Frenkel defect",
+          "is_correct": true
+        },
+        {
+          "id": 195277,
+          "text": "F &ndash; centers",
+          "html": "F &ndash; centers",
+          "is_correct": false
+        },
+        {
+          "id": 195276,
+          "text": "Interstitial",
+          "html": "Interstitial",
+          "is_correct": false
+        },
+        {
+          "id": 195275,
+          "text": "Schottky defect",
+          "html": "Schottky defect",
+          "is_correct": false
+        }
+      ],
+      "correct_option_text": "Frenkel defect",
+      "correct_option_ids": [
+        195274
+      ],
+      "explanation": "The Frenkel Defect (also known as the Frenkel pair/disorder) is a defect in the lattice crystal where an atom or ion occupies a normally vacant site other than its own. As a result, the atom or ion leaves its own lattice site vacant.",
+      "solution": ""
+    },
+    {
+      "n": 38,
+      "question_id": 60567,
+      "question_text": "Primary alcohols are prepared by the reduction of carboxylic acids. Though lithium aluminium hydride is a strong reducing agent, it is not used in the reaction. This is so because:",
+      "question_html": "<p>Primary alcohols are prepared by the reduction of carboxylic acids. Though lithium aluminium hydride is a strong reducing agent, it is not used in the reaction. This is so because:</p>",
+      "options": [
+        {
+          "id": 197456,
+          "text": "only used for secondary and tertiary alcohols",
+          "html": "only used for secondary and tertiary alcohols",
+          "is_correct": false
+        },
+        {
+          "id": 197455,
+          "text": "yield is low",
+          "html": "yield is low",
+          "is_correct": false
+        },
+        {
+          "id": 197454,
+          "text": "it is an expensive reagent",
+          "html": "it is an expensive reagent",
+          "is_correct": true
+        },
+        {
+          "id": 197457,
+          "text": "yield is High",
+          "html": "yield is High",
+          "is_correct": false
+        }
+      ],
+      "correct_option_text": "it is an expensive reagent",
+      "correct_option_ids": [
+        197454
+      ],
+      "explanation": "Carboxylic acids are reduced to primary alcohols in excellent yields by lithium aluminium hydride, a strong reducing agent. However, LiAlH 4 is an expensive reagent, and therefore, used for preparing special chemicals only. Commercially, acids are reduced to alcohols by converting them to the esters followed by their reduction using hydrogen in the presence of a catalyst (catalytic hydrogenation).",
+      "solution": ""
+    },
+    {
+      "n": 39,
+      "question_id": 60009,
+      "question_text": "Type of stoichiometric defect shown by ZnS is",
+      "question_html": "<p>Type of stoichiometric defect shown by ZnS is</p>",
+      "options": [
+        {
+          "id": 195222,
+          "text": "Frenkel",
+          "html": "Frenkel",
+          "is_correct": true
+        },
+        {
+          "id": 195223,
+          "text": "Schottky",
+          "html": "Schottky",
+          "is_correct": false
+        },
+        {
+          "id": 195225,
+          "text": "Both Frenkel and Schottky",
+          "html": "Both Frenkel and Schottky",
+          "is_correct": false
+        },
+        {
+          "id": 195224,
+          "text": "Interstitial",
+          "html": "Interstitial",
+          "is_correct": false
+        }
+      ],
+      "correct_option_text": "Frenkel",
+      "correct_option_ids": [
+        195222
+      ],
+      "explanation": "ZnS shows Frenkel defect due to small size of zinc ion.",
+      "solution": ""
+    },
+    {
+      "n": 40,
+      "question_id": 60516,
+      "question_text": "In the given reaction, {tex}\\mathop {{H_3}C - C{H_2} - CH}\\limits_{Pent - 2 - ene} = CH - C{H_3}\\xleftarrow{{ - OH}}\\mathop {{H_3}C - C{H_2} - C{H_2} - \\mathop {\\mathop {CH}\\limits^| }\\limits^{Br} - \\mathop {\\mathop {C{H_2}}\\limits_| }\\limits_H }\\limits_{2 - Bromopen\\tan e} {/tex} {tex}\\xrightarrow{{ - OH}}\\mathop {{H_3}C - C{H_2} - C{H_2} - CH = C{H_2}}\\limits_{Pent - 1 - ene} {/tex} 2 &ndash; Bromopentane on heating with alcoholic KOH, forms two compounds: Pent &ndash; 1 &ndash; ene and Pent &ndash; 2 &ndash; ene. If one major and one minor product are formed, then:",
+      "question_html": "<p>In the given reaction,<br />\r\n<span class=\"math-tex\">{tex}\\mathop {{H_3}C - C{H_2} - CH}\\limits_{Pent - 2 - ene} = CH - C{H_3}\\xleftarrow{{ - OH}}\\mathop {{H_3}C - C{H_2} - C{H_2} - \\mathop {\\mathop {CH}\\limits^| }\\limits^{Br} - \\mathop {\\mathop {C{H_2}}\\limits_| }\\limits_H }\\limits_{2 - Bromopen\\tan e} {/tex}</span><br />\r\n&nbsp;<span class=\"math-tex\">{tex}\\xrightarrow{{ - OH}}\\mathop {{H_3}C - C{H_2} - C{H_2} - CH = C{H_2}}\\limits_{Pent - 1 - ene} {/tex}</span><br />\r\n2 &ndash; Bromopentane on heating with alcoholic KOH, forms two compounds: Pent &ndash; 1 &ndash; ene and Pent &ndash; 2 &ndash; ene. If one major and one minor product&nbsp;are formed, then:</p>",
+      "options": [
+        {
+          "id": 197252,
+          "text": "the minor product formed is Pent-1-ene which has the lesser number of alkyl groups attached to the C=C.",
+          "html": "the minor&nbsp;product formed is Pent-1-ene which has the lesser&nbsp;number of alkyl groups attached to the C=C.",
+          "is_correct": false
+        },
+        {
+          "id": 197251,
+          "text": "the major product formed is Pent-2-ene which has the greater number of alkyl groups attached to the C=C.",
+          "html": "the major product formed is Pent-2-ene which has the greater number of alkyl groups attached to the C=C.",
+          "is_correct": false
+        },
+        {
+          "id": 197253,
+          "text": "there is formation of more than one alkenes due to the availability of more than one {tex}\\beta{/tex} - hydrogen atoms.",
+          "html": "there is formation of more than one alkenes due to the availability of more than one <strong><span class=\"math-tex\">{tex}\\beta{/tex}</span>-</strong>&nbsp;hydrogen atoms.",
+          "is_correct": false
+        },
+        {
+          "id": 197250,
+          "text": "All of these",
+          "html": "All of these",
+          "is_correct": true
+        }
+      ],
+      "correct_option_text": "All of these",
+      "correct_option_ids": [
+        197250
+      ],
+      "explanation": "Zaitsev (also pronounced as Saytzeff) formulated a rule: In dehydrohalogenation reactions, the preferred product is that alkene which has the greater number of alkyl groups attached to the double-bonded carbon atoms. So the major alkene will be the more substituted alkene i.e. Pent-2-ene.",
+      "solution": ""
+    },
+    {
+      "n": 41,
+      "question_id": 60314,
+      "question_text": "Which among the following does not exhibit a positive oxidation state?",
+      "question_html": "<p>Which among the following does not exhibit a positive oxidation state?</p>",
+      "options": [
+        {
+          "id": 196444,
+          "text": "Oxygen",
+          "html": "Oxygen",
+          "is_correct": false
+        },
+        {
+          "id": 196442,
+          "text": "Fluorine",
+          "html": "Fluorine",
+          "is_correct": true
+        },
+        {
+          "id": 196443,
+          "text": "Chlorine",
+          "html": "Chlorine",
+          "is_correct": false
+        },
+        {
+          "id": 196445,
+          "text": "Nitrogen",
+          "html": "Nitrogen",
+          "is_correct": false
+        }
+      ],
+      "correct_option_text": "Fluorine",
+      "correct_option_ids": [
+        196442
+      ],
+      "explanation": "Fluorine is the most electronegative element, it shows only -1 oxidation state.",
+      "solution": ""
+    },
+    {
+      "n": 42,
+      "question_id": 60575,
+      "question_text": "Lucas reagent is:",
+      "question_html": "<p>Lucas reagent is:</p>",
+      "options": [
+        {
+          "id": 197488,
+          "text": "conc.H 2 SO 4 and ZnCl 2",
+          "html": "conc.H<sub>2</sub>SO<sub>4</sub> and ZnCl<sub>2</sub>",
+          "is_correct": false
+        },
+        {
+          "id": 197486,
+          "text": "conc. HCl and ZnCl 2",
+          "html": "conc. HCl and ZnCl<sub>2</sub>",
+          "is_correct": true
+        },
+        {
+          "id": 197487,
+          "text": "dil. HCl and ZnCl 2",
+          "html": "dil. HCl and ZnCl<sub>2</sub>",
+          "is_correct": false
+        },
+        {
+          "id": 197489,
+          "text": "dil.H 2 SO 4 and ZnCl 2",
+          "html": "dil.H<sub>2</sub>SO<sub>4&nbsp;</sub>and ZnCl<sub>2</sub>",
+          "is_correct": false
+        }
+      ],
+      "correct_option_text": "conc. HCl and ZnCl 2",
+      "correct_option_ids": [
+        197486
+      ],
+      "explanation": "Lucas reagent is a solution of anhydrous zinc chloride (Lewis acid) in concentrated hydrochloric acid. It is used as a reagent to test alcohol and classify them in accordance to their reactivity. The reaction is a substitution reaction where the chloride of the zinc chloride gets replaced by the hydroxyl group of the alcohol.",
+      "solution": ""
+    },
+    {
+      "n": 43,
+      "question_id": 60315,
+      "question_text": "Fluorine reacts with H 2 S to produce",
+      "question_html": "<p>Fluorine reacts with H<sub>2</sub>S to produce</p>",
+      "options": [
+        {
+          "id": 196446,
+          "text": "SF 6 and HF",
+          "html": "SF<sub>6</sub> and HF",
+          "is_correct": true
+        },
+        {
+          "id": 196447,
+          "text": "SF 4 and HF",
+          "html": "SF<sub>4</sub> and HF",
+          "is_correct": false
+        },
+        {
+          "id": 196448,
+          "text": "SF 2 and HF 4",
+          "html": "SF<sub>2</sub> and HF<sub>4</sub>",
+          "is_correct": false
+        },
+        {
+          "id": 196449,
+          "text": "SF 6 ,S and HF",
+          "html": "SF<sub>6</sub> ,S and HF",
+          "is_correct": false
+        }
+      ],
+      "correct_option_text": "SF 6 and HF",
+      "correct_option_ids": [
+        196446
+      ],
+      "explanation": "4F 2 + H 2 S {tex}\\to{/tex} SF 6 + 2HF",
+      "solution": ""
+    },
+    {
+      "n": 44,
+      "question_id": 60813,
+      "question_text": "Oxime is formed by treating glucose with",
+      "question_html": "<p>Oxime is formed by treating glucose with</p>",
+      "options": [
+        {
+          "id": 198439,
+          "text": "nitric acid",
+          "html": "nitric acid",
+          "is_correct": false
+        },
+        {
+          "id": 198440,
+          "text": "Water",
+          "html": "Water",
+          "is_correct": false
+        },
+        {
+          "id": 198437,
+          "text": "hydroxylamine",
+          "html": "hydroxylamine",
+          "is_correct": true
+        },
+        {
+          "id": 198438,
+          "text": "bromine water",
+          "html": "bromine water",
+          "is_correct": false
+        }
+      ],
+      "correct_option_text": "hydroxylamine",
+      "correct_option_ids": [
+        198437
+      ],
+      "explanation": "Glucose reacts with hydroxylamine (NH 2 OH) to form an oxime. Oxime is formed by combination of carbonyl group of glucose and hydroxyl group of hydroxyl amine.",
+      "solution": ""
+    },
+    {
+      "n": 45,
+      "question_id": 569599,
+      "question_text": "Assertion (A): Among nitrogen halides NX 3 , the dipole moment is highest for NI 3 and lowest for NF 3 . Reason (R): Nitrogen halides NX 3 , have a trigonal pyramidal structure.",
+      "question_html": "<p><strong>Assertion (A):</strong> Among nitrogen halides NX<sub>3</sub>, the dipole moment is highest for NI<sub>3</sub> and lowest for NF<sub>3</sub>.<br />\n<strong>Reason (R):</strong> Nitrogen halides NX<sub>3</sub>, have a trigonal pyramidal structure.</p>",
+      "options": [
+        {
+          "id": 1087621,
+          "text": "A is false but R is true.",
+          "html": "A is false but R is true.",
+          "is_correct": false
+        },
+        {
+          "id": 1087619,
+          "text": "Both A and R are true but R is not the correct explanation of A.",
+          "html": "Both A and R are true but R is not the correct explanation of A.",
+          "is_correct": true
+        },
+        {
+          "id": 1087618,
+          "text": "Both A and R are true and R is the correct explanation of A.",
+          "html": "Both A and R are true and R is the correct explanation of A.",
+          "is_correct": false
+        },
+        {
+          "id": 1087620,
+          "text": "A is true but R is false.",
+          "html": "A is true but R is false.",
+          "is_correct": false
+        }
+      ],
+      "correct_option_text": "Both A and R are true but R is not the correct explanation of A.",
+      "correct_option_ids": [
+        1087619
+      ],
+      "explanation": "In the case of NI 3 , the lone pair moment adds on the resultant of the N-I moments but in the case of NF 3 , the lone pair moment on N partly cancels the resultant N-F moments.",
+      "solution": ""
+    },
+    {
+      "n": 46,
+      "question_id": 571929,
+      "question_text": "Assertion (A): Electron withdrawing groups in aryl halides decrease the reactivity towards nucleophilic substitution. Reason (R): 2,4 -Dinitrochlorobenzene is more reactive than chlorobenzene.",
+      "question_html": "<p><strong>Assertion (A):</strong> Electron withdrawing groups in aryl halides decrease the reactivity towards nucleophilic substitution.<br />\n<strong>Reason (R):</strong> 2,4 -Dinitrochlorobenzene is more reactive than chlorobenzene.</p>",
+      "options": [
+        {
+          "id": 1094811,
+          "text": "Both A and R are true but R is not the correct explanation of A.",
+          "html": "Both A and R are true but R is not the correct explanation of A.",
+          "is_correct": false
+        },
+        {
+          "id": 1094812,
+          "text": "A is true but R is false.",
+          "html": "A is true but R is false.",
+          "is_correct": false
+        },
+        {
+          "id": 1094813,
+          "text": "A is false but R is true.",
+          "html": "A is false but R is true.",
+          "is_correct": true
+        },
+        {
+          "id": 1094810,
+          "text": "Both A and R are true and R is the correct explanation of A.",
+          "html": "Both A and R are true and R is the correct explanation of A.",
+          "is_correct": false
+        }
+      ],
+      "correct_option_text": "A is false but R is true.",
+      "correct_option_ids": [
+        1094813
+      ],
+      "explanation": "Halobenzenes become reactive to nucleophilic substitution reactions when electron-withdrawing groups (nitro, cyano) are present at ortho/para position. This is evident from the milder conditions required for hydrolysis in 2,4-dinitrochlorobenzene than chlorobenzene.",
+      "solution": ""
+    },
+    {
+      "n": 47,
+      "question_id": 571801,
+      "question_text": "Assertion (A): Disruption of the native structure of a protein is called denaturation. Reason (R): The change in colour and appearance of egg during cooking is due to denaturation.",
+      "question_html": "<p><strong>Assertion (A):</strong> Disruption of the native structure of a protein is called denaturation.<br />\n<strong>Reason (R):</strong> The change in colour and appearance of egg during cooking is due to denaturation.</p>",
+      "options": [
+        {
+          "id": 1094674,
+          "text": "Both A and R are true and R is the correct explanation of A.",
+          "html": "Both A and R are true and R is the correct explanation of A.",
+          "is_correct": false
+        },
+        {
+          "id": 1094675,
+          "text": "Both A and R are true but R is not the correct explanation of A.",
+          "html": "Both A and R are true but R is not the correct explanation of A.",
+          "is_correct": true
+        },
+        {
+          "id": 1094676,
+          "text": "A is true but R is false.",
+          "html": "A is true but R is false.",
+          "is_correct": false
+        },
+        {
+          "id": 1094677,
+          "text": "A is false but R is true.",
+          "html": "A is false but R is true.",
+          "is_correct": false
+        }
+      ],
+      "correct_option_text": "Both A and R are true but R is not the correct explanation of A.",
+      "correct_option_ids": [
+        1094675
+      ],
+      "explanation": "Due to denaturation, a protein loses its biological activity. During denaturation, the protein molecule uncoils from a more random conformation and precipitates from the solution.",
+      "solution": ""
+    },
+    {
+      "n": 48,
+      "question_id": 218892,
+      "question_text": "Assertion (A): F - F bond in the F 2 molecule is strong. Reason (R): F atom is small in size.",
+      "question_html": "<p><strong>Assertion (A):</strong>&nbsp;F - F bond in the F<sub>2</sub> molecule is strong.<br />\n<strong>Reason (R): </strong>F atom is small in size.</p>",
+      "options": [
+        {
+          "id": 334329,
+          "text": "A is false but R is true.",
+          "html": "A is false but R is true.",
+          "is_correct": false
+        },
+        {
+          "id": 334326,
+          "text": "Both A and R are true and R is the correct explanation of A.",
+          "html": "Both A and R are true and R is the correct explanation of A.",
+          "is_correct": false
+        },
+        {
+          "id": 334327,
+          "text": "Both A and R are true but R is not the correct explanation of A.",
+          "html": "Both A and R are true but R is not the correct explanation of A.",
+          "is_correct": false
+        },
+        {
+          "id": 334328,
+          "text": "A is true but R is false.",
+          "html": "A is true but R is false.",
+          "is_correct": true
+        }
+      ],
+      "correct_option_text": "A is true but R is false.",
+      "correct_option_ids": [
+        334328
+      ],
+      "explanation": "Lower value of bond dissociation energy of fluorine is due to the high interelectronic repulsions between non-bonding electrons of the 2p-orbital of small sized fluorine. As a result F-F bond is weaker as comparison to Cl-Cl and Br-Br bonds.",
+      "solution": ""
+    },
+    {
+      "n": 49,
+      "question_id": 571743,
+      "question_text": "Assertion (A): Crystalline solids are anisotropic. Reason (R): Crystalline solids are not as closely packed as amorphous solids.",
+      "question_html": "<p><strong>Assertion (A):</strong> Crystalline solids are anisotropic.<br />\n<strong>Reason (R):</strong> Crystalline solids are not as closely packed as amorphous solids.</p>",
+      "options": [
+        {
+          "id": 1094493,
+          "text": "A is false but R is true.",
+          "html": "A is false but R is true.",
+          "is_correct": false
+        },
+        {
+          "id": 1094490,
+          "text": "Both A and R are true and R is the correct explanation of A.",
+          "html": "Both A and R are true and R is the correct explanation of A.",
+          "is_correct": false
+        },
+        {
+          "id": 1094491,
+          "text": "Both A and R are true but R is not the correct explanation of A.",
+          "html": "Both A and R are true but R is not the correct explanation of A.",
+          "is_correct": false
+        },
+        {
+          "id": 1094492,
+          "text": "A is true but R is false.",
+          "html": "A is true but R is false.",
+          "is_correct": true
+        }
+      ],
+      "correct_option_text": "A is true but R is false.",
+      "correct_option_ids": [
+        1094492
+      ],
+      "explanation": "Constituent particles are closely packed in crystalline solids and anisotropy is due to different arrangements of constituent particles in different directions.",
+      "solution": ""
+    },
+    {
+      "n": 50,
+      "question_id": 60035,
+      "question_text": "Two solutions have different osmotic pressures. The solution of higher osmotic pressure is called",
+      "question_html": "<p>Two solutions have different osmotic pressures. The solution of higher osmotic pressure is called</p>",
+      "options": [
+        {
+          "id": 195328,
+          "text": "Isotropic solution",
+          "html": "Isotropic solution",
+          "is_correct": false
+        },
+        {
+          "id": 195329,
+          "text": "Isotonic solution",
+          "html": "Isotonic solution",
+          "is_correct": false
+        },
+        {
+          "id": 195327,
+          "text": "Hypotonic solution",
+          "html": "Hypotonic solution",
+          "is_correct": false
+        },
+        {
+          "id": 195326,
+          "text": "Hypertonic solution",
+          "html": "Hypertonic solution",
+          "is_correct": true
+        }
+      ],
+      "correct_option_text": "Hypertonic solution",
+      "correct_option_ids": [
+        195326
+      ],
+      "explanation": "Hypertonic solutions have high Osmotic Pressure.",
+      "solution": ""
+    },
+    {
+      "n": 51,
+      "question_id": 60555,
+      "question_text": "p &ndash; Dichlorobenzene has ________ and ________ than those of o &ndash; and m &ndash; isomers.",
+      "question_html": "<p>p &ndash; Dichlorobenzene has ________&nbsp; and ________ than those of o &ndash; and m &ndash; isomers.</p>",
+      "options": [
+        {
+          "id": 197406,
+          "text": "higher melting point and lower solubility",
+          "html": "higher melting point and lower solubility",
+          "is_correct": true
+        },
+        {
+          "id": 197408,
+          "text": "higher melting point and higher solubility",
+          "html": "higher melting point and higher solubility",
+          "is_correct": false
+        },
+        {
+          "id": 197407,
+          "text": "lower melting point and higher solubility",
+          "html": "lower melting point and higher solubility",
+          "is_correct": false
+        },
+        {
+          "id": 197409,
+          "text": "low melting point and low solubility",
+          "html": "low melting point and low solubility",
+          "is_correct": false
+        }
+      ],
+      "correct_option_text": "higher melting point and lower solubility",
+      "correct_option_ids": [
+        197406
+      ],
+      "explanation": "The para-isomers of dihalobenzenes are high melting as compared to their ortho- and meta-isomers. It is due to the symmetry of para-isomers that fits in crystal lattice better as compared to ortho- and meta-isomers. These compounds have a lower solubility in water but higher solubility in organic solvents.",
+      "solution": ""
+    },
+    {
+      "n": 52,
+      "question_id": 60598,
+      "question_text": "Which of the following species can act as the strongest base?",
+      "question_html": "<p>Which of the following species can act as the strongest base?</p>",
+      "options": [
+        {
+          "id": 197579,
+          "text": "{tex}^ \\ominus{C_6}{H_5}\\;{/tex}",
+          "html": "<span class=\"math-tex\">{tex}^ \\ominus{C_6}{H_5}\\;{/tex}</span>",
+          "is_correct": false
+        },
+        {
+          "id": 197580,
+          "text": "{tex}^ \\ominus OH{/tex}",
+          "html": "<span class=\"math-tex\">{tex}^ \\ominus OH{/tex}</span>",
+          "is_correct": false
+        },
+        {
+          "id": 197578,
+          "text": "{tex}^ \\ominus OR{/tex}",
+          "html": "<sup><span class=\"math-tex\">{tex}^ \\ominus OR{/tex}</span></sup>",
+          "is_correct": true
+        },
+        {
+          "id": 197581,
+          "text": "",
+          "html": "<img src=\"https://media-mycbseguide.s3.amazonaws.com/images/quiz/12/chemistry/52774_4.png\" style=\"width: 100px; height: 70px;\" />",
+          "is_correct": false
+        }
+      ],
+      "correct_option_text": "{tex}^ \\ominus OR{/tex}",
+      "correct_option_ids": [
+        197578
+      ],
+      "explanation": "Hydroxy group is more electron donating group than alkoxy because alkoxy have greater number of atoms than that hydroxyl group there electronic density of oxygen of alkoxy group spreads over the whole group and greater the number of atom less will be the electron donating ability.",
+      "solution": ""
+    },
+    {
+      "n": 53,
+      "question_id": 575065,
+      "question_text": "Instructions for Question 53 to 55: An ideal solution may be defined as the solution which obeys Raoult&#39;s law exactly over the entire range of concentration. The solutions for which vapour pressure is either higher or lower than that predicted by Raoult&#39;s law are called non-ideal solutions. Non-ideal solutions can show either positive or negative deviations from Raoult&#39;s law depending on whether the A - B interactions in solution are stronger or weaker than A - A and B - B interactions. Which of the following solutions is/are ideal solution(s)? Bromoethane and iodoethane Acetone and chloroform Benzene and acetone n -heptane and n -hexane",
+      "question_html": "<b>Instructions for Question 53 to 55:</b><br><p>An ideal solution may be defined as the solution which obeys Raoult&#39;s law exactly over the entire range of concentration. The solutions for which vapour pressure is either higher or lower than that predicted by Raoult&#39;s law are called non-ideal solutions.<br />\r\nNon-ideal solutions can show either positive or negative deviations from Raoult&#39;s law depending on whether the A - B&nbsp;interactions in solution are stronger or weaker than A - A and B - B interactions.</p><br><p>Which of the following solutions is/are ideal solution(s)?</p>\r\n\r\n<ol start=\"1\" style=\"list-style-type: upper-roman;\">\r\n\t<li>Bromoethane and iodoethane</li>\r\n\t<li>Acetone and chloroform</li>\r\n\t<li>Benzene and acetone</li>\r\n\t<li>n -heptane and n -hexane</li>\r\n</ol>",
+      "options": [
+        {
+          "id": 1105114,
+          "text": "I and IV",
+          "html": "I and IV",
+          "is_correct": true
+        },
+        {
+          "id": 1105106,
+          "text": "only I",
+          "html": "only I",
+          "is_correct": false
+        },
+        {
+          "id": 1105110,
+          "text": "II and III",
+          "html": "II and III",
+          "is_correct": false
+        },
+        {
+          "id": 1105107,
+          "text": "I and II",
+          "html": "I and II",
+          "is_correct": false
+        }
+      ],
+      "correct_option_text": "I and IV",
+      "correct_option_ids": [
+        1105114
+      ],
+      "explanation": "II represents negative deviations and III represents positive deviations.",
+      "solution": ""
+    },
+    {
+      "n": 54,
+      "question_id": 575130,
+      "question_text": "Instructions for Question 53 to 55: An ideal solution may be defined as the solution which obeys Raoult&#39;s law exactly over the entire range of concentration. The solutions for which vapour pressure is either higher or lower than that predicted by Raoult&#39;s law are called non-ideal solutions. Non-ideal solutions can show either positive or negative deviations from Raoult&#39;s law depending on whether the A - B interactions in solution are stronger or weaker than A - A and B - B interactions. For which of the following solutions {tex}\\Delta H_{\\operatorname{mix}}{/tex} and {tex}\\Delta V_{\\operatorname{mix}}{/tex} is negative?",
+      "question_html": "<b>Instructions for Question 53 to 55:</b><br><p>An ideal solution may be defined as the solution which obeys Raoult&#39;s law exactly over the entire range of concentration. The solutions for which vapour pressure is either higher or lower than that predicted by Raoult&#39;s law are called non-ideal solutions.<br />\r\nNon-ideal solutions can show either positive or negative deviations from Raoult&#39;s law depending on whether the A - B&nbsp;interactions in solution are stronger or weaker than A - A and B - B interactions.</p><br><p>For which of the following solutions&nbsp;<span class=\"math-tex\">{tex}\\Delta H_{\\operatorname{mix}}{/tex}</span>&nbsp;and&nbsp;<span class=\"math-tex\">{tex}\\Delta V_{\\operatorname{mix}}{/tex}</span>&nbsp;is negative?</p>",
+      "options": [
+        {
+          "id": 1105370,
+          "text": "Acetone and CS 2",
+          "html": "Acetone and CS<sub>2</sub>",
+          "is_correct": false
+        },
+        {
+          "id": 1105368,
+          "text": "Acetone and aniline",
+          "html": "Acetone and aniline",
+          "is_correct": true
+        },
+        {
+          "id": 1105371,
+          "text": "Benzene and toluene",
+          "html": "Benzene and toluene",
+          "is_correct": false
+        },
+        {
+          "id": 1105369,
+          "text": "Ethyl alcohol and cyclohexane",
+          "html": "Ethyl alcohol and cyclohexane",
+          "is_correct": false
+        }
+      ],
+      "correct_option_text": "Acetone and aniline",
+      "correct_option_ids": [
+        1105368
+      ],
+      "explanation": "Acetone and aniline mixture represents negative deviations from Raoult&#39;s law hence for this mixture, {tex}\\Delta H_{\\operatorname{mix}}{/tex} and {tex}\\Delta V_{\\operatorname{mix}}{/tex} is negative.",
+      "solution": ""
+    },
+    {
+      "n": 55,
+      "question_id": 575374,
+      "question_text": "Instructions for Question 53 to 55: An ideal solution may be defined as the solution which obeys Raoult&#39;s law exactly over the entire range of concentration. The solutions for which vapour pressure is either higher or lower than that predicted by Raoult&#39;s law are called non-ideal solutions. Non-ideal solutions can show either positive or negative deviations from Raoult&#39;s law depending on whether the A - B interactions in solution are stronger or weaker than A - A and B - B interactions. Which of the following is not true for positive deviations?",
+      "question_html": "<b>Instructions for Question 53 to 55:</b><br><p>An ideal solution may be defined as the solution which obeys Raoult&#39;s law exactly over the entire range of concentration. The solutions for which vapour pressure is either higher or lower than that predicted by Raoult&#39;s law are called non-ideal solutions.<br />\r\nNon-ideal solutions can show either positive or negative deviations from Raoult&#39;s law depending on whether the A - B&nbsp;interactions in solution are stronger or weaker than A - A and B - B interactions.</p><br><p>Which of the following is not true for positive deviations?</p>",
+      "options": [
+        {
+          "id": 1106344,
+          "text": "The A - B interactions in solution are weaker than the A - A and B - B interactions.",
+          "html": "The A - B interactions in solution are weaker than the A - A and B - B interactions.",
+          "is_correct": false
+        },
+        {
+          "id": 1106346,
+          "text": "Carbon tetrachloride and chloroform mixture is an example of positive deviations.",
+          "html": "Carbon tetrachloride and chloroform mixture is an example of positive deviations.",
+          "is_correct": false
+        },
+        {
+          "id": 1106347,
+          "text": "All of these",
+          "html": "\r\n\r\n<p>All of these</p>",
+          "is_correct": false
+        },
+        {
+          "id": 1106345,
+          "text": "{tex}P_{A}<P_{A}^{\\circ} x_{A}{/tex} and {tex}P_{B}<P_{B}^{\\circ} x_{B}{/tex}",
+          "html": "<span class=\"math-tex\">{tex}P_{A}&lt;P_{A}^{\\circ} x_{A}{/tex}</span> and <span class=\"math-tex\">{tex}P_{B}&lt;P_{B}^{\\circ} x_{B}{/tex}</span>",
+          "is_correct": true
+        }
+      ],
+      "correct_option_text": "{tex}P_{A}<P_{A}^{\\circ} x_{A}{/tex} and {tex}P_{B}<P_{B}^{\\circ} x_{B}{/tex}",
+      "correct_option_ids": [
+        1106345
+      ],
+      "explanation": "or positive deviations {tex}p_{A}>p_{A}^{\\circ} x_{A}{/tex} and {tex}p_{B}>p_{B}^{\\circ} x_{B}{/tex}",
+      "solution": ""
+    }
+  ]
+}

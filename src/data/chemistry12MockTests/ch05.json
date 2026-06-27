@@ -1,0 +1,2098 @@
+{
+  "mock_id": 203,
+  "name": "Mock Test - 05",
+  "instruction": "The Question Paper contains three sections. Section A has 25 questions. Attempt any 20 questions. Section B has 24 questions. Attempt any 20 questions. Section C has 6 questions. Attempt any 5 questions. All questions carry equal marks. There is no negative marking.",
+  "totalQuestions": 55,
+  "questions": [
+    {
+      "n": 1,
+      "question_id": 334118,
+      "question_text": "Which of the following conditions favours the existence of a substance in the solid state?",
+      "question_html": "<p>Which of the following conditions favours the existence of a substance in the solid state?</p>",
+      "options": [
+        {
+          "id": 503811,
+          "text": "Low temperature",
+          "html": "Low temperature",
+          "is_correct": true
+        },
+        {
+          "id": 503813,
+          "text": "High thermal energy",
+          "html": "High thermal energy",
+          "is_correct": false
+        },
+        {
+          "id": 503812,
+          "text": "High temperature",
+          "html": "High temperature",
+          "is_correct": false
+        },
+        {
+          "id": 503814,
+          "text": "Weak cohesive forces",
+          "html": "Weak cohesive forces",
+          "is_correct": false
+        }
+      ],
+      "correct_option_text": "Low temperature",
+      "correct_option_ids": [
+        503811
+      ],
+      "explanation": "The stability and existence of solid-state favours lower temperatures as it depends on 2 rival forces. When the temperature is low, under these circumstances the thermal energy of molecules (energy which tends to move molecule faster and makes them apart; sometimes results in a change of state) is sufficiently low and intermolecular forces (forces between molecules, ions, atoms that tend to keep them closer) are high enough to make molecules bring in a closer contact that they attach oneself tightly to another or cling one another and occupy fixed position (in solid-state) but they can still oscillate about their mean position.",
+      "solution": ""
+    },
+    {
+      "n": 2,
+      "question_id": 60076,
+      "question_text": "Which among the following show positive deviation?",
+      "question_html": "<p>Which among the following show positive deviation?</p>",
+      "options": [
+        {
+          "id": 195491,
+          "text": "Chloroform and benzene",
+          "html": "Chloroform and benzene",
+          "is_correct": false
+        },
+        {
+          "id": 195493,
+          "text": "Acetone and aniline",
+          "html": "Acetone and aniline",
+          "is_correct": false
+        },
+        {
+          "id": 195492,
+          "text": "Hydrochloric acid and water",
+          "html": "Hydrochloric acid and water",
+          "is_correct": false
+        },
+        {
+          "id": 195490,
+          "text": "Acetone and ethanol",
+          "html": "Acetone and ethanol",
+          "is_correct": true
+        }
+      ],
+      "correct_option_text": "Acetone and ethanol",
+      "correct_option_ids": [
+        195490
+      ],
+      "explanation": "(Solute- solute and > solute &ndash; solvent interactions Solvent &ndash; solvent)",
+      "solution": ""
+    },
+    {
+      "n": 3,
+      "question_id": 60299,
+      "question_text": "Which among the following forms basic oxide?",
+      "question_html": "<p>Which among the following forms basic oxide?</p>",
+      "options": [
+        {
+          "id": 196385,
+          "text": "Antimony",
+          "html": "Antimony",
+          "is_correct": false
+        },
+        {
+          "id": 196382,
+          "text": "Bismuth",
+          "html": "Bismuth",
+          "is_correct": true
+        },
+        {
+          "id": 196383,
+          "text": "Nitrogen",
+          "html": "Nitrogen",
+          "is_correct": false
+        },
+        {
+          "id": 196384,
+          "text": "Phosphorous",
+          "html": "Phosphorous",
+          "is_correct": false
+        }
+      ],
+      "correct_option_text": "Bismuth",
+      "correct_option_ids": [
+        196382
+      ],
+      "explanation": "As we move down the group in the periodic table, the metallic character increases so Bi is a metal thus its oxide is basic.",
+      "solution": ""
+    },
+    {
+      "n": 4,
+      "question_id": 60500,
+      "question_text": "The following (CH 3 ) 2 CHCH 2 CH 2 Cl (CH 3 ) 2 CHCH(Cl)CH 3 (CH 3 ) 2 C(Cl)CH 2 CH 3 CH 3 CHCH 2( Cl)CH 2 CH 3 are the possible structural isomers expected to be formed if one of the hydrogen atoms is replaced by chlorination. The original compound is",
+      "question_html": "<p>The following</p>\r\n\r\n<ol start=\"1\" style=\"list-style-type: lower-roman;\">\r\n\t<li>(CH<sub>3</sub>)<sub>2</sub>CHCH<sub>2</sub>CH<sub>2</sub>Cl</li>\r\n\t<li>(CH<sub>3</sub>)<sub>2</sub>CHCH(Cl)CH<sub>3</sub></li>\r\n\t<li>(CH<sub>3</sub>)<sub>2</sub>C(Cl)CH<sub>2</sub>CH<sub>3</sub></li>\r\n\t<li>CH<sub>3</sub>CHCH<sub>2(</sub>Cl)CH<sub>2</sub>CH<sub>3</sub></li>\r\n</ol>\r\n\r\n<p>are the possible structural isomers expected to be formed if one of the hydrogen atoms is replaced by chlorination. The original compound is</p>",
+      "options": [
+        {
+          "id": 197186,
+          "text": "(CH 3 ) 2 CHCH 2 CH 3",
+          "html": "(CH<sub>3</sub>)<sub>2</sub>CHCH<sub>2</sub>CH<sub>3</sub>",
+          "is_correct": true
+        },
+        {
+          "id": 197187,
+          "text": "(CH 3 ) 2 CHCH 3",
+          "html": "(CH<sub>3</sub>)<sub>2</sub>CHCH<sub>3</sub>",
+          "is_correct": false
+        },
+        {
+          "id": 197188,
+          "text": "(CH 3 ) 3 CHCH 2 CH 2 CH 3",
+          "html": "(CH<sub>3</sub>)<sub>3</sub>CHCH<sub>2</sub>CH<sub>2</sub>CH<sub>3</sub>",
+          "is_correct": false
+        },
+        {
+          "id": 197189,
+          "text": "CH 3 (CH 2 ) 2 CH 2 CH 3",
+          "html": "CH<sub>3</sub>(CH<sub>2</sub>)<sub>2</sub>CH<sub>2</sub>CH<sub>3</sub>",
+          "is_correct": false
+        }
+      ],
+      "correct_option_text": "(CH 3 ) 2 CHCH 2 CH 3",
+      "correct_option_ids": [
+        197186
+      ],
+      "explanation": "this is the original compound.",
+      "solution": ""
+    },
+    {
+      "n": 5,
+      "question_id": 387004,
+      "question_text": "Arrange the following compounds in increasing order of boiling point: Propan-1-ol, butan-1-ol, butan-2-ol, pentan-1-ol",
+      "question_html": "<p>Arrange the following compounds in increasing order of boiling point:&nbsp;Propan-1-ol, butan-1-ol, butan-2-ol, pentan-1-ol</p>",
+      "options": [
+        {
+          "id": 597545,
+          "text": "Pentan-1-ol, butan-1-ol, butan-2-ol, propan-1-ol",
+          "html": "Pentan-1-ol, butan-1-ol, butan-2-ol, propan-1-ol",
+          "is_correct": false
+        },
+        {
+          "id": 597542,
+          "text": "Propan-1-ol, butan-2-ol, butan-1-ol, pentan-1-ol",
+          "html": "Propan-1-ol, butan-2-ol, butan-1-ol, pentan-1-ol",
+          "is_correct": true
+        },
+        {
+          "id": 597544,
+          "text": "Pentan-1-ol, butan-2-ol, butan-1-ol, propan-1-ol",
+          "html": "Pentan-1-ol, butan-2-ol, butan-1-ol, propan-1-ol",
+          "is_correct": false
+        },
+        {
+          "id": 597543,
+          "text": "Propan-1-ol, butan-1-ol, butan-2-ol, pentan-1-ol",
+          "html": "Propan-1-ol, butan-1-ol, butan-2-ol, pentan-1-ol",
+          "is_correct": false
+        }
+      ],
+      "correct_option_text": "Propan-1-ol, butan-2-ol, butan-1-ol, pentan-1-ol",
+      "correct_option_ids": [
+        597542
+      ],
+      "explanation": "The boiling point increases with an increase in the molecular mass of the alcohol. Thus, the correct order is Propan-1-ol < butan-2-ol < butan-1-ol < pentan-1-ol.",
+      "solution": ""
+    },
+    {
+      "n": 6,
+      "question_id": 60810,
+      "question_text": "The number of asymmetric carbon atom(s) in below figure is are",
+      "question_html": "<p>The number of asymmetric carbon atom(s) in below figure is are<br />\r\n<img src=\"https://media-mycbseguide.s3.amazonaws.com/images/quiz/12/chemistry/52986_0.png\" style=\"width: 200px; height: 60px;\" /></p>",
+      "options": [
+        {
+          "id": 198426,
+          "text": "2",
+          "html": "2",
+          "is_correct": false
+        },
+        {
+          "id": 198428,
+          "text": "1 and 3 carbon atoms",
+          "html": "1 and 3 carbon atoms",
+          "is_correct": false
+        },
+        {
+          "id": 198425,
+          "text": "1",
+          "html": "1",
+          "is_correct": true
+        },
+        {
+          "id": 198427,
+          "text": "3",
+          "html": "3",
+          "is_correct": false
+        }
+      ],
+      "correct_option_text": "1",
+      "correct_option_ids": [
+        198425
+      ],
+      "explanation": "Here there is only 1 asymmetrical carbon as to 1 C four different groups are attached i.e. -CH 2 OH, -OH, -H, -CHO.",
+      "solution": ""
+    },
+    {
+      "n": 7,
+      "question_id": 64365,
+      "question_text": "The fraction of the total volume occupied by atoms in a simple cube is:",
+      "question_html": "<p>The fraction of the total volume occupied by atoms in a simple cube is:</p>",
+      "options": [
+        {
+          "id": 208194,
+          "text": "{tex}\\frac{{\\sqrt 2 \\pi }}{6}{/tex}",
+          "html": "<span class=\"math-tex\">{tex}\\frac{{\\sqrt 2 \\pi }}{6}{/tex}</span>",
+          "is_correct": false
+        },
+        {
+          "id": 208195,
+          "text": "{tex}\\frac{\\pi }{2}{/tex}",
+          "html": "<span class=\"math-tex\">{tex}\\frac{\\pi }{2}{/tex}</span>",
+          "is_correct": false
+        },
+        {
+          "id": 208192,
+          "text": "{tex}\\frac{\\pi }{6}{/tex}",
+          "html": "<span class=\"math-tex\">{tex}\\frac{\\pi }{6}{/tex}</span>",
+          "is_correct": true
+        },
+        {
+          "id": 208193,
+          "text": "{tex}\\frac{{\\sqrt 3 \\pi }}{8}{/tex}",
+          "html": "<span class=\"math-tex\">{tex}\\frac{{\\sqrt 3 \\pi }}{8}{/tex}</span>",
+          "is_correct": false
+        }
+      ],
+      "correct_option_text": "{tex}\\frac{\\pi }{6}{/tex}",
+      "correct_option_ids": [
+        208192
+      ],
+      "explanation": "{tex}P.F = \\frac{v}{V} = \\left[ {\\frac{{4\\pi {r^3}}}{3}} \\right]\\left( {\\frac{1}{{{a^3}}}} \\right) = \\frac{{4\\pi {r^3}}}{{3 \\times 8 \\times {r^3}}} = \\frac{\\pi }{6},{/tex}",
+      "solution": ""
+    },
+    {
+      "n": 8,
+      "question_id": 351897,
+      "question_text": "Colligative properties depend on ________.",
+      "question_html": "<p>Colligative properties depend on ________.</p>",
+      "options": [
+        {
+          "id": 543866,
+          "text": "the nature of the solute particles dissolved in solution.",
+          "html": "the nature of the solute particles dissolved in solution.",
+          "is_correct": false
+        },
+        {
+          "id": 543868,
+          "text": "the physical properties of the solute particles dissolved in solution.",
+          "html": "the physical properties of the solute particles dissolved in solution.",
+          "is_correct": false
+        },
+        {
+          "id": 543869,
+          "text": "the nature of solvent particles.",
+          "html": "the nature of solvent particles.",
+          "is_correct": false
+        },
+        {
+          "id": 543867,
+          "text": "the number of solute particles in solution.",
+          "html": "the number of solute particles in solution.",
+          "is_correct": true
+        }
+      ],
+      "correct_option_text": "the number of solute particles in solution.",
+      "correct_option_ids": [
+        543867
+      ],
+      "explanation": "Colligative properties depend upon the number of solute particles in the solution and independent of its nature relative to the total number of particles present in the solution.",
+      "solution": ""
+    },
+    {
+      "n": 9,
+      "question_id": 60332,
+      "question_text": "Which is used to produce smoke screens?",
+      "question_html": "<p>Which is used to produce smoke screens?</p>",
+      "options": [
+        {
+          "id": 196515,
+          "text": "Zinc sulphide",
+          "html": "Zinc sulphide",
+          "is_correct": false
+        },
+        {
+          "id": 196516,
+          "text": "Zinc phosphide",
+          "html": "Zinc phosphide",
+          "is_correct": false
+        },
+        {
+          "id": 196514,
+          "text": "Calcium phosphide",
+          "html": "Calcium phosphide",
+          "is_correct": true
+        },
+        {
+          "id": 196517,
+          "text": "Sodium carbonate",
+          "html": "Sodium carbonate",
+          "is_correct": false
+        }
+      ],
+      "correct_option_text": "Calcium phosphide",
+      "correct_option_ids": [
+        196514
+      ],
+      "explanation": "Calcium phosphide is used to produce smoke screens . Calcium phosphide hydrolyses to liberate phosphine which burns in air to form P 4 O 10 which acts as the smoke screens . Ca 3 P 2 (s) + 6H 2 O(l) {tex}\\rightarrow{/tex} 3Ca(OH) 2 (s)+2PH 3 (g) 4PH 3 (l) + 8O 2 (g) {tex}\\rightarrow{/tex} P 4 O 10 (g) + 6H 2",
+      "solution": ""
+    },
+    {
+      "n": 10,
+      "question_id": 343561,
+      "question_text": "Which of the following is halogen exchange reaction?",
+      "question_html": "<p>Which of the following is halogen exchange reaction?</p>",
+      "options": [
+        {
+          "id": 524228,
+          "text": "",
+          "html": "<img alt=\"\" data-imgur-src=\"T7jDbqs.png\" src=\"https://media-mycbseguide.s3.amazonaws.com/images/imgur/T7jDbqs.png\" style=\"width: 322px; height: 60px;\" />",
+          "is_correct": false
+        },
+        {
+          "id": 524225,
+          "text": "R X + NaI {tex}\\rightarrow{/tex} RI + NaX",
+          "html": "R X + NaI <span class=\"math-tex\">{tex}\\rightarrow{/tex}</span> RI + NaX",
+          "is_correct": true
+        },
+        {
+          "id": 524226,
+          "text": "",
+          "html": "<h1><img data-imgur-src=\"WnKJxLk.png\" src=\"https://media-mycbseguide.s3.amazonaws.com/images/imgur/WnKJxLk.png\" style=\"width: 209px; height: 77px;\" /></h1>",
+          "is_correct": false
+        },
+        {
+          "id": 524227,
+          "text": "{tex}R-OH+HX\\xrightarrow{ZnC{{l}_{2}}}R-X+{{H}_{2}}O{/tex}",
+          "html": "<span class=\"math-tex\">{tex}R-OH+HX\\xrightarrow{ZnC{{l}_{2}}}R-X+{{H}_{2}}O{/tex}</span>",
+          "is_correct": false
+        }
+      ],
+      "correct_option_text": "R X + NaI {tex}\\rightarrow{/tex} RI + NaX",
+      "correct_option_ids": [
+        524225
+      ],
+      "explanation": "Halogen exchange reactions are those reactions in which one halide replaces another. This reaction is known as the Finkelstein reaction. In Halogen (-X) is replaced by iodine(presence of dry acetone). Addition of hydrogen halide on the alkene. Halogen replaces the alcoholic group. Halogen replaces the hydrogen of the benzoic ring.",
+      "solution": ""
+    },
+    {
+      "n": 11,
+      "question_id": 343578,
+      "question_text": "Which of the following is the correct for in increasing order of rate of reaction towards nucleophilic substitution?",
+      "question_html": "<p>Which of the&nbsp;following is the correct for in increasing order of rate of reaction towards nucleophilic substitution?<br />\r\n<img alt=\"\" data-imgur-src=\"GYrgLSR.png\" src=\"https://media-mycbseguide.s3.amazonaws.com/images/imgur/GYrgLSR.png\" style=\"width: 330px; height: 96px;\" /></p>",
+      "options": [
+        {
+          "id": 524271,
+          "text": "(i) < (ii) < (iii)",
+          "html": "(i) &lt; (ii) &lt; (iii)",
+          "is_correct": true
+        },
+        {
+          "id": 524272,
+          "text": "(iii) < (ii) < (i)",
+          "html": "(iii) &lt; (ii) &lt; (i)",
+          "is_correct": false
+        },
+        {
+          "id": 524273,
+          "text": "(ii) < (iii) < (i)",
+          "html": "(ii) &lt; (iii) &lt; (i)",
+          "is_correct": false
+        },
+        {
+          "id": 524274,
+          "text": "(i) < (iii) < (ii)",
+          "html": "(i) &lt; (iii) &lt; (ii)",
+          "is_correct": false
+        }
+      ],
+      "correct_option_text": "(i) < (ii) < (iii)",
+      "correct_option_ids": [
+        524271
+      ],
+      "explanation": "Electron withdrawing group increases the reactivity of aryl halides, more is the number of electron-withdrawing groups attach, the more is rate towards nucleophilic substitution.",
+      "solution": ""
+    },
+    {
+      "n": 12,
+      "question_id": 349673,
+      "question_text": "Proteins are found to have two different types of secondary structures namely {tex}\\alpha{/tex} -helix and {tex}\\beta{/tex} -pleated sheet structure, {tex}\\alpha{/tex} -helix structure of protein is stabilized by",
+      "question_html": "<p>Proteins are found to have two different types of secondary structures namely <span class=\"math-tex\">{tex}\\alpha{/tex}</span>-helix and <span class=\"math-tex\">{tex}\\beta{/tex}</span>-pleated sheet structure, <span class=\"math-tex\">{tex}\\alpha{/tex}</span>-helix structure of protein is stabilized by</p>\r\n",
+      "options": [
+        {
+          "id": 538059,
+          "text": "hydrogen bonds",
+          "html": "hydrogen bonds",
+          "is_correct": true
+        },
+        {
+          "id": 538058,
+          "text": "van der Waals forces",
+          "html": "van der Waals forces",
+          "is_correct": false
+        },
+        {
+          "id": 538057,
+          "text": "peptide bonds",
+          "html": "peptide bonds",
+          "is_correct": false
+        },
+        {
+          "id": 538060,
+          "text": "dipole-dipole interactions",
+          "html": "dipole-dipole interactions",
+          "is_correct": false
+        }
+      ],
+      "correct_option_text": "hydrogen bonds",
+      "correct_option_ids": [
+        538059
+      ],
+      "explanation": "{tex}\\alpha{/tex} -helix structure of the protein is stabilized by hydrogen bonds. A polypeptide chain forms all possible hydrogen bonds by twisting into a right-handed screw helix with the -NH group of each amino acid residue hydrogen-bonded to > C = O of an adjacent turn of the helix.",
+      "solution": ""
+    },
+    {
+      "n": 13,
+      "question_id": 60024,
+      "question_text": "_______ is not an example of amorphous solids.",
+      "question_html": "<p>_______ is not an example of amorphous solids.</p>",
+      "options": [
+        {
+          "id": 195285,
+          "text": "Quartz",
+          "html": "Quartz",
+          "is_correct": true
+        },
+        {
+          "id": 195282,
+          "text": "Plastic",
+          "html": "Plastic",
+          "is_correct": false
+        },
+        {
+          "id": 195283,
+          "text": "Coke",
+          "html": "Coke",
+          "is_correct": false
+        },
+        {
+          "id": 195284,
+          "text": "Glass",
+          "html": "Glass",
+          "is_correct": false
+        }
+      ],
+      "correct_option_text": "Quartz",
+      "correct_option_ids": [
+        195285
+      ],
+      "explanation": "Quartz is not amorphous solids. It is crystalline.",
+      "solution": ""
+    },
+    {
+      "n": 14,
+      "question_id": 386911,
+      "question_text": "On the basis of information given below mark the correct option. Information: On adding acetone to methanol some of the hydrogen bonds between methanol molecules break.",
+      "question_html": "<p>On the basis of information given below mark the correct option.<br />\r\nInformation: On adding acetone to methanol some of the hydrogen bonds between methanol molecules break.</p>",
+      "options": [
+        {
+          "id": 597490,
+          "text": "At specific composition, the methanol-acetone mixture will form minimum boiling azeotrope and will show a positive deviation from Raoult&rsquo;s law.",
+          "html": "At specific composition, the methanol-acetone mixture will form minimum boiling azeotrope and will show a positive deviation from Raoult&rsquo;s law.",
+          "is_correct": true
+        },
+        {
+          "id": 597493,
+          "text": "At specific composition methanol-acetone mixture will form maximum boiling azeotrope and will show negative deviation from Raoult&rsquo;s law.",
+          "html": "At specific composition methanol-acetone mixture will form maximum boiling azeotrope and will show negative deviation from Raoult&rsquo;s law.",
+          "is_correct": false
+        },
+        {
+          "id": 597492,
+          "text": "At specific composition methanol-acetone mixture will form minimum boiling azeotrope and will show negative deviation from Raoult&rsquo;s law.",
+          "html": "At specific composition methanol-acetone mixture will form minimum boiling azeotrope and will show negative deviation from Raoult&rsquo;s law.",
+          "is_correct": false
+        },
+        {
+          "id": 597491,
+          "text": "At specific composition methanol-acetone mixture forms maximum boiling azeotrope and will show positive deviation from Raoult&rsquo;s law.",
+          "html": "At specific composition methanol-acetone mixture forms maximum boiling azeotrope and will show positive deviation from Raoult&rsquo;s law.",
+          "is_correct": false
+        }
+      ],
+      "correct_option_text": "At specific composition, the methanol-acetone mixture will form minimum boiling azeotrope and will show a positive deviation from Raoult&rsquo;s law.",
+      "correct_option_ids": [
+        597490
+      ],
+      "explanation": "At specific composition, the methanol-acetone mixture will show positive deviation from Raoult s law as it has lesser intermolecular interactions than methanol-methanol and acetone-acetone interactions. Hence it forms minimum boiling azeotrope.",
+      "solution": ""
+    },
+    {
+      "n": 15,
+      "question_id": 60311,
+      "question_text": "Most metal oxides are:",
+      "question_html": "<p>Most metal oxides are:</p>",
+      "options": [
+        {
+          "id": 196433,
+          "text": "Basic in nature",
+          "html": "Basic&nbsp;in nature",
+          "is_correct": false
+        },
+        {
+          "id": 196431,
+          "text": "Covalent in nature",
+          "html": "Covalent in nature",
+          "is_correct": false
+        },
+        {
+          "id": 196432,
+          "text": "Acidic in nature",
+          "html": "Acidic in nature",
+          "is_correct": false
+        },
+        {
+          "id": 196430,
+          "text": "Ionic in nature",
+          "html": "Ionic in nature",
+          "is_correct": true
+        }
+      ],
+      "correct_option_text": "Ionic in nature",
+      "correct_option_ids": [
+        196430
+      ],
+      "explanation": "In general, metal oxides are basic and ionic in nature.",
+      "solution": ""
+    },
+    {
+      "n": 16,
+      "question_id": 60512,
+      "question_text": "Carbon &ndash; halogen bond of alkyl halides is responsible for their nucleophilic substitution, elimination, and their reaction with metal atoms to form organometallic compounds because of its:",
+      "question_html": "<p>Carbon &ndash; halogen bond of alkyl halides is responsible for their nucleophilic substitution, elimination, and their reaction with metal atoms to form organometallic compounds because of its:</p>",
+      "options": [
+        {
+          "id": 197237,
+          "text": "Kinetic properties",
+          "html": "Kinetic properties",
+          "is_correct": false
+        },
+        {
+          "id": 197235,
+          "text": "Chirality",
+          "html": "Chirality",
+          "is_correct": false
+        },
+        {
+          "id": 197234,
+          "text": "Polarity",
+          "html": "Polarity",
+          "is_correct": true
+        },
+        {
+          "id": 197236,
+          "text": "Racemisation",
+          "html": "Racemisation",
+          "is_correct": false
+        }
+      ],
+      "correct_option_text": "Polarity",
+      "correct_option_ids": [
+        197234
+      ],
+      "explanation": "Since halogen atoms are more electronegative than carbon, the carbon-halogen bond of alkyl halide is polarised; the carbon atom bears a partial positive charge whereas the halogen atom bears a partial negative charge. This is responsible for nucleophilic substitution reactions, elimination reactions, and the reaction of alkyl halides with a metal to form organometallic compounds.",
+      "solution": ""
+    },
+    {
+      "n": 17,
+      "question_id": 218935,
+      "question_text": "In the following compounds: The order of acidity is",
+      "question_html": "<p>In the following compounds:<br />\r\n<img alt=\"\" data-imgur-src=\"YxLeR93.png\" height=\"112\" src=\"https://media-mycbseguide.s3.amazonaws.com/images/imgur/YxLeR93.png\" width=\"260\" /></p>\r\n\r\n<p>The order of acidity is</p>",
+      "options": [
+        {
+          "id": 334053,
+          "text": "(iv) > (iii) > (i) > (ii)",
+          "html": "(iv) &gt; (iii) &gt; (i) &gt; (ii)",
+          "is_correct": true
+        },
+        {
+          "id": 334051,
+          "text": "(i) > (iv) > (iii) > (ii)",
+          "html": "(i) &gt; (iv) &gt; (iii) &gt; (ii)",
+          "is_correct": false
+        },
+        {
+          "id": 334052,
+          "text": "(ii) > (i) > (iii) > (iv)",
+          "html": "(ii) &gt; (i) &gt; (iii) &gt; (iv)",
+          "is_correct": false
+        },
+        {
+          "id": 334050,
+          "text": "(iii) > (iv) > (i) > (ii)",
+          "html": "(iii) &gt; (iv) &gt; (i) &gt; (ii)",
+          "is_correct": false
+        }
+      ],
+      "correct_option_text": "(iv) > (iii) > (i) > (ii)",
+      "correct_option_ids": [
+        334053
+      ],
+      "explanation": "(iv) > (iii) > (i) > (ii)",
+      "solution": ""
+    },
+    {
+      "n": 18,
+      "question_id": 60808,
+      "question_text": "The spatial arrangement of the given molecule is denoted by",
+      "question_html": "<p>The spatial arrangement of the given molecule is denoted by<br />\r\n<img src=\"https://media-mycbseguide.s3.amazonaws.com/images/quiz/12/chemistry/52984_0.png\" style=\"width: 100px; height: 138px;\" /></p>",
+      "options": [
+        {
+          "id": 198419,
+          "text": "D+",
+          "html": "D+",
+          "is_correct": false
+        },
+        {
+          "id": 198417,
+          "text": "D or L sign before the molecule.",
+          "html": "D or L sign before the molecule.",
+          "is_correct": true
+        },
+        {
+          "id": 198418,
+          "text": "+ or - sign before the molecule",
+          "html": "+ or -&nbsp;sign before the molecule",
+          "is_correct": false
+        },
+        {
+          "id": 198420,
+          "text": "L -",
+          "html": "L -",
+          "is_correct": false
+        }
+      ],
+      "correct_option_text": "D or L sign before the molecule.",
+      "correct_option_ids": [
+        198417
+      ],
+      "explanation": "The letters &lsquo;D&rsquo; or &lsquo;L&rsquo; before the name of any compound indicate the relative configuration of a particular stereoisomer of a compound with respect to configuration of some other compound, configuration of which is known. In the case of carbohydrates, this refers to their relation with a particular isomer of glyceraldehyde. When the -OH group lies on right hand side in the structure it is said to have D configuration. In L configuration -OH group is on left hand side of the asymmetric C.",
+      "solution": ""
+    },
+    {
+      "n": 19,
+      "question_id": 59956,
+      "question_text": "Amorphous solids are also known as",
+      "question_html": "<p>Amorphous solids are also known as</p>",
+      "options": [
+        {
+          "id": 195012,
+          "text": "False solids",
+          "html": "False solids",
+          "is_correct": false
+        },
+        {
+          "id": 195009,
+          "text": "Pseudo solids",
+          "html": "Pseudo solids",
+          "is_correct": true
+        },
+        {
+          "id": 195011,
+          "text": "True solids",
+          "html": "True solids",
+          "is_correct": false
+        },
+        {
+          "id": 195010,
+          "text": "Poly crystalline solids",
+          "html": "Poly crystalline solids",
+          "is_correct": false
+        }
+      ],
+      "correct_option_text": "Pseudo solids",
+      "correct_option_ids": [
+        195009
+      ],
+      "explanation": "Amorphous solids are also known as pseudo solid. They have a tendency to flow, though very slowly. Therefore, they are also known as supercooled liquids.",
+      "solution": ""
+    },
+    {
+      "n": 20,
+      "question_id": 351942,
+      "question_text": "Consider Fig. and mark the correct option.",
+      "question_html": "<html><body><p>Consider Fig. and mark the correct option.<br/>\n<img alt=\"\" data-imgur-src=\"oQ70DsW.png\" src=\"https://media-mycbseguide.s3.amazonaws.com/images/imgur/oQ70DsW.png\" style=\"width: 200px; height: 141px;\"/></p></body></html>",
+      "options": [
+        {
+          "id": 543973,
+          "text": "water will move from the side (A) to side (B) if pressure equal to osmotic pressure is applied on piston (A).",
+          "html": "water will move from the side (A) to side (B) if pressure equal to osmotic pressure is applied on piston (A).",
+          "is_correct": false
+        },
+        {
+          "id": 543970,
+          "text": "water will move from the side (A) to side (B) if a pressure lower than the osmotic pressure is applied on piston (B).",
+          "html": "water will move from the side (A) to side (B) if a pressure lower than the osmotic pressure is applied on piston (B).",
+          "is_correct": false
+        },
+        {
+          "id": 543971,
+          "text": "water will move from the side (B) to side (A) if a pressure greater than the osmotic pressure is applied on piston (B).",
+          "html": "water will move from the side (B) to side (A) if a pressure greater than the osmotic pressure is applied on piston (B).",
+          "is_correct": true
+        },
+        {
+          "id": 543972,
+          "text": "water will move from the side (B) to side (A) if a pressure equal to osmotic pressure is applied on piston (B).",
+          "html": "water will move from the side (B) to side (A) if a pressure equal to osmotic pressure is applied on piston (B).",
+          "is_correct": false
+        }
+      ],
+      "correct_option_text": "water will move from the side (B) to side (A) if a pressure greater than the osmotic pressure is applied on piston (B).",
+      "correct_option_ids": [
+        543971
+      ],
+      "explanation": "Water will move from the side (B) (concentrated sodium chloride solution) to side (A) (freshwater) if a pressure greater than the osmotic pressure is applied on piston (B).",
+      "solution": ""
+    },
+    {
+      "n": 21,
+      "question_id": 60357,
+      "question_text": "HgO is treated with chlorine to form ______.",
+      "question_html": "<p>HgO is treated with chlorine to form ______.</p>",
+      "options": [
+        {
+          "id": 196614,
+          "text": "Cl 2 O",
+          "html": "Cl<sub>2</sub>O",
+          "is_correct": true
+        },
+        {
+          "id": 196615,
+          "text": "ClO 2",
+          "html": "ClO<sub>2</sub>",
+          "is_correct": false
+        },
+        {
+          "id": 196617,
+          "text": "Cl 2 O 7",
+          "html": "Cl<sub>2</sub>O<sub>7</sub>",
+          "is_correct": false
+        },
+        {
+          "id": 196616,
+          "text": "Cl 2 O 6",
+          "html": "Cl<sub>2</sub>O<sub>6</sub>",
+          "is_correct": false
+        }
+      ],
+      "correct_option_text": "Cl 2 O",
+      "correct_option_ids": [
+        196614
+      ],
+      "explanation": "HgO + 2Cl 2 {tex}\\to{/tex} HgCl 2 + Cl 2 O Mercury(II) oxide reacts with chlorine to produce mercury(II) chloride and dichlorine monoxide. Mercury(II) oxide is in the suspension form. This reaction takes place at a temperature near 0&deg;C in the liquid tetrachloromethane.",
+      "solution": ""
+    },
+    {
+      "n": 22,
+      "question_id": 60349,
+      "question_text": "When sugar is treated with conc. Sulphuric acid, the sugar is charred. In this process, sugar is_____.",
+      "question_html": "<p>When sugar is treated with conc. Sulphuric acid, the sugar is charred. In this process, sugar is_____.</p>",
+      "options": [
+        {
+          "id": 196583,
+          "text": "Oxidised",
+          "html": "Oxidised",
+          "is_correct": false
+        },
+        {
+          "id": 196582,
+          "text": "Dehydrated",
+          "html": "Dehydrated",
+          "is_correct": true
+        },
+        {
+          "id": 196585,
+          "text": "Sulphonated",
+          "html": "Sulphonated",
+          "is_correct": false
+        },
+        {
+          "id": 196584,
+          "text": "Reduced",
+          "html": "Reduced",
+          "is_correct": false
+        }
+      ],
+      "correct_option_text": "Dehydrated",
+      "correct_option_ids": [
+        196582
+      ],
+      "explanation": "Concentrated H 2 SO 4 is a strong dehydrating agent and is hygroscopic in nature. Many wet gases can be dried by passing them through H 2 SO 4 . So it absorbs water to form a black charry mass of carbon. C 12 H 22 O 11 {tex}\\to{/tex} 12C + 11H 2 O",
+      "solution": ""
+    },
+    {
+      "n": 23,
+      "question_id": 60603,
+      "question_text": "Mark the correct order of decreasing acid strength of the following compounds.",
+      "question_html": "<p>Mark the correct order of decreasing acid strength of the following compounds.<br />\r\n<img src=\"https://media-mycbseguide.s3.amazonaws.com/images/quiz/12/chemistry/52779_0.png\" style=\"width: 300px; height: 104px;\" /></p>",
+      "options": [
+        {
+          "id": 197599,
+          "text": "e > d > b > a > c",
+          "html": "e &gt; d &gt; b &gt; a &gt; c",
+          "is_correct": false
+        },
+        {
+          "id": 197600,
+          "text": "d > e > c > b > a",
+          "html": "d &gt; e &gt; c &gt; b &gt; a",
+          "is_correct": false
+        },
+        {
+          "id": 197601,
+          "text": "e > d > c > b > a",
+          "html": "e &gt; d &gt; c &gt; b &gt; a",
+          "is_correct": false
+        },
+        {
+          "id": 197598,
+          "text": "b > d > a > c > e",
+          "html": "b &gt; d &gt; a&nbsp;&gt; c&nbsp;&gt; e",
+          "is_correct": true
+        }
+      ],
+      "correct_option_text": "b > d > a > c > e",
+      "correct_option_ids": [
+        197598
+      ],
+      "explanation": "The correct order of decreasing acid strength is b > d > a > c > e. As p-nitrophenol is most acidic and p-methoxy phenol is least acidic. When an electron-withdrawing group is para to the OH group, the acidity is maximum. When an electron releasing group is para to OH group, the acidity is minimum.",
+      "solution": ""
+    },
+    {
+      "n": 24,
+      "question_id": 60845,
+      "question_text": "Two nucleic acid chains are wound about each other and held together by hydrogen bonds between pairs of bases, this is called",
+      "question_html": "<p>Two nucleic acid chains are wound about each other and held together by hydrogen bonds between pairs of bases, this is called</p>",
+      "options": [
+        {
+          "id": 198565,
+          "text": "Secondary structure of DNA",
+          "html": "Secondary structure of DNA",
+          "is_correct": true
+        },
+        {
+          "id": 198568,
+          "text": "Primary structure of DNA",
+          "html": "Primary structure of DNA",
+          "is_correct": false
+        },
+        {
+          "id": 198567,
+          "text": "Primary structure of RNA",
+          "html": "Primary structure of RNA",
+          "is_correct": false
+        },
+        {
+          "id": 198566,
+          "text": "Secondary structure of RNA",
+          "html": "Secondary structure of RNA",
+          "is_correct": false
+        }
+      ],
+      "correct_option_text": "Secondary structure of DNA",
+      "correct_option_ids": [
+        198565
+      ],
+      "explanation": "DNA has a double strand helix structure. Two nucleic acid chains are wound about each other and held together by hydrogen bonds between pairs of bases. The two strands are complementary to each other because the hydrogen bonds are formed between specific pairs of bases. In secondary structure of RNA, helices are present which are only single stranded. Sometimes they fold back on themselves to form a double helix structure.",
+      "solution": ""
+    },
+    {
+      "n": 25,
+      "question_id": 60333,
+      "question_text": "In XeO 3 and XeF 6 , the oxidation state of Xe is:",
+      "question_html": "<p>In XeO<sub>3</sub> and XeF<sub>6</sub>, the oxidation state of Xe is:</p>",
+      "options": [
+        {
+          "id": 196521,
+          "text": "+1",
+          "html": "+1",
+          "is_correct": false
+        },
+        {
+          "id": 196518,
+          "text": "+6",
+          "html": "+6",
+          "is_correct": true
+        },
+        {
+          "id": 196520,
+          "text": "+4",
+          "html": "+4",
+          "is_correct": false
+        },
+        {
+          "id": 196519,
+          "text": "+3",
+          "html": "+3",
+          "is_correct": false
+        }
+      ],
+      "correct_option_text": "+6",
+      "correct_option_ids": [
+        196518
+      ],
+      "explanation": "The oxidation state of Xe is +6. XeO 3 , the oxidation of Xe is calculated as x + 3(-2) = 0 gives x = +6. Similarly, for XeF 6 , x + 6(-1) = 0 which is x = +6.",
+      "solution": ""
+    },
+    {
+      "n": 26,
+      "question_id": 334134,
+      "question_text": "In which pair most efficient packing is present?",
+      "question_html": "<p>In which pair most efficient packing is present?</p>",
+      "options": [
+        {
+          "id": 503875,
+          "text": "hcp and ccp",
+          "html": "hcp and ccp",
+          "is_correct": true
+        },
+        {
+          "id": 503878,
+          "text": "bcc and simple cubic cell",
+          "html": "bcc and simple cubic cell",
+          "is_correct": false
+        },
+        {
+          "id": 503877,
+          "text": "bcc and ccp",
+          "html": "bcc and ccp",
+          "is_correct": false
+        },
+        {
+          "id": 503876,
+          "text": "hcp and bcc",
+          "html": "hcp and bcc",
+          "is_correct": false
+        }
+      ],
+      "correct_option_text": "hcp and ccp",
+      "correct_option_ids": [
+        503875
+      ],
+      "explanation": "Packing efficiency is the percentage of total filled space by particles i.e., {tex}=\\frac{\\text{Volume occupied by fow spheres inthe unit cell}}{\\text{Total volume of unit cell}}{/tex} Since packing efficiency for hcp or ccp is calculated to be 74% which is maximum among all type of crystals while that of bcc has 68% and scc has 52%",
+      "solution": ""
+    },
+    {
+      "n": 27,
+      "question_id": 64493,
+      "question_text": "A colligative property is:",
+      "question_html": "<p>A colligative property is:</p>",
+      "options": [
+        {
+          "id": 208208,
+          "text": "osmotic pressure",
+          "html": "osmotic pressure",
+          "is_correct": true
+        },
+        {
+          "id": 208211,
+          "text": "boiling point",
+          "html": "boiling point",
+          "is_correct": false
+        },
+        {
+          "id": 208210,
+          "text": "electrical conductivity",
+          "html": "electrical conductivity",
+          "is_correct": false
+        },
+        {
+          "id": 208209,
+          "text": "vapour pressure",
+          "html": "vapour pressure",
+          "is_correct": false
+        }
+      ],
+      "correct_option_text": "osmotic pressure",
+      "correct_option_ids": [
+        208208
+      ],
+      "explanation": "osmotic pressure, as it depends upon number of particles(moles).",
+      "solution": ""
+    },
+    {
+      "n": 28,
+      "question_id": 60834,
+      "question_text": "The biological polymer is",
+      "question_html": "<p>The biological polymer is</p>",
+      "options": [
+        {
+          "id": 198524,
+          "text": "Formic acid",
+          "html": "Formic acid",
+          "is_correct": false
+        },
+        {
+          "id": 198522,
+          "text": "Palmitic acid",
+          "html": "Palmitic acid",
+          "is_correct": false
+        },
+        {
+          "id": 198521,
+          "text": "Nucleic acid",
+          "html": "Nucleic acid",
+          "is_correct": true
+        },
+        {
+          "id": 198523,
+          "text": "Stearic acid",
+          "html": "Stearic acid",
+          "is_correct": false
+        }
+      ],
+      "correct_option_text": "Nucleic acid",
+      "correct_option_ids": [
+        198521
+      ],
+      "explanation": "The particles in nucleus of the cell, responsible for heredity, are called chromosomes which are made up of proteins and another type of biomolecules called nucleic acids. These are mainly of two types, the deoxyribonucleic acid (DNA) and ribonucleic acid (RNA). Since nucleic acids are long chain polymers of nucleotides, so they are also called polynucleotides. Thus nucleic acid is a biological polymer.",
+      "solution": ""
+    },
+    {
+      "n": 29,
+      "question_id": 60336,
+      "question_text": "Xenon difluoride has _____ shape.",
+      "question_html": "<p>Xenon difluoride has _____ shape.</p>",
+      "options": [
+        {
+          "id": 196530,
+          "text": "Linear",
+          "html": "Linear",
+          "is_correct": true
+        },
+        {
+          "id": 196533,
+          "text": "Trigonal",
+          "html": "Trigonal",
+          "is_correct": false
+        },
+        {
+          "id": 196531,
+          "text": "Angular",
+          "html": "Angular",
+          "is_correct": false
+        },
+        {
+          "id": 196532,
+          "text": "Pyramidal",
+          "html": "Pyramidal",
+          "is_correct": false
+        }
+      ],
+      "correct_option_text": "Linear",
+      "correct_option_ids": [
+        196530
+      ],
+      "explanation": "CN=0.5(V+M-C+A) For XeF 2 CN = 5 .So shape will be linear and structure will be trigonal bipyramidal. Xenon and the two fluorine atoms lie in a straight line while the three equatorial positions are occupied by three lone pairs of electrons. Hence it has a linear shape.",
+      "solution": ""
+    },
+    {
+      "n": 30,
+      "question_id": 65149,
+      "question_text": "Which of the following hydrides is the most acidic?",
+      "question_html": "<p>Which of the following hydrides is the most acidic?</p>",
+      "options": [
+        {
+          "id": 208420,
+          "text": "H 2 Te",
+          "html": "H<sub>2</sub>Te",
+          "is_correct": true
+        },
+        {
+          "id": 208421,
+          "text": "H 2 S",
+          "html": "H<sub>2</sub>S",
+          "is_correct": false
+        },
+        {
+          "id": 208423,
+          "text": "H 2 O",
+          "html": "H<sub>2</sub>O",
+          "is_correct": false
+        },
+        {
+          "id": 208422,
+          "text": "H 2 Se",
+          "html": "H<sub>2</sub>Se",
+          "is_correct": false
+        }
+      ],
+      "correct_option_text": "H 2 Te",
+      "correct_option_ids": [
+        208420
+      ],
+      "explanation": "Acidic strength increases from H 2 O to H 2 Te. This is because the dissociation energies decrease as the bond length of M-H increases from oxygen and tellurium.",
+      "solution": ""
+    },
+    {
+      "n": 31,
+      "question_id": 60355,
+      "question_text": "The solubility of iodine in water may be increased by the addition of:",
+      "question_html": "<p>The solubility of iodine in water may be increased by the addition of:</p>",
+      "options": [
+        {
+          "id": 196606,
+          "text": "KI",
+          "html": "KI",
+          "is_correct": true
+        },
+        {
+          "id": 196608,
+          "text": "CHCl 3",
+          "html": "CHCl<sub>3</sub>",
+          "is_correct": false
+        },
+        {
+          "id": 196609,
+          "text": "CS 2",
+          "html": "CS<sub>2</sub>",
+          "is_correct": false
+        },
+        {
+          "id": 196607,
+          "text": "Na 2 S 2 O 3",
+          "html": "Na<sub>2</sub>S<sub>2</sub>O<sub>3</sub>",
+          "is_correct": false
+        }
+      ],
+      "correct_option_text": "KI",
+      "correct_option_ids": [
+        196606
+      ],
+      "explanation": "KI reacts with I 2 to form I 3 - . The solubility of Iodine in water in the presence of KI due to the formation of potassium triiodide. KI 3 easily breaks down and thus the solution has all the properties of free iodine. {tex}KI+\\;I_2\\Leftrightarrow\\;KI_3{/tex}",
+      "solution": ""
+    },
+    {
+      "n": 32,
+      "question_id": 60809,
+      "question_text": "Choose the appropriate answer(s) for the below representation from the options given",
+      "question_html": "<p>Choose the appropriate answer(s) for the below representation from the options given<br />\r\n<img src=\"https://media-mycbseguide.s3.amazonaws.com/images/quiz/12/chemistry/52985_0.png\" style=\"width: 200px; height: 80px;\" /></p>",
+      "options": [
+        {
+          "id": 198422,
+          "text": "Enantiomers",
+          "html": "Enantiomers",
+          "is_correct": false
+        },
+        {
+          "id": 198423,
+          "text": "Stereo isomers",
+          "html": "Stereo isomers",
+          "is_correct": false
+        },
+        {
+          "id": 198424,
+          "text": "Dextro and laevo rotatory molecules",
+          "html": "Dextro and laevo rotatory molecules",
+          "is_correct": false
+        },
+        {
+          "id": 198421,
+          "text": "All of these",
+          "html": "All of these",
+          "is_correct": true
+        }
+      ],
+      "correct_option_text": "All of these",
+      "correct_option_ids": [
+        198421
+      ],
+      "explanation": "Glyceraldehyde has one chiral centre (the asymmetric C) and has two enantiomers as we can see they are mirror images of each other. Stereoisomers of a compound are those isomers of the compound which have same molecular formula but different spatial arrangements of their atoms in space. So these compounds are stereoisomers. These compounds are dextrorotatory (+) isomer and laevorotatory (-) isomers as one rotates the path of light in right direction whereas the other rotates in left direction.",
+      "solution": ""
+    },
+    {
+      "n": 33,
+      "question_id": 60584,
+      "question_text": "Arrange the following compounds in increasing order of their acid strength: Propan &ndash; 1 &ndash; ol, 2,4,6 &ndash; trinitrophenol, 3 &ndash; nitrophenol, 3,5 &ndash; dinitrophenol,phenol, 4 &ndash; methylphenol.",
+      "question_html": "<p>Arrange the following compounds in increasing order of their acid strength:<br />\nPropan &ndash; 1 &ndash; ol, 2,4,6 &ndash; trinitrophenol, 3 &ndash; nitrophenol, 3,5 &ndash; dinitrophenol,phenol, 4 &ndash; methylphenol.</p>",
+      "options": [
+        {
+          "id": 197525,
+          "text": "3 &ndash; nitrophenol, 3,5 &ndash; dinitrophenol,2,4, 6 &ndash; trinitrophenol, Propan &ndash; 1 &ndash; ol, 4 &ndash; methylphenol",
+          "html": "3 &ndash; nitrophenol, 3,5 &ndash; dinitrophenol,2,4, 6 &ndash; trinitrophenol, Propan &ndash; 1 &ndash; ol, 4 &ndash; methylphenol",
+          "is_correct": false
+        },
+        {
+          "id": 197522,
+          "text": "Propan &ndash; 1 &ndash; ol, 4 &ndash; methylphenol, phenol, 3 &ndash; nitrophenol, 3,5 &ndash; dinitrophenol,2,4, 6 &ndash; trinitrophenol.",
+          "html": "Propan &ndash; 1 &ndash; ol, 4 &ndash; methylphenol, phenol, 3 &ndash; nitrophenol, 3,5 &ndash; dinitrophenol,2,4, 6 &ndash; trinitrophenol.",
+          "is_correct": true
+        },
+        {
+          "id": 197523,
+          "text": "4 &ndash; methylphenol, phenol, propan &ndash; 1 &ndash; ol,3 &ndash; nitrophenol, 3,5 &ndash; dinitrophenol, 2,4, 6 &ndash; trinitrophenol.",
+          "html": "4 &ndash; methylphenol, phenol, propan &ndash; 1 &ndash; ol,3 &ndash; nitrophenol, 3,5 &ndash; dinitrophenol, 2,4, 6 &ndash; trinitrophenol.",
+          "is_correct": false
+        },
+        {
+          "id": 197524,
+          "text": "3, 5 &ndash; dinitrophenol,2,4, 6 &ndash; trinitrophenol, 3 &ndash; nitrophenol ,Propan &ndash; 1 &ndash; ol, 4 &ndash; methylphenol,.",
+          "html": "3, 5 &ndash; dinitrophenol,2,4, 6 &ndash; trinitrophenol, 3 &ndash; nitrophenol ,Propan &ndash; 1 &ndash; ol, 4 &ndash; methylphenol,.",
+          "is_correct": false
+        }
+      ],
+      "correct_option_text": "Propan &ndash; 1 &ndash; ol, 4 &ndash; methylphenol, phenol, 3 &ndash; nitrophenol, 3,5 &ndash; dinitrophenol,2,4, 6 &ndash; trinitrophenol.",
+      "correct_option_ids": [
+        197522
+      ],
+      "explanation": "Phenols are more acidic than alcohols Also in phenols if &ndash;M groups like &ndash;NO 2 are arranged then acidity increases. And &ndash;M operates only at o/p position. At m only &ndash;I operate.",
+      "solution": ""
+    },
+    {
+      "n": 34,
+      "question_id": 60086,
+      "question_text": "Liquid ammonia bottle is first cooled before opening because",
+      "question_html": "<p>Liquid ammonia bottle is first cooled before opening because</p>",
+      "options": [
+        {
+          "id": 195530,
+          "text": "Vapour pressure decreases on cooling",
+          "html": "Vapour pressure decreases on cooling",
+          "is_correct": true
+        },
+        {
+          "id": 195533,
+          "text": "Vapour pressure Same on cooling",
+          "html": "Vapour pressure Same on cooling",
+          "is_correct": false
+        },
+        {
+          "id": 195532,
+          "text": "Vapour pressure increases on cooling",
+          "html": "Vapour pressure increases on cooling",
+          "is_correct": false
+        },
+        {
+          "id": 195531,
+          "text": "Vapour pressure of liquid ammonia is very low at room temperature",
+          "html": "Vapour pressure of liquid ammonia is very low at room temperature",
+          "is_correct": false
+        }
+      ],
+      "correct_option_text": "Vapour pressure decreases on cooling",
+      "correct_option_ids": [
+        195530
+      ],
+      "explanation": "The vapour pressure of ammonia at room temperature is very high and hence the ammonia will evaporate unless the vapour pressure is decreased. Cooling decreases the vapour pressure so that the liquid remains in the same state. Hence, the bottle is cooled before opening.",
+      "solution": ""
+    },
+    {
+      "n": 35,
+      "question_id": 60321,
+      "question_text": "Ozone reacts with KOH solution to form:",
+      "question_html": "<p>Ozone reacts with KOH solution to form:</p>",
+      "options": [
+        {
+          "id": 196472,
+          "text": "O 2",
+          "html": "O<sub>2</sub>",
+          "is_correct": false
+        },
+        {
+          "id": 196471,
+          "text": "O 2 and KO 2",
+          "html": "O<sub>2</sub> and KO<sub>2</sub>",
+          "is_correct": false
+        },
+        {
+          "id": 196473,
+          "text": "O 3 and KO 2",
+          "html": "O<sub>3</sub> and KO<sub>2</sub>",
+          "is_correct": false
+        },
+        {
+          "id": 196470,
+          "text": "KO 3",
+          "html": "KO<sub>3</sub>",
+          "is_correct": true
+        }
+      ],
+      "correct_option_text": "KO 3",
+      "correct_option_ids": [
+        196470
+      ],
+      "explanation": "O 3 reacts with KOH to form KO 3 potassium ozonide which is orange coloured solid and contains paramagnetic O 3- ion. 2KOH + 5O 3 {tex}\\to{/tex} 2KO 3 + 5O 2 + H 2 O",
+      "solution": ""
+    },
+    {
+      "n": 36,
+      "question_id": 60335,
+      "question_text": "Iodine is liberated from KI solution when treated with:",
+      "question_html": "<p>Iodine is liberated from KI solution when treated with:</p>",
+      "options": [
+        {
+          "id": 196529,
+          "text": "FeSO 4",
+          "html": "FeSO<sub>4</sub>",
+          "is_correct": false
+        },
+        {
+          "id": 196527,
+          "text": "ZnSO 4",
+          "html": "ZnSO<sub>4</sub>",
+          "is_correct": false
+        },
+        {
+          "id": 196526,
+          "text": "CuSO 4",
+          "html": "CuSO<sub>4</sub>",
+          "is_correct": true
+        },
+        {
+          "id": 196528,
+          "text": "NiSO 4",
+          "html": "NiSO<sub>4</sub>",
+          "is_correct": false
+        }
+      ],
+      "correct_option_text": "CuSO 4",
+      "correct_option_ids": [
+        196526
+      ],
+      "explanation": "Cu 2 + will reduce to Cu + and I - will oxidize to I 2 . Molecular equation: 2CuSO 4 + KI {tex}\\rightarrow{/tex} CuI + I 2 + K 2 SO 4 Ionic equation: 2Cu 2+ + I - {tex}\\rightarrow{/tex} 2CuI + I 2 {tex}\\uparrow{/tex}",
+      "solution": ""
+    },
+    {
+      "n": 37,
+      "question_id": 59981,
+      "question_text": "Order of increasing melting points among H 2 O(s), C(s), CS 2 and Sn is",
+      "question_html": "<p>Order of increasing melting points among H<sub>2</sub>O(s), C(s), CS<sub>2</sub>&nbsp;and Sn is</p>",
+      "options": [
+        {
+          "id": 195112,
+          "text": "Sn < C < H 2 O <CS 2",
+          "html": "Sn &lt; C &lt; H<sub>2</sub>O &lt;CS<sub>2</sub>",
+          "is_correct": false
+        },
+        {
+          "id": 195110,
+          "text": "CS 2 < H 2 O < Sn < C",
+          "html": "CS<sub>2</sub>&nbsp;&lt; H<sub>2</sub>O &lt; Sn &lt; C",
+          "is_correct": true
+        },
+        {
+          "id": 195111,
+          "text": "CS 2 < C < H 2 O <Sn",
+          "html": "CS<sub>2</sub>&nbsp;&lt; C &lt; H<sub>2</sub>O &lt;Sn",
+          "is_correct": false
+        },
+        {
+          "id": 195113,
+          "text": "C < H 2 O < CS 2 < Sn",
+          "html": "C &lt; H<sub>2</sub>O &lt; CS<sub>2</sub>&nbsp;&lt; Sn",
+          "is_correct": false
+        }
+      ],
+      "correct_option_text": "CS 2 < H 2 O < Sn < C",
+      "correct_option_ids": [
+        195110
+      ],
+      "explanation": "C(s) has a network structure so melting point is highest followed by Sn which has metallic interactions. H 2 O undergoes H bonding so CS 2 has low melting point than ice H 2 O(s).",
+      "solution": ""
+    },
+    {
+      "n": 38,
+      "question_id": 568999,
+      "question_text": "The correct IUPAC name of {tex}C{H_3} - \\mathop C\\limits_{\\mathop |\\limits_{OH} }^{\\mathop |\\limits^{C{H_3}} } - C{H_2}C{H_3}{/tex} is",
+      "question_html": "<p>The correct IUPAC name of&nbsp;<span class=\"math-tex\">{tex}C{H_3} - \\mathop C\\limits_{\\mathop |\\limits_{OH} }^{\\mathop |\\limits^{C{H_3}} } - C{H_2}C{H_3}{/tex}</span>&nbsp;is&nbsp;</p>",
+      "options": [
+        {
+          "id": 1085489,
+          "text": "3-Methylbutan-3-ol",
+          "html": "3-Methylbutan-3-ol",
+          "is_correct": false
+        },
+        {
+          "id": 1085483,
+          "text": "2,2-Dimethylpropanol",
+          "html": "2,2-Dimethylpropanol",
+          "is_correct": false
+        },
+        {
+          "id": 1085482,
+          "text": "tert-butyl alcohol",
+          "html": "tert-butyl alcohol",
+          "is_correct": false
+        },
+        {
+          "id": 1085486,
+          "text": "2-Methylbutan-2-ol",
+          "html": "2-Methylbutan-2-ol",
+          "is_correct": true
+        }
+      ],
+      "correct_option_text": "2-Methylbutan-2-ol",
+      "correct_option_ids": [
+        1085486
+      ],
+      "explanation": "The correct IUPAC name of {tex}C{H_3} - \\mathop C\\limits_{\\mathop |\\limits_{OH} }^{\\mathop |\\limits^{C{H_3}} } - C{H_2}C{H_3}{/tex} is 2-Methylbutan-2-ol",
+      "solution": ""
+    },
+    {
+      "n": 39,
+      "question_id": 60001,
+      "question_text": "Fe 3 O 4 is",
+      "question_html": "<p>Fe<sub>3</sub>O<sub>4&nbsp;</sub>is</p>",
+      "options": [
+        {
+          "id": 195190,
+          "text": "Ferrimagnetic",
+          "html": "Ferrimagnetic",
+          "is_correct": true
+        },
+        {
+          "id": 195193,
+          "text": "Ferromagnetic",
+          "html": "Ferromagnetic",
+          "is_correct": false
+        },
+        {
+          "id": 195192,
+          "text": "Diamagnetic",
+          "html": "Diamagnetic",
+          "is_correct": false
+        },
+        {
+          "id": 195191,
+          "text": "Paramagnetic",
+          "html": "Paramagnetic",
+          "is_correct": false
+        }
+      ],
+      "correct_option_text": "Ferrimagnetic",
+      "correct_option_ids": [
+        195190
+      ],
+      "explanation": "Fe 3 O 4 is an example of Ferrimagnetic substance.",
+      "solution": ""
+    },
+    {
+      "n": 40,
+      "question_id": 60087,
+      "question_text": "When blood cells are placed in pure water, blood cells",
+      "question_html": "<p>When blood cells are placed in pure water, blood cells</p>",
+      "options": [
+        {
+          "id": 195535,
+          "text": "Shrinks",
+          "html": "Shrinks",
+          "is_correct": false
+        },
+        {
+          "id": 195536,
+          "text": "Become white in colour",
+          "html": "Become white in colour",
+          "is_correct": false
+        },
+        {
+          "id": 195537,
+          "text": "Diffuses in water",
+          "html": "Diffuses in water",
+          "is_correct": false
+        },
+        {
+          "id": 195534,
+          "text": "Swells up",
+          "html": "Swells up",
+          "is_correct": true
+        }
+      ],
+      "correct_option_text": "Swells up",
+      "correct_option_ids": [
+        195534
+      ],
+      "explanation": "It swells up due to osmosis process and eventually burst.",
+      "solution": ""
+    },
+    {
+      "n": 41,
+      "question_id": 344166,
+      "question_text": "In a cyclotrimetaphosphoric acid molecule, how many single and double bonds are present?",
+      "question_html": "<p>In a cyclotrimetaphosphoric acid molecule, how many single and double bonds are present?</p>",
+      "options": [
+        {
+          "id": 525303,
+          "text": "3 double bonds; 12 single bonds",
+          "html": "3 double bonds; 12 single bonds",
+          "is_correct": true
+        },
+        {
+          "id": 525304,
+          "text": "Zero double bonds; 12 single bonds",
+          "html": "Zero double bonds; 12 single bonds",
+          "is_correct": false
+        },
+        {
+          "id": 525301,
+          "text": "3 double bonds; 9 single bonds",
+          "html": "3 double bonds; 9 single bonds",
+          "is_correct": false
+        },
+        {
+          "id": 525302,
+          "text": "6 double bonds; 6 single bonds",
+          "html": "6 double bonds; 6 single bonds",
+          "is_correct": false
+        }
+      ],
+      "correct_option_text": "3 double bonds; 12 single bonds",
+      "correct_option_ids": [
+        525303
+      ],
+      "explanation": "Cyclotrimetaphosphoric acid contains three double bonds and 12 single bonds as shown below: a, b and c are three (double) pi-bonds and numerics 1 to 12 are (single) sigma bonds",
+      "solution": ""
+    },
+    {
+      "n": 42,
+      "question_id": 218937,
+      "question_text": "Which of the following is the strongest acid?",
+      "question_html": "<p>Which of the following is the strongest acid?</p>",
+      "options": [
+        {
+          "id": 334060,
+          "text": "",
+          "html": "<html><body><p><img alt=\"\" data-imgur-src=\"a5icjBN.png)\" height=\"87\" src=\"https://media-mycbseguide.s3.amazonaws.com/images/imgur/a5icjBN.png)\" width=\"43\"/></p></body></html>",
+          "is_correct": true
+        },
+        {
+          "id": 334058,
+          "text": "",
+          "html": "<html><body><p><img alt=\"\" data-imgur-src=\"FVjpPFg.png\" height=\"48\" src=\"https://media-mycbseguide.s3.amazonaws.com/images/imgur/FVjpPFg.png\" width=\"91\"/></p></body></html>",
+          "is_correct": false
+        },
+        {
+          "id": 334061,
+          "text": "",
+          "html": "<html><body><p><img alt=\"\" data-imgur-src=\"hZr4wRQ.png\" height=\"67\" src=\"https://media-mycbseguide.s3.amazonaws.com/images/imgur/hZr4wRQ.png\" width=\"70\"/></p></body></html>",
+          "is_correct": false
+        },
+        {
+          "id": 334059,
+          "text": "",
+          "html": "<html><body><p><img alt=\"\" data-imgur-src=\"hHRkcCU.png\" height=\"98\" src=\"https://media-mycbseguide.s3.amazonaws.com/images/imgur/hHRkcCU.png\" width=\"51\"/></p></body></html>",
+          "is_correct": false
+        }
+      ],
+      "correct_option_text": "",
+      "correct_option_ids": [
+        334060
+      ],
+      "explanation": "",
+      "solution": ""
+    },
+    {
+      "n": 43,
+      "question_id": 65150,
+      "question_text": "Which of the following reaction depicts the oxidizing behaviour of H 2 SO 4 ?",
+      "question_html": "<p>Which of the following reaction depicts the oxidizing behaviour of H<sub>2</sub>SO<sub>4</sub>?</p>",
+      "options": [
+        {
+          "id": 208427,
+          "text": "Ca(OH) 2 + H 2 SO 4 {tex}\\rightarrow{/tex} CaSO 4 + 2H 2 O",
+          "html": "Ca(OH)<sub>2</sub> + H<sub>2</sub>SO<sub>4</sub> <span class=\"math-tex\">{tex}\\rightarrow{/tex}</span> CaSO<sub>4</sub> + 2H<sub>2</sub>O",
+          "is_correct": false
+        },
+        {
+          "id": 208424,
+          "text": "2HI + H 2 SO 4 {tex}\\rightarrow{/tex} I 2 + SO 2 + 2H 2 O",
+          "html": "2HI + H<sub>2</sub>SO<sub>4</sub> <span class=\"math-tex\">{tex}\\rightarrow{/tex}</span> I<sub>2</sub> + SO<sub>2</sub> + 2H<sub>2</sub>O",
+          "is_correct": true
+        },
+        {
+          "id": 208425,
+          "text": "2PCl 5 + H 2 SO 4 {tex}\\rightarrow{/tex} 2POCl 3 + 2HCl + SO 2 Cl 2",
+          "html": "2PCl<sub>5</sub> + H<sub>2</sub>SO<sub>4</sub> <span class=\"math-tex\">{tex}\\rightarrow{/tex}</span> 2POCl<sub>3</sub> + 2HCl + SO<sub>2</sub>Cl<sub>2</sub>",
+          "is_correct": false
+        },
+        {
+          "id": 208426,
+          "text": "NaCl + H 2 SO 4 {tex}\\rightarrow{/tex} NaHSO 4 + HCl",
+          "html": "NaCl + H<sub>2</sub>SO<sub>4</sub> <span class=\"math-tex\">{tex}\\rightarrow{/tex}</span> NaHSO<sub>4</sub> + HCl",
+          "is_correct": false
+        }
+      ],
+      "correct_option_text": "2HI + H 2 SO 4 {tex}\\rightarrow{/tex} I 2 + SO 2 + 2H 2 O",
+      "correct_option_ids": [
+        208424
+      ],
+      "explanation": "2HI + H 2 SO 4 {tex}\\rightarrow{/tex} I 2 + SO 2 + 2H 2 O Concentrated sulphuric acid is a good oxidising agent. It oxidises HI to I 2 .",
+      "solution": ""
+    },
+    {
+      "n": 44,
+      "question_id": 60832,
+      "question_text": "Reducing sugars are",
+      "question_html": "<p>Reducing sugars are</p>",
+      "options": [
+        {
+          "id": 198516,
+          "text": "all monosaccharides",
+          "html": "all&nbsp;monosaccharides",
+          "is_correct": false
+        },
+        {
+          "id": 198515,
+          "text": "those carbohydrates which reduce Tollen&#39;s reagent",
+          "html": "those carbohydrates which reduce Tollen&#39;s reagent",
+          "is_correct": false
+        },
+        {
+          "id": 198513,
+          "text": "All of these",
+          "html": "All of these",
+          "is_correct": true
+        },
+        {
+          "id": 198514,
+          "text": "those carbohydrates which reduce Fehling&rsquo;s solution",
+          "html": "those carbohydrates which reduce Fehling&rsquo;s solution",
+          "is_correct": false
+        }
+      ],
+      "correct_option_text": "All of these",
+      "correct_option_ids": [
+        198513
+      ],
+      "explanation": "All those carbohydrates which reduce Fehling&rsquo;s solution and Tollens&rsquo; reagent are referred to as reducing sugars. All monosaccharides whether aldose or ketose are reducing sugars.",
+      "solution": ""
+    },
+    {
+      "n": 45,
+      "question_id": 569616,
+      "question_text": "Assertion (A): HOF bond angle in HFO is higher than HOCl bond angle in HClO. Reason (R): Oxygen is more electronegative than all halogens except fluorine.",
+      "question_html": "<p><strong>Assertion (A):</strong> HOF bond angle in HFO is higher than HOCl bond angle in HClO.<br />\n<strong>Reason (R):</strong> Oxygen is more electronegative than all halogens except fluorine.</p>",
+      "options": [
+        {
+          "id": 1087657,
+          "text": "A is false but R is true.",
+          "html": "A is false but R is true.",
+          "is_correct": true
+        },
+        {
+          "id": 1087654,
+          "text": "Both A and R are true and R is the correct explanation of A.",
+          "html": "Both A and R are true and R is the correct explanation of A.",
+          "is_correct": false
+        },
+        {
+          "id": 1087656,
+          "text": "A is true but R is false.",
+          "html": "A is true but R is false.",
+          "is_correct": false
+        },
+        {
+          "id": 1087655,
+          "text": "Both A and R are true but R is not the correct explanation of A.",
+          "html": "Both A and R are true but R is not the correct explanation of A.",
+          "is_correct": false
+        }
+      ],
+      "correct_option_text": "A is false but R is true.",
+      "correct_option_ids": [
+        1087657
+      ],
+      "explanation": "HOF bond angle in HFO is lesser than that of HOCl bond angle in HClO. Oxygen is more electronegative than all halogens except fluorine.",
+      "solution": ""
+    },
+    {
+      "n": 46,
+      "question_id": 386931,
+      "question_text": "Assertion (A): The nitration of chlorobenzene leads to the formation of m-nitrochlorobenzene. Reason (R): &mdash;NO 2 group is an m-directing group.",
+      "question_html": "<p><strong>Assertion (A):</strong>&nbsp;The nitration of chlorobenzene leads to the formation of m-nitrochlorobenzene.<br />\n<strong>Reason (R): </strong>&mdash;NO<sub>2</sub> group is an m-directing group.</p>",
+      "options": [
+        {
+          "id": 597516,
+          "text": "A is true but R is false.",
+          "html": "A is true but R is false.",
+          "is_correct": false
+        },
+        {
+          "id": 597517,
+          "text": "A is false but R is true.",
+          "html": "A is false but R is true.",
+          "is_correct": true
+        },
+        {
+          "id": 597515,
+          "text": "Both A and R are true but R is not the correct explanation of A.",
+          "html": "Both A and R are true but R is not the correct explanation of A.",
+          "is_correct": false
+        },
+        {
+          "id": 597514,
+          "text": "Both A and R are true and R is the correct explanation of A.",
+          "html": "Both A and R are true and R is the correct explanation of A.",
+          "is_correct": false
+        }
+      ],
+      "correct_option_text": "A is false but R is true.",
+      "correct_option_ids": [
+        597517
+      ],
+      "explanation": "The &mdash;NO 2 group is a meta-directing group by m-nitro chlorobenzene is not a stable compound, and the products of the reactions contain nitro groups at o- and p- positions.",
+      "solution": ""
+    },
+    {
+      "n": 47,
+      "question_id": 352325,
+      "question_text": "Assertion (A): Sucrose is a non-reducing sugar. Reason (R): Sucrose has glycosidic linkage.",
+      "question_html": "<p><strong>Assertion (A):</strong> Sucrose is a non-reducing sugar.<br />\n<strong>Reason (R):</strong> Sucrose has glycosidic linkage.</p>",
+      "options": [
+        {
+          "id": 544751,
+          "text": "A is false but R is true.",
+          "html": "A is false but R is true.",
+          "is_correct": false
+        },
+        {
+          "id": 544750,
+          "text": "A is true but R is false.",
+          "html": "A is true but R is false.",
+          "is_correct": false
+        },
+        {
+          "id": 544749,
+          "text": "Both A and R are true but R is not the correct explanation of A.",
+          "html": "Both A and R are true but R is not the correct explanation of A.",
+          "is_correct": false
+        },
+        {
+          "id": 544748,
+          "text": "Both A and R are true and R is the correct explanation of A.",
+          "html": "Both A and R are true and R is the correct explanation of A.",
+          "is_correct": true
+        }
+      ],
+      "correct_option_text": "Both A and R are true and R is the correct explanation of A.",
+      "correct_option_ids": [
+        544748
+      ],
+      "explanation": "Sucrose is a non&minus; reducing sugar as it does not reduce Tollen&#39;s or Fehling&#39;s reagent, due to the absence of free aldehyde or ketone group. It contains stable acetal or ketal structure which cannot be opened into a free carboxyl group. Sugar is composed of {tex}\\alpha{/tex} &minus;D&minus; glucopyranose unit and {tex}\\beta{/tex} &minus;D&minus;fructofuranose unit. These units are joined by {tex}\\alpha{/tex} , B&minus; glycosidic linkage between C&minus;1 of the glucose unit and C&minus;2 of the fructose unit.",
+      "solution": ""
+    },
+    {
+      "n": 48,
+      "question_id": 569606,
+      "question_text": "Assertion (A): Halogens are coloured. Reason (R): Halogen molecules absorb some wavelength of visible light and the electrons are promoted to higher energy molecular orbitals.",
+      "question_html": "<p><strong>Assertion (A):</strong> Halogens are coloured.<br />\n<strong>Reason (R):</strong> Halogen molecules absorb some wavelength of visible light and the electrons are promoted to higher energy molecular orbitals.</p>",
+      "options": [
+        {
+          "id": 1087635,
+          "text": "Both A and R are true but R is not the correct explanation of A.",
+          "html": "Both A and R are true but R is not the correct explanation of A.",
+          "is_correct": false
+        },
+        {
+          "id": 1087636,
+          "text": "A is true but R is false.",
+          "html": "A is true but R is false.",
+          "is_correct": false
+        },
+        {
+          "id": 1087637,
+          "text": "A is false but R is true.",
+          "html": "A is false but R is true.",
+          "is_correct": false
+        },
+        {
+          "id": 1087634,
+          "text": "Both A and R are true and R is the correct explanation of A.",
+          "html": "Both A and R are true and R is the correct explanation of A.",
+          "is_correct": true
+        }
+      ],
+      "correct_option_text": "Both A and R are true and R is the correct explanation of A.",
+      "correct_option_ids": [
+        1087634
+      ],
+      "explanation": "Both A and R are true and R is the correct explanation of A.",
+      "solution": ""
+    },
+    {
+      "n": 49,
+      "question_id": 571745,
+      "question_text": "Assertion (A): Network solids are also called giant molecules. Reason (R): Graphite is soft in nature and conducts electricity.",
+      "question_html": "<p><strong>Assertion (A):</strong> Network solids are also called giant molecules.<br />\n<strong>Reason (R):</strong> Graphite is soft in nature and conducts electricity.</p>",
+      "options": [
+        {
+          "id": 1094495,
+          "text": "Both A and R are true but R is not the correct explanation of A.",
+          "html": "Both A and R are true but R is not the correct explanation of A.",
+          "is_correct": true
+        },
+        {
+          "id": 1094497,
+          "text": "A is false but R is true.",
+          "html": "A is false but R is true.",
+          "is_correct": false
+        },
+        {
+          "id": 1094494,
+          "text": "Both A and R are true and R is the correct explanation of A.",
+          "html": "Both A and R are true and R is the correct explanation of A.",
+          "is_correct": false
+        },
+        {
+          "id": 1094496,
+          "text": "A is true but R is false.",
+          "html": "A is true but R is false.",
+          "is_correct": false
+        }
+      ],
+      "correct_option_text": "Both A and R are true but R is not the correct explanation of A.",
+      "correct_option_ids": [
+        1094495
+      ],
+      "explanation": "Both A and R are true but R is not the correct explanation of A.",
+      "solution": ""
+    },
+    {
+      "n": 50,
+      "question_id": 60033,
+      "question_text": "Which of the following is a colligative property?",
+      "question_html": "<p>Which of the following is a colligative property?</p>",
+      "options": [
+        {
+          "id": 195320,
+          "text": "Change in free energy",
+          "html": "Change in free energy",
+          "is_correct": false
+        },
+        {
+          "id": 195319,
+          "text": "Dipole moment",
+          "html": "Dipole moment",
+          "is_correct": false
+        },
+        {
+          "id": 195321,
+          "text": "Heat of vapourization",
+          "html": "Heat of vapourization",
+          "is_correct": false
+        },
+        {
+          "id": 195318,
+          "text": "Osmotic pressure",
+          "html": "Osmotic pressure",
+          "is_correct": true
+        }
+      ],
+      "correct_option_text": "Osmotic pressure",
+      "correct_option_ids": [
+        195318
+      ],
+      "explanation": "Colligative property is dependent on no. of moles of solute. ( {tex}\\pi {/tex} =cRT)",
+      "solution": ""
+    },
+    {
+      "n": 51,
+      "question_id": 60541,
+      "question_text": "A dibromo derivative of an alkane reacts with sodium metal to form an alicyclic hydrocarbon. The derivative is",
+      "question_html": "<p>A dibromo derivative of an alkane reacts with sodium metal to form an alicyclic hydrocarbon. The derivative is</p>",
+      "options": [
+        {
+          "id": 197353,
+          "text": "1, 2 &ndash; dibromoethane",
+          "html": "1, 2 &ndash; dibromoethane",
+          "is_correct": false
+        },
+        {
+          "id": 197351,
+          "text": "1, 1 &ndash; dibromopropane",
+          "html": "1, 1 &ndash; dibromopropane",
+          "is_correct": false
+        },
+        {
+          "id": 197350,
+          "text": "1, 4 &ndash; dibromobutane",
+          "html": "1, 4 &ndash; dibromobutane",
+          "is_correct": true
+        },
+        {
+          "id": 197352,
+          "text": "2, 2 &ndash; dibromobutane",
+          "html": "2, 2 &ndash; dibromobutane",
+          "is_correct": false
+        }
+      ],
+      "correct_option_text": "1, 4 &ndash; dibromobutane",
+      "correct_option_ids": [
+        197350
+      ],
+      "explanation": "Of all the given options, it is possible with 1,4-dibromobutane to form cyclobutane as shown by intramolecular wurtz reaction.",
+      "solution": ""
+    },
+    {
+      "n": 52,
+      "question_id": 65706,
+      "question_text": "Alcohol which is used as beverage is________.",
+      "question_html": "<p>Alcohol which is used as beverage is________.</p>\r\n",
+      "options": [
+        {
+          "id": 208558,
+          "text": "Butan-1-ol",
+          "html": "Butan-1-ol",
+          "is_correct": false
+        },
+        {
+          "id": 208556,
+          "text": "Ethanol",
+          "html": "Ethanol",
+          "is_correct": true
+        },
+        {
+          "id": 208557,
+          "text": "Propan-1-ol",
+          "html": "Propan-1-ol",
+          "is_correct": false
+        },
+        {
+          "id": 208559,
+          "text": "Methanol",
+          "html": "Methanol",
+          "is_correct": false
+        }
+      ],
+      "correct_option_text": "Ethanol",
+      "correct_option_ids": [
+        208556
+      ],
+      "explanation": "Alcoholic beverage, any fermented liquor, such as wine, beer, or distilled spirit, that contains ethyl alcohol, or ethanol (CH 3 CH 2 OH), as an intoxicating agent. Alcoholic beverages are fermented from the sugars in fruits, berries, grains, and such other ingredients as plant saps, tubers, honey, and milk and maybe distilled to reduce the original watery liquid to a liquid of much greater alcoholic strength. Beer is the best-known member of the malt family of alcoholic beverages, which also includes ale, stout, porter, and malt liquor.",
+      "solution": ""
+    },
+    {
+      "n": 53,
+      "question_id": 574741,
+      "question_text": "Instructions for Question 53 to 55: A chlorocompound (A) on reduction with Zn-Cu and ethanol gives the hydrocarbon (B) with five carbon atoms. When (A) is dissolved in dry ether and treated with sodium metal it gave 2,2,5,5-tetramethylhexane. The treatment of (A) with alcoholic KCN gives compound (C). The compound (A) is",
+      "question_html": "<b>Instructions for Question 53 to 55:</b><br><p>A chlorocompound (A) on reduction with Zn-Cu&nbsp;and ethanol gives the hydrocarbon (B) with five carbon atoms. When (A) is dissolved in dry ether and treated with sodium metal it gave 2,2,5,5-tetramethylhexane. The treatment of (A) with alcoholic KCN gives compound (C).</p><br><p>The compound (A) is</p>",
+      "options": [
+        {
+          "id": 1103812,
+          "text": "2-chloro-2-methyl butane.",
+          "html": "2-chloro-2-methyl butane.",
+          "is_correct": false
+        },
+        {
+          "id": 1103810,
+          "text": "1-chloro-2-methyl butane",
+          "html": "1-chloro-2-methyl butane",
+          "is_correct": false
+        },
+        {
+          "id": 1103808,
+          "text": "1-chloro-2, 2-dimethylpropane",
+          "html": "1-chloro-2, 2-dimethylpropane",
+          "is_correct": true
+        },
+        {
+          "id": 1103809,
+          "text": "1-chloro- 2,2 -dimethylbutane",
+          "html": "1-chloro- 2,2 -dimethylbutane",
+          "is_correct": false
+        }
+      ],
+      "correct_option_text": "1-chloro-2, 2-dimethylpropane",
+      "correct_option_ids": [
+        1103808
+      ],
+      "explanation": "{tex}\\mathop {C{H_3} - \\mathop C\\limits_{\\mathop |\\limits_{C{H_3}} }^{\\mathop |\\limits^{C{H_3}} } - C{H_2} - Cl}\\limits_{\\mathop {(A)}\\limits_{1 - Chloro - 2,2 - \\dim ethylpropane} } \\xrightarrow{{Ether/Na}}{/tex} {tex}\\mathop {C{H_3} - \\mathop C\\limits_{\\mathop |\\limits_{C{H_3}} }^{\\mathop |\\limits^{C{H_3}} } - C{H_2} - C{H_2} - \\mathop C\\limits_{\\mathop |\\limits_{C{H_3}} }^{\\mathop |\\limits^{C{H_3}} } - C{H_3}}\\limits_{2,2,5,5 - Tetramethylhexane} {/tex}",
+      "solution": ""
+    },
+    {
+      "n": 54,
+      "question_id": 574990,
+      "question_text": "Instructions for Question 53 to 55: A chlorocompound (A) on reduction with Zn-Cu and ethanol gives the hydrocarbon (B) with five carbon atoms. When (A) is dissolved in dry ether and treated with sodium metal it gave 2,2,5,5-tetramethylhexane. The treatment of (A) with alcoholic KCN gives compound (C). The reaction of (C) with Na, C 2 H 5 OH gives",
+      "question_html": "<b>Instructions for Question 53 to 55:</b><br><p>A chlorocompound (A) on reduction with Zn-Cu&nbsp;and ethanol gives the hydrocarbon (B) with five carbon atoms. When (A) is dissolved in dry ether and treated with sodium metal it gave 2,2,5,5-tetramethylhexane. The treatment of (A) with alcoholic KCN gives compound (C).</p><br><p>The reaction of (C) with Na, C<sub>2</sub>H<sub>5</sub> OH gives</p>",
+      "options": [
+        {
+          "id": 1104809,
+          "text": "(CH 3 ) 3 CNH 2",
+          "html": "(CH<sub>3</sub>)<sub>3</sub>CNH<sub>2</sub>",
+          "is_correct": false
+        },
+        {
+          "id": 1104810,
+          "text": "(CH 3 ) 3 CCH 2 CH 2 NH 2",
+          "html": "(CH<sub>3</sub>)<sub>3</sub>CCH<sub>2</sub>CH<sub>2</sub>NH<sub>2</sub>",
+          "is_correct": true
+        },
+        {
+          "id": 1104811,
+          "text": "(CH 3 ) 2 CHCH 2 NH 2",
+          "html": "(CH<sub>3</sub>)<sub>2</sub>CHCH<sub>2</sub>NH<sub>2</sub>",
+          "is_correct": false
+        },
+        {
+          "id": 1104808,
+          "text": "(CH 3 ) 3 CCH 2 CONH 2",
+          "html": "(CH<sub>3</sub>)<sub>3</sub>CCH<sub>2</sub>CONH<sub>2</sub>",
+          "is_correct": false
+        }
+      ],
+      "correct_option_text": "(CH 3 ) 3 CCH 2 CH 2 NH 2",
+      "correct_option_ids": [
+        1104810
+      ],
+      "explanation": "{tex}\\mathop {C{H_3} - \\mathop C\\limits_{\\mathop |\\limits_{C{H_3}} }^{\\mathop |\\limits^{C{H_3}} } - C{H_2}Cl}\\limits_{(A)} \\xrightarrow{{alc.KCN}}{/tex} {tex}\\mathop {C{H_3} - \\mathop C\\limits_{\\mathop |\\limits_{C{H_3}} }^{\\mathop |\\limits^{C{H_3}} } - C{H_2}CN}\\limits_{(C)} \\xrightarrow{{Na/{C_2}{H_5}OH}}{/tex} {tex}C{H_3} - \\mathop C\\limits_{\\mathop |\\limits_{C{H_3}} }^{\\mathop |\\limits^{C{H_3}} } - C{H_2}C{H_2}N{H_2}{/tex}",
+      "solution": ""
+    },
+    {
+      "n": 55,
+      "question_id": 575108,
+      "question_text": "Instructions for Question 53 to 55: A chlorocompound (A) on reduction with Zn-Cu and ethanol gives the hydrocarbon (B) with five carbon atoms. When (A) is dissolved in dry ether and treated with sodium metal it gave 2,2,5,5-tetramethylhexane. The treatment of (A) with alcoholic KCN gives compound (C). The reaction of (C) with Na, C 2 H 5 OH is called",
+      "question_html": "<b>Instructions for Question 53 to 55:</b><br><p>A chlorocompound (A) on reduction with Zn-Cu&nbsp;and ethanol gives the hydrocarbon (B) with five carbon atoms. When (A) is dissolved in dry ether and treated with sodium metal it gave 2,2,5,5-tetramethylhexane. The treatment of (A) with alcoholic KCN gives compound (C).</p><br><p>The reaction of (C) with Na, C<sub>2</sub>H<sub>5</sub>OH is called</p>",
+      "options": [
+        {
+          "id": 1105283,
+          "text": "Swart&#39;s reaction",
+          "html": "Swart&#39;s reaction",
+          "is_correct": false
+        },
+        {
+          "id": 1105282,
+          "text": "Grooves process",
+          "html": "Grooves process",
+          "is_correct": false
+        },
+        {
+          "id": 1105281,
+          "text": "Mendius reaction",
+          "html": "Mendius reaction",
+          "is_correct": true
+        },
+        {
+          "id": 1105280,
+          "text": "Gilman reaction",
+          "html": "Gilman reaction",
+          "is_correct": false
+        }
+      ],
+      "correct_option_text": "Mendius reaction",
+      "correct_option_ids": [
+        1105281
+      ],
+      "explanation": "Mendius reaction",
+      "solution": ""
+    }
+  ]
+}

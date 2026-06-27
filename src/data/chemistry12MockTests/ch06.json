@@ -1,0 +1,2098 @@
+{
+  "mock_id": 204,
+  "name": "Mock Test - 06",
+  "instruction": "The Question Paper contains three sections. Section A has 25 questions. Attempt any 20 questions. Section B has 24 questions. Attempt any 20 questions. Section C has 6 questions. Attempt any 5 questions. All questions carry equal marks. There is no negative marking.",
+  "totalQuestions": 55,
+  "questions": [
+    {
+      "n": 1,
+      "question_id": 334866,
+      "question_text": "Cations are present in the interstitial sites in ________.",
+      "question_html": "<p>Cations are present in the interstitial sites in ________.</p>",
+      "options": [
+        {
+          "id": 505844,
+          "text": "Schottky defect",
+          "html": "Schottky defect",
+          "is_correct": false
+        },
+        {
+          "id": 505846,
+          "text": "Metal deficiency defect",
+          "html": "Metal deficiency defect",
+          "is_correct": false
+        },
+        {
+          "id": 505845,
+          "text": "Vacancy defect",
+          "html": "Vacancy defect",
+          "is_correct": false
+        },
+        {
+          "id": 505843,
+          "text": "Frenkel defect",
+          "html": "Frenkel defect",
+          "is_correct": true
+        }
+      ],
+      "correct_option_text": "Frenkel defect",
+      "correct_option_ids": [
+        505843
+      ],
+      "explanation": "When smaller ion (usually cation) is dislocated from its normal site in crystal and move to the interstitial site is known as Frenkel defect. It creates a vacancy defect at its original site and interstitial defect at its new site as shown below.",
+      "solution": ""
+    },
+    {
+      "n": 2,
+      "question_id": 258963,
+      "question_text": "The Van&rsquo;t Hoff factor for 0.1 M Ba(NO 3 ) 2 solution is 2.74. The degree of dissociation is:",
+      "question_html": "<p>The Van&rsquo;t Hoff factor for 0.1 M Ba(NO<sub>3</sub>)<sub>2</sub> solution is 2.74. The degree of dissociation is:</p>",
+      "options": [
+        {
+          "id": 375763,
+          "text": "87%",
+          "html": "87%",
+          "is_correct": true
+        },
+        {
+          "id": 375764,
+          "text": "100%",
+          "html": "100%",
+          "is_correct": false
+        },
+        {
+          "id": 375765,
+          "text": "74%",
+          "html": "74%",
+          "is_correct": false
+        },
+        {
+          "id": 375762,
+          "text": "91.3%",
+          "html": "91.3%",
+          "is_correct": false
+        }
+      ],
+      "correct_option_text": "87%",
+      "correct_option_ids": [
+        375763
+      ],
+      "explanation": "Actually, van&#39;t Hoff&#39;s factor for any reaction, {tex}\\underset{1-\\alpha}{A_n}\\quad\\longrightarrow\\quad\\underset{n\\alpha}{nA}{/tex} van&#39;t Hoff factor ( i ) = 1 + (n -1)&alpha; where &alpha; is the degree of dissociation. Similarly, {tex}\\underset{1-\\alpha\\;}{Ba(NO_3)_2}\\rightarrow\\underset{\\;\\;\\alpha}{Ba^{2+}}+\\underset{2\\alpha}{2NO_3^-\\;\\;}\\;\\;\\;\\;{/tex} Now, van&#39;t Hoff&#39; factor {tex} { i } = 1-\\alpha+ \\alpha + 2\\alpha{/tex} 2.74 = 1 + 2&alpha; 1.74 = 2&alpha; &alpha;=0.87 or 87%",
+      "solution": ""
+    },
+    {
+      "n": 3,
+      "question_id": 60356,
+      "question_text": "Bleaching powder is treated with CO 2 :",
+      "question_html": "<p>Bleaching powder is treated with CO<sub>2</sub>:</p>",
+      "options": [
+        {
+          "id": 196612,
+          "text": "CaO is formed.",
+          "html": "CaO is formed.",
+          "is_correct": false
+        },
+        {
+          "id": 196611,
+          "text": "CaCl 2 is formed.",
+          "html": "CaCl<sub>2</sub>&nbsp;is formed.",
+          "is_correct": false
+        },
+        {
+          "id": 196610,
+          "text": "CaCO 3 and Cl 2 are formed.",
+          "html": "CaCO<sub>3</sub>&nbsp;and Cl<sub>2</sub> are formed.",
+          "is_correct": true
+        },
+        {
+          "id": 196613,
+          "text": "It absorbs the gas.",
+          "html": "It absorbs the gas.",
+          "is_correct": false
+        }
+      ],
+      "correct_option_text": "CaCO 3 and Cl 2 are formed.",
+      "correct_option_ids": [
+        196610
+      ],
+      "explanation": "CaCO 3 and Cl 2 are produced when Bleaching powder is treated with CO 2 . {tex}Ca(OCl)_2\\;+\\;CO_2\\rightarrow CaCO_3\\;+\\;Cl_2\\uparrow{/tex}",
+      "solution": ""
+    },
+    {
+      "n": 4,
+      "question_id": 386920,
+      "question_text": "Which is the correct increasing order of boiling points of the following compounds? 1-Iodobutane, 1-Bromobutane, 1-Chlorobutane, Butane",
+      "question_html": "<p>Which is the correct increasing order of boiling points of the following compounds?<br />\r\n1-Iodobutane, 1-Bromobutane, 1-Chlorobutane, Butane</p>",
+      "options": [
+        {
+          "id": 597508,
+          "text": "Butane < 1-Iodobutane < 1-Bromobutane < 1-Chlorobutane",
+          "html": "Butane &lt; 1-Iodobutane &lt; 1-Bromobutane &lt; 1-Chlorobutane",
+          "is_correct": false
+        },
+        {
+          "id": 597507,
+          "text": "1-Iodobutane < 1-Bromobutane < 1-Chlorobutane < Butane",
+          "html": "1-Iodobutane &lt; 1-Bromobutane &lt; 1-Chlorobutane &lt; Butane",
+          "is_correct": false
+        },
+        {
+          "id": 597509,
+          "text": "Butane < 1-Chlorobutane < 1-Iodobutane < 1-Bromobutane",
+          "html": "Butane &lt; 1-Chlorobutane &lt; 1-Iodobutane &lt; 1-Bromobutane",
+          "is_correct": false
+        },
+        {
+          "id": 597506,
+          "text": "Butane < 1-Chlorobutane < 1-Bromobutane < 1-Iodobutane",
+          "html": "Butane &lt; 1-Chlorobutane &lt; 1-Bromobutane &lt; 1-Iodobutane",
+          "is_correct": true
+        }
+      ],
+      "correct_option_text": "Butane < 1-Chlorobutane < 1-Bromobutane < 1-Iodobutane",
+      "correct_option_ids": [
+        597506
+      ],
+      "explanation": "Due to the polar nature of alkyl halides and the increase in molecular weight compared to their parent alkanes, the boiling points of alkyl halides are higher than that of their parent alkanes. The boiling points of alkyl halides depend on the molecular mass and the size of the halogen atom (decrease from I to F). With the increase in size, mass, and the number of electrons in halogen atoms, the magnitude of Van Der Waals forces increase and the boiling point also increases. The boiling point of alkyl halides reduces in the order RI > RBr > RCl > RF. Therefore, the order of increasing order of boiling points should be Butane < 1-Chlorobutane < 1-Bromobutane < 1-Iodobutane.",
+      "solution": ""
+    },
+    {
+      "n": 5,
+      "question_id": 60576,
+      "question_text": "Alcohols undergo dehydration (removal of a molecule of water) to form alkenes on treating with",
+      "question_html": "<p>Alcohols undergo dehydration (removal of a molecule of water) to form alkenes on treating with</p>",
+      "options": [
+        {
+          "id": 197493,
+          "text": "conc. H 2 SO 4 and ZnCl 2",
+          "html": "conc. H<sub>2</sub>SO<sub>4</sub> and ZnCl<sub>2</sub>",
+          "is_correct": false
+        },
+        {
+          "id": 197490,
+          "text": "conc.H 2 SO 4",
+          "html": "conc.H<sub>2</sub>SO<sub>4</sub>",
+          "is_correct": true
+        },
+        {
+          "id": 197492,
+          "text": "conc. HCl and ZnCl 2",
+          "html": "conc. HCl and ZnCl<sub>2</sub>",
+          "is_correct": false
+        },
+        {
+          "id": 197491,
+          "text": "conc. HCl",
+          "html": "conc. HCl",
+          "is_correct": false
+        }
+      ],
+      "correct_option_text": "conc.H 2 SO 4",
+      "correct_option_ids": [
+        197490
+      ],
+      "explanation": "The dehydration reaction of alcohols to generate alkene proceeds by heating the alcohols in the presence of a strong acid, such as sulfuric or phosphoric acid, at high temperatures. The required range of reaction temperature decreases with increasing substitution of the hydroxy-containing carbon: 1&deg; alcohols: 170&deg; - 180&deg;C 2&deg; alcohols: 100&deg;&ndash; 140 &deg;C 3&deg; alcohols: 25&deg;&ndash; 80&deg;C If the reaction is not sufficiently heated, the alcohols do not dehydrate to form alkenes, but react with one another to form ethers.",
+      "solution": ""
+    },
+    {
+      "n": 6,
+      "question_id": 60812,
+      "question_text": "The polymer(s) of dextrose is",
+      "question_html": "<p>The polymer(s) of dextrose is</p>",
+      "options": [
+        {
+          "id": 198435,
+          "text": "Fructose",
+          "html": "Fructose",
+          "is_correct": false
+        },
+        {
+          "id": 198436,
+          "text": "Glucose",
+          "html": "Glucose",
+          "is_correct": false
+        },
+        {
+          "id": 198433,
+          "text": "Cellulose and Starch",
+          "html": "Cellulose and Starch",
+          "is_correct": true
+        },
+        {
+          "id": 198434,
+          "text": "Maltose",
+          "html": "Maltose",
+          "is_correct": false
+        }
+      ],
+      "correct_option_text": "Cellulose and Starch",
+      "correct_option_ids": [
+        198433
+      ],
+      "explanation": "Monosaccharides (such as Glucose/dextrose) are building blocks of disaccharides (such as sucrose and lactose) and polysaccharides (such as Cellulose and Starch).",
+      "solution": ""
+    },
+    {
+      "n": 7,
+      "question_id": 21604,
+      "question_text": "The number of atoms per unit cell in a body centered cubic structure is ______________",
+      "question_html": "<p>The number of atoms per unit cell in a body centered cubic structure is ______________</p>",
+      "options": [
+        {
+          "id": 41616,
+          "text": "3",
+          "html": "3",
+          "is_correct": false
+        },
+        {
+          "id": 41617,
+          "text": "4",
+          "html": "4",
+          "is_correct": false
+        },
+        {
+          "id": 41615,
+          "text": "1",
+          "html": "1",
+          "is_correct": false
+        },
+        {
+          "id": 41614,
+          "text": "2",
+          "html": "2",
+          "is_correct": true
+        }
+      ],
+      "correct_option_text": "2",
+      "correct_option_ids": [
+        41614
+      ],
+      "explanation": "8 corners {tex}\\times \\left( {\\frac{1}{8}} \\right){/tex} per corner atom {tex}= 8 \\times \\left( {\\frac{1}{8}} \\right) = 1{/tex} atom 1 body centre atom {tex}= 1 \\times 1 = 1{/tex} atom The number of atoms per unit cell in a body-centered cubic structure = 1 atom + 1 atom = 2 atoms",
+      "solution": ""
+    },
+    {
+      "n": 8,
+      "question_id": 351899,
+      "question_text": "The unit of Ebullioscopic constant is ________.",
+      "question_html": "<p>The unit of Ebullioscopic constant is ________.</p>",
+      "options": [
+        {
+          "id": 543874,
+          "text": "K kg mol -1 or K (molality) -1",
+          "html": "K kg mol<sup>-1</sup> or K (molality)<sup>-1</sup>",
+          "is_correct": true
+        },
+        {
+          "id": 543877,
+          "text": "K mol kg -1 or K (molality)",
+          "html": "K mol kg<sup>-1</sup> or K (molality)",
+          "is_correct": false
+        },
+        {
+          "id": 543875,
+          "text": "mol kg K -1 or K -1 (molality)",
+          "html": "mol kg K<sup>-1</sup> or K<sup>-1</sup>(molality)",
+          "is_correct": false
+        },
+        {
+          "id": 543876,
+          "text": "kg mol -1 K -1 or K -1 (molality) -1",
+          "html": "kg mol<sup>-1</sup> K<sup>-1</sup> or K<sup>-1</sup>(molality)<sup>-1</sup>",
+          "is_correct": false
+        }
+      ],
+      "correct_option_text": "K kg mol -1 or K (molality) -1",
+      "correct_option_ids": [
+        543874
+      ],
+      "explanation": "{tex}\\mathrm{K}_{\\mathrm{b}}=\\frac{\\Delta \\mathrm{T}_{\\mathrm{b}}}{\\mathrm{m}}{/tex} {tex}=\\frac{\\mathrm{K}}{\\mathrm{mol} \\mathrm{kg}^{-1}}{/tex} or K (molality) -1 The unit of Boiling point elevation constant or Molal elevation constant (Ebullioscopic constant) is K kg mol -1 or K (molality) -1 .",
+      "solution": ""
+    },
+    {
+      "n": 9,
+      "question_id": 60309,
+      "question_text": "is the structure of:",
+      "question_html": "<p><img src=\"https://media-mycbseguide.s3.amazonaws.com/images/quiz/12/chemistry/52485_0.png\" style=\"width: 80px; height: 82px;\" />&nbsp;is the structure of:</p>",
+      "options": [
+        {
+          "id": 196423,
+          "text": "Phosphorous acid",
+          "html": "Phosphorous acid",
+          "is_correct": false
+        },
+        {
+          "id": 196424,
+          "text": "Phosphoric acid",
+          "html": "Phosphoric acid",
+          "is_correct": false
+        },
+        {
+          "id": 196425,
+          "text": "Pyrophosphoric acid",
+          "html": "Pyrophosphoric acid",
+          "is_correct": false
+        },
+        {
+          "id": 196422,
+          "text": "Hypophosphorus acid.",
+          "html": "Hypophosphorus acid.",
+          "is_correct": true
+        }
+      ],
+      "correct_option_text": "Hypophosphorus acid.",
+      "correct_option_ids": [
+        196422
+      ],
+      "explanation": "H 3 PO 2 is Hypophosphorus acid. It has one P-OH, two P-H and one P=O bonds.",
+      "solution": ""
+    },
+    {
+      "n": 10,
+      "question_id": 60504,
+      "question_text": "Bromomethane, Chloromethane, Dibromomethane, 1 &ndash; Chloropropane, Isopropyl chloride, 1&ndash;Chlorobutane all are:",
+      "question_html": "<p>Bromomethane, Chloromethane, Dibromomethane,&nbsp;1 &ndash; Chloropropane, Isopropyl chloride, 1&ndash;Chlorobutane all are:</p>",
+      "options": [
+        {
+          "id": 197205,
+          "text": "Completely soluble in water",
+          "html": "Completely soluble in water",
+          "is_correct": false
+        },
+        {
+          "id": 197202,
+          "text": "Completely soluble in organic solvents",
+          "html": "Completely soluble in organic solvents",
+          "is_correct": true
+        },
+        {
+          "id": 197203,
+          "text": "Slightly soluble in organic solvents",
+          "html": "Slightly soluble in organic solvents",
+          "is_correct": false
+        },
+        {
+          "id": 197204,
+          "text": "Insoluble in organic solvents",
+          "html": "Insoluble in organic solvents",
+          "is_correct": false
+        }
+      ],
+      "correct_option_text": "Completely soluble in organic solvents",
+      "correct_option_ids": [
+        197202
+      ],
+      "explanation": "All these given compounds are covalent in nature. Hence, they are soluble in organic solvents.",
+      "solution": ""
+    },
+    {
+      "n": 11,
+      "question_id": 60511,
+      "question_text": "Upon oxidation, one of the following halogen-containing compounds forms an extremely poisonous gas that is: ________ + O 2 {tex}\\xrightarrow{{}}{/tex} 2 COCl 2 + 2HCl",
+      "question_html": "<p>Upon oxidation, one of the following halogen-containing compounds forms an extremely poisonous gas that is:<br />\r\n________ + O<sub>2&nbsp;</sub>&nbsp;<span class=\"math-tex\">{tex}\\xrightarrow{{}}{/tex}</span> 2 COCl<sub>2</sub>&nbsp;+ 2HCl</p>",
+      "options": [
+        {
+          "id": 197232,
+          "text": "Dichloromethane",
+          "html": "Dichloromethane",
+          "is_correct": false
+        },
+        {
+          "id": 197231,
+          "text": "Carbontetrachloride",
+          "html": "Carbontetrachloride",
+          "is_correct": false
+        },
+        {
+          "id": 197233,
+          "text": "DDT",
+          "html": "DDT",
+          "is_correct": false
+        },
+        {
+          "id": 197230,
+          "text": "Chloroform",
+          "html": "Chloroform",
+          "is_correct": true
+        }
+      ],
+      "correct_option_text": "Chloroform",
+      "correct_option_ids": [
+        197230
+      ],
+      "explanation": "CHCl 3 on reaction with oxygen forms phosgene. Chloroform decomposes when it exposed to sunlight. It decomposes to harmful gas phosgene(COCl 2 ).",
+      "solution": ""
+    },
+    {
+      "n": 12,
+      "question_id": 60811,
+      "question_text": "What is the most abundant organic compound on earth?",
+      "question_html": "<p>What is the&nbsp;most abundant organic compound on earth?</p>",
+      "options": [
+        {
+          "id": 198432,
+          "text": "Fructose",
+          "html": "Fructose",
+          "is_correct": false
+        },
+        {
+          "id": 198430,
+          "text": "Starch",
+          "html": "Starch",
+          "is_correct": false
+        },
+        {
+          "id": 198431,
+          "text": "Cellulose",
+          "html": "Cellulose",
+          "is_correct": false
+        },
+        {
+          "id": 198429,
+          "text": "Glucose",
+          "html": "Glucose",
+          "is_correct": true
+        }
+      ],
+      "correct_option_text": "Glucose",
+      "correct_option_ids": [
+        198429
+      ],
+      "explanation": "Glucose is probably the most abundant organic compound on earth. It is the monomer of many of the larger carbohydrates, namely starch, cellulose",
+      "solution": ""
+    },
+    {
+      "n": 13,
+      "question_id": 334123,
+      "question_text": "The sharp melting point of crystalline solids is due to:",
+      "question_html": "<p>The sharp melting point of crystalline solids is due to:</p>",
+      "options": [
+        {
+          "id": 503831,
+          "text": "a regular arrangement of constituent particles observed over a long distance in the crystal lattice.",
+          "html": "a regular arrangement of constituent particles observed over a long distance in the crystal lattice.",
+          "is_correct": true
+        },
+        {
+          "id": 503832,
+          "text": "a regular arrangement of constituent particles observed over a short distance in the crystal lattice.",
+          "html": "a regular arrangement of constituent particles observed over a short distance in the crystal lattice.",
+          "is_correct": false
+        },
+        {
+          "id": 503834,
+          "text": "different arrangement of constituent particles in different directions.",
+          "html": "different arrangement of constituent particles in different directions.",
+          "is_correct": false
+        },
+        {
+          "id": 503833,
+          "text": "same arrangement of constituent particles in different directions.",
+          "html": "same arrangement of constituent particles in different directions.",
+          "is_correct": false
+        }
+      ],
+      "correct_option_text": "a regular arrangement of constituent particles observed over a long distance in the crystal lattice.",
+      "correct_option_ids": [
+        503831
+      ],
+      "explanation": "A solid is said to be crystalline if the various constituent structural units (atoms, ions or molecules) of which the solid is made, are arranged in a definite geometrical pattern within the solid. The type of forces in crystalline solids are of long-range order which means there is regular pattern arrangement due to which they have a sharp melting point.",
+      "solution": ""
+    },
+    {
+      "n": 14,
+      "question_id": 60074,
+      "question_text": "To neutralize completely 20 mL of 0.1 M aqueous solution of phosphorus acid (H 3 PO 3 ) the volume of 0.1 M aqueous KOH solution required is",
+      "question_html": "<p>To neutralize completely 20 mL&nbsp;of 0.1 M&nbsp;aqueous solution of phosphorus acid (H<sub>3</sub>PO<sub>3</sub>)&nbsp;the volume of 0.1&nbsp;M aqueous KOH solution required is</p>",
+      "options": [
+        {
+          "id": 195484,
+          "text": "40 mL",
+          "html": "40 mL",
+          "is_correct": true
+        },
+        {
+          "id": 195483,
+          "text": "10 mL",
+          "html": "10 mL",
+          "is_correct": false
+        },
+        {
+          "id": 195482,
+          "text": "20 mL",
+          "html": "20 mL",
+          "is_correct": false
+        },
+        {
+          "id": 195485,
+          "text": "60 mL",
+          "html": "60 mL",
+          "is_correct": false
+        }
+      ],
+      "correct_option_text": "40 mL",
+      "correct_option_ids": [
+        195484
+      ],
+      "explanation": "H 3 PO 3 is a dibasic acid. H 3 PO 3 + 2KOH {tex}\\rightarrow{/tex} K 2 HPO 3 + 2H 2 O {tex}\\frac{M_{A} V_{A}}{n_{A}}=\\frac{M_{B} V_{B}}{n_{B}}{/tex} {tex}\\frac{0.1 \\times 20}{1}=\\frac{0.1 \\times V_{B}}{2}{/tex} V B = 40 mL",
+      "solution": ""
+    },
+    {
+      "n": 15,
+      "question_id": 337381,
+      "question_text": "Bond dissociation enthalpy of E&mdash;H (E = element) bonds is given below. Which of the compounds will act as the strongest reducing agent? Compound NH 3 PH 3 AsH 3 SbH 3 {tex}\\Delta_{diss}{/tex} (E&mdash;H)/kJ mol -1 389 322 297 255",
+      "question_html": "<p>Bond dissociation enthalpy of E&mdash;H (E = element) bonds is given below. Which of the compounds will act as the strongest reducing agent?</p>\r\n\r\n<table border=\"1\" cellpadding=\"3\" cellspacing=\"0\" style=\"width:100%;\">\r\n\t<tbody>\r\n\t\t<tr>\r\n\t\t\t<td>Compound</td>\r\n\t\t\t<td>NH<sub>3</sub>&nbsp;</td>\r\n\t\t\t<td>PH<sub>3</sub></td>\r\n\t\t\t<td>AsH<sub>3</sub></td>\r\n\t\t\t<td>SbH<sub>3</sub></td>\r\n\t\t</tr>\r\n\t\t<tr>\r\n\t\t\t<td><span class=\"math-tex\">{tex}\\Delta_{diss}{/tex}</span>&nbsp;(E&mdash;H)/kJ mol<sup>-1</sup></td>\r\n\t\t\t<td>389</td>\r\n\t\t\t<td>322</td>\r\n\t\t\t<td>297</td>\r\n\t\t\t<td>255</td>\r\n\t\t</tr>\r\n\t</tbody>\r\n</table>",
+      "options": [
+        {
+          "id": 511819,
+          "text": "NH 3",
+          "html": "NH<sub>3</sub>&nbsp;",
+          "is_correct": false
+        },
+        {
+          "id": 511821,
+          "text": "AsH 3",
+          "html": "AsH<sub>3</sub>&nbsp;",
+          "is_correct": false
+        },
+        {
+          "id": 511820,
+          "text": "PH 3",
+          "html": "PH<sub>3</sub>&nbsp;",
+          "is_correct": false
+        },
+        {
+          "id": 511822,
+          "text": "SbH 3",
+          "html": "SbH<sub>3</sub>",
+          "is_correct": true
+        }
+      ],
+      "correct_option_text": "SbH 3",
+      "correct_option_ids": [
+        511822
+      ],
+      "explanation": "As the bond dissociation energy decreases reducing nature increases. Therefore, SbH 3 will act as the strongest reducing agent due to minimum bond enthalpy.",
+      "solution": ""
+    },
+    {
+      "n": 16,
+      "question_id": 60522,
+      "question_text": "Name the following aryl halide as per the IUPAC system",
+      "question_html": "<p>Name the following aryl halide as per the IUPAC system<br />\r\n<img src=\"https://media-mycbseguide.s3.amazonaws.com/images/quiz/12/chemistry/52698_0.png\" style=\"width: 180px; height: 141px;\" /></p>",
+      "options": [
+        {
+          "id": 197277,
+          "text": "4-(methylpropyl)-1-chlorobenzene",
+          "html": "4-(methylpropyl)-1-chlorobenzene",
+          "is_correct": false
+        },
+        {
+          "id": 197274,
+          "text": "1 - chloro - 4 - (2 - methylpropyl) benzene",
+          "html": "1 -&nbsp;chloro -&nbsp;4 -&nbsp;(2 -&nbsp;methylpropyl) benzene",
+          "is_correct": true
+        },
+        {
+          "id": 197276,
+          "text": "1 - chlorobenzyl - 2 - methyl propane",
+          "html": "1 -&nbsp;chlorobenzyl -&nbsp;2 -&nbsp;methyl propane",
+          "is_correct": false
+        },
+        {
+          "id": 197275,
+          "text": "4 - chloro - 1 - (2 - methyl propyl) benzene",
+          "html": "4 -&nbsp;chloro -&nbsp;1 -&nbsp;(2 -&nbsp;methyl propyl) benzene",
+          "is_correct": false
+        }
+      ],
+      "correct_option_text": "1 - chloro - 4 - (2 - methylpropyl) benzene",
+      "correct_option_ids": [
+        197274
+      ],
+      "explanation": "Here we have selected the benzene ring as the parent compound with chloro group at position 1 and 2-methylpropyl group present at the position 4. Here halogen has been numbered in preference to the alkyl substituent. Thus the correct IUPAC name would be 1-chloro-4-(2-methylpropyl) benzene.",
+      "solution": ""
+    },
+    {
+      "n": 17,
+      "question_id": 60601,
+      "question_text": "Phenol is less acidic than ______________.",
+      "question_html": "<p>Phenol is less acidic than ______________.</p>",
+      "options": [
+        {
+          "id": 197593,
+          "text": "o &ndash; methoxyphenol",
+          "html": "o &ndash; methoxyphenol",
+          "is_correct": false
+        },
+        {
+          "id": 197590,
+          "text": "o &ndash; nitrophenol",
+          "html": "o &ndash; nitrophenol",
+          "is_correct": true
+        },
+        {
+          "id": 197592,
+          "text": "o &ndash; methylphenol",
+          "html": "o &ndash; methylphenol",
+          "is_correct": false
+        },
+        {
+          "id": 197591,
+          "text": "ethanol",
+          "html": "ethanol",
+          "is_correct": false
+        }
+      ],
+      "correct_option_text": "o &ndash; nitrophenol",
+      "correct_option_ids": [
+        197590
+      ],
+      "explanation": "The nitro-group is an electron-withdrawing group. The presence of this group in the ortho or para position decreases the electron density in the OH bond. As a result, it is easier to lose a proton. Also, the o-nitrophenoxide or p-nitrophenoxide ion formed after the loss of protons is stabilized by resonance. Hence, ortho and para nitrophenols are stronger acids than phenol.",
+      "solution": ""
+    },
+    {
+      "n": 18,
+      "question_id": 60806,
+      "question_text": "The following molecule is called as",
+      "question_html": "<p>The following molecule is called as<br />\r\n<img src=\"https://media-mycbseguide.s3.amazonaws.com/images/quiz/12/chemistry/52982_0.png\" style=\"width: 60px; height: 72px;\" /></p>",
+      "options": [
+        {
+          "id": 198412,
+          "text": "Lipid",
+          "html": "Lipid",
+          "is_correct": false
+        },
+        {
+          "id": 198409,
+          "text": "carbohydrate",
+          "html": "carbohydrate",
+          "is_correct": true
+        },
+        {
+          "id": 198410,
+          "text": "Protein",
+          "html": "Protein",
+          "is_correct": false
+        },
+        {
+          "id": 198411,
+          "text": "Vitamin",
+          "html": "Vitamin",
+          "is_correct": false
+        }
+      ],
+      "correct_option_text": "carbohydrate",
+      "correct_option_ids": [
+        198409
+      ],
+      "explanation": "It is aldohexose. An aldohexose is a hexose with an aldehyde group on one end.it is naturally occurring in nature and is found in fruits.",
+      "solution": ""
+    },
+    {
+      "n": 19,
+      "question_id": 59980,
+      "question_text": "Nature of binding forces present in carbon dioxide molecules in solid-state are",
+      "question_html": "<p>Nature of binding forces present in carbon dioxide molecules in solid-state are</p>",
+      "options": [
+        {
+          "id": 195106,
+          "text": "London forces",
+          "html": "London forces",
+          "is_correct": true
+        },
+        {
+          "id": 195107,
+          "text": "Metallic forces",
+          "html": "Metallic forces",
+          "is_correct": false
+        },
+        {
+          "id": 195109,
+          "text": "Hydrogen bonding",
+          "html": "Hydrogen bonding",
+          "is_correct": false
+        },
+        {
+          "id": 195108,
+          "text": "Electrostatic forces",
+          "html": "Electrostatic forces",
+          "is_correct": false
+        }
+      ],
+      "correct_option_text": "London forces",
+      "correct_option_ids": [
+        195106
+      ],
+      "explanation": "In carbon dioxide molecules in solids state, the atoms or molecules are held by weak dispersion forces or London forces. These solids are soft and non-conductors of electricity. They have low melting points and are usually in a liquid or gaseous state at room temperature and pressure.",
+      "solution": ""
+    },
+    {
+      "n": 20,
+      "question_id": 386913,
+      "question_text": "K H value for Ar(g), CO 2 (g), HCHO (g) and CH 4 (g) are 40.39, 1.67, 1.83 {tex}\\times{/tex} 10 -5 and 0.413 respectively. Arrange these gases in the order of their increasing solubility.",
+      "question_html": "<p>K<sub>H</sub> value for Ar(g), CO<sub>2</sub> (g), HCHO (g) and CH<sub>4</sub> (g) are 40.39, 1.67, 1.83&nbsp;<span class=\"math-tex\">{tex}\\times{/tex}</span>&nbsp;10<sup>-5</sup> and 0.413 respectively.<br />\nArrange these gases in the order of their increasing solubility.</p>",
+      "options": [
+        {
+          "id": 597494,
+          "text": "HCHO < CH 4 < CO 2 < Ar",
+          "html": "HCHO &lt; CH<sub>4</sub> &lt; CO<sub>2</sub> &lt; Ar",
+          "is_correct": false
+        },
+        {
+          "id": 597497,
+          "text": "Ar < CH 4 < CO 2 < HCHO",
+          "html": "Ar &lt; CH<sub>4</sub> &lt; CO<sub>2 </sub>&lt; HCHO",
+          "is_correct": false
+        },
+        {
+          "id": 597496,
+          "text": "Ar < CO 2 < CH 4 < HCHO",
+          "html": "Ar &lt; CO<sub>2</sub> &lt; CH<sub>4</sub> &lt; HCHO",
+          "is_correct": true
+        },
+        {
+          "id": 597495,
+          "text": "HCHO < CO 2 < CH 4 < Ar",
+          "html": "HCHO &lt; CO<sub>2 </sub>&lt; CH<sub>4 </sub>&lt; Ar",
+          "is_correct": false
+        }
+      ],
+      "correct_option_text": "Ar < CO 2 < CH 4 < HCHO",
+      "correct_option_ids": [
+        597496
+      ],
+      "explanation": "The higher the value of K H , the lower is the solubility of the gases in the liquid. Hence the order of increasing solubility of the gases will be very accordingly as Ar < CO 2 < CH 4 < HCHO.",
+      "solution": ""
+    },
+    {
+      "n": 21,
+      "question_id": 60325,
+      "question_text": "Ozone can be detected by using",
+      "question_html": "<p>Ozone can be detected by using</p>",
+      "options": [
+        {
+          "id": 196488,
+          "text": "Sodium",
+          "html": "Sodium",
+          "is_correct": false
+        },
+        {
+          "id": 196487,
+          "text": "Silver",
+          "html": "Silver",
+          "is_correct": false
+        },
+        {
+          "id": 196489,
+          "text": "Sulphur",
+          "html": "Sulphur",
+          "is_correct": false
+        },
+        {
+          "id": 196486,
+          "text": "Mercury",
+          "html": "Mercury",
+          "is_correct": true
+        }
+      ],
+      "correct_option_text": "Mercury",
+      "correct_option_ids": [
+        196486
+      ],
+      "explanation": "Ozone is detected by using Hg. When ozone is passed through mercury, it loses its meniscus and sticks to the glass due to the formation of the mercurous oxide. This is called the tailing of mercury. 2Hg(s) + O 3 (g) {tex}\\to{/tex} Hg 2 O (s)+ O 2 (g)",
+      "solution": ""
+    },
+    {
+      "n": 22,
+      "question_id": 60383,
+      "question_text": "Which of the following sulphides is soluble in aqua regia?",
+      "question_html": "<p>Which of the following sulphides is soluble in aqua regia?</p>",
+      "options": [
+        {
+          "id": 196720,
+          "text": "CdS",
+          "html": "CdS",
+          "is_correct": false
+        },
+        {
+          "id": 196718,
+          "text": "HgS",
+          "html": "HgS",
+          "is_correct": true
+        },
+        {
+          "id": 196719,
+          "text": "ZnS",
+          "html": "ZnS",
+          "is_correct": false
+        },
+        {
+          "id": 196721,
+          "text": "HgS , ZnS",
+          "html": "HgS , ZnS",
+          "is_correct": false
+        }
+      ],
+      "correct_option_text": "HgS",
+      "correct_option_ids": [
+        196718
+      ],
+      "explanation": "HgS is only soluble in aqua regia. Aqua regia is a mixture of concentrated HCl and concentrated HNO 3 in ratio 3:1. The solubilization turns Hg in HgCl 4 2- , a complex called chloromercurate which is stable in water. 3HgS + 2NO 3 - + 12Cl - + 8H 3 O + {tex}\\Leftrightarrow{/tex} 3HgCl 4 2- + 2NO + 12H 2 O + 3S",
+      "solution": ""
+    },
+    {
+      "n": 23,
+      "question_id": 60583,
+      "question_text": "An organic compound containing oxygen, upon oxidation forms a carboxylic acid as the only organic product with its molecular mass higher by 14 units. The organic compound is ________.",
+      "question_html": "<p>An organic compound containing oxygen, upon oxidation forms a carboxylic acid as the only organic product with its molecular mass higher by 14 units. The organic compound is ________.</p>",
+      "options": [
+        {
+          "id": 197519,
+          "text": "an aldehyde",
+          "html": "an aldehyde",
+          "is_correct": false
+        },
+        {
+          "id": 197518,
+          "text": "a primary alcohol",
+          "html": "a primary alcohol",
+          "is_correct": true
+        },
+        {
+          "id": 197520,
+          "text": "a ketone",
+          "html": "a ketone",
+          "is_correct": false
+        },
+        {
+          "id": 197521,
+          "text": "a secondary alcohol",
+          "html": "a secondary alcohol",
+          "is_correct": false
+        }
+      ],
+      "correct_option_text": "a primary alcohol",
+      "correct_option_ids": [
+        197518
+      ],
+      "explanation": "When &ndash;CH 2 OH group is replaced by &ndash;COOH group then only molecular weight will increase by 14units.",
+      "solution": ""
+    },
+    {
+      "n": 24,
+      "question_id": 66113,
+      "question_text": "Hydrolysis of proteins in the presence of enzymes produces:",
+      "question_html": "<p>Hydrolysis of proteins in the presence of enzymes produces:</p>",
+      "options": [
+        {
+          "id": 208667,
+          "text": "Aromatic acids",
+          "html": "Aromatic acids",
+          "is_correct": false
+        },
+        {
+          "id": 208665,
+          "text": "Hydroxy acids",
+          "html": "Hydroxy acids",
+          "is_correct": false
+        },
+        {
+          "id": 208664,
+          "text": "Amino acids",
+          "html": "Amino acids",
+          "is_correct": true
+        },
+        {
+          "id": 208666,
+          "text": "Dicarboxylic acids",
+          "html": "Dicarboxylic acids",
+          "is_correct": false
+        }
+      ],
+      "correct_option_text": "Amino acids",
+      "correct_option_ids": [
+        208664
+      ],
+      "explanation": "Only &alpha;-amino acids are obtained on hydrolysis of proteins.",
+      "solution": ""
+    },
+    {
+      "n": 25,
+      "question_id": 65144,
+      "question_text": "Which of the following hydrides is the strongest reducing agent?",
+      "question_html": "<p>Which of the following hydrides is the strongest reducing agent?</p>",
+      "options": [
+        {
+          "id": 208400,
+          "text": "BiH 3",
+          "html": "BiH<sub>3</sub>",
+          "is_correct": true
+        },
+        {
+          "id": 208401,
+          "text": "NH 3",
+          "html": "NH<sub>3</sub>",
+          "is_correct": false
+        },
+        {
+          "id": 208402,
+          "text": "AsH 3",
+          "html": "AsH<sub>3</sub>",
+          "is_correct": false
+        },
+        {
+          "id": 208403,
+          "text": "PH 3",
+          "html": "PH<sub>3</sub>",
+          "is_correct": false
+        }
+      ],
+      "correct_option_text": "BiH 3",
+      "correct_option_ids": [
+        208400
+      ],
+      "explanation": "The reducing character of the hydrides of Group 15 elements increases from NH 3 to BiH 3 (Bismuthine) because the reducing character depends upon the stability of the hydride. The greater the instability of hydride, the greater is its reducing character. Since the BiH 3 is least stable (because the size of a central atom is greatest and therefore its tendency to form stable covalent bond with small hydrogen atom decreases, as a result, the bond strength decreases) in this series, BiH 3 is a strongest reducing agent.",
+      "solution": ""
+    },
+    {
+      "n": 26,
+      "question_id": 334863,
+      "question_text": "Which of the following arrangements shows schematic alignment of magnetic moments of antiferromagnetic substances?",
+      "question_html": "<p>Which of the following arrangements shows schematic alignment of magnetic moments of antiferromagnetic substances?</p>",
+      "options": [
+        {
+          "id": 505831,
+          "text": "",
+          "html": "<img alt=\"\" data-imgur-src=\"qWbwqBy.png\" src=\"https://media-mycbseguide.s3.amazonaws.com/images/imgur/qWbwqBy.png\" style=\"width: 238px; height: 43px;\" />",
+          "is_correct": true
+        },
+        {
+          "id": 505832,
+          "text": "",
+          "html": "<img alt=\"\" data-imgur-src=\"tKCxMdd.png\" src=\"https://media-mycbseguide.s3.amazonaws.com/images/imgur/tKCxMdd.png\" style=\"width: 234px; height: 43px;\" />",
+          "is_correct": false
+        },
+        {
+          "id": 505834,
+          "text": "",
+          "html": "<img alt=\"\" data-imgur-src=\"TEi5Pkd.png\" src=\"https://media-mycbseguide.s3.amazonaws.com/images/imgur/TEi5Pkd.png\" style=\"width: 237px; height: 44px;\" />",
+          "is_correct": false
+        },
+        {
+          "id": 505833,
+          "text": "",
+          "html": "<img alt=\"\" data-imgur-src=\"unoKm3O.png\" src=\"https://media-mycbseguide.s3.amazonaws.com/images/imgur/unoKm3O.png\" style=\"width: 236px; height: 46px;\" />",
+          "is_correct": false
+        }
+      ],
+      "correct_option_text": "",
+      "correct_option_ids": [
+        505831
+      ],
+      "explanation": "Antiferromagnetism in the case where the magnetic moment of the atoms or molecules occur in accordance with spins of their electrons (usually in low temperatures) align themselves with a regular pattern with the neighboring spins oriented in opposite directions canceling each other&rsquo;s magnetic moments substance like MnO.",
+      "solution": ""
+    },
+    {
+      "n": 27,
+      "question_id": 351943,
+      "question_text": "Two beakers of capacity 500 mL were taken. One of these beakers, labelled as “A”, was filled with 400 mL water whereas the beaker labelled “B” was filled with 400 mL of 2 M solution of NaCl. At the same temperature, both the beakers were placed in closed containers of the same material and same capacity as shown in Fig. At a given temperature, which of the following statement is correct about the vapour pressure of pure water and that of NaCl solution.",
+      "question_html": "<html><body><p>Two beakers of capacity 500 mL were taken. One of these beakers, labelled as “A”, was filled with 400 mL water whereas the beaker labelled “B” was filled with 400 mL of 2 M solution of NaCl. At the same temperature, both the beakers were placed in closed containers of the same material and same capacity as shown in Fig.<br/>\nAt a given temperature, which of the following statement is correct about the vapour pressure of pure water and that of NaCl solution.<br/>\n<img alt=\"\" data-imgur-src=\"NyyHIYX.png\" src=\"https://media-mycbseguide.s3.amazonaws.com/images/imgur/NyyHIYX.png\" style=\"width: 200px; height: 83px;\"/></p></body></html>",
+      "options": [
+        {
+          "id": 543974,
+          "text": "the vapour pressure in container (A) is more than that in a container (B).",
+          "html": "the vapour pressure in container (A) is more than that in a container (B).",
+          "is_correct": true
+        },
+        {
+          "id": 543977,
+          "text": "the vapour pressure in container (B) is twice the vapour pressure in container (A).",
+          "html": "the vapour pressure in container (B) is twice the vapour pressure in container (A).",
+          "is_correct": false
+        },
+        {
+          "id": 543975,
+          "text": "the vapour pressure in container (A) is less than that in the container (B).",
+          "html": "the vapour pressure in container (A) is less than that in the container (B).",
+          "is_correct": false
+        },
+        {
+          "id": 543976,
+          "text": "the vapour pressure is equal in both the containers.",
+          "html": "the vapour pressure is equal in both the containers.",
+          "is_correct": false
+        }
+      ],
+      "correct_option_text": "the vapour pressure in container (A) is more than that in a container (B).",
+      "correct_option_ids": [
+        543974
+      ],
+      "explanation": "since NaCl is a non-volatile solute, it will reduce the vapour pressure of the solution in the container B. Hence, the vapour pressure of pure water in container A is more than in container B.",
+      "solution": ""
+    },
+    {
+      "n": 28,
+      "question_id": 60866,
+      "question_text": "Complete hydrolysis of RNA yields",
+      "question_html": "<p>Complete hydrolysis of RNA yields</p>",
+      "options": [
+        {
+          "id": 198652,
+          "text": "nitrogen containing base",
+          "html": "nitrogen containing base",
+          "is_correct": false
+        },
+        {
+          "id": 198650,
+          "text": "a pentose sugar",
+          "html": "a pentose sugar",
+          "is_correct": false
+        },
+        {
+          "id": 198649,
+          "text": "All of these",
+          "html": "All of these",
+          "is_correct": true
+        },
+        {
+          "id": 198651,
+          "text": "phosphoric acid",
+          "html": "phosphoric acid",
+          "is_correct": false
+        }
+      ],
+      "correct_option_text": "All of these",
+      "correct_option_ids": [
+        198649
+      ],
+      "explanation": "Complete hydrolysis of RNA yields a pentose sugar, phosphoric acid and nitrogen containing heterocyclic compounds (called bases). In RNA molecule, the sugar moiety is &beta;-D-ribose.",
+      "solution": ""
+    },
+    {
+      "n": 29,
+      "question_id": 337369,
+      "question_text": "On addition of conc. H 2 SO 4 to a chloride salt, colourless fumes are evolved but in case of iodide salt, violet fumes come out. This is because:",
+      "question_html": "<p>On addition of conc. H<sub>2</sub>SO<sub>4</sub> to a chloride salt, colourless fumes are evolved but in case of iodide salt, violet fumes come out. This is because:</p>",
+      "options": [
+        {
+          "id": 511788,
+          "text": "HI changes to HIO 3",
+          "html": "HI changes to HIO<sub>3</sub>",
+          "is_correct": false
+        },
+        {
+          "id": 511787,
+          "text": "HI gets oxidized to I 2",
+          "html": "HI gets oxidized to I<sub>2</sub>",
+          "is_correct": true
+        },
+        {
+          "id": 511786,
+          "text": "HI is of violet colour",
+          "html": "HI is of violet colour",
+          "is_correct": false
+        },
+        {
+          "id": 511785,
+          "text": "H 2 SO 4 reduces HI to I 2",
+          "html": "H<sub>2</sub>SO<sub>4</sub> reduces HI to I<sub>2</sub>",
+          "is_correct": false
+        }
+      ],
+      "correct_option_text": "HI gets oxidized to I 2",
+      "correct_option_ids": [
+        511787
+      ],
+      "explanation": "HI formed during the reaction is oxidized to I 2 which is violet in colour. 2NaCl + H 2 SO 4 {tex}\\longrightarrow{/tex} Na 2 SO 4 + 2HCl In the case of iodine, the halogen acid obtained (HI) is oxidized to free iodine and HI reduce H ​​​​​​2 SO 4 ​​ to SO ​​​​2 . 2NaI + H 2 SO 4 {tex}\\longrightarrow{/tex} Na 2 SO 4 + 2HI {tex}\\xrightarrow{{{H_2}S{O_4}}}{/tex} 2H 2 O + SO 2 + I 2",
+      "solution": ""
+    },
+    {
+      "n": 30,
+      "question_id": 337384,
+      "question_text": "Strong reducing behaviour of H 3 PO 2 is due to:",
+      "question_html": "<p>Strong reducing behaviour of H<sub>3</sub>PO<sub>2</sub> is due to:</p>",
+      "options": [
+        {
+          "id": 511828,
+          "text": "Presence of two &ndash;OH groups and one P&ndash;H bond.",
+          "html": "Presence of two &ndash;OH groups and one P&ndash;H bond.",
+          "is_correct": false
+        },
+        {
+          "id": 511827,
+          "text": "The low oxidation state of phosphorus.",
+          "html": "The low oxidation state of phosphorus.",
+          "is_correct": false
+        },
+        {
+          "id": 511830,
+          "text": "High electron gain enthalpy of phosphorus.",
+          "html": "High electron gain enthalpy of phosphorus.",
+          "is_correct": false
+        },
+        {
+          "id": 511829,
+          "text": "Presence of one &ndash;OH group and two P&ndash;H bonds.",
+          "html": "Presence of one &ndash;OH group and two P&ndash;H bonds.",
+          "is_correct": true
+        }
+      ],
+      "correct_option_text": "Presence of one &ndash;OH group and two P&ndash;H bonds.",
+      "correct_option_ids": [
+        511829
+      ],
+      "explanation": "H 3 PO 2 is a monobasic acid. It acts as a reducing agent as it has two P-H bonds as it has a high tendency to release proton.",
+      "solution": ""
+    },
+    {
+      "n": 31,
+      "question_id": 60319,
+      "question_text": "Which of the following turns lead acetate paper black?",
+      "question_html": "<p>Which of the following turns lead acetate paper black?</p>",
+      "options": [
+        {
+          "id": 196462,
+          "text": "H 2 S",
+          "html": "H<sub>2</sub>S",
+          "is_correct": true
+        },
+        {
+          "id": 196463,
+          "text": "H 2 SO 4",
+          "html": "H<sub>2</sub>SO<sub>4</sub>",
+          "is_correct": false
+        },
+        {
+          "id": 196465,
+          "text": "SO 2",
+          "html": "SO<sub>2</sub>",
+          "is_correct": false
+        },
+        {
+          "id": 196464,
+          "text": "SO 3",
+          "html": "SO<sub>3</sub>",
+          "is_correct": false
+        }
+      ],
+      "correct_option_text": "H 2 S",
+      "correct_option_ids": [
+        196462
+      ],
+      "explanation": "Pb 2+ + S 2- {tex}\\to{/tex} PbS(black) (CH 3 COO) 2 Pb + H 2 S {tex}\\to{/tex} PbS + 2CH 3 COOH",
+      "solution": ""
+    },
+    {
+      "n": 32,
+      "question_id": 60850,
+      "question_text": "Building unit of a protein is",
+      "question_html": "<p>Building unit of a protein is</p>",
+      "options": [
+        {
+          "id": 198587,
+          "text": "&gamma;&ndash; Aminoacid",
+          "html": "&gamma;&ndash; Aminoacid",
+          "is_correct": false
+        },
+        {
+          "id": 198586,
+          "text": "&beta; &ndash; Aminoacid",
+          "html": "&beta; &ndash; Aminoacid",
+          "is_correct": false
+        },
+        {
+          "id": 198588,
+          "text": "&lambda; &ndash; Aminoacid",
+          "html": "&lambda; &ndash; Aminoacid",
+          "is_correct": false
+        },
+        {
+          "id": 198585,
+          "text": "&alpha;&ndash; Aminoacid",
+          "html": "&alpha;&ndash; Aminoacid",
+          "is_correct": true
+        }
+      ],
+      "correct_option_text": "&alpha;&ndash; Aminoacid",
+      "correct_option_ids": [
+        198585
+      ],
+      "explanation": "Proteins are the polymers of &alpha;-amino acids. So building unit of a protein is &alpha; &ndash; Aminoacid.",
+      "solution": ""
+    },
+    {
+      "n": 33,
+      "question_id": 60571,
+      "question_text": "Benzaldehyde differs from acetaldehyde in that:",
+      "question_html": "<p>Benzaldehyde differs from acetaldehyde in that:</p>\r\n",
+      "options": [
+        {
+          "id": 197472,
+          "text": "Benzaldehyde does not react with HCN.",
+          "html": "Benzaldehyde does not react with HCN.",
+          "is_correct": false
+        },
+        {
+          "id": 197470,
+          "text": "Benzaldehyde does not react with Fehling&#39;s solution.",
+          "html": "Benzaldehyde does not react with Fehling&#39;s solution.",
+          "is_correct": true
+        },
+        {
+          "id": 197473,
+          "text": "Benzaldehyde does not react with NaHSO 3 .",
+          "html": "Benzaldehyde does not react with NaHSO<sub>3</sub>.",
+          "is_correct": false
+        },
+        {
+          "id": 197471,
+          "text": "Benzaldehyde does not react with Tollens reagent.",
+          "html": "Benzaldehyde does not react with Tollens reagent.",
+          "is_correct": false
+        }
+      ],
+      "correct_option_text": "Benzaldehyde does not react with Fehling&#39;s solution.",
+      "correct_option_ids": [
+        197470
+      ],
+      "explanation": "Fehling&#39;s Solution Test: When acetaldehyde is heated with a Fehling solution, the red ppt. of cuprous oxide is formed. But benzaldehyde does not give red ppt. with Fehling solution. Reaction is as follows: CH 3 CHO + 2Cu 2+ + 5OH - {tex}\\to {/tex} CH 3 COO - + Cu 2 O + 3H 2 O C 6 H 5 CHO + 2Cu 2+ + 5OH - {tex}\\to {/tex} No red ppt.",
+      "solution": ""
+    },
+    {
+      "n": 34,
+      "question_id": 258971,
+      "question_text": "The most likely an ideal solution is:",
+      "question_html": "<p>The most likely an ideal solution is:</p>",
+      "options": [
+        {
+          "id": 375797,
+          "text": "C 7 H 16 &mdash; C 8 H 18",
+          "html": "C<sub>7</sub>H<sub>16</sub> &mdash; C<sub>8</sub>H<sub>18</sub>",
+          "is_correct": true
+        },
+        {
+          "id": 375796,
+          "text": "C 7 H 16 &mdash; H 2 O",
+          "html": "C<sub>7</sub>H<sub>16</sub> &mdash; H<sub>2</sub>O",
+          "is_correct": false
+        },
+        {
+          "id": 375795,
+          "text": "C 2 H 5 OH &mdash; C 6 H 6",
+          "html": "C<sub>2</sub>H<sub>5</sub>OH &mdash; C<sub>6</sub>H<sub>6</sub>",
+          "is_correct": false
+        },
+        {
+          "id": 375794,
+          "text": "NaCl &mdash; H 2 O",
+          "html": "NaCl &mdash; H<sub>2</sub>O",
+          "is_correct": false
+        }
+      ],
+      "correct_option_text": "C 7 H 16 &mdash; C 8 H 18",
+      "correct_option_ids": [
+        375797
+      ],
+      "explanation": "C 7 H 16 &mdash; C 8 H 18",
+      "solution": ""
+    },
+    {
+      "n": 35,
+      "question_id": 344169,
+      "question_text": "Which of the following acids forms three series of salts?",
+      "question_html": "<p>Which of the following acids forms three series of salts?</p>",
+      "options": [
+        {
+          "id": 525308,
+          "text": "H 3 BO 3",
+          "html": "H<sub>3</sub>BO<sub>3</sub>",
+          "is_correct": false
+        },
+        {
+          "id": 525309,
+          "text": "H 3 PO 4",
+          "html": "H<sub>3</sub>PO<sub>4</sub>",
+          "is_correct": true
+        },
+        {
+          "id": 525310,
+          "text": "H 3 PO 3",
+          "html": "H<sub>3</sub>PO<sub>3</sub>",
+          "is_correct": false
+        },
+        {
+          "id": 525307,
+          "text": "H 3 PO 2",
+          "html": "H<sub>3</sub>PO<sub>2</sub>",
+          "is_correct": false
+        }
+      ],
+      "correct_option_text": "H 3 PO 4",
+      "correct_option_ids": [
+        525309
+      ],
+      "explanation": "Structure of H 3 PO 4 is: Phosphoric acid H 3 PO 4 has 3-OH groups i.e., has three ionizable H-atoms and hence forms three series of salts. These three possible series of salts of H 3 PO 4 are as follows. NaH 2 PO 4 , NaHPO 4 , and Na 3 PO 4 .",
+      "solution": ""
+    },
+    {
+      "n": 36,
+      "question_id": 60354,
+      "question_text": "Fluorine reacts with conc. NaOH to produce:",
+      "question_html": "<p>Fluorine reacts with conc. NaOH to produce:</p>",
+      "options": [
+        {
+          "id": 196603,
+          "text": "NaF and O 2",
+          "html": "NaF and O<sub>2</sub>",
+          "is_correct": false
+        },
+        {
+          "id": 196604,
+          "text": "NaF and O 2 F",
+          "html": "NaF and O<sub>2</sub>F",
+          "is_correct": false
+        },
+        {
+          "id": 196602,
+          "text": "NaF and OF 2",
+          "html": "NaF and OF<sub>2</sub>",
+          "is_correct": true
+        },
+        {
+          "id": 196605,
+          "text": "NaF and O 3",
+          "html": "NaF and O<sub>3</sub>",
+          "is_correct": false
+        }
+      ],
+      "correct_option_text": "NaF and OF 2",
+      "correct_option_ids": [
+        196602
+      ],
+      "explanation": "{tex}2 \\mathrm{~F}_2+\\underset{\\text { Cold, dilute }}{2 \\mathrm{NaOH}} \\rightarrow \\mathrm{OF}_2+2 \\mathrm{NaF}+\\mathrm{H}_2 \\mathrm{O}{/tex} However with conc. {tex}{NaOH}, {O}_2{/tex} is formed {tex} 2 {~F}_2+4 \\underset{\\text { conc. }}{4 {NaOH}} \\rightarrow 4 {NaF}+2 {H}_2 {O}+{O}_2{/tex}",
+      "solution": ""
+    },
+    {
+      "n": 37,
+      "question_id": 334146,
+      "question_text": "The edge lengths of the unit cells in terms of the radius of spheres constituting face centered cubic, body-centered cubic, and simple cubic unit cell are respectively ________.",
+      "question_html": "<p>The edge lengths of the unit cells in terms of the radius of spheres constituting face centered cubic, body-centered cubic, and simple cubic unit cell are respectively ________.</p>",
+      "options": [
+        {
+          "id": 503924,
+          "text": "{tex}\\frac{4 r}{\\sqrt{3}}, 2 \\sqrt{2} r, 2 r{/tex}",
+          "html": "<span class=\"math-tex\">{tex}\\frac{4 r}{\\sqrt{3}}, 2 \\sqrt{2} r, 2 r{/tex}</span>",
+          "is_correct": false
+        },
+        {
+          "id": 503926,
+          "text": "{tex}2 r, \\frac{4 r}{\\sqrt{3}}, 2 \\sqrt{2} r{/tex}",
+          "html": "<span class=\"math-tex\">{tex}2 r, \\frac{4 r}{\\sqrt{3}}, 2 \\sqrt{2} r{/tex}</span>",
+          "is_correct": false
+        },
+        {
+          "id": 503925,
+          "text": "{tex}2 r, 2 \\sqrt{2} r, \\frac{4 r}{\\sqrt{3}}{/tex}",
+          "html": "<span class=\"math-tex\">{tex}2 r, 2 \\sqrt{2} r, \\frac{4 r}{\\sqrt{3}}{/tex}</span>",
+          "is_correct": false
+        },
+        {
+          "id": 503923,
+          "text": "{tex}2 \\sqrt{2} r, \\frac{4 r}{\\sqrt{3}}, 2 r{/tex}",
+          "html": "<span class=\"math-tex\">{tex}2 \\sqrt{2} r, \\frac{4 r}{\\sqrt{3}}, 2 r{/tex}</span>",
+          "is_correct": true
+        }
+      ],
+      "correct_option_text": "{tex}2 \\sqrt{2} r, \\frac{4 r}{\\sqrt{3}}, 2 r{/tex}",
+      "correct_option_ids": [
+        503923
+      ],
+      "explanation": "Edge length for different types of unit cells can be tabulated as: Types of Unit Cell Edge Length fcc {tex}2 \\sqrt{2 r}{/tex} bcc {tex}\\frac{4 r}{\\sqrt{3}}{/tex} where r is the radius of the sphere scc 2r",
+      "solution": ""
+    },
+    {
+      "n": 38,
+      "question_id": 60592,
+      "question_text": "Alkenes react with water in the presence of acid as catalyst to form alcohols.",
+      "question_html": "<p>Alkenes react with water in the presence of acid as catalyst to form alcohols.</p>",
+      "options": [
+        {
+          "id": 197555,
+          "text": "Protonation of alkene and carbocation",
+          "html": "Protonation of alkene and carbocation",
+          "is_correct": false
+        },
+        {
+          "id": 197557,
+          "text": "Deprotonation to form alcohol",
+          "html": "Deprotonation to form alcohol",
+          "is_correct": false
+        },
+        {
+          "id": 197554,
+          "text": "All of these",
+          "html": "All of these",
+          "is_correct": true
+        },
+        {
+          "id": 197556,
+          "text": "nucleophilic attack of water on carbocation",
+          "html": "nucleophilic attack of water on carbocation",
+          "is_correct": false
+        }
+      ],
+      "correct_option_text": "All of these",
+      "correct_option_ids": [
+        197554
+      ],
+      "explanation": "The addition of water to an alkene in the presence of a catalytic amount of strong acid leads to the formation of alcohols (hydroxy‐alkanes). {tex}C{H_2} = C{H_2} + {H_2}O\\xrightarrow{{{H^ + }}}C{H_3}C{H_2}OH{/tex} This reaction proceeds via a standard carbocation mechanism and follows the Markovnikov rule. The mechanism for the addition of water to ethene follows. The hydrogen ion is attracted to the {tex}\\pi{/tex} bond, which breaks to form a σ bond with one of the double-bonded carbons. The second carbon of the original double‐bonded carbons becomes a carbocation. An acid‐base reaction occurs between the water molecule and the carbocation, forming an oxonium ion. The oxonium ion stabilizes by losing a hydrogen ion, with the resulting formation of an alcohol.",
+      "solution": ""
+    },
+    {
+      "n": 39,
+      "question_id": 59983,
+      "question_text": "An atom located at the body center of a cubic unit cell is shared by",
+      "question_html": "<p>An atom located at the body center of a cubic unit cell is shared by</p>",
+      "options": [
+        {
+          "id": 195119,
+          "text": "8 unit cells",
+          "html": "8&nbsp;unit cells",
+          "is_correct": false
+        },
+        {
+          "id": 195121,
+          "text": "2 unit cells",
+          "html": "2&nbsp;unit cells",
+          "is_correct": false
+        },
+        {
+          "id": 195120,
+          "text": "4 unit cells",
+          "html": "4&nbsp;unit cells",
+          "is_correct": false
+        },
+        {
+          "id": 195118,
+          "text": "1 unit cell",
+          "html": "1 unit cell",
+          "is_correct": true
+        }
+      ],
+      "correct_option_text": "1 unit cell",
+      "correct_option_ids": [
+        195118
+      ],
+      "explanation": "In body centered cubic cell, an atom at the body-centre is shared by 1 unit cell. Thus, this atom contributes one atom to the unit cell.",
+      "solution": ""
+    },
+    {
+      "n": 40,
+      "question_id": 60060,
+      "question_text": "A solute is soluble in two immiscible liquids which are present in a mixture. The concentration of the solute in the upper layer will be",
+      "question_html": "<p>A solute is soluble in two immiscible liquids which are present in a mixture. The concentration of the solute in the upper layer will be</p>",
+      "options": [
+        {
+          "id": 195426,
+          "text": "In fixed ratio with that in the lower layer",
+          "html": "In fixed ratio with that in the lower layer",
+          "is_correct": true
+        },
+        {
+          "id": 195427,
+          "text": "Same as that in the lower layer",
+          "html": "Same as that in the lower layer",
+          "is_correct": false
+        },
+        {
+          "id": 195428,
+          "text": "Less than that in the lower layer",
+          "html": "Less than that in the lower layer",
+          "is_correct": false
+        },
+        {
+          "id": 195429,
+          "text": "More than that in the lower layer",
+          "html": "More than that in the lower layer",
+          "is_correct": false
+        }
+      ],
+      "correct_option_text": "In fixed ratio with that in the lower layer",
+      "correct_option_ids": [
+        195426
+      ],
+      "explanation": "A solute distributes itself between two immiscible liquids. Ratio of conc. of solute in liquid1 and liquid 2 is constant.",
+      "solution": ""
+    },
+    {
+      "n": 41,
+      "question_id": 337379,
+      "question_text": "Affinity for hydrogen decreases in the group from fluorine to iodine. Which of the halogen acids should have highest bond dissociation enthalpy?",
+      "question_html": "<p>Affinity for hydrogen decreases in the group from fluorine to iodine. Which of the halogen acids should have highest bond dissociation enthalpy?</p>",
+      "options": [
+        {
+          "id": 511815,
+          "text": "HBr",
+          "html": "HBr",
+          "is_correct": false
+        },
+        {
+          "id": 511814,
+          "text": "HCl",
+          "html": "HCl",
+          "is_correct": false
+        },
+        {
+          "id": 511816,
+          "text": "HI",
+          "html": "HI",
+          "is_correct": false
+        },
+        {
+          "id": 511813,
+          "text": "HF",
+          "html": "HF",
+          "is_correct": true
+        }
+      ],
+      "correct_option_text": "HF",
+      "correct_option_ids": [
+        511813
+      ],
+      "explanation": "As the size of the halogen atom increases the bond length between halogen and hydrogen decreases. Hence, bond dissociation enthalpy increase. Therefore, HF has the highest bond dissociation enthalpy.",
+      "solution": ""
+    },
+    {
+      "n": 42,
+      "question_id": 218932,
+      "question_text": "Propan-1-ol can be prepared by reaction of propene with",
+      "question_html": "<p>Propan-1-ol can be prepared by reaction of propene with</p>",
+      "options": [
+        {
+          "id": 334040,
+          "text": "H 2 SO 4 /H 2 O",
+          "html": "H<sub>2</sub>SO<sub>4</sub>/H<sub>2</sub>O",
+          "is_correct": false
+        },
+        {
+          "id": 334041,
+          "text": "{tex}CH3-\\overset{\\overset O{\\vert\\vert}}C-O-O-H{/tex}",
+          "html": "<span class=\"math-tex\">{tex}CH3-\\overset{\\overset O{\\vert\\vert}}C-O-O-H{/tex}</span>",
+          "is_correct": false
+        },
+        {
+          "id": 334038,
+          "text": "H 3 BO 3",
+          "html": "H<sub>3</sub>BO<sub>3</sub>",
+          "is_correct": false
+        },
+        {
+          "id": 334039,
+          "text": "B 2 H 6 /NaOH, H 2 O 2",
+          "html": "B<sub>2</sub>H<sub>6</sub>/NaOH, H<sub>2</sub>O<sub>2</sub>",
+          "is_correct": true
+        }
+      ],
+      "correct_option_text": "B 2 H 6 /NaOH, H 2 O 2",
+      "correct_option_ids": [
+        334039
+      ],
+      "explanation": "B 2 H 6 /NaOH, H 2 O 2",
+      "solution": ""
+    },
+    {
+      "n": 43,
+      "question_id": 60312,
+      "question_text": "The thermal stability of hydrides of group 16 elements decreases in the order:",
+      "question_html": "<p>The thermal stability of hydrides of group 16 elements decreases in the order:</p>",
+      "options": [
+        {
+          "id": 196434,
+          "text": "H 2 O, H 2 S, H 2 Se, H 2 Te",
+          "html": "H<sub>2</sub>O, H<sub>2</sub>S, H<sub>2</sub>Se, H<sub>2</sub>Te",
+          "is_correct": true
+        },
+        {
+          "id": 196436,
+          "text": "H 2 S, H 2 O H 2 Se, H 2 Te",
+          "html": "H<sub>2</sub>S, H<sub>2</sub>O H<sub>2</sub>Se, H<sub>2</sub>Te",
+          "is_correct": false
+        },
+        {
+          "id": 196437,
+          "text": "H 2 O, H 2 S, H 2 Te, H 2 Se",
+          "html": "H<sub>2</sub>O, H<sub>2</sub>S, H<sub>2</sub>Te, H<sub>2</sub>Se",
+          "is_correct": false
+        },
+        {
+          "id": 196435,
+          "text": "H 2 S, H 2 Se, H 2 Te,H 2 O",
+          "html": "H<sub>2</sub>S, H<sub>2</sub>Se, H<sub>2</sub>Te,H<sub>2</sub>O",
+          "is_correct": false
+        }
+      ],
+      "correct_option_text": "H 2 O, H 2 S, H 2 Se, H 2 Te",
+      "correct_option_ids": [
+        196434
+      ],
+      "explanation": "As we move down the group bond length increases and bond enthalpy for the dissociation of H-E bond decreases. Due to a decrease in enthalpy, the thermal stability of hydrides decreases down the group.",
+      "solution": ""
+    },
+    {
+      "n": 44,
+      "question_id": 60880,
+      "question_text": "Fat soluble vitamins are stored in",
+      "question_html": "<p>Fat soluble vitamins are stored in</p>",
+      "options": [
+        {
+          "id": 198705,
+          "text": "Adipose and liver",
+          "html": "Adipose and liver",
+          "is_correct": true
+        },
+        {
+          "id": 198706,
+          "text": "Eyes",
+          "html": "Eyes",
+          "is_correct": false
+        },
+        {
+          "id": 198707,
+          "text": "Stomach",
+          "html": "Stomach",
+          "is_correct": false
+        },
+        {
+          "id": 198708,
+          "text": "Pancreas",
+          "html": "Pancreas",
+          "is_correct": false
+        }
+      ],
+      "correct_option_text": "Adipose and liver",
+      "correct_option_ids": [
+        198705
+      ],
+      "explanation": "Vitamins which are soluble in fat and oils but insoluble in water are fat soluble vitamins. These are vitamins A, D, E and K. They are stored in liver and adipose (fat storing) tissues.",
+      "solution": ""
+    },
+    {
+      "n": 45,
+      "question_id": 218884,
+      "question_text": "Assertion (A): Ozone is a powerful oxidising agent in comparison to O 2 . Reason (R): Ozone is diamagnetic but O 2 is paramagnetic.",
+      "question_html": "<p><strong>Assertion (A):</strong> Ozone is a powerful oxidising agent in comparison to O<sub>2</sub>.<br />\n<strong>Reason (R):</strong>&nbsp;Ozone is diamagnetic but O<sub>2</sub>&nbsp;is paramagnetic.</p>",
+      "options": [
+        {
+          "id": 334294,
+          "text": "Both A and R are true and R is the correct explanation of A.",
+          "html": "Both A and R are true and R is the correct explanation of A.",
+          "is_correct": false
+        },
+        {
+          "id": 334295,
+          "text": "Both A and R are true but R is not the correct explanation of A.",
+          "html": "Both A and R are true but R is not the correct explanation of A.",
+          "is_correct": true
+        },
+        {
+          "id": 334296,
+          "text": "A is true but R is false.",
+          "html": "A is true but R is false.",
+          "is_correct": false
+        },
+        {
+          "id": 334297,
+          "text": "A is false but R is true.",
+          "html": "A is false but R is true.",
+          "is_correct": false
+        }
+      ],
+      "correct_option_text": "Both A and R are true but R is not the correct explanation of A.",
+      "correct_option_ids": [
+        334295
+      ],
+      "explanation": "Both A and R are true but R is not the correct explanation of A.",
+      "solution": ""
+    },
+    {
+      "n": 46,
+      "question_id": 218916,
+      "question_text": "Assertion (A): Benzyl bromide when kept in acetone-water, it produces benzyl alcohol. Reason (R): The reaction follows S N 2 mechanism.",
+      "question_html": "<p><strong>Assertion (A): </strong>Benzyl bromide when kept in acetone-water, it produces benzyl alcohol.<br />\n<strong>Reason (R): </strong>The reaction follows S<sub>N</sub>2 mechanism.</p>",
+      "options": [
+        {
+          "id": 334412,
+          "text": "A is true but R is false.",
+          "html": "A is true but R is false.",
+          "is_correct": true
+        },
+        {
+          "id": 334411,
+          "text": "Both A and R are true but R is not the correct explanation of A.",
+          "html": "Both A and R are true but R is not the correct explanation of A.",
+          "is_correct": false
+        },
+        {
+          "id": 334413,
+          "text": "A is false but R is true.",
+          "html": "A is false but R is true.",
+          "is_correct": false
+        },
+        {
+          "id": 334410,
+          "text": "Both A and R are true and R is the correct explanation of A.",
+          "html": "Both A and R are true and R is the correct explanation of A.",
+          "is_correct": false
+        }
+      ],
+      "correct_option_text": "A is true but R is false.",
+      "correct_option_ids": [
+        334412
+      ],
+      "explanation": "A is true but R is false.",
+      "solution": ""
+    },
+    {
+      "n": 47,
+      "question_id": 352122,
+      "question_text": "Assertion (A): In the presence of an enzyme, the substrate molecule can be attacked by the reagent effectively. Reason (R): Active sites of enzymes hold the substrate molecule in a suitable position.",
+      "question_html": "<p><strong>Assertion (A):</strong> In the presence of an enzyme, the substrate molecule can be attacked by the reagent effectively.<br />\n<strong>Reason (R):</strong> Active sites of enzymes hold the substrate molecule in a suitable position.</p>",
+      "options": [
+        {
+          "id": 544297,
+          "text": "A is false but R is true.",
+          "html": "A is false but R is true.",
+          "is_correct": false
+        },
+        {
+          "id": 544295,
+          "text": "Both A and R are true but R is not the correct explanation of A.",
+          "html": "Both A and R are true but R is not the correct explanation of A.",
+          "is_correct": false
+        },
+        {
+          "id": 544294,
+          "text": "Both A and R are true and R is the correct explanation of A.",
+          "html": "Both A and R are true and R is the correct explanation of A.",
+          "is_correct": true
+        },
+        {
+          "id": 544296,
+          "text": "A is true but R is false.",
+          "html": "A is true but R is false.",
+          "is_correct": false
+        }
+      ],
+      "correct_option_text": "Both A and R are true and R is the correct explanation of A.",
+      "correct_option_ids": [
+        544294
+      ],
+      "explanation": "In the presence of enzyme-substrate molecules can be attacked by the reagent effectively because active sites of enzymes hold the substrate molecule in a suitable position.",
+      "solution": ""
+    },
+    {
+      "n": 48,
+      "question_id": 571927,
+      "question_text": "Assertion (A): Caro&#39;s acid has S atom in +6 oxidation state. Reason (R): Caro&#39;s acid contains one peroxo {tex}O_2^2-{/tex} group.",
+      "question_html": "<p><strong>Assertion (A):</strong> Caro&#39;s acid has S atom in +6 oxidation state.<br />\n<strong>Reason (R):</strong> Caro&#39;s acid contains one peroxo <span class=\"math-tex\">{tex}O_2^2-{/tex}</span> group.</p>",
+      "options": [
+        {
+          "id": 1094805,
+          "text": "A is false but R is true.",
+          "html": "A is false but R is true.",
+          "is_correct": false
+        },
+        {
+          "id": 1094803,
+          "text": "Both A and R are true but R is not the correct explanation of A.",
+          "html": "Both A and R are true but R is not the correct explanation of A.",
+          "is_correct": false
+        },
+        {
+          "id": 1094804,
+          "text": "A is true but R is false.",
+          "html": "A is true but R is false.",
+          "is_correct": false
+        },
+        {
+          "id": 1094802,
+          "text": "Both A and R are true and R is the correct explanation of A.",
+          "html": "Both A and R are true and R is the correct explanation of A.",
+          "is_correct": true
+        }
+      ],
+      "correct_option_text": "Both A and R are true and R is the correct explanation of A.",
+      "correct_option_ids": [
+        1094802
+      ],
+      "explanation": "This can be explained through structure of caro's acid (peroxomonosulphuric acid). Oxidation no. of S = x, oxidation no, of H = +1, Oxidation no. of O in peroxo linkage = -1 (each), Oxidation no. of other oxygen atoms = -2 (each). 2 + x - 6 - 2 = 0 or x = +6",
+      "solution": ""
+    },
+    {
+      "n": 49,
+      "question_id": 565494,
+      "question_text": "Assertion (A): Diamond is a precious stone. Reason (R): Carbon atoms are tetrahedrally arranged in diamonds.",
+      "question_html": "<p><strong>Assertion (A):</strong> Diamond is a precious stone.<br />\n<strong>Reason (R):</strong> Carbon atoms are tetrahedrally arranged in diamonds.</p>",
+      "options": [
+        {
+          "id": 1076548,
+          "text": "A is true but R is false.",
+          "html": "A is true but R is false.",
+          "is_correct": false
+        },
+        {
+          "id": 1076549,
+          "text": "A is false but R is true.",
+          "html": "A is false but R is true.",
+          "is_correct": false
+        },
+        {
+          "id": 1076546,
+          "text": "Both A and R are true and R is the correct explanation of A.",
+          "html": "Both A and R are true and R is the correct explanation of A.",
+          "is_correct": false
+        },
+        {
+          "id": 1076547,
+          "text": "Both A and R are true but R is not the correct explanation of A.",
+          "html": "Both A and R are true but R is not the correct explanation of A.",
+          "is_correct": true
+        }
+      ],
+      "correct_option_text": "Both A and R are true but R is not the correct explanation of A.",
+      "correct_option_ids": [
+        1076547
+      ],
+      "explanation": "It is true that in the diamond structure, carbon atoms are arranged in tetrahedrally (sp 3 hybridized) but it is not the correct explanation of assertion.",
+      "solution": ""
+    },
+    {
+      "n": 50,
+      "question_id": 60028,
+      "question_text": "For ideal solution the enthalpy of mixing of the pure components to form the solution is",
+      "question_html": "<p>For ideal solution the enthalpy of mixing of the pure components to form the solution is</p>",
+      "options": [
+        {
+          "id": 195301,
+          "text": "{tex}\\vartriangle {H_{mix}}\\; = {\\text{ }}1{/tex}",
+          "html": "<span class=\"math-tex\">{tex}\\vartriangle {H_{mix}}\\; = {\\text{ }}1{/tex}</span>",
+          "is_correct": false
+        },
+        {
+          "id": 195299,
+          "text": "{tex}\\vartriangle {H_{mix}}\\; = + ve\\;\\;{/tex}",
+          "html": "<span class=\"math-tex\">{tex}\\vartriangle {H_{mix}}\\; = + ve\\;\\;{/tex}</span>",
+          "is_correct": false
+        },
+        {
+          "id": 195298,
+          "text": "{tex}\\vartriangle {H_{mix}}\\; = {\\text{ }}0{/tex}",
+          "html": "<span class=\"math-tex\">{tex}\\vartriangle {H_{mix}}\\; = {\\text{ }}0{/tex}</span>",
+          "is_correct": true
+        },
+        {
+          "id": 195300,
+          "text": "{tex}\\vartriangle {H_{mix}}\\; = - ve\\;\\;\\;\\;{/tex}",
+          "html": "<span class=\"math-tex\">{tex}\\vartriangle {H_{mix}}\\; = - ve\\;\\;\\;\\;{/tex}</span>",
+          "is_correct": false
+        }
+      ],
+      "correct_option_text": "{tex}\\vartriangle {H_{mix}}\\; = {\\text{ }}0{/tex}",
+      "correct_option_ids": [
+        195298
+      ],
+      "explanation": "For ideal solution there is no evolution or absorption of heat on mixing.",
+      "solution": ""
+    },
+    {
+      "n": 51,
+      "question_id": 60525,
+      "question_text": "To prepare alkanes containing odd number of carbon atoms, Wurtz reaction is not preferred because:",
+      "question_html": "<p>To prepare alkanes containing odd number of carbon atoms, Wurtz reaction is not preferred because:</p>",
+      "options": [
+        {
+          "id": 197286,
+          "text": "a mixture of two different alkyl halides has to be used.",
+          "html": "a mixture of two different alkyl halides has to be used.",
+          "is_correct": true
+        },
+        {
+          "id": 197288,
+          "text": "a mixture of four different alkyl halides has to be used.",
+          "html": "a mixture of four different alkyl halides has to be used.",
+          "is_correct": false
+        },
+        {
+          "id": 197287,
+          "text": "a mixture of three different alkyl halides has to be used.",
+          "html": "a mixture of three different&nbsp;alkyl halides has to be used.",
+          "is_correct": false
+        },
+        {
+          "id": 197289,
+          "text": "a lot of reaction mixture goes wasted.",
+          "html": "a lot of reaction&nbsp;mixture goes wasted.",
+          "is_correct": false
+        }
+      ],
+      "correct_option_text": "a mixture of two different alkyl halides has to be used.",
+      "correct_option_ids": [
+        197286
+      ],
+      "explanation": "Alkyl halides on treatment with sodium metal in dry ethereal (free from moisture) solution give higher alkanes. This reaction is known as the Wurtz reaction and is used for the preparation of higher alkanes containing even a number of carbon atoms. Many side products are formed when two different alkyl halides are used. So this method is not preferred to prepare alkanes having an odd number of C atoms.",
+      "solution": ""
+    },
+    {
+      "n": 52,
+      "question_id": 65708,
+      "question_text": "Phenol on distillation with zinc dust gives",
+      "question_html": "<p>Phenol on distillation with zinc dust gives</p>",
+      "options": [
+        {
+          "id": 208564,
+          "text": "benzene",
+          "html": "benzene",
+          "is_correct": true
+        },
+        {
+          "id": 208565,
+          "text": "benzophenone",
+          "html": "benzophenone",
+          "is_correct": false
+        },
+        {
+          "id": 208566,
+          "text": "benzonic acid",
+          "html": "benzonic acid",
+          "is_correct": false
+        },
+        {
+          "id": 208567,
+          "text": "benzaldehyde",
+          "html": "benzaldehyde",
+          "is_correct": false
+        }
+      ],
+      "correct_option_text": "benzene",
+      "correct_option_ids": [
+        208564
+      ],
+      "explanation": "Phenol is reduced to benzene when it is distilled with zinc dust or its vapour is passed over granules of zinc at 400 o C.",
+      "solution": ""
+    },
+    {
+      "n": 53,
+      "question_id": 581455,
+      "question_text": "Instructions for Question 53 to 55: Consider the given sequence of reactions: When X reacts with CH 3 COCl in presence of anhy. AICl 3 , the reaction is known as:",
+      "question_html": "<b>Instructions for Question 53 to 55:</b><br><p>Consider the given sequence of reactions:<br />\r\n<img alt=\"\" data-imgur-src=\"fv4TTNA.png\" src=\"https://media-mycbseguide.s3.amazonaws.com/images/imgur/1631118086-rda435.jpg\" style=\"width: 300px; height: 47px;\" /></p><br><p>When X reacts with CH<sub>3</sub>COCl in presence of anhy. AICl<sub>3</sub>, the reaction is known as:</p>",
+      "options": [
+        {
+          "id": 1129744,
+          "text": "Friedel-Crafts acylation reaction",
+          "html": "Friedel-Crafts acylation reaction",
+          "is_correct": true
+        },
+        {
+          "id": 1129741,
+          "text": "Fittig reaction",
+          "html": "Fittig reaction",
+          "is_correct": false
+        },
+        {
+          "id": 1129743,
+          "text": "Wurtz-Fittig reaction",
+          "html": "Wurtz-Fittig reaction",
+          "is_correct": false
+        },
+        {
+          "id": 1129742,
+          "text": "Ullmann reaction",
+          "html": "Ullmann reaction",
+          "is_correct": false
+        }
+      ],
+      "correct_option_text": "Friedel-Crafts acylation reaction",
+      "correct_option_ids": [
+        1129744
+      ],
+      "explanation": "Friedel-Crafts acylation reaction",
+      "solution": ""
+    },
+    {
+      "n": 54,
+      "question_id": 581456,
+      "question_text": "Instructions for Question 53 to 55: Consider the given sequence of reactions: Compound Z is:",
+      "question_html": "<b>Instructions for Question 53 to 55:</b><br><p>Consider the given sequence of reactions:<br />\r\n<img alt=\"\" data-imgur-src=\"fv4TTNA.png\" src=\"https://media-mycbseguide.s3.amazonaws.com/images/imgur/1631118086-rda435.jpg\" style=\"width: 300px; height: 47px;\" /></p><br><p>Compound Z is:</p>",
+      "options": [
+        {
+          "id": 1129745,
+          "text": "phenol",
+          "html": "phenol",
+          "is_correct": false
+        },
+        {
+          "id": 1129748,
+          "text": "nitrobenzene",
+          "html": "nitrobenzene",
+          "is_correct": false
+        },
+        {
+          "id": 1129746,
+          "text": "p-chlorophenol",
+          "html": "p-chlorophenol",
+          "is_correct": false
+        },
+        {
+          "id": 1129747,
+          "text": "p-nitrophenol",
+          "html": "p-nitrophenol",
+          "is_correct": true
+        }
+      ],
+      "correct_option_text": "p-nitrophenol",
+      "correct_option_ids": [
+        1129747
+      ],
+      "explanation": "p-nitrophenol",
+      "solution": ""
+    },
+    {
+      "n": 55,
+      "question_id": 581508,
+      "question_text": "Instructions for Question 53 to 55: Consider the given sequence of reactions: Identify W:",
+      "question_html": "<b>Instructions for Question 53 to 55:</b><br><p>Consider the given sequence of reactions:<br />\r\n<img alt=\"\" data-imgur-src=\"fv4TTNA.png\" src=\"https://media-mycbseguide.s3.amazonaws.com/images/imgur/1631118086-rda435.jpg\" style=\"width: 300px; height: 47px;\" /></p><br><p>Identify W:</p>",
+      "options": [
+        {
+          "id": 1129926,
+          "text": "",
+          "html": "<img alt=\"\" data-imgur-src=\"R5ka564.png\" src=\"https://media-mycbseguide.s3.amazonaws.com/images/imgur/1631119165-ahhvau.jpg\"/>",
+          "is_correct": false
+        },
+        {
+          "id": 1129925,
+          "text": "",
+          "html": "<img alt=\"\" data-imgur-src=\"XCuiwks.png\" src=\"https://media-mycbseguide.s3.amazonaws.com/images/imgur/1631119159-7grjfk.jpg\"/>",
+          "is_correct": false
+        },
+        {
+          "id": 1129928,
+          "text": "",
+          "html": "<img alt=\"\" data-imgur-src=\"iM3eJeH.png\" src=\"https://media-mycbseguide.s3.amazonaws.com/images/imgur/1631119178-wz8p7n.jpg\"/>",
+          "is_correct": false
+        },
+        {
+          "id": 1129927,
+          "text": "",
+          "html": "<img alt=\"\" data-imgur-src=\"J73lkEO.png\" src=\"https://media-mycbseguide.s3.amazonaws.com/images/imgur/1631119171-63aebg.jpg\"/>",
+          "is_correct": true
+        }
+      ],
+      "correct_option_text": "",
+      "correct_option_ids": [
+        1129927
+      ],
+      "explanation": "",
+      "solution": ""
+    }
+  ]
+}
