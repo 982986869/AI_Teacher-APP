@@ -49,13 +49,34 @@ export function buildPyqDocument(fragmentHtml) {
   window.MathJax = { tex: { inlineMath: [['\\\\(', '\\\\)']], displayMath: [] },
     startup: { ready: function () { window.MathJax.startup.defaultReady();
       window.MathJax.startup.promise.then(fitWideMath); } } };
-  function fitWideMath(){ try{ var avail=document.body.clientWidth;
+  // Wrap any formula wider than the space actually available to it (its parent's
+  // content box — not the full page) in a horizontally scrollable span, so wide
+  // math inside a narrow column (e.g. an MCQ option) scrolls instead of pushing
+  // the card off-screen. Re-runs on resize/orientation and after late layout.
+  // Width of the space actually available to a node = nearest ancestor with a
+  // real content box (inline <p> wrappers report clientWidth 0, so we skip them).
+  function availWidth(node){ var b=node;
+    while(b && b!==document.body){ if(b.clientWidth>0) return b.clientWidth; b=b.parentNode; }
+    return document.body.clientWidth; }
+  function fitWideMath(){ try{
     var nodes=document.querySelectorAll('mjx-container');
     for(var i=0;i<nodes.length;i++){ var c=nodes[i];
-      if(c.parentNode && c.parentNode.className==='math-scroll') continue;
+      var p=c.parentNode; if(!p) continue;
+      // Formulas inside a .math-tex wrapper already scroll via CSS — leave them.
+      if(c.closest && c.closest('.math-tex')) continue;
+      if(p.className==='math-scroll'){
+        // Already wrapped: drop the scroller if the math now fits its space.
+        if((c.scrollWidth||0) <= availWidth(p.parentNode)+1){
+          p.parentNode.insertBefore(c,p); p.parentNode.removeChild(p);
+        }
+        continue;
+      }
       var w=c.scrollWidth||c.getBoundingClientRect().width;
-      if(w>avail+1){ var b=document.createElement('span'); b.className='math-scroll';
-        c.parentNode.insertBefore(b,c); b.appendChild(c); } } }catch(e){} }
+      if(w>availWidth(p)+1){ var b=document.createElement('span'); b.className='math-scroll';
+        p.insertBefore(b,c); b.appendChild(c); } } }catch(e){} }
+  window.addEventListener('resize', fitWideMath);
+  window.addEventListener('load', fitWideMath);
+  window.addEventListener('orientationchange', function(){ setTimeout(fitWideMath, 60); });
 </script>
 <script src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
 <style>
@@ -87,8 +108,25 @@ export function buildPyqDocument(fragmentHtml) {
   .option-text{ flex:1; max-width:100%; overflow:hidden; }
   .option-text p{ margin:0; }
   .tick{ font-weight:700; }
-  .math-scroll{ display:block; max-width:100%; overflow-x:auto; -webkit-overflow-scrolling:touch; }
+  /* Each scraped formula is wrapped in <span class="math-tex">: make that the
+     scroll boundary so a wide formula scrolls inside the card (pure CSS, no JS
+     timing). .math-scroll is the JS fallback for math without this wrapper. */
+  .math-tex{ display:inline-block; max-width:100%; overflow-x:auto; overflow-y:hidden;
+             vertical-align:middle; -webkit-overflow-scrolling:touch; }
+  .math-scroll{ display:block; max-width:100%; overflow-x:auto; overflow-y:hidden; -webkit-overflow-scrolling:touch; }
   mjx-container{ max-width:100% !important; }
+  /* CRITICAL: inside a scroll boundary the formula must keep its natural width,
+     otherwise max-width:100% clips it and there is nothing to scroll. */
+  .math-tex mjx-container,.math-scroll mjx-container{ max-width:none !important; }
+  /* Display (block) math scrolls on its own. */
+  mjx-container[display="true"]{ display:block; overflow-x:auto; overflow-y:hidden; -webkit-overflow-scrolling:touch; }
+  /* Let flex rows and their content columns shrink below content size so a wide
+     formula/word scrolls within its column instead of widening the whole card.
+     Covers the Exemplar (.option) and pastel PYQ/Important (.pq-*) layouts. */
+  .option,.pq-opt,.pq-correct-row,.pq-top{ min-width:0; }
+  .option-text,.pq-opt-text{ min-width:0; overflow:hidden; }
+  .pq-card{ overflow:hidden; }
+  .pq-question,.pq-expl,.pq-solution-body{ max-width:100%; overflow-wrap:break-word; word-break:break-word; }
   table{ display:block; max-width:100%; overflow-x:auto; border-collapse:collapse; margin:8px 0; }
   th,td{ border:1px solid #e3e3e6; padding:4px 8px; font-size:14px; text-align:left; }
   ol,ul{ margin:8px 0; padding-left:22px; }

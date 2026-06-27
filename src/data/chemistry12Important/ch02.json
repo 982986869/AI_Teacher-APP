@@ -1,0 +1,1267 @@
+[
+  {
+    "subject": "Chemistry",
+    "subject_id": "1267",
+    "chapter": "Electrochemistry",
+    "chapter_id": 1270,
+    "question_id": 1141634,
+    "question_html": "<p>A galvanic cell can behave as an electrolytic cell when:</p>",
+    "question_text": "A galvanic cell can behave as an electrolytic cell when:",
+    "options": [
+      {
+        "id": 2312398,
+        "text": "E cell = E ext",
+        "html": "<p style=\"display:inline\">E<sub>cell</sub> = E<sub>ext</sub></p>",
+        "is_correct": false,
+        "explanation": ""
+      },
+      {
+        "id": 2312399,
+        "text": "E cell > E ext",
+        "html": "<p style=\"display:inline\">E<sub>cell</sub> &gt; E<sub>ext</sub></p>",
+        "is_correct": false,
+        "explanation": ""
+      },
+      {
+        "id": 2312400,
+        "text": "E cell = 0",
+        "html": "<p style=\"display:inline\">E<sub>cell</sub> = 0</p>",
+        "is_correct": false,
+        "explanation": ""
+      },
+      {
+        "id": 2312401,
+        "text": "E ext > E cell",
+        "html": "<p style=\"display:inline\">E<sub>ext</sub> &gt; E<sub>cell</sub></p>",
+        "is_correct": true,
+        "explanation": "E ext > E cell"
+      }
+    ],
+    "correct_option_ids": [
+      2312401
+    ],
+    "correct_option_text": "E ext > E cell",
+    "explanation": "E ext > E cell",
+    "solution": "",
+    "solution_html": "",
+    "weightage": "VSA (Very Short Answer)"
+  },
+  {
+    "subject": "Chemistry",
+    "subject_id": "1267",
+    "chapter": "Electrochemistry",
+    "chapter_id": 1270,
+    "question_id": 1105036,
+    "question_html": "<p>The correct cell to represent the following reaction is:<br />\nZn + 2Ag<sup>+</sup>&nbsp;<span class=\"math-tex\">{tex}\\to{/tex}</span>&nbsp;Zn<sup>2+</sup>&nbsp;+ 2Ag</p>",
+    "question_text": "The correct cell to represent the following reaction is: Zn + 2Ag + {tex}\\to{/tex} Zn 2+ + 2Ag",
+    "options": [
+      {
+        "id": 2251305,
+        "text": "2Ag | Ag + || Zn | Zn 2+",
+        "html": "<p style=\"display:inline\">2Ag | Ag<sup>+ </sup>|| Zn | Zn<sup>2+</sup></p>",
+        "is_correct": false,
+        "explanation": ""
+      },
+      {
+        "id": 2251306,
+        "text": "Ag + | Ag || Zn 2+ | Zn",
+        "html": "<p style=\"display:inline\">Ag<sup>+</sup> | Ag<sup> </sup>|| Zn<sup>2+</sup> | Zn</p>",
+        "is_correct": false,
+        "explanation": ""
+      },
+      {
+        "id": 2251307,
+        "text": "Ag | Ag + || Zn | Zn 2+",
+        "html": "<p style=\"display:inline\">Ag | Ag<sup>+</sup><sup> </sup>|| Zn | Zn<sup>2+</sup></p>",
+        "is_correct": false,
+        "explanation": ""
+      },
+      {
+        "id": 2251308,
+        "text": "Zn | Zn 2+ || Ag + | Ag",
+        "html": "<p style=\"display:inline\">Zn | Zn<sup>2+ </sup>|| Ag<sup>+</sup> | Ag</p>",
+        "is_correct": true,
+        "explanation": "Zn | Zn 2+ || Ag + | Ag is correct cell representation"
+      }
+    ],
+    "correct_option_ids": [
+      2251308
+    ],
+    "correct_option_text": "Zn | Zn 2+ || Ag + | Ag",
+    "explanation": "Zn | Zn 2+ || Ag + | Ag is correct cell representation",
+    "solution": "",
+    "solution_html": "",
+    "weightage": "VSA (Very Short Answer)"
+  },
+  {
+    "subject": "Chemistry",
+    "subject_id": "1267",
+    "chapter": "Electrochemistry",
+    "chapter_id": 1270,
+    "question_id": 60772,
+    "question_html": "<p>What amount of electric charge is required for the reduction of 1 mole of&nbsp;<span class=\"math-tex\">{tex} MnO_4^ - {/tex}</span> to <span class=\"math-tex\">{tex}Mn^{2+}{/tex}</span>?</p>",
+    "question_text": "What amount of electric charge is required for the reduction of 1 mole of {tex} MnO_4^ - {/tex} to {tex}Mn^{2+}{/tex} ?",
+    "options": [
+      {
+        "id": 198273,
+        "text": "5F",
+        "html": "<p style=\"display:inline\">5F</p>",
+        "is_correct": true,
+        "explanation": "For reduction of {tex}MnO_4^ - {/tex} to Mn 2+ 5 mol of electrons are required to deposit 1 mol of Mn 2+ ion. so total charge required will be 5F. 5e - + 8H + + {tex}MnO_4^ - {/tex} = Mn 2+ + 4H 2 O"
+      },
+      {
+        "id": 198274,
+        "text": "4F",
+        "html": "<p style=\"display:inline\">4F</p>",
+        "is_correct": false,
+        "explanation": ""
+      },
+      {
+        "id": 198275,
+        "text": "6F",
+        "html": "<p style=\"display:inline\">6F</p>",
+        "is_correct": false,
+        "explanation": ""
+      },
+      {
+        "id": 198276,
+        "text": "3F",
+        "html": "<p style=\"display:inline\">3F</p>",
+        "is_correct": false,
+        "explanation": ""
+      }
+    ],
+    "correct_option_ids": [
+      198273
+    ],
+    "correct_option_text": "5F",
+    "explanation": "For reduction of {tex}MnO_4^ - {/tex} to Mn 2+ 5 mol of electrons are required to deposit 1 mol of Mn 2+ ion. so total charge required will be 5F. 5e - + 8H + + {tex}MnO_4^ - {/tex} = Mn 2+ + 4H 2 O",
+    "solution": "",
+    "solution_html": "",
+    "weightage": "VSA (Very Short Answer)"
+  },
+  {
+    "subject": "Chemistry",
+    "subject_id": "1267",
+    "chapter": "Electrochemistry",
+    "chapter_id": 1270,
+    "question_id": 1310157,
+    "question_html": "<p>The unit of cell constant is:</p>",
+    "question_text": "The unit of cell constant is:",
+    "options": [
+      {
+        "id": 2641492,
+        "text": "ohm cm -1",
+        "html": "<p style=\"display:inline\">ohm cm<sup>-1</sup></p>",
+        "is_correct": false,
+        "explanation": ""
+      },
+      {
+        "id": 2641493,
+        "text": "ohm -1",
+        "html": "<p style=\"display:inline\">ohm<sup>-1</sup></p>",
+        "is_correct": false,
+        "explanation": ""
+      },
+      {
+        "id": 2641494,
+        "text": "cm -1",
+        "html": "<p style=\"display:inline\">cm<sup>-1</sup></p>",
+        "is_correct": true,
+        "explanation": "cm -1"
+      },
+      {
+        "id": 2641495,
+        "text": "ohm -1 cm 2 mol -1",
+        "html": "<p style=\"display:inline\">ohm<sup>-1</sup> cm<sup>2</sup> mol<sup>-1</sup></p>",
+        "is_correct": false,
+        "explanation": ""
+      }
+    ],
+    "correct_option_ids": [
+      2641494
+    ],
+    "correct_option_text": "cm -1",
+    "explanation": "cm -1",
+    "solution": "",
+    "solution_html": "",
+    "weightage": "VSA (Very Short Answer)"
+  },
+  {
+    "subject": "Chemistry",
+    "subject_id": "1267",
+    "chapter": "Electrochemistry",
+    "chapter_id": 1270,
+    "question_id": 1105120,
+    "question_html": "<p>Which of the following cell was used in Apollo space programme?</p>",
+    "question_text": "Which of the following cell was used in Apollo space programme?",
+    "options": [
+      {
+        "id": 2251589,
+        "text": "Mercury cell",
+        "html": "<p style=\"display:inline\">Mercury cell</p>",
+        "is_correct": false,
+        "explanation": ""
+      },
+      {
+        "id": 2251590,
+        "text": "Daniel cell",
+        "html": "<p style=\"display:inline\">Daniel cell</p>",
+        "is_correct": false,
+        "explanation": ""
+      },
+      {
+        "id": 2251591,
+        "text": "H 2 - O 2 Fuel cell",
+        "html": "<p style=\"display:inline\">H<sub>2 </sub>- O<sub>2</sub> Fuel cell</p>",
+        "is_correct": true,
+        "explanation": "H 2 - O 2 Fuel cell is used in Apollo space project."
+      },
+      {
+        "id": 2251592,
+        "text": "Dry cell",
+        "html": "<p style=\"display:inline\">Dry cell</p>",
+        "is_correct": false,
+        "explanation": ""
+      }
+    ],
+    "correct_option_ids": [
+      2251591
+    ],
+    "correct_option_text": "H 2 - O 2 Fuel cell",
+    "explanation": "H 2 - O 2 Fuel cell is used in Apollo space project.",
+    "solution": "",
+    "solution_html": "",
+    "weightage": "VSA (Very Short Answer)"
+  },
+  {
+    "subject": "Chemistry",
+    "subject_id": "1267",
+    "chapter": "Electrochemistry",
+    "chapter_id": 1270,
+    "question_id": 1434317,
+    "question_html": "<p>The molar ionic conductivities of <span class=\"math-tex\">{tex}{Ca}^{2+}{/tex}</span> and <span class=\"math-tex\">{tex}{Cl}^{-}{/tex}</span>are 119.0 and <span class=\"math-tex\">{tex}76.3 {~S} {~cm}^2{/tex}</span> <span class=\"math-tex\">{tex}{mol}^{-1}{/tex}</span> respectively. The value of limiting molar conductivity of <span class=\"math-tex\">{tex}{CaCl}_2{/tex}</span> will be:</p>",
+    "question_text": "The molar ionic conductivities of {tex}{Ca}^{2+}{/tex} and {tex}{Cl}^{-}{/tex} are 119.0 and {tex}76.3 {~S} {~cm}^2{/tex} {tex}{mol}^{-1}{/tex} respectively. The value of limiting molar conductivity of {tex}{CaCl}_2{/tex} will be:",
+    "options": [
+      {
+        "id": 2935613,
+        "text": "{tex}195.3 \\mathrm{~S} \\mathrm{~cm}^2 \\mathrm{~mol}^{-1}{/tex}",
+        "html": "<p style=\"display:inline\"><span class=\"math-tex\">{tex}195.3 \\mathrm{~S} \\mathrm{~cm}^2 \\mathrm{~mol}^{-1}{/tex}</span></p>",
+        "is_correct": false,
+        "explanation": ""
+      },
+      {
+        "id": 2935614,
+        "text": "{tex}43.3 \\mathrm{~S} \\mathrm{~cm}^2 \\mathrm{~mol}^{-1}{/tex}",
+        "html": "<p style=\"display:inline\"><span class=\"math-tex\">{tex}43.3 \\mathrm{~S} \\mathrm{~cm}^2 \\mathrm{~mol}^{-1}{/tex}</span></p>",
+        "is_correct": false,
+        "explanation": ""
+      },
+      {
+        "id": 2935615,
+        "text": "{tex}314.3 \\mathrm{~S} \\mathrm{~cm}^2 \\mathrm{~mol}^{-1}{/tex}",
+        "html": "<p style=\"display:inline\"><span class=\"math-tex\">{tex}314.3 \\mathrm{~S} \\mathrm{~cm}^2 \\mathrm{~mol}^{-1}{/tex}</span></p>",
+        "is_correct": false,
+        "explanation": ""
+      },
+      {
+        "id": 2935616,
+        "text": "{tex}271.6 \\mathrm{~S} \\mathrm{~cm}^2 \\mathrm{~mol}^{-1}{/tex}",
+        "html": "<p style=\"display:inline\"><span class=\"math-tex\">{tex}271.6 \\mathrm{~S} \\mathrm{~cm}^2 \\mathrm{~mol}^{-1}{/tex}</span></p>",
+        "is_correct": true,
+        "explanation": "{tex}271.6 \\mathrm{~S} \\mathrm{~cm}^2 \\mathrm{~mol}^{-1}{/tex}"
+      }
+    ],
+    "correct_option_ids": [
+      2935616
+    ],
+    "correct_option_text": "{tex}271.6 \\mathrm{~S} \\mathrm{~cm}^2 \\mathrm{~mol}^{-1}{/tex}",
+    "explanation": "{tex}271.6 \\mathrm{~S} \\mathrm{~cm}^2 \\mathrm{~mol}^{-1}{/tex}",
+    "solution": "",
+    "solution_html": "",
+    "weightage": "VSA (Very Short Answer)"
+  },
+  {
+    "subject": "Chemistry",
+    "subject_id": "1267",
+    "chapter": "Electrochemistry",
+    "chapter_id": 1270,
+    "question_id": 1434324,
+    "question_html": "<p>Which of the following cells is used in hearing aids?</p>",
+    "question_text": "Which of the following cells is used in hearing aids?",
+    "options": [
+      {
+        "id": 2935633,
+        "text": "Dry cell",
+        "html": "<p style=\"display:inline\">Dry cell</p>",
+        "is_correct": false,
+        "explanation": ""
+      },
+      {
+        "id": 2935634,
+        "text": "Mercury cell",
+        "html": "<p style=\"display:inline\">Mercury cell</p>",
+        "is_correct": true,
+        "explanation": "Mercury cell"
+      },
+      {
+        "id": 2935635,
+        "text": "Nickel-cadmium cell",
+        "html": "<p style=\"display:inline\">Nickel-cadmium cell</p>",
+        "is_correct": false,
+        "explanation": ""
+      },
+      {
+        "id": 2935636,
+        "text": "Fuel cell",
+        "html": "<p style=\"display:inline\">Fuel cell</p>",
+        "is_correct": false,
+        "explanation": ""
+      }
+    ],
+    "correct_option_ids": [
+      2935634
+    ],
+    "correct_option_text": "Mercury cell",
+    "explanation": "Mercury cell",
+    "solution": "",
+    "solution_html": "",
+    "weightage": "VSA (Very Short Answer)"
+  },
+  {
+    "subject": "Chemistry",
+    "subject_id": "1267",
+    "chapter": "Electrochemistry",
+    "chapter_id": 1270,
+    "question_id": 1105043,
+    "question_html": "<p>Ag<sup>+</sup>(aq) + e<sup>-</sup>&nbsp;<span class=\"math-tex\">{tex}\\to{/tex}</span>&nbsp;Ag(s) E<sup>o</sup>&nbsp;= +0.80 V<br />\nFe<sup>2+</sup>(aq) + 2e<sup>-</sup>&nbsp;<span class=\"math-tex\">{tex}\\to{/tex}</span>&nbsp;Fe(s) E<sup>o</sup>&nbsp;= -0.44 V<br />\nFind the <span class=\"math-tex\">{tex}\\mathrm{E}_{\\text {cell }}^{\\circ}{/tex}</span>for:<br />\nFe(s) + 2Ag<sup>+</sup>(aq)&nbsp;<span class=\"math-tex\">{tex}\\to{/tex}</span>&nbsp;Fe<sup>2+</sup>(aq) + 2Ag(s)</p>",
+    "question_text": "Ag + (aq) + e - {tex}\\to{/tex} Ag(s) E o = +0.80 V Fe 2+ (aq) + 2e - {tex}\\to{/tex} Fe(s) E o = -0.44 V Find the {tex}\\mathrm{E}_{\\text {cell }}^{\\circ}{/tex} for: Fe(s) + 2Ag + (aq) {tex}\\to{/tex} Fe 2+ (aq) + 2Ag(s)",
+    "options": [
+      {
+        "id": 2251333,
+        "text": "1.6 V",
+        "html": "<p style=\"display:inline\">1.6 V</p>",
+        "is_correct": false,
+        "explanation": ""
+      },
+      {
+        "id": 2251334,
+        "text": "-1.16 V",
+        "html": "<p style=\"display:inline\">-1.16 V</p>",
+        "is_correct": false,
+        "explanation": ""
+      },
+      {
+        "id": 2251335,
+        "text": "2.04 V",
+        "html": "<p style=\"display:inline\">2.04 V</p>",
+        "is_correct": false,
+        "explanation": ""
+      },
+      {
+        "id": 2251336,
+        "text": "1.24 V",
+        "html": "<p style=\"display:inline\">1.24 V</p>",
+        "is_correct": true,
+        "explanation": "E&deg; cell will be 1.24 V"
+      }
+    ],
+    "correct_option_ids": [
+      2251336
+    ],
+    "correct_option_text": "1.24 V",
+    "explanation": "E&deg; cell will be 1.24 V",
+    "solution": "",
+    "solution_html": "",
+    "weightage": "VSA (Very Short Answer)"
+  },
+  {
+    "subject": "Chemistry",
+    "subject_id": "1267",
+    "chapter": "Electrochemistry",
+    "chapter_id": 1270,
+    "question_id": 1146061,
+    "question_html": "<p>Which of the following is correct for spontaneity of a cell?</p>",
+    "question_text": "Which of the following is correct for spontaneity of a cell?",
+    "options": [
+      {
+        "id": 2320580,
+        "text": "{tex}\\Delta{/tex} G = -ve, E o = +ve",
+        "html": "<p style=\"display:inline\"><span class=\"math-tex\">{tex}\\Delta{/tex}</span>G = -ve, E<sup>o</sup> = +ve</p>",
+        "is_correct": true,
+        "explanation": "For spontaneity of cell, {tex}\\Delta{/tex} G = -ve E o = +ve"
+      },
+      {
+        "id": 2320581,
+        "text": "{tex}\\Delta{/tex} G = +ve, E o = 0",
+        "html": "<p style=\"display:inline\"><span class=\"math-tex\">{tex}\\Delta{/tex}</span>G = +ve, E<sup>o</sup> = 0</p>",
+        "is_correct": false,
+        "explanation": ""
+      },
+      {
+        "id": 2320582,
+        "text": "{tex}\\Delta{/tex} G = -ve, E o = 0",
+        "html": "<p style=\"display:inline\"><span class=\"math-tex\">{tex}\\Delta{/tex}</span>G = -ve, E<sup>o</sup> = 0</p>",
+        "is_correct": false,
+        "explanation": ""
+      },
+      {
+        "id": 2320583,
+        "text": "{tex}\\Delta{/tex} G = +ve, E o = -ve",
+        "html": "<p style=\"display:inline\"><span class=\"math-tex\">{tex}\\Delta{/tex}</span>G = +ve, E<sup>o</sup> = -ve</p>",
+        "is_correct": false,
+        "explanation": ""
+      }
+    ],
+    "correct_option_ids": [
+      2320580
+    ],
+    "correct_option_text": "{tex}\\Delta{/tex} G = -ve, E o = +ve",
+    "explanation": "For spontaneity of cell, {tex}\\Delta{/tex} G = -ve E o = +ve",
+    "solution": "",
+    "solution_html": "",
+    "weightage": "VSA (Very Short Answer)"
+  },
+  {
+    "subject": "Chemistry",
+    "subject_id": "1267",
+    "chapter": "Electrochemistry",
+    "chapter_id": 1270,
+    "question_id": 1310140,
+    "question_html": "<p>During electrolysis of aqueous solution of NaCl:</p>",
+    "question_text": "During electrolysis of aqueous solution of NaCl:",
+    "options": [
+      {
+        "id": 2641480,
+        "text": "H 2 (g) is liberated at cathode",
+        "html": "<p style=\"display:inline\">H<sub>2</sub> (g) is liberated at cathode</p>",
+        "is_correct": true,
+        "explanation": "H 2 (g) is liberated at cathode"
+      },
+      {
+        "id": 2641481,
+        "text": "Na is formed at cathode",
+        "html": "<p style=\"display:inline\">Na is formed at cathode</p>",
+        "is_correct": false,
+        "explanation": ""
+      },
+      {
+        "id": 2641482,
+        "text": "O 2 (g) is liberated at anode",
+        "html": "<p style=\"display:inline\">O<sub>2</sub> (g) is liberated at anode</p>",
+        "is_correct": false,
+        "explanation": ""
+      },
+      {
+        "id": 2641483,
+        "text": "Cl 2 (g) is liberated at cathode",
+        "html": "<p style=\"display:inline\">Cl<sub>2</sub> (g) is liberated at cathode</p>",
+        "is_correct": false,
+        "explanation": ""
+      }
+    ],
+    "correct_option_ids": [
+      2641480
+    ],
+    "correct_option_text": "H 2 (g) is liberated at cathode",
+    "explanation": "H 2 (g) is liberated at cathode",
+    "solution": "",
+    "solution_html": "",
+    "weightage": "VSA (Very Short Answer)"
+  },
+  {
+    "subject": "Chemistry",
+    "subject_id": "1267",
+    "chapter": "Electrochemistry",
+    "chapter_id": 1270,
+    "question_id": 1146018,
+    "question_html": "<p>In an electrochemical process, a salt bridge is used</p>",
+    "question_text": "In an electrochemical process, a salt bridge is used",
+    "options": [
+      {
+        "id": 2320504,
+        "text": "as a reducing agent",
+        "html": "<p style=\"display:inline\">as a reducing agent</p>",
+        "is_correct": false,
+        "explanation": ""
+      },
+      {
+        "id": 2320505,
+        "text": "as an oxidizing agent",
+        "html": "<p style=\"display:inline\">as an oxidizing agent</p>",
+        "is_correct": false,
+        "explanation": ""
+      },
+      {
+        "id": 2320506,
+        "text": "to complete the circuit so that current can flow",
+        "html": "<p style=\"display:inline\">to complete the circuit so that current can flow</p>",
+        "is_correct": true,
+        "explanation": "In an electrochemical cell, a salt bridge is used to complete the circuit so that current can flow."
+      },
+      {
+        "id": 2320507,
+        "text": "to supply voltage",
+        "html": "<p style=\"display:inline\">to supply voltage</p>",
+        "is_correct": false,
+        "explanation": ""
+      }
+    ],
+    "correct_option_ids": [
+      2320506
+    ],
+    "correct_option_text": "to complete the circuit so that current can flow",
+    "explanation": "In an electrochemical cell, a salt bridge is used to complete the circuit so that current can flow.",
+    "solution": "",
+    "solution_html": "",
+    "weightage": "VSA (Very Short Answer)"
+  },
+  {
+    "subject": "Chemistry",
+    "subject_id": "1267",
+    "chapter": "Electrochemistry",
+    "chapter_id": 1270,
+    "question_id": 1105037,
+    "question_html": "<p><span class=\"math-tex\">{tex}\\Delta \\mathrm{G}{/tex}</span> and <span class=\"math-tex\">{tex}\\mathrm{E}_{\\text {cell }}^{\\circ}{/tex}</span> for a spontaneous reaction will be:</p>",
+    "question_text": "{tex}\\Delta \\mathrm{G}{/tex} and {tex}\\mathrm{E}_{\\text {cell }}^{\\circ}{/tex} for a spontaneous reaction will be:",
+    "options": [
+      {
+        "id": 2251309,
+        "text": "positive, negative",
+        "html": "<p style=\"display:inline\">positive, negative</p>",
+        "is_correct": false,
+        "explanation": ""
+      },
+      {
+        "id": 2251310,
+        "text": "negative, negative",
+        "html": "<p style=\"display:inline\">negative, negative</p>",
+        "is_correct": false,
+        "explanation": ""
+      },
+      {
+        "id": 2251311,
+        "text": "negative, positive",
+        "html": "<p style=\"display:inline\">negative, positive</p>",
+        "is_correct": true,
+        "explanation": "∆G and E&deg;cell for spontaneous reaction will be negative, positive."
+      },
+      {
+        "id": 2251312,
+        "text": "positive, positive",
+        "html": "<p style=\"display:inline\">positive, positive</p>",
+        "is_correct": false,
+        "explanation": ""
+      }
+    ],
+    "correct_option_ids": [
+      2251311
+    ],
+    "correct_option_text": "negative, positive",
+    "explanation": "∆G and E&deg;cell for spontaneous reaction will be negative, positive.",
+    "solution": "",
+    "solution_html": "",
+    "weightage": "VSA (Very Short Answer)"
+  },
+  {
+    "subject": "Chemistry",
+    "subject_id": "1267",
+    "chapter": "Electrochemistry",
+    "chapter_id": 1270,
+    "question_id": 680841,
+    "question_html": "<p>In a lead storage battery:</p>",
+    "question_text": "In a lead storage battery:",
+    "options": [
+      {
+        "id": 1417621,
+        "text": "PbO 2 is reduced to PbSO 4 at the cathode.",
+        "html": "<p style=\"display:inline\">PbO<sub>2</sub> is reduced to PbSO<sub>4</sub> at the cathode.</p>",
+        "is_correct": false,
+        "explanation": ""
+      },
+      {
+        "id": 1417622,
+        "text": "Pb is oxidised to PbSO 4 at the anode.",
+        "html": "<p style=\"display:inline\">Pb is oxidised to PbSO<sub>4</sub> at the anode.</p>",
+        "is_correct": false,
+        "explanation": ""
+      },
+      {
+        "id": 1417623,
+        "text": "Both electrodes are immersed in the same aqueous solution of H 2 SO 4 .",
+        "html": "<p style=\"display:inline\">Both electrodes are immersed in the same aqueous solution of H<sub>2</sub>SO<sub>4</sub>.</p>",
+        "is_correct": false,
+        "explanation": ""
+      },
+      {
+        "id": 1417624,
+        "text": "All of these",
+        "html": "<p style=\"display:inline\">All of these</p>",
+        "is_correct": true,
+        "explanation": "In a lead storage battery, all of these statements are true. Explanation: The lead storage battery is a rechargeable battery . This battery has a pure lead as anode; lead(IV) oxide as a cathode and dilute sulfuric acid as an electrolyte. When the battery is being used, lead(IV) oxide is reduced to PdSO 4 and lead is oxidized to PdSO 4 . When the battery is being charged, PdSO₄ is again converted into PbO 2 and Pb as cathode and anode respectively."
+      }
+    ],
+    "correct_option_ids": [
+      1417624
+    ],
+    "correct_option_text": "All of these",
+    "explanation": "In a lead storage battery, all of these statements are true. Explanation: The lead storage battery is a rechargeable battery . This battery has a pure lead as anode; lead(IV) oxide as a cathode and dilute sulfuric acid as an electrolyte. When the battery is being used, lead(IV) oxide is reduced to PdSO 4 and lead is oxidized to PdSO 4 . When the battery is being charged, PdSO₄ is again converted into PbO 2 and Pb as cathode and anode respectively.",
+    "solution": "",
+    "solution_html": "",
+    "weightage": "VSA (Very Short Answer)"
+  },
+  {
+    "subject": "Chemistry",
+    "subject_id": "1267",
+    "chapter": "Electrochemistry",
+    "chapter_id": 1270,
+    "question_id": 1145555,
+    "question_html": "<p>Solutions of two electrolytes X and Y are diluted. Molar conductivity of X increases 25 times whereas that of Y increases 1.5 times. Which one is a stronger electrolyte?</p>",
+    "question_text": "Solutions of two electrolytes X and Y are diluted. Molar conductivity of X increases 25 times whereas that of Y increases 1.5 times. Which one is a stronger electrolyte?",
+    "options": [
+      {
+        "id": 2319558,
+        "text": "X",
+        "html": "<p style=\"display:inline\">X</p>",
+        "is_correct": false,
+        "explanation": ""
+      },
+      {
+        "id": 2319559,
+        "text": "Y",
+        "html": "<p style=\"display:inline\">Y</p>",
+        "is_correct": true,
+        "explanation": "Y"
+      },
+      {
+        "id": 2319560,
+        "text": "Both X and Y",
+        "html": "<p style=\"display:inline\">Both X and Y</p>",
+        "is_correct": false,
+        "explanation": ""
+      },
+      {
+        "id": 2319561,
+        "text": "None of the above",
+        "html": "<p style=\"display:inline\">None of the above</p>",
+        "is_correct": false,
+        "explanation": ""
+      }
+    ],
+    "correct_option_ids": [
+      2319559
+    ],
+    "correct_option_text": "Y",
+    "explanation": "Y",
+    "solution": "",
+    "solution_html": "",
+    "weightage": "VSA (Very Short Answer)"
+  },
+  {
+    "subject": "Chemistry",
+    "subject_id": "1267",
+    "chapter": "Electrochemistry",
+    "chapter_id": 1270,
+    "question_id": 1146006,
+    "question_html": "<p>An electrochemical cell behaves like an electrolytic cell when</p>",
+    "question_text": "An electrochemical cell behaves like an electrolytic cell when",
+    "options": [
+      {
+        "id": 2320488,
+        "text": "E cell = E external",
+        "html": "<p style=\"display:inline\">E<sub>cell </sub>= E<sub>external</sub></p>",
+        "is_correct": false,
+        "explanation": ""
+      },
+      {
+        "id": 2320489,
+        "text": "E cell =0",
+        "html": "<p style=\"display:inline\">E<sub>cell</sub> =0</p>",
+        "is_correct": false,
+        "explanation": ""
+      },
+      {
+        "id": 2320490,
+        "text": "E external > E cell",
+        "html": "<p style=\"display:inline\">E<sub>external </sub>&gt; E<sub>cell</sub></p>",
+        "is_correct": true,
+        "explanation": "If an external opposite potential is applied on the electrochemical cell, the reaction continues to take place till the opposite voltage reaches the value 1.1 V. At this stage, no current flow through the cell and if there is any further increase in the external potential (E external ), then reaction starts functioning in opposite direction i.e. an electrochemical cell behaves like an electrolytic cell. {tex}\\mathrm{E}_{\\text {external }}>\\mathrm{E}_{\\text {cell }}{/tex}"
+      },
+      {
+        "id": 2320491,
+        "text": "E external < E cell",
+        "html": "<p style=\"display:inline\">E<sub>external</sub> &lt; E<sub>cell</sub></p>",
+        "is_correct": false,
+        "explanation": ""
+      }
+    ],
+    "correct_option_ids": [
+      2320490
+    ],
+    "correct_option_text": "E external > E cell",
+    "explanation": "If an external opposite potential is applied on the electrochemical cell, the reaction continues to take place till the opposite voltage reaches the value 1.1 V. At this stage, no current flow through the cell and if there is any further increase in the external potential (E external ), then reaction starts functioning in opposite direction i.e. an electrochemical cell behaves like an electrolytic cell. {tex}\\mathrm{E}_{\\text {external }}>\\mathrm{E}_{\\text {cell }}{/tex}",
+    "solution": "",
+    "solution_html": "",
+    "weightage": "VSA (Very Short Answer)"
+  },
+  {
+    "subject": "Chemistry",
+    "subject_id": "1267",
+    "chapter": "Electrochemistry",
+    "chapter_id": 1270,
+    "question_id": 186108,
+    "question_html": "<p>Calculate the time to deposit 1.27 g of copper at cathode when a current of 2A was passed through the solution of CuSO<sub>4</sub>.<br />\r\n(Molar mass of Cu= 63.5g mol<sup>-1</sup>, 1F = 96500 C mol<sup>-1</sup>)</p>",
+    "question_text": "Calculate the time to deposit 1.27 g of copper at cathode when a current of 2A was passed through the solution of CuSO 4 . (Molar mass of Cu= 63.5g mol -1 , 1F = 96500 C mol -1 )",
+    "options": [],
+    "correct_option_ids": [],
+    "correct_option_text": "",
+    "explanation": "Given, m = 1.27g. I = 2A Molarmass of Cu= 63.5g mol -1 , Z = {tex}\\frac{\\text { Equivalent weight }}{F}{/tex} F = 96500 C mol -1 m = Z {tex}\\times{/tex} I {tex}\\times{/tex} t t = {tex}\\frac{m}{Z \\times I}=\\frac{1.27 \\times 2 \\times 96500}{63.5 \\times 2}{/tex} t = 1930 s = 32.1 min",
+    "solution": "Given, m = 1.27g. I = 2A Molarmass of Cu= 63.5g mol -1 , Z = {tex}\\frac{\\text { Equivalent weight }}{F}{/tex} F = 96500 C mol -1 m = Z {tex}\\times{/tex} I {tex}\\times{/tex} t t = {tex}\\frac{m}{Z \\times I}=\\frac{1.27 \\times 2 \\times 96500}{63.5 \\times 2}{/tex} t = 1930 s = 32.1 min",
+    "solution_html": "<p>Given, m = 1.27g. I = 2A<br />\nMolarmass of Cu= 63.5g mol<sup>-1</sup>,<br />\nZ =&nbsp;<span class=\"math-tex\">{tex}\\frac{\\text { Equivalent weight }}{F}{/tex}</span><br />\nF = 96500 C mol<sup>-1</sup><br />\nm = Z&nbsp;<span class=\"math-tex\">{tex}\\times{/tex}</span> I&nbsp;<span class=\"math-tex\">{tex}\\times{/tex}</span>&nbsp;t<br />\nt =&nbsp;<span class=\"math-tex\">{tex}\\frac{m}{Z \\times I}=\\frac{1.27 \\times 2 \\times 96500}{63.5 \\times 2}{/tex}</span><br />\nt = 1930 s<br />\n= 32.1&nbsp;min</p>",
+    "weightage": "SA-1 (Short answer type-1)"
+  },
+  {
+    "subject": "Chemistry",
+    "subject_id": "1267",
+    "chapter": "Electrochemistry",
+    "chapter_id": 1270,
+    "question_id": 383201,
+    "question_html": "<p>Resistance of a conductivity cell filled with 0.1 mol L<sup>-1</sup> KCl solution is 100 <span class=\"math-tex\">{tex}\\Omega{/tex}</span>. If the resistance of the same cell when filled with 0.02 mol L<sup>-1</sup> KCl solution is 520 <span class=\"math-tex\">{tex}\\Omega{/tex}</span>, calculate the conductivity and molar conductivity of 0.02 mol L<sup>-1</sup> KCl solution. The conductivity of 0.1 mol L<sup>-1</sup> KCl solution is 1.29 S/m.</p>",
+    "question_text": "Resistance of a conductivity cell filled with 0.1 mol L -1 KCl solution is 100 {tex}\\Omega{/tex} . If the resistance of the same cell when filled with 0.02 mol L -1 KCl solution is 520 {tex}\\Omega{/tex} , calculate the conductivity and molar conductivity of 0.02 mol L -1 KCl solution. The conductivity of 0.1 mol L -1 KCl solution is 1.29 S/m.",
+    "options": [],
+    "correct_option_ids": [],
+    "correct_option_text": "",
+    "explanation": "The cell constant is given by the equation: Cell constant = G* = conductivity {tex}\\times{/tex} resistance = 1.29 S/m {tex}\\times{/tex} 100 Ω = 129 m -1 = 1.29 cm -1 Conductivity of 0.02 mol L -1 KCl solution = cell constant / resistance = {tex}\\frac{G^{*}}{R}{/tex} = {tex}\\frac{129 {m}^{-1}}{520 \\Omega}{/tex} = 0.248 S m -1 Concentration = 0.02 mol L -1 = 1000 {tex}\\times{/tex} 0.02 mol m -3 = 20 mol m -3 Molar conductivity = A m = {tex}\\frac{K}{c}{/tex} = {tex}\\frac{248 \\times 10^{-3} {Sm}^{-1}}{20 {mol\\;m}^{-3}}{/tex} = 124 {tex}\\times{/tex} 10 -4 S m 2 mol -1 Alternatively, conductivity of solution K = {tex}\\frac{1.29 {cm}^{-1}}{520 \\Omega}{/tex} = = 0.248 {tex}\\times{/tex} 10 -2 S cm -1 and molar conductivity of solution A m = K {tex}\\times{/tex} 1000 cm 3 L -1 molarity -1 = {tex}\\frac{0.248 \\times 10^{-2} {S} {cm}^{-1} \\times 1000 {cm}^{3} {L}^{-1}}{0.02 {mol} {L}^{-1}}{/tex} = 124 S cm 2 mol -1",
+    "solution": "The cell constant is given by the equation: Cell constant = G* = conductivity {tex}\\times{/tex} resistance = 1.29 S/m {tex}\\times{/tex} 100 Ω = 129 m -1 = 1.29 cm -1 Conductivity of 0.02 mol L -1 KCl solution = cell constant / resistance = {tex}\\frac{G^{*}}{R}{/tex} = {tex}\\frac{129 {m}^{-1}}{520 \\Omega}{/tex} = 0.248 S m -1 Concentration = 0.02 mol L -1 = 1000 {tex}\\times{/tex} 0.02 mol m -3 = 20 mol m -3 Molar conductivity = A m = {tex}\\frac{K}{c}{/tex} = {tex}\\frac{248 \\times 10^{-3} {Sm}^{-1}}{20 {mol\\;m}^{-3}}{/tex} = 124 {tex}\\times{/tex} 10 -4 S m 2 mol -1 Alternatively, conductivity of solution K = {tex}\\frac{1.29 {cm}^{-1}}{520 \\Omega}{/tex} = = 0.248 {tex}\\times{/tex} 10 -2 S cm -1 and molar conductivity of solution A m = K {tex}\\times{/tex} 1000 cm 3 L -1 molarity -1 = {tex}\\frac{0.248 \\times 10^{-2} {S} {cm}^{-1} \\times 1000 {cm}^{3} {L}^{-1}}{0.02 {mol} {L}^{-1}}{/tex} = 124 S cm 2 mol -1",
+    "solution_html": "<p>The cell constant is given by the equation:<br />\nCell constant = G* = conductivity <span class=\"math-tex\">{tex}\\times{/tex}</span> resistance<br />\n= 1.29 S/m <span class=\"math-tex\">{tex}\\times{/tex}</span>&nbsp;100 Ω = 129 m<sup>-1</sup> = 1.29 cm<sup>-1</sup><br />\nConductivity of 0.02 mol L<sup>-1</sup> KCl solution = cell constant / resistance<br />\n=&nbsp;<span class=\"math-tex\">{tex}\\frac{G^{*}}{R}{/tex}</span>&nbsp;=&nbsp;<span class=\"math-tex\">{tex}\\frac{129 {m}^{-1}}{520 \\Omega}{/tex}</span>&nbsp;= 0.248 S m<sup>-1</sup><br />\nConcentration = 0.02 mol L<sup>-1</sup> = 1000 <span class=\"math-tex\">{tex}\\times{/tex}</span> 0.02 mol m<sup>-3</sup> = 20 mol m<sup>-3</sup><br />\nMolar conductivity = A<sub>m</sub>&nbsp;=&nbsp;<span class=\"math-tex\">{tex}\\frac{K}{c}{/tex}</span>&nbsp;=&nbsp;<span class=\"math-tex\">{tex}\\frac{248 \\times 10^{-3} {Sm}^{-1}}{20 {mol\\;m}^{-3}}{/tex}</span>&nbsp;= 124 <span class=\"math-tex\">{tex}\\times{/tex}</span> 10<sup>-4</sup> S m<sup>2</sup>mol<sup>-1</sup><br />\nAlternatively, conductivity of solution K =&nbsp;<span class=\"math-tex\">{tex}\\frac{1.29 {cm}^{-1}}{520 \\Omega}{/tex}</span>&nbsp;=&nbsp;= 0.248 <span class=\"math-tex\">{tex}\\times{/tex}</span> 10<sup>-2</sup> S cm<sup>-1</sup><br />\nand molar conductivity of solution A<sub>m</sub> = K&nbsp;<span class=\"math-tex\">{tex}\\times{/tex}</span> 1000 cm<sup>3</sup> L<sup>-1</sup> molarity<sup>-1</sup><br />\n=&nbsp;<span class=\"math-tex\">{tex}\\frac{0.248 \\times 10^{-2} {S} {cm}^{-1} \\times 1000 {cm}^{3} {L}^{-1}}{0.02 {mol} {L}^{-1}}{/tex}</span><br />\n=&nbsp;124 S cm<sup>2</sup> mol<sup>-1</sup></p>",
+    "weightage": "SA-1 (Short answer type-1)"
+  },
+  {
+    "subject": "Chemistry",
+    "subject_id": "1267",
+    "chapter": "Electrochemistry",
+    "chapter_id": 1270,
+    "question_id": 259078,
+    "question_html": "<p>Calculate emf of the following cell at 298 K : Mg (s) + 2Ag<sup>+</sup> (0.0001M) <span class=\"math-tex\">{tex}\\longrightarrow{/tex}</span> Mg<sup>2+</sup> (0.130 M) + 2Ag (s)<br />\n[Given : <span class=\"math-tex\">{tex}\\mathbf{E}_{\\text {cell }}^{\\theta}=3.17 \\mathbf{V}{/tex}</span>]</p>",
+    "question_text": "Calculate emf of the following cell at 298 K : Mg (s) + 2Ag + (0.0001M) {tex}\\longrightarrow{/tex} Mg 2+ (0.130 M) + 2Ag (s) [Given : {tex}\\mathbf{E}_{\\text {cell }}^{\\theta}=3.17 \\mathbf{V}{/tex} ]",
+    "options": [],
+    "correct_option_ids": [],
+    "correct_option_text": "",
+    "explanation": "n = 2 The Nernst equation for the cell is : {tex}\\mathrm{E}=\\mathrm{E}^{\\theta}-\\frac{0.059}{2} \\log \\frac{\\left[\\mathrm{Mg}^{2+}\\right]}{\\left[\\mathrm{Ag}^{+}\\right]^{2}}{/tex} {tex}=3.17-\\frac{0.059}{2} \\log \\frac{.130}{(.0001)^{2}}{/tex} = 3.17 - 0.21 = 2.96V",
+    "solution": "n = 2 The Nernst equation for the cell is : {tex}\\mathrm{E}=\\mathrm{E}^{\\theta}-\\frac{0.059}{2} \\log \\frac{\\left[\\mathrm{Mg}^{2+}\\right]}{\\left[\\mathrm{Ag}^{+}\\right]^{2}}{/tex} {tex}=3.17-\\frac{0.059}{2} \\log \\frac{.130}{(.0001)^{2}}{/tex} = 3.17 - 0.21 = 2.96V",
+    "solution_html": "<p>n = 2<br />\r\nThe Nernst equation for the cell is :<br />\r\n<span class=\"math-tex\">{tex}\\mathrm{E}=\\mathrm{E}^{\\theta}-\\frac{0.059}{2} \\log \\frac{\\left[\\mathrm{Mg}^{2+}\\right]}{\\left[\\mathrm{Ag}^{+}\\right]^{2}}{/tex}</span><br />\r\n<span class=\"math-tex\">{tex}=3.17-\\frac{0.059}{2} \\log \\frac{.130}{(.0001)^{2}}{/tex}</span><br />\r\n= 3.17 - 0.21 = 2.96V</p>",
+    "weightage": "SA-1 (Short answer type-1)"
+  },
+  {
+    "subject": "Chemistry",
+    "subject_id": "1267",
+    "chapter": "Electrochemistry",
+    "chapter_id": 1270,
+    "question_id": 187638,
+    "question_html": "<p>Calculate the <span class=\"math-tex\">{tex}\\Delta_rG^o{/tex}</span>&nbsp;and emf (E) that can be obtained from the following cell under the standard conditions at 25<sup>o</sup>C.<br />\n<span class=\"math-tex\">{tex}\\mathrm{Zn}(s)\\left|\\mathrm{Zn}^{2+}(a q) \\| \\mathrm{Sn}^{2+}(a q)\\right| \\operatorname{Sn}(s){/tex}</span><br />\n[Given, <span class=\"math-tex\">{tex}E_{\\mathrm{Zn}^{2+} / \\mathrm{Zn}}^{\\circ}{/tex}</span>&nbsp;= -0.76 V;&nbsp;<span class=\"math-tex\">{tex}E_{\\mathrm{Sn}^{2+} / \\mathrm{s}_{\\mathrm{n}}}^{\\circ}{/tex}</span>&nbsp;= -0.14 V&nbsp;and F =&nbsp;96500 Cmol<sup>-1</sup>].</p>",
+    "question_text": "Calculate the {tex}\\Delta_rG^o{/tex} and emf (E) that can be obtained from the following cell under the standard conditions at 25 o C. {tex}\\mathrm{Zn}(s)\\left|\\mathrm{Zn}^{2+}(a q) \\| \\mathrm{Sn}^{2+}(a q)\\right| \\operatorname{Sn}(s){/tex} [Given, {tex}E_{\\mathrm{Zn}^{2+} / \\mathrm{Zn}}^{\\circ}{/tex} = -0.76 V; {tex}E_{\\mathrm{Sn}^{2+} / \\mathrm{s}_{\\mathrm{n}}}^{\\circ}{/tex} = -0.14 V and F = 96500 Cmol -1 ].",
+    "options": [],
+    "correct_option_ids": [],
+    "correct_option_text": "",
+    "explanation": "At anode: {tex}\\mathrm{Zn}(s) \\longrightarrow \\mathrm{Zn}^{2+}(a q)+2 e^{-}{/tex} At cathode: {tex}\\mathrm{Sn}^{2+}(a q)+2 e^{-} \\longrightarrow \\mathrm{Sn}(s){/tex} Overall reaction: {tex}\\mathrm{Zn}(s)+\\mathrm{Sn}^{2+}(a q) \\longrightarrow \\mathrm{Zn}^{2+}(a q)+\\mathrm{Sn}(s){/tex} {tex}E_{\\mathrm{cell}}^{\\circ}=E_{\\mathrm{Sn}^{2+} / \\mathrm{Sn}}^{\\circ}-\\left(-E_{\\mathrm{Zn}^{2+} / \\mathrm{Zn}}^{0}\\right){/tex} = -0.14 + 0.76 = 0.62 V {tex}\\Delta G^{\\circ}=-n F E^{\\circ}=-2 \\times 96500 \\times 0.62{/tex} {tex}\\Delta G^{\\circ}=-119660\\; \\mathrm{J} \\mathrm{mol}^{-1}{/tex}",
+    "solution": "At anode: {tex}\\mathrm{Zn}(s) \\longrightarrow \\mathrm{Zn}^{2+}(a q)+2 e^{-}{/tex} At cathode: {tex}\\mathrm{Sn}^{2+}(a q)+2 e^{-} \\longrightarrow \\mathrm{Sn}(s){/tex} Overall reaction: {tex}\\mathrm{Zn}(s)+\\mathrm{Sn}^{2+}(a q) \\longrightarrow \\mathrm{Zn}^{2+}(a q)+\\mathrm{Sn}(s){/tex} {tex}E_{\\mathrm{cell}}^{\\circ}=E_{\\mathrm{Sn}^{2+} / \\mathrm{Sn}}^{\\circ}-\\left(-E_{\\mathrm{Zn}^{2+} / \\mathrm{Zn}}^{0}\\right){/tex} = -0.14 + 0.76 = 0.62 V {tex}\\Delta G^{\\circ}=-n F E^{\\circ}=-2 \\times 96500 \\times 0.62{/tex} {tex}\\Delta G^{\\circ}=-119660\\; \\mathrm{J} \\mathrm{mol}^{-1}{/tex}",
+    "solution_html": "<p><strong>At anode:</strong>&nbsp;<span class=\"math-tex\">{tex}\\mathrm{Zn}(s) \\longrightarrow \\mathrm{Zn}^{2+}(a q)+2 e^{-}{/tex}</span><br />\n<strong>At cathode:</strong>&nbsp;<span class=\"math-tex\">{tex}\\mathrm{Sn}^{2+}(a q)+2 e^{-} \\longrightarrow \\mathrm{Sn}(s){/tex}</span><br />\n<strong>Overall reaction:</strong><br />\n<span class=\"math-tex\">{tex}\\mathrm{Zn}(s)+\\mathrm{Sn}^{2+}(a q) \\longrightarrow \\mathrm{Zn}^{2+}(a q)+\\mathrm{Sn}(s){/tex}</span><br />\n<span class=\"math-tex\">{tex}E_{\\mathrm{cell}}^{\\circ}=E_{\\mathrm{Sn}^{2+} / \\mathrm{Sn}}^{\\circ}-\\left(-E_{\\mathrm{Zn}^{2+} / \\mathrm{Zn}}^{0}\\right){/tex}</span><br />\n= -0.14 + 0.76 = 0.62 V<br />\n<span class=\"math-tex\">{tex}\\Delta G^{\\circ}=-n F E^{\\circ}=-2 \\times 96500 \\times 0.62{/tex}</span><br />\n<span class=\"math-tex\">{tex}\\Delta G^{\\circ}=-119660\\; \\mathrm{J} \\mathrm{mol}^{-1}{/tex}</span></p>",
+    "weightage": "SA-1 (Short answer type-1)"
+  },
+  {
+    "subject": "Chemistry",
+    "subject_id": "1267",
+    "chapter": "Electrochemistry",
+    "chapter_id": 1270,
+    "question_id": 186092,
+    "question_html": "<p>Calculate <span class=\"math-tex\">{tex}\\Lambda_{\\mathrm{m}}^{\\circ}{/tex}</span>&nbsp;for acetic acid,<br />\r\nGiven that,<br />\r\n<span class=\"math-tex\">{tex}\\Lambda_{\\mathrm{m}}^{\\circ}{/tex}</span><sub>(HCI)</sub> = 426S cm<sup>2&nbsp;</sup>ml<sup>-1</sup><br />\r\n<span class=\"math-tex\">{tex}\\Lambda_{\\mathrm{m}}^{\\circ}{/tex}</span>(NaCl)=126S cm<sup>2</sup>&nbsp;ml<sup>-1</sup><br />\r\n<span class=\"math-tex\">{tex}\\Lambda_{\\mathrm{m}}^{\\circ}{/tex}</span>(CH<sub>3</sub>COONa) = 91S cm<sup>2</sup>&nbsp;ml<sup>-1</sup></p>",
+    "question_text": "Calculate {tex}\\Lambda_{\\mathrm{m}}^{\\circ}{/tex} for acetic acid, Given that, {tex}\\Lambda_{\\mathrm{m}}^{\\circ}{/tex} (HCI) = 426S cm 2 ml -1 {tex}\\Lambda_{\\mathrm{m}}^{\\circ}{/tex} (NaCl)=126S cm 2 ml -1 {tex}\\Lambda_{\\mathrm{m}}^{\\circ}{/tex} (CH 3 COONa) = 91S cm 2 ml -1",
+    "options": [],
+    "correct_option_ids": [],
+    "correct_option_text": "",
+    "explanation": "Given, {tex}\\Lambda_{\\mathrm{m}(\\mathrm{HCl})}^{\\circ}=426 \\mathrm{S} \\mathrm{cm}^{2} \\mathrm{mol}^{-1}{/tex} {tex}\\Lambda_{\\mathrm{m}(\\mathrm{NaCl})}^{\\mathrm{o}}=126 \\mathrm{Scm}^{2} \\mathrm{mol}^{-1}{/tex} {tex}\\Lambda_{\\mathrm{m}\\left(\\mathrm{CH}_{3} \\mathrm{COONa}\\right)}^{\\circ}=91 \\mathrm{S} \\mathrm{cm}^{2} \\mathrm{mol}^{-1}{/tex} {tex}\\Lambda_{\\mathrm{m}}^{\\circ}\\left(\\mathrm{CH}_{3} \\mathrm{cooH}\\right)=\\Lambda_{\\mathrm{H}^{+}}^{\\circ}+\\Lambda_{\\mathrm{CH}_{3} \\mathrm{COO}^{-}}^{\\circ}{/tex} {tex}=\\Lambda_{\\mathrm{H}^{+}}^{\\circ}+\\Lambda_{\\mathrm{Cl}^{-}}^{\\circ}+\\Lambda_{\\mathrm{CH}_{3} \\mathrm{COO}^{-}}^{\\circ}+\\Lambda_{\\mathrm{Na}^{+}}^{\\circ}-\\Lambda_{\\mathrm{Cl}}^{\\circ}{/tex} {tex}=\\Lambda_{\\mathrm{m}(\\mathrm{HCl})}^{\\circ}+\\Lambda_{\\mathrm{m}}^{\\mathrm{o}}\\left(\\mathrm{CH}_{3} \\mathrm{coona}\\right)-\\Lambda_{\\mathrm{m}(\\mathrm{NaCl})}^{\\mathrm{o}}{/tex} = (426 + 91 - 126)S cm 2 mol -1 = 391S cm 2 mol -1",
+    "solution": "Given, {tex}\\Lambda_{\\mathrm{m}(\\mathrm{HCl})}^{\\circ}=426 \\mathrm{S} \\mathrm{cm}^{2} \\mathrm{mol}^{-1}{/tex} {tex}\\Lambda_{\\mathrm{m}(\\mathrm{NaCl})}^{\\mathrm{o}}=126 \\mathrm{Scm}^{2} \\mathrm{mol}^{-1}{/tex} {tex}\\Lambda_{\\mathrm{m}\\left(\\mathrm{CH}_{3} \\mathrm{COONa}\\right)}^{\\circ}=91 \\mathrm{S} \\mathrm{cm}^{2} \\mathrm{mol}^{-1}{/tex} {tex}\\Lambda_{\\mathrm{m}}^{\\circ}\\left(\\mathrm{CH}_{3} \\mathrm{cooH}\\right)=\\Lambda_{\\mathrm{H}^{+}}^{\\circ}+\\Lambda_{\\mathrm{CH}_{3} \\mathrm{COO}^{-}}^{\\circ}{/tex} {tex}=\\Lambda_{\\mathrm{H}^{+}}^{\\circ}+\\Lambda_{\\mathrm{Cl}^{-}}^{\\circ}+\\Lambda_{\\mathrm{CH}_{3} \\mathrm{COO}^{-}}^{\\circ}+\\Lambda_{\\mathrm{Na}^{+}}^{\\circ}-\\Lambda_{\\mathrm{Cl}}^{\\circ}{/tex} {tex}=\\Lambda_{\\mathrm{m}(\\mathrm{HCl})}^{\\circ}+\\Lambda_{\\mathrm{m}}^{\\mathrm{o}}\\left(\\mathrm{CH}_{3} \\mathrm{coona}\\right)-\\Lambda_{\\mathrm{m}(\\mathrm{NaCl})}^{\\mathrm{o}}{/tex} = (426 + 91 - 126)S cm 2 mol -1 = 391S cm 2 mol -1",
+    "solution_html": "<p>Given,<br />\r\n<span class=\"math-tex\">{tex}\\Lambda_{\\mathrm{m}(\\mathrm{HCl})}^{\\circ}=426 \\mathrm{S} \\mathrm{cm}^{2} \\mathrm{mol}^{-1}{/tex}</span><br />\r\n<span class=\"math-tex\">{tex}\\Lambda_{\\mathrm{m}(\\mathrm{NaCl})}^{\\mathrm{o}}=126 \\mathrm{Scm}^{2} \\mathrm{mol}^{-1}{/tex}</span><br />\r\n<span class=\"math-tex\">{tex}\\Lambda_{\\mathrm{m}\\left(\\mathrm{CH}_{3} \\mathrm{COONa}\\right)}^{\\circ}=91 \\mathrm{S} \\mathrm{cm}^{2} \\mathrm{mol}^{-1}{/tex}</span><br />\r\n<span class=\"math-tex\">{tex}\\Lambda_{\\mathrm{m}}^{\\circ}\\left(\\mathrm{CH}_{3} \\mathrm{cooH}\\right)=\\Lambda_{\\mathrm{H}^{+}}^{\\circ}+\\Lambda_{\\mathrm{CH}_{3} \\mathrm{COO}^{-}}^{\\circ}{/tex}</span><br />\r\n<span class=\"math-tex\">{tex}=\\Lambda_{\\mathrm{H}^{+}}^{\\circ}+\\Lambda_{\\mathrm{Cl}^{-}}^{\\circ}+\\Lambda_{\\mathrm{CH}_{3} \\mathrm{COO}^{-}}^{\\circ}+\\Lambda_{\\mathrm{Na}^{+}}^{\\circ}-\\Lambda_{\\mathrm{Cl}}^{\\circ}{/tex}</span><br />\r\n<span class=\"math-tex\">{tex}=\\Lambda_{\\mathrm{m}(\\mathrm{HCl})}^{\\circ}+\\Lambda_{\\mathrm{m}}^{\\mathrm{o}}\\left(\\mathrm{CH}_{3} \\mathrm{coona}\\right)-\\Lambda_{\\mathrm{m}(\\mathrm{NaCl})}^{\\mathrm{o}}{/tex}</span><br />\r\n= (426 + 91 - 126)S cm<sup>2</sup>mol<sup>-1</sup><br />\r\n= 391S cm<sup>2</sup>mol<sup>-1</sup></p>",
+    "weightage": "SA-1 (Short answer type-1)"
+  },
+  {
+    "subject": "Chemistry",
+    "subject_id": "1267",
+    "chapter": "Electrochemistry",
+    "chapter_id": 1270,
+    "question_id": 187653,
+    "question_html": "<p>An aqueous solution of copper sulphate, CuSO<sub>4</sub> was electrolysed between platinum electrodes using a current of 0.1287 A for 50 min. [Given, atomic mass of Cu= 63.5 g mol<sup>-1</sup>]</p>\n\n<ol start=\"1\" style=\"list-style-type: lower-roman;\">\n\t<li>Write the cathodic reaction.</li>\n\t<li>Calculate\n\t<ol start=\"1\" style=\"list-style-type: lower-alpha;\">\n\t\t<li>Electric charge passed during electrolysis.</li>\n\t\t<li>Mass of copper deposited at the cathode. [Given, 1 F = 96500 Cmol<sup>-1</sup>].</li>\n\t</ol>\n\t</li>\n</ol>",
+    "question_text": "An aqueous solution of copper sulphate, CuSO 4 was electrolysed between platinum electrodes using a current of 0.1287 A for 50 min. [Given, atomic mass of Cu= 63.5 g mol -1 ] Write the cathodic reaction. Calculate Electric charge passed during electrolysis. Mass of copper deposited at the cathode. [Given, 1 F = 96500 Cmol -1 ].",
+    "options": [],
+    "correct_option_ids": [],
+    "correct_option_text": "",
+    "explanation": "Given that, t = 50 {tex}\\times{/tex} 60 = 3000 s, I = 0.1287 A {tex}\\mathrm{Cu}^{2+}+2 e^{-} \\longrightarrow \\mathrm{Cu}(s){/tex} Q = It = 0.1287 {tex}\\times{/tex} 3000 = 386.1 C m = Z {tex}\\times{/tex} I {tex}\\times{/tex} t = {tex}\\frac{\\text { Equivalent weight }}{96500}{/tex} {tex}\\times{/tex} I {tex}\\times{/tex} t = {tex}\\frac{63.5}{2 \\times 96500}{/tex} {tex}\\times{/tex} 386.1 = 0.127 g",
+    "solution": "Given that, t = 50 {tex}\\times{/tex} 60 = 3000 s, I = 0.1287 A {tex}\\mathrm{Cu}^{2+}+2 e^{-} \\longrightarrow \\mathrm{Cu}(s){/tex} Q = It = 0.1287 {tex}\\times{/tex} 3000 = 386.1 C m = Z {tex}\\times{/tex} I {tex}\\times{/tex} t = {tex}\\frac{\\text { Equivalent weight }}{96500}{/tex} {tex}\\times{/tex} I {tex}\\times{/tex} t = {tex}\\frac{63.5}{2 \\times 96500}{/tex} {tex}\\times{/tex} 386.1 = 0.127 g",
+    "solution_html": "<p>Given that, t = 50 <span class=\"math-tex\">{tex}\\times{/tex}</span>&nbsp;60 = 3000 s, I = 0.1287 A</p>\n\n<ol start=\"1\" style=\"list-style-type: lower-roman;\">\n\t<li><span class=\"math-tex\">{tex}\\mathrm{Cu}^{2+}+2 e^{-} \\longrightarrow \\mathrm{Cu}(s){/tex}</span></li>\n\t<li>\n\t<ol start=\"1\" style=\"list-style-type: lower-alpha;\">\n\t\t<li>Q = It = 0.1287&nbsp;<span class=\"math-tex\">{tex}\\times{/tex}</span>&nbsp;3000 = 386.1 C</li>\n\t\t<li>m = Z&nbsp;<span class=\"math-tex\">{tex}\\times{/tex}</span>&nbsp;I&nbsp;<span class=\"math-tex\">{tex}\\times{/tex}</span>&nbsp;t =&nbsp;<span class=\"math-tex\">{tex}\\frac{\\text { Equivalent weight }}{96500}{/tex}</span><span class=\"math-tex\">{tex}\\times{/tex}</span>&nbsp;I&nbsp;<span class=\"math-tex\">{tex}\\times{/tex}</span>&nbsp;t<br />\n\t\t=&nbsp;<span class=\"math-tex\">{tex}\\frac{63.5}{2 \\times 96500}{/tex}</span>&nbsp;<span class=\"math-tex\">{tex}\\times{/tex}</span>&nbsp;386.1 = 0.127 g</li>\n\t</ol>\n\t</li>\n</ol>",
+    "weightage": "SA-1 (Short answer type-1)"
+  },
+  {
+    "subject": "Chemistry",
+    "subject_id": "1267",
+    "chapter": "Electrochemistry",
+    "chapter_id": 1270,
+    "question_id": 259120,
+    "question_html": "<p>Calculate the potential of the cell at 298 K :<br />\r\nCd/Cd<sup>2+</sup> (0.1M) || H<sup>+</sup> (0.2M)/Pt, H<sub>2</sub> (0.5 atm)<br />\r\nGiven E<sup>&ordm;</sup> for Cd<sup>2+</sup>/Cd = -0.403 V, R = 8.314 J<sup>-1</sup> mol<sup>-1</sup>, F = 96500 C mol<sup>-1</sup>.</p>",
+    "question_text": "Calculate the potential of the cell at 298 K : Cd/Cd 2+ (0.1M) || H + (0.2M)/Pt, H 2 (0.5 atm) Given E &ordm; for Cd 2+ /Cd = -0.403 V, R = 8.314 J -1 mol -1 , F = 96500 C mol -1 .",
+    "options": [],
+    "correct_option_ids": [],
+    "correct_option_text": "",
+    "explanation": "The cell reaction is Cd + 2H + (0.2M) {tex}\\longrightarrow{/tex} Cd 2+ (0.1M) + H 2 (0.5 atm) {tex}\\mathrm{E}_{\\text {cell }}^{\\circ}=0-(-0.403)=+0.403 \\mathrm{V}{/tex} {tex}\\mathrm{E}_{\\text {cell }}=0.403-\\frac{2.303 \\mathrm{RT}}{n \\mathrm{F}} \\log \\frac{\\left[\\mathrm{Cd}^{2+}\\right] \\times \\mathrm{P}_{\\mathrm{H}_{2}}}{[\\mathrm{Cd}]\\left[\\mathrm{H}^{+}\\right]^{2}}{/tex} {tex}=0.403-\\frac{2.303 \\times 8.314 \\times 298}{2 \\times 96500} \\log \\frac{0.1 \\times 0.5}{(0.2)^{2}}{/tex} E cell = 0.403 - 0.003 = 0.40 V",
+    "solution": "The cell reaction is Cd + 2H + (0.2M) {tex}\\longrightarrow{/tex} Cd 2+ (0.1M) + H 2 (0.5 atm) {tex}\\mathrm{E}_{\\text {cell }}^{\\circ}=0-(-0.403)=+0.403 \\mathrm{V}{/tex} {tex}\\mathrm{E}_{\\text {cell }}=0.403-\\frac{2.303 \\mathrm{RT}}{n \\mathrm{F}} \\log \\frac{\\left[\\mathrm{Cd}^{2+}\\right] \\times \\mathrm{P}_{\\mathrm{H}_{2}}}{[\\mathrm{Cd}]\\left[\\mathrm{H}^{+}\\right]^{2}}{/tex} {tex}=0.403-\\frac{2.303 \\times 8.314 \\times 298}{2 \\times 96500} \\log \\frac{0.1 \\times 0.5}{(0.2)^{2}}{/tex} E cell = 0.403 - 0.003 = 0.40 V",
+    "solution_html": "<p>The cell reaction is Cd + 2H<sup>+</sup> (0.2M) <span class=\"math-tex\">{tex}\\longrightarrow{/tex}</span> Cd<sup>2+</sup> (0.1M) + H<sub>2</sub> (0.5 atm)<br />\r\n<span class=\"math-tex\">{tex}\\mathrm{E}_{\\text {cell }}^{\\circ}=0-(-0.403)=+0.403 \\mathrm{V}{/tex}</span><br />\r\n<span class=\"math-tex\">{tex}\\mathrm{E}_{\\text {cell }}=0.403-\\frac{2.303 \\mathrm{RT}}{n \\mathrm{F}} \\log \\frac{\\left[\\mathrm{Cd}^{2+}\\right] \\times \\mathrm{P}_{\\mathrm{H}_{2}}}{[\\mathrm{Cd}]\\left[\\mathrm{H}^{+}\\right]^{2}}{/tex}</span><br />\r\n<span class=\"math-tex\">{tex}=0.403-\\frac{2.303 \\times 8.314 \\times 298}{2 \\times 96500} \\log \\frac{0.1 \\times 0.5}{(0.2)^{2}}{/tex}</span><br />\r\nE<sub>cell</sub> = 0.403 - 0.003 = 0.40 V</p>",
+    "weightage": "SA-1 (Short answer type-1)"
+  },
+  {
+    "subject": "Chemistry",
+    "subject_id": "1267",
+    "chapter": "Electrochemistry",
+    "chapter_id": 1270,
+    "question_id": 259118,
+    "question_html": "<p>Calculate the potential of the following cell Sn<sup>4+</sup> (1.5 M) + Zn <span class=\"math-tex\">{tex}\\longrightarrow{/tex}</span> Sn<sup>2+</sup> (0.5 M) + Zn<sup>2+</sup> (2M).<br />\r\nGiven : <span class=\"math-tex\">{tex}\\mathbf{E}_{\\mathrm{Sn}^{4+} / \\mathrm{Sa}^{2+}}^{0}=0.13 \\mathrm{V}, \\mathrm{E}_{\\mathrm{Zn}^{2+} / \\mathrm{Zn}}^{0}=-0.76 \\mathrm{V}{/tex}</span><br />\r\nWill the cell potential <span class=\"math-tex\">{tex}\\uparrow{/tex}</span> or <span class=\"math-tex\">{tex}\\downarrow{/tex}</span> if the concentration of Sn<sup>4+</sup> is increased?</p>",
+    "question_text": "Calculate the potential of the following cell Sn 4+ (1.5 M) + Zn {tex}\\longrightarrow{/tex} Sn 2+ (0.5 M) + Zn 2+ (2M). Given : {tex}\\mathbf{E}_{\\mathrm{Sn}^{4+} / \\mathrm{Sa}^{2+}}^{0}=0.13 \\mathrm{V}, \\mathrm{E}_{\\mathrm{Zn}^{2+} / \\mathrm{Zn}}^{0}=-0.76 \\mathrm{V}{/tex} Will the cell potential {tex}\\uparrow{/tex} or {tex}\\downarrow{/tex} if the concentration of Sn 4+ is increased?",
+    "options": [],
+    "correct_option_ids": [],
+    "correct_option_text": "",
+    "explanation": "{tex}\\mathrm{E}_{\\text {cell }}=\\mathrm{E}_{\\text {cell }}^{\\theta}-\\frac{0.0591}{n} \\log \\frac{\\left[\\mathrm{Sn}^{2+}\\right]\\left[\\mathrm{Zn}^{2+}\\right]}{\\left[\\mathrm{Sn}^{4+}\\right][\\mathrm{Zn}]}{/tex} {tex}=0.89-\\frac{0.0591}{2} \\log \\frac{0.5 \\times 2}{1.5 \\times 1}{/tex} {tex}=0.89-\\frac{0.0591}{2} \\log \\frac{1}{1.5}{/tex} = 0.895 V On increasing the concentration of Sn 4+ , EMF of the cell will increase.",
+    "solution": "{tex}\\mathrm{E}_{\\text {cell }}=\\mathrm{E}_{\\text {cell }}^{\\theta}-\\frac{0.0591}{n} \\log \\frac{\\left[\\mathrm{Sn}^{2+}\\right]\\left[\\mathrm{Zn}^{2+}\\right]}{\\left[\\mathrm{Sn}^{4+}\\right][\\mathrm{Zn}]}{/tex} {tex}=0.89-\\frac{0.0591}{2} \\log \\frac{0.5 \\times 2}{1.5 \\times 1}{/tex} {tex}=0.89-\\frac{0.0591}{2} \\log \\frac{1}{1.5}{/tex} = 0.895 V On increasing the concentration of Sn 4+ , EMF of the cell will increase.",
+    "solution_html": "<p><span class=\"math-tex\">{tex}\\mathrm{E}_{\\text {cell }}=\\mathrm{E}_{\\text {cell }}^{\\theta}-\\frac{0.0591}{n} \\log \\frac{\\left[\\mathrm{Sn}^{2+}\\right]\\left[\\mathrm{Zn}^{2+}\\right]}{\\left[\\mathrm{Sn}^{4+}\\right][\\mathrm{Zn}]}{/tex}</span><br />\n<span class=\"math-tex\">{tex}=0.89-\\frac{0.0591}{2} \\log \\frac{0.5 \\times 2}{1.5 \\times 1}{/tex}</span><br />\n<span class=\"math-tex\">{tex}=0.89-\\frac{0.0591}{2} \\log \\frac{1}{1.5}{/tex}</span><br />\n= 0.895 V<br />\nOn increasing the concentration of Sn<sup>4+</sup>, EMF of the cell will increase.</p>",
+    "weightage": "SA-1 (Short answer type-1)"
+  },
+  {
+    "subject": "Chemistry",
+    "subject_id": "1267",
+    "chapter": "Electrochemistry",
+    "chapter_id": 1270,
+    "question_id": 187658,
+    "question_html": "<p>Calculate the strength of the current required to deposit 1.2g of magnesium from molten MgCl<sub>2</sub> in 1h.<br />\n[1F = 96500 Cmol<sup>-1</sup>, atomic mass of Mg = 24.0].</p>",
+    "question_text": "Calculate the strength of the current required to deposit 1.2g of magnesium from molten MgCl 2 in 1h. [1F = 96500 Cmol -1 , atomic mass of Mg = 24.0].",
+    "options": [],
+    "correct_option_ids": [],
+    "correct_option_text": "",
+    "explanation": "The half reaction occurring during deposition is: Mg 2 + + 2e - ----------> Mg(s) So to produce 1 mole of Mg we need 2 moles of electrons, 1 mol of Mg = 24 g Thus 1.2 g of Mg = ( {tex}\\frac{1.2}{24}{/tex} ) = 0.05 moles Hence no. of moles of electrons required to deposit = 0.05 x 2 = 0.1 moles Qty. of electricity passed (Q) = moles of electrons passed x 96500 = 0.1 x 96500 = 9650 C I = {tex}\\frac Qt{/tex} I = {tex}\\frac {9650}{60 \\times 60}{/tex} (converting 1 hr into seconds) I = 2.68 A .",
+    "solution": "The half reaction occurring during deposition is: Mg 2 + + 2e - ----------> Mg(s) So to produce 1 mole of Mg we need 2 moles of electrons, 1 mol of Mg = 24 g Thus 1.2 g of Mg = ( {tex}\\frac{1.2}{24}{/tex} ) = 0.05 moles Hence no. of moles of electrons required to deposit = 0.05 x 2 = 0.1 moles Qty. of electricity passed (Q) = moles of electrons passed x 96500 = 0.1 x 96500 = 9650 C I = {tex}\\frac Qt{/tex} I = {tex}\\frac {9650}{60 \\times 60}{/tex} (converting 1 hr into seconds) I = 2.68 A .",
+    "solution_html": "<p>The half reaction occurring during deposition is:<br />\nMg<sup>2</sup><sup>+</sup>&nbsp;+ 2e<sup>-</sup>&nbsp;----------&gt; Mg(s)<br />\nSo to produce 1 mole of Mg we need 2 moles of electrons,<br />\n1 mol of Mg = 24 g<br />\nThus 1.2 g of Mg = (<span class=\"math-tex\">{tex}\\frac{1.2}{24}{/tex}</span>) = 0.05 moles<br />\nHence no. of moles of electrons required to deposit&nbsp; = 0.05 x 2 = 0.1 moles<br />\nQty. of electricity passed (Q) = moles of electrons passed x 96500<br />\n&nbsp;= 0.1 x 96500 = 9650 C<br />\nI =&nbsp;<span class=\"math-tex\">{tex}\\frac Qt{/tex}</span><br />\nI = <span class=\"math-tex\">{tex}\\frac {9650}{60 \\times 60}{/tex}</span>&nbsp;(converting 1 hr into seconds)<br />\nI = <strong>2.68 A</strong>.<br />\n&nbsp;</p>",
+    "weightage": "SA-1 (Short answer type-1)"
+  },
+  {
+    "subject": "Chemistry",
+    "subject_id": "1267",
+    "chapter": "Electrochemistry",
+    "chapter_id": 1270,
+    "question_id": 186131,
+    "question_html": "<ol start=\"1\" style=\"list-style-type: lower-roman;\">\r\n\t<li>Calculate <span class=\"math-tex\">{tex}\\Delta{/tex}</span>rG<sup>o</sup>&nbsp;for the reaction, Mg(s) + Cu<sub>2</sub> + (aq) <span class=\"math-tex\">{tex}\\longrightarrow{/tex}</span>&nbsp;Mg<sup>2+</sup>(aq) + Cu(s)<br />\r\n\t(Given,&nbsp;<span class=\"math-tex\">{tex}E_{\\text { cell }}^{\\circ}{/tex}</span> = +2.71 V, 1F = 96500C mol<sup>-1</sup>)</li>\r\n\t<li>Name the type of cell which was used in Apollo space programme for providing electrical power.</li>\r\n</ol>",
+    "question_text": "Calculate {tex}\\Delta{/tex} rG o for the reaction, Mg(s) + Cu 2 + (aq) {tex}\\longrightarrow{/tex} Mg 2+ (aq) + Cu(s) (Given, {tex}E_{\\text { cell }}^{\\circ}{/tex} = +2.71 V, 1F = 96500C mol -1 ) Name the type of cell which was used in Apollo space programme for providing electrical power.",
+    "options": [],
+    "correct_option_ids": [],
+    "correct_option_text": "",
+    "explanation": "For the reaction. Mg(s) +Cu 2+ (aq) {tex}\\rightarrow{/tex} Mg 2+ (aq) +Cu(s) n = 2 {tex}E_{\\mathrm{cell}}^{\\circ}{/tex} = +2.71 V, IF= 96500 C mol -1 (given) {tex}\\Delta G^{\\circ}{/tex} = -nF {tex}E_{\\mathrm{cell}}^{\\circ}{/tex} = {tex}-2 \\times 96500 \\times 2.71{/tex} = -523030J mol -1 = - 523.030 kJ mol -1 .",
+    "solution": "For the reaction. Mg(s) +Cu 2+ (aq) {tex}\\rightarrow{/tex} Mg 2+ (aq) +Cu(s) n = 2 {tex}E_{\\mathrm{cell}}^{\\circ}{/tex} = +2.71 V, IF= 96500 C mol -1 (given) {tex}\\Delta G^{\\circ}{/tex} = -nF {tex}E_{\\mathrm{cell}}^{\\circ}{/tex} = {tex}-2 \\times 96500 \\times 2.71{/tex} = -523030J mol -1 = - 523.030 kJ mol -1 .",
+    "solution_html": "<p>For the reaction.<br />\r\nMg(s) +Cu<sup>2+</sup> (aq)&nbsp;<span class=\"math-tex\">{tex}\\rightarrow{/tex}</span> Mg<sup>2+</sup> (aq) +Cu(s)<br />\r\nn = 2<br />\r\n<span class=\"math-tex\">{tex}E_{\\mathrm{cell}}^{\\circ}{/tex}</span>&nbsp;=&nbsp;+2.71&nbsp;V, IF= 96500 C mol<sup>-1</sup>&nbsp;(given)<br />\r\n<span class=\"math-tex\">{tex}\\Delta G^{\\circ}{/tex}</span>&nbsp;= -nF&nbsp;<span class=\"math-tex\">{tex}E_{\\mathrm{cell}}^{\\circ}{/tex}</span><br />\r\n=&nbsp;<span class=\"math-tex\">{tex}-2 \\times 96500 \\times 2.71{/tex}</span>&nbsp;= -523030J mol<sup>-1</sup><br />\r\n= - 523.030 kJ mol<sup>-1</sup>.</p>",
+    "weightage": "SA-1 (Short answer type-1)"
+  },
+  {
+    "subject": "Chemistry",
+    "subject_id": "1267",
+    "chapter": "Electrochemistry",
+    "chapter_id": 1270,
+    "question_id": 259119,
+    "question_html": "<p>E&ordm; (Cu<sup>2+</sup>/Cu) and E&ordm; (Ag<sup>+</sup>/Ag) is + 0.337 V and + 0.799 V respectively. Make a cell whose EMF is +ve. If the concentration of Cu<sup>2+</sup> is 0.01M and E<sub>cell</sub> at 25&ordm;C is zero, calculate the concentration of Ag<sup>+</sup>.</p>",
+    "question_text": "E&ordm; (Cu 2+ /Cu) and E&ordm; (Ag + /Ag) is + 0.337 V and + 0.799 V respectively. Make a cell whose EMF is +ve. If the concentration of Cu 2+ is 0.01M and E cell at 25&ordm;C is zero, calculate the concentration of Ag + .",
+    "options": [],
+    "correct_option_ids": [],
+    "correct_option_text": "",
+    "explanation": "Cu is more reactive than silver, so that the cell is as Cu/Cu 2+ (0.01M) || Ag + (C)/Ag or cell reaction {tex}\\mathrm{Cu}+2 \\mathrm{Ag}^{+} \\rightarrow \\mathrm{Cu}^{2+}+2 \\mathrm{Ag}{/tex} {tex}\\mathrm{E}_{\\text {cell }}=\\mathrm{E}_{\\text {cell }}^{\\circ}-\\frac{0.0591}{n} \\log \\frac{\\left[\\mathrm{Cu}^{2+}\\right][\\mathrm{Ag}]^{2}}{[\\mathrm{Cu}]\\left[\\mathrm{Ag}^{+}\\right]^{2}}{/tex} {tex}=\\mathrm{E}_{\\text {cell }}^{\\circ}-\\frac{0.0591}{n} \\log \\frac{(0.01) \\times 1^{2}}{1 \\times\\left[\\mathrm{Ag}^{+}\\right]^{2}}{/tex} Or [Ag + ] = 1.47 &times; 10 -9 M",
+    "solution": "Cu is more reactive than silver, so that the cell is as Cu/Cu 2+ (0.01M) || Ag + (C)/Ag or cell reaction {tex}\\mathrm{Cu}+2 \\mathrm{Ag}^{+} \\rightarrow \\mathrm{Cu}^{2+}+2 \\mathrm{Ag}{/tex} {tex}\\mathrm{E}_{\\text {cell }}=\\mathrm{E}_{\\text {cell }}^{\\circ}-\\frac{0.0591}{n} \\log \\frac{\\left[\\mathrm{Cu}^{2+}\\right][\\mathrm{Ag}]^{2}}{[\\mathrm{Cu}]\\left[\\mathrm{Ag}^{+}\\right]^{2}}{/tex} {tex}=\\mathrm{E}_{\\text {cell }}^{\\circ}-\\frac{0.0591}{n} \\log \\frac{(0.01) \\times 1^{2}}{1 \\times\\left[\\mathrm{Ag}^{+}\\right]^{2}}{/tex} Or [Ag + ] = 1.47 &times; 10 -9 M",
+    "solution_html": "<p>Cu is more reactive than silver, so that the cell is as Cu/Cu<sup>2+</sup> (0.01M) || Ag<sup>+</sup>(C)/Ag or cell reaction<br />\r\n<span class=\"math-tex\">{tex}\\mathrm{Cu}+2 \\mathrm{Ag}^{+} \\rightarrow \\mathrm{Cu}^{2+}+2 \\mathrm{Ag}{/tex}</span><br />\r\n<span class=\"math-tex\">{tex}\\mathrm{E}_{\\text {cell }}=\\mathrm{E}_{\\text {cell }}^{\\circ}-\\frac{0.0591}{n} \\log \\frac{\\left[\\mathrm{Cu}^{2+}\\right][\\mathrm{Ag}]^{2}}{[\\mathrm{Cu}]\\left[\\mathrm{Ag}^{+}\\right]^{2}}{/tex}</span><br />\r\n<span class=\"math-tex\">{tex}=\\mathrm{E}_{\\text {cell }}^{\\circ}-\\frac{0.0591}{n} \\log \\frac{(0.01) \\times 1^{2}}{1 \\times\\left[\\mathrm{Ag}^{+}\\right]^{2}}{/tex}</span><br />\r\nOr [Ag<sup>+</sup>] = 1.47 &times; 10<sup>-9</sup> M</p>",
+    "weightage": "SA-1 (Short answer type-1)"
+  },
+  {
+    "subject": "Chemistry",
+    "subject_id": "1267",
+    "chapter": "Electrochemistry",
+    "chapter_id": 1270,
+    "question_id": 64748,
+    "question_html": "<p>Explain why electrolysis of aqueous solution of NaCl gives H<sub>2</sub> at cathode and Cl<sub>2</sub> at anode. Write overall reaction.<br />\n<span class=\"math-tex\">{tex}\\left( \\begin{gathered} E_{N{a^ + }/Na}^0 = - 2.71V;\\;E_{{H_2}O/{H_2}}^0 = - 0.83V \\hfill \\\\ E_{C{l_2}/2C{l^ - }}^0 = + 1.36V;\\;E_{{H^ + } + {O_2}/{H_2}O}^0 = 1.23V \\hfill \\\\ \\end{gathered} \\right){/tex}</span></p>",
+    "question_text": "Explain why electrolysis of aqueous solution of NaCl gives H 2 at cathode and Cl 2 at anode. Write overall reaction. {tex}\\left( \\begin{gathered} E_{N{a^ + }/Na}^0 = - 2.71V;\\;E_{{H_2}O/{H_2}}^0 = - 0.83V \\hfill \\\\ E_{C{l_2}/2C{l^ - }}^0 = + 1.36V;\\;E_{{H^ + } + {O_2}/{H_2}O}^0 = 1.23V \\hfill \\\\ \\end{gathered} \\right){/tex}",
+    "options": [],
+    "correct_option_ids": [],
+    "correct_option_text": "",
+    "explanation": "At cathode, the following reduction reactions can take place: {tex}Na_{(aq)}^ + + {e^ - } \\to N{a_{(s)}};E_{N{a^ + }/Na}^0 = - 2.71V{/tex} {tex}H_{(aq)}^ + + {e^ - } \\to \\frac{1}{2}{H_2}(g);\\;E_{{H^ + }/{H_2}}^0 = OV{/tex} A reduction reaction with higher reduction potential is preferred. Therefore, the reaction at the cathode during electrolysis is {tex}H_{(aq)}^ + + {e^ - } \\to \\frac{1}{2}{H_{2(g)}}{/tex} This is why electrolysis of aqueous solution of NaCl gives H 2 at the cathode. At anode, the following oxidation reactions can take place: {tex}Cl_{(aq)}^ - \\to \\frac{1}{2}C{l_{2(g)}} + {e^ - }E_{C{l_2}/2C{l^ - }}^0 = + 1.36V{/tex} {tex}2{H_2}{O_{(l)}} \\to {O_{2(g)}} + 4H_{(aq)}^ + + 4{e^ - }E_{{H^ + } + {O_2}/{H_2}O}^0 {/tex} = 1.23V At anode, the reaction with lower value of E 0 is preferred. But, due to overvoltage, oxidation of chloride ion occurs and chlorine gas is obtained. Hence, the reaction at the anode during electrolysis is {tex}Cl_{(aq)}^ - \\to \\frac{1}{2}C{l_{2(g)}} + {e^ - }\\;E_{C{l_2}/2C{l^ - }}^0 = + 1.36V{/tex} This is why electrolysis of aqueous solution of NaCl gives Cl 2 at the anode. The overall cell reaction is given below. {tex}{H^ + } + C{l^ - } \\to \\frac{1}{2}{H_2} + \\frac{1}{2}C{l_2}{/tex}",
+    "solution": "At cathode, the following reduction reactions can take place: {tex}Na_{(aq)}^ + + {e^ - } \\to N{a_{(s)}};E_{N{a^ + }/Na}^0 = - 2.71V{/tex} {tex}H_{(aq)}^ + + {e^ - } \\to \\frac{1}{2}{H_2}(g);\\;E_{{H^ + }/{H_2}}^0 = OV{/tex} A reduction reaction with higher reduction potential is preferred. Therefore, the reaction at the cathode during electrolysis is {tex}H_{(aq)}^ + + {e^ - } \\to \\frac{1}{2}{H_{2(g)}}{/tex} This is why electrolysis of aqueous solution of NaCl gives H 2 at the cathode. At anode, the following oxidation reactions can take place: {tex}Cl_{(aq)}^ - \\to \\frac{1}{2}C{l_{2(g)}} + {e^ - }E_{C{l_2}/2C{l^ - }}^0 = + 1.36V{/tex} {tex}2{H_2}{O_{(l)}} \\to {O_{2(g)}} + 4H_{(aq)}^ + + 4{e^ - }E_{{H^ + } + {O_2}/{H_2}O}^0 {/tex} = 1.23V At anode, the reaction with lower value of E 0 is preferred. But, due to overvoltage, oxidation of chloride ion occurs and chlorine gas is obtained. Hence, the reaction at the anode during electrolysis is {tex}Cl_{(aq)}^ - \\to \\frac{1}{2}C{l_{2(g)}} + {e^ - }\\;E_{C{l_2}/2C{l^ - }}^0 = + 1.36V{/tex} This is why electrolysis of aqueous solution of NaCl gives Cl 2 at the anode. The overall cell reaction is given below. {tex}{H^ + } + C{l^ - } \\to \\frac{1}{2}{H_2} + \\frac{1}{2}C{l_2}{/tex}",
+    "solution_html": "<p>At cathode, the following reduction reactions can take place:<br />\n<span class=\"math-tex\">{tex}Na_{(aq)}^ + + {e^ - } \\to N{a_{(s)}};E_{N{a^ + }/Na}^0 = - 2.71V{/tex}</span><br />\n<span class=\"math-tex\">{tex}H_{(aq)}^ + + {e^ - } \\to \\frac{1}{2}{H_2}(g);\\;E_{{H^ + }/{H_2}}^0 = OV{/tex}</span><br />\nA reduction reaction with higher reduction potential is preferred. Therefore, the reaction at the cathode during electrolysis is<br />\n<span class=\"math-tex\">{tex}H_{(aq)}^ + + {e^ - } \\to \\frac{1}{2}{H_{2(g)}}{/tex}</span><br />\nThis is why electrolysis of aqueous solution of NaCl gives H<sub>2</sub> at the cathode.<br />\nAt anode, the following oxidation reactions can take place:<br />\n<span class=\"math-tex\">{tex}Cl_{(aq)}^ - \\to \\frac{1}{2}C{l_{2(g)}} + {e^ - }E_{C{l_2}/2C{l^ - }}^0 = + 1.36V{/tex}</span><br />\n<span class=\"math-tex\">{tex}2{H_2}{O_{(l)}} \\to {O_{2(g)}} + 4H_{(aq)}^ + + 4{e^ - }E_{{H^ + } + {O_2}/{H_2}O}^0 {/tex}</span> = 1.23V<br />\nAt anode, the reaction with lower value of E<sub>0</sub> is preferred. But, due to overvoltage, oxidation of chloride ion occurs and chlorine gas is obtained. Hence, the reaction at the anode during electrolysis is<br />\n<span class=\"math-tex\">{tex}Cl_{(aq)}^ - \\to \\frac{1}{2}C{l_{2(g)}} + {e^ - }\\;E_{C{l_2}/2C{l^ - }}^0 = + 1.36V{/tex}</span><br />\nThis is why electrolysis of aqueous solution of NaCl gives Cl<sub>2</sub> at the anode.<br />\nThe overall cell reaction is given below.<br />\n<span class=\"math-tex\">{tex}{H^ + } + C{l^ - } \\to \\frac{1}{2}{H_2} + \\frac{1}{2}C{l_2}{/tex}</span></p>",
+    "weightage": "SA-2 (Short answer type-2)"
+  },
+  {
+    "subject": "Chemistry",
+    "subject_id": "1267",
+    "chapter": "Electrochemistry",
+    "chapter_id": 1270,
+    "question_id": 993165,
+    "question_html": "<p>The conductivity of 2.5 <span class=\"math-tex\">{tex}\\times{/tex}</span> 10<sup>-4</sup> M methanoic acid is 5.25 <span class=\"math-tex\">{tex}\\times{/tex}</span> 10<sup>-5</sup> S cm<sup>-1</sup> and its <span class=\"math-tex\">{tex}\\wedge_{\\mathrm{m}}^0{/tex}</span> has a value 400 S cm<sup>2</sup> mol<sup>-1</sup>. Calculate its molar conductivity and degree of dissociation.</p>",
+    "question_text": "The conductivity of 2.5 {tex}\\times{/tex} 10 -4 M methanoic acid is 5.25 {tex}\\times{/tex} 10 -5 S cm -1 and its {tex}\\wedge_{\\mathrm{m}}^0{/tex} has a value 400 S cm 2 mol -1 . Calculate its molar conductivity and degree of dissociation.",
+    "options": [],
+    "correct_option_ids": [],
+    "correct_option_text": "",
+    "explanation": "{tex}\\Lambda_m{/tex} = {tex}\\frac{1000 \\times \\mathrm{K}}{\\mathrm{M}}{/tex} S cm 2 mol -1 {tex} \\Lambda_m{/tex} = {tex}\\frac{1000 \\times 5.25 \\times 10^{-5}}{2.5 \\times 10^{-4}}{/tex} - S cm 2 mol -1 = 210 S cm 2 mol -1 {tex} \\wedge_m^0 \\mathrm{HCOOH}{/tex} = {tex}\\lambda^{\\circ} \\mathrm{HCOO}^{-}+\\lambda^{\\circ} \\mathrm{H}^{+}{/tex} = (50.5 + 349.5) S cm 2 mol -1 = 400 S cm 2 mol -1 {tex}\\alpha{/tex} = {tex}\\frac{\\Lambda_m }{\\Lambda_m^{\\circ}}{/tex} {tex}\\alpha{/tex} = {tex}\\frac{210}{400}{/tex} = 0.525",
+    "solution": "{tex}\\Lambda_m{/tex} = {tex}\\frac{1000 \\times \\mathrm{K}}{\\mathrm{M}}{/tex} S cm 2 mol -1 {tex} \\Lambda_m{/tex} = {tex}\\frac{1000 \\times 5.25 \\times 10^{-5}}{2.5 \\times 10^{-4}}{/tex} - S cm 2 mol -1 = 210 S cm 2 mol -1 {tex} \\wedge_m^0 \\mathrm{HCOOH}{/tex} = {tex}\\lambda^{\\circ} \\mathrm{HCOO}^{-}+\\lambda^{\\circ} \\mathrm{H}^{+}{/tex} = (50.5 + 349.5) S cm 2 mol -1 = 400 S cm 2 mol -1 {tex}\\alpha{/tex} = {tex}\\frac{\\Lambda_m }{\\Lambda_m^{\\circ}}{/tex} {tex}\\alpha{/tex} = {tex}\\frac{210}{400}{/tex} = 0.525",
+    "solution_html": "<p><span class=\"math-tex\">{tex}\\Lambda_m{/tex}</span> = <span class=\"math-tex\">{tex}\\frac{1000 \\times \\mathrm{K}}{\\mathrm{M}}{/tex}</span> S cm<sup>2</sup> mol<sup>-1</sup><br />\r\n<span class=\"math-tex\">{tex} \\Lambda_m{/tex}</span> = <span class=\"math-tex\">{tex}\\frac{1000 \\times 5.25 \\times 10^{-5}}{2.5 \\times 10^{-4}}{/tex}</span> - S cm<sup>2</sup> mol<sup>-1</sup><br />\r\n= 210 S cm<sup>2</sup>mol<sup>-1</sup><br />\r\n<span class=\"math-tex\">{tex} \\wedge_m^0 \\mathrm{HCOOH}{/tex}</span> = <span class=\"math-tex\">{tex}\\lambda^{\\circ} \\mathrm{HCOO}^{-}+\\lambda^{\\circ} \\mathrm{H}^{+}{/tex}</span><br />\r\n= (50.5 + 349.5) S cm<sup>2</sup>mol<sup>-1</sup><br />\r\n= 400 S cm<sup>2</sup>mol<sup>-1</sup><br />\r\n<span class=\"math-tex\">{tex}\\alpha{/tex}</span> = <span class=\"math-tex\">{tex}\\frac{\\Lambda_m }{\\Lambda_m^{\\circ}}{/tex}</span><br />\r\n<span class=\"math-tex\">{tex}\\alpha{/tex}</span> = <span class=\"math-tex\">{tex}\\frac{210}{400}{/tex}</span><br />\r\n= 0.525</p>",
+    "weightage": "SA-2 (Short answer type-2)"
+  },
+  {
+    "subject": "Chemistry",
+    "subject_id": "1267",
+    "chapter": "Electrochemistry",
+    "chapter_id": 1270,
+    "question_id": 993172,
+    "question_html": "<ol start=\"1\" style=\"list-style-type: lower-alpha;\">\r\n\t<li>The standard Gibbs energy <span class=\"math-tex\">{tex}\\left(\\Delta \\mathrm{rG}^{\\circ}\\right){/tex}</span> for the following cell reaction is -300 kJ mol<sup>-1</sup>:<br />\r\n\tZn(s) + 2Ag<sup>+</sup> (aq) <span class=\"math-tex\">{tex}\\rightarrow{/tex}</span> Zn<sup>2+</sup> (aq) + 2Ag(s)<br />\r\n\tCalculate <span class=\"math-tex\">{tex}\\mathrm{E}_{\\text {cell }}^{\\circ}{/tex}</span> for the reaction. (Given: 1F = 96500 mol<sup>-1</sup>)</li>\r\n\t<li>Calculate <span class=\"math-tex\">{tex}\\lambda_{\\mathrm{m}}^o{/tex}</span> for MgCl<sub>2</sub> if <span class=\"math-tex\">{tex}\\lambda^o{/tex}</span> values for Mg<sup>2+</sup> ion and Cl<sup>-</sup> ion are 106 S cm<sup>2</sup>mol<sup>-1</sup> and 76.3 S cm<sup>2</sup>mol<sup>-1</sup> respectively.</li>\r\n</ol>",
+    "question_text": "The standard Gibbs energy {tex}\\left(\\Delta \\mathrm{rG}^{\\circ}\\right){/tex} for the following cell reaction is -300 kJ mol -1 : Zn(s) + 2Ag + (aq) {tex}\\rightarrow{/tex} Zn 2+ (aq) + 2Ag(s) Calculate {tex}\\mathrm{E}_{\\text {cell }}^{\\circ}{/tex} for the reaction. (Given: 1F = 96500 mol -1 ) Calculate {tex}\\lambda_{\\mathrm{m}}^o{/tex} for MgCl 2 if {tex}\\lambda^o{/tex} values for Mg 2+ ion and Cl - ion are 106 S cm 2 mol -1 and 76.3 S cm 2 mol -1 respectively.",
+    "options": [],
+    "correct_option_ids": [],
+    "correct_option_text": "",
+    "explanation": "Zn(s) + 2Ag + (aq) {tex}\\longrightarrow{/tex} Zn 2+ (aq) + 2Ag(s) The number of moles of electrons transferred (n) is 2, as two moles of electrons are involved in the reduction of two moles of {tex}\\mathrm{Ag}^{\\wedge}{/tex} + ions. Now, you are given {tex}\\Delta G^{\\circ}{/tex} = -300 {tex}\\frac{kJ}{mol}{/tex} , but you need to convert it to joules (J) by multiplying by 1000 (since 1 kJ = 1000 J): {tex}\\Delta G^{\\circ}{/tex} = -300 {tex}\\frac{kJ}{mol}{/tex} {tex}\\times {/tex} 1000 {tex}\\frac{J}{kJ}{/tex} = -300,000 {tex}\\frac{J}{mol}{/tex} {tex}\\Delta G^{\\circ}=-n F E^{\\circ}{/tex} Now, plug in the values into the equation and solve for E o : -300,000 {tex}\\frac{\\mathrm{~J}}{\\mathrm{mol}}{/tex} = -(2 mol {tex}\\times{/tex} 96500 {tex}\\frac{\\mathrm{~C}}{\\mathrm{mol}}{/tex} ) {tex}\\times{/tex} E o Given the cell reaction: Let&#39;s calculate E o : E o = {tex}\\frac{-300,000 \\frac{\\mathrm{~J}}{\\mathrm{mol}}}{-(2 \\mathrm{~mol} \\times 96500 \\frac{\\mathrm{C}}{\\mathrm{mol}})}{/tex} {tex}\\approx{/tex} 3.11 V So, the standard cell potential E o for the given cell reaction is approximately 3.11 V. MgCl 2 {tex}\\longrightarrow{/tex} Mg 2+ + 2Cl - {tex}\\Lambda_{\\mathrm{m}}^0\\left(\\mathrm{MgCl}_2\\right){/tex} = {tex}\\lambda_{\\mathrm{m}}^0\\left(\\mathrm{Mg}^{2+}\\right){/tex} + {tex}2 \\lambda_{\\mathrm{m}}^0\\left(\\mathrm{Cl}^{-}\\right){/tex} {tex}\\Lambda_{\\mathrm{m}}^0\\left(\\mathrm{MgCl}_2\\right){/tex} = 106S {tex}\\cdot{/tex} {tex}\\frac{cm^2}{mol}{/tex} + 2 {tex}\\times{/tex} 76.3S {tex}\\cdot{/tex} {tex}\\frac{cm^2}{mol}{/tex} = 258.6S {tex}\\cdot{/tex} {tex}\\frac{cm^2}{mol}{/tex} The limiting molar conductivity of MgCl 2 is 258.6 S {tex}\\cdot{/tex} {tex}\\frac{cm^2}{mol}{/tex}",
+    "solution": "Zn(s) + 2Ag + (aq) {tex}\\longrightarrow{/tex} Zn 2+ (aq) + 2Ag(s) The number of moles of electrons transferred (n) is 2, as two moles of electrons are involved in the reduction of two moles of {tex}\\mathrm{Ag}^{\\wedge}{/tex} + ions. Now, you are given {tex}\\Delta G^{\\circ}{/tex} = -300 {tex}\\frac{kJ}{mol}{/tex} , but you need to convert it to joules (J) by multiplying by 1000 (since 1 kJ = 1000 J): {tex}\\Delta G^{\\circ}{/tex} = -300 {tex}\\frac{kJ}{mol}{/tex} {tex}\\times {/tex} 1000 {tex}\\frac{J}{kJ}{/tex} = -300,000 {tex}\\frac{J}{mol}{/tex} {tex}\\Delta G^{\\circ}=-n F E^{\\circ}{/tex} Now, plug in the values into the equation and solve for E o : -300,000 {tex}\\frac{\\mathrm{~J}}{\\mathrm{mol}}{/tex} = -(2 mol {tex}\\times{/tex} 96500 {tex}\\frac{\\mathrm{~C}}{\\mathrm{mol}}{/tex} ) {tex}\\times{/tex} E o Given the cell reaction: Let&#39;s calculate E o : E o = {tex}\\frac{-300,000 \\frac{\\mathrm{~J}}{\\mathrm{mol}}}{-(2 \\mathrm{~mol} \\times 96500 \\frac{\\mathrm{C}}{\\mathrm{mol}})}{/tex} {tex}\\approx{/tex} 3.11 V So, the standard cell potential E o for the given cell reaction is approximately 3.11 V. MgCl 2 {tex}\\longrightarrow{/tex} Mg 2+ + 2Cl - {tex}\\Lambda_{\\mathrm{m}}^0\\left(\\mathrm{MgCl}_2\\right){/tex} = {tex}\\lambda_{\\mathrm{m}}^0\\left(\\mathrm{Mg}^{2+}\\right){/tex} + {tex}2 \\lambda_{\\mathrm{m}}^0\\left(\\mathrm{Cl}^{-}\\right){/tex} {tex}\\Lambda_{\\mathrm{m}}^0\\left(\\mathrm{MgCl}_2\\right){/tex} = 106S {tex}\\cdot{/tex} {tex}\\frac{cm^2}{mol}{/tex} + 2 {tex}\\times{/tex} 76.3S {tex}\\cdot{/tex} {tex}\\frac{cm^2}{mol}{/tex} = 258.6S {tex}\\cdot{/tex} {tex}\\frac{cm^2}{mol}{/tex} The limiting molar conductivity of MgCl 2 is 258.6 S {tex}\\cdot{/tex} {tex}\\frac{cm^2}{mol}{/tex}",
+    "solution_html": "<ol start=\"1\" style=\"list-style-type: lower-alpha;\">\r\n\t<li>Zn(s) + 2Ag<sup>+</sup>(aq) <span class=\"math-tex\">{tex}\\longrightarrow{/tex}</span> Zn<sup>2+</sup> (aq) + 2Ag(s)<br />\r\n\tThe number of moles of electrons transferred (n) is 2, as two moles of electrons are involved in the reduction of two moles of <span class=\"math-tex\">{tex}\\mathrm{Ag}^{\\wedge}{/tex}</span> + ions.<br />\r\n\tNow, you are given <span class=\"math-tex\">{tex}\\Delta G^{\\circ}{/tex}</span> = -300<span class=\"math-tex\">{tex}\\frac{kJ}{mol}{/tex}</span>, but you need to convert it to joules (J) by multiplying by 1000 (since 1 kJ = 1000 J):<br />\r\n\t<span class=\"math-tex\">{tex}\\Delta G^{\\circ}{/tex}</span> = -300<span class=\"math-tex\">{tex}\\frac{kJ}{mol}{/tex}</span> <span class=\"math-tex\">{tex}\\times {/tex}</span>1000 <span class=\"math-tex\">{tex}\\frac{J}{kJ}{/tex}</span> = -300,000<span class=\"math-tex\">{tex}\\frac{J}{mol}{/tex}</span><br />\r\n\t<span class=\"math-tex\">{tex}\\Delta G^{\\circ}=-n F E^{\\circ}{/tex}</span><br />\r\n\tNow, plug in the values into the equation and solve for E<sup>o</sup>:<br />\r\n\t-300,000 <span class=\"math-tex\">{tex}\\frac{\\mathrm{~J}}{\\mathrm{mol}}{/tex}</span>= -(2 mol <span class=\"math-tex\">{tex}\\times{/tex}</span> 96500 <span class=\"math-tex\">{tex}\\frac{\\mathrm{~C}}{\\mathrm{mol}}{/tex}</span>) <span class=\"math-tex\">{tex}\\times{/tex}</span> E<sup>o</sup><br />\r\n\tGiven the cell reaction:<br />\r\n\tLet&#39;s calculate E<sup>o</sup>:<br />\r\n\tE<sup>o</sup> = <span class=\"math-tex\">{tex}\\frac{-300,000 \\frac{\\mathrm{~J}}{\\mathrm{mol}}}{-(2 \\mathrm{~mol} \\times 96500 \\frac{\\mathrm{C}}{\\mathrm{mol}})}{/tex}</span> <span class=\"math-tex\">{tex}\\approx{/tex}</span> 3.11 V<br />\r\n\tSo, the standard cell potential E<sup>o</sup> for the given cell reaction is approximately 3.11 V.</li>\r\n\t<li>MgCl<sub>2</sub> <span class=\"math-tex\">{tex}\\longrightarrow{/tex}</span> Mg<sup>2+</sup> + 2Cl<sup>-</sup><br />\r\n\t<span class=\"math-tex\">{tex}\\Lambda_{\\mathrm{m}}^0\\left(\\mathrm{MgCl}_2\\right){/tex}</span> = <span class=\"math-tex\">{tex}\\lambda_{\\mathrm{m}}^0\\left(\\mathrm{Mg}^{2+}\\right){/tex}</span> + <span class=\"math-tex\">{tex}2 \\lambda_{\\mathrm{m}}^0\\left(\\mathrm{Cl}^{-}\\right){/tex}</span><br />\r\n\t<span class=\"math-tex\">{tex}\\Lambda_{\\mathrm{m}}^0\\left(\\mathrm{MgCl}_2\\right){/tex}</span> = 106S <span class=\"math-tex\">{tex}\\cdot{/tex}</span> <span class=\"math-tex\">{tex}\\frac{cm^2}{mol}{/tex}</span> + 2 <span class=\"math-tex\">{tex}\\times{/tex}</span> 76.3S <span class=\"math-tex\">{tex}\\cdot{/tex}</span> <span class=\"math-tex\">{tex}\\frac{cm^2}{mol}{/tex}</span> = 258.6S <span class=\"math-tex\">{tex}\\cdot{/tex}</span> <span class=\"math-tex\">{tex}\\frac{cm^2}{mol}{/tex}</span><br />\r\n\tThe limiting molar conductivity of MgCl<sub>2</sub> is 258.6 S <span class=\"math-tex\">{tex}\\cdot{/tex}</span> <span class=\"math-tex\">{tex}\\frac{cm^2}{mol}{/tex}</span></li>\r\n</ol>",
+    "weightage": "SA-2 (Short answer type-2)"
+  },
+  {
+    "subject": "Chemistry",
+    "subject_id": "1267",
+    "chapter": "Electrochemistry",
+    "chapter_id": 1270,
+    "question_id": 1705120,
+    "question_html": "<p>Write the name of the cell which is generally used in inverters. Write the reactions taking place at anode and cathode of this cell,&nbsp;when it is in use.</p>",
+    "question_text": "Write the name of the cell which is generally used in inverters. Write the reactions taking place at anode and cathode of this cell, when it is in use.",
+    "options": [],
+    "correct_option_ids": [],
+    "correct_option_text": "",
+    "explanation": "Lead storage battery {tex}\\text { Anode: } {Pb}({~s})+{SO}_{4}^{2-}({aq}) \\rightarrow {PbSO}_{4}[{~s}]+2 {e}^{-}{/tex} {tex}\\text {Cathode: } {PbO}_{2}[{~s}]+{SO}_{4}^{2-}({aq}]+4 {H}^{+}{/tex} {tex}({aq})+2 {e}^{-} \\rightarrow {PbSO}_{4}[{~s}]+2 {H}_{2} {O}(1]{/tex}",
+    "solution": "Lead storage battery {tex}\\text { Anode: } {Pb}({~s})+{SO}_{4}^{2-}({aq}) \\rightarrow {PbSO}_{4}[{~s}]+2 {e}^{-}{/tex} {tex}\\text {Cathode: } {PbO}_{2}[{~s}]+{SO}_{4}^{2-}({aq}]+4 {H}^{+}{/tex} {tex}({aq})+2 {e}^{-} \\rightarrow {PbSO}_{4}[{~s}]+2 {H}_{2} {O}(1]{/tex}",
+    "solution_html": "<p>Lead storage battery<br />\r\n<span class=\"math-tex\">{tex}\\text { Anode: } {Pb}({~s})+{SO}_{4}^{2-}({aq}) \\rightarrow {PbSO}_{4}[{~s}]+2 {e}^{-}{/tex}</span><br />\r\n<span class=\"math-tex\">{tex}\\text {Cathode: } {PbO}_{2}[{~s}]+{SO}_{4}^{2-}({aq}]+4 {H}^{+}{/tex}</span><span class=\"math-tex\">{tex}({aq})+2 {e}^{-} \\rightarrow {PbSO}_{4}[{~s}]+2 {H}_{2} {O}(1]{/tex}</span></p>",
+    "weightage": "SA-2 (Short answer type-2)"
+  },
+  {
+    "subject": "Chemistry",
+    "subject_id": "1267",
+    "chapter": "Electrochemistry",
+    "chapter_id": 1270,
+    "question_id": 993182,
+    "question_html": "<p>Calculate the emf of the following cell:<br />\nZn (s) | Zn<sup>2+</sup> (0&middot;01 M) || (0&middot;001 M) <sup>Ag+</sup> | Ag (s)<br />\nGiven : <span class=\"math-tex\">{tex}\\mathrm{E}_{\\mathrm{Zn}^{2+} / \\mathrm{Zn}}^{\\ominus}{/tex}</span> = -0&middot;76 V and<br />\n<span class=\"math-tex\">{tex}\\mathrm{E}_{\\mathrm{Ag}^{+} / \\mathrm{Ag}}^{\\ominus}{/tex}</span> = +0&middot;80 V<br />\n[log 2 = 0&middot;3010, log 3 = 0&middot;4771, log 10 = 1]</p>",
+    "question_text": "Calculate the emf of the following cell: Zn (s) | Zn 2+ (0&middot;01 M) || (0&middot;001 M) Ag+ | Ag (s) Given : {tex}\\mathrm{E}_{\\mathrm{Zn}^{2+} / \\mathrm{Zn}}^{\\ominus}{/tex} = -0&middot;76 V and {tex}\\mathrm{E}_{\\mathrm{Ag}^{+} / \\mathrm{Ag}}^{\\ominus}{/tex} = +0&middot;80 V [log 2 = 0&middot;3010, log 3 = 0&middot;4771, log 10 = 1]",
+    "options": [],
+    "correct_option_ids": [],
+    "correct_option_text": "",
+    "explanation": "The balanced cell reaction is: Zn(s) + 2Ag + {tex}\\longrightarrow{/tex} Zn 2+ + 2Ag(s) E o for the cell is 0.80 V (given for {tex}\\frac{Ag^+}{ Ag}{/tex} ) and -0.76 V (given for {tex}\\frac{Zn^{2+}}{Zn}{/tex} ). n the number of moles of electrons transferred, which is 2 in this case. [A] is the concentration of Zn 2+ , which is 0.01 M. [B] is the concentration of Ag + , which is 0.001 M. E = {tex}E^{\\circ}-\\frac{0.0591}{n} \\log {/tex} {tex}\\left(\\frac{[A]^m}{[B]^n}\\right){/tex} Now, substitute these values into the Nernst equation: E = 0.80 V - {tex}\\frac{0.0591}{2}{/tex} log {tex}\\left(\\frac{0.01}{0.001}\\right){/tex} Calculate the logarithmic term: log {tex}\\left(\\frac{0.01}{0.001}\\right){/tex} = log(10) = 1 Now, substitute this value back into the equation: E = 0.80 V - {tex}\\frac{0.0591}{2} \\cdot{/tex} 1 = 0.80 V - 0.02955 V = 0.77045 V So, the emf of the given cell is approximately 0.770 V.",
+    "solution": "The balanced cell reaction is: Zn(s) + 2Ag + {tex}\\longrightarrow{/tex} Zn 2+ + 2Ag(s) E o for the cell is 0.80 V (given for {tex}\\frac{Ag^+}{ Ag}{/tex} ) and -0.76 V (given for {tex}\\frac{Zn^{2+}}{Zn}{/tex} ). n the number of moles of electrons transferred, which is 2 in this case. [A] is the concentration of Zn 2+ , which is 0.01 M. [B] is the concentration of Ag + , which is 0.001 M. E = {tex}E^{\\circ}-\\frac{0.0591}{n} \\log {/tex} {tex}\\left(\\frac{[A]^m}{[B]^n}\\right){/tex} Now, substitute these values into the Nernst equation: E = 0.80 V - {tex}\\frac{0.0591}{2}{/tex} log {tex}\\left(\\frac{0.01}{0.001}\\right){/tex} Calculate the logarithmic term: log {tex}\\left(\\frac{0.01}{0.001}\\right){/tex} = log(10) = 1 Now, substitute this value back into the equation: E = 0.80 V - {tex}\\frac{0.0591}{2} \\cdot{/tex} 1 = 0.80 V - 0.02955 V = 0.77045 V So, the emf of the given cell is approximately 0.770 V.",
+    "solution_html": "<p>The balanced cell reaction is:<br />\nZn(s) + 2Ag<sup>+</sup> <span class=\"math-tex\">{tex}\\longrightarrow{/tex}</span> Zn<sup>2+</sup> + 2Ag(s)<br />\nE<sup>o</sup> for the cell is 0.80 V (given for <span class=\"math-tex\">{tex}\\frac{Ag^+}{ Ag}{/tex}</span>) and -0.76 V (given for <span class=\"math-tex\">{tex}\\frac{Zn^{2+}}{Zn}{/tex}</span>).<br />\nn the number of moles of electrons transferred, which is 2 in this case.<br />\n[A] is the concentration of Zn<sup>2+</sup>, which is 0.01 M.<br />\n[B] is the concentration of Ag<sup>+</sup>, which is 0.001 M.<br />\nE = <span class=\"math-tex\">{tex}E^{\\circ}-\\frac{0.0591}{n} \\log {/tex}</span><span class=\"math-tex\">{tex}\\left(\\frac{[A]^m}{[B]^n}\\right){/tex}</span><br />\nNow, substitute these values into the Nernst equation:<br />\nE = 0.80 V - <span class=\"math-tex\">{tex}\\frac{0.0591}{2}{/tex}</span>log <span class=\"math-tex\">{tex}\\left(\\frac{0.01}{0.001}\\right){/tex}</span><br />\nCalculate the logarithmic term:<br />\nlog <span class=\"math-tex\">{tex}\\left(\\frac{0.01}{0.001}\\right){/tex}</span> = log(10) = 1<br />\nNow, substitute this value back into the equation:<br />\nE = 0.80 V - <span class=\"math-tex\">{tex}\\frac{0.0591}{2} \\cdot{/tex}</span> 1 = 0.80 V - 0.02955 V = 0.77045 V<br />\nSo, the emf of the given cell is approximately 0.770 V.</p>",
+    "weightage": "SA-2 (Short answer type-2)"
+  },
+  {
+    "subject": "Chemistry",
+    "subject_id": "1267",
+    "chapter": "Electrochemistry",
+    "chapter_id": 1270,
+    "question_id": 993215,
+    "question_html": "<p>Write the Nernst equation and calculate emf of the following cell at 298 K:<br />\r\nCr | Cr<sup>3+</sup> (0&middot;1 M) || Fe<sup>2+</sup> (0&middot;01 M) | Fe<br />\r\nGiven : <span class=\"math-tex\">{tex}\\mathrm{E}_{\\mathrm{Cr}^{3+} / \\mathrm{Cr}}^{\\ominus}{/tex}</span> = -0&middot;75 V<br />\r\n<span class=\"math-tex\">{tex}\\mathrm{E}_{\\mathrm{Fe}^{2+} / \\mathrm{Fe}}^{\\ominus}{/tex}</span> = -0&middot;45 V<br />\r\n(log 10 = 1)</p>",
+    "question_text": "Write the Nernst equation and calculate emf of the following cell at 298 K: Cr | Cr 3+ (0&middot;1 M) || Fe 2+ (0&middot;01 M) | Fe Given : {tex}\\mathrm{E}_{\\mathrm{Cr}^{3+} / \\mathrm{Cr}}^{\\ominus}{/tex} = -0&middot;75 V {tex}\\mathrm{E}_{\\mathrm{Fe}^{2+} / \\mathrm{Fe}}^{\\ominus}{/tex} = -0&middot;45 V (log 10 = 1)",
+    "options": [],
+    "correct_option_ids": [],
+    "correct_option_text": "",
+    "explanation": "{tex}E_{c e l l} {/tex} = {tex}E_{\\text {cell }}^0-\\frac{0.059}{6} \\log \\frac{\\left[\\mathrm{Cr}^{3+}\\right]^2}{\\left[\\mathrm{Fe}^{2+}\\right]^3} \\\\ {/tex} {tex}E_{\\text {cell }}^0{/tex} = {tex}-0.45-(-0.75){/tex} = 0.30 V {tex}E_{\\text {cell }}{/tex} = {tex}0.3-\\frac{0.059}{6} \\log \\frac{(0-1)^2}{(0.01)^3}{/tex} = {tex}0 \\cdot 3-.00985 \\log \\frac{\\left(10^{-1}\\right)^2}{\\left(10^{-2}\\right)^3}{/tex} = 0.3 - .00985 {tex}\\times{/tex} 4 log10 = 0.3 - 0.0394 = 0.2606 V",
+    "solution": "{tex}E_{c e l l} {/tex} = {tex}E_{\\text {cell }}^0-\\frac{0.059}{6} \\log \\frac{\\left[\\mathrm{Cr}^{3+}\\right]^2}{\\left[\\mathrm{Fe}^{2+}\\right]^3} \\\\ {/tex} {tex}E_{\\text {cell }}^0{/tex} = {tex}-0.45-(-0.75){/tex} = 0.30 V {tex}E_{\\text {cell }}{/tex} = {tex}0.3-\\frac{0.059}{6} \\log \\frac{(0-1)^2}{(0.01)^3}{/tex} = {tex}0 \\cdot 3-.00985 \\log \\frac{\\left(10^{-1}\\right)^2}{\\left(10^{-2}\\right)^3}{/tex} = 0.3 - .00985 {tex}\\times{/tex} 4 log10 = 0.3 - 0.0394 = 0.2606 V",
+    "solution_html": "<p><span class=\"math-tex\">{tex}E_{c e l l} {/tex}</span> = <span class=\"math-tex\">{tex}E_{\\text {cell }}^0-\\frac{0.059}{6} \\log \\frac{\\left[\\mathrm{Cr}^{3+}\\right]^2}{\\left[\\mathrm{Fe}^{2+}\\right]^3} \\\\ {/tex}</span><br />\r\n<span class=\"math-tex\">{tex}E_{\\text {cell }}^0{/tex}</span> = <span class=\"math-tex\">{tex}-0.45-(-0.75){/tex}</span><br />\r\n= 0.30 V<br />\r\n<span class=\"math-tex\">{tex}E_{\\text {cell }}{/tex}</span> = <span class=\"math-tex\">{tex}0.3-\\frac{0.059}{6} \\log \\frac{(0-1)^2}{(0.01)^3}{/tex}</span><br />\r\n= <span class=\"math-tex\">{tex}0 \\cdot 3-.00985 \\log \\frac{\\left(10^{-1}\\right)^2}{\\left(10^{-2}\\right)^3}{/tex}</span><br />\r\n= 0.3 - .00985 <span class=\"math-tex\">{tex}\\times{/tex}</span> 4 log10<br />\r\n= 0.3 - 0.0394<br />\r\n= 0.2606 V</p>",
+    "weightage": "SA-2 (Short answer type-2)"
+  },
+  {
+    "subject": "Chemistry",
+    "subject_id": "1267",
+    "chapter": "Electrochemistry",
+    "chapter_id": 1270,
+    "question_id": 683818,
+    "question_html": "<p>When a steady current of 2A was passed through two electrolytic cells A and B containing electrolytes ZnSO<sub>4</sub> and CuSO<sub>4</sub> connected in series, 2g of Cu were deposited at the cathode of cell B. How long did the current flow? What mass of Zn was deposited at cathode of cell A?<br />\r\n[Atomic mass: Cu = 63.5 g mol<sup>-1</sup>, Zn = 65 g mol<sup>-1</sup>; 1F = 96500 C mol<sup>-1</sup>]&nbsp;</p>",
+    "question_text": "When a steady current of 2A was passed through two electrolytic cells A and B containing electrolytes ZnSO 4 and CuSO 4 connected in series, 2g of Cu were deposited at the cathode of cell B. How long did the current flow? What mass of Zn was deposited at cathode of cell A? [Atomic mass: Cu = 63.5 g mol -1 , Zn = 65 g mol -1 ; 1F = 96500 C mol -1 ]",
+    "options": [],
+    "correct_option_ids": [],
+    "correct_option_text": "",
+    "explanation": "Steady current = 2A copper deposited at cathode of cell B = 2g Cell B contains CuSO 4 and reaction may be represented as, {tex}CuS{O_4} \\to C{u^{2 + }} + SO_4^{2 - }{/tex} The reaction happens at cathode as, Cu 2+ + 2e - {tex}\\to{/tex} Cu So, 1 mol Cu deposited by 2F charge 63.5 g Cu {tex}\\to{/tex} 2 {tex}\\times{/tex} 96500 2g Cu {tex}\\to{/tex} x x = {tex}\\frac{2 \\times 2 \\times 96500}{63.5}{/tex} = 6078.74 C we know formula Q = It 6078.74 = 2 {tex}\\times{/tex} t t = {tex}\\frac{6078.74}{2}{/tex} = 3039.37 Sec From faraday&#39;s second law of electrolysis, {tex}\\frac{\\omega t \\text { of } C u}{\\omega t \\text { of } Z n}=\\frac{E q \\omega t C u}{E q \\cdot \\omega t Z n}{/tex} {tex}\\frac{2}{x}=\\frac{63.5 / 2}{65 / 2}{/tex} x = {tex}\\frac{2}{0.9769}{/tex} = 2.047 g weight of Zn deposited = 2.047 g",
+    "solution": "Steady current = 2A copper deposited at cathode of cell B = 2g Cell B contains CuSO 4 and reaction may be represented as, {tex}CuS{O_4} \\to C{u^{2 + }} + SO_4^{2 - }{/tex} The reaction happens at cathode as, Cu 2+ + 2e - {tex}\\to{/tex} Cu So, 1 mol Cu deposited by 2F charge 63.5 g Cu {tex}\\to{/tex} 2 {tex}\\times{/tex} 96500 2g Cu {tex}\\to{/tex} x x = {tex}\\frac{2 \\times 2 \\times 96500}{63.5}{/tex} = 6078.74 C we know formula Q = It 6078.74 = 2 {tex}\\times{/tex} t t = {tex}\\frac{6078.74}{2}{/tex} = 3039.37 Sec From faraday&#39;s second law of electrolysis, {tex}\\frac{\\omega t \\text { of } C u}{\\omega t \\text { of } Z n}=\\frac{E q \\omega t C u}{E q \\cdot \\omega t Z n}{/tex} {tex}\\frac{2}{x}=\\frac{63.5 / 2}{65 / 2}{/tex} x = {tex}\\frac{2}{0.9769}{/tex} = 2.047 g weight of Zn deposited = 2.047 g",
+    "solution_html": "<p>Steady current = 2A<br />\r\ncopper deposited at cathode of cell B&nbsp;= 2g<br />\r\nCell B contains CuSO<sub>4</sub> and reaction may be represented as,<br />\r\n<span class=\"math-tex\">{tex}CuS{O_4} \\to C{u^{2 + }} + SO_4^{2 - }{/tex}</span>&nbsp;<br />\r\nThe reaction happens at cathode as,<br />\r\nCu<sup>2+</sup> + 2e<sup>-</sup>&nbsp;<span class=\"math-tex\">{tex}\\to{/tex}</span>&nbsp;Cu<br />\r\nSo, 1 mol Cu deposited by 2F charge<br />\r\n63.5 g Cu&nbsp;<span class=\"math-tex\">{tex}\\to{/tex}</span>&nbsp;2&nbsp;<span class=\"math-tex\">{tex}\\times{/tex}</span>&nbsp;96500<br />\r\n2g Cu&nbsp;<span class=\"math-tex\">{tex}\\to{/tex}</span>&nbsp;x&nbsp;<br />\r\nx =&nbsp;<span class=\"math-tex\">{tex}\\frac{2 \\times 2 \\times 96500}{63.5}{/tex}</span>&nbsp;= 6078.74 C&nbsp;<br />\r\nwe know formula<br />\r\nQ = It<br />\r\n6078.74 = 2&nbsp;<span class=\"math-tex\">{tex}\\times{/tex}</span>&nbsp;t&nbsp;<br />\r\nt =&nbsp;<span class=\"math-tex\">{tex}\\frac{6078.74}{2}{/tex}</span>&nbsp;= 3039.37 Sec<br />\r\nFrom faraday&#39;s second law of electrolysis,<br />\r\n<span class=\"math-tex\">{tex}\\frac{\\omega t \\text { of } C u}{\\omega t \\text { of } Z n}=\\frac{E q \\omega t C u}{E q \\cdot \\omega t Z n}{/tex}</span>&nbsp;<br />\r\n<span class=\"math-tex\">{tex}\\frac{2}{x}=\\frac{63.5 / 2}{65 / 2}{/tex}</span>&nbsp;<br />\r\nx =&nbsp;<span class=\"math-tex\">{tex}\\frac{2}{0.9769}{/tex}</span>&nbsp;= 2.047 g&nbsp;<br />\r\nweight of Zn deposited = 2.047 g</p>",
+    "weightage": "SA-2 (Short answer type-2)"
+  },
+  {
+    "subject": "Chemistry",
+    "subject_id": "1267",
+    "chapter": "Electrochemistry",
+    "chapter_id": 1270,
+    "question_id": 993222,
+    "question_html": "<p>Write the Nernst equation and calculate the emf of the following cell at 298 K:<br />\r\nZn | Zn<sup>2+</sup> (0&middot;001 M) || H<sup>+</sup> (0&middot;01 M) | H<sub>2</sub> (g) (1 bar) | Pt (s)<br />\r\nGiven : <span class=\"math-tex\">{tex}\\mathrm{E}_{\\mathrm{Zn}^{2+} / \\mathrm{Zn}}^{\\ominus}{/tex}</span> = -0&middot;76 V<br />\r\n<span class=\"math-tex\">{tex}\\mathrm{E}_{\\mathrm{H}^{+} / \\mathrm{H_2}}^{\\ominus}{/tex}</span> = 0&middot;00 V<br />\r\n[log 10 = 1]</p>",
+    "question_text": "Write the Nernst equation and calculate the emf of the following cell at 298 K: Zn | Zn 2+ (0&middot;001 M) || H + (0&middot;01 M) | H 2 (g) (1 bar) | Pt (s) Given : {tex}\\mathrm{E}_{\\mathrm{Zn}^{2+} / \\mathrm{Zn}}^{\\ominus}{/tex} = -0&middot;76 V {tex}\\mathrm{E}_{\\mathrm{H}^{+} / \\mathrm{H_2}}^{\\ominus}{/tex} = 0&middot;00 V [log 10 = 1]",
+    "options": [],
+    "correct_option_ids": [],
+    "correct_option_text": "",
+    "explanation": "{tex}E_{\\text {cell }}{/tex} = {tex}E_{\\text {cell }}^0-\\frac{0.059}{2} \\log \\frac{\\left[\\mathrm{Zn}^{2+}\\right]}{\\left[\\mathrm{H}^{+}\\right]^2}{/tex} {tex}E_{\\text {cell }}^0{/tex} = 0.0 - (-0.76) = 0.76 V = {tex}0.76-\\frac{0.059}{2} \\log \\frac{[0.001]}{[0.01]^2} {/tex} = 0.76 - 0.0295 {tex}\\times{/tex} 1 = 0.7305 V",
+    "solution": "{tex}E_{\\text {cell }}{/tex} = {tex}E_{\\text {cell }}^0-\\frac{0.059}{2} \\log \\frac{\\left[\\mathrm{Zn}^{2+}\\right]}{\\left[\\mathrm{H}^{+}\\right]^2}{/tex} {tex}E_{\\text {cell }}^0{/tex} = 0.0 - (-0.76) = 0.76 V = {tex}0.76-\\frac{0.059}{2} \\log \\frac{[0.001]}{[0.01]^2} {/tex} = 0.76 - 0.0295 {tex}\\times{/tex} 1 = 0.7305 V",
+    "solution_html": "<p><span class=\"math-tex\">{tex}E_{\\text {cell }}{/tex}</span> = <span class=\"math-tex\">{tex}E_{\\text {cell }}^0-\\frac{0.059}{2} \\log \\frac{\\left[\\mathrm{Zn}^{2+}\\right]}{\\left[\\mathrm{H}^{+}\\right]^2}{/tex}</span><br />\r\n<span class=\"math-tex\">{tex}E_{\\text {cell }}^0{/tex}</span> = 0.0 - (-0.76) = 0.76 V<br />\r\n= <span class=\"math-tex\">{tex}0.76-\\frac{0.059}{2} \\log \\frac{[0.001]}{[0.01]^2} {/tex}</span><br />\r\n= 0.76 - 0.0295 <span class=\"math-tex\">{tex}\\times{/tex}</span> 1<br />\r\n= 0.7305 V</p>",
+    "weightage": "SA-2 (Short answer type-2)"
+  },
+  {
+    "subject": "Chemistry",
+    "subject_id": "1267",
+    "chapter": "Electrochemistry",
+    "chapter_id": 1270,
+    "question_id": 993198,
+    "question_html": "<p>Calculate the e.m.f. of the following cell at 298K:<br />\r\nFe(s) | Fe<sup>2+</sup> (0.001 M) || H<sup>+</sup> (0.01 M) | H<sub>2</sub>(g) (1 bar) | Pt(s)<br />\r\nGiven that <span class=\"math-tex\">{tex}E_{\\text {cell }}^{\\circ}{/tex}</span> = +0.44V<br />\r\n[log 2 = 0.3010 log 3 = 0.4771 log 10 = 1]</p>",
+    "question_text": "Calculate the e.m.f. of the following cell at 298K: Fe(s) | Fe 2+ (0.001 M) || H + (0.01 M) | H 2 (g) (1 bar) | Pt(s) Given that {tex}E_{\\text {cell }}^{\\circ}{/tex} = +0.44V [log 2 = 0.3010 log 3 = 0.4771 log 10 = 1]",
+    "options": [],
+    "correct_option_ids": [],
+    "correct_option_text": "",
+    "explanation": "According to the equation, Fe(s) + 2H + (aq) {tex}\\longrightarrow{/tex} Fe 2+ (aq) + H 2 (g) {tex}E_{\\text {cell }}^{\\circ}=E_{\\text {cell }}^{\\circ}-E_{\\text {anode }}^{\\circ}{/tex} {tex}E_{\\text {cell }}^{\\circ}{/tex} = 0 - (-0.44) V {tex}E_{\\text {cell }}^{\\circ}{/tex} = + 0.44V By applying Nernst Equation E cell = {tex}E_{\\text {cell }}^{\\circ}-\\frac{0.0591}{2} \\log \\frac{\\left[F e^{2+}\\right]}{\\left[H^{+}\\right]^2}{/tex} E cell = {tex}0.44 \\frac{-0.0591}{2} \\log \\frac{0.001}{1^2}{/tex} E cell = {tex}0.44-\\frac{0.0591}{2} \\log 10^{-3}{/tex} E cell = 0.44 + 0.089V E cell = +0.53V",
+    "solution": "According to the equation, Fe(s) + 2H + (aq) {tex}\\longrightarrow{/tex} Fe 2+ (aq) + H 2 (g) {tex}E_{\\text {cell }}^{\\circ}=E_{\\text {cell }}^{\\circ}-E_{\\text {anode }}^{\\circ}{/tex} {tex}E_{\\text {cell }}^{\\circ}{/tex} = 0 - (-0.44) V {tex}E_{\\text {cell }}^{\\circ}{/tex} = + 0.44V By applying Nernst Equation E cell = {tex}E_{\\text {cell }}^{\\circ}-\\frac{0.0591}{2} \\log \\frac{\\left[F e^{2+}\\right]}{\\left[H^{+}\\right]^2}{/tex} E cell = {tex}0.44 \\frac{-0.0591}{2} \\log \\frac{0.001}{1^2}{/tex} E cell = {tex}0.44-\\frac{0.0591}{2} \\log 10^{-3}{/tex} E cell = 0.44 + 0.089V E cell = +0.53V",
+    "solution_html": "<p>According to the equation,<br />\r\nFe(s) + 2H<sup>+</sup> (aq) <span class=\"math-tex\">{tex}\\longrightarrow{/tex}</span> Fe<sup>2+</sup> (aq) + H<sub>2</sub>(g)<br />\r\n<span class=\"math-tex\">{tex}E_{\\text {cell }}^{\\circ}=E_{\\text {cell }}^{\\circ}-E_{\\text {anode }}^{\\circ}{/tex}</span><br />\r\n<span class=\"math-tex\">{tex}E_{\\text {cell }}^{\\circ}{/tex}</span> = 0 - (-0.44) V<br />\r\n<span class=\"math-tex\">{tex}E_{\\text {cell }}^{\\circ}{/tex}</span> = + 0.44V<br />\r\nBy applying Nernst Equation<br />\r\nE<sub>cell</sub> = <span class=\"math-tex\">{tex}E_{\\text {cell }}^{\\circ}-\\frac{0.0591}{2} \\log \\frac{\\left[F e^{2+}\\right]}{\\left[H^{+}\\right]^2}{/tex}</span><br />\r\nE<sub>cell </sub>= <span class=\"math-tex\">{tex}0.44 \\frac{-0.0591}{2} \\log \\frac{0.001}{1^2}{/tex}</span><br />\r\nE<sub>cell </sub>= <span class=\"math-tex\">{tex}0.44-\\frac{0.0591}{2} \\log 10^{-3}{/tex}</span><br />\r\nE<sub>cell </sub>= 0.44 + 0.089V<br />\r\nE<sub>cell </sub>= +0.53V</p>",
+    "weightage": "SA-2 (Short answer type-2)"
+  },
+  {
+    "subject": "Chemistry",
+    "subject_id": "1267",
+    "chapter": "Electrochemistry",
+    "chapter_id": 1270,
+    "question_id": 993229,
+    "question_html": "<p>Write the Nernst equation and calculate the emf of the following cell at 298 K:<br />\r\nZn | Zn<sup>2+</sup> (0&middot;1 M) || Cd<sup>2+</sup> (0&middot;01) | Cd<br />\r\nGiven : <span class=\"math-tex\">{tex}\\mathrm{E}_{\\mathrm{Zn}^{2+} / \\mathrm{Zn}}^{\\ominus}{/tex}</span> = -0&middot;76 V<br />\r\n<span class=\"math-tex\">{tex}\\mathrm{E}_{\\mathrm{Cd}^{2+} / \\mathrm{Cd}}^{\\ominus}{/tex}</span> = -0&middot;40 V<br />\r\n(log 10 = 1)</p>",
+    "question_text": "Write the Nernst equation and calculate the emf of the following cell at 298 K: Zn | Zn 2+ (0&middot;1 M) || Cd 2+ (0&middot;01) | Cd Given : {tex}\\mathrm{E}_{\\mathrm{Zn}^{2+} / \\mathrm{Zn}}^{\\ominus}{/tex} = -0&middot;76 V {tex}\\mathrm{E}_{\\mathrm{Cd}^{2+} / \\mathrm{Cd}}^{\\ominus}{/tex} = -0&middot;40 V (log 10 = 1)",
+    "options": [],
+    "correct_option_ids": [],
+    "correct_option_text": "",
+    "explanation": "{tex} E_{\\text {cell }}{/tex} = {tex}E_{\\text {cell }}^0-\\frac{0.059}{2} \\log \\frac{\\left[\\mathrm{Zn}^{2+}\\right]}{\\left[\\mathrm{Cd}^{2+}\\right]} {/tex} {tex} E_{\\text {cell }}^0{/tex} = -0.40 - (-0.76) = 0.36 V {tex} E_{c e l l}{/tex} = {tex}0.36-\\frac{0.059}{2} \\log \\frac{\\left[\\mathrm{Zn}^{2+}\\right]}{\\left[\\mathrm{Cd}^{2+}\\right]}{/tex} = 0.36 - {tex}\\frac{0.059}{2} \\log \\frac{(0.1)}{(-01)}{/tex} = 0.36 - 0.0295 log10 {tex} E_{\\text {cell }}{/tex} = 0.3305 V",
+    "solution": "{tex} E_{\\text {cell }}{/tex} = {tex}E_{\\text {cell }}^0-\\frac{0.059}{2} \\log \\frac{\\left[\\mathrm{Zn}^{2+}\\right]}{\\left[\\mathrm{Cd}^{2+}\\right]} {/tex} {tex} E_{\\text {cell }}^0{/tex} = -0.40 - (-0.76) = 0.36 V {tex} E_{c e l l}{/tex} = {tex}0.36-\\frac{0.059}{2} \\log \\frac{\\left[\\mathrm{Zn}^{2+}\\right]}{\\left[\\mathrm{Cd}^{2+}\\right]}{/tex} = 0.36 - {tex}\\frac{0.059}{2} \\log \\frac{(0.1)}{(-01)}{/tex} = 0.36 - 0.0295 log10 {tex} E_{\\text {cell }}{/tex} = 0.3305 V",
+    "solution_html": "<p><span class=\"math-tex\">{tex} E_{\\text {cell }}{/tex}</span> = <span class=\"math-tex\">{tex}E_{\\text {cell }}^0-\\frac{0.059}{2} \\log \\frac{\\left[\\mathrm{Zn}^{2+}\\right]}{\\left[\\mathrm{Cd}^{2+}\\right]} {/tex}</span><br />\r\n<span class=\"math-tex\">{tex} E_{\\text {cell }}^0{/tex}</span> = -0.40 - (-0.76) = 0.36 V<br />\r\n<span class=\"math-tex\">{tex} E_{c e l l}{/tex}</span> = <span class=\"math-tex\">{tex}0.36-\\frac{0.059}{2} \\log \\frac{\\left[\\mathrm{Zn}^{2+}\\right]}{\\left[\\mathrm{Cd}^{2+}\\right]}{/tex}</span><br />\r\n= 0.36 - <span class=\"math-tex\">{tex}\\frac{0.059}{2} \\log \\frac{(0.1)}{(-01)}{/tex}</span><br />\r\n= 0.36 - 0.0295 log10<br />\r\n<span class=\"math-tex\">{tex} E_{\\text {cell }}{/tex}</span> = 0.3305 V</p>",
+    "weightage": "SA-2 (Short answer type-2)"
+  },
+  {
+    "subject": "Chemistry",
+    "subject_id": "1267",
+    "chapter": "Electrochemistry",
+    "chapter_id": 1270,
+    "question_id": 993197,
+    "question_html": "<p>Calculate <span class=\"math-tex\">{tex}\\Delta_{\\mathrm{r}} \\mathrm{G}^{\\circ}{/tex}</span> and log K<sub>c</sub> for the following cell:<br />\r\nNi(s) + 2Ag<sup>+</sup>(aq) <span class=\"math-tex\">{tex}\\rightarrow{/tex}</span> Ni<sup>2+</sup>(aq) + 2Ag(s)<br />\r\nGiven that <span class=\"math-tex\">{tex}E_{\\text {cell }}^{\\circ}{/tex}</span> = 1.05V, IF = 96,500 Cmol<sup>-1</sup>.</p>",
+    "question_text": "Calculate {tex}\\Delta_{\\mathrm{r}} \\mathrm{G}^{\\circ}{/tex} and log K c for the following cell: Ni(s) + 2Ag + (aq) {tex}\\rightarrow{/tex} Ni 2+ (aq) + 2Ag(s) Given that {tex}E_{\\text {cell }}^{\\circ}{/tex} = 1.05V, IF = 96,500 Cmol -1 .",
+    "options": [],
+    "correct_option_ids": [],
+    "correct_option_text": "",
+    "explanation": "According to the equation, Ni + 2Ag + {tex}\\longrightarrow{/tex} Ni 2+ + 2Ag {tex} \\Delta{/tex} G = -nFE o Where {tex} \\Delta{/tex} G = Gibb&#39;s free energy {tex} \\Delta{/tex} G = -2 {tex}\\times{/tex} 96500 {tex}\\times{/tex} 1.05 N = No. of electrons gain or lost = 2 {tex} \\Delta{/tex} G = -202.650 kJ F = Faraday&#39;s constant = 96500 E o = Standard emf = 1.05V The relation between Gibb&#39;s free energy and Equilibrium constant is given by the equation {tex}E_{\\text {cell }}^{\\circ}{/tex} = {tex}\\frac{0.0591}{n} \\log K_c{/tex} log K C = {tex}-\\frac{1.05 \\times 2}{0.0591}{/tex} = 35.3 K C = 3.41 {tex}\\times{/tex} 10 35",
+    "solution": "According to the equation, Ni + 2Ag + {tex}\\longrightarrow{/tex} Ni 2+ + 2Ag {tex} \\Delta{/tex} G = -nFE o Where {tex} \\Delta{/tex} G = Gibb&#39;s free energy {tex} \\Delta{/tex} G = -2 {tex}\\times{/tex} 96500 {tex}\\times{/tex} 1.05 N = No. of electrons gain or lost = 2 {tex} \\Delta{/tex} G = -202.650 kJ F = Faraday&#39;s constant = 96500 E o = Standard emf = 1.05V The relation between Gibb&#39;s free energy and Equilibrium constant is given by the equation {tex}E_{\\text {cell }}^{\\circ}{/tex} = {tex}\\frac{0.0591}{n} \\log K_c{/tex} log K C = {tex}-\\frac{1.05 \\times 2}{0.0591}{/tex} = 35.3 K C = 3.41 {tex}\\times{/tex} 10 35",
+    "solution_html": "<p>According to the equation,<br />\r\nNi + 2Ag<sup>+</sup> <span class=\"math-tex\">{tex}\\longrightarrow{/tex}</span> Ni<sup>2+</sup> + 2Ag<br />\r\n<span class=\"math-tex\">{tex} \\Delta{/tex}</span>G = -nFE<sup>o</sup><br />\r\nWhere <span class=\"math-tex\">{tex} \\Delta{/tex}</span>G = Gibb&#39;s free energy<br />\r\n<span class=\"math-tex\">{tex} \\Delta{/tex}</span>G = -2 <span class=\"math-tex\">{tex}\\times{/tex}</span> 96500 <span class=\"math-tex\">{tex}\\times{/tex}</span> 1.05<br />\r\nN = No. of electrons gain or lost = 2<br />\r\n<span class=\"math-tex\">{tex} \\Delta{/tex}</span>G = -202.650 kJ<br />\r\nF = Faraday&#39;s constant = 96500<br />\r\nE<sup>o</sup> = Standard emf = 1.05V<br />\r\nThe relation between Gibb&#39;s free energy and Equilibrium constant is given by the equation<br />\r\n<span class=\"math-tex\">{tex}E_{\\text {cell }}^{\\circ}{/tex}</span> = <span class=\"math-tex\">{tex}\\frac{0.0591}{n} \\log K_c{/tex}</span><br />\r\nlog K<sub>C </sub>= <span class=\"math-tex\">{tex}-\\frac{1.05 \\times 2}{0.0591}{/tex}</span> = 35.3<br />\r\nK<sub>C</sub> = 3.41 <span class=\"math-tex\">{tex}\\times{/tex}</span> 10<sup>35</sup></p>",
+    "weightage": "SA-2 (Short answer type-2)"
+  },
+  {
+    "subject": "Chemistry",
+    "subject_id": "1267",
+    "chapter": "Electrochemistry",
+    "chapter_id": 1270,
+    "question_id": 1705033,
+    "question_html": "<p>Calculate <span class=\"math-tex\">{tex}\\Delta_{{r}} {G}^{\\circ}{/tex}</span> and <span class=\"math-tex\">{tex}\\log {K}_{{C}}{/tex}</span> of the reaction.<br />\r\n<span class=\"math-tex\">{tex}2 {Cr}({s})+3 {Cd}^{2+}({aq}) {/tex}</span><span class=\"math-tex\">{tex}\\longrightarrow 2 {Cr}^{3+}({aq})+3 {Cd}({s}){/tex}</span><br />\r\nGiven <span class=\"math-tex\">{tex}{E}_{{Cr}^{3+} / {Cr}}^{\\circ}=-0.74 {~V}{/tex}</span><br />\r\n<span class=\"math-tex\">{tex}{E}_{{Cd}^{2+} / {Cd}}^{\\circ}=-0.40 {~V}{/tex}</span><br />\r\n<span class=\"math-tex\">{tex}\\left[{R}=8.314 {~J} {~K}^{-1} {~mol}^{-1}, {~F}=96500 {C} {mol}^{-1}\\right]{/tex}</span></p>",
+    "question_text": "Calculate {tex}\\Delta_{{r}} {G}^{\\circ}{/tex} and {tex}\\log {K}_{{C}}{/tex} of the reaction. {tex}2 {Cr}({s})+3 {Cd}^{2+}({aq}) {/tex} {tex}\\longrightarrow 2 {Cr}^{3+}({aq})+3 {Cd}({s}){/tex} Given {tex}{E}_{{Cr}^{3+} / {Cr}}^{\\circ}=-0.74 {~V}{/tex} {tex}{E}_{{Cd}^{2+} / {Cd}}^{\\circ}=-0.40 {~V}{/tex} {tex}\\left[{R}=8.314 {~J} {~K}^{-1} {~mol}^{-1}, {~F}=96500 {C} {mol}^{-1}\\right]{/tex}",
+    "options": [],
+    "correct_option_ids": [],
+    "correct_option_text": "",
+    "explanation": "{tex}{E}^{\\circ} {C}_{\\text {ell }} ={E}^{\\circ}{ }_{\\text {cathode }}-{E}^{\\circ}{ }_{\\text {anode }}{/tex} {tex}=-0.40-(-0.74){/tex} {tex}=+0.34 {~V}{/tex} {tex}\\Delta {G}^{0} =-n {~F} \\ {E}^{\\circ}{ }_{\\text {cell }}{/tex} {tex}=-(6 \\times 96500 \\times 0.34) {J}{/tex} {tex}=-196860 {~J} / {mol}{/tex} {tex}\\Delta {G}^{0}=-2.303 {RT} \\operatorname{logKc}{/tex} {tex}\\log {Kc}=(196860) / 2.303 \\times 8.314 \\times 298{/tex} = 34.576",
+    "solution": "{tex}{E}^{\\circ} {C}_{\\text {ell }} ={E}^{\\circ}{ }_{\\text {cathode }}-{E}^{\\circ}{ }_{\\text {anode }}{/tex} {tex}=-0.40-(-0.74){/tex} {tex}=+0.34 {~V}{/tex} {tex}\\Delta {G}^{0} =-n {~F} \\ {E}^{\\circ}{ }_{\\text {cell }}{/tex} {tex}=-(6 \\times 96500 \\times 0.34) {J}{/tex} {tex}=-196860 {~J} / {mol}{/tex} {tex}\\Delta {G}^{0}=-2.303 {RT} \\operatorname{logKc}{/tex} {tex}\\log {Kc}=(196860) / 2.303 \\times 8.314 \\times 298{/tex} = 34.576",
+    "solution_html": "<p><span class=\"math-tex\">{tex}{E}^{\\circ} {C}_{\\text {ell }} ={E}^{\\circ}{ }_{\\text {cathode }}-{E}^{\\circ}{ }_{\\text {anode }}{/tex}</span><br />\r\n<span class=\"math-tex\">{tex}=-0.40-(-0.74){/tex}</span><br />\r\n<span class=\"math-tex\">{tex}=+0.34 {~V}{/tex}</span><br />\r\n<span class=\"math-tex\">{tex}\\Delta {G}^{0} =-n {~F} \\ {E}^{\\circ}{ }_{\\text {cell }}{/tex}</span><br />\r\n<span class=\"math-tex\">{tex}=-(6 \\times 96500 \\times 0.34) {J}{/tex}</span><br />\r\n<span class=\"math-tex\">{tex}=-196860 {~J} / {mol}{/tex}</span><br />\r\n<span class=\"math-tex\">{tex}\\Delta {G}^{0}=-2.303 {RT} \\operatorname{logKc}{/tex}</span><br />\r\n<span class=\"math-tex\">{tex}\\log {Kc}=(196860) / 2.303 \\times 8.314 \\times 298{/tex}</span><br />\r\n= 34.576</p>",
+    "weightage": "SA-2 (Short answer type-2)"
+  },
+  {
+    "subject": "Chemistry",
+    "subject_id": "1267",
+    "chapter": "Electrochemistry",
+    "chapter_id": 1270,
+    "question_id": 188951,
+    "question_html": "<ol start=\"1\" style=\"list-style-type: lower-roman;\">\n\t<li>Calculate the mass of Ag deposited at cathode when a current of 2A was passed through a solution of AgNO<sub>3</sub> for 15 min.<br />\n\t(Given: Molar mass of Ag = 108g mol<sup>-1</sup>, 1 F = 96500 C mol<sup>-1</sup>).</li>\n\t<li>Define fuel cell.</li>\n</ol>",
+    "question_text": "Calculate the mass of Ag deposited at cathode when a current of 2A was passed through a solution of AgNO 3 for 15 min. (Given: Molar mass of Ag = 108g mol -1 , 1 F = 96500 C mol -1 ). Define fuel cell.",
+    "options": [],
+    "correct_option_ids": [],
+    "correct_option_text": "",
+    "explanation": "Given, current (I) = 2A, time (t) = 15 min Quantity of electricity passed will be Q = It = 2 {tex}\\times{/tex} 15 {tex}\\times{/tex} 60 = 1800 C Electrolysis of AgNO 3 Ag + + e {tex}\\longrightarrow {/tex} Ag(s) (Atomic mass of Ag = 108 g mol -1 ) As, 96500 C deposit 108 g of Ag {tex}\\therefore{/tex} 1800 C will deposit = {tex}\\frac{108 \\times 1800}{96500}{/tex} = 2.014g of Ag Fuel cell: The galvanic cells in which chemical energy of combustion of fuels like hydrogen, methane, etc. is converted into electrical energy is called fuel cell. The overall reaction of H 2 -O 2 cell is {tex}2 \\mathrm{H}_{2}(g)+\\mathrm{O}_{2}(g) \\longrightarrow 2 \\mathrm{H}_{2} \\mathrm{O}(l){/tex}",
+    "solution": "Given, current (I) = 2A, time (t) = 15 min Quantity of electricity passed will be Q = It = 2 {tex}\\times{/tex} 15 {tex}\\times{/tex} 60 = 1800 C Electrolysis of AgNO 3 Ag + + e {tex}\\longrightarrow {/tex} Ag(s) (Atomic mass of Ag = 108 g mol -1 ) As, 96500 C deposit 108 g of Ag {tex}\\therefore{/tex} 1800 C will deposit = {tex}\\frac{108 \\times 1800}{96500}{/tex} = 2.014g of Ag Fuel cell: The galvanic cells in which chemical energy of combustion of fuels like hydrogen, methane, etc. is converted into electrical energy is called fuel cell. The overall reaction of H 2 -O 2 cell is {tex}2 \\mathrm{H}_{2}(g)+\\mathrm{O}_{2}(g) \\longrightarrow 2 \\mathrm{H}_{2} \\mathrm{O}(l){/tex}",
+    "solution_html": "<ol start=\"1\" style=\"list-style-type: lower-roman;\">\n\t<li>Given, current (I) = 2A,&nbsp;time (t) = 15 min<br />\n\tQuantity of electricity passed will be<br />\n\tQ = It = 2 <span class=\"math-tex\">{tex}\\times{/tex}</span>&nbsp;15 <span class=\"math-tex\">{tex}\\times{/tex}</span>&nbsp;60 = 1800 C<br />\n\tElectrolysis of AgNO<sub>3</sub><br />\n\tAg<sup>+</sup> + e <span class=\"math-tex\">{tex}\\longrightarrow {/tex}</span>&nbsp;Ag(s) (Atomic mass of Ag = 108 g mol<sup>-1</sup>)<br />\n\tAs, 96500 C deposit 108 g of Ag<br />\n\t<span class=\"math-tex\">{tex}\\therefore{/tex}</span>&nbsp;1800 C will deposit =&nbsp;<span class=\"math-tex\">{tex}\\frac{108 \\times 1800}{96500}{/tex}</span>&nbsp;= 2.014g of Ag</li>\n\t<li><b>Fuel cell:</b>&nbsp;The galvanic cells in which chemical energy of combustion of fuels like hydrogen, methane, etc. is converted into electrical energy is&nbsp;called fuel cell.<br />\n\tThe overall reaction of H<sub>2</sub>-O<sub>2</sub> cell is<br />\n\t<span class=\"math-tex\">{tex}2 \\mathrm{H}_{2}(g)+\\mathrm{O}_{2}(g) \\longrightarrow 2 \\mathrm{H}_{2} \\mathrm{O}(l){/tex}</span></li>\n</ol>",
+    "weightage": "SA-2 (Short answer type-2)"
+  },
+  {
+    "subject": "Chemistry",
+    "subject_id": "1267",
+    "chapter": "Electrochemistry",
+    "chapter_id": 1270,
+    "question_id": 387299,
+    "question_html": "<p>Calculate the maximum work and log Kc for the given reaction at 298 K :<br />\r\nNi (s) + 2 Ag<sup>+</sup> (aq)&nbsp;<span class=\"math-tex\">{tex}\\rightleftharpoons{/tex}</span>&nbsp;Ni<sup>2+</sup> (aq) + 2Ag (s)<br />\r\nGiven:<br />\r\n<span class=\"math-tex\">{tex}\\mathrm{E}^{\\mathrm{o}}_{ \\mathrm{Ni}^{2+} / \\mathrm{Ni}}{/tex}</span>&nbsp;= -0.25 V,&nbsp;<span class=\"math-tex\">{tex}\\mathrm{E}^{\\mathrm{O}} _{\\mathrm{Ag}^{+} / \\mathrm{Ag}}{/tex}</span>&nbsp;= +0.80 V<br />\r\n1F = 96500 C mol<sup>-1</sup>&nbsp;</p>",
+    "question_text": "Calculate the maximum work and log Kc for the given reaction at 298 K : Ni (s) + 2 Ag + (aq) {tex}\\rightleftharpoons{/tex} Ni 2+ (aq) + 2Ag (s) Given: {tex}\\mathrm{E}^{\\mathrm{o}}_{ \\mathrm{Ni}^{2+} / \\mathrm{Ni}}{/tex} = -0.25 V, {tex}\\mathrm{E}^{\\mathrm{O}} _{\\mathrm{Ag}^{+} / \\mathrm{Ag}}{/tex} = +0.80 V 1F = 96500 C mol -1",
+    "options": [],
+    "correct_option_ids": [],
+    "correct_option_text": "",
+    "explanation": "Ni(s) + 2Ag + (aq) {tex} \\rightleftharpoons {/tex} Ni +2 (aq) + 2Ag(s) Given: {tex}\\mathrm{E}_{\\mathrm{N}^{+2} / \\mathrm{Ni}}^{0}{/tex} = -0.25 V, {tex}E_{A g^{+} / A g}^{0}{/tex} = 0.80 V Ni {tex} \\rightleftharpoons {/tex} Ni +2 + 2e - 2Ag + + 2e - {tex} \\rightleftharpoons {/tex} 2Ag {tex}E_{\\text {Cell }}^{0}=E_{\\text {Cathode }}^{0}-E_{\\text {Anode }}^{0}{/tex} {tex}E_{\\mathrm{Cell}}^{0}=\\mathrm{E}_{\\mathrm{Ag}^{+} / \\mathrm{Ag}}^{0}-\\mathrm{E}_{\\mathrm{N}^{2+} / \\mathrm{Ni}}^{0}{/tex} {tex}\\mathrm{E}_{\\mathrm{Cell}}^{0}{/tex} = 0.80 - (-0.25) {tex}\\mathrm{E}_{\\mathrm{Cell}}^{0}{/tex} = 1.05 V {tex}\\Delta G=-n F E_{C e l l}^{0}{/tex} = -2 {tex}\\times{/tex} 96500 {tex}\\times{/tex} 1.05 = -202650 kJ/mol {tex}\\mathrm{E}_{\\mathrm{Cell}}^{0}{/tex} = {tex}\\frac{2.303 \\mathrm{RT}}{\\mathrm{n} \\mathrm{F}} \\log \\mathrm{K}_{\\mathrm{c}}{/tex} The value of log K c = {tex}\\frac{\\mathrm{n} \\mathrm{F} \\mathrm{E}_{\\mathrm{Cell}}^{0}}{2.303 \\mathrm{RT}}{/tex} = {tex}\\frac{2 \\times 96500 \\times 1.05}{2.303 \\times 298 \\times 8.314}{/tex} = 35.516",
+    "solution": "Ni(s) + 2Ag + (aq) {tex} \\rightleftharpoons {/tex} Ni +2 (aq) + 2Ag(s) Given: {tex}\\mathrm{E}_{\\mathrm{N}^{+2} / \\mathrm{Ni}}^{0}{/tex} = -0.25 V, {tex}E_{A g^{+} / A g}^{0}{/tex} = 0.80 V Ni {tex} \\rightleftharpoons {/tex} Ni +2 + 2e - 2Ag + + 2e - {tex} \\rightleftharpoons {/tex} 2Ag {tex}E_{\\text {Cell }}^{0}=E_{\\text {Cathode }}^{0}-E_{\\text {Anode }}^{0}{/tex} {tex}E_{\\mathrm{Cell}}^{0}=\\mathrm{E}_{\\mathrm{Ag}^{+} / \\mathrm{Ag}}^{0}-\\mathrm{E}_{\\mathrm{N}^{2+} / \\mathrm{Ni}}^{0}{/tex} {tex}\\mathrm{E}_{\\mathrm{Cell}}^{0}{/tex} = 0.80 - (-0.25) {tex}\\mathrm{E}_{\\mathrm{Cell}}^{0}{/tex} = 1.05 V {tex}\\Delta G=-n F E_{C e l l}^{0}{/tex} = -2 {tex}\\times{/tex} 96500 {tex}\\times{/tex} 1.05 = -202650 kJ/mol {tex}\\mathrm{E}_{\\mathrm{Cell}}^{0}{/tex} = {tex}\\frac{2.303 \\mathrm{RT}}{\\mathrm{n} \\mathrm{F}} \\log \\mathrm{K}_{\\mathrm{c}}{/tex} The value of log K c = {tex}\\frac{\\mathrm{n} \\mathrm{F} \\mathrm{E}_{\\mathrm{Cell}}^{0}}{2.303 \\mathrm{RT}}{/tex} = {tex}\\frac{2 \\times 96500 \\times 1.05}{2.303 \\times 298 \\times 8.314}{/tex} = 35.516",
+    "solution_html": "<p>Ni(s) + 2Ag<sup>+</sup> (aq)&nbsp;<span class=\"math-tex\">{tex} \\rightleftharpoons {/tex}</span> Ni<sup>+2</sup> (aq) + 2Ag(s)<br />\r\nGiven:&nbsp;<br />\r\n<span class=\"math-tex\">{tex}\\mathrm{E}_{\\mathrm{N}^{+2} / \\mathrm{Ni}}^{0}{/tex}</span>&nbsp;= -0.25 V,&nbsp;<span class=\"math-tex\">{tex}E_{A g^{+} / A g}^{0}{/tex}</span>&nbsp;= 0.80 V<br />\r\nNi&nbsp;<span class=\"math-tex\">{tex} \\rightleftharpoons {/tex}</span>&nbsp;Ni<sup>+2</sup> + 2e<sup>-</sup>&nbsp;<br />\r\n2Ag<sup>+</sup> + 2e<sup>-</sup>&nbsp;<span class=\"math-tex\">{tex} \\rightleftharpoons {/tex}</span>&nbsp;2Ag<br />\r\n<span class=\"math-tex\">{tex}E_{\\text {Cell }}^{0}=E_{\\text {Cathode }}^{0}-E_{\\text {Anode }}^{0}{/tex}</span>&nbsp;<br />\r\n<span class=\"math-tex\">{tex}E_{\\mathrm{Cell}}^{0}=\\mathrm{E}_{\\mathrm{Ag}^{+} / \\mathrm{Ag}}^{0}-\\mathrm{E}_{\\mathrm{N}^{2+} / \\mathrm{Ni}}^{0}{/tex}</span>&nbsp;<br />\r\n<span class=\"math-tex\">{tex}\\mathrm{E}_{\\mathrm{Cell}}^{0}{/tex}</span>&nbsp;= 0.80 - (-0.25)<br />\r\n<span class=\"math-tex\">{tex}\\mathrm{E}_{\\mathrm{Cell}}^{0}{/tex}</span>&nbsp;= 1.05 V<br />\r\n<span class=\"math-tex\">{tex}\\Delta G=-n F E_{C e l l}^{0}{/tex}</span>&nbsp;<br />\r\n= -2&nbsp;<span class=\"math-tex\">{tex}\\times{/tex}</span>&nbsp;96500&nbsp;<span class=\"math-tex\">{tex}\\times{/tex}</span>&nbsp;1.05&nbsp;<br />\r\n= -202650 kJ/mol<br />\r\n<span class=\"math-tex\">{tex}\\mathrm{E}_{\\mathrm{Cell}}^{0}{/tex}</span>&nbsp;=&nbsp;<span class=\"math-tex\">{tex}\\frac{2.303 \\mathrm{RT}}{\\mathrm{n} \\mathrm{F}} \\log \\mathrm{K}_{\\mathrm{c}}{/tex}</span>&nbsp;<br />\r\nThe value of log K<sub>c</sub> =&nbsp;<span class=\"math-tex\">{tex}\\frac{\\mathrm{n} \\mathrm{F} \\mathrm{E}_{\\mathrm{Cell}}^{0}}{2.303 \\mathrm{RT}}{/tex}</span>&nbsp;<br />\r\n=&nbsp;<span class=\"math-tex\">{tex}\\frac{2 \\times 96500 \\times 1.05}{2.303 \\times 298 \\times 8.314}{/tex}</span>&nbsp;<br />\r\n= 35.516</p>",
+    "weightage": "SA-2 (Short answer type-2)"
+  },
+  {
+    "subject": "Chemistry",
+    "subject_id": "1267",
+    "chapter": "Electrochemistry",
+    "chapter_id": 1270,
+    "question_id": 187641,
+    "question_html": "<p>The electrical resistance of a column of 0.05 mol L<sup>-1</sup>&nbsp;NaOH solution of diameter 1 cm and length 50 cm is 5.55&nbsp;<span class=\"math-tex\">{tex}\\times{/tex}</span>&nbsp;10<sup>3 </sup><span class=\"math-tex\">{tex}\\Omega{/tex}</span>. Calculate its resistivity, conductivity and molar conductivity.</p>",
+    "question_text": "The electrical resistance of a column of 0.05 mol L -1 NaOH solution of diameter 1 cm and length 50 cm is 5.55 {tex}\\times{/tex} 10 3 {tex}\\Omega{/tex} . Calculate its resistivity, conductivity and molar conductivity.",
+    "options": [],
+    "correct_option_ids": [],
+    "correct_option_text": "",
+    "explanation": "Given, concentration of NaOH = 0.05M diameter = 1 cm, length = 50 cm, resistance= 5.55 {tex}\\times{/tex} 10 3 {tex}\\Omega{/tex} Area of cross section, A = {tex}\\pi r^{2}{/tex} = {tex}3.14 \\times\\left(\\frac{1}{2}\\right)^{2} {/tex} = 0.785 cm 2 Resistivity, {tex}\\rho{/tex} = {tex}\\frac{R A}{l}{/tex} = {tex}\\frac{5.55 \\times 10^{3} \\times 0.785}{50 }{/tex} = 87.135 {tex}\\Omega{/tex} cm Conductivity, {tex}\\sigma=\\frac{1}{\\rho}=\\frac{1}{87.135}{/tex} = {tex}0.01148=1.148 \\times 10^{-2} \\mathrm{S} \\mathrm{cm}^{-1}{/tex} Molar conductivity of solution {tex}\\Lambda_{\\mathrm{m}}=\\frac{\\mathrm{\\sigma} \\times 1000}{M}{/tex} = {tex}\\frac{1.148 \\times 10^{-2} \\times 1000}{0.05}{/tex} = 229.6 Scm 2 mol -1",
+    "solution": "Given, concentration of NaOH = 0.05M diameter = 1 cm, length = 50 cm, resistance= 5.55 {tex}\\times{/tex} 10 3 {tex}\\Omega{/tex} Area of cross section, A = {tex}\\pi r^{2}{/tex} = {tex}3.14 \\times\\left(\\frac{1}{2}\\right)^{2} {/tex} = 0.785 cm 2 Resistivity, {tex}\\rho{/tex} = {tex}\\frac{R A}{l}{/tex} = {tex}\\frac{5.55 \\times 10^{3} \\times 0.785}{50 }{/tex} = 87.135 {tex}\\Omega{/tex} cm Conductivity, {tex}\\sigma=\\frac{1}{\\rho}=\\frac{1}{87.135}{/tex} = {tex}0.01148=1.148 \\times 10^{-2} \\mathrm{S} \\mathrm{cm}^{-1}{/tex} Molar conductivity of solution {tex}\\Lambda_{\\mathrm{m}}=\\frac{\\mathrm{\\sigma} \\times 1000}{M}{/tex} = {tex}\\frac{1.148 \\times 10^{-2} \\times 1000}{0.05}{/tex} = 229.6 Scm 2 mol -1",
+    "solution_html": "<p>Given,<br />\r\nconcentration of NaOH = 0.05M&nbsp;<br />\r\ndiameter = 1 cm,<br />\r\nlength = 50 cm,<br />\r\nresistance= 5.55 <span class=\"math-tex\">{tex}\\times{/tex}</span>&nbsp;10<sup>3</sup>&nbsp;<span class=\"math-tex\">{tex}\\Omega{/tex}</span><br />\r\nArea of cross section,&nbsp;A =&nbsp;<span class=\"math-tex\">{tex}\\pi r^{2}{/tex}</span>&nbsp;=&nbsp;<span class=\"math-tex\">{tex}3.14 \\times\\left(\\frac{1}{2}\\right)^{2} {/tex}</span>&nbsp;= 0.785 cm<sup>2</sup><br />\r\nResistivity,&nbsp;<span class=\"math-tex\">{tex}\\rho{/tex}</span>&nbsp;=&nbsp;<span class=\"math-tex\">{tex}\\frac{R A}{l}{/tex}</span>&nbsp;=&nbsp;<span class=\"math-tex\">{tex}\\frac{5.55 \\times 10^{3} \\times 0.785}{50 }{/tex}</span>&nbsp;= 87.135<span class=\"math-tex\">{tex}\\Omega{/tex}</span>&nbsp;cm<br />\r\nConductivity,<span class=\"math-tex\">{tex}\\sigma=\\frac{1}{\\rho}=\\frac{1}{87.135}{/tex}</span>&nbsp;=&nbsp;<span class=\"math-tex\">{tex}0.01148=1.148 \\times 10^{-2} \\mathrm{S} \\mathrm{cm}^{-1}{/tex}</span><br />\r\nMolar conductivity of solution&nbsp;<span class=\"math-tex\">{tex}\\Lambda_{\\mathrm{m}}=\\frac{\\mathrm{\\sigma} \\times 1000}{M}{/tex}</span>&nbsp;=&nbsp;<span class=\"math-tex\">{tex}\\frac{1.148 \\times 10^{-2} \\times 1000}{0.05}{/tex}</span>&nbsp;=&nbsp;229.6 Scm<sup>2</sup>&nbsp;mol<sup>-1</sup></p>",
+    "weightage": "SA-2 (Short answer type-2)"
+  },
+  {
+    "subject": "Chemistry",
+    "subject_id": "1267",
+    "chapter": "Electrochemistry",
+    "chapter_id": 1270,
+    "question_id": 387273,
+    "question_html": "<p>Conductivity of 2 <span class=\"math-tex\">{tex}\\times{/tex}</span>&nbsp;10<sup>-3</sup> M methanoic acid is 8 <span class=\"math-tex\">{tex}\\times{/tex}</span>&nbsp;10<sup>-5</sup> S cm<sup>&ndash;1</sup>. Calculate its molar conductivity and degree of dissociation if&nbsp;<span class=\"math-tex\">{tex}\\Lambda_{\\mathrm{m}}^{\\mathrm{o}}{/tex}</span> for methanoic acid is 404 S cm<sup>2</sup> mol<sup>-1</sup>.</p>",
+    "question_text": "Conductivity of 2 {tex}\\times{/tex} 10 -3 M methanoic acid is 8 {tex}\\times{/tex} 10 -5 S cm &ndash;1 . Calculate its molar conductivity and degree of dissociation if {tex}\\Lambda_{\\mathrm{m}}^{\\mathrm{o}}{/tex} for methanoic acid is 404 S cm 2 mol -1 .",
+    "options": [],
+    "correct_option_ids": [],
+    "correct_option_text": "",
+    "explanation": "Concentration of methanoid acid = 2 {tex}\\times{/tex} 10 -3 M The conductivity of methanoic acid = 8 {tex}\\times{/tex} 10 -5 S cm &ndash;1 {tex}\\left(\\lambda_{m}\\right){/tex} = {tex}\\frac{1000 \\times \\text { Conductivity }(k)}{\\text { Concentration }(c)}{/tex} So, {tex}\\left(\\lambda_{m}\\right){/tex} = {tex}\\frac{1000 \\times 8 \\times 10^{-5}}{2 \\times 10^{-3}}{/tex} = 40 S cm 2 mol -1 {tex}\\alpha{/tex} = {tex}\\frac{\\wedge_{m}}{{\\wedge}_{m}^o}{/tex} = {tex}\\frac{40}{404}{/tex} = 0.099",
+    "solution": "Concentration of methanoid acid = 2 {tex}\\times{/tex} 10 -3 M The conductivity of methanoic acid = 8 {tex}\\times{/tex} 10 -5 S cm &ndash;1 {tex}\\left(\\lambda_{m}\\right){/tex} = {tex}\\frac{1000 \\times \\text { Conductivity }(k)}{\\text { Concentration }(c)}{/tex} So, {tex}\\left(\\lambda_{m}\\right){/tex} = {tex}\\frac{1000 \\times 8 \\times 10^{-5}}{2 \\times 10^{-3}}{/tex} = 40 S cm 2 mol -1 {tex}\\alpha{/tex} = {tex}\\frac{\\wedge_{m}}{{\\wedge}_{m}^o}{/tex} = {tex}\\frac{40}{404}{/tex} = 0.099",
+    "solution_html": "<p>Concentration of methanoid acid =&nbsp;2 <span class=\"math-tex\">{tex}\\times{/tex}</span>&nbsp;10<sup>-3</sup> M&nbsp;<br />\nThe conductivity of methanoic acid&nbsp;=&nbsp;8 <span class=\"math-tex\">{tex}\\times{/tex}</span>&nbsp;10<sup>-5</sup> S cm<sup>&ndash;1&nbsp;</sup><br />\n<span class=\"math-tex\">{tex}\\left(\\lambda_{m}\\right){/tex}</span>&nbsp;=&nbsp;<span class=\"math-tex\">{tex}\\frac{1000 \\times \\text { Conductivity }(k)}{\\text { Concentration }(c)}{/tex}</span>&nbsp;<br />\nSo,&nbsp;<br />\n&nbsp;<span class=\"math-tex\">{tex}\\left(\\lambda_{m}\\right){/tex}</span>&nbsp;=&nbsp;<span class=\"math-tex\">{tex}\\frac{1000 \\times 8 \\times 10^{-5}}{2 \\times 10^{-3}}{/tex}</span>&nbsp;= 40 S cm<sup>2</sup> mol<sup>-1</sup>&nbsp;<br />\n<span class=\"math-tex\">{tex}\\alpha{/tex}</span>&nbsp;=&nbsp;<span class=\"math-tex\">{tex}\\frac{\\wedge_{m}}{{\\wedge}_{m}^o}{/tex}</span>&nbsp;=&nbsp;<span class=\"math-tex\">{tex}\\frac{40}{404}{/tex}</span>&nbsp;<br />\n= 0.099</p>",
+    "weightage": "SA-2 (Short answer type-2)"
+  },
+  {
+    "subject": "Chemistry",
+    "subject_id": "1267",
+    "chapter": "Electrochemistry",
+    "chapter_id": 1270,
+    "question_id": 258636,
+    "question_html": "<p>Calculate the emf of the following cell at 298 K.<br />\r\n2Cr(s) + 3Fe<sup>2+</sup>(0.1M)&nbsp;<span class=\"math-tex\">{tex}\\rightarrow{/tex}</span>&nbsp;2Cr<sup>3+</sup>(0.01M) + 3Fe(s)<br />\r\nGiven, <span class=\"math-tex\">{tex}E_{c{r^{3 + }}/cr}^o{/tex}</span>&nbsp;=-0.74V, <span class=\"math-tex\">{tex}E_{F{e^{2 + }}/Fe}^o{/tex}</span>&nbsp;= -0.44 V</p>",
+    "question_text": "Calculate the emf of the following cell at 298 K. 2Cr(s) + 3Fe 2+ (0.1M) {tex}\\rightarrow{/tex} 2Cr 3+ (0.01M) + 3Fe(s) Given, {tex}E_{c{r^{3 + }}/cr}^o{/tex} =-0.74V, {tex}E_{F{e^{2 + }}/Fe}^o{/tex} = -0.44 V",
+    "options": [],
+    "correct_option_ids": [],
+    "correct_option_text": "",
+    "explanation": "Since oxidation of Cr is taking place in the given reaction, the chromium electrode is anode and as Fe is reduced in the reaction, Fe electrode is the cathode. The half-cell reactions are as follows. At anode Cr {tex}\\rightarrow{/tex} Cr 3+ + 3e - ] {tex}\\times{/tex} 2 At cathode Fe 2+ + 2e - {tex}\\rightarrow{/tex} Fe] {tex}\\times{/tex} 3 Overall reaction 2Cr + 3Fe 2+ {tex}\\rightarrow{/tex} 2Cr 3+ + 3Fe Eo = E cathode - E anode = -0.44 - (-0.74) = 0.3V E = E o - {tex}\\frac{{0.0591}}{n}\\log \\frac{{{{[C{r^{3 + }}]}^2}}}{{{{[F{e^{2 + }}]}^3}}}{/tex} Here, n = number of electrons transferred, i.e. equal to 6. = 0.3 - {tex}\\frac{{0.0591}}{6}\\log \\frac{{{{[0.01]}^2}}}{{{{[0.1]}^3}}}{/tex} = 0.309 {tex}\\approx{/tex} 0.31",
+    "solution": "Since oxidation of Cr is taking place in the given reaction, the chromium electrode is anode and as Fe is reduced in the reaction, Fe electrode is the cathode. The half-cell reactions are as follows. At anode Cr {tex}\\rightarrow{/tex} Cr 3+ + 3e - ] {tex}\\times{/tex} 2 At cathode Fe 2+ + 2e - {tex}\\rightarrow{/tex} Fe] {tex}\\times{/tex} 3 Overall reaction 2Cr + 3Fe 2+ {tex}\\rightarrow{/tex} 2Cr 3+ + 3Fe Eo = E cathode - E anode = -0.44 - (-0.74) = 0.3V E = E o - {tex}\\frac{{0.0591}}{n}\\log \\frac{{{{[C{r^{3 + }}]}^2}}}{{{{[F{e^{2 + }}]}^3}}}{/tex} Here, n = number of electrons transferred, i.e. equal to 6. = 0.3 - {tex}\\frac{{0.0591}}{6}\\log \\frac{{{{[0.01]}^2}}}{{{{[0.1]}^3}}}{/tex} = 0.309 {tex}\\approx{/tex} 0.31",
+    "solution_html": "<p>Since oxidation of Cr is taking place in&nbsp;the given reaction, the chromium electrode is anode and as Fe is reduced in the reaction, Fe electrode is the cathode. The half-cell reactions are as follows.<br />\r\n<strong>At anode </strong>Cr&nbsp;<span class=\"math-tex\">{tex}\\rightarrow{/tex}</span>&nbsp;Cr<sup>3+</sup> + 3e<sup>-</sup>] <span class=\"math-tex\">{tex}\\times{/tex}</span>&nbsp;2&nbsp;<br />\r\n<strong>At cathode&nbsp;</strong>Fe<sup>2+</sup> + 2e<sup>-&nbsp;</sup><span class=\"math-tex\">{tex}\\rightarrow{/tex}</span>&nbsp;Fe] <span class=\"math-tex\">{tex}\\times{/tex}</span>&nbsp;3&nbsp;<br />\r\n<strong>Overall reaction&nbsp;</strong><br />\r\n2Cr + 3Fe<sup>2+</sup> <span class=\"math-tex\">{tex}\\rightarrow{/tex}</span>&nbsp;2Cr<sup>3+</sup> + 3Fe<br />\r\nEo = E<sub>cathode</sub> - E<sub>anode</sub> = -0.44 - (-0.74) = 0.3V<br />\r\nE = E<sup>o</sup> -&nbsp;<span class=\"math-tex\">{tex}\\frac{{0.0591}}{n}\\log \\frac{{{{[C{r^{3 + }}]}^2}}}{{{{[F{e^{2 + }}]}^3}}}{/tex}</span><br />\r\nHere, n = number of electrons transferred, i.e. equal to 6.<br />\r\n= 0.3 -&nbsp;<span class=\"math-tex\">{tex}\\frac{{0.0591}}{6}\\log \\frac{{{{[0.01]}^2}}}{{{{[0.1]}^3}}}{/tex}</span><br />\r\n= 0.309&nbsp;<span class=\"math-tex\">{tex}\\approx{/tex}</span> 0.31</p>",
+    "weightage": "SA-2 (Short answer type-2)"
+  },
+  {
+    "subject": "Chemistry",
+    "subject_id": "1267",
+    "chapter": "Electrochemistry",
+    "chapter_id": 1270,
+    "question_id": 258645,
+    "question_html": "<p>Calculate the standard cell potential of a galvanic cell in which the following reaction takes place.<br />\r\n2Cr(s) + 3Cd<sup>2+</sup>(aq) <span class=\"math-tex\">{tex}\\rightarrow{/tex}</span>&nbsp;2Cr<sup>3+</sup>(aq) + 3Cd (s)<br />\r\nCalculate <span class=\"math-tex\">{tex}\\Delta{/tex}</span>G<sup>o</sup>&nbsp;and equilibrium constant,<br />\r\nK, of the above reaction at 25<sup>o</sup>C.<br />\r\n[Given, <span class=\"math-tex\">{tex}E_{\\mathrm{Cr}^{3+} / \\mathrm{Cr}}^{0}{/tex}</span>&nbsp;= -0.74 V, <span class=\"math-tex\">{tex}E_{\\mathrm{Cd}^{2+} / \\mathrm{Cd}}^{\\circ}{/tex}</span>&nbsp;= -0.40 V, 1F = 96500 C mol<sup>-1</sup>]</p>",
+    "question_text": "Calculate the standard cell potential of a galvanic cell in which the following reaction takes place. 2Cr(s) + 3Cd 2+ (aq) {tex}\\rightarrow{/tex} 2Cr 3+ (aq) + 3Cd (s) Calculate {tex}\\Delta{/tex} G o and equilibrium constant, K, of the above reaction at 25 o C. [Given, {tex}E_{\\mathrm{Cr}^{3+} / \\mathrm{Cr}}^{0}{/tex} = -0.74 V, {tex}E_{\\mathrm{Cd}^{2+} / \\mathrm{Cd}}^{\\circ}{/tex} = -0.40 V, 1F = 96500 C mol -1 ]",
+    "options": [],
+    "correct_option_ids": [],
+    "correct_option_text": "",
+    "explanation": "Here, n = 6, T = 273 + 25 o C = 298 K {tex}E_{\\mathrm{cell}}^{\\circ}=E_{\\mathrm{cathode}}^{\\circ}-E_{\\mathrm{anode}}^{\\circ}{/tex} = -0.40- (- 0.74) = 0.34 V {tex}\\Delta_{r} G^{\\circ}=-n F E_{\\mathrm{cell}}^{0}{/tex} {tex}\\Delta_{r} G^{\\circ}=-6 \\times 96500 \\times 0.34{/tex} = 196860J mol -1 {tex}\\Delta_{r} G^{\\circ}=-2.303 R T \\log K_{c}{/tex} log K c = {tex}-\\frac{\\Delta_{r} G^{\\circ}}{2.303 R T}=\\frac{196860}{2.303 \\times 8.314 \\times 298}{/tex} log K c = 34.5014 K c = antilog 34.5014 K c = {tex}3.173 \\times 10^{34}{/tex}",
+    "solution": "Here, n = 6, T = 273 + 25 o C = 298 K {tex}E_{\\mathrm{cell}}^{\\circ}=E_{\\mathrm{cathode}}^{\\circ}-E_{\\mathrm{anode}}^{\\circ}{/tex} = -0.40- (- 0.74) = 0.34 V {tex}\\Delta_{r} G^{\\circ}=-n F E_{\\mathrm{cell}}^{0}{/tex} {tex}\\Delta_{r} G^{\\circ}=-6 \\times 96500 \\times 0.34{/tex} = 196860J mol -1 {tex}\\Delta_{r} G^{\\circ}=-2.303 R T \\log K_{c}{/tex} log K c = {tex}-\\frac{\\Delta_{r} G^{\\circ}}{2.303 R T}=\\frac{196860}{2.303 \\times 8.314 \\times 298}{/tex} log K c = 34.5014 K c = antilog 34.5014 K c = {tex}3.173 \\times 10^{34}{/tex}",
+    "solution_html": "<p>Here, n = 6, T = 273 + 25<sup>o</sup>C&nbsp;= 298 K<br />\r\n<span class=\"math-tex\">{tex}E_{\\mathrm{cell}}^{\\circ}=E_{\\mathrm{cathode}}^{\\circ}-E_{\\mathrm{anode}}^{\\circ}{/tex}</span><br />\r\n= -0.40- (- 0.74) = 0.34 V<br />\r\n<span class=\"math-tex\">{tex}\\Delta_{r} G^{\\circ}=-n F E_{\\mathrm{cell}}^{0}{/tex}</span><br />\r\n<span class=\"math-tex\">{tex}\\Delta_{r} G^{\\circ}=-6 \\times 96500 \\times 0.34{/tex}</span>&nbsp;=&nbsp;196860J mol<sup>-1</sup><br />\r\n<span class=\"math-tex\">{tex}\\Delta_{r} G^{\\circ}=-2.303 R T \\log K_{c}{/tex}</span><br />\r\nlog K<sub>c</sub>&nbsp;=&nbsp;<span class=\"math-tex\">{tex}-\\frac{\\Delta_{r} G^{\\circ}}{2.303 R T}=\\frac{196860}{2.303 \\times 8.314 \\times 298}{/tex}</span><br />\r\nlog K<sub>c </sub>=&nbsp;34.5014<br />\r\nK<sub>c</sub> = antilog 34.5014<br />\r\nK<sub>c</sub>&nbsp;=&nbsp;<span class=\"math-tex\">{tex}3.173 \\times 10^{34}{/tex}</span></p>",
+    "weightage": "SA-2 (Short answer type-2)"
+  },
+  {
+    "subject": "Chemistry",
+    "subject_id": "1267",
+    "chapter": "Electrochemistry",
+    "chapter_id": 1270,
+    "question_id": 1301765,
+    "question_html": "<p><strong>Read the following text carefully and answer the questions that follow:</strong><br />\nBatteries and fuel cells are very useful forms of galvanic cell. Any battery or cell that we use as a source of electrical energy is basically a galvanic cell. However, for a battery to be of practical use it should be reasonably light, compact and its voltage should not vary appreciably during its use. There are mainly two types of batteries - primary batteries and secondary batteries.<br />\nIn the primary batteries, the reaction occurs only once and after use over a period of time the battery becomes dead and cannot be reused again, whereas the secondary batteries are rechargeable.<br />\nProduction of electricity by thermal plants is not a very efficient method and is a major source of pollution. To solve this problem, galvanic cells are designed in such a way that energy of combustion of fuels is directly converted into electrical energy, and these are known as fuel cells. One such fuel cell was used in the Apollo space programme.<br />\nAnswer the following questions:</p>\n\n<ol start=\"1\" style=\"list-style-type:lower-alpha\">\n\t<li>How do primary batteries differ from secondary batteries? <strong>(1)</strong></li>\n\t<li>The cell potential of Mercury cell is 1.35 V, and remains constant during its life. Give reason. <strong>(1)</strong></li>\n\t<li>Write the reactions involved in the recharging of the lead storage battery. <strong>(2)</strong>\n\t<p style=\"text-align:center\"><strong>OR</strong></p>\n\tWrite two advantages of fuel cells over other galvanic cells.&nbsp;<strong>(2)</strong></li>\n</ol>",
+    "question_text": "Read the following text carefully and answer the questions that follow: Batteries and fuel cells are very useful forms of galvanic cell. Any battery or cell that we use as a source of electrical energy is basically a galvanic cell. However, for a battery to be of practical use it should be reasonably light, compact and its voltage should not vary appreciably during its use. There are mainly two types of batteries - primary batteries and secondary batteries. In the primary batteries, the reaction occurs only once and after use over a period of time the battery becomes dead and cannot be reused again, whereas the secondary batteries are rechargeable. Production of electricity by thermal plants is not a very efficient method and is a major source of pollution. To solve this problem, galvanic cells are designed in such a way that energy of combustion of fuels is directly converted into electrical energy, and these are known as fuel cells. One such fuel cell was used in the Apollo space programme. Answer the following questions: How do primary batteries differ from secondary batteries? (1) The cell potential of Mercury cell is 1.35 V, and remains constant during its life. Give reason. (1) Write the reactions involved in the recharging of the lead storage battery. (2) OR Write two advantages of fuel cells over other galvanic cells. (2)",
+    "options": [],
+    "correct_option_ids": [],
+    "correct_option_text": "",
+    "explanation": "Primary batteries are not rechargeable while secondary batteries are rechargeable. Overall reaction does not involve any ion in solution whose concentration can change during its lifetime. Cathode: PbSO 4 (s) + 2e - {tex}\\rightarrow{/tex} Pb(s) + SO 4 2- (aq) Anode: PbSO 4 (s) + 2H 2 O (I) {tex}\\rightarrow{/tex} PbO 2 (s) + SO 4 2- (aq) + 4H + (aq) + 2e - OR (i) More efficiency (ii) Pollution free",
+    "solution": "Primary batteries are not rechargeable while secondary batteries are rechargeable. Overall reaction does not involve any ion in solution whose concentration can change during its lifetime. Cathode: PbSO 4 (s) + 2e - {tex}\\rightarrow{/tex} Pb(s) + SO 4 2- (aq) Anode: PbSO 4 (s) + 2H 2 O (I) {tex}\\rightarrow{/tex} PbO 2 (s) + SO 4 2- (aq) + 4H + (aq) + 2e - OR (i) More efficiency (ii) Pollution free",
+    "solution_html": "<ol start=\"1\" style=\"list-style-type:lower-alpha\">\n\t<li>Primary batteries are not rechargeable while secondary batteries are rechargeable.</li>\n\t<li>Overall reaction does not involve any ion in solution whose concentration can change during its lifetime.</li>\n\t<li>Cathode: PbSO<sub>4</sub>(s) + 2e<sup>-</sup> <span class=\"math-tex\">{tex}\\rightarrow{/tex}</span> Pb(s) + SO<sub>4</sub><sup>2-</sup>(aq)<br />\n\tAnode: PbSO<sub>4</sub>(s) + 2H<sub>2</sub>O (I) <span class=\"math-tex\">{tex}\\rightarrow{/tex}</span> PbO<sub>2</sub>(s) + SO<sub>4</sub><sup>2-</sup>(aq) + 4H<sup>+</sup>(aq) + 2e<sup>-</sup>\n\t<p style=\"text-align:center\"><strong>OR</strong></p>\n\t(i) More efficiency (ii) Pollution free</li>\n</ol>",
+    "weightage": "LA-1 (Long answer type-1)"
+  },
+  {
+    "subject": "Chemistry",
+    "subject_id": "1267",
+    "chapter": "Electrochemistry",
+    "chapter_id": 1270,
+    "question_id": 1324566,
+    "question_html": "<ol start=\"1\" style=\"list-style-type:lower-roman\">\n\t<li>The resistance of 0.05 M CH<sub>3</sub>COOH solution is found to be 100 ohm. If the cell constant is 0.0354 cm<sup>-1</sup>, calculate the molar conductivity of the acetic acid solution.</li>\n\t<li>State Faraday&#39;s first law of electrolysis. How much charge in Faraday is required for the reduction of 1 mol of <span class=\"math-tex\">{tex}\\mathrm{MnO}_4^{-}{/tex}</span> to Mn<sup>2+</sup>?</li>\n</ol>",
+    "question_text": "The resistance of 0.05 M CH 3 COOH solution is found to be 100 ohm. If the cell constant is 0.0354 cm -1 , calculate the molar conductivity of the acetic acid solution. State Faraday&#39;s first law of electrolysis. How much charge in Faraday is required for the reduction of 1 mol of {tex}\\mathrm{MnO}_4^{-}{/tex} to Mn 2+ ?",
+    "options": [],
+    "correct_option_ids": [],
+    "correct_option_text": "",
+    "explanation": "{tex}{r}K=\\frac{1}{R}\\left(\\frac{L}{A}\\right){/tex} or {tex}\\text k=\\frac {\\text G^* }{\\text R}{/tex} {tex}k=\\frac{1}{100}{/tex} (0.0354) = {tex}3.54 \\times 10^{-4} \\Omega^{-1} \\mathrm{~cm}^{-1}{/tex} {tex}\\Lambda_m=\\frac{K}{M} \\times 1000{/tex} = {tex}\\frac{3 \\cdot 54 \\times 10^{-4}}{0 \\cdot 05} \\times 1000{/tex} = {tex}7.08 \\Omega^{-1} \\mathrm{~cm}^2{/tex} mol -1 or 7.08 S cm 2 mol -1 The amount of chemical reaction which occurs at any electrode during electrolysis by a current is proportional to the quantity of electricity passed through the electrolyte. / m = ZIt where m = mass of the substance deposited , Z = electrochemical equivalent, I = current, t = time. 5F",
+    "solution": "{tex}{r}K=\\frac{1}{R}\\left(\\frac{L}{A}\\right){/tex} or {tex}\\text k=\\frac {\\text G^* }{\\text R}{/tex} {tex}k=\\frac{1}{100}{/tex} (0.0354) = {tex}3.54 \\times 10^{-4} \\Omega^{-1} \\mathrm{~cm}^{-1}{/tex} {tex}\\Lambda_m=\\frac{K}{M} \\times 1000{/tex} = {tex}\\frac{3 \\cdot 54 \\times 10^{-4}}{0 \\cdot 05} \\times 1000{/tex} = {tex}7.08 \\Omega^{-1} \\mathrm{~cm}^2{/tex} mol -1 or 7.08 S cm 2 mol -1 The amount of chemical reaction which occurs at any electrode during electrolysis by a current is proportional to the quantity of electricity passed through the electrolyte. / m = ZIt where m = mass of the substance deposited , Z = electrochemical equivalent, I = current, t = time. 5F",
+    "solution_html": "<ol start=\"1\" style=\"list-style-type:lower-roman\">\n\t<li><span class=\"math-tex\">{tex}{r}K=\\frac{1}{R}\\left(\\frac{L}{A}\\right){/tex}</span><br />\n\tor<br />\n\t<span class=\"math-tex\">{tex}\\text k=\\frac {\\text G^* }{\\text R}{/tex}</span><br />\n\t<span class=\"math-tex\">{tex}k=\\frac{1}{100}{/tex}</span> (0.0354)<br />\n\t= <span class=\"math-tex\">{tex}3.54 \\times 10^{-4} \\Omega^{-1} \\mathrm{~cm}^{-1}{/tex}</span><br />\n\t<span class=\"math-tex\">{tex}\\Lambda_m=\\frac{K}{M} \\times 1000{/tex}</span><br />\n\t= <span class=\"math-tex\">{tex}\\frac{3 \\cdot 54 \\times 10^{-4}}{0 \\cdot 05} \\times 1000{/tex}</span><br />\n\t= <span class=\"math-tex\">{tex}7.08 \\Omega^{-1} \\mathrm{~cm}^2{/tex}</span> mol<sup>-1</sup> or 7.08 S cm<sup>2</sup> mol<sup>-1</sup></li>\n\t<li>The amount of chemical reaction which occurs at any electrode during electrolysis by a current is proportional to the quantity of electricity passed through the electrolyte. / m = ZIt where m = mass of the substance deposited , Z = electrochemical equivalent, I = current, t = time.<br />\n\t5F</li>\n</ol>",
+    "weightage": "LA-1 (Long answer type-1)"
+  },
+  {
+    "subject": "Chemistry",
+    "subject_id": "1267",
+    "chapter": "Electrochemistry",
+    "chapter_id": 1270,
+    "question_id": 258625,
+    "question_html": "<ol start=\"1\" style=\"list-style-type:lower-alpha\">\r\n\t<li>The conductivity of 0.001 mol L<sup>-1</sup> acetic acid is 4.95 <span class=\"math-tex\">{tex}\\times{/tex}</span>10<sup>-5</sup> S cm<sup>-1</sup>. Calculate the dissociation constant if <span class=\"math-tex\">{tex}\\wedge _ { \\mathbf { n } } ^ { 0 }{/tex}</span> for acetic acid is 390.5 S cm<sup>2</sup> mol<sup>-1</sup>.</li>\r\n\t<li>Write Nernst equation for the reaction at 25<sup>o</sup>C:<br />\r\n\t2 Al (s) + 3 Cu<sup>2+</sup> (aq) <span class=\"math-tex\">{tex}\\longrightarrow{/tex}</span> 2 Al<sup>3+</sup> (aq) + 3 Cu (s)</li>\r\n\t<li>What are secondary batteries? Give an example.</li>\r\n</ol>",
+    "question_text": "The conductivity of 0.001 mol L -1 acetic acid is 4.95 {tex}\\times{/tex} 10 -5 S cm -1 . Calculate the dissociation constant if {tex}\\wedge _ { \\mathbf { n } } ^ { 0 }{/tex} for acetic acid is 390.5 S cm 2 mol -1 . Write Nernst equation for the reaction at 25 o C: 2 Al (s) + 3 Cu 2+ (aq) {tex}\\longrightarrow{/tex} 2 Al 3+ (aq) + 3 Cu (s) What are secondary batteries? Give an example.",
+    "options": [],
+    "correct_option_ids": [],
+    "correct_option_text": "",
+    "explanation": "{tex}A _ { m } = \\frac { \\kappa } { c } = \\frac { 4.95 \\times 10 ^ { - 5 } \\mathrm { Scm } ^ { - 1 } } { 0.001 } \\times \\frac { 1000 \\mathrm { cm } ^ { 3 } } { \\mathrm { L } } = 49.5 \\mathrm { Scm } ^ { 2 } \\mathrm { mol } ^ { - 1 }{/tex} {tex}\\alpha = \\frac { A _ { \\mathrm { m } } } { \\Lambda _ { \\mathrm { m } } ^ { \\mathrm { o } } } = \\frac { 49.5 \\mathrm { Scm } ^ { 2 } \\mathrm { mol } ^ { - 1 } } { 390.5 \\mathrm { S } \\mathrm { cm } ^ { 2 } \\mathrm { mol } ^ { - 1 } } = 0.126{/tex} {tex}K = \\frac { c \\alpha ^ { 2 } } { ( 1 - \\alpha ) } = \\frac { 0.001 \\mathrm { molL } ^ { - 1 } \\times ( 0.126 ) ^ { 2 } } { 1 - 0.126 } = 1.8 \\times 10 ^ { 5 } \\mathrm { molL } ^ { - 1 }{/tex} ((If K = {tex}c \\alpha ^ { 2 }{/tex} , then K= 1.6 {tex}\\times{/tex} 10 &minus;5 mol L -1 {tex}E _ { ( \\text { cell } ) } = E _ { ( \\text { cell } ) } ^ { \\ominus } \\quad - \\frac { 0.059 } { 6 } \\log \\frac { \\left\\lfloor \\mathrm { Al } ^ { 3 + } \\mathrm { J } ^ { 2 } \\right.} { \\left[ \\mathrm { cu } ^ { 2 + } \\right] ^ { 3 } }{/tex} Batteries which are rechargeable Example- Lead storage, Ni-Cd batteries",
+    "solution": "{tex}A _ { m } = \\frac { \\kappa } { c } = \\frac { 4.95 \\times 10 ^ { - 5 } \\mathrm { Scm } ^ { - 1 } } { 0.001 } \\times \\frac { 1000 \\mathrm { cm } ^ { 3 } } { \\mathrm { L } } = 49.5 \\mathrm { Scm } ^ { 2 } \\mathrm { mol } ^ { - 1 }{/tex} {tex}\\alpha = \\frac { A _ { \\mathrm { m } } } { \\Lambda _ { \\mathrm { m } } ^ { \\mathrm { o } } } = \\frac { 49.5 \\mathrm { Scm } ^ { 2 } \\mathrm { mol } ^ { - 1 } } { 390.5 \\mathrm { S } \\mathrm { cm } ^ { 2 } \\mathrm { mol } ^ { - 1 } } = 0.126{/tex} {tex}K = \\frac { c \\alpha ^ { 2 } } { ( 1 - \\alpha ) } = \\frac { 0.001 \\mathrm { molL } ^ { - 1 } \\times ( 0.126 ) ^ { 2 } } { 1 - 0.126 } = 1.8 \\times 10 ^ { 5 } \\mathrm { molL } ^ { - 1 }{/tex} ((If K = {tex}c \\alpha ^ { 2 }{/tex} , then K= 1.6 {tex}\\times{/tex} 10 &minus;5 mol L -1 {tex}E _ { ( \\text { cell } ) } = E _ { ( \\text { cell } ) } ^ { \\ominus } \\quad - \\frac { 0.059 } { 6 } \\log \\frac { \\left\\lfloor \\mathrm { Al } ^ { 3 + } \\mathrm { J } ^ { 2 } \\right.} { \\left[ \\mathrm { cu } ^ { 2 + } \\right] ^ { 3 } }{/tex} Batteries which are rechargeable Example- Lead storage, Ni-Cd batteries",
+    "solution_html": "<ol start=\"1\" style=\"list-style-type:lower-alpha\">\r\n\t<li><span class=\"math-tex\">{tex}A _ { m } = \\frac { \\kappa } { c } = \\frac { 4.95 \\times 10 ^ { - 5 } \\mathrm { Scm } ^ { - 1 } } { 0.001 } \\times \\frac { 1000 \\mathrm { cm } ^ { 3 } } { \\mathrm { L } } = 49.5 \\mathrm { Scm } ^ { 2 } \\mathrm { mol } ^ { - 1 }{/tex}</span><br />\r\n\t<span class=\"math-tex\">{tex}\\alpha = \\frac { A _ { \\mathrm { m } } } { \\Lambda _ { \\mathrm { m } } ^ { \\mathrm { o } } } = \\frac { 49.5 \\mathrm { Scm } ^ { 2 } \\mathrm { mol } ^ { - 1 } } { 390.5 \\mathrm { S } \\mathrm { cm } ^ { 2 } \\mathrm { mol } ^ { - 1 } } = 0.126{/tex}</span><br />\r\n\t<span class=\"math-tex\">{tex}K = \\frac { c \\alpha ^ { 2 } } { ( 1 - \\alpha ) } = \\frac { 0.001 \\mathrm { molL } ^ { - 1 } \\times ( 0.126 ) ^ { 2 } } { 1 - 0.126 } = 1.8 \\times 10 ^ { 5 } \\mathrm { molL } ^ { - 1 }{/tex}</span><br />\r\n\t((If K = <span class=\"math-tex\">{tex}c \\alpha ^ { 2 }{/tex}</span>, then K= 1.6 <span class=\"math-tex\">{tex}\\times{/tex}</span>&nbsp;10<sup>&minus;5</sup> mol L<sup>-1</sup></li>\r\n\t<li><span class=\"math-tex\">{tex}E _ { ( \\text { cell } ) } = E _ { ( \\text { cell } ) } ^ { \\ominus } \\quad - \\frac { 0.059 } { 6 } \\log \\frac { \\left\\lfloor \\mathrm { Al } ^ { 3 + } \\mathrm { J } ^ { 2 } \\right.} { \\left[ \\mathrm { cu } ^ { 2 + } \\right] ^ { 3 } }{/tex}</span></li>\r\n\t<li>Batteries which are rechargeable<br />\r\n\tExample- Lead storage, Ni-Cd batteries</li>\r\n</ol>",
+    "weightage": "LA-1 (Long answer type-1)"
+  },
+  {
+    "subject": "Chemistry",
+    "subject_id": "1267",
+    "chapter": "Electrochemistry",
+    "chapter_id": 1270,
+    "question_id": 258623,
+    "question_html": "<ol start=\"1\" style=\"list-style-type:lower-alpha\">\r\n\t<li>A steady current of 2 amperes was passed through two electrolytic cells X and Y connected in series containing electrolytes FeSO<sub>4 </sub>and ZnSO<sub>4</sub> until 2.8 g of Fe deposited at the cathode of cell X. How long did the current flow? Calculate the mass of Zn deposited at the cathode of cell Y.<br />\r\n\t(Molar mass : Fe = 56 g mol<sup>-1</sup> Zn = 65.3 g mol<sup>-1</sup>, IF = 96500 C mol<sup>-1</sup>)</li>\r\n\t<li>In the plot of molar conductivity <span class=\"math-tex\">{tex}\\left( \\wedge _ { \\mathbf { m } } \\right){/tex}</span> vs square root of concentration (<span class=\"math-tex\">{tex}C^{\\frac{1}{2}}{/tex}</span>), following curves are obtained for two electrolytes A and B :<br />\r\n\t<img alt=\"\" src=\"https://media-mycbseguide.s3.amazonaws.com/images/imgur/XOjELdP.png\" style=\"height:164px; width:170px\" /><br />\r\n\tAnswer the following:\r\n\t<ol start=\"1\" style=\"list-style-type:lower-roman\">\r\n\t\t<li>Predict the nature of electrolytes A and B.</li>\r\n\t\t<li>What happens on extrapolation of <span class=\"math-tex\">{tex}\\wedge _ { m }{/tex}</span> to concentration approaching zero for electrolytes A and B?</li>\r\n\t</ol>\r\n\t</li>\r\n</ol>",
+    "question_text": "A steady current of 2 amperes was passed through two electrolytic cells X and Y connected in series containing electrolytes FeSO 4 and ZnSO 4 until 2.8 g of Fe deposited at the cathode of cell X. How long did the current flow? Calculate the mass of Zn deposited at the cathode of cell Y. (Molar mass : Fe = 56 g mol -1 Zn = 65.3 g mol -1 , IF = 96500 C mol -1 ) In the plot of molar conductivity {tex}\\left( \\wedge _ { \\mathbf { m } } \\right){/tex} vs square root of concentration ( {tex}C^{\\frac{1}{2}}{/tex} ), following curves are obtained for two electrolytes A and B : Answer the following: Predict the nature of electrolytes A and B. What happens on extrapolation of {tex}\\wedge _ { m }{/tex} to concentration approaching zero for electrolytes A and B?",
+    "options": [],
+    "correct_option_ids": [],
+    "correct_option_text": "",
+    "explanation": "m = z I t {tex}2.8 \\mathrm{g}=\\frac{56 \\times 2 \\times t}{2 \\times 96500}{/tex} t = 4825 s / 80.417 min {tex}\\frac { m 1 } { m 2 } = \\frac { E 1 } { E 2 }{/tex} {tex}\\frac { 2.8 } { m Z n } = \\frac { 56 } { 2 } \\times \\frac { 2 } { 65.3 }{/tex} m Zn = 3.265 g A- strong electrolyte, B-Weak electrolyte {tex}\\left( \\wedge _ { \\mathbf { m } } \\right){/tex} m for weak electrolytes cannot be obtained by extrapolation while {tex}\\wedge^{ \\mathbf { o } }_m{/tex} or strong electrolytes can be obtained as intercept.",
+    "solution": "m = z I t {tex}2.8 \\mathrm{g}=\\frac{56 \\times 2 \\times t}{2 \\times 96500}{/tex} t = 4825 s / 80.417 min {tex}\\frac { m 1 } { m 2 } = \\frac { E 1 } { E 2 }{/tex} {tex}\\frac { 2.8 } { m Z n } = \\frac { 56 } { 2 } \\times \\frac { 2 } { 65.3 }{/tex} m Zn = 3.265 g A- strong electrolyte, B-Weak electrolyte {tex}\\left( \\wedge _ { \\mathbf { m } } \\right){/tex} m for weak electrolytes cannot be obtained by extrapolation while {tex}\\wedge^{ \\mathbf { o } }_m{/tex} or strong electrolytes can be obtained as intercept.",
+    "solution_html": "<ol start=\"1\" style=\"list-style-type:lower-alpha\">\r\n\t<li>m = z I t<br />\r\n\t<span class=\"math-tex\">{tex}2.8 \\mathrm{g}=\\frac{56 \\times 2 \\times t}{2 \\times 96500}{/tex}</span><br />\r\n\tt = 4825 s / 80.417 min<br />\r\n\t<span class=\"math-tex\">{tex}\\frac { m 1 } { m 2 } = \\frac { E 1 } { E 2 }{/tex}</span><br />\r\n\t<span class=\"math-tex\">{tex}\\frac { 2.8 } { m Z n } = \\frac { 56 } { 2 } \\times \\frac { 2 } { 65.3 }{/tex}</span><br />\r\n\tm<sub>Zn</sub>&nbsp;= 3.265 g</li>\r\n\t<li>\r\n\t<ol start=\"1\" style=\"list-style-type:lower-roman\">\r\n\t\t<li>A- strong electrolyte, B-Weak electrolyte</li>\r\n\t\t<li><span class=\"math-tex\">{tex}\\left( \\wedge _ { \\mathbf { m } } \\right){/tex}</span>&nbsp;m for weak electrolytes cannot be obtained by extrapolation while <span class=\"math-tex\">{tex}\\wedge^{ \\mathbf { o } }_m{/tex}</span>&nbsp;or strong electrolytes can be obtained as intercept.</li>\r\n\t</ol>\r\n\t</li>\r\n</ol>",
+    "weightage": "LA-1 (Long answer type-1)"
+  },
+  {
+    "subject": "Chemistry",
+    "subject_id": "1267",
+    "chapter": "Electrochemistry",
+    "chapter_id": 1270,
+    "question_id": 258626,
+    "question_html": "<ol start=\"1\" style=\"list-style-type:lower-alpha\">\r\n\t<li>Represent the cell in which the following reaction takes place:<br />\r\n\t2 Al (s) + 3 Ni<sup>2+</sup> (0.1 M) <span class=\"math-tex\">{tex}\\longrightarrow{/tex}</span> 2 Al<sup>3+</sup> (0.01 M) + 3 Ni (s)<br />\r\n\tCalculate its emf if <span class=\"math-tex\">{tex}\\mathrm{E}_{\\text {cell }}^{\\mathrm{o}}{/tex}</span>&nbsp;= 1.41 V.</li>\r\n\t<li>How does molar conductivity vary with increase in concentration for strong electrolyte and weak electrolyte? How can you obtain limiting molar conductivity <span class=\"math-tex\">{tex}\\left( \\Lambda _ { \\mathbf { m } } ^ { 0 } \\right){/tex}</span> for weak electrolyte?</li>\r\n</ol>",
+    "question_text": "Represent the cell in which the following reaction takes place: 2 Al (s) + 3 Ni 2+ (0.1 M) {tex}\\longrightarrow{/tex} 2 Al 3+ (0.01 M) + 3 Ni (s) Calculate its emf if {tex}\\mathrm{E}_{\\text {cell }}^{\\mathrm{o}}{/tex} = 1.41 V. How does molar conductivity vary with increase in concentration for strong electrolyte and weak electrolyte? How can you obtain limiting molar conductivity {tex}\\left( \\Lambda _ { \\mathbf { m } } ^ { 0 } \\right){/tex} for weak electrolyte?",
+    "options": [],
+    "correct_option_ids": [],
+    "correct_option_text": "",
+    "explanation": "Al(s) | Al 3 +(0.01M) || Ni 2 + (0.1 M) | Ni(s) {tex}E _ { ( \\mathrm { cell } ) } = E _ { \\mathrm { cell } } ^ { \\ominus } \\frac { 0.059 } { 6 } \\frac { \\left[ \\mathrm { Al } ^ { 3 + } \\right] ^ { 2 } } { \\left[ \\mathrm { Ni } ^ { 2 + } \\right] ^ { 3 } }{/tex} {tex}E _ { ( \\mathrm { cell } ) } = 1.41 \\mathrm { V } - \\frac { 0.059 } { 6 } \\log \\frac { [ 0.01 ] ^ { 2 } } { [ 0.1 ] ^ { 3 } }{/tex} E(cell) = 1.4198 V Or E cell = 1.42 V {tex}\\boldsymbol { \\Lambda } _ { \\mathbf { m } }{/tex} decreases with increase in concentration for both strong and weak electrolyte. The limiting molar conductivity of a weak electrolyte cannot be determined reliably by extrapolation. Instead, it can be expressed as a sum of ionic contributions, which can be evaluated from the limiting molar conductivities of strong electrolytes containing the same ions.",
+    "solution": "Al(s) | Al 3 +(0.01M) || Ni 2 + (0.1 M) | Ni(s) {tex}E _ { ( \\mathrm { cell } ) } = E _ { \\mathrm { cell } } ^ { \\ominus } \\frac { 0.059 } { 6 } \\frac { \\left[ \\mathrm { Al } ^ { 3 + } \\right] ^ { 2 } } { \\left[ \\mathrm { Ni } ^ { 2 + } \\right] ^ { 3 } }{/tex} {tex}E _ { ( \\mathrm { cell } ) } = 1.41 \\mathrm { V } - \\frac { 0.059 } { 6 } \\log \\frac { [ 0.01 ] ^ { 2 } } { [ 0.1 ] ^ { 3 } }{/tex} E(cell) = 1.4198 V Or E cell = 1.42 V {tex}\\boldsymbol { \\Lambda } _ { \\mathbf { m } }{/tex} decreases with increase in concentration for both strong and weak electrolyte. The limiting molar conductivity of a weak electrolyte cannot be determined reliably by extrapolation. Instead, it can be expressed as a sum of ionic contributions, which can be evaluated from the limiting molar conductivities of strong electrolytes containing the same ions.",
+    "solution_html": "<ol start=\"1\" style=\"list-style-type:lower-alpha\">\r\n\t<li>Al(s) | Al<sub>3</sub>+(0.01M) || Ni<sub>2</sub>+ (0.1 M) | Ni(s)<br />\r\n\t<span class=\"math-tex\">{tex}E _ { ( \\mathrm { cell } ) } = E _ { \\mathrm { cell } } ^ { \\ominus } \\frac { 0.059 } { 6 } \\frac { \\left[ \\mathrm { Al } ^ { 3 + } \\right] ^ { 2 } } { \\left[ \\mathrm { Ni } ^ { 2 + } \\right] ^ { 3 } }{/tex}</span><br />\r\n\t<span class=\"math-tex\">{tex}E _ { ( \\mathrm { cell } ) } = 1.41 \\mathrm { V } - \\frac { 0.059 } { 6 } \\log \\frac { [ 0.01 ] ^ { 2 } } { [ 0.1 ] ^ { 3 } }{/tex}</span><br />\r\n\tE(cell) = 1.4198 V<br />\r\n\tOr E<sub>cell</sub>&nbsp;= 1.42 V</li>\r\n\t<li><span class=\"math-tex\">{tex}\\boldsymbol { \\Lambda } _ { \\mathbf { m } }{/tex}</span>&nbsp;decreases with increase in concentration for both strong and weak electrolyte.<br />\r\n\tThe&nbsp;limiting molar conductivity&nbsp;of a&nbsp;weak electrolyte&nbsp;cannot be determined reliably by extrapolation. Instead, it can be expressed as a sum of ionic contributions, which can be evaluated from the&nbsp;limiting molar conductivities&nbsp;of strong&nbsp;electrolytes&nbsp;containing the same ions.</li>\r\n</ol>",
+    "weightage": "LA-1 (Long answer type-1)"
+  },
+  {
+    "subject": "Chemistry",
+    "subject_id": "1267",
+    "chapter": "Electrochemistry",
+    "chapter_id": 1270,
+    "question_id": 258887,
+    "question_html": "<p>The conductivity of sodium chloride at 298 K has been determined at different concentrations and the results are given below:</p>\r\n\r\n<table border=\"1\" cellpadding=\"3\" cellspacing=\"0\" style=\"width:100%;\">\r\n\t<tbody>\r\n\t\t<tr>\r\n\t\t\t<td>Concentration/M</td>\r\n\t\t\t<td>0.001</td>\r\n\t\t\t<td>0.010</td>\r\n\t\t\t<td>0.020</td>\r\n\t\t\t<td>0.050</td>\r\n\t\t\t<td>0.100</td>\r\n\t\t</tr>\r\n\t\t<tr>\r\n\t\t\t<td>10<sup>2</sup>&nbsp;<span class=\"math-tex\">{tex}\\times{/tex}</span>&nbsp;k/S m<sup>-1</sup></td>\r\n\t\t\t<td>1.237</td>\r\n\t\t\t<td>11.85</td>\r\n\t\t\t<td>23.15</td>\r\n\t\t\t<td>55.53</td>\r\n\t\t\t<td>106.74</td>\r\n\t\t</tr>\r\n\t</tbody>\r\n</table>\r\n\r\n<p>Calculate <span class=\"math-tex\">{tex}\\Lambda_{m}{/tex}</span>&nbsp;for all concentrations and draw a plot between <span class=\"math-tex\">{tex}\\Lambda_{m}{/tex}</span>&nbsp;and c<sup>&frac12;</sup>. Find the value of <span class=\"math-tex\">{tex}\\Lambda_{m}^{0}{/tex}</span>.</p>",
+    "question_text": "The conductivity of sodium chloride at 298 K has been determined at different concentrations and the results are given below: Concentration/M 0.001 0.010 0.020 0.050 0.100 10 2 {tex}\\times{/tex} k/S m -1 1.237 11.85 23.15 55.53 106.74 Calculate {tex}\\Lambda_{m}{/tex} for all concentrations and draw a plot between {tex}\\Lambda_{m}{/tex} and c &frac12; . Find the value of {tex}\\Lambda_{m}^{0}{/tex} .",
+    "options": [],
+    "correct_option_ids": [],
+    "correct_option_text": "",
+    "explanation": "Given, k = 1.237 {tex}\\times{/tex} 10 -2 S m -1 , c = 0.001 M Then, k = 1.237 {tex}\\times{/tex} 10 -4 S cm-1, c 1/2 = 0.0316 M 1/2 {tex}\\therefore{/tex} {tex}\\Lambda_{m}=\\frac{\\kappa}{c}{/tex} {tex}=\\frac{1.237 \\times 10^{-4} \\mathrm{S} \\mathrm{cm}^{-1}}{0.001 \\mathrm{mol} \\mathrm{L}^{-1}} \\times \\frac{1000 \\mathrm{cm}^{3}}{\\mathrm{L}}{/tex} = 12.7S cm 2 mol -1 Given, k = 11.85 {tex}\\times{/tex} 10 -2 S m -1 , c = 0.01 M Then, k = 11.85 {tex}\\times{/tex} 10 -4 S cm -1 , c 1/2 = 0.1 M 1/2 {tex}\\therefore{/tex} {tex}\\Lambda_{m}=\\frac{\\kappa}{c}{/tex} {tex}=\\frac{11.85 \\times 10^{-4} \\mathrm{S} \\mathrm{cm}^{-1}}{0.010 \\mathrm{mol} \\mathrm{L}^{-1}} \\times \\frac{1000 \\mathrm{cm}^{3}}{\\mathrm{L}}{/tex} = 118.5 S cm 2 mol -1 Given, k = 23.15 {tex}\\times{/tex} 10 -2 S m -1 , c = 0.020 M Then, k = 23.15 {tex}\\times{/tex} 10 -4 S cm -1 , c 1/2 = 0.1414 M 1/2 {tex}\\therefore{/tex} {tex}\\Lambda_{m}=\\frac{\\kappa}{c}{/tex} {tex}=\\frac{23.15 \\times 10^{-4} \\mathrm{S} \\mathrm{cm}^{-1}}{0.020 \\mathrm{mol} \\mathrm{L}^{-1}} \\times \\frac{1000 \\mathrm{cm}^{3}}{\\mathrm{L}}{/tex} = 115.8S cm 2 mol -1 Given, k = 55.53 {tex}\\times{/tex} 10 -2 S m -1 , c = 0.050 M Then, k = 55.53 {tex}\\times{/tex} 10 -4 S cm -1 , c 1/2 = 0.2236M 1/2 {tex}\\therefore{/tex} {tex}\\kappa=\\frac{\\kappa}{c}{/tex} {tex}=\\frac{55.53 \\times 10^{-4} \\mathrm{S} \\mathrm{cm}^{-1}}{0.050 \\mathrm{mol} \\mathrm{L}^{-1}} \\times \\frac{1000 \\mathrm{cm}^{3}}{\\mathrm{L}}{/tex} = 111.11S cm 2 mol -1 Given, k = 106.74 {tex}\\times{/tex} 10 -2 S m -1 , c = 0.100 M Then, k = 106.74 {tex}\\times{/tex} 10 -4 S cm -1 , c 1/2 = 0.316 M 1/2 {tex}\\therefore{/tex} {tex}\\Lambda_{m}=\\frac{\\kappa}{c}{/tex} {tex}=\\frac{106.74 \\times 10^{-4} \\mathrm{S} \\mathrm{cm}^{-1}}{0.100 \\mathrm{mol} \\mathrm{L}^{-1}} \\times \\frac{1000 \\mathrm{cm}^{3}}{\\mathrm{L}}{/tex} = 106.74S cm 2 mol -1 Now, we have the following data: {tex}^{\\mathrm{C}^{1/2}} / \\mathrm{M}^{1/2}{/tex} 0.0316 0.1 0.1414 0.2236 0.3162 {tex}\\Lambda_{m}{/tex} (S cm 2 mol -1 ) 123.7 118.5 115.8 111.1 106.74 Since the line interrupts {tex}\\Lambda_{m}{/tex} at 124.0S cm 2 mol -1 , {tex}\\Lambda_{m}^{0}{/tex} = 124.0S cm 2 mol -1",
+    "solution": "Given, k = 1.237 {tex}\\times{/tex} 10 -2 S m -1 , c = 0.001 M Then, k = 1.237 {tex}\\times{/tex} 10 -4 S cm-1, c 1/2 = 0.0316 M 1/2 {tex}\\therefore{/tex} {tex}\\Lambda_{m}=\\frac{\\kappa}{c}{/tex} {tex}=\\frac{1.237 \\times 10^{-4} \\mathrm{S} \\mathrm{cm}^{-1}}{0.001 \\mathrm{mol} \\mathrm{L}^{-1}} \\times \\frac{1000 \\mathrm{cm}^{3}}{\\mathrm{L}}{/tex} = 12.7S cm 2 mol -1 Given, k = 11.85 {tex}\\times{/tex} 10 -2 S m -1 , c = 0.01 M Then, k = 11.85 {tex}\\times{/tex} 10 -4 S cm -1 , c 1/2 = 0.1 M 1/2 {tex}\\therefore{/tex} {tex}\\Lambda_{m}=\\frac{\\kappa}{c}{/tex} {tex}=\\frac{11.85 \\times 10^{-4} \\mathrm{S} \\mathrm{cm}^{-1}}{0.010 \\mathrm{mol} \\mathrm{L}^{-1}} \\times \\frac{1000 \\mathrm{cm}^{3}}{\\mathrm{L}}{/tex} = 118.5 S cm 2 mol -1 Given, k = 23.15 {tex}\\times{/tex} 10 -2 S m -1 , c = 0.020 M Then, k = 23.15 {tex}\\times{/tex} 10 -4 S cm -1 , c 1/2 = 0.1414 M 1/2 {tex}\\therefore{/tex} {tex}\\Lambda_{m}=\\frac{\\kappa}{c}{/tex} {tex}=\\frac{23.15 \\times 10^{-4} \\mathrm{S} \\mathrm{cm}^{-1}}{0.020 \\mathrm{mol} \\mathrm{L}^{-1}} \\times \\frac{1000 \\mathrm{cm}^{3}}{\\mathrm{L}}{/tex} = 115.8S cm 2 mol -1 Given, k = 55.53 {tex}\\times{/tex} 10 -2 S m -1 , c = 0.050 M Then, k = 55.53 {tex}\\times{/tex} 10 -4 S cm -1 , c 1/2 = 0.2236M 1/2 {tex}\\therefore{/tex} {tex}\\kappa=\\frac{\\kappa}{c}{/tex} {tex}=\\frac{55.53 \\times 10^{-4} \\mathrm{S} \\mathrm{cm}^{-1}}{0.050 \\mathrm{mol} \\mathrm{L}^{-1}} \\times \\frac{1000 \\mathrm{cm}^{3}}{\\mathrm{L}}{/tex} = 111.11S cm 2 mol -1 Given, k = 106.74 {tex}\\times{/tex} 10 -2 S m -1 , c = 0.100 M Then, k = 106.74 {tex}\\times{/tex} 10 -4 S cm -1 , c 1/2 = 0.316 M 1/2 {tex}\\therefore{/tex} {tex}\\Lambda_{m}=\\frac{\\kappa}{c}{/tex} {tex}=\\frac{106.74 \\times 10^{-4} \\mathrm{S} \\mathrm{cm}^{-1}}{0.100 \\mathrm{mol} \\mathrm{L}^{-1}} \\times \\frac{1000 \\mathrm{cm}^{3}}{\\mathrm{L}}{/tex} = 106.74S cm 2 mol -1 Now, we have the following data: {tex}^{\\mathrm{C}^{1/2}} / \\mathrm{M}^{1/2}{/tex} 0.0316 0.1 0.1414 0.2236 0.3162 {tex}\\Lambda_{m}{/tex} (S cm 2 mol -1 ) 123.7 118.5 115.8 111.1 106.74 Since the line interrupts {tex}\\Lambda_{m}{/tex} at 124.0S cm 2 mol -1 , {tex}\\Lambda_{m}^{0}{/tex} = 124.0S cm 2 mol -1",
+    "solution_html": "<p>Given,<br />\r\nk = 1.237&nbsp;<span class=\"math-tex\">{tex}\\times{/tex}</span>&nbsp;10<sup>-2</sup> S m<sup>-1</sup>, c = 0.001 M<br />\r\nThen, k = 1.237&nbsp;<span class=\"math-tex\">{tex}\\times{/tex}</span>&nbsp;10<sup>-4</sup>S cm-1, c<sup>1/2</sup> = 0.0316 M<sup>1/2</sup><br />\r\n<span class=\"math-tex\">{tex}\\therefore{/tex}</span>&nbsp;<span class=\"math-tex\">{tex}\\Lambda_{m}=\\frac{\\kappa}{c}{/tex}</span><br />\r\n<span class=\"math-tex\">{tex}=\\frac{1.237 \\times 10^{-4} \\mathrm{S} \\mathrm{cm}^{-1}}{0.001 \\mathrm{mol} \\mathrm{L}^{-1}} \\times \\frac{1000 \\mathrm{cm}^{3}}{\\mathrm{L}}{/tex}</span><br />\r\n= 12.7S cm<sup>2</sup> mol<sup>-1</sup><br />\r\nGiven,<br />\r\nk = 11.85&nbsp;<span class=\"math-tex\">{tex}\\times{/tex}</span>&nbsp;10<sup>-2</sup>S m<sup>-1</sup>, c = 0.01 M<br />\r\nThen, k = 11.85&nbsp;<span class=\"math-tex\">{tex}\\times{/tex}</span>&nbsp;10<sup>-4</sup>S cm<sup>-1</sup>, c<sup>1/2</sup> = 0.1 M<sup>1/2</sup><br />\r\n<span class=\"math-tex\">{tex}\\therefore{/tex}</span>&nbsp;<span class=\"math-tex\">{tex}\\Lambda_{m}=\\frac{\\kappa}{c}{/tex}</span><br />\r\n<span class=\"math-tex\">{tex}=\\frac{11.85 \\times 10^{-4} \\mathrm{S} \\mathrm{cm}^{-1}}{0.010 \\mathrm{mol} \\mathrm{L}^{-1}} \\times \\frac{1000 \\mathrm{cm}^{3}}{\\mathrm{L}}{/tex}</span><br />\r\n= 118.5 S cm<sup>2</sup> mol<sup>-1</sup><br />\r\nGiven, k = 23.15&nbsp;<span class=\"math-tex\">{tex}\\times{/tex}</span>&nbsp;10<sup>-2</sup>S m<sup>-1</sup>, c = 0.020 M<br />\r\nThen, k = 23.15&nbsp;<span class=\"math-tex\">{tex}\\times{/tex}</span>&nbsp;10<sup>-4</sup>S cm<sup>-1</sup>, c<sup>1/2</sup> = 0.1414 M<sup>1/2</sup><br />\r\n<span class=\"math-tex\">{tex}\\therefore{/tex}</span>&nbsp;<span class=\"math-tex\">{tex}\\Lambda_{m}=\\frac{\\kappa}{c}{/tex}</span><br />\r\n<span class=\"math-tex\">{tex}=\\frac{23.15 \\times 10^{-4} \\mathrm{S} \\mathrm{cm}^{-1}}{0.020 \\mathrm{mol} \\mathrm{L}^{-1}} \\times \\frac{1000 \\mathrm{cm}^{3}}{\\mathrm{L}}{/tex}</span><br />\r\n= 115.8S cm<sup>2</sup> mol<sup>-1</sup><br />\r\nGiven,<br />\r\nk = 55.53&nbsp;<span class=\"math-tex\">{tex}\\times{/tex}</span>&nbsp;10<sup>-2</sup>S m<sup>-1</sup>, c = 0.050 M<br />\r\nThen, k = 55.53&nbsp;<span class=\"math-tex\">{tex}\\times{/tex}</span>&nbsp;10<sup>-4</sup>S cm<sup>-1</sup>, c<sup>1/2</sup> = 0.2236M<sup>1/2</sup><br />\r\n<span class=\"math-tex\">{tex}\\therefore{/tex}</span>&nbsp;<span class=\"math-tex\">{tex}\\kappa=\\frac{\\kappa}{c}{/tex}</span><br />\r\n<span class=\"math-tex\">{tex}=\\frac{55.53 \\times 10^{-4} \\mathrm{S} \\mathrm{cm}^{-1}}{0.050 \\mathrm{mol} \\mathrm{L}^{-1}} \\times \\frac{1000 \\mathrm{cm}^{3}}{\\mathrm{L}}{/tex}</span><br />\r\n= 111.11S cm<sup>2</sup> mol<sup>-1</sup><br />\r\nGiven,<br />\r\nk = 106.74&nbsp;<span class=\"math-tex\">{tex}\\times{/tex}</span>&nbsp;10<sup>-2</sup>S m<sup>-1</sup>, c = 0.100 M<br />\r\nThen, k = 106.74&nbsp;<span class=\"math-tex\">{tex}\\times{/tex}</span>&nbsp;10<sup>-4</sup>S cm<sup>-1</sup>, c<sup>1/2</sup> = 0.316 M<sup>1/2</sup><br />\r\n<span class=\"math-tex\">{tex}\\therefore{/tex}</span>&nbsp;<span class=\"math-tex\">{tex}\\Lambda_{m}=\\frac{\\kappa}{c}{/tex}</span><br />\r\n<span class=\"math-tex\">{tex}=\\frac{106.74 \\times 10^{-4} \\mathrm{S} \\mathrm{cm}^{-1}}{0.100 \\mathrm{mol} \\mathrm{L}^{-1}} \\times \\frac{1000 \\mathrm{cm}^{3}}{\\mathrm{L}}{/tex}</span><br />\r\n= 106.74S cm<sup>2</sup> mol<sup>-1</sup><br />\r\nNow, we have the following data:</p>\r\n\r\n<table border=\"1\" cellpadding=\"3\" cellspacing=\"0\" style=\"width:100%;\">\r\n\t<tbody>\r\n\t\t<tr>\r\n\t\t\t<td><span class=\"math-tex\">{tex}^{\\mathrm{C}^{1/2}} / \\mathrm{M}^{1/2}{/tex}</span></td>\r\n\t\t\t<td>0.0316</td>\r\n\t\t\t<td>0.1</td>\r\n\t\t\t<td>0.1414</td>\r\n\t\t\t<td>0.2236</td>\r\n\t\t\t<td>0.3162</td>\r\n\t\t</tr>\r\n\t\t<tr>\r\n\t\t\t<td><span class=\"math-tex\">{tex}\\Lambda_{m}{/tex}</span>(S cm<sup>2</sup> mol<sup>-1</sup>)</td>\r\n\t\t\t<td>123.7</td>\r\n\t\t\t<td>118.5</td>\r\n\t\t\t<td>115.8</td>\r\n\t\t\t<td>111.1</td>\r\n\t\t\t<td>106.74</td>\r\n\t\t</tr>\r\n\t</tbody>\r\n</table>\r\n\r\n<p><img alt=\"\" data-imgur-src=\"GYWx8sL.png\" src=\"https://media-mycbseguide.s3.amazonaws.com/images/imgur/GYWx8sL.png\" style=\"width: 300px; height: 261px;\" /><br />\r\nSince the line interrupts&nbsp;<span class=\"math-tex\">{tex}\\Lambda_{m}{/tex}</span>&nbsp;at 124.0S cm<sup>2</sup> mol<sup>-1</sup>,&nbsp;<span class=\"math-tex\">{tex}\\Lambda_{m}^{0}{/tex}</span>&nbsp;= 124.0S cm<sup>2</sup> mol<sup>-1</sup></p>",
+    "weightage": "LA-1 (Long answer type-1)"
+  }
+]
