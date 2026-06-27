@@ -1,7 +1,7 @@
 import React, { useState, useEffect, useMemo, useRef } from 'react';
 import {
   View, Text, StyleSheet, SafeAreaView, ScrollView,
-  TouchableOpacity, StatusBar, TextInput, Platform,
+  StatusBar, TextInput, Platform,
   KeyboardAvoidingView, ActivityIndicator,
 } from 'react-native';
 import { useAuth } from '../context/AuthContext';
@@ -12,6 +12,7 @@ import StudyInsightsScreen from './StudyInsightsScreen';
 import LiveTeachingPlayer from '../components/teacher/LiveTeachingPlayer';
 import TeacherAvatar from '../components/teacher/TeacherAvatar';
 import { C } from '../components/teacher/premiumTheme';
+import { Appear, PressableScale } from '../components/teacher/uiKit';
 import { stopTeacher, primeTeacherVoice, SPEECH_OK } from '../utils/teacherVoice';
 
 // Rotating reassurance shown while the lesson generates.
@@ -66,6 +67,11 @@ const AITeacherScreen = ({ initialSubject = 'Physics', initialTopic = '', onBack
   // teaching loops (grade my answer, "did you understand?") work across messages.
   const pendingRef = useRef(null);
 
+  // Guards async setState after the screen is unmounted (back-navigation while a
+  // lesson is still generating / restoring) — prevents stale-state warnings + leaks.
+  const mountedRef = useRef(true);
+  useEffect(() => () => { mountedRef.current = false; }, []);
+
   useEffect(() => { primeTeacherVoice(); }, []);
   // Load the "Welcome back" snapshot once on mount (best-effort — never blocks the UI).
   useEffect(() => {
@@ -103,6 +109,7 @@ const AITeacherScreen = ({ initialSubject = 'Physics', initialTopic = '', onBack
     setError('');
     try {
       const { lesson } = await getLesson(savedLesson.lessonId);
+      if (!mountedRef.current) return;
       if (!lesson || !Array.isArray(lesson.slides) || lesson.slides.length === 0) throw new Error('empty');
       if (lesson.subject) setActiveSubject(lesson.subject);
       clearingRef.current = false;
@@ -116,10 +123,9 @@ const AITeacherScreen = ({ initialSubject = 'Physics', initialTopic = '', onBack
     } catch (e) {
       // Lesson gone/deleted — drop the stale pointer so we don't offer it again.
       await clearActiveLesson();
-      setSavedLesson(null);
-      setError('That lesson is no longer available. Start a new one below.');
+      if (mountedRef.current) { setSavedLesson(null); setError('That lesson is no longer available. Start a new one below.'); }
     } finally {
-      setRestoring(false);
+      if (mountedRef.current) setRestoring(false);
     }
   };
   useEffect(() => {
@@ -140,6 +146,7 @@ const AITeacherScreen = ({ initialSubject = 'Physics', initialTopic = '', onBack
     try {
       const payload = { topic: t, subject: activeSubject, gradeLevel: user?.grade || '8' };
       const { lessonId: id, lesson } = await generateLesson(payload);
+      if (!mountedRef.current) return;
       setLessonId(id);
       setLessonTitle(lesson.lessonTitle || t);
       setSlides(lesson.slides || []);
@@ -151,9 +158,9 @@ const AITeacherScreen = ({ initialSubject = 'Physics', initialTopic = '', onBack
       saveActiveLesson({ lessonId: id, title: lesson.lessonTitle || t, subject: activeSubject, slideIndex: 0 });
       setSavedLesson(null);
     } catch (e) {
-      setError(e?.response?.data?.error || e?.message || 'Could not generate the lesson. Please try again.');
+      if (mountedRef.current) setError(e?.response?.data?.error || e?.message || 'Could not generate the lesson. Please try again.');
     } finally {
-      setLoading(false);
+      if (mountedRef.current) setLoading(false);
     }
   };
 
@@ -186,69 +193,74 @@ const AITeacherScreen = ({ initialSubject = 'Physics', initialTopic = '', onBack
         <StatusBar barStyle="light-content" backgroundColor={C.cream} />
         {Platform.OS === 'android' && <View style={{ height: 24, backgroundColor: C.cream }} />}
         <View style={st.header}>
-          <TouchableOpacity onPress={handleBack} style={st.hIcon} activeOpacity={0.8}><Text style={st.hIconTxt}>‹</Text></TouchableOpacity>
-          <Text style={st.headerTitle}>AI Teacher</Text>
+          <PressableScale onPress={handleBack} style={st.hIcon} accessibilityLabel="Go back"><Text style={st.hIconTxt}>‹</Text></PressableScale>
+          <Text style={st.headerTitle} accessibilityRole="header">AI Teacher</Text>
           <View style={{ width: 38 }} />
         </View>
 
         <KeyboardAvoidingView style={{ flex: 1 }} behavior={Platform.OS === 'ios' ? 'padding' : undefined}>
           <ScrollView contentContainerStyle={st.body} keyboardShouldPersistTaps="handled" showsVerticalScrollIndicator={false}>
-            <View style={st.hero}><TeacherAvatar size={96} state="idle" theme="dark" /></View>
-            <Text style={st.hi}>Hi {firstName} 👋</Text>
-            <Text style={st.q}>What should we learn today?</Text>
+            <Appear from="scale" style={st.hero}><TeacherAvatar size={96} state="idle" theme="dark" /></Appear>
+            <Appear delay={60}><Text style={st.hi}>Hi {firstName} 👋</Text></Appear>
+            <Appear delay={110}><Text style={st.q}>What should we learn today?</Text></Appear>
 
             {savedLesson && (
-              <TouchableOpacity style={st.resumeLessonCard} onPress={resumeSavedLesson} disabled={restoring} activeOpacity={0.9}>
-                <View style={st.resumeLessonIcon}><Text style={{ fontSize: 18 }}>▶</Text></View>
-                <View style={{ flex: 1 }}>
-                  <Text style={st.resumeLessonTag}>RESUME YOUR LESSON</Text>
-                  <Text style={st.resumeLessonTitle} numberOfLines={1}>{savedLesson.title || 'Continue where you left off'}</Text>
-                </View>
-                {restoring
-                  ? <ActivityIndicator color={C.accent} size="small" />
-                  : <Text style={st.resumeLessonGo}>›</Text>}
-              </TouchableOpacity>
+              <Appear>
+                <PressableScale style={st.resumeLessonCard} onPress={resumeSavedLesson} disabled={restoring}
+                  accessibilityLabel={`Resume your lesson: ${savedLesson.title || 'continue where you left off'}`}>
+                  <View style={st.resumeLessonIcon}><Text style={{ fontSize: 18 }}>▶</Text></View>
+                  <View style={{ flex: 1 }}>
+                    <Text style={st.resumeLessonTag}>RESUME YOUR LESSON</Text>
+                    <Text style={st.resumeLessonTitle} numberOfLines={1}>{savedLesson.title || 'Continue where you left off'}</Text>
+                  </View>
+                  {restoring
+                    ? <ActivityIndicator color={C.accent} size="small" />
+                    : <Text style={st.resumeLessonGo}>›</Text>}
+                </PressableScale>
+              </Appear>
             )}
 
             {resume && !resumeDismissed && (
-              <View style={st.welcomeCard}>
-                <TouchableOpacity style={st.welcomeClose} onPress={() => setResumeDismissed(true)} hitSlop={{ top: 8, bottom: 8, left: 8, right: 8 }}>
+              <Appear style={st.welcomeCard}>
+                <PressableScale style={st.welcomeClose} onPress={() => setResumeDismissed(true)} hitSlop={{ top: 8, bottom: 8, left: 8, right: 8 }} accessibilityLabel="Dismiss welcome back">
                   <Text style={st.welcomeCloseTxt}>✕</Text>
-                </TouchableOpacity>
+                </PressableScale>
                 <Text style={st.welcomeTag}>👋 WELCOME BACK</Text>
                 <Text style={st.welcomeGreeting}>{resume.greeting}</Text>
                 {!!resume.suggestion && <Text style={st.welcomeSuggest}>{resume.suggestion}</Text>}
                 <View style={st.welcomeBtns}>
-                  <TouchableOpacity
+                  <PressableScale
                     style={st.welcomePrimary}
                     onPress={() => {
                       if (resume.last?.subject && SUBJECTS.includes(resume.last.subject)) setActiveSubject(resume.last.subject);
                       setInsights({ tab: 'revise' });
                     }}
-                    activeOpacity={0.9}
+                    accessibilityLabel="Continue revising"
                   >
                     <Text style={st.welcomePrimaryTxt}>Continue revising  ›</Text>
-                  </TouchableOpacity>
+                  </PressableScale>
                   {!!resume.last?.chapter && (
-                    <TouchableOpacity
+                    <PressableScale
                       style={st.welcomeGhost}
                       onPress={() => { setTopic(resume.last.chapter); if (resume.last?.subject && SUBJECTS.includes(resume.last.subject)) setActiveSubject(resume.last.subject); }}
-                      activeOpacity={0.9}
+                      accessibilityLabel={`Re-learn ${resume.last.chapter}`}
                     >
                       <Text style={st.welcomeGhostTxt}>Re-learn {resume.last.chapter}</Text>
-                    </TouchableOpacity>
+                    </PressableScale>
                   )}
                 </View>
-              </View>
+              </Appear>
             )}
 
             <View style={st.modeRow}>
-              <TouchableOpacity style={[st.modeBtn, st.modeBtnOn]} onPress={() => setMode('learn')} activeOpacity={0.9}>
+              <PressableScale style={[st.modeBtn, st.modeBtnOn]} onPress={() => setMode('learn')}
+                accessibilityLabel="Learn a topic" accessibilityState={{ selected: true }}>
                 <Text style={[st.modeTxt, st.modeTxtOn]}>📖  Learn a Topic</Text>
-              </TouchableOpacity>
-              <TouchableOpacity style={st.modeBtn} onPress={() => setMode('ask')} activeOpacity={0.9}>
+              </PressableScale>
+              <PressableScale style={st.modeBtn} onPress={() => setMode('ask')}
+                accessibilityLabel="Ask the material" accessibilityState={{ selected: false }}>
                 <Text style={st.modeTxt}>📚  Ask the Material</Text>
-              </TouchableOpacity>
+              </PressableScale>
             </View>
 
             <Text style={st.label}>FOR YOU</Text>
@@ -257,21 +269,25 @@ const AITeacherScreen = ({ initialSubject = 'Physics', initialTopic = '', onBack
                 { tab: 'next', icon: '🧭', title: 'What next?', sub: 'Smart plan' },
                 { tab: 'revise', icon: '🔁', title: 'Revise', sub: 'Weak topics' },
                 { tab: 'progress', icon: '📊', title: 'Progress', sub: 'Your stats' },
-              ].map((a) => (
-                <TouchableOpacity key={a.tab} style={st.insightCard} onPress={() => setInsights({ tab: a.tab })} activeOpacity={0.9}>
-                  <Text style={st.insightIcon}>{a.icon}</Text>
-                  <Text style={st.insightTitle}>{a.title}</Text>
-                  <Text style={st.insightSub}>{a.sub}</Text>
-                </TouchableOpacity>
+              ].map((a, i) => (
+                <Appear key={a.tab} delay={60 + i * 60} style={{ flex: 1 }}>
+                  <PressableScale style={st.insightCard} onPress={() => setInsights({ tab: a.tab })}
+                    accessibilityLabel={`${a.title}. ${a.sub}`}>
+                    <Text style={st.insightIcon}>{a.icon}</Text>
+                    <Text style={st.insightTitle}>{a.title}</Text>
+                    <Text style={st.insightSub}>{a.sub}</Text>
+                  </PressableScale>
+                </Appear>
               ))}
             </View>
 
             <Text style={[st.label, { marginTop: 20 }]}>SUBJECT</Text>
             <ScrollView horizontal showsHorizontalScrollIndicator={false} contentContainerStyle={{ gap: 8, paddingVertical: 2 }}>
               {SUBJECTS.map((subj) => (
-                <TouchableOpacity key={subj} style={[st.chip, activeSubject === subj && st.chipOn]} onPress={() => setActiveSubject(subj)} activeOpacity={0.9}>
+                <PressableScale key={subj} style={[st.chip, activeSubject === subj && st.chipOn]} onPress={() => setActiveSubject(subj)}
+                  accessibilityLabel={`Subject ${subj}`} accessibilityState={{ selected: activeSubject === subj }}>
                   <Text style={[st.chipTxt, activeSubject === subj && st.chipTxtOn]}>{subj}</Text>
-                </TouchableOpacity>
+                </PressableScale>
               ))}
             </ScrollView>
 
@@ -285,23 +301,25 @@ const AITeacherScreen = ({ initialSubject = 'Physics', initialTopic = '', onBack
               onSubmitEditing={handleGenerate}
               returnKeyType="go"
               editable={!loading}
+              accessibilityLabel="Topic to learn"
             />
 
             {!!error && (
-              <View style={st.errCard}>
-                <Text style={st.errTxt}>⚠️  {error}</Text>
-                <TouchableOpacity onPress={handleGenerate}><Text style={st.retryTxt}>Try again ›</Text></TouchableOpacity>
-              </View>
+              <Appear style={st.errCard}>
+                <Text style={st.errTxt} accessibilityLiveRegion="polite">⚠️  {error}</Text>
+                <PressableScale onPress={handleGenerate} accessibilityLabel="Try again"><Text style={st.retryTxt}>Try again ›</Text></PressableScale>
+              </Appear>
             )}
 
-            <TouchableOpacity style={[st.cta, (loading || !topic.trim()) && { opacity: 0.55 }]} onPress={handleGenerate} disabled={loading || !topic.trim()} activeOpacity={0.9}>
+            <PressableScale style={[st.cta, (loading || !topic.trim()) && { opacity: 0.55 }]} onPress={handleGenerate} disabled={loading || !topic.trim()}
+              accessibilityLabel={loading ? 'Generating your lesson' : 'Generate lesson'} accessibilityHint="Creates a live voice-narrated lesson on your topic">
               {loading
                 ? <View style={{ flexDirection: 'row', alignItems: 'center', gap: 10 }}>
                     <ActivityIndicator color="#fff" size="small" />
                     <Text style={st.ctaTxt}>{GEN_STAGES[genStage]}</Text>
                   </View>
                 : <Text style={st.ctaTxt}>Generate Lesson  ✨</Text>}
-            </TouchableOpacity>
+            </PressableScale>
 
             {loading && (
               <View style={st.loadCard}>

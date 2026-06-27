@@ -15,7 +15,7 @@ import {
   View, Text, StyleSheet, SafeAreaView, StatusBar, Platform, TouchableOpacity, Animated, ScrollView, Dimensions,
 } from 'react-native';
 import { initSounds, playLoop, playSound, stopSound } from '../../utils/sound';
-import { submitBrainGymResult } from '../../api/brainGymApi';
+import { submitBrainGymResult, getBrainGymQuestions, submitBrainGymAttempts } from '../../api/brainGymApi';
 import { pickQuestions } from '../../data/brainGymQuestions';
 
 const { width: SCREEN_W } = Dimensions.get('window');
@@ -84,8 +84,44 @@ const TimedNumericQuizScreen = ({ level = 1, skill = 'reasoning', onComplete, on
   const lvl = [1, 2, 3].includes(level) ? level : 1;
   const meta = SKILL_META[skill] || SKILL_META.reasoning;
 
-  // Questions are local: filter by skill (+ level), pick a random 5.
-  const qs = useMemo(() => pickQuestions({ skill, level: lvl, count: NUM_QUESTIONS }), [skill, lvl]);
+  // Questions: start from the LOCAL seed bank immediately (offline-safe), then try
+  // to upgrade to adaptive backend questions during the countdown. The student
+  // never sees the source. Backend answers are numeric, exactly like the seed —
+  // so the numeric keypad comparison below is unchanged.
+  const [qs, setQs] = useState(() => pickQuestions({ skill, level: lvl, count: NUM_QUESTIONS }));
+
+  // Per-question metadata (id/seedId/source) for attempt telemetry — aligned with
+  // qs by index. Entries are null for local-seed questions (no server id to log).
+  const qMetaRef = useRef(null);
+  const startedRef = useRef(false);   // true once the quiz phase begins (locks qs)
+  const qShownAtRef = useRef(0);      // timestamp the current question became visible
+  const attemptsRef = useRef([]);     // [{ index, isCorrect, answerGiven, timeMs }]
+
+  // Fetch adaptive questions once; only apply BEFORE the quiz starts so we never
+  // swap questions mid-round. Falls back silently to the local seed on any error.
+  useEffect(() => {
+    let cancelled = false;
+    (async () => {
+      const data = await getBrainGymQuestions({ skill, count: NUM_QUESTIONS });
+      if (cancelled || startedRef.current || !data || !Array.isArray(data.questions) || !data.questions.length) return;
+      let nextQs = data.questions
+        .filter((x) => x && x.q != null && Number.isFinite(Number(x.answer)))
+        .map((x) => ({ q: x.q, answer: Number(x.answer) }));
+      let meta = data.questions
+        .filter((x) => x && x.q != null && Number.isFinite(Number(x.answer)))
+        .map((x) => ({ id: x.id || null, seedId: x.seedId || null, source: x.source || 'generated', category: x.category || skill, difficulty: x.difficulty || data.difficulty }));
+      // Guarantee a full round — top up from the local seed if the backend returned fewer.
+      if (nextQs.length < NUM_QUESTIONS) {
+        const extra = pickQuestions({ skill, level: lvl, count: NUM_QUESTIONS - nextQs.length });
+        nextQs = nextQs.concat(extra.map((e) => ({ q: e.q, answer: e.answer })));
+        meta = meta.concat(extra.map(() => null));
+      }
+      if (cancelled || startedRef.current) return;
+      qMetaRef.current = meta.slice(0, NUM_QUESTIONS);
+      setQs(nextQs.slice(0, NUM_QUESTIONS));
+    })();
+    return () => { cancelled = true; };
+  }, [skill, lvl]);
 
   const [phase, setPhase]       = useState('intro');   // 'intro' | 'quiz'
   const [countdown, setCountdown] = useState(3);
@@ -146,6 +182,17 @@ const TimedNumericQuizScreen = ({ level = 1, skill = 'reasoning', onComplete, on
     setXpEarned(correct * XP_PER_CORRECT); // optimistic; replaced by server value below
 
     saveResult({ skill, level: lvl, totalQuestions: total, correctCount: correct, wrongCount: wrong, timeTakenSec: taken });
+
+    // Per-question attempt telemetry (only for server-sourced questions that carry
+    // an id/seedId). Fire-and-forget — never affects the reward screen.
+    const meta = qMetaRef.current;
+    if (meta) {
+      const items = attemptsRef.current
+        .filter((a) => meta[a.index])
+        .map((a) => ({ ...meta[a.index], isCorrect: a.isCorrect, answerGiven: a.answerGiven, timeMs: a.timeMs }));
+      if (items.length) submitBrainGymAttempts({ items });
+    }
+
     setTimeout(() => { if (mountedRef.current) setDone(true); }, 1400);
   }, [qs, skill, lvl, saveResult]);
 
@@ -156,6 +203,12 @@ const TimedNumericQuizScreen = ({ level = 1, skill = 'reasoning', onComplete, on
     const id = setTimeout(() => setCountdown((c) => c - 1), 1000);
     return () => clearTimeout(id);
   }, [phase, countdown]);
+
+  // Lock the question set once the quiz starts, and (re)start the per-question
+  // timer whenever a new question is shown — used for attempt telemetry.
+  useEffect(() => {
+    if (phase === 'quiz') { startedRef.current = true; qShownAtRef.current = Date.now(); }
+  }, [phase, index]);
 
   // Start timer + ticking sound once the quiz begins.
   useEffect(() => {
@@ -183,6 +236,12 @@ const TimedNumericQuizScreen = ({ level = 1, skill = 'reasoning', onComplete, on
   const submit = () => {
     if (locked || input === '' || input === '-') return;
     const correct = Number(input) === qs[index].answer;
+    attemptsRef.current.push({
+      index,
+      isCorrect: correct,
+      answerGiven: input,
+      timeMs: Math.max(0, Date.now() - (qShownAtRef.current || Date.now())),
+    });
     setAnswered((n) => n + 1);
     setFeedback(correct ? 'correct' : 'wrong');
     runPop();

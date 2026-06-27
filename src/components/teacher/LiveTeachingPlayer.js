@@ -502,12 +502,12 @@ export default function LiveTeachingPlayer({ lesson, ttsOk = true, startIndex = 
     <View style={st.container}>
       {/* ── HEADER (fixed) ── */}
       <View style={st.bar}>
-        <TouchableOpacity onPress={() => { stopTeacher(); onExit && onExit(); }} style={st.barIcon}><Text style={st.barIconTxt}>‹</Text></TouchableOpacity>
-        <View style={st.progressTrack}><View style={[st.progressFill, { width: `${progress * 100}%` }]} /></View>
-        <Text style={st.counter}>{Math.min(idx + 1, N)}/{N}</Text>
-        <TouchableOpacity onPress={() => { stopTeacher(); setVoiceOpen(true); }} style={st.barIcon}><Text style={st.barIconTxt2}>🎙</Text></TouchableOpacity>
-        <TouchableOpacity onPress={toggleMute} style={st.barIcon}><Text style={st.barIconTxt2}>{muted ? '🔇' : '🔊'}</Text></TouchableOpacity>
-        {!!onNewLesson && <TouchableOpacity onPress={onNewLesson} style={st.barIcon}><Text style={st.barIconTxt2}>↺</Text></TouchableOpacity>}
+        <TouchableOpacity onPress={() => { stopTeacher(); onExit && onExit(); }} style={st.barIcon} accessibilityRole="button" accessibilityLabel="Exit lesson"><Text style={st.barIconTxt}>‹</Text></TouchableOpacity>
+        <View style={st.progressTrack} accessibilityRole="progressbar" accessibilityValue={{ now: Math.min(idx + 1, N), min: 0, max: N }}><View style={[st.progressFill, { width: `${progress * 100}%` }]} /></View>
+        <Text style={st.counter} accessibilityLabel={`Slide ${Math.min(idx + 1, N)} of ${N}`}>{Math.min(idx + 1, N)}/{N}</Text>
+        <TouchableOpacity onPress={() => { stopTeacher(); setVoiceOpen(true); }} style={st.barIcon} accessibilityRole="button" accessibilityLabel="Choose teacher voice"><Text style={st.barIconTxt2}>🎙</Text></TouchableOpacity>
+        <TouchableOpacity onPress={toggleMute} style={st.barIcon} accessibilityRole="button" accessibilityLabel={muted ? 'Unmute narration' : 'Mute narration'}><Text style={st.barIconTxt2}>{muted ? '🔇' : '🔊'}</Text></TouchableOpacity>
+        {!!onNewLesson && <TouchableOpacity onPress={onNewLesson} style={st.barIcon} accessibilityRole="button" accessibilityLabel="Start a new lesson"><Text style={st.barIconTxt2}>↺</Text></TouchableOpacity>}
       </View>
 
       <VoicePicker visible={voiceOpen} onClose={() => setVoiceOpen(false)} />
@@ -558,13 +558,14 @@ export default function LiveTeachingPlayer({ lesson, ttsOk = true, startIndex = 
               placeholderTextColor="rgba(44,48,67,0.45)"
               value={qInput} onChangeText={setQInput}
               onSubmitEditing={() => sendDoubt()} returnKeyType="send" autoFocus
+              accessibilityLabel="Type your question for the teacher"
             />
-            <TouchableOpacity style={st.askSend} onPress={() => sendDoubt()}><Text style={st.askSendTxt}>↑</Text></TouchableOpacity>
+            <TouchableOpacity style={st.askSend} onPress={() => sendDoubt()} accessibilityRole="button" accessibilityLabel="Send question"><Text style={st.askSendTxt}>↑</Text></TouchableOpacity>
           </View>
         )}
 
         {mode === M.ANSWERING && (
-          <TouchableOpacity style={st.resumeBtn} onPress={resumeFromDoubt} activeOpacity={0.9}>
+          <TouchableOpacity style={st.resumeBtn} onPress={resumeFromDoubt} activeOpacity={0.9} accessibilityRole="button" accessibilityLabel="Resume the lesson">
             <Text style={st.resumeTxt}>▶  Resume lesson</Text>
           </TouchableOpacity>
         )}
@@ -576,10 +577,12 @@ export default function LiveTeachingPlayer({ lesson, ttsOk = true, startIndex = 
         {/* control dock — Previous · Pause · Ask Teacher · Refresh · Next */}
         {mode !== M.THINKING && mode !== M.COMPLETED && (
           <View style={st.dock}>
-            <TouchableOpacity style={st.dItem} onPress={onPrev} disabled={idx === 0} activeOpacity={0.85}>
+            <TouchableOpacity style={st.dItem} onPress={onPrev} disabled={idx === 0} activeOpacity={0.85}
+              accessibilityRole="button" accessibilityLabel="Previous slide" accessibilityState={{ disabled: idx === 0 }}>
               <Text style={[st.dIcon, idx === 0 && st.dDim]}>⏮</Text><Text style={st.dLbl}>Previous</Text>
             </TouchableOpacity>
-            <TouchableOpacity style={st.dItem} onPress={togglePlay} activeOpacity={0.85}>
+            <TouchableOpacity style={st.dItem} onPress={togglePlay} activeOpacity={0.85}
+              accessibilityRole="button" accessibilityLabel={teaching ? 'Pause the lesson' : 'Play the lesson'}>
               <View style={st.dPlay}><Text style={st.dPlayTxt}>{teaching ? '⏸' : '▶'}</Text></View><Text style={st.dLbl}>{teaching ? 'Pause' : 'Play'}</Text>
             </TouchableOpacity>
             {!!onAsk && (VOICE_OK ? (
@@ -592,14 +595,17 @@ export default function LiveTeachingPlayer({ lesson, ttsOk = true, startIndex = 
                 onError={(m) => { setHint(typeof m === 'string' ? m : 'Type your question.'); setMode((p) => (p === M.LISTENING ? M.PAUSED : p)); }}
               />
             ) : (
-              <TouchableOpacity style={st.dItem} onPress={beginListen} activeOpacity={0.85}>
+              <TouchableOpacity style={st.dItem} onPress={beginListen} activeOpacity={0.85}
+                accessibilityRole="button" accessibilityLabel="Ask the teacher a question">
                 <View style={st.dMic}><Text style={st.dMicIcon}>🎤</Text></View><Text style={st.dLbl}>Ask Teacher</Text>
               </TouchableOpacity>
             ))}
-            <TouchableOpacity style={st.dItem} onPress={onRefresh} activeOpacity={0.85}>
+            <TouchableOpacity style={st.dItem} onPress={onRefresh} activeOpacity={0.85}
+              accessibilityRole="button" accessibilityLabel="Replay this slide">
               <Text style={st.dIcon}>↻</Text><Text style={st.dLbl}>Refresh</Text>
             </TouchableOpacity>
-            <TouchableOpacity style={st.dItem} onPress={onNext} activeOpacity={0.85}>
+            <TouchableOpacity style={st.dItem} onPress={onNext} activeOpacity={0.85}
+              accessibilityRole="button" accessibilityLabel="Next slide">
               <Text style={st.dIcon}>⏭</Text><Text style={st.dLbl}>Next</Text>
             </TouchableOpacity>
           </View>
@@ -614,8 +620,8 @@ export default function LiveTeachingPlayer({ lesson, ttsOk = true, startIndex = 
             <Text style={st.doneTitle}>Lesson complete</Text>
             <Text style={st.doneSub}>Great focus today. Take it again whenever you like.</Text>
             <View style={st.doneRow}>
-              <TouchableOpacity style={[st.doneBtn, st.doneGhost]} onPress={() => { stopTeacher(); onExit && onExit(); }} activeOpacity={0.9}><Text style={st.doneGhostTxt}>Done</Text></TouchableOpacity>
-              <TouchableOpacity style={[st.doneBtn, st.donePrimary]} onPress={onReplayLesson} activeOpacity={0.9}><Text style={st.donePrimaryTxt}>↺ Replay</Text></TouchableOpacity>
+              <TouchableOpacity style={[st.doneBtn, st.doneGhost]} onPress={() => { stopTeacher(); onExit && onExit(); }} activeOpacity={0.9} accessibilityRole="button" accessibilityLabel="Finish and exit"><Text style={st.doneGhostTxt}>Done</Text></TouchableOpacity>
+              <TouchableOpacity style={[st.doneBtn, st.donePrimary]} onPress={onReplayLesson} activeOpacity={0.9} accessibilityRole="button" accessibilityLabel="Replay the lesson"><Text style={st.donePrimaryTxt}>↺ Replay</Text></TouchableOpacity>
             </View>
           </Appear>
         </View>

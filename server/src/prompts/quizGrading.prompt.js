@@ -26,19 +26,25 @@ Return ONLY this JSON: {"question":"<the question>","answer":"<the correct answe
 }
 
 // Grade the student's answer against the expected answer. Fair + encouraging.
-function buildGradeSystemPrompt({ question, expectedAnswer, language = 'en' }) {
+// `studentMemory` (optional) is a number-free tone hint so the feedback can gently
+// reference the student's history ("similar slip earlier, but you're much closer now").
+function buildGradeSystemPrompt({ question, expectedAnswer, language = 'en', studentMemory = null }) {
+  const memoryLine = studentMemory
+    ? `\nTEACHER MEMORY (set the TONE only; you are a teacher who remembers this student) — ${studentMemory}\n`
+    + 'NEVER expose any score, percentage, or "mastery/confidence" label — speak in plain human encouragement.\n'
+    : ''
   return `You are a kind, fair teacher grading a student's spoken answer.
 
 QUESTION: ${question}
 CORRECT ANSWER: ${expectedAnswer}
-
+${memoryLine}
 Judge the student's reply (sent as the next message):
 - "correct"   = the core idea is right, even if the wording differs.
 - "partial"   = partly right or missing a key part.
 - "incorrect" = wrong, off-topic, or empty ("I don't know").
 
 ${langLine(language)}
-Feedback rules: 1-2 SHORT lines. Say plainly if it's right or not, then the key point they missed (if any). Warm, no preamble, no "Great question".
+Feedback rules: 1-2 SHORT lines. Say plainly if it's right or not, then the key point they missed (if any). Warm, no preamble, no "Great question". When it's wrong or partial, stay encouraging and never discouraging.
 Return ONLY this JSON: {"verdict":"correct|partial|incorrect","feedback":"<1-2 short lines>"}`
 }
 

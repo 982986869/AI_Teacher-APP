@@ -3,7 +3,7 @@
 import React, { useEffect, useRef, useState, useMemo } from 'react';
 import {
   View, Text, StyleSheet, SafeAreaView, StatusBar, Platform,
-  TouchableOpacity, Animated, Dimensions, Easing,
+  TouchableOpacity, Animated, Dimensions, Easing, PanResponder,
 } from 'react-native';
 import Svg, { Path, Circle, G, Rect, Text as SvgText } from 'react-native-svg';
 import { useAuth } from '../context/AuthContext';
@@ -90,6 +90,9 @@ const WorkoutWheel = ({
   const enter = useRef(new Animated.Value(0)).current;
   const rotation = useRef(new Animated.Value(0)).current; // cumulative degrees
   const rotRef = useRef(0);
+  const mountedRef = useRef(true); // guards async animation callbacks after unmount
+
+  useEffect(() => () => { mountedRef.current = false; }, []);
 
   useEffect(() => {
     Animated.timing(enter, { toValue: 1, duration: 520, easing: Easing.out(Easing.cubic), useNativeDriver: true }).start();
@@ -104,7 +107,7 @@ const WorkoutWheel = ({
   // Physically spin the wheel: rotate so the randomly chosen segment decelerates
   // to a stop under the top pointer. Does NOT auto-start — the user confirms after.
   const spinTo = () => {
-    if (spinning) return;
+    if (spinning || snappingRef.current) return;
     setLanded(null);
     setSpinning(true);
     const target = Math.floor(Math.random() * data.length);
@@ -119,20 +122,114 @@ const WorkoutWheel = ({
     Animated.timing(rotation, {
       toValue: next, duration: 2600, easing: Easing.out(Easing.cubic), useNativeDriver: true,
     }).start(({ finished }) => {
-      if (!finished) return;
+      if (!finished || !mountedRef.current) return;
       setSpinning(false);
       setLit(target);
+      lastLitRef.current = target;
       setLanded(data[target]);
     });
   };
 
   // Center button: spins when idle, confirms (starts) once a skill has landed.
   const onCenter = () => {
-    if (spinning) return;
+    if (spinning || snappingRef.current) return;
     if (landed) { onStart && onStart(landed); return; }
     if (!spinOnStart) { onStart && onStart(data[lit]); return; }
     spinTo();
   };
+
+  // ── Manual drag-to-rotate ───────────────────────────────────────────────────
+  // Same wheel, same `rotation`/`lit`/`landed` state as the random spin — the only
+  // new affordance is a finger drag. Release snaps to the nearest segment center
+  // (under the top pointer) and "lands" it exactly like a spin, so the confirm UI
+  // (X selected! → Start) is shared and questions load for the chosen category.
+  const wheelRef    = useRef(null);
+  const centerRef   = useRef({ x: 0, y: 0 });   // wheel center in window coords
+  const spinningRef = useRef(false);            // live mirror of `spinning` for handlers
+  const snappingRef = useRef(false);            // true while the post-drag snap animates
+  const lastLitRef  = useRef(defaultIdx);       // avoid redundant setLit() while dragging
+  const dataRef     = useRef(data);
+  const dragRef     = useRef({ lastAngle: 0, lastT: 0, vel: 0 });
+
+  useEffect(() => { spinningRef.current = spinning; }, [spinning]);
+  useEffect(() => { dataRef.current = data; }, [data]);
+
+  const measureCenter = () => {
+    wheelRef.current?.measureInWindow?.((x, y, w, h) => {
+      centerRef.current = { x: x + w / 2, y: y + h / 2 };
+    });
+  };
+
+  // Angle of a window point around the wheel center, clockwise from the top (0°).
+  const angleOf = (x, y) => {
+    const c = centerRef.current;
+    return (Math.atan2(x - c.x, -(y - c.y)) * 180) / Math.PI;
+  };
+  // Shortest signed delta between two angles (handles the 180/-180 wrap).
+  const norm = (d) => { d %= 360; if (d > 180) d -= 360; if (d < -180) d += 360; return d; };
+  // Which segment sits under the top pointer for a given cumulative rotation.
+  const indexFromRot = (rot) => (((Math.round(-rot / 90) % 4) + 4) % 4);
+
+  const pan = useRef(PanResponder.create({
+    // Let taps (center button, wedges) through; only claim real drags.
+    onStartShouldSetPanResponder: () => false,
+    onMoveShouldSetPanResponder: (_e, g) =>
+      !spinningRef.current && !snappingRef.current &&
+      (Math.abs(g.dx) > 4 || Math.abs(g.dy) > 4),
+    // Capture so a drag is stolen from the SVG wedges (which grab touch-start for
+    // their onPress). A tap has ~0 movement, so it still falls through to the wedge.
+    onMoveShouldSetPanResponderCapture: (_e, g) =>
+      !spinningRef.current && !snappingRef.current &&
+      (Math.abs(g.dx) > 4 || Math.abs(g.dy) > 4),
+    onPanResponderGrant: () => {
+      measureCenter();
+      // Baseline is established on the FIRST move (when centerRef is guaranteed
+      // measured), so an as-yet-unmeasured center can't cause a startup jump.
+      dragRef.current = { lastAngle: 0, lastT: Date.now(), vel: 0, primed: false };
+      setLanded(null); // re-dragging clears any previous landing
+    },
+    onPanResponderMove: (_e, g) => {
+      const a = angleOf(g.moveX, g.moveY);
+      if (!dragRef.current.primed) {
+        dragRef.current.lastAngle = a;
+        dragRef.current.lastT = Date.now();
+        dragRef.current.primed = true;
+        return; // first frame just anchors the baseline; no rotation applied
+      }
+      const step = norm(a - dragRef.current.lastAngle);
+      const newRot = rotRef.current + step;
+      rotRef.current = newRot;
+      rotation.setValue(newRot);
+
+      const now = Date.now();
+      const dt = now - dragRef.current.lastT;
+      if (dt > 0) dragRef.current.vel = step / dt; // deg/ms, for the release fling
+      dragRef.current.lastAngle = a;
+      dragRef.current.lastT = now;
+
+      // Live-highlight the segment currently under the pointer.
+      const i = indexFromRot(newRot);
+      if (i !== lastLitRef.current) { lastLitRef.current = i; setLit(i); }
+    },
+    onPanResponderRelease: () => {
+      // Fast swipe carries further; a small drag still snaps to the nearest center.
+      const fling = Math.max(-360, Math.min(360, dragRef.current.vel * 140));
+      const snapped = Math.round((rotRef.current + fling) / 90) * 90;
+      rotRef.current = snapped;
+      snappingRef.current = true;
+      Animated.timing(rotation, {
+        toValue: snapped, duration: 420, easing: Easing.out(Easing.cubic), useNativeDriver: true,
+      }).start(({ finished }) => {
+        snappingRef.current = false;
+        if (!finished || !mountedRef.current) return;
+        const i = indexFromRot(snapped);
+        lastLitRef.current = i;
+        setLit(i);
+        setLanded(dataRef.current[i]); // same "landed" path as a random spin
+      });
+    },
+    onPanResponderTerminationRequest: () => false,
+  })).current;
 
   const spin = rotation.interpolate({ inputRange: [0, 360], outputRange: ['0deg', '360deg'], extrapolate: 'extend' });
   const pulseScale = pulse.interpolate({ inputRange: [0, 1], outputRange: [1, 1.05] });
@@ -175,12 +272,14 @@ const WorkoutWheel = ({
 
       <View style={s.wheelWrap}>
         <Animated.View style={{ transform: [{ scale: enterScale }], opacity: enter }}>
-          <View style={{ width: WHEEL_SIZE, height: WHEEL_SIZE }}>
+          <View ref={wheelRef} onLayout={measureCenter} style={{ width: WHEEL_SIZE, height: WHEEL_SIZE }}>
             {/* Top pointer marking the selected segment */}
             <View style={s.pointer} pointerEvents="none" />
 
-            {/* Rotating wheel */}
-            <Animated.View style={{ width: WHEEL_SIZE, height: WHEEL_SIZE, transform: [{ rotate: spin }] }}>
+            {/* Rotating wheel — drag it to rotate manually, or tap START to spin */}
+            <Animated.View
+              {...pan.panHandlers}
+              style={{ width: WHEEL_SIZE, height: WHEEL_SIZE, transform: [{ rotate: spin }] }}>
             <Svg width={WHEEL_SIZE} height={WHEEL_SIZE} viewBox={`0 0 ${VB} ${VB}`}>
               {/* Radar rings */}
               {RADAR_RINGS.map((r, i) => (

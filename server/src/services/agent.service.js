@@ -8,6 +8,10 @@ const mastery = require('./mastery.service')
 const planner = require('./planner.service')
 const session = require('./session.service')
 const lessonService = require('./lesson.service')
+const lifecycle = require('./masteryLifecycle')
+const teacherBridge = require('./braingym/teacherBridge')
+const mistakeBook = require('./mistakeBook.service')
+const db = require('../config/database')
 const { applyGuard } = require('../utils/responseGuard')
 const { quickIntent } = require('../prompts/intentClassify.prompt')
 
@@ -166,7 +170,7 @@ function teachingResponse({ intent, language, level, via, retrieval, contexts, g
     // Understanding-check loop: ask "Clear?" and wait for the student's signal.
     expecting: wantsCheck ? 'understanding' : null,
     pending: wantsCheck
-      ? { kind: 'understanding', topic: question, subject: canonicalSubject(subject), language, attempts: 0, strategy: 'direct', conceptId: concept ? concept.id : null }
+      ? { kind: 'understanding', topic: question, subject: canonicalSubject(subject), language, attempts: 0, strategy: 'direct', conceptId: concept ? concept.id : null, conceptName: concept ? concept.name : null, chapter: concept ? concept.chapter : null }
       : null,
     resumeCue: lessonId ? line('resume', language) : null, resumeSlideIndex: slideIndex ?? null,
   }
@@ -216,7 +220,17 @@ async function handleQuizAnswer({ userId, studentAnswer, pending, lessonId, slid
   let feedback = ''
   if (config.ai.mockMode) { verdict = /correct|right|yes/i.test(studentAnswer) ? 'correct' : 'partial'; feedback = 'Noted.' }
   else {
-    const g = await getAIProvider().gradeAnswer({ question: pending.question, expectedAnswer: pending.answer, studentAnswer, language })
+    // Gentle memory: if this concept has tripped them up before, grade in an
+    // extra-warm tone and acknowledge progress when they're close (number-free).
+    let studentMemory = null
+    if (userId && pending.conceptId) {
+      const cm = await conceptMemory({ userId, concept: { id: pending.conceptId, name: pending.chapter || pending.conceptName } }).catch(() => null)
+      if (cm && (cm.strugglingBefore || cm.faded)) {
+        const area = pending.chapter || pending.conceptName || 'this idea'
+        studentMemory = `This student has found ${area} hard before, so be extra warm. If their answer is close, gently acknowledge the progress (e.g. "similar to a small slip earlier, but you're much closer now"). Never discourage.`
+      }
+    }
+    const g = await getAIProvider().gradeAnswer({ question: pending.question, expectedAnswer: pending.answer, studentAnswer, language, studentMemory })
     verdict = g.verdict; feedback = g.feedback
   }
   if (userId && pending.subject) {
@@ -273,10 +287,17 @@ async function reExplain({ userId, pending, level, lessonId, slideIndex }) {
   const retrieval = await retrieve({ query: pending.topic, subject: pending.subject, minSimilarity: GROUND_FLOOR })
     .catch(() => ({ chunks: [], grounded: false, topSimilarity: 0 }))
   const contexts = retrieval.grounded ? retrieval.chunks : []
+  // Re-explanation remembers the student too — same signals as the normal flow, so
+  // a stuck student hears "this was tricky last time too, let's try another way",
+  // and a since-improved student hears encouragement. Never exposes raw scores.
+  const concept = pending.conceptId ? { id: pending.conceptId, name: pending.conceptName, chapter: pending.chapter } : null
+  const cm = await conceptMemory({ userId, concept })
+  const memoryCues = await gatherMemoryCues({ userId, subject: pending.subject, currentConceptName: pending.conceptName }).catch(() => [])
+  const studentContext = buildStudentContext(concept, cm, retrieval, memoryCues)
   let raw
   if (config.ai.mockMode) raw = `Let me try another way (${strategy}). ${pending.topic}. Clear now?`
   else raw = await getAIProvider().generateTeacherResponse({
-    intent: 'concept_explanation', language, contexts, lesson: null, history: [], question: pending.topic, level, strategy,
+    intent: 'concept_explanation', language, contexts, lesson: null, history: [], question: pending.topic, level, strategy, studentContext,
   })
   const guarded = applyGuard(raw, { language })
   return {
@@ -301,22 +322,75 @@ async function conceptMemory({ userId, concept }) {
   const level = sc.mastery < 0.4 ? 'beginner' : sc.mastery >= 0.75 ? 'advanced' : 'intermediate'
   const status = sc.mastery < 0.4 ? 'weak' : sc.mastery < 0.75 ? 'developing' : 'strong'
   const strugglingBefore = sc.recentFails > 0 || sc.mastery < 0.4
-  return { level, masteryPct, status, strugglingBefore }
+  // Forgetting curve: has this concept faded since last practice? (lifecycle reuse)
+  const lc = lifecycle.deriveLifecycle({ mastery: sc.mastery, confidence: sc.confidence, evidenceCount: sc.evidenceCount, streak: sc.streak, lastSeen: sc.lastSeen })
+  const faded = lc.state === 'Needs Revision' || lc.state === 'Forgotten'
+  return { level, masteryPct, status, strugglingBefore, lifecycleState: lc.state, daysSince: lc.daysSince, faded, gap: lifecycle.humanGap(lc.daysSince) }
+}
+
+const CAT_LABEL = { reasoning: 'reasoning', application: 'application', understanding: 'understanding', fluency: 'fluency' }
+const norm = (s) => String(s || '').trim().toLowerCase()
+
+// Gather up to TWO number-free, natural-language memory cues the teacher may weave
+// in — drawn from the EXISTING engines (BrainGym skill signals, the revision /
+// forgetting calendar, weak concepts, the mistake book). Never exposes raw scores;
+// deps are injectable for testing. Prioritised: revision-due → skill trend →
+// weak concept → recent mistake. Excludes whatever concept is being taught now.
+async function gatherMemoryCues({ userId, subject, currentConceptName }, over = {}) {
+  if (!userId) return []
+  const M = over.mastery || mastery
+  const TB = over.teacherBridge || teacherBridge
+  const MB = over.mistakeBook || mistakeBook
+  const database = over.db || db
+  const subj = subject ? canonicalSubject(subject) : undefined
+  const cur = norm(currentConceptName)
+
+  const [skills, revisionC, weak, mistakes] = await Promise.all([
+    TB.getBrainGymSkillSummary(database, userId).catch(() => ({ weakCategories: [], strongCategories: [] })),
+    M.pickRevisionConcept(userId, { subject: subj }).catch(() => null),
+    M.getWeakConcepts(userId, { subject: subj, limit: 3 }).catch(() => []),
+    MB.getUnresolved(userId, { subject: subj, limit: 3 }).catch(() => []),
+  ])
+
+  const cues = []
+  // 1) A concept whose retention has decayed → spaced revision nudge.
+  if (revisionC && revisionC.concept && norm(revisionC.concept) !== cur) {
+    const gap = revisionC.daysSincePractice != null ? lifecycle.humanGap(revisionC.daysSincePractice) : 'a while'
+    cues.push(`It has been ${gap} since this student revised ${revisionC.concept}; you may gently suggest revising it soon.`)
+  }
+  // 2) BrainGym skill trend (encouragement / gentle flag) — number-free.
+  if (skills.strongCategories && skills.strongCategories[0]) {
+    cues.push(`This student's ${CAT_LABEL[skills.strongCategories[0]] || skills.strongCategories[0]} has been improving lately — you may acknowledge it warmly.`)
+  } else if (skills.weakCategories && skills.weakCategories[0]) {
+    cues.push(`This student has been finding ${CAT_LABEL[skills.weakCategories[0]] || skills.weakCategories[0]} questions hard lately.`)
+  }
+  // 3) A different weak concept they found tricky.
+  const otherWeak = (weak || []).map((w) => w.concept).find((c) => c && norm(c) !== cur)
+  if (otherWeak) cues.push(`Earlier this student found ${otherWeak} a bit tricky.`)
+  // 4) A recent unresolved mistake (when it adds something new).
+  const mk = (mistakes || []).map((m) => m.concept || m.chapter || m.category).find((c) => c && norm(c) !== cur)
+  if (mk) cues.push(`Recently this student got a question on ${mk} wrong — worth revisiting if it fits.`)
+
+  return cues.slice(0, 2)
 }
 
 // Shape the memory + retrieval into the studentContext the teaching prompt uses.
-// Built whenever we have EITHER mastery memory OR prerequisites to coach on — so
-// prerequisite guidance fires even on a brand-new topic (where it matters most).
-function buildStudentContext(concept, cm, retrieval) {
+// Built whenever we have mastery memory, prerequisites, OR cross-topic memory cues —
+// so personalization fires even on a brand-new topic (where it matters most).
+function buildStudentContext(concept, cm, retrieval, memoryCues = []) {
   const prereqs = (retrieval && retrieval.prereqConcepts) || []
-  if (!cm && !prereqs.length) return null
+  if (!cm && !prereqs.length && !memoryCues.length) return null
   return {
     conceptName: concept ? concept.name : null,
     chapter: concept ? concept.chapter : null,
     masteryPct: cm ? cm.masteryPct : null,
     status: cm ? cm.status : null,
     strugglingBefore: cm ? cm.strugglingBefore : false,
+    lifecycleState: cm ? cm.lifecycleState : null,
+    faded: cm ? cm.faded : false,
+    gap: cm ? cm.gap : null,
     prereqs,
+    memoryCues,
   }
 }
 
@@ -357,10 +431,14 @@ async function ask(params) {
   // AND the natural "I remember you struggled here" reference in the reply.
   const cm = await conceptMemory({ userId, concept: retrieval.concept })
   const level = pinnedLevel || (cm && cm.level) || 'intermediate'
-  const studentContext = buildStudentContext(retrieval.concept, cm, retrieval)
 
   if (intent === 'off_topic' || intent === 'unclear') return cannedReply(intent, language, { lessonId, slideIndex, via })
   if (intent === 'quiz_request') return startQuiz({ userId, subject, retrieval, level, language, lessonId, slideIndex })
+
+  // Personalised teaching — fold in number-free memory cues from the existing
+  // engines (BrainGym signals, revision calendar, weak concepts, mistake book).
+  const memoryCues = await gatherMemoryCues({ userId, subject, currentConceptName: retrieval.concept ? retrieval.concept.name : null }).catch(() => [])
+  const studentContext = buildStudentContext(retrieval.concept, cm, retrieval, memoryCues)
 
   const contexts = retrieval.grounded ? retrieval.chunks : []
   const trimmedHistory = Array.isArray(history) ? history.slice(-8) : []
@@ -408,10 +486,13 @@ async function askStream(params, { onMeta, onDelta } = {}) {
   // The teacher remembers this student (see ask()).
   const cm = await conceptMemory({ userId, concept: retrieval.concept })
   const level = pinnedLevel || (cm && cm.level) || 'intermediate'
-  const studentContext = buildStudentContext(retrieval.concept, cm, retrieval)
 
   if (intent === 'off_topic' || intent === 'unclear') return emit(cannedReply(intent, language, { lessonId, slideIndex, via }))
   if (intent === 'quiz_request') return emit(await startQuiz({ userId, subject, retrieval, level, language, lessonId, slideIndex }))
+
+  // Personalised teaching — number-free memory cues from the existing engines.
+  const memoryCues = await gatherMemoryCues({ userId, subject, currentConceptName: retrieval.concept ? retrieval.concept.name : null }).catch(() => [])
+  const studentContext = buildStudentContext(retrieval.concept, cm, retrieval, memoryCues)
 
   const contexts = retrieval.grounded ? retrieval.chunks : []
   if (onMeta) onMeta({ intent, language, grounded: retrieval.grounded, source: retrieval.grounded ? 'curriculum' : 'model_knowledge', confidence: retrieval.topSimilarity, sources: buildSources(contexts) })
@@ -477,4 +558,4 @@ async function startRevision({ userId, subject }) {
   }
 }
 
-module.exports = { ask, askStream, startRevision, classifyUnderstanding, GROUND_FLOOR }
+module.exports = { ask, askStream, startRevision, classifyUnderstanding, gatherMemoryCues, buildStudentContext, conceptMemory, GROUND_FLOOR }

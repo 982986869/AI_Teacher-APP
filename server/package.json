@@ -9,6 +9,9 @@
   "scripts": {
     "start": "node src/index.js",
     "dev": "nodemon src/index.js",
+    "test": "node --test tests/",
+    "braingym:build-seed": "node scripts/build-braingym-seed.js",
+    "braingym:backfill": "node scripts/braingym-backfill.js",
     "db:generate": "prisma generate",
     "db:push": "prisma db push",
     "db:mock:setup": "node scripts/seed-physics-mock-tests.js",

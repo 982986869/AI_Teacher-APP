@@ -14,10 +14,41 @@ const TRIANGLE_RE = /pythag|hypotenuse|right[ -]?angle(?:d)?|triangle/i;
 
 function isTriangleText(s) { return TRIANGLE_RE.test(String(s || '')); }
 
+// ── Math notation normalisation ──────────────────────────────────────────────
+// Lesson text from the model can contain raw caret powers ("a^2 + b^2 = c^2").
+// On screen that looks broken, and read aloud the "^" is meaningless. We fix it
+// in ONE place so every surface (caption, board, title) is clean:
+//   • prettyMath  → real Unicode superscripts for VISUAL text  (a² + b²)
+//   • spellMath   → spoken words for the CAPTION + TTS line     (a squared plus b squared)
+const SUP = { 0: '⁰', 1: '¹', 2: '²', 3: '³', 4: '⁴', 5: '⁵', 6: '⁶', 7: '⁷', 8: '⁸', 9: '⁹', n: 'ⁿ', x: 'ˣ', '+': '⁺', '-': '⁻' };
+const toSuper = (s) => String(s).split('').map((c) => SUP[c] || c).join('');
+
+// VISUAL: "x^2"→"x²", "x^10"→"x¹⁰", "x^{2}"→"x²", "a**2"→"a²".
+function prettyMath(str) {
+  return String(str == null ? '' : str)
+    .replace(/\^\{([^}]+)\}/g, (_, p) => toSuper(p))
+    .replace(/(?:\^|\*\*)\(?([0-9]+|n|x)\)?/g, (_, p) => toSuper(p))
+    .replace(/\s+/g, ' ')
+    .trim();
+}
+
+const powerWord = (p) => (p === '2' ? 'squared' : p === '3' ? 'cubed' : `to the power ${p}`);
+
+// SPOKEN: "a^2"→"a squared", "x^3"→"x cubed", "x^10"→"x to the power 10". Also
+// fixes any stray superscripts and the "*" multiply sign for natural narration.
+function spellMath(str) {
+  return String(str == null ? '' : str)
+    .replace(/([A-Za-z0-9)\]])\s*(?:\^|\*\*)\s*\{?\(?([0-9]+|n)\)?\}?/g, (_, base, p) => `${base} ${powerWord(p)} `)
+    .replace(/²/g, ' squared ').replace(/³/g, ' cubed ')
+    .replace(/\s+([.,;:?!।])/g, '$1')
+    .replace(/\s+/g, ' ')
+    .trim();
+}
+
 // Split a formula like "base^2 + height^2 = hypotenuse^2" into 3 reveal parts,
-// normalising ^2 → ².
+// normalising powers (^2 → ², ^3 → ³, …) to real superscripts.
 function toFormulaParts(formula) {
-  const f = String(formula || '').replace(/\^2/g, '²').replace(/\s+/g, ' ').trim();
+  const f = prettyMath(formula);
   if (!f) return [];
   // split keeping the leading operator with each chunk after the first
   const parts = f.split(/\s+(?=[+\-=×*])/).map((s) => s.trim()).filter(Boolean);
@@ -102,14 +133,16 @@ function boardTypeFor(slide, i, total, triangleLesson) {
 function buildScene(slide, i, total, triangleLesson) {
   const v = (slide && slide.visualData) || {};
   const boardType = boardTypeFor(slide, i, total, triangleLesson);
-  const teacherLine = trimNarration(slide.narrationText || slide.explanation || slide.slideTitle || '');
-  const keyPoints = Array.isArray(v.keyPoints) ? v.keyPoints.filter(Boolean) : [];
+  // Spoken/caption line: spell powers out (clean text + correct TTS).
+  const teacherLine = spellMath(trimNarration(slide.narrationText || slide.explanation || slide.slideTitle || ''));
+  // Visual list items on the board: real superscripts.
+  const keyPoints = (Array.isArray(v.keyPoints) ? v.keyPoints.filter(Boolean) : []).map(prettyMath);
 
   const scene = {
     id: `s${slide.slideNumber || i + 1}`,
     boardType,
     slideIndex: i,
-    title: slide.slideTitle || '',
+    title: prettyMath(slide.slideTitle || ''),
     kicker: kickerFor(boardType, i + 1),
     teacherLine,
     subtitleChunks: toSubtitleChunks(teacherLine),
@@ -132,9 +165,9 @@ function buildScene(slide, i, total, triangleLesson) {
   } else if (boardType === 'concept') {
     scene.diagram = {
       shape: (Array.isArray(v.components) && v.components.length) ? 'flow' : 'points',
-      steps: v.components || [],
-      points: keyPoints.length ? keyPoints : (Array.isArray(v.steps) ? v.steps : []),
-      label: v.label || v.scenario || '',
+      steps: (Array.isArray(v.components) ? v.components : []).map(prettyMath),
+      points: keyPoints.length ? keyPoints : (Array.isArray(v.steps) ? v.steps : []).map(prettyMath),
+      label: prettyMath(v.label || v.scenario || ''),
     };
   } else if (boardType === 'summary' || boardType === 'intro' || boardType === 'mistake') {
     scene.diagram = { points: keyPoints };

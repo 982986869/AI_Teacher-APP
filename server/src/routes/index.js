@@ -12,5 +12,7 @@ router.use('/tts',       require('./tts'))
 router.use('/resources', require('./resources'))
 router.use('/mcq-practice', require('./mcqPractice'))
 router.use('/mock-tests', require('./mockTests'))
+router.use('/brain-gym',  require('./brainGym'))
+router.use('/learning',   require('./learning'))
 
 module.exports = router

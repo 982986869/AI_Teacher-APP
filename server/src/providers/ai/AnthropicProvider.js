@@ -189,14 +189,14 @@ class AnthropicProvider extends AIProvider {
   }
 
   // Grade a student's answer against the expected one. Returns verdict + feedback.
-  async gradeAnswer({ question, expectedAnswer, studentAnswer, language }) {
+  async gradeAnswer({ question, expectedAnswer, studentAnswer, language, studentMemory }) {
     const client = this._getClient()
     let message
     try {
       message = await client.messages.create({
         model: this.doubtModel,
         max_tokens: 300,
-        system: buildGradeSystemPrompt({ question, expectedAnswer, language }),
+        system: buildGradeSystemPrompt({ question, expectedAnswer, language, studentMemory }),
         messages: buildGradeMessages(studentAnswer),
       })
     } catch (err) {

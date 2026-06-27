@@ -101,10 +101,22 @@ function studentMemoryBlock(sc) {
       : `This topic builds on ${pr}. Briefly remind them it rests on ${pr}, and offer a quick recap of those only if they seem unsure.`)
   }
 
+  // Retention / forgetting curve — this concept has faded since last practice.
+  if (sc.faded && (sc.chapter || sc.conceptName)) {
+    const area = sc.chapter || sc.conceptName
+    lines.push(`It has been ${sc.gap || 'a while'} since this student practised ${area}, so it may feel rusty — gently offer a quick refresher before going deeper, e.g. "It's been ${sc.gap || 'a while'} since we did ${area} — let's quickly refresh it first."`)
+  }
+  // Cross-topic things the teacher genuinely remembers (already number-free hints).
+  if (Array.isArray(sc.memoryCues) && sc.memoryCues.length) {
+    lines.push('Other true things you remember about this student: ' + sc.memoryCues.join(' '))
+  }
+
   if (!lines.length) return ''
   return '\nSTUDENT MEMORY (you are a real teacher who remembers this student and guides their learning order — talk like a human, never like a system) —\n'
     + lines.join(' ')
-    + '\nWeave this into your FIRST line, naturally and only ONCE. '
+    + '\nWhen the SINGLE most relevant of these genuinely fits this question, OPEN with a short, warm callback to it (one clause) before you answer — '
+    + 'e.g. "Last time Relative Velocity felt a bit tricky, so let\'s go gently —" or "Your reasoning has really been improving, so let\'s build on that —". '
+    + 'Use only one, never list several, and if none fits the topic just teach normally (this specific callback is NOT the generic "Great question" preamble that is banned elsewhere — it is allowed and encouraged). '
     + 'NEVER expose the internal tracking: do NOT say "your mastery is…", "you are NN%", "NN% through this", '
     + '"you are strong/weak in…", "let me give you the sharp/simple version", or any score, percentage, or level label. '
     + 'Just speak like a teacher who genuinely remembers them.\n'
