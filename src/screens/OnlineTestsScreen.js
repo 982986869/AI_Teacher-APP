@@ -18,6 +18,7 @@ import { chapterList as physicsChapters, getQuestions as getPhysics, htmlToText 
 import { chapterList as chemChapters,    getQuestions as getChem }    from '../data/chemistryBank';
 import { chapterList as mathsChapters,   getQuestions as getMaths }   from '../data/mathsBank';
 import { chapterList as bioChapters,     getQuestions as getBio }     from '../data/biologyBank';
+import { getChemistry12OnlineChapters, getChemistry12OnlineTests } from '../data/chemistry12OnlineTests';
 import { getChapters, getQuestionsByPath } from '../api/resourcesApi';
 
 const LETTERS = 'ABCDEFGHIJ'.split('');
@@ -57,15 +58,20 @@ const C = {
 };
 
 // On Class 12, Physics online tests come from the DB (the `online12` flag routes
-// the chapter list + questions through the API). Other subjects (and Class 11
-// Physics) stay on the offline banks.
+// the chapter list + questions through the API) and Chemistry ships locally with
+// its real test groupings (the `chem12` flag \u2192 chemistry12OnlineTests). Other
+// subjects (and Class 11) stay on the generic offline banks.
 const buildSubjects = (selectedClass, phys12Chapters) => {
-  const phys = selectedClass === 'Class 12'
+  const isC12 = selectedClass === 'Class 12';
+  const phys = isC12
     ? { chapters: phys12Chapters, getQuestions: null, online12: true }
     : { chapters: physicsChapters, getQuestions: getPhysics };
+  const chem = isC12
+    ? { chapters: getChemistry12OnlineChapters(), getQuestions: null, chem12: true }
+    : { chapters: chemChapters, getQuestions: getChem };
   return [
     { key: 'physics',   name: 'Physics',   emoji: '\u269B\uFE0F', tile: C.mintSoft,  chapters: phys.chapters, getQuestions: phys.getQuestions, online12: phys.online12 },
-    { key: 'chemistry', name: 'Chemistry', emoji: '\u{1F9EA}',    tile: C.peachSoft, chapters: chemChapters,  getQuestions: getChem },
+    { key: 'chemistry', name: 'Chemistry', emoji: '\u{1F9EA}',    tile: C.peachSoft, chapters: chem.chapters, getQuestions: chem.getQuestions, chem12: chem.chem12 },
     { key: 'maths',     name: 'Maths',     emoji: '\u{1F4D0}',    tile: C.sandSoft,  chapters: mathsChapters, getQuestions: getMaths },
     { key: 'biology',   name: 'Biology',   emoji: '\u{1F9EC}',    tile: C.lilacSoft, chapters: bioChapters,   getQuestions: getBio },
   ];
@@ -154,34 +160,42 @@ export default function OnlineTestsScreen({ onBack, onStartTest = () => {}, sele
         </SafeAreaView>
       );
     }
-    // split the chapter's questions into 5 roughly-equal tests
-    const all = subject.online12 ? apiQuestions.list : (subject.getQuestions(chapter.id) || []);
-    const per = Math.ceil(all.length / TESTS_PER_CHAPTER) || 0;
-    const tests = Array.from({ length: TESTS_PER_CHAPTER }, (_, t) => {
-      const slice = all.slice(t * per, (t + 1) * per);
-      return { no: t + 1, questions: slice };
-    });
     const shortName = chapter.name.length > 26 ? chapter.name.slice(0, 24) + '\u2026' : chapter.name;
+    // Class 12 Chemistry ships its real, named tests per chapter (free + paid);
+    // every other path splits the chapter's questions into 5 roughly-equal tests.
+    let tests;
+    if (subject.chem12) {
+      tests = getChemistry12OnlineTests(chapter.id).map((t) => ({
+        label: t.name, questions: t.questions, isPaid: t.isPaid,
+      }));
+    } else {
+      const all = subject.online12 ? apiQuestions.list : (subject.getQuestions(chapter.id) || []);
+      const per = Math.ceil(all.length / TESTS_PER_CHAPTER) || 0;
+      tests = Array.from({ length: TESTS_PER_CHAPTER }, (_, t) => ({
+        label: `${shortName} Test-${String(t + 1).padStart(2, '0')}`,
+        questions: all.slice(t * per, (t + 1) * per),
+      }));
+    }
     return (
       <SafeAreaView style={s.safe}>
         <StatusBar barStyle="dark-content" backgroundColor={C.headerMint} />
         <Header title={chapter.name} subtitle="Select an online test to explore" />
         <ScrollView contentContainerStyle={s.body} showsVerticalScrollIndicator={false}>
-          {tests.map((t) => (
+          {tests.map((t, ti) => (
             <Pressable
-              key={t.no}
+              key={ti}
               style={s.testRow}
               onPress={() => onStartTest({
                 subject: subject.name,
                 chapterId: chapter.id,
-                chapterName: `${chapter.name} Test-${String(t.no).padStart(2, '0')}`,
+                chapterName: t.label,
                 questions: t.questions,
               })}
             >
               <View style={s.testIcon}><Text style={s.testIconTxt}>{'\u{1F4DD}'}</Text></View>
               <View style={{ flex: 1 }}>
-                <Text style={s.testName}>{shortName} Test-{String(t.no).padStart(2, '0')}</Text>
-                <Text style={s.testSub}>{t.questions.length} questions</Text>
+                <Text style={s.testName}>{t.label}</Text>
+                <Text style={s.testSub}>{t.questions.length} questions{t.isPaid ? '  \u00B7  Premium' : ''}</Text>
               </View>
               <Text style={s.chevron}>{'\u203A'}</Text>
             </Pressable>
