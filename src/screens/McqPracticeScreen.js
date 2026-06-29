@@ -12,7 +12,6 @@ import { Ionicons } from '@expo/vector-icons';
 import MCQ_DATA, { getMcqSubtopics } from '../data/mcqPractice';
 import { getMcqSubtopics as apiMcqSubtopics } from '../api/mcqPracticeApi';
 import { getChapters } from '../api/resourcesApi';
-import { getChemistry12PracticeChapters, getChemistry12PracticeSubtopics } from '../data/chemistry12Practice';
 import { getMaths12PracticeChapters, getMaths12PracticeSubtopics } from '../data/maths12Practice';
 import { useAuth } from '../context/AuthContext';
 
@@ -57,7 +56,7 @@ function ChapterCard({ subject, chapter, classLevel = 11, local = false, localTo
   const [open, setOpen] = useState(false);
   const [subtopics, setSubtopics] = useState(null); // [{ id, name, questionCount }] | null
   const data = (MCQ_DATA[subject] && MCQ_DATA[subject][chapter]) || {};
-  // Local (Class 12 Physics) chapters have no stored attempt progress yet.
+  // Local (Class 12 Mathematics) chapters have no stored attempt progress yet.
   const p = local ? { answered: 0, total: localTotal, score: 0 } : (data.progress || { answered: 0, total: 50, score: 0 });
   const started = p.answered > 0;
 
@@ -65,12 +64,10 @@ function ChapterCard({ subject, chapter, classLevel = 11, local = false, localTo
     setOpen((v) => !v);
     if (subtopics == null) {
       if (local) {
-        // Local bank (Class 12 Chemistry & Mathematics).
-        setSubtopics(subject === 'Mathematics'
-          ? getMaths12PracticeSubtopics(chapter)
-          : getChemistry12PracticeSubtopics(chapter));
+        // Local bank (Class 12 Mathematics).
+        setSubtopics(getMaths12PracticeSubtopics(chapter));
       } else {
-        // DB-backed (incl. Class 12 Physics, imported at class_level=12).
+        // DB-backed (incl. Class 12 Physics & Chemistry, imported at class_level=12).
         apiMcqSubtopics(slugify(subject), slugify(chapter), classLevel)
           .then((list) => setSubtopics(Array.isArray(list) ? list : []))
           .catch(() => setSubtopics([]));
@@ -124,30 +121,28 @@ export default function McqPracticeScreen({ onBack = () => {}, onStartChapter = 
   const { selectedClass } = useAuth();
   const classLevel = classNum(selectedClass);
   const subjMeta = SUBJECTS.find((s) => s.name === subject) || SUBJECTS[0];
-  // Class 12 Physics practice is DB-backed (imported at class_level=12) → fetch
-  // its chapters from the API. Class 12 Chemistry still uses its local bank.
-  // Every other subject/class keeps the DB-backed MCQ_DATA static bank.
-  const isPhys12 = subject === 'Physics' && classLevel === 12;
-  const isChem12 = subject === 'Chemistry' && classLevel === 12;
+  // Class 12 Physics & Chemistry practice are DB-backed (imported at class_level=12)
+  // → fetch their chapters from the API and use API subtopics. Class 12 Mathematics
+  // still uses its local bundled bank. Every other subject/class keeps the
+  // DB-backed MCQ_DATA static bank.
+  const isDb12 = classLevel === 12 && (subject === 'Physics' || subject === 'Chemistry');
   const isMaths12 = subject === 'Mathematics' && classLevel === 12;
-  const localChapters = isChem12
-    ? getChemistry12PracticeChapters()
-    : isMaths12 ? getMaths12PracticeChapters() : null;
+  const localChapters = isMaths12 ? getMaths12PracticeChapters() : null;
   const [apiChapters, setApiChapters] = useState(null); // null = loading
   useEffect(() => {
-    if (!isPhys12) { setApiChapters(null); return undefined; }
+    if (!isDb12) { setApiChapters(null); return undefined; }
     let alive = true;
     setApiChapters(null);
-    getChapters('physics', undefined, 12)
+    getChapters(slugify(subject), undefined, 12)
       .then((chs) => { if (alive) setApiChapters((chs || []).map((c) => c.name)); })
       .catch(() => { if (alive) setApiChapters([]); });
     return () => { alive = false; };
-  }, [isPhys12]);
-  const chaptersLoading = isPhys12 && apiChapters == null;
-  const chapters = isPhys12
+  }, [isDb12, subject]);
+  const chaptersLoading = isDb12 && apiChapters == null;
+  const chapters = isDb12
     ? (apiChapters || [])
-    : localChapters
-      ? localChapters.map((c) => c.name)
+    : isMaths12
+      ? localChapters
       : Object.keys(MCQ_DATA[subject] || {});
 
   return (

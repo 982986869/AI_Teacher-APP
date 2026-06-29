@@ -18,7 +18,6 @@ import { chapterList as physicsChapters, getQuestions as getPhysics, htmlToText 
 import { chapterList as chemChapters,    getQuestions as getChem }    from '../data/chemistryBank';
 import { chapterList as mathsChapters,   getQuestions as getMaths }   from '../data/mathsBank';
 import { chapterList as bioChapters,     getQuestions as getBio }     from '../data/biologyBank';
-import { getChemistry12OnlineChapters, getChemistry12OnlineTests } from '../data/chemistry12OnlineTests';
 import { getMaths12OnlineChapters, getMaths12OnlineTests } from '../data/maths12OnlineTests';
 import { getChapters, getQuestionsByPath } from '../api/resourcesApi';
 
@@ -58,25 +57,25 @@ const C = {
   headerMint: '#CDEFE2',
 };
 
-// On Class 12, Physics online tests come from the DB (the `online12` flag routes
-// the chapter list + questions through the API) and Chemistry & Mathematics ship
-// locally with their real test groupings (the `chem12` / `maths12` flags \u2192
-// chemistry12OnlineTests / maths12OnlineTests). Other subjects (and Class 11)
-// stay on the generic offline banks.
-const buildSubjects = (selectedClass, phys12Chapters) => {
+// On Class 12, Physics & Chemistry online tests come from the DB (the `online12`
+// flag routes the chapter list + questions through the API, then splits them into
+// 5 generic tests). Mathematics ships locally with its real test groupings (the
+// `maths12` flag -> maths12OnlineTests). Other subjects (and Class 11) stay on the
+// generic offline banks.
+const buildSubjects = (selectedClass, c12) => {
   const isC12 = selectedClass === 'Class 12';
   const phys = isC12
-    ? { chapters: phys12Chapters, getQuestions: null, online12: true }
+    ? { chapters: c12.physics, getQuestions: null, online12: true }
     : { chapters: physicsChapters, getQuestions: getPhysics };
   const chem = isC12
-    ? { chapters: getChemistry12OnlineChapters(), getQuestions: null, chem12: true }
+    ? { chapters: c12.chemistry, getQuestions: null, online12: true }
     : { chapters: chemChapters, getQuestions: getChem };
   const maths = isC12
     ? { chapters: getMaths12OnlineChapters(), getQuestions: null, maths12: true }
     : { chapters: mathsChapters, getQuestions: getMaths };
   return [
     { key: 'physics',   name: 'Physics',   emoji: '\u269B\uFE0F', tile: C.mintSoft,  chapters: phys.chapters, getQuestions: phys.getQuestions, online12: phys.online12 },
-    { key: 'chemistry', name: 'Chemistry', emoji: '\u{1F9EA}',    tile: C.peachSoft, chapters: chem.chapters, getQuestions: chem.getQuestions, chem12: chem.chem12 },
+    { key: 'chemistry', name: 'Chemistry', emoji: '\u{1F9EA}',    tile: C.peachSoft, chapters: chem.chapters, getQuestions: chem.getQuestions, online12: chem.online12 },
     { key: 'maths',     name: 'Maths',     emoji: '\u{1F4D0}',    tile: C.sandSoft,  chapters: maths.chapters, getQuestions: maths.getQuestions, maths12: maths.maths12 },
     { key: 'biology',   name: 'Biology',   emoji: '\u{1F9EC}',    tile: C.lilacSoft, chapters: bioChapters,   getQuestions: getBio },
   ];
@@ -89,16 +88,18 @@ export default function OnlineTestsScreen({ onBack, onStartTest = () => {}, sele
   // Class 12 Physics online tests are DB-backed: chapter list + per-chapter
   // questions are fetched from the API and normalized for TestQuestionScreen.
   const isClass12 = selectedClass === 'Class 12';
-  const [phys12Chapters, setPhys12Chapters] = useState([]);
+  const [c12Chapters, setC12Chapters] = useState({ physics: [], chemistry: [] });
   const [apiQuestions, setApiQuestions] = useState({ loading: false, list: [] });
-  const SUBJECTS = buildSubjects(selectedClass, phys12Chapters);
+  const SUBJECTS = buildSubjects(selectedClass, c12Chapters);
 
   useEffect(() => {
-    if (!isClass12) { setPhys12Chapters([]); return undefined; }
+    if (!isClass12) { setC12Chapters({ physics: [], chemistry: [] }); return undefined; }
     let alive = true;
-    getChapters('physics', 'online_test', 12)
-      .then((chs) => { if (alive) setPhys12Chapters((chs || []).map((c) => ({ id: c.slug, name: c.name, slug: c.slug }))); })
-      .catch(() => { if (alive) setPhys12Chapters([]); });
+    const norm = (chs) => (chs || []).map((c) => ({ id: c.slug, name: c.name, slug: c.slug }));
+    Promise.all([
+      getChapters('physics', 'online_test', 12).catch(() => []),
+      getChapters('chemistry', 'online_test', 12).catch(() => []),
+    ]).then(([p, c]) => { if (alive) setC12Chapters({ physics: norm(p), chemistry: norm(c) }); });
     return () => { alive = false; };
   }, [isClass12]);
 
@@ -106,7 +107,7 @@ export default function OnlineTestsScreen({ onBack, onStartTest = () => {}, sele
     if (!subject?.online12 || !chapter) return undefined;
     let alive = true;
     setApiQuestions({ loading: true, list: [] });
-    getQuestionsByPath('physics', chapter.slug, 'online_test', 12)
+    getQuestionsByPath(subject.key, chapter.slug, 'online_test', 12)
       .then((qs) => { if (alive) setApiQuestions({ loading: false, list: (qs || []).map(normalizeApiQuestion) }); })
       .catch(() => { if (alive) setApiQuestions({ loading: false, list: [] }); });
     return () => { alive = false; };
@@ -166,14 +167,10 @@ export default function OnlineTestsScreen({ onBack, onStartTest = () => {}, sele
       );
     }
     const shortName = chapter.name.length > 26 ? chapter.name.slice(0, 24) + '\u2026' : chapter.name;
-    // Class 12 Chemistry ships its real, named tests per chapter (free + paid);
+    // Class 12 Mathematics ships its real, named tests per chapter (free + paid);
     // every other path splits the chapter's questions into 5 roughly-equal tests.
     let tests;
-    if (subject.chem12) {
-      tests = getChemistry12OnlineTests(chapter.id).map((t) => ({
-        label: t.name, questions: t.questions, isPaid: t.isPaid,
-      }));
-    } else if (subject.maths12) {
+    if (subject.maths12) {
       tests = getMaths12OnlineTests(chapter.id).map((t) => ({
         label: t.name, questions: t.questions, isPaid: t.isPaid,
       }));
@@ -204,7 +201,7 @@ export default function OnlineTestsScreen({ onBack, onStartTest = () => {}, sele
               <View style={s.testIcon}><Text style={s.testIconTxt}>{'\u{1F4DD}'}</Text></View>
               <View style={{ flex: 1 }}>
                 <Text style={s.testName}>{t.label}</Text>
-                <Text style={s.testSub}>{t.questions.length} questions{t.isPaid ? '  \u00B7  Premium' : ''}</Text>
+                <Text style={s.testSub}>{t.questions.length} questions</Text>
               </View>
               <Text style={s.chevron}>{'\u203A'}</Text>
             </Pressable>

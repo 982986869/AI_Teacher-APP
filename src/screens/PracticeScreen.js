@@ -6,13 +6,9 @@ import { WebView } from 'react-native-webview';
 import { getQuestionsByPath, getChapters } from '../api/resourcesApi';
 import { buildFragmentFromQuestions, buildPyqDocument } from '../utils/pyqDocument';
 import { getMcqChapterTest, getMcqSubtopicTest } from '../api/mcqPracticeApi';
-import { getChemistry12PracticeTest, isLocalChem12PracticeId } from '../data/chemistry12Practice';
 import { getMaths12PracticeTest, isLocalMaths12PracticeId } from '../data/maths12Practice';
-import { getChemistry12ImportantHtml, getChemistry12ImportantChapters } from '../data/chemistry12Important';
 import { getMaths12ImportantHtml, getMaths12ImportantChapters } from '../data/maths12Important';
-import { getChemistry12PyqHtml, getChemistry12PyqChapters } from '../data/chemistry12Pyq';
 import { getMaths12PyqHtml, getMaths12PyqChapters } from '../data/maths12Pyq';
-import { getChemistry12MockList, getChemistry12MockQuestions, isLocalChem12MockId } from '../data/chemistry12MockTests';
 import { getMaths12MockList, getMaths12MockQuestions, isLocalMaths12MockId } from '../data/maths12MockTests';
 import McqTestScreen from './McqTestScreen';
 import McqQuizScreen from './McqQuizScreen';
@@ -184,22 +180,28 @@ const PHYSICS12_IMP_CHAPTERS = [
   'Electronic Devices',
 ];
 
-// Class 12 Chemistry Important-Questions chapters (NCERT order). Unlike Physics
-// (DB/API-backed), these ship locally in src/data/chemistry12Important — the
-// chapter list comes straight from that bundled data so the two stay in sync.
-const CHEMISTRY12_IMP_CHAPTERS = getChemistry12ImportantChapters();
-
-// Class 12 Mathematics Important-Questions chapters (NCERT order). Like Chemistry
-// (and unlike Physics, which is DB/API-backed), these ship locally in
+// Class 12 Mathematics Important-Questions chapters (NCERT order). Unlike Physics
+// and Chemistry (both DB/API-backed), these ship locally in
 // src/data/maths12Important — the chapter list comes straight from that bundled
 // data so the two stay in sync.
 const MATHS12_IMP_CHAPTERS = getMaths12ImportantChapters();
 
-// Class 12 Chemistry Previous-Year-Question chapters (NCERT order). Like the
-// Important set (and unlike Physics, which is DB/API-backed), these ship locally
-// in src/data/chemistry12Pyq — the chapter list comes straight from that bundled
-// data so the two stay in sync.
-const CHEMISTRY12_PYQ_CHAPTERS = getChemistry12PyqChapters();
+// Class 12 Chemistry chapters (NCERT order). Now DB/API-backed like Physics: the
+// PYQ / Important question content is fetched from the API per chapter (data seeded
+// at class_level=12). This hardcoded menu list mirrors the seeded chapters; their
+// slugs match the DB so availability + questions resolve through the API.
+const CHEMISTRY12_CHAPTERS = [
+  'Solutions',
+  'Electrochemistry',
+  'Chemical Kinetics',
+  'The d- and f- Block Elements',
+  'Coordination Compounds',
+  'Haloalkanes and Haloarenes',
+  'Alcohols Phenols and Ethers',
+  'Aldehydes Ketones and Carboxylic Acids',
+  'Amines',
+  'Biomolecules',
+];
 
 // Class 12 Mathematics Previous-Year-Question chapters (NCERT order). Like
 // Chemistry (and unlike Physics, which is DB/API-backed), these ship locally in
@@ -216,7 +218,7 @@ const impSubjectsForClass = (cls) => {
   if (cls === 'Class 12') {
     return PYQ_SUBJECTS.map((sub) => {
       if (sub.name === 'Physics') return { ...sub, chapters: PHYSICS12_IMP_CHAPTERS };
-      if (sub.name === 'Chemistry') return { ...sub, chapters: CHEMISTRY12_IMP_CHAPTERS };
+      if (sub.name === 'Chemistry') return { ...sub, chapters: CHEMISTRY12_CHAPTERS };
       if (sub.name === 'Mathematics') return { ...sub, chapters: MATHS12_IMP_CHAPTERS };
       return { ...sub, chapters: [], comingSoon: true };
     });
@@ -233,7 +235,7 @@ const pyqSubjectsForClass = (cls) => {
   if (cls === 'Class 12') {
     return PYQ_SUBJECTS.map((sub) => {
       if (sub.name === 'Physics') return { ...sub, chapters: PHYSICS12_IMP_CHAPTERS };
-      if (sub.name === 'Chemistry') return { ...sub, chapters: CHEMISTRY12_PYQ_CHAPTERS };
+      if (sub.name === 'Chemistry') return { ...sub, chapters: CHEMISTRY12_CHAPTERS };
       if (sub.name === 'Mathematics') return { ...sub, chapters: MATHS12_PYQ_CHAPTERS };
       return { ...sub, chapters: [], comingSoon: true };
     });
@@ -414,12 +416,10 @@ const McqLoader = ({ subject, chapter, subtopicId, onExit }) => {
   useEffect(() => {
     let alive = true;
     setState({ loading: true, questions: null });
-    // Class 12 Chemistry & Mathematics practice questions are bundled locally
-    // (no API). (Class 12 Physics is DB-backed and falls through to getMcqSubtopicTest.)
-    if (isLocalChem12PracticeId(subtopicId) || isLocalMaths12PracticeId(subtopicId)) {
-      const data = isLocalMaths12PracticeId(subtopicId)
-        ? getMaths12PracticeTest(subtopicId)
-        : getChemistry12PracticeTest(subtopicId);
+    // Class 12 Mathematics practice questions are bundled locally (no API).
+    // (Class 12 Physics & Chemistry are DB-backed and fall through to getMcqSubtopicTest.)
+    if (isLocalMaths12PracticeId(subtopicId)) {
+      const data = getMaths12PracticeTest(subtopicId);
       setState({
         loading: false,
         questions: (data && data.questions) || [],
@@ -513,27 +513,26 @@ const PracticeScreen = () => {
     return () => navigation.setOptions({ tabBarStyle: undefined });
   }, [physMock, navigation]);
 
-  // Mock lists/attempts are keyed by subject only, but differ by class (Class 11
-  // is DB-backed; Class 12 Chemistry is local). Clear the cache and collapse any
-  // open section when the class changes so the right source loads on next open.
+  // Mock lists/attempts are keyed by subject only, but differ by class. Clear the
+  // cache and collapse any open section when the class changes so the right rows
+  // load on next open (Class 12 mocks are seeded at class_level=12).
   useEffect(() => {
     setMockData({});
     setMockOpenSub(null);
   }, [selectedClass]);
 
-  // True when this subject's mocks ship locally (Class 12 Chemistry & Mathematics)
-  // rather than from the DB — mirrors how the rest of that Class 12 content is
-  // bundled. Class 12 Physics (and everything else) stays DB-backed.
+  // True when this subject's mocks ship locally (Class 12 Mathematics) rather than
+  // from the DB — mirrors how the rest of that Class 12 maths content is bundled.
+  // Class 12 Physics & Chemistry (and everything else) stay DB-backed.
   const isLocalMock = (subject) =>
-    classNum(selectedClass) === 12 && (subject === 'Chemistry' || subject === 'Mathematics');
+    classNum(selectedClass) === 12 && subject === 'Mathematics';
 
   // The bundled mock-test list for a Class 12 local-mock subject.
-  const localMockList = (subject) =>
-    subject === 'Mathematics' ? getMaths12MockList() : getChemistry12MockList();
+  const localMockList = (subject) => getMaths12MockList();
 
   // Fetch the DB mock-test list + this user's attempt summary for a subject.
   const loadSubjectTests = async (subject) => {
-    // Class 12 Chemistry & Mathematics ship mocks locally — no API, no attempts.
+    // Class 12 Mathematics ships mocks locally — no API, no attempts.
     if (isLocalMock(subject)) {
       setMockData(prev => ({
         ...prev,
@@ -576,13 +575,11 @@ const PracticeScreen = () => {
     if (willOpen && DB_MOCK_SUBJECTS.includes(subjectName) && !mockData[subjectName]) loadSubjectTests(subjectName);
   };
 
-  // Launch a test. Class 12 Chemistry & Mathematics mocks are bundled locally
-  // (no API call); everything else fetches the questions from the DB.
+  // Launch a test. Class 12 Mathematics mocks are bundled locally (no API call);
+  // everything else fetches the questions from the DB.
   const startDbMock = (subject, test) => {
-    if (isLocalChem12MockId(test.id) || isLocalMaths12MockId(test.id)) {
-      const data = isLocalMaths12MockId(test.id)
-        ? getMaths12MockQuestions(test.id)
-        : getChemistry12MockQuestions(test.id);
+    if (isLocalMaths12MockId(test.id)) {
+      const data = getMaths12MockQuestions(test.id);
       setPhysMock({
         subject, label: test.name, testId: test.id, status: 'ready',
         questions: (data && data.questions) || [],
@@ -622,8 +619,7 @@ const PracticeScreen = () => {
   const closePhysMock = () => {
     const sub = physMock && physMock.subject;
     setPhysMock(null);
-    // Local Class 12 Chemistry/Mathematics mocks have no server-side attempt
-    // summary to refresh.
+    // Local Class 12 Mathematics mocks have no server-side attempt summary to refresh.
     if (sub && DB_MOCK_SUBJECTS.includes(sub) && !isLocalMock(sub)) refreshAttempts(sub);
   };
 
@@ -654,13 +650,11 @@ const PracticeScreen = () => {
         <PyqWebView
           subject={pyqSubject.name}
           chapter={pyqChapter}
-          // Class 12 Chemistry & Mathematics ship locally; everything else fetches
-          // from the API.
-          html={selectedClass === 'Class 12' && pyqSubject.name === 'Chemistry'
-            ? getChemistry12PyqHtml(pyqChapter)
-            : selectedClass === 'Class 12' && pyqSubject.name === 'Mathematics'
-              ? getMaths12PyqHtml(pyqChapter)
-              : undefined}
+          // Class 12 Mathematics ships locally; everything else (incl. Class 12
+          // Physics & Chemistry) fetches from the API.
+          html={selectedClass === 'Class 12' && pyqSubject.name === 'Mathematics'
+            ? getMaths12PyqHtml(pyqChapter)
+            : undefined}
         />
       </SafeAreaView>
     );
@@ -669,17 +663,15 @@ const PracticeScreen = () => {
   // ── PYQ LEVEL 2: Chapter list for the chosen subject ────────────────────────
   if (pyqOpen && pyqSubject) {
     // "Coming soon" subjects pass an empty set so none show as available; Class 12
-    // Chemistry is bundled locally so its availability is known up front; everything
-    // else (incl. Class 12 Physics) queries the API for availability.
-    const isChem12Pyq = selectedClass === 'Class 12' && pyqSubject.name === 'Chemistry';
+    // Mathematics is bundled locally so its availability is known up front;
+    // everything else (incl. Class 12 Physics & Chemistry) queries the API for
+    // per-chapter availability.
     const isMaths12Pyq = selectedClass === 'Class 12' && pyqSubject.name === 'Mathematics';
     const localChapters = pyqSubject.comingSoon
       ? new Set()
-      : isChem12Pyq
-        ? new Set(getChemistry12PyqChapters().map((c) => slugify(c)))
-        : isMaths12Pyq
-          ? new Set(getMaths12PyqChapters().map((c) => slugify(c)))
-          : null;
+      : isMaths12Pyq
+        ? new Set(getMaths12PyqChapters().map((c) => slugify(c)))
+        : null;
     return (
       <ChapterList
         subject={pyqSubject}
@@ -738,13 +730,11 @@ const PracticeScreen = () => {
           subject={impSubject.name}
           chapter={impChapter}
           sectionType="important_questions"
-          // Class 12 Chemistry & Mathematics ship locally; everything else fetches
-          // from the API.
-          html={selectedClass === 'Class 12' && impSubject.name === 'Chemistry'
-            ? getChemistry12ImportantHtml(impChapter)
-            : selectedClass === 'Class 12' && impSubject.name === 'Mathematics'
-              ? getMaths12ImportantHtml(impChapter)
-              : undefined}
+          // Class 12 Mathematics ships locally; everything else (incl. Class 12
+          // Physics & Chemistry) fetches from the API.
+          html={selectedClass === 'Class 12' && impSubject.name === 'Mathematics'
+            ? getMaths12ImportantHtml(impChapter)
+            : undefined}
         />
       </SafeAreaView>
     );
@@ -753,17 +743,15 @@ const PracticeScreen = () => {
   // ── IMPORTANT QUESTIONS LEVEL 2: Chapter list for the chosen subject ─────────
   if (impOpen && impSubject) {
     // "Coming soon" subjects pass an empty set so none show as available; Class 12
-    // Chemistry is bundled locally so its availability is known up front; everything
-    // else (incl. Class 12 Physics) queries the API for availability.
-    const isChem12Imp = selectedClass === 'Class 12' && impSubject.name === 'Chemistry';
+    // Mathematics is bundled locally so its availability is known up front;
+    // everything else (incl. Class 12 Physics & Chemistry) queries the API for
+    // availability.
     const isMaths12Imp = selectedClass === 'Class 12' && impSubject.name === 'Mathematics';
     const localChapters = impSubject.comingSoon
       ? new Set()
-      : isChem12Imp
-        ? new Set(getChemistry12ImportantChapters().map((c) => slugify(c)))
-        : isMaths12Imp
-          ? new Set(getMaths12ImportantChapters().map((c) => slugify(c)))
-          : null;
+      : isMaths12Imp
+        ? new Set(getMaths12ImportantChapters().map((c) => slugify(c)))
+        : null;
     return (
       <ChapterList
         subject={impSubject}
@@ -896,11 +884,8 @@ const PracticeScreen = () => {
         onExit={closePhysMock}
         onSubmit={(payload) => {
           // Persist the attempt to the DB (scored authoritatively server-side).
-          // Local Class 12 Chemistry/Mathematics mocks have no server record —
-          // skip the call.
-          if (physMock.testId != null
-              && !isLocalChem12MockId(physMock.testId)
-              && !isLocalMaths12MockId(physMock.testId)) {
+          // Local Class 12 Mathematics mocks have no server record — skip the call.
+          if (physMock.testId != null && !isLocalMaths12MockId(physMock.testId)) {
             submitMockTest(physMock.testId, payload).catch(() => {});
           }
         }}
